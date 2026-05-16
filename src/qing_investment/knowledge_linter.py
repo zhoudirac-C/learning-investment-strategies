@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 FORBIDDEN_MARKERS = ("T" + "BD", "TO" + "DO", "待" + "定", "以后" + "再", "place" + "holder")
-EXCLUDED_DIR_NAMES = {".git", ".venv", "__pycache__"}
+EXCLUDED_DIR_NAMES = {".git", ".venv", "venv", "__pycache__", "vendor", "third_party"}
 
 
 @dataclass(frozen=True)
