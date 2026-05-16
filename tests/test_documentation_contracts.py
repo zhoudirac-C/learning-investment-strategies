@@ -17,3 +17,38 @@ def test_no_placeholder_markers_in_docs():
         text = path.read_text(encoding="utf-8")
         for marker in forbidden:
             assert marker not in text, f"{path} contains {marker}"
+
+
+def test_core_methodology_and_framework_files_exist():
+    required = [
+        "methodology/index.md",
+        "methodology/market-cycle.md",
+        "methodology/sector-rotation.md",
+        "methodology/stock-selection.md",
+        "methodology/f10-fundamental-analysis.md",
+        "methodology/technical-analysis.md",
+        "methodology/position-risk.md",
+        "methodology/decision-flow.md",
+        "framework/README.md",
+        "framework/learning-update-protocol.md",
+        "framework/stock-analysis-playbook.md",
+        "framework/methodology-review-protocol.md",
+        "framework/contradiction-policy.md",
+        "framework/output-contracts.md",
+    ]
+    for file_name in required:
+        assert Path(file_name).exists(), file_name
+
+
+def test_f10_methodology_contains_required_sequence():
+    text = Path("methodology/f10-fundamental-analysis.md").read_text(encoding="utf-8")
+    required_phrases = [
+        "先识别公司类型",
+        "三大报表质量检查",
+        "ROE",
+        "杜邦",
+        "PE / PB / PEG / PS",
+        "字段缺失",
+    ]
+    for phrase in required_phrases:
+        assert phrase in text
