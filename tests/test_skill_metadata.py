@@ -37,3 +37,10 @@ def test_qing_stock_analysis_references_include_f10_and_glm():
     glm = Path("skills/qing-stock-analysis/references/glmv-stock-analyst-workflow.md").read_text(encoding="utf-8")
     assert "PE / PB / PEG / PS" in f10
     assert "glmv-stock-analyst" in glm
+
+
+def test_qing_methodology_review_skill_metadata():
+    meta = load_frontmatter(Path("skills/qing-methodology-review/SKILL.md"))
+    assert meta["name"] == "qing-methodology-review"
+    assert "Use when" in meta["description"]
+    assert "methodology" in meta["description"] or "方法论" in meta["description"]
