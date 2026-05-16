@@ -1,4 +1,4 @@
-# Claims Index
+# Cases Index
 
 > 自动生成索引。
 

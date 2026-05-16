@@ -1,3 +1,5 @@
 # Wiki Index
 
-> 由 `scripts/build_indexes.py` 生成或更新。
+> 自动生成索引。
+
+- [log.md](log.md)
