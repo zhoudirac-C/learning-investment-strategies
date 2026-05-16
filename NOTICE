@@ -1,0 +1,11 @@
+learning-investment-strategies
+
+This repository contains original project code and documentation under the MIT License.
+
+Third-party components:
+
+- zai-org/GLM-skills, skill: glmv-stock-analyst
+  Source: https://github.com/zai-org/GLM-skills/tree/main/skills/glmv-stock-analyst
+  License: Apache License 2.0
+  Usage: Vendored as the data collection and report-generation base for qing-stock-analysis.
+  Upstream commit is recorded in third_party/GLM-skills/VENDOR.md when vendored.
