@@ -52,3 +52,15 @@ def test_f10_methodology_contains_required_sequence():
     ]
     for phrase in required_phrases:
         assert phrase in text
+
+
+def test_eval_fixtures_exist():
+    required = [
+        "evals/README.md",
+        "evals/learning/raw/2026-05-16-早盘-样例.md",
+        "evals/learning/expected-claims.md",
+        "evals/methodology-review/review-window.md",
+        "evals/stock-analysis/sample-stock-context.md",
+    ]
+    for file_name in required:
+        assert Path(file_name).exists(), file_name
