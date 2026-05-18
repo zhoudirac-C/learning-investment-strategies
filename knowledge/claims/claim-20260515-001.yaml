@@ -1,0 +1,104 @@
+- id: claim-20260515-001
+  source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
+  source_date: "2026-05-15"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T13:25:00+08:00"
+  claim_type: market-cycle
+  subject: 市场周期判断
+  timeframe: short-term
+  statement: 指数高位震荡分歧加剧，科技主线从主升进入轮动调整期，长期趋势未变但短期节奏难度提高。
+  evidence_quote: "指数仍在上升趋势后的震荡消化阶段，长期向好的趋势没有被破坏...短期情绪进入调整周期，下周大概率不再是单一科技主线持续加速，而是转向高低切、分支轮动和消息催化驱动...节奏难度明显提高。"
+  interpretation: 市场处于上升趋势中的震荡消化阶段，资金从主线集中爆发转向分支快速轮动，操作难度加大。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/指数调整
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260515-002
+  source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
+  source_date: "2026-05-15"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T13:25:00+08:00"
+  claim_type: methodology
+  subject: 轮动判断
+  timeframe: permanent
+  statement: 劣性轮动的特征是每个方向只能涨一天或半天，资金看到消息就拉、拉完马上兑现，没有持续性，追随难度极高。
+  evidence_quote: "所谓劣性轮动，就是每个方向都只能涨一天或半天，资金看到消息就拉，拉完马上兑现，没有持续性。在这种环境下，追随轮动的难度会非常高，因为买点稍微慢一点就容易变成接盘。"
+  interpretation: 劣性轮动是震荡市中最危险的状态，需要通过核心方向能否修复来判断轮动质量。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 投资方法论/劣性轮动识别
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260515-003
+  source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
+  source_date: "2026-05-15"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T13:25:00+08:00"
+  claim_type: operation
+  subject: 操作策略
+  timeframe: short-term
+  statement: 从进攻思维切换到防守反击思维，少追高、多等分歧，重点做能够在调整中抗住并率先修复的方向。
+  evidence_quote: "从进攻思维切换到防守反击思维...少追高，多等分歧，重点做能够在调整中抗住并率先修复的方向。"
+  interpretation: 震荡调整阶段的核心策略是减少追高，等待分歧后的承接机会，聚焦抗跌方向。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 投资方法论/仓位管理
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260515-004
+  source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
+  source_date: "2026-05-15"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T13:25:00+08:00"
+  claim_type: sector-theme
+  subject: 存储产业链
+  timeframe: short-term
+  statement: 存储产业链是5月中旬科技内部最需要重点观察的方向，长鑫科技IPO+存储涨价+国产DRAM扩产+利基型存储供需改善构成最强催化组合。
+  evidence_quote: "存储方向是下周科技内部最需要重点观察的方向之一。兆易创新具备NOR Flash、SLC NAND、利基DRAM以及长鑫科技股权和业务绑定等多重逻辑。"
+  interpretation: 存储产业链在多重催化下成为科技震荡中的强分支，产业链包括设备、材料、封测和间接参股。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/长鑫存储产业链
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260515-005
+  source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
+  source_date: "2026-05-15"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T13:25:00+08:00"
+  claim_type: technical-signal
+  subject: 轮动质量判断
+  timeframe: short-term
+  statement: 碳化硅修复与否是判断市场轮动质量的核心指标。不能修复说明市场进入劣性轮动，应减少追逐热点。
+  evidence_quote: "碳化硅是观察市场轮动质量的重要指标。周四高潮、周五兑现后，周一如果不能修复，说明市场很可能进入劣性轮动。"
+  interpretation: 通过观察高弹性科技分支（如碳化硅）的修复情况，可以判断市场是良性轮动还是劣性轮动。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 投资方法论/劣性轮动识别
+    methodology_pages: []
+    cases: []
