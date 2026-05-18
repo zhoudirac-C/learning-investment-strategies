@@ -1,0 +1,181 @@
+- id: claim-20260406-001
+  source_path: sources/raw/财经/周复盘：26-04-06：现实的误判，全球资产重新配置新策略.md
+  source_date: "2026-04-06"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T14:00:00+08:00"
+  claim_type: macro
+  subject: 全球滞胀交易
+  timeframe: trend
+  statement: 全球定价逻辑从增长、降息、繁荣切换到通胀、战争、滞胀防御模式，四个叠加冲击（不确定性/高油价/美联储两难/市场误判）形成负向循环。
+  evidence_quote: "全球定价逻辑从增长、降息、繁荣切换到通胀、战争、滞胀防御模式...战争不确定性→油价涨→通胀升温→加息预期→美债收益率/美元走强→非美经济体输入性通胀→全球增长放缓→企业盈利下调→股市跌→避险情绪→美元和油价再走强→下一轮循环"
+  interpretation: 滞胀交易是当前全球宏观的核心框架，短期内难以逆转，需以防御姿态应对。
+  confidence: high
+  status: expired
+  supersedes: []
+  contradicts:
+    - claim-20260414-001
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260406-002
+  source_path: sources/raw/财经/周复盘：26-04-06：现实的误判，全球资产重新配置新策略.md
+  source_date: "2026-04-06"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T14:00:00+08:00"
+  claim_type: macro
+  subject: 油价周期
+  timeframe: trend
+  statement: 油价不会冲高回落，而是进入长期高油价周期。供给侧油价冲击的最终结局一定是衰退和降息（历史铁律：1990海湾战争、2008原油超级周期均如此）。
+  evidence_quote: "油价不会冲高回落，而是进入长期高油价周期...铁律：供给侧油价冲击的最终结局一定是衰退和降息。"
+  interpretation: 历史经验表明供给侧油价冲击最终都会以经济衰退和央行降息收场，但短期油价高位会持续较长时间。
+  confidence: medium
+  status: expired
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260406-003
+  source_path: sources/raw/财经/周复盘：26-04-06：现实的误判，全球资产重新配置新策略.md
+  source_date: "2026-04-06"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T14:00:00+08:00"
+  claim_type: stock-view
+  subject: A股全球定位
+  timeframe: trend
+  statement: A股具备三大护城河（低外资占比、完整供应链、以煤为主的能源结构），是全球动荡中的防御性资产。但趋势性上涨条件未成熟，短期仓位控制在三成以内。
+  evidence_quote: "三大护城河：低外资占比、完整供应链、以煤为主的能源结构→全球相对稀缺的防御性资产...短期仓位控制在三成以内，不急于满仓抄底"
+  interpretation: A股在全球动荡中具备相对优势，但短期需等待更好的布局窗口。
+  confidence: high
+  status: superseded
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260406-004
+  source_path: sources/raw/财经/周复盘：26-04-06：现实的误判，全球资产重新配置新策略.md
+  source_date: "2026-04-06"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T14:00:00+08:00"
+  claim_type: sector-theme
+  subject: A股主线
+  timeframe: trend
+  statement: A股安全主线：半导体国产替代、AI基础设施、上游能源资源、国防军工。成长主线：储能锂电池、新能源电力设备、电网自动化。
+  evidence_quote: "安全主线：半导体国产替代、AI基础设施、上游能源资源、国防军工。成长主线：储能锂电池、新能源电力设备、电网自动化。"
+  interpretation: 在滞胀防御背景下，安全+成长双主线配置，国产替代和能源安全是核心逻辑。
+  confidence: high
+  status: active
+  supersedes:
+    - claim-20260406-001
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260414-001
+  source_path: sources/raw/财经/周复盘：26-04-14：是反弹不是反转，市场为什么对中东冲突麻木了.md
+  source_date: "2026-04-14"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T14:00:00+08:00"
+  claim_type: macro
+  subject: 中东冲突定价
+  timeframe: short-term
+  statement: 市场对中东冲突已脱敏，但风险未消失。封锁霍尔木兹海峡这种级别的消息三月初会引发崩盘，现在市场已完全麻木，这是情绪脱敏不是局势变好。
+  evidence_quote: "市场对中东冲突已脱敏，但风险未消失...封锁霍尔木兹海峡这种级别的消息，三月初会引发崩盘，现在市场已完全麻木。这是情绪脱敏，不是局势变好。"
+  interpretation: 市场适应性导致对地缘风险的定价权重下降，但以色列仍是最大黑天鹅变量。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260414-002
+  source_path: sources/raw/财经/周复盘：26-04-14：是反弹不是反转，市场为什么对中东冲突麻木了.md
+  source_date: "2026-04-14"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T14:00:00+08:00"
+  claim_type: market-cycle
+  subject: 美股判断
+  timeframe: short-term
+  statement: 美股当前是空头回补行情，不是反转。标普从6300涨到6800核心推动力是情绪从恐慌切亢奋+空头大规模回补，科技股是估值修复而非开启长期反转。
+  evidence_quote: "美股：空头回补行情，不是反转...上涨核心推动力：情绪从恐慌切亢奋+空头大规模回补...科技股是估值修复而非开启长期反转"
+  interpretation: 美股反弹缺乏基本面支撑，属于技术性修复，不宜追高。
+  confidence: high
+  status: contradicted
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260414-003
+  source_path: sources/raw/财经/周复盘：26-04-14：是反弹不是反转，市场为什么对中东冲突麻木了.md
+  source_date: "2026-04-14"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T14:00:00+08:00"
+  claim_type: sector-theme
+  subject: A股主线
+  timeframe: short-term
+  statement: A股四条主线：国产AI硬件（+5.5%）、资源板块（+7.1%）、周期涨价（+6.5%）、红利板块（+1.3%）。
+  evidence_quote: "A股四条主线：国产AI硬件+5.5%、资源板块+7.1%、周期涨价+6.5%、红利板块+1.3%"
+  interpretation: 4月中旬A股主线明确，国产AI硬件和资源板块表现最强，红利板块走势最稳。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260414-004
+  source_path: sources/raw/财经/周复盘：26-04-14：是反弹不是反转，市场为什么对中东冲突麻木了.md
+  source_date: "2026-04-14"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T14:00:00+08:00"
+  claim_type: methodology
+  subject: 仓位管理
+  timeframe: permanent
+  statement: 牛市里散户建议仓位集中，50万配3个左右，10万配2个。不需要像机构那样过度分散。
+  evidence_quote: "散户优势：不需要像机构那样过度分散。牛市里建议仓位集中，50万配3个左右，10万配2个。"
+  interpretation: 散户在牛市中应发挥灵活优势，集中仓位在主线方向的少数核心标的。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260414-005
+  source_path: sources/raw/财经/周复盘：26-04-14：是反弹不是反转，市场为什么对中东冲突麻木了.md
+  source_date: "2026-04-14"
+  source_type: 周复盘
+  extracted_at: "2026-05-18T14:00:00+08:00"
+  claim_type: macro
+  subject: PPI判断
+  timeframe: trend
+  statement: PPI同比+0.5%结束连续41个月下跌，但有PPI-CPI剪刀差风险。PPI涨了CPI没涨→中下游企业利润被挤压，高价石油本身无法维持。
+  evidence_quote: "PPI同比+0.5%，结束连续41个月下跌...PPI涨了，CPI没涨→中下游企业利润被挤压...高价石油本身无法维持。"
+  interpretation: PPI转正上游受益，但CPI低迷导致剪刀差扩大，中下游承压，涨价机会是结构性的。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []

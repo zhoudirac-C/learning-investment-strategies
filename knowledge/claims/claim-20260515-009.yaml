@@ -1,0 +1,104 @@
+- id: claim-20260515-009
+  source_path: sources/raw/财经/早盘：26-05-15：今日不是看反弹，而是看承接是否成立.md
+  source_date: "2026-05-15"
+  source_type: 早盘
+  extracted_at: "2026-05-18T13:30:00+08:00"
+  claim_type: technical-signal
+  subject: 关键点位判断
+  timeframe: short-term
+  statement: 5月15日指数端最重要的位置是上证4150点附近。如果守住且量能回落到2.5-2.7万亿，说明放量抛压正在被消化；如果有效跌破且成交额继续放大，说明继续放量出逃。
+  evidence_quote: "今天指数端最重要的位置是上证4150点附近...如果早盘继续下探，但能在4150点附近获得承接，同时量能从昨日3.36万亿明显回落到2.5万亿至2.7万亿区间，说明昨日的放量抛压正在被消化。如果4150点被有效跌破，并且成交额继续放大...说明市场不是缩量消化，而是继续放量出逃。"
+  interpretation: 4150点是强分歧后的关键观察位，守住+缩量=承接成立，跌破+放量=调整延续。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/关键点位
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260515-010
+  source_path: sources/raw/财经/早盘：26-05-15：今日不是看反弹，而是看承接是否成立.md
+  source_date: "2026-05-15"
+  source_type: 早盘
+  extracted_at: "2026-05-18T13:30:00+08:00"
+  claim_type: technical-signal
+  subject: 量能判断
+  timeframe: short-term
+  statement: 强分歧次日最好的量能状态是缩到2.7-3万亿附近，代表恐慌换手降温。如果继续放大到3.5万亿以上且不能收复关键位，说明高位筹码还在继续交换，分歧没有结束。
+  evidence_quote: "今天最好的量能状态是缩到2.7万亿至3万亿附近。这代表昨日恐慌换手降温，抛压释放后，资金开始重新评估方向。如果成交额继续放大到3.5万亿以上，指数却不能有效收复4200点，这就不是好事。这说明高位筹码还在继续交换，市场分歧没有结束。"
+  interpretation: 强分歧后的缩量是企稳信号，继续放量是风险信号。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/量能判断
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260515-011
+  source_path: sources/raw/财经/早盘：26-05-15：今日不是看反弹，而是看承接是否成立.md
+  source_date: "2026-05-15"
+  source_type: 早盘
+  extracted_at: "2026-05-18T13:30:00+08:00"
+  claim_type: market-cycle
+  subject: 情绪修复标准
+  timeframe: short-term
+  statement: 强分歧次日情绪修复的明确标准是跌停家数明显下降（最好压到10家以内），且不能出现同一方向继续批量跌停。否则即使指数反抽也只是弱修复。
+  evidence_quote: "跌停家数需要明显下降，最好压到10家以内，且剔除ST。如果跌停仍然维持在较高水平，说明高位情绪还没有止血...不能出现同一方向继续批量跌停。如果科技、商业航天、电力设备、燃气轮机等方向继续出现成批跌停，即使指数盘中反抽，也只是弱修复，不是情绪企稳。"
+  interpretation: 跌停家数是判断情绪是否止血的最直观指标，批量跌停说明恐慌尚未结束。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/情绪判断
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260515-012
+  source_path: sources/raw/财经/早盘：26-05-15：今日不是看反弹，而是看承接是否成立.md
+  source_date: "2026-05-15"
+  source_type: 早盘
+  extracted_at: "2026-05-18T13:30:00+08:00"
+  claim_type: market-cycle
+  subject: 修复性质判断
+  timeframe: short-term
+  statement: 防御方向（白酒、猪肉、银行）上涨而科技主线不修复，不是真正修复，而是资金从高位撤出后找低位避险。真正的修复需要科技主线龙头主动领涨、板块内个股普涨、成交额回流。
+  evidence_quote: "昨日最隐晦的信号是：盘中指数一度出现修复迹象，但资金并没有明显回流前期高位科技主线，而是更多流向猪肉、白酒、食品饮料、银行等防御或低位消费方向。这说明当时市场不是风险偏好重新上攻，而是资金从高位科技撤出后，去找低位防御方向避险。"
+  interpretation: 防御切换≠风险偏好转暖，只有科技主线回流才是真正的进攻修复。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/修复性质判断
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260515-013
+  source_path: sources/raw/财经/早盘：26-05-15：今日不是看反弹，而是看承接是否成立.md
+  source_date: "2026-05-15"
+  source_type: 早盘
+  extracted_at: "2026-05-18T13:30:00+08:00"
+  claim_type: operation
+  subject: 交易纪律
+  timeframe: short-term
+  statement: 强分歧次日只做确认不做盲目追高。低吸主线需要同时满足：沪指守住关键位、量能回落、跌停家数下降、科技主线龙头领涨。否则应降低仓位等待。
+  evidence_quote: "今天的交易纪律要非常清楚...如果同时满足以下条件，昨日可以定义为主升途中的第一次强分歧，盘中回踩可以考虑围绕主线低吸：沪指守住4150点、成交额缩到2.7万亿至3万亿、跌停家数明显下降、科技主线出现龙头领涨和板块普涨。"
+  interpretation: 强分歧后的交易需要严格纪律，四个条件同时满足才能确认是分歧而非调整开始。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 投资方法论/交易纪律
+    methodology_pages: []
+    cases: []

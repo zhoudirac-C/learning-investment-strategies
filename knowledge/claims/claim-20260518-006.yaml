@@ -1,0 +1,124 @@
+- id: claim-20260518-006
+  source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
+  source_date: "2026-05-18"
+  source_type: 早盘
+  extracted_at: "2026-05-18T13:25:00+08:00"
+  claim_type: market-cycle
+  subject: 指数调整节奏
+  timeframe: short-term
+  statement: 周四尾盘日线顶部结构形成后连续调整两天，属于上升途中小级别调整，风险可控，顶部结构容易消失，不会演变为系统性下跌。
+  evidence_quote: "周四尾盘日线顶部结构形成后连续调整两天，属于上升途中的小级别调整，风险可控。各指数和周期协调性一般，顶部结构容易消失，不会演变为系统性下跌。"
+  interpretation: 当前调整是技术性调整而非趋势反转，参考1月行情节奏，调整后有望重新回升。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/指数调整
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260518-007
+  source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
+  source_date: "2026-05-18"
+  source_type: 早盘
+  extracted_at: "2026-05-18T13:25:00+08:00"
+  claim_type: technical-signal
+  subject: 量能判断
+  timeframe: short-term
+  statement: 连续两日大跌后，周一低开是博弈反弹的黄金窗口。全A换手率回落至1.8%以下（对应日成交额约2.5万亿元）才标志调整基本结束。
+  evidence_quote: "连续两日大跌后，周一低开是博弈反弹的黄金窗口。即使在熊市环境下，连续两次大跌后也大概率出现技术性反弹...全A换手率回落至1.8%以下（对应日成交额约2.5万亿元）才标志调整基本结束。"
+  interpretation: 低开是短期博弈反弹的机会，但真正的调整结束需要看到量能萎缩到2.5万亿左右。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/量能判断
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260518-008
+  source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
+  source_date: "2026-05-18"
+  source_type: 早盘
+  extracted_at: "2026-05-18T13:25:00+08:00"
+  claim_type: sector-theme
+  subject: 半导体设备
+  timeframe: short-term
+  statement: 半导体设备是5月18日最强主线，中微公司上调2026年新增订单目标至380亿元，国内设备市场规模预计2200亿元（同比+35%）。
+  evidence_quote: "中微公司上调2026年全年新增订单目标至380亿元（原320亿），同时拟分拆刻蚀设备核心零部件子公司筹备科创板IPO；国内晶圆厂持续扩产...2026年国内半导体设备市场规模预计2200亿元（同比+35%）"
+  interpretation: 半导体设备方向具备最强产业催化，中微订单上调+分拆IPO双重催化，行业景气度持续上行。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/半导体设备
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260518-009
+  source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
+  source_date: "2026-05-18"
+  source_type: 早盘
+  extracted_at: "2026-05-18T13:25:00+08:00"
+  claim_type: sector-theme
+  subject: Token算力
+  timeframe: short-term
+  statement: Token算力商业化加速，上海电信推出企业级Token算力订阅服务，宁夏电信发布174.38亿元Token工厂集采，算力租赁从资源租赁迈入按效果付费新阶段。
+  evidence_quote: "上海电信推出国内运营商首个企业级Token算力订阅服务...中国电信宁夏发布百亿级Token工厂集采项目（整体规模174.38亿元）...算力租赁从资源租赁迈入按效果付费的精细化新阶段"
+  interpretation: Token算力是算力租赁的进化形态，运营商凭借资源优势推动行业集中度提升，市场空间快速扩大。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/Token算力
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260518-010
+  source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
+  source_date: "2026-05-18"
+  source_type: 早盘
+  extracted_at: "2026-05-18T13:25:00+08:00"
+  claim_type: sector-theme
+  subject: 新型储能
+  timeframe: short-term
+  statement: 新型储能政策驱动明确，2026年全国独立储能装机目标上调至45GW，算力中心配套储能规模8GW（同比+300%）。
+  evidence_quote: "多地发布独立储能容量电价、配储强制政策，2026年全国独立储能装机目标上调至45GW...算力中心配套储能规模8GW（同比+300%）"
+  interpretation: 储能在政策+算力中心配套需求双轮驱动下进入高速增长期，独立储能IRR提升至14%以上。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/新型储能
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260518-011
+  source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
+  source_date: "2026-05-18"
+  source_type: 早盘
+  extracted_at: "2026-05-18T13:25:00+08:00"
+  claim_type: operation
+  subject: 主线优先级
+  timeframe: intraday
+  statement: 5月18日主线优先级：半导体设备 > Token算力 > 新型储能 > 存储产业链 > 电子级氢氟酸。
+  evidence_quote: "主线优先级：半导体设备 > Token算力 > 新型储能 > 存储产业链 > 电子级氢氟酸"
+  interpretation: 在调整后的反弹窗口中，半导体设备具备最强催化，Token算力和储能紧随其后，存储产业链因长鑫IPO催化也具备吸引力。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
