@@ -1,0 +1,261 @@
+claims:
+  - id: claim-20260519-001-a
+    source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
+    source_date: "2026-05-19"
+    source_type: morning-report
+    extracted_at: "2026-05-19"
+    claim_type: technical-signal
+    subject: 上证指数
+    timeframe: 短期（1-2日）
+    statement: 日线顶部结构压制持续三个交易日，昨日出现第二次止跌信号，今日上午走修复概率较大
+    evidence_quote: >
+      "指数连续三日受日线顶部结构压制，昨日出现第二次止跌信号，今日进入修复博弈窗口。
+      今日上午走修复的概率较大。"
+    interpretation: 技术结构压制接近尾声，第二次止跌信号提升修复概率
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260518-019-a]
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260519-001-b
+    source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
+    source_date: "2026-05-19"
+    source_type: morning-report
+    extracted_at: "2026-05-19"
+    claim_type: technical-signal
+    subject: 上证指数
+    timeframe: 短期（1-2日）
+    statement: 本轮调整低点大概率出现在明日（5月20日）
+    evidence_quote: >
+      "参考1月中旬的量能见底规律，当时从高点3.94万亿缩至2.6万亿用了5个交易日，
+      量能见底前一日往往是指数阶段低点，本轮调整低点大概率出现在明日。"
+    interpretation: 基于量能规律判断，5月20日可能是阶段低点
+    confidence: medium
+    status: superseded
+    supersedes: [claim-20260519-003-a]
+    contradicts: [claim-20260518-019-a]
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260519-001-c
+    source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
+    source_date: "2026-05-19"
+    source_type: morning-report
+    extracted_at: "2026-05-19"
+    claim_type: market-cycle
+    subject: 市场情绪
+    timeframe: 短期
+    statement: 空方力量已出现明显衰竭，若今日出现二次恐慌调整，大概率是本轮杀跌的最后动能
+    evidence_quote: >
+      "跌停家数仅小幅增加3家，空方力量已出现明显衰竭。
+      若今日出现二次恐慌调整，大概率是本轮杀跌的最后动能，将构成较好的提前博弈机会。"
+    interpretation: 恐慌盘已释放充分，二次恐慌是左侧博弈窗口
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260519-001-d
+    source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
+    source_date: "2026-05-19"
+    source_type: morning-report
+    extracted_at: "2026-05-19"
+    claim_type: sector-theme
+    subject: 长鑫存储产业链
+    timeframe: 短期
+    statement: 长鑫存储IPO审核状态更新为已问询，产业链迎来资本催化
+    evidence_quote: >
+      "存储板块迎来重大催化，长鑫存储IPO审核状态更新为已问询，
+      预计2026年上半年营收1100亿元至1200亿元，扣非净利润520亿元至580亿元。"
+    interpretation: IPO进程推进是产业链核心催化事件
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260518-019-e]
+      related_stocks: []
+      related_sectors: [半导体存储]
+
+  - id: claim-20260519-001-e
+    source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
+    source_date: "2026-05-19"
+    source_type: morning-report
+    extracted_at: "2026-05-19"
+    claim_type: stock-view
+    subject: 深科技
+    timeframe: 持续有效
+    statement: 深科技通过全资子公司沛顿科技承接长鑫科技60%至70%的委外封测订单，是最大封测供应商
+    evidence_quote: >
+      "深科技通过全资子公司沛顿科技承接长鑫科技60%至70%的委外封测订单，是其最大封测供应商。"
+    interpretation: 深科技在长鑫产业链中的封测地位最正宗
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260519-001-d]
+      related_stocks: [深科技]
+      related_sectors: [半导体封测]
+
+  - id: claim-20260519-001-f
+    source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
+    source_date: "2026-05-19"
+    source_type: morning-report
+    extracted_at: "2026-05-19"
+    claim_type: sector-theme
+    subject: 物理AI与机器人
+    timeframe: 中期（2026年全年）
+    statement: 物理AI被市场列为2026年核心投资方向，云深处科技IPO受理强化商业化预期
+    evidence_quote: >
+      "物理AI概念持续发酵，近期被市场列为2026年核心投资方向，是AI从虚拟世界走向现实世界的关键基础技术。
+      云深处科技IPO审核状态昨日变更为已受理，公司2025年实现扭亏为盈。"
+    interpretation: 物理AI/具身智能是AI产业化的下一个重大方向
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260518-018-e]
+      related_stocks: []
+      related_sectors: [物理AI, 机器人, 具身智能]
+
+  - id: claim-20260519-001-g
+    source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
+    source_date: "2026-05-19"
+    source_type: morning-report
+    extracted_at: "2026-05-19"
+    claim_type: operation
+    subject: 操作策略
+    timeframe: 当日
+    statement: 今日适合做先买后卖的日内交易，若出现二次恐慌调整是最后低吸机会
+    evidence_quote: >
+      "结合昨日空方衰竭程度，今日适合做先买后卖的日内交易。
+      若出现二次恐慌调整，大概率是本轮杀跌的最后动能，将构成较好的提前博弈机会。"
+    interpretation: 空方衰竭+日内交易+左侧博弈
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260519-001-h
+    source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
+    source_date: "2026-05-19"
+    source_type: morning-report
+    extracted_at: "2026-05-19"
+    claim_type: sector-theme
+    subject: AI大模型与应用
+    timeframe: 短期（谷歌大会期间）
+    statement: 谷歌开发者大会催化AI大模型与应用方向，重点关注AI搜索商业化与Android XR生态
+    evidence_quote: >
+      "2026年谷歌开发者大会于今日至20日在加州举行。市场预期本次大会将围绕Gemini模型升级、
+      AI搜索、AI广告、Android XR生态以及AI眼镜等方向展开。"
+    interpretation: 谷歌大会是AI应用方向的短期催化事件
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: [AI应用]
+
+  - id: claim-20260519-001-i
+    source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
+    source_date: "2026-05-19"
+    source_type: morning-report
+    extracted_at: "2026-05-19"
+    claim_type: sector-theme
+    subject: 电力
+    timeframe: 中期
+    statement: AI驱动的电力需求激增正推动行业并购与规模扩张
+    evidence_quote: >
+      "新纪元能源拟以660亿美元收购道明尼资源，或创史上最大规模电力并购纪录，
+      该交易凸显了AI驱动的电力需求激增正推动行业寻求更大规模和影响力。"
+    interpretation: AI算力需求是电力行业长期增长的核心驱动力
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: [电力]
+
+  - id: claim-20260519-001-j
+    source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
+    source_date: "2026-05-19"
+    source_type: morning-report
+    extracted_at: "2026-05-19"
+    claim_type: operation
+    subject: 市场情绪
+    timeframe: 短期
+    statement: 高标蒙娜丽莎低开封死跌停，显示资金缺乏打造绝对高度的意愿
+    evidence_quote: >
+      "高标蒙娜丽莎竞价直接低开封死跌停，显示资金缺乏打造绝对高度的意愿。"
+    interpretation: 短线情绪受压制，高位票风险大
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [蒙娜丽莎]
+      related_sectors: []
+
+  - id: claim-20260519-001-k
+    source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
+    source_date: "2026-05-19"
+    source_type: morning-report
+    extracted_at: "2026-05-19"
+    claim_type: stock-view
+    subject: 领益智造
+    timeframe: 短期
+    statement: 领益智造为算力客户提供1.3亿美元担保，机构推测客户为英伟达，对应未来一年AVL订单或增至26-43亿美元
+    evidence_quote: >
+      "领益智造公告就某算力客户订单履约，为子公司提供1.3亿美元担保额度上限，
+      机构推测该客户为英伟达，保证金比例3%至5%，对应市场认为英伟达未来一年AVL订单规模或增至26亿至43亿美元。"
+    interpretation: 若属实，领益智造深度绑定英伟达，订单规模可观
+    confidence: low
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [领益智造]
+      related_sectors: [算力硬件]
+
+  - id: claim-20260519-001-l
+    source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
+    source_date: "2026-05-19"
+    source_type: morning-report
+    extracted_at: "2026-05-19"
+    claim_type: sector-theme
+    subject: 算力调度
+    timeframe: 中期
+    statement: 算力网正在从单一资源向统一调度入口转变
+    evidence_quote: >
+      "算力网正在从单一资源向统一调度入口转变，统一调度、统一计费发展。"
+    interpretation: 算力调度是算力基础设施演进的下一个阶段
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: [算力调度]

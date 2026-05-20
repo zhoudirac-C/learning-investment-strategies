@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI基础设施与能源转型（主板）个股分析报告</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",
+             "Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+  line-height:1.85;color:#2c3e50;background:#f5f7fa;
+}
+.container{max-width:860px;margin:0 auto;padding:30px 24px;}
+
+/* 标题 */
+h1{
+  font-size:1.6em;color:#1a1a2e;border-bottom:3px solid #3498db;
+  padding-bottom:10px;margin-bottom:6px;font-weight:700;
+}
+h1 .meta{display:block;font-size:0.45em;color:#888;font-weight:400;margin-top:6px;}
+h2{
+  font-size:1.3em;color:#2980b9;margin-top:2em;margin-bottom:0.8em;
+  padding-left:12px;border-left:4px solid #3498db;font-weight:700;
+}
+h3{font-size:1.1em;color:#34495e;margin-top:1.5em;margin-bottom:0.6em;font-weight:600;}
+
+/* 段落 */
+p{margin-bottom:0.9em;font-size:0.95em;text-align:justify;}
+
+/* 表格 — 报告核心元素 */
+table{
+  width:100%;border-collapse:collapse;margin:1.2em 0;font-size:0.88em;
+  border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.08);
+}
+thead{background:linear-gradient(135deg,#2980b9,#3498db);}
+th{
+  color:#fff;font-weight:600;padding:10px 14px;text-align:left;
+  font-size:0.95em;letter-spacing:0.3px;
+}
+td{padding:9px 14px;border-bottom:1px solid #ecf0f1;color:#444;}
+tbody tr:nth-child(even){background:#fafbfc;}
+tbody tr:hover{background:#f0f7ff;}
+tbody tr:last-child td{border-bottom:none;}
+
+/* 列表 */
+ul,ol{padding-left:1.6em;margin:0.8em 0;font-size:0.9em;line-height:1.75;}
+li{margin-bottom:0.35em;}
+li::marker{color:#3498db;}
+
+/* 引用块（用于核心判断） */
+blockquote{
+  margin:1.2em 0;padding:14px 20px;background:linear-gradient(135deg,#fef9e7,#fdf2e9);
+  border-left:4px solid #f39c12;border-radius:0 8px 8px 0;
+  color:#7d6608;font-size:0.9em;line-height:1.7;
+}
+blockquote p:last-child{margin-bottom:0;}
+
+/* 代码/折线图 */
+code{
+  background:#f1f3f5;padding:2px 6px;border-radius:4px;
+  font-family:"SF Mono",Monaco,Consolas,monospace;font-size:0.85em;color:#e74c3c;
+}
+pre{
+  background:#1e272e;color:#dcdcdc;border-radius:8px;padding:18px 20px;
+  margin:1.2em 0;overflow-x:auto;font-size:0.82em;line-height:1.6;
+  box-shadow:inset 0 1px 4px rgba(0,0,0,0.15);
+}
+pre code{background:none;padding:0;color:inherit;font-size:1em;}
+
+/* 分隔线 */
+hr{
+  border:none;height:2px;background:linear-gradient(to right,
+    transparent,#bdc3c7,transparent);margin:2.5em 0;
+}
+
+/* 图片 */
+p > img{max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.1);margin:1em auto;display:block;}
+figure{margin:1.5em 0;text-align:center;}
+figure img{max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.1);}
+figcaption{color:#888;font-size:0.82em;margin-top:8px;font-style:italic;}
+
+/* 强调 */
+strong{color:#1a1a2e;font-weight:600;}
+em{color:#c0392b;}
+
+/* 链接 */
+a{color:#2980b9;text-decoration:none;border-bottom:1px dotted #2980b9;}
+a:hover{color:#1abc9c;border-bottom-style:solid;}
+
+/* 免责声明 */
+.disclaimer{
+  background:#ecf0f1;border-left:4px solid #95a5a6;
+  padding:14px 18px;margin-top:2.5em;border-radius:0 8px 8px 0;
+  color:#7f8c8d;font-size:0.82em;line-height:1.65;
+}
+
+/* 响应式 */
+@media(max-width:640px){
+  .container{padding:16px 12px;}
+  h1{font-size:1.35em;}
+  table{font-size:0.78em;}
+  th,td{padding:7px 8px;}
+}
+
+/* 打印优化 */
+@media print{
+  body{background:#fff;color:#000;}
+  .container{max-width:100%;padding:0;}
+  table{page-break-inside:avoid;}
+  h2{page-break-after:avoid;}
+}
+</style>
+
+</head>
+<body>
+<div class="container">
+<h1>AI基础设施与能源转型（主板）个股分析报告</h1>
+<blockquote>
+<p><strong>分析日期</strong>：2026-05-18<br />
+<strong>数据来源</strong>：东方财富实时行情API、财新周刊/新浪财经新闻<br />
+<strong>分析框架</strong>：博主投资框架 + F10基本面方法论<br />
+<strong>覆盖标的</strong>：26只主板股票（燃机整机4只 + 零部件3只 + 成撬4只 + 核电6只 + 绿色燃料4只 + 智能交通/电网7只）</p>
+</blockquote>
+<hr />
+<h2>一、市场与板块语境</h2>
+<h3>1.1 周期定位：能源转型处于<strong>主升中的分化阶段</strong></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>当前状态</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>指数环境</strong></td>
+<td>上证指数4126点，量能充沛</td>
+<td>高量能支撑</td>
+</tr>
+<tr>
+<td><strong>板块强度</strong></td>
+<td>燃气轮机板块分化，部分标的前期涨幅过大后回调</td>
+<td>主升未结束但内部分化</td>
+</tr>
+<tr>
+<td><strong>核心标的表现</strong></td>
+<td>派克新材涨停，科士达大涨9.38%，东方电气/上海电气温和上涨</td>
+<td>零部件和配套活跃，整机温和</td>
+</tr>
+<tr>
+<td><strong>回调标的</strong></td>
+<td>航发动力-1.4%，中国动力-2.89%，豪迈科技-2.75%，潍柴动力-4.23%</td>
+<td>前期涨幅大的标的获利了结</td>
+</tr>
+<tr>
+<td><strong>催化</strong></td>
+<td>杰瑞股份北美订单超11亿美元，应流股份订单排至2030年</td>
+<td>出海逻辑持续验证</td>
+</tr>
+</tbody>
+</table>
+<h3>1.2 催化事件</h3>
+<ul>
+<li><strong>杰瑞股份</strong>：截至2025年年报，共斩获超<strong>11亿美元</strong>北美燃气轮机发电机组订单，交付排期延伸至2028年</li>
+<li><strong>东方电气</strong>：2025年上半年新增生效订单654.85亿元（+16.78%），50MW重型燃机海外订单"零的突破"</li>
+<li><strong>应流股份</strong>：2026年Q1新签"两机"领域订单突破8亿元，为西门子能源F/H级燃机透平叶片中国唯一供应商</li>
+<li><strong>全球缺口</strong>：2028年全球燃机需求超120GW，同期供给仅90GW，<strong>30GW缺口</strong></li>
+<li><strong>海外巨头产能瓶颈</strong>：GE、西门子、三菱重工订单排至2029-2030年</li>
+</ul>
+<h3>1.3 博主周期判断</h3>
+<blockquote>
+<p><strong>结论</strong>：能源转型板块处于<strong>主升中的分化阶段</strong>。前期涨幅过大的标的（中国动力年内+99.95%、杰瑞股份+110%、东方电气+68%）正在获利回吐，而估值合理的标的（东方电气PE 21.8倍）仍在稳步上涨。<strong>策略：避高就低，从整机向零部件和成撬扩散</strong>。</p>
+<p><strong>关键观察</strong>：需区分"业绩兑现"和"情绪透支"——应流股份PE 103倍但订单排到2030年，东方电气PE 21.8倍但业绩最扎实。</p>
+</blockquote>
+<hr />
+<h2>二、燃机整机厂分析（4只）</h2>
+<h3>2.1 东方电气（600875）—— <strong>能源中军</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>39.97元（+2.30%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>21.80</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>2.95</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>核心中军</strong>（燃机+核电+水电三线龙头，国内核电/水电市占率40%，燃机市占率70%）</p>
+<p><strong>F10基本面分析</strong>：<br />
+- <strong>公司类型</strong>：高成长+稳定盈利混合（高端装备制造）<br />
+- <strong>业绩</strong>：2025H1营收376.24亿（+14.26%），归母净利润19.10亿（+12.91%）；新增订单654.85亿（+16.78%）<br />
+- <strong>估值</strong>：PE 21.8倍、PB 2.95倍，在高端装备制造中<strong>极具性价比</strong><br />
+- <strong>出海</strong>：50MW重型燃机首次出口哈萨克斯坦，花旗披露拟签20台海外订单，北美订单破2亿美元<br />
+- <strong>订单积压</strong>：在手订单1851亿元</p>
+<p><strong>技术面</strong>：当日涨2.30%，温和上涨，筹码稳定</p>
+<p><strong>介入策略</strong>：<br />
+- ✅ <strong>理想介入点</strong>：当前位置可配置，回踩37-38元加仓<br />
+- 🎯 <strong>目标位</strong>：短期看45元，中期看50元<br />
+- 📌 <strong>止损</strong>：跌破33元</p>
+<p><strong>证伪条件</strong>：燃机出口订单取消；核电审批放缓；大盘系统性风险</p>
+<hr />
+<h3>2.2 上海电气（601727）—— <strong>整机二龙头</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>9.02元（+2.27%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>92.11</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>2.55</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>中军标的</strong>（国内唯一F/H级全生命周期服务能力，但PE偏高）</p>
+<p><strong>F10基本面分析</strong>：<br />
+- 2025H1营收543亿（+9%），归母净利润8.21亿（+7.32%），扣非同比+122.9%<br />
+- 新增订单1098.1亿（+31.2%），能源装备订单600.4亿（+23.9%）<br />
+- PE 92倍偏高，但扣非净利润拐点已现</p>
+<p><strong>介入策略</strong>：<br />
+- ✅ <strong>理想介入点</strong>：回踩8.5元附近<br />
+- 🎯 <strong>目标位</strong>：短期看10.5元</p>
+<hr />
+<h3>2.3 航发动力（600893）—— <strong>航改燃机</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>46.46元（-1.40%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>12097.52</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>3.08</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>分化标的</strong>（航改燃机龙头，但PE极高，当日回调）</p>
+<p><strong>F10基本面分析</strong>：<br />
+- PE 12097倍极高，为一次性利润波动导致，不适用PE估值<br />
+- 舰用燃机市场垄断，工业燃机拓展空间大</p>
+<p><strong>介入策略</strong>：<br />
+- ⚠️ <strong>PE失真</strong>：需用PB或订单估值，当前位置观望</p>
+<hr />
+<h3>2.4 中国动力（600482）—— <strong>动力平台</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>35.98元（-2.89%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>34.70</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>2.00</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>分化标的</strong>（年内涨幅近100%，当日回调获利了结）</p>
+<p><strong>F10基本面分析</strong>：<br />
+- PE 34.7倍、PB 2倍，估值合理<br />
+- 年内累计上涨99.95%，5月13日曾涨停<br />
+- 当日回调-2.89%，说明资金在获利了结</p>
+<p><strong>介入策略</strong>：<br />
+- ⚠️ <strong>前期涨幅过大</strong>：等回调至30-32元区间再考虑</p>
+<hr />
+<h2>三、核心零部件分析（3只）</h2>
+<h3>3.1 应流股份（603308）—— <strong>叶片龙头</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>73.01元（-0.99%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>103.14</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>9.75</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>核心标的</strong>（热端叶片龙头，西门子能源F/H级叶片中国唯一供应商）</p>
+<p><strong>F10基本面分析</strong>：<br />
+- <strong>公司类型</strong>：高成长公司（高端装备零部件）<br />
+- <strong>竞争地位</strong>：为GEV、西门子能源、贝克休斯、安萨尔多等国际巨头供货<br />
+- <strong>订单</strong>：2026年Q1新签"两机"订单突破8亿元，订单排至2030年<br />
+- <strong>业绩</strong>：2025年前三季度净利润2.94亿（+29.59%）<br />
+- <strong>估值</strong>：PE 103倍看似高，但订单能见度延伸至2030年，PEG合理</p>
+<p><strong>介入策略</strong>：<br />
+- ✅ <strong>理想介入点</strong>：回踩68-70元分批介入<br />
+- 🎯 <strong>目标位</strong>：短期看85元，中期看100元</p>
+<hr />
+<h3>3.2 派克新材（605123）—— <strong>环锻件龙头</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>121.25元（<strong>+10.0%，涨停</strong>）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>42.87</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>3.18</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>弹性标的</strong>（金属锻件龙头，燃机+航空双轮驱动，PE合理）</p>
+<p><strong>F10基本面分析</strong>：<br />
+- PE 42.87倍，在高端制造中合理<br />
+- 燃机+航空双轮驱动，当日涨停说明资金认可</p>
+<p><strong>介入策略</strong>：<br />
+- ❌ <strong>涨停不追</strong>：等断板后回踩110元附近</p>
+<hr />
+<h3>3.3 万泽股份（000534）—— <strong>叶片配套</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>37.49元（+1.65%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>61.65</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>11.12</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>配套标的</strong>（涡轮叶片供应商，与西门子能源签三年框架协议）</p>
+<p><strong>介入策略</strong>：<br />
+- ✅ <strong>理想介入点</strong>：回踩34-35元</p>
+<hr />
+<h2>四、成撬/成套分析（4只）</h2>
+<h3>4.1 杰瑞股份（002353）—— <strong>出海最正宗</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>139.15元（+0.94%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>60.55</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>6.06</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>核心标的</strong>（北美AI数据中心燃气轮机机组直接供应商，11亿美元订单）</p>
+<p><strong>F10基本面分析</strong>：<br />
+- <strong>公司类型</strong>：高成长公司（能源装备成套）<br />
+- <strong>竞争地位</strong>：与西门子、贝克休斯、川崎重工合作，北美已建本地化生产基地<br />
+- <strong>订单</strong>：截至2025年年报，共斩获超<strong>11亿美元</strong>北美订单，交付排至2028年<br />
+- <strong>业绩</strong>：2025年11月至2026年4月五个月内拿下6笔订单，复购客户出现<br />
+- <strong>股价</strong>：年内涨幅110.29%，5月13日中国动力涨停时同步活跃</p>
+<p><strong>介入策略</strong>：<br />
+- ⚠️ <strong>前期涨幅过大</strong>：年内已涨110%，不宜追高<br />
+- ✅ <strong>理想介入点</strong>：等回调至120-125元区间<br />
+- 🎯 <strong>目标位</strong>：中期看160元</p>
+<hr />
+<h3>4.2 豪迈科技（002595）—— <strong>铸件配套</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>57.35元（-2.75%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>32.27</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>5.67</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>配套标的</strong>（全球轮胎模具龙头，拓展燃机零部件）</p>
+<p><strong>F10基本面分析</strong>：<br />
+- PE 32.27倍，估值合理<br />
+- 为GE、西门子等大型燃机提供缸体等铸件</p>
+<p><strong>介入策略</strong>：<br />
+- ✅ <strong>理想介入点</strong>：回踩52-54元</p>
+<hr />
+<h3>4.3 联德股份（605060）—— <strong>HRSG弹性</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>56.05元（-1.25%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>54.07</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>5.34</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>弹性标的</strong>（燃机HRSG核心供应商，海外订单预期强烈）</p>
+<p><strong>介入策略</strong>：<br />
+- ✅ <strong>理想介入点</strong>：回踩50-52元</p>
+<hr />
+<h3>4.4 泰豪科技（600590）—— <strong>分布式能源</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>14.35元（-2.11%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>62.02</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>3.77</td>
+</tr>
+</tbody>
+</table>
+<p><strong>介入策略</strong>：<br />
+- ⚠️ <strong>弹性有限</strong></p>
+<hr />
+<h2>五、核电产业链分析（6只）</h2>
+<h3>5.1 中国核电（601985）—— <strong>核电运营</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>9.05元（-0.98%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>22.54</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>1.55</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>稳健标的</strong>（核电运营龙头，低估值高股息）</p>
+<p><strong>F10基本面分析</strong>：<br />
+- PE 22.54倍、PB 1.55倍，估值极低<br />
+- 核电装机持续增长，2025-2030年是建设高峰期<br />
+- 与AI数据中心"不间断供电"需求天然匹配</p>
+<p><strong>介入策略</strong>：<br />
+- ✅ <strong>理想介入点</strong>：当前位置可配置，回踩8.5元加仓<br />
+- 🎯 <strong>目标位</strong>：短期看10.5元</p>
+<hr />
+<h3>5.2 江苏神通（002438）—— <strong>核电阀门</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>16.72元（-0.71%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>24.82</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>2.23</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>弹性标的</strong>（核电阀门龙头，PE低）</p>
+<p><strong>介入策略</strong>：<br />
+- ✅ <strong>理想介入点</strong>：当前位置可配置，回踩15.5元加仓</p>
+<hr />
+<h3>5.3 久立特材（002318）—— <strong>核电管材</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>27.63元（-2.44%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>17.10</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>2.96</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>价值标的</strong>（核电用不锈钢管龙头，PE最低）</p>
+<p><strong>介入策略</strong>：<br />
+- ✅ <strong>理想介入点</strong>：当前位置可配置，PE仅17倍极具性价比</p>
+<hr />
+<h3>5.4 中核科技（000777）—— <strong>核电阀门</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>19.44元（-0.92%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>-174.01（亏损）</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>3.03</td>
+</tr>
+</tbody>
+</table>
+<p><strong>介入策略</strong>：<br />
+- ⚠️ <strong>当前亏损</strong>：观望</p>
+<hr />
+<h3>5.5 东方电气 / 上海电气</h3>
+<p>见上文整机分析（核电+燃机双主线）</p>
+<hr />
+<h2>六、绿色燃料分析（4只）</h2>
+<h3>6.1 潍柴动力（000338）—— <strong>氢能+燃机双布局</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>33.30元（-4.23%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>23.51</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>3.04</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>价值标的</strong>（SOFC/燃气内燃机+燃料电池双布局，PE低）</p>
+<p><strong>F10基本面分析</strong>：<br />
+- PE 23.51倍，估值合理<br />
+- 当日跌4.23%，回调幅度较大，可能是布局机会</p>
+<p><strong>介入策略</strong>：<br />
+- ✅ <strong>理想介入点</strong>：当前位置可配置，回踩30元加仓</p>
+<hr />
+<h3>6.2 隆基绿能（601012）—— <strong>光伏龙头</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>数据获取失败</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>介入策略</strong>：<br />
+- ⚠️ <strong>数据缺失</strong>：需补充数据后再分析</p>
+<hr />
+<h3>6.3 美锦能源（000723）—— <strong>氢能全产业链</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>4.07元（+0.99%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>-13.32（亏损）</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>1.45</td>
+</tr>
+</tbody>
+</table>
+<p><strong>介入策略</strong>：<br />
+- ⚠️ <strong>当前亏损</strong>：观望</p>
+<hr />
+<h3>6.4 华电重工（601226）—— <strong>氢能装备</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>数据获取失败</td>
+</tr>
+</tbody>
+</table>
+<p><strong>介入策略</strong>：<br />
+- ⚠️ <strong>数据缺失</strong></p>
+<hr />
+<h2>七、智能交通/电网分析（7只）</h2>
+<h3>7.1 国电南瑞（600406）—— <strong>电网自动化龙头</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>26.49元（+0.04%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>73.74</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>3.98</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>： <strong>中军标的</strong>（电网自动化绝对龙头，但PE偏高）</p>
+<p><strong>介入策略</strong>：<br />
+- ⚠️ <strong>PE偏高</strong>：等回踩24元附近</p>
+<hr />
+<h3>7.2 特变电工（600089）—— <strong>特高压龙头</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>数据获取失败</td>
+</tr>
+</tbody>
+</table>
+<p><strong>介入策略</strong>：<br />
+- ⚠️ <strong>数据缺失</strong></p>
+<hr />
+<h3>7.3 中国西电（601179）—— <strong>输配电设备</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>17.12元（-0.12%）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>63.30</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>3.76</td>
+</tr>
+</tbody>
+</table>
+<p><strong>介入策略</strong>：<br />
+- ⚠️ <strong>PE偏高</strong>：等回踩15元附近</p>
+<hr />
+<h3>7.4 科士达（002518）—— <strong>储能/UPS</strong></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>现价</strong></td>
+<td>63.35元（<strong>+9.38%</strong>）</td>
+</tr>
+<tr>
+<td><strong>PE-TTM</strong></td>
+<td>66.51</td>
+</tr>
+<tr>
+<td><strong>PB</strong></td>
+<td>7.41</td>
+</tr>
+</tbody>
+</table>
+<p><strong>博主框架定位</strong>：<strong>弹性标的</strong>（储能+数据中心UPS，当日大涨9.38%）</p>
+<p><strong>介入策略</strong>：<br />
+- ⚠️ <strong>大涨不追</strong>：等回踩55-58元</p>
+<hr />
+<h3>7.5 许继电气（000400）/ 科华数据（002335）/ 潍柴重机（000880）</h3>
+<p>数据获取失败，需补充分析。</p>
+<hr />
+<h2>八、介入策略总表</h2>
+<h3>8.1 第一梯队（核心中军，优先配置）</h3>
+<table>
+<thead>
+<tr>
+<th>标的</th>
+<th>代码</th>
+<th>当前价</th>
+<th>理想介入点</th>
+<th>仓位</th>
+<th>目标位</th>
+<th>止损</th>
+<th>核心逻辑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>东方电气</strong></td>
+<td>600875</td>
+<td>39.97</td>
+<td>当前可配/37-38元加仓</td>
+<td>15%</td>
+<td>45→50</td>
+<td>跌破33</td>
+<td>燃机+核电+水电三线龙头，PE仅22倍</td>
+</tr>
+<tr>
+<td><strong>应流股份</strong></td>
+<td>603308</td>
+<td>73.01</td>
+<td>68-70元</td>
+<td>12%</td>
+<td>85→100</td>
+<td>跌破60</td>
+<td>叶片龙头，订单排至2030年</td>
+</tr>
+<tr>
+<td><strong>杰瑞股份</strong></td>
+<td>002353</td>
+<td>139.15</td>
+<td>回调120-125元</td>
+<td>10%</td>
+<td>160</td>
+<td>跌破110</td>
+<td>11亿美元北美订单</td>
+</tr>
+<tr>
+<td><strong>中国核电</strong></td>
+<td>601985</td>
+<td>9.05</td>
+<td>当前可配/8.5元加仓</td>
+<td>10%</td>
+<td>10.5</td>
+<td>跌破8</td>
+<td>核电运营龙头，PE仅22倍</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 第二梯队（高弹性/价值，回调参与）</h3>
+<table>
+<thead>
+<tr>
+<th>标的</th>
+<th>代码</th>
+<th>当前价</th>
+<th>理想介入点</th>
+<th>仓位</th>
+<th>目标位</th>
+<th>止损</th>
+<th>核心逻辑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>上海电气</strong></td>
+<td>601727</td>
+<td>9.02</td>
+<td>8.5元</td>
+<td>8%</td>
+<td>10.5</td>
+<td>跌破7.5</td>
+<td>扣非拐点，新增订单+31%</td>
+</tr>
+<tr>
+<td><strong>派克新材</strong></td>
+<td>605123</td>
+<td>121.25</td>
+<td>断板后110元</td>
+<td>6%</td>
+<td>140</td>
+<td>跌破95</td>
+<td>涨停，PE 43倍合理</td>
+</tr>
+<tr>
+<td><strong>久立特材</strong></td>
+<td>002318</td>
+<td>27.63</td>
+<td>当前可配</td>
+<td>6%</td>
+<td>32</td>
+<td>跌破24</td>
+<td>核电管材龙头，PE仅17倍</td>
+</tr>
+<tr>
+<td><strong>江苏神通</strong></td>
+<td>002438</td>
+<td>16.72</td>
+<td>当前可配/15.5元加仓</td>
+<td>6%</td>
+<td>20</td>
+<td>跌破14</td>
+<td>核电阀门龙头，PE 25倍</td>
+</tr>
+<tr>
+<td><strong>潍柴动力</strong></td>
+<td>000338</td>
+<td>33.30</td>
+<td>当前可配/30元加仓</td>
+<td>6%</td>
+<td>40</td>
+<td>跌破27</td>
+<td>SOFC+燃机+燃料电池，PE 24倍</td>
+</tr>
+</tbody>
+</table>
+<h3>8.3 第三梯队（观察/观望）</h3>
+<table>
+<thead>
+<tr>
+<th>标的</th>
+<th>代码</th>
+<th>当前价</th>
+<th>策略</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>中国动力</td>
+<td>600482</td>
+<td>35.98</td>
+<td>等回调30-32元</td>
+<td>年内已涨100%，获利回吐</td>
+</tr>
+<tr>
+<td>联德股份</td>
+<td>605060</td>
+<td>56.05</td>
+<td>等回踩50-52元</td>
+<td>弹性标的，等回调</td>
+</tr>
+<tr>
+<td>豪迈科技</td>
+<td>002595</td>
+<td>57.35</td>
+<td>等回踩52-54元</td>
+<td>配套标的，弹性一般</td>
+</tr>
+<tr>
+<td>国电南瑞</td>
+<td>600406</td>
+<td>26.49</td>
+<td>等回踩24元</td>
+<td>PE 74倍偏高</td>
+</tr>
+<tr>
+<td>科士达</td>
+<td>002518</td>
+<td>63.35</td>
+<td>等回踩55-58元</td>
+<td>当日大涨9.38%，不追</td>
+</tr>
+</tbody>
+</table>
+<h3>8.4 不建议介入/观望</h3>
+<table>
+<thead>
+<tr>
+<th>标的</th>
+<th>代码</th>
+<th>当前价</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>航发动力</td>
+<td>600893</td>
+<td>46.46</td>
+<td>PE 12097倍失真，观望</td>
+</tr>
+<tr>
+<td>中核科技</td>
+<td>000777</td>
+<td>19.44</td>
+<td>亏损</td>
+</tr>
+<tr>
+<td>美锦能源</td>
+<td>000723</td>
+<td>4.07</td>
+<td>亏损</td>
+</tr>
+<tr>
+<td>泰豪科技</td>
+<td>600590</td>
+<td>14.35</td>
+<td>弹性有限</td>
+</tr>
+<tr>
+<td>万泽股份</td>
+<td>000534</td>
+<td>37.49</td>
+<td>弹性一般</td>
+</tr>
+<tr>
+<td>中国西电</td>
+<td>601179</td>
+<td>17.12</td>
+<td>PE 63倍偏高</td>
+</tr>
+<tr>
+<td>隆基绿能</td>
+<td>601012</td>
+<td>—</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>特变电工</td>
+<td>600089</td>
+<td>—</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>许继电气</td>
+<td>000400</td>
+<td>—</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>科华数据</td>
+<td>002335</td>
+<td>—</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>潍柴重机</td>
+<td>000880</td>
+<td>—</td>
+<td>数据缺失</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>九、多空证据表</h2>
+<h3>多头证据</h3>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>证据</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>杰瑞股份北美订单超11亿美元，交付排至2028年</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>2</td>
+<td>应流股份为西门子能源F/H级叶片中国唯一供应商，订单排至2030年</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2028年全球燃机需求超120GW，供给仅90GW，30GW缺口</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GE、西门子、三菱重工订单排至2029-2030年，产能瓶颈明确</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>5</td>
+<td>东方电气在手订单1851亿，新增订单654.85亿（+16.78%）</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>6</td>
+<td>中国核电PE仅22.54倍，核电建设高峰期到来</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+</tbody>
+</table>
+<h3>空头证据</h3>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>证据</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>中国动力年内已涨99.95%，杰瑞股份涨110%，部分标的前期涨幅过大</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>2</td>
+<td>航发动力PE 12097倍失真，部分标的估值需重新锚定</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>3</td>
+<td>燃机出口可能面临美国政策限制</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5月18日部分标的（航发动力/中国动力/豪迈科技/潍柴动力）逆市下跌</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>5</td>
+<td>绿色燃料（氢能）商业化仍处于初期</td>
+<td>⭐⭐⭐</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>十、风险提示</h2>
+<ol>
+<li><strong>前期涨幅过大风险</strong>：中国动力年内涨100%、杰瑞股份涨110%，短期获利盘压力大</li>
+<li><strong>地缘政治风险</strong>：燃机出口美国可能面临政策限制</li>
+<li><strong>汇率风险</strong>：海外订单以美元计价，汇率波动影响利润</li>
+<li><strong>估值分化</strong>：东方电气PE 22倍极具性价比，但航发动力PE失真，需区分对待</li>
+<li><strong>竞争加剧</strong>：全球燃机龙头扩产可能挤压中国出海空间</li>
+<li><strong>数据缺失</strong>：部分标的（隆基绿能/特变电工等）行情数据获取失败，分析不完整</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告仅为产业链信息梳理与个股分析，不构成投资建议。股市有风险，投资需谨慎。</p>
+</blockquote>
+</div>
+</body>
+</html>

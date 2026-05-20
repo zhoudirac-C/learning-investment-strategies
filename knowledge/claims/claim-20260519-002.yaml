@@ -1,0 +1,43 @@
+claims:
+  - id: claim-20260519-002-a
+    source_path: sources/raw/财经/早盘补充：26-05-19：假摔与拐点的节奏判断.md
+    source_date: "2026-05-19"
+    source_type: morning-supplement
+    extracted_at: "2026-05-19"
+    claim_type: methodology
+    subject: 拐点确认方法论
+    timeframe: 持续有效
+    statement: 拐点的确认不看单日，看连续两日的走势组合（假摔+次日强修复，或直接修复）
+    evidence_quote: >
+      "如果这里判定为假摔，那么明天会强修复，如果今天强修复，那么就是确认拐点。
+      所以这个节点，是要去判断明天的方向的。"
+    interpretation: 拐点确认需要两日组合验证，假摔路径和直接修复路径都指向拐点确认，只是时间节奏不同
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260518-019-a]
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260519-002-b
+    source_path: sources/raw/财经/早盘补充：26-05-19：假摔与拐点的节奏判断.md
+    source_date: "2026-05-19"
+    source_type: morning-supplement
+    extracted_at: "2026-05-19"
+    claim_type: operation
+    subject: 操作策略
+    timeframe: 持续有效
+    statement: 拐点节点的操作核心是判断明天方向，不是押注今天涨跌
+    evidence_quote: >
+      "所以这个节点，是要去判断明天的方向的。"
+    interpretation: 在拐点窗口期，操作应着眼于次日预期而非当日涨跌
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260519-002-a]
+      related_stocks: []
+      related_sectors: []
