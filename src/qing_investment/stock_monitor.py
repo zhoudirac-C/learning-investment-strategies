@@ -61,6 +61,61 @@ class SectorStrength:
     total_amount: float
 
 
+@dataclass(frozen=True)
+class AgentAnalysisTrigger:
+    kind: str
+    id: str
+    title: str
+    reason: str
+    dedupe_key: str
+
+
+DEFAULT_AGENT_ANALYSIS_SCHEDULE = [
+    {
+        "id": "open_auction",
+        "time": "09:26",
+        "name": "集合竞价后",
+        "focus": "核心持仓和观察池是否超预期高开低开",
+    },
+    {
+        "id": "open_confirm",
+        "time": "09:45",
+        "name": "开盘15分钟确认",
+        "focus": "指数是否失守关键位，科技/CPO/PCB/半导体谁主动",
+    },
+    {
+        "id": "morning_confirm",
+        "time": "10:30",
+        "name": "30分钟确认",
+        "focus": "底部钝化和主线修复质量是否成立",
+    },
+    {
+        "id": "noon_review",
+        "time": "11:25",
+        "name": "上午收盘前",
+        "focus": "上午定性为强修复、弱修复、防御切换还是继续分歧",
+    },
+    {
+        "id": "afternoon_risk",
+        "time": "13:30",
+        "name": "午后风险窗口",
+        "focus": "冲高无扩散时是否需要兑现或减亏",
+    },
+    {
+        "id": "tail_condition",
+        "time": "14:55",
+        "name": "尾盘条件单",
+        "focus": "是否符合尾盘低吸、减仓或规避尾盘杀的条件",
+    },
+    {
+        "id": "close_review",
+        "time": "15:05",
+        "name": "收盘复盘",
+        "focus": "当天监控小结和次日观察重点",
+    },
+]
+
+
 def parse_price_zone(value: object) -> tuple[float, float] | None:
     if value is None:
         return None
@@ -536,6 +591,168 @@ def update_market_state(
     }
 
 
+def agent_analysis_schedule_rows(config: MonitorConfig) -> list[dict]:
+    rows = config.strategy_pack.get("agent_analysis_schedule")
+    if not rows:
+        rows = DEFAULT_AGENT_ANALYSIS_SCHEDULE
+    return [dict(row) for row in rows if isinstance(row, dict)]
+
+
+def _hhmm(value: datetime) -> str:
+    return value.astimezone(CN_TZ).strftime("%H:%M")
+
+
+def _agent_history(state: dict) -> dict:
+    history = state.get("agent_analysis_history", {})
+    return history if isinstance(history, dict) else {}
+
+
+def _agent_dedupe_key_for_schedule(row: dict, value: datetime) -> str:
+    date_text = value.astimezone(CN_TZ).strftime("%Y-%m-%d")
+    return f"scheduled:{row.get('id', row.get('time', 'unknown'))}:{date_text}"
+
+
+def find_agent_analysis_trigger(
+    config: MonitorConfig,
+    state: dict,
+    value: datetime,
+    alerts: list[RuleAlert],
+) -> AgentAnalysisTrigger | None:
+    history = _agent_history(state)
+    if alerts:
+        actions = "、".join(dict.fromkeys(alert.action for alert in alerts))
+        fingerprints = ",".join(alert_fingerprint(alert) for alert in alerts)
+        dedupe_key = (
+            f"event:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{fingerprints}"
+        )
+        if dedupe_key not in history:
+            return AgentAnalysisTrigger(
+                kind="event",
+                id="rule_alert",
+                title="规则触发",
+                reason=f"出现新的规则信号：{actions}",
+                dedupe_key=dedupe_key,
+            )
+
+    current_hhmm = _hhmm(value)
+    for row in agent_analysis_schedule_rows(config):
+        if str(row.get("time", "")) != current_hhmm:
+            continue
+        dedupe_key = _agent_dedupe_key_for_schedule(row, value)
+        if dedupe_key in history:
+            return None
+        return AgentAnalysisTrigger(
+            kind="scheduled",
+            id=str(row.get("id", current_hhmm)),
+            title=str(row.get("name", current_hhmm)),
+            reason=str(row.get("focus", "")),
+            dedupe_key=dedupe_key,
+        )
+    return None
+
+
+def record_agent_analysis_trigger(
+    state: dict,
+    trigger: AgentAnalysisTrigger,
+    value: datetime,
+) -> None:
+    history = state.setdefault("agent_analysis_history", {})
+    history[trigger.dedupe_key] = {
+        "time": value.astimezone(CN_TZ).isoformat(),
+        "kind": trigger.kind,
+        "id": trigger.id,
+        "title": trigger.title,
+        "reason": trigger.reason,
+    }
+
+
+def is_scheduled_agent_analysis_time(config: MonitorConfig, value: datetime) -> bool:
+    current_hhmm = _hhmm(value)
+    return any(str(row.get("time", "")) == current_hhmm for row in agent_analysis_schedule_rows(config))
+
+
+def format_agent_analysis_context(
+    config: MonitorConfig,
+    value: datetime,
+    trigger: AgentAnalysisTrigger,
+    alerts: list[RuleAlert],
+    quote_snapshot: dict,
+    state: dict,
+) -> str:
+    stage = config.strategy_pack.get("market_framework", {}).get(
+        "current_stage", "未配置"
+    )
+    core_question = config.strategy_pack.get("market_framework", {}).get(
+        "core_question", "未配置"
+    )
+    lines = [
+        "[Hermes股票监控大模型分析上下文]",
+        f"时间：{value.astimezone(CN_TZ).strftime('%Y-%m-%d %H:%M:%S %Z')}",
+        f"触发类型：{trigger.kind}",
+        f"触发点：{trigger.title}",
+        f"触发原因：{trigger.reason}",
+        f"当前框架：{stage}",
+        f"核心问题：{core_question}",
+        "",
+        "规则信号：",
+    ]
+    if alerts:
+        for alert in alerts:
+            lines.append(f"- {alert.summary}")
+    else:
+        lines.append("- 无新增规则信号；这是固定关键时间点分析。")
+
+    market_state = state.get("last_market_state", {})
+    if market_state:
+        lines.extend(
+            [
+                "",
+                "状态摘要：",
+                f"- alert_count={market_state.get('alert_count')}",
+                f"- risk_count={market_state.get('risk_count')}",
+                f"- sector_actions={market_state.get('sector_actions')}",
+            ]
+        )
+
+    sector_counts = state.get("sector_signal_counts", {})
+    if sector_counts:
+        lines.extend(["", "板块连续信号："])
+        for key, value_dict in sector_counts.items():
+            lines.append(
+                "- {key}: {action} 连续{count}次".format(
+                    key=key,
+                    action=value_dict.get("action", ""),
+                    count=value_dict.get("count", 0),
+                )
+            )
+
+    lines.extend(
+        [
+            "",
+            "实时行情快照：",
+            f"数据源：{quote_snapshot.get('source', 'unknown')}",
+            f"行情请求耗时：{quote_snapshot.get('elapsed_ms')} ms",
+            f"行情条数：{len(quote_snapshot.get('quotes', []) or [])}",
+        ]
+    )
+    if quote_snapshot.get("errors"):
+        lines.append(f"行情错误：{'; '.join(quote_snapshot.get('errors', []))}")
+    for quote in quote_snapshot.get("quotes", [])[:30]:
+        lines.append(format_quote_line(quote))
+
+    lines.extend(
+        [
+            "",
+            "请按本项目 AGENTS.md 与 qing-stock-analysis 框架输出微信提醒：",
+            "1. 用一句话给出当前盘面定性",
+            "2. 分持仓说明继续持有、做T观察、减仓观察或风控观察的触发条件",
+            "3. 标明证伪条件和下一次观察时间",
+            "4. 不要给无条件买卖指令；必须基于触发条件和盘面证据",
+        ]
+    )
+    return "\n".join(lines)
+
+
 def load_yaml(path: Path) -> dict:
     if not path.exists():
         return {}
@@ -976,8 +1193,16 @@ def run_tick(
     quote_fetcher=fetch_eastmoney_quotes,
     state_path: Path | None = None,
     dedupe_minutes: int = 30,
+    agent_context_on_trigger: bool = False,
 ) -> str:
-    if not ignore_trading_time and not is_a_share_trading_time(value):
+    scheduled_agent_time = agent_context_on_trigger and is_scheduled_agent_analysis_time(
+        config, value
+    )
+    if (
+        not ignore_trading_time
+        and not is_a_share_trading_time(value)
+        and not scheduled_agent_time
+    ):
         return ""
     if emit_status:
         return format_status_message(config, value)
@@ -1002,9 +1227,23 @@ def run_tick(
     )
     update_sector_signal_counts(state, alerts, value)
     update_market_state(state, alerts, quote_snapshot, value)
+    agent_trigger = None
+    if agent_context_on_trigger:
+        agent_trigger = find_agent_analysis_trigger(config, state, value, new_alerts)
     if new_alerts:
         record_emitted_alerts(state, new_alerts, value)
     save_monitor_state(resolved_state_path, state)
+    if agent_trigger:
+        record_agent_analysis_trigger(state, agent_trigger, value)
+        save_monitor_state(resolved_state_path, state)
+        return format_agent_analysis_context(
+            config,
+            value,
+            agent_trigger,
+            new_alerts,
+            quote_snapshot,
+            state,
+        )
     if new_alerts:
         return format_alerts_message(new_alerts, value, quote_snapshot)
     return ""
@@ -1060,6 +1299,14 @@ def build_parser() -> argparse.ArgumentParser:
         default=30,
         help="Suppress the same alert for this many minutes. Use 0 to disable.",
     )
+    parser.add_argument(
+        "--agent-context-on-trigger",
+        action="store_true",
+        help=(
+            "Emit Hermes model analysis context at configured key times or when "
+            "new rule alerts trigger."
+        ),
+    )
     return parser
 
 
@@ -1088,6 +1335,7 @@ def main(argv: list[str] | None = None) -> int:
         ignore_trading_time=args.ignore_trading_time,
         state_path=Path(args.state_file) if args.state_file else None,
         dedupe_minutes=args.dedupe_minutes,
+        agent_context_on_trigger=args.agent_context_on_trigger,
     )
     if message:
         print(message)

@@ -35,6 +35,7 @@ uv run python scripts/stock_monitor.py --analysis-context --ignore-trading-time
 uv run python scripts/stock_monitor.py --live-analysis-context --ignore-trading-time
 uv run python scripts/stock_monitor.py
 uv run python scripts/stock_monitor.py --dedupe-minutes 30
+uv run python scripts/stock_monitor.py --agent-context-on-trigger
 ```
 
 Hermes cron should call the symlinked script under `~/.hermes/scripts`:
@@ -62,6 +63,48 @@ The state file stores the last valid quote snapshot, alert history, sector
 signal counts, the latest market-state summary, and the last fetch error if a
 data source temporarily fails. Failed fetches do not overwrite the last valid
 quote snapshot.
+
+## Phase 4 Agent Analysis
+
+`--agent-context-on-trigger` prints a compact model-analysis context only when
+one of two conditions is met:
+
+- the current time matches `agent_analysis_schedule` in `strategy_pack.yaml`
+- a new rule alert appears after de-duplication
+
+The configured key times are:
+
+- `09:26` 集合竞价后
+- `09:45` 开盘15分钟确认
+- `10:30` 30分钟确认
+- `11:25` 上午收盘前
+- `13:30` 午后风险窗口
+- `14:55` 尾盘条件单
+- `15:05` 收盘复盘
+
+Hermes agent cron should call `qing_stock_monitor_agent.py` at these exact
+times. Keep the existing no-agent monitor if you still want plain mechanical
+alerts every 10 minutes.
+
+Example fixed-time Hermes jobs:
+
+```bash
+hermes cron create "26 9 * * 1-5" \
+  --name "A股大模型分析-集合竞价后" \
+  --workdir /Users/cong.zhou/Documents/quantitative/learning-investment-strategies \
+  --script qing_stock_monitor_agent.py \
+  --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat \
+  "根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令。"
+
+hermes cron create "45 9 * * 1-5" \
+  --name "A股大模型分析-开盘确认" \
+  --workdir /Users/cong.zhou/Documents/quantitative/learning-investment-strategies \
+  --script qing_stock_monitor_agent.py \
+  --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat \
+  "根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令。"
+```
+
+Use the same pattern for `10:30`, `11:25`, `13:30`, `14:55`, and `15:05`.
 
 Temporary rule-engine test with real quotes:
 

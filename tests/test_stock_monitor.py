@@ -7,8 +7,10 @@ from zoneinfo import ZoneInfo
 import yaml
 
 from qing_investment.stock_monitor import (
+    AgentAnalysisTrigger,
     RuleAlert,
     alert_fingerprint,
+    agent_analysis_schedule_rows,
     chunk_quote_targets,
     collect_quote_targets,
     compute_sector_strength,
@@ -17,7 +19,9 @@ from qing_investment.stock_monitor import (
     evaluate_sector_rotation_alerts,
     filter_new_alerts,
     fetch_eastmoney_quotes,
+    find_agent_analysis_trigger,
     format_analysis_context,
+    format_agent_analysis_context,
     format_alerts_message,
     format_quote_line,
     format_status_message,
@@ -28,6 +32,7 @@ from qing_investment.stock_monitor import (
     parse_price_zone,
     position_rows,
     record_emitted_alerts,
+    record_agent_analysis_trigger,
     run_tick,
     save_monitor_state,
     stock_code_to_secid,
@@ -158,6 +163,26 @@ def make_rule_config_dir(tmp_path: Path) -> Path:
                     "min_spread_pct": 1.0,
                     "min_red_ratio_spread": 0.25,
                 }
+            ],
+            "agent_analysis_schedule": [
+                {
+                    "id": "open_auction",
+                    "time": "09:26",
+                    "name": "集合竞价后",
+                    "focus": "核心持仓和观察池是否超预期高开低开",
+                },
+                {
+                    "id": "morning_confirm",
+                    "time": "10:30",
+                    "name": "30分钟确认",
+                    "focus": "底部钝化和主线修复质量是否成立",
+                },
+                {
+                    "id": "close_review",
+                    "time": "15:05",
+                    "name": "收盘复盘",
+                    "focus": "当天监控小结和次日观察重点",
+                },
             ],
         },
     )
@@ -738,3 +763,140 @@ def test_update_market_state_summarizes_latest_tick():
     assert state["last_market_state"]["risk_count"] == 1
     assert state["last_market_state"]["sector_actions"] == ["进攻回流观察"]
     assert state["last_market_state"]["quote_count"] == 1
+
+
+def test_agent_analysis_schedule_rows_uses_configured_key_times(tmp_path):
+    config = load_monitor_config(make_rule_config_dir(tmp_path))
+
+    rows = agent_analysis_schedule_rows(config)
+
+    assert [row["id"] for row in rows] == [
+        "open_auction",
+        "morning_confirm",
+        "close_review",
+    ]
+    assert rows[0]["time"] == "09:26"
+
+
+def test_scheduled_agent_analysis_triggers_once_per_day(tmp_path):
+    config = load_monitor_config(make_rule_config_dir(tmp_path))
+    state = {}
+    current = datetime(2026, 5, 22, 9, 26, tzinfo=CN_TZ)
+
+    trigger = find_agent_analysis_trigger(config, state, current, [])
+    assert trigger is not None
+    assert trigger.kind == "scheduled"
+    assert trigger.id == "open_auction"
+
+    record_agent_analysis_trigger(state, trigger, current)
+
+    assert find_agent_analysis_trigger(config, state, current, []) is None
+
+
+def test_event_agent_analysis_triggers_for_new_alerts(tmp_path):
+    config = load_monitor_config(make_rule_config_dir(tmp_path))
+    alert = RuleAlert(
+        action="风控观察",
+        stock_code="000021.SZ",
+        stock_name="深科技",
+        price=35.8,
+        trigger="触及或跌破风险线35.9",
+        severity="risk",
+        summary="风控观察：深科技触及风险线",
+    )
+
+    trigger = find_agent_analysis_trigger(
+        config, {}, datetime(2026, 5, 22, 10, 0, tzinfo=CN_TZ), [alert]
+    )
+
+    assert trigger is not None
+    assert trigger.kind == "event"
+    assert trigger.id == "rule_alert"
+    assert "风控观察" in trigger.reason
+
+
+def test_agent_analysis_context_contains_trigger_alerts_and_quotes(tmp_path):
+    config = load_monitor_config(make_rule_config_dir(tmp_path))
+    trigger = AgentAnalysisTrigger(
+        kind="scheduled",
+        id="morning_confirm",
+        title="30分钟确认",
+        reason="底部钝化和主线修复质量是否成立",
+        dedupe_key="scheduled:morning_confirm:2026-05-22",
+    )
+    alert = RuleAlert(
+        action="减仓观察",
+        stock_code="000021.SZ",
+        stock_name="深科技",
+        price=37.1,
+        trigger="进入预设减仓区36.9-37.5",
+        severity="observe",
+        summary="减仓观察：深科技进入减仓区",
+    )
+
+    message = format_agent_analysis_context(
+        config,
+        datetime(2026, 5, 22, 10, 30, tzinfo=CN_TZ),
+        trigger,
+        [alert],
+        quote_snapshot({"label": "深科技(000021.SZ)", "code": "000021", "latest": 37.1}),
+        {"last_market_state": {"alert_count": 1}},
+    )
+
+    assert "[Hermes股票监控大模型分析上下文]" in message
+    assert "30分钟确认" in message
+    assert "减仓观察：深科技进入减仓区" in message
+    assert "深科技(000021.SZ)" in message
+    assert "不要给无条件买卖指令" in message
+
+
+def test_tick_emits_agent_context_at_key_time_and_dedupes(tmp_path):
+    config = load_monitor_config(make_rule_config_dir(tmp_path))
+    state_path = tmp_path / "state.json"
+    current = datetime(2026, 5, 22, 9, 26, tzinfo=CN_TZ)
+
+    first = run_tick(
+        config,
+        current,
+        emit_status=False,
+        ignore_trading_time=False,
+        quote_fetcher=lambda _targets: quote_snapshot(
+            {"label": "上证指数", "code": "000001", "latest": 4112.9}
+        ),
+        state_path=state_path,
+        agent_context_on_trigger=True,
+    )
+    second = run_tick(
+        config,
+        current,
+        emit_status=False,
+        ignore_trading_time=False,
+        quote_fetcher=lambda _targets: quote_snapshot(
+            {"label": "上证指数", "code": "000001", "latest": 4112.9}
+        ),
+        state_path=state_path,
+        agent_context_on_trigger=True,
+    )
+
+    assert "[Hermes股票监控大模型分析上下文]" in first
+    assert "集合竞价后" in first
+    assert second == ""
+
+
+def test_tick_emits_agent_context_after_close_scheduled_time(tmp_path):
+    config = load_monitor_config(make_rule_config_dir(tmp_path))
+
+    message = run_tick(
+        config,
+        datetime(2026, 5, 22, 15, 5, tzinfo=CN_TZ),
+        emit_status=False,
+        ignore_trading_time=False,
+        quote_fetcher=lambda _targets: quote_snapshot(
+            {"label": "上证指数", "code": "000001", "latest": 4112.9}
+        ),
+        state_path=tmp_path / "state.json",
+        agent_context_on_trigger=True,
+    )
+
+    assert "[Hermes股票监控大模型分析上下文]" in message
+    assert "收盘复盘" in message

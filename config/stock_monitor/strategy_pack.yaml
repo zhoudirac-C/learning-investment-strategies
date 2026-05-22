@@ -49,6 +49,42 @@ intraday_schedule:
       - "午后冲高无扩散，优先兑现或减亏"
       - "尾盘回落跌破关键位，降低次日预期"
 
+agent_analysis_schedule:
+  - id: "open_auction"
+    time: "09:26"
+    name: "集合竞价后"
+    focus: "核心持仓和观察池是否超预期高开低开，今天偏进攻还是防守。"
+
+  - id: "open_confirm"
+    time: "09:45"
+    name: "开盘15分钟确认"
+    focus: "指数是否失守关键位，科技/CPO/PCB/半导体谁主动，持仓是否异常。"
+
+  - id: "morning_confirm"
+    time: "10:30"
+    name: "30分钟确认"
+    focus: "是否有底部钝化，修复质量是否成立，能不能做T或减仓。"
+
+  - id: "noon_review"
+    time: "11:25"
+    name: "上午收盘前"
+    focus: "上午定性为强修复、弱修复、防御切换还是继续分歧。"
+
+  - id: "afternoon_risk"
+    time: "13:30"
+    name: "午后风险窗口"
+    focus: "按午后只卖不买纪律，重点观察冲高回落和板块扩散衰竭。"
+
+  - id: "tail_condition"
+    time: "14:55"
+    name: "尾盘条件单"
+    focus: "判断是否符合尾盘低吸、减仓、T出或规避尾盘杀的条件。"
+
+  - id: "close_review"
+    time: "15:05"
+    name: "收盘复盘"
+    focus: "生成当天监控小结，提炼次日最重要的观察点和条件单。"
+
 position_rules:
   - id: "hard_logic_t_rule"
     name: "硬逻辑票做T确认"
