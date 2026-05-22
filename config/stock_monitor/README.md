@@ -36,6 +36,7 @@ uv run python scripts/stock_monitor.py --live-analysis-context --ignore-trading-
 uv run python scripts/stock_monitor.py
 uv run python scripts/stock_monitor.py --dedupe-minutes 30
 uv run python scripts/stock_monitor.py --agent-context-on-trigger
+uv run python scripts/stock_monitor.py --daily-review-context
 ```
 
 Hermes cron should call the symlinked script under `~/.hermes/scripts`:
@@ -105,6 +106,29 @@ hermes cron create "45 9 * * 1-5" \
 ```
 
 Use the same pattern for `10:30`, `11:25`, `13:30`, `14:55`, and `15:05`.
+
+## Phase 5 Daily Review
+
+`--daily-review-context` prints an end-of-day monitoring review context from
+`state.json`. It summarizes:
+
+- emitted alerts
+- de-duplicated suppressed alerts
+- fixed-time model analysis runs
+- latest market state
+- sector signal counts
+- data-source errors
+
+Hermes should run it after the close with the agent enabled:
+
+```bash
+hermes cron create "20 15 * * 1-5" \
+  --name "A股监控收盘复盘" \
+  --workdir /Users/cong.zhou/Documents/quantitative/learning-investment-strategies \
+  --script qing_stock_monitor_daily_review.py \
+  --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat \
+  "根据脚本输出的收盘复盘上下文，评估今天提醒质量、误报/漏报、去重是否合理，并给出需要调整的YAML配置建议。不要给无条件买卖指令。"
+```
 
 Temporary rule-engine test with real quotes:
 

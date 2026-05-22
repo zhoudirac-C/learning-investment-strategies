@@ -546,6 +546,41 @@ def record_emitted_alerts(
         history[alert_fingerprint(alert)] = current
 
 
+def alert_to_log_entry(
+    alert: RuleAlert,
+    value: datetime,
+    *,
+    status: str,
+) -> dict:
+    local = value.astimezone(CN_TZ)
+    return {
+        "date": local.strftime("%Y-%m-%d"),
+        "time": local.isoformat(),
+        "status": status,
+        "fingerprint": alert_fingerprint(alert),
+        "action": alert.action,
+        "stock_code": alert.stock_code,
+        "stock_name": alert.stock_name,
+        "price": alert.price,
+        "severity": alert.severity,
+        "trigger": alert.trigger,
+        "summary": alert.summary,
+    }
+
+
+def record_alert_decision_log(
+    state: dict,
+    alerts: list[RuleAlert],
+    emitted_alerts: list[RuleAlert],
+    value: datetime,
+) -> None:
+    emitted_keys = {alert_fingerprint(alert) for alert in emitted_alerts}
+    log = state.setdefault("alert_decision_log", [])
+    for alert in alerts:
+        status = "emitted" if alert_fingerprint(alert) in emitted_keys else "suppressed"
+        log.append(alert_to_log_entry(alert, value, status=status))
+
+
 def update_sector_signal_counts(
     state: dict,
     alerts: list[RuleAlert],
@@ -748,6 +783,131 @@ def format_agent_analysis_context(
             "2. 分持仓说明继续持有、做T观察、减仓观察或风控观察的触发条件",
             "3. 标明证伪条件和下一次观察时间",
             "4. 不要给无条件买卖指令；必须基于触发条件和盘面证据",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def _state_date(value: datetime) -> str:
+    return value.astimezone(CN_TZ).strftime("%Y-%m-%d")
+
+
+def summarize_daily_review(state: dict, date_text: str) -> dict:
+    decision_log = state.get("alert_decision_log", [])
+    if not isinstance(decision_log, list):
+        decision_log = []
+    today_entries = [
+        entry
+        for entry in decision_log
+        if isinstance(entry, dict) and entry.get("date") == date_text
+    ]
+
+    agent_history = state.get("agent_analysis_history", {})
+    if not isinstance(agent_history, dict):
+        agent_history = {}
+    agent_runs = [
+        value
+        for value in agent_history.values()
+        if isinstance(value, dict) and str(value.get("time", "")).startswith(date_text)
+    ]
+
+    return {
+        "date": date_text,
+        "emitted_alerts": [
+            entry for entry in today_entries if entry.get("status") == "emitted"
+        ],
+        "suppressed_alerts": [
+            entry for entry in today_entries if entry.get("status") == "suppressed"
+        ],
+        "agent_runs": agent_runs,
+        "last_market_state": state.get("last_market_state", {}),
+        "sector_signal_counts": state.get("sector_signal_counts", {}),
+        "last_fetch_error": state.get("last_fetch_error", {}),
+    }
+
+
+def _append_review_entries(lines: list[str], entries: list[dict], limit: int = 12) -> None:
+    if not entries:
+        lines.append("- 无")
+        return
+    for entry in entries[:limit]:
+        lines.append(
+            "- {time} {action} {stock}: {summary}".format(
+                time=str(entry.get("time", ""))[11:19],
+                action=entry.get("action", ""),
+                stock=entry.get("stock_name") or entry.get("stock_code", ""),
+                summary=entry.get("summary", ""),
+            )
+        )
+    if len(entries) > limit:
+        lines.append(f"- 另有 {len(entries) - limit} 条未展开")
+
+
+def format_daily_review_context(
+    config: MonitorConfig,
+    value: datetime,
+    state: dict,
+) -> str:
+    date_text = _state_date(value)
+    summary = summarize_daily_review(state, date_text)
+    stage = config.strategy_pack.get("market_framework", {}).get(
+        "current_stage", "未配置"
+    )
+    core_question = config.strategy_pack.get("market_framework", {}).get(
+        "core_question", "未配置"
+    )
+
+    lines = [
+        "[Hermes股票监控收盘复盘上下文]",
+        f"日期：{date_text}",
+        f"生成时间：{value.astimezone(CN_TZ).strftime('%Y-%m-%d %H:%M:%S %Z')}",
+        f"当前框架：{stage}",
+        f"核心问题：{core_question}",
+        "",
+        "统计：",
+        f"- 已发送提醒：{len(summary['emitted_alerts'])}",
+        f"- 被去重压制：{len(summary['suppressed_alerts'])}",
+        f"- 大模型关键点分析次数：{len(summary['agent_runs'])}",
+        "",
+        "已发送提醒：",
+    ]
+    _append_review_entries(lines, summary["emitted_alerts"])
+
+    lines.extend(["", "被去重压制："])
+    _append_review_entries(lines, summary["suppressed_alerts"])
+
+    lines.extend(
+        [
+            "",
+            "最后市场状态：",
+            json.dumps(summary["last_market_state"], ensure_ascii=False, sort_keys=True),
+            "",
+            "板块连续信号：",
+            json.dumps(
+                summary["sector_signal_counts"], ensure_ascii=False, sort_keys=True
+            ),
+        ]
+    )
+    if summary["last_fetch_error"]:
+        lines.extend(
+            [
+                "",
+                "最后行情错误：",
+                json.dumps(
+                    summary["last_fetch_error"], ensure_ascii=False, sort_keys=True
+                ),
+            ]
+        )
+
+    lines.extend(
+        [
+            "",
+            "请按本项目 AGENTS.md 与 qing-stock-analysis 框架输出收盘监控复盘：",
+            "1. 判断今天提醒质量：哪些是有效提醒，哪些可能是误报",
+            "2. 检查可能漏报的条件：指数、板块、持仓、观察池是否有该提醒而未提醒",
+            "3. 总结被去重压制的信号是否合理",
+            "4. 给出需要调整的 YAML 配置建议，明确文件和字段，例如 strategy_pack.yaml 的阈值或 watchlist.yaml 的观察池",
+            "5. 给出下一交易日最重要的 3 条观察条件",
         ]
     )
     return "\n".join(lines)
@@ -1227,6 +1387,7 @@ def run_tick(
     )
     update_sector_signal_counts(state, alerts, value)
     update_market_state(state, alerts, quote_snapshot, value)
+    record_alert_decision_log(state, alerts, new_alerts, value)
     agent_trigger = None
     if agent_context_on_trigger:
         agent_trigger = find_agent_analysis_trigger(config, state, value, new_alerts)
@@ -1307,6 +1468,11 @@ def build_parser() -> argparse.ArgumentParser:
             "new rule alerts trigger."
         ),
     )
+    parser.add_argument(
+        "--daily-review-context",
+        action="store_true",
+        help="Print an end-of-day monitoring review context from the state file.",
+    )
     return parser
 
 
@@ -1326,6 +1492,10 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     if args.live_analysis_context:
         print(format_live_analysis_context(config, current))
+        return 0
+    if args.daily_review_context:
+        state_path = Path(args.state_file) if args.state_file else config.config_dir / "state.json"
+        print(format_daily_review_context(config, current, load_monitor_state(state_path)))
         return 0
 
     message = run_tick(

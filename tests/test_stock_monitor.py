@@ -11,6 +11,7 @@ from qing_investment.stock_monitor import (
     RuleAlert,
     alert_fingerprint,
     agent_analysis_schedule_rows,
+    alert_to_log_entry,
     chunk_quote_targets,
     collect_quote_targets,
     compute_sector_strength,
@@ -23,6 +24,7 @@ from qing_investment.stock_monitor import (
     format_analysis_context,
     format_agent_analysis_context,
     format_alerts_message,
+    format_daily_review_context,
     format_quote_line,
     format_status_message,
     is_a_share_trading_time,
@@ -33,8 +35,10 @@ from qing_investment.stock_monitor import (
     position_rows,
     record_emitted_alerts,
     record_agent_analysis_trigger,
+    record_alert_decision_log,
     run_tick,
     save_monitor_state,
+    summarize_daily_review,
     stock_code_to_secid,
     update_sector_signal_counts,
     update_market_state,
@@ -900,3 +904,154 @@ def test_tick_emits_agent_context_after_close_scheduled_time(tmp_path):
 
     assert "[Hermes股票监控大模型分析上下文]" in message
     assert "收盘复盘" in message
+
+
+def test_alert_to_log_entry_captures_review_fields():
+    alert = RuleAlert(
+        action="减仓观察",
+        stock_code="000021.SZ",
+        stock_name="深科技",
+        price=37.1,
+        trigger="进入预设减仓区36.9-37.5",
+        severity="observe",
+        summary="减仓观察：深科技进入减仓区",
+    )
+
+    entry = alert_to_log_entry(
+        alert, datetime(2026, 5, 22, 10, 30, tzinfo=CN_TZ), status="emitted"
+    )
+
+    assert entry["date"] == "2026-05-22"
+    assert entry["status"] == "emitted"
+    assert entry["fingerprint"] == alert_fingerprint(alert)
+    assert entry["stock_name"] == "深科技"
+
+
+def test_record_alert_decision_log_marks_suppressed_alerts():
+    emitted = RuleAlert(
+        action="风控观察",
+        stock_code="000021.SZ",
+        stock_name="深科技",
+        price=35.8,
+        trigger="触及或跌破风险线35.9",
+        severity="risk",
+        summary="风控观察：深科技触及风险线",
+    )
+    suppressed = RuleAlert(
+        action="减仓观察",
+        stock_code="002185.SZ",
+        stock_name="华天科技",
+        price=15.5,
+        trigger="进入预设减仓区15.4-15.8",
+        severity="observe",
+        summary="减仓观察：华天科技进入减仓区",
+    )
+    state = {}
+
+    record_alert_decision_log(
+        state,
+        [emitted, suppressed],
+        [emitted],
+        datetime(2026, 5, 22, 10, 30, tzinfo=CN_TZ),
+    )
+
+    assert [entry["status"] for entry in state["alert_decision_log"]] == [
+        "emitted",
+        "suppressed",
+    ]
+
+
+def test_summarize_daily_review_groups_today_entries():
+    state = {
+        "alert_decision_log": [
+            {"date": "2026-05-22", "status": "emitted", "summary": "A"},
+            {"date": "2026-05-22", "status": "suppressed", "summary": "B"},
+            {"date": "2026-05-21", "status": "emitted", "summary": "old"},
+        ],
+        "agent_analysis_history": {
+            "scheduled:open:2026-05-22": {"time": "2026-05-22T09:26:00+08:00"},
+            "scheduled:open:2026-05-21": {"time": "2026-05-21T09:26:00+08:00"},
+        },
+        "last_market_state": {"alert_count": 1},
+        "last_fetch_error": {"errors": ["temporary failure"]},
+    }
+
+    summary = summarize_daily_review(state, "2026-05-22")
+
+    assert len(summary["emitted_alerts"]) == 1
+    assert len(summary["suppressed_alerts"]) == 1
+    assert len(summary["agent_runs"]) == 1
+    assert summary["last_market_state"]["alert_count"] == 1
+    assert summary["last_fetch_error"]["errors"] == ["temporary failure"]
+
+
+def test_daily_review_context_asks_for_false_positive_and_yaml_updates(tmp_path):
+    config = load_monitor_config(make_rule_config_dir(tmp_path))
+    state = {
+        "alert_decision_log": [
+            {
+                "date": "2026-05-22",
+                "time": "2026-05-22T10:30:00+08:00",
+                "status": "emitted",
+                "action": "减仓观察",
+                "stock_name": "深科技",
+                "summary": "减仓观察：深科技进入减仓区",
+            },
+            {
+                "date": "2026-05-22",
+                "time": "2026-05-22T10:40:00+08:00",
+                "status": "suppressed",
+                "action": "减仓观察",
+                "stock_name": "深科技",
+                "summary": "减仓观察：深科技进入减仓区",
+            },
+        ],
+        "last_market_state": {"alert_count": 1, "sector_actions": ["进攻回流观察"]},
+    }
+
+    message = format_daily_review_context(
+        config, datetime(2026, 5, 22, 15, 20, tzinfo=CN_TZ), state
+    )
+
+    assert "[Hermes股票监控收盘复盘上下文]" in message
+    assert "已发送提醒" in message
+    assert "被去重压制" in message
+    assert "误报" in message
+    assert "漏报" in message
+    assert "YAML" in message
+
+
+def test_daily_review_cli_prints_context(tmp_path, capsys):
+    config_dir = make_rule_config_dir(tmp_path)
+    state_path = config_dir / "state.json"
+    save_monitor_state(
+        state_path,
+        {
+            "alert_decision_log": [
+                {
+                    "date": datetime.now(tz=CN_TZ).strftime("%Y-%m-%d"),
+                    "time": datetime.now(tz=CN_TZ).isoformat(),
+                    "status": "emitted",
+                    "action": "减仓观察",
+                    "stock_name": "深科技",
+                    "summary": "减仓观察：深科技进入减仓区",
+                }
+            ]
+        },
+    )
+
+    from qing_investment.stock_monitor import main
+
+    exit_code = main(
+        [
+            "--config-dir",
+            str(config_dir),
+            "--state-file",
+            str(state_path),
+            "--daily-review-context",
+        ]
+    )
+    output = capsys.readouterr().out
+
+    assert exit_code == 0
+    assert "[Hermes股票监控收盘复盘上下文]" in output

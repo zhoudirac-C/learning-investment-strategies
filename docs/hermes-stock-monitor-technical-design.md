@@ -388,8 +388,7 @@ Current implementation status:
   `agent_analysis_history`
 - implemented: `scripts/hermes_stock_monitor_agent.py` wraps the project command
   for Hermes agent cron jobs
-- not yet implemented: automatic creation/update of the seven Hermes cron jobs
-  on the local Hermes instance
+- implemented: seven Hermes cron jobs were created on the local Hermes instance
 
 Hermes then generates the Weixin-ready message.
 
@@ -402,6 +401,19 @@ After market close, generate a monitoring review:
 - missed conditions
 - false positives
 - suggested YAML rule updates
+
+Current implementation status:
+
+- implemented: every tick records an `alert_decision_log` entry for emitted and
+  de-duplicated suppressed alerts
+- implemented: `--daily-review-context` emits a Hermes-ready end-of-day review
+  context from `state.json`
+- implemented: review context includes emitted alerts, suppressed alerts, agent
+  runs, latest market state, sector signal counts, and data-source errors
+- implemented: `scripts/hermes_stock_monitor_daily_review.py` wraps the project
+  command for a 15:20 Hermes review job
+- not yet automated: writing accepted YAML changes back into configuration
+  files; the review proposes changes for manual confirmation first
 
 ## Operating Model
 
