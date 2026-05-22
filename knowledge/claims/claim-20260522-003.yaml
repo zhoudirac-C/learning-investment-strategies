@@ -1,0 +1,88 @@
+claims:
+  - id: claim-20260522-003-a
+    source_path: sources/raw/财经/午盘补发：26-05-22：保持耐心，注意观察早盘观点的连续性.md
+    source_date: "2026-05-22"
+    source_type: midday-followup
+    extracted_at: "2026-05-22"
+    claim_type: operation
+    subject: 早盘策略连续性
+    timeframe: intraday
+    statement: 5月22日午盘继续沿用早盘“假摔、看修复、持股等待”的策略，不因盘中波动频繁切换判断
+    evidence_quote: >
+      "午盘继续沿用早盘已经定好的策略，不因为盘中波动随意改变判断。
+      午盘补发的重点，是确认早盘观点仍然有效，当前更重要的是保持耐心，而不是频繁切换策略。"
+    interpretation: 这是对早盘假摔判断的执行确认，强调盘中补发不是新增方向，而是验证既定策略是否仍成立
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-22]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260522-003-b
+    source_path: sources/raw/财经/午盘补发：26-05-22：保持耐心，注意观察早盘观点的连续性.md
+    source_date: "2026-05-22"
+    source_type: midday-followup
+    extracted_at: "2026-05-22"
+    claim_type: operation
+    subject: 超预期继续持股
+    timeframe: intraday
+    statement: 若盘面表现超预期且早盘假摔逻辑没有被破坏，应继续持股而不是急着兑现
+    evidence_quote: >
+      "如果盘面表现符合预期，继续持股等待修复。
+      如果盘面表现超预期，则继续持股，不急着兑现。"
+    interpretation: 超预期不是立即卖点；在趋势核心未破、修复扩散逐步验证时，持股比过早兑现更符合早盘策略
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-22]
+      methodology_pages: [投资方法论/仓位管理, 投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260522-003-c
+    source_path: sources/raw/财经/午盘补发：26-05-22：保持耐心，注意观察早盘观点的连续性.md
+    source_date: "2026-05-22"
+    source_type: midday-followup
+    extracted_at: "2026-05-22"
+    claim_type: technical-signal
+    subject: 午后连续性验证指标
+    timeframe: intraday
+    statement: 午后验证早盘假摔逻辑，需要看指数是否不再放量杀跌、科技核心是否未破位、趋势股是否强承接、修复是否从局部扩散
+    evidence_quote: >
+      "指数没有继续放量杀跌；科技主线核心没有进一步破位；趋势股维持强承接；
+      修复方向开始从局部扩散；早盘判断的假摔逻辑没有被破坏。"
+    interpretation: 该指标组把“保持耐心”拆成可验证条件，避免把耐心变成无条件死扛
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-22, 市场分析/修复性质判断]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260522-003-d
+    source_path: sources/raw/财经/午盘补发：26-05-22：保持耐心，注意观察早盘观点的连续性.md
+    source_date: "2026-05-22"
+    source_type: midday-followup
+    extracted_at: "2026-05-22"
+    claim_type: methodology
+    subject: 周末产业逻辑复盘
+    timeframe: short-term
+    statement: 5月22日午后视频将更新个股和产业逻辑，周末需要重新梳理持仓强弱、科技主线产业逻辑、资金偏好、趋势核心和短线轮动的区别
+    evidence_quote: >
+      "博主会录制视频，进一步更新个股和最近的产业逻辑。
+      周末需要花时间重点整理这部分内容...当前持仓个股的强弱、科技主线内部的产业逻辑、近期资金偏好的变化、哪些方向是趋势核心、哪些方向只是短线轮动。"
+    interpretation: 这是学习流程要求：在强分歧后的修复窗口，不只看短线涨跌，还要用产业逻辑重新校准持仓和主线层级
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-22]
+      methodology_pages: [投资方法论/主线判断, 投资方法论/仓位管理]
+      cases: []

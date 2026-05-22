@@ -1,0 +1,156 @@
+claims:
+  - id: claim-20260520-001-a
+    source_path: sources/raw/财经/早盘：26-05-20：验证龙回头修复还是二波启动，科技承接与主线聚焦.md
+    source_date: "2026-05-20"
+    source_type: morning-report
+    extracted_at: "2026-05-20"
+    claim_type: market-cycle
+    subject: 反弹性质判断
+    timeframe: short-term
+    statement: 5月20日盘前先按情绪拐点初期和龙回头修复处理，只有放量接力超预期才上修为二波启动
+    evidence_quote: >
+      "盘前先按 “情绪拐点初期 + 龙回头修复” 处理。只有放量接力超预期，才上修为二波预期。"
+    interpretation: 左侧止跌后的首个验证日不能直接定义为新主升，需要用量能、接力和主线聚焦度确认反弹级别
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/修复性质判断]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260520-001-b
+    source_path: sources/raw/财经/早盘：26-05-20：验证龙回头修复还是二波启动，科技承接与主线聚焦.md
+    source_date: "2026-05-20"
+    source_type: morning-report
+    extracted_at: "2026-05-20"
+    claim_type: technical-signal
+    subject: 弱分歧质量
+    timeframe: intraday
+    statement: 指数弱分歧是否良性，取决于核心票跌幅、跌停家数、昨日大长腿是否补跌和量能回流方向
+    evidence_quote: >
+      "只要回落过程中核心票跌幅不大、跌停家数继续下降、昨日大长腿个股不补跌，就属于良性弱分歧。
+      如果早盘冲高后快速跳水，昨日大长腿核心普遍跌超 -3%，同时低位新分支断板、跌停家数重新增加，
+      那就说明昨天的修复只是反抽，不是情绪拐点。"
+    interpretation: 弱分歧并非风险本身，关键是分歧过程中核心承接是否保持、亏钱效应是否收敛
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/情绪判断, 市场分析/修复性质判断]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260520-001-c
+    source_path: sources/raw/财经/早盘：26-05-20：验证龙回头修复还是二波启动，科技承接与主线聚焦.md
+    source_date: "2026-05-20"
+    source_type: morning-report
+    extracted_at: "2026-05-20"
+    claim_type: operation
+    subject: 大长腿承接阈值
+    timeframe: intraday
+    statement: 昨日大长腿科技核心次日跌幅在-3%以内代表承接好，-3%到-5%承接一般，超过-5%且无修复则低于预期
+    evidence_quote: >
+      "跌幅在 -3% 以内：承接很好。跌幅在 -3% 到 -5% 之间：承接一般。
+      跌幅超过 -5% 且无修复：低于预期。"
+    interpretation: 大长腿次日表现从定性观察升级为可执行的分档阈值，用于判断接力情绪是否恢复
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/情绪判断]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260520-001-d
+    source_path: sources/raw/财经/早盘：26-05-20：验证龙回头修复还是二波启动，科技承接与主线聚焦.md
+    source_date: "2026-05-20"
+    source_type: morning-report
+    extracted_at: "2026-05-20"
+    claim_type: sector-theme
+    subject: 低位新分支
+    timeframe: short-term
+    statement: 弘信电子代表的Token工厂、国产算力、华为昇腾超节点方向只有继续晋级，才能证明情绪从修复进入扩散
+    evidence_quote: >
+      "低位新分支必须继续晋级，才能证明情绪从修复进入扩散。
+      如果弘信电子、嘉环科技这类方向继续强，说明资金愿意从昨日修复核心向新分支扩散。"
+    interpretation: 低位新分支的晋级是从老核心做T行情切换到新周期扩散的验证信号
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/Token算力]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260520-001-e
+    source_path: sources/raw/财经/早盘：26-05-20：验证龙回头修复还是二波启动，科技承接与主线聚焦.md
+    source_date: "2026-05-20"
+    source_type: morning-report
+    extracted_at: "2026-05-20"
+    claim_type: sector-theme
+    subject: 泛科技主线
+    timeframe: short-term
+    statement: 5月19日修复是泛科技轮动而非单一主线，5月20日需观察国产链、半导体存储链、光通信等方向是否形成绝对主线
+    evidence_quote: >
+      "昨天修复的是泛科技，不是单一主线。相对更强的是两条：第一，国产链：华为超节点、国产算力、Token 工厂。
+      第二，半导体存储链：长鑫、长江存储、设备材料。"
+    interpretation: 科技修复仍处于主线筛选阶段，不能把多方向轮动误判为主升一致加速
+    confidence: high
+    status: superseded
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/长鑫存储产业链, 市场分析/Token算力]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260520-001-f
+    source_path: sources/raw/财经/早盘：26-05-20：验证龙回头修复还是二波启动，科技承接与主线聚焦.md
+    source_date: "2026-05-20"
+    source_type: morning-report
+    extracted_at: "2026-05-20"
+    claim_type: risk
+    subject: 海外AI链
+    timeframe: intraday
+    statement: 英伟达财报窗口前，A股海外AI映射链短期承压，不适合开盘追高，更适合观察分歧承接
+    evidence_quote: >
+      "今天海外 AI 链最大的问题是英伟达财报窗口。
+      所以今天“易中天”、剑桥科技、东山精密、亨通光电这类海外链或光通信相关方向，
+      不适合开盘追高，更适合看分歧承接。"
+    interpretation: 财报前波动预期提高，海外链容易出现抢跑兑现或低吸博弈，操作上应避免一致追高
+    confidence: medium
+    status: superseded
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/修复性质判断]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260520-001-g
+    source_path: sources/raw/财经/早盘：26-05-20：验证龙回头修复还是二波启动，科技承接与主线聚焦.md
+    source_date: "2026-05-20"
+    source_type: morning-report
+    extracted_at: "2026-05-20"
+    claim_type: operation
+    subject: 操作策略
+    timeframe: intraday
+    statement: 5月20日策略是做T为主、不主动加仓，只有指数弱分歧不破位、量能放大、科技核心带队三个条件同时满足才小幅加仓
+    evidence_quote: >
+      "今天适合继续做 T，但不适合主动加仓。
+      只有同时满足三个条件，才考虑小幅加仓：第一，指数弱分歧不破位。
+      第二，量能放大。第三，科技核心主动带队。缺一个，都不加仓。"
+    interpretation: 左侧止跌后的验证日仍需保持仓位克制，先用日内T处理轮动，等待右侧确认信号
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: []
+      methodology_pages: [投资方法论/仓位管理, 投资方法论/交易纪律]
+      cases: []

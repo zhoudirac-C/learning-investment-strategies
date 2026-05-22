@@ -294,6 +294,397 @@
 - **入 framework**：高位核心板块补跌=调整尾声信号、大长腿溢价率=接力情绪验证指标（2条）
 - **保留 wiki**：AI上游涨价链扩散路径（待更多案例验证）
 
+## 2026-05-20 | qing-learning ingest | 早盘与补发：坚持做T，验证龙回头修复还是二波启动
+
+### 学习内容
+
+- 处理 `sources/raw/财经/早盘：26-05-20：验证龙回头修复还是二波启动，科技承接与主线聚焦.md`
+- 处理 `sources/raw/财经/早盘补发：26-05-20：坚持做T.md`
+
+### 抽取 Claims
+
+| ID | 类型 | 主题 | 状态 |
+|----|------|------|------|
+| claim-20260520-001-a | market-cycle | 龙回头修复 vs 二波启动 | active |
+| claim-20260520-001-b | technical-signal | 弱分歧质量 | active |
+| claim-20260520-001-c | operation | 大长腿承接阈值 | active |
+| claim-20260520-001-d | sector-theme | 低位新分支接力 | active |
+| claim-20260520-001-e | sector-theme | 泛科技修复但无绝对主线 | superseded |
+| claim-20260520-001-f | risk | 英伟达财报窗口压制海外AI链 | active |
+| claim-20260520-001-g | operation | 做T为主，三条件满足才小幅加仓 | active |
+| claim-20260520-002-a | market-cycle | 反弹第二天仍有3到5天修复窗口 | active |
+| claim-20260520-002-b | sector-theme | 长鑫链条主动但内部分化 | active |
+| claim-20260520-002-c | operation | 轮动式反弹坚持做T | active |
+
+### 更新 Wiki
+
+- 更新 `市场分析/修复性质判断.md` — 新增龙回头修复 vs 二波启动、良性弱分歧判断
+- 更新 `市场分析/情绪判断.md` — 新增大长腿承接分档和低位新分支接力验证
+- 更新 `市场分析/长鑫存储产业链.md` — 新增5月20日早盘长鑫链观察和扩散质量
+- 更新 `市场分析/Token算力.md` — 新增Token工厂/国产算力/华为昇腾超节点交易验证
+- 更新 `市场分析/量能判断.md` — 新增轮动反弹与放量二波判断
+- 更新 `投资方法论/主线判断.md` — 新增泛科技修复中的主线筛选条件
+- 更新 `投资方法论/仓位管理.md` — 新增反弹初期加仓三条件
+- 更新 `投资方法论/交易纪律.md` — 新增反弹初期做T纪律
+
+### Framework 更新
+
+- 更新 `framework/market-cycle-framework.md` — 新增“龙回头修复 vs 二波启动”判别表和加仓三条件
+- 更新 `framework/stock-analysis-playbook.md` — 个股分析流程中补充左侧止跌后验证日的仓位纪律
+
+### Durable Rule 判定
+
+- **入 framework**：龙回头修复 vs 二波启动判别、反弹初期加仓三条件（2条）
+- **保留 wiki**：5月20日长鑫链条局部强势与内部分化、英伟达财报窗口对海外AI链压制（单日语境，待后续验证）
+
+## 2026-05-21 | qing-learning ingest | 5月20日复盘：科创虹吸与半导体接棒
+
+### 学习内容
+
+- 处理 `sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md`
+
+### 抽取 Claims
+
+| ID | 类型 | 主题 | 状态 |
+|----|------|------|------|
+| claim-20260520-003-a | market-cycle | AI硬科技结构牛 + 科创50局部虹吸 | active |
+| claim-20260520-003-b | technical-signal | 科创50虹吸型上涨非带动型上涨 | active |
+| claim-20260520-003-c | sector-theme | 半导体正式接过科技主线扩散接力棒 | active |
+| claim-20260520-003-d | methodology | AI硬科技从光通信向半导体上游扩散 | active |
+| claim-20260520-003-e | sector-theme | 光通信进入去伪存真阶段 | active |
+| claim-20260520-003-f | risk | 2.95万亿未突破，警惕缩量冲高分化 | active |
+| claim-20260520-003-g | operation | 核心持股、分歧低吸、做T、回避后排补涨 | active |
+| claim-20260520-003-h | stock-view | 通富微电AI CPU封测核心资产重估 | active |
+| claim-20260520-003-i | stock-view | 中科飞测检测量测核心弹性 | active |
+| claim-20260520-003-j | stock-view | 新易盛光通信核心，重点看订单兑现 | active |
+| claim-20260520-003-k | sector-theme | 昇腾分销机制与生态协同预期 | active |
+| claim-20260520-003-l | risk | 英伟达财报利好兑现风险 | active |
+
+### 矛盾/上修链接
+
+| Claim A | 关系 | Claim B | 类型 |
+|---------|------|---------|------|
+| claim-20260520-001-e | superseded by | claim-20260520-003-c | cycle-shift |
+
+说明：早盘判断泛科技修复但未出现绝对主线；复盘确认半导体接过主线扩散接力棒。这是日内盘面完成主线筛选后的上修，不是逻辑冲突。
+
+### 更新 Wiki
+
+- 新建 `每日复盘/2026-05-20.md`
+- 新建 `市场分析/科创50虹吸.md`
+- 新建 `市场分析/半导体产业链.md`
+- 新建 `市场分析/光通信.md`
+- 更新 `市场分析/半导体设备.md` — 补充中科飞测、盛美上海和半导体接棒后的设备材料定位
+- 更新 `市场分析/长鑫存储产业链.md` — 补充复盘确认的半导体接棒与长鑫扩产四重共振
+- 更新 `市场分析/量能判断.md` — 新增接近3万亿但未突破时的虹吸风险
+- 更新 `市场分析/Token算力.md` — 新增昇腾分销机制与生态协同预期
+- 更新 `投资方法论/主线判断.md` — 新增主线强度与全市场共振判断
+- 更新 `投资方法论/交易纪律.md` — 新增科创虹吸纪律
+- 更新 `投资方法论/仓位管理.md` — 新增结构牛仓位分层
+
+### Framework 更新
+
+- 更新 `framework/market-cycle-framework.md` — 新增局部虹吸 vs 全市场共振判别
+- 更新 `framework/ai-investment-cycle.md` — 新增AI硬科技基础设施传导路径
+- 更新 `framework/stock-analysis-playbook.md` — 个股分析流程中补充科创虹吸检查
+
+### Durable Rule 判定
+
+- **入 framework**：局部虹吸 vs 全市场共振、AI硬科技从光通信向半导体上游传导（2条）
+- **保留 wiki**：通富微电、中科飞测、新易盛个股逻辑、昇腾分销机制预期、英伟达财报利好兑现风险
+
+## 2026-05-21 | qing-learning ingest | 5月21日早盘、午盘与机构研报批处理
+
+### 学习内容
+
+- 处理 `sources/raw/财经/早盘：26-05-21：反弹途中不追高，聚焦AI与存储主线轮动.md`
+- 处理 `sources/raw/财经/研报：26-05-21：京东方康宁合作，Micro-LED光互连与AI光学价值重塑.md`
+- 处理 `sources/raw/财经/早盘补发：26-05-21：继续持股做T.md`
+- 处理 `sources/raw/财经/午盘：26-05-21：情绪分歧日，半导体设备洗盘与Micro-LED补涨分化.md`
+- 处理 `sources/raw/财经/午盘补发：26-05-21：仓位管理.md`
+- 处理 `sources/raw/财经/尾盘补发：26-05-21：可以抄底.md`
+
+### 抽取 Claims
+
+| ID | 类型 | 主题 | 状态 |
+|----|------|------|------|
+| claim-20260521-001-a | technical-signal | 指数与量能 | active |
+| claim-20260521-001-b | risk | 英伟达财报与AI硬件 | active |
+| claim-20260521-001-c | sector-theme | 存储芯片 | active |
+| claim-20260521-001-d | sector-theme | 玻璃基板与Micro-LED | active |
+| claim-20260521-001-e | methodology | 科技内部扩散 | active |
+| claim-20260521-001-f | sector-theme | 半导体设备 | active |
+| claim-20260521-001-g | market-cycle | 情绪分歧日 | active |
+| claim-20260521-001-h | methodology | 趋势主线与题材补涨 | active |
+| claim-20260521-001-i | operation | 趋势去留 | active |
+| claim-20260521-001-j | operation | 仓位管理 | active |
+| claim-20260521-001-k | technical-signal | ABC结构与时间换空间 | active |
+| claim-20260521-001-l | operation | 尾盘低吸 | active |
+| claim-20260521-001-m | sector-theme | AI光互连与精密光学 | active |
+| claim-20260521-001-n | risk | Micro-LED商业化 | active |
+
+### 矛盾/上修链接
+
+| Claim A | 关系 | Claim B | 类型 |
+|---------|------|---------|------|
+| claim-20260520-001-f | superseded by | claim-20260521-001-b | event-landed |
+| claim-20260518-019-m | superseded by | claim-20260521-001-j | cycle-shift |
+
+说明：英伟达财报窗口从“落地前压制”切换为“落地后看承接和兑现”；B浪完整吃完的操作建议，在5月21日情绪分歧和时间换空间语境下，上修为半仓轮动做T和趋势筛选。
+
+### 更新 Wiki
+
+- 新建 `每日复盘/2026-05-21.md`
+- 新建 `市场分析/玻璃基板与Micro-LED.md`
+- 更新 `市场分析/半导体产业链.md` — 新增5月21日分歧洗盘、趋势容量票和科技内部外溢判断
+- 更新 `市场分析/半导体设备.md` — 新增半导体设备与Micro-LED抗分歧差异
+- 更新 `市场分析/光通信.md` — 新增财报落地后“易中天”承接与CPO/OCS/精密光学扩展
+- 更新 `市场分析/量能判断.md` — 新增放量无法上推、无量硬冲和时间换空间判断
+- 更新 `市场分析/指数调整.md` — 新增ABC与时间换空间
+- 更新 `市场分析/情绪判断.md` — 新增情绪载体缺失时降低预期
+- 更新 `投资方法论/主线判断.md` — 新增主线外溢 vs 主线否定
+- 更新 `投资方法论/仓位管理.md` — 新增半仓轮动做T和趋势筛选
+- 更新 `投资方法论/交易纪律.md` — 新增分歧日趋势去留和2点55尾盘低吸条件单
+
+### Framework 更新
+
+- 更新 `framework/market-cycle-framework.md` — 新增趋势内分歧 vs 破趋势反抽、时间换空间纪律
+- 更新 `framework/sector-diffusion-framework.md` — 新增主线外溢与主线否定区分
+- 更新 `framework/ai-investment-cycle.md` — 新增AI光互连与精密光学扩展
+- 更新 `framework/stock-analysis-playbook.md` — 个股分析流程中补充分歧日趋势分类和主线外溢判断
+
+### Durable Rule 判定
+
+- **入 framework**：趋势内分歧 vs 破趋势反抽、主线外溢 vs 主线否定、时间换空间阶段仓位纪律、AI光互连作为AI硬件链扩展（4条）
+- **保留 wiki**：5月21日具体点位、京东方A/彩虹股份/戈碧迦等当日映射、2点55尾盘低吸条件单、Micro-LED公司池
+
+## 2026-05-21 | qing-learning ingest | 5月21日晚间视频复盘：结构修正与半导体节点节奏
+
+### 学习内容
+
+- 处理 `sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md`
+
+### 抽取 Claims
+
+| ID | 类型 | 主题 | 状态 |
+|----|------|------|------|
+| claim-20260521-002-a | technical-signal | 大盘波浪结构 | active |
+| claim-20260521-002-b | technical-signal | 上证指数关键点位 | active |
+| claim-20260521-002-c | sector-theme | 半导体产业链 | active |
+| claim-20260521-002-d | methodology | 事件节点交易 | active |
+| claim-20260521-002-e | stock-view | 北方华创 | active |
+| claim-20260521-002-f | sector-theme | 国产CPU/GPU与软件 | active |
+| claim-20260521-002-g | sector-theme | 机器人 | active |
+| claim-20260521-002-h | sector-theme | 光互联与微透镜 | active |
+| claim-20260521-002-i | operation | 交易纪律 | active |
+| claim-20260521-002-j | methodology | 业绩与景气度 | active |
+| claim-20260521-002-k | macro | 外部风险 | active |
+
+### 矛盾/上修链接
+
+| Claim A | 关系 | Claim B | 类型 |
+|---------|------|---------|------|
+| claim-20260518-019-a | superseded by | claim-20260521-002-a | cycle-shift |
+| claim-20260518-019-b | superseded by | claim-20260521-002-a | cycle-shift |
+| claim-20260518-019-c | superseded by | claim-20260521-002-a | cycle-shift |
+| claim-20260518-019-d | superseded by | claim-20260521-002-a | cycle-shift |
+| claim-20260521-001-k | superseded by | claim-20260521-002-a | cycle-shift |
+
+说明：5月18日视频的 ABC/B浪结构与5月21日午盘补发的“可能走ABC/时间换空间”，在晚间复盘中被一步到位后的新结构替代。新判断不是 true-conflict，而是实际走势触发的波浪级别修正。
+
+### 更新 Wiki
+
+- 更新 `每日复盘/2026-05-21.md` — 增加晚间视频复盘上修、4047/4170/4700、5月27日长鑫节点
+- 更新 `市场分析/指数调整.md` — 新增一步到位后结构重判
+- 更新 `市场分析/关键点位.md` — 将4200/4080旧点位降为历史预判，新增4047/4170/4700
+- 更新 `市场分析/半导体产业链.md` — 新增长鑫上会、上市节点与半导体操作节奏
+- 更新 `市场分析/半导体设备.md` — 新增北方华创布林线案例
+- 新建 `市场分析/国产CPU_GPU与软件.md`
+- 更新 `市场分析/光通信.md` — 新增光互联、微透镜只看一线光板块
+- 更新 `投资方法论/交易纪律.md` — 新增结构动态修正纪律和回避蹭热点
+- 更新 `投资方法论/仓位管理.md` — 新增事件节点仓位节奏
+
+### Framework 更新
+
+- 更新 `framework/market-cycle-framework.md` — 新增技术结构动态修正规则
+- 更新 `framework/stock-analysis-playbook.md` — 个股分析流程中加入结构重判与事件节点拆分
+- 更新 `framework/ai-investment-cycle.md` — 补充国产CPU/GPU/软件作为半导体减仓后的科技内部承接方向
+
+### Durable Rule 判定
+
+- **入 framework**：技术结构动态修正、事件节点拆分、半导体减仓后科技内部承接方向（3条）
+- **保留 wiki**：4047/4170/4700具体点位、5月27日减仓节奏、北方华创布林线案例、机器人“大盘逆子”表述
+
+## 2026-05-22 | qing-learning ingest | 5月21日复盘：真恐慌非崩盘与二次冰点策略
+
+### 学习内容
+
+- 处理 `sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md`
+
+### 抽取 Claims
+
+| ID | 类型 | 主题 | 状态 |
+|----|------|------|------|
+| claim-20260521-003-a | market-cycle | 真恐慌非崩盘 | active |
+| claim-20260521-003-b | market-cycle | 高位宽幅震荡 | active |
+| claim-20260521-003-c | sector-theme | 科技主线筛选 | active |
+| claim-20260521-003-d | sector-theme | PCB与先进封装 | active |
+| claim-20260521-003-e | sector-theme | 机器人与具身智能 | active |
+| claim-20260521-003-f | sector-theme | AI电源与超级电容 | active |
+| claim-20260521-003-g | operation | 二次冰点低吸 | active |
+| claim-20260521-003-h | operation | 仓位与持仓分层 | active |
+| claim-20260521-003-i | stock-view | 5月22核心观察池 | active |
+| claim-20260521-003-j | risk | 调整延长风险 | active |
+
+### 矛盾/上修链接
+
+| Claim A | 关系 | Claim B | 类型 |
+|---------|------|---------|------|
+| claim-20260521-003-e | contradicts | claim-20260521-002-g | cycle-shift / 条件差异 |
+
+说明：5月21日晚间视频把机器人降级为调整期轮动题材、不适合重仓；本篇复盘把机器人列为二次冰点后的潜在承接方向。两者不是完全互斥：不重仓追机器人，与低开急杀后小仓位低吸主动修复，是两个不同条件下的操作。
+
+### 更新 Wiki
+
+- 更新 `每日复盘/2026-05-21.md` — 新增“真恐慌但非崩盘”、A档活口、潜在承接与二次冰点剧本
+- 更新 `市场分析/情绪判断.md` — 新增真恐慌非崩盘与二次冰点观察
+- 更新 `市场分析/量能判断.md` — 新增3.5万亿放量杀跌的承接判别
+- 更新 `市场分析/半导体产业链.md` — 新增主线杀跌后转为个股筛选
+- 新建 `市场分析/PCB与先进封装.md`
+- 新建 `市场分析/机器人与具身智能.md`
+- 新建 `市场分析/AI电源与超级电容.md`
+- 更新 `投资方法论/主线判断.md` — 新增板块普涨后转入龙头筛选
+- 更新 `投资方法论/仓位管理.md` — 新增半仓至六成与强中弱持仓分类
+- 更新 `投资方法论/交易纪律.md` — 新增二次冰点低吸纪律
+
+### Framework 更新
+
+- 更新 `framework/market-cycle-framework.md` — 新增真恐慌非崩盘与二次冰点低吸条件
+- 更新 `framework/sector-diffusion-framework.md` — 新增板块普涨后转入龙头筛选
+- 更新 `framework/stock-analysis-playbook.md` — 新增高位放量大阴线判别与二次冰点低吸
+- 更新 `framework/ai-investment-cycle.md` — 新增AI电源与超级电容作为算力链预期差分支
+
+### Durable Rule 判定
+
+- **入 framework**：真恐慌非崩盘、二次冰点低吸条件、板块普涨转龙头筛选、AI电源/超级电容作为AI基建链新分支（4条）
+- **保留 wiki**：4773只下跌、395只跌超7%、5月22观察池、4200三日收复、跌停超过50只等短线细节
+
+## 2026-05-22 | qing-learning ingest | 5月22日早盘：极致冰点后看修复质量
+
+### 学习内容
+
+- 处理 `sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md`
+
+### 抽取 Claims
+
+| ID | 类型 | 主题 | 状态 |
+|----|------|------|------|
+| claim-20260522-001-a | market-cycle | 极致冰点后修复质量 | active |
+| claim-20260522-001-b | technical-signal | 上证关键点位 | active |
+| claim-20260522-001-c | operation | 日内四阶段剧本 | active |
+| claim-20260522-001-d | technical-signal | 30分钟底部钝化 | active |
+| claim-20260522-001-e | operation | 先买后卖做T | active |
+| claim-20260522-001-f | sector-theme | 半导体产业链 | active |
+| claim-20260522-001-g | sector-theme | AI方向分类 | active |
+| claim-20260522-001-h | sector-theme | 玻璃基板 | active |
+| claim-20260522-001-i | sector-theme | 机器人 | active |
+| claim-20260522-001-j | sector-theme | 量子计算 | active |
+
+### 更新 Wiki
+
+- 新建 `每日复盘/2026-05-22.md`
+- 新建 `市场分析/量子计算.md`
+- 更新 `市场分析/指数调整.md` — 新增4100短线修复位、4027长期趋势防线和30分钟底部钝化
+- 更新 `市场分析/关键点位.md` — 新增4100、4080、4070、4027点位体系
+- 更新 `市场分析/修复性质判断.md` — 新增极致冰点后的强弱修复判别
+- 更新 `市场分析/半导体产业链.md` — 新增半导体修复看核心容量票止跌
+- 更新 `市场分析/玻璃基板与Micro-LED.md` — 新增快速一致后的分歧承接标准
+- 更新 `市场分析/机器人与具身智能.md` — 新增京东擎天租催化和强方向条件
+- 更新 `投资方法论/交易纪律.md` — 新增先买后卖做T确认纪律
+- 更新 `投资方法论/仓位管理.md` — 新增修复日四阶段仓位节奏
+
+### Framework 更新
+
+- 更新 `framework/market-cycle-framework.md` — 新增极致冰点后的日内四阶段确认和30分钟底部钝化
+- 更新 `framework/stock-analysis-playbook.md` — 新增极致冰点次日的盘中执行与做T确认点
+
+### Durable Rule 判定
+
+- **入 framework**：极致冰点后的日内四阶段确认、30分钟底部钝化、先买后卖做T确认点（3条）
+- **保留 wiki**：4100/4080/4070/4027具体点位、京东与擎天租合作、量子计算20亿美元事件、5月22盘中时间表
+
+## 2026-05-22 | qing-learning ingest | 5月22日早盘补发：假摔确定，后面看修复
+
+### 学习内容
+
+- 处理 `sources/raw/财经/早盘补发：26-05-22：假摔确定，后面看修复.md`
+
+### 抽取 Claims
+
+| ID | 类型 | 主题 | 状态 |
+|----|------|------|------|
+| claim-20260522-002-a | market-cycle | 假摔确认 | active |
+| claim-20260522-002-b | technical-signal | 趋势股新高反证见顶 | active |
+| claim-20260522-002-c | operation | 假摔后的持股待涨 | active |
+| claim-20260522-002-d | methodology | 修复等待节奏 | active |
+
+### 上修链接
+
+| New Claim | 关系 | Old Claim | 类型 |
+|-----------|------|-----------|------|
+| claim-20260522-002-a | supersedes | claim-20260522-001-a | intraday-update / 观察分支上修 |
+
+说明：早盘主文提出“判断5月21日大阴线是假摔还是调整第一根大阴线”，补发将其上修为“假摔确定”。旧观点作为盘前观察框架仍保留，新 claim 记录盘中判断结果。
+
+### 更新 Wiki
+
+- 更新 `每日复盘/2026-05-22.md` — 新增早盘补发“假摔确认”
+- 更新 `市场分析/修复性质判断.md` — 新增趋势股新高作为假摔辅助信号
+- 更新 `市场分析/指数调整.md` — 新增趋势股新高反证见顶
+- 更新 `投资方法论/交易纪律.md` — 新增假摔确认后的持股纪律
+- 更新 `投资方法论/仓位管理.md` — 新增假摔确认后的核心仓处理
+
+### Framework 更新
+
+- 更新 `framework/market-cycle-framework.md` — 新增趋势股新高反证见顶
+- 更新 `framework/stock-analysis-playbook.md` — 新增假摔确认后的个股处理规则
+
+### Durable Rule 判定
+
+- **入 framework**：趋势股新高反证见顶、假摔确认后的核心持股纪律（2条）
+- **保留 wiki**：上午不修复等下午、下午不修复等下周等5月22日短线节奏表达
+
+## 2026-05-22 | qing-learning ingest | 5月22日午盘补发：保持耐心，观察早盘观点连续性
+
+### 学习内容
+
+- 处理 `sources/raw/财经/午盘补发：26-05-22：保持耐心，注意观察早盘观点的连续性.md`
+
+### 抽取 Claims
+
+| ID | 类型 | 主题 | 状态 |
+|----|------|------|------|
+| claim-20260522-003-a | operation | 早盘策略连续性 | active |
+| claim-20260522-003-b | operation | 超预期继续持股 | active |
+| claim-20260522-003-c | technical-signal | 午后连续性验证指标 | active |
+| claim-20260522-003-d | methodology | 周末产业逻辑复盘 | active |
+
+### 更新 Wiki
+
+- 更新 `每日复盘/2026-05-22.md` — 新增午盘补发“保持耐心，观察早盘观点连续性”
+- 更新 `投资方法论/交易纪律.md` — 新增盘中观点连续性纪律
+- 更新 `投资方法论/仓位管理.md` — 新增超预期继续持股的条件
+- 更新 `投资方法论/主线判断.md` — 新增周末产业逻辑复盘要求
+
+### Framework 更新
+
+- 更新 `framework/stock-analysis-playbook.md` — 新增盘中补发延续早盘策略时的持股规则
+
+### Durable Rule 判定
+
+- **入 framework**：盘中观点连续性与超预期继续持股（1条）
+- **保留 wiki**：3点后视频、周末整理等具体时间安排
+
 ---
 
 ## 关键结论

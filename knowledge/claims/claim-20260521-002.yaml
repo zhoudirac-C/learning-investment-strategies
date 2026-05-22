@@ -1,0 +1,243 @@
+claims:
+  - id: claim-20260521-002-a
+    source_path: sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
+    source_date: "2026-05-21"
+    source_type: video-review
+    extracted_at: "2026-05-21"
+    claim_type: technical-signal
+    subject: 大盘波浪结构
+    timeframe: short-term
+    statement: 大盘一步到位打到4077-4082点后，原ABC下杀判断被修正为整体A浪下杀，大周期反弹目标从4200点上修到4700点
+    evidence_quote: >
+      "此前预判本轮ABC下杀的C浪目标位为4080点，对应波动区间4077-4082点。
+      本次大盘直接一步到位打到目标区间，因此不再按常规ABC下杀处理，而重新界定为大周期一浪上涨后的二浪回调中的整体A浪下杀。
+      新的反弹目标从此前4200点上修到大周期4700点。"
+    interpretation: 这是对5月18日波浪结构的明确修正，说明技术结构需要跟随实际走势重新合并和定级，不能机械沿用原ABC路径
+    confidence: high
+    status: active
+    supersedes: [claim-20260518-019-a, claim-20260518-019-b, claim-20260518-019-c, claim-20260518-019-d, claim-20260521-001-k]
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/指数调整]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260521-002-b
+    source_path: sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
+    source_date: "2026-05-21"
+    source_type: video-review
+    extracted_at: "2026-05-21"
+    claim_type: technical-signal
+    subject: 上证指数关键点位
+    timeframe: short-term
+    statement: 指数下方重点看4064、4033和4047点，若三天内反弹到4170点，则5月27日顺势减仓，之后可能回落到4047点再做下一轮
+    evidence_quote: >
+      "下方支撑分别为60天线4064点、120天线4033点。更精准的支撑位可以用47天线判断，对应点位为4047点。
+      若三天内反弹到4170点，则在5月27日周三顺势减仓，之后会调整回4047点。"
+    interpretation: 新复盘把点位从单一4080扩展为均线支撑体系，并给出4170反弹减仓和4047回踩再布局的短线剧本
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/指数调整, 市场分析/关键点位]
+      methodology_pages: [投资方法论/仓位管理]
+      cases: []
+
+  - id: claim-20260521-002-c
+    source_path: sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
+    source_date: "2026-05-21"
+    source_type: video-review
+    extracted_at: "2026-05-21"
+    claim_type: sector-theme
+    subject: 半导体产业链
+    timeframe: short-term
+    statement: 半导体行情尚未结束，5月21日尾盘低吸和加仓方向可继续持有，但5月27日长鑫科技IPO上会需要减仓规避
+    evidence_quote: >
+      "当前半导体行情尚未结束，仍可继续操作，作者今日尾盘已经抄底，今日加仓的方向可继续持有。
+      5月27日长鑫科技IPO上会需要进行减仓规避，等半导体调整到位后再接回。"
+    interpretation: 这是对午盘分歧后的晚间上修：半导体仍是当前核心操作方向，但要围绕长鑫上会节点做减仓和回补节奏
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/半导体产业链, 市场分析/长鑫存储产业链]
+      methodology_pages: [投资方法论/仓位管理]
+      cases: []
+
+  - id: claim-20260521-002-d
+    source_path: sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
+    source_date: "2026-05-21"
+    source_type: video-review
+    extracted_at: "2026-05-21"
+    claim_type: methodology
+    subject: 事件节点交易
+    timeframe: trend
+    statement: 长鑫科技正式上市前半导体仍可反复操作，但正式上市时被视作半导体阶段见顶信号，需要全部撤退
+    evidence_quote: >
+      "长鑫科技5月27日只是上会，正式上市需要等待1个半月到3个月，预计在7-8月，上市前半导体都可以操作。
+      长鑫科技正式上市时，就是半导体板块的见顶信号，届时需要全部撤退。"
+    interpretation: 博主把IPO上会、上市与板块预期兑现绑定，形成预期炒作、事件减仓、上市兑现的时间节点交易框架
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/半导体产业链, 市场分析/长鑫存储产业链]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260521-002-e
+    source_path: sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
+    source_date: "2026-05-21"
+    source_type: video-review
+    extracted_at: "2026-05-21"
+    claim_type: stock-view
+    subject: 北方华创
+    timeframe: short-term
+    statement: 北方华创顶出布林线上轨后，炸板可止盈离场，若回调到布林线二轨可再次介入
+    evidence_quote: >
+      "北方华创作为半导体龙头已经顶出布林线上轨，今日炸板就可以止盈离场。
+      后续若回调到布林线二轨，可以再次介入。"
+    interpretation: 北方华创被作为半导体设备趋势龙头的技术交易案例，操作依据是布林线上轨兑现和二轨回接
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/半导体设备]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260521-002-f
+    source_path: sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
+    source_date: "2026-05-21"
+    source_type: video-review
+    extracted_at: "2026-05-21"
+    claim_type: sector-theme
+    subject: 国产CPU/GPU与软件
+    timeframe: short-term
+    statement: 半导体反弹减仓后的资金更可能承接国产CPU、部分GPU和软件方向，这些方向估值相对不高且属于科技硬件链
+    evidence_quote: >
+      "当前更值得布局的方向是国产CPU、部分GPU以及软件方向，这些板块估值相对不高，属于硬件赛道，
+      资金从半导体其他方向流出后更容易承接。"
+    interpretation: 这是半导体主线内高低切后的下一潜在承接方向，优先级高于机器人、风电、电力等非当前阶段方向
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/国产CPU_GPU与软件]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260521-002-g
+    source_path: sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
+    source_date: "2026-05-21"
+    source_type: video-review
+    extracted_at: "2026-05-21"
+    claim_type: sector-theme
+    subject: 机器人
+    timeframe: short-term
+    statement: 机器人更适合大盘调整阶段参与，当前多为游资炒作，很难走出独立主线，不适合重仓
+    evidence_quote: >
+      "机器人板块属于“大盘逆子”，适合在大盘调整阶段参与，大盘走主升浪时通常表现不佳，很难走出独立主线行情。
+      当前机器人多为游资炒作，不适合重仓参与。"
+    interpretation: 机器人从此前观察方向被降级为调整期轮动题材，不作为当前核心仓位方向
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-21]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260521-002-h
+    source_path: sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
+    source_date: "2026-05-21"
+    source_type: video-review
+    extracted_at: "2026-05-21"
+    claim_type: sector-theme
+    subject: 光互联与微透镜
+    timeframe: short-term
+    statement: 光互联和微透镜是新出的方向，冲高回落后可关注修复，但只看一线光板块，不参与二线光板块
+    evidence_quote: >
+      "今日刚出现的光互联、微透镜也值得关注，今日该方向冲高回落，后续可关注修复情况。
+      当前只建议关注一线光板块，不要参与二线光板块。"
+    interpretation: 光互联从研报逻辑进入盘面观察，但仍处于新方向验证期，筛选标准是只看一线、回避二线补涨
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/光通信, 市场分析/玻璃基板与Micro-LED]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260521-002-i
+    source_path: sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
+    source_date: "2026-05-21"
+    source_type: video-review
+    extracted_at: "2026-05-21"
+    claim_type: operation
+    subject: 交易纪律
+    timeframe: trend
+    statement: 小级别下降趋势中严格执行买阴不买阳、卖阳不追高，优先选择调整充分的科技低位品种，并回避蹭热点标的
+    evidence_quote: >
+      "当前处于小级别下降趋势中，需要重视级别，严格遵守“买阴不买阳、卖阳不追高”的原则，
+      优先选择低位调整充分的品种。不要参与蹭热点的标的。"
+    interpretation: 交易纪律从是否看多市场中独立出来，即便不悲观也不能追阳线，低位和正宗产业逻辑优先
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: []
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260521-002-j
+    source_path: sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
+    source_date: "2026-05-21"
+    source_type: video-review
+    extracted_at: "2026-05-21"
+    claim_type: methodology
+    subject: 业绩与景气度
+    timeframe: trend
+    statement: 5月初到10月底的大周期方向仍是有业绩、行业景气度高的方向，7-8月中报和10月三季报会驱动阶段切换
+    evidence_quote: >
+      "从5月初到10月底，整体方向坚持做有业绩、行业景气度高的方向。
+      7-8月中报披露期，中报行情开始；10月进入三季报行情，可能需要重新切换方向。"
+    interpretation: 博主把短线科技反弹纳入5-10月业绩景气大周期，后续板块切换以中报和三季报为主要节奏锚
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-21]
+      methodology_pages: [投资方法论/主线判断, 投资方法论/仓位管理]
+      cases: []
+
+  - id: claim-20260521-002-k
+    source_path: sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
+    source_date: "2026-05-21"
+    source_type: video-review
+    extracted_at: "2026-05-21"
+    claim_type: macro
+    subject: 外部风险
+    timeframe: short-term
+    statement: 本次下杀没有明显利空，外盘风险对A股影响不大，全球性经济危机尚未到时间节点，当前仍按牛市节奏拥抱科技
+    evidence_quote: >
+      "本次下杀没有明显利空，只有未证实的市场小作文，本质是大盘打到前期高位后的正常调整。
+      大盘向下的调整空间已经非常有限，外盘的风险对A股影响不大。下一轮全球性经济危机尚未到达时间节点。"
+    interpretation: 外部风险在本轮调整中被降权，当前主线判断仍以A股内部结构和科技产业逻辑为主
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/指数调整]
+      methodology_pages: [投资方法论/仓位管理]
+      cases: []

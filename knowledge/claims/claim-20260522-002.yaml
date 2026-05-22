@@ -1,0 +1,84 @@
+claims:
+  - id: claim-20260522-002-a
+    source_path: sources/raw/财经/早盘补发：26-05-22：假摔确定，后面看修复.md
+    source_date: "2026-05-22"
+    source_type: morning-followup
+    extracted_at: "2026-05-22"
+    claim_type: market-cycle
+    subject: 假摔确认
+    timeframe: intraday
+    statement: 5月22日早盘补发将5月21日下杀定性为假摔，而不是大盘见顶信号，依据是趋势股不会在大盘真正见顶时继续创出新高
+    evidence_quote: >
+      "昨天的下杀不是大盘见顶信号，而是一次假摔。趋势股不会在大盘真正见顶的时候继续创出新高。"
+    interpretation: 这是对早盘主文“判断是假摔还是调整第一根大阴线”的日内上修，核心证据从指数分时转向趋势核心仍能新高或强承接
+    confidence: high
+    status: active
+    supersedes: [claim-20260522-001-a]
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-22, 市场分析/修复性质判断, 市场分析/指数调整]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260522-002-b
+    source_path: sources/raw/财经/早盘补发：26-05-22：假摔确定，后面看修复.md
+    source_date: "2026-05-22"
+    source_type: morning-followup
+    extracted_at: "2026-05-22"
+    claim_type: technical-signal
+    subject: 趋势股新高反证见顶
+    timeframe: trend
+    statement: 若强趋势股仍维持趋势强度甚至创出新高，通常不支持大盘已经见顶的判断；真正见顶阶段更常见的是趋势股先破位、放量滞涨或高位兑现
+    evidence_quote: >
+      "如果大盘处在真正见顶阶段，强趋势股通常会先于指数出现明显破位、放量滞涨或高位兑现，而不是继续保持趋势强度甚至创出新高。"
+    interpretation: 趋势核心的价格状态被提升为判断指数下杀性质的辅助信号，可用于区分顶部确认和趋势内剧烈分歧
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/指数调整, 市场分析/修复性质判断]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260522-002-c
+    source_path: sources/raw/财经/早盘补发：26-05-22：假摔确定，后面看修复.md
+    source_date: "2026-05-22"
+    source_type: morning-followup
+    extracted_at: "2026-05-22"
+    claim_type: operation
+    subject: 假摔后的持股待涨
+    timeframe: short-term
+    statement: 在没有新的系统性风险、趋势核心没有集体破位时，5月22日策略以持股待涨和等待反弹修复为主，不因盘中暂未修复而恐慌卖出
+    evidence_quote: >
+      "修复不一定立刻发生，但只要大风险没有出现，就可以继续等待。操作上以持股待涨为主。"
+    interpretation: 该操作要求与此前先买后卖做T并不冲突；对于趋势仍在的核心仓，重点是避免在假摔后的分歧低点被情绪带走
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-22]
+      methodology_pages: [投资方法论/交易纪律, 投资方法论/仓位管理]
+      cases: []
+
+  - id: claim-20260522-002-d
+    source_path: sources/raw/财经/早盘补发：26-05-22：假摔确定，后面看修复.md
+    source_date: "2026-05-22"
+    source_type: morning-followup
+    extracted_at: "2026-05-22"
+    claim_type: methodology
+    subject: 修复等待节奏
+    timeframe: short-term
+    statement: 假摔确认后，修复可以等待从上午延后到下午甚至下周；只要大风险没有出现，短线分歧不应被放大成系统性恐慌
+    evidence_quote: >
+      "这会没修复等下午修复，下午没修复等下周修复。整体没有出现大的系统性风险时，策略上继续持股待涨。"
+    interpretation: 这是一条情绪纪律：当大周期风险未被证实且趋势核心未破时，不用盘中即时修复来否定原先的假摔判断
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/修复性质判断]
+      methodology_pages: [投资方法论/交易纪律, 投资方法论/仓位管理]
+      cases: []

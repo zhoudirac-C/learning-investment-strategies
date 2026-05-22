@@ -1,0 +1,224 @@
+claims:
+  - id: claim-20260522-001-a
+    source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
+    source_date: "2026-05-22"
+    source_type: morning
+    extracted_at: "2026-05-22"
+    claim_type: market-cycle
+    subject: 极致冰点后修复质量
+    timeframe: intraday
+    statement: 5月22日重点不是判断涨跌，而是判断5月21日大阴线是高位假摔还是调整第一根大阴线，修复质量必须看AI、半导体、存储、算力硬件等昨日重灾区是否主动修复
+    evidence_quote: >
+      "今天不是简单判断涨跌，而是判断昨日大阴线到底是高位假摔，还是一段调整的第一根大阴线。
+      半导体、算力硬件、AI等前期赚钱效应最强的方向成为杀跌核心，所以今天能否修复，也必须看这些方向。"
+    interpretation: 这是对5月21日真恐慌非崩盘框架的次日验证，核心从“是否恐慌”切换到“主线是否主动修复”
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-22, 市场分析/修复性质判断, 市场分析/情绪判断]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260522-001-b
+    source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
+    source_date: "2026-05-22"
+    source_type: morning
+    extracted_at: "2026-05-22"
+    claim_type: technical-signal
+    subject: 上证关键点位
+    timeframe: intraday
+    statement: 4100点是5月22日短线修复观察位，4027点是长期趋势最后防线；收在4080点以上修复有效，收在4070点以下则修复力度不足
+    evidence_quote: >
+      "4100点附近是短线情绪观察区，4027点是趋势防守区。
+      如果收盘时指数能够收在4080点以上，说明今天的修复是有效的。
+      如果收在4070点以下，说明修复力度不够。"
+    interpretation: 5月22日把点位体系从4047/4170事件节奏，细化为当日盘中修复和趋势防守分层
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/指数调整, 市场分析/关键点位]
+      methodology_pages: [投资方法论/仓位管理]
+      cases: []
+
+  - id: claim-20260522-001-c
+    source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
+    source_date: "2026-05-22"
+    source_type: morning
+    extracted_at: "2026-05-22"
+    claim_type: operation
+    subject: 日内四阶段剧本
+    timeframe: intraday
+    statement: 高位放量冰点后的日内节奏按9:30-9:45观察、9:45-10:30急跌确认、10:30-13:30主修复做T、13:30后午后风险只卖不买来执行
+    evidence_quote: >
+      "9:30-9:45平开观察，9:45-10:30急跌窗口，10:30-13:30主修复窗口，
+      13:30-收盘午后风险窗口。这个阶段原则是只卖不买。"
+    interpretation: 这是把二次冰点低吸纪律拆成可执行的盘中时间表，避免开盘冲动交易和午后追高
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-22]
+      methodology_pages: [投资方法论/交易纪律, 投资方法论/仓位管理]
+      cases: []
+
+  - id: claim-20260522-001-d
+    source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
+    source_date: "2026-05-22"
+    source_type: morning
+    extracted_at: "2026-05-22"
+    claim_type: technical-signal
+    subject: 30分钟底部钝化
+    timeframe: intraday
+    statement: 5月22日早盘若再次探底但30分钟底部钝化保留甚至形成结构，则午后修复概率上升；若钝化直接消失并继续放量下跌，则调整未结束
+    evidence_quote: >
+      "若早盘再次探底，30分钟底部钝化没有消失，反而开始形成结构，午后修复概率上升。
+      若30分钟底部钝化直接消失，同时指数继续放量下跌，说明调整还没结束。"
+    interpretation: 30分钟底部钝化成为判断急跌后能否修复的技术确认信号，不是水下盲吸的理由
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/指数调整, 市场分析/修复性质判断]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260522-001-e
+    source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
+    source_date: "2026-05-22"
+    source_type: morning
+    extracted_at: "2026-05-22"
+    claim_type: operation
+    subject: 先买后卖做T
+    timeframe: intraday
+    statement: 5月22日做T以先买后卖为主，但买点必须等分时确认：趋势未破、主线硬逻辑、放量拐头、后一个反弹峰超过前一个反弹峰
+    evidence_quote: >
+      "今日不建议盲目割肉，也不建议开盘追高。核心策略是，已关注方向继续做T，优先先买后卖，但买点必须等确认。
+      适合做T的条件有四个...后一个反弹峰超过前一个反弹峰。"
+    interpretation: 做T规则从“低吸”进一步收紧为确认点交易，宁可买不到最低点，也避免水下盲吸和弱反抽加仓
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: []
+      methodology_pages: [投资方法论/交易纪律, 投资方法论/仓位管理]
+      cases: []
+
+  - id: claim-20260522-001-f
+    source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
+    source_date: "2026-05-22"
+    source_type: morning
+    extracted_at: "2026-05-22"
+    claim_type: sector-theme
+    subject: 半导体产业链
+    timeframe: intraday
+    statement: 5月22日半导体修复不看杂毛涨停，而看北方华创、寒武纪、华虹公司、设备材料和存储链等核心容量票是否止跌并收回分时均线
+    evidence_quote: >
+      "半导体今天不要看杂毛涨停，要看核心容量票是否止跌。
+      北方华创、寒武纪、华虹公司、设备材料、存储链等核心率先企稳，低开后不再创新低，随后放量回到分时均线上方。"
+    interpretation: 半导体作为主线能否假摔修复，关键在容量中军和设备材料端，不在低位后排是否脉冲涨停
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/半导体产业链, 市场分析/半导体设备]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260522-001-g
+    source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
+    source_date: "2026-05-22"
+    source_type: morning
+    extracted_at: "2026-05-22"
+    claim_type: sector-theme
+    subject: AI方向分类
+    timeframe: intraday
+    statement: AI方向要分三类处理：趋势未破的硬逻辑票可等分时确认做T，放量破位高位票只当反抽，MLCC、Micro-LED、玻璃基板等低位新分支看承接
+    evidence_quote: >
+      "AI现在要分三类来看。第一类是趋势没破、只是跟随指数回踩的硬逻辑票，这类可以做T。
+      第二类是已经放量破位的高位票，这类即使反弹，也先当反抽看。
+      第三类是低位新分支，比如前天的MLCC、昨天的Micro LED、玻璃基板等。"
+    interpretation: AI内部不能无差别抄底，需要按趋势状态和分支属性分层处理
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/AI上游涨价链, 市场分析/玻璃基板与Micro-LED]
+      methodology_pages: [投资方法论/交易纪律, 投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260522-001-h
+    source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
+    source_date: "2026-05-22"
+    source_type: morning
+    extracted_at: "2026-05-22"
+    claim_type: sector-theme
+    subject: 玻璃基板
+    timeframe: intraday
+    statement: 玻璃基板短线不看谁开得最高，而看高开后是否充分换手、回踩均线不破并二次放量走强；高开秒冲炸板则偏避险轮动
+    evidence_quote: >
+      "玻璃基板今天的观察标准不是谁开得最高，而是谁能在分歧后承接住。
+      比较好的走势是高开后不秒板，盘中充分换手，回踩均线不破，然后二次放量走强。"
+    interpretation: 玻璃基板仍是公告催化和AI低位分支，必须用换手承接验证，不可按成熟主线追一致高开
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/玻璃基板与Micro-LED]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260522-001-i
+    source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
+    source_date: "2026-05-22"
+    source_type: morning
+    extracted_at: "2026-05-22"
+    claim_type: sector-theme
+    subject: 机器人
+    timeframe: intraday
+    statement: 京东与擎天租合作对机器人应用端有催化，但机器人要成为强方向，必须本体、零部件、执行器等扩散，并且在科技主线修复时仍保持强度
+    evidence_quote: >
+      "机器人今天可以观察，但不宜喧宾夺主。
+      它要成为强方向，需要满足两个条件。第一，板块不是单点脉冲，而是本体、零部件、执行器、丝杠、减速器一起扩散。
+      第二，它不能只是趁半导体分歧吸血，而要在科技主线修复时还能保持强度。"
+    interpretation: 机器人仍是条件型观察方向，必须证明自己不是半导体分歧时的吸血轮动
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/机器人与具身智能]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260522-001-j
+    source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
+    source_date: "2026-05-22"
+    source_type: morning
+    extracted_at: "2026-05-22"
+    claim_type: sector-theme
+    subject: 量子计算
+    timeframe: short-term
+    statement: 量子计算受美国政府拟向9家公司投入约20亿美元催化，但对A股更偏事件驱动，优先级低于AI、半导体、存储和算力硬件
+    evidence_quote: >
+      "美国政府计划向9家量子计算公司投入约20亿美元，并取得相关股权。
+      但对A股来说，量子计算今天更偏事件驱动，不宜过度追高。
+      优先级低于AI、半导体、存储和算力硬件。"
+    interpretation: 量子计算可关注产业战略地位，但商业化周期长，短线不能替代当下主线修复锚
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/量子计算]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []

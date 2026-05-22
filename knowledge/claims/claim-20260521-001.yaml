@@ -1,0 +1,308 @@
+claims:
+  - id: claim-20260521-001-a
+    source_path: sources/raw/财经/早盘：26-05-21：反弹途中不追高，聚焦AI与存储主线轮动.md
+    source_date: "2026-05-21"
+    source_type: morning
+    extracted_at: "2026-05-21"
+    claim_type: technical-signal
+    subject: 指数与量能
+    timeframe: intraday
+    statement: 5月21日反弹延续但高度受限，节奏由开盘幅度、量能健康度和科创50相对强度决定
+    evidence_quote: >
+      "反弹延续但高度受限，三大观察点定节奏。今日需要关注三个观察点来定节奏，首先是开盘幅度，
+      其次是量能健康度，最后是科创50强度。"
+    interpretation: 当市场一致预期反弹但不看好高度时，不能只看指数红绿，需要用开盘兑现、放量能否推升指数、科创是否继续虹吸来判断修复质量
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-21, 市场分析/量能判断]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260521-001-b
+    source_path: sources/raw/财经/早盘：26-05-21：反弹途中不追高，聚焦AI与存储主线轮动.md
+    source_date: "2026-05-21"
+    source_type: morning
+    extracted_at: "2026-05-21"
+    claim_type: risk
+    subject: 英伟达财报与AI硬件
+    timeframe: intraday
+    statement: 英伟达财报超预期但市场预期已打满，A股AI硬件要看新易盛、中际旭创、天孚通信的承接而不是追高
+    evidence_quote: >
+      "但财报公布后股价盘后巨震，一度跌超3%后转涨再转跌，截至北京时间7:20跌幅约1%，显示市场预期已打满。
+      第一优先级看“易中天”开盘表现。"
+    interpretation: 财报好坏已不是唯一变量，海外AI链关键转为利好落地后的资金兑现与核心承接
+    confidence: high
+    status: active
+    supersedes: [claim-20260520-001-f]
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/光通信]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260521-001-c
+    source_path: sources/raw/财经/早盘：26-05-21：反弹途中不追高，聚焦AI与存储主线轮动.md
+    source_date: "2026-05-21"
+    source_type: morning
+    extracted_at: "2026-05-21"
+    claim_type: sector-theme
+    subject: 存储芯片
+    timeframe: short-term
+    statement: 长鑫科技上会与长江存储辅导形成存储双催化，存储方向最佳结构是核心中军稳住后设备和材料继续扩散
+    evidence_quote: >
+      "存储芯片方向，长鑫上会 + 长存辅导双催化，是当前最强助攻线。
+      存储方向今日最好的走势是核心中军稳住，低位材料轮动补涨。"
+    interpretation: 存储链从事件催化转向产业链纵深验证，设备中军和材料补涨决定其是否仍是主线助攻而非纯情绪高潮
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/半导体产业链, 市场分析/长鑫存储产业链]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260521-001-d
+    source_path: sources/raw/财经/早盘：26-05-21：反弹途中不追高，聚焦AI与存储主线轮动.md
+    source_date: "2026-05-21"
+    source_type: morning
+    extracted_at: "2026-05-21"
+    claim_type: sector-theme
+    subject: 玻璃基板与Micro-LED
+    timeframe: short-term
+    statement: 京东方与康宁合作属于玻璃基板、光互连和Micro-LED交叉催化，但备忘录不是确定性订单，低位先手优于开盘一致追高
+    evidence_quote: >
+      "这是合作备忘录，而非确定性订单，具体内容需后续签署正式协议。
+      操作上建议低位先手优于追高，公告型刺激不适合开盘一致性追。"
+    interpretation: 玻璃基板方向可以作为AI硬件外溢分支观察，但短线必须按公告型题材处理承接和兑现风险
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/玻璃基板与Micro-LED]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260521-001-e
+    source_path: sources/raw/财经/早盘补发：26-05-21：继续持股做T.md
+    source_date: "2026-05-21"
+    source_type: morning-supplement
+    extracted_at: "2026-05-21"
+    claim_type: methodology
+    subject: 科技内部扩散
+    timeframe: short-term
+    statement: 半导体强势后的京东方系、CPU、无人驾驶等低位扩散，只要仍发生在科技内部，就不是对半导体主线的否定
+    evidence_quote: >
+      "这些方向的发酵，并不是对半导体主线的否定，而是主线强势之后，资金在科技内部做高低切和补涨扩散。
+      只要这种扩散仍然发生在科技内部，就说明市场风险偏好还在。"
+    interpretation: 判断主线是否退潮时，应区分科技内部高低切与资金离开科技；前者是良性扩散，后者才可能是主线切换
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-21]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260521-001-f
+    source_path: sources/raw/财经/早盘补发：26-05-21：继续持股做T.md
+    source_date: "2026-05-21"
+    source_type: morning-supplement
+    extracted_at: "2026-05-21"
+    claim_type: sector-theme
+    subject: 半导体设备
+    timeframe: short-term
+    statement: 5月21日半导体主线没有明确情绪核心，但北方华创、中微公司等趋势容量票稳住，说明核心趋势未破坏
+    evidence_quote: >
+      "半导体主线本身并没有走弱，只是今天没有特别明确的情绪核心。
+      兆易创新、中芯国际这类中军稳定，北方华创、中微公司这类趋势容量票继续强，说明半导体虽然少了短线情绪载体，但核心趋势并没有破坏。"
+    interpretation: 缺少短线情绪载体会提高交易难度，但趋势容量票稳定时不能轻易把主线定义为结束
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/半导体产业链, 市场分析/半导体设备]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260521-001-g
+    source_path: sources/raw/财经/午盘：26-05-21：情绪分歧日，半导体设备洗盘与Micro-LED补涨分化.md
+    source_date: "2026-05-21"
+    source_type: midday
+    extracted_at: "2026-05-21"
+    claim_type: market-cycle
+    subject: 情绪分歧日
+    timeframe: intraday
+    statement: 5月21日是情绪分歧日，半导体科技仍有反包修复预期，但缺少情绪载体使周期难度上升，需要降低预期
+    evidence_quote: >
+      "整体上，今天是一个情绪分歧日。正常来说，半导体科技后面还是有反包修复预期。
+      但也要认清一点：由于缺少情绪载体，少了一个强支撑，这轮周期的难度比预期要高不少，可以适当降低一点预期。"
+    interpretation: 复盘不能只看主线逻辑是否还在，也要看短线情绪载体是否提供了足够支撑
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-21, 市场分析/情绪判断]
+      methodology_pages: [投资方法论/仓位管理]
+      cases: []
+
+  - id: claim-20260521-001-h
+    source_path: sources/raw/财经/午盘：26-05-21：情绪分歧日，半导体设备洗盘与Micro-LED补涨分化.md
+    source_date: "2026-05-21"
+    source_type: midday
+    extracted_at: "2026-05-21"
+    claim_type: methodology
+    subject: 趋势主线与题材补涨
+    timeframe: trend
+    statement: 半导体设备分歧偏主线洗盘，而Micro-LED更像远期题材补涨，二者抗分歧能力不能等同
+    evidence_quote: >
+      "半导体设备是有共识、有合力、有趋势、有催化的主线品种，Micro-LED更像是主线外溢后的远期题材补涨，
+      承接强度和抗分歧能力自然不在一个级别。"
+    interpretation: 同样是科技方向，产业兑现和资金共识不同会导致回撤承接完全不同，补涨分支不能套用主线的容错率
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/半导体设备, 市场分析/玻璃基板与Micro-LED]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260521-001-i
+    source_path: sources/raw/财经/午盘：26-05-21：情绪分歧日，半导体设备洗盘与Micro-LED补涨分化.md
+    source_date: "2026-05-21"
+    source_type: midday
+    extracted_at: "2026-05-21"
+    claim_type: operation
+    subject: 趋势去留
+    timeframe: short-term
+    statement: 分歧日不能简单全卖或全留，要把破趋势方向和仍在趋势内的方向分开处理
+    evidence_quote: >
+      "现在不是简单地全卖或全留，而是要把破趋势的方向和仍在趋势内的方向分开处理：
+      破趋势的方向不能留，趋势还在的方向可以多等一等。"
+    interpretation: 操作核心是趋势状态分类，算力和电力等破趋势反抽按弱修复处理，半导体等趋势未破方向等待资金回流验证
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: []
+      methodology_pages: [投资方法论/交易纪律, 投资方法论/仓位管理]
+      cases: []
+
+  - id: claim-20260521-001-j
+    source_path: sources/raw/财经/午盘补发：26-05-21：仓位管理.md
+    source_date: "2026-05-21"
+    source_type: midday-supplement
+    extracted_at: "2026-05-21"
+    claim_type: operation
+    subject: 仓位管理
+    timeframe: short-term
+    statement: 当前更适合半仓轮动做T，把仓位降到舒服位置，剔除破趋势方向，保留趋势还在且逻辑硬的方向
+    evidence_quote: >
+      "这里更适合半仓轮动做 T。核心目标不是满仓赌方向，而是先把手里的核心票做出利润垫。
+      现在核心是：把仓位降到舒服的位置，把破趋势的方向剔除，把趋势还在、逻辑还硬的方向留下来。"
+    interpretation: 5月21日仓位纪律从5月18日完整吃B浪，演化为用半仓和做T应对时间换空间，属于阶段节奏调整
+    confidence: high
+    status: active
+    supersedes: [claim-20260518-019-m]
+    contradicts: []
+    links:
+      wiki_pages: []
+      methodology_pages: [投资方法论/仓位管理]
+      cases: []
+
+  - id: claim-20260521-001-k
+    source_path: sources/raw/财经/午盘补发：26-05-21：仓位管理.md
+    source_date: "2026-05-21"
+    source_type: midday-supplement
+    extracted_at: "2026-05-21"
+    claim_type: technical-signal
+    subject: ABC结构与时间换空间
+    timeframe: short-term
+    statement: 当前无法确认指数一定走ABC，但若用时间换空间并走出标准ABC，反而比无量硬冲更健康
+    evidence_quote: >
+      "现在这个位置暂时没办法确认指数一定会走 ABC。但盘面已经能看出，主力更倾向于用时间换空间。
+      所以当前不怕震荡，怕的是无量硬冲、情绪过热、结构提前打满。"
+    interpretation: 震荡消化和C浪可能是筹码交换过程，短线风险反而来自无量上冲和情绪过热导致更大周期顶部结构
+    confidence: medium
+    status: superseded
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/指数调整]
+      methodology_pages: [投资方法论/仓位管理]
+      cases: []
+
+  - id: claim-20260521-001-l
+    source_path: sources/raw/财经/尾盘补发：26-05-21：可以抄底.md
+    source_date: "2026-05-21"
+    source_type: tail-supplement
+    extracted_at: "2026-05-21"
+    claim_type: operation
+    subject: 尾盘低吸
+    timeframe: intraday
+    statement: 5月21日尾盘低吸只适用于全天单边下跌后2点55附近，若盘中已经反弹则放弃，不做追高
+    evidence_quote: >
+      "如果后面一直单边下跌，等2点55抄底；如果盘中反弹，就算了，不追。
+      核心意思是：只做尾盘单边下跌后的低吸，不做反弹后的追高。"
+    interpretation: 这是高波动分歧日的条件单，不是无条件抄底；关键在等待尾盘和确认没有提前反弹
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: []
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260521-001-m
+    source_path: sources/raw/财经/研报：26-05-21：京东方康宁合作，Micro-LED光互连与AI光学价值重塑.md
+    source_date: "2026-05-21"
+    source_type: institution-report
+    extracted_at: "2026-05-21"
+    claim_type: sector-theme
+    subject: AI光互连与精密光学
+    timeframe: industry
+    statement: AI数据中心高速互联和低功耗需求推动CPO、OCS、光I/O与微透镜、FAU、滤光片、棱镜等光学元件价值提升
+    evidence_quote: >
+      "CPO、OCS 是 AI 数据中心降功耗、提升带宽和降低延迟的重要方向。
+      受益环节包括微透镜阵列、FAU、滤光片、棱镜、光栅、光学薄膜、光学封装、微纳结构加工、高精度玻璃元件。"
+    interpretation: 研报把光通信从模块环节延伸到光学微结构和精密光学元件，为AI硬件链提供新的产业映射分支
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/光通信, 市场分析/玻璃基板与Micro-LED]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260521-001-n
+    source_path: sources/raw/财经/研报：26-05-21：京东方康宁合作，Micro-LED光互连与AI光学价值重塑.md
+    source_date: "2026-05-21"
+    source_type: institution-report
+    extracted_at: "2026-05-21"
+    claim_type: risk
+    subject: Micro-LED商业化
+    timeframe: industry
+    statement: Micro-LED具备中长期显示升级潜力，但巨量转移、良率、红光效率、检测修复和成本规模化仍是商业化核心风险
+    evidence_quote: >
+      "Micro-LED 在亮度、能耗、寿命、对比度、响应速度等方面具备优势，有望成为中长期显示技术升级方向。
+      其核心挑战仍在：巨量转移、外延片与芯片良率、红光效率、检测与修复、成本下降与规模化量产。"
+    interpretation: Micro-LED更适合作为中长期产业趋势跟踪，短线交易必须警惕商业化验证慢于市场炒作
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/玻璃基板与Micro-LED]
+      methodology_pages: []
+      cases: []

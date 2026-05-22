@@ -1,0 +1,67 @@
+claims:
+  - id: claim-20260520-002-a
+    source_path: sources/raw/财经/早盘补发：26-05-20：坚持做T.md
+    source_date: "2026-05-20"
+    source_type: morning-supplement
+    extracted_at: "2026-05-20"
+    claim_type: market-cycle
+    subject: 反弹节奏
+    timeframe: short-term
+    statement: 5月20日开盘二十分钟兑现幅度不大、接力中规中矩但不弱，反弹第二天理论上仍有3到5天修复窗口
+    evidence_quote: >
+      "开盘前二十分钟看，市场整体兑现幅度不大，接力情况也还可以，属于中规中矩但不弱的走势。
+      由于现在是反弹第二天，理论上反弹才刚开始，正常情况下至少有 3 到 5 天的修复窗口。"
+    interpretation: 补发确认早盘盘面没有明显走弱，短线修复窗口仍在，但仍需量能和主线聚焦继续验证
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/修复性质判断]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260520-002-b
+    source_path: sources/raw/财经/早盘补发：26-05-20：坚持做T.md
+    source_date: "2026-05-20"
+    source_type: morning-supplement
+    extracted_at: "2026-05-20"
+    claim_type: sector-theme
+    subject: 长鑫存储产业链
+    timeframe: short-term
+    statement: 5月20日早盘长鑫链条表现最主动，长鑫扩产预期继续向设备、材料、零部件方向扩散，但内部并非全面一致
+    evidence_quote: >
+      "盘面上，长鑫链条表现最主动，兆易创新强势，半导体设备方向也有资金回流，
+      北方华创、中科飞测、盛合晶微、晶方科技等表现活跃，本质上仍然是长鑫扩产预期向设备、材料、零部件方向扩散；
+      但华海清科、中微公司、合肥城建等部分标的低开后走弱，说明内部并非全面一致，而是强弱分化。"
+    interpretation: 长鑫链条是早盘资金最主动方向，但仍处于局部强势和内部分化阶段，尚需扩散成板块级持续进攻
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/长鑫存储产业链]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260520-002-c
+    source_path: sources/raw/财经/早盘补发：26-05-20：坚持做T.md
+    source_date: "2026-05-20"
+    source_type: morning-supplement
+    extracted_at: "2026-05-20"
+    claim_type: operation
+    subject: 做T纪律
+    timeframe: intraday
+    statement: 5月20日早盘回流力度不错但仍是轮动式反弹，不适合追高加仓，适合借轮动做T和持股观察
+    evidence_quote: >
+      "今天回流力度不错，但仍然是轮动式反弹，不是单一主线的强一致加速。
+      整体看，今天不适合追高加仓，更适合借轮动做T、持股观察。"
+    interpretation: 补发强化当日交易纪律：在轮动修复阶段用T降低成本、打利润垫，而非提高总仓位
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: []
+      methodology_pages: [投资方法论/仓位管理, 投资方法论/交易纪律]
+      cases: []

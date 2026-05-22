@@ -1,0 +1,265 @@
+claims:
+  - id: claim-20260520-003-a
+    source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
+    source_date: "2026-05-20"
+    source_type: review
+    extracted_at: "2026-05-21"
+    claim_type: market-cycle
+    subject: 市场周期
+    timeframe: short-term
+    statement: 5月20日行情定性为AI硬科技结构牛和科创50局部虹吸行情，而非全面牛市
+    evidence_quote: >
+      "当前不是全面牛市，而是 AI硬科技结构牛 + 科创50局部虹吸行情。
+      半导体接过主线扩散接力棒，但全市场超过 3700 只个股下跌，账户体验远差于指数表现。"
+    interpretation: 科技核心仍强，但广度显著不足，操作上不能按全市场普涨牛市处理
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-20, 市场分析/科创50虹吸]
+      methodology_pages: [投资方法论/仓位管理]
+      cases: []
+
+  - id: claim-20260520-003-b
+    source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
+    source_date: "2026-05-20"
+    source_type: review
+    extracted_at: "2026-05-21"
+    claim_type: technical-signal
+    subject: 科创50虹吸
+    timeframe: short-term
+    statement: 科创50当前是虹吸型上涨而非带动型上涨，若继续单独加速而全A不跟，短线风险会加大
+    evidence_quote: >
+      "科创50现在不是典型的“带动型上涨”，更像“虹吸型上涨”。
+      明天若科创50继续高开高走，反而不能盲目乐观，要看大盘和全 A 上涨家数能否跟上。"
+    interpretation: 判断行情健康度不能只看科创50涨幅，需要同步观察上证、全A上涨家数和非科技板块扩散
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/科创50虹吸]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260520-003-c
+    source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
+    source_date: "2026-05-20"
+    source_type: review
+    extracted_at: "2026-05-21"
+    claim_type: sector-theme
+    subject: 半导体产业链
+    timeframe: short-term
+    statement: 半导体正式接过科技主线扩散接力棒，长鑫扩产、国产替代、AI芯片、先进封装四重逻辑形成共振
+    evidence_quote: >
+      "半导体正式接过科技主线扩散接力棒。中芯国际、华虹公司、寒武纪集体强势，
+      长鑫扩产、国产替代、AI 芯片、先进封装四重逻辑形成共振。"
+    interpretation: 早盘泛科技轮动的不确定性，在复盘中上修为半导体接棒主线，但仍需观察全市场共振
+    confidence: high
+    status: active
+    supersedes: [claim-20260520-001-e]
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/半导体产业链, 市场分析/长鑫存储产业链]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260520-003-d
+    source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
+    source_date: "2026-05-20"
+    source_type: review
+    extracted_at: "2026-05-21"
+    claim_type: methodology
+    subject: AI硬科技传导路径
+    timeframe: trend
+    statement: AI硬科技行情从光通信向半导体上游扩散，当前已进入芯片制造、先进封装、存储、CPU/GPU、设备材料阶段
+    evidence_quote: >
+      "当前处于 AI 硬科技从光通信向半导体上游扩散的阶段。
+      行情已不是单纯炒光模块，而是炒整个 AI 基础设施建设大周期。"
+    interpretation: 这是对AI产业链炒作路径的阶段补充，说明行情重心从光模块单点转向更上游的硬科技基础设施
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/半导体产业链, 市场分析/光通信]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260520-003-e
+    source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
+    source_date: "2026-05-20"
+    source_type: review
+    extracted_at: "2026-05-21"
+    claim_type: sector-theme
+    subject: 光通信
+    timeframe: short-term
+    statement: 光通信进入核心分化、二线补涨、业绩验证阶段，板块行情未结束但开始去伪存真
+    evidence_quote: >
+      "光通信板块当前处于 核心分化 + 二线补涨 + 业绩验证阶段。
+      板块行情并未结束，但已从“核心龙头主升”进入“去伪存真”阶段。"
+    interpretation: 光通信从板块普涨转向核心筛选，后续关注订单兑现、800G/1.6T和硅光升级能力
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/光通信]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260520-003-f
+    source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
+    source_date: "2026-05-20"
+    source_type: review
+    extracted_at: "2026-05-21"
+    claim_type: risk
+    subject: 流动性与成交额
+    timeframe: short-term
+    statement: 成交额2.95万亿但未突破3万亿，若高位科技股继续加速而成交无法放大，需要警惕缩量冲高后的分化
+    evidence_quote: >
+      "当日成交约 2.95 万亿，较前一日放量 672 亿，流动性整体充足，但未进入全面加速阶段。
+      流动性风险：成交额无法重新站上 3 万亿，但高位科技股继续加速，需警惕缩量冲高后的分化。"
+    interpretation: 流动性充足但不足以支撑所有方向同时上涨，接近3万亿但未突破时更容易出现结构性虹吸
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/量能判断, 市场分析/科创50虹吸]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260520-003-g
+    source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
+    source_date: "2026-05-20"
+    source_type: review
+    extracted_at: "2026-05-21"
+    claim_type: operation
+    subject: 操作策略
+    timeframe: short-term
+    statement: 5月21日操作原则是核心持股、分歧低吸、日内做T、回避后排纯补涨，并重点观察科创、全A、半导体梯队
+    evidence_quote: >
+      "总体操作原则：核心持股，分歧低吸，日内做 T，回避后排纯补涨。
+      三看三更看：看科创50强度，更要看全 A 扩散；看半导体高度，更要看板块梯队；
+      看指数涨跌，更要看账户真实赚钱效应。"
+    interpretation: 结构牛和虹吸行情下，操作重点从追指数切换到持核心、看扩散、避后排
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/科创50虹吸]
+      methodology_pages: [投资方法论/交易纪律, 投资方法论/仓位管理]
+      cases: []
+
+  - id: claim-20260520-003-h
+    source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
+    source_date: "2026-05-20"
+    source_type: review
+    extracted_at: "2026-05-21"
+    claim_type: stock-view
+    subject: 通富微电
+    timeframe: short-term
+    statement: 通富微电市场认知从GPU封测厂升级为AI CPU封测核心资产，需观察放量承接和先进封装扩散
+    evidence_quote: >
+      "市场认知正在从“GPU 封测厂”升级为“AI CPU 封测核心资产”。
+      明日重点观察：能否继续放量承接、先进封装板块是否扩散、能否与中芯、华虹、寒武纪形成共振。"
+    interpretation: AMD相关项目启动强化高端CPU/GPU封测扩产逻辑，短线关键在承接和板块共振
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/半导体产业链]
+      methodology_pages: []
+      cases: []
+
+  - id: claim-20260520-003-i
+    source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
+    source_date: "2026-05-20"
+    source_type: review
+    extracted_at: "2026-05-21"
+    claim_type: stock-view
+    subject: 中科飞测
+    timeframe: short-term
+    statement: 中科飞测是半导体检测量测核心弹性标的，同时受益国产替代、长鑫扩产和先进封装三重逻辑
+    evidence_quote: >
+      "核心逻辑是缺陷检测、三维形貌量测、薄膜膜厚量测、套刻精度量测是晶圆制造和先进封装的必需环节。
+      同时受益于国产替代、长鑫扩产和先进封装三重逻辑。"
+    interpretation: 检测量测是晶圆制造和先进封装的关键环节，若从个股扩散为板块逻辑，弹性会增强
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/半导体产业链, 市场分析/半导体设备]
+      methodology_pages: []
+      cases: []
+
+  - id: claim-20260520-003-j
+    source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
+    source_date: "2026-05-20"
+    source_type: review
+    extracted_at: "2026-05-21"
+    claim_type: stock-view
+    subject: 新易盛
+    timeframe: trend
+    statement: 新易盛仍是光通信逻辑核心，重点看订单增长、硅光占比提升、800G/1.6T需求和业绩兑现
+    evidence_quote: >
+      "核心逻辑是订单增长、产品结构升级、硅光占比提升、800G/1.6T 需求放量。
+      定位判断是光通信逻辑核心，而非补涨标的。但股价处于高位，需看实际订单和业绩兑现情况。"
+    interpretation: 新易盛属于光通信核心资产而非补涨，后续关键是订单和业绩能否支撑高位估值
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/光通信]
+      methodology_pages: []
+      cases: []
+
+  - id: claim-20260520-003-k
+    source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
+    source_date: "2026-05-20"
+    source_type: review
+    extracted_at: "2026-05-21"
+    claim_type: sector-theme
+    subject: 国产算力与昇腾
+    timeframe: short-term
+    statement: 华为昇腾可能引入分销商机制，国产算力从整机直销走向板卡分销和生态协同，但持续性仍需订单、渠道和出货验证
+    evidence_quote: >
+      "驱动逻辑是华为昇腾可能引入分销商机制，从“整机直销”走向“板卡分销 + 生态协同”。
+      深圳华强、神州数码等潜在总代被市场重新定价。板块强度中等偏强，持续性需要看订单、渠道和出货验证。"
+    interpretation: 昇腾产业链的交易逻辑从算力建设扩展到渠道和生态协同，但证伪条件在订单与出货兑现
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/Token算力]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260520-003-l
+    source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
+    source_date: "2026-05-20"
+    source_type: review
+    extracted_at: "2026-05-21"
+    claim_type: risk
+    subject: 英伟达财报窗口
+    timeframe: short-term
+    statement: 英伟达财报即便指引很好也可能形成利好兑现，高位光模块、PCB、液冷和先进封装会随之分化
+    evidence_quote: >
+      "英伟达财报“利好兑现”风险。触发条件是财报指引很好但股价冲高回落，
+      届时高位光模块、PCB、液冷、先进封装将出现分化。"
+    interpretation: 海外AI硬件链的关键事件不只看财报好坏，还要看美股交易反应是否兑现利好
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/光通信, 市场分析/半导体产业链]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []

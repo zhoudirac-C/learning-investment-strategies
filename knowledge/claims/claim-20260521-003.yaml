@@ -1,0 +1,222 @@
+claims:
+  - id: claim-20260521-003-a
+    source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
+    source_date: "2026-05-21"
+    source_type: review
+    extracted_at: "2026-05-22"
+    claim_type: market-cycle
+    subject: 真恐慌非崩盘
+    timeframe: short-term
+    statement: 5月21日是真恐慌但非崩盘，3.5万亿放量杀跌叠加封死跌停未大面积扩散，说明资金并非完全撤退，而是在高位剧烈换手
+    evidence_quote: >
+      "今日盘面是真恐慌，但不是崩盘。今日成交额放大到约3.5万亿。
+      实际盘面是个股普跌严重，但封死跌停并不多，说明资金并非完全撤退，而是在高位剧烈换手。"
+    interpretation: 放量大阴线不能机械等同于趋势终结，需要结合跌停扩散、科技核心封死情况和承接强度判断是崩盘还是高位换手
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-21, 市场分析/情绪判断, 市场分析/量能判断]
+      methodology_pages: [投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260521-003-b
+    source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
+    source_date: "2026-05-21"
+    source_type: review
+    extracted_at: "2026-05-22"
+    claim_type: market-cycle
+    subject: 高位宽幅震荡
+    timeframe: short-term
+    statement: 市场从单边逼空进入高位宽幅震荡和去弱留强阶段，接下来不能再按板块普涨思路操作
+    evidence_quote: >
+      "市场从单边逼空，进入高位宽幅震荡和去弱留强阶段。"
+    interpretation: 高位阶段的核心不是预测指数单日涨跌，而是用分歧检验个股成色，淘汰破位跟风股并保留有承接的核心方向
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-21, 市场分析/情绪判断]
+      methodology_pages: [投资方法论/主线判断, 投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260521-003-c
+    source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
+    source_date: "2026-05-21"
+    source_type: review
+    extracted_at: "2026-05-22"
+    claim_type: sector-theme
+    subject: 科技主线筛选
+    timeframe: short-term
+    statement: 半导体、芯片、CPO杀跌不等于科技主线结束，后续从板块性机会切换为个股筛选机会，聚焦趋势完整核心、逻辑强化细分和快速反包强势股
+    evidence_quote: >
+      "半导体、芯片、CPO作为本轮行情核心，今日成为杀跌主力，本质是前期巨大获利盘集中兑现。
+      但板块逻辑并未破坏。后续策略从“板块性机会”切换为“个股筛选机会”。"
+    interpretation: 科技主线进入去弱留强阶段，涨幅过大、放量破位、反弹无力的后排需要剔除，不能继续用普涨期容错率处理
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/半导体产业链, 市场分析/光通信]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260521-003-d
+    source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
+    source_date: "2026-05-21"
+    source_type: review
+    extracted_at: "2026-05-22"
+    claim_type: sector-theme
+    subject: PCB与先进封装
+    timeframe: short-term
+    statement: PCB和先进封装是5月21日科技主线里的A档回流活口，分别代表AI算力刚需和产业逻辑持续强化
+    evidence_quote: >
+      "A档观察回流板块包括PCB和先进封装。PCB今日跌幅3.56%，是主线活口。
+      先进封装今日跌幅3.89%，同样是主线活口。"
+    interpretation: 强分歧日里相对抗跌且逻辑仍硬的方向，优先作为次日主动修复观察，而不是盲目去抄领跌高位股
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/PCB与先进封装, 市场分析/半导体产业链]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260521-003-e
+    source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
+    source_date: "2026-05-21"
+    source_type: review
+    extracted_at: "2026-05-22"
+    claim_type: sector-theme
+    subject: 机器人与具身智能
+    timeframe: short-term
+    statement: 机器人在5月21日逆势承接AI分流资金，是潜在资金承接方向，重点看特斯拉Optimus量产催化下执行器系统和利仁科技、拓普集团的修复强度
+    evidence_quote: >
+      "机器人是最具潜力的资金承接方向。机器人今日盘中逆势承接AI分流资金。
+      重点关注执行器系统：丝杠、减速器、无框力矩电机。观察信号：利仁科技连板高度能否打开，拓普集团能否走出趋势修复。"
+    interpretation: 该观点上修了机器人在5月21日晚间视频中的低优先级定位，但仍以承接和低吸验证为前提，不等同于无条件重仓
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: [claim-20260521-002-g]
+    links:
+      wiki_pages: [市场分析/机器人与具身智能]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260521-003-f
+    source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
+    source_date: "2026-05-21"
+    source_type: review
+    extracted_at: "2026-05-22"
+    claim_type: sector-theme
+    subject: AI电源与超级电容
+    timeframe: industry
+    statement: AI电源和超级电容是算力链里最具预期差的新分支，NVIDIA电源架构升级与Rubin平台储能容量提升带来供需缺口预期
+    evidence_quote: >
+      "AI电源和超级电容是算力链最具预期差的新分支。
+      NVIDIA从GB300开始将超级电容纳入标准电源架构，下一代Rubin平台储能容量提升20倍。"
+    interpretation: 与拥挤的半导体和CPO相比，AI电源/超级电容处在机构配置低、产业催化新、供需缺口明确的预期差阶段
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/AI电源与超级电容]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260521-003-g
+    source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
+    source_date: "2026-05-21"
+    source_type: review
+    extracted_at: "2026-05-22"
+    claim_type: operation
+    subject: 二次冰点低吸
+    timeframe: short-term
+    statement: 明日最优剧本是低开急杀后快速拉回，若10点前放量拉升且机器人或PCB率先翻红，可用1-2成仓位低吸强势方向龙头
+    evidence_quote: >
+      "第一种情景，低开急杀后快速拉回，概率60%，是最优剧本。
+      触发条件是开盘下探1%到2%，10点前出现放量拉升，率先翻红的是机器人或PCB。
+      操作策略是用1到2成仓位低吸强势方向龙头。"
+    interpretation: 二次冰点低吸不是见跌就买，而是等待急杀、放量拉回、主动方向率先翻红三者共振
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/情绪判断, 市场分析/修复性质判断]
+      methodology_pages: [投资方法论/交易纪律, 投资方法论/分歧中找机会]
+      cases: []
+
+  - id: claim-20260521-003-h
+    source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
+    source_date: "2026-05-21"
+    source_type: review
+    extracted_at: "2026-05-22"
+    claim_type: operation
+    subject: 仓位与持仓分层
+    timeframe: short-term
+    statement: 高位分歧后总仓维持半仓至六成，持仓按强势、中性、弱势三类处理，强势继续持有或做T，中性看反弹力度，弱势反弹无力则去弱换强
+    evidence_quote: >
+      "总仓位维持半仓至六成仓，不满仓也不清仓。
+      第一类是强势股，继续持有或做T降低成本。第二类是中性股，反弹时看力度。
+      第三类是弱势股，坚决止损，去弱换强。"
+    interpretation: 仓位管理从单纯半仓做T进一步细化为持仓质量分层，指数反弹不代表所有个股都会修复
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: []
+      methodology_pages: [投资方法论/仓位管理, 投资方法论/交易纪律]
+      cases: []
+
+  - id: claim-20260521-003-i
+    source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
+    source_date: "2026-05-21"
+    source_type: review
+    extracted_at: "2026-05-22"
+    claim_type: stock-view
+    subject: 5月22核心观察池
+    timeframe: intraday
+    statement: 5月22重点观察利仁科技、澜起科技、拓普集团、纬达光电、盛剑科技、江海股份，分别作为机器人情绪、半导体趋势、机器人中军、玻璃基板活口、半导体铲子和超级电容龙头锚点
+    evidence_quote: >
+      "利仁科技是机器人短线情绪标杆。澜起科技是半导体核心趋势股。
+      拓普集团是机器人加AI液冷双主线中军。纬达光电是玻璃基板高弹性标的。
+      盛剑科技是半导体环保设备铲子股。江海股份是超级电容龙头。"
+    interpretation: 这些标的不是无条件买入清单，而是次日判断板块主动修复、活口延续和新分支能否成势的观察锚
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [每日复盘/2026-05-21, 市场分析/机器人与具身智能, 市场分析/AI电源与超级电容, 市场分析/PCB与先进封装]
+      methodology_pages: [投资方法论/主线判断]
+      cases: []
+
+  - id: claim-20260521-003-j
+    source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
+    source_date: "2026-05-21"
+    source_type: review
+    extracted_at: "2026-05-22"
+    claim_type: risk
+    subject: 调整延长风险
+    timeframe: short-term
+    statement: 若明日低开后继续放量下杀且跌停数量超过50只，短线调整周期可能延长至1-2周；高位震荡阶段禁止追涨当日涨幅超过5%的个股
+    evidence_quote: >
+      "若明日低开后继续放量下杀，且跌停数量超过50只，短线调整周期将延长至1到2周。
+      高位震荡阶段追高风险远大于低吸风险，禁止追涨当日涨幅超过5%的个股。"
+    interpretation: 二次冰点策略必须配套失败条件，若跌停扩散和放量下杀同时出现，就从低吸窗口切换为等待下一止跌信号
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: [市场分析/情绪判断, 市场分析/量能判断]
+      methodology_pages: [投资方法论/交易纪律, 投资方法论/仓位管理]
+      cases: []
