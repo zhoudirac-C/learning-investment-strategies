@@ -1,0 +1,139 @@
+updated_at: "2026-05-22"
+
+themes:
+  - id: "domestic_compute"
+    name: "国产算力产业链"
+    source_docs:
+      - "docs/标的深度研究/主板-方向二：国产算力产业链个股分析报告-20260518.html"
+      - "docs/标的深度研究/方向二：国产算力产业链与Token经济学深度梳理-20260518.md"
+      - "knowledge/wiki/市场分析/Token算力.md"
+    market_checks:
+      - "上证指数是否站稳当日关键修复位"
+      - "科创50是否同步修复而非拖累科技主线"
+      - "国产算力、存储、先进封装、PCB/CCL是否扩散"
+      - "两市成交额是否维持高量能"
+    stocks:
+      - code: "000021.SZ"
+        name: "深科技"
+        role: "core"
+        segment: "存储/国产算力"
+        watch_reason: "当前核心持仓且组合占比高，需要监控做T和降集中度。"
+        confirm_with: ["华海诚科", "香农芯创", "佰维存储", "德明利"]
+        buy_setup:
+          - "趋势未破"
+          - "分时放量拐头"
+          - "后一个反弹峰超过前一个反弹峰"
+          - "存储链核心同步回到分时均线上方"
+        sell_setup:
+          - "反抽到成本区但板块不扩散"
+          - "放量跌破风险线后不能收回"
+          - "组合集中度超过上限"
+
+      - code: "002185.SZ"
+        name: "华天科技"
+        role: "middle"
+        segment: "先进封装/封测"
+        watch_reason: "持仓票，先进封装中军观察样本。"
+        confirm_with: ["长电科技", "通富微电"]
+        buy_setup:
+          - "先进封装板块共振"
+          - "回踩关键低点后缩量企稳"
+        sell_setup:
+          - "先进封装修复但个股明显弱于板块"
+          - "跌破前低后无修复"
+
+  - id: "changxin_storage"
+    name: "长鑫存储产业链"
+    source_docs:
+      - "docs/标的深度研究/主板-方向一：长鑫存储产业链个股分析报告-20260518.html"
+      - "docs/标的深度研究/方向一：长鑫存储产业链全景梳理-20260518.md"
+      - "docs/标的深度研究/长鑫扩产收益节点分析-设备国产化视角.md"
+    market_checks:
+      - "存储链是否强于半导体平均修复"
+      - "容量核心是否止跌并收回分时均线"
+      - "设备、材料、封测是否从单点修复扩散"
+    stocks:
+      - code: "000021.SZ"
+        name: "深科技"
+        role: "core_holding"
+        segment: "存储制造/封测"
+        watch_reason: "持仓核心，兼具存储扩产和国产算力映射。"
+        confirm_with: ["北方华创", "寒武纪", "华虹公司", "佰维存储"]
+
+  - id: "semiconductor_materials"
+    name: "半导体材料与电子材料"
+    source_docs:
+      - "knowledge/claims/claim-20260522-001.yaml"
+      - "knowledge/wiki/市场分析/半导体产业链.md"
+      - "knowledge/wiki/市场分析/AI上游涨价链.md"
+    market_checks:
+      - "半导体修复是否由核心容量票带动"
+      - "材料票上涨是否伴随资金回流"
+      - "低位新分支是否经换手承接验证"
+    stocks:
+      - code: "002409.SZ"
+        name: "雅克科技"
+        role: "hard_logic_holding"
+        segment: "电子特气/前驱体"
+        watch_reason: "持仓票，半导体材料硬逻辑。"
+        confirm_with: ["南大光电", "彤程新材", "华特气体"]
+        buy_setup:
+          - "110-112区间缩量承接"
+          - "半导体材料核心同步修复"
+        sell_setup:
+          - "跌破110.32后不能收回"
+          - "冲高无量且材料链不扩散"
+
+      - code: "603650.SH"
+        name: "彤程新材"
+        role: "materials_holding"
+        segment: "光刻胶/电子材料"
+        watch_reason: "持仓票，观察材料链修复质量。"
+        confirm_with: ["雅克科技", "南大光电", "晶瑞电材"]
+        sell_setup:
+          - "站不回成本附近且资金继续流出"
+          - "跌回57附近不能修复"
+
+  - id: "pcb_ccl"
+    name: "PCB/CCL/电子玻纤布"
+    source_docs:
+      - "docs/标的深度研究/主板-方向二：国产算力产业链个股分析报告-20260518.html"
+      - "sources/raw/财经/复盘：26-04-28：创业板4连阴，情绪拐点已现.md"
+      - "stock_data_output/portfolio_20260522_1320/report.md"
+    market_checks:
+      - "PCB/CCL是否从个股强修复扩散到板块"
+      - "强势票是否继续放量净流入"
+      - "若大盘修复转弱，强势票是否冲高回落"
+    stocks:
+      - code: "002636.SZ"
+        name: "金安国纪"
+        role: "strong_repair_holding"
+        segment: "覆铜板/电子玻纤布"
+        watch_reason: "持仓票，5月22日组合内资金最强。"
+        confirm_with: ["生益科技", "南亚新材", "沪电股份", "胜宏科技"]
+        buy_setup:
+          - "不追高，仅在板块扩散且缩量回踩承接时观察"
+        sell_setup:
+          - "冲到48-50区间优先减亏T或减一部分"
+          - "跌破44.5-43且资金转弱"
+
+  - id: "ai_infrastructure_energy"
+    name: "AI基础设施与能源转型"
+    source_docs:
+      - "docs/标的深度研究/主板-方向三：AI基础设施与能源转型个股分析报告-20260518.html"
+      - "docs/标的深度研究/主板-方向三：AI基础设施与能源转型产业链梳理-20260518.md"
+    market_checks:
+      - "AI电力、液冷、数据中心能源是否独立走强"
+      - "若科技主线分歧，能源链是否只是防御轮动"
+    stocks:
+      - code: "002639.SZ"
+        name: "雪人股份"
+        role: "watch"
+        segment: "液冷/能源设备"
+        watch_reason: "AI基础设施能源链观察样本。"
+
+      - code: "002837.SZ"
+        name: "英维克"
+        role: "watch"
+        segment: "液冷/温控"
+        watch_reason: "算力基础设施温控方向观察样本。"

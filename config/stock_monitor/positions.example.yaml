@@ -1,0 +1,19 @@
+updated_at: "2026-05-22"
+privacy: "example-only"
+
+accounts:
+  - name: "account_1"
+    positions:
+      - code: "000021.SZ"
+        name: "深科技"
+        shares: 0
+        cost: 0.0
+        role: "core_holding"
+        strategy: "hold_or_t"
+        max_position_ratio: 0.45
+        reduce_zone: "36.9-37.5"
+        risk_line: 35.90
+        notes: "填写真实持仓前，请复制为 positions.yaml；positions.yaml 不提交到 Git。"
+
+  - name: "account_2"
+    positions: []

@@ -1,0 +1,61 @@
+# Stock Monitor Configuration
+
+This directory contains configuration for Hermes-driven A-share monitoring.
+
+## Files
+
+- `watchlist.yaml`: public observation universe and theme logic.
+- `strategy_pack.yaml`: reusable market and intraday decision rules.
+- `positions.example.yaml`: version-controlled template for holdings.
+- `positions.yaml`: private holdings file used by the monitor. This file is
+  ignored by Git.
+
+## Update Routine
+
+1. After trading, update `positions.yaml` with actual shares and costs.
+2. Add or remove observation stocks in `watchlist.yaml`.
+3. Refresh `strategy_pack.yaml` when new market-cycle claims change the rules.
+4. Hermes cron should run from the repository root so relative paths resolve.
+
+## Safety
+
+The monitor is for alerts only. It should never place orders automatically.
+
+## Hermes Entry Points
+
+Project-local commands:
+
+```bash
+uv run python scripts/stock_monitor.py --status
+uv run python scripts/stock_monitor.py --smoke
+uv run python scripts/stock_monitor.py --analysis-context --ignore-trading-time
+uv run python scripts/stock_monitor.py --live-analysis-context --ignore-trading-time
+uv run python scripts/stock_monitor.py
+```
+
+Hermes cron should call the symlinked script under `~/.hermes/scripts`:
+
+```bash
+hermes cron create "*/10 * * * *" \
+  --name "A股持仓与观察池监控" \
+  --workdir /Users/cong.zhou/Documents/quantitative/learning-investment-strategies \
+  --script qing_stock_monitor.py \
+  --no-agent \
+  --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat
+```
+
+The default tick is silent outside A-share trading time. It is also silent until
+market-data trigger logic is connected. Use `--smoke` for a manual notification
+test and `--status` for local diagnostics.
+
+Temporary live analysis test:
+
+```bash
+hermes cron create "*/10 * * * *" \
+  --name "A股监控分析测试" \
+  --workdir /Users/cong.zhou/Documents/quantitative/learning-investment-strategies \
+  --script qing_stock_monitor_analysis.py \
+  --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat \
+  --repeat 1 \
+  "基于脚本输出的持仓、观察池和策略包，按AGENTS.md与qing-stock-analysis框架做一次简短分析。输出持仓分层、下一交易时段观察信号、微信提醒条件、证伪条件。不要给无条件买卖指令。"
+```

@@ -1,0 +1,112 @@
+updated_at: "2026-05-22"
+source_claims:
+  - "knowledge/claims/claim-20260522-001.yaml"
+  - "knowledge/claims/claim-20260521-003.yaml"
+  - "framework/stock-analysis-playbook.md"
+  - "framework/market-cycle-framework.md"
+
+market_framework:
+  current_stage: "高位大阴线后的假摔/调整验证期"
+  core_question: "科技主线是主动修复，还是弱反抽后继续调整"
+  index_rules:
+    - name: "short_repair_observation"
+      index: "上证指数"
+      watch_level: 4100
+      valid_close_level: 4080
+      weak_close_level: 4070
+      trend_defense: 4027
+      interpretation: "收在4080以上修复有效；4070以下修复力度不足；4027是趋势防守区。"
+
+intraday_schedule:
+  - window: "09:15-09:30"
+    name: "集合竞价"
+    action_bias: "只观察"
+    rules:
+      - "观察核心持仓和板块龙头是否超预期高开或低开"
+      - "不因单票高开直接追买"
+  - window: "09:30-09:45"
+    name: "开盘观察"
+    action_bias: "确认方向"
+    rules:
+      - "看指数是否快速失守关键位"
+      - "看持仓是否低开后快速收回分时均线"
+  - window: "09:45-10:30"
+    name: "急跌确认"
+    action_bias: "等确认，不水下盲吸"
+    rules:
+      - "若30分钟底部钝化保留且核心票不再创新低，可进入做T观察"
+      - "若放量下跌且钝化消失，暂停买入"
+  - window: "10:30-13:30"
+    name: "主修复窗口"
+    action_bias: "可做T，可减集中度"
+    rules:
+      - "趋势未破的硬逻辑票，满足分时确认后可做T"
+      - "反弹到成本区但板块不扩散，优先减仓或减集中度"
+  - window: "13:30-15:00"
+    name: "午后风险窗口"
+    action_bias: "只卖不买"
+    rules:
+      - "午后冲高无扩散，优先兑现或减亏"
+      - "尾盘回落跌破关键位，降低次日预期"
+
+position_rules:
+  - id: "hard_logic_t_rule"
+    name: "硬逻辑票做T确认"
+    applies_to: ["core_holding", "hard_logic_holding"]
+    all_required:
+      - "趋势未破"
+      - "主线硬逻辑仍在"
+      - "分时放量拐头"
+      - "后一个反弹峰超过前一个反弹峰"
+    forbidden:
+      - "水下盲吸"
+      - "放量破位后把弱反抽当反转"
+
+  - id: "reduce_concentration"
+    name: "单票集中度降低"
+    applies_to: ["core_holding"]
+    trigger:
+      - "单票市值占持仓超过45%"
+      - "反弹到预设减仓区"
+      - "板块扩散不足或资金净流出"
+    action: "提醒减仓观察或做T降低集中度"
+
+  - id: "weak_repair_reduce"
+    name: "弱修复去弱留强"
+    applies_to: ["middle_holding", "materials_holding"]
+    trigger:
+      - "所属板块修复但个股明显弱于板块"
+      - "反弹接近减仓区"
+      - "资金持续流出"
+    action: "提醒反弹调换或降仓"
+
+  - id: "strong_repair_no_chase"
+    name: "强修复不追高"
+    applies_to: ["strong_repair_holding"]
+    trigger:
+      - "个股日内强于组合和板块"
+      - "已接近预设减亏区"
+      - "高位追买盈亏比不足"
+    action: "提醒持有观察，接近减亏区可减，不追买"
+
+notification_policy:
+  only_notify_when:
+    - "持仓触发加仓观察、减仓观察、风控降级或集中度处理"
+    - "核心观察票触发明确买点或证伪"
+    - "大盘或板块状态发生切换"
+  suppress_when:
+    - "只是普通红绿波动"
+    - "单票异动但板块不共振"
+    - "同一股票同一信号30分钟内已提醒"
+    - "当前不在A股交易时段"
+  message_fields:
+    - "time"
+    - "action"
+    - "stock"
+    - "price"
+    - "position_context"
+    - "trigger"
+    - "market_context"
+    - "suggested_plan"
+    - "invalidation"
+    - "next_check"
