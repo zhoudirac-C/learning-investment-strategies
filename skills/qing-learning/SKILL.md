@@ -33,7 +33,39 @@ description: Use when the user asks to ingest, learn, digest, or update new blog
 4. 先抽取 claims，再更新 wiki、methodology、framework。
 5. 只有满足 durable rule 的观点才进入 framework。
 6. 更新 `knowledge/wiki/index.md`、`knowledge/claims/index.md` 和 `knowledge/wiki/log.md`。
-7. 输出 Learning Update Report。
+7. 判断是否需要更新 `knowledge/wiki/投资方法论/博主方法论总纲.md`。
+8. 输出 Learning Update Report。
+
+## 文档分层与总纲更新规则
+
+学习新 raw 时按以下层级沉淀，不要把单日盘面直接写成长期方法论：
+
+1. `sources/raw/财经`：保留原始内容或整理稿，作为可回溯证据。
+2. `knowledge/claims`：抽取带 source path、evidence quote、scope、confidence 的观点卡。
+3. `knowledge/wiki/每日复盘`：沉淀单日盘面、早午晚盘判断和案例。
+4. `knowledge/wiki/市场分析`、`knowledge/wiki/投资方法论`：沉淀可复用专题，如指数、量能、主线、仓位、做T、科创虹吸。
+5. `framework`：只写跨阶段可复用、可验证、可执行的 durable rule。
+6. `knowledge/wiki/投资方法论/博主方法论总纲.md`：最高层小白教材和导航页，只吸收已经被多篇 raw 或多个市场阶段验证过的稳定框架。
+
+总纲不是每次学习都必须更新。只有满足以下任一条件时才更新总纲：
+
+- 新观点跨多篇 raw 反复出现，并且能解释不同交易日或不同市场环境。
+- 新观点改变核心框架，如周期定位、主线判断、个股分类、仓位管理、交易纪律。
+- 新观点补齐总纲缺失模块，并且已经有足够案例支撑。
+- 原有总纲表述过窄、过时或与最新稳定框架存在冲突，需要修订。
+
+以下内容不要直接进入总纲：
+
+- 单日指数点位、某天早盘剧本、尾盘临时操作。
+- 只依赖一条消息催化、尚未验证持续性的题材。
+- 只适用于某只个股或某个短线窗口的策略。
+- 与旧观点冲突但还没有足够样本确认的新判断。
+
+每次 Learning Update Report 必须说明：
+
+- 本次新增/更新了哪些 raw、claims、wiki、framework。
+- `博主方法论总纲.md` 是否更新。
+- 如果总纲没有更新，说明原因，例如“本次为单日盘面案例，尚未满足总纲级沉淀条件”。
 
 ## 禁止事项
 
