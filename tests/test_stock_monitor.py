@@ -7,22 +7,32 @@ from zoneinfo import ZoneInfo
 import yaml
 
 from qing_investment.stock_monitor import (
+    RuleAlert,
+    alert_fingerprint,
+    chunk_quote_targets,
     collect_quote_targets,
     compute_sector_strength,
     evaluate_market_alerts,
     evaluate_position_alerts,
     evaluate_sector_rotation_alerts,
+    filter_new_alerts,
+    fetch_eastmoney_quotes,
     format_analysis_context,
     format_alerts_message,
     format_quote_line,
     format_status_message,
     is_a_share_trading_time,
     load_monitor_config,
+    load_monitor_state,
     parse_eastmoney_quote_rows,
     parse_price_zone,
     position_rows,
+    record_emitted_alerts,
     run_tick,
+    save_monitor_state,
     stock_code_to_secid,
+    update_sector_signal_counts,
+    update_market_state,
     watchlist_stock_rows,
 )
 
@@ -255,6 +265,18 @@ def test_collect_quote_targets_includes_sector_group_members(tmp_path):
     assert targets["防御稳定线/招商银行(600036.SH)"] == "1.600036"
 
 
+def test_chunk_quote_targets_preserves_all_targets_in_order():
+    targets = {f"stock{i}": f"0.{i:06d}" for i in range(5)}
+
+    chunks = chunk_quote_targets(targets, chunk_size=2)
+
+    assert chunks == [
+        {"stock0": "0.000000", "stock1": "0.000001"},
+        {"stock2": "0.000002", "stock3": "0.000003"},
+        {"stock4": "0.000004"},
+    ]
+
+
 def test_format_quote_line():
     line = format_quote_line(
         {
@@ -303,6 +325,92 @@ def test_parse_eastmoney_quote_rows_disambiguates_same_six_digit_code():
     by_name = {quote["name"]: quote for quote in quotes}
     assert by_name["上证指数"]["label"] == "上证指数"
     assert by_name["平安银行"]["label"] == "防御稳定线/平安银行(000001.SZ)"
+
+
+def test_fetch_quotes_falls_back_to_curl_when_urllib_disconnects(monkeypatch):
+    def fail_urlopen(*_args, **_kwargs):
+        raise OSError("Remote end closed connection without response")
+
+    class CurlResult:
+        stdout = (
+            '{"data":{"diff":[{"f13":1,"f12":"000001","f14":"上证指数",'
+            '"f2":4112.9,"f3":0.87}]}}'
+        )
+
+    def fake_run(*_args, **_kwargs):
+        return CurlResult()
+
+    monkeypatch.setattr(
+        "qing_investment.stock_monitor.urllib.request.urlopen", fail_urlopen
+    )
+    monkeypatch.setattr("qing_investment.stock_monitor.subprocess.run", fake_run)
+
+    snapshot = fetch_eastmoney_quotes({"上证指数": "1.000001"})
+
+    assert snapshot["errors"] == []
+    assert snapshot["quotes"][0]["name"] == "上证指数"
+    assert snapshot["quotes"][0]["latest"] == 4112.9
+
+
+def test_fetch_quotes_keeps_commas_unescaped_for_curl_fallback(monkeypatch):
+    def fail_urlopen(*_args, **_kwargs):
+        raise OSError("Remote end closed connection without response")
+
+    class CurlResult:
+        stdout = '{"data":{"diff":[]}}'
+
+    def fake_run(args, **_kwargs):
+        url = args[-1]
+        assert "secids=1.000001,0.399001" in url
+        assert "%2C" not in url
+        return CurlResult()
+
+    monkeypatch.setattr(
+        "qing_investment.stock_monitor.urllib.request.urlopen", fail_urlopen
+    )
+    monkeypatch.setattr("qing_investment.stock_monitor.subprocess.run", fake_run)
+
+    snapshot = fetch_eastmoney_quotes(
+        {"上证指数": "1.000001", "深证成指": "0.399001"}
+    )
+
+    assert snapshot["errors"] == []
+
+
+def test_fetch_quotes_splits_failed_chunks_into_smaller_requests(monkeypatch):
+    def fail_urlopen(*_args, **_kwargs):
+        raise OSError("Remote end closed connection without response")
+
+    class CurlResult:
+        def __init__(self, stdout: str):
+            self.stdout = stdout
+
+    requested_urls = []
+
+    def fake_run(args, **_kwargs):
+        url = args[-1]
+        requested_urls.append(url)
+        secids = url.split("secids=", 1)[1]
+        if "," in secids:
+            raise OSError("chunk too large")
+        code = secids.split(".")[1]
+        return CurlResult(
+            '{"data":{"diff":[{"f13":1,"f12":"%s","f14":"name%s",'
+            '"f2":1.0,"f3":0.1}]}}' % (code, code)
+        )
+
+    monkeypatch.setattr(
+        "qing_investment.stock_monitor.urllib.request.urlopen", fail_urlopen
+    )
+    monkeypatch.setattr("qing_investment.stock_monitor.subprocess.run", fake_run)
+
+    snapshot = fetch_eastmoney_quotes(
+        {"a": "1.000001", "b": "1.000002"},
+    )
+
+    assert len(snapshot["quotes"]) == 2
+    assert any("secids=1.000001,1.000002" in url for url in requested_urls)
+    assert snapshot["errors"] == []
 
 
 def test_parse_price_zone_normalizes_ranges():
@@ -452,3 +560,181 @@ def test_sector_rotation_alerts_detect_defensive_switch(tmp_path):
     assert alerts[0].action == "防御切换观察"
     assert "防御稳定线" in alerts[0].summary
     assert "科技进攻线" in alerts[0].summary
+
+
+def test_alert_fingerprint_is_stable_for_same_signal(tmp_path):
+    config = load_monitor_config(make_rule_config_dir(tmp_path))
+    alert = evaluate_position_alerts(
+        config,
+        quote_snapshot({"code": "000021", "latest": 37.1, "pct_change": 2.1}),
+    )[0]
+
+    assert alert_fingerprint(alert) == alert_fingerprint(alert)
+    assert "000021.SZ" in alert_fingerprint(alert)
+    assert "减仓观察" in alert_fingerprint(alert)
+
+
+def test_filter_new_alerts_suppresses_same_signal_within_dedupe_window(tmp_path):
+    config = load_monitor_config(make_rule_config_dir(tmp_path))
+    alert = evaluate_position_alerts(
+        config,
+        quote_snapshot({"code": "000021", "latest": 37.1, "pct_change": 2.1}),
+    )[0]
+    state = {}
+    first_time = datetime(2026, 5, 22, 10, 0, tzinfo=CN_TZ)
+    second_time = datetime(2026, 5, 22, 10, 10, tzinfo=CN_TZ)
+    third_time = datetime(2026, 5, 22, 10, 31, tzinfo=CN_TZ)
+
+    first_alerts = filter_new_alerts([alert], state, first_time, dedupe_minutes=30)
+    record_emitted_alerts(state, first_alerts, first_time)
+    second_alerts = filter_new_alerts([alert], state, second_time, dedupe_minutes=30)
+    third_alerts = filter_new_alerts([alert], state, third_time, dedupe_minutes=30)
+
+    assert first_alerts == [alert]
+    assert second_alerts == []
+    assert third_alerts == [alert]
+
+
+def test_monitor_state_round_trips_json(tmp_path):
+    path = tmp_path / "state.json"
+    state = {
+        "version": 1,
+        "alert_history": {"signal": "2026-05-22T10:00:00+08:00"},
+    }
+
+    save_monitor_state(path, state)
+
+    assert load_monitor_state(path) == state
+
+
+def test_tick_persists_snapshot_and_suppresses_duplicate_alerts(tmp_path):
+    config = load_monitor_config(make_rule_config_dir(tmp_path))
+    state_path = tmp_path / "state.json"
+
+    first = run_tick(
+        config,
+        datetime(2026, 5, 22, 10, 0, tzinfo=CN_TZ),
+        emit_status=False,
+        ignore_trading_time=False,
+        quote_fetcher=lambda _targets: quote_snapshot(
+            {"code": "000021", "latest": 37.1, "pct_change": 2.1}
+        ),
+        state_path=state_path,
+        dedupe_minutes=30,
+    )
+    second = run_tick(
+        config,
+        datetime(2026, 5, 22, 10, 10, tzinfo=CN_TZ),
+        emit_status=False,
+        ignore_trading_time=False,
+        quote_fetcher=lambda _targets: quote_snapshot(
+            {"code": "000021", "latest": 37.1, "pct_change": 2.1}
+        ),
+        state_path=state_path,
+        dedupe_minutes=30,
+    )
+    state = load_monitor_state(state_path)
+
+    assert "[Hermes股票监控提醒]" in first
+    assert second == ""
+    assert state["last_quote_snapshot"]["quotes"][0]["code"] == "000021"
+    assert state["alert_history"]
+
+
+def test_tick_keeps_last_good_snapshot_when_fetch_fails(tmp_path):
+    config = load_monitor_config(make_rule_config_dir(tmp_path))
+    state_path = tmp_path / "state.json"
+    save_monitor_state(
+        state_path,
+        {
+            "version": 1,
+            "last_quote_snapshot": quote_snapshot(
+                {"code": "000021", "latest": 37.1, "pct_change": 2.1}
+            ),
+        },
+    )
+
+    message = run_tick(
+        config,
+        datetime(2026, 5, 22, 10, 0, tzinfo=CN_TZ),
+        emit_status=False,
+        ignore_trading_time=False,
+        quote_fetcher=lambda _targets: {
+            "source": "test",
+            "quotes": [],
+            "errors": ["temporary failure"],
+            "elapsed_ms": 1.0,
+        },
+        state_path=state_path,
+        dedupe_minutes=30,
+    )
+    state = load_monitor_state(state_path)
+
+    assert message == ""
+    assert state["last_quote_snapshot"]["quotes"][0]["latest"] == 37.1
+    assert state["last_fetch_error"]["errors"] == ["temporary failure"]
+
+
+def test_sector_signal_counts_increment_and_reset():
+    alert = RuleAlert(
+        action="进攻回流观察",
+        stock_code="tech_vs_defense",
+        stock_name="板块强弱",
+        price=2.1,
+        trigger="科技强于防御",
+        severity="observe",
+        summary="进攻回流观察：科技强于防御",
+    )
+    state = {}
+
+    update_sector_signal_counts(
+        state, [alert], datetime(2026, 5, 22, 10, 0, tzinfo=CN_TZ)
+    )
+    update_sector_signal_counts(
+        state, [alert], datetime(2026, 5, 22, 10, 10, tzinfo=CN_TZ)
+    )
+
+    key = alert_fingerprint(alert)
+    assert state["sector_signal_counts"][key]["count"] == 2
+
+    update_sector_signal_counts(
+        state, [], datetime(2026, 5, 22, 10, 20, tzinfo=CN_TZ)
+    )
+
+    assert state["sector_signal_counts"] == {}
+
+
+def test_update_market_state_summarizes_latest_tick():
+    state = {}
+    alerts = [
+        RuleAlert(
+            action="风控观察",
+            stock_code="000021.SZ",
+            stock_name="深科技",
+            price=35.8,
+            trigger="跌破风险线",
+            severity="risk",
+            summary="风控观察",
+        ),
+        RuleAlert(
+            action="进攻回流观察",
+            stock_code="tech_vs_defense",
+            stock_name="板块强弱",
+            price=2.1,
+            trigger="科技强于防御",
+            severity="observe",
+            summary="进攻回流观察",
+        ),
+    ]
+
+    update_market_state(
+        state,
+        alerts,
+        quote_snapshot({"code": "000021", "latest": 35.8}),
+        datetime(2026, 5, 22, 10, 0, tzinfo=CN_TZ),
+    )
+
+    assert state["last_market_state"]["alert_count"] == 2
+    assert state["last_market_state"]["risk_count"] == 1
+    assert state["last_market_state"]["sector_actions"] == ["进攻回流观察"]
+    assert state["last_market_state"]["quote_count"] == 1

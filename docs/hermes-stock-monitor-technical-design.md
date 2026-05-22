@@ -337,8 +337,13 @@ Current implementation status:
   defensive spread checks
 - implemented: quote parsing disambiguates duplicate six-digit codes such as
   `1.000001` 上证指数 and `0.000001` 平安银行
-- not yet implemented: persistent de-duplication, consecutive signal counting,
-  and Hermes-agent escalation only after Python trigger detection
+- implemented: JSON state storage records the last quote snapshot and suppresses
+  the same alert within a configurable de-duplication window
+- implemented: sector signal counts and latest market-state summaries
+- implemented: curl fallback for Eastmoney quotes when Python `urllib` is
+  disconnected by the remote endpoint
+- not yet implemented: Hermes-agent escalation only after Python trigger
+  detection
 
 ### Phase 2: Sector Strength
 
@@ -356,10 +361,10 @@ Compute:
 
 Store monitor state in JSON or SQLite:
 
-- last quote snapshot
-- last alert time per stock/rule
-- consecutive sector strength count
-- last market state
+- last quote snapshot: implemented in `config/stock_monitor/state.json`
+- last alert time per stock/rule: implemented through alert fingerprints
+- consecutive sector strength count: implemented as `sector_signal_counts`
+- last market state: implemented as `last_market_state`
 
 ### Phase 4: Triggered Hermes Analysis
 

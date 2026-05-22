@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import time as time_module
 import urllib.parse
 import urllib.request
@@ -20,6 +21,7 @@ CN_TZ = ZoneInfo("Asia/Shanghai")
 DEFAULT_CONFIG_DIR = repo_root() / "config" / "stock_monitor"
 QUOTE_FIELDS = "f12,f13,f14,f2,f3,f4,f5,f6,f15,f16,f17,f18"
 EASTMONEY_QUOTE_URL = "https://push2.eastmoney.com/api/qt/ulist.np/get"
+QUOTE_CHUNK_SIZE = 15
 MARKET_INDEXES = {
     "上证指数": "1.000001",
     "深证成指": "0.399001",
@@ -411,6 +413,129 @@ def format_alerts_message(
     return "\n".join(lines)
 
 
+def alert_fingerprint(alert: RuleAlert) -> str:
+    return "|".join(
+        [
+            alert.action,
+            alert.stock_code,
+            alert.stock_name,
+            alert.trigger,
+        ]
+    )
+
+
+def load_monitor_state(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def save_monitor_state(path: Path, state: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True),
+        encoding="utf-8",
+    )
+
+
+def _parse_state_time(value: object) -> datetime | None:
+    if not value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(str(value))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=CN_TZ)
+    return parsed.astimezone(CN_TZ)
+
+
+def filter_new_alerts(
+    alerts: list[RuleAlert],
+    state: dict,
+    value: datetime,
+    *,
+    dedupe_minutes: int,
+) -> list[RuleAlert]:
+    if dedupe_minutes <= 0:
+        return alerts
+
+    history = state.get("alert_history", {})
+    if not isinstance(history, dict):
+        history = {}
+    current = value.astimezone(CN_TZ)
+    fresh: list[RuleAlert] = []
+    for alert in alerts:
+        last_sent = _parse_state_time(history.get(alert_fingerprint(alert)))
+        if last_sent is None:
+            fresh.append(alert)
+            continue
+        elapsed_minutes = (current - last_sent).total_seconds() / 60
+        if elapsed_minutes >= dedupe_minutes:
+            fresh.append(alert)
+    return fresh
+
+
+def record_emitted_alerts(
+    state: dict,
+    alerts: list[RuleAlert],
+    value: datetime,
+) -> None:
+    history = state.setdefault("alert_history", {})
+    current = value.astimezone(CN_TZ).isoformat()
+    for alert in alerts:
+        history[alert_fingerprint(alert)] = current
+
+
+def update_sector_signal_counts(
+    state: dict,
+    alerts: list[RuleAlert],
+    value: datetime,
+) -> None:
+    sector_alerts = [alert for alert in alerts if alert.stock_name == "板块强弱"]
+    if not sector_alerts:
+        state["sector_signal_counts"] = {}
+        return
+
+    previous = state.get("sector_signal_counts", {})
+    if not isinstance(previous, dict):
+        previous = {}
+    current_counts: dict[str, dict] = {}
+    current_time = value.astimezone(CN_TZ).isoformat()
+    for alert in sector_alerts:
+        key = alert_fingerprint(alert)
+        prior = previous.get(key, {})
+        count = int(prior.get("count", 0)) + 1 if isinstance(prior, dict) else 1
+        current_counts[key] = {
+            "action": alert.action,
+            "count": count,
+            "last_seen_at": current_time,
+        }
+    state["sector_signal_counts"] = current_counts
+
+
+def update_market_state(
+    state: dict,
+    alerts: list[RuleAlert],
+    quote_snapshot: dict,
+    value: datetime,
+) -> None:
+    state["last_market_state"] = {
+        "time": value.astimezone(CN_TZ).isoformat(),
+        "quote_count": len(quote_snapshot.get("quotes", []) or []),
+        "alert_count": len(alerts),
+        "risk_count": sum(1 for alert in alerts if alert.severity == "risk"),
+        "observe_count": sum(1 for alert in alerts if alert.severity == "observe"),
+        "sector_actions": [
+            alert.action for alert in alerts if alert.stock_name == "板块强弱"
+        ],
+    }
+
+
 def load_yaml(path: Path) -> dict:
     if not path.exists():
         return {}
@@ -556,33 +681,97 @@ def parse_eastmoney_quote_rows(rows: list[dict], targets: dict[str, str]) -> lis
     return quotes
 
 
+def chunk_quote_targets(
+    targets: dict[str, str],
+    *,
+    chunk_size: int = QUOTE_CHUNK_SIZE,
+) -> list[dict[str, str]]:
+    if chunk_size <= 0:
+        raise ValueError("chunk_size must be positive")
+    items = list(targets.items())
+    return [
+        dict(items[index : index + chunk_size])
+        for index in range(0, len(items), chunk_size)
+    ]
+
+
 def fetch_eastmoney_quotes(targets: dict[str, str], timeout: float = 8.0) -> dict:
     if not targets:
         return {"source": "eastmoney_push2", "quotes": [], "errors": ["empty targets"]}
 
+    started = time_module.perf_counter()
+    quotes: list[dict] = []
+    errors: list[str] = []
+    for chunk in chunk_quote_targets(targets):
+        chunk_result = _fetch_eastmoney_quote_chunk_adaptive(chunk, timeout=timeout)
+        quotes.extend(chunk_result.get("quotes", []) or [])
+        errors.extend(chunk_result.get("errors", []) or [])
+
+    return {
+        "source": "eastmoney_push2",
+        "quotes": quotes,
+        "errors": errors,
+        "elapsed_ms": round((time_module.perf_counter() - started) * 1000, 1),
+    }
+
+
+def _fetch_eastmoney_quote_chunk_adaptive(
+    targets: dict[str, str],
+    timeout: float = 8.0,
+    depth: int = 1,
+) -> dict:
+    result = _fetch_eastmoney_quote_chunk(targets, timeout=timeout)
+    if not result.get("errors") or len(targets) <= 1 or depth <= 0:
+        return result
+
+    split_results = [
+        _fetch_eastmoney_quote_chunk_adaptive(chunk, timeout=timeout, depth=depth - 1)
+        for chunk in chunk_quote_targets(targets, chunk_size=max(1, len(targets) // 2))
+    ]
+    quotes = [
+        quote
+        for split_result in split_results
+        for quote in split_result.get("quotes", []) or []
+    ]
+    errors = [
+        error
+        for split_result in split_results
+        for error in split_result.get("errors", []) or []
+    ]
+    if quotes:
+        return {"source": "eastmoney_push2", "quotes": quotes, "errors": errors}
+    return result
+
+
+def _fetch_eastmoney_quote_chunk(targets: dict[str, str], timeout: float = 8.0) -> dict:
     params = urllib.parse.urlencode(
         {
             "fltt": "2",
             "invt": "2",
             "fields": QUOTE_FIELDS,
             "secids": ",".join(targets.values()),
-        }
+        },
+        safe=",",
     )
+    url = f"{EASTMONEY_QUOTE_URL}?{params}"
     request = urllib.request.Request(
-        f"{EASTMONEY_QUOTE_URL}?{params}",
+        url,
         headers={"User-Agent": "Mozilla/5.0"},
     )
 
-    started = time_module.perf_counter()
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
             payload = json.loads(response.read().decode("utf-8"))
     except Exception as exc:  # pragma: no cover - network dependent
+        curl_payload = _fetch_eastmoney_quote_chunk_with_curl(
+            url, targets, timeout=timeout
+        )
+        if not curl_payload.get("errors"):
+            return curl_payload
         return {
             "source": "eastmoney_push2",
             "quotes": [],
-            "errors": [str(exc)],
-            "elapsed_ms": round((time_module.perf_counter() - started) * 1000, 1),
+            "errors": [str(exc), *curl_payload.get("errors", [])],
         }
 
     rows = (payload.get("data") or {}).get("diff") or []
@@ -592,7 +781,38 @@ def fetch_eastmoney_quotes(targets: dict[str, str], timeout: float = 8.0) -> dic
         "source": "eastmoney_push2",
         "quotes": quotes,
         "errors": [],
-        "elapsed_ms": round((time_module.perf_counter() - started) * 1000, 1),
+    }
+
+
+def _fetch_eastmoney_quote_chunk_with_curl(
+    url: str,
+    targets: dict[str, str],
+    timeout: float = 8.0,
+) -> dict:
+    try:
+        result = subprocess.run(
+            [
+                "curl",
+                "-fsSL",
+                "--max-time",
+                str(int(timeout)),
+                "-H",
+                "User-Agent: Mozilla/5.0",
+                url,
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        payload = json.loads(result.stdout)
+    except Exception as exc:  # pragma: no cover - subprocess/network dependent
+        return {"source": "eastmoney_push2", "quotes": [], "errors": [str(exc)]}
+
+    rows = (payload.get("data") or {}).get("diff") or []
+    return {
+        "source": "eastmoney_push2",
+        "quotes": parse_eastmoney_quote_rows(rows, targets),
+        "errors": [],
     }
 
 
@@ -754,6 +974,8 @@ def run_tick(
     emit_status: bool,
     ignore_trading_time: bool,
     quote_fetcher=fetch_eastmoney_quotes,
+    state_path: Path | None = None,
+    dedupe_minutes: int = 30,
 ) -> str:
     if not ignore_trading_time and not is_a_share_trading_time(value):
         return ""
@@ -761,8 +983,30 @@ def run_tick(
         return format_status_message(config, value)
     quote_snapshot = quote_fetcher(collect_quote_targets(config))
     alerts = evaluate_monitor_alerts(config, quote_snapshot)
-    if alerts:
-        return format_alerts_message(alerts, value, quote_snapshot)
+    resolved_state_path = state_path or config.config_dir / "state.json"
+    state = load_monitor_state(resolved_state_path)
+    state["version"] = 1
+    state["last_updated"] = value.astimezone(CN_TZ).isoformat()
+    if quote_snapshot.get("quotes"):
+        state["last_quote_snapshot"] = quote_snapshot
+        state.pop("last_fetch_error", None)
+    elif quote_snapshot.get("errors"):
+        state["last_fetch_error"] = {
+            "time": value.astimezone(CN_TZ).isoformat(),
+            "source": quote_snapshot.get("source", "unknown"),
+            "errors": quote_snapshot.get("errors", []),
+            "elapsed_ms": quote_snapshot.get("elapsed_ms"),
+        }
+    new_alerts = filter_new_alerts(
+        alerts, state, value, dedupe_minutes=dedupe_minutes
+    )
+    update_sector_signal_counts(state, alerts, value)
+    update_market_state(state, alerts, quote_snapshot, value)
+    if new_alerts:
+        record_emitted_alerts(state, new_alerts, value)
+    save_monitor_state(resolved_state_path, state)
+    if new_alerts:
+        return format_alerts_message(new_alerts, value, quote_snapshot)
     return ""
 
 
@@ -805,6 +1049,17 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Fetch live Eastmoney quotes, print an analysis context, and exit.",
     )
+    parser.add_argument(
+        "--state-file",
+        default=None,
+        help="JSON state file for quote snapshots and alert de-duplication.",
+    )
+    parser.add_argument(
+        "--dedupe-minutes",
+        type=int,
+        default=30,
+        help="Suppress the same alert for this many minutes. Use 0 to disable.",
+    )
     return parser
 
 
@@ -831,6 +1086,8 @@ def main(argv: list[str] | None = None) -> int:
         current,
         emit_status=args.emit_status_on_tick,
         ignore_trading_time=args.ignore_trading_time,
+        state_path=Path(args.state_file) if args.state_file else None,
+        dedupe_minutes=args.dedupe_minutes,
     )
     if message:
         print(message)
