@@ -89,6 +89,88 @@ position_rules:
       - "高位追买盈亏比不足"
     action: "提醒持有观察，接近减亏区可减，不追买"
 
+sector_groups:
+  - id: "offensive_tech"
+    name: "科技进攻线"
+    style: "offensive"
+    members:
+      - code: "000021.SZ"
+        name: "深科技"
+      - code: "002185.SZ"
+        name: "华天科技"
+      - code: "002409.SZ"
+        name: "雅克科技"
+      - code: "603650.SH"
+        name: "彤程新材"
+      - code: "002636.SZ"
+        name: "金安国纪"
+
+  - id: "cpo_light_communication"
+    name: "光通信/CPO"
+    style: "offensive"
+    members:
+      - code: "001267.SZ"
+        name: "汇绿生态"
+      - code: "300308.SZ"
+        name: "中际旭创"
+      - code: "300502.SZ"
+        name: "新易盛"
+      - code: "300394.SZ"
+        name: "天孚通信"
+
+  - id: "semiconductor_core"
+    name: "半导体核心"
+    style: "offensive"
+    members:
+      - code: "002371.SZ"
+        name: "北方华创"
+      - code: "688256.SH"
+        name: "寒武纪"
+      - code: "688981.SH"
+        name: "中芯国际"
+      - code: "603986.SH"
+        name: "兆易创新"
+
+  - id: "pcb_ccl"
+    name: "PCB/CCL"
+    style: "offensive"
+    members:
+      - code: "002636.SZ"
+        name: "金安国纪"
+      - code: "600183.SH"
+        name: "生益科技"
+      - code: "688519.SH"
+        name: "南亚新材"
+      - code: "002463.SZ"
+        name: "沪电股份"
+      - code: "300476.SZ"
+        name: "胜宏科技"
+
+  - id: "defensive_stabilizers"
+    name: "防御稳定线"
+    style: "defensive"
+    members:
+      - code: "600036.SH"
+        name: "招商银行"
+      - code: "600519.SH"
+        name: "贵州茅台"
+      - code: "601398.SH"
+        name: "工商银行"
+      - code: "000001.SZ"
+        name: "平安银行"
+
+sector_rotation_rules:
+  - id: "tech_vs_defense"
+    offensive_groups:
+      - "offensive_tech"
+      - "cpo_light_communication"
+      - "semiconductor_core"
+      - "pcb_ccl"
+    defensive_groups:
+      - "defensive_stabilizers"
+    min_spread_pct: 1.0
+    min_red_ratio_spread: 0.25
+
 notification_policy:
   only_notify_when:
     - "持仓触发加仓观察、减仓观察、风控降级或集中度处理"

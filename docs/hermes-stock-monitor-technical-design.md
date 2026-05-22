@@ -330,6 +330,16 @@ Implement reusable rule types:
 - `relative_weakness`
 - `sector_confirm`
 
+Current implementation status:
+
+- implemented: `price_zone`, `breakdown`/risk-line observation, configured index
+  weak-repair/trend-defense observation, and stateless sector offensive-versus-
+  defensive spread checks
+- implemented: quote parsing disambiguates duplicate six-digit codes such as
+  `1.000001` 上证指数 and `0.000001` 平安银行
+- not yet implemented: persistent de-duplication, consecutive signal counting,
+  and Hermes-agent escalation only after Python trigger detection
+
 ### Phase 2: Sector Strength
 
 Add `sector_groups` and `sector_rotation_rules` to `strategy_pack.yaml`.

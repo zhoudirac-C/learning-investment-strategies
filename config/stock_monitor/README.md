@@ -5,7 +5,8 @@ This directory contains configuration for Hermes-driven A-share monitoring.
 ## Files
 
 - `watchlist.yaml`: public observation universe and theme logic.
-- `strategy_pack.yaml`: reusable market and intraday decision rules.
+- `strategy_pack.yaml`: reusable market, intraday, index-level, sector-rotation,
+  and position decision rules.
 - `positions.example.yaml`: version-controlled template for holdings.
 - `positions.yaml`: private holdings file used by the monitor. This file is
   ignored by Git.
@@ -45,8 +46,15 @@ hermes cron create "*/10 * * * *" \
 ```
 
 The default tick is silent outside A-share trading time. It is also silent until
-market-data trigger logic is connected. Use `--smoke` for a manual notification
-test and `--status` for local diagnostics.
+one of the configured index, sector-rotation, position reduce-zone, or risk-line
+rules triggers. Use `--smoke` for a manual notification test and `--status` for
+local diagnostics.
+
+Temporary rule-engine test with real quotes:
+
+```bash
+uv run python scripts/stock_monitor.py --ignore-trading-time
+```
 
 Temporary live analysis test:
 
