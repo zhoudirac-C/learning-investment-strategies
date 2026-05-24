@@ -202,6 +202,7 @@ def evaluate_position_alerts(
 ) -> list[RuleAlert]:
     quotes = _quotes_by_code(quote_snapshot)
     alerts: list[RuleAlert] = []
+    seen: set[tuple[str, str, str]] = set()
 
     for row in position_rows(config):
         code = str(row.get("code", ""))
@@ -215,6 +216,10 @@ def evaluate_position_alerts(
         reduce_zone = parse_price_zone(row.get("reduce_zone"))
         if reduce_zone and reduce_zone[0] <= latest <= reduce_zone[1]:
             trigger = f"进入预设减仓区{_format_zone(reduce_zone)}"
+            key = (code, "减仓观察", trigger)
+            if key in seen:
+                continue
+            seen.add(key)
             summary = (
                 f"减仓观察：{name}({code}) 当前价={latest:g} 涨跌幅={pct_change}%；"
                 f"{trigger}。只作为降低集中度/做T候选，需再确认板块扩散与分时承接。"
@@ -234,6 +239,10 @@ def evaluate_position_alerts(
         risk_zone = parse_price_zone(row.get("risk_zone") or row.get("risk_line"))
         if risk_zone and latest <= risk_zone[1]:
             trigger = f"触及或跌破风险线{_format_zone(risk_zone)}"
+            key = (code, "风控观察", trigger)
+            if key in seen:
+                continue
+            seen.add(key)
             summary = (
                 f"风控观察：{name}({code}) 当前价={latest:g} 涨跌幅={pct_change}%；"
                 f"{trigger}。若不能快速收回，需要按仓位纪律降级处理。"
@@ -1193,6 +1202,128 @@ def _fetch_eastmoney_quote_chunk_with_curl(
     }
 
 
+
+
+def fetch_tencent_quotes(targets: dict[str, str]) -> dict:
+    """腾讯财经备用接口，当东方财富不可用时调用。"""
+    if not targets:
+        return {"source": "tencent_gtimg", "quotes": [], "errors": ["empty targets"]}
+
+    import urllib.request
+    import re
+
+    def to_tencent_code(code_str: str) -> str | None:
+        code = str(code_str).strip().upper()
+        # 处理 secid 格式: "1.000001" (1=SH, 0=SZ)
+        match = __import__('re').match(r'([10])\.(\d{6})', code)
+        if match:
+            mkt, num = match.groups()
+            return f"{'sh' if mkt == '1' else 'sz'}{num}"
+        # 处理 "000001.SZ" 格式
+        match = __import__('re').match(r'(\d{6})\.(SH|SZ)', code)
+        if match:
+            num, mkt = match.groups()
+            return f"{'sh' if mkt == 'SH' else 'sz'}{num}"
+        # 处理纯数字
+        if __import__('re').match(r'\d{6}$', code):
+            if code.startswith(('600', '601', '603', '605', '688', '689')):
+                return f"sh{code}"
+            else:
+                return f"sz{code}"
+        return None
+
+    # 构建腾讯格式代码映射
+    tencent_map: dict[str, str] = {}  # tencent_code -> original secid
+    name_map: dict[str, str] = {}  # tencent_code -> label
+    for label, secid in targets.items():
+        tc = to_tencent_code(secid)
+        if tc:
+            tencent_map[tc] = secid
+            name_map[tc] = label
+
+    if not tencent_map:
+        return {"source": "tencent_gtimg", "quotes": [], "errors": ["no valid codes"]}
+
+    started = __import__('time').perf_counter()
+    all_quotes: list[dict] = []
+    tencent_codes = list(tencent_map.keys())
+    chunk_size = 60
+
+    for i in range(0, len(tencent_codes), chunk_size):
+        chunk = tencent_codes[i:i + chunk_size]
+        url = f"https://qt.gtimg.cn/q={','.join(chunk)}"
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = resp.read().decode('gbk')
+            for line in data.strip().split(';'):
+                line = line.strip()
+                if not line or not line.startswith('v_'):
+                    continue
+                match = __import__('re').match(r'v_(\w+)="(.+)"', line)
+                if not match:
+                    continue
+                tc_code, content = match.groups()
+                parts = content.split('~')
+                if len(parts) < 35:
+                    continue
+                latest = _to_float(parts[3])
+                prev = _to_float(parts[4])
+                open_price = _to_float(parts[5])
+                high = _to_float(parts[33])
+                low = _to_float(parts[34])
+                volume = _to_float(parts[6])
+                amount = _to_float(parts[37]) if len(parts) > 37 else None
+                pct_change = None
+                change = None
+                if latest is not None and prev is not None and prev > 0:
+                    pct_change = round((latest - prev) / prev * 100, 2)
+                    change = round(latest - prev, 2)
+
+                all_quotes.append({
+                    "secid": tencent_map.get(tc_code, tc_code),
+                    "label": name_map.get(tc_code, parts[1]),
+                    "code": parts[2],
+                    "name": parts[1],
+                    "latest": parts[3],
+                    "previous_close": parts[4],
+                    "open": parts[5],
+                    "high": parts[33] if high is not None else None,
+                    "low": parts[34] if low is not None else None,
+                    "volume": parts[6],
+                    "amount": parts[37] if len(parts) > 37 else None,
+                    "pct_change": pct_change,
+                    "change": change,
+                })
+        except Exception as exc:
+            return {
+                "source": "tencent_gtimg",
+                "quotes": all_quotes,
+                "errors": [str(exc)],
+                "elapsed_ms": round((__import__('time').perf_counter() - started) * 1000, 1),
+            }
+
+    return {
+        "source": "tencent_gtimg",
+        "quotes": all_quotes,
+        "errors": [],
+        "elapsed_ms": round((__import__('time').perf_counter() - started) * 1000, 1),
+    }
+
+
+def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
+    """先尝试东方财富，失败则回退到腾讯。"""
+    em_result = fetch_eastmoney_quotes(targets)
+    if em_result.get("quotes") or not em_result.get("errors"):
+        return em_result
+    # 东方财富失败，尝试腾讯
+    tencent_result = fetch_tencent_quotes(targets)
+    if tencent_result.get("quotes"):
+        return tencent_result
+    # 都失败，返回东方财富的错误信息
+    return em_result
+
+
 def format_quote_line(quote: dict) -> str:
     return (
         "- {label}: 最新={latest} 涨跌幅={pct}% 涨跌={change} "
@@ -1350,7 +1481,7 @@ def run_tick(
     *,
     emit_status: bool,
     ignore_trading_time: bool,
-    quote_fetcher=fetch_eastmoney_quotes,
+    quote_fetcher=fetch_quotes_with_fallback,
     state_path: Path | None = None,
     dedupe_minutes: int = 30,
     agent_context_on_trigger: bool = False,
