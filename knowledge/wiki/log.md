@@ -1,5 +1,49 @@
 # 操作日志
 
+## 2026-05-23 | wiki maintenance | 市场分析板块核心标的池补全
+
+- 审计范围：`knowledge/wiki/市场分析/*.md`。
+- 处理原则：产业链/板块文档必须有核心标的、观察池或观察锚点；情绪判断、量能判断、关键点位、指数调整、修复性质判断和行情全景属于方法论/总览，不强行加入个股。
+- 更新文档：
+  - `knowledge/wiki/市场分析/国产CPU_GPU与软件.md`：补充国产AI芯片、CPU/GPU、服务器整机、CANN软件、数据库、中间件、操作系统和AI应用分层标的池。
+  - `knowledge/wiki/市场分析/量子计算.md`：补充国盾量子、格尔软件、科大国创及海外事件锚点，明确仍按事件驱动低优先级处理。
+  - `knowledge/wiki/市场分析/科创50虹吸.md`：补充寒武纪、中芯国际、华虹公司、海光信息、澜起科技、中微公司、北方华创、封测扩散等虹吸观察锚点。
+- 核心学习：标的池不是买入池。板块文档中的个股只用于判断主线地位、扩散强度和资金承接，仍需结合当日量能、趋势、位置和证伪条件。
+
+## 2026-05-23 | qing-learning ingest | Rubin BOM拆解与AI硬件价值扩散
+
+- 处理来源：`sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md`
+- 新增 claim 文件：`knowledge/claims/claim-20260523-001.yaml`
+- 更新 wiki：
+  - `knowledge/wiki/市场分析/AI上游涨价链.md`
+  - `knowledge/wiki/市场分析/PCB与先进封装.md`
+  - `knowledge/wiki/市场分析/AI电源与超级电容.md`
+  - `knowledge/wiki/市场分析/玻璃基板与Micro-LED.md`
+  - `knowledge/wiki/市场分析/光通信.md`
+  - `knowledge/wiki/市场分析/半导体产业链.md`
+  - `knowledge/wiki/市场分析/半导体设备.md`
+  - `knowledge/wiki/市场分析/半导体设备零部件.md`
+  - `knowledge/wiki/博主/2025-12-2026-05-主线与标的追踪.md`
+- Framework 更新：`framework/sector-diffusion-framework.md` 增加“BOM拆解式扩散”规则。
+- 核心学习：Rubin BOM 拆解说明 AI 硬件主线从 GPU/光模块核心向存储、PCB、MLCC、ABF、电源液冷、ODM 和半导体设备材料零部件扩散；远期 Micro-LED 光互联仍需按客户验证、样品、小批量订单、良率和成本下降逐级确认。
+- 后续补充：将 ABF 材料/类 ABF 增层膜从 ABF/FC-BGA 载板中单独拆出观察池，按“客户验证、小批量供货、收入确认”逐级确认，避免把材料厂和载板厂混为一类。
+- 总纲更新：未更新。本次属于产业链专题细化，尚未改变“先周期、再主线、再个股”的总纲级框架。
+
+## 2026-05-24 | qing-learning ingest | 2028 AI资本狂潮终局推演
+
+- 处理来源：`sources/raw/财经/视频：26-05-23：2028那场必来的危机，AI资本狂潮的终局推演.md`
+- 新增 claim 文件：`knowledge/claims/claim-20260523-002.yaml`
+- 新增 wiki：
+  - `knowledge/wiki/市场分析/AI资本开支周期与泡沫风险.md`
+- 更新 wiki：
+  - `knowledge/wiki/市场分析/AI上游涨价链.md`
+  - `knowledge/wiki/投资方法论/仓位管理.md`
+- Framework 更新：
+  - `framework/ai-investment-cycle.md`
+  - `framework/stock-analysis-playbook.md`
+- 核心学习：VR200价格上升既是AI硬件价值量扩散信号，也是摩尔定律衰减、终端ROI压力和资本开支周期风险的长期提醒。AI硬件链短中期仍按主线强度、订单和量能交易，但长期需要新增云厂商资本开支、GPU二手价、HBM价差、GPU租赁公司融资利差等压力测试。
+- 总纲更新：未更新。本次是单篇长周期推演，且具体2026-2028时间线和阈值仍待验证，暂不提升为总纲级稳定框架。
+
 ## 2026-05-16 | qing-learning ingest | 2025-12 至 2026-05 历史全量批处理
 
 - 处理来源：`sources/raw/财经` 下 391 篇 Markdown；本轮补处理此前未记录的 387 篇。

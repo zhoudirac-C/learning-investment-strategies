@@ -1,0 +1,199 @@
+- id: claim-20260523-001
+  source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-23T12:21:17+08:00"
+  claim_type: sector-theme
+  subject: Rubin BOM价值扩散
+  timeframe: trend
+  statement: Vera Rubin / VR200 机柜价值量大幅提升，AI服务器定价从GPU单点扩张到存储、PCB、MLCC、ABF基板、电源、液冷、ODM组装测试等全组件价值重估。
+  evidence_quote: "英伟达下一代 Vera Rubin / VR200 机架的价值量大幅提升，增量不再只集中在 GPU，而是向 PCB、MLCC、ABF 基板、内存、电源、液冷、ODM 组装测试等更广泛硬件环节扩散。"
+  interpretation: 这是AI硬件主线从核心算力资产向BOM增量环节扩散的证据，后续观察重点应从单一GPU/光模块扩展到价值量提升最快、位置相对低的硬件组件。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/AI上游涨价链
+      - 市场分析/PCB与先进封装
+      - 市场分析/光通信
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-002
+  source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-23T12:21:17+08:00"
+  claim_type: sector-theme
+  subject: 存储链价值占比跃升
+  timeframe: trend
+  statement: AI时代存储从传统周期品升级为影响AI集群性能的核心瓶颈，VR200内存价值占比显著提升，但因前期涨幅较大，交易上需要横盘消化后再观察。
+  evidence_quote: "过去存储更像周期品...但在 AI 时代，存储已经变成直接影响 AI 集群性能的核心瓶颈...由于存储链前期已经涨幅较大，短线盘面未必继续强冲。"
+  interpretation: 存储的中期逻辑强化，但短线不能把产业增量直接等同于追高买点，需结合位置、横盘消化和承接判断。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/长鑫存储产业链
+      - 市场分析/半导体产业链
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-003
+  source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-23T12:21:17+08:00"
+  claim_type: sector-theme
+  subject: PCB与ABF基板
+  timeframe: trend
+  statement: Rubin升级中PCB受益于层数提升、材料升级和新增模块，ABF基板受益于GPU、NVSwitch、ConnectX等芯片价值提升，二者是AI硬件扩散的重要承接方向。
+  evidence_quote: "PCB 是大摩覆盖的下游组件中增幅最突出的方向。核心原因不是单一涨价，而是层数提升、材料升级和新模块增加的共同结果。"
+  interpretation: PCB与ABF不只是短线活口，而是AI服务器复杂度提升后的BOM刚需环节，可与先进封装、服务器高速互联一起观察。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/PCB与先进封装
+      - 市场分析/AI上游涨价链
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-004
+  source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-23T12:21:17+08:00"
+  claim_type: sector-theme
+  subject: MLCC涨价链
+  timeframe: trend
+  statement: MLCC在AI服务器中的绝对金额不大但增速快，受用量提升和高端供给紧张驱动，可能成为AI服务器硬件升级中的通胀型材料。
+  evidence_quote: "AI 服务器功耗更高、信号更复杂、电源稳定性要求更高，对高容、高可靠 MLCC 的需求会明显增加。"
+  interpretation: MLCC需要按成品龙头、上游设备材料零部件、弹性公司三类跟踪，重点验证高端产品涨价、国内份额外溢和业绩兑现。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/AI上游涨价链
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-005
+  source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-23T12:21:17+08:00"
+  claim_type: sector-theme
+  subject: 电源液冷与HVDC
+  timeframe: trend
+  statement: AI机柜功率密度提升推动电源架构向HVDC、800V DC等方向升级，液冷从选配变标配，电源、连接器、铜排、散热、电力电阻等环节具备中长期增量。
+  evidence_quote: "电源环节会迎来架构升级、功率等级提升和价值量提升...液冷从选配变标配，渗透率和架构地位提升。"
+  interpretation: 电源液冷不应只看单日题材表现，而要跟踪功率平台升级、HVDC落地、Rubin放量与相关公司业绩确认。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/AI电源与超级电容
+      - 市场分析/AI上游涨价链
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-006
+  source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-23T12:21:17+08:00"
+  claim_type: sector-theme
+  subject: 半导体设备材料零部件
+  timeframe: trend
+  statement: AI算力升级最终会落到晶圆厂扩产、设备采购、材料消耗和零部件放量上，半导体设备零部件从概念炒作转向订单和业绩验证。
+  evidence_quote: "AI 算力升级最终会落到晶圆厂扩产、设备采购、材料消耗和零部件放量上。半导体链条不再只是概念炒作，而是逐步进入订单、业绩和国产替代兑现阶段。"
+  interpretation: 半导体设备材料零部件的筛选标准要从“沾边国产替代”收窄到客户导入、订单、业绩释放和国产替代壁垒。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/半导体产业链
+      - 市场分析/半导体设备
+      - 市场分析/半导体设备零部件
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-007
+  source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-23T12:21:17+08:00"
+  claim_type: sector-theme
+  subject: Micro LED光互联
+  timeframe: trend
+  statement: Micro LED光互联采用大量并行低速光学通道替代少数高速通道，是显示技术向AI算力基础设施迁移的新范式，但仍处于验证和早期导入阶段。
+  evidence_quote: "Micro LED 光互联的思路，是采用大量并行低速光学通道，替代少数高速通道，即“宽而慢”的架构。"
+  interpretation: 该方向应按早期产业分支跟踪，重点看客户验证、样品交付、小批量订单、良率和成本下降，不能直接按成熟订单主线定价。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/玻璃基板与Micro-LED
+      - 市场分析/光通信
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-008
+  source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-23T12:21:17+08:00"
+  claim_type: stock-view
+  subject: 茂莱光学
+  timeframe: trend
+  statement: 茂莱光学被定位为精密光学平台型公司，横跨光刻机光学、半导体检测和AI光互联，具备跨CPO、OCS、FSO、Micro LED等路线受益的底层能力，但涨幅已大，应长期跟踪而非盲目追高。
+  evidence_quote: "茂莱光学既不是传统意义上的光模块公司，也不是单纯半导体设备公司，而是一家以精密光学为底层能力，同时横跨半导体光刻、前道量检测和 AI 光互联的高端光学平台型公司。"
+  interpretation: 茂莱光学的关键不是单一题材弹性，而是高精密光学能力在半导体和光互联之间迁移；交易上仍需尊重位置和估值风险。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/光通信
+      - 市场分析/玻璃基板与Micro-LED
+      - 市场分析/半导体设备零部件
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-009
+  source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-23T12:21:17+08:00"
+  claim_type: methodology
+  subject: 光测试仪器铲子股
+  timeframe: trend
+  statement: 光模块从800G升级到1.6T、3.2T后，每一代都需要新的测试设备验证信号质量、误码率、眼图和链路稳定性，光测试仪器是光通信升级中的铲子股方向。
+  evidence_quote: "光模块从 800G 升级到 1.6T，再到未来 3.2T，测试难度会显著提升。每一代光模块升级，都需要新一代测试设备验证。"
+  interpretation: 光通信分析不能只看光模块本体，也要把测试仪器、工业相机、精密光学检测等产线和验证环节纳入扩散链条。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/光通信
+    methodology_pages:
+      - 投资方法论/主线判断
+    cases: []

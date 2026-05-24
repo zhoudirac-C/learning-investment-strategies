@@ -1,0 +1,173 @@
+- id: claim-20260523-010
+  source_path: sources/raw/财经/视频：26-05-23：2028那场必来的危机，AI资本狂潮的终局推演.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-24T14:06:46+08:00"
+  claim_type: macro
+  subject: AI资本开支宏观冲击链
+  timeframe: industry
+  statement: UP认为AI资本开支已成为美国经济边际增长的重要流量来源，一旦资本开支大幅收缩，会经产业链、就业、消费、信心和债务螺旋传导到实体经济。
+  evidence_quote: "如果2028年AI资本开支腰斩3500亿美元，UP推演的冲击路径是：第一波冲击产业链，第二波冲击就业，第三波冲击消费，信心崩塌，债务螺旋。"
+  interpretation: 这不是A股日内交易信号，而是AI硬件链长期压力测试变量。后续分析AI服务器、PCB、MLCC、ABF、存储、电源液冷时，需要同步观察云厂商资本开支和AI公司收入兑现。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/AI资本开支周期与泡沫风险
+      - 市场分析/AI上游涨价链
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-011
+  source_path: sources/raw/财经/视频：26-05-23：2028那场必来的危机，AI资本狂潮的终局推演.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-24T14:06:46+08:00"
+  claim_type: risk
+  subject: GPU短寿命抵押品风险
+  timeframe: industry
+  statement: GPU被UP定义为经济寿命较短的资本品，若被金融体系作为抵押品循环加杠杆，二手价格下跌会触发抵押品贬值、补保证金、抛售和融资条件恶化的负反馈。
+  evidence_quote: "GPU在AI泡沫中不是稳定抵押品，更像高速贬值的短寿命资本品。"
+  interpretation: 该观点要求把GPU、服务器和AI机柜从“长期资产”改按高折旧、高技术替代和现金流覆盖来评估；算力租赁公司尤其要看利用率、租金、折旧和债务压力。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/AI资本开支周期与泡沫风险
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-012
+  source_path: sources/raw/财经/视频：26-05-23：2028那场必来的危机，AI资本狂潮的终局推演.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-24T14:06:46+08:00"
+  claim_type: methodology
+  subject: 技术革命导入期与展开期
+  timeframe: permanent
+  statement: UP借用技术革命周期框架，认为AI泡沫破裂并不等于AI技术失败，而可能是导入期结束、算力价格下降并进入普及展开期的前置过程。
+  evidence_quote: "危机本身不是AI技术结束，而是技术革命导入期向展开期切换的必经阶段。泡沫破裂后，算力价格下跌，AI才可能真正普及。"
+  interpretation: 该框架用于避免把高资本开支泡沫和技术长期价值混为一谈：短期资产价格可能回撤，长期产业普及可能继续推进。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/AI资本开支周期与泡沫风险
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-013
+  source_path: sources/raw/财经/视频：26-05-23：2028那场必来的危机，AI资本狂潮的终局推演.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-24T14:06:46+08:00"
+  claim_type: risk
+  subject: 摩尔定律衰减与ROI压力
+  timeframe: industry
+  statement: UP认为VR200价格大幅提升同时反映AI硬件景气和ROI压力，摩尔定律衰减后性能提升越来越依赖堆料，客户对投资回报会更敏感。
+  evidence_quote: "UP将这种状态定义为“需求增长但成本无法下降”的反身性陷阱。客户对ROI会越来越严苛，一旦算不回账，订单就可能快速收缩。"
+  interpretation: Rubin BOM涨价短中期利好组件价值量，但越到后期越要检查终端客户ROI、资本开支指引和实际订单，不能把BOM涨价线性外推为永久景气。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/AI资本开支周期与泡沫风险
+      - 市场分析/AI上游涨价链
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-014
+  source_path: sources/raw/财经/视频：26-05-23：2028那场必来的危机，AI资本狂潮的终局推演.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-24T14:06:46+08:00"
+  claim_type: macro
+  subject: 中国AI普及阶段优势
+  timeframe: industry
+  statement: UP推演中国在AI普及阶段可能凭借低成本模型、电力基建、完整产业链和国产替代获得相对优势，但其中出货、EUV和全球份额等数字需要后续核验。
+  evidence_quote: "AI普及需要白菜价硬件、白菜价电力、白菜价产业链和普惠式应用打法，而这些都是中国的优势。"
+  interpretation: 该观点可以作为国产算力、国产GPU、低成本AI应用和电力基础设施的长期观察背景，但不能直接替代订单、出货、生态和财务验证。
+  confidence: low
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/AI资本开支周期与泡沫风险
+      - 市场分析/国产CPU_GPU与软件
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-015
+  source_path: sources/raw/财经/视频：26-05-23：2028那场必来的危机，AI资本狂潮的终局推演.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-24T14:06:46+08:00"
+  claim_type: risk
+  subject: AI泡沫七个监控信号
+  timeframe: industry
+  statement: UP把台积电先进制程利用率、HBM价差、英伟达收入、云厂商资本开支、GPU租赁公司债券利差、H100二手价和中国EUV验证列为AI泡沫转向危机的长期监控信号。
+  evidence_quote: "这些信号不是当下交易信号，而是判断AI泡沫是否从估值压力进入金融危机传导的长期监控指标。"
+  interpretation: 后续跟踪AI硬件主线时，应把这七类指标作为长期风险面板；只有多项同步恶化，才上修为系统性风险，而非单项波动就否定主线。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/AI资本开支周期与泡沫风险
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260523-016
+  source_path: sources/raw/财经/视频：26-05-23：2028那场必来的危机，AI资本狂潮的终局推演.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-24T14:06:46+08:00"
+  claim_type: methodology
+  subject: 个人现金流韧性
+  timeframe: permanent
+  statement: UP强调普通人应对技术泡沫危机的核心不是猜顶，而是不要把巅峰收入当长期收入，尤其AI产业链从业者要准备12-18个月现金储备并培养可迁移能力。
+  evidence_quote: "身处AI产业链的人，收入高但波动也大。UP建议准备12-18个月生活费现金，培养可迁移技能。"
+  interpretation: 这是个人财务和仓位管理底线：先保证现金流安全，再参与高波动科技周期，避免系统性回撤时因现金流断裂被迫卖出。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/AI资本开支周期与泡沫风险
+    methodology_pages:
+      - 投资方法论/仓位管理
+    cases: []
+
+- id: claim-20260523-017
+  source_path: sources/raw/财经/视频：26-05-23：2028那场必来的危机，AI资本狂潮的终局推演.md
+  source_date: "2026-05-23"
+  source_type: 视频
+  extracted_at: "2026-05-24T14:06:46+08:00"
+  claim_type: methodology
+  subject: AI硬件主线长周期压力测试
+  timeframe: trend
+  statement: 2028危机推演不等于当前立刻看空AI硬件，短中期仍看周期、量能、主线强度和订单兑现；长期则必须把资本开支、GPU二手价和融资条件纳入估值压力测试。
+  evidence_quote: "危机监控要提前做，但不等于现在立刻看空AI。短中期交易仍要看市场周期、量能、主线强度和板块扩散。"
+  interpretation: 该规则适合进入分析框架：既保留AI硬件主线的交易机会，也防止在泡沫后期把周期性高景气误认为永久增长。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/AI资本开支周期与泡沫风险
+      - 市场分析/AI上游涨价链
+    methodology_pages:
+      - 投资方法论/仓位管理
+    cases: []

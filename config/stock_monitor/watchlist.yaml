@@ -1,4 +1,4 @@
-updated_at: "2026-05-22"
+updated_at: "2026-05-23"
 
 themes:
   - id: "domestic_compute"
@@ -137,3 +137,379 @@ themes:
         role: "watch"
         segment: "液冷/温控"
         watch_reason: "算力基础设施温控方向观察样本。"
+
+  - id: "rubin_pcb_abf_mainboard"
+    name: "Rubin PCB/ABF/CCL主板观察池"
+    tradability: "mainboard_only"
+    source_docs:
+      - "knowledge/wiki/市场分析/AI上游涨价链.md"
+      - "knowledge/wiki/市场分析/PCB与先进封装.md"
+      - "sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md"
+      - "docs/标的深度研究/主板-方向二：国产算力产业链个股分析报告-20260518.html"
+    market_checks:
+      - "PCB/ABF/CCL是否强于半导体平均修复"
+      - "板块是否由容量票带队，而不是单只小票一字"
+      - "Rubin BOM扩散是否从PCB延伸到载板、CCL和材料"
+    stocks:
+      - code: "002916.SZ"
+        name: "深南电路"
+        role: "capacity_core"
+        segment: "ABF/FC-BGA载板/高端PCB"
+        watch_reason: "主板ABF/FC-BGA载板容量核心；只等板块分歧后放量收回分时均线，不追一致高开。"
+        confirm_with: ["兴森科技", "沪电股份", "生益科技"]
+        buy_setup:
+          - "PCB/ABF主板组强于全A且红盘家数扩散"
+          - "个股回踩不破前一交易日低点或关键均线"
+          - "分时放量拐头，后一个反弹峰超过前峰"
+        sell_setup:
+          - "板块高开低走且容量票同步放量回落"
+          - "跌破分歧低点后不能收回"
+
+      - code: "002436.SZ"
+        name: "兴森科技"
+        role: "elastic_abf_substrate"
+        segment: "BT/ABF载板"
+        watch_reason: "主板ABF/BT载板弹性标的；介入点必须看换手承接和客户/良率验证预期。"
+        confirm_with: ["深南电路", "通富微电", "生益科技"]
+        buy_setup:
+          - "深南电路等容量锚稳定，兴森科技放量跟随而非单独脉冲"
+          - "高开不追，等回踩分时均线后再次放量"
+        sell_setup:
+          - "载板链扩散失败，个股冲高回落"
+          - "低位弹性变成纯概念补涨"
+
+      - code: "002463.SZ"
+        name: "沪电股份"
+        role: "pcb_mid_core"
+        segment: "AI服务器高端PCB"
+        watch_reason: "AI服务器PCB中军；适合看分歧低吸确认，不适合追高潮。"
+        confirm_with: ["深南电路", "生益科技", "金安国纪"]
+        buy_setup:
+          - "AI硬件修复由PCB/CCL主动带队"
+          - "缩量回踩后放量收回分时均线"
+        sell_setup:
+          - "PCB组强但沪电明显弱于板块"
+
+      - code: "600183.SH"
+        name: "生益科技"
+        role: "ccl_core"
+        segment: "高速覆铜板/CCL"
+        watch_reason: "M7/M8高速材料升级核心观察；适合做容量确认锚。"
+        confirm_with: ["沪电股份", "深南电路", "华正新材"]
+        buy_setup:
+          - "CCL材料与PCB同向扩散"
+          - "放量突破日内前高后回踩不破"
+        sell_setup:
+          - "材料链不能跟随PCB扩散"
+
+      - code: "603186.SH"
+        name: "华正新材"
+        role: "ccl_abf_material_watch"
+        segment: "高频高速覆铜板/CBF积层膜"
+        watch_reason: "兼具CCL和类ABF材料替代预期；只在材料侧有换手承接时观察。"
+        confirm_with: ["生益科技", "宏昌电子", "中京电子"]
+        buy_setup:
+          - "ABF材料/CCL分支出现板块级承接"
+          - "个股充分换手后收回分时均线"
+        sell_setup:
+          - "只靠材料概念冲高，未出现客户验证或板块联动"
+
+      - code: "603002.SH"
+        name: "宏昌电子"
+        role: "abf_material_speculative"
+        segment: "环氧树脂/增层膜合作研发"
+        watch_reason: "ABF材料合作研发映射，题材弹性强但验证难度高；只看换手后的低吸确认。"
+        confirm_with: ["华正新材", "中京电子", "莲花控股"]
+        buy_setup:
+          - "ABF材料组不是单点一字，至少两只主板票换手承接"
+          - "回踩后重新放量站上分时均线"
+        sell_setup:
+          - "公告型高开低走"
+          - "材料侧无客户验证进展"
+
+      - code: "605589.SH"
+        name: "圣泉集团"
+        role: "advanced_material_watch"
+        segment: "电子树脂/HBM封装材料"
+        watch_reason: "先进封装材料补充观察；只在AI电子材料扩散时参与观察。"
+        confirm_with: ["宏昌电子", "华正新材", "生益科技"]
+
+  - id: "mlcc_power_components_mainboard"
+    name: "MLCC/被动元件/电源链主板观察池"
+    tradability: "mainboard_only"
+    source_docs:
+      - "knowledge/wiki/市场分析/AI上游涨价链.md"
+      - "knowledge/wiki/市场分析/AI电源与超级电容.md"
+      - "sources/raw/财经/复盘：26-05-19：左侧止跌拐点，情绪带指数修复，AI上游涨价链成暗线.md"
+    market_checks:
+      - "MLCC、超级电容、电源链是否形成组内联动"
+      - "是否属于AI硬件主线内部高低切，而不是防御轮动"
+      - "核心票是否放量突破后仍有承接"
+    stocks:
+      - code: "000636.SZ"
+        name: "风华高科"
+        role: "mlcc_mainboard_core"
+        segment: "MLCC/被动元件"
+        watch_reason: "UP明确提到的AI服务器MLCC国产龙头；等涨价链分歧低吸确认。"
+        confirm_with: ["洁美科技", "博迁新材"]
+        buy_setup:
+          - "MLCC组强于AI硬件平均修复"
+          - "个股不追高，回踩承接后放量上穿分时均线"
+        sell_setup:
+          - "海外涨价预期未能带动A股组内扩散"
+
+      - code: "002859.SZ"
+        name: "洁美科技"
+        role: "mlcc_upstream_material"
+        segment: "载带/离型膜/精密光学延伸"
+        watch_reason: "MLCC上游材料与光刻机镜头加工设备预期叠加；只看趋势内分歧。"
+        confirm_with: ["风华高科", "博迁新材"]
+        buy_setup:
+          - "风华高科稳住，洁美科技缩量回踩后再放量"
+          - "不能在连续加速后追高"
+        sell_setup:
+          - "跌破趋势平台且不能快速收回"
+
+      - code: "605376.SH"
+        name: "博迁新材"
+        role: "passive_material_watch"
+        segment: "电子材料/被动元件上游"
+        watch_reason: "被动元件上游材料观察样本；只作为MLCC扩散确认，不单独重仓。"
+        confirm_with: ["风华高科", "洁美科技"]
+
+      - code: "002484.SZ"
+        name: "江海股份"
+        role: "supercapacitor_core"
+        segment: "超级电容/铝电容"
+        watch_reason: "AI电源与超级电容观察锚；只有放量突破并带动电源链才上修。"
+        confirm_with: ["东阳光", "思源电气", "海星股份"]
+        buy_setup:
+          - "AI电源/超级电容组率先翻红"
+          - "江海股份放量突破日内高点后回踩不破"
+        sell_setup:
+          - "只有单票冲高，电源链无扩散"
+
+      - code: "600673.SH"
+        name: "东阳光"
+        role: "ai_power_chain"
+        segment: "电容材料/AI电源链"
+        watch_reason: "AI电源链主板观察；用于确认电源和被动元件是否扩散。"
+        confirm_with: ["江海股份", "海星股份", "思源电气"]
+
+      - code: "603115.SH"
+        name: "海星股份"
+        role: "electrode_foil_core"
+        segment: "电极箔/电容材料"
+        watch_reason: "AI服务器供电架构升级受益链；适合看涨价链低位轮动。"
+        confirm_with: ["江海股份", "东阳光"]
+
+      - code: "002028.SZ"
+        name: "思源电气"
+        role: "hvdc_power_equipment"
+        segment: "电力设备/HVDC"
+        watch_reason: "HVDC与供电链容量观察；科技修复失败时若单独走强，要按防御轮动降级。"
+        confirm_with: ["江海股份", "东阳光"]
+
+      - code: "002518.SZ"
+        name: "科士达"
+        role: "data_center_power"
+        segment: "UPS/储能/数据中心电源"
+        watch_reason: "数据中心电源与储能主板样本；只在AI电源链扩散时观察。"
+        confirm_with: ["英维克", "江海股份", "思源电气"]
+
+  - id: "mainboard_compute_software"
+    name: "国产CPU/服务器/基础软件主板观察池"
+    tradability: "mainboard_only"
+    source_docs:
+      - "knowledge/wiki/市场分析/国产CPU_GPU与软件.md"
+      - "sources/raw/财经/周复盘：26-05-10：特朗普访华，六张牌交易框架，4200攻防，国产算力主线.md"
+      - "sources/raw/财经/复盘：26-05-11：周末复盘补充，一超多强格局，电子布卓郎智能，Token工厂，算力网国常会.md"
+    market_checks:
+      - "半导体减仓资金是否回流国产CPU/服务器/基础软件"
+      - "中国长城是否能成为信创/CPU方向先锋"
+      - "软件方向是否只是轮动，还是有硬件主线配合"
+    stocks:
+      - code: "000066.SZ"
+        name: "中国长城"
+        role: "cpu_xinchuang_pioneer"
+        segment: "信创/CPU联动"
+        watch_reason: "UP多次提到的信创/CPU联动先锋；只等低开收阳或分时确认，不追一字加速。"
+        confirm_with: ["中国软件", "中科曙光", "浪潮信息"]
+        buy_setup:
+          - "国产CPU/信创组强于半导体平均修复"
+          - "低开或分歧后收回分时均线"
+          - "中国软件或服务器整机同步承接"
+        sell_setup:
+          - "先锋断板后无承接，软件组跟随回落"
+
+      - code: "603019.SH"
+        name: "中科曙光"
+        role: "server_capacity"
+        segment: "国产服务器/算力基础设施"
+        watch_reason: "国产算力硬件容量票；看服务器整机是否承接半导体减仓资金。"
+        confirm_with: ["浪潮信息", "紫光股份", "中兴通讯"]
+
+      - code: "000977.SZ"
+        name: "浪潮信息"
+        role: "server_core"
+        segment: "AI服务器/整机"
+        watch_reason: "服务器整机中军；只在国产算力硬件扩散时观察。"
+        confirm_with: ["中科曙光", "紫光股份", "中兴通讯"]
+
+      - code: "000938.SZ"
+        name: "紫光股份"
+        role: "network_server_watch"
+        segment: "服务器/网络设备"
+        watch_reason: "国产算力硬件配套观察；需要和服务器整机组联动。"
+        confirm_with: ["浪潮信息", "中兴通讯"]
+
+      - code: "000063.SZ"
+        name: "中兴通讯"
+        role: "ict_capacity"
+        segment: "ICT设备/服务器网络"
+        watch_reason: "ICT容量锚，用于判断国产算力硬件是否有大票承接。"
+        confirm_with: ["紫光股份", "浪潮信息"]
+
+      - code: "002230.SZ"
+        name: "科大讯飞"
+        role: "ai_software_mid"
+        segment: "AI大模型/昇腾生态软件"
+        watch_reason: "软件生态中军；软件方向只能按轮动看，不作为硬件主线底仓。"
+        confirm_with: ["中国软件", "海量数据", "中国长城"]
+        buy_setup:
+          - "软件组跟随国产算力硬件扩散，而不是单独脉冲"
+          - "放量站上分时均线后回踩不破"
+        sell_setup:
+          - "软件冲高但硬件主线不同步"
+
+      - code: "600536.SH"
+        name: "中国软件"
+        role: "os_platform"
+        segment: "国产操作系统/基础软件"
+        watch_reason: "国产操作系统平台映射；适合观察信创软件轮动强度。"
+        confirm_with: ["中国长城", "科大讯飞", "海量数据"]
+
+      - code: "603138.SH"
+        name: "海量数据"
+        role: "database_watch"
+        segment: "国产数据库"
+        watch_reason: "国产数据库主板观察；只在基础软件组出现板块级承接时观察。"
+        confirm_with: ["中国软件", "科大讯飞"]
+
+  - id: "advanced_packaging_mainboard"
+    name: "先进封装/存储封测主板观察池"
+    tradability: "mainboard_only"
+    source_docs:
+      - "knowledge/wiki/市场分析/半导体产业链.md"
+      - "knowledge/wiki/市场分析/长鑫存储产业链.md"
+      - "docs/标的深度研究/主板-方向一：长鑫存储产业链全景梳理-20260518.md"
+    market_checks:
+      - "半导体修复是否从权重扩散到封测"
+      - "长鑫链是否仍由设备/材料/封测共同承接"
+      - "封测票是否强于后排概念"
+    stocks:
+      - code: "002156.SZ"
+        name: "通富微电"
+        role: "advanced_packaging_elastic"
+        segment: "AMD/AI CPU封测/先进封装"
+        watch_reason: "AI CPU封测核心重估方向；只等先进封装扩散和分时确认。"
+        confirm_with: ["长电科技", "深科技", "华天科技"]
+        buy_setup:
+          - "先进封装组强于半导体平均修复"
+          - "通富微电放量承接而不是冲高回落"
+        sell_setup:
+          - "先进封装扩散失败，个股高开低走"
+
+      - code: "600584.SH"
+        name: "长电科技"
+        role: "packaging_capacity_core"
+        segment: "封测龙头/Chiplet"
+        watch_reason: "先进封装容量中军；用于判断封测方向是否有机构承接。"
+        confirm_with: ["通富微电", "深科技", "华天科技"]
+
+      - code: "002371.SZ"
+        name: "北方华创"
+        role: "semicap_equipment_mainboard_core"
+        segment: "半导体设备"
+        watch_reason: "主板半导体设备容量核心；作为科技主线修复质量锚，不追高加速。"
+        confirm_with: ["兆易创新", "深科技", "雅克科技"]
+
+      - code: "603986.SH"
+        name: "兆易创新"
+        role: "storage_mid_core"
+        segment: "存储/MCU"
+        watch_reason: "存储链主板中军；观察长鑫链是否由情绪炒作回到中军承接。"
+        confirm_with: ["深科技", "北方华创", "雅克科技"]
+
+  - id: "micro_led_optics_mainboard"
+    name: "Micro-LED/光互联/精密光学主板观察池"
+    tradability: "mainboard_only"
+    source_docs:
+      - "knowledge/wiki/市场分析/玻璃基板与Micro-LED.md"
+      - "knowledge/wiki/市场分析/光通信.md"
+      - "sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md"
+    market_checks:
+      - "Micro-LED光互联是否从远期题材走出换手承接"
+      - "光互联是否和AI硬件主线同向，而不是单纯公告刺激"
+      - "光通信高位分化时，低位光学是否承接但不过度追高"
+    stocks:
+      - code: "002429.SZ"
+        name: "兆驰股份"
+        role: "micro_led_chain"
+        segment: "LED/光通信延伸"
+        watch_reason: "Micro-LED光互联主板映射；远期题材，只看换手承接。"
+        confirm_with: ["水晶光电", "福晶科技", "奥普光电"]
+        buy_setup:
+          - "Micro-LED/光互联组不是一字后炸板，而是换手后回流"
+          - "AI硬件主线没有同步破位"
+        sell_setup:
+          - "公告刺激高开低走"
+
+      - code: "002273.SZ"
+        name: "水晶光电"
+        role: "optics_watch"
+        segment: "光学元件/微透镜映射"
+        watch_reason: "光学主板观察样本；用于判断精密光学扩散强度。"
+        confirm_with: ["兆驰股份", "福晶科技", "奥普光电"]
+
+      - code: "002222.SZ"
+        name: "福晶科技"
+        role: "precision_optics_watch"
+        segment: "精密光学/晶体材料"
+        watch_reason: "光刻机供应链与精密光学主板映射；只看板块共振。"
+        confirm_with: ["水晶光电", "奥普光电"]
+
+      - code: "002338.SZ"
+        name: "奥普光电"
+        role: "precision_optics_watch"
+        segment: "精密光学"
+        watch_reason: "精密光学主板弹性样本；不单独追高，只跟随光学组确认。"
+        confirm_with: ["福晶科技", "水晶光电"]
+
+      - code: "001267.SZ"
+        name: "汇绿生态"
+        role: "light_communication_elastic"
+        segment: "光通信补涨"
+        watch_reason: "光通信补涨观察，纯后排属性更强；只看核心光通信稳住后的低位轮动。"
+        confirm_with: ["长飞光纤", "亨通光电", "中天科技"]
+
+      - code: "601869.SH"
+        name: "长飞光纤"
+        role: "fiber_core"
+        segment: "光纤光缆/空芯光纤"
+        watch_reason: "光纤材料主板容量观察；看AI数据中心光互联扩散。"
+        confirm_with: ["亨通光电", "中天科技"]
+
+      - code: "600487.SH"
+        name: "亨通光电"
+        role: "fiber_cable_core"
+        segment: "光纤光缆/海缆"
+        watch_reason: "光通信与光纤主板中军；用于确认光通信是否仍有承接。"
+        confirm_with: ["长飞光纤", "中天科技"]
+
+      - code: "600522.SH"
+        name: "中天科技"
+        role: "fiber_cable_capacity"
+        segment: "光纤光缆/海缆"
+        watch_reason: "光通信主板容量锚；只在光纤光缆组扩散时观察。"
+        confirm_with: ["长飞光纤", "亨通光电"]

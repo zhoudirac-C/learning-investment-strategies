@@ -10,7 +10,11 @@ from qing_investment.index_builder import write_markdown_index
 def main() -> int:
     root = Path.cwd()
     write_markdown_index(root / "knowledge" / "wiki", "Wiki Index")
-    write_markdown_index(root / "knowledge" / "claims", "Claims Index")
+    write_markdown_index(
+        root / "knowledge" / "claims",
+        "Claims Index",
+        extensions=(".md", ".yaml", ".yml"),
+    )
     write_markdown_index(root / "knowledge" / "cases", "Cases Index")
     print("indexes rebuilt")
     return 0
