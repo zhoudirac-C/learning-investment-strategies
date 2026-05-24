@@ -27,7 +27,7 @@ git checkout master
 uv sync
 ```
 
-If the cloud path is not `/Users/cong.zhou/Documents/quantitative/learning-investment-strategies`, set:
+Set the cloud repository path explicitly:
 
 ```bash
 export HERMES_REPO_ROOT=/path/to/learning-investment-strategies

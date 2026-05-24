@@ -2,20 +2,29 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from pathlib import Path
 
 from qing_investment.legacy_migration import migrate_legacy_up_raw
 
-DEFAULT_LEGACY_ROOT = Path("/Users/cong.zhou/Documents/quantitative/赛博青哥wiki")
-
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--legacy-root", type=Path, default=DEFAULT_LEGACY_ROOT)
+    parser.add_argument(
+        "--legacy-root",
+        type=Path,
+        default=Path(os.environ["QING_LEGACY_UP_RAW_ROOT"]).expanduser()
+        if os.environ.get("QING_LEGACY_UP_RAW_ROOT")
+        else None,
+        help="Legacy UP raw root. Defaults to QING_LEGACY_UP_RAW_ROOT.",
+    )
     parser.add_argument("--target-root", type=Path, default=Path.cwd())
     parser.add_argument("--min-raw", type=int, default=387)
     args = parser.parse_args()
+
+    if args.legacy_root is None:
+        parser.error("set --legacy-root or QING_LEGACY_UP_RAW_ROOT")
 
     manifest = migrate_legacy_up_raw(args.legacy_root, args.target_root)
     print(f"scope={manifest['scope']}")

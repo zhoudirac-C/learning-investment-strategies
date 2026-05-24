@@ -2,12 +2,17 @@
 
 import subprocess
 import os
+from pathlib import Path
 
 
-REPO_ROOT = os.environ.get(
-    "HERMES_REPO_ROOT",
-    "/Users/cong.zhou/Documents/quantitative/learning-investment-strategies",
-)
+def repo_root() -> str:
+    configured = os.environ.get("HERMES_REPO_ROOT")
+    if configured:
+        return configured
+    cwd = Path.cwd()
+    if (cwd / "scripts" / "stock_monitor.py").exists():
+        return str(cwd)
+    return str(Path(__file__).resolve().parents[1])
 
 
 def main():
@@ -19,7 +24,7 @@ def main():
         "--live-analysis-context",
         "--ignore-trading-time",
     ]
-    return subprocess.call(command, cwd=REPO_ROOT)
+    return subprocess.call(command, cwd=repo_root())
 
 
 if __name__ == "__main__":

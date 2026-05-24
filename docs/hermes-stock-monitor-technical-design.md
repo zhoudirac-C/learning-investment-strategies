@@ -240,7 +240,7 @@ The formal job should run in no-agent mode:
 ```bash
 hermes cron create "*/10 * * * *" \
   --name "A股持仓与观察池监控" \
-  --workdir /Users/cong.zhou/Documents/quantitative/learning-investment-strategies \
+  --workdir "$HERMES_REPO_ROOT" \
   --script qing_stock_monitor.py \
   --no-agent \
   --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat
@@ -257,7 +257,7 @@ For one-off live analysis tests:
 hermes cron create "*/10 * * * *" \
   "基于脚本输出的实时行情、持仓、观察池和策略包，按AGENTS.md与qing-stock-analysis框架做一次简短分析。必须报告：行情请求耗时、整体判断、持仓分层、下一交易时段微信提醒触发条件、证伪条件。不要给无条件买卖指令。" \
   --name "A股监控分析一次性测试" \
-  --workdir /Users/cong.zhou/Documents/quantitative/learning-investment-strategies \
+  --workdir "$HERMES_REPO_ROOT" \
   --script qing_stock_monitor_analysis.py \
   --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat \
   --repeat 1

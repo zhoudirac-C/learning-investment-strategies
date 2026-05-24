@@ -37,6 +37,6 @@ The stock monitor configuration lives in `config/stock_monitor/`.
 - `strategy_pack.yaml`: reusable monitoring rules extracted from the local
   methodology and recent reviews.
 
-When running from Hermes cron, always set the workdir to this repository:
-
-`/Users/cong.zhou/Documents/quantitative/learning-investment-strategies`
+When running from Hermes cron, always set the workdir to this repository root.
+For local and cloud installs, prefer setting `HERMES_REPO_ROOT` to that path and
+using it as the cron workdir.

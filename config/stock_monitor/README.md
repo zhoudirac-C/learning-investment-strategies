@@ -42,9 +42,11 @@ uv run python scripts/stock_monitor.py --daily-review-context
 Hermes cron should call the symlinked script under `~/.hermes/scripts`:
 
 ```bash
+export HERMES_REPO_ROOT=/path/to/learning-investment-strategies
+
 hermes cron create "*/10 * * * *" \
   --name "A股持仓与观察池监控" \
-  --workdir /Users/cong.zhou/Documents/quantitative/learning-investment-strategies \
+  --workdir "$HERMES_REPO_ROOT" \
   --script qing_stock_monitor.py \
   --no-agent \
   --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat
@@ -92,14 +94,14 @@ Example fixed-time Hermes jobs:
 ```bash
 hermes cron create "26 9 * * 1-5" \
   --name "A股大模型分析-集合竞价后" \
-  --workdir /Users/cong.zhou/Documents/quantitative/learning-investment-strategies \
+  --workdir "$HERMES_REPO_ROOT" \
   --script qing_stock_monitor_agent.py \
   --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat \
   "根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令。"
 
 hermes cron create "45 9 * * 1-5" \
   --name "A股大模型分析-开盘确认" \
-  --workdir /Users/cong.zhou/Documents/quantitative/learning-investment-strategies \
+  --workdir "$HERMES_REPO_ROOT" \
   --script qing_stock_monitor_agent.py \
   --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat \
   "根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令。"
@@ -124,7 +126,7 @@ Hermes should run it after the close with the agent enabled:
 ```bash
 hermes cron create "20 15 * * 1-5" \
   --name "A股监控收盘复盘" \
-  --workdir /Users/cong.zhou/Documents/quantitative/learning-investment-strategies \
+  --workdir "$HERMES_REPO_ROOT" \
   --script qing_stock_monitor_daily_review.py \
   --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat \
   "根据脚本输出的收盘复盘上下文，评估今天提醒质量、误报/漏报、去重是否合理，并给出需要调整的YAML配置建议。不要给无条件买卖指令。"
@@ -141,7 +143,7 @@ Temporary live analysis test:
 ```bash
 hermes cron create "*/10 * * * *" \
   --name "A股监控分析测试" \
-  --workdir /Users/cong.zhou/Documents/quantitative/learning-investment-strategies \
+  --workdir "$HERMES_REPO_ROOT" \
   --script qing_stock_monitor_analysis.py \
   --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat \
   --repeat 1 \
