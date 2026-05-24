@@ -2,9 +2,13 @@
 
 import subprocess
 import sys
+import os
 
 
-REPO_ROOT = "/Users/cong.zhou/Documents/quantitative/learning-investment-strategies"
+REPO_ROOT = os.environ.get(
+    "HERMES_REPO_ROOT",
+    "/Users/cong.zhou/Documents/quantitative/learning-investment-strategies",
+)
 
 
 def main():

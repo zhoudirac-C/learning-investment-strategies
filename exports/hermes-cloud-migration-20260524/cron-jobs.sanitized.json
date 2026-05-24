@@ -1,0 +1,72 @@
+{
+  "exported_at": "2026-05-24T15:30:00+08:00",
+  "source": "~/.hermes/cron/jobs.json",
+  "repo_branch": "master",
+  "workdir_placeholder": "${HERMES_REPO_ROOT}",
+  "deliver_placeholder": "${HERMES_DELIVER_TARGET}",
+  "jobs": [
+    {
+      "name": "A股持仓与观察池监控",
+      "schedule": "*/10 * * * *",
+      "script": "qing_stock_monitor.py",
+      "no_agent": true,
+      "prompt": ""
+    },
+    {
+      "name": "A股大模型分析-集合竞价后",
+      "schedule": "26 9 * * 1-5",
+      "script": "qing_stock_monitor_agent.py",
+      "no_agent": false,
+      "prompt": "根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令，必须写触发条件、证伪条件和下一次观察时间。"
+    },
+    {
+      "name": "A股大模型分析-开盘确认",
+      "schedule": "45 9 * * 1-5",
+      "script": "qing_stock_monitor_agent.py",
+      "no_agent": false,
+      "prompt": "根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令，必须写触发条件、证伪条件和下一次观察时间。"
+    },
+    {
+      "name": "A股大模型分析-30分钟确认",
+      "schedule": "30 10 * * 1-5",
+      "script": "qing_stock_monitor_agent.py",
+      "no_agent": false,
+      "prompt": "根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令，必须写触发条件、证伪条件和下一次观察时间。"
+    },
+    {
+      "name": "A股大模型分析-上午收盘前",
+      "schedule": "25 11 * * 1-5",
+      "script": "qing_stock_monitor_agent.py",
+      "no_agent": false,
+      "prompt": "根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令，必须写触发条件、证伪条件和下一次观察时间。"
+    },
+    {
+      "name": "A股大模型分析-午后风险窗口",
+      "schedule": "30 13 * * 1-5",
+      "script": "qing_stock_monitor_agent.py",
+      "no_agent": false,
+      "prompt": "根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令，必须写触发条件、证伪条件和下一次观察时间。"
+    },
+    {
+      "name": "A股大模型分析-尾盘条件单",
+      "schedule": "55 14 * * 1-5",
+      "script": "qing_stock_monitor_agent.py",
+      "no_agent": false,
+      "prompt": "根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令，必须写触发条件、证伪条件和下一次观察时间。"
+    },
+    {
+      "name": "A股大模型分析-收盘复盘",
+      "schedule": "5 15 * * 1-5",
+      "script": "qing_stock_monitor_agent.py",
+      "no_agent": false,
+      "prompt": "根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令，必须写触发条件、证伪条件和下一次观察时间。"
+    },
+    {
+      "name": "A股监控收盘复盘",
+      "schedule": "20 15 * * 1-5",
+      "script": "qing_stock_monitor_daily_review.py",
+      "no_agent": false,
+      "prompt": "根据脚本输出的收盘复盘上下文，评估今天提醒质量、误报/漏报、去重是否合理，并给出需要调整的YAML配置建议。不要给无条件买卖指令。"
+    }
+  ]
+}

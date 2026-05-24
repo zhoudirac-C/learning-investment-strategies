@@ -1,0 +1,34 @@
+# Private cloud template for config/stock_monitor/positions.yaml.
+# Fill this on the cloud host. Do not commit real holdings.
+
+accounts:
+  account1:
+    name: 账号1
+    positions:
+      - symbol: "000021"
+        name: 深科技
+        cost: 0
+        shares: 0
+      - symbol: "002156"
+        name: 通富微电
+        cost: 0
+        shares: 0
+  account2:
+    name: 账号2
+    positions:
+      - symbol: "002636"
+        name: 金安国纪
+        cost: 0
+        shares: 0
+      - symbol: "603650"
+        name: 彤程新材
+        cost: 0
+        shares: 0
+      - symbol: "002409"
+        name: 雅克科技
+        cost: 0
+        shares: 0
+      - symbol: "000021"
+        name: 深科技
+        cost: 0
+        shares: 0
