@@ -986,6 +986,32 @@ def watchlist_stock_rows(config: MonitorConfig) -> list[dict]:
     return rows
 
 
+def _string_items(value: object) -> list[str]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return [str(item) for item in value if item not in (None, "")]
+    return [str(value)]
+
+
+def format_watchlist_condition_line(row: dict) -> str:
+    parts: list[str] = []
+    confirm_with = _string_items(row.get("confirm_with"))
+    if confirm_with:
+        parts.append(f"确认锚：{'、'.join(confirm_with)}")
+
+    field_labels = [
+        ("buy_setup", "买入观察"),
+        ("invalidation_setup", "买点失效"),
+        ("sell_setup", "持仓卖出/做T"),
+    ]
+    for field, label in field_labels:
+        items = _string_items(row.get(field))
+        if items:
+            parts.append(f"{label}：{'；'.join(items)}")
+    return " | ".join(parts)
+
+
 def sector_group_rows(config: MonitorConfig) -> list[dict]:
     rows: list[dict] = []
     for group in config.strategy_pack.get("sector_groups", []) or []:
@@ -1314,12 +1340,20 @@ def fetch_tencent_quotes(targets: dict[str, str]) -> dict:
 def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
     """先尝试东方财富，失败则回退到腾讯。"""
     em_result = fetch_eastmoney_quotes(targets)
-    if em_result.get("quotes") or not em_result.get("errors"):
+    em_quotes = em_result.get("quotes", []) or []
+    em_errors = em_result.get("errors", []) or []
+    if not em_errors and len(em_quotes) >= len(targets):
         return em_result
+
     # 东方财富失败，尝试腾讯
     tencent_result = fetch_tencent_quotes(targets)
-    if tencent_result.get("quotes"):
+    tencent_quotes = tencent_result.get("quotes", []) or []
+    if tencent_quotes:
         return tencent_result
+
+    if em_quotes:
+        return em_result
+
     # 都失败，返回东方财富的错误信息
     return em_result
 
@@ -1345,6 +1379,11 @@ def format_status_message(config: MonitorConfig, value: datetime) -> str:
     positions = position_rows(config)
     watch_stocks = watchlist_stock_rows(config)
     theme_count = len(config.watchlist.get("themes", []) or [])
+    buy_setup_count = sum(1 for row in watch_stocks if row.get("buy_setup"))
+    invalidation_setup_count = sum(
+        1 for row in watch_stocks if row.get("invalidation_setup")
+    )
+    sell_setup_count = sum(1 for row in watch_stocks if row.get("sell_setup"))
     stage = (
         config.strategy_pack.get("market_framework", {})
         .get("current_stage", "未配置")
@@ -1361,6 +1400,9 @@ def format_status_message(config: MonitorConfig, value: datetime) -> str:
             f"持仓条目：{len(positions)}",
             f"观察主题：{theme_count}",
             f"观察标的：{unique_stock_count(watch_stocks)}",
+            f"观察池买入条件：{buy_setup_count}",
+            f"观察池买点失效条件：{invalidation_setup_count}",
+            f"持仓卖出/做T条件：{sell_setup_count}",
             f"当前框架：{stage}",
             "提醒策略：默认只在触发条件时输出；空输出表示静默。",
         ]
@@ -1422,6 +1464,9 @@ def format_analysis_context(config: MonitorConfig, value: datetime) -> str:
                 reason=row.get("watch_reason", ""),
             )
         )
+        condition_line = format_watchlist_condition_line(row)
+        if condition_line:
+            lines.append(f"  条件：{condition_line}")
 
     lines.extend(["", "核心规则："])
     for rule in rules:
@@ -1447,7 +1492,7 @@ def format_analysis_context(config: MonitorConfig, value: datetime) -> str:
 
 def format_live_analysis_context(config: MonitorConfig, value: datetime) -> str:
     targets = collect_quote_targets(config)
-    quote_snapshot = fetch_eastmoney_quotes(targets)
+    quote_snapshot = fetch_quotes_with_fallback(targets)
     base_context = format_analysis_context(config, value)
 
     lines = [

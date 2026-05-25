@@ -20,6 +20,7 @@ from qing_investment.stock_monitor import (
     evaluate_sector_rotation_alerts,
     filter_new_alerts,
     fetch_eastmoney_quotes,
+    fetch_quotes_with_fallback,
     find_agent_analysis_trigger,
     format_analysis_context,
     format_agent_analysis_context,
@@ -76,7 +77,17 @@ def make_config_dir(tmp_path: Path) -> Path:
                 {
                     "id": "domestic_compute",
                     "name": "国产算力",
-                    "stocks": [{"code": "000021.SZ", "name": "深科技"}],
+                    "stocks": [
+                        {
+                            "code": "000021.SZ",
+                            "name": "深科技",
+                            "watch_reason": "测试观察",
+                            "confirm_with": ["华天科技"],
+                            "buy_setup": ["站回分时均线"],
+                            "invalidation_setup": ["跌破日内低点"],
+                            "sell_setup": ["持仓T出"],
+                        }
+                    ],
                 }
             ]
         },
@@ -268,6 +279,9 @@ def test_analysis_context_contains_positions_and_rules(tmp_path):
 
     assert "[Hermes股票监控分析上下文]" in message
     assert "深科技(000021.SZ)" in message
+    assert "买入观察：站回分时均线" in message
+    assert "买点失效：跌破日内低点" in message
+    assert "持仓卖出/做T：持仓T出" in message
     assert "当前持仓分层" in message
 
 
@@ -440,6 +454,41 @@ def test_fetch_quotes_splits_failed_chunks_into_smaller_requests(monkeypatch):
     assert len(snapshot["quotes"]) == 2
     assert any("secids=1.000001,1.000002" in url for url in requested_urls)
     assert snapshot["errors"] == []
+
+
+def test_fetch_quotes_with_fallback_uses_tencent_when_eastmoney_partial_errors(
+    monkeypatch,
+):
+    targets = {"上证指数": "1.000001", "深科技(000021.SZ)": "0.000021"}
+
+    def fake_eastmoney(_targets):
+        return {
+            "source": "eastmoney_push2",
+            "quotes": [{"secid": "1.000001", "name": "上证指数"}],
+            "errors": ["chunk failed"],
+        }
+
+    def fake_tencent(_targets):
+        return {
+            "source": "tencent_gtimg",
+            "quotes": [
+                {"secid": "1.000001", "name": "上证指数"},
+                {"secid": "0.000021", "name": "深科技"},
+            ],
+            "errors": [],
+        }
+
+    monkeypatch.setattr(
+        "qing_investment.stock_monitor.fetch_eastmoney_quotes", fake_eastmoney
+    )
+    monkeypatch.setattr(
+        "qing_investment.stock_monitor.fetch_tencent_quotes", fake_tencent
+    )
+
+    snapshot = fetch_quotes_with_fallback(targets)
+
+    assert snapshot["source"] == "tencent_gtimg"
+    assert len(snapshot["quotes"]) == 2
 
 
 def test_parse_price_zone_normalizes_ranges():
