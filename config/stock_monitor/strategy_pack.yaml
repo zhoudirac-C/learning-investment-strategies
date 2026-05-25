@@ -1,14 +1,26 @@
-updated_at: "2026-05-23"
+updated_at: "2026-05-25"
 source_claims:
   - "knowledge/claims/claim-20260522-001.yaml"
   - "knowledge/claims/claim-20260521-003.yaml"
   - "knowledge/claims/claim-20260523-001.yaml"
+  - "knowledge/claims/claim-20260525-006.yaml"
   - "framework/stock-analysis-playbook.md"
   - "framework/market-cycle-framework.md"
+  - "framework/sector-diffusion-framework.md"
 
 market_framework:
-  current_stage: "高位假摔后的修复验证期 + Rubin BOM主板扩散观察期"
-  core_question: "科技主线是否从半导体核心扩散到主板可买的PCB/ABF、MLCC、电源、封测、国产算力和光互联"
+  current_stage: "退潮尾声强修复验证期 + Rubin BOM鱼尾防追高"
+  core_question: "今天的科技修复能否由PCB/MLCC/先进封装/国产算力共同承接，并避免高开后冲高回落"
+  latest_up_bias:
+    source_docs:
+      - "sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md"
+      - "sources/raw/财经/视频：26-05-24：周复盘，美债收益率上行、6月回调与AI硬件黄金坑.md"
+      - "sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md"
+    rules:
+      - "当前修复更接近退潮尾声回暖，不直接定义为新周期。"
+      - "PCB/MLCC周末充分发酵后按鱼尾行情处理，已持仓看承接，没先手不追高。"
+      - "周一周二可持有强势核心观察，周四周五提高保护利润和降仓优先级。"
+      - "指数高开后若成交量不跟或核心主线冲高回落，优先处理弱势和高位卖压持仓。"
   index_rules:
     - name: "short_repair_observation"
       index: "上证指数"
@@ -49,6 +61,7 @@ intraday_schedule:
     rules:
       - "午后冲高无扩散，优先兑现或减亏"
       - "尾盘回落跌破关键位，降低次日预期"
+      - "按UP 5月25日早盘观点，今日需特别防高开后的冲高回落；强修复持仓跌破分时均价时优先保护利润"
 
 agent_analysis_schedule:
   - id: "open_auction"
@@ -106,6 +119,7 @@ position_rules:
       - "单票市值占持仓超过45%"
       - "反弹到预设减仓区"
       - "板块扩散不足或资金净流出"
+      - "退潮尾声强修复中，个股高位盘口卖压明显且跌破分时均价"
     action: "提醒减仓观察或做T降低集中度"
 
   - id: "weak_repair_reduce"
@@ -124,13 +138,30 @@ position_rules:
       - "个股日内强于组合和板块"
       - "已接近预设减亏区"
       - "高位追买盈亏比不足"
+      - "板块核心强但持仓个股弱于分时均价，只能等反抽减亏，不能加仓摊低"
     action: "提醒持有观察，接近减亏区可减，不追买"
+
+  - id: "repair_tail_profit_protection"
+    name: "退潮尾声强修复保护利润"
+    applies_to: ["core_holding", "hard_logic_holding", "advanced_packaging_holding", "materials_holding", "strong_repair_holding"]
+    trigger:
+      - "持仓涨幅较大但午后跌破分时均价"
+      - "盘口卖五明显大于买五，且后一个反弹峰低于前峰"
+      - "板块核心从强共振转为冲高回落"
+      - "临近周四周五或外部流动性风险窗口"
+    forbidden:
+      - "把已确认鱼尾行情中的高开高走当作新开仓理由"
+      - "弱势持仓跌破分时均价后继续加仓摊低"
+    action: "提醒保护利润、T出或减亏处理；若仍强封或高位承接，则只持有观察"
 
   - id: "mainboard_watch_entry_confirm"
     name: "主板观察池介入确认"
     applies_to:
       - "capacity_core"
       - "elastic_abf_substrate"
+      - "pcb_core_extension"
+      - "pcb_material_elastic"
+      - "pcb_long_option"
       - "mlcc_mainboard_core"
       - "supercapacitor_core"
       - "cpu_xinchuang_pioneer"
@@ -191,7 +222,7 @@ sector_groups:
         name: "兆易创新"
 
   - id: "pcb_ccl"
-    name: "PCB/CCL"
+    name: "AI PCB/CCL全市场观察"
     style: "offensive"
     members:
       - code: "002636.SZ"
@@ -204,6 +235,24 @@ sector_groups:
         name: "沪电股份"
       - code: "300476.SZ"
         name: "胜宏科技"
+      - code: "603228.SH"
+        name: "景旺电子"
+      - code: "600601.SH"
+        name: "方正科技"
+      - code: "301389.SZ"
+        name: "隆扬电子"
+      - code: "601208.SH"
+        name: "东材科技"
+      - code: "603256.SH"
+        name: "宏和科技"
+      - code: "301217.SZ"
+        name: "铜冠铜箔"
+      - code: "300936.SZ"
+        name: "中英科技"
+      - code: "002080.SZ"
+        name: "中材科技"
+      - code: "600110.SH"
+        name: "诺德股份"
 
   - id: "defensive_stabilizers"
     name: "防御稳定线"
@@ -219,7 +268,7 @@ sector_groups:
         name: "平安银行"
 
   - id: "mainboard_rubin_pcb_abf"
-    name: "主板Rubin PCB/ABF/CCL"
+    name: "主板Rubin PCB/ABF/CCL分层观察"
     style: "offensive"
     members:
       - code: "002916.SZ"
@@ -230,8 +279,20 @@ sector_groups:
         name: "沪电股份"
       - code: "600183.SH"
         name: "生益科技"
+      - code: "603228.SH"
+        name: "景旺电子"
+      - code: "600601.SH"
+        name: "方正科技"
       - code: "603186.SH"
         name: "华正新材"
+      - code: "601208.SH"
+        name: "东材科技"
+      - code: "603256.SH"
+        name: "宏和科技"
+      - code: "002080.SZ"
+        name: "中材科技"
+      - code: "600110.SH"
+        name: "诺德股份"
       - code: "603002.SH"
         name: "宏昌电子"
       - code: "605589.SH"
@@ -352,6 +413,7 @@ notification_policy:
     - "持仓触发加仓观察、减仓观察、风控降级或集中度处理"
     - "核心观察票触发明确买点或证伪"
     - "大盘或板块状态发生切换"
+    - "退潮尾声强修复中，强势持仓跌破分时均价或弱势持仓反抽到减亏区"
   suppress_when:
     - "只是普通红绿波动"
     - "单票异动但板块不共振"

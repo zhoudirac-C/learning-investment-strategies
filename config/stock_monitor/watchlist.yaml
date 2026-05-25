@@ -1,4 +1,4 @@
-updated_at: "2026-05-23"
+updated_at: "2026-05-25"
 
 themes:
   - id: "domestic_compute"
@@ -25,6 +25,7 @@ themes:
           - "后一个反弹峰超过前一个反弹峰"
           - "存储链核心同步回到分时均线上方"
         sell_setup:
+          - "5月25日强修复后，若午后跌破39.1分时均价且存储/封测不扩散，优先T出或降集中度"
           - "反抽到成本区但板块不扩散"
           - "放量跌破风险线后不能收回"
           - "组合集中度超过上限"
@@ -81,6 +82,7 @@ themes:
           - "110-112区间缩量承接"
           - "半导体材料核心同步修复"
         sell_setup:
+          - "5月25日若冲127-128.15不能封住，或午后跌破124，优先T出部分利润"
           - "跌破110.32后不能收回"
           - "冲高无量且材料链不扩散"
 
@@ -91,18 +93,23 @@ themes:
         watch_reason: "持仓票，观察材料链修复质量。"
         confirm_with: ["雅克科技", "南大光电", "晶瑞电材"]
         sell_setup:
+          - "5月25日若不能站稳60.7或重新跌回60.0成本线下，优先减弱留强"
           - "站不回成本附近且资金继续流出"
           - "跌回57附近不能修复"
 
   - id: "pcb_ccl"
-    name: "PCB/CCL/电子玻纤布"
+    name: "AI PCB/CCL/电子玻纤布全市场观察"
     source_docs:
       - "docs/标的深度研究/主板-方向二：国产算力产业链个股分析报告-20260518.html"
       - "sources/raw/财经/复盘：26-04-28：创业板4连阴，情绪拐点已现.md"
+      - "sources/raw/财经/研报：26-05-25：AI PCB Rubin产业链深度报告（结构化raw）.md"
+      - "knowledge/wiki/市场分析/PCB与先进封装.md"
       - "stock_data_output/portfolio_20260522_1320/report.md"
     market_checks:
-      - "PCB/CCL是否从个股强修复扩散到板块"
-      - "强势票是否继续放量净流入"
+      - "核心层沪电股份、胜宏科技、生益科技是否共振，而不是单票脉冲"
+      - "扩展层景旺电子、方正科技能否跟随核心层走强"
+      - "材料弹性层东材科技、隆扬电子、宏和科技、铜冠铜箔是否经换手确认"
+      - "期权/边界层中英科技、中材科技、诺德股份、华正新材、深南电路是否只是情绪补涨"
       - "若大盘修复转弱，强势票是否冲高回落"
     stocks:
       - code: "002636.SZ"
@@ -114,8 +121,146 @@ themes:
         buy_setup:
           - "不追高，仅在板块扩散且缩量回踩承接时观察"
         sell_setup:
+          - "5月25日若反抽46.4分时均价至47.6日内高点，优先减亏T或减一部分"
           - "冲到48-50区间优先减亏T或减一部分"
           - "跌破44.5-43且资金转弱"
+
+      - code: "002463.SZ"
+        name: "沪电股份"
+        role: "rubin_pcb_core"
+        segment: "高多层板/Midplane"
+        watch_reason: "Rubin PCB核心观察锚，重点看北美客户、Midplane认证和GB300/Rubin订单延续。"
+        confirm_with: ["胜宏科技", "生益科技", "景旺电子"]
+        buy_setup:
+          - "只在缩量回踩后放量收回分时均线时观察"
+          - "核心三家至少两家同步强于AI硬件平均修复"
+        sell_setup:
+          - "PCB核心层走强但沪电明显掉队"
+          - "高开一致后放量回落，不能收回日内均线"
+
+      - code: "300476.SZ"
+        name: "胜宏科技"
+        role: "rubin_pcb_core_chinext_observation"
+        segment: "高阶HDI/HPM/子卡"
+        watch_reason: "Rubin PCB核心观察锚，但创业板票只作为强弱和扩散确认，不进入主板可操作池。"
+        confirm_with: ["沪电股份", "生益科技", "方正科技"]
+        buy_setup:
+          - "观察强弱，不作为主板观察池介入触发"
+        sell_setup:
+          - "高阶HDI分支高潮后核心层不能继续扩散"
+
+      - code: "600183.SH"
+        name: "生益科技"
+        role: "rubin_ccl_core"
+        segment: "M8/M9高速CCL"
+        watch_reason: "Rubin PCB核心上游材料锚，重点看M8/M9 CCL送样、客户认证和量产节奏。"
+        confirm_with: ["沪电股份", "胜宏科技", "华正新材"]
+        buy_setup:
+          - "CCL与PCB成品股同向扩散"
+          - "放量突破后回踩不破日内均线"
+        sell_setup:
+          - "PCB走强但CCL材料链不能跟随"
+
+      - code: "603228.SH"
+        name: "景旺电子"
+        role: "rubin_pcb_extension_mainboard"
+        segment: "Switch Tray/Midplane扩展"
+        watch_reason: "确定性扩展层，重点看Delta认证、GB300 Switch Tray和Midplane弹性。"
+        confirm_with: ["沪电股份", "方正科技", "生益科技"]
+        buy_setup:
+          - "核心层稳定后扩展层放量补强"
+          - "不是一字或大幅高开追涨"
+        sell_setup:
+          - "扩展层冲高但核心层转弱"
+
+      - code: "600601.SH"
+        name: "方正科技"
+        role: "rubin_pcb_extension_mainboard"
+        segment: "Compute Tray/Mellanox链"
+        watch_reason: "确定性扩展层，重点看Gamma认证、Mellanox供应链和GB300 Compute Tray订单。"
+        confirm_with: ["胜宏科技", "景旺电子", "沪电股份"]
+        buy_setup:
+          - "方正与景旺同步走强，确认扩展层不是单票异动"
+        sell_setup:
+          - "Compute Tray预期不能带动同层标的"
+
+      - code: "301389.SZ"
+        name: "隆扬电子"
+        role: "pcb_material_elastic_chinext_observation"
+        segment: "低粗糙度铜箔/HVLP5期权"
+        watch_reason: "材料弹性层，创业板票只作为HVLP5验证和铜箔弹性观察锚。"
+        confirm_with: ["铜冠铜箔", "诺德股份", "沪电股份"]
+        buy_setup:
+          - "观察强弱，不作为主板观察池介入触发"
+        sell_setup:
+          - "铜箔材料分支只剩情绪脉冲"
+
+      - code: "601208.SH"
+        name: "东材科技"
+        role: "pcb_material_elastic_mainboard"
+        segment: "M9碳氢树脂/封装树脂"
+        watch_reason: "材料弹性层，重点看M9树脂批量供货、进入主流CCL厂体系和产能释放。"
+        confirm_with: ["生益科技", "华正新材", "宏和科技"]
+        buy_setup:
+          - "材料侧至少两只主板票换手承接"
+          - "CCL核心没有同步走弱"
+        sell_setup:
+          - "树脂材料逻辑未被CCL链条确认"
+
+      - code: "603256.SH"
+        name: "宏和科技"
+        role: "pcb_material_elastic_mainboard"
+        segment: "电子布/Q-Glass/玻纤"
+        watch_reason: "材料弹性层，重点看Low-Dk/Q-Glass突破、客户验证和收入占比。"
+        confirm_with: ["生益科技", "东材科技", "中材科技"]
+        buy_setup:
+          - "玻纤/电子布分支与CCL材料同向扩散"
+        sell_setup:
+          - "只有小票脉冲，核心PCB不跟"
+
+      - code: "301217.SZ"
+        name: "铜冠铜箔"
+        role: "pcb_material_elastic_chinext_observation"
+        segment: "HVLP4量产/HVLP5送样"
+        watch_reason: "材料弹性层，创业板票只作为HVLP4/5验证和高端服务器链导入观察锚。"
+        confirm_with: ["隆扬电子", "诺德股份", "沪电股份"]
+        buy_setup:
+          - "观察强弱，不作为主板观察池介入触发"
+        sell_setup:
+          - "铜箔链不能形成组内联动"
+
+      - code: "300936.SZ"
+        name: "中英科技"
+        role: "pcb_long_option_chinext_observation"
+        segment: "PTFE高频覆铜板"
+        watch_reason: "长期期权层，创业板票只观察高频材料订单和服务器链客户导入。"
+        confirm_with: ["生益科技", "华正新材", "沪电股份"]
+        buy_setup:
+          - "观察产业突破，不作为主板观察池介入触发"
+        sell_setup:
+          - "期权层先高潮但核心层走弱"
+
+      - code: "002080.SZ"
+        name: "中材科技"
+        role: "pcb_long_option_mainboard"
+        segment: "Low-Dk玻纤/NE2玻纤"
+        watch_reason: "长期期权层，PCB业务占比小，重点看Low-Dk玻纤突破和业务占比提升。"
+        confirm_with: ["宏和科技", "生益科技", "东材科技"]
+        buy_setup:
+          - "玻纤分支由宏和科技和生益科技共同确认"
+        sell_setup:
+          - "玻纤逻辑未体现在PCB/CCL主线承接中"
+
+      - code: "600110.SH"
+        name: "诺德股份"
+        role: "pcb_long_option_mainboard"
+        segment: "高端铜箔/业务转型"
+        watch_reason: "长期期权层，重点看境外铜箔资产协同和锂电业务拖累是否改善。"
+        confirm_with: ["铜冠铜箔", "隆扬电子", "沪电股份"]
+        buy_setup:
+          - "铜箔链形成组内联动，且不是单纯锂电反弹"
+        sell_setup:
+          - "高端铜箔逻辑被锂电属性拖累"
 
   - id: "ai_infrastructure_energy"
     name: "AI基础设施与能源转型"
@@ -145,6 +290,8 @@ themes:
       - "knowledge/wiki/市场分析/AI上游涨价链.md"
       - "knowledge/wiki/市场分析/PCB与先进封装.md"
       - "sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md"
+      - "sources/raw/财经/研报：26-05-25：AI PCB Rubin产业链深度报告（结构化raw）.md"
+      - "knowledge/claims/claim-20260525-006.yaml"
       - "docs/标的深度研究/主板-方向二：国产算力产业链个股分析报告-20260518.html"
     market_checks:
       - "PCB/ABF/CCL是否强于半导体平均修复"
@@ -154,8 +301,8 @@ themes:
       - code: "002916.SZ"
         name: "深南电路"
         role: "capacity_core"
-        segment: "ABF/FC-BGA载板/高端PCB"
-        watch_reason: "主板ABF/FC-BGA载板容量核心；只等板块分歧后放量收回分时均线，不追一致高开。"
+        segment: "ABF/FC-BGA载板/平台型PCB能力"
+        watch_reason: "ABF/FC-BGA和平台能力观察锚，不直接混同为普通Rubin PCB成品核心；只等板块分歧后放量收回分时均线。"
         confirm_with: ["兴森科技", "沪电股份", "生益科技"]
         buy_setup:
           - "PCB/ABF主板组强于全A且红盘家数扩散"
@@ -181,14 +328,38 @@ themes:
       - code: "002463.SZ"
         name: "沪电股份"
         role: "pcb_mid_core"
-        segment: "AI服务器高端PCB"
-        watch_reason: "AI服务器PCB中军；适合看分歧低吸确认，不适合追高潮。"
-        confirm_with: ["深南电路", "生益科技", "金安国纪"]
+        segment: "AI服务器高多层板/Midplane"
+        watch_reason: "短期Rubin PCB核心层之一；适合看分歧低吸确认，不适合追一致高潮。"
+        confirm_with: ["胜宏科技", "生益科技", "景旺电子"]
         buy_setup:
           - "AI硬件修复由PCB/CCL主动带队"
           - "缩量回踩后放量收回分时均线"
         sell_setup:
           - "PCB组强但沪电明显弱于板块"
+
+      - code: "603228.SH"
+        name: "景旺电子"
+        role: "pcb_core_extension"
+        segment: "Switch Tray/Midplane扩展"
+        watch_reason: "确定性扩展层，重点看Delta认证、GB300 Switch Tray和Midplane弹性；等核心层承接后再看补强。"
+        confirm_with: ["沪电股份", "方正科技", "生益科技"]
+        buy_setup:
+          - "核心层稳定，扩展层换手后继续放量"
+          - "不追一致高开"
+        sell_setup:
+          - "扩展层强但核心层转弱"
+
+      - code: "600601.SH"
+        name: "方正科技"
+        role: "pcb_core_extension"
+        segment: "Compute Tray/Mellanox链"
+        watch_reason: "确定性扩展层，重点看Gamma认证、Mellanox供应链和GB300 Compute Tray订单。"
+        confirm_with: ["景旺电子", "胜宏科技", "沪电股份"]
+        buy_setup:
+          - "扩展层至少两只票同步走强"
+          - "回踩分时均线后再次放量"
+        sell_setup:
+          - "Compute Tray预期不能带动扩展层"
 
       - code: "600183.SH"
         name: "生益科技"
@@ -206,13 +377,58 @@ themes:
         name: "华正新材"
         role: "ccl_abf_material_watch"
         segment: "高频高速覆铜板/CBF积层膜"
-        watch_reason: "兼具CCL和类ABF材料替代预期；只在材料侧有换手承接时观察。"
-        confirm_with: ["生益科技", "宏昌电子", "中京电子"]
+        watch_reason: "长期期权/边界观察，兼具CCL和类ABF材料替代预期；只在材料侧有换手承接时观察。"
+        confirm_with: ["生益科技", "东材科技", "宏和科技"]
         buy_setup:
           - "ABF材料/CCL分支出现板块级承接"
           - "个股充分换手后收回分时均线"
         sell_setup:
           - "只靠材料概念冲高，未出现客户验证或板块联动"
+
+      - code: "601208.SH"
+        name: "东材科技"
+        role: "pcb_material_elastic"
+        segment: "M9碳氢树脂/封装树脂"
+        watch_reason: "材料弹性层，重点看M9树脂批量供货、进入主流CCL厂体系和产能释放。"
+        confirm_with: ["生益科技", "华正新材", "宏和科技"]
+        buy_setup:
+          - "材料侧至少两只主板票换手承接"
+          - "CCL核心没有同步走弱"
+        sell_setup:
+          - "树脂材料逻辑未被CCL链条确认"
+
+      - code: "603256.SH"
+        name: "宏和科技"
+        role: "pcb_material_elastic"
+        segment: "电子布/Q-Glass/玻纤"
+        watch_reason: "材料弹性层，重点看Low-Dk/Q-Glass突破、客户验证和收入占比。"
+        confirm_with: ["生益科技", "东材科技", "中材科技"]
+        buy_setup:
+          - "玻纤/电子布分支与CCL材料同向扩散"
+        sell_setup:
+          - "只有小票脉冲，核心PCB不跟"
+
+      - code: "002080.SZ"
+        name: "中材科技"
+        role: "pcb_long_option"
+        segment: "Low-Dk玻纤/NE2玻纤"
+        watch_reason: "长期期权层，PCB业务占比小，重点看Low-Dk玻纤突破和业务占比提升。"
+        confirm_with: ["宏和科技", "生益科技", "东材科技"]
+        buy_setup:
+          - "玻纤分支由宏和科技和生益科技共同确认"
+        sell_setup:
+          - "玻纤逻辑未体现在PCB/CCL主线承接中"
+
+      - code: "600110.SH"
+        name: "诺德股份"
+        role: "pcb_long_option"
+        segment: "高端铜箔/业务转型"
+        watch_reason: "长期期权层，重点看境外铜箔资产协同和锂电业务拖累是否改善。"
+        confirm_with: ["铜冠铜箔", "隆扬电子", "沪电股份"]
+        buy_setup:
+          - "铜箔链形成组内联动，且不是单纯锂电反弹"
+        sell_setup:
+          - "高端铜箔逻辑被锂电属性拖累"
 
       - code: "603002.SH"
         name: "宏昌电子"
@@ -418,6 +634,7 @@ themes:
           - "先进封装组强于半导体平均修复"
           - "通富微电放量承接而不是冲高回落"
         sell_setup:
+          - "5月25日若不能突破并站稳68.3，午后跌破67.0可T出或减一部分"
           - "先进封装扩散失败，个股高开低走"
 
       - code: "600584.SH"
