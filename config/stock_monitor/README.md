@@ -80,9 +80,9 @@ The configured key times are:
 - `09:26` 集合竞价后
 - `09:45` 开盘15分钟确认
 - `10:30` 30分钟确认
-- `11:25` 上午收盘前
+- `11:20` 上午收盘前
 - `13:30` 午后风险窗口
-- `14:55` 尾盘条件单
+- `14:50` 尾盘条件单
 - `15:05` 收盘复盘
 
 Hermes agent cron should call `qing_stock_monitor_agent.py` at these exact
@@ -97,17 +97,17 @@ hermes cron create "26 9 * * 1-5" \
   --workdir "$HERMES_REPO_ROOT" \
   --script qing_stock_monitor_agent.py \
   --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat \
-  "根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令。"
+  "根据脚本上下文输出极简微信提醒，只回答观察池现在能不能买、持仓池现在怎么操作。最多350字，禁止表格、分级标题和研报式展开。必须写触发和证伪条件，不要给无条件买卖指令。"
 
 hermes cron create "45 9 * * 1-5" \
   --name "A股大模型分析-开盘确认" \
   --workdir "$HERMES_REPO_ROOT" \
   --script qing_stock_monitor_agent.py \
   --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat \
-  "根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令。"
+  "根据脚本上下文输出极简微信提醒，只回答观察池现在能不能买、持仓池现在怎么操作。最多350字，禁止表格、分级标题和研报式展开。必须写触发和证伪条件，不要给无条件买卖指令。"
 ```
 
-Use the same pattern for `10:30`, `11:25`, `13:30`, `14:55`, and `15:05`.
+Use the same pattern for `10:30`, `11:20`, `13:30`, `14:50`, and `15:05`.
 
 ## Phase 5 Daily Review
 
@@ -147,5 +147,5 @@ hermes cron create "*/10 * * * *" \
   --script qing_stock_monitor_analysis.py \
   --deliver weixin:o9cq805sx4bnLAAH-PXw04SOzBSY@im.wechat \
   --repeat 1 \
-  "基于脚本输出的持仓、观察池和策略包，按AGENTS.md与qing-stock-analysis框架做一次简短分析。输出持仓分层、下一交易时段观察信号、微信提醒条件、证伪条件。不要给无条件买卖指令。"
+  "根据脚本上下文输出极简微信提醒，只回答观察池现在能不能买、持仓池现在怎么操作。最多350字，禁止表格、分级标题和研报式展开。必须写触发和证伪条件，不要给无条件买卖指令。"
 ```

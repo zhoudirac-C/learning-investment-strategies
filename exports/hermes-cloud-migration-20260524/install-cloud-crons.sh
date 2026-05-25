@@ -16,7 +16,10 @@ chmod +x "$HOME/.hermes/scripts/qing_stock_monitor_agent.py"
 chmod +x "$HOME/.hermes/scripts/qing_stock_monitor_analysis.py"
 chmod +x "$HOME/.hermes/scripts/qing_stock_monitor_daily_review.py"
 
-AGENT_PROMPT="根据脚本输出的上下文，按AGENTS.md和qing-stock-analysis框架生成微信提醒。不要给无条件买卖指令，必须写触发条件、证伪条件和下一次观察时间。"
+echo "Creating cron jobs. This script does not remove existing duplicate cloud jobs."
+echo "If a stale same-name job exists without --no-agent, remove it before relying on the schedule."
+
+AGENT_PROMPT="根据脚本上下文输出极简微信提醒，只回答观察池现在能不能买、持仓池现在怎么操作。最多350字，禁止表格、分级标题和研报式展开。必须写触发和证伪条件，不要给无条件买卖指令。"
 DAILY_REVIEW_PROMPT="根据脚本输出的收盘复盘上下文，评估今天提醒质量、误报/漏报、去重是否合理，并给出需要调整的YAML配置建议。不要给无条件买卖指令。"
 
 hermes cron create "*/10 * * * *" \
@@ -44,7 +47,7 @@ hermes cron create "30 10 * * 1-5" "$AGENT_PROMPT" \
   --script qing_stock_monitor_agent.py \
   --deliver "$HERMES_DELIVER_TARGET"
 
-hermes cron create "25 11 * * 1-5" "$AGENT_PROMPT" \
+hermes cron create "20 11 * * 1-5" "$AGENT_PROMPT" \
   --name "A股大模型分析-上午收盘前" \
   --workdir "$HERMES_REPO_ROOT" \
   --script qing_stock_monitor_agent.py \
@@ -56,7 +59,7 @@ hermes cron create "30 13 * * 1-5" "$AGENT_PROMPT" \
   --script qing_stock_monitor_agent.py \
   --deliver "$HERMES_DELIVER_TARGET"
 
-hermes cron create "55 14 * * 1-5" "$AGENT_PROMPT" \
+hermes cron create "50 14 * * 1-5" "$AGENT_PROMPT" \
   --name "A股大模型分析-尾盘条件单" \
   --workdir "$HERMES_REPO_ROOT" \
   --script qing_stock_monitor_agent.py \

@@ -48,3 +48,5 @@
 - [claim-20260524-019.yaml](claim-20260524-019.yaml)
 - [claim-20260525-001.yaml](claim-20260525-001.yaml)
 - [claim-20260525-006.yaml](claim-20260525-006.yaml)
+- [claim-20260525-013.yaml](claim-20260525-013.yaml)
+- [claim-20260525-016.yaml](claim-20260525-016.yaml)

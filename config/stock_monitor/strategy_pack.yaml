@@ -80,7 +80,7 @@ agent_analysis_schedule:
     focus: "是否有底部钝化，修复质量是否成立，能不能做T或减仓。"
 
   - id: "noon_review"
-    time: "11:25"
+    time: "11:20"
     name: "上午收盘前"
     focus: "上午定性为强修复、弱修复、防御切换还是继续分歧。"
 
@@ -90,7 +90,7 @@ agent_analysis_schedule:
     focus: "按午后只卖不买纪律，重点观察冲高回落和板块扩散衰竭。"
 
   - id: "tail_condition"
-    time: "14:55"
+    time: "14:50"
     name: "尾盘条件单"
     focus: "判断是否符合尾盘低吸、减仓、T出或规避尾盘杀的条件。"
 

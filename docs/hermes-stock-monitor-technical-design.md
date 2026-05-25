@@ -382,8 +382,8 @@ Current implementation status:
 - implemented: `--agent-context-on-trigger` emits a Hermes-ready compact context
   when a configured key time is reached or a new rule alert appears
 - implemented: seven fixed model-analysis times are configured in
-  `agent_analysis_schedule`: `09:26`, `09:45`, `10:30`, `11:25`, `13:30`,
-  `14:55`, and `15:05`
+  `agent_analysis_schedule`: `09:26`, `09:45`, `10:30`, `11:20`, `13:30`,
+  `14:50`, and `15:05`
 - implemented: fixed time prompts are de-duplicated once per trading day through
   `agent_analysis_history`
 - implemented: `scripts/hermes_stock_monitor_agent.py` wraps the project command

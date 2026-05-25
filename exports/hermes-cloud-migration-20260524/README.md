@@ -64,6 +64,21 @@ Do not copy these local files directly unless you intentionally want to migrate 
 
 ## Install Crons
 
+Before reinstalling, check for old duplicate jobs on cloud:
+
+```bash
+hermes cron list --all
+```
+
+The 10-minute monitor must be `no-agent` with an empty prompt. If a cloud job
+named `A股持仓与观察池监控` reports Kimi/OpenAI HTTP 429, it is not the expected
+job shape. Pause or remove that stale job first:
+
+```bash
+hermes cron pause <job_id>
+hermes cron remove <job_id>
+```
+
 On cloud:
 
 ```bash
@@ -80,11 +95,15 @@ The install script creates these jobs:
 | A股大模型分析-集合竞价后 | `26 9 * * 1-5` | `qing_stock_monitor_agent.py` | agent |
 | A股大模型分析-开盘确认 | `45 9 * * 1-5` | `qing_stock_monitor_agent.py` | agent |
 | A股大模型分析-30分钟确认 | `30 10 * * 1-5` | `qing_stock_monitor_agent.py` | agent |
-| A股大模型分析-上午收盘前 | `25 11 * * 1-5` | `qing_stock_monitor_agent.py` | agent |
+| A股大模型分析-上午收盘前 | `20 11 * * 1-5` | `qing_stock_monitor_agent.py` | agent |
 | A股大模型分析-午后风险窗口 | `30 13 * * 1-5` | `qing_stock_monitor_agent.py` | agent |
-| A股大模型分析-尾盘条件单 | `55 14 * * 1-5` | `qing_stock_monitor_agent.py` | agent |
+| A股大模型分析-尾盘条件单 | `50 14 * * 1-5` | `qing_stock_monitor_agent.py` | agent |
 | A股大模型分析-收盘复盘 | `5 15 * * 1-5` | `qing_stock_monitor_agent.py` | agent |
 | A股监控收盘复盘 | `20 15 * * 1-5` | `qing_stock_monitor_daily_review.py` | agent |
+
+Expected request budget after a clean install: the 10-minute monitor makes zero
+model calls; the fixed-time agent jobs make at most 7 intraday model calls plus
+1 close review on trading days, and only when their script prints context.
 
 ## Smoke Test
 
