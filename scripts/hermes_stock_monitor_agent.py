@@ -10,6 +10,10 @@ def repo_root() -> str:
     configured = os.environ.get("HERMES_REPO_ROOT")
     if configured:
         return configured
+    # 本地绝对路径
+    local_path = Path("/home/ubuntu/learning-investment-strategies")
+    if local_path.exists():
+        return str(local_path)
     cwd = Path.cwd()
     if (cwd / "scripts" / "stock_monitor.py").exists():
         return str(cwd)
