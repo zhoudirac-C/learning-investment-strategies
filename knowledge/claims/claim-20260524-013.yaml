@@ -1,0 +1,138 @@
+- id: claim-20260524-013
+  source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
+  source_date: "2026-05-24"
+  source_type: 动态
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: market-cycle
+  subject: 退潮尾声的缩量修复
+  timeframe: short-term
+  statement: 5月22日的缩量上涨应定义为退潮末期回暖而非新周期全面启动，情绪端已接近退潮尾声，但指数和高位赚钱效应仍需最后一次回踩确认。
+  evidence_quote: "这次修复更应定义为退潮末期的回暖，不能直接视作新周期全面启动。"
+  interpretation: 缩量修复说明恐慌盘缓和，但没有证明新增进攻资金全面入场；后续应优先看高位情绪股是否止跌、核心趋势股是否承接、回踩是否缩量。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 每日复盘/2026-05-24
+      - 市场分析/修复性质判断
+    methodology_pages:
+      - 投资方法论/仓位管理
+    cases: []
+
+- id: claim-20260524-014
+  source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
+  source_date: "2026-05-24"
+  source_type: 动态
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: technical-signal
+  subject: 最后一次回踩确认
+  timeframe: short-term
+  statement: 如果下周初出现缩量回踩且核心主线抗跌，这次回踩可能成为新周期启动前的确认点；若再次放量杀跌并伴随核心破位，则修复判断被证伪。
+  evidence_quote: "只要不是放量大跌，而是缩量回踩、核心主线承接较强，这次回踩反而可能成为新周期启动前的确认点。"
+  interpretation: 回踩本身不是风险，关键在速度、量能和核心主线是否破位；这延续了“看承接而不是看单日涨跌”的框架。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 每日复盘/2026-05-24
+      - 市场分析/量能判断
+      - 市场分析/指数调整
+    methodology_pages:
+      - 投资方法论/交易纪律
+    cases: []
+
+- id: claim-20260524-015
+  source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
+  source_date: "2026-05-24"
+  source_type: 动态
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: sector-theme
+  subject: Rubin BOM扩散主线
+  timeframe: trend
+  statement: 5月22日最强交易线是 Rubin BOM 扩散，资金从光模块、服务器和算力租赁继续扩展到 PCB、MLCC、超级电容、先进封装材料和散热材料，其中 PCB 是短期最强主线。
+  evidence_quote: "周五最核心的交易主线，是围绕英伟达 Rubin 平台的 BOM 升级展开。"
+  interpretation: AI硬件交易正在按“BOM价值增量+低位扩散+供给壁垒”寻找新分支，而不再停留在AI概念或单一光模块方向。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 每日复盘/2026-05-24
+      - 市场分析/AI上游涨价链
+      - 市场分析/PCB与先进封装
+    methodology_pages:
+      - 投资方法论/主线判断
+    cases: []
+
+- id: claim-20260524-016
+  source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
+  source_date: "2026-05-24"
+  source_type: 动态
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: sector-theme
+  subject: AI PCB材料工艺耗材扩散
+  timeframe: trend
+  statement: AI PCB 的交易从成品板扩散到 M9 材料、mSAP 工艺、LD曝光、图形电镀和 PCB 钻针等材料、设备、耗材环节，其中验证周期和订单兑现决定逻辑纯度。
+  evidence_quote: "这次 PCB 行情已经开始从普通 PCB 扩散到 mSAP 工艺、CoWoP 封装、图形电镀、LD 曝光等更细分环节。"
+  interpretation: 该方向属于“卖铲子”与上游卡位，弹性强但需要区分样品、验证、小批量、收入确认，不能把概念映射直接等同于业绩兑现。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/PCB与先进封装
+      - 市场分析/AI上游涨价链
+    methodology_pages:
+      - 投资方法论/板块观察方法
+    cases: []
+
+- id: claim-20260524-017
+  source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
+  source_date: "2026-05-24"
+  source_type: 动态
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: sector-theme
+  subject: CPO与DCI预期差
+  timeframe: trend
+  statement: 当市场集中交易 Rubin 柜内互联和 PCB 时，柜外 CPO、DCI 光纤和光通信链存在预期差，若 PCB 分歧时资金回流，可强化 AI 光互联主线。
+  evidence_quote: "当前市场交易 Rubin 更多集中在柜内互联、PCB、正交背板和材料升级。但从预期差角度看，柜外互联和 CPO 仍值得重视。"
+  interpretation: CPO/DCI 是 PCB 分歧后的潜在承接方向，但仍需看订单节奏、客户验证和实际出货，不能只按远期空间定价。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/光通信
+      - 市场分析/AI上游涨价链
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260524-018
+  source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
+  source_date: "2026-05-24"
+  source_type: 动态
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: operation
+  subject: 退潮尾声不追高
+  timeframe: short-term
+  statement: 退潮尾声和新周期确认之间，最佳节奏不是追周五最强，而是等待第一次分歧，看核心主线承接，再寻找低吸点。
+  evidence_quote: "下周最好的节奏不是追周五最强，而是等分歧、看承接、找核心主线里的低吸点。"
+  interpretation: 当资金开始挖低位涨价和小票补涨时，行情机会仍在但追高难度上升，应把先手、承接和产业订单作为操作过滤器。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 每日复盘/2026-05-24
+    methodology_pages:
+      - 投资方法论/交易纪律
+      - 投资方法论/仓位管理
+    cases: []

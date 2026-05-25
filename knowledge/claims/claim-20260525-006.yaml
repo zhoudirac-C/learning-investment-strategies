@@ -1,0 +1,157 @@
+- id: claim-20260525-006
+  source_path: sources/raw/财经/研报：26-05-25：AI PCB Rubin产业链深度报告（结构化raw）.md
+  source_date: "2026-05-25"
+  source_type: 研报
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: sector-theme
+  subject: AI PCB垂直市场集合
+  timeframe: industry
+  statement: AI PCB 不是单一市场，而是 HDI、高多层板、Midplane、IC载板等垂直市场集合；NVIDIA服务器升级会系统性重构层数、材料等级、信号速率、连接方式和板卡品类。
+  evidence_quote: "AI PCB 不是单一市场，而是 HDI、高多层板、Midplane、IC 载板等多个垂直市场的集合。"
+  interpretation: 这要求拆开看PCB成品板、HDI、背板、IC载板、CCL、玻璃布、铜箔和设备，避免把所有标的放在同一纯度层级。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/PCB与先进封装
+      - 每日复盘/2026-05-25
+    methodology_pages:
+      - 投资方法论/板块观察方法
+    cases: []
+
+- id: claim-20260525-007
+  source_path: sources/raw/财经/研报：26-05-25：AI PCB Rubin产业链深度报告（结构化raw）.md
+  source_date: "2026-05-25"
+  source_type: 研报
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: sector-theme
+  subject: Midplane从无到有增量
+  timeframe: industry
+  statement: Midplane 是 Rubin 时代最大从无到有的 PCB 增量，Rubin NVL144 从 cable cartridge 转向 44层 M9/Q-Glass/HVLP4 PCB Midplane，Rubin Ultra 进一步走向 78层。
+  evidence_quote: "Midplane 是本报告最重视的增量。"
+  interpretation: Midplane 把AI服务器内部互联从线缆转向高层数PCB，对高多层板、M9、Q-Glass、HVLP铜箔和高速连接器形成共同拉动。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/PCB与先进封装
+      - 市场分析/AI上游涨价链
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260525-008
+  source_path: sources/raw/财经/研报：26-05-25：AI PCB Rubin产业链深度报告（结构化raw）.md
+  source_date: "2026-05-25"
+  source_type: 研报
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: sector-theme
+  subject: SerDes速率驱动材料升级
+  timeframe: industry
+  statement: SerDes/NVLink 速率从 112G 到 224G、448G 是 PCB 材料升级的产业时钟，倒逼 M8/M9 CCL、Q-Glass、HVLP4/5 铜箔和高阶 HDI 同步成熟。
+  evidence_quote: "PCB 升级的根因是 SerDes 与 NVLink 速率升级。"
+  interpretation: 产业链跟踪应从单柜价值量扩展到信号速率节点，224G 是2026年关键拐点，448G 对应 Rubin Ultra 远期门槛。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/PCB与先进封装
+      - 市场分析/AI上游涨价链
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260525-009
+  source_path: sources/raw/财经/研报：26-05-25：AI PCB Rubin产业链深度报告（结构化raw）.md
+  source_date: "2026-05-25"
+  source_type: 研报
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: sector-theme
+  subject: AI PCB上游卡脖子
+  timeframe: industry
+  statement: AI PCB 上游关键约束在 M9 树脂体系、高端低介电玻璃布、HVLP4/5 铜箔和UV激光钻孔设备；日本厂商优势明显，大陆替代处于分层突破阶段。
+  evidence_quote: "日本在 AI PCB 上游材料与设备中掌握多个关键环节。"
+  interpretation: 国产替代不能一概而论，应按L1致命卡点、L2紧供应、L3部分替代和L4成熟环节分层跟踪。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/PCB与先进封装
+      - 市场分析/AI上游涨价链
+    methodology_pages:
+      - 投资方法论/板块观察方法
+    cases: []
+
+- id: claim-20260525-010
+  source_path: sources/raw/财经/研报：26-05-25：AI PCB Rubin产业链深度报告（结构化raw）.md
+  source_date: "2026-05-25"
+  source_type: 研报
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: methodology
+  subject: AI PCB三层标的分层
+  timeframe: industry
+  statement: 大陆 AI PCB 机会可分为核心确定性、进攻突破和 Rubin Ultra 期权三层，分别对应已进入主流供应链、2026年突破窗口和更长期材料/工艺突破。
+  evidence_quote: "研报把相关公司分为三层。"
+  interpretation: 这是一套观察分层而不是持仓建议；每层都要结合认证、产能、良率、订单、估值和业绩兑现动态调整。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/PCB与先进封装
+    methodology_pages:
+      - 投资方法论/板块观察方法
+      - 投资方法论/主线判断
+    cases: []
+
+- id: claim-20260525-011
+  source_path: sources/raw/财经/研报：26-05-25：AI PCB Rubin产业链深度报告（结构化raw）.md
+  source_date: "2026-05-25"
+  source_type: 研报
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: risk
+  subject: ABF载板边界
+  timeframe: industry
+  statement: ABF 属于 IC载板/封装载板环节，不等同于普通PCB；该环节仍由台湾和日本供应商主导，大陆公司需要跟踪突破进展而非直接认定替代完成。
+  evidence_quote: "研报把 ABF 更明确地归入 IC 载板/封装载板环节，而不是普通 PCB 板材。"
+  interpretation: 这修正了AI PCB链条中的概念边界，防止把ABF材料、ABF/FC-BGA载板、高端PCB和背板混为同一类标的。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/PCB与先进封装
+      - 市场分析/AI上游涨价链
+    methodology_pages:
+      - 投资方法论/板块观察方法
+    cases: []
+
+- id: claim-20260525-012
+  source_path: sources/raw/财经/研报：26-05-25：AI PCB Rubin产业链深度报告（结构化raw）.md
+  source_date: "2026-05-25"
+  source_type: 研报
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: risk
+  subject: AI PCB重仓前风险
+  timeframe: trend
+  statement: AI PCB 交易需要警惕估值透支、NVIDIA降成本、Rubin放量时间错位和CPO长期替代铜走线等风险，不能把BOM预测直接当作确定业绩。
+  evidence_quote: "研报列出四类主要风险。"
+  interpretation: 产业趋势强与交易安全不是一回事；进入高一致预期阶段后，订单节奏和成本优化都可能成为股价回撤触发因素。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/PCB与先进封装
+    methodology_pages:
+      - 投资方法论/交易纪律
+    cases: []

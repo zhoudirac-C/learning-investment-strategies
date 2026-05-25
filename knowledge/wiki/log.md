@@ -1,5 +1,58 @@
 # 操作日志
 
+## 2026-05-25 | qing-methodology-review | 最近7天UP文档方法论复盘
+
+- Review 窗口：2026-05-19 至 2026-05-25。
+- 输出报告：`docs/superpowers/methodology-review-report-20260525.md`。
+- Framework 更新：
+  - `framework/market-cycle-framework.md`：新增“退潮尾声缩量修复 vs 新周期确认”规则。
+  - `framework/sector-diffusion-framework.md`：新增“BOM扩散后的标的分层”规则，并用 AI PCB/Rubin 链说明核心、扩展、弹性和边界标的差异。
+- 宏观政策：跨境券商整治、人民币工业型货币和港股通合规通道溢价暂保留在宏观 wiki，本次未提升为 framework。
+- Claim status：本次未修改。最近一周主要是 cycle-shift、timeframe-shift 和 risk-repriced，没有新增 true-conflict。
+
+## 2026-05-25 | qing-learning ingest | 5-24至5-25新增文档按日期学习
+
+- 处理顺序：
+  1. `sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md`
+  2. `sources/raw/财经/视频：26-05-24：周复盘，美债收益率上行、6月回调与AI硬件黄金坑.md`
+  3. `sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md`
+  4. `sources/raw/财经/研报：26-05-25：AI PCB Rubin产业链深度报告（结构化raw）.md`
+- 新增 claim 文件：
+  - `knowledge/claims/claim-20260524-013.yaml`：退潮尾声、缩量回踩、Rubin BOM扩散、AI PCB材料工艺耗材、CPO/DCI预期差、退潮尾声不追高
+  - `knowledge/claims/claim-20260524-019.yaml`：美债收益率结构性高企、5.2%-5.5%风险阈值、6月回调前仓位纪律、PCB/MLCC鱼尾不追高、穿越期赔率、减持公告风险
+  - `knowledge/claims/claim-20260525-001.yaml`：日线顶部后小级别反弹、5-7成仓位、PCB/MLCC持续性、超聚变IPO国产算力、关键盯盘指标
+  - `knowledge/claims/claim-20260525-006.yaml`：AI PCB垂直市场、Midplane增量、SerDes驱动材料升级、上游卡脖子、三层标的分层、ABF边界、重仓前风险
+- 新增 wiki：
+  - `knowledge/wiki/每日复盘/2026-05-24.md`
+  - `knowledge/wiki/每日复盘/2026-05-25.md`
+- 更新 wiki：
+  - `knowledge/wiki/市场分析/AI上游涨价链.md`
+  - `knowledge/wiki/市场分析/PCB与先进封装.md`
+  - `knowledge/wiki/市场分析/AI资本开支周期与泡沫风险.md`
+  - `knowledge/wiki/市场分析/光通信.md`
+  - `knowledge/wiki/市场分析/国产CPU_GPU与软件.md`
+  - `knowledge/wiki/投资方法论/仓位管理.md`
+  - `knowledge/wiki/投资方法论/交易纪律.md`
+- 核心学习：
+  - 5月22日缩量修复更接近退潮尾声回暖，而不是新周期全面启动；后续还需缩量回踩和核心主线承接确认。
+  - Rubin BOM扩散从PCB成品股继续下沉到M9材料、mSAP、LD曝光、图形电镀、钻针等材料、工艺、设备和耗材层。
+  - AI PCB不是单一市场，需要拆成HDI、高多层板、Midplane、IC载板、CCL、玻璃布、铜箔、树脂和设备分别验证。
+  - Midplane是Rubin时代最大从无到有增量，SerDes/NVLink速率升级是M8/M9、Q-Glass、HVLP4/5和高阶HDI的产业时钟。
+  - 美债收益率高企把AI资本开支交易纳入流动性压力测试，30年期美债5.2%-5.5%作为短期风险阈值观察。
+  - 退潮尾声和周末充分发酵后，纪律是有先手看承接、没先手等分歧，不追周一一致高开。
+- Framework 更新：未更新。本次新增内容主要是单日盘面案例、产业链专题细化和短期风险窗口，未达到跨阶段 durable rule 的新增条件。
+- 总纲更新：未更新。原因是本次核心仍是5月下旬特定盘面与Rubin产业链扩散案例，不改变“先周期、再主线、再个股”的总纲级框架。
+
+### 追加修正：AI PCB核心标的池
+
+- 更新 `knowledge/wiki/市场分析/PCB与先进封装.md`：
+  - 根据 `研报：26-05-25：AI PCB Rubin产业链深度报告（结构化raw）.md` 补充“大陆AI PCB核心标的池”。
+  - 短期 Rubin PCB 核心层明确为：沪电股份、胜宏科技、生益科技。
+  - 确定性扩展：景旺电子、方正科技。
+  - 进攻弹性：隆扬电子、东材科技、宏和科技、铜冠铜箔。
+  - 长期期权/边界观察：中英科技、中材科技、诺德股份、华正新材、深南电路等。
+  - 重新强调深南电路主要按 ABF/FC-BGA 封装基板和平台型能力跟踪，不直接混入普通 Rubin PCB 成品核心。
+
 ## 2026-05-24 | qing-learning ingest | 整治非法跨境券商的政策逻辑拆解
 
 - 处理来源：`sources/raw/财经/视频：26-05-24：整治非法跨境券商的政策逻辑拆解，从蒙代尔不可能三角到A股港股投资机会.md`

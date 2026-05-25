@@ -1,0 +1,117 @@
+- id: claim-20260525-001
+  source_path: sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md
+  source_date: "2026-05-25"
+  source_type: 早盘
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: market-cycle
+  subject: 日线顶部后的小级别反弹
+  timeframe: intraday
+  statement: 日线顶部结构后连续调整6个交易日，上周五形成30分钟底部结构但级别较小，5月25日受地缘缓和影响可能高开，但需要警惕冲高回落。
+  evidence_quote: "上周五出现技术性反弹，并形成 30 分钟底部结构，但级别较小。"
+  interpretation: 指数反弹仍需按小级别修复处理，不能因为消息高开就确认新周期，关键看能否放量突破5日均线并抵消前一根阴线。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 每日复盘/2026-05-25
+      - 市场分析/指数调整
+      - 市场分析/修复性质判断
+    methodology_pages:
+      - 投资方法论/交易纪律
+    cases: []
+
+- id: claim-20260525-002
+  source_path: sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md
+  source_date: "2026-05-25"
+  source_type: 早盘
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: operation
+  subject: 5-7成仓位与低吸核心
+  timeframe: intraday
+  statement: 5月25日策略是仓位控制在5-7成，避免追高，优先低吸调整充分的AI硬件核心标的，若指数冲高回落则减仓短期涨幅过大品种。
+  evidence_quote: "仓位建议控制在 5-7 成，避免追高。"
+  interpretation: 这延续周末“不追高、等分歧”的纪律，但早盘给出略高仓位区间，前提是AI硬件核心持续性和指数放量配合。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 每日复盘/2026-05-25
+    methodology_pages:
+      - 投资方法论/仓位管理
+      - 投资方法论/交易纪律
+    cases: []
+
+- id: claim-20260525-003
+  source_path: sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md
+  source_date: "2026-05-25"
+  source_type: 早盘
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: sector-theme
+  subject: PCB和MLCC持续性观察
+  timeframe: intraday
+  statement: 5月25日AI硬件核心观察是PCB、MLCC、ABF和玻璃基板，其中PCB/MLCC的持续性以及鹏鼎控股、深南电路、胜宏科技等容量核心表现决定主线质量。
+  evidence_quote: "重点关注上周五领涨的 PCB / MLCC 方向持续性，尤其是 20cm 标的表现。"
+  interpretation: 早盘从产业逻辑落到盘面验证，要求用容量票、弹性票和玻璃基板修复来确认Rubin扩散是否持续。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 每日复盘/2026-05-25
+      - 市场分析/PCB与先进封装
+      - 市场分析/AI上游涨价链
+    methodology_pages:
+      - 投资方法论/主线判断
+    cases: []
+
+- id: claim-20260525-004
+  source_path: sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md
+  source_date: "2026-05-25"
+  source_type: 早盘
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: sector-theme
+  subject: 超聚变IPO与国产算力映射
+  timeframe: short-term
+  statement: 超聚变创业板IPO获受理和DeepSeek降价被作为国产算力催化，关键不在单日映射，而在超聚变相关概念能否与英伟达海外链共同走强。
+  evidence_quote: "重点看超聚变相关概念股能否与英伟达海外链共同走强，形成良性互动。"
+  interpretation: 国产算力应按“海外AI硬件链共振+国产模型/芯片/框架闭环”观察；若只是映射脉冲，持续性需打折。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 每日复盘/2026-05-25
+      - 市场分析/国产CPU_GPU与软件
+    methodology_pages:
+      - 投资方法论/板块观察方法
+    cases: []
+
+- id: claim-20260525-005
+  source_path: sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md
+  source_date: "2026-05-25"
+  source_type: 早盘
+  extracted_at: "2026-05-25T10:21:35+08:00"
+  claim_type: technical-signal
+  subject: 5月25日关键盯盘指标
+  timeframe: intraday
+  statement: 5月25日盯盘重点包括一进二晋级率达到15家以上、上证放量突破5日均线、AI硬件容量核心保持强势、玻璃基板主动修复、国产算力与海外链共振。
+  evidence_quote: "上证指数能否放量突破 5 日均线，是反弹能否延续的关键。"
+  interpretation: 这些指标把“高开是否可信”拆成情绪、量能、主线、分支修复和国产链共振五个验证点。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 每日复盘/2026-05-25
+      - 市场分析/量能判断
+      - 市场分析/情绪判断
+    methodology_pages:
+      - 投资方法论/交易纪律
+    cases: []
