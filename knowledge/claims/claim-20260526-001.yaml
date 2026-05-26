@@ -1,0 +1,237 @@
+- id: claim-20260526-001
+  source_path: sources/raw/财经/视频：26-05-26：深挖韬定律.md
+  source_date: "2026-05-26"
+  source_type: 视频
+  extracted_at: "2026-05-26T00:43:10+08:00"
+  claim_type: sector-theme
+  subject: 韬定律作为摩尔定律替代路径
+  timeframe: industry
+  statement: 韬定律不再单纯依赖先进制程和EUV光刻机，而是通过SAQP、3D折叠和时间常数优化，在制程微缩受限时提升等效晶体管密度和芯片性能。
+  evidence_quote: "视频的核心观点是：韬定律不再单纯依赖先进制程和 EUV 光刻机，而是通过架构创新、3D 堆叠、先进封装、EDA 优化和光通信等方式提升性能。"
+  interpretation: 这是对国产半导体路径的框架性补充：从单纯追赶先进制程，扩展到架构、封装、EDA和系统互联共同提升性能；但具体技术口径和2031年目标仍需论文与官方材料核验。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/华为韬定律与3DIC
+      - 市场分析/半导体产业链
+      - 市场分析/PCB与先进封装
+    methodology_pages:
+      - 投资方法论/主线判断
+    cases: []
+
+- id: claim-20260526-002
+  source_path: sources/raw/财经/视频：26-05-26：深挖韬定律.md
+  source_date: "2026-05-26"
+  source_type: 视频
+  extracted_at: "2026-05-26T00:43:10+08:00"
+  claim_type: sector-theme
+  subject: 韬定律重构半导体投资权重
+  timeframe: industry
+  statement: 与传统台积电/三星路线相比，韬定律路线降低光刻设备和前道相对权重，提高先进封装、EDA和光通信等环节的产业权重。
+  evidence_quote: "华为韬定律路线中，光刻设备占15%、前道占40%、先进封装占30%、EDA占10%。"
+  interpretation: 投资观察应从“前道设备和长鑫扩产”扩展到先进封装、EDA、光通信、HBM、3DIC和系统级架构优化；但百分比本身为视频素材口径，需二次核验。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/华为韬定律与3DIC
+      - 市场分析/半导体产业链
+      - 市场分析/光通信
+    methodology_pages:
+      - 投资方法论/主线判断
+      - 投资方法论/板块观察方法
+    cases: []
+
+- id: claim-20260526-003
+  source_path: sources/raw/财经/视频：26-05-26：深挖韬定律.md
+  source_date: "2026-05-26"
+  source_type: 视频
+  extracted_at: "2026-05-26T00:43:10+08:00"
+  claim_type: sector-theme
+  subject: AI成为华为韬定律路径核心方向
+  timeframe: industry
+  statement: 韬定律缩放因子显示AI工作负载阿尔法最高，5年系统级吞吐能力提升远高于移动和汽车，因此华为工程资源和投资主线会向AI集中。
+  evidence_quote: "AI工作负载年阿尔法为10，5年后系统级吞吐能力可提升10万倍。"
+  interpretation: 视频把AI定义为韬定律最具经济价值的落地方向，对应昇腾产业链、HBM、光通信和超节点系统；该判断可与此前国产算力和AI硬件主线共同跟踪。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/华为韬定律与3DIC
+      - 市场分析/国产CPU_GPU与软件
+      - 市场分析/光通信
+    methodology_pages:
+      - 投资方法论/主线判断
+    cases: []
+
+- id: claim-20260526-004
+  source_path: sources/raw/财经/视频：26-05-26：深挖韬定律.md
+  source_date: "2026-05-26"
+  source_type: 视频
+  extracted_at: "2026-05-26T00:43:10+08:00"
+  claim_type: sector-theme
+  subject: 逻辑折叠麒麟芯片流片进展
+  timeframe: short-term
+  statement: 视频称2026款麒麟芯片已流片并通过工程验证，2027款也已完成流片，2026年下半年可能看到采用逻辑折叠技术的量产麒麟芯片。
+  evidence_quote: "2026 款麒麟芯片已经流片完成，并通过工程验证；2027 款麒麟芯片也已经完成流片。"
+  interpretation: 这是华为韬定律从论文走向产品化的关键观察点，但属于高敏感且需官方/产业链核验的信息，暂作为待验证催化，不直接转化为确定交易结论。
+  confidence: low
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/华为韬定律与3DIC
+      - 市场分析/半导体产业链
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260526-005
+  source_path: sources/raw/财经/视频：26-05-26：深挖韬定律.md
+  source_date: "2026-05-26"
+  source_type: 视频
+  extracted_at: "2026-05-26T00:43:10+08:00"
+  claim_type: sector-theme
+  subject: AI瓶颈从计算单元转向数据移动
+  timeframe: industry
+  statement: 韬定律路径下，AI芯片设计核心认知从堆计算单元转为减少数据移动、提升内存带宽和优化互联协议，因为成本和能耗主要集中在数据存储与数据移动。
+  evidence_quote: "70% 成本在数据存储；80% 成本在数据移动。"
+  interpretation: 该认知把HBM、内存接口、先进封装、片间互联和光通信推到系统瓶颈位置，是理解后续High One、Unify Bus和3DIC投资映射的基础。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/华为韬定律与3DIC
+      - 市场分析/光通信
+      - 市场分析/国产CPU_GPU与软件
+    methodology_pages:
+      - 投资方法论/主线判断
+    cases: []
+
+- id: claim-20260526-006
+  source_path: sources/raw/财经/视频：26-05-26：深挖韬定律.md
+  source_date: "2026-05-26"
+  source_type: 视频
+  extracted_at: "2026-05-26T00:43:10+08:00"
+  claim_type: sector-theme
+  subject: High One封装内光学改变光通信形态
+  timeframe: industry
+  statement: High One作为与AI芯片同封装的光通信组件，可能把光通信从板级/机架互联进一步推向封装内光学，带动光模块、光器件和光I/O价值重估。
+  evidence_quote: "High One 是紧邻 AI 芯片放置、与 AI 芯片同封装的光通信组件。"
+  interpretation: 该观点把光通信从800G/1.6T模块升级延伸到on-package optics，但High One名称、规格、单价和量产节奏均需核验；交易上先作为长期技术路线观察。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/华为韬定律与3DIC
+      - 市场分析/光通信
+    methodology_pages:
+      - 投资方法论/主线判断
+    cases: []
+
+- id: claim-20260526-007
+  source_path: sources/raw/财经/视频：26-05-26：深挖韬定律.md
+  source_date: "2026-05-26"
+  source_type: 视频
+  extracted_at: "2026-05-26T00:43:10+08:00"
+  claim_type: sector-theme
+  subject: 3DIC解决AI芯片N平方与N困境
+  timeframe: industry
+  statement: 传统2.5D AI芯片中计算能力按面积增长而互联、内存、供电资源按周长增长，2028-2030年可能触及物理天花板；3D折叠将供电、高速内存和光I/O迁移到芯片表面，使资源也按面积扩展。
+  evidence_quote: "传统 2.5D AI 芯片的物理天花板在 2028-2030 年。"
+  interpretation: 该观点给出先进封装和3DIC的中长期时间窗口，指向混合键合、TSV、3D集成设备材料、封装基板、HBM和光I/O的持续跟踪。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/华为韬定律与3DIC
+      - 市场分析/PCB与先进封装
+      - 市场分析/半导体产业链
+    methodology_pages:
+      - 投资方法论/主线判断
+    cases: []
+
+- id: claim-20260526-008
+  source_path: sources/raw/财经/视频：26-05-26：深挖韬定律.md
+  source_date: "2026-05-26"
+  source_type: 视频
+  extracted_at: "2026-05-26T00:43:10+08:00"
+  claim_type: sector-theme
+  subject: 昇腾路线从2.5D走向3D折叠
+  timeframe: industry
+  statement: 视频称昇腾910C采用Chiplet 2.5D并已量产，2030年前后昇腾990将采用3D折叠技术，后续华为芯片会全面采用3D折叠。
+  evidence_quote: "到 2030 年前后，华为昇腾 990 将采用 3D 折叠技术。"
+  interpretation: 该规划强化先进封装、光通信和国产AI芯片的长期链条，但涉及产品路线和时间表，需官方或供应链交叉验证，不能直接作为短线确定买点。
+  confidence: low
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/华为韬定律与3DIC
+      - 市场分析/国产CPU_GPU与软件
+      - 市场分析/PCB与先进封装
+    methodology_pages: []
+    cases: []
+
+- id: claim-20260526-009
+  source_path: sources/raw/财经/视频：26-05-26：深挖韬定律.md
+  source_date: "2026-05-26"
+  source_type: 视频
+  extracted_at: "2026-05-26T00:43:10+08:00"
+  claim_type: sector-theme
+  subject: 逻辑与存储从解耦走向融合
+  timeframe: industry
+  statement: AI时代数据移动成为主要瓶颈，处理器与存储从长期解耦走向重新融合，HBM从配套升级为系统核心，内存接口和先进封装厂战略地位提升。
+  evidence_quote: "AI时代数据移动成为主要能耗和时间瓶颈。"
+  interpretation: 该观点把HBM、内存接口、混合键合、先进封装和封装厂系统集成能力归入同一条主线，适合与国产存储、先进封装和AI芯片路线共同观察。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/华为韬定律与3DIC
+      - 市场分析/半导体产业链
+      - 市场分析/PCB与先进封装
+    methodology_pages:
+      - 投资方法论/主线判断
+    cases: []
+
+- id: claim-20260526-010
+  source_path: sources/raw/财经/视频：26-05-26：深挖韬定律.md
+  source_date: "2026-05-26"
+  source_type: 视频
+  extracted_at: "2026-05-26T00:43:10+08:00"
+  claim_type: operation
+  subject: 韬定律方向避开已炒高热门标的
+  timeframe: short-term
+  statement: 视频认为半导体热门标的多已充分炒作，韬定律带来的细分方向尚未充分挖掘，普通投资者应重点研究未被关注的细分领域，回避已经估值过高的热门标的。
+  evidence_quote: "当前半导体板块多数热门标的已经被充分炒作，韬定律带来的细分方向还未被充分挖掘。"
+  interpretation: 这是交易纪律而非无条件买入建议：新路线需要按产业验证、客户导入、订单和估值分层，不能只因“韬定律”标签追涨高位票。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+      - 市场分析/华为韬定律与3DIC
+      - 投资方法论/交易纪律
+      - 投资方法论/板块观察方法
+    methodology_pages:
+      - 投资方法论/交易纪律
+      - 投资方法论/板块观察方法
+    cases: []

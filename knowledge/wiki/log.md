@@ -1,5 +1,58 @@
 # 操作日志
 
+## 2026-05-26 | qing-learning ingest | 5-25动态复盘：AI科技主升第二日
+
+- 处理 raw：`sources/raw/财经/动态复盘：26-05-25：AI科技主升第二日，韬定律扩散与半导体补涨.md`。
+- 新增 claim 文件：
+  - `knowledge/claims/claim-20260525-020.yaml`：AI科技主升第二日、微盘股与科技背离信号、PCB前排核心接力、半导体/存储补涨、Rubin柜外光通信预期差、国产算力昇腾950预期、澜起科技内存接口与UB语义化、3D-SRAM先进封装链、低位补涨尾声、科技巨头IPO流动性分流压力。
+- 新增 wiki：
+  - `knowledge/wiki/市场分析/内存接口与澜起科技.md`
+- 更新 wiki：
+  - `knowledge/wiki/每日复盘/2026-05-25.md`
+  - `knowledge/wiki/市场分析/半导体产业链.md`
+  - `knowledge/wiki/市场分析/PCB与先进封装.md`
+  - `knowledge/wiki/市场分析/光通信.md`
+  - `knowledge/wiki/市场分析/国产CPU_GPU与软件.md`
+  - `knowledge/wiki/市场分析/华为韬定律与3DIC.md`
+  - `knowledge/wiki/市场分析/AI上游涨价链.md`
+  - `knowledge/wiki/市场分析/科创50虹吸.md`
+  - `knowledge/wiki/市场分析/长鑫存储产业链.md`
+  - `knowledge/wiki/投资方法论/主线判断.md`
+  - `knowledge/wiki/投资方法论/交易纪律.md`
+  - `knowledge/wiki/投资方法论/仓位管理.md`
+- 核心学习：
+  - 5月25日盘后观点将早盘“科技承接不强”的风险提示，上修为“AI科技主升第二日”，属于盘中修正与盘后确认的时间框架变化。
+  - PCB进入前排核心接力，胜宏科技和鹏鼎控股作为主线强弱锚点；后排回落是常规分化，不等于主线结束。
+  - 半导体和存储在韬定律发酵下成为日内最强补涨方向，扩散到3D堆叠、EDA、混合键合、TSV、晶圆减薄和3D-SRAM。
+  - 柜外光通信/CPO/NPO从预期差观察变成盘面验证，后续要看订单、出货和核心光模块承接。
+  - 澜起科技被细化为内存接口、MXC/CXL、Retimer、时钟和UB语义化观察锚点，但所有估值与业务占比口径需财报/公告核验。
+- Framework 更新：未更新。本次新增内容主要是5月25日盘后动态对单日盘面和细分链条的补充，尚未形成跨阶段 durable rule。
+- 总纲更新：未更新。原因是“盘中修正与盘后确认”“主升第二日核心/后排分化”已进入方法论页面，但仍需要更多案例验证后再上升到总纲。
+
+## 2026-05-26 | qing-learning ingest | 视频：深挖韬定律
+
+- 处理 raw：`sources/raw/财经/视频：26-05-26：深挖韬定律.md`。
+- 新增 claim 文件：
+  - `knowledge/claims/claim-20260526-001.yaml`：韬定律替代摩尔定律路径、半导体投资权重重构、AI作为华为核心方向、麒麟/昇腾路线进展、数据移动瓶颈、High One封装内光学、3DIC与逻辑存储融合、避开已炒高热门标的。
+- 新增 wiki：
+  - `knowledge/wiki/市场分析/华为韬定律与3DIC.md`
+  - `knowledge/wiki/每日复盘/2026-05-26.md`
+- 更新 wiki：
+  - `knowledge/wiki/市场分析/半导体产业链.md`
+  - `knowledge/wiki/市场分析/PCB与先进封装.md`
+  - `knowledge/wiki/市场分析/光通信.md`
+  - `knowledge/wiki/市场分析/国产CPU_GPU与软件.md`
+  - `knowledge/wiki/投资方法论/主线判断.md`
+  - `knowledge/wiki/投资方法论/交易纪律.md`
+  - `knowledge/wiki/投资方法论/板块观察方法.md`
+- 核心学习：
+  - 韬定律不是普通消息催化，而是国产半导体绕开单纯制程微缩、通过SAQP、3D折叠、时间常数优化提升性能的产业路线。
+  - 该路线提高先进封装、3DIC、EDA、光通信、HBM和AI系统互联权重，降低单纯光刻设备叙事的相对占比。
+  - AI场景因吞吐能力可直接转化为经济价值，被视频定义为华为未来工程资源集中方向；昇腾链、光通信和超节点系统需要联动观察。
+  - 短线交易仍要过滤远期技术叙事：先确认核心容量票和板块扩散，再看订单、客户、良率、出货和业绩验证。
+- Framework 更新：未更新。本次是新路线专题学习，虽然重要，但仍主要来自单篇视频转述，尚未形成多篇文档和多阶段行情共同验证的 durable rule。
+- 总纲更新：未更新。原因是“韬定律路线”已补入专题 wiki 和主线判断页，暂未满足总纲级稳定框架更新条件。
+
 ## 2026-05-25 | qing-methodology-review | 最近7天UP文档方法论复盘
 
 - Review 窗口：2026-05-19 至 2026-05-25。
