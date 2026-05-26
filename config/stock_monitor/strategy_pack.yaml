@@ -85,19 +85,19 @@ agent_analysis_schedule:
     focus: "上午定性为强修复、弱修复、防御切换还是继续分歧。"
 
   - id: "afternoon_risk"
-    time: "13:30"
+    time: "13:10"
     name: "午后风险窗口"
     focus: "按午后只卖不买纪律，重点观察冲高回落和板块扩散衰竭。"
+
+  - id: "mid_afternoon"
+    time: "14:00"
+    name: "午盘监控"
+    focus: "午后一小时盘面验证：持仓是否触发风控、观察池是否出现分歧低吸点。只讲当下，不预判尾盘，不做次日预案。"
 
   - id: "tail_condition"
     time: "14:50"
     name: "尾盘条件单"
     focus: "判断是否符合尾盘低吸、减仓、T出或规避尾盘杀的条件。"
-
-  - id: "close_review"
-    time: "15:05"
-    name: "收盘复盘"
-    focus: "生成当天监控小结，提炼次日最重要的观察点和条件单。"
 
 position_rules:
   - id: "hard_logic_t_rule"

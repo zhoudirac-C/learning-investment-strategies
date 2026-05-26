@@ -97,21 +97,21 @@ DEFAULT_AGENT_ANALYSIS_SCHEDULE = [
     },
     {
         "id": "afternoon_risk",
-        "time": "13:30",
+        "time": "13:10",
         "name": "午后风险窗口",
         "focus": "冲高无扩散时是否需要兑现或减亏",
+    },
+    {
+        "id": "mid_afternoon",
+        "time": "14:00",
+        "name": "午盘监控",
+        "focus": "午后一小时盘面验证：持仓是否触发风控、观察池是否出现分歧低吸点。只讲当下，不预判尾盘，不做次日预案。",
     },
     {
         "id": "tail_condition",
         "time": "14:50",
         "name": "尾盘条件单",
         "focus": "是否符合尾盘低吸、减仓或规避尾盘杀的条件",
-    },
-    {
-        "id": "close_review",
-        "time": "15:05",
-        "name": "收盘复盘",
-        "focus": "当天监控小结和次日观察重点",
     },
 ]
 
