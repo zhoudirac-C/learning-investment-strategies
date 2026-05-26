@@ -901,8 +901,10 @@ def test_agent_analysis_context_contains_trigger_alerts_and_quotes(tmp_path):
     assert "减仓观察：深科技进入减仓区" in message
     assert "深科技(000021.SZ)" in message
     assert "观察池现在能不能买" in message
-    assert "最多350字" in message
+    assert "最多450字" in message
     assert "禁止Markdown表格" in message
+    assert "禁止把多只股票写成同一段" in message
+    assert "每只触发/重点持仓必须单独一行" in message
     assert "不要给无条件买卖指令" in message
 
 
