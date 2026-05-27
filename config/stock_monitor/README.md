@@ -61,6 +61,18 @@ Before you add, remove, or rename fields, verify the reader code so you don't br
 
 **Adding a new theme?** Keep the same structure as existing themes (`id`, `name`, `tradability`, `source_docs`, `market_checks`, `stocks[]`).  Each stock under `stocks[]` should provide `code`, `name`, `role`, `segment`, `watch_reason`, `confirm_with`, `buy_setup`, `invalidation_setup`.  Inconsistent nesting will cause `watchlist_stock_rows()` to silently skip entries.
 
+### `strategy_pack.yaml` — sector_groups must reflect current holdings
+
+`sector_groups` (especially `offensive_tech`) are used by `evaluate_sector_rotation_alerts()` to compute average gain / red-ratio and trigger "进攻回流观察" / "防御切换观察".  **These groups must be kept in sync with your actual positions.**
+
+| When you do this in `positions.yaml` | Do this in `strategy_pack.yaml` |
+|---|---|
+| 清仓一只股票 | 从 `offensive_tech`（及任何其他 offensive group）中移除该标的 |
+| 新增一只核心持仓 | 加入 `offensive_tech` |
+| 持仓方向切换（如从PCB切到电源） | 同步调整相关 sector_groups 的 members |
+
+**Why this matters**: `offensive_tech` originally contained 雅克科技, 彤程新材, 金安国纪 — all cleared positions.  They dragged down the group average and masked the real strength of 深科技/华天科技, causing false "进攻回流观察" signals while PCB/semiconductors were actually weakening.
+
 ### `positions.example.yaml` — keep in sync
 
 Because `positions.yaml` is `.gitignore`d, the **version-controlled template** `positions.example.yaml` must stay structurally in sync with what `stock_monitor.py` expects.  If you add a new mandatory field or rename an existing one, update both files and mention the contract change in the commit message.
