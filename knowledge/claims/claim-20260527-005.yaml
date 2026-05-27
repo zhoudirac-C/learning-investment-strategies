@@ -1,0 +1,231 @@
+claims:
+  - id: claim-20260527-005-a
+    source_path: sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md
+    source_date: "2026-05-27"
+    source_type: 复盘
+    extracted_at: "2026-05-27"
+    claim_type: market-cycle
+    subject: 回踩定性与周期切换
+    timeframe: short-term
+    statement: 5月27日的回踩是"等了很久的回踩"，月底切换规律+微盘股下午企稳+高位科技补跌同时发生，大概率是新一轮情绪周期的起点而非崩盘
+    evidence_quote: >
+      "今天是一次'等了很久的回踩'——指数单边走弱、午后延续调整、短线情绪同步回落。
+      从市场结构看，今天大概率是新一轮情绪周期的起点，而非崩盘的开始。"
+    interpretation: >
+      三个信号同时验证周期切换：①月底切换规律（近几个月周期切换均发生在月底）；
+      ②微盘股下午提前企稳（调整最大压制因素解除）；③高位科技尾盘完成补跌（风险释放）。
+      这种组合 historically 指向情绪周期切换而非系统性下跌。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-005-b
+    source_path: sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md
+    source_date: "2026-05-27"
+    source_type: 复盘
+    extracted_at: "2026-05-27"
+    claim_type: operation
+    subject: 强修复与弱修复的情景推演
+    timeframe: short-term
+    statement: 5月28日修复分两种情景：强修复共振（积极参与）vs 弱修复（降低仓位等待），判断需2个交易日，核心是观察强势板块能否反包+微盘股能否延续企稳
+    evidence_quote: >
+      "正常预期明天是有修复的，但分两种情况：情景一：强修复共振...情景二：弱修复...
+      判断这两种情景需要2个交易日左右。这两天的核心任务是观察主线和风格的变化，
+      而不是急于重仓——前两天的耐心比前两天的动作更值钱。"
+    interpretation: >
+      周期切换初期不宜急于重仓，需用2个交易日观察：①强势板块（超级电容/端侧AI/散热等）
+      能否反包延续；②微盘股能否持续企稳；③是否出现真正进攻性强的"领涨矛"。
+      强修复则跟进，弱修复则继续等待。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260527-005-a]
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-005-c
+    source_path: sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md
+    source_date: "2026-05-27"
+    source_type: 复盘
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 新技术分支率先走强
+    timeframe: short-term
+    statement: 5月27日相对低位的科技分支（边缘计算、功率半导体、模拟芯片）率先强于市场，暗示风格可能向AI"中后期补涨分支"迁移
+    evidence_quote: >
+      "今天的关键线索是'相对低位的科技分支'率先走强——边缘计算、功率半导体、模拟芯片明显强于市场。
+      这暗示了一个重要可能：如果发生风格切换，新技术方向最值得留意。"
+    interpretation: >
+      市场风格从AI主线龙头向尚未充分炒作的新技术分支迁移的信号：低位科技分支在调整日逆势走强。
+      类比新能源中后期钙钛矿/钠电池的补涨逻辑，AI的Agent、具身智能、物理AI、端侧AI等
+      尚未大规模炒作的方向有充裕演绎空间。
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: [AI, 边缘计算, 功率半导体, 模拟芯片]
+
+  - id: claim-20260527-005-d
+    source_path: sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md
+    source_date: "2026-05-27"
+    source_type: 复盘
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 超级电容方向
+    timeframe: industry
+    statement: 超级电容是AI供电瓶颈下最值得跟踪的新方向，英伟达GB300到Rubin储能容量拉升20倍，全球LIC龙头武藏年产能仅650万颗，供给缺口显著
+    evidence_quote: >
+      "超级电容——今天最值得记的方向。AI服务器单柜功耗突破百千瓦门槛后，传统备电架构全面失效。
+      英伟达从GB300到Rubin储能容量拉升20倍，2026年GB300 NVL72机架对应超级电容需求1500-1800万个，
+      而全球LIC龙头武藏年产能仅650万颗，供给缺口显著。"
+    interpretation: >
+      超级电容是AI服务器功耗升级后传统备电架构失效的必然替代方向。
+      需求端（英伟达GB300/Rubin拉动20倍）与供给端（全球龙头产能严重不足）的剪刀差
+      构成典型的"占比小、弹性大"的投资叙事。江海股份涨停、海星股份8天4板验证资金认可。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260527-003-a]
+      related_stocks: [江海股份, 海星股份, 艾华集团]
+      related_sectors: [超级电容, AI供电]
+
+  - id: claim-20260527-005-e
+    source_path: sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md
+    source_date: "2026-05-27"
+    source_type: 复盘
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 端侧AI方向
+    timeframe: industry
+    statement: 端侧AI是AI中后期补涨分支，全球CAGR 39.6%，美格智能已开启77 TOPS AI模组大规模量产，形成机器人+智能座舱+边缘计算三轨驱动
+    evidence_quote: >
+      "端侧AI——美格智能涨停。全球端侧AI市场2025-2029年CAGR 39.6%，AI模组细分高达49.3%。
+      美格已开启77 TOPS AI模组大规模量产交付，配套人形机器人700 TOPS旗舰AIBOX和5G舱联AI模组，
+      形成'AI机器人+智能座舱+边缘计算'三轨驱动。"
+    interpretation: >
+      端侧AI符合"AI中后期补涨分支"的投资逻辑：①市场规模高速增长（CAGR近40%）；
+      ②龙头已进入量产阶段（美格77 TOPS模组）；③应用场景多元（机器人+座舱+边缘计算）。
+      作为AI主线中尚未充分炒作的分支，后续配置价值较高。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [美格智能]
+      related_sectors: [端侧AI, AI]
+
+  - id: claim-20260527-005-f
+    source_path: sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md
+    source_date: "2026-05-27"
+    source_type: 复盘
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 纳米晶/金属软磁方向
+    timeframe: industry
+    statement: 纳米晶/金属软磁是AI供电从0到1的爆发性方向，Rubin VR200已全面采用VPD垂直供电+纳米晶TLVR电感，单卡节省供电损耗约100W
+    evidence_quote: >
+      "金属软磁/纳米晶——AI供电的命脉。华为韬定律与英伟达Rubin共振，驱动AI服务器供电架构从LPD向VPD升级。
+      Rubin VR200已全面采用VPD垂直供电+纳米晶TLVR电感，单卡节省供电损耗约100W；
+      未来的Feynman芯片功耗将提升至4400W。"
+    interpretation: >
+      AI服务器功耗持续升级（从百瓦级到千瓦级再到4400W），供电架构从传统LPD向VPD垂直供电升级
+      是必然趋势。纳米晶/金属软磁作为VPD核心材料，处于从0到1的爆发初期。
+      核心标的：云路股份、安泰科技、东睦股份、铂科新材、龙磁科技、悦安新材。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260527-003-a, claim-20260527-003-b]
+      related_stocks: [云路股份, 安泰科技, 东睦股份, 铂科新材]
+      related_sectors: [纳米晶, AI供电]
+
+  - id: claim-20260527-005-g
+    source_path: sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md
+    source_date: "2026-05-27"
+    source_type: 复盘
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: SST固态变压器方向
+    timeframe: industry
+    statement: SST固态变压器与超级电容、纳米晶共同构成"AI供电三剑客"，全链路效率超98.5%，东北证券测算市场空间500-1000亿元
+    evidence_quote: >
+      "SST固态变压器——新特电气。全链路效率超98.5%、体积缩减可达90%，
+      成为应对超高密机柜供电挑战的核心基础设施。东北证券测算未来SST市场空间500-1000亿元。
+      与超级电容、纳米晶共同构成'AI供电三剑客'。"
+    interpretation: >
+      SST是AI数据中心超高密机柜（百千瓦级）供电的核心基础设施升级方向。
+      维谛+英伟达、伊顿+世纪互联、Meta/微软/谷歌都在推进800V HVDC方案，
+      产业趋势明确。500-1000亿市场空间使其成为AI供电链中值得系统跟踪的赛道。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260527-003-a, claim-20260527-005-d]
+      related_stocks: [新特电气]
+      related_sectors: [SST, AI供电]
+
+  - id: claim-20260527-005-h
+    source_path: sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md
+    source_date: "2026-05-27"
+    source_type: 复盘
+    extracted_at: "2026-05-27"
+    claim_type: operation
+    subject: 月底切换操作纪律
+    timeframe: short-term
+    statement: 月底切换窗口期不要急于动作，需要2个交易日左右确认新主线和新风格，不追高潮、不抢一字、不在情景未明时建新仓
+    evidence_quote: >
+      "月底切换的窗口期不要急。新主线和新风格需要2个交易日左右去确认，急于动作往往两边挨打。
+      不追高潮、不抢一字、不在情景未明时建新仓——这是基本纪律。"
+    interpretation: >
+      周期切换初期的核心纪律：①给市场2个交易日确认方向；②观察强势板块反包质量；
+      ③观察微盘股企稳持续性；④观察是否出现真正进攻性领涨方向。
+      在情景明确前，宁可空仓等待也不要在低质量反弹中加重仓。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260527-005-b]
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-005-i
+    source_path: sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md
+    source_date: "2026-05-27"
+    source_type: 复盘
+    extracted_at: "2026-05-27"
+    claim_type: market-cycle
+    subject: AI主线阶段判断
+    timeframe: trend
+    statement: AI主线远没结束，只是从龙头阶段切换到新技术分支阶段，Agent、具身智能、物理AI、端侧AI、先进封装、AI供电等方向6-7月有充裕演绎空间
+    evidence_quote: >
+      "AI主线远没结束，只是阶段切换。Agent、具身智能、物理AI、端侧AI、先进封装、
+      AI供电（超级电容/纳米晶/SST）这些方向都才刚开始炒作，6-7月有充裕的演绎空间。
+      这段时间最有价值的不是交易，是把这些新分支研究透。"
+    interpretation: >
+      AI主线从"龙头普涨"进入"中后期补涨分支"阶段。类比新能源中后期钙钛矿/钠电池的补涨行情，
+      AI内部仍有大量尚未充分炒作的方向（Agent仅活跃于编程、具身智能未大规模商业化、物理AI刚起步）。
+      6-7月的核心任务是从交易转向研究，把新技术分支的产业逻辑和核心标的梳理清楚。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260527-005-c]
+      related_stocks: []
+      related_sectors: [AI]
