@@ -1,0 +1,312 @@
+claims:
+  - id: claim-20260527-001-a
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: market-cycle
+    subject: 上证指数
+    timeframe: 短期
+    statement: 指数短期仍处于调整过程，暂无明确方向，量能未缩至2.5-2.6万亿，未真正企稳，这几天放量滞涨
+    evidence_quote: >
+      "指数短期仍处于调整过程，暂时没有明确方向。
+      5月中旬那轮缩量到2.89万亿就停止了，并未如预期缩至2.5–2.6万亿，导致市场始终没有真正企稳，
+      这几天甚至容易被视作放量滞涨。"
+    interpretation: 调整尚未结束，量能是核心观察指标
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-001-b
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: market-cycle
+    subject: 市场情绪
+    timeframe: 短期
+    statement: 大普微停牌是市场情绪转折点，赚钱效应垮塌已从次新股传导至高位连板股再到趋势股
+    evidence_quote: >
+      "市场情绪层面，转折点是大普微停牌，之后从次新股到高位连板股赚钱效应相继垮塌，
+      这两天甚至已陆续传导至趋势股——周一光智科技、周二光莆股份、绿的谐波、莱特光电、卡倍亿等。"
+    interpretation: 情绪退潮已从短线蔓延至中线趋势票，调整级别扩大
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-001-c
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: macro
+    subject: 地缘局势
+    timeframe: 短期
+    statement: 昨日低开低走与盘前地缘局势变化有关，协议预期未兑现引发避险
+    evidence_quote: >
+      "宏观层面看，昨日低开低走可能与盘前地缘局势变化有关。之前影响减小是因为没有实质预期，
+      而上周末围绕协议是否达成的预期被重新挑起，结果从'几小时后会有好消息'变成两天都没结果，
+      部分资金又萌生避险想法。"
+    interpretation: 地缘不确定性是近期市场调整的宏观诱因之一
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-001-d
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: operation
+    subject: 操作策略
+    timeframe: 短期
+    statement: 当前策略：等缩量或突破、等情绪回暖、等利好落地
+    evidence_quote: >
+      "当前要做的：等缩量（或突破）、等情绪回暖、等利好落地。"
+    interpretation: 调整期以观望为主，不急于操作
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-001-e
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 半导体（非存储/封测/功率）
+    timeframe: 短期
+    statement: 半导体除存储、封测和功率器件外，大部分昨日大分歧，技术形态上调整一段时间概率偏大
+    evidence_quote: >
+      "半导体方面，除存储芯片、封测和功率器件等少部分个股外，大部分昨日大分歧，
+      技术形态上调整一段时间概率偏大。"
+    interpretation: 半导体内部分化，非核心方向进入调整
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: [半导体]
+
+  - id: claim-20260527-001-f
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: AI方向
+    timeframe: 短期
+    statement: AI趋势股走箱体震荡，回落幅度20%以内，需耐心等待回归
+    evidence_quote: >
+      "AI方面，大部分趋势股走箱体震荡，目前回落幅度在20%以内，符合趋势股调整区间，
+      少部分继续轮动新高。需要足够耐心等待AI方向回归。"
+    interpretation: AI处于正常趋势调整中，未破坏长期结构
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: [AI]
+
+  - id: claim-20260527-001-g
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 华为韬1（国产半导体）
+    timeframe: 短期
+    statement: 华为韬1不及预期，10cm封单不足，20cm无一进二，中芯国际被闷杀
+    evidence_quote: >
+      "关于半导体（华为韬）：参照去年超级水电站题材标准，昨日竞价就显示不及预期。
+      10cm方向仅华天科技一个一字板且封单不够多，甚至不如周一的MLCC；
+      20cm方向除华大九天反包一点外，没有一进二，像中芯国际这种人气标的直接被闷杀，
+      完全没匹配上高规格叙事。"
+    interpretation: 高规格叙事未得到市场资金认可，题材发酵失败
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: [claim-20260519-001-d]
+    links:
+      related_claims: []
+      related_stocks: [华天科技, 华大九天, 中芯国际]
+      related_sectors: [半导体]
+
+  - id: claim-20260527-001-h
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: AI方向
+    timeframe: 短期
+    statement: AI资金应更聚焦头尾两端——大容量明牌标的与新方向
+    evidence_quote: >
+      "PCB若非在Rubin中占据最大增量也很难有表现机会，后续仍会反复，
+      但资金应更聚焦在头尾两端——大容量明牌标的与新方向。"
+    interpretation: AI内部去伪存真，只有核心龙头和新细分有资金关注
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: [AI]
+
+  - id: claim-20260527-001-i
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: market-cycle
+    subject: 市场赚钱效应
+    timeframe: 短期
+    statement: 一九行情分化严重，低位板块难起，还是要靠AI这种资金介入深的方向带动赚钱效应
+    evidence_quote: >
+      "一九行情下并不好过。除事件驱动外，可尝试跟着大票走。
+      一九行情分化严重，低位板块难起，还是要靠AI这种资金介入深的方向带动赚钱效应。"
+    interpretation: 市场缺乏普涨基础，只有深度介入的方向（AI）能带动情绪
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-001-j
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 人形机器人
+    timeframe: 中期
+    statement: 宇树科技6月1日首发审议，云深处、乐聚智能已受理，特斯拉Optimus 7月启动
+    evidence_quote: >
+      "上交所上市审核委员会定于6月1日召开2026年第31次审议会议，审议宇树科技（首发）。
+      沪深交易所已受理宇树科技、云深处科技、乐聚智能三家人形机器人公司IPO申请，
+      叠加特斯拉Optimus产线7月启动，产业化逐渐进入1-10阶段。"
+    interpretation: 人形机器人进入产业化1-10阶段，IPO催化密集
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260519-001-f]
+      related_stocks: [中大力德]
+      related_sectors: [人形机器人]
+
+  - id: claim-20260527-001-k
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 玻璃基板
+    timeframe: 中期
+    statement: 英特尔押注玻璃基板，京东方与康宁全面深度合作
+    evidence_quote: >
+      "英特尔押注下一代先进封装与硅光子，计划改造新墨西哥州里奥兰乔工厂，
+      打造全球首个玻璃基板量产基地。京东方与康宁宣布在玻璃基封装载板等领域全面深度合作。"
+    interpretation: 玻璃基板是先进封装的新方向，产业催化加速
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [蓝思科技, 水晶光电]
+      related_sectors: [先进封装]
+
+  - id: claim-20260527-001-l
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: macro
+    subject: 钨金属
+    timeframe: 中期
+    statement: 2026年全球钨供需缺口预计达1.85万吨，占全球总需求17.6%
+    evidence_quote: >
+      "2026年全球钨供需缺口预计达1.85万吨，占全球总需求17.6%；
+      国内供需缺口将达4800吨，较2025年增长逾三倍。"
+    interpretation: 中东冲突持续消耗高端弹药，钨作为战略资源供需紧张
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [中钨高新, 翔鹭钨业]
+      related_sectors: [稀有金属]
+
+  - id: claim-20260527-001-m
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 存储芯片
+    timeframe: 短期
+    statement: 美光科技涨19.29%，LTA锁定30% DDR产能，存储行业供需紧张
+    evidence_quote: >
+      "美光科技涨19.29%，瑞银大幅上调美光目标价至1625美元。
+      长期供应协议（LTA）已在全行业基本确立，多达30%的DDR产能将以接近当前水平价格锁定。"
+    interpretation: 存储芯片超级周期得到美股验证，A股存储链受益
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260519-001-d]
+      related_stocks: [深科技, 兆易创新]
+      related_sectors: [半导体存储]
+
+  - id: claim-20260527-001-n
+    source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+    source_date: "2026-05-27"
+    source_type: morning-report
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 商业航天
+    timeframe: 短期
+    statement: SpaceX上市计划提振航天产业投资热情，有望在中美资本市场形成共振
+    evidence_quote: >
+      "美股商业航天公司普涨，SpaceX上市计划或将提振我国航天产业投资热情与信心，
+      有望在中美资本市场形成共振。"
+    interpretation: SpaceX上市是商业航天的全球催化事件
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [罗博特科]
+      related_sectors: [商业航天]

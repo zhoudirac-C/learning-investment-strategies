@@ -1,0 +1,198 @@
+claims:
+  - id: claim-20260527-003-a
+    source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
+    source_date: "2026-05-27"
+    source_type: dynamic
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: SST/功率器件
+    timeframe: 中期（2026年下半年）
+    statement: SST核心是功率器件，预计2026年下半年HVDC与机柜外SST需求同步紧张，现在只是预热
+    evidence_quote: >
+      "关于SST，核心是功率器件，预计2026年下半年HVDC与机柜外SST需求同步紧张；
+      （注意时间是今年下半年，现在才是预热）。"
+    interpretation: 功率器件的真正需求爆发在下半年，当前只是预热阶段，不追高
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: [功率器件, 电源]
+
+  - id: claim-20260527-003-b
+    source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
+    source_date: "2026-05-27"
+    source_type: dynamic
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 英伟达平台电源
+    timeframe: 中期
+    statement: 英伟达平台电源价值量大幅提升，Vera Rubin CPX版较GB200增长超10倍
+    evidence_quote: >
+      "GB200 NVL72机架电源价值为36,000美元（120kW），GB300提升至57,600美元（140kW），
+      而Vera Rubin平台标准版为76,000美元（200kW+），若采用HVDC独立电源机架方案，
+      Vera Rubin CPX版本更飙升至398,160美元（380kW+），较GB200增长超10倍。"
+    interpretation: 配电环节是AI算力扩容中价值量提升最显著的环节之一
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: [电源, AI算力]
+
+  - id: claim-20260527-003-c
+    source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
+    source_date: "2026-05-27"
+    source_type: dynamic
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 功率器件技术趋势
+    timeframe: 中期
+    statement: 电源走向800V直流架构，SiC与GaN成为最大受益方向
+    evidence_quote: >
+      "电源走向800V，有望大幅驱动电源零部件—功率器件产品；
+      800V直流架构，功率器件使用的SiC与GaN成为最大受益方向。"
+    interpretation: 800V架构升级是功率器件需求爆发的技术驱动力
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [扬杰科技, 新洁能]
+      related_sectors: [功率器件, SiC, GaN]
+
+  - id: claim-20260527-003-d
+    source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
+    source_date: "2026-05-27"
+    source_type: dynamic
+    extracted_at: "2026-05-27"
+    claim_type: stock-view
+    subject: 功率器件/电源核心标的
+    timeframe: 中期
+    statement: 扬杰科技、金盘科技、伊戈尔、江海股份均处于核心赛道
+    evidence_quote: >
+      "该产业非常大，扬杰、金盘、伊戈尔、江海股份均处于核心赛道；
+      看点最足的就是功率器件。"
+    interpretation: 四家核心标的覆盖功率器件、电源、电容全链条
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [扬杰科技, 金盘科技, 伊戈尔, 江海股份]
+      related_sectors: [功率器件, 电源, 电容]
+
+  - id: claim-20260527-003-e
+    source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
+    source_date: "2026-05-27"
+    source_type: dynamic
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 功率器件涨价逻辑
+    timeframe: 中期（2026年下半年）
+    statement: 功率器件逻辑类似MLCC，由电源拉动涨价，但MLCC逻辑更强
+    evidence_quote: >
+      "功率器件的逻辑有点类似于MLCC，功率器件是电源拉动涨价，
+      MLCC是服务器内部需求拉动涨价，但是服务器对MLCC的需求体量更大，
+      因此MLCC的逻辑更强。"
+    interpretation: 功率器件涨价逻辑成立，但强度次于MLCC（因需求体量差异）
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: [功率器件, MLCC]
+
+  - id: claim-20260527-003-f
+    source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
+    source_date: "2026-05-27"
+    source_type: dynamic
+    extracted_at: "2026-05-27"
+    claim_type: operation
+    subject: 电源/SST/功率器件
+    timeframe: 短期
+    statement: 今天已经发酵了，不要追，先记好时间节点和标的，等回调或预热结束后布局
+    evidence_quote: >
+      "时间节点注意一下，后面要用到，今天已经发酵了，不要追。"
+    interpretation: 今日盘中已发酵，追高有风险，应等回调后布局下半年窗口
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260527-003-a]
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-003-g
+    source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
+    source_date: "2026-05-27"
+    source_type: dynamic
+    extracted_at: "2026-05-27"
+    claim_type: stock-view
+    subject: GaN/SiC标的
+    timeframe: 中期
+    statement: GaN看新洁能，SiC看扬杰科技；英诺赛科（港股）已进入英伟达供应链
+    evidence_quote: >
+      "GaN在电源中主要受益者是英诺赛科，公司的氮化镓产品已经进入到了英伟达的供应链名单；
+      A股中主要在做GaN的是新洁能；SiC类产品则是看扬杰科技。"
+    interpretation: 功率半导体材料端，GaN/SiC各有核心标的，英诺赛科已获英伟达认证
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [新洁能, 扬杰科技, 英诺赛科]
+      related_sectors: [GaN, SiC]
+
+  - id: claim-20260527-003-h
+    source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
+    source_date: "2026-05-27"
+    source_type: dynamic
+    extracted_at: "2026-05-27"
+    claim_type: stock-view
+    subject: 电容及材料
+    timeframe: 中期
+    statement: 电容核心标的是江海股份，电容材料看东方钽业、东阳光
+    evidence_quote: >
+      "另外一个重要零部件是电容，主要标的是江海股份（就是做电容的），
+      另外就是电容的材料，东方钽业、东阳光。"
+    interpretation: 电容是电源产业链的重要环节，江海股份为核心标的
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [江海股份, 东方钽业, 东阳光]
+      related_sectors: [电容]
+
+  - id: claim-20260527-003-i
+    source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
+    source_date: "2026-05-27"
+    source_type: dynamic
+    extracted_at: "2026-05-27"
+    claim_type: stock-view
+    subject: 二次电源
+    timeframe: 中期
+    statement: 二次电源核心标的是新雷能
+    evidence_quote: >
+      "二次电源，主要是新雷能。"
+    interpretation: 二次电源领域，新雷能为核心标的
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [新雷能]
+      related_sectors: [电源]

@@ -1,0 +1,42 @@
+claims:
+  - id: claim-20260527-002-a
+    source_path: sources/raw/财经/动态：26-05-27：11点动态补充-学习大资金撤退手法.md
+    source_date: "2026-05-27"
+    source_type: dynamic
+    extracted_at: "2026-05-27"
+    claim_type: methodology
+    subject: 资金性质识别
+    timeframe: 持续有效
+    statement: 半导体资金以机构/大资金为主，不是游资，撤退时波动温和、有节奏
+    evidence_quote: >
+      "半导体的资金不是游资，所以不会给你太大波动，撤退的时候也是很有节奏的。"
+    interpretation: 不同板块的资金性质不同，半导体以机构为主，撤退方式与游资截然不同
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: [半导体]
+
+  - id: claim-20260527-002-b
+    source_path: sources/raw/财经/动态：26-05-27：11点动态补充-学习大资金撤退手法.md
+    source_date: "2026-05-27"
+    source_type: dynamic
+    extracted_at: "2026-05-27"
+    claim_type: methodology
+    subject: 盘口观察
+    timeframe: 持续有效
+    statement: 可以通过盘口观察学习大资金的撤退手法，识别机构资金与游资的区别
+    evidence_quote: >
+      "可以通过盘口观察，学习一下大资金的撤退手法。"
+    interpretation: 盘口细节（挂单、成交、分时斜率、板块联动）是识别资金性质和操作意图的关键
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260527-002-a]
+      related_stocks: []
+      related_sectors: []

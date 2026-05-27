@@ -1,184 +1,131 @@
 claims:
   - id: claim-20260519-003-a
-    source_path: sources/raw/财经/复盘：26-05-19：左侧止跌拐点，情绪带指数修复，AI上游涨价链成暗线.md
+    source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
     source_date: "2026-05-19"
-    source_type: review
+    source_type: dynamic
     extracted_at: "2026-05-19"
     claim_type: market-cycle
-    subject: 市场周期
-    timeframe: short-term
-    statement: 5月19日确认左侧止跌拐点，5月12日以来的调整主跌段大概率已经结束
+    subject: 市场资金意图
+    timeframe: 短期（1-3日）
+    statement: 资金不想突破，将延长调整周期
     evidence_quote: >
-      "今日最具战略意义的信号不是指数涨幅，而是市场出现了明确的左侧止跌拐点。
-      今日K线形态已经明确宣告，自5月12日以来的这一轮调整主跌段大概率已经结束。"
-    interpretation: 恐慌杀跌后快速收回失地，高位板块补跌完成，情绪宣泄到位，主跌段结束信号明确
+      "很明显，资金不想突破，那就延长调整周期就好了。"
+    interpretation: 盘中观察到资金缺乏进攻意愿，突破预期落空，调整时间将拉长
     confidence: high
     status: active
-    supersedes: []
+    supersedes: [claim-20260519-001-a]
     contradicts: []
     links:
-      wiki_pages: [市场分析/指数调整]
-      methodology_pages: [投资方法论/交易纪律]
-      cases: []
+      related_claims: [claim-20260519-001-b]
+      related_stocks: []
+      related_sectors: []
 
   - id: claim-20260519-003-b
-    source_path: sources/raw/财经/复盘：26-05-19：左侧止跌拐点，情绪带指数修复，AI上游涨价链成暗线.md
+    source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
     source_date: "2026-05-19"
-    source_type: review
+    source_type: dynamic
     extracted_at: "2026-05-19"
-    claim_type: technical-signal
-    subject: CPO板块
-    timeframe: short-term
-    statement: 高位核心板块CPO完成补跌，是退潮周期最后一轮恐慌释放的标志性信号
+    claim_type: market-cycle
+    subject: 市场格局
+    timeframe: 短期
+    statement: 当前市场呈现明显的一九分化格局，资金向少数核心标的集中，接力性价比变差
     evidence_quote: >
-      "早盘CPO作为本轮行情的核心高位板块完成补跌，往往对应退潮周期的最后一轮恐慌释放。
-      历史经验表明，当市场中最抗跌的板块开始补跌时，调整往往已经接近尾声。"
-    interpretation: 最抗跌板块补跌 = 调整尾声，恐慌盘彻底释放，为后续修复创造条件
+      "当前市场整体呈现出明显的一九分化格局，资金进一步向少数核心标的集中，
+      市场容量持续收缩，这两天的接力性价比已经变得很差。"
+    interpretation: 市场从普涨转向极端分化，只有10%的票有资金关注，操作难度加大
     confidence: high
     status: active
     supersedes: []
     contradicts: []
     links:
-      wiki_pages: [市场分析/情绪判断]
-      methodology_pages: []
-      cases: []
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
 
   - id: claim-20260519-003-c
-    source_path: sources/raw/财经/复盘：26-05-19：左侧止跌拐点，情绪带指数修复，AI上游涨价链成暗线.md
+    source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
     source_date: "2026-05-19"
-    source_type: review
+    source_type: dynamic
     extracted_at: "2026-05-19"
     claim_type: sector-theme
-    subject: AI上游涨价链
-    timeframe: trend
-    statement: AI上游涨价链（MLCC、电极箔、硅片等）是当前科技内部最值得重视的暗线，位置相对不拥挤且逻辑嵌入AI硬件大主线
+    subject: 封测板块
+    timeframe: 当日
+    statement: 封测板块强度已明显衰竭，今日是预期中的兑现节点
     evidence_quote: >
-      "这是当前科技内部最值得重视的一条暗线，其核心传导链条已经得到市场反复验证：
-      AI需求引爆→产能优先向高端倾斜→高壁垒导致供给刚性→全品类涨价轮动。
-      这类方向的优势在于位置相对没有CPO那么拥挤，逻辑又能嵌入AI硬件大主线。"
-    interpretation: 从高端PCB、铜箔、光模块、存储、硅片，扩散到MLCC、电极箔、铝电容，涨价轮动链条清晰
+      "昨天尾盘异动拉升的封测板块，今天虽然给了大部分资金拉红离场的机会，
+      但板块强度已经比昨天明显衰竭，按照这个节奏来看，今天本来就是预期中的兑现节点。"
+    interpretation: 封测作为昨日异动方向，今日拉红是离场机会而非买点，老题材兑现
     confidence: high
     status: active
     supersedes: []
     contradicts: []
     links:
-      wiki_pages: [市场分析/半导体设备]
-      methodology_pages: [投资方法论/主线判断]
-      cases: []
+      related_claims: [claim-20260519-001-e]
+      related_stocks: [深科技, 长电科技, 通富微电]
+      related_sectors: [半导体封测]
 
   - id: claim-20260519-003-d
-    source_path: sources/raw/财经/复盘：26-05-19：左侧止跌拐点，情绪带指数修复，AI上游涨价链成暗线.md
+    source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
     source_date: "2026-05-19"
-    source_type: review
+    source_type: dynamic
     extracted_at: "2026-05-19"
-    claim_type: operation
-    subject: 操作策略
-    timeframe: short-term
-    statement: 策略从"全面防守"转向"适度积极"，总仓位控制在5-7成，不可盲目追高
+    claim_type: sector-theme
+    subject: 存储芯片
+    timeframe: 短期（1-3日）
+    statement: 存储芯片是新分支，需关注能否承接流出资金成为新市场主线
     evidence_quote: >
-      "当前策略可以从'全面防守'转向'适度积极'，但仍需保持节奏控制，不可盲目追高。
-      总仓位控制在5-7成，其中3-4成作为核心仓位持有科技主线核心标的，
-      2-3成作为机动仓位应对轮动和假摔，保留3-5成现金仓位等待右侧确认或二次回踩机会。"
-    interpretation: 左侧止跌后仓位可适度提升，但需保留机动和现金仓位，等待右侧确认
+      "在老题材纷纷兑现的背景下，接下来需要重点关注新分支存储芯片板块的持续性，
+      看看它能否承接住流出的资金，成为新的市场主线。"
+    interpretation: 存储芯片与其他半导体方向分离，单独作为新主线观察
     confidence: medium
     status: active
     supersedes: []
     contradicts: []
     links:
-      wiki_pages: []
-      methodology_pages: [投资方法论/仓位管理]
-      cases: []
+      related_claims: [claim-20260518-019-e, claim-20260519-001-d]
+      related_stocks: []
+      related_sectors: [半导体存储]
 
   - id: claim-20260519-003-e
-    source_path: sources/raw/财经/复盘：26-05-19：左侧止跌拐点，情绪带指数修复，AI上游涨价链成暗线.md
+    source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
     source_date: "2026-05-19"
-    source_type: review
+    source_type: dynamic
     extracted_at: "2026-05-19"
     claim_type: operation
-    subject: 明日验证标准
-    timeframe: intraday
-    statement: 明日最关键验证指标是今天大长腿个股能否继续给溢价，而非指数涨跌本身
+    subject: 半导体操作
+    timeframe: 当日
+    statement: 半导体（非存储）该撤撤，卖半导体老题材，买存储芯片新分支
     evidence_quote: >
-      "最关键的观察指标不是指数涨跌，而是今天的大长腿个股明天能否继续给溢价。
-      如果今天从-5%甚至更低位置拉起来的个股，明天能够高开高走或者低开后快速翻红，
-      说明接力情绪已经真正恢复。反之，如果今天的大长腿明天集体低开低走，
-      说明今天只是一次超跌反抽，退潮期还将延续。"
-    interpretation: 大长腿溢价率是判断接力情绪是否真正恢复的最直接指标
+      "半导体该撤撤，下一轮修复差不多也得等到周二周三了。
+      卖半导体，买存储芯片，时间节点都是按照低点说的。"
+    interpretation: 半导体内部做切换：卖出封测/设备等老题材，买入存储芯片新分支
     confidence: high
     status: active
-    supersedes: []
+    supersedes: [claim-20260519-001-g]
     contradicts: []
     links:
-      wiki_pages: [市场分析/情绪判断]
-      methodology_pages: [投资方法论/交易纪律]
-      cases: []
+      related_claims: []
+      related_stocks: []
+      related_sectors: [半导体]
 
   - id: claim-20260519-003-f
-    source_path: sources/raw/财经/复盘：26-05-19：左侧止跌拐点，情绪带指数修复，AI上游涨价链成暗线.md
+    source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
     source_date: "2026-05-19"
-    source_type: review
+    source_type: dynamic
     extracted_at: "2026-05-19"
-    claim_type: risk
-    subject: 回踩风险
-    timeframe: short-term
-    statement: 退潮期并未完全过去，后面大概率还有一次回踩冰点的过程，明天冲高回落属于良性假摔
+    claim_type: operation
+    subject: 仓位管理
+    timeframe: 短期
+    statement: 不想操作就减仓，等周五或下周再看，下一轮修复预计周二周三
     evidence_quote: >
-      "退潮期并未完全过去，后面大概率还有一次回踩冰点的过程。
-      如果明天出现冲高回落甚至收出阴线，只要不重新跌破今日早盘的恐慌低点，
-      都属于反弹初期的良性假摔，反而是二次低吸的机会。"
-    interpretation: 左侧止跌后不代表直接V反，需警惕二次回踩，但回踩不破今日低点则为低吸机会
-    confidence: medium
-    status: active
-    supersedes: []
-    contradicts: []
-    links:
-      wiki_pages: [市场分析/修复性质判断]
-      methodology_pages: [投资方法论/分歧中找机会]
-      cases: []
-
-  - id: claim-20260519-003-g
-    source_path: sources/raw/财经/复盘：26-05-19：左侧止跌拐点，情绪带指数修复，AI上游涨价链成暗线.md
-    source_date: "2026-05-19"
-    source_type: review
-    extracted_at: "2026-05-19"
-    claim_type: stock-view
-    subject: 风华高科
-    timeframe: trend
-    statement: 风华高科是MLCC国产龙头，AI服务器MLCC用量较传统服务器激增5-10倍，高端产能供需错配中充分受益
-    evidence_quote: >
-      "风华高科作为目前月产能约350亿颗的国内被动元件龙头，其祥和工业园高端基地正持续释放产能，
-      且公司中高压、高温高容MLCC及合金电阻、大电流电感等产品已批量导入国内头部AI服务器及机器人客户，
-      AI算力相关订单充足、业务增长快速。计划于2026年内将高端产品占比进一步提升至50%。"
-    interpretation: MLCC是AI服务器用量激增的核心受益环节，风华高科作为国内龙头有明确产能释放计划
+      "想操作就操作，不想操作就减仓去玩，等周五或者下周再看就好了。
+      半导体该撤撤，下一轮修复差不多也得等到周二周三了。"
+    interpretation: 调整周期延长，仓位管理优先，下一轮修复窗口在周二周三
     confidence: high
     status: active
     supersedes: []
     contradicts: []
     links:
-      wiki_pages: []
-      methodology_pages: []
-      cases: []
-
-  - id: claim-20260519-003-h
-    source_path: sources/raw/财经/复盘：26-05-19：左侧止跌拐点，情绪带指数修复，AI上游涨价链成暗线.md
-    source_date: "2026-05-19"
-    source_type: review
-    extracted_at: "2026-05-19"
-    claim_type: stock-view
-    subject: 海星股份
-    timeframe: trend
-    statement: 海星股份是全球前二电极箔企业，AI服务器供电架构向800VDC升级驱动电极箔需求井喷，量价齐升逻辑进入兑现期
-    evidence_quote: >
-      "全球AI服务器用电极箔市场规模将在2026至2028年间分别达到25.9亿元、50.2亿元、86.6亿元，
-      2029年有望突破100亿元。海星股份作为稳居全球前二的电极箔领军企业，
-      率先通过固态电容器电极箔等高端产品卡位AI赛道。2025年底总产能已达约5400万平方米，
-      同比增长29%，并预计于2026年三季度全面达产，届时总产能将超过6000万平方米。"
-    interpretation: 电极箔是AI服务器电源升级的核心材料，海星股份产能扩张与需求爆发共振
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    links:
-      wiki_pages: []
-      methodology_pages: []
-      cases: []
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
