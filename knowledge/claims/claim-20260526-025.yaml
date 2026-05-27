@@ -1,0 +1,235 @@
+claims:
+  - id: claim-20260526-025-a
+    source_path: sources/raw/财经/视频：26-05-26：股市如何抄底.md
+    source_date: "2026-05-26"
+    source_type: 视频
+    extracted_at: "2026-05-27"
+    claim_type: market-cycle
+    subject: 日线顶部结构与调整周期
+    timeframe: trend
+    statement: 5月14日上证指数日线顶部结构形成，预计最快调整16个交易日，5月26日仅调整到一半左右
+    evidence_quote: >
+      "5月14号已经开始日线的一个顶部结构，那么日线的顶部结构预计调整最快要16个交易日，
+      那么我们目前也只调整到一半左右，我们还需要再调整一半。"
+    interpretation: >
+      日线级别的MACD顶部结构/顶背离在5月14日触发，预计完整调整周期约16个交易日（斐波那契数列经验值）。
+      5月26日为第8个交易日，正好处于调整中期，尚未完成。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260526-025-b
+    source_path: sources/raw/财经/视频：26-05-26：股市如何抄底.md
+    source_date: "2026-05-26"
+    source_type: 视频
+    extracted_at: "2026-05-27"
+    claim_type: technical-signal
+    subject: 5分钟级别顶部形态与时间周期推算
+    timeframe: intraday
+    statement: >
+      5分钟级别出现两个顶部形态（双顶/M头）叠加时，理论调整周期约2小时。
+      5月26日开盘4136.99为第一个顶，10:05反弹4137.20为第二个顶，14:05左右到达推断的抄底时间点
+    evidence_quote: >
+      "今天开得比较弱，导致直接开盘就来了一个5分钟级别的顶部形态。那么随后又来了一个5分钟级别的顶部形态。
+      那么他们加在一起调整的对应周期就是两个小时左右。所以我们在下午2:05的那个时间节点，
+      就是通过小级别的周期推断出来的。"
+    interpretation: >
+      5分钟级别的K线形态（双顶）结合MACD顶背离（价格创新高4137.20但MACD未创新高），
+      两个顶部形态叠加的理论调整周期约2小时。实际走势中10:05至14:05的调整约4小时，
+      14:05后V型反弹验证时间点判断。小级别周期推算需叠加情绪判断才能更精准。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260526-025-c
+    source_path: sources/raw/财经/视频：26-05-26：股市如何抄底.md
+    source_date: "2026-05-26"
+    source_type: 视频
+    extracted_at: "2026-05-27"
+    claim_type: methodology
+    subject: 抄底的时间与空间法则
+    timeframe: permanent
+    statement: 抄底时时间和空间只需确定一个：能确定空间就用空间，确定不了空间就确定时间
+    evidence_quote: >
+      "你在空间和时间上确定一个就好。你如果能确定空间，那么就用空间。
+      你如果确定不了空间，那么确定时间。所以我们确定了时间，反弹空间不知道。"
+    interpretation: >
+      抄底操作的核心方法论：时间和空间是二维约束，但不必强求同时精确。
+      时间维度（周期推算、斐波那契数列）相对更容易确定；空间维度（具体点位）往往受情绪和资金影响更大。
+      确定时间后，在时间节点附近观察盘面结构（缓跌段+急跌末端）进行左侧或右侧介入。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260526-025-d
+    source_path: sources/raw/财经/视频：26-05-26：股市如何抄底.md
+    source_date: "2026-05-26"
+    source_type: 视频
+    extracted_at: "2026-05-27"
+    claim_type: methodology
+    subject: 下跌末端微观结构
+    timeframe: intraday
+    statement: >
+      调整末端的典型微观结构：缓跌段→第一波急跌→第二波急跌→直接V起。
+      "直接V起"（不磨底）属于超预期强势信号
+    evidence_quote: >
+      "一般下跌之后，你需要一个缓跌段，它又有一个急跌，又来一波急跌，一波急跌之后，直接就上了。
+      这个是属于超预期的情况。"
+    interpretation: >
+      缓跌段表示空头力量在衰竭但尚未宣泄完毕；第一波急跌是恐慌盘集中杀出；
+      第二波急跌是空头最后的宣泄。正常情况下两波急跌后需要横盘磨底，
+      若直接V型反弹则说明承接极强，属于超预期强势，可提升对后续反弹质量的预期。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260526-025-e
+    source_path: sources/raw/财经/视频：26-05-26：股市如何抄底.md
+    source_date: "2026-05-26"
+    source_type: 视频
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 半导体资金性质
+    timeframe: short-term
+    statement: 5月25-26日半导体上涨由大机构资金主导，非游资行为，单票300亿级别体量需要机构+量化共同参与
+    evidence_quote: >
+      "半导体现在你一个股票要干300多亿，这个不是游资能做得了的事情。
+      所以这里面会有游资、机构、量化全都进来了。所以我们在这个节点，虽然它出现的位置不好，很差，
+      但是我们对于这笔资金，我们是要重视的。"
+    interpretation: >
+      半导体板块出现大市值标的（300亿+）集体异动，表明资金性质从游资短炒升级为机构中长期的配置行为。
+      这种资金性质的转变意味着半导体行情的持续性和空间可能超预期，即使出现位置偏高也应重视而非简单忽视。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: [半导体]
+
+  - id: claim-20260526-025-f
+    source_path: sources/raw/财经/视频：26-05-26：股市如何抄底.md
+    source_date: "2026-05-26"
+    source_type: 视频
+    extracted_at: "2026-05-27"
+    claim_type: sector-theme
+    subject: 华为韬定律扩散半导体全产业链
+    timeframe: industry
+    statement: >
+      华为韬定律叠加后，半导体炒作从长鑫存储扩产单点扩散至全产业链（EDA、设备、材料、设计等），
+      炒作周期全面延长
+    evidence_quote: >
+      "突然间叠加了华为韬定律，那么整个半导体的炒作周期就全面扩散了。
+      我们之前只看国产替代，那么现在又出了一些新的概念，整个半导体全产业上下游我们都能看到。
+      所以我们可以看到华大九天这种票，我们的EDA在之前它是没有动的，因为长鑫的扩产潮跟这个东西没关系，
+      所以最近它开始动了。我们整个半导体全产业链都能动了。"
+    interpretation: >
+      华为韬定律为半导体提供了新的催化剂，使炒作逻辑从"长鑫扩产"单一叙事扩展为"全产业链国产替代+新催化"。
+      EDA等 previously 未动的细分方向开始补涨，表明资金正在全面覆盖半导体上下游，
+      行情从结构性升级为板块性，持续时间和空间都可能延长。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [华大九天]
+      related_sectors: [半导体]
+
+  - id: claim-20260526-025-g
+    source_path: sources/raw/财经/视频：26-05-26：股市如何抄底.md
+    source_date: "2026-05-26"
+    source_type: 视频
+    extracted_at: "2026-05-27"
+    claim_type: methodology
+    subject: 散户仓位管理核心原则
+    timeframe: permanent
+    statement: 散户赚大钱的核心法则：容易赚钱时重仓，容易亏钱时控仓，实现少亏大赚
+    evidence_quote: >
+      "散户想要赚钱、赚大钱，那么一定是在容易赚钱的时候去好好赚钱，在容易亏钱的时候，你是需要少亏钱。
+      也就是说，你要把仓位进行一个管理。在出现明确的大盘一个信号不好的时候，你要进行一个仓位管理。
+      那么在这段下跌的途中，你少亏一点，在上涨的途中，我们把仓位加上去，这样就是少亏大赚。"
+    interpretation: >
+      散户与机构最大的差异在于资金规模和回撤承受能力。散户不应追求每一笔都赚钱，
+      而应追求"顺风时满仓吃足、逆风时轻仓少亏"的盈亏不对称。
+      关键在于识别"容易赚钱"和"容易亏钱"的周期：主升期重仓、退潮期轻仓、冰点期试错。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260526-025-h
+    source_path: sources/raw/财经/视频：26-05-26：股市如何抄底.md
+    source_date: "2026-05-26"
+    source_type: 视频
+    extracted_at: "2026-05-27"
+    claim_type: market-cycle
+    subject: 当前周期定位
+    timeframe: trend
+    statement: 当前处于ABC下调中的B浪回调，真正赚钱的主升浪尚未开始
+    evidence_quote: >
+      "我之前会是把这里看作是ABC的一个下调。因为周四的那个下调，我直接就把它当做稍微大一点的周期的一个B浪回调。
+      那么在B浪回调当中，我们依然会有部分的结构性行情去做，所以整个大的主升还没有开始。
+      真正正儿八经赚钱的时候还没有开始。"
+    interpretation: >
+      从波浪理论视角，当前处于大周期上涨后的回调阶段（ABC中的B浪）。B浪特征是有结构性行情但非全面主升，
+      操作应以波段和结构性机会为主，不预期全面普涨。真正的C浪结束后才是新一轮主升的启动点。
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260526-025-i
+    source_path: sources/raw/财经/视频：26-05-26：股市如何抄底.md
+    source_date: "2026-05-26"
+    source_type: 视频
+    extracted_at: "2026-05-27"
+    claim_type: operation
+    subject: 5月27日半导体决战
+    timeframe: short-term
+    statement: 5月27日（周三）长鑫上会，是半导体方向决胜负的关键节点。若走强则调整可能提前结束，但最好顺势再调整一两周
+    evidence_quote: >
+      "明天是决胜负的时候。如果明天能够真的走强，那么我们这一波调整甚至有可能会提前结束。
+      但我觉得这个东西最好不要这样做，因为这样做太刻意了。我还是希望他能够顺势再调整一两周之后，
+      我们去往上走。"
+    interpretation: >
+      长鑫上会（5/27）是半导体短期催化剂的落地节点。若市场选择强势向上，则调整周期可能缩短；
+      但从波浪节奏看，博主更希望先完成充分调整（1-2周）后再启动，这样后续上涨空间更足。
+      操作层面：5/27观察半导体承接质量，不追高，若走弱则按原计划减仓。
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: [半导体]
