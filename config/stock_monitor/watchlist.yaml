@@ -372,6 +372,21 @@ themes:
           - "先进封装修复但个股明显弱于板块"
           - "跌破前低后无修复"
 
+      - code: "002881.SZ"
+        name: "美格智能"
+        role: "edge_ai_elastic"
+        segment: "端侧AI/智能模组"
+        watch_reason: "端侧AI补涨分支；AI中后期从云端向边缘计算扩散，智能模组和AIoT终端受益，5/27涨停。"
+        confirm_with: ["科大讯飞", "中兴通讯", "中科曙光"]
+        buy_setup:
+          - "端侧AI/智能模组方向被资金认可，美格智能放量突破"
+          - "不追涨停，等分歧后缩量回踩承接"
+          - "需科大讯飞或国产算力硬件同步扩散确认"
+        invalidation_setup:
+          - "单票脉冲但端侧AI组无联动"
+          - "跌破分时均价且科大讯飞同步回落"
+          - "AI应用层扩散逻辑不被资金持续认可"
+
   - id: "changxin_storage"
     name: "长鑫存储产业链"
     source_docs:
@@ -880,6 +895,51 @@ themes:
         invalidation_setup:
           - "功率器件方向单独走弱，无电源链联动"
           - "跌破分时均价且扬杰科技、伊戈尔同步回落"
+
+      - code: "603989.SH"
+        name: "艾华集团"
+        role: "supercapacitor_elastic"
+        segment: "超级电容/铝电解电容"
+        watch_reason: "AI供电三剑客之超级电容方向；5/27涨停，新技术分支从0到1，英伟达平台电源架构升级受益。"
+        confirm_with: ["江海股份", "海星股份", "东阳光"]
+        buy_setup:
+          - "超级电容组（江海股份、海星股份、东阳光）至少两只同步转强"
+          - "不追涨停，等分歧后缩量回踩并重新放量"
+          - "AI电源链整体扩散而非单票脉冲"
+        invalidation_setup:
+          - "单票冲高但超级电容组无联动"
+          - "跌破分时均价且江海股份、海星股份同步回落"
+          - "新技术分支逻辑不被资金持续认可"
+
+      - code: "000969.SZ"
+        name: "安泰科技"
+        role: "nanocrystalline_soft_magnetic"
+        segment: "纳米晶/金属软磁"
+        watch_reason: "AI供电三剑客之纳米晶方向；英伟达800V直流架构推动金属软磁需求从0到1，变压器小型化核心材料。"
+        confirm_with: ["东睦股份", "伊戈尔", "金盘科技"]
+        buy_setup:
+          - "纳米晶/软磁方向被资金认可，安泰科技放量突破分时均线"
+          - "不追高，等缩量回踩或分歧后承接确认"
+          - "需东睦股份或电源链（伊戈尔、金盘科技）同步承接"
+        invalidation_setup:
+          - "单票走强但纳米晶方向无扩散"
+          - "跌破趋势支撑且东睦股份同步回落"
+          - "AI电源链整体走弱"
+
+      - code: "600114.SH"
+        name: "东睦股份"
+        role: "nanocrystalline_soft_magnetic"
+        segment: "MIM/粉末冶金/纳米晶软磁"
+        watch_reason: "AI供电纳米晶方向；MIM业务稳健，软磁粉芯受益800V架构趋势，5/27微跌提供观察窗口。"
+        confirm_with: ["安泰科技", "伊戈尔", "中恒电气"]
+        buy_setup:
+          - "纳米晶方向被资金认可，东睦股份缩量企稳后放量"
+          - "不追高，等回踩确认"
+          - "需安泰科技或电源链同步承接"
+        invalidation_setup:
+          - "单票走弱且安泰科技同步回落"
+          - "跌破前低且无修复"
+          - "AI电源链整体走弱"
 
   - id: "mlcc_power_components_mainboard"
     name: "MLCC/被动元件/电源链主板观察池"
