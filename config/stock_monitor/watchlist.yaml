@@ -306,8 +306,28 @@ today_snapshot:
       price: 69.65
       change_pct: 8.24
       status: "GaN功率器件，电源链发酵"
+    - code: "603989.SH"
+      name: "艾华集团"
+      price: 34.93
+      change_pct: 10.02
+      status: "超级电容，涨停，AI供电三剑客"
+    - code: "002881.SZ"
+      name: "美格智能"
+      price: 49.79
+      change_pct: 10.01
+      status: "端侧AI，涨停，AI中后期补涨分支"
+    - code: "000969.SZ"
+      name: "安泰科技"
+      price: 24.36
+      change_pct: 3.92
+      status: "纳米晶/金属软磁，AI供电从0到1"
+    - code: "600114.SH"
+      name: "东睦股份"
+      price: 38.67
+      change_pct: -1.50
+      status: "纳米晶/金属软磁，AI供电方向"
   stocks_pending_fetch: []
-  overall_action: "全部观察池标的不买入。电源/SST已发酵不追；PCB/存储/半导体在调整；弱势方向回避。"
+  overall_action: "根据5/27复盘：明天观察强修复还是弱修复（需2个交易日确认）。持有池深科技/通富微电借修复做T。观察池新增：艾华集团（超级电容涨停）、美格智能（端侧AI涨停）、安泰科技/东睦股份（纳米晶）。不追高潮、不抢一字、情景未明时不建新仓。"
 
 themes:
   - id: "domestic_compute"
