@@ -1,4 +1,313 @@
-updated_at: "2026-05-26"
+updated_at: "2026-05-27"
+
+today_snapshot:
+  fetch_time: "2026-05-27 14:00 CST"
+  source: "eastmoney_push2"
+  up_bias: "主动规避、把弹药留出来；电源/SST已发酵不要追；半导体调整概率偏大"
+  market_summary: "电源/SST链发酵（金盘科技+7.12%、中恒电气+5.68%、海星股份涨停、华天科技+9.86%、新洁能+8.24%），PCB严重分化（生益科技微涨但景旺电子-6.19%、华正新材-3.62%），存储芯片龙头兆易创新-3.87%，半导体材料/扩展层大面积调整。新增电源/SST/功率器件theme（伊戈尔、中恒电气、新洁能）。"
+  stocks_with_data:
+    - code: "603115.SH"
+      name: "海星股份"
+      price: 113.07
+      change_pct: 9.99
+      status: "涨停，电极箔/电容材料强势"
+    - code: "688676.SH"
+      name: "金盘科技"
+      price: 102.92
+      change_pct: 7.12
+      status: "SST/电源核心标的，已发酵"
+    - code: "002364.SZ"
+      name: "中恒电气"
+      price: 56.75
+      change_pct: 5.68
+      status: "HVDC电源，已发酵"
+    - code: "600673.SH"
+      name: "东阳光"
+      price: 38.50
+      change_pct: 4.62
+      status: "电容材料，已发酵"
+    - code: "600584.SH"
+      name: "长电科技"
+      price: 90.35
+      change_pct: 2.45
+      status: "封测龙头，相对抗跌"
+    - code: "300274.SZ"
+      name: "阳光电源"
+      price: 181.30
+      change_pct: 1.29
+      status: "AIDC电源，已发酵"
+    - code: "600183.SH"
+      name: "生益科技"
+      price: 129.30
+      change_pct: 0.88
+      status: "CCL核心微涨，PCB方向分化"
+    - code: "601869.SH"
+      name: "长飞光纤"
+      price: 360.78
+      change_pct: -0.87
+      status: "光通信弱势"
+    - code: "601208.SH"
+      name: "东材科技"
+      price: 52.22
+      change_pct: -2.03
+      status: "树脂材料调整"
+    - code: "603019.SH"
+      name: "中科曙光"
+      price: 91.00
+      change_pct: -3.53
+      status: "国产服务器弱势"
+    - code: "000962.SZ"
+      name: "东方钽业"
+      price: 64.10
+      change_pct: -3.55
+      status: "电容材料调整"
+    - code: "603186.SH"
+      name: "华正新材"
+      price: 127.80
+      change_pct: -3.62
+      status: "PCB材料冲高回落，分时直线下杀"
+    - code: "603986.SH"
+      name: "兆易创新"
+      price: 505.85
+      change_pct: -3.87
+      status: "存储芯片龙头调整，不是买点"
+    - code: "600601.SH"
+      name: "方正科技"
+      price: 12.90
+      change_pct: -3.95
+      status: "PCB扩展层调整"
+    - code: "300593.SZ"
+      name: "新雷能"
+      price: 38.26
+      change_pct: -5.37
+      status: "二次电源调整"
+    - code: "603002.SH"
+      name: "宏昌电子"
+      price: 16.04
+      change_pct: -5.54
+      status: "ABF材料调整"
+    - code: "603228.SH"
+      name: "景旺电子"
+      price: 82.08
+      change_pct: -6.19
+      status: "PCB扩展层大跌"
+    - code: "603650.SH"
+      name: "彤程新材"
+      price: 55.70
+      change_pct: -6.54
+      status: "光刻胶/半导体材料大跌"
+    - code: "002484.SZ"
+      name: "江海股份"
+      price: 67.60
+      change_pct: 10.01
+      status: "涨停！超级电容核心标的，电源链强势"
+    - code: "000636.SZ"
+      name: "风华高科"
+      price: 44.00
+      change_pct: 5.52
+      status: "MLCC核心标的，涨价链强势"
+    - code: "002639.SZ"
+      name: "雪人股份"
+      price: 15.01
+      change_pct: 0.40
+      status: "液冷微涨"
+    - code: "301389.SZ"
+      name: "隆扬电子"
+      price: 81.77
+      change_pct: -0.79
+      status: "铜箔材料微跌"
+    - code: "002859.SZ"
+      name: "洁美科技"
+      price: 62.55
+      change_pct: -0.98
+      status: "MLCC上游材料微跌"
+    - code: "300936.SZ"
+      name: "中英科技"
+      price: 90.21
+      change_pct: -2.11
+      status: "PTFE高频覆铜板调整"
+    - code: "002518.SZ"
+      name: "科士达"
+      price: 55.78
+      change_pct: -2.17
+      status: "数据中心电源调整"
+    - code: "000063.SZ"
+      name: "中兴通讯"
+      price: 34.75
+      change_pct: -2.22
+      status: "ICT设备调整"
+    - code: "300476.SZ"
+      name: "胜宏科技"
+      price: 380.19
+      change_pct: -3.25
+      status: "高阶HDI调整"
+    - code: "000938.SZ"
+      name: "紫光股份"
+      price: 27.88
+      change_pct: -3.53
+      status: "服务器/网络设备调整"
+    - code: "001267.SZ"
+      name: "汇绿生态"
+      price: 55.93
+      change_pct: -3.85
+      status: "光通信补涨调整"
+    - code: "000977.SZ"
+      name: "浪潮信息"
+      price: 64.49
+      change_pct: -4.18
+      status: "服务器整机调整"
+    - code: "002837.SZ"
+      name: "英维克"
+      price: 94.30
+      change_pct: -4.33
+      status: "液冷/温控调整"
+    - code: "301217.SZ"
+      name: "铜冠铜箔"
+      price: 98.00
+      change_pct: -4.34
+      status: "HVLP铜箔调整"
+    - code: "000066.SZ"
+      name: "中国长城"
+      price: 18.32
+      change_pct: -5.08
+      status: "信创/CPU调整"
+    - code: "002916.SZ"
+      name: "深南电路"
+      price: 393.11
+      change_pct: -6.29
+      status: "ABF/FC-BGA载板大跌"
+    - code: "002636.SZ"
+      name: "金安国纪"
+      price: 47.72
+      change_pct: 0.36
+      status: "覆铜板微涨，PCB弱跟随"
+    - code: "600487.SH"
+      name: "亨通光电"
+      price: 68.80
+      change_pct: -0.88
+      status: "光通信微跌"
+    - code: "002371.SZ"
+      name: "北方华创"
+      price: 654.00
+      change_pct: -2.42
+      status: "半导体设备调整"
+    - code: "002429.SZ"
+      name: "兆驰股份"
+      price: 12.31
+      change_pct: -2.53
+      status: "Micro-LED调整"
+    - code: "600522.SH"
+      name: "中天科技"
+      price: 38.96
+      change_pct: -3.75
+      status: "光纤光缆调整"
+    - code: "002409.SZ"
+      name: "雅克科技"
+      price: 118.39
+      change_pct: -3.91
+      status: "半导体材料调整（你已清空）"
+    - code: "002463.SZ"
+      name: "沪电股份"
+      price: 127.57
+      change_pct: -4.34
+      status: "Rubin PCB核心调整"
+    - code: "600110.SH"
+      name: "诺德股份"
+      price: 10.34
+      change_pct: -4.35
+      status: "高端铜箔调整"
+    - code: "300373.SZ"
+      name: "扬杰科技"
+      price: 110.15
+      change_pct: 12.51
+      status: "SiC核心标的大涨！电源链强势"
+    - code: "000021.SZ"
+      name: "深科技"
+      price: 44.73
+      change_pct: 4.63
+      status: "你的核心持仓，存储封测强势"
+    - code: "605376.SH"
+      name: "博迁新材"
+      price: 162.81
+      change_pct: 2.08
+      status: "被动元件上游材料微涨"
+    - code: "002028.SZ"
+      name: "思源电气"
+      price: 197.13
+      change_pct: 1.56
+      status: "HVDC电力设备微涨"
+    - code: "605589.SH"
+      name: "圣泉集团"
+      price: 44.88
+      change_pct: -0.27
+      status: "电子树脂微跌"
+    - code: "603256.SH"
+      name: "宏和科技"
+      price: 179.14
+      change_pct: -2.59
+      status: "电子布/Q-Glass调整"
+    - code: "603138.SH"
+      name: "海量数据"
+      price: 16.04
+      change_pct: -4.47
+      status: "国产数据库调整"
+    - code: "002080.SZ"
+      name: "中材科技"
+      price: 70.40
+      change_pct: -5.17
+      status: "Low-Dk玻纤调整"
+    - code: "002273.SZ"
+      name: "水晶光电"
+      price: 42.14
+      change_pct: 7.23
+      status: "光学元件/微透镜大涨"
+    - code: "002230.SZ"
+      name: "科大讯飞"
+      price: 49.99
+      change_pct: 1.50
+      status: "AI大模型/昇腾生态微涨"
+    - code: "002338.SZ"
+      name: "奥普光电"
+      price: 59.30
+      change_pct: -4.66
+      status: "精密光学调整"
+    - code: "002222.SZ"
+      name: "福晶科技"
+      price: 100.48
+      change_pct: -3.38
+      status: "精密光学/晶体材料调整"
+    - code: "002436.SZ"
+      name: "兴森科技"
+      price: 36.62
+      change_pct: -3.91
+      status: "BT/ABF载板调整"
+    - code: "600536.SH"
+      name: "中国软件"
+      price: 37.00
+      change_pct: -3.75
+      status: "国产操作系统调整"
+    - code: "002922.SZ"
+      name: "伊戈尔"
+      price: 45.36
+      change_pct: 2.65
+      status: "电源核心标的，已发酵"
+    - code: "002156.SZ"
+      name: "通富微电"
+      price: 74.80
+      change_pct: -0.78
+      status: "你的持仓，先进封装微跌"
+    - code: "002185.SZ"
+      name: "华天科技"
+      price: 20.51
+      change_pct: 9.86
+      status: "先进封装大涨，接近涨停"
+    - code: "605111.SH"
+      name: "新洁能"
+      price: 69.65
+      change_pct: 8.24
+      status: "GaN功率器件，电源链发酵"
+  stocks_pending_fetch: []
+  overall_action: "全部观察池标的不买入。电源/SST已发酵不追；PCB/存储/半导体在调整；弱势方向回避。"
 
 themes:
   - id: "domestic_compute"
@@ -497,6 +806,60 @@ themes:
           - "必须由宏昌电子、华正新材、生益科技至少两只同步承接确认"
         invalidation_setup:
           - "跌破43.98日内低点或先进材料组继续分化，维持弱势观察"
+
+  - id: "power_sst_semiconductors"
+    name: "电源/SST/功率器件主板观察池"
+    tradability: "mainboard_only"
+    source_docs:
+      - "sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md"
+      - "knowledge/wiki/市场分析/AI电源与超级电容.md"
+    market_checks:
+      - "电源/SST/功率器件是否形成组内联动"
+      - "英伟达平台电源价值量提升逻辑是否持续被资金认可"
+      - "800V直流架构趋势下SiC/GaN是否继续扩散"
+      - "是否属于AI硬件主线内部高低切，而不是防御轮动"
+    stocks:
+      - code: "002922.SZ"
+        name: "伊戈尔"
+        role: "power_supply_core"
+        segment: "配电/电源整机"
+        watch_reason: "电源/SST核心赛道标的；英伟达平台电源价值量提升直接受益。下半年HVDC与SST需求同步紧张，现在是预热阶段。"
+        confirm_with: ["金盘科技", "中恒电气", "新洁能"]
+        buy_setup:
+          - "电源/SST组整体转强，且伊戈尔放量突破分时均线"
+          - "不追高，等缩量回踩或分歧后的承接确认"
+          - "下半年（2026H2）HVDC放量前可提前布局，现在只跟踪不买入"
+        invalidation_setup:
+          - "单票走强但电源链无扩散，降低电源整机扩散预期"
+          - "跌破趋势支撑且金盘科技、中恒电气同步回落"
+
+      - code: "002364.SZ"
+        name: "中恒电气"
+        role: "hvdc_power_core"
+        segment: "HVDC电源"
+        watch_reason: "HVDC独立电源方案核心受益标的；Vera Rubin CPX方案电源价值量较GB200增长超10倍。"
+        confirm_with: ["伊戈尔", "金盘科技", "新洁能"]
+        buy_setup:
+          - "HVDC方案被资金认可，中恒电气放量突破日内高点"
+          - "需伊戈尔、金盘科技至少一只同步承接确认"
+          - "2026年下半年HVDC需求紧张前可提前布局，现在只跟踪"
+        invalidation_setup:
+          - "HVDC逻辑不被资金认可，单票冲高回落"
+          - "跌破分时均价且伊戈尔、金盘科技同步走弱"
+
+      - code: "605111.SH"
+        name: "新洁能"
+        role: "gan_power_device"
+        segment: "GaN功率器件"
+        watch_reason: "A股GaN核心标的；电源走向800V直流架构，SiC与GaN是最大受益方向。"
+        confirm_with: ["扬杰科技", "伊戈尔", "金盘科技"]
+        buy_setup:
+          - "功率器件方向被资金认可，新洁能放量突破"
+          - "800V趋势确认，且电源链整体扩散"
+          - "下半年产能挤压+涨价预期是核心博弈窗口，现在只跟踪不追高"
+        invalidation_setup:
+          - "功率器件方向单独走弱，无电源链联动"
+          - "跌破分时均价且扬杰科技、伊戈尔同步回落"
 
   - id: "mlcc_power_components_mainboard"
     name: "MLCC/被动元件/电源链主板观察池"
