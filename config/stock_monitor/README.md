@@ -24,6 +24,47 @@ This directory contains configuration for Hermes-driven A-share monitoring.
 
 The monitor is for alerts only. It should never place orders automatically.
 
+## Editing These Files — Check the Consumer First
+
+`positions.yaml` and `watchlist.yaml` are **consumed directly by `src/qing_investment/stock_monitor.py`**.  
+Before you add, remove, or rename fields, verify the reader code so you don't break the monitor at runtime.
+
+### `positions.yaml` — field contract
+
+`stock_monitor.py::position_rows()` walks `accounts → positions` and copies every key–value pair into a flat row dict.  `evaluate_position_alerts()` then reads:
+
+| Field | Required? | Used for | Format |
+|---|---|---|---|
+| `code` | **Yes** | Matching quotes | e.g. `000021.SZ` |
+| `name` | No (fallback from quote) | Alert text | free text |
+| `reduce_zone` | No | "减仓观察" alert | string range `"47.50-50.00"` or single number |
+| `risk_zone` / `risk_line` | No | "风控观察" alert | same range format |
+
+**Safe to add** extra keys (`shares`, `cost`, `pnl`, `today_plan`, `notes`, …) — the script ignores them.  
+**Do NOT rename** `accounts`, `positions`, `code`, `reduce_zone`, `risk_zone`, or `risk_line` without updating `stock_monitor.py`.
+
+`closed_positions` under an account is **never read** by the monitor (only `positions` is iterated). It is safe for bookkeeping, but moves into `closed_positions` will stop quote-fetching and alerting for that stock.
+
+### `watchlist.yaml` — field contract
+
+`stock_monitor.py::watchlist_stock_rows()` walks `themes → stocks` and copies every key–value pair, adding `theme_id` / `theme_name`.  Fields expected by downstream logic:
+
+| Field | Required? | Used for |
+|---|---|---|
+| `code` | **Yes** | Quote matching |
+| `name` | No (fallback) | Alert / analysis text |
+| `watch_reason` | No | Agent analysis context |
+| `confirm_with` | No | Agent analysis context |
+| `buy_setup` | No | Agent analysis context |
+| `invalidation_setup` | No | Agent analysis context |
+| `sell_setup` | No | Agent analysis context |
+
+**Adding a new theme?** Keep the same structure as existing themes (`id`, `name`, `tradability`, `source_docs`, `market_checks`, `stocks[]`).  Each stock under `stocks[]` should provide `code`, `name`, `role`, `segment`, `watch_reason`, `confirm_with`, `buy_setup`, `invalidation_setup`.  Inconsistent nesting will cause `watchlist_stock_rows()` to silently skip entries.
+
+### `positions.example.yaml` — keep in sync
+
+Because `positions.yaml` is `.gitignore`d, the **version-controlled template** `positions.example.yaml` must stay structurally in sync with what `stock_monitor.py` expects.  If you add a new mandatory field or rename an existing one, update both files and mention the contract change in the commit message.
+
 ## Hermes Entry Points
 
 Project-local commands:
