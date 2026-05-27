@@ -26,13 +26,23 @@ market_framework:
       - "明日重点看PCB与韬定律至少一个反包成功、连板高度是否突破3板、防御方向是否反向虹吸科技。"
       - "当前组合仓位偏高，观察池不做新增净仓；只允许分歧后确认买点、做T或减弱留强。"
   index_rules:
-    - name: "short_repair_observation"
+    - name: "weak_repair_alert"
       index: "上证指数"
-      watch_level: 4100
-      valid_close_level: 4080
-      weak_close_level: 4070
-      trend_defense: 4027
-      interpretation: "收在4080以上修复有效；4070以下修复力度不足；4027是趋势防守区。"
+      trigger_condition: "close_below"
+      threshold: 4080
+      severity: "observe"
+      action: "指数弱修复观察"
+      trigger_template: "收盘跌破{threshold}"
+      interpretation: "修复力度不足，降低次日预期，持仓以持有观察为主不新增净仓。"
+
+    - name: "trend_defense_proximity"
+      index: "上证指数"
+      trigger_condition: "close_below"
+      threshold: 4070
+      severity: "risk"
+      action: "指数趋势防线观察"
+      trigger_template: "收盘跌破{threshold}"
+      interpretation: "弱修复确认，触发持仓保护观察，核心票跌破分时均价优先T出或减亏。"
 
 intraday_schedule:
   - window: "09:15-09:30"
@@ -195,14 +205,10 @@ sector_groups:
     members:
       - code: "000021.SZ"
         name: "深科技"
+      - code: "002156.SZ"
+        name: "通富微电"
       - code: "002185.SZ"
         name: "华天科技"
-      - code: "002409.SZ"
-        name: "雅克科技"
-      - code: "603650.SH"
-        name: "彤程新材"
-      - code: "002636.SZ"
-        name: "金安国纪"
 
   - id: "cpo_light_communication"
     name: "光通信/CPO"
@@ -393,6 +399,46 @@ sector_groups:
       - code: "600522.SH"
         name: "中天科技"
 
+  - id: "power_mlcc_subchain"
+    name: "电源/MLCC子链"
+    style: "offensive"
+    members:
+      - code: "002484.SZ"
+        name: "江海股份"
+      - code: "000636.SZ"
+        name: "风华高科"
+      - code: "603115.SH"
+        name: "海星股份"
+      - code: "688676.SH"
+        name: "金盘科技"
+      - code: "002364.SZ"
+        name: "中恒电气"
+      - code: "605111.SH"
+        name: "新洁能"
+      - code: "002922.SZ"
+        name: "伊戈尔"
+
+  - id: "pcb_semiconductor_subchain"
+    name: "PCB/半导体子链"
+    style: "offensive"
+    members:
+      - code: "002916.SZ"
+        name: "深南电路"
+      - code: "603228.SH"
+        name: "景旺电子"
+      - code: "002463.SZ"
+        name: "沪电股份"
+      - code: "600183.SH"
+        name: "生益科技"
+      - code: "603986.SH"
+        name: "兆易创新"
+      - code: "002371.SZ"
+        name: "北方华创"
+      - code: "603650.SH"
+        name: "彤程新材"
+      - code: "002409.SZ"
+        name: "雅克科技"
+
 sector_rotation_rules:
   - id: "tech_vs_defense"
     offensive_groups:
@@ -400,6 +446,7 @@ sector_rotation_rules:
       - "cpo_light_communication"
       - "semiconductor_core"
       - "pcb_ccl"
+      - "mainboard_mlcc_power"
     defensive_groups:
       - "defensive_stabilizers"
     min_spread_pct: 1.0
@@ -416,6 +463,15 @@ sector_rotation_rules:
       - "defensive_stabilizers"
     min_spread_pct: 0.8
     min_red_ratio_spread: 0.2
+
+  - id: "power_vs_pcb_internal"
+    name: "科技内部分化：电源/MLCC vs PCB/半导体"
+    offensive_groups:
+      - "power_mlcc_subchain"
+    defensive_groups:
+      - "pcb_semiconductor_subchain"
+    min_spread_pct: 1.5
+    min_red_ratio_spread: 0.3
 
 notification_policy:
   only_notify_when:

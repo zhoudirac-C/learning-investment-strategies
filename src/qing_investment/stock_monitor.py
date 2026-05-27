@@ -262,6 +262,90 @@ def evaluate_position_alerts(
     return alerts
 
 
+def _evaluate_generic_index_rule(
+    rule: dict, latest: float, index_name: str, quote: dict | None
+) -> RuleAlert | None:
+    """Evaluate a single index rule using the generic trigger_condition format."""
+    trigger_condition = rule.get("trigger_condition")
+    threshold = _to_float(rule.get("threshold"))
+
+    if not trigger_condition or threshold is None:
+        return None
+
+    if trigger_condition in ("close_below", "intraday_below"):
+        if not (latest <= threshold):
+            return None
+    elif trigger_condition in ("close_above", "intraday_above"):
+        if not (latest >= threshold):
+            return None
+    else:
+        return None
+
+    severity = rule.get("severity", "observe")
+    action = rule.get("action") or "指数规则触发"
+
+    trigger_template = rule.get("trigger_template", "")
+    if trigger_template:
+        trigger = trigger_template.format(threshold=threshold)
+    else:
+        direction = "跌破" if "below" in trigger_condition else "突破"
+        trigger = f"{direction}{threshold:g}"
+
+    interpretation = rule.get("interpretation", "")
+    if interpretation:
+        summary = (
+            f"{action}：{index_name} 当前点位={latest:g}；{trigger}。"
+            f"{interpretation}"
+        )
+    else:
+        summary = (
+            f"{action}：{index_name} 当前点位={latest:g}；{trigger}。"
+            "需要降低进攻预期，观察科技主线是否继续承接。"
+        )
+
+    return RuleAlert(
+        action=action,
+        stock_code=str((quote or {}).get("code", "")),
+        stock_name=index_name,
+        price=latest,
+        trigger=trigger,
+        severity=severity,
+        summary=summary,
+    )
+
+
+def _evaluate_legacy_index_rule(
+    rule: dict, latest: float, index_name: str, quote: dict | None
+) -> RuleAlert | None:
+    """Backward-compatible evaluation for legacy trend_defense / weak_close_level format."""
+    trend_defense = _to_float(rule.get("trend_defense"))
+    weak_close_level = _to_float(rule.get("weak_close_level"))
+
+    if trend_defense is not None and latest <= trend_defense:
+        action = "指数趋势防线观察"
+        trigger = f"跌至趋势防线{trend_defense:g}附近或下方"
+        severity = "risk"
+    elif weak_close_level is not None and latest < weak_close_level:
+        action = "指数弱修复观察"
+        trigger = f"低于弱修复阈值{weak_close_level:g}"
+        severity = "observe"
+    else:
+        return None
+
+    return RuleAlert(
+        action=action,
+        stock_code=str((quote or {}).get("code", "")),
+        stock_name=index_name,
+        price=latest,
+        trigger=trigger,
+        severity=severity,
+        summary=(
+            f"{action}：{index_name} 当前点位={latest:g}；{trigger}。"
+            "需要降低进攻预期，观察科技主线是否继续承接。"
+        ),
+    )
+
+
 def evaluate_market_alerts(
     config: MonitorConfig,
     quote_snapshot: dict,
@@ -280,34 +364,12 @@ def evaluate_market_alerts(
         if latest is None:
             continue
 
-        trend_defense = _to_float(rule.get("trend_defense"))
-        weak_close_level = _to_float(rule.get("weak_close_level"))
-
-        if trend_defense is not None and latest <= trend_defense:
-            action = "指数趋势防线观察"
-            trigger = f"跌至趋势防线{trend_defense:g}附近或下方"
-            severity = "risk"
-        elif weak_close_level is not None and latest < weak_close_level:
-            action = "指数弱修复观察"
-            trigger = f"低于弱修复阈值{weak_close_level:g}"
-            severity = "observe"
-        else:
-            continue
-
-        alerts.append(
-            RuleAlert(
-                action=action,
-                stock_code=str((quote or {}).get("code", "")),
-                stock_name=index_name,
-                price=latest,
-                trigger=trigger,
-                severity=severity,
-                summary=(
-                    f"{action}：{index_name} 当前点位={latest:g}；{trigger}。"
-                    "需要降低进攻预期，观察科技主线是否继续承接。"
-                ),
-            )
-        )
+        # Try generic format first, then fall back to legacy format
+        alert = _evaluate_generic_index_rule(rule, latest, index_name, quote)
+        if alert is None:
+            alert = _evaluate_legacy_index_rule(rule, latest, index_name, quote)
+        if alert is not None:
+            alerts.append(alert)
 
     return alerts
 
