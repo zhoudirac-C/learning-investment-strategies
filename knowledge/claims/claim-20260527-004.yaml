@@ -1,0 +1,196 @@
+claims:
+  - id: claim-20260527-004-a
+    source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
+    source_date: "2026-05-27"
+    source_type: 午盘
+    extracted_at: "2026-05-27"
+    claim_type: operation
+    subject: 当前节点操作建议
+    timeframe: 短期
+    statement: 当下不是等待更好的买点，而是先把仓位和心态调整到能承受意外的状态——把弹药留出来，等出清后再加仓
+    evidence_quote: >
+      "倾向于主动规避而非等待。当下不是'等待更好的买点'，而是'先把仓位和心态调整到能承受意外的状态'
+      ——把弹药留出来，让市场把分歧走完、把拥挤交易出清掉，等到指数完成消化、外盘叙事被证实或证伪之后再考虑加仓。"
+    interpretation: 当前节点风险收益比不佳，应先降仓避险，而非硬扛等待反弹
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-004-b
+    source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
+    source_date: "2026-05-27"
+    source_type: 午盘
+    extracted_at: "2026-05-27"
+    claim_type: macro
+    subject: 美股极端信号
+    timeframe: 短期
+    statement: 美股四个极端信号同时出现：股市与VIX同涨、消费者信心历史低位+纳指新高、对冲基金半导体仓位和动量因子暴露历史级别、英伟达财报亮眼但跑输半导体指数
+    evidence_quote: >
+      "美股已经和现实脱节，四个极端信号同时出现——股市与VIX同涨、消费者信心历史低位却伴随纳指历史新高、
+      对冲基金半导体仓位和动量因子暴露双双拉到历史级别、英伟达财报亮眼但开始跑输半导体指数。"
+    interpretation: 美股多个背离信号同时出现，表明市场处于不健康的高位状态
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [英伟达]
+      related_sectors: [半导体]
+
+  - id: claim-20260527-004-c
+    source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
+    source_date: "2026-05-27"
+    source_type: 午盘
+    extracted_at: "2026-05-27"
+    claim_type: technical-signal
+    subject: 比特币跳水
+    timeframe: 短期
+    statement: 比特币从78,000美元跳水至75,500美元，呈现"弹药转移"嫌疑，与美股上涨形成背离
+    evidence_quote: >
+      "叠加比特币78,000美元跳水至75,500美元的'弹药转移'嫌疑，整个结构呈现典型的高位接力特征。"
+    interpretation: 比特币与美股背离下跌，可能是风险资产资金撤出的先行信号
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-004-d
+    source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
+    source_date: "2026-05-27"
+    source_type: 午盘
+    extracted_at: "2026-05-27"
+    claim_type: macro
+    subject: 美伊协议
+    timeframe: 短期
+    statement: 美伊协议市场预期过高，三方表态均偏谨慎，一旦低于预期波动会非常大
+    evidence_quote: >
+      "美伊协议'市场自己快把故事讲完了'——特朗普说不急、鲁比奥说72小时解决不了、伊朗说分歧仍深，
+      一旦低于预期波动会非常大。"
+    interpretation: 美伊协议已被市场充分定价乐观预期，实际落地风险被低估
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-004-e
+    source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
+    source_date: "2026-05-27"
+    source_type: 午盘
+    extracted_at: "2026-05-27"
+    claim_type: macro
+    subject: 债市与美联储
+    timeframe: 短期
+    statement: 市场从"通胀恐慌"切换到"衰退恐慌"，收益率曲线趋平，美联储立场右移，呈现滞胀剧本
+    evidence_quote: >
+      "油价上涨是供应受威胁的'恐慌型通胀'而非'繁荣型通胀'，市场正从'通胀恐慌'切换到'衰退恐慌'，
+      收益率曲线开始趋平，连鸽派沃勒都中性化，美联储立场整体右移——短债说'通胀没死、美联储还得硬'，
+      长债说'经济快被高利率勒死'，这正是央行最讨厌的滞胀剧本。"
+    interpretation: 债市定价从通胀转向衰退，美联储陷入滞胀困境，政策空间受限
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-004-f
+    source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
+    source_date: "2026-05-27"
+    source_type: 午盘
+    extracted_at: "2026-05-27"
+    claim_type: market-cycle
+    subject: A股状态
+    timeframe: 短期
+    statement: A股处于"等缩量、等情绪、等利好落地"的三等阶段，赚钱效应已从高位连板传导至趋势股，缺少进攻条件
+    evidence_quote: >
+      "A股自身处于'等缩量、等情绪、等利好落地'的三等阶段，赚钱效应已从高位连板传导至趋势股，本身就缺少进攻条件。"
+    interpretation: A股自身不具备独立发动进攻的条件，需要等待多个条件共振
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: [claim-20260527-001-d]
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-004-g
+    source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
+    source_date: "2026-05-27"
+    source_type: 午盘
+    extracted_at: "2026-05-27"
+    claim_type: macro
+    subject: 外盘AI软着陆叙事
+    timeframe: 短期
+    statement: 外盘"AI软着陆"叙事建立在伊朗协议、油价回落、美联储转鸽三重假设上，但三个支柱都在边际走弱
+    evidence_quote: >
+      "外盘的'AI软着陆'叙事是建立在伊朗协议、油价回落、美联储转鸽三重假设上的，
+      但这三个支柱目前没有一个被真正夯实，反而都在边际走弱——这意味着外盘的乐观情绪是'借来的'，不是'赚来的'。"
+    interpretation: 外盘乐观情绪建立在脆弱假设上，存在系统性下修风险
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+
+  - id: claim-20260527-004-h
+    source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
+    source_date: "2026-05-27"
+    source_type: 午盘
+    extracted_at: "2026-05-27"
+    claim_type: risk
+    subject: 高位风险组合
+    timeframe: 短期
+    statement: "仓位极致拥挤+龙头开始钝化+叙事开始讲完"三件事同时出现，历史上这种组合往往不需要利空触发就会引发踩踏
+    evidence_quote: >
+      "最危险的不是单一风险，而是'仓位极致拥挤+龙头开始钝化+叙事开始讲完'三件事同时出现——
+      历史上这种组合往往不需要利空触发，自身重量就会引发踩踏。"
+    interpretation: 三个独立风险维度同时恶化，形成系统性脆弱结构，风险远超单一因素
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: [英伟达]
+      related_sectors: [半导体]
+
+  - id: claim-20260527-004-i
+    source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
+    source_date: "2026-05-27"
+    source_type: 午盘
+    extracted_at: "2026-05-27"
+    claim_type: methodology
+    subject: 风险识别框架
+    timeframe: 长期
+    statement: 恐慌型通胀与繁荣型通胀有本质区别，前者由供应受威胁驱动，后者由经济繁荣驱动
+    evidence_quote: >
+      "油价上涨是供应受威胁的'恐慌型通胀'而非'繁荣型通胀'。"
+    interpretation: 区分通胀性质对判断市场阶段至关重要：恐慌型通胀对应滞胀/衰退，繁荣型通胀对应扩张周期
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
