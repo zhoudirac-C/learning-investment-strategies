@@ -1,19 +1,89 @@
-updated_at: "2026-05-22"
+updated_at: "YYYY-MM-DD"
+source: "user_position_update_YYYY-MM-DD_close_review_vX"
 privacy: "example-only"
 
+portfolio:
+  estimated_total_assets: 0
+  estimated_position_value_by_tail_quote: 0
+  estimated_position_ratio_by_tail_quote: 0.0
+  cash_note: "更新为当前持仓市值和仓位比例"
+  max_total_position_ratio: 0.70
+  preferred_total_position_ratio:
+    strong_repair: "0.60-0.70"
+    normal_repair: "0.50-0.60"
+    tech_breakdown: "0.40-0.50"
+    active_avoid: "0.15-0.30"
+  latest_quote_snapshot:
+    source: "data_source_YYYY-MM-DD_close"
+    snapshot_time: "YYYY-MM-DD 15:00 CST"
+    trading_status: "收盘快照"
+    note: "填写收盘价和盘面定性"
+  latest_up_bias: "填写UP最新判断基调"
+  today_key_signals:
+    - "信号1"
+    - "信号2"
+
 accounts:
-  - name: "account_1"
+  - name: "账号1"
     positions:
-      - code: "000021.SZ"
-        name: "深科技"
+      - code: "000000.SZ"
+        name: "示例标的"
         shares: 0
         cost: 0.0
         role: "core_holding"
+        theme_ids: ["theme_id_1", "theme_id_2"]
         strategy: "hold_or_t"
-        max_position_ratio: 0.45
-        reduce_zone: "36.9-37.5"
-        risk_line: 35.90
-        notes: "填写真实持仓前，请复制为 positions.yaml；positions.yaml 不提交到 Git。"
+        max_position_ratio: 0.35
+        reduce_zone: "0.00-0.00"
+        strength_confirm: "站稳某价位并带动板块"
+        risk_line: "0.00-0.00"
+        latest_monitor_reference:
+          snapshot_time: "YYYY-MM-DD 15:00 CST"
+          source: "data_source"
+          latest: 0.0
+          pct_change: 0.0
+        pnl:
+          unrealized_profit: 0
+          unrealized_profit_pct: 0.0
+        today_plan:
+          - "【复盘定调】标的定性描述。"
+          - "【明日策略】具体操作方向（做T/持有/减仓）。"
+          - "【做T区间】低吸参考：X.XX-X.XX；高抛参考：X.XX-X.XX。"
+          - "【风控线】X.XX-X.XX。跌破且30分钟不能收回，触发风控。"
+          - "【强度确认】板块同步条件。"
+          - "【禁忌】不追涨停/一致高开，情景未明时不新增净仓。"
+        notes: "额外观察笔记"
 
-  - name: "account_2"
+    closed_positions:
+      - code: "000000.SZ"
+        name: "已清仓示例"
+        shares: 0
+        cost: 0.0
+        closed_note: "清仓原因和结果"
+
+  - name: "账号2"
     positions: []
+    closed_positions: []
+
+strategy_summary:
+  overall_bias: "填写当前市场判断基调"
+  up_quote: "UP原话或核心判断"
+  position_management:
+    current_ratio: "当前仓位"
+    target_ratio: "目标仓位区间（视情景而定）"
+    action: "仓位管理动作描述"
+  sector_allocation:
+    sector_name: "板块描述"
+  new_position_policy:
+    sector_name: "该板块是否开新仓的策略"
+    any_new: "整体开新仓策略"
+  priority_actions:
+    - "【标的1】具体操作。低吸X.XX，高抛X.XX。风控X.XX。"
+    - "【观察清单】①...；②...；③...。"
+    - "【仓位纪律】空仓位先观察1-2小时盘口确认情景。"
+    - "【风控纪律】跌破risk_line且30分钟不能收回，触发减仓/清仓。"
+  tomorrow_scenario_plan:
+    strong_repair: "强修复情景下的加仓/操作策略"
+    weak_repair: "弱修复情景下的守仓/等待策略"
+    confirmation_needed: "确认周期（如2个交易日）"
+  cleared_positions_note: "已清仓标的记录"
