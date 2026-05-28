@@ -1316,3 +1316,13 @@
 - 更新 wiki: knowledge/wiki/每日复盘/2026-05-28.md（追加盘中动态）
 - 总纲更新: 否（本次为单日盘面动态+方法论重申，尚未满足总纲级沉淀条件）
 
+
+## 2026-05-28 追加（早盘动态补充）
+
+- 更新 raw: sources/raw/财经/动态：26-05-28：情绪回暖符合预期.md（追加技术信号章节）
+- 新增 claims: claim-20260528-002.yaml 追加2条
+  - claim-20260528-002-g: 不要在个股上使用背离指标（technical-signal, permanent, high）
+  - claim-20260528-002-h: 技术指标有效性分层（technical-signal, permanent, high）
+- 更新 wiki: knowledge/wiki/每日复盘/2026-05-28.md（追加技术信号补充）
+- 总纲更新: 否（技术指标使用边界为方法论补充，尚待更多案例验证后进入总纲）
+

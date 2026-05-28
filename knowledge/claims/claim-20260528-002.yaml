@@ -120,3 +120,44 @@ claims:
     - knowledge/wiki/投资方法论/博主方法论总纲.md
     methodology_pages: []
     cases: []
+- id: claim-20260528-002-g
+  source_path: sources/raw/财经/动态：26-05-28：情绪回暖符合预期.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: technical-signal
+  subject: 背离指标的使用边界
+  timeframe: permanent
+  statement: 不要在个股上使用背离指标（MACD顶背离/底背离等），这些指标在个股层面的可靠性极低
+  evidence_quote: "不要在个股上用背离指标。现在大多数指标只能用在大市值和指数上，小票不能用"
+  interpretation: 博主明确界定技术指标的使用边界：①背离指标（MACD顶背离、底背离等）不适用于个股判断；②核心原因是小票资金性质（游资/散户主导）、操纵空间、流动性差异和机构参与度低，导致指标信号噪音远大于有效信号；③这一规则具有永久性——只要A股市场结构不变（小票仍由游资主导），背离指标在个股层面就始终不可靠。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-002-h
+  source_path: sources/raw/财经/动态：26-05-28：情绪回暖符合预期.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: technical-signal
+  subject: 技术指标的有效性分层
+  timeframe: permanent
+  statement: 技术指标的有效性按标的类型分层：指数>大市值蓝筹>中小市值>题材小票，小票基本失效
+  evidence_quote: "现在大多数指标只能用在大市值和指数上，小票不能用"
+  interpretation: 技术指标的有效性存在明确的分层结构：①指数层面有效性最高（综合反映市场整体状态）；②大市值标的（机构资金主导、波动有序）有一定参考价值；③中小市值标的指标基本失效；④题材/概念小票完全不应依赖技术指标，应专注题材催化和资金流向。这一分层规律的根本原因在于不同市值标的的资金性质和行为模式差异。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/技术分析.md
+    - knowledge/wiki/投资方法论/个股选择.md
+    methodology_pages: []
+    cases: []
