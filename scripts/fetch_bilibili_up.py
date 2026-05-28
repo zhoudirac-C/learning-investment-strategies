@@ -6,10 +6,12 @@ Fetch UP主 B站动态，保存到 sources/original/bilibili/。
     uv run python scripts/fetch_bilibili_up.py --uid <UP_UID>
     uv run python scripts/fetch_bilibili_up.py --uid <UP_UID> --check-only
     uv run python scripts/fetch_bilibili_up.py --uid <UP_UID> --state-file ~/.hermes/bilibili_up_state.json
+    uv run python scripts/fetch_bilibili_up.py --uid <UP_UID> --screenshot  # 对充电专属动态截图
 
 环境变量:
     BILIBILI_SESSDATA: B站登录Cookie（必须，用于看"仅粉丝可见"动态）
     HERMES_REPO_ROOT: 项目根目录
+    BILIBILI_UP_CHROMIUM_PATH: Chromium可执行路径（可选，默认/snap/bin/chromium）
 
 输出:
     - 无新动态: 静默（空输出）
@@ -59,7 +61,7 @@ COOKIE_TEMPLATE = (
     "theme-switch-show=SHOWED; "
     "PVID=1; "
     "browser_resolution=1512-706; "
-    "bili_ticket=eyJhbGciOiJIUzI1NiIsImtpZCI6InMwMyIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Nzk5NzE0MjMsImlhdCI6MTc3OTcxMjE2MywicGx0IjotMX0.mbx5YGFyBSQpGgdV9aVGmz0kBGRhDudKmiESLvdfKLY; "
+    "bili_ticket=eyJhbG...fKLY; "
     "bili_ticket_expires=1779971363; "
     "SESSDATA={sessdata}; "
     "bili_jct=a5d0a6acbcf87e09490777462e19a4ee; "
@@ -150,6 +152,123 @@ def fetch_dynamic_detail(dynamic_id: str, sessdata: str) -> dict:
 
     with urllib.request.urlopen(req, timeout=15) as resp:
         return json.loads(resp.read().decode("utf-8"))
+
+
+# ── Playwright 截图（可选）─────────────────────────────────────────
+
+def screenshot_dynamic(dynamic_id: str, sessdata: str, output_path: Path) -> bool:
+    """使用Playwright对动态页面截图，用于获取充电专属动态的图片。
+    
+    返回是否成功。
+    """
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print("WARN: playwright 未安装，无法截图", file=sys.stderr)
+        return False
+
+    chromium_path = os.environ.get("BILIBILI_UP_CHROMIUM_PATH", "/snap/bin/chromium")
+    url = f"https://www.bilibili.com/opus/{dynamic_id}"
+
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(
+                executable_path=chromium_path,
+                headless=True,
+                args=["--no-sandbox", "--disable-dev-shm-usage"],
+            )
+            context = browser.new_context(
+                viewport={"width": 1280, "height": 2000},
+                user_agent=USER_AGENT,
+            )
+            
+            # 设置登录cookie
+            context.add_cookies([{
+                "name": "SESSDATA",
+                "value": sessdata,
+                "domain": ".bilibili.com",
+                "path": "/",
+            }])
+            
+            page = context.new_page()
+            page.goto(url, wait_until="networkidle", timeout=30000)
+            
+            # 等待页面渲染
+            page.wait_for_timeout(5000)
+            
+            # 截图
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            page.screenshot(path=str(output_path), full_page=True)
+            
+            browser.close()
+            return True
+    except Exception as exc:
+        print(f"WARN: 截图失败 {dynamic_id}: {exc}", file=sys.stderr)
+        return False
+
+
+def extract_pics_from_screenshot(dynamic_id: str, sessdata: str) -> list[str]:
+    """使用Playwright访问页面并提取图片URL（不保存截图）。"""
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        return []
+
+    chromium_path = os.environ.get("BILIBILI_UP_CHROMIUM_PATH", "/snap/bin/chromium")
+    url = f"https://www.bilibili.com/opus/{dynamic_id}"
+    pics = []
+
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(
+                executable_path=chromium_path,
+                headless=True,
+                args=["--no-sandbox", "--disable-dev-shm-usage"],
+            )
+            context = browser.new_context(
+                viewport={"width": 1280, "height": 2000},
+                user_agent=USER_AGENT,
+            )
+            
+            context.add_cookies([{
+                "name": "SESSDATA",
+                "value": sessdata,
+                "domain": ".bilibili.com",
+                "path": "/",
+            }])
+            
+            page = context.new_page()
+            page.goto(url, wait_until="networkidle", timeout=30000)
+            page.wait_for_timeout(5000)
+            
+            # 提取图片URL（多种选择器尝试）
+            selectors = [
+                ".opus-module-content img",
+                ".dynamic-content img", 
+                ".img-content img",
+                ".bili-dyn-item__body img",
+                ".dyn-card img",
+                "[class*=opus] img",
+                "[class*=dynamic] img",
+            ]
+            
+            for selector in selectors:
+                try:
+                    elements = page.query_selector_all(selector)
+                    for el in elements:
+                        src = el.get_attribute("src")
+                        if src and src.startswith("http") and src not in pics:
+                            # 去掉@后面的参数，获取原图
+                            src_clean = src.split("@")[0]
+                            pics.append(src_clean)
+                except Exception:
+                    continue
+            
+            browser.close()
+    except Exception as exc:
+        print(f"WARN: 提取图片失败 {dynamic_id}: {exc}", file=sys.stderr)
+
+    return pics
 
 
 # ── 内容解析 ──────────────────────────────────────────────────────
@@ -413,6 +532,10 @@ def save_dynamic_to_file(
     uid: str,
     dynamic_id: str,
     detail_data: dict | None = None,
+    *,
+    is_only_fans: bool = False,
+    screenshot_path: Path | None = None,
+    playwright_pics: list[str] | None = None,
 ) -> Path:
     """保存动态到 sources/original/bilibili/。"""
     # 如果有详情数据，合并到item中
@@ -461,7 +584,14 @@ def save_dynamic_to_file(
         f'like: {stat["like"]}',
         f'comment: {stat["comment"]}',
         f'forward: {stat["forward"]}',
-        "unprocessed: true",
+    ]
+    
+    # 充电专属标记
+    if is_only_fans:
+        lines.append("is_only_fans: true")
+    
+    lines.append("unprocessed: true")
+    lines.extend([
         "---",
         "",
         f"> 来源：B站动态 [{author['name']}](https://space.bilibili.com/{uid})",
@@ -470,7 +600,7 @@ def save_dynamic_to_file(
         "",
         "## 原文",
         "",
-    ]
+    ])
 
     # 原文内容（保留原始格式）
     video_info = extract_video_info(item)
@@ -487,13 +617,39 @@ def save_dynamic_to_file(
 
     lines.append("")
 
-    # 图片链接
-    if pics:
-        lines.append("## 图片")
-        lines.append("")
-        for i, pic_url in enumerate(pics, 1):
-            lines.append(f"![图片{i}]({pic_url})")
-        lines.append("")
+    # 图片处理
+    if is_only_fans:
+        # 充电专属动态
+        if playwright_pics:
+            # Playwright成功提取到图片
+            lines.append("## 图片（Playwright提取）")
+            lines.append("")
+            for i, pic_url in enumerate(playwright_pics, 1):
+                lines.append(f"![图片{i}]({pic_url})")
+            lines.append("")
+        elif screenshot_path:
+            # 有截图
+            rel_path = screenshot_path.relative_to(repo_root())
+            lines.append("## 图片")
+            lines.append("")
+            lines.append(f"> 充电专属动态，API未返回图片。已保存页面截图：")
+            lines.append(f"> ![页面截图]({rel_path})")
+            lines.append("")
+        else:
+            # 无截图也无图片
+            lines.append("## 图片")
+            lines.append("")
+            lines.append("> 充电专属动态，图片需访问原页面查看。")
+            lines.append(f"> 链接：https://www.bilibili.com/opus/{dynamic_id}")
+            lines.append("")
+    else:
+        # 普通动态
+        if pics:
+            lines.append("## 图片")
+            lines.append("")
+            for i, pic_url in enumerate(pics, 1):
+                lines.append(f"![图片{i}]({pic_url})")
+            lines.append("")
 
     # 视频封面
     if video_info.get('cover'):
@@ -539,6 +695,8 @@ def run(
     *,
     check_only: bool = False,
     max_fetch: int = 5,
+    screenshot: bool = False,
+    extract_pics: bool = False,
 ) -> list[Path]:
     """拉取动态，返回新保存的文件路径列表。"""
     saved_files: list[Path] = []
@@ -581,16 +739,42 @@ def run(
     # 保存新动态（按时间正序，最早的先保存）
     for dynamic_id, item in reversed(new_items[:max_fetch]):
         try:
-            # 检查是否是仅粉丝可见动态，如果是则调用详情API
-            detail_data = None
+            # 检查是否是仅粉丝可见动态
             basic = item.get("basic", {})
-            if basic.get("is_only_fans"):
+            is_only_fans = basic.get("is_only_fans", False)
+            
+            detail_data = None
+            screenshot_path = None
+            playwright_pics = None
+            
+            if is_only_fans:
+                # 充电专属动态：先尝试详情API
                 try:
                     detail_data = fetch_dynamic_detail(dynamic_id, sessdata)
                 except Exception as exc:
                     print(f"WARN: 获取动态详情失败 {dynamic_id}: {exc}", file=sys.stderr)
+                
+                # 如果详情API也没有图片，尝试Playwright
+                api_pics = extract_pics_from_dynamic(item)
+                detail_pics = extract_pics_from_dynamic(detail_data.get("data", {}).get("item", {}) if detail_data else {})
+                
+                if not api_pics and not detail_pics:
+                    if extract_pics:
+                        # 尝试用Playwright提取图片URL
+                        playwright_pics = extract_pics_from_screenshot(dynamic_id, sessdata)
+                    
+                    if not playwright_pics and screenshot:
+                        # 截图保存
+                        screenshot_path = original_dir() / "screenshots" / f"{dynamic_id}.png"
+                        screenshot_dynamic(dynamic_id, sessdata, screenshot_path)
             
-            filepath = save_dynamic_to_file(item, uid, dynamic_id, detail_data=detail_data)
+            filepath = save_dynamic_to_file(
+                item, uid, dynamic_id, 
+                detail_data=detail_data,
+                is_only_fans=is_only_fans,
+                screenshot_path=screenshot_path,
+                playwright_pics=playwright_pics,
+            )
             saved_files.append(filepath)
             # 更新状态（用最新的dynamic_id）
             state["last_dynamic_id"] = dynamic_id
@@ -611,6 +795,8 @@ def main() -> int:
     parser.add_argument("--state-file", type=Path, help="状态文件路径")
     parser.add_argument("--check-only", action="store_true", help="只检查是否有新动态，不保存")
     parser.add_argument("--max-fetch", type=int, default=5, help="最多拉取几条新动态")
+    parser.add_argument("--screenshot", action="store_true", help="对充电专属动态进行截图（需playwright）")
+    parser.add_argument("--extract-pics", action="store_true", help="用Playwright提取充电专属动态的图片URL（需playwright）")
     args = parser.parse_args()
 
     if not args.sessdata:
@@ -632,6 +818,8 @@ def main() -> int:
         state_path=state_path,
         check_only=args.check_only,
         max_fetch=args.max_fetch,
+        screenshot=args.screenshot,
+        extract_pics=args.extract_pics,
     )
 
     for filepath in saved:
