@@ -164,24 +164,24 @@ position_rules:
       - "满仓不动"
       - "追高加仓"
 
-  - id: "cpu_chain_entry_confirm"
-    name: "CPU自研链介入确认"
+  - id: "liquid_cooling_entry"
+    name: "液冷/散热介入确认"
     applies_to:
-      - "cpu_socket_core"
-      - "pcie_switch_core"
+      - "huawei_cooling_core"
+      - "liquid_cooling_cage"
     all_required:
-      - "CPU自研链组内联动（得润+万通至少两只同步转强）"
+      - "液冷组内联动（飞荣达+鼎通至少两只同步转强）"
       - "个股不是一致高开后的追高点"
       - "分歧后放量收回分时均线"
-      - "字节自研CPU逻辑持续发酵"
-      - "ST得润单独控制仓位，严格止损"
+      - "华为散热逻辑持续发酵"
     forbidden:
       - "发酵日追高"
       - "单票异动但板块不共振"
-      - "ST身份不单独风控"
-    action: "提醒进入观察池确认点，但仍需写触发条件、证伪条件和仓位上限"
+      - "意华股份走弱拖累组内情绪"
+    action: "第一优先级介入"
+    position_ratio: "飞荣达2成 + 鼎通1.5成 = 3.5成"
 
-  - id: "price_increase_entry_confirm"
+  - id: "price_increase_entry"
     name: "上游涨价链介入确认"
     applies_to:
       - "advanced_packaging_core"
@@ -196,7 +196,28 @@ position_rules:
     forbidden:
       - "发酵日追高"
       - "单票异动但板块不共振"
-    action: "提醒进入观察池确认点，但仍需写触发条件、证伪条件和仓位上限"
+      - "华虹/芯碁微装大涨次日直接追"
+    action: "第二优先级介入"
+    position_ratio: "芯联集成1.5成 + 江海股份1成 = 2.5成"
+
+  - id: "cpu_chain_entry"
+    name: "CPU自研链介入确认"
+    applies_to:
+      - "cpu_socket_core"
+      - "pcie_switch_core"
+    all_required:
+      - "CPU自研链组内联动（得润+万通至少两只同步转强）"
+      - "个股不是一致高开后的追高点"
+      - "分歧后放量收回分时均线"
+      - "字节自研CPU逻辑持续发酵"
+      - "ST得润单独控制仓位，严格止损"
+    forbidden:
+      - "发酵日追高"
+      - "单票异动但板块不共振"
+      - "ST身份不单独风控"
+      - "万通发展涨停次日直接追"
+    action: "第三优先级介入（组内分化，降低仓位）"
+    position_ratio: "万通发展1成 + ST得润0.5成 = 1.5成"
 
   - id: "avoid_sector_discipline"
     name: "规避方向纪律"
@@ -212,6 +233,257 @@ position_rules:
       - "买入消费/白酒"
       - "抄底半导体"
     action: "只观察不介入，等博主调整判断后再评估"
+
+# ========== 量化介入策略（基于5/28收盘数据） ==========
+quant_entry_strategy:
+  updated_at: "2026-05-28"
+  data_source: "eastmoney_push2_2026-05-28_close"
+  market_summary: "上证4098.64(+0.12%)，创业板4125.07(+1.96%)。缩量2704亿。情绪拐点确认，但大级别调整未完。"
+
+  # 板块强度排序（基于5/28收盘涨幅）
+  sector_strength_ranking:
+    - rank: 1
+      sector: "上游涨价链"
+      strength: "华虹+15.79%，芯碁微装+15.19%"
+      assessment: "最强，但都是大涨，不追"
+    - rank: 2
+      sector: "液冷/散热"
+      strength: "飞荣达+9.48%，几乎光头阳线"
+      assessment: "强势，等分歧"
+    - rank: 3
+      sector: "CPU自研链"
+      strength: "万通发展涨停，ST得润-5.05%"
+      assessment: "分化严重，组内不联动=证伪信号"
+    - rank: 4
+      sector: "算力租赁"
+      strength: "光环新网+1.11%，奥飞数据+1.01%"
+      assessment: "弱势，token概念未发酵"
+    - rank: 5
+      sector: "CPO"
+      strength: "中际旭创+7.79%"
+      assessment: "高位核心，确认景气但不追"
+    - rank: 6
+      sector: "医药"
+      strength: "诚意药业+5.33%"
+      assessment: "博主提示观察，非主线"
+    - rank: 7
+      sector: "规避方向"
+      strength: "长电-1.65%，茅台-2.07%"
+      assessment: "如期走弱"
+
+  # 关键发现
+  key_findings:
+    - "万通发展涨停但ST得润大跌-5.05%，CPU链组内不联动 = 证伪信号"
+    - "华虹+15.79%但上影线3.9%，芯碁微装+15.19%上影线2.4% = 大涨但抛压存在"
+    - "飞荣达+9.48%几乎无长上影 = 液冷方向最强"
+    - "算力租赁（光环/奥飞）仅+1% = token概念未发酵"
+    - "意华股份仅+0.7%但上影线4.1% = 液冷组内分化，非全部强势"
+
+  # 量化介入点
+  entry_points:
+    - code: "300602.SZ"
+      name: "飞荣达"
+      priority: 1
+      sector: "液冷/散热"
+      close: 49.08
+      change_pct: 9.48
+      assessment: "几乎光头阳线，液冷方向最强"
+      trigger_buy:
+        - "明日开盘半小时内不跌破47.5（今日实体中位）"
+        - "鼎通科技不跌破290"
+      entry_zone: "48.0-48.5区间，分时均线企稳"
+      position_ratio: "2成"
+      stop_loss: "跌破46.5且30分钟不能收回"
+      invalidation:
+        - "鼎通科技跌破280"
+        - "华为链整体走弱"
+        - "指数跌破4055"
+
+    - code: "688668.SH"
+      name: "鼎通科技"
+      priority: 1
+      sector: "液冷/散热"
+      close: 303.75
+      change_pct: 5.65
+      assessment: "上影线3.2%，有抛压但趋势 intact"
+      trigger_buy:
+        - "明日不跌破295"
+        - "飞荣达维持强势"
+      entry_zone: "298-300区间"
+      position_ratio: "1.5成"
+      stop_loss: "跌破290"
+      invalidation:
+        - "飞荣达跌破46.5"
+        - "液冷组无联动"
+
+    - code: "688469.SH"
+      name: "芯联集成"
+      priority: 2
+      sector: "上游涨价链"
+      close: 8.98
+      change_pct: 5.28
+      assessment: "下影线2.6%，有承接"
+      trigger_buy:
+        - "明日回踩8.5-8.6区间企稳"
+        - "功率半导体组有联动"
+      entry_zone: "8.55附近"
+      position_ratio: "1.5成"
+      stop_loss: "跌破8.2"
+      invalidation:
+        - "江海股份跌破70"
+        - "功率半导体组无扩散"
+        - "英飞凌/TI涨价逻辑被证伪"
+
+    - code: "002484.SZ"
+      name: "江海股份"
+      priority: 2
+      sector: "上游涨价链"
+      close: 74.07
+      change_pct: 9.99
+      assessment: "涨停，等分歧"
+      trigger_buy:
+        - "等分歧后回踩71-72区间"
+        - "艾华集团/海星股份不破位"
+      entry_zone: "72附近"
+      position_ratio: "1成"
+      stop_loss: "跌破70"
+      invalidation:
+        - "超级电容组无联动"
+        - "AI电源链整体走弱"
+
+    - code: "688630.SH"
+      name: "芯碁微装"
+      priority: 2
+      sector: "上游涨价链"
+      close: 326.00
+      change_pct: 15.19
+      assessment: "大涨15.19%，上影线2.4%，不追"
+      trigger_buy:
+        - "等深度回调至300-305区间"
+        - "华虹公司同步企稳"
+      entry_zone: "300-305区间"
+      position_ratio: "1成（回调后）"
+      stop_loss: "跌破290"
+      invalidation:
+        - "华虹公司跌破230"
+        - "先进封装组无扩散"
+
+    - code: "688347.SH"
+      name: "华虹公司"
+      priority: 2
+      sector: "上游涨价链"
+      close: 249.65
+      change_pct: 15.79
+      assessment: "大涨15.79%，上影线3.9%，抛压明显，不追"
+      trigger_buy:
+        - "等回调至230-235区间"
+        - "芯碁微装同步企稳"
+      entry_zone: "230-235区间"
+      position_ratio: "1成（回调后）"
+      stop_loss: "跌破220"
+      invalidation:
+        - "芯碁微装跌破290"
+        - "晶圆代工组无扩散"
+
+    - code: "600246.SH"
+      name: "万通发展"
+      priority: 3
+      sector: "CPU自研链"
+      close: 16.81
+      change_pct: 10.01
+      assessment: "涨停，但组内分化（得润-5.05%），降低仓位"
+      trigger_buy:
+        - "等分歧后回踩15.8-16.0区间"
+        - "ST得润企稳"
+      entry_zone: "15.9附近"
+      position_ratio: "1成"
+      stop_loss: "跌破15.2"
+      invalidation:
+        - "ST得润跌破6.8"
+        - "CPU链无扩散"
+        - "字节自研CPU逻辑被证伪"
+
+    - code: "002055.SZ"
+      name: "ST得润"
+      priority: 3
+      sector: "CPU自研链"
+      close: 7.14
+      change_pct: -5.05
+      assessment: "大跌，组内不联动，暂不参与"
+      trigger_buy:
+        - "明日不创新低"
+        - "万通发展维持强势"
+      entry_zone: "6.9-7.0区间"
+      position_ratio: "0.5成（ST严格控制）"
+      stop_loss: "跌破6.8"
+      invalidation:
+        - "万通发展跌破15.2"
+        - "ST板块整体走弱"
+        - "监管风险"
+
+    - code: "300383.SZ"
+      name: "光环新网"
+      priority: 4
+      sector: "算力租赁"
+      close: 14.51
+      change_pct: 1.11
+      assessment: "弱势，token概念未发酵"
+      trigger_buy:
+        - "算力租赁方向被资金认可"
+        - "奥飞数据同步走强"
+      entry_zone: "14.0-14.2区间"
+      position_ratio: "1成"
+      stop_loss: "跌破13.5"
+      invalidation:
+        - "奥飞数据跌破22"
+        - "token概念不被认可"
+
+    - code: "300738.SZ"
+      name: "奥飞数据"
+      priority: 4
+      sector: "算力租赁"
+      close: 23.10
+      change_pct: 1.01
+      assessment: "弱势，跟随"
+      trigger_buy:
+        - "算力租赁方向被资金认可"
+        - "光环新网同步走强"
+      entry_zone: "22.5-22.8区间"
+      position_ratio: "0.5成"
+      stop_loss: "跌破22"
+      invalidation:
+        - "光环新网跌破13.5"
+        - "token概念不被认可"
+
+  # 规避方向
+  avoid:
+    - code: "600584.SH"
+      name: "长电科技"
+      reason: "博主明确规避半导体，-1.65%如期走弱"
+    - code: "600519.SH"
+      name: "贵州茅台"
+      reason: "消费/白酒过渡性质，-2.07%如期走弱"
+    - code: "300308.SZ"
+      name: "中际旭创"
+      reason: "高位核心，提供确认而非空间，不追高"
+    - code: "300502.SZ"
+      name: "新易盛"
+      reason: "CPO跟风，高位不追"
+    - code: "300394.SZ"
+      name: "天孚通信"
+      reason: "CPO跟风，高位不追"
+
+  # 仓位建议
+  position_advice:
+    empty_position:
+      total: "5成"
+      allocation:
+        - "液冷：飞荣达2成 + 鼎通1.5成 = 3.5成"
+        - "涨价链：芯联集成1.5成 = 1.5成"
+      note: "等调整不创新低确认后，可再加2成（江海/芯碁微装回调后）"
+    full_position:
+      action: "降仓至5-6成"
+      note: "保留现金等更好确定点"
 
 sector_groups:
   - id: "cpu_self_development"
@@ -354,11 +626,11 @@ sector_rotation_rules:
 
 notification_policy:
   only_notify_when:
-    - "CPU自研链触发明确观察点或证伪"
+    - "液冷/散热触发买入点或证伪"
     - "上游涨价链触发观察点或扩散确认"
+    - "CPU自研链组内联动恢复或持续分化"
     - "大盘4055支撑验证或跌破"
     - "半导体/消费出现规避方向异动"
-    - "防御股再演剧本式拉起"
     - "算力租赁/token概念发酵"
   suppress_when:
     - "只是普通红绿波动"
