@@ -1,0 +1,205 @@
+claims:
+- id: claim-20260528-005-a
+  source_path: sources/raw/财经/动态：26-05-28：4050支撑确认与情绪拐点.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: technical-signal
+  subject: 4050第一波支撑有效性确认
+  timeframe: short-term
+  statement: 4050预设支撑基本确认，实际低点4055仅差5点，因外围地缘风险下探但未破位，支撑有效性高
+  evidence_quote: "之前跟大家说过，第一波支撑是4050，今天因为外围情况，打到了4055差了5个点，不过问题也不大"
+  interpretation: 4050是博主此前预设的关键技术位，今日因霍尔木兹海峡事件导致外围波动，A股下探至4055。偏差仅5点（0.12%），在日内波动范围内，支撑有效性基本确认。"问题不大"表明博主认为此位置支撑可信，不构成破位风险。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/指数分析.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-005-b
+  source_path: sources/raw/财经/动态：26-05-28：4050支撑确认与情绪拐点.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: market-cycle
+  subject: 情绪拐点+30分钟底部结构的反弹定性
+  timeframe: intraday
+  statement: 当前拉升属于情绪拐点叠加30分钟底部结构驱动，但周期不大，属于小级别反弹而非大级别反转
+  evidence_quote: "这一波拉升属于是情绪拐点加30分钟底部结构，所以不会太大的周期"
+  interpretation: 反弹由两个因素驱动：①情绪拐点（市场从恐慌/悲观转向企稳）；②30分钟级别底部结构（短周期技术指标信号）。但博主明确限定"不会太大的周期"，说明这只是日内或1-2个交易日的小级别反弹，不是趋势反转。这与"大级别调整还没结束"的判断一致。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/情绪周期.md
+    - knowledge/wiki/投资方法论/技术分析.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-005-c
+  source_path: sources/raw/财经/动态：26-05-28：4050支撑确认与情绪拐点.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: operation
+  subject: 美股风险窗口期的操作克制
+  timeframe: short-term
+  statement: 因今晚美股仍有不确定性，博主未主动号召抄底，小周期点位已提前给出，由投资者自主决策
+  evidence_quote: "没有让各位抄底也是鉴于今晚美股的情况，这周小周期点位之前也给过了，你们自行把握就好"
+  interpretation: 博主的操作逻辑：①技术上30分钟底部结构+情绪拐点=可以参与；②但美股风险未释放=可能有更低买点；③选择不主动号召抄底，让投资者根据自身风险偏好决策。这体现了"留弹性"的核心原则——不赌单边，等风险释放后再确认。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/仓位管理.md
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-005-d
+  source_path: sources/raw/财经/动态：26-05-28：大级别调整未完，等美股黄金坑.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: market-cycle
+  subject: 大级别调整未完，等美股确认黄金坑
+  timeframe: short-term
+  statement: 大级别调整尚未结束，关键变量是今晚美股表现；若美股跳水，A股期待已久的黄金坑时刻到来，是好事而非坏事
+  evidence_quote: "大级别的调整还没结束，我们今晚看美股表演，如果表演跳水，那么我们期待已久的时刻就来了，是好事，一直悬在高位不动，反而很难受"
+  interpretation: 博主对调整的定性：①不是意外下跌，是预期内的大级别调整；②当前位置"悬在高位"反而难受，不如痛快下跌；③美股跳水=黄金坑=更好买点；④"子弹留好"=保持现金弹性，等确认信号。这一判断与早盘"调整周期未完"、盘中"情绪修复不是大盘修复"形成完整逻辑链。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/指数分析.md
+    - knowledge/wiki/投资方法论/仓位管理.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-005-e
+  source_path: sources/raw/财经/动态：26-05-28：大级别调整未完，等美股黄金坑.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: risk
+  subject: 霍尔木兹海峡事件定性：可控小摩擦
+  timeframe: short-term
+  statement: 霍尔木兹海峡事件属小规模摩擦，伊朗回应克制（仅3-4架无人机象征性攻击），未造成实质损失，冲突可控
+  evidence_quote: "今天的小摩擦，起因是4艘船只试图未经许可通过霍尔木兹海峡...伊朗革命卫队宣布对美军驻科威特基地发动了一次象征性攻击(看起来只有3~4架无人机)"
+  interpretation: 博主对地缘风险的定性：①规模小（4艘船只+开火警告+象征性无人机攻击）；②伊朗克制（仅3-4架无人机，非大规模报复）；③无实质损失（美军开火未造成人员/财产损失）；④不构成系统性风险。真正的市场变量是美股对此事件的反应，而非事件本身。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/地缘风险.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-005-f
+  source_path: sources/raw/财经/动态：26-05-28：尾盘仓位建议与明日策略.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: operation
+  subject: 情绪拐点日的仓位管理：空仓上5成，满仓降仓
+  timeframe: intraday
+  statement: 情绪拐点日尾盘横住是好事；空仓者可上5成仓位，满仓者应降仓留操作空间，为明日可能的调整做准备
+  evidence_quote: "这会儿横住了是好事...如果你空仓，这个位置可以上点仓位，5成左右...因为外盘还是有风险，所以如果你是满仓，那么应该降点仓位，给自己明天留够操作空间"
+  interpretation: 仓位管理的双向建议：①空仓者→上5成（情绪拐点不宜过度悲观，但不满仓因外盘风险）；②满仓者→降仓（外盘风险未释放，需留操作空间）。核心逻辑：今日情绪拐点已现，但尚未经考验；明日若调整=更好确定点，留弹性才能应对。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/仓位管理.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-005-g
+  source_path: sources/raw/财经/动态：26-05-28：尾盘仓位建议与明日策略.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: operation
+  subject: 明日调整是更好确定点
+  timeframe: short-term
+  statement: 明日可能会调整，但调整是更好确定点——可验证今日低点是否有效，不创新低则底部确认
+  evidence_quote: "明天是有可能会调整的，但是明天的调整就是更好的确定点"
+  interpretation: 更好确定点的含义——①今日情绪拐点已出现，但尚未经受过考验；②明日若调整，可验证4055低点是否有效；③调整不创新低等于底部确认，可加仓；④调整创新低等于支撑失效，需重新评估。这是一种先观察再确认的审慎策略，不急于在拐点日满仓。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-005-h
+  source_path: sources/raw/财经/动态：26-05-28：尾盘仓位建议与明日策略.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: sector-theme
+  subject: 规避半导体和消费方向
+  timeframe: short-term
+  statement: 当前应规避半导体和消费方向，半导体受美股科技股波动影响，消费确认过渡性质
+  evidence_quote: "不要买半导体和消费就行了"
+  interpretation: 规避逻辑：①半导体→受美股科技股波动影响（今晚美股不确定性）；②消费→白酒今日已回调，过渡性质确认（与10:40动态"消费开始回调"一致）。这不是长期看空，而是短期风险规避——等美股风险释放后再评估半导体，消费则确认非主线。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/板块轮动.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-005-i
+  source_path: sources/raw/财经/动态：26-05-28：产业逻辑视频计划与观察标的.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: methodology
+  subject: 行情平淡期加大研究储备
+  timeframe: permanent
+  statement: 大行情未到时减少交易，利用平淡期更新产业逻辑视频（约10个），为后续行情做认知储备
+  evidence_quote: "算了一下，我最近要更新产业逻辑视频估计10个左右...最近也没什么大行情，等弄完估计行情也差不多来了"
+  interpretation: 博主的操作节奏：①行情不好→减少交易（降低犯错概率）；②加大研究→利用低谷期做系统性知识整理；③研究完成时→行情窗口可能同步打开。这是一种"春耕秋收"的方法论——低谷期播种认知，行情好转时收获交易。约10个产业逻辑视频涵盖多个方向，是系统性储备。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/研究框架.md
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-005-j
+  source_path: sources/raw/财经/动态：26-05-28：产业逻辑视频计划与观察标的.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: stock-view
+  subject: 观察标的提示：诚意药业、海王生物、东方海洋
+  timeframe: short-term
+  statement: 博主提示观察诚意药业、海王生物、东方海洋三个标的，"观察"≠"买入"，属于跟踪提示
+  evidence_quote: "观察一下，诚意药业、海王生物、东方海洋。今天节点不错"
+  interpretation: 标的提示的定性：①用词"观察一下"=跟踪提示，非买入推荐；②"今天节点不错"=当前时间窗口适合纳入观察，但需自行判断；③三个标的均为医药/生物/海洋经济方向，可能与即将更新的产业逻辑视频方向相关。这是储备标的而非操作建议。
+  confidence: low
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/板块轮动.md
+    methodology_pages: []
+    cases: []

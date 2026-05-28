@@ -32,7 +32,7 @@ from typing import Any
 
 # ── 配置 ──────────────────────────────────────────────────────────
 
-DEFAULT_UP_UID = "3546639031295331"
+DEFAULT_UP_UID = "1420210197"
 DEFAULT_CONFIG_DIR = Path.home() / ".hermes"
 STATE_FILE_NAME = "bilibili_up_state.json"
 ORIGINAL_DIR = "sources/original/bilibili"
@@ -43,30 +43,26 @@ USER_AGENT = (
 )
 
 COOKIE_TEMPLATE = (
-    "buvid3=EA64D8DF-1755-F5AA-CC68-2F435670F1DA33186infoc; "
-    "b_nut=1768824333; "
-    "_uuid=93CCF2410-410F7-89910-D8E4-3D43F1E8382733611infoc; "
-    "buvid_fp=a7af4eeecb04cc7ab100f226d73326eb; "
-    "home_feed_column=5; "
-    "buvid4=563DB691-59B4-B6DB-4169-B25E4E4BF10A34272-026011920-iD1f/Vrkvy27OQ8ubPgzDA%3D%3D; "
-    "theme-tip-show=SHOWED; "
-    "rpdid=%7C(u%7CJk)mm%7CR)0J'u~Y))kRYlk; "
-    "CURRENT_QUALITY=80; "
-    "theme-avatar-tip-show=SHOWED; "
+    "buvid3=7862F2E3-72CC-6C07-C823-12A4B73DF10533008infoc; "
+    "b_nut=1779981633; "
+    "bsource=search_baidu; "
+    "_uuid=89631AD2-81E8-229B-10859-21F10E53CDD3234604infoc; "
+    "bmg_af_switch=1; "
+    "bmg_src_def_domain=i1.hdslb.com; "
+    "bmg_af_sc=%7B%22none%22%3A%7B%22on%22%3A1%2C%22def%22%3A%22i1.hdslb.com%22%7D%2C%22sgp%22%3A%7B%22on%22%3A1%2C%22def%22%3A%22i1-sgp.hdslb.com%22%7D%7D; "
+    "buvid_fp=ac2e4bc70bddb6f684ff4ae9750f8b5f; "
+    "bili_ticket=eyJhbGciOiJIUzI1NiIsImtpZCI6InMwMyIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODAyNDE1NzQsImlhdCI6MTc3OTk4MjMxNCwicGx0IjotMX0.3rlSPgynyqjrbgkp24cJhiuBQlFRCS5XfIclD4Sd-k0; "
+    "bili_ticket_expires=1780241514; "
+    "buvid4=A6FAE8B5-D524-2FBF-A56E-00CC6CB960CD35540-126052823-qdiavzWE57mWDv4hXUk+GpCvhjquQQbux6eudP0KvwwYmZBhju4kCSxiCa/IMvig; "
+    "bili_jct={bili_jct}; "
     "DedeUserID=39923426; "
     "DedeUserID__ckMd5=f11f6846570fc63e; "
-    "hit-dyn-v2=1; "
-    "theme-switch-show=SHOWED; "
-    "PVID=1; "
-    "browser_resolution=1512-706; "
-    "bili_ticket=eyJhbG...fKLY; "
-    "bili_ticket_expires=1779971363; "
+    "sid=mx6ttueb; "
+    "b_lsid=09218290_19E6F379638; "
     "SESSDATA={sessdata}; "
-    "bili_jct=a5d0a6acbcf87e09490777462e19a4ee; "
-    "sid=5rbhaomc; "
-    "bp_t_offset_39923426=1207131920391995392; "
-    "CURRENT_FNVAL=2000; "
-    "b_lsid=8C830058_19E6C94BD32"
+    "CURRENT_FNVAL=16; "
+    "CURRENT_QUALITY=0; "
+    "theme-tip-show=SHOWED"
 )
 
 
@@ -111,8 +107,8 @@ def save_state(state_path: Path, state: dict) -> None:
 
 # ── B站 API ───────────────────────────────────────────────────────
 
-def build_cookie(sessdata: str) -> str:
-    return COOKIE_TEMPLATE.format(sessdata=sessdata)
+def build_cookie(sessdata: str, bili_jct: str = "a5d0a6acbcf87e09490777462e19a4ee") -> str:
+    return COOKIE_TEMPLATE.format(sessdata=sessdata, bili_jct=bili_jct)
 
 
 def fetch_dynamic_list(uid: str, sessdata: str, offset: str = "") -> dict:
