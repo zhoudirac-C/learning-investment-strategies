@@ -262,14 +262,35 @@ def evaluate_position_alerts(
     return alerts
 
 
+def _is_market_closed(value: datetime | None = None) -> bool:
+    """Return True if A-share market has closed for the day (after 15:00)."""
+    if value is None:
+        value = now_cn()
+    local = value.astimezone(CN_TZ)
+    if not is_a_share_trading_day(local):
+        return False
+    return local.time() >= time(15, 0)
+
+
 def _evaluate_generic_index_rule(
-    rule: dict, latest: float, index_name: str, quote: dict | None
+    rule: dict, latest: float, index_name: str, quote: dict | None,
+    *, current_time: datetime | None = None,
 ) -> RuleAlert | None:
-    """Evaluate a single index rule using the generic trigger_condition format."""
+    """Evaluate a single index rule using the generic trigger_condition format.
+
+    ``close_below`` / ``close_above`` are only evaluated after 15:00.
+    ``intraday_below`` / ``intraday_above`` are evaluated during trading hours.
+    """
     trigger_condition = rule.get("trigger_condition")
     threshold = _to_float(rule.get("threshold"))
 
     if not trigger_condition or threshold is None:
+        return None
+
+    is_close_rule = trigger_condition in ("close_below", "close_above")
+    is_intraday_rule = trigger_condition in ("intraday_below", "intraday_above")
+
+    if is_close_rule and not _is_market_closed(current_time):
         return None
 
     if trigger_condition in ("close_below", "intraday_below"):
@@ -349,6 +370,8 @@ def _evaluate_legacy_index_rule(
 def evaluate_market_alerts(
     config: MonitorConfig,
     quote_snapshot: dict,
+    *,
+    current_time: datetime | None = None,
 ) -> list[RuleAlert]:
     alerts: list[RuleAlert] = []
     quotes = _quotes_by_label(quote_snapshot)
@@ -365,7 +388,7 @@ def evaluate_market_alerts(
             continue
 
         # Try generic format first, then fall back to legacy format
-        alert = _evaluate_generic_index_rule(rule, latest, index_name, quote)
+        alert = _evaluate_generic_index_rule(rule, latest, index_name, quote, current_time=current_time)
         if alert is None:
             alert = _evaluate_legacy_index_rule(rule, latest, index_name, quote)
         if alert is not None:
@@ -503,9 +526,11 @@ def evaluate_sector_rotation_alerts(
 def evaluate_monitor_alerts(
     config: MonitorConfig,
     quote_snapshot: dict,
+    *,
+    current_time: datetime | None = None,
 ) -> list[RuleAlert]:
     return (
-        evaluate_market_alerts(config, quote_snapshot)
+        evaluate_market_alerts(config, quote_snapshot, current_time=current_time)
         + evaluate_sector_rotation_alerts(config, quote_snapshot)
         + evaluate_position_alerts(config, quote_snapshot)
     )
@@ -1624,7 +1649,7 @@ def run_tick(
     if emit_status:
         return format_status_message(config, value)
     quote_snapshot = quote_fetcher(collect_quote_targets(config))
-    alerts = evaluate_monitor_alerts(config, quote_snapshot)
+    alerts = evaluate_monitor_alerts(config, quote_snapshot, current_time=value)
     resolved_state_path = state_path or config.config_dir / "state.json"
     state = load_monitor_state(resolved_state_path)
     state["version"] = 1
