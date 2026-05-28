@@ -1343,3 +1343,21 @@
 - 更新 wiki: knowledge/wiki/投资方法论/交易纪律.md（追加claim引用）
 - 总纲更新: 待评估（技术分析体系为新增模块，待系列课程积累后更新总纲）
 
+
+## 2026-05-28 复盘学习
+
+- 新增 raw: sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
+- 新增 claims: claim-20260528-004.yaml（10条）
+  - claim-20260528-004-a: 连续杀跌后V型修复拐点（market-cycle, short-term, medium）
+  - claim-20260528-004-b: 普涨式轮动缺乏核心（market-cycle, short-term, high）
+  - claim-20260528-004-c: 拐点验证两个条件（methodology, short-term, high）
+  - claim-20260528-004-d: 上游涨价链进攻价值（sector-theme, short-term, medium）
+  - claim-20260528-004-e: 涨价扩散路径（sector-theme, short-term, medium）
+  - claim-20260528-004-f: CPU自研主题催化（sector-theme, industry, high）
+  - claim-20260528-004-g: 全球云厂商自研芯片+token化（macro, industry, high）
+  - claim-20260528-004-h: ST/题材股风控纪律（risk, permanent, high）
+  - claim-20260528-004-i: 缩量修复隐患（technical-signal, short-term, high）
+  - claim-20260528-004-j: 拐点有效性的概率本质（risk, short-term, high）
+- 更新 wiki: knowledge/wiki/每日复盘/2026-05-28.md（追加复盘章节）
+- 总纲更新: 待评估（拐点验证框架和ST风控纪律可考虑进入总纲，待更多案例验证）
+

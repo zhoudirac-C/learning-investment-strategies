@@ -463,3 +463,17 @@
   - wiki: knowledge/wiki/投资方法论/技术分析.md（新增）
   - wiki: knowledge/wiki/投资方法论/交易纪律.md（追加引用）
 
+
+- sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
+  - claim-20260528-004-a: 连续杀跌后V型修复拐点（market-cycle）
+  - claim-20260528-004-b: 普涨式轮动缺乏核心（market-cycle）
+  - claim-20260528-004-c: 拐点验证两个条件（methodology）
+  - claim-20260528-004-d: 上游涨价链进攻价值（sector-theme）
+  - claim-20260528-004-e: 涨价扩散路径（sector-theme）
+  - claim-20260528-004-f: CPU自研主题催化（sector-theme）
+  - claim-20260528-004-g: 全球云厂商自研芯片+token化（macro）
+  - claim-20260528-004-h: ST/题材股风控纪律（risk）
+  - claim-20260528-004-i: 缩量修复隐患（technical-signal）
+  - claim-20260528-004-j: 拐点有效性的概率本质（risk）
+  - wiki: knowledge/wiki/每日复盘/2026-05-28.md（追加复盘）
+
