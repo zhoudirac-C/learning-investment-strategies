@@ -1,347 +1,340 @@
-updated_at: "2026-05-28"
+updated_at: "2026-05-29"
 
 today_snapshot:
-  fetch_time: "2026-05-28 09:15 CST"
+  fetch_time: "2026-05-29 09:15 CST"
   source: "eastmoney_push2"
-  up_bias: "调整周期未完，多看少动，等缩量、等情绪回暖、等利好落地。开盘三锚点：防御股剧本/跌停缩短/半导体接力。新分支优先：超级电容、功率半导体涨价、算力出海。补充：字节700亿美元AI资本支出利好AIDC；凯恩股份辟谣移除观察。"
-  market_summary: "5月27日回踩定性为'等了很久的回踩'，月底切换+微盘止跌+科技补跌=新周期起点。但需2个交易日确认强修复还是弱修复。早盘重点观察：①防御股是否再演剧本（电力/MLCC）；②跌停家数是否边际缩短；③长电/华天封板能力。新方向：超级电容（江海/艾华/海星，凯恩股份辟谣移除）、功率半导体（芯联集成/捷捷微电，英飞凌+TI第二轮涨价）、端侧AI（美格智能）、算力出海+字节AIDC（寒武纪/海光/海鸥股份/可立克/光环新网/奥飞数据）。字节700亿美元AI资本支出是AIDC重大催化。"
+  up_bias: "情绪拐点确认，但大级别调整未完。明日可能调整，调整是更好确定点。规避半导体和消费。关注CPU自研链、上游涨价链、液冷/SST。仓位：空仓→5成，满仓→降仓留空间。"
+  market_summary: "5月28日V型修复定性为'情绪拐点'而非'主升确认'。三大指数收红但缩量2704亿，普涨式轮动缺乏核心主线。验证点：①明后天分歧时全A不能破位（4055底线）；②必须出现聚焦主线。新催化：字节自研CPU→Socket+PCIe Switch；上游涨价链扩散（功率半导体→高频变压器→SST）；液冷/散热（华为韬定律）。规避：半导体（博主置顶评论'不要买'）、消费/白酒（过渡性质确认）。"
   stocks_with_data: []
   stocks_pending_fetch: []
-  overall_action: "持仓已清空，现金为主。不主动加仓，等三信号落地。开盘先看防御股是否剧本式拉起，再决定攻防节奏。新分支优先排序：超级电容>功率半导体涨价>算力出海。避免追高已涨防御板块。"
+  overall_action: "空仓可上5成，满仓应降仓。明天调整是更好确定点。不追高位CPO，关注CPU自研链和上游涨价链低位品种。"
 
 themes:
-  - id: "new_tech_branches"
-    name: "新技术分支（AI供电/端侧AI/功率半导体）"
+  - id: "cpu_self_development"
+    name: "CPU自研链（字节催化，可能裂变为主线）"
     source_docs:
-      - "sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md"
-      - "sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md"
-      - "knowledge/claims/claim-20260527-005.yaml"
-      - "knowledge/claims/claim-20260528-001.yaml"
+      - "sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md"
+      - "knowledge/claims/claim-20260528-004.yaml"
+      - "knowledge/claims/claim-20260528-005.yaml"
     market_checks:
-      - "强势板块（超级电容/端侧AI/散热）能否反包延续"
-      - "微盘股能否延续企稳"
-      - "是否出现真正的'领涨矛'"
-      - "资金是否切换到'新技术分支'"
+      - "CPU自研链是否成为聚焦主线"
+      - "Socket/PCIe Switch是否组内联动"
+      - "字节自研CPU新闻是否持续发酵"
+      - "全球CPU短缺逻辑是否被资金认可"
     stocks:
+      - code: "002055.SZ"
+        name: "ST得润"
+        role: "cpu_socket_core"
+        segment: "CPU Socket"
+        watch_reason: "字节自研CPU→Socket 1:1刚性绑定。大陆唯一通过Intel官方认证、量产千针级CPU Socket的上市公司，全球仅四家。鸿腾+嘉泽占90%份额且产能饱和，外溢订单优先流向得润。ST身份需单独风控。"
+        confirm_with: ["万通发展", "中际旭创"]
+        buy_setup:
+          - "CPU自研链组内联动，ST得润放量突破"
+          - "不追高，等分歧后缩量回踩承接"
+          - "需万通发展（PCIe Switch）或Socket逻辑同步扩散确认"
+          - "ST身份单独控制仓位，严格止损"
+        invalidation_setup:
+          - "单票脉冲但CPU链无联动"
+          - "跌破今日低点7.14且30分钟不能收回"
+          - "ST板块整体走弱或监管风险"
+          - "字节自研CPU逻辑不被持续认可"
+
+      - code: "600246.SH"
+        name: "万通发展"
+        role: "pcie_switch_core"
+        segment: "PCIe Switch"
+        watch_reason: "数渡科技PCIe Switch，国产替代博通。CPU翻倍预期+国产超节点放量→PCIe Switch市场大幅扩容（2026年国内超200亿）。104通道已量产、144通道已投片、PCIe 6.0/CXL在研。"
+        confirm_with: ["ST得润", "寒武纪", "海光信息"]
+        buy_setup:
+          - "CPU自研链组内联动，万通发展放量突破"
+          - "不追涨停，等分歧后缩量回踩"
+          - "需ST得润或算力芯片方向同步扩散"
+        invalidation_setup:
+          - "单票冲高但CPU链无联动"
+          - "跌破分时均价且ST得润同步回落"
+          - "国产替代逻辑不被资金持续认可"
+
+  - id: "upstream_price_increase"
+    name: "上游涨价链（位置低，扩散广）"
+    source_docs:
+      - "sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md"
+      - "sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md"
+    market_checks:
+      - "涨价链是否持续扩散（功率半导体→高频变压器→SST→电子布）"
+      - "是否有明确的'领涨矛'出现"
+      - "机构资金是否持续流入上游材料"
+    stocks:
+      - code: "688630.SH"
+        name: "芯碁微装"
+        role: "advanced_packaging_core"
+        segment: "PCB直写光刻/先进封装/IC载板"
+        watch_reason: "PCB直写光刻DI设备全球龙头，卡位先进封装（WLP2000已出货、类CoWoS-L已量产）、IC载板、掩模版。'涨价链+国产替代+先进封装'三重逻辑交集。5/28机构净买入4.88亿。"
+        confirm_with: ["华虹公司", "鼎通科技", "飞荣达"]
+        buy_setup:
+          - "先进封装/涨价链方向被资金认可，芯碁微装放量突破"
+          - "不追高，等分歧后缩量回踩承接"
+          - "需华虹公司或先进封装组同步扩散"
+        invalidation_setup:
+          - "单票走强但先进封装组无扩散"
+          - "跌破分时均价且华虹公司同步回落"
+          - "涨价逻辑不被持续认可"
+
+      - code: "688347.SH"
+        name: "华虹公司"
+        role: "foundry_leader"
+        segment: "晶圆代工"
+        watch_reason: "晶圆代工领涨，5/28大涨超15%续创新高，机构净买入第一（6.26亿）。先进封装调整一天后明天大概率重回强势。"
+        confirm_with: ["芯碁微装", "中芯国际", "长电科技"]
+        buy_setup:
+          - "晶圆代工/先进封装方向被资金认可"
+          - "不追高，等分歧后回踩确认"
+          - "需芯碁微装或封测组同步承接"
+        invalidation_setup:
+          - "单票脉冲但代工组无联动"
+          - "跌破分时均价"
+          - "先进封装调整超预期延长"
+
       - code: "002484.SZ"
         name: "江海股份"
         role: "supercapacitor_core"
         segment: "超级电容/铝电解电容"
-        watch_reason: "AI供电三剑客之超级电容核心；英伟达GB300将电解电容集成至电源架，电网峰值需求降低30%，从实验室升级为机柜级标配。5/27涨停。"
-        confirm_with: ["艾华集团", "海星股份", "东阳光"]
+        watch_reason: "AI供电三剑客之超级电容核心；英伟达GB300将电解电容集成至电源架，电网峰值需求降低30%。涨价链扩散路径：模拟芯片→功率半导体→高频变压器→SST。"
+        confirm_with: ["艾华集团", "海星股份", "芯联集成"]
         buy_setup:
-          - "超级电容组（江海/艾华/海星/东阳光）至少两只同步转强"
-          - "不追涨停，等分歧后缩量回踩并重新放量"
+          - "超级电容/涨价链组整体转强"
+          - "不追涨停，等分歧后缩量回踩"
           - "AI电源链整体扩散而非单票脉冲"
         invalidation_setup:
-          - "单票冲高但超级电容组无联动"
-          - "跌破分时均价且艾华集团、海星股份同步回落"
-          - "新技术分支逻辑不被资金持续认可"
-
-      - code: "603989.SH"
-        name: "艾华集团"
-        role: "supercapacitor_elastic"
-        segment: "超级电容/铝电解电容"
-        watch_reason: "AI供电三剑客之超级电容方向；5/27涨停，新技术分支从0到1。"
-        confirm_with: ["江海股份", "海星股份", "东阳光"]
-        buy_setup:
-          - "超级电容组至少两只同步转强"
-          - "不追涨停，等分歧后缩量回踩承接"
-          - "AI电源链整体扩散"
-        invalidation_setup:
           - "单票冲高但组内无联动"
-          - "跌破分时均价且江海股份同步回落"
-
-      - code: "603115.SH"
-        name: "海星股份"
-        role: "supercapacitor_material"
-        segment: "电极箔/电容材料"
-        watch_reason: "超级电容上游材料；5/27涨停，8天4板，电容材料强势。"
-        confirm_with: ["江海股份", "艾华集团", "东阳光"]
-        buy_setup:
-          - "超级电容组整体转强"
-          - "不追高，等分歧后回踩确认"
-        invalidation_setup:
-          - "单票脉冲但组内无联动"
-          - "跌破分时均价"
-
-      - code: "002881.SZ"
-        name: "美格智能"
-        role: "edge_ai_core"
-        segment: "端侧AI/智能模组"
-        watch_reason: "端侧AI补涨分支；AI中后期从云端向边缘计算扩散，智能模组和AIoT终端受益。全球端侧AI市场CAGR 39.6%，美格已开启77 TOPS AI模组大规模量产。5/27涨停。"
-        confirm_with: ["科大讯飞", "中兴通讯", "中科曙光"]
-        buy_setup:
-          - "端侧AI/智能模组方向被资金认可，美格智能放量突破"
-          - "不追涨停，等分歧后缩量回踩承接"
-          - "需科大讯飞或国产算力硬件同步扩散确认"
-        invalidation_setup:
-          - "单票脉冲但端侧AI组无联动"
-          - "跌破分时均价且科大讯飞同步回落"
-          - "AI应用层扩散逻辑不被资金持续认可"
+          - "跌破分时均价且艾华集团同步回落"
 
       - code: "688469.SH"
         name: "芯联集成"
         role: "power_semiconductor_core"
         segment: "功率半导体/IGBT/SiC"
-        watch_reason: "功率半导体年内第二轮涨价受益；英飞凌+德州仪器7月1日起第二轮提价。8/12英寸硅基月产能17万/3万片，IGBT/SiC封装国际领先。"
+        watch_reason: "功率半导体年内第二轮涨价受益；英飞凌+德州仪器7月1日起第二轮提价。8/12英寸硅基月产能17万/3万片。"
         confirm_with: ["捷捷微电", "扬杰科技", "新洁能"]
         buy_setup:
-          - "功率半导体方向被资金认可，芯联集成放量突破"
-          - "英飞凌/TI涨价逻辑持续被资金认可"
+          - "功率半导体方向被资金认可"
+          - "英飞凌/TI涨价逻辑持续"
           - "不追高，等分歧后缩量回踩"
         invalidation_setup:
           - "单票走强但功率半导体组无扩散"
-          - "跌破分时均价且捷捷微电同步回落"
-          - "涨价逻辑不被持续认可"
+          - "跌破分时均价"
 
-      - code: "300623.SZ"
-        name: "捷捷微电"
-        role: "power_semiconductor_elastic"
-        segment: "功率半导体/MOSFET"
-        watch_reason: "功率半导体涨价链弹性标的；英飞凌/TI第二轮提价覆盖PMIC、MOSFET。"
-        confirm_with: ["芯联集成", "扬杰科技", "新洁能"]
+  - id: "liquid_cooling_heat_dissipation"
+    name: "液冷/散热（华为链，韬定律催化）"
+    source_docs:
+      - "sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md"
+    market_checks:
+      - "华为散热链是否持续发酵"
+      - "液冷cage是否进入放量期"
+      - "韬定律后续是否有更多催化"
+    stocks:
+      - code: "300602.SZ"
+        name: "飞荣达"
+        role: "huawei_cooling_core"
+        segment: "华为散热/微泵液冷"
+        watch_reason: "华为散热战略供应商，微泵液冷+风扇方案最核心标的。秋季麒麟芯片逻辑折叠→散热问题更严峻，Mate80 Pro Max首搭微型风扇。卖方目标400亿（约60%空间）。"
+        confirm_with: ["鼎通科技", "意华股份", "英维克"]
         buy_setup:
-          - "功率半导体组整体转强"
+          - "华为散热链被资金认可，飞荣达放量突破"
+          - "不追高，等分歧后缩量回踩"
+          - "需鼎通科技或液冷组同步扩散"
+        invalidation_setup:
+          - "单票冲高但散热链无联动"
+          - "跌破分时均价且鼎通科技同步回落"
+          - "华为链催化不被持续认可"
+
+      - code: "688668.SH"
+        name: "鼎通科技"
+        role: "liquid_cooling_cage"
+        segment: "液冷cage"
+        watch_reason: "液冷cage核心标的，去年Q4开始出货样品。海外大厂审厂关键期，6月有望部分出货。卖方目标700亿。"
+        confirm_with: ["飞荣达", "意华股份", "奕东电子"]
+        buy_setup:
+          - "液冷cage方向被资金认可"
           - "不追高，等分歧后回踩确认"
+          - "需飞荣达或液冷组同步承接"
+        invalidation_setup:
+          - "单票脉冲但液冷组无联动"
+          - "跌破分时均价"
+
+      - code: "002897.SZ"
+        name: "意华股份"
+        role: "liquid_cooling_connector"
+        segment: "液冷cage+高速连接+光模块配套"
+        watch_reason: "液冷cage+高速连接+光模块配套多重交集。华为侧液冷cage刚放量，利润低于海外但蛋糕大。"
+        confirm_with: ["飞荣达", "鼎通科技", "中际旭创"]
+        buy_setup:
+          - "液冷/连接方向被资金认可"
+          - "不追高，等分歧后回踩"
+          - "需飞荣达或鼎通科技同步承接"
         invalidation_setup:
           - "单票脉冲但组内无联动"
           - "跌破分时均价"
 
-  - id: "power_sst_semiconductors"
-    name: "电源/SST/功率器件主板观察池"
-    tradability: "mainboard_only"
+  - id: "cpo_optical_communication"
+    name: "光通信/CPO（高位核心，确认景气但不追）"
     source_docs:
-      - "sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md"
-      - "sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md"
-      - "knowledge/wiki/市场分析/AI电源与超级电容.md"
+      - "sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md"
     market_checks:
-      - "电源/SST/功率器件是否形成组内联动"
-      - "英伟达平台电源价值量提升逻辑是否持续被资金认可"
-      - "800V直流架构趋势下SiC/GaN是否继续扩散"
-      - "是否属于AI硬件主线内部高低切，而不是防御轮动"
+      - "CPO能否维持核心地位"
+      - "高位是否滞涨拖累指数"
+      - "是否出现新的情绪空间"
     stocks:
-      - code: "002922.SZ"
-        name: "伊戈尔"
-        role: "power_supply_core"
-        segment: "配电/电源整机"
-        watch_reason: "电源/SST核心赛道标的；英伟达平台电源价值量提升直接受益。下半年HVDC与SST需求同步紧张。"
-        confirm_with: ["金盘科技", "中恒电气", "新洁能"]
+      - code: "300308.SZ"
+        name: "中际旭创"
+        role: "cpo_core"
+        segment: "光模块/CPO"
+        watch_reason: "CPO核心，5/28齐创历史新高，是唯一能'带动指数'的方向。但已是高位品种，提供确认而非空间。"
+        confirm_with: ["新易盛", "天孚通信", "剑桥科技"]
         buy_setup:
-          - "电源/SST组整体转强，且伊戈尔放量突破分时均线"
-          - "不追高，等缩量回踩或分歧后的承接确认"
-          - "下半年（2026H2）HVDC放量前可提前布局，现在只跟踪不买入"
+          - "CPO组整体强势，中际旭创主动领涨"
+          - "不追高，等深度回调至关键支撑"
+          - "仅作为趋势持仓参考，新开仓不选"
         invalidation_setup:
-          - "单票走强但电源链无扩散，降低电源整机扩散预期"
-          - "跌破趋势支撑且金盘科技、中恒电气同步回落"
+          - "高位滞涨且组内跟风票回落"
+          - "跌破5日均线且无修复"
+          - "量能萎缩且板块不扩散"
 
-      - code: "002364.SZ"
-        name: "中恒电气"
-        role: "hvdc_power_core"
-        segment: "HVDC电源"
-        watch_reason: "HVDC独立电源方案核心受益标的；Vera Rubin CPX方案电源价值量较GB200增长超10倍。"
-        confirm_with: ["伊戈尔", "金盘科技", "新洁能"]
+      - code: "300502.SZ"
+        name: "新易盛"
+        role: "cpo_follower"
+        segment: "光模块/CPO"
+        watch_reason: "CPO三巨头之一，跟风上涨。高位不追。"
+        confirm_with: ["中际旭创", "天孚通信"]
         buy_setup:
-          - "HVDC方案被资金认可，中恒电气放量突破日内高点"
-          - "需伊戈尔、金盘科技至少一只同步承接确认"
-          - "2026年下半年HVDC需求紧张前可提前布局，现在只跟踪"
+          - "CPO组整体强势"
+          - "不追高，等深度回调"
         invalidation_setup:
-          - "HVDC逻辑不被资金认可，单票冲高回落"
-          - "跌破分时均价且伊戈尔、金盘科技同步走弱"
+          - "高位滞涨"
+          - "跌破5日均线"
 
-      - code: "605111.SH"
-        name: "新洁能"
-        role: "gan_power_device"
-        segment: "GaN功率器件"
-        watch_reason: "A股GaN核心标的；电源走向800V直流架构，SiC与GaN是最大受益方向。"
-        confirm_with: ["扬杰科技", "伊戈尔", "金盘科技"]
+      - code: "300394.SZ"
+        name: "天孚通信"
+        role: "cpo_follower"
+        segment: "光模块/CPO"
+        watch_reason: "CPO三巨头之一，跟风上涨。高位不追。"
+        confirm_with: ["中际旭创", "新易盛"]
         buy_setup:
-          - "功率器件方向被资金认可，新洁能放量突破"
-          - "800V趋势确认，且电源链整体扩散"
-          - "下半年产能挤压+涨价预期是核心博弈窗口，现在只跟踪不追高"
+          - "CPO组整体强势"
+          - "不追高，等深度回调"
         invalidation_setup:
-          - "功率器件方向单独走弱，无电源链联动"
-          - "跌破分时均价且扬杰科技、伊戈尔同步回落"
+          - "高位滞涨"
+          - "跌破5日均线"
 
-      - code: "000969.SZ"
-        name: "安泰科技"
-        role: "nanocrystalline_soft_magnetic"
-        segment: "纳米晶/金属软磁"
-        watch_reason: "AI供电三剑客之纳米晶方向；英伟达800V直流架构推动金属软磁需求从0到1，变压器小型化核心材料。"
-        confirm_with: ["东睦股份", "伊戈尔", "金盘科技"]
-        buy_setup:
-          - "纳米晶/软磁方向被资金认可，安泰科技放量突破分时均线"
-          - "不追高，等缩量回踩或分歧后承接确认"
-          - "需东睦股份或电源链（伊戈尔、金盘科技）同步承接"
-        invalidation_setup:
-          - "单票走强但纳米晶方向无扩散"
-          - "跌破趋势支撑且东睦股份同步回落"
-          - "AI电源链整体走弱"
-
-      - code: "600114.SH"
-        name: "东睦股份"
-        role: "nanocrystalline_soft_magnetic"
-        segment: "MIM/粉末冶金/纳米晶软磁"
-        watch_reason: "AI供电纳米晶方向；MIM业务稳健，软磁粉芯受益800V架构趋势。"
-        confirm_with: ["安泰科技", "伊戈尔", "中恒电气"]
-        buy_setup:
-          - "纳米晶方向被资金认可，东睦股份缩量企稳后放量"
-          - "不追高，等回踩确认"
-          - "需安泰科技或电源链同步承接"
-        invalidation_setup:
-          - "单票走弱且安泰科技同步回落"
-          - "跌破前低且无修复"
-          - "AI电源链整体走弱"
-
-  - id: "semiconductor_legacy_watch"
-    name: "半导体老主线（观察为主，暂不介入）"
+  - id: "medical_observation"
+    name: "医药观察（博主提示，节点不错）"
     source_docs:
-      - "sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md"
-      - "knowledge/claims/claim-20260527-006.yaml"
+      - "sources/raw/财经/动态：26-05-28：产业逻辑视频计划与观察标的.md"
     market_checks:
-      - "半导体是否出现真正的领涨矛"
-      - "长电/华天封板能力"
-      - "调整周期是否走完（4~6天）"
+      - "医药方向是否有系统性机会"
+      - "博主产业逻辑视频是否覆盖该方向"
+      - "是否与科技主线形成跷跷板"
     stocks:
-      - code: "600584.SH"
-        name: "长电科技"
-        role: "capacity_anchor"
-        segment: "封测龙头"
-        watch_reason: "半导体容量中军，判断退潮节奏的核心锚点。5/27封单小，起不到带头作用。"
-        confirm_with: ["华天科技", "通富微电"]
+      - code: "603811.SH"
+        name: "诚意药业"
+        role: "medical_observation"
+        segment: "医药"
+        watch_reason: "博主置顶评论提示'观察一下，诚意药业、海王生物、东方海洋。今天节点不错'。"
+        confirm_with: ["海王生物", "东方海洋"]
         buy_setup:
-          - "封测板块共振，长电科技主动领涨"
-          - "缩量回踩后放量收回分时均线"
-          - "不追高，等调整周期走完（4~6天）"
+          - "医药组整体转强"
+          - "不追高，等分歧后回踩"
+          - "仅观察，不构成买入建议"
         invalidation_setup:
-          - "封不住板且封测组同步回落"
-          - "跌破趋势支撑"
+          - "单票脉冲但组内无联动"
+          - "科技主线强势，医药被虹吸"
 
-      - code: "002185.SZ"
-        name: "华天科技"
-        role: "packaging_elastic"
-        segment: "先进封装"
-        watch_reason: "先进封装弹性标的；5/27接近涨停但封单量小，观察封板能力。"
-        confirm_with: ["长电科技", "通富微电"]
+      - code: "000078.SZ"
+        name: "ST海王"
+        role: "medical_observation"
+        segment: "医药/生物"
+        watch_reason: "博主提示观察。ST身份需单独风控。"
+        confirm_with: ["诚意药业", "东方海洋"]
         buy_setup:
-          - "先进封装板块共振"
+          - "医药组整体转强"
+          - "ST身份单独控制仓位"
+        invalidation_setup:
+          - "单票脉冲但组内无联动"
+          - "ST板块整体走弱"
+
+      - code: "002086.SZ"
+        name: "东方海洋"
+        role: "marine_economy"
+        segment: "海洋经济/水产"
+        watch_reason: "博主提示观察。可能与海洋经济/水产方向产业逻辑视频相关。"
+        confirm_with: ["诚意药业", "海王生物"]
+        buy_setup:
+          - "海洋经济方向被资金认可"
           - "不追高，等分歧后回踩"
         invalidation_setup:
-          - "炸板后不能回封"
-          - "单票脉冲但板块不跟"
+          - "单票脉冲但组内无联动"
+          - "科技主线强势，防御方向被虹吸"
 
-  - id: "compute_outbound"
-    name: "算力出海+国内基建"
+  - id: "compute_rental_token"
+    name: "算力租赁/token工厂（新增催化）"
     source_docs:
-      - "sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md"
+      - "sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md"
     market_checks:
-      - "算力芯片是否被资金认可"
-      - "IDC及算力租赁是否有催化"
-      - "配套设备（液冷/磁件）是否同步"
+      - "token期货概念是否发酵"
+      - "算力租赁是否有资金流入"
+      - "与AIDC方向是否形成联动"
     stocks:
       - code: "300383.SZ"
         name: "光环新网"
-        role: "byte_aidc_idc"
+        role: "aidc_idc"
         segment: "IDC/数据中心"
-        watch_reason: "字节跳动AIDC产业链核心标的；字节700亿美元AI资本支出直接利好IDC及算力租赁。"
+        watch_reason: "字节700亿美元AI资本支出直接利好AIDC。复盘评论补充：'明天算力租赁可能会有点东西，算力租赁加之前的token工厂，关注一下。'"
         confirm_with: ["奥飞数据", "数据港", "宝信软件"]
         buy_setup:
-          - "字节AIDC方向被资金认可，光环新网放量突破"
+          - "算力租赁/AIDC方向被资金认可"
           - "不追高，等分歧后缩量回踩"
+          - "需奥飞数据或IDC组同步扩散"
         invalidation_setup:
           - "单票脉冲但AIDC组无联动"
           - "跌破分时均价"
 
       - code: "300738.SZ"
         name: "奥飞数据"
-        role: "byte_aidc_idc_elastic"
-        segment: "IDC/算力租赁"
-        watch_reason: "字节跳动AIDC产业链弹性标的；字节700亿美元AI资本支出催化。"
+        role: "compute_rental"
+        segment: "算力租赁/IDC"
+        watch_reason: "算力租赁弹性标的；token工厂+token期货双重催化。"
         confirm_with: ["光环新网", "数据港"]
         buy_setup:
-          - "字节AIDC方向被资金认可"
+          - "算力租赁方向被资金认可"
           - "不追高，等分歧后回踩"
         invalidation_setup:
           - "单票脉冲但组内无联动"
+          - "token概念不被持续认可"
 
-      - code: "688256.SH"
-        name: "寒武纪"
-        role: "compute_chip"
-        segment: "AI芯片"
-        watch_reason: "算力芯片核心标的；算力出海主线之一。"
-        confirm_with: ["海光信息", "中科曙光"]
-        buy_setup:
-          - "算力芯片方向被资金认可"
-          - "不追高，等分歧后回踩"
-        invalidation_setup:
-          - "单票脉冲但算力组无联动"
-
-      - code: "688041.SH"
-        name: "海光信息"
-        role: "compute_chip"
-        segment: "CPU/DCU"
-        watch_reason: "国产算力芯片核心标的；算力出海主线之一。"
-        confirm_with: ["寒武纪", "中科曙光"]
-        buy_setup:
-          - "算力芯片方向被资金认可"
-          - "不追高，等分歧后回踩"
-        invalidation_setup:
-          - "单票脉冲但算力组无联动"
-
-      - code: "603269.SH"
-        name: "海鸥股份"
-        role: "cooling_equipment"
-        segment: "液冷一次侧冷却塔"
-        watch_reason: "算力配套设备；液冷一次侧冷却塔核心标的。"
-        confirm_with: ["英维克", "科士达"]
-        buy_setup:
-          - "液冷/温控方向被资金认可"
-          - "不追高，等分歧后回踩"
-        invalidation_setup:
-          - "单票脉冲但配套组无联动"
-
-      - code: "002782.SZ"
-        name: "可立克"
-        role: "magnetic_component"
-        segment: "高密度磁件"
-        watch_reason: "算力配套设备；5.5kW/8.5kW高密度磁件核心标的。"
-        confirm_with: ["海鸥股份", "英维克"]
-        buy_setup:
-          - "配套设备方向被资金认可"
-          - "不追高，等分歧后回踩"
-        invalidation_setup:
-          - "单票脉冲但配套组无联动"
-
-  - id: "defensive_rotation"
-    name: "防御板块（轮动观察，控制仓位）"
+  - id: "avoid_sector"
+    name: "规避方向（博主明确提示）"
     source_docs:
-      - "sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md"
+      - "sources/raw/财经/动态：26-05-28：尾盘仓位建议与明日策略.md"
     market_checks:
-      - "上证是否连续走回调"
-      - "科创50是否走弱"
-      - "防御板块是否形成趋势"
+      - "半导体是否如预期走弱"
+      - "消费/白酒是否持续回调"
     stocks:
+      - code: "600584.SH"
+        name: "长电科技"
+        role: "avoid_semiconductor"
+        segment: "封测"
+        watch_reason: "博主置顶评论明确'不要买半导体'。受美股科技股波动影响，短期规避。"
+        confirm_with: []
+        buy_setup: []
+        invalidation_setup:
+          - "半导体板块整体走弱"
+          - "美股科技股大跌传导"
+
       - code: "600519.SH"
         name: "贵州茅台"
-        role: "defensive_anchor"
+        role: "avoid_consumer"
         segment: "白酒"
-        watch_reason: "防御板块锚点；只有上证连续回调时才会有主升浪，震荡市不形成趋势。"
-        confirm_with: ["五粮液", "泸州老窖"]
-        buy_setup:
-          - "上证连续回调，白酒板块共振"
-          - "买阴不买阳"
+        watch_reason: "消费/白酒过渡性质确认，非主线。博主明确规避。"
+        confirm_with: []
+        buy_setup: []
         invalidation_setup:
-          - "科创50拉升，白酒被砸"
-          - "单票脉冲但板块不跟"
-
-      - code: "600036.SH"
-        name: "招商银行"
-        role: "defensive_anchor"
-        segment: "银行"
-        watch_reason: "防御板块锚点；只有上证连续回调时才会有主升浪。"
-        confirm_with: ["平安银行", "工商银行"]
-        buy_setup:
-          - "上证连续回调，银行板块共振"
-          - "买阴不买阳"
-        invalidation_setup:
-          - "科创50拉升，银行被砸"
+          - "白酒板块持续回调"
+          - "资金回流科技，消费被虹吸"

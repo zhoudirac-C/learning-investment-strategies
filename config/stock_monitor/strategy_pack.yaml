@@ -1,29 +1,41 @@
-updated_at: "2026-05-28"
+updated_at: "2026-05-29"
 source_claims:
+  - "knowledge/claims/claim-20260528-004.yaml"
+  - "knowledge/claims/claim-20260528-005.yaml"
   - "knowledge/claims/claim-20260527-005.yaml"
   - "knowledge/claims/claim-20260527-006.yaml"
-  - "knowledge/claims/claim-20260528-001.yaml"
   - "framework/stock-analysis-playbook.md"
   - "framework/market-cycle-framework.md"
   - "framework/sector-diffusion-framework.md"
 
 market_framework:
-  current_stage: "月底切换观察期 + 新技术分支优先排序期"
-  core_question: "强修复还是弱修复？需2个交易日确认。开盘三锚点：防御股剧本/跌停缩短/半导体接力。新分支优先：超级电容>功率半导体涨价>算力出海。"
+  current_stage: "情绪拐点确认期 + 调整是更好确定点"
+  core_question: "明日调整是否不创新低？能否裂变出聚焦主线？规避半导体和消费，关注CPU自研链、上游涨价链、液冷/SST。"
   latest_up_bias:
     source_docs:
-      - "sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md"
-      - "sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md"
-      - "sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md"
+      - "sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md"
+      - "sources/raw/财经/动态：26-05-28：尾盘仓位建议与明日策略.md"
+      - "sources/raw/财经/动态：26-05-28：4050支撑确认与情绪拐点.md"
+      - "sources/raw/财经/动态：26-05-28：大级别调整未完，等美股黄金坑.md"
     rules:
-      - "5月27日回踩定性为'等了很久的回踩'，月底切换+微盘止跌+科技补跌=新周期起点。"
-      - "但需2个交易日确认强修复还是弱修复，前两天的耐心比动作更值钱。"
-      - "开盘三锚点：防御股是否再演剧本、跌停家数是否边际缩短、半导体龙头封板能力。"
-      - "新方向优先级：超级电容（GB300机柜级标配）、功率半导体（英飞凌+TI第二轮涨价）、算力出海+国内基建。"
-      - "缩量阶段，事件催化型新分支位置更低、消耗资金更少，应优先排序。"
-      - "不主动加仓，等三信号（缩量、情绪、利好）落地。"
-      - "避免追高已涨防御板块。"
+      - "5月28日V型修复定性为'情绪拐点'而非'主升确认'，是连续杀跌后的阳线共振。"
+      - "拐点验证两个条件：①明后天分歧时全A不能破位（4055底线）；②必须出现聚焦主线，否则只有宽度没有高度。"
+      - "明日可能调整，但调整是更好确定点——不创新低=底部确认=加仓。"
+      - "仓位建议：空仓→5成左右，满仓→降仓留空间。"
+      - "规避方向：半导体（博主置顶'不要买半导体'）、消费/白酒（过渡性质确认）。"
+      - "新催化优先级：CPU自研链（字节自研CPU→Socket+PCIe Switch）> 上游涨价链（功率半导体→高频变压器→SST）> 液冷/散热（华为韬定律）> 算力租赁/token工厂。"
+      - "高位品种（CPO）提供确认而非空间，不追高。"
+      - "节奏预判：明天延续普涨 → 下周一开始分化 → 主线明确，大概率从科技内部出分支。"
   index_rules:
+    - name: "4055_support"
+      index: "上证指数"
+      trigger_condition: "close_below"
+      threshold: 4055
+      severity: "risk"
+      action: "拐点失效观察"
+      trigger_template: "收盘跌破{threshold}"
+      interpretation: "4055是今日低点，也是拐点有效性底线。跌破=拐点失效，回归5月22日杀跌剧本。"
+
     - name: "weak_repair_alert"
       index: "上证指数"
       trigger_condition: "close_below"
@@ -57,7 +69,8 @@ intraday_schedule:
     action_bias: "只观察"
     rules:
       - "观察防御股（电力/MLCC）是否再演剧本式高开"
-      - "观察核心观察票（江海/艾华/美格/芯联）是否超预期高开或低开"
+      - "观察CPU自研链（得润/万通）是否超预期高开"
+      - "观察上游涨价链（芯碁微装/华虹）是否主动走强"
       - "观察跌停家数是否边际缩短"
       - "不因单票高开直接追买"
   - window: "09:30-09:45"
@@ -65,21 +78,21 @@ intraday_schedule:
     action_bias: "确认方向"
     rules:
       - "看防御股是否被剧本式拉起，决定日内风格偏进攻还是防守"
-      - "看半导体龙头（长电/华天）封板能力"
-      - "看新分支（超级电容/功率半导体）是否主动走强"
-      - "看指数是否快速失守关键位"
+      - "看CPU自研链是否主动走强（可能裂变为主线）"
+      - "看上游涨价链是否扩散"
+      - "看指数是否快速失守4055"
   - window: "09:45-10:30"
     name: "急跌确认"
     action_bias: "等确认，不水下盲吸"
     rules:
-      - "若新分支分歧后核心票不再创新低，并放量收回分时均线，可进入观察"
-      - "若防御方向虹吸科技，暂停观察池买入"
-      - "只买跌得多且看好的新分支核心，不买破位后排"
+      - "若调整不创新低（4055之上），并放量收回分时均线，可进入观察"
+      - "若半导体/消费被规避方向虹吸，暂停观察池买入"
+      - "只买跌得多且看好的CPU链/涨价链核心，不买破位后排"
   - window: "10:30-13:30"
     name: "主修复窗口"
     action_bias: "可做T，可观察"
     rules:
-      - "趋势未破的新分支硬逻辑票，满足分时确认后可观察"
+      - "趋势未破的CPU链/涨价链硬逻辑票，满足分时确认后可观察"
       - "反弹到预设区但板块不扩散，优先观察不介入"
       - "现金为主，新增观察池买点必须等情景确认"
   - window: "13:30-15:00"
@@ -87,24 +100,24 @@ intraday_schedule:
     action_bias: "只看不买"
     rules:
       - "午后冲高无扩散，优先观察不介入"
-      - "尾盘回落跌破关键位，降低次日预期"
+      - "尾盘回落跌破4055，降低次日预期"
       - "若尾盘再度快速修复但成交不能放大，警惕继续透支次日预期"
 
 agent_analysis_schedule:
   - id: "open_auction"
     time: "09:26"
     name: "集合竞价后"
-    focus: "防御股是否剧本式拉起，新分支（超级电容/功率半导体）是否超预期，今天偏进攻还是防守。"
+    focus: "防御股是否剧本式拉起，CPU自研链/上游涨价链是否超预期，今天偏进攻还是防守。"
 
   - id: "open_confirm"
     time: "09:45"
     name: "开盘15分钟确认"
-    focus: "指数是否失守关键位，新分支谁主动，半导体龙头封板能力，跌停是否缩短。"
+    focus: "指数是否失守4055，CPU链/涨价链谁主动，半导体/消费是否如预期走弱，跌停是否缩短。"
 
   - id: "morning_confirm"
     time: "10:30"
     name: "30分钟确认"
-    focus: "是否有底部钝化，修复质量是否成立，新分支能否做T或观察。"
+    focus: "调整是否不创新低，修复质量是否成立，CPU链/涨价链能否做T或观察。"
 
   - id: "noon_review"
     time: "11:20"
@@ -119,7 +132,7 @@ agent_analysis_schedule:
   - id: "mid_afternoon"
     time: "14:00"
     name: "午盘监控"
-    focus: "午后一小时盘面验证：新分支是否触发观察点、是否出现分歧低吸点。只讲当下，不预判尾盘。"
+    focus: "午后一小时盘面验证：CPU链/涨价链是否触发观察点、是否出现分歧低吸点。只讲当下，不预判尾盘。"
 
   - id: "tail_condition"
     time: "14:50"
@@ -131,86 +144,143 @@ position_rules:
     name: "空仓纪律"
     applies_to: ["all"]
     all_required:
-      - "持仓已清空，现金为主"
-      - "不主动加仓，等三信号落地"
-      - "月底切换窗口期，需2个交易日确认情景"
+      - "空仓可上5成左右（情绪拐点，不悲观）"
+      - "等调整确认不创新低后再加仓"
+      - "明日调整是更好确定点"
     forbidden:
       - "情景未明时建新仓"
       - "追高潮"
       - "抢一字"
       - "防御板块追高"
+      - "买入半导体/消费（博主明确规避）"
 
-  - id: "new_branch_entry_confirm"
-    name: "新分支介入确认"
-    applies_to:
-      - "supercapacitor_core"
-      - "supercapacitor_elastic"
-      - "edge_ai_core"
-      - "power_semiconductor_core"
-      - "power_semiconductor_elastic"
+  - id: "full_position_discipline"
+    name: "满仓纪律"
+    applies_to: ["all"]
     all_required:
-      - "所属新分支组强于全A或强于防御组"
+      - "满仓应降仓，留操作空间"
+      - "外盘风险未释放，给自己明天留够操作空间"
+    forbidden:
+      - "满仓不动"
+      - "追高加仓"
+
+  - id: "cpu_chain_entry_confirm"
+    name: "CPU自研链介入确认"
+    applies_to:
+      - "cpu_socket_core"
+      - "pcie_switch_core"
+    all_required:
+      - "CPU自研链组内联动（得润+万通至少两只同步转强）"
       - "个股不是一致高开后的追高点"
-      - "分歧后放量收回分时均线，后一个反弹峰超过前一个反弹峰"
-      - "同组至少一个容量锚同步承接"
-      - "2个交易日情景确认后"
+      - "分歧后放量收回分时均线"
+      - "字节自研CPU逻辑持续发酵"
+      - "ST得润单独控制仓位，严格止损"
     forbidden:
       - "发酵日追高"
       - "单票异动但板块不共振"
-      - "情景未明时介入"
+      - "ST身份不单独风控"
     action: "提醒进入观察池确认点，但仍需写触发条件、证伪条件和仓位上限"
 
-  - id: "legacy_semiconductor_watch"
-    name: "老主线观察纪律"
-    applies_to: ["capacity_anchor", "packaging_elastic"]
+  - id: "price_increase_entry_confirm"
+    name: "上游涨价链介入确认"
+    applies_to:
+      - "advanced_packaging_core"
+      - "foundry_leader"
+      - "supercapacitor_core"
+      - "power_semiconductor_core"
     all_required:
-      - "调整周期走完（4~6天）"
-      - "出现真正的领涨矛"
-      - "板块由容量票带队"
+      - "所属涨价链组强于全A或强于防御组"
+      - "个股不是一致高开后的追高点"
+      - "分歧后放量收回分时均线"
+      - "同组至少一个容量锚同步承接"
     forbidden:
-      - "调整周期内抄底"
-      - "封单小的龙头追高"
-      - "无合力拉升时介入"
-    action: "只观察不介入，等调整周期走完后再评估"
+      - "发酵日追高"
+      - "单票异动但板块不共振"
+    action: "提醒进入观察池确认点，但仍需写触发条件、证伪条件和仓位上限"
+
+  - id: "avoid_sector_discipline"
+    name: "规避方向纪律"
+    applies_to:
+      - "avoid_semiconductor"
+      - "avoid_consumer"
+    all_required:
+      - "博主明确规避半导体和消费"
+      - "半导体受美股风险影响"
+      - "消费/白酒过渡性质确认"
+    forbidden:
+      - "买入半导体"
+      - "买入消费/白酒"
+      - "抄底半导体"
+    action: "只观察不介入，等博主调整判断后再评估"
 
 sector_groups:
-  - id: "new_tech_branches"
-    name: "新技术分支"
+  - id: "cpu_self_development"
+    name: "CPU自研链"
     style: "offensive"
     members:
+      - code: "002055.SZ"
+        name: "ST得润"
+      - code: "600246.SH"
+        name: "万通发展"
+
+  - id: "upstream_price_increase"
+    name: "上游涨价链"
+    style: "offensive"
+    members:
+      - code: "688630.SH"
+        name: "芯碁微装"
+      - code: "688347.SH"
+        name: "华虹公司"
       - code: "002484.SZ"
         name: "江海股份"
-      - code: "603989.SH"
-        name: "艾华集团"
-      - code: "603115.SH"
-        name: "海星股份"
-      - code: "002881.SZ"
-        name: "美格智能"
       - code: "688469.SH"
         name: "芯联集成"
-      - code: "300623.SZ"
-        name: "捷捷微电"
 
-  - id: "power_sst_chain"
-    name: "电源/SST链"
+  - id: "liquid_cooling"
+    name: "液冷/散热"
     style: "offensive"
     members:
-      - code: "002922.SZ"
-        name: "伊戈尔"
-      - code: "002364.SZ"
-        name: "中恒电气"
-      - code: "605111.SH"
-        name: "新洁能"
-      - code: "688676.SH"
-        name: "金盘科技"
-      - code: "000969.SZ"
-        name: "安泰科技"
-      - code: "600114.SH"
-        name: "东睦股份"
+      - code: "300602.SZ"
+        name: "飞荣达"
+      - code: "688668.SH"
+        name: "鼎通科技"
+      - code: "002897.SZ"
+        name: "意华股份"
 
-  - id: "semiconductor_legacy"
-    name: "半导体老主线"
+  - id: "cpo_optical"
+    name: "光通信/CPO"
     style: "offensive"
+    members:
+      - code: "300308.SZ"
+        name: "中际旭创"
+      - code: "300502.SZ"
+        name: "新易盛"
+      - code: "300394.SZ"
+        name: "天孚通信"
+
+  - id: "compute_rental"
+    name: "算力租赁"
+    style: "offensive"
+    members:
+      - code: "300383.SZ"
+        name: "光环新网"
+      - code: "300738.SZ"
+        name: "奥飞数据"
+
+  - id: "medical_observation"
+    name: "医药观察"
+    style: "defensive"
+    members:
+      - code: "603811.SH"
+        name: "诚意药业"
+      - code: "000078.SZ"
+        name: "ST海王"
+      - code: "002086.SZ"
+        name: "东方海洋"
+
+  - id: "avoid_semiconductor"
+    name: "规避-半导体"
+    style: "avoid"
     members:
       - code: "600584.SH"
         name: "长电科技"
@@ -218,21 +288,17 @@ sector_groups:
         name: "华天科技"
       - code: "002156.SZ"
         name: "通富微电"
-      - code: "000021.SZ"
-        name: "深科技"
 
-  - id: "compute_outbound"
-    name: "算力出海"
-    style: "offensive"
+  - id: "avoid_consumer"
+    name: "规避-消费"
+    style: "avoid"
     members:
-      - code: "688256.SH"
-        name: "寒武纪"
-      - code: "688041.SH"
-        name: "海光信息"
-      - code: "603269.SH"
-        name: "海鸥股份"
-      - code: "002782.SZ"
-        name: "可立克"
+      - code: "600519.SH"
+        name: "贵州茅台"
+      - code: "000858.SZ"
+        name: "五粮液"
+      - code: "000568.SZ"
+        name: "泸州老窖"
 
   - id: "defensive_stabilizers"
     name: "防御稳定线"
@@ -240,70 +306,66 @@ sector_groups:
     members:
       - code: "600036.SH"
         name: "招商银行"
-      - code: "600519.SH"
-        name: "贵州茅台"
       - code: "601398.SH"
         name: "工商银行"
       - code: "000001.SZ"
         name: "平安银行"
 
-  - id: "mlcc_power_components"
-    name: "MLCC/电源组件"
-    style: "offensive"
-    members:
-      - code: "000636.SZ"
-        name: "风华高科"
-      - code: "002859.SZ"
-        name: "洁美科技"
-      - code: "605376.SH"
-        name: "博迁新材"
-      - code: "002484.SZ"
-        name: "江海股份"
-      - code: "603115.SH"
-        name: "海星股份"
-
 sector_rotation_rules:
-  - id: "new_tech_vs_defense"
-    name: "新技术分支 vs 防御"
+  - id: "cpu_vs_defense"
+    name: "CPU自研链 vs 防御"
     offensive_groups:
-      - "new_tech_branches"
-      - "power_sst_chain"
-      - "compute_outbound"
+      - "cpu_self_development"
+      - "upstream_price_increase"
+      - "liquid_cooling"
     defensive_groups:
       - "defensive_stabilizers"
     min_spread_pct: 1.0
     min_red_ratio_spread: 0.25
 
-  - id: "power_vs_semiconductor_internal"
-    name: "科技内部分化：电源/新分支 vs 半导体老主线"
+  - id: "price_increase_vs_cpo"
+    name: "上游涨价链 vs 光通信CPO"
     offensive_groups:
-      - "power_sst_chain"
-      - "new_tech_branches"
+      - "upstream_price_increase"
+      - "liquid_cooling"
     defensive_groups:
-      - "semiconductor_legacy"
+      - "cpo_optical"
+    min_spread_pct: 1.0
+    min_red_ratio_spread: 0.2
+
+  - id: "tech_internal_rotation"
+    name: "科技内部分化：CPU/涨价链 vs 半导体"
+    offensive_groups:
+      - "cpu_self_development"
+      - "upstream_price_increase"
+    defensive_groups:
+      - "avoid_semiconductor"
     min_spread_pct: 1.5
     min_red_ratio_spread: 0.3
 
-  - id: "mlcc_vs_power_internal"
-    name: "MLCC/电源组件 vs 电源/SST链"
+  - id: "compute_rental_vs_defense"
+    name: "算力租赁 vs 防御"
     offensive_groups:
-      - "mlcc_power_components"
+      - "compute_rental"
     defensive_groups:
-      - "power_sst_chain"
+      - "defensive_stabilizers"
     min_spread_pct: 1.0
     min_red_ratio_spread: 0.2
 
 notification_policy:
   only_notify_when:
-    - "新分支触发明确观察点或证伪"
-    - "半导体老主线出现领涨矛或封板信号"
-    - "大盘或板块状态发生切换"
+    - "CPU自研链触发明确观察点或证伪"
+    - "上游涨价链触发观察点或扩散确认"
+    - "大盘4055支撑验证或跌破"
+    - "半导体/消费出现规避方向异动"
     - "防御股再演剧本式拉起"
+    - "算力租赁/token概念发酵"
   suppress_when:
     - "只是普通红绿波动"
     - "单票异动但板块不共振"
     - "同一股票同一信号30分钟内已提醒"
     - "当前不在A股交易时段"
+    - "规避方向（半导体/消费）的普通波动"
   message_fields:
     - "time"
     - "action"
