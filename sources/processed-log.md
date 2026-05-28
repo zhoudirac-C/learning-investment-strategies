@@ -440,3 +440,13 @@
 - sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md
 - sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md
 - sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
+
+- sources/raw/财经/动态：26-05-28：情绪回暖符合预期.md
+  - claim-20260528-002-a: 情绪先于指数修复（methodology）
+  - claim-20260528-002-b: 消费/防御只是过渡（sector-theme）
+  - claim-20260528-002-c: 买阴不买阳策略（operation）
+  - claim-20260528-002-d: 研究重于交易（methodology）
+  - claim-20260528-002-e: 情绪修复日无明确主线（market-cycle）
+  - claim-20260528-002-f: 博主不提供个股买卖点（methodology）
+  - wiki: knowledge/wiki/每日复盘/2026-05-28.md（追加盘中动态）
+

@@ -1,0 +1,122 @@
+claims:
+- id: claim-20260528-002-a
+  source_path: sources/raw/财经/动态：26-05-28：情绪回暖符合预期.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: methodology
+  subject: 情绪与指数的修复时序关系
+  timeframe: trend
+  statement: 情绪修复先于指数修复，情绪回暖后指数滞后1-2个交易日确认，这是市场周期中的常见规律
+  evidence_quote: "情绪修复，不是大盘修复，昨天视频讲过了，情绪会先于指数修复"
+  interpretation: 情绪端（涨跌家数、涨停板数量、跌停板数量）通常领先指数端反应。当情绪率先回暖时，指数可能尚未同步，需要1-2个交易日的滞后确认。这一规律在回踩后的修复阶段尤为明显——情绪先止跌→资金试探性回流→指数最终确认。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/市场周期.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-002-b
+  source_path: sources/raw/财经/动态：26-05-28：情绪回暖符合预期.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: sector-theme
+  subject: 消费/防御板块的过渡性质
+  timeframe: short-term
+  statement: 消费和防御板块（如白酒）在调整期间的崛起只是过渡性避险，不构成系统性主线切换，资金很快回流科技
+  evidence_quote: "昨天的白酒消费今天开始回调，所以最近的行情还是基于买阴不买阳寻找科技板块"
+  interpretation: 5/27午后消费（白酒）崛起，但5/28即开始回调，验证了其过渡性质。全市场都在跌时热钱选择超跌方向做短线博弈，但市场认可度不高。真正的主线仍在科技内部，消费只是短期避险的过渡性选择。这与5/27复盘判断"消费午后崛起大概率只是过渡"一致。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/板块轮动.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-002-c
+  source_path: sources/raw/财经/动态：26-05-28：情绪回暖符合预期.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: operation
+  subject: 买阴不买阳的操作策略
+  timeframe: short-term
+  statement: 当前行情适合采用"买阴不买阳"策略，在科技板块调整时寻找低吸机会，修复日不追高
+  evidence_quote: "最近的行情还是基于买阴不买阳寻找科技板块"
+  interpretation: "买阴不买阳"是当前轮动行情的核心操作原则：①科技板块调整时（阴线）是布局窗口，因为资金仍在科技内部轮动；②修复日（阳线）不追高，避免追在日内高点；③这一策略适用于无明显主线、分支轮动的市场环境。与5/27复盘"不追高潮、不抢一字"的纪律一致。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-002-d
+  source_path: sources/raw/财经/动态：26-05-28：情绪回暖符合预期.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: methodology
+  subject: 行情不好时研究重于交易
+  timeframe: permanent
+  statement: 大行情不好时应减少交易频率，将精力投入产业研究和资料整理，为后续行情储备认知
+  evidence_quote: "大周期还是不好...最近大行情不好，不用着急交易。从去年到现在，动态里面有大量有价值的产业研究和机构研报，刚充点就花点时间花点功夫去收集整理一下"
+  interpretation: 博主明确建议：①大周期不好时降低交易频率，减少犯错概率；②利用低谷期研究产业逻辑、整理研报资料；③认知储备比短期交易更重要，为后续行情做好充分准备。这是一种"春耕秋收"的长期投资方法论——行情不好时播种认知，行情好转时收获交易。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    - knowledge/wiki/投资方法论/研究框架.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-002-e
+  source_path: sources/raw/财经/动态：26-05-28：情绪回暖符合预期.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: market-cycle
+  subject: 情绪修复日的盘面特征
+  timeframe: intraday
+  statement: 情绪修复日通常表现为涨跌家数改善、多个科技分支轮动，但缺乏明确的单一主线领涨
+  evidence_quote: "今天的行情就是很正常的情绪修复，基本上来能看到涨跌家数的一个改善，但是没有一个明显的主线行情，昨天复盘提到的那些基本都在表现，Mlcc,超级电容，光模块散热，存储基本也都在动"
+  interpretation: 情绪修复日的典型特征：①涨跌家数改善（普涨或涨多跌少）；②无明显单一主线，而是前期提到的多个方向同时表现；③科技分支轮动而非集中攻击；④这种"无主线的修复"需要后续1-2个交易日观察是否有领涨方向走出持续性，才能判断修复质量。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/情绪周期.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-002-f
+  source_path: sources/raw/财经/动态：26-05-28：情绪回暖符合预期.md
+  source_date: '2026-05-28'
+  source_type: 动态
+  extracted_at: '2026-05-28'
+  claim_type: methodology
+  subject: 博主内容定位与边界
+  timeframe: permanent
+  statement: 博主提供产业逻辑和市场框架分析，不回答个股问题，不推荐个股买卖点，投资者应独立判断
+  evidence_quote: "我不回答个股问题，也不推荐个股的买卖点，你可以跟我探讨逻辑，而不是问什么时候买什么时候卖"
+  interpretation: 明确的内容边界：①博主专注于产业研究、市场框架和逻辑分析；②不提供具体个股的买入/卖出时点建议；③鼓励探讨逻辑而非寻求操作建议；④投资者需基于自身情况独立决策。这一边界是长期投资关系的基础——提供认知工具，而非替人决策。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/博主方法论总纲.md
+    methodology_pages: []
+    cases: []

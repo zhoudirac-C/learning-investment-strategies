@@ -1302,3 +1302,17 @@
   - 开盘三个锚点：防御股是否剧本式拉起、跌停家数是否缩短、半导体龙头封板能力。
 - Framework 更新：未更新。本次内容以单日操作纪律和技术信号为主，需更多样本验证后抽象为 durable rule。
 - 总纲更新：未更新。利润垫动态管理和中长线观察纪律已入方法论 wiki，但尚未达到总纲级跨阶段验证标准。
+
+## 2026-05-28
+
+- 新增 raw: sources/raw/财经/动态：26-05-28：情绪回暖符合预期.md
+- 新增 claims: claim-20260528-002.yaml（6条）
+  - 情绪先于指数修复（methodology, trend, high）
+  - 消费/防御只是过渡（sector-theme, short-term, high）
+  - 买阴不买阳策略（operation, short-term, medium）
+  - 研究重于交易（methodology, permanent, high）
+  - 情绪修复日无明确主线（market-cycle, intraday, high）
+  - 博主不提供个股买卖点（methodology, permanent, high）
+- 更新 wiki: knowledge/wiki/每日复盘/2026-05-28.md（追加盘中动态）
+- 总纲更新: 否（本次为单日盘面动态+方法论重申，尚未满足总纲级沉淀条件）
+
