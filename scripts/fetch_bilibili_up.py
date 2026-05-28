@@ -256,13 +256,27 @@ def extract_pics_from_screenshot(dynamic_id: str, sessdata: str) -> list[str]:
                 try:
                     elements = page.query_selector_all(selector)
                     for el in elements:
-                        src = el.get_attribute("src")
+                        src = el.get_attribute("src") or ""
                         if src and src.startswith("http") and src not in pics:
                             # 去掉@后面的参数，获取原图
                             src_clean = src.split("@")[0]
                             pics.append(src_clean)
                 except Exception:
                     continue
+            
+            # 补充：查找所有包含 new_dyn 的图片（充电专属动态图片特征）
+            try:
+                all_imgs = page.query_selector_all("img")
+                for img in all_imgs:
+                    src = img.get_attribute("src") or ""
+                    if "new_dyn" in src:
+                        src_clean = src.split("@")[0]
+                        if src_clean.startswith("//"):
+                            src_clean = "https:" + src_clean
+                        if src_clean not in pics:
+                            pics.append(src_clean)
+            except Exception:
+                pass
             
             browser.close()
     except Exception as exc:
@@ -277,9 +291,12 @@ def extract_text_from_dynamic(item: dict) -> str:
     """从动态结构中提取纯文本内容。"""
     modules = item.get("modules", {})
     dynamic_module = modules.get("module_dynamic", {})
+    if not dynamic_module:
+        return ""
 
     # 尝试 opus（图文动态）
-    opus = dynamic_module.get("major", {}).get("opus")
+    major = dynamic_module.get("major", {}) or {}
+    opus = major.get("opus") if major else None
     if opus and isinstance(opus, dict):
         summary = opus.get("summary", {}) or {}
         text = summary.get("text", "")
@@ -294,7 +311,7 @@ def extract_text_from_dynamic(item: dict) -> str:
             return text
 
     # 尝试 archive（视频动态，取标题和简介）
-    archive = dynamic_module.get("major", {}).get("archive")
+    archive = major.get("archive") if major else None
     if archive and isinstance(archive, dict):
         parts = []
         title = archive.get("title", "")
@@ -320,21 +337,27 @@ def extract_pics_from_dynamic(item: dict) -> list[str]:
     """提取动态中的图片URL。"""
     modules = item.get("modules", {})
     dynamic_module = modules.get("module_dynamic", {})
+    if not dynamic_module:
+        return []
+
+    major = dynamic_module.get("major", {}) or {}
+    if not major:
+        return []
 
     # opus 图片
-    opus = dynamic_module.get("major", {}).get("opus")
+    opus = major.get("opus")
     if opus and isinstance(opus, dict):
         pics = opus.get("pics", [])
         return [p.get("url", "") for p in pics if p.get("url")]
 
     # draw 图片
-    draw = dynamic_module.get("major", {}).get("draw")
+    draw = major.get("draw")
     if draw and isinstance(draw, dict):
         items = draw.get("items", [])
         return [p.get("src", "") for p in items if p.get("src")]
 
     # archive 视频封面
-    archive = dynamic_module.get("major", {}).get("archive")
+    archive = major.get("archive")
     if archive and isinstance(archive, dict):
         cover = archive.get("cover", "")
         if cover:
