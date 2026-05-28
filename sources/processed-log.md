@@ -450,3 +450,16 @@
   - claim-20260528-002-f: 博主不提供个股买卖点（methodology）
   - wiki: knowledge/wiki/每日复盘/2026-05-28.md（追加盘中动态）
 
+
+- sources/raw/财经/视频：26-05-28：股市技术分析第一课：单根大阳线（长红线）的实战用法与交易纪律.md
+  - claim-20260528-003-a: 普通人路径选择（methodology）
+  - claim-20260528-003-b: 单根K线适用场景（technical-signal）
+  - claim-20260528-003-c: 长红线定义与涨幅分级（technical-signal）
+  - claim-20260528-003-d: 低档长红线判定（technical-signal）
+  - claim-20260528-003-e: 高档长红线顶部信号（technical-signal）
+  - claim-20260528-003-f: 突破箱体规则（technical-signal）
+  - claim-20260528-003-g: 跌破风控规则（operation）
+  - claim-20260528-003-h: 纪律与量化思维（methodology）
+  - wiki: knowledge/wiki/投资方法论/技术分析.md（新增）
+  - wiki: knowledge/wiki/投资方法论/交易纪律.md（追加引用）
+

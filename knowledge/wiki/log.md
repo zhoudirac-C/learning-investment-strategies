@@ -1326,3 +1326,20 @@
 - 更新 wiki: knowledge/wiki/每日复盘/2026-05-28.md（追加技术信号补充）
 - 总纲更新: 否（技术指标使用边界为方法论补充，尚待更多案例验证后进入总纲）
 
+
+## 2026-05-28 视频学习
+
+- 新增 raw: sources/raw/财经/视频：26-05-28：股市技术分析第一课：单根大阳线（长红线）的实战用法与交易纪律.md
+- 新增 claims: claim-20260528-003.yaml（8条）
+  - claim-20260528-003-a: 普通人路径选择（methodology, permanent, high）
+  - claim-20260528-003-b: 单根K线适用场景（technical-signal, permanent, high）
+  - claim-20260528-003-c: 长红线定义与涨幅分级（technical-signal, permanent, high）
+  - claim-20260528-003-d: 低档长红线判定（technical-signal, permanent, high）
+  - claim-20260528-003-e: 高档长红线顶部信号（technical-signal, permanent, high）
+  - claim-20260528-003-f: 突破箱体规则（technical-signal, permanent, high）
+  - claim-20260528-003-g: 跌破风控规则（operation, permanent, high）
+  - claim-20260528-003-h: 纪律与量化思维（methodology, permanent, high）
+- 新增 wiki: knowledge/wiki/投资方法论/技术分析.md
+- 更新 wiki: knowledge/wiki/投资方法论/交易纪律.md（追加claim引用）
+- 总纲更新: 待评估（技术分析体系为新增模块，待系列课程积累后更新总纲）
+
