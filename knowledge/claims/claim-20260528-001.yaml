@@ -1,0 +1,128 @@
+claims:
+- id: claim-20260528-001-a
+  source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
+  source_date: '2026-05-28'
+  source_type: 早盘
+  extracted_at: '2026-05-28'
+  claim_type: market-cycle
+  subject: 5月27日回踩定性：非破位
+  timeframe: short-term
+  statement: 5月27日属回踩而非破位，沪指未破5.21低点+尾盘未加速下杀+午后轮动至农业，距4000点支撑可信，参考2月初回调
+  evidence_quote: 调整周期未完，但昨日属'回踩'而非'破位'——沪指未破5.21低点 + 尾盘未加速下杀 + 午后已轮动至农业，三条线索共同指向：距4000点关口已近，参考2月初回调，该位置支撑可信
+  interpretation: 回踩与破位的区别在于：①是否创阶段新低（5.21低点未破）；②尾盘是否加速（未加速说明恐慌盘有限）；③是否有资金轮动（农业轮动说明资金仍在寻找机会而非全面撤退）。4000点作为2月初强支撑，在此位置获得支撑的概率较高。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/指数分析.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-001-b
+  source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
+  source_date: '2026-05-28'
+  source_type: 早盘
+  extracted_at: '2026-05-28'
+  claim_type: operation
+  subject: 开盘三个锚点判断日内风格
+  timeframe: intraday
+  statement: 判断日内风格需观察三个锚点：①防御股是否再演剧本（电力/MLCC提前走强）；②跌停家数是否边际缩短；③半导体龙头（长电/华天）封板能力
+  evidence_quote: 锚点一：防御股是否再演'剧本'...电力（连日止跌）、MLCC（抵抗性强）能否提前走强，是判断今日风格的第一信号。锚点二：跌停家数边际变化...今日开盘半小时跌停队列若明显缩短，才是真回暖的起点。锚点三：半导体接力...长电科技、华天科技今日能否超预期——封不住就大概率还要调几天
+  interpretation: 三个锚点构成开盘观察框架：①防御股走强=资金偏谨慎，风格偏防守；②跌停缩短=情绪回暖，可操作窗口打开；③半导体龙头封板=主线接力成功，科技风格延续。三个锚点的组合决定当日攻防节奏。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-001-c
+  source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
+  source_date: '2026-05-28'
+  source_type: 早盘
+  extracted_at: '2026-05-28'
+  claim_type: sector-theme
+  subject: 超级电容：从实验室到机柜级标配
+  timeframe: industry
+  statement: 英伟达GB300将电解电容器集成至电源架，超级电容从实验室方案升级为机柜级标配，国金证券定义为继HBM之后的算力新瓶颈，江海股份、凯恩股份为核心标的
+  evidence_quote: 英伟达GB300起将电解电容器集成至电源架，可使电网峰值需求降低约30%，超级电容从实验室方案升级为机柜级标配。国金证券电子团队将电容定义为继HBM之后的'算力新瓶颈'
+  interpretation: 超级电容的叙事升级：①从边缘概念（实验室）到核心组件（机柜标配）；②有明确的量化指标（电网峰值需求降低30%）；③有券商背书（国金算力新瓶颈）。标的明确：江海股份（涨停）、凯恩股份。
+  confidence: high
+  status: active
+  supersedes:
+  - claim-20260527-005-d
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/AI电源与超级电容.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-001-d
+  source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
+  source_date: '2026-05-28'
+  source_type: 早盘
+  extracted_at: '2026-05-28'
+  claim_type: sector-theme
+  subject: 功率半导体年内第二轮涨价
+  timeframe: industry
+  statement: 英飞凌、德州仪器同日通知7月1日起第二轮提价，覆盖PMIC、MOSFET，功率半导体是AI领域的通胀环节，AI机架电源价值从GB200的3.6万美元升至Vera
+    Rubin CPX的近40万美元
+  evidence_quote: 英飞凌5月26日通知客户7月1日起再次提价...德州仪器同样7月1日起提价，覆盖PMIC、MOSFET，亦为年内第二轮...AI机架电源价值从GB200的3.6万美元升至Vera
+    Rubin CPX的近40万美元，单位功率价值提升2.5倍
+  interpretation: 功率半导体的涨价逻辑：①双龙头（英飞凌+TI）同步第二轮提价，说明行业性供需紧张；②AI驱动价值量跃升（2.5倍）；③8英寸晶圆紧缺下，产能规模+顺价能力是竞争焦点。标的：芯联集成（产能最大）、捷捷微电。
+  confidence: high
+  status: active
+  supersedes:
+  - claim-20260527-003-a
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/半导体产业链.md
+    - knowledge/wiki/市场分析/AI电源与超级电容.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-001-e
+  source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
+  source_date: '2026-05-28'
+  source_type: 早盘
+  extracted_at: '2026-05-28'
+  claim_type: operation
+  subject: 缩量阶段新分支优先排序
+  timeframe: short-term
+  statement: 缩量阶段资金从传统主线向新分支迁移，事件催化型新分支（超级电容、功率半导体）位置更低、消耗资金更少，应优先于老主线
+  evidence_quote: 昨日已出现资金从传统主线向新分支迁移的迹象——华塑股份接近平盘回封 vs 华天科技、沃格光电封不住，量级悬殊。缩量阶段，事件催化型新分支位置更低、消耗资金更少，应优先排序
+  interpretation: 缩量市场的选股原则：①老主线（半导体龙头）封不住板，说明资金承接力下降；②新分支（华塑股份）平盘回封，说明有资金愿意在低位布局；③新分支事件催化硬（涨价、技术升级）、位置低、消耗资金少，更适合缩量环境。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/主线判断.md
+    - knowledge/wiki/投资方法论/仓位管理.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260528-001-f
+  source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
+  source_date: '2026-05-28'
+  source_type: 早盘
+  extracted_at: '2026-05-28'
+  claim_type: macro
+  subject: 海外映射：Astrotech月球主题与Snowflake财报
+  timeframe: short-term
+  statement: Astrotech暴涨459%映射月球资源开发与半导体制造主题，Snowflake盘后涨35%验证企业IT需求韧性，A股映射分别为顶固集创/西部材料和星环科技/电科数字
+  evidence_quote: Astrotech +459.11%。战略转向月球资源开发、月球工业基础设施、月球先进计算与半导体制造...A股映射看顶固集创、西部材料。Snowflake
+    盘后 +35%...A股映射看星环科技、电科数字
+  interpretation: 海外映射两条线：①Astrotech是纯主题催化（月球芯片+氦-3量子计算），A股映射偏概念；②Snowflake是基本面验证（企业IT需求+AI增量），A股映射有业绩支撑。区分主题炒作和基本面映射，决定参与仓位。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/海外映射.md
+    methodology_pages: []
+    cases: []
