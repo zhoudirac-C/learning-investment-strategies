@@ -640,42 +640,43 @@ def save_dynamic_to_file(
 
     lines.append("")
 
-    # 图片处理
-    if is_only_fans:
-        # 充电专属动态
-        if playwright_pics:
-            # Playwright成功提取到图片
-            lines.append("## 图片（Playwright提取）")
-            lines.append("")
-            for i, pic_url in enumerate(playwright_pics, 1):
-                lines.append(f"![图片{i}]({pic_url})")
-            lines.append("")
-        elif screenshot_path:
-            # 有截图
-            rel_path = screenshot_path.relative_to(repo_root())
-            lines.append("## 图片")
-            lines.append("")
-            lines.append(f"> 充电专属动态，API未返回图片。已保存页面截图：")
-            lines.append(f"> ![页面截图]({rel_path})")
-            lines.append("")
+    # 图片处理（仅对非视频动态）
+    if dyn_type != "视频":
+        if is_only_fans:
+            # 充电专属动态
+            if playwright_pics:
+                # Playwright成功提取到图片
+                lines.append("## 图片（Playwright提取）")
+                lines.append("")
+                for i, pic_url in enumerate(playwright_pics, 1):
+                    lines.append(f"![图片{i}]({pic_url})")
+                lines.append("")
+            elif screenshot_path:
+                # 有截图
+                rel_path = screenshot_path.relative_to(repo_root())
+                lines.append("## 图片")
+                lines.append("")
+                lines.append(f"> 充电专属动态，API未返回图片。已保存页面截图：")
+                lines.append(f"> ![页面截图]({rel_path})")
+                lines.append("")
+            else:
+                # 无截图也无图片
+                lines.append("## 图片")
+                lines.append("")
+                lines.append("> 充电专属动态，图片需访问原页面查看。")
+                lines.append(f"> 链接：https://www.bilibili.com/opus/{dynamic_id}")
+                lines.append("")
         else:
-            # 无截图也无图片
-            lines.append("## 图片")
-            lines.append("")
-            lines.append("> 充电专属动态，图片需访问原页面查看。")
-            lines.append(f"> 链接：https://www.bilibili.com/opus/{dynamic_id}")
-            lines.append("")
-    else:
-        # 普通动态
-        if pics:
-            lines.append("## 图片")
-            lines.append("")
-            for i, pic_url in enumerate(pics, 1):
-                lines.append(f"![图片{i}]({pic_url})")
-            lines.append("")
+            # 普通动态
+            if pics:
+                lines.append("## 图片")
+                lines.append("")
+                for i, pic_url in enumerate(pics, 1):
+                    lines.append(f"![图片{i}]({pic_url})")
+                lines.append("")
 
-    # 视频封面
-    if video_info.get('cover'):
+    # 视频封面（仅视频动态）
+    if dyn_type == "视频" and video_info.get('cover'):
         lines.append("## 视频封面")
         lines.append("")
         lines.append(f"![视频封面]({video_info['cover']})")
