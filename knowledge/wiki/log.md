@@ -1384,3 +1384,17 @@
 - 更新 wiki: knowledge/wiki/每日复盘/2026-05-28.md（追加复盘章节）
 - 总纲更新: 待评估（拐点验证框架和ST风控纪律可考虑进入总纲，待更多案例验证）
 
+
+## 2026-05-29 早盘学习
+
+- 更新 raw: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md（追加评论补充）
+- 新增 claims: claim-20260528-005.yaml（6条）
+  - claim-20260528-005-a: 轻指数重个股（methodology, short-term, high）
+  - claim-20260528-005-b: 炒新题材+炒小个股（market-cycle, short-term, high）
+  - claim-20260528-005-c: 拐点次日调整买入节奏（operation, short-term, medium）
+  - claim-20260528-005-d: 早盘三大确认点（operation, intraday, high）
+  - claim-20260528-005-e: 金刚石散热新催化（sector-theme, industry, medium）
+  - claim-20260528-005-f: 戴尔AI服务器映射（sector-theme, short-term, high）
+- 新增 wiki: knowledge/wiki/每日复盘/2026-05-29.md
+- 总纲更新: 否（早盘为单日操作框架，待更多验证后考虑进入总纲）
+

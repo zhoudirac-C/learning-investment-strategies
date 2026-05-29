@@ -477,3 +477,13 @@
   - claim-20260528-004-j: 拐点有效性的概率本质（risk）
   - wiki: knowledge/wiki/每日复盘/2026-05-28.md（追加复盘）
 
+
+- sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+  - claim-20260528-005-a: 轻指数重个股（methodology）
+  - claim-20260528-005-b: 炒新题材+炒小个股（market-cycle）
+  - claim-20260528-005-c: 拐点次日调整买入节奏（operation）
+  - claim-20260528-005-d: 早盘三大确认点（operation）
+  - claim-20260528-005-e: 金刚石散热新催化（sector-theme）
+  - claim-20260528-005-f: 戴尔AI服务器映射（sector-theme）
+  - wiki: knowledge/wiki/每日复盘/2026-05-29.md（新增）
+

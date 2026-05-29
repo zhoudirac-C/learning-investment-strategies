@@ -1,35 +1,35 @@
 claims:
 - id: claim-20260528-005-a
-  source_path: sources/raw/财经/动态：26-05-28：4050支撑确认与情绪拐点.md
-  source_date: '2026-05-28'
-  source_type: 动态
-  extracted_at: '2026-05-28'
-  claim_type: technical-signal
-  subject: 4050第一波支撑有效性确认
+  source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+  source_date: '2026-05-29'
+  source_type: 早盘
+  extracted_at: '2026-05-29'
+  claim_type: methodology
+  subject: 轻指数重个股的操作思路
   timeframe: short-term
-  statement: 4050预设支撑基本确认，实际低点4055仅差5点，因外围地缘风险下探但未破位，支撑有效性高
-  evidence_quote: "之前跟大家说过，第一波支撑是4050，今天因为外围情况，打到了4055差了5个点，不过问题也不大"
-  interpretation: 4050是博主此前预设的关键技术位，今日因霍尔木兹海峡事件导致外围波动，A股下探至4055。偏差仅5点（0.12%），在日内波动范围内，支撑有效性基本确认。"问题不大"表明博主认为此位置支撑可信，不构成破位风险。
+  statement: 当前市场分化巨大，应淡化指数、聚焦个股，专注科技股的打法更适合轻指数重个股
+  evidence_quote: "当前市场分化巨大，创业板、科创50等被科技趋势股带动续创新高，而沪指仍在调整，专注科技股的打法更适合淡化指数、聚焦个股。"
+  interpretation: 指数分化的应对策略：①沪指仍在日线顶调整周期，但创业板/科创50已创新高；②科技趋势股与指数走势脱节，看指数做个股容易错失机会或误判风险；③"轻指数重个股"的核心是：只要个股所属的科技主线逻辑未破坏、趋势未破位，就淡化指数波动，专注个股节奏。这在结构性行情中是核心生存法则。
   confidence: high
   status: active
   supersedes: []
   contradicts: []
   links:
     wiki_pages:
-    - knowledge/wiki/市场分析/指数分析.md
+    - knowledge/wiki/投资方法论/交易纪律.md
     methodology_pages: []
     cases: []
 - id: claim-20260528-005-b
-  source_path: sources/raw/财经/动态：26-05-28：4050支撑确认与情绪拐点.md
-  source_date: '2026-05-28'
-  source_type: 动态
-  extracted_at: '2026-05-28'
+  source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+  source_date: '2026-05-29'
+  source_type: 早盘
+  extracted_at: '2026-05-29'
   claim_type: market-cycle
-  subject: 情绪拐点+30分钟底部结构的反弹定性
-  timeframe: intraday
-  statement: 当前拉升属于情绪拐点叠加30分钟底部结构驱动，但周期不大，属于小级别反弹而非大级别反转
-  evidence_quote: "这一波拉升属于是情绪拐点加30分钟底部结构，所以不会太大的周期"
-  interpretation: 反弹由两个因素驱动：①情绪拐点（市场从恐慌/悲观转向企稳）；②30分钟级别底部结构（短周期技术指标信号）。但博主明确限定"不会太大的周期"，说明这只是日内或1-2个交易日的小级别反弹，不是趋势反转。这与"大级别调整还没结束"的判断一致。
+  subject: 炒新题材+炒小个股的资金风格
+  timeframe: short-term
+  statement: 当前资金风格明显向小盘+新题材倾斜，涨停个股几乎都在几百亿市值及以下，新细分逻辑（如MLCC树脂）容易被挖掘并快速涨停
+  evidence_quote: "当前个股选择有明显向小盘发展的趋势，昨日华塑股份回封后直接秒板，而华虹公司这类千亿市值个股封板已不再像之前那么容易，昨日涨停个股几乎都是几百亿市值及以下。后续除非指数放量反弹，否则'炒新（题材）+炒小（个股）'的趋势大概率延续。"
+  interpretation: 资金风格切换的信号：①大盘蓝筹封板困难（华虹公司千亿市值涨停不易）；②小盘股容易被推上涨停（华塑股份秒板）；③新细分逻辑（皖维高新被挖MLCC树脂）一旦被发现就快速涨停；④这种风格在缩量+轮动环境中更易延续，因为小盘消耗资金少、弹性大。操作 implication：选股应偏向小市值+新题材，回避已充分博弈的大盘核心。
   confidence: high
   status: active
   supersedes: []
@@ -37,169 +37,86 @@ claims:
   links:
     wiki_pages:
     - knowledge/wiki/市场分析/情绪周期.md
-    - knowledge/wiki/投资方法论/技术分析.md
     methodology_pages: []
     cases: []
 - id: claim-20260528-005-c
-  source_path: sources/raw/财经/动态：26-05-28：4050支撑确认与情绪拐点.md
-  source_date: '2026-05-28'
-  source_type: 动态
-  extracted_at: '2026-05-28'
+  source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+  source_date: '2026-05-29'
+  source_type: 早盘
+  extracted_at: '2026-05-29'
   claim_type: operation
-  subject: 美股风险窗口期的操作克制
+  subject: 拐点次日调整的买入节奏
   timeframe: short-term
-  statement: 因今晚美股仍有不确定性，博主未主动号召抄底，小周期点位已提前给出，由投资者自主决策
-  evidence_quote: "没有让各位抄底也是鉴于今晚美股的情况，这周小周期点位之前也给过了，你们自行把握就好"
-  interpretation: 博主的操作逻辑：①技术上30分钟底部结构+情绪拐点=可以参与；②但美股风险未释放=可能有更低买点；③选择不主动号召抄底，让投资者根据自身风险偏好决策。这体现了"留弹性"的核心原则——不赌单边，等风险释放后再确认。
-  confidence: high
+  statement: 拐点确认后的次日若出现调整，是右侧买入窗口，而非风险信号；标准节奏是拐点日建仓/加仓，次日分歧日逢低补仓
+  evidence_quote: "昨天不是说过了嘛，今天调整就是很好的买点。昨日复盘明确判断'连续杀跌后的情绪共振拐点'，今日若出现调整，即为右侧买入窗口。"
+  interpretation: 拐点交易的标准节奏：①拐点日（T日）确认情绪转折，此时建仓或加仓；②次日（T+1日）通常会出现获利回吐或分歧调整，这是逢低补仓的窗口而非风险；③关键前提：拐点判断必须正确（有验证框架支撑），否则调整可能是下跌中继；④与"买阴不买阳"原则一致——在调整时买入，而非在上涨后追高。这是右侧交易的核心节奏。
+  confidence: medium
   status: active
   supersedes: []
   contradicts: []
   links:
     wiki_pages:
-    - knowledge/wiki/投资方法论/仓位管理.md
     - knowledge/wiki/投资方法论/交易纪律.md
+    - knowledge/wiki/市场分析/情绪周期.md
     methodology_pages: []
     cases: []
 - id: claim-20260528-005-d
-  source_path: sources/raw/财经/动态：26-05-28：大级别调整未完，等美股黄金坑.md
-  source_date: '2026-05-28'
-  source_type: 动态
-  extracted_at: '2026-05-28'
-  claim_type: market-cycle
-  subject: 大级别调整未完，等美股确认黄金坑
-  timeframe: short-term
-  statement: 大级别调整尚未结束，关键变量是今晚美股表现；若美股跳水，A股期待已久的黄金坑时刻到来，是好事而非坏事
-  evidence_quote: "大级别的调整还没结束，我们今晚看美股表演，如果表演跳水，那么我们期待已久的时刻就来了，是好事，一直悬在高位不动，反而很难受"
-  interpretation: 博主对调整的定性：①不是意外下跌，是预期内的大级别调整；②当前位置"悬在高位"反而难受，不如痛快下跌；③美股跳水=黄金坑=更好买点；④"子弹留好"=保持现金弹性，等确认信号。这一判断与早盘"调整周期未完"、盘中"情绪修复不是大盘修复"形成完整逻辑链。
+  source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+  source_date: '2026-05-29'
+  source_type: 早盘
+  extracted_at: '2026-05-29'
+  claim_type: operation
+  subject: 早盘三大确认点框架
+  timeframe: intraday
+  statement: 每日早盘观察三个确认点：高标能否继续晋级、跌停是否维持个位数、有无新利好催化
+  evidence_quote: "今日三大确认点：一看高标能否继续晋级、二看跌停是否维持个位数、三看有无新利好催化。"
+  interpretation: 早盘观察框架：①高标晋级率反映情绪延续性，高标断板意味着情绪降温；②跌停家数反映恐慌程度，个位数说明情绪底部有支撑；③利好催化决定是否有新方向打开空间，无催化则按缩量整理处理。三个确认点的组合决定当日攻防节奏：三好=积极进攻；两好一差=谨慎参与；一好两差=防守观望。
   confidence: high
   status: active
   supersedes: []
   contradicts: []
   links:
     wiki_pages:
-    - knowledge/wiki/市场分析/指数分析.md
-    - knowledge/wiki/投资方法论/仓位管理.md
+    - knowledge/wiki/投资方法论/交易纪律.md
     methodology_pages: []
     cases: []
 - id: claim-20260528-005-e
-  source_path: sources/raw/财经/动态：26-05-28：大级别调整未完，等美股黄金坑.md
-  source_date: '2026-05-28'
-  source_type: 动态
-  extracted_at: '2026-05-28'
-  claim_type: risk
-  subject: 霍尔木兹海峡事件定性：可控小摩擦
-  timeframe: short-term
-  statement: 霍尔木兹海峡事件属小规模摩擦，伊朗回应克制（仅3-4架无人机象征性攻击），未造成实质损失，冲突可控
-  evidence_quote: "今天的小摩擦，起因是4艘船只试图未经许可通过霍尔木兹海峡...伊朗革命卫队宣布对美军驻科威特基地发动了一次象征性攻击(看起来只有3~4架无人机)"
-  interpretation: 博主对地缘风险的定性：①规模小（4艘船只+开火警告+象征性无人机攻击）；②伊朗克制（仅3-4架无人机，非大规模报复）；③无实质损失（美军开火未造成人员/财产损失）；④不构成系统性风险。真正的市场变量是美股对此事件的反应，而非事件本身。
+  source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+  source_date: '2026-05-29'
+  source_type: 早盘
+  extracted_at: '2026-05-29'
+  claim_type: sector-theme
+  subject: 金刚石散热新催化
+  timeframe: industry
+  statement: 金刚石铜复合材料在郑州超算中心规模化应用，芯片模组传热能力提升80%，散热性能可提升10-100倍，是AI与半导体双受益方向
+  evidence_quote: "金刚石铜复合材料近期在郑州超算中心实现规模化应用，使芯片模组传热能力提升80%。金刚石作为热传导介质，在高功率芯片封装中散热效果出色，散热性能可提升10到100倍。"
+  interpretation: 金刚石散热的新催化逻辑：①产业化验证：郑州超算中心规模化应用，不是实验室概念；②性能数据：传热提升80%，散热性能10-100倍，有明确量化指标；③双受益：AI高功率芯片+半导体封装都需要散热升级；④标的：黄河旋风、四方达。这是散热方向的又一个细分分支，与液冷、SST共同构成AI散热升级的全图谱。
   confidence: medium
   status: active
   supersedes: []
   contradicts: []
   links:
     wiki_pages:
-    - knowledge/wiki/市场分析/地缘风险.md
+    - knowledge/wiki/市场分析/AI基础设施与能源转型.md
     methodology_pages: []
     cases: []
 - id: claim-20260528-005-f
-  source_path: sources/raw/财经/动态：26-05-28：尾盘仓位建议与明日策略.md
-  source_date: '2026-05-28'
-  source_type: 动态
-  extracted_at: '2026-05-28'
-  claim_type: operation
-  subject: 情绪拐点日的仓位管理：空仓上5成，满仓降仓
-  timeframe: intraday
-  statement: 情绪拐点日尾盘横住是好事；空仓者可上5成仓位，满仓者应降仓留操作空间，为明日可能的调整做准备
-  evidence_quote: "这会儿横住了是好事...如果你空仓，这个位置可以上点仓位，5成左右...因为外盘还是有风险，所以如果你是满仓，那么应该降点仓位，给自己明天留够操作空间"
-  interpretation: 仓位管理的双向建议：①空仓者→上5成（情绪拐点不宜过度悲观，但不满仓因外盘风险）；②满仓者→降仓（外盘风险未释放，需留操作空间）。核心逻辑：今日情绪拐点已现，但尚未经考验；明日若调整=更好确定点，留弹性才能应对。
-  confidence: high
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/投资方法论/仓位管理.md
-    methodology_pages: []
-    cases: []
-- id: claim-20260528-005-g
-  source_path: sources/raw/财经/动态：26-05-28：尾盘仓位建议与明日策略.md
-  source_date: '2026-05-28'
-  source_type: 动态
-  extracted_at: '2026-05-28'
-  claim_type: operation
-  subject: 明日调整是更好确定点
-  timeframe: short-term
-  statement: 明日可能会调整，但调整是更好确定点——可验证今日低点是否有效，不创新低则底部确认
-  evidence_quote: "明天是有可能会调整的，但是明天的调整就是更好的确定点"
-  interpretation: 更好确定点的含义——①今日情绪拐点已出现，但尚未经受过考验；②明日若调整，可验证4055低点是否有效；③调整不创新低等于底部确认，可加仓；④调整创新低等于支撑失效，需重新评估。这是一种先观察再确认的审慎策略，不急于在拐点日满仓。
-  confidence: medium
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/投资方法论/交易纪律.md
-    methodology_pages: []
-    cases: []
-- id: claim-20260528-005-h
-  source_path: sources/raw/财经/动态：26-05-28：尾盘仓位建议与明日策略.md
-  source_date: '2026-05-28'
-  source_type: 动态
-  extracted_at: '2026-05-28'
+  source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+  source_date: '2026-05-29'
+  source_type: 早盘
+  extracted_at: '2026-05-29'
   claim_type: sector-theme
-  subject: 规避半导体和消费方向
+  subject: 戴尔AI服务器业绩超预期映射
   timeframe: short-term
-  statement: 当前应规避半导体和消费方向，半导体受美股科技股波动影响，消费确认过渡性质
-  evidence_quote: "不要买半导体和消费就行了"
-  interpretation: 规避逻辑：①半导体→受美股科技股波动影响（今晚美股不确定性）；②消费→白酒今日已回调，过渡性质确认（与10:40动态"消费开始回调"一致）。这不是长期看空，而是短期风险规避——等美股风险释放后再评估半导体，消费则确认非主线。
-  confidence: medium
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/市场分析/板块轮动.md
-    methodology_pages: []
-    cases: []
-- id: claim-20260528-005-i
-  source_path: sources/raw/财经/动态：26-05-28：产业逻辑视频计划与观察标的.md
-  source_date: '2026-05-28'
-  source_type: 动态
-  extracted_at: '2026-05-28'
-  claim_type: methodology
-  subject: 行情平淡期加大研究储备
-  timeframe: permanent
-  statement: 大行情未到时减少交易，利用平淡期更新产业逻辑视频（约10个），为后续行情做认知储备
-  evidence_quote: "算了一下，我最近要更新产业逻辑视频估计10个左右...最近也没什么大行情，等弄完估计行情也差不多来了"
-  interpretation: 博主的操作节奏：①行情不好→减少交易（降低犯错概率）；②加大研究→利用低谷期做系统性知识整理；③研究完成时→行情窗口可能同步打开。这是一种"春耕秋收"的方法论——低谷期播种认知，行情好转时收获交易。约10个产业逻辑视频涵盖多个方向，是系统性储备。
+  statement: 戴尔AI服务器业务推动业绩大幅超预期，盘后暴涨近40%，预计本财年AI服务器营收600亿美元，产品几乎每天都在重新定价
+  evidence_quote: "戴尔科技盘后暴涨近40%，AI服务器业务推动业绩大幅超预期。公司预计本财年AI服务器营收达600亿美元（高于2月预测的500亿），全年营收1650亿至1690亿美元（此前1380亿至1420亿）。尽管需求井喷，供应端紧张未见缓解，产品几乎'每天都在重新定价'。"
+  interpretation: 戴尔业绩的映射意义：①AI服务器需求持续井喷，供应紧张未缓解；②"每天都在重新定价"说明涨价趋势明确；③戴尔上调全年营收预期（从1380-1420亿上调至1650-1690亿），幅度约20%，验证AI服务器赛道的高景气；④A股映射：领益智造、浪潮信息等服务器产业链标的。这是海外基本面验证对A股的情绪提振。
   confidence: high
   status: active
   supersedes: []
   contradicts: []
   links:
     wiki_pages:
-    - knowledge/wiki/投资方法论/研究框架.md
-    - knowledge/wiki/投资方法论/交易纪律.md
-    methodology_pages: []
-    cases: []
-- id: claim-20260528-005-j
-  source_path: sources/raw/财经/动态：26-05-28：产业逻辑视频计划与观察标的.md
-  source_date: '2026-05-28'
-  source_type: 动态
-  extracted_at: '2026-05-28'
-  claim_type: stock-view
-  subject: 观察标的提示：诚意药业、海王生物、东方海洋
-  timeframe: short-term
-  statement: 博主提示观察诚意药业、海王生物、东方海洋三个标的，"观察"≠"买入"，属于跟踪提示
-  evidence_quote: "观察一下，诚意药业、海王生物、东方海洋。今天节点不错"
-  interpretation: 标的提示的定性：①用词"观察一下"=跟踪提示，非买入推荐；②"今天节点不错"=当前时间窗口适合纳入观察，但需自行判断；③三个标的均为医药/生物/海洋经济方向，可能与即将更新的产业逻辑视频方向相关。这是储备标的而非操作建议。
-  confidence: low
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/市场分析/板块轮动.md
+    - knowledge/wiki/市场分析/国产算力产业链.md
     methodology_pages: []
     cases: []
