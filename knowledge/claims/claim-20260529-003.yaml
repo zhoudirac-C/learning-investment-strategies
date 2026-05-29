@@ -1,0 +1,122 @@
+claims:
+- id: claim-20260529-003-a
+  source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+  source_date: '2026-05-29'
+  source_type: 早盘
+  extracted_at: '2026-05-29'
+  claim_type: methodology
+  subject: 轻指数重个股的操作思路
+  timeframe: short-term
+  statement: 当前市场分化巨大，应淡化指数、聚焦个股，专注科技股的打法更适合轻指数重个股
+  evidence_quote: "当前市场分化巨大，创业板、科创50等被科技趋势股带动续创新高，而沪指仍在调整，专注科技股的打法更适合淡化指数、聚焦个股。"
+  interpretation: 指数分化的应对策略：①沪指仍在日线顶调整周期，但创业板/科创50已创新高；②科技趋势股与指数走势脱节，看指数做个股容易错失机会或误判风险；③"轻指数重个股"的核心是：只要个股所属的科技主线逻辑未破坏、趋势未破位，就淡化指数波动，专注个股节奏。这在结构性行情中是核心生存法则。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260529-003-b
+  source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+  source_date: '2026-05-29'
+  source_type: 早盘
+  extracted_at: '2026-05-29'
+  claim_type: market-cycle
+  subject: 炒新题材+炒小个股的资金风格
+  timeframe: short-term
+  statement: 当前资金风格明显向小盘+新题材倾斜，涨停个股几乎都在几百亿市值及以下，新细分逻辑（如MLCC树脂）容易被挖掘并快速涨停
+  evidence_quote: "当前个股选择有明显向小盘发展的趋势，昨日华塑股份回封后直接秒板，而华虹公司这类千亿市值个股封板已不再像之前那么容易，昨日涨停个股几乎都是几百亿市值及以下。后续除非指数放量反弹，否则'炒新（题材）+炒小（个股）'的趋势大概率延续。"
+  interpretation: 资金风格切换的信号：①大盘蓝筹封板困难（华虹公司千亿市值涨停不易）；②小盘股容易被推上涨停（华塑股份秒板）；③新细分逻辑（皖维高新被挖MLCC树脂）一旦被发现就快速涨停；④这种风格在缩量+轮动环境中更易延续，因为小盘消耗资金少、弹性大。操作 implication：选股应偏向小市值+新题材，回避已充分博弈的大盘核心。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/情绪周期.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260529-003-c
+  source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+  source_date: '2026-05-29'
+  source_type: 早盘
+  extracted_at: '2026-05-29'
+  claim_type: operation
+  subject: 拐点次日调整的买入节奏
+  timeframe: short-term
+  statement: 拐点确认后的次日若出现调整，是右侧买入窗口，而非风险信号；标准节奏是拐点日建仓/加仓，次日分歧日逢低补仓
+  evidence_quote: "昨天不是说过了嘛，今天调整就是很好的买点。昨日复盘明确判断'连续杀跌后的情绪共振拐点'，今日若出现调整，即为右侧买入窗口。"
+  interpretation: 拐点交易的标准节奏：①拐点日（T日）确认情绪转折，此时建仓或加仓；②次日（T+1日）通常会出现获利回吐或分歧调整，这是逢低补仓的窗口而非风险；③关键前提：拐点判断必须正确（有验证框架支撑），否则调整可能是下跌中继；④与"买阴不买阳"原则一致——在调整时买入，而非在上涨后追高。这是右侧交易的核心节奏。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    - knowledge/wiki/市场分析/情绪周期.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260529-003-d
+  source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+  source_date: '2026-05-29'
+  source_type: 早盘
+  extracted_at: '2026-05-29'
+  claim_type: operation
+  subject: 早盘三大确认点框架
+  timeframe: intraday
+  statement: 每日早盘观察三个确认点：高标能否继续晋级、跌停是否维持个位数、有无新利好催化
+  evidence_quote: "今日三大确认点：一看高标能否继续晋级、二看跌停是否维持个位数、三看有无新利好催化。"
+  interpretation: 早盘观察框架：①高标晋级率反映情绪延续性，高标断板意味着情绪降温；②跌停家数反映恐慌程度，个位数说明情绪底部有支撑；③利好催化决定是否有新方向打开空间，无催化则按缩量整理处理。三个确认点的组合决定当日攻防节奏：三好=积极进攻；两好一差=谨慎参与；一好两差=防守观望。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260529-003-e
+  source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+  source_date: '2026-05-29'
+  source_type: 早盘
+  extracted_at: '2026-05-29'
+  claim_type: sector-theme
+  subject: 金刚石散热新催化
+  timeframe: industry
+  statement: 金刚石铜复合材料在郑州超算中心规模化应用，芯片模组传热能力提升80%，散热性能可提升10-100倍，是AI与半导体双受益方向
+  evidence_quote: "金刚石铜复合材料近期在郑州超算中心实现规模化应用，使芯片模组传热能力提升80%。金刚石作为热传导介质，在高功率芯片封装中散热效果出色，散热性能可提升10到100倍。"
+  interpretation: 金刚石散热的新催化逻辑：①产业化验证：郑州超算中心规模化应用，不是实验室概念；②性能数据：传热提升80%，散热性能10-100倍，有明确量化指标；③双受益：AI高功率芯片+半导体封装都需要散热升级；④标的：黄河旋风、四方达。这是散热方向的又一个细分分支，与液冷、SST共同构成AI散热升级的全图谱。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/AI基础设施与能源转型.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260529-003-f
+  source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+  source_date: '2026-05-29'
+  source_type: 早盘
+  extracted_at: '2026-05-29'
+  claim_type: sector-theme
+  subject: 戴尔AI服务器业绩超预期映射
+  timeframe: short-term
+  statement: 戴尔AI服务器业务推动业绩大幅超预期，盘后暴涨近40%，预计本财年AI服务器营收600亿美元，产品几乎每天都在重新定价
+  evidence_quote: "戴尔科技盘后暴涨近40%，AI服务器业务推动业绩大幅超预期。公司预计本财年AI服务器营收达600亿美元（高于2月预测的500亿），全年营收1650亿至1690亿美元（此前1380亿至1420亿）。尽管需求井喷，供应端紧张未见缓解，产品几乎'每天都在重新定价'。"
+  interpretation: 戴尔业绩的映射意义：①AI服务器需求持续井喷，供应紧张未缓解；②"每天都在重新定价"说明涨价趋势明确；③戴尔上调全年营收预期（从1380-1420亿上调至1650-1690亿），幅度约20%，验证AI服务器赛道的高景气；④A股映射：领益智造、浪潮信息等服务器产业链标的。这是海外基本面验证对A股的情绪提振。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/国产算力产业链.md
+    methodology_pages: []
+    cases: []

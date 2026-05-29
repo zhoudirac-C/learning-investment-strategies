@@ -149,12 +149,13 @@ def fetch_dynamic_detail(dynamic_id: str, sessdata: str) -> dict:
         return json.loads(resp.read().decode("utf-8"))
 
 
-def fetch_top_comment(dynamic_id: str, sessdata: str) -> dict | None:
-    """获取动态置顶评论（UP主置顶）。
+UP_NAME = "青枫浦上Q"
+
+def fetch_up_comment(dynamic_id: str, sessdata: str) -> dict | None:
+    """获取动态评论区中 UP 主自己的评论。
     
-    使用 /x/v2/reply API，因为 /x/v2/reply/main 不返回 upper.top 字段。
+    只返回 UP 主（青枫浦上Q）的评论，其他用户忽略。
     """
-    # 需要先获取动态的 comment_id (rid_str)
     detail = fetch_dynamic_detail(dynamic_id, sessdata)
     if detail.get("code") != 0:
         return None
@@ -183,28 +184,27 @@ def fetch_top_comment(dynamic_id: str, sessdata: str) -> dict | None:
             if data.get("code") != 0:
                 return None
 
-            # 优先取 UP 主置顶评论
+            # 1. 先检查 upper.top（UP 主置顶评论）
             upper_top = data.get("data", {}).get("upper", {}).get("top")
             if upper_top:
-                return {
-                    "content": upper_top.get("content", {}).get("message", ""),
-                    "uname": upper_top.get("member", {}).get("uname", ""),
-                    "like": upper_top.get("like", 0),
-                    "rpid": upper_top.get("rpid", ""),
-                    "is_up_top": True,
-                }
+                uname = upper_top.get("member", {}).get("uname", "")
+                if uname == UP_NAME:
+                    return {
+                        "content": upper_top.get("content", {}).get("message", ""),
+                        "uname": uname,
+                        "like": upper_top.get("like", 0),
+                    }
 
-            # 没有置顶，返回第一条热评
-            replies = data.get("data", {}).get("replies", [])
-            if replies:
-                top = replies[0]
-                return {
-                    "content": top.get("content", {}).get("message", ""),
-                    "uname": top.get("member", {}).get("uname", ""),
-                    "like": top.get("like", 0),
-                    "rpid": top.get("rpid", ""),
-                    "is_hot": True,
-                }
+            # 2. 遍历 replies 找 UP 主评论
+            for reply in data.get("data", {}).get("replies", []):
+                uname = reply.get("member", {}).get("uname", "")
+                if uname == UP_NAME:
+                    return {
+                        "content": reply.get("content", {}).get("message", ""),
+                        "uname": uname,
+                        "like": reply.get("like", 0),
+                    }
+
             return None
     except Exception as exc:
         print(f"WARN: 获取评论失败 {dynamic_id}: {exc}", file=sys.stderr)
@@ -937,7 +937,7 @@ def run(
             # 获取置顶评论
             if enable_comment:
                 try:
-                    top_comment = fetch_top_comment(dynamic_id, sessdata)
+                    top_comment = fetch_up_comment(dynamic_id, sessdata)
                 except Exception as exc:
                     print(f"WARN: 获取评论失败 {dynamic_id}: {exc}", file=sys.stderr)
 
