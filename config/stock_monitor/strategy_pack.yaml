@@ -187,7 +187,11 @@ position_rules:
       - "advanced_packaging_core"
       - "foundry_leader"
       - "supercapacitor_core"
+      - "supercapacitor_elastic"
+      - "electrode_foil_core"
+      - "nanocrystalline_soft_magnetic"
       - "power_semiconductor_core"
+      - "gan_power_device"
     all_required:
       - "所属涨价链组强于全A或强于防御组"
       - "个股不是一致高开后的追高点"
@@ -507,6 +511,37 @@ sector_groups:
         name: "江海股份"
       - code: "688469.SH"
         name: "芯联集成"
+      - code: "603989.SH"
+        name: "艾华集团"
+      - code: "603115.SH"
+        name: "海星股份"
+      - code: "000969.SZ"
+        name: "安泰科技"
+      - code: "600114.SH"
+        name: "东睦股份"
+
+  - id: "power_supply_chain"
+    name: "AI供电链（超级电容/纳米晶/SST/功率半导体）"
+    style: "offensive"
+    members:
+      - code: "002484.SZ"
+        name: "江海股份"
+      - code: "603989.SH"
+        name: "艾华集团"
+      - code: "603115.SH"
+        name: "海星股份"
+      - code: "000969.SZ"
+        name: "安泰科技"
+      - code: "600114.SH"
+        name: "东睦股份"
+      - code: "002922.SZ"
+        name: "伊戈尔"
+      - code: "688676.SH"
+        name: "金盘科技"
+      - code: "603861.SH"
+        name: "白云电器"
+      - code: "605111.SH"
+        name: "新洁能"
 
   - id: "liquid_cooling"
     name: "液冷/散热"
@@ -615,6 +650,16 @@ sector_rotation_rules:
     min_spread_pct: 1.5
     min_red_ratio_spread: 0.3
 
+  - id: "power_supply_vs_cpo"
+    name: "AI供电链 vs 光通信CPO"
+    offensive_groups:
+      - "power_supply_chain"
+      - "upstream_price_increase"
+    defensive_groups:
+      - "cpo_optical"
+    min_spread_pct: 1.0
+    min_red_ratio_spread: 0.2
+
   - id: "compute_rental_vs_defense"
     name: "算力租赁 vs 防御"
     offensive_groups:
@@ -628,6 +673,7 @@ notification_policy:
   only_notify_when:
     - "液冷/散热触发买入点或证伪"
     - "上游涨价链触发观察点或扩散确认"
+    - "AI供电链（超级电容/纳米晶/SST）组内联动或分化"
     - "CPU自研链组内联动恢复或持续分化"
     - "大盘4055支撑验证或跌破"
     - "半导体/消费出现规避方向异动"
