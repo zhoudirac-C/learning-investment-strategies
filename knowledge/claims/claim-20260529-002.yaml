@@ -1,0 +1,102 @@
+claims:
+- id: claim-20260529-002-a
+  source_path: sources/raw/财经/午盘：26-05-29：高低切换剧本，买阴卖阳等共振.md
+  source_date: '2026-05-29'
+  source_type: 午盘
+  extracted_at: '2026-05-29'
+  claim_type: market-cycle
+  subject: 今日上午定性为高低切换剧本而非下跌新周期
+  timeframe: intraday
+  statement: 今日上午三大指数走低、全A回落、七成个股飘绿，本质是上涨乏力后的强轮动，而非高位杀跌或新下跌周期开启
+  evidence_quote: 今日上午本质是一场高低切换的剧本，而非下跌新周期的开启。三大指数持续走低，全A回落，七成个股飘绿，情绪割裂——但这种弱势更多源于昨日多方共振强度不足、无法形成连续性上涨，从而对昨日涨幅形成回踩。
+  interpretation: 博主对上午盘面的定性：①不是高位杀跌（全A已连跌十余日，当前非高位）；②不是新下跌周期（领跌微盘股近两日有承接，杀跌动能不足）；③而是上涨乏力后的强轮动——部分资金切换避险（白酒/地产/金融），部分资金坚守科技，二者拉锯。关键判断：内生性杀跌动能不足，当前是轮动格局而非趋势破坏。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/情绪周期.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260529-002-b
+  source_path: sources/raw/财经/午盘：26-05-29：高低切换剧本，买阴卖阳等共振.md
+  source_date: '2026-05-29'
+  source_type: 午盘
+  extracted_at: '2026-05-29'
+  claim_type: sector-theme
+  subject: AI科技获利回吐而非趋势破坏
+  timeframe: short-term
+  statement: AI科技内部分歧明显但仍有支撑，真正调整较多的是昨日大涨且强度不高的品种（长电、华天、鹏鼎、生益、中芯），属于正常获利回吐而非趋势破坏
+  evidence_quote: 盘面上，AI科技内部分歧明显但并非毫无支撑：光纤等方向下跌后仍有活跃资金进攻，呈现抵抗;真正调整较多的是昨日大涨且强度不高（非强势涨停）的品种，如长电科技、华天科技，PCB的鹏鼎控股、生益科技以及中芯国际，属于正常的获利回吐而非趋势破坏。
+  interpretation: 科技调整的性质判断：①有抵抗（光纤等方向仍有资金进攻）= 不是全面撤退；②调整集中在昨日大涨但非强势涨停的品种 = 获利盘兑现，而非逻辑证伪；③长电/华天/鹏鼎/生益/中芯都是前期涨幅较大的核心标的，回调是技术性休整。关键结论：科技仍是核心主线，当前是获利回吐而非趋势破坏。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/半导体产业链.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260529-002-c
+  source_path: sources/raw/财经/午盘：26-05-29：高低切换剧本，买阴卖阳等共振.md
+  source_date: '2026-05-29'
+  source_type: 午盘
+  extracted_at: '2026-05-29'
+  claim_type: sector-theme
+  subject: 消费超跌方向的先涨后跌风险
+  timeframe: short-term
+  statement: 白酒、地产、金融等低位超跌方向是纯低位反弹，暂看不出持续性；一旦消费成为下一周期主线，反而要警惕行情进入尾声
+  evidence_quote: 白酒、地产、金融、电力等低位超跌方向相继发力，想从科技分流的资金里抢食，但除电力尚有夏季厄尔尼诺、用电高峰预期作支撑外，其余分支基本是纯低位反弹，暂看不出持续性。一旦消费成为下一周期主线，反而要警惕行情进入尾声。
+  interpretation: 消费方向的定性：①电力有基本面支撑（夏季用电高峰+厄尔尼诺），其余（白酒/地产/金融）是纯低位反弹；②"纯低位反弹"=资金避险行为，非基本面驱动；③重要判断：若消费成为下一周期主线，反而要警惕行情进入尾声——因为科技是本轮核心，科技见顶=行情结束，消费接力是行情尾声信号而非新起点。这是博主对"科技见顶、消费见底"观点的明确否定。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/板块轮动.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260529-002-d
+  source_path: sources/raw/财经/午盘：26-05-29：高低切换剧本，买阴卖阳等共振.md
+  source_date: '2026-05-29'
+  source_type: 午盘
+  extracted_at: '2026-05-29'
+  claim_type: operation
+  subject: 买阴卖阳策略与低吸做T
+  timeframe: intraday
+  statement: 市场难度增大时应谨慎追高，采用买阴卖阳策略；大盘止跌企稳位置低吸一波，涨起来再出掉，是很好的做T节点
+  evidence_quote: 今天是一个很好的做T节点，昨天尾盘也说了，留资金，跟随大盘做T。大盘止跌企稳的位置低吸一波，后面涨起来再出掉。一是市场难度增大，谨慎追高，买阴卖阳或能喝点汤。
+  interpretation: 操作策略的两层含义：①买阴卖阳=调整时买入、上涨时卖出，不追高；②做T节点=大盘止跌企稳位置低吸，涨起来出掉，日内或短线做T；③前提条件：留资金（有现金弹性）、跟随大盘（与指数共振方向）、止跌企稳（有明确技术信号）。这是情绪修复期+轮动格局下的核心操作策略。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260529-002-e
+  source_path: sources/raw/财经/午盘：26-05-29：高低切换剧本，买阴卖阳等共振.md
+  source_date: '2026-05-29'
+  source_type: 午盘
+  extracted_at: '2026-05-29'
+  claim_type: market-cycle
+  subject: 全A下跌结构需强势阳线共振消除
+  timeframe: short-term
+  statement: 全A的下跌结构仍需强势阳线共振才能消除，当前不必过度恐慌，重心仍在科技，觉得太难则继续等待强共振出现
+  evidence_quote: 全A的下跌结构仍需强势阳线共振才能消除。整体不必过度恐慌，重心仍在科技为主，觉得太难则继续等待强共振出现。
+  interpretation: 博主对后续走势的判断：①当前下跌结构未完全消除，需要一根强势阳线（放量+普涨+主线明确）来确认底部；②在此之前，不必过度恐慌，因为杀跌动能不足、科技仍有支撑；③如果觉得操作难度大，可以选择等待——等强共振出现后再参与。这是一种"不勉强交易"的纪律，与"行情不好时研究重于交易"的方法论一致。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/情绪周期.md
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
