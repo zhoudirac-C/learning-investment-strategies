@@ -49,25 +49,26 @@ description: Use when the user asks to ingest, learn, digest, or update new blog
 
 ### 双轨制：市场认知层 vs 操作工具层
 
-博主内容分为两个轨道，沉淀路径不同：
+博主内容按**内容性质**分为两个轨道，不是按来源格式（视频/文字/动态）分。同一篇视频可能是认知层，也可能是工具层，需要依据内容判断。
 
-**轨道A：市场认知层（大方向思路）**
-- 来源：每日早盘/午盘/复盘/动态
-- 内容：市场周期、主线判断、板块扩散、资金行为、情绪周期
-- 特点：随市场变化，需要持续更新，有保质期
-- 沉淀：claims → wiki → methodology → framework
+**判断依据（优先级从高到低）**：
 
-**轨道B：操作工具层（技术分析课程）**
-- 来源：视频课程（技术分析第一课/第二课/...）
-- 内容：K线形态、技术指标、量价分析、支撑压力、买卖纪律
-- 特点：一旦学会永久有效，不随市场变化
-- 沉淀：直接进 `framework/technical-analysis-framework.md` 和 `methodology/technical-analysis.md`
+1. **用户明确描述**：用户说"这是技术分析课程"→轨道B；用户说"这是早盘/复盘"→轨道A。
+2. **LLM内容分析**：阅读全文后判断内容主体是"可复用的工具/知识"还是"随市场变化的认知/判断"。
 
-**技术课程处理规则**：
-- 识别 source_type = `video-course` 或 `technical-lesson` 的内容
-- 技术教学内容不进入 `claims/`（因为不是"观点"是"知识"）
-- 技术教学内容直接进入 `framework/technical-analysis-framework.md` 和 `methodology/technical-analysis.md`
-- 若需标记 claim，使用 `claim_type: technical-knowledge`，`timeframe: permanent`
+| 维度 | 轨道A：市场认知层 | 轨道B：操作工具层 |
+|---|---|---|
+| **内容性质** | 对当下/近期市场的判断、预测、策略 | 可复用的分析工具、技术方法、知识体系 |
+| **是否随市场变化** | ✅ 是，有保质期 | ❌ 否，一旦学会永久有效 |
+| **典型内容** | 周期定位、主线判断、板块扩散、资金行为、情绪周期、仓位建议 | K线形态定义、技术指标用法、量价规律、支撑压力计算、买卖纪律框架 |
+| **典型来源** | 早盘/午盘/复盘/动态/产业分析直播 | 系统教学视频（如"技术分析第N课"）、方法论专题 |
+| **沉淀路径** | claims → wiki → methodology → framework | 直接进入 `framework/` 和 `methodology/technical-analysis.md` |
+| **claim处理** | 正常抽取 claim | 技术知识不进入 claims（不是"观点"是"知识"）；如需标记用 `claim_type: technical-knowledge` |
+
+**常见误判提醒**：
+- ❌ 不要看到"视频"就默认是技术课程（视频也可能是行情分析直播）
+- ❌ 不要看到"复盘/早盘"就默认是认知层（复盘中可能穿插技术工具教学）
+- ✅ 以**内容主体**为准：如果一篇复盘里80%是盘面判断→轨道A；如果80%是K线形态教学→轨道B
 
 总纲不是每次学习都必须更新。只有满足以下任一条件时才更新总纲：
 
