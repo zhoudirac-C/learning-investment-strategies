@@ -309,6 +309,147 @@ themes:
           - "单票脉冲但组内无联动"
           - "token概念不被持续认可"
 
+  - id: "power_supply_chain"
+    name: "AI供电链（超级电容/纳米晶/SST/功率半导体）"
+    tradability: "mainboard_only"
+    source_docs:
+      - "sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md"
+      - "sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md"
+      - "sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md"
+      - "sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md"
+      - "knowledge/claims/claim-20260528-003.yaml"
+    market_checks:
+      - "超级电容/纳米晶/SST是否组内联动"
+      - "上游涨价链是否继续扩散到功率半导体/高频变压器"
+      - "江海股份能否延续强势（二波确认）"
+      - "AI供电方向是否成为聚焦主线候选"
+    stocks:
+      - code: "002484.SZ"
+        name: "江海股份"
+        role: "supercapacitor_core"
+        segment: "超级电容/铝电容"
+        watch_reason: "AI电源与超级电容核心锚。GB300起电解电容集成至电源架，超级电容从实验室方案升级为机柜级标配。国金证券定义为继HBM之后的'算力新瓶颈'。5/28成功连板，延续性胜一筹。"
+        confirm_with: ["艾华集团", "海星股份", "东阳光"]
+        buy_setup:
+          - "超级电容组至少两只同步转强"
+          - "不追涨停，等分歧后缩量回踩并重新放量"
+          - "AI电源链整体扩散而非单票脉冲"
+        invalidation_setup:
+          - "单票冲高但超级电容组无联动"
+          - "跌破分时均价且艾华集团、海星股份同步回落"
+          - "连板失败后无承接"
+
+      - code: "603989.SH"
+        name: "艾华集团"
+        role: "supercapacitor_elastic"
+        segment: "超级电容/铝电解电容"
+        watch_reason: "AI供电三剑客之超级电容方向。5/27涨停，新技术分支从0到1，英伟达平台电源架构升级受益。与江海股份、海星股份形成超级电容 trio。"
+        confirm_with: ["江海股份", "海星股份", "东阳光"]
+        buy_setup:
+          - "超级电容组（江海股份、海星股份、东阳光）至少两只同步转强"
+          - "不追涨停，等分歧后缩量回踩并重新放量"
+          - "AI电源链整体扩散而非单票脉冲"
+        invalidation_setup:
+          - "单票冲高但超级电容组无联动"
+          - "跌破分时均价且江海股份、海星股份同步回落"
+          - "新技术分支逻辑不被资金持续认可"
+
+      - code: "603115.SH"
+        name: "海星股份"
+        role: "electrode_foil_core"
+        segment: "电极箔/电容材料"
+        watch_reason: "AI服务器供电架构升级受益链。8天4板后休整，适合看涨价链低位轮动。与江海股份、艾华集团形成超级电容 trio。"
+        confirm_with: ["江海股份", "艾华集团", "东阳光"]
+        buy_setup:
+          - "超级电容组同步回流"
+          - "不追高位，等缩量回踩"
+        invalidation_setup:
+          - "单票走弱且江海股份同步回落"
+          - "电极箔分支证伪"
+
+      - code: "000969.SZ"
+        name: "安泰科技"
+        role: "nanocrystalline_soft_magnetic"
+        segment: "纳米晶/金属软磁"
+        watch_reason: "AI供电三剑客之纳米晶方向。英伟达800V直流架构推动金属软磁需求从0到1，变压器小型化核心材料。5/27涨3.92%，尚未高潮。"
+        confirm_with: ["东睦股份", "铂科新材", "云路股份"]
+        buy_setup:
+          - "纳米晶/软磁方向被资金认可，安泰科技放量突破分时均线"
+          - "不追高，等缩量回踩或分歧后承接确认"
+          - "需东睦股份或电源链同步承接"
+        invalidation_setup:
+          - "单票走强但纳米晶方向无扩散"
+          - "跌破趋势支撑且东睦股份同步回落"
+          - "AI电源链整体走弱"
+
+      - code: "600114.SH"
+        name: "东睦股份"
+        role: "nanocrystalline_soft_magnetic"
+        segment: "MIM/粉末冶金/纳米晶软磁"
+        watch_reason: "AI供电纳米晶方向。MIM业务稳健，软磁粉芯受益800V架构趋势。5/27微跌1.50%，提供观察窗口。与安泰科技形成纳米晶 duo。"
+        confirm_with: ["安泰科技", "铂科新材", "云路股份"]
+        buy_setup:
+          - "纳米晶方向被资金认可，东睦股份缩量企稳后放量"
+          - "不追高，等回踩确认"
+          - "需安泰科技或电源链同步承接"
+        invalidation_setup:
+          - "单票走弱且安泰科技同步回落"
+          - "跌破前低且无修复"
+          - "AI电源链整体走弱"
+
+      - code: "002922.SZ"
+        name: "伊戈尔"
+        role: "power_supply_core"
+        segment: "配电/电源整机/SST"
+        watch_reason: "电源/SST核心赛道标的。英伟达平台电源价值量提升直接受益。下半年HVDC与SST需求同步紧张。SST效率98.5%、体积缩减90%，是AI算力集群功率飙升后的必然替代。"
+        confirm_with: ["金盘科技", "白云电器", "中恒电气"]
+        buy_setup:
+          - "电源/SST组整体转强，且伊戈尔放量突破分时均线"
+          - "不追高，等缩量回踩或分歧后的承接确认"
+        invalidation_setup:
+          - "单票走强但电源链无扩散"
+          - "跌破趋势支撑且金盘科技、白云电器同步回落"
+
+      - code: "688676.SH"
+        name: "金盘科技"
+        role: "sst_power_core"
+        segment: "SST/干式变压器"
+        watch_reason: "SST/电源核心标的，已发酵。与伊戈尔、白云电器形成SST trio。注意高位风险，不追高潮。"
+        confirm_with: ["伊戈尔", "白云电器", "中恒电气"]
+        buy_setup:
+          - "SST方向被资金认可，且已缩量回踩"
+          - "不追高，等分歧后承接确认"
+        invalidation_setup:
+          - "单票冲高但SST组无联动"
+          - "高位滞涨且电源链分化"
+
+      - code: "603861.SH"
+        name: "白云电器"
+        role: "sst_equipment"
+        segment: "SST固态变压器/电力设备"
+        watch_reason: "SST方向代表性标的。与国内少数已实现SST商业化的为光能源深度合作，效率98.5%、成本降50%以上。已在自有园区和联通大湾区数据中心落地。AI算力集群功率飙升，传统变压器逼近物理极限，SST是必然替代。"
+        confirm_with: ["伊戈尔", "金盘科技"]
+        buy_setup:
+          - "SST方向被资金认可，白云电器放量突破"
+          - "不追高，等缩量回踩"
+        invalidation_setup:
+          - "单票走强但SST方向无扩散"
+          - "跌破趋势支撑"
+
+      - code: "605111.SH"
+        name: "新洁能"
+        role: "gan_power_device"
+        segment: "GaN功率器件"
+        watch_reason: "A股GaN核心标的。电源走向800V直流架构，SiC与GaN是最大受益方向。英飞凌/TI年内第二轮涨价，功率半导体是AI领域的通胀环节。"
+        confirm_with: ["扬杰科技", "芯联集成", "捷捷微电"]
+        buy_setup:
+          - "功率器件方向被资金认可，新洁能放量突破"
+          - "800V趋势确认，且电源链整体扩散"
+          - "不追高，等缩量回踩"
+        invalidation_setup:
+          - "功率器件方向单独走弱，无电源链联动"
+          - "跌破分时均价且扬杰科技、芯联集成同步回落"
+
   - id: "avoid_sector"
     name: "规避方向（博主明确提示）"
     source_docs:
