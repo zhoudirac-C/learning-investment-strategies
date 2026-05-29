@@ -47,6 +47,28 @@ description: Use when the user asks to ingest, learn, digest, or update new blog
 5. `framework`：只写跨阶段可复用、可验证、可执行的 durable rule。
 6. `knowledge/wiki/投资方法论/博主方法论总纲.md`：最高层小白教材和导航页，只吸收已经被多篇 raw 或多个市场阶段验证过的稳定框架。
 
+### 双轨制：市场认知层 vs 操作工具层
+
+博主内容分为两个轨道，沉淀路径不同：
+
+**轨道A：市场认知层（大方向思路）**
+- 来源：每日早盘/午盘/复盘/动态
+- 内容：市场周期、主线判断、板块扩散、资金行为、情绪周期
+- 特点：随市场变化，需要持续更新，有保质期
+- 沉淀：claims → wiki → methodology → framework
+
+**轨道B：操作工具层（技术分析课程）**
+- 来源：视频课程（技术分析第一课/第二课/...）
+- 内容：K线形态、技术指标、量价分析、支撑压力、买卖纪律
+- 特点：一旦学会永久有效，不随市场变化
+- 沉淀：直接进 `framework/technical-analysis-framework.md` 和 `methodology/technical-analysis.md`
+
+**技术课程处理规则**：
+- 识别 source_type = `video-course` 或 `technical-lesson` 的内容
+- 技术教学内容不进入 `claims/`（因为不是"观点"是"知识"）
+- 技术教学内容直接进入 `framework/technical-analysis-framework.md` 和 `methodology/technical-analysis.md`
+- 若需标记 claim，使用 `claim_type: technical-knowledge`，`timeframe: permanent`
+
 总纲不是每次学习都必须更新。只有满足以下任一条件时才更新总纲：
 
 - 新观点跨多篇 raw 反复出现，并且能解释不同交易日或不同市场环境。
@@ -60,12 +82,13 @@ description: Use when the user asks to ingest, learn, digest, or update new blog
 - 只依赖一条消息催化、尚未验证持续性的题材。
 - 只适用于某只个股或某个短线窗口的策略。
 - 与旧观点冲突但还没有足够样本确认的新判断。
+- **技术课程中的具体工具**（如长红线定义、布林线公式）——这些进 `technical-analysis-framework.md`，不进总纲。
 
 每次 Learning Update Report 必须说明：
 
 - 本次新增/更新了哪些 raw、claims、wiki、framework。
 - `博主方法论总纲.md` 是否更新。
-- 如果总纲没有更新，说明原因，例如“本次为单日盘面案例，尚未满足总纲级沉淀条件”。
+- 如果总纲没有更新，说明原因，例如"本次为单日盘面案例，尚未满足总纲级沉淀条件"或"本次为技术课程，已更新 technical-analysis-framework"。
 
 ## 禁止事项
 
