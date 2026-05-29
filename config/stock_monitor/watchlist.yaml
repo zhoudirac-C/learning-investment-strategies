@@ -1,7 +1,7 @@
 updated_at: "2026-05-29"
 
 today_snapshot:
-  fetch_time: "2026-05-29 09:15 CST"
+  fetch_time: "2026-05-29 08:15 CST"
   source: "eastmoney_push2"
   up_bias: "情绪拐点确认，但大级别调整未完。明日可能调整，调整是更好确定点。规避半导体和消费。关注CPU自研链、上游涨价链、液冷/SST。仓位：空仓→5成，满仓→降仓留空间。"
   market_summary: "5月28日V型修复定性为'情绪拐点'而非'主升确认'。三大指数收红但缩量2704亿，普涨式轮动缺乏核心主线。验证点：①明后天分歧时全A不能破位（4055底线）；②必须出现聚焦主线。新催化：字节自研CPU→Socket+PCIe Switch；上游涨价链扩散（功率半导体→高频变压器→SST）；液冷/散热（华为韬定律）。规避：半导体（博主置顶评论'不要买'）、消费/白酒（过渡性质确认）。"
@@ -26,7 +26,9 @@ themes:
         name: "ST得润"
         role: "cpu_socket_core"
         segment: "CPU Socket"
+        priority: "P3-观察"
         watch_reason: "字节自研CPU→Socket 1:1刚性绑定。大陆唯一通过Intel官方认证、量产千针级CPU Socket的上市公司，全球仅四家。鸿腾+嘉泽占90%份额且产能饱和，外溢订单优先流向得润。ST身份需单独风控。"
+        sync_with_index: "❌ 不同步——5/28下午大盘V起时ST得润跌停，完全逆大盘，ST风险暴露"
         confirm_with: ["万通发展", "中际旭创"]
         buy_setup:
           - "CPU自研链组内联动，ST得润放量突破"
@@ -43,7 +45,9 @@ themes:
         name: "万通发展"
         role: "pcie_switch_core"
         segment: "PCIe Switch"
+        priority: "P1-核心"
         watch_reason: "数渡科技PCIe Switch，国产替代博通。CPU翻倍预期+国产超节点放量→PCIe Switch市场大幅扩容（2026年国内超200亿）。104通道已量产、144通道已投片、PCIe 6.0/CXL在研。"
+        sync_with_index: "✅ 同步——5/28下午低点13:03，与大盘几乎同步V起，涨停"
         confirm_with: ["ST得润", "寒武纪", "海光信息"]
         buy_setup:
           - "CPU自研链组内联动，万通发展放量突破"
@@ -68,7 +72,9 @@ themes:
         name: "芯碁微装"
         role: "advanced_packaging_core"
         segment: "PCB直写光刻/先进封装/IC载板"
+        priority: "P1-核心"
         watch_reason: "PCB直写光刻DI设备全球龙头，卡位先进封装（WLP2000已出货、类CoWoS-L已量产）、IC载板、掩模版。'涨价链+国产替代+先进封装'三重逻辑交集。5/28机构净买入4.88亿。"
+        sync_with_index: "✅ 同步——5/28下午低点13:01，与大盘同步V起，13:12后+10.81%，共振最强"
         confirm_with: ["华虹公司", "鼎通科技", "飞荣达"]
         buy_setup:
           - "先进封装/涨价链方向被资金认可，芯碁微装放量突破"
@@ -83,7 +89,9 @@ themes:
         name: "华虹公司"
         role: "foundry_leader"
         segment: "晶圆代工"
+        priority: "P1-核心"
         watch_reason: "晶圆代工领涨，5/28大涨超15%续创新高，机构净买入第一（6.26亿）。先进封装调整一天后明天大概率重回强势。"
+        sync_with_index: "✅ 同步——5/28下午低点13:04，与大盘同步V起，13:12后+2.32%"
         confirm_with: ["芯碁微装", "中芯国际", "长电科技"]
         buy_setup:
           - "晶圆代工/先进封装方向被资金认可"
@@ -98,7 +106,9 @@ themes:
         name: "江海股份"
         role: "supercapacitor_core"
         segment: "超级电容/铝电解电容"
+        priority: "P3-观察"
         watch_reason: "AI供电三剑客之超级电容核心；英伟达GB300将电解电容集成至电源架，电网峰值需求降低30%。涨价链扩散路径：模拟芯片→功率半导体→高频变压器→SST。"
+        sync_with_index: "❌ 不同步——5/28下午横盘不动，13:12后0%，没跟着大盘涨"
         confirm_with: ["艾华集团", "海星股份", "芯联集成"]
         buy_setup:
           - "超级电容/涨价链组整体转强"
@@ -112,7 +122,9 @@ themes:
         name: "芯联集成"
         role: "power_semiconductor_core"
         segment: "功率半导体/IGBT/SiC"
+        priority: "P2-重点"
         watch_reason: "功率半导体年内第二轮涨价受益；英飞凌+德州仪器7月1日起第二轮提价。8/12英寸硅基月产能17万/3万片。"
+        sync_with_index: "✅ 同步——5/28下午低点13:02，与大盘同步V起，13:12后+1.13%"
         confirm_with: ["捷捷微电", "扬杰科技", "新洁能"]
         buy_setup:
           - "功率半导体方向被资金认可"
@@ -135,7 +147,9 @@ themes:
         name: "飞荣达"
         role: "huawei_cooling_core"
         segment: "华为散热/微泵液冷"
+        priority: "P1-核心"
         watch_reason: "华为散热战略供应商，微泵液冷+风扇方案最核心标的。秋季麒麟芯片逻辑折叠→散热问题更严峻，Mate80 Pro Max首搭微型风扇。卖方目标400亿（约60%空间）。"
+        sync_with_index: "✅ 同步——5/28下午低点13:06，与大盘同步V起，13:12后+9.73%，共振极强"
         confirm_with: ["鼎通科技", "意华股份", "英维克"]
         buy_setup:
           - "华为散热链被资金认可，飞荣达放量突破"
@@ -150,7 +164,9 @@ themes:
         name: "鼎通科技"
         role: "liquid_cooling_cage"
         segment: "液冷cage"
+        priority: "P2-重点"
         watch_reason: "液冷cage核心标的，去年Q4开始出货样品。海外大厂审厂关键期，6月有望部分出货。卖方目标700亿。"
+        sync_with_index: "⚠️ 涨但不同步——5/28下午低点14:02，不是和大盘一起起来的，13:12后仅+0.04%"
         confirm_with: ["飞荣达", "意华股份", "奕东电子"]
         buy_setup:
           - "液冷cage方向被资金认可"
@@ -164,7 +180,9 @@ themes:
         name: "意华股份"
         role: "liquid_cooling_connector"
         segment: "液冷cage+高速连接+光模块配套"
+        priority: "P3-观察"
         watch_reason: "液冷cage+高速连接+光模块配套多重交集。华为侧液冷cage刚放量，利润低于海外但蛋糕大。"
+        sync_with_index: "❌ 不同步——5/28下午没跟着大盘涨，13:12后-0.19%，逆势跌"
         confirm_with: ["飞荣达", "鼎通科技", "中际旭创"]
         buy_setup:
           - "液冷/连接方向被资金认可"
@@ -187,7 +205,9 @@ themes:
         name: "中际旭创"
         role: "cpo_core"
         segment: "光模块/CPO"
+        priority: "P1-核心"
         watch_reason: "CPO核心，5/28齐创历史新高，是唯一能'带动指数'的方向。但已是高位品种，提供确认而非空间。"
+        sync_with_index: "✅ 同步——5/28下午低点13:12，与大盘同步V起，13:12后+6.10%"
         confirm_with: ["新易盛", "天孚通信", "剑桥科技"]
         buy_setup:
           - "CPO组整体强势，中际旭创主动领涨"
@@ -202,7 +222,9 @@ themes:
         name: "新易盛"
         role: "cpo_follower"
         segment: "光模块/CPO"
+        priority: "P2-重点"
         watch_reason: "CPO三巨头之一，跟风上涨。高位不追。"
+        sync_with_index: "✅ 同步——5/28下午低点13:12，与大盘同步V起，13:12后+3.96%"
         confirm_with: ["中际旭创", "天孚通信"]
         buy_setup:
           - "CPO组整体强势"
@@ -215,7 +237,9 @@ themes:
         name: "天孚通信"
         role: "cpo_follower"
         segment: "光模块/CPO"
+        priority: "P2-重点"
         watch_reason: "CPO三巨头之一，跟风上涨。高位不追。"
+        sync_with_index: "✅ 同步——5/28下午低点13:12，与大盘同步V起，13:12后+5.59%"
         confirm_with: ["中际旭创", "新易盛"]
         buy_setup:
           - "CPO组整体强势"
@@ -237,7 +261,9 @@ themes:
         name: "诚意药业"
         role: "medical_observation"
         segment: "医药"
+        priority: "P3-观察"
         watch_reason: "博主置顶评论提示'观察一下，诚意药业、海王生物、东方海洋。今天节点不错'。"
+        sync_with_index: "✅ 同步——5/28下午低点13:00，与大盘同步，但13:12后仅+0.09%，弹性极弱"
         confirm_with: ["海王生物", "东方海洋"]
         buy_setup:
           - "医药组整体转强"
@@ -251,7 +277,9 @@ themes:
         name: "ST海王"
         role: "medical_observation"
         segment: "医药/生物"
+        priority: "P3-观察"
         watch_reason: "博主提示观察。ST身份需单独风控。"
+        sync_with_index: "❌ 不同步——5/28下午横盘不动，13:12后0%，没跟着大盘涨"
         confirm_with: ["诚意药业", "东方海洋"]
         buy_setup:
           - "医药组整体转强"
@@ -264,7 +292,9 @@ themes:
         name: "东方海洋"
         role: "marine_economy"
         segment: "海洋经济/水产"
+        priority: "P3-观察"
         watch_reason: "博主提示观察。可能与海洋经济/水产方向产业逻辑视频相关。"
+        sync_with_index: "✅ 同步——5/28下午低点13:13，与大盘同步V起，13:12后+0.53%"
         confirm_with: ["诚意药业", "海王生物"]
         buy_setup:
           - "海洋经济方向被资金认可"
@@ -286,7 +316,9 @@ themes:
         name: "光环新网"
         role: "aidc_idc"
         segment: "IDC/数据中心"
+        priority: "P2-重点"
         watch_reason: "字节700亿美元AI资本支出直接利好AIDC。复盘评论补充：'明天算力租赁可能会有点东西，算力租赁加之前的token工厂，关注一下。'"
+        sync_with_index: "✅ 同步——5/28下午低点13:11，与大盘同步V起，13:12后+2.76%"
         confirm_with: ["奥飞数据", "数据港", "宝信软件"]
         buy_setup:
           - "算力租赁/AIDC方向被资金认可"
@@ -300,7 +332,9 @@ themes:
         name: "奥飞数据"
         role: "compute_rental"
         segment: "算力租赁/IDC"
+        priority: "P2-重点"
         watch_reason: "算力租赁弹性标的；token工厂+token期货双重催化。"
+        sync_with_index: "✅ 同步——5/28下午低点13:12，与大盘同步V起，13:12后+3.03%"
         confirm_with: ["光环新网", "数据港"]
         buy_setup:
           - "算力租赁方向被资金认可"
@@ -321,7 +355,9 @@ themes:
         name: "长电科技"
         role: "avoid_semiconductor"
         segment: "封测"
+        priority: "P3-观察"
         watch_reason: "博主置顶评论明确'不要买半导体'。受美股科技股波动影响，短期规避。"
+        sync_with_index: "✅ 同步——5/28下午低点13:13，与大盘同步V起，13:12后+1.73%，但博主明确规避半导体"
         confirm_with: []
         buy_setup: []
         invalidation_setup:
@@ -332,7 +368,9 @@ themes:
         name: "贵州茅台"
         role: "avoid_consumer"
         segment: "白酒"
+        priority: "P3-观察"
         watch_reason: "消费/白酒过渡性质确认，非主线。博主明确规避。"
+        sync_with_index: "❌ 不同步——5/28下午没跟着大盘涨，14:11才见低点，13:12后-0.39%，逆势跌"
         confirm_with: []
         buy_setup: []
         invalidation_setup:

@@ -1,0 +1,63 @@
+claims:
+- id: claim-20260529-001-a
+  source_path: sources/raw/财经/动态：26-05-29：注意仓位评论-跟指数动的票.md
+  source_date: '2026-05-29'
+  source_type: 动态
+  extracted_at: '2026-05-29'
+  claim_type: operation
+  subject: 择股标准——跟随指数共振
+  timeframe: short-term
+  statement: 情绪拐点确认后，选股标准是"今天下午跟着指数涨的都可以"，即与指数同步共振的标的才是首选
+  evidence_quote: "今天下午跟着指数涨的，都可以，整体赚钱效应起来了，大多数都不会很差"
+  interpretation: 博主给出了情绪修复日的择股标准：①与指数同步上涨=资金认可=有赚钱效应；②"大多数都不会很差"说明共振方向容错率高；③这是日内/短线选股原则，不是长期持有标准。核心逻辑是——情绪拐点日，资金优先攻击与指数共振的方向，这些方向有持续性预期。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/选股策略.md
+    - knowledge/wiki/市场分析/情绪周期.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260529-001-b
+  source_path: sources/raw/财经/动态：26-05-29：注意仓位评论-跟指数动的票.md
+  source_date: '2026-05-29'
+  source_type: 动态
+  extracted_at: '2026-05-29'
+  claim_type: operation
+  subject: 排除标准——未跟指数动的票不碰
+  timeframe: short-term
+  statement: 今天没有跟指数一起动的股票，不要去碰——逆势或滞涨标的缺乏资金关注，短期回避
+  evidence_quote: "但是今天没有跟指数一起动的，就不要去碰了"
+  interpretation: 博主明确给出了排除标准：①不跟指数涨=资金不认可=缺乏主线逻辑；②情绪修复日，资金集中攻击共振方向，非共振方向被边缘化；③"不要去碰"是短期回避建议，不是长期看空。这与"买阴不买阳"策略形成互补——买阴买的是主线方向的回调，不是非主线方向的阴跌。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/选股策略.md
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260529-001-c
+  source_path: sources/raw/财经/动态：26-05-29：注意仓位评论-跟指数动的票.md
+  source_date: '2026-05-29'
+  source_type: 动态
+  extracted_at: '2026-05-29'
+  claim_type: market-cycle
+  subject: 赚钱效应确认
+  timeframe: short-term
+  statement: 整体赚钱效应已经起来，市场进入可操作窗口
+  evidence_quote: "整体赚钱效应起来了"
+  interpretation: 博主确认市场进入可操作状态：①"赚钱效应起来"=涨多跌少、容错率提升；②这与5月28日"情绪拐点"判断一致，次日（5月29日）赚钱效应扩散确认；③可操作窗口不等于主升窗口，仍是情绪修复阶段，需控制仓位。注意：此判断基于5月29日盘面，若后续指数回落需重新评估。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/情绪周期.md
+    methodology_pages: []
+    cases: []
