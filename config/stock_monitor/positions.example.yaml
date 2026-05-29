@@ -75,8 +75,9 @@ strategy_summary:
   sector_allocation:
     sector_name: "板块描述"
   new_position_policy:
+    t_strategy: "做T策略：大盘止跌企稳时低吸，涨起来卖出。不恋战，见好就收。"
     sector_name: "该板块是否开新仓的策略"
-    any_new: "整体开新仓策略"
+    any_new: "做T纪律：止跌企稳→低吸，涨起来→卖出。不追高，不恋战。"
   priority_actions:
     - "【标的1】具体操作。低吸X.XX，高抛X.XX。风控X.XX。"
     - "【观察清单】①...；②...；③...。"
