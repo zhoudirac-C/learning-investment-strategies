@@ -1,0 +1,202 @@
+claims:
+- id: claim-20260531-001-a
+  source_path: sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
+  source_date: '2026-05-31'
+  source_type: 周复盘
+  extracted_at: '2026-05-31'
+  claim_type: macro
+  subject: 高盛标普500上调8000点但增长空间有限
+  timeframe: short-term
+  statement: 高盛将标普500目标从7600上调到8000点，但认为未来几个月整体增长空间有限，牛市终结条件大多已不存在但部分正在逐步降临
+  evidence_quote: "高盛将标普500的目标点位从7600点上调到了8000点。高盛预计未来几个月标普500整体增长空间有限，目前牛市终结条件大多已不存在，但部分条件正在逐步降临。"
+  interpretation: 高盛研报传递的深层信号：①表面上调目标价是利好，但"增长空间有限"暗示上涨动能减弱；②"牛市终结条件部分降临"是风险提示，AI投资门槛提升、石油危机引发金融紧缩都是历史上牛市终结的典型特征；③高盛观点割裂（1月唱空→2-3月反弹超预期→现在上调但有限），说明机构对美股方向也存在分歧。对A股投资者而言，美股高位震荡或回调会传导至A股科技板块，需保持警惕。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/宏观政策/全球经济K型分化.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260531-001-b
+  source_path: sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
+  source_date: '2026-05-31'
+  source_type: 周复盘
+  extracted_at: '2026-05-31'
+  claim_type: macro
+  subject: 美股暴跌保护小组频繁干预，托市越久回调越大
+  timeframe: short-term
+  statement: 美国暴跌保护小组从伊朗战争以来已干预约10次，6月份干预会更频繁。频繁托市只会让后续回调幅度更大，未来美股最好结果是横盘震荡
+  evidence_quote: "美国的暴跌保护小组成立于里根时代，从伊朗战争爆发到当前已经进行了约10次干预，干预频率较高。6月份暴跌保护小组的干预动作会更加频繁，频繁托市会让后续回调幅度更大，未来美股最好的结果是横盘震荡，不建议盲目做空，但需要保持警惕。"
+  interpretation: 暴跌保护小组干预的规律：①干预目的是托住美股保障特朗普中期选举（政治动机）；②PCE指标公布+美伊谅解录构成两次救市操作；③"市场自发下跌不需要托，频繁托市代价惨痛"是核心判断；④对A股的影响：美股若因托市而延迟调整，反而会在后续释放更大跌幅，A股科技板块（尤其与美股半导体联动方向）需防范传导风险。不建议做空但需保持警惕。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/宏观政策/全球经济K型分化.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260531-001-c
+  source_path: sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
+  source_date: '2026-05-31'
+  source_type: 周复盘
+  extracted_at: '2026-05-31'
+  claim_type: sector-theme
+  subject: 美股投资偏好应从半导体转向软件和电力基础设施
+  timeframe: short-term
+  statement: AI热潮后半导体涨幅夸张，亚马逊谷歌Meta微软涨幅低于盈利预期上修幅度。美股投资偏好应从半导体转向软件和电力基础设施方向
+  evidence_quote: "AI热潮兴起后，半导体企业涨幅非常夸张，亚马逊、谷歌、Meta、微软等超大规模云计算服务商的涨幅低于盈利预期上修幅度，周五相关厂商股价已经出现小幅走强。因此投资偏好应该从半导体转向软件和电力基础设施方向。"
+  interpretation: 美股资金偏好的切换逻辑：①半导体已充分定价AI硬件景气，涨幅远超盈利上修；②软件和服务（SaaS、云）涨幅滞后于盈利预期，存在补涨空间；③电力基础设施是AI算力扩张的底层支撑，资本开支周期刚开始；④对A股映射：AI软件股（应用层、平台层）和电力设备（AIDC配套）可能受益于美股资金偏好切换的传导效应。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/AI上游涨价链.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260531-001-d
+  source_path: sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
+  source_date: '2026-05-31'
+  source_type: 周复盘
+  extracted_at: '2026-05-31'
+  claim_type: macro
+  subject: 原油目标80，黄金目标4200
+  timeframe: short-term
+  statement: 原油当前87，调整目标80，继续看空下调。黄金调整目标4200，当前4627压力位未突破，继续看空往下走
+  evidence_quote: "当前原油价格为87，本次调整目标价位为80，继续看空原油下调。黄金本轮调整目标价位为4200，只有跌到4200才满足建仓条件；当前黄金在200日均线附近反弹，已经触及4627压力位未突破，所以继续看空往下走。"
+  interpretation: 大宗商品判断：①原油看空至80，与博主之前对油价的判断一致（中东局势降温、美伊谅解录）；②黄金看空至4200，4627是短期压力位，200日均线附近反弹未能突破，技术面偏空；③对A股的影响：油价下行利好制造业成本（PPI修复），黄金调整可能释放部分避险资金回流风险资产。但需跟踪实际走势验证。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/宏观政策/全球经济K型分化.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260531-001-e
+  source_path: sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
+  source_date: '2026-05-31'
+  source_type: 周复盘
+  extracted_at: '2026-05-31'
+  claim_type: macro
+  subject: 国家队减持4500亿盈利留存为救市弹药，减持完毕是利好
+  timeframe: short-term
+  statement: 国家队4月开启新一轮减持，预计6月减持完毕，盈利约4500亿。减持收益成为后续救市弹药，减持过程中市场承接有力，减持完毕后属于利好不需要看空A股
+  evidence_quote: "国家队从年初开始卖出A股，4月份开启新一轮减持，预计6月份会减持完毕，这一轮减持国家队盈利约4500亿人民币。4500亿盈利会成为后续A股调整时的救市弹药，国家队减持过程中A股没有出现大波动，居民储蓄搬家、外资回流、散户风险偏好回归接住了卖盘，因此国家队减持完毕后属于利好，不需要看空A股。"
+  interpretation: 国家队减持的深层解读：①多数投资者将减持解读为利空，但本次减持中ETF机制完善、市场承接有力（居民储蓄+外资+散户）；②4500亿盈利不是抽离市场，而是留存为后续救市弹药；③6月减持完毕后，国家队手中现金充裕，A股若出现大幅调整有更强的托底能力；④这是"隐含利好"而非利空，市场多数人对这个信号解读错误。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/情绪判断.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260531-001-f
+  source_path: sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
+  source_date: '2026-05-31'
+  source_type: 周复盘
+  extracted_at: '2026-05-31'
+  claim_type: technical-signal
+  subject: 上证30分钟底部4055支撑与反弹节奏
+  timeframe: short-term
+  statement: 上证当前30分钟底部，支撑位4055点。不跌破4055周一可看反弹，但反弹属于小级别，周二不继续走强则卖出
+  evidence_quote: "上证指数当前是30分钟底部，支撑位为4055点，如果不跌破4055点，周一可以看多反弹，但反弹属于小级别，如果周二没有继续走强，就可以执行卖出操作。"
+  interpretation: 上证技术判断的完整框架：①30分钟底部结构支撑4055；②不跌破→周一反弹预期；③反弹定性为"小级别"（不是大级别反转）；④周二不继续走强→执行卖出。这是典型的"先看反弹力度再定去留"的纪律，不是无条件看多。与5月28日4050第一波支撑的判断一脉相承。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/关键点位.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260531-001-g
+  source_path: sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
+  source_date: '2026-05-31'
+  source_type: 周复盘
+  extracted_at: '2026-05-31'
+  claim_type: technical-signal
+  subject: 科创50 120分钟双顶对应4-6个交易日调整
+  timeframe: short-term
+  statement: 科创50当前120分钟双顶结构，对应4到6个交易日调整。若下周出现较深调整，存在短期介入机会
+  evidence_quote: "科创50当前是120分钟双顶结构，对应4到6个交易日的调整，如果下周科创50出现较深调整，存在短期介入机会。"
+  interpretation: 科创50技术判断：①120分钟双顶是中期调整信号（非日线级别）；②4-6个交易日的时间窗口对应下周前半周；③"较深调整"后才是介入机会，不是现在；④对持仓者：若科创50在调整中，半导体/科技核心可能同步承压，需控制仓位；对观望者：等待调整到位后的低吸窗口。与5月27日科创50 120分钟双顶卖出信号的判断一致。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/关键点位.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260531-001-h
+  source_path: sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
+  source_date: '2026-05-31'
+  source_type: 周复盘
+  extracted_at: '2026-05-31'
+  claim_type: methodology
+  subject: 加杠杆投资者唯一生存策略是低频重仓
+  timeframe: permanent
+  statement: 加杠杆资金存在资金成本，没有试错资格，分仓收益率无法覆盖成本。唯一生存策略是低频重仓：等待确定性最高的行情再出手，成功翻身必须及时去掉杠杆
+  evidence_quote: "加杠杆的资金存在资金成本，网贷的资金成本更高，因此没有试错的资格，也不适合分仓操作，分仓收益率无法覆盖资金成本。唯一的生存策略是低频重仓，必须等待行情确定性最高的时候再出手，一个月或两个月做一次都可以。如果靠低频重仓成功翻身，一定要及时去掉所有杠杆，才能真正实现稳定盈利。"
+  interpretation: 加杠杆投资者的反常识纪律：①普通投资者的"分仓分散风险"对加杠杆者不适用，因为分仓收益无法覆盖资金成本；②"低频"优先于"重仓"：先保证出手次数少、胜率高，再谈仓位；③试错行情（如近期）不适合参与，应空仓等待；④成功翻身后的关键动作是去杠杆，否则盈利会被资金成本侵蚀。这是博主针对充电用户中大量加杠杆群体的特别警示。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    - knowledge/wiki/投资方法论/仓位管理.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260531-001-i
+  source_path: sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
+  source_date: '2026-05-31'
+  source_type: 周复盘
+  extracted_at: '2026-05-31'
+  claim_type: sector-theme
+  subject: AI软件股调整充分存在轮动上涨机会
+  timeframe: short-term
+  statement: 受美股资金偏好从AI硬件切换影响，A股AI软件股调整时间久、跌幅大，存在轮动上涨机会，可关注调整充分的标的
+  evidence_quote: "受美股资金偏好从AI硬件切换影响，A股AI软件股调整时间久、跌幅大，存在轮动上涨的机会，可以关注调整充分的AI软件标的。"
+  interpretation: AI软件股的轮动逻辑：①美股资金从硬件（半导体）切换至软件（SaaS/云），可能传导至A股；②A股AI软件股（应用层、平台层）已调整较长时间，位置相对较低；③轮动机会不等于主线确认，需观察是否有资金主动流入和核心标的是否走强；④与AI硬件（光通信/半导体/PCB）的跷跷板关系：若硬件继续调整，软件可能获得资金轮动。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/AI上游涨价链.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260531-001-j
+  source_path: sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
+  source_date: '2026-05-31'
+  source_type: 周复盘
+  extracted_at: '2026-05-31'
+  claim_type: sector-theme
+  subject: 消费老妖股未来两周有表现空间，但游资借席位隐身风险大
+  timeframe: short-term
+  statement: 未来两周调整周期内消费老蓝筹股（老妖股）存在表现空间，可通过F10/PE/ROE筛选有基本面支撑的标的。但宁波中百、东百集团等老妖股涨停是游资借用量化机构席位隐身炒作，普通投资者不宜参与
+  evidence_quote: "当前A股市场谈论老蓝筹股（老妖股）能否上涨，未来两周调整周期内老蓝筹股存在表现空间，普通投资者选股可以看F10、PE、ROE三个指标，优先选择有基本面支撑的标的。宁波中百、东百集团这类老妖股涨停基本都是游资炒作，现在游资会借用量化和机构席位隐身，普通投资者没有经验不要随意参与，游资出货下跌幅度远大于机构票。"
+  interpretation: 消费老妖股的两面性：①机会面：调整周期中老蓝筹（低估值、高股息、基本面扎实）可能有防御性表现，时间节点符合；②风险面：真正涨停的老妖股（宁波中百、东百集团）是游资炒作，且游资操作模式升级（借用量化/机构席位隐身），普通投资者难以分辨；③区分方法：有基本面支撑（F10/PE/ROE）vs 纯情绪炒作；④操作建议：可配置有基本面的老蓝筹作为防御，但不宜追游资老妖股，介入需控制仓位。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/消费新结构.md
+    methodology_pages: []
+    cases: []

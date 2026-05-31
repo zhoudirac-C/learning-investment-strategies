@@ -459,6 +459,21 @@
   - wiki: knowledge/wiki/宏观政策/港股通投资机会.md（追加资金结构与策略）
   - wiki: knowledge/wiki/市场分析/房地产城市更新.md（新增）
   - wiki: knowledge/wiki/市场分析/消费新结构.md（新增）
+
+- sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
+  - claim-20260531-001-a: 高盛标普500上调8000点但增长空间有限（macro）
+  - claim-20260531-001-b: 美股暴跌保护小组频繁干预，托市越久回调越大（macro）
+  - claim-20260531-001-c: 美股投资偏好应从半导体转向软件和电力基础设施（sector-theme）
+  - claim-20260531-001-d: 原油目标80，黄金目标4200（macro）
+  - claim-20260531-001-e: 国家队减持4500亿盈利留存为救市弹药（macro）
+  - claim-20260531-001-f: 上证30分钟底部4055支撑与反弹节奏（technical-signal）
+  - claim-20260531-001-g: 科创50 120分钟双顶对应4-6个交易日调整（technical-signal）
+  - claim-20260531-001-h: 加杠杆投资者唯一生存策略是低频重仓（methodology）
+  - claim-20260531-001-i: AI软件股调整充分存在轮动上涨机会（sector-theme）
+  - claim-20260531-001-j: 消费老妖股未来两周有表现空间，但游资借席位隐身风险大（sector-theme/risk）
+  - wiki: knowledge/wiki/每日复盘/2026-05-31.md（新增）
+  - wiki: knowledge/wiki/市场分析/关键点位.md（追加4055、科创50双顶）
+  - wiki: knowledge/wiki/投资方法论/交易纪律.md（追加加杠杆低频重仓纪律）
   - claim-20260528-002-a: 情绪先于指数修复（methodology）
   - claim-20260528-002-b: 消费/防御只是过渡（sector-theme）
   - claim-20260528-002-c: 买阴不买阳策略（operation）
