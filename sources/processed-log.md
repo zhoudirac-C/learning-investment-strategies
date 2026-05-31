@@ -442,6 +442,23 @@
 - sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
 
 - sources/raw/财经/动态：26-05-28：情绪回暖符合预期.md
+
+- sources/raw/财经/视频：26-05-30：分化时代下的房地产、消费和港股.md
+  - claim-20260530-001-a: 全球K型分化的三股核心力量（macro）
+  - claim-20260530-001-b: AI红利分配不均，准备度决定赢家（macro）
+  - claim-20260530-001-c: 美联储截尾平均PCE为降息铺台阶（macro）
+  - claim-20260530-001-d: 美股盈利集中度过高，AI是遮羞布（macro/risk）
+  - claim-20260530-001-e: 港股核心矛盾是盈利预期而非流动性（macro）
+  - claim-20260530-001-f: 港股6-7月解禁高峰，8-9月配置窗口（operation）
+  - claim-20260530-001-g: 房地产增量时代结束，存量更新是未来（macro）
+  - claim-20260530-001-h: 城市更新利好建材家居家装智能家居（sector-theme）
+  - claim-20260530-001-i: 消费K型分化，服务消费是核心方向（macro）
+  - claim-20260530-001-j: 商品消费四大方向与服务消费五大趋势（sector-theme）
+  - claim-20260530-001-k: AI时代财富向头部集中，稳定工作更重要（methodology）
+  - wiki: knowledge/wiki/宏观政策/全球经济K型分化.md（新增）
+  - wiki: knowledge/wiki/宏观政策/港股通投资机会.md（追加资金结构与策略）
+  - wiki: knowledge/wiki/市场分析/房地产城市更新.md（新增）
+  - wiki: knowledge/wiki/市场分析/消费新结构.md（新增）
   - claim-20260528-002-a: 情绪先于指数修复（methodology）
   - claim-20260528-002-b: 消费/防御只是过渡（sector-theme）
   - claim-20260528-002-c: 买阴不买阳策略（operation）
