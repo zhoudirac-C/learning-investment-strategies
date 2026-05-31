@@ -22,6 +22,7 @@ description: Use when the user asks to review methodology changes, contradiction
 2. 读取窗口内 claims 和 wiki log。
 3. 按市场周期、板块、选股、F10、技术、仓位风控分组。
 4. 标记变化类型：no-change、clarification、extension、correction、contradiction、expiration。
+   - **技术 claims（`claim_type: technical-knowledge`）不参与 drift 分析**，技术工具是永久有效知识，不标记为 contradiction 或 expiration。
 5. 只有满足 durable rule 才更新 framework。
 6. 更新 claim status。
 7. 输出 Methodology Review Report。

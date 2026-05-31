@@ -26,6 +26,7 @@ description: Use when the user asks to analyze an individual stock through the b
 4. 读取结构化数据，并查看 K 线和分时图；若原生工具未提供可视化图表，使用本地脚本补图。
 5. 搜索精准新闻、公告和研报。
 6. 检索本地 `knowledge/claims`、`knowledge/wiki`、`knowledge/cases`。
+   - **区分市场认知 claims 与技术工具 claims**：`claim_type: technical-knowledge` 属于永久有效的技术分析知识，与市场周期/板块判断类 claims 分开引用，避免混淆时间敏感观点与永久工具知识。
 7. 按博主框架判断市场、板块、个股地位。
 8. 按 F10 方法论执行公司类型识别、报表质量、ROE/杜邦、现金流和估值方法选择。
 9. 生成 `report.md`、`report.html` 和聊天窗口精简总结。
