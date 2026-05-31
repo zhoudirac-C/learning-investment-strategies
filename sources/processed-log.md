@@ -474,6 +474,21 @@
   - wiki: knowledge/wiki/每日复盘/2026-05-31.md（新增）
   - wiki: knowledge/wiki/市场分析/关键点位.md（追加4055、科创50双顶）
   - wiki: knowledge/wiki/投资方法论/交易纪律.md（追加加杠杆低频重仓纪律）
+
+- sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  - claim-20260531-002-a: 科技主线震荡消化拥挤，不切换（market-cycle）
+  - claim-20260531-002-b: MLCC全面进入周期上行，本质是外溢承接（sector-theme）
+  - claim-20260531-002-c: MLCC涨价结构与供需格局（sector-theme）
+  - claim-20260531-002-d: AI服务器MLCC用量持续上行（sector-theme）
+  - claim-20260531-002-e: PCB价值量斜率最陡，VR200+233%（sector-theme）
+  - claim-20260531-002-f: 煤炭安监+迎峰度夏，煤价重启上涨（sector-theme）
+  - claim-20260531-002-g: 安赛蜜三轮涨价87.5%（sector-theme）
+  - claim-20260531-002-h: 巨化超纯PFA突破+HFCs超长景气（sector-theme）
+  - claim-20260531-002-i: 城市更新"十五五"13万亿（sector-theme）
+  - claim-20260531-002-j: 长鑫存储上市科创板资金分流风险（risk）
+  - claim-20260531-002-k: 算电协同平台上线（sector-theme）
+  - wiki: knowledge/wiki/市场分析/MLCC与被动元件.md（新增）
+  - wiki: knowledge/wiki/每日复盘/2026-05-31.md（追加盘后复盘）
   - claim-20260528-002-a: 情绪先于指数修复（methodology）
   - claim-20260528-002-b: 消费/防御只是过渡（sector-theme）
   - claim-20260528-002-c: 买阴不买阳策略（operation）
