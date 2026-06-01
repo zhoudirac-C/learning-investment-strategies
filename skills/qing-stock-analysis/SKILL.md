@@ -25,6 +25,7 @@ description: Use when the user asks to analyze an individual stock through the b
 12. `skills/qing-stock-analysis/references/stock-monitor-cli-behavior.md` — **监控脚本 CLI 行为与状态文件**：`--status`、`--daily-review-context`、`--live-analysis-context` 等命令的输出格式和用途
 13. `skills/qing-stock-analysis/references/observation-pool-strategy.md` — **观察池策略合成**：基于博主复盘/动态/早盘/视频合成次日观察池的完整方法论
 14. `skills/qing-stock-analysis/references/daily-review-cases.md` — **收盘监控复盘案例库**：历史复盘典型案例，含有效性判断标准、开盘诱多识别 checklist、相对强弱伪信号识别方法
+15. `skills/qing-stock-analysis/references/index-etf-analysis-guide.md` — **指数/ETF买入分析指南**：当用户询问指数或ETF（如恒生科技、科创50）时使用，含时间窗口分析、ETF代码推荐、与个股分析的区别
 
 ## 双轨制兼容性
 
@@ -429,6 +430,7 @@ description: Use when the user asks to analyze an individual stock through the b
 1. **引用文件不存在时不要反复读取**：本 skill 历史上列出过多个未落地的 reference 文件（如 `stock-monitor-internals.md`、`cron-alert-format.md` 等）。若 `skill_view` 返回的 `linked_files` 或 SKILL.md 正文引用某文件但实际不存在，**立即停止尝试**，改用源码或替代数据源。极简微信提醒模板直接查 `src/qing_investment/stock_monitor.py`（搜索 `请按本项目 AGENTS.md`）。
 2. **区分 SKILL.md 中内嵌的知识与外部 reference**：监控脚本机制、YAML 合约、板块轮动逻辑等知识已完整内嵌在 SKILL.md 正文中，不需要再读外部文件。
 3. **positions.yaml 是私有文件（gitignored）**：更新持仓分析时以实际文件内容为准，不依赖记忆中的旧持仓。
+4. **Skill 同步**：当需要更新本 skill 时，优先更新项目内版本 `~/learning-investment-strategies/skills/qing-stock-analysis/`，而非 Hermes 全局副本。详见 `qing-learning/references/skill-sync-workflow.md`。
 
 ## YAML 合约与同步规范
 

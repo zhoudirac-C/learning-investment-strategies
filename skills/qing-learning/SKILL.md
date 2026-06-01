@@ -88,15 +88,16 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 6. **OCR 图片转文字**：参考 `references/ocr-workflow-v2.md`（RapidOCR 首选、Tesseract fallback、常见错误修正）。
 7. **数据源切换**：参考 `references/data-source-fallback.md`（东方财富被拒绝时切换到新浪财经的API用法和验证方法）。
 8. **Pipeline QA 与去重**：参考 `references/pipeline-qa-dedup.md`（original→raw 遗漏检查、重复抓取根因分析）。
-9. **B站"置顶评论"术语澄清**：参考 `references/bilibili-up-comment-terminology.md`（区分真正的UP置顶评论 vs 截图第一条评论，避免 claims 引用标注错误）。
-10. **YAML 特殊字符转义**：参考【已知问题与解决】→"YAML 特殊字符转义"（claim 文件编写时避免中文引号、冒号导致解析失败）。
-11. **学习索引交叉验证**：参考 `references/learn-index-cross-validation.md`（双重验证确保100%学习覆盖率）。
-12. **学习索引**：参考【学习索引 (Learn Index)】章节，追踪所有 raw 文档的学习状态。
-13. **观察池 themes 恢复**：参考 `references/watchlist-theme-recovery-from-git.md`（从 git 历史恢复被误删的 watchlist themes，含一键恢复脚本）。
-14. **观察池 themes 合并去重**：参考 `references/watchlist-theme-merge-dedup.md`（恢复历史 themes 后合并重复标的、保留旧 themes 的去重流程）。
-15. **双轨制兼容性**：参考 `references/dual-track-compatibility.md`（双轨制对其他 skill 的影响和兼容要求）。
-16. **用户直接提供 UP 评论时的处理**：参考【用户直接提供 UP 评论时的处理流程】（检查是否已自动抓取、区分文档录入与数据查询、claim 抽取要点）。
-17. **Patch/编辑前必须完整读取文件**：如果文件之前是用 `offset`/`limit` 读取的，在 patch 前必须重新完整读取（不带分页参数），否则匹配失败。详见【已知问题与解决】→"Patch/编辑前必须完整读取文件"。
+5. `references/bilibili-up-comment-terminology.md`（区分真正的UP置顶评论 vs 截图第一条评论，避免 claims 引用标注错误）。
+6. **YAML 特殊字符转义**：参考【已知问题与解决】→"YAML 特殊字符转义"（claim 文件编写时避免中文引号、冒号导致解析失败）。
+7. **学习索引交叉验证**：参考 `references/learn-index-cross-validation.md`（双重验证确保100%学习覆盖率）。
+8. **学习索引**：参考【学习索引 (Learn Index)】章节，追踪所有 raw 文档的学习状态。
+9. **观察池 themes 恢复**：参考 `references/watchlist-theme-recovery-from-git.md`（从 git 历史恢复被误删的 watchlist themes，含一键恢复脚本）。
+10. **观察池 themes 合并去重**：参考 `references/watchlist-theme-merge-dedup.md`（恢复历史 themes 后合并重复标的、保留旧 themes 的去重流程）。
+11. **双轨制兼容性**：参考 `references/dual-track-compatibility.md`（双轨制对其他 skill 的影响和兼容要求）。
+12. **用户直接提供 UP 评论时的处理**：参考【用户直接提供 UP 评论时的处理流程】（检查是否已自动抓取、区分文档录入与数据查询、claim 抽取要点）。
+13. **Patch/编辑前必须完整读取文件**：如果文件之前是用 `offset`/`limit` 读取的，在 patch 前必须重新完整读取（不带分页参数），否则匹配失败。详见【已知问题与解决】→"Patch/编辑前必须完整读取文件"。
+14. **Skill 同步工作流**：参考 `references/skill-sync-workflow.md`（项目 skill 与 Hermes 全局 skill 的合并、配置更新、验证流程）。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
