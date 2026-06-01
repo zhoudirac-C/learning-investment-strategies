@@ -35,8 +35,8 @@ accounts:
         strategy: "hold_or_t"
         max_position_ratio: 0.35
         reduce_zone: "0.00-0.00"
+        risk_zone: "0.00-0.00"
         strength_confirm: "站稳某价位并带动板块"
-        risk_line: "0.00-0.00"
         latest_monitor_reference:
           snapshot_time: "YYYY-MM-DD 15:00 CST"
           source: "data_source"
