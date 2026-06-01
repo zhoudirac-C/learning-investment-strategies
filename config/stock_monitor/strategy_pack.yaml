@@ -331,6 +331,8 @@ sector_groups:
     name: 江海股份
   - code: 688469.SH
     name: 芯联集成
+  - code: 000969.SZ
+    name: 安泰科技
 - id: liquid_cooling
   name: 液冷/散热
   style: offensive
@@ -377,8 +379,6 @@ sector_groups:
     name: 长电科技
   - code: 002185.SZ
     name: 华天科技
-  - code: 002156.SZ
-    name: 通富微电
 - id: avoid_consumer
   name: 规避-消费
   style: avoid
@@ -450,6 +450,7 @@ sector_rotation_rules:
   - defensive_stabilizers
   min_spread_pct: 1.0
   min_red_ratio_spread: 0.25
+  require_offensive_positive: true
 - id: price_increase_vs_cpo
   name: 上游涨价链 vs 光通信CPO
   offensive_groups:
@@ -476,6 +477,15 @@ sector_rotation_rules:
   - defensive_stabilizers
   min_spread_pct: 1.0
   min_red_ratio_spread: 0.2
+- id: mlcc_vs_defense
+  name: MLCC/被动元件 vs 防御
+  offensive_groups:
+  - mlcc_passive
+  defensive_groups:
+  - defensive_stabilizers
+  min_spread_pct: 1.0
+  min_red_ratio_spread: 0.25
+  require_offensive_positive: true
 notification_policy:
   only_notify_when:
   - 液冷/散热触发买入点或证伪
@@ -534,3 +544,8 @@ index_rules:
   action: 指数弱修复观察
   trigger_template: 收盘收复{threshold}
   interpretation: 若反弹收复4080，视为弱修复，降低次日预期，持仓以持有观察为主不新增净仓。
+- name: kechuang1750_legacy
+  index: 科创50
+  trend_defense: 1750
+  severity: risk
+  action: 科创50双顶调整深化
