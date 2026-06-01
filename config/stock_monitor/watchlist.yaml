@@ -1,4 +1,4 @@
-updated_at: '2026-05-31'
+updated_at: '2026-06-01'
 today_snapshot:
   fetch_time: 2026-05-31 16:53 CST
   source: eastmoney_push2
@@ -922,6 +922,55 @@ themes:
     - 必须由宏昌电子、华正新材、生益科技至少两只同步承接确认
     invalidation_setup:
     - 跌破43.98日内低点或先进材料组继续分化，维持弱势观察
+  - code: 300476.SZ
+    name: 胜宏科技
+    role: pcb_high_layer_core
+    segment: 高多层PCB/AI服务器
+    priority: P1-核心
+    watch_reason: 高多层PCB核心，AI服务器PCB价值量提升直接受益，UP复盘明确提及。VR200单机柜PCB价值同比+233%。
+    confirm_with:
+    - 沪电股份
+    - 鹏鼎控股
+    - 生益科技
+    buy_setup:
+    - PCB组整体转强，胜宏科技放量突破
+    - 不追高，等分歧后缩量回踩
+    - 需沪电股份或生益科技同步扩散
+    invalidation_setup:
+    - 单票脉冲但PCB组无联动
+    - 跌破分时均价且沪电股份同步回落
+  - code: 002938.SZ
+    name: 鹏鼎控股
+    role: pcb_fpcb_core
+    segment: FPC/高阶HDI
+    priority: P2-重点
+    watch_reason: FPC龙头，UP复盘提及。AI终端/服务器FPC需求增长，高阶HDI产能释放。
+    confirm_with:
+    - 胜宏科技
+    - 沪电股份
+    - 生益科技
+    buy_setup:
+    - PCB组整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但PCB组无联动
+    - 跌破分时均价
+  - code: 688519.SH
+    name: 南亚新材
+    role: ccl_high_speed
+    segment: 高速覆铜板/CCL
+    priority: P2-重点
+    watch_reason: 高速覆铜板核心标的，UP复盘提及。M7/M8材料升级直接受益，AI服务器CCL需求增长。
+    confirm_with:
+    - 生益科技
+    - 沪电股份
+    - 胜宏科技
+    buy_setup:
+    - CCL材料与PCB同向扩散
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 材料链不能跟随PCB扩散
+    - 单票脉冲但CCL组无联动
 - id: advanced_packaging_mainboard
   name: 先进封装/存储封测主板观察池
   tradability: mainboard_only
@@ -1762,3 +1811,691 @@ themes:
     invalidation_setup:
     - 算电协同概念不被资金持续认可
     - 单票脉冲但组内无联动
+  - code: 001896.SZ
+    name: 豫能控股
+    role: green_power_compute
+    segment: 电力/算力配套
+    priority: P3-观察
+    watch_reason: 明确将算电协同作为核心战略，UP复盘提及。全国首个绿色算力全栈AI平台落地内蒙古直接受益。
+    confirm_with:
+    - 协鑫能科
+    - 申能股份
+    buy_setup:
+    - 算电协同板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 算电协同概念不被资金持续认可
+    - 单票脉冲但组内无联动
+- id: mlcc_resistor_inductor
+  name: MLCC/电阻/电感（被动元件周期上行）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - MLCC涨价是否从高容扩散至常规规格
+  - 国产高端MLCC是否获得客户验证
+  - 电阻/电感是否跟随MLCC联动
+  stocks:
+  - code: 688260.SH
+    name: 昀冢科技
+    role: mlcc_elastic
+    segment: MLCC/精密电子零部件
+    priority: P3-观察
+    watch_reason: MLCC弹性标的，UP复盘提及。小型化MLCC零部件，受益国产替代和AI服务器需求。
+    confirm_with:
+    - 三环集团
+    - 风华高科
+    buy_setup:
+    - MLCC组整体转强
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - 单票脉冲但MLCC组无联动
+    - 跌破分时均价
+  - code: 301013.SZ
+    name: 利和兴
+    role: mlcc_equipment
+    segment: MLCC设备/自动化
+    priority: P3-观察
+    watch_reason: MLCC设备标的，UP复盘提及。受益MLCC扩产和设备国产化。
+    confirm_with:
+    - 三环集团
+    - 风华高科
+    buy_setup:
+    - MLCC扩产逻辑被认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - MLCC扩产不及预期
+    - 单票脉冲但组内无联动
+  - code: 301458.SZ
+    name: 钧崴电子
+    role: resistor_core
+    segment: 电阻/电流感测
+    priority: P3-观察
+    watch_reason: 电阻核心标的，UP复盘提及。电流感测电阻受益AI服务器电源管理需求增长。
+    confirm_with:
+    - 风华高科
+    - 三环集团
+    buy_setup:
+    - 被动元件组整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但被动元件组无联动
+    - 跌破分时均价
+  - code: 002138.SZ
+    name: 顺络电子
+    role: inductor_core
+    segment: 电感/磁性器件
+    priority: P2-重点
+    watch_reason: 国产电感龙头，UP复盘明确提及。AI服务器电感用量提升，高端产品国产替代。
+    confirm_with:
+    - 三环集团
+    - 风华高科
+    buy_setup:
+    - 电感/被动元件组整体转强
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - 单票脉冲但被动元件组无联动
+    - 跌破分时均价且三环集团同步回落
+- id: mlcc_upstream_materials
+  name: MLCC上游材料（瓷粉/载带/离型膜）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 海外MLCC大厂是否持续扩产
+  - 上游材料是否跟随涨价
+  - 国产材料替代进度
+  stocks:
+  - code: 300285.SZ
+    name: 国瓷材料
+    role: mlcc_ceramic_powder
+    segment: MLCC陶瓷粉体
+    priority: P2-重点
+    watch_reason: MLCC上游陶瓷粉体核心，UP复盘提及。高端瓷粉是国产MLCC核心瓶颈，替代空间大。
+    confirm_with:
+    - 洁美科技
+    - 博迁新材
+    - 三环集团
+    buy_setup:
+    - MLCC上游材料组整体转强
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - 单票脉冲但上游组无联动
+    - 高端瓷粉替代进度不及预期
+- id: passive_components_distribution
+  name: 被动元件经销（渠道涨价受益）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 渠道库存是否继续下降
+  - 贸易商涨价是否传导至终端
+  - 经销商业绩是否兑现
+  stocks:
+  - code: 300975.SZ
+    name: 商络电子
+    role: passive_distribution
+    segment: 电子元器件分销
+    priority: P3-观察
+    watch_reason: 被动元件分销商，UP复盘提及。渠道涨价和缺货环境下，分销商议价能力提升。
+    confirm_with:
+    - 深圳华强
+    - 盈方微
+    buy_setup:
+    - 分销板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 渠道涨价不能持续
+    - 单票脉冲但分销组无联动
+  - code: 000670.SZ
+    name: 盈方微
+    role: passive_distribution
+    segment: 电子元器件分销
+    priority: P3-观察
+    watch_reason: 电子分销标的，UP复盘提及。被动元件涨价周期中分销环节受益。
+    confirm_with:
+    - 商络电子
+    - 深圳华强
+    buy_setup:
+    - 分销板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但分销组无联动
+    - 跌破分时均价
+  - code: 301270.SZ
+    name: 云汉芯城
+    role: passive_distribution
+    segment: 电子元器件电商分销
+    priority: P3-观察
+    watch_reason: 电子元器件电商分销，UP复盘提及。线上分销模式受益被动元件涨价和缺货。
+    confirm_with:
+    - 商络电子
+    - 深圳华强
+    buy_setup:
+    - 分销板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但分销组无联动
+    - 跌破分时均价
+  - code: 000062.SZ
+    name: 深圳华强
+    role: passive_distribution
+    segment: 电子元器件分销
+    priority: P3-观察
+    watch_reason: 电子分销龙头，UP复盘提及。被动元件涨价周期中分销环节直接受益。
+    confirm_with:
+    - 商络电子
+    - 盈方微
+    buy_setup:
+    - 分销板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 渠道涨价不能持续
+    - 单票脉冲但分销组无联动
+- id: connector_second_round_hike
+  name: 连接器（安费诺7月第二轮涨价）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 安费诺7月1日第二轮涨价是否落地
+  - 上游铜/金涨价是否继续传导
+  - 224G升级是否带动需求
+  stocks:
+  - code: 301123.SZ
+    name: 奕东电子
+    role: connector_upstream
+    segment: 连接器上游/精密组件
+    priority: P3-观察
+    watch_reason: 连接器上游标的，UP复盘提及。受益安费诺涨价和高速连接器需求增长。
+    confirm_with:
+    - 鼎通科技
+    - 意华股份
+    buy_setup:
+    - 连接器组整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 安费诺涨价不及预期
+    - 单票脉冲但连接器组无联动
+- id: high_speed_copper_cable
+  name: 高速铜缆（戴尔AI服务器催化）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 戴尔AI服务器交付是否持续放量
+  - 高速铜缆需求是否超预期
+  - 1.6T铜缆认证进度
+  stocks:
+  - code: 301439.SZ
+    name: 泓淋电力
+    role: high_speed_copper_cable
+    segment: 高速铜缆/电源线组件
+    priority: P3-观察
+    watch_reason: 戴尔电源线组件长期供应商+高速铜缆核心布局，UP复盘提及。戴尔AI服务器月交付从3万台提升至数万台，高速铜缆配套用量量级放大。
+    confirm_with:
+    - 中际旭创
+    - 新易盛
+    buy_setup:
+    - 高速铜缆方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 戴尔交付不及预期
+    - 单票脉冲但铜缆组无联动
+- id: cpo_optical_backplane
+  name: CPO/光背板（鸿海今年出货1万台）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 鸿海CPO交换机出货进度
+  - 光背板技术是否获得头部客户认可
+  - 康宁供应链关系是否稳固
+  stocks:
+  - code: 300570.SZ
+    name: 太辰光
+    role: cpo_optical_backplane
+    segment: CPO/光背板/光纤互联
+    priority: P3-观察
+    watch_reason: CPO交换机内部核心互联环节前瞻布局，UP复盘提及。光纤路由柔性板及Shuffle Box已完成头部客户验证，绑定康宁（英伟达重要光互连供应商）。
+    confirm_with:
+    - 中际旭创
+    - 天孚通信
+    buy_setup:
+    - CPO/光背板方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 鸿海CPO出货不及预期
+    - 单票脉冲但CPO组无联动
+- id: pcb_drill_needle
+  name: PCB钻针（M9硬度提升5-8倍消耗）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - M9覆铜板渗透率是否提升
+  - 钻针消耗量是否跟随增长
+  - 国产钻针替代进度
+  stocks:
+  - code: 000657.SZ
+    name: 中钨高新
+    role: pcb_drill_needle
+    segment: 硬质合金/PCB钻针
+    priority: P3-观察
+    watch_reason: PCB钻针核心材料，UP复盘提及。M9覆铜板硬度提升使钻针消耗量增至传统5-8倍。
+    confirm_with:
+    - 欧科亿
+    - 沪电股份
+    buy_setup:
+    - PCB钻针方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - M9渗透率不及预期
+    - 单票脉冲但钻针组无联动
+  - code: 688308.SH
+    name: 欧科亿
+    role: pcb_drill_needle
+    segment: 硬质合金刀具/钻针
+    priority: P3-观察
+    watch_reason: 硬质合金刀具标的，UP复盘提及。受益PCB钻针消耗量增长和国产替代。
+    confirm_with:
+    - 中钨高新
+    - 沪电股份
+    buy_setup:
+    - PCB钻针方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但钻针组无联动
+    - 跌破分时均价
+- id: coal_full_chain
+  name: 煤炭（安监+迎峰度夏+煤化工）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 山西炼焦煤矿复产进度
+  - 秦港5500大卡价格是否回升至800-1000元
+  - 煤化工耗煤增量是否兑现
+  stocks:
+  - code: 601699.SH
+    name: 潞安环能
+    role: coking_coal_elastic
+    segment: 焦煤
+    priority: P3-观察
+    watch_reason: 焦煤弹性标的，UP复盘提及。高现货比例，业绩弹性最大。
+    confirm_with:
+    - 山西焦煤
+    - 中国神华
+    buy_setup:
+    - 煤炭板块整体转强
+    - 焦煤价格继续上行
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 山西煤矿大规模复产
+    - 焦煤价格回落
+    - 单票脉冲但煤炭组无联动
+  - code: 601225.SH
+    name: 陕西煤业
+    role: thermal_coal_core
+    segment: 动力煤
+    priority: P2-重点
+    watch_reason: 动力煤核心标的，UP复盘提及。高股息+央企，迎峰度夏旺季受益。
+    confirm_with:
+    - 中国神华
+    - 兖矿能源
+    buy_setup:
+    - 煤炭板块整体转强
+    - 秦港5500大卡价格回升确认
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 煤价回升不及预期
+    - 安监煤矿大规模复产
+    - 科技主线强势，煤炭被虹吸
+  - code: 601898.SH
+    name: 中煤能源
+    role: thermal_coal_core
+    segment: 动力煤/煤化工
+    priority: P3-观察
+    watch_reason: 动力煤+煤化工双主业，UP复盘提及。煤化工耗煤高增直接受益。
+    confirm_with:
+    - 中国神华
+    - 陕西煤业
+    buy_setup:
+    - 煤炭板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 煤价回升不及预期
+    - 单票脉冲但煤炭组无联动
+  - code: 600985.SH
+    name: 淮北矿业
+    role: coking_coal_elastic
+    segment: 焦煤
+    priority: P3-观察
+    watch_reason: 焦煤弹性标的，UP复盘提及。受益焦煤供给收缩和价格上涨。
+    confirm_with:
+    - 山西焦煤
+    - 潞安环能
+    buy_setup:
+    - 焦煤价格继续上行
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 焦煤价格回落
+    - 单票脉冲但煤炭组无联动
+  - code: 601666.SH
+    name: 平煤股份
+    role: coking_coal_elastic
+    segment: 焦煤
+    priority: P3-观察
+    watch_reason: 焦煤弹性标的，UP复盘提及。受益焦煤供给收缩和价格上涨。
+    confirm_with:
+    - 山西焦煤
+    - 潞安环能
+    buy_setup:
+    - 焦煤价格继续上行
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 焦煤价格回落
+    - 单票脉冲但煤炭组无联动
+  - code: 600188.SH
+    name: 兖矿能源
+    role: thermal_coal_core
+    segment: 动力煤/焦煤
+    priority: P3-观察
+    watch_reason: 动力煤+焦煤双主业，UP复盘提及。高股息+国际化布局。
+    confirm_with:
+    - 中国神华
+    - 陕西煤业
+    buy_setup:
+    - 煤炭板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 煤价回升不及预期
+    - 单票脉冲但煤炭组无联动
+- id: chemical_acesulfame
+  name: 化工-安赛蜜（三轮涨价87.5%）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 安赛蜜价格是否继续上涨
+  - 三寡头协同是否稳固
+  - 硫酸成本是否继续上行
+  stocks:
+  - code: 002597.SZ
+    name: 金禾实业
+    role: acesulfame_potassium
+    segment: 安赛蜜/食品添加剂
+    priority: P2-重点
+    watch_reason: 安赛蜜国内有效产能三寡头之一（1.4万吨），UP复盘提及。年初以来三轮涨价87.5%，格局优异。
+    confirm_with:
+    - 醋化股份
+    buy_setup:
+    - 安赛蜜价格继续上涨
+    - 化工涨价板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 安赛蜜价格回落
+    - 三寡头协同破裂
+    - 单票脉冲但化工涨价组无联动
+- id: refrigerant_pfa
+  name: 化工-制冷剂/PFA（巨化双催化）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 制冷剂价格是否突破8-10万元/吨
+  - 巨化超纯PFA半导体客户验证进展
+  - 配额制下格局是否稳固
+  stocks:
+  - code: 603379.SH
+    name: 三美股份
+    role: refrigerant_core
+    segment: 制冷剂/氟化工
+    priority: P2-重点
+    watch_reason: 制冷剂核心标的，UP复盘提及。配额制下享超长景气周期，价格每涨1万元增厚显著利润。
+    confirm_with:
+    - 巨化股份
+    - 醋化股份
+    buy_setup:
+    - 制冷剂价格继续上涨
+    - 化工涨价板块整体转强
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - 制冷剂价格大幅回落
+    - 单票脉冲但氟化工组无联动
+- id: urban_renewal_infrastructure
+  name: 城市更新-基建（13万亿+专项债作资本金）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 城市更新专项债发行规模是否超预期
+  - 房建/管网/园林是否由大市值央企带队
+  - 科技主线是否虹吸基建资金
+  stocks:
+  - code: 601186.SH
+    name: 中国铁建
+    role: construction_core
+    segment: 基建/房建
+    priority: P3-观察
+    watch_reason: 基建龙头，UP复盘提及。城市更新13万亿规划+专项债可作资本金直接利好。
+    confirm_with:
+    - 中国建筑
+    - 中国中铁
+    buy_setup:
+    - 城市更新板块整体转强
+    - 大市值央企带队
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 专项债发行不及预期
+    - 科技主线强势，基建被虹吸
+    - 单票脉冲但城市更新组无联动
+  - code: 601390.SH
+    name: 中国中铁
+    role: construction_core
+    segment: 基建/铁路
+    priority: P3-观察
+    watch_reason: 基建龙头，UP复盘提及。城市更新13万亿规划+地下管网大修受益。
+    confirm_with:
+    - 中国建筑
+    - 中国铁建
+    buy_setup:
+    - 城市更新板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 专项债发行不及预期
+    - 单票脉冲但城市更新组无联动
+  - code: 601800.SH
+    name: 中国交建
+    role: construction_core
+    segment: 基建/交通
+    priority: P3-观察
+    watch_reason: 基建龙头，UP复盘提及。城市更新中交通基建受益。
+    confirm_with:
+    - 中国建筑
+    - 中国铁建
+    buy_setup:
+    - 城市更新板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 专项债发行不及预期
+    - 单票脉冲但城市更新组无联动
+  - code: 601618.SH
+    name: 中国中冶
+    role: construction_core
+    segment: 基建/冶金
+    priority: P3-观察
+    watch_reason: 基建龙头，UP复盘提及。城市更新中老旧厂区改造受益。
+    confirm_with:
+    - 中国建筑
+    - 中国铁建
+    buy_setup:
+    - 城市更新板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 专项债发行不及预期
+    - 单票脉冲但城市更新组无联动
+  - code: 600170.SH
+    name: 上海建工
+    role: construction_regional
+    segment: 区域基建
+    priority: P3-观察
+    watch_reason: 区域基建龙头，UP复盘提及。长三角城市更新受益。
+    confirm_with:
+    - 中国建筑
+    - 隧道股份
+    buy_setup:
+    - 城市更新板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但城市更新组无联动
+    - 跌破分时均价
+  - code: 600820.SH
+    name: 隧道股份
+    role: construction_regional
+    segment: 地下工程/隧道
+    priority: P3-观察
+    watch_reason: 地下工程龙头，UP复盘提及。城市更新中地下管网大修直接受益。
+    confirm_with:
+    - 中国建筑
+    - 上海建工
+    buy_setup:
+    - 城市更新板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但城市更新组无联动
+    - 跌破分时均价
+  - code: 600502.SH
+    name: 安徽建工
+    role: construction_regional
+    segment: 区域基建
+    priority: P3-观察
+    watch_reason: 区域基建标的，UP复盘提及。中部地区城市更新受益。
+    confirm_with:
+    - 中国建筑
+    - 中国铁建
+    buy_setup:
+    - 城市更新板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但城市更新组无联动
+    - 跌破分时均价
+- id: urban_renewal_inspection
+  name: 城市更新-检测（房屋安全体检制度）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 房屋安全体检制度是否落地
+  - 检测板块是否独立走强
+  - 城市更新是否带动检测需求
+  stocks:
+  - code: 603060.SH
+    name: 国检集团
+    role: inspection_core
+    segment: 检测认证
+    priority: P3-观察
+    watch_reason: 检测龙头，UP复盘提及。房屋安全体检制度直接受益。
+    confirm_with:
+    - 联检科技
+    - 深圳瑞捷
+    buy_setup:
+    - 检测板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 房屋安全体检制度落地不及预期
+    - 单票脉冲但检测组无联动
+  - code: 301115.SZ
+    name: 联检科技
+    role: inspection_elastic
+    segment: 检测认证
+    priority: P3-观察
+    watch_reason: 检测弹性标的，UP复盘提及。受益房屋安全体检制度。
+    confirm_with:
+    - 国检集团
+    - 深圳瑞捷
+    buy_setup:
+    - 检测板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但检测组无联动
+    - 跌破分时均价
+  - code: 300977.SZ
+    name: 深圳瑞捷
+    role: inspection_elastic
+    segment: 工程检测
+    priority: P3-观察
+    watch_reason: 工程检测标的，UP复盘提及。城市更新中工程质量检测需求增长。
+    confirm_with:
+    - 国检集团
+    - 联检科技
+    buy_setup:
+    - 检测板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但检测组无联动
+    - 跌破分时均价
+- id: urban_renewal_post_property
+  name: 城市更新-地产后周期（装修装饰）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 地产销售是否边际改善
+  - 装修装饰是否有资金流入
+  - 安置补偿是否传导至后周期
+  stocks:
+  - code: 002081.SZ
+    name: 金螳螂
+    role: decoration_core
+    segment: 装修装饰
+    priority: P3-观察
+    watch_reason: 装修装饰龙头，UP复盘提及。城市更新安置补偿边际拉动地产销售，传导至装修装饰。
+    confirm_with:
+    - 亚厦股份
+    - 中国建筑
+    buy_setup:
+    - 地产后周期板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 地产数据继续恶化
+    - 单票脉冲但地产后周期无联动
+  - code: 002375.SZ
+    name: 亚厦股份
+    role: decoration_elastic
+    segment: 装修装饰
+    priority: P3-观察
+    watch_reason: 装修装饰弹性标的，UP复盘提及。受益地产后周期改善。
+    confirm_with:
+    - 金螳螂
+    - 中国建筑
+    buy_setup:
+    - 地产后周期板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但地产后周期无联动
+    - 跌破分时均价
+- id: minimax_ipo
+  name: MiniMax IPO（AI模型公司上市催化）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - MiniMax上市进度
+  - AI模型公司估值是否被资金认可
+  - 关联公司是否有实质性合作
+  stocks:
+  - code: 000681.SZ
+    name: 视觉中国
+    role: minimax_investor
+    segment: AI视觉/内容版权
+    priority: P3-观察
+    watch_reason: 对MiniMax战略投资并深度合作，UP复盘提及。MiniMax启动A股IPO辅导直接催化。
+    confirm_with:
+    - 易点天下
+    buy_setup:
+    - MiniMax概念被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - MiniMax上市进度不及预期
+    - 单票脉冲但概念组无联动
+  - code: 301171.SZ
+    name: 易点天下
+    role: ai_marketing
+    segment: AI营销/数智解决方案
+    priority: P3-观察
+    watch_reason: 发布AIDrive2.0数智营销解决方案，UP复盘提及。AI应用落地标的。
+    confirm_with:
+    - 视觉中国
+    buy_setup:
+    - AI应用方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但AI应用组无联动
+    - 跌破分时均价
