@@ -1,30 +1,30 @@
-updated_at: '2026-06-01'
+updated_at: '2026-06-02'
 today_snapshot:
-  fetch_time: 2026-06-01 10:21 CST
-  source: tencent_hq
-  up_bias: 6月1日早盘：上证日线顶部结构第13天，4032点趋势破位参考位。科创50主跌阶段第3天，早盘惯性下探概率大。操作纪律：先观察再动手，不急于抄底。关注泓淋电力竞价、跌停家数、AI与PCB共振。
-  market_summary: 6月1日早盘，万通发展16.14(-0.19%)成本附近震荡；安泰科技23.28(+1.35%)从5月31日跌停修复；艾华集团已卖出（亏损260.92）。当前持仓：账号1安泰科技900股（成本24.136，浮亏约770元），账号2万通发展300股（成本16.203，浮亏约19元）+安泰科技900股（成本24.136，浮亏约770元）。总持仓约2.5%。
+  fetch_time: 2026-06-02 00:15 CST
+  source: eastmoney_push2
+  up_bias: 6月1日收盘：指数冲高回落，大小票分化。AI科技进入调整，微盘股与全A翻红。市场处于新旧势力交替的混沌轮动中，AI可能从单边强趋势转向宽幅波动。节奏上保持耐心、降低频率。明日泛科技惯性回落后可能进入左侧观察区。
+  market_summary: 6月1日收盘，上证4057.74(-0.27%)，深证15340.36(-1.51%)，创业板3950.94(-2.15%)，科创501663.69(-5.0%)。万通发展15.84(-2.04%)跌破成本；安泰科技22.51(-2.0%)接近减仓区间。艾华集团跌停-10%。当前持仓：账号2万通发展300股（成本16.203，浮亏约109元）+安泰科技900股（成本24.136，浮亏约1466元）。总持仓约2.5%。
   stocks_with_data:
   - code: 600246.SH
     name: 万通发展
-    latest: 16.14
-    pct_change: -0.19
+    latest: 15.84
+    pct_change: -2.04
     cost: 16.203
     shares: 300
-    pnl: -18.9
-    pnl_pct: -0.39
-    status: 成本附近震荡，CPU自研链逻辑未变
+    pnl: -108.9
+    pnl_pct: -2.24
+    status: 跌破成本，CPU自研链分化，观望
   - code: 000969.SZ
     name: 安泰科技
-    latest: 23.28
-    pct_change: 1.35
+    latest: 22.51
+    pct_change: -2.0
     cost: 24.136
     shares: 900
-    pnl: -770.4
-    pnl_pct: -3.55
-    status: 从跌停修复，纳米晶/软磁板块联动观察
+    pnl: -1466.4
+    pnl_pct: -6.53
+    status: 接近减仓区间22.50，纳米晶/软磁板块弱势
   stocks_pending_fetch: []
-  overall_action: 调整周期第13天，先观察再动手。万通发展成本附近持有；安泰科技观察修复持续性，若跌破22.00考虑止损。不急于抄底，等待指数企稳信号。
+  overall_action: 调整周期深化，科创50大跌-5%。万通发展跌破成本观望；安泰科技接近减仓区间需警惕。保持耐心、降低频率，等待泛科技惯性回落后的左侧观察区。
 themes:
 - id: cpu_self_development
   name: CPU自研链（字节催化，可能裂变为主线）
@@ -58,14 +58,33 @@ themes:
     - 跌破今日低点7.14且30分钟不能收回
     - ST板块整体走弱或监管风险
     - 字节自研CPU逻辑不被持续认可
-  - code: 600246.SH
+    up_mention_status:
+      last_mentioned_date: "2026-05-28"
+      mention_context: 博主在5/28复盘视频中提到CPU自研链，ST得润作为Socket核心标的
+      explicit_operation: null
+      sentiment: "中性提及"
+    technical_narrative:
+      trend: "6月1日+5.0%反弹，但ST风险仍在"
+      volume_character: "放量反弹"
+      key_levels:
+      - "支撑：7.14"
+      - "压力：8.50"
+      pattern: "跌停后反弹"
+      note: "ST身份限制，只观察不介入"
+    sector_narrative:
+      relative_strength: "CPU链内相对强"
+      money_flow: "游资参与"
+      leader_follower: "独立走势"
+      catalyst: "字节自研CPU"
+      risk: "ST退市风险、监管风险"
+  - code: 000636.SZ
     name: 万通发展
     role: pcie_switch_core
     segment: PCIe Switch
     priority: P1-核心
     watch_reason: 数渡科技PCIe Switch，国产替代博通。CPU翻倍预期+国产超节点放量→PCIe Switch市场大幅扩容（2026年国内超200亿）。104通道已量产、144通道已投片、PCIe
       6.0/CXL在研。
-    sync_with_index: ✅ 同步——5/28下午低点13:03，与大盘几乎同步V起，涨停
+    sync_with_index: ⚠️ 弱同步——6月1日随科技调整-2.04%，跌破成本
     confirm_with:
     - ST得润
     - 寒武纪
@@ -76,8 +95,27 @@ themes:
     - 需ST得润或算力芯片方向同步扩散
     invalidation_setup:
     - 单票冲高但CPU链无联动
-    - 跌破分时均价且ST得润同步回落
+    - 跌破15.00且30分钟不能收回
     - 国产替代逻辑不被资金持续认可
+    up_mention_status:
+      last_mentioned_date: "2026-05-28"
+      mention_context: 博主在5/28复盘视频中提到CPU自研链，万通发展作为PCIe Switch核心标的
+      explicit_operation: null
+      sentiment: "积极观察"
+    technical_narrative:
+      trend: "跌破5日线，短期弱势"
+      volume_character: "缩量调整"
+      key_levels:
+      - "支撑：15.00"
+      - "压力：16.50"
+      pattern: "高位回落后震荡"
+      note: "6月1日-2.04%跌破成本，需观察CPU链是否重新聚焦"
+    sector_narrative:
+      relative_strength: "CPU链内偏弱"
+      money_flow: "主力资金流出"
+      leader_follower: "板块跟随"
+      catalyst: "字节自研CPU"
+      risk: "组内分化严重，ST得润+5%但万通-2%"
 - id: upstream_price_increase
   name: 上游涨价链（位置低，扩散广）
   source_docs:
@@ -92,16 +130,40 @@ themes:
     name: 风华高科
     role: mlcc_mainboard_core
     segment: MLCC/被动元件
-    watch_reason: UP明确提到的AI服务器MLCC国产龙头；等涨价链分歧低吸确认。
+    priority: P1-核心
+    watch_reason: UP明确提到的AI服务器MLCC国产龙头；被动元件全面进入周期上行，6月1日+3.81%逆势强势。
+    sync_with_index: ❌ 逆势——6月1日上证-0.27%但风华+3.81%，MLCC周期上行确认
     confirm_with:
     - 洁美科技
     - 博迁新材
+    - 三环集团
     buy_setup:
-    - MLCC组强于AI硬件平均修复
-    - 个股不追高，回踩承接后放量上穿分时均线
+    - MLCC组整体转强，风华高科放量突破
+    - 不追高，等分歧后缩量回踩
+    - 需三环集团或洁美科技同步承接
     invalidation_setup:
-    - 5月25日涨停后若炸板且博迁新材或洁美科技同步回落，降低MLCC扩散预期
-    - 海外涨价预期未能带动A股组内扩散
+    - MLCC被误判为类存储大紧缺后情绪退潮
+    - 三环集团大幅回落
+    - 指数继续大跌
+    up_mention_status:
+      last_mentioned_date: "2026-05-31"
+      mention_context: 博主在5/31复盘明确提到被动元件全面进入周期上行，MLCC是最确定的中观线索
+      explicit_operation: null
+      sentiment: "积极观察"
+    technical_narrative:
+      trend: "5日线上方运行，逆势强势"
+      volume_character: "放量上涨"
+      key_levels:
+      - "支撑：50.0"
+      - "压力：58.0"
+      pattern: "突破平台后震荡上行"
+      note: "6月1日+3.81%逆势上涨，MLCC周期上行最强标的"
+    sector_narrative:
+      relative_strength: "MLCC组最强"
+      money_flow: "主力连续净流入"
+      leader_follower: "板块龙头"
+      catalyst: "海外巨头涨价+国产替代"
+      risk: "本质是外溢承接而非类存储大紧缺，量的改善强于价"
   - code: 002859.SZ
     name: 洁美科技
     role: mlcc_upstream_material
