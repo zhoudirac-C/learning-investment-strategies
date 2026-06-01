@@ -1,0 +1,42 @@
+claims:
+- id: claim-20260601-003-a
+  source_path: sources/raw/财经/午盘：26-06-01：缩量修复，机器人与PCB反包观察.md
+  source_date: '2026-06-01'
+  source_type: 午盘
+  extracted_at: '2026-06-01'
+  claim_type: market-cycle
+  subject: 6月1日午盘缩量修复，市场参与难度依然较大
+  timeframe: intraday
+  statement: 6月1日午盘虽然指数有所修复，但量能不足，市场参与难度依然较大。整体情绪偏谨慎，资金观望态度明显
+  evidence_quote: "缩量修复，还是很难做。今天虽然指数有所修复，但量能不足，市场参与难度依然较大。整体情绪偏谨慎，资金观望态度明显。"
+  interpretation: 午盘判断的核心逻辑：①6月1日午盘不是强势反转，而是缩量修复——量能不足意味着资金参与度不高，修复持续性存疑；②"还是很难做"——博主对当前操作环境的定性，与早盘"安分点"形成呼应；③资金观望态度明显——说明市场仍在等待更明确的信号，可能是外盘方向或内部主线确认。这是对早盘"控制仓位"建议的午盘确认。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/情绪判断.md
+    methodology_pages: []
+    cases: []
+- id: claim-20260601-003-b
+  source_path: sources/raw/财经/午盘：26-06-01：缩量修复，机器人与PCB反包观察.md
+  source_date: '2026-06-01'
+  source_type: 午盘
+  extracted_at: '2026-06-01'
+  claim_type: sector-theme
+  subject: 机器人与PCB午盘有回流/反包迹象，但持续性待确认
+  timeframe: intraday
+  statement: 机器人板块今日有回流迹象但强度一般，PCB板块有反包动作但力度有待确认。若反包成功，可能成为短期资金聚焦方向
+  evidence_quote: "机器人方向：机器人板块今日有回流迹象，但回流强度一般，尚未确认持续性。PCB方向：PCB板块今日有反包动作，反包力度有待确认，若反包成功，可能成为短期资金聚焦方向。"
+  interpretation: 板块观察要点：①机器人回流——属于科技线内部轮动，但"强度一般"说明不是强一致修复，而是分化中的局部回暖；②PCB反包——5月底PCB是双核心之一，今日反包若成功，可能意味着资金回流科技主线，但"力度有待确认"说明不能过早乐观；③两者共同特征：都是科技线方向，与早盘"反向上涨票补跌"（防御板块调整）形成跷跷板验证。这是观察午后或明日科技方向能否重新聚焦的关键信号。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/PCB与先进封装.md
+    - knowledge/wiki/市场分析/机器人与具身智能.md
+    methodology_pages: []
+    cases: []

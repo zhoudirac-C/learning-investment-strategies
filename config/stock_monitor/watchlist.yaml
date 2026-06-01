@@ -282,24 +282,6 @@ themes:
     - 单票走弱且安泰科技同步回落
     - 跌破前低且无修复
     - AI电源链整体走弱
-  - code: 002881.SZ
-    name: 美格智能
-    role: edge_ai_core
-    segment: 端侧AI/智能模组
-    watch_reason: 端侧AI补涨分支；AI中后期从云端向边缘计算扩散，智能模组和AIoT终端受益。全球端侧AI市场CAGR 39.6%，美格已开启77
-      TOPS AI模组大规模量产。5/27涨停。
-    confirm_with:
-    - 科大讯飞
-    - 中兴通讯
-    - 中科曙光
-    buy_setup:
-    - '技术分析: 震荡整理，15日涨跌8.55%'
-    - '买入区间: 40.71-42.59'
-    - 震荡下轨低吸
-    - 等回踩15日低点(40.31)或斐波236支撑(42.59)企稳
-    invalidation_setup:
-    - 跌破15日低点 40.31 且不能收回
-    - 跌破MA5 47.4 且板块无联动
   - code: 300623.SZ
     name: 捷捷微电
     role: power_semiconductor_elastic
@@ -2489,4 +2471,174 @@ themes:
     - 不追高，等分歧后回踩
     invalidation_setup:
     - 单票脉冲但AI应用组无联动
+    - 跌破分时均价
+- id: aipc_edge_ai
+  name: AIPC/端侧AI（英伟达AI PC+端侧推理扩散）
+  source_docs:
+  - knowledge/wiki/市场分析/端侧AI与AIPC.md
+  - sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md
+  - sources/raw/财经/午盘：26-02-27：震荡轮动，CPO韧性最强，国产算力走强，铟预期差突出.md
+  market_checks:
+  - 英伟达AI PC端侧发布进展
+  - AI PC/AI手机换机潮数据（Canalys/IDC）
+  - 端侧AI模组出货量（美格智能等）
+  - 特朗普访华科技限制松动程度
+  - 端侧芯片（瑞芯微/全志/晶晨）资金认可度
+  stocks:
+  - code: 002881.SZ
+    name: 美格智能
+    role: aipc_edge_ai_core
+    segment: AI模组/端侧AI龙头
+    priority: P2-重点
+    watch_reason: 端侧AI模组龙头，77 TOPS AI模组大规模量产，配套700 TOPS人形机器人AIBOX+5G舱联AI模组，"机器人+智能座舱+边缘计算"三轨驱动。已完成OpenClaw本地部署。
+    confirm_with:
+    - 瑞芯微
+    - 移远通信
+    - 华勤技术
+    buy_setup:
+    - 端侧AI组整体转强，美格智能放量突破
+    - 不追高，等分歧后缩量回踩
+    - 需瑞芯微或AI模组方向同步扩散
+    invalidation_setup:
+    - 单票冲高但端侧AI组无联动
+    - 跌破分时均价且瑞芯微同步回落
+    - 端侧AI逻辑不被资金持续认可
+  - code: 603236.SH
+    name: 移远通信
+    role: aipc_modem
+    segment: 物联网模组/AI模组
+    priority: P3-观察
+    watch_reason: 全球蜂窝模组市占率第一，AI模组产品线完善，端侧AI连接层核心标的。
+    confirm_with:
+    - 美格智能
+    - 广和通
+    buy_setup:
+    - AI模组方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但模组组无联动
+    - 跌破分时均价
+  - code: 300638.SZ
+    name: 广和通
+    role: aipc_modem
+    segment: 无线通信模组
+    priority: P3-观察
+    watch_reason: 车载/PC/机器人多场景覆盖，AI模组受益端侧AI渗透。
+    confirm_with:
+    - 美格智能
+    - 移远通信
+    buy_setup:
+    - AI模组方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但模组组无联动
+    - 跌破分时均价
+  - code: 603893.SH
+    name: 瑞芯微
+    role: aipc_soc_core
+    segment: 端侧SoC/AI芯片
+    priority: P2-重点
+    watch_reason: 端侧SoC龙头，边缘盒子核心芯片，高分辨率解码+算力。腾讯OpenClaw生态合作，AI PC/智能座舱/机器人多场景。
+    confirm_with:
+    - 全志科技
+    - 晶晨股份
+    - 美格智能
+    buy_setup:
+    - 端侧芯片方向被资金认可，瑞芯微放量突破
+    - 不追高，等分歧后缩量回踩
+    - 需全志科技或晶晨股份同步承接
+    invalidation_setup:
+    - 单票走强但端侧芯片组无扩散
+    - 跌破分时均价且全志科技同步回落
+    - 端侧芯片逻辑不被资金持续认可
+  - code: 300458.SZ
+    name: 全志科技
+    role: aipc_soc
+    segment: 智能车载/安防SoC
+    priority: P3-观察
+    watch_reason: 智能车载、安防终端SoC，端侧AI受益标的。
+    confirm_with:
+    - 瑞芯微
+    - 晶晨股份
+    buy_setup:
+    - 端侧芯片方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但芯片组无联动
+    - 跌破分时均价
+  - code: 688099.SH
+    name: 晶晨股份
+    role: aipc_soc
+    segment: 智能机顶盒/电视芯片
+    priority: P3-观察
+    watch_reason: AI音视频处理芯片，智能机顶盒/电视AI升级受益。
+    confirm_with:
+    - 瑞芯微
+    - 全志科技
+    buy_setup:
+    - 端侧芯片方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但芯片组无联动
+    - 跌破分时均价
+  - code: 603296.SH
+    name: 华勤技术
+    role: aipc_odm_core
+    segment: ODM/AI PC代工
+    priority: P2-重点
+    watch_reason: 全球手机/PC/服务器ODM龙头，AI PC核心代工厂。直接受益AI PC换机潮。
+    confirm_with:
+    - 龙旗科技
+    - 亿道信息
+    buy_setup:
+    - AI PC方向被资金认可，华勤技术放量突破
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - 单票走强但AI PC组无扩散
+    - 跌破分时均价
+    - AI PC换机潮逻辑不被资金认可
+  - code: 603341.SH
+    name: 龙旗科技
+    role: aipc_odm
+    segment: ODM/智能终端
+    priority: P3-观察
+    watch_reason: 小米/联想等AI终端代工，AI PC/AI手机渗透受益。
+    confirm_with:
+    - 华勤技术
+    - 亿道信息
+    buy_setup:
+    - AI PC方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但ODM组无联动
+    - 跌破分时均价
+  - code: 001314.SZ
+    name: 亿道信息
+    role: aipc_hardware
+    segment: 全栈适配硬件
+    priority: P3-观察
+    watch_reason: 首批全栈适配OpenClaw等端侧AI平台，AI PC/边缘计算硬件受益。
+    confirm_with:
+    - 华勤技术
+    - 美格智能
+    buy_setup:
+    - 端侧AI硬件方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但硬件组无联动
+    - 跌破分时均价
+  - code: 300602.SZ
+    name: 飞荣达
+    role: aipc_cooling
+    segment: 散热/华为链
+    priority: P3-观察
+    watch_reason: 华为散热战略供应商，AI手机/PC/服务器多线布局。端侧AI设备算力提升→散热需求升级。
+    confirm_with:
+    - 中石科技
+    - 思泉新材
+    buy_setup:
+    - 端侧AI散热方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但散热组无联动
     - 跌破分时均价
