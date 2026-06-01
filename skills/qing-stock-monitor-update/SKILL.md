@@ -123,6 +123,20 @@ python3 skills/qing-stock-monitor-update/scripts/fetch_stock_data.py \
 - `sector_groups`：板块分组（如有新增板块）
 - `agent_analysis_schedule`：大模型分析时间点（如需调整）
 
+**`index_rules` 格式兼容性（必读）**：
+- 代码对通用格式（`trigger_condition: close_below`）支持不完整，存在漏报风险。
+- **必须同时写 legacy 格式兜底**：`- trend_defense: 4070` 作为 `trigger_condition: close_below` 的兼容备选。
+- 实际验证方法：更新后运行 `python -m qing_investment.stock_monitor --ignore-trading-time`，检查 `alert_decision_log` 是否生成对应记录；若未生成，说明通用格式未被支持，需补 legacy 格式。
+
+**`sector_rotation_rules` 关键字段**：
+- `min_spread_pct`：进攻/防御组均涨幅差阈值（默认 1.0，复盘后可视情况上调）
+- `min_red_ratio_spread`：红盘率差阈值
+- `require_offensive_positive: true`（可选）：防止"跌得少"被误判为"进攻回流"
+
+**`sector_groups` 同步纪律**：
+- 新增持仓标的必须加入对应 sector_group，否则不会被纳入板块轮动计算。
+- 已清仓标的必须从 sector_group 中移除，否则会拖累组平均涨幅，产生错误的板块轮动信号。
+
 ### Step 5: 更新 positions.yaml
 
 **更新内容**：
@@ -132,6 +146,18 @@ python3 skills/qing-stock-monitor-update/scripts/fetch_stock_data.py \
 - 每个持仓的 `latest_monitor_reference`：最新价、涨跌幅
 - 每个持仓的 `pnl`：浮动盈亏
 - 每个持仓的 `today_plan`：明日操作计划（重置，不保留旧计划）
+
+**价格区间字段规范（必读）**：
+- `risk_zone`：风控区间，格式 `"44.5-45.5"`。代码优先读取此字段，触发条件为 `latest <= risk_zone[1]`（即区间上限）。
+- `risk_line`：单点风控线（如 `44.5`）。代码兼容作为 `risk_zone` 的 fallback，解析为 `(44.5, 44.5)`，触发条件为 `latest <= 44.5`。
+- `reduce_zone`：减仓观察区间，格式 `"41.15-42.5"`。当 `latest` 落入此区间时触发减仓观察提醒。
+- **关键陷阱**：若只配 `risk_line: 44.5` 而期望区间触发（如 44.5-45.5），必须用 `risk_zone: "44.5-45.5"`。
+- **`positions.example.yaml` 必须使用 `risk_zone` 而非 `risk_line`**：示例文件作为模板应使用推荐字段名，避免复制后形成旧习惯。
+- **高危漏报**：若持仓未配置 `reduce_zone` 或 `risk_zone`/`risk_line`，`evaluate_position_alerts()` 将完全跳过该持仓，导致跌停/大跌无任何提醒。更新时必须逐条确认每个持仓都配置了价格区间字段。
+
+**已清仓标的处理**：
+- 已清仓标的必须移入 `closed_positions`，同时从 `positions` 列表中删除。
+- 若已清仓标的仍留在 `positions` 中，会继续触发减仓/风控提醒，产生配置滞后误报。
 
 **today_plan 格式**：
 ```yaml
