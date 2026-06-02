@@ -277,7 +277,7 @@ quant_entry_strategy:
     - 光刻胶/CMP国产替代逻辑被市场认可
     - 不追高，等缩量回踩
     - 需沪硅产业或安集科技同步承接
-    entry_zone: 近期平台附近，等分歧后缩量回踩
+    entry_zone: 等明日开盘后确认，回踩5-7%且半导体板块企稳时介入
     position_ratio: 1成
     invalidation:
     - 半导体业绩证伪
@@ -290,12 +290,13 @@ quant_entry_strategy:
     close: null
     change_pct: null
     assessment: UP明确提示"关注地位方向"：以太网PHY全栈，华为哈勃持股6.97%。英伟达点名Marvell可能成"万亿公司"引发DSP热。SerDes芯片预计26年下半年量产。6月2日已大涨18%，短期不追。
+      | 6月2日大涨18%，假设收盘约106，等充分调整10-15%介入
     trigger_buy:
     - DSP/光通信方向持续强势
     - Marvell概念不退潮
     - 不追高，等分歧后缩量回踩（大涨后需充分调整）
     - 需盛科通信或中兴通讯同步承接
-    entry_zone: 大涨前平台附近，等充分调整
+    entry_zone: 等明日开盘后确认，因6月2日已大涨18%，需等充分调整10-15%再介入
     position_ratio: 0.5成（高弹性，控制仓位）
     invalidation:
     - Marvell概念退潮
@@ -314,7 +315,7 @@ quant_entry_strategy:
     - 英伟达供应链逻辑确认
     - 不追高，等分歧后缩量回踩
     - 需天孚通信或中际旭创同步承接
-    entry_zone: 近期平台附近，等分歧后缩量回踩
+    entry_zone: 等明日开盘后确认，回踩5-7%且CPO板块持续强势时介入
     position_ratio: 1成
     invalidation:
     - CPO整体走弱
@@ -332,7 +333,7 @@ quant_entry_strategy:
     - 收购索尔思光电进度确认
     - 不追高，等分歧后缩量回踩
     - 需鹏鼎控股或沪电股份同步承接
-    entry_zone: 近期平台附近，等分歧后缩量回踩
+    entry_zone: 等明日开盘后确认，回踩5-7%且PCB/光通信板块持续时介入
     position_ratio: 1成
     invalidation:
     - PCB整体走弱
@@ -350,7 +351,7 @@ quant_entry_strategy:
     - 出口逻辑持续
     - 不追高，等缩量回踩
     - 需中国铝业或神火股份同步承接
-    entry_zone: 近期平台附近，等缩量回踩
+    entry_zone: 等明日开盘后确认，回踩5-7%且铝价维持强势时介入
     position_ratio: 1成
     invalidation:
     - 铝价大幅回落
