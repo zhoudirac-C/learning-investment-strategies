@@ -2998,3 +2998,164 @@ themes:
     invalidation_setup:
     - 单票脉冲但散热组无联动
     - 跌破分时均价
+- name: 关注地位方向_20260602
+  description: UP 6月2日复盘明确提示的"关注地位方向"：普涨轮动阶段，地位与卡位决定资金回流的优先级。CPO供应链核心卡位、国产替代地位标的、全球市占/产业链地位。
+  priority: P2
+  trigger_condition: 资金聚焦某一分支时优先回流
+  stocks:
+  - code: 300054.SZ
+    name: 鼎龙股份
+    role: photoresist_cmp_leader
+    segment: 光刻胶/CMP
+    priority: P2-重点
+    watch_reason: UP明确提示"关注地位方向"：高端光刻胶/CMP国产替代第一，有实际产能落地、批量供货节点清晰，确定性相对更高。半导体方向中业绩支撑度够的稀缺标的。
+    sync_with_index: 半导体板块
+    confirm_with:
+    - 沪硅产业
+    - 安集科技
+    buy_setup:
+    - 半导体板块整体企稳
+    - 光刻胶/CMP国产替代逻辑被市场认可
+    - 不追高，等缩量回踩
+    invalidation_setup:
+    - 半导体业绩证伪
+    - 国产替代进度不及预期
+    technical_narrative:
+      trend: 6月2日跟随半导体板块，强度稍弱
+      volume_character: 正常成交
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 震荡蓄势
+      note: UP明确提示关注，半导体方向中确定性相对更高的标的，有实际产能落地
+    sector_narrative:
+      relative_strength: 半导体组内地位领先，光刻胶/CMP国产第一
+      money_flow: 待观察
+      leader_follower: 国产替代龙头
+      catalyst: 光刻胶/CMP国产替代，产能落地
+      risk: 半导体整体业绩支撑不足，下半年才有望改善
+  - code: 688515.SH
+    name: 裕太微
+    role: ethernet_phy_dsp
+    segment: 以太网PHY/DSP
+    priority: P2-重点
+    watch_reason: UP明确提示"关注地位方向"：以太网PHY全栈，华为哈勃持股6.97%。英伟达点名Marvell可能成"万亿公司"引发DSP热，裕太微大涨18%，已在DSP方向构建核心算法储备。SerDes芯片预计26年下半年量产。
+    sync_with_index: 科创50
+    confirm_with:
+    - 盛科通信
+    - 中兴通讯
+    buy_setup:
+    - DSP/光通信方向持续强势
+    - SerDes芯片量产进度确认
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - Marvell概念退潮
+    - DSP量产进度延迟
+    technical_narrative:
+      trend: 6月2日大涨18%，英伟达点名Marvell催化
+      volume_character: 放量大涨
+      key_levels:
+      - 支撑：大涨前平台
+      - 压力：历史新高
+      pattern: 突破加速
+      note: UP明确提示关注，Marvell/DSP概念核心标的，车载业务2025年营收增速超14倍
+    sector_narrative:
+      relative_strength: DSP/光通信组最强弹性
+      money_flow: 主力大幅净流入
+      leader_follower: Marvell概念龙头
+      catalyst: 英伟达点名Marvell，DSP国产替代
+      risk: 短期涨幅已大，需防获利回吐；概念炒作成分
+  - code: 601138.SH
+    name: 工业富联
+    role: cpo_switch_odm
+    segment: CPO交换机/ODM
+    priority: P2-重点
+    watch_reason: UP明确提示"关注地位方向"：CPO供应链核心卡位，全光CPO交换机机柜出货目标从26年超1万台上修至26-27年合计超5万台。英伟达Vera
+      Rubin全面量产受益。
+    sync_with_index: 上证
+    confirm_with:
+    - 天孚通信
+    - 中际旭创
+    buy_setup:
+    - CPO方向持续强势
+    - 英伟达供应链逻辑确认
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - CPO整体走弱
+    - 英伟达出货不及预期
+    technical_narrative:
+      trend: 6月2日共振修复
+      volume_character: 正常成交
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: UP明确提示关注，CPO交换机机柜出货上修，英伟达Vera Rubin量产受益
+    sector_narrative:
+      relative_strength: CPO供应链核心卡位
+      money_flow: 主力净流入
+      leader_follower: CPO交换机龙头
+      catalyst: CPO交换机机柜出货上修至5万台
+      risk: 短期涨幅已大，需防获利回吐
+  - code: 002384.SZ
+    name: 东山精密
+    role: fpc_pcb_global
+    segment: FPC/PCB/光通信
+    priority: P2-重点
+    watch_reason: UP明确提示"关注地位方向"：FPC全球第二、PCB全球第三。计划投资不超10亿美元建高端PCB项目（聚焦AI服务器）；拟收购索尔思光电100%股权切入光模块；与上交大成立机器人联合研发中心。
+    sync_with_index: 深证成指
+    confirm_with:
+    - 鹏鼎控股
+    - 沪电股份
+    buy_setup:
+    - PCB/光通信方向持续强势
+    - 收购索尔思光电进度确认
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - PCB整体走弱
+    - 收购进度不及预期
+    technical_narrative:
+      trend: 6月2日共振修复
+      volume_character: 正常成交
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: UP明确提示关注，FPC全球第二/PCB全球第三，多维布局AI服务器+光模块+机器人
+    sector_narrative:
+      relative_strength: PCB/FPC组全球地位领先
+      money_flow: 主力净流入
+      leader_follower: 全球市占龙头
+      catalyst: AI服务器PCB+光模块收购+机器人研发中心
+      risk: 多维布局分散精力，收购整合风险
+  - code: 000807.SZ
+    name: 云铝股份
+    role: green_aluminum_export
+    segment: 绿色铝
+    priority: P2-重点
+    watch_reason: UP明确提示"关注地位方向"：绿色铝龙头。26Q1营收163.8亿（+13.7%），归母净利36亿（+269.5%），创单季盈利新高。美伊冲突致中东电解铝产能受损，沪伦价差降至3238元/吨接近22年历史极值，内外盘价差创新低利好出口。
+    sync_with_index: 上证
+    confirm_with:
+    - 中国铝业
+    - 神火股份
+    buy_setup:
+    - 铝价维持强势
+    - 出口逻辑持续
+    - 不追高，等缩量回踩
+    invalidation_setup:
+    - 铝价大幅回落
+    - 美伊冲突缓和
+    technical_narrative:
+      trend: 6月2日共振修复
+      volume_character: 正常成交
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: UP明确提示关注，绿色铝龙头，26Q1归母净利+269.5%创单季新高，美伊冲突利好出口
+    sector_narrative:
+      relative_strength: 有色铝组龙头
+      money_flow: 主力净流入
+      leader_follower: 绿色铝龙头
+      catalyst: 美伊冲突致中东产能受损，沪伦价差历史极值利好出口
+      risk: 美伊冲突缓和导致铝价回落
