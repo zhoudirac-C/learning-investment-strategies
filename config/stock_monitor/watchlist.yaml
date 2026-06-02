@@ -1,39 +1,86 @@
 updated_at: '2026-06-02'
 today_snapshot:
-  fetch_time: 2026-06-02 11:08 CST
-  source: 收盘监控复盘_2026-06-01 + 盘中行情_2026-06-02
-  up_bias: 6月2日盘中：指数企稳反弹，上证4061.17(+0.08%)，科创501694.60(+1.86%)，创业板4040.59(+2.27%)，深成指15502.98(+1.06%)。万通发展已清空；安泰科技减仓至700股；中国长城新买入。科技线修复中，保持耐心。
-  market_summary: 6月1日收盘，上证4055.91(-0.31%)，深证15340.36(-1.51%)，创业板3949.93(-2.18%)，科创501663.70(-5.00%)。6月2日盘中指数企稳反弹。万通发展15.47(-2.34%)已清空；安泰科技21.87(-2.84%)减仓后浮亏扩大；中国长城18.03(-2.44%)新买入。风华高科55.06(+3.83%)逆势最强；火炬电子+9.99%涨停；长电科技75.66(-7.79%)半导体大跌。当前持仓：华宝账号安泰科技700股（成本24.702，浮亏约-1992元）；大同账号中国长城400股（成本18.32，浮亏约-116元）。
+  fetch_time: 2026-06-02 23:50 CST
+  source: 收盘监控复盘_2026-06-02
+  up_bias: 6月2日收盘：共振修复，AI硬件普涨，情绪拐点确认。创业板一枝独秀+2.66%，深成指+1.63%，上证+0.43%。成交2.77万亿（缩量845亿）。黄白线分化，权重股强但3800+个股跌。AI硬件核心主线：CPO/光互连领涨，PCB/MLCC/存储同一节奏。半导体强度稍弱。明日观察：资金能否聚焦某一分支决定修复强度。
+  market_summary: 6月2日收盘，上证4075.1(+0.43%)，深证15591.13(+1.63%)，创业板4055.87(+2.66%)，科创501690.56(+1.62%)。成交2.77万亿（缩量845亿）。黄白线分化明显，权重股走势较强，但全市场超3800只个股下跌——指数强、个股弱。AI硬件核心主线：CPO/光互连领涨（源杰科技+10%、光库科技+10%、天孚通信+6.56%、中际旭创+5.47%、新易盛+9.88%），PCB（鹏鼎控股触及涨停+8.27%、沪电股份+6.93%、宏和科技地天板），MLCC（火炬电子4天3板+10%、风华高科+8.83%），光纤（亨通光电涨停创历史新高+10.01%、长飞光纤涨停+10%）。半导体强度稍弱（长电科技-0.4%）。机器人（中大力德、凯迪股份涨停）。有色金属（华锡有色、锡业股份、江西铜业涨停）。
   stocks_with_data:
-  - code: 600246.SH
-    name: 万通发展
-    latest: 15.47
-    pct_change: -2.34
-    cost: 16.203
-    shares: 0
-    pnl: -214
-    pnl_pct: -4.4
-    status: 已清空，卖出价15.49，止损执行
-  - code: 000969.SZ
-    name: 安泰科技
-    latest: 21.87
-    pct_change: -2.84
-    cost: 24.702
-    shares: 700
-    pnl: -1992
-    pnl_pct: -11.5
-    status: 减仓后仍承压，纳米晶/软磁板块弱势，观望
+  - code: 000636.SZ
+    name: 风华高科
+    latest: 59.91
+    pct_change: 8.83
+    note: MLCC周期上行最强标的，共振修复中独立强势
+  - code: 603678.SH
+    name: 火炬电子
+    latest: 58.61
+    pct_change: 10.0
+    note: 4天3板，情绪载体候选但下午频繁开板
+  - code: 600487.SH
+    name: 亨通光电
+    latest: 83.12
+    pct_change: 10.01
+    note: 涨停创历史新高，光纤龙头
+  - code: 601869.SH
+    name: 长飞光纤
+    latest: 408.74
+    pct_change: 10.0
+    note: 涨停，光纤板块共振
+  - code: 300308.SZ
+    name: 中际旭创
+    latest: 1191.81
+    pct_change: 5.47
+    note: CPO核心，共振修复
+  - code: 300502.SZ
+    name: 新易盛
+    latest: 747.0
+    pct_change: 9.88
+    note: CPO三巨头，跟风上涨
+  - code: 300394.SZ
+    name: 天孚通信
+    latest: 457.0
+    pct_change: 6.56
+    note: CPO供应链核心卡位，光引擎/FAU/ELS
+  - code: 600584.SH
+    name: 长电科技
+    latest: 75.35
+    pct_change: -0.4
+    note: 半导体规避方向，微跌
   - code: 000066.SZ
     name: 中国长城
-    latest: 18.03
+    latest: 18.09
+    pct_change: -2.11
+    note: 持仓400股成本18.32，浮亏约-1.25%
+  - code: 000969.SZ
+    name: 安泰科技
+    latest: 21.96
     pct_change: -2.44
-    cost: 18.32
-    shares: 400
-    pnl: -116
-    pnl_pct: -1.6
-    status: 新买入，国产CPU/信创，浮亏约-1.6%
-  stocks_pending_fetch: []
-  overall_action: 指数企稳反弹，科创50+1.86%修复。万通发展破位清仓执行；安泰科技减仓至700股降风险；中国长城新布局。MLCC逆势最强（风华高科+3.83%、火炬电子+9.99%），半导体规避（长电科技-7.79%）。保持耐心、降低频率，严格执行止损纪律。
+    note: 持仓700股成本24.702，浮亏约-11.1%
+  - code: 002463.SZ
+    name: 沪电股份
+    latest: 131.0
+    pct_change: 6.93
+    note: PCB核心，共振修复
+  - code: 300476.SZ
+    name: 胜宏科技
+    latest: 349.08
+    pct_change: 1.97
+    note: PCB核心，共振修复
+  - code: 002938.SZ
+    name: 鹏鼎控股
+    latest: 111.89
+    pct_change: 8.27
+    note: PCB/FPC龙头，触及涨停
+  - code: 603019.SH
+    name: 中科曙光
+    latest: 86.02
+    pct_change: 0.73
+    note: 服务器整机，Vera Rubin量产受益
+  - code: 000977.SZ
+    name: 浪潮信息
+    latest: 65.0
+    pct_change: 1.34
+    note: 服务器整机中军
+  overall_action: 共振修复确认，AI硬件普涨但属"普涨共振"（宽度有高度不足）。CPO/光互连业绩兑现路径最清晰，但短期涨幅已大需防获利回吐。PCB/MLCC/存储同一节奏，缺乏独立情绪载体。半导体规避。明日关键：资金能否聚焦某一分支。持仓：安泰科技700股浮亏-11.1%观望；中国长城400股浮亏-1.25%持有。
 themes:
 - id: cpu_self_development
   name: CPU自研链（字节催化，可能裂变为主线）
@@ -160,19 +207,19 @@ themes:
       explicit_operation: null
       sentiment: 积极观察
     technical_narrative:
-      trend: 6月1日+3.83%逆势强势，MLCC周期上行确认
+      trend: 6月2日+8.83%共振修复
       volume_character: 放量上涨
       key_levels:
-      - 支撑：50.0
-      - 压力：58.0
-      pattern: 突破平台后震荡上行
-      note: 6月1日+3.83%逆势上涨，MLCC周期上行最强标的。上证-0.31%背景下独立走强。火炬电子+9.99%涨停，MLCC组内联动确认。本质是外溢承接而非类存储大紧缺，量的改善强于价。
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+8.83%共振修复中MLCC全线上涨，周期上行确认。收盘59.91，上证+0.43%背景下独立强势。火炬电子4天3板，MLCC组内联动确认。
     sector_narrative:
       relative_strength: MLCC组最强，全市场逆势
-      money_flow: 主力连续净流入
+      money_flow: 主力净流入
       leader_follower: 板块龙头
-      catalyst: 海外巨头涨价+国产替代
-      risk: 本质是外溢承接而非类存储大紧缺，量的改善强于价。不追高，等分歧回踩。
+      catalyst: AI硬件共振修复
+      risk: 普涨共振格局，反弹预期需降低；短期涨幅已大，需防获利回吐
   - code: 002859.SZ
     name: 洁美科技
     role: mlcc_upstream_material
@@ -337,19 +384,19 @@ themes:
     - 跌破趋势支撑且东睦股份同步回落
     - AI电源链整体走弱
     technical_narrative:
-      trend: 6月1日-1.96%接近减仓区间，6月2日盘中21.87(-2.84%)继续下跌，已减仓
+      trend: 6月2日-2.44%共振修复
       volume_character: 缩量调整
       key_levels:
-      - 支撑：21.50
-      - 压力：24.50
-      pattern: 弱势震荡下行
-      note: 6月1日收盘22.52接近减仓区间22.50，6月2日盘中21.87跌破减仓区间。已减仓至700股，成本24.702，浮亏约-11.5%。纳米晶/软磁板块弱势，艾华集团跌停-10%，超级电容分支全面调整。
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 弱势震荡
+      note: 6月2日-2.44%，减仓后700股成本24.702，收盘21.96浮亏约-11.1%。纳米晶/软磁板块弱势。
     sector_narrative:
       relative_strength: 纳米晶/软磁方向偏弱
       money_flow: 资金流出
       leader_follower: 板块跟随
-      catalyst: 英伟达800V架构
-      risk: AI电源链整体走弱，单票无扩散，已减仓降风险
+      catalyst: AI硬件共振修复
+      risk: AI电源链整体走弱，已减仓降风险
   - code: 600114.SH
     name: 东睦股份
     role: nanocrystalline_soft_magnetic
@@ -548,6 +595,20 @@ themes:
     - 高位滞涨且组内跟风票回落
     - 跌破5日均线且无修复
     - 量能萎缩且板块不扩散
+    technical_narrative:
+      trend: 6月2日+5.47%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+5.47%共振修复。CPO核心主线，业绩兑现路径从远期预期走向当期订单放量。收盘1191.81。高位品种，提供确认而非空间。
+    sector_narrative:
+      relative_strength: CPO组核心，共振修复
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 短期涨幅已大，需防普涨后高低切换与获利回吐
   - code: 300502.SZ
     name: 新易盛
     role: cpo_follower
@@ -564,6 +625,20 @@ themes:
     invalidation_setup:
     - 高位滞涨
     - 跌破5日均线
+    technical_narrative:
+      trend: 6月2日+9.88%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+9.88%共振修复。CPO三巨头之一，跟风上涨。收盘747.0。高位不追。
+    sector_narrative:
+      relative_strength: CPO组跟风，共振修复
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 高位品种，短期涨幅已大需防获利回吐
   - code: 300394.SZ
     name: 天孚通信
     role: cpo_follower
@@ -580,6 +655,20 @@ themes:
     invalidation_setup:
     - 高位滞涨
     - 跌破5日均线
+    technical_narrative:
+      trend: 6月2日+6.56%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+6.56%共振修复。CPO三巨头之一。英伟达CPO供应链光引擎/FAU/ELS三大核心组件核心上游伙伴。收盘457.0。
+    sector_narrative:
+      relative_strength: CPO供应链核心卡位，光引擎/FAU/ELS
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 短期涨幅已大，需防获利回吐；但产业卡位明确，资金回流优先级高
 - id: medical_observation
   name: 医药观察（博主提示，节点不错）
   source_docs:
@@ -702,19 +791,19 @@ themes:
     - 半导体板块整体走弱
     - 美股科技股大跌传导
     technical_narrative:
-      trend: 6月1日-7.79%大跌
-      volume_character: 放量下跌
+      trend: 6月2日-0.40%共振修复
+      volume_character: 缩量调整
       key_levels:
-      - 支撑：70.00
-      - 压力：80.00
-      pattern: 破位下跌
-      note: 6月1日大跌-7.79%，半导体规避方向确认，博主明确不要买半导体
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 弱势震荡
+      note: 6月2日-0.4%微跌。半导体规避方向，博主明确不要买半导体。强度稍弱，主因业绩支撑不足。
     sector_narrative:
-      relative_strength: 半导体组最弱
-      money_flow: 主力资金大幅流出
-      leader_follower: 板块中军领跌
-      catalyst: 美股科技股波动传导
-      risk: 半导体调整周期深化，规避为主
+      relative_strength: 半导体组最弱，规避方向
+      money_flow: 资金流出
+      leader_follower: 板块跟随
+      catalyst: AI硬件共振修复
+      risk: 半导体调整周期深化，业绩支撑不足，下半年才有望改善
   - code: 600519.SH
     name: 贵州茅台
     role: avoid_consumer
@@ -848,6 +937,20 @@ themes:
     invalidation_setup:
     - PCB组强但沪电明显弱于板块
     - PCB冲高回落且生益科技/胜宏科技同步转弱
+    technical_narrative:
+      trend: 6月2日+6.93%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+6.93%共振修复。PCB核心层，AI服务器高多层板。收盘131.0。
+    sector_narrative:
+      relative_strength: PCB组核心，共振修复
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: PCB/MLCC/存储同一节奏，缺乏独立情绪载体，高度能否打开存疑
   - code: 603228.SH
     name: 景旺电子
     role: pcb_core_extension
@@ -1011,6 +1114,20 @@ themes:
     invalidation_setup:
     - 单票脉冲但PCB组无联动
     - 跌破分时均价且沪电股份同步回落
+    technical_narrative:
+      trend: 6月2日+1.97%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+1.97%共振修复。高多层PCB核心。收盘349.08。
+    sector_narrative:
+      relative_strength: PCB组核心，共振修复
+      money_flow: 主力净流入
+      leader_follower: 板块跟随
+      catalyst: AI硬件共振修复
+      risk: PCB与CPO/MLCC同一节奏，普涨共振下高度存疑
   - code: 002938.SZ
     name: 鹏鼎控股
     role: pcb_fpcb_core
@@ -1027,6 +1144,20 @@ themes:
     invalidation_setup:
     - 单票脉冲但PCB组无联动
     - 跌破分时均价
+    technical_narrative:
+      trend: 6月2日+8.27%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+8.27%触及涨停。PCB/FPC龙头。收盘111.89。
+    sector_narrative:
+      relative_strength: PCB组强势，触及涨停
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 普涨共振格局，反弹预期需降低
   - code: 688519.SH
     name: 南亚新材
     role: ccl_high_speed
@@ -1359,18 +1490,18 @@ themes:
     - 跌破15日低点 17.6 且不能收回
     - 跌破MA5 18.95 且板块无联动
     technical_narrative:
-      trend: 6月2日盘中18.03(-2.44%)，新买入
-      volume_character: 新买入，观察量能
+      trend: 6月2日-2.11%共振修复
+      volume_character: 缩量调整
       key_levels:
-      - 支撑：17.20
-      - 压力：19.00
-      pattern: 新布局，观察承接
-      note: 6月2日新买入400股，成本18.32，盘中18.03浮亏约-1.6%。国产CPU/信创方向，需观察科技修复持续性。
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 弱势震荡
+      note: 6月2日-2.11%，新买入400股成本18.32，收盘18.09浮亏约-1.25%。国产CPU/信创方向。
     sector_narrative:
-      relative_strength: 信创方向中等
-      money_flow: 新买入，观察资金态度
+      relative_strength: 信创方向中等，随科技线调整
+      money_flow: 资金流出
       leader_follower: 板块跟随
-      catalyst: 国产CPU/信创政策
+      catalyst: AI硬件共振修复
       risk: 科技线调整中，单票无扩散风险
   - code: 603019.SH
     name: 中科曙光
@@ -1389,6 +1520,20 @@ themes:
     invalidation_setup:
     - 跌破15日低点 87.89 且不能收回
     - 跌破MA5 92.25 且板块无联动
+    technical_narrative:
+      trend: 6月2日+0.73%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+0.73%微涨。服务器整机，Vera Rubin量产受益。收盘86.02。
+    sector_narrative:
+      relative_strength: 服务器组跟随，涨幅较小
+      money_flow: 主力净流入
+      leader_follower: 板块跟随
+      catalyst: AI硬件共振修复
+      risk: 服务器方向受益英伟达Vera Rubin量产，但普涨共振下非焦点
   - code: 000977.SZ
     name: 浪潮信息
     role: server_core
@@ -1406,6 +1551,20 @@ themes:
     invalidation_setup:
     - 跌破15日低点 63.07 且不能收回
     - 跌破MA5 66.41 且板块无联动
+    technical_narrative:
+      trend: 6月2日+1.34%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+1.34%微涨。服务器整机中军。收盘65.0。
+    sector_narrative:
+      relative_strength: 服务器组跟随，涨幅较小
+      money_flow: 主力净流入
+      leader_follower: 板块跟随
+      catalyst: AI硬件共振修复
+      risk: 推理时代CPU:GPU配比1:8→1:1，通用服务器需求激活，但短期非情绪焦点
   - code: 000938.SZ
     name: 紫光股份
     role: network_server_watch
@@ -1570,6 +1729,20 @@ themes:
     - 需亨通光电、中天科技同步收回分时均价
     invalidation_setup:
     - 跌破378.05日内低点或光纤光缆组无承接，维持弱势观察
+    technical_narrative:
+      trend: 6月2日+10.00%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日涨停+10.0%，光纤板块共振。收盘408.74。
+    sector_narrative:
+      relative_strength: 光纤组联动涨停
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 普涨共振格局，高度能否打开存疑
   - code: 600487.SH
     name: 亨通光电
     role: fiber_cable_core
@@ -1583,6 +1756,20 @@ themes:
     - 需长飞光纤、中天科技同步回流确认
     invalidation_setup:
     - 跌破69.67日内低点或光通信组继续弱于AI硬件，维持弱势观察
+    technical_narrative:
+      trend: 6月2日+10.01%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日涨停+10.01%创历史新高。光纤板块共振，长飞光纤同步涨停。能否承担情绪载体重任还需观察，瑕疵在于光纤产业近期无大变化。
+    sector_narrative:
+      relative_strength: 光纤组龙头，涨停创历史新高
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 光纤产业近期无特别大的新变化，能否承担情绪载体存疑
   - code: 600522.SH
     name: 中天科技
     role: fiber_cable_capacity
@@ -1623,19 +1810,19 @@ themes:
     - 跌破15日低点 53.19 且不能收回
     - 跌破MA5 84.26 且板块无联动
     technical_narrative:
-      trend: 6月1日-7.79%大跌
-      volume_character: 放量下跌
+      trend: 6月2日-0.40%共振修复
+      volume_character: 缩量调整
       key_levels:
-      - 支撑：70.00
-      - 压力：80.00
-      pattern: 破位下跌
-      note: 6月1日大跌-7.79%，半导体规避方向确认，博主明确不要买半导体
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 弱势震荡
+      note: 6月2日-0.4%微跌。半导体规避方向，博主明确不要买半导体。强度稍弱，主因业绩支撑不足。
     sector_narrative:
-      relative_strength: 半导体组最弱
-      money_flow: 主力资金大幅流出
-      leader_follower: 板块中军领跌
-      catalyst: 美股科技股波动传导
-      risk: 半导体调整周期深化，规避为主
+      relative_strength: 半导体组最弱，规避方向
+      money_flow: 资金流出
+      leader_follower: 板块跟随
+      catalyst: AI硬件共振修复
+      risk: 半导体调整周期深化，业绩支撑不足，下半年才有望改善
   - code: 002185.SZ
     name: 华天科技
     role: packaging_elastic
@@ -1753,19 +1940,19 @@ themes:
     - MLCC被误判为类存储大紧缺后情绪退潮
     - 中低容交期缩短至10周以下
     technical_narrative:
-      trend: 6月1日+3.83%逆势强势，MLCC周期上行确认
+      trend: 6月2日+8.83%共振修复
       volume_character: 放量上涨
       key_levels:
-      - 支撑：50.0
-      - 压力：58.0
-      pattern: 突破平台后震荡上行
-      note: 6月1日+3.83%逆势上涨，MLCC周期上行最强标的。上证-0.31%背景下独立走强。火炬电子+9.99%涨停，MLCC组内联动确认。本质是外溢承接而非类存储大紧缺，量的改善强于价。
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+8.83%共振修复中MLCC全线上涨，周期上行确认。收盘59.91，上证+0.43%背景下独立强势。火炬电子4天3板，MLCC组内联动确认。
     sector_narrative:
       relative_strength: MLCC组最强，全市场逆势
-      money_flow: 主力连续净流入
+      money_flow: 主力净流入
       leader_follower: 板块龙头
-      catalyst: 海外巨头涨价+国产替代
-      risk: 本质是外溢承接而非类存储大紧缺，量的改善强于价。不追高，等分歧回踩。
+      catalyst: AI硬件共振修复
+      risk: 普涨共振格局，反弹预期需降低；短期涨幅已大，需防获利回吐
   - code: 603678.SH
     name: 火炬电子
     role: mlcc_military_elastic
@@ -1782,19 +1969,19 @@ themes:
     - 单票脉冲但MLCC组无联动
     - 军工板块独立走弱
     technical_narrative:
-      trend: 6月1日+9.99%涨停
-      volume_character: 放量涨停
+      trend: 6月2日+10.00%共振修复
+      volume_character: 放量上涨
       key_levels:
-      - 支撑：前高平台
-      - 压力：涨停价
-      pattern: 突破加速
-      note: 6月1日涨停，军用MLCC弹性标的，民用MLCC周期上行带动估值修复
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日涨停+10.0%，4天3板。下午频繁开板，连板拓高度有难度，后面更多是趋势。MLCC普涨共振情绪载体候选但瑕疵明显。
     sector_narrative:
-      relative_strength: MLCC组内最强弹性
-      money_flow: 游资+机构合力
-      leader_follower: 弹性先锋
-      catalyst: MLCC周期上行+军工估值修复
-      risk: 涨停后需观察次日承接，不能连续加速
+      relative_strength: MLCC组内最强弹性，但情绪载体承载力存疑
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 下午频繁开板，连板高度受限；普涨共振下反弹预期需降低
 - id: coal_safety_summer
   name: 煤炭（安监风暴+迎峰度夏）
   source_docs:

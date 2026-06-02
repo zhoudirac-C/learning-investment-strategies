@@ -1,38 +1,31 @@
 updated_at: '2026-06-02'
 source_claims:
-- knowledge/claims/claim-20260601-001.yaml
-- knowledge/claims/claim-20260601-002.yaml
-- knowledge/claims/claim-20260601-003.yaml
-- knowledge/claims/claim-20260601-004.yaml
-- knowledge/claims/claim-20260531-001.yaml
+- knowledge/claims/claim-20260602-003.yaml
+- knowledge/claims/claim-20260602-002.yaml
+- knowledge/claims/claim-20260602-001.yaml
 - knowledge/claims/claim-20260531-002.yaml
 - framework/stock-analysis-playbook.md
 - framework/market-cycle-framework.md
 - framework/sector-diffusion-framework.md
 market_framework:
-  current_stage: AI科技调整期 + 新旧势力交替混沌轮动 + 大小票分化
-  core_question: AI从单边强趋势转向宽幅波动，市场处于新旧势力交替的混沌轮动中。明日泛科技惯性回落后是否进入左侧观察区？MLCC/被动元件是最确定的中观线索，但本质是外溢承接而非类存储大紧缺。
+  current_stage: 共振修复初期 + AI硬件普涨共振（宽度有高度不足） + 情绪拐点确认
+  core_question: ' resonance修复后走向强共振还是维持普涨共振？资金能否在明日聚焦于某一个分支（CPO/PCB/MLCC/光纤），将直接关系到修复行情的强度和持续性。'
   latest_up_bias:
     source_docs:
-    - sources/raw/财经/复盘：26-06-01：指数冲高回落，大小票分化，AIPC相对占优.md
-    - sources/raw/财经/早盘补发：26-06-01：周五剧本延续，反向上涨票补跌.md
-    - sources/raw/财经/午盘：26-06-01：缩量修复，机器人与PCB反包观察.md
+    - sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
+    - knowledge/claims/claim-20260602-003.yaml
     rules:
-    - 指数冲高回落，大小票分化明显。AI科技进入调整，微盘股与全A翻红。
-    - 市场处于新旧势力交替的混沌轮动中，AI可能从单边强趋势转向宽幅波动。
-    - 节奏上保持耐心、降低频率，守住破位纪律。
-    - 明日泛科技惯性回落后可能进入左侧观察区。
-    - AI应用/AIPC相对占优，但成为主线难度不小，更可能是小周期行情。
-    - MLCC全面进入周期上行，但本质是外溢承接而非类存储大紧缺。量的改善强于价的改善。
-    - PCB价值量斜率最陡，VR200单机柜PCB价值同比+233%。
-    - 煤炭安监风暴+迎峰度夏，煤价重启上涨。山西112座炼焦煤矿仍停产。
-    - 安赛蜜三轮涨价87.5%，三寡头格局优异。巨化超纯PFA突破+HFCs制冷剂超长景气。
-    - 城市更新十五五13万亿，专项债可作资本金。
-    - 长鑫存储6月下旬-7月初上市，估值2.6万亿起步，科创板资金分流风险。
-    - 算电协同平台上线，2030年算力中心用电或破7000亿千瓦时。
-    - 美股历史级别泡沫，这两周安分点控制仓位。暴跌保护小组干预频繁，托越久回调越大。
-    - 国家队减持4500亿盈利留存为救市弹药，减持完毕是利好。
-    - 操作纪律：保持耐心、降低频率，等图形与趋势再度走好时卷土重来。
+    - 今日定性为恐慌杀跌之后的共振修复，10:50情绪拐点确认（盘中前置判断）
+    - 共振格局辨析：今日属于"普涨共振"而非"强共振"——MLCC、CPO、PCB等全线上涨，但无绝对聚焦分支
+    - 宽度有，高度不足——反弹预期要降低一点
+    - 情绪载体候选：火炬电子（4天3板但下午频繁开板，连板高度有难度）、亨通光电（涨停创历史新高但光纤产业无大变化）
+    - AI硬件核心主线：CPO/光互连业绩兑现路径从远期预期走向当期订单放量，是最有产业逻辑支撑的分支
+    - PCB、MLCC、存储同一节奏，属情绪与产业共振，但缺乏独立情绪载体
+    - 半导体强度稍弱，主因业绩支撑不足，下半年才有望改善
+    - 明日关键：情绪核心应强势表现，资金能否聚焦某一分支决定修复强度
+    - 选股思路：普涨轮动阶段，地位与卡位决定资金回流优先级，业绩兑现清晰的龙头优于纯情绪标的
+    - 英伟达催化：Vera Rubin全面量产、Marvell或成万亿公司、Spectrum-X硅光技术量产
+    - 操作纪律：CPO短期涨幅已大需防获利回吐；不追高，等分歧后缩量回踩
 intraday_schedule:
 - window: 09:15-09:30
   name: 集合竞价
@@ -173,146 +166,125 @@ position_rules:
   action: 只观察不介入
 quant_entry_strategy:
   updated_at: '2026-06-02'
-  data_source: eastmoney_push2_2026-06-01_close
-  market_summary: 上证4057.74(-0.27%)，深证15340.36(-1.51%)，创业板3950.94(-2.15%)，科创501663.69(-5.0%)。指数冲高回落，大小票分化。AI科技调整，微盘股翻红。量能萎缩，市场处于新旧势力交替的混沌轮动中。
+  data_source: fetch_stock_data_2026-06-02_2350
+  market_summary: 上证4075.1(+0.43%)，深证15591.13(+1.63%)，创业板4055.87(+2.66%)，科创501690.56(+1.62%)。成交2.77万亿（缩量845亿）。共振修复，AI硬件普涨。
   sector_strength_ranking:
   - rank: 1
-    sector: MLCC/被动元件
-    strength: 风华高科+3.81%，洁美科技+8.45%，火炬电子涨停+9.99%
-    assessment: 逆势最强，周期上行确认。但本质是外溢承接而非类存储大紧缺
+    sector: 光纤
+    strength: 亨通光电涨停+10.01%创历史新高，长飞光纤涨停+10%
+    assessment: 光互连领涨，但产业无大变化，情绪载体承载力存疑
   - rank: 2
-    sector: 煤炭
-    strength: 潞安环能涨停+10%，兖矿能源涨停+10%，山西焦煤+7.51%，中国神华+4.43%
-    assessment: 安监+旺季，接棒电力避险角色。但本质补涨，波动大不易做
+    sector: MLCC
+    strength: 火炬电子4天3板+10%，风华高科+8.83%
+    assessment: 周期上行确认，普涨共振中最强分支之一
   - rank: 3
-    sector: 化工涨价
-    strength: 巨化股份涨停+9.99%，圣泉集团+6.06%
-    assessment: 制冷剂+PFA双重催化，格局优异
+    sector: CPO/光互连
+    strength: 新易盛+9.88%，天孚通信+6.56%，中际旭创+5.47%
+    assessment: 业绩兑现路径最清晰，但短期涨幅已大
   - rank: 4
-    sector: 防御（白酒/银行）
-    strength: 茅台-1.24%，招行+0.5%
-    assessment: 防御分化，不再是主线
-  - rank: 5
-    sector: AIPC/AI应用
-    strength: 华勤技术涨停+10%，海量数据涨停+10.01%
-    assessment: 小周期行情，相对占优但非主线
-  - rank: 6
-    sector: 光通信/CPO
-    strength: 中际旭创-2.68%，新易盛-3.77%，天孚通信-5.78%
-    assessment: 高位调整，科技线整体弱势
-  - rank: 7
-    sector: CPU自研链
-    strength: 得润+5.0%，万通-2.04%
-    assessment: 继续分化，组内不联动
-  - rank: 8
-    sector: 液冷/散热
-    strength: 飞荣达-1.5%，鼎通-8.22%，意华+4.95%
-    assessment: 严重分化，鼎通大跌
-  - rank: 9
-    sector: 上游涨价链
-    strength: 芯碁微装+1.46%，华虹-5.82%，芯联集成-4.84%
-    assessment: 分化严重，科技调整拖累
-  - rank: 10
     sector: PCB
-    strength: 胜宏科技-7.1%，沪电股份-7.22%，深南电路-7.63%
-    assessment: 全线大跌，周末利好兑现后回调
+    strength: 鹏鼎控股触及涨停+8.27%，沪电股份+6.93%，宏和科技地天板
+    assessment: 与CPO/MLCC同一节奏，共振修复
+  - rank: 5
+    sector: 服务器
+    strength: 中科曙光+0.73%，浪潮信息+1.34%
+    assessment: Vera Rubin量产受益，但普涨下非焦点
+  - rank: 6
+    sector: 半导体
+    strength: 长电科技-0.4%
+    assessment: 强度稍弱，业绩支撑不足，规避
+  - rank: 7
+    sector: 有色锡
+    strength: 华锡有色2连板，锡业股份首板
+    assessment: 英伟达催化"算力金属"，新叙事
+  - rank: 8
+    sector: 机器人
+    strength: 中大力德、凯迪股份涨停
+    assessment: 共振修复中跟随上涨
+  - rank: 9
+    sector: 煤炭
+    strength: 大有能源等活跃
+    assessment: 电力板块传导第二棒
   key_findings:
-  - 上证4057.74收盘 = 30分钟底部4055附近震荡，未有效跌破
-  - 科创50大跌-5.0% = 120分钟双顶调整深化，科技线全面承压
-  - 风华高科+3.81%/洁美科技+8.45% = MLCC周期上行确认，逆势最强
-  - 巨化股份涨停+9.99% = 化工涨价（制冷剂+PFA）双重催化
-  - 煤炭多股涨停 = 安监+旺季，接棒电力避险角色
-  - PCB全线大跌（胜宏-7.1%/沪电-7.22%）= 周末利好兑现后回调
-  - 万通发展-2.04% = 跌破成本，CPU链分化
-  - 安泰科技-2.0% = 接近减仓区间22.50
-  - 泓淋电力+19.98% = 接近涨停，戴尔AI服务器催化
+  - 创业板+2.66%一枝独秀 = 共振修复确认，但黄白线分化明显
+  - 成交2.77万亿缩量845亿 = 量能未继续萎缩是关键信号
+  - 3800+个股下跌 = 指数强个股弱，赚钱效应集中在科技主线
+  - CPO业绩从预期→订单 = 最有产业逻辑支撑的分支
+  - 火炬电子4天3板但频繁开板 = 情绪载体承载力存疑
+  - 半导体强度稍弱 = 业绩支撑不足，下半年才有望改善
+  - 明日观察：资金能否聚焦某一分支
   entry_points:
+  - code: 300394.SZ
+    name: 天孚通信
+    priority: 1
+    sector: CPO供应链核心卡位
+    close: 457.0
+    change_pct: 6.56
+    assessment: CPO供应链核心卡位，光引擎/FAU/ELS三大核心组件。业绩兑现路径清晰，资金回流优先级高
+    trigger_buy:
+    - CPO组整体转强
+    - 不追高，等分歧后缩量回踩
+    - 产业卡位明确，龙头优于纯情绪
+    entry_zone: 440-450区间
+    position_ratio: 1.5成
+    stop_loss: 跌破430且30分钟不能收回
+    invalidation:
+    - CPO整体走弱
+    - 英伟达供应链逻辑不被认可
   - code: 000636.SZ
     name: 风华高科
-    priority: 1
-    sector: MLCC/被动元件
-    close: 55.05
-    change_pct: 3.81
-    assessment: 逆势+3.81%，MLCC周期上行最强标的
+    priority: 2
+    sector: MLCC周期上行
+    close: 59.91
+    change_pct: 8.83
+    assessment: MLCC周期上行最强标的，共振修复中独立强势
     trigger_buy:
-    - MLCC组整体转强，风华高科放量突破
+    - MLCC组整体转强
     - 不追高，等分歧后缩量回踩
-    - 需三环集团或洁美科技同步承接
-    entry_zone: 52.0-53.5区间
+    - 需三环集团或火炬电子同步承接
+    entry_zone: 55-57区间
     position_ratio: 1.5成
-    stop_loss: 跌破50.0且30分钟不能收回
+    stop_loss: 跌破53且30分钟不能收回
     invalidation:
     - MLCC被误判为类存储大紧缺后情绪退潮
     - 三环集团大幅回落
-    - 指数继续大跌
-  - code: 300408.SZ
-    name: 三环集团
-    priority: 1
-    sector: MLCC/被动元件
-    close: 125.63
-    change_pct: -2.45
-    assessment: 国产高端MLCC龙头，6月1日随科技调整-2.45%
+  - code: 600487.SH
+    name: 亨通光电
+    priority: 3
+    sector: 光纤
+    close: 83.12
+    change_pct: 10.01
+    assessment: 涨停创历史新高，情绪载体候选。但光纤产业近期无大变化，承载力存疑
     trigger_buy:
-    - MLCC组整体转强，三环集团放量突破
-    - 不追高，等分歧后缩量回踩
-    entry_zone: 120.0-122.0区间
-    position_ratio: 1.5成
-    stop_loss: 跌破118.0且30分钟不能收回
-    invalidation:
-    - MLCC组无联动
-    - 高端MLCC客户验证不及预期
-  - code: 600160.SH
-    name: 巨化股份
-    priority: 2
-    sector: 化工涨价（制冷剂+PFA）
-    close: 36.32
-    change_pct: 9.99
-    assessment: 涨停+9.99%，双重催化：HFCs制冷剂超长景气+超纯PFA半导体突破
-    trigger_buy:
-    - 化工涨价板块整体转强
-    - 制冷剂价格继续上涨或超纯PFA客户验证
-    - 不追高，等分歧后缩量回踩
-    entry_zone: 33.0-34.5区间
+    - 光纤组整体转强
+    - 不追高，等分歧后回踩
+    - 需长飞光纤同步承接
+    entry_zone: 75-78区间
     position_ratio: 1成
-    stop_loss: 跌破32.0且30分钟不能收回
+    stop_loss: 跌破72且30分钟不能收回
     invalidation:
-    - 制冷剂价格大幅回落
-    - 超纯PFA客户验证不及预期
+    - 光纤产业无新变化被资金识破
+    - 单票脉冲但组内无联动
   avoid:
-  - code: 300308.SZ
-    name: 中际旭创
-    reason: CPO高位核心，-2.68%调整中，科技线全面弱势
-  - code: 300502.SZ
-    name: 新易盛
-    reason: CPO跟风，-3.77%高位调整
-  - code: 688469.SH
-    name: 芯联集成-U
-    reason: 功率半导体-4.84%，涨价链分化
-  - code: 002922.SZ
-    name: 伊戈尔
-    reason: 电源链-2.4%，板块弱势
   - code: 600584.SH
     name: 长电科技
-    reason: 半导体规避方向，-7.8%
-  - code: 600519.SH
-    name: 贵州茅台
-    reason: 防御分化，-1.24%，不是风格切换
-  - code: 300476.SZ
-    name: 胜宏科技
-    reason: PCB周末利好兑现后大跌-7.1%，不追高
-  - code: 002463.SZ
-    name: 沪电股份
-    reason: PCB大跌-7.22%，等待企稳
+    reason: 半导体规避方向，博主明确不要买半导体。业绩支撑不足
+  - code: 000969.SZ
+    name: 安泰科技
+    reason: 持仓浮亏-11.1%，纳米晶/软磁板块弱势，已减仓观望
+  - code: 000066.SZ
+    name: 中国长城
+    reason: 持仓浮亏-1.25%，信创方向，随科技线调整
   position_advice:
     empty_position:
       total: 3成以内
       allocation:
-      - MLCC：风华高科1.5成
-      - 化工涨价：巨化股份1成
-      note: 上证4055附近震荡，科创50大跌-5%，调整深化中。控制仓位，只参与结构性机会（MLCC/化工涨价/煤炭），不抄底科技。保持耐心、降低频率。
+      - CPO核心卡位：天孚通信1.5成
+      - MLCC周期上行：风华高科1.5成
+      note: 共振修复初期，普涨共振格局下反弹预期需降低。控制仓位，只参与有产业逻辑支撑的龙头（CPO/MLCC），不追高。明日观察资金能否聚焦某一分支。
     full_position:
       action: 降仓至3成以内
-      note: 增厚止盈安全垫，等图形与趋势再度走好时卷土重来。守住破位纪律。
+      note: 普涨共振下高度不足，反弹预期降低。增厚安全垫，等强共振确认后再加仓。
 sector_groups:
 - id: cpu_self_development
   name: CPU自研链
