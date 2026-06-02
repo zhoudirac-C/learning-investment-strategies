@@ -278,12 +278,16 @@ quant_entry_strategy:
     - 光刻胶/CMP国产替代逻辑被市场认可
     - 不追高，等缩量回踩
     - 需沪硅产业或安集科技同步承接
-    entry_zone: 62.72-64.07
+    entry_zone: 60.0-63.0
     position_ratio: 1成
     invalidation:
     - 半导体业绩证伪
     - 国产替代进度不及预期
     - 单票异动但板块不共振
+    technical_basis: 前期平台支撑+回踩5日线/10日线区间。6月2日收盘67.44，半导体方向强度稍弱，若板块企稳，回踩60-63前期平台为合理介入点。
+    key_levels:
+    - 支撑：60.0（前期平台）
+    - 压力：70.0（前高）
   - code: 688515.SH
     name: 裕太微
     priority: 5
@@ -297,12 +301,17 @@ quant_entry_strategy:
     - Marvell概念不退潮
     - 不追高，等分歧后缩量回踩（大涨后需充分调整）
     - 需盛科通信或中兴通讯同步承接
-    entry_zone: 184.45-195.3
+    entry_zone: 175.0-185.0
     position_ratio: 0.5成（高弹性，控制仓位）
     invalidation:
     - Marvell概念退潮
     - DSP量产进度延迟
     - 单票脉冲但板块不共振
+    technical_basis: 6月2日大涨32.96%突破前期平台，需等充分回踩确认。180附近为突破前高点，转化为支撑。175为深调极限位（约-20%）。
+    key_levels:
+    - 支撑：180.0（突破前高转支撑）
+    - 支撑2：175.0（深调极限）
+    - 压力：220.0（日内高点）
   - code: 601138.SH
     name: 工业富联
     priority: 6
@@ -316,12 +325,16 @@ quant_entry_strategy:
     - 英伟达供应链逻辑确认
     - 不追高，等分歧后缩量回踩
     - 需天孚通信或中际旭创同步承接
-    entry_zone: 74.41-76.01
+    entry_zone: 74.0-76.5
     position_ratio: 1成
     invalidation:
     - CPO整体走弱
     - 英伟达出货不及预期
     - 单票脉冲但板块不共振
+    technical_basis: 6月2日收盘80.01，CPO方向持续强势。74-76区间为近期震荡平台上沿+5日线/10日线交汇区，回踩此区间确认支撑有效后介入。
+    key_levels:
+    - 支撑：74.0（平台上沿+均线交汇）
+    - 压力：82.0（前高）
   - code: 002384.SZ
     name: 东山精密
     priority: 7
@@ -335,12 +348,17 @@ quant_entry_strategy:
     - 收购索尔思光电进度确认
     - 不追高，等分歧后缩量回踩
     - 需鹏鼎控股或沪电股份同步承接
-    entry_zone: 185.62-194.06
+    entry_zone: 185.0-195.0
     position_ratio: 1成
     invalidation:
     - PCB整体走弱
     - 收购进度不及预期
     - 单票脉冲但板块不共振
+    technical_basis: 6月2日大涨19.18%接近涨停，突破前期平台。190附近为突破前高点，转化为支撑。185为深调极限（约-12%）。需等回踩确认突破有效性。
+    key_levels:
+    - 支撑：190.0（突破前高转支撑）
+    - 支撑2：185.0（深调极限）
+    - 压力：215.0（前高）
   - code: 000807.SZ
     name: 云铝股份
     priority: 8
@@ -354,12 +372,16 @@ quant_entry_strategy:
     - 出口逻辑持续
     - 不追高，等缩量回踩
     - 需中国铝业或神火股份同步承接
-    entry_zone: 28.17-28.78
+    entry_zone: 28.5-29.5
     position_ratio: 1成
     invalidation:
     - 铝价大幅回落
     - 美伊冲突缓和
     - 单票脉冲但板块不共振
+    technical_basis: 6月2日收盘30.29，绿色铝龙头业绩新高。28.5-29.5为近期震荡平台上沿+5日线支撑区，回踩此区间且铝价维持强势时介入。
+    key_levels:
+    - 支撑：28.5（平台上沿+5日线）
+    - 压力：31.5（前高）
   avoid:
   - code: 600584.SH
     name: 长电科技
