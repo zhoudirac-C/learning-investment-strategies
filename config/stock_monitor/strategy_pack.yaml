@@ -265,6 +265,97 @@ quant_entry_strategy:
     invalidation:
     - 光纤产业无新变化被资金识破
     - 单票脉冲但组内无联动
+  - code: 300054.SZ
+    name: 鼎龙股份
+    priority: 4
+    sector: 光刻胶/CMP国产替代
+    close: null
+    change_pct: null
+    assessment: UP明确提示"关注地位方向"：高端光刻胶/CMP国产替代第一，有实际产能落地、批量供货节点清晰。半导体方向中业绩支撑度够的稀缺标的，确定性相对更高。
+    trigger_buy:
+    - 半导体板块整体企稳
+    - 光刻胶/CMP国产替代逻辑被市场认可
+    - 不追高，等缩量回踩
+    - 需沪硅产业或安集科技同步承接
+    entry_zone: 近期平台附近，等分歧后缩量回踩
+    position_ratio: 1成
+    invalidation:
+    - 半导体业绩证伪
+    - 国产替代进度不及预期
+    - 单票异动但板块不共振
+  - code: 688515.SH
+    name: 裕太微
+    priority: 5
+    sector: 以太网PHY/DSP
+    close: null
+    change_pct: null
+    assessment: UP明确提示"关注地位方向"：以太网PHY全栈，华为哈勃持股6.97%。英伟达点名Marvell可能成"万亿公司"引发DSP热。SerDes芯片预计26年下半年量产。6月2日已大涨18%，短期不追。
+    trigger_buy:
+    - DSP/光通信方向持续强势
+    - Marvell概念不退潮
+    - 不追高，等分歧后缩量回踩（大涨后需充分调整）
+    - 需盛科通信或中兴通讯同步承接
+    entry_zone: 大涨前平台附近，等充分调整
+    position_ratio: 0.5成（高弹性，控制仓位）
+    invalidation:
+    - Marvell概念退潮
+    - DSP量产进度延迟
+    - 单票脉冲但板块不共振
+  - code: 601138.SH
+    name: 工业富联
+    priority: 6
+    sector: CPO交换机/ODM
+    close: null
+    change_pct: null
+    assessment: UP明确提示"关注地位方向"：CPO供应链核心卡位，全光CPO交换机机柜出货目标从26年超1万台上修至26-27年合计超5万台。英伟达Vera
+      Rubin全面量产受益。
+    trigger_buy:
+    - CPO方向持续强势
+    - 英伟达供应链逻辑确认
+    - 不追高，等分歧后缩量回踩
+    - 需天孚通信或中际旭创同步承接
+    entry_zone: 近期平台附近，等分歧后缩量回踩
+    position_ratio: 1成
+    invalidation:
+    - CPO整体走弱
+    - 英伟达出货不及预期
+    - 单票脉冲但板块不共振
+  - code: 002384.SZ
+    name: 东山精密
+    priority: 7
+    sector: FPC全球第二/PCB全球第三
+    close: null
+    change_pct: null
+    assessment: UP明确提示"关注地位方向"：FPC全球第二、PCB全球第三。计划投资不超10亿美元建高端PCB项目（聚焦AI服务器）；拟收购索尔思光电100%股权切入光模块；与上交大成立机器人联合研发中心。
+    trigger_buy:
+    - PCB/光通信方向持续强势
+    - 收购索尔思光电进度确认
+    - 不追高，等分歧后缩量回踩
+    - 需鹏鼎控股或沪电股份同步承接
+    entry_zone: 近期平台附近，等分歧后缩量回踩
+    position_ratio: 1成
+    invalidation:
+    - PCB整体走弱
+    - 收购进度不及预期
+    - 单票脉冲但板块不共振
+  - code: 000807.SZ
+    name: 云铝股份
+    priority: 8
+    sector: 绿色铝龙头
+    close: null
+    change_pct: null
+    assessment: UP明确提示"关注地位方向"：绿色铝龙头。26Q1营收163.8亿（+13.7%），归母净利36亿（+269.5%），创单季盈利新高。美伊冲突致中东电解铝产能受损，沪伦价差降至3238元/吨接近22年历史极值，内外盘价差创新低利好出口。
+    trigger_buy:
+    - 铝价维持强势
+    - 出口逻辑持续
+    - 不追高，等缩量回踩
+    - 需中国铝业或神火股份同步承接
+    entry_zone: 近期平台附近，等缩量回踩
+    position_ratio: 1成
+    invalidation:
+    - 铝价大幅回落
+    - 美伊冲突缓和
+    - 单票脉冲但板块不共振
   avoid:
   - code: 600584.SH
     name: 长电科技
@@ -277,11 +368,15 @@ quant_entry_strategy:
     reason: 持仓浮亏-1.25%，信创方向，随科技线调整
   position_advice:
     empty_position:
-      total: 3成以内
+      total: 6成以内
       allocation:
       - CPO核心卡位：天孚通信1.5成
       - MLCC周期上行：风华高科1.5成
-      note: 共振修复初期，普涨共振格局下反弹预期需降低。控制仓位，只参与有产业逻辑支撑的龙头（CPO/MLCC），不追高。明日观察资金能否聚焦某一分支。
+      - 光刻胶/CMP国产替代：鼎龙股份1成
+      - CPO交换机/ODM：工业富联1成
+      - FPC/PCB全球龙头：东山精密1成
+      - 绿色铝出口：云铝股份1成
+      note: 共振修复初期，普涨共振格局下反弹预期需降低。控制仓位，只参与有产业逻辑支撑、地位与卡位明确的龙头。不追高，等分歧后缩量回踩。明日观察资金能否聚焦某一分支。裕太微高弹性0.5成，需等充分调整。
     full_position:
       action: 降仓至3成以内
       note: 普涨共振下高度不足，反弹预期降低。增厚安全垫，等强共振确认后再加仓。
