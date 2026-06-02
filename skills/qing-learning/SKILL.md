@@ -73,9 +73,10 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 - **操作建议必须关联claims**：给出操作建议时，必须引用具体的claim ID（如claim-20260531-002-a）和博主判断依据，不是拍脑袋建议。
 - **持仓更新 factual accuracy 检查**：更新positions.yaml时，必须逐账户核对用户提供的持仓信息。常见错误：把账户2的持仓误写到账户1。写入前反问确认："账户1：XXX，账户2：YYY，对吗？"
 - **回顾整理类请求**：当用户要求"回顾整理UP最近观点""qing review"等时，不是走完整 qing-learning 流程（不需要新建 raw/claims），而是基于已学习的 claims 和 wiki 做系统性归纳。输出结构：①周期定位 ②操作策略 ③主线判断 ④新分支/产业催化 ⑤技术分析框架 ⑥风险提示 ⑦观点连续性链条。优先读取 claims 文件（`knowledge/claims/claim-YYYYMMDD-*.yaml`）和 wiki 复盘（`knowledge/wiki/每日复盘/YYYY-MM-DD.md`）作为信息源，不要重新从 raw 抽取。
-- **直接修复，少解释**：当脚本有bug或遗漏明显内容时，用户偏好直接修复而非长篇解释原因。给出简洁的修复确认即可。
+- **用户发图片整理raw文档时的处理**：当用户发送多张图片（如复盘截图）要求整理成raw文档时，使用OCR提取文字后按raw格式规范化。关键要点：①图片可能包含完整复盘内容，需合并多张图片的OCR结果；②OCR识别可能有误差，需人工校对关键标的名称和数字；③按raw文档标准格式输出（frontmatter、结构化分节）；④保存到`sources/raw/财经/`后走完整qing-learning流程。详见`references/image-to-raw-workflow.md`。
 - **短 raw 文档 ingestion 模式**：对于极短 raw（如盘中动态补发，仅1-2句话），不必强行拆成多条 claims。精简为 1-2 条核心 claim，更新对应日期的 wiki（追加章节而非新建页面），不更新 framework/总纲。示例：`早盘补发：26-06-01：周五剧本延续，反向上涨票补跌.md` → 1条 claim（market-cycle）+ wiki 追加盘中补发章节。
 - **用户追问"XX方向没有整理吗？"的处理**：当用户发现某主题（如端侧AI、AIPC）只有 claims 而无独立 wiki 专题页时，说明该主题跨多篇 raw 出现但未沉淀为专题。应立即：①搜索所有 raw/claims 中该主题的内容 → ②创建/更新 `knowledge/wiki/市场分析/主题名.md` → ③将相关 claims 链接到专题页 → ④更新 wiki/index.md。这是用户的常见检查模式，应在初始 ingestion 时就主动完成。
+- **图片/截图转 raw 的 OCR 处理**：当用户提供复盘截图或图片要求整理时，使用OCR提取文字。注意：①多张图片需合并OCR结果；②关键标的名称和数字需人工校对；③按raw标准格式输出；④详见`references/image-to-raw-workflow.md`。
 
 ## 必读参考
 

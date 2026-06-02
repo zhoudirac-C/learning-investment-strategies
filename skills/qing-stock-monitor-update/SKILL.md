@@ -29,11 +29,14 @@ description: |
 ## 必读参考
 
 1. `skills/qing-stock-monitor-update/references/qualitative-fields-spec.md` — 描述型字段规范
-2. `skills/qing-stock-monitor-update/references/data-fetch-script.md` — 数据获取脚本规范
+2. `skills/qing-stock-monitor-update/references/data-fetch-script.md` — 数据获取脚本规范（含输出数据读取方法）
 3. `skills/qing-stock-monitor-update/references/yaml-update-protocol.md` — YAML 更新协议
 4. `skills/qing-stock-monitor-update/references/technical-inference.md` — 无 UP 观点时的技术推断规则
-5. `skills/qing-stock-analysis/references/data-source-strategy.md` — 数据源策略与降级规则
-6. `framework/technical-analysis-framework.md` — 技术工具层规则（轨道B）
+5. `skills/qing-stock-monitor-update/references/patch-disambiguation-pitfall.md` — Patch 工具歧义匹配陷阱与解决
+6. `skills/qing-stock-monitor-update/references/narrative-bulk-update-from-review.md` — 从复盘文档批量更新 narrative 的规范流程与常见陷阱
+6. `skills/qing-stock-analysis/references/data-source-strategy.md` — 数据源策略与降级规则
+7. `framework/technical-analysis-framework.md` — 技术工具层规则（轨道B）
+8. `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束
 
 ## 工作流程
 
@@ -46,6 +49,17 @@ cd ~/learning-investment-strategies
 python3 skills/qing-stock-monitor-update/scripts/fetch_stock_data.py \
   --config-dir config/stock_monitor \
   --output /tmp/stock_data_$(date +%Y%m%d_%H%M).json
+```
+
+**读取输出数据**：`stocks` 字段是列表（list），不是字典。必须先转换为 `code -> info` 映射：
+
+```python
+import json
+with open('/tmp/stock_data_YYYYMMDD_HHMM.json') as f:
+    data = json.load(f)
+stocks_list = data.get('stocks', [])
+stock_dict = {s['code']: s for s in stocks_list if 'code' in s}
+# 市场指数：data['market']['indexes']
 ```
 
 数据源优先级：
@@ -211,6 +225,70 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 3. **数据源降级**：不可用时不编造数据，标记 degraded。
 4. **验证后提交**：每次更新后运行 `--status` 和 `--analysis-context` 确认。
 5. **区分轨道**：技术推断只引用 `framework/technical-analysis-framework.md`（轨道B），不混淆市场认知 claims（轨道A）。
+
+## 从复盘文档批量更新 narrative 的规范流程
+
+当用户要求"把复盘文档的市场数据、板块涨跌、个股表现提取到 watchlist 对应票的 technical_narrative 和 sector_narrative 中"时，按以下流程执行：
+
+### 前置检查
+1. **先 `git pull`**：确保本地 watchlist.yaml 是最新版本，避免基于旧版本修改后产生冲突。
+2. **定位复盘文档**：在 `docs/` 或 `sources/raw/财经/` 中找最新复盘文件（命名格式：`收盘监控复盘_YYYY-MM-DD.md` 或 `复盘：YY-MM-DD：...`）。
+3. **提取关键数据**：
+   - 指数收盘：上证、深证、创业板、科创50的收盘价和涨跌幅
+   - 板块表现：各主题（CPU自研链、MLCC、半导体、防御等）的涨跌 summary
+   - 个股数据：复盘文档"附：今日关键数据速查"表中的收盘价、涨跌幅、持仓盈亏
+
+### 更新流程
+1. **读取 watchlist.yaml 完整内容**（不带 offset/limit），确认目标票在哪些 theme 中出现。
+2. **同一票多 theme 处理**：若某票（如风华高科 000636.SZ）出现在多个 theme 中（如 `upstream_price_increase` 和 `mlcc_passive_cycle`），**每个出现位置都要更新**，不能只更新一处。
+3. **无 narrative 的票插入**：若目标票当前没有 `technical_narrative`/`sector_narrative`，在 `invalidation_setup` 之后插入新块。注意：必须在 `invalidation_setup` 最后一行和 `technical_narrative:` 之间保留换行，否则 YAML 解析失败。
+4. **字段内容规范**：
+   - `technical_narrative.trend`：必须包含日期和涨跌幅（如"6月1日-2.10%跌破成本"）
+   - `technical_narrative.note`：必须包含收盘价、成本线（持仓票）、板块 context
+   - `sector_narrative.relative_strength`：必须包含该票在板块内的相对位置（如"CPU链内偏弱""MLCC组最强"）
+   - `sector_narrative.risk`：必须包含当日观察到的具体风险（如"组内分化严重，ST得润+5%但万通-2.1%"）
+5. **today_snapshot 同步更新**：
+   - `fetch_time`：更新为当前时间
+   - `market_summary`：用复盘文档中的精确指数数据重写
+   - `stocks_with_data`：更新为复盘文档中的收盘价和涨跌幅
+   - `overall_action`：基于复盘结论重写
+
+### 常见格式陷阱
+- **换行缺失**：正则替换或字符串拼接时，`invalidation_setup` 最后一行与 `technical_narrative:` 之间缺少 `\n`，导致 YAML 解析为 `None`。修复：插入前检查 `invalidation_setup` 块末尾是否有换行，没有则补一个。批量插入时尤其注意：Python 正则替换的替换字符串必须以 `\n    technical_narrative:` 开头，而非直接拼接在前一行末尾。
+- **多位置重复票**：如 `000636.SZ` 既是万通发展又是风华高科（不同 theme），更新时必须通过 `role` 字段区分（`pcie_switch_core` vs `mlcc_mainboard_core`），不能仅按 code 匹配。
+- **同一 code 不同 name 的票被误匹配**：仅按 `code` 批量替换时，可能将万通发展的 narrative 错误写到风华高科上。修复：匹配时必须同时检查 `code` + `name` + `role`，用三者组合精确定位。
+- **YAML 验证**：每次更新后用 `yaml.safe_load()` 验证文件可解析，确认所有目标票的 narrative 字段不为 `None`。
+
+### 数据已同步的识别与处理
+- **症状**：执行更新前发现 watchlist 的 `today_snapshot`、`technical_narrative`、`sector_narrative` 已包含复盘文档中的数据。
+- **根因**：用户可能已手动更新，或前一次会话已执行过同步。
+- **处理原则**：
+  1. 不要重复写入相同数据。
+  2. 通过 `yaml.safe_load()` 读取并比对关键字段（`trend`、`note`、`relative_strength`、`market_summary`）确认是否已同步。
+  3. 若已同步，向用户报告当前状态（各票 narrative 摘要、today_snapshot 数据点），并询问是否需要基于**今早动态**追加更新（如新增 sector_group、调整 up_mention_status）。
+  4. 若部分同步（如 today_snapshot 已更新但某票的 sector_narrative 缺失），仅补全缺失部分。
+
+### 验证清单
+- [ ] `git pull` 完成，无冲突
+- [ ] 所有复盘文档中提到的票都已更新 narrative
+- [ ] 同一票在多个 theme 中的每个位置都已更新
+- [ ] 同一 code 不同 name 的票已按 `code+name+role` 区分，无错位
+- [ ] `yaml.safe_load()` 验证通过，无解析错误
+- [ ] `today_snapshot` 中的市场数据与复盘文档一致
+- [ ] `git diff --stat` 确认变更范围合理
+- [ ] **数据重复检查**：确认不是对已同步数据的重复写入
+- [ ] **用户验证**：提示用户通过 SSH 检查文件，提供具体路径和变更摘要
+
+## 用户交互规范
+
+执行本流程时遵守以下用户偏好：
+- **简洁优先**：用户偏好简短回复，不喜欢过度解释。给出变更摘要即可，无需逐步说明每个操作。
+- **"停"信号**：用户说"停"/"stop"/"不要改"/"don't change"时，立即停止当前操作，不完成剩余步骤。
+- **先文档后脚本**：当用户同时要求"补充到文档"和"改脚本"时，优先完成文档更新，脚本修复延后。
+- **减少逻辑**：用户明确拒绝区分逻辑时（如"不用区分置顶评论和普通评论，只看用户名"），立即按简化方案执行。
+- **数据已同步时**：若发现 watchlist 已包含复盘文档数据，不要重复写入。向用户报告当前同步状态，并询问是否需要基于**今早动态**追加更新。
+- **账户命名灵活性**：用户可能使用任意账户名称（如"大同账号""华宝账号"而非"账号1""账号2"）。更新 `positions.yaml` 时以用户提供的名称为准，不强制使用固定命名。若用户要求重命名账户，同步更新 `positions.yaml` 中所有引用该账户名的地方（包括 `account` 字段和 `strategy_summary` 中的描述）。
+- **LLM 幻觉识别**：当用户指出 cron 任务报告中的数据错误（如"万通发展没有涨停"），按 `references/llm-hallucination-prevention.md` 中的流程处理：验证 state.json/实时行情 → 标记幻觉 → 更新 prompt 约束。
 
 ## 禁止事项
 

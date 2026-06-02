@@ -1,30 +1,39 @@
 updated_at: '2026-06-02'
 today_snapshot:
-  fetch_time: 2026-06-02 00:15 CST
-  source: 收盘监控复盘_2026-06-01
-  up_bias: 6月1日收盘：指数冲高回落，大小票分化。AI科技进入调整，微盘股与全A翻红。市场处于新旧势力交替的混沌轮动中，AI可能从单边强趋势转向宽幅波动。节奏上保持耐心、降低频率。明日泛科技惯性回落后可能进入左侧观察区。
-  market_summary: 6月1日收盘，上证4055.91(-0.31%)，深证15340.36(-1.51%)，创业板3949.93(-2.18%)，科创501663.70(-5.00%)。万通发展15.83(-2.10%)跌破成本；安泰科技22.52(-1.96%)持仓浮亏-6.7%。风华高科55.06(+3.83%)逆势最强；火炬电子+9.99%涨停；长电科技75.66(-7.79%)半导体大跌。当前持仓：账号2万通发展300股（成本16.203，浮亏约109元）+安泰科技900股（成本24.136，浮亏约1466元）。总持仓约2.5%。
+  fetch_time: 2026-06-02 11:08 CST
+  source: 收盘监控复盘_2026-06-01 + 盘中行情_2026-06-02
+  up_bias: 6月2日盘中：指数企稳反弹，上证4061.17(+0.08%)，科创501694.60(+1.86%)，创业板4040.59(+2.27%)，深成指15502.98(+1.06%)。万通发展已清空；安泰科技减仓至700股；中国长城新买入。科技线修复中，保持耐心。
+  market_summary: 6月1日收盘，上证4055.91(-0.31%)，深证15340.36(-1.51%)，创业板3949.93(-2.18%)，科创501663.70(-5.00%)。6月2日盘中指数企稳反弹。万通发展15.47(-2.34%)已清空；安泰科技21.87(-2.84%)减仓后浮亏扩大；中国长城18.03(-2.44%)新买入。风华高科55.06(+3.83%)逆势最强；火炬电子+9.99%涨停；长电科技75.66(-7.79%)半导体大跌。当前持仓：华宝账号安泰科技700股（成本24.702，浮亏约-1992元）；大同账号中国长城400股（成本18.32，浮亏约-116元）。
   stocks_with_data:
   - code: 600246.SH
     name: 万通发展
-    latest: 15.83
-    pct_change: -2.10
+    latest: 15.47
+    pct_change: -2.34
     cost: 16.203
-    shares: 300
-    pnl: -108.9
-    pnl_pct: -2.24
-    status: 跌破成本，CPU自研链分化，观望
+    shares: 0
+    pnl: -214
+    pnl_pct: -4.4
+    status: 已清空，卖出价15.49，止损执行
   - code: 000969.SZ
     name: 安泰科技
-    latest: 22.52
-    pct_change: -1.96
-    cost: 24.136
-    shares: 900
-    pnl: -1466.4
-    pnl_pct: -6.53
-    status: 接近减仓区间22.50，纳米晶/软磁板块弱势
+    latest: 21.87
+    pct_change: -2.84
+    cost: 24.702
+    shares: 700
+    pnl: -1992
+    pnl_pct: -11.5
+    status: 减仓后仍承压，纳米晶/软磁板块弱势，观望
+  - code: 000066.SZ
+    name: 中国长城
+    latest: 18.03
+    pct_change: -2.44
+    cost: 18.32
+    shares: 400
+    pnl: -116
+    pnl_pct: -1.6
+    status: 新买入，国产CPU/信创，浮亏约-1.6%
   stocks_pending_fetch: []
-  overall_action: 调整周期深化，科创50大跌-5%。万通发展跌破成本观望；安泰科技接近减仓区间需警惕。MLCC逆势最强（风华高科+3.83%、火炬电子+9.99%），半导体规避（长电科技-7.79%）。保持耐心、降低频率，等待泛科技惯性回落后的左侧观察区。
+  overall_action: 指数企稳反弹，科创50+1.86%修复。万通发展破位清仓执行；安泰科技减仓至700股降风险；中国长城新布局。MLCC逆势最强（风华高科+3.83%、火炬电子+9.99%），半导体规避（长电科技-7.79%）。保持耐心、降低频率，严格执行止损纪律。
 themes:
 - id: cpu_self_development
   name: CPU自研链（字节催化，可能裂变为主线）
@@ -59,24 +68,24 @@ themes:
     - ST板块整体走弱或监管风险
     - 字节自研CPU逻辑不被持续认可
     up_mention_status:
-      last_mentioned_date: "2026-05-28"
+      last_mentioned_date: '2026-05-28'
       mention_context: 博主在5/28复盘视频中提到CPU自研链，ST得润作为Socket核心标的
       explicit_operation: null
-      sentiment: "中性提及"
+      sentiment: 中性提及
     technical_narrative:
-      trend: "6月1日+5.0%反弹，但ST风险仍在"
-      volume_character: "放量反弹"
+      trend: 6月1日+5.0%反弹，但ST风险仍在
+      volume_character: 放量反弹
       key_levels:
-      - "支撑：7.14"
-      - "压力：8.50"
-      pattern: "跌停后反弹"
-      note: "ST身份限制，只观察不介入"
+      - 支撑：7.14
+      - 压力：8.50
+      pattern: 跌停后反弹
+      note: ST身份限制，只观察不介入
     sector_narrative:
-      relative_strength: "CPU链内相对强"
-      money_flow: "游资参与"
-      leader_follower: "独立走势"
-      catalyst: "字节自研CPU"
-      risk: "ST退市风险、监管风险"
+      relative_strength: CPU链内相对强
+      money_flow: 游资参与
+      leader_follower: 独立走势
+      catalyst: 字节自研CPU
+      risk: ST退市风险、监管风险
   - code: 000636.SZ
     name: 万通发展
     role: pcie_switch_core
@@ -98,24 +107,24 @@ themes:
     - 跌破15.00且30分钟不能收回
     - 国产替代逻辑不被资金持续认可
     up_mention_status:
-      last_mentioned_date: "2026-05-28"
+      last_mentioned_date: '2026-05-28'
       mention_context: 博主在5/28复盘视频中提到CPU自研链，万通发展作为PCIe Switch核心标的
       explicit_operation: null
-      sentiment: "积极观察"
+      sentiment: 积极观察
     technical_narrative:
-      trend: "6月1日-2.10%跌破成本，短期弱势"
-      volume_character: "缩量调整"
+      trend: 6月1日-2.10%跌破成本，短期弱势
+      volume_character: 缩量调整
       key_levels:
-      - "支撑：15.00"
-      - "压力：16.50"
-      pattern: "高位回落后震荡"
-      note: "6月1日收盘15.83跌破成本16.203，CPU自研链分化，需观察链是否重新聚焦"
+      - 支撑：15.00
+      - 压力：16.50
+      pattern: 高位回落后震荡
+      note: 6月1日收盘15.83跌破成本16.203，CPU自研链分化，需观察链是否重新聚焦
     sector_narrative:
-      relative_strength: "CPU链内偏弱"
-      money_flow: "主力资金流出"
-      leader_follower: "板块跟随"
-      catalyst: "字节自研CPU"
-      risk: "组内分化严重，ST得润+5%但万通-2.1%，跌破成本"
+      relative_strength: CPU链内偏弱
+      money_flow: 主力资金流出
+      leader_follower: 板块跟随
+      catalyst: 字节自研CPU
+      risk: 组内分化严重，ST得润+5%但万通-2.1%，跌破成本
 - id: upstream_price_increase
   name: 上游涨价链（位置低，扩散广）
   source_docs:
@@ -146,25 +155,24 @@ themes:
     - 三环集团大幅回落
     - 指数继续大跌
     up_mention_status:
-      last_mentioned_date: "2026-05-31"
+      last_mentioned_date: '2026-05-31'
       mention_context: 博主在5/31复盘明确提到被动元件全面进入周期上行，MLCC是最确定的中观线索
       explicit_operation: null
-      sentiment: "积极观察"
+      sentiment: 积极观察
     technical_narrative:
-      trend: "6月1日+3.83%逆势强势"
-      volume_character: "放量上涨"
+      trend: 6月1日+3.83%逆势强势，MLCC周期上行确认
+      volume_character: 放量上涨
       key_levels:
-      - "支撑：50.0"
-      - "压力：58.0"
-      pattern: "突破平台后震荡上行"
-      note: "6月1日+3.83%逆势上涨，MLCC周期上行最强标的，上证-0.31%背景下独立走强"
+      - 支撑：50.0
+      - 压力：58.0
+      pattern: 突破平台后震荡上行
+      note: 6月1日+3.83%逆势上涨，MLCC周期上行最强标的。上证-0.31%背景下独立走强。火炬电子+9.99%涨停，MLCC组内联动确认。本质是外溢承接而非类存储大紧缺，量的改善强于价。
     sector_narrative:
-      relative_strength: "MLCC组最强，全市场逆势"
-      money_flow: "主力连续净流入"
-      leader_follower: "板块龙头"
-      catalyst: "海外巨头涨价+国产替代"
-      risk: "本质是外溢承接而非类存储大紧缺，量的改善强于价"
-
+      relative_strength: MLCC组最强，全市场逆势
+      money_flow: 主力连续净流入
+      leader_follower: 板块龙头
+      catalyst: 海外巨头涨价+国产替代
+      risk: 本质是外溢承接而非类存储大紧缺，量的改善强于价。不追高，等分歧回踩。
   - code: 002859.SZ
     name: 洁美科技
     role: mlcc_upstream_material
@@ -329,20 +337,19 @@ themes:
     - 跌破趋势支撑且东睦股份同步回落
     - AI电源链整体走弱
     technical_narrative:
-      trend: "6月1日-1.96%接近减仓区间"
-      volume_character: "缩量调整"
+      trend: 6月1日-1.96%接近减仓区间，6月2日盘中21.87(-2.84%)继续下跌，已减仓
+      volume_character: 缩量调整
       key_levels:
-      - "支撑：22.00"
-      - "压力：24.50"
-      pattern: "弱势震荡"
-      note: "6月1日收盘22.52，持仓浮亏-6.7%，接近减仓区间22.50，纳米晶/软磁板块弱势"
+      - 支撑：21.50
+      - 压力：24.50
+      pattern: 弱势震荡下行
+      note: 6月1日收盘22.52接近减仓区间22.50，6月2日盘中21.87跌破减仓区间。已减仓至700股，成本24.702，浮亏约-11.5%。纳米晶/软磁板块弱势，艾华集团跌停-10%，超级电容分支全面调整。
     sector_narrative:
-      relative_strength: "纳米晶/软磁方向偏弱"
-      money_flow: "资金流出"
-      leader_follower: "板块跟随"
-      catalyst: "英伟达800V架构"
-      risk: "AI电源链整体走弱，单票无扩散"
-
+      relative_strength: 纳米晶/软磁方向偏弱
+      money_flow: 资金流出
+      leader_follower: 板块跟随
+      catalyst: 英伟达800V架构
+      risk: AI电源链整体走弱，单票无扩散，已减仓降风险
   - code: 600114.SH
     name: 东睦股份
     role: nanocrystalline_soft_magnetic
@@ -695,20 +702,19 @@ themes:
     - 半导体板块整体走弱
     - 美股科技股大跌传导
     technical_narrative:
-      trend: "6月1日-7.79%大跌"
-      volume_character: "放量下跌"
+      trend: 6月1日-7.79%大跌
+      volume_character: 放量下跌
       key_levels:
-      - "支撑：70.00"
-      - "压力：80.00"
-      pattern: "破位下跌"
-      note: "6月1日大跌-7.79%，半导体规避方向确认，博主明确不要买半导体"
+      - 支撑：70.00
+      - 压力：80.00
+      pattern: 破位下跌
+      note: 6月1日大跌-7.79%，半导体规避方向确认，博主明确不要买半导体
     sector_narrative:
-      relative_strength: "半导体组最弱"
-      money_flow: "主力资金大幅流出"
-      leader_follower: "板块中军领跌"
-      catalyst: "美股科技股波动传导"
-      risk: "半导体调整周期深化，规避为主"
-
+      relative_strength: 半导体组最弱
+      money_flow: 主力资金大幅流出
+      leader_follower: 板块中军领跌
+      catalyst: 美股科技股波动传导
+      risk: 半导体调整周期深化，规避为主
   - code: 600519.SH
     name: 贵州茅台
     role: avoid_consumer
@@ -1263,20 +1269,19 @@ themes:
     - 跌破15日低点 36.78 且不能收回
     - 跌破MA5 37.21 且板块无联动
     technical_narrative:
-      trend: "6月1日+0.47%稳定"
-      volume_character: "正常成交"
+      trend: 6月1日+0.47%稳定
+      volume_character: 正常成交
       key_levels:
-      - "支撑：37.50"
-      - "压力：39.00"
-      pattern: "防御性震荡"
-      note: "6月1日+0.47%，防御稳定线强于进攻组，尾盘防御切换观察确认"
+      - 支撑：37.50
+      - 压力：39.00
+      pattern: 防御性震荡
+      note: 6月1日+0.47%，防御稳定线强于进攻组，尾盘防御切换观察确认
     sector_narrative:
-      relative_strength: "防御组最强"
-      money_flow: "稳健资金流入"
-      leader_follower: "防御锚点"
-      catalyst: "上证回调时防御配置"
-      risk: "科技主线强势时防御被虹吸"
-
+      relative_strength: 防御组最强
+      money_flow: 稳健资金流入
+      leader_follower: 防御锚点
+      catalyst: 上证回调时防御配置
+      risk: 科技主线强势时防御被虹吸
 - id: domestic_compute
   name: 国产算力产业链
   source_docs:
@@ -1353,6 +1358,20 @@ themes:
     invalidation_setup:
     - 跌破15日低点 17.6 且不能收回
     - 跌破MA5 18.95 且板块无联动
+    technical_narrative:
+      trend: 6月2日盘中18.03(-2.44%)，新买入
+      volume_character: 新买入，观察量能
+      key_levels:
+      - 支撑：17.20
+      - 压力：19.00
+      pattern: 新布局，观察承接
+      note: 6月2日新买入400股，成本18.32，盘中18.03浮亏约-1.6%。国产CPU/信创方向，需观察科技修复持续性。
+    sector_narrative:
+      relative_strength: 信创方向中等
+      money_flow: 新买入，观察资金态度
+      leader_follower: 板块跟随
+      catalyst: 国产CPU/信创政策
+      risk: 科技线调整中，单票无扩散风险
   - code: 603019.SH
     name: 中科曙光
     role: server_capacity
@@ -1604,20 +1623,19 @@ themes:
     - 跌破15日低点 53.19 且不能收回
     - 跌破MA5 84.26 且板块无联动
     technical_narrative:
-      trend: "6月1日-7.79%大跌"
-      volume_character: "放量下跌"
+      trend: 6月1日-7.79%大跌
+      volume_character: 放量下跌
       key_levels:
-      - "支撑：70.00"
-      - "压力：80.00"
-      pattern: "破位下跌"
-      note: "6月1日大跌-7.79%，半导体规避方向确认，博主明确不要买半导体"
+      - 支撑：70.00
+      - 压力：80.00
+      pattern: 破位下跌
+      note: 6月1日大跌-7.79%，半导体规避方向确认，博主明确不要买半导体
     sector_narrative:
-      relative_strength: "半导体组最弱"
-      money_flow: "主力资金大幅流出"
-      leader_follower: "板块中军领跌"
-      catalyst: "美股科技股波动传导"
-      risk: "半导体调整周期深化，规避为主"
-
+      relative_strength: 半导体组最弱
+      money_flow: 主力资金大幅流出
+      leader_follower: 板块中军领跌
+      catalyst: 美股科技股波动传导
+      risk: 半导体调整周期深化，规避为主
   - code: 002185.SZ
     name: 华天科技
     role: packaging_elastic
@@ -1735,20 +1753,19 @@ themes:
     - MLCC被误判为类存储大紧缺后情绪退潮
     - 中低容交期缩短至10周以下
     technical_narrative:
-      trend: "6月1日+3.83%逆势强势"
-      volume_character: "放量上涨"
+      trend: 6月1日+3.83%逆势强势，MLCC周期上行确认
+      volume_character: 放量上涨
       key_levels:
-      - "支撑：50.0"
-      - "压力：58.0"
-      pattern: "突破平台后震荡上行"
-      note: "6月1日+3.83%逆势上涨，MLCC周期上行最强标的，上证-0.31%背景下独立走强"
+      - 支撑：50.0
+      - 压力：58.0
+      pattern: 突破平台后震荡上行
+      note: 6月1日+3.83%逆势上涨，MLCC周期上行最强标的。上证-0.31%背景下独立走强。火炬电子+9.99%涨停，MLCC组内联动确认。本质是外溢承接而非类存储大紧缺，量的改善强于价。
     sector_narrative:
-      relative_strength: "MLCC组最强，全市场逆势"
-      money_flow: "主力连续净流入"
-      leader_follower: "板块龙头"
-      catalyst: "海外巨头涨价+国产替代"
-      risk: "本质是外溢承接而非类存储大紧缺，量的改善强于价"
-
+      relative_strength: MLCC组最强，全市场逆势
+      money_flow: 主力连续净流入
+      leader_follower: 板块龙头
+      catalyst: 海外巨头涨价+国产替代
+      risk: 本质是外溢承接而非类存储大紧缺，量的改善强于价。不追高，等分歧回踩。
   - code: 603678.SH
     name: 火炬电子
     role: mlcc_military_elastic
@@ -1765,20 +1782,19 @@ themes:
     - 单票脉冲但MLCC组无联动
     - 军工板块独立走弱
     technical_narrative:
-      trend: "6月1日+9.99%涨停"
-      volume_character: "放量涨停"
+      trend: 6月1日+9.99%涨停
+      volume_character: 放量涨停
       key_levels:
-      - "支撑：前高平台"
-      - "压力：涨停价"
-      pattern: "突破加速"
-      note: "6月1日涨停，军用MLCC弹性标的，民用MLCC周期上行带动估值修复"
+      - 支撑：前高平台
+      - 压力：涨停价
+      pattern: 突破加速
+      note: 6月1日涨停，军用MLCC弹性标的，民用MLCC周期上行带动估值修复
     sector_narrative:
-      relative_strength: "MLCC组内最强弹性"
-      money_flow: "游资+机构合力"
-      leader_follower: "弹性先锋"
-      catalyst: "MLCC周期上行+军工估值修复"
-      risk: "涨停后需观察次日承接，不能连续加速"
-
+      relative_strength: MLCC组内最强弹性
+      money_flow: 游资+机构合力
+      leader_follower: 弹性先锋
+      catalyst: MLCC周期上行+军工估值修复
+      risk: 涨停后需观察次日承接，不能连续加速
 - id: coal_safety_summer
   name: 煤炭（安监风暴+迎峰度夏）
   source_docs:

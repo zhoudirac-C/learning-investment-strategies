@@ -19,7 +19,8 @@ description: Use when the user asks to analyze an individual stock through the b
 6. `skills/qing-stock-analysis/references/report-contract.md`
 7. `src/qing_investment/stock_monitor.py` — 监控脚本源码，包含 CLI flag、去重逻辑、板块轮动计算、大模型分析上下文格式。** cron 极简微信提醒的模板定义在源码中（搜索 `format_agent_analysis_context` 和 `请按本项目 AGENTS.md`），无独立参考文件。**
 8. `skills/qing-stock-analysis/references/realtime-quote-fetch.md` — **实时行情 curl 兜底**：当 Python 包不可用时，用 curl + 腾讯财经 API 获取 A 股实时行情
-9. `skills/qing-stock-analysis/references/watchlist-theme-recovery.md` — **观察池 themes 恢复操作手册**：当用户要求恢复历史上被替换/移除的 themes 时，按此手册执行 Git 历史溯源、字段精简和验证
+9. `skills/qing-stock-analysis/references/tencent-api-field-guide.md` — **腾讯财经 API 字段解析参考**：`qt.gtimg.cn` 返回字段的索引会随买卖盘深度漂移，必须用手动计算（最新-昨收）/昨收 或动态定位时间戳，禁止硬编码索引
+10. `skills/qing-stock-analysis/references/watchlist-theme-recovery.md` — **观察池 themes 恢复操作手册**：当用户要求恢复历史上被替换/移除的 themes 时，按此手册执行 Git 历史溯源、字段精简和验证
 10. `skills/qing-stock-analysis/references/watchlist-bulk-update-from-raw.md` — **从复盘文档批量更新观察池**：提取 raw 文档中的标的提及，去重后按主题分组追加到 watchlist.yaml 的完整流程
 11. `skills/qing-stock-analysis/references/stock-monitor-internals.md` — **监控脚本内部机制与状态文件结构**：收盘监控复盘时排查提醒来源、去重逻辑、漏报原因的参考手册
 12. `skills/qing-stock-analysis/references/stock-monitor-cli-behavior.md` — **监控脚本 CLI 行为与状态文件**：`--status`、`--daily-review-context`、`--live-analysis-context` 等命令的输出格式和用途
@@ -39,7 +40,7 @@ description: Use when the user asks to analyze an individual stock through the b
 ## 流程
 
 1. 搜索确认股票代码和上市市场。
-2. 按 `data-source-strategy.md` 选择数据源：优先使用当前运行环境原生金融/股票/经济数据库能力；其次使用项目本地监控脚本 `qing_stock_monitor.py`（见 `src/qing_investment/stock_monitor.py`）；若均不可用，再调用 `skills/qing-stock-analysis/scripts/run_glm_fetch.py`（如存在）；若 Python 环境无法安装依赖包，使用 `references/realtime-quote-fetch.md` 中的 curl + 腾讯财经 API 兜底方案。
+2. 按 `data-source-strategy.md` 选择数据源：优先使用当前运行环境原生金融/股票/经济数据库能力；其次使用项目本地监控脚本 `qing_stock_monitor.py`（见 `src/qing_investment/stock_monitor.py`）；若均不可用，再调用 `skills/qing-stock-analysis/scripts/run_glm_fetch.py`（如存在）；若 Python 环境无法安装依赖包，使用 `references/realtime-quote-fetch.md` 中的 curl + 腾讯财经 API 兜底方案；若需要 K-line 历史数据或图表但 matplotlib 不可用，使用 `references/curl-kline-fetch-and-text-chart.md` 中的 curl + 文本图表方案。
 3. 统一记录数据来源、查询时间、数据日期、缺失字段和可信度；不能把模型记忆当作行情数据。
 4. 读取结构化数据，并查看 K 线和分时图；若原生工具未提供可视化图表，使用本地脚本补图。
 5. 搜索精准新闻、公告和研报。
@@ -148,11 +149,12 @@ description: Use when the user asks to analyze an individual stock through the b
 ### 关键约束
 - **总字数 ≤ 450 字（中文）**。
 - **Focus**：午后一小时盘面验证，只讲当下，不预判尾盘，不做次日预案。
-- 持仓池每只股票必须单独一行，动作从 {持有, 做T, 减仓观察, 风控观察} 中选择。
+- **持仓池每只股票必须单独一行**，动作从 {持有, 做T, 减仓观察, 风控观察} 中选择。
 - 触发 = 当前价格/涨跌幅 + 关键位置状态；证伪 = 具体价位或板块信号导致判断失效。
 - 观察池"可买"最多 3 个，写清买点（价格区间 + 确认信号）；无可买则写"暂无可买"。
 - 观察池"暂不买"一句话说明主因（如"大盘未止跌企稳，全部进攻组跌幅>1.5%"）。
 - 脚注必须包含：数据源、时间戳、行情异常；不要给无条件买卖指令。
+- **数据验证（防幻觉）**：所有股价、涨跌幅数字必须来自脚本提供的 `[Hermes股票监控大模型分析上下文]`。禁止编造任何数字。若上下文未提供某票数据，写"数据未提供"而非猜测。
 
 ### 持仓动作决策树
 ```
@@ -357,7 +359,12 @@ description: Use when the user asks to analyze an individual stock through the b
     - 同板块其他股平稳或上涨，仅目标股跌停 → 可能存在未公告个股利空 → **考虑止损**
   - **数据获取**：使用 `python3 -c "import json; ..."` 从 `/tmp/stock_data_*.json` 中提取同板块标的行情
 - **不给出无条件买卖指令**：所有操作建议必须附带条件（"若X则Y"）
-- **区分指数ETF和个股**：当用户询问"恒生科技指数ETF"时，使用指数分析框架（见 SKILL.md 子任务"指数/ETF买入分析"），而非个股分析框架。指数分析侧重时间窗口、资金结构、宏观拐点；个股分析侧重产业逻辑、公司基本面、技术面。不要混淆两者。
+- **LLM 幻觉识别**：当用户指出 cron 任务报告中的数据错误（如"万通发展没有涨停"），按以下流程处理：
+  1. 验证 `state.json` 或实时行情（`curl qt.gtimg.cn`）获取真实数据
+  2. 确认是 LLM 幻觉后，向用户说明"这是 LLM 生成的虚假数据，state.json/实时行情显示实际为 X.XX"
+  3. 建议更新 cron 任务的 prompt，增加数据约束（见 `qing-stock-monitor-update/references/llm-hallucination-prevention.md`）
+  4. 不要试图为幻觉数据找合理解释（如"可能是盘中瞬间涨停"），直接承认是生成错误
+- **账户命名灵活性**：用户可能使用任意账户名称（如"大同账号""华宝账号"）。更新 `positions.yaml` 时以用户提供的名称为准，不强制使用固定命名。
 - **ETF分析输出结构**：见 SKILL.md 子任务"指数/ETF买入分析"中的"输出结构"章节，必须包含：核心结论、博主关键Claims时间线、时间线推演、操作策略（分情景）、风险与不确定性、关键观察指标。
 
 ### 数据源优先级
@@ -431,6 +438,17 @@ description: Use when the user asks to analyze an individual stock through the b
 2. **区分 SKILL.md 中内嵌的知识与外部 reference**：监控脚本机制、YAML 合约、板块轮动逻辑等知识已完整内嵌在 SKILL.md 正文中，不需要再读外部文件。
 3. **positions.yaml 是私有文件（gitignored）**：更新持仓分析时以实际文件内容为准，不依赖记忆中的旧持仓。
 4. **Skill 同步**：当需要更新本 skill 时，优先更新项目内版本 `~/learning-investment-strategies/skills/qing-stock-analysis/`，而非 Hermes 全局副本。详见 `qing-learning/references/skill-sync-workflow.md`。
+5. **避免工具调用死循环**：当同一 curl/API 调用连续失败或返回相同数据超过 3 次时，**立即停止重试**。常见原因：
+   - `run_glm_fetch.py` 因缺失 matplotlib/akshare/yfinance/tushare 而失败 → 改用 curl + 腾讯财经 API 兜底（见 `references/curl-kline-fetch-and-text-chart.md`）
+   - 已获取 K-line 数据但反复执行相同 fetch 命令 → 检查是否已满足分析需求，转向分析而非继续拉取
+   - 用户要求 分时图 但环境无绘图库 → 生成文本 K-line 摘要（高低点、关键位、量价变化）而非反复尝试画图
+6. **脚本依赖缺失时的快速降级路径**：
+   - 优先尝试：`python -c "import akshare, matplotlib"` 快速检测
+   - 若缺失 → 直接 curl 腾讯 API，不尝试 pip install（可能超时或权限不足）
+   - 数据到手后 → 用纯 Python 文本分析，不依赖 pandas/numpy（若可用则用，不可用则手写解析）
+7. **腾讯财经 API 字段索引陷阱**：`qt.gtimg.cn` 返回的字段中，涨跌幅不在固定索引位置。不同股票的买卖盘深度不同，导致 `split('~')` 后的字段数不一致。**涨跌幅字段必须动态定位**：先找到时间戳字段（格式 `YYYYMMDDhhmmss`，如 `20260602112927`），其后的第 2 个字段为涨跌额、第 3 个字段为涨跌幅。或者直接用 `a[5]`（昨收）和 `a[4]`（最新）手动计算：`(最新-昨收)/昨收*100`。推荐后者，避免索引漂移。
+   - 错误做法：`awk` 硬编码 `a[32]` 或 `a[34]` 作为涨跌幅 → 不同股票返回不同值
+   - 正确做法：`curl -s 'https://qt.gtimg.cn/q=sz000969' | iconv -f gbk -t utf-8 | awk -F'~' '{print ($4-$5)/$5*100}'`
 
 ## YAML 合约与同步规范
 

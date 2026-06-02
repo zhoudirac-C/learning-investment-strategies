@@ -428,6 +428,24 @@ sector_groups:
     name: 醋化股份
   - code: 600160.SH
     name: 巨化股份
+- id: ai_agent_application
+  name: AI应用/AI Agent
+  style: offensive
+  members:
+  - code: 301236.SZ
+    name: 软通动力
+  - code: 603636.SH
+    name: 南威软件
+  - code: 688507.SH
+    name: 索辰科技
+  - code: 002354.SZ
+    name: 天娱数科
+  - code: 603138.SH
+    name: 海量数据
+  - code: 300474.SZ
+    name: 神思电子
+  - code: 301270.SZ
+    name: 汉仪股份
 - id: urban_renewal
   name: 城市更新
   style: defensive
@@ -546,7 +564,13 @@ index_rules:
   severity: observe
   action: 指数弱修复观察
   trigger_template: 收盘收复{threshold}
-  interpretation: 若反弹收复4080，视为弱修复，降低次日预期，持仓以持有观察为主不新增净仓。
+  interpretation: 若反弹收复4080，视为弱修复，降低次日预期，持仓以持有观察为主不新增净仓.
+- name: trend_defense_4032
+  index: 上证指数
+  trend_defense: 4032
+  severity: observe
+  action: 4032趋势位跌破观察
+  interpretation: 6月2日早盘提示趋势位4032点，短期只需盯住此位是否破位。4000点上方近几日明显有承接，4032是调整第14天的关键趋势支撑位，跌破则调整加深。
 - name: kechuang1750_legacy
   index: 科创50
   trend_defense: 1750
