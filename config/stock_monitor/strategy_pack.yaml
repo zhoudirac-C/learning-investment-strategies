@@ -44,12 +44,14 @@ intraday_schedule:
   rules:
   - 若调整不创新低（4000之上），并放量收回分时均线，可进入观察
   - 若科技继续杀跌，暂停观察池买入
-  - 只买MLCC/化工涨价等结构性方向核心，不买破位后排
+  - 只买化工涨价等结构性方向核心，不买破位后排
+  - MLCC已提前提示，现在追涨是韭菜行为——只观察不介入
 - window: 10:30-13:30
   name: 主修复窗口
   action_bias: 可做T，可观察
   rules:
-  - 趋势未破的MLCC/化工涨价硬逻辑票，满足分时确认后可观察
+  - 趋势未破的化工涨价硬逻辑票，满足分时确认后可观察
+  - MLCC已提前提示，现在追涨是韭菜行为——只观察不介入
   - 反弹到预设区但板块不扩散，优先观察不介入
   - 现金为主，新增观察池买点必须等情景确认
 - window: 13:30-15:00
@@ -57,6 +59,7 @@ intraday_schedule:
   action_bias: 只看不买
   rules:
   - 午后冲高无扩散，优先观察不介入
+  - MLCC已提前提示，现在追涨是韭菜行为——只观察不介入
   - 尾盘回落跌破4000，降低次日预期
   - 若尾盘再度快速修复但成交不能放大，警惕继续透支次日预期
 agent_analysis_schedule:
@@ -96,7 +99,7 @@ position_rules:
   all_required:
   - 空仓可上3成以内（调整深化，控制仓位）
   - 等调整确认不创新低后再加仓
-  - 只参与结构性机会（MLCC/化工涨价），不抄底科技
+  - 只参与化工涨价结构性机会，不抄底科技，不追MLCC
   forbidden:
   - 情景未明时建新仓
   - 追高潮
@@ -115,20 +118,20 @@ position_rules:
   - 追高加仓
   - 抄底科技
 - id: mlcc_entry
-  name: MLCC介入确认
+  name: MLCC观察纪律（不介入）
   applies_to:
   - mlcc_high_end_core
   - mlcc_mainboard_core
   all_required:
-  - MLCC组内联动（三环+风华至少两只同步转强）
-  - 个股不是一致高开后的追高点
-  - 分歧后放量收回分时均线
-  - MLCC涨价逻辑持续（高容30%+常规跟进）
+  - MLCC已提前1-2周提示，现在追涨是韭菜行为
+  - 只观察不介入，等回调或新催化
+  - 若已持有，可做T但不加仓
   forbidden:
-  - 发酵日追高
-  - 单票异动但板块不共振
-  action: 第一优先级介入
-  position_ratio: 风华高科1.5成 + 三环集团1.5成 = 3成
+  - 任何价位新建MLCC仓位
+  - 回调时"抄底"MLCC
+  - 追涨风华高科/火炬电子/三环集团
+  action: 只观察不介入
+  position_ratio: '0'
 - id: chemical_entry
   name: 化工涨价介入确认
   applies_to:
@@ -160,9 +163,9 @@ position_rules:
   action: 只观察不介入
 quant_entry_strategy:
   position_advice:
-    empty_account: 空仓可小仓位试探（3-4成），重点跟踪存储/MLCC/光互连
+    empty_account: 空仓可小仓位试探（3-4成），重点跟踪存储/光互连，MLCC只观察不介入
     full_account: 满仓应降仓留空间，做T为主
-    current_bias: 短期企稳概率大，做T为主，不开新仓
+    current_bias: 短期企稳概率大，做T为主，不开新仓，不追MLCC
   entry_points:
   - code: sh603986
     name: 兆易创新
@@ -180,18 +183,18 @@ quant_entry_strategy:
     note: 存储接口核心，业绩支撑较强
   - code: sz000636
     name: 风华高科
-    entry_zone: 55-57区间
-    position_ratio: 1.5成
-    trigger: MLCC最强分支，高盛价值重估
-    invalidation: 跌破53且30分钟不能收回
-    note: MLCC核心标的，昨日大涨后早盘回调-1.37%是观察点。若回踩55-57企稳可介入
+    entry_zone: 只观察不介入
+    position_ratio: '0'
+    trigger: MLCC已提前1-2周提示，现在追涨是韭菜行为——只观察不介入
+    invalidation: 无
+    note: '【纪律】6月2日盘中动态明确：MLCC已提前1-2周提示，现在追涨是韭菜行为。风华高科早盘-1.37%回调，不是介入信号是观察信号。先知先觉，不追高。'
   - code: sh603678
     name: 火炬电子
-    entry_zone: 56-58区间
-    position_ratio: 1成
-    trigger: MLCC情绪载体，4天3板后继续强势
-    invalidation: 跌破55且30分钟不能收回
-    note: 情绪载体，高弹性。早盘+2.35%继续强势，但涨停后开板风险需警惕
+    entry_zone: 只观察不介入
+    position_ratio: '0'
+    trigger: MLCC情绪载体，但已大涨4天3板，现在介入风险极高
+    invalidation: 无
+    note: '【纪律】6月2日盘中动态明确：MLCC已提前1-2周提示，现在追涨是韭菜行为。火炬电子4天3板后早盘+2.35%，不是介入点是观察点。只看不买。'
   - code: sz300394
     name: 天孚通信
     entry_zone: 460-470区间
