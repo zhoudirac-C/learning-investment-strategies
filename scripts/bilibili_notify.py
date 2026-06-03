@@ -27,7 +27,7 @@ from fetch_bilibili_up_v2 import (
     build_cookie,
     fetch_dynamic_list,
     fetch_dynamic_detail,
-    fetch_top_comment,
+    fetch_up_comment,
     extract_text_from_dynamic,
     extract_pics_from_dynamic,
     extract_author_info,
@@ -113,7 +113,7 @@ def main() -> int:
 
             # 获取置顶评论
             try:
-                top_comment = fetch_top_comment(dynamic_id, sessdata)
+                top_comment = fetch_up_comment(dynamic_id, sessdata)
             except Exception:
                 pass
 

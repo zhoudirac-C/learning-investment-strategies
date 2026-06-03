@@ -426,6 +426,17 @@ def extract_text_from_dynamic(item: dict) -> str:
             parts.append(desc_text)
         return "\n".join(parts)
 
+    article = major.get("article") if major else None
+    if article and isinstance(article, dict):
+        parts = []
+        title = article.get("title", "")
+        if title:
+            parts.append(title)
+        desc_text = article.get("desc", "")
+        if desc_text and desc_text != "请将App客户端升级至最新版本后观看":
+            parts.append(desc_text)
+        return "\n".join(parts) or "（专栏文章，请访问原页面查看全文）"
+
     additional = dynamic_module.get("additional")
     if additional and isinstance(additional, dict):
         item_add = additional.get("item", {}) or {}
