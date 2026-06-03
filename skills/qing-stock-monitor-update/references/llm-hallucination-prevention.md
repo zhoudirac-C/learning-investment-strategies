@@ -77,7 +77,32 @@ for q in d['last_quote_snapshot']['quotes']:
 2. **验证**：用 `curl` 或 `state.json` 获取真实数据并展示对比
 3. **记录**：将幻觉内容记录到 `docs/llm-hallucination-log.md`（时间、任务、幻觉内容、真实数据）
 4. **修复**：更新 cron 任务的 prompt，增加更严格的数据约束
-5. **预防**：在相关 skill 的"常见陷阱"章节增加 LLM 幻觉防范条目
+5. **批量修复**：同一类幻觉可能影响多个 cron 任务，需检查所有使用相同 prompt 模板的任务并同步更新
+6. **预防**：在相关 skill 的"常见陷阱"章节增加 LLM 幻觉防范条目
+
+## 批量更新 cron prompt 的快捷方式
+
+当确认某个 cron 任务的 prompt 需要增加幻觉约束时，使用 `cronjob` 工具批量更新所有相关任务：
+
+```bash
+# 列出所有相关任务
+cronjob action=list
+
+# 对每个任务的 job_id 执行 update
+for job_id in job_id_1 job_id_2 ...; do
+  cronjob action=update job_id=$job_id prompt="...新增约束..."
+done
+```
+
+**约束模板**（直接追加到原 prompt 末尾）：
+```
+【重要约束】
+1. 所有股价、涨跌幅、指数数据必须严格来自脚本输出，禁止编造任何数字。
+2. 如果脚本未提供某只股票的实时数据，报告中不得提及该股票的当前价格或涨跌幅。
+3. 持仓池只包含positions.yaml中当前有持仓（shares>0）的标的，已清仓标的不得在持仓池中列出。
+4. 板块涨跌数据必须来自脚本提供的sector_groups计算结果，不得凭记忆或推测填写。
+5. 若对某数据不确定，使用"数据未提供"或跳过，而非猜测。
+```
 
 ## 相关文件
 

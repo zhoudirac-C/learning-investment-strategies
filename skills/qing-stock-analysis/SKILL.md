@@ -24,8 +24,8 @@ description: Use when the user asks to analyze an individual stock through the b
 10. `skills/qing-stock-analysis/references/watchlist-bulk-update-from-raw.md` — **从复盘文档批量更新观察池**：提取 raw 文档中的标的提及，去重后按主题分组追加到 watchlist.yaml 的完整流程
 11. `skills/qing-stock-analysis/references/stock-monitor-internals.md` — **监控脚本内部机制与状态文件结构**：收盘监控复盘时排查提醒来源、去重逻辑、漏报原因的参考手册
 12. `skills/qing-stock-analysis/references/stock-monitor-cli-behavior.md` — **监控脚本 CLI 行为与状态文件**：`--status`、`--daily-review-context`、`--live-analysis-context` 等命令的输出格式和用途
-13. `skills/qing-stock-analysis/references/observation-pool-strategy.md` — **观察池策略合成**：基于博主复盘/动态/早盘/视频合成次日观察池的完整方法论
-14. `skills/qing-stock-analysis/references/daily-review-cases.md` — **收盘监控复盘案例库**：历史复盘典型案例，含有效性判断标准、开盘诱多识别 checklist、相对强弱伪信号识别方法
+14. `skills/qing-stock-analysis/references/observation-pool-strategy.md` — **观察池策略合成**：基于博主复盘/动态/早盘/视频合成次日观察池的完整方法论
+15. `skills/qing-stock-analysis/references/daily-review-cases.md` — **收盘监控复盘案例库**：历史复盘典型案例，含有效性判断标准、开盘诱多识别 checklist、相对强弱伪信号识别方法、盘中配置更新时序陷阱、板块轮动标签语义混淆
 15. `skills/qing-stock-analysis/references/index-etf-analysis-guide.md` — **指数/ETF买入分析指南**：当用户询问指数或ETF（如恒生科技、科创50）时使用，含时间窗口分析、ETF代码推荐、与个股分析的区别
 
 ## 双轨制兼容性
@@ -423,13 +423,16 @@ description: Use when the user asks to analyze an individual stock through the b
   - **sector_groups 同步检查**：检查 `strategy_pack.yaml` 的 `sector_groups` 成员是否与 `positions.yaml` 的实际持仓一致。若已清仓标的仍留在 `offensive_tech` 等进攻组中，会导致该组平均涨幅被拖累，产生**错误的"进攻回流观察"信号**。
   - 板块轮动提醒（进攻回流/防御切换）的 `min_spread_pct` 阈值是否导致尾盘回流信号被压制；同时检查"进攻回流"是否由子链（如电源/MLCC）驱动而核心方向（PCB/半导体）实际在调整——标签与微观结构可能存在偏差。
   - 去重窗口 `dedupe_minutes` 是否过度压制了价格快速波动时的重复提醒。
+  - **盘中配置更新时序陷阱**：检查 `positions.yaml` 是否在交易时段内被修改。若修改时间（`stat`）落在 09:30-15:00 之间，且前后提醒阈值不一致（如安泰科技风控线从"21.5-22"变为"21.00-21.50"），标记为"盘中配置更新导致的时序性误报/存疑"，并建议在 YAML 建议中增加"交易时段内禁止修改风险阈值"的纪律条款。
+  - **sector_groups 标签语义混淆**：当 `price_increase_vs_cpo` 等规则比较的两个 group 均为 offensive style 时，系统仍可能输出"防御切换观察"。复盘时必须核对触发规则中两组各自的 `style` 属性，若两组均为 offensive 则标记为"标签语义错误——实为进攻板块内部轮动，非防御切换"。
 - **index_rules 通用格式兼容性**：`strategy_pack.yaml` 使用 `trigger_condition: close_below` 等通用格式时，代码可能未完整支持。复盘时若发现指数已跌破阈值但未触发提醒，建议：①运行 `--ignore-trading-time` 测试；②若不触发，增加 legacy 格式（`- trend_defense: 4070`）作为兜底。
 - **index_rules 中间档位漏报**：`valid_close_level`（如4080）和 `weak_close_level`（如4070）仅在 interpretation 文本中描述，代码可能未实现中间档位的主动提醒。若指数收盘处于中间档位（如4080-4070）且无提醒，需在复盘中手动指出此为**规则缺失型漏报**，建议增加 `close_between` 规则或中间档位 `trigger_condition`。
 - **持仓漏报（高危）**：`positions.yaml` 中若未配置 `reduce_zone` 或 `risk_zone`/`risk_line`，`evaluate_position_alerts()` 将完全跳过该持仓，导致跌停/大跌无任何提醒。复盘时必须逐条检查每个持仓是否配置了价格区间字段。
 - **板块轮动阈值过低导致开盘诱多误报**：`min_spread_pct=1.0` 在开盘竞价/高开瞬间极易触发"进攻回流"，但随后市场可能迅速回落。复盘时需交叉核对：①该信号出现后 15-30 分钟内市场是否维持方向；②进攻组内部是否由子链驱动而非核心方向；③指数是否同步站稳。若三者任一不满足，标记为"时间维度不足的伪信号"。
 - **尾盘回流信号的时间维度验证**：尾盘（14:30-15:00）的"进攻回流"或"防御切换"信号同样存在时间维度不足的问题。若信号仅在最后15分钟内出现，且收盘后指数/板块方向与信号相反，应标记为"尾盘伪信号"，建议增加 `min_duration_seconds` 或 `min_consecutive_ticks` 过滤。
 - **去重与轮询频率**：`state.json` 中若出现同一指纹在 30 秒内重复触发（如 09:17:10 与 09:17:28），说明监控轮询间隔过密（可能为 15-20 秒）。复盘时建议将 cron/调度间隔调整为不低于 60 秒，或在 `filter_new_alerts()` 中增加"价格变化率<0.1% 且间隔<60秒"的二次过滤。
-- **index_rules 通用格式兼容性**：`strategy_pack.yaml` 使用 `trigger_condition: close_below` 等通用格式时，代码可能未完整支持。复盘时若发现指数已跌破阈值但未触发提醒，建议：①运行 `--ignore-trading-time` 测试；②若不触发，增加 legacy 格式（`- trend_defense: 4070`）作为兜底。
+- **盘中配置更新时序陷阱（高危）**：`positions.yaml` 在交易时段内被修改（如调整 `risk_zone`/`reduce_zone`）会导致前后提醒阈值不一致。复盘时若发现同一标的的提醒阈值前后矛盾（如安泰科技风控线从"21.5-22"变为"21.00-21.50"），必须：①检查 `positions.yaml` 文件修改时间（`stat`）；②对比 `state.json` 中该指纹的触发价格与新配置阈值；③若修改发生在交易时段内，标记为"盘中配置更新导致的时序性误报/存疑"，并在 YAML 建议中增加"交易时段内禁止修改风险阈值"的纪律条款。
+- **sector_groups 标签语义混淆**：当 `price_increase_vs_cpo` 等规则比较的两个 group 均为 offensive style 时，系统仍可能输出"防御切换观察"。复盘时必须核对：①触发规则中两组各自的 `style` 属性；②若两组均为 offensive，标记为"标签语义错误——实为进攻板块内部轮动，非防御切换"，并建议在 `strategy_pack.yaml` 中重命名规则或修改输出标签。
 - **禁止**：无条件买卖指令、预测次日涨跌、给出具体买卖价格。
 
 ## 常见陷阱与防循环指南

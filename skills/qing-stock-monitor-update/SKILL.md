@@ -34,11 +34,21 @@ description: |
 4. `skills/qing-stock-monitor-update/references/technical-inference.md` — 无 UP 观点时的技术推断规则
 5. `skills/qing-stock-monitor-update/references/patch-disambiguation-pitfall.md` — Patch 工具歧义匹配陷阱与解决
 6. `skills/qing-stock-monitor-update/references/narrative-bulk-update-from-review.md` — 从复盘文档批量更新 narrative 的规范流程与常见陷阱
-6. `skills/qing-stock-analysis/references/data-source-strategy.md` — 数据源策略与降级规则
-7. `framework/technical-analysis-framework.md` — 技术工具层规则（轨道B）
-8. `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束
+7. `skills/qing-stock-monitor-update/references/data-source-fallback-chain.md` — 数据源降级时的备用获取方案（腾讯 API、venv pip 修复、glmv 脚本）
+8. `skills/qing-stock-analysis/references/data-source-strategy.md` — 数据源策略与降级规则
+9. `framework/technical-analysis-framework.md` — 技术工具层规则（轨道B）
+- `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束（含批量更新 cron prompt 模板）
 
 ## 工作流程
+
+### Step 0: 前置检查
+
+1. **`git pull`**：确保本地文件是最新版本，避免基于旧版本修改后产生冲突。
+2. **检查数据是否已同步**：若 watchlist 的 `today_snapshot`、`technical_narrative`、`sector_narrative` 已包含复盘文档中的数据，不要重复写入。向用户报告当前同步状态，询问是否需要基于**今早动态**追加更新。
+3. **区分两种更新模式**：
+   - **模式 A（基础）**：更新已有票的 narrative + today_snapshot
+   - **模式 B（极易遗漏）**：扫描复盘文档中的"关注地位方向""核心思路""方向提示"段落，提取 UP 新提到的标的，新增到 watchlist 并在 strategy_pack 中补充 entry_points
+   - **必须先执行模式 A，再执行模式 B，两步都完成才算完整**
 
 ### Step 1: 获取真实数据
 
@@ -66,22 +76,62 @@ stock_dict = {s['code']: s for s in stocks_list if 'code' in s}
 1. 运行环境原生金融数据能力
 2. 东方财富实时行情（stock_monitor.py 已有）
 3. glmv-stock-analyst/fetch_all.py（K线、基本面、主力资金、分时图）
-4. 新浪财经/其他公开接口（降级）
+4. **腾讯财经 API（curl，无需 Python 包，备用首选）**
+5. 新浪财经/其他公开接口（降级）
 
-降级规则：数据源不可用时标记 `degraded: true`，不阻断更新。
+降级规则：数据源不可用时标记 `degraded: true`，不阻断更新。详见 `references/data-source-fallback-chain.md`。
 
-### Step 2: 检查 UP 最新观点
+### Step 2: 检查 UP 最新观点（模式 A + 模式 B）
 
 读取最近 3 天的内容：
 - `knowledge/claims/claim-YYYYMMDD-*.yaml`
 - `knowledge/wiki/每日复盘/YYYY-MM-DD.md`
 - `sources/raw/财经/`（最近 3 天）
 
-更新每个标的的 `up_mention_status`：
+**模式 A：更新已有标的 up_mention_status**
 - `last_mentioned_date`
 - `mention_context`
 - `explicit_operation`（如有明确买/卖/持有/规避）
 - `sentiment`（积极观察/中性提及/明确规避/未提及）
+
+**模式 B：提取 UP "关注方向"（极易遗漏，必须执行）**
+- 扫描复盘文档中的"关注地位方向""核心思路""方向提示""强势股"等段落
+- 提取 UP 明确提示要关注的标的（即使当前不在 watchlist 中）
+- 检查这些标的是否已在 watchlist 中：
+  - **若不存在**：新增 theme 或追加到对应 theme，写入完整字段（含 narrative）
+  - **若已存在**：更新 narrative，并在 `watch_reason` 中追加 UP 最新提示
+- 无论是否新增，都必须在 strategy_pack.yaml 的 `entry_points` 中补充操作策略
+- **示例命令**：`grep -n "关注地位方向\|核心思路\|鼎龙股份\|裕太微" sources/raw/财经/复盘*.md`
+
+### Step 2.5: 同步更新 strategy_pack.yaml（必须与 watchlist 同步，不可遗漏）
+
+**不可遗漏**：只更新 watchlist 而不更新 strategy_pack 会导致观察池无法指导实际交易。用户明确反馈："不只是更新watchlist 你每次更新的时候都要把操作策略，介入股价都加上，不然什么时候能买入呢？观察有啥有用呢"
+
+**更新内容**：
+- `quant_entry_strategy.entry_points`：为每个重点标的补充**具体介入区间、仓位、触发条件、失效条件**
+- `quant_entry_strategy.position_advice`：更新空仓/满仓的操作建议
+- `market_framework`：更新周期阶段、核心问题
+- `index_rules`：更新指数关键位
+
+- `entry_zone` 填写规范：
+  - **必须提供具体价格数字**，不能写"近期平台附近""等分歧后缩量回踩"等模糊描述
+  - 若数据源可用：基于当日收盘价，回踩 5-7% 计算（如收盘 28.5 → 介入区间 26.5-27.5）
+  - **若数据源降级无法获取实时价格**：
+    - **诚实说明**："数据源降级，无法获取实时价格。需手动填写"
+    - **提供计算规则**："基于当日收盘价，回踩 5-7% 介入"
+    - **绝不编造虚假价格**（用户会验证，编造价格会导致信任崩塌）
+    - **备用方案**：使用腾讯财经 API（curl）获取价格，详见 `references/data-source-fallback-chain.md`
+  - 对于已大涨的票（如单日 +18%）：介入区间需等更充分调整（10-15%）
+
+**position_ratio 填写规范**：
+- 必须提供具体仓位（如"1成""0.5成"）
+- 高弹性/高风险票降低仓位（如裕太微 0.5 成）
+- 空仓总仓位控制在 6 成以内（因新增多个方向）
+
+**无持仓票不配置 stop_loss**：
+- 用户明确："没有持仓的不用止损，主要是介入区间和操作策略"
+- `stop_loss` 字段只用于已有持仓的票
+- 观察池新票只配置 `entry_zone` + `invalidation`（失效条件）
 
 ### Step 3: 更新 watchlist.yaml
 
@@ -89,9 +139,7 @@ stock_dict = {s['code']: s for s in stocks_list if 'code' in s}
 - 新 theme → 追加到 `themes` 列表末尾
 - 新 stock → 在对应 theme 的 `stocks` 列表内追加
 - 旧 theme/stock 保留，除非用户明确要求删除
-
-**每个 stock 的字段**：
-```yaml
+- **必须扫描复盘文档中的"关注地位方向""核心思路"段落，提取 UP 新提到的标的**
 - code: "600246.SH"
   name: "万通发展"
   role: "pcie_switch_core"
@@ -161,6 +209,12 @@ stock_dict = {s['code']: s for s in stocks_list if 'code' in s}
 - 每个持仓的 `pnl`：浮动盈亏
 - 每个持仓的 `today_plan`：明日操作计划（重置，不保留旧计划）
 
+**持仓变动处理**：
+- **新建持仓**：添加完整字段（code, name, shares, cost, reduce_zone, risk_zone, account, open_date, note, today_plan）
+- **减仓**：更新 shares 和 cost（用户会提供新的 cost），在 note 中标注"减仓后X股（原Y股）"
+- **清仓**：从 `positions` 列表移除，添加到 `closed_positions`，记录卖出价和盈亏
+- **账户重命名**：若用户要求更改账户名称，同步更新所有 `account` 字段和 `strategy_summary` 中的描述
+
 **价格区间字段规范（必读）**：
 - `risk_zone`：风控区间，格式 `"44.5-45.5"`。代码优先读取此字段，触发条件为 `latest <= risk_zone[1]`（即区间上限）。
 - `risk_line`：单点风控线（如 `44.5`）。代码兼容作为 `risk_zone` 的 fallback，解析为 `(44.5, 44.5)`，触发条件为 `latest <= 44.5`。
@@ -225,6 +279,10 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 3. **数据源降级**：不可用时不编造数据，标记 degraded。
 4. **验证后提交**：每次更新后运行 `--status` 和 `--analysis-context` 确认。
 5. **区分轨道**：技术推断只引用 `framework/technical-analysis-framework.md`（轨道B），不混淆市场认知 claims（轨道A）。
+6. **持仓更新必须完整**：不能只改股数而忽略 `today_snapshot`、`strategy_summary` 和 `today_plan` 的同步更新。
+7. **必须同步更新 strategy_pack**：只更新 watchlist 不更新 strategy_pack 是严重遗漏。entry_points 必须包含具体介入区间、仓位、触发条件。
+8. **绝不编造价格**：数据源降级时诚实说明，提供计算规则，不编造虚假价格。
+9. **区分两种更新模式**：模式 A（已有票更新）+ 模式 B（UP 新方向提取），两步都完成才算完整。
 
 ## 从复盘文档批量更新 narrative 的规范流程
 
@@ -240,8 +298,16 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 
 ### 更新流程
 1. **读取 watchlist.yaml 完整内容**（不带 offset/limit），确认目标票在哪些 theme 中出现。
-2. **同一票多 theme 处理**：若某票（如风华高科 000636.SZ）出现在多个 theme 中（如 `upstream_price_increase` 和 `mlcc_passive_cycle`），**每个出现位置都要更新**，不能只更新一处。
-3. **无 narrative 的票插入**：若目标票当前没有 `technical_narrative`/`sector_narrative`，在 `invalidation_setup` 之后插入新块。注意：必须在 `invalidation_setup` 最后一行和 `technical_narrative:` 之间保留换行，否则 YAML 解析失败。
+2. **提取 UP "关注方向"（模式 B，极易遗漏）**：
+   - 扫描复盘文档中的"关注地位方向""核心思路""方向提示""强势股"等段落
+   - 提取 UP 明确提示要关注的标的（即使当前不在 watchlist 中）
+   - 用 `grep` 或 Python 检查这些标的是否已在 watchlist 中
+   - **若不存在**：新增 theme 或追加到对应 theme，写入完整字段（含 narrative）
+   - **若已存在**：更新 narrative，并在 `watch_reason` 中追加 UP 最新提示
+   - **示例命令**：`grep -n "关注地位方向\|核心思路\|鼎龙股份\|裕太微" sources/raw/财经/复盘*.md`
+3. **更新已有票的 narrative（模式 A）**：
+   - 同一票多 theme 处理：若某票出现在多个 theme 中，**每个出现位置都要更新**
+   - 无 narrative 的票插入：在 `invalidation_setup` 之后插入新块，注意保留换行
 4. **字段内容规范**：
    - `technical_narrative.trend`：必须包含日期和涨跌幅（如"6月1日-2.10%跌破成本"）
    - `technical_narrative.note`：必须包含收盘价、成本线（持仓票）、板块 context
@@ -259,6 +325,89 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 - **同一 code 不同 name 的票被误匹配**：仅按 `code` 批量替换时，可能将万通发展的 narrative 错误写到风华高科上。修复：匹配时必须同时检查 `code` + `name` + `role`，用三者组合精确定位。
 - **YAML 验证**：每次更新后用 `yaml.safe_load()` 验证文件可解析，确认所有目标票的 narrative 字段不为 `None`。
 
+### 推荐方式：Python 批量更新（优于 Patch）
+
+对于批量更新 narrative（涉及多票、多 theme、同一票多位置），**强烈推荐使用 Python `yaml.safe_load` + `yaml.dump` 而非 patch 工具**。
+
+**原因**：
+- Patch 工具对 YAML 缩进敏感，歧义匹配风险高
+- 同一票出现在多个 theme 中时，patch 只能替换第一处匹配
+- 插入新 narrative 块时，换行缺失会导致 YAML 解析失败
+
+**Python 批量更新模板**：
+
+```python
+import yaml
+import json
+
+# 1. 加载数据
+with open('/tmp/stock_data_YYYYMMDD_HHMM.json') as f:
+    stock_data = json.load(f)
+stock_dict = {s['code']: s for s in stock_data['stocks']}
+
+# 2. 加载 watchlist
+with open('config/stock_monitor/watchlist.yaml') as f:
+    watchlist = yaml.safe_load(f)
+
+# 3. 准备复盘数据映射（从复盘文档提取）
+review_data = {
+    '000636.SZ': {
+        'name': '风华高科',  # 用于校验，防止 code-name 错位
+        'pct': 8.83,
+        'note': '6月2日+8.83%...',
+        'sector': 'MLCC组最强...',
+        'risk': '普涨共振...',
+    },
+    # ... 其他票
+}
+
+# 4. 遍历更新（自动处理同一票多 theme）
+for theme in watchlist.get('themes', []):
+    for stock in theme.get('stocks', []):
+        code = stock.get('code')
+        if code in review_data:
+            d = review_data[code]
+            # 必须校验 name 匹配，防止错位
+            if stock.get('name') == d['name']:
+                stock['technical_narrative'] = {
+                    'trend': f"6月2日{d['pct']:+.2f}%...",
+                    'volume_character': '...',
+                    'key_levels': ['支撑：...', '压力：...'],
+                    'pattern': '...',
+                    'note': d['note']
+                }
+                stock['sector_narrative'] = {
+                    'relative_strength': d['sector'],
+                    'money_flow': '...',
+                    'leader_follower': '...',
+                    'catalyst': '...',
+                    'risk': d['risk']
+                }
+
+# 5. 同步更新 today_snapshot
+watchlist['today_snapshot'] = {
+    'fetch_time': '2026-06-02 23:50 CST',
+    'source': '收盘监控复盘_2026-06-02',
+    'market_summary': '...',
+    'stocks_with_data': [...],
+    'overall_action': '...'
+}
+
+# 6. 保存（保留原有格式和注释会被清除，这是 trade-off）
+with open('config/stock_monitor/watchlist.yaml', 'w') as f:
+    yaml.dump(watchlist, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+
+# 7. 验证
+yaml.safe_load(open('config/stock_monitor/watchlist.yaml'))
+```
+
+**关键校验点**：
+- `code + name` 双重匹配，防止同一 code 不同 name 的票被误更新
+- 遍历后打印更新计数，确认与预期票数一致
+- 同一票在多个 theme 中会自动全部更新（因为遍历的是 theme → stocks 嵌套结构）
+
+**Trade-off**：`yaml.dump` 会清除 YAML 中的注释和自定义格式。如果文件中有重要注释，先用 `git diff` 确认变更范围是否合理。
+
 ### 数据已同步的识别与处理
 - **症状**：执行更新前发现 watchlist 的 `today_snapshot`、`technical_narrative`、`sector_narrative` 已包含复盘文档中的数据。
 - **根因**：用户可能已手动更新，或前一次会话已执行过同步。
@@ -270,6 +419,7 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 
 ### 验证清单
 - [ ] `git pull` 完成，无冲突
+- [ ] **UP "关注方向"已提取**：复盘文档中"关注地位方向""核心思路"等段落的标的已检查并处理（新增或更新 watch_reason）
 - [ ] 所有复盘文档中提到的票都已更新 narrative
 - [ ] 同一票在多个 theme 中的每个位置都已更新
 - [ ] 同一 code 不同 name 的票已按 `code+name+role` 区分，无错位
@@ -289,6 +439,8 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 - **数据已同步时**：若发现 watchlist 已包含复盘文档数据，不要重复写入。向用户报告当前同步状态，并询问是否需要基于**今早动态**追加更新。
 - **账户命名灵活性**：用户可能使用任意账户名称（如"大同账号""华宝账号"而非"账号1""账号2"）。更新 `positions.yaml` 时以用户提供的名称为准，不强制使用固定命名。若用户要求重命名账户，同步更新 `positions.yaml` 中所有引用该账户名的地方（包括 `account` 字段和 `strategy_summary` 中的描述）。
 - **LLM 幻觉识别**：当用户指出 cron 任务报告中的数据错误（如"万通发展没有涨停"），按 `references/llm-hallucination-prevention.md` 中的流程处理：验证 state.json/实时行情 → 标记幻觉 → 更新 prompt 约束。
+- **持仓更新完整流程**：用户要求"更新持仓"时，执行完整 pipeline：获取实时行情 → 计算 PnL → 交叉引用 claims → 验证 watchlist.yaml → 更新 `positions.yaml` 的 `today_snapshot` + 持仓记录 + `strategy_summary`。不能只改持仓股数而忽略市场上下文和可操作建议。
+- **提交前 git status**：执行 `git status --short` 和 `git diff --stat` 确认变更范围，再 `git add -A && git commit && git push`。
 
 ## 禁止事项
 

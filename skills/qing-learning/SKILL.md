@@ -114,12 +114,22 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 3. LLM 必须阅读全文后再写入任何结论。
 4. **检查文档是否已存在**：处理前确认该 raw 是否已在 `sources/raw/财经/` 中，以及是否已有对应 claims/wiki。详见【已知问题与解决】→"重复处理已存在的文档"。
 5. **用户直接提供内容时的手动录入**：若用户直接转述/粘贴博主评论或动态内容（非来自 fetch 脚本），先保存为 raw 文件，再走完整 qing-learning 流程。详见【手动录入流程】。
-6. 先抽取 claims，再更新 wiki、methodology、framework。
-7. **更新关联 wiki 专题页**：抽取 claims 后，检查 claim 涉及的主题是否已有独立 wiki 专题页（如`端侧AI`、`AIPC`、`超级电容`等）。若已有专题页，将新 claim 关联到该页面；若无专题页但该主题已跨多篇 raw 出现，考虑创建专题页。不要只更新每日复盘 wiki 而遗漏专题沉淀。
-8. 只有满足 durable rule 的观点才进入 framework。
-9. 更新 `knowledge/wiki/index.md`、`knowledge/claims/index.md` 和 `knowledge/wiki/log.md`。
-10. 判断是否需要更新 `knowledge/wiki/投资方法论/博主方法论总纲.md`。
-11. 输出 Learning Update Report。
+6. **读取 claim schema**：抽取 claims 前，先读 `references/claim-schema.md` 确认字段和枚举要求。避免 YAML 格式错误导致后续流程中断。
+7. 先抽取 claims，再更新 wiki、methodology、framework。
+8. **更新关联 wiki 专题页**：抽取 claims 后，检查 claim 涉及的主题是否已有独立 wiki 专题页（如`端侧AI`、`AIPC`、`超级电容`等）。若已有专题页，将新 claim 关联到该页面；若无专题页但该主题已跨多篇 raw 出现，考虑创建专题页。不要只更新每日复盘 wiki 而遗漏专题沉淀。
+9. 只有满足 durable rule 的观点才进入 framework。
+10. **更新三个索引文件（缺一不可）**：
+    - `knowledge/claims/index.md` — claim 文件索引
+    - `knowledge/wiki/index.md` — wiki 页面索引（常被遗漏！）
+    - `knowledge/wiki/log.md` — 操作日志
+11. 判断是否需要更新 `knowledge/wiki/投资方法论/博主方法论总纲.md`。
+12. 输出 Learning Update Report。
+
+### Ingestion 关键 Pitfalls
+
+1. **遗漏 wiki/index.md 更新**：`knowledge/wiki/index.md` 是最容易被遗漏的索引文件。每次更新 wiki 页面（尤其是新增专题页或每日复盘）后，必须检查并更新 wiki/index.md。若新增专题页未加入索引，用户后续无法通过索引发现该页面。
+2. **跳过 claim schema 直接写 claims**：不写 claims 前不读 `references/claim-schema.md` 是常见错误。虽然 LLM 生成的 YAML 通常格式正确，但字段缺失、枚举值错误、特殊字符未转义等问题只有在对比 schema 后才能避免。一次 YAML 格式错误会导致后续索引生成、wiki 链接、矛盾检测全部中断。
+3. **重复处理已存在的文档**：处理前未检查 `sources/raw/财经/`、`knowledge/claims/`、`knowledge/wiki/每日复盘/` 中是否已有对应内容，导致重复创建 claims 或 wiki 冲突。
 
 ---
 
