@@ -28,16 +28,17 @@ description: |
 
 ## 必读参考
 
-1. `skills/qing-stock-monitor-update/references/qualitative-fields-spec.md` — 描述型字段规范
-2. `skills/qing-stock-monitor-update/references/data-fetch-script.md` — 数据获取脚本规范（含输出数据读取方法）
-3. `skills/qing-stock-monitor-update/references/yaml-update-protocol.md` — YAML 更新协议
-4. `skills/qing-stock-monitor-update/references/technical-inference.md` — 无 UP 观点时的技术推断规则
-5. `skills/qing-stock-monitor-update/references/patch-disambiguation-pitfall.md` — Patch 工具歧义匹配陷阱与解决
-6. `skills/qing-stock-monitor-update/references/narrative-bulk-update-from-review.md` — 从复盘文档批量更新 narrative 的规范流程与常见陷阱
-7. `skills/qing-stock-monitor-update/references/data-source-fallback-chain.md` — 数据源降级时的备用获取方案（腾讯 API、venv pip 修复、glmv 脚本）
-8. `skills/qing-stock-analysis/references/data-source-strategy.md` — 数据源策略与降级规则
-9. `framework/technical-analysis-framework.md` — 技术工具层规则（轨道B）
-- `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束（含批量更新 cron prompt 模板）
+2. `skills/qing-stock-monitor-update/references/qualitative-fields-spec.md` — 描述型字段规范
+3. `skills/qing-stock-monitor-update/references/data-fetch-script.md` — 数据获取脚本规范（含输出数据读取方法）
+4. `skills/qing-stock-monitor-update/references/yaml-update-protocol.md` — YAML 更新协议
+5. `skills/qing-stock-monitor-update/references/technical-inference.md` — 无 UP 观点时的技术推断规则
+6. `skills/qing-stock-monitor-update/references/patch-disambiguation-pitfall.md` — Patch 工具歧义匹配陷阱与解决
+7. `skills/qing-stock-monitor-update/references/narrative-bulk-update-from-review.md` — 从复盘文档批量更新 narrative 的规范流程与常见陷阱
+8. `skills/qing-stock-monitor-update/references/data-source-fallback-chain.md` — 数据源降级时的备用获取方案（腾讯 API、venv pip 修复、glmv 脚本）
+9. `skills/qing-stock-monitor-update/references/claims-consistency-check.md` — **Claims 一致性校验**：更新 strategy_pack 前必须与 claims 交叉验证，防止策略与博主纪律矛盾
+10. `skills/qing-stock-monitor-update/references/sector-rotation-rules-format.md` — **sector_rotation_rules 格式规范**：list of dicts 格式，引用 sector_groups 的 id
+11. `framework/technical-analysis-framework.md` — 技术工具层规则（轨道B）
+12. `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束（含批量更新 cron prompt 模板）
 
 ## 工作流程
 
@@ -106,6 +107,12 @@ stock_dict = {s['code']: s for s in stocks_list if 'code' in s}
 ### Step 2.5: 同步更新 strategy_pack.yaml（必须与 watchlist 同步，不可遗漏）
 
 **不可遗漏**：只更新 watchlist 而不更新 strategy_pack 会导致观察池无法指导实际交易。用户明确反馈："不只是更新watchlist 你每次更新的时候都要把操作策略，介入股价都加上，不然什么时候能买入呢？观察有啥有用呢"
+
+**更新前必须执行 claims 一致性校验**（详见 `references/claims-consistency-check.md`）：
+1. 扫描最近 3 天的 claims，查找与目标标的相关的博主观点
+2. 若 claim 中博主明确说"不追高""韭菜行为""只观察"，对应标的必须配置为 `entry_zone: 只观察不介入`，`position_ratio: 0`
+3. 在 `note` 中标注 claim 来源（如"来源：claim-20260602-002.yaml"）
+4. 常见矛盾：给"已提前提示，现在追是韭菜"的方向配介入区间 → 必须修正为只观察
 
 **更新内容**：
 - `quant_entry_strategy.entry_points`：为每个重点标的补充**具体介入区间、仓位、触发条件、失效条件**
@@ -191,9 +198,12 @@ stock_dict = {s['code']: s for s in stocks_list if 'code' in s}
 - 实际验证方法：更新后运行 `python -m qing_investment.stock_monitor --ignore-trading-time`，检查 `alert_decision_log` 是否生成对应记录；若未生成，说明通用格式未被支持，需补 legacy 格式。
 
 **`sector_rotation_rules` 关键字段**：
+- 格式：**list of dicts**，每个 rule 有独立 `id`
+- `offensive_group_ids` / `defensive_group_ids` / `avoid_group_ids`：引用 `sector_groups` 中定义的 `id`，不是字符串列表
 - `min_spread_pct`：进攻/防御组均涨幅差阈值（默认 1.0，复盘后可视情况上调）
 - `min_red_ratio_spread`：红盘率差阈值
 - `require_offensive_positive: true`（可选）：防止"跌得少"被误判为"进攻回流"
+- 详见 `references/sector-rotation-rules-format.md`
 
 **`sector_groups` 同步纪律**：
 - 新增持仓标的必须加入对应 sector_group，否则不会被纳入板块轮动计算。
@@ -278,11 +288,13 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 2. **推断必须标注**：无 UP 观点时的技术推断必须写 `inference_note`。
 3. **数据源降级**：不可用时不编造数据，标记 degraded。
 4. **验证后提交**：每次更新后运行 `--status` 和 `--analysis-context` 确认。
-5. **区分轨道**：技术推断只引用 `framework/technical-analysis-framework.md`（轨道B），不混淆市场认知 claims（轨道A）。
-6. **持仓更新必须完整**：不能只改股数而忽略 `today_snapshot`、`strategy_summary` 和 `today_plan` 的同步更新。
-7. **必须同步更新 strategy_pack**：只更新 watchlist 不更新 strategy_pack 是严重遗漏。entry_points 必须包含具体介入区间、仓位、触发条件。
-8. **绝不编造价格**：数据源降级时诚实说明，提供计算规则，不编造虚假价格。
-9. **区分两种更新模式**：模式 A（已有票更新）+ 模式 B（UP 新方向提取），两步都完成才算完整。
+6. **区分轨道**：技术推断只引用 `framework/technical-analysis-framework.md`（轨道B），不混淆市场认知 claims（轨道A）。
+7. **持仓更新必须完整**：不能只改股数而忽略 `today_snapshot`、`strategy_summary` 和 `today_plan` 的同步更新。
+8. **必须同步更新 strategy_pack**：只更新 watchlist 不更新 strategy_pack 是严重遗漏。entry_points 必须包含具体介入区间、仓位、触发条件。
+9. **绝不编造价格**：数据源降级时诚实说明，提供计算规则，不编造虚假价格。
+10. **区分两种更新模式**：模式 A（已有票更新）+ 模式 B（UP 新方向提取），两步都完成才算完整。
+11. **claims 一致性校验**：更新 strategy_pack 前必须扫描 claims，确认策略不与博主最新纪律矛盾。若 claim 中博主明确说"不追高"/"韭菜行为"，对应标的必须配置为"只观察不介入"。
+12. **sector_rotation_rules 格式**：必须使用 list of dicts，引用 sector_groups 的 id。详见 `references/sector-rotation-rules-format.md`。
 
 ## 从复盘文档批量更新 narrative 的规范流程
 
