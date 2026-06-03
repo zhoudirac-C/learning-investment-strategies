@@ -46,6 +46,14 @@ from fetch_bilibili_up_v2 import (
 def main() -> int:
     uid = os.environ.get("BILIBILI_UP_UID", "1420210197")
     sessdata = os.environ.get("BILIBILI_SESSDATA", "")
+
+    # 优先从文件读取 SESSDATA（二维码登录保存的）
+    sessdata_file = Path.home() / ".hermes" / "bilibili_sessdata.txt"
+    if not sessdata and sessdata_file.exists():
+        sessdata = sessdata_file.read_text(encoding="utf-8").strip()
+        if sessdata:
+            print("INFO: 从文件读取 SESSDATA", file=sys.stderr)
+
     if not sessdata:
         print("ERROR: 需要 BILIBILI_SESSDATA 环境变量", file=sys.stderr)
         return 1
