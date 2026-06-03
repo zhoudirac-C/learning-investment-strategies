@@ -265,6 +265,27 @@ quant_entry_strategy:
     trigger: 光互连
     invalidation: 跌破42且30分钟不能收回
     note: 早盘+2.25%，等回踩43-45介入
+  - code: sh600160
+    name: 巨化股份
+    entry_zone: 等分歧回踩
+    position_ratio: 1成
+    trigger: 制冷剂配额制+超纯PFA双催化
+    invalidation: 板块联动证伪
+    note: 化工涨价核心标的，HFCs配额制享超长景气，超纯PFA半导体国产替代。等分歧回踩介入，不追高
+  - code: sh603968
+    name: 醋化股份
+    entry_zone: 等分歧回踩
+    position_ratio: 0.5成
+    trigger: 安赛蜜三轮涨价87.5%
+    invalidation: 安赛蜜价格回落或三寡头协同破裂
+    note: 安赛蜜三寡头之一，涨价格局优异。等分歧回踩介入，不追高
+  - code: sh601088
+    name: 中国神华
+    entry_zone: 等分歧回踩
+    position_ratio: 0.5成
+    trigger: 动力煤龙头，迎峰度夏+安监供给收缩
+    invalidation: 煤价回升不及预期或安监煤矿大规模复产
+    note: 防御性配置，高股息+央企。等分歧回踩介入，不追高
 sector_groups:
 - id: cpu_self_development
   name: CPU自研链
