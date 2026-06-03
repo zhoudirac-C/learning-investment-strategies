@@ -81,6 +81,53 @@ grep -r "MLCC\|风华高科\|火炬电子\|三环集团" knowledge/claims/claim-
 - **错误策略**: 给 SOFC/DSP 票配明确介入区间
 - **正确策略**: entry_zone = "等硬信号落地后观察", position_ratio = 0 或极低
 
+### 类型 5："突破 XXXX 满仓"时的标的筛选
+- **场景**: 用户问"突破4130满仓时买什么"
+- **错误做法**: 只给有介入区间的标的，忽略大量无区间但有潜力的标的
+- **正确做法**: 
+  1. 先扫描所有有介入区间的标的，判断哪些当前可买入
+  2. 再扫描 watchlist 中所有主板票（sh6xxxxx / sz0xxxxx），筛选博主近期提及的方向
+  3. 对无具体区间的标的，基于今日涨幅和板块联动情况，给出"等分歧回踩"的定性判断
+  4. 使用 `scripts/scan_all_stocks.py` 全项目扫描工具自动化此过程
+
+---
+
+## 全项目标的扫描工具
+
+当用户要求"扩大范围看看还有什么可买"或"扫描所有标的"时，使用内置脚本：
+
+```bash
+cd ~/learning-investment-strategies
+venv/bin/python3 skills/qing-stock-monitor-update/scripts/scan_all_stocks.py
+```
+
+**功能**：
+- 从 watchlist + strategy_pack 提取所有156+个唯一标的
+- 通过腾讯财经API批量获取实时行情
+- 结合 strategy_pack entry_points 介入区间，自动分类：
+  - ✅ 可买入（当前价在区间内）
+  - ⏳ 等回踩（尚未到区间或盘中已回踩过）
+  - 🚫 不介入（博主明确纪律）
+  - ❓ 无区间（需补充配置）
+
+**输出示例**：
+```
+✅ 可买入标的 — 共 1 个
+  ▶ 意华股份 (sz002897)
+    现价: 88.37 | 涨幅: +0.19% | 最低: 88.22
+    介入区间: [88.00-92.00] | 建议仓位: 0.5成
+
+⏳ 等回踩标的 — 共 10 个
+  ▶ 兆易创新 (sh603986)
+    盘中曾回踩到区间 [470.0-480.0]（最低 477.0），但现价已反弹
+```
+
+**使用时机**：
+- 用户问"还有什么可买"
+- 用户说"扩大范围"
+- 盘前/盘中快速扫描全市场机会
+- 验证当前策略配置是否遗漏潜在标的
+
 ---
 
 ## 校验清单
@@ -93,6 +140,7 @@ grep -r "MLCC\|风华高科\|火炬电子\|三环集团" knowledge/claims/claim-
 - [ ] 被 claim 限制的标的有明确的 claim 来源标注
 - [ ] position_rules 中的 `forbidden` 列表与 claims 中的规避方向一致
 - [ ] 无 claim 支持的买入建议已标注 `inference_note`
+- [ ] 若用户问"扩大范围"，已使用 scan_all_stocks.py 扫描全项目标的
 
 ---
 
@@ -107,4 +155,7 @@ grep -h "韭菜\|不追高\|只观察\|规避\|不介入" knowledge/claims/claim
 
 # 验证特定标的的 claim 状态
 grep -r "风华高科\|MLCC" knowledge/claims/claim-*.yaml
+
+# 全项目标的扫描
+venv/bin/python3 skills/qing-stock-monitor-update/scripts/scan_all_stocks.py
 ```

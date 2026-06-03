@@ -28,17 +28,19 @@ description: |
 
 ## 必读参考
 
-2. `skills/qing-stock-monitor-update/references/qualitative-fields-spec.md` — 描述型字段规范
-3. `skills/qing-stock-monitor-update/references/data-fetch-script.md` — 数据获取脚本规范（含输出数据读取方法）
-4. `skills/qing-stock-monitor-update/references/yaml-update-protocol.md` — YAML 更新协议
-5. `skills/qing-stock-monitor-update/references/technical-inference.md` — 无 UP 观点时的技术推断规则
-6. `skills/qing-stock-monitor-update/references/patch-disambiguation-pitfall.md` — Patch 工具歧义匹配陷阱与解决
-7. `skills/qing-stock-monitor-update/references/narrative-bulk-update-from-review.md` — 从复盘文档批量更新 narrative 的规范流程与常见陷阱
-8. `skills/qing-stock-monitor-update/references/data-source-fallback-chain.md` — 数据源降级时的备用获取方案（腾讯 API、venv pip 修复、glmv 脚本）
-9. `skills/qing-stock-monitor-update/references/claims-consistency-check.md` — **Claims 一致性校验**：更新 strategy_pack 前必须与 claims 交叉验证，防止策略与博主纪律矛盾
-10. `skills/qing-stock-monitor-update/references/sector-rotation-rules-format.md` — **sector_rotation_rules 格式规范**：list of dicts 格式，引用 sector_groups 的 id
-11. `framework/technical-analysis-framework.md` — 技术工具层规则（轨道B）
-12. `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束（含批量更新 cron prompt 模板）
+1. `skills/qing-stock-monitor-update/references/qualitative-fields-spec.md` — 描述型字段规范
+2. `skills/qing-stock-monitor-update/references/data-fetch-script.md` — 数据获取脚本规范（含输出数据读取方法）
+3. `skills/qing-stock-monitor-update/references/yaml-update-protocol.md` — YAML 更新协议
+4. `skills/qing-stock-monitor-update/references/technical-inference.md` — 无 UP 观点时的技术推断规则
+5. `skills/qing-stock-monitor-update/references/technical-analysis-scan.md` — **全项目标的扫描 + 技术分析**：`scripts/scan_all_stocks.py` 的详细使用说明，含均线/支撑压力/量价/K线形态/综合评分等6个技术分析维度
+6. `skills/qing-stock-monitor-update/references/entry-points-generation.md` — **Entry Points 生成规范**：基于技术分析生成介入区间的4种方法（均线法/低点法/回撤法/分时法），仓位配置原则，触发/失效条件规范
+7. `skills/qing-stock-monitor-update/references/patch-disambiguation-pitfall.md` — Patch 工具歧义匹配陷阱与解决
+8. `skills/qing-stock-monitor-update/references/narrative-bulk-update-from-review.md` — 从复盘文档批量更新 narrative 的规范流程与常见陷阱
+9. `skills/qing-stock-monitor-update/references/data-source-fallback-chain.md` — 数据源降级时的备用获取方案（腾讯 API、venv pip 修复、glmv 脚本）
+10. `skills/qing-stock-monitor-update/references/claims-consistency-check.md` — **Claims 一致性校验**：更新 strategy_pack 前必须与 claims 交叉验证，防止策略与博主纪律矛盾。含全项目标的扫描工具 `scripts/scan_all_stocks.py` 使用说明
+11. `skills/qing-stock-monitor-update/references/sector-rotation-rules-format.md` — **sector_rotation_rules 格式规范**：list of dicts 格式，引用 sector_groups 的 id
+12. `framework/technical-analysis-framework.md` — 技术工具层规则（轨道B）
+13. `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束（含批量更新 cron prompt 模板）
 
 ## 工作流程
 
@@ -113,6 +115,26 @@ stock_dict = {s['code']: s for s in stocks_list if 'code' in s}
 2. 若 claim 中博主明确说"不追高""韭菜行为""只观察"，对应标的必须配置为 `entry_zone: 只观察不介入`，`position_ratio: 0`
 3. 在 `note` 中标注 claim 来源（如"来源：claim-20260602-002.yaml"）
 4. 常见矛盾：给"已提前提示，现在追是韭菜"的方向配介入区间 → 必须修正为只观察
+5. **若用户问"扩大范围"或"还有什么可买"，使用 `scripts/scan_all_stocks.py` 扫描全项目标的，而非仅看已有 entry_points**
+
+**更新前必须执行技术分析扫描**（详见 `references/technical-analysis-scan.md` 和 `references/entry-points-generation.md`）：
+1. 运行 `scripts/scan_all_stocks.py` 获取所有标的的实时行情 + 历史K线 + 技术评分
+2. 对重点标的（P1/P2、博主新提及、用户询问的）逐一分析：
+   - 均线系统：多头/空头/缠绕
+   - 回撤幅度：从近期高点回撤 %（判断调整是否充分）
+   - 量价关系：放量/缩量/正常
+   - K线形态：长下影/反包/大阳线/大阴线/十字星
+   - 支撑压力：近期20日高低点
+3. 基于技术分析生成介入区间（4种方法）：
+   - **均线法**：趋势票回踩 MA5/MA10（如 [MA5×0.97, MA5×1.00]）
+   - **低点法**：震荡票接近近期低点（如 [近期低点×0.98, 近期低点×1.02]）
+   - **回撤法**：高位票等充分调整（如 [近期高点×0.85, 近期高点×0.90]）
+   - **分时法**：日内回踩低点（如 [今日最低×0.99, 今日最低×1.03]）
+4. 技术评分与博主观点交叉验证：
+   - 技术评分高 + 博主看好 → 正常配置
+   - 技术评分高 + 博主不介入 → ❌ 配置为"只观察不介入"
+   - 技术评分低 + 博主看好 → ⏳ 配置区间但标注"等更充分调整"
+5. 将技术分析结果写入 `entry_points` 的 `note` 字段，便于后续复盘
 
 **更新内容**：
 - `quant_entry_strategy.entry_points`：为每个重点标的补充**具体介入区间、仓位、触发条件、失效条件**
@@ -120,20 +142,33 @@ stock_dict = {s['code']: s for s in stocks_list if 'code' in s}
 - `market_framework`：更新周期阶段、核心问题
 - `index_rules`：更新指数关键位
 
-- `entry_zone` 填写规范：
+**entry_zone 填写规范**：
   - **必须提供具体价格数字**，不能写"近期平台附近""等分歧后缩量回踩"等模糊描述
-  - 若数据源可用：基于当日收盘价，回踩 5-7% 计算（如收盘 28.5 → 介入区间 26.5-27.5）
+  - 若数据源可用：基于当日收盘价，结合技术分析（均线/低点/回撤/分时）计算具体区间
   - **若数据源降级无法获取实时价格**：
     - **诚实说明**："数据源降级，无法获取实时价格。需手动填写"
     - **提供计算规则**："基于当日收盘价，回踩 5-7% 介入"
     - **绝不编造虚假价格**（用户会验证，编造价格会导致信任崩塌）
     - **备用方案**：使用腾讯财经 API（curl）获取价格，详见 `references/data-source-fallback-chain.md`
   - 对于已大涨的票（如单日 +18%）：介入区间需等更充分调整（10-15%）
+  - **主板-only约束**：用户只能交易主板票（sh6xxxxx / sz0xxxxx）。若标的非主板（科创板688/创业板300），需在 note 中标注"不可交易（非主板）"，并优先推荐主板替代标的
 
 **position_ratio 填写规范**：
 - 必须提供具体仓位（如"1成""0.5成"）
 - 高弹性/高风险票降低仓位（如裕太微 0.5 成）
 - 空仓总仓位控制在 6 成以内（因新增多个方向）
+- 技术评分高 + 博主看好 + 主板 → 1.5-2成
+- 技术评分中等 + 博主未提及 + 主板 → 0.5-1成
+
+**触发条件与失效条件规范**：
+- 触发条件必须具体可执行："回踩470-480区间，分时不再创新低，放量收回均线"
+- 失效条件必须量化："跌破453且30分钟不能收回"
+- 不能只写"等企稳""趋势走坏"等模糊描述
+
+**用户交易约束（主板-only）**：
+- 用户只能交易主板票（sh6xxxxx / sz0xxxxx），无科创板（688）或创业板（300）权限
+- 配置 entry_points 时必须过滤主板-only，非主板标的需明确标注"不可交易（非主板）"
+- 为用户推荐标的时，优先主板；若只有非主板可选，需说明并询问是否接受
 
 **无持仓票不配置 stop_loss**：
 - 用户明确："没有持仓的不用止损，主要是介入区间和操作策略"
@@ -293,8 +328,12 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 8. **必须同步更新 strategy_pack**：只更新 watchlist 不更新 strategy_pack 是严重遗漏。entry_points 必须包含具体介入区间、仓位、触发条件。
 9. **绝不编造价格**：数据源降级时诚实说明，提供计算规则，不编造虚假价格。
 10. **区分两种更新模式**：模式 A（已有票更新）+ 模式 B（UP 新方向提取），两步都完成才算完整。
-11. **claims 一致性校验**：更新 strategy_pack 前必须扫描 claims，确认策略不与博主最新纪律矛盾。若 claim 中博主明确说"不追高"/"韭菜行为"，对应标的必须配置为"只观察不介入"。
+11. **claims 一致性校验**：更新 strategy_pack 前必须扫描 claims，确认策略不与博主最新纪律矛盾。若 claim 中博主明确说"不追高"/"韭菜行为"，对应标的必须配置为"只观察不介入"。**若用户问"扩大范围"或"还有什么可买"，使用 `scripts/scan_all_stocks.py` 扫描全项目标的**。
 12. **sector_rotation_rules 格式**：必须使用 list of dicts，引用 sector_groups 的 id。详见 `references/sector-rotation-rules-format.md`。
+13. **主板-only 约束**：用户只能交易主板票（sh6xxxxx / sz0xxxxx），无科创板/创业板权限。entry_points 必须过滤主板-only，非主板标的需标注"不可交易"并推荐主板替代。
+14. **技术分析必须执行**：更新 strategy_pack 前必须运行 `scripts/scan_all_stocks.py`，基于均线/回撤/量价/K线形态/支撑压力生成介入区间，不能拍脑袋定价。详见 `references/technical-analysis-scan.md` 和 `references/entry-points-generation.md`。
+15. **介入区间必须有数据支撑**：不能写"近期平台附近""等分歧后缩量回踩"等模糊描述，必须提供具体价格数字和计算依据。
+16. **触发/失效条件必须具体可执行**：不能写"等企稳""趋势走坏"，必须量化（如"跌破453且30分钟不能收回"）。
 
 ## 从复盘文档批量更新 narrative 的规范流程
 
@@ -453,6 +492,7 @@ yaml.safe_load(open('config/stock_monitor/watchlist.yaml'))
 - **LLM 幻觉识别**：当用户指出 cron 任务报告中的数据错误（如"万通发展没有涨停"），按 `references/llm-hallucination-prevention.md` 中的流程处理：验证 state.json/实时行情 → 标记幻觉 → 更新 prompt 约束。
 - **持仓更新完整流程**：用户要求"更新持仓"时，执行完整 pipeline：获取实时行情 → 计算 PnL → 交叉引用 claims → 验证 watchlist.yaml → 更新 `positions.yaml` 的 `today_snapshot` + 持仓记录 + `strategy_summary`。不能只改持仓股数而忽略市场上下文和可操作建议。
 - **提交前 git status**：执行 `git status --short` 和 `git diff --stat` 确认变更范围，再 `git add -A && git commit && git push`。
+- **主板-only 约束提醒**：当用户询问"还有什么推荐"时，主动过滤主板票；若推荐列表中无主板可选，明确说明并询问是否接受非主板标的。
 
 ## 禁止事项
 
