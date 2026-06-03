@@ -291,10 +291,14 @@ sector_groups:
   name: CPU自研链
   style: offensive
   members:
-  - code: 002055.SZ
-    name: ST得润
   - code: 600246.SH
     name: 万通发展
+- id: st_watch
+  name: ST观察
+  style: avoid
+  members:
+  - code: 002055.SZ
+    name: ST得润
 - id: upstream_price_increase
   name: 上游涨价链
   style: offensive
@@ -451,9 +455,11 @@ sector_rotation_rules:
   - defensive_stabilizers
   - coal
   - urban_renewal
-  min_spread_pct: 1.0
-  min_red_ratio_spread: 10
+  min_spread_pct: 1.5
+  min_red_ratio_spread: 15
   require_offensive_positive: true
+  min_duration_seconds: 900
+  min_consecutive_ticks: 3
   note: 当前风格切换大概率延续，留意指数能否缩量上行确认反弹性质
 - id: avoid_sector_monitor
   name: 规避方向监控
