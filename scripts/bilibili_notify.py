@@ -194,34 +194,37 @@ def main() -> int:
             elif line.startswith("url:"):
                 url = line.split(":", 1)[1].strip().strip('"')
 
-        # 获取原文前200字
+        # 获取完整原文
         text_start = content.find("## 原文\n\n")
         text_end = content.find("\n\n## 图片 OCR") if "## 图片 OCR" in content else content.find("\n\n## 图片")
         raw_text = ""
         if text_start > 0 and text_end > text_start:
-            raw_text = content[text_start + 9:text_end].strip()[:200]
+            raw_text = content[text_start + 9:text_end].strip()
 
-        # 构建微信消息
+        # 获取完整OCR
+        ocr_full = ocr_section.strip()
+
+        # 获取完整评论
+        comment_full = comment_section.strip()
+
+        # 构建微信消息（尽量展示完整原文）
         msg = f"📢 **青枫浦上Q 新动态**\n\n"
         msg += f"⏰ {pub_time}\n"
         msg += f"🔗 {url}\n\n"
+
+        # 原文优先完整展示
         if raw_text:
-            msg += f"**原文摘要：**\n{raw_text}\n"
-            if len(raw_text) >= 200:
-                msg += "...\n"
-            msg += "\n"
-        if ocr_section.strip():
-            msg += f"**图片内容：**\n{ocr_section.strip()[:300]}\n"
-            if len(ocr_section.strip()) > 300:
-                msg += "...\n"
-            msg += "\n"
-        if comment_section.strip():
-            msg += f"**置顶评论：**\n{comment_section.strip()[:200]}\n"
-            if len(comment_section.strip()) > 200:
-                msg += "...\n"
+            msg += f"**原文：**\n{raw_text}\n\n"
+
+        # OCR完整展示
+        if ocr_full:
+            msg += f"**图片内容：**\n{ocr_full}\n\n"
+
+        # 评论完整展示
+        if comment_full:
+            msg += f"**置顶评论：**\n{comment_full}\n\n"
 
         print(msg)
-        print("---")
 
     return 0
 
