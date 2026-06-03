@@ -1,86 +1,92 @@
-updated_at: '2026-06-02'
+updated_at: '2026-06-03'
 today_snapshot:
-  fetch_time: 2026-06-02 23:50 CST
-  source: 收盘监控复盘_2026-06-02
-  up_bias: 6月2日收盘：共振修复，AI硬件普涨，情绪拐点确认。创业板一枝独秀+2.66%，深成指+1.63%，上证+0.43%。成交2.77万亿（缩量845亿）。黄白线分化，权重股强但3800+个股跌。AI硬件核心主线：CPO/光互连领涨，PCB/MLCC/存储同一节奏。半导体强度稍弱。明日观察：资金能否聚焦某一分支决定修复强度。
-  market_summary: 6月2日收盘，上证4075.1(+0.43%)，深证15591.13(+1.63%)，创业板4055.87(+2.66%)，科创501690.56(+1.62%)。成交2.77万亿（缩量845亿）。黄白线分化明显，权重股走势较强，但全市场超3800只个股下跌——指数强、个股弱。AI硬件核心主线：CPO/光互连领涨（源杰科技+10%、光库科技+10%、天孚通信+6.56%、中际旭创+5.47%、新易盛+9.88%），PCB（鹏鼎控股触及涨停+8.27%、沪电股份+6.93%、宏和科技地天板），MLCC（火炬电子4天3板+10%、风华高科+8.83%），光纤（亨通光电涨停创历史新高+10.01%、长飞光纤涨停+10%）。半导体强度稍弱（长电科技-0.4%）。机器人（中大力德、凯迪股份涨停）。有色金属（华锡有色、锡业股份、江西铜业涨停）。
+  fetch_time: 2026-06-03 09:30 CST
+  source: 早盘策略_2026-06-03 + 实时行情
+  up_bias: 6月3日早盘：调整第15天，上升途中调整临近尾声。上证4068(-0.17%)，深证15647(+0.36%)，创业板4089(+0.82%)，科创50
+    1698(+0.42%)。两个止跌信号叠加（120分钟低9+30分钟底部结构），短期企稳概率较大。纪律线：收盘跌穿4033清仓，突破4130满仓。
+  market_summary: 6月3日早盘，上证4068.34(-0.17%)，深证15646.69(+0.36%)，创业板4089.02(+0.82%)，科创501697.66(+0.42%)。指数低开震荡，创业板相对强势。AI硬件分化：MLCC风华高科-1.37%（回调）、火炬电子+2.35%（继续强势）；CPO天孚通信+9.63%（大幅高开）、中际旭创+2.37%、新易盛+1.74%；光纤亨通光电+8.28%（继续大涨）、中天科技+2.33%、长飞光纤+3.49%；存储兆易创新+0.88%、澜起科技+4.75%、长电科技+1.17%；光互连裕太微+15.20%（大幅高开）、仕佳光子+4.08%、杰普特+3.20%；模拟IC新洁能+3.16%、帝奥微+2.38%。
   stocks_with_data:
-  - code: 000636.SZ
+  - code: sz000636
     name: 风华高科
-    latest: 59.91
-    pct_change: 8.83
-    note: MLCC周期上行最强标的，共振修复中独立强势
-  - code: 603678.SH
+    latest: 59.09
+    pct_change: -1.37
+    note: MLCC核心，早盘回调-1.37%，昨日大涨后正常休整
+  - code: sh603678
     name: 火炬电子
-    latest: 58.61
-    pct_change: 10.0
-    note: 4天3板，情绪载体候选但下午频繁开板
-  - code: 600487.SH
-    name: 亨通光电
-    latest: 83.12
-    pct_change: 10.01
-    note: 涨停创历史新高，光纤龙头
-  - code: 601869.SH
-    name: 长飞光纤
-    latest: 408.74
-    pct_change: 10.0
-    note: 涨停，光纤板块共振
-  - code: 300308.SZ
-    name: 中际旭创
-    latest: 1191.81
-    pct_change: 5.47
-    note: CPO核心，共振修复
-  - code: 300502.SZ
-    name: 新易盛
-    latest: 747.0
-    pct_change: 9.88
-    note: CPO三巨头，跟风上涨
-  - code: 300394.SZ
+    latest: 59.99
+    pct_change: 2.35
+    note: MLCC情绪载体，4天3板后+2.35%继续强势
+  - code: sz300394
     name: 天孚通信
-    latest: 457.0
-    pct_change: 6.56
-    note: CPO供应链核心卡位，光引擎/FAU/ELS
-  - code: 600584.SH
-    name: 长电科技
-    latest: 75.35
-    pct_change: -0.4
-    note: 半导体规避方向，微跌
-  - code: 000066.SZ
+    latest: 501.0
+    pct_change: 9.63
+    note: CPO核心，早盘大幅高开+9.63%，隔夜Marvell大涨催化
+  - code: sh600487
+    name: 亨通光电
+    latest: 90.0
+    pct_change: 8.28
+    note: 光纤龙头，早盘+8.28%继续大涨，三波段光缆催化
+  - code: sh688515
+    name: 裕太微
+    latest: 249.99
+    pct_change: 15.2
+    note: 光互连/DSP，早盘+15.20%大幅高开，Marvell催化
+  - code: sh603986
+    name: 兆易创新
+    latest: 478.89
+    pct_change: 0.88
+    note: 存储芯片，早盘+0.88%，抗跌性确认
+  - code: sh688008
+    name: 澜起科技
+    latest: 248.25
+    pct_change: 4.75
+    note: 存储接口，早盘+4.75%强势
+  - code: sz300502
+    name: 新易盛
+    latest: 760.0
+    pct_change: 1.74
+    note: CPO三巨头，早盘+1.74%
+  - code: sz300308
+    name: 中际旭创
+    latest: 1220.0
+    pct_change: 2.37
+    note: CPO核心，早盘+2.37%
+  - code: sh600522
+    name: 中天科技
+    latest: 43.89
+    pct_change: 2.33
+    note: 光纤+海缆，早盘+2.33%
+  - code: sh601869
+    name: 长飞光纤
+    latest: 423.0
+    pct_change: 3.49
+    note: 光纤，早盘+3.49%
+  - code: sh605111
+    name: 新洁能
+    latest: 63.97
+    pct_change: 3.16
+    note: 模拟IC，早盘+3.16%
+  - code: sh688381
+    name: 帝奥微
+    latest: 40.37
+    pct_change: 2.38
+    note: 模拟IC，早盘+2.38%
+  - code: sz002897
+    name: 意华股份
+    latest: 95.08
+    pct_change: 7.8
+    note: 光互连，早盘+7.80%
+  - code: sz000066
     name: 中国长城
-    latest: 18.09
-    pct_change: -2.11
-    note: 持仓400股成本18.32，浮亏约-1.25%
-  - code: 000969.SZ
+    latest: 18.22
+    pct_change: 0.72
+    note: 持仓400股成本18.32，浮亏约-0.55%
+  - code: sz000969
     name: 安泰科技
     latest: 21.96
-    pct_change: -2.44
+    pct_change: 0.0
     note: 持仓700股成本24.702，浮亏约-11.1%
-  - code: 002463.SZ
-    name: 沪电股份
-    latest: 131.0
-    pct_change: 6.93
-    note: PCB核心，共振修复
-  - code: 300476.SZ
-    name: 胜宏科技
-    latest: 349.08
-    pct_change: 1.97
-    note: PCB核心，共振修复
-  - code: 002938.SZ
-    name: 鹏鼎控股
-    latest: 111.89
-    pct_change: 8.27
-    note: PCB/FPC龙头，触及涨停
-  - code: 603019.SH
-    name: 中科曙光
-    latest: 86.02
-    pct_change: 0.73
-    note: 服务器整机，Vera Rubin量产受益
-  - code: 000977.SZ
-    name: 浪潮信息
-    latest: 65.0
-    pct_change: 1.34
-    note: 服务器整机中军
-  overall_action: 共振修复确认，AI硬件普涨但属"普涨共振"（宽度有高度不足）。CPO/光互连业绩兑现路径最清晰，但短期涨幅已大需防获利回吐。PCB/MLCC/存储同一节奏，缺乏独立情绪载体。半导体规避。明日关键：资金能否聚焦某一分支。持仓：安泰科技700股浮亏-11.1%观望；中国长城400股浮亏-1.25%持有。
+  overall_action: 调整第15天临近尾声，短期企稳概率大。纪律线4033/4130。重点跟踪：存储（抗跌）、MLCC（最强分支，风华高科回调-1.37%是观察点）、光互连/CPO（资金接力验证，天孚+9.63%/裕太微+15.20%大幅高开需防兑现）。今日做T为主，若仍下跌可不看盘防卖在最低点。持仓：安泰科技观望；中国长城持有。
 themes:
 - id: cpu_self_development
   name: CPU自研链（字节催化，可能裂变为主线）
@@ -503,6 +509,40 @@ themes:
     invalidation_setup:
     - 单票走强但功率半导体组无扩散
     - 跌破分时均价
+  - code: sh688381
+    name: 帝奥微
+    role: analog_ic
+    segment: 模拟IC
+    priority: P2-观察
+    watch_reason: 6月3日早盘提及：模拟IC板块切换窗口，意法半导体大涨15.2%
+    sync_with_index: 半导体板块
+    confirm_with:
+    - 新洁能
+    buy_setup:
+    - 模拟IC板块持续强势
+    - 意法半导体催化
+    invalidation_setup:
+    - 板块回调
+    - 意法半导体回落
+    up_mention_status:
+      last_mentioned_date: '2026-06-03'
+      mention_context: 6月3日早盘：模拟IC板块切换窗口
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月3日早盘+2.38%
+      volume_character: 早盘竞价
+      key_levels:
+      - 支撑：昨日收盘
+      - 压力：+5%
+      pattern: 板块切换窗口
+      note: 帝奥微早盘+2.38%，模拟IC切换窗口
+    sector_narrative:
+      relative_strength: 模拟IC组
+      money_flow: 板块切换
+      leader_follower: 跟随
+      catalyst: 意法半导体大涨15.2%
+      risk: 切换窗口初期，持续性待验证
 - id: liquid_cooling_heat_dissipation
   name: 液冷/散热（华为链，韬定律催化）
   source_docs:
@@ -669,6 +709,76 @@ themes:
       leader_follower: 板块龙头
       catalyst: AI硬件共振修复
       risk: 短期涨幅已大，需防获利回吐；但产业卡位明确，资金回流优先级高
+  - code: sz002897
+    name: 意华股份
+    role: optical_interconnect
+    segment: 光互连
+    priority: P2-观察
+    watch_reason: 6月3日早盘提及：意华股份为光互连方向标的，Marvell被黄仁勋点名催化
+    sync_with_index: 光互连板块
+    confirm_with:
+    - 中际旭创
+    - 新易盛
+    buy_setup:
+    - 光互连资金接力确认
+    - 板块联动
+    invalidation_setup:
+    - 资金不接力
+    - 炸板回落
+    up_mention_status:
+      last_mentioned_date: '2026-06-03'
+      mention_context: 6月3日早盘：光互连方向，Marvell被黄仁勋点名
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月3日早盘+7.80%
+      volume_character: 早盘竞价
+      key_levels:
+      - 支撑：昨日收盘
+      - 压力：+5%
+      pattern: 事件驱动高开
+      note: 意华股份早盘+7.80%，大幅高开
+    sector_narrative:
+      relative_strength: 光互连组
+      money_flow: 事件驱动
+      leader_follower: 跟随
+      catalyst: Marvell被黄仁勋点名
+      risk: 炒新不炒旧，需验证接力意愿
+  - code: sz301419
+    name: 阿莱德
+    role: optical_interconnect
+    segment: 光互连
+    priority: P2-观察
+    watch_reason: 6月3日早盘提及：阿莱德为光互连方向标的，Marvell被黄仁勋点名催化
+    sync_with_index: 光互连板块
+    confirm_with:
+    - 中际旭创
+    - 新易盛
+    buy_setup:
+    - 光互连资金接力确认
+    - 板块联动
+    invalidation_setup:
+    - 资金不接力
+    - 炸板回落
+    up_mention_status:
+      last_mentioned_date: '2026-06-03'
+      mention_context: 6月3日早盘：光互连方向，Marvell被黄仁勋点名
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月3日早盘+2.25%
+      volume_character: 早盘竞价
+      key_levels:
+      - 支撑：昨日收盘
+      - 压力：+5%
+      pattern: 事件驱动高开
+      note: 阿莱德早盘+2.25%，正常开盘
+    sector_narrative:
+      relative_strength: 光互连组
+      money_flow: 事件驱动
+      leader_follower: 跟随
+      catalyst: Marvell被黄仁勋点名
+      risk: 炒新不炒旧，需验证接力意愿
 - id: medical_observation
   name: 医药观察（博主提示，节点不错）
   source_docs:
@@ -1783,6 +1893,41 @@ themes:
     - 需长飞光纤、亨通光电同步承接，不能单票低吸
     invalidation_setup:
     - 跌破41.8日内低点或光纤光缆组无扩散，维持弱势观察
+  - code: sz300265
+    name: 通光线缆
+    role: fiber_cable
+    segment: 光纤光缆
+    priority: P2-观察
+    watch_reason: 6月3日早盘提及：通光线缆与长飞光纤合资设立子公司，主营光纤光缆
+    sync_with_index: 光纤光缆板块
+    confirm_with:
+    - 亨通光电
+    - 中天科技
+    buy_setup:
+    - 光纤板块持续强势
+    - 合资公司进展
+    invalidation_setup:
+    - 板块回调
+    - 合资公司无实质进展
+    up_mention_status:
+      last_mentioned_date: '2026-06-03'
+      mention_context: 6月3日早盘：光纤光缆，全球首条三波段多芯光缆开通
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月3日早盘-0.17%
+      volume_character: 早盘竞价
+      key_levels:
+      - 支撑：昨日收盘
+      - 压力：+5%
+      pattern: 事件驱动
+      note: 通光线缆早盘-0.17%
+    sector_narrative:
+      relative_strength: 光纤组
+      money_flow: 事件驱动
+      leader_follower: 跟随
+      catalyst: 全球首条三波段多芯光缆开通
+      risk: 供需缺口逻辑需持续验证
 - id: semiconductor_legacy_watch
   name: 半导体老主线（观察为主，暂不介入）
   source_docs:
@@ -2390,6 +2535,76 @@ themes:
     invalidation_setup:
     - 鸿海CPO出货不及预期
     - 单票脉冲但CPO组无联动
+  - code: sh688313
+    name: 仕佳光子
+    role: cpo_aws_chip
+    segment: CPO上游
+    priority: P2-观察
+    watch_reason: 6月3日早盘提及：仕佳光子为CPO/光互连上游标的
+    sync_with_index: CPO板块
+    confirm_with:
+    - 中际旭创
+    - 天孚通信
+    buy_setup:
+    - CPO板块持续强势
+    - 英伟达Spectrum-X量产催化
+    invalidation_setup:
+    - 板块回调
+    - 资金不接力
+    up_mention_status:
+      last_mentioned_date: '2026-06-03'
+      mention_context: 6月3日早盘：CPO英伟达Spectrum-X硅光全面量产
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月3日早盘+4.08%
+      volume_character: 早盘竞价
+      key_levels:
+      - 支撑：昨日收盘
+      - 压力：+5%
+      pattern: 事件驱动
+      note: 仕佳光子早盘+4.08%
+    sector_narrative:
+      relative_strength: CPO上游
+      money_flow: 事件驱动
+      leader_follower: 跟随
+      catalyst: 英伟达Spectrum-X量产
+      risk: 短期涨幅大，需防兑现
+  - code: sh688025
+    name: 杰普特
+    role: laser_equipment
+    segment: 激光器/CPO
+    priority: P2-观察
+    watch_reason: 6月3日早盘提及：杰普特为CPO/光互连上游标的
+    sync_with_index: CPO板块
+    confirm_with:
+    - 中际旭创
+    - 天孚通信
+    buy_setup:
+    - CPO板块持续强势
+    - 英伟达Spectrum-X量产催化
+    invalidation_setup:
+    - 板块回调
+    - 资金不接力
+    up_mention_status:
+      last_mentioned_date: '2026-06-03'
+      mention_context: 6月3日早盘：CPO英伟达Spectrum-X硅光全面量产
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月3日早盘+3.20%
+      volume_character: 早盘竞价
+      key_levels:
+      - 支撑：昨日收盘
+      - 压力：+5%
+      pattern: 事件驱动
+      note: 杰普特早盘+3.20%
+    sector_narrative:
+      relative_strength: CPO上游
+      money_flow: 事件驱动
+      leader_follower: 跟随
+      catalyst: 英伟达Spectrum-X量产
+      risk: 短期涨幅大，需防兑现
 - id: pcb_drill_needle
   name: PCB钻针（M9硬度提升5-8倍消耗）
   source_docs:
@@ -3159,3 +3374,4 @@ themes:
       leader_follower: 绿色铝龙头
       catalyst: 美伊冲突致中东产能受损，沪伦价差历史极值利好出口
       risk: 美伊冲突缓和导致铝价回落
+  id: focus_direction_20260602

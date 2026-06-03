@@ -8,24 +8,18 @@ source_claims:
 - framework/market-cycle-framework.md
 - framework/sector-diffusion-framework.md
 market_framework:
-  current_stage: 共振修复初期 + AI硬件普涨共振（宽度有高度不足） + 情绪拐点确认
-  core_question: ' resonance修复后走向强共振还是维持普涨共振？资金能否在明日聚焦于某一个分支（CPO/PCB/MLCC/光纤），将直接关系到修复行情的强度和持续性。'
-  latest_up_bias:
-    source_docs:
-    - sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
-    - knowledge/claims/claim-20260602-003.yaml
-    rules:
-    - 今日定性为恐慌杀跌之后的共振修复，10:50情绪拐点确认（盘中前置判断）
-    - 共振格局辨析：今日属于"普涨共振"而非"强共振"——MLCC、CPO、PCB等全线上涨，但无绝对聚焦分支
-    - 宽度有，高度不足——反弹预期要降低一点
-    - 情绪载体候选：火炬电子（4天3板但下午频繁开板，连板高度有难度）、亨通光电（涨停创历史新高但光纤产业无大变化）
-    - AI硬件核心主线：CPO/光互连业绩兑现路径从远期预期走向当期订单放量，是最有产业逻辑支撑的分支
-    - PCB、MLCC、存储同一节奏，属情绪与产业共振，但缺乏独立情绪载体
-    - 半导体强度稍弱，主因业绩支撑不足，下半年才有望改善
-    - 明日关键：情绪核心应强势表现，资金能否聚焦某一分支决定修复强度
-    - 选股思路：普涨轮动阶段，地位与卡位决定资金回流优先级，业绩兑现清晰的龙头优于纯情绪标的
-    - 英伟达催化：Vera Rubin全面量产、Marvell或成万亿公司、Spectrum-X硅光技术量产
-    - 操作纪律：CPO短期涨幅已大需防获利回吐；不追高，等分歧后缩量回踩
+  current_stage: 调整第15天，上升途中调整临近尾声 + 短期企稳概率较大
+  core_question: 调整是否真正结束？资金能否从普涨共振走向强共振聚焦？MLCC能否强者恒强？光互连资金接力意愿如何验证？
+  up_quote: 6月3日早盘：调整第15天，15度角浅调整，上升途中歇脚而非趋势反转。AI多数方向回撤约20%处于历史调整区间下沿。两个止跌信号叠加（120分钟低9+30分钟底部结构）。纪律线：收盘跌穿4033清仓，突破4130满仓。
+  key_assumptions:
+  - 上证15度角浅调整=趋势中继而非反转
+  - AI回撤20%=历史区间15-30%下沿
+  - 120分钟低9+30分钟底部结构=短期企稳信号
+  - 成交额前5%个股占比达2018年以来高点=风格切换继续
+  invalidation_conditions:
+  - 收盘跌穿4033点→清仓
+  - 创业板指跌破4000且不能收回→调整延长
+  - AI主线集体破位→上升途中调整证伪
 intraday_schedule:
 - window: 09:15-09:30
   name: 集合竞价
@@ -165,247 +159,109 @@ position_rules:
   - 追防御板块
   action: 只观察不介入
 quant_entry_strategy:
-  updated_at: '2026-06-02'
-  data_source: fetch_stock_data_2026-06-02_2350
-  market_summary: 上证4075.1(+0.43%)，深证15591.13(+1.63%)，创业板4055.87(+2.66%)，科创501690.56(+1.62%)。成交2.77万亿（缩量845亿）。共振修复，AI硬件普涨。
-  sector_strength_ranking:
-  - rank: 1
-    sector: 光纤
-    strength: 亨通光电涨停+10.01%创历史新高，长飞光纤涨停+10%
-    assessment: 光互连领涨，但产业无大变化，情绪载体承载力存疑
-  - rank: 2
-    sector: MLCC
-    strength: 火炬电子4天3板+10%，风华高科+8.83%
-    assessment: 周期上行确认，普涨共振中最强分支之一
-  - rank: 3
-    sector: CPO/光互连
-    strength: 新易盛+9.88%，天孚通信+6.56%，中际旭创+5.47%
-    assessment: 业绩兑现路径最清晰，但短期涨幅已大
-  - rank: 4
-    sector: PCB
-    strength: 鹏鼎控股触及涨停+8.27%，沪电股份+6.93%，宏和科技地天板
-    assessment: 与CPO/MLCC同一节奏，共振修复
-  - rank: 5
-    sector: 服务器
-    strength: 中科曙光+0.73%，浪潮信息+1.34%
-    assessment: Vera Rubin量产受益，但普涨下非焦点
-  - rank: 6
-    sector: 半导体
-    strength: 长电科技-0.4%
-    assessment: 强度稍弱，业绩支撑不足，规避
-  - rank: 7
-    sector: 有色锡
-    strength: 华锡有色2连板，锡业股份首板
-    assessment: 英伟达催化"算力金属"，新叙事
-  - rank: 8
-    sector: 机器人
-    strength: 中大力德、凯迪股份涨停
-    assessment: 共振修复中跟随上涨
-  - rank: 9
-    sector: 煤炭
-    strength: 大有能源等活跃
-    assessment: 电力板块传导第二棒
-  key_findings:
-  - 创业板+2.66%一枝独秀 = 共振修复确认，但黄白线分化明显
-  - 成交2.77万亿缩量845亿 = 量能未继续萎缩是关键信号
-  - 3800+个股下跌 = 指数强个股弱，赚钱效应集中在科技主线
-  - CPO业绩从预期→订单 = 最有产业逻辑支撑的分支
-  - 火炬电子4天3板但频繁开板 = 情绪载体承载力存疑
-  - 半导体强度稍弱 = 业绩支撑不足，下半年才有望改善
-  - 明日观察：资金能否聚焦某一分支
+  position_advice:
+    empty_account: 空仓可小仓位试探（3-4成），重点跟踪存储/MLCC/光互连
+    full_account: 满仓应降仓留空间，做T为主
+    current_bias: 短期企稳概率大，做T为主，不开新仓
   entry_points:
-  - code: 300394.SZ
-    name: 天孚通信
-    priority: 1
-    sector: CPO供应链核心卡位
-    close: 457.0
-    change_pct: 6.56
-    assessment: CPO供应链核心卡位，光引擎/FAU/ELS三大核心组件。业绩兑现路径清晰，资金回流优先级高
-    trigger_buy:
-    - CPO组整体转强
-    - 不追高，等分歧后缩量回踩
-    - 产业卡位明确，龙头优于纯情绪
-    entry_zone: 440-450区间
+  - code: sh603986
+    name: 兆易创新
+    entry_zone: 470-480区间
     position_ratio: 1.5成
-    stop_loss: 跌破430且30分钟不能收回
-    invalidation:
-    - CPO整体走弱
-    - 英伟达供应链逻辑不被认可
-  - code: 000636.SZ
+    trigger: 存储芯片抗跌性确认，早盘+0.88%
+    invalidation: 跌破460且30分钟不能收回
+    note: 存储方向抗跌性最好，调整中资金认可度高
+  - code: sh688008
+    name: 澜起科技
+    entry_zone: 240-245区间
+    position_ratio: 1成
+    trigger: 存储接口方向，早盘+4.75%强势
+    invalidation: 跌破235且30分钟不能收回
+    note: 存储接口核心，业绩支撑较强
+  - code: sz000636
     name: 风华高科
-    priority: 2
-    sector: MLCC周期上行
-    close: 59.91
-    change_pct: 8.83
-    assessment: MLCC周期上行最强标的，共振修复中独立强势
-    trigger_buy:
-    - MLCC组整体转强
-    - 不追高，等分歧后缩量回踩
-    - 需三环集团或火炬电子同步承接
     entry_zone: 55-57区间
     position_ratio: 1.5成
-    stop_loss: 跌破53且30分钟不能收回
-    invalidation:
-    - MLCC被误判为类存储大紧缺后情绪退潮
-    - 三环集团大幅回落
-  - code: 600487.SH
+    trigger: MLCC最强分支，高盛价值重估
+    invalidation: 跌破53且30分钟不能收回
+    note: MLCC核心标的，昨日大涨后早盘回调-1.37%是观察点。若回踩55-57企稳可介入
+  - code: sh603678
+    name: 火炬电子
+    entry_zone: 56-58区间
+    position_ratio: 1成
+    trigger: MLCC情绪载体，4天3板后继续强势
+    invalidation: 跌破55且30分钟不能收回
+    note: 情绪载体，高弹性。早盘+2.35%继续强势，但涨停后开板风险需警惕
+  - code: sz300394
+    name: 天孚通信
+    entry_zone: 460-470区间
+    position_ratio: 1成
+    trigger: CPO供应链核心卡位，隔夜Marvell大涨催化
+    invalidation: 跌破450且30分钟不能收回
+    note: 早盘大幅高开+9.63%，需防兑现。等回踩460-470企稳后介入，不追高
+  - code: sz300502
+    name: 新易盛
+    entry_zone: 740-750区间
+    position_ratio: 1成
+    trigger: CPO三巨头，早盘+1.74%
+    invalidation: 跌破730且30分钟不能收回
+    note: CPO核心，涨幅相对温和，等回踩740-750介入
+  - code: sz300308
+    name: 中际旭创
+    entry_zone: 1180-1200区间
+    position_ratio: 1成
+    trigger: CPO核心，早盘+2.37%
+    invalidation: 跌破1150且30分钟不能收回
+    note: CPO中军，等回踩1180-1200介入
+  - code: sh600487
     name: 亨通光电
-    priority: 3
-    sector: 光纤
-    close: 83.12
-    change_pct: 10.01
-    assessment: 涨停创历史新高，情绪载体候选。但光纤产业近期无大变化，承载力存疑
-    trigger_buy:
-    - 光纤组整体转强
-    - 不追高，等分歧后回踩
-    - 需长飞光纤同步承接
-    entry_zone: 75-78区间
+    entry_zone: 82-85区间
     position_ratio: 1成
-    stop_loss: 跌破72且30分钟不能收回
-    invalidation:
-    - 光纤产业无新变化被资金识破
-    - 单票脉冲但组内无联动
-  - code: 300054.SZ
-    name: 鼎龙股份
-    priority: 4
-    sector: 光刻胶/CMP国产替代
-    close: 67.44
-    change_pct: 1.62
-    assessment: UP明确提示"关注地位方向"：高端光刻胶/CMP国产替代第一，有实际产能落地、批量供货节点清晰。半导体方向中业绩支撑度够的稀缺标的，确定性相对更高。
-      | 6月2日收盘67.44元(+1.62%)。
-    trigger_buy:
-    - 半导体板块整体企稳
-    - 光刻胶/CMP国产替代逻辑被市场认可
-    - 不追高，等缩量回踩
-    - 需沪硅产业或安集科技同步承接
-    entry_zone: 60.0-63.0
+    trigger: 光纤龙头，三波段光缆催化
+    invalidation: 跌破80且30分钟不能收回
+    note: 早盘+8.28%继续大涨，昨日涨停创历史新高。等回踩82-85介入，不追高
+  - code: sh600522
+    name: 中天科技
+    entry_zone: 42-43区间
     position_ratio: 1成
-    invalidation:
-    - 半导体业绩证伪
-    - 国产替代进度不及预期
-    - 单票异动但板块不共振
-    technical_basis: 前期平台支撑+回踩5日线/10日线区间。6月2日收盘67.44，半导体方向强度稍弱，若板块企稳，回踩60-63前期平台为合理介入点。
-    key_levels:
-    - 支撑：60.0（前期平台）
-    - 压力：70.0（前高）
-  - code: 688515.SH
+    trigger: 光纤+海缆，早盘+2.33%
+    invalidation: 跌破41且30分钟不能收回
+    note: 光纤产业链，相对低位，等回踩42-43介入
+  - code: sh688515
     name: 裕太微
-    priority: 5
-    sector: 以太网PHY/DSP
-    close: 217.0
-    change_pct: 32.96
-    assessment: UP明确提示"关注地位方向"：以太网PHY全栈，华为哈勃持股6.97%。英伟达点名Marvell可能成"万亿公司"引发DSP热。SerDes芯片预计26年下半年量产。6月2日已大涨18%，短期不追。
-      | 6月2日收盘217.0元(+32.96%)。
-    trigger_buy:
-    - DSP/光通信方向持续强势
-    - Marvell概念不退潮
-    - 不追高，等分歧后缩量回踩（大涨后需充分调整）
-    - 需盛科通信或中兴通讯同步承接
-    entry_zone: 175.0-185.0
+    entry_zone: 等充分调整
     position_ratio: 0.5成（高弹性，控制仓位）
-    invalidation:
-    - Marvell概念退潮
-    - DSP量产进度延迟
-    - 单票脉冲但板块不共振
-    technical_basis: 6月2日大涨32.96%突破前期平台，需等充分回踩确认。180附近为突破前高点，转化为支撑。175为深调极限位（约-20%）。
-    key_levels:
-    - 支撑：180.0（突破前高转支撑）
-    - 支撑2：175.0（深调极限）
-    - 压力：220.0（日内高点）
-  - code: 601138.SH
-    name: 工业富联
-    priority: 6
-    sector: CPO交换机/ODM
-    close: 80.01
-    change_pct: 6.26
-    assessment: UP明确提示"关注地位方向"：CPO供应链核心卡位，全光CPO交换机机柜出货目标从26年超1万台上修至26-27年合计超5万台。英伟达Vera
-      Rubin全面量产受益。 | 6月2日收盘80.01元(+6.26%)。
-    trigger_buy:
-    - CPO方向持续强势
-    - 英伟达供应链逻辑确认
-    - 不追高，等分歧后缩量回踩
-    - 需天孚通信或中际旭创同步承接
-    entry_zone: 74.0-76.5
+    trigger: 光互连/DSP，Marvell催化
+    invalidation: 跌破210且30分钟不能收回
+    note: 早盘+15.20%大幅高开，昨日已大涨18%。等充分调整（10-15%）后再考虑，当前不介入
+  - code: sh605111
+    name: 新洁能
+    entry_zone: 60-62区间
     position_ratio: 1成
-    invalidation:
-    - CPO整体走弱
-    - 英伟达出货不及预期
-    - 单票脉冲但板块不共振
-    technical_basis: 6月2日收盘80.01，CPO方向持续强势。74-76区间为近期震荡平台上沿+5日线/10日线交汇区，回踩此区间确认支撑有效后介入。
-    key_levels:
-    - 支撑：74.0（平台上沿+均线交汇）
-    - 压力：82.0（前高）
-  - code: 002384.SZ
-    name: 东山精密
-    priority: 7
-    sector: FPC全球第二/PCB全球第三
-    close: 210.93
-    change_pct: 19.18
-    assessment: UP明确提示"关注地位方向"：FPC全球第二、PCB全球第三。计划投资不超10亿美元建高端PCB项目（聚焦AI服务器）；拟收购索尔思光电100%股权切入光模块；与上交大成立机器人联合研发中心。
-      | 6月2日收盘210.93元(+19.18%)。
-    trigger_buy:
-    - PCB/光通信方向持续强势
-    - 收购索尔思光电进度确认
-    - 不追高，等分歧后缩量回踩
-    - 需鹏鼎控股或沪电股份同步承接
-    entry_zone: 185.0-195.0
-    position_ratio: 1成
-    invalidation:
-    - PCB整体走弱
-    - 收购进度不及预期
-    - 单票脉冲但板块不共振
-    technical_basis: 6月2日大涨19.18%接近涨停，突破前期平台。190附近为突破前高点，转化为支撑。185为深调极限（约-12%）。需等回踩确认突破有效性。
-    key_levels:
-    - 支撑：190.0（突破前高转支撑）
-    - 支撑2：185.0（深调极限）
-    - 压力：215.0（前高）
-  - code: 000807.SZ
-    name: 云铝股份
-    priority: 8
-    sector: 绿色铝龙头
-    close: 30.29
-    change_pct: 1.38
-    assessment: UP明确提示"关注地位方向"：绿色铝龙头。26Q1营收163.8亿（+13.7%），归母净利36亿（+269.5%），创单季盈利新高。美伊冲突致中东电解铝产能受损，沪伦价差降至3238元/吨接近22年历史极值，内外盘价差创新低利好出口。
-      | 6月2日收盘30.29元(+1.38%)。
-    trigger_buy:
-    - 铝价维持强势
-    - 出口逻辑持续
-    - 不追高，等缩量回踩
-    - 需中国铝业或神火股份同步承接
-    entry_zone: 28.5-29.5
-    position_ratio: 1成
-    invalidation:
-    - 铝价大幅回落
-    - 美伊冲突缓和
-    - 单票脉冲但板块不共振
-    technical_basis: 6月2日收盘30.29，绿色铝龙头业绩新高。28.5-29.5为近期震荡平台上沿+5日线支撑区，回踩此区间且铝价维持强势时介入。
-    key_levels:
-    - 支撑：28.5（平台上沿+5日线）
-    - 压力：31.5（前高）
-  avoid:
-  - code: 600584.SH
-    name: 长电科技
-    reason: 半导体规避方向，博主明确不要买半导体。业绩支撑不足
-  - code: 000969.SZ
-    name: 安泰科技
-    reason: 持仓浮亏-11.1%，纳米晶/软磁板块弱势，已减仓观望
-  - code: 000066.SZ
-    name: 中国长城
-    reason: 持仓浮亏-1.25%，信创方向，随科技线调整
-  position_advice:
-    empty_position:
-      total: 6成以内
-      allocation:
-      - CPO核心卡位：天孚通信1.5成
-      - MLCC周期上行：风华高科1.5成
-      - 光刻胶/CMP国产替代：鼎龙股份1成
-      - CPO交换机/ODM：工业富联1成
-      - FPC/PCB全球龙头：东山精密1成
-      - 绿色铝出口：云铝股份1成
-      note: 共振修复初期，普涨共振格局下反弹预期需降低。控制仓位，只参与有产业逻辑支撑、地位与卡位明确的龙头。不追高，等分歧后缩量回踩。明日观察资金能否聚焦某一分支。裕太微高弹性0.5成，需等充分调整。
-    full_position:
-      action: 降仓至3成以内
-      note: 普涨共振下高度不足，反弹预期降低。增厚安全垫，等强共振确认后再加仓。
+    trigger: 模拟IC，意法半导体大涨催化
+    invalidation: 跌破58且30分钟不能收回
+    note: 模拟IC切换窗口，早盘+3.16%。等回踩60-62介入
+  - code: sh688381
+    name: 帝奥微
+    entry_zone: 38-40区间
+    position_ratio: 0.5成
+    trigger: 模拟IC，板块切换窗口
+    invalidation: 跌破37且30分钟不能收回
+    note: 模拟IC，早盘+2.38%。等回踩38-40介入
+  - code: sz002897
+    name: 意华股份
+    entry_zone: 88-92区间
+    position_ratio: 0.5成
+    trigger: 光互连，Marvell催化
+    invalidation: 跌破85且30分钟不能收回
+    note: 早盘+7.80%，等回踩88-92介入
+  - code: sz301419
+    name: 阿莱德
+    entry_zone: 43-45区间
+    position_ratio: 0.5成
+    trigger: 光互连
+    invalidation: 跌破42且30分钟不能收回
+    note: 早盘+2.25%，等回踩43-45介入
 sector_groups:
 - id: cpu_self_development
   name: CPU自研链
@@ -554,52 +410,23 @@ sector_groups:
   - code: 002015.SZ
     name: 协鑫能科
 sector_rotation_rules:
-- id: cpu_vs_defense
-  name: CPU自研链 vs 防御
-  offensive_groups:
-  - cpu_self_development
-  - upstream_price_increase
-  - liquid_cooling
-  defensive_groups:
-  - defensive_stabilizers
+  offensive_sectors:
+  - AI硬件
+  - CPO
+  - MLCC
+  - 存储
+  - 光互连
+  - 光纤光缆
+  - 模拟IC
+  defensive_sectors:
+  - 煤炭
+  - 电力
+  - 大消费
+  - 医药
   min_spread_pct: 1.0
-  min_red_ratio_spread: 0.25
+  min_red_ratio_spread: 10
   require_offensive_positive: true
-- id: price_increase_vs_cpo
-  name: 上游涨价链 vs 光通信CPO
-  offensive_groups:
-  - upstream_price_increase
-  - liquid_cooling
-  defensive_groups:
-  - cpo_optical
-  min_spread_pct: 1.0
-  min_red_ratio_spread: 0.2
-- id: tech_internal_rotation
-  name: 科技内部分化：CPU/涨价链 vs 半导体
-  offensive_groups:
-  - cpu_self_development
-  - upstream_price_increase
-  defensive_groups:
-  - avoid_semiconductor
-  min_spread_pct: 1.5
-  min_red_ratio_spread: 0.3
-- id: compute_rental_vs_defense
-  name: 算力租赁 vs 防御
-  offensive_groups:
-  - compute_rental
-  defensive_groups:
-  - defensive_stabilizers
-  min_spread_pct: 1.0
-  min_red_ratio_spread: 0.2
-- id: mlcc_vs_defense
-  name: MLCC/被动元件 vs 防御
-  offensive_groups:
-  - mlcc_passive
-  defensive_groups:
-  - defensive_stabilizers
-  min_spread_pct: 1.0
-  min_red_ratio_spread: 0.25
-  require_offensive_positive: true
+  note: 当前风格切换大概率延续，留意指数能否缩量上行确认反弹性质
 notification_policy:
   only_notify_when:
   - 液冷/散热触发买入点或证伪
@@ -626,46 +453,29 @@ notification_policy:
   - invalidation
   - next_check
 index_rules:
-- name: 4055_broken
-  index: 上证指数
+  primary_index: 上证指数
+  key_levels:
+    support: 4033
+    resistance: 4130
+    current: 4068.34
   trigger_condition: close_below
-  threshold: 4055
-  severity: risk
-  action: 4055支撑跌破
-  trigger_template: 收盘跌破{threshold}
-  interpretation: 5月30日上证4068.57收盘已跌破4055支撑。4055是30分钟底部结构支撑，跌破意味着小级别反弹预期失效，回归调整剧本。需降低仓位，等待新的支撑位确认。
-- name: 4000_support
-  index: 上证指数
-  trigger_condition: close_below
-  threshold: 4000
-  severity: risk
-  action: 4000点强支撑跌破
-  trigger_template: 收盘跌破{threshold}
-  interpretation: 4000点是更强的心理和技术支撑。若跌破，调整加深，需重新评估底部位置，仓位控制在极低水平。
-- name: kechuang50_double_top
-  index: 科创50
-  trigger_condition: close_below
-  threshold: 1750
-  severity: risk
-  action: 科创50双顶调整深化
-  trigger_template: 收盘跌破{threshold}
-  interpretation: 科创50 120分钟双顶结构，5/30已大跌至1751.32(-5.04%)。若继续跌破1750，调整深化，半导体/科技核心继续承压。
-- name: weak_repair_alert
-  index: 上证指数
-  trigger_condition: close_above
-  threshold: 4080
-  severity: observe
-  action: 指数弱修复观察
-  trigger_template: 收盘收复{threshold}
-  interpretation: 若反弹收复4080，视为弱修复，降低次日预期，持仓以持有观察为主不新增净仓.
-- name: trend_defense_4032
-  index: 上证指数
-  trend_defense: 4032
-  severity: observe
-  action: 4032趋势位跌破观察
-  interpretation: 6月2日早盘提示趋势位4032点，短期只需盯住此位是否破位。4000点上方近几日明显有承接，4032是调整第14天的关键趋势支撑位，跌破则调整加深。
-- name: kechuang1750_legacy
-  index: 科创50
-  trend_defense: 1750
-  severity: risk
-  action: 科创50双顶调整深化
+  trend_defense: 4033
+  note: 收盘跌穿4033清仓，突破4130满仓。盘中跌破不执行，只看收盘价。
+today_snapshot:
+  date: '2026-06-03'
+  source: 早盘策略_2026-06-03
+  market_stage: 调整第15天，上升途中调整临近尾声
+  index_status: 上证4068(-0.17%)，深证15647(+0.36%)，创业板4089(+0.82%)，科创501698(+0.42%)
+  volume_note: 早盘量能正常
+  up_bias: 短期企稳概率较大，做T为主
+  key_signals:
+  - 120分钟低9+30分钟底部结构叠加
+  - AI回撤20%处于历史调整区间下沿
+  - MLCC为最强分支，风华高科回调观察
+  - 光互连资金接力验证中（天孚+9.63%/裕太微+15.20%）
+  - 风格切换大概率延续
+  risk_reminders:
+  - 收盘跌穿4033清仓
+  - 光互连大幅高开需防兑现
+  - 普涨共振格局下反弹预期需降低
+  - 若仍下跌可不看盘防卖在最低点
