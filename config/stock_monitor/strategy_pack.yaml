@@ -413,23 +413,34 @@ sector_groups:
   - code: 002015.SZ
     name: 协鑫能科
 sector_rotation_rules:
-  offensive_sectors:
-  - AI硬件
-  - CPO
-  - MLCC
-  - 存储
-  - 光互连
-  - 光纤光缆
-  - 模拟IC
-  defensive_sectors:
-  - 煤炭
-  - 电力
-  - 大消费
-  - 医药
+- id: offensive_vs_defensive
+  name: 进攻vs防御风格切换
+  offensive_group_ids:
+  - cpu_self_development
+  - upstream_price_increase
+  - liquid_cooling
+  - cpo_optical
+  - compute_rental
+  - mlcc_passive
+  - chemical_price
+  - ai_agent_application
+  - compute_power
+  defensive_group_ids:
+  - medical_observation
+  - defensive_stabilizers
+  - coal
+  - urban_renewal
   min_spread_pct: 1.0
   min_red_ratio_spread: 10
   require_offensive_positive: true
   note: 当前风格切换大概率延续，留意指数能否缩量上行确认反弹性质
+- id: avoid_sector_monitor
+  name: 规避方向监控
+  avoid_group_ids:
+  - avoid_semiconductor
+  - avoid_consumer
+  action: 只观察不介入
+  note: 博主明确规避半导体和消费，若出现异动需警惕是否为诱多
 notification_policy:
   only_notify_when:
   - 液冷/散热触发买入点或证伪
