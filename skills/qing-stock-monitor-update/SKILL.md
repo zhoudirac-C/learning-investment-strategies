@@ -41,7 +41,8 @@ description: |
 11. `skills/qing-stock-monitor-update/references/sector-rotation-rules-format.md` — **sector_rotation_rules 格式规范**：list of dicts 格式，引用 sector_groups 的 id
 14. `skills/qing-stock-monitor-update/references/bilibili-top-comment-workaround.md` — **Bilibili 置顶评论获取**：当前抓取脚本不抓置顶评论，需浏览器手动查看或后续开发 API 抓取
 15. `framework/technical-analysis-framework.md` — 技术工具层规则（轨道B）
-13. `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束（含批量更新 cron prompt 模板）
+15. `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束（含批量更新 cron prompt 模板）
+16. `skills/qing-learning/references/claim-schema-validation.md` — **Claim Schema 验证**：生成 claims 时的字段要求和枚举值规范（跨 skill 共享）
 
 ## 工作流程
 
@@ -261,6 +262,38 @@ stock_dict = {s['code']: s for s in stocks_list if 'code' in s}
 - **清仓**：从 `positions` 列表移除，添加到 `closed_positions`，记录卖出价和盈亏
 - **账户重命名**：若用户要求更改账户名称，同步更新所有 `account` 字段和 `strategy_summary` 中的描述
 
+**用户减仓响应流程（新增）**：
+当用户告知"已减仓X股"时：
+1. **立即更新 positions.yaml**：
+   - 更新 `shares`：原股数 - 减仓股数
+   - 更新 `cost`：用户提供的新的成本价（若用户未提供，保持原 cost）
+   - 在 `note` 中追加："6月X日减仓X股，剩余Y股，新成本Z.XX"
+   - 更新 `today_plan`：基于新持仓重新评估明日策略
+2. **重新评估提醒需求**：
+   - 获取当前实时行情
+   - 基于新持仓计算新的 reduce_zone / risk_zone（如需调整）
+   - 判断是否需要后续减仓提醒：
+     - 若剩余股数仍较多（>50%原持仓）且价格仍在风险区间 → 保留提醒
+     - 若剩余股数很少（<30%原持仓）或价格已脱离风险区间 → 当天不再提醒
+3. **向用户确认**：
+   - 汇报更新后的持仓（剩余股数、新成本、当前盈亏）
+   - 说明后续提醒逻辑（是否还会继续提醒、什么条件下提醒）
+   - 询问是否需要调整 reduce_zone / risk_zone
+
+**用户未告知减仓时的默认逻辑**：
+- 用户未主动告知减仓 → 保持原有提醒逻辑不变
+- 正常触发 reduce_zone / risk_zone 提醒
+- 不猜测用户是否已操作
+
+**示例对话**：
+```
+用户：安泰科技减仓200股
+AI：收到。更新安泰科技持仓：700股→500股，成本24.702保持不变。
+     当前价22.12，新浮亏约-11.1%。
+     reduce_zone 22.00-23.00 是否需要上调？
+     后续若价格仍在22-23区间，会继续提醒做T机会。
+```
+
 **价格区间字段规范（必读）**：
 - `risk_zone`：风控区间，格式 `"44.5-45.5"`。代码优先读取此字段，触发条件为 `latest <= risk_zone[1]`（即区间上限）。
 - `risk_line`：单点风控线（如 `44.5`）。代码兼容作为 `risk_zone` 的 fallback，解析为 `(44.5, 44.5)`，触发条件为 `latest <= 44.5`。
@@ -332,6 +365,7 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 11. **claims 一致性校验**：更新 strategy_pack 前必须扫描 claims，确认策略不与博主最新纪律矛盾。若 claim 中博主明确说"不追高"/"韭菜行为"，对应标的必须配置为"只观察不介入"。**若用户问"扩大范围"或"还有什么可买"，使用 `scripts/scan_all_stocks.py` 扫描全项目标的**。
 12. **sector_rotation_rules 格式**：必须使用 list of dicts，引用 sector_groups 的 id。详见 `references/sector-rotation-rules-format.md`。
 13. **主板-only 约束**：用户只能交易主板票（sh6xxxxx / sz0xxxxx），无科创板/创业板权限。entry_points 必须过滤主板-only，非主板标的需标注"不可交易"并推荐主板替代。
+14. **技术分析辅助决策**：使用 `scripts/scan_all_stocks.py` 获取实时行情+历史K线+技术分析，辅助判断买入时机。技术分析维度包括：均线系统、支撑压力、回撤幅度、量价关系、K线形态、综合评分。详见 `references/technical-analysis-scan.md`。
 14. **技术分析必须执行**：更新 strategy_pack 前必须运行 `scripts/scan_all_stocks.py`，基于均线/回撤/量价/K线形态/支撑压力生成介入区间，不能拍脑袋定价。详见 `references/technical-analysis-scan.md` 和 `references/entry-points-generation.md`。
 15. **介入区间必须有数据支撑**：不能写"近期平台附近""等分歧后缩量回踩"等模糊描述，必须提供具体价格数字和计算依据。
 16. **触发/失效条件必须具体可执行**：不能写"等企稳""趋势走坏"，必须量化（如"跌破453且30分钟不能收回"）。
