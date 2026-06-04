@@ -44,7 +44,8 @@ description: |
 16. `skills/qing-stock-monitor-update/references/hermes-cron-output-access.md` — **Hermes Cron Job 输出访问**：当用户引用 cron job ID 时，如何找到并读取 `~/.hermes/cron/output/<job_id>/` 下的复盘报告
 17. `skills/qing-stock-monitor-update/references/bilibili-notify-maintenance.md` — **Bilibili 动态通知脚本维护**：`bilibili_notify.py` 的常见问题（函数名不匹配、专栏类型未处理、cron cookie 缺失）、修复方案、部署同步纪律
 16. `framework/technical-analysis-framework.md` — 技术工具层规则（轨道B）
-17. `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束（含批量更新 cron prompt 模板）
+16. `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束（含批量更新 cron prompt 模板）
+17. `skills/qing-stock-monitor-update/references/cron-script-sync.md` — **Cron 脚本双向同步**：`~/.hermes/scripts/` 与项目目录 `scripts/` 的同步策略、软链接方案、废弃脚本处理
 18. `skills/qing-learning/references/claim-schema-validation.md` — **Claim Schema 验证**：生成 claims 时的字段要求和枚举值规范（跨 skill 共享）
 
 ## 工作流程
@@ -52,8 +53,9 @@ description: |
 ### Step 0: 前置检查
 
 1. **`git pull`**：确保本地文件是最新版本，避免基于旧版本修改后产生冲突。
-2. **检查数据是否已同步**：若 watchlist 的 `today_snapshot`、`technical_narrative`、`sector_narrative` 已包含复盘文档中的数据，不要重复写入。向用户报告当前同步状态，询问是否需要基于**今早动态**追加更新。
-3. **区分两种更新模式**：
+2. **Cron 脚本同步检查**：若用户同时修改了 cron 监控脚本（如 `hermes_stock_monitor_agent.py`、`hermes_stock_monitor_daily_review.py`），必须确保 `~/.hermes/scripts/` 与项目目录 `~/learning-investment-strategies/scripts/` 保持一致。推荐方案：前者使用**软链接**指向后者。详见 `references/cron-script-sync.md`。用户硬性要求："每次改动都需要保证两边一致"。
+3. **检查数据是否已同步**：若 watchlist 的 `today_snapshot`、`technical_narrative`、`sector_narrative` 已包含复盘文档中的数据，不要重复写入。向用户报告当前同步状态，询问是否需要基于**今早动态**追加更新。
+4. **区分两种更新模式**：
    - **模式 A（基础）**：更新已有票的 narrative + today_snapshot
    - **模式 B（极易遗漏）**：扫描复盘文档中的"关注地位方向""核心思路""方向提示"段落，提取 UP 新提到的标的，新增到 watchlist 并在 strategy_pack 中补充 entry_points
    - **必须先执行模式 A，再执行模式 B，两步都完成才算完整**
@@ -356,8 +358,9 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 
 ## 关键纪律
 
-1. **观察池追加，不替换**：新 theme/stock 追加到末尾，旧的不删。
-2. **推断必须标注**：无 UP 观点时的技术推断必须写 `inference_note`。
+1. **Cron 脚本同步纪律**：修改 cron 监控脚本时，`~/.hermes/scripts/` 必须使用**硬拷贝**从 `~/learning-investment-strategies/scripts/` 复制，或使用 `prompt` 字段替代 `script` 字段。~~软链接~~已被 Hermes cron 拒绝（解析 canonical path 后判定为外部路径）。用户硬性要求："每次改动都需要保证两边一致"。详见 `references/cron-script-sync.md`。
+2. **`uv run` 超时陷阱**：cron 环境下 `uv run` 启动慢（检查/创建虚拟环境），可能超过 60s 超时导致任务失败。解决方案：脚本内部优先使用 `.venv/bin/python` 直接运行，fallback 到 `uv run`。项目目录下所有 `hermes_stock_monitor_*.py` 已统一实现该逻辑。
+3. **观察池追加，不替换**：新 theme/stock 追加到末尾，旧的不删。
 3. **数据源降级**：不可用时不编造数据，标记 degraded。
 4. **验证后提交**：每次更新后运行 `--status` 和 `--analysis-context` 确认。
 6. **区分轨道**：技术推断只引用 `framework/technical-analysis-framework.md`（轨道B），不混淆市场认知 claims（轨道A）。
@@ -534,6 +537,7 @@ yaml.safe_load(open('config/stock_monitor/watchlist.yaml'))
 - **持仓更新完整流程**：用户要求"更新持仓"时，执行完整 pipeline：获取实时行情 → 计算 PnL → 交叉引用 claims → 验证 watchlist.yaml → 更新 `positions.yaml` 的 `today_snapshot` + 持仓记录 + `strategy_summary`。不能只改持仓股数而忽略市场上下文和可操作建议。
 - **提交前 git status**：执行 `git status --short` 和 `git diff --stat` 确认变更范围，再 `git add -A && git commit && git push`。
 - **主板-only 约束提醒**：当用户询问"还有什么推荐"时，主动过滤主板票；若推荐列表中无主板可选，明确说明并询问是否接受非主板标的。
+- **脚本路径校验陷阱**：Hermes cron 的 `script` 字段会解析 symlink 的 canonical path。若 `~/.hermes/scripts/` 中的文件是 symlink 且指向项目 repo 外部路径，cron 会报错 `Blocked: script path resolves outside the scripts directory`。修复：删除 symlink，改用 `cp` 硬拷贝，或使用 `prompt` 字段替代 `script` 字段。详见 `references/cron-script-sync.md`。
 
 ## 禁止事项
 

@@ -70,15 +70,19 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
   7. 提交并推送
 - **远程版本优先原则**：对于 `watchlist.yaml`、`strategy_pack.yaml` 等频繁更新的配置文件，远程版本通常包含更新的市场数据，优先接受远程版本，然后将本地数据（如持仓、今日快照）重新写入
 - **直接修复，少解释**：当脚本有bug或遗漏明显内容时，用户偏好直接修复而非长篇解释原因。给出简洁的修复确认即可。
+- **脚本清理前先确认历史**：清理旧脚本前，先用 `git log --all --diff-filter=A -- scripts/` 确认哪些脚本是项目原始版本、哪些是手动复制的旧版本。只有确认是历史无用版本才能移入 `deprecated/`。
 - **核对未处理文档时，脚本输出不可全信**：`find_unprocessed.py` 按文件名匹配，可能误报（如 claim 中 `source_path` 包含完整路径或不同命名格式）。用户说"核对哪些没处理"时，应直接用 Python 读取所有 claim 的 `source_path` 字段（含正则容错解析失败的YAML），与 raw 文件名做 basename 匹配，给出准确统计。
 - **持仓更新完整pipeline**：当用户要求"更新持仓"时，执行完整pipeline：①读取当前positions.yaml和watchlist.yaml → ②获取实时行情计算PnL → ③交叉引用claims判断持仓逻辑是否变化 → ④更新positions.yaml（含closed_positions记录）→ ⑤更新watchlist.yaml today_snapshot → ⑥输出持仓总结+操作建议。不要只改一个文件。
 - **操作建议必须关联claims**：给出操作建议时，必须引用具体的claim ID（如claim-20260531-002-a）和博主判断依据，不是拍脑袋建议。
 - **持仓更新 factual accuracy 检查**：更新positions.yaml时，必须逐账户核对用户提供的持仓信息。常见错误：把账户2的持仓误写到账户1。写入前反问确认："账户1：XXX，账户2：YYY，对吗？"
+- **脚本同步纪律**：当用户要求"同步两边""保持一致"时，指 `~/.hermes/scripts/`（cron 运行时）和 `~/learning-investment-strategies/scripts/`（项目源码）必须双向同步。修改项目版本后，用 `cp` 或软链接确保 cron 版本一致。用户明确说："每次改动都需要保证两边一致"。
 - **回顾整理类请求**：当用户要求"回顾整理UP最近观点""qing review"等时，不是走完整 qing-learning 流程（不需要新建 raw/claims），而是基于已学习的 claims 和 wiki 做系统性归纳。输出结构：①周期定位 ②操作策略 ③主线判断 ④新分支/产业催化 ⑤技术分析框架 ⑥风险提示 ⑦观点连续性链条。优先读取 claims 文件（`knowledge/claims/claim-YYYYMMDD-*.yaml`）和 wiki 复盘（`knowledge/wiki/每日复盘/YYYY-MM-DD.md`）作为信息源，不要重新从 raw 抽取。
 - **用户发图片整理raw文档时的处理**：当用户发送多张图片（如复盘截图）要求整理成raw文档时，使用OCR提取文字后按raw格式规范化。关键要点：①图片可能包含完整复盘内容，需合并多张图片的OCR结果；②OCR识别可能有误差，需人工校对关键标的名称和数字；③按raw文档标准格式输出（frontmatter、结构化分节）；④保存到`sources/raw/财经/`后走完整qing-learning流程。详见`references/image-to-raw-workflow.md`。
 - **短 raw 文档 ingestion 模式**：对于极短 raw（如盘中动态补发，仅1-2句话），不必强行拆成多条 claims。精简为 1-2 条核心 claim，更新对应日期的 wiki（追加章节而非新建页面），不更新 framework/总纲。示例：`早盘补发：26-06-01：周五剧本延续，反向上涨票补跌.md` → 1条 claim（market-cycle）+ wiki 追加盘中补发章节。
 - **用户追问"XX方向没有整理吗？"的处理**：当用户发现某主题（如端侧AI、AIPC）只有 claims 而无独立 wiki 专题页时，说明该主题跨多篇 raw 出现但未沉淀为专题。应立即：①搜索所有 raw/claims 中该主题的内容 → ②创建/更新 `knowledge/wiki/市场分析/主题名.md` → ③将相关 claims 链接到专题页 → ④更新 wiki/index.md。这是用户的常见检查模式，应在初始 ingestion 时就主动完成。
 - **图片/截图转 raw 的 OCR 处理**：当用户提供复盘截图或图片要求整理时，使用OCR提取文字。注意：①多张图片需合并OCR结果；②关键标的名称和数字需人工校对；③按raw标准格式输出；④详见`references/image-to-raw-workflow.md`。
+- **OCR 识别后主动检查图片重叠**：当用户提供多张图片（如早盘截图分两张发送）时，OCR提取后必须主动检查内容是否重叠。方法：比较两张图片的OCR结果，若出现相同章节标题（如"四、板块策略"）或相同段落，判定为重叠内容，去重合并后再写入raw。避免重复内容导致claims抽取冗余。重叠检测实操：对每张图片OCR后先分别保存，用diff或字符串比较检查相邻图片首尾200字，重复率>80%即判定重叠，保留更完整版本。
+- **用户发送图片时的日期推断**：当用户提供截图且无明确日期标注时，通过上下文推断日期：①检查图片内容中的时间线索（如"顶部结构第N天"、"调整第N天"）；②与已有raw对比（如昨天是"第15天"则今天是"第16天"）；③确认系统当前日期作为fallback。推断出的日期必须在raw frontmatter中标注，并在正文中说明推断依据。
 
 ## 必读参考
 
@@ -98,11 +102,13 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 8. **学习索引**：参考【学习索引 (Learn Index)】章节，追踪所有 raw 文档的学习状态。
 9. **观察池 themes 恢复**：参考 `references/watchlist-theme-recovery-from-git.md`（从 git 历史恢复被误删的 watchlist themes，含一键恢复脚本）。
 10. **观察池 themes 合并去重**：参考 `references/watchlist-theme-merge-dedup.md`（恢复历史 themes 后合并重复标的、保留旧 themes 的去重流程）。
-11. **双轨制兼容性**：参考 `references/dual-track-compatibility.md`（双轨制对其他 skill 的影响和兼容要求）。
-12. **用户直接提供 UP 评论时的处理**：参考【用户直接提供 UP 评论时的处理流程】（检查是否已自动抓取、区分文档录入与数据查询、claim 抽取要点）。
-13. **Patch/编辑前必须完整读取文件**：如果文件之前是用 `offset`/`limit` 读取的，在 patch 前必须重新完整读取（不带分页参数），否则匹配失败。详见【已知问题与解决】→"Patch/编辑前必须完整读取文件"。
-14. **Skill 同步工作流**：参考 `references/skill-sync-workflow.md`（项目 skill 与 Hermes 全局 skill 的合并、配置更新、验证流程）。
-15. **Trading Rules 迁移与维护**：参考 `references/trading-rules-migration-guide.md`（何时将操作纪律进 `framework/trading-rules.md`、迁移流程、避免重复）。
+12. **双轨制兼容性**：参考 `references/dual-track-compatibility.md`（双轨制对其他 skill 的影响和兼容要求）。
+13. **用户直接提供 UP 评论时的处理**：参考【用户直接提供 UP 评论时的处理流程】（检查是否已自动抓取、区分文档录入与数据查询、claim 抽取要点）。
+14. **Patch/编辑前必须完整读取文件**：如果文件之前是用 `offset`/`limit` 读取的，在 patch 前必须重新完整读取（不带分页参数），否则匹配失败。详见【已知问题与解决】→"Patch/编辑前必须完整读取文件"。
+15. **Skill 同步工作流**：参考 `references/skill-sync-workflow.md`（项目 skill 与 Hermes 全局 skill 的合并、配置更新、验证流程）。
+16. **Trading Rules 迁移与维护**：参考 `references/trading-rules-migration-guide.md`（何时将操作纪律进 `framework/trading-rules.md`、迁移流程、避免重复）。
+18. **专家思维蒸馏**：参考 `references/expert-distillation-guide.md`（Prompt+RAG/Fine-tune/Agent三条技术路径）。
+19. **推理模式架构**：参考 `references/reasoning-pattern-architecture.md`（三层蒸馏架构：知识库层→推理模式层→动态应用层，含YAML模板和实施路线图）。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`

@@ -17,14 +17,28 @@ def repo_root() -> str:
 
 
 def main():
+    root = Path(repo_root())
+
+    # Use project venv directly to avoid uv run overhead in cron
+    venv_python = root / ".venv" / "bin" / "python"
+    if venv_python.exists():
+        python_cmd = str(venv_python)
+    else:
+        # Fallback to uv run if venv not found
+        return subprocess.call(
+            ["uv", "run", "python", "scripts/stock_monitor.py", "--daily-review-context"]
+            + sys.argv[1:],
+            cwd=root,
+        )
+
     command = [
-        "uv",
-        "run",
-        "python",
+        python_cmd,
         "scripts/stock_monitor.py",
         "--daily-review-context",
     ] + sys.argv[1:]
-    return subprocess.call(command, cwd=repo_root())
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(root / "src")
+    return subprocess.call(command, cwd=root, env=env)
 
 
 if __name__ == "__main__":

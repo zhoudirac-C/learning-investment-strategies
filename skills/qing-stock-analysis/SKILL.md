@@ -24,7 +24,7 @@ description: Use when the user asks to analyze an individual stock through the b
 10. `skills/qing-stock-analysis/references/watchlist-bulk-update-from-raw.md` — **从复盘文档批量更新观察池**：提取 raw 文档中的标的提及，去重后按主题分组追加到 watchlist.yaml 的完整流程
 11. `skills/qing-stock-analysis/references/stock-monitor-internals.md` — **监控脚本内部机制与状态文件结构**：收盘监控复盘时排查提醒来源、去重逻辑、漏报原因的参考手册
 12. `skills/qing-stock-analysis/references/stock-monitor-cli-behavior.md` — **监控脚本 CLI 行为与状态文件**：`--status`、`--daily-review-context`、`--live-analysis-context` 等命令的输出格式和用途
-14. `skills/qing-stock-analysis/references/observation-pool-strategy.md` — **观察池策略合成**：基于博主复盘/动态/早盘/视频合成次日观察池的完整方法论
+12. `skills/qing-stock-analysis/references/stock-monitor-source-internals.md` — **监控脚本源码级技术参考**：通过直接阅读 `stock_monitor.py` ~1800行源码提取的完整数据流、函数详解、状态文件结构、CLI参数速查。当需要修改触发逻辑、排查bug、理解去重机制时读本文件；SKILL.md正文中的"监控脚本内部机制"是面向分析的用法参考。
 15. `skills/qing-stock-analysis/references/daily-review-cases.md` — **收盘监控复盘案例库**：历史复盘典型案例，含有效性判断标准、开盘诱多识别 checklist、相对强弱伪信号识别方法、盘中配置更新时序陷阱、板块轮动标签语义混淆
 16. `skills/qing-stock-analysis/references/index-etf-analysis-guide.md` — **指数/ETF买入分析指南**：当用户询问指数或ETF（如恒生科技、科创50）时使用，含时间窗口分析、ETF代码推荐、与个股分析的区别
 
@@ -156,6 +156,8 @@ description: Use when the user asks to analyze an individual stock through the b
 - 观察池"暂不买"一句话说明主因。
 - 脚注必须包含：数据源、时间戳、行情异常；不要给无条件买卖指令。
 - **数据验证（防幻觉）**：所有股价、涨跌幅数字必须来自脚本提供的 `[Hermes股票监控大模型分析上下文]`。禁止编造任何数字。若上下文未提供某票数据，写"数据未提供"而非猜测。
+- **持仓池只包含有持仓标的**：`positions.yaml` 中 `shares > 0` 的标的才列入持仓池。已清仓（`shares == 0`）的标的不得在持仓池中列出，也不得给出操作建议。
+- **板块涨跌数据必须来自脚本提供的 sector_groups 计算结果**：不得凭记忆或推测填写板块涨跌。若脚本未提供板块数据，使用"数据未提供"或跳过。
 
 ### 持仓动作决策树
 ```
@@ -525,6 +527,22 @@ python -m qing_investment.stock_monitor --live-analysis-context
 # 调整去重窗口测试
 python -m qing_investment.stock_monitor --dedupe-minutes 15
 ```
+
+### Cron 任务脚本路径验证
+
+当 cron 任务报告 `can't open file '/home/ubuntu/.hermes/scripts/stock_monitor.py': [Errno 2] No such file or directory` 时，按以下顺序排查：
+
+1. **检查 `~/.hermes/scripts/` 中的实际文件名**：`ls ~/.hermes/scripts/` — 文件名可能是 `qing_stock_monitor.py`、`hermes_stock_monitor.py` 或 `qing_stock_monitor_agent.py`，而非 `stock_monitor.py`
+2. **检查项目 repo 中的脚本**：`ls $HERMES_REPO_ROOT/scripts/` — 确认 `stock_monitor.py` 存在于项目目录
+3. **确认 wrapper 脚本的行为**：读取 `~/.hermes/scripts/qing_stock_monitor.py`（或实际存在的 wrapper）确认它如何设置 `HERMES_REPO_ROOT` 和调用项目内的 `stock_monitor.py`
+4. **手动运行验证**：`cd $HERMES_REPO_ROOT && HERMES_REPO_ROOT=$HERMES_REPO_ROOT python scripts/stock_monitor.py --status`
+5. **修复 cron 配置**：将 cron 任务的 `script` 字段改为实际存在的 wrapper 文件名（如 `qing_stock_monitor.py`），或改用 `prompt` 字段直接调用项目内的脚本
+
+**常见命名混淆**：
+- `stock_monitor.py` — 项目 repo 内的实际模块（`$REPO_ROOT/scripts/stock_monitor.py`）
+- `qing_stock_monitor.py` — Hermes wrapper，设置 `HERMES_REPO_ROOT` 后调用 `uv run python scripts/stock_monitor.py`
+- `hermes_stock_monitor.py` — 替代 wrapper，功能类似但路径解析逻辑不同
+- `qing_stock_monitor_agent.py` — 带 agent 分析上下文的 wrapper
 
 ### 复盘报告输出规范
 
