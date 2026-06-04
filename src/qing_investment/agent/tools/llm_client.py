@@ -103,12 +103,13 @@ def get_llm_client() -> ChatOpenAI:
 
 
 def get_embedding_model():
-    """返回本地 Embedding 模型（单例）。未安装 sentence-transformers 时返回 None。"""
+    """返回本地 Embedding 模型（单例）。未安装 sentence-transformers 时使用 hash fallback。"""
     global _embedding_model
     if _embedding_model is None:
         try:
             from sentence_transformers import SentenceTransformer
             _embedding_model = SentenceTransformer("BAAI/bge-large-zh-v1.5")
         except ImportError:
-            return None
+            from .embedding_utils import FallbackEmbeddingModel
+            _embedding_model = FallbackEmbeddingModel()
     return _embedding_model

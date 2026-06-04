@@ -1,6 +1,12 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 from qing_investment.agent.config import settings
+
+_REPO_ROOT = Path(__file__).resolve().parents[4]
+_LOCAL_MEMORY_PATH = _REPO_ROOT / "infra" / "data" / "local_memories.json"
 
 
 class Mem0ClientWrapper:
@@ -20,12 +26,16 @@ class Mem0ClientWrapper:
             raise RuntimeError("Mem0 client not available")
 
     def search(self, query: str, user_id: str, filters: dict | None = None):
-        self._ensure_client()
-        return self._client.search(
-            query=query,
-            user_id=user_id,
-            filters=filters,
-        )
+        """Search memories. Falls back to local JSON if Mem0 server unavailable."""
+        try:
+            self._ensure_client()
+            return self._client.search(
+                query=query,
+                user_id=user_id,
+                filters=filters,
+            )
+        except Exception:
+            return self._local_search(query)
 
     def add(self, content: str, user_id: str, metadata: dict | None = None):
         self._ensure_client()
@@ -34,3 +44,23 @@ class Mem0ClientWrapper:
             user_id=user_id,
             metadata=metadata or {},
         )
+
+    def _local_search(self, query: str) -> list[dict]:
+        """Fallback: simple keyword-match over local memory JSON."""
+        if not _LOCAL_MEMORY_PATH.exists():
+            return []
+        try:
+            memories = json.loads(_LOCAL_MEMORY_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            return []
+
+        query_words = set(query.lower().split())
+        scored = []
+        for mem in memories:
+            content = mem.get("content", "").lower()
+            score = sum(1 for w in query_words if w in content)
+            if score > 0:
+                scored.append((score, mem))
+
+        scored.sort(key=lambda x: x[0], reverse=True)
+        return [m for _, m in scored[:5]]

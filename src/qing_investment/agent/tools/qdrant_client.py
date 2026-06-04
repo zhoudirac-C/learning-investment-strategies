@@ -24,12 +24,12 @@ class QdrantClientWrapper:
             )
 
     def search(self, query_vector: list[float], collection: str = "qing_knowledge", limit: int = 5):
-        return self.client.search(
+        return self.client.query_points(
             collection_name=collection,
-            query_vector=query_vector,
+            query=query_vector,
             limit=limit,
             with_payload=True,
-        )
+        ).points
 
     def upsert(self, collection: str, points: list):
         self.client.upsert(collection_name=collection, points=points)

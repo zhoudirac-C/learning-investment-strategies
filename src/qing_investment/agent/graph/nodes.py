@@ -96,6 +96,14 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
     try:
         if stock_code:
             claims = neo4j.get_claims_about_stock(stock_code, limit=10)
+        else:
+            # For market/sector queries, search by keyword
+            keywords = [query.replace("分析一下", "").replace("板块", "").strip()]
+            for kw in keywords:
+                if kw:
+                    claims = neo4j.get_claims_by_keyword(kw, limit=10)
+                    if claims:
+                        break
     except Exception as e:
         claims = []
 
@@ -107,7 +115,7 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
             query_vec = emb_model.encode(query).tolist()
             results = qdrant.search(query_vec, collection="qing_knowledge", limit=5)
             wiki_snippets = [
-                {"text": r.payload.get("chunk_text", ""), "source": r.payload.get("source", ""), "score": r.score}
+                {"text": r.payload.get("text", r.payload.get("chunk_text", "")), "source": r.payload.get("source_path", r.payload.get("source", "")), "score": r.score}
                 for r in results
             ]
     except Exception as e:

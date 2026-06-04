@@ -36,5 +36,19 @@ class Neo4jClient:
         with self.driver.session() as session:
             return session.run(query, claim_id=claim_id).data()
 
+    def get_claims_by_keyword(self, keyword: str, limit: int = 10) -> list[dict]:
+        """Search claims where statement or subject contains the keyword."""
+        query = """
+        MATCH (c:Claim)
+        WHERE c.subject CONTAINS $keyword OR c.statement CONTAINS $keyword
+        RETURN c.id as id, c.statement as statement,
+               c.confidence as confidence, c.source_date as source_date,
+               c.status as status
+        ORDER BY c.source_date DESC
+        LIMIT $limit
+        """
+        with self.driver.session() as session:
+            return session.run(query, keyword=keyword, limit=limit).data()
+
     def close(self):
         self.driver.close()
