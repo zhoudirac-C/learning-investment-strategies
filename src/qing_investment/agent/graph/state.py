@@ -1,6 +1,12 @@
 from __future__ import annotations
 
-from typing import TypedDict
+from typing import Annotated, TypedDict
+
+from langgraph.graph.message import add_messages
+
+
+def _merge_reasoning(existing: list[str], new_steps: list[str]) -> list[str]:
+    return existing + new_steps
 
 
 class AgentState(TypedDict, total=False):
@@ -36,7 +42,7 @@ class AgentState(TypedDict, total=False):
     data_sources: list[str]
     confidence: str
     review_passed: bool
-    reasoning_steps: list[str]
+    reasoning_steps: Annotated[list[str], _merge_reasoning]
 
     # 内部控制
     _retry_count: int
