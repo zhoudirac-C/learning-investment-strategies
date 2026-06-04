@@ -9,6 +9,8 @@ from qing_investment.agent.models.schemas import (
     TriggerRequest,
     TriggerResponse,
 )
+from qing_investment.agent.tools.llm_client import get_llm_client
+from qing_investment.agent.tools.mem0_client import Mem0ClientWrapper
 
 app = FastAPI(title="Qing-Agent", version="0.1.0")
 graph = build_graph()
@@ -64,9 +66,44 @@ async def analyze_trigger(req: TriggerRequest):
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(req: ChatRequest):
-    return ChatResponse(reply="chat stub")
+    """Simple chat endpoint with memory retrieval fallback."""
+    mem0 = Mem0ClientWrapper()
+    memories = mem0.search(req.message, user_id=req.session_id)
+
+    context_parts = []
+    if memories:
+        context_parts.append("以下是与用户相关的记忆片段：")
+        for m in memories:
+            content = m.get("content", "") if isinstance(m, dict) else str(m)
+            context_parts.append(f"- {content}")
+
+    prompt_lines = [
+        "你是青枫浦上Q的助手，风格犀利但不劝赌，不用机构研报腔。",
+        *context_parts,
+        f"\n用户：{req.message}\n",
+        "请直接回复：",
+    ]
+    prompt = "\n".join(prompt_lines)
+
+    try:
+        llm = get_llm_client()
+        reply = llm.invoke(prompt).content or ""
+    except Exception as e:
+        reply = f"[服务暂时不可用] {e}"
+
+    return ChatResponse(
+        reply=reply,
+        memories_used=memories if memories else [],
+    )
 
 
 @app.post("/memory/add")
 async def add_memory(session_id: str, content: str, memory_type: str = "fact"):
-    return {"status": "ok"}
+    """Add a memory entry. Falls back to local JSON if mem0 server unavailable."""
+    mem0 = Mem0ClientWrapper()
+    result = mem0.add(
+        content=content,
+        user_id=session_id,
+        metadata={"memory_type": memory_type},
+    )
+    return {"status": "ok", "result": result}

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import uuid
 from pathlib import Path
 
 from qing_investment.agent.config import settings
@@ -38,12 +39,17 @@ class Mem0ClientWrapper:
             return self._local_search(query)
 
     def add(self, content: str, user_id: str, metadata: dict | None = None):
-        self._ensure_client()
-        return self._client.add(
-            messages=content,
-            user_id=user_id,
-            metadata=metadata or {},
-        )
+        """Add a memory. Falls back to local JSON if Mem0 server unavailable."""
+        metadata = metadata or {}
+        try:
+            self._ensure_client()
+            return self._client.add(
+                messages=content,
+                user_id=user_id,
+                metadata=metadata,
+            )
+        except Exception:
+            return self._local_add(content, user_id, metadata)
 
     def _local_search(self, query: str) -> list[dict]:
         """Fallback: simple keyword-match over local memory JSON."""
@@ -64,3 +70,33 @@ class Mem0ClientWrapper:
 
         scored.sort(key=lambda x: x[0], reverse=True)
         return [m for _, m in scored[:5]]
+
+    def _local_add(self, content: str, user_id: str, metadata: dict) -> dict:
+        """Append memory to local JSON file."""
+        memories: list[dict] = []
+        if _LOCAL_MEMORY_PATH.exists():
+            try:
+                memories = json.loads(_LOCAL_MEMORY_PATH.read_text(encoding="utf-8"))
+                if not isinstance(memories, list):
+                    memories = []
+            except Exception:
+                memories = []
+
+        entry = {
+            "id": str(uuid.uuid4()),
+            "type": metadata.get("memory_type", "user_input"),
+            "content": content,
+            "source": f"chat:{user_id}",
+            "metadata": {
+                **metadata,
+                "user_id": user_id,
+            },
+        }
+        memories.append(entry)
+
+        _LOCAL_MEMORY_PATH.parent.mkdir(parents=True, exist_ok=True)
+        _LOCAL_MEMORY_PATH.write_text(
+            json.dumps(memories, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        return {"id": entry["id"], "status": "local_persisted"}
