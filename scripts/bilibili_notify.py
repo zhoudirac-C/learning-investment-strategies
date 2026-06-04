@@ -144,6 +144,7 @@ def main() -> int:
                 top_comment=top_comment,
                 ocr_text=ocr_text,
                 is_only_fans=is_only_fans,
+                sessdata=sessdata,
             )
             saved_files.append(filepath)
             processed_ids.add(dynamic_id)

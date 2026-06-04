@@ -216,6 +216,68 @@ def fetch_up_comment(dynamic_id: str, sessdata: str) -> dict | None:
         return None
 
 
+# ── 专栏文章正文 ───────────────────────────────────────────────────────
+
+def extract_article_id(item: dict) -> str:
+    """从动态数据中提取专栏文章ID（cv号中的数字部分）。"""
+    modules = item.get("modules", {})
+    dyn_mod = modules.get("module_dynamic", {})
+    major = dyn_mod.get("major", {})
+    article = major.get("article", {}) or {}
+    return str(article.get("id", "")) if article.get("id") else ""
+
+
+def fetch_article_content(article_id: str, sessdata: str) -> str:
+    """从 Bilibili read 页面提取专栏正文。
+
+    专栏正文通过 window.__INITIAL_STATE__ 嵌入页面 HTML，
+    位置在 detail.modules[].module_content.paragraphs[].text.nodes[].word.words。
+    这是目前获取充电专属专栏内容的唯一途径（文章API返回-404）。
+    """
+    url = f"https://www.bilibili.com/read/cv{article_id}"
+    req = urllib.request.Request(url)
+    req.add_header("User-Agent", USER_AGENT)
+    req.add_header("Cookie", build_cookie(sessdata))
+    req.add_header("Referer", "https://www.bilibili.com/")
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            html = resp.read().decode("utf-8", errors="replace")
+    except Exception:
+        return ""
+
+    import re
+    match = re.search(r"window\.__INITIAL_STATE__\s*=\s*({.*?});", html, re.DOTALL)
+    if not match:
+        return ""
+
+    try:
+        data = json.loads(match.group(1))
+    except json.JSONDecodeError:
+        return ""
+
+    modules = data.get("detail", {}).get("modules", [])
+    content_parts = []
+    for mod in modules:
+        if not isinstance(mod, dict):
+            continue
+        para_container = mod.get("module_content", {})
+        if not para_container:
+            continue
+        paragraphs = para_container.get("paragraphs", [])
+        for para in paragraphs:
+            nodes = para.get("text", {}).get("nodes", [])
+            line_words = []
+            for node in nodes:
+                if node.get("type") == "TEXT_NODE_TYPE_WORD":
+                    w = node.get("word", {}).get("words", "")
+                    if w:
+                        line_words.append(w)
+            if line_words:
+                content_parts.append("".join(line_words))
+
+    return "\n\n".join(content_parts) if content_parts else ""
+
+
 # ── OCR ───────────────────────────────────────────────────────────
 
 def ocr_image(image_path: Path) -> str:
@@ -631,6 +693,7 @@ def save_dynamic_to_file(
     ocr_text: str = "",
     *,
     is_only_fans: bool = False,
+    sessdata: str = "",
     screenshot_path: Path | None = None,
     playwright_pics: list[str] | None = None,
 ) -> Path:
@@ -642,6 +705,14 @@ def save_dynamic_to_file(
     pics = extract_pics_from_dynamic(item)
     stat = extract_stat(item)
     dyn_type = classify_dynamic_type(item)
+
+    # 对于专栏文章（无正文），尝试从 read 页面抓取正文
+    if dyn_type == "专栏" and len(text) < 20 and sessdata:
+        article_id = extract_article_id(item)
+        if article_id:
+            article_text = fetch_article_content(article_id, sessdata)
+            if article_text:
+                text = article_text
 
     pub_time_str = author.get("pub_time", "")
     pub_ts = author.get("pub_ts", "")
@@ -984,6 +1055,7 @@ def run(
                 top_comment=top_comment,
                 ocr_text=ocr_text,
                 is_only_fans=is_only_fans,
+                sessdata=sessdata,
                 screenshot_path=screenshot_path,
                 playwright_pics=playwright_pics,
             )
