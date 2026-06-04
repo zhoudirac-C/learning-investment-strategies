@@ -14,7 +14,6 @@ from __future__ import annotations
 import glob
 import hashlib
 import sys
-import uuid
 from pathlib import Path
 
 # Add project src to path
@@ -123,8 +122,12 @@ def index_documents():
         points = []
         for chunk in chunks:
             embedding = simple_hash_embedding(chunk["text"])
+            # Deterministic ID: hash of source_path + chunk_text ensures idempotency
+            point_id = hashlib.sha256(
+                f"{chunk['source_path']}:{chunk['text']}".encode("utf-8")
+            ).hexdigest()[:32]
             point = PointStruct(
-                id=str(uuid.uuid4()),
+                id=point_id,
                 vector=embedding,
                 payload={
                     "text": chunk["text"],
