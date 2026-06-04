@@ -9,6 +9,7 @@ class TriggerRequest(BaseModel):
     market_snapshot: dict = Field(default_factory=dict, description="行情快照")
     positions: list[dict] = Field(default_factory=list, description="当前持仓")
     watchlist: list[dict] = Field(default_factory=list, description="观察池关键标的")
+    sector_strengths: list[dict] = Field(default_factory=list, description="板块强弱数据")
     session_id: str = Field(default="default", description="会话ID")
     query: str = Field(default="", description="用户原始问题")
 

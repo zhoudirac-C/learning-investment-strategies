@@ -833,6 +833,17 @@ def _agent_context_data(
 
     positions = position_rows(config)
     watch_stocks = watchlist_stock_rows(config)
+    sector_strengths = [
+        {
+            "id": s.id,
+            "name": s.name,
+            "style": s.style,
+            "average_pct_change": s.average_pct_change,
+            "red_ratio": s.red_ratio,
+            "quote_count": s.quote_count,
+        }
+        for s in compute_sector_strength(config, quote_snapshot)
+    ]
 
     return {
         "timestamp": value.astimezone(CN_TZ).isoformat(),
@@ -849,6 +860,7 @@ def _agent_context_data(
         "alerts": alert_dicts,
         "market_state": state.get("last_market_state", {}),
         "sector_signal_counts": state.get("sector_signal_counts", {}),
+        "sector_strengths": sector_strengths,
         "quote_snapshot": quote_snapshot,
         "positions": positions,
         "watchlist": [

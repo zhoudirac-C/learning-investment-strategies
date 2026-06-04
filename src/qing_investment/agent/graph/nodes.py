@@ -82,6 +82,33 @@ def parse_query(state: AgentState) -> AgentState:
     }
 
 
+# Sector keyword clusters for better claim retrieval
+_SECTOR_CLUSTERS: dict[str, list[str]] = {
+    "光互连": ["光互连", "光互联", "光模块", "CPO", "光纤", "光通信", "光芯片"],
+    "半导体": ["半导体", "芯片", "存储", "封测", "光刻", "设备", "材料"],
+    "AI": ["AI", "算力", "大模型", "智能体", "Agent", "AIPC"],
+    "机器人": ["机器人", "具身智能", "人形机器人", "特斯拉", "Optimus"],
+    "电力": ["电力", "煤炭", "红利", "高股息", "绿电"],
+    "新能源": ["新能源", "光伏", "锂电", "储能", "风电"],
+    "资源": ["铜", "铝", "锂", "稀土", "黄金", "煤炭", "硫磺"],
+}
+
+
+def _extract_sector_keywords(query: str) -> list[str]:
+    """Extract sector keywords from query using predefined clusters."""
+    found: set[str] = set()
+    for cluster_kws in _SECTOR_CLUSTERS.values():
+        for kw in cluster_kws:
+            if kw in query:
+                found.add(kw)
+    # Fallback: use the cleaned query itself if no cluster match
+    if not found:
+        cleaned = query.replace("分析一下", "").replace("板块", "").strip()
+        if cleaned:
+            found.add(cleaned)
+    return list(found)
+
+
 async def retrieve_knowledge(state: AgentState) -> AgentState:
     query = state.get("query", "")
     stock_code = state.get("parsed_intent", {}).get("stock_code")
@@ -97,13 +124,18 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
         if stock_code:
             claims = neo4j.get_claims_about_stock(stock_code, limit=10)
         else:
-            # For market/sector queries, search by keyword
-            keywords = [query.replace("分析一下", "").replace("板块", "").strip()]
+            # For market/sector queries, search by multiple keywords and merge
+            keywords = _extract_sector_keywords(query)
+            seen_ids: set[str] = set()
             for kw in keywords:
-                if kw:
-                    claims = neo4j.get_claims_by_keyword(kw, limit=10)
-                    if claims:
-                        break
+                batch = neo4j.get_claims_by_keyword(kw, limit=10)
+                for c in batch:
+                    cid = c.get("id")
+                    if cid and cid not in seen_ids:
+                        seen_ids.add(cid)
+                        claims.append(c)
+                if len(claims) >= 15:
+                    break
     except Exception as e:
         claims = []
 
@@ -113,7 +145,7 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
         emb_model = get_embedding_model()
         if emb_model:
             query_vec = emb_model.encode(query).tolist()
-            results = qdrant.search(query_vec, collection="qing_knowledge", limit=5)
+            results = qdrant.search(query_vec, collection="qing_knowledge", limit=10)
             wiki_snippets = [
                 {"text": r.payload.get("text", r.payload.get("chunk_text", "")), "source": r.payload.get("source_path", r.payload.get("source", "")), "score": r.score}
                 for r in results
@@ -149,6 +181,7 @@ def market_analyst(state: AgentState) -> AgentState:
         "claims": state.get("claims", []),
         "wiki_snippets": state.get("wiki_snippets", []),
         "market_snapshot": state.get("market_snapshot", {}),
+        "sector_strengths": state.get("sector_strengths", []),
         "memories": state.get("memories", []),
     }
     prompt = f"""{prompt_template}
@@ -262,15 +295,49 @@ def synthesize(state: AgentState) -> AgentState:
 【风险提示】{stock.get('risk_notes', '')}
 """
     else:
+        sector_map = market.get("sector_map", {})
+        sector_lines = []
+        for layer, items in sector_map.items():
+            if items:
+                sector_lines.append(f"{layer}：")
+                for item in items:
+                    stocks = "、".join(item.get("key_stocks", []))
+                    sector_lines.append(f"  - {item.get('name', '')}（{item.get('status', '')}）→ {item.get('logic', '')}；标的：{stocks}")
+
+        themes = market.get("themes_in_focus", [])
+        theme_lines = []
+        for t in themes:
+            theme_lines.append(f"【{t.get('theme', '')}】")
+            theme_lines.append(f"催化：{t.get('catalyst', '')}")
+            theme_lines.append(f"风险：{t.get('risk', '')}")
+            theme_lines.append(f"相关：{'、'.join(t.get('key_stocks', []))}")
+
+        idx = market.get("index_discipline", {})
+        index_lines = []
+        if idx:
+            index_lines.append(f"支撑{idx.get('support', 'N/A')} / 压力{idx.get('resistance', 'N/A')}")
+            index_lines.append(f"跌破→{idx.get('action_below', 'N/A')}；突破→{idx.get('action_above', 'N/A')}；中间→{idx.get('middle_zone', 'N/A')}")
+
         draft = f"""【盘面】{market.get('market_summary', '暂无')}
 
 【周期定位】{market.get('market_phase', 'N/A')}，{market.get('phase_reasoning', '')}
 
 【主线判断】{', '.join(market.get('main_themes', []))}
 
-【板块强弱】{json.dumps(market.get('sector_strength', {}), ensure_ascii=False)}
+【板块结构地图】
+{'\n'.join(sector_lines) if sector_lines else '暂无'}
+
+【题材落地】
+{'\n'.join(theme_lines) if theme_lines else '暂无'}
+
+【指数纪律】
+{'\n'.join(index_lines) if index_lines else '暂无'}
+
+【量能观察】{market.get('volume_note', '暂无')}
 
 【情绪信号】{json.dumps(market.get('emotion_signals', {}), ensure_ascii=False)}
+
+【明日跟踪】{'; '.join(market.get('tomorrow_watch', []))}
 
 【风险提示】{market.get('risk_notes', '')}
 """

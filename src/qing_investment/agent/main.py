@@ -29,6 +29,7 @@ async def analyze_trigger(req: TriggerRequest):
         "market_snapshot": req.market_snapshot,
         "positions": req.positions,
         "watchlist": req.watchlist,
+        "sector_strengths": req.sector_strengths,
         "claims": [],
         "wiki_snippets": [],
         "knowledge_graph": {},
