@@ -102,6 +102,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 12. **用户直接提供 UP 评论时的处理**：参考【用户直接提供 UP 评论时的处理流程】（检查是否已自动抓取、区分文档录入与数据查询、claim 抽取要点）。
 13. **Patch/编辑前必须完整读取文件**：如果文件之前是用 `offset`/`limit` 读取的，在 patch 前必须重新完整读取（不带分页参数），否则匹配失败。详见【已知问题与解决】→"Patch/编辑前必须完整读取文件"。
 14. **Skill 同步工作流**：参考 `references/skill-sync-workflow.md`（项目 skill 与 Hermes 全局 skill 的合并、配置更新、验证流程）。
+15. **Trading Rules 迁移与维护**：参考 `references/trading-rules-migration-guide.md`（何时将操作纪律进 `framework/trading-rules.md`、迁移流程、避免重复）。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
