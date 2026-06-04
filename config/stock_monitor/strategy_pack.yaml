@@ -1,24 +1,26 @@
-updated_at: '2026-06-04'
+updated_at: '2026-06-05'
 source_claims:
 - knowledge/claims/claim-20260604-001.yaml
-- knowledge/claims/claim-20260603-004.yaml
-- knowledge/claims/claim-20260603-001.yaml
+- knowledge/claims/claim-20260604-002.yaml
+- knowledge/claims/claim-20260604-003.yaml
+- knowledge/claims/claim-20260604-004.yaml
+- knowledge/claims/claim-20260604-005.yaml
 - framework/stock-analysis-playbook.md
 - framework/market-cycle-framework.md
 market_framework:
-  current_stage: 调整第16天，主升末期。旧周期末端，新周期尚未确立。
-  core_question: 主升末期能否延续？新的大周期何时开始？资金能否从高价大票回流到板块整体？
-  up_quote: 6月4日盘中：今天还在表现的也都是最近的强势方向，在车上的就享受最后的主升，没在车上的别去追，耐心等待。新的大周期开始之前，都是试错，今天适合持股，不适合开新仓。
+  current_stage: 调整第16天，主升末期→防御过渡。微盘股破位（UP：大小盘同步方法论）——不是超跌反弹是补跌。旧周期加速出清，新周期尚未确立。UP 6-4视频"放弃执念，都是星辰大海"= 别跟趋势做对，等右侧确认。
+  core_question: 微盘股破位后是否引发系统性回调？LPU新方向能否成为新主线？光互联主升末期补跌风险如何管控？
+  up_quote: 6月4日视频"放弃执念，都是星辰大海"。复盘：微盘股破位下的表面修复，一九行情——极少数科技向上大多数向下。光互联主升尾声，博通LPU是新的结构性方向但首日涨停后需等分歧。
   key_assumptions:
-  - 当前强势方向处于主升末期，不是启动期
-  - 持仓者持股享受最后主升，未持仓者等待新周期
-  - 周二（6月2日）与指数共振修复过的品种后面都会有表现
-  - 新的大周期开始之前都是试错阶段
-  - 光互连是阵眼但高价大票已独立成板，注意资金漂移
+  - 微盘股破位是市场情绪温度计，不企稳就不开新仓
+  - 当前强势方向（光互联/CPO）处于主升末期，不是启动期
+  - LPU推理芯片是Q3前的新概念方向，但首日涨停后需等分歧
+  - MLCC周期上行确定但已提前1-2周提示，不追
+  - 持仓者止损优先于持股：6-4视频"放弃执念"=不要死扛
   invalidation_conditions:
   - 收盘跌穿4033点→清仓
   - 强势方向集体放量大跌→主升末期证伪
-  - 高价大票资金漂移导致盘面失控→光互连主线证伪
+  - 微盘股指数继续新低+跌停家数回升→系统性风险信号
 intraday_schedule:
 - window: 09:15-09:30
   name: 集合竞价
@@ -162,9 +164,9 @@ position_rules:
   action: 只观察不介入
 quant_entry_strategy:
   position_advice:
-    empty_account: 空仓耐心等待新周期，不追高。可小仓位跟踪光互连/半导体反弹（2-3成），但不开新仓
-    full_account: 满仓应降仓留空间，做T为主。持仓者享受最后主升，但注意兑现
-    current_bias: 主升末期，持股为主，不追高，不开新仓。等周二共振修复品种表现或新周期确立
+    empty_account: 空仓者继续等待新周期。微盘股不止跌不开新仓。LPU方向可轻仓试错但需等分歧回踩。MLCC已提前提示现在追是韭菜。
+    full_account: 满仓者优先减仓止损。6-4视频"放弃执念"就是叫你别死扛。
+    current_bias: 防守优先：微盘股企稳前不开新仓。持仓止损优先。LPU方向轻仓观察。
   entry_points:
   - code: sh600487
     name: 亨通光电
@@ -264,6 +266,13 @@ quant_entry_strategy:
     trigger: 周二共振修复品种，持有做T
     invalidation: 跌破17.5且30分钟不能收回
     note: 持仓300股成本18.158，浮亏约-0.35%。持有做T
+  - code: sh603920
+    name: 世运电路
+    entry_zone: 57-59区间（回踩5日线）
+    position_ratio: 1成（高弹性新概念，控制仓位）
+    trigger: LPU新概念首日涨停+10%，等分歧后缩量回踩5日线
+    invalidation: 跌破56.5且30分钟不能收回；LPU概念一日游
+    note: 6/4涨停+10%收62.69，新概念首日。不追高，等回踩57-59。技术评分待定（首日涨停无K线参考）。
 sector_groups:
 - id: cpu_self_development
   name: CPU自研链
@@ -409,6 +418,14 @@ sector_groups:
   members:
   - code: 002015.SZ
     name: 协鑫能科
+- id: lpu_inference
+  name: LPU/推理芯片
+  style: offensive
+  members:
+  - code: 603920.SH
+    name: 世运电路
+  - code: 002897.SZ
+    name: 意华股份
 sector_rotation_rules:
 - id: offensive_vs_defensive
   name: 进攻vs防御风格切换
@@ -422,6 +439,7 @@ sector_rotation_rules:
   - chemical_price
   - ai_agent_application
   - compute_power
+  - lpu_inference
   defensive_group_ids:
   - medical_observation
   - defensive_stabilizers
@@ -482,20 +500,20 @@ index_rules:
     resistance: 4130
   trend_defense: 4033
 today_snapshot:
-  date: '2026-06-03'
-  source: 早盘策略_2026-06-03
-  market_stage: 调整第15天，上升途中调整临近尾声
-  index_status: 上证4068(-0.17%)，深证15647(+0.36%)，创业板4089(+0.82%)，科创501698(+0.42%)
-  volume_note: 早盘量能正常
-  up_bias: 短期企稳概率较大，做T为主
+  date: '2026-06-05'
+  source: 6-4收盘复盘 + 6-4视频 + 6-4复盘专栏
+  market_stage: 调整第16天，微盘股破位，主升末期→防御过渡
+  index_status: 上证约4080(+0.3%)微红，微盘股大幅破位
+  volume_note: 量能萎缩，一九行情
+  up_bias: 6-4视频"放弃执念，都是星辰大海"——别跟趋势做对，等右侧确认
   key_signals:
-  - 120分钟低9+30分钟底部结构叠加
-  - AI回撤20%处于历史调整区间下沿
-  - MLCC为最强分支，风华高科回调观察
-  - 光互连资金接力验证中（天孚+9.63%/裕太微+15.20%）
-  - 风格切换大概率延续
+  - 微盘股破位——最要命的信号，流动性进一步枯竭
+  - UP"放弃执念"：不要死扛亏损，该止损止损
+  - LPU推理芯片（博通概念）首日发酵，世运涨停+10%
+  - MLCC风华+4.9%周期上行确认，但纪律不追
+  - 光互联走末路，补跌风险 > 延续
   risk_reminders:
-  - 收盘跌穿4033清仓
-  - 光互连大幅高开需防兑现
-  - 普涨共振格局下反弹预期需降低
-  - 若仍下跌可不看盘防卖在最低点
+  - 微盘股继续新低→所有左侧抄底暂停
+  - 安泰科技小市值受微盘股拖累，关注24.5支撑
+  - 光互联主升末期，追高风险极大
+  - 世运高开>3%不追，等分歧回踩

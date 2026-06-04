@@ -1,81 +1,41 @@
 updated_at: '2026-06-04'
 today_snapshot:
-  fetch_time: 2026-06-04 11:15 CST
-  source: 6-3复盘 + 6-4早盘 + 6-4盘中动态
-  up_bias: 6月4日：调整第16天，主升末期。持仓者持股享受最后主升，未持仓者别追高等新周期。指数纪律：4033清仓/4130满仓，两点之间持股做T。
-  market_summary: 6月4日上午，上证约4080(+0.3%)，深证约15700(+0.6%)，创业板约4120(+0.8%)。连续两天一九行情，指数涨但个股跌多涨少。跌停家数降到10家以内，赚钱效应企稳信号。AI方向两天反弹后多数逼近前高或拉出较长上影线，预期弱修复震荡为主。半导体经历6个交易日分歧后封测带头反弹，预期反弹延续。光互连是阵眼但高价大票已独立成板，注意资金漂移风险。
+  fetch_time: 2026-06-04 16:30 CST
+  source: 6-4收盘复盘 + 6-4视频 + 6-4复盘专栏
+  up_bias: 6月4日：调整第16天。微盘股破位，一九行情分化。UP视频"放弃执念，都是星辰大海"——别跟趋势作对，等右侧确认。持仓者止损优先，未持仓者等新周期。
+  market_summary: 6月4日收盘：微盘股破位下跌，上证指数权重撑住但个股普跌。AI硬件（光互联/CPO）分化中仍有强势品种（世运涨停/意华+5.4%），但大部分个股普跌。MLCC/风华+4.9%周期上行确认。博通LPU新概念首日发酵（世运涨停）。UP"放弃执念"信号：不要死扛亏损，该止损止损。
   stocks_with_data:
   - code: sz000969
     name: 安泰科技
-    latest: 21.96
-    pct_change: 0.0
-    note: 持仓300股成本28.667，浮亏约-23.5%。纳米晶/软磁方向偏弱，周二共振修复品种，拿着等
+    latest: 22.04
+    pct_change: -0.36
+    note: 持仓300股成本28.667，浮亏约-23.1%。微盘股破位下小市值风险大，6-5关注24.5支撑。
   - code: sz000066
     name: 中国长城
-    latest: 18.22
-    pct_change: 0.72
-    note: 持仓300股成本18.158，浮亏约-0.35%。周二共振修复品种，持有做T
-  - code: sh600487
-    name: 亨通光电
-    latest: 97.47
-    pct_change: 6.61
-    note: 光纤龙头，早盘+6.61%继续大涨，主升末期不追高
-  - code: sh601869
-    name: 长飞光纤
-    latest: 423.0
-    pct_change: 3.49
-    note: 光纤中军，+3.49%，板块阵型稳定
-  - code: sh600522
-    name: 中天科技
-    latest: 46.32
-    pct_change: 2.98
-    note: 光纤+海缆，+2.98%，相对低位
-  - code: sz300394
-    name: 天孚通信
-    latest: 483.49
-    pct_change: -2.79
-    note: CPO核心，-2.79%回调，等回踩460-470
-  - code: sz300502
-    name: 新易盛
-    latest: 772.3
-    pct_change: -1.27
-    note: CPO三巨头，-1.27%十字星，等回踩740-750
-  - code: sz300308
-    name: 中际旭创
-    latest: 1271.86
-    pct_change: -0.25
-    note: CPO中军，-0.25%，等回踩1180-1200
-  - code: sh688515
-    name: 裕太微
-    latest: 249.99
-    pct_change: 15.2
-    note: 光互连/DSP，+15.2%大幅高开，等充分调整。【非主板688，不可交易】
-  - code: sh603986
-    name: 兆易创新
-    latest: 523.8
-    pct_change: 6.41
-    note: 存储芯片，+6.41%大阳线，等回踩470-480
-  - code: sh688008
-    name: 澜起科技
-    latest: 261.11
-    pct_change: 2.84
-    note: 存储接口，+2.84%，等回踩240-245。【非主板688，不可交易】
-  - code: sh605111
-    name: 新洁能
-    latest: 64.11
-    pct_change: -0.85
-    note: 模拟IC，-0.85%缩量，等回踩60-62
+    latest: 17.95
+    pct_change: -0.5
+    note: 持仓400股成本18.111，浮亏约-0.89%。信创中线逻辑未坏，等16.0以下补仓机会。
+  - code: sh603920
+    name: 世运电路
+    latest: 62.69
+    pct_change: 10.0
+    note: LPU埋嵌PCB新概念，涨停首日。只观察不追，等分歧回踩。
+  - code: sz002897
+    name: 意华股份
+    latest: 96.15
+    pct_change: 5.43
+    note: CPO+连接器双重卡位，6-4复盘提及LPU关联。+5.43%强势，不追高。
+  - code: sh605376
+    name: 博迁新材
+    latest: 188.0
+    pct_change: -1.08
+    note: MLCC镍粉上游，-1.08%缩量调整。等回踩。
   - code: sz000636
     name: 风华高科
-    latest: 62.15
-    pct_change: 2.66
-    note: MLCC核心，+2.66%。【纪律】只观察不介入，已提前提示现在追是韭菜
-  - code: sh603678
-    name: 火炬电子
-    latest: 63.93
-    pct_change: 0.0
-    note: MLCC情绪载体，0%。【纪律】只观察不介入
-  overall_action: 主升末期，持仓者持股享受最后主升，未持仓者别追高等新周期。今天适合持股，不适合开新仓。指数纪律：4033清仓/4130满仓。持仓：安泰科技拿着等（周二共振修复品种）；中国长城持有做T。观察：光互连/半导体反弹延续性，不追高。
+    latest: 63.5
+    pct_change: 4.89
+    note: MLCC核心+4.89%强势。纪律：只观察不介入。
+  overall_action: 6月5日操作：防守优先。微盘股不止跌不开新仓。安泰科技关注24.5支撑破位则减仓；中国长城急跌16.0以下补200。LPU方向只观察不追（世运涨停后高开易兑现）。MLCC只观察不介入。
 themes:
 - id: cpu_self_development
   name: CPU自研链（字节催化，可能裂变为主线）
@@ -133,8 +93,7 @@ themes:
     role: pcie_switch_core
     segment: PCIe Switch
     priority: P1-核心
-    watch_reason: 数渡科技PCIe Switch，国产替代博通。CPU翻倍预期+国产超节点放量→PCIe Switch市场大幅扩容（2026年国内超200亿）。104通道已量产、144通道已投片、PCIe
-      6.0/CXL在研。
+    watch_reason: 数渡科技PCIe Switch，国产替代博通。CPU翻倍预期+国产超节点放量→PCIe Switch市场大幅扩容（2026年国内超200亿）。104通道已量产、144通道已投片、PCIe 6.0/CXL在研。
     sync_with_index: ⚠️ 弱同步——6月1日随科技调整-2.04%，跌破成本
     confirm_with:
     - ST得润
@@ -242,6 +201,11 @@ themes:
     - 若炸板后能回踩167.7分时均价不破并重新回封，才作为MLCC强度确认
     invalidation_setup:
     - 炸板后不能回封，且风华高科或洁美科技同步转弱，降低被动元件上游扩散预期
+    up_mention_status:
+      last_mentioned_date: '2026-06-04'
+      mention_context: 6月4日复盘专栏：MLCC镍粉上游，博迁新材
+      explicit_operation: null
+      sentiment: 中性提及
   - code: 600673.SH
     name: 东阳光
     role: ai_power_chain
@@ -703,7 +667,7 @@ themes:
     role: optical_interconnect
     segment: 光互连
     priority: P2-观察
-    watch_reason: 6月3日早盘提及：意华股份为光互连方向标的，Marvell被黄仁勋点名催化
+    watch_reason: 6月3日早盘提及：意华股份为光互连方向标的，Marvell被黄仁勋点名催化；6-4复盘：CPO+连接器双重卡位，LPU方向间接受益。
     sync_with_index: 光互连板块
     confirm_with:
     - 中际旭创
@@ -715,8 +679,8 @@ themes:
     - 资金不接力
     - 炸板回落
     up_mention_status:
-      last_mentioned_date: '2026-06-03'
-      mention_context: 6月3日早盘：光互连方向，Marvell被黄仁勋点名
+      last_mentioned_date: '2026-06-04'
+      mention_context: 6月4日复盘专栏提到CPO+连接器双重卡位
       explicit_operation: null
       sentiment: 积极观察
     technical_narrative:
@@ -726,7 +690,7 @@ themes:
       - 支撑：昨日收盘
       - 压力：+5%
       pattern: 事件驱动高开
-      note: 意华股份早盘+7.80%，大幅高开
+      note: 意华股份早盘+7.80%，大幅高开；6-4收96.15(+5.43%)强势。
     sector_narrative:
       relative_strength: 光互连组
       money_flow: 事件驱动
@@ -3274,8 +3238,7 @@ themes:
     role: cpo_switch_odm
     segment: CPO交换机/ODM
     priority: P2-重点
-    watch_reason: UP明确提示"关注地位方向"：CPO供应链核心卡位，全光CPO交换机机柜出货目标从26年超1万台上修至26-27年合计超5万台。英伟达Vera
-      Rubin全面量产受益。
+    watch_reason: UP明确提示"关注地位方向"：CPO供应链核心卡位，全光CPO交换机机柜出货目标从26年超1万台上修至26-27年合计超5万台。英伟达Vera Rubin全面量产受益。
     sync_with_index: 上证
     confirm_with:
     - 天孚通信
@@ -3364,3 +3327,50 @@ themes:
       catalyst: 美伊冲突致中东产能受损，沪伦价差历史极值利好出口
       risk: 美伊冲突缓和导致铝价回落
   id: focus_direction_20260602
+- id: lpu_inference_chip
+  name: LPU/推理芯片链（博通新概念）
+  source_docs:
+  - knowledge/claims/claim-20260604-005.yaml
+  - knowledge/wiki/每日复盘/2026-06-04.md
+  market_checks:
+  - LPU概念是否持续发酵
+  - 博通AVGO是否继续催化
+  - 世运电路LPU埋嵌PCB订单能否落地
+  stocks:
+  - code: 603920.SH
+    name: 世运电路
+    role: lpu_embedded_pcb_core
+    segment: LPU埋嵌PCB
+    priority: P2-重点
+    watch_reason: 英伟达LPU产品预计Q3提前发货，世运电路"芯创智载"埋嵌工艺匹配LPU需求，单平米价值量是普通车载PCB的近百倍，2027年若百万颗出货对应百亿级市场。6/4涨停+10%确认首日爆发。
+    sync_with_index: 独立走势——LPU新概念第一天
+    confirm_with:
+    - 意华股份
+    - AVGO(博通)
+    buy_setup:
+    - LPU概念被资金认可，世运电路放量突破后缩量回踩
+    - 不追高，等分歧后缩量回踩5日线（约57-58）
+    - 需产业链逻辑持续（博通/英伟达催化）
+    invalidation_setup:
+    - 单票脉冲但LPU链无联动
+    - 跌破56.5（6/4涨停开盘价）且30分钟不能收回
+    - LPU逻辑不被资金持续认可
+    up_mention_status:
+      last_mentioned_date: '2026-06-04'
+      mention_context: 6月4日复盘专栏：LPU埋嵌PCB，英伟达Q3提前发货，单平米价值量近百倍
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月4日涨停+10.0%首日爆发
+      volume_character: 放量涨停
+      key_levels:
+      - 支撑：56.5（涨停开盘价）
+      - 压力：62.7（涨停板）
+      pattern: 事件驱动首板
+      note: 6月4日涨停+10.0%收62.69，LPU新概念首次发酵。连板高度待验证。
+    sector_narrative:
+      relative_strength: LPU链唯一主板核心标的
+      money_flow: 涨停主力封板
+      leader_follower: 板块龙头
+      catalyst: 英伟达LPU Q3提前发货+博通财报催化
+      risk: 新概念首日，连板高度不确定；涨停次日高开易兑现
