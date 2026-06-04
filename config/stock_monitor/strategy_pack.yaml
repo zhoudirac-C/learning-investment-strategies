@@ -1,25 +1,24 @@
-updated_at: '2026-06-02'
+updated_at: '2026-06-04'
 source_claims:
-- knowledge/claims/claim-20260602-003.yaml
-- knowledge/claims/claim-20260602-002.yaml
-- knowledge/claims/claim-20260602-001.yaml
-- knowledge/claims/claim-20260531-002.yaml
+- knowledge/claims/claim-20260604-001.yaml
+- knowledge/claims/claim-20260603-004.yaml
+- knowledge/claims/claim-20260603-001.yaml
 - framework/stock-analysis-playbook.md
 - framework/market-cycle-framework.md
-- framework/sector-diffusion-framework.md
 market_framework:
-  current_stage: 调整第15天，上升途中调整临近尾声 + 短期企稳概率较大
-  core_question: 调整是否真正结束？资金能否从普涨共振走向强共振聚焦？MLCC能否强者恒强？光互连资金接力意愿如何验证？
-  up_quote: 6月3日早盘：调整第15天，15度角浅调整，上升途中歇脚而非趋势反转。AI多数方向回撤约20%处于历史调整区间下沿。两个止跌信号叠加（120分钟低9+30分钟底部结构）。纪律线：收盘跌穿4033清仓，突破4130满仓。
+  current_stage: 调整第16天，主升末期。旧周期末端，新周期尚未确立。
+  core_question: 主升末期能否延续？新的大周期何时开始？资金能否从高价大票回流到板块整体？
+  up_quote: 6月4日盘中：今天还在表现的也都是最近的强势方向，在车上的就享受最后的主升，没在车上的别去追，耐心等待。新的大周期开始之前，都是试错，今天适合持股，不适合开新仓。
   key_assumptions:
-  - 上证15度角浅调整=趋势中继而非反转
-  - AI回撤20%=历史区间15-30%下沿
-  - 120分钟低9+30分钟底部结构=短期企稳信号
-  - 成交额前5%个股占比达2018年以来高点=风格切换继续
+  - 当前强势方向处于主升末期，不是启动期
+  - 持仓者持股享受最后主升，未持仓者等待新周期
+  - 周二（6月2日）与指数共振修复过的品种后面都会有表现
+  - 新的大周期开始之前都是试错阶段
+  - 光互连是阵眼但高价大票已独立成板，注意资金漂移
   invalidation_conditions:
   - 收盘跌穿4033点→清仓
-  - 创业板指跌破4000且不能收回→调整延长
-  - AI主线集体破位→上升途中调整证伪
+  - 强势方向集体放量大跌→主升末期证伪
+  - 高价大票资金漂移导致盘面失控→光互连主线证伪
 intraday_schedule:
 - window: 09:15-09:30
   name: 集合竞价
@@ -163,129 +162,108 @@ position_rules:
   action: 只观察不介入
 quant_entry_strategy:
   position_advice:
-    empty_account: 空仓可小仓位试探（3-4成），重点跟踪存储/光互连，MLCC只观察不介入
-    full_account: 满仓应降仓留空间，做T为主
-    current_bias: 短期企稳概率大，做T为主，不开新仓，不追MLCC
+    empty_account: 空仓耐心等待新周期，不追高。可小仓位跟踪光互连/半导体反弹（2-3成），但不开新仓
+    full_account: 满仓应降仓留空间，做T为主。持仓者享受最后主升，但注意兑现
+    current_bias: 主升末期，持股为主，不追高，不开新仓。等周二共振修复品种表现或新周期确立
   entry_points:
-  - code: sh603986
-    name: 兆易创新
-    entry_zone: 470-480区间
-    position_ratio: 1.5成
-    trigger: 存储芯片抗跌性确认，早盘+0.88%
-    invalidation: 跌破460且30分钟不能收回
-    note: 存储方向抗跌性最好，调整中资金认可度高
-  - code: sh688008
-    name: 澜起科技
-    entry_zone: 240-245区间
-    position_ratio: 1成
-    trigger: 存储接口方向，早盘+4.75%强势
-    invalidation: 跌破235且30分钟不能收回
-    note: 存储接口核心，业绩支撑较强
-  - code: sz000636
-    name: 风华高科
-    entry_zone: 只观察不介入
-    position_ratio: '0'
-    trigger: MLCC已提前1-2周提示，现在追涨是韭菜行为——只观察不介入
-    invalidation: 无
-    note: '【纪律】6月2日盘中动态明确：MLCC已提前1-2周提示，现在追涨是韭菜行为。风华高科早盘-1.37%回调，不是介入信号是观察信号。先知先觉，不追高。'
-  - code: sh603678
-    name: 火炬电子
-    entry_zone: 只观察不介入
-    position_ratio: '0'
-    trigger: MLCC情绪载体，但已大涨4天3板，现在介入风险极高
-    invalidation: 无
-    note: '【纪律】6月2日盘中动态明确：MLCC已提前1-2周提示，现在追涨是韭菜行为。火炬电子4天3板后早盘+2.35%，不是介入点是观察点。只看不买。'
-  - code: sz300394
-    name: 天孚通信
-    entry_zone: 460-470区间
-    position_ratio: 1成
-    trigger: CPO供应链核心卡位，隔夜Marvell大涨催化
-    invalidation: 跌破450且30分钟不能收回
-    note: 早盘大幅高开+9.63%，需防兑现。等回踩460-470企稳后介入，不追高
-  - code: sz300502
-    name: 新易盛
-    entry_zone: 740-750区间
-    position_ratio: 1成
-    trigger: CPO三巨头，早盘+1.74%
-    invalidation: 跌破730且30分钟不能收回
-    note: CPO核心，涨幅相对温和，等回踩740-750介入
-  - code: sz300308
-    name: 中际旭创
-    entry_zone: 1180-1200区间
-    position_ratio: 1成
-    trigger: CPO核心，早盘+2.37%
-    invalidation: 跌破1150且30分钟不能收回
-    note: CPO中军，等回踩1180-1200介入
   - code: sh600487
     name: 亨通光电
     entry_zone: 82-85区间
     position_ratio: 1成
-    trigger: 光纤龙头，三波段光缆催化
+    trigger: 光纤龙头，三波段光缆催化，等回踩82-85企稳
     invalidation: 跌破80且30分钟不能收回
-    note: 早盘+8.28%继续大涨，昨日涨停创历史新高。等回踩82-85介入，不追高
+    note: 主升末期不追高，早盘+6.61%继续大涨。等充分回踩后再考虑。技术评分2(buy)，均线多头排列
+  - code: sh601869
+    name: 长飞光纤
+    entry_zone: 等分歧回踩
+    position_ratio: 0.5成
+    trigger: 光纤中军，板块阵型稳定
+    invalidation: 板块联动证伪
+    note: 高价大票，注意资金漂移风险。技术评分1(buy)
   - code: sh600522
     name: 中天科技
     entry_zone: 42-43区间
     position_ratio: 1成
-    trigger: 光纤+海缆，早盘+2.33%
+    trigger: 光纤+海缆，相对低位
     invalidation: 跌破41且30分钟不能收回
-    note: 光纤产业链，相对低位，等回踩42-43介入
+    note: 等回踩42-43介入。技术评分1(buy)，短期均线多头
+  - code: sz300394
+    name: 天孚通信
+    entry_zone: 460-470区间
+    position_ratio: 1成
+    trigger: CPO核心，早盘-2.79%回调
+    invalidation: 跌破450且30分钟不能收回
+    note: 等回踩460-470企稳。技术评分1(buy)，均线多头排列。【非主板300，不可交易】
+  - code: sz300502
+    name: 新易盛
+    entry_zone: 740-750区间
+    position_ratio: 1成
+    trigger: CPO三巨头，-1.27%十字星变盘信号
+    invalidation: 跌破730且30分钟不能收回
+    note: 等回踩740-750。技术评分1(buy)，均线多头排列，K线十字星。【非主板300，不可交易】
+  - code: sz300308
+    name: 中际旭创
+    entry_zone: 1180-1200区间
+    position_ratio: 1成
+    trigger: CPO中军，-0.25%
+    invalidation: 跌破1150且30分钟不能收回
+    note: 等回踩1180-1200。技术评分0(neutral)，均线多头排列。【非主板300，不可交易】
   - code: sh688515
     name: 裕太微
-    entry_zone: 等充分调整
+    entry_zone: 等充分调整（10-15%）
     position_ratio: 0.5成（高弹性，控制仓位）
     trigger: 光互连/DSP，Marvell催化
     invalidation: 跌破210且30分钟不能收回
-    note: 早盘+15.20%大幅高开，昨日已大涨18%。等充分调整（10-15%）后再考虑，当前不介入
+    note: 早盘+15.2%大幅高开，昨日已大涨18%。等充分调整后再考虑。技术评分1(buy)。【非主板688，不可交易】
+  - code: sh603986
+    name: 兆易创新
+    entry_zone: 470-480区间
+    position_ratio: 1.5成
+    trigger: 存储芯片，+6.41%大阳线，抗跌性最好
+    invalidation: 跌破460且30分钟不能收回
+    note: 等回踩470-480。技术评分1(buy)，均线缠绕趋势不明但中期偏强
+  - code: sh688008
+    name: 澜起科技
+    entry_zone: 240-245区间
+    position_ratio: 1成
+    trigger: 存储接口，+2.84%
+    invalidation: 跌破235且30分钟不能收回
+    note: 等回踩240-245。技术评分0(neutral)，均线缠绕。【非主板688，不可交易】
   - code: sh605111
     name: 新洁能
     entry_zone: 60-62区间
     position_ratio: 1成
-    trigger: 模拟IC，意法半导体大涨催化
+    trigger: 模拟IC，-0.85%缩量
     invalidation: 跌破58且30分钟不能收回
-    note: 模拟IC切换窗口，早盘+3.16%。等回踩60-62介入
-  - code: sh688381
-    name: 帝奥微
-    entry_zone: 38-40区间
-    position_ratio: 0.5成
-    trigger: 模拟IC，板块切换窗口
-    invalidation: 跌破37且30分钟不能收回
-    note: 模拟IC，早盘+2.38%。等回踩38-40介入
-  - code: sz002897
-    name: 意华股份
-    entry_zone: 88-92区间
-    position_ratio: 0.5成
-    trigger: 光互连，Marvell催化
-    invalidation: 跌破85且30分钟不能收回
-    note: 早盘+7.80%，等回踩88-92介入
-  - code: sz301419
-    name: 阿莱德
-    entry_zone: 43-45区间
-    position_ratio: 0.5成
-    trigger: 光互连
-    invalidation: 跌破42且30分钟不能收回
-    note: 早盘+2.25%，等回踩43-45介入
-  - code: sh600160
-    name: 巨化股份
-    entry_zone: 等分歧回踩
-    position_ratio: 1成
-    trigger: 制冷剂配额制+超纯PFA双催化
-    invalidation: 板块联动证伪
-    note: 化工涨价核心标的，HFCs配额制享超长景气，超纯PFA半导体国产替代。等分歧回踩介入，不追高
-  - code: sh603968
-    name: 醋化股份
-    entry_zone: 等分歧回踩
-    position_ratio: 0.5成
-    trigger: 安赛蜜三轮涨价87.5%
-    invalidation: 安赛蜜价格回落或三寡头协同破裂
-    note: 安赛蜜三寡头之一，涨价格局优异。等分歧回踩介入，不追高
-  - code: sh601088
-    name: 中国神华
-    entry_zone: 等分歧回踩
-    position_ratio: 0.5成
-    trigger: 动力煤龙头，迎峰度夏+安监供给收缩
-    invalidation: 煤价回升不及预期或安监煤矿大规模复产
-    note: 防御性配置，高股息+央企。等分歧回踩介入，不追高
+    note: 等回踩60-62。技术评分-1(sell)，均线缠绕，缩量
+  - code: sz000636
+    name: 风华高科
+    entry_zone: 只观察不介入
+    position_ratio: '0'
+    trigger: 【纪律】MLCC已提前1-2周提示，现在追涨是韭菜行为
+    invalidation: 无
+    note: 早盘+2.66%，不是介入信号。只观察不介入
+  - code: sh603678
+    name: 火炬电子
+    entry_zone: 只观察不介入
+    position_ratio: '0'
+    trigger: 【纪律】MLCC情绪载体，只观察不介入
+    invalidation: 无
+    note: 0%，只观察不介入
+  - code: sz000969
+    name: 安泰科技
+    entry_zone: 持仓拿着等
+    position_ratio: 已有持仓
+    trigger: 周二共振修复品种，后面都会有表现
+    invalidation: 跌破21且30分钟不能收回
+    note: 持仓300股成本28.667，浮亏约-23.5%。纳米晶/软磁方向偏弱，但博主说周二共振修复的品种拿着等
+  - code: sz000066
+    name: 中国长城
+    entry_zone: 持仓做T
+    position_ratio: 已有持仓
+    trigger: 周二共振修复品种，持有做T
+    invalidation: 跌破17.5且30分钟不能收回
+    note: 持仓300股成本18.158，浮亏约-0.35%。持有做T
 sector_groups:
 - id: cpu_self_development
   name: CPU自研链
@@ -498,10 +476,7 @@ index_rules:
   key_levels:
     support: 4033
     resistance: 4130
-    current: 4068.34
-  trigger_condition: close_below
   trend_defense: 4033
-  note: 收盘跌穿4033清仓，突破4130满仓。盘中跌破不执行，只看收盘价。
 today_snapshot:
   date: '2026-06-03'
   source: 早盘策略_2026-06-03
