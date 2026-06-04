@@ -2,6 +2,12 @@
 """
 Migrate claims from knowledge/claims/*.yaml into Neo4j.
 
+Supports incremental sync: only processes files modified since the last run.
+State is tracked in .migrate_state.json.
+
+For modified files: old Claim nodes and relationships are deleted before re-insertion
+to ensure property updates are applied.
+
 Creates:
 - (:Claim) nodes
 - (:Stock | :Sector | :Theme | :Macro | :Methodology) entity nodes
@@ -11,9 +17,12 @@ Creates:
 from __future__ import annotations
 
 import glob
+import hashlib
+import json
 import os
 import re
 import sys
+from datetime import datetime
 from pathlib import Path
 
 import yaml
@@ -26,6 +35,7 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 from qing_investment.agent.config import settings
 
 CLAIMS_DIR = REPO_ROOT / "knowledge" / "claims"
+STATE_PATH = REPO_ROOT / ".migrate_state.json"
 
 # Regex for Chinese stock codes (6 digits)
 STOCK_CODE_RE = re.compile(r"\b(\d{6})\b")
@@ -36,6 +46,27 @@ SECTOR_KEYWORDS = [
     "资源", "周期", "红利", "燃气轮机", "核电", "芯片", "国产替代", "数据中心",
     "光互连", "PCB", "MLCC", "ABF", "设备", "材料", "电池", "发动机",
 ]
+
+
+def _load_state() -> dict:
+    if STATE_PATH.exists():
+        try:
+            return json.loads(STATE_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {"last_sync": "1970-01-01T00:00:00", "files": {}}
+
+
+def _save_state(state: dict) -> None:
+    STATE_PATH.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _file_hash(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()[:16]
+
+
+def _file_mtime(path: Path) -> datetime:
+    return datetime.fromtimestamp(path.stat().st_mtime)
 
 
 def parse_claims_file(path: Path) -> list[dict]:
@@ -54,7 +85,6 @@ def parse_claims_file(path: Path) -> list[dict]:
         if "claims" in data:
             claims = data["claims"]
             return claims if isinstance(claims, list) else [claims]
-        # Single claim dict
         return [data]
     return []
 
@@ -86,11 +116,15 @@ def get_entity_type(claim_type: str, subject: str) -> str:
     return mapping.get(claim_type, "Theme")
 
 
-def migrate():
+def migrate(*, force_full: bool = False):
     driver = GraphDatabase.driver(
         settings.neo4j_uri,
         auth=(settings.neo4j_user, settings.neo4j_password),
     )
+
+    state = _load_state()
+    last_sync = datetime.fromisoformat(state.get("last_sync", "1970-01-01T00:00:00"))
+    file_states: dict = state.get("files", {})
 
     # Constraints & indexes
     with driver.session() as session:
@@ -100,20 +134,59 @@ def migrate():
         session.run("CREATE INDEX claim_status IF NOT EXISTS FOR (c:Claim) ON (c.status)")
         session.run("CREATE INDEX claim_type IF NOT EXISTS FOR (c:Claim) ON (c.claim_type)")
 
-    # Collect all claims first
-    all_claims: list[dict] = []
+    # Collect files and determine which need processing
     yaml_files = sorted(glob.glob(str(CLAIMS_DIR / "*.yaml")))
-    print(f"Found {len(yaml_files)} YAML files in {CLAIMS_DIR}")
+    files_to_process: list[tuple[Path, list[dict]]] = []
+    files_deleted: set[str] = set(file_states.keys())
 
     for fp in yaml_files:
-        claims = parse_claims_file(Path(fp))
+        path = Path(fp)
+        fname = path.name
+        files_deleted.discard(fname)
+
+        claims = parse_claims_file(path)
         if not claims:
-            print(f"  ⚠️ No claims parsed from {fp}")
             continue
+
+        if force_full:
+            files_to_process.append((path, claims))
+            continue
+
+        mtime = _file_mtime(path)
+        if mtime > last_sync:
+            files_to_process.append((path, claims))
+            continue
+
+        current_hash = _file_hash(path)
+        if file_states.get(fname) != current_hash:
+            files_to_process.append((path, claims))
+
+    if not files_to_process and not files_deleted:
+        print(f"✅ All {len(yaml_files)} claim files are up to date. Nothing to migrate.")
+        _save_state({"last_sync": datetime.now().isoformat(), "files": file_states})
+        driver.close()
+        return
+
+    print(f"Found {len(yaml_files)} YAML files, {len(files_to_process)} need migration")
+
+    # For modified files: delete old claims first to ensure property updates
+    with driver.session() as session:
+        for path, claims in files_to_process:
+            claim_ids = [c.get("id", "") for c in claims if isinstance(c, dict) and c.get("id")]
+            if claim_ids:
+                # Delete old claims from this file to allow re-creation with fresh properties
+                session.run(
+                    "MATCH (c:Claim) WHERE c.id IN $ids DETACH DELETE c",
+                    {"ids": claim_ids},
+                )
+
+    # Collect all claims from files to process
+    all_claims: list[dict] = []
+    for path, claims in files_to_process:
         for c in claims:
             if not isinstance(c, dict):
                 continue
-            c["_file"] = os.path.basename(fp)
+            c["_file"] = path.name
             all_claims.append(c)
 
     print(f"Total claims to migrate: {len(all_claims)}")
@@ -130,159 +203,151 @@ def migrate():
     driver.close()
     print("✅ Claims migration complete.")
 
+    # Update state
+    for path, _ in files_to_process:
+        file_states[path.name] = _file_hash(path)
+    for deleted in files_deleted:
+        file_states.pop(deleted, None)
+    _save_state({"last_sync": datetime.now().isoformat(), "files": file_states})
+
 
 def _migrate_single_claim(session, claim: dict):
     cid = claim.get("id", "")
     if not cid:
         return
 
-    # Merge Claim node
+    # Merge Claim node (fresh properties after delete + recreate)
     session.run(
         """
-        MERGE (c:Claim {id: $id})
-        ON CREATE SET
-            c.statement = $statement,
-            c.evidence_quote = $evidence_quote,
-            c.interpretation = $interpretation,
-            c.confidence = $confidence,
-            c.status = $status,
-            c.claim_type = $claim_type,
-            c.timeframe = $timeframe,
-            c.subject = $subject,
-            c.source_date = $source_date,
-            c.source_type = $source_type,
-            c.extracted_at = $extracted_at,
-            c._file = $_file
-        ON MATCH SET
-            c.statement = $statement,
-            c.evidence_quote = $evidence_quote,
-            c.interpretation = $interpretation,
-            c.confidence = $confidence,
-            c.status = $status,
-            c.claim_type = $claim_type,
-            c.timeframe = $timeframe,
-            c.subject = $subject,
-            c.source_date = $source_date,
-            c.source_type = $source_type,
-            c.extracted_at = $extracted_at,
-            c._file = $_file
+        CREATE (c:Claim {
+            id: $id,
+            statement: $statement,
+            evidence_quote: $evidence_quote,
+            interpretation: $interpretation,
+            confidence: $confidence,
+            status: $status,
+            claim_type: $claim_type,
+            time_frame: $time_frame,
+            subject: $subject,
+            file: $file
+        })
         """,
-        id=cid,
-        statement=claim.get("statement", ""),
-        evidence_quote=claim.get("evidence_quote", ""),
-        interpretation=claim.get("interpretation", ""),
-        confidence=claim.get("confidence", "medium"),
-        status=claim.get("status", "active"),
-        claim_type=claim.get("claim_type", "unknown"),
-        timeframe=claim.get("timeframe", ""),
-        subject=claim.get("subject", ""),
-        source_date=claim.get("source_date", ""),
-        source_type=claim.get("source_type", ""),
-        extracted_at=claim.get("extracted_at", ""),
-        _file=claim.get("_file", ""),
+        {
+            "id": cid,
+            "statement": claim.get("statement", ""),
+            "evidence_quote": claim.get("evidence_quote", ""),
+            "interpretation": claim.get("interpretation", ""),
+            "confidence": claim.get("confidence", "medium"),
+            "status": claim.get("status", "active"),
+            "claim_type": claim.get("type", "general"),
+            "time_frame": claim.get("time_frame", ""),
+            "subject": claim.get("subject", ""),
+            "file": claim.get("_file", ""),
+        },
     )
 
-    # Merge SourceDocument and link
-    source_path = claim.get("source_path", "")
-    if source_path:
-        session.run(
-            """
-            MERGE (s:SourceDocument {path: $path})
-            MERGE (c:Claim {id: $cid})
-            MERGE (c)-[:EXTRACTED_FROM]->(s)
-            """,
-            path=source_path,
-            cid=cid,
-        )
-
-    # Create entity relationships (ABOUT)
+    # Extract and link entities
     subject = claim.get("subject", "")
     statement = claim.get("statement", "")
-    claim_type = claim.get("claim_type", "unknown")
-    entity_label = get_entity_type(claim_type, subject)
 
-    # Subject as primary entity
+    # Stock codes
+    stock_codes = extract_stock_codes(subject + " " + statement)
+    for code in stock_codes:
+        session.run(
+            """
+            MERGE (s:Stock {code: $code})
+            WITH s
+            MATCH (c:Claim {id: $cid})
+            MERGE (c)-[:ABOUT {relation_type: 'mentions'}]->(s)
+            """,
+            {"code": code, "cid": cid},
+        )
+
+    # Sectors / themes
+    sectors = extract_sectors(subject, statement)
+    for sec in sectors:
+        session.run(
+            """
+            MERGE (sec:Sector {name: $name})
+            WITH sec
+            MATCH (c:Claim {id: $cid})
+            MERGE (c)-[:ABOUT {relation_type: 'sector'}]->(sec)
+            """,
+            {"name": sec, "cid": cid},
+        )
+
+    # Primary entity (subject)
+    entity_label = get_entity_type(claim.get("type", ""), subject)
     if subject:
         session.run(
             f"""
             MERGE (e:{entity_label} {{name: $name}})
-            MERGE (c:Claim {{id: $cid}})
+            WITH e
+            MATCH (c:Claim {{id: $cid}})
             MERGE (c)-[:ABOUT {{relation_type: 'primary'}}]->(e)
             """,
-            name=subject,
-            cid=cid,
+            {"name": subject, "cid": cid},
         )
 
-    # Stock codes from statement
-    codes = extract_stock_codes(statement + " " + claim.get("evidence_quote", ""))
-    for code in codes:
+    # Source document
+    source_path = claim.get("source", "")
+    if source_path:
         session.run(
             """
-            MERGE (s:Stock {code: $code})
-            MERGE (c:Claim {id: $cid})
-            MERGE (c)-[:ABOUT {relation_type: 'mentions'}]->(s)
+            MERGE (s:SourceDocument {path: $path})
+            WITH s
+            MATCH (c:Claim {id: $cid})
+            MERGE (c)-[:EXTRACTED_FROM]->(s)
             """,
-            code=code,
-            cid=cid,
+            {"path": source_path, "cid": cid},
         )
 
-    # Sector keywords
-    sectors = extract_sectors(subject, statement)
-    for sector in sectors:
-        session.run(
-            """
-            MERGE (sec:Sector {name: $name})
-            MERGE (c:Claim {id: $cid})
-            MERGE (c)-[:ABOUT {relation_type: 'sector'}]->(sec)
-            """,
-            name=sector,
-            cid=cid,
-        )
-
-    # Wiki page links -> CITED_IN
-    links = claim.get("links", {}) or {}
-    wiki_pages = links.get("wiki_pages", []) if isinstance(links, dict) else []
-    for wp in wiki_pages:
+    # Cited wiki pages
+    cited_in = claim.get("cited_in", [])
+    if isinstance(cited_in, str):
+        cited_in = [cited_in]
+    for wiki_path in cited_in or []:
         session.run(
             """
             MERGE (w:WikiPage {path: $path})
-            MERGE (c:Claim {id: $cid})
+            WITH w
+            MATCH (c:Claim {id: $cid})
             MERGE (c)-[:CITED_IN]->(w)
             """,
-            path=wp,
-            cid=cid,
+            {"path": wiki_path, "cid": cid},
         )
 
-    # Methodology page links
-    meth_pages = links.get("methodology_pages", []) if isinstance(links, dict) else []
-    for mp in meth_pages:
+    # Methodology pages
+    methodology_pages = claim.get("methodology_pages", [])
+    if isinstance(methodology_pages, str):
+        methodology_pages = [methodology_pages]
+    for meth_path in methodology_pages or []:
         session.run(
             """
             MERGE (m:MethodologyPage {path: $path})
-            MERGE (c:Claim {id: $cid})
+            WITH m
+            MATCH (c:Claim {id: $cid})
             MERGE (c)-[:CITED_IN]->(m)
             """,
-            path=mp,
-            cid=cid,
+            {"path": meth_path, "cid": cid},
         )
-
-    # Deferred relationships: we need a second pass for SUPERSEDES / CONTRADICTS
 
 
 def migrate_relations():
-    """Second pass: create SUPERSEDES and CONTRADICTS relationships."""
     driver = GraphDatabase.driver(
         settings.neo4j_uri,
         auth=(settings.neo4j_user, settings.neo4j_password),
     )
 
-    all_claims: list[dict] = []
     yaml_files = sorted(glob.glob(str(CLAIMS_DIR / "*.yaml")))
+    all_claims: list[dict] = []
     for fp in yaml_files:
         claims = parse_claims_file(Path(fp))
-        for c in claims:
-            if isinstance(c, dict):
-                all_claims.append(c)
+        if claims:
+            all_claims.extend([c for c in claims if isinstance(c, dict)])
+
+    # Build id -> claim map
+    claim_map = {c.get("id"): c for c in all_claims if c.get("id")}
 
     with driver.session() as session:
         for claim in all_claims:
@@ -290,26 +355,42 @@ def migrate_relations():
             if not cid:
                 continue
 
-            supersedes = claim.get("supersedes", []) or []
-            for old_id in supersedes:
-                session.run(
-                    """
-                    MATCH (new:Claim {id: $new_id}), (old:Claim {id: $old_id})
-                    MERGE (new)-[:SUPERSEDES]->(old)
-                    """,
-                    new_id=cid,
-                    old_id=old_id,
-                )
-
-            contradicts = claim.get("contradicts", []) or []
-            for opp_id in contradicts:
+            # SUPERSEDES
+            supersedes = claim.get("supersedes", [])
+            if isinstance(supersedes, str):
+                supersedes = [supersedes]
+            for opp_id in supersedes or []:
+                if opp_id not in claim_map:
+                    continue
                 session.run(
                     """
                     MATCH (a:Claim {id: $a_id}), (b:Claim {id: $b_id})
-                    MERGE (a)-[:CONTRADICTS]->(b)
+                    MERGE (a)-[:SUPERSEDES {reason: $reason}]->(b)
                     """,
-                    a_id=cid,
-                    b_id=opp_id,
+                    {
+                        "a_id": cid,
+                        "b_id": opp_id,
+                        "reason": claim.get("supersedes_reason", "superseded"),
+                    },
+                )
+
+            # CONTRADICTS
+            contradicts = claim.get("contradicts", [])
+            if isinstance(contradicts, str):
+                contradicts = [contradicts]
+            for opp_id in contradicts or []:
+                if opp_id not in claim_map:
+                    continue
+                session.run(
+                    """
+                    MATCH (a:Claim {id: $a_id}), (b:Claim {id: $b_id})
+                    MERGE (a)-[:CONTRADICTS {reason: $reason}]->(b)
+                    """,
+                    {
+                        "a_id": cid,
+                        "b_id": opp_id,
+                        "reason": claim.get("contradicts_reason", "contradiction"),
+                    },
                 )
 
     driver.close()
@@ -317,5 +398,9 @@ def migrate_relations():
 
 
 if __name__ == "__main__":
-    migrate()
+    import argparse
+    parser = argparse.ArgumentParser(description="Migrate claims to Neo4j")
+    parser.add_argument("--force-full", action="store_true", help="Force full re-migration of all claims")
+    args = parser.parse_args()
+    migrate(force_full=args.force_full)
     migrate_relations()
