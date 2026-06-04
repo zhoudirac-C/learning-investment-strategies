@@ -8,6 +8,8 @@ version = "0.1.0"
 description = "Continuous investment methodology learning system and skills"
 requires-python = ">=3.11"
 dependencies = [
+  "ddgs>=9.14.4",
+  "duckduckgo-search>=8.1.1",
   "paddleocr",
   "playwright>=1.60.0",
   "pyyaml>=6.0.1",

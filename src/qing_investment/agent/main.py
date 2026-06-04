@@ -30,6 +30,7 @@ async def analyze_trigger(req: TriggerRequest):
         "positions": req.positions,
         "watchlist": req.watchlist,
         "sector_strengths": req.sector_strengths,
+        "sector_context": [],
         "claims": [],
         "wiki_snippets": [],
         "knowledge_graph": {},

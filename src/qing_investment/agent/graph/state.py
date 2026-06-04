@@ -23,9 +23,13 @@ class AgentState(TypedDict, total=False):
     # 检索层
     claims: list[dict]
     wiki_snippets: list[dict]
+    sector_context: list[dict]
     knowledge_graph: dict
     memories: list[dict]
     few_shot_examples: list[str]
+
+    # 实时数据
+    sector_strengths: list[dict]
 
     # 分析层
     market_context: dict

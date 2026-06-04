@@ -153,6 +153,17 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
     except Exception as e:
         wiki_snippets = []
 
+    # Dynamic sector extraction from recent UP raw documents + web search
+    sector_context: list[dict] = []
+    try:
+        from qing_investment.agent.tools.sector_extractor import build_sector_context
+        # Only run sector extraction for market/sector queries to save latency
+        analysis_type = (state.get("parsed_intent") or {}).get("analysis_type", "stock")
+        if analysis_type in ("market", "portfolio") or not stock_code:
+            sector_context = build_sector_context(days_back=3, top_k=5)
+    except Exception:
+        sector_context = []
+
     try:
         memories = mem0.search(query, user_id=session_id)
     except Exception as e:
@@ -166,11 +177,13 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
 
         "claims": claims,
         "wiki_snippets": wiki_snippets,
+        "sector_context": sector_context,
         "knowledge_graph": {},
         "memories": memories,
         "few_shot_examples": few_shot,
         "reasoning_steps": [
-            f"检索到 {len(claims)} 条claims, {len(wiki_snippets)} 个wiki片段, {len(memories)} 条记忆"
+            f"检索到 {len(claims)} 条claims, {len(wiki_snippets)} 个wiki片段, "
+            f"{len(memories)} 条记忆, {len(sector_context)} 个动态板块"
         ],
     }
 
@@ -182,6 +195,7 @@ def market_analyst(state: AgentState) -> AgentState:
         "wiki_snippets": state.get("wiki_snippets", []),
         "market_snapshot": state.get("market_snapshot", {}),
         "sector_strengths": state.get("sector_strengths", []),
+        "sector_context": state.get("sector_context", []),
         "memories": state.get("memories", []),
     }
     prompt = f"""{prompt_template}
