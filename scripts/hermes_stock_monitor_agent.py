@@ -81,6 +81,7 @@ def call_qing_agent(data: dict) -> dict | None:
         "positions": data.get("positions", []),
         "watchlist": data.get("watchlist", []),
         "sector_strengths": data.get("sector_strengths", []),
+        "external_sector_boards": data.get("external_sector_boards", {}),
     }, ensure_ascii=False).encode("utf-8")
 
     req = urllib.request.Request(

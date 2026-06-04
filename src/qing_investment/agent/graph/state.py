@@ -30,6 +30,7 @@ class AgentState(TypedDict, total=False):
 
     # 实时数据
     sector_strengths: list[dict]
+    external_sector_boards: dict
 
     # 分析层
     market_context: dict

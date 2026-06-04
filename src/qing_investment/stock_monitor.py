@@ -833,6 +833,21 @@ def _agent_context_data(
 
     positions = position_rows(config)
     watch_stocks = watchlist_stock_rows(config)
+
+    # Enrich positions with live quote data
+    quotes_by_code = _quotes_by_code(quote_snapshot)
+    enriched_positions: list[dict] = []
+    for p in positions:
+        code = p.get("code", "")
+        quote = _quote_for_stock(quotes_by_code, code) or {}
+        enriched = dict(p)
+        latest = _to_float(quote.get("latest"))
+        pct = _to_float(quote.get("pct_change"))
+        if latest is not None:
+            enriched["latest"] = latest
+        if pct is not None:
+            enriched["pct_change"] = pct
+        enriched_positions.append(enriched)
     sector_strengths = [
         {
             "id": s.id,
@@ -844,6 +859,20 @@ def _agent_context_data(
         }
         for s in compute_sector_strength(config, quote_snapshot)
     ]
+
+    external_sector_boards: dict
+    try:
+        from qing_investment.agent.tools.sector_data import get_sector_strength_snapshot
+
+        external_sector_boards = get_sector_strength_snapshot(top_n=30)
+        external_sector_boards["available"] = True
+    except Exception as e:
+        external_sector_boards = {
+            "available": False,
+            "error": f"外部板块数据获取失败: {e}",
+            "concept": {"leaders": [], "laggards": [], "count": 0, "source": "none"},
+            "industry": {"leaders": [], "laggards": [], "count": 0, "source": "none"},
+        }
 
     return {
         "timestamp": value.astimezone(CN_TZ).isoformat(),
@@ -861,8 +890,9 @@ def _agent_context_data(
         "market_state": state.get("last_market_state", {}),
         "sector_signal_counts": state.get("sector_signal_counts", {}),
         "sector_strengths": sector_strengths,
+        "external_sector_boards": external_sector_boards,
         "quote_snapshot": quote_snapshot,
-        "positions": positions,
+        "positions": enriched_positions,
         "watchlist": [
             {
                 "theme": row.get("theme_name", ""),

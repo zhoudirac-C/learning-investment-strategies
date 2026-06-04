@@ -180,6 +180,7 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
         "claims": claims,
         "wiki_snippets": wiki_snippets,
         "sector_context": sector_context,
+        "external_sector_boards": state.get("external_sector_boards", {}),
         "knowledge_graph": {},
         "memories": memories,
         "few_shot_examples": few_shot,
@@ -192,11 +193,69 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
 
 def market_analyst(state: AgentState) -> AgentState:
     prompt_template = _load_prompt("market_analyst")
+    esb = state.get("external_sector_boards", {})
+    analysis_type = (state.get("parsed_intent") or {}).get("analysis_type", "stock")
+    if analysis_type in ("market", "portfolio") and not esb.get("available"):
+        return {
+            "market_context": {
+                "market_phase": "数据不可用",
+                "phase_reasoning": f"外部板块数据不可用，无法生成市场分析: {esb.get('error', 'unknown')}",
+                "main_themes": [],
+                "sector_map": {},
+                "themes_in_focus": [],
+                "index_discipline": {},
+                "volume_note": "",
+                "emotion_signals": {},
+                "tomorrow_watch": [],
+                "position_plans": [],
+                "risk_notes": "外部行情源板块数据缺失，本次分析被中止。请检查网络连接或等行情源恢复后重试。",
+                "citations": [],
+            },
+            "reasoning_steps": ["market_analyst: 外部板块数据不可用，拒绝生成分析"],
+        }
+
+    # Truncate market_snapshot quotes to keep prompt size reasonable
+    market_snapshot = dict(state.get("market_snapshot") or {})
+    all_quotes = market_snapshot.get("quotes", []) or []
+    if isinstance(all_quotes, list) and len(all_quotes) > 50:
+        # Keep indexes + position/watchlist stocks + top movers
+        codes_to_keep: set[str] = set()
+        for q in all_quotes:
+            label = q.get("label") or ""
+            name = q.get("name") or ""
+            # Keep indexes
+            if "指数" in label or "指数" in name or label in ("上证指数", "深证成指", "创业板指", "科创50"):
+                codes_to_keep.add(q.get("secid", ""))
+                codes_to_keep.add(q.get("code", ""))
+        # Keep positions and watchlist stocks
+        for p in state.get("positions", []) or []:
+            code = str(p.get("code", "")).replace(".SH", "").replace(".SZ", "")
+            if code:
+                codes_to_keep.add(code)
+        for w in state.get("watchlist", []) or []:
+            code = str(w.get("code", "")).replace(".SH", "").replace(".SZ", "")
+            if code:
+                codes_to_keep.add(code)
+        # Top 15 movers by abs(pct_change)
+        sorted_quotes = sorted(
+            [q for q in all_quotes if isinstance(q, dict)],
+            key=lambda x: abs(x.get("pct_change") or 0),
+            reverse=True,
+        )[:15]
+        for q in sorted_quotes:
+            codes_to_keep.add(q.get("secid", ""))
+            codes_to_keep.add(q.get("code", ""))
+        filtered = [q for q in all_quotes if (q.get("secid") in codes_to_keep or q.get("code") in codes_to_keep)]
+        market_snapshot["quotes"] = filtered
+        market_snapshot["_total_quotes"] = len(all_quotes)
+        market_snapshot["_filtered_quotes"] = len(filtered)
+
     context = {
         "claims": state.get("claims", []),
         "wiki_snippets": state.get("wiki_snippets", []),
-        "market_snapshot": state.get("market_snapshot", {}),
+        "market_snapshot": market_snapshot,
         "sector_strengths": state.get("sector_strengths", []),
+        "external_sector_boards": esb,
         "sector_context": state.get("sector_context", []),
         "memories": state.get("memories", []),
     }
@@ -204,6 +263,9 @@ def market_analyst(state: AgentState) -> AgentState:
 
 检索到的知识：
 {json.dumps(context, ensure_ascii=False, indent=2)}
+
+当前持仓：
+{json.dumps(state.get('positions', []), ensure_ascii=False, indent=2)}
 
 请输出JSON：
 """
@@ -220,6 +282,7 @@ def market_analyst(state: AgentState) -> AgentState:
             "main_themes": [],
             "sector_strength": {},
             "emotion_signals": {},
+            "position_plans": [],
         }
 
     return {
@@ -285,9 +348,51 @@ def stock_analyst(state: AgentState) -> AgentState:
     }
 
 
+def _build_position_plan_lines(market_context: dict, positions: list[dict]) -> list[str]:
+    """Build structured position plan lines from market_context.position_plans.
+
+    Falls back to a plain inventory list if no plans were generated.
+    """
+    if not positions:
+        return []
+
+    plans = market_context.get("position_plans") or []
+    plan_by_code: dict[str, dict] = {}
+    for plan in plans:
+        code = plan.get("code", "")
+        if code:
+            plan_by_code[code] = plan
+
+    lines = ["", "【持仓操作计划】"]
+    for p in positions:
+        code = p.get("code", "N/A")
+        name = p.get("name", "N/A")
+        shares = p.get("shares", 0)
+        cost = p.get("cost", "N/A")
+        latest = p.get("latest", p.get("price", "N/A"))
+        pct = p.get("pct_change", "N/A")
+        plan = plan_by_code.get(code) or {}
+        if plan:
+            lines.append(
+                f"- {name}({code})：持仓{shares}股，成本{cost}，现价{latest}，今日{pct}%\n"
+                f"  触发：{plan.get('trigger', 'N/A')}\n"
+                f"  失效：{plan.get('invalidation', 'N/A')}\n"
+                f"  仓位：{plan.get('position_advice', 'N/A')}"
+            )
+        else:
+            lines.append(
+                f"- {name}({code})：持仓{shares}股，成本{cost}，现价{latest}，今日{pct}%\n"
+                f"  触发：待补充\n"
+                f"  失效：待补充\n"
+                f"  仓位：按大盘纪律控制"
+            )
+    return lines
+
+
 def synthesize(state: AgentState) -> AgentState:
     market = state.get("market_context", {})
     stock = state.get("stock_analysis", {})
+    positions = state.get("positions", [])
 
     if stock:
         draft = f"""【盘面】{market.get('market_summary', '暂无')}
@@ -310,6 +415,8 @@ def synthesize(state: AgentState) -> AgentState:
 
 【风险提示】{stock.get('risk_notes', '')}
 """
+        # Append position plans for any held positions even in stock mode
+        draft += "\n".join(_build_position_plan_lines(market, positions))
     else:
         sector_map = market.get("sector_map", {})
         sector_lines = []
@@ -334,18 +441,7 @@ def synthesize(state: AgentState) -> AgentState:
             index_lines.append(f"支撑{idx.get('support', 'N/A')} / 压力{idx.get('resistance', 'N/A')}")
             index_lines.append(f"跌破→{idx.get('action_below', 'N/A')}；突破→{idx.get('action_above', 'N/A')}；中间→{idx.get('middle_zone', 'N/A')}")
 
-        positions = state.get("positions", [])
-        position_lines = []
-        if positions:
-            position_lines.append("\n\n【持仓操作计划】")
-            for p in positions:
-                name = p.get("name", "N/A")
-                code = p.get("code", "N/A")
-                shares = p.get("shares", 0)
-                cost = p.get("cost", 0)
-                latest = p.get("latest", p.get("price", "N/A"))
-                pct = p.get("pct_change", "N/A")
-                position_lines.append(f"- {name}({code})：持仓{shares}股，成本{cost}，现价{latest}，今日{pct}%")
+        position_lines = _build_position_plan_lines(market, positions)
 
         draft = f"""【盘面】{market.get('market_summary', '暂无')}
 
