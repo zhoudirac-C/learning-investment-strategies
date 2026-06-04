@@ -183,8 +183,17 @@ def market_analyst(state: AgentState) -> AgentState:
 
 
 def stock_analyst(state: AgentState) -> AgentState:
-    prompt_template = _load_prompt("stock_analyst")
     stock_code = state.get("parsed_intent", {}).get("stock_code")
+    analysis_type = state.get("parsed_intent", {}).get("analysis_type", "stock")
+
+    # Skip individual stock analysis for market-level or portfolio queries
+    if analysis_type in ("market", "portfolio") or not stock_code:
+        return {
+            "stock_analysis": {},
+            "reasoning_steps": ["个股分析: 跳过（market/portfolio查询或无标的）"],
+        }
+
+    prompt_template = _load_prompt("stock_analyst")
     context = {
         "stock_code": stock_code,
         "positions": state.get("positions", []),
@@ -231,7 +240,8 @@ def synthesize(state: AgentState) -> AgentState:
     market = state.get("market_context", {})
     stock = state.get("stock_analysis", {})
 
-    draft = f"""【盘面】{market.get('market_summary', '暂无')}
+    if stock:
+        draft = f"""【盘面】{market.get('market_summary', '暂无')}
 
 【周期定位】{market.get('market_phase', 'N/A')}，{market.get('phase_reasoning', '')}
 
@@ -250,6 +260,19 @@ def synthesize(state: AgentState) -> AgentState:
 【失效条件】{stock.get('invalidation_conditions', 'N/A')}
 
 【风险提示】{stock.get('risk_notes', '')}
+"""
+    else:
+        draft = f"""【盘面】{market.get('market_summary', '暂无')}
+
+【周期定位】{market.get('market_phase', 'N/A')}，{market.get('phase_reasoning', '')}
+
+【主线判断】{', '.join(market.get('main_themes', []))}
+
+【板块强弱】{json.dumps(market.get('sector_strength', {}), ensure_ascii=False)}
+
+【情绪信号】{json.dumps(market.get('emotion_signals', {}), ensure_ascii=False)}
+
+【风险提示】{market.get('risk_notes', '')}
 """
 
     return {
