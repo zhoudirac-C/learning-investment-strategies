@@ -47,6 +47,8 @@ description: |
 16. `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束（含批量更新 cron prompt 模板）
 17. `skills/qing-stock-monitor-update/references/cron-script-sync.md` — **Cron 脚本双向同步**：`~/.hermes/scripts/` 与项目目录 `scripts/` 的同步策略、软链接方案、废弃脚本处理
 18. `skills/qing-learning/references/claim-schema-validation.md` — **Claim Schema 验证**：生成 claims 时的字段要求和枚举值规范（跨 skill 共享）
+19. `skills/qing-stock-monitor-update/references/yaml-patterns-20260604.md` — **新增 YAML 配置模式（已代码实现）**：dedupe_by_type 差异化去重（风控15min/减仓30min/板块轮动30min + 价格突破阈值）、t_zone 做T区间拆分、sector_group 清理三同步
+20. `skills/qing-stock-monitor-update/references/dedupe-by-type-implementation.md` — **dedupe_by_type 代码实现细节**：映射规则、价格突破逻辑、向后兼容策略、7个单元测试覆盖。已代码实现，配置生效中。
 
 ## 工作流程
 
@@ -250,6 +252,8 @@ stock_dict = {s['code']: s for s in stocks_list if 'code' in s}
 **`sector_groups` 同步纪律**：
 - 新增持仓标的必须加入对应 sector_group，否则不会被纳入板块轮动计算。
 - 已清仓标的必须从 sector_group 中移除，否则会拖累组平均涨幅，产生错误的板块轮动信号。
+- **清理 sector_group 时必须执行三同步**：①从 `sector_groups.members` 移除 → ②从 `offensive_group_ids` 移除（若组变空）→ ③更新 `notification_policy.only_notify_when` 中的对应提醒条件。
+- **ST/高风险标的处理**：不要单独拆到独立的 `st_watch` `avoid` 组。用户偏好是 ST/高风险标的保留在原来的 thematic group 中（如 ST得润留在 cpu_self_development），保持 group 结构简单。不创建单独的 ST 观察组。
 
 ### Step 5: 更新 positions.yaml
 
@@ -546,3 +550,4 @@ yaml.safe_load(open('config/stock_monitor/watchlist.yaml'))
 - 不删除旧 theme，除非用户明确说移除。
 - 不跳过验证直接提交。
 - 不将单日语境直接提升为长期 framework。
+- **绝不 `git add -f` force-add gitignored 文件**：`positions.yaml` 等私有文件在 `.gitignore` 中是有意为之。`-f` 会绕过保护将敏感持仓数据推送到公开仓库。反面案例：2026-06-04 会话中 `git add -f config/stock_monitor/positions.yaml` 导致私有持仓数据暴露，需 `git reset --hard` + `git push --force` 清理历史。规则：修改 gitignored 文件后，确认变更留在本地即可，绝不强制提交。

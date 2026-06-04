@@ -27,6 +27,7 @@ description: Use when the user asks to analyze an individual stock through the b
 12. `skills/qing-stock-analysis/references/stock-monitor-source-internals.md` — **监控脚本源码级技术参考**：通过直接阅读 `stock_monitor.py` ~1800行源码提取的完整数据流、函数详解、状态文件结构、CLI参数速查。当需要修改触发逻辑、排查bug、理解去重机制时读本文件；SKILL.md正文中的"监控脚本内部机制"是面向分析的用法参考。
 15. `skills/qing-stock-analysis/references/daily-review-cases.md` — **收盘监控复盘案例库**：历史复盘典型案例，含有效性判断标准、开盘诱多识别 checklist、相对强弱伪信号识别方法、盘中配置更新时序陷阱、板块轮动标签语义混淆
 16. `skills/qing-stock-analysis/references/index-etf-analysis-guide.md` — **指数/ETF买入分析指南**：当用户询问指数或ETF（如恒生科技、科创50）时使用，含时间窗口分析、ETF代码推荐、与个股分析的区别
+17. `skills/qing-stock-analysis/references/qing-agent-lightweight.md` — **Qing-Agent零基础设施运行模式**：LangGraph多智能体系统可在无Docker容器的情况下运行，Neo4j/Qdrant自动降级，mem0有本地JSON fallback。含架构概览、降级机制证据、资源需求对比、CLI入口设计
 
 ## 双轨制兼容性
 
@@ -478,6 +479,8 @@ curl -s 'https://qt.gtimg.cn/q=sz000969,sz000066,sh600487' | iconv -f gbk -t utf
 2. **区分 SKILL.md 中内嵌的知识与外部 reference**：监控脚本机制、YAML 合约、板块轮动逻辑等知识已完整内嵌在 SKILL.md 正文中，不需要再读外部文件。
 3. **positions.yaml 是私有文件（gitignored）**：更新持仓分析时以实际文件内容为准，不依赖记忆中的旧持仓。
 4. **Skill 同步**：当需要更新本 skill 时，优先更新项目内版本 `~/learning-investment-strategies/skills/qing-stock-analysis/`，而非 Hermes 全局副本。详见 `qing-learning/references/skill-sync-workflow.md`。
+5. **positions.yaml 是私有文件，禁止强制提交**：`positions.yaml` 在 `.gitignore` 中，包含持仓成本、股数等敏感数据。`git add -f` 会绕过 gitignore 将私有数据推送到公开仓库。若已误推送：① `git reset --hard <safe-commit>` 回退到误推送前的 commit；② `git push --force` 从远端清除历史；③ 检查本地文件仍完好（gitignored 文件不受 reset 影响）。**任何时候修改 positions.yaml 都只做本地修改，不提交**。复盘报告中建议的 YAML 配置调整涉及 `positions.yaml` 时，只输出建议文本，由用户手动应用。
+6. **Qing-Agent 零基础设施模式**：项目内的 LangGraph 多智能体系统（`src/qing_investment/agent/`）可在无 Docker 容器的情况下运行。Neo4j/Qdrant 连接失败时自动降级为空列表（不阻断流程），mem0 有本地 JSON fallback。只有 LLM API key 是硬依赖。详见 `references/qing-agent-lightweight.md`。
 5. **避免工具调用死循环**：当同一 curl/API 调用连续失败或返回相同数据超过 3 次时，**立即停止重试**。常见原因：
    - `run_glm_fetch.py` 因缺失 matplotlib/akshare/yfinance/tushare 而失败 → 改用 curl + 腾讯财经 API 兜底（见 `references/curl-kline-fetch-and-text-chart.md`）
    - 已获取 K-line 数据但反复执行相同 fetch 命令 → 检查是否已满足分析需求，转向分析而非继续拉取
@@ -513,7 +516,7 @@ curl -s 'https://qt.gtimg.cn/q=sz000969,sz000066,sh600487' | iconv -f gbk -t utf
 
 ### 去重机制
 - `filter_new_alerts()` 使用 `alert_fingerprint()` 生成唯一键，格式为 `"action|stock_code|stock_name|trigger"`。
-- 去重窗口默认 `dedupe_minutes=30`（可通过 CLI `--dedupe-minutes` 调整）。
+- **差异化去重（`dedupe_by_type` 已代码实现）**：`strategy_pack.yaml` 的 `notification_policy.dedupe_by_type` 配置生效，支持风控/减仓/板块轮动不同去重窗口 + 价格突破逻辑。详见 `qing-stock-monitor-update/references/dedupe-by-type-implementation.md`。
 - **重要**：fingerprint 包含完整的 `trigger` 文本。因此 `"触及或跌破风险线44.5"` 和 `"触及或跌破风险线44.5-45.5"` 被视为不同指纹，不会互相去重。
 - **状态持久化**：已发送提醒的时间戳保存在 `state.json` 的 `alert_history` 中，跨进程/跨会话有效。
 

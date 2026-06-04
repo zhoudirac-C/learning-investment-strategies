@@ -115,7 +115,7 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
     session_id = state.get("session_id", "default")
 
     neo4j = Neo4jClient()
-    qdrant = QdrantClientWrapper()
+    qdrant = QdrantClientWrapper(local_mode=True)
     mem0 = Mem0ClientWrapper()
 
     claims, wiki_snippets, memories, few_shot = [], [], [], []
@@ -443,6 +443,11 @@ def synthesize(state: AgentState) -> AgentState:
 
         position_lines = _build_position_plan_lines(market, positions)
 
+        sector_joined = '\n'.join(sector_lines) if sector_lines else '暂无'
+        theme_joined = '\n'.join(theme_lines) if theme_lines else '暂无'
+        index_joined = '\n'.join(index_lines) if index_lines else '暂无'
+        position_joined = '\n'.join(position_lines) if position_lines else ''
+
         draft = f"""【盘面】{market.get('market_summary', '暂无')}
 
 【周期定位】{market.get('market_phase', 'N/A')}，{market.get('phase_reasoning', '')}
@@ -450,13 +455,13 @@ def synthesize(state: AgentState) -> AgentState:
 【主线判断】{', '.join(market.get('main_themes', []))}
 
 【板块结构地图】
-{'\n'.join(sector_lines) if sector_lines else '暂无'}
+{sector_joined}
 
 【题材落地】
-{'\n'.join(theme_lines) if theme_lines else '暂无'}
+{theme_joined}
 
 【指数纪律】
-{'\n'.join(index_lines) if index_lines else '暂无'}
+{index_joined}
 
 【量能观察】{market.get('volume_note', '暂无')}
 
@@ -465,7 +470,7 @@ def synthesize(state: AgentState) -> AgentState:
 【明日跟踪】{'; '.join(market.get('tomorrow_watch', []))}
 
 【风险提示】{market.get('risk_notes', '')}
-{'\n'.join(position_lines) if position_lines else ''}
+{position_joined}
 """
 
     return {

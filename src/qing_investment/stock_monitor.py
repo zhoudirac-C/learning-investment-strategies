@@ -605,12 +605,31 @@ def _parse_state_time(value: object) -> datetime | None:
     return parsed.astimezone(CN_TZ)
 
 
+def _action_to_dedupe_type(action: str) -> str:
+    """Map alert action string to a dedupe_by_type key.
+
+    Mapping rules (aligned with yaml-patterns-20260604.md):
+        - 风控/风险 → risk_alert
+        - 减仓       → reduce_alert
+        - 进攻/防御/指数/回流/轮动/板块 → sector_rotation
+        - 其他       → default (falls back to global dedupe_minutes)
+    """
+    if "风控" in action or "风险" in action:
+        return "risk_alert"
+    if "减仓" in action:
+        return "reduce_alert"
+    if any(kw in action for kw in ("进攻", "防御", "指数", "回流", "轮动", "板块")):
+        return "sector_rotation"
+    return "default"
+
+
 def filter_new_alerts(
     alerts: list[RuleAlert],
     state: dict,
     value: datetime,
     *,
     dedupe_minutes: int,
+    dedupe_by_type: dict | None = None,
 ) -> list[RuleAlert]:
     if dedupe_minutes <= 0:
         return alerts
@@ -621,13 +640,42 @@ def filter_new_alerts(
     current = value.astimezone(CN_TZ)
     fresh: list[RuleAlert] = []
     for alert in alerts:
-        last_sent = _parse_state_time(history.get(alert_fingerprint(alert)))
-        if last_sent is None:
+        fp = alert_fingerprint(alert)
+        last_entry = history.get(fp)
+        if last_entry is None:
             fresh.append(alert)
             continue
-        elapsed_minutes = (current - last_sent).total_seconds() / 60
-        if elapsed_minutes >= dedupe_minutes:
+
+        # Backward compat: old format was plain ISO string, new format is dict
+        if isinstance(last_entry, str):
+            last_time = _parse_state_time(last_entry)
+            last_price = None
+        else:
+            last_time = _parse_state_time(last_entry.get("time"))
+            last_price = last_entry.get("price")
+
+        if last_time is None:
             fresh.append(alert)
+            continue
+
+        # Determine per-type dedupe minutes and breakthrough threshold
+        dedupe_type = _action_to_dedupe_type(alert.action)
+        type_config = (dedupe_by_type or {}).get(dedupe_type, {})
+        effective_minutes = type_config.get("dedupe_minutes", dedupe_minutes)
+        breakthrough_pct = type_config.get("breakthrough_if_price_change_pct", 0)
+
+        elapsed_minutes = (current - last_time).total_seconds() / 60
+        if elapsed_minutes >= effective_minutes:
+            fresh.append(alert)
+            continue
+
+        # Breakthrough: price changed significantly since last alert
+        if breakthrough_pct > 0 and last_price is not None and last_price > 0:
+            pct_change = abs((alert.price - last_price) / last_price) * 100
+            if pct_change >= breakthrough_pct:
+                fresh.append(alert)
+                continue
+
     return fresh
 
 
@@ -639,7 +687,10 @@ def record_emitted_alerts(
     history = state.setdefault("alert_history", {})
     current = value.astimezone(CN_TZ).isoformat()
     for alert in alerts:
-        history[alert_fingerprint(alert)] = current
+        history[alert_fingerprint(alert)] = {
+            "time": current,
+            "price": alert.price,
+        }
 
 
 def alert_to_log_entry(
@@ -1793,8 +1844,10 @@ def run_tick(
             "errors": quote_snapshot.get("errors", []),
             "elapsed_ms": quote_snapshot.get("elapsed_ms"),
         }
+    notification_policy = config.strategy_pack.get("notification_policy", {}) or {}
+    dedupe_by_type = notification_policy.get("dedupe_by_type", {}) or {}
     new_alerts = filter_new_alerts(
-        alerts, state, value, dedupe_minutes=dedupe_minutes
+        alerts, state, value, dedupe_minutes=dedupe_minutes, dedupe_by_type=dedupe_by_type
     )
     update_sector_signal_counts(state, alerts, value)
     update_market_state(state, alerts, quote_snapshot, value)

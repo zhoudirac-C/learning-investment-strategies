@@ -35,7 +35,7 @@ class Settings(BaseSettings):
     mem0_base_url: str = "http://localhost:8001"
 
     # === 项目路径 ===
-    repo_path: str = "/opt/qing-agent"
+    repo_path: str = "/home/ubuntu/learning-investment-strategies"
 
     class Config:
         env_file = ".env"

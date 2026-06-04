@@ -116,7 +116,7 @@ def extract_date_from_filename(filename: str) -> str:
 
 
 def index_documents(*, force_full: bool = False):
-    qdrant = QdrantClientWrapper()
+    qdrant = QdrantClientWrapper(local_mode=True)
     qdrant.ensure_collection(COLLECTION, vector_size=VECTOR_DIM)
 
     state = _load_state()

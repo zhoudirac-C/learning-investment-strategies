@@ -451,7 +451,7 @@ notification_policy:
   suppress_when:
   - 只是普通红绿波动
   - 单票异动但板块不共振
-  - 同一信号按类型差异化去重（风控15min/减仓30min/板块轮动30min，见dedupe_by_type）
+  - 同一信号按类型差异化去重（风控15min/减仓30min/板块轮动30min，见dedupe_by_type，已代码实现）
   - 当前不在A股交易时段
   - 规避方向（半导体/消费）的普通波动
   dedupe_by_type:

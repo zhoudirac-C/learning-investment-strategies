@@ -9,6 +9,7 @@ import yaml
 from qing_investment.stock_monitor import (
     AgentAnalysisTrigger,
     RuleAlert,
+    _action_to_dedupe_type,
     alert_fingerprint,
     agent_analysis_schedule_rows,
     alert_to_log_entry,
@@ -1109,3 +1110,272 @@ def test_daily_review_cli_prints_context(tmp_path, capsys):
 
     assert exit_code == 0
     assert "[Hermes股票监控收盘复盘上下文]" in output
+
+
+def test_action_to_dedupe_type_mapping():
+    """_action_to_dedupe_type correctly maps action strings to type keys."""
+    assert _action_to_dedupe_type("风控观察") == "risk_alert"
+    assert _action_to_dedupe_type("减仓观察") == "reduce_alert"
+    assert _action_to_dedupe_type("进攻回流观察") == "sector_rotation"
+    assert _action_to_dedupe_type("防御切换观察") == "sector_rotation"
+    assert _action_to_dedupe_type("指数趋势防线观察") == "sector_rotation"
+    assert _action_to_dedupe_type("指数弱修复观察") == "sector_rotation"
+    assert _action_to_dedupe_type("指数规则触发") == "sector_rotation"
+    assert _action_to_dedupe_type("只观察不介入") == "default"
+    assert _action_to_dedupe_type("风险控制") == "risk_alert"
+    assert _action_to_dedupe_type("板块轮动观察") == "sector_rotation"
+
+
+def test_dedupe_by_type_overrides_global_dedupe_minutes():
+    """dedupe_by_type config overrides global dedupe_minutes per alert action."""
+    state = {}
+    alert = RuleAlert(
+        action="风控观察",
+        stock_code="000021.SZ",
+        stock_name="深科技",
+        price=35.0,
+        trigger="触及或跌破风险线35.9",
+        severity="risk",
+        summary="风控观察：深科技触及风险线",
+    )
+    first_time = datetime(2026, 6, 4, 10, 0, tzinfo=CN_TZ)
+    # 10 min later — should be suppressed by risk_alert dedupe_minutes=15
+    second_time = datetime(2026, 6, 4, 10, 10, tzinfo=CN_TZ)
+    # 20 min later — should pass risk_alert dedupe_minutes=15
+    third_time = datetime(2026, 6, 4, 10, 20, tzinfo=CN_TZ)
+
+    dedupe_by_type = {
+        "risk_alert": {"dedupe_minutes": 15},
+        "reduce_alert": {"dedupe_minutes": 30},
+    }
+
+    first = filter_new_alerts(
+        [alert], state, first_time,
+        dedupe_minutes=30,
+        dedupe_by_type=dedupe_by_type,
+    )
+    record_emitted_alerts(state, first, first_time)
+    second = filter_new_alerts(
+        [alert], state, second_time,
+        dedupe_minutes=30,
+        dedupe_by_type=dedupe_by_type,
+    )
+    third = filter_new_alerts(
+        [alert], state, third_time,
+        dedupe_minutes=30,
+        dedupe_by_type=dedupe_by_type,
+    )
+
+    assert len(first) == 1       # first time: always fresh
+    assert len(second) == 0      # 10 min < 15 min risk_alert: suppressed
+    assert len(third) == 1       # 20 min >= 15 min risk_alert: passes
+
+
+def test_dedupe_by_type_breakthrough_triggers_on_price_change():
+    """breakthrough_if_price_change_pct allows alert through dedupe when price moves significantly."""
+    state = {}
+    alert = RuleAlert(
+        action="风控观察",
+        stock_code="000021.SZ",
+        stock_name="深科技",
+        price=35.0,
+        trigger="触及或跌破风险线35.9",
+        severity="risk",
+        summary="风控观察：深科技触及风险线",
+    )
+    first_time = datetime(2026, 6, 4, 10, 0, tzinfo=CN_TZ)
+    # Same fingerprint, but price dropped 2% (35.0 → 34.3)
+    alert_new_price = RuleAlert(
+        action="风控观察",
+        stock_code="000021.SZ",
+        stock_name="深科技",
+        price=34.3,
+        trigger="触及或跌破风险线35.9",
+        severity="risk",
+        summary="风控观察：深科技触及风险线",
+    )
+    second_time = datetime(2026, 6, 4, 10, 6, tzinfo=CN_TZ)  # only 6 min later
+
+    dedupe_by_type = {
+        "risk_alert": {
+            "dedupe_minutes": 15,
+            "breakthrough_if_price_change_pct": 1.0,
+        },
+    }
+
+    first = filter_new_alerts(
+        [alert], state, first_time,
+        dedupe_minutes=30,
+        dedupe_by_type=dedupe_by_type,
+    )
+    record_emitted_alerts(state, first, first_time)
+    second = filter_new_alerts(
+        [alert_new_price], state, second_time,
+        dedupe_minutes=30,
+        dedupe_by_type=dedupe_by_type,
+    )
+
+    assert len(first) == 1       # first time: fresh
+    assert len(second) == 1      # price dropped 2% > 1% threshold: breakthrough
+
+
+def test_dedupe_by_type_breakthrough_suppressed_when_price_stable():
+    """breakthrough_if_price_change_pct does NOT fire when price hasn't moved enough."""
+    state = {}
+    alert = RuleAlert(
+        action="风控观察",
+        stock_code="000021.SZ",
+        stock_name="深科技",
+        price=35.0,
+        trigger="触及或跌破风险线35.9",
+        severity="risk",
+        summary="风控观察：深科技触及风险线",
+    )
+    # Same price (no breakthrough), only 6 min later
+    alert_same_price = RuleAlert(
+        action="风控观察",
+        stock_code="000021.SZ",
+        stock_name="深科技",
+        price=35.0,
+        trigger="触及或跌破风险线35.9",
+        severity="risk",
+        summary="风控观察：深科技触及风险线",
+    )
+    first_time = datetime(2026, 6, 4, 10, 0, tzinfo=CN_TZ)
+    second_time = datetime(2026, 6, 4, 10, 6, tzinfo=CN_TZ)
+
+    dedupe_by_type = {
+        "risk_alert": {
+            "dedupe_minutes": 15,
+            "breakthrough_if_price_change_pct": 1.0,
+        },
+    }
+
+    first = filter_new_alerts(
+        [alert], state, first_time,
+        dedupe_minutes=30,
+        dedupe_by_type=dedupe_by_type,
+    )
+    record_emitted_alerts(state, first, first_time)
+    second = filter_new_alerts(
+        [alert_same_price], state, second_time,
+        dedupe_minutes=30,
+        dedupe_by_type=dedupe_by_type,
+    )
+
+    assert len(first) == 1       # first time: fresh
+    assert len(second) == 0      # price unchanged, within 15 min dedupe: suppressed
+
+
+def test_dedupe_by_type_falls_back_to_global_when_missing():
+    """dedupe_by_type default type falls back to global dedupe_minutes."""
+    state = {}
+    alert = RuleAlert(
+        action="只观察不介入",
+        stock_code="000021.SZ",
+        stock_name="深科技",
+        price=35.0,
+        trigger="普通波动",
+        severity="observe",
+        summary="只观察不介入：深科技",
+    )
+    first_time = datetime(2026, 6, 4, 10, 0, tzinfo=CN_TZ)
+    second_time = datetime(2026, 6, 4, 10, 10, tzinfo=CN_TZ)   # 10 min < 30
+    third_time = datetime(2026, 6, 4, 10, 31, tzinfo=CN_TZ)    # 31 min >= 30
+
+    dedupe_by_type = {
+        "risk_alert": {"dedupe_minutes": 15},   # non-matching type
+    }
+
+    first = filter_new_alerts(
+        [alert], state, first_time,
+        dedupe_minutes=30,
+        dedupe_by_type=dedupe_by_type,
+    )
+    record_emitted_alerts(state, first, first_time)
+    second = filter_new_alerts(
+        [alert], state, second_time,
+        dedupe_minutes=30,
+        dedupe_by_type=dedupe_by_type,
+    )
+    third = filter_new_alerts(
+        [alert], state, third_time,
+        dedupe_minutes=30,
+        dedupe_by_type=dedupe_by_type,
+    )
+
+    assert len(first) == 1       # first time: fresh
+    assert len(second) == 0      # 10 min < 30 global: suppressed
+    assert len(third) == 1       # 31 min >= 30 global: passes
+
+
+def test_dedupe_by_type_backward_compat_with_old_string_format():
+    """Old-format alert_history (string timestamp) still works with new filter_new_alerts."""
+    # Simulate old-format state
+    old_entry = "2026-06-04T10:00:00+08:00"
+    state = {
+        "alert_history": {
+            "风控观察|000021.SZ|深科技|触及或跌破风险线35.9": old_entry,
+        }
+    }
+    alert = RuleAlert(
+        action="风控观察",
+        stock_code="000021.SZ",
+        stock_name="深科技",
+        price=35.0,
+        trigger="触及或跌破风险线35.9",
+        severity="risk",
+        summary="风控观察：深科技触及风险线",
+    )
+    current_time = datetime(2026, 6, 4, 10, 10, tzinfo=CN_TZ)  # 10 min later
+
+    dedupe_by_type = {
+        "risk_alert": {"dedupe_minutes": 15},
+    }
+
+    result = filter_new_alerts(
+        [alert], state, current_time,
+        dedupe_minutes=30,
+        dedupe_by_type=dedupe_by_type,
+    )
+
+    # 10 min < 15 min risk_alert dedupe: suppressed
+    assert len(result) == 0
+
+
+def test_tick_passes_dedupe_by_type_from_config(tmp_path):
+    """run_tick reads dedupe_by_type from strategy_pack notification_policy."""
+    config_dir = make_rule_config_dir(tmp_path)
+    config = load_monitor_config(config_dir)
+
+    # Verify config has notification_policy but no dedupe_by_type
+    notification_policy = config.strategy_pack.get("notification_policy", {}) or {}
+    assert "dedupe_by_type" not in notification_policy
+
+    # If no dedupe_by_type in config, fall back to global dedupe_minutes
+    state_path = config_dir / "state.json"
+    first = run_tick(
+        config,
+        datetime(2026, 6, 4, 10, 0, tzinfo=CN_TZ),
+        emit_status=False,
+        ignore_trading_time=True,
+        quote_fetcher=lambda _targets: quote_snapshot(
+            {"code": "000021", "latest": 37.1, "pct_change": 2.1}
+        ),
+        state_path=state_path,
+        dedupe_minutes=30,
+    )
+    second = run_tick(
+        config,
+        datetime(2026, 6, 4, 10, 5, tzinfo=CN_TZ),
+        emit_status=False,
+        ignore_trading_time=True,
+        quote_fetcher=lambda _targets: quote_snapshot(
+            {"code": "000021", "latest": 37.1, "pct_change": 2.1}
+        ),
+        state_path=state_path,
+        dedupe_minutes=30,
+    )
+
+    assert "[Hermes股票监控提醒]" in first
+    assert second == ""  # suppressed by global dedupe

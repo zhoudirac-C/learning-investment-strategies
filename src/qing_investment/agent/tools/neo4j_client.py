@@ -17,9 +17,9 @@ class Neo4jClient:
         MATCH (c:Claim)-[:ABOUT]->(s:Stock {code: $stock_code})
         WHERE c.status IN ['active', 'superseded']
         RETURN c.id as id, c.statement as statement,
-               c.confidence as confidence, c.source_date as source_date,
+               c.confidence as confidence, coalesce(c.source_date, '') as source_date,
                c.status as status
-        ORDER BY c.source_date DESC
+        ORDER BY source_date DESC
         LIMIT $limit
         """
         with self.driver.session() as session:
@@ -42,9 +42,9 @@ class Neo4jClient:
         MATCH (c:Claim)
         WHERE c.subject CONTAINS $keyword OR c.statement CONTAINS $keyword
         RETURN c.id as id, c.statement as statement,
-               c.confidence as confidence, c.source_date as source_date,
+               c.confidence as confidence, coalesce(c.source_date, '') as source_date,
                c.status as status
-        ORDER BY c.source_date DESC
+        ORDER BY source_date DESC
         LIMIT $limit
         """
         with self.driver.session() as session:

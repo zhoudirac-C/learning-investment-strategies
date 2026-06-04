@@ -231,3 +231,52 @@
 - [ ] 板块：轮动阈值是否过低导致开盘诱多/尾盘伪信号？
 - [ ] 去重：是否过度压制了价格快速波动时的重复提醒？
 - [ ] 配置：是否在交易时段内修改了 `positions.yaml`？
+
+---
+
+## 案例八：2026-06-04 positions.yaml 误推送公开仓库
+
+### 现象
+- 执行 `git add -f config/stock_monitor/positions.yaml` 强制添加 gitignored 文件
+- 提交并推送后，私有持仓数据（成本、股数、盈亏）暴露在公开 GitHub 仓库
+
+### 分析
+- `positions.yaml` 在 `.gitignore` 中有明确规则，保护私有数据
+- `git add -f` 绕过 ignore 规则，将文件加入 git 追踪
+- 发现后立即 `git rm --cached` + `git reset --hard` + `git push --force` 清除历史
+
+### 判断
+- **严重事故**：私有财务数据暴露，需要立即清理 git 历史
+- 用户要求 `git push --force` 彻底抹除提交记录
+
+### 教训
+1. **绝不 `git add -f` gitignored 文件**。这是硬性红线。
+2. 修改 gitignored 文件后，确认变更留在本地即可。用户知道该文件是私有的。
+3. 若需提交 gitignored 文件的模板变更，应修改 `.example.yaml` 模板文件，而非强制提交原始文件。
+4. 如需批量提交，用 `git add config/stock_monitor/strategy_pack.yaml config/stock_monitor/watchlist.yaml` 显式列出文件，不用 `git add -A` 或 `git add .`。
+5. 提交前必须 `git status --short` 确认没有意外包含 gitignored 文件。
+
+---
+
+## 案例九：2026-06-04 dedupe_by_type 配置与代码脱节（已修复）
+
+### 问题描述
+- `strategy_pack.yaml` 中配置了 `notification_policy.dedupe_by_type`（风控15min/减仓30min/板块轮动30min + 价格突破阈值）
+- 但 `stock_monitor.py` 代码仅支持全局 `dedupe_minutes=30`，不读取 `dedupe_by_type` 配置
+
+### 修复
+- 2026-06-04 实现：`_action_to_dedupe_type()` 映射函数 + `filter_new_alerts()` 读取 `dedupe_by_type` + `record_emitted_alerts()` 记录价格
+- 新增 7 个单元测试覆盖：映射逻辑、差异化去重、价格突破、全局回退、向后兼容
+
+### 现象
+- `strategy_pack.yaml` 中配置了 `notification_policy.dedupe_by_type`（风控15min/减仓30min/板块轮动30min + 价格突破阈值）
+- 但 `stock_monitor.py` 代码仅支持全局 `dedupe_minutes=30`，不读取 `dedupe_by_type` 配置
+- 用户决定暂不修改代码（\"算了\"），配置成为死代码
+
+### 判断
+- **配置-代码脱节**：YAML 中存在不生效的配置项
+- 风险较低（不影响现有功能），但未来若有人根据 YAML 配置预期差异化去重行为，会发现不生效
+
+### 教训
+1. YAML 配置和代码实现必须同步。添加新配置项时，要么同时实现代码，要么在 YAML 中加注释说明\"代码未实现\"。
+2. 建议在 `dedupe_by_type` 上方增加注释：`# ⚠️ 代码未实现，当前仅作规划。实际仍使用全局 dedupe_minutes=30`
