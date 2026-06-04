@@ -18,9 +18,8 @@ claims:
     claim_type: "catalyst"
     scope: "short-term"
     verified: false
-    verification_notes: "需要确认星环科技GPU数据库产品实锤，以及海量数据等是否联动"
+    verification_notes: "星环科技GPU数据库产品已通过NVIDIA博客TPC-DS实测数据确认；A股主板无GPU-Native数据库对标标的，海量数据主营Vastbase（openGauss关系型数据库），无GPU数据库产品，已排除"
     related_stocks:
       - "星环科技(688031.SH)"
-      - "海量数据(603138.SH)"
     priority: "B"
     tags: ["GPU计算", "数据库", "AI基础设施", "消息催化"]
