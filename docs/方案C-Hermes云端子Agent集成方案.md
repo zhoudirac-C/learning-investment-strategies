@@ -2,7 +2,7 @@
 
 > 在云端部署 qing-agent 作为 Hermes 的**子 Agent**，Hermes 负责调度/监控/微信推送，qing-agent 负责深度投研分析（知识图谱、观点演化、UP 风格生成）。
 >
-> 核心变化：**Hermes 不再直接调用 Kimi API，而是把分析上下文发给云端 qing-agent，由 qing-agent 返回结构化分析结果**。
+> 核心变化：**Hermes 不再直接调用大模型 API，而是把分析上下文发给云端 qing-agent，由 qing-agent 调用配置好的 LLM 返回结构化分析结果**。
 
 ---
 
@@ -13,7 +13,7 @@ Hermes Cloud
   ├─ Cron: 每10分钟 ──→ qing_stock_monitor.py ──→ 规则监控 ──→ 微信告警
   └─ Cron: 固定时间点 ──→ qing_stock_monitor_agent.py ──→ 输出上下文文本
                                               ↓
-                                        Hermes 调用 Kimi API
+                                        Hermes 调用大模型 API
                                               ↓
                                         微信推送（350字极简提醒）
 ```
@@ -64,7 +64,7 @@ Hermes Cloud
 │  └──────────────┘  └──────────────┘  └──────────────────┘          │
 │                                                                     │
 │  存储层：Neo4j + Qdrant + PostgreSQL + Mem0                        │
-│  LLM：Kimi API (Moonshot)                                          │
+│  LLM：多厂商可配置（OpenAI / Kimi / DeepSeek / 通义 / 智谱 / SiliconFlow 等）│
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -298,9 +298,22 @@ rsync -avz --exclude='.git' --exclude='positions.yaml' \
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    # Kimi API
-    kimi_api_key: str
-    kimi_base_url: str = "https://api.moonshot.cn/v1"
+    # === LLM 通用配置 ===
+    llm_provider: str = "kimi"      # 可选: openai, azure, kimi, deepseek, zhipu, qwen, baichuan, siliconflow, groq, together
+    llm_model: str | None = None    # 覆盖默认模型（可选）
+    llm_base_url: str | None = None # 覆盖默认base_url（可选，仅azure等需要）
+    
+    # 各厂商API Key（按需填写）
+    openai_api_key: str | None = None
+    azure_openai_api_key: str | None = None
+    kimi_api_key: str | None = None
+    deepseek_api_key: str | None = None
+    zhipu_api_key: str | None = None
+    qwen_api_key: str | None = None
+    baichuan_api_key: str | None = None
+    siliconflow_api_key: str | None = None
+    groq_api_key: str | None = None
+    together_api_key: str | None = None
     
     # Neo4j
     neo4j_uri: str = "bolt://localhost:7687"
@@ -346,6 +359,7 @@ cd /opt/qing-agent
 
 # 2. 创建 .env
 cat > .env <<EOF
+LLM_PROVIDER=kimi
 KIMI_API_KEY=sk-xxx
 NEO4J_PASSWORD=your-neo4j-password
 EOF
@@ -383,6 +397,7 @@ WorkingDirectory=/opt/qing-agent
 ExecStart=/opt/qing-agent/.venv/bin/uvicorn qing_investment.agent.main:app --host 0.0.0.0 --port 8000
 Restart=always
 RestartSec=5
+Environment=LLM_PROVIDER=kimi
 Environment=KIMI_API_KEY=sk-xxx
 Environment=NEO4J_PASSWORD=xxx
 
@@ -477,7 +492,7 @@ req.add_header("X-API-Key", os.environ["QING_AGENT_API_KEY"])
 
 - `positions.yaml` 永远**不**上传到云端，通过 HTTP body 实时传入
 - `.env` 文件设置 600 权限：`chmod 600 .env`
-- Kimi API Key 只保存在云端服务器，本地开发机不需要
+- LLM API Key 只保存在云端服务器，本地开发机不需要
 
 ---
 
@@ -486,12 +501,12 @@ req.add_header("X-API-Key", os.environ["QING_AGENT_API_KEY"])
 | 项目 | 估算 | 说明 |
 |------|------|------|
 | 云服务器（2C4G） | ~¥50-100/月 | 轻量应用服务器或 ECS |
-| Kimi API（推理） | ~¥50-100/月 | 每天7次固定分析 + 触发分析 |
-| Kimi API（索引） | ~¥30-50（一次性） | 初始实体抽取和向量化 |
+| LLM API（推理） | ~¥30-100/月 | 每天7次固定分析 + 触发分析，价格因厂商而异 |
+| LLM API（索引） | ~¥20-50（一次性） | 初始实体抽取和向量化，价格因厂商而异 |
 | **总计** | **~¥100-200/月** | 含服务器 + API |
 
 对比改造前：
-- 改造前：Hermes 直接调用 Kimi API ~¥20-40/月（无服务器成本）
+- 改造前：Hermes 直接调用大模型 API ~¥20-40/月（无服务器成本）
 - 改造后：多了服务器成本，但分析质量大幅提升
 
 ---

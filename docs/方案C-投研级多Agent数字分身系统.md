@@ -2,7 +2,7 @@
 
 > 目标：基于现有 `learning-investment-strategies` 项目，构建一个云端运行的多Agent投研系统，作为 Hermes 的**子 Agent**，使股票分析具备UP人格化表达、跨周期关联、观点演化和事实核查能力。
 >
-> 核心变化：Hermes 负责调度/监控/微信推送，qing-agent 负责深度分析。Hermes 不再直接调用 Kimi API，而是通过 HTTP 把结构化上下文发给 qing-agent，由后者返回带引用、证据表和观点演化时间线的分析结果。
+> 核心变化：Hermes 负责调度/监控/微信推送，qing-agent 负责深度分析。Hermes 不再直接调用大模型 API，而是通过 HTTP 把结构化上下文发给 qing-agent，由后者调用配置好的 LLM 返回带引用、证据表和观点演化时间线的分析结果。
 
 ---
 
@@ -51,7 +51,7 @@
 │  └──────────────┘  └──────────────┘  └──────────────────┘               │
 │                                                                          │
 │  存储层：Neo4j + Qdrant + PostgreSQL + Mem0                             │
-│  LLM：Kimi API (Moonshot)                                               │
+│  LLM：多厂商可配置（OpenAI / Kimi / DeepSeek / 通义 / 智谱 / SiliconFlow 等）│
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -87,7 +87,7 @@ src/qing_investment/agent/
 │   ├── neo4j_client.py      # 知识图谱查询（Cypher）
 │   ├── qdrant_client.py     # 向量语义检索
 │   ├── mem0_client.py       # 长期记忆读写
-│   ├── kimi_client.py       # Kimi API封装（LLM + Embedding）
+│   ├── llm_client.py        # 通用LLM客户端（多厂商兼容，OpenAI API格式）
 │   ├── stock_data.py        # 复用现有stock_monitor数据读取
 │   └── style_injector.py    # UP人格注入工具
 ├── prompts/
@@ -115,7 +115,7 @@ src/qing_investment/agent/
 agent = [
   "langgraph>=0.2.0",
   "langchain>=0.3.0",
-  "langchain-openai>=0.2.0",    # 兼容Kimi API
+  "langchain-openai>=0.2.0",    # 兼容各厂商OpenAI API格式
   "fastapi>=0.115.0",
   "uvicorn>=0.32.0",
   "neo4j>=5.24.0",
@@ -130,6 +130,93 @@ agent = [
 ```bash
 uv pip install -e ".[agent]"
 ```
+
+### 2.2.1 通用LLM配置（config.py）
+
+qing-agent 支持多厂商大模型，通过 `LLM_PROVIDER` 环境变量切换，**无需修改代码**。
+
+```python
+# src/qing_investment/agent/config.py
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    # === LLM 通用配置 ===
+    llm_provider: str = "kimi"      # 可选: openai, azure, kimi, deepseek, zhipu, qwen, baichuan, siliconflow, groq, together
+    llm_model: str | None = None    # 覆盖默认模型（可选）
+    llm_base_url: str | None = None # 覆盖默认base_url（可选，仅azure等需要）
+    
+    # 各厂商API Key（按需填写，不用的可留空）
+    openai_api_key: str | None = None
+    azure_openai_api_key: str | None = None
+    kimi_api_key: str | None = None
+    deepseek_api_key: str | None = None
+    zhipu_api_key: str | None = None
+    qwen_api_key: str | None = None
+    baichuan_api_key: str | None = None
+    siliconflow_api_key: str | None = None
+    groq_api_key: str | None = None
+    together_api_key: str | None = None
+    
+    # === 存储层配置 ===
+    neo4j_uri: str = "bolt://localhost:7687"
+    neo4j_user: str = "neo4j"
+    neo4j_password: str
+    
+    qdrant_host: str = "localhost"
+    qdrant_port: int = 6333
+    
+    mem0_api_key: str | None = None
+    mem0_base_url: str = "http://localhost:8001"
+    
+    # === 项目路径 ===
+    repo_path: str = "/opt/qing-agent"
+    
+    class Config:
+        env_file = ".env"
+
+settings = Settings()
+```
+
+**`.env` 配置示例（切换不同厂商只需改2行）：**
+
+```bash
+# 示例1：使用 Kimi
+LLM_PROVIDER=kimi
+KIMI_API_KEY=sk-xxx
+
+# 示例2：使用 DeepSeek
+# LLM_PROVIDER=deepseek
+# DEEPSEEK_API_KEY=sk-xxx
+
+# 示例3：使用 OpenAI
+# LLM_PROVIDER=openai
+# OPENAI_API_KEY=sk-xxx
+# LLM_MODEL=gpt-4o
+
+# 示例4：使用 SiliconFlow（模型聚合平台，一个Key调多个模型）
+# LLM_PROVIDER=siliconflow
+# SILICONFLOW_API_KEY=sk-xxx
+# LLM_MODEL=deepseek-ai/DeepSeek-R1
+
+# 存储层
+NEO4J_PASSWORD=your-neo4j-password
+POSTGRES_PASSWORD=your-postgres-password
+```
+
+**支持的厂商列表（预置在 `llm_client.py` 中）：**
+
+| Provider | Base URL | 默认模型 | 说明 |
+|----------|----------|---------|------|
+| `openai` | https://api.openai.com/v1 | gpt-4o | 国际通用 |
+| `azure` | 需自定义 | gpt-4o | 企业级，需配 `llm_base_url` |
+| `kimi` | https://api.moonshot.cn/v1 | moonshot-v1-128k | 长上下文强项 |
+| `deepseek` | https://api.deepseek.com/v1 | deepseek-chat | 推理价格低 |
+| `zhipu` | https://open.bigmodel.cn/api/paas/v4 | glm-4 | 中文理解好 |
+| `qwen` | https://dashscope.aliyuncs.com/compatible-mode/v1 | qwen-max | 阿里通义 |
+| `baichuan` | https://api.baichuan-ai.com/v1 | Baichuan4 | 百川智能 |
+| `siliconflow` | https://api.siliconflow.cn/v1 | deepseek-ai/DeepSeek-V3 | 国内模型聚合平台 |
+| `groq` | https://api.groq.com/openai/v1 | llama-3.3-70b-versatile | 海外高速推理 |
+| `together` | https://api.together.xyz/v1 | meta-llama/Llama-3.3-70B | 海外开源模型 |
 
 ### 2.3 LangGraph 状态机设计
 
@@ -232,7 +319,7 @@ def parse_query(state: AgentState) -> AgentState:
     query = state["query"]
 
     # 用LLM做意图识别和实体抽取
-    llm = get_kimi_client()
+    llm = get_llm_client()
     prompt = f"""
     从以下输入中提取信息，返回JSON：
     - stock_code: 股票代码（如有）
@@ -378,7 +465,7 @@ def market_analyst(state: AgentState) -> AgentState:
     判断：周期定位 → 主线识别 → 板块强弱
     输出 market_context 字典
     """
-    llm = get_kimi_client()
+    llm = get_llm_client()
 
     prompt = load_prompt("market_analyst.txt")
     # prompt 内容见下方 2.5 Prompt 体系
@@ -412,7 +499,7 @@ def stock_analyst(state: AgentState) -> AgentState:
     判断：个股地位 → 技术位置 → F10基本面 → 多空证据表
     输出 stock_analysis 字典
     """
-    llm = get_kimi_client()
+    llm = get_llm_client()
     prompt = load_prompt("stock_analyst.txt")
 
     context = build_stock_context(
@@ -481,7 +568,7 @@ def style_writer(state: AgentState) -> AgentState:
     注入UP人格、语气、修辞，把分析草稿改写成UP风格。
     如果 reviewer 打回，根据 review_notes 修正。
     """
-    llm = get_kimi_client()
+    llm = get_llm_client()
     prompt = load_prompt("style_writer.txt")
 
     # 注入UP人格定义 + Few-shot示例 + 市场周期对应的语气强度
@@ -522,7 +609,7 @@ def reviewer(state: AgentState) -> AgentState:
     4. 数据时间戳是否标注
     5. 风格是否符合UP人设（攻击性词汇、过度乐观等）
     """
-    llm = get_kimi_client()
+    llm = get_llm_client()
     prompt = load_prompt("reviewer.txt")
 
     response = llm.invoke(prompt.format(
@@ -782,23 +869,102 @@ async def add_memory(session_id: str, content: str, memory_type: str = "fact"):
 
 ### 2.7 工具层实现要点
 
-#### kimi_client.py
+#### llm_client.py（通用多厂商LLM客户端）
 
 ```python
+import os
+from typing import Dict, Any
 from langchain_openai import ChatOpenAI
 from sentence_transformers import SentenceTransformer
 
-# LLM 客户端（Kimi API）
-def get_kimi_client():
+# 预置常见大模型厂商配置（写死，用户只需配置 provider + api_key）
+LLM_PROVIDERS: Dict[str, Dict[str, Any]] = {
+    "openai": {
+        "base_url": "https://api.openai.com/v1",
+        "default_model": "gpt-4o",
+        "api_key_env": "OPENAI_API_KEY",
+    },
+    "azure": {
+        "base_url": None,  # 用户需自定义: https://{resource}.openai.azure.com/openai/deployments/{deployment}
+        "default_model": "gpt-4o",
+        "api_key_env": "AZURE_OPENAI_API_KEY",
+    },
+    "kimi": {
+        "base_url": "https://api.moonshot.cn/v1",
+        "default_model": "moonshot-v1-128k",
+        "api_key_env": "KIMI_API_KEY",
+    },
+    "deepseek": {
+        "base_url": "https://api.deepseek.com/v1",
+        "default_model": "deepseek-chat",
+        "api_key_env": "DEEPSEEK_API_KEY",
+    },
+    "zhipu": {
+        "base_url": "https://open.bigmodel.cn/api/paas/v4",
+        "default_model": "glm-4",
+        "api_key_env": "ZHIPU_API_KEY",
+    },
+    "qwen": {
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "default_model": "qwen-max",
+        "api_key_env": "QWEN_API_KEY",
+    },
+    "baichuan": {
+        "base_url": "https://api.baichuan-ai.com/v1",
+        "default_model": "Baichuan4",
+        "api_key_env": "BAICHUAN_API_KEY",
+    },
+    "siliconflow": {
+        "base_url": "https://api.siliconflow.cn/v1",
+        "default_model": "deepseek-ai/DeepSeek-V3",
+        "api_key_env": "SILICONFLOW_API_KEY",
+    },
+    "groq": {
+        "base_url": "https://api.groq.com/openai/v1",
+        "default_model": "llama-3.3-70b-versatile",
+        "api_key_env": "GROQ_API_KEY",
+    },
+    "together": {
+        "base_url": "https://api.together.xyz/v1",
+        "default_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "api_key_env": "TOGETHER_API_KEY",
+    },
+}
+
+def get_llm_client():
+    """根据配置的 provider 返回对应的 LLM 客户端"""
+    provider = settings.llm_provider.lower()
+    if provider not in LLM_PROVIDERS:
+        raise ValueError(
+            f"Unknown LLM provider: {provider}. "
+            f"Supported: {', '.join(LLM_PROVIDERS.keys())}"
+        )
+    
+    config = LLM_PROVIDERS[provider]
+    api_key = getattr(settings, config["api_key_env"].lower(), None) \
+              or os.environ.get(config["api_key_env"])
+    base_url = config["base_url"] or settings.llm_base_url
+    model = settings.llm_model or config["default_model"]
+    
+    if not api_key:
+        raise ValueError(
+            f"Provider '{provider}' requires {config['api_key_env']}. "
+            f"Set it in .env or environment variable."
+        )
+    if not base_url:
+        raise ValueError(
+            f"Provider '{provider}' requires llm_base_url to be set."
+        )
+    
     return ChatOpenAI(
-        model="moonshot-v1-128k",  # 或 32k/8k 根据场景选择
-        api_key=settings.kimi_api_key,
-        base_url=settings.kimi_base_url,
+        model=model,
+        api_key=api_key,
+        base_url=base_url,
         temperature=0.3,
         max_tokens=4096,
     )
 
-# Embedding 客户端（本地 BGE）
+# Embedding 客户端（本地 BGE，与 LLM 厂商无关）
 _embedding_model = None
 
 def get_embedding_model():
@@ -1229,7 +1395,8 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/opt/qing-agent
-Environment=KIMI_API_KEY=${KIMI_API_KEY}
+Environment=LLM_PROVIDER=${LLM_PROVIDER}
+Environment=${LLM_API_KEY_ENV}=${LLM_API_KEY}
 Environment=NEO4J_PASSWORD=${NEO4J_PASSWORD}
 Environment=POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 ExecStart=/opt/qing-agent/.venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
@@ -1301,8 +1468,8 @@ cd /opt/qing-agent && git push backup master
 | 项目 | 估算 | 说明 |
 |------|------|------|
 | 云服务器（2C4G） | ~¥50-100/月 | 轻量应用服务器 |
-| Kimi API（推理） | ~¥50-100/月 | 每天7次固定分析 + 触发分析 |
-| Kimi API（索引） | ~¥30-50（一次性） | 初始实体抽取 |
+| LLM API（推理） | ~¥30-100/月 | 每天7次固定分析 + 触发分析，价格因厂商而异 |
+| LLM API（索引） | ~¥20-50（一次性） | 初始实体抽取，价格因厂商而异 |
 | **总计** | **~¥100-200/月** | 含服务器 + API |
 
 ---
