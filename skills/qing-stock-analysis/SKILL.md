@@ -411,8 +411,8 @@ description: Use when the user asks to analyze an individual stock through the b
   3. **漏报检查**：指数、板块、持仓、观察池是否有该提醒而未提醒。用表格列出条件、是否该提醒、实际状态、漏报原因。
   4. **去重合理性**：总结被去重压制的信号是否合理，对存疑的去重给出时间窗口调整建议。
   5. **YAML配置调整建议**：明确文件和字段，给出可直接应用的配置片段。必须覆盖以下五类：
-     - `positions.yaml`：补充 `reduce_zone` 和 `risk_zone`（含具体价格区间计算逻辑）。
-     - `strategy_pack.yaml`：`index_rules` 格式修复（通用格式 vs legacy 格式兼容性）、`sector_rotation_rules` 阈值调整（`min_spread_pct`/`min_red_ratio_spread` 上调建议）、`sector_groups` 清理已清仓标的。
+     - `positions.yaml`：补充 `reduce_zone` 和 `risk_zone`（含具体价格区间计算逻辑）。**新增**：若同一持仓在4小时内触发3次以上同类型提醒，建议将 `reduce_zone` 拆分为 `t_zone`（做T区间，较宽）和 `reduce_zone`（真正减仓区，较窄），或上调 `reduce_zone` 下限以减少盘中波动误触。
+     - `strategy_pack.yaml`：`index_rules` 格式修复（通用格式 vs legacy 格式兼容性）、`sector_rotation_rules` 阈值调整（`min_spread_pct`/`min_red_ratio_spread` 上调建议）、`sector_groups` 清理已清仓标的。**新增**：若发现防御组涨幅<0却被标记为"强于"某方向，建议在 `sector_rotation_rules` 中增加防御组涨幅>0的前置条件，或标记为伪信号。
      - `watchlist.yaml`：观察池更新（如有）。
      - 去重窗口/轮询频率调整建议。
      - 新增规则建议（如"指数中间档位"`close_between`、板块轮动`min_duration_seconds`）。
@@ -434,6 +434,8 @@ description: Use when the user asks to analyze an individual stock through the b
 - **去重与轮询频率**：`state.json` 中若出现同一指纹在 30 秒内重复触发（如 09:17:10 与 09:17:28），说明监控轮询间隔过密（可能为 15-20 秒）。复盘时建议将 cron/调度间隔调整为不低于 60 秒，或在 `filter_new_alerts()` 中增加"价格变化率<0.1% 且间隔<60秒"的二次过滤。
 - **盘中配置更新时序陷阱（高危）**：`positions.yaml` 在交易时段内被修改（如调整 `risk_zone`/`reduce_zone`）会导致前后提醒阈值不一致。复盘时若发现同一标的的提醒阈值前后矛盾（如安泰科技风控线从"21.5-22"变为"21.00-21.50"），必须：①检查 `positions.yaml` 文件修改时间（`stat`）；②对比 `state.json` 中该指纹的触发价格与新配置阈值；③若修改发生在交易时段内，标记为"盘中配置更新导致的时序性误报/存疑"，并在 YAML 建议中增加"交易时段内禁止修改风险阈值"的纪律条款。
 - **sector_groups 标签语义混淆**：当 `price_increase_vs_cpo` 等规则比较的两个 group 均为 offensive style 时，系统仍可能输出"防御切换观察"。复盘时必须核对：①触发规则中两组各自的 `style` 属性；②若两组均为 offensive，标记为"标签语义错误——实为进攻板块内部轮动，非防御切换"，并建议在 `strategy_pack.yaml` 中重命名规则或修改输出标签。
+- **sector_groups 标签语义混淆（防御组弱于大盘的伪信号）**：当防御组（如防御稳定线）本身涨幅<0且弱于大盘，却被系统标记为"强于"某进攻方向时，应标记为"弱于大盘的伪信号——防御组未真正走强"。例如2026-06-03防御稳定线涨幅-0.187%却被输出"防御切换观察"，实为伪信号。
+- **持仓减仓区密度过高**：当同一持仓在4小时内触发3次以上同类型提醒（如安泰科技减仓观察×3），需检查 `reduce_zone` 是否过宽。建议将 `reduce_zone` 拆分为 `t_zone`（做T区间，较宽）和 `reduce_zone`（真正减仓区，较窄），或上调 `reduce_zone` 下限以减少盘中波动误触。
 - **禁止**：无条件买卖指令、预测次日涨跌、给出具体买卖价格。
 
 ## 常见陷阱与防循环指南
@@ -491,7 +493,7 @@ description: Use when the user asks to analyze an individual stock through the b
 - `evaluate_market_alerts()` 检查 `strategy_pack.yaml` 中 `market_framework.index_rules` 的阈值。
 - 当前仅支持 `trend_defense`（跌破趋势防线）和 `weak_close_level`（低于弱修复阈值）两种触发。
 - **不支持**"站稳修复位"的正面提醒，只触发负面/观察类提醒。
-- **已知限制**：`valid_close_level`（如4080）和 `weak_close_level`（如4070）仅在 interpretation 文本中描述，代码可能未实现中间档位的主动提醒。复盘时若发现指数处于中间档位但无提醒，需手动指出此为规则缺失型漏报。
+- **已知限制**：`valid_close_level`（如4080）和 `weak_close_level`（如4070）仅在 interpretation 文本中描述，代码可能未实现中间档位的主动提醒。复盘时若发现指数处于中间档位但无提醒，需手动指出此为规则缺失型漏报。建议增加 `close_between` 规则或中间档位 `trigger_condition`。
 - **通用格式兼容性风险**：`trigger_condition: "close_below"` 等通用格式在代码中可能未完整实现。实际测试方法：运行 `python -m qing_investment.stock_monitor --ignore-trading-time` 模拟非交易时段触发，观察 `alert_decision_log` 是否生成对应记录。若未生成，说明通用格式未被支持，需改用 legacy 格式（`- trend_defense: 4070`）作为兜底。
 
 ### 已清仓标的残留陷阱

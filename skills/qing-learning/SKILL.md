@@ -70,6 +70,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
   7. 提交并推送
 - **远程版本优先原则**：对于 `watchlist.yaml`、`strategy_pack.yaml` 等频繁更新的配置文件，远程版本通常包含更新的市场数据，优先接受远程版本，然后将本地数据（如持仓、今日快照）重新写入
 - **直接修复，少解释**：当脚本有bug或遗漏明显内容时，用户偏好直接修复而非长篇解释原因。给出简洁的修复确认即可。
+- **核对未处理文档时，脚本输出不可全信**：`find_unprocessed.py` 按文件名匹配，可能误报（如 claim 中 `source_path` 包含完整路径或不同命名格式）。用户说"核对哪些没处理"时，应直接用 Python 读取所有 claim 的 `source_path` 字段（含正则容错解析失败的YAML），与 raw 文件名做 basename 匹配，给出准确统计。
 - **持仓更新完整pipeline**：当用户要求"更新持仓"时，执行完整pipeline：①读取当前positions.yaml和watchlist.yaml → ②获取实时行情计算PnL → ③交叉引用claims判断持仓逻辑是否变化 → ④更新positions.yaml（含closed_positions记录）→ ⑤更新watchlist.yaml today_snapshot → ⑥输出持仓总结+操作建议。不要只改一个文件。
 - **操作建议必须关联claims**：给出操作建议时，必须引用具体的claim ID（如claim-20260531-002-a）和博主判断依据，不是拍脑袋建议。
 - **持仓更新 factual accuracy 检查**：更新positions.yaml时，必须逐账户核对用户提供的持仓信息。常见错误：把账户2的持仓误写到账户1。写入前反问确认："账户1：XXX，账户2：YYY，对吗？"
@@ -92,6 +93,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 8. **Pipeline QA 与去重**：参考 `references/pipeline-qa-dedup.md`（original→raw 遗漏检查、重复抓取根因分析）。
 5. `references/bilibili-up-comment-terminology.md`（区分真正的UP置顶评论 vs 截图第一条评论，避免 claims 引用标注错误）。
 6. **YAML 特殊字符转义**：参考【已知问题与解决】→"YAML 特殊字符转义"（claim 文件编写时避免中文引号、冒号导致解析失败）。
+7. **Claim Schema 验证**：参考 `references/claim-schema-validation.md`（必需字段、枚举值、验证命令、常见错误速查）。
 7. **学习索引交叉验证**：参考 `references/learn-index-cross-validation.md`（双重验证确保100%学习覆盖率）。
 8. **学习索引**：参考【学习索引 (Learn Index)】章节，追踪所有 raw 文档的学习状态。
 9. **观察池 themes 恢复**：参考 `references/watchlist-theme-recovery-from-git.md`（从 git 历史恢复被误删的 watchlist themes，含一键恢复脚本）。
@@ -131,6 +133,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 1. **遗漏 wiki/index.md 更新**：`knowledge/wiki/index.md` 是最容易被遗漏的索引文件。每次更新 wiki 页面（尤其是新增专题页或每日复盘）后，必须检查并更新 wiki/index.md。若新增专题页未加入索引，用户后续无法通过索引发现该页面。
 2. **跳过 claim schema 直接写 claims**：不写 claims 前不读 `references/claim-schema.md` 是常见错误。虽然 LLM 生成的 YAML 通常格式正确，但字段缺失、枚举值错误、特殊字符未转义等问题只有在对比 schema 后才能避免。一次 YAML 格式错误会导致后续索引生成、wiki 链接、矛盾检测全部中断。
 3. **重复处理已存在的文档**：处理前未检查 `sources/raw/财经/`、`knowledge/claims/`、`knowledge/wiki/每日复盘/` 中是否已有对应内容，导致重复创建 claims 或 wiki 冲突。
+4. **用户说"核对/确认哪些没处理"时，脚本匹配不可靠**：`find_unprocessed.py` 按文件名匹配，但 claim 中的 `source_path` 可能包含完整路径或不同命名格式。正确核对方式：读取所有 claim 文件的 `source_path` 字段（用正则容错解析YAML失败的文件），与 raw 文件名做 basename 匹配，而非依赖脚本输出。
 
 ---
 
@@ -250,6 +253,8 @@ git status --short
 3. `knowledge/wiki/每日复盘`：沉淀单日盘面、早午晚盘判断和案例。
 4. `knowledge/wiki/市场分析`、`knowledge/wiki/投资方法论`：沉淀可复用专题，如指数、量能、主线、仓位、做T、科创虹吸。
 5. `framework`：只写跨阶段可复用、可验证、可执行的 durable rule。
+   - `framework/*.md`（如 `stock-analysis-playbook.md`、`market-cycle-framework.md` 等）：市场认知层的可执行框架
+   - `framework/trading-rules.md`：**交易规则手册**——聚焦具体操作纪律（选股规则、买卖点、套利策略、风控线），与 methodology 层的市场判断框架分离
 6. `knowledge/wiki/投资方法论/博主方法论总纲.md`：最高层小白教材和导航页，只吸收已经被多篇 raw 或多个市场阶段验证过的稳定框架。
 
 ### 双轨制：市场认知层 vs 操作工具层
@@ -275,15 +280,17 @@ git status --short
 - 若需标记 claim，使用 `claim_type: technical-knowledge`，`timeframe: permanent`
 - **技术知识不需要"多次提及"才进 framework** — 与轨道A的 durable rule 标准不同，技术工具是正规金融学内容，一旦教学即可沉淀
 - **技术工具不进总纲** — `博主方法论总纲.md` 只放市场认知层的稳定框架，具体K线形态/指标公式进 `technical-analysis-framework.md`
+- **交易规则进 trading-rules.md** — 具体操作纪律（如接力标的选择、尾盘套利法、买卖点条件）属于可执行规则，进 `framework/trading-rules.md`，不进 `technical-analysis-framework.md`
 - **旧 claims 清理**：若历史 claims 中已有技术课程内容（如 `claim_type: technical-signal` 的长红线定义），应将其改为 `technical-knowledge` 并标记 `status: superseded`，链接到 `technical-analysis-framework.md`
 - **课程进度表禁止编造**：只列出已实际发布的课程。未发布的统一写"后续课程 ⬜ 待博主更新"，可注明博主提到的大方向，但必须标注"推测，非已确认"。禁止编造"第二课：长黑线"等具体名称。
 - **轨道B文件结构**：
   ```
   framework/technical-analysis-framework.md    ← 可执行 playbook（操作规则表、风控线、课程进度）
+  framework/trading-rules.md                   ← 交易规则手册（选股规则、买卖点、套利策略、接力方法论）
   methodology/technical-analysis.md           ← 方法论沉淀（原理、适用场景、与轨道A协作）
   knowledge/wiki/投资方法论/技术分析.md        ← 知识库层（详细展开，持续更新）
   ```
-  三层内容互补：framework 给规则，methodology 给原理，wiki 给细节。
+  四层内容互补：framework 给规则，trading-rules 给操作纪律，methodology 给原理，wiki 给细节。
 
 **双轨制对 Review 的影响**：
 - 轨道B（技术课程）的 claims 不参与 drift 分析（`timeframe: permanent`，无保质期）
@@ -314,6 +321,7 @@ git status --short
 - 只适用于某只个股或某个短线窗口的策略。
 - 与旧观点冲突但还没有足够样本确认的新判断。
 - **技术课程中的具体工具**（如长红线定义、布林线公式）——这些进 `technical-analysis-framework.md`，不进总纲。
+- **具体操作纪律**（如接力标的选择方法论、尾盘套利法）——这些进 `framework/trading-rules.md`，不进总纲。
 
 每次 Learning Update Report 必须说明：
 

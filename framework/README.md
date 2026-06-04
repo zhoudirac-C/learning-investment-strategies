@@ -13,6 +13,7 @@
 | [market-participant-framework.md](market-participant-framework.md) | 市场参与者分析框架（三类资金结构） | A |
 | [market-cycle-framework.md](market-cycle-framework.md) | 市场周期与调整修复方法论 | A |
 | [technical-analysis-framework.md](technical-analysis-framework.md) | 技术分析可执行框架（K线/指标/量价/纪律） | B |
+| [trading-rules.md](trading-rules.md) | 交易规则手册（接力方法论、尾盘套利法等操作纪律） | A/B |
 
 ## 辅助文件
 

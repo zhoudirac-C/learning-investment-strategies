@@ -39,10 +39,13 @@ description: |
 9. `skills/qing-stock-monitor-update/references/data-source-fallback-chain.md` — 数据源降级时的备用获取方案（腾讯 API、venv pip 修复、glmv 脚本）
 10. `skills/qing-stock-monitor-update/references/claims-consistency-check.md` — **Claims 一致性校验**：更新 strategy_pack 前必须与 claims 交叉验证，防止策略与博主纪律矛盾。含全项目标的扫描工具 `scripts/scan_all_stocks.py` 使用说明
 11. `skills/qing-stock-monitor-update/references/sector-rotation-rules-format.md` — **sector_rotation_rules 格式规范**：list of dicts 格式，引用 sector_groups 的 id
-14. `skills/qing-stock-monitor-update/references/bilibili-top-comment-workaround.md` — **Bilibili 置顶评论获取**：当前抓取脚本不抓置顶评论，需浏览器手动查看或后续开发 API 抓取
-15. `framework/technical-analysis-framework.md` — 技术工具层规则（轨道B）
-15. `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束（含批量更新 cron prompt 模板）
-16. `skills/qing-learning/references/claim-schema-validation.md` — **Claim Schema 验证**：生成 claims 时的字段要求和枚举值规范（跨 skill 共享）
+12. `skills/qing-stock-monitor-update/references/daily-review-cases.md` — **收盘监控复盘案例库**：历史复盘典型案例，含有效性判断标准、开盘诱多识别 checklist、相对强弱伪信号识别方法、盘中配置更新时序陷阱、板块轮动标签语义混淆、用户反馈驱动的配置调整流程、去重机制设计（"用户已执行"状态跟踪）
+15. `skills/qing-stock-monitor-update/references/bilibili-top-comment-workaround.md` — **Bilibili 置顶评论获取**：当前抓取脚本不抓置顶评论，需浏览器手动查看或后续开发 API 抓取
+16. `skills/qing-stock-monitor-update/references/hermes-cron-output-access.md` — **Hermes Cron Job 输出访问**：当用户引用 cron job ID 时，如何找到并读取 `~/.hermes/cron/output/<job_id>/` 下的复盘报告
+17. `skills/qing-stock-monitor-update/references/bilibili-notify-maintenance.md` — **Bilibili 动态通知脚本维护**：`bilibili_notify.py` 的常见问题（函数名不匹配、专栏类型未处理、cron cookie 缺失）、修复方案、部署同步纪律
+16. `framework/technical-analysis-framework.md` — 技术工具层规则（轨道B）
+17. `skills/qing-stock-monitor-update/references/llm-hallucination-prevention.md` — **LLM 幻觉防范**：cron 任务生成股价数据时的验证与约束（含批量更新 cron prompt 模板）
+18. `skills/qing-learning/references/claim-schema-validation.md` — **Claim Schema 验证**：生成 claims 时的字段要求和枚举值规范（跨 skill 共享）
 
 ## 工作流程
 
@@ -369,6 +372,9 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 14. **技术分析必须执行**：更新 strategy_pack 前必须运行 `scripts/scan_all_stocks.py`，基于均线/回撤/量价/K线形态/支撑压力生成介入区间，不能拍脑袋定价。详见 `references/technical-analysis-scan.md` 和 `references/entry-points-generation.md`。
 15. **介入区间必须有数据支撑**：不能写"近期平台附近""等分歧后缩量回踩"等模糊描述，必须提供具体价格数字和计算依据。
 16. **触发/失效条件必须具体可执行**：不能写"等企稳""趋势走坏"，必须量化（如"跌破453且30分钟不能收回"）。
+17. **用户反馈优先**：复盘报告中的 YAML 建议只是"建议"，用户明确同意后才执行。用户质疑的需讨论实现方案后再执行。详见 `references/daily-review-cases.md` 案例六。
+18. **去重机制需考虑"用户已执行"维度**：当前去重只基于时间和指纹，不跟踪"用户是否已执行"。若用户已按提醒执行操作，当天不应再提醒同样动作。详见 `references/daily-review-cases.md` 案例七。
+19. **Claim Schema 字段枚举值陷阱**：`timeframe` 字段枚举值为 `short-term` / `medium-term` / `long-term`（带连字符），不是 `short_term`（下划线）。写错会导致验证失败。
 
 ## 从复盘文档批量更新 narrative 的规范流程
 
