@@ -160,7 +160,9 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
         # Only run sector extraction for market/sector queries to save latency
         analysis_type = (state.get("parsed_intent") or {}).get("analysis_type", "stock")
         if analysis_type in ("market", "portfolio") or not stock_code:
-            sector_context = build_sector_context(days_back=3, top_k=5)
+            sector_context = await asyncio.to_thread(
+                build_sector_context, days_back=3, top_k=3
+            )
     except Exception:
         sector_context = []
 
@@ -332,6 +334,19 @@ def synthesize(state: AgentState) -> AgentState:
             index_lines.append(f"支撑{idx.get('support', 'N/A')} / 压力{idx.get('resistance', 'N/A')}")
             index_lines.append(f"跌破→{idx.get('action_below', 'N/A')}；突破→{idx.get('action_above', 'N/A')}；中间→{idx.get('middle_zone', 'N/A')}")
 
+        positions = state.get("positions", [])
+        position_lines = []
+        if positions:
+            position_lines.append("\n\n【持仓操作计划】")
+            for p in positions:
+                name = p.get("name", "N/A")
+                code = p.get("code", "N/A")
+                shares = p.get("shares", 0)
+                cost = p.get("cost", 0)
+                latest = p.get("latest", p.get("price", "N/A"))
+                pct = p.get("pct_change", "N/A")
+                position_lines.append(f"- {name}({code})：持仓{shares}股，成本{cost}，现价{latest}，今日{pct}%")
+
         draft = f"""【盘面】{market.get('market_summary', '暂无')}
 
 【周期定位】{market.get('market_phase', 'N/A')}，{market.get('phase_reasoning', '')}
@@ -354,6 +369,7 @@ def synthesize(state: AgentState) -> AgentState:
 【明日跟踪】{'; '.join(market.get('tomorrow_watch', []))}
 
 【风险提示】{market.get('risk_notes', '')}
+{'\n'.join(position_lines) if position_lines else ''}
 """
 
     return {
