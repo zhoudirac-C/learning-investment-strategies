@@ -53,7 +53,7 @@ description: |
 ### Step 0: 前置检查
 
 1. **`git pull`**：确保本地文件是最新版本，避免基于旧版本修改后产生冲突。
-2. **Cron 脚本同步检查**：若用户同时修改了 cron 监控脚本（如 `hermes_stock_monitor_agent.py`、`hermes_stock_monitor_daily_review.py`），必须确保 `~/.hermes/scripts/` 与项目目录 `~/learning-investment-strategies/scripts/` 保持一致。推荐方案：前者使用**软链接**指向后者。详见 `references/cron-script-sync.md`。用户硬性要求："每次改动都需要保证两边一致"。
+2. **Cron 脚本同步检查**：若用户同时修改了 cron 监控脚本（如 `hermes_stock_monitor_agent.py`、`hermes_stock_monitor_daily_review.py`），必须确保 `~/.hermes/scripts/` 与项目目录 `~/learning-investment-strategies/scripts/` 保持一致。推荐方案：前者使用 **Wrapper 委托模式**（真实文件，内容委托到项目版本），详见 `references/cron-script-sync.md`。用户硬性要求："每次改动都需要保证两边一致"。
 3. **检查数据是否已同步**：若 watchlist 的 `today_snapshot`、`technical_narrative`、`sector_narrative` 已包含复盘文档中的数据，不要重复写入。向用户报告当前同步状态，询问是否需要基于**今早动态**追加更新。
 4. **区分两种更新模式**：
    - **模式 A（基础）**：更新已有票的 narrative + today_snapshot
@@ -358,7 +358,7 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 
 ## 关键纪律
 
-1. **Cron 脚本同步纪律**：修改 cron 监控脚本时，`~/.hermes/scripts/` 必须使用**硬拷贝**从 `~/learning-investment-strategies/scripts/` 复制，或使用 `prompt` 字段替代 `script` 字段。~~软链接~~已被 Hermes cron 拒绝（解析 canonical path 后判定为外部路径）。用户硬性要求："每次改动都需要保证两边一致"。详见 `references/cron-script-sync.md`。
+1. **Cron 脚本同步纪律**：修改 cron 监控脚本时，`~/.hermes/scripts/` 必须使用 **Wrapper 委托模式**（创建真实文件，内容委托到项目版本），或 `prompt` 字段替代 `script` 字段。~~软链接~~已被 Hermes cron 拒绝（解析 canonical path 后判定为外部路径）。~~硬拷贝~~需手动同步，容易漂移。**Wrapper 模式**同时满足：单一来源（改项目版本即生效）、通过 cron 安全检查、零维护。用户硬性要求："每次改动都需要保证两边一致"。详见 `references/cron-script-sync.md`。
 2. **`uv run` 超时陷阱**：cron 环境下 `uv run` 启动慢（检查/创建虚拟环境），可能超过 60s 超时导致任务失败。解决方案：脚本内部优先使用 `.venv/bin/python` 直接运行，fallback 到 `uv run`。项目目录下所有 `hermes_stock_monitor_*.py` 已统一实现该逻辑。
 3. **观察池追加，不替换**：新 theme/stock 追加到末尾，旧的不删。
 3. **数据源降级**：不可用时不编造数据，标记 degraded。

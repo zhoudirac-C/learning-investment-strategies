@@ -158,6 +158,7 @@ description: Use when the user asks to analyze an individual stock through the b
 - **数据验证（防幻觉）**：所有股价、涨跌幅数字必须来自脚本提供的 `[Hermes股票监控大模型分析上下文]`。禁止编造任何数字。若上下文未提供某票数据，写"数据未提供"而非猜测。
 - **持仓池只包含有持仓标的**：`positions.yaml` 中 `shares > 0` 的标的才列入持仓池。已清仓（`shares == 0`）的标的不得在持仓池中列出，也不得给出操作建议。
 - **板块涨跌数据必须来自脚本提供的 sector_groups 计算结果**：不得凭记忆或推测填写板块涨跌。若脚本未提供板块数据，使用"数据未提供"或跳过。
+- **脚本失败时的数据补全**：若 `--live-analysis-context` 因路径拦截/模块缺失无法运行，必须按"脚本执行失败时的降级路径"执行 curl 腾讯 API 获取实时数据，禁止跳过数据验证或编造数字。
 
 ### 持仓动作决策树
 ```
@@ -179,6 +180,37 @@ description: Use when the user asks to analyze an individual stock through the b
 3. `config/stock_monitor/positions.yaml`（读取真实持仓、成本、风险线）。
 4. `config/stock_monitor/strategy_pack.yaml`（读取当前市场框架、板块规则）。
 5. `config/stock_monitor/watchlist.yaml`（读取观察池定义和买入/证伪条件）。
+6. **curl 腾讯财经 API 实时行情**（当脚本路径被拦截或模块不可用时，作为降级数据源）：
+   ```bash
+   # 指数查询
+   curl -s 'https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688' | iconv -f gbk -t utf-8 | awk -F'~' '{print $2, $4, $5, $33, $34}'
+   # 个股查询（逗号分隔，最多约50只）
+   curl -s 'https://qt.gtimg.cn/q=sz000969,sz000066,sh600487' | iconv -f gbk -t utf-8 | awk -F'~' '{print $2, $4, $5, $33, $34}'
+   ```
+   - `$4` = 最新价，`$5` = 昨收，`$33` = 涨跌额，`$34` = 涨跌幅
+   - 涨跌幅计算验证：`($4-$5)/$5*100` 应与 `$34` 一致（允许四舍五入误差）
+   - 若 `awk` 输出为空或乱码，检查 `iconv` 是否成功转换（GBK→UTF-8）
+
+### 脚本执行失败时的降级路径
+
+当 cron 任务报告脚本路径错误（如 `Blocked: script path resolves outside the scripts directory`）或脚本无法运行时，按以下降级路径获取数据：
+
+1. **优先尝试模块方式**：`cd $HERMES_REPO_ROOT && python -m qing_investment.stock_monitor --live-analysis-context`
+2. **若模块方式失败**：直接调用 `python -m qing_investment.stock_monitor --live-analysis-context`（假设当前目录为项目根目录或模块在 PYTHONPATH 中）
+3. **若 Python 环境不可用**：使用 curl + 腾讯财经 API 兜底（见 `references/realtime-quote-fetch.md`）
+4. **数据到手后**：继续按极简微信提醒模板输出，不因为脚本失败而中断分析流程
+
+**关键原则**：脚本执行失败 ≠ 数据不可获取。必须尝试至少一种降级路径获取实时行情，禁止因脚本失败而编造数据或跳过数据验证。
+
+**curl 腾讯财经 API 快速查询命令（用于极简微信提醒数据补全）**：
+```bash
+# 指数批量查询
+curl -s 'https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688' | iconv -f gbk -t utf-8 | awk -F'~' '{print $2, $4, $5, $33, $34}'
+# 个股批量查询（示例）
+curl -s 'https://qt.gtimg.cn/q=sz000969,sz000066,sh600487' | iconv -f gbk -t utf-8 | awk -F'~' '{print $2, $4, $5, $33, $34}'
+```
+- `a[4]` = 最新价，`a[5]` = 昨收，`($4-$5)/$5*100` = 涨跌幅
+- 字段索引漂移：不同股票买卖盘深度不同导致 `split('~')` 后字段数不一致，涨跌幅**禁止硬编码索引**，必须用 `(最新-昨收)/昨收` 计算
 
 ## 子任务：指数/ETF买入分析（Index/ETF Buy Analysis）
 
@@ -543,6 +575,40 @@ python -m qing_investment.stock_monitor --dedupe-minutes 15
 - `qing_stock_monitor.py` — Hermes wrapper，设置 `HERMES_REPO_ROOT` 后调用 `uv run python scripts/stock_monitor.py`
 - `hermes_stock_monitor.py` — 替代 wrapper，功能类似但路径解析逻辑不同
 - `qing_stock_monitor_agent.py` — 带 agent 分析上下文的 wrapper
+
+### Cron 脚本路径安全拦截（Blocked: script path resolves outside the scripts directory）
+
+当 cron 任务报告 `Blocked: script path resolves outside the scripts directory (/home/ubuntu/.hermes/scripts): 'qing_stock_monitor_agent.py'` 时：
+
+**原因**：Hermes cron 调度器的 `script` 字段要求脚本必须位于 `~/.hermes/scripts/` 目录下。若 `script` 指向的文件名在 `scripts/` 目录中不存在（或被解析为相对路径时指向了外部），调度器会拒绝执行。
+
+**排查与修复步骤**：
+1. **确认 scripts 目录中是否存在该文件**：`ls -la ~/.hermes/scripts/ | grep qing_stock_monitor`
+2. **若文件不存在**：
+   - 检查项目 repo 的 `scripts/` 目录：`ls $HERMES_REPO_ROOT/scripts/`
+   - 若文件在项目 repo 中，创建符号链接或复制到 `~/.hermes/scripts/`：
+     ```bash
+     ln -s $HERMES_REPO_ROOT/scripts/qing_stock_monitor_agent.py ~/.hermes/scripts/qing_stock_monitor_agent.py
+     ```
+3. **若文件存在但仍报错**：检查文件权限（需可执行）和文件名大小写是否匹配
+4. **替代方案（推荐）**：不依赖 `script` 字段，改用 `prompt` 字段直接调用项目内模块：
+   ```yaml
+   # cronjob 配置示例
+   prompt: |
+     cd $HERMES_REPO_ROOT && python -m qing_investment.stock_monitor --live-analysis-context
+   ```
+   或设置 `workdir` 为项目根目录，在 `prompt` 中直接调用模块
+5. **验证修复**：手动运行 `cd ~/.hermes/scripts && python qing_stock_monitor_agent.py --status` 确认脚本可正常执行
+
+**关键区分**：
+- `script` 字段：要求文件物理存在于 `~/.hermes/scripts/`，调度器会做路径安全检查
+- `prompt` 字段：LLM 驱动执行，不限制路径，适合调用项目内模块或外部命令
+
+**cron 触发时的实际执行顺序**：
+1. Hermes cron 先尝试运行 `script` 字段指定的脚本
+2. 若 `script` 被拦截（路径安全/文件不存在），cron 会回退到 `prompt` 字段，由 LLM 驱动执行
+3. LLM 收到 "脚本执行失败" 的提示后，应按本 skill 的降级路径（模块方式 → curl 兜底）获取数据并输出提醒
+4. **禁止因 script 失败而输出空内容或 [SILENT]** —— 降级路径必须被执行
 
 ### 复盘报告输出规范
 
