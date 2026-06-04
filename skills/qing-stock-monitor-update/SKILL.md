@@ -93,12 +93,34 @@ stock_dict = {s['code']: s for s in stocks_list if 'code' in s}
 
 降级规则：数据源不可用时标记 `degraded: true`，不阻断更新。详见 `references/data-source-fallback-chain.md`。
 
+**全数据源降级时的兜底策略**（本会话中出现过）：
+- 如果所有外部 API（Tencent API / East Money / akshare）都超时或返回空：
+  1. 使用 `watchlist.yaml` → `today_snapshot` → `stocks_with_data` 中的最新本地行情数据
+  2. 使用 `strategy_pack.yaml` → `today_snapshot` 中的指数数据
+  3. 在回复中标注"数据源降级，基于本地快照数据（来自最近一次同步）"
+  4. 不编造价格。如果本地数据也缺失该标的，如实告知用户"无法获取实时价格"
+- 注意：本地快照是上一交易时段的数据，非实时。用于策略方向的判断足够，但精确买入/卖出点位需等数据源恢复后确认。
+
 ### Step 2: 检查 UP 最新观点（模式 A + 模式 B）
 
 读取最近 3 天的内容：
 - `knowledge/claims/claim-YYYYMMDD-*.yaml`
 - `knowledge/wiki/每日复盘/YYYY-MM-DD.md`
 - `sources/raw/财经/`（最近 3 天）
+
+**可选：调用 Qing-Agent 辅助分析（推荐）**
+如果 Qing-Agent 服务在线（`curl -s http://127.0.0.1:8000/health`），可调其 `/chat` 端点获取 UP 风格的通盘判断：
+
+```bash
+curl -s -X POST http://127.0.0.1:8000/chat \
+  -H "Content-Type: application/json" \
+  -d '{"message": "请分析今天收盘后的市场状态，包括指数、板块、主线方向、风险提示", "session_id": "stock-monitor"}'
+```
+
+Qing-Agent 返回的是**定性判断**（方向/态度/策略基调），不是具体价格数据。与本地数据配合使用：
+- Qing-Agent → "当前阶段：主升末期，微盘股破位，不能左侧抄底"
+- 本地数据 → "上证支撑4033，持仓标的止损位24.5"
+- 具体操作建议以本地数据为准，方向判断参考 Qing-Agent
 
 **模式 A：更新已有标的 up_mention_status**
 - `last_mentioned_date`

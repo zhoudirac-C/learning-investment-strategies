@@ -6,9 +6,89 @@ trigger: 用户询问个股分析、大盘走势、板块判断、持仓复盘�
 
 # Qing-Agent CLI Skill
 
-通过 `delegate_task` 将股票相关问题路由到 Qing-Agent CLI，输出青枫浦上Q风格的分析。
+通过 REST API（首选）或 `delegate_task`（备选）将股票相关问题路由到 Qing-Agent，输出青枫浦上Q风格的分析。
 
-## 触发条件
+## 前提条件：配置 API Key
+
+Qing-Agent 需要 `.env` 文件配置 LLM API Key 才能调用 LLM。在项目根目录创建：
+
+```bash
+cat > /home/ubuntu/learning-investment-strategies/.env << 'EOF'
+LLM_PROVIDER=deepseek
+DEEPSEEK_API_KEY=sk-你的key
+DEEPSEEK_BASE_URL=https://api.deepseek.com/v1
+EOF
+```
+
+**注意**：Hermes 安全框架会屏蔽环境变量中的 API key（显示为 `***`），无法从 `auth.json` 或 `/proc/*/environ` 提取。必须先由用户提供完整 key 后写入 `.env`。
+
+### .env 文件保护
+
+`.env` 文件包含 API key 敏感信息，**不要提交到 git**。检查 `.gitignore` 中是否已包含 `.env`：
+
+```bash
+grep "^\.env$" .gitignore  # 应返回 `.env`
+```
+
+### 重启服务
+
+配置 `.env` 后需重启 Qing-Agent 服务：
+
+```bash
+# 停止旧服务（找到 PID 后 kill）
+pgrep -f "uvicorn.*qing_investment"
+kill <PID>
+
+# 启动新服务
+cd ~/learning-investment-strategies
+.venv/bin/python -m uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
+```
+
+## 两种调用模式
+
+### 模式 A：REST API 直接调用（首选，响应更快）
+
+当用户问股票问题时，直接 `terminal()` 调 Qing-Agent 的 `/chat` 端点：
+
+```python
+from hermes_tools import terminal
+
+# 确保服务在线
+health = terminal("curl -s http://127.0.0.1:8000/health")
+# 应返回 {"status":"ok","version":"0.1.0"}
+
+# 个股/市场分析
+result = terminal("""curl -s -X POST http://127.0.0.1:8000/chat \\
+  -H "Content-Type: application/json" \\
+  -d '{"message": "分析一下安泰科技，现在能买吗？", "session_id": "user-001"}'""")
+```
+
+**优点**：直接返回 UP 风格结果，不需要 `delegate_task` 开销，响应更快（10-30s）。
+
+### 模式 B：delegate_task → CLI（备选，兼容旧版）
+
+当 REST API 不可用时（服务未启动、端口不通、返回 503），通过 `delegate_task` 调用 CLI 版本：
+
+```python
+delegate_task(
+    goal=f"Run Qing-Agent analysis via CLI...",
+    toolsets=["terminal"],
+    workdir="/home/ubuntu/learning-investment-strategies",
+)
+```
+
+详见下方【执行流程】和【delegate_task 调用必须指定 workdir】。
+
+### 模式 C：Hermes 自身能力（最终降级）
+
+当 Qing-Agent 服务完全不可用时，使用 Hermes 自身能力 + 本地知识库文件直接分析：
+
+1. 读取本地 claims（`knowledge/claims/`）
+2. 读取 wiki（`knowledge/wiki/`）
+3. 按 `qing-stock-analysis` 框架执行分析
+4. 输出时不模拟 UP 口吻，说明"未走 Qing-Agent 链路"
+
+## 触发条件（任何模式都适用）
 
 以下场景应触发此 skill：
 
@@ -25,44 +105,31 @@ trigger: 用户询问个股分析、大盘走势、板块判断、持仓复盘�
 
 ## 执行流程
 
-### Step 1: 提取查询
-
-从用户的问题中提取核心查询内容：
+### 前置检查：服务是否在线
 
 ```python
-query = "分析一下安泰科技，现在能买吗？"
+from hermes_tools import terminal
+health = terminal("curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8000/health")
+if health == "200":
+    # 模式 A：直接调 REST API
+    mode = "rest"
+else:
+    # 模式 B 或 C：尝试 CLI 或降级
+    mode = "cli_or_fallback"
 ```
 
-如果有明确的股票代码，一并提取：
-```python
-stock_code = "000969"
-```
+### 模式 A 执行流程（REST API）
 
-### Step 2: 通过 delegate_task 调用 CLI
+1. 构造查询消息（从用户问题提取核心内容 + 必要上下文）
+2. 调 `/chat` 端点：`curl -s -X POST http://127.0.0.1:8000/chat -d '{"message": "..."}'`
+3. 解析返回的 `reply` 字段
+4. 直接呈现给用户，不额外包装
 
-```python
-delegate_task(
-    goal=f"""Run Qing-Agent analysis via CLI.
+### 模式 B 执行流程（CLI - 旧版）
 
-Execute: .venv/bin/python scripts/cli_qing_agent.py --query "{query}" {stock_code_arg} --verbose
-
-The project root is /home/ubuntu/learning-investment-strategies.
-Set PYTHONPATH=src and workdir to the project root.
-""",
-    context=f"""Project root: /home/ubuntu/learning-investment-strategies
-Query: {query}
-Interpret this as: the user wants a Qing-Agent analysis.
-The CLI command is: .venv/bin/python scripts/cli_qing_agent.py --query "{query}" {stock_code_arg} --verbose
-Working directory: /home/ubuntu/learning-investment-strategies
-Environment: LLM_PROVIDER=deepseek, NEO4J and QDRANT are running locally.
-""",
-    toolsets=["terminal"],
-)
-```
-
-### Step 3: 返回结果
-
-将 sub-agent 返回的 stdout 直接呈现给用户。
+1. 提取查询
+2. 通过 delegate_task 调用 CLI
+3. 返回结果
 
 ## 示例
 
@@ -91,6 +158,7 @@ Environment: LLM_PROVIDER=deepseek, NEO4J and QDRANT are running locally.
 ## 参考文件
 
 - `references/neo4j-query-pitfalls.md` — Neo4j 查询常见问题（缺失属性、ORDER BY 别名、coalesce 用法）
+- `references/rest-api-usage.md` — REST API 端点说明、调用示例、错误码、降级路径
 
 ## 注意事项
 
@@ -102,6 +170,28 @@ Environment: LLM_PROVIDER=deepseek, NEO4J and QDRANT are running locally.
 6. **非交易时段**：分析功能仍然可用（仅板块数据可能受限）
 
 ## 常见陷阱
+
+### REST API vs CLI 的选择
+
+| 条件 | 推荐模式 |
+|------|---------|
+| `localhost:8000/health` 返回 200 | **模式 A（REST）** — 直接 `curl /chat` |
+| 服务离线但 `.venv` 可用 | **模式 B（CLI）** — `delegate_task` + `scripts/cli_qing_agent.py` |
+| 两者都不可用 | **模式 C（Hermes 自身）** — 读本地 claims/wiki 直接分析，说明"未走 Qing-Agent 链路" |
+
+### Hermes 安全存储无法提取 API Key
+
+Hermes 通过安全框架管理 API keys，`auth.json` 和 `/proc/*/environ` 中的 key 均被屏蔽为 `***` 或 `sk-xxx...xxx`。无法通过任何终端命令或 Python 脚本提取。必须直接请用户提供完整 key。
+
+### 服务启动后需验证
+
+```bash
+# 验证服务正常
+curl -s http://127.0.0.1:8000/health
+# → {"status":"ok","version":"0.1.0"}
+
+# 若返回空或 Connection refused → 服务未启动或启动中
+```
 
 ### delegate_task 调用必须指定 workdir
 

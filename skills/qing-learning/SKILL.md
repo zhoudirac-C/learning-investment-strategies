@@ -18,6 +18,8 @@ description: |
 
 ## 跨 Skill 兼容性说明
 
+> **⚠️ 关于"让AI像UP一样思考"：** 当用户询问如何蒸馏UP的思维/让AI模仿UP分析时，答案已在 `references/expert-distillation-guide.md`（三条技术路径：Prompt+RAG/Fine-tune/Agent）和 `references/reasoning-pattern-architecture.md`（三层架构：知识库→推理模式→动态应用，含YAML模板和实施路线图）。**不要回答"可以考虑xxx"——直接引用这两个文件。**
+
 qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层），这对下游 skill 有明确影响：
 
 | 下游 Skill | 影响 | 处理方式 |
@@ -95,6 +97,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 6. **OCR 图片转文字**：参考 `references/ocr-workflow-v2.md`（RapidOCR 首选、Tesseract fallback、常见错误修正）。
 7. **数据源切换**：参考 `references/data-source-fallback.md`（东方财富被拒绝时切换到新浪财经的API用法和验证方法）。
 8. **Pipeline QA 与去重**：参考 `references/pipeline-qa-dedup.md`（original→raw 遗漏检查、重复抓取根因分析）。
+9. **知识库同步**：参考【知识库增量同步】章节（claims/wiki 落库后必须同步到 Neo4j + Qdrant，否则 Qing-Agent 无法检索到新内容）。
 5. `references/bilibili-up-comment-terminology.md`（区分真正的UP置顶评论 vs 截图第一条评论，避免 claims 引用标注错误）。
 6. **YAML 特殊字符转义**：参考【已知问题与解决】→"YAML 特殊字符转义"（claim 文件编写时避免中文引号、冒号导致解析失败）。
 7. **Claim Schema 验证**：参考 `references/claim-schema-validation.md`（必需字段、枚举值、验证命令、常见错误速查）。
@@ -109,6 +112,8 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 16. **Trading Rules 迁移与维护**：参考 `references/trading-rules-migration-guide.md`（何时将操作纪律进 `framework/trading-rules.md`、迁移流程、避免重复）。
 18. **专家思维蒸馏**：参考 `references/expert-distillation-guide.md`（Prompt+RAG/Fine-tune/Agent三条技术路径）。
 19. **推理模式架构**：参考 `references/reasoning-pattern-architecture.md`（三层蒸馏架构：知识库层→推理模式层→动态应用层，含YAML模板和实施路线图）。
+20. **B站专栏文章正文提取**：参考 `references/bilibili-article-content-extraction.md`（当动态API不返回正文时，从read页面的`__INITIAL_STATE__` JSON提取文章的完整技术方案，含代码实现和注意事项）。
+21. **Trading Rules 迁移与维护**：参考 `references/trading-rules-migration-guide.md`（何时将操作纪律进 `framework/trading-rules.md`、迁移流程、避免重复）。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
@@ -134,6 +139,18 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     - `knowledge/wiki/log.md` — 操作日志
 11. 判断是否需要更新 `knowledge/wiki/投资方法论/博主方法论总纲.md`。
 12. 输出 Learning Update Report。
+13. **知识库增量同步**：运行两个增量同步脚本，将新的 claims 和 wiki 推送到 Qing-Agent 的检索后端：
+
+    ```bash
+    cd ~/learning-investment-strategies
+    .venv/bin/python scripts/index_documents_to_qdrant.py   # 文档 → Qdrant 向量库
+    .venv/bin/python scripts/migrate_claims_to_neo4j.py      # claims → Neo4j 图库
+    ```
+
+    - 增量模式（默认）：只处理 `hash 有变化` 或 `新创建` 的文件
+    - 强制全量模式（数据损坏时）：`--force-full`
+    - **必须在 git commit 之后运行**（脚本基于文件 hash 判断是否已同步）
+    - 运行后建议快速验证：用 `Neo4jClient` 查询新 claim，或 curl Qdrant 确认索引
 
 ### Ingestion 关键 Pitfalls
 
@@ -142,6 +159,11 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 3. **重复处理已存在的文档**：处理前未检查 `sources/raw/财经/`、`knowledge/claims/`、`knowledge/wiki/每日复盘/` 中是否已有对应内容，导致重复创建 claims 或 wiki 冲突。
 4. **用户说"核对/确认哪些没处理"时，脚本匹配不可靠**：`find_unprocessed.py` 按文件名匹配，但 claim 中的 `source_path` 可能包含完整路径或不同命名格式。正确核对方式：读取所有 claim 文件的 `source_path` 字段（用正则容错解析YAML失败的文件），与 raw 文件名做 basename 匹配，而非依赖脚本输出。
 5. **随意关联 related_stocks 而不验证业务对齐**：撰写 claims 时，仅凭板块/主题分类（如「都是数据库」）就把标的加入 `related_stocks`，未验证其具体产品/技术是否真正对齐 claim 的核心逻辑。反面案例：NVIDIA GPU-Native 数据库催化，星环科技有 Transwarp GPU-Native 产品，但海量数据主营 Vastbase（openGauss 关系型数据库），两者产品完全不同——仅因「都是国产数据库」就关联属于错误。规则：添加到 `related_stocks` 前，必须确认该标的真的有对应产品/技术，不能仅凭板块分类。
+6. **遗漏标记 raw 和 original 文件为 processed**：完成 claims/wiki/framework 更新后，必须同步更新：
+   - `sources/original/bilibili/*.md` 中的 `unprocessed: true` → `unprocessed: false`（仅对已学习的内容做此标记）
+   - `sources/raw/财经/*.md` 中的 `ingest_status: pending` → `ingest_status: processed`
+   - 否则下次 Pipeline QA 会重复检查这些文件。这是 ingestion 流程的最后一步，和更新索引同等重要。
+7. **遗忘知识库同步**：claims/wiki 落库并提交后，若不运行 `index_documents_to_qdrant.py` + `migrate_claims_to_neo4j.py`，Qing-Agent 将无法检索到新内容。特征：用户询问某个新学的板块时，Qing-Agent 回答\"未找到相关数据\"。检查 `.index_state.json` 和 `.migrate_state.json` 的 `last_sync` 时间戳可快速确认是否遗漏。
 
 ---
 
