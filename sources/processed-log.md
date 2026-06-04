@@ -524,3 +524,12 @@
   - claim-20260528-004-j: 拐点有效性的概率本质（risk）
   - wiki: knowledge/wiki/每日复盘/2026-05-28.md（追加复盘）
 
+- sources/raw/财经/视频：26-06-04：UP盘后视频录音整理.md
+  - claim-20260604-003-a: 半导体120分钟顶部结构调整周期即将结束（market-cycle）
+  - claim-20260604-003-b: 燃气轮机确定性高，回调上车（sector-theme）
+  - claim-20260604-003-c: PCB与光模块短期告一段落（sector-theme）
+  - claim-20260604-003-d: 强势板块尾盘低吸套利策略（operation）
+  - claim-20260604-003-e: 人民币升值利空海外业务公司（macro）
+  - claim-20260604-003-f: 算力租赁关注通富微电价格信号（sector-theme）
+  - wiki: knowledge/wiki/每日复盘/2026-06-04.md（追加盘后视频观点）
+

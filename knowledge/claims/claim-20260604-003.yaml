@@ -1,0 +1,160 @@
+---
+source_path: "sources/raw/财经/视频：26-06-04：UP盘后视频录音整理.md"
+source_date: "2026-06-04"
+source_type: "bilibili_video"
+processed_at: "2026-06-04T15:30:00+08:00"
+claims:
+  - id: "claim-20260604-003-a"
+    topic: "半导体调整周期即将结束"
+    text: "半导体120分钟顶部结构的调整周期为12-16个交易日，从5月14日开始计算到6月5日（周五）基本结束，做好半导体随时启动的准备"
+    evidence_quote: "120分钟顶部结构的话，它是12天到16个交易日的调整周期，然后走的是日线级别的调整。那你可以你自己算一下，就从5月14号开始算，它的整个调整周期大概也就到明天这个样子，也就是到周五。"
+    interpretation: |
+      UP对半导体板块的技术面判断：
+      1. 120分钟顶部结构对应12-16个交易日调整周期
+      2. 从5月14日起算，6月5日（周五）为调整周期尾声
+      3. 若继续下跌，应做好半导体随时启动的准备
+      4. 短期关注标的：汇成真空、茂莱光学（先看20天线支撑）
+      5. 中期反复炒作方向：长鑫存储扩产、上海微电子、新凯来
+    claim_type: "market-cycle"
+    scope: "short-term"
+    timeframe: "short-term"
+    confidence: "medium"
+    status: "active"
+    tags:
+      - "半导体"
+      - "120分钟顶部结构"
+      - "调整周期"
+      - "汇成真空"
+      - "茂莱光学"
+      - "长鑫存储"
+    related_claims: []
+    contradicts: []
+    supersedes: []
+
+  - id: "claim-20260604-003-b"
+    topic: "燃气轮机确定性高，回调上车"
+    text: "燃气轮机板块确定性很高，可类比上一轮牛市的锂电池，机构普遍看好且会格局，短期涨太多需要回调，回调是上车机会"
+    evidence_quote: "燃气轮机的话，反正你知道就是它的确定性很高的，就我知道其实很多机构都是看好这个板块...你可以类比成上一轮牛市的锂电池，就这个东西你是可以格局的...只是说短期涨太多了，它就是要回调的...就是回调的时候去上车就可以了。"
+    interpretation: |
+      UP对燃气轮机板块的定位：
+      1. 确定性对标上一轮牛市锂电池，机构长期看好
+      2. 机构资金会格局持有，不是短线题材
+      3. 短期涨幅过大后正常回调，回调即买点
+      4. 属于可中线持有的高确定性方向
+    claim_type: "sector-theme"
+    scope: "trend"
+    timeframe: "trend"
+    confidence: "high"
+    status: "active"
+    tags:
+      - "燃气轮机"
+      - "机构看好"
+      - "回调上车"
+      - "中线格局"
+    related_claims: []
+    contradicts: []
+    supersedes: []
+
+  - id: "claim-20260604-003-c"
+    topic: "PCB与光模块短期告一段落"
+    text: "PCB（窄版）和光模块短期涨幅已大，阶段性行情告一段落，后续需观察，短期不宜追高"
+    evidence_quote: "PCB（窄版）这个东西，反正短期是已经告一个段落...短期是已经涨很多了，特别是北美AI链条这边。然后光模块反正也差不多了。"
+    interpretation: |
+      UP对AI硬件两条主线的判断：
+      1. PCB（窄版/北美链）短期涨幅过大，阶段性行情结束
+      2. 光模块同步进入短期休整
+      3. 后续能否继续涨需重新观察，当前不判断趋势反转
+      4. 短期策略：不追高，已持仓的享受余温或兑现
+    claim_type: "sector-theme"
+    scope: "short-term"
+    timeframe: "short-term"
+    confidence: "high"
+    status: "active"
+    tags:
+      - "PCB"
+      - "光模块"
+      - "北美AI链"
+      - "短期休整"
+      - "不追高"
+    related_claims: []
+    contradicts: []
+    supersedes: []
+
+  - id: "claim-20260604-003-d"
+    topic: "强势板块尾盘低吸套利策略"
+    text: "强势板块操作方法：尾盘低吸，次日高开即卖出，不要格局，不适合长期持有"
+    evidence_quote: "强势板块的话，你可以尾盘去低吸，第二天高开，然后你给它砸出去就可以了...强势板块，你也别什么，别什么一直格局什么的，不好做的。"
+    interpretation: |
+      UP对强势板块短线操作策略的明确纪律：
+      1. 买入时机：尾盘低吸（避免盘中追高）
+      2. 卖出时机：次日高开即砸（不贪多）
+      3. 核心纪律：不格局、不长期持有
+      4. 适用场景：强势板块的短线套利，非主升浪持仓
+      5. 与中线格局（如燃气轮机）策略形成鲜明对比
+    claim_type: "operation"
+    scope: "short-term"
+    timeframe: "short-term"
+    confidence: "high"
+    status: "active"
+    tags:
+      - "强势板块"
+      - "尾盘低吸"
+      - "次日高抛"
+      - "套利策略"
+      - "不格局"
+    related_claims: []
+    contradicts: []
+    supersedes: []
+
+  - id: "claim-20260604-003-e"
+    topic: "人民币升值利空海外业务公司"
+    text: "人民币强势对海外业务占比高的公司是利空（收美元换人民币变少），应尽量配置国内业务为主的公司"
+    evidence_quote: "人民币如果是比较强势的话，因为你像一些公司，它的产品卖到海外去的话，它收的是美元...那如果人民币很强势的话，那是不是它收的美元换成人民币就变少了，那是不是就是利空？...尽量的话就是买一些这个人民币这个业务，就是国内的业务为主的这些公司。"
+    interpretation: |
+      UP对汇率影响的板块配置思路：
+      1. 人民币强势→海外业务公司（收美元）利润承压
+      2. 典型利空标的：拓维信息、网宿科技（海外业务多）
+      3. 配置方向转向：国内业务为主的公司
+      4. 举例：金风科技（风电国内为主）、润泽科技（AIDC国内为主）
+      5. 属于中期配置逻辑，非单日交易信号
+    claim_type: "macro"
+    scope: "short-term"
+    timeframe: "short-term"
+    confidence: "medium"
+    status: "active"
+    tags:
+      - "人民币汇率"
+      - "海外业务"
+      - "国内业务"
+      - "拓维信息"
+      - "网宿科技"
+      - "金风科技"
+      - "润泽科技"
+    related_claims: []
+    contradicts: []
+    supersedes: []
+
+  - id: "claim-20260604-003-f"
+    topic: "算力租赁关注通富微电价格信号"
+    text: "算力租赁板块需密切跟踪通富微电（GB300机器价格）的股价表现，一旦涨不动或开始下跌，预示板块风险来临"
+    evidence_quote: "等你什么时候看到一通电子这个价格涨不动了，或者说开始跌了，那你就要注意一下这个算力租赁这个板块的风险。"
+    interpretation: |
+      UP给出的算力租赁板块风控指标：
+      1. 核心观察标的：通富微电（GB300封装供应链）
+      2. 风险信号：股价涨不动或开始下跌
+      3. 逻辑：GB300机器价格通富微电是产业链关键一环，其股价反映算力硬件景气度
+      4. 操作建议：跟踪通富微电，出现滞涨或回调时警惕算力租赁板块风险
+    claim_type: "sector-theme"
+    scope: "short-term"
+    timeframe: "short-term"
+    confidence: "medium"
+    status: "active"
+    tags:
+      - "算力租赁"
+      - "通富微电"
+      - "GB300"
+      - "风险信号"
+      - "板块风控"
+    related_claims: []
+    contradicts: []
+    supersedes: []
