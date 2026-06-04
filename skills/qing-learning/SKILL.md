@@ -141,6 +141,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 2. **跳过 claim schema 直接写 claims**：不写 claims 前不读 `references/claim-schema.md` 是常见错误。虽然 LLM 生成的 YAML 通常格式正确，但字段缺失、枚举值错误、特殊字符未转义等问题只有在对比 schema 后才能避免。一次 YAML 格式错误会导致后续索引生成、wiki 链接、矛盾检测全部中断。
 3. **重复处理已存在的文档**：处理前未检查 `sources/raw/财经/`、`knowledge/claims/`、`knowledge/wiki/每日复盘/` 中是否已有对应内容，导致重复创建 claims 或 wiki 冲突。
 4. **用户说"核对/确认哪些没处理"时，脚本匹配不可靠**：`find_unprocessed.py` 按文件名匹配，但 claim 中的 `source_path` 可能包含完整路径或不同命名格式。正确核对方式：读取所有 claim 文件的 `source_path` 字段（用正则容错解析YAML失败的文件），与 raw 文件名做 basename 匹配，而非依赖脚本输出。
+5. **随意关联 related_stocks 而不验证业务对齐**：撰写 claims 时，仅凭板块/主题分类（如「都是数据库」）就把标的加入 `related_stocks`，未验证其具体产品/技术是否真正对齐 claim 的核心逻辑。反面案例：NVIDIA GPU-Native 数据库催化，星环科技有 Transwarp GPU-Native 产品，但海量数据主营 Vastbase（openGauss 关系型数据库），两者产品完全不同——仅因「都是国产数据库」就关联属于错误。规则：添加到 `related_stocks` 前，必须确认该标的真的有对应产品/技术，不能仅凭板块分类。
 
 ---
 

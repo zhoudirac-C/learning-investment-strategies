@@ -269,12 +269,8 @@ sector_groups:
   name: CPU自研链
   style: offensive
   members:
-  - code: 600246.SH
-    name: 万通发展
-- id: st_watch
-  name: ST观察
-  style: avoid
-  members:
+  - code: 000066.SZ
+    name: 中国长城
   - code: 002055.SZ
     name: ST得润
 - id: upstream_price_increase
@@ -285,8 +281,6 @@ sector_groups:
     name: 芯碁微装
   - code: 688347.SH
     name: 华虹公司
-  - code: 002484.SZ
-    name: 江海股份
   - code: 688469.SH
     name: 芯联集成
   - code: 000969.SZ
@@ -450,16 +444,26 @@ notification_policy:
   only_notify_when:
   - 液冷/散热触发买入点或证伪
   - 上游涨价链触发观察点或扩散确认
-  - CPU自研链组内联动恢复或持续分化
+  - CPU自研链组内联动（中国长城/ST得润）或产业催化超预期
   - 大盘4055支撑验证或跌破
   - 半导体/消费出现规避方向异动
   - 算力租赁/token概念发酵
   suppress_when:
   - 只是普通红绿波动
   - 单票异动但板块不共振
-  - 同一股票同一信号30分钟内已提醒
+  - 同一信号按类型差异化去重（风控15min/减仓30min/板块轮动30min，见dedupe_by_type）
   - 当前不在A股交易时段
   - 规避方向（半导体/消费）的普通波动
+  dedupe_by_type:
+    risk_alert:
+      dedupe_minutes: 15
+      breakthrough_if_price_change_pct: 1.0
+    reduce_alert:
+      dedupe_minutes: 30
+      breakthrough_if_price_change_pct: 2.0
+    sector_rotation:
+      dedupe_minutes: 30
+      breakthrough_if_price_change_pct: 0
   message_fields:
   - time
   - action
