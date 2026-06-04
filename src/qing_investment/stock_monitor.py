@@ -802,6 +802,72 @@ def is_scheduled_agent_analysis_time(config: MonitorConfig, value: datetime) -> 
     return any(str(row.get("time", "")) == current_hhmm for row in agent_analysis_schedule_rows(config))
 
 
+def _agent_context_data(
+    config: MonitorConfig,
+    value: datetime,
+    trigger: AgentAnalysisTrigger,
+    alerts: list[RuleAlert],
+    quote_snapshot: dict,
+    state: dict,
+) -> dict:
+    """Build the structured data dict used by both text and JSON formatters."""
+    stage = config.strategy_pack.get("market_framework", {}).get(
+        "current_stage", "未配置"
+    )
+    core_question = config.strategy_pack.get("market_framework", {}).get(
+        "core_question", "未配置"
+    )
+
+    alert_dicts = [
+        {
+            "action": a.action,
+            "stock_code": a.stock_code,
+            "stock_name": a.stock_name,
+            "price": a.price,
+            "trigger": a.trigger,
+            "severity": a.severity,
+            "summary": a.summary,
+        }
+        for a in alerts
+    ]
+
+    positions = position_rows(config)
+    watch_stocks = watchlist_stock_rows(config)
+
+    return {
+        "timestamp": value.astimezone(CN_TZ).isoformat(),
+        "trigger": {
+            "kind": trigger.kind,
+            "id": trigger.id,
+            "title": trigger.title,
+            "reason": trigger.reason,
+        },
+        "market_framework": {
+            "stage": stage,
+            "core_question": core_question,
+        },
+        "alerts": alert_dicts,
+        "market_state": state.get("last_market_state", {}),
+        "sector_signal_counts": state.get("sector_signal_counts", {}),
+        "quote_snapshot": quote_snapshot,
+        "positions": positions,
+        "watchlist": [
+            {
+                "theme": row.get("theme_name", ""),
+                "role": row.get("role", ""),
+                "name": row.get("name", ""),
+                "code": row.get("code", ""),
+                "watch_reason": row.get("watch_reason", ""),
+                "buy_setup": _string_items(row.get("buy_setup")),
+                "invalidation_setup": _string_items(row.get("invalidation_setup")),
+                "sell_setup": _string_items(row.get("sell_setup")),
+                "confirm_with": _string_items(row.get("confirm_with")),
+            }
+            for row in watch_stocks
+        ],
+    }
+
+
 def format_agent_analysis_context(
     config: MonitorConfig,
     value: datetime,
@@ -810,30 +876,27 @@ def format_agent_analysis_context(
     quote_snapshot: dict,
     state: dict,
 ) -> str:
-    stage = config.strategy_pack.get("market_framework", {}).get(
-        "current_stage", "未配置"
-    )
-    core_question = config.strategy_pack.get("market_framework", {}).get(
-        "core_question", "未配置"
-    )
+    data = _agent_context_data(config, value, trigger, alerts, quote_snapshot, state)
+    stage = data["market_framework"]["stage"]
+    core_question = data["market_framework"]["core_question"]
     lines = [
         "[Hermes股票监控大模型分析上下文]",
-        f"时间：{value.astimezone(CN_TZ).strftime('%Y-%m-%d %H:%M:%S %Z')}",
-        f"触发类型：{trigger.kind}",
-        f"触发点：{trigger.title}",
-        f"触发原因：{trigger.reason}",
+        f"时间：{data['timestamp']}",
+        f"触发类型：{data['trigger']['kind']}",
+        f"触发点：{data['trigger']['title']}",
+        f"触发原因：{data['trigger']['reason']}",
         f"当前框架：{stage}",
         f"核心问题：{core_question}",
         "",
         "规则信号：",
     ]
-    if alerts:
-        for alert in alerts:
-            lines.append(f"- {alert.summary}")
+    if data["alerts"]:
+        for alert in data["alerts"]:
+            lines.append(f"- {alert['summary']}")
     else:
         lines.append("- 无新增规则信号；这是固定关键时间点分析。")
 
-    market_state = state.get("last_market_state", {})
+    market_state = data["market_state"]
     if market_state:
         lines.extend(
             [
@@ -845,7 +908,7 @@ def format_agent_analysis_context(
             ]
         )
 
-    sector_counts = state.get("sector_signal_counts", {})
+    sector_counts = data["sector_signal_counts"]
     if sector_counts:
         lines.extend(["", "板块连续信号："])
         for key, value_dict in sector_counts.items():
@@ -890,6 +953,29 @@ def format_agent_analysis_context(
         ]
     )
     return "\n".join(lines)
+
+
+def format_agent_json_context(
+    config: MonitorConfig,
+    value: datetime,
+    trigger: AgentAnalysisTrigger,
+    alerts: list[RuleAlert],
+    quote_snapshot: dict,
+    state: dict,
+    max_quotes: int = 40,
+) -> str:
+    """Return the agent context as a JSON string for qing-agent HTTP API.
+
+    Quotes are truncated to ``max_quotes`` to keep the payload small enough
+    for LLM prompt limits and reasonable HTTP latency.
+    """
+    data = _agent_context_data(config, value, trigger, alerts, quote_snapshot, state)
+    qs = data.get("quote_snapshot", {})
+    all_quotes = qs.get("quotes", []) or []
+    if len(all_quotes) > max_quotes:
+        qs["quotes"] = all_quotes[:max_quotes]
+        qs["_total_quotes"] = len(all_quotes)
+    return json.dumps(data, ensure_ascii=False, indent=2)
 
 
 def _state_date(value: datetime) -> str:
@@ -1636,8 +1722,9 @@ def run_tick(
     state_path: Path | None = None,
     dedupe_minutes: int = 30,
     agent_context_on_trigger: bool = False,
+    agent_json_context: bool = False,
 ) -> str:
-    scheduled_agent_time = agent_context_on_trigger and is_scheduled_agent_analysis_time(
+    scheduled_agent_time = (agent_context_on_trigger or agent_json_context) and is_scheduled_agent_analysis_time(
         config, value
     )
     if (
@@ -1671,7 +1758,7 @@ def run_tick(
     update_market_state(state, alerts, quote_snapshot, value)
     record_alert_decision_log(state, alerts, new_alerts, value)
     agent_trigger = None
-    if agent_context_on_trigger:
+    if agent_context_on_trigger or agent_json_context:
         agent_trigger = find_agent_analysis_trigger(config, state, value, new_alerts)
     if new_alerts:
         record_emitted_alerts(state, new_alerts, value)
@@ -1679,6 +1766,15 @@ def run_tick(
     if agent_trigger:
         record_agent_analysis_trigger(state, agent_trigger, value)
         save_monitor_state(resolved_state_path, state)
+        if agent_json_context:
+            return format_agent_json_context(
+                config,
+                value,
+                agent_trigger,
+                new_alerts,
+                quote_snapshot,
+                state,
+            )
         return format_agent_analysis_context(
             config,
             value,
@@ -1751,6 +1847,14 @@ def build_parser() -> argparse.ArgumentParser:
         ),
     )
     parser.add_argument(
+        "--agent-json-context",
+        action="store_true",
+        help=(
+            "Emit structured JSON context for qing-agent HTTP API at configured "
+            "key times or when new rule alerts trigger."
+        ),
+    )
+    parser.add_argument(
         "--daily-review-context",
         action="store_true",
         help="Print an end-of-day monitoring review context from the state file.",
@@ -1788,6 +1892,7 @@ def main(argv: list[str] | None = None) -> int:
         state_path=Path(args.state_file) if args.state_file else None,
         dedupe_minutes=args.dedupe_minutes,
         agent_context_on_trigger=args.agent_context_on_trigger,
+        agent_json_context=args.agent_json_context,
     )
     if message:
         print(message)

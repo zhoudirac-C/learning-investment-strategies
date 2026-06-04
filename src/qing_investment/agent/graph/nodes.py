@@ -318,10 +318,21 @@ def reviewer(state: AgentState) -> AgentState:
             "verified_claims": [],
         }
 
+    # Ensure review_notes are strings (LLM may return dicts in issues list)
+    raw_issues = result.get("issues", []) or []
+    review_notes: list[str] = []
+    for item in raw_issues:
+        if isinstance(item, str):
+            review_notes.append(item)
+        elif isinstance(item, dict):
+            review_notes.append(json.dumps(item, ensure_ascii=False))
+        else:
+            review_notes.append(str(item))
+
     return {
 
         "review_passed": result.get("passed", False),
-        "review_notes": result.get("issues", []),
+        "review_notes": review_notes,
         "claims_cited": result.get("verified_claims", []),
         "data_sources": [],
         "confidence": "high" if result.get("passed") else "low",
