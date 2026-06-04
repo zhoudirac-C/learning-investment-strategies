@@ -1,5 +1,16 @@
 # 操作日志
 
+## 2026-06-04 | qing-learning ingest | 6-04盘中动态：主升末期持股为主，不追高等新周期
+
+- 处理 raw：
+  - `sources/raw/财经/动态：26-06-04：盘中提示-持股为主不追高等新周期.md`（B站动态，充电专属）
+  - `sources/raw/财经/早盘：26-06-04：调整第16天，指数纪律与题材落地.md`（已存在，未重新处理）
+- 新增 claim 文件：
+  - `knowledge/claims/claim-20260604-001.yaml`：主升末期持股为主，不追高等新周期
+- 更新 wiki：
+  - `knowledge/wiki/每日复盘/2026-06-04.md` — 新建：包含早盘策略+盘中动态
+- 更新索引：claims/index.md、wiki/index.md
+
 ## 2026-06-04 | qing-learning ingest | 6-03复盘：冲高回落，结构未坏，光互连主线
 
 - 处理 raw：`sources/raw/财经/复盘：26-06-03：冲高回落，结构未坏，光互连主线.md`
