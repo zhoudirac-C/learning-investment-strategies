@@ -532,4 +532,21 @@
   - claim-20260604-003-e: 人民币升值利空海外业务公司（macro）
   - claim-20260604-003-f: 算力租赁关注通富微电价格信号（sector-theme）
   - wiki: knowledge/wiki/每日复盘/2026-06-04.md（追加盘后视频观点）
+- sources/raw/财经/早盘：26-06-04：调整第16天，指数纪律与题材落地.md
+  - claim-20260604-004-a: 指数机械化纪律（market-cycle）
+  - claim-20260604-004-b: 量能核心矛盾（market-cycle）
+  - claim-20260604-004-c: 跌停家数企稳信号（market-cycle）
+  - claim-20260604-004-d: 光通信光互联阵眼（sector-theme）
+  - claim-20260604-004-e: AI Agent CPU重构（sector-theme）
+  - wiki: knowledge/wiki/每日复盘/2026-06-04.md（追加早盘内容）
+- sources/raw/财经/复盘：26-06-04：微盘股破位下的表面修复.md
+  - claim-20260604-005-a: 表面修复底层分歧（market-cycle）
+  - claim-20260604-005-b: 大小盘同步决定主升质量（methodology）
+  - claim-20260604-005-c: 科技分化不足明天可能补跌（market-cycle）
+  - claim-20260604-005-d: 博通业绩产能非需求（sector-theme）
+  - claim-20260604-005-e: 世运电路LPU埋嵌PCB（sector-theme）
+  - claim-20260604-005-f: 意华股份高速连接器CPO华为（sector-theme）
+  - claim-20260604-005-g: 博迁新材超细镍粉MLCC涨价（sector-theme）
+  - claim-20260604-005-h: 操作策略收缩战线（operation）
+  - wiki: knowledge/wiki/每日复盘/2026-06-04.md（追加晚间复盘第八节）
 

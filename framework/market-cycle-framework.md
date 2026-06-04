@@ -426,3 +426,4 @@
 - [claim-20260528-001-f](../knowledge/claims/claim-20260528-001.yaml) — 拐点验证双条件
 - [claim-20260527-001-i](../knowledge/claims/claim-20260527-001.yaml) — 利润垫动态仓位
 - [claim-20260522-002-b](../knowledge/claims/claim-20260522-002.yaml) — 趋势股新高反证见顶
+- [claim-20260604-005-b](../knowledge/claims/claim-20260604-005.yaml) — 大小盘同步决定主升质量

@@ -1,0 +1,103 @@
+---
+source_path: "sources/raw/财经/早盘：26-06-04：调整第16天，指数纪律与题材落地.md"
+source_date: "2026-06-04"
+source_type: "bilibili_dynamic"
+source_id: "1209888271553789976"
+processed_at: "2026-06-04T23:00:00+08:00"
+claims:
+  - id: "claim-20260604-004-a"
+    topic: "指数机械化纪律"
+    statement: "日线顶部结构第16交易日，严格执行机械化标准：收盘跌破4033清仓、突破4130满仓、两点之间持股做T"
+    evidence_quote: "收盘价跌穿4033点 → 清仓；向上突破4130点 → 满仓；两点之间：持股做T"
+    interpretation: "UP在调整第16天给出三条确定性机械规则，不预判不抢跑，纯价格触发。这是典型的指数纪律框架，适合震荡市中的仓位管理。"
+    confidence: "high"
+    status: "active"
+    claim_type: "market-cycle"
+    time_frame: "short-term"
+    related_stocks: []
+    tags: ["指数纪律", "仓位管理", "调整周期", "机械化标准"]
+    supersedes: []
+    contradicts: []
+    links:
+      wiki: ["knowledge/wiki/每日复盘/2026-06-04.md"]
+      raw: ["sources/raw/财经/早盘：26-06-04：调整第16天，指数纪律与题材落地.md"]
+
+  - id: "claim-20260604-004-b"
+    topic: "量能核心矛盾"
+    statement: "成交额3万亿体量尴尬，上下都需要放量配合；创业板指依赖易中天等少数大票支撑，防御板块蠢动是资金转守信号"
+    evidence_quote: "3万亿这个体量本身很尴尬，像个'巨型火药桶'——砸下来很难接稳，继续涨又需要放量到3.5万亿；易中天这三家全天贡献了创业板指67个点里的50个点；煤炭、电力这类防御板块如果仍像昨天那样蠢蠢欲动，可能是资金转守的苗头"
+    interpretation: "3万亿成交额是高不成低不就的状态，既不是地量也不是足以突破的天量。市场依赖少数大票（易中天）支撑指数，防御板块蠢动说明资金风险偏好下降。"
+    confidence: "high"
+    status: "active"
+    claim_type: "market-cycle"
+    time_frame: "short-term"
+    related_stocks:
+      - code: "300502.SZ"
+        name: "新易盛"
+      - code: "300394.SZ"
+        name: "天孚通信"
+      - code: "300308.SZ"
+        name: "中际旭创"
+    tags: ["量能分析", "成交额", "创业板指", "防御板块", "易中天"]
+    supersedes: []
+    contradicts: []
+    links:
+      wiki: ["knowledge/wiki/每日复盘/2026-06-04.md"]
+      raw: ["sources/raw/财经/早盘：26-06-04：调整第16天，指数纪律与题材落地.md"]
+
+  - id: "claim-20260604-004-c"
+    topic: "跌停家数降至10以内"
+    statement: "跌停家数降到10家以内是此前定的赚钱效应和中小盘风格企稳的积极信号"
+    evidence_quote: "跌停家数终于降到10家以内。这是此前定的'赚钱效应和中小盘风格企稳'的积极信号"
+    interpretation: "跌停家数是UP衡量市场情绪的重要指标，降到10家以内意味着中小盘恐慌情绪缓解，是企稳的前提条件。"
+    confidence: "high"
+    status: "active"
+    claim_type: "market-cycle"
+    time_frame: "short-term"
+    related_stocks: []
+    tags: ["情绪指标", "跌停家数", "中小盘", "企稳信号"]
+    supersedes: []
+    contradicts: []
+    links:
+      wiki: ["knowledge/wiki/每日复盘/2026-06-04.md"]
+      raw: ["sources/raw/财经/早盘：26-06-04：调整第16天，指数纪律与题材落地.md"]
+
+  - id: "claim-20260604-004-d"
+    topic: "光通信光互联当前阵眼"
+    statement: "英伟达Spectrum-X硅光CPO架构量产+Computex黄仁勋强调高速连接瓶颈，光互连进入景气周期，冷门票裕太微资金认可度高"
+    evidence_quote: "英伟达6月2日官宣Spectrum-X Ethernet Photonics全面量产，基于硅光+CPO架构；Computex上黄仁勋与迈威尔CEO同台，把AI瓶颈指向'高速连接'；冷门票裕太微（阵眼）资金认可度高"
+    interpretation: "光互连是当前阵眼，核心催化是英伟达硅光量产和黄仁勋Computex发言。裕太微作为冷门ETF标的获得资金认可是板块强度的重要信号。"
+    confidence: "high"
+    status: "active"
+    claim_type: "sector-theme"
+    time_frame: "short-term"
+    related_stocks:
+      - code: "688515.SH"
+        name: "裕太微"
+    tags: ["光互连", "CPO", "硅光", "Spectrum-X", "英伟达", "阵眼"]
+    supersedes: []
+    contradicts: []
+    links:
+      wiki: ["knowledge/wiki/每日复盘/2026-06-04.md"]
+      raw: ["sources/raw/财经/早盘：26-06-04：调整第16天，指数纪律与题材落地.md"]
+
+  - id: "claim-20260604-004-e"
+    topic: "AI Agent时代CPU重构"
+    statement: "Computex黄仁勋和高通安蒙确认AI Agent时代到来，推理场景CPU耗时占比50-90%，服务器CPU量价齐升高双位数增长"
+    evidence_quote: "黄仁勋'AI Agent时代已全面到来'、高通安蒙'2026是Agent之年'；推理场景CPU耗时占比50%-90%；TrendForce测算每GW所需CPU核心数从3000万激增至1.2亿；2026年服务器CPU量价齐升、高双位数增长"
+    interpretation: "Agent时代对CPU的需求量级远超单纯AI训练，推理场景下CPU是关键瓶颈。这个逻辑与之前半导体周期调整结束的判断互补。"
+    confidence: "high"
+    status: "active"
+    claim_type: "sector-theme"
+    time_frame: "medium-term"
+    related_stocks:
+      - code: "002436.SZ"
+        name: "兴森科技"
+      - code: "002290.SZ"
+        name: "禾盛新材"
+    tags: ["AI Agent", "CPU重构", "推理场景", "Computex", "服务器CPU"]
+    supersedes: []
+    contradicts: []
+    links:
+      wiki: ["knowledge/wiki/每日复盘/2026-06-04.md"]
+      raw: ["sources/raw/财经/早盘：26-06-04：调整第16天，指数纪律与题材落地.md"]
