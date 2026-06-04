@@ -1,0 +1,58 @@
+version: "3.8"
+
+services:
+  neo4j:
+    image: neo4j:5.19-community
+    container_name: qing-neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:-qingneo4j}
+      - NEO4J_PLUGINS=["apoc"]
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.*
+    volumes:
+      - ./infra/data/neo4j:/data
+      - ./scripts/init_neo4j.cypher:/init.cypher:ro
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:7474"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  qdrant:
+    image: qdrant/qdrant:v1.9.7
+    container_name: qing-qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - ./infra/data/qdrant:/qdrant/storage
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:6333/healthz"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: qing-postgres
+    environment:
+      - POSTGRES_USER=mem0
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-qingpostgres}
+      - POSTGRES_DB=mem0
+    volumes:
+      - ./infra/data/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mem0 -d mem0"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # 注：Mem0 自托管镜像当前无法公开拉取，暂跳过。
+  # 记忆功能将在 Batch 2 中通过 Python SDK + PostgreSQL 直接实现。

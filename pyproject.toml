@@ -17,6 +17,20 @@ dependencies = [
 dev = [
   "pytest>=8.0",
 ]
+agent = [
+  "langgraph>=0.2.0",
+  "langchain>=0.3.0",
+  "langchain-openai>=0.2.0",
+  "fastapi>=0.115.0",
+  "uvicorn>=0.32.0",
+  "neo4j>=5.24.0",
+  "qdrant-client>=1.12.0",
+  "mem0ai>=0.1.0",
+  "pydantic-settings>=2.0",
+  # 注意：sentence-transformers 依赖 torch，Python 3.13 支持有限。
+  # 如需本地 Embedding，请手动安装：uv pip install sentence-transformers
+  # 或使用 API Embedding（OpenAI/SiliconFlow 等）作为替代。
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]
