@@ -1,9 +1,9 @@
 updated_at: '2026-06-05'
 today_snapshot:
-  fetch_time: 2026-06-04 16:30 CST
-  source: 6-4收盘复盘 + 6-4视频 + 6-4复盘专栏
-  up_bias: 6月4日：调整第16天。微盘股破位，一九行情分化。UP视频"放弃执念，都是星辰大海"——别跟趋势作对，等右侧确认。持仓者止损优先，未持仓者等新周期。
-  market_summary: 6月4日收盘：微盘股破位下跌，上证指数权重撑住但个股普跌。AI硬件（光互联/CPO）分化中仍有强势品种（世运涨停/意华+5.4%），但大部分个股普跌。MLCC/风华+4.9%周期上行确认。博通LPU新概念首日发酵（世运涨停）。UP"放弃执念"信号：不要死扛亏损，该止损止损。
+  fetch_time: 2026-06-05 09:30 CST
+  source: 6-5早盘专栏
+  up_bias: 调整第17天接近尾声。4033/4130不变。做T为主。重心AI基建上游材料(铜缆/光纤/MLCC/超级电容)。非科技尾声。昇腾超跌赔率升高。
+  market_summary: 缩量调整第17天企稳特征。AI上游材料端最确定。煤炭龙头见顶信号。昇腾超跌赔率升高(华丰定增133.9+航天电器双重下杀)。做T为主不开新仓。
   stocks_with_data:
   - code: sz000969
     name: 安泰科技
@@ -35,7 +35,7 @@ today_snapshot:
     latest: 63.5
     pct_change: 4.89
     note: MLCC核心+4.89%强势。纪律：只观察不介入。
-  overall_action: 6月5日操作：防守优先。微盘股不止跌不开新仓。安泰科技关注24.5支撑破位则减仓；中国长城急跌16.0以下补200。LPU方向只观察不追（世运涨停后高开易兑现）。MLCC只观察不介入。
+  overall_action: 6月5日：做T/持股为主。重心AI上游材料。航天电器等昇腾企稳。4033/4130不变。
 themes:
 - id: cpu_self_development
   name: CPU自研链（字节催化，可能裂变为主线）
@@ -93,7 +93,8 @@ themes:
     role: pcie_switch_core
     segment: PCIe Switch
     priority: P1-核心
-    watch_reason: 数渡科技PCIe Switch，国产替代博通。CPU翻倍预期+国产超节点放量→PCIe Switch市场大幅扩容（2026年国内超200亿）。104通道已量产、144通道已投片、PCIe 6.0/CXL在研。
+    watch_reason: 数渡科技PCIe Switch，国产替代博通。CPU翻倍预期+国产超节点放量→PCIe Switch市场大幅扩容（2026年国内超200亿）。104通道已量产、144通道已投片、PCIe
+      6.0/CXL在研。
     sync_with_index: ⚠️ 弱同步——6月1日随科技调整-2.04%，跌破成本
     confirm_with:
     - ST得润
@@ -560,6 +561,50 @@ themes:
     invalidation_setup:
     - 单票脉冲但组内无联动
     - 跌破分时均价
+    up_mention_status:
+      last_mentioned_date: '2026-06-05'
+      mention_context: 6月5日早盘第四部分：昇腾产业链核心（华丰科技/航天电器/意华股份），叠加LPU+CPO双重卡位
+      explicit_operation: null
+      sentiment: 积极观察
+    sector_narrative:
+      relative_strength: 昇腾+LPU+CPO三重卡位
+      leader_follower: 连接器+CPO双重受益
+      catalyst: 昇腾950认证+LPU新方向+CPO景气
+      risk: 三重概念叠加，昇腾短期调整压力
+    technical_narrative:
+      trend: 6月4日+5.43%强势
+      volume_character: 放量上涨
+      key_levels:
+      - 前高压力
+      pattern: 强势后震荡
+      note: UP纳入昇腾核心+LPU关联
+  - code: 301018.SZ
+    name: 申菱环境
+    role: liquid_cooling_overseas
+    segment: 液冷出海
+    priority: P2-观察
+    tradable: false
+    note: 不可交易（创业板301），仅观察学习UP思路
+    watch_reason: 华为系液冷出海，海外订单≥英维克，市值仅1/3。亚马逊1MW CDU+谷歌测试+矿机30亿。明年20亿利润→600亿。6-7月催化密集。
+    confirm_with:
+    - 英维克
+    buy_setup:
+    - 液冷出海订单落地
+    - 6-7月谷歌/亚马逊下单催化
+    invalidation_setup:
+    - 液冷价格战恶化
+    - 海外订单低于预期
+    up_mention_status:
+      last_mentioned_date: '2026-06-05'
+      mention_context: 6月5日早盘第四部分：华为系液冷出海，市值仅英维克1/3，逢低重新定价机会
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: UP提示价值重估机会
+      note: 不可交易（创业板301）
+    sector_narrative:
+      catalyst: 6-7月谷歌/亚马逊液冷下单
+      risk: 液冷价格战
 - id: cpo_optical_communication
   name: 光通信/CPO（高位核心，确认景气但不追）
   source_docs:
@@ -1523,6 +1568,71 @@ themes:
     invalidation_setup:
     - 跌破15日低点 40.31 且不能收回
     - 跌破MA5 47.4 且板块无联动
+  - code: 002025.SZ
+    name: 航天电器
+    role: ascend_connector_core
+    segment: 昇腾连接器/军工电子
+    priority: P2-重点
+    tradable: true
+    watch_reason: 昇腾产业链核心标的，短期军工+昇腾双重下杀接近估值底部。华丰科技定增锁价133.9元确认行业含金量。
+    sync_with_index: ⚠️ 弱同步——双重下杀后等企稳
+    confirm_with:
+    - 华丰科技
+    - 意华股份
+    buy_setup:
+    - 昇腾产业链整体企稳，华丰科技或意华股份同步转强
+    - 等缩量回踩或分歧后放量收回均线
+    invalidation_setup:
+    - 单票脉冲但昇腾链无联动
+    - 跌破估值底部且30分钟不能收回
+    up_mention_status:
+      last_mentioned_date: '2026-06-05'
+      mention_context: 6月5日早盘第四部分：华丰科技定增锁价确认昇腾含金量，航天电器短期双重下杀接近估值底部
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 双重下杀后接近估值底部
+      volume_character: 待观察
+      key_levels:
+      - 支撑：估值底部
+      - 压力：待确认
+      pattern: 超跌后磨底
+      note: UP：赔率升高，6月中下旬回归算力主航道
+    sector_narrative:
+      relative_strength: 昇腾链内偏弱（军工拖累）
+      leader_follower: 跟随华丰科技
+      catalyst: 昇腾950量产前认证
+      risk: 军工拖累+昇腾调整延长
+  - code: 688629.SH
+    name: 华丰科技
+    role: ascend_interconnect_leader
+    segment: 昇腾高速互联
+    priority: P2-观察
+    tradable: false
+    note: 不可交易（科创板688），仅观察学习UP思路
+    watch_reason: 国产AI互联龙头，定增锁价133.9元确认含金量。昇腾950量产前高速线缆模组认证进展。
+    confirm_with:
+    - 航天电器
+    - 意华股份
+    buy_setup:
+    - 昇腾950认证进展确认
+    invalidation_setup:
+    - 定增破发(133.9)
+    - 认证低于预期
+    up_mention_status:
+      last_mentioned_date: '2026-06-05'
+      mention_context: 6月5日早盘第四部分：定增锁价133.9，国产AI互联龙头
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 定增锁价133.9支撑
+      key_levels:
+      - 支撑：133.9
+      note: 不可交易（科创板688）
+    sector_narrative:
+      relative_strength: 昇腾链核心
+      catalyst: 昇腾950认证
+      risk: 定增解锁抛压
 - id: mainboard_compute_software
   name: 国产CPU/服务器/基础软件主板观察池
   tradability: mainboard_only
@@ -1990,6 +2100,32 @@ themes:
     - 若不能站稳60或重新跌回59成本线下，优先减弱留强
     - 站不回成本附近且资金继续流出
     - 跌回58.4附近不能修复
+  - code: 301611.SZ
+    name: 珂玛科技
+    role: esc_ceramic_breakthrough
+    segment: 静电卡盘/陶瓷加热器
+    priority: P2-观察
+    tradable: false
+    note: 不可交易（创业板301），仅观察学习UP思路
+    watch_reason: 静电卡盘(ESC)在国产设备龙头突破，首次批量订单。华创26年刻蚀设备超百亿→卡盘10亿+后市场20亿→利润弹性10亿→市值期权500亿。日企涨价10-15%倒逼国产加速。
+    confirm_with:
+    - 北方华创
+    buy_setup:
+    - 卡盘批量订单持续落地
+    invalidation_setup:
+    - 卡盘认证失败
+    - 日企降价打压
+    up_mention_status:
+      last_mentioned_date: '2026-06-05'
+      mention_context: 6月5日早盘第四部分：静电卡盘0→1突破，卡盘空间≥加热器，明显预期差
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 新业务0→1突破催化
+      note: 不可交易（创业板301）
+    sector_narrative:
+      catalyst: 静电卡盘国产替代、日企涨价倒逼扩产
+      risk: 卡盘认证周期长
 - id: mlcc_passive_cycle
   name: MLCC/被动元件周期上行（外溢承接，非类存储大紧缺）
   source_docs:
@@ -3238,7 +3374,8 @@ themes:
     role: cpo_switch_odm
     segment: CPO交换机/ODM
     priority: P2-重点
-    watch_reason: UP明确提示"关注地位方向"：CPO供应链核心卡位，全光CPO交换机机柜出货目标从26年超1万台上修至26-27年合计超5万台。英伟达Vera Rubin全面量产受益。
+    watch_reason: UP明确提示"关注地位方向"：CPO供应链核心卡位，全光CPO交换机机柜出货目标从26年超1万台上修至26-27年合计超5万台。英伟达Vera
+      Rubin全面量产受益。
     sync_with_index: 上证
     confirm_with:
     - 天孚通信
