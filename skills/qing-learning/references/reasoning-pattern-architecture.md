@@ -125,64 +125,67 @@ reasoning_patterns:
 | `related_wiki` | `knowledge/wiki/` | 通过文件路径关联 |
 | `action_template` | `strategy_pack.yaml` 的 `position_rules` | 操作建议模板 |
 
-## Layer 3: 动态应用层
+## Layer 3: 动态应用层（已实现，2026-06-05）
 
-### 如何将推理模式注入 AI 分析
+### 集成方式：Prompt 工程（在 `market_analyst()` 中注入）
 
-**方案A：Prompt工程（轻量，推荐先实现）**
+**实现位置**：`src/qing_investment/agent/graph/nodes.py`
 
-修改 `stock_monitor.py` 的 `format_agent_analysis_context()`：
-
-```python
-# 在生成分析上下文时，根据触发的主题附加相关推理模式
-if trigger.theme_id in reasoning_patterns:
-    context += f"\n\n[推理模式：{pattern.name}]\n"
-    for step in pattern.reasoning_chain:
-        context += f"{step.step}. {step.name}：{'；'.join(step.checks)}\n"
-    context += f"\n风险因素：{'；'.join(pattern.risk_factors)}\n"
+**数据流**：
+```
+用户提问 "今天MLCC板块怎么看？"
+    ↓
+_extract_themes_from_state(state)
+    ├─ query 关键词匹配 _THEME_KEYWORD_MAP
+    ├─ claims subject 字段匹配
+    └─ sector_context name 匹配
+    → 提取主题集合 {"MLCC", "被动元件"}
+    ↓
+_load_reasoning_patterns(state)
+    ├─ 加载 framework/reasoning-patterns.yaml
+    ├─ 与 applicable_themes 取交集
+    ├─ 按匹配主题数排序
+    └─ 取 Top 3（控制 prompt 长度）
+    ↓
+market_analyst() context["reasoning_patterns"]
+    → 注入到 LLM prompt，与 framework_rules 并列
+    ↓
+LLM 按推理模式 step 顺序执行分析
 ```
 
-AI 收到上下文后，会"模仿"UP的推理方式输出分析。
+**匹配机制**：`_THEME_KEYWORD_MAP` 定义了关键词→主题映射（位于 nodes.py），扩展新主题时需同步更新。
 
-**方案B：RAG检索（中等）**
+**Prompt 指令**：`market_analyst.txt` 中新增【推理模式使用规则】，强制 Agent：
+- 按推理模式步骤顺序思考
+- 用 risk_factors 检查证伪条件
+- 用 confidence_indicators 标注高置信信号
+- 实时数据与推理模式矛盾时以实时数据为准
 
-1. 将推理模式向量化（与 claims/wiki 一起）
-2. 当监控触发某主题时，检索该主题的推理模式
-3. 将检索结果作为 context 给 AI
+### 抽取工具
 
-**方案C：Fine-tune（重量，长期）**
-
-需要准备训练数据：
-```json
-{
-  "instruction": "分析今天MLCC板块的走势",
-  "input": "2026-06-04：风华高科+3.81%，三环集团+2.1%，洁美科技+1.5%...",
-  "output": "【UP风格】MLCC今天这个走法，先确认涨价真实性...",
-  "reasoning": "upstream_price_cycle: ①涨价公告已确认 ②AI服务器需求弹性大 ③类比存储周期启动期 ④风华高科放量突破..."
-}
-```
+`scripts/extract_reasoning_patterns.py` 支持 `--dry-run` / `--single` / `--max` / `--incremental` 四种模式。
+详见 `references/reasoning-pattern-extraction-workflow.md`。
 
 ## 实施路线图
 
-### Phase 1：抽取首批推理模式（1-2周）
+### Phase 1：抽取首批推理模式 ✅（已完成 2026-06-05）
 
-1. **选取经典案例**：从470篇raw中，找出UP对3-5个经典板块/主题的分析完整过程
-   - 候选：MLCC周期、CPU自研链、光互连、超级电容、存储周期
-2. **手动拆解推理链**：按上述YAML模板，逐条填写
-3. **创建 `framework/reasoning-patterns.yaml`**
-4. **修改 `stock_monitor.py`**：在 `format_agent_analysis_context()` 中根据主题附加推理模式
+1. **选取经典案例**：MLCC周期（2篇 raw）、Rubin BOM拆解、主线切换判断
+2. **手动拆解推理链**：4 条模式写入 `framework/reasoning-patterns.yaml`
+3. **Agent 集成**：`nodes.py` 中增加 `_load_reasoning_patterns()`，`market_analyst.txt` 增加推理模式使用规则
+4. **批量抽取脚本**：`scripts/extract_reasoning_patterns.py` 支持增量/批量/单篇模式
 
-### Phase 2：验证与迭代（2-4周）
+### Phase 2：验证与迭代（进行中）
 
-1. **对比测试**：同一行情，分别用"无推理模式"和"有推理模式"的prompt，看AI输出差异
-2. **收集反馈**：用户判断哪个更像UP的风格
+1. **对比测试**：同一行情，分别用"无推理模式"和"有推理模式"的 prompt，看 AI 输出差异
+2. **收集反馈**：用户判断哪个更像 UP 的风格
 3. **迭代完善**：补充遗漏的推理步骤、修正风险因素
 
-### Phase 3：自动化抽取（长期）
+### Phase 3：自动化抽取（已部分实现）
 
-1. **从raw中自动识别分析段落**：用NLP或规则提取UP的"因为...所以..."句式
-2. **自动归类到推理模式**：将新分析映射到已有模式，或创建新模式
-3. **持续更新**：随着UP内容增加，推理模式库自动扩展
+1. **批量脚本已就绪**：`scripts/extract_reasoning_patterns.py` 可后台批量处理 469 个候选文件
+2. **增量模式可用**：`--incremental` 跳过已处理文件，断点续跑
+3. **持续扩展**：新 raw 学习后运行 `--incremental --max 5` 增量抽取
 
 ## 与现有技能的衔接
 

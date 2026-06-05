@@ -76,98 +76,141 @@ def _load_framework_files(analysis_type: str) -> list[dict]:
 
 
 # ── 推理模式加载（Phase 4 新增）──
-# 关键词→主题映射：用于从 query/claims/sector 中提取主题，匹配推理模式
-_THEME_KEYWORD_MAP: dict[str, list[str]] = {
-    "MLCC": ["MLCC", "mlcc", "被动元件", "电容"],
-    "PCB": ["PCB", "pcb", "覆铜板", "电路板"],
-    "存储": ["存储", "HBM", "内存", "NAND", "DRAM"],
-    "硅片": ["硅片", "硅晶圆", "大硅片"],
-    "ABF基板": ["ABF", "abf", "基板", "载板"],
-    "主线判断": ["主线", "切换", "风格", "存量", "支线"],
-    "Rubin BOM": ["Rubin", "rubin", "BOM", "bom", "英伟达新架构"],
-    "被动元件": ["被动元件", "电感", "电阻", "电容"],
-}
+# 预加载的推理模式缓存（启动时从 reasoning-patterns.yaml 加载一次）
+_PATTERNS_CACHE: list[dict] = []
+
+
+def _ensure_patterns_cache() -> list[dict]:
+    """加载 reasoning-patterns.yaml 到内存缓存（懒加载，首次调用时加载）。"""
+    global _PATTERNS_CACHE
+    if _PATTERNS_CACHE:
+        return _PATTERNS_CACHE
+    import yaml
+    patterns_file = _REPO_ROOT / "framework" / "reasoning-patterns.yaml"
+    if not patterns_file.exists():
+        _PATTERNS_CACHE = []
+        return []
+    try:
+        with open(patterns_file, encoding="utf-8") as f:
+            data = yaml.safe_load(f)
+        _PATTERNS_CACHE = data.get("patterns", []) if data else []
+    except Exception:
+        _PATTERNS_CACHE = []
+    return _PATTERNS_CACHE
+
+
+def _build_theme_index(patterns: list[dict]) -> dict[str, list[int]]:
+    """构建主题→模式索引（倒排索引）。
+
+    对每个 pattern 的 applicable_themes 中的每个主题词，
+    拆分为关键词后建立倒排。例如：
+    "MLCC" → {MLCC: [0, 1]}
+    "AI算力" → {AI: [5], 算力: [5, 8]}
+    """
+    index: dict[str, list[int]] = {}
+    for i, p in enumerate(patterns):
+        themes = p.get("applicable_themes", [])
+        if not themes:
+            continue
+        for theme in themes:
+            # 对于短主题词（≤4字），直接作为关键词
+            if len(theme) <= 4:
+                kw = theme.lower()
+                index.setdefault(kw, []).append(i)
+            else:
+                # 长主题词：拆分为2字滑动窗口 + 保持原词
+                for j in range(len(theme) - 1):
+                    kw = theme[j:j+2].lower()
+                    index.setdefault(kw, []).append(i)
+                index.setdefault(theme.lower(), []).append(i)
+    return index
 
 
 def _extract_themes_from_state(state: AgentState) -> set[str]:
-    """从 query + claims + sector_context 中提取涉及的主题关键词。"""
+    """从 query + claims + sector_context 中提取涉及的主题关键词。
+
+    新版本：不再使用固定 _THEME_KEYWORD_MAP，而是从 query 文本中提取
+    所有 2-4 字片段作为候选关键词，与 pattern 的 applicable_themes 索引匹配。
+    """
     query = state.get("query", "")
-    themes: set[str] = set()
+    keywords: set[str] = set()
 
-    # 1. 从 query 匹配
-    for theme, keywords in _THEME_KEYWORD_MAP.items():
-        for kw in keywords:
-            if kw.lower() in query.lower():
-                themes.add(theme)
-                break
+    # 1. 从 query 提取候选关键词（2-4字滑动窗口）
+    q = query.lower()
+    for size in (2, 3, 4):
+        for i in range(len(q) - size + 1):
+            chunk = q[i:i+size]
+            # 过滤纯标点/数字/英文短词
+            if chunk.strip() and not chunk.isdigit() and not all(c in '，。！？；：""''（）【】 \t\n-—…' for c in chunk):
+                keywords.add(chunk)
 
-    # 2. 从 claims 的 subject 字段匹配
+    # 2. 从 claims 的 subject 提取
     for c in state.get("claims", []):
         subj = (c.get("subject") or "").strip()
-        for theme, keywords in _THEME_KEYWORD_MAP.items():
-            if any(kw.lower() in subj.lower() for kw in keywords):
-                themes.add(theme)
+        if subj:
+            keywords.add(subj.lower())
+            for size in (2, 3):
+                for i in range(len(subj) - size + 1):
+                    keywords.add(subj[i:i+size].lower())
 
-    # 3. 从 sector_context 匹配
+    # 3. 从 sector_context 提取
     for sc in state.get("sector_context", []):
         name = sc.get("name", "")
-        for theme, keywords in _THEME_KEYWORD_MAP.items():
-            if any(kw.lower() in name.lower() for kw in keywords):
-                themes.add(theme)
+        if name:
+            keywords.add(name.lower())
+            for size in (2, 3):
+                for i in range(len(name) - size + 1):
+                    keywords.add(name[i:i+size].lower())
 
-    return themes
+    return keywords
 
 
 def _load_reasoning_patterns(state: AgentState) -> list[dict]:
     """从 reasoning-patterns.yaml 加载与当前分析主题匹配的推理模式。
 
-    匹配逻辑：
-    1. 从 state 中提取当前涉及的主题
-    2. 与 patterns 的 applicable_themes 取交集
-    3. 返回匹配的 pattern，按匹配主题数量排序
-
-    返回格式（精简版，只保留推理链+风险因素，控制 prompt 长度）：
-    [{"pattern_id": "...", "name": "...", "reasoning_chain": [...], "risk_factors": [...]}]
+    匹配逻辑（倒排索引方法）：
+    1. 从 state 中提取候选关键词（2-4字滑动窗口）
+    2. 用倒排索引检索匹配的 pattern
+    3. 按匹配关键词数量排序，最多返回 5 条
     """
-    import yaml
-
-    patterns_file = _REPO_ROOT / "framework" / "reasoning-patterns.yaml"
-    if not patterns_file.exists():
+    patterns = _ensure_patterns_cache()
+    if not patterns:
         return []
 
-    try:
-        with open(patterns_file, encoding="utf-8") as f:
-            data = yaml.safe_load(f)
-    except Exception:
+    keywords = _extract_themes_from_state(state)
+    if not keywords:
         return []
 
-    if not data or not data.get("patterns"):
+    theme_index = _build_theme_index(patterns)
+
+    # 倒排检索：每个关键词命中了哪些 pattern
+    pattern_scores: dict[int, int] = {}
+    for kw in keywords:
+        for pi in theme_index.get(kw, []):
+            pattern_scores[pi] = pattern_scores.get(pi, 0) + 1
+
+    if not pattern_scores:
         return []
 
-    themes = _extract_themes_from_state(state)
-    if not themes:
-        # 无明确主题时不注入推理模式（避免不相关的模式干扰）
-        return []
-
+    # 按匹配分数排序，取 top 5
+    sorted_pairs = sorted(pattern_scores.items(), key=lambda x: x[1], reverse=True)
     matched: list[dict] = []
-    for p in data["patterns"]:
-        applicable = set(p.get("applicable_themes", []))
-        overlap = themes & applicable
-        if overlap:
-            matched.append({
-                "pattern_id": p.get("pattern_id", ""),
-                "name": p.get("name", ""),
-                "description": p.get("description", ""),
-                "reasoning_chain": p.get("reasoning_chain", []),
-                "risk_factors": p.get("risk_factors", []),
-                "confidence_indicators": p.get("confidence_indicators", []),
-                "match_themes": list(overlap),
-                "match_score": len(overlap),
-            })
+    for pi, score in sorted_pairs[:5]:
+        p = patterns[pi]
+        # 找到匹配的具体主题词
+        matched_keywords = [kw for kw in keywords if kw in theme_index and pi in theme_index.get(kw, [])]
+        matched.append({
+            "pattern_id": p.get("pattern_id", ""),
+            "name": p.get("name", ""),
+            "description": p.get("description", ""),
+            "reasoning_chain": p.get("reasoning_chain", []),
+            "risk_factors": p.get("risk_factors", []),
+            "confidence_indicators": p.get("confidence_indicators", []),
+            "match_keywords": matched_keywords[:10],
+            "match_score": score,
+        })
 
-    # 按匹配主题数排序，最多取 3 个（控制 prompt 长度）
-    matched.sort(key=lambda x: x.get("match_score", 0), reverse=True)
-    return matched[:3]
+    return matched
 
 
 def _safe_llm_invoke(prompt: str) -> str:

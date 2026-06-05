@@ -247,3 +247,1477 @@ patterns:
   - 同行业可比公司出现类似趋势
   source_raw:
   - sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
+- pattern_id: sector_qualification_three_drivers
+  name: 三力驱动板块筛选法
+  description: 通过分析一个板块是否同时具备宏观、产业和资金三重驱动力，来判断其投资价值和行情持续性。
+  applicable_themes:
+  - 板块分析
+  - 主题投资
+  - 行业轮动
+  reasoning_chain:
+  - step: 1
+    name: 宏观驱动力判断
+    question: 该板块是否受益于当前的宏观经济环境或政策导向？
+    UP_logic: 分析宏观数据（如PPI、CPI、汇率）和政策方向，判断是否存在对该板块有利的宏观驱动力。例如，PPI回升利好上游周期品，人民币升值利好核心资产。
+    evidence_sources:
+    - CPI/PPI数据
+    - 人民币汇率走势
+    - 美联储政策
+    - 政治局会议
+  - step: 2
+    name: 产业驱动力判断
+    question: 该板块是否具备坚实的产业逻辑或需求支撑？
+    UP_logic: 分析产业趋势、技术变革或供需格局，判断是否存在独立的、可持续的产业驱动力。例如，AI算力需求拉动上游硬件，能源价格上升强化储能需求。
+    evidence_sources:
+    - AI产业趋势
+    - 半导体国产替代
+    - 全球资源品周期
+    - AI电气化需求
+  - step: 3
+    name: 资金驱动力判断
+    question: 当前市场资金是否正在流入或准备流入该板块？
+    UP_logic: 分析市场资金结构（如融资盘、换手率、ETF申赎），判断资金是否形成合力。例如，融资买入额占比高位意味着行情弹性大但脆弱；资金从AI流出后可能流入有色。
+    evidence_sources:
+    - 融资买入额占比
+    - 行业换手率
+    - 宽基ETF净申赎
+    - 板块成交量
+  risk_factors:
+  - 宏观驱动力逆转（如货币政策收紧、汇率转向贬值）
+  - 产业逻辑证伪（如AI需求不及预期、技术路线改变）
+  - 资金结构恶化（如杠杆资金踩踏、成交量持续萎缩）
+  confidence_indicators:
+  - 三个驱动力同时成立，且相互强化
+  - 板块估值处于相对低位，具备安全边际
+  - 市场出现新的催化事件（如政策落地、产品发布）
+  source_raw:
+  - sources/raw/财经/视频：26-05-17：5月中旬A股周复盘，CPI-PPI、人民币汇率、美联储与A股策略.md
+- pattern_id: mainline_identification_framework
+  name: 主线行情识别框架
+  description: 通过政策级别、海外锚点、持续性、发散性、资金共振五个维度判断板块是否为主线行情，并跟踪游资-机构-散户三阶段资金演绎
+  applicable_themes:
+  - 科技板块主线判断
+  - 新兴行业投资机会
+  - 政策驱动型行情
+  reasoning_chain:
+  - step: 1
+    name: 政策级别判断
+    question: 该主题是否上升到国家战略/大国博弈层面？
+    UP_logic: 最大级别消息是政策，判断是否属于中央经济工作会议定调或十五五规划重点方向
+    evidence_sources:
+    - 中央经济工作会议
+    - 十五五规划
+  - step: 2
+    name: 海外锚点对标
+    question: 有没有海外对标股走出浩浩荡荡的行情？
+    UP_logic: 寻找海外市场已出现的主线龙头，作为国内板块空间参照
+    evidence_sources:
+    - 美股科技股走势
+    - 海外龙头公司股价
+  - step: 3
+    name: 持续性验证
+    question: 行情是否持续多日，给足研究时间？
+    UP_logic: 主线不会一天两天结束，会给你足够时间研究，不会今天进明天套
+    evidence_sources:
+    - 板块指数走势
+    - 龙头股连板天数
+  - step: 4
+    name: 发散性检查
+    question: 是否扩散到多个子题材？
+    UP_logic: 主线会从单一概念扩散到多个子方向，如商业航天→太空算力/火箭发射/卫星制造
+    evidence_sources:
+    - 子板块联动情况
+    - 新概念出现频率
+  - step: 5
+    name: 资金共振确认
+    question: 游资、机构、散户、外资是否都愿意参与？
+    UP_logic: 游资打第一波连板，机构后续介入走趋势，散户外资跟进形成合力
+    evidence_sources:
+    - 龙虎榜数据
+    - 机构持仓变化
+    - 北向资金流向
+  risk_factors:
+  - 政策力度不及预期或转向
+  - 海外对标股行情结束或回调
+  - 资金共振未能形成，仅游资炒作无机构跟进
+  confidence_indicators:
+  - 多个维度同时满足（政策+海外+持续性+发散性+资金）
+  - 机构票开始走趋势（如上影线减少、成交量放大）
+  - 龙头股打出4板以上高度且带动板块内其他个股
+  source_raw:
+  - sources/raw/财经/周复盘：25-12-21：A股反弹周期能持续多久.md
+- pattern_id: cycle_shift_asset_pricing
+  name: 康波周期切换资产定价法
+  description: 基于康波周期萧条期末尾向复苏期切换的历史规律，判断资产定价逻辑从美元信用转向技术创新，并筛选受益资产。
+  applicable_themes:
+  - 大宗商品定价
+  - 贵金属投资
+  - 新能源产业链
+  - AI应用投资
+  reasoning_chain:
+  - step: 1
+    name: 定位周期阶段
+    question: 当前处于康波周期的哪个阶段？
+    UP_logic: 通过历史五轮康波周期时间表，定位当前为第五轮萧条期末尾，即将进入第六轮复苏期起点。
+    evidence_sources:
+    - 康波周期历史时间表
+    - GDP增速、失业率等经济数据
+  - step: 2
+    name: 识别历史对照
+    question: 历史上类似周期阶段发生了什么？
+    UP_logic: 对照1980年第四轮康波萧条期尾声，当时滞涨+美元信用危机导致白银暴涨，作为当前周期切换的参照。
+    evidence_sources:
+    - 1980年白银暴涨历史数据
+    - 布雷顿森林体系崩溃记录
+  - step: 3
+    name: 分析新定价逻辑
+    question: 新周期下资产定价的核心变量是什么？
+    UP_logic: 从旧逻辑（美元信用）转向新逻辑（技术创新），贵金属从单纯避险变为货币信用压舱石+工业需求双重定价。
+    evidence_sources:
+    - 新能源产业白银需求数据
+    - 数字货币跨境支付试点进展
+  - step: 4
+    name: 筛选受益资产
+    question: 哪些资产在新逻辑下受益？
+    UP_logic: 有技术壁垒的新能源/AI/生物科技成为核心资产，白银因工业需求爆发式增长而具备结构性上涨基础。
+    evidence_sources:
+    - AI应用商业化落地进展
+    - 新能源汽车市场份额数据
+  risk_factors:
+  - 技术商业化落地不及预期
+  - 美元信用体系未显著削弱
+  - 全球经济复苏延迟
+  confidence_indicators:
+  - AI应用从实验室走向工业制造等实际场景
+  - 新能源成本持续下降且市场份额突破30%
+  - 央行数字货币跨境支付试点扩大
+  source_raw:
+  - sources/raw/财经/周复盘：26-01-04：2026全球经济新周期.md
+- pattern_id: price_increase_profit_leverage
+  name: 涨价利润弹性分析
+  description: 通过分析产品涨价对利润的杠杆效应，判断相关公司业绩爆发潜力的推理模式。
+  applicable_themes:
+  - 化工
+  - 存储芯片
+  - 资源品
+  - 有色金属
+  - 锂电材料
+  reasoning_chain:
+  - step: 1
+    name: 确认成本不变
+    question: 涨价的核心成本（如原材料、制造费用）是否基本保持不变？
+    UP_logic: 假设成本不变，涨价部分将直接转化为利润增量。原文逻辑：'成本10元，涨价到12元，成本不变'。
+    evidence_sources:
+    - 行业研报
+    - 公司财报
+    - 产业链调研
+  - step: 2
+    name: 计算利润弹性
+    question: 涨价幅度与利润增幅的数学关系是怎样的？
+    UP_logic: 计算涨价百分比对利润百分比的放大效应。原文逻辑：'涨价不到10%（从11到12），利润翻倍（+100%）'。
+    evidence_sources:
+    - 产品价格数据
+    - 公司历史毛利率
+  - step: 3
+    name: 寻找涨价信号
+    question: 是否有确凿的证据表明产品正在或即将涨价？
+    UP_logic: 寻找第一手、非公开的涨价信息作为触发点。原文逻辑：'建议加一些硬件渠道群、QQ群，拿到第一手涨价资料'。
+    evidence_sources:
+    - 渠道商报价
+    - 行业微信群
+    - QQ群
+    - 现货市场价格
+  - step: 4
+    name: 映射到投资标的
+    question: 哪些上市公司能直接受益于该产品的涨价？
+    UP_logic: 找到生产该涨价产品的核心上市公司。原文逻辑：'存储芯片 → 显卡显存涨价'，映射到相关存储公司。
+    evidence_sources:
+    - 公司主营业务
+    - 产品营收占比
+  risk_factors:
+  - 涨价逻辑被证伪，即成本同步或更快上涨
+  - 涨价不可持续，是短期炒作而非供需结构变化
+  - 公司无法将涨价完全传导至下游客户
+  confidence_indicators:
+  - 多个独立渠道交叉验证涨价信息
+  - 涨价产品是公司核心利润来源，营收占比高
+  - 行业进入去库存周期尾声，需求开始复苏
+  source_raw:
+  - sources/raw/财经/周复盘：26-01-11：A股暴涨之下如何守住繁华.md
+- pattern_id: sector_rotation_qualify
+  name: 主线板块回调上车法
+  description: 通过判断主线板块是否处于主升浪，等待回调确认后寻找买点，并利用ETF或可转债作为替代工具。
+  applicable_themes:
+  - AI应用
+  - 商业航天
+  - 新能源
+  reasoning_chain:
+  - step: 1
+    name: 确认主线地位
+    question: 当前哪个板块是市场最强主线？
+    UP_logic: 通过观察板块涨停潮、资金承载量（如7000~8000亿）和持续性（如AI应用连续多日最强）来确认主线。
+    evidence_sources:
+    - 板块涨停数据
+    - 资金流向
+    - 博主历史提示
+  - step: 2
+    name: 判断主升浪状态
+    question: 该主线是否处于主升浪？
+    UP_logic: 如果板块连续上涨且未出现大级别顶部信号（如30分钟顶部钝化+高9），则判断为主升浪。
+    evidence_sources:
+    - 技术指标（顶部钝化、高9）
+    - 板块指数走势
+  - step: 3
+    name: 等待回调买点
+    question: 主升浪中何时是安全上车点？
+    UP_logic: 主升浪中，回调后拉回的时刻（如早盘砸后拉回）是买点，不追高，等回调确认。
+    evidence_sources:
+    - 日内分时图
+    - 个股回拉形态（如美登科技）
+  - step: 4
+    name: 替代工具选择
+    question: 如果无法直接买入个股怎么办？
+    UP_logic: 若权限受限或个股一字板，可通过ETF持仓反推个股，或直接做ETF/可转债（如塞力转债）来参与行情。
+    evidence_sources:
+    - ETF持仓列表
+    - 可转债价格与正股联动
+  risk_factors:
+  - 板块出现日线级别顶部信号（如美元持续贬值引发大盘风险）
+  - 主升浪结束转为震荡或下跌
+  confidence_indicators:
+  - 板块持续放量
+  - 龙头股回调后快速拉回
+  - ETF出现涨停潮
+  source_raw:
+  - sources/raw/财经/周复盘：26-01-13：商业航天还有机会吗.md
+- pattern_id: metal_short_term_anchor_judgment
+  name: 有色短期双锚点判断法
+  description: 通过沪纽比值和纳斯达克指数两个核心锚点，判断有色金属（白银/黄金）短期是否具备企稳或反弹条件。
+  applicable_themes:
+  - 有色金属
+  - 贵金属
+  - 白银
+  - 黄金
+  - 大宗商品周期
+  reasoning_chain:
+  - step: 1
+    name: 确认资金抽血源头
+    question: 导致有色下跌的流动性压力是否仍在持续？
+    UP_logic: 纳斯达克下跌 → 长期资本需补仓自救 → 从短期炒作资金抽血 → 有色下跌。因此，纳斯达克不止跌，有色难企稳。
+    evidence_sources:
+    - 纳斯达克指数走势
+  - step: 2
+    name: 评估现货需求强度
+    question: 当前市场是否有真实的现货抢购需求来支撑价格？
+    UP_logic: 通过白银期货沪纽比值与美元/人民币汇率对比：比值高于汇率（如7.1以上）= 现货抢货，有支撑；比值等于汇率 = 观望；比值低于汇率（如6.9以下）=
+      无支撑，还会下杀。
+    evidence_sources:
+    - 白银期货沪纽比值
+    - 美元/人民币汇率
+  - step: 3
+    name: 综合判断与决策
+    question: 两个锚点是否同时发出企稳信号？
+    UP_logic: 只有当纳斯达克停止下跌（流动性压力解除）且沪纽比值回升至汇率上方（现货需求回归），才具备企稳或反弹条件。否则，应保持观望，不轻易抄底。
+    evidence_sources:
+    - 步骤1结论
+    - 步骤2结论
+  risk_factors:
+  - 纳斯达克指数持续下跌，导致长期资本持续抽血。
+  - 沪纽比值跌破关键汇率水平（如6.9），表明现货需求疲软，价格仍有下行空间。
+  confidence_indicators:
+  - 纳斯达克指数出现明确的企稳或反弹信号。
+  - 沪纽比值回升至相关汇率（如7.1-7.2）以上，并保持稳定。
+  source_raw:
+  - sources/raw/财经/周复盘：26-01-31：金银暴跌，后续怎么看.md
+- pattern_id: sector_rotation_bollinger_band
+  name: 板块轮动与布林线波段操作
+  description: 基于宏观逻辑判断主线板块，结合布林线技术指标进行波段操作，实现安全优先的仓位管理。
+  applicable_themes:
+  - AIDC
+  - AI应用
+  - 化工
+  - 固态电池
+  - 有色贵金属
+  reasoning_chain:
+  - step: 1
+    name: 宏观定调
+    question: 当前市场的主导宏观逻辑是什么？
+    UP_logic: 从效率优先转向安全优先，理解商品、AI、军工等波动的底层逻辑。
+    evidence_sources:
+    - 美联储换帅
+    - 全球供应链重构
+    - AI物理铁律
+  - step: 2
+    name: 主线板块识别
+    question: 哪些板块符合宏观逻辑且具备持续性？
+    UP_logic: AIDC、AI应用、化工、固态电池等符合安全优先和AI物理铁律，有色短期回避。
+    evidence_sources:
+    - 板块轮动节奏
+    - 个股走势强度
+    - 涨价逻辑
+  - step: 3
+    name: 技术面择时
+    question: 如何利用布林线确定买卖点？
+    UP_logic: 强势股沿中轨持有，跌破中轨2-3天不拉回离场；震荡股下轨支撑位介入，上轨卖出。
+    evidence_sources:
+    - 布林线参数
+    - 个股历史走势
+    - 机构使用习惯
+  - step: 4
+    name: 风险控制
+    question: 如何避免追高和连环亏损？
+    UP_logic: 不追高，错过就错过；有色短期回避，等补跌后捡带血筹码；对冲优于all-in。
+    evidence_sources:
+    - 有色跌停案例
+    - 商业航天暴跌节奏
+    - 布林线跌破信号
+  risk_factors:
+  - 宏观逻辑突变（如沃什政策转向）
+  - 技术面信号失效（如布林线持续下杀）
+  - 板块轮动节奏被打乱
+  confidence_indicators:
+  - 板块内部轮动有序
+  - 个股布林线支撑有效
+  - 涨价逻辑持续传导
+  source_raw:
+  - sources/raw/财经/周复盘：26-02-01：二月投资策略：安全优先.md
+- pattern_id: energy_shock_to_asset_revaluation
+  name: 能源冲击下的资产定价重估
+  description: 从全球能源冲击的持续时间出发，推演其对美元、油价、通胀、美联储政策的影响，并最终传导至A股风格切换和板块定价权重估的宏观分析框架。
+  applicable_themes:
+  - 宏观策略分析
+  - 大宗商品周期
+  - A股风格切换
+  - 行业比较
+  reasoning_chain:
+  - step: 1
+    name: 设定核心赌局
+    question: 当前全球资产定价的核心矛盾是什么？
+    UP_logic: 将所有资产定价归结为对‘能源冲击持续时间’的赌局，并设定‘短期化’和‘长期化’两种情景及其对A股的影响。
+    evidence_sources:
+    - 全球资产价格走势
+    - 地缘政治事件
+  - step: 2
+    name: 分析定价锚传导
+    question: 能源冲击如何通过美元这个全球定价锚影响市场？
+    UP_logic: 分析美元因‘抢油’而走强，但指出其本质是‘全球金融系统失血’，并推导出‘美元在风险中等时最强，风险升级为衰退时拐点向下’的反直觉规律。
+    evidence_sources:
+    - 美元指数
+    - 全球贸易数据
+    - 新兴市场外债数据
+  - step: 3
+    name: 设定油价斩杀线
+    question: 油价达到什么水平会触发全球经济系统性风险？
+    UP_logic: 设定120美元为‘全球消费者体感熔断线’，并基于历史数据（2008、2022）论证其‘尖顶形态’和‘自我毁灭’特性，推导出高油价最终利好中国。
+    evidence_sources:
+    - 原油期货价格
+    - 历史油价走势
+    - OPEC/页岩油产能数据
+  - step: 4
+    name: 推导通胀拐点
+    question: 通胀何时见顶，从而改变市场预期？
+    UP_logic: 从‘油价传导滞后’、‘高基数效应’、‘高油价自我毁灭’、‘就业传导’四个机制，推导出五月是通胀见顶确认的认知拐点。
+    evidence_sources:
+    - CPI数据
+    - 炼油/零售价格数据
+    - 非农就业数据
+  - step: 5
+    name: 重估A股定价权
+    question: 在能源冲击和AI冲击下，A股的定价逻辑如何变化？
+    UP_logic: 提出‘代码膨胀vs食物稀缺’的宏观叙事，将行业分为受损/重塑/堡垒/受益四象限。并利用中美服务业就业结构差异，论证A股核心矛盾是‘利润率修复’而非‘AI替代风险’。
+    evidence_sources:
+    - 中美欧服务业就业占比数据
+    - A股公司ROE数据
+    - 全球市占率数据
+  risk_factors:
+  - 能源冲击迅速结束（如地缘冲突快速缓解），则‘长期化’推演失效。
+  - 美联储政策转向超预期鹰派，导致全球流动性危机，而非简单的风格切换。
+  - 中国宏观经济复苏不及预期，导致‘利润率修复’逻辑无法兑现。
+  confidence_indicators:
+  - 油价持续在120美元以上高位运行超过一个季度。
+  - 美元指数在100以上高位震荡，同时美债收益率开始掉头向下。
+  - 中国制造业PMI数据持续向好，验证‘优势制造’的盈利能力。
+  source_raw:
+  - sources/raw/财经/周复盘：26-03-22：能源冲击的时间赌局：从全球定价锚重塑到A股定价权重估.md
+- pattern_id: geopolitical_oil_risk_chain
+  name: 地缘油价传导链分析
+  description: 从地缘冲突事件出发，推导油价走势、通胀压力、资产定价锚变化，最终映射到A股策略的推理链条
+  applicable_themes:
+  - 地缘政治
+  - 大宗商品
+  - 宏观对冲
+  - A股策略
+  reasoning_chain:
+  - step: 1
+    name: 地缘事件定性
+    question: 当前地缘冲突是否陷入僵局或升级？
+    UP_logic: 从战争进展判断双方是否陷入两难，如伊朗控制霍尔木兹海峡导致美国进退维谷
+    evidence_sources:
+    - 战争进展报道
+    - 海峡控制权信息
+  - step: 2
+    name: 油价传导机制
+    question: 地缘事件如何影响原油供需和价格？
+    UP_logic: 从供应中断（海峡阻断→在途原油减少→库存消耗）推导油价上涨逻辑，并区分消息面与基本面驱动切换
+    evidence_sources:
+    - 布伦特原油价格
+    - 库存数据
+    - 航运跟踪
+  - step: 3
+    name: 宏观定价锚判断
+    question: 油价上涨如何影响美债收益率和全球资产定价？
+    UP_logic: 油价推升通胀预期→美债收益率逼近4.4%生死线→主权基金减持+对冲基金杠杆风险→全球资产重估
+    evidence_sources:
+    - 10年期美债收益率
+    - 通胀预期数据
+    - 央行持仓报告
+  - step: 4
+    name: A股映射与拐点
+    question: 宏观风险如何传导至A股，拐点条件是什么？
+    UP_logic: 油价回落+政策加码是修复条件，结合事件时间表（4月数据出炉、5月访华）判断拐点窗口
+    evidence_sources:
+    - 上证指数点位
+    - 板块估值百分位
+    - 政策发布时间表
+  risk_factors:
+  - 油价突破关键阻力位（109/115）导致通胀失控
+  - 美债收益率突破4.5%引发流动性危机
+  - 地缘冲突升级至胡塞武装断海峡
+  confidence_indicators:
+  - 布油回落至85附近
+  - 美债收益率稳定在4.4%以下
+  - 中美高层会晤确认并释放缓和信号
+  source_raw:
+  - sources/raw/财经/周复盘：26-03-29：特朗普的选择，5月15全球命运交汇点.md
+- pattern_id: supply_shock_recession_trade
+  name: 供给侧冲击衰退交易逻辑
+  description: 从供给侧冲击事件出发，推导出经济衰退和最终降息的必然路径，并据此进行资产配置。
+  applicable_themes:
+  - 地缘政治冲突
+  - 大宗商品价格冲击
+  - 宏观经济周期判断
+  - 全球资产配置
+  reasoning_chain:
+  - step: 1
+    name: 识别冲击性质
+    question: 当前的经济冲击是需求侧还是供给侧？
+    UP_logic: 区分2022年需求侧通胀与2026年供给侧战争冲击，强调根本驱动因素不同。
+    evidence_sources:
+    - CPI数据
+    - 基准利率水平
+    - 冲突事件
+  - step: 2
+    name: 推导经济后果
+    question: 供给侧冲击（如高油价）对经济体的传导路径是什么？
+    UP_logic: 高油价通过抽血效应（财富转移）、压制消费、破坏行业需求，最终导致经济下滑。
+    evidence_sources:
+    - 油价数据
+    - 贸易逆差数据
+    - 行业盈利预警
+  - step: 3
+    name: 判断政策应对
+    question: 面对经济下滑，央行的政策选择是什么？
+    UP_logic: 高油价拖累经济，最终倒逼央行降息，而非市场误判的加息。引用1990年海湾战争和2008年历史案例。
+    evidence_sources:
+    - 历史利率走势
+    - 央行政策声明
+    - 政治约束分析
+  - step: 4
+    name: 识别市场错位
+    question: 当前市场定价与正确逻辑之间是否存在偏差？
+    UP_logic: 市场错误套用2022年旧剧本（高油价=通胀=加息），忽略了供给侧冲击的最终结局是衰退和降息。
+    evidence_sources:
+    - 非农数据
+    - 市场利率期货定价
+    - 美债收益率
+  - step: 5
+    name: 制定配置策略
+    question: 基于上述逻辑，如何进行资产配置？
+    UP_logic: 短期防御（持有美元、能源股），中期布局认知错位反转机会（等待衰退交易启动，布局美债、A股港股）。
+    evidence_sources:
+    - 资产价格走势
+    - 历史估值分位
+    - 政策催化
+  risk_factors:
+  - 冲突迅速结束，油价快速回落
+  - 需求侧意外强劲，经济未受冲击
+  - 央行因政治压力被迫持续加息
+  confidence_indicators:
+  - 油价持续高位运行
+  - 非农等经济数据转弱
+  - 长端美债收益率突破关键阈值（如4.5%）
+  source_raw:
+  - sources/raw/财经/周复盘：26-04-06：现实的误判，全球资产重新配置新策略.md
+- pattern_id: ppi_cpi_scissors_analysis
+  name: PPI-CPI剪刀差传导分析
+  description: 通过PPI与CPI的背离（剪刀差）判断中下游企业利润被挤压的风险，并推导出结构性投资机会
+  applicable_themes:
+  - 周期涨价
+  - 中游制造
+  - 消费行业
+  reasoning_chain:
+  - step: 1
+    name: 确认剪刀差存在
+    question: PPI和CPI是否出现方向背离？
+    UP_logic: PPI涨了（+0.5%），CPI没涨（同比仅1%），两者剪刀差扩大
+    evidence_sources:
+    - PPI同比数据
+    - CPI同比数据
+  - step: 2
+    name: 分析利润传导路径
+    question: 剪刀差如何影响产业链利润分配？
+    UP_logic: PPI涨→工厂出厂价贵了；CPI没涨→老百姓没感受到物价上涨→中下游企业成本无法转嫁→利润被挤压
+    evidence_sources:
+    - PPI分项数据
+    - CPI分项数据（猪价、菜价、旅游、金饰）
+  - step: 3
+    name: 推演极端后果
+    question: 如果剪刀差持续，产业链会发生什么？
+    UP_logic: 中下游扛不住成本→减产/倒闭→全行业需求萎缩→整体利润往下掉
+    evidence_sources:
+    - 历史类似案例
+    - 行业调研
+  - step: 4
+    name: 得出结构性结论
+    question: 这种环境下哪些方向有机会？
+    UP_logic: 高价石油本身无法维持，涨价机会是结构性的，不是买了就能躺到年底
+    evidence_sources:
+    - 油价走势
+    - 行业景气度指标
+  risk_factors:
+  - 油价超预期持续暴涨，导致PPI进一步上行
+  - CPI突然跟涨，剪刀差收窄，逻辑失效
+  confidence_indicators:
+  - PPI环比涨幅持续扩大
+  - CPI中非食品项（如服务、交通）开始走弱
+  source_raw:
+  - sources/raw/财经/周复盘：26-04-14：是反弹不是反转，市场为什么对中东冲突麻木了.md
+- pattern_id: industry_upgrade_chain_analysis
+  name: 产业升级链分析框架
+  description: 从产业升级阶段、供应链地位、业绩兑现时间三个维度判断板块投资机会的推理模式
+  applicable_themes:
+  - AI算力
+  - 液冷散热
+  - 光模块
+  - PCB
+  - 锂矿
+  reasoning_chain:
+  - step: 1
+    name: 产业升级阶段定位
+    question: 该行业当前处于产业升级的哪个阶段？
+    UP_logic: 判断产业是否有明确的技术代际升级路径（如400G→800G→1.6T），每一代对应不同材料标准，产业链持续爆发
+    evidence_sources:
+    - 产业技术路线图
+    - 行业标准演进
+  - step: 2
+    name: 供应链准入判断
+    question: 该标的是否进入核心供应链（如英伟达朋友圈）？
+    UP_logic: 能否进入核心供应链是判断标的关键标准，如液冷最大优势是英伟达要用它，能进英伟达机柜的都得跟着用
+    evidence_sources:
+    - 供应商公告
+    - 产业链调研
+  - step: 3
+    name: 业绩兑现时间评估
+    question: 业绩预期在第几季度兑现？当前是否已到放量节点？
+    UP_logic: 如液冷需等Rubin架构出货功耗上来才有业绩爆发，当前一季报承压；算力涨价直接反映到利润上
+    evidence_sources:
+    - 财报数据
+    - 产品出货节奏
+  - step: 4
+    name: 涨价传导验证
+    question: 涨价能否直接反映到利润上？
+    UP_logic: 涨价是A股最硬的概念，如锂矿业绩好就是因为涨价直接反映到利润，算力租赁同理
+    evidence_sources:
+    - 产品价格数据
+    - 公司毛利率变化
+  risk_factors:
+  - 产业升级路径不清晰或停滞
+  - 核心供应链准入被排除
+  - 业绩兑现时间大幅延后
+  - 涨价无法传导至利润（如成本同步上涨）
+  confidence_indicators:
+  - 有明确的技术代际升级路线
+  - 已进入或有望进入核心供应链
+  - 产品价格持续上涨且毛利率提升
+  - 龙头公司业绩超预期
+  source_raw:
+  - sources/raw/财经/周复盘：26-04-15：节奏预期，日线高9，算力租赁生死考验，趋势中做短线.md
+- pattern_id: ai_compute_chain_4stage
+  name: AI算力全产业链四阶段炒作路径
+  description: 基于Token经济学和产业落地节奏，将AI算力产业链划分为算力租赁→国产芯片→AIDC→CDN四个依次递进的炒作阶段，每个阶段有明确的触发条件、核心标的和切换时机。
+  applicable_themes:
+  - AI算力产业链
+  - 科技主题投资
+  - 产业周期轮动
+  reasoning_chain:
+  - step: 1
+    name: 确认产业质变信号
+    question: 产业是否从烧钱阶段进入赚钱阶段？
+    UP_logic: Token用量已起来且能算清账，类似新能源从补贴到盈利的质变，预期将重新打开。
+    evidence_sources:
+    - Token用量数据
+    - 算力涨价信息
+    - 政策改名（词元）
+  - step: 2
+    name: 划分产业链四阶段
+    question: AI算力产业链按受益顺序如何划分？
+    UP_logic: 按产业落地顺序：先炒算力租赁（有卡者受益）→国产芯片（DeepSeek V4适配）→AIDC基建（液冷/供电/光模块）→CDN（边缘延迟需求）。
+    evidence_sources:
+    - 产业调研
+    - 公司公告
+    - 政策时间节点
+  - step: 3
+    name: 筛选各阶段核心标的
+    question: 每个阶段哪些公司具备实质性产业逻辑？
+    UP_logic: 算力租赁选能拿到最新卡（GB300）的公司；国产芯片选性价比高且适配大模型的；AIDC选已签分成协议或业绩释放的；CDN选毛利率回升的。
+    evidence_sources:
+    - 公司公告
+    - 财报数据
+    - 产业链调研
+  - step: 4
+    name: 确定切换时间与催化剂
+    question: 何时从当前阶段切换到下一阶段？
+    UP_logic: 算力租赁→国产芯片：DeepSeek V4发布前后；国产芯片→AIDC：5月特朗普访华后H200引进；AIDC→CDN：AI应用爆发（自动驾驶/直播等）。
+    evidence_sources:
+    - 事件日历
+    - 政策预期
+    - 产业新闻
+  risk_factors:
+  - Token用量增长不及预期，算力租赁需求回落
+  - DeepSeek V4发布延迟或国产芯片适配效果差
+  - 特朗普访华后H200引进谈判失败
+  - AIDC建设进度慢于预期，业绩释放推迟
+  confidence_indicators:
+  - 算力租赁公司持续公告新订单或分成协议
+  - 国产芯片获得大厂批量采购订单
+  - AIDC相关公司（液冷/供电）出现业绩预增
+  - CDN公司毛利率连续两个季度回升
+  source_raw:
+  - sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
+- pattern_id: stock_qualify_through_earnings_decomposition
+  name: 业绩拆解与真伪判断
+  description: 通过拆解财报中的非经常性损益、合并范围变化、汇兑损失等一次性因素，还原公司真实经营趋势，判断业绩是否爆雷或改善。
+  applicable_themes:
+  - 个股财报分析
+  - 季报/年报解读
+  - 业绩避雷
+  reasoning_chain:
+  - step: 1
+    name: 识别表面数据
+    question: 财报表面数据（净利润、现金流）是否异常？
+    UP_logic: 先看净利润减少37%、经营现金流减少29.52%等表面数据，判断是否看起来像爆雷。
+    evidence_sources:
+    - 公司季报/年报利润表
+    - 现金流量表
+  - step: 2
+    name: 拆解异常原因
+    question: 表面异常是由一次性因素还是经营恶化导致？
+    UP_logic: 检查合并范围变化（子公司在出表）、股份支付费用、汇兑损失等非经常性项目，剥离后看核心利润。
+    evidence_sources:
+    - 财报附注
+    - 管理层讨论与分析
+    - 非经常性损益明细
+  - step: 3
+    name: 还原真实趋势
+    question: 剔除一次性因素后，公司主营业务的盈利趋势如何？
+    UP_logic: 扣除股份支付及汇兑损失后净利润同比增长33%，且销售毛利率改善，说明主业实际向好。
+    evidence_sources:
+    - 同口径下收入同比数据
+    - 毛利率变化
+    - 扣非净利润
+  - step: 4
+    name: 评估持续性风险
+    question: 一次性因素未来是否可能反复？是否掩盖了其他问题？
+    UP_logic: 汇兑损失可能持续（人民币升值），但属会计重估非真实结汇；账上大量现金无好项目是长期隐忧。
+    evidence_sources:
+    - 公司现金及现金等价物
+    - 海外业务占比
+    - 资本开支计划
+  risk_factors:
+  - 一次性收益/亏损被误判为趋势性变化
+  - 管理层解释可能掩盖真实经营恶化
+  - 汇兑损失等会计因素可能持续影响利润
+  confidence_indicators:
+  - 毛利率持续改善
+  - 扣非净利润连续多季增长
+  - 公司对异常项目的解释清晰合理
+  source_raw:
+  - sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
+- pattern_id: event_driven_sector_impact
+  name: 事件驱动板块影响推演
+  description: 通过分析重大地缘政治事件中各方核心诉求与交易结构，推演其对不同产业板块的短期利好与利空影响。
+  applicable_themes:
+  - 地缘政治事件分析
+  - 重大政策解读
+  - 中美关系博弈
+  - 行业轮动预判
+  reasoning_chain:
+  - step: 1
+    name: 拆解事件与各方诉求
+    question: 这个事件的核心是什么？参与各方（如中美）各自最想得到什么？
+    UP_logic: 将事件（特朗普访华）定性为‘战时危机公关’，并分别列出特朗普（短期降压：油价、通胀、股市）和中国的（长期结构性让步：科技限制、关税）核心诉求。
+    evidence_sources:
+    - 事件背景分析
+    - 地缘政治新闻
+    - 双方公开表态
+  - step: 2
+    name: 推断交易结构与议题
+    question: 基于双方诉求，可能达成什么样的‘交易’？核心谈判议题是什么？
+    UP_logic: 推断出‘交易结构’：中国加大采购（农产品、天然气）换取美国放松（科技限制）。并识别出核心议题排序：伊朗（能源）> 关税 > 科技 > 汇率。
+    evidence_sources:
+    - 历史谈判模式
+    - 双方经济结构
+    - 随行企业名单
+  - step: 3
+    name: 映射到具体企业与板块
+    question: 谈判议题和交易结构会直接利好或利空哪些具体的上市公司和行业板块？
+    UP_logic: 将随行高管（英伟达、埃克森美孚、波音等）视为‘六张牌’，每张牌对应一个政治成果和产业影响。例如：埃克森美孚→能源采购→利好油气但可能利空战争溢价资产。
+    evidence_sources:
+    - 随行企业高管名单
+    - 产业链关系
+    - 行业基本面
+  - step: 4
+    name: 区分短期情绪与长期逻辑
+    question: 这个事件的影响是短期的情绪炒作，还是改变了长期的产业趋势？
+    UP_logic: 明确指出短期影响（如科技限制边际缓和→海外AI链情绪修复）与中长期逻辑（国产算力逻辑不变，因美国保留代差控制）。区分‘交易’和‘趋势’。
+    evidence_sources:
+    - 产业趋势分析
+    - 技术发展路径
+    - 政策长期方向
+  risk_factors:
+  - 谈判结果不及预期（如只有模糊表态，无具体订单）
+  - 市场提前交易，导致‘利好落地变利空’
+  - 事件后续发展出现超预期负面变量（如地缘冲突升级）
+  confidence_indicators:
+  - 随行企业名单与核心议题高度相关
+  - 双方公开表态与推断的诉求一致
+  - 市场成交量与情绪配合，未出现过度透支
+  source_raw:
+  - sources/raw/财经/周复盘：26-05-10：特朗普访华，六张牌交易框架，4200攻防，国产算力主线.md
+- pattern_id: rotation_quality_assessment
+  name: 轮动质量评估模式
+  description: 通过观察特定板块（如碳化硅）在分歧后的修复行为，判断市场轮动是良性还是劣性，进而指导操作策略。
+  applicable_themes:
+  - 板块轮动分析
+  - 短线情绪判断
+  - 热点持续性评估
+  reasoning_chain:
+  - step: 1
+    name: 识别关键观察标的
+    question: 哪个板块或个股能作为判断轮动质量的‘试金石’？
+    UP_logic: 选择周四高潮、周五兑现的板块（如碳化硅），其周一反馈决定轮动质量。
+    evidence_sources:
+    - 原文2.1碳化硅部分
+  - step: 2
+    name: 设定修复情景
+    question: 该标的在分歧后出现哪种走势？
+    UP_logic: 设定两种情景：低开后快速修复（良性轮动） vs 高开低走或低开低走（劣性轮动）。
+    evidence_sources:
+    - 原文2.1碳化硅部分
+  - step: 3
+    name: 推导轮动质量
+    question: 根据修复情景，市场轮动属于良性还是劣性？
+    UP_logic: 修复→资金愿意承接高弹性方向，轮动良性；走弱→每个方向只能涨一天，追随难度极高。
+    evidence_sources:
+    - 原文2.1碳化硅部分及劣性轮动定义
+  - step: 4
+    name: 制定操作策略
+    question: 基于轮动质量，应采取何种操作？
+    UP_logic: 良性轮动可继续参与高弹性方向；劣性轮动应减少追逐热点，降低仓位等待。
+    evidence_sources:
+    - 原文3.2策略部分
+  risk_factors:
+  - 观察标的可能受突发消息干扰，导致修复行为失真
+  - 市场整体情绪突变可能使轮动质量判断失效
+  confidence_indicators:
+  - 观察标的在分歧后出现预期中的修复走势
+  - 其他高位板块也出现类似修复信号
+  source_raw:
+  - sources/raw/财经/周复盘：26-05-15：动态周复盘.md
+- pattern_id: leverage_low_freq_heavy_position
+  name: 杠杆资金低频重仓策略
+  description: 针对加杠杆投资者，基于资金成本高、无试错资格的前提，推导出低频重仓是唯一可行策略，并强调翻身后退杠杆。
+  applicable_themes:
+  - 杠杆交易
+  - 高风险投资策略
+  - 资金管理
+  reasoning_chain:
+  - step: 1
+    name: 识别资金成本
+    question: 加杠杆的资金是否有额外成本？
+    UP_logic: 加杠杆的资金存在资金成本，网贷成本更高，导致没有试错资格。
+    evidence_sources:
+    - 原文第七部分
+  - step: 2
+    name: 否定分仓策略
+    question: 分仓操作能否覆盖资金成本？
+    UP_logic: 分仓收益率无法覆盖资金成本，因此不适合分仓操作。
+    evidence_sources:
+    - 原文第七部分
+  - step: 3
+    name: 推导唯一策略
+    question: 在不能分仓且无试错资格下，什么策略可行？
+    UP_logic: 唯一生存策略是低频重仓：先低频（等待确定性最高时机），再重仓。
+    evidence_sources:
+    - 原文第七部分
+  - step: 4
+    name: 强调退出机制
+    question: 翻身之后如何避免再次亏损？
+    UP_logic: 成功翻身必须及时去掉所有杠杆，才能真正稳定盈利。
+    evidence_sources:
+    - 原文第七部分
+  risk_factors:
+  - 市场长期无确定性机会导致无法出手
+  - 重仓后判断失误导致本金大幅亏损
+  confidence_indicators:
+  - 博主明确强调‘唯一生存策略’
+  - 逻辑链条从成本推导到策略，自洽性强
+  source_raw:
+  - sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
+- pattern_id: hardware_rotation_chain_analysis
+  name: 算力硬件全产业链轮动分析
+  description: 从行业景气度与业绩催化出发，沿产业链上下游依次筛选轮动分支，识别预期差标的。
+  applicable_themes:
+  - AI算力硬件
+  - 半导体设备
+  - 光通信
+  - 液冷散热
+  reasoning_chain:
+  - step: 1
+    name: 确认主线与催化
+    question: 当前市场唯一有持续赚钱效应的主线是什么？核心催化是什么？
+    UP_logic: 从市场表现中识别出AI算力硬件为唯一主线，并提取光纤涨价、CPO订单、液冷大会等具体催化事件。
+    evidence_sources:
+    - 市场涨跌数据
+    - 行业新闻
+    - 机构研报
+  - step: 2
+    name: 拆解产业链环节
+    question: 主线内部有哪些细分赛道？每个赛道的景气度与业绩驱动因素是什么？
+    UP_logic: 将算力硬件拆分为光纤光缆、CPO/光模块、液冷、半导体设备、光芯片等环节，并分别列出涨价周期、订单增长、供需错配等驱动逻辑。
+    evidence_sources:
+    - 行业报价
+    - 公司公告
+    - 机构预测
+  - step: 3
+    name: 筛选预期差标的
+    question: 在已确认的细分赛道中，哪些标的市值小、涨幅低、但逻辑强，存在预期差？
+    UP_logic: 对比同赛道龙头（如长飞光纤3000亿）与相关小市值公司（如通光线缆不足百亿），寻找合资、产能规划等关联逻辑。
+    evidence_sources:
+    - 市值数据
+    - 公司公告
+    - 产能规划
+  - step: 4
+    name: 验证机构资金动向
+    question: 机构资金近期在哪些标的上有大额净买入？是否与上述逻辑一致？
+    UP_logic: 通过龙虎榜等数据确认机构加仓方向（如东山精密、光迅科技），验证主线逻辑得到资金认可。
+    evidence_sources:
+    - 龙虎榜数据
+    - 机构净买卖统计
+  risk_factors:
+  - 成交量持续缩量导致轮动节奏加快
+  - AI应用端退潮引发情绪负反馈
+  - 涨价周期或订单预期落空
+  confidence_indicators:
+  - 机构资金持续净买入主线标的
+  - 细分赛道出现连板或创新高个股
+  - 行业大会或政策催化临近
+  source_raw:
+  - sources/raw/财经/复盘：26-04-09：科技独强普跌，AI算力硬件全产业链轮动，光纤CPO液冷光芯片.md
+- pattern_id: industry_cycle_chain_mapping
+  name: 产业周期链式扩散映射
+  description: 从核心环节的景气信号出发，沿产业链上下游依次识别受益分支，并筛选业绩兑现龙头。
+  applicable_themes:
+  - AI算力硬件
+  - 新能源产业链
+  - 半导体设备材料
+  reasoning_chain:
+  - step: 1
+    name: 识别核心景气信号
+    question: 哪个环节出现了明确的供需紧张或涨价信号？
+    UP_logic: 引用海外龙头产能售罄、行业预测数据（如Lumentum产能售罄、LightCounting预测）作为景气起点。
+    evidence_sources:
+    - 海外龙头公告
+    - 行业研究机构预测
+  - step: 2
+    name: 沿产业链扩散受益分支
+    question: 该核心环节的景气会向哪些上下游分支传导？
+    UP_logic: 从光通信→算力租赁→AI电力→PCB→CPU分销，逐层列举受益分支，并给出每个分支的供需逻辑。
+    evidence_sources:
+    - 产业链图谱
+    - 行业新闻
+  - step: 3
+    name: 筛选业绩兑现龙头
+    question: 每个分支中哪些公司具备全球竞争力和业绩兑现能力？
+    UP_logic: 列举各分支核心标的，强调“业绩+产业趋势”双驱动，回避纯题材小票。
+    evidence_sources:
+    - 公司公告
+    - 财务数据
+  risk_factors:
+  - 龙头抱团资金兑现风险
+  - 海外龙头扩产超预期导致供需逆转
+  confidence_indicators:
+  - 核心环节产能售罄/订单积压至多年后
+  - 行业预测CAGR持续上修
+  source_raw:
+  - sources/raw/财经/复盘：26-04-11：冲高回落创业板突破前高，AI算力硬件全产业链，风格切换业绩龙头.md
+- pattern_id: ai_demand_chain_price_chain
+  name: AI需求传导涨价链分析
+  description: 从AI高端需求出发，推导产能挤占、供给短缺、全品类涨价的产业传导逻辑，并筛选受益标的。
+  applicable_themes:
+  - AI算力产业链
+  - 电子布/玻纤
+  - 光通信/CPO
+  - 液冷散热
+  - 算力硬件补涨
+  reasoning_chain:
+  - step: 1
+    name: 需求端爆发识别
+    question: AI技术发展是否带来了对特定材料或组件的非线性需求增长？
+    UP_logic: 以AI服务器对PCB板层数、材料要求远超传统服务器为例，量化需求倍数（如3~5倍），并引用市场规模预测（如40亿元）和交付周期延长（超半年）作为证据。
+    evidence_sources:
+    - 英伟达GB200 PCB用量数据
+    - 高端电子布市场规模预测
+    - 交付周期数据
+  - step: 2
+    name: 供给端刚性分析
+    question: 供给端是否存在短期无法扩产或产能被挤占的刚性约束？
+    UP_logic: 分析头部厂商将产能转向高端导致中低端收缩、核心原料扩产周期长（18~24个月）、客户认证周期长、寡头垄断格局（如日东纺占70%产能）等供给刚性因素。
+    evidence_sources:
+    - 产能转向数据
+    - 扩产周期数据
+    - 客户认证周期
+    - 全球市场份额数据
+  - step: 3
+    name: 价格端趋势确认
+    question: 价格是否已进入持续上行通道，且涨价频率加快？
+    UP_logic: 引用具体产品价格从底部到当前的变化（如7628电子布从4元/米涨至6.5元/米），以及涨价频率从季度级缩短至月度级，并叠加外部因素（如欧洲天然气价格暴涨）加速进口替代。
+    evidence_sources:
+    - 产品价格历史数据
+    - 涨价频率变化
+    - 欧洲天然气价格数据
+  - step: 4
+    name: 受益标的筛选
+    question: 哪些公司在该传导链中具备核心竞争力和业绩弹性？
+    UP_logic: 优先选择具备稀缺量产能力（如宏和科技唯一超薄电子布量产）、市占率高（全球第二）、或直接受益于出口替代的行业龙头（如中国巨石、中材科技）。
+    evidence_sources:
+    - 公司量产能力声明
+    - 市占率数据
+    - 出口替代逻辑
+  risk_factors:
+  - AI需求增速不及预期，导致涨价逻辑证伪
+  - 供给端扩产周期缩短或新产能快速释放，打破供需失衡
+  - 地缘政治或政策变化导致产业链转移或成本波动
+  confidence_indicators:
+  - 涨价频率持续加快（如从季度级缩短至月度级）
+  - 头部厂商订单交付周期持续延长
+  - 海外同类产品价格同步上涨或进口替代加速
+  source_raw:
+  - sources/raw/财经/复盘：26-04-14：沪指收复4000，AI算力全产业链爆发.md
+- pattern_id: mainline_diverge_reentry
+  name: 主线分歧回流交易模式
+  description: 通过识别主线板块高潮后的分歧节点，结合龙头股盘面反馈判断分歧性质，制定低吸或规避策略
+  applicable_themes:
+  - 算力产业链
+  - 新能源产业链
+  - AI应用
+  - 机器人
+  reasoning_chain:
+  - step: 1
+    name: 识别主线高潮
+    question: 当前市场主线板块是否已全面爆发？
+    UP_logic: 算力租赁今日全面高潮，十余只成分股涨停，判断为高潮状态
+    evidence_sources:
+    - 板块涨停家数
+    - 板块内个股涨幅分布
+  - step: 2
+    name: 预判分歧节点
+    question: 高潮后分歧何时到来？持续时间多长？
+    UP_logic: 明日分歧已是大概率事件，参考历史主线节奏，分歧持续时间不会太长，周一或周二有望回流
+    evidence_sources:
+    - 历史主线分歧规律
+    - 当前市场情绪周期位置
+  - step: 3
+    name: 锚定龙头反馈
+    question: 龙头股在分歧日的盘面表现如何？
+    UP_logic: 核心锚定中际旭创盘面反馈：若大高开后大幅回落→规避业绩线跟风标的；若龙头承接有力→分歧即为低吸窗口
+    evidence_sources:
+    - 龙头股开盘价
+    - 分时走势
+    - 成交量变化
+  - step: 4
+    name: 制定交易预案
+    question: 根据龙头反馈，应采取何种操作？
+    UP_logic: 不盲目在分歧初期追高，根据龙头承接力决定是规避还是低吸
+    evidence_sources:
+    - 龙头股盘面反馈结果
+  risk_factors:
+  - 龙头股出现超预期利空导致板块全面退潮
+  - 市场整体情绪转弱，分歧演变为持续调整
+  confidence_indicators:
+  - 龙头股在分歧日缩量回踩关键均线
+  - 板块内仍有低位补涨个股活跃
+  source_raw:
+  - sources/raw/财经/复盘：26-04-16：全线反包创业板近11年新高，算力产业链全面爆发，宁德时代反超中石油.md
+- pattern_id: market_anchor_dual_drive
+  name: 双锚点驱动研判法
+  description: 通过全球资产定价锚（原油）与A股量能/点位锚联动，判断市场趋势与交易节奏
+  applicable_themes:
+  - A股大盘趋势研判
+  - 全球资产联动分析
+  - 地缘冲突后市场修复
+  reasoning_chain:
+  - step: 1
+    name: 识别全球核心锚
+    question: 当前全球资产定价的核心变量是什么？
+    UP_logic: 将原油价格作为全球资产定价核心锚，判断油价能否稳定在100美元下方决定全球大类资产方向
+    evidence_sources:
+    - 美原油价格走势
+    - 布伦特原油价格走势
+  - step: 2
+    name: 判断A股量能性质
+    question: 当前成交额是反弹还是反转信号？
+    UP_logic: 对比历史反弹峰值量能（2.42万亿），判断2.43万亿已一步到位，大概率走双头而非V型反转
+    evidence_sources:
+    - 当日成交额2.43万亿
+    - 历史对标数据（2025年10月、5月）
+  - step: 3
+    name: 验证技术面关键位
+    question: 指数能否突破关键点位确立趋势？
+    UP_logic: 以沪指4012点作为趋势确立分水岭，15点收盘价突破则上升趋势确立，否则观望
+    evidence_sources:
+    - 沪指15分钟级别收盘价
+    - MACD金叉状态
+  - step: 4
+    name: 综合锚点定策略
+    question: 如何根据锚点状态制定交易节奏？
+    UP_logic: 全球锚（原油）与A股锚（量能+点位）联动：若油价稳+量能续+点位破，则积极；否则均值回归、聚焦低位补涨
+    evidence_sources:
+    - 原油价格区间
+    - 成交额延续性
+    - 沪指4012点突破情况
+  risk_factors:
+  - 原油价格重回100美元上方，全球资产重估
+  - 成交额快速萎缩，反弹动能衰竭
+  - 地缘谈判出现实质性突破或恶化
+  confidence_indicators:
+  - 沪指连续3日站稳4012点上方
+  - 成交额维持在2万亿以上且不快速萎缩
+  - 原油价格稳定在100美元下方且地缘无恶化
+  source_raw:
+  - sources/raw/财经/早盘：26-04-09：地缘情绪脉冲终结，2.43万亿普涨，AI全产业链绝对核心.md
+- pattern_id: aidc_infrastructure_decomposition
+  name: AIDC基础设施拆解框架
+  description: 将AI数据中心拆解为算力、供电、散热、网络、运维五大子系统，逐一分析各子系统的核心组件、技术趋势和对应标的
+  applicable_themes:
+  - AI数据中心
+  - 算力基础设施
+  - 新基建
+  - 科技产业链分析
+  reasoning_chain:
+  - step: 1
+    name: 确立全球锚点
+    question: 海外龙头走势如何映射国内板块？
+    UP_logic: 以ASML/台积电/日月光/美光为锚点，当这些龙头走爬坡趋势时，国内对应板块大概率跟随
+    evidence_sources:
+    - 美股半导体龙头走势
+    - A股半导体板块走势
+  - step: 2
+    name: 拆解AI服务器组件
+    question: AI服务器由哪些核心部件组成？
+    UP_logic: 按PCB/连接器/背板/CPU/电源/光模块/网卡/存储/机箱/散热/组装测试逐一拆解，每个部件对应A股标的
+    evidence_sources:
+    - AI服务器BOM清单
+    - A股上市公司业务构成
+  - step: 3
+    name: 分类AIDC类型
+    question: 不同区域和用途的AIDC如何分类？
+    UP_logic: 按绿电训练型/低延迟推理型/区域平衡型/边缘算力型四类划分，每类对应典型区域和业主
+    evidence_sources:
+    - 国内超算集群分布数据
+    - 各地电价和气候条件
+  - step: 4
+    name: 分层分析供电系统
+    question: AIDC供电系统包含哪些层级？
+    UP_logic: 从外部接入→直流化稳压→末端供电→备用电源逐层分析，每层对应不同标的，注意服务器级与AIDC级区别
+    evidence_sources:
+    - AIDC供电架构图
+    - 上市公司产品线
+  - step: 5
+    name: 分层分析散热系统
+    question: 散热系统如何随算力密度升级？
+    UP_logic: 按芯片级→服务器级→CDU→二次冷却→冷却网络分层，GPU功耗上升驱动液冷替代风冷，一体式方案是趋势
+    evidence_sources:
+    - GPU功耗演进数据
+    - 散热技术路线图
+  - step: 6
+    name: 按客户分类运维
+    question: 不同客户类型的运维需求有何差异？
+    UP_logic: 按字节系/阿里系/国资系/边缘算力四类客户，分析其核心需求、运维特征和盈利模式差异
+    evidence_sources:
+    - 主要客户AIDC建设案例
+    - 上市公司客户结构
+  risk_factors:
+  - 海外半导体龙头走势逆转导致国内板块跟随下跌
+  - GPU功耗增速不及预期导致散热/供电需求放缓
+  - 国内AIDC建设进度低于规划
+  - 国产AI芯片替代进度不达预期
+  confidence_indicators:
+  - 英伟达等海外龙头持续上调资本开支指引
+  - 国内超大规模AIDC项目密集开工
+  - 液冷渗透率快速提升
+  - 供电/散热相关公司订单持续增长
+  source_raw:
+  - sources/raw/财经/视频：26-02-12：AI服务器与AIDC全产业链分析.md
+- pattern_id: aidc_reits_profit_chain
+  name: AIDC-REITs利润拆解与估值推演
+  description: 通过拆解AIDC公司REITs模式下的一次性收益与经营利润，结合扩产计划推算未来利润与市值空间，判断主线地位。
+  applicable_themes:
+  - AIDC
+  - 数据中心
+  - REITs模式
+  - 科技基础设施
+  reasoning_chain:
+  - step: 1
+    name: 商业模式定性
+    question: 公司如何通过REITs实现资金循环和利润？
+    UP_logic: 建数据中心→通过REITs卖掉产权→保留运营权收租→回收资金再建下一批，形成轻资产高周转模式。
+    evidence_sources:
+    - 公司公告
+    - REITs交易案例
+  - step: 2
+    name: 利润拆解
+    question: 总利润中一次性收益和经营利润各占多少？
+    UP_logic: 从总利润中剔除卖数据中心的一次性收益，得到实际经营利润，判断商业模式是否可持续。
+    evidence_sources:
+    - 财报利润表
+    - 资产出售公告
+  - step: 3
+    name: 扩产测算
+    question: 扩产计划对应的机柜数量、投资收益和市值空间是多少？
+    UP_logic: 根据扩产机柜数×单机柜投资收益，推算未来总利润，再按合理PE估算对应市值。
+    evidence_sources:
+    - 扩产公告
+    - 行业单机柜收益均值
+  - step: 4
+    name: 市场验证
+    question: 次日封单量是否高，以确认市场认可该模式？
+    UP_logic: 封单高=市场认可REITs模式，AIDC主线确立；封单低=模式存疑，需谨慎。
+    evidence_sources:
+    - 次日开盘封单数据
+    - 市场情绪指标
+  risk_factors:
+  - REITs市场流动性不足导致资产出售困难
+  - 数据中心需求增速不及预期
+  - 监管政策变化影响REITs交易
+  confidence_indicators:
+  - 封单量持续高位
+  - 后续扩产公告不断落地
+  - 经营利润环比增长
+  source_raw:
+  - sources/raw/财经/视频：26-02-23：开工大吉节后复盘.md
+- pattern_id: ai_infrastructure_capital_cycle
+  name: AI基建资本循环推理
+  description: 从资本开支、供需错配、商业模式升级三个维度，推导AI基础设施产业链的投资机会
+  applicable_themes:
+  - AI基础设施
+  - 算力租赁
+  - 数据中心
+  - 光通信
+  - 存储芯片
+  reasoning_chain:
+  - step: 1
+    name: 资本循环确认
+    question: AI基础设施是否有可持续的资本支撑？
+    UP_logic: 大厂发债→建数据中心+买GPU→出租算力→还债，形成自我强化的资本循环
+    evidence_sources:
+    - 彭博社报道
+    - 摩根士丹利债券发行预期
+  - step: 2
+    name: 建设拐点识别
+    question: AIDC建设是否进入加速阶段？
+    UP_logic: 国产算力放量（DeepSeek适配）+H200进口可能放开→AIDC项目大规模推进
+    evidence_sources:
+    - 国产算力出货量数据
+    - 中美谈判预期
+  - step: 3
+    name: 供需错配判断
+    question: 算力是否进入涨价周期？
+    UP_logic: B300租赁价格涨35%+头部厂商全线涨价20%-40%+云厂商限购→供需缺口驱动涨价
+    evidence_sources:
+    - B300租赁价格
+    - 优刻得/网宿/首都涨价公告
+    - 阿里云/腾讯云涨价信息
+  - step: 4
+    name: 商业模式升级
+    question: 算力租赁公司能否从收租升级为平台？
+    UP_logic: 固定收租→参与token分成+模型服务收费，CoreWeave已谈成分成，国内头部推进中
+    evidence_sources:
+    - CoreWeave案例
+    - 国内大模型公司动态
+  - step: 5
+    name: 财务重估逻辑
+    question: 设备残值重估能否改善财务？
+    UP_logic: 账面残值15% vs 真实经济价值70%→融资成本下降→净利率中枢上移
+    evidence_sources:
+    - 会计折旧数据
+    - 机构预测数据
+  risk_factors:
+  - 地缘政治升级导致全球风险偏好受压
+  - H200供给放量或国产算力超预期导致算力通胀缓解
+  - 纯概念公司无真实业绩暴雷
+  - 市场风格切换至非AI板块
+  source_raw:
+  - sources/raw/财经/视频：26-04-14：2026年AI产业深度研究：从AIDC建设拐点到算力租赁重估.md
+- pattern_id: tech_breakdown_to_investment_chain
+  name: 技术突破拆解与产业链传导
+  description: 从单一技术突破（如昇腾950）出发，拆解其三层产业意义，并据此推导出八大受益环节的投资逻辑。
+  applicable_themes:
+  - 半导体设备材料
+  - AI基础设施
+  - 新能源技术
+  - 任何由技术突破驱动的产业链分析
+  reasoning_chain:
+  - step: 1
+    name: 识别技术拐点信号
+    question: 当前产业中，哪个技术或产品事件是关键的、非线性的拐点信号？
+    UP_logic: 从DeepSeek V4与昇腾950超节点的组合中，提取出‘超节点、价格下调、批量上市’三个关键词，认为它们分别对应了性能、经济性和交付三大门槛的跨越。
+    evidence_sources:
+    - 公司公告（如DeepSeek价格说明）
+    - 产品发布信息
+  - step: 2
+    name: 拆解三层产业意义
+    question: 这个技术突破对产业链各环节分别意味着什么？
+    UP_logic: 从三个层面拆解：1) 解决单卡性能不足，放大对基础设施需求；2) 对先进封装提出集中需求，拉动上游设备和材料；3) 高度自主可控，将需求传导至国产供应链。
+    evidence_sources:
+    - 产业逻辑推演
+    - 技术原理分析
+  - step: 3
+    name: 寻找产业链验证信号
+    question: 是否有下游或上游的财务/经营数据，能验证这个技术突破带来的需求是真实存在的？
+    UP_logic: 引用4月年报和一季报数据：算力租赁公司业绩超预期、半导体材料业绩集体超预期，作为‘需求真实存在’和‘制造链条景气兑现’的验证信号。
+    evidence_sources:
+    - 上市公司年报/一季报
+    - 行业景气度数据
+  - step: 4
+    name: 推导受益环节与逻辑
+    question: 基于上述分析，产业链上哪些具体环节会受益？受益的逻辑是什么？
+    UP_logic: 根据技术突破（全液冷、高速背板、全光互联）和产业意义，推导出八大受益环节（设备、封装、材料、散热、互联、光通信、存储、电源），并为每个环节明确其受益逻辑和景气周期。
+    evidence_sources:
+    - 技术规格书
+    - 产业链调研
+    - 行业专家访谈
+  risk_factors:
+  - 技术路线被颠覆（如出现更优的互联架构）
+  - 国产化进程不及预期（如关键设备/材料无法突破）
+  - 下游需求证伪（如AI应用落地缓慢，算力需求萎缩）
+  confidence_indicators:
+  - 关键环节（如光刻、散热）出现批量订单
+  - 产业链公司业绩持续超预期
+  - 技术突破被更多下游客户采用和验证
+  source_raw:
+  - sources/raw/财经/视频：26-05-13：国产算力产业链与Token经济学，昇腾950拐点，Token工厂商业模式跃迁.md
+- pattern_id: sector_rotation_priority
+  name: 板块轮动优先级排序法
+  description: 通过催化强度、业绩确定性、资金风格和风险收益比，对多个板块进行优先级排序的推理模式
+  applicable_themes:
+  - 板块轮动分析
+  - 主线判断
+  - 仓位配置
+  reasoning_chain:
+  - step: 1
+    name: 识别催化强度
+    question: 各板块有哪些近期催化剂？
+    UP_logic: 从海外进展（如Neuralink量产）和国内事件（如太空实验）中提取催化信号，判断板块热度来源
+    evidence_sources:
+    - 海外公司公告
+    - 国内科研进展
+    - 政策文件
+  - step: 2
+    name: 评估业绩确定性
+    question: 板块内公司是否有业绩兑现支撑？
+    UP_logic: 优先选择有涨价逻辑（如存储价格上调100%）或业绩线（如六氟磷酸锂）的板块，排除纯概念炒作
+    evidence_sources:
+    - 行业价格数据
+    - 公司财报预告
+    - 券商研报预期
+  - step: 3
+    name: 判断资金风格
+    question: 当前市场偏好容量标的还是连板小票？
+    UP_logic: 观察连板高度是否受限（如神剑股份止步8板），容量标的是否持续走强（如中国卫星、蓝色光标），确认风格切换
+    evidence_sources:
+    - 涨停板高度统计
+    - 成交额排名
+    - 龙虎榜数据
+  - step: 4
+    name: 评估风险收益比
+    question: 各板块的接力难度和回撤风险如何？
+    UP_logic: 对量化驱动的板块（如脑机接口）提示隔日接力高风险，优先布局前排核心标的；对降温板块（如商业航天）关注回流机会
+    evidence_sources:
+    - 历史板块回撤数据
+    - 量化资金参与度
+    - 板块内部分化程度
+  - step: 5
+    name: 综合排序
+    question: 如何排列板块优先级？
+    UP_logic: 综合催化强度、业绩确定性、资金风格和风险收益比，给出AI产业链>脑机接口>商业航天>六氟磷酸锂>机器人>医药的排序
+    evidence_sources:
+    - 以上各步骤汇总
+  risk_factors:
+  - 催化事件低于预期或落空
+  - 市场风格突然切换回连板小票
+  - 板块内核心标的业绩暴雷
+  confidence_indicators:
+  - 多个独立催化剂同时出现
+  - 业绩线标的持续超预期
+  - 容量标的获得流动性溢价且连板高度持续受限
+  source_raw:
+  - sources/raw/财经/复盘：26-01-05：核心板块拆解，脑机AI商业航天优先级.md
+- pattern_id: wave_theory_time_space_lock
+  name: 波浪理论时空锁定法
+  description: 利用波浪理论中时间和空间只需锁定一个确定项的原则，判断B浪反弹和C浪下跌的节奏与目标位
+  applicable_themes:
+  - 大盘指数波浪分析
+  - ABC调整浪结构预判
+  - 反弹与下跌节奏推演
+  reasoning_chain:
+  - step: 1
+    name: 识别当前浪型阶段
+    question: 当前市场处于ABC调整浪的哪个子浪？
+    UP_logic: 通过A浪下杀流畅度、当日阳线支撑、W底形态判断A浪基本结束，即将开启B浪反弹
+    evidence_sources:
+    - 上证指数日K线走势
+    - 分时图下杀流畅度对比
+  - step: 2
+    name: 锁定时间或空间
+    question: B浪和C浪中哪个变量可确定？
+    UP_logic: B浪空间可确定（约4200点），时间不确定；C浪时间可确定（6月中下旬结束），空间不确定。原则：时间和空间只需锁定一个确定项
+    evidence_sources:
+    - 波浪理论标准结构
+    - 历史ABC调整浪幅度统计
+  - step: 3
+    name: 推演后续浪型目标
+    question: 基于锁定项推演另一变量的可能范围？
+    UP_logic: B浪反弹目标约4200点（不破前高），若放量突破则结构失效；C浪下跌幅度将超过4100点，关键支撑4080点，跌破则下探缺口
+    evidence_sources:
+    - 前高压力位
+    - 关键支撑位4080点
+    - 缺口位置
+  - step: 4
+    name: 结合量价验证拐点
+    question: 当前拐点信号是否可靠？
+    UP_logic: 第二个W底形态成功率高于第一个，叠加英特尔盘前上涨，拐点概率增大；反弹强度需观察能否重新站回4180点
+    evidence_sources:
+    - W底形态重复出现
+    - 外围市场英特尔盘前走势
+  risk_factors:
+  - B浪反弹若放量突破前高，则ABC结构失效，需重新定性浪型
+  - C浪空间不确定，若跌破4080点后加速下杀，黄金坑可能更深
+  - B浪持续时间不确定，若反弹时间过短可能无法有效建仓
+  confidence_indicators:
+  - 当日阳线且下杀不流畅，下方支撑较强
+  - 第二个W底形态出现，成功率高于第一个
+  - 英特尔盘前企稳上涨，外围情绪配合
+  source_raw:
+  - sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
+- pattern_id: ai_industry_chain_resonance
+  name: AI全产业链共振分析
+  description: 通过识别AI产业链各环节（上游算力→中游模型→下游应用）的轮动完成度，判断主线高潮与分化节奏
+  applicable_themes:
+  - AI算力
+  - 半导体产业链
+  - 新能源产业链
+  - 机器人产业链
+  reasoning_chain:
+  - step: 1
+    name: 识别全链条轮动
+    question: 产业链各分支（上游/中游/下游）是否都已轮动到位？
+    UP_logic: 从上游IDC/芯片→中游大模型→下游应用，所有分支全部轮动到位，视为共振高潮信号
+    evidence_sources:
+    - 板块涨幅排名
+    - 涨停个股分布
+    - 行业新闻
+  - step: 2
+    name: 观察龙头强度
+    question: 龙头股是否出现连续一字板或超强走势？
+    UP_logic: 龙头连续一字板（如大位科技）+港股模型股4天翻倍，说明资金高度集中，是高潮特征
+    evidence_sources:
+    - 龙头股K线形态
+    - 封单量
+    - 港股联动
+  - step: 3
+    name: 区分风格切换
+    question: 涨停板结构是否从情绪炒作转向产业逻辑？
+    UP_logic: 2板几乎全是赛道股（产业逻辑+业绩预期），跌停板是纯情绪标的，说明大势转向景气主线
+    evidence_sources:
+    - 涨停板个股属性分析
+    - 跌停板个股属性分析
+  - step: 4
+    name: 推演分化节奏
+    question: 高潮后是直接兑现还是良性分化？
+    UP_logic: 高潮后必然分化，但分化≠结束，往往是主线确立后的第一次换手，需观察次日AI是否崩盘
+    evidence_sources:
+    - 历史主线高潮后走势
+    - 次日开盘表现
+    - 龙头股承接
+  risk_factors:
+  - 次日AI板块直接大幅兑现（短线资金冲顶）
+  - 情绪股回暖但AI分化崩盘
+  - 缺乏新的大级别宏观催化
+  confidence_indicators:
+  - 龙头继续强势且板块分化不崩
+  - 情绪股回暖+AI分化良性
+  - 产业链出现涨价/订单等基本面催化
+  source_raw:
+  - sources/raw/财经/晚间复盘：26-02-12：风格切换，AI全产业链高潮，节前押宝假期发酵，智谱千亿市值.md
+- pattern_id: sector_attack_formation_qualify
+  name: 板块建制进攻判定法
+  description: 通过产业消息、扩产逻辑、板块阵型、容量中军四要素判定板块是否具备建制进攻能力，并结合指数共振判断持续性
+  applicable_themes:
+  - 科技产业链
+  - 半导体扩产
+  - 新能源产业链
+  - 军工产业链
+  reasoning_chain:
+  - step: 1
+    name: 识别产业催化
+    question: 板块是否有明确的产业层面新变化（非单纯消息刺激）？
+    UP_logic: 长鑫扩产带来产业新变化，上游设备和材料同步共振，不是简单消息刺激
+    evidence_sources:
+    - 产业新闻
+    - 公司公告
+    - 行业调研
+  - step: 2
+    name: 检查板块阵型
+    question: 板块是否具备完整的进攻阵型（一字板、涨停、容量中军）？
+    UP_logic: 有一字板（合肥城建、上峰水泥）、上游核心涨停（深科技、雅克科技）、容量中军（兆易创新），十余只涨停
+    evidence_sources:
+    - 开盘封单
+    - 涨停板数量
+    - 中军走势
+  - step: 3
+    name: 评估指数共振
+    question: 板块进攻是否带动指数共振？共振时长和力度如何？
+    UP_logic: 早盘一度带着指数共振修复，但共振时间不长（约半小时），资金跟进力度不足
+    evidence_sources:
+    - 分时图
+    - 量能变化
+    - 指数走势
+  - step: 4
+    name: 判断持续性条件
+    question: 板块能否从新生启动升级为阶段主线？需要哪些条件？
+    UP_logic: 需要前排封单不减弱、中军承接不弱、指数放量回升共振，否则只是混沌轮动中的一次强势修复
+    evidence_sources:
+    - 封单变化
+    - 中军承接
+    - 指数量能
+  risk_factors:
+  - 指数无法形成情绪拐点共振
+  - 中军承受抛压导致板块分歧后修复质量差
+  - 量能持续缩减资金跟进不足
+  confidence_indicators:
+  - 板块有产业层面新变化而非单纯消息
+  - 板块阵型完整（一字+涨停+中军）
+  - 指数放量共振且共振时间延长
+  source_raw:
+  - sources/raw/财经/午盘：26-05-18：长鑫产业链新生启动，指数共振乏力待观察.md

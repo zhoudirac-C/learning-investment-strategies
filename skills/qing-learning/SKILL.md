@@ -113,7 +113,8 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 18. **专家思维蒸馏**：参考 `references/expert-distillation-guide.md`（Prompt+RAG/Fine-tune/Agent三条技术路径）。
 19. **推理模式架构**：参考 `references/reasoning-pattern-architecture.md`（三层蒸馏架构：知识库层→推理模式层→动态应用层，含YAML模板和实施路线图）。
 20. **B站专栏文章正文提取**：参考 `references/bilibili-article-content-extraction.md`（当动态API不返回正文时，从read页面的`__INITIAL_STATE__` JSON提取文章的完整技术方案，含代码实现和注意事项）。
-21. **Trading Rules 迁移与维护**：参考 `references/trading-rules-migration-guide.md`（何时将操作纪律进 `framework/trading-rules.md`、迁移流程、避免重复）。
+21. **推理模式抽取脚本**：参考 `references/reasoning-pattern-extraction-workflow.md`（批量从 raw 抽取推理模式写入 `framework/reasoning-patterns.yaml`，含脚本用法、匹配机制、Agent 集成架构）。
+22. **Trading Rules 迁移与维护**：参考 `references/trading-rules-migration-guide.md`（何时将操作纪律进 `framework/trading-rules.md`、迁移流程、避免重复）。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
@@ -139,7 +140,10 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     - `knowledge/wiki/index.md` — wiki 页面索引（常被遗漏！）
     - `knowledge/wiki/log.md` — 操作日志
 11. 判断是否需要更新 `knowledge/wiki/投资方法论/博主方法论总纲.md`。
-12. 输出 Learning Update Report。
+12. **推理模式抽取**：从 raw 中识别可复用的推理链（非观点，是"怎么推理"），
+    使用 `scripts/extract_reasoning_patterns.py` 抽取并写入 `framework/reasoning-patterns.yaml`。
+    详见 `references/reasoning-pattern-extraction-workflow.md`。
+13. 输出 Learning Update Report。
 13. **知识库增量同步**：运行三个增量同步脚本，将新的 claims 和 wiki 推送到 Qing-Agent 的检索后端。
 
     **⚠️ 前置步骤：Qdrant 本地模式独占文件锁**
@@ -179,6 +183,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 7. **遗忘知识库同步**：claims/wiki 落库并提交后，若不运行 `index_documents_to_qdrant.py` + `migrate_claims_to_neo4j.py`，Qing-Agent 将无法检索到新内容。特征：用户询问某个新学的板块时，Qing-Agent 回答"未找到相关数据"。检查 `.index_state.json` 和 `.migrate_state.json` 的 `last_sync` 时间戳可快速确认是否遗漏。
 8. **未关 Agent 就运行同步脚本（Qdrant 本地模式）**：Qing-Agent 启动后持有 `.qdrant_data/` 独占文件锁。不关 Agent 直接运行索引脚本会导致 `Storage folder already accessed` 错误或静默卡死。正确流程：`kill` Agent → 同步 → 重启 Agent。详见步骤13「知识库增量同步」。
 9. **忘记 PYTHONUNBUFFERED=1**：Hermes cron/后台进程管理器捕获 Python stdout 时，默认缓冲会导致无输出（看起来像卡死）。索引命令必须加 `PYTHONUNBUFFERED=1` 前缀。详见步骤13。
+10. **推理模式抽取混淆观点与推理**：`"UP看好MLCC"` 是观点，应进 claims；`"UP是怎么得出看好MLCC的（5步推理链）"` 是推理模式，应进 `framework/reasoning-patterns.yaml`。不要将单日盘面判断误标为推理模式。
 
 ---
 
