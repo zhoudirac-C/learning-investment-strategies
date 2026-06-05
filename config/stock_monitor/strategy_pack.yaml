@@ -273,6 +273,27 @@ quant_entry_strategy:
     trigger: LPU新概念首日涨停+10%，等分歧后缩量回踩5日线
     invalidation: 跌破56.5且30分钟不能收回；LPU概念一日游
     note: 6/4涨停+10%收62.69，新概念首日。不追高，等回踩57-59。技术评分待定（首日涨停无K线参考）。
+  - code: sz002463
+    name: 沪电股份
+    entry_zone: 132-136区间(回踩支撑)
+    position_ratio: 1成
+    trigger: 6/4+8.49%大阳线逼近涨停，等分歧回踩5日线。PCB/AI硬件景气确认
+    invalidation: 跌破132且30分钟不能收回
+    note: 英伟达高端PCB主力供应商。6/4涨停板142.78收140.82(+8.49%)。不追高，等回踩。已在rubin_pcb_abf+LPU双主题中
+  - code: sz002916
+    name: 深南电路
+    entry_zone: 370-385区间
+    position_ratio: 0.5成
+    trigger: 6/4+2.98%温和上涨，等回踩370-385。封装基板+高多层PCB双逻辑
+    invalidation: 跌破370且30分钟不能收回
+    note: PCB封装基板能力稀缺，但LPU封装基板主力为台系。弹性低于沪电。0.5成谨慎仓位
+  - code: sz002475
+    name: 立讯精密
+    entry_zone: 72.5-74区间
+    position_ratio: 1成
+    trigger: 6/4-0.28%缩量微跌，震荡中等分歧买点。LPU高速连接器逻辑
+    invalidation: 跌破72.5且30分钟不能收回
+    note: '大盘股弹性偏低，产业逻辑配置。UP未直接提及，来自Qing-Agent+券商分析。inference_note: 基于英伟达LPU产业链逻辑推断'
 sector_groups:
 - id: cpu_self_development
   name: CPU自研链
@@ -426,6 +447,12 @@ sector_groups:
     name: 世运电路
   - code: 002897.SZ
     name: 意华股份
+  - code: 002463.SZ
+    name: 沪电股份
+  - code: 002916.SZ
+    name: 深南电路
+  - code: 002475.SZ
+    name: 立讯精密
 sector_rotation_rules:
 - id: offensive_vs_defensive
   name: 进攻vs防御风格切换

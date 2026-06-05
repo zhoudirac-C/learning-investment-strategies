@@ -3332,10 +3332,13 @@ themes:
   source_docs:
   - knowledge/claims/claim-20260604-005.yaml
   - knowledge/wiki/每日复盘/2026-06-04.md
+  - knowledge/claims/claim-20260525.yaml
   market_checks:
   - LPU概念是否持续发酵
   - 博通AVGO是否继续催化
   - 世运电路LPU埋嵌PCB订单能否落地
+  - 沪电/深南PCB订单能否持续
+  - 立讯精密高速连接器是否获英伟达新增订单
   stocks:
   - code: 603920.SH
     name: 世运电路
@@ -3374,3 +3377,117 @@ themes:
       leader_follower: 板块龙头
       catalyst: 英伟达LPU Q3提前发货+博通财报催化
       risk: 新概念首日，连板高度不确定；涨停次日高开易兑现
+  - code: 002463.SZ
+    name: 沪电股份
+    role: lpu_high_layer_pcb
+    segment: 高多层PCB/AI服务器
+    priority: P1-核心
+    watch_reason: 英伟达高端PCB主力供应商，已量产服务器20层+高多层板，高密度互连需求直接受益LPU。6/4+8.49%大阳线。已在rubin_pcb_abf主题中。
+    sync_with_index: AI硬件板块联动
+    confirm_with:
+    - 深南电路
+    - 世运电路
+    - 鹏鼎控股
+    buy_setup:
+    - AI服务器PCB需求延续，沪电放量突破
+    - 不追高(+8.49%当日)，等分歧后缩量回踩5日线
+    - 需深南电路或鹏鼎控股同步承接确认
+    invalidation_setup:
+    - 单票冲高但PCB链无联动
+    - 跌破132且30分钟不能收回(6/4开盘价)
+    - 英伟达LPU逻辑不被资金持续认可
+    up_mention_status:
+      last_mentioned_date: '2026-05-25'
+      mention_context: 5月25日AI硬件核心观察：PCB/MLCC容量核心，深南电路/鹏鼎控股/胜宏科技
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月4日+8.49%放量大阳线
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：132（开盘价）
+      - 压力：142.78（涨停板/历史新高）
+      pattern: 大阳线突破新高
+      note: 6/4收140.82(+8.49%)，盘中至142.78涨停。PCB/AI硬件确认景气度。已在rubin_pcb_abf主题中。
+    sector_narrative:
+      relative_strength: AI PCB最强容量核心
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: 英伟达LPU Q3发货+AI服务器PCB高景气
+      risk: 短期涨幅已大(+8.49%)，追高性价比低
+  - code: 002916.SZ
+    name: 深南电路
+    role: lpu_pcb_substrate
+    segment: 高多层PCB/封装基板
+    priority: P2-重点
+    watch_reason: 具备封装基板能力，若LPU采用先进封装(2.5D/3D)可切入供应链。已量产AI服务器PCB，与沪电同为英伟达PCB供应体系。6/4+2.98%温和上涨。已在rubin_pcb_abf主题中。
+    sync_with_index: AI硬件板块联动
+    confirm_with:
+    - 沪电股份
+    - 鹏鼎控股
+    - 胜宏科技
+    buy_setup:
+    - PCB/AI硬件方向延续，深南电路放量
+    - 不追高，等分歧后缩量回踩
+    - 需沪电股份或鹏鼎控股同步承接确认
+    invalidation_setup:
+    - 单票脉冲但PCB链无联动
+    - 跌破370且30分钟不能收回
+    - 英伟达LPU封装基板逻辑证伪
+    up_mention_status:
+      last_mentioned_date: '2026-05-25'
+      mention_context: 5月25日：PCB/MLCC容量核心，深南电路
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月4日+2.98%温和上涨
+      volume_character: 温和放量
+      key_levels:
+      - 支撑：370
+      - 压力：398（日内高点）
+      pattern: 温和上涨，尚未突破
+      note: 6/4收393.38(+2.98%)。已在rubin_pcb_abf主题中。弹性低于沪电。
+    sector_narrative:
+      relative_strength: PCB组中位，跟随而非领涨
+      money_flow: 主力跟随
+      leader_follower: 板块跟随
+      catalyst: 英伟达LPU先进封装基板需求
+      risk: 封装基板主力为台系(欣兴/Ibiden)，A股订单弹性有限
+  - code: 002475.SZ
+    name: 立讯精密
+    role: lpu_high_speed_connector
+    segment: 高速连接器/内部线束
+    priority: P2-重点
+    watch_reason: 英伟达服务器内部线束+外部高速连接器(PCIe 5.0/6.0)供应商。LPU单机柜256颗对高速连接器用量大幅增加。6/4-0.28%缩量微跌，震荡中。
+    sync_with_index: AI硬件板块联动
+    confirm_with:
+    - 意华股份
+    - 沪电股份
+    - 中航光电
+    buy_setup:
+    - AI硬件/连接器方向延续，立讯精密放量
+    - 不追高，等分歧后缩量回踩
+    - 需意华股份或中航光电同步承接确认
+    invalidation_setup:
+    - 单票脉冲但连接器链无联动
+    - 跌破72.5且30分钟不能收回(6/4最低)
+    - LPU连接器用量增加逻辑证伪
+    up_mention_status:
+      last_mentioned_date: '2026-06-04'
+      mention_context: 未直接提及立讯精密，作为LPU产业链从Qing-Agent+券商补充分析
+      explicit_operation: null
+      sentiment: 未提及(推断)
+    technical_narrative:
+      trend: 6月4日-0.28%缩量微跌
+      volume_character: 缩量震荡
+      key_levels:
+      - 支撑：72.5
+      - 压力：75.6
+      pattern: 区间震荡
+      note: 6/4收74.59(-0.28%)。立讯为大盘股，弹性偏低，更偏产业逻辑配置。
+    sector_narrative:
+      relative_strength: 连接器组中位
+      money_flow: 资金中性
+      leader_follower: 板块跟随
+      catalyst: 英伟达LPU PCIe 6.0高速连接需求
+      risk: 供应链高度集中，A股公司多为二级备选
