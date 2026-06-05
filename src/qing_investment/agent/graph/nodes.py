@@ -142,6 +142,107 @@ def _extract_sector_keywords(query: str) -> list[str]:
     return list(found)
 
 
+def _apply_claim_freshness(claims: list[dict]) -> list[dict]:
+    """对 claims 做时效性衰减排序和标注。
+
+    - ≤7 天: 标为 [最新]
+    - 8-30 天: 正常展示
+    - 31-90 天: 标为 [近期] 并降权
+    - >90 天: 标为 [历史] 并过滤掉（不返回）
+    - status=superseded: 直接过滤
+    """
+    from datetime import datetime, date, timedelta
+    today = date.today()
+    filtered: list[dict] = []
+    for c in claims:
+        if c.get("status") == "superseded":
+            continue
+        sd = c.get("source_date", "")
+        try:
+            claim_date = datetime.strptime(str(sd), "%Y-%m-%d").date()
+            days_ago = (today - claim_date).days
+        except Exception:
+            days_ago = 999
+        if days_ago > 90:
+            continue
+        if days_ago <= 7:
+            label = "最新"
+        elif days_ago <= 30:
+            label = ""
+        elif days_ago <= 90:
+            label = "近期"
+        else:
+            label = "历史"
+        c_copy = dict(c)
+        c_copy["days_ago"] = days_ago
+        c_copy["freshness_label"] = label
+        filtered.append(c_copy)
+    # 排序：days_ago 小的在前（最新的在前）
+    filtered.sort(key=lambda x: x.get("days_ago", 999))
+    return filtered
+
+
+# 方向词表用于矛盾检测（P1）
+_BULLISH_WORDS = {"看多", "看好", "主升", "接棒", "主线", "配置", "加仓", "买入", "机会", "突破", "上涨", "领涨", "强势"}
+_BEARISH_WORDS = {"看空", "回避", "规避", "减仓", "卖出", "风险", "调整", "退潮", "规避", "破位", "下跌", "领跌", "弱势"}
+
+
+def _detect_claim_conflicts(claims: list[dict]) -> list[dict]:
+    """检测同一 subject 下是否存在方向相反的 active claims。
+
+    返回格式：
+    [
+      {
+        "subject": "半导体",
+        "claims": [
+          {"id": "claim-A", "statement": "...", "source_date": "2026-06-03", "direction": "bullish"},
+          {"id": "claim-B", "statement": "...", "source_date": "2026-06-04", "direction": "bearish"}
+        ]
+      }
+    ]
+    """
+    from collections import defaultdict
+
+    # 按 subject 分组（只处理有 subject 的 claim）
+    by_subject: dict[str, list[dict]] = defaultdict(list)
+    for c in claims:
+        subj = (c.get("subject") or "").strip()
+        if subj:
+            by_subject[subj].append(c)
+
+    conflicts: list[dict] = []
+    for subj, group in by_subject.items():
+        if len(group) < 2:
+            continue
+        # 检测每条 claim 的方向
+        directed: list[dict] = []
+        for c in group:
+            stmt = c.get("statement", "")
+            bull = any(w in stmt for w in _BULLISH_WORDS)
+            bear = any(w in stmt for w in _BEARISH_WORDS)
+            if bull and not bear:
+                direction = "bullish"
+            elif bear and not bull:
+                direction = "bearish"
+            else:
+                direction = "neutral"
+            directed.append({
+                "id": c.get("id", ""),
+                "statement": stmt,
+                "source_date": c.get("source_date", ""),
+                "direction": direction,
+            })
+        # 检查同一 subject 下是否有相反方向的 active claims
+        has_bull = any(d["direction"] == "bullish" for d in directed)
+        has_bear = any(d["direction"] == "bearish" for d in directed)
+        if has_bull and has_bear:
+            conflicts.append({
+                "subject": subj,
+                "claims": directed,
+            })
+    return conflicts
+
+
 async def retrieve_knowledge(state: AgentState) -> AgentState:
     query = state.get("query", "")
     stock_code = state.get("parsed_intent", {}).get("stock_code")
@@ -186,6 +287,7 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
                                 "confidence": node.get("confidence", ""),
                                 "source_date": node.get("source_date", ""),
                                 "status": node.get("status", ""),
+                                "subject": node.get("subject", ""),
                             })
             else:
                 # Fallback to keyword search if embedding model unavailable
@@ -205,6 +307,12 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
         logging.getLogger(__name__).warning("Claims retrieval failed: %s", traceback.format_exc())
         claims = []
 
+    # ── Claims 时效衰减排序（P0 新增）──
+    claims = _apply_claim_freshness(claims)
+
+    # ── 同一主题矛盾检测（P1 新增）──
+    potential_conflicts = _detect_claim_conflicts(claims)
+
     try:
         qdrant.ensure_collection("qing_knowledge", vector_size=512)
         from qing_investment.agent.tools.llm_client import get_embedding_model
@@ -216,6 +324,7 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
                 {
                     "text": (r.get("payload") or {}).get("text", (r.get("payload") or {}).get("chunk_text", "")),
                     "source": (r.get("payload") or {}).get("source_path", (r.get("payload") or {}).get("source", "")),
+                    "source_date": (r.get("payload") or {}).get("source_date", ""),
                     "score": r.get("score", 0),
                 }
                 for r in results
@@ -269,11 +378,13 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
     # 检索审计日志
     wiki_framework_count = sum(1 for s in wiki_snippets if s.get("source", "").startswith("framework/"))
     wiki_meth_count = sum(1 for s in wiki_snippets if "wiki/投资方法论" in s.get("source", ""))
+    conflict_subjects = [c["subject"] for c in potential_conflicts]
     print(
         f"[retrieve_knowledge] query='{query}', "
         f"claims={len(claims)}, wiki={len(wiki_snippets)} "
         f"(framework={wiki_framework_count}, meth={wiki_meth_count}), "
-        f"memories={len(memories)}, sector_ctx={len(sector_context)}"
+        f"memories={len(memories)}, sector_ctx={len(sector_context)}, "
+        f"conflicts={len(potential_conflicts)} {conflict_subjects}"
     )
 
     return {
@@ -284,9 +395,11 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
         "knowledge_graph": {},
         "memories": memories,
         "few_shot_examples": few_shot,
+        "potential_conflicts": potential_conflicts,
         "reasoning_steps": [
             f"检索到 {len(claims)} 条claims, {len(wiki_snippets)} 个wiki片段, "
             f"{len(memories)} 条记忆, {len(sector_context)} 个动态板块"
+            f"{f', 发现 {len(potential_conflicts)} 组潜在矛盾: {conflict_subjects}' if potential_conflicts else ''}"
         ],
     }
 
@@ -407,6 +520,33 @@ def market_analyst(state: AgentState) -> AgentState:
     }
 
 
+def _get_stock_name(stock_code: str, market_snapshot: dict, watchlist: list[dict]) -> str:
+    """从行情快照或观察池中提取股票名称。"""
+    for q in market_snapshot.get("quotes", []):
+        if q.get("code") == stock_code or q.get("secid") == stock_code:
+            name = q.get("name") or q.get("label", "")
+            if name:
+                return name
+    for w in watchlist:
+        if w.get("code") == stock_code:
+            return w.get("name", "")
+    return ""
+
+
+def _fetch_stock_external_info(stock_code: str, stock_name: str) -> list[dict]:
+    """通过网络搜索获取个股最新公开信息，用于外部校验。"""
+    try:
+        from qing_investment.agent.tools.web_search import search_web_simple
+    except Exception:
+        return []
+    query = f"{stock_name} {stock_code.replace('.SH', '').replace('.SZ', '')} 主营业务 最新"
+    try:
+        results = search_web_simple(query, limit=3)
+    except Exception:
+        results = []
+    return results
+
+
 def stock_analyst(state: AgentState) -> AgentState:
     stock_code = state.get("parsed_intent", {}).get("stock_code")
     analysis_type = state.get("parsed_intent", {}).get("analysis_type", "stock")
@@ -419,10 +559,17 @@ def stock_analyst(state: AgentState) -> AgentState:
         }
 
     prompt_template = _load_prompt("stock_analyst")
+    market_snapshot = state.get("market_snapshot", {})
+    watchlist = state.get("watchlist", [])
+    stock_name = _get_stock_name(stock_code, market_snapshot, watchlist)
+    external_validation = _fetch_stock_external_info(stock_code, stock_name)
+
     context = {
         "stock_code": stock_code,
+        "stock_name": stock_name,
+        "external_validation": external_validation,
         "positions": state.get("positions", []),
-        "watchlist": state.get("watchlist", []),
+        "watchlist": watchlist,
         "claims": state.get("claims", []),
         "market_context": state.get("market_context", {}),
     }

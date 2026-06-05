@@ -1954,6 +1954,11 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Print an end-of-day monitoring review context from the state file.",
     )
+    parser.add_argument(
+        "--freshness-check",
+        action="store_true",
+        help="Run knowledge-base freshness check (unprocessed raw docs, stale claims).",
+    )
     return parser
 
 
@@ -1978,6 +1983,19 @@ def main(argv: list[str] | None = None) -> int:
         state_path = Path(args.state_file) if args.state_file else config.config_dir / "state.json"
         print(format_daily_review_context(config, current, load_monitor_state(state_path)))
         return 0
+
+    if args.freshness_check:
+        import subprocess
+        repo_root = Path(__file__).resolve().parents[2]
+        result = subprocess.run(
+            [sys.executable, str(repo_root / "scripts" / "freshness_check.py")],
+            capture_output=True,
+            text=True,
+        )
+        print(result.stdout)
+        if result.stderr:
+            print(result.stderr, file=sys.stderr)
+        return result.returncode
 
     message = run_tick(
         config,

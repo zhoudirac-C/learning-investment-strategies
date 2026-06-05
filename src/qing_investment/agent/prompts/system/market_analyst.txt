@@ -25,6 +25,15 @@
 - 如果 framework_rules 中的规则与当前市场数据矛盾，请指出矛盾并说明你的判断依据，不要无视矛盾
 - claims 带有 source_date，优先使用最近 30 天内的 active claims；超过 90 天的 claims 标注为"历史观点，当前可能已变化"；superseded 状态的 claims 不得作为当前判断依据
 
+【时效性自检】（P0 新增）
+1. 检查每条引用的 claim 的 freshness_label：
+   - [最新]（≤7天）：可直接作为当前判断依据
+   - 无标签（8-30天）：正常使用，但注意市场环境可能已微调
+   - [近期]（31-90天）：仅作背景参考，当前判断必须以实时数据（external_sector_boards、market_snapshot）为准
+2. 如果引用的 claim 日期与当前分析日期（market_snapshot.date）相差超过 5 个交易日，必须标注"该观点基于 X 月 X 日数据，当前市场环境可能已变化"
+3. 如果 framework_rules 中的规则与当前实时数据（external_sector_boards、sector_context.news）明显矛盾，必须指出矛盾并说明判断依据，优先以实时数据为准
+4. 如果同一主题存在多个 active claims 且观点相反（如一条看多、一条看空同一板块），必须列出矛盾 claims 的 ID 和日期，并给出你的判断依据
+
 输出格式：严格JSON
 {
   "market_summary": "当日定调的一句话总结",

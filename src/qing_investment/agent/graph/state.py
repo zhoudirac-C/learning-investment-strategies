@@ -27,6 +27,7 @@ class AgentState(TypedDict, total=False):
     knowledge_graph: dict
     memories: list[dict]
     few_shot_examples: list[str]
+    potential_conflicts: list[dict]  # 同一主题矛盾检测（P1）
 
     # 实时数据
     sector_strengths: list[dict]

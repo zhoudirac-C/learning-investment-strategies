@@ -18,7 +18,7 @@ class Neo4jClient:
         WHERE c.status IN ['active', 'superseded']
         RETURN c.id as id, c.statement as statement,
                c.confidence as confidence, coalesce(c.source_date, '') as source_date,
-               c.status as status
+               c.status as status, coalesce(c.subject, '') as subject
         ORDER BY source_date DESC
         LIMIT $limit
         """
@@ -43,7 +43,7 @@ class Neo4jClient:
         WHERE c.subject CONTAINS $keyword OR c.statement CONTAINS $keyword
         RETURN c.id as id, c.statement as statement,
                c.confidence as confidence, coalesce(c.source_date, '') as source_date,
-               c.status as status
+               c.status as status, coalesce(c.subject, '') as subject
         ORDER BY source_date DESC
         LIMIT $limit
         """
