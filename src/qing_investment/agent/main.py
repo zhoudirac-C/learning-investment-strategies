@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import re
+
 from fastapi import FastAPI
 
 from qing_investment.agent.graph.builder import build_graph
@@ -9,11 +11,49 @@ from qing_investment.agent.models.schemas import (
     TriggerRequest,
     TriggerResponse,
 )
-from qing_investment.agent.tools.llm_client import get_llm_client
+from qing_investment.agent.tools.llm_client import get_embedding_model, get_llm_client
 from qing_investment.agent.tools.mem0_client import Mem0ClientWrapper
+from qing_investment.agent.tools.neo4j_client import Neo4jClient
+from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
 
 app = FastAPI(title="Qing-Agent", version="0.1.0")
 graph = build_graph()
+
+
+# ── 轻量级关键词提取（用于 /chat 的 Neo4j claims 检索） ──
+_STOP_WORDS: set[str] = {
+    "什么是", "怎么", "如何", "分析一下", "告诉我", "请问",
+    "一下", "的", "了", "吗", "呢", "啊", "吧", "吗",
+}
+_SECTOR_KEYWORDS: dict[str, list[str]] = {
+    "光互连": ["光互连", "光互联", "光模块", "CPO", "光纤", "光通信", "光芯片"],
+    "半导体": ["半导体", "芯片", "存储", "封测", "光刻", "设备", "材料"],
+    "AI": ["AI", "算力", "大模型", "智能体", "Agent", "AIPC"],
+    "机器人": ["机器人", "具身智能", "人形机器人", "特斯拉", "Optimus"],
+    "电力": ["电力", "煤炭", "红利", "高股息", "绿电"],
+    "新能源": ["新能源", "光伏", "锂电", "储能", "风电"],
+    "资源": ["铜", "铝", "锂", "稀土", "黄金", "煤炭", "硫磺"],
+}
+
+
+def _extract_keywords(text: str) -> list[str]:
+    """从用户查询中提取可用于 Neo4j claims 检索的关键词。"""
+    # 去掉常见疑问前缀
+    cleaned = text.strip()
+    for sw in sorted(_STOP_WORDS, key=len, reverse=True):
+        cleaned = cleaned.replace(sw, "")
+    cleaned = cleaned.strip()
+    # 去掉标点和数字
+    cleaned = re.sub(r"[^\u4e00-\u9fa5a-zA-Z]", " ", cleaned)
+    tokens = [t for t in cleaned.split() if len(t) >= 2]
+    # 去重保留
+    seen: set[str] = set()
+    result: list[str] = []
+    for t in tokens:
+        if t not in seen:
+            seen.add(t)
+            result.append(t)
+    return result
 
 
 @app.get("/health")
@@ -66,19 +106,77 @@ async def analyze_trigger(req: TriggerRequest):
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(req: ChatRequest):
-    """Simple chat endpoint with memory retrieval fallback."""
+    """Chat endpoint with memory + knowledge-base retrieval."""
     mem0 = Mem0ClientWrapper()
     memories = mem0.search(req.message, user_id=req.session_id)
 
+    # ── 知识库检索（新增）──
+    wiki_snippets: list[dict] = []
+    claims: list[dict] = []
+
+    try:
+        qdrant = QdrantClientWrapper()
+        emb_model = get_embedding_model()
+        if emb_model:
+            vec = emb_model.encode(req.message).tolist()[0]
+            results = qdrant.search(vec, collection="qing_knowledge", limit=5)
+            wiki_snippets = [
+                {
+                    "text": r.payload.get("text", ""),
+                    "source": r.payload.get("source_path", ""),
+                    "source_type": r.payload.get("source_type", ""),
+                }
+                for r in results
+            ]
+    except Exception:
+        pass
+
+    try:
+        neo4j = Neo4jClient()
+        keywords = _extract_keywords(req.message)
+        # 也尝试用板块关键词做更精准的 claims 检索
+        for cluster_kws in _SECTOR_KEYWORDS.values():
+            for kw in cluster_kws:
+                if kw in req.message and kw not in keywords:
+                    keywords.append(kw)
+        seen_ids: set[str] = set()
+        for kw in keywords[:3]:  # 最多查 3 个关键词，避免过多
+            batch = neo4j.get_claims_by_keyword(kw, limit=5)
+            for c in batch:
+                cid = c.get("id")
+                if cid and cid not in seen_ids:
+                    seen_ids.add(cid)
+                    claims.append(c)
+            if len(claims) >= 10:
+                break
+        neo4j.close()
+    except Exception:
+        pass
+
+    # ── 构建增强 prompt ──
     context_parts = []
+
+    if wiki_snippets:
+        context_parts.append("【博主知识库片段】（回答时请优先参考这些内容）")
+        for s in wiki_snippets:
+            src = s["source"].replace("framework/", "[框架] ").replace("knowledge/wiki/", "[Wiki] ")
+            context_parts.append(f"- {src}: {s['text'][:300]}")
+
+    if claims:
+        context_parts.append("【博主历史观点卡】")
+        for c in claims:
+            context_parts.append(f"- {c.get('id', 'N/A')} ({c.get('source_date','')}): {c.get('statement', '')[:200]}")
+
     if memories:
-        context_parts.append("以下是与用户相关的记忆片段：")
+        context_parts.append("【用户历史记忆】")
         for m in memories:
             content = m.get("content", "") if isinstance(m, dict) else str(m)
             context_parts.append(f"- {content}")
 
     prompt_lines = [
         "你是青枫浦上Q的助手，风格犀利但不劝赌，不用机构研报腔。",
+        "回答时，优先使用【博主知识库片段】和【博主历史观点卡】中的内容作为依据。",
+        "如果知识库中没有相关信息，请明确说明，不要编造。",
         *context_parts,
         f"\n用户：{req.message}\n",
         "请直接回复：",

@@ -22,16 +22,17 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from qing_investment.agent.config import settings
 from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
-from qing_investment.agent.tools.embedding_utils import simple_hash_embedding
+from qing_investment.agent.tools.llm_client import get_embedding_model
 from qdrant_client.models import PointStruct
 
-VECTOR_DIM = 1024
+VECTOR_DIM = 512
 COLLECTION = "qing_knowledge"
 STATE_PATH = REPO_ROOT / ".index_state.json"
 
 # Paths to index
 WIKI_GLOB = str(REPO_ROOT / "knowledge" / "wiki" / "**" / "*.md")
 RAW_GLOB = str(REPO_ROOT / "sources" / "raw" / "财经" / "*.md")
+FRAMEWORK_GLOB = str(REPO_ROOT / "framework" / "*.md")
 
 
 def _load_state() -> dict:
@@ -98,7 +99,12 @@ def chunk_markdown(text: str, source_path: str, source_date: str = "") -> list[d
     for c in chunks:
         c["source_path"] = source_path
         c["source_date"] = source_date
-        c["source_type"] = "wiki" if "knowledge/wiki" in source_path else "raw"
+        if "knowledge/wiki" in source_path:
+            c["source_type"] = "wiki"
+        elif "framework" in source_path:
+            c["source_type"] = "framework"
+        else:
+            c["source_type"] = "raw"
 
     return chunks
 
@@ -116,7 +122,7 @@ def extract_date_from_filename(filename: str) -> str:
 
 
 def index_documents(*, force_full: bool = False):
-    qdrant = QdrantClientWrapper(local_mode=True)
+    qdrant = QdrantClientWrapper()
     qdrant.ensure_collection(COLLECTION, vector_size=VECTOR_DIM)
 
     state = _load_state()
@@ -126,6 +132,7 @@ def index_documents(*, force_full: bool = False):
     # Gather all files
     files = sorted(glob.glob(WIKI_GLOB, recursive=True))
     files += sorted(glob.glob(RAW_GLOB))
+    files += sorted(glob.glob(FRAMEWORK_GLOB))
 
     # Determine which files need processing
     files_to_process: list[Path] = []
@@ -189,7 +196,8 @@ def index_documents(*, force_full: bool = False):
 
         points = []
         for chunk in chunks:
-            embedding = simple_hash_embedding(chunk["text"])
+            emb_model = get_embedding_model()
+            embedding = emb_model.encode(chunk["text"]).tolist()[0]
             point_id = hashlib.sha256(
                 f"{chunk['source_path']}:{chunk['text']}".encode("utf-8")
             ).hexdigest()[:32]

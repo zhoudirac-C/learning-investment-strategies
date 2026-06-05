@@ -18,3 +18,9 @@ infra/data/
 # Environment variables (contains API keys)
 .env
 
+# Large model files (ONNX runtime models, 1.5GB+)
+models/
+
+# Runtime index state (auto-generated)
+.index_state.json
+

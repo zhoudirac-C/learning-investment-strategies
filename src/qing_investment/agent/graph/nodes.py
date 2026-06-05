@@ -21,6 +21,14 @@ def _load_prompt(name: str) -> str:
     return f"[Prompt {name} not found]"
 
 
+def _load_analysis_framework() -> str:
+    """加载市场分析框架 prompt 片段（独立于主 prompt，方便修改）。"""
+    path = _PROMPT_DIR / "market_analysis_framework.txt"
+    if path.exists():
+        return path.read_text(encoding="utf-8")
+    return "[market_analysis_framework.txt not found]"
+
+
 def _load_few_shot_examples(query: str, max_examples: int = 3) -> list[str]:
     """从 prompts/few_shot/ 加载相似场景的示例。"""
     few_shot_dir = _REPO_ROOT / "src" / "qing_investment" / "agent" / "prompts" / "few_shot"
@@ -40,6 +48,31 @@ def _get_tone_by_market_phase(phase: str) -> str:
         "退潮期": "收缩、防御",
     }
     return mapping.get(phase, "中性")
+
+
+# ── Framework 显式加载（Phase 1 新增）──
+_FRAMEWORK_LOADERS: dict[str, list[str]] = {
+    "market": ["market-cycle-framework.md", "sector-diffusion-framework.md", "trading-rules.md"],
+    "stock": ["stock-analysis-playbook.md", "technical-analysis-framework.md", "trading-rules.md"],
+    "portfolio": ["trading-rules.md", "market-cycle-framework.md", "sector-diffusion-framework.md"],
+}
+
+
+def _load_framework_files(analysis_type: str) -> list[dict]:
+    """根据分析类型，显式加载相关的 framework 文件内容。"""
+    files = _FRAMEWORK_LOADERS.get(analysis_type, [])
+    result: list[dict] = []
+    for fname in files:
+        path = _REPO_ROOT / "framework" / fname
+        if path.exists():
+            content = path.read_text(encoding="utf-8")
+            # 截断到 4000 字符，避免 prompt 过长；保留文件开头（通常是核心定义）
+            result.append({
+                "file": fname,
+                "content": content[:4000],
+                "truncated": len(content) > 4000,
+            })
+    return result
 
 
 def _safe_llm_invoke(prompt: str) -> str:
@@ -115,42 +148,100 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
     session_id = state.get("session_id", "default")
 
     neo4j = Neo4jClient()
-    qdrant = QdrantClientWrapper(local_mode=True)
+    qdrant = QdrantClientWrapper()
     mem0 = Mem0ClientWrapper()
 
     claims, wiki_snippets, memories, few_shot = [], [], [], []
 
     try:
         if stock_code:
+            # Stock-specific queries: use Neo4j relationship graph
             claims = neo4j.get_claims_about_stock(stock_code, limit=10)
         else:
-            # For market/sector queries, search by multiple keywords and merge
-            keywords = _extract_sector_keywords(query)
-            seen_ids: set[str] = set()
-            for kw in keywords:
-                batch = neo4j.get_claims_by_keyword(kw, limit=10)
-                for c in batch:
-                    cid = c.get("id")
+            # Market/sector queries: use semantic search via Qdrant (Phase 3.3)
+            from qing_investment.agent.tools.llm_client import get_embedding_model
+            emb_model = get_embedding_model()
+            if emb_model:
+                query_vec = emb_model.encode(query).tolist()[0]
+                claim_results = qdrant.search(
+                    query_vec, collection="qing_claims", limit=10
+                )
+                claim_ids = [
+                    (r.get("payload") or {}).get("claim_id", "")
+                    for r in claim_results
+                ]
+                # Fetch full claim details from Neo4j by IDs
+                seen_ids: set[str] = set()
+                for cid in claim_ids:
                     if cid and cid not in seen_ids:
                         seen_ids.add(cid)
-                        claims.append(c)
-                if len(claims) >= 15:
-                    break
+                        c = neo4j.get_claim_evolution(cid)
+                        if c:
+                            # get_claim_evolution returns list of dicts, take first
+                            first = c[0] if isinstance(c, list) else c
+                            node = first.get("c", {})
+                            claims.append({
+                                "id": cid,
+                                "statement": node.get("statement", ""),
+                                "confidence": node.get("confidence", ""),
+                                "source_date": node.get("source_date", ""),
+                                "status": node.get("status", ""),
+                            })
+            else:
+                # Fallback to keyword search if embedding model unavailable
+                keywords = _extract_sector_keywords(query)
+                seen_ids: set[str] = set()
+                for kw in keywords:
+                    batch = neo4j.get_claims_by_keyword(kw, limit=10)
+                    for c in batch:
+                        cid = c.get("id")
+                        if cid and cid not in seen_ids:
+                            seen_ids.add(cid)
+                            claims.append(c)
+                    if len(claims) >= 15:
+                        break
     except Exception as e:
+        import traceback, logging
+        logging.getLogger(__name__).warning("Claims retrieval failed: %s", traceback.format_exc())
         claims = []
 
     try:
-        qdrant.ensure_collection("qing_knowledge", vector_size=1024)
+        qdrant.ensure_collection("qing_knowledge", vector_size=512)
         from qing_investment.agent.tools.llm_client import get_embedding_model
         emb_model = get_embedding_model()
         if emb_model:
-            query_vec = emb_model.encode(query).tolist()
-            results = qdrant.search(query_vec, collection="qing_knowledge", limit=10)
+            query_vec = emb_model.encode(query).tolist()[0]
+            results = qdrant.search(query_vec, collection="qing_knowledge", limit=15)
             wiki_snippets = [
-                {"text": r.payload.get("text", r.payload.get("chunk_text", "")), "source": r.payload.get("source_path", r.payload.get("source", "")), "score": r.score}
+                {
+                    "text": (r.get("payload") or {}).get("text", (r.get("payload") or {}).get("chunk_text", "")),
+                    "source": (r.get("payload") or {}).get("source_path", (r.get("payload") or {}).get("source", "")),
+                    "score": r.get("score", 0),
+                }
                 for r in results
             ]
+            # ── 来源类型 boost 排序（Phase 3.1）──
+            _SOURCE_BOOST = {
+                "framework/": 0.15,
+                "wiki/投资方法论": 0.10,
+                "wiki/市场分析": 0.05,
+                "wiki/博主": 0.03,
+                "wiki/每日复盘": 0.02,
+                "sources/raw": 0.00,
+            }
+            for s in wiki_snippets:
+                src = s.get("source", "")
+                boost = 0.0
+                for prefix, b in _SOURCE_BOOST.items():
+                    if prefix in src:
+                        boost = b
+                        break
+                s["boosted_score"] = s.get("score", 0) + boost
+            wiki_snippets.sort(key=lambda x: x.get("boosted_score", 0), reverse=True)
+            wiki_snippets = wiki_snippets[:10]  # 截断回 10 条
     except Exception as e:
+        import traceback, logging
+        logging.getLogger(__name__).warning("Wiki retrieval failed: %s", traceback.format_exc())
         wiki_snippets = []
 
     # Dynamic sector extraction from recent UP raw documents + web search
@@ -175,8 +266,17 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
 
     neo4j.close()
 
-    return {
+    # 检索审计日志
+    wiki_framework_count = sum(1 for s in wiki_snippets if s.get("source", "").startswith("framework/"))
+    wiki_meth_count = sum(1 for s in wiki_snippets if "wiki/投资方法论" in s.get("source", ""))
+    print(
+        f"[retrieve_knowledge] query='{query}', "
+        f"claims={len(claims)}, wiki={len(wiki_snippets)} "
+        f"(framework={wiki_framework_count}, meth={wiki_meth_count}), "
+        f"memories={len(memories)}, sector_ctx={len(sector_context)}"
+    )
 
+    return {
         "claims": claims,
         "wiki_snippets": wiki_snippets,
         "sector_context": sector_context,
@@ -250,16 +350,29 @@ def market_analyst(state: AgentState) -> AgentState:
         market_snapshot["_total_quotes"] = len(all_quotes)
         market_snapshot["_filtered_quotes"] = len(filtered)
 
+    # 显式加载相关 framework 文件（Phase 1 新增）
+    framework_context = _load_framework_files(analysis_type)
+    print(
+        f"[market_analyst] framework_loaded={len(framework_context)}, "
+        f"files={[f['file'] for f in framework_context]}, "
+        f"analysis_type={analysis_type}"
+    )
+
+    # 动态加载分析框架片段（不改 framework/ 目录）
+    analysis_framework = _load_analysis_framework()
+    prompt_template_filled = prompt_template.replace("{analysis_framework}", analysis_framework)
+
     context = {
         "claims": state.get("claims", []),
         "wiki_snippets": state.get("wiki_snippets", []),
+        "framework_rules": framework_context,  # 显式注入方法论框架
         "market_snapshot": market_snapshot,
         "sector_strengths": state.get("sector_strengths", []),
         "external_sector_boards": esb,
         "sector_context": state.get("sector_context", []),
         "memories": state.get("memories", []),
     }
-    prompt = f"""{prompt_template}
+    prompt = f"""{prompt_template_filled}
 
 检索到的知识：
 {json.dumps(context, ensure_ascii=False, indent=2)}
@@ -348,6 +461,38 @@ def stock_analyst(state: AgentState) -> AgentState:
     }
 
 
+def _format_source_block(state: AgentState) -> str:
+    """从检索到的知识构建参考来源段落，强制注入到草稿末尾。"""
+    sources: list[str] = []
+    seen: set[str] = set()
+
+    # Framework rules
+    for f in state.get("framework_rules", []):
+        src = f"framework/{f.get('file', '')}"
+        if src and src not in seen:
+            seen.add(src)
+            sources.append(src)
+
+    # Wiki snippets (top 5)
+    for s in state.get("wiki_snippets", [])[:5]:
+        src = s.get("source", "")
+        if src and src not in seen:
+            seen.add(src)
+            sources.append(src)
+
+    # Claims (top 5)
+    for c in state.get("claims", [])[:5]:
+        cid = c.get("id", "")
+        if cid and cid not in seen:
+            seen.add(cid)
+            sources.append(cid)
+
+    if not sources:
+        return ""
+
+    return "\n\n【参考来源】\n" + "\n".join(f"- {s}" for s in sources)
+
+
 def _build_position_plan_lines(market_context: dict, positions: list[dict]) -> list[str]:
     """Build structured position plan lines from market_context.position_plans.
 
@@ -417,6 +562,7 @@ def synthesize(state: AgentState) -> AgentState:
 """
         # Append position plans for any held positions even in stock mode
         draft += "\n".join(_build_position_plan_lines(market, positions))
+        draft += _format_source_block(state)
     else:
         sector_map = market.get("sector_map", {})
         sector_lines = []
@@ -472,6 +618,7 @@ def synthesize(state: AgentState) -> AgentState:
 【风险提示】{market.get('risk_notes', '')}
 {position_joined}
 """
+        draft += _format_source_block(state)
 
     return {
 

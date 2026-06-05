@@ -133,18 +133,20 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 7. 先抽取 claims，再更新 wiki、methodology、framework。
 8. **更新关联 wiki 专题页**：抽取 claims 后，检查 claim 涉及的主题是否已有独立 wiki 专题页（如`端侧AI`、`AIPC`、`超级电容`等）。若已有专题页，将新 claim 关联到该页面；若无专题页但该主题已跨多篇 raw 出现，考虑创建专题页。不要只更新每日复盘 wiki 而遗漏专题沉淀。
 9. 只有满足 durable rule 的观点才进入 framework。
+   - **Framework 更新后检查 prompt 同步**：若更新的 framework 文件涉及大盘分析的输出格式规范（如 11 项分析框架、周期判断标准、板块映射模板等），必须检查并同步更新 `prompts/system/market_analysis_framework.txt`。该文件是 agent 输出格式的单一来源（source of truth），与 `framework/` 知识沉淀层分离——前者控制 AI 输出结构，后者控制投资方法论内容。两者更新不同步会导致 agent 输出格式与最新方法论脱节。
 10. **更新三个索引文件（缺一不可）**：
     - `knowledge/claims/index.md` — claim 文件索引
     - `knowledge/wiki/index.md` — wiki 页面索引（常被遗漏！）
     - `knowledge/wiki/log.md` — 操作日志
 11. 判断是否需要更新 `knowledge/wiki/投资方法论/博主方法论总纲.md`。
 12. 输出 Learning Update Report。
-13. **知识库增量同步**：运行两个增量同步脚本，将新的 claims 和 wiki 推送到 Qing-Agent 的检索后端：
+13. **知识库增量同步**：运行三个增量同步脚本，将新的 claims 和 wiki 推送到 Qing-Agent 的检索后端：
 
     ```bash
     cd ~/learning-investment-strategies
     .venv/bin/python scripts/index_documents_to_qdrant.py   # 文档 → Qdrant 向量库
     .venv/bin/python scripts/migrate_claims_to_neo4j.py      # claims → Neo4j 图库
+    .venv/bin/python scripts/index_claims_to_qdrant.py       # claims embedding → Qdrant 语义搜索
     ```
 
     - 增量模式（默认）：只处理 `hash 有变化` 或 `新创建` 的文件
@@ -357,7 +359,8 @@ git status --short
 
 - 本次新增/更新了哪些 raw、claims、wiki、framework。
 - `博主方法论总纲.md` 是否更新。
-- 如果总纲没有更新，说明原因，例如"本次为单日盘面案例，尚未满足总纲级沉淀条件"或"本次为技术课程，已更新 technical-analysis-framework"。
+- **Agent prompt 同步状态**：如果更新了涉及输出格式规范的 framework 文件，是否同步更新了 `prompts/system/market_analysis_framework.txt`。
+- 如果总纲或 prompt 没有更新，说明原因，例如"本次为单日盘面案例，尚未满足总纲级沉淀条件"或"本次为技术课程，已更新 technical-analysis-framework，不涉及大盘分析格式规范，无需更新 prompt"。
 
 ## 禁止事项
 
