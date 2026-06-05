@@ -23,116 +23,110 @@ Qing-Agent 基于 **LangGraph** 构建有向图工作流，共 7 个节点 + 1 �
 
 ```plantuml
 @startuml
-!theme cerulean-outline
-skinparam backgroundColor #FEFEFE
+skinparam backgroundColor #FAFAFA
 skinparam componentStyle rectangle
 skinparam linetype ortho
-skinparam packageBorderColor #546E7A
-skinparam packageFontColor #263238
+skinparam defaultFontSize 13
+skinparam packageBorderColor #90A4AE
+skinparam packageFontColor #37474F
+skinparam rectangleBorderColor #546E7A
+skinparam rectangleFontColor #263238
+skinparam rectangleBackgroundColor #FFFFFF
+skinparam databaseBackgroundColor #FFFFFF
+skinparam folderBackgroundColor #FFFFFF
+skinparam noteBackgroundColor #FFFDE7
+skinparam noteBorderColor #FBC02D
 
-title Qing-Agent 架构图 — 主流程从上至下，离线层放两侧
+title Qing-Agent 架构图 — 柔和色系，主流程从上至下
 
-' ==================== 左侧：数据基础设施（离线）====================
-package "数据基础设施" #ECEFF1 {
-    database "Neo4j\n7474/7687" as Neo4j #90CAF9
-    database "Qdrant\n6333" as Qdrant #A5D6A7
-    database "Postgres\n5432" as Postgres #FFCC80
+' ==================== 左侧：离线层 ====================
+package "基础设施" #ECEFF1 {
+    database "Neo4j\nclaims 图谱" as Neo4j
+    database "Qdrant\n向量检索" as Qdrant
+    database "Postgres\nmem0" as Postgres
+}
+
+package "知识沉淀" #ECEFF1 {
+    folder "sources/raw/财经" as Raw
+    folder "knowledge/claims" as Claims
+    folder "knowledge/wiki" as Wiki
+    folder "framework" as Framework
+}
+
+package "索引脚本" #ECEFF1 {
+    [index_documents_to_qdrant] as IdxDoc #CFD8DC
+    [migrate_claims_to_neo4j] as MigNeo #CFD8DC
+    [index_claims_to_qdrant] as IdxClaims #CFD8DC
+    [freshness_check] as FreshCheck #CFD8DC
+}
+
+' ==================== 中间：主流程（从上至下）====================
+
+package "① 输入层" #E3F2FD {
+    [POST /chat] as Chat
+    [POST /analyze/trigger] as Trigger
+    [external_sector_boards] as ESB
+    [market_snapshot] as MarketSnap
+    [positions] as Positions
+}
+
+package "② 解析层" #FFFFFF {
+    [parse_query] as Parse
+}
+
+package "③ 检索层" #F3E5F5 {
+    [retrieve_knowledge] as Retrieve
     
-    note right of Neo4j
-      533 claims
-      SUPERSEDES/CONTRADICTS
+    [qing_knowledge\n10,685 chunks] as QWiki
+    [qing_claims\n533 claims] as QClaims
+    [mem0] as Mem0
+    [sector_extractor] as SectorExt
+    
+    [_apply_claim_freshness] as Freshness
+    note right of Freshness
+      ≤7天 [最新]
+      31-90天 [近期] 降权
+      >90天 / superseded → 过滤
     end note
     
-    note right of Qdrant
-      qing_knowledge: 10,685 chunks
-      qing_claims: 533 claims向量
+    [_detect_claim_conflicts] as Conflicts
+    note right of Conflicts
+      同一 subject 下
+      看多 vs 看空
+      → potential_conflicts
     end note
 }
 
-' ==================== 右侧：知识沉淀层（离线）====================
-package "知识沉淀层" #ECEFF1 {
-    folder "sources/raw/财经" as Raw #FFFFFF
-    folder "knowledge/claims" as Claims #FFFFFF
-    folder "knowledge/wiki" as Wiki #FFFFFF
-    folder "framework" as Framework #FFFFFF
+package "④ 分析层" #E8F5E9 {
+    [market_analyst] as Market
+    [stock_analyst] as Stock
     
-    [index_documents\n_to_qdrant.py] as IdxDoc #CFD8DC
-    [migrate_claims\n_to_neo4j.py] as MigNeo #CFD8DC
-    [index_claims\n_to_qdrant.py] as IdxClaims #CFD8DC
-    [freshness_check.py] as FreshCheck #CFD8DC
-}
-
-' ==================== 中间主流程：从上至下 ====================
-package "输入层" #E1F5FE {
-    [POST /chat] as Chat #29B6F6
-    [POST /analyze/trigger] as Trigger #29B6F6
-    
-    package "行情数据" #FFF3E0 {
-        [external_sector_boards\n东财/新浪板块] as ESB #FFCC80
-        [market_snapshot\n实时行情] as MarketSnap #FFCC80
-        [positions\n持仓列表] as Positions #FFCC80
-    }
-}
-
-package "解析层" #F3E5F5 {
-    [parse_query] as Parse #AB47BC
-}
-
-package "检索层\n(Retrieve Knowledge)" #F3E5F5 {
-    [retrieve_knowledge] as Retrieve #AB47BC
-    
-    package "内部检索" #E8EAF6 {
-        [qing_knowledge\n10,685 chunks] as QWiki #7986CB
-        [qing_claims\n533 claims] as QClaims #7986CB
-        [mem0\n长期记忆] as Mem0 #7986CB
-        [sector_extractor\n动态板块+新闻] as SectorExt #7986CB
-    }
-    
-    package "时效性与一致性过滤" #FFEBEE {
-        [_apply_claim_freshness] as Freshness #EF5350
-        note right of Freshness
-          ≤7天 [最新]
-          31-90天 [近期] 降权
-          >90天 / superseded → 过滤
-        end note
-        
-        [_detect_claim_conflicts] as Conflicts #EF5350
-        note right of Conflicts
-          同一 subject 下
-          看多 vs 看空
-          → potential_conflicts
-        end note
-    }
-}
-
-package "分析层" #E8F5E9 {
-    [market_analyst] as Market #43A047
     note right of Market
       Framework 显式加载
-      + 11项分析框架
+      + 11项分析框架片段
       + 【时效性自检】
     end note
     
-    [stock_analyst] as Stock #43A047
     note right of Stock
       DuckDuckGo 外部校验
       主营业务 vs claims
     end note
 }
 
-package "生成层" #C8E6C9 {
-    [synthesize] as Synth #66BB6A
-    [style_writer] as Style #66BB6A
-    [reviewer] as Review #EF5350
+package "⑤ 生成层" #FFF8E1 {
+    [synthesize] as Synth
+    [style_writer] as Style
+    [reviewer] as Review
+    
     note left of Review
       citation 检查
-      缺失 → 打回
+      缺失 → 打回 style_writer
       最多 3 次
     end note
 }
 
-package "输出层" #FFF8E1 {
-    [UP 风格化复盘] as Output #FBC02D
+package "⑥ 输出层" #FFF3E0 {
+    [UP 风格化复盘] as Output
     note right of Output
       ①当日定调 ②周期定位
       ③主线识别 ④板块地图
@@ -146,6 +140,7 @@ package "输出层" #FFF8E1 {
 ' ==================== 连接线：主流程 ====================
 Chat --> Parse
 Trigger --> Parse
+
 Parse --> Retrieve
 
 Retrieve --> QWiki
@@ -171,7 +166,7 @@ ESB --> Market
 MarketSnap --> Market
 Positions --> Market
 
-' ==================== 连接线：离线层到数据库 ====================
+' ==================== 连接线：离线层 ====================
 Raw --> IdxDoc
 Wiki --> IdxDoc
 Framework --> IdxDoc
@@ -183,11 +178,21 @@ IdxDoc --> Qdrant
 MigNeo --> Neo4j
 IdxClaims --> Qdrant
 
-' ==================== 连接线：数据库到检索层 ====================
 Qdrant --> QWiki
 Qdrant --> QClaims
 Neo4j --> Retrieve
 Postgres --> Mem0
+
+legend right
+    | 背景色 | 层级 |
+    |<#E3F2FD>| ① 输入层 |
+    |<#F3E5F5>| ③ 检索层 |
+    |<#E8F5E9>| ④ 分析层 |
+    |<#FFF8E1>| ⑤ 生成层 |
+    |<#FFF3E0>| ⑥ 输出层 |
+    |<#FFEBEE>| 审核/过滤 |
+    |<#ECEFF1>| 离线基础设施 |
+endlegend
 
 @enduml
 ```
