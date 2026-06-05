@@ -118,8 +118,15 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 
 ## Qing-Agent 架构
 
-Qing-Agent 是项目的**分析大脑**，基于 LangGraph 构建有向图工作流：
+Qing-Agent 是项目的**分析大脑**，基于 LangGraph 构建有向图工作流。
 
+完整架构图：`docs/qing-agent-architecture.puml`
+
+```bash
+plantuml docs/qing-agent-architecture.puml
+```
+
+**简化数据流：**
 ```
 parse_query → retrieve_knowledge ──┬── market_analyst ──┐
                                    └── stock_analyst ───┼── synthesize → style_writer → reviewer → END

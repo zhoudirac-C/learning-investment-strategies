@@ -19,35 +19,22 @@ Qing-Agent 是 Hermes 股票监控系统的"大脑"，负责把原始行情数�
 
 ## 2. 整体架构
 
-Qing-Agent 基于 **LangGraph** 构建有向图工作流，共 7 个节点 + 1 条条件边：
+Qing-Agent 基于 **LangGraph** 构建有向图工作流，共 7 个节点 + 1 条条件边。
+
+完整架构图见 [`qing-agent-architecture.puml`](qing-agent-architecture.puml)，可用 PlantUML 渲染：
+
+```bash
+# macOS (需安装 plantuml)
+plantuml docs/qing-agent-architecture.puml
+# 输出 docs/qing-agent-architecture.png
+```
+
+**简化版数据流：**
 
 ```
-┌─────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│ parse_query │────▶│ retrieve_knowledge│────▶│ market_analyst  │
-└─────────────┘     └──────────────────┘     └─────────────────┘
-                              │                       │
-                              │                       │
-                              ▼                       │
-                       ┌──────────────┐              │
-                       │ stock_analyst│◀─────────────┘
-                       └──────────────┘
-                              │
-                              ▼
-                       ┌──────────────┐
-                       │  synthesize  │
-                       └──────────────┘
-                              │
-                              ▼
-                       ┌──────────────┐
-                       │ style_writer │
-                       └──────────────┘
-                              │
-                              ▼
-                       ┌──────────────┐
-                       │   reviewer   │──[review_router]──▶ END (pass)
-                       └──────────────┘                      │
-                              │                             │
-                              └────fail (max 3次)───────────┘
+输入层 (Chat/Trigger) ──▶ parse_query ──▶ retrieve_knowledge ──┬──▶ market_analyst ──┐
+                                                                   └──▶ stock_analyst ───┼──▶ synthesize ──▶ style_writer ──▶ reviewer ──▶ END
+                                                                (时效过滤+矛盾检测)     (UP风格+来源标注)   (citation检查,最多3次打回)
 ```
 
 | 节点 | 职责 | 是否调用 LLM |

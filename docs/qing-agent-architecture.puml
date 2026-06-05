@@ -1,0 +1,196 @@
+@startuml
+!theme cerulean-outline
+skinparam backgroundColor #FEFEFE
+skinparam componentStyle rectangle
+skinparam linetype ortho
+
+title Qing-Agent 架构图 — 知识检索与实时分析（2026-06）
+
+' ==================== 输入层 ====================
+package "输入层" #E8F4FD {
+    [POST /chat] as Chat
+    [POST /analyze/trigger] as Trigger
+    [GET /health] as Health
+    
+    package "行情数据" #FFF3E0 {
+        [external_sector_boards\n东财/新浪板块] as ESB
+        [market_snapshot\n实时行情] as MarketSnap
+        [positions\n持仓列表] as Positions
+    }
+}
+
+' ==================== 检索层 ====================
+package "检索层\n(Retrieve Knowledge)" #F3E5F5 {
+    
+    package "Qdrant 向量检索" #E8F5E9 {
+        [qing_knowledge\n10,685 chunks] as QWiki #90EE90
+        [qing_claims\n533 claims] as QClaims #90EE90
+        note right of QWiki
+          ONNX Embedding
+          bge-small-zh-v1.5
+          512 dim / Cosine
+        end note
+    }
+    
+    package "Neo4j 图查询" #E3F2FD {
+        [get_claims_about_stock] as NeoStock
+        [get_claim_evolution\n关联 claims] as NeoEvo
+        [get_claims_by_keyword] as NeoKw
+    }
+    
+    package "时效性与一致性过滤" #FFEBEE {
+        [_apply_claim_freshness] as Freshness #FFB74D
+        note right of Freshness
+          ≤7天 [最新]
+          8-30天 正常
+          31-90天 [近期] 降权
+          >90天 / superseded → 过滤
+        end note
+        
+        [_detect_claim_conflicts] as Conflicts #FFB74D
+        note right of Conflicts
+          同一 subject 下
+          看多 vs 看空
+          → potential_conflicts
+        end note
+    }
+    
+    [mem0\n长期记忆] as Mem0 #FFF9C4
+    [sector_extractor\n动态板块+新闻] as SectorExt #FFF9C4
+}
+
+' ==================== 分析层 (LangGraph) ====================
+package "分析层\n(LangGraph 7 节点)" #E0F7FA {
+    [parse_query] as Parse #B2EBF2
+    [retrieve_knowledge] as Retrieve #80DEEA
+    
+    package "分析节点" #B2DFDB {
+        [market_analyst] as Market #4DB6AC
+        [stock_analyst] as Stock #4DB6AC
+    }
+    
+    package "生成节点" #C8E6C9 {
+        [synthesize] as Synth #81C784
+        [style_writer] as Style #81C784
+        [reviewer] as Review #81C784
+    }
+    
+    note right of Market
+      Framework 显式加载
+      + 11项分析框架片段
+      + 【时效性自检】
+    end note
+    
+    note right of Stock
+      DuckDuckGo 外部校验
+      主营业务 vs claims
+    end note
+    
+    note right of Review
+      citation 检查
+      缺失 → 打回 style_writer
+      最多 3 次
+    end note
+}
+
+' ==================== 输出层 ====================
+package "输出层" #FFF8E1 {
+    [UP 风格化复盘] as Output #FFD54F
+    note right of Output
+      ① 当日定调
+      ② 周期定位
+      ③ 主线识别
+      ④ 板块结构地图
+      ⑤ 题材落地
+      ⑥ 指数纪律
+      ⑦ 量能观察
+      ⑧ 情绪指标
+      ⑨ 明日推演
+      ⑩ 持仓计划
+      ⑪ 风险提示
+      + 【参考来源】
+    end note
+}
+
+' ==================== 数据基础设施 ====================
+package "数据基础设施" #F5F5F5 {
+    database "Neo4j\n7474/7687" as Neo4j #BBDEFB
+    database "Qdrant\n6333" as Qdrant #BBDEFB
+    database "Postgres\n5432" as Postgres #BBDEFB
+    
+    note bottom of Neo4j
+      533 claims
+      Claim/Stock/Sector/Source
+      SUPERSEDES/CONTRADICTS
+    end note
+    
+    note bottom of Qdrant
+      qing_knowledge: 557文件→10,685chunks
+      qing_claims: 533 claims向量
+    end note
+}
+
+' ==================== 知识沉淀层 ====================
+package "知识沉淀层" #FAFAFA {
+    folder "sources/raw/财经" as Raw
+    folder "knowledge/claims" as Claims
+    folder "knowledge/wiki" as Wiki
+    folder "framework" as Framework
+    
+    [scripts/index_documents_to_qdrant.py] as IdxDoc
+    [scripts/migrate_claims_to_neo4j.py] as MigNeo
+    [scripts/index_claims_to_qdrant.py] as IdxClaims
+    [scripts/freshness_check.py] as FreshCheck
+}
+
+' ==================== 连接 ====================
+Chat --> Parse
+Trigger --> Parse
+Parse --> Retrieve
+
+Retrieve --> QWiki
+Retrieve --> QClaims
+Retrieve --> NeoStock
+Retrieve --> NeoEvo
+Retrieve --> NeoKw
+Retrieve --> Mem0
+Retrieve --> SectorExt
+
+QClaims --> Freshness
+NeoEvo --> Freshness
+Freshness --> Conflicts
+
+Retrieve --> Market
+Retrieve --> Stock
+
+Market --> Synth
+Stock --> Synth
+
+Synth --> Style
+Style --> Review
+
+Review --> Output : passed
+Review --> Style : failed (max 3)
+
+ESB --> Market
+MarketSnap --> Market
+Positions --> Market
+
+Raw --> IdxDoc
+Claims --> MigNeo
+Claims --> IdxClaims
+Claims --> FreshCheck
+
+IdxDoc --> QWiki
+MigNeo --> Neo4j
+IdxClaims --> QClaims
+
+Neo4j --> NeoStock
+Neo4j --> NeoEvo
+Neo4j --> NeoKw
+Postgres --> Mem0
+
+Framework --> IdxDoc
+Wiki --> IdxDoc
+
+@enduml
