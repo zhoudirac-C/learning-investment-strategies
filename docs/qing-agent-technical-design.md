@@ -27,134 +27,133 @@ Qing-Agent 基于 **LangGraph** 构建有向图工作流，共 7 个节点 + 1 �
 skinparam backgroundColor #FEFEFE
 skinparam componentStyle rectangle
 skinparam linetype ortho
+skinparam packageBorderColor #546E7A
+skinparam packageFontColor #263238
 
-title Qing-Agent 架构图 — 知识检索与实时分析（2026-06）
+title Qing-Agent 架构图 — 主流程从上至下，离线层放两侧
 
-package "输入层" #E8F4FD {
-    [POST /chat] as Chat
-    [POST /analyze/trigger] as Trigger
+' ==================== 左侧：数据基础设施（离线）====================
+package "数据基础设施" #ECEFF1 {
+    database "Neo4j\n7474/7687" as Neo4j #90CAF9
+    database "Qdrant\n6333" as Qdrant #A5D6A7
+    database "Postgres\n5432" as Postgres #FFCC80
+    
+    note right of Neo4j
+      533 claims
+      SUPERSEDES/CONTRADICTS
+    end note
+    
+    note right of Qdrant
+      qing_knowledge: 10,685 chunks
+      qing_claims: 533 claims向量
+    end note
+}
+
+' ==================== 右侧：知识沉淀层（离线）====================
+package "知识沉淀层" #ECEFF1 {
+    folder "sources/raw/财经" as Raw #FFFFFF
+    folder "knowledge/claims" as Claims #FFFFFF
+    folder "knowledge/wiki" as Wiki #FFFFFF
+    folder "framework" as Framework #FFFFFF
+    
+    [index_documents\n_to_qdrant.py] as IdxDoc #CFD8DC
+    [migrate_claims\n_to_neo4j.py] as MigNeo #CFD8DC
+    [index_claims\n_to_qdrant.py] as IdxClaims #CFD8DC
+    [freshness_check.py] as FreshCheck #CFD8DC
+}
+
+' ==================== 中间主流程：从上至下 ====================
+package "输入层" #E1F5FE {
+    [POST /chat] as Chat #29B6F6
+    [POST /analyze/trigger] as Trigger #29B6F6
+    
     package "行情数据" #FFF3E0 {
-        [external_sector_boards\n东财/新浪板块] as ESB
-        [market_snapshot\n实时行情] as MarketSnap
-        [positions\n持仓列表] as Positions
+        [external_sector_boards\n东财/新浪板块] as ESB #FFCC80
+        [market_snapshot\n实时行情] as MarketSnap #FFCC80
+        [positions\n持仓列表] as Positions #FFCC80
     }
 }
 
+package "解析层" #F3E5F5 {
+    [parse_query] as Parse #AB47BC
+}
+
 package "检索层\n(Retrieve Knowledge)" #F3E5F5 {
-    package "Qdrant 向量检索" #E8F5E9 {
-        [qing_knowledge\n10,685 chunks] as QWiki #90EE90
-        [qing_claims\n533 claims] as QClaims #90EE90
-        note right of QWiki
-          ONNX Embedding
-          bge-small-zh-v1.5
-          512 dim / Cosine
-        end note
+    [retrieve_knowledge] as Retrieve #AB47BC
+    
+    package "内部检索" #E8EAF6 {
+        [qing_knowledge\n10,685 chunks] as QWiki #7986CB
+        [qing_claims\n533 claims] as QClaims #7986CB
+        [mem0\n长期记忆] as Mem0 #7986CB
+        [sector_extractor\n动态板块+新闻] as SectorExt #7986CB
     }
-    package "Neo4j 图查询" #E3F2FD {
-        [get_claims_about_stock] as NeoStock
-        [get_claim_evolution] as NeoEvo
-        [get_claims_by_keyword] as NeoKw
-    }
+    
     package "时效性与一致性过滤" #FFEBEE {
-        [_apply_claim_freshness] as Freshness #FFB74D
+        [_apply_claim_freshness] as Freshness #EF5350
         note right of Freshness
           ≤7天 [最新]
-          8-30天 正常
           31-90天 [近期] 降权
           >90天 / superseded → 过滤
         end note
-        [_detect_claim_conflicts] as Conflicts #FFB74D
+        
+        [_detect_claim_conflicts] as Conflicts #EF5350
         note right of Conflicts
           同一 subject 下
           看多 vs 看空
           → potential_conflicts
         end note
     }
-    [mem0\n长期记忆] as Mem0 #FFF9C4
-    [sector_extractor\n动态板块+新闻] as SectorExt #FFF9C4
 }
 
-package "分析层\n(LangGraph 7 节点)" #E0F7FA {
-    [parse_query] as Parse #B2EBF2
-    [retrieve_knowledge] as Retrieve #80DEEA
-    package "分析节点" #B2DFDB {
-        [market_analyst] as Market #4DB6AC
-        [stock_analyst] as Stock #4DB6AC
-    }
-    package "生成节点" #C8E6C9 {
-        [synthesize] as Synth #81C784
-        [style_writer] as Style #81C784
-        [reviewer] as Review #81C784
-    }
+package "分析层" #E8F5E9 {
+    [market_analyst] as Market #43A047
     note right of Market
       Framework 显式加载
-      + 11项分析框架片段
+      + 11项分析框架
       + 【时效性自检】
     end note
+    
+    [stock_analyst] as Stock #43A047
     note right of Stock
       DuckDuckGo 外部校验
       主营业务 vs claims
     end note
-    note right of Review
+}
+
+package "生成层" #C8E6C9 {
+    [synthesize] as Synth #66BB6A
+    [style_writer] as Style #66BB6A
+    [reviewer] as Review #EF5350
+    note left of Review
       citation 检查
-      缺失 → 打回 style_writer
+      缺失 → 打回
       最多 3 次
     end note
 }
 
 package "输出层" #FFF8E1 {
-    [UP 风格化复盘] as Output #FFD54F
+    [UP 风格化复盘] as Output #FBC02D
     note right of Output
-      ① 当日定调 ② 周期定位
-      ③ 主线识别 ④ 板块结构地图
-      ⑤ 题材落地 ⑥ 指数纪律
-      ⑦ 量能观察 ⑧ 情绪指标
-      ⑨ 明日推演 ⑩ 持仓计划
-      ⑪ 风险提示
-      + 【参考来源】
+      ①当日定调 ②周期定位
+      ③主线识别 ④板块地图
+      ⑤题材落地 ⑥指数纪律
+      ⑦量能观察 ⑧情绪指标
+      ⑨明日推演 ⑩持仓计划
+      ⑪风险提示 + 【参考来源】
     end note
 }
 
-package "数据基础设施" #F5F5F5 {
-    database "Neo4j\n7474/7687" as Neo4j #BBDEFB
-    database "Qdrant\n6333" as Qdrant #BBDEFB
-    database "Postgres\n5432" as Postgres #BBDEFB
-    note bottom of Neo4j
-      533 claims
-      Claim/Stock/Sector/Source
-      SUPERSEDES/CONTRADICTS
-    end note
-    note bottom of Qdrant
-      qing_knowledge: 557文件→10,685chunks
-      qing_claims: 533 claims向量
-    end note
-}
-
-package "知识沉淀层" #FAFAFA {
-    folder "sources/raw/财经" as Raw
-    folder "knowledge/claims" as Claims
-    folder "knowledge/wiki" as Wiki
-    folder "framework" as Framework
-    [index_documents_to_qdrant.py] as IdxDoc
-    [migrate_claims_to_neo4j.py] as MigNeo
-    [index_claims_to_qdrant.py] as IdxClaims
-    [freshness_check.py] as FreshCheck
-}
-
+' ==================== 连接线：主流程 ====================
 Chat --> Parse
 Trigger --> Parse
 Parse --> Retrieve
 
 Retrieve --> QWiki
 Retrieve --> QClaims
-Retrieve --> NeoStock
-Retrieve --> NeoEvo
-Retrieve --> NeoKw
 Retrieve --> Mem0
 Retrieve --> SectorExt
 
 QClaims --> Freshness
-NeoEvo --> Freshness
 Freshness --> Conflicts
 
 Retrieve --> Market
@@ -165,7 +164,6 @@ Stock --> Synth
 
 Synth --> Style
 Style --> Review
-
 Review --> Output : passed
 Review --> Style : failed (max 3)
 
@@ -173,22 +171,23 @@ ESB --> Market
 MarketSnap --> Market
 Positions --> Market
 
+' ==================== 连接线：离线层到数据库 ====================
 Raw --> IdxDoc
+Wiki --> IdxDoc
+Framework --> IdxDoc
 Claims --> MigNeo
 Claims --> IdxClaims
 Claims --> FreshCheck
 
-IdxDoc --> QWiki
+IdxDoc --> Qdrant
 MigNeo --> Neo4j
-IdxClaims --> QClaims
+IdxClaims --> Qdrant
 
-Neo4j --> NeoStock
-Neo4j --> NeoEvo
-Neo4j --> NeoKw
+' ==================== 连接线：数据库到检索层 ====================
+Qdrant --> QWiki
+Qdrant --> QClaims
+Neo4j --> Retrieve
 Postgres --> Mem0
-
-Framework --> IdxDoc
-Wiki --> IdxDoc
 
 @enduml
 ```
