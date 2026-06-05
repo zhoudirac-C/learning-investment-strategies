@@ -346,13 +346,33 @@ Qing-Agent 返回的是**定性判断**（方向/态度/策略基调），不是
 
 ### Step 5: 更新 positions.yaml
 
+**⚠️ Step 5.0：防失真检查（必须最先执行）**
+
+**反面案例（2026-06-05）**：安泰科技成本28.667，reduce_zone 仍为 25.5-26.5，但现价已跌至 20.98。风控线距现价 +20% 以上，完全失效——跌破 24.0 时未触发任何提醒因为风险线早已被跌破。**根因：上次更新时没有根据最新价格重新校验价格区间**。
+
+**强制流程**：
+
+1. **先获取实时数据**（Step 1），再加载 positions.yaml。
+2. **逐只检查每个持仓的价格区间**：
+   - 计算 `reduce_zone` / `risk_zone` / `t_zone` 与当前价格的距离
+   - 若 `risk_zone` 下限 > 现价（已被跌破）→ **必须下调**
+   - 若 `reduce_zone` 下限与现价差距 > 10%（如 25.5 vs 20.98，差距 +21%）→ **必须下调**
+   - 若 `t_zone` 完全脱离现价区间 → **必须调整**
+3. **重新计算合理区间**（基于当前价格）：
+   - `reduce_zone`：锚定前期成本密集区或近期反弹高点，距现价 +5~12%
+   - `risk_zone`：锚定近期低点（如当日最低、20日最低），距现价 -3~5%
+   - `t_zone`：锚定现价 ±2%，用于日内做T
+4. **更新 `today_plan`**：基于**当前价格**重新评估操作策略，不能照抄昨天的 plan。
+5. **更新 `latest_monitor_reference`**：写入当前实时价、涨跌幅、同板块验证结果。
+
 **更新内容**：
 - `latest_quote_snapshot`：最新行情快照
 - `latest_up_bias`：UP 最新判断基调
 - `today_key_signals`：今日关键信号
-- 每个持仓的 `latest_monitor_reference`：最新价、涨跌幅
+- 每个持仓的 `latest_monitor_reference`：最新价、涨跌幅 + 同板块验证
 - 每个持仓的 `pnl`：浮动盈亏
-- 每个持仓的 `today_plan`：明日操作计划（重置，不保留旧计划）
+- 每个持仓的 `reduce_zone` / `risk_zone` / `t_zone`：基于当前价格重新校验 → 失真则更新
+- 每个持仓的 `today_plan`：基于**当前价格+最新 claims**重新编写（不保留旧计划）
 
 **持仓变动处理**：
 - **新建持仓**：添加完整字段（code, name, shares, cost, reduce_zone, risk_zone, account, open_date, note, today_plan）
@@ -463,7 +483,9 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 10. **区分两种更新模式**：模式 A（已有票更新）+ 模式 B（UP 新方向提取），两步都完成才算完整。
 11. **claims 一致性校验**：更新 strategy_pack 前必须扫描 claims，确认策略不与博主最新纪律矛盾。若 claim 中博主明确说"不追高"/"韭菜行为"，对应标的必须配置为"只观察不介入"。**若用户问"扩大范围"或"还有什么可买"，使用 `scripts/scan_all_stocks.py` 扫描全项目标的**。
 12. **sector_rotation_rules 格式**：必须使用 list of dicts，引用 sector_groups 的 id。详见 `references/sector-rotation-rules-format.md`。
-13. **主板-only 约束**：用户只能交易主板票（sh6xxxxx / sz0xxxxx），无科创板/创业板权限。entry_points 必须过滤主板-only，非主板标的需标注"不可交易"并推荐主板替代。
+13. **主板-only 约束**：用户只能交易主板票（sh6xxxxx / sz0xxxxx），无科创板/创业板权限。**观察池（watchlist）应覆盖全 A 股市场**：UP 提及的非主板标的（688/300/301）也要加入 watchlist，标记 `tradable: false` + `note: "不可交易（科创板/创业板），仅观察学习UP思路"`。只有 `entry_points` 需要过滤主板-only，非主板标的不配介入区间。
+   - **非主板标的加入同一 theme，不单独隔离**：如果某方向的核心标的是科创板（如华丰科技688629），应将其与主板同类标的（如航天电器002025）放入同一个 theme（如 `domestic_compute`），标记 `tradable: false` 即可。**不要为不可交易标的单独创建"仅观察"theme**——这会导致板块分析时遗漏该方向的产业链全貌。
+   - **反面案例（2026-06-05）**：华丰科技（688629 昇腾核心）若被隔离到单独的"科创板观察"theme，将无法在 `domestic_compute` 的板块轮动计算中被纳入，导致昇腾方向的产业链分析不完整。
 14. **技术分析辅助决策**：使用 `scripts/scan_all_stocks.py` 获取实时行情+历史K线+技术分析，辅助判断买入时机。技术分析维度包括：均线系统、支撑压力、回撤幅度、量价关系、K线形态、综合评分。详见 `references/technical-analysis-scan.md`。
 14. **技术分析必须执行**：更新 strategy_pack 前必须运行 `scripts/scan_all_stocks.py`，基于均线/回撤/量价/K线形态/支撑压力生成介入区间，不能拍脑袋定价。详见 `references/technical-analysis-scan.md` 和 `references/entry-points-generation.md`。
 15. **介入区间必须有数据支撑**：不能写"近期平台附近""等分歧后缩量回踩"等模糊描述，必须提供具体价格数字和计算依据。
@@ -471,6 +493,7 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 17. **用户反馈优先**：复盘报告中的 YAML 建议只是"建议"，用户明确同意后才执行。用户质疑的需讨论实现方案后再执行。详见 `references/daily-review-cases.md` 案例六。
 18. **去重机制需考虑"用户已执行"维度**：当前去重只基于时间和指纹，不跟踪"用户是否已执行"。若用户已按提醒执行操作，当天不应再提醒同样动作。详见 `references/daily-review-cases.md` 案例七。
 19. **Claim Schema 字段枚举值陷阱**：`timeframe` 字段枚举值为 `short-term` / `medium-term` / `long-term`（带连字符），不是 `short_term`（下划线）。写错会导致验证失败。
+20. **`execute_code` YAML 竞态覆盖陷阱（高危）**：对同一 YAML 文件（watchlist/strategy_pack/positions）的多次修改**必须合并到单个 `execute_code` 调用中完成**。原因：每个 `execute_code` 独立加载文件快照，若调用 A 保存后调用 B 也加载+保存，B 的快照不包含 A 的修改，导致 A 的变更被静默覆盖。**反面案例（2026-06-05）**：分两次 execute_code 分别添加 4 只新标的和更新 narrative → 第二次调用加载的旧快照不包含新增标的，保存后新增标的全部丢失。**正确做法**：一次 execute_code 完成全部 load → modify → save 流程，最后验证文件内容。
 
 ## 从复盘文档批量更新 narrative 的规范流程
 
