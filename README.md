@@ -13,10 +13,14 @@
 
 - 默认分支：`master`
 - 保留开发分支：`feature-continuous-learning-system-build`
-- 已迁移旧项目中的 UP 原始数据：`sources/raw/财经` 下 540 篇 Markdown 原稿
+- 已迁移旧项目中的 UP 原始数据：`sources/raw/财经` 下 540+ 篇 Markdown 原稿
 - 已包含 **4 个核心 skill**：`qing-learning`、`qing-methodology-review`、`qing-stock-analysis`、`qing-stock-monitor-update`
 - 已接入 F10 基本面分析方法论，并 vendor 了 `glmv-stock-analyst` 作为个股数据分析底座
 - **Qing-Agent**（`src/qing_investment/agent/`）已上线：LangGraph 7 节点工作流 + FastAPI 服务，支持每日复盘、持仓操作建议、板块维度分析
+- **知识检索三阶段升级**（2026-06）：
+  - Phase 1 — 打通「能读到」：framework 文件加入向量索引，Agent 显式加载方法论框架
+  - Phase 2 — 升级「读得准」：ONNX Runtime + `bge-small-zh-v1.5` 本地语义嵌入（512维），替代 hash 嵌入
+  - Phase 3 — 做到「说得清来源」：来源类型 boost 排序、输出强制标注引用来源、reviewer citation 检查（最多3次打回）
 
 ---
 
@@ -125,11 +129,11 @@ parse_query → retrieve_knowledge ──┬── market_analyst ──┐
 |------|------|---------|
 | `parse_query` | 意图解析（stock/market/portfolio） | `parsed_intent` JSON |
 | `retrieve_knowledge` | 从 Neo4j/Qdrant/mem0 检索知识 | claims + wiki + memories |
-| `market_analyst` | 大盘/板块分析（强制 JSON） | `market_context` |
+| `market_analyst` | 大盘/板块分析（强制 JSON），显式加载 framework 文件 + 动态分析框架片段 | `market_context` |
 | `stock_analyst` | 个股地位、多空证据 | `stock_analysis` |
-| `synthesize` | 草稿合成（含持仓操作计划） | `draft_analysis` |
-| `style_writer` | UP 口吻风格化 | `styled_output` |
-| `reviewer` | 事实核查、禁用词检测 | `review_passed` |
+| `synthesize` | 草稿合成（含持仓操作计划），注入【参考来源】 | `draft_analysis` |
+| `style_writer` | UP 口吻风格化，强制保留来源标注 | `styled_output` |
+| `reviewer` | 事实核查、禁用词检测、citation 缺失检查（最多3次打回） | `review_passed` |
 
 ### API 端点
 
@@ -160,7 +164,7 @@ parse_query → retrieve_knowledge ──┬── market_analyst ──┐
 | 服务 | 端口 | 用途 | 内容规模 |
 |------|------|------|---------|
 | **Neo4j** | 7474/7687 | Claims 图数据库 | ~505 claims，节点：Claim/Stock/Sector/Source |
-| **Qdrant** | 6333 | 文档向量检索 | `qing_knowledge`：540 文件 → 10,390 chunks |
+| **Qdrant** | 6333 | 文档向量检索 | `qing_knowledge`：557 文件 → 10,685 chunks；`qing_claims`：511 claims（语义搜索） |
 | **Postgres** | 5432 | mem0 存储后端 | 长期记忆 |
 | **Local JSON** | — | `infra/data/local_memories.json` | 63 条本地记忆 fallback |
 
@@ -172,8 +176,11 @@ parse_query → retrieve_knowledge ──┬── market_analyst ──┐
 # 增量同步文档到 Qdrant（只处理新/修改的文件）
 .venv/bin/python scripts/index_documents_to_qdrant.py
 
-# 增量同步 claims 到 Neo4j（同上）
+# 增量同步 claims 到 Neo4j（图关系）
 .venv/bin/python scripts/migrate_claims_to_neo4j.py
+
+# 增量同步 claims embedding 到 Qdrant（语义搜索）
+.venv/bin/python scripts/index_claims_to_qdrant.py
 ```
 
 状态文件自动创建：`.index_state.json`、`.migrate_state.json`
@@ -236,10 +243,11 @@ parse_query → retrieve_knowledge ──┬── market_analyst ──┐
 1. 把新的 UP 原稿放入 `sources/incoming/`，确认文件名包含日期、类型和标题。
 2. 使用 `qing-learning` 读取新增原稿，抽取 claim、更新 wiki、补充 methodology 和 framework。
 3. 将已学习的原稿路径写入 `sources/processed-log.md`。
-4. 同步知识库：
+4. 同步知识库（三个脚本缺一不可）：
    ```bash
    .venv/bin/python scripts/index_documents_to_qdrant.py
    .venv/bin/python scripts/migrate_claims_to_neo4j.py
+   .venv/bin/python scripts/index_claims_to_qdrant.py
    ```
 5. 运行索引和 lint：
    ```bash

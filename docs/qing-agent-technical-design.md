@@ -1,7 +1,7 @@
 # Qing-Agent 技术设计文档
 
-> 版本: 2026-06-04  
-> 对应 Commit: `4a301f9`
+> 版本: 2026-06-05  
+> 对应 Commit: `e8d2e9e`
 
 ---
 
@@ -85,13 +85,29 @@ Qing-Agent 基于 **LangGraph** 构建有向图工作流，共 7 个节点 + 1 �
 
 ### 3.2 retrieve_knowledge
 
-**知识库三层架构**：
+**知识库四层架构**（2026-06 升级后）：
 
-| 存储 | 内容 | 用途 |
-|------|------|------|
-| **Neo4j** | 505 条 claims（博主观点结构化） | 按股票代码或关键词查询历史观点 |
-| **Qdrant** | 540 个 markdown 文件、10390 个 chunk | 向量语义检索原始文档片段 |
-| **mem0** | 63 条本地记忆（框架 + 活跃 claims） | 长期记忆上下文 |
+| 存储 | 内容 | 用途 | 检索方式 |
+|------|------|------|---------|
+| **Qdrant `qing_knowledge`** | 557 文件 → 10,685 chunks（wiki + framework + raw） | 向量语义检索原始文档和方法论片段 | ONNX 语义嵌入（512维），按来源类型 boost 排序 |
+| **Qdrant `qing_claims`** | 511 claims 的语义向量索引 | claims 语义搜索（替代原 `CONTAINS` 字符串匹配） | ONNX 语义嵌入 |
+| **Neo4j** | claims 图数据库（节点+关系） | 按股票代码精确查询、关联 claims 遍历 | Cypher 查询 |
+| **mem0** | 本地记忆（框架 + 活跃 claims） | 长期方法论上下文 | 关键词匹配 |
+
+**来源类型 Boost 排序**（Phase 3 新增）：
+检索后对 wiki_snippets 按来源路径加权，确保高可信度内容优先：
+
+| 来源前缀 | Boost |
+|----------|-------|
+| `framework/` | +0.15 |
+| `wiki/投资方法论` | +0.10 |
+| `wiki/市场分析` | +0.05 |
+| `sources/raw` | +0.00 |
+
+**Claims 双索引策略**（Phase 3.3 新增）：
+1. **向量召回**：用 Qdrant `qing_claims` 做语义搜索，召回相关 claims
+2. **图验证**：用 Neo4j 查召回 claims 的关联 claims（同一主题、同一股票）
+3. **时效过滤**：优先使用最近 30 天 active claims；超过 90 天标注"历史观点"；superseded 禁用
 
 **动态板块提取** (`sector_extractor.py`)：
 - 扫描 `sources/raw/财经/` 最近 3 天文档
@@ -105,8 +121,10 @@ Qing-Agent 基于 **LangGraph** 构建有向图工作流，共 7 个节点 + 1 �
 
 **核心逻辑**：
 1. **可用性检查**：`analysis_type` 为 `market`/`portfolio` 时，若 `external_sector_boards.available == false`，直接返回 `"数据不可用"`，拒绝生成分析
-2. **Prompt 截断**：`market_snapshot.quotes` 超过 50 条时，只保留指数 + 持仓/观察池 + 涨跌幅 TOP15，减少 token
-3. **强制 JSON 输出**：包含以下字段
+2. **Framework 显式加载**（Phase 1 新增）：根据 `analysis_type` 从 `framework/` 目录加载对应的 playbook 文件（如 `market-cycle-framework.md`、`sector-diffusion-framework.md`），截断到 4000 字符注入 prompt
+3. **动态分析框架片段**（Phase 3 新增）：通过 `_load_analysis_framework()` 加载 `market_analysis_framework.txt` 中的 11 项分析框架，替换 prompt 中的 `{analysis_framework}` 占位符
+4. **Prompt 截断**：`market_snapshot.quotes` 超过 50 条时，只保留指数 + 持仓/观察池 + 涨跌幅 TOP15，减少 token
+5. **强制 JSON 输出**：包含以下字段
 
 ```json
 {
@@ -163,6 +181,12 @@ Qing-Agent 基于 **LangGraph** 构建有向图工作流，共 7 个节点 + 1 �
 - **个股模式** (`stock` 分支)：组合 `market_context` + `stock_analysis`，追加持仓计划
 - **市场模式** (`market`/`portfolio` 分支)：组合板块地图、题材落地、指数纪律、量能观察、情绪信号、明日跟踪、风险提示
 
+**【参考来源】注入**（Phase 3 新增）：
+synthesize 在 draft 末尾追加【参考来源】段落，包含：
+- `market_context.citations` 中引用的 claim IDs 和 wiki 路径
+- `framework_rules` 中使用的 playbook 文件名
+- 格式：`\n\n【参考来源】\n- claim-xxx\n- framework/market-cycle-framework.md\n- ...`
+
 **持仓计划注入**：
 - 从 `market_context.position_plans` 提取
 - 按持仓股逐条输出：触发条件 / 失效条件 / 仓位建议
@@ -191,6 +215,7 @@ Qing-Agent 基于 **LangGraph** 构建有向图工作流，共 7 个节点 + 1 �
 **审核维度**：
 - 禁用词检测（"无条件买入"、"一定涨"等）
 - claims 引用验证（输出中引用的 claim ID 是否在检索列表中）
+- **citation 完整性检查**（Phase 3 新增）：检查输出是否包含【参考来源】段落。若缺失，标记 `review_passed = false`，将 `review_notes` 回写至 `style_writer`，要求补充来源标注。最多打回 **3 次**。
 
 **路由逻辑**：
 - `review_passed == true` → END
@@ -344,10 +369,19 @@ if analysis_type in ("market", "portfolio") and not esb.get("available"):
 
 ### 7.2 Qdrant（向量数据库）
 
-- Collection: `qing_knowledge`
-- Chunk 级别：paragraph-level，共 10390 chunks
-- Embedding: sentence-transformers（fallback 为 hash embedding）
-- 用途：语义检索 UP 原始文档片段
+**Collection `qing_knowledge`**（文档向量）：
+- Chunk 级别：paragraph-level，共 10,685 chunks（557 文件）
+- Embedding: **ONNX Runtime** + `Xenova/bge-small-zh-v1.5`（量化版，512维）
+- 用途：语义检索 wiki、framework、raw 文档片段
+- 来源 boost：`framework/` +0.15, `wiki/投资方法论` +0.10, `wiki/市场分析` +0.05
+
+**Collection `qing_claims`**（claims 语义索引，Phase 3.3 新增）：
+- 511 claims 的向量索引
+- Embedding: 同上 ONNX 模型
+- 用途：claims 语义搜索，替代原 `CONTAINS` 字符串匹配
+- Payload: `id`, `subject`, `statement`, `status`, `source_date`
+
+**Embedding 统一**：索引脚本和检索使用同一 `OnnxEmbeddingModel`，消除了之前 hash embedding 的语义断层。
 
 ### 7.3 mem0（记忆层）
 
@@ -465,11 +499,11 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 
 | 阶段 | 耗时 | 说明 |
 |------|------|------|
-| `retrieve_knowledge` | 5-15s | Neo4j + Qdrant embedding + mem0 |
-| `market_analyst` | 15-25s | DeepSeek 调用，prompt 最大 |
+| `retrieve_knowledge` | 3-10s | Qdrant(wiki+claims) + Neo4j + mem0（ONNX 本地嵌入） |
+| `market_analyst` | 15-25s | DeepSeek 调用，prompt 最大（含 framework 文件 + 分析框架片段） |
 | `style_writer` | 10-15s | DeepSeek 调用 |
-| `reviewer` | 5-10s | DeepSeek 调用 |
-| **总计** | **30-50s** | 含知识检索 + 3 次 LLM 调用 |
+| `reviewer` | 5-10s | DeepSeek 调用（含 citation 检查，可能触发 1-3 次 retry） |
+| **总计** | **35-60s** | 含知识检索 + 3 次 LLM 调用 + reviewer retry |
 
 ### 11.2 已做的优化
 
@@ -480,9 +514,10 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 ### 11.3 待优化
 
 1. **Embedding 缓存**：Qdrant 查询每次都重新编码，可缓存高频 query 向量
-2. **异步并行**：Neo4j / Qdrant / mem0 / sector_data 可并行查询
+2. **异步并行**：Neo4j / Qdrant(wiki+claims) / mem0 / sector_data 可并行查询
 3. **LLM 调用合并**：reviewer 和 style_writer 可考虑合并为一次调用
 4. **预热机制**：早盘前预生成 sector_context 和 external_sector_boards
+5. **API Embedding 迁移**：若 ONNX 术语召回率不足，可迁移至 OpenAI/Zhipu API embedding（需重建 collection）
 
 ---
 
@@ -499,10 +534,12 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 | `src/qing_investment/agent/tools/sector_data.py` | 外部板块数据源（东财+新浪） |
 | `src/qing_investment/agent/tools/sector_extractor.py` | 动态板块识别+网络搜索 |
 | `src/qing_investment/agent/tools/neo4j_client.py` | Claims 图数据库 |
-| `src/qing_investment/agent/tools/qdrant_client.py` | 文档向量检索 |
+| `src/qing_investment/agent/tools/qdrant_client.py` | 文档向量检索（REST API 兼容 Qdrant 1.9.7） |
 | `src/qing_investment/agent/tools/mem0_client.py` | 记忆层 |
-| `src/qing_investment/agent/tools/llm_client.py` | LLM 统一封装 |
-| `src/qing_investment/agent/prompts/system/market_analyst.txt` | 市场分析 system prompt |
-| `src/qing_investment/agent/prompts/system/style_writer.txt` | UP 风格化 prompt |
+| `src/qing_investment/agent/tools/llm_client.py` | LLM 统一封装 + Embedding 工厂（ONNX 优先） |
+| `src/qing_investment/agent/prompts/system/market_analyst.txt` | 市场分析主 prompt（含 `{analysis_framework}` 占位符） |
+| `src/qing_investment/agent/prompts/system/market_analysis_framework.txt` | 11 项分析框架片段（被 market_analyst 动态加载） |
+| `src/qing_investment/agent/prompts/system/style_writer.txt` | UP 风格化 prompt（强制保留来源标注） |
 | `src/qing_investment/stock_monitor.py` | Hermes 监控核心，_agent_context_data |
 | `scripts/hermes_stock_monitor_agent.py` | Hermes cron 入口 |
+| `scripts/index_claims_to_qdrant.py` | Claims 语义索引脚本（Qdrant `qing_claims`） |

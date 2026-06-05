@@ -2,6 +2,10 @@
 
 本目录保存 skills 直接读取的 playbook。它比 `methodology/` 更短、更流程化。
 
+**Agent 集成**：Qing-Agent 的 `market_analyst` 节点会根据 `analysis_type` 从本目录**显式加载**对应的 playbook 文件（如 `market` 分析加载 `market-cycle-framework.md` + `sector-diffusion-framework.md` + `trading-rules.md`），截断到 4000 字符注入 LLM prompt。修改本目录文件会直接影响 Agent 输出的方法论依据。
+
+**Prompt 同步纪律**：若修改的 playbook 涉及大盘分析的输出格式规范（如 11 项分析框架、周期判断标准、板块映射模板），需同步检查 `prompts/system/market_analysis_framework.txt`——该文件控制 Agent 的 JSON 输出结构，是输出格式的单一来源。
+
 ## Playbook 索引
 
 | 文件 | 说明 | 轨道 |

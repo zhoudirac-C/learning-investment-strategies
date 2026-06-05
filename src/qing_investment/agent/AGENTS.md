@@ -67,8 +67,11 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 # 增量同步文档到 Qdrant（只处理新/修改的文件）
 .venv/bin/python scripts/index_documents_to_qdrant.py
 
-# 增量同步 claims 到 Neo4j（同上）
+# 增量同步 claims 到 Neo4j（图关系）
 .venv/bin/python scripts/migrate_claims_to_neo4j.py
+
+# 增量同步 claims embedding 到 Qdrant（语义搜索）
+.venv/bin/python scripts/index_claims_to_qdrant.py
 ```
 
 **状态文件**（自动创建）：
@@ -89,13 +92,13 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 
 | 节点 | 文件位置 | 是否调 LLM | 维护重点 |
 |------|---------|-----------|---------|
-| `parse_query` | `graph/nodes.py:54` | ✅ | 意图解析 JSON 格式 |
-| `retrieve_knowledge` | `graph/nodes.py:112` | ❌ | Neo4j/Qdrant/mem0 查询 |
-| `market_analyst` | `graph/nodes.py:194` | ✅ | 板块数据可用性守卫、prompt 截断 |
-| `stock_analyst` | `graph/nodes.py:261` | ✅ | 个股分析 JSON 字段 |
-| `synthesize` | `graph/nodes.py:310` | ❌ | 草稿拼接规则、持仓计划注入 |
-| `style_writer` | `graph/nodes.py:404` | ✅ | UP 人格 prompt、口头禅 |
-| `reviewer` | `graph/nodes.py:411` | ✅ | 禁用词检测、claims 引用验证 |
+| `parse_query` | `graph/nodes.py` | ✅ | 意图解析 JSON 格式 |
+| `retrieve_knowledge` | `graph/nodes.py` | ❌ | Qdrant(wiki+claims) + Neo4j + mem0 查询、来源 boost 排序 |
+| `market_analyst` | `graph/nodes.py` | ✅ | 板块数据可用性守卫、framework 显式加载、动态分析框架片段注入 |
+| `stock_analyst` | `graph/nodes.py` | ✅ | 个股分析 JSON 字段 |
+| `synthesize` | `graph/nodes.py` | ❌ | 草稿拼接、【参考来源】注入、持仓计划注入 |
+| `style_writer` | `graph/nodes.py` | ✅ | UP 人格 prompt、口头禅、强制保留来源标注 |
+| `reviewer` | `graph/nodes.py` | ✅ | 禁用词检测、claims 引用验证、citation 缺失检查（最多3次打回） |
 
 ### 4.2 修改节点时的 checklist
 
@@ -113,12 +116,15 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 
 | Prompt | 用途 | 修改频率 |
 |--------|------|---------|
-| `market_analyst.txt` | 大盘/板块分析 JSON 输出 | 低（框架稳定） |
+| `market_analyst.txt` | 大盘/板块分析主 prompt（含 `{analysis_framework}` 占位符） | 低（方法论规则稳定） |
+| `market_analysis_framework.txt` | **11 项分析框架片段**（输出格式规范） | 低（仅当 framework 输出格式变化时同步更新） |
 | `stock_analyst.txt` | 个股地位/多空证据 | 低 |
 | `style_writer.txt` | UP 口吻风格化 | 中（口头禅、语气调整） |
-| `reviewer.txt` | 事实核查 | 低 |
+| `reviewer.txt` | 事实核查 + citation 检查 | 低 |
 
-**Prompt 修改后必须测试**：市场分析的 JSON 字段是否完整、持仓计划是否生成、UP 语气是否一致。
+**Prompt 修改后必须测试**：市场分析的 JSON 字段是否完整、持仓计划是否生成、UP 语气是否一致、来源标注是否保留。
+
+**⚠️ 关键同步规则**：`market_analysis_framework.txt` 是 Agent 输出格式的**单一来源**。当 `framework/` 目录中涉及大盘分析输出格式的文件更新时（如周期判断标准、板块映射模板变化），**必须同步检查并更新** `market_analysis_framework.txt`。
 
 ---
 
@@ -236,6 +242,7 @@ src/qing_investment/agent/
 │   └── edges.py            # review_router
 ├── prompts/system/         # system prompt
 │   ├── market_analyst.txt
+│   ├── market_analysis_framework.txt   # 11 项分析框架片段（被 market_analyst 动态加载）
 │   ├── stock_analyst.txt
 │   ├── style_writer.txt
 │   └── reviewer.txt
@@ -243,10 +250,10 @@ src/qing_investment/agent/
     ├── sector_data.py      # 外部板块数据源（东财+新浪）
     ├── sector_extractor.py # 动态板块识别+网络搜索
     ├── neo4j_client.py     # Claims 图数据库
-    ├── qdrant_client.py    # 文档向量检索
+    ├── qdrant_client.py    # 文档向量检索（REST API 兼容 Qdrant 1.9.7）
     ├── mem0_client.py      # 记忆层（含本地 JSON fallback）
-    ├── llm_client.py       # LLM 统一封装
-    └── embedding_utils.py  # embedding fallback
+    ├── llm_client.py       # LLM 统一封装 + Embedding 工厂（ONNX 优先）
+    └── embedding_utils.py  # ONNX Embedding Model + Hash Fallback
 ```
 
 ---
@@ -257,3 +264,4 @@ src/qing_investment/agent/
 2. **Prompt 截断 > 全量输入**：market_snapshot.quotes 超过 50 条必须截断，控制 token
 3. **幂等同步 > 全量重建**：知识库同步用脚本的增量模式，除非 `--force-full`
 4. **UP 人格 > 机构腔**：style_writer 是最后一道防线，所有输出必须经过 UP 口吻过滤
+5. **来源标注 > 无据推断**：所有分析结论必须标注引用来源（claim ID / framework 文件 / wiki 路径），reviewer 会检查 citation 完整性
