@@ -140,19 +140,30 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     - `knowledge/wiki/log.md` — 操作日志
 11. 判断是否需要更新 `knowledge/wiki/投资方法论/博主方法论总纲.md`。
 12. 输出 Learning Update Report。
-13. **知识库增量同步**：运行三个增量同步脚本，将新的 claims 和 wiki 推送到 Qing-Agent 的检索后端：
+13. **知识库增量同步**：运行三个增量同步脚本，将新的 claims 和 wiki 推送到 Qing-Agent 的检索后端。
+
+    **⚠️ 前置步骤：Qdrant 本地模式独占文件锁**
+    Qing-Agent 启动后会持有 `.qdrant_data/` 的独占锁。索引脚本无法与 Agent 同时运行（会报 `Storage folder already accessed` 或静默卡死）。**索引前必须先关 Agent。**
 
     ```bash
+    # 1. 关 Agent
+    kill $(pgrep -f "uvicorn qing_investment") 2>/dev/null
+
+    # 2. 增量同步（PYTHONUNBUFFERED=1 必须加，否则 Hermes 后台运行时 stdout 缓冲导致无输出）
     cd ~/learning-investment-strategies
-    .venv/bin/python scripts/index_documents_to_qdrant.py   # 文档 → Qdrant 向量库
-    .venv/bin/python scripts/migrate_claims_to_neo4j.py      # claims → Neo4j 图库
-    .venv/bin/python scripts/index_claims_to_qdrant.py       # claims embedding → Qdrant 语义搜索
+    PYTHONUNBUFFERED=1 .venv/bin/python scripts/index_documents_to_qdrant.py   # 文档 → Qdrant
+    .venv/bin/python scripts/migrate_claims_to_neo4j.py                        # claims → Neo4j
+    .venv/bin/python scripts/index_claims_to_qdrant.py                         # claims → Qdrant
+
+    # 3. 重启 Agent
+    nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
     ```
 
-    - 增量模式（默认）：只处理 `hash 有变化` 或 `新创建` 的文件
-    - 强制全量模式（数据损坏时）：`--force-full`
+    - 增量模式（默认）：只处理 `hash 有变化` 或 `新创建` 的文件，增量 < 30 秒
+    - 强制全量模式（数据损坏时）：`--force-full`，全量 10,687 chunks 预计 20-25 分钟
     - **必须在 git commit 之后运行**（脚本基于文件 hash 判断是否已同步）
     - 运行后建议快速验证：用 `Neo4jClient` 查询新 claim，或 curl Qdrant 确认索引
+    - **常见陷阱**：`PYTHONUNBUFFERED=1` 是关键——否则 Python stdout 缓冲导致进程管理捕获不到输出，看起来像卡死。ONNX 单线程（`intra_op_num_threads=1`）在 2 核 VM 上必须设置，否则 futex spin-lock 死锁。详见 `qing-stock-analysis` 的 `references/qing-agent-lightweight.md`。
 
 ### Ingestion 关键 Pitfalls
 
@@ -165,7 +176,9 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
    - `sources/original/bilibili/*.md` 中的 `unprocessed: true` → `unprocessed: false`（仅对已学习的内容做此标记）
    - `sources/raw/财经/*.md` 中的 `ingest_status: pending` → `ingest_status: processed`
    - 否则下次 Pipeline QA 会重复检查这些文件。这是 ingestion 流程的最后一步，和更新索引同等重要。
-7. **遗忘知识库同步**：claims/wiki 落库并提交后，若不运行 `index_documents_to_qdrant.py` + `migrate_claims_to_neo4j.py`，Qing-Agent 将无法检索到新内容。特征：用户询问某个新学的板块时，Qing-Agent 回答\"未找到相关数据\"。检查 `.index_state.json` 和 `.migrate_state.json` 的 `last_sync` 时间戳可快速确认是否遗漏。
+7. **遗忘知识库同步**：claims/wiki 落库并提交后，若不运行 `index_documents_to_qdrant.py` + `migrate_claims_to_neo4j.py`，Qing-Agent 将无法检索到新内容。特征：用户询问某个新学的板块时，Qing-Agent 回答"未找到相关数据"。检查 `.index_state.json` 和 `.migrate_state.json` 的 `last_sync` 时间戳可快速确认是否遗漏。
+8. **未关 Agent 就运行同步脚本（Qdrant 本地模式）**：Qing-Agent 启动后持有 `.qdrant_data/` 独占文件锁。不关 Agent 直接运行索引脚本会导致 `Storage folder already accessed` 错误或静默卡死。正确流程：`kill` Agent → 同步 → 重启 Agent。详见步骤13「知识库增量同步」。
+9. **忘记 PYTHONUNBUFFERED=1**：Hermes cron/后台进程管理器捕获 Python stdout 时，默认缓冲会导致无输出（看起来像卡死）。索引命令必须加 `PYTHONUNBUFFERED=1` 前缀。详见步骤13。
 
 ---
 

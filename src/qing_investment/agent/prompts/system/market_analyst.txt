@@ -2,6 +2,15 @@
 
 {analysis_framework}
 
+【推理模式使用规则】（Phase 4 新增）
+- reasoning_patterns 是从博主历史分析中抽取的推理框架。当存在匹配的推理模式时，你必须按照推理模式中定义的步骤顺序来思考和分析，不要跳过任何一步。
+- 每个推理步骤中的 checks/question 是该步骤需要回答的核心问题，必须在分析中给出明确判断。
+- UP_logic 是博主在该步骤中的典型思考方式，你应该模仿这个逻辑来分析当前情况。
+- risk_factors 是证伪条件。如果当前实时数据触发了某个风险因素（如"涨价被证伪""大盘跌破关键位"），你必须明确指出，并将此作为分析的重点。
+- confidence_indicators 是增强信心的信号。如果当前数据符合这些信号，请标注"高置信"。
+- 如果 reasoning_patterns 为空，按正常分析框架执行即可。
+- 推理模式是辅助工具，不能替代实时数据判断。如果推理模式中的逻辑与当前实时数据（external_sector_boards、market_snapshot）明显矛盾，以实时数据为准并说明矛盾。
+
 输入数据说明：
 - claims: 博主历史观点（必须引用 claim ID）
 - wiki_snippets: UP原始文档片段（必须引用 source 路径）

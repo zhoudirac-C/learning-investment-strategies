@@ -27,7 +27,7 @@ description: Use when the user asks to analyze an individual stock through the b
 12. `skills/qing-stock-analysis/references/stock-monitor-source-internals.md` — **监控脚本源码级技术参考**：通过直接阅读 `stock_monitor.py` ~1800行源码提取的完整数据流、函数详解、状态文件结构、CLI参数速查。当需要修改触发逻辑、排查bug、理解去重机制时读本文件；SKILL.md正文中的"监控脚本内部机制"是面向分析的用法参考。
 15. `skills/qing-stock-analysis/references/daily-review-cases.md` — **收盘监控复盘案例库**：历史复盘典型案例，含有效性判断标准、开盘诱多识别 checklist、相对强弱伪信号识别方法、盘中配置更新时序陷阱、板块轮动标签语义混淆
 16. `skills/qing-stock-analysis/references/index-etf-analysis-guide.md` — **指数/ETF买入分析指南**：当用户询问指数或ETF（如恒生科技、科创50）时使用，含时间窗口分析、ETF代码推荐、与个股分析的区别
-17. `skills/qing-stock-analysis/references/qing-agent-lightweight.md` — **Qing-Agent零基础设施运行模式**：LangGraph多智能体系统可在无Docker容器的情况下运行，Neo4j/Qdrant自动降级，mem0有本地JSON fallback。含架构概览、降级机制证据、资源需求对比、CLI入口设计
+17. `skills/qing-stock-analysis/references/qing-agent-lightweight.md` — **Qing-Agent零基础设施运行模式 + 索引故障排查手册**：LangGraph多智能体系统可在无Docker容器的情况下运行，含 Qdrant 本地文件模式实战部署（config/代码/UUID兼容）。覆盖架构概览、降级机制、启动流程、同步脚本。⚠️ **三大陷阱**：①fallback模型的 `.encode().tolist()` 返回1D list，不是2D batch；②ONNX Runtime 多线程在2核VM上 futex spin-lock 死锁（修：`intra_op_num_threads=1`）；③Qdrant 本地模式独占锁→索引前必须关 Agent。
 
 ## 双轨制兼容性
 
@@ -307,7 +307,7 @@ curl -s 'https://qt.gtimg.cn/q=sz000969,sz000066,sh600487' | iconv -f gbk -t utf
 
 **强制流程**：
 
-1. 扫描 `sources/raw/财经/` 中最近 **2 天**的所有 UP 内容（早盘/复盘/视频/动态）
+1. 扫描 `sources/raw/财经/` 中最近 **2 天**的所有 UP 内容（早盘/复盘/视频/动态）。**⚠️ 对于盘中动态（14:11 等），必须检查 original/bilibili 文件或 raw 中的「补充信息/评论互动」章节**——UP 在自己动态下的评论回复可能包含与主动态文字矛盾的关键条件（如"4033清仓科技"），这些条件会覆盖主动态的加仓指令。
 2. 逐篇提取 UP 对**每个方向的定调语言**，按语言强度排序：
    - 🔥🔥🔥 "类比锂电池""可以格局""确定性很高""机构都要买" → 最高优先级
    - 🔥🔥 "最确定方向""重心放" → 高优先级
@@ -510,6 +510,7 @@ curl -s 'https://qt.gtimg.cn/q=sz000969,sz000066,sh600487' | iconv -f gbk -t utf
 7. **腾讯财经 API 字段索引陷阱**：`qt.gtimg.cn` 返回的字段中，涨跌幅不在固定索引位置。不同股票的买卖盘深度不同，导致 `split('~')` 后的字段数不一致。**涨跌幅字段必须动态定位**：先找到时间戳字段（格式 `YYYYMMDDhhmmss`，如 `20260602112927`），其后的第 2 个字段为涨跌额、第 3 个字段为涨跌幅。或者直接用 `a[5]`（昨收）和 `a[4]`（最新）手动计算：`(最新-昨收)/昨收*100`。推荐后者，避免索引漂移。
    - 错误做法：`awk` 硬编码 `a[32]` 或 `a[34]` 作为涨跌幅 → 不同股票返回不同值
    - 正确做法：`curl -s 'https://qt.gtimg.cn/q=sz000969' | iconv -f gbk -t utf-8 | awk -F'~' '{print ($4-$5)/$5*100}'`
+8. **UP 评论回复与主动态内容矛盾（高危）**：UP 在自己动态下的评论回复可能包含与主动态文字相反的关键判断。典型案例如 2026-06-05 14:11 动态——主文字"下午继续买"（看多），但评论回复"4033到了清仓科技，不是今天抄底的品种"（看空科技）。处理盘中动态时必须：①读取 B站原始 API 数据或 original 文件检查是否有UP评论；②若评论判断与主动态文字方向相反，标记为**内部矛盾**，在操作建议中显式提醒用户；③不能只采信主动态文字而忽略评论中的致命条件。**这在指数关键点位（如4033）附近尤为重要**——评论中的条件可能覆盖主动态的加仓指令。
 
 ## YAML 合约与同步规范
 

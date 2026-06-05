@@ -75,6 +75,101 @@ def _load_framework_files(analysis_type: str) -> list[dict]:
     return result
 
 
+# ── 推理模式加载（Phase 4 新增）──
+# 关键词→主题映射：用于从 query/claims/sector 中提取主题，匹配推理模式
+_THEME_KEYWORD_MAP: dict[str, list[str]] = {
+    "MLCC": ["MLCC", "mlcc", "被动元件", "电容"],
+    "PCB": ["PCB", "pcb", "覆铜板", "电路板"],
+    "存储": ["存储", "HBM", "内存", "NAND", "DRAM"],
+    "硅片": ["硅片", "硅晶圆", "大硅片"],
+    "ABF基板": ["ABF", "abf", "基板", "载板"],
+    "主线判断": ["主线", "切换", "风格", "存量", "支线"],
+    "Rubin BOM": ["Rubin", "rubin", "BOM", "bom", "英伟达新架构"],
+    "被动元件": ["被动元件", "电感", "电阻", "电容"],
+}
+
+
+def _extract_themes_from_state(state: AgentState) -> set[str]:
+    """从 query + claims + sector_context 中提取涉及的主题关键词。"""
+    query = state.get("query", "")
+    themes: set[str] = set()
+
+    # 1. 从 query 匹配
+    for theme, keywords in _THEME_KEYWORD_MAP.items():
+        for kw in keywords:
+            if kw.lower() in query.lower():
+                themes.add(theme)
+                break
+
+    # 2. 从 claims 的 subject 字段匹配
+    for c in state.get("claims", []):
+        subj = (c.get("subject") or "").strip()
+        for theme, keywords in _THEME_KEYWORD_MAP.items():
+            if any(kw.lower() in subj.lower() for kw in keywords):
+                themes.add(theme)
+
+    # 3. 从 sector_context 匹配
+    for sc in state.get("sector_context", []):
+        name = sc.get("name", "")
+        for theme, keywords in _THEME_KEYWORD_MAP.items():
+            if any(kw.lower() in name.lower() for kw in keywords):
+                themes.add(theme)
+
+    return themes
+
+
+def _load_reasoning_patterns(state: AgentState) -> list[dict]:
+    """从 reasoning-patterns.yaml 加载与当前分析主题匹配的推理模式。
+
+    匹配逻辑：
+    1. 从 state 中提取当前涉及的主题
+    2. 与 patterns 的 applicable_themes 取交集
+    3. 返回匹配的 pattern，按匹配主题数量排序
+
+    返回格式（精简版，只保留推理链+风险因素，控制 prompt 长度）：
+    [{"pattern_id": "...", "name": "...", "reasoning_chain": [...], "risk_factors": [...]}]
+    """
+    import yaml
+
+    patterns_file = _REPO_ROOT / "framework" / "reasoning-patterns.yaml"
+    if not patterns_file.exists():
+        return []
+
+    try:
+        with open(patterns_file, encoding="utf-8") as f:
+            data = yaml.safe_load(f)
+    except Exception:
+        return []
+
+    if not data or not data.get("patterns"):
+        return []
+
+    themes = _extract_themes_from_state(state)
+    if not themes:
+        # 无明确主题时不注入推理模式（避免不相关的模式干扰）
+        return []
+
+    matched: list[dict] = []
+    for p in data["patterns"]:
+        applicable = set(p.get("applicable_themes", []))
+        overlap = themes & applicable
+        if overlap:
+            matched.append({
+                "pattern_id": p.get("pattern_id", ""),
+                "name": p.get("name", ""),
+                "description": p.get("description", ""),
+                "reasoning_chain": p.get("reasoning_chain", []),
+                "risk_factors": p.get("risk_factors", []),
+                "confidence_indicators": p.get("confidence_indicators", []),
+                "match_themes": list(overlap),
+                "match_score": len(overlap),
+            })
+
+    # 按匹配主题数排序，最多取 3 个（控制 prompt 长度）
+    matched.sort(key=lambda x: x.get("match_score", 0), reverse=True)
+    return matched[:3]
+
+
 def _safe_llm_invoke(prompt: str) -> str:
     """安全调用 LLM，缺失 API key 时返回空字符串。"""
     try:
@@ -471,6 +566,15 @@ def market_analyst(state: AgentState) -> AgentState:
         f"analysis_type={analysis_type}"
     )
 
+    # 加载匹配的推理模式（Phase 4 新增）
+    reasoning_patterns = _load_reasoning_patterns(state)
+    if reasoning_patterns:
+        print(
+            f"[market_analyst] reasoning_patterns={len(reasoning_patterns)}, "
+            f"patterns={[p['pattern_id'] for p in reasoning_patterns]}, "
+            f"match_themes={[p.get('match_themes') for p in reasoning_patterns]}"
+        )
+
     # 动态加载分析框架片段（不改 framework/ 目录）
     analysis_framework = _load_analysis_framework()
     prompt_template_filled = prompt_template.replace("{analysis_framework}", analysis_framework)
@@ -479,6 +583,7 @@ def market_analyst(state: AgentState) -> AgentState:
         "claims": state.get("claims", []),
         "wiki_snippets": state.get("wiki_snippets", []),
         "framework_rules": framework_context,  # 显式注入方法论框架
+        "reasoning_patterns": reasoning_patterns,  # Phase 4 注入推理模式
         "market_snapshot": market_snapshot,
         "sector_strengths": state.get("sector_strengths", []),
         "external_sector_boards": esb,
