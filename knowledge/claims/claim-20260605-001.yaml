@@ -1,0 +1,191 @@
+source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
+source_date: '2026-06-05'
+source_type: 早盘专栏
+source_id: '1210245973605875716'
+processed_at: '2026-06-05T09:04:55.364458'
+claims:
+- id: claim-20260605-001-a
+  topic: 调整第17天：缩量调整信号积极
+  statement: 日线顶部结构第17个交易日(历史最长为24个交易日)，成交量几乎腰斩呈缩量调整，"涨不上去但也跌不下来"是企稳特征，属于上升途中的调整且接近尾声
+  evidence_quote: 日线顶部结构形成后已进入第17个交易日...成交量较周三几乎腰斩...呈"涨不上去但也跌不下来"的格局...这里判断属于上升途中的调整，且接近尾声
+  interpretation: 缩量调整是积极信号——周三追高者部分锁仓、部分离场后筹码消化完毕。历史日线顶最长24天，第17天已过2/3。关键变量是创业板指能否兑现低开高走。
+  confidence: medium
+  status: active
+  claim_type: market-cycle
+  time_frame: short-term
+  related_stocks: []
+  tags:
+  - 调整周期
+  - 缩量
+  - 企稳信号
+  - 日线顶部
+  - 第17天
+  supersedes: []
+  contradicts: []
+- id: claim-20260605-001-b
+  topic: 指数纪律重申：4033清仓/4130满仓
+  statement: 严格按照交易标准：收盘价跌穿4033点清仓，向上突破4130点满仓。风险偏好低者可完全按此执行。创业板指创新高、沪深300/深成指横盘、上证15度角调整——综合判断上升途中调整。
+  evidence_quote: '交易标准(严格执行): 日线顶部结构形成后已进入第17个交易日,严格按交易标准——收盘价跌穿4033点清仓,向上突破4130点满仓'
+  interpretation: 4033/4130纪律线连续多天重申，说明UP当前操作框架完全基于这两条线的机械执行。与6-3、6-4的纪律表述一致。
+  confidence: high
+  status: active
+  claim_type: operation
+  time_frame: short-term
+  related_stocks: []
+  tags:
+  - 指数纪律
+  - 仓位管理
+  - 机械化标准
+  - '4033'
+  - '4130'
+  supersedes: []
+  contradicts: []
+- id: claim-20260605-001-c
+  topic: AI上游材料端成为最确定方向
+  statement: 铜缆、光纤、MLCC、超级电容共同构成AI上游材料端最确定的方向。它们是AI基建的上游，与AI硬件逻辑紧密相关。APC因不属于上游材料而成为唯一掉队的新方向。即使短线情绪遇冷，上游材料方向不会轻易扭转。
+  evidence_quote: 铜缆、光纤,以及稍早的MLCC、超级电容昨天都有不错表现,且这四个方向有个共同点:都属于AI基建的上游材料端。这也解释了为何APC会成为最近唯一掉队的新方向...即使短线情绪再遇冷,上游材料这个大方向应该不会轻易扭转
+  interpretation: UP首次明确提出"AI上游材料端"这一分类框架——将铜缆、光纤、MLCC、超级电容统一到"AI基建上游"大逻辑下。APC(端侧AI)被排除在这个最确定框架之外。这是重要的方向优先级判断。
+  confidence: high
+  status: active
+  claim_type: sector-theme
+  time_frame: medium-term
+  related_stocks:
+  - code: 000636.SZ
+    name: 风华高科
+  - code: 600487.SH
+    name: 亨通光电
+  - code: 601869.SH
+    name: 长飞光纤
+  tags:
+  - AI上游材料
+  - 铜缆
+  - 光纤
+  - MLCC
+  - 超级电容
+  - AI基建
+  - 板块框架
+  supersedes: []
+  contradicts: []
+- id: claim-20260605-001-d
+  topic: 非科技方向接近尾声
+  statement: 非科技方向只剩煤炭和部分电力股，大消费和油气已集体调整。煤炭龙头大有能源加速一字涨停是见顶前兆，需盯紧能否突破粤电力A的4板高度。
+  evidence_quote: 只剩煤炭和部分电力股,大消费板块甚至带头下跌,油气股同样集体调整。煤炭龙头大有能源已开始加速一字涨停,这种往往是快结束前的征兆
+  interpretation: UP对防御方向的定性从"防御轮动"升级为"接近尾声"。煤炭龙头一字加速是典型的顶部信号。这印证了此前"防御走强是分化而非切换"的判断。
+  confidence: medium
+  status: active
+  claim_type: sector-theme
+  time_frame: short-term
+  related_stocks:
+  - code: 601088.SH
+    name: 中国神华
+  tags:
+  - 煤炭
+  - 防御板块
+  - 见顶信号
+  - 非科技
+  - 尾声
+  supersedes: []
+  contradicts: []
+- id: claim-20260605-001-e
+  topic: 珂玛科技静电卡盘0→1突破
+  statement: 珂玛科技静电卡盘(ESC)在国产设备龙头取得突破，首次批量订单落地。华创26年刻蚀设备收入超百亿对应卡盘需求10亿，后市场20亿、利润弹性10亿、市值期权500亿。日企产能饱和涨价10-15%倒逼国内加速扩产。卡盘市场空间不少于加热器，存在明显预期差。
+  evidence_quote: 静电卡盘(ESC)在国内设备龙头客户取得突破,首次批量订单落地...以华创为例,26年刻蚀设备收入超百亿,对应卡盘需求10亿级别；ESC为核心耗材,后市场收入20亿级别,对应利润弹性10亿、市值期权500亿
+  interpretation: 这是一个新披露的0→1逻辑——珂玛从陶瓷加热器正式突破到静电卡盘。对比日系涨价10-20%+国内倒逼扩产的供需缺口，弹性可信。这是半导体设备零部件细分赛道的增量信息。
+  confidence: medium
+  status: active
+  claim_type: sector-theme
+  time_frame: medium-term
+  related_stocks:
+  - code: sh688
+    name: 珂玛科技
+  tags:
+  - 珂玛科技
+  - 静电卡盘
+  - ESC
+  - 半导体设备
+  - 0到1
+  - 北方华创
+  supersedes: []
+  contradicts: []
+- id: claim-20260605-001-f
+  topic: 申菱环境——液冷龙头价值重估
+  statement: 申菱环境同为华为系液冷供应商出海，海外订单规模不低于英维克，市值仅为英维克1/3。预计明年20亿利润对应600亿市值。6-7月催化密集(谷歌/亚马逊液冷下单)。逢低关注重新定价机会。
+  evidence_quote: 海外订单规模≥英维克,而市值过去仅为英维克的1/3...预计明年20亿利润,假设给30倍PE能看到600亿...逢低关注后期重新定价机会
+  interpretation: 申菱环境的逻辑是"被市场低估的液冷龙头"——与英维克同一赛道但市值差3倍。但up也承认液冷价格战是事实，所以叫"逢低重新定价机会"而非"现在买入"。
+  confidence: medium
+  status: active
+  claim_type: sector-theme
+  time_frame: medium-term
+  related_stocks:
+  - code: sz301018
+    name: 申菱环境
+  tags:
+  - 申菱环境
+  - 液冷
+  - 华为链
+  - 海外订单
+  - 价值重估
+  - 英维克
+  supersedes: []
+  contradicts: []
+- id: claim-20260605-001-g
+  topic: 昇腾产业链调整后赔率升高
+  statement: 昇腾产业链短期调整幅度很大，配置赔率已显著升高。华丰科技定增锁价133.9元(收139.38元)显示项目含金量。航天电器短期军工+昇腾双重下杀接近估值底部。预计6月中下旬回归国产算力主航道。核心标的：华丰科技、航天电器、意华股份。
+  evidence_quote: 当前昇腾产业链短期调整幅度很大,配置赔率已显著升高...定增锁价133.9元(周四收盘139.38元),足见项目含金量...预计6月中下旬逐步回到国产算力主航道
+  interpretation: UP对昇腾链的定性从之前的"规避"转为"赔率升高可关注"。航天电器双重下杀后接近估值底、华丰科技定增锁价支撑——两个标的都有估值锚。6月中下旬回归算力主航道的时间窗口判断重要。
+  confidence: medium
+  status: active
+  claim_type: sector-theme
+  time_frame: medium-term
+  related_stocks:
+  - code: 688629.SH
+    name: 华丰科技
+  - code: 002025.SZ
+    name: 航天电器
+  - code: 002897.SZ
+    name: 意华股份
+  tags:
+  - 昇腾
+  - 国产算力
+  - 华丰科技
+  - 航天电器
+  - 意华股份
+  - 赔率
+  - 超跌
+  supersedes: []
+  contradicts: []
+- id: claim-20260605-001-h
+  topic: 创业板指映射低开高走 + 中小盘赚钱效应是关键
+  statement: 创业板指三连阳类似颠倒版0518-20，映射到今日可能变低开高走。在隔夜美股科技股下跌背景下，今日个股迎来大考，关键看赚钱效应和中小盘风格企稳反弹能否夯实。
+  evidence_quote: 其这组三连阳有点像颠倒过来的0518-20,循此逻辑,5月21日的高开低走映射到今日,说不定会变成低开高走...关键看"赚钱效应+中小盘风格企稳反弹"能否进一步夯实
+  interpretation: UP给出了具体的形态类比判断——历史上5/18-20的三连阳后5/21高开低走，这次颠倒过来可能低开高走。这是技术形态推演，信心度应标注为中等。中小盘企稳是核心验证指标。
+  confidence: medium
+  status: active
+  claim_type: market-cycle
+  time_frame: short-term
+  related_stocks: []
+  tags:
+  - 创业板指
+  - 低开高走
+  - 形态类比
+  - 赚钱效应
+  - 中小盘
+  supersedes: []
+  contradicts: []
+- id: claim-20260605-001-i
+  topic: 操作基调：以做T应对或持股为主
+  statement: 盘前预案是做T应对或持股为主。已关注方向以抗波动为主，提防卖在最低点。重心放AI基建上游材料。
+  evidence_quote: 盘前预案:以做T应对,或持股为主...对已关注方向,盘前预案是做T应对或持股为主...重心放在AI基建上游材料这一最确定的大方向
+  interpretation: UP的操作建议：不追高、不开新仓、做T或持股。核心定调是"抗波动"而非"进攻"。AI上游材料是最确定方向，持仓者以做T为主，未持仓者等信号。
+  confidence: high
+  status: active
+  claim_type: operation
+  time_frame: short-term
+  related_stocks: []
+  tags:
+  - 操作策略
+  - 做T
+  - 抗波动
+  - 不追高
+  supersedes: []
+  contradicts: []

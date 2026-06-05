@@ -49,6 +49,7 @@ description: |
 18. `skills/qing-learning/references/claim-schema-validation.md` — **Claim Schema 验证**：生成 claims 时的字段要求和枚举值规范（跨 skill 共享）
 19. `skills/qing-stock-monitor-update/references/yaml-patterns-20260604.md` — **新增 YAML 配置模式（已代码实现）**：dedupe_by_type 差异化去重（风控15min/减仓30min/板块轮动30min + 价格突破阈值）、t_zone 做T区间拆分、sector_group 清理三同步
 20. `skills/qing-stock-monitor-update/references/dedupe-by-type-implementation.md` — **dedupe_by_type 代码实现细节**：映射规则、价格突破逻辑、向后兼容策略、7个单元测试覆盖。已代码实现，配置生效中。
+21. `skills/qing-stock-monitor-update/references/direction-performance-scan.md` — **全方向性能扫描**：模式 C——当用户要求"梳理所有方向哪些在调整"时，全方向 × 全标的 × 全行情的批量扫描方法论。含腾讯 API 批量获取、theme 分组统计、缺口检测流程。
 
 ## 工作流程
 
@@ -60,6 +61,7 @@ description: |
 4. **区分两种更新模式**：
    - **模式 A（基础）**：更新已有票的 narrative + today_snapshot
    - **模式 B（极易遗漏）**：扫描复盘文档中的"关注地位方向""核心思路""方向提示"段落，提取 UP 新提到的标的，新增到 watchlist 并在 strategy_pack 中补充 entry_points
+   - **模式 C（方向体检）**：用户要求"看看过去提到的方向哪些在调整"或"全面梳理UP方向"时，执行全方向 × 全标的 × 全行情扫描（见 `references/direction-performance-scan.md`）
    - **必须先执行模式 A，再执行模式 B，两步都完成才算完整**
 
 ### Step 1: 获取真实数据
@@ -101,12 +103,70 @@ stock_dict = {s['code']: s for s in stocks_list if 'code' in s}
   4. 不编造价格。如果本地数据也缺失该标的，如实告知用户"无法获取实时价格"
 - 注意：本地快照是上一交易时段的数据，非实时。用于策略方向的判断足够，但精确买入/卖出点位需等数据源恢复后确认。
 
+**备用：直接 curl 腾讯财经 API（当脚本超时或不可用时）**
+
+`fetch_stock_data.py` 可能因网络或依赖问题超时。此时用腾讯 API 直接获取指定标的的收盘行情：
+
+```bash
+curl -s "http://qt.gtimg.cn/q=sz000969,sz000066,sh603920"
+```
+
+解析：字段3=code，字段4=最新价，字段5=昨收。Python 示例：
+
+```python
+import urllib.request
+url = f"http://qt.gtimg.cn/q={','.join(codes)}"
+data = urllib.request.urlopen(url).read().decode("gb2312", errors="ignore")
+for line in data.strip().split(';'):
+    if not line.strip(): continue
+    parts = line.split('="')[1].rstrip('"\n;').split('~')
+    code = parts[2]; latest = float(parts[3]); prev_close = float(parts[4])
+    pct = round((latest - prev_close) / prev_close * 100, 2)
+```
+
+注意：GB2312 编码，name 可能乱码。只适合快速获取收盘价，无 K 线/基本面。
+
+**⚠️ 腾讯 API 代码格式陷阱**：API 返回的 key 是不带前缀的纯数字（如 `002055`），而非请求时用的 `sz002055`。匹配时必须使用数字 code 作 key，不能用带 sh/sz 前缀的字符串：
+
+```python
+# ❌ 错误 — 前缀不匹配
+quotes['sz002055']  # KeyError
+
+# ✅ 正确 — 用 parts[2]（纯数字）作 key
+api_key = parts[2]  # '002055'
+quotes[api_key] = {...}
+```
+
 ### Step 2: 检查 UP 最新观点（模式 A + 模式 B）
 
-读取最近 3 天的内容：
+**读取最近 3 天的内容**（必须执行）：
 - `knowledge/claims/claim-YYYYMMDD-*.yaml`
 - `knowledge/wiki/每日复盘/YYYY-MM-DD.md`
 - `sources/raw/财经/`（最近 3 天）
+
+**可选：调用 Qing-Agent 辅助分析（推荐，当服务在线时）**
+
+如果 Qing-Agent 服务在线（`curl -s http://127.0.0.1:8000/health` 返回 `{"status":"ok"}`），可调其 `/chat` 端点获取 UP 风格的通盘判断：
+
+```bash
+curl -s -X POST http://127.0.0.1:8000/chat \
+  -H "Content-Type: application/json" \
+  -d '{"message": "请分析今天收盘后的市场状态，包括指数、板块、主线方向、风险提示，以及持仓的操作建议。持仓：安泰科技300股成本28.67，中国长城400股成本18.11", "session_id": "stock-monitor"}'
+```
+
+Qing-Agent 返回的是**定性判断**（方向/态度/策略基调），不是具体价格数据。与本地数据配合使用：
+- **Qing-Agent →** "当前阶段：主升末期，微盘股破位，不能左侧抄底"
+- **本地数据 →** "上证支撑4033，持仓标的止损位24.5"
+- **具体操作以本地数据为准，方向判断参考 Qing-Agent**
+
+**何时调用 Qing-Agent**：
+- UP 刚发了视频/复盘专栏，但还没转化为 claims → Qing-Agent 可直接提取 UP 风格判断
+- 需要 UP 口吻的完整市场分析来填充 today_snapshot/up_bias
+- 多个来源说法不一，需要综合判断
+
+**何时不调用**：
+- 只需更新单个标的叙事，不涉及方向判断
+- Qing-Agent 服务未启动
 
 **可选：调用 Qing-Agent 辅助分析（推荐）**
 如果 Qing-Agent 服务在线（`curl -s http://127.0.0.1:8000/health`），可调其 `/chat` 端点获取 UP 风格的通盘判断：
@@ -135,7 +195,14 @@ Qing-Agent 返回的是**定性判断**（方向/态度/策略基调），不是
   - **若不存在**：新增 theme 或追加到对应 theme，写入完整字段（含 narrative）
   - **若已存在**：更新 narrative，并在 `watch_reason` 中追加 UP 最新提示
 - 无论是否新增，都必须在 strategy_pack.yaml 的 `entry_points` 中补充操作策略
-- **示例命令**：`grep -n "关注地位方向\|核心思路\|鼎龙股份\|裕太微" sources/raw/财经/复盘*.md`
+- **示例命令**：`grep -n "关注地位方向\\|核心思路\\|鼎龙股份\\|裕太微" sources/raw/财经/复盘*.md`
+
+**模式 B 变体：Claims → watchlist 缺口检测（新增）**
+当 claims 中明确提到某个方向（如"燃气轮机：机构看好，回调上车，中线格局"），但 watchlist 中没有对应的独立 theme 时：
+1. 不要忽略。这是 UP 在传递方向信号，只是还没转化为 watchlist 标的
+2. 在分析回复中**明确标注该缺口**："UP 在 claim-XXXX-YY 中提到某方向，但 watchlist 缺失此 theme"
+3. 如果用户要求补充，按模式 B 流程新增 theme + 补充标的
+4. 如果 claim 中只有方向判断没有具体标的，如实告知："UP 给了方向判断但未点名具体标的，需要联网搜索或等后续内容"
 
 ### Step 2.5: 同步更新 strategy_pack.yaml（必须与 watchlist 同步，不可遗漏）
 
