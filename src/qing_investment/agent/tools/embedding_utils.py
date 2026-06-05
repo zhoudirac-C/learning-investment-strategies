@@ -76,8 +76,13 @@ class OnnxEmbeddingModel:
             raise FileNotFoundError(f"ONNX model not found at {model_path}")
 
         self.tokenizer = AutoTokenizer.from_pretrained(str(model_dir))
+        # Force single-threaded ONNX inference to avoid futex deadlock on 2-core VMs
+        sess_options = ort.SessionOptions()
+        sess_options.inter_op_num_threads = 1
+        sess_options.intra_op_num_threads = 1
         self.session = ort.InferenceSession(
             str(model_path),
+            sess_options=sess_options,
             providers=["CPUExecutionProvider"],
         )
         self.input_names = {inp.name for inp in self.session.get_inputs()}

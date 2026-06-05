@@ -194,6 +194,47 @@ print(result['final_output'])
 | Qdrant 版本警告 | client 1.18 vs server 1.9 | 已设置 `check_compatibility=False`，可忽略 |
 | LLM 返回空 | DeepSeek API 限流或超时 | 重试，或检查 API key |
 | 完整链路 >60s | prompt 过大 + 多次 LLM 调用 | 已做 quotes 截断，如仍慢可考虑减少节点 |
+| **索引脚本无输出/0% CPU** | ONNX Runtime 多线程 futex spin-lock 死锁（2核 VM 常见） | `sess_options.inter_op_num_threads=1; intra_op_num_threads=1` |
+| **`sqlite3.OperationalError: disk I/O error`** | SQLite rollback journal 在长事务 commit 时失败 | 启用 WAL 模式（`PRAGMA journal_mode=WAL`）+ 分批 upsert（25条/批）+ 重试3次 |
+| **`Storage folder already accessed`** | Qdrant 本地模式使用独占文件锁，Agent 和索引脚本不能同时打开 | **索引前必须关 Agent**，索引完重启。见下方「索引 SOP」 |
+
+### 7.4 知识库索引 SOP
+
+**Qdrant 本地模式限制**：只有第一个打开 `.qdrant_data/` 的进程能持有锁。Agent 启动后会持锁，因此索引脚本必须等 Agent 关闭后才能运行。
+
+**全量重建（数据损坏/模型升级/首次部署）：**
+
+```bash
+# 1. 关 Agent
+kill $(pgrep -f "uvicorn qing_investment") 2>/dev/null
+
+# 2. 清空旧数据 + 全量索引（预计 15-25 分钟，10,687 chunks）
+cd ~/learning-investment-strategies
+rm -rf .qdrant_data .index_state.json
+PYTHONUNBUFFERED=1 .venv/bin/python scripts/index_documents_to_qdrant.py
+
+# 3. 同步 claims embedding
+.venv/bin/python scripts/index_claims_to_qdrant.py
+
+# 4. 重启 Agent
+nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
+```
+
+**增量同步（日常新增文档后）：**
+
+```bash
+# 无需 --force-full，只处理新/修改的文件
+PYTHONUNBUFFERED=1 .venv/bin/python scripts/index_documents_to_qdrant.py
+```
+
+**关键参数**（位于 `scripts/index_documents_to_qdrant.py`）：
+- `UPSERT_BATCH = 25` — 每批写入 Qdrant 的点数（太大 → SQLite I/O 错误）
+- `ENCODE_BATCH = 32` — 每批 ONNX 编码的文本数（太大 → 内存爆炸 + futex 死锁）
+- 单线程 ONNX（`inter_op_num_threads=1`）— 2核VM 禁用多线程，否则死锁
+
+**预期性能**（2核/7.5GB VM，ONNX BGE-small CPU 推理）：
+- 全量 10,687 chunks → 20-25 分钟
+- 增量 < 100 chunks → < 30 秒
 
 ---
 

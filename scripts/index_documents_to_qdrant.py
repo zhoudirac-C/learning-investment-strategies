@@ -9,10 +9,12 @@ For modified files: old chunks are deleted by source_path before new chunks are 
 """
 from __future__ import annotations
 
+import gc
 import glob
 import hashlib
 import json
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -28,6 +30,40 @@ from qdrant_client.models import PointStruct
 VECTOR_DIM = 512
 COLLECTION = "qing_knowledge"
 STATE_PATH = REPO_ROOT / ".index_state.json"
+
+# Batch processing constants
+UPSERT_BATCH = 25          # points per Qdrant upsert call
+ENCODE_BATCH = 32          # texts per ONNX encode call (limit memory)
+MAX_RETRIES = 3
+RETRY_DELAY = 2.0           # seconds between retries
+
+
+def _upsert_with_retry(qdrant, collection: str, points: list) -> None:
+    """Upsert with retry on transient I/O errors."""
+    last_err = None
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            qdrant.upsert(collection, points)
+            return
+        except Exception as e:
+            last_err = e
+            if attempt < MAX_RETRIES:
+                print(f"  ⚠️ Upsert failed (attempt {attempt}/{MAX_RETRIES}): {e}")
+                time.sleep(RETRY_DELAY * attempt)
+                gc.collect()
+    raise RuntimeError(f"Upsert failed after {MAX_RETRIES} attempts: {last_err}")
+
+
+def _get_rss_mb() -> float:
+    """Return current process RSS in MB (Linux only)."""
+    try:
+        with open("/proc/self/status") as f:
+            for line in f:
+                if line.startswith("VmRSS:"):
+                    return int(line.split()[1]) / 1024.0
+    except Exception:
+        pass
+    return -1.0
 
 # Paths to index
 WIKI_GLOB = str(REPO_ROOT / "knowledge" / "wiki" / "**" / "*.md")
@@ -173,8 +209,12 @@ def index_documents(*, force_full: bool = False):
 
     print(f"Found {len(files)} markdown files, {len(files_to_process)} need indexing")
 
+    # Load embedding model ONCE — singleton, but explicit init outside loop
+    emb_model = get_embedding_model()
+
     total_chunks = 0
     total_points = 0
+    point_buffer: list = []  # accumulate points across files, flush in batches
 
     for path in files_to_process:
         rel_path = str(path.relative_to(REPO_ROOT))
@@ -186,18 +226,19 @@ def index_documents(*, force_full: bool = False):
             file_states[rel_path] = _file_hash(path)
             continue
 
-        # For modified files: delete old chunks by source_path first
-        # We use a deterministic prefix-based ID scheme to find old chunks
-        # Actually with our current hash-based IDs, old chunks will simply be
-        # overwritten by new ones with different content. But chunks that
-        # no longer exist (paragraph removed) will remain as orphans.
-        # For simplicity in this incremental version, we accept orphan chunks
-        # for now; a full re-index can clean them up periodically.
+        # Batch encode all chunks from this file (ONNX benefits from batching)
+        chunk_texts = [c["text"] for c in chunks]
+        all_embeddings = []
+        for i in range(0, len(chunk_texts), ENCODE_BATCH):
+            batch = chunk_texts[i : i + ENCODE_BATCH]
+            batch_emb = emb_model.encode(batch)
+            if batch_emb.ndim == 1:
+                batch_emb = batch_emb.reshape(1, -1)
+            all_embeddings.extend(batch_emb.tolist())
+            gc.collect()  # release ONNX computation intermediates
 
-        points = []
-        for chunk in chunks:
-            emb_model = get_embedding_model()
-            embedding = emb_model.encode(chunk["text"]).tolist()
+        # Build points and flush in batches
+        for chunk, embedding in zip(chunks, all_embeddings):
             point_id = hashlib.sha256(
                 f"{chunk['source_path']}:{chunk['text']}".encode("utf-8")
             ).hexdigest()[:32]
@@ -212,16 +253,27 @@ def index_documents(*, force_full: bool = False):
                     "source_type": chunk["source_type"],
                 },
             )
-            points.append(point)
+            point_buffer.append(point)
 
-        if points:
-            qdrant.upsert(COLLECTION, points)
-            total_points += len(points)
+            # Flush when buffer reaches batch size
+            if len(point_buffer) >= UPSERT_BATCH:
+                _upsert_with_retry(qdrant, COLLECTION, point_buffer)
+                total_points += len(point_buffer)
+                point_buffer.clear()
+                gc.collect()
 
         total_chunks += len(chunks)
         file_states[rel_path] = _file_hash(path)
+
         if total_chunks % 100 == 0:
-            print(f"  Indexed {total_chunks} chunks ({total_points} points)")
+            mem_mb = _get_rss_mb()
+            print(f"  Indexed {total_chunks} chunks ({total_points} points), RSS={mem_mb:.0f}MB")
+
+    # Flush remaining points
+    if point_buffer:
+        _upsert_with_retry(qdrant, COLLECTION, point_buffer)
+        total_points += len(point_buffer)
+        point_buffer.clear()
 
     _save_state({"last_sync": datetime.now().isoformat(), "files": file_states})
     print(f"✅ Indexed {total_chunks} chunks ({total_points} points) from {len(files_to_process)} files into Qdrant.")
