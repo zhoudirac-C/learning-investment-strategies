@@ -93,9 +93,9 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 | 节点 | 文件位置 | 是否调 LLM | 维护重点 |
 |------|---------|-----------|---------|
 | `parse_query` | `graph/nodes.py` | ✅ | 意图解析 JSON 格式 |
-| `retrieve_knowledge` | `graph/nodes.py` | ❌ | Qdrant(wiki+claims) + Neo4j + mem0 查询、来源 boost 排序 |
-| `market_analyst` | `graph/nodes.py` | ✅ | 板块数据可用性守卫、framework 显式加载、动态分析框架片段注入 |
-| `stock_analyst` | `graph/nodes.py` | ✅ | 个股分析 JSON 字段 |
+| `retrieve_knowledge` | `graph/nodes.py` | ❌ | Qdrant(wiki+claims) + Neo4j + mem0 查询、来源 boost 排序、时效衰减过滤、矛盾检测 |
+| `market_analyst` | `graph/nodes.py` | ✅ | 板块数据可用性守卫、framework 显式加载、动态分析框架片段注入、时效性自检 |
+| `stock_analyst` | `graph/nodes.py` | ✅ | 个股分析 JSON 字段、外部标的业务校验（DuckDuckGo） |
 | `synthesize` | `graph/nodes.py` | ❌ | 草稿拼接、【参考来源】注入、持仓计划注入 |
 | `style_writer` | `graph/nodes.py` | ✅ | UP 人格 prompt、口头禅、强制保留来源标注 |
 | `reviewer` | `graph/nodes.py` | ✅ | 禁用词检测、claims 引用验证、citation 缺失检查（最多3次打回） |
@@ -118,9 +118,13 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 |--------|------|---------|
 | `market_analyst.txt` | 大盘/板块分析主 prompt（含 `{analysis_framework}` 占位符） | 低（方法论规则稳定） |
 | `market_analysis_framework.txt` | **11 项分析框架片段**（输出格式规范） | 低（仅当 framework 输出格式变化时同步更新） |
-| `stock_analyst.txt` | 个股地位/多空证据 | 低 |
+| `stock_analyst.txt` | 个股地位/多空证据 + 外部校验指令 | 低 |
 | `style_writer.txt` | UP 口吻风格化 | 中（口头禅、语气调整） |
 | `reviewer.txt` | 事实核查 + citation 检查 | 低 |
+
+**新增时效性相关维护**：
+- 修改 `market_analyst.txt` 中的【时效性自检】段落时，需同步测试 Agent 是否正确标注 claim 时效
+- `retrieve_knowledge` 的 `_apply_claim_freshness` 和 `_detect_claim_conflicts` 是核心过滤逻辑，修改后必须测试 claims 返回数量和排序
 
 **Prompt 修改后必须测试**：市场分析的 JSON 字段是否完整、持仓计划是否生成、UP 语气是否一致、来源标注是否保留。
 

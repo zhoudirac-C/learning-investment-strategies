@@ -107,7 +107,17 @@ Qing-Agent 基于 **LangGraph** 构建有向图工作流，共 7 个节点 + 1 �
 **Claims 双索引策略**（Phase 3.3 新增）：
 1. **向量召回**：用 Qdrant `qing_claims` 做语义搜索，召回相关 claims
 2. **图验证**：用 Neo4j 查召回 claims 的关联 claims（同一主题、同一股票）
-3. **时效过滤**：优先使用最近 30 天 active claims；超过 90 天标注"历史观点"；superseded 禁用
+3. **时效衰减过滤**（P0 新增）：
+   - ≤7 天：标 `[最新]`，优先使用
+   - 8-30 天：正常展示
+   - 31-90 天：标 `[近期]`，降权使用
+   - >90 天 或 `superseded`：**直接过滤**，不返回给 Agent
+   - 按 `days_ago` 排序，最新的 claim 排最前
+4. **同一主题矛盾检测**（P1 新增）：
+   - 按 `subject` 分组，检测同一组内是否存在方向相反的 active claims
+   - 方向词表：`_BULLISH_WORDS`（看多/主线/加仓等）vs `_BEARISH_WORDS`（看空/回避/减仓等）
+   - 若检测到矛盾，在 `potential_conflicts` 中列出矛盾 claims 的 ID、日期和方向
+   - Agent 在 prompt 中被要求必须处理这些矛盾，给出判断依据
 
 **动态板块提取** (`sector_extractor.py`)：
 - 扫描 `sources/raw/财经/` 最近 3 天文档
@@ -124,7 +134,8 @@ Qing-Agent 基于 **LangGraph** 构建有向图工作流，共 7 个节点 + 1 �
 2. **Framework 显式加载**（Phase 1 新增）：根据 `analysis_type` 从 `framework/` 目录加载对应的 playbook 文件（如 `market-cycle-framework.md`、`sector-diffusion-framework.md`），截断到 4000 字符注入 prompt
 3. **动态分析框架片段**（Phase 3 新增）：通过 `_load_analysis_framework()` 加载 `market_analysis_framework.txt` 中的 11 项分析框架，替换 prompt 中的 `{analysis_framework}` 占位符
 4. **Prompt 截断**：`market_snapshot.quotes` 超过 50 条时，只保留指数 + 持仓/观察池 + 涨跌幅 TOP15，减少 token
-5. **强制 JSON 输出**：包含以下字段
+5. **时效性自检**（P0 新增）：prompt 强制要求 Agent 检查 claim 的 `freshness_label`，标注过时观点，处理 framework 与实时数据的矛盾
+6. **强制 JSON 输出**：包含以下字段
 
 ```json
 {
@@ -165,6 +176,12 @@ Qing-Agent 基于 **LangGraph** 构建有向图工作流，共 7 个节点 + 1 �
 ### 3.4 stock_analyst
 
 **触发条件**：`analysis_type == "stock"` 且 `stock_code` 存在。
+
+**外部标的业务校验**（P2 新增）：
+1. `_get_stock_name()` 从 `market_snapshot.quotes` 或 `watchlist` 中提取股票名称
+2. `_fetch_stock_external_info()` 用 DuckDuckGo 搜索 `{股票名} {代码} 主营业务 最新`
+3. 搜索结果作为 `external_validation` 注入 prompt
+4. Agent 被强制要求：如果 claims 中对标的的描述（如"CPO 龙头"）与外部搜索结果不一致，必须指出不一致并说明判断依据
 
 输出 JSON 包含：
 - `stock_role`: 龙头/中军/跟风/独立
@@ -543,3 +560,4 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 | `src/qing_investment/stock_monitor.py` | Hermes 监控核心，_agent_context_data |
 | `scripts/hermes_stock_monitor_agent.py` | Hermes cron 入口 |
 | `scripts/index_claims_to_qdrant.py` | Claims 语义索引脚本（Qdrant `qing_claims`） |
+| `scripts/freshness_check.py` | 每日知识库健康检查（未处理 raw、stale claims） |

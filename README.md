@@ -187,6 +187,36 @@ parse_query → retrieve_knowledge ──┬── market_analyst ──┐
 
 强制全量重跑：`--force-full`
 
+### 知识库时效性机制（2026-06 新增）
+
+Agent 不是简单地"全读本地知识"，而是有多层时效性过滤：
+
+| 机制 | 实现位置 | 效果 |
+|------|----------|------|
+| **Claims 时效衰减** | `retrieve_knowledge` | ≤7 天标 `[最新]`，31-90 天标 `[近期]` 并降权，>90 天或 superseded **直接过滤** |
+| **Prompt 时效自检** | `market_analyst.txt` | Agent 被强制要求：标注 claim 时效、处理 framework 与实时数据矛盾、列出同一主题相反观点 |
+| **同一主题矛盾检测** | `retrieve_knowledge` | 按 `subject` 分组，用方向词表检测同一主题下的相反 active claims，注入 `potential_conflicts` |
+| **Wiki 时间戳** | `index_documents_to_qdrant.py` | 每个 wiki chunk 携带 `source_date`，Agent 知道知识是哪天的 |
+| **外部标的校验** | `stock_analyst` | DuckDuckGo 搜索个股主营业务，与 claims 描述对比，不一致时标注 |
+
+### 每日 Freshness Check
+
+```bash
+# 检查未处理 raw 文档、陈旧 short-term claims、最新 claim 日期
+.venv/bin/python scripts/freshness_check.py
+
+# 或集成到 stock_monitor
+.venv/bin/python src/qing_investment/stock_monitor.py --freshness-check
+```
+
+输出示例：
+```
+=== Freshness Check 2026-06-05 ===
+✅ 最新 claims: 2026-06-05 (今天)
+✅ 最近 3 天的 raw 已全部处理
+✅ 无超过 7 天的 stale short-term claims
+```
+
 ---
 
 ## 行情监控（Hermes 集成）
