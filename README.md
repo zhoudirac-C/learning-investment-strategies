@@ -2,10 +2,11 @@
 
 持续学习型投资方法论系统，用来长期学习财经博主的投资框架，并把学习结果沉淀成可复用的 Agent Skills、知识库与实时分析能力。
 
-这个项目**不是自动交易系统**，也**不是一次性的投研报告生成器**。它的核心是三层能力：
+这个项目**不是自动交易系统**，也**不是一次性的投研报告生成器**。它的核心是四层能力：
 1. **学习层**：把原始 UP 内容保存下来，逐步抽取观点、案例和方法论
 2. **知识层**：将学习结果结构化存入 Neo4j（claims 图谱）、Qdrant（文档向量）、mem0（长期记忆）
-3. **分析层**：Qing-Agent 基于 LangGraph 工作流，实时分析行情并输出 UP 风格的条件化操作建议
+3. **推理层**：从 UP 原文抽取推理模式（\"怎么推理\"而非\"什么观点\"），116 条推理链注入 Agent prompt
+4. **分析层**：Qing-Agent 基于 LangGraph 工作流，按 UP 的推理模式分析行情并输出条件化操作建议
 
 ---
 
@@ -21,6 +22,7 @@
   - Phase 1 — 打通「能读到」：framework 文件加入向量索引，Agent 显式加载方法论框架
   - Phase 2 — 升级「读得准」：ONNX Runtime + `bge-small-zh-v1.5` 本地语义嵌入（512维），替代 hash 嵌入
   - Phase 3 — 做到「说得清来源」：来源类型 boost 排序、输出强制标注引用来源、reviewer citation 检查（最多3次打回）
+  - Phase 4 — 模仿「怎么推理」：从 479 篇 raw 中抽取 116 条推理模式（reasoning-patterns.yaml），IDF 加权倒排索引匹配，注入 market_analyst prompt，让 Agent 按 UP 的推理步骤思考
 
 ---
 
@@ -38,7 +40,8 @@ knowledge/
   cases/            历史案例与回归样本
 
 methodology/        长期方法论沉淀（F10、板块轮动、仓位风控、技术分析等）
-framework/          可执行分析流程与输出契约（8 个 playbook）
+framework/          可执行分析流程与输出契约（8 个 playbook + reasoning-patterns.yaml）
+  reasoning-patterns.yaml  推理模式库（116 条 UP 推理链，IDF 加权倒排索引匹配）
 
 config/stock_monitor/   行情监控配置
   watchlist.yaml        观察池（公共）
@@ -53,7 +56,8 @@ src/qing_investment/
     prompts/        System prompt（market_analyst、style_writer、reviewer 等）
   stock_monitor.py  Hermes 行情监控核心（~1945 行）
 
-scripts/            迁移、索引、lint、扫描、Bilibili 抓取、Hermes 包装脚本
+scripts/            迁移、索引、lint、扫描、Bilibili 抓取、Hermes 包装脚本、推理模式抽取
+  extract_reasoning_patterns.py  从 raw 文件批量抽取推理模式（--dry-run / --single / --incremental）
 skills/             4 个 Agent Skills
   qing-learning/
   qing-methodology-review/
@@ -132,7 +136,7 @@ parse_query → retrieve_knowledge ──┬── market_analyst ──┐
 |------|------|---------|
 | `parse_query` | 意图解析（stock/market/portfolio） | `parsed_intent` JSON |
 | `retrieve_knowledge` | 从 Neo4j/Qdrant/mem0 检索知识 | claims + wiki + memories |
-| `market_analyst` | 大盘/板块分析（强制 JSON），显式加载 framework 文件 + 动态分析框架片段 | `market_context` |
+| `market_analyst` | 大盘/板块分析（强制 JSON），显式加载 framework 文件 + 推理模式匹配（IDF 加权倒排索引） + 动态分析框架片段 | `market_context` |
 | `stock_analyst` | 个股地位、多空证据 | `stock_analysis` |
 | `synthesize` | 草稿合成（含持仓操作计划），注入【参考来源】 | `draft_analysis` |
 | `style_writer` | UP 口吻风格化，强制保留来源标注 | `styled_output` |
@@ -377,6 +381,9 @@ uv run python scripts/lint_knowledge.py
 | `src/qing_investment/agent/AGENTS.md` | Qing-Agent 模块维护指南（节点维护、prompt 维护、调试方法） |
 | `docs/qing-agent-technical-design.md` | Qing-Agent 技术设计文档（架构图、数据流、API 字段） |
 | `docs/hermes-stock-monitor-technical-design.md` | 行情监控技术设计文档 |
+| `framework/reasoning-patterns.yaml` | 推理模式库（116 条 UP 推理链） |
+| `skills/qing-learning/references/reasoning-pattern-architecture.md` | 推理模式三层架构设计 |
+| `skills/qing-learning/references/reasoning-pattern-extraction-workflow.md` | 推理模式抽取、集成、调优完整工作流 |
 | `config/stock_monitor/README.md` | 监控配置 YAML 字段契约 |
 
 ---

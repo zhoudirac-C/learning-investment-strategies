@@ -20,6 +20,7 @@ alerting task, use the local project framework before giving conclusions.
    - `knowledge/cases`
    - `sources/raw/财经`
    - `docs/标的深度研究`
+   - `framework/reasoning-patterns.yaml` — 推理模式库（按 UP 的推理步骤分析）
 4. For real-time market data, follow
    `skills/qing-stock-analysis/references/data-source-strategy.md`.
 5. Distinguish evidence, interpretation, and inference.

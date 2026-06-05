@@ -94,7 +94,7 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 |------|---------|-----------|---------|
 | `parse_query` | `graph/nodes.py` | ✅ | 意图解析 JSON 格式 |
 | `retrieve_knowledge` | `graph/nodes.py` | ❌ | Qdrant(wiki+claims) + Neo4j + mem0 查询、来源 boost 排序、时效衰减过滤、矛盾检测 |
-| `market_analyst` | `graph/nodes.py` | ✅ | 板块数据可用性守卫、framework 显式加载、动态分析框架片段注入、时效性自检 |
+| `market_analyst` | `graph/nodes.py` | ✅ | 板块数据可用性守卫、framework 显式加载、**推理模式匹配（IDF 加权倒排索引）**、动态分析框架片段注入、时效性自检 |
 | `stock_analyst` | `graph/nodes.py` | ✅ | 个股分析 JSON 字段、外部标的业务校验（DuckDuckGo） |
 | `synthesize` | `graph/nodes.py` | ❌ | 草稿拼接、【参考来源】注入、持仓计划注入 |
 | `style_writer` | `graph/nodes.py` | ✅ | UP 人格 prompt、口头禅、强制保留来源标注 |
@@ -124,7 +124,12 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 
 **新增时效性相关维护**：
 - 修改 `market_analyst.txt` 中的【时效性自检】段落时，需同步测试 Agent 是否正确标注 claim 时效
+- 修改 `market_analyst.txt` 中的【推理模式使用规则】段落时，需同步测试 `_load_reasoning_patterns()` 的匹配逻辑
 - `retrieve_knowledge` 的 `_apply_claim_freshness` 和 `_detect_claim_conflicts` 是核心过滤逻辑，修改后必须测试 claims 返回数量和排序
+- 推理模式匹配的核心参数位于 `_load_reasoning_patterns()`：
+  - `MIN_MATCH_SCORE = 0.4` — 最低 IDF 加权分阈值（过低→噪声，过高→漏召回）
+  - `_STOP_WORDS` — `_extract_themes_from_state()` 中的停用词列表
+  - 查询窗口大小：2-4 字滑动窗口，必须与 `_build_theme_index()` 索引窗口一致
 
 **Prompt 修改后必须测试**：市场分析的 JSON 字段是否完整、持仓计划是否生成、UP 语气是否一致、来源标注是否保留。
 
@@ -283,10 +288,10 @@ src/qing_investment/agent/
 ├── graph/
 │   ├── builder.py          # LangGraph 组装
 │   ├── state.py            # AgentState TypedDict
-│   ├── nodes.py            # 7 个节点实现
+│   ├── nodes.py            # 7 个节点实现（含推理模式匹配 _load_reasoning_patterns）
 │   └── edges.py            # review_router
 ├── prompts/system/         # system prompt
-│   ├── market_analyst.txt
+│   ├── market_analyst.txt  # 含【推理模式使用规则】（Phase 4 新增）
 │   ├── market_analysis_framework.txt   # 11 项分析框架片段（被 market_analyst 动态加载）
 │   ├── stock_analyst.txt
 │   ├── style_writer.txt

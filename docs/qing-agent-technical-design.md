@@ -51,6 +51,11 @@ package "知识沉淀" #ECEFF1 {
     folder "knowledge/claims" as Claims
     folder "knowledge/wiki" as Wiki
     folder "framework" as Framework
+    folder "framework/reasoning-patterns.yaml" as ReasonPat #FFF9C4
+    note right of ReasonPat
+      推理模式库（116 条）
+      IDF 加权倒排索引匹配
+    end note
 }
 
 package "索引脚本" #ECEFF1 {
@@ -287,10 +292,11 @@ endlegend
 **核心逻辑**：
 1. **可用性检查**：`analysis_type` 为 `market`/`portfolio` 时，若 `external_sector_boards.available == false`，直接返回 `"数据不可用"`，拒绝生成分析
 2. **Framework 显式加载**（Phase 1 新增）：根据 `analysis_type` 从 `framework/` 目录加载对应的 playbook 文件（如 `market-cycle-framework.md`、`sector-diffusion-framework.md`），截断到 4000 字符注入 prompt
-3. **动态分析框架片段**（Phase 3 新增）：通过 `_load_analysis_framework()` 加载 `market_analysis_framework.txt` 中的 11 项分析框架，替换 prompt 中的 `{analysis_framework}` 占位符
-4. **Prompt 截断**：`market_snapshot.quotes` 超过 50 条时，只保留指数 + 持仓/观察池 + 涨跌幅 TOP15，减少 token
-5. **时效性自检**（P0 新增）：prompt 强制要求 Agent 检查 claim 的 `freshness_label`，标注过时观点，处理 framework 与实时数据的矛盾
-6. **强制 JSON 输出**：包含以下字段
+3. **推理模式匹配**（Phase 4 新增）：通过 `_load_reasoning_patterns()` 从 `framework/reasoning-patterns.yaml`（116 条）中匹配当前分析主题。使用倒排索引 + IDF 加权评分，Top 5 模式注入 prompt context
+4. **动态分析框架片段**（Phase 3 新增）：通过 `_load_analysis_framework()` 加载 `market_analysis_framework.txt` 中的 11 项分析框架，替换 prompt 中的 `{analysis_framework}` 占位符
+5. **Prompt 截断**：`market_snapshot.quotes` 超过 50 条时，只保留指数 + 持仓/观察池 + 涨跌幅 TOP15，减少 token
+6. **时效性自检**（P0 新增）：prompt 强制要求 Agent 检查 claim 的 `freshness_label`，标注过时观点，处理 framework 与实时数据的矛盾
+7. **强制 JSON 输出**：包含以下字段
 
 ```json
 {
@@ -422,7 +428,8 @@ query ──▶ Neo4j (claims) ──┐
 ### 4.3 分析层
 
 ```
-claims + wiki + sector_context + external_sector_boards + market_snapshot
+claims + wiki + sector_context + external_sector_boards + market_snapshot +
+reasoning_patterns (Phase 4: IDF 加权倒排索引匹配 Top 5)
     ──▶ market_analyst ──▶ market_context (JSON)
 
 claims + wiki + positions
@@ -716,3 +723,6 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 | `scripts/hermes_stock_monitor_agent.py` | Hermes cron 入口 |
 | `scripts/index_claims_to_qdrant.py` | Claims 语义索引脚本（Qdrant `qing_claims`） |
 | `scripts/freshness_check.py` | 每日知识库健康检查（未处理 raw、stale claims） |
+| `framework/reasoning-patterns.yaml` | **推理模式库**（116 条 UP 推理链，IDF 加权倒排索引匹配） |
+| `scripts/extract_reasoning_patterns.py` | 从 raw 文件批量抽取推理模式（--dry-run / --single / --incremental） |
+| `skills/qing-learning/references/reasoning-pattern-extraction-workflow.md` | 推理模式抽取、集成、IDF 调优完整工作流 |
