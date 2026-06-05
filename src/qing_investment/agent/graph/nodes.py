@@ -129,9 +129,16 @@ def _build_theme_index(patterns: list[dict]) -> dict[str, list[int]]:
 def _extract_themes_from_state(state: AgentState) -> set[str]:
     """从 query + claims + sector_context 中提取涉及的主题关键词。
 
-    新版本：不再使用固定 _THEME_KEYWORD_MAP，而是从 query 文本中提取
-    所有 2-4 字片段作为候选关键词，与 pattern 的 applicable_themes 索引匹配。
+    使用 2-4 字滑动窗口提取候选词，过滤纯噪声停用词。
+    保留投资主题词（如 MLCC、AIDC、算力），只过滤真正无意义的虚词。
     """
+    # 停用词：只过滤纯虚词/问句结构词，保留所有投资主题术语
+    _STOP_WORDS: set[str] = {
+        "怎么", "是否", "什么", "今天", "当前", "最近", "现在",
+        "这种", "应该", "可以", "需要", "关注", "注意", "一个",
+        "还有", "有没有", "哪些", "处于", "如何", "怎么样",
+    }
+
     query = state.get("query", "")
     keywords: set[str] = set()
 
@@ -140,8 +147,10 @@ def _extract_themes_from_state(state: AgentState) -> set[str]:
     for size in (2, 3, 4):
         for i in range(len(q) - size + 1):
             chunk = q[i:i+size]
-            # 过滤纯标点/数字/英文短词
-            if chunk.strip() and not chunk.isdigit() and not all(c in '，。！？；：""''（）【】 \t\n-—…' for c in chunk):
+            # 过滤纯标点/数字/虚词
+            if (chunk.strip() and not chunk.isdigit()
+                    and not all(c in '，。！？；：""''（）【】 \t\n-—…' for c in chunk)
+                    and chunk not in _STOP_WORDS):
                 keywords.add(chunk)
 
     # 2. 从 claims 的 subject 提取
@@ -149,18 +158,22 @@ def _extract_themes_from_state(state: AgentState) -> set[str]:
         subj = (c.get("subject") or "").strip()
         if subj:
             keywords.add(subj.lower())
-            for size in (2, 3):
+            for size in (2, 3, 4):
                 for i in range(len(subj) - size + 1):
-                    keywords.add(subj[i:i+size].lower())
+                    kw = subj[i:i+size].lower()
+                    if kw not in _STOP_WORDS:
+                        keywords.add(kw)
 
     # 3. 从 sector_context 提取
     for sc in state.get("sector_context", []):
         name = sc.get("name", "")
         if name:
             keywords.add(name.lower())
-            for size in (2, 3):
+            for size in (2, 3, 4):
                 for i in range(len(name) - size + 1):
-                    keywords.add(name[i:i+size].lower())
+                    kw = name[i:i+size].lower()
+                    if kw not in _STOP_WORDS:
+                        keywords.add(kw)
 
     return keywords
 
@@ -169,9 +182,9 @@ def _load_reasoning_patterns(state: AgentState) -> list[dict]:
     """从 reasoning-patterns.yaml 加载与当前分析主题匹配的推理模式。
 
     匹配逻辑（倒排索引方法）：
-    1. 从 state 中提取候选关键词（2-4字滑动窗口）
+    1. 从 state 中提取候选关键词（3-4字滑动窗口，过滤停用词）
     2. 用倒排索引检索匹配的 pattern
-    3. 按匹配关键词数量排序，最多返回 5 条
+    3. 按匹配关键词数量排序，score ≥ 2 才算有效匹配，最多返回 5 条
     """
     patterns = _ensure_patterns_cache()
     if not patterns:
@@ -183,17 +196,26 @@ def _load_reasoning_patterns(state: AgentState) -> list[dict]:
 
     theme_index = _build_theme_index(patterns)
 
-    # 倒排检索：每个关键词命中了哪些 pattern
-    pattern_scores: dict[int, int] = {}
+    # 倒排检索：每个关键词命中了哪些 pattern，用 IDF 加权
+    import math
+    pattern_scores: dict[int, float] = {}
     for kw in keywords:
-        for pi in theme_index.get(kw, []):
-            pattern_scores[pi] = pattern_scores.get(pi, 0) + 1
+        hits = theme_index.get(kw, [])
+        if not hits:
+            continue
+        # IDF 加权：命中 pattern 越少的关键词权重越高
+        # "MLCC"→2 patterns: idf≈1/log(4)≈0.72，"分析"→11: idf≈1/log(13)≈0.39
+        idf = 1.0 / math.log(len(hits) + 2)
+        for pi in hits:
+            pattern_scores[pi] = pattern_scores.get(pi, 0.0) + idf
 
     if not pattern_scores:
         return []
 
-    # 按匹配分数排序，取 top 5
+    # 按加权分数排序，取 top 5（最低 score=0.8 过滤纯噪声匹配）
+    MIN_MATCH_SCORE = 0.8
     sorted_pairs = sorted(pattern_scores.items(), key=lambda x: x[1], reverse=True)
+    sorted_pairs = [(pi, round(s, 2)) for pi, s in sorted_pairs if s >= MIN_MATCH_SCORE]
     matched: list[dict] = []
     for pi, score in sorted_pairs[:5]:
         p = patterns[pi]
