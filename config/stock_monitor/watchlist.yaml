@@ -1,4 +1,4 @@
-updated_at: '2026-06-04'
+updated_at: '2026-06-05'
 today_snapshot:
   fetch_time: 2026-06-04 16:30 CST
   source: 6-4收盘复盘 + 6-4视频 + 6-4复盘专栏
@@ -3491,3 +3491,130 @@ themes:
       leader_follower: 板块跟随
       catalyst: 英伟达LPU PCIe 6.0高速连接需求
       risk: 供应链高度集中，A股公司多为二级备选
+- id: ai_energy_gas_turbine
+  name: AI能源/燃气轮机（UP深度方向，确定性高）
+  source_docs:
+  - sources/raw/财经/研报：26-05-07：AI基础设施与能源转型——燃机核电绿色燃料智能交通.md
+  - sources/raw/财经/视频：26-05-12：AI基础设施与能源转型，燃机核电绿色燃料智能交通五大主线.md
+  - knowledge/claims/claim-20260604-003.yaml
+  - knowledge/claims/claim-20260603-001.yaml
+  - knowledge/claims/claim-20260529-005.yaml
+  - sources/raw/财经/研报：26-04-17：PCB沪电生益鹏鼎、703燃机产业链、亚朵Q1超预期、华丰科技AI互联龙头.md
+  market_checks:
+  - 燃气轮机/703产业链是否持续催化
+  - 北美AIDC缺电逻辑是否继续发酵
+  - 杰瑞股份燃机EPC订单能否持续兑现
+  - 应流/万泽涡轮叶片是否获得GE/西门子供应链认证
+  - 板块是否出现组内联动（杰瑞+应流+万泽同步）
+  stocks:
+  - code: 002353.SZ
+    name: 杰瑞股份
+    role: gas_turbine_epc_leader
+    segment: 燃机EPC/整机
+    priority: P1-核心
+    watch_reason: 燃机EPC绝对龙头，最早兑现业绩的北美缺电标的。25Q4+26Q1燃机交付1亿美元+，天然气EPC暴增+278%。市值目标1690~1870亿。UP视频明确将其定位为AI基础设施与能源转型的核心标的。6/4涨停+10%，短线过热。
+    sync_with_index: 独立走势——燃气轮机有独立逻辑，不跟AI节奏
+    confirm_with:
+    - 应流股份
+    - 万泽股份
+    - 东方电气
+    buy_setup:
+    - 燃气轮机板块整体联动，杰瑞放量突破后回踩
+    - 不追涨停(+10%)，等分歧后缩量回踩5日线(约143-150)
+    - UP纪律：回调是上车机会，但短期涨太多需要等
+    invalidation_setup:
+    - 单票涨停但燃机链无联动
+    - 跌破143(6/4昨收)且30分钟不能收回
+    - 北美AIDC缺电逻辑证伪或GEV扩产超预期替代中国企业
+    up_mention_status:
+      last_mentioned_date: '2026-06-04'
+      mention_context: 6/4视频6-4充电专栏含燃气轮机板块。5/12专题视频五大主线之燃机。4/20研报杰瑞Q1燃机兑现。多次机构买入TOP标的。
+      explicit_operation: null
+      sentiment: 机构重点看好(UP:类比锂电池，可以格局)
+    technical_narrative:
+      trend: 6月4日涨停+10.0%
+      volume_character: 放量涨停
+      key_levels:
+      - 支撑：143（昨收/涨停起点）
+      - 压力：157.34（涨停板）
+      pattern: 强势涨停突破
+      note: 6/4涨停收157.34(+10.0%)。燃机EPC龙头，业绩已兑现。等分歧回踩。
+    sector_narrative:
+      relative_strength: 燃机链绝对龙头
+      money_flow: 涨停主力封板
+      leader_follower: 板块龙头
+      catalyst: 北美AIDC缺电+燃机EPC订单持续兑现
+      risk: 涨停+10%短期过热，追高性价比低。UP：回调是上车机会
+  - code: 603308.SH
+    name: 应流股份
+    role: turbine_blade_core
+    segment: 涡轮叶片(20%价值量)
+    priority: P2-重点
+    watch_reason: 涡轮叶片是燃机产业链价值量最高的单一环节(20%)，应流股份是国内稀缺的涡轮叶片供应商。UP研报指出：进入GE/西门子供应链的叶片企业最先受益。6/4+4.27%温和上涨。
+    sync_with_index: 独立走势
+    confirm_with:
+    - 万泽股份
+    - 杰瑞股份
+    - 三角防务
+    buy_setup:
+    - 涡轮叶片方向被资金认可，应流放量突破
+    - 等分歧后缩量回踩5日线(约63-64)
+    - 需万泽股份或杰瑞同步承接确认
+    invalidation_setup:
+    - 跌破63且30分钟不能收回
+    - GE/西门子供应链认证受阻
+    up_mention_status:
+      last_mentioned_date: '2026-06-04'
+      mention_context: 5/12视频+5/7研报：涡轮叶片价值量最高，703产业链核心标的
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月4日+4.27%温和上涨
+      volume_character: 温和放量
+      key_levels:
+      - 支撑：63
+      - 压力：68.33(日内高)
+      pattern: 温和上涨
+      note: 6/4收66.60(+4.27%)。涡轮叶片核心，弹性适中。
+    sector_narrative:
+      relative_strength: 燃机链中等弹性
+      money_flow: 跟随资金流入
+      leader_follower: 板块跟随
+      catalyst: 703产业链出海+GE/西门子供应链认证
+      risk: PS：PCC等海外龙头产能扩张可能压缩中国企业份额
+  - code: 000534.SZ
+    name: 万泽股份
+    role: turbine_blade_superalloy
+    segment: 涡轮叶片+高温合金
+    priority: P2-重点
+    watch_reason: 涡轮叶片+高温合金双属性，燃机产业链核心弹性标的。UP 4/17研报明确说调整即是布局机会。6/4+7.17%强势。
+    sync_with_index: 独立走势
+    confirm_with:
+    - 应流股份
+    - 杰瑞股份
+    - 图南股份
+    buy_setup:
+    - 涡轮叶片+高温合金共振，万泽放量
+    - 等分歧后缩量回踩(约31-32)
+    - 需应流股份或杰瑞同步承接
+    invalidation_setup:
+    - 跌破30.1(6/4最低)且30分钟不能收回
+    up_mention_status:
+      last_mentioned_date: '2026-06-04'
+      mention_context: 5/12视频+4/17研报：调整即是布局机会
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月4日+7.17%强势
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：30.1
+      - 压力：33.5(日内高)
+      pattern: 强势上涨
+      note: 6/4收33.05(+7.17%)。叶片+高温合金双逻辑。
+    sector_narrative:
+      relative_strength: 燃机链中等弹性
+      money_flow: 主力净流入
+      leader_follower: 板块跟随
+      catalyst: 703产业链出海+高温合金国产替代
+      risk: 海外主机厂扩产传闻可能短期冲击(4/17已有先例)

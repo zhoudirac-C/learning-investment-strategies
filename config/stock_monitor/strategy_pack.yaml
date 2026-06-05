@@ -7,6 +7,7 @@ source_claims:
 - knowledge/claims/claim-20260604-005.yaml
 - framework/stock-analysis-playbook.md
 - framework/market-cycle-framework.md
+- knowledge/claims/claim-20260604-003.yaml
 market_framework:
   current_stage: 调整第16天，主升末期→防御过渡。微盘股破位（UP：大小盘同步方法论）——不是超跌反弹是补跌。旧周期加速出清，新周期尚未确立。UP 6-4视频"放弃执念，都是星辰大海"= 别跟趋势做对，等右侧确认。
   core_question: 微盘股破位后是否引发系统性回调？LPU新方向能否成为新主线？光互联主升末期补跌风险如何管控？
@@ -294,6 +295,27 @@ quant_entry_strategy:
     trigger: 6/4-0.28%缩量微跌，震荡中等分歧买点。LPU高速连接器逻辑
     invalidation: 跌破72.5且30分钟不能收回
     note: '大盘股弹性偏低，产业逻辑配置。UP未直接提及，来自Qing-Agent+券商分析。inference_note: 基于英伟达LPU产业链逻辑推断'
+  - code: sz002353
+    name: 杰瑞股份
+    entry_zone: 143-150区间(等回踩涨停起点)
+    position_ratio: 1成
+    trigger: 6/4涨停+10%，不追高。UP纪律：回调是上车机会。等分歧回踩
+    invalidation: 跌破143且30分钟不能收回
+    note: 燃机EPC龙头，最早兑现业绩。涨停后高开易兑现，等回踩。UP:类比锂电池，可以格局。
+  - code: sh603308
+    name: 应流股份
+    entry_zone: 63-64区间(回踩5日线)
+    position_ratio: 0.5成
+    trigger: 涡轮叶片价值量最高环节(20%)。6/4+4.27%温和上涨，等分歧回踩
+    invalidation: 跌破63且30分钟不能收回
+    note: 涡轮叶片稀缺标的。弹性和优先级低于杰瑞。UP研报多次提及。
+  - code: sz000534
+    name: 万泽股份
+    entry_zone: 31-32区间(回踩支撑)
+    position_ratio: 0.5成
+    trigger: 6/4+7.17%强势，等分歧回踩。UP 4/17研报：调整即是布局机会
+    invalidation: 跌破30且30分钟不能收回
+    note: 涡轮叶片+高温合金双逻辑。弹性中等。UP明确回调即是买点。
 sector_groups:
 - id: cpu_self_development
   name: CPU自研链
@@ -453,6 +475,16 @@ sector_groups:
     name: 深南电路
   - code: 002475.SZ
     name: 立讯精密
+- id: ai_energy_gas_turbine
+  name: AI能源/燃气轮机
+  style: offensive
+  members:
+  - code: 002353.SZ
+    name: 杰瑞股份
+  - code: 603308.SH
+    name: 应流股份
+  - code: 000534.SZ
+    name: 万泽股份
 sector_rotation_rules:
 - id: offensive_vs_defensive
   name: 进攻vs防御风格切换
@@ -467,6 +499,7 @@ sector_rotation_rules:
   - ai_agent_application
   - compute_power
   - lpu_inference
+  - ai_energy_gas_turbine
   defensive_group_ids:
   - medical_observation
   - defensive_stabilizers
@@ -539,6 +572,7 @@ today_snapshot:
   - LPU推理芯片（博通概念）首日发酵，世运涨停+10%
   - MLCC风华+4.9%周期上行确认，但纪律不追
   - 光互联走末路，补跌风险 > 延续
+  - 新增AI能源/燃气轮机方向(UP深度方向)，杰瑞涨停/应流+4.3%/万泽+7.2%
   risk_reminders:
   - 微盘股继续新低→所有左侧抄底暂停
   - 安泰科技小市值受微盘股拖累，关注24.5支撑
