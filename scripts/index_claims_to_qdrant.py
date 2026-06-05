@@ -63,6 +63,15 @@ def main():
         text = f"{claim.get('subject', '')} | {claim.get('statement', '')}"
         emb = emb_model.encode(text).tolist()[0]
 
+        # Neo4j 可能返回 Date 对象，需要转字符串
+        sd = claim.get("source_date", "")
+        if hasattr(sd, "iso_format"):
+            sd = sd.iso_format()
+        elif hasattr(sd, "isoformat"):
+            sd = sd.isoformat()
+        else:
+            sd = str(sd) if sd else ""
+
         point_id = hashlib.sha256(cid.encode("utf-8")).hexdigest()[:32]
         batch.append({
             "id": point_id,
@@ -71,7 +80,7 @@ def main():
                 "claim_id": cid,
                 "statement": claim.get("statement", ""),
                 "subject": claim.get("subject", ""),
-                "source_date": claim.get("source_date", ""),
+                "source_date": sd,
                 "confidence": claim.get("confidence", ""),
                 "status": claim.get("status", ""),
             },

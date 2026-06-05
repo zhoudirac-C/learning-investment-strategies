@@ -229,6 +229,7 @@ def _migrate_single_claim(session, claim: dict):
             claim_type: $claim_type,
             time_frame: $time_frame,
             subject: $subject,
+            source_date: $source_date,
             file: $file
         })
         """,
@@ -242,6 +243,7 @@ def _migrate_single_claim(session, claim: dict):
             "claim_type": claim.get("type", "general"),
             "time_frame": claim.get("time_frame", ""),
             "subject": claim.get("subject", ""),
+            "source_date": claim.get("source_date", ""),
             "file": claim.get("_file", ""),
         },
     )
