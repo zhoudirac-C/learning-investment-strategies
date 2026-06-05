@@ -1721,3 +1721,3963 @@ patterns:
   - 指数放量共振且共振时间延长
   source_raw:
   - sources/raw/财经/午盘：26-05-18：长鑫产业链新生启动，指数共振乏力待观察.md
+- pattern_id: extreme_sentiment_rotation_qualify
+  name: 极端情绪均值回归推演
+  description: 从情绪极端回暖出发，推演短期均值回归概率，并预设强者恒强与风格切换两种情景下的应对策略
+  applicable_themes:
+  - 短线情绪周期
+  - 题材轮动
+  - 涨停板博弈
+  reasoning_chain:
+  - step: 1
+    name: 情绪极端量化
+    question: 当前市场情绪是否处于极端水平？
+    UP_logic: 用集合竞价涨停数（16只，1/13以来新高）和国投白银LOF开板作为情绪极端回暖的客观证据
+    evidence_sources:
+    - 集合竞价涨停家数
+    - LOF折溢价状态
+  - step: 2
+    name: 极端到极端推演
+    question: 从上周五集体炸板到昨日全面爆发，这种跳跃是否可持续？
+    UP_logic: 从极端冰点直接跳到极端高潮，中间缺少温和过渡，大概率会发生均值回归
+    evidence_sources:
+    - 上周五炸板率
+    - 昨日涨停家数变化
+  - step: 3
+    name: 双情景预设
+    question: 如何应对两种可能走势？
+    UP_logic: 参考脑机接口阶段经验：若强者恒强则优先20cm短期利润；若均值回归则关注新强势题材切换机会
+    evidence_sources:
+    - 脑机接口历史走势
+    - 商业航天/AI应用切换案例
+  risk_factors:
+  - 情绪持续亢奋不回归，导致预设的均值回归策略踏空
+  - 新题材切换失败，资金回流旧主线
+  confidence_indicators:
+  - 集合竞价涨停数持续新高
+  - AI应用端一字板数量维持高位
+  source_raw:
+  - sources/raw/财经/早盘：26-02-10：上证5连阳，Seedance2.0视频模型，铟价涨88%.md
+- pattern_id: bom_value_increment_chain
+  name: BOM价值增量传导链
+  description: 从下一代AI服务器机柜BOM价值增幅出发，筛选零部件环节中价值量提升最大的方向，再结合盘面验证锁定核心标的。
+  applicable_themes:
+  - AI硬件产业链
+  - 服务器升级周期
+  - 电子元器件涨价
+  - 科技硬件BOM分析
+  reasoning_chain:
+  - step: 1
+    name: BOM价值增幅排序
+    question: 下一代产品相比上一代，哪些零部件环节价值量增幅最大？
+    UP_logic: 引用摩根士丹利拆解数据，列出Rubin/VR200机柜各零部件价值增幅，排序找出PCB(+233%)、MLCC(+182%)等增幅最大的环节。
+    evidence_sources:
+    - 摩根士丹利拆解报告
+    - 机柜售价对比数据
+  - step: 2
+    name: 价值提升归因
+    question: 该环节价值量提升的具体技术原因是什么？
+    UP_logic: 对增幅最大的环节进行技术归因：PCB因层数升级和新增模块，MLCC因单柜用量提升30%以上，并列出具体升级细节。
+    evidence_sources:
+    - PCB层数变化数据
+    - MLCC用量对比数据
+  - step: 3
+    name: 映射核心标的
+    question: 该环节中哪些A股公司是核心受益标的？
+    UP_logic: 根据环节属性，列出对应A股龙头标的，如PCB方向鹏鼎控股、深南电路，MLCC方向风华高科、三环集团。
+    evidence_sources:
+    - 行业公司名单
+    - 市场认知
+  - step: 4
+    name: 盘面验证信号
+    question: 如何通过盘面表现验证该方向是否被资金认可？
+    UP_logic: 设定多个观察指标：龙头股能否封板、千亿市值公司能否保持强势、20cm标的表现、错杀股能否主动修复，综合判断主线强度。
+    evidence_sources:
+    - 盘面实时数据
+    - 个股走势
+  risk_factors:
+  - 核心标的无法持续封板或冲高回落
+  - 大盘系统性风险导致资金撤离
+  - 产品量产或出货节奏不及预期
+  confidence_indicators:
+  - 龙头股连续封板且板块内多只个股跟涨
+  - 大市值趋势股保持强势
+  - 20cm标的提供弹性
+  - 错杀股主动修复转为进攻
+  source_raw:
+  - sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md
+- pattern_id: sector_dual_core_reversal
+  name: 双核心分歧反包验证法
+  description: 通过观察双核心板块在分歧日后的反包结构、情绪高度和防御方向联动，判断调整是否结束并指导仓位操作。
+  applicable_themes:
+  - 科技主线分歧修复
+  - 板块轮动节奏判断
+  - 情绪与指数背离分析
+  reasoning_chain:
+  - step: 1
+    name: 定性分歧性质
+    question: 板块回落是正常休整还是逻辑证伪？
+    UP_logic: 科技回落是对昨日大涨的正常消化，是节奏内休整，不是逻辑证伪，后续按主线回流处理。
+    evidence_sources:
+    - 板块内部亏钱效应
+    - 中军个股主动性
+  - step: 2
+    name: 观察反包结构
+    question: 分歧日后的反包结构是否兑现？
+    UP_logic: PCB和华为韬定律今日分歧，正常节奏应存在反包结构，若率先反包则调整近尾声。
+    evidence_sources:
+    - 板块指数走势
+    - 龙头个股次日表现
+  - step: 3
+    name: 验证情绪高度
+    question: 连板高度是否突破压制？
+    UP_logic: 连板高度被压制至3板是调整未结束信号，出现4板以上龙头且板块联动好，才说明调整结束。
+    evidence_sources:
+    - 连板高度统计
+    - 板块联动强度
+  - step: 4
+    name: 检查防御联动
+    question: 防御方向与主线修复是否同步？
+    UP_logic: 尾盘周期与大金融同步加强，若防御继续走强且与主线共振，则行情偏均衡；若防御加强而主线回落，需警惕资金撤退。
+    evidence_sources:
+    - 周期股表现
+    - 大金融板块走势
+  risk_factors:
+  - 双核心均未反包，调整时间延长
+  - 情绪端持续被压制，指数回升但行情未切换
+  - 防御方向加强而主线再次回落，资金从主线撤退
+  confidence_indicators:
+  - 率先反包成功且板块联动强
+  - 出现4板以上高度龙头
+  - 防御方向与主线共振走强
+  source_raw:
+  - sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
+- pattern_id: rubin_bom_diffusion_chain
+  name: Rubin BOM扩散推理链
+  description: 从英伟达Rubin平台架构升级出发，逐层推导PCB、材料、设备、耗材等BOM环节的价值量变化与投资机会
+  applicable_themes:
+  - AI硬件升级
+  - 半导体设备材料
+  - 电子元器件涨价
+  reasoning_chain:
+  - step: 1
+    name: 架构升级识别
+    question: 新AI平台相比上一代有哪些关键架构变化？
+    UP_logic: 从Rubin平台正交背板、高层数PCB替代铜缆等架构变化出发，识别硬件密度提升的核心驱动
+    evidence_sources:
+    - 英伟达GTC大会信息
+    - Rubin/Rubin Ultra平台技术文档
+  - step: 2
+    name: BOM价值量推导
+    question: 架构升级如何改变各环节的价值量？
+    UP_logic: 架构升级→PCB层数/厚度/材料等级提升→单台服务器PCB价值量提升超两倍，并带动MLCC、超级电容等被动元件需求
+    evidence_sources:
+    - PCB产业数据
+    - MLCC行业报告
+    - 超级电容市场调研
+  - step: 3
+    name: 工艺瓶颈定位
+    question: 价值量提升后，哪些工艺环节成为瓶颈？
+    UP_logic: PCB层数/硬度提升→钻孔难度增加→分段钻工艺普及→钻针消耗量上升；线路精度提升→mSAP工艺→LD曝光/图形电镀设备需求增加
+    evidence_sources:
+    - PCB制造工艺资料
+    - 设备厂商调研
+    - 钻针行业数据
+  - step: 4
+    name: 材料升级筛选
+    question: 哪些材料因性能要求提升而受益？
+    UP_logic: 高速高频需求→M9材料替代M8→碳氢树脂用量大幅提升（PPO:碳氢从2:1反转为1:2）→绑定CCL厂商的材料供应商受益
+    evidence_sources:
+    - 覆铜板材料配方数据
+    - 东材科技公告
+    - CCL厂商供应链信息
+  - step: 5
+    name: 涨价扩散验证
+    question: AI需求是否引发全品类涨价？
+    UP_logic: AI需求挤占高端产能→供给刚性约束→PCB高端板紧缺、光纤价格涨超400%、存储价格上行→涨价向材料/设备/耗材/互联/散热扩散
+    evidence_sources:
+    - 光纤现货价格数据
+    - 存储行业报价
+    - PCB供需报告
+  risk_factors:
+  - Rubin平台出货量不及预期
+  - 高端PCB产能扩张超预期导致供需逆转
+  - 材料验证周期过长导致订单延迟
+  confidence_indicators:
+  - 英伟达官方确认Rubin平台时间表
+  - PCB/MLCC等环节出现连续涨价
+  - 主流CCL厂商开始批量采购M9材料
+  source_raw:
+  - sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
+- pattern_id: event_driven_rhythm_change
+  name: 事件驱动节奏改变模型
+  description: 识别因突发利好改变原有调整节奏的板块，并通过对比同类催化剂的后续表现，推演其短期走势和操作应对。
+  applicable_themes:
+  - 半导体
+  - PCB
+  - 消费电子
+  - AI硬件
+  - 华为产业链
+  reasoning_chain:
+  - step: 1
+    name: 识别原有节奏
+    question: 该板块在利好出现前，其内在的、预期的运行节奏是什么？
+    UP_logic: 识别板块因“一致性太高”和“批量减持”等因素，原本存在“调整预期”。
+    evidence_sources:
+    - 市场情绪指标
+    - 资金流向
+    - 公司公告（减持）
+  - step: 2
+    name: 识别新催化变量
+    question: 是什么突发利好改变了原有的运行节奏？
+    UP_logic: 识别出“华为新技术”或“Rubin”等突发产业技术催化，作为改变原有调整节奏的新变量。
+    evidence_sources:
+    - 产业新闻
+    - 公司公告
+    - 技术发布会
+  - step: 3
+    name: 对比同类催化节奏
+    question: 历史上或近期，由同类催化（新技术/新平台）驱动的板块，在利好发酵后次日表现如何？
+    UP_logic: 将今日的“半导体+华为新技术”与上周五的“PCB+Rubin”进行对比，指出PCB已经出现“高开低走”，以此推演半导体次日可能面临类似风险。
+    evidence_sources:
+    - 板块K线图
+    - 分时图
+    - 历史走势复盘
+  - step: 4
+    name: 评估催化兑现周期
+    question: 这个新催化剂的产业兑现周期是长还是短？
+    UP_logic: 判断“华为新技术”需要“几年之后才能实现”，比“Rubin”的兑现周期更长，因此短期资金更多是“交易预期”，持续性存疑。
+    evidence_sources:
+    - 产业技术路线图
+    - 产品发布计划
+  - step: 5
+    name: 设定关键验证条件
+    question: 在什么条件下，这个由事件驱动的上涨才能延续？
+    UP_logic: 提出“大盘能稳稳站上4170”作为半导体短线强度延续的关键外部条件，并对此表示怀疑。
+    evidence_sources:
+    - 大盘指数点位
+    - 成交量
+  risk_factors:
+  - 利好发酵后次日承接不足，出现高开低走或冲高回落。
+  - 大盘指数未能有效站上关键点位，无法提供支撑。
+  - 催化剂兑现周期过长，导致短期情绪快速消退。
+  confidence_indicators:
+  - 同类催化板块在次日表现出持续承接，而非高开低走。
+  - 大盘指数有效突破并站稳关键点位。
+  - 催化事件有后续进展或更明确的产业落地信号。
+  source_raw:
+  - sources/raw/财经/午盘补发：26-05-25：保持思考.md
+- pattern_id: post_holiday_repair_qualify
+  name: 节后修复主线确认法
+  description: 从节前极致冰点数据出发，结合假期外围表现与催化事件，筛选节后修复主线板块的推理流程
+  applicable_themes:
+  - 节后行情预判
+  - 主线板块筛选
+  - 修复行情策略
+  reasoning_chain:
+  - step: 1
+    name: 冰点确认
+    question: 节前市场情绪是否已到极致冰点？
+    UP_logic: 节前剔除ST仅剩1只2连板，为924行情以来首次，物极必反，做空动能充分释放，节后天然存在反弹修复需求
+    evidence_sources:
+    - 连板高度数据
+    - 历史冰点对比
+  - step: 2
+    name: 外围验证
+    question: 假期外围市场表现是否支持修复？
+    UP_logic: 假期美股纳指+1.28%、恒指+1.94%、A50偏强，公募ETF+主动权益基金超900亿待建仓，高开几乎板上钉钉
+    evidence_sources:
+    - 美股指数
+    - 港股指数
+    - A50期指
+    - 公募基金仓位数据
+  - step: 3
+    name: 催化排序
+    question: 假期哪些方向催化最充分、逻辑最硬？
+    UP_logic: AI全链条催化（Kimi融资、Anthropic新品、OpenAI估值、英伟达Meta合作）发酵最充分；钨供给收缩+AI PCB钻针新需求双逻辑共振弹性最大
+    evidence_sources:
+    - 融资事件
+    - 产品发布
+    - 行业大单
+    - 供给数据
+  - step: 4
+    name: 主线确认
+    question: 节后首日盘面如何确认主线？
+    UP_logic: 看竞价承接+量能（能否快速放大至2.5万亿+），AI算力盯CPO/光模块整体强度，钨看中钨高新竞价，机器人看天奇股份/嘉美包装盘面反馈
+    evidence_sources:
+    - 竞价数据
+    - 成交量
+    - 板块龙头开盘表现
+  risk_factors:
+  - 假期后段港股AI标的大幅调整→A股高开后兑现压力
+  - 特朗普关税升级或地缘冲突超预期→风险偏好下降
+  - 节后首日量能不足2.5万亿→修复力度不及预期
+  confidence_indicators:
+  - 节前连板高度降至极致冰点
+  - 假期外围普涨且催化密集
+  - 公募增量资金超900亿待建仓
+  - 竞价承接有力+逻辑硬核+行业景气明确
+  source_raw:
+  - sources/raw/财经/复盘：26-02-23：节后首日，极致冰点后修复，AI全链条催化，CPO钨双主线.md
+- pattern_id: sector_rotation_low_risk_arbitrage
+  name: 板块轮动低位避险进攻模式
+  description: 当高位主线分歧加大时，资金转向超跌低位板块（如医药）进行避险和进攻，通过分析龙头强弱、板块内部分化来筛选补涨机会。
+  applicable_themes:
+  - 板块轮动
+  - 超跌反弹
+  - 低位补涨
+  - 资金避险
+  reasoning_chain:
+  - step: 1
+    name: 识别主线分歧
+    question: 当前市场高位主线是否出现分歧或退潮？
+    UP_logic: 观察连板股晋级率下滑、高位股分歧加大，判断短线情绪与指数背离，高位主线风险上升。
+    evidence_sources:
+    - 连板股晋级率
+    - 高位股走势
+    - 短线情绪指标
+  - step: 2
+    name: 锁定低位板块
+    question: 哪些板块具备超跌反弹和业绩预期，且资金可能流入？
+    UP_logic: 资金在高位主线分歧时选择低位医药板块避险和进攻，核心逻辑是超跌反弹叠加业绩预期。
+    evidence_sources:
+    - 板块涨幅
+    - 涨停家数
+    - 资金流向
+  - step: 3
+    name: 验证龙头强度
+    question: 板块内龙头股是否强势？是否有隐患信号？
+    UP_logic: 龙头美诺华走势弱于板块、万邦德不及预期，说明板块内部分化，明日大概率前排晋级、后排回落。
+    evidence_sources:
+    - 龙头股走势
+    - 板块内个股表现对比
+  - step: 4
+    name: 制定操作策略
+    question: 如何利用板块分化进行低风险操作？
+    UP_logic: 建议关注低位补涨机会，坚决避免追高高位分歧股，因为板块分化后后排回落风险大。
+    evidence_sources:
+    - 历史板块轮动规律
+    - 资金行为模式
+  risk_factors:
+  - 龙头股转弱导致板块整体退潮
+  - 指数回踩超预期拖累板块
+  - 地缘冲突等外部冲击改变资金偏好
+  confidence_indicators:
+  - 板块内多只个股涨停且封板坚决
+  - 机构资金明显加仓该板块
+  - 板块指数放量突破关键阻力位
+  source_raw:
+  - sources/raw/财经/复盘：26-04-01：三指收涨科创50涨超3%，智立方奥瑞德富临广联.md
+- pattern_id: multi_logic_convergence_qualify
+  name: 多逻辑共振板块筛选法
+  description: 通过识别同一板块内多个独立且同时发生的驱动逻辑，判断该板块是否具备成为主线的潜力。
+  applicable_themes:
+  - 化工板块分析
+  - 周期板块分析
+  - 事件驱动型板块
+  reasoning_chain:
+  - step: 1
+    name: 识别独立驱动逻辑
+    question: 该板块内有哪些独立的上涨驱动因素？
+    UP_logic: 博主将化工板块涨停潮拆解为有机硅、硫酸产业链、AI电子材料、PVA赛道四个独立逻辑，每个逻辑有各自的事件、供需或政策驱动。
+    evidence_sources:
+    - 行业新闻
+    - 公司公告
+    - 地缘政治事件
+  - step: 2
+    name: 验证逻辑的独立性
+    question: 这些驱动因素是否互不依赖、各自成立？
+    UP_logic: 博主分别说明有机硅（减排+关停）、硫酸（地缘+供应）、AI材料（国产替代）、PVA（成本优势）的独立来源，证明逻辑之间无重叠。
+    evidence_sources:
+    - 行业数据
+    - 企业产能信息
+    - 海外事件
+  - step: 3
+    name: 评估共振强度
+    question: 多个逻辑同时爆发是否形成合力？
+    UP_logic: 博主指出多个逻辑同时驱动同一板块，导致涨停潮，且每个逻辑都有龙头股批量涨停，形成板块内多点开花。
+    evidence_sources:
+    - 涨停个股名单
+    - 板块涨幅数据
+  - step: 4
+    name: 判断主线持续性
+    question: 多逻辑共振是否意味着该板块具备持续性主线潜力？
+    UP_logic: 博主将化工板块称为“日内最强主线”，并后续在策略中建议“聚焦龙头、跟踪价格与订单数据”，隐含多逻辑共振是主线持续性的重要信号。
+    evidence_sources:
+    - 板块成交额
+    - 资金流向
+  risk_factors:
+  - 逻辑中某个驱动因素被证伪或消退
+  - 多个逻辑同时弱化导致共振消失
+  - 市场缩量导致资金无法支撑多逻辑板块
+  confidence_indicators:
+  - 板块内涨停个股数量显著高于其他板块
+  - 每个逻辑都有明确的龙头股且走势强劲
+  - 板块成交额持续放大
+  source_raw:
+  - sources/raw/财经/复盘：26-04-07：宽幅震荡缩量收红，化工涨停潮101只涨停，AI内部分化.md
+- pattern_id: emotion_turnaround_confirm
+  name: 情绪拐点确认与主线筛选
+  description: 通过逆势异动个股确认短线情绪拐点，再结合板块容量与主线结构判断风格切换真伪，最后制定低吸策略。
+  applicable_themes:
+  - A股短线情绪周期
+  - 板块轮动与主线判断
+  - 混沌期交易策略
+  reasoning_chain:
+  - step: 1
+    name: 识别情绪拐点信号
+    question: 当前市场情绪是否已出现拐点？
+    UP_logic: 午后指数走弱但短线情绪逆势回暖（华电双雄异动、金螳螂回封），打破指数与情绪同步负反馈，提前锁定情绪修复预期。
+    evidence_sources:
+    - 华电能源4连板
+    - 华银电力涨停
+    - 金螳螂回封
+  - step: 2
+    name: 判断风格切换真伪
+    question: 情绪载体是否具备板块性主线特征？
+    UP_logic: 当前情绪载体仅限抱团个股，氮气/工业气体题材容量过小，无法承接主流资金，属热钱过渡性行为，不支持风格切换。
+    evidence_sources:
+    - 工业气体板块容量小
+    - 无明确板块性主线
+  - step: 3
+    name: 确认拐点修复条件
+    question: 拐点性修复何时确认？
+    UP_logic: 需满足两个条件：大盘指数共振 + 新强势板块形成完整阵型，二者缺一不可。
+    evidence_sources:
+    - 大盘指数走势
+    - 新板块阵型完整性
+  - step: 4
+    name: 制定低吸策略
+    question: 在混沌期如何选股与操作？
+    UP_logic: 执行俯卧撑式买阴卖阳，选AI硬科技主线抗跌标的或日内冲高回落品种，要求短期无持续大涨、无高位筹码松动风险。
+    evidence_sources:
+    - 主线人气股日内中阴线调整
+    - 日内新启动因大盘拖累冲高回落
+  risk_factors:
+  - 情绪拐点信号被次日走势证伪（如华电双雄次日大跌）
+  - 大盘继续缩量下跌，无共振信号出现
+  confidence_indicators:
+  - 逆势异动个股次日继续走强并带动板块扩散
+  - 新强势板块出现多只涨停且形成梯队
+  source_raw:
+  - sources/raw/财经/复盘：26-04-28：创业板4连阴，情绪拐点已现.md
+- pattern_id: sector_rotation_upstream_diffusion
+  name: 主线扩散与上游材料筛选
+  description: 从主线板块内部资金溢出和风格切换出发，识别未充分定价的上游材料/利基细分，并验证供需缺口与国产替代逻辑。
+  applicable_themes:
+  - AI算力产业链
+  - 半导体材料
+  - 光通信上游
+  - 先进封装材料
+  reasoning_chain:
+  - step: 1
+    name: 识别主线板块内部分化
+    question: 当前主线板块内部哪些子方向已经涨幅过高、业绩充分兑现？
+    UP_logic: 观察4月涨幅过高的光模块龙头（中际旭创、新易盛）滞涨，资金不再聚焦已充分兑现业绩的模块龙头。
+    evidence_sources:
+    - 板块涨幅数据
+    - 龙头个股走势对比
+  - step: 2
+    name: 定位资金扩散方向
+    question: 资金从主线龙头溢出后流向哪些未充分定价的细分赛道？
+    UP_logic: 资金转向AI上游核心材料、未充分定价的细分赛道，如先进封装材料（T布、锡焊膏）、光通信上游材料（光纤光缆、硅光芯片）。
+    evidence_sources:
+    - 异动标的列表
+    - 资金流向数据
+  - step: 3
+    name: 验证供需缺口与涨价逻辑
+    question: 这些细分赛道是否存在明确的供需缺口或涨价周期？
+    UP_logic: 先进封装材料：AI驱动需求非线性增长，2027年供给缺口达27%，日东纺垄断85%市场份额，国产替代窗口打开。锡焊膏：高速光模块封装迭代带动焊点数量提升+高端焊膏涨价。
+    evidence_sources:
+    - 行业供需报告
+    - 涨价公告
+    - 市场份额数据
+  - step: 4
+    name: 确认国产替代窗口
+    question: 国内厂商是否具备替代条件或已进入替代进程？
+    UP_logic: 宏和科技等核心标的获资金重点关注（T布替代）；唯特偶、华光新材异动（锡焊膏国产替代）。
+    evidence_sources:
+    - 个股异动数据
+    - 国产替代进展公告
+  risk_factors:
+  - 主线板块整体退潮导致扩散方向失去支撑
+  - 供需缺口预期落空或涨价周期提前结束
+  - 国产替代进度不及预期
+  confidence_indicators:
+  - 主线核心标的（如中国长城）封单强度高、未开板
+  - 扩散方向标的出现批量涨停或连续放量
+  - 行业催化事件（如英伟达与康宁合作）持续落地
+  source_raw:
+  - sources/raw/财经/复盘：26-05-06：CPO商业化元年+风格切换确认.md
+- pattern_id: upstream_bottleneck_equipment
+  name: 上游瓶颈设备筛选法
+  description: 从下游需求爆发出发，沿着产业链向上游寻找产能扩张周期最长、壁垒最高的瓶颈环节，锁定不可替代的设备供应商。
+  applicable_themes:
+  - 光通信
+  - PCB产业链
+  - 半导体设备
+  - 新能源材料
+  reasoning_chain:
+  - step: 1
+    name: 确认下游爆发
+    question: 哪个下游环节需求正在爆发？
+    UP_logic: 从800G/1.6T光模块或AI服务器PCB需求激增出发，确认下游高景气度。
+    evidence_sources:
+    - 行业报告
+    - 龙头公司订单公告
+  - step: 2
+    name: 识别上游瓶颈
+    question: 上游哪个环节产能扩张最受限？
+    UP_logic: 寻找产能扩张周期长（如织布机交付18-24个月）、全球产能集中的环节，如电子布、磷化铟。
+    evidence_sources:
+    - 设备交付周期数据
+    - 全球产能分布数据
+  - step: 3
+    name: 锁定核心设备商
+    question: 哪个设备供应商是扩产的'卡脖子'环节？
+    UP_logic: 寻找该瓶颈环节中市占率极高（如国内90%+）、技术壁垒高（如独家适配超细纱加工）的设备商。
+    evidence_sources:
+    - 公司市占率数据
+    - 技术认证信息
+  - step: 4
+    name: 验证订单与财务
+    question: 订单和财务数据是否支持扩产逻辑？
+    UP_logic: 检查是否已签订史上最大额订单、营收增长、亏损收窄、经营现金流转正等信号。
+    evidence_sources:
+    - 公司公告
+    - 季报/年报
+  risk_factors:
+  - 下游需求增速放缓或见顶
+  - 新进入者打破设备垄断
+  - 公司订单交付不及预期
+  - 技术路线变更导致设备需求消失
+  confidence_indicators:
+  - 下游龙头宣布大规模扩产计划
+  - 设备商获得重复订单或长协
+  - 设备商毛利率提升或预收款增加
+  - 行业政策明确支持该环节国产替代
+  source_raw:
+  - sources/raw/财经/复盘：26-05-11：周末复盘补充，一超多强格局，电子布卓郎智能，Token工厂，算力网国常会.md
+- pattern_id: ai_upstream_material_screening
+  name: AI上游材料筛选法
+  description: 从AI算力主线出发，通过技术迭代、供需缺口、价值量提升三个维度筛选上游核心材料标的
+  applicable_themes:
+  - AI算力产业链
+  - 半导体上游材料
+  - 光通信
+  reasoning_chain:
+  - step: 1
+    name: 识别主线方向
+    question: 当前市场主线是什么？
+    UP_logic: 确认算力硬件为市场主线，并判断其处于分化休整阶段，但上游物料逆势领涨，说明资金向上游迁移
+    evidence_sources:
+    - 盘面板块涨幅排名
+    - 资金流向数据
+  - step: 2
+    name: 筛选上游材料
+    question: 哪些上游材料具备逆势领涨特征？
+    UP_logic: 从算力硬件中细分出陶瓷基板、磷化铟、电子布、光纤等具体材料，并关注事件催化（如中瓷电子调研纪要、蒙娜丽莎连板）
+    evidence_sources:
+    - 个股涨停/连板数据
+    - 调研纪要
+    - 行业新闻
+  - step: 3
+    name: 验证供需与价值
+    question: 这些材料是否有供需缺口或价值量提升逻辑？
+    UP_logic: 以联瑞新材为例，指出AI高速基板迭代导致球形二氧化硅价值量与毛利率显著提升；特发信息指出全球光纤供需缺口延续至2027年下半年
+    evidence_sources:
+    - 机构研报
+    - 行业供需数据
+    - 公司公告
+  - step: 4
+    name: 确认技术路线
+    question: 材料是否绑定主流技术路线？
+    UP_logic: 光莆股份强调与台积电同源的EPIC技术路线，海光信息强调国产唯一x86路线，确保技术路径的确定性和稀缺性
+    evidence_sources:
+    - 公司技术公告
+    - 行业技术路线图
+  risk_factors:
+  - 主线题材轮动过快导致上游材料补跌
+  - 技术路线被替代或迭代速度不及预期
+  - 供需缺口提前修复导致涨价逻辑失效
+  confidence_indicators:
+  - 板块内出现多只连板/涨停个股形成板块效应
+  - 有明确的事件催化（如光博会）临近
+  - 机构研报同步推荐相关标的
+  source_raw:
+  - sources/raw/财经/复盘：26-05-12：指数缩量震荡，算力上游逆势领涨，电力电网AI补涨，光博会催化临近.md
+- pattern_id: ai_hardware_chain_qualify
+  name: AI硬件产业链景气传导筛选
+  description: 从AI算力需求爆发出发，沿产业链上游物料、设备、封装等环节逐一筛选受益标的，并验证业绩与产能数据。
+  applicable_themes:
+  - AI硬件
+  - 半导体产业链
+  - 算力基建
+  - 电子材料
+  reasoning_chain:
+  - step: 1
+    name: 需求源头确认
+    question: AI算力需求是否出现爆发性增长信号？
+    UP_logic: 引用Token消耗周度数据（2.1T→24.5T，增幅280%）及大厂资本开支加速转化为业绩，确认需求爆发。
+    evidence_sources:
+    - Token消耗周度数据
+    - 阿里云/腾讯云提价公告
+    - 协创数据/利通电子Q1业绩
+  - step: 2
+    name: 供需缺口定位
+    question: 产业链哪个环节出现供给瓶颈？
+    UP_logic: 指出原厂产能被HBM抢占导致普通内存/闪存缺货至2027年，合约价环比大涨（DRAM 58~63%，NAND 70~75%）。
+    evidence_sources:
+    - DRAM/NAND合约价环比数据
+    - 原厂产能分配信息
+  - step: 3
+    name: 增量环节识别
+    question: 新技术架构带来哪些纯增量环节？
+    UP_logic: Rubin架构引入Midplane/CPX载板/正交背板等纯增量环节，M9覆铜板加速钻针磨损，高长径比钻针需求跳跃式放量。
+    evidence_sources:
+    - Rubin架构技术资料
+    - PCB企业资本开支增速182%
+    - 头部5家PCB设备净利+124%
+  - step: 4
+    name: 受益标的筛选
+    question: 哪些国内企业具备稀缺供应能力？
+    UP_logic: 筛选国内少数具备高端钻针生产能力的企业（鼎泰高科、金洲精工），以及唯一可提供M6/M7/M8全系列PPO树脂的圣泉集团。
+    evidence_sources:
+    - 企业产能数据
+    - 产品系列覆盖情况
+  - step: 5
+    name: 业绩验证
+    question: 受益标的业绩是否已兑现？
+    UP_logic: 引用圣泉集团PPO产线满产、金洲精工月产能突破8000万支、中金岭南铟锭产量同比+757%等数据确认业绩落地。
+    evidence_sources:
+    - 圣泉集团满产公告
+    - 金洲精工产能数据
+    - 中金岭南产量数据
+  risk_factors:
+  - AI需求增长不及预期导致供需缺口收窄
+  - 美国芯片出口政策进一步收紧影响产业链
+  - 行业竞争加剧导致产品价格下降
+  confidence_indicators:
+  - 大厂资本开支持续上调
+  - 合约价连续环比大涨
+  - 受益企业产能满产且扩产
+  source_raw:
+  - sources/raw/财经/复盘：26-05-13：低开高走创业板历史新高，算力租赁主动进攻，存储爆发，CPO鸿海提前交付.md
+- pattern_id: adjustment_mainline_qualify
+  name: 调整中主线确认与筛选
+  description: 在市场急跌调整时，通过比较主线与支线板块的跌幅，判断调整性质，并筛选出未来可能成为新主线的方向。
+  applicable_themes:
+  - 市场情绪分析
+  - 板块轮动策略
+  - 主线行情判断
+  reasoning_chain:
+  - step: 1
+    name: 定性调整性质
+    question: 当前下跌是系统性风险还是结构性调整？
+    UP_logic: 观察下跌是否伴随量能放大，判断为‘急跌式调整’，核心矛盾是‘获利盘筹码挤压’，而非基本面恶化。
+    evidence_sources:
+    - 市场量价数据
+    - 市场情绪指标
+  - step: 2
+    name: 比较板块跌幅
+    question: 主线板块和支线板块，哪个跌得更多？
+    UP_logic: 观察‘主线调整、支线跌更多’的现象。如果支线跌幅大于主线，说明市场资金并未有效分流，主线地位依然稳固。
+    evidence_sources:
+    - 板块指数涨跌幅
+    - 个股涨跌幅排名
+  - step: 3
+    name: 预判修复路径
+    question: 未来修复时，主线与支线的修复力度如何？
+    UP_logic: 若后续修复时，主线率先修复且力度强，而支线修复力度持续偏弱，则说明‘筹码出清欲望达到极致’，这通常会‘酝酿新一轮主线行情’。
+    evidence_sources:
+    - 次日/短期板块修复强度
+    - 资金流向数据
+  - step: 4
+    name: 筛选潜在主线
+    question: 哪些板块具备成为新主线的潜力？
+    UP_logic: 在调整中表现出‘韧性’（跌幅小或抗跌）的板块，以及有‘新催化’（如涨价、政策、技术突破）的板块，是重点观察对象。例如CPO、先进封装、AI上游材料。
+    evidence_sources:
+    - 板块内个股表现
+    - 行业研究报告
+    - 产业新闻
+  risk_factors:
+  - 系统性风险爆发，导致所有板块无差别下跌，该模式失效。
+  - 主线板块出现基本面恶化，导致其调整是趋势性而非情绪性。
+  - 市场风格发生根本性切换，资金永久性离开科技板块。
+  confidence_indicators:
+  - 调整后，主线板块出现放量阳线反包，修复力度强。
+  - 被筛选出的潜在主线方向，有持续的政策或产业催化事件。
+  - 市场成交量维持稳定，没有出现恐慌性缩量或放量下跌。
+  source_raw:
+  - sources/raw/财经/复盘：26-05-14：急跌调整与新周期酝酿，AI算力CPO先进封装.md
+- pattern_id: node_trade_cycle
+  name: 节点交易模式
+  description: 围绕指数和情绪节点，在关键信号出现时跟随或预判最强方向，而非追逐随机启动题材
+  applicable_themes:
+  - 震荡轮动市场
+  - 缩量环境下的题材交易
+  - 情绪混沌期方向选择
+  reasoning_chain:
+  - step: 1
+    name: 识别节点信号
+    question: 当前市场是否出现可交易的指数或情绪节点？
+    UP_logic: 观察指数是否出现‘二次恐慌下跌’或‘调整跌不动后的反弹’两种潜在节点特征，并等待市场验证
+    evidence_sources:
+    - 平均股价走势
+    - 上证指数K线形态
+    - 成交量变化
+  - step: 2
+    name: 筛选共振方向
+    question: 在节点出现时，哪些板块能率先走强并与指数形成共振？
+    UP_logic: 在节点信号出现时，观察哪些板块能率先加强再启动，成为与指数共振的新强方向
+    evidence_sources:
+    - 板块涨幅排名
+    - 龙头股走势
+    - 资金流向
+  - step: 3
+    name: 验证持续性
+    question: 该方向是否具备持续性和高度，而非一日游？
+    UP_logic: 判断方向是否在调整时不太弱、有核心龙头带动、且能带动指数共振，而非单纯事件驱动
+    evidence_sources:
+    - 板块内核心股连续走强情况
+    - 板块与指数共振程度
+    - 消息面催化强度
+  risk_factors:
+  - 节点信号未出现或误判（如下跌中继被误认为止跌拐点）
+  - 共振方向选择错误（如选了随机启动的一日游题材）
+  - 缩量环境下追高导致冲高回落
+  confidence_indicators:
+  - 指数出现明确的二次恐慌或跌不动反弹信号
+  - 目标板块在节点出现时率先放量走强并带动指数
+  - 核心龙头股（如北自科技）持续走强且无亏钱效应
+  source_raw:
+  - sources/raw/财经/复盘：26-05-18：市场复盘.md
+- pattern_id: panic_bottom_qualify
+  name: 恐慌杀跌左侧拐点验证
+  description: 通过恐慌杀跌、高位补跌、情绪冰点等信号判断左侧止跌拐点，并设定次日验证条件
+  applicable_themes:
+  - 市场情绪拐点判断
+  - 指数调整末端识别
+  - 短线交易择时
+  reasoning_chain:
+  - step: 1
+    name: 恐慌杀跌确认
+    question: 市场是否出现恐慌性杀跌？
+    UP_logic: 早盘受外盘拖累，高位板块集体补跌，指数跳水，属于退潮周期最后一轮恐慌释放
+    evidence_sources:
+    - 指数分时走势
+    - 高位板块跌幅
+    - 外盘消息
+  - step: 2
+    name: 承接修复验证
+    question: 恐慌后是否有资金主动承接并修复？
+    UP_logic: 午后做多情绪扩散，指数全部收阳，科创50大涨超3%，超3600只个股上涨，超百股涨停
+    evidence_sources:
+    - 指数收盘涨跌幅
+    - 上涨家数
+    - 涨停家数
+    - 大长腿个股数量
+  - step: 3
+    name: 高位补跌信号
+    question: 本轮最强板块是否完成补跌？
+    UP_logic: CPO作为涨幅最大、机构持仓最集中的板块早盘快速补跌，历史经验表明这是退潮周期最后一个恐慌杀跌标志
+    evidence_sources:
+    - CPO板块分时走势
+    - 历史补跌案例
+  - step: 4
+    name: 次日接力验证
+    question: 今日修复是否具备持续性？
+    UP_logic: 观察今天大长腿个股明天能否继续给溢价，若高开高走或低开翻红则接力恢复，若低开低走则只是超跌反抽
+    evidence_sources:
+    - 大长腿个股次日开盘表现
+    - 科创50相对强度
+    - 成交量变化
+  risk_factors:
+  - 次日大长腿个股集体低开低走无溢价
+  - 指数重新跌破今日恐慌低点
+  - 成交量持续萎缩无法放大
+  confidence_indicators:
+  - 大长腿个股次日高开高走或低开快速翻红
+  - 科创50继续强于其他指数
+  - 成交量有效放大
+  source_raw:
+  - sources/raw/财经/复盘：26-05-19：左侧止跌拐点，情绪带指数修复，AI上游涨价链成暗线.md
+- pattern_id: sector_mainline_diffusion_verify
+  name: 科技主线扩散验证框架
+  description: 通过观察龙头强度、板块梯队扩散、全市场共振三个维度，判断科技主线是否从核心龙头向产业链上下游有效扩散，并识别虹吸型上涨与带动型上涨的区别。
+  applicable_themes:
+  - 科技板块主线判断
+  - 半导体产业链扩散分析
+  - AI硬件产业链传导路径
+  reasoning_chain:
+  - step: 1
+    name: 确认龙头强度
+    question: 当前主线核心龙头是否持续走强？
+    UP_logic: 观察中芯国际、华虹公司、寒武纪等容量中军是否强势，若持续走强说明半导体不是普通反抽而是阶段核心主线。
+    evidence_sources:
+    - 个股走势
+    - 成交额
+    - 机构态度
+  - step: 2
+    name: 检查板块梯队
+    question: 主线内部是否形成完整的梯队扩散？
+    UP_logic: 从容量中军、情绪先锋、设备材料核心、先进封装核心、存储链核心五个梯队观察，若仅少数核心冲高后排掉队则扩散不足。
+    evidence_sources:
+    - 板块内部涨跌幅排名
+    - 涨停家数分布
+    - 资金流向
+  - step: 3
+    name: 判断虹吸vs带动
+    question: 主线上涨是虹吸型还是带动型？
+    UP_logic: 科创50和半导体上涨时，若全A 3700+只下跌、上证和创业板停滞，则为虹吸型上涨；若全A上涨家数增加、其他指数同步修复，则为带动型上涨。
+    evidence_sources:
+    - 全A上涨家数
+    - 上证指数走势
+    - 创业板指走势
+  - step: 4
+    name: 验证产业链传导
+    question: 主线逻辑是否向上下游有效扩散？
+    UP_logic: AI硬科技从光通信向半导体上游扩散，需验证PCB、液冷、国产CPU/GPU、先进封装、检测量测等方向是否依次启动。
+    evidence_sources:
+    - 产业链新闻
+    - 个股联动
+    - 资金轮动顺序
+  - step: 5
+    name: 评估风险信号
+    question: 是否存在冲高回落或虹吸加剧的风险？
+    UP_logic: 科创加速后若第二天高位分化、大盘冲高回落、资金在科技内部高低切，则需警惕短线风险；英伟达财报利好兑现也是风险触发条件。
+    evidence_sources:
+    - 科创50次日走势
+    - 大盘与全A背离度
+    - 英伟达财报反馈
+  risk_factors:
+  - 科创50单独加速但全A不跟，虹吸加剧导致多数个股失血
+  - 英伟达财报利好兑现后AI硬件链冲高回落
+  - 光通信二线股无订单支撑业绩不及预期
+  - 成交额无法站上3万亿但高位科技继续加速
+  confidence_indicators:
+  - 半导体从少数权重扩散到设备/材料/封测/国产算力
+  - 全A上涨家数明显回升，资金开始扩散
+  - 上证指数站稳4150并修复至4200，金融周期消费跟进
+  - 中芯、寒武纪、华虹持续走强且板块梯队完整
+  source_raw:
+  - sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
+- pattern_id: ipo_event_sector_timing
+  name: IPO事件驱动的板块节奏
+  description: 通过关键公司IPO上会、上市等事件节点，预判板块阶段性顶部和操作节奏。
+  applicable_themes:
+  - 半导体
+  - 新股上市
+  - 板块见顶信号
+  reasoning_chain:
+  - step: 1
+    name: 识别关键事件节点
+    question: 板块内是否有标志性公司的IPO或重大事件？
+    UP_logic: 长鑫科技5月27日IPO上会，后续正式上市时间约1.5-3个月，作为半导体板块操作的核心时间锚点。
+    evidence_sources:
+    - 公司公告
+    - 交易所IPO审核进度
+  - step: 2
+    name: 事件前减仓规避
+    question: 事件节点前是否需要减仓？
+    UP_logic: 上会前后减仓规避，因为事件落地可能引发短期调整，等调整到位后再接回。
+    evidence_sources:
+    - 历史板块事件前后走势
+    - 市场情绪指标
+  - step: 3
+    name: 正式上市即见顶
+    question: 正式上市时板块是否见顶？
+    UP_logic: 正式上市被视为半导体板块见顶信号，届时需要全部撤退，因为预期兑现后资金流出。
+    evidence_sources:
+    - 历史IPO后板块表现
+    - 资金流向数据
+  risk_factors:
+  - 事件延期或取消导致节奏失效
+  - 板块基本面出现超预期变化
+  confidence_indicators:
+  - 事件时间明确且市场关注度高
+  - 板块前期涨幅较大且资金集中
+  source_raw:
+  - sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
+- pattern_id: panic_verify_structural_switch
+  name: 恐慌定性+结构切换推理
+  description: 通过量价、跌停结构、板块承接等数据判断恐慌是否为真崩盘，并据此推导主线内部洗牌与资金切换方向
+  applicable_themes:
+  - 高位放量杀跌后的市场定性
+  - 主线板块内部去弱留强
+  - 新主线承接判断
+  reasoning_chain:
+  - step: 1
+    name: 恐慌性质判断
+    question: 当前放量杀跌是真崩盘还是高位换手？
+    UP_logic: 放量杀跌+个股普跌但封死跌停不多=抛压集中释放而非单边无承接下跌，定性为高位筹码清洗
+    evidence_sources:
+    - 成交额数据
+    - 跌停数量
+    - 个股跌幅分布
+  - step: 2
+    name: 主线活口筛选
+    question: 科技主线内部哪些细分方向跌幅相对较小、承接最好？
+    UP_logic: 比较各板块跌幅，PCB、先进封装跌幅小于半导体/芯片/CPO，且产业逻辑未破坏，视为主线活口
+    evidence_sources:
+    - 板块跌幅排名
+    - 产业逻辑持续性
+  - step: 3
+    name: 新方向承接识别
+    question: 哪些板块在盘中逆势承接分流资金且尾盘回落是被动跟随？
+    UP_logic: 机器人板块盘中逆势承接AI分流资金，尾盘回落是被动跟随指数而非主动杀跌，结合产业催化判断为潜在新主线
+    evidence_sources:
+    - 板块日内走势
+    - 产业催化事件
+  - step: 4
+    name: 预期差分支挖掘
+    question: 算力链中哪些新分支拥挤度低、供需缺口明确？
+    UP_logic: AI电源/超级电容因NVIDIA架构升级带来需求爆发，但板块拥挤度低、机构配置少，预期差明显
+    evidence_sources:
+    - 技术路线变化
+    - 供需测算
+    - 机构持仓数据
+  risk_factors:
+  - 次日低开放量下杀且跌停超50只
+  - 科技主线修复失败仅靠防御板块补涨
+  - 长鑫存储上市时间不及预期
+  confidence_indicators:
+  - 放量后承接明显（封死跌停少）
+  - 机器人/PCB等方向率先翻红修复
+  - 半导体中军（中芯国际、北方华创）主动修复
+  source_raw:
+  - sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
+- pattern_id: ai_new_tech_switch
+  name: AI中后期补涨分支挖掘
+  description: 通过类比新能源中后期补涨分支的演绎规律，在AI主线内部寻找尚未充分炒作的新技术方向作为后续重点跟踪对象。
+  applicable_themes:
+  - AI主线
+  - 科技板块
+  - 产业周期切换
+  reasoning_chain:
+  - step: 1
+    name: 确认主线未结束
+    question: 当前主线是否仍处于早期或中期阶段？
+    UP_logic: 类比新能源中后期龙头见顶后补涨分支依然火热，AI的Agent、具身智能等方向尚未大规模商业化，远未到后期。
+    evidence_sources:
+    - 行业阶段判断
+    - 历史类比
+  - step: 2
+    name: 识别相对低位分支
+    question: 哪些科技分支在调整中率先走强且位置相对较低？
+    UP_logic: 今天边缘计算、功率半导体、模拟芯片明显强于市场，暗示资金可能向相对低位的科技分支切换。
+    evidence_sources:
+    - 当日盘面表现
+    - 板块相对强度
+  - step: 3
+    name: 验证补涨逻辑
+    question: 这些分支是否有产业逻辑支撑且尚未充分炒作？
+    UP_logic: 超级电容、端侧AI、先进封装、AI供电等方向均处于早期爆发阶段，供给缺口或渗透率低，符合中后期补涨特征。
+    evidence_sources:
+    - 产业数据
+    - 供给缺口分析
+    - 渗透率数据
+  - step: 4
+    name: 跟踪确认信号
+    question: 后续哪些盘面信号能确认风格切换？
+    UP_logic: 观察强势分支能否反包、微盘股是否企稳、是否出现领涨矛，以及资金是否持续流向新技术分支。
+    evidence_sources:
+    - 次日开盘表现
+    - 板块延续性
+    - 资金流向
+  risk_factors:
+  - 主线龙头出现系统性崩盘
+  - 新技术分支逻辑被证伪或产业进展不及预期
+  - 市场风格切换至非科技方向
+  confidence_indicators:
+  - 强势分支次日反包或持续走强
+  - 微盘股企稳回升
+  - 出现明确的领涨矛（如超级电容二波涨停潮）
+  source_raw:
+  - sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md
+- pattern_id: post_crash_emotion_turning_point_qualify
+  name: 连续杀跌后拐点定性框架
+  description: 通过指数形态、量价关系、外部冲击、轮动结构等多维度判断连续杀跌后的阳线是否为情绪拐点，并设定后续验证条件
+  applicable_themes:
+  - A股大盘拐点判断
+  - 情绪周期分析
+  - 指数修复行情定性
+  reasoning_chain:
+  - step: 1
+    name: 形态定性
+    question: 这根阳线是趋势中继还是情绪拐点？
+    UP_logic: 连续杀跌后的阳线共振，且量缩但赚钱效应放大，定性为修复行情而非放量进攻，按‘右侧第一根’处理
+    evidence_sources:
+    - 指数探底回升V型修复
+    - 成交缩量但超3000只上涨
+  - step: 2
+    name: 结构判断
+    question: 修复是主线引领还是普涨轮动？
+    UP_logic: 科技分支几乎全轮动一遍，缺乏唯一核心，判断为‘普涨式轮动’而非‘主线引领’，这是结构性缺失
+    evidence_sources:
+    - 电容/MLCC、培育钻石、电子布、CPO等全面轮动
+  - step: 3
+    name: 外部验证
+    question: 拐点是否在利空背景下完成？
+    UP_logic: 美伊冲突下指数仍下探回升、情绪回暖，‘利空中走强’是新周期起点概率较大的信号
+    evidence_sources:
+    - 美伊冲突事件
+    - 指数下探回升走势
+  - step: 4
+    name: 设置验证条件
+    question: 如何确认拐点有效性？
+    UP_logic: 设定两个验证点：分歧日全A不破位（指数底线）、轮动后收敛出聚焦方向（聚焦度），任何证伪降级处理
+    evidence_sources:
+    - 全A指数走势
+    - 分支聚焦情况
+  risk_factors:
+  - 分歧日全A指数破位，拐点逻辑失效
+  - 持续轮动不出聚焦，行情只有宽度没有高度
+  - 外部冲突升级超预期
+  confidence_indicators:
+  - 分歧日全A指数相对强势不破位
+  - 科技内部裂变出明确聚焦分支
+  - 量能回补支撑高度空间
+  source_raw:
+  - sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
+- pattern_id: mlcc_cycle_qualify
+  name: 被动元件周期上行验证框架
+  description: 通过供需缺口、涨价结构、产能转移、库存水位等多维度交叉验证，判断被动元件周期上行阶段与持续性
+  applicable_themes:
+  - 被动元件
+  - MLCC
+  - 电子元器件周期
+  - 涨价题材
+  reasoning_chain:
+  - step: 1
+    name: 需求结构拆解
+    question: 本轮需求增长的核心驱动力是什么？是否可持续？
+    UP_logic: 区分AI需求（约10%）与非AI需求，分析AI单机用量代际提升（GB200→Rubin增20%），判断量的改善强于价的改善
+    evidence_sources:
+    - AI服务器MLCC用量表
+    - 行业调研数据
+  - step: 2
+    name: 供给转移分析
+    question: 供给端是否出现结构性紧缺？紧缺能否持续？
+    UP_logic: 原厂产能向高容转移导致中低容交期拉长（8-10周→12周+），日韩出清中低端产能，国产承接不足，紧缺至少延续至2026年底
+    evidence_sources:
+    - 原厂转产公告
+    - 交期数据
+    - 产能利用率
+  - step: 3
+    name: 涨价节奏验证
+    question: 涨价是否已从渠道传导至原厂？涨价幅度和范围如何？
+    UP_logic: 涨价由渠道3月发起→台系/三星5月跟进高容→村田6月底窗口→太阳诱电全系涨价，高容涨30%但远低于历史峰值，仍处初期
+    evidence_sources:
+    - 原厂涨价函
+    - 渠道价格跟踪
+    - 历史价格对比
+  - step: 4
+    name: 库存与稼动率判断
+    question: 当前库存水平和稼动率是否支持涨价持续？
+    UP_logic: 渠道库存3-4个月高于往年，但全行业稼动率80-95%低于历史缺货周期90%+，突破90%将触发大幅涨价，当前仍处安全区间
+    evidence_sources:
+    - 渠道库存数据
+    - 稼动率调研
+  - step: 5
+    name: 受益逻辑分层
+    question: 哪些环节和公司最受益？弹性如何排序？
+    UP_logic: 分三层：高端承接（三环/顺络）、上游供货（洁美/博迁）、全面涨价弹性（风华），结合公司高容占比、客户结构、产能扩张节奏
+    evidence_sources:
+    - 公司调研纪要
+    - 产品结构数据
+    - 客户验证进展
+  risk_factors:
+  - AI需求不及预期导致高容订单回落
+  - 日系厂商大幅扩产打破供需格局
+  - 渠道库存去化不畅引发价格战
+  - 国产高容技术突破慢于预期
+  confidence_indicators:
+  - 海外龙头（村田/三星）连续涨价落地
+  - 全行业稼动率突破90%
+  - 中低容价格开始跟涨
+  - 下游AI服务器出货量持续超预期
+  source_raw:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+- pattern_id: low_position_tech_sector_screening
+  name: 低位科技板块筛选法
+  description: 在市场高低切换的混沌期，通过叠加“低位”和“科技”双重属性，筛选出兼具安全边际和产业逻辑的潜在轮动方向。
+  applicable_themes:
+  - 板块轮动分析
+  - 高低切换策略
+  - 科技细分领域挖掘
+  reasoning_chain:
+  - step: 1
+    name: 识别市场环境
+    question: 当前市场处于什么阶段？核心矛盾是什么？
+    UP_logic: 判断市场处于“高低位切换与风格切换”的混沌轮动期，旧高位方向（AI硬科技）有回撤压力，新低位方向缺乏催化。
+    evidence_sources:
+    - 盘面定调
+    - 板块轮动描述
+  - step: 2
+    name: 定义理想属性
+    question: 在当前环境下，什么样的板块具备优势？
+    UP_logic: 推导出理想板块应兼具“低位”（筹码干净、无兑现压力）和“科技”（有产业逻辑支撑，非纯超跌反弹）双重属性。
+    evidence_sources:
+    - AIPC分析段落
+  - step: 3
+    name: 匹配候选板块
+    question: 哪个板块同时满足“低位”和“科技”这两个属性？
+    UP_logic: 将“AIPC”板块与定义的双重属性进行匹配，发现它“既有一定的产业逻辑，位置又相对低”，符合筛选标准。
+    evidence_sources:
+    - AIPC分析段落
+  - step: 4
+    name: 验证短期催化
+    question: 该板块是否有直接的、可验证的短期催化因素？
+    UP_logic: 寻找“盘前催化”或“增量信息发酵”，例如AIPC板块在硬件端出现多个一字涨停，确认了短期市场资金的关注。
+    evidence_sources:
+    - AIPC分析段落
+  risk_factors:
+  - 市场风格未能成功切换，高位板块继续抱团，低位板块被持续抽血。
+  - 该板块的产业逻辑被证伪，或发展进度不及预期，导致“科技”属性失效。
+  - 板块轮动过快，催化消失后，行情迅速结束，沦为一日游。
+  confidence_indicators:
+  - 板块内出现多个涨停股，尤其是体量较大的个股涨停，表明资金介入较深。
+  - 板块内部分化清晰，有明确的硬件和软件龙头，形成产业链联动。
+  - 后续有持续的产业事件或政策出台，不断强化其“科技”属性。
+  source_raw:
+  - sources/raw/财经/复盘：26-06-01：指数冲高回落，大小票分化，AIPC相对占优.md
+- pattern_id: event_driven_theme_qualify
+  name: 事件驱动题材筛选与验证
+  description: 从产业重大事件出发，筛选受益标的，并通过技术面、情绪面、资金面验证题材持续性
+  applicable_themes:
+  - 产业政策催化
+  - 技术突破
+  - 涨价潮
+  - 海外大单
+  reasoning_chain:
+  - step: 1
+    name: 识别核心事件
+    question: 假期或近期发生了什么重大产业事件？
+    UP_logic: 从产业动态中提取全球首次、技术突破、涨价数据等标志性事件，如光纤涨价136%、钠电池热失控突破
+    evidence_sources:
+    - 产业新闻
+    - 学术论文
+    - 价格数据
+  - step: 2
+    name: 评估事件级别
+    question: 这个事件是否具备全局性或颠覆性？
+    UP_logic: 判断事件是否为'全球首次'、'重大突破'、'政策催化'，并关联两会、工信部等权威来源
+    evidence_sources:
+    - 政策文件
+    - 权威机构报告
+  - step: 3
+    name: 筛选受益标的
+    question: 哪些公司最直接受益？
+    UP_logic: 寻找细分领域龙头或市占率第一的公司，如维科技术（储能钠电池出货量TOP1）、海科新源（电解液溶剂全球市占率第一）
+    evidence_sources:
+    - 行业排名
+    - 公司公告
+    - 出货量数据
+  - step: 4
+    name: 验证题材持续性
+    question: 该题材能否成为主线？
+    UP_logic: 结合大盘环境（观望/修复）、情绪冰点、量能变化，判断是否'新低位板块崛起'，避免老题材弱修复
+    evidence_sources:
+    - 大盘技术面
+    - 短线情绪指标
+    - 成交量
+  risk_factors:
+  - 地缘冲突压制风险偏好
+  - 假期利好无法实质性落地
+  - 市场量能持续萎缩
+  confidence_indicators:
+  - 事件被权威机构或政策背书
+  - 受益标的有明确市占率或技术壁垒
+  - 大盘处于修复放量阶段
+  source_raw:
+  - sources/raw/财经/早盘：26-04-07：观望为主，3900关口，氢能钠电池新题材，光通信医药主线.md
+- pattern_id: chaos_period_focus_screening
+  name: 混沌期缩圈聚焦法
+  description: 在市场混沌试错期，通过指数隐患、情绪分化、催化事件三层筛选，缩圈至少数高确定性主线进行小仓位试错。
+  applicable_themes:
+  - A股震荡市
+  - 地缘冲突期
+  - 主线不明朗阶段
+  reasoning_chain:
+  - step: 1
+    name: 指数与外围定调
+    question: 当前市场整体处于什么状态？是否有系统性风险？
+    UP_logic: 先看外围地缘冲突和美股期货，再看沪指量能隐患（未突破2.43万亿）和创业板新高后的分化，判断为混沌试错期，上升趋势未确立。
+    evidence_sources:
+    - 美股期货走势
+    - 沪指成交量
+    - 创业板指走势
+  - step: 2
+    name: 情绪周期定位
+    question: 市场情绪处于哪个阶段？赚钱效应集中在哪类资金？
+    UP_logic: 通过高价机构股走强、短线情绪疲软（汇源通信负反馈、20cm溢价低）判断为混沌试错期，交易机会仅集中在少数业绩优异的AI个股。
+    evidence_sources:
+    - 涨停板溢价率
+    - 高位股走势
+    - 机构净买入数据
+  - step: 3
+    name: 催化事件筛选
+    question: 周末有哪些重大催化？哪些方向有基本面支撑且未被充分定价？
+    UP_logic: 从政策（创业板并购重组）、地缘（军工、电解铝、化工涨价）、产业（AI光通信、玻璃基板）中筛选，重点找有共识+无稳定持仓的高赔率高胜率方向。
+    evidence_sources:
+    - 政策文件
+    - 地缘新闻
+    - 产业调研数据
+  - step: 4
+    name: 缩圈聚焦配置
+    question: 在有限仓位下，哪些主线值得小仓位试错？
+    UP_logic: 从四条有基本面支撑的主线（AI硬件、资源品、周期涨价、高股息）中进一步缩圈，优先选择核心预期差方向（国产AI硬件、化工涨价），仅分歧低吸不追高。
+    evidence_sources:
+    - 个股基本面
+    - 板块趋势
+    - 资金流向
+  risk_factors:
+  - 地缘冲突超预期升级导致系统性下跌
+  - 量能持续萎缩无法突破2.43万亿
+  - 主线个股业绩不及预期
+  confidence_indicators:
+  - 沪指放量突破4000点
+  - 创业板指新高后趋势延续
+  - 化工/国产AI板块出现集体涨停
+  source_raw:
+  - sources/raw/财经/早盘：26-04-13：地缘升级混沌试错，创业板新高，控仓缩圈聚焦.md
+- pattern_id: dual_mainline_low_absorption
+  name: 双主线低位补涨筛选法
+  description: 在指数验证窗口期，通过主线确认、低位筛选、事件催化三步锁定补涨标的的推理框架
+  applicable_themes:
+  - AI硬科技
+  - 商业航天
+  - 半导体
+  - 新能源轮动
+  reasoning_chain:
+  - step: 1
+    name: 主线确认
+    question: 当前市场核心主线是什么？
+    UP_logic: 通过板块资金流向、涨停梯队、高位股表现判断主线是否延续，排除轮动题材
+    evidence_sources:
+    - 板块涨停数量
+    - 高位股走势
+    - 两市量能变化
+  - step: 2
+    name: 低位筛选
+    question: 主线上哪些标的处于低位且具备补涨潜力？
+    UP_logic: 优先选近2-3日持续震荡、前一日未大涨、与主线核心直接相关的标的
+    evidence_sources:
+    - 个股K线形态
+    - 相对位置
+    - 板块联动性
+  - step: 3
+    name: 事件催化
+    question: 低位标的有无近期事件驱动？
+    UP_logic: 结合未来事件预期（如航天日、科技日）判断催化强度，优先选事件明确且板块共振的方向
+    evidence_sources:
+    - 日历事件
+    - 政策公告
+    - 机构研报
+  - step: 4
+    name: 交易模式匹配
+    question: 当前环境适合哪种交易模式？
+    UP_logic: 指数高9有效、情绪扩展初期优先尾盘低吸法；短线能力强可做顺势博弈，只做板块共振领涨核心
+    evidence_sources:
+    - 指数技术形态
+    - 市场情绪周期
+    - 个人交易能力
+  risk_factors:
+  - 高位股集体滞涨或中阴线调整
+  - 两市量能快速萎缩（早盘半小时不及昨日同期90%）
+  - 主线资金大幅流出且无新题材承接
+  confidence_indicators:
+  - 量能维持高位且持续放大
+  - 主线板块内出现良性高低切换
+  - 事件催化标的开盘强势带动板块共振
+  source_raw:
+  - sources/raw/财经/早盘：26-04-21：日线高9验证窗口，AI硬科技与商业航天双主线.md
+- pattern_id: rise_first_divergence_ice_point
+  name: 上升首分歧冰点试错法
+  description: 在上升趋势首次良性分歧中，通过确认冰点信号、锚定抗跌龙头、聚焦政策与业绩主线，进行小仓位试错买入的短线交易模式。
+  applicable_themes:
+  - 短线交易
+  - 情绪周期
+  - 主线板块轮动
+  reasoning_chain:
+  - step: 1
+    name: 确认分歧性质
+    question: 当前下跌是上升趋势中的良性分歧还是趋势逆转？
+    UP_logic: 通过指数走势与历史雷同（如4月15日）、量能失控后承接乏力等信号，判断为上升途中的首次良性分歧窗口。
+    evidence_sources:
+    - 创业板指终结5连阳
+    - 沪指跌破4100点
+    - 早盘量能冲高至3.2万亿后承接乏力
+  - step: 2
+    name: 等待冰点信号
+    question: 恐慌盘是否充分释放，冰点是否出现？
+    UP_logic: 早盘低开后恐慌盘充分杀出，高位股补跌到位，连板亏钱效应释放完毕，同时出现率先逆势抗跌的品种，即为冰点买点。
+    evidence_sources:
+    - 恐慌盘杀出
+    - 高位股补跌
+    - 连板亏钱效应释放
+    - 逆势抗跌品种出现
+  - step: 3
+    name: 筛选抗跌龙头
+    question: 在分歧中哪些板块和个股主动抗跌、分时承接强劲？
+    UP_logic: 只聚焦分歧中主动抗跌、分时承接强劲，指数回流时率先领涨的品种，不盲目抄底后排跟风股。
+    evidence_sources:
+    - 板块逆势拉升（如绿电午后逆势）
+    - 个股分时承接强劲
+    - 率先领涨
+  - step: 4
+    name: 锚定主线方向
+    question: 哪些主线具备政策或业绩支撑，有望成为回流核心？
+    UP_logic: 优先选择政策驱动（如绿电/算电协同）、业绩超预期（如光伏储能）、国产替代（半导体）等确定性高的方向，规避业绩不及预期的板块（如CPO后排）。
+    evidence_sources:
+    - 两办政策文件
+    - 一季报业绩超预期
+    - 海外需求数据（欧洲光伏翻倍）
+    - 英特尔业绩催化
+  - step: 5
+    name: 执行小仓位试错
+    question: 如何控制风险并执行买入？
+    UP_logic: 小仓位试错，严禁在恐慌未释放时满仓入场。若指数权重（如创业板核心权重）不发力反包，则收缩战线、降低仓位。
+    evidence_sources:
+    - 创业板旗手（宁德时代）是否出现
+    - 全市场成交额是否稳定在2.5万亿以上
+  risk_factors:
+  - 早盘成交额再度失控冲高至3万亿以上，市场承接力不足
+  - 创业板核心权重未能扛起反包大旗，市场进入箱体震荡
+  - 高位连板股批量补跌，情绪修复失败
+  confidence_indicators:
+  - 冰点确认信号出现（恐慌盘杀出、高位股补跌到位、逆势抗跌品种出现）
+  - 绿电/算电协同等政策主线高开高走带动板块批量涨停
+  - 创业板指快速收回5日线，全市场成交额稳定在2.5万亿以上
+  source_raw:
+  - sources/raw/财经/早盘：26-04-24：上升首分歧，冰点试错窗口.md
+- pattern_id: sector_priority_catalyzed_rotation
+  name: 催化驱动的板块轮动优先级排序
+  description: 基于外部催化强度、情绪周期阶段和内部轮动规律，对主线板块内部各细分方向进行优先级排序的推理方法。
+  applicable_themes:
+  - 科技股板块轮动
+  - 事件驱动型投资
+  - 主线板块内部细分方向选择
+  reasoning_chain:
+  - step: 1
+    name: 定位情绪周期
+    question: 当前市场处于情绪周期的哪个阶段？
+    UP_logic: 博主通过‘主升第五日·混沌期’、‘宽度极好但高度受压’等描述，判断市场处于主升后期，分歧调整需求强烈。
+    evidence_sources:
+    - 情绪周期理论
+    - 涨停家数（宽度）
+    - 连板高度（高度）
+  - step: 2
+    name: 确认主线板块
+    question: 当前市场唯一的主线是什么？
+    UP_logic: 博主明确判断‘AI 仍是唯一主线’，并认为‘低位轮动尚不成气候’，从而将分析范围锁定在AI板块内部。
+    evidence_sources:
+    - 板块持续性观察
+    - 资金流向判断
+    - 市场共识
+  - step: 3
+    name: 评估外部催化强度
+    question: 主线板块内各细分方向，在盘前获得了哪些外部催化？强度如何？
+    UP_logic: 博主根据‘英特尔+13.96%’、‘美光科技+10%’等美股大涨事件，判断CPU和存储芯片获得了‘最强催化’，并将其作为优先级排序的首要依据。
+    evidence_sources:
+    - 美股科技股表现
+    - 产业新闻（如苹果代工协议）
+    - 公司公告（如字节资本开支）
+  - step: 4
+    name: 结合内部轮动规律
+    question: 结合板块内部轮动节奏，如何对催化方向进行排序？
+    UP_logic: 博主将‘外部催化强度’与‘产业链反复活跃分支’（如光通信/PCB）以及‘国产算力’等内部轮动方向进行综合，形成最终的优先级排序（CPU
+      > 存储 > 国产算力 > 光通信/PCB）。
+    evidence_sources:
+    - 板块内部轮动历史
+    - 产业链逻辑
+  risk_factors:
+  - 外部催化（如美股大涨）在A股开盘后可能高开低走，形成‘利好出尽’的走势。
+  - 情绪周期进入分歧阶段，可能导致所有方向同步调整，催化失效。
+  - 新的、更强的低位题材出现，分流主线资金，导致轮动逻辑被破坏。
+  confidence_indicators:
+  - 外部催化事件具有持续性（如产业趋势确认），而非单日脉冲。
+  - 主线板块内部的高位趋势股继续拓展空间，为低位轮动提供信心。
+  - 市场整体宽度（涨停家数）维持在高位，表明市场风险偏好较高。
+  source_raw:
+  - sources/raw/财经/早盘：26-05-11：主升第五日混沌期，90分钟DIF29生死线，英特尔美光暴涨催化CPU存储.md
+- pattern_id: macro_ai_dual_drive_qualify
+  name: 宏观与AI双驱动研判
+  description: 通过宏观风险信号与AI产业趋势的对冲关系，判断市场状态并筛选受益板块
+  applicable_themes:
+  - 科技股投资
+  - 宏观对冲策略
+  - 产业趋势分析
+  reasoning_chain:
+  - step: 1
+    name: 识别核心矛盾
+    question: 当前市场的主要矛盾是什么？
+    UP_logic: 市场处于AI梦想与宏观重量的对冲状态，美股指数新高但宽度极差，美债收益率破5%构成风险
+    evidence_sources:
+    - 美股指数数据
+    - 美债收益率
+    - 市场宽度数据
+  - step: 2
+    name: 分析宏观风险
+    question: 宏观层面有哪些风险信号？
+    UP_logic: 30年美债收益率站上5%是美股最危险信号，PPI超预期、美元走强、金融条件收紧，债市与股市脱节
+    evidence_sources:
+    - PPI数据
+    - 美债收益率
+    - 美元指数
+    - 原油库存数据
+  - step: 3
+    name: 锁定产业主线
+    question: 哪些产业趋势能对冲宏观风险？
+    UP_logic: AI产业持续走强，国产算力进入系统级竞争，算力期货问世标志资产化，平台公司资本开支上调
+    evidence_sources:
+    - AI板块走势
+    - 算力期货新闻
+    - 阿里腾讯资本开支公告
+  - step: 4
+    name: 筛选受益方向
+    question: 具体哪些板块和个股受益？
+    UP_logic: 算力硬件（PCB、液冷）、国产算力芯片、算力租赁、Token经济、电力龙头第二波
+    evidence_sources:
+    - 板块涨幅数据
+    - 公司公告
+    - 行业新闻
+  risk_factors:
+  - 中美会谈结果不及预期
+  - 30年美债收益率持续上行引发美股调整
+  - 油价突破性上涨加剧通胀压力
+  - 市场宽度过窄导致指数与个股背离
+  confidence_indicators:
+  - 量能维持3万亿以上
+  - AI各分支趋势完好轮动新高
+  - 电力龙头第二波高度超越第一波
+  - 中概股上涨作为信号
+  source_raw:
+  - sources/raw/财经/早盘：26-05-14：市场失重状态，特朗普抵京黄仁勋登机，30年美债破5%，算力期货问世.md
+- pattern_id: high_divergence_recovery_assessment
+  name: 高位强分歧修复评估模型
+  description: 通过观察关键点位、量能、情绪和板块结构四个维度的信号，判断市场高位放量下跌后是强分歧修复还是调整延续。
+  applicable_themes:
+  - 大盘指数分析
+  - 市场情绪判断
+  - 板块轮动分析
+  - 交易策略制定
+  reasoning_chain:
+  - step: 1
+    name: 关键点位承接力判断
+    question: 指数在关键支撑位（如上证4150点）能否获得有效承接？
+    UP_logic: 观察指数下探至关键点位后的反应：若能守住且量能萎缩，则为强承接；若有效跌破且量能放大，则为弱出逃。
+    evidence_sources:
+    - 上证指数点位
+    - 创业板指点位
+  - step: 2
+    name: 量能结构分析
+    question: 成交额是缩量消化抛压，还是继续放量出逃？
+    UP_logic: 将当前成交额与前一日及近期水平对比：缩量至合理区间（如2.7-3万亿）代表抛压消化；继续放量至更高水平（如3.5万亿以上）且指数不涨，代表分歧加剧。
+    evidence_sources:
+    - 沪深两市成交额
+    - 早盘成交节奏
+  - step: 3
+    name: 情绪端止血确认
+    question: 市场恐慌情绪是否得到有效控制？
+    UP_logic: 观察跌停家数是否显著下降（如降至10家以内），以及前日高位辨识度个股是否打开跌停、出现放量承接。
+    evidence_sources:
+    - 跌停家数（剔除ST）
+    - 高位辨识度个股走势
+  - step: 4
+    name: 主线板块回流验证
+    question: 资金是回流前期主线（进攻），还是转向防御板块（避险）？
+    UP_logic: 对比科技主线（如半导体、CPO）与防御板块（如白酒、银行）的强弱：主线龙头领涨、板块普涨、资金净流入为真修复；防御板块独强、主线疲软为假修复。
+    evidence_sources:
+    - 半导体板块资金流向
+    - CPO板块资金流向
+    - 白酒板块走势
+    - 银行板块走势
+  risk_factors:
+  - 关键点位（如4150点）被有效跌破，且无权重股护盘。
+  - 成交额持续放大至3.5万亿以上，但指数无法收复关键点位（如4200点）。
+  - 同一方向（如科技、电力设备）出现成批跌停，情绪无法止血。
+  - 防御板块（白酒、银行）持续走强，而科技主线毫无修复迹象。
+  confidence_indicators:
+  - 指数在关键点位获得承接，且成交额明显缩量。
+  - 跌停家数降至10家以内，前日大跌的龙头股出现放量企稳。
+  - 科技主线（如半导体、CPO）出现龙头主动领涨，板块内个股普涨。
+  - 权重股（如宁德时代、贵州茅台、招商银行）稳指数，科技股修复情绪，形成良性共振。
+  source_raw:
+  - sources/raw/财经/早盘：26-05-15：今日不是看反弹，而是看承接是否成立.md
+- pattern_id: sector_priority_catalyst_screening
+  name: 主线题材催化筛选法
+  description: 通过外部催化、产业数据、政策驱动等多维度信息，对多个题材进行优先级排序，并筛选出核心受益个股。
+  applicable_themes:
+  - 题材轮动分析
+  - 主线板块筛选
+  - 事件驱动策略
+  reasoning_chain:
+  - step: 1
+    name: 识别核心催化
+    question: 当前有哪些明确的产业或政策催化事件？
+    UP_logic: 从公司公告、政策发布、产业数据中提取关键催化，如中微公司上调订单目标、上海电信推出Token算力服务等。
+    evidence_sources:
+    - 公司公告
+    - 政策文件
+    - 产业数据
+  - step: 2
+    name: 量化市场规模与增速
+    question: 该题材对应的市场规模和增长趋势如何？
+    UP_logic: 引用具体市场规模和增速数据（如半导体设备市场2200亿+35%、Token算力市场160亿+220%），判断行业景气度。
+    evidence_sources:
+    - 行业研究报告
+    - 券商研报
+    - 官方统计数据
+  - step: 3
+    name: 排序优先级
+    question: 多个题材中哪个最值得优先关注？
+    UP_logic: 综合催化强度、市场空间、政策确定性等因素，将半导体设备排第一，Token算力排第二，依次类推。
+    evidence_sources:
+    - 催化事件影响力
+    - 市场空间大小
+    - 政策确定性
+  - step: 4
+    name: 筛选核心个股
+    question: 每个题材中哪些个股最受益？
+    UP_logic: 根据细分领域龙头地位、订单增长、产业链关联等逻辑，选出中微公司、鸿博股份、科士达等个股。
+    evidence_sources:
+    - 公司公告
+    - 订单数据
+    - 产业链调研
+  risk_factors:
+  - 催化事件低于预期
+  - 市场整体量能萎缩
+  - 板块短期涨幅过大获利盘兑现
+  confidence_indicators:
+  - 催化事件具有超预期成分（如订单上调）
+  - 市场空间增速高且确定性强
+  - 政策持续加码
+  source_raw:
+  - sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
+- pattern_id: market_recovery_phase_identification
+  name: 市场修复阶段识别框架
+  description: 通过观察指数走势、核心个股承接、量能变化和主线清晰度，判断市场是龙回头修复还是二波启动，并据此制定操作策略。
+  applicable_themes:
+  - A股大盘分析
+  - 科技板块修复
+  - 情绪拐点判断
+  reasoning_chain:
+  - step: 1
+    name: 定义两种修复类型
+    question: 当前市场修复属于哪种类型？
+    UP_logic: 区分龙回头反弹（高辨识度个股修复、板块轮动快）与二波启动（指数弱分歧不破位、量能放大、新分支晋级、有明确主线）。
+    evidence_sources:
+    - 历史盘面模式
+    - 昨日指数走势
+  - step: 2
+    name: 观察指数弱分歧是否良性
+    question: 指数早盘走势是否符合弱分歧且不破位？
+    UP_logic: 根据低开后回流强度、量能变化、冲高回落幅度判断：最强（低开快速回流+放量）、中性（冲高回落但跌幅不大）、最弱（大幅回落+核心补跌）。
+    evidence_sources:
+    - 早盘指数分时图
+    - 成交额数据
+  - step: 3
+    name: 检验核心个股承接
+    question: 昨日大长腿核心科技股是否整体抗跌？
+    UP_logic: 观察光迅科技、东山精密等一批标的跌幅：-3%以内为承接好，-3%到-5%为一般，超-5%无修复为低于预期。重点看整体而非单只。
+    evidence_sources:
+    - 个股涨跌幅数据
+    - 盘中分时走势
+  - step: 4
+    name: 确认低位新分支晋级
+    question: 低位新分支（如弘信电子代表的Token工厂）是否继续走强？
+    UP_logic: 若新分支继续晋级，说明情绪从修复进入扩散；若开盘分歧明显，则仍是老核心做T行情，非新周期加速。
+    evidence_sources:
+    - 板块涨停家数
+    - 龙头股连板情况
+  - step: 5
+    name: 判断主线清晰度
+    question: 科技内部是否有明确主线而非泛科技轮动？
+    UP_logic: 观察国产算力、存储、半导体设备材料、光通信等方向是否有一个形成板块级回流，而非多个方向轮动。无主线则不能定义为二波。
+    evidence_sources:
+    - 板块涨幅排名
+    - 资金流向数据
+  risk_factors:
+  - 指数冲高后大幅回落，昨日大长腿核心普遍跌超-3%
+  - 低位新分支断板且无承接，跌停家数重新增加
+  - 量能萎缩，资金乱轮动而非回流科技主线
+  confidence_indicators:
+  - 指数弱分歧不破位，量能持续放大
+  - 科技核心个股整体抗跌，跌幅在-3%以内
+  - 低位新分支继续晋级，科技内部出现明确主线方向
+  source_raw:
+  - sources/raw/财经/早盘：26-05-20：验证龙回头修复还是二波启动，科技承接与主线聚焦.md
+- pattern_id: sector_mainline_rotation
+  name: 主线轮动承接判断法
+  description: 通过观察核心主线开盘表现、量能配合、板块内部扩散情况，判断主线强弱与轮动节奏的推理框架
+  applicable_themes:
+  - AI硬件
+  - 存储芯片
+  - 半导体设备材料
+  - 科技主线轮动
+  reasoning_chain:
+  - step: 1
+    name: 核心股开盘定性
+    question: 核心主线龙头股开盘表现如何？
+    UP_logic: 观察易中天等高辨识度核心股开盘是高开走强、高开放量回落还是低开修复，判断资金是否兑现
+    evidence_sources:
+    - 竞价数据
+    - 开盘5分钟量价
+  - step: 2
+    name: 量能健康度验证
+    question: 早盘量能是否支持主线持续？
+    UP_logic: 如果早盘大幅放量但指数无法上推，说明分歧加大；缩量震荡则轮动为主
+    evidence_sources:
+    - 开盘30分钟成交额
+    - 指数分时走势
+  - step: 3
+    name: 板块内部扩散检查
+    question: 主线内部是否出现向低位分支扩散？
+    UP_logic: 核心中军稳住后，观察设备、材料等低位分支是否补涨，扩散说明产业链纵深仍在
+    evidence_sources:
+    - 板块涨幅排名
+    - 个股分时联动
+  - step: 4
+    name: 支线强度对比
+    question: 支线题材是否具备接力或轮动条件？
+    UP_logic: 新题材第一天没有板块级强度，第二天容易被主线反抽血；只看修复不主动进攻
+    evidence_sources:
+    - 支线龙头竞价
+    - 板块涨停家数
+  risk_factors:
+  - 核心股高开放量回落，利好兑现
+  - 早盘放量但指数无法上推，分歧加大
+  - 支线题材一致性过强后冲高回落
+  confidence_indicators:
+  - 核心股小幅高开或平开后走强
+  - 量能温和放大且指数同步上推
+  - 设备中军维持趋势，材料出现补涨
+  source_raw:
+  - sources/raw/财经/早盘：26-05-21：反弹途中不追高，聚焦AI与存储主线轮动.md
+- pattern_id: ice_point_repair_quality
+  name: 极致冰点修复质量判断法
+  description: 在市场经历极致冰点后，通过观察修复的引领者、量价配合及关键点位，判断修复强弱并制定相应策略的推理框架。
+  applicable_themes:
+  - 大盘指数分析
+  - 市场情绪周期
+  - 主线板块判断
+  - 日内交易策略
+  reasoning_chain:
+  - step: 1
+    name: 定性冰点性质
+    question: 昨日的下跌是高位假摔还是调整开始？
+    UP_logic: 通过成交额是否放大（如3.48万亿）和主线板块是否同步大跌，判断为高位拥挤交易集中兑现，而非普通缩量调整。
+    evidence_sources:
+    - 昨日成交额数据
+    - 昨日指数涨跌幅
+    - 昨日主线板块表现
+  - step: 2
+    name: 观察修复引领者
+    question: 今日修复是由主线带动，还是低位杂题材轮动？
+    UP_logic: 若AI、半导体等昨日重灾区主动修复，则资金回流主线，修复质量高；若仅电力、防御等低位题材脉冲，则属避险轮动，修复质量低。
+    evidence_sources:
+    - 开盘后各板块涨跌幅排名
+    - 核心容量票（如北方华创）的分时走势
+  - step: 3
+    name: 验证量价与结构
+    question: 修复过程中量能和K线结构是否支持？
+    UP_logic: 拉升时需放量（增量资金），回落时需缩量（抛压衰减）。同时观察30分钟K线底部钝化是否保留或形成结构，作为技术面支撑。
+    evidence_sources:
+    - 分时图量能变化
+    - 30分钟K线图
+    - 关键点位（如4100点）的得失
+  - step: 4
+    name: 制定分时策略
+    question: 根据修复质量，如何制定日内操作？
+    UP_logic: 强修复时，可对主线硬逻辑个股做T（先买后卖），买点需等待分时确认（放量拐头、突破前高）；弱修复时，不追高，以控仓或卖出为主。
+    evidence_sources:
+    - 个股分时图（均线、前高）
+    - 个股趋势是否破位
+    - 个人仓位情况
+  risk_factors:
+  - 修复由权重股（如银行）拉动，而科技主线继续走弱，形成虚假修复。
+  - 修复过程中量能无法持续放大，呈现存量资金自救特征，高度有限。
+  - 午后出现放量跳水，跌破上午修复起点，表明调整未结束。
+  confidence_indicators:
+  - AI、半导体等核心主线板块率先企稳并放量反弹。
+  - 指数在关键点位（如4100点）获得支撑并缩量企稳。
+  - 30分钟K线底部钝化形成结构，而非消失。
+  source_raw:
+  - sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
+- pattern_id: theme_qualification_by_bidding
+  name: 题材竞价强度验证法
+  description: 通过竞价阶段一字板数量、封单力度、20cm晋级情况等指标，快速判断题材是否匹配其叙事规格。
+  applicable_themes:
+  - 题材炒作
+  - 事件驱动
+  - 政策主题
+  reasoning_chain:
+  - step: 1
+    name: 设定参照标准
+    question: 该题材的叙事规格应匹配怎样的市场表现？
+    UP_logic: 参照历史同类高规格题材（如超级水电站）的竞价表现作为基准。
+    evidence_sources:
+    - 历史题材表现
+    - 题材叙事高度
+  - step: 2
+    name: 检查10cm一字板
+    question: 10cm方向是否有足够数量且封单充足的一字板？
+    UP_logic: 高规格题材应有多个一字板且封单大，若仅一个且封单不足则不及预期。
+    evidence_sources:
+    - 竞价封单数据
+    - 一字板数量
+  - step: 3
+    name: 检查20cm晋级
+    question: 20cm方向是否有晋级或反包个股？
+    UP_logic: 高规格题材应有20cm一进二或强势反包，若无一晋级且龙头被闷杀则不及预期。
+    evidence_sources:
+    - 20cm涨停数据
+    - 龙头股开盘表现
+  - step: 4
+    name: 观察机构态度
+    question: 机构是否对题材方向有明确共识？
+    UP_logic: 若机构盘后推演多个方向（封测/键合/EDA等），说明机构自身也无把握，进一步确认题材不及预期。
+    evidence_sources:
+    - 机构研报
+    - 盘后推演方向
+  risk_factors:
+  - 竞价数据可能被大单干扰
+  - 题材逻辑可能随时间发酵
+  confidence_indicators:
+  - 一字板数量多且封单大
+  - 20cm有强势晋级股
+  - 机构推演方向集中
+  source_raw:
+  - sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
+- pattern_id: sentiment_catalyst_timing
+  name: 情绪催化三步验证法
+  description: 通过缩量、情绪回暖、利好落地三个步骤验证市场拐点，并据此制定操作策略。
+  applicable_themes:
+  - A股短线交易
+  - 情绪周期研判
+  - 题材催化跟踪
+  reasoning_chain:
+  - step: 1
+    name: 确认缩量
+    question: 市场是否出现缩量？
+    UP_logic: 缩量是调整尾声的信号，表明抛压衰竭，为后续反弹提供基础。
+    evidence_sources:
+    - 成交量数据
+    - 指数分时图
+  - step: 2
+    name: 确认情绪回暖
+    question: 连板晋级率、高标表现、跌停家数是否改善？
+    UP_logic: 高标全部晋级、首板家数增加、跌停控制在个位数，说明情绪底部支撑明显。
+    evidence_sources:
+    - 连板晋级率
+    - 首板家数
+    - 跌停家数
+  - step: 3
+    name: 等待利好落地
+    question: 是否有新催化（重磅消息或政策）落地？
+    UP_logic: 利好催化是触发反弹的关键，若无则继续缩量整理，有则积极跟随。
+    evidence_sources:
+    - 消息面新闻
+    - 政策文件
+    - 公司公告
+  risk_factors:
+  - 利好迟迟不落地导致反弹失败
+  - 指数放量下跌破坏缩量结构
+  confidence_indicators:
+  - 高标持续晋级且首板家数维持高位
+  - 跌停家数连续多日个位数
+  - 重磅催化出现后资金蜂拥
+  source_raw:
+  - sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
+- pattern_id: physical_ai_chain_three_layer
+  name: 物理AI三层投资框架
+  description: 从数字AI到物理AI的范式跃迁中，按链主层、应用层、供应链层三层架构筛选投资标的的推理模式
+  applicable_themes:
+  - 具身智能
+  - 自动驾驶
+  - 低空经济
+  - 机器人产业链
+  reasoning_chain:
+  - step: 1
+    name: 范式跃迁定位
+    question: 当前AI处于哪个发展阶段？
+    UP_logic: 从数字AI（生成式/智能体）向物理AI（具身智能）跃迁，物理AI体量大一个数量级，应用层分散、基础设施层机会更大
+    evidence_sources:
+    - 产业阶段对比表
+    - 市场体量倍数
+  - step: 2
+    name: 三层架构拆解
+    question: 产业链如何分层？各层核心价值是什么？
+    UP_logic: 拆为链主层（具身大脑/世界模型）、应用层（RoboVan/新能源重卡）、供应链层（数据基础设施/芯片），每层投资逻辑不同
+    evidence_sources:
+    - 产业链投资框架表
+    - 选股标准
+  - step: 3
+    name: 选股标准筛选
+    question: 如何从每层中筛选优质标的？
+    UP_logic: 三个看到（数据飞轮、场景资产、全栈能力）和三个忽略（纯硬件参数、短期估值波动、技术路线赌注）
+    evidence_sources:
+    - 选股标准段落
+  - step: 4
+    name: 落地场景验证
+    question: 哪些场景最先落地？验证逻辑是什么？
+    UP_logic: 从边缘场景起步（工业/商业），好算账、易接纳，有头部产业方绑定（如三菱电机），且已有商业化数据（九识智能降本70%）
+    evidence_sources:
+    - 切入策略
+    - 工业场景案例
+    - 物流配送数据
+  risk_factors:
+  - 技术路线分歧（VLA vs 世界模型）导致投资标的失效
+  - 商业化节奏慢于预期，数据获取成本过高
+  - 地缘政治导致算力管制，供应链中断
+  confidence_indicators:
+  - 融资数据（2026年1-4月中国具身智能融资151起、500亿）
+  - 头部企业商业化数据（九识智能25000台、1.2亿公里）
+  - 产业协同（聚合智能体生态，技术同源80%）
+  source_raw:
+  - sources/raw/财经/研报：26-05-07：AI产业链全景——物理AI与具身智能专题.md
+- pattern_id: tech_breakthrough_to_biz_upgrade
+  name: 技术突破驱动的商业模式升级路径
+  description: 通过识别上游关键硬件（如芯片）的技术突破，推断其将解决下游应用瓶颈，进而引发中游商业模式（如算力租赁）发生质变，并最终筛选出受益的产业链环节。
+  applicable_themes:
+  - 科技产业链投资
+  - 商业模式创新分析
+  - 国产替代主题
+  reasoning_chain:
+  - step: 1
+    name: 识别技术突破点
+    question: 产业链中是否存在能够解决当前核心瓶颈的关键技术突破？
+    UP_logic: 以DeepSeek V4的官方表述为引，指出‘受限于高端算力’，并明确‘昇腾950超节点批量上市后’能解决此问题，从而将950超节点定义为产业放量的核心引擎。
+    evidence_sources:
+    - 公司官方公告/会议纪要
+    - 产业调研信息
+  - step: 2
+    name: 推导下游需求释放
+    question: 该技术突破如何解决下游应用（如大模型）的瓶颈，从而打开需求空间？
+    UP_logic: 技术突破（950超节点）解决了‘算力受限’问题，使得下游应用（DeepSeek Pro）能够‘大幅下调价格’，从而‘打通需求侧逻辑’，实现需求爆发。
+    evidence_sources:
+    - 下游应用公司的产品定价策略
+    - Token调用量等需求侧数据
+  - step: 3
+    name: 分析中游商业模式跃迁
+    question: 在需求爆发和技术升级的背景下，中游环节的商业模式是否会发生根本性变化？
+    UP_logic: 从‘传统算力租赁’（重资产、低利润率）对比‘Token工厂’（价值附加、高利润率），指出后者通过‘Token分成’模式，能将净利率从10-15%提升至30%以上，实现商业模式的‘范式跃迁’。
+    evidence_sources:
+    - 行业内头部公司的战略转型公告
+    - 不同商业模式的财务模型对比
+  - step: 4
+    name: 筛选受益产业链环节
+    question: 基于上述变化，哪些产业链环节将获得确定性增量订单或价值重估？
+    UP_logic: 围绕‘昇腾950放量’这一核心，向上游推导出‘先进制程设备’、‘先进封装’、‘半导体材料’受益；围绕‘超节点’的高功率密度和互联需求，推导出‘散热’、‘互联’、‘光通信’等环节获得‘国内增量订单’。
+    evidence_sources:
+    - 产业链调研数据
+    - 上市公司年报/一季报业绩验证
+  risk_factors:
+  - 技术突破不及预期（如昇腾950良率爬坡缓慢）
+  - 下游需求释放不及预期（如大模型应用落地慢于预期）
+  - 商业模式转型失败（如Token工厂模式无法获得客户认可）
+  confidence_indicators:
+  - 关键公司（如DeepSeek、华为）的官方表态或公告确认
+  - 产业链上下游公司的业绩（如年报/季报）超预期
+  - 关键产品（如H100）的租赁价格出现上涨信号
+  source_raw:
+  - sources/raw/财经/研报：26-05-07：国产算力产业链与Token经济学——闭环生态与商业模式跃迁.md
+- pattern_id: benchmark_break_death_spiral
+  name: 标杆破局产业链重塑法
+  description: 通过识别能打破行业负循环的标杆企业，分析其资本开支如何带动上游产业链实现业绩和估值双击的推理模式。
+  applicable_themes:
+  - 半导体设备
+  - 半导体材料
+  - 先进制造
+  - 国产替代
+  - 新能源产业链
+  reasoning_chain:
+  - step: 1
+    name: 识别行业死循环
+    question: 该行业过去为何无法形成长期投资价值？
+    UP_logic: 分析行业过去无法走牛的根本原因，通常归结为缺乏核心企业（如先进制程晶圆厂）导致产业链无法形成正向循环，行情只能靠事件驱动。
+    evidence_sources:
+    - 行业历史走势分析
+    - 产业技术瓶颈分析
+  - step: 2
+    name: 定位破局标杆
+    question: 哪个企业或事件能打破上述死循环？
+    UP_logic: 寻找一个具有“鲶鱼效应”的标杆企业（如长鑫存储），其特点是：大规模资本开支、明确的技术路线、以及强烈的国产化意愿，能通过巨额订单“喂饱”上游。
+    evidence_sources:
+    - 企业IPO公告
+    - 企业扩产计划
+    - 政策文件
+  - step: 3
+    name: 量化资本开支传导
+    question: 标杆企业的资本开支如何转化为上游订单？
+    UP_logic: 将标杆企业的募资用途和扩产计划拆解为具体的设备采购金额，并结合政策红线（如国产化率要求），计算出上游各细分领域（刻蚀、薄膜沉积等）的确定性订单规模。
+    evidence_sources:
+    - 企业招股说明书
+    - 行业研究报告
+    - 政策文件（如国产化率要求）
+  - step: 4
+    name: 推演产业正向循环
+    question: 订单如何推动产业进入正向循环？
+    UP_logic: 论证巨额订单将带来：1）上游企业业绩兑现；2）量产经验反哺技术迭代；3）一级市场信心恢复，形成“需求-设备迭代-制程精进”的螺旋上升。
+    evidence_sources:
+    - 产业经济学逻辑
+    - 历史案例（如特斯拉带动新能源产业链）
+  risk_factors:
+  - 标杆企业技术突破不及预期，导致资本开支放缓或转向
+  - 政策强制国产化率目标无法达成或出现松动
+  - 全球半导体周期进入下行阶段，需求萎缩
+  confidence_indicators:
+  - 标杆企业IPO进程超预期顺利，且募资规模巨大
+  - 核心设备企业获得来自标杆企业的明确大额订单公告
+  - 政策层面持续加码，出台更严厉的国产替代要求
+  source_raw:
+  - sources/raw/财经/视频26-03-06：2026年十倍主线：长鑫存储上市与国产半导体设备替代.md
+- pattern_id: pe_valuation_sector_framework
+  name: PE分行业估值框架
+  description: 通过ROE、增长率、利率和量能四要素，为不同行业建立差异化的PE合理区间和估值逻辑
+  applicable_themes:
+  - A股行业估值
+  - PE估值体系
+  - 行业比较分析
+  reasoning_chain:
+  - step: 1
+    name: 基础公式拆解
+    question: PE的核心驱动因素是什么？
+    UP_logic: PE=股价/EPS，但本质由ROE和增长率G决定：PE≈1/(ROE-G)
+    evidence_sources:
+    - F10财务数据
+    - 公司财报
+  - step: 2
+    name: 利率环境校准
+    question: 当前货币环境如何影响PE中枢？
+    UP_logic: 利率是PE的底层参数：降息→折现率下降→PE抬升；加息→折现率上升→PE压缩
+    evidence_sources:
+    - 央行利率政策
+    - 国债收益率
+  - step: 3
+    name: 量能容忍度调整
+    question: 市场成交量如何改变PE参照系？
+    UP_logic: 成交量<1.5万亿时高PE标的估值快速压缩，2.5万亿+时所有行业估值容忍度系统性上移
+    evidence_sources:
+    - A股日成交额数据
+    - 市场情绪指标
+  - step: 4
+    name: 行业属性分类
+    question: 不同行业的PE有效性和合理区间有何差异？
+    UP_logic: 按行业特征分类：金融地产看PB+ROE，周期股PE反逻辑，消费看25倍上限，医药看管线45-70倍，半导体看壁垒65-85倍，次新股看筹码
+    evidence_sources:
+    - 行业历史PE区间
+    - 公司ROE/G数据
+  risk_factors:
+  - 量能突然萎缩导致高PE标的估值快速压缩
+  - 利率大幅上行压低所有行业PE中枢
+  - 行业景气周期切换使历史PE区间失效
+  confidence_indicators:
+  - 成交量持续在2万亿以上，估值容忍度提升
+  - 降息周期开启，长久期资产PE溢价扩大
+  - 行业龙头ROE稳定且G高于行业平均
+  source_raw:
+  - sources/raw/财经/视频：26-02-19：F10财务分析（三）之PE估值.md
+- pattern_id: geopolitical_conflict_boom_bust
+  name: 地缘冲突炒作周期识别
+  description: 通过对比历史地缘冲突炒作规律，识别当前冲突炒作阶段，区分纯情绪炒作与有中长期逻辑支撑的品种，从而制定买卖策略。
+  applicable_themes:
+  - 地缘冲突
+  - 涨价题材
+  - 事件驱动型炒作
+  reasoning_chain:
+  - step: 1
+    name: 历史类比定位
+    question: 当前地缘冲突炒作处于什么阶段？
+    UP_logic: 参照2022俄乌冲突，地缘冲突炒作=连续涨停拉上去→市场慢慢接受冲突存在后炒作直接结束→A杀。当前美伊冲突已全面高潮，类比俄乌后期。
+    evidence_sources:
+    - 2022俄乌冲突准油股份走势
+    - 当前美伊冲突板块涨停家数
+  - step: 2
+    name: 领涨品种特征
+    question: 领涨品种是龙头连板还是中低位首板？
+    UP_logic: 地缘冲突炒作领涨品种以首板和5天3板/6天2板的中低位为主，量化+游资主导，非机构主导，持续性差。
+    evidence_sources:
+    - 当前涨停板结构分析
+    - 龙虎榜数据
+  - step: 3
+    name: 区分涨价逻辑
+    question: 涨价是纯事件驱动还是有中长期产业逻辑？
+    UP_logic: 纯靠美伊冲突炒的→A杀；靠国内反内卷+出口管制中长期逻辑+AI/军工长期需求→跌下来后仍有上涨动力。
+    evidence_sources:
+    - 云南锗业、金钼股份基本面
+    - 反内卷政策文件
+    - AI/军工需求数据
+  - step: 4
+    name: 制定操作策略
+    question: 不同品种应如何操作？
+    UP_logic: 已全面高潮的品种接力性价比极低，持者可拿，无仓不追；有中长期逻辑的品种等回调企稳后再介入。
+    evidence_sources:
+    - 板块高潮信号（涨停家数、成交量）
+    - 个股估值分位
+  risk_factors:
+  - 冲突突然升级或缓和导致炒作节奏突变
+  - 领涨品种出现高位放量阴线或跌停
+  - 政策面出现超预期变化（如停战协议）
+  confidence_indicators:
+  - 历史相似冲突的炒作周期长度吻合
+  - 领涨品种符合中低位首板特征
+  - 有中长期逻辑支撑的品种回调后获得资金承接
+  source_raw:
+  - sources/raw/财经/视频：26-03-03：美伊冲突A股暴跌，三月怎么看.md
+- pattern_id: crisis_mainline_qualify
+  name: 危机主线三步验证法
+  description: 利用VIX恐慌指数识别危机后的主线行情，通过大盘修复、Price In消化、连板梯队重建三步验证主线成立，再以分歧后修复、二次探底回流、容量核心+梯队三大特征区分一波流与大主线。
+  applicable_themes:
+  - 大盘恐慌后主线挖掘
+  - 板块分歧后持续性判断
+  - 情绪修复期主线筛选
+  reasoning_chain:
+  - step: 1
+    name: 恐慌识别机会
+    question: 当前VIX是否处于极高状态，预示危机后机会？
+    UP_logic: VIX极高时找机会，历史案例显示VIX飙升后往往酝酿年度级别大主线（如2024.8.2→9.24牛市，2025.4.7→光模块主线）。
+    evidence_sources:
+    - VIX恐慌指数
+    - 历史事件对照表
+  - step: 2
+    name: 主线条件验证
+    question: 大盘是否完成修复、Price In是否充分、连板梯队是否重建？
+    UP_logic: 三步验证：①指数从普跌转普涨（跌停板数骤降）；②坏消息不再杀伤（Price In完成）；③连板高度突破（如华电辽能8板）且晋级率高。
+    evidence_sources:
+    - 跌停板数量
+    - 连板高度与晋级率
+    - 消息面冲击程度
+  - step: 3
+    name: 主线特征检验
+    question: 候选板块是否具备分歧后修复、二次探底回流、容量核心+梯队三大特征？
+    UP_logic: 分歧后能修复（非A杀）→N波上行；指数二次探底时最先回流；有几十亿成交中军+连板高标+后排补涨梯队。
+    evidence_sources:
+    - 板块分歧后走势
+    - 指数二次探底时板块回流顺序
+    - 板块内个股成交额与连板结构
+  - step: 4
+    name: 天时地利人和
+    question: 候选方向是否同时具备大盘企稳、资金回流、持续催化+业绩空间？
+    UP_logic: 天时=大盘恐慌后企稳，地利=二次探底最先回流方向，人和=持续消息催化+市场容量+业绩空间。三者齐备才可能成为大主线。
+    evidence_sources:
+    - 大盘指数走势
+    - 板块资金流向
+    - 消息面催化频率
+    - 业绩预期
+  risk_factors:
+  - VIX飙升后市场并未出现主线行情（如恐慌后持续阴跌）
+  - 分歧后板块A杀，无法修复
+  - 指数二次探底时候选板块未率先回流
+  - 缺乏持续催化或业绩支撑，人和不足
+  confidence_indicators:
+  - VIX处于历史极高区域且后续事件升级概率大
+  - 连板高度突破近期纪录且晋级率持续高位
+  - 候选板块分歧后快速修复并创出新高
+  - 板块内出现日成交百亿级中军且梯队完整
+  source_raw:
+  - sources/raw/财经/视频：26-03-25：从恐惧中寻找主线机会.md
+- pattern_id: ai_infra_chain_profit_verify
+  name: AI基建链利润验证与估值上修
+  description: 通过宏观数据、产业链上下游数据交叉验证个股利润高增长的可持续性，并据此上修盈利预测和估值。
+  applicable_themes:
+  - AI算力产业链
+  - 半导体设备材料
+  - 新能源车/储能产业链
+  reasoning_chain:
+  - step: 1
+    name: 宏观数据锚定
+    question: 个股所处赛道的宏观景气度是否得到验证？
+    UP_logic: 用宏观数据（如高技术制造业+12.5%、集成电路增长24%）为个股高增长提供宏观合法性，证明其并非孤立事件。
+    evidence_sources:
+    - 国家统计局宏观数据
+    - 行业出口数据
+  - step: 2
+    name: 利润质量拆解
+    question: 利润增长是量价齐升还是虚胖？
+    UP_logic: 重点看毛利、净利增幅是否均高。双增才能提升估值倍数，仅看净利润可能失真。
+    evidence_sources:
+    - 公司财报（利润表）
+    - 毛利率、净利率变化趋势
+  - step: 3
+    name: 下游需求溯源
+    question: 高增长的需求驱动力是什么？能否持续？
+    UP_logic: 将个股增长归因于全球（而非国内）下游需求爆发（如全球AI基建），并指出高端产品（1.6T）结构升级是利润提升的关键。
+    evidence_sources:
+    - 全球头部科技公司资本开支指引
+    - 产品代际更新路线图
+  - step: 4
+    name: 盈利预测上修
+    question: 基于已验证的景气度，如何调整未来盈利预期？
+    UP_logic: 基于当前超预期的业绩和下游需求持续性，对未来的EPS进行大幅上修（如+40%），并据此给出新的目标价区间。
+    evidence_sources:
+    - 公司季度财报
+    - 分析师一致预期调整
+    - 产业链调研数据
+  risk_factors:
+  - 下游需求（如AI资本开支）出现超预期下滑
+  - 产品价格战导致毛利率、净利率双降
+  - 技术路线发生颠覆性变化，公司产品被替代
+  confidence_indicators:
+  - 宏观数据（如高技术制造业增速）与公司业绩增速高度匹配
+  - 公司财报中毛利和净利同步高增长
+  - 下游客户持续加大资本开支，且产品向高端化升级
+  source_raw:
+  - sources/raw/财经/视频：26-04-16：创业板创十年新高，科技股领涨，三重炸弹同日引爆！.md
+- pattern_id: quantitative_era_trading_logic
+  name: 量化时代交易逻辑框架
+  description: 基于量化主导市场特征，从预期差、盘口信号、阻力方向等维度构建交易决策的推理模式
+  applicable_themes:
+  - A股短线交易
+  - 量化交易应对
+  - 板块轮动分析
+  - 个股盘口判断
+  reasoning_chain:
+  - step: 1
+    name: 盘前设定预期
+    question: 基于前日走势和消息面，该股/板块正常应该怎么走？
+    UP_logic: 盘前想清楚一支票/一个板块在当前背景下正常应该怎么走，分为高预期、符合预期、低预期三种情景
+    evidence_sources:
+    - 前日涨跌
+    - 盘后消息面
+    - 板块联动情况
+  - step: 2
+    name: 开盘验证预期
+    question: 开盘实际走势是否符合盘前预期？
+    UP_logic: 该强不强=已经弱了，量化环境下该强不强不是中性信号，是危险信号
+    evidence_sources:
+    - 开盘价
+    - 开盘方向
+    - 板块内权重股表现
+  - step: 3
+    name: 判断卖点时机
+    question: 当前是否属于极端一致性错杀？还是正常不及预期？
+    UP_logic: 极端一致性大低开（权重集体承压、板块整体受利空冲击）才值得等修复；否则量化同步放大下跌，几乎不给反弹
+    evidence_sources:
+    - 竞价跌幅
+    - 板块内个股同步性
+    - 权重股表现
+  - step: 4
+    name: 确认阻力方向
+    question: 当前市场阻力最小的方向是什么？
+    UP_logic: 顺势不是机械地顺着上涨，而是顺应当下市场阻力最小的方向：主升期是上涨，退潮期是止跌/抗跌/跌不动
+    evidence_sources:
+    - 资金偏好
+    - 板块结构
+    - 活跃资金流向
+  risk_factors:
+  - 极端行情下所有模式都可能失效
+  - 量化模型迭代可能改变盘口特征
+  - 个股特殊事件（如爆雷）会打破常规模式
+  confidence_indicators:
+  - 多个同逻辑个股出现相同盘口结构
+  - 权重股同步表现验证预期
+  - 该强不强信号出现后市场持续走弱
+  source_raw:
+  - sources/raw/财经/视频：26-04-21：量化主导时代的交易逻辑.md
+- pattern_id: cycle_compression_qualify
+  name: 周期压缩下的主线修复判断
+  description: 通过观察主线板块调整周期是否被压缩、修复效率是否提高，来判断主线强度是否超预期，并据此调整交易节奏。
+  applicable_themes:
+  - AI产业链
+  - 半导体
+  - 新能源
+  - 任何强主线板块
+  reasoning_chain:
+  - step: 1
+    name: 识别正常周期
+    question: 当前板块的正常调整-修复周期是怎样的？
+    UP_logic: 正常情况下，大涨→分歧→调整几天→回流修复。先建立基准周期长度。
+    evidence_sources:
+    - 历史板块走势
+    - 同类题材以往调整天数
+  - step: 2
+    name: 观察实际周期
+    question: 当前实际调整周期是否短于正常？
+    UP_logic: 当前调整周期被压缩，不是调整几天后的正常回流，而是开盘直接修复，如协创数据。
+    evidence_sources:
+    - 个股开盘表现
+    - 板块内核心票调整天数
+  - step: 3
+    name: 判断周期压缩
+    question: 周期压缩是否意味着主线强度超预期？
+    UP_logic: 周期没有失效，而是方向强到开始压缩周期、缩短调整时间、提高修复效率。
+    evidence_sources:
+    - 东山精密等无视传统调整周期
+    - 算力租赁调整三天后回流预期验证
+  - step: 4
+    name: 调整交易策略
+    question: 基于周期压缩，交易上应如何应对？
+    UP_logic: 方向保持认知，时点降低执念，仓位留够弹性。手上有资金，看到强修复信号立刻能进。
+    evidence_sources:
+    - 博主连讲三天回流预期
+    - 昨天低位是低吸窗口
+  risk_factors:
+  - 主线真正退潮时，周期压缩现象消失，低吸策略失效
+  - 如果调整周期突然拉长（超过正常天数），说明主线强度减弱
+  confidence_indicators:
+  - 核心票开盘直接修复，无标准左侧低吸点
+  - 多只核心票进入无视传统调整周期的强势趋势结构
+  source_raw:
+  - sources/raw/财经/视频：26-04-22：AI链核心票为何强势修复.md
+- pattern_id: domestic_ai_ecosystem_chain
+  name: 国产算力生态催化推演
+  description: 从模型发布和生态事件出发，推演国产算力产业链受益环节与标的
+  applicable_themes:
+  - 国产算力
+  - AI芯片
+  - 信创
+  - 华为昇腾生态
+  reasoning_chain:
+  - step: 1
+    name: 模型发布分析
+    question: 新模型的技术特点和定价策略是什么？
+    UP_logic: 从速度、上下文、价格、能力维度对比，找出结构性升级方向（如长上下文、低成本、国产适配）
+    evidence_sources:
+    - 模型评测数据
+    - 官方定价
+    - 架构说明
+  - step: 2
+    name: 生态催化识别
+    question: 当前有哪些关键事件正在推动国产算力生态？
+    UP_logic: 列举近期集采、适配、开源等事件，判断生态成熟度和市场信心变化
+    evidence_sources:
+    - 集采公告
+    - 适配新闻
+    - 开源动态
+  - step: 3
+    name: 产业链分层
+    question: 受益公司如何按产业链位置分层？
+    UP_logic: 按核心龙头、生态核心、场景落地三个梯队划分，对应芯片/硬件/软件/应用不同环节
+    evidence_sources:
+    - 公司业务公告
+    - 产业链调研
+  - step: 4
+    name: 盘面验证
+    question: 当日市场表现是否验证了推理方向？
+    UP_logic: 对比软件vs硬件板块当日涨跌，结合业绩预期判断短期资金偏好
+    evidence_sources:
+    - 当日板块涨跌幅
+    - 个股业绩预告
+  - step: 5
+    name: 产业意义总结
+    question: 事件对产业中长期格局意味着什么？
+    UP_logic: 从生态绑定、部署验证、成本空间、算力解锁等角度提炼产业逻辑
+    evidence_sources:
+    - 官方发布语
+    - 行业分析
+  risk_factors:
+  - 估值已提前反映
+  - 政策集采节奏不及预期
+  - CUDA生态壁垒短期难突破
+  confidence_indicators:
+  - 集采100%指定国产
+  - 模型官方适配公告
+  - 金融级场景跑通
+  source_raw:
+  - sources/raw/财经/视频：26-04-24：国产算力生态加速形成.md
+- pattern_id: strategic_asset_control_chain
+  name: 战略科技资产监管升级推理
+  description: 从单一监管事件出发，通过时间线、监管逻辑转变、产业承接能力、闭环支柱等步骤，推导出AI资产被纳入国家安全范畴并倒逼产业闭环的推理模式
+  applicable_themes:
+  - AI监管政策分析
+  - 科技资产跨境并购
+  - 国产替代产业链
+  - 中美科技竞争
+  reasoning_chain:
+  - step: 1
+    name: 事件定性
+    question: 这个监管事件的性质是什么？是常规审批还是根本否定？
+    UP_logic: 从发改委直接否定交易而非补充材料/延后审批，判断事件性质已从商业审查升级为安全审查
+    evidence_sources:
+    - 发改委公告
+    - 交易审批流程对比
+  - step: 2
+    name: 监管逻辑转变
+    question: 监管的判定标准发生了什么根本变化？
+    UP_logic: 从看法律实体注册地转变为看技术来源和资产实质联系（核心团队、技术积累、知识产权、生态关联），即使主体已迁至海外仍被纳入审查
+    evidence_sources:
+    - Manus案例细节
+    - 监管机构表态
+  - step: 3
+    name: 历史阶段定位
+    question: 当前处于中美科技竞争的第几阶段？
+    UP_logic: 将竞争分为产品市场、芯片供应链、科技资产所有权三个阶段，当前处于第三阶段，核心手段是投资管控+资产归属争夺
+    evidence_sources:
+    - 美国对华科技投资数据（412亿→3亿）
+    - 双向管控案例
+  - step: 4
+    name: 承接能力验证
+    question: 国内是否有能力承接这些被限制外流的科技资产？
+    UP_logic: 以DeepSeek V4和华为昇腾为例，证明中国在模型层和应用层已具备全球竞争力，为监管收紧提供产业基础
+    evidence_sources:
+    - DeepSeek V4技术表现
+    - 华为昇腾生态进展
+  - step: 5
+    name: 闭环支柱构建
+    question: 要形成完整的AI产业闭环需要哪些支柱？
+    UP_logic: 提出四根支柱：国产算力、国产模型生态、企业应用场景、资本退出通道，并指出Manus事件倒逼国内资本市场和产业整合接住优质AI资产
+    evidence_sources:
+    - 昇腾/AIDC产业链
+    - 国内资本市场政策动向
+  risk_factors:
+  - 国内资本市场规则不清晰，无法有效承接优质AI资产
+  - 海外科技巨头通过其他渠道获取中国AI技术
+  - 国产算力和模型生态发展不及预期
+  confidence_indicators:
+  - 监管层持续出台配套政策明确科技资产归属规则
+  - 国内AI创业公司通过科创板/产业并购实现退出案例增加
+  - 昇腾生态和DeepSeek等国产模型获得更多企业级订单
+  source_raw:
+  - sources/raw/财经/视频：26-04-27：国家安全下的AI监管升级.md
+- pattern_id: ai_energy_civilization_chain
+  name: AI能源文明升级推理链
+  description: 从AI的物理本质出发，沿着能源捕获-转换-部署的链条，逐层推导产业瓶颈与投资方向
+  applicable_themes:
+  - AI基础设施
+  - 新能源
+  - 商业航天
+  - 人形机器人
+  reasoning_chain:
+  - step: 1
+    name: 定义AI物理本质
+    question: AI大规模部署后的核心约束是什么？
+    UP_logic: AI不是纯软件，而是高度耗能的智能生产方式，本质是把电力转换为算力再转换为智能
+    evidence_sources:
+    - AI数据中心能耗数据
+    - GPU真实功耗拆解
+  - step: 2
+    name: 定位能源文明阶段
+    question: 人类当前能源利用能力处于什么水平？
+    UP_logic: 用卡尔达肖夫指数衡量，人类仅0.7级文明，需大幅提升太阳能捕获能力才能升级
+    evidence_sources:
+    - 卡尔达肖夫指数定义
+    - 人类总能耗数据
+    - 太阳辐射功率数据
+  - step: 3
+    name: 识别短期瓶颈
+    question: 当前AI扩张最紧迫的供应链约束是什么？
+    UP_logic: 数据中心快速扩张导致燃气轮机订单排到2030年，热端叶片等核心部件供应严重不足
+    evidence_sources:
+    - 燃气轮机订单排期
+    - Colossus 2数据中心案例
+    - 热端部件制造工艺
+  - step: 4
+    name: 发现储能新角色
+    question: 储能如何解决AI数据中心的特殊需求？
+    UP_logic: AI训练负载存在毫秒级功率波动，储能可做功率平滑、削峰填谷，比新建电厂更高效
+    evidence_sources:
+    - 美国电网峰谷差数据
+    - XAI储能应用案例
+  - step: 5
+    name: 构建五层能源计划
+    question: 马斯克解决能源问题的长期路线是什么？
+    UP_logic: 短期燃气+储能→中期地面太阳能→长期太空太阳能→远期月球制造→更远期戴森云，层层叠加
+    evidence_sources:
+    - 五层计划表格
+    - Starship发射成本目标
+  - step: 6
+    name: 评估太空算力可行性
+    question: 太空部署AI的经济账是否成立？
+    UP_logic: 太空太阳能有效发电能力是地面5倍，剔除储能后性价比达10倍，但前提是发射成本降至100美元/公斤以下
+    evidence_sources:
+    - 太空太阳能五倍优势分析
+    - Starship复用进度
+    - 工程难点清单
+  - step: 7
+    name: 推导人形机器人路径
+    question: AI如何从数字世界进入物理世界？
+    UP_logic: 人形机器人需三重指数（AI软件+芯片+机电灵巧度）乘法式进步，并利用递归飞轮（机器人制造机器人）实现复利增长
+    evidence_sources:
+    - 三重指数框架
+    - 特斯拉自动驾驶迁移案例
+    - 共享记忆机制
+  risk_factors:
+  - Starship复用进度不及预期，发射成本无法降至100美元/公斤以下
+  - 燃气轮机热端叶片产能瓶颈无法突破，导致数据中心建设停滞
+  - 人形机器人灵巧手技术突破慢于预期，量产爬坡受阻
+  confidence_indicators:
+  - 头部科技公司（Google、SpaceX）同时讨论太空数据中心方案
+  - 特斯拉Optimus在工厂部署规模从1000台扩大到3万台
+  - Starship年发射次数接近每小时一次，复用周期缩短至30小时
+  source_raw:
+  - sources/raw/财经/视频：26-05-10：太空算力、能源瓶颈与AI产业新范式（一）.md
+- pattern_id: energy_infrastructure_mainline_screening
+  name: 能源基础设施主线筛选法
+  description: 从AI算力缺电这一底层约束出发，通过电力来源、技术成熟度、政策驱动和产业链价值量，筛选出五条能源基础设施投资主线，并给出各主线的核心逻辑、时间窗口和关键标的。
+  applicable_themes:
+  - AI基础设施
+  - 能源转型
+  - 电力设备
+  - 绿色燃料
+  - 智能交通
+  reasoning_chain:
+  - step: 1
+    name: 识别底层约束
+    question: AI发展的核心瓶颈是什么？
+    UP_logic: 从AI算力爆发推导出电力是底层约束，强调谁有能源谁就能发展。
+    evidence_sources:
+    - 北美AIDC电网容量不足
+    - 超1GW数据中心需自建电源
+  - step: 2
+    name: 划分投资主线
+    question: 哪些能源技术能解决AI缺电问题？
+    UP_logic: 根据电力来源（燃机、核电、绿色燃料）和技术成熟度，划分出五条主线，并给出各自的时间窗口。
+    evidence_sources:
+    - 燃气轮机订单排至2030+
+    - 核电2026Q2业绩兑现
+    - SAF 2027强制采购
+  - step: 3
+    name: 产业链价值分析
+    question: 每条主线中哪个环节价值最高？
+    UP_logic: 通过价值量分布（如涡轮叶片占20%）、技术壁垒和维修耗材逻辑，筛选出高弹性环节。
+    evidence_sources:
+    - 涡轮叶片价值量最高
+    - 高温合金材料价值50%+
+    - 维修收入占比2/3
+  - step: 4
+    name: 三维度筛选标的
+    question: 如何从产业链中选出具体投资标的？
+    UP_logic: 从全球供应链准入、高价值零部件、维修耗材逻辑三个维度筛选企业。
+    evidence_sources:
+    - 已进入GE/西门子供应链
+    - 掌握涡轮叶片/高温合金技术
+    - 具备维修耗材长期持续性
+  - step: 5
+    name: 共性逻辑提炼
+    question: 五条主线有哪些共同特征？
+    UP_logic: 提炼出全球前三+国产唯一替代、订单能见度高、从中国到全球、低估值高利润四个共性。
+    evidence_sources:
+    - 燃机排至2030+
+    - 核电PE仅10+倍
+    - 重卡占全球95%
+  risk_factors:
+  - AI算力需求增速不及预期，导致电力需求放缓
+  - 技术路线被颠覆（如固态电池或氢能突破）
+  - 政策执行力度不足（如SAF强制采购推迟）
+  - 地缘政治风险影响全球供应链
+  confidence_indicators:
+  - 北美AIDC订单持续增长
+  - 中国核电核准数量超预期
+  - 绿色燃料强制政策落地
+  - 新能源重卡渗透率加速突破30%
+  source_raw:
+  - sources/raw/财经/视频：26-05-12：AI基础设施与能源转型，燃机核电绿色燃料智能交通五大主线.md
+- pattern_id: market_phase_strategy_switch
+  name: 主升转震荡策略切换
+  description: 从量能目标、情绪冰点、活口分类、核心股止跌等多维度判断市场是否从主升浪进入震荡阶段，并据此切换操作策略
+  applicable_themes:
+  - A股大盘分析
+  - 板块轮动判断
+  - 个股操作策略
+  reasoning_chain:
+  - step: 1
+    name: 量能风险锚定
+    question: 当前量能是否接近目标阈值？
+    UP_logic: 用接近4万亿量能目标作为风险锚点，未达目标前不轻易判断行情结束
+    evidence_sources:
+    - 市场成交量数据
+  - step: 2
+    name: 情绪冰点判断
+    question: 市场是否达到情绪冰点？
+    UP_logic: 通过涨跌家数对比判断是否达到二次冰点或极端冰点，决定低吸性价比
+    evidence_sources:
+    - 涨跌家数统计
+  - step: 3
+    name: 活口分类识别
+    question: 逆势抗跌股属于退潮活口还是复苏活口？
+    UP_logic: 区分退潮活口（诱多）和复苏活口（下一轮主力），只跟踪复苏活口
+    evidence_sources:
+    - 个股逆势表现
+    - 板块联动性
+  - step: 4
+    name: 核心股止跌验证
+    question: 主线核心股（如工业富联）是否止跌？
+    UP_logic: 观察主线核心股能否止跌并主动修复，判断主线是否全面退潮
+    evidence_sources:
+    - 核心个股价格走势
+    - 成交量变化
+  - step: 5
+    name: 策略切换执行
+    question: 是否从主升浪追涨切换到震荡策略？
+    UP_logic: 若确认进入震荡阶段，则从追涨切换为买阴卖阳、下跌敢买、节点不清晰不出手
+    evidence_sources:
+    - 前四步综合判断
+  risk_factors:
+  - 量能提前接近4万亿导致风险释放
+  - 核心股持续下跌无法止跌
+  - 情绪冰点判断失误导致过早入场
+  confidence_indicators:
+  - 量能持续放大但未达目标
+  - 核心股出现止跌信号
+  - 创业板等指数出现有效修复
+  source_raw:
+  - sources/raw/财经/视频：26-05-14：A股大跌后走势分析，指数错杀震荡，调整后仍有大行情.md
+- pattern_id: tech_bubble_crisis_deduction
+  name: 技术泡沫危机推演框架
+  description: 从资本品价格飙升出发，通过短寿命资产金融化、ROI压力、负反馈链条，推演泡沫破裂时间线与冲击路径
+  applicable_themes:
+  - AI产业周期
+  - 半导体资本开支
+  - 技术革命泡沫
+  - GPU租赁金融化
+  reasoning_chain:
+  - step: 1
+    name: 识别价格异常信号
+    question: 核心硬件价格是否出现非正常飙升？
+    UP_logic: VR200机柜价格翻倍至780万美元，内存成本涨435%，视为摩尔定律失效的警报而非简单涨价
+    evidence_sources:
+    - 摩根士丹利拆解报告
+    - 英伟达产品定价数据
+  - step: 2
+    name: 定性资产类型
+    question: 核心资产是长寿命还是短寿命资本品？
+    UP_logic: GPU物理寿命6-8年但经济寿命仅3-5年，技术迭代快，属于短寿命资本品，不适合作为稳定抵押品
+    evidence_sources:
+    - GPU折旧规律
+    - 芯片技术迭代周期
+  - step: 3
+    name: 识别金融杠杆结构
+    question: 产业链是否存在多层杠杆化？
+    UP_logic: GPU租赁公司抵押借钱→云厂商发债→AI公司融资→金融产品再质押，形成类似次贷的四层杠杆结构
+    evidence_sources:
+    - CoreWeave等租赁公司融资模式
+    - AI相关债券发行数据
+  - step: 4
+    name: 构建负反馈链条
+    question: 什么事件会触发系统性崩溃？
+    UP_logic: 二手GPU价格下跌→抵押品贬值→补保证金→抛售GPU→价格再跌→云厂商减值→股价跌→融资恶化→债务违约
+    evidence_sources:
+    - GPU二手市场价格数据
+    - 租赁公司债券利差
+  - step: 5
+    name: 设定危机时间线
+    question: 危机各阶段何时出现？
+    UP_logic: 2026Q3-Q4收入增速下滑→2027Q1供需拐点→2027Q2-Q3债务压力→2027Q4-2028Q1雷曼时刻→2028后救助
+    evidence_sources:
+    - 台积电产能利用率
+    - HBM价格比
+    - 云厂商资本开支增速
+  risk_factors:
+  - 摩尔定律若意外突破（如新制程或架构创新），GPU经济寿命可能延长
+  - 中国低成本模型（如DeepSeek）若无法持续证明商业可行性，则冲击逻辑减弱
+  - 政府大规模直接干预可能延缓泡沫破裂时间点
+  confidence_indicators:
+  - GPU二手价格持续下跌且跌破1.8万美元
+  - 云厂商资本开支增速降至15%以下
+  - GPU租赁公司债券利差扩大至500bps以上
+  - 台积电先进制程产能利用率跌破90%
+  source_raw:
+  - sources/raw/财经/视频：26-05-23：2028那场必来的危机，AI资本狂潮的终局推演.md
+- pattern_id: k_line_position_analysis
+  name: K线位置分析推理法
+  description: 通过判断长红线（大阳线）在股价走势中的不同位置（低档、高档、箱体突破），结合成交量与跌幅条件，推导后续涨跌信号与操作策略。
+  applicable_themes:
+  - 技术分析
+  - K线形态
+  - 个股短线交易
+  - 指数研判
+  reasoning_chain:
+  - step: 1
+    name: 定位K线位置
+    question: 这根长红线出现在股价走势的什么阶段？
+    UP_logic: 同一根长红线出现在不同位置含义完全不同，必须先判断是下跌后（低档）、长期上涨后（高档）还是箱体横盘后（突破）。
+    evidence_sources:
+    - 股价历史走势图
+    - 近期涨跌幅度
+  - step: 2
+    name: 验证条件匹配
+    question: 当前K线是否满足该位置对应的量化条件？
+    UP_logic: 低档需前期下跌5-10个交易日、个股跌幅15%以上；高档需前期上涨温和、突然出现光头长红线；箱体突破需放量高于盘整均量。
+    evidence_sources:
+    - 前期跌幅/涨幅统计
+    - 成交量对比数据
+  - step: 3
+    name: 推导市场含义
+    question: 该位置长红线反映了怎样的多空力量变化？
+    UP_logic: 低档=卖压耗尽+大资金入场；高档=最后看多资金集中入场、买盘枯竭；箱体突破=多方决定性胜利、新空间打开。
+    evidence_sources:
+    - 资金流向观察
+    - 市场情绪判断
+  - step: 4
+    name: 制定操作策略
+    question: 根据信号应如何操作及设置风控？
+    UP_logic: 低档=买入信号；高档=减仓/不追；箱体突破=按箱体高度计算目标价；所有情况均需设置跌破长红线中点/开盘价的两道风控防线。
+    evidence_sources:
+    - 箱体高度计算
+    - 长红线开盘价/收盘价
+  risk_factors:
+  - 长红线出现在震荡市中可能频繁出现假信号
+  - 缩量突破箱体易形成诱多陷阱
+  - 高档长红线后股价可能继续惯性上涨5%-10%，过早减仓可能踏空
+  confidence_indicators:
+  - 低档长红线前下跌时间越长、跌幅越大，信号越可靠
+  - 箱体突破时成交量显著放大，增强突破真实性
+  - 长红线实体越长、影线越短，信号强度越高
+  source_raw:
+  - sources/raw/财经/视频：26-05-28：股市技术分析第一课：单根大阳线（长红线）的实战用法与交易纪律.md
+- pattern_id: sector_catalyst_timing
+  name: 题材催化时间窗口法
+  description: 根据业绩验证期和事件催化期，判断板块的参与时机和策略。
+  applicable_themes:
+  - 题材炒作
+  - 事件驱动
+  - 业绩验证
+  - 主题投资
+  reasoning_chain:
+  - step: 1
+    name: 定位板块属性
+    question: 该板块是业绩驱动型还是概念驱动型？
+    UP_logic: 区分板块是否有业绩支撑。如软件板块“必然没业绩”，而半导体、燃气轮机等“有业绩”。
+    evidence_sources:
+    - 行业常识
+    - 财报数据
+  - step: 2
+    name: 划分时间窗口
+    question: 当前时间点处于业绩期还是题材炒作期？
+    UP_logic: 将市场时间划分为“业绩期”（如7-8月）和“题材炒作期”（如6月）。业绩期关注有业绩的，题材期关注有催化的。
+    evidence_sources:
+    - 日历效应
+    - 市场历史规律
+  - step: 3
+    name: 匹配催化事件
+    question: 在题材炒作期内，该板块是否有密集的、可预期的催化事件？
+    UP_logic: 寻找未来1-2周内的明确事件（如台北电脑展、苹果开发者大会），作为炒作启动的“引信”。
+    evidence_sources:
+    - 产业会议日程
+    - 公司发布会预告
+  - step: 4
+    name: 制定参与策略
+    question: 基于以上判断，应该如何操作？
+    UP_logic: 对于“有催化+无业绩”的板块（如软件），在题材窗口期“高看一眼”，但需注意节点，避免在业绩期被证伪。
+    evidence_sources:
+    - 板块走势
+    - 市场情绪
+  risk_factors:
+  - 催化事件被证伪或不及预期
+  - 市场整体环境转弱，题材炒作失效
+  - 时间窗口判断错误，过早或过晚介入
+  confidence_indicators:
+  - 催化事件级别高、影响力大
+  - 板块处于相对低位，有安全边际
+  - 板块内出现多只个股联动上涨
+  source_raw:
+  - sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
+- pattern_id: k_type_differentiation_analysis
+  name: K型分化分层分析法
+  description: 从宏观到微观，识别K型分化中的赢家与输家，分层分析投资机会
+  applicable_themes:
+  - 宏观经济分析
+  - 行业投资策略
+  - 资产配置
+  reasoning_chain:
+  - step: 1
+    name: 识别分化力量
+    question: 当前经济由哪些核心力量驱动？
+    UP_logic: 从AI、保护主义、地缘政治三股力量出发，分析它们如何塑造K型分化格局
+    evidence_sources:
+    - 宏观经济数据
+    - 政策文件
+    - 地缘政治事件
+  - step: 2
+    name: 分层观察主体
+    question: 不同国家/行业/企业在分化中处于什么位置？
+    UP_logic: 按准备度/竞争力分层，区分赢家（有准备、有资源）和输家（被动依赖外部）
+    evidence_sources:
+    - 国家/行业竞争力报告
+    - 企业财务数据
+    - 市场份额数据
+  - step: 3
+    name: 验证分化表现
+    question: 分化是否在具体市场/板块中得到验证？
+    UP_logic: 检查美股、港股、楼市、消费等市场内部是否出现赢家与输家的分化
+    evidence_sources:
+    - 市场指数数据
+    - 行业盈利数据
+    - 资金流向数据
+  - step: 4
+    name: 寻找投资机会
+    question: 分化中哪些细分领域存在投资机会？
+    UP_logic: 在赢家领域（如AI硬件、高股息、科技消费品）中寻找具体标的
+    evidence_sources:
+    - 行业研究报告
+    - 公司财报
+    - 政策导向
+  risk_factors:
+  - 分化格局可能因政策变化或突发事件逆转
+  - 赢家领域可能过度拥挤导致估值泡沫
+  - 分层分析可能忽略系统性风险
+  confidence_indicators:
+  - 多个市场同时验证分化格局
+  - 赢家领域有持续的资金流入
+  - 政策持续支持赢家领域的发展
+  source_raw:
+  - sources/raw/财经/视频：26-05-30：分化时代下的房地产、消费和港股.md
+- pattern_id: multi_mainline_rotation_rhythm
+  name: 多主线轮动节奏分析法
+  description: 通过识别市场多主线格局，分析各板块所处情绪阶段与资金承接关系，制定轮动操作节奏的推理框架。
+  applicable_themes:
+  - 板块轮动
+  - 主线识别
+  - 短线情绪节奏
+  reasoning_chain:
+  - step: 1
+    name: 识别多主线格局
+    question: 当前市场有哪些核心主线？
+    UP_logic: 从市场整体表现中归纳出‘三足鼎立’的多主线格局，明确商业航天、股权线、AI金融/数字货币三大方向。
+    evidence_sources:
+    - 指数走势
+    - 板块表现
+    - 短线情绪数据
+  - step: 2
+    name: 分析各板块情绪阶段
+    question: 每个板块处于情绪周期的哪个位置？
+    UP_logic: 对每个板块分别判断：商业航天处于‘情绪高点将启’阶段，机器人处于‘分化后承接’阶段，芯片半导体处于‘短期震荡’阶段。
+    evidence_sources:
+    - 板块涨跌表现
+    - 龙头股走势
+    - 资金博弈迹象
+  - step: 3
+    name: 判断资金承接方向
+    question: 分化资金可能流向哪些板块？
+    UP_logic: 认为机器人是商业航天分化资金的主要承接方向，逻辑是赛道扎实、后市反复活跃。
+    evidence_sources:
+    - 板块联动性
+    - 资金流向观察
+    - 历史轮动规律
+  - step: 4
+    name: 制定轮动操作节奏
+    question: 针对不同阶段板块应采取什么操作策略？
+    UP_logic: 机器人分化时低吸布局，芯片半导体等待企稳信号，商业航天聚焦龙头回避后排。
+    evidence_sources:
+    - 情绪阶段判断
+    - 风险收益比评估
+  risk_factors:
+  - 主线格局被打破（如新主线出现或旧主线退潮）
+  - 情绪阶段判断错误（如误判高点或低点）
+  - 资金承接方向不达预期（如机器人未能承接资金）
+  confidence_indicators:
+  - 多主线格局持续清晰，各板块轮动有序
+  - 龙头股走势符合情绪阶段预期
+  - 分化资金流向与判断一致
+  source_raw:
+  - sources/raw/财经/复盘：26-01-04：三足鼎立，沪指11连阳.md
+- pattern_id: mainline_branch_extension
+  name: 主线分支延伸推理法
+  description: 从最强主线出发，识别其产业逻辑的互补或延伸方向，进而筛选出具备成体系潜力的分支板块和个股。
+  applicable_themes:
+  - 主线板块分析
+  - 补涨分支挖掘
+  - 产业技术路线梳理
+  reasoning_chain:
+  - step: 1
+    name: 确认最强主线
+    question: 当前市场资金最集中、涨停最多的板块是什么？
+    UP_logic: 通过涨停数量、资金集中度、高低位共振等指标确认商业航天为最强主线。
+    evidence_sources:
+    - 涨停家数统计
+    - 板块资金流向
+  - step: 2
+    name: 拆解产业逻辑
+    question: 该主线的产业逻辑包含哪些核心环节或技术路线？
+    UP_logic: 从商业航天产业出发，拆解出能源系统（钙钛矿/P型HJT/砷化镓）作为互补技术路线。
+    evidence_sources:
+    - 产业研究报告
+    - 技术路线对比
+  - step: 3
+    name: 识别成体系分支
+    question: 哪些分支具备独立成体系的潜力（有核心标杆、多标的联动）？
+    UP_logic: 以乾照光电涨停为核心标杆，确认能源系统（钙钛矿/P型HJT/砷化镓）为成体系分支。
+    evidence_sources:
+    - 个股涨停表现
+    - 板块内联动性
+  - step: 4
+    name: 筛选补涨方向
+    question: 主线之外，哪些方向有独立催化且资金认可度较高？
+    UP_logic: 脑机接口4连板、可控核聚变2连板，作为最强补涨分支，与主线形成共振。
+    evidence_sources:
+    - 连板高度
+    - 板块涨停数量
+  risk_factors:
+  - 主线高位股分歧导致补涨分支失去支撑
+  - 分支板块催化不持续，资金回流主线
+  confidence_indicators:
+  - 主线板块持续超预期（如商业航天高低位共振）
+  - 分支板块出现核心标杆股（如乾照光电涨停）
+  source_raw:
+  - sources/raw/财经/复盘：26-01-08：2.8万亿，商业航天高潮，脑机4连板.md
+- pattern_id: sector_mainline_qualify
+  name: 主线板块定性验证法
+  description: 通过催化强度、资金切换、细分扩散、情绪信号四个步骤，判断一个板块是否具备主线地位并指导交易节奏。
+  applicable_themes:
+  - 算力硬件
+  - 商业航天
+  - 新能源
+  - 半导体
+  reasoning_chain:
+  - step: 1
+    name: 催化强度验证
+    question: 该板块是否有超预期的产业催化？
+    UP_logic: 引用谷歌TPU出货量上调50%、英伟达全液冷架构等产业数据，判断催化是否足够强且持续。
+    evidence_sources:
+    - 产业公司公告
+    - 行业研究机构预测
+    - 龙头公司财报
+  - step: 2
+    name: 资金切换确认
+    question: 机构资金是否从高位板块向该板块切换？
+    UP_logic: 观察机构净买卖数据，如从消费电子、光模块向液冷、国产CPU切换，确认资金流向。
+    evidence_sources:
+    - 龙虎榜机构席位数据
+    - 板块成交额变化
+  - step: 3
+    name: 细分扩散跟踪
+    question: 板块内部是否出现低位细分全面爆发？
+    UP_logic: 检查液冷、玻璃基板、国产CPU等多个细分方向是否同时涨停潮，判断主线纵深。
+    evidence_sources:
+    - 板块内涨停家数
+    - 细分龙头走势
+  - step: 4
+    name: 情绪信号预警
+    question: 板块内核心标的尾盘是否出现炸板等分歧信号？
+    UP_logic: 以圣阳股份尾盘炸板为例，判断短线情绪可能退潮，提示分歧低吸而非追高。
+    evidence_sources:
+    - 个股分时走势
+    - 涨停封单变化
+  risk_factors:
+  - 核心催化证伪（如出货量不及预期）
+  - 机构资金转向其他方向
+  - 龙头股连续炸板或跌停
+  confidence_indicators:
+  - 多个细分方向同时涨停潮
+  - 机构净买入持续增加
+  - 产业催化有明确时间节点（如航天日、财报）
+  source_raw:
+  - sources/raw/财经/复盘：26-04-20：沪指收复60日线2.58万亿，液冷涨停潮商业航天爆发，圣阳炸板预警.md
+- pattern_id: sector_mainline_validation
+  name: 主线强度验证与干扰排除
+  description: 通过观察主线核心票的稳定性与支线扩散的良性程度，判断主线是否被破坏，并排除干扰板块的切换风险。
+  applicable_themes:
+  - 科技主线
+  - 半导体
+  - 新能源
+  - 消费电子
+  reasoning_chain:
+  - step: 1
+    name: 确认主线核心票强度
+    question: 主线核心趋势票是否保持强势或正常震荡？
+    UP_logic: 观察北方华创、中微公司等半导体设备股是否继续强势，中芯国际是否正常震荡交换筹码，以此判断主线趋势未破坏。
+    evidence_sources:
+    - 个股走势
+    - 成交量
+    - 趋势形态
+  - step: 2
+    name: 识别支线扩散性质
+    question: 支线（如京东方系、无人驾驶）的上涨是主线外溢还是独立切换？
+    UP_logic: 支线由产业增量信息（如康宁与京东方合作）带动，且与主线同属科技内部，属于良性高低切和补涨扩散，而非否定主线。
+    evidence_sources:
+    - 消息面
+    - 板块联动
+    - 个股封单
+  - step: 3
+    name: 排除干扰板块冲击
+    question: 券商、医药等干扰板块拉升时，主线核心是否同步跳水？
+    UP_logic: 观察北方华创、中芯国际等核心票在券商拉升时是否被明显抽血，若仅震荡承接则干扰不构成主线切换。
+    evidence_sources:
+    - 分时图
+    - 资金流向
+    - 板块轮动
+  - step: 4
+    name: 综合定性轮动结构
+    question: 市场整体是否仍为良性轮动？
+    UP_logic: 若主线核心稳住、支线扩散在科技内部、干扰未破坏主线，则定性为良性轮动，继续持股做T。
+    evidence_sources:
+    - 盘面结构
+    - 赚钱效应
+    - 风险偏好
+  risk_factors:
+  - 主线核心票出现集体放量大阴线
+  - 支线扩散后分歧无承接
+  - 干扰板块拉升时主线核心同步跳水
+  confidence_indicators:
+  - 半导体趋势容量票稳住
+  - 京东方系分歧后仍有承接
+  - 科技内部扩散持续
+  source_raw:
+  - sources/raw/财经/早盘补发：26-05-21：继续持股做T.md
+- pattern_id: sector_rotation_observation
+  name: 板块轮动观察法
+  description: 通过观察核心标的开盘表现和资金流向，判断主线板块是否延续强势或进入分歧，并预判资金轮动方向。
+  applicable_themes:
+  - 板块轮动
+  - 题材主线判断
+  - 短线情绪周期
+  reasoning_chain:
+  - step: 1
+    name: 观察核心标的开盘表现
+    question: 节前强势板块的核心标的在开盘后是延续强势还是走弱？
+    UP_logic: 通过观察节前强势标的（如雷科防务、顺灏股份）的开盘竞价和早盘走势，判断板块是否延续强势。
+    evidence_sources:
+    - 开盘竞价数据
+    - 早盘分时走势
+  - step: 2
+    name: 判断板块分歧或延续
+    question: 板块整体是延续强势还是进入分歧阶段？
+    UP_logic: 若核心标的弱转强或高举高打，则板块延续强势；若核心标的低开低走，则板块进入分歧。
+    evidence_sources:
+    - 板块内多只标的的联动表现
+    - 资金流入流出数据
+  - step: 3
+    name: 预判资金轮动方向
+    question: 若主线板块分歧，资金可能流向哪些替代板块？
+    UP_logic: 当商业航天分歧时，资金大概率回流与商业航天个股重合度较高的机器人板块，或尝试AI应用等前期活跃板块。
+    evidence_sources:
+    - 板块间历史联动关系
+    - 个股重合度分析
+  risk_factors:
+  - 板块分歧后资金流向不及预期
+  - 市场整体情绪转弱导致轮动失败
+  confidence_indicators:
+  - 核心标的开盘超预期走强
+  - 替代板块出现放量拉升信号
+  source_raw:
+  - sources/raw/财经/早盘：26-01-05：日线高10+商业航天主线.md
+- pattern_id: new_topic_consistency_risk
+  name: 新题材一致性风险判断
+  description: 通过对比新题材与历史补涨题材的走势，判断其一致性形成速度及后续风险，并给出关键观察变量。
+  applicable_themes:
+  - 题材轮动
+  - 补涨题材分析
+  - 短线情绪判断
+  reasoning_chain:
+  - step: 1
+    name: 定位补涨属性
+    question: 该新题材是主线题材的补涨还是独立新题材？
+    UP_logic: 将脑机接口定位为商业航天的补涨方向，并指出其与海南自贸（大消费补涨）对标，均关联马斯克。
+    evidence_sources:
+    - 盘后资金对标分析
+    - 题材关联性判断
+  - step: 2
+    name: 对比历史补涨走势
+    question: 历史类似补涨题材的走势如何？
+    UP_logic: 引用海南自贸板块12月22日单日大涨近10%，但24日仅剩海南发展独苗，说明补涨题材持续性差、缩容快。
+    evidence_sources:
+    - 历史板块走势数据
+    - 个股表现跟踪
+  - step: 3
+    name: 评估一致性形成速度
+    question: 该题材的一致性形成是否过快？
+    UP_logic: 指出脑机接口一致性从盘中提前至竞价，形成过快，需警惕‘直接顶一字’挤压其他新题材空间。
+    evidence_sources:
+    - 竞价阶段资金行为观察
+    - 盘中一致性变化
+  - step: 4
+    name: 判断预期差与关键变量
+    question: 该题材是否存在预期差？今日关键观察变量是什么？
+    UP_logic: 认为脑机接口在低预期下走出超预期行情，今日需观察两种加分走势：主动走弱后再度走强，或强上加强吸引资金。
+    evidence_sources:
+    - 前期消息释放（创新医疗长上影）
+    - 今日走势预期
+  risk_factors:
+  - 一致性形成过快导致次日高开低走或直接顶一字
+  - 补涨题材缩容快，板块效应迅速减弱
+  confidence_indicators:
+  - 盘中主动走弱后再度走强，显示资金承接意愿
+  - 复制‘超级水电站’强上加强走势，吸引增量资金
+  source_raw:
+  - sources/raw/财经/早盘：26-01-06：60分钟钝化，商业航天缩容，脑机补涨固态回归.md
+- pattern_id: sector_rotation_anchor_driven
+  name: 锚点股驱动板块轮动分析
+  description: 通过核心资产（锚点股）的超预期表现，判断其所属板块能否成为主线或轮动方向，并筛选产业链受益标的。
+  applicable_themes:
+  - 板块轮动
+  - 主线确认
+  - 产业链补涨
+  reasoning_chain:
+  - step: 1
+    name: 识别锚点股
+    question: 当前市场哪个核心资产（权重股）出现超预期信号？
+    UP_logic: 以中际旭创一季报超预期、宁德时代创历史新高作为板块启动的锚点信号。
+    evidence_sources:
+    - 个股一季报/财报
+    - 股价突破新高
+  - step: 2
+    name: 判断板块强度
+    question: 锚点股能否带动板块整体走强？
+    UP_logic: 若锚点股高举高打，则板块可能走主升；若震荡，则板块维持箱体。
+    evidence_sources:
+    - 锚点股早盘走势
+    - 板块内其他个股跟涨情况
+  - step: 3
+    name: 筛选产业链标的
+    question: 哪些产业链环节或低位标的可能受益于锚点股带动？
+    UP_logic: 锚点股超预期后，优先关注其上游材料、配套设备、技术替代等低位补涨标的。
+    evidence_sources:
+    - 产业链图谱
+    - 个股公告/订单
+    - 机构研报
+  - step: 4
+    name: 验证轮动逻辑
+    question: 当前主线是否过热，资金是否可能轮动到其他板块？
+    UP_logic: AI板块短期涨幅过高时，锂电等有锚点股（宁德时代）的板块成为轮动首选。
+    evidence_sources:
+    - 板块涨幅/成交量
+    - 锚点股走势
+    - 连板晋级率
+  risk_factors:
+  - 锚点股超预期被证伪（如业绩不及预期）
+  - 板块内跟风股不跟涨，仅龙头独涨
+  - 市场整体情绪转弱，轮动失败
+  confidence_indicators:
+  - 锚点股放量突破且带动板块内多只个股涨停
+  - 产业链低位标的出现批量异动
+  - 连板晋级率回升，题材股活跃度提升
+  source_raw:
+  - sources/raw/财经/早盘：26-04-17：上升趋势完好，15分钟钝化禁追高，中际旭创业绩超预期.md
+- pattern_id: volume_emotion_mainline_qualify
+  name: 量能情绪主线三步确认法
+  description: 通过量能持续性、情绪标杆修复、主线板块强度三步确认当日操作方向与仓位
+  applicable_themes:
+  - A股大盘研判
+  - 题材主线操作
+  - 短线情绪周期
+  reasoning_chain:
+  - step: 1
+    name: 量能锚点判断
+    question: 早盘量能是否延续放量？
+    UP_logic: 10:30前成交额是否延续放量决定市场强弱：放量→强势震荡向上，中高仓位持股；缩量→减仓后排跟风
+    evidence_sources:
+    - 两市成交额
+    - 10:30前分时量能
+  - step: 2
+    name: 情绪标杆验证
+    question: 核心情绪标杆是否修复或走强？
+    UP_logic: 观察断板龙头（如圣阳股份）能否止跌企稳、修复力度是否超预期，以此判断小票接力情绪是否回暖
+    evidence_sources:
+    - 涨停家数
+    - 连板高度
+    - 涨跌家数比
+    - 高标股走势
+  - step: 3
+    name: 主线板块强度确认
+    question: 主线板块是否持续强势或完成修复？
+    UP_logic: AI算力产业链（光模块/液冷）和半导体材料需保持强趋势或完成修复，否则主线切换或减仓
+    evidence_sources:
+    - 板块指数
+    - 核心标的走势
+    - 资金流向
+  risk_factors:
+  - 早盘量能快速萎缩
+  - 情绪标杆继续负反馈（如圣阳股份破位下跌）
+  - 主线板块冲高回落或集体调整
+  confidence_indicators:
+  - 10:30前成交额同比放大
+  - 情绪标杆修复力度超预期（涨停家数回升）
+  - 主线板块核心标的创新高或反包
+  source_raw:
+  - sources/raw/财经/早盘：26-04-23：上升趋势高9失效，量能逼近3万亿，AI算力半导体双主线，节能降碳政策.md
+- pattern_id: dual_mainline_priority_chain
+  name: 双主线优先级链式筛选
+  description: 通过催化事件、产业逻辑、市场共识强度，将多个潜在主线按优先级排序，并聚焦最高优先级进行标的筛选与交易决策。
+  applicable_themes:
+  - A股主线题材分析
+  - 产业催化驱动的板块轮动
+  - 事件驱动型交易策略
+  reasoning_chain:
+  - step: 1
+    name: 识别核心催化
+    question: 当前市场有哪些重大催化事件？
+    UP_logic: 从最新产业新闻、财报、政策中提取最具影响力的催化事件，如DeepSeek V4发布、英特尔CPU短缺公告。
+    evidence_sources:
+    - 公司公告
+    - 行业新闻
+    - 财报数据
+  - step: 2
+    name: 评估产业逻辑强度
+    question: 该催化事件能否形成完整的产业逻辑链条？
+    UP_logic: 判断催化是否从单一环节升级为全链条协同，如DeepSeek V4带动‘模型—芯片—框架—服务—应用’全链条，而非单点硬件替代。
+    evidence_sources:
+    - 产业链调研
+    - 技术路线图
+    - 行业研报
+  - step: 3
+    name: 判断市场共识度
+    question: 该主线是否获得市场广泛认可？
+    UP_logic: 通过板块内龙头股涨停、资金流入、情绪修复等信号判断共识强度，如‘最具共识的AI内生主线’描述。
+    evidence_sources:
+    - 盘面数据
+    - 资金流向
+    - 情绪指标
+  - step: 4
+    name: 优先级排序与聚焦
+    question: 多个主线中哪个优先级最高？
+    UP_logic: 按催化强度、产业逻辑完整性、市场共识度排序，将最高优先级作为核心交易方向，其他作为备选或轮动观察。
+    evidence_sources:
+    - 催化事件时间表
+    - 板块涨幅排名
+    - 机构观点
+  - step: 5
+    name: 筛选核心标的
+    question: 该主线中哪些标的值得重点关注？
+    UP_logic: 在主线内进一步细分产业链环节（如适配、合作、基础设施），选择直接受益、弹性大、有辨识度的个股。
+    evidence_sources:
+    - 公司公告
+    - 产业链图谱
+    - 历史股性
+  risk_factors:
+  - 催化事件低于预期或证伪（如DeepSeek V4效果不佳）
+  - 市场共识快速消退，主线轮动至其他方向
+  - 海外风险事件（如4.30超级窗口）引发系统性回调
+  confidence_indicators:
+  - 龙头股放量涨停带动板块共振
+  - 量能回升至2.5万亿以上，沪指突破箱体
+  - 产业逻辑持续有新的催化验证（如更多公司宣布适配）
+  source_raw:
+  - sources/raw/财经/早盘：26-04-27：大级别上升箱体震荡，DeepSeek V4昇腾国产算力，CPU短缺涨价，4.30超级窗口.md
+- pattern_id: ice_point_reversal_screening
+  name: 情绪冰点后主线筛选法
+  description: 在情绪冰点预期下，通过观察率先修复的方向来筛选下一阶段主线板块和个股。
+  applicable_themes:
+  - 短线情绪周期
+  - 主线板块筛选
+  - 分歧低吸策略
+  reasoning_chain:
+  - step: 1
+    name: 判断冰点窗口
+    question: 当前是否处于或即将进入短期情绪冰点？
+    UP_logic: 通过高标股走势（如大唐发电）和亏钱效应扩散程度判断情绪是否接近冰点。
+    evidence_sources:
+    - 高标股走势
+    - 连板高度变化
+    - 亏钱效应扩散情况
+  - step: 2
+    name: 观察承压分化
+    question: 外部利空（如美股科技下跌）下，哪些方向抗跌或率先修复？
+    UP_logic: 美股科技普跌导致A股科技承压，但承压后强弱分化更清晰，抗跌方向即为资金真实偏好。
+    evidence_sources:
+    - 隔夜美股科技板块表现
+    - A股科技板块早盘低开幅度及后续走势
+  - step: 3
+    name: 锁定率先修复方向
+    question: 冰点之后，哪些板块或个股率先反弹、脱离指数拖累？
+    UP_logic: 冰点后率先反弹、率先脱离指数拖累的方向，才是下一阶段最值得关注的主线。
+    evidence_sources:
+    - 冰点后板块涨幅排名
+    - 个股与指数分时图背离情况
+  - step: 4
+    name: 执行低吸策略
+    question: 在确认的修复方向上，如何选择低吸时机？
+    UP_logic: 核心标的未明显放量破位时，低开或尾盘调整反而是分歧低吸机会，避免追高。
+    evidence_sources:
+    - 个股成交量变化
+    - 分时图支撑位
+    - 尾盘确认信号
+  risk_factors:
+  - 冰点判断错误，实际情绪未触底即反弹，导致追高
+  - 率先修复的方向后续缺乏持续性，成为一日游
+  confidence_indicators:
+  - 冰点当天或次日出现明显放量修复
+  - 修复方向与前期主线（如AI、半导体）重合
+  - 修复时龙头股带动板块内多只个股同步走强
+  source_raw:
+  - sources/raw/财经/早盘：26-05-13：上升趋势持股为主，连续5日3万亿，今明两天情绪冰点，等冰点后修复方向.md
+- pattern_id: defense_to_sector_rotation
+  name: 防御股剧本与接力观察法
+  description: 通过观察防御股是否按预设剧本走强、跌停家数变化、半导体接力信号，判断调整周期中的风格切换与操作节奏。
+  applicable_themes:
+  - A股调整周期判断
+  - 板块轮动分析
+  - 防御与进攻风格切换
+  reasoning_chain:
+  - step: 1
+    name: 观察防御股剧本
+    question: 防御股是否按预设策略走强？
+    UP_logic: 昨日资金在利好下仍开盘切防御，今日开盘几分钟看电力、MLCC能否提前走强，判断今日风格第一信号。
+    evidence_sources:
+    - 开盘价
+    - 电力板块走势
+    - MLCC板块走势
+  - step: 2
+    name: 观察跌停家数变化
+    question: 跌停家数是否边际减少？
+    UP_logic: 昨日早盘指数涨但跌停板未回暖，今日开盘半小时跌停队列明显缩短才是真回暖起点。
+    evidence_sources:
+    - 跌停家数
+    - 跌停队列变化
+  - step: 3
+    name: 观察半导体接力信号
+    question: 半导体龙头能否超预期封板？
+    UP_logic: 长电科技、华天科技今日能否超预期，封不住则大概率还要调几天，作为资金对传统主线态度的风向标。
+    evidence_sources:
+    - 长电科技股价
+    - 华天科技股价
+    - 封板能力
+  risk_factors:
+  - 防御股未按剧本走强
+  - 跌停家数未明显减少
+  - 半导体龙头封板失败
+  confidence_indicators:
+  - 防御股提前走强
+  - 跌停队列明显缩短
+  - 半导体龙头超预期封板
+  source_raw:
+  - sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
+- pattern_id: new_over_old_sector_rotation
+  name: 炒新不炒旧轮动模式
+  description: 在弱势行情中，通过判断热点新旧程度来筛选强势板块和个股的推理方法
+  applicable_themes:
+  - 板块轮动分析
+  - 弱势行情选股
+  - 题材炒作节奏
+  reasoning_chain:
+  - step: 1
+    name: 确认市场环境
+    question: 当前市场是强势还是弱势？
+    UP_logic: 日线顶部结构、调整第14天、指数跌但百股涨停，判断为弱势震荡、机构股不稳
+    evidence_sources:
+    - 指数走势
+    - 涨停家数
+    - 量能数据
+  - step: 2
+    name: 识别新旧热点
+    question: 哪些方向是刚出现的新热点，哪些是已炒作过的旧热点？
+    UP_logic: AIPC和MiniMax属于新热点（上周末刚出现），MLCC、超级电容强于PCB等传统方向，防御内部煤炭强于电力
+    evidence_sources:
+    - 时间维度（上周末/近期）
+    - 板块相对强度对比
+  - step: 3
+    name: 验证新热点持续性
+    question: 新热点是否有持续催化？
+    UP_logic: AIPC有英伟达新品发布、微软ARM跟进等催化；MiniMax有上市事件驱动
+    evidence_sources:
+    - 产业事件
+    - 公司公告
+    - 机构研报
+  - step: 4
+    name: 排除旧热点干扰
+    question: 旧热点是否已钝化或失效？
+    UP_logic: 日韩股市大涨但A股存储不涨，说明'韩国-三星-存储'传导链条已钝化；电力在指数弱时未走强
+    evidence_sources:
+    - 板块与外围联动表现
+    - 防御属性验证
+  - step: 5
+    name: 确认资金偏好
+    question: 资金是否向新方向集中？
+    UP_logic: 昨日反包个股多出自新热点方向，ST股走强说明资金向更小市值、更低价方向迁移
+    evidence_sources:
+    - 个股涨停/反包情况
+    - 市值与成交额变化
+  risk_factors:
+  - 新热点催化事件低于预期或落空
+  - 市场突然放量导致风格切换回机构股
+  - 新热点被证伪或逻辑不成立
+  confidence_indicators:
+  - 新热点板块出现多只涨停或连板个股
+  - 新热点有持续的事件/政策催化
+  - 旧热点板块持续走弱或出现破位
+  source_raw:
+  - sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
+- pattern_id: ai_upstream_material_chain
+  name: AI上游材料确定性筛选
+  description: 从AI基建主题中，通过产业链位置和订单/产能验证，筛选出上游材料端作为最确定方向
+  applicable_themes:
+  - AI基建
+  - 科技上游材料
+  - 半导体设备材料
+  reasoning_chain:
+  - step: 1
+    name: 识别主线方向
+    question: 当前市场主线是什么？
+    UP_logic: AI大部分个股轮动走强或磨底，指数若重归上升趋势，AI主动性仍最强
+    evidence_sources:
+    - 板块轮动观察
+    - 个股走势形态
+  - step: 2
+    name: 定位产业链环节
+    question: AI产业链中哪个环节最确定？
+    UP_logic: 铜缆、光纤、MLCC、超级电容等共同点是AI基建的上游材料端，半导体率先走强的也是电子化学品方向
+    evidence_sources:
+    - 板块内个股表现
+    - 细分领域涨幅排名
+  - step: 3
+    name: 验证确定性信号
+    question: 上游材料端是否有持续性的证据？
+    UP_logic: 中船特气、唯特偶等已创新高，后续即使短线情绪遇冷，上游材料大方向不会轻易扭转
+    evidence_sources:
+    - 个股创新高事实
+    - 历史趋势持续性
+  risk_factors:
+  - 短线情绪突然大幅降温导致上游材料也跟随调整
+  - 上游材料个股估值过高后出现获利回吐
+  confidence_indicators:
+  - 板块内多只上游材料股同时创新高
+  - 相关个股订单或产能数据持续向好
+  source_raw:
+  - sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
+- pattern_id: supply_shock_chain_analysis
+  name: 供给冲击传导链分析
+  description: 从突发事件导致供给缺口出发，沿产业链上下游推导受益环节和标的
+  applicable_themes:
+  - 地缘冲突
+  - 自然灾害
+  - 政策限产
+  - 航运中断
+  reasoning_chain:
+  - step: 1
+    name: 识别供给冲击事件
+    question: 发生了什么突发事件导致供给受限？
+    UP_logic: 卡塔尔LNG设施遭袭停产，欧洲气价一度+50%，伊朗化工品全球占比高
+    evidence_sources:
+    - 新闻事件
+    - 商品价格数据
+  - step: 2
+    name: 锁定直接受益板块
+    question: 哪个板块最先受益于供给缺口？
+    UP_logic: 油气/天然气/航运逆势涨停潮，洲际油气6天4板，中国石油等批量涨停
+    evidence_sources:
+    - 板块涨跌幅
+    - 龙头股走势
+  - step: 3
+    name: 推导产业链传导
+    question: 供给缺口如何沿产业链向下游传导？
+    UP_logic: 全球约50%海运硫磺经霍尔木兹→国内春耕备肥刚需→硫铁矿自给企业双重受益
+    evidence_sources:
+    - 贸易数据
+    - 产业链结构
+  - step: 4
+    name: 筛选具体受益标的
+    question: 哪些公司具备自给或替代能力？
+    UP_logic: 粤桂股份：国内硫铁矿龙头，探明储量2.08亿吨，原料完全自给
+    evidence_sources:
+    - 公司公告
+    - 产能数据
+  risk_factors:
+  - 事件影响消退或快速修复
+  - 替代产能快速释放
+  - 需求端同步萎缩
+  confidence_indicators:
+  - 商品价格持续上涨
+  - 龙头股连续涨停且封板坚决
+  - 机构资金净买入
+  source_raw:
+  - sources/raw/财经/晚间复盘：26-03-03：冲高4197放量杀跌，日线顶部待确认，4118生命线.md
+- pattern_id: power_chain_value_migration
+  name: 电源产业链价值迁移推理
+  description: 通过英伟达平台电源价值量数据，推导配电/功率器件/电容等环节的受益顺序和标的
+  applicable_themes:
+  - AI服务器电源产业链
+  - 功率器件涨价逻辑
+  - 配电设备价值量分析
+  reasoning_chain:
+  - step: 1
+    name: 平台价值量对比
+    question: 新一代AI平台相比上一代，电源环节价值量增长多少？
+    UP_logic: 对比GB200、GB300、Vera Rubin、Vera Rubin CPX四个平台的电源价值量，发现CPX方案较GB200增长超10倍
+    evidence_sources:
+    - 英伟达平台规格表
+    - 电源价值量数据
+  - step: 2
+    name: 技术趋势推导
+    question: 价值量提升背后的技术变化是什么？
+    UP_logic: 价值量大幅提升源于配电架构变化（HVDC独立电源机架、800V直流架构），从而推导出SiC/GaN功率器件受益
+    evidence_sources:
+    - 技术架构文档
+    - 电源走向800V直流架构趋势
+  - step: 3
+    name: 产业链环节映射
+    question: 哪些环节会受益？受益顺序如何？
+    UP_logic: 从配电整机（金盘、伊戈尔）→功率器件（扬杰、新洁能）→电容材料（江海、东方钽业）→二次电源（新雷能），按价值量传导顺序排列
+    evidence_sources:
+    - 产业链图谱
+    - 各环节与电源架构的关联度
+  - step: 4
+    name: 时间节点判断
+    question: 受益何时兑现？当前处于什么阶段？
+    UP_logic: 根据HVDC与SST需求同步紧张的时间预期（2026年下半年），判断当前5月为预热阶段，不应追高
+    evidence_sources:
+    - 产业调研时间线
+    - 产能挤压节奏
+  risk_factors:
+  - 英伟达平台升级节奏低于预期
+  - 功率器件产能扩张超预期导致涨价落空
+  - HVDC方案渗透率不及预期
+  confidence_indicators:
+  - 多个平台价值量数据一致指向大幅增长
+  - 技术趋势（800V直流）已获产业验证
+  - 功率器件产能挤压逻辑与半导体复苏周期共振
+  source_raw:
+  - sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
+- pattern_id: sector_mainline_rotation_analysis
+  name: 主线板块轮动分析框架
+  description: 通过观察主线板块内核心标的主动性、低位补涨、分支扩散及情绪节奏，判断主线持续性与轮动方向
+  applicable_themes:
+  - AI算力硬件
+  - 新能源产业链
+  - 半导体设备材料
+  - 消费电子
+  reasoning_chain:
+  - step: 1
+    name: 确认主线板块
+    question: 当前市场资金最聚焦的板块是什么？
+    UP_logic: 通过资金持续聚焦、板块内反复活跃、高低位切换顺畅判断绝对主线，如AI算力硬件
+    evidence_sources:
+    - 板块成交额占比
+    - 涨停家数
+    - 资金流向
+  - step: 2
+    name: 观察核心标的主动性
+    question: 板块内领涨核心标的是否主动走强？
+    UP_logic: 观察中军（如中际旭创）高位震荡、情绪核心（如东山精密）突破前高，判断主动性是否充足
+    evidence_sources:
+    - 个股分时走势
+    - 涨停板突破情况
+    - 量价关系
+  - step: 3
+    name: 识别低位补涨分支
+    question: 板块内哪些细分方向出现补涨？
+    UP_logic: 寻找产业增量信息或业绩催化下的低位分支，如电子布受产业逻辑加持、光模块设备受业绩测算催化
+    evidence_sources:
+    - 产业新闻
+    - 业绩预告
+    - 板块涨幅排名
+  - step: 4
+    name: 评估板块梯队完整性
+    question: 板块内领涨、中军、补涨标的是否形成完整梯队？
+    UP_logic: 核心领涨未主动走弱、低位分支持续补涨、板块梯队完整则主线良性运行
+    evidence_sources:
+    - 个股涨跌幅分布
+    - 板块内涨停梯队
+  - step: 5
+    name: 判断反弹节奏与风险
+    question: 当前处于反弹周期的哪个阶段？后续确定性如何？
+    UP_logic: 通过反弹结构（周三启动→周四弱分歧→周五回流）判断阶段，后半程确定性下降，博弈难度提升
+    evidence_sources:
+    - 市场情绪指标
+    - 连板高度
+    - 成交量变化
+  risk_factors:
+  - 核心领涨标的出现主动走弱
+  - 板块内高低位切换停滞，补涨分支消失
+  - 市场风格短期漂移，资金撤离主线
+  confidence_indicators:
+  - 核心标的持续创新高或突破前高
+  - 低位新分支不断涌现并获得资金认可
+  - 板块成交额占比持续提升
+  source_raw:
+  - sources/raw/财经/午盘：26-04-13：低开回升半日1.41万亿，AI算力硬件绝对主线，电子布最强补涨.md
+- pattern_id: sector_internal_rotation_qualify
+  name: 板块内部高低切补涨判断
+  description: 通过观察板块内领涨股与补涨股的表现差异、联动强度、消息催化力度，判断当前行情是主升延续还是内部高低切补涨。
+  applicable_themes:
+  - 科技板块
+  - 半导体
+  - 算力产业链
+  - 华为产业链
+  reasoning_chain:
+  - step: 1
+    name: 观察领涨与补涨分化
+    question: 板块内核心龙头股与二线补涨股的表现是否一致？
+    UP_logic: 核心股（如沪电股份、胜宏科技）小阳线震荡，二线补涨股（景旺电子、深南电路）更强，说明是补涨而非主升。
+    evidence_sources:
+    - 个股涨跌幅对比
+    - 板块内领涨股与跟风股走势
+  - step: 2
+    name: 评估板块联动强度
+    question: 板块上涨是集体联动还是个股独立驱动？
+    UP_logic: 很多上涨不是板块集体走强，而是个股叠加了新的产业消息、业绩预期、订单预期或供应链属性，联动性变弱。
+    evidence_sources:
+    - 板块内涨停数量
+    - 个股上涨原因分析
+  - step: 3
+    name: 对比消息催化力度
+    question: 当前消息催化是否强于此前的主线事件？
+    UP_logic: 如果华为昇腾、DeepSeek这种级别事件都没带出强联动，其他消息更偏局部补涨，个股难度提高。
+    evidence_sources:
+    - 事件影响力评估
+    - 历史主线事件对比
+  risk_factors:
+  - 板块内核心龙头出现放量破位下跌
+  - 新的更强主线事件出现导致资金分流
+  confidence_indicators:
+  - 补涨股持续强于领涨股且板块整体放量
+  - 低位方向出现新的产业催化或业绩超预期
+  source_raw:
+  - sources/raw/财经/午盘：26-04-27：窄幅震荡无方向，科技高低切半导体最强，DeepSeek昇腾分歧.md
+- pattern_id: sector_divergence_qualify
+  name: 主线与补涨分歧定性法
+  description: 通过对比主线品种与补涨品种在情绪分歧日的承接强度，判断各自后续修复概率，从而决定持仓处理方向。
+  applicable_themes:
+  - 半导体设备
+  - Micro-LED
+  - 算力
+  - 电力
+  - 机器人
+  reasoning_chain:
+  - step: 1
+    name: 识别情绪阶段
+    question: 当前市场处于什么情绪阶段？
+    UP_logic: 根据盘面整体表现定性为‘情绪分歧日’，并指出缺少情绪载体导致周期难度更高。
+    evidence_sources:
+    - 盘面整体表现
+    - 情绪载体观察
+  - step: 2
+    name: 区分品种性质
+    question: 所讨论的板块属于主线品种还是补涨品种？
+    UP_logic: 半导体设备有景气度、订单、国产替代、产业催化、机构共识等多重支撑，属于主线；Micro-LED偏远期叙事、靠资金推动，属于主线外溢补涨。
+    evidence_sources:
+    - 板块基本面支撑
+    - 资金推动特征
+  - step: 3
+    name: 对比承接强度
+    question: 在分歧日，不同品种的承接强度如何？
+    UP_logic: 主线品种有扎实产业逻辑和资金基础，被砸后仍有资金愿意承接；补涨品种缺乏硬支撑，遇到兑现易被集体埋掉。
+    evidence_sources:
+    - 历史案例（长鑫业绩发酵后走势）
+    - 当日盘面承接表现
+  - step: 4
+    name: 结合趋势状态
+    question: 该品种的趋势是否被破坏？
+    UP_logic: 算力、电力趋势已破，反弹按弱修复处理；机器人和半导体趋势未破，可继续观察。
+    evidence_sources:
+    - 关键均线/平台位置
+    - 趋势线是否有效
+  - step: 5
+    name: 制定操作策略
+    question: 基于以上分析，如何操作？
+    UP_logic: 破趋势方向不留，趋势内方向等待分歧后资金回流，主线按趋势分歧处理，补涨按外溢分支处理。
+    evidence_sources:
+    - 下午分时均线观察
+    - 时间窗口（周四/周五兑现魔咒）
+  risk_factors:
+  - 下午继续走弱，趋势方向放量回落，亏钱效应扩散
+  - 补涨品种缺乏硬逻辑，分歧后无资金回流
+  confidence_indicators:
+  - 指数和科技核心重新拉回分时均线
+  - 主线品种分歧后快速修复并创新高
+  source_raw:
+  - sources/raw/财经/午盘：26-05-21：情绪分歧日，半导体设备洗盘与Micro-LED补涨分化.md
+- pattern_id: extreme_signal_risk_evasion
+  name: 极端信号叠加风险规避
+  description: 通过识别多个极端信号同时出现、叙事耗尽、拥挤度极高，判断市场面临系统性回调风险，从而建议主动规避而非等待。
+  applicable_themes:
+  - 美股风险预警
+  - A股外盘联动风险
+  - 科技板块拥挤度分析
+  reasoning_chain:
+  - step: 1
+    name: 识别极端信号
+    question: 当前市场是否存在多个反常的极端信号？
+    UP_logic: 列举四个美股极端信号：股市与VIX同涨、消费者信心低位与纳指新高、对冲基金仓位与动量因子历史级别、英伟达跑输半导体指数。
+    evidence_sources:
+    - VIX数据
+    - 消费者信心指数
+    - 纳指走势
+    - 对冲基金仓位数据
+    - 英伟达相对表现
+  - step: 2
+    name: 验证叙事耗尽
+    question: 市场依赖的核心叙事是否已接近尾声？
+    UP_logic: 以美伊协议为例，指出特朗普、鲁比奥、伊朗三方表态均不积极，市场已提前消化利好，但实际进展边际走弱。
+    evidence_sources:
+    - 特朗普表态
+    - 鲁比奥表态
+    - 伊朗表态
+  - step: 3
+    name: 评估拥挤度与龙头钝化
+    question: 仓位是否极致拥挤？龙头股是否开始走弱？
+    UP_logic: 对冲基金半导体仓位历史级别、动量因子暴露历史级别，英伟达财报亮眼但跑输板块，说明龙头钝化、资金内部分配。
+    evidence_sources:
+    - 对冲基金仓位数据
+    - 英伟达股价与板块指数对比
+  - step: 4
+    name: 叠加外盘假设脆弱性
+    question: 外盘乐观情绪是否建立在脆弱假设上？
+    UP_logic: 外盘'AI软着陆'叙事依赖伊朗协议、油价回落、美联储转鸽三重假设，但三者均未夯实且边际走弱。
+    evidence_sources:
+    - 伊朗协议进展
+    - 油价走势
+    - 美联储官员表态
+  - step: 5
+    name: 综合判断风险收益比
+    question: 当前风险收益比是否支持主动规避？
+    UP_logic: 仓位极致拥挤+龙头钝化+叙事讲完的组合，历史上往往不需要利空触发就会踩踏，硬扛性价比低。
+    evidence_sources:
+    - 历史类似组合案例
+    - 当前市场结构数据
+  risk_factors:
+  - 外盘叙事被证实（如伊朗协议超预期达成）
+  - 美联储突然转鸽导致风险偏好回升
+  - A股出现独立强势逻辑脱离外盘影响
+  confidence_indicators:
+  - 多个极端信号同时出现且相互印证
+  - 拥挤度指标达到历史极值
+  - 龙头股开始跑输板块
+  source_raw:
+  - sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
+- pattern_id: etf_cross_hold_screening
+  name: ETF共同持仓标的筛选
+  description: 通过分析多只涨停ETF的共同持仓个股，提前锁定超预期高开和连板标的
+  applicable_themes:
+  - 板块主升行情
+  - ETF涨停行情
+  - 主题投资
+  reasoning_chain:
+  - step: 1
+    name: 识别ETF涨停
+    question: 当前哪些主题ETF出现涨停？
+    UP_logic: 商业航天+AI应用相关ETF均已涨停，参考924行情玩法
+    evidence_sources:
+    - ETF行情数据
+    - 板块涨停数据
+  - step: 2
+    name: 寻找共同持仓
+    question: 哪些个股被多只涨停ETF共同持有？
+    UP_logic: 寻找多ETF共同持仓标的，这是中国卫星超预期高开的核心原因
+    evidence_sources:
+    - ETF持仓公告
+    - 基金季报
+  - step: 3
+    name: 验证弹性表现
+    question: 共同持仓标的是否在次日出现超预期高开或连板？
+    UP_logic: 中国卫星超预期高开、航天电子3连板，验证了共同持仓逻辑的有效性
+    evidence_sources:
+    - 次日开盘数据
+    - 个股涨停数据
+  risk_factors:
+  - ETF涨停不可持续，次日溢价回落
+  - 共同持仓标的已被市场充分预期，无超额收益
+  confidence_indicators:
+  - 多只ETF同时涨停，资金共识强
+  - 共同持仓标的出现超预期高开或连板
+  source_raw:
+  - sources/raw/财经/复盘：26-01-12：3.6万亿历史纪录，201只涨停，AI强度超越商业航天.md
+- pattern_id: commodity_mainline_cycle_qualify
+  name: 大宗商品主线确认与分化低吸
+  description: 通过宏观催化、供给约束、需求增量三重逻辑确认大宗商品主线地位，并预判短期分化后低吸时机。
+  applicable_themes:
+  - 大宗商品
+  - 有色金属
+  - 化工
+  - 贵金属
+  reasoning_chain:
+  - step: 1
+    name: 宏观催化确认
+    question: 当前是否有明确的宏观或事件催化？
+    UP_logic: 美元四年低谷+降息预期驱动贵金属；美国寒潮致化工停产；供给天花板+新能源需求驱动铝。
+    evidence_sources:
+    - 美元指数
+    - 美联储利率预期
+    - 美国寒潮新闻
+    - 产能数据
+  - step: 2
+    name: 供给约束判断
+    question: 该品种是否面临供给端刚性约束？
+    UP_logic: 铝产能逼近4543万吨天花板，26年最后一年增长；美国铝企减产80万吨；化工产能+库存双拐点。
+    evidence_sources:
+    - 产能数据
+    - 库存数据
+    - 企业减产公告
+  - step: 3
+    name: 需求增量验证
+    question: 下游是否有明确且持续的需求增量？
+    UP_logic: 新能源车26年百万吨铝需求，电网千万吨级；化工品盈利改善预期。
+    evidence_sources:
+    - 新能源车销量
+    - 电网投资计划
+    - 行业盈利预测
+  - step: 4
+    name: 分化时机预判
+    question: 短期分化后何时是低吸窗口？
+    UP_logic: 利好刺激高开导致分化，但分化时间短，明日下午最迟后天重新走强；需等商品期货大面积调整数日行情才见顶。
+    evidence_sources:
+    - 板块日内走势
+    - 商品期货价格
+    - 历史分化规律
+  risk_factors:
+  - 商品期货大面积持续调整
+  - 宏观催化消退（如美元反弹）
+  - 供给约束被政策打破
+  confidence_indicators:
+  - 龙头股连续涨停脱离期货走势
+  - 机构净买入持续增加
+  - 业绩预增公告密集出现
+  source_raw:
+  - sources/raw/财经/复盘：26-01-28：2.97万亿大宗商品类主线，铝产能天花板，化工双拐点.md
+- pattern_id: ai_value_redistribution_chain
+  name: AI产业价值重分配推理
+  description: 从AI技术革命出发，通过产业价值重分配逻辑，推导出算力基础设施为最高确定性环节的推理模式
+  applicable_themes:
+  - AI产业链分析
+  - 技术革命投资主线
+  - 产业价值迁移
+  reasoning_chain:
+  - step: 1
+    name: 识别技术革命本质
+    question: 当前技术革命对产业结构的根本影响是什么？
+    UP_logic: AI技术革命加速≠简单行业扩容，本质是产业价值重新分配，类似电力、互联网革命的历史规律
+    evidence_sources:
+    - 历史技术革命案例
+    - 产业逻辑分析
+  - step: 2
+    name: 分解价值分配维度
+    question: 产业价值在哪些环节重新分配？
+    UP_logic: 从软件护城河、商业模式、利润分配、市场分歧四个维度分析价值迁移方向
+    evidence_sources:
+    - 软件护城河变化
+    - 商业模式变化
+    - 利润分配结构
+    - 市场分歧点
+  - step: 3
+    name: 定位确定性最高环节
+    question: 哪个环节在价值重分配中确定性最高？
+    UP_logic: 算力层承担最大Capex，需求增长趋势明确，技术革命早期最先确定赢家的往往是底层基础设施资产
+    evidence_sources:
+    - 算力供给紧张状态
+    - 卡供应瓶颈缓解预期
+    - 谷歌Capex翻倍指引
+  - step: 4
+    name: 验证产业供需状态
+    question: 当前产业供需是否支持该环节的确定性？
+    UP_logic: 产业端反馈算力供给仍处紧张状态，持续扩容仍难满足需求，谷歌26年Capex接近翻倍，供需仍趋紧张
+    evidence_sources:
+    - 产业端反馈
+    - 谷歌财报数据
+    - 云Backlog增长55%
+  risk_factors:
+  - 算力需求增速不及预期
+  - 技术路线出现颠覆性变化（如量子计算替代）
+  - 政策限制算力基建扩张
+  confidence_indicators:
+  - 龙头企业Capex持续超预期
+  - 算力供给紧张状态持续
+  - 下游应用需求爆发带动算力消耗
+  source_raw:
+  - sources/raw/财经/复盘：26-02-05：下探回升，下杀动能衰竭，AI利润重分配，谷歌Capex翻倍至1800亿.md
+- pattern_id: sector_mainline_qualify_with_defense
+  name: 主线确认与防御双保险
+  description: 通过政策信号、产业景气、资金行为三重验证确认主线方向，同时配置防御品种对冲风险，形成攻守兼备的仓位结构。
+  applicable_themes:
+  - 科技主线确认
+  - 周期板块轮动
+  - 事件驱动型行情
+  reasoning_chain:
+  - step: 1
+    name: 政策信号筛选
+    question: 哪个方向获得了最高级别的政策背书？
+    UP_logic: 引用国务院国资委‘算力+电力’协同等战略级信号，作为主线方向的第一重确认。
+    evidence_sources:
+    - 国务院国资委公告
+    - 政策文件
+  - step: 2
+    name: 产业景气验证
+    question: 该方向的产业基本面是否出现景气拐点或需求爆发？
+    UP_logic: 通过智谱GLM售罄、铠侠财报超预期、IPG光电大涨等产业数据，验证算力/存储/光纤的景气上行。
+    evidence_sources:
+    - 公司财报
+    - 产品售罄公告
+    - 美股映射
+  - step: 3
+    name: 资金行为确认
+    question: 资金是否在主线内部做高低切换而非撤离？
+    UP_logic: 算力分化但存储/半导体补涨，说明资金未离场只做内部高低切，确认主线持续性。
+    evidence_sources:
+    - 板块涨跌幅
+    - 个股资金流向
+  - step: 4
+    name: 防御品种配置
+    question: 主线若遇阻，哪些品种能提供对冲？
+    UP_logic: 同时配置小金属/稀土/航运等防守端品种，形成‘进攻算力+防守资源’的双保险结构。
+    evidence_sources:
+    - 板块轮动规律
+    - 避险情绪指标
+  risk_factors:
+  - 量能萎缩至2万亿以下，主线品种因大市值机构重仓而无法持续
+  - 主线内部高低切换完成后无新催化，资金转向其他主题
+  confidence_indicators:
+  - 政策信号级别为‘战略级’
+  - 产业数据出现超预期（如铠侠利润超预期）
+  - 资金在主线内部做高低切而非全面撤离
+  source_raw:
+  - sources/raw/财经/复盘：26-02-13：节前最后一交易日，情绪冰点先砸后修，算力最清晰主线.md
+- pattern_id: geopolitical_supply_chain_impact
+  name: 地缘供给冲击传导链
+  description: 从地缘事件出发，沿供给缺口→涨价弹性→受益标的的推理链条
+  applicable_themes:
+  - 资源品涨价
+  - 地缘冲突受益
+  - 供应链安全
+  reasoning_chain:
+  - step: 1
+    name: 识别地缘冲击点
+    question: 当前地缘事件对哪些关键资源/运输通道构成实质性供给威胁？
+    UP_logic: 霍尔木兹占全球海运石油1/4+，日均2090万桶，83%流向亚洲→供给中断风险
+    evidence_sources:
+    - 地缘新闻
+    - 能源运输数据
+  - step: 2
+    name: 量化进口依赖度
+    question: 中国对该资源的进口依赖程度有多高？
+    UP_logic: 我国60%甲醇进口来自伊朗，锶矿70%进口依赖伊朗，尿素10~15%
+    evidence_sources:
+    - 海关进口数据
+    - 行业供需报告
+  - step: 3
+    name: 筛选涨价弹性品种
+    question: 哪些品种因供给缺口预期而具备涨价弹性？
+    UP_logic: 伊朗是全球第二大甲醇生产国（9.4%），霍尔木兹出口中化肥33%、甲醇32%→化工品涨价
+    evidence_sources:
+    - 全球产能占比数据
+    - 期货价格走势
+  - step: 4
+    name: 锁定受益标的
+    question: 哪些上市公司直接受益于该品种涨价或替代需求？
+    UP_logic: 金牛化工、金瑞矿业、红星发展、宝丰能源等涨停→化工龙头直接受益
+    evidence_sources:
+    - 涨停板复盘
+    - 公司业务与涨价品种关联度
+  risk_factors:
+  - 地缘冲突缓和或谈判进展超预期
+  - 替代供给快速释放（如美国页岩油增产）
+  - 政策干预价格（如抛储、限价）
+  confidence_indicators:
+  - 机构净买入涨价上游资源龙头
+  - 港股相关标的出现单日+90%的极端联动
+  - 多家券商上调商品价格预测
+  source_raw:
+  - sources/raw/财经/复盘：26-03-02：3万亿放量，油气化工涨停潮，AI硬件分化中韧性超预期.md
+- pattern_id: ai_demand_chain_qualify
+  name: AI算力全产业链需求筛选
+  description: 从AI算力爆发出发，沿着产业链寻找受益环节，结合政策催化、供需缺口和国产替代率进行标的筛选。
+  applicable_themes:
+  - AI算力
+  - 电力设备
+  - 光通信
+  - 燃气轮机
+  - 液冷散热
+  reasoning_chain:
+  - step: 1
+    name: 确认核心驱动力
+    question: 当前市场最核心的产业趋势是什么？
+    UP_logic: AI算力爆发是核心驱动力，所有板块的催化均来自AI算力带来的全产业链需求增量。
+    evidence_sources:
+    - 政府工作报告
+    - 微软/谷歌/OpenAI等企业承诺书
+  - step: 2
+    name: 识别刚性需求环节
+    question: AI算力爆发后哪些环节存在刚性增量需求？
+    UP_logic: 寻找AI带来的刚性需求，如电力缺口（150GW）、散热瓶颈（Rubin功耗突破风冷极限）、带宽瓶颈（MicroLED CPO）。
+    evidence_sources:
+    - 北美燃机交付预测
+    - LightCounting出货预测
+    - 微软MOSAIC方案
+  - step: 3
+    name: 叠加政策与供需缺口
+    question: 该环节是否有政策催化或供需缺口放大？
+    UP_logic: 政策首次写入（算电协同入政府报告）、供给受限（PTA无新增产能、百草枯退出）、海外投资周期（美国750亿美元输电扩建）。
+    evidence_sources:
+    - 政府工作报告
+    - 行业产能数据
+    - 海外政策公告
+  - step: 4
+    name: 筛选国产替代标的
+    question: 该环节中国产化率低、技术壁垒高的公司有哪些？
+    UP_logic: 寻找国产化率极低（如25G+电芯片国产化率仅7%）、技术领先（东方电气G50燃机效率36.5%）、订单确定（海外订单排至2030年）的标的。
+    evidence_sources:
+    - 国产化率数据
+    - 公司技术参数
+    - 订单公告
+  risk_factors:
+  - AI算力需求不及预期
+  - 国产替代进度缓慢
+  - 政策落地力度不足
+  - 中东地缘政治不确定性
+  confidence_indicators:
+  - 机构净买入金额大（如东方电气2.17亿）
+  - 板块涨停潮（如Micro LED涨停潮）
+  - 政策首次写入政府工作报告
+  source_raw:
+  - sources/raw/财经/复盘：26-03-05：十字星普涨，Micro LED涨停潮，算电协同入报告，燃机千亿赛道.md
+- pattern_id: supply_chain_bottleneck_qualify
+  name: 供应链瓶颈选股法
+  description: 从全球供应链突发事件导致关键材料供给缺口出发，筛选具备国产替代能力且已进入核心客户供应链的标的
+  applicable_themes:
+  - 半导体材料
+  - 化工涨价
+  - 资源涨价
+  reasoning_chain:
+  - step: 1
+    name: 识别供给冲击
+    question: 当前是否存在因突发事件导致的供给缺口？
+    UP_logic: 全球近四成氮气供应受阻，高纯氦气涨价50%+
+    evidence_sources:
+    - 行业新闻
+    - 价格数据
+  - step: 2
+    name: 确认国产替代能力
+    question: 国内是否有企业具备该材料的自主生产能力？
+    UP_logic: 半导体自主可控关键材料，多款特气实现进口替代
+    evidence_sources:
+    - 公司公告
+    - 行业研报
+  - step: 3
+    name: 验证客户壁垒
+    question: 该企业是否已进入下游核心客户供应链？
+    UP_logic: 打入台积电/海力士供应链
+    evidence_sources:
+    - 公司公告
+    - 供应链调研
+  risk_factors:
+  - 供给缺口快速修复（如制裁解除或产能恢复）
+  - 替代材料出现导致需求转移
+  - 公司产能不足无法兑现订单
+  confidence_indicators:
+  - 涨价幅度持续扩大（如氦气涨价50%+）
+  - 下游客户为行业龙头且需求刚性
+  - 公司已公告扩产或新签长单
+  source_raw:
+  - sources/raw/财经/复盘：26-03-16：4050三次长下影强支撑，存储领涨，明日中阳预期，OFC三大MSA.md
+- pattern_id: second_leg_entry_qualify
+  name: 二次回踩入场点判断
+  description: 通过观察指数反弹后的分歧窗口和资金兑现信号，判断二次回踩形成的确定性入场节点
+  applicable_themes:
+  - 指数择时
+  - 主线板块入场时机
+  reasoning_chain:
+  - step: 1
+    name: 识别反弹阶段
+    question: 当前市场处于反弹的哪个阶段？
+    UP_logic: 连续两日普涨反弹后临近短期关键压力位，资金兑现欲望抬升
+    evidence_sources:
+    - 沪指走势
+    - 成交量变化
+  - step: 2
+    name: 判断分歧窗口
+    question: 分歧窗口何时到来？
+    UP_logic: 一轮杀跌后企稳修复周期通常2~3个交易日，已完成两日反弹→临近首次分歧窗口
+    evidence_sources:
+    - 历史修复周期规律
+    - 连板晋级率变化
+  - step: 3
+    name: 观察资金切换
+    question: 是否有资金兑现信号？
+    UP_logic: 午后资金防守切换（军工+福建板块）=兑现欲望抬头
+    evidence_sources:
+    - 板块轮动数据
+    - 资金流向
+  - step: 4
+    name: 确认入场节点
+    question: 何时是确定性入场节点？
+    UP_logic: 震荡反复、二次回踩夯实支撑仍是大概率事件，调整形成的「第二只脚」=本轮行情优质确定性入场节点
+    evidence_sources:
+    - 指数支撑位
+    - 成交量萎缩信号
+  risk_factors:
+  - 指数直接突破压力位未回踩，错过主升浪
+  - 二次回踩幅度过深破坏趋势
+  confidence_indicators:
+  - 分歧日成交量明显萎缩
+  - 主线板块核心个股抗跌企稳
+  source_raw:
+  - sources/raw/财经/复盘：26-03-25：沪指重回3900，电力二波主升高潮，华电8连板，等第二只脚入场.md

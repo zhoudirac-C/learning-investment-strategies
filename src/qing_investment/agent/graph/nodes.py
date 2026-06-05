@@ -213,7 +213,7 @@ def _load_reasoning_patterns(state: AgentState) -> list[dict]:
         return []
 
     # 按加权分数排序，取 top 5（最低 score=0.8 过滤纯噪声匹配）
-    MIN_MATCH_SCORE = 0.8
+    MIN_MATCH_SCORE = 0.4
     sorted_pairs = sorted(pattern_scores.items(), key=lambda x: x[1], reverse=True)
     sorted_pairs = [(pi, round(s, 2)) for pi, s in sorted_pairs if s >= MIN_MATCH_SCORE]
     matched: list[dict] = []

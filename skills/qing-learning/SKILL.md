@@ -140,9 +140,14 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     - `knowledge/wiki/index.md` — wiki 页面索引（常被遗漏！）
     - `knowledge/wiki/log.md` — 操作日志
 11. 判断是否需要更新 `knowledge/wiki/投资方法论/博主方法论总纲.md`。
-12. **推理模式抽取**：从 raw 中识别可复用的推理链（非观点，是"怎么推理"），
+12. **推理模式抽取**：从 raw 中识别 ≥3 步可复用的推理链（非观点，是"怎么推理"），
     使用 `scripts/extract_reasoning_patterns.py` 抽取并写入 `framework/reasoning-patterns.yaml`。
     详见 `references/reasoning-pattern-extraction-workflow.md`。
+
+    **触发条件**：raw 文件含 `复盘`/`视频`/`产业链`/`拆解`/`BOM` 等关键词，正文前 500 字含 `因为`/`所以`/`判断`/`逻辑` 等分析性语言。
+
+    **不要**在每篇 raw ingestion 时都运行——只在 raw 内容明显包含分析框架时才触发。
+    日常动态/简讯类 raw 通常不含推理链，跳过即可。
 13. 输出 Learning Update Report。
 13. **知识库增量同步**：运行三个增量同步脚本，将新的 claims 和 wiki 推送到 Qing-Agent 的检索后端。
 
