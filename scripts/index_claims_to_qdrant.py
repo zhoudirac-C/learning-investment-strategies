@@ -1,48 +1,29 @@
 #!/usr/bin/env python3
-"""Migrate Neo4j claims into Qdrant for semantic search."""
-from __future__ import annotations
+"""Incrementally sync claims from Neo4j to Qdrant (qing_claims collection) for semantic search."""
 
 import hashlib
+import os
 import sys
-from pathlib import Path
 
-import requests
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO_ROOT / "src"))
-
-from qing_investment.agent.tools.llm_client import get_embedding_model
 from qing_investment.agent.tools.neo4j_client import Neo4jClient
-from qing_investment.agent.config import settings
+from qing_investment.agent.tools.llm_client import get_embedding_model
+from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
+from qdrant_client.models import PointStruct
 
 COLLECTION = "qing_claims"
 VECTOR_DIM = 512
-QDRANT_BASE = f"http://{settings.qdrant_host}:{settings.qdrant_port}"
-
-
-def ensure_collection():
-    resp = requests.get(f"{QDRANT_BASE}/collections")
-    collections = [c["name"] for c in resp.json().get("result", {}).get("collections", [])]
-    if COLLECTION not in collections:
-        r = requests.put(
-            f"{QDRANT_BASE}/collections/{COLLECTION}",
-            json={"vectors": {"size": VECTOR_DIM, "distance": "Cosine"}}
-        )
-        print(f"Created collection {COLLECTION}: {r.status_code}")
-
-
-def upsert_points(points: list):
-    r = requests.put(
-        f"{QDRANT_BASE}/collections/{COLLECTION}/points",
-        json={"points": points}
-    )
-    r.raise_for_status()
 
 
 def main():
     neo4j = Neo4jClient()
+    qdrant = QdrantClientWrapper(local_mode=True)
     emb_model = get_embedding_model()
-    ensure_collection()
+
+    qdrant.ensure_collection(COLLECTION, vector_size=VECTOR_DIM)
 
     with neo4j.driver.session() as session:
         result = session.run(
@@ -61,9 +42,8 @@ def main():
     for claim in claims:
         cid = claim["id"]
         text = f"{claim.get('subject', '')} | {claim.get('statement', '')}"
-        emb = emb_model.encode(text).tolist()[0]
+        emb = emb_model.encode(text).tolist()
 
-        # Neo4j 可能返回 Date 对象，需要转字符串
         sd = claim.get("source_date", "")
         if hasattr(sd, "iso_format"):
             sd = sd.iso_format()
@@ -73,10 +53,10 @@ def main():
             sd = str(sd) if sd else ""
 
         point_id = hashlib.sha256(cid.encode("utf-8")).hexdigest()[:32]
-        batch.append({
-            "id": point_id,
-            "vector": emb,
-            "payload": {
+        batch.append(PointStruct(
+            id=point_id,
+            vector=emb,
+            payload={
                 "claim_id": cid,
                 "statement": claim.get("statement", ""),
                 "subject": claim.get("subject", ""),
@@ -84,16 +64,16 @@ def main():
                 "confidence": claim.get("confidence", ""),
                 "status": claim.get("status", ""),
             },
-        })
+        ))
 
         if len(batch) >= batch_size:
-            upsert_points(batch)
+            qdrant.upsert(COLLECTION, batch)
             total += len(batch)
             print(f"  Indexed {total}/{len(claims)} claims")
             batch = []
 
     if batch:
-        upsert_points(batch)
+        qdrant.upsert(COLLECTION, batch)
         total += len(batch)
 
     neo4j.close()

@@ -30,6 +30,7 @@ class Settings(BaseSettings):
 
     qdrant_host: str = "localhost"
     qdrant_port: int = 6333
+    qdrant_local_path: str = "/home/ubuntu/learning-investment-strategies/.qdrant_data"
 
     mem0_api_key: str | None = None
     mem0_base_url: str = "http://localhost:8001"

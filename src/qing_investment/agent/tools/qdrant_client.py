@@ -3,48 +3,79 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
-import requests
-
 from qing_investment.agent.config import settings
 
 logger = logging.getLogger(__name__)
 
-_QDRANT_BASE = f"http://{settings.qdrant_host}:{settings.qdrant_port}"
-
 
 class QdrantClientWrapper:
-    def __init__(self, local_mode: bool = False):
-        # Always use REST API for compatibility with Qdrant server 1.9.7
-        self.base_url = _QDRANT_BASE
+    """Qdrant client wrapper — supports both local file mode and remote server mode.
+
+    Local mode (default): uses QdrantClient(path=...) — embedded, no server needed.
+    Remote mode: uses QdrantClient(host=..., port=...) — connects to a running server.
+    """
+
+    def __init__(self, local_mode: bool = True):
+        from qdrant_client import QdrantClient
+
+        self.local_path = settings.qdrant_local_path
+        self._is_local = local_mode and bool(self.local_path)
+
+        if self._is_local:
+            self._client = QdrantClient(path=self.local_path)
+            logger.info(f"Qdrant local mode: {self.local_path}")
+        else:
+            self._client = QdrantClient(host=settings.qdrant_host, port=settings.qdrant_port)
+            logger.info(f"Qdrant remote mode: {settings.qdrant_host}:{settings.qdrant_port}")
 
     def ensure_collection(self, name: str = "qing_knowledge", vector_size: int = 512):
         from qdrant_client.models import Distance, VectorParams
-        from qdrant_client import QdrantClient
 
-        # Use raw client only for collection management (these APIs are stable)
-        client = QdrantClient(host=settings.qdrant_host, port=settings.qdrant_port)
-        collections = client.get_collections().collections
+        collections = self._client.get_collections().collections
         exists = any(c.name == name for c in collections)
         if not exists:
-            client.create_collection(
+            self._client.create_collection(
                 collection_name=name,
                 vectors_config=VectorParams(size=vector_size, distance=Distance.COSINE),
             )
-        client.close()
+            logger.info(f"Created Qdrant collection: {name}")
 
     def search(self, query_vector: list[float], collection: str = "qing_knowledge", limit: int = 5):
-        resp = requests.post(
-            f"{self.base_url}/collections/{collection}/points/search",
-            json={"vector": query_vector, "limit": limit, "with_payload": True},
-            timeout=10,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        return data.get("result", [])
+        """Semantic search — compatible with both local and remote Qdrant modes."""
+        if self._is_local:
+            from qdrant_client.models import QueryRequest
+            # Local mode uses query_points()
+            resp = self._client.query_points(
+                collection_name=collection,
+                query=query_vector,
+                limit=limit,
+                with_payload=True,
+            )
+            return [
+                {"id": r.id, "score": r.score, "payload": r.payload or {}}
+                for r in resp.points
+            ]
+        else:
+            # Remote mode uses search() via REST
+            results = self._client.search(
+                collection_name=collection,
+                query_vector=query_vector,
+                limit=limit,
+                with_payload=True,
+            )
+            return [
+                {"id": r.id, "score": r.score, "payload": r.payload or {}}
+                for r in results
+            ]
 
     def upsert(self, collection: str, points: list):
-        from qdrant_client import QdrantClient
-
-        client = QdrantClient(host=settings.qdrant_host, port=settings.qdrant_port)
-        client.upsert(collection_name=collection, points=points)
-        client.close()
+        # Local mode requires UUID point IDs — convert string IDs to deterministic UUIDs
+        if self._is_local:
+            import uuid as _uuid
+            for p in points:
+                if not isinstance(p.id, _uuid.UUID):
+                    try:
+                        p.id = _uuid.UUID(str(p.id))
+                    except ValueError:
+                        p.id = _uuid.uuid5(_uuid.NAMESPACE_DNS, str(p.id))
+        self._client.upsert(collection_name=collection, points=points)

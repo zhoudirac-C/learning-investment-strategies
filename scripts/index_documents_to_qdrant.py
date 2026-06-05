@@ -197,7 +197,7 @@ def index_documents(*, force_full: bool = False):
         points = []
         for chunk in chunks:
             emb_model = get_embedding_model()
-            embedding = emb_model.encode(chunk["text"]).tolist()[0]
+            embedding = emb_model.encode(chunk["text"]).tolist()
             point_id = hashlib.sha256(
                 f"{chunk['source_path']}:{chunk['text']}".encode("utf-8")
             ).hexdigest()[:32]
