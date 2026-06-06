@@ -295,6 +295,7 @@ async def chat(req: ChatRequest):
         "4. 禁止引用claim ID支持当前观点",
         "5. 如果【实时行情数据】为空，请明确说明无法获取数据，不要编造",
         "6. 如果知识库中没有相关信息，请明确说明，不要编造",
+        "7. 【输出格式】回复开头必须标注：'[Qing-Agent 分析]'，然后空一行再写正文",
         "",
         *context_parts,
         f"\n用户：{req.message}\n",
