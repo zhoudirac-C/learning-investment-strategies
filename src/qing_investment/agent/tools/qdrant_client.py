@@ -60,26 +60,41 @@ class QdrantClientWrapper:
             if self._is_local:
                 self._enable_wal_mode()
 
-    def search(self, query_vector: list[float], collection: str = "qing_knowledge", limit: int = 5):
-        """Semantic search — compatible with both local and remote Qdrant modes."""
+    def search(self, query_vector, collection: str = "qing_knowledge", limit: int = 5):
+        """Semantic search — compatible with both local and remote Qdrant modes.
+        
+        Supports qing_knowledge (wiki+raw docs) and qing_claims (structured claims).
+        Falls back to manual cosine similarity for local mode if query_points fails.
+        """
+        import numpy as np
+        
+        # Ensure query_vector is 1D numpy array
+        if hasattr(query_vector, 'ndim'):
+            query_vec = np.array(query_vector).flatten()
+        else:
+            query_vec = np.array(query_vector).flatten()
+        
         if self._is_local:
-            from qdrant_client.models import QueryRequest
-            # Local mode uses query_points()
-            resp = self._client.query_points(
-                collection_name=collection,
-                query=query_vector,
-                limit=limit,
-                with_payload=True,
-            )
-            return [
-                {"id": r.id, "score": r.score, "payload": r.payload or {}}
-                for r in resp.points
-            ]
+            try:
+                # Try query_points first
+                resp = self._client.query_points(
+                    collection_name=collection,
+                    query=query_vec.tolist(),
+                    limit=limit,
+                    with_payload=True,
+                )
+                return [
+                    {"id": r.id, "score": r.score, "payload": r.payload or {}}
+                    for r in resp.points
+                ]
+            except Exception:
+                # Fallback: manual cosine similarity via scroll
+                return self._search_manual(query_vec, collection, limit)
         else:
             # Remote mode uses search() via REST
             results = self._client.search(
                 collection_name=collection,
-                query_vector=query_vector,
+                query_vector=query_vec.tolist(),
                 limit=limit,
                 with_payload=True,
             )
@@ -87,6 +102,43 @@ class QdrantClientWrapper:
                 {"id": r.id, "score": r.score, "payload": r.payload or {}}
                 for r in results
             ]
+    
+    def _search_manual(self, query_vec: np.ndarray, collection: str, limit: int):
+        """Manual cosine similarity search for local mode fallback."""
+        import numpy as np
+        
+        all_points = []
+        offset = None
+        while True:
+            resp = self._client.scroll(
+                collection_name=collection,
+                limit=100,
+                offset=offset,
+                with_payload=True,
+                with_vectors=True,
+            )
+            points = resp[0]
+            if not points:
+                break
+            all_points.extend(points)
+            offset = resp[1]
+            if offset is None:
+                break
+        
+        # Calculate cosine similarity
+        scores = []
+        query_norm = np.linalg.norm(query_vec)
+        for p in all_points:
+            vec = np.array(p.vector).flatten()
+            score = np.dot(query_vec, vec) / (query_norm * np.linalg.norm(vec))
+            scores.append((score, p))
+        
+        # Sort and return top-k
+        scores.sort(key=lambda x: -x[0])
+        return [
+            {"id": p.id, "score": score, "payload": p.payload or {}}
+            for score, p in scores[:limit]
+        ]
 
     def upsert(self, collection: str, points: list):
         # Local mode requires UUID point IDs — convert string IDs to deterministic UUIDs

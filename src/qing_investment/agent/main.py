@@ -118,18 +118,33 @@ async def chat(req: ChatRequest):
         qdrant = QdrantClientWrapper()
         emb_model = get_embedding_model()
         if emb_model:
-            vec = emb_model.encode(req.message).tolist()[0]
-            results = qdrant.search(vec, collection="qing_knowledge", limit=5)
+            vec = emb_model.encode(req.message)
+            
+            # 检索wiki和raw文档
+            results = qdrant.search(vec, collection="qing_knowledge", limit=8)
             wiki_snippets = [
                 {
-                    "text": r.payload.get("text", ""),
-                    "source": r.payload.get("source_path", ""),
-                    "source_type": r.payload.get("source_type", ""),
+                    "text": r.get("payload", {}).get("text", ""),
+                    "source": r.get("payload", {}).get("source_path", ""),
+                    "source_type": r.get("payload", {}).get("source_type", ""),
                 }
                 for r in results
             ]
-    except Exception:
-        pass
+            
+            # 检索结构化claims
+            claim_results = qdrant.search(vec, collection="qing_claims", limit=8)
+            for r in claim_results:
+                payload = r.get("payload", {})
+                claims.append({
+                    "id": payload.get("claim_id", ""),
+                    "statement": payload.get("statement", ""),
+                    "subject": payload.get("subject", ""),
+                    "source_date": payload.get("source_date", ""),
+                    "confidence": payload.get("confidence", ""),
+                    "score": r.get("score", 0),
+                })
+    except Exception as e:
+        print(f"Knowledge retrieval error: {e}")
 
     try:
         neo4j = Neo4jClient()
@@ -243,20 +258,45 @@ async def chat(req: ChatRequest):
         except Exception:
             pass
 
-    # ── 过滤知识库内容（只保留方法论） ──
-    methodology_wiki = [
+    # ── 过滤知识库内容 ──
+    # 保留所有 wiki（包括市场分析、投资方法论、每日复盘等）
+    all_wiki = [
         s for s in wiki_snippets
-        if s.get("source", "").startswith("framework/") or "投资方法论" in s.get("source", "")
+        if s.get("source", "").startswith(("knowledge/wiki/", "framework/"))
     ]
-    methodology_claims = []
-    for c in claims:
-        stmt = (c.get("statement") or "").lower()
-        subj = (c.get("subject") or "").lower()
-        if any(kw in stmt or kw in subj for kw in [
-            "框架", "周期", "方法论", "规则", "纪律", "策略", "体系",
-            "冰点", "回暖", "高潮", "退潮", "轮动", "主线", "扩散",
-        ]):
-            methodology_claims.append(c)
+    
+    # 保留所有 claims（不过滤，让 LLM 自己判断相关性）
+    all_claims = claims
+
+    # ── 读取持仓数据（如果匹配到个股） ──
+    position_data: dict | None = None
+    if fetched_stock_code:
+        try:
+            import yaml
+            positions_path = "/home/ubuntu/learning-investment-strategies/config/stock_monitor/positions.yaml"
+            with open(positions_path, "r", encoding="utf-8") as f:
+                positions_data = yaml.safe_load(f)
+            
+            for account in positions_data.get("accounts", []):
+                for pos in account.get("positions", []):
+                    code = pos.get("code", "").replace(".SZ", "").replace(".SH", "").replace(".sz", "").replace(".sh", "")
+                    if code == fetched_stock_code and pos.get("shares", 0) > 0:
+                        position_data = {
+                            "account": account.get("name", ""),
+                            "name": pos.get("name", ""),
+                            "code": code,
+                            "shares": pos.get("shares", 0),
+                            "cost": pos.get("cost", 0),
+                            "risk_line": pos.get("risk_line", ""),
+                            "risk_zone": pos.get("risk_zone", ""),
+                            "reduce_zone": pos.get("reduce_zone", ""),
+                            "notes": pos.get("notes", ""),
+                        }
+                        break
+                if position_data:
+                    break
+        except Exception:
+            pass
 
     # ── 构建 prompt ──
     context_parts = []
@@ -303,16 +343,29 @@ async def chat(req: ChatRequest):
     else:
         context_parts.append("【实时行情数据】（❌ 无法获取）")
 
-    if methodology_wiki:
-        context_parts.append("\n【博主分析方法论】（仅供参考UP的分析框架和概念定义）")
-        for s in methodology_wiki:
-            src = s["source"].replace("framework/", "[框架] ").replace("knowledge/wiki/", "[Wiki] ")
+    if all_wiki:
+        context_parts.append("\n【博主知识库】（Wiki专题分析、投资方法论、市场复盘等）")
+        for s in all_wiki[:8]:  # 限制数量避免prompt过长
+            src = s["source"].replace("knowledge/wiki/", "[Wiki] ").replace("framework/", "[框架] ")
             context_parts.append(f"- {src}: {s['text'][:300]}")
 
-    if methodology_claims:
+    if all_claims:
         context_parts.append("\n【博主历史观点卡】（⚠️ 历史观点，仅供参考，不得作为当前判断依据）")
-        for c in methodology_claims:
+        for c in all_claims[:8]:  # 限制数量
             context_parts.append(f"- {c.get('id', 'N/A')} ({c.get('source_date','')}): {c.get('statement', '')[:200]}")
+
+    # 注入持仓数据
+    if position_data:
+        context_parts.append("\n【用户持仓数据】")
+        context_parts.append(f"- 标的: {position_data['name']}({position_data['code']})")
+        context_parts.append(f"- 持仓: {position_data['shares']}股")
+        context_parts.append(f"- 成本: {position_data['cost']}元")
+        if position_data.get('risk_zone') or position_data.get('risk_line'):
+            context_parts.append(f"- 风控线: {position_data.get('risk_zone') or position_data.get('risk_line')}")
+        if position_data.get('reduce_zone'):
+            context_parts.append(f"- 减仓区: {position_data['reduce_zone']}")
+        if position_data.get('notes'):
+            context_parts.append(f"- 备注: {position_data['notes']}")
 
     if memories:
         context_parts.append("\n【用户历史记忆】")
