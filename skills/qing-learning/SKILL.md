@@ -120,12 +120,13 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 19. **推理模式架构**：参考 `references/reasoning-pattern-architecture.md`（三层蒸馏架构：知识库层→推理模式层→动态应用层，含YAML模板和实施路线图）。
 19. **推理模式抽取脚本**：参考 `references/reasoning-pattern-extraction-workflow.md`（批量从 raw 抽取推理模式写入 `framework/reasoning-patterns.yaml`，含脚本用法、匹配机制、Agent 集成架构）。
 20. **推理模式匹配算法优化**：参考 `references/reasoning-pattern-matching-phase5.md`（聚合到10个通用框架后的匹配算法优化：多字段加权索引、精确匹配优先、阈值调整、ONNX Embedding 评估）。
-19. **推理模式匹配算法 Phase 6**：参考 `references/reasoning-pattern-matching-phase5.md`（两阶段匹配：ONNX Embedding 召回 Top5 + LLM 重排序 Top3，解决 MLCC/半导体业绩等边界查询的框架归属问题）。
-20. **Phase 6 实施配方**：参考 `references/reasoning-pattern-phase6-recipe.md`（快速复现/验证两阶段匹配 + 框架归类合并的配方、命令、常见边界问题）。
-21. **Phase 6 设计演进 rationale**：当用户质疑"单文件提取是否太窄/不够通用"时，参考 `references/reasoning-pattern-extraction-workflow.md` §8（设计演进：从 116 个独立模式到 10 个通用框架+examples 的演进逻辑、类比、适用边界）。
-22. **Embedding-Friendly Description 编写**：参考 `references/embedding-friendly-description-pattern.md`（当使用 Embedding 语义匹配时，如何编写框架 description 以提升准确率：四段式结构、触发场景、典型查询示例、效果对比）。
-23. **Trading Rules 迁移与维护**：参考 `references/trading-rules-migration-guide.md`（何时将操作纪律进 `framework/trading-rules.md`、迁移流程、避免重复）。
-24. **推理模式跨方向复用性**：参考 `references/reasoning-pattern-cross-direction-reuse.md`（通用框架的 `examples` 列表如何支撑跨方向复用——同一推理骨架适用于不同主题的具体案例、复用边界、何时需要新增框架）。
+    - **推理模式匹配算法 Phase 6**：参考 `references/reasoning-pattern-matching-phase5.md`（两阶段匹配：ONNX Embedding 召回 Top5 + LLM 重排序 Top3，解决 MLCC/半导体业绩等边界查询的框架归属问题）。
+    20. **Phase 6 实施配方**：参考 `references/reasoning-pattern-phase6-recipe.md`（快速复现/验证两阶段匹配 + 框架归类合并的配方、命令、常见边界问题）。
+    19. **Phase 6 设计演进 rationale**：当用户质疑"单文件提取是否太窄/不够通用"时，参考 `references/reasoning-pattern-extraction-workflow.md` §8（设计演进：从 116 个独立模式到 10 个通用框架+examples 的演进逻辑、类比、适用边界）。
+    22. **Embedding-Friendly Description 编写**：参考 `references/embedding-friendly-description-pattern.md`（当使用 Embedding 语义匹配时，如何编写框架 description 以提升准确率：四段式结构、触发场景、典型查询示例、效果对比）。
+    23. **Trading Rules 迁移与维护**：参考 `references/trading-rules-migration-guide.md`（何时将操作纪律进 `framework/trading-rules.md`、迁移流程、避免重复）。
+    24. **推理模式跨方向复用性**：参考 `references/reasoning-pattern-cross-direction-reuse.md`（通用框架的 `examples` 列表如何支撑跨方向复用——同一推理骨架适用于不同主题的具体案例、复用边界、何时需要新增框架）。
+    25. **推理模式通用性 FAQ**：当用户问"推理模式是否只能针对单一方向""是否不够通用""是不是只能从单个文件提取"时，直接引用 `references/reasoning-pattern-cross-direction-reuse.md` 的"核心结论"和"复用示例"表格。不要重新解释 Phase 6 架构——用户的问题说明已有文档未被有效引用，Agent 应直接展示复用示例（如 `upstream_cycle` 同时支撑 MLCC/PCB/存储/硅片），而非重复论证设计合理性。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
@@ -201,10 +202,11 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 7. **遗忘知识库同步**：claims/wiki 落库并提交后，若不运行 `index_documents_to_qdrant.py` + `migrate_claims_to_neo4j.py`，Qing-Agent 将无法检索到新内容。特征：用户询问某个新学的板块时，Qing-Agent 回答"未找到相关数据"。检查 `.index_state.json` 和 `.migrate_state.json` 的 `last_sync` 时间戳可快速确认是否遗漏。
 8. **未关 Agent 就运行同步脚本（Qdrant 本地模式）**：Qing-Agent 启动后持有 `.qdrant_data/` 独占文件锁。不关 Agent 直接运行索引脚本会导致 `Storage folder already accessed` 错误或静默卡死。正确流程：`kill` Agent → 同步 → 重启 Agent。详见步骤13「知识库增量同步」。
 9. **忘记 PYTHONUNBUFFERED=1**：Hermes cron/后台进程管理器捕获 Python stdout 时，默认缓冲会导致无输出（看起来像卡死）。索引命令必须加 `PYTHONUNBUFFERED=1` 前缀。详见步骤13。
-10. **推理模式抽取混淆观点与推理**：`"UP看好MLCC"` 是观点，应进 claims；`"UP是怎么得出看好MLCC的（5步推理链）"` 是推理模式，应进 `framework/reasoning-patterns.yaml`。不要将单日盘面判断误标为推理模式。
-11. **单raw依赖陷阱——批量抽取后必须聚合**：`scripts/extract_reasoning_patterns.py` 批量抽取时，会把每篇含推理链的 raw 都生成一个独立模式。运行一段时间后会出现：①99%的模式只关联1个raw ②主题高度重叠 ③文件持续膨胀无收敛 ④匹配噪声增大。**解决方案**：
+11. **推理模式抽取混淆观点与推理**：`"UP看好MLCC"` 是观点，应进 claims；`"UP是怎么得出看好MLCC的（5步推理链）"` 是推理模式，应进 `framework/reasoning-patterns.yaml`。不要将单日盘面判断误标为推理模式。
+12. **单raw依赖陷阱——批量抽取后必须聚合**：`scripts/extract_reasoning_patterns.py` 批量抽取时，会把每篇含推理链的 raw 都生成一个独立模式。运行一段时间后会出现：①99%的模式只关联1个raw ②主题高度重叠 ③文件持续膨胀无收敛 ④匹配噪声增大。**解决方案**：
     - **长期方案（推荐）**：抽取时直接让 LLM 判断归入10个通用框架，作为 `examples` 追加。这是 Phase 6 改造后的默认行为，详见 `references/reasoning-pattern-extraction-workflow.md` §8。
     - **历史补救**：若已积累大量独立模式，定期（如每新增50个模式后）执行聚合——按推理结构相似性将模式聚类为通用框架（如`upstream_cycle`、`mainline_identification`等），每个框架保留通用`reasoning_chain`+原模式作为`examples`。聚合后模式数从116→10，文件大小从255KB→78KB，主题覆盖率保持100%。详见 `references/reasoning-pattern-extraction-workflow.md` §7。
+13. **用户质疑推理模式通用性时的响应方式**：当用户问"推理思路都是从单个文件提取的是否不够通用""只能针对一个方向吗"时，**不要重新解释 Phase 6 设计 rationale**——直接展示 `references/reasoning-pattern-cross-direction-reuse.md` 中的复用示例表格（`upstream_cycle` 支撑 MLCC/PCB/存储/硅片等），用具体案例回答。用户的问题通常意味着已有文档未被有效发现，Agent 应充当文档导航器而非重新论证者。
 
 ---
 
