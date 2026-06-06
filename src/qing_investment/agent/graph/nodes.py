@@ -782,15 +782,50 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
     }
 
 
+def _filter_methodology_only(claims: list[dict]) -> list[dict]:
+    """过滤claims，只保留方法论相关的，移除具体观点claim。
+
+    保留：包含方法论关键词的claim（如"框架"、"周期"、"方法论"、"规则"）
+    移除：具体看多/看空某股的claim
+    """
+    methodology_keywords = {
+        "框架", "周期", "方法论", "规则", "纪律", "策略", "体系",
+        "冰点", "回暖", "高潮", "退潮", "轮动", "主线", "扩散",
+        "upstream", "downstream", "产业链", "估值", "仓位",
+    }
+    filtered = []
+    for c in claims:
+        stmt = (c.get("statement") or "").lower()
+        # 如果claim包含方法论关键词，保留
+        if any(kw in stmt for kw in methodology_keywords):
+            filtered.append(c)
+            continue
+        # 如果claim的subject是方法论相关，保留
+        subj = (c.get("subject") or "").lower()
+        if any(kw in subj for kw in methodology_keywords):
+            filtered.append(c)
+            continue
+        # 否则过滤掉（具体观点claim）
+    return filtered
+
+
 def market_analyst(state: AgentState) -> AgentState:
     prompt_template = _load_prompt("market_analyst")
     esb = state.get("external_sector_boards", {})
     analysis_type = (state.get("parsed_intent") or {}).get("analysis_type", "stock")
-    if analysis_type in ("market", "portfolio") and not esb.get("available"):
+
+    # ── 【新增】强制数据获取检查 ──
+    market_snapshot = dict(state.get("market_snapshot") or {})
+    has_realtime_data = (
+        esb.get("available") or
+        (market_snapshot.get("quotes") and len(market_snapshot.get("quotes", [])) > 0)
+    )
+
+    if analysis_type in ("market", "portfolio") and not has_realtime_data:
         return {
             "market_context": {
                 "market_phase": "数据不可用",
-                "phase_reasoning": f"外部板块数据不可用，无法生成市场分析: {esb.get('error', 'unknown')}",
+                "phase_reasoning": "缺少实时行情数据（external_sector_boards和market_snapshot均不可用），无法生成独立分析。请先获取市场数据。",
                 "main_themes": [],
                 "sector_map": {},
                 "themes_in_focus": [],
@@ -799,14 +834,13 @@ def market_analyst(state: AgentState) -> AgentState:
                 "emotion_signals": {},
                 "tomorrow_watch": [],
                 "position_plans": [],
-                "risk_notes": "外部行情源板块数据缺失，本次分析被中止。请检查网络连接或等行情源恢复后重试。",
+                "risk_notes": "实时行情数据缺失，本次分析被中止。请检查网络连接或等行情源恢复后重试。",
                 "citations": [],
             },
-            "reasoning_steps": ["market_analyst: 外部板块数据不可用，拒绝生成分析"],
+            "reasoning_steps": ["market_analyst: 实时数据不可用，拒绝生成分析"],
         }
 
     # Truncate market_snapshot quotes to keep prompt size reasonable
-    market_snapshot = dict(state.get("market_snapshot") or {})
     all_quotes = market_snapshot.get("quotes", []) or []
     if isinstance(all_quotes, list) and len(all_quotes) > 50:
         # Keep indexes + position/watchlist stocks + top movers
@@ -862,9 +896,25 @@ def market_analyst(state: AgentState) -> AgentState:
     analysis_framework = _load_analysis_framework()
     prompt_template_filled = prompt_template.replace("{analysis_framework}", analysis_framework)
 
+    # ── 【修改】过滤claims，只保留方法论相关 ──
+    raw_claims = state.get("claims", [])
+    methodology_claims = _filter_methodology_only(raw_claims)
+    print(
+        f"[market_analyst] claims_total={len(raw_claims)}, "
+        f"methodology_only={len(methodology_claims)}, "
+        f"filtered={len(raw_claims) - len(methodology_claims)}"
+    )
+
+    # ── 【修改】过滤wiki_snippets，只保留framework和方法论相关 ──
+    raw_wiki = state.get("wiki_snippets", [])
+    methodology_wiki = [
+        s for s in raw_wiki
+        if s.get("source", "").startswith("framework/") or "投资方法论" in s.get("source", "")
+    ]
+
     context = {
-        "claims": state.get("claims", []),
-        "wiki_snippets": state.get("wiki_snippets", []),
+        "claims": methodology_claims,  # 只注入方法论claim
+        "wiki_snippets": methodology_wiki,  # 只注入方法论wiki
         "framework_rules": framework_context,  # 显式注入方法论框架
         "reasoning_patterns": reasoning_patterns,  # Phase 4 注入推理模式
         "market_snapshot": market_snapshot,
@@ -875,7 +925,7 @@ def market_analyst(state: AgentState) -> AgentState:
     }
     prompt = f"""{prompt_template_filled}
 
-检索到的知识：
+检索到的知识（已过滤，仅保留方法论内容）：
 {json.dumps(context, ensure_ascii=False, indent=2)}
 
 当前持仓：
@@ -900,7 +950,6 @@ def market_analyst(state: AgentState) -> AgentState:
         }
 
     return {
-
         "market_context": result,
         "reasoning_steps": [
             f"市场周期: {result.get('market_phase', 'N/A')}"
@@ -997,30 +1046,35 @@ def stock_analyst(state: AgentState) -> AgentState:
 
 
 def _format_source_block(state: AgentState) -> str:
-    """从检索到的知识构建参考来源段落，强制注入到草稿末尾。"""
+    """从检索到的知识构建参考来源段落，强制注入到草稿末尾。
+
+    【修改】只保留framework和wiki方法论引用，移除claim引用。
+    """
     sources: list[str] = []
     seen: set[str] = set()
 
-    # Framework rules
+    # Framework rules（方法论来源）
     for f in state.get("framework_rules", []):
         src = f"framework/{f.get('file', '')}"
         if src and src not in seen:
             seen.add(src)
             sources.append(src)
 
-    # Wiki snippets (top 5)
+    # Wiki snippets — 只保留framework和投资方法论（方法论来源）
     for s in state.get("wiki_snippets", [])[:5]:
         src = s.get("source", "")
-        if src and src not in seen:
-            seen.add(src)
-            sources.append(src)
+        # 只保留方法论相关的wiki来源
+        if src.startswith("framework/") or "投资方法论" in src or "wiki/投资方法论" in src:
+            if src and src not in seen:
+                seen.add(src)
+                sources.append(src)
 
-    # Claims (top 5)
-    for c in state.get("claims", [])[:5]:
-        cid = c.get("id", "")
-        if cid and cid not in seen:
-            seen.add(cid)
-            sources.append(cid)
+    # 【移除】Claims不再作为来源引用
+    # for c in state.get("claims", [])[:5]:
+    #     cid = c.get("id", "")
+    #     if cid and cid not in seen:
+    #         seen.add(cid)
+    #         sources.append(cid)
 
     if not sources:
         return ""

@@ -31,6 +31,8 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 
 详见 `references/dual-track-compatibility.md`。
 
+> **⚠️ 关于"推理模式是否只能针对单一方向"：** 当用户质疑 `framework/reasoning-patterns.yaml` 中的推理思路"只能从单个文件提取、不够通用"时，答案已在 `references/reasoning-pattern-cross-direction-reuse.md`（通用框架的 `examples` 天然支持跨方向复用——同一推理骨架适用于 MLCC/PCB/存储/硅片等不同主题）和 `references/reasoning-pattern-extraction-workflow.md` §8（Phase 6 设计演进：从 116 个独立模式到 10 个通用框架+examples 的演进逻辑）。**不要回答"可以考虑xxx"——直接引用这两个文件。**
+
 ## 触发
 
 **Ingestion 触发**（学习新内容）：
@@ -63,6 +65,9 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 - **内容验证优先**：检查文件是否已处理/已存在时，不能只比较文件名或标题，必须读取原文内容提取唯一标识（如 `dynamic_id`、独特短语）进行交叉验证。
 - **优先处理文档，后改脚本**：当用户同时要求"补充到文档"和"改脚本"时，**先完成文档录入和 qing-learning 流程，再处理脚本修改**。用户明确偏好"先不改脚本，先处理文档"。这是硬性优先级，不要试图并行处理或先改脚本后补文档。
 - **分阶段实施需用户确认**：当方案涉及多个阶段（如"先做A，再做B"），先向用户说明阶段划分并确认顺序，再执行。用户明确纠正过"先做embedding+LLM rerank的两阶段方案，再做extract脚本改造"——此类跨阶段任务必须获得用户确认。
+  - **不要假设默认顺序**：即使技术上有依赖关系（如A是B的前提），也要先列出阶段并让用户确认执行顺序
+  - **确认方式**：明确说"方案分N个阶段：①... ②... ③... 您希望按这个顺序执行吗？还是需要调整？"
+  - **用户说"先做X"时**：立即停止当前计划，按用户指定的顺序重新规划，不要争辩技术依赖关系
 - **Git 拉取优先于本地修改**：当用户要求"拉取远程分支"或"同步最新改动"时，必须先处理 git 同步（fetch/merge/pull），再处理本地数据更新。如果本地有未提交修改：
   1. `git stash` 暂存本地改动
   2. `git fetch origin` + `git merge origin/master` 合并远程
@@ -116,8 +121,11 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 19. **推理模式抽取脚本**：参考 `references/reasoning-pattern-extraction-workflow.md`（批量从 raw 抽取推理模式写入 `framework/reasoning-patterns.yaml`，含脚本用法、匹配机制、Agent 集成架构）。
 20. **推理模式匹配算法优化**：参考 `references/reasoning-pattern-matching-phase5.md`（聚合到10个通用框架后的匹配算法优化：多字段加权索引、精确匹配优先、阈值调整、ONNX Embedding 评估）。
 19. **推理模式匹配算法 Phase 6**：参考 `references/reasoning-pattern-matching-phase5.md`（两阶段匹配：ONNX Embedding 召回 Top5 + LLM 重排序 Top3，解决 MLCC/半导体业绩等边界查询的框架归属问题）。
+20. **Phase 6 实施配方**：参考 `references/reasoning-pattern-phase6-recipe.md`（快速复现/验证两阶段匹配 + 框架归类合并的配方、命令、常见边界问题）。
+21. **Phase 6 设计演进 rationale**：当用户质疑"单文件提取是否太窄/不够通用"时，参考 `references/reasoning-pattern-extraction-workflow.md` §8（设计演进：从 116 个独立模式到 10 个通用框架+examples 的演进逻辑、类比、适用边界）。
 22. **Embedding-Friendly Description 编写**：参考 `references/embedding-friendly-description-pattern.md`（当使用 Embedding 语义匹配时，如何编写框架 description 以提升准确率：四段式结构、触发场景、典型查询示例、效果对比）。
 23. **Trading Rules 迁移与维护**：参考 `references/trading-rules-migration-guide.md`（何时将操作纪律进 `framework/trading-rules.md`、迁移流程、避免重复）。
+24. **推理模式跨方向复用性**：参考 `references/reasoning-pattern-cross-direction-reuse.md`（通用框架的 `examples` 列表如何支撑跨方向复用——同一推理骨架适用于不同主题的具体案例、复用边界、何时需要新增框架）。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
