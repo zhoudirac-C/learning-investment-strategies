@@ -135,12 +135,38 @@ for q in ['MLCC板块怎么看', 'AI产业链机会', '市场情绪如何', '大
 - Phase 5.2（下一步）：Embedding 召回 + LLM rerank
 - Phase 5.3（远期）：纯 Embedding（等 description 质量进一步提升或换更大模型）
 
-## 代码位置
+## Phase 6：两阶段匹配实施（2026-06-06）
+
+### 实现
+
+已在 `src/qing_investment/agent/graph/nodes.py` 中实现：
+
+1. **`_embed_recall_candidates(state, top_k=5)`**：ONNX embedding 计算 query 与 10 个框架的语义相似度，取 Top 5
+2. **`_llm_rerank_patterns(query, candidates, patterns)`**：加载 `pattern_router.txt` prompt，LLM 返回最相关的 1-3 个 `pattern_id`
+3. **`_load_reasoning_patterns(state)`**：整合两阶段逻辑，embedding/LLM 失败时 fallback 到关键词匹配
+
+### 新增文件
+
+- `src/qing_investment/agent/prompts/system/pattern_router.txt` — LLM rerank 的 system prompt
+
+### 测试结果
+
+| 查询 | Embedding Top1 | LLM Rerank 结果 | 是否正确 |
+|------|---------------|-----------------|---------|
+| MLCC板块怎么看 | ai_industry_chain (0.661) | **upstream_cycle** ✅ | ✅ |
+| 半导体业绩怎么样 | ai_industry_chain (0.683) | **earnings_analysis** ✅ | ✅ |
+| 今天主线是什么 | mainline_identification | mainline_identification | ✅ |
+| 市场情绪如何 | sentiment_cycle | sentiment_cycle | ✅ |
+
+### Fallback 验证
+
+embedding 模型加载失败时，自动回退到 Phase 5 关键词匹配，仍能正确匹配。
+
+### 代码位置
 
 - 核心函数：`src/qing_investment/agent/graph/nodes.py`
-  - `_build_pattern_index()` — 多字段索引构建
-  - `_extract_keywords_from_text()` — 文本关键词提取
-  - `_extract_themes_from_state()` — 状态主题提取
-  - `_load_reasoning_patterns()` — 主匹配逻辑
-- 文档更新：`src/qing_investment/agent/AGENTS.md` — Prompt 维护章节
-- YAML 文件：`framework/reasoning-patterns.yaml` — description 已重写为 v2.1
+  - `_embed_recall_candidates()` — Embedding 召回
+  - `_llm_rerank_patterns()` — LLM 重排序
+  - `_load_reasoning_patterns()` — 主匹配逻辑（Phase 6 整合版）
+- Prompt：`src/qing_investment/agent/prompts/system/pattern_router.txt`
+- 文档：`src/qing_investment/agent/AGENTS.md` — Prompt 维护章节

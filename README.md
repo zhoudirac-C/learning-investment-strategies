@@ -5,7 +5,7 @@
 这个项目**不是自动交易系统**，也**不是一次性的投研报告生成器**。它的核心是四层能力：
 1. **学习层**：把原始 UP 内容保存下来，逐步抽取观点、案例和方法论
 2. **知识层**：将学习结果结构化存入 Neo4j（claims 图谱）、Qdrant（文档向量）、mem0（长期记忆）
-3. **推理层**：从 UP 原文抽取推理模式（\"怎么推理\"而非\"什么观点\"），116 条推理链注入 Agent prompt
+3. **推理层**：从 UP 原文抽取推理模式（"怎么推理"而非"什么观点"），10 个通用框架 + 118 条 examples 注入 Agent prompt
 4. **分析层**：Qing-Agent 基于 LangGraph 工作流，按 UP 的推理模式分析行情并输出条件化操作建议
 
 ---
@@ -22,7 +22,7 @@
   - Phase 1 — 打通「能读到」：framework 文件加入向量索引，Agent 显式加载方法论框架
   - Phase 2 — 升级「读得准」：ONNX Runtime + `bge-small-zh-v1.5` 本地语义嵌入（512维），替代 hash 嵌入
   - Phase 3 — 做到「说得清来源」：来源类型 boost 排序、输出强制标注引用来源、reviewer citation 检查（最多3次打回）
-  - Phase 4 — 模仿「怎么推理」：从 479 篇 raw 中抽取 116 条推理模式（reasoning-patterns.yaml），IDF 加权倒排索引匹配，注入 market_analyst prompt，让 Agent 按 UP 的推理步骤思考
+  - Phase 4 — 模仿「怎么推理」：从 479 篇 raw 中抽取推理模式，10 个通用框架（upstream_cycle/mainline_identification 等）+ 118 条 examples，两阶段匹配（ONNX Embedding 召回 Top5 + LLM 重排序 Top3）注入 market_analyst prompt，让 Agent 按 UP 的推理步骤思考
 
 ---
 
@@ -41,7 +41,7 @@ knowledge/
 
 methodology/        长期方法论沉淀（F10、板块轮动、仓位风控、技术分析等）
 framework/          可执行分析流程与输出契约（8 个 playbook + reasoning-patterns.yaml）
-  reasoning-patterns.yaml  推理模式库（116 条 UP 推理链，IDF 加权倒排索引匹配）
+  reasoning-patterns.yaml  推理模式库（10 个通用框架 + 118 条 examples，Embedding+LLM rerank 匹配）
 
 config/stock_monitor/   行情监控配置
   watchlist.yaml        观察池（公共）

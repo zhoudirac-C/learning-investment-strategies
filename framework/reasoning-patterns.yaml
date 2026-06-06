@@ -849,13 +849,16 @@ patterns:
   - sources/raw/财经/早盘：26-01-06：60分钟钝化，商业航天缩容，脑机补涨固态回归.md
   - sources/raw/财经/早盘：26-05-15：今日不是看反弹，而是看承接是否成立.md
   - sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
+  - sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
   - sources/raw/财经/视频：26-04-21：量化主导时代的交易逻辑.md
   - sources/raw/财经/视频：26-05-17：5月中旬A股周复盘，CPI-PPI、人民币汇率、美联储与A股策略.md
   applicable_themes:
+  - AI基建
   - AI算力产业链
   - AI算力硬件
   - A股大盘拐点判断
   - A股短线交易
+  - 上游材料
   - 个股盘口判断
   - 中美关系博弈
   - 主题投资
@@ -865,6 +868,7 @@ patterns:
   - 光通信/CPO
   - 化工板块分析
   - 半导体
+  - 半导体材料
   - 半导体设备
   - 半导体设备材料
   - 华为产业链
@@ -882,6 +886,7 @@ patterns:
   - 板块轮动分析
   - 液冷散热
   - 热点持续性评估
+  - 电子化学品
   - 电子布/玻纤
   - 短线情绪判断
   - 短线情绪周期
@@ -894,6 +899,7 @@ patterns:
   - 补涨题材分析
   - 重大政策解读
   - 量化交易应对
+  - 铜缆/MLCC
   - 震荡轮动市场
   - 题材主线判断
   - 题材炒作节奏
@@ -1073,6 +1079,45 @@ patterns:
     - 板块轮动
     - 题材主线判断
     - 短线情绪周期
+  - pattern_id: ai_upstream_material_confirm_20260605
+    name: AI板块内上游材料确定性归纳
+    source_raw:
+    - sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
+    key_themes:
+    - AI基建
+    - 上游材料
+    - 电子化学品
+    - 铜缆/MLCC
+    - 半导体材料
+    reasoning_chain:
+    - step: 1
+      name: 观察板块内部强细分
+      question: AI板块内哪些细分方向近期表现强势？
+      UP_logic: 罗列铜缆、光纤、MLCC、超级电容等均有不错表现，发现共同点是AI基建上游材料端。
+      evidence_sources:
+      - 板块涨幅数据
+      - 个股走势
+    - step: 2
+      name: 归纳共性并关联其他板块
+      question: 这些强势细分的共同属性是什么？是否在其他板块得到印证？
+      UP_logic: 归纳为AI基建上游材料端，并指出半导体中电子化学品（也是上游材料）率先创新高，强化共性。
+      evidence_sources:
+      - 半导体板块内电子化学品（中船特气、唯特偶）创新高
+    - step: 3
+      name: 推断方向确定性与持续性
+      question: 这个方向是否具有高确定性，不易被短期情绪逆转？
+      UP_logic: 上游材料大方向不会轻易扭转，即使短线情绪遇冷，因其逻辑硬、多细分共振，且非科技方向已近尾声。
+      evidence_sources:
+      - 非科技方向（煤炭、电力）加速上涨的见顶征兆
+    risk_factors:
+    - 上游材料个股补跌风险
+    - 指数破位导致系统性下跌
+    - 产业需求不及预期
+    confidence_indicators:
+    - 多个细分方向同时走强形成共振
+    - 电子化学品等创新高证明资金认可
+    - 非科技方向接近尾声，资金可能回流科技
+    merge_suggestion: 通过板块内部多细分方向共性归纳，判断主线分支的持续性和确定性
   merged_from:
   - sector_qualification_three_drivers
   - event_driven_sector_impact

@@ -62,6 +62,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 - **用户纠正时的响应**：当用户指出错误（如"昨天不是说MLCC是韭菜行为吗？今天还可以买？"），立即修正，不辩解。修正后简要确认，不展开解释原因。**此类纠正属于 claims 一致性校验失败的典型信号——策略配置与博主最新纪律矛盾。修正后应检查：①对应 claim 是否已正确标注 ②strategy_pack 中是否还有同类矛盾 ③是否需要更新 claims-consistency-check 参考文档**。这是 claims 一致性校验失败的典型信号——策略配置与博主最新纪律矛盾。
 - **内容验证优先**：检查文件是否已处理/已存在时，不能只比较文件名或标题，必须读取原文内容提取唯一标识（如 `dynamic_id`、独特短语）进行交叉验证。
 - **优先处理文档，后改脚本**：当用户同时要求"补充到文档"和"改脚本"时，**先完成文档录入和 qing-learning 流程，再处理脚本修改**。用户明确偏好"先不改脚本，先处理文档"。这是硬性优先级，不要试图并行处理或先改脚本后补文档。
+- **分阶段实施需用户确认**：当方案涉及多个阶段（如"先做A，再做B"），先向用户说明阶段划分并确认顺序，再执行。用户明确纠正过"先做embedding+LLM rerank的两阶段方案，再做extract脚本改造"——此类跨阶段任务必须获得用户确认。
 - **Git 拉取优先于本地修改**：当用户要求"拉取远程分支"或"同步最新改动"时，必须先处理 git 同步（fetch/merge/pull），再处理本地数据更新。如果本地有未提交修改：
   1. `git stash` 暂存本地改动
   2. `git fetch origin` + `git merge origin/master` 合并远程
@@ -112,9 +113,9 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 16. **Trading Rules 迁移与维护**：参考 `references/trading-rules-migration-guide.md`（何时将操作纪律进 `framework/trading-rules.md`、迁移流程、避免重复）。
 18. **专家思维蒸馏**：参考 `references/expert-distillation-guide.md`（Prompt+RAG/Fine-tune/Agent三条技术路径）。
 19. **推理模式架构**：参考 `references/reasoning-pattern-architecture.md`（三层蒸馏架构：知识库层→推理模式层→动态应用层，含YAML模板和实施路线图）。
-19. **推理模式架构**：参考 `references/reasoning-pattern-architecture.md`（三层蒸馏架构：知识库层→推理模式层→动态应用层，含YAML模板和实施路线图）。
-20. **推理模式抽取脚本**：参考 `references/reasoning-pattern-extraction-workflow.md`（批量从 raw 抽取推理模式写入 `framework/reasoning-patterns.yaml`，含脚本用法、匹配机制、Agent 集成架构）。
-21. **推理模式匹配算法优化**：参考 `references/reasoning-pattern-matching-phase5.md`（聚合到10个通用框架后的匹配算法优化：多字段加权索引、精确匹配优先、阈值调整、ONNX Embedding 评估、两阶段匹配建议）。
+19. **推理模式抽取脚本**：参考 `references/reasoning-pattern-extraction-workflow.md`（批量从 raw 抽取推理模式写入 `framework/reasoning-patterns.yaml`，含脚本用法、匹配机制、Agent 集成架构）。
+20. **推理模式匹配算法优化**：参考 `references/reasoning-pattern-matching-phase5.md`（聚合到10个通用框架后的匹配算法优化：多字段加权索引、精确匹配优先、阈值调整、ONNX Embedding 评估）。
+19. **推理模式匹配算法 Phase 6**：参考 `references/reasoning-pattern-matching-phase5.md`（两阶段匹配：ONNX Embedding 召回 Top5 + LLM 重排序 Top3，解决 MLCC/半导体业绩等边界查询的框架归属问题）。
 22. **Embedding-Friendly Description 编写**：参考 `references/embedding-friendly-description-pattern.md`（当使用 Embedding 语义匹配时，如何编写框架 description 以提升准确率：四段式结构、触发场景、典型查询示例、效果对比）。
 23. **Trading Rules 迁移与维护**：参考 `references/trading-rules-migration-guide.md`（何时将操作纪律进 `framework/trading-rules.md`、迁移流程、避免重复）。
 
@@ -150,6 +151,8 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 
     **不要**在每篇 raw ingestion 时都运行——只在 raw 内容明显包含分析框架时才触发。
     日常动态/简讯类 raw 通常不含推理链，跳过即可。
+
+    **Phase 6 改造要点**：单文件提取后，脚本不再直接新增独立 pattern，而是让 LLM 判断归入10个通用框架中的哪一个，作为该框架的 `examples` 追加。这解决了之前116个单raw模式（99.1%只关联1个raw）的问题。详见 `references/reasoning-pattern-extraction-workflow.md` §8。
 13. 输出 Learning Update Report。
 13. **知识库增量同步**：运行三个增量同步脚本，将新的 claims 和 wiki 推送到 Qing-Agent 的检索后端。
 
@@ -179,9 +182,9 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 ### Ingestion 关键 Pitfalls
 
 1. **遗漏 wiki/index.md 更新**：`knowledge/wiki/index.md` 是最容易被遗漏的索引文件。每次更新 wiki 页面（尤其是新增专题页或每日复盘）后，必须检查并更新 wiki/index.md。若新增专题页未加入索引，用户后续无法通过索引发现该页面。
-2. **跳过 claim schema 直接写 claims**：不写 claims 前不读 `references/claim-schema.md` 是常见错误。虽然 LLM 生成的 YAML 通常格式正确，但字段缺失、枚举值错误、特殊字符未转义等问题只有在对比 schema 后才能避免。一次 YAML 格式错误会导致后续索引生成、wiki 链接、矛盾检测全部中断。
+2. **跳过 claim schema 直接写 claims**：不写 claims 前不读 `references/claim-schema.md` 是常见错误。虽然 LLM 生成的 YAML 通常格式正确，但字段缺失、枚举值错误、特殊字符未转义等问题只有在对比 schema 后才能避免。一次 YAML 格式错误会导致后续自动化流程（索引生成、wiki 链接、矛盾检测）全部中断。
 3. **重复处理已存在的文档**：处理前未检查 `sources/raw/财经/`、`knowledge/claims/`、`knowledge/wiki/每日复盘/` 中是否已有对应内容，导致重复创建 claims 或 wiki 冲突。
-4. **用户说"核对/确认哪些没处理"时，脚本匹配不可靠**：`find_unprocessed.py` 按文件名匹配，但 claim 中的 `source_path` 可能包含完整路径或不同命名格式。正确核对方式：读取所有 claim 文件的 `source_path` 字段（用正则容错解析YAML失败的文件），与 raw 文件名做 basename 匹配，而非依赖脚本输出。
+4. **用户说"核对/确认哪些没处理"时，脚本匹配不可靠**：`find_unprocessed.py` 按文件名匹配，但 claim 中的 `source_path` 可能包含完整路径或不同命名格式。正确核对方式：读取所有 claim 文件的 `source_path` 字段（用正则容错解析YAML失败的文件），与 raw 文件名做 basename 匹配，给出准确统计。
 5. **随意关联 related_stocks 而不验证业务对齐**：撰写 claims 时，仅凭板块/主题分类（如「都是数据库」）就把标的加入 `related_stocks`，未验证其具体产品/技术是否真正对齐 claim 的核心逻辑。反面案例：NVIDIA GPU-Native 数据库催化，星环科技有 Transwarp GPU-Native 产品，但海量数据主营 Vastbase（openGauss 关系型数据库），两者产品完全不同——仅因「都是国产数据库」就关联属于错误。规则：添加到 `related_stocks` 前，必须确认该标的真的有对应产品/技术，不能仅凭板块分类。
 6. **遗漏标记 raw 和 original 文件为 processed**：完成 claims/wiki/framework 更新后，必须同步更新：
    - `sources/original/bilibili/*.md` 中的 `unprocessed: true` → `unprocessed: false`（仅对已学习的内容做此标记）
@@ -191,7 +194,9 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 8. **未关 Agent 就运行同步脚本（Qdrant 本地模式）**：Qing-Agent 启动后持有 `.qdrant_data/` 独占文件锁。不关 Agent 直接运行索引脚本会导致 `Storage folder already accessed` 错误或静默卡死。正确流程：`kill` Agent → 同步 → 重启 Agent。详见步骤13「知识库增量同步」。
 9. **忘记 PYTHONUNBUFFERED=1**：Hermes cron/后台进程管理器捕获 Python stdout 时，默认缓冲会导致无输出（看起来像卡死）。索引命令必须加 `PYTHONUNBUFFERED=1` 前缀。详见步骤13。
 10. **推理模式抽取混淆观点与推理**：`"UP看好MLCC"` 是观点，应进 claims；`"UP是怎么得出看好MLCC的（5步推理链）"` 是推理模式，应进 `framework/reasoning-patterns.yaml`。不要将单日盘面判断误标为推理模式。
-11. **单raw依赖陷阱——批量抽取后必须聚合**：`scripts/extract_reasoning_patterns.py` 批量抽取时，会把每篇含推理链的 raw 都生成一个独立模式。运行一段时间后会出现：①99%的模式只关联1个raw ②主题高度重叠 ③文件持续膨胀无收敛 ④匹配噪声增大。**解决方案**：定期（如每新增50个模式后）执行聚合——按推理结构相似性将模式聚类为通用框架（如`upstream_cycle`、`mainline_identification`等），每个框架保留通用`reasoning_chain`+原模式作为`examples`。聚合后模式数从116→10，文件大小从255KB→78KB，主题覆盖率保持100%。详见 `references/reasoning-pattern-extraction-workflow.md` §7。
+11. **单raw依赖陷阱——批量抽取后必须聚合**：`scripts/extract_reasoning_patterns.py` 批量抽取时，会把每篇含推理链的 raw 都生成一个独立模式。运行一段时间后会出现：①99%的模式只关联1个raw ②主题高度重叠 ③文件持续膨胀无收敛 ④匹配噪声增大。**解决方案**：
+    - **长期方案（推荐）**：抽取时直接让 LLM 判断归入10个通用框架，作为 `examples` 追加。这是 Phase 6 改造后的默认行为，详见 `references/reasoning-pattern-extraction-workflow.md` §8。
+    - **历史补救**：若已积累大量独立模式，定期（如每新增50个模式后）执行聚合——按推理结构相似性将模式聚类为通用框架（如`upstream_cycle`、`mainline_identification`等），每个框架保留通用`reasoning_chain`+原模式作为`examples`。聚合后模式数从116→10，文件大小从255KB→78KB，主题覆盖率保持100%。详见 `references/reasoning-pattern-extraction-workflow.md` §7。
 
 ---
 
