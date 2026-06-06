@@ -29,7 +29,8 @@ def main():
         result = session.run(
             "MATCH (c:Claim) RETURN c.id as id, c.statement as statement, "
             "c.subject as subject, c.source_date as source_date, "
-            "c.confidence as confidence, c.status as status"
+            "c.confidence as confidence, c.status as status, "
+            "c.claim_type as claim_type"
         )
         claims = list(result)
 
@@ -63,6 +64,7 @@ def main():
                 "source_date": sd,
                 "confidence": claim.get("confidence", ""),
                 "status": claim.get("status", ""),
+                "claim_type": claim.get("claim_type", ""),
             },
         ))
 

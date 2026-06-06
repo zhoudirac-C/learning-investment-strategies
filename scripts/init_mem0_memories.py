@@ -81,12 +81,13 @@ def main():
         memories.append({
             "id": c.get("id", ""),
             "type": "fact",
-            "content": f"[{c.get('claim_type', '')}] {c.get('subject', '')}: {c.get('statement', '')}",
+            "content": f"[{c.get('claim_type', c.get('type', ''))}] {c.get('subject', '')}: {c.get('statement', '')}",
             "source": c.get("source_path", ""),
             "metadata": {
                 "confidence": c.get("confidence", "medium"),
                 "timeframe": c.get("timeframe", ""),
                 "status": c.get("status", ""),
+                "claim_type": c.get("claim_type", c.get("type", "")),
             },
         })
 
