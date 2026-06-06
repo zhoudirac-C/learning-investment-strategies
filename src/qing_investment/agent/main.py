@@ -106,11 +106,11 @@ async def analyze_trigger(req: TriggerRequest):
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(req: ChatRequest):
-    """Chat endpoint with memory + knowledge-base retrieval."""
+    """Chat endpoint with memory + knowledge-base retrieval + real-time data fetching."""
     mem0 = Mem0ClientWrapper()
     memories = mem0.search(req.message, user_id=req.session_id)
 
-    # ── 知识库检索（新增）──
+    # ── 知识库检索 ──
     wiki_snippets: list[dict] = []
     claims: list[dict] = []
 
@@ -134,13 +134,12 @@ async def chat(req: ChatRequest):
     try:
         neo4j = Neo4jClient()
         keywords = _extract_keywords(req.message)
-        # 也尝试用板块关键词做更精准的 claims 检索
         for cluster_kws in _SECTOR_KEYWORDS.values():
             for kw in cluster_kws:
                 if kw in req.message and kw not in keywords:
                     keywords.append(kw)
         seen_ids: set[str] = set()
-        for kw in keywords[:3]:  # 最多查 3 个关键词，避免过多
+        for kw in keywords[:3]:
             batch = neo4j.get_claims_by_keyword(kw, limit=5)
             for c in batch:
                 cid = c.get("id")
@@ -153,16 +152,59 @@ async def chat(req: ChatRequest):
     except Exception:
         pass
 
-    # ── 构建增强 prompt ──
-    context_parts = []
+    # ── 【新增】主动获取实时数据 ──
+    market_snapshot: dict = {"quotes": []}
+    external_sector_boards: dict = {"available": False}
+    fetched_stock_code: str | None = None
 
-    # ── 【修改】区分方法论内容与历史观点 ──
-    # wiki_snippets: 只保留framework和方法论相关内容
+    # 1. 检测查询类型
+    query_lower = req.message.lower()
+    is_market_query = any(kw in query_lower for kw in ["大盘", "市场", "行情", "指数", "上证", "创业板", "科创"])
+    is_sector_query = any(kw in query_lower for kw in ["板块", "行业", "概念"])
+    
+    # 2. 提取股票代码
+    import re
+    stock_code_match = re.search(r'(\d{6})', req.message)
+    if stock_code_match:
+        fetched_stock_code = stock_code_match.group(1)
+    
+    # 3. 获取指数/大盘数据（如果是市场相关查询）
+    if is_market_query or is_sector_query or not fetched_stock_code:
+        try:
+            from qing_investment.agent.tools.stock_data import fetch_index_quotes
+            index_quotes = fetch_index_quotes()
+            market_snapshot["quotes"] = index_quotes
+            market_snapshot["date"] = ""
+        except Exception:
+            pass
+    
+    # 4. 获取板块数据（如果是板块相关查询）
+    if is_sector_query or is_market_query:
+        try:
+            from qing_investment.agent.tools.sector_data import get_sector_strength_snapshot
+            sector_data = get_sector_strength_snapshot(top_n=15)
+            external_sector_boards = {
+                "available": True,
+                **sector_data,
+            }
+        except Exception:
+            external_sector_boards = {"available": False, "error": "板块数据获取失败"}
+    
+    # 5. 获取个股数据（如果提取到股票代码）
+    if fetched_stock_code:
+        try:
+            from qing_investment.agent.tools.stock_data import fetch_single_stock
+            stock_quote = fetch_single_stock(fetched_stock_code)
+            if stock_quote:
+                market_snapshot["quotes"].append(stock_quote)
+        except Exception:
+            pass
+
+    # ── 过滤知识库内容（只保留方法论） ──
     methodology_wiki = [
         s for s in wiki_snippets
         if s.get("source", "").startswith("framework/") or "投资方法论" in s.get("source", "")
     ]
-    # claims: 只保留方法论相关的claim
     methodology_claims = []
     for c in claims:
         stmt = (c.get("statement") or "").lower()
@@ -173,32 +215,61 @@ async def chat(req: ChatRequest):
         ]):
             methodology_claims.append(c)
 
+    # ── 构建 prompt ──
+    context_parts = []
+
+    # 实时数据部分
+    has_realtime_data = bool(market_snapshot.get("quotes")) or external_sector_boards.get("available")
+    if has_realtime_data:
+        context_parts.append("【实时行情数据】（✅ 主要分析依据）")
+        if market_snapshot.get("quotes"):
+            context_parts.append("- 个股/指数行情:")
+            for q in market_snapshot["quotes"]:
+                name = q.get("name", "")
+                code = q.get("code", "")
+                price = q.get("price", "")
+                open_p = q.get("open", "")
+                high = q.get("high", "")
+                low = q.get("low", "")
+                pct = q.get("pct_change", "")
+                context_parts.append(f"  {name}({code}): 开{open_p} 收{price} 高{high} 低{low} 涨跌{pct}%")
+        
+        if external_sector_boards.get("available"):
+            context_parts.append("- 板块数据:")
+            concept_leaders = external_sector_boards.get("concept", {}).get("leaders", [])
+            for item in concept_leaders[:5]:
+                context_parts.append(f"  {item['name']}: {item['pct_change']}%")
+    else:
+        context_parts.append("【实时行情数据】（❌ 无法获取）")
+
     if methodology_wiki:
-        context_parts.append("【博主分析方法论】（仅供参考UP的分析框架和概念定义，不得作为当前判断依据）")
+        context_parts.append("\n【博主分析方法论】（仅供参考UP的分析框架和概念定义）")
         for s in methodology_wiki:
             src = s["source"].replace("framework/", "[框架] ").replace("knowledge/wiki/", "[Wiki] ")
             context_parts.append(f"- {src}: {s['text'][:300]}")
 
     if methodology_claims:
-        context_parts.append("【博主历史观点卡】（⚠️ 历史观点，仅供参考，不得作为当前判断依据）")
+        context_parts.append("\n【博主历史观点卡】（⚠️ 历史观点，仅供参考，不得作为当前判断依据）")
         for c in methodology_claims:
             context_parts.append(f"- {c.get('id', 'N/A')} ({c.get('source_date','')}): {c.get('statement', '')[:200]}")
 
     if memories:
-        context_parts.append("【用户历史记忆】")
+        context_parts.append("\n【用户历史记忆】")
         for m in memories:
             content = m.get("content", "") if isinstance(m, dict) else str(m)
             context_parts.append(f"- {content}")
 
     prompt_lines = [
         "你是青枫浦上Q的助手，风格犀利但不劝赌，不用机构研报腔。",
+        "",
         "【核心原则】",
-        "1. 所有判断必须基于用户提供的实时数据或当前市场事实，不能基于历史观点",
-        "2. 【博主分析方法论】是UP的分析框架和概念定义（如冰点期、劣性轮动等），可以引用作为方法论指导",
+        "1. 所有判断必须基于【实时行情数据】，不能基于历史观点",
+        "2. 【博主分析方法论】是UP的分析框架和概念定义，可以引用作为方法论指导",
         "3. 【博主历史观点卡】是历史观点，仅供参考，不得作为当前判断的依据",
         "4. 禁止引用claim ID支持当前观点",
-        "5. 如果用户没有提供实时数据，请明确说明无法获取实时数据，不要编造",
+        "5. 如果【实时行情数据】为空，请明确说明无法获取数据，不要编造",
         "6. 如果知识库中没有相关信息，请明确说明，不要编造",
+        "",
         *context_parts,
         f"\n用户：{req.message}\n",
         "请直接回复：",
@@ -215,8 +286,6 @@ async def chat(req: ChatRequest):
         reply=reply,
         memories_used=memories if memories else [],
     )
-
-
 @app.post("/memory/add")
 async def add_memory(session_id: str, content: str, memory_type: str = "fact"):
     """Add a memory entry. Falls back to local JSON if mem0 server unavailable."""
