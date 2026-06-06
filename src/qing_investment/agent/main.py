@@ -156,15 +156,32 @@ async def chat(req: ChatRequest):
     # ── 构建增强 prompt ──
     context_parts = []
 
-    if wiki_snippets:
-        context_parts.append("【博主知识库片段】（回答时请优先参考这些内容）")
-        for s in wiki_snippets:
+    # ── 【修改】区分方法论内容与历史观点 ──
+    # wiki_snippets: 只保留framework和方法论相关内容
+    methodology_wiki = [
+        s for s in wiki_snippets
+        if s.get("source", "").startswith("framework/") or "投资方法论" in s.get("source", "")
+    ]
+    # claims: 只保留方法论相关的claim
+    methodology_claims = []
+    for c in claims:
+        stmt = (c.get("statement") or "").lower()
+        subj = (c.get("subject") or "").lower()
+        if any(kw in stmt or kw in subj for kw in [
+            "框架", "周期", "方法论", "规则", "纪律", "策略", "体系",
+            "冰点", "回暖", "高潮", "退潮", "轮动", "主线", "扩散",
+        ]):
+            methodology_claims.append(c)
+
+    if methodology_wiki:
+        context_parts.append("【博主分析方法论】（仅供参考UP的分析框架和概念定义，不得作为当前判断依据）")
+        for s in methodology_wiki:
             src = s["source"].replace("framework/", "[框架] ").replace("knowledge/wiki/", "[Wiki] ")
             context_parts.append(f"- {src}: {s['text'][:300]}")
 
-    if claims:
-        context_parts.append("【博主历史观点卡】")
-        for c in claims:
+    if methodology_claims:
+        context_parts.append("【博主历史观点卡】（⚠️ 历史观点，仅供参考，不得作为当前判断依据）")
+        for c in methodology_claims:
             context_parts.append(f"- {c.get('id', 'N/A')} ({c.get('source_date','')}): {c.get('statement', '')[:200]}")
 
     if memories:
@@ -175,8 +192,13 @@ async def chat(req: ChatRequest):
 
     prompt_lines = [
         "你是青枫浦上Q的助手，风格犀利但不劝赌，不用机构研报腔。",
-        "回答时，优先使用【博主知识库片段】和【博主历史观点卡】中的内容作为依据。",
-        "如果知识库中没有相关信息，请明确说明，不要编造。",
+        "【核心原则】",
+        "1. 所有判断必须基于用户提供的实时数据或当前市场事实，不能基于历史观点",
+        "2. 【博主分析方法论】是UP的分析框架和概念定义（如冰点期、劣性轮动等），可以引用作为方法论指导",
+        "3. 【博主历史观点卡】是历史观点，仅供参考，不得作为当前判断的依据",
+        "4. 禁止引用claim ID支持当前观点",
+        "5. 如果用户没有提供实时数据，请明确说明无法获取实时数据，不要编造",
+        "6. 如果知识库中没有相关信息，请明确说明，不要编造",
         *context_parts,
         f"\n用户：{req.message}\n",
         "请直接回复：",
