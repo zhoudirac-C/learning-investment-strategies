@@ -98,6 +98,112 @@ MATCH (s:Stock {name: '中国长城'})<-[:ABOUT]-(c:Claim)
 MATCH (s:Stock {code: '000066'})<-[:ABOUT]-(c:Claim)
 ```
 
+### 错误4：claim_type 字段名不匹配（YAML vs 代码）
+
+**场景**：迁移脚本从 YAML claim 文件读取类型时，YAML 中使用 `claim_type` 字段，但代码读取 `type` 字段。
+
+```python
+# ❌ 错误：代码只读 'type'，但 YAML 中是 'claim_type'
+entity_label = get_entity_type(claim.get("type", ""), subject)
+# 结果：所有 claim 的 type 为空 → 全部 fallback 为 "general"
+# Neo4j 中所有 Claim 节点的 claim_type 都是 "general"
+
+# ✅ 正确：支持双字段读取，优先 claim_type
+entity_label = get_entity_type(
+    claim.get("claim_type", claim.get("type", "")), 
+    subject
+)
+```
+
+**影响**：
+- 所有 Claim 节点的 `claim_type` 属性值为 `"general"`
+- `get_entity_type()` 无法正确分类为 `Stock`/`Sector`/`Macro`/`Methodology`
+- 图遍历查询返回的结果缺少类型信息
+
+**修复后验证**：
+```python
+from neo4j import GraphDatabase
+# 检查 claim_type 分布
+driver.session().run("""
+    MATCH (c:Claim) 
+    RETURN c.claim_type as type, count(*) as cnt 
+    ORDER BY cnt DESC
+""")
+# 预期：sector-theme, stock-view, operation, market-cycle, risk 等多种类型
+```
+
+### 错误5：股票代码正则无法匹配 .SH/.SZ 后缀
+
+**场景**：Claim 文件中的股票代码可能包含市场后缀（如 `000066.SZ`、`600487.SH`），但迁移脚本的正则只匹配纯数字。
+
+```python
+# ❌ 错误：只匹配 6 位纯数字
+STOCK_CODE_RE = re.compile(r"\b(\d{6})\b")
+# "000066.SZ" → 匹配不到 → Stock 节点为 0
+
+# ✅ 正确：支持可选后缀
+STOCK_CODE_RE = re.compile(r"\b(\d{6})(?:\.SH|\.SZ|\.sh|\.sz)?\b")
+# "000066.SZ" → 提取 "000066"
+```
+
+**额外处理**：部分 claim 只写股票名称（如"中国长城"）不写代码，需通过 `positions.yaml` 中的名称→代码映射补充：
+
+```python
+# 从 positions.yaml 加载名称映射
+name_to_code = {}
+for pos in positions_data.get("positions", []):
+    name_to_code[pos.get("name", "")] = pos.get("code", "")
+
+# 提取时同时匹配代码和名称
+codes = set(STOCK_CODE_RE.findall(text))
+for name, code in name_to_code.items():
+    if name in text:
+        codes.add(code)
+```
+
+### 错误6：Primary entity 创建 Stock 节点时使用 name 而非 code
+
+**场景**：迁移脚本在创建 Primary entity（subject）时，统一使用 `name` 属性，但 `Stock` 类型节点应该用 `code`。
+
+```python
+# ❌ 错误：所有实体类型都用 'name' 属性
+session.run(f"MERGE (e:{entity_label} {{name: $name}})", name=subject)
+# Stock 节点变成 Stock {name: '中国长城'}，无法通过 code 查询
+
+# ✅ 正确：Stock 类型用 'code'，其他类型用 'name'
+if entity_label == "Stock":
+    # 尝试从 subject 提取代码，或从 name_to_code 映射查找
+    stock_code = extract_stock_code(subject) or name_to_code.get(subject)
+    if stock_code:
+        session.run("MERGE (s:Stock {code: $code}) SET s.name = $name", 
+                    code=stock_code, name=subject)
+else:
+    session.run(f"MERGE (e:{entity_label} {{name: $name}})", name=subject)
+```
+
+**影响**：
+- `MATCH (s:Stock {code: '000066'})` 返回空
+- `MATCH (s:Stock)` 返回的节点只有 `name` 属性无 `code`
+- 图遍历查询完全失效
+
+**修复后清理**：
+```python
+# 删除错误的 Stock 节点（无 code 属性）
+session.run("MATCH (s:Stock) WHERE s.code IS NULL DELETE s")
+# 重新运行迁移脚本
+```
+
+## 数据修复流程（当发现上述错误时）
+
+若 Neo4j 数据已损坏（如所有 claim_type 为 general、Stock 节点为 0、Stock 节点属性错误），按以下流程修复：
+
+1. **诊断**：运行 Cypher 查询确认问题范围和程度
+2. **清理**：删除错误节点/关系（如 `MATCH (s:Stock) WHERE s.code IS NULL DELETE s`）
+3. **修复脚本**：更新迁移脚本（claim_type 双字段、正则后缀、Stock 属性）
+4. **重新迁移**：`python scripts/migrate_claims_to_neo4j.py --force-full`
+5. **验证**：检查节点类型分布、Stock 节点数量、claim_type 分布
+6. **同步索引**：重新运行 `index_claims_to_qdrant.py` 和 `init_mem0_memories.py`
+
 ## 与 Qdrant 的协同
 
 ```

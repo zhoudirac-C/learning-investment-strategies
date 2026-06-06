@@ -158,7 +158,7 @@ else:
 ## 参考文件
 
 - `references/neo4j-query-pitfalls.md` — Neo4j 查询常见问题（缺失属性、ORDER BY 别名、coalesce 用法）
-- `references/neo4j-graph-evolution.md` — Neo4j claims 图关系使用指南：个股查询时的图遍历策略（`get_claims_with_evolution`）、关键词匹配 vs 图遍历的选择、SUPERSEDES/CONTRADICTS 关系的 prompt 注入方法
+- `references/neo4j-graph-evolution.md` — Neo4j claims 图关系使用指南：个股查询时的图遍历策略（`get_claims_with_evolution`）、关键词匹配 vs 图遍历的选择、SUPERSEDES/CONTRADICTS 关系的 prompt 注入方法、**数据修复流程（claim_type 字段不匹配、Stock 节点属性错误、正则后缀匹配）**
 - `references/rest-api-usage.md` — REST API 端点说明、调用示例、错误码、降级路径
 - `references/model-config-and-restart.md` — LLM 模型配置位置、修改后重启流程、与 Hermes 模型统一指南
 - `references/prompt-design-spec.md` — **Prompt 设计规范：知识库=方法论≠信息来源**，含反模式清单和正确示例
@@ -278,6 +278,26 @@ CLI 需要 `PYTHONPATH=src` 才能 import `qing_investment.agent.graph.builder`�
 ### Graph invoke 超时
 
 完整图（parse → retrieve → market + stock → synthesize → style → review）含 4-5 次 LLM 调用，默认 `--timeout=120`。若 LLM API 响应慢可调高。
+
+### Neo4j 图数据损坏后的修复
+
+当 Neo4j 数据出现以下症状时，需要修复迁移脚本并重新迁移：
+
+| 症状 | 根因 | 修复 |
+|------|------|------|
+| 所有 claim_type 为 `general` | 代码读 `type`，YAML 用 `claim_type` | 改为 `claim.get("claim_type", claim.get("type", ""))` |
+| Stock 节点为 0 | 正则无法匹配 `.SH`/`.SZ` 后缀 | 改为 `\b(\d{6})(?:\.SH|\.SZ)?\b` |
+| Stock 节点无 `code` 属性 | Primary entity 统一用 `name` | Stock 类型用 `code`，其他用 `name` |
+
+**修复流程**：
+1. 诊断：`MATCH (c:Claim) RETURN c.claim_type, count(*)` 检查类型分布
+2. 清理：`MATCH (s:Stock) WHERE s.code IS NULL DELETE s` 删除错误节点
+3. 修复脚本：`scripts/migrate_claims_to_neo4j.py` 更新字段映射、正则、属性逻辑
+4. 重新迁移：`python scripts/migrate_claims_to_neo4j.py --force-full`
+5. 同步索引：`python scripts/index_claims_to_qdrant.py` + `python scripts/init_mem0_memories.py`
+6. 验证：Stock 节点数、claim_type 分布、图遍历查询正常
+
+详见 `references/neo4j-graph-evolution.md` §错误4-6 和 §数据修复流程。
 
 ### 输出为空
 

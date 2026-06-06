@@ -10,8 +10,11 @@ VALID_CLAIM_TYPES = {
     "methodology",
     "risk",
     "technical-signal",
+    "technical-knowledge",
     "macro",
     "operation",
+    "catalyst",
+    "general",
 }
 
 VALID_TIMEFRAMES = {"intraday", "short-term", "trend", "industry", "permanent"}

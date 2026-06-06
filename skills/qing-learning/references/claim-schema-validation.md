@@ -25,7 +25,7 @@ REQUIRED_FIELDS = {
 
 | 字段 | 允许值 |
 |------|--------|
-| `claim_type` | `market-cycle`, `sector-theme`, `stock-view`, `methodology`, `risk`, `technical-signal`, `macro`, `operation` |
+| `claim_type` | `market-cycle`, `sector-theme`, `stock-view`, `methodology`, `risk`, `technical-signal`, `technical-knowledge`, `macro`, `operation`, `catalyst`, `general` |
 | `timeframe` | `intraday`, `short-term`, `trend`, `industry`, `permanent` |
 | `confidence` | `high`, `medium`, `low` |
 | `status` | `active`, `superseded`, `contradicted`, `expired`, `case-only` |
