@@ -192,9 +192,10 @@ async def chat(req: ChatRequest):
             external_sector_boards = {"available": False, "error": "板块数据获取失败"}
     
     # 5. 获取个股数据（如果提取到股票代码，或明确是股票分析类查询）
+    stock_klines: list[dict] = []
     if fetched_stock_code or is_stock_query:
         try:
-            from qing_investment.agent.tools.stock_data import fetch_single_stock
+            from qing_investment.agent.tools.stock_data import fetch_single_stock, fetch_stock_kline
             # 优先使用提取到的代码，否则尝试从名称匹配（简化版）
             code_to_fetch = fetched_stock_code
             if not code_to_fetch:
@@ -210,9 +211,12 @@ async def chat(req: ChatRequest):
                         code_to_fetch = code
                         break
             if code_to_fetch:
+                # 获取实时行情
                 stock_quote = fetch_single_stock(code_to_fetch)
                 if stock_quote:
                     market_snapshot["quotes"].append(stock_quote)
+                # 【新增】获取历史K线（20日）
+                stock_klines = fetch_stock_kline(code_to_fetch, days=20)
         except Exception:
             pass
 
@@ -250,8 +254,14 @@ async def chat(req: ChatRequest):
                 pct = q.get("pct_change", "")
                 context_parts.append(f"  {name}({code}): 开{open_p} 收{price} 高{high} 低{low} 涨跌{pct}%")
         
+        # 【新增】添加历史K线数据
+        if stock_klines:
+            from qing_investment.agent.tools.stock_data import format_kline_for_prompt
+            context_parts.append("\n- 个股历史K线（近20日）:")
+            context_parts.append(format_kline_for_prompt(stock_klines))
+        
         if external_sector_boards.get("available"):
-            context_parts.append("- 板块数据:")
+            context_parts.append("\n- 板块数据:")
             concept_leaders = external_sector_boards.get("concept", {}).get("leaders", [])
             for item in concept_leaders[:5]:
                 context_parts.append(f"  {item['name']}: {item['pct_change']}%")
