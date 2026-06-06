@@ -193,9 +193,10 @@ async def chat(req: ChatRequest):
     
     # 5. 获取个股数据（如果提取到股票代码，或明确是股票分析类查询）
     stock_klines: list[dict] = []
+    stock_intraday: list[dict] = []
     if fetched_stock_code or is_stock_query:
         try:
-            from qing_investment.agent.tools.stock_data import fetch_single_stock, fetch_stock_kline
+            from qing_investment.agent.tools.stock_data import fetch_single_stock, fetch_stock_kline, fetch_stock_intraday
             # 优先使用提取到的代码，否则尝试从名称匹配（简化版）
             code_to_fetch = fetched_stock_code
             if not code_to_fetch:
@@ -215,8 +216,10 @@ async def chat(req: ChatRequest):
                 stock_quote = fetch_single_stock(code_to_fetch)
                 if stock_quote:
                     market_snapshot["quotes"].append(stock_quote)
-                # 【新增】获取历史K线（20日）
-                stock_klines = fetch_stock_kline(code_to_fetch, days=20)
+                # 获取历史K线（90日）
+                stock_klines = fetch_stock_kline(code_to_fetch, days=90)
+                # 获取当日分时
+                stock_intraday = fetch_stock_intraday(code_to_fetch)
         except Exception:
             pass
 
@@ -257,8 +260,20 @@ async def chat(req: ChatRequest):
         # 【新增】添加历史K线数据
         if stock_klines:
             from qing_investment.agent.tools.stock_data import format_kline_for_prompt
-            context_parts.append("\n- 个股历史K线（近20日）:")
+            context_parts.append("\n- 个股历史K线（近90日）:")
             context_parts.append(format_kline_for_prompt(stock_klines))
+        
+        # 【新增】添加当日分时数据
+        if stock_intraday:
+            from qing_investment.agent.tools.stock_data import format_intraday_for_prompt
+            # 找到昨收价
+            prev_close = None
+            for q in market_snapshot.get("quotes", []):
+                if not q.get("is_index"):
+                    prev_close = q.get("prev_close")
+                    break
+            context_parts.append("\n- 个股当日分时:")
+            context_parts.append(format_intraday_for_prompt(stock_intraday, prev_close))
         
         if external_sector_boards.get("available"):
             context_parts.append("\n- 板块数据:")
