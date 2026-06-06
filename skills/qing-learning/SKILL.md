@@ -97,6 +97,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 ### Ingestion 参考
 1. 先读 `framework/learning-update-protocol.md`。
 2. 抽取 claim 前读 `skills/qing-learning/references/claim-schema.md`。
+2b. **编写 claim 前必须读 `references/claim-writing-spec.md`**（面向 Neo4j/Qdrant/Agent 的系统化约定：字段职责矩阵、多方向 raw 的「总入口」结构、subject/statement 编写规范、常见反模式、验证清单）。
 3. 遇到矛盾观点时读 `framework/contradiction-policy.md`。
 4. **B站UP主动态抓取**：参考 `references/bilibili-up-fetch.md`（充电专属动态图片处理、Playwright截图、与qing-learning pipeline集成）。
 5. **B站API调试**：参考 `references/bilibili-api-debugging.md`（错误码速查、UID验证、cookie模板、常见误区）。
@@ -231,7 +232,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     - **历史补救**：若已积累大量独立模式，定期（如每新增50个模式后）执行聚合——按推理结构相似性将模式聚类为通用框架（如`upstream_cycle`、`mainline_identification`等），每个框架保留通用`reasoning_chain`+原模式作为`examples`。聚合后模式数从116→10，文件大小从255KB→78KB，主题覆盖率保持100%。详见 `references/reasoning-pattern-extraction-workflow.md` §7。
 13. **用户质疑推理模式通用性时的响应方式**：当用户问"推理思路都是从单个文件提取的是否不够通用""只能针对一个方向吗"时，**不要重新解释 Phase 6 设计 rationale**——直接展示 `references/reasoning-pattern-cross-direction-reuse.md` 中的复用示例表格（`upstream_cycle` 支撑 MLCC/PCB/存储/硅片等），用具体案例回答。用户的问题通常意味着已有文档未被有效发现，Agent 应充当文档导航器而非重新论证者。
 
-14. **Claims 不通过 Neo4j 图遍历提供标的列表**：当用户问"能不能让 Agent 自己从 Neo4j 找出某方向的标的"时，应引用 `src/qing_investment/agent/AGENTS.md` §10 的架构决策——标的应嵌入 claim 的 `statement` 字段随 Qdrant 召回传递，而非通过 Claim→Theme→Stock 图遍历。这是经过审查确认的设计原则：Claims 管"UP 怎么看这个方向"，实时数据管"这个方向现在有哪些标的"。不要图一时方便而打破这个分层。
+14. **Claim 编写规范（系统性约定）**：写 claim 时必须遵循 `references/claim-writing-spec.md`。核心原则：①`subject` 和 `statement` 是唯一影响 Qdrant 搜索召回率的字段（`interpretation`/`evidence_quote` 不参与嵌入）；②方向推荐类 claim 的 `statement` 必须自包含标的代码（Neo4j 用正则从 subject+statement 提取 6 位代码建 Claim→Stock 边，Agent 不遍历图找标的）；③多方向 raw 需设「总入口」claim（claim-a 汇总全部方向+标的）；④`claim_type` 影响 Neo4j 实体标签和 Agent 方法论过滤器的行为。详见 `references/claim-writing-spec.md`。
 14. **Claim 文件编号冲突（同一日期多次 ingestion）**：同一日期可能有多篇 raw 需要学习（早盘、盘中动态、盘后视频等），每次 ingestion 生成独立的 claim 文件（`claim-YYYYMMDD-001.yaml`、`-002.yaml`...）。**新建前必须检查已有编号**：
     - `ls knowledge/claims/claim-YYYYMMDD-*.yaml` 确认已有编号
     - 直接写入目标编号文件，不要先写成 `-001` 再 `mv` 重命名——`write_file` 会覆盖已有文件，导致旧 claims 丢失
