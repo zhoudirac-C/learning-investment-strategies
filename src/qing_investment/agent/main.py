@@ -161,6 +161,7 @@ async def chat(req: ChatRequest):
     query_lower = req.message.lower()
     is_market_query = any(kw in query_lower for kw in ["大盘", "市场", "行情", "指数", "上证", "创业板", "科创"])
     is_sector_query = any(kw in query_lower for kw in ["板块", "行业", "概念"])
+    is_stock_query = any(kw in query_lower for kw in ["股", "走势", "分析", "低点", "高点", "买入", "卖出", "抄底", "减仓", "加仓", "持仓", "套牢", "解套", "止损", "止盈", "目标价", "支撑", "压力"])
     
     # 2. 提取股票代码
     import re
@@ -168,8 +169,8 @@ async def chat(req: ChatRequest):
     if stock_code_match:
         fetched_stock_code = stock_code_match.group(1)
     
-    # 3. 获取指数/大盘数据（如果是市场相关查询）
-    if is_market_query or is_sector_query or not fetched_stock_code:
+    # 3. 获取指数/大盘数据（如果是市场相关查询 或 个股查询也需要大盘环境）
+    if is_market_query or is_sector_query or is_stock_query or not fetched_stock_code:
         try:
             from qing_investment.agent.tools.stock_data import fetch_index_quotes
             index_quotes = fetch_index_quotes()
@@ -190,13 +191,28 @@ async def chat(req: ChatRequest):
         except Exception:
             external_sector_boards = {"available": False, "error": "板块数据获取失败"}
     
-    # 5. 获取个股数据（如果提取到股票代码）
-    if fetched_stock_code:
+    # 5. 获取个股数据（如果提取到股票代码，或明确是股票分析类查询）
+    if fetched_stock_code or is_stock_query:
         try:
             from qing_investment.agent.tools.stock_data import fetch_single_stock
-            stock_quote = fetch_single_stock(fetched_stock_code)
-            if stock_quote:
-                market_snapshot["quotes"].append(stock_quote)
+            # 优先使用提取到的代码，否则尝试从名称匹配（简化版）
+            code_to_fetch = fetched_stock_code
+            if not code_to_fetch:
+                # 尝试从常见股票名称映射（可扩展）
+                name_to_code = {
+                    "中国长城": "000066",
+                    "贵州茅台": "600519",
+                    "比亚迪": "002594",
+                    "宁德时代": "300750",
+                }
+                for name, code in name_to_code.items():
+                    if name in req.message:
+                        code_to_fetch = code
+                        break
+            if code_to_fetch:
+                stock_quote = fetch_single_stock(code_to_fetch)
+                if stock_quote:
+                    market_snapshot["quotes"].append(stock_quote)
         except Exception:
             pass
 
