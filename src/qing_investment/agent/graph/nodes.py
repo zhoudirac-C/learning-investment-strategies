@@ -4,6 +4,8 @@ import asyncio
 import json
 from pathlib import Path
 
+import numpy as np
+
 from qing_investment.agent.tools.llm_client import get_llm_client
 from qing_investment.agent.tools.mem0_client import Mem0ClientWrapper
 from qing_investment.agent.tools.neo4j_client import Neo4jClient
@@ -75,9 +77,13 @@ def _load_framework_files(analysis_type: str) -> list[dict]:
     return result
 
 
-# ── 推理模式加载（Phase 4 新增）──
+# ── 推理模式加载（Phase 4 新增，Phase 5 优化匹配算法，Phase 6 增加Embedding+LLM rerank）──
 # 预加载的推理模式缓存（启动时从 reasoning-patterns.yaml 加载一次）
 _PATTERNS_CACHE: list[dict] = []
+# 多字段倒排索引缓存：包含 themes + name + description + step_names
+_PATTERN_INDEX_CACHE: dict | None = None
+# 框架 embedding 缓存（ONNX）
+_PATTERN_EMBEDDINGS_CACHE: tuple[list[dict], np.ndarray] | None = None
 
 
 def _ensure_patterns_cache() -> list[dict]:
@@ -99,41 +105,112 @@ def _ensure_patterns_cache() -> list[dict]:
     return _PATTERNS_CACHE
 
 
-def _build_theme_index(patterns: list[dict]) -> dict[str, list[int]]:
-    """构建主题→模式索引（倒排索引）。
+def _get_embedding_model():
+    """获取ONNX embedding模型，失败返回None。"""
+    try:
+        from qing_investment.agent.tools.embedding_utils import OnnxEmbeddingModel
+        return OnnxEmbeddingModel()
+    except Exception:
+        return None
 
-    对每个 pattern 的 applicable_themes 中的每个主题词，
-    拆分为关键词后建立倒排。例如：
-    "MLCC" → {MLCC: [0, 1]}
-    "AI算力" → {AI: [5], 算力: [5, 8]}
+
+def _ensure_pattern_embeddings() -> tuple[list[dict], np.ndarray] | None:
+    """预计算并缓存所有框架的embedding（基于name+description）。"""
+    global _PATTERN_EMBEDDINGS_CACHE
+    if _PATTERN_EMBEDDINGS_CACHE is not None:
+        return _PATTERN_EMBEDDINGS_CACHE
+
+    patterns = _ensure_patterns_cache()
+    if not patterns:
+        return None
+
+    model = _get_embedding_model()
+    if model is None:
+        return None
+
+    texts = [f"{p.get('name', '')}。{p.get('description', '')}" for p in patterns]
+    try:
+        embeddings = model.encode(texts)
+        _PATTERN_EMBEDDINGS_CACHE = (patterns, embeddings)
+        return _PATTERN_EMBEDDINGS_CACHE
+    except Exception:
+        return None
+
+
+def _extract_keywords_from_text(text: str) -> set[str]:
+    """从文本中提取有意义的 keywords（过滤停用词和短词）。"""
+    _STOP_WORDS = {
+        "怎么", "是否", "什么", "今天", "当前", "最近", "现在", "这种", "应该", "可以",
+        "需要", "关注", "注意", "一个", "还有", "有没有", "哪些", "处于", "如何", "怎么样",
+        "的", "了", "是", "在", "和", "与", "或", "对", "为", "有", "不", "就", "都", "而",
+        "及", "等", "之", "以", "被", "把", "从", "到", "向", "让", "给", "但", "也", "却",
+        "因为", "所以", "因此", "如果", "虽然", "然而", "而且", "并且", "或者", "还是",
+    }
+    keywords = set()
+    for size in (2, 3, 4):
+        for i in range(len(text) - size + 1):
+            chunk = text[i:i+size]
+            if (chunk.strip() and not chunk.isdigit()
+                    and not all(c in '，。！？；：""''（）【】 \t\n-—…' for c in chunk)
+                    and chunk not in _STOP_WORDS
+                    and len(chunk.strip()) >= 2):
+                keywords.add(chunk)
+    return keywords
+
+
+def _build_pattern_index(patterns: list[dict]) -> dict:
+    """构建多字段倒排索引（Phase 5 优化）。
+
+    索引字段按优先级排序：
+    1. applicable_themes（精确匹配，权重最高）
+    2. pattern_id + name（框架标识，权重高）
+    3. description（描述文本，权重中）
+    4. reasoning_chain step names（推理步骤名，权重中）
+
+    返回: {"kw": [(pattern_idx, field_type, weight), ...], ...}
     """
-    index: dict[str, list[int]] = {}
-    for i, p in enumerate(patterns):
-        themes = p.get("applicable_themes", [])
-        if not themes:
-            continue
-        for theme in themes:
-            # 对于短主题词（≤4字），直接作为关键词
-            if len(theme) <= 4:
-                kw = theme.lower()
-                index.setdefault(kw, []).append(i)
-            else:
-                # 长主题词：拆分为2字滑动窗口 + 保持原词
-                for j in range(len(theme) - 1):
-                    kw = theme[j:j+2].lower()
-                    index.setdefault(kw, []).append(i)
-                index.setdefault(theme.lower(), []).append(i)
+    index: dict[str, list[tuple[int, str, float]]] = {}
+
+    for pi, p in enumerate(patterns):
+        # 1. applicable_themes — 精确匹配，权重=3.0
+        for theme in p.get("applicable_themes", []):
+            theme = theme.lower().strip()
+            if theme:
+                index.setdefault(theme, []).append((pi, "theme", 3.0))
+                # 长主题词额外拆分为2字片段（权重降低）
+                if len(theme) > 4:
+                    for j in range(len(theme) - 1):
+                        fragment = theme[j:j+2]
+                        if len(fragment) >= 2:
+                            index.setdefault(fragment, []).append((pi, "theme_fragment", 1.0))
+
+        # 2. pattern_id + name — 权重=2.5
+        name_text = f"{p.get('pattern_id', '')} {p.get('name', '')}".lower()
+        for kw in _extract_keywords_from_text(name_text):
+            index.setdefault(kw, []).append((pi, "name", 2.5))
+
+        # 3. description — 权重=1.5
+        desc = (p.get("description") or "").lower()
+        for kw in _extract_keywords_from_text(desc):
+            index.setdefault(kw, []).append((pi, "description", 1.5))
+
+        # 4. reasoning_chain step names — 权重=1.0
+        for step in p.get("reasoning_chain", []):
+            step_name = (step.get("name") or "").lower()
+            for kw in _extract_keywords_from_text(step_name):
+                index.setdefault(kw, []).append((pi, "step_name", 1.0))
+
     return index
 
 
 def _extract_themes_from_state(state: AgentState) -> set[str]:
-    """从 query + claims + sector_context 中提取涉及的主题关键词。
+    """从 query + claims + sector_context 中提取涉及的主题关键词（Phase 5 优化）。
 
-    使用 2-4 字滑动窗口提取候选词，过滤纯噪声停用词。
-    保留投资主题词（如 MLCC、AIDC、算力），只过滤真正无意义的虚词。
+    改进：
+    1. 优先提取完整词（如"MLCC"、"半导体"）
+    2. 滑动窗口只作为补充
     """
-    # 停用词：只过滤纯虚词/问句结构词，保留所有投资主题术语
-    _STOP_WORDS: set[str] = {
+    _STOP_WORDS = {
         "怎么", "是否", "什么", "今天", "当前", "最近", "现在",
         "这种", "应该", "可以", "需要", "关注", "注意", "一个",
         "还有", "有没有", "哪些", "处于", "如何", "怎么样",
@@ -142,85 +219,224 @@ def _extract_themes_from_state(state: AgentState) -> set[str]:
     query = state.get("query", "")
     keywords: set[str] = set()
 
-    # 1. 从 query 提取候选关键词（2-4字滑动窗口）
+    # 1. 从 query 提取完整主题词（优先）
     q = query.lower()
+    patterns = _ensure_patterns_cache()
+    all_themes = set()
+    for p in patterns:
+        all_themes.update(t.lower() for t in p.get("applicable_themes", []))
+
+    for theme in all_themes:
+        if theme in q and len(theme) >= 2:
+            keywords.add(theme)
+
+    # 2. 从 query 提取2-4字滑动窗口（补充）
     for size in (2, 3, 4):
         for i in range(len(q) - size + 1):
             chunk = q[i:i+size]
-            # 过滤纯标点/数字/虚词
             if (chunk.strip() and not chunk.isdigit()
                     and not all(c in '，。！？；：""''（）【】 \t\n-—…' for c in chunk)
                     and chunk not in _STOP_WORDS):
                 keywords.add(chunk)
 
-    # 2. 从 claims 的 subject 提取
+    # 3. 从 claims 的 subject 提取
     for c in state.get("claims", []):
         subj = (c.get("subject") or "").strip()
         if subj:
             keywords.add(subj.lower())
-            for size in (2, 3, 4):
-                for i in range(len(subj) - size + 1):
-                    kw = subj[i:i+size].lower()
-                    if kw not in _STOP_WORDS:
-                        keywords.add(kw)
 
-    # 3. 从 sector_context 提取
+    # 4. 从 sector_context 提取
     for sc in state.get("sector_context", []):
         name = sc.get("name", "")
         if name:
             keywords.add(name.lower())
-            for size in (2, 3, 4):
-                for i in range(len(name) - size + 1):
-                    kw = name[i:i+size].lower()
-                    if kw not in _STOP_WORDS:
-                        keywords.add(kw)
 
     return keywords
 
 
-def _load_reasoning_patterns(state: AgentState) -> list[dict]:
-    """从 reasoning-patterns.yaml 加载与当前分析主题匹配的推理模式。
+def _embed_recall_candidates(state: AgentState, top_k: int = 5) -> list[tuple[int, float]]:
+    """阶段一：用ONNX embedding召回候选框架（Phase 6新增）。
 
-    匹配逻辑（倒排索引方法）：
-    1. 从 state 中提取候选关键词（3-4字滑动窗口，过滤停用词）
-    2. 用倒排索引检索匹配的 pattern
-    3. 按匹配关键词数量排序，score ≥ 2 才算有效匹配，最多返回 5 条
+    返回: [(pattern_idx, similarity), ...] 按相似度降序
+    """
+    query = state.get("query", "")
+    if not query:
+        return []
+
+    emb_result = _ensure_pattern_embeddings()
+    if emb_result is None:
+        return []
+
+    patterns, pattern_embeddings = emb_result
+    model = _get_embedding_model()
+    if model is None:
+        return []
+
+    try:
+        query_vec = model.encode(query)
+        # 余弦相似度（embedding已L2归一化）
+        similarities = (query_vec @ pattern_embeddings.T)[0]
+        top_indices = np.argsort(similarities)[::-1][:top_k]
+        return [(int(idx), float(similarities[idx])) for idx in top_indices]
+    except Exception:
+        return []
+
+
+def _llm_rerank_patterns(query: str, candidates: list[tuple[int, float]], patterns: list[dict]) -> list[dict]:
+    """阶段二：用LLM对候选框架重排序（Phase 6新增）。
+
+    输入候选框架的name+description+embedding相似度，LLM返回最相关的1-3个pattern_id。
+    """
+    if not candidates:
+        return []
+
+    router_prompt = _load_prompt("pattern_router")
+
+    candidate_texts = []
+    for idx, sim in candidates:
+        p = patterns[idx]
+        candidate_texts.append(
+            f"- {p.get('pattern_id')}: {p.get('name')}\n"
+            f"  description: {p.get('description', '')[:150]}\n"
+            f"  embedding_similarity: {sim:.3f}"
+        )
+
+    prompt = f"""{router_prompt}
+
+用户查询：{query}
+
+候选推理框架：
+{chr(10).join(candidate_texts)}
+
+请输出JSON数组（不要markdown代码块）：
+"""
+    content = _safe_llm_invoke(prompt)
+    if not content:
+        # LLM失败，返回embedding Top3
+        return [
+            {
+                "pattern_id": patterns[idx]["pattern_id"],
+                "reason": f"embedding相似度 {sim:.3f}",
+            }
+            for idx, sim in candidates[:3]
+        ]
+
+    try:
+        result = json.loads(content)
+    except json.JSONDecodeError:
+        # 尝试从代码块提取
+        import re
+        match = re.search(r'```(?:json)?\s*\n?(.*?)\n?```', content, re.DOTALL)
+        if match:
+            try:
+                result = json.loads(match.group(1))
+            except json.JSONDecodeError:
+                result = []
+        else:
+            result = []
+
+    if not isinstance(result, list):
+        result = []
+
+    return result
+
+
+def _load_reasoning_patterns(state: AgentState) -> list[dict]:
+    """从 reasoning-patterns.yaml 加载与当前分析主题匹配的推理模式（Phase 6版）。
+
+    匹配逻辑（两阶段：Embedding召回 + LLM重排序）：
+    1. ONNX embedding计算query与所有框架的相似度，召回Top 5候选
+    2. LLM根据候选框架的name/description做最终判断，返回Top 1-3
+    3. 如果embedding或LLM失败，fallback到多字段关键词匹配
+
+    改进点：
+    - 语义匹配替代字符级滑动窗口
+    - LLM解决框架边界模糊问题（如MLCC属于upstream_cycle而非ai_industry_chain）
+    - 保留关键词匹配作为fallback
     """
     patterns = _ensure_patterns_cache()
     if not patterns:
         return []
 
+    query = state.get("query", "")
+
+    # 阶段一：Embedding召回
+    candidates = _embed_recall_candidates(state, top_k=5)
+
+    if candidates:
+        # 阶段二：LLM重排序
+        reranked = _llm_rerank_patterns(query, candidates, patterns)
+
+        # 根据LLM结果过滤并排序
+        selected_ids = {r["pattern_id"] for r in reranked if "pattern_id" in r}
+        selected_patterns = []
+        for r in reranked:
+            pid = r.get("pattern_id")
+            reason = r.get("reason", "")
+            for idx, sim in candidates:
+                p = patterns[idx]
+                if p.get("pattern_id") == pid:
+                    selected_patterns.append({
+                        "pattern_id": p.get("pattern_id", ""),
+                        "name": p.get("name", ""),
+                        "description": p.get("description", ""),
+                        "reasoning_chain": p.get("reasoning_chain", []),
+                        "risk_factors": p.get("risk_factors", []),
+                        "confidence_indicators": p.get("confidence_indicators", []),
+                        "match_themes": [],
+                        "match_name_keywords": [],
+                        "match_score": round(sim, 3),
+                        "rerank_reason": reason,
+                    })
+                    break
+
+        if selected_patterns:
+            print(
+                f"[_load_reasoning_patterns] embedding_recall={len(candidates)}, "
+                f"llm_rerank={len(selected_patterns)}, "
+                f"selected={[p['pattern_id'] for p in selected_patterns]}"
+            )
+            return selected_patterns[:3]
+
+    # Fallback: 多字段关键词匹配（Phase 5逻辑）
+    print("[_load_reasoning_patterns] fallback to keyword matching")
     keywords = _extract_themes_from_state(state)
     if not keywords:
         return []
 
-    theme_index = _build_theme_index(patterns)
+    global _PATTERN_INDEX_CACHE
+    if _PATTERN_INDEX_CACHE is None:
+        _PATTERN_INDEX_CACHE = _build_pattern_index(patterns)
+    index = _PATTERN_INDEX_CACHE
 
-    # 倒排检索：每个关键词命中了哪些 pattern，用 IDF 加权
     import math
     pattern_scores: dict[int, float] = {}
+    matched_fields: dict[int, list[tuple[str, str, float]]] = {}
+
     for kw in keywords:
-        hits = theme_index.get(kw, [])
+        hits = index.get(kw, [])
         if not hits:
             continue
-        # IDF 加权：命中 pattern 越少的关键词权重越高
-        # "MLCC"→2 patterns: idf≈1/log(4)≈0.72，"分析"→11: idf≈1/log(13)≈0.39
-        idf = 1.0 / math.log(len(hits) + 2)
-        for pi in hits:
-            pattern_scores[pi] = pattern_scores.get(pi, 0.0) + idf
+        for pi, field_type, weight in hits:
+            idf = 1.0 / math.log(len(set(h[0] for h in hits)) + 2)
+            score = weight * idf
+            pattern_scores[pi] = pattern_scores.get(pi, 0.0) + score
+            matched_fields.setdefault(pi, []).append((kw, field_type, score))
 
     if not pattern_scores:
         return []
 
-    # 按加权分数排序，取 top 5（最低 score=0.8 过滤纯噪声匹配）
-    MIN_MATCH_SCORE = 0.4
+    MIN_MATCH_SCORE = 1.5
     sorted_pairs = sorted(pattern_scores.items(), key=lambda x: x[1], reverse=True)
     sorted_pairs = [(pi, round(s, 2)) for pi, s in sorted_pairs if s >= MIN_MATCH_SCORE]
+
     matched: list[dict] = []
-    for pi, score in sorted_pairs[:5]:
+    for pi, score in sorted_pairs[:3]:
         p = patterns[pi]
-        # 找到匹配的具体主题词
-        matched_keywords = [kw for kw in keywords if kw in theme_index and pi in theme_index.get(kw, [])]
+        fields = matched_fields.get(pi, [])
+        matched_themes = list(set(kw for kw, ft, _ in fields if ft == "theme"))[:5]
+        matched_name_kws = list(set(kw for kw, ft, _ in fields if ft == "name"))[:3]
+
         matched.append({
             "pattern_id": p.get("pattern_id", ""),
             "name": p.get("name", ""),
@@ -228,8 +444,10 @@ def _load_reasoning_patterns(state: AgentState) -> list[dict]:
             "reasoning_chain": p.get("reasoning_chain", []),
             "risk_factors": p.get("risk_factors", []),
             "confidence_indicators": p.get("confidence_indicators", []),
-            "match_keywords": matched_keywords[:10],
+            "match_themes": matched_themes,
+            "match_name_keywords": matched_name_kws,
             "match_score": score,
+            "rerank_reason": "keyword fallback",
         })
 
     return matched

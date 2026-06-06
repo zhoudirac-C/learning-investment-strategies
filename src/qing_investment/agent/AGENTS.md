@@ -126,10 +126,11 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 - 修改 `market_analyst.txt` 中的【时效性自检】段落时，需同步测试 Agent 是否正确标注 claim 时效
 - 修改 `market_analyst.txt` 中的【推理模式使用规则】段落时，需同步测试 `_load_reasoning_patterns()` 的匹配逻辑
 - `retrieve_knowledge` 的 `_apply_claim_freshness` 和 `_detect_claim_conflicts` 是核心过滤逻辑，修改后必须测试 claims 返回数量和排序
-- 推理模式匹配的核心参数位于 `_load_reasoning_patterns()`：
-  - `MIN_MATCH_SCORE = 0.4` — 最低 IDF 加权分阈值（过低→噪声，过高→漏召回）
-  - `_STOP_WORDS` — `_extract_themes_from_state()` 中的停用词列表
-  - 查询窗口大小：2-4 字滑动窗口，必须与 `_build_theme_index()` 索引窗口一致
+- 推理模式匹配的核心参数位于 `_load_reasoning_patterns()`（Phase 5 优化版）：
+  - `MIN_MATCH_SCORE = 1.5` — 最低加权分阈值（过低→噪声，过高→漏召回）
+  - `_STOP_WORDS` — `_extract_themes_from_state()` 和 `_extract_keywords_from_text()` 中的停用词列表
+  - 多字段索引权重：`theme=3.0`, `name=2.5`, `description=1.5`, `step_name=1.0`
+  - 返回数量：Top 3（原 Top 5），降低 prompt 长度
 
 **Prompt 修改后必须测试**：市场分析的 JSON 字段是否完整、持仓计划是否生成、UP 语气是否一致、来源标注是否保留。
 

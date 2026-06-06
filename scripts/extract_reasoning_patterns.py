@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""批量从 UP raw 文件中抽取推理模式，写入 framework/reasoning-patterns.yaml。
+"""批量从 UP raw 文件中抽取推理模式，归入现有通用框架。
 
-策略：
-1. 快速扫描：按文件名关键词（复盘/视频）+ 文件大小筛选候选文件
-2. LLM 提取：对候选文件逐个调用 LLM，识别推理链
-3. 去重合并：新发现的模式与已有模式比对，避免重复
+策略（Phase 6 改造）：
+1. 快速扫描：按文件名关键词 + 文件大小筛选候选文件
+2. LLM 提取：对候选文件调用 LLM，识别推理链
+3. 框架归类：LLM 判断归入哪个通用框架（upstream_cycle/ai_industry_chain/...）
+4. 合并入框架：作为对应框架的 example 追加，合并 themes 和 source_raw
 
 用法：
     # 预览模式：只扫描不提取
@@ -38,28 +39,48 @@ RAW_DIR = REPO_ROOT / "sources" / "raw" / "财经"
 PATTERNS_FILE = REPO_ROOT / "framework" / "reasoning-patterns.yaml"
 STATE_FILE = REPO_ROOT / ".reasoning_extraction_state.json"
 
-# 候选文件筛选关键词（文件名中包含这些词的优先处理）
+# 候选文件筛选关键词
 PRIORITY_KEYWORDS = [
     "复盘", "视频", "早盘", "午盘", "周复盘",
     "产业链", "拆解", "BOM", "深度",
 ]
 
-# 已有的 pattern_ids（用于去重）
-EXISTING_PATTERNS = {
-    "upstream_price_cycle_qualify",
-    "upstream_beneficiary_screening",
-    "sector_mainline_judgment",
-    "bom_value_migration",
-}
+# 通用框架列表（用于LLM判断归入）
+FRAMEWORKS = [
+    {"id": "upstream_cycle", "name": "上游涨价周期分析框架", "desc": "用于上游周期品（MLCC、PCB、存储、有色、化工等）涨价逻辑、周期位置判断"},
+    {"id": "mainline_identification", "name": "市场主线识别与切换判断框架", "desc": "用于判断市场主线、板块强度、主线切换"},
+    {"id": "sector_rotation", "name": "板块轮动与扩散分析框架", "desc": "用于分析板块轮动、补涨、高低切、题材持续性"},
+    {"id": "macro_transmission", "name": "宏观传导链分析框架", "desc": "用于分析宏观事件、海外映射、政策变化对A股影响"},
+    {"id": "sentiment_cycle", "name": "市场情绪周期分析框架", "desc": "用于判断市场情绪周期阶段、冰点/高潮、仓位策略"},
+    {"id": "technical_timing", "name": "技术择时分析框架", "desc": "用于技术面买卖点、支撑压力、K线形态、波浪结构"},
+    {"id": "earnings_analysis", "name": "个股业绩拆解与定性分析框架", "desc": "用于个股财报、业绩分析、估值判断"},
+    {"id": "ai_industry_chain", "name": "AI产业链传导分析框架", "desc": "用于AI技术突破/新产品对产业链各环节的传导"},
+    {"id": "operation_strategy", "name": "操作策略与仓位管理框架", "desc": "用于具体操作建议、仓位、风控、止盈止损"},
+    {"id": "others", "name": "其他独立分析框架", "desc": "用于无法归入上述框架的独立场景"},
+]
 
-# LLM 提取 prompt
+# LLM 提取 prompt（Phase 6：增加 matched_framework 字段）
 EXTRACTION_PROMPT = """你是投资分析专家。以下是一位A股博主（青枫浦上Q）的分析文章。
-请判断这篇内容中是否包含**可复用的推理模式**（即：博主如何从A推到B的思维步骤，而非结论观点）。
+请从这篇文章中提取**可复用的推理模式**（即：博主如何从A推到B的思维步骤，而非结论观点）。
 
 判断标准：
 - 博主的分析是否有明确的推理步骤（≥3步）
 - 推理步骤是否涉及板块/产业/个股的分析逻辑
 - 这些推理步骤是否可复用于同类主题
+
+提取完成后，必须判断该推理模式应该**归入哪个现有通用框架**。
+
+现有10个通用框架：
+- upstream_cycle: 上游涨价周期分析框架 — 用于上游周期品（MLCC、PCB、存储、有色、化工等）涨价逻辑、周期位置判断
+- mainline_identification: 市场主线识别与切换判断框架 — 用于判断市场主线、板块强度、主线切换
+- sector_rotation: 板块轮动与扩散分析框架 — 用于分析板块轮动、补涨、高低切、题材持续性
+- macro_transmission: 宏观传导链分析框架 — 用于分析宏观事件、海外映射、政策变化对A股影响
+- sentiment_cycle: 市场情绪周期分析框架 — 用于判断市场情绪周期阶段、冰点/高潮、仓位策略
+- technical_timing: 技术择时分析框架 — 用于技术面买卖点、支撑压力、K线形态、波浪结构
+- earnings_analysis: 个股业绩拆解与定性分析框架 — 用于个股财报、业绩分析、估值判断
+- ai_industry_chain: AI产业链传导分析框架 — 用于AI技术突破/新产品对产业链各环节的传导
+- operation_strategy: 操作策略与仓位管理框架 — 用于具体操作建议、仓位、风控、止盈止损
+- others: 其他独立分析框架 — 用于无法归入上述框架的独立场景
 
 如果**没有**清晰的推理模式，返回：{"has_pattern": false, "reason": "原因"}
 
@@ -67,16 +88,17 @@ EXTRACTION_PROMPT = """你是投资分析专家。以下是一位A股博主（�
 
 {
   "has_pattern": true,
-  "pattern_id": "简短的英文ID（小写+下划线）",
-  "name": "中文名称（15字以内）",
-  "description": "一句话描述这个推理模式",
-  "applicable_themes": ["主题1", "主题2"],
+  "pattern_id": "简短的英文ID（小写+下划线），如 mlcc_price_cycle_20260531",
+  "name": "中文名称（20字以内），概括这个具体推理案例",
+  "matched_framework": "从上述10个框架ID中选择最匹配的一个",
+  "merge_suggestion": "解释为什么归入这个框架（30字以内）",
+  "applicable_themes": ["主题1", "主题2", "最多5个核心主题"],
   "reasoning_chain": [
     {
       "step": 1,
-      "name": "步骤名称（10字以内）",
+      "name": "步骤名称（15字以内）",
       "question": "这个步骤要回答的核心问题",
-      "UP_logic": "博主在这个步骤中的典型思考方式（引用原文核心逻辑，50字以内）",
+      "UP_logic": "博主在这个步骤中的典型思考方式（引用原文核心逻辑，60字以内）",
       "evidence_sources": ["数据来源1", "数据来源2"]
     }
   ],
@@ -88,7 +110,8 @@ EXTRACTION_PROMPT = """你是投资分析专家。以下是一位A股博主（�
 - 只抽取【推理模式】，不要抽取结论观点
 - reasoning_chain 中的步骤必须来自原文，不要编造
 - 如果原文只有观点没有推理步骤，返回 has_pattern: false
-- pattern_id 不要与已有重复：upstream_price_cycle_qualify, upstream_beneficiary_screening, sector_mainline_judgment, bom_value_migration
+- matched_framework 必须且只能从10个框架ID中选择，不能自创
+- applicable_themes 只保留最相关的3-5个核心主题，不要罗列过多
 
 原文内容：
 ---
@@ -170,17 +193,17 @@ def scan_candidates(state: dict, incremental: bool = False) -> list[Path]:
 
 
 def extract_pattern_from_file(filepath: Path, llm_client) -> dict | None:
-    """对单个文件提取推理模式。"""
+    """对单个文件提取推理模式（Phase 6 版）。"""
     try:
         content = filepath.read_text(encoding="utf-8")
     except Exception as e:
         print(f"[extract] Failed to read {filepath.name}: {e}")
         return None
 
-    # 截断到 8000 字符（复盘类文章核心在前半部分）
+    # 截断到 8000 字符
     content = content[:8000]
 
-    # 跳过纯动态/简讯类（标题或正文开头没有分析性语言）
+    # 跳过纯动态/简讯类
     first_500 = content[:500]
     analysis_indicators = ["因为", "所以", "判断", "逻辑", "周期", "主线", "板块", "策略"]
     if not any(w in first_500 for w in analysis_indicators):
@@ -197,10 +220,8 @@ def extract_pattern_from_file(filepath: Path, llm_client) -> dict | None:
 
     # 提取 JSON
     try:
-        # 尝试直接解析
         result = json.loads(response)
     except json.JSONDecodeError:
-        # 尝试从 markdown 代码块中提取
         match = re.search(r'```(?:json)?\s*\n?(.*?)\n?```', response, re.DOTALL)
         if match:
             try:
@@ -217,7 +238,7 @@ def extract_pattern_from_file(filepath: Path, llm_client) -> dict | None:
         return None
 
     # 验证必要字段
-    required = ["pattern_id", "name", "reasoning_chain"]
+    required = ["pattern_id", "name", "matched_framework", "reasoning_chain"]
     for field in required:
         if field not in result:
             print(f"  [warn] {filepath.name}: missing required field '{field}'")
@@ -225,40 +246,82 @@ def extract_pattern_from_file(filepath: Path, llm_client) -> dict | None:
 
     chain = result["reasoning_chain"]
     if not isinstance(chain, list) or len(chain) < 2:
-        print(f"  [warn] {filepath.name}: reasoning_chain too short ({len(chain) if isinstance(chain, list) else 'not list'})")
+        print(f"  [warn] {filepath.name}: reasoning_chain too short")
         return None
 
-    # 去重检查
-    pid = result["pattern_id"]
-    if pid in EXISTING_PATTERNS:
-        print(f"  [skip] {filepath.name}: pattern_id '{pid}' already exists")
-        return None
+    # 验证 matched_framework 是否合法
+    valid_framework_ids = {fw["id"] for fw in FRAMEWORKS}
+    matched_fw = result.get("matched_framework", "").strip()
+    if matched_fw not in valid_framework_ids:
+        print(f"  [warn] {filepath.name}: invalid matched_framework '{matched_fw}', using 'others'")
+        result["matched_framework"] = "others"
 
     # 添加 source_raw 和 source_date
     result["source_raw"] = [str(filepath.relative_to(REPO_ROOT))]
-    # 从文件名提取日期
     date_match = re.search(r'(?:20)?(\d{2}-\d{2}-\d{2})', filepath.name)
     result["source_date"] = date_match.group(0) if date_match else "unknown"
 
-    print(f"  [found] {filepath.name}: pattern '{pid}' - {result['name']} "
+    print(f"  [found] {filepath.name}: pattern '{result['pattern_id']}' -> framework '{result['matched_framework']}' "
           f"({len(chain)} steps)")
     return result
 
 
-def merge_patterns(existing: list[dict], new: dict) -> list[dict]:
-    """将新推理模式合并到已有列表（去重）。"""
-    existing_ids = {p.get("pattern_id", "") for p in existing}
-    new_id = new.get("pattern_id", "")
-    if new_id in existing_ids:
-        return existing
-    # 移除提取时添加的临时字段
-    clean = {k: v for k, v in new.items()
-             if k not in ("has_pattern", "source_date")}
-    return existing + [clean]
+def merge_pattern_into_framework(existing_patterns: list[dict], new_pattern: dict) -> list[dict]:
+    """将新提取的pattern合并到对应的通用框架中（Phase 6 核心逻辑）。
+
+    策略：
+    1. 如果 matched_framework 存在且匹配现有框架 → 作为example加入
+    2. 如果 matched_framework 不存在或为 null → 作为独立pattern保留
+    3. 合并 applicable_themes（去重）
+    4. 更新 source_raw 记录
+    """
+    matched_fw = new_pattern.get("matched_framework", "").strip()
+    if not matched_fw:
+        # 无匹配框架，作为独立pattern保留
+        clean = {k: v for k, v in new_pattern.items() if k not in ("has_pattern",)}
+        return existing_patterns + [clean]
+
+    # 找到匹配的框架
+    for p in existing_patterns:
+        if p.get("pattern_id") == matched_fw:
+            # 构建example
+            example = {
+                "pattern_id": new_pattern.get("pattern_id", ""),
+                "name": new_pattern.get("name", ""),
+                "source_raw": new_pattern.get("source_raw", []),
+                "key_themes": new_pattern.get("applicable_themes", []),
+                "reasoning_chain": new_pattern.get("reasoning_chain", []),
+                "risk_factors": new_pattern.get("risk_factors", []),
+                "confidence_indicators": new_pattern.get("confidence_indicators", []),
+                "merge_suggestion": new_pattern.get("merge_suggestion", ""),
+            }
+
+            # 添加到examples
+            if "examples" not in p:
+                p["examples"] = []
+            p["examples"].append(example)
+
+            # 合并applicable_themes
+            existing_themes = set(p.get("applicable_themes", []))
+            new_themes = set(new_pattern.get("applicable_themes", []))
+            p["applicable_themes"] = sorted(existing_themes | new_themes)
+
+            # 合并source_raw
+            existing_sources = set(p.get("source_raw", []))
+            new_sources = set(new_pattern.get("source_raw", []))
+            p["source_raw"] = sorted(existing_sources | new_sources)
+
+            print(f"    [merge] -> framework '{matched_fw}' (now {len(p['examples'])} examples)")
+            return existing_patterns
+
+    # 如果matched_framework找不到对应框架，作为独立pattern保留
+    print(f"    [warn] matched_framework '{matched_fw}' not found, keeping as standalone")
+    clean = {k: v for k, v in new_pattern.items() if k not in ("has_pattern",)}
+    return existing_patterns + [clean]
 
 
 def main():
-    parser = argparse.ArgumentParser(description="从 UP raw 文件批量抽取推理模式")
+    parser = argparse.ArgumentParser(description="从 UP raw 文件批量抽取推理模式（Phase 6 框架归类版）")
     parser.add_argument("--dry-run", action="store_true", help="只扫描预览，不提取")
     parser.add_argument("--single", type=str, help="处理单篇文件（文件名或路径）")
     parser.add_argument("--max", type=int, default=20, help="最多处理的文件数（默认20）")
@@ -268,15 +331,14 @@ def main():
     state = load_state()
     existing_patterns, yaml_data = load_existing_patterns()
 
-    print(f"=== 推理模式批量抽取 ===")
-    print(f"已有模式: {len(existing_patterns)} 条")
+    print(f"=== 推理模式批量抽取（Phase 6: 框架归类）===")
+    print(f"已有框架: {len(existing_patterns)} 个")
     print(f"已处理文件: {len(state['processed_files'])} 个")
 
     # 单篇模式
     if args.single:
         single_path = RAW_DIR / args.single
         if not single_path.exists():
-            # 尝试模糊匹配
             matches = list(RAW_DIR.glob(f"*{args.single}*"))
             if not matches:
                 print(f"[error] File not found: {args.single}")
@@ -290,13 +352,13 @@ def main():
             print(f"\n--- 发现推理模式 ---")
             print(json.dumps(result, ensure_ascii=False, indent=2))
 
-            # 写入 YAML
-            merged = merge_patterns(existing_patterns, result)
+            # 合并到框架
+            merged = merge_pattern_into_framework(existing_patterns, result)
             yaml_data["patterns"] = merged
             yaml_data["updated_at"] = datetime.now().strftime("%Y-%m-%d")
             with open(PATTERNS_FILE, "w", encoding="utf-8") as f:
                 yaml.dump(yaml_data, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
-            print(f"\n已写入 {PATTERNS_FILE}，当前共 {len(merged)} 条推理模式")
+            print(f"\n已写入 {PATTERNS_FILE}")
         else:
             print("未发现推理模式")
         return 0
@@ -316,7 +378,8 @@ def main():
     print(f"\n开始提取，共 {len(to_process)} 个文件")
 
     llm = get_llm_client()
-    new_patterns = 0
+    new_examples = 0
+    new_standalone = 0
     processed_count = 0
 
     for i, filepath in enumerate(to_process, 1):
@@ -328,8 +391,11 @@ def main():
         processed_count += 1
 
         if result:
-            existing_patterns = merge_patterns(existing_patterns, result)
-            new_patterns += 1
+            existing_patterns = merge_pattern_into_framework(existing_patterns, result)
+            if result.get("matched_framework") in {p.get("pattern_id") for p in existing_patterns}:
+                new_examples += 1
+            else:
+                new_standalone += 1
 
             # 每发现一个新模式就写入（防止中断丢失）
             yaml_data["patterns"] = existing_patterns
@@ -338,7 +404,7 @@ def main():
                 yaml.dump(yaml_data, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
         # 保存状态
-        state["total_patterns_found"] = len(existing_patterns) - 4  # 减去最初4条
+        state["total_patterns_found"] = len(existing_patterns)
         save_state(state)
 
         # 避免 API 限流
@@ -347,8 +413,9 @@ def main():
 
     print(f"\n=== 完成 ===")
     print(f"处理文件: {processed_count}")
-    print(f"新模式: {new_patterns}")
-    print(f"总模式: {len(existing_patterns)}")
+    print(f"新增examples: {new_examples}")
+    print(f"新增独立pattern: {new_standalone}")
+    print(f"总框架数: {len(existing_patterns)}")
     print(f"输出文件: {PATTERNS_FILE}")
 
     return 0

@@ -101,18 +101,15 @@ Agent 输出"UP风格回答" ← "表达"
 
 基于现有项目，建议按这个顺序：
 
-### Phase 1：强化现有RAG（1-2周）
-1. **抽取"推理模式"**
-   - 从470篇raw中，找出UP分析市场/板块/个股的**固定套路**
-   - 沉淀到 `framework/reasoning-patterns.md`
+### Phase 1：强化现有RAG ✅ DONE（2026-06-05）
 
-2. **建立"风格约束"**
-   - 收集UP的口头禅、典型句式
-   - 加到 `qing-stock-analysis/SKILL.md` 的输出约束里
+**状态**：已完成。从 479 篇 raw 中抽取 116 条推理模式（`framework/reasoning-patterns.yaml`），IDF 加权倒排索引匹配接入 Qing-Agent 的 `market_analyst` prompt。
 
-3. **增加"多轮记忆"**
-   - 让AI记住之前对某只股票/板块的判断
-   - 在 `cases/` 里建立"判断-验证"闭环
+1. ~~**抽取"推理模式"**~~ → 完成：`scripts/extract_reasoning_patterns.py` 批量抽取脚本，详见 `references/reasoning-pattern-extraction-workflow.md`
+
+2. ~~**建立"风格约束"**~~ → 部分完成：`style_writer` prompt 已有 UP 人格注入，可进一步强化
+
+3. ~~**增加"多轮记忆"**~~ → 已有 mem0 基础，推理模式匹配的预测-验证闭环未实现
 
 ### Phase 2：构建训练数据（2-4周）
 1. **生成问答对**

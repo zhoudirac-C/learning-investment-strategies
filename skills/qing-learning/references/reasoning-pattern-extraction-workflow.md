@@ -75,30 +75,35 @@ market_analyst() prompt context
 LLM 按推理模式的 step 顺序执行分析，每步给出判断依据
 ```
 
-### 匹配机制（倒排索引 + IDF 加权）
+### 匹配机制（多字段加权倒排索引，Phase 5 优化）
 
-匹配不再使用固定 `_THEME_KEYWORD_MAP`，改用动态倒排索引方法：
+匹配不再使用固定 `_THEME_KEYWORD_MAP`，改用动态多字段倒排索引方法：
 
-1. **关键词提取**：从 query 用 2-4 字滑动窗口提取候选关键词，过滤纯虚词（`怎么`/`是否`/`什么`）
-2. **倒排索引构建**：将所有 pattern 的 `applicable_themes` 拆为 2-4 字片段，建立 关键词→[pattern_idx] 索引
-3. **IDF 加权评分**：关键词权重 = `1/log(命中pattern数 + 2)`，罕见关键词（MLCC→2 patterns）权重高，"分析"→11 patterns 权重低
-4. **最低分过滤**：score ≥ 0.4（约等于 ≥1 个有区分力的关键词命中；第二阶段从 0.8 下调以提升召回，详见 §6 v5）
-5. **上限**：Top 5 条（按加权分降序）
+1. **关键词提取**：从 query 用**完整主题词优先**+2-4字滑动窗口补充，过滤纯虚词（`怎么`/`是否`/`什么`）
+2. **多字段索引构建**：索引4个字段：
+   - `applicable_themes` → 权重 3.0（精确匹配，最高）
+   - `pattern_id` + `name` → 权重 2.5
+   - `description` → 权重 1.5
+   - `reasoning_chain.step.name` → 权重 1.0
+3. **IDF 加权评分**：关键词权重 = `1/log(命中pattern数 + 2)`，罕见关键词权重高，泛化词权重低
+4. **最低分过滤**：score ≥ 1.5（Phase 5：从 0.4 提高，减少聚合后10个框架的噪声匹配）
+5. **上限**：Top 3 条（Phase 5：从 5 减少到 3，降低 prompt 长度）
 
-**关键参数**：
-- `MIN_MATCH_SCORE = 0.4`（从 0.8 下调，见 §6 v5）（位于 `_load_reasoning_patterns()`）
-- 停用词列表（`_extract_themes_from_state()` 中的 `_STOP_WORDS`）：只过滤纯虚词，保留所有投资主题术语
-- 缓存：`_PATTERNS_CACHE` 进程级缓存，首次调用时加载 `reasoning-patterns.yaml`
+**关键参数**（Phase 5 更新）：
+- `MIN_MATCH_SCORE = 1.5`（位于 `_load_reasoning_patterns()`）
+- 多字段权重：`theme=3.0`, `name=2.5`, `description=1.5`, `step_name=1.0`
+- 停用词列表：`_extract_themes_from_state()` 和 `_extract_keywords_from_text()` 中的 `_STOP_WORDS`
+- 缓存：`_PATTERNS_CACHE` + `_PATTERN_INDEX_CACHE` 进程级缓存
 
 ### 注入点
 
-`market_analyst()` 的 context dict 中注入 `reasoning_patterns` 字段，与 `framework_rules` 并列。
+`market_analyst()` 的 context dict 中注入 `reasoning_patterns` 字段，与 `framework_rules` 并列。每个 pattern 包含 `match_themes` 和 `match_name_keywords`，方便 LLM 理解匹配来源。
 
 ### 行为规则
 
 - 无主题匹配 → 返回空列表（避免无关模式干扰）
-- 最多 5 条（控制 prompt 长度，IDF 加权后在 `_load_reasoning_patterns` 中截断）
-- score < 0.4 过滤（第二阶段从 0.8 下调；排除仅靠 1 个泛化词命中的极端噪声，但不漏掉存储/地缘等合理查询）
+- 最多 3 条（Phase 5：控制 prompt 长度）
+- score < 1.5 过滤（Phase 5：聚合后10个框架需要更高阈值）
 - 推理模式是辅助，实时数据优先（`market_analyst.txt` 中明确要求）
 
 ## 4. 手动维护检查清单
@@ -114,8 +119,10 @@ LLM 按推理模式的 step 顺序执行分析，每步给出判断依据
 ```bash
 # YAML 格式
 python -c "import yaml; yaml.safe_load(open('framework/reasoning-patterns.yaml'))"
+```
 
-# 匹配逻辑
+```bash
+# 匹配逻辑（Phase 5 优化版）
 .venv/bin/python -c "
 from qing_investment.agent.graph.nodes import _load_reasoning_patterns
 state = {'query': 'MLCC板块分析', 'claims': [], 'sector_context': []}
@@ -143,6 +150,7 @@ print(_load_reasoning_patterns(state))
 | 手动 | 2（MLCC 案例） | 4 | 4 | 模板验证 |
 | Phase 1 | 50（高分候选） | 31 | 35 | `--max 50`，首次批量 |
 | Phase 2 | 150（增量） | 81 | 116 | `--incremental --max 150`，覆盖剩余高分文件 |
+| **Phase 3: 聚合** | — | **10** | **10** | 将116个单raw模式聚合成10个通用框架 |
 
 **问题演进**：
 
@@ -151,7 +159,9 @@ print(_load_reasoning_patterns(state))
 | v1 | 固定 `_THEME_KEYWORD_MAP`（8个主题） | 新增模式 30+ 条后，映射表手工维护不现实 |
 | v2 | 动态倒排索引 + 简单计数 | "分析"→11 patterns，"板块"→碰任何查询都命中Top5 |
 | v3 | 动态倒排索引 + 停用词过滤（大量投资术语） | 停用词过猛，AIDC/算力/能源等合法查询也被过滤 |
-| v4 | 动态倒排索引 + IDF 加权 + 仅滤虚词 | MIN_MATCH_SCORE=0.8 对\"存储\"(6 patterns, IDF≈0.48)等中等稀有词过于严格 |\n| v5 | v4 + MIN_MATCH_SCORE=0.4 | ✓ 最终方案：存储芯片/地缘冲突/第二只脚等之前漏掉的查询全部恢复 |
+| v4 | 动态倒排索引 + IDF 加权 + 仅滤虚词 | MIN_MATCH_SCORE=0.8 对\"存储\"(6 patterns, IDF≈0.48)等中等稀有词过于严格 |
+| v5 | v4 + MIN_MATCH_SCORE=0.4 | 存储芯片/地缘冲突/第二只脚等之前漏掉的查询全部恢复 |
+| **v6: 聚合** | **10个通用框架 + examples子文档** | **解决99.1%单raw依赖问题，模式从特定场景变为可复用框架** |
 
 **v4 关键参数**：
 - 停用词：仅 18 个纯虚词（`怎么`/`是否`/`什么`/`今天`/`当前`/`最近`/`现在`/`这种`/`应该`/`可以`/`需要`/`关注`/`注意`/`一个`/`还有`/`有没有`/`哪些`/`处于`/`如何`/`怎么样`）
@@ -159,4 +169,107 @@ print(_load_reasoning_patterns(state))
 - IDF 公式：`1 / log(hit_count + 2)`（+2 防除零）
 - "MLCC"→2 patterns: IDF≈0.72，"分析"→11: IDF≈0.39
 
-**验证结果**（v4, 35 条模式）：\n\n```\nAIDC/算力  → 5条（基建资本循环 3.02）\nAI全产业链 → 5条（全产业链共振 2.14）\nMLCC       → 2条（涨价周期定性 1.34）\n能源冲突   → 1条（双锚点驱动 1.44）\n风格切换   → 2条（能源冲击重估 1.82）\n机器人     → 3条（全产业链共振 1.82）\n无主题闲聊 → 0条\n```\n\n**验证结果**（v5, 116 条模式，MIN_MATCH_SCORE=0.4）：\n\n```\nAIDC基建   → 5条（基建资本循环 2.66）\nAI全产业链 → 5条（全产业链共振 1.62）\n大宗商品   → 4条（康波周期切换 1.67）new!\n存储芯片   → 5条（轮动质量评估 0.72）v5修复\n地缘冲突   → 5条（BOM价值量链 0.72）  v5修复\n第二只脚   → 3条（恐慌底确认 0.62）   v5修复\nMLCC       → 5条（MLCC周期定性 0.89）\nAI算力     → 5条（全产业链共振 2.24）\n无主题     → 0条\n```
+**验证结果**（v4, 35 条模式）：
+
+```
+AIDC/算力  → 5条（基建资本循环 3.02）
+AI全产业链 → 5条（全产业链共振 2.14）
+MLCC       → 2条（涨价周期定性 1.34）
+能源冲突   → 1条（双锚点驱动 1.44）
+风格切换   → 2条（能源冲击重估 1.82）
+机器人     → 3条（全产业链共振 1.82）
+无主题闲聊 → 0条
+```
+
+**验证结果**（v5, 116 条模式，MIN_MATCH_SCORE=0.4）：
+
+```
+AIDC基建   → 5条（基建资本循环 2.66）
+AI全产业链 → 5条（全产业链共振 1.62）
+大宗商品   → 4条（康波周期切换 1.67）new!
+存储芯片   → 5条（轮动质量评估 0.72）v5修复
+地缘冲突   → 5条（BOM价值量链 0.72）  v5修复
+第二只脚   → 3条（恐慌底确认 0.62）   v5修复
+MLCC       → 5条（MLCC周期定性 0.89）
+AI算力     → 5条（全产业链共振 2.24）
+无主题     → 0条
+```
+
+## 7. 聚合合并：从116个特定模式到10个通用框架
+
+> 2026-06-06 session 关键发现：批量抽取的116个模式中，**99.1%只关联1个raw文件**，导致每个模式都是"特定场景推理"而非"通用推理框架"。
+
+### 问题诊断
+
+| 问题 | 数据 |
+|------|------|
+| 单raw依赖 | 115/116 个模式只关联1个raw |
+| 主题孤岛 | 82.2%的主题只出现1次 |
+| 文件膨胀 | 255.7KB，持续增长无收敛 |
+| 匹配噪声 | 303个主题中大量孤立词 |
+
+### 根因
+
+抽取脚本的筛选逻辑把"有推理链"等同于"应该抽取为模式"，但没有判断：
+- 这条推理链**是否已经存在**于模式库中？
+- 这条推理链的**抽象级别**是否值得独立成模式？
+- 这条推理链是否只是某个通用模式的**具体应用**？
+
+### 聚合策略
+
+将116个模式按**推理结构相似性**聚类为10个通用框架：
+
+| 通用框架 | 合并原模式数 | 核心推理链 |
+|----------|------------|-----------|
+| `upstream_cycle` | 14 | 确认涨价→分析供需→对比历史→受益映射→判断持续性 |
+| `mainline_identification` | 34 | 确认市场阶段→识别候选主线→验证强度→排除假切换→制定策略 |
+| `sector_rotation` | 15 | 判断触发因素→评估轮动质量→定位受益环节→判断持续性 |
+| `macro_transmission` | 16 | 定性事件→分析传导路径→定位A股影响→制定对冲策略 |
+| `sentiment_cycle` | 11 | 定位情绪阶段→识别拐点→筛选修复方向→制定仓位策略 |
+| `technical_timing` | 6 | 判断大盘位置→分析技术形态→确认买卖信号→设置风控 |
+| `earnings_analysis` | 6 | 拆解异常项→还原主营→定性风险→判断估值 |
+| `ai_industry_chain` | 6 | 识别突破→拆解影响→验证需求→映射标的 |
+| `operation_strategy` | 5 | 评估环境→确定仓位→选择工具→执行风控 |
+| `others` | 3 | 识别特殊信号→分析影响→制定应对方案 |
+
+### 通用框架 YAML 结构
+
+每个通用框架包含：
+- `pattern_id` / `name` / `description` — 通用描述
+- `applicable_themes` — 合并所有原模式的themes（去重）
+- `reasoning_chain` — **通用化**的推理步骤（抽象级别，不含具体标的/日期）
+- `risk_factors` / `confidence_indicators` — 通用条件
+- `examples` — 保留原模式作为**具体案例**（含原pattern_id、name、source_raw）
+- `merged_from` — 记录合并来源（可追溯）
+
+### 聚合效果
+
+| 指标 | 原文件 | 聚合后 |
+|------|--------|--------|
+| 模式数 | 116 | **10** |
+| 文件大小 | 255.7KB | **78.6KB** |
+| 主题覆盖 | 303 | **303**（100%保留） |
+| 单raw依赖 | 99.1% | **0%** |
+
+### 聚合操作脚本
+
+```python
+# 核心逻辑：按关键词聚类 → 提取通用reasoning_chain → 保留examples
+clusters = {
+    'upstream_cycle': {
+        'name': '上游涨价周期分析框架',
+        'ids': ['upstream_price_cycle_qualify', 'upstream_beneficiary_screening', ...],
+        'generic_chain': [...]  # 5步通用链
+    },
+    # ... 其他9个框架
+}
+```
+
+详见 `references/reasoning-pattern-aggregation.md`（聚合过程完整记录）。
+
+### 后续匹配算法建议
+
+聚合后10个框架的`applicable_themes`更大，简单关键词匹配会产生噪声。建议：
+1. **语义路由**：用LLM判断查询属于哪个框架（而非关键词硬匹配）
+2. **两阶段匹配**：先框架级匹配（10选1-2），再example级细化
+3. **框架优先级**：`mainline_identification`（34个原模式）主题最泛，匹配时需降权或最后考虑

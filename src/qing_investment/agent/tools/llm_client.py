@@ -26,7 +26,7 @@ LLM_PROVIDERS: dict[str, dict[str, Any]] = {
     },
     "deepseek": {
         "base_url": "https://api.deepseek.com/v1",
-        "default_model": "deepseek-chat",
+        "default_model": "deepseek-v4-flash",
         "api_key_env": "DEEPSEEK_API_KEY",
     },
     "zhipu": {

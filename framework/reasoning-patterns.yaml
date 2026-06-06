@@ -1,10 +1,10 @@
 updated_at: '2026-06-06'
-version: 2.0-merged
-merge_note: 将116个单raw模式聚合为10个通用推理框架
+version: 2.1-optimized-descriptions
+merge_note: 将116个单raw模式聚合为10个通用推理框架，并优化description以支持语义匹配
 patterns:
 - pattern_id: upstream_cycle
   name: 上游涨价周期分析框架
-  description: 适用于所有上游周期品（MLCC、存储、硅片、PCB、化工、有色、电源等）的涨价周期定性判断与受益标的筛选。
+  description: 当用户询问上游周期品（MLCC、PCB、存储、硅片、ABF、有色、化工、锂电材料、稀土、钢铁、煤炭等）的涨价逻辑、周期位置、受益标的或能否介入时使用。核心关注价格变化、供需缺口、库存周期、扩产节奏。典型查询：XX涨价怎么看、周期品处于什么阶段、上游材料能不能买、被动元件/资源品机会、周期股估值。该框架通过验证涨价真实性、拆解供需驱动、对比历史周期位置、映射受益标的、判断持续性，给出周期定位与操作建议。
   source_raw:
   - sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md
   - sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
@@ -38,6 +38,7 @@ patterns:
   - 光通信上游
   - 功率器件涨价逻辑
   - 化工
+  - 半导体上游
   - 半导体上游材料
   - 半导体材料
   - 半导体设备材料
@@ -50,6 +51,7 @@ patterns:
   - 液冷
   - 电子元器件周期
   - 电子元器件涨价
+  - 电子周期品
   - 电源
   - 硅片
   - 科技上游材料
@@ -249,6 +251,68 @@ patterns:
     - 数据中心
     - REITs模式
     - 科技基础设施
+  - pattern_id: mlcc_cycle_analysis_20260531
+    name: MLCC周期上行推理链
+    source_raw:
+    - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+    key_themes:
+    - MLCC
+    - 被动元件
+    - 电子周期品
+    - 涨价题材
+    - 半导体上游
+    reasoning_chain:
+    - step: 1
+      name: 判断行情本质
+      question: MLCC涨价是类似存储的大紧缺周期还是其他？
+      UP_logic: AI对全球MLCC需求仅10%，高容产品挤出效应约20%，价值量、扩产难度无法类比存储，所以是外溢承接行情。
+      evidence_sources:
+      - AI需求占比10%
+      - 挤出效应20%
+      - 海外扩产情况
+    - step: 2
+      name: 分析需求结构
+      question: 哪些领域驱动MLCC需求？
+      UP_logic: AI单机用量持续上行，汽车稳步增长，光伏走弱，消费类乏力，量的改善强于价的改善。
+      evidence_sources:
+      - GB200/GB300/Rubin MLCC用量表
+      - 汽车单车用量
+      - 光伏政策变化
+    - step: 3
+      name: 分析供给端转移
+      question: 供给端如何变化导致全品类紧缺？
+      UP_logic: 产能转向高容，日韩出清中低端，中低端产能紧张，交期拉长，扩产周期6-9个月。
+      evidence_sources:
+      - 转产情况
+      - 交期数据
+      - 扩产瓶颈
+    - step: 4
+      name: 评估价格与库存水位
+      question: 当前价格处于什么阶段？后续如何？
+      UP_logic: 高容价格远低于历史峰值150-180元，中低容刚脱离亏损，全行业稼动率未突破90%，涨价初期。
+      evidence_sources:
+      - 价格数据
+      - 稼动率水平
+      - 渠道库存
+    - step: 5
+      name: 识别边际催化与受益方向
+      question: 最新事件强化逻辑？哪些环节受益？
+      UP_logic: 日厂三度转产、近30种料号缺货、太阳诱电全系涨价，高端承接/上游供货/弹性最大三类受益逻辑。
+      evidence_sources:
+      - 缺货品种
+      - 原厂停止接单
+      - 企业产品结构
+    risk_factors:
+    - AI需求不及预期
+    - 海外扩产快于预期
+    - 国内厂商技术突破慢于预期
+    - 涨价不持续被证伪
+    confidence_indicators:
+    - 海外龙头涨价落地
+    - 库存处于历史低位
+    - 稼动率持续提升
+    - 订单出货比回升
+    merge_suggestion: 分析上游周期品涨价逻辑，涵盖需求结构、供给转移、价格水位、库存
   merged_from:
   - upstream_price_cycle_qualify
   - upstream_beneficiary_screening
@@ -266,7 +330,7 @@ patterns:
   - aidc_reits_profit_chain
 - pattern_id: mainline_identification
   name: 市场主线识别与切换判断框架
-  description: 通过政策、产业景气度、资金共振等多维度判断市场主线，识别假切换信号。
+  description: 当用户询问市场主线、板块强度对比、主线切换、方向选择时使用。典型查询：今天主线是什么、市场主线怎么看、XX板块是不是主线、主线会不会切换、哪个方向最强、科技还是红利。该框架通过判断市场阶段与核心矛盾、识别候选主线、验证资金/政策/产业共振、排除假切换信号、制定跟随或防守策略，帮助确认当前市场核心主线及其持续性。
   source_raw:
   - sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
   - sources/raw/财经/午盘：26-04-13：低开回升半日1.41万亿，AI算力硬件绝对主线，电子布最强补涨.md
@@ -770,7 +834,7 @@ patterns:
   - volume_emotion_mainline_qualify
 - pattern_id: sector_rotation
   name: 板块轮动与扩散分析框架
-  description: 分析板块轮动的质量、节奏和优先级，识别高低切补涨机会。
+  description: 当用户询问板块轮动、高低切换、补涨扩散、事件驱动、题材持续性时使用。典型查询：板块轮动到哪儿了、补涨方向有哪些、高低切怎么参与、事件驱动能不能追。该框架评估轮动触发因素、轮动质量、受益环节、持续性，判断轮动是健康扩散还是资金撤退前的补涨。
   source_raw:
   - sources/raw/财经/午盘：26-04-27：窄幅震荡无方向，科技高低切半导体最强，DeepSeek昇腾分歧.md
   - sources/raw/财经/周复盘：26-05-10：特朗普访华，六张牌交易框架，4200攻防，国产算力主线.md
@@ -1027,7 +1091,7 @@ patterns:
   - sector_rotation_observation
 - pattern_id: macro_transmission
   name: 宏观传导链分析框架
-  description: 从地缘冲突、能源冲击、货币政策等宏观事件出发，推导对A股风格、板块定价的影响路径。
+  description: 当用户询问宏观事件、海外映射、政策变化、流动性冲击对A股的影响时使用。包括地缘冲突、能源冲击、货币政策、中美关系、美股风险、汇率波动、大宗商品价格等。典型查询：美联储加息影响、地缘冲突怎么对冲、美股大跌对A股影响、汇率波动影响。该框架定性事件级别、分析传导路径、定位A股影响维度、制定对冲或受益策略。
   source_raw:
   - sources/raw/财经/午盘：26-05-18：长鑫产业链新生启动，指数共振乏力待观察.md
   - sources/raw/财经/周复盘：26-01-04：2026全球经济新周期.md
@@ -1306,7 +1370,7 @@ patterns:
   - energy_shock_to_asset_revaluation
 - pattern_id: sentiment_cycle
   name: 市场情绪周期分析框架
-  description: 识别情绪周期的阶段（冰点→修复→高潮→退潮），判断情绪拐点，制定仓位策略。
+  description: 当用户询问市场情绪、短线情绪周期、冰点/高潮判断、修复方向、仓位建议时使用。典型查询：市场情绪如何、是不是冰点、情绪修复买什么、现在几成仓、恐慌盘出来了吗。该框架定位情绪阶段、识别拐点信号、筛选修复方向、制定仓位策略，判断当前处于冰点/修复/高潮/退潮的哪个阶段。
   source_raw:
   - sources/raw/财经/复盘：26-01-12：3.6万亿历史纪录，201只涨停，AI强度超越商业航天.md
   - sources/raw/财经/复盘：26-04-28：创业板4连阴，情绪拐点已现.md
@@ -1507,7 +1571,7 @@ patterns:
   - rise_first_divergence_ice_point
 - pattern_id: technical_timing
   name: 技术择时分析框架
-  description: 基于波浪理论、布林线、K线形态等技术指标，制定买卖点策略。
+  description: 当用户询问大盘或个股的技术位置、买卖点、支撑压力、K线形态、波浪结构、指标信号、止盈止损时使用。典型查询：大盘技术位置、XX股能买吗、什么时候止损、压力位在哪里、波浪结构怎么看。该框架判断技术位置、分析形态结构、确认买卖信号、设置风控，给出具体的技术面操作建议。
   source_raw:
   - sources/raw/财经/周复盘：26-02-01：二月投资策略：安全优先.md
   - sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
@@ -1649,7 +1713,7 @@ patterns:
   - sector_rotation_bollinger_band
 - pattern_id: earnings_analysis
   name: 个股业绩拆解与定性分析框架
-  description: 拆解财报异常项，区分一次性因素与主营趋势，判断估值重估逻辑。
+  description: 当用户询问个股业绩、财报分析、业绩暴雷识别、业绩超预期、估值判断、季报年报解读时使用。核心关注利润表、营收质量、一次性损益、主营趋势。典型查询：XX业绩怎么样、财报怎么看、业绩超预期能追吗、怎么避雷、业绩是否符合预期、估值贵不贵。该框架拆解财报异常项、还原主营趋势、定性风险性质、判断估值逻辑，区分一次性因素与真实经营改善。
   source_raw:
   - sources/raw/财经/周复盘：26-04-15：节奏预期，日线高9，算力租赁生死考验，趋势中做短线.md
   - sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
@@ -1790,7 +1854,7 @@ patterns:
   - sector_catalyst_timing
 - pattern_id: ai_industry_chain
   name: AI产业链传导分析框架
-  description: 分析AI技术突破对产业链各环节的影响，从需求传导到标的映射。
+  description: 当用户询问AI技术突破、新产品发布、大模型迭代、算力需求爆发对产业链各环节（算力芯片、PCB、光通信、液冷、电源、数据中心、应用等）的传导机会与标的映射时使用。区别于一般上游周期分析，核心关注技术事件驱动的产业链受益顺序。典型查询：AI产业链机会、Rubin影响、算力扩散到哪里、大模型利好谁、AI应用能不能买。该框架识别技术突破、拆解产业链影响路径、验证需求真实性、映射投资标的。
   source_raw:
   - sources/raw/财经/午盘补发：26-05-25：保持思考.md
   - sources/raw/财经/周复盘：26-04-14：是反弹不是反转，市场为什么对中东冲突麻木了.md
@@ -1936,7 +2000,7 @@ patterns:
   - ai_demand_chain_qualify
 - pattern_id: operation_strategy
   name: 操作策略与仓位管理框架
-  description: 制定具体的操作策略、仓位分配和买卖纪律。
+  description: 当用户直接询问操作建议、仓位管理、买卖纪律、风险控制、具体交易计划、止盈止损、加仓减仓时使用。典型查询：今天怎么操作、几成仓合适、要不要减仓、怎么止盈止损、持仓怎么调。该框架评估市场环境、确定仓位水平、选择操作工具、执行风控，给出可落地的操作策略而非方向判断。
   source_raw:
   - sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
   - sources/raw/财经/复盘：26-04-01：三指收涨科创50涨超3%，智立方奥瑞德富临广联.md
@@ -2057,7 +2121,7 @@ patterns:
   - panic_verify_structural_switch
 - pattern_id: others
   name: 其他独立分析框架
-  description: 暂无法归入上述类别的独立分析模式。
+  description: 当用户询问无法归入上述九大框架的独立分析场景时使用，包括行业估值比较（PE/PB体系）、板块拥挤度分析、外盘联动风险、新股上市影响、特殊政策解读、非周期非AI的独立事件分析等。该框架先识别特殊信号、分析影响与机会、制定应对方案，作为通用补充分析路径。
   source_raw:
   - sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
   - sources/raw/财经/复盘：26-03-16：4050三次长下影强支撑，存储领涨，明日中阳预期，OFC三大MSA.md
