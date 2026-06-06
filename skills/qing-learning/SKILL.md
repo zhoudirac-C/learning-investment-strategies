@@ -203,11 +203,35 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 7. **遗忘知识库同步**：claims/wiki 落库并提交后，若不运行 `index_documents_to_qdrant.py` + `migrate_claims_to_neo4j.py`，Qing-Agent 将无法检索到新内容。特征：用户询问某个新学的板块时，Qing-Agent 回答"未找到相关数据"。检查 `.index_state.json` 和 `.migrate_state.json` 的 `last_sync` 时间戳可快速确认是否遗漏。
 8. **未关 Agent 就运行同步脚本（Qdrant 本地模式）**：Qing-Agent 启动后持有 `.qdrant_data/` 独占文件锁。不关 Agent 直接运行索引脚本会导致 `Storage folder already accessed` 错误或静默卡死。正确流程：`kill` Agent → 同步 → 重启 Agent。详见步骤13「知识库增量同步」。
 9. **忘记 PYTHONUNBUFFERED=1**：Hermes cron/后台进程管理器捕获 Python stdout 时，默认缓冲会导致无输出（看起来像卡死）。索引命令必须加 `PYTHONUNBUFFERED=1` 前缀。详见步骤13。
+
+10. **Qdrant claims 索引报 `ValueError: could not broadcast input array from shape (512,) into shape (1,)`**：本地模式存储损坏，现有 collection 中向量形状不一致。**不要**尝试增量修复——直接删除 `qing_claims` collection 并全量重建：
+    ```python
+    from qdrant_client import QdrantClient
+    from qing_investment.agent.config import settings
+    from qdrant_client.models import Distance, VectorParams
+
+    client = QdrantClient(path=settings.qdrant_local_path)
+    client.delete_collection('qing_claims')
+    client.create_collection(
+        collection_name='qing_claims',
+        vectors_config=VectorParams(size=512, distance=Distance.COSINE),
+    )
+    # 然后重新运行 index_claims_to_qdrant.py
+    ```
+    **触发条件**：claims 索引到中途（如 500/548）时突然报此错。**不是** embedding 维度问题（collection config 显示 size=512 正确），是本地 SQLite 存储层的向量数据不一致。删除重建后全量索引即可。
+
+11. **Claim 文件编号与已有 claims 冲突**：同一日期可能已有其他 session 或同一 session 的不同子 agent 创建了 claims。**写入前必须检查**：
+    ```bash
+    ls knowledge/claims/claim-YYYYMMDD-*.yaml 2>/dev/null | tail -5
+    ```
+    若 `claim-20260604-001.yaml` 已被占用 → 按序递增命名（如 `claim-20260604-004.yaml`）。**不要**用 `write_file` 覆盖已有文件——会丢失之前 session 提取的 claims。若已意外覆盖，立即 `git checkout HEAD -- <file>` 恢复。同时，`mv` 重命名后必须 `sed -i` 批量替换文件内的 claim ID 引用。
 11. **推理模式抽取混淆观点与推理**：`"UP看好MLCC"` 是观点，应进 claims；`"UP是怎么得出看好MLCC的（5步推理链）"` 是推理模式，应进 `framework/reasoning-patterns.yaml`。不要将单日盘面判断误标为推理模式。
 12. **单raw依赖陷阱——批量抽取后必须聚合**：`scripts/extract_reasoning_patterns.py` 批量抽取时，会把每篇含推理链的 raw 都生成一个独立模式。运行一段时间后会出现：①99%的模式只关联1个raw ②主题高度重叠 ③文件持续膨胀无收敛 ④匹配噪声增大。**解决方案**：
     - **长期方案（推荐）**：抽取时直接让 LLM 判断归入10个通用框架，作为 `examples` 追加。这是 Phase 6 改造后的默认行为，详见 `references/reasoning-pattern-extraction-workflow.md` §8。
     - **历史补救**：若已积累大量独立模式，定期（如每新增50个模式后）执行聚合——按推理结构相似性将模式聚类为通用框架（如`upstream_cycle`、`mainline_identification`等），每个框架保留通用`reasoning_chain`+原模式作为`examples`。聚合后模式数从116→10，文件大小从255KB→78KB，主题覆盖率保持100%。详见 `references/reasoning-pattern-extraction-workflow.md` §7。
 13. **用户质疑推理模式通用性时的响应方式**：当用户问"推理思路都是从单个文件提取的是否不够通用""只能针对一个方向吗"时，**不要重新解释 Phase 6 设计 rationale**——直接展示 `references/reasoning-pattern-cross-direction-reuse.md` 中的复用示例表格（`upstream_cycle` 支撑 MLCC/PCB/存储/硅片等），用具体案例回答。用户的问题通常意味着已有文档未被有效发现，Agent 应充当文档导航器而非重新论证者。
+
+14. **Claims 不通过 Neo4j 图遍历提供标的列表**：当用户问"能不能让 Agent 自己从 Neo4j 找出某方向的标的"时，应引用 `src/qing_investment/agent/AGENTS.md` §10 的架构决策——标的应嵌入 claim 的 `statement` 字段随 Qdrant 召回传递，而非通过 Claim→Theme→Stock 图遍历。这是经过审查确认的设计原则：Claims 管"UP 怎么看这个方向"，实时数据管"这个方向现在有哪些标的"。不要图一时方便而打破这个分层。
 14. **Claim 文件编号冲突（同一日期多次 ingestion）**：同一日期可能有多篇 raw 需要学习（早盘、盘中动态、盘后视频等），每次 ingestion 生成独立的 claim 文件（`claim-YYYYMMDD-001.yaml`、`-002.yaml`...）。**新建前必须检查已有编号**：
     - `ls knowledge/claims/claim-YYYYMMDD-*.yaml` 确认已有编号
     - 直接写入目标编号文件，不要先写成 `-001` 再 `mv` 重命名——`write_file` 会覆盖已有文件，导致旧 claims 丢失
