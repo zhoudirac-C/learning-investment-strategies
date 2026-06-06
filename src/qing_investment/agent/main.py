@@ -169,6 +169,26 @@ async def chat(req: ChatRequest):
     if stock_code_match:
         fetched_stock_code = stock_code_match.group(1)
     
+    # 2.1 如果没有提取到代码，从持仓配置中匹配股票名称
+    if not fetched_stock_code:
+        try:
+            import yaml
+            positions_path = "/home/ubuntu/learning-investment-strategies/config/stock_monitor/positions.yaml"
+            with open(positions_path, "r", encoding="utf-8") as f:
+                positions_data = yaml.safe_load(f)
+            
+            for account in positions_data.get("accounts", []):
+                for pos in account.get("positions", []):
+                    name = pos.get("name", "")
+                    code = pos.get("code", "")
+                    if name and code and name in req.message:
+                        fetched_stock_code = code.replace(".SZ", "").replace(".SH", "").replace(".sz", "").replace(".sh", "")
+                        break
+                if fetched_stock_code:
+                    break
+        except Exception:
+            pass
+    
     # 3. 获取指数/大盘数据（如果是市场相关查询 或 个股查询也需要大盘环境）
     if is_market_query or is_sector_query or is_stock_query or not fetched_stock_code:
         try:
