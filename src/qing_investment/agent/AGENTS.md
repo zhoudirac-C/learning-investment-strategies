@@ -416,3 +416,21 @@ src/qing_investment/agent/
 3. **幂等同步 > 全量重建**：知识库同步用脚本的增量模式，除非 `--force-full`
 4. **UP 人格 > 机构腔**：style_writer 是最后一道防线，所有输出必须经过 UP 口吻过滤
 5. **来源标注 > 无据推断**：所有分析结论必须标注引用来源（claim ID / framework 文件 / wiki 路径），reviewer 会检查 citation 完整性
+
+### 架构决策：Claims 不直接提供标的列表
+
+**决策**：Claim 中的方向推荐标的，应嵌入 `statement` 文本字段（随 Qdrant 召回自然传递），**不**通过 Neo4j 图遍历（Claim→Theme→Stock）返回。
+
+**理由**：
+
+| 考量 | 图遍历方案 | 文本嵌入方案 |
+|------|-----------|-------------|
+| 数据诚实 | ❌ 让历史 claims 充当"权威标的列表"，绕过实时数据验证 | ✅ 标的作为"UP 说过的话"呈现，保持背景参考定位 |
+| 方法论过滤器 | ❌ 绕过 `_filter_methodology_only()` 有意隔离个股 claims 的设计 | ✅ 不绕过过滤器，尊重 market_analyst 只接收方法论 claims 的架构 |
+| Prompt 规则 | ❌ 与"claims 仅供背景参考，不得作为当前判断依据"矛盾 | ✅ 标的跟随 claim 文本一起出现，标注为 UP 观点 |
+| Schema 迁移 | ❌ 需新建 Sector→Stock 边，与 `stock_sector_mapper.py` 功能重复 | ✅ 零改动 |
+| Agent 行为 | ❌ 会让 LLM 把历史推荐当买卖信号 | ✅ LLM 仍需用实时数据验证后才给建议 |
+
+**原则**：Claims 管"UP 怎么看这个方向"，实时数据管"这个方向现在有哪些标的、涨得怎么样"。两者分工，不互相替代。
+
+**实施**：写 claim 时，把相关标的写入 `statement` 字段（例："燃气轮机方向核心标的：杰瑞股份(002353)、中国动力(600482)..."），而非仅靠 `related_stocks` 数组。`related_stocks` 保留用于 Neo4j 实体链接，但不作为 Agent 检索路径。

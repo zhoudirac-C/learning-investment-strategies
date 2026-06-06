@@ -127,6 +127,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     23. **Trading Rules 迁移与维护**：参考 `references/trading-rules-migration-guide.md`（何时将操作纪律进 `framework/trading-rules.md`、迁移流程、避免重复）。
     24. **推理模式跨方向复用性**：参考 `references/reasoning-pattern-cross-direction-reuse.md`（通用框架的 `examples` 列表如何支撑跨方向复用——同一推理骨架适用于不同主题的具体案例、复用边界、何时需要新增框架）。
     25. **推理模式通用性 FAQ**：当用户问"推理模式是否只能针对单一方向""是否不够通用""是不是只能从单个文件提取"时，直接引用 `references/reasoning-pattern-cross-direction-reuse.md` 的"核心结论"和"复用示例"表格。不要重新解释 Phase 6 架构——用户的问题说明已有文档未被有效引用，Agent 应直接展示复用示例（如 `upstream_cycle` 同时支撑 MLCC/PCB/存储/硅片），而非重复论证设计合理性。
+26. **非科技方向 Neo4j 图谱设计**：当需要将研报中推荐的个股入库 Neo4j 以便 Qing-Agent 检索时，参考 `references/non-tech-stock-graph-design.md`（四种节点：Theme/Stock/Claim/ResearchReport + 五种关系 + Agent 检索路径）。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
@@ -185,7 +186,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     - 增量模式（默认）：只处理 `hash 有变化` 或 `新创建` 的文件，增量 < 30 秒
     - 强制全量模式（数据损坏时）：`--force-full`，全量 10,687 chunks 预计 20-25 分钟
     - **必须在 git commit 之后运行**（脚本基于文件 hash 判断是否已同步）
-    - 运行后建议快速验证：用 `Neo4jClient` 查询新 claim，或 curl Qdrant 确认索引
+    - **⚠️ 同步后必须验证 Agent 能否检索到新内容**（见下方 Pitfall #15）
     - **常见陷阱**：`PYTHONUNBUFFERED=1` 是关键——否则 Python stdout 缓冲导致进程管理捕获不到输出，看起来像卡死。ONNX 单线程（`intra_op_num_threads=1`）在 2 核 VM 上必须设置，否则 futex spin-lock 死锁。详见 `qing-stock-analysis` 的 `references/qing-agent-lightweight.md`。
 
 ### Ingestion 关键 Pitfalls
@@ -211,6 +212,12 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     - `ls knowledge/claims/claim-YYYYMMDD-*.yaml` 确认已有编号
     - 直接写入目标编号文件，不要先写成 `-001` 再 `mv` 重命名——`write_file` 会覆盖已有文件，导致旧 claims 丢失
     - 若已误覆盖：立即 `git checkout HEAD -- <旧文件>` 恢复，再写入正确编号的新文件
+
+15. **Qdrant Claims 索引失败 + Agent 检索不到新内容**：`index_claims_to_qdrant.py` 可能因 ONNX embedding 维度不匹配而失败（`ValueError: could not broadcast input array from shape (512,) into shape (1,)`）。症状：Neo4j 同步成功、文档 Qdrant 索引成功，但 Agent 的 `/chat` 仍返回旧数据、找不到新 claims。**同步后必须验证**：
+    - 若 `index_claims_to_qdrant.py` 非零退出，说明 claims 未进入 Qdrant 向量库
+    - 此时 Agent 的检索只能靠 Neo4j 图遍历（如果代码支持），或完全找不到新内容
+    - **修复方向**：检查 Qdrant collection 的向量维度配置是否与 ONNX 模型输出（512-dim）一致；或考虑清除旧 collection 重建
+    - **临时绕过**：确保 Neo4j 同步完成——部分检索路径可能不走 Qdrant 而走图数据库。但 Claims 的语义搜索依赖 Qdrant，无索引 = 无法语义召回
 
 ---
 
