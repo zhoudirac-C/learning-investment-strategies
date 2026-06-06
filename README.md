@@ -29,6 +29,12 @@
   - 修复 Stock 节点属性（Primary entity 使用 `code` 而非 `name`）
   - 图数据现状：540 claims，9 种 claim_type，38 Stock 节点，102 Macro 节点，118 Methodology 节点
   - 新增图查询：`get_claims_with_evolution`（含 SUPERSEDES/CONTRADICTS）、`get_related_claims`
+- **个股板块三层定位法**（2026-06-06）：
+  - 解决 UP 未提及个股的板块地位判断问题
+  - 新浪 `getHQNodeData` + `newFLJK` 接口获取板块成分股实时排名
+  - 量化标签：日内龙头/前排强势/中军/趋势/跟风/弱势
+  - 本地缓存：`config/stock_monitor/stock_sector_mapping.json`（4343 只个股，259 个板块）
+  - `stock_analyst` prompt 注入 `sector_positioning` 字段，LLM 基于三层定位法给出地位判断
 
 ---
 
@@ -58,7 +64,7 @@ config/stock_monitor/   行情监控配置
 src/qing_investment/
   agent/            Qing-Agent 分析大脑（LangGraph + FastAPI）
     graph/          7 节点工作流（parse_query → retrieve_knowledge → market_analyst → stock_analyst → synthesize → style_writer → reviewer）
-    tools/          外部板块数据、Neo4j/Qdrant/mem0 客户端、LLM 封装
+    tools/          外部板块数据、Neo4j/Qdrant/mem0 客户端、LLM 封装、板块映射（stock_sector_mapper）
     prompts/        System prompt（market_analyst、style_writer、reviewer 等）
   stock_monitor.py  Hermes 行情监控核心（~1945 行）
 
@@ -124,6 +130,16 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 .venv/bin/python src/qing_investment/stock_monitor.py --daily-review-context
 ```
 
+### 5. 重建个股板块映射缓存（建议每日开盘前）
+
+```bash
+# 全量重建（259 个板块，约 6-10 分钟）
+.venv/bin/python scripts/build_sector_mapping.py
+
+# 限制数量测试
+.venv/bin/python scripts/build_sector_mapping.py --max-sectors 20 --verbose
+```
+
 ---
 
 ## Qing-Agent 架构
@@ -143,7 +159,7 @@ parse_query → retrieve_knowledge ──┬── market_analyst ──┐
 | `parse_query` | 意图解析（stock/market/portfolio） | `parsed_intent` JSON |
 | `retrieve_knowledge` | 从 Neo4j/Qdrant/mem0 检索知识 | claims + wiki + memories |
 | `market_analyst` | 大盘/板块分析（强制 JSON），显式加载 framework 文件 + 推理模式匹配（IDF 加权倒排索引） + 动态分析框架片段 | `market_context` |
-| `stock_analyst` | 个股地位、多空证据 | `stock_analysis` |
+| `stock_analyst` | 个股地位（三层定位法：UP标注+实时板块排名+量化判断）、多空证据 | `stock_analysis` |
 | `synthesize` | 草稿合成（含持仓操作计划），注入【参考来源】 | `draft_analysis` |
 | `style_writer` | UP 口吻风格化，强制保留来源标注 | `styled_output` |
 | `reviewer` | 事实核查、禁用词检测、citation 缺失检查（最多3次打回） | `review_passed` |

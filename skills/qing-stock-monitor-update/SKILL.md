@@ -49,7 +49,8 @@ description: |
 18. `skills/qing-learning/references/claim-schema-validation.md` — **Claim Schema 验证**：生成 claims 时的字段要求和枚举值规范（跨 skill 共享）
 19. `skills/qing-stock-monitor-update/references/yaml-patterns-20260604.md` — **新增 YAML 配置模式（已代码实现）**：dedupe_by_type 差异化去重（风控15min/减仓30min/板块轮动30min + 价格突破阈值）、t_zone 做T区间拆分、sector_group 清理三同步
 20. `skills/qing-stock-monitor-update/references/dedupe-by-type-implementation.md` — **dedupe_by_type 代码实现细节**：映射规则、价格突破逻辑、向后兼容策略、7个单元测试覆盖。已代码实现，配置生效中。
-21. `skills/qing-stock-monitor-update/references/direction-performance-scan.md` — **全方向性能扫描**：模式 C——当用户要求"梳理所有方向哪些在调整"时，全方向 × 全标的 × 全行情的批量扫描方法论。含腾讯 API 批量获取、theme 分组统计、缺口检测流程。
+22. `skills/qing-stock-monitor-update/references/direction-performance-scan.md` — **全方向性能扫描**：模式 C——当用户要求"梳理所有方向哪些在调整"时，全方向 × 全标的 × 全行情的批量扫描方法论。含腾讯 API 批量获取、theme 分组统计、缺口检测流程。
+23. `src/qing_investment/agent/tools/stock_sector_mapper.py` — **个股板块三层定位**：当 UP 未提及某标的时，通过新浪 API 获取实时板块排名，量化判断个股地位（日内龙头/中军/趋势/跟风）。含本地缓存管理和定时重建脚本 `scripts/build_sector_mapping.py`。
 
 ## 工作流程
 

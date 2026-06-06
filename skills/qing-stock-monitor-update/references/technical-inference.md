@@ -22,6 +22,7 @@ Step 1: 读取技术数据
   └─ K线：MA5/10/20、RSI、MACD、成交量
   └─ 分时：开盘位置、盘中高低、收盘位置、量能分布
   └─ 板块：组内联动、相对强弱、资金流向
+  └─ 【新增】板块定位：通过 stock_sector_mapper 获取个股在板块内的实时排名和量化地位
 
 Step 2: 匹配技术框架
   └─ 读取 framework/technical-analysis-framework.md
@@ -57,6 +58,34 @@ Step 4: 标注推断
 | 龙头涨停 + 跟风同步上涨 | 板块健康，可观察龙头分歧买点 |
 | 龙头涨停 + 跟风大跌 | 板块分化，降低预期或规避 |
 | 组内全部缩量整理 | 等待方向选择，不提前介入 |
+
+### 无 UP 标注时的板块定位（三层定位法）
+
+当 `up_mention_status` 显示 UP 近期未提及该标的时，使用 `stock_sector_mapper` 获取实时板块定位：
+
+```python
+from qing_investment.agent.tools.stock_sector_mapper import get_stock_positioning, to_agent_format
+
+result = get_stock_positioning("002892")
+print(to_agent_format(result))
+# 输出包含：板块内排名、涨幅、市值、换手率、量化标签（日内龙头/中军/趋势/跟风）
+```
+
+**量化标签规则**（与 `stock_analyst` 节点一致）：
+
+| 标签 | 判定条件 | 推断影响 |
+|------|---------|---------|
+| 日内龙头 | 板块前3 + 涨幅>5% | confidence 升一级，trigger 条件放宽 |
+| 前排强势 | 板块前5 + 涨幅>3% | confidence 不变，正常观察 |
+| 中军/板块稳定器 | 市值>500亿 + 排名前30% + 涨幅>0% | 持有信心增强，波动预期降低 |
+| 趋势/趋势容量票 | 市值>300亿 + 涨幅>0% + 换手<8% | 适合持股，trigger 以均线/趋势为主 |
+| 跟风 | 排名后50% + 涨幅>0% | confidence 降一级，不单独介入 |
+| 弱势 | 涨幅≤0% | 不买，若持仓则触发风控检查 |
+
+**使用原则**：
+- UP 有标注 → 优先采用 UP 定位，用实时数据验证
+- UP 无标注 → 完全依赖量化标签，但必须在 `inference_note` 中注明"无 UP 观点，基于实时板块排名推断"
+- 量化标签与技术面矛盾时（如量化标签为"日内龙头"但 K 线形态为长上影线），以技术面为准，confidence 降级
 
 ---
 

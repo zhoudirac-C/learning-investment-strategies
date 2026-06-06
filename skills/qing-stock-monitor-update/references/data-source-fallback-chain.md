@@ -112,7 +112,32 @@ cd ~/learning-investment-strategies
 
 ---
 
-### 方案 4：东方财富直接 API（curl）
+### 方案 4：新浪板块成分股 API（curl，无需 Python 包）
+
+用于获取板块内个股排名和量化地位判断：
+
+```bash
+# 获取板块列表（概念）
+curl -s 'http://money.finance.sina.com.cn/q/view/newFLJK.php?param=class' | iconv -f gbk -t utf-8
+
+# 获取某板块成分股（按涨幅排序）
+curl -s 'http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=100&sort=changepercent&asc=0&node=gn_hwqc' | iconv -f gbk -t utf-8
+```
+
+**返回字段**：code, name, changepercent, mktcap, turnoverratio, trade, volume...
+
+**用途**：
+- 建立个股→板块映射缓存：`scripts/build_sector_mapping.py`
+- 实时判断个股在板块内的地位（龙头/中军/趋势/跟风）
+
+**注意**：
+- 接口有频率限制，连续请求间隔需 ≥1.5 秒
+- 频繁请求会被 IP 限流（3-5 分钟解封）
+- 建议通过本地缓存（`config/stock_monitor/stock_sector_mapping.json`）查询，每日重建一次
+
+---
+
+### 方案 5：东方财富直接 API（curl）
 
 ```bash
 # 单只标的

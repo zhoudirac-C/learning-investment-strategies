@@ -200,6 +200,59 @@ New theme outperforms old mainline by > 1.5% for two checks
 => possible theme switch, ask Hermes to analyze
 ```
 
+## Stock Positioning (Three-Layer Method)
+
+When Hermes analyzes an individual stock, it should determine the stock's position within its sector. This is critical for:
+- Judging whether a stock is a leader, follower, or laggard
+- Assessing sector health through intra-sector rankings
+- Making hold/reduce decisions based on relative strength
+
+### Layer 1: UP Knowledge Base
+
+Query Neo4j for claims about the stock that contain position keywords (龙头/中军/趋势/情绪载体/先锋/补涨).
+
+- If UP has labeled the stock → use UP's judgment as primary, verify with real-time data
+- If UP has not labeled the stock → proceed to Layer 2
+
+### Layer 2: Real-Time Sector Ranking
+
+Use `stock_sector_mapper.py` to fetch the stock's real-time ranking within its sector:
+
+```python
+from qing_investment.agent.tools.stock_sector_mapper import get_stock_positioning
+
+result = get_stock_positioning("002892")
+# Returns: rank within sector, changepercent, mktcap, turnoverratio, position_tag
+```
+
+**Data sources** (cascading fallback):
+1. Local cache: `config/stock_monitor/stock_sector_mapping.json` (O(1) lookup)
+2. Sina `getHQNodeData`: real-time constituent ranking (1.5s interval between requests)
+3. Sina `newFLJK`: sector list for reverse lookup
+
+**Position tags**:
+
+| Tag | Criteria | Action implication |
+|-----|----------|-------------------|
+| 日内龙头 | Top 3 in sector + gain > 5% | Strong conviction, leader status |
+| 前排强势 | Top 5 in sector + gain > 3% | Healthy, front-runner |
+| 中军/板块稳定器 | Mktcap > 50B + top 30% + gain > 0% | Institutional anchor, lower volatility |
+| 趋势/趋势容量票 | Mktcap > 30B + gain > 0% + turnover < 8% | Trend play, suitable for holding |
+| 跟风 | Bottom 50% + gain > 0% | Weak, avoid standalone entry |
+| 弱势 | Gain <= 0% | Underperforming, trigger risk check |
+
+### Layer 3: Synthesis
+
+Combine Layer 1 and Layer 2:
+- UP label present → prioritize UP's qualitative judgment, use real-time data for verification
+- UP label absent → rely entirely on quantitative tags, but mark as "inferred, not UP-verified"
+- Conflict between UP label and real-time data → flag the conflict, explain divergence
+
+**Cache management**:
+- Full rebuild: `scripts/build_sector_mapping.py` (~6-10 min for 259 sectors)
+- Recommended cron: daily before market open (08:30)
+- TTL: 24 hours
+
 ## Trigger Rules
 
 Python should filter triggers first. Hermes should run only when there is something meaningful to explain.

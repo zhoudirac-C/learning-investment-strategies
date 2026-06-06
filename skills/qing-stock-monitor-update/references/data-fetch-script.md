@@ -81,6 +81,22 @@
         "risk": "组内分化，得润大跌"
       },
       
+      "sector_positioning": {
+        "up_position": "UP知识库中的标注（如有）",
+        "final_position": "综合UP标注和实时数据的最终定位",
+        "final_reason": "判断依据",
+        "sector_details": [
+          {
+            "sector_name": "华为汽车",
+            "rank": "1/97",
+            "changepercent": 10.01,
+            "mktcap": 81.02,
+            "turnoverratio": 6.40,
+            "position_tag": "日内龙头"
+          }
+        ]
+      },
+      
       "charts": {
         "kline_daily": "/path/to/kline_600246.png",
         "intraday": "/path/to/intraday_600246.png",

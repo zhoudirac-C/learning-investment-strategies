@@ -970,6 +970,58 @@ def _get_stock_name(stock_code: str, market_snapshot: dict, watchlist: list[dict
     return ""
 
 
+# ── 个股地位关键词（用于从 claims 中提取 UP 标注）──
+_POSITION_KEYWORDS = {
+    "龙头", "中军", "趋势", "情绪载体", "先锋", "补涨",
+    "核心", "跟风", "铲子", "容量票", "大票", "小票",
+    "机构票", "游资票", "白马", "黑马",
+}
+
+
+def _extract_up_position_from_claims(stock_code: str, claims: list[dict]) -> tuple[str, str]:
+    """从 claims 中提取 UP 对该股的地位标注。
+
+    返回 (position_description, source_hint)。
+    如果没有找到，返回 ('', '')。
+    """
+    pure_code = stock_code.replace("sh", "").replace("sz", "").replace(".", "")
+    matches: list[str] = []
+    sources: set[str] = set()
+
+    for c in claims:
+        stmt = c.get("statement", "")
+        subject = c.get("subject", "")
+        # 只处理与该股票相关的 claim
+        if pure_code not in subject and subject not in stmt:
+            # 简单模糊匹配：如果 claim 中既没有股票代码也没有股票名称，跳过
+            continue
+
+        # 提取包含地位关键词的句子片段
+        for kw in _POSITION_KEYWORDS:
+            if kw in stmt:
+                # 提取关键词所在句子（简单按句号/分号分割）
+                for sentence in stmt.replace("；", "。").split("。"):
+                    if kw in sentence and pure_code in sentence:
+                        matches.append(sentence.strip())
+                        sources.add(c.get("source_path", "") or c.get("id", ""))
+                        break
+
+    if not matches:
+        return "", ""
+
+    # 去重并拼接
+    unique = []
+    seen = set()
+    for m in matches:
+        if m not in seen:
+            seen.add(m)
+            unique.append(m)
+
+    position = "；".join(unique[:3])
+    source = list(sources)[0] if sources else ""
+    return position, source
+
+
 def _fetch_stock_external_info(stock_code: str, stock_name: str) -> list[dict]:
     """通过网络搜索获取个股最新公开信息，用于外部校验。"""
     try:
@@ -982,6 +1034,25 @@ def _fetch_stock_external_info(stock_code: str, stock_name: str) -> list[dict]:
     except Exception:
         results = []
     return results
+
+
+def _get_stock_sector_positioning(stock_code: str, up_position: str, up_source: str) -> dict:
+    """获取个股板块定位（三层定位法）。"""
+    try:
+        from qing_investment.agent.tools.stock_sector_mapper import (
+            get_stock_positioning,
+            to_agent_format,
+        )
+        result = get_stock_positioning(stock_code, up_position, up_source)
+        return to_agent_format(result)
+    except Exception as e:
+        return {
+            "stock_code": stock_code,
+            "up_position": up_position,
+            "final_position": up_position or "未知",
+            "final_reason": f"板块定位获取失败: {e}",
+            "sector_details": [],
+        }
 
 
 def stock_analyst(state: AgentState) -> AgentState:
@@ -1001,14 +1072,20 @@ def stock_analyst(state: AgentState) -> AgentState:
     stock_name = _get_stock_name(stock_code, market_snapshot, watchlist)
     external_validation = _fetch_stock_external_info(stock_code, stock_name)
 
+    # ── 三层定位法：注入板块定位数据 ──
+    claims = state.get("claims", [])
+    up_position, up_source = _extract_up_position_from_claims(stock_code, claims)
+    sector_positioning = _get_stock_sector_positioning(stock_code, up_position, up_source)
+
     context = {
         "stock_code": stock_code,
         "stock_name": stock_name,
         "external_validation": external_validation,
         "positions": state.get("positions", []),
         "watchlist": watchlist,
-        "claims": state.get("claims", []),
+        "claims": claims,
         "market_context": state.get("market_context", {}),
+        "sector_positioning": sector_positioning,
     }
     prompt = f"""{prompt_template}
 
@@ -1037,7 +1114,6 @@ def stock_analyst(state: AgentState) -> AgentState:
         }
 
     return {
-
         "stock_analysis": result,
         "reasoning_steps": [
             f"个股地位: {result.get('stock_role', 'N/A')}"

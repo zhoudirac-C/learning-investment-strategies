@@ -96,6 +96,39 @@ f.chmod(0o755)
 "
 ```
 
+---
+
+## 新增：板块映射缓存定时任务（无需 LLM）
+
+`scripts/build_sector_mapping.py` 是纯数据抓取脚本，**不调用任何大模型**，适合作为独立 cron 任务：
+
+```python
+#!/usr/bin/env python3
+"""Cron wrapper for sector mapping cache rebuild."""
+import subprocess, sys
+from pathlib import Path
+
+PROJECT_SCRIPT = Path("/home/ubuntu/learning-investment-strategies/scripts/build_sector_mapping.py")
+sys.exit(subprocess.call([sys.executable, str(PROJECT_SCRIPT)] + sys.argv[1:]))
+```
+
+**Cron 配置**（每日开盘前）：
+```json
+{
+  "action": "create",
+  "name": "sector-mapping-rebuild",
+  "schedule": "30 8 * * 1-5",
+  "prompt": "cd /home/ubuntu/learning-investment-strategies && .venv/bin/python scripts/build_sector_mapping.py",
+  "workdir": "/home/ubuntu/learning-investment-strategies"
+}
+```
+
+**特点**：
+- 纯 HTTP 请求（新浪 API），无需 LLM API Key
+- 运行时间：6-10 分钟（259 个板块）
+- 输出：`config/stock_monitor/stock_sector_mapping.json`
+- 失败不影响主监控流程（Agent 会降级到快速反查模式）
+
 ## 方案对比
 
 | 方案 | 优点 | 缺点 | 当前状态 |
