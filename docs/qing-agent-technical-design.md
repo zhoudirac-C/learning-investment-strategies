@@ -210,10 +210,50 @@ endlegend
                                                                 (时效过滤+矛盾检测)     (UP风格+来源标注)   (citation检查,最多3次打回)
 ```
 
+**`/chat` 端点数据流**（2026-06-06）：
+
+```
+用户消息 ──▶ 查询类型检测（大盘/板块/个股）
+    │
+    ├── 个股查询 ──▶ 提取股票代码 ──▶ Neo4j: get_claims_with_evolution(stock_code)
+    │                                    （图遍历，含 SUPERSEDES/CONTRADICTS）
+    │
+    ├── 板块/市场查询 ──▶ Neo4j: get_claims_by_keyword(keyword)
+    │                      （关键词匹配）
+    │
+    └── 所有查询 ──▶ Qdrant: qing_knowledge(wiki) + qing_claims(语义)
+                       （向量语义检索）
+    │
+    └── 实时数据获取 ──▶ 指数/个股行情/板块数据/历史K线
+    │
+    └── 持仓匹配 ──▶ positions.yaml
+    │
+    └── Prompt 组装 ──▶ LLM 分析 ──▶ 输出
+```
+
 | 节点 | 职责 | 是否调用 LLM |
 |------|------|-------------|
 | `parse_query` | 意图解析：提取 stock_code / analysis_type / urgency | ✅ |
 | `retrieve_knowledge` | 从 Neo4j/Qdrant/mem0 检索知识 | ❌（本地查询） |
+
+**检索层详解**（2026-06-06 升级后）：
+
+```
+query ──▶ Neo4j (claims 图遍历) ──┐
+         Qdrant (wiki+claims 语义) ──┼──▶ AgentState (claims, wiki_snippets, sector_context,
+         mem0 (memory) ──────────────┘        external_sector_boards, memories)
+```
+
+**Neo4j 图查询**（个股查询时）：
+- `get_claims_with_evolution(stock_code)` → 返回该股票的所有 claims，包含：
+  - `supersedes`: 该 claim 取代了哪些旧观点
+  - `superseded_by`: 该 claim 被哪些新观点取代
+  - `contradicts`: 与该 claim 矛盾的观点
+- 比关键词匹配更精准，避免"中国石油"等噪音
+
+**Qdrant 向量检索**（所有查询）：
+- `qing_knowledge`: wiki + framework + raw 文档的语义检索
+- `qing_claims`: claims 的语义检索（与 Neo4j 结果合并去重）
 | `market_analyst` | 大盘/板块维度分析，输出结构化 JSON | ✅ |
 | `stock_analyst` | 个股地位、多空证据、触发/失效条件 | ✅ |
 | `synthesize` | 将 market + stock 分析合成为统一草稿 | ❌（规则拼接） |
@@ -539,12 +579,29 @@ if analysis_type in ("market", "portfolio") and not esb.get("available"):
 
 ### 7.1 Neo4j（图数据库）
 
-**节点类型**：`Claim`, `Stock`, `Sector`, `Source`  
+**节点类型**：`Claim`, `Stock`, `Sector`, `Theme`, `Macro`, `Methodology`, `SourceDocument`, `WikiPage`, `MethodologyPage`  
 **关系类型**：`ABOUT`, `SUPERSEDES`, `CONTRADICTS`, `CITED_IN`, `EXTRACTED_FROM`
 
+**数据规模**（2026-06-06）：
+- Claims: 540（9 种 claim_type）
+- Stock: 38（含 code + name 属性）
+- Sector: 167
+- Theme: 465
+- Macro: 102
+- Methodology: 118
+- SUPERSEDES 关系: 18
+- CONTRADICTS 关系: 7
+
 **查询方式**：
-- `get_claims_about_stock(stock_code)` → 某股票相关的历史观点
+- `get_claims_about_stock(stock_code)` → 某股票相关的历史观点（Cypher: `MATCH (c:Claim)-[:ABOUT]->(s:Stock {code: $code})`）
 - `get_claims_by_keyword(keyword)` → 按关键词查询（用于 market/sector 查询）
+- `get_claims_with_evolution(stock_code)` → 获取某股票的所有 claims，包含 SUPERSEDES/CONTRADICTS 演化关系（2026-06-06 新增）
+- `get_related_claims(claim_id)` → 获取与某 claim 共享实体的相关 claims（2026-06-06 新增）
+
+**图遍历在 /chat 中的应用**：
+- 个股查询时，用 `get_claims_with_evolution` 替代关键词匹配，精准获取该股票的所有 claims
+- 返回结果包含 `superseded_by` 和 `contradicts` 字段，prompt 中显示演化关系标记
+- 示例：中国长城(000066) → 返回 3 条 claims，包含 stock-view 和 sector-theme 类型
 
 ### 7.2 Qdrant（向量数据库）
 
@@ -555,10 +612,18 @@ if analysis_type in ("market", "portfolio") and not esb.get("available"):
 - 来源 boost：`framework/` +0.15, `wiki/投资方法论` +0.10, `wiki/市场分析` +0.05
 
 **Collection `qing_claims`**（claims 语义索引，Phase 3.3 新增）：
-- 511 claims 的向量索引
+- 540 claims 的向量索引
 - Embedding: 同上 ONNX 模型
-- 用途：claims 语义搜索，替代原 `CONTAINS` 字符串匹配
-- Payload: `id`, `subject`, `statement`, `status`, `source_date`
+- 用途：claims 语义搜索，与 Neo4j 图查询协同
+- Payload: `id`, `subject`, `statement`, `status`, `source_date`, `claim_type`
+
+**Neo4j + Qdrant 协同策略**（2026-06-06）：
+
+| 场景 | Qdrant | Neo4j | 协同方式 |
+|------|--------|-------|---------|
+| 个股查询 | `qing_claims` 语义召回 Top 8 | `get_claims_with_evolution(stock_code)` 图遍历 | 合并去重，Neo4j 结果优先（精准） |
+| 板块/市场查询 | `qing_knowledge`(wiki) + `qing_claims`(语义) | `get_claims_by_keyword(keyword)` 关键词匹配 | 双保险，Qdrant 语义 + Neo4j 关键词 |
+| 通用问题 | `qing_knowledge`(wiki) + `qing_claims`(语义) | 无 | 纯向量语义检索 |
 
 **Embedding 统一**：索引脚本和检索使用同一 `OnnxEmbeddingModel`，消除了之前 hash embedding 的语义断层。
 
@@ -577,8 +642,8 @@ if analysis_type in ("market", "portfolio") and not esb.get("available"):
 ```
 GET  /health
 POST /analyze/trigger  ← Hermes 调用
-POST /chat             ← 占位
-POST /memory/add       ← 占位
+POST /chat             ← 用户对话（带记忆检索 + 实时数据获取 + Neo4j 图遍历）
+POST /memory/add       ← 追加用户记忆
 ```
 
 ### 8.2 TriggerRequest 字段
@@ -712,8 +777,8 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 | `src/qing_investment/agent/graph/edges.py` | review_router |
 | `src/qing_investment/agent/tools/sector_data.py` | 外部板块数据源（东财+新浪） |
 | `src/qing_investment/agent/tools/sector_extractor.py` | 动态板块识别+网络搜索 |
-| `src/qing_investment/agent/tools/neo4j_client.py` | Claims 图数据库 |
-| `src/qing_investment/agent/tools/qdrant_client.py` | 文档向量检索（REST API 兼容 Qdrant 1.9.7） |
+| `src/qing_investment/agent/tools/neo4j_client.py` | Claims 图数据库（含 get_claims_with_evolution / get_related_claims） |
+| `src/qing_investment/agent/tools/qdrant_client.py` | 文档向量检索（REST API 兼容 Qdrant 1.9.7，支持本地模式 fallback） |
 | `src/qing_investment/agent/tools/mem0_client.py` | 记忆层 |
 | `src/qing_investment/agent/tools/llm_client.py` | LLM 统一封装 + Embedding 工厂（ONNX 优先） |
 | `src/qing_investment/agent/prompts/system/market_analyst.txt` | 市场分析主 prompt（含 `{analysis_framework}` 占位符） |

@@ -158,6 +158,7 @@ else:
 ## 参考文件
 
 - `references/neo4j-query-pitfalls.md` — Neo4j 查询常见问题（缺失属性、ORDER BY 别名、coalesce 用法）
+- `references/neo4j-graph-evolution.md` — Neo4j claims 图关系使用指南：个股查询时的图遍历策略（`get_claims_with_evolution`）、关键词匹配 vs 图遍历的选择、SUPERSEDES/CONTRADICTS 关系的 prompt 注入方法
 - `references/rest-api-usage.md` — REST API 端点说明、调用示例、错误码、降级路径
 - `references/model-config-and-restart.md` — LLM 模型配置位置、修改后重启流程、与 Hermes 模型统一指南
 - `references/prompt-design-spec.md` — **Prompt 设计规范：知识库=方法论≠信息来源**，含反模式清单和正确示例

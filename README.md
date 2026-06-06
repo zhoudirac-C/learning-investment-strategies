@@ -23,6 +23,12 @@
   - Phase 2 — 升级「读得准」：ONNX Runtime + `bge-small-zh-v1.5` 本地语义嵌入（512维），替代 hash 嵌入
   - Phase 3 — 做到「说得清来源」：来源类型 boost 排序、输出强制标注引用来源、reviewer citation 检查（最多3次打回）
   - Phase 4 — 模仿「怎么推理」：从 479 篇 raw 中抽取推理模式，10 个通用框架（upstream_cycle/mainline_identification 等）+ 118 条 examples，两阶段匹配（ONNX Embedding 召回 Top5 + LLM 重排序 Top3）注入 market_analyst prompt，让 Agent 按 UP 的推理步骤思考
+- **Neo4j 图关系修复**（2026-06-06）：
+  - 修复 claim_type 字段映射（支持 `claim_type` 和 `type` 双字段）
+  - 修复股票代码提取（支持 `.SH`/`.SZ` 后缀和 `positions.yaml` 名称映射）
+  - 修复 Stock 节点属性（Primary entity 使用 `code` 而非 `name`）
+  - 图数据现状：540 claims，9 种 claim_type，38 Stock 节点，102 Macro 节点，118 Methodology 节点
+  - 新增图查询：`get_claims_with_evolution`（含 SUPERSEDES/CONTRADICTS）、`get_related_claims`
 
 ---
 
@@ -170,8 +176,8 @@ parse_query → retrieve_knowledge ──┬── market_analyst ──┐
 
 | 服务 | 端口 | 用途 | 内容规模 |
 |------|------|------|---------|
-| **Neo4j** | 7474/7687 | Claims 图数据库 | ~505 claims，节点：Claim/Stock/Sector/Source |
-| **Qdrant** | 6333 | 文档向量检索 | `qing_knowledge`：557 文件 → 10,685 chunks；`qing_claims`：511 claims（语义搜索） |
+| **Neo4j** | 7474/7687 | Claims 图数据库 | ~540 claims，节点：Claim/Stock/Sector/Macro/Methodology，关系：ABOUT/SUPERSEDES/CONTRADICTS |
+| **Qdrant** | 6333 | 文档向量检索 | `qing_knowledge`：557 文件 → 10,685 chunks；`qing_claims`：540 claims（语义搜索） |
 | **Postgres** | 5432 | mem0 存储后端 | 长期记忆 |
 | **Local JSON** | — | `infra/data/local_memories.json` | 63 条本地记忆 fallback |
 

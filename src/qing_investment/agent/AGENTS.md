@@ -93,7 +93,7 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 | 节点 | 文件位置 | 是否调 LLM | 维护重点 |
 |------|---------|-----------|---------|
 | `parse_query` | `graph/nodes.py` | ✅ | 意图解析 JSON 格式 |
-| `retrieve_knowledge` | `graph/nodes.py` | ❌ | Qdrant(wiki+claims) + Neo4j + mem0 查询、来源 boost 排序、时效衰减过滤、矛盾检测 |
+| `retrieve_knowledge` | `graph/nodes.py` | ❌ | Qdrant(wiki+claims) + Neo4j(图遍历+关键词) + mem0 查询、来源 boost 排序、时效衰减过滤、矛盾检测 |
 | `market_analyst` | `graph/nodes.py` | ✅ | 板块数据可用性守卫、framework 显式加载、**推理模式匹配（Embedding召回+LLM重排序）**、动态分析框架片段注入、时效性自检 |
 | `stock_analyst` | `graph/nodes.py` | ✅ | 个股分析 JSON 字段、外部标的业务校验（DuckDuckGo） |
 | `synthesize` | `graph/nodes.py` | ❌ | 草稿拼接、【参考来源】注入、持仓计划注入 |
@@ -275,6 +275,20 @@ POST /chat
 {"message": "明天大盘怎么看", "session_id": "user-123"}
 ```
 
+**知识检索策略**（2026-06-06 升级）：
+
+| 查询类型 | Qdrant 检索 | Neo4j 检索 | 说明 |
+|----------|------------|-----------|------|
+| 个股查询（含6位代码） | `qing_knowledge`(wiki) + `qing_claims`(语义) | `get_claims_with_evolution(stock_code)` — 图遍历获取该股票所有 claims（含 SUPERSEDES/CONTRADICTS 关系） | 精准图查询替代模糊关键词匹配 |
+| 板块/市场查询 | `qing_knowledge`(wiki) + `qing_claims`(语义) | `get_claims_by_keyword(keyword)` — 关键词匹配 | 关键词匹配 + 语义检索双保险 |
+| 通用问题 | `qing_knowledge`(wiki) + `qing_claims`(语义) | 无 | 纯向量语义检索 |
+
+**Claims 演化关系注入 Prompt**：
+- 每个 claim 显示 `claim_type`（如 `[stock-view]`、`[sector-theme]`）
+- 被取代的 claim 标记：`[已被 claim-xxx 取代]`
+- 有矛盾的 claim 标记：`[与 claim-yyy 矛盾]`
+- LLM 据此判断观点时效性和可靠性
+
 ### 8.3 /memory/add（追加用户记忆）
 
 ```python
@@ -304,8 +318,8 @@ src/qing_investment/agent/
 └── tools/
     ├── sector_data.py      # 外部板块数据源（东财+新浪）
     ├── sector_extractor.py # 动态板块识别+网络搜索
-    ├── neo4j_client.py     # Claims 图数据库
-    ├── qdrant_client.py    # 文档向量检索（REST API 兼容 Qdrant 1.9.7）
+    ├── neo4j_client.py     # Claims 图数据库（含图遍历查询：get_claims_with_evolution / get_related_claims）
+    ├── qdrant_client.py    # 文档向量检索（REST API 兼容 Qdrant 1.9.7，支持本地模式 fallback）
     ├── mem0_client.py      # 记忆层（含本地 JSON fallback）
     ├── llm_client.py       # LLM 统一封装 + Embedding 工厂（ONNX 优先）
     └── embedding_utils.py  # ONNX Embedding Model + Hash Fallback
