@@ -37,9 +37,41 @@ from qing_investment.agent.config import settings
 CLAIMS_DIR = REPO_ROOT / "knowledge" / "claims"
 STATE_PATH = REPO_ROOT / ".migrate_state.json"
 
-# Regex for Chinese stock codes (6 digits)
-STOCK_CODE_RE = re.compile(r"\b(\d{6})\b")
-# Regex for sector/theme keywords
+# Regex for Chinese stock codes (6 digits, optionally with .SH/.SZ suffix)
+STOCK_CODE_RE = re.compile(r"\b(\d{6})(?:\.SH|\.SZ|\.sh|\.sz)?\b")
+# Also match stock names that might be in positions.yaml
+STOCK_NAME_TO_CODE: dict[str, str] = {}
+
+def _load_stock_name_mapping() -> dict[str, str]:
+    """Load stock name to code mapping from positions.yaml if available."""
+    mapping: dict[str, str] = {}
+    try:
+        positions_path = Path("/home/ubuntu/learning-investment-strategies/config/stock_monitor/positions.yaml")
+        if positions_path.exists():
+            import yaml
+            data = yaml.safe_load(positions_path.read_text(encoding="utf-8"))
+            for account in data.get("accounts", []):
+                for pos in account.get("positions", []):
+                    name = pos.get("name", "")
+                    code = pos.get("code", "").replace(".SZ", "").replace(".SH", "").replace(".sz", "").replace(".sh", "")
+                    if name and code:
+                        mapping[name] = code
+    except Exception:
+        pass
+    return mapping
+
+
+def extract_stock_codes(text: str) -> set[str]:
+    """Extract stock codes from text, including .SH/.SZ suffixes and known names."""
+    codes = set(STOCK_CODE_RE.findall(text))
+    
+    # Also check for known stock names
+    mapping = _load_stock_name_mapping()
+    for name, code in mapping.items():
+        if name in text:
+            codes.add(code)
+    
+    return codes
 SECTOR_KEYWORDS = [
     "半导体", "AI", "算力", "存储", "新能源", "光伏", "锂电", "电力", "军工",
     "商业航天", "机器人", "CPO", "光模块", "通信", "消费电子", "医药", "化工",
@@ -87,10 +119,6 @@ def parse_claims_file(path: Path) -> list[dict]:
             return claims if isinstance(claims, list) else [claims]
         return [data]
     return []
-
-
-def extract_stock_codes(text: str) -> set[str]:
-    return set(STOCK_CODE_RE.findall(text))
 
 
 def extract_sectors(subject: str, statement: str) -> set[str]:
@@ -240,7 +268,7 @@ def _migrate_single_claim(session, claim: dict):
             "interpretation": claim.get("interpretation", ""),
             "confidence": claim.get("confidence", "medium"),
             "status": claim.get("status", "active"),
-            "claim_type": claim.get("type", "general"),
+            "claim_type": claim.get("claim_type", claim.get("type", "general")),
             "time_frame": claim.get("time_frame", ""),
             "subject": claim.get("subject", ""),
             "source_date": claim.get("source_date", ""),
@@ -279,17 +307,43 @@ def _migrate_single_claim(session, claim: dict):
         )
 
     # Primary entity (subject)
-    entity_label = get_entity_type(claim.get("type", ""), subject)
+    entity_label = get_entity_type(claim.get("claim_type", claim.get("type", "")), subject)
     if subject:
-        session.run(
-            f"""
-            MERGE (e:{entity_label} {{name: $name}})
-            WITH e
-            MATCH (c:Claim {{id: $cid}})
-            MERGE (c)-[:ABOUT {{relation_type: 'primary'}}]->(e)
-            """,
-            {"name": subject, "cid": cid},
-        )
+        # For Stock entities, try to extract code from subject
+        if entity_label == "Stock":
+            stock_codes = extract_stock_codes(subject)
+            if stock_codes:
+                code = list(stock_codes)[0]
+                session.run(
+                    """
+                    MERGE (e:Stock {code: $code})
+                    SET e.name = $name
+                    WITH e
+                    MATCH (c:Claim {id: $cid})
+                    MERGE (c)-[:ABOUT {relation_type: 'primary'}]->(e)
+                    """,
+                    {"code": code, "name": subject, "cid": cid},
+                )
+            else:
+                session.run(
+                    f"""
+                    MERGE (e:{entity_label} {{name: $name}})
+                    WITH e
+                    MATCH (c:Claim {{id: $cid}})
+                    MERGE (c)-[:ABOUT {{relation_type: 'primary'}}]->(e)
+                    """,
+                    {"name": subject, "cid": cid},
+                )
+        else:
+            session.run(
+                f"""
+                MERGE (e:{entity_label} {{name: $name}})
+                WITH e
+                MATCH (c:Claim {{id: $cid}})
+                MERGE (c)-[:ABOUT {{relation_type: 'primary'}}]->(e)
+                """,
+                {"name": subject, "cid": cid},
+            )
 
     # Source document
     source_path = claim.get("source", "")

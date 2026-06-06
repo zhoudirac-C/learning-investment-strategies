@@ -148,21 +148,31 @@ async def chat(req: ChatRequest):
 
     try:
         neo4j = Neo4jClient()
-        keywords = _extract_keywords(req.message)
-        for cluster_kws in _SECTOR_KEYWORDS.values():
-            for kw in cluster_kws:
-                if kw in req.message and kw not in keywords:
-                    keywords.append(kw)
-        seen_ids: set[str] = set()
-        for kw in keywords[:3]:
-            batch = neo4j.get_claims_by_keyword(kw, limit=5)
-            for c in batch:
-                cid = c.get("id")
-                if cid and cid not in seen_ids:
-                    seen_ids.add(cid)
-                    claims.append(c)
-            if len(claims) >= 10:
-                break
+        
+        # 如果提取到股票代码，使用图遍历获取相关 claims（包括演化关系）
+        if fetched_stock_code:
+            stock_claims = neo4j.get_claims_with_evolution(fetched_stock_code, limit=8)
+            for c in stock_claims:
+                c["source"] = "neo4j_graph"  # 标记来源
+                claims.append(c)
+        else:
+            # 否则使用关键词匹配
+            keywords = _extract_keywords(req.message)
+            for cluster_kws in _SECTOR_KEYWORDS.values():
+                for kw in cluster_kws:
+                    if kw in req.message and kw not in keywords:
+                        keywords.append(kw)
+            seen_ids: set[str] = set(c.get("id") or "" for c in claims)
+            for kw in keywords[:3]:
+                batch = neo4j.get_claims_by_keyword(kw, limit=5)
+                for c in batch:
+                    cid = c.get("id")
+                    if cid and cid not in seen_ids:
+                        seen_ids.add(cid)
+                        c["source"] = "neo4j_keyword"
+                        claims.append(c)
+                if len(claims) >= 15:
+                    break
         neo4j.close()
     except Exception:
         pass
@@ -351,8 +361,17 @@ async def chat(req: ChatRequest):
 
     if all_claims:
         context_parts.append("\n【博主历史观点卡】（⚠️ 历史观点，仅供参考，不得作为当前判断依据）")
-        for c in all_claims[:8]:  # 限制数量
-            context_parts.append(f"- {c.get('id', 'N/A')} ({c.get('source_date','')}): {c.get('statement', '')[:200]}")
+        for c in all_claims[:10]:  # 增加数量，因为现在有图关系信息
+            claim_line = f"- {c.get('id', 'N/A')} ({c.get('source_date','')})"
+            if c.get('claim_type'):
+                claim_line += f" [{c.get('claim_type')}]"
+            claim_line += f": {c.get('statement', '')[:200]}"
+            # 如果有演化关系，添加标记
+            if c.get('superseded_by'):
+                claim_line += f" [已被 {', '.join(c['superseded_by'][:2])} 取代]"
+            if c.get('contradicts'):
+                claim_line += f" [与 {', '.join(c['contradicts'][:2])} 矛盾]"
+            context_parts.append(claim_line)
 
     # 注入持仓数据
     if position_data:
