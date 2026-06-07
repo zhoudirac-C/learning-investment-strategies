@@ -1,5 +1,15 @@
 # 操作日志
 
+## 2026-06-07 | qing-learning ingest | 6-07周复盘视频：博通引发全球科技调整，A股方向切换机器人与商业航天
+
+- 处理 raw：`sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md`（语音转录+人工纠错）
+- 新增 claims：`claim-20260607-003.yaml`（12 条：market-cycle×2, operation×1, sector-theme×2, macro×4, stock-view×2, methodology×1）
+- 更新 wiki：`每日复盘/2026-06-07.md`（合并技术分析课程+周复盘）
+- 新增 wiki 专题页：`市场分析/机器人.md`、`市场分析/商业航天.md`
+- 更新 methodology：`decision-flow.md`（新增「吹哨人信号——领涨龙头先行指标」）
+- 转录纠错：12 处关键术语（老登→蓝筹、湖水→沪指、B三百→B300 等）
+- 未更新 framework/总纲：本次为单周复盘案例，吹哨人方法论已沉淀到 methodology
+
 ## 2026-06-06 | qing-learning ingest | 6-04充电视频：磨底期策略与科技阶段性规避
 
 - 处理 raw：`sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md`（语音转录+人工纠错）
