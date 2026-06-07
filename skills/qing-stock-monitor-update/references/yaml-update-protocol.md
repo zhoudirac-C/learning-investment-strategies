@@ -16,6 +16,7 @@
 
 - `positions.yaml` 是隐私文件（gitignored），更新时只修改字段，不暴露敏感信息。
 - `today_plan` 字段每次更新时重置，旧计划移入 `notes` 或历史记录。
+  > ⚠️ 此为 Skill 层面的手动纪律规则，代码不会自动执行此重置。Agent 更新 positions.yaml 时必须手动清空旧 today_plan 并重写。
 
 ### 3. 字段兼容性
 

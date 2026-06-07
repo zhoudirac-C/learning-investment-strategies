@@ -258,7 +258,7 @@
 
 ---
 
-## 案例九：2026-06-04 dedupe_by_type 配置与代码脱节（已修复）
+## 案例九：2026-06-04 dedupe_by_type 配置与代码脱节（✅ 已修复 2026-06-04）
 
 ### 问题描述
 - `strategy_pack.yaml` 中配置了 `notification_policy.dedupe_by_type`（风控15min/减仓30min/板块轮动30min + 价格突破阈值）
@@ -267,16 +267,4 @@
 ### 修复
 - 2026-06-04 实现：`_action_to_dedupe_type()` 映射函数 + `filter_new_alerts()` 读取 `dedupe_by_type` + `record_emitted_alerts()` 记录价格
 - 新增 7 个单元测试覆盖：映射逻辑、差异化去重、价格突破、全局回退、向后兼容
-
-### 现象
-- `strategy_pack.yaml` 中配置了 `notification_policy.dedupe_by_type`（风控15min/减仓30min/板块轮动30min + 价格突破阈值）
-- 但 `stock_monitor.py` 代码仅支持全局 `dedupe_minutes=30`，不读取 `dedupe_by_type` 配置
-- 用户决定暂不修改代码（\"算了\"），配置成为死代码
-
-### 判断
-- **配置-代码脱节**：YAML 中存在不生效的配置项
-- 风险较低（不影响现有功能），但未来若有人根据 YAML 配置预期差异化去重行为，会发现不生效
-
-### 教训
-1. YAML 配置和代码实现必须同步。添加新配置项时，要么同时实现代码，要么在 YAML 中加注释说明\"代码未实现\"。
-2. 建议在 `dedupe_by_type` 上方增加注释：`# ⚠️ 代码未实现，当前仅作规划。实际仍使用全局 dedupe_minutes=30`
+- ✅ **已完全修复并上线**

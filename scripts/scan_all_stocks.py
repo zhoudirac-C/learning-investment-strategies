@@ -599,7 +599,7 @@ def print_tech_analysis(tech: dict, indent: str = "    "):
     print(f"{indent}• 技术评分: {signal_color}{score} ({signal}){C_RESET}")
 
 
-def main():
+def _run_scan() -> dict:
     print("=" * 100)
     print(f"【全项目标的扫描 + 技术分析】{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 100)
@@ -745,6 +745,66 @@ def main():
     print(f"  无数据: {len(no_data)}")
     print("=" * 100)
 
+    return {
+        "buyable": buyable,
+        "wait": wait,
+        "avoid": avoid,
+        "no_zone": no_zone,
+        "no_data": no_data,
+        "total": len(codes),
+    }
+
+
+def _json_compact_stock(item) -> dict:
+    """Format a stock item for compact JSON output."""
+    code, info, zone_cfg, result, tech = item
+    # Extract key fields only
+    tech_score = tech.get("overall_score") if tech else None
+    tech_signal = tech.get("overall_signal") if tech else None
+    ma_summary = tech.get("ma_summary") if tech else None
+    return {
+        "code": code,
+        "name": info.get("name", ""),
+        "price": info.get("price", 0),
+        "change_pct": info.get("change_pct", 0),
+        "low": info.get("low", 0),
+        "entry_zone": zone_cfg.get("entry_zone", ""),
+        "position_ratio": zone_cfg.get("position_ratio", ""),
+        "trigger": zone_cfg.get("trigger", ""),
+        "invalidation": zone_cfg.get("invalidation", ""),
+        "tech_score": tech_score,
+        "tech_signal": tech_signal,
+        "ma_summary": ma_summary,
+        "reason": result.get("reason", ""),
+        "note": (zone_cfg.get("note", "") or "")[:120],
+    }
+
+
+def main() -> int:
+    """Entry point. --json-summary outputs compact JSON for agent/cron."""
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--json-summary", action="store_true",
+                        help="Output compact JSON for agent/cron consumption")
+    args = parser.parse_args()
+
+    result = _run_scan()
+
+    if args.json_summary:
+        summary = {
+            "scan_time": datetime.now().isoformat(),
+            "total": result["total"],
+            "buyable": [_json_compact_stock(s) for s in result["buyable"]],
+            "wait": [_json_compact_stock(s) for s in result["wait"]],
+            "avoid": [_json_compact_stock(s) for s in result["avoid"]],
+            "no_zone": result.get("no_zone", []),
+            "no_data": result["no_data"],
+        }
+        print("\n---JSON_SUMMARY_START---")
+        print(json.dumps(summary, ensure_ascii=False, indent=2))
+        print("---JSON_SUMMARY_END---")
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

@@ -118,6 +118,8 @@ inference_note:
 
 ## 字段优先级与覆盖规则
 
+> ⚠️ 以下优先级体系为 Agent prompt 中的判断框架，非代码强制执行。实际执行时 Agent 参考此优先级进行推理。
+
 | 优先级 | 信号来源 | 字段 |
 |--------|---------|------|
 | 1（最高） | UP 明确操作指令 | `up_mention_status.explicit_operation` |
@@ -146,8 +148,10 @@ inference_note:
 
 | 字段 | 更新触发 | 更新者 |
 |------|---------|--------|
-| `up_mention_status` | 每次 qing-learning 处理新 raw 后 | LLM（检查 claims/wiki） |
-| `technical_narrative` | 每次获取实时行情后 | 脚本（基于 K 线数据生成） |
-| `sector_narrative` | 每次获取实时行情后 | 脚本（基于板块数据生成） |
-| `market_context` | 每次获取实时行情后 | 脚本（基于指数数据生成） |
-| `inference_note` | 当 UP 未提及、需技术推断时 | LLM（基于以上字段综合判断） |
+| `up_mention_status` | 每次 qing-learning 处理新 raw 后 | Agent（检查 claims/wiki） |
+| `technical_narrative` | 每次获取实时行情后 | Agent（基于 K 线数据 + 技术分析手动填写，非脚本自动生成） |
+| `sector_narrative` | 每次获取实时行情后 | Agent（基于板块数据手动填写） |
+| `market_context` | 每次获取实时行情后 | Agent（基于指数数据手动填写） |
+| `inference_note` | 当 UP 未提及、需技术推断时 | Agent（基于以上字段综合判断） |
+
+> ⚠️ 以上字段均为 Agent 手动维护，当前无脚本自动填充。更新时参考 `references/entry-points-generation.md` 的技术分析方法。

@@ -638,10 +638,26 @@ def filter_new_alerts(
     if not isinstance(history, dict):
         history = {}
     current = value.astimezone(CN_TZ)
+    # Same-day dedupe: {date: {code_action: price}}
+    daily_emitted = state.get("daily_emitted", {})
+    today_str = current.strftime("%Y-%m-%d")
+
     fresh: list[RuleAlert] = []
     for alert in alerts:
         fp = alert_fingerprint(alert)
         last_entry = history.get(fp)
+
+        # Same-day dedupe for reduce/risk alerts on same stock
+        code_action_key = f"{alert.stock_code}_{alert.action}"
+        daily_key = (daily_emitted.get(today_str, {}) if isinstance(daily_emitted, dict) else {})
+        same_day_price = daily_key.get(code_action_key)
+
+        if same_day_price is not None and alert.action in ("减仓观察", "风控观察"):
+            pct_change = abs((alert.price - same_day_price) / same_day_price) * 100 if same_day_price > 0 else 0
+            if pct_change < 2.0:
+                # Same stock + same action already fired today, and price barely moved → suppress
+                continue
+
         if last_entry is None:
             fresh.append(alert)
             continue
@@ -685,12 +701,18 @@ def record_emitted_alerts(
     value: datetime,
 ) -> None:
     history = state.setdefault("alert_history", {})
+    daily = state.setdefault("daily_emitted", {})
     current = value.astimezone(CN_TZ).isoformat()
+    today_str = value.astimezone(CN_TZ).strftime("%Y-%m-%d")
+    today_entry = daily.setdefault(today_str, {})
     for alert in alerts:
         history[alert_fingerprint(alert)] = {
             "time": current,
             "price": alert.price,
         }
+        # Record for same-day dedupe
+        code_action_key = f"{alert.stock_code}_{alert.action}"
+        today_entry[code_action_key] = alert.price
 
 
 def alert_to_log_entry(

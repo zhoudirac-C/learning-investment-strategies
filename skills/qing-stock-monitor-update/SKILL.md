@@ -51,6 +51,7 @@ description: |
 20. `skills/qing-stock-monitor-update/references/dedupe-by-type-implementation.md` — **dedupe_by_type 代码实现细节**：映射规则、价格突破逻辑、向后兼容策略、7个单元测试覆盖。已代码实现，配置生效中。
 22. `skills/qing-stock-monitor-update/references/direction-performance-scan.md` — **全方向性能扫描**：模式 C——当用户要求"梳理所有方向哪些在调整"时，全方向 × 全标的 × 全行情的批量扫描方法论。含腾讯 API 批量获取、theme 分组统计、缺口检测流程。
 23. `src/qing_investment/agent/tools/stock_sector_mapper.py` — **个股板块三层定位**：当 UP 未提及某标的时，通过新浪 API 获取实时板块排名，量化判断个股地位（日内龙头/中军/趋势/跟风）。含本地缓存管理和定时重建脚本 `scripts/build_sector_mapping.py`。
+24. `skills/qing-stock-monitor-update/references/config-health-check.md` — **配置健康检查**：watchlist/strategy_pack/positions 完整性检查清单（code 格式、entry 去重、sector 覆盖、防失真、非主板标记）。每次 config review 或大更新后执行。
 
 ## 工作流程
 
@@ -351,6 +352,13 @@ Qing-Agent 返回的是**定性判断**（方向/态度/策略基调），不是
 
 **反面案例（2026-06-05）**：安泰科技成本28.667，reduce_zone 仍为 25.5-26.5，但现价已跌至 20.98。风控线距现价 +20% 以上，完全失效——跌破 24.0 时未触发任何提醒因为风险线早已被跌破。**根因：上次更新时没有根据最新价格重新校验价格区间**。
 
+**自动化防护（2026-06-06 已集成到 stock_monitor.py）**：`validate_position_price_zones()` 函数在每次 cron tick 拉取行情后自动检查。检测规则：
+- `reduce_zone` 下限距现价 > 12% → 向上失真（提醒下调）
+- `risk_zone` 下限 > 现价（已被跌破）→ 向下失真（风险线已失效）
+- `reduce_zone` / `risk_zone` 均缺失 → 高危漏报
+
+失真警告会写入 `state.json` 的 `stale_zone_warnings` 字段，并在每日复盘上下文中展示。**即使有自动化检查，手动更新时仍需执行以下流程**（自动化检查是兜底，不是替代）。
+
 **强制流程**：
 
 1. **先获取实时数据**（Step 1），再加载 positions.yaml。
@@ -460,6 +468,10 @@ python3 -m qing_investment.stock_monitor --analysis-context
 - YAML 解析无错误
 - 输出包含新增的描述型字段
 - 大模型分析上下文格式正确
+- **code 格式标准化**：检查 watchlist 中所有 code 是否为 `XXXXXX.SZ`/`XXXXXX.SH` 格式（不是 `shXXXXXX`/`szXXXXXX`）
+- **entry_points 去重**：按 `code + name` 检查是否重复
+- **today_snapshot 唯一**：确认 today_snapshot 仅在 strategy_pack.yaml 中存在，watchlist.yaml 中不存在
+- **sector_groups 覆盖**：确认新增的主题对应的 sector_group 已同步创建
 
 ### Step 7: Git 提交
 
@@ -495,6 +507,9 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 18. **去重机制需考虑"用户已执行"维度**：当前去重只基于时间和指纹，不跟踪"用户是否已执行"。若用户已按提醒执行操作，当天不应再提醒同样动作。详见 `references/daily-review-cases.md` 案例七。
 19. **Claim Schema 字段枚举值陷阱**：`timeframe` 字段枚举值为 `short-term` / `medium-term` / `long-term`（带连字符），不是 `short_term`（下划线）。写错会导致验证失败。
 20. **`execute_code` YAML 竞态覆盖陷阱（高危）**：对同一 YAML 文件（watchlist/strategy_pack/positions）的多次修改**必须合并到单个 `execute_code` 调用中完成**。原因：每个 `execute_code` 独立加载文件快照，若调用 A 保存后调用 B 也加载+保存，B 的快照不包含 A 的修改，导致 A 的变更被静默覆盖。**反面案例（2026-06-05）**：分两次 execute_code 分别添加 4 只新标的和更新 narrative → 第二次调用加载的旧快照不包含新增标的，保存后新增标的全部丢失。**正确做法**：一次 execute_code 完成全部 load → modify → save 流程，最后验证文件内容。
+21. **代码格式标准化**：`stock_monitor.py` 的 `stock_code_to_secid()` 只接受 `XXXXXX.SZ` / `XXXXXX.SH` 格式（正则 `(\d{6})\.(SZ|SH)`）。**任何时候添加新标的到 watchlist/strategy_pack，code 必须使用此标准格式**。非标准格式如 `sh688381`、`sz002897` 会导致行情拉取静默失败（`stock_code_to_secid` 返回 `None`，该标的被跳过）。**反面案例（2026-06-06）**：watchlist 中 6 个标的用了 `sh######` 格式，其中 3 个在定期行情拉取中被跳过。修复方法：`sh688381 → 688381.SH`，`sz002897 → 002897.SZ`。
+22. **entry_points 重复**：同一标的在 `entry_points` 中出现多次，每次更新时容易因追加操作产生重复。重复条目浪费 prompt token 且暗示标的被强调。**每次更新 strategy_pack 后，必须检查 entry_points 去重**：按 `code + name` 组合检测重复，保留最详细的条目。**反面案例（2026-06-06）**：航天电器（002025.SZ）在 entry_points 中出现 3 次，3 条内容几乎相同。
+23. **today_snapshot 双写**：`watchlist.yaml` 和 `strategy_pack.yaml` 曾同时包含 `today_snapshot`，内容互不一致（一个说"调整第17天接近尾声"，另一个说"放弃执念"）。**已规定**：`today_snapshot` 只放在 `strategy_pack.yaml` 中，`watchlist.yaml` 不应包含此字段。添加新数据到 watchlist 时不要创建 today_snapshot 块。
 
 ## 从复盘文档批量更新 narrative 的规范流程
 
@@ -628,10 +643,14 @@ yaml.safe_load(open('config/stock_monitor/watchlist.yaml'))
   2. 通过 `yaml.safe_load()` 读取并比对关键字段（`trend`、`note`、`relative_strength`、`market_summary`）确认是否已同步。
   3. 若已同步，向用户报告当前状态（各票 narrative 摘要、today_snapshot 数据点），并询问是否需要基于**今早动态**追加更新（如新增 sector_group、调整 up_mention_status）。
   4. 若部分同步（如 today_snapshot 已更新但某票的 sector_narrative 缺失），仅补全缺失部分。
+## 验证清单
 
-### 验证清单
 - [ ] `git pull` 完成，无冲突
-- [ ] **UP "关注方向"已提取**：复盘文档中"关注地位方向""核心思路"等段落的标的已检查并处理（新增或更新 watch_reason）
+- [ ] **code 格式已标准化**：所有 code 为 `XXXXXX.SZ`/`XXXXXX.SH` 格式
+- [ ] **entry_points 已去重**：按 `code + name` 检查无重复
+- [ ] **today_snapshot 唯一**：仅在 strategy_pack.yaml 中存在
+- [ ] **sector_groups 已同步**：新增主题有对应 sector_group（或已有等价组）
+- [ ] **UP "关注方向"已提取**：复盘文档中"关注地位方向""核心思路"等段落的标的已检查并处理
 - [ ] 所有复盘文档中提到的票都已更新 narrative
 - [ ] 同一票在多个 theme 中的每个位置都已更新
 - [ ] 同一 code 不同 name 的票已按 `code+name+role` 区分，无错位
