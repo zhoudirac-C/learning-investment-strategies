@@ -365,7 +365,7 @@ async def chat(req: ChatRequest):
             claim_line = f"- {c.get('id', 'N/A')} ({c.get('source_date','')})"
             if c.get('claim_type'):
                 claim_line += f" [{c.get('claim_type')}]"
-            claim_line += f": {c.get('statement', '')[:300]}"
+            claim_line += f": {c.get('statement', '')[:200]}"
             # 如果有演化关系，添加标记
             if c.get('superseded_by'):
                 claim_line += f" [已被 {', '.join(c['superseded_by'][:2])} 取代]"
