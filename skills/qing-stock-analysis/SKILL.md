@@ -29,6 +29,7 @@ description: Use when the user asks to analyze an individual stock through the b
 16. `skills/qing-stock-analysis/references/index-etf-analysis-guide.md` — **指数/ETF买入分析指南**：当用户询问指数或ETF（如恒生科技、科创50）时使用，含时间窗口分析、ETF代码推荐、与个股分析的区别
 17. `skills/qing-stock-analysis/references/qing-agent-lightweight.md` — **Qing-Agent零基础设施运行模式 + 索引故障排查手册**：LangGraph多智能体系统可在无Docker容器的情况下运行，含 Qdrant 本地文件模式实战部署（config/代码/UUID兼容）。覆盖架构概览、降级机制、启动流程、同步脚本。⚠️ **三大陷阱**：①fallback模型的 `.encode().tolist()` 返回1D list，不是2D batch；②ONNX Runtime 多线程在2核VM上 futex spin-lock 死锁（修：`intra_op_num_threads=1`）；③Qdrant 本地模式独占锁→索引前必须关 Agent。
 18. `skills/qing-stock-analysis/references/holdings-direction-alignment-check.md` — **持仓方向与 UP 近期内容核对手册**：当用户问"UP 是否提到我的持仓""核对我的持仓方向"时触发。扫描最近 2-3 天 UP 内容（视频/复盘/早盘/动态），逐只核对持仓是否被提及、UP 态度如何、语言强度评级。与"持仓更新"子任务区分：本流程不做盈亏计算，只做方向一致性评估。
+19. `skills/qing-stock-analysis/references/claim-leakage-architecture-analysis.md` — **Claims 泄漏路径架构分析**：`/chat` 和 `/analyze/trigger` 两条路径中 claim 从 Neo4j/Qdrant 到 LLM prompt 的完整数据流。识别两处剩余泄漏风险（Neo4j 图遍历个股 claims、stock_analyst 全量传入），评估方案C（intensity 字段）的加固效果。修改检索链路或做 claims 质量评估前必读。
 
 ## 双轨制兼容性
 
@@ -36,7 +37,7 @@ description: Use when the user asks to analyze an individual stock through the b
 
 - **市场认知层 claims**（`claim_type` 为 `market-view`, `sector-theme`, `operation`, `market-cycle`, `risk` 等）：正常参与分析，用于判断市场周期、主线方向、板块轮动
 - **技术工具层 claims**（`claim_type: technical-knowledge`, `timeframe: permanent`）：不参与 drift/contradiction 分析，但可作为技术分析方法的引用来源
-- **检索时区分**：读取 `knowledge/claims/*.yaml` 时，检查 `claim_type` 和 `timeframe`。`technical-knowledge` + `permanent` 的 claims 只用于技术方法引用，不用于市场观点判断
+- **检索时区分**：读取 `knowledge/claims/*.yaml` 时，检查 `claim_type`、`timeframe` 和 **`intensity`**（方案C，见 `references/claim-intensity-classification.md`）。`intensity=low` 的 claims 在个股查询时排到末尾或过滤；`technical-knowledge` + `permanent` 的 claims 只用于技术方法引用，不用于市场观点判断。
 - **F10 分析不受影响**：基本面分析（护城河、财务、估值）独立于双轨制，按 `f10-financial-analysis.md` 正常执行
 
 ## 流程
