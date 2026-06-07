@@ -32,7 +32,7 @@ description: |
 2. `skills/qing-stock-monitor-update/references/data-fetch-script.md` — 数据获取脚本规范（含输出数据读取方法）
 3. `skills/qing-stock-monitor-update/references/yaml-update-protocol.md` — YAML 更新协议
 4. `skills/qing-stock-monitor-update/references/technical-inference.md` — 无 UP 观点时的技术推断规则
-5. `skills/qing-stock-monitor-update/references/technical-analysis-scan.md` — **全项目标的扫描 + 技术分析**：`scripts/scan_all_stocks.py` 的详细使用说明，含均线/支撑压力/量价/K线形态/综合评分等6个技术分析维度
+5. `skills/qing-stock-monitor-update/references/technical-analysis-scan.md` — **全项目标的扫描 + 技术分析**：`scripts/scan_all_stocks.py` 的详细使用说明，含均线/支撑压力/量价/K线形态/综合评分等6个技术分析维度。**新增 `--json-summary` 标志**（2026-06-06）：输出紧凑 JSON 供 agent/cron 消费，包含 tech_score、tech_signal、ma_summary + entry 信息。
 6. `skills/qing-stock-monitor-update/references/entry-points-generation.md` — **Entry Points 生成规范**：基于技术分析生成介入区间的4种方法（均线法/低点法/回撤法/分时法），仓位配置原则，触发/失效条件规范
 7. `skills/qing-stock-monitor-update/references/patch-disambiguation-pitfall.md` — Patch 工具歧义匹配陷阱与解决
 8. `skills/qing-stock-monitor-update/references/narrative-bulk-update-from-review.md` — 从复盘文档批量更新 narrative 的规范流程与常见陷阱
@@ -52,6 +52,8 @@ description: |
 22. `skills/qing-stock-monitor-update/references/direction-performance-scan.md` — **全方向性能扫描**：模式 C——当用户要求"梳理所有方向哪些在调整"时，全方向 × 全标的 × 全行情的批量扫描方法论。含腾讯 API 批量获取、theme 分组统计、缺口检测流程。
 23. `src/qing_investment/agent/tools/stock_sector_mapper.py` — **个股板块三层定位**：当 UP 未提及某标的时，通过新浪 API 获取实时板块排名，量化判断个股地位（日内龙头/中军/趋势/跟风）。含本地缓存管理和定时重建脚本 `scripts/build_sector_mapping.py`。
 24. `skills/qing-stock-monitor-update/references/config-health-check.md` — **配置健康检查**：watchlist/strategy_pack/positions 完整性检查清单（code 格式、entry 去重、sector 覆盖、防失真、非主板标记）。每次 config review 或大更新后执行。
+25. `scripts/validate_config.py` — **配置一致性校验脚本**：独立运行 `python scripts/validate_config.py` 自动检查 code 格式、entry 去重、sector_groups 覆盖、today_snapshot 位置、claims 一致性、持仓区间完整性。退出码 0=干净，1=警告，2=错误。推荐每次 config 更新后运行。详见 `references/validate-config-script.md`。
+26. `references/scan-all-stocks-json-summary.md` — **scan_all_stocks JSON 输出**：`--json-summary` 标志的使用说明、输出格式、集成方式。
 
 ## 工作流程
 
@@ -462,10 +464,12 @@ today_plan:
 cd ~/learning-investment-strategies
 python3 -m qing_investment.stock_monitor --status
 python3 -m qing_investment.stock_monitor --analysis-context
+python3 scripts/validate_config.py
 ```
 
 确认：
 - YAML 解析无错误
+- `validate_config.py` 退出码为 0（无错误）或仅预期内的 sector 覆盖警告
 - 输出包含新增的描述型字段
 - 大模型分析上下文格式正确
 - **code 格式标准化**：检查 watchlist 中所有 code 是否为 `XXXXXX.SZ`/`XXXXXX.SH` 格式（不是 `shXXXXXX`/`szXXXXXX`）
@@ -484,6 +488,13 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 
 ## 关键纪律
 
+0. **配置 Review 必须覆盖全链路（2026-06-06 用户纠正）**：当用户要求 review 观察池/持仓池/策略配置时，**不能只看 YAML 文件**。必须同时 review：
+   - `config/stock_monitor/*.yaml`（watchlist, strategy_pack, positions）
+   - `skills/qing-stock-monitor-update/SKILL.md`（更新流程与纪律）
+   - `src/qing_investment/stock_monitor.py`（代码消费逻辑）
+   - `scripts/scan_all_stocks.py` / `scripts/validate_config.py`（工具链）
+   - 相关的 reference 文件（qualitative-fields-spec, entry-points-generation 等）
+   **反面案例（2026-06-06）**：Agent 仅读取 YAML 文件做 review，用户纠正："你看过qing stock monitor update skill吗？这里面涉及的脚本和提示词需要一起review的，重新review整个观察池和持仓池架构"。全链路 review 发现 9 个缺陷（5 config + 4 架构），仅看 YAML 只能发现其中 5 个。
 1. **Cron 脚本同步纪律**：修改 cron 监控脚本时，`~/.hermes/scripts/` 必须使用 **Wrapper 委托模式**（创建真实文件，内容委托到项目版本），或 `prompt` 字段替代 `script` 字段。~~软链接~~已被 Hermes cron 拒绝（解析 canonical path 后判定为外部路径）。~~硬拷贝~~需手动同步，容易漂移。**Wrapper 模式**同时满足：单一来源（改项目版本即生效）、通过 cron 安全检查、零维护。用户硬性要求："每次改动都需要保证两边一致"。详见 `references/cron-script-sync.md`。
 2. **`uv run` 超时陷阱**：cron 环境下 `uv run` 启动慢（检查/创建虚拟环境），可能超过 60s 超时导致任务失败。解决方案：脚本内部优先使用 `.venv/bin/python` 直接运行，fallback 到 `uv run`。项目目录下所有 `hermes_stock_monitor_*.py` 已统一实现该逻辑。
 3. **观察池追加，不替换**：新 theme/stock 追加到末尾，旧的不删。
@@ -504,7 +515,7 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 15. **介入区间必须有数据支撑**：不能写"近期平台附近""等分歧后缩量回踩"等模糊描述，必须提供具体价格数字和计算依据。
 16. **触发/失效条件必须具体可执行**：不能写"等企稳""趋势走坏"，必须量化（如"跌破453且30分钟不能收回"）。
 17. **用户反馈优先**：复盘报告中的 YAML 建议只是"建议"，用户明确同意后才执行。用户质疑的需讨论实现方案后再执行。详见 `references/daily-review-cases.md` 案例六。
-18. **去重机制需考虑"用户已执行"维度**：当前去重只基于时间和指纹，不跟踪"用户是否已执行"。若用户已按提醒执行操作，当天不应再提醒同样动作。详见 `references/daily-review-cases.md` 案例七。
+18. **去重机制含同日去重（2026-06-06 增强）**：减仓观察/风控观察类告警在同一天内对同一标的只会触发一次（价格变化 < 2% 时压制），避免"安泰科技一天触发3次减仓观察"的问题。实现：`filter_new_alerts()` 检查 `state.json` 的 `daily_emitted` 字段，`record_emitted_alerts()` 同步写入。若价格变化 > 2% 则突破去重重新提醒。详见 `references/daily-review-cases.md` 案例七。
 19. **Claim Schema 字段枚举值陷阱**：`timeframe` 字段枚举值为 `short-term` / `medium-term` / `long-term`（带连字符），不是 `short_term`（下划线）。写错会导致验证失败。
 20. **`execute_code` YAML 竞态覆盖陷阱（高危）**：对同一 YAML 文件（watchlist/strategy_pack/positions）的多次修改**必须合并到单个 `execute_code` 调用中完成**。原因：每个 `execute_code` 独立加载文件快照，若调用 A 保存后调用 B 也加载+保存，B 的快照不包含 A 的修改，导致 A 的变更被静默覆盖。**反面案例（2026-06-05）**：分两次 execute_code 分别添加 4 只新标的和更新 narrative → 第二次调用加载的旧快照不包含新增标的，保存后新增标的全部丢失。**正确做法**：一次 execute_code 完成全部 load → modify → save 流程，最后验证文件内容。
 21. **代码格式标准化**：`stock_monitor.py` 的 `stock_code_to_secid()` 只接受 `XXXXXX.SZ` / `XXXXXX.SH` 格式（正则 `(\d{6})\.(SZ|SH)`）。**任何时候添加新标的到 watchlist/strategy_pack，code 必须使用此标准格式**。非标准格式如 `sh688381`、`sz002897` 会导致行情拉取静默失败（`stock_code_to_secid` 返回 `None`，该标的被跳过）。**反面案例（2026-06-06）**：watchlist 中 6 个标的用了 `sh######` 格式，其中 3 个在定期行情拉取中被跳过。修复方法：`sh688381 → 688381.SH`，`sz002897 → 002897.SZ`。
@@ -540,11 +551,11 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
    - `technical_narrative.note`：必须包含收盘价、成本线（持仓票）、板块 context
    - `sector_narrative.relative_strength`：必须包含该票在板块内的相对位置（如"CPU链内偏弱""MLCC组最强"）
    - `sector_narrative.risk`：必须包含当日观察到的具体风险（如"组内分化严重，ST得润+5%但万通-2.1%"）
-5. **today_snapshot 同步更新**：
-   - `fetch_time`：更新为当前时间
-   - `market_summary`：用复盘文档中的精确指数数据重写
+5. **today_snapshot 同步更新（注意：写入 strategy_pack.yaml，不是 watchlist.yaml）**：
+   - ⚠️ `today_snapshot` 只存在于 `strategy_pack.yaml`，不要在 watchlist 中创建此字段
+   - `date`：更新为当前日期
+   - `market_stage`：用复盘文档中的精确指数数据重写
    - `stocks_with_data`：更新为复盘文档中的收盘价和涨跌幅
-   - `overall_action`：基于复盘结论重写
 
 ### 常见格式陷阱
 - **换行缺失**：正则替换或字符串拼接时，`invalidation_setup` 最后一行与 `technical_narrative:` 之间缺少 `\n`，导致 YAML 解析为 `None`。修复：插入前检查 `invalidation_setup` 块末尾是否有换行，没有则补一个。批量插入时尤其注意：Python 正则替换的替换字符串必须以 `\n    technical_narrative:` 开头，而非直接拼接在前一行末尾。
@@ -611,13 +622,14 @@ for theme in watchlist.get('themes', []):
                     'risk': d['risk']
                 }
 
-# 5. 同步更新 today_snapshot
-watchlist['today_snapshot'] = {
-    'fetch_time': '2026-06-02 23:50 CST',
+# 5. 同步更新 today_snapshot（写入 strategy_pack.yaml）
+with open('config/stock_monitor/strategy_pack.yaml') as f:
+    strategy_pack = yaml.safe_load(f)
+strategy_pack['today_snapshot'] = {
+    'date': '2026-06-02',
     'source': '收盘监控复盘_2026-06-02',
-    'market_summary': '...',
+    'market_stage': '...',
     'stocks_with_data': [...],
-    'overall_action': '...'
 }
 
 # 6. 保存（保留原有格式和注释会被清除，这是 trade-off）
