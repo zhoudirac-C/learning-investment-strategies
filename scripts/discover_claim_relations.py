@@ -16,10 +16,10 @@ Output: updates claim YAML files with supersedes/contradicts fields.
 """
 
 import argparse
-import hashlib
 import json
-import os
+import re
 import sys
+from datetime import datetime
 from pathlib import Path
 
 import yaml
@@ -184,8 +184,8 @@ def process_claim(
     return results
 
 
-def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run: bool):
-    """Update YAML file with discovered relations."""
+def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run: bool, force: bool = False):
+    """Update YAML file with discovered relations and last_discovered timestamp."""
     if dry_run:
         print(f"  [DRY RUN] Would update {file_path.name} → {claim_id}")
         return
@@ -194,6 +194,7 @@ def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run
     lines = text.split("\n")
     new_lines = []
     updated = False
+    today_str = datetime.now().strftime("%Y-%m-%d")
 
     i = 0
     while i < len(lines):
@@ -206,6 +207,7 @@ def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run
 
             # Find and replace supersedes/contradicts in this block
             block_claims_id = claim_id
+            has_last_discovered = False
             while i < len(lines):
                 line = lines[i]
                 # Stop at next claim
@@ -213,6 +215,9 @@ def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run
                     # Check if it's a different claim
                     if claim_id not in line:
                         break
+
+                if line.strip().startswith("last_discovered:"):
+                    has_last_discovered = True
 
                 if line.strip().startswith("supersedes:"):
                     indent = line[:len(line) - len(line.lstrip())]
@@ -226,9 +231,28 @@ def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run
                     updated = True
                     i += 1
                     continue
+                elif line.strip().startswith("last_discovered:"):
+                    # Already has a last_discovered line, skip it (will re-add below)
+                    i += 1
+                    continue
 
                 new_lines.append(line)
                 i += 1
+
+            # Append last_discovered after the claim block
+            # Find the indentation of supersedes/contradicts to align
+            indent = "  "  # default YAML indent
+            for nl in reversed(new_lines):
+                trimmed = nl.strip()
+                if trimmed.startswith("supersedes:") or trimmed.startswith("contradicts:"):
+                    indent_guess = nl[:len(nl) - len(nl.lstrip())]
+                    if indent_guess:
+                        indent = indent_guess
+                    break
+
+            if results.get("supersedes") or results.get("contradicts") or force:
+                new_lines.append(f"{indent}last_discovered: {today_str}")
+                updated = True
             continue
 
         new_lines.append(line)
@@ -299,10 +323,8 @@ def main():
             for c in _parse_claims(data):
                 if not isinstance(c, dict):
                     continue
-                # Skip if already has relations
-                supersedes = c.get("supersedes", [])
-                contradicts = c.get("contradicts", [])
-                if supersedes or contradicts:
+                # Skip if already discovered (supersedes/contradicts or supplements/none)
+                if c.get("last_discovered"):
                     continue
                 if c.get("id"):
                     to_process.append((yf, c))
@@ -329,8 +351,8 @@ def main():
             if p["relation"] in ("supersedes", "contradicts"):
                 total_relations += 1
 
-        if results["supersedes"] or results["contradicts"]:
-            write_results_to_yaml(path, cid, results, args.dry_run)
+        # Always write last_discovered timestamp (even if only supplements/none found)
+        write_results_to_yaml(path, cid, results, args.dry_run, force=True)
 
     neo4j.close()
     print(f"\n✅ Done. Found {total_relations} supersedes/contradicts relations.")

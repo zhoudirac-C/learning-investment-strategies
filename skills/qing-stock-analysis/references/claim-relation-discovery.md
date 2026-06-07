@@ -104,3 +104,42 @@ RETURN related
 1. `discover_claim_relations.py` — `process_claim()` 加 `elif relation == "supplements"` 分支（类比第 177-182 行）
 2. Neo4j 迁移脚本 — 加 `SUPPLEMENTS` 关系类型
 3. `neo4j_client.py` — `get_claims_with_evolution()` 加 `OPTIONAL MATCH (c)-[:SUPPLEMENTS]->(supp:Claim)` + `collect(DISTINCT supp.id) as supplements`
+
+---
+
+## 陷阱与已知问题
+
+### 陷阱1：--all-missing 重复判断 supplements/none
+
+**症状**：每次 `--all-missing` 会把 90%+ 的 claims 重新跑一遍 LLM，即使结果和上次一样。
+
+**原因**：跳过条件只检查 YAML 中是否有 `supersedes` 或 `contradicts` 字段。但 supplements/none 的判定结果不写入 YAML（见设计决策），因此下次判为"缺失关系 → 需处理"。
+
+**量化**：578 条 claim，仅 ~34 写出了关系，剩下 **544 条下次会全量重判**。每次 544×3 ≈ 1632 次 LLM 调用空转（约 $1.6/次）。
+
+**修复方案**：在 YAML 中加 `last_discovered` 标记，`--all-missing` 改为检查此标记跳过：
+- `discover_claim_relations.py:302-306` — 跳过条件改为 `if c.get("last_discovered"): continue`
+- `write_results_to_yaml()` — 无论结果如何，写入 `last_discovered: YYYY-MM-DDTHH:MM:SS`
+
+### 陷阱2：检索链路不一致 — LangGraph 不消费 CONTRADICTS 边
+
+**症状**：`reviewer.txt` prompt 第 6 行要求"检查是否与UP的历史立场矛盾？（检查 contradicts 关系）"，但代码未提供数据。
+
+**原因**：两条检索路径使用了不同的 Neo4j 方法：
+
+| 路径 | 文件 | 方法 | 含演化关系？ |
+|------|------|------|-------------|
+| /chat | main.py:177 | get_claims_with_evolution() | 含 supersedes/contradicts 数组 |
+| /analyze/trigger | nodes.py:637 | get_claims_about_stock() | 裸 claim，无边信息 |
+
+`_format_claim_line()`（在 main.py 中）会渲染 `[已被 xxx 取代]`、`[与 xxx 矛盾]` 标签，但 LangGraph 链路（/analyze/trigger）拿到的 claims 没有这些字段。
+
+此外，`_detect_claim_conflicts()`（nodes.py:542-595）用关键词启发式匹配多头/空头词表来检测矛盾，不查 Neo4j 的 CONTRADICTS 边。Neo4j 里 143 条 contradicts 关系未被图分析链路消费。
+
+**修复**：nodes.py:637 改用 `get_claims_with_evolution()`。1 行改动。
+
+### 陷阱3：get_claim_evolution() 的演化信息被浪费
+
+**查询结构**：多个 OPTIONAL MATCH 产生笛卡尔积（如 2 supersedes + 1 contradicts → 3 行）。但调用方（nodes.py:658、main.py:218）只取了 `first.get("c", {})`，丢弃了 old/opp/new。查都查了，但白查了。
+
+**修复**：统一改用 `get_claims_with_evolution()` 的 `collect(DISTINCT ...)` 模式。

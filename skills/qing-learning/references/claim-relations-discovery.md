@@ -108,7 +108,18 @@ venv/bin/python scripts/discover_claim_relations.py --all-missing
 
 ## 预估耗时
 
-547 条 claims × ~10 秒/条 ≈ 90 分钟（ONNX embedding + LLM 判断）。
+~392 条 claims × ~8 秒/条 ≈ 50-90 分钟（ONNX embedding + LLM 判断）。当前知识库 578 claims，其中 392 条无关系需回填，186 条已有关系自动跳过。
+
+### 实际运行统计（2026-06-07 全量回填）
+
+| 关系类型 | LLM 判定次数 | Neo4j 边数 | 是否持久化 |
+|----------|-------------|-----------|-----------|
+| supplements | 753 (最多) | 0 | ❌ 不写入（设计决策：不改变 claim 有效性，Qdrant+entity 图遍历已覆盖关联） |
+| none | 650 | 0 | ❌ 不写入（反模式：存储「无关系」边无业务价值） |
+| contradicts | 123 | 143 | ✅ |
+| supersedes | 117 | 154 | ✅ |
+
+> **设计决策详情**：见 `skills/qing-stock-analysis/references/claim-relation-discovery.md` §设计决策。
 
 ## 完整流水线
 

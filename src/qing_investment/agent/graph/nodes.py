@@ -633,8 +633,8 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
 
     try:
         if stock_code:
-            # Stock-specific queries: use Neo4j relationship graph
-            claims = neo4j.get_claims_about_stock(stock_code, limit=10)
+            # Stock-specific queries: use Neo4j relationship graph with evolution info
+            claims = neo4j.get_claims_with_evolution(stock_code, limit=10)
         else:
             # Market/sector queries: use semantic search via Qdrant (Phase 3.3)
             from qing_investment.agent.tools.llm_client import get_embedding_model
