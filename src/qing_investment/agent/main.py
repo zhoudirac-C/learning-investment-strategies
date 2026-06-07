@@ -141,6 +141,7 @@ async def chat(req: ChatRequest):
                     "subject": payload.get("subject", ""),
                     "source_date": payload.get("source_date", ""),
                     "confidence": payload.get("confidence", ""),
+                    "claim_type": payload.get("claim_type", ""),
                     "score": r.get("score", 0),
                 })
     except Exception as e:
