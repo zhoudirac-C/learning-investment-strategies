@@ -131,6 +131,8 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 26. **非科技方向 Neo4j 图谱设计**：当需要将研报中推荐的个股入库 Neo4j 以便 Qing-Agent 检索时，参考 `references/non-tech-stock-graph-design.md`（四种节点：Theme/Stock/Claim/ResearchReport + 五种关系 + Agent 检索路径）。
 27. **混合内容 ingestion（轨道A+轨道B 同 raw）**：参考 `references/mixed-content-ingestion.md`（单篇 raw 同时含技术教学和行情观点时的拆分规则、文件编号惯例、反面案例）。
 28. **Qdrant 向量损坏排查**：参考 `references/qdrant-corruption-root-cause.md`（根因链、为什么只 claims 不 documents、`--force-recreate` 一键修复、完整性自检机制）。
+29. **Claim intensity 分级**：参考 `references/claim-writing-spec.md` §「Agent 消费规则（intensity 分级）」和 `references/claim-schema-validation.md` §「Intensity 自动回填」。
+30. **Claim intensity 回填脚本**：`scripts/backfill_claim_intensity.py` — 对已有 claims 自动分类 intensity（8条规则），生成 `logs/intensity_backfill_report.txt` 审计报告。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`

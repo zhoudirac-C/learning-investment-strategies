@@ -12,7 +12,7 @@
 |--------|-----------|--------|---------|
 | **Neo4j** (`migrate_claims_to_neo4j.py`) | `id`, `statement`, `subject`, `claim_type`, `links`, `supersedes`, `contradicts` | 建节点+关系边，正则提取股票代码 | 不做语义搜索 |
 | **Qdrant** (`index_claims_to_qdrant.py`) | **仅** `subject` + `statement` | 拼接为 `"{subject} \| {statement}"` → embedding → 语义搜索 | 不读 `interpretation`/`evidence_quote`/`links` |
-| **Agent** (`/chat`, `/analyze/trigger`) | Qdrant 召回 → payload 中的 `claim_id`, `statement`, `subject`, `source_date`, `confidence`, `status`, `claim_type` | 注入 prompt，按 `claim_type` 分流 + 按 `source_date` 时效分级标注 | 不在运行时遍历 Neo4j 图找标的 |
+| **Agent** (`/chat`, `/analyze/trigger`) | Qdrant 召回 → payload 中的 `claim_id`, `statement`, `subject`, `source_date`, `confidence`, `status`, `claim_type`, `intensity` | 注入 prompt，按 `claim_type` 分流 + 按 `source_date` 时效分级标注 + 按 `intensity` 分级标注（🔴高/🟡中/⚪低） | 不在运行时遍历 Neo4j 图找标的 |
 
 ### Agent 消费规则（时效分级引用）
 
@@ -30,6 +30,16 @@
 格式：（数据）...→（UP观点）...→（结论）...
 如果找不到对应的数据支撑，该 claim 不得引用
 ```
+
+### Agent 消费规则（intensity 分级）
+
+| intensity | 标签 | 含义 | 个股查询行为 | 大盘查询行为 |
+|-----------|------|------|-------------|-------------|
+| `high` | 🔴 | UP 专题分析/视频重点推荐/方法论 | 可引用，配实时数据；排序 boost -7天 | 正常进入（方法论不受过滤） |
+| `medium` | 🟡 | UP 复盘提及/方向判断/默认 | 正常排序，需标注时效 | 正常进入 |
+| `low` | ⚪ | UP 盘中随口/转发/评论回复 | **排序 penalty +365天，排到末尾不进入 prompt** | 保留但不突出 |
+
+**核心推论**：`intensity=low` 的 claims 在个股查询中几乎不会被 LLM 看到。编写 claim 时，UP 随口一提（非分析性内容）应标 `low`。
 
 **核心推论**：`subject` 和 `statement` 是唯一影响 Qdrant 搜索召回率的字段。如果这两个字段写不好，Agent 搜不到。
 
@@ -254,6 +264,7 @@ claim-g (sector-theme)：磨底期非科技方向——消费
 - [ ] `related_stocks` 中的代码是否在 `statement` 中出现过？
 - [ ] `supersedes`/`contradicts` 是否附带了 reason？
 - [ ] `links.wiki_pages` 是否指向存在的 wiki 页面？
+- [ ] `intensity` 是否合理？（方法论/视频分析 → `high`，复盘提及 → `medium`，随口/转发 → `low`）
 
 ---
 
@@ -264,3 +275,4 @@ claim-g (sector-theme)：磨底期非科技方向——消费
 | 2026-06-06 | 初稿 | 「磨底期非科技方向」检索调试 → 发现 statement 缺乏标的代码 + 缺少总入口 claim → 代码审查 Neo4j/Qdrant/Agent 三个消费路径后系统化 |
 | 2026-06-07 | +200字硬约束 + 压缩示例 | Agent 截断 200 字导致港股部分丢失 → 总入口压缩到 207 字。原则：claim 层修复优先于 Agent 代码改动 |
 | 2026-06-07 | +Agent 时效分级引用规则 + 引用纪律 | 全面修改 Agent prompt：六级框架重写、核心原则重写、claims 按时效分级注入。改为「≤7天可参考但需配对数据」 |
+| 2026-06-07 | +intensity 字段 + Agent intensity 分级规则 | 方案C实现：561条 claims 全量回填。个股查询 low 排末尾，high boost。prompt 中 🔴🟡⚪ 标注 |

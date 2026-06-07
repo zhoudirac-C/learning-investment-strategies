@@ -11,7 +11,7 @@ REQUIRED_FIELDS = {
     "id", "source_path", "source_date", "source_type",
     "extracted_at", "claim_type", "subject", "timeframe",
     "statement", "evidence_quote", "interpretation",
-    "confidence", "status", "supersedes", "contradicts", "links",
+    "confidence", "status", "intensity", "supersedes", "contradicts", "links",
 }
 ```
 
@@ -28,6 +28,7 @@ REQUIRED_FIELDS = {
 | `claim_type` | `market-cycle`, `sector-theme`, `stock-view`, `methodology`, `risk`, `technical-signal`, `technical-knowledge`, `macro`, `operation`, `catalyst`, `general` |
 | `timeframe` | `intraday`, `short-term`, `trend`, `industry`, `permanent` |
 | `confidence` | `high`, `medium`, `low` |
+| `intensity` | `high`, `medium`, `low` |
 | `status` | `active`, `superseded`, `contradicted`, `expired`, `case-only` |
 
 ## 快速验证命令
@@ -51,3 +52,13 @@ print('All claims valid')
 2. **缺少 `statement` 字段** → `ValueError: Missing required claim fields: statement`
 3. **使用旧字段 `predicate`/`object`** → `ValueError: Missing required claim fields: statement`
 4. **`supersedes` 不是列表** → `ValueError: supersedes must be a list`
+5. **缺少 `intensity` 字段** → `ValueError: Missing required claim fields: intensity`
+6. **`intensity` 取值非法** → `ValueError: Invalid intensity: xxx. Allowed: high, low, medium`
+
+## Intensity 自动回填
+
+若已有 561 条 claims 不含 intensity 字段，运行回填脚本：
+```bash
+cd ~/learning-investment-strategies && PYTHONPATH=src .venv/bin/python scripts/backfill_claim_intensity.py
+```
+分类规则：methodology/operation/technical-knowledge → high，视频/复盘/专栏 source → high，强语言关键词 → high，转发/short evidence → low，默认 medium。
