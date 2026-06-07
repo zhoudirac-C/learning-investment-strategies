@@ -184,7 +184,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     cd ~/learning-investment-strategies
     PYTHONUNBUFFERED=1 .venv/bin/python scripts/index_documents_to_qdrant.py   # 文档 → Qdrant
     .venv/bin/python scripts/migrate_claims_to_neo4j.py                        # claims → Neo4j
-    .venv/bin/python scripts/index_claims_to_qdrant.py                         # claims → Qdrant
+    .venv/bin/python scripts/index_claims_to_qdrant_monitored.py               # claims → Qdrant（带监控）
 
     # 3. 重启 Agent
     nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
