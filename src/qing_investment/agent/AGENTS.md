@@ -9,6 +9,8 @@
 
 `qing-agent` 是 Hermes 股票监控系统的**分析大脑**，基于 LangGraph 构建有向图工作流，把原始行情、博主知识库、外部板块数据统一分析，输出 UP（青枫浦上Q）风格的投资复盘。
 
+> 📐 **架构图**：见 `docs/qing-agent-technical-design.md` 第 2 章（PlantUML，含输入层→检索层→分析层→输出层→数据基础设施完整架构）。
+
 **核心边界**：
 - 只做**分析**，不做交易执行
 - 只输出**条件化的操作建议**，不给无条件买卖指令
@@ -61,7 +63,9 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 
 ## 3. 知识库同步（增量）
 
-新增 raw 文档或 claim 后，**不需要全量重跑**，使用增量同步：
+新增 raw 文档或 claim 后，**不需要全量重跑**，使用增量同步。
+
+> 📋 **完整流水线文档**：`docs/neo4j-relation-pipeline.md` — 含 discover_claim_relations（LLM 判断 supersedes/contradicts/supplements）→ Neo4j 迁移 → Qdrant 索引 → Agent 重启四步全流程。新增 claims 时必须跑 relation discovery，否则 Neo4j 中 Claim→Claim 关系边为空。
 
 > ⚠️ **同步前必须关 Agent**：Qdrant 本地模式不支持并发访问。脚本已内置自动杀 Agent 逻辑（SIGTERM → 等2s → SIGKILL）。若需手动控制，加 `--skip-agent-kill`。
 
