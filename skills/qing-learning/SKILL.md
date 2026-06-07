@@ -244,6 +244,8 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     - **修复方向**：检查 Qdrant collection 的向量维度配置是否与 ONNX 模型输出（512-dim）一致；或考虑清除旧 collection 重建
     - **临时绕过**：确保 Neo4j 同步完成——部分检索路径可能不走 Qdrant 而走图数据库。但 Claims 的语义搜索依赖 Qdrant，无索引 = 无法语义召回
 
+16. **Agent 不显示 claim 内容时，优先修 claim 而非修 Agent 代码**：当 Agent 回答缺少某条 claim 的关键信息时，按以下顺序排查——①statement 是否超 200 字被截断？②claim 是否未被 Qdrant 召回（语义向量与查询意图偏离）？③claim 是否被「历史观点仅供参考」标注压制（methodology 类 claim 需独立区块）？**只有三项都排除后才考虑改 Agent 代码**。反面案例（2026-06-07）：Agent 截断 200→300 被用户驳回——实际是 claim-a 需从 242 压缩到 207 字。原则：claim 是知识载体，Agent 是管道——管道容量固定时压缩数据，不加粗管道。
+
 ---
 
 ## Review（方法论复盘）工作流程

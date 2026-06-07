@@ -322,6 +322,65 @@ print('✅ ONNX OK')
 | 推理极慢（0% CPU 卡死） | ONNX Runtime 多线程 futex spin-lock 死锁（2核VM） | 设置 `intra_op_num_threads=1; inter_op_num_threads=1` |
 | `Storage folder already accessed` | Qdrant 本地模式独占锁，Agent 和索引脚本不能同时打开 | 索引前 `kill` Agent，索引后重启。见上方「陷阱 C」 |
 
+#### 陷阱 D：Qdrant 本地模式 Collection 向量损坏——"could not broadcast input array from shape (512,) into shape (1,)"
+
+**症状**：`index_claims_to_qdrant.py` 在 upsert 时崩溃：
+```
+ValueError: could not broadcast input array from shape (512,) into shape (1,)
+```
+发生位置：`qdrant_client/local/local_collection.py:_add_point()`
+
+**根因**：Qdrant 本地模式使用 SQLite 存储向量。如果 collection 之前被写入过损坏的数据（如旧版 embedding 模型产生的 shape 不一致的向量），新数据无法兼容插入。
+
+**诊断**：
+```python
+from qdrant_client import QdrantClient
+from qing_investment.agent.config import settings
+client = QdrantClient(path=settings.qdrant_local_path)
+info = client.get_collection('qing_claims')
+print(info.config.params.vectors.size)  # 应该 = 512
+```
+即使 `size=512` 配置正确，存储层仍可能有损坏的向量行。
+
+**修复**：删除并重建 collection，然后全量重索引：
+```python
+client.delete_collection('qing_claims')
+from qdrant_client.models import Distance, VectorParams
+client.create_collection(
+    collection_name='qing_claims',
+    vectors_config=VectorParams(size=512, distance=Distance.COSINE),
+)
+```
+然后重新运行 `index_claims_to_qdrant.py`。548 条 claims 全量索引约 30 秒。
+
+**预防**：确保所有索引脚本使用同一版本的 embedding 模型（维度一致）。更换模型后必须删除旧 collection 重建。
+
+### Agent 检索调试循环
+
+当 Agent 回答不正确（应该能找到的 claims 没被引用）时，按以下循环排查：
+
+```
+1. 直接测试 Qdrant 召回
+   → .venv/bin/python -c "
+     from qing_investment.agent.tools.llm_client import get_embedding_model
+     from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
+     emb = get_embedding_model()
+     qdrant = QdrantClientWrapper(local_mode=True)
+     vec = emb.encode('用户查询').tolist()
+     for r in qdrant.search(vec, collection='qing_claims', limit=10):
+         print(f'{r[\"score\"]:.3f} | {r[\"payload\"][\"subject\"]}')
+     "
+2. 检查目标 claim 是否在 Top 10
+   → 不在 → subject/statement 缺乏语义匹配关键词
+3. 给 claim 的 subject 和 statement 添加查询中会用的关键词
+   例：查询"磨底期非科技方向"搜不到"储能方向"，因为 subject 缺少"磨底期"/"非科技"
+   修复：subject: "磨底期非科技方向——储能/六氟磷酸锂"
+4. 重新 migrate_claims_to_neo4j.py + index_claims_to_qdrant.py
+5. 重启 Agent + 重新查询验证
+```
+
+**关键原则**：Claims 的 `subject` 和 `statement` 是最好的召回优化杠杆——不需要改 Agent 代码。
+
 ## 功能对比
 
 | 功能 | 零容器模式 | 完整 Docker 模式 |
