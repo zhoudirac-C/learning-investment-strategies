@@ -1,8 +1,9 @@
 - id: claim-20260526-024
+  topic: 利通电子高位不健康时是卖点不是买点
   source_path: sources/raw/财经/午盘补发：26-05-26：利通电子.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 午盘补发
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: operation
   subject: 利通电子高位不健康时是卖点不是买点
   timeframe: intraday
@@ -15,19 +16,23 @@
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-26
-    - 投资方法论/交易纪律
-    - 投资方法论/分歧中找机会
+      - 每日复盘/2026-05-26
+      - 投资方法论/交易纪律
+      - 投资方法论/分歧中找机会
     methodology_pages:
-    - 投资方法论/交易纪律
-    - 投资方法论/分歧中找机会
+      - 投资方法论/交易纪律
+      - 投资方法论/分歧中找机会
     cases: []
   intensity: high
+  tags:
+    - 利通电子高位
+    - 操作策略
 - id: claim-20260526-025
+  topic: 尾盘快速修复提前消耗次日普涨预期
   source_path: sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 动态复盘
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: market-cycle
   subject: 尾盘快速修复提前消耗次日普涨预期
   timeframe: short-term
@@ -37,22 +42,28 @@
   confidence: medium
   status: active
   supersedes: []
-  contradicts: ["claim-20260527-005-a"]
+  contradicts:
+    - claim-20260527-005-a
   links:
     wiki_pages:
-    - 每日复盘/2026-05-26
-    - 投资方法论/主线判断
-    - 投资方法论/交易纪律
+      - 每日复盘/2026-05-26
+      - 投资方法论/主线判断
+      - 投资方法论/交易纪律
     methodology_pages:
-    - 投资方法论/主线判断
-    - 投资方法论/交易纪律
+      - 投资方法论/主线判断
+      - 投资方法论/交易纪律
     cases: []
   intensity: high
+  tags:
+    - 市场周期
+    - 主线
+    - 修复
 - id: claim-20260526-026
+  topic: 科技回落是韬定律节奏内休整而非逻辑证伪
   source_path: sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 动态复盘
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: market-cycle
   subject: 科技回落是韬定律节奏内休整而非逻辑证伪
   timeframe: short-term
@@ -65,19 +76,24 @@
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-26
-    - 市场分析/半导体产业链
-    - 市场分析/华为韬定律与3DIC
+      - 每日复盘/2026-05-26
+      - 市场分析/半导体产业链
+      - 市场分析/华为韬定律与3DIC
     methodology_pages:
-    - 投资方法论/主线判断
-    - 投资方法论/交易纪律
+      - 投资方法论/主线判断
+      - 投资方法论/交易纪律
     cases: []
   intensity: high
+  tags:
+    - 市场周期
+    - 半导体
+    - 主线
 - id: claim-20260526-027
+  topic: PCB与华为韬定律构成本轮双核心
   source_path: sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 动态复盘
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: sector-theme
   subject: PCB与华为韬定律构成本轮双核心
   timeframe: short-term
@@ -90,20 +106,25 @@
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-26
-    - 市场分析/PCB与先进封装
-    - 市场分析/华为韬定律与3DIC
-    - 投资方法论/主线判断
+      - 每日复盘/2026-05-26
+      - 市场分析/PCB与先进封装
+      - 市场分析/华为韬定律与3DIC
+      - 投资方法论/主线判断
     methodology_pages:
-    - 投资方法论/主线判断
-    - 投资方法论/仓位管理
+      - 投资方法论/主线判断
+      - 投资方法论/仓位管理
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - PCB
+    - 华为
 - id: claim-20260526-028
+  topic: 情绪端先于指数走强才是调整结束标志
   source_path: sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 动态复盘
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: technical-signal
   subject: 情绪端先于指数走强才是调整结束标志
   timeframe: short-term
@@ -116,18 +137,23 @@
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-26
-    - 投资方法论/主线判断
+      - 每日复盘/2026-05-26
+      - 投资方法论/主线判断
     methodology_pages:
-    - 投资方法论/主线判断
-    - 投资方法论/交易纪律
+      - 投资方法论/主线判断
+      - 投资方法论/交易纪律
     cases: []
   intensity: high
+  tags:
+    - 情绪端先于指
+    - 技术信号
+    - 龙头
 - id: claim-20260526-029
+  topic: PCB价值重估是跨代际价值阶梯
   source_path: sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 动态复盘
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: sector-theme
   subject: PCB价值重估是跨代际价值阶梯
   timeframe: industry
@@ -140,17 +166,21 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/PCB与先进封装
-    - 市场分析/AI上游涨价链
+      - 市场分析/PCB与先进封装
+      - 市场分析/AI上游涨价链
     methodology_pages:
-    - 投资方法论/主线判断
+      - 投资方法论/主线判断
     cases: []
   intensity: high
+  tags:
+    - PCB价值重
+    - 板块主题
 - id: claim-20260526-030
+  topic: 韬定律分歧后主动修复验证主线资格
   source_path: sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 动态复盘
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: sector-theme
   subject: 韬定律分歧后主动修复验证主线资格
   timeframe: short-term
@@ -159,22 +189,31 @@
   interpretation: 该观点把“分歧后主动性”作为韬定律从事件催化上修为主线候选的关键证据；后续仍需看先进封装、3D堆叠、EDA、设备材料等是否持续联动。
   confidence: high
   status: active
-  supersedes: ["claim-20260526-026", "claim-20260520-001-e"]
+  supersedes:
+    - claim-20260526-026
+    - claim-20260520-001-e
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/华为韬定律与3DIC
-    - 市场分析/半导体产业链
-    - 投资方法论/主线判断
+      - 市场分析/华为韬定律与3DIC
+      - 市场分析/半导体产业链
+      - 投资方法论/主线判断
     methodology_pages:
-    - 投资方法论/主线判断
+      - 投资方法论/主线判断
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - 中军
+    - 华为
+    - 主线
+    - 修复
 - id: claim-20260526-031
+  topic: 光模块设备受益2026扩产大年
   source_path: sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 动态复盘
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: sector-theme
   subject: 光模块设备受益2026扩产大年
   timeframe: trend
@@ -187,17 +226,22 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/光通信
+      - 市场分析/光通信
     methodology_pages:
-    - 投资方法论/主线判断
-    - 投资方法论/交易纪律
+      - 投资方法论/主线判断
+      - 投资方法论/交易纪律
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - 光模块
+    - 扩产
 - id: claim-20260526-032
+  topic: 国产算力偏弱是节奏问题而非链条瓦解
   source_path: sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 动态复盘
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: sector-theme
   subject: 国产算力偏弱是节奏问题而非链条瓦解
   timeframe: short-term
@@ -210,17 +254,23 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/国产CPU_GPU与软件
-    - 每日复盘/2026-05-26
+      - 市场分析/国产CPU_GPU与软件
+      - 每日复盘/2026-05-26
     methodology_pages:
-    - 投资方法论/主线判断
+      - 投资方法论/主线判断
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - 国产算力
+    - 华为
+    - 字节
 - id: claim-20260526-033
+  topic: 金刚石散热、TGV等新技术方向5月26日
   source_path: sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 动态复盘
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: sector-theme
   subject: 金刚石散热与TGV提示AI新技术分支进入中期并行
   timeframe: trend
@@ -233,18 +283,24 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/玻璃基板与Micro-LED
-    - 市场分析/PCB与先进封装
+      - 市场分析/玻璃基板与Micro-LED
+      - 市场分析/PCB与先进封装
     methodology_pages:
-    - 投资方法论/主线判断
-    - 投资方法论/仓位管理
+      - 投资方法论/主线判断
+      - 投资方法论/仓位管理
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - AI
+    - 主线
+    - 算力
 - id: claim-20260526-034
+  topic: 周期大金融与科技同步加强是风格均衡信号
   source_path: sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 动态复盘
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: market-cycle
   subject: 周期大金融与科技同步加强是风格均衡信号
   timeframe: short-term
@@ -253,22 +309,30 @@
   interpretation: 该信号需要次日验证：若防御与主线共振，风格偏均衡；若防御强而主线回落，则要警惕资金从科技撤退。
   confidence: medium
   status: active
-  supersedes: ["claim-20260525-013"]
+  supersedes:
+    - claim-20260525-013
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-26
-    - 投资方法论/主线判断
+      - 每日复盘/2026-05-26
+      - 投资方法论/主线判断
     methodology_pages:
-    - 投资方法论/主线判断
-    - 投资方法论/仓位管理
+      - 投资方法论/主线判断
+      - 投资方法论/仓位管理
     cases: []
   intensity: high
+  tags:
+    - 市场周期
+    - 金融
+    - 主线
+    - 防御
+    - 修复
 - id: claim-20260526-035
+  topic: 制冷剂氟化工受海外松绑驱动全球补库
   source_path: sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 动态复盘
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: sector-theme
   subject: 制冷剂氟化工受海外松绑驱动全球补库
   timeframe: trend
@@ -281,17 +345,21 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/制冷剂与氟化工
-    - 每日复盘/2026-05-26
+      - 市场分析/制冷剂与氟化工
+      - 每日复盘/2026-05-26
     methodology_pages:
-    - 投资方法论/主线判断
+      - 投资方法论/主线判断
     cases: []
   intensity: high
+  tags:
+    - 制冷剂氟化工
+    - 板块主题
 - id: claim-20260526-036
+  topic: AIDC电力设备受益AI算力负荷瓶颈
   source_path: sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 动态复盘
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: sector-theme
   subject: AIDC电力设备受益AI算力负荷瓶颈
   timeframe: trend
@@ -304,18 +372,25 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/AI电源与超级电容
-    - 每日复盘/2026-05-26
+      - 市场分析/AI电源与超级电容
+      - 每日复盘/2026-05-26
     methodology_pages:
-    - 投资方法论/主线判断
-    - 投资方法论/仓位管理
+      - 投资方法论/主线判断
+      - 投资方法论/仓位管理
     cases: []
   intensity: high
+  tags:
+    - 电力设备
+    - 板块主题
+    - 算力
+    - 电网
+    - AI
 - id: claim-20260526-037
+  topic: MLCC进入AI与新能源车共振的新周期
   source_path: sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 动态复盘
-  extracted_at: '2026-05-26T23:25:12+08:00'
+  extracted_at: "2026-05-26T23:25:12+08:00"
   claim_type: sector-theme
   subject: MLCC进入AI与新能源车共振的新周期
   timeframe: trend
@@ -328,9 +403,13 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/AI上游涨价链
-    - 每日复盘/2026-05-26
+      - 市场分析/AI上游涨价链
+      - 每日复盘/2026-05-26
     methodology_pages:
-    - 投资方法论/主线判断
+      - 投资方法论/主线判断
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - 新能源
+    - AI

@@ -1,29 +1,39 @@
 - id: claim-20260523-001
+  topic: Rubin BOM价值扩散
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  source_date: '2026-05-23'
+  source_date: 2026-05-23
   source_type: 视频
-  extracted_at: '2026-05-23T12:21:17+08:00'
+  extracted_at: "2026-05-23T12:21:17+08:00"
   claim_type: sector-theme
   subject: Rubin BOM价值扩散
   timeframe: trend
   statement: Vera Rubin / VR200 机柜价值量大幅提升，AI服务器定价从GPU单点扩张到存储、PCB、MLCC、ABF基板、电源、液冷、ODM组装测试等全组件价值重估。
-  evidence_quote: 英伟达下一代 Vera Rubin / VR200 机架的价值量大幅提升，增量不再只集中在 GPU，而是向 PCB、MLCC、ABF
-    基板、内存、电源、液冷、ODM 组装测试等更广泛硬件环节扩散。
+  evidence_quote: 英伟达下一代 Vera Rubin / VR200 机架的价值量大幅提升，增量不再只集中在 GPU，而是向 PCB、MLCC、ABF 基板、内存、电源、液冷、ODM 组装测试等更广泛硬件环节扩散。
   interpretation: 这是AI硬件主线从核心算力资产向BOM增量环节扩散的证据，后续观察重点应从单一GPU/光模块扩展到价值量提升最快、位置相对低的硬件组件。
   confidence: high
   status: active
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/AI上游涨价链, 市场分析/PCB与先进封装, 市场分析/光通信]
+    wiki_pages:
+      - 市场分析/AI上游涨价链
+      - 市场分析/PCB与先进封装
+      - 市场分析/光通信
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - PCB
+    - GPU
+    - 存储
+    - AI
 - id: claim-20260523-002
+  topic: 存储链价值占比跃升
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  source_date: '2026-05-23'
+  source_date: 2026-05-23
   source_type: 视频
-  extracted_at: '2026-05-23T12:21:17+08:00'
+  extracted_at: "2026-05-23T12:21:17+08:00"
   claim_type: sector-theme
   subject: 存储链价值占比跃升
   timeframe: trend
@@ -35,15 +45,22 @@
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/长鑫存储产业链, 市场分析/半导体产业链]
+    wiki_pages:
+      - 市场分析/长鑫存储产业链
+      - 市场分析/半导体产业链
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - AI
+    - 存储
 - id: claim-20260523-003
+  topic: PCB与ABF基板
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  source_date: '2026-05-23'
+  source_date: 2026-05-23
   source_type: 视频
-  extracted_at: '2026-05-23T12:21:17+08:00'
+  extracted_at: "2026-05-23T12:21:17+08:00"
   claim_type: sector-theme
   subject: PCB与ABF基板
   timeframe: trend
@@ -55,15 +72,23 @@
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/PCB与先进封装, 市场分析/AI上游涨价链]
+    wiki_pages:
+      - 市场分析/PCB与先进封装
+      - 市场分析/AI上游涨价链
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - PCB
+    - GPU
+    - AI
 - id: claim-20260523-004
+  topic: MLCC涨价链
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  source_date: '2026-05-23'
+  source_date: 2026-05-23
   source_type: 视频
-  extracted_at: '2026-05-23T12:21:17+08:00'
+  extracted_at: "2026-05-23T12:21:17+08:00"
   claim_type: sector-theme
   subject: MLCC涨价链
   timeframe: trend
@@ -75,15 +100,21 @@
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/AI上游涨价链]
+    wiki_pages:
+      - 市场分析/AI上游涨价链
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - AI
+    - 通胀
 - id: claim-20260523-005
+  topic: 电源液冷与HVDC
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  source_date: '2026-05-23'
+  source_date: 2026-05-23
   source_type: 视频
-  extracted_at: '2026-05-23T12:21:17+08:00'
+  extracted_at: "2026-05-23T12:21:17+08:00"
   claim_type: sector-theme
   subject: 电源液冷与HVDC
   timeframe: trend
@@ -95,15 +126,22 @@
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/AI电源与超级电容, 市场分析/AI上游涨价链]
+    wiki_pages:
+      - 市场分析/AI电源与超级电容
+      - 市场分析/AI上游涨价链
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - AI
+    - 电力
 - id: claim-20260523-006
+  topic: 半导体设备材料零部件
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  source_date: '2026-05-23'
+  source_date: 2026-05-23
   source_type: 视频
-  extracted_at: '2026-05-23T12:21:17+08:00'
+  extracted_at: "2026-05-23T12:21:17+08:00"
   claim_type: sector-theme
   subject: 半导体设备材料零部件
   timeframe: trend
@@ -115,15 +153,27 @@
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/半导体产业链, 市场分析/半导体设备, 市场分析/半导体设备零部件]
+    wiki_pages:
+      - 市场分析/半导体产业链
+      - 市场分析/半导体设备
+      - 市场分析/半导体设备零部件
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - 半导体
+    - 扩产
+    - 算力
+    - 放量
+    - 业绩
+    - AI
 - id: claim-20260523-007
+  topic: Micro LED光互联
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  source_date: '2026-05-23'
+  source_date: 2026-05-23
   source_type: 视频
-  extracted_at: '2026-05-23T12:21:17+08:00'
+  extracted_at: "2026-05-23T12:21:17+08:00"
   claim_type: sector-theme
   subject: Micro LED光互联
   timeframe: trend
@@ -135,37 +185,55 @@
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/玻璃基板与Micro-LED, 市场分析/光通信]
+    wiki_pages:
+      - 市场分析/玻璃基板与Micro-LED
+      - 市场分析/光通信
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - AI
+    - 算力
 - id: claim-20260523-008
+  topic: 茂莱光学被定位为精密光学平台型公司
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  source_date: '2026-05-23'
+  source_date: 2026-05-23
   source_type: 视频
-  extracted_at: '2026-05-23T12:21:17+08:00'
+  extracted_at: "2026-05-23T12:21:17+08:00"
   claim_type: stock-view
   subject: 茂莱光学
   timeframe: trend
   statement: 茂莱光学被定位为精密光学平台型公司，横跨光刻机光学、半导体检测和AI光互联，具备跨CPO、OCS、FSO、Micro LED等路线受益的底层能力，但涨幅已大，应长期跟踪而非盲目追高。
-  evidence_quote: 茂莱光学既不是传统意义上的光模块公司，也不是单纯半导体设备公司，而是一家以精密光学为底层能力，同时横跨半导体光刻、前道量检测和
-    AI 光互联的高端光学平台型公司。
+  evidence_quote: 茂莱光学既不是传统意义上的光模块公司，也不是单纯半导体设备公司，而是一家以精密光学为底层能力，同时横跨半导体光刻、前道量检测和 AI 光互联的高端光学平台型公司。
   interpretation: 茂莱光学的关键不是单一题材弹性，而是高精密光学能力在半导体和光互联之间迁移；交易上仍需尊重位置和估值风险。
   confidence: medium
   status: active
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/光通信, 市场分析/玻璃基板与Micro-LED, 市场分析/半导体设备零部件]
+    wiki_pages:
+      - 市场分析/光通信
+      - 市场分析/玻璃基板与Micro-LED
+      - 市场分析/半导体设备零部件
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [茂莱光学(688502)]
+  tags:
+    - 个股观点
+    - 茂莱光学
+    - CPO
+    - 半导体
+    - 追高
+    - AI
+  related_stocks:
+    - 茂莱光学(688502)
 - id: claim-20260523-009
+  topic: 光测试仪器铲子股
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  source_date: '2026-05-23'
+  source_date: 2026-05-23
   source_type: 视频
-  extracted_at: '2026-05-23T12:21:17+08:00'
+  extracted_at: "2026-05-23T12:21:17+08:00"
   claim_type: methodology
   subject: 光测试仪器铲子股
   timeframe: trend
@@ -177,7 +245,13 @@
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/光通信]
-    methodology_pages: [投资方法论/主线判断]
+    wiki_pages:
+      - 市场分析/光通信
+    methodology_pages:
+      - 投资方法论/主线判断
     cases: []
   intensity: high
+  tags:
+    - 光测试仪器铲子股
+    - 光模块
+    - 方法论

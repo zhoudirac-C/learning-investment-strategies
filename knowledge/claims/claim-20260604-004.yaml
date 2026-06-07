@@ -1,408 +1,456 @@
 claims:
-- id: claim-20260604-004-a
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: market-cycle
-  subject: 市场阶段判断——磨底期
-  timeframe: short-term
-  statement: 指数磨底期，4033生命线/4130满仓线。选股核心：找低位+一季报超预期（「炸裂」=Q1超预期→中报不差），UP推荐的方向内也要优先选低位+Q1好的。港股左侧建仓OK。非科技方向：燃气轮机(杰瑞股份/中国动力/万泽股份)、储能六氟(天赐材料/恩捷股份/鹏辉能源)、消费(罗莱生活/亚朵)、创新药(药明康德/百济神州/信达生物)、出海链(大金重工/银轮股份/涛涛车业)、商业航天(窗口期有限)。规避科技股+有色金属
-  evidence_quote: '我们最近指数我不会看往下跌太多了，基本上也就是一个磨底行情，那么磨底行情是非常难受的。 收盘价跌穿4033点清仓，向上突破4130点满仓，两点之间持股做T。
-
-    '
-  interpretation: '磨底期的核心判断：①4033是硬止损线（跌穿则开启下一波下跌）；②4130是加仓信号（突破则进入主升）； ③中间位置不操作、不看盘，避免被量化来回洗。UP明确表示不看向下跌太多（"毕竟还是牛市"），
-    但磨底期的煎熬是必须承受的。
-
-    '
-  confidence: high
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/投资方法论/博主方法论总纲.md
-    - knowledge/wiki/市场分析/指数分析.md
-    methodology_pages:
-    - framework/learning-update-protocol.md
-    cases: []
-  intensity: high
-- id: claim-20260604-004-b
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: sector-theme
-  subject: 科技股阶段性别规避
-  timeframe: short-term
-  statement: 6月至7月中上旬阶段性规避科技股（短期估值太高，国内半导体估值比外盘还贵），但长期看好半导体。UP明确非科技方向在磨底期更值得布局：燃气轮机、储能六氟、消费、创新药、出海链。极少数科技个股可能穿越但需概念好+业绩好双重条件
-  evidence_quote: '我半导体，我是长期看好的，但是短期太高了，我不看了。科技太高了，我短期不看。 外盘的科技股，哪怕长成这个样子，你从估值角度算的话，他们的整体的估值没有比我们贵。
-    从这个角度讲：如果外盘科技崩了，国内更扛不住——A股半导体估值比外盘还贵，外盘一崩国内好不到哪去。
-
-    '
-  interpretation: 'UP给出明确的阶段性科技规避信号，论据有二：①A股半导体估值甚至高于外盘世界级公司； ②外盘若崩，高估值的A股科技首当其冲。但这不是永久看空——"长期看好，短期不看"，
-    类比"科技该歇歇了，后面炒业绩的时候再表现"。极少数穿越标的需具备概念好+业绩好的双重条件。
-
-    '
-  confidence: high
-  status: active
-  supersedes: []
-  contradicts: ["claim-20260526-011"]
-  links:
-    wiki_pages:
-    - knowledge/wiki/市场分析/半导体产业链.md
-    - knowledge/wiki/投资方法论/主线判断.md
-    methodology_pages: []
-    cases: []
-  intensity: high
-- id: claim-20260604-004-c
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: market-cycle
-  subject: 风格切换——下一轮主升靠蓝筹
-  timeframe: trend
-  statement: 下一轮指数主升起（突破4130后），引领板块不是科技而是蓝筹股，科技该歇歇了，等炒业绩时再表现
-  evidence_quote: '后面如果指数要走强，那得靠什么？说白了，你靠的还是那些蓝筹股。 你不可能在这个节骨眼再指望科技跟着下一波走主升了，科技该歇歇了，歇到后面炒业绩的时候再表现就好了。
-
-    '
-  interpretation: 'UP预判风格切换路径：磨底→蓝筹拉升突破4130→科技调整休整→业绩期科技再表现。 蓝筹被"国家队卖得差不多了"是潜在利好。这与5/27-5/28提出的"AI主线远没结束、只是阶段切换"形成呼应——
-    但6/4更明确地指出切换方向是蓝筹而非AI新分支。
-
-    '
-  confidence: high
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/投资方法论/主线判断.md
-    - knowledge/wiki/投资方法论/风格切换.md
-    methodology_pages: []
-    cases: []
-  intensity: high
-  related_claims:
-  - claim-20260604-006-c
-- id: claim-20260604-004-d
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: methodology
-  subject: 磨底期选股方法论——低位+业绩+调整充分
-  timeframe: trend
-  statement: 磨底期核心选股法：找从5月初一路下跌、在6月2日低点企稳、有业绩支撑的低位标的；打开一季报看毛利/净利/收入；强势科技股做20日线/七轨布林线二轨接，跌破就走
-  evidence_quote: '磨底期你就选那种从5月开头就一路下跌，并且在6月2号那个低点接住的那些票。 二轨接一波跌穿二轨，你直接走就行了。 你去找那种相对低位的，你就拿住就好了。不要瞎操作。
-
-    '
-  interpretation: '两个层次的操作方法：①非科技方向（低位有业绩）：找5月初至今一路下跌+6/2低点企稳的标的， 拿住不动。②科技方向（有利润垫的人）：用七轨布林线二轨（MID+1×DEV）做强势股回调介入，
-    接不住立即清仓。UP强调"没利润垫的人不要碰科技"。
-
-    '
-  confidence: high
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/投资方法论/仓位管理.md
-    - methodology/technical-analysis.md
-    methodology_pages: []
-    cases: []
-  intensity: high
-- id: claim-20260604-004-e
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: sector-theme
-  subject: 磨底期非科技方向——储能/六氟磷酸锂
-  timeframe: trend
-  statement: 储能方向值得关注，六氟磷酸锂比锂矿更值得做；VC（碳酸亚乙烯酯）涨价逻辑持续，储能用量是动力电池3-5倍。核心标的：天赐材料(002709,六氟龙头)、恩捷股份(002812,隔膜紧缺)、鹏辉能源(300438,户储电芯)、阳光电源(300274,AIDC储能)、宁德时代(300750)、亿纬锂能(300014)、华友钴业(603799,津巴布韦锂矿)、盐湖股份(000792)、富临精工(300432,铁锂)、石大胜华(603026,电解液)、华盛锂电(VC挺价)
-  evidence_quote: '储能这边，锂矿不如去做六氟磷酸锂的一些东西。储能所围绕的锂框架，我在之前的视频应该也跟各位讲过储能。
-
-    '
-  interpretation: 'UP看好储能方向但给出细分优先级：六氟磷酸锂/电解液 > 锂矿。 逻辑：储能装机爆发（2030年2000GWh，4倍空间）带动六氟/VC需求，电解液环节涨价持续性强于上游锂矿。
-    之前视频（3/31"顺势而为"）详细讲过VC从4.5万涨到30万（六倍）。
-
-    '
-  confidence: high
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/市场分析/新能源.md
-    methodology_pages: []
-    cases: []
-    related_stocks:
-    - 天赐材料(002709)
-    - 华盛锂电
-    - 石大胜华(603026)
-  intensity: high
-  related_claims:
-  - claim-20260604-006-a
-- id: claim-20260604-004-f
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: sector-theme
-  subject: 磨底期非科技方向——燃气轮机（类比上一轮锂电池）
-  timeframe: industry
-  statement: 燃气轮机是经历过回调、有业绩支撑、确定性高的方向，UP类比上一轮牛市的锂电池。核心标的：杰瑞股份(002353,燃机交付Q1超1亿美元)、中国动力(600482,703燃机出海)、万泽股份(000534,涡轮叶片)、银轮股份(002126,卡特燃气发电机后处理)、联德股份(605060,燃机板块增速50%+)
-  evidence_quote: '包括像我们之前一直说的燃气轮机什么的，这东西今天不都表现很好吗？ 这些只要是有业绩的，没有什么太大问题的，经历过一波回调的，后面都要起来。
-
-    '
-  interpretation: '燃气轮机是UP长期跟踪的核心方向（类比上一轮牛市的锂电池）， 6/4当天表现验证逻辑未破。适合在磨底期布局而非追高。 核心标的：杰瑞股份(002353)、中国动力(600482)、万泽股份(000534)。
-
-    '
-  confidence: high
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/市场分析/能源与电力.md
-    methodology_pages: []
-    cases: []
-    related_stocks:
-    - 杰瑞股份(002353)
-    - 中国动力(600482)
-    - 万泽股份(000534)
-  intensity: high
-- id: claim-20260604-004-g
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: sector-theme
-  subject: 磨底期非科技方向——消费（罗莱生活/亚朵等）
-  timeframe: trend
-  statement: 消费里面要看业绩打开F10筛选，有些消费业绩会很好。明确提到罗莱生活(002293,睡眠科技/家纺,"卖枕头的")、亚朵(ATAT,Q1线上+41%)。其他消费传媒标的：分众传媒(002027,分红比例≥80%)、中粮科技(000930,阿洛酮糖许可)、H&H国际控股(01112.HK,合生元+Swisse)、中文在线(300364)、三七互娱(002555)、奥飞娱乐(002292)
-  evidence_quote: '消费里面你要去看，有些消费他们的业绩会很好，有些消费不太行。 像我在视频里面上周末给你们讲的视频里面那个那家卖枕头的还可以，就这种卖枕头就还行，它整个业绩都还行。
-
-    '
-  interpretation: 'UP推荐消费板块但强调必须筛选：看F10确认毛利/净利/收入。明确点出罗莱生活（002293，睡眠科技/家纺） 是"卖枕头的"且有业绩支撑。亚朵（ATAT，Q1线上+41%）也属于消费中业绩好的方向。
-    方法：打开20日跌幅榜找跌20-30%、一季报业绩好的消费标的。
-
-    '
-  confidence: high
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/市场分析/消费.md
-    methodology_pages: []
-    cases: []
-    related_stocks:
-    - 罗莱生活(002293)
-    - 亚朵(ATAT)
-  intensity: high
-  related_claims:
-  - claim-20260604-006-b
-- id: claim-20260604-004-h
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: sector-theme
-  subject: 磨底期非科技方向——创新药（防御配置）
-  timeframe: trend
-  statement: 创新药整体回调幅度不大（还差一半才跌到3/23低点），防御属性在磨底期体现。药明康德(603259)从924翻3倍且跌不下来。核心标的：百济神州(688235/06160.HK)、百利天恒(688506)、信达生物(01801.HK,与礼来88亿美元合作)、恒瑞医药(600276)、翰森制药(03692.HK)、科伦博泰(06990.HK)、康方生物(09926.HK)。注意：不要期望跟科技股一样涨，风格不同
-  evidence_quote: '药明康德从924到现在已经翻了3倍了，跌不下来已经非常牛了。 创新药我觉得这一波它整个回调幅度并不大，有很多他都已经跌穿了3月23号那一个低点了，这创新药这还差一半才跌到。
-
-    '
-  interpretation: '创新药的防御属性在磨底期体现：回调幅度远小于科技，部分龙头（药明康德）翻倍后仍稳在高位。 但UP明确不要期望"跟科技股一样涨"——风格不同，适合作为防御配置而非进攻方向。
-
-    '
-  confidence: high
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/市场分析/医药.md
-    methodology_pages: []
-    cases: []
-    related_stocks:
-    - 药明康德(603259)
-    - 百济神州(688235)
-    - 信达生物(01801.HK)
-  intensity: high
-- id: claim-20260604-004-i
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: operation
-  subject: 磨底期交易纪律
-  timeframe: short-term
-  statement: 磨底期不追高（量化会搞事情），周四周五亏钱概率大，没利润垫不要碰科技，有能力的做套利必须当天强势第二天就走；找低位安全的拿住不要瞎操作
-  evidence_quote: '磨底期量化会出来搞事情的，所以你们就不要乱做。 你把你的账户打开，你算一下，每个月你自己去看一下，周四周五肯定亏钱的概率是很大的。
-    你没有建仓的不要去建仓，你现在再去建仓，盈亏比太差了。
-
-    '
-  interpretation: '四条操作纪律：①磨底期量化活跃，追高容易被收割；②历史数据验证周四周五亏损概率大； ③科技盈亏比差，无利润垫者禁入；④20cm套利只做第一天，第二天就是接飞刀。
-    总体取向：降低操作频率，拿住低位票。
-
-    '
-  confidence: high
-  status: active
-  supersedes: ["claim-20260426-001"]
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/投资方法论/交易纪律.md
-    methodology_pages: []
-    cases: []
-  intensity: high
-- id: claim-20260604-004-j
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: sector-theme
-  subject: 磨底期非科技方向——出海链
-  timeframe: industry
-  statement: 出海链是值得关注的方向，已在2025年12月29日跨年视频详细讲解。核心标的：大金重工(002487,风电出海+欧洲港口全链条)、银轮股份(002126,卡特冷却+液冷进北美)、涛涛车业(301345,美国球车+机器狗B2B)、旭升集团(603305,Lucid
-    78亿定点+墨西哥扩产)
-  evidence_quote: '出海链应该在2025年12月29这个里面说过，你们可以去看一下这个跨年的视频。
-
-    '
-  interpretation: 'UP确认出海链作为非科技方向之一，但核心逻辑已在之前视频中讲透， 本次只是重申。对应标的：大金重工(002487，风电出海)、银轮股份(002126，卡特冷却)、
-    涛涛车业(301345，美国球车)、旭升集团(603305，Lucid定点)。
-
-    '
-  confidence: medium
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/市场分析/出海链.md
-    methodology_pages: []
-    cases: []
-    related_stocks:
-    - 大金重工(002487)
-    - 银轮股份(002126)
-    - 涛涛车业(301345)
-    - 旭升集团(603305)
-  intensity: high
-- id: claim-20260604-004-k
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: risk
-  subject: 磨底期规避方向——有色金属（黄金看空）
-  timeframe: short-term
-  statement: 有色不要碰，黄金先看空，黄金看空的情况下有色无法做
-  evidence_quote: '有色这边就不要先碰了。有色这边因为黄金，我目前还是黄金先看空，黄金看空的情况下，你有色没办法做。
-
-    '
-  interpretation: 'UP明确规避有色方向，核心锚点是黄金看空。 逻辑链：黄金下跌→有色整体承压→即使有个别强势品种也难以在逆势中操作。 这是该视频唯一明确说"不要碰"的方向。
-
-    '
-  confidence: high
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages: []
-    methodology_pages: []
-    cases: []
-  intensity: high
-- id: claim-20260604-004-l
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: sector-theme
-  subject: 磨底期非科技方向——商业航天（短期催化/窗口期有限）
-  timeframe: short-term
-  statement: 商业航天最近有催化但偏消息驱动，炒也就最近一个半月能炒完，错过窗口就炒不了。核心标的：航天动力(600343,火箭)、碳纤维五虎（和顺科技301237/吉林化纤000420/光威复材300699/中复神鹰688295/精工科技002006）、臻镭科技(688270,卫星芯片)、铖昌科技(001270,相控阵T/R)、国博电子(688375)、烽火通信(600498,星间激光)、盛邦安全(688651,卫星安全)
-  evidence_quote: '商业航天最近也要催化，但是太偏消息了。其实说白了，商业航天它跟AI应用其实差不多的， 就整个时间窗口，你要炒也就最近这一这一个月一个半月能炒完，你错过这个时间窗口又炒不了了。
-
-    '
-  interpretation: '商业航天有短期催化但UP态度偏谨慎：①偏消息驱动而非基本面；②窗口期仅1-1.5个月； ③与AI应用类似，错过时间窗口就结束。适合有短线能力的投资者，不适合重仓布局。
-    核心标的：碳纤维五虎、航天动力等。
-
-    '
-  confidence: medium
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/市场分析/商业航天.md
-    methodology_pages: []
-    cases: []
-    related_stocks:
-    - 航天动力(600343)
-    - 臻镭科技(688270)
-    - 烽火通信(600498)
-  intensity: high
-- id: claim-20260604-004-m
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: operation
-  subject: 机构推荐的获取方式——整理UP动态中带图片的早盘
-  timeframe: trend
-  statement: UP的机构动态都发在早盘图片里，从5月27号往前面翻到1月份，把带图片动态中的股票整理出来，能找到中报好的标的
-  evidence_quote: '你们就做好整理，如果有一些业绩披露，业绩有预期的，我觉得都是可以做的。 你们去翻翻，往前面翻翻到1月份，把4个月的东西整理出来，你一定能找到中报好的东西。
-
-    '
-  interpretation: 'UP给出信息获取路径：机构推荐的股票已通过图片形式发在动态/早盘中， 并已整理到sources/raw/财经/研报：*.md系列。当前文档第十一章已汇总1-5月非科技方向机构推荐股票，
-    覆盖10个方向约80个标的（储能/风电/燃气轮机/消费/创新药/出海链/蓝筹/商业航天/新能源装备/航运）。 投资者应交叉验证一季报和中报预期。示例：盛德鑫泰(300881)就是通过这种方式发过的。
-
-    '
-  confidence: high
-  status: active
-  supersedes: []
-  contradicts: []
-  links:
-    wiki_pages:
-    - sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md#十一
-    methodology_pages: []
-    cases: []
-    related_stocks:
-    - 杰瑞股份(002353)
-    - 大金重工(002487)
-    - 天赐材料(002709)
-    - 罗莱生活(002293)
-    - 药明康德(603259)
-    - 银轮股份(002126)
-    - 涛涛车业(301345)
-    - 盛德鑫泰(300881)
-  intensity: high
-- id: claim-20260604-004-n
-  source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
-  source_date: '2026-06-04'
-  source_type: 充电视频
-  extracted_at: '2026-06-06'
-  claim_type: sector-theme
-  subject: 磨底期非科技方向——港股左侧建仓
-  timeframe: trend
-  statement: 港股已到可以左侧建仓的阶段，UP明确表示"港股现在我觉得OK了，没有什么问题，你左侧开始建仓也没有什么问题"。港股机会很多，与科技短期规避形成对比，是磨底期非科技布局的重要方向之一。需注意：港股整体估值低于A股科技，左侧建仓意味着可能还要忍受浮亏，但当前位置已有配置价值。
-  evidence_quote: '港股现在我觉得OK了，没有什么问题，你左侧开始建仓也没有什么问题， 所以交易的方向，交易的机会太多了，好吧，到处都是交易的机会，交易的方向。
-
-    '
-  interpretation: 'UP在视频结尾附近做出总括性判断：①科技短期太高不看；②港股左侧建仓OK。 这是明确的非科技方向补充——港股整体估值低于A股科技，在磨底期有左侧配置价值。
-    需注意这是方向性判断而非具体标的推荐，UP近期早盘/动态中提及的港股标的 （如H&H国际控股(01112.HK)、阅文集团(00772.HK)、瑞浦兰钧(00666.HK)等）可作为参考。
-
-    '
-  confidence: high
-  status: active
-  supersedes: ["claim-20260526-011"]
-  contradicts: []
-  links:
-    wiki_pages:
-    - knowledge/wiki/市场分析/港股.md
-    methodology_pages: []
-    cases: []
-  intensity: high
+  - id: claim-20260604-004-a
+    topic: 市场阶段判断——磨底期
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: market-cycle
+    subject: 市场阶段判断——磨底期
+    timeframe: short-term
+    statement: 指数磨底期，4033生命线/4130满仓线。选股核心：找低位+一季报超预期（「炸裂」=Q1超预期→中报不差），UP推荐的方向内也要优先选低位+Q1好的。港股左侧建仓OK。非科技方向：燃气轮机(杰瑞股份/中国动力/万泽股份)、储能六氟(天赐材料/恩捷股份/鹏辉能源)、消费(罗莱生活/亚朵)、创新药(药明康德/百济神州/信达生物)、出海链(大金重工/银轮股份/涛涛车业)、商业航天(窗口期有限)。规避科技股+有色金属
+    evidence_quote: |
+      我们最近指数我不会看往下跌太多了，基本上也就是一个磨底行情，那么磨底行情是非常难受的。 收盘价跌穿4033点清仓，向上突破4130点满仓，两点之间持股做T。
+    interpretation: |
+      磨底期的核心判断：①4033是硬止损线（跌穿则开启下一波下跌）；②4130是加仓信号（突破则进入主升）； ③中间位置不操作、不看盘，避免被量化来回洗。UP明确表示不看向下跌太多（"毕竟还是牛市"）， 但磨底期的煎熬是必须承受的。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages:
+        - knowledge/wiki/投资方法论/博主方法论总纲.md
+        - knowledge/wiki/市场分析/指数分析.md
+      methodology_pages:
+        - framework/learning-update-protocol.md
+      cases: []
+    intensity: high
+    tags:
+      - 市场周期
+      - 商业航天
+      - 燃气轮机
+      - 创新药
+      - 储能
+      - 有色
+  - id: claim-20260604-004-b
+    topic: 科技股阶段性别规避
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: sector-theme
+    subject: 科技股阶段性别规避
+    timeframe: short-term
+    statement: 6月至7月中上旬阶段性规避科技股（短期估值太高，国内半导体估值比外盘还贵），但长期看好半导体。UP明确非科技方向在磨底期更值得布局：燃气轮机、储能六氟、消费、创新药、出海链。极少数科技个股可能穿越但需概念好+业绩好双重条件
+    evidence_quote: |
+      我半导体，我是长期看好的，但是短期太高了，我不看了。科技太高了，我短期不看。 外盘的科技股，哪怕长成这个样子，你从估值角度算的话，他们的整体的估值没有比我们贵。 从这个角度讲：如果外盘科技崩了，国内更扛不住——A股半导体估值比外盘还贵，外盘一崩国内好不到哪去。
+    interpretation: |
+      UP给出明确的阶段性科技规避信号，论据有二：①A股半导体估值甚至高于外盘世界级公司； ②外盘若崩，高估值的A股科技首当其冲。但这不是永久看空——"长期看好，短期不看"， 类比"科技该歇歇了，后面炒业绩的时候再表现"。极少数穿越标的需具备概念好+业绩好的双重条件。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts:
+      - claim-20260526-011
+    links:
+      wiki_pages:
+        - knowledge/wiki/市场分析/半导体产业链.md
+        - knowledge/wiki/投资方法论/主线判断.md
+      methodology_pages: []
+      cases: []
+    intensity: high
+    tags:
+      - 燃气轮机
+      - 板块主题
+      - 创新药
+      - 半导体
+      - 储能
+      - 估值
+      - 业绩
+      - 消费
+  - id: claim-20260604-004-c
+    topic: 风格切换——下一轮主升靠蓝筹
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: market-cycle
+    subject: 风格切换——下一轮主升靠蓝筹
+    timeframe: trend
+    statement: 下一轮指数主升起（突破4130后），引领板块不是科技而是蓝筹股，科技该歇歇了，等炒业绩时再表现
+    evidence_quote: |
+      后面如果指数要走强，那得靠什么？说白了，你靠的还是那些蓝筹股。 你不可能在这个节骨眼再指望科技跟着下一波走主升了，科技该歇歇了，歇到后面炒业绩的时候再表现就好了。
+    interpretation: |
+      UP预判风格切换路径：磨底→蓝筹拉升突破4130→科技调整休整→业绩期科技再表现。 蓝筹被"国家队卖得差不多了"是潜在利好。这与5/27-5/28提出的"AI主线远没结束、只是阶段切换"形成呼应—— 但6/4更明确地指出切换方向是蓝筹而非AI新分支。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages:
+        - knowledge/wiki/投资方法论/主线判断.md
+        - knowledge/wiki/投资方法论/风格切换.md
+      methodology_pages: []
+      cases: []
+    intensity: high
+    tags:
+      - 风格切换——
+      - 市场周期
+      - 业绩
+    related_claims:
+      - claim-20260604-006-c
+  - id: claim-20260604-004-d
+    topic: 磨底期选股方法论——低位+业绩+调整充分
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: methodology
+    subject: 磨底期选股方法论——低位+业绩+调整充分
+    timeframe: trend
+    statement: 磨底期核心选股法：找从5月初一路下跌、在6月2日低点企稳、有业绩支撑的低位标的；打开一季报看毛利/净利/收入；强势科技股做20日线/七轨布林线二轨接，跌破就走
+    evidence_quote: |
+      磨底期你就选那种从5月开头就一路下跌，并且在6月2号那个低点接住的那些票。 二轨接一波跌穿二轨，你直接走就行了。 你去找那种相对低位的，你就拿住就好了。不要瞎操作。
+    interpretation: |
+      两个层次的操作方法：①非科技方向（低位有业绩）：找5月初至今一路下跌+6/2低点企稳的标的， 拿住不动。②科技方向（有利润垫的人）：用七轨布林线二轨（MID+1×DEV）做强势股回调介入， 接不住立即清仓。UP强调"没利润垫的人不要碰科技"。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages:
+        - knowledge/wiki/投资方法论/仓位管理.md
+        - methodology/technical-analysis.md
+      methodology_pages: []
+      cases: []
+    intensity: high
+    tags:
+      - 方法论
+      - 业绩
+      - 日线
+  - id: claim-20260604-004-e
+    topic: 磨底期非科技方向——储能/六氟磷酸锂
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: sector-theme
+    subject: 磨底期非科技方向——储能/六氟磷酸锂
+    timeframe: trend
+    statement: 储能方向值得关注，六氟磷酸锂比锂矿更值得做；VC（碳酸亚乙烯酯）涨价逻辑持续，储能用量是动力电池3-5倍。核心标的：天赐材料(002709,六氟龙头)、恩捷股份(002812,隔膜紧缺)、鹏辉能源(300438,户储电芯)、阳光电源(300274,AIDC储能)、宁德时代(300750)、亿纬锂能(300014)、华友钴业(603799,津巴布韦锂矿)、盐湖股份(000792)、富临精工(300432,铁锂)、石大胜华(603026,电解液)、华盛锂电(VC挺价)
+    evidence_quote: |
+      储能这边，锂矿不如去做六氟磷酸锂的一些东西。储能所围绕的锂框架，我在之前的视频应该也跟各位讲过储能。
+    interpretation: |
+      UP看好储能方向但给出细分优先级：六氟磷酸锂/电解液 > 锂矿。 逻辑：储能装机爆发（2030年2000GWh，4倍空间）带动六氟/VC需求，电解液环节涨价持续性强于上游锂矿。 之前视频（3/31"顺势而为"）详细讲过VC从4.5万涨到30万（六倍）。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages:
+        - knowledge/wiki/市场分析/新能源.md
+      methodology_pages: []
+      cases: []
+      related_stocks:
+        - 天赐材料(002709)
+        - 华盛锂电
+        - 石大胜华(603026)
+    intensity: high
+    tags:
+      - 板块主题
+      - 储能
+      - 龙头
+      - AI
+      - 涨价
+    related_claims:
+      - claim-20260604-006-a
+  - id: claim-20260604-004-f
+    topic: 燃气轮机是经历过回调、有业绩支撑、确定性
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: sector-theme
+    subject: 磨底期非科技方向——燃气轮机（类比上一轮锂电池）
+    timeframe: industry
+    statement: 燃气轮机是经历过回调、有业绩支撑、确定性高的方向，UP类比上一轮牛市的锂电池。核心标的：杰瑞股份(002353,燃机交付Q1超1亿美元)、中国动力(600482,703燃机出海)、万泽股份(000534,涡轮叶片)、银轮股份(002126,卡特燃气发电机后处理)、联德股份(605060,燃机板块增速50%+)
+    evidence_quote: |
+      包括像我们之前一直说的燃气轮机什么的，这东西今天不都表现很好吗？ 这些只要是有业绩的，没有什么太大问题的，经历过一波回调的，后面都要起来。
+    interpretation: |
+      燃气轮机是UP长期跟踪的核心方向（类比上一轮牛市的锂电池）， 6/4当天表现验证逻辑未破。适合在磨底期布局而非追高。 核心标的：杰瑞股份(002353)、中国动力(600482)、万泽股份(000534)。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages:
+        - knowledge/wiki/市场分析/能源与电力.md
+      methodology_pages: []
+      cases: []
+      related_stocks:
+        - 杰瑞股份(002353)
+        - 中国动力(600482)
+        - 万泽股份(000534)
+    intensity: high
+    tags:
+      - 燃气轮机
+      - 板块主题
+      - 锂电池
+      - 回调
+      - 业绩
+      - 美元
+  - id: claim-20260604-004-g
+    topic: 消费里面要看业绩打开F10筛选
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: sector-theme
+    subject: 磨底期非科技方向——消费（罗莱生活/亚朵等）
+    timeframe: trend
+    statement: 消费里面要看业绩打开F10筛选，有些消费业绩会很好。明确提到罗莱生活(002293,睡眠科技/家纺,"卖枕头的")、亚朵(ATAT,Q1线上+41%)。其他消费传媒标的：分众传媒(002027,分红比例≥80%)、中粮科技(000930,阿洛酮糖许可)、H&H国际控股(01112.HK,合生元+Swisse)、中文在线(300364)、三七互娱(002555)、奥飞娱乐(002292)
+    evidence_quote: |
+      消费里面你要去看，有些消费他们的业绩会很好，有些消费不太行。 像我在视频里面上周末给你们讲的视频里面那个那家卖枕头的还可以，就这种卖枕头就还行，它整个业绩都还行。
+    interpretation: |
+      UP推荐消费板块但强调必须筛选：看F10确认毛利/净利/收入。明确点出罗莱生活（002293，睡眠科技/家纺） 是"卖枕头的"且有业绩支撑。亚朵（ATAT，Q1线上+41%）也属于消费中业绩好的方向。 方法：打开20日跌幅榜找跌20-30%、一季报业绩好的消费标的。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages:
+        - knowledge/wiki/市场分析/消费.md
+      methodology_pages: []
+      cases: []
+      related_stocks:
+        - 罗莱生活(002293)
+        - 亚朵(ATAT)
+    intensity: high
+    tags:
+      - 板块主题
+      - 消费
+      - 传媒
+      - 业绩
+    related_claims:
+      - claim-20260604-006-b
+  - id: claim-20260604-004-h
+    topic: 磨底期非科技方向——创新药（防御配置）
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: sector-theme
+    subject: 磨底期非科技方向——创新药（防御配置）
+    timeframe: trend
+    statement: 创新药整体回调幅度不大（还差一半才跌到3/23低点），防御属性在磨底期体现。药明康德(603259)从924翻3倍且跌不下来。核心标的：百济神州(688235/06160.HK)、百利天恒(688506)、信达生物(01801.HK,与礼来88亿美元合作)、恒瑞医药(600276)、翰森制药(03692.HK)、科伦博泰(06990.HK)、康方生物(09926.HK)。注意：不要期望跟科技股一样涨，风格不同
+    evidence_quote: |
+      药明康德从924到现在已经翻了3倍了，跌不下来已经非常牛了。 创新药我觉得这一波它整个回调幅度并不大，有很多他都已经跌穿了3月23号那一个低点了，这创新药这还差一半才跌到。
+    interpretation: |
+      创新药的防御属性在磨底期体现：回调幅度远小于科技，部分龙头（药明康德）翻倍后仍稳在高位。 但UP明确不要期望"跟科技股一样涨"——风格不同，适合作为防御配置而非进攻方向。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages:
+        - knowledge/wiki/市场分析/医药.md
+      methodology_pages: []
+      cases: []
+      related_stocks:
+        - 药明康德(603259)
+        - 百济神州(688235)
+        - 信达生物(01801.HK)
+    intensity: high
+    tags:
+      - 板块主题
+      - 创新药
+      - 回调
+      - 防御
+      - 美元
+  - id: claim-20260604-004-i
+    topic: 磨底期交易纪律
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: operation
+    subject: 磨底期交易纪律
+    timeframe: short-term
+    statement: 磨底期不追高（量化会搞事情），周四周五亏钱概率大，没利润垫不要碰科技，有能力的做套利必须当天强势第二天就走；找低位安全的拿住不要瞎操作
+    evidence_quote: |
+      磨底期量化会出来搞事情的，所以你们就不要乱做。 你把你的账户打开，你算一下，每个月你自己去看一下，周四周五肯定亏钱的概率是很大的。 你没有建仓的不要去建仓，你现在再去建仓，盈亏比太差了。
+    interpretation: |
+      四条操作纪律：①磨底期量化活跃，追高容易被收割；②历史数据验证周四周五亏损概率大； ③科技盈亏比差，无利润垫者禁入；④20cm套利只做第一天，第二天就是接飞刀。 总体取向：降低操作频率，拿住低位票。
+    confidence: high
+    status: active
+    supersedes:
+      - claim-20260426-001
+    contradicts: []
+    links:
+      wiki_pages:
+        - knowledge/wiki/投资方法论/交易纪律.md
+      methodology_pages: []
+      cases: []
+    intensity: high
+    tags:
+      - 磨底期交易纪律
+      - 操作策略
+      - 追高
+  - id: claim-20260604-004-j
+    topic: 磨底期非科技方向——出海链
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: sector-theme
+    subject: 磨底期非科技方向——出海链
+    timeframe: industry
+    statement: 出海链是值得关注的方向，已在2025年12月29日跨年视频详细讲解。核心标的：大金重工(002487,风电出海+欧洲港口全链条)、银轮股份(002126,卡特冷却+液冷进北美)、涛涛车业(301345,美国球车+机器狗B2B)、旭升集团(603305,Lucid 78亿定点+墨西哥扩产)
+    evidence_quote: |
+      出海链应该在2025年12月29这个里面说过，你们可以去看一下这个跨年的视频。
+    interpretation: |
+      UP确认出海链作为非科技方向之一，但核心逻辑已在之前视频中讲透， 本次只是重申。对应标的：大金重工(002487，风电出海)、银轮股份(002126，卡特冷却)、 涛涛车业(301345，美国球车)、旭升集团(603305，Lucid定点)。
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages:
+        - knowledge/wiki/市场分析/出海链.md
+      methodology_pages: []
+      cases: []
+      related_stocks:
+        - 大金重工(002487)
+        - 银轮股份(002126)
+        - 涛涛车业(301345)
+        - 旭升集团(603305)
+    intensity: high
+    tags:
+      - 板块主题
+      - 扩产
+      - 风电
+  - id: claim-20260604-004-k
+    topic: 磨底期规避方向——有色金属（黄金看空）
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: risk
+    subject: 磨底期规避方向——有色金属（黄金看空）
+    timeframe: short-term
+    statement: 有色不要碰，黄金先看空，黄金看空的情况下有色无法做
+    evidence_quote: |
+      有色这边就不要先碰了。有色这边因为黄金，我目前还是黄金先看空，黄金看空的情况下，你有色没办法做。
+    interpretation: |
+      UP明确规避有色方向，核心锚点是黄金看空。 逻辑链：黄金下跌→有色整体承压→即使有个别强势品种也难以在逆势中操作。 这是该视频唯一明确说"不要碰"的方向。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages: []
+      methodology_pages: []
+      cases: []
+    intensity: high
+    tags:
+      - 磨底期规避方
+      - 黄金
+      - 有色
+  - id: claim-20260604-004-l
+    topic: 商业航天最近有催化但偏消息驱动
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: sector-theme
+    subject: 磨底期非科技方向——商业航天（短期催化/窗口期有限）
+    timeframe: short-term
+    statement: 商业航天最近有催化但偏消息驱动，炒也就最近一个半月能炒完，错过窗口就炒不了。核心标的：航天动力(600343,火箭)、碳纤维五虎（和顺科技301237/吉林化纤000420/光威复材300699/中复神鹰688295/精工科技002006）、臻镭科技(688270,卫星芯片)、铖昌科技(001270,相控阵T/R)、国博电子(688375)、烽火通信(600498,星间激光)、盛邦安全(688651,卫星安全)
+    evidence_quote: |
+      商业航天最近也要催化，但是太偏消息了。其实说白了，商业航天它跟AI应用其实差不多的， 就整个时间窗口，你要炒也就最近这一这一个月一个半月能炒完，你错过这个时间窗口又炒不了了。
+    interpretation: |
+      商业航天有短期催化但UP态度偏谨慎：①偏消息驱动而非基本面；②窗口期仅1-1.5个月； ③与AI应用类似，错过时间窗口就结束。适合有短线能力的投资者，不适合重仓布局。 核心标的：碳纤维五虎、航天动力等。
+    confidence: medium
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages:
+        - knowledge/wiki/市场分析/商业航天.md
+      methodology_pages: []
+      cases: []
+      related_stocks:
+        - 航天动力(600343)
+        - 臻镭科技(688270)
+        - 烽火通信(600498)
+    intensity: high
+    tags:
+      - 板块主题
+      - 商业航天
+      - 卫星
+      - 催化
+  - id: claim-20260604-004-m
+    topic: UP的机构动态都发在早盘图片里
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: operation
+    subject: 机构推荐的获取方式——整理UP动态中带图片的早盘
+    timeframe: trend
+    statement: UP的机构动态都发在早盘图片里，从5月27号往前面翻到1月份，把带图片动态中的股票整理出来，能找到中报好的标的
+    evidence_quote: |
+      你们就做好整理，如果有一些业绩披露，业绩有预期的，我觉得都是可以做的。 你们去翻翻，往前面翻翻到1月份，把4个月的东西整理出来，你一定能找到中报好的东西。
+    interpretation: |
+      UP给出信息获取路径：机构推荐的股票已通过图片形式发在动态/早盘中， 并已整理到sources/raw/财经/研报：*.md系列。当前文档第十一章已汇总1-5月非科技方向机构推荐股票， 覆盖10个方向约80个标的（储能/风电/燃气轮机/消费/创新药/出海链/蓝筹/商业航天/新能源装备/航运）。 投资者应交叉验证一季报和中报预期。示例：盛德鑫泰(300881)就是通过这种方式发过的。
+    confidence: high
+    status: active
+    supersedes: []
+    contradicts: []
+    links:
+      wiki_pages:
+        - sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md#十一
+      methodology_pages: []
+      cases: []
+      related_stocks:
+        - 杰瑞股份(002353)
+        - 大金重工(002487)
+        - 天赐材料(002709)
+        - 罗莱生活(002293)
+        - 药明康德(603259)
+        - 银轮股份(002126)
+        - 涛涛车业(301345)
+        - 盛德鑫泰(300881)
+    intensity: high
+    tags:
+      - 机构推荐的获
+      - 操作策略
+  - id: claim-20260604-004-n
+    topic: 磨底期非科技方向——港股左侧建仓
+    source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
+    source_date: 2026-06-04
+    source_type: 充电视频
+    extracted_at: 2026-06-06
+    claim_type: sector-theme
+    subject: 磨底期非科技方向——港股左侧建仓
+    timeframe: trend
+    statement: 港股已到可以左侧建仓的阶段，UP明确表示"港股现在我觉得OK了，没有什么问题，你左侧开始建仓也没有什么问题"。港股机会很多，与科技短期规避形成对比，是磨底期非科技布局的重要方向之一。需注意：港股整体估值低于A股科技，左侧建仓意味着可能还要忍受浮亏，但当前位置已有配置价值。
+    evidence_quote: |
+      港股现在我觉得OK了，没有什么问题，你左侧开始建仓也没有什么问题， 所以交易的方向，交易的机会太多了，好吧，到处都是交易的机会，交易的方向。
+    interpretation: |
+      UP在视频结尾附近做出总括性判断：①科技短期太高不看；②港股左侧建仓OK。 这是明确的非科技方向补充——港股整体估值低于A股科技，在磨底期有左侧配置价值。 需注意这是方向性判断而非具体标的推荐，UP近期早盘/动态中提及的港股标的 （如H&H国际控股(01112.HK)、阅文集团(00772.HK)、瑞浦兰钧(00666.HK)等）可作为参考。
+    confidence: high
+    status: active
+    supersedes:
+      - claim-20260526-011
+    contradicts: []
+    links:
+      wiki_pages:
+        - knowledge/wiki/市场分析/港股.md
+      methodology_pages: []
+      cases: []
+    intensity: high
+    tags:
+      - 板块主题
+      - 港股
+      - A股
+      - 估值

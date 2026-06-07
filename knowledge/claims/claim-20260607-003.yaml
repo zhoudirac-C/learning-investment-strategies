@@ -1,3 +1,4 @@
+claims:
 - id: claim-20260607-003-a
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   source_date: '2026-06-07'
@@ -12,13 +13,20 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260530-001-d"]
+  contradicts:
+  - claim-20260530-001-d
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
-
+  topic: 美股暴跌本质——博通预期差引发的情绪冲击
+  tags:
+  - AI
+  - 周期判断
+  - 情绪
+  - 支撑
+  - 芯片
 - id: claim-20260607-003-b
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   source_date: '2026-06-07'
@@ -39,7 +47,9 @@
     methodology_pages: []
     cases: []
   intensity: high
-
+  topic: 当前市场阶段——正在挖黄金坑，尚未到底
+  tags:
+  - 周期判断
 - id: claim-20260607-003-c
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   source_date: '2026-06-07'
@@ -53,14 +63,21 @@
   interpretation: 科技股补跌是系统性的，不要有侥幸心理。利通电子（本轮领涨龙头）先跌是明确的撤退信号。
   confidence: high
   status: active
-  supersedes: ["claim-20260604-004-b"]
-  contradicts: ["claim-20260529-002-b", "claim-20260601-004-b"]
+  supersedes:
+  - claim-20260604-004-b
+  contradicts:
+  - claim-20260529-002-b
+  - claim-20260601-004-b
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
-
+  topic: 所有从3月23日以来一路上涨未调整的品种
+  tags:
+  - AI
+  - 军工
+  - 操作策略
 - id: claim-20260607-003-d
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   source_date: '2026-06-07'
@@ -74,14 +91,23 @@
   interpretation: 方向明确切换：科技规避→机器人+商业航天进攻+蓝筹防御。商业航天有即将到来的催化剂（SpaceX上市+UP产业逻辑视频）。
   confidence: high
   status: active
-  supersedes: ["claim-20260604-004-a"]
+  supersedes:
+  - claim-20260604-004-a
   contradicts: []
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
-
+  topic: 位置低防御属性）
+  tags:
+  - AI
+  - 医药
+  - 商业航天
+  - 机器人
+  - 板块主题
+  - 电力
+  - 风电
 - id: claim-20260607-003-e
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   source_date: '2026-06-07'
@@ -102,7 +128,9 @@
     methodology_pages: []
     cases: []
   intensity: high
-
+  topic: CPI数据（6月10日）——下周最大变量
+  tags:
+  - 宏观
 - id: claim-20260607-003-f
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   source_date: '2026-06-07'
@@ -111,7 +139,8 @@
   claim_type: macro
   subject: 原油破100的连锁反应风险
   timeframe: short-term
-  statement: 如果原油站上100美元，会引发连锁反应：十年期美债收益率飙升→整体数据更难看。需盯信用利差（当前9.13），信用利差级别决定黄金坑深度。霍尔木兹海峡通航仅恢复约一半（近三周70艘 vs 和平时期135艘）。
+  statement: 如果原油站上100美元，会引发连锁反应：十年期美债收益率飙升→整体数据更难看。需盯信用利差（当前9.13），信用利差级别决定黄金坑深度。霍尔木兹海峡通航仅恢复约一半（近三周70艘
+    vs 和平时期135艘）。
   evidence_quote: 如果原油下一周又站上100了，会发生某种连锁反应...会让整体的十年期美债收益率往上飙，一飙整体的数据就很难看了。信用利差是9.13还行，如果再往下飙就很难看了。这一轮的黄金坑，我们需要去盯一下信用利差，信用利差的级别确定了它的黄金坑会踩得有多深。
   interpretation: 原油价格是黄金坑深度的决定变量。信用利差是关键观测指标。
   confidence: medium
@@ -123,7 +152,9 @@
     methodology_pages: []
     cases: []
   intensity: high
-
+  topic: 原油破100的连锁反应风险
+  tags:
+  - 宏观
 - id: claim-20260607-003-g
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   source_date: '2026-06-07'
@@ -144,7 +175,9 @@
     methodology_pages: []
     cases: []
   intensity: high
-
+  topic: 黄金目标位4230——下周预计可见
+  tags:
+  - 宏观
 - id: claim-20260607-003-h
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   source_date: '2026-06-07'
@@ -159,13 +192,19 @@
   confidence: medium
   status: active
   supersedes: []
-  contradicts: ["claim-20260420-003"]
+  contradicts:
+  - claim-20260420-003
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: medium
-
+  topic: 润泽科技——75元买入策略与补跌风险
+  tags:
+  - AI
+  - 个股分析
+  - 数据中心
+  - 跌破
 - id: claim-20260607-003-i
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   source_date: '2026-06-07'
@@ -186,7 +225,11 @@
     methodology_pages: []
     cases: []
   intensity: medium
-
+  topic: B300卡出口管制升级
+  tags:
+  - AI
+  - 个股分析
+  - 算力
 - id: claim-20260607-003-j
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   source_date: '2026-06-07'
@@ -201,13 +244,19 @@
   confidence: medium
   status: active
   supersedes: []
-  contradicts: ["claim-20260604-004-b"]
+  contradicts:
+  - claim-20260604-004-b
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
-
+  topic: 新闻联播提资本市场——政策托底信号
+  tags:
+  - 商业航天
+  - 宏观
+  - 恐慌
+  - 机器人
 - id: claim-20260607-003-k
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   source_date: '2026-06-07'
@@ -228,7 +277,10 @@
     methodology_pages: []
     cases: []
   intensity: high
-
+  topic: 领涨龙头先跌——吹哨人信号识别方法
+  tags:
+  - 方法论
+  - 龙头
 - id: claim-20260607-003-l
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   source_date: '2026-06-07'
@@ -249,3 +301,9 @@
     methodology_pages: []
     cases: []
   intensity: medium
+  topic: 蓝筹防御方向——电力、家电、风电、医药
+  tags:
+  - 医药
+  - 板块主题
+  - 电力
+  - 风电

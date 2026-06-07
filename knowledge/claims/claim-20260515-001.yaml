@@ -1,8 +1,9 @@
 - id: claim-20260515-001
+  topic: 指数高位震荡分歧加剧
   source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
-  source_date: '2026-05-15'
+  source_date: 2026-05-15
   source_type: 周复盘
-  extracted_at: '2026-05-18T13:25:00+08:00'
+  extracted_at: "2026-05-18T13:25:00+08:00"
   claim_type: market-cycle
   subject: 市场周期判断
   timeframe: short-term
@@ -15,15 +16,20 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/指数调整
+      - 市场分析/指数调整
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 市场周期
+    - 主线
+    - 轮动
 - id: claim-20260515-002
+  topic: 劣性轮动的特征是每个方向只能涨一天或半天
   source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
-  source_date: '2026-05-15'
+  source_date: 2026-05-15
   source_type: 周复盘
-  extracted_at: '2026-05-18T13:25:00+08:00'
+  extracted_at: "2026-05-18T13:25:00+08:00"
   claim_type: methodology
   subject: 轮动判断
   timeframe: permanent
@@ -36,15 +42,20 @@
   contradicts: []
   links:
     wiki_pages:
-    - 投资方法论/劣性轮动识别
+      - 投资方法论/劣性轮动识别
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 劣性轮动
+    - 方法论
+    - 轮动判断
 - id: claim-20260515-003
+  topic: 从进攻思维切换到防守反击思维
   source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
-  source_date: '2026-05-15'
+  source_date: 2026-05-15
   source_type: 周复盘
-  extracted_at: '2026-05-18T13:25:00+08:00'
+  extracted_at: "2026-05-18T13:25:00+08:00"
   claim_type: operation
   subject: 操作策略
   timeframe: short-term
@@ -53,19 +64,27 @@
   interpretation: 震荡调整阶段的核心策略是减少追高，等待分歧后的承接机会，聚焦抗跌方向。
   confidence: high
   status: active
-  supersedes: ["claim-20260605-001-i"]
+  supersedes:
+    - claim-20260605-001-i
   contradicts: []
   links:
     wiki_pages:
-    - 投资方法论/仓位管理
+      - 投资方法论/仓位管理
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 操作策略
+    - 防守反击
+    - 追高
+    - 进攻
+    - 修复
 - id: claim-20260515-004
+  topic: 存储产业链
   source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
-  source_date: '2026-05-15'
+  source_date: 2026-05-15
   source_type: 周复盘
-  extracted_at: '2026-05-18T13:25:00+08:00'
+  extracted_at: "2026-05-18T13:25:00+08:00"
   claim_type: sector-theme
   subject: 存储产业链
   timeframe: short-term
@@ -78,15 +97,24 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/长鑫存储产业链
+      - 市场分析/长鑫存储产业链
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - IPO
+    - 扩产
+    - 存储
+    - 催化
+    - 涨价
+    - 长鑫
 - id: claim-20260515-005
+  topic: 碳化硅修复与否是判断市场轮动质量
   source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
-  source_date: '2026-05-15'
+  source_date: 2026-05-15
   source_type: 周复盘
-  extracted_at: '2026-05-18T13:25:00+08:00'
+  extracted_at: "2026-05-18T13:25:00+08:00"
   claim_type: technical-signal
   subject: 轮动质量判断
   timeframe: short-term
@@ -99,7 +127,12 @@
   contradicts: []
   links:
     wiki_pages:
-    - 投资方法论/劣性轮动识别
+      - 投资方法论/劣性轮动识别
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 技术信号
+    - 劣性轮动
+    - 碳化硅
+    - 修复

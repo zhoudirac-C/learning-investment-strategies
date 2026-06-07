@@ -1,5 +1,10 @@
 claims:
 - id: claim-20260605-002-a
+  source_path: sources/raw/财经/动态：26-06-05：0949-空仓加至5成，这个位置不能看空了.md
+  source_date: '2026-06-05'
+  source_type: 动态
+  extracted_at: '2026-06-05'
+  subject: 大盘
   topic: 盘中09:49空翻多：空仓加至5成
   statement: 今天差不多了，空仓的人可以把仓位加到5成，持股的人继续持股，这个位置不能看空了。UP在调整第17天上午09:49明确翻转立场，从谨慎转为做多。
   evidence_quote: 今天差不多了，空仓的人可以把仓位加到5成，持股的人继续持股，这个位置不能看空了。
@@ -14,10 +19,19 @@ claims:
   - 5成仓位
   - 不能看空
   - 调整第17天
-  supersedes: ["claim-20260420-001", "claim-20260525-019"]
-  contradicts: ["claim-20260426-001"]
+  supersedes:
+  - claim-20260420-001
+  - claim-20260525-019
+  contradicts:
+  - claim-20260426-001
   intensity: high
+  links: {}
 - id: claim-20260605-002-b
+  source_path: sources/raw/财经/动态：26-06-05：0949-空仓加至5成，这个位置不能看空了.md
+  source_date: '2026-06-05'
+  source_type: 动态
+  extracted_at: '2026-06-05'
+  subject: 大盘
   topic: 持股不动策略：不卖不T
   statement: 已有持仓的继续持股，不做T不减仓。UP认为当前位置不是高抛点。
   evidence_quote: 持股的人继续持股
@@ -31,6 +45,10 @@ claims:
   - 持股不动
   - 不做T
   - 等待修复
-  supersedes: ["claim-20260605-002-a", "claim-20260605-001-i"]
-  contradicts: ["claim-20260426-001"]
+  supersedes:
+  - claim-20260605-002-a
+  - claim-20260605-001-i
+  contradicts:
+  - claim-20260426-001
   intensity: high
+  links: {}

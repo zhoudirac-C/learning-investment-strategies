@@ -1,8 +1,9 @@
 - id: claim-20260420-005
+  topic: 协创数据是算力租赁第一阶段核心标的
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  source_date: '2026-04-20'
+  source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:30:00+08:00'
+  extracted_at: "2026-05-18T14:30:00+08:00"
   claim_type: stock-view
   subject: 协创数据
   timeframe: trend
@@ -18,12 +19,18 @@
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [协创数据(300857)]
+  tags:
+    - 算力租赁
+    - 协创数据
+    - 个股观点
+  related_stocks:
+    - 协创数据(300857)
 - id: claim-20260420-006
+  topic: 宏景科技是算力租赁第一阶段核心标的
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  source_date: '2026-04-20'
+  source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:30:00+08:00'
+  extracted_at: "2026-05-18T14:30:00+08:00"
   claim_type: stock-view
   subject: 宏景科技
   timeframe: trend
@@ -39,12 +46,19 @@
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [宏景科技(301396)]
+  tags:
+    - 算力租赁
+    - 宏景科技
+    - 个股观点
+    - 银行
+  related_stocks:
+    - 宏景科技(301396)
 - id: claim-20260420-007
+  topic: 网宿科技是AI算力第四阶段（CDN）核心
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  source_date: '2026-04-20'
+  source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:30:00+08:00'
+  extracted_at: "2026-05-18T14:30:00+08:00"
   claim_type: stock-view
   subject: 网宿科技
   timeframe: trend
@@ -60,12 +74,21 @@
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [网宿科技(300017)]
+  tags:
+    - 个股观点
+    - 网宿科技
+    - 算力
+    - 利率
+    - 估值
+    - AI
+  related_stocks:
+    - 网宿科技(300017)
 - id: claim-20260420-008
+  topic: 润泽科技从去年12月底开始推荐
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  source_date: '2026-04-20'
+  source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:30:00+08:00'
+  extracted_at: "2026-05-18T14:30:00+08:00"
   claim_type: stock-view
   subject: 润泽科技
   timeframe: short-term
@@ -75,18 +98,25 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: [claim-20260604-004-a]
+  contradicts:
+    - claim-20260604-004-a
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [润泽科技(300442)]
+  tags:
+    - 润泽科技
+    - 个股观点
+    - AI
+  related_stocks:
+    - 润泽科技(300442)
 - id: claim-20260426-008
+  topic: 网宿科技一季报正常非爆雷
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  source_date: '2026-04-26'
+  source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:30:00+08:00'
+  extracted_at: "2026-05-18T14:30:00+08:00"
   claim_type: stock-view
   subject: 网宿科技
   timeframe: trend
@@ -102,12 +132,19 @@
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [网宿科技(300017)]
+  tags:
+    - 网宿科技
+    - 个股观点
+    - AI
+    - 利率
+  related_stocks:
+    - 网宿科技(300017)
 - id: claim-20260426-009
+  topic: 烽火通信炒两个逻辑
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  source_date: '2026-04-26'
+  source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:30:00+08:00'
+  extracted_at: "2026-05-18T14:30:00+08:00"
   claim_type: stock-view
   subject: 烽火通信
   timeframe: trend
@@ -123,12 +160,21 @@
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [烽火通信(600498)]
+  tags:
+    - 个股观点
+    - 烽火通信
+    - 二波
+    - 业绩
+    - 华为
+    - 涨价
+  related_stocks:
+    - 烽火通信(600498)
 - id: claim-20260426-010
+  topic: 英维克液冷赛道内卷已来
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  source_date: '2026-04-26'
+  source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:30:00+08:00'
+  extracted_at: "2026-05-18T14:30:00+08:00"
   claim_type: stock-view
   subject: 英维克
   timeframe: trend
@@ -138,18 +184,28 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: [claim-20260529-005-g, claim-20260605-001-f]
+  contradicts:
+    - claim-20260529-005-g
+    - claim-20260605-001-f
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [英维克(002837)]
+  tags:
+    - 个股观点
+    - 英维克
+    - 反弹
+    - 业绩
+    - AI
+  related_stocks:
+    - 英维克(002837)
 - id: claim-20260426-011
+  topic: 智微智能是算力租赁方向的卖铲子模式
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  source_date: '2026-04-26'
+  source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:30:00+08:00'
+  extracted_at: "2026-05-18T14:30:00+08:00"
   claim_type: stock-view
   subject: 智微智能
   timeframe: trend
@@ -165,12 +221,20 @@
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [智微智能(001339)]
+  tags:
+    - 智微智能
+    - 个股观点
+    - 算力租赁
+    - 业绩
+    - AI
+  related_stocks:
+    - 智微智能(001339)
 - id: claim-20260426-012
+  topic: 润和软件是CANN+鸿蒙+国产算力
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  source_date: '2026-04-26'
+  source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:30:00+08:00'
+  extracted_at: "2026-05-18T14:30:00+08:00"
   claim_type: stock-view
   subject: 润和软件
   timeframe: trend
@@ -186,4 +250,11 @@
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [润和软件(300339)]
+  tags:
+    - 润和软件
+    - 国产算力
+    - 个股观点
+    - 金融
+    - 业绩
+  related_stocks:
+    - 润和软件(300339)

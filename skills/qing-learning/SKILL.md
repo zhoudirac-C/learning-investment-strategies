@@ -137,8 +137,11 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 32. **发现进度汇报脚本**：`scripts/run_discover_with_progress.sh`（skill 内脚本副本，与原项目 `scripts/` 下同步）。
 33. **外部研究报告处理**：参考 `references/external-research-handling.md`（投行报告不入 qing-learning，独立归档到 `sources/research/`，按 UP 延迟规则标注时效）。
 33. **外部研究报告归档**：参考 `references/external-research-archiving.md`（投行报告不进入 qing-learning 流程，存入 `sources/research/`，按 UP 指定的延迟窗口到期再评估）。
+34. **孤立 Claim 修复工作流**：参考 `references/orphan-claim-repair-workflow.md`（Neo4j 中出现无任何关系的 Claim 时的根因分析、raw 文档扫描、字段补全、增量同步四步修复流程）。
 
-32. **外部研究报告处理**：参考【外部研究报告处理规则】和 `references/external-research-handling.md`（投行/券商报告不入 raw/不提取 claims，单独归档到 `sources/research/`，标注 UP 的延迟判断和回看时间）。
+35. **外部研究报告处理**：参考【外部研究报告处理规则】
+
+36. **Claim topic/tags 自动生成**：当旧格式 claims 缺少 `topic`/`tags` 字段时，运行 `scripts/add_topics_tags.py` 进行批量回填。该脚本基于规则提取（非LLM），从 `subject`/`statement`/`claim_type` 自动生成中文主题词和标签。详见 `references/claim-topic-tag-generation.md`。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
@@ -181,6 +184,24 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 
     **Phase 6 改造要点**：单文件提取后，脚本不再直接新增独立 pattern，而是让 LLM 判断归入10个通用框架中的哪一个，作为该框架的 `examples` 追加。这解决了之前116个单raw模式（99.1%只关联1个raw）的问题。详见 `references/reasoning-pattern-extraction-workflow.md` §8。
 13. 输出 Learning Update Report。
+13a. **⚠️ 字段完整性强制检查**：写入 claims YAML 后，必须运行以下验证确保所有 18 个必需字段完整（参考 `references/claim-writing-spec.md` §〇）：
+    ```bash
+    cd ~/learning-investment-strategies
+    python3 -c "
+    import yaml; data=yaml.safe_load(open('新claim文件.yaml'))
+    claims=data.get('claims',data) if isinstance(data,dict) else data
+    claims=claims if isinstance(claims,list) else [claims]
+    R=['id','statement','claim_type','subject','source_path','source_date',
+       'source_type','extracted_at','confidence','status','intensity',
+       'evidence_quote','interpretation','timeframe','supersedes',
+       'contradicts','links','topic']
+    for c in claims:
+        m=[k for k in R if k not in c or c[k] in (None,'')]
+        assert not m, f'{c.get(\"id\")} 缺: {m}'
+    print(f'✅ {len(claims)} claims 字段完整')
+    " && git add knowledge/claims/ || (echo '❌ 字段缺失，请补全后再提交' && exit 1)
+    ```
+    **这是硬性门禁——不通过不能提交。**
 13. **知识库增量同步**：运行三个增量同步脚本，将新的 claims 和 wiki 推送到 Qing-Agent 的检索后端。
 
     **⚠️ 前置步骤：Qdrant 本地模式独占文件锁**

@@ -1,4 +1,5 @@
 id: claim-20260524-007
+topic: 国债收益率接近极限
 source_path: sources/raw/财经/视频：26-05-24：整治非法跨境券商的政策逻辑拆解，从蒙代尔不可能三角到A股港股投资机会.md
 source_date: 2026-05-24
 source_type: 视频
@@ -12,11 +13,16 @@ interpretation: 该 claim 提示国债市场已从牛市后期进入风险区域
 confidence: medium
 status: active
 supersedes: []
-contradicts: ["claim-20260524-012"]
+contradicts:
+  - claim-20260524-012
 links:
   wiki_pages:
-  - knowledge/wiki/市场分析/2025-10-2026-05-行情全景.md
+    - knowledge/wiki/市场分析/2025-10-2026-05-行情全景.md
   methodology_pages:
-  - methodology/position-risk.md
+    - methodology/position-risk.md
   cases: []
 intensity: high
+tags:
+  - 国债收益率接
+  - 利率
+  - 反弹

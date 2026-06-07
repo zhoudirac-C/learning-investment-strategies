@@ -325,7 +325,7 @@ def _migrate_single_claim(session, claim: dict):
             "status": claim.get("status", "active"),
             "claim_type": claim.get("claim_type", claim.get("type", "general")),
             "intensity": claim.get("intensity", "medium"),
-            "time_frame": claim.get("time_frame", ""),
+            "time_frame": claim.get("time_frame", "") or claim.get("timeframe", ""),
             "subject": claim.get("subject", ""),
             "source_date": claim.get("source_date", ""),
             "file": claim.get("_file", ""),

@@ -1,8 +1,9 @@
 - id: claim-20260515-009
+  topic: 关键点位判断
   source_path: sources/raw/财经/早盘：26-05-15：今日不是看反弹，而是看承接是否成立.md
-  source_date: '2026-05-15'
+  source_date: 2026-05-15
   source_type: 早盘
-  extracted_at: '2026-05-18T13:30:00+08:00'
+  extracted_at: "2026-05-18T13:30:00+08:00"
   claim_type: technical-signal
   subject: 关键点位判断
   timeframe: short-term
@@ -11,19 +12,26 @@
   interpretation: 4150点是强分歧后的关键观察位，守住+缩量=承接成立，跌破+放量=调整延续。
   confidence: high
   status: active
-  supersedes: ["claim-20260531-001-f"]
+  supersedes:
+    - claim-20260531-001-f
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/关键点位
+      - 市场分析/关键点位
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 技术信号
+    - 放量
+    - 量能
+    - 上证
 - id: claim-20260515-010
+  topic: 强分歧次日最好
   source_path: sources/raw/财经/早盘：26-05-15：今日不是看反弹，而是看承接是否成立.md
-  source_date: '2026-05-15'
+  source_date: 2026-05-15
   source_type: 早盘
-  extracted_at: '2026-05-18T13:30:00+08:00'
+  extracted_at: "2026-05-18T13:30:00+08:00"
   claim_type: technical-signal
   subject: 量能判断
   timeframe: short-term
@@ -36,15 +44,20 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/量能判断
+      - 市场分析/量能判断
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 技术信号
+    - 恐慌
+    - 量能
 - id: claim-20260515-011
+  topic: 情绪修复标准
   source_path: sources/raw/财经/早盘：26-05-15：今日不是看反弹，而是看承接是否成立.md
-  source_date: '2026-05-15'
+  source_date: 2026-05-15
   source_type: 早盘
-  extracted_at: '2026-05-18T13:30:00+08:00'
+  extracted_at: "2026-05-18T13:30:00+08:00"
   claim_type: market-cycle
   subject: 情绪修复标准
   timeframe: short-term
@@ -57,15 +70,19 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/情绪判断
+      - 市场分析/情绪判断
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 情绪修复标准
+    - 市场周期
 - id: claim-20260515-012
+  topic: 修复性质判断
   source_path: sources/raw/财经/早盘：26-05-15：今日不是看反弹，而是看承接是否成立.md
-  source_date: '2026-05-15'
+  source_date: 2026-05-15
   source_type: 早盘
-  extracted_at: '2026-05-18T13:30:00+08:00'
+  extracted_at: "2026-05-18T13:30:00+08:00"
   claim_type: market-cycle
   subject: 修复性质判断
   timeframe: short-term
@@ -78,15 +95,24 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/修复性质判断
+      - 市场分析/修复性质判断
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 市场周期
+    - 白酒
+    - 银行
+    - 龙头
+    - 主线
+    - 防御
+    - 修复
 - id: claim-20260515-013
+  topic: 强分歧次日只做确认不做盲目追高
   source_path: sources/raw/财经/早盘：26-05-15：今日不是看反弹，而是看承接是否成立.md
-  source_date: '2026-05-15'
+  source_date: 2026-05-15
   source_type: 早盘
-  extracted_at: '2026-05-18T13:30:00+08:00'
+  extracted_at: "2026-05-18T13:30:00+08:00"
   claim_type: operation
   subject: 交易纪律
   timeframe: short-term
@@ -99,7 +125,15 @@
   contradicts: []
   links:
     wiki_pages:
-    - 投资方法论/交易纪律
+      - 投资方法论/交易纪律
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 操作策略
+    - 追高
+    - 低吸
+    - 龙头
+    - 仓位
+    - 量能
+    - 主线

@@ -196,25 +196,16 @@ driver.close()
 ### 步骤2：清理旧数据并重新迁移
 
 ```bash
-# 1. 关 Agent
+# 流程：关 Agent → 清空 Neo4j → 删状态文件 → 重新增量迁移 → Qdrant 重建 → 重启
+# 注意：migrate 脚本已删除 --force-full 参数，只支持增量模式
+# 要全量重跑，需：清空 Neo4j + 删 .migrate_state.json → migrate 自动把全部文件当"新"处理
 kill $(pgrep -f "uvicorn qing_investment") 2>/dev/null
-
-# 2. 删除无 code 的 Stock 节点（旧错误节点）
 cd ~/learning-investment-strategies
-.venv/bin/python -c "
-from neo4j import GraphDatabase
-from qing_investment.agent.config import settings
-driver = GraphDatabase.driver(settings.neo4j_uri, auth=(settings.neo4j_user, settings.neo4j_password))
-with driver.session() as session:
-    session.run('MATCH (s:Stock) WHERE s.code IS NULL DETACH DELETE s')
-driver.close()
-"
-
-# 3. 强制重新迁移
-.venv/bin/python scripts/migrate_claims_to_neo4j.py --force-full
-
-# 4. 重启 Agent
-nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
+echo 'MATCH (n) DETACH DELETE n;' | cypher-shell -u neo4j -p qingneo4j  # 清空 Neo4j
+rm -f .migrate_state.json                                                # 删状态→全量当增量
+PYTHONPATH=src .venv/bin/python scripts/migrate_claims_to_neo4j.py       # 增量迁移（全部重写）
+PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate  # Qdrant 重建
+# 然后重启 Agent
 ```
 
 ### 步骤3：验证修复结果
@@ -348,6 +339,92 @@ MATCH (s:Stock) WITH s.code AS code, collect(s) AS nodes WHERE size(nodes) > 1 R
 ```
 
 每层向上游追溯一层，每层都可能是根因。跳步修 = 表象好了根因还在。
+
+## 第四轮修复（2026-06-07，第二轮同一天）
+
+本轮修复重点：**字段映射不一致 + `--force-full` 破坏工作流 + 全量迁移脚本改造**。
+
+### 根因4a：`source_path` 字段名不匹配（534 条 EXTRACTED_FROM 缺失）
+
+**症状**：全量迁移后 `EXTRACTED_FROM` 和 `CITED_IN` 关系为 0。
+
+**根因**：YAML 使用 `source_path` 字段名（534 次出现），但迁移脚本读的是 `claim.get("source", "")`，永远返回空字符串，所以 EXTRACTED_FROM 从不创建。
+
+**修复**：`migrate_claims_to_neo4j.py` — 增加 `or claim.get("source", "")` 兜底：
+```python
+source_path = claim.get("source_path", "") or claim.get("source", "")
+```
+
+### 根因4b：`links.wiki_pages` / `links.methodology_pages` 嵌套读取问题（826 条 CITED_IN 缺失）
+
+**症状**：同样导致 CITED_IN 关系为 0。
+
+**根因**：YAML 使用嵌套结构：
+```yaml
+links:
+  wiki_pages: [...]      # 449 次出现
+  methodology_pages: [...]  # 450 次出现
+```
+但代码从顶层读取 `claim.get("cited_in", [])` 和 `claim.get("methodology_pages", [])`，永远拿到空列表。
+
+**修复**：改为从 `links` 字典中读取：
+```python
+links = claim.get("links", {}) or {}
+if isinstance(links, dict):
+    wiki_pages = links.get("wiki_pages", []) or []
+    methodology_pages = links.get("methodology_pages", []) or []
+```
+
+### 根因4c：`--force-full` 破坏增量工作流（方法论问题）
+
+**问题**：项目文档 `docs/neo4j-relation-pipeline.md` 和 `AGENTS.md` 明确设计了**增量同步**工作流（按 mtime/哈希判断，只处理变化文件），`--force-full` 是"数据损坏时使用"的例外选项。直接使用 `--force-full` 绕过了：
+1. `.migrate_state.json` 的状态管理
+2. 文档规定的「幂等同步 > 全量重建」设计原则
+3. discover_claim_relations 的增量关系发现
+
+**修复**：
+1. 从 `migrate_claims_to_neo4j.py` 中彻底删除 `--force-full` 参数
+2. 迁移函数签名从 `def migrate(*, force_full: bool = False)` 改为 `def migrate()`
+3. 删除对应的 argparse 入口
+4. Neo4j 数据回滚（`MATCH (n) DETACH DELETE n`）后，删除 `.migrate_state.json`，让增量模式自然重建
+
+**关键教训**：
+1. **先读项目文档，再动基础设施**：AGENTS.md 和 `docs/` 目录定义了工作流，操作前必须阅读
+2. **`--force-full` ≠ 修复工具**：数据问题应该追溯根因修 YAML/脚本，而不是用全量重跑掩盖
+3. **增量工作流的幂等性**：删状态文件=全量当增量，不用 `--force-full`
+
+### 第四轮修复后的完整验证
+
+| 检查项 | 修复前 | 修复后 |
+|--------|--------|--------|
+| EXTRACTED_FROM 关系 | 0 | **534** |
+| CITED_IN 关系 | 0 | **826** |
+| SUPERSEDES 关系 | 154 | **154** |
+| CONTRADICTS 关系 | 143 | **143** |
+| 孤立 Claim（无任何关系） | 12 | 12（正常——`subject=""` 的宏观/策略类 claim） |
+| Qdrant claims 索引 | OK | **578** 向量（512维，自检通过） |
+| Agent 运行状态 | OK | health 通过 |
+
+### 正确的工作流（不要再犯）
+
+```bash
+# 新增 claims 后的标准增量流程（先关 Agent）
+kill $(pgrep -f "uvicorn qing_investment") 2>/dev/null
+
+# 增量同步（三脚本串行，不要并行！）
+.venv/bin/python scripts/discover_claim_relations.py --all-missing  # 关系发现（LLM）
+.venv/bin/python scripts/migrate_claims_to_neo4j.py                 # 增量迁移（按 mtime）
+.venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate # Qdrant 重建
+
+# 重启 Agent
+nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
+```
+
+**`--force-full` 已从迁移脚本中删除**。如果需要全量重跑（数据损坏时）：
+1. 清空 Neo4j：`echo 'MATCH (n) DETACH DELETE n;' | cypher-shell -u neo4j -p qingneo4j`
+2. 删状态文件：`rm -f .migrate_state.json`
+3. 直接跑增量迁移——没有状态文件，所有文件都会被当新文件处理
+4. 无需任何 flag
 
 ## 第二轮架构问题修复（2026-06-07）
 

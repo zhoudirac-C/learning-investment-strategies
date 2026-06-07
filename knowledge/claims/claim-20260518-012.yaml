@@ -1,8 +1,9 @@
 - id: claim-20260518-012
+  topic: 调整性质判断
   source_path: sources/raw/财经/早盘补充：26-05-18：耐心持股，切换核心.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 早盘补充
-  extracted_at: '2026-05-18T13:25:00+08:00'
+  extracted_at: "2026-05-18T13:25:00+08:00"
   claim_type: market-cycle
   subject: 调整性质判断
   timeframe: short-term
@@ -12,18 +13,24 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260601-004-e"]
+  contradicts:
+    - claim-20260601-004-e
   links:
     wiki_pages:
-    - 市场分析/调整性质判断
+      - 市场分析/调整性质判断
     methodology_pages: []
     cases: []
   intensity: medium
+  tags:
+    - 调整性质判断
+    - 市场周期
+    - 业绩
 - id: claim-20260518-013
+  topic: 长鑫存储产业链
   source_path: sources/raw/财经/早盘补充：26-05-18：耐心持股，切换核心.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 早盘补充
-  extracted_at: '2026-05-18T13:25:00+08:00'
+  extracted_at: "2026-05-18T13:25:00+08:00"
   claim_type: sector-theme
   subject: 长鑫存储产业链
   timeframe: trend
@@ -32,19 +39,27 @@
   interpretation: 长鑫存储产业链具备硬核产业逻辑和业绩预期，在行情分歧阶段是布局的窗口期。
   confidence: high
   status: active
-  supersedes: ["claim-20260515-004"]
+  supersedes:
+    - claim-20260515-004
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/长鑫存储产业链
+      - 市场分析/长鑫存储产业链
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - 长鑫存储
+    - IPO
+    - 业绩
+    - 催化
 - id: claim-20260518-014
+  topic: 交易方法论
   source_path: sources/raw/财经/早盘补充：26-05-18：耐心持股，切换核心.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 早盘补充
-  extracted_at: '2026-05-18T13:25:00+08:00'
+  extracted_at: "2026-05-18T13:25:00+08:00"
   claim_type: methodology
   subject: 交易方法论
   timeframe: permanent
@@ -57,7 +72,11 @@
   contradicts: []
   links:
     wiki_pages:
-    - 投资方法论/分歧中找机会
+      - 投资方法论/分歧中找机会
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 交易方法论
+    - 主线
+    - 方法论

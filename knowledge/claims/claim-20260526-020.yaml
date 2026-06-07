@@ -1,8 +1,9 @@
 - id: claim-20260526-020
+  topic: 普涨后调整正常，半导体有承接即可继续持股
   source_path: sources/raw/财经/早盘动态补发：26-05-26：继续持股.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 早盘动态补发
-  extracted_at: '2026-05-26T12:00:21+08:00'
+  extracted_at: "2026-05-26T12:00:21+08:00"
   claim_type: operation
   subject: 普涨后调整正常，半导体有承接即可继续持股
   timeframe: intraday
@@ -15,19 +16,24 @@
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-26
-    - 市场分析/半导体产业链
-    - 投资方法论/交易纪律
+      - 每日复盘/2026-05-26
+      - 市场分析/半导体产业链
+      - 投资方法论/交易纪律
     methodology_pages:
-    - 投资方法论/交易纪律
-    - 投资方法论/仓位管理
+      - 投资方法论/交易纪律
+      - 投资方法论/仓位管理
     cases: []
   intensity: high
+  tags:
+    - 操作策略
+    - 半导体
+    - 恐慌
 - id: claim-20260526-021
+  topic: 明日才是半导体强弱决战点
   source_path: sources/raw/财经/早盘动态补发：26-05-26：继续持股.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 早盘动态补发
-  extracted_at: '2026-05-26T12:00:21+08:00'
+  extracted_at: "2026-05-26T12:00:21+08:00"
   claim_type: technical-signal
   subject: 明日才是半导体强弱决战点
   timeframe: short-term
@@ -40,45 +46,56 @@
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-26
-    - 市场分析/半导体产业链
-    - 投资方法论/仓位管理
+      - 每日复盘/2026-05-26
+      - 市场分析/半导体产业链
+      - 投资方法论/仓位管理
     methodology_pages:
-    - 投资方法论/仓位管理
-    - 投资方法论/交易纪律
+      - 投资方法论/仓位管理
+      - 投资方法论/交易纪律
     cases: []
   intensity: high
+  tags:
+    - 明日才是半导
+    - 技术信号
+    - 半导体
 - id: claim-20260526-022
+  topic: "11:05后半小时到一小时出现抄底窗口"
   source_path: sources/raw/财经/盘中动态补发：26-05-26：准备抄底.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 盘中动态补发
-  extracted_at: '2026-05-26T12:00:21+08:00'
+  extracted_at: "2026-05-26T12:00:21+08:00"
   claim_type: operation
-  subject: 11:05后半小时到一小时出现抄底窗口
+  subject: "11:05后半小时到一小时出现抄底窗口"
   timeframe: intraday
-  statement: 5月26日11:05后半小时到一小时，UP认为盘中分歧释放接近低吸窗口，可以准备在看好的核心方向中寻找抄底机会。
+  statement: "5月26日11:05后半小时到一小时，UP认为盘中分歧释放接近低吸窗口，可以准备在看好的核心方向中寻找抄底机会。"
   evidence_quote: 预计半小时到一小时可以抄底了。
   interpretation: 这是明确的盘中时间窗口，但只适用于分歧释放后核心标的开始止跌或有承接的场景；若继续单边下杀或核心破位，窗口应自动失效。
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260526-025-b"]
+  contradicts:
+    - claim-20260526-025-b
   links:
     wiki_pages:
-    - 每日复盘/2026-05-26
-    - 投资方法论/分歧中找机会
-    - 投资方法论/交易纪律
+      - 每日复盘/2026-05-26
+      - 投资方法论/分歧中找机会
+      - 投资方法论/交易纪律
     methodology_pages:
-    - 投资方法论/分歧中找机会
-    - 投资方法论/交易纪律
-    - 投资方法论/仓位管理
+      - 投资方法论/分歧中找机会
+      - 投资方法论/交易纪律
+      - 投资方法论/仓位管理
     cases: []
   intensity: high
+  tags:
+    - "11:05后"
+    - 操作策略
+    - 低吸
 - id: claim-20260526-023
+  topic: 抄底应选择跌得多且自己看好的主线核心
   source_path: sources/raw/财经/盘中动态补发：26-05-26：准备抄底.md
-  source_date: '2026-05-26'
+  source_date: 2026-05-26
   source_type: 盘中动态补发
-  extracted_at: '2026-05-26T12:00:21+08:00'
+  extracted_at: "2026-05-26T12:00:21+08:00"
   claim_type: methodology
   subject: 抄底应选择跌得多且自己看好的主线核心
   timeframe: intraday
@@ -91,12 +108,16 @@
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-26
-    - 投资方法论/分歧中找机会
-    - 投资方法论/交易纪律
+      - 每日复盘/2026-05-26
+      - 投资方法论/分歧中找机会
+      - 投资方法论/交易纪律
     methodology_pages:
-    - 投资方法论/分歧中找机会
-    - 投资方法论/交易纪律
-    - 投资方法论/仓位管理
+      - 投资方法论/分歧中找机会
+      - 投资方法论/交易纪律
+      - 投资方法论/仓位管理
     cases: []
   intensity: high
+  tags:
+    - 方法论
+    - 主线
+    - 后排

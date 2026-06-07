@@ -1,8 +1,9 @@
 - id: claim-20260524-013
+  topic: 退潮尾声的缩量修复
   source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
-  source_date: '2026-05-24'
+  source_date: 2026-05-24
   source_type: 动态
-  extracted_at: '2026-05-25T10:21:35+08:00'
+  extracted_at: "2026-05-25T10:21:35+08:00"
   claim_type: market-cycle
   subject: 退潮尾声的缩量修复
   timeframe: short-term
@@ -15,17 +16,22 @@
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-24
-    - 市场分析/修复性质判断
+      - 每日复盘/2026-05-24
+      - 市场分析/修复性质判断
     methodology_pages:
-    - 投资方法论/仓位管理
+      - 投资方法论/仓位管理
     cases: []
   intensity: high
+  tags:
+    - 退潮尾声的缩
+    - 市场周期
+    - 缩量
 - id: claim-20260524-014
+  topic: 最后一次回踩确认
   source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
-  source_date: '2026-05-24'
+  source_date: 2026-05-24
   source_type: 动态
-  extracted_at: '2026-05-25T10:21:35+08:00'
+  extracted_at: "2026-05-25T10:21:35+08:00"
   claim_type: technical-signal
   subject: 最后一次回踩确认
   timeframe: short-term
@@ -38,23 +44,30 @@
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-24
-    - 市场分析/量能判断
-    - 市场分析/指数调整
+      - 每日复盘/2026-05-24
+      - 市场分析/量能判断
+      - 市场分析/指数调整
     methodology_pages:
-    - 投资方法论/交易纪律
+      - 投资方法论/交易纪律
     cases: []
   intensity: high
+  tags:
+    - 技术信号
+    - 缩量
+    - 杀跌
+    - 放量
+    - 主线
+    - 修复
 - id: claim-20260524-015
+  topic: Rubin BOM扩散主线
   source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
-  source_date: '2026-05-24'
+  source_date: 2026-05-24
   source_type: 动态
-  extracted_at: '2026-05-25T10:21:35+08:00'
+  extracted_at: "2026-05-25T10:21:35+08:00"
   claim_type: sector-theme
   subject: Rubin BOM扩散主线
   timeframe: trend
-  statement: 5月22日最强交易线是 Rubin BOM 扩散，资金从光模块、服务器和算力租赁继续扩展到 PCB、MLCC、超级电容、先进封装材料和散热材料，其中
-    PCB 是短期最强主线。
+  statement: 5月22日最强交易线是 Rubin BOM 扩散，资金从光模块、服务器和算力租赁继续扩展到 PCB、MLCC、超级电容、先进封装材料和散热材料，其中 PCB 是短期最强主线。
   evidence_quote: 周五最核心的交易主线，是围绕英伟达 Rubin 平台的 BOM 升级展开。
   interpretation: AI硬件交易正在按“BOM价值增量+低位扩散+供给壁垒”寻找新分支，而不再停留在AI概念或单一光模块方向。
   confidence: high
@@ -63,18 +76,25 @@
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-24
-    - 市场分析/AI上游涨价链
-    - 市场分析/PCB与先进封装
+      - 每日复盘/2026-05-24
+      - 市场分析/AI上游涨价链
+      - 市场分析/PCB与先进封装
     methodology_pages:
-    - 投资方法论/主线判断
+      - 投资方法论/主线判断
     cases: []
   intensity: high
+  tags:
+    - 算力租赁
+    - 板块主题
+    - 光模块
+    - PCB
+    - 主线
 - id: claim-20260524-016
+  topic: AI PCB材料工艺耗材扩散
   source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
-  source_date: '2026-05-24'
+  source_date: 2026-05-24
   source_type: 动态
-  extracted_at: '2026-05-25T10:21:35+08:00'
+  extracted_at: "2026-05-25T10:21:35+08:00"
   claim_type: sector-theme
   subject: AI PCB材料工艺耗材扩散
   timeframe: trend
@@ -87,22 +107,26 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/PCB与先进封装
-    - 市场分析/AI上游涨价链
+      - 市场分析/PCB与先进封装
+      - 市场分析/AI上游涨价链
     methodology_pages:
-    - 投资方法论/板块观察方法
+      - 投资方法论/板块观察方法
     cases: []
   intensity: medium
+  tags:
+    - 板块主题
+    - PCB
+    - AI
 - id: claim-20260524-017
+  topic: CPO与DCI预期差
   source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
-  source_date: '2026-05-24'
+  source_date: 2026-05-24
   source_type: 动态
-  extracted_at: '2026-05-25T10:21:35+08:00'
+  extracted_at: "2026-05-25T10:21:35+08:00"
   claim_type: sector-theme
   subject: CPO与DCI预期差
   timeframe: trend
-  statement: 当市场集中交易 Rubin 柜内互联和 PCB 时，柜外 CPO、DCI 光纤和光通信链存在预期差，若 PCB 分歧时资金回流，可强化 AI
-    光互联主线。
+  statement: 当市场集中交易 Rubin 柜内互联和 PCB 时，柜外 CPO、DCI 光纤和光通信链存在预期差，若 PCB 分歧时资金回流，可强化 AI 光互联主线。
   evidence_quote: 当前市场交易 Rubin 更多集中在柜内互联、PCB、正交背板和材料升级。但从预期差角度看，柜外互联和 CPO 仍值得重视。
   interpretation: CPO/DCI 是 PCB 分歧后的潜在承接方向，但仍需看订单节奏、客户验证和实际出货，不能只按远期空间定价。
   confidence: medium
@@ -111,16 +135,23 @@
   contradicts: []
   links:
     wiki_pages:
-    - 市场分析/光通信
-    - 市场分析/AI上游涨价链
+      - 市场分析/光通信
+      - 市场分析/AI上游涨价链
     methodology_pages: []
     cases: []
   intensity: medium
+  tags:
+    - 板块主题
+    - PCB
+    - CPO
+    - 主线
+    - AI
 - id: claim-20260524-018
+  topic: 退潮尾声不追高
   source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
-  source_date: '2026-05-24'
+  source_date: 2026-05-24
   source_type: 动态
-  extracted_at: '2026-05-25T10:21:35+08:00'
+  extracted_at: "2026-05-25T10:21:35+08:00"
   claim_type: operation
   subject: 退潮尾声不追高
   timeframe: short-term
@@ -133,9 +164,13 @@
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-24
+      - 每日复盘/2026-05-24
     methodology_pages:
-    - 投资方法论/交易纪律
-    - 投资方法论/仓位管理
+      - 投资方法论/交易纪律
+      - 投资方法论/仓位管理
     cases: []
   intensity: high
+  tags:
+    - 操作策略
+    - 主线
+    - 低吸

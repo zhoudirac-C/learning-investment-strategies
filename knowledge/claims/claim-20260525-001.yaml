@@ -1,8 +1,9 @@
 - id: claim-20260525-001
+  topic: 日线顶部后的小级别反弹
   source_path: sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md
-  source_date: '2026-05-25'
+  source_date: 2026-05-25
   source_type: 早盘
-  extracted_at: '2026-05-25T10:21:35+08:00'
+  extracted_at: "2026-05-25T10:21:35+08:00"
   claim_type: market-cycle
   subject: 日线顶部后的小级别反弹
   timeframe: intraday
@@ -11,22 +12,30 @@
   interpretation: 指数反弹仍需按小级别修复处理，不能因为消息高开就确认新周期，关键看能否放量突破5日均线并抵消前一根阴线。
   confidence: high
   status: active
-  supersedes: ["claim-20260518-006"]
+  supersedes:
+    - claim-20260518-006
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-25
-    - 市场分析/指数调整
-    - 市场分析/修复性质判断
+      - 每日复盘/2026-05-25
+      - 市场分析/指数调整
+      - 市场分析/修复性质判断
     methodology_pages:
-    - 投资方法论/交易纪律
+      - 投资方法论/交易纪律
     cases: []
   intensity: high
+  tags:
+    - 市场周期
+    - 顶部结构
+    - 30分钟
+    - 底部结构
+    - 日线
 - id: claim-20260525-002
+  topic: 5月25日策略是仓位控制在5-7成
   source_path: sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md
-  source_date: '2026-05-25'
+  source_date: 2026-05-25
   source_type: 早盘
-  extracted_at: '2026-05-25T10:21:35+08:00'
+  extracted_at: "2026-05-25T10:21:35+08:00"
   claim_type: operation
   subject: 5-7成仓位与低吸核心
   timeframe: intraday
@@ -35,21 +44,31 @@
   interpretation: 这延续周末“不追高、等分歧”的纪律，但早盘给出略高仓位区间，前提是AI硬件核心持续性和指数放量配合。
   confidence: medium
   status: active
-  supersedes: ["claim-20260520-001-g", "claim-20260524-021"]
-  contradicts: ["claim-20260420-001"]
+  supersedes:
+    - claim-20260520-001-g
+    - claim-20260524-021
+  contradicts:
+    - claim-20260420-001
   links:
     wiki_pages:
-    - 每日复盘/2026-05-25
+      - 每日复盘/2026-05-25
     methodology_pages:
-    - 投资方法论/仓位管理
-    - 投资方法论/交易纪律
+      - 投资方法论/仓位管理
+      - 投资方法论/交易纪律
     cases: []
   intensity: high
+  tags:
+    - 操作策略
+    - 追高
+    - 低吸
+    - 仓位
+    - AI
 - id: claim-20260525-003
+  topic: PCB和MLCC持续性观察
   source_path: sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md
-  source_date: '2026-05-25'
+  source_date: 2026-05-25
   source_type: 早盘
-  extracted_at: '2026-05-25T10:21:35+08:00'
+  extracted_at: "2026-05-25T10:21:35+08:00"
   claim_type: sector-theme
   subject: PCB和MLCC持续性观察
   timeframe: intraday
@@ -59,21 +78,29 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260602-001-d"]
+  contradicts:
+    - claim-20260602-001-d
   links:
     wiki_pages:
-    - 每日复盘/2026-05-25
-    - 市场分析/PCB与先进封装
-    - 市场分析/AI上游涨价链
+      - 每日复盘/2026-05-25
+      - 市场分析/PCB与先进封装
+      - 市场分析/AI上游涨价链
     methodology_pages:
-    - 投资方法论/主线判断
+      - 投资方法论/主线判断
     cases: []
   intensity: high
+  tags:
+    - 深南电路
+    - 板块主题
+    - PCB
+    - 主线
+    - AI
 - id: claim-20260525-004
+  topic: 超聚变IPO与国产算力映射
   source_path: sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md
-  source_date: '2026-05-25'
+  source_date: 2026-05-25
   source_type: 早盘
-  extracted_at: '2026-05-25T10:21:35+08:00'
+  extracted_at: "2026-05-25T10:21:35+08:00"
   claim_type: sector-theme
   subject: 超聚变IPO与国产算力映射
   timeframe: short-term
@@ -86,17 +113,24 @@
   contradicts: []
   links:
     wiki_pages:
-    - 每日复盘/2026-05-25
-    - 市场分析/国产CPU_GPU与软件
+      - 每日复盘/2026-05-25
+      - 市场分析/国产CPU_GPU与软件
     methodology_pages:
-    - 投资方法论/板块观察方法
+      - 投资方法论/板块观察方法
     cases: []
   intensity: high
+  tags:
+    - 国产算力
+    - 板块主题
+    - IPO
+    - 创业板
+    - 催化
 - id: claim-20260525-005
+  topic: 5月25日关键盯盘指标
   source_path: sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md
-  source_date: '2026-05-25'
+  source_date: 2026-05-25
   source_type: 早盘
-  extracted_at: '2026-05-25T10:21:35+08:00'
+  extracted_at: "2026-05-25T10:21:35+08:00"
   claim_type: technical-signal
   subject: 5月25日关键盯盘指标
   timeframe: intraday
@@ -106,13 +140,22 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260604-006-c"]
+  contradicts:
+    - claim-20260604-006-c
   links:
     wiki_pages:
-    - 每日复盘/2026-05-25
-    - 市场分析/量能判断
-    - 市场分析/情绪判断
+      - 每日复盘/2026-05-25
+      - 市场分析/量能判断
+      - 市场分析/情绪判断
     methodology_pages:
-    - 投资方法论/交易纪律
+      - 投资方法论/交易纪律
     cases: []
   intensity: high
+  tags:
+    - 技术信号
+    - 国产算力
+    - 上证
+    - 放量
+    - AI
+    - 共振
+    - 修复

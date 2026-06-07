@@ -1,5 +1,10 @@
 claims:
 - id: claim-20260605-001-a
+  source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
+  source_date: '2026-06-05'
+  source_type: 早盘
+  extracted_at: '2026-06-05'
+  subject: 上证指数
   topic: 调整第17天：缩量调整信号积极
   statement: 日线顶部结构第17个交易日(历史最长为24个交易日)，成交量几乎腰斩呈缩量调整，"涨不上去但也跌不下来"是企稳特征，属于上升途中的调整且接近尾声
   evidence_quote: 日线顶部结构形成后已进入第17个交易日...成交量较周三几乎腰斩...呈"涨不上去但也跌不下来"的格局...这里判断属于上升途中的调整，且接近尾声
@@ -15,10 +20,19 @@ claims:
   - 企稳信号
   - 日线顶部
   - 第17天
-  supersedes: ["claim-20260518-006", "claim-20260525-001", "claim-20260527-006-d"]
+  supersedes:
+  - claim-20260518-006
+  - claim-20260525-001
+  - claim-20260527-006-d
   contradicts: []
   intensity: medium
+  links: {}
 - id: claim-20260605-001-b
+  source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
+  source_date: '2026-06-05'
+  source_type: 早盘
+  extracted_at: '2026-06-05'
+  subject: 上证指数
   topic: 指数纪律重申：4033清仓/4130满仓
   statement: 严格按照交易标准：收盘价跌穿4033点清仓，向上突破4130点满仓。风险偏好低者可完全按此执行。创业板指创新高、沪深300/深成指横盘、上证15度角调整——综合判断上升途中调整。
   evidence_quote: '交易标准(严格执行): 日线顶部结构形成后已进入第17个交易日,严格按交易标准——收盘价跌穿4033点清仓,向上突破4130点满仓'
@@ -34,10 +48,17 @@ claims:
   - 机械化标准
   - '4033'
   - '4130'
-  supersedes: ["claim-20260515-013"]
+  supersedes:
+  - claim-20260515-013
   contradicts: []
   intensity: high
+  links: {}
 - id: claim-20260605-001-c
+  source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
+  source_date: '2026-06-05'
+  source_type: 早盘
+  extracted_at: '2026-06-05'
+  subject: AI上游材料
   topic: AI上游材料端成为最确定方向
   statement: 铜缆、光纤、MLCC、超级电容共同构成AI上游材料端最确定的方向。它们是AI基建的上游，与AI硬件逻辑紧密相关。APC因不属于上游材料而成为唯一掉队的新方向。即使短线情绪遇冷，上游材料方向不会轻易扭转。
   evidence_quote: 铜缆、光纤,以及稍早的MLCC、超级电容昨天都有不错表现,且这四个方向有个共同点:都属于AI基建的上游材料端。这也解释了为何APC会成为最近唯一掉队的新方向...即使短线情绪再遇冷,上游材料这个大方向应该不会轻易扭转
@@ -61,10 +82,17 @@ claims:
   - 超级电容
   - AI基建
   - 板块框架
-  supersedes: ["claim-20260524-015"]
+  supersedes:
+  - claim-20260524-015
   contradicts: []
   intensity: medium
+  links: {}
 - id: claim-20260605-001-d
+  source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
+  source_date: '2026-06-05'
+  source_type: 早盘
+  extracted_at: '2026-06-05'
+  subject: 煤炭
   topic: 非科技方向接近尾声
   statement: 非科技方向只剩煤炭和部分电力股，大消费和油气已集体调整。煤炭龙头大有能源加速一字涨停是见顶前兆，需盯紧能否突破粤电力A的4板高度。
   evidence_quote: 只剩煤炭和部分电力股,大消费板块甚至带头下跌,油气股同样集体调整。煤炭龙头大有能源已开始加速一字涨停,这种往往是快结束前的征兆
@@ -83,9 +111,16 @@ claims:
   - 非科技
   - 尾声
   supersedes: []
-  contradicts: ["claim-20260602-001-e"]
+  contradicts:
+  - claim-20260602-001-e
   intensity: medium
+  links: {}
 - id: claim-20260605-001-e
+  source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
+  source_date: '2026-06-05'
+  source_type: 早盘
+  extracted_at: '2026-06-05'
+  subject: 珂玛科技
   topic: 珂玛科技静电卡盘0→1突破
   statement: 珂玛科技静电卡盘(ESC)在国产设备龙头取得突破，首次批量订单落地。华创26年刻蚀设备收入超百亿对应卡盘需求10亿，后市场20亿、利润弹性10亿、市值期权500亿。日企产能饱和涨价10-15%倒逼国内加速扩产。卡盘市场空间不少于加热器，存在明显预期差。
   evidence_quote: 静电卡盘(ESC)在国内设备龙头客户取得突破,首次批量订单落地...以华创为例,26年刻蚀设备收入超百亿,对应卡盘需求10亿级别；ESC为核心耗材,后市场收入20亿级别,对应利润弹性10亿、市值期权500亿
@@ -107,7 +142,13 @@ claims:
   supersedes: []
   contradicts: []
   intensity: medium
+  links: {}
 - id: claim-20260605-001-f
+  source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
+  source_date: '2026-06-05'
+  source_type: 早盘
+  extracted_at: '2026-06-05'
+  subject: 申菱环境
   topic: 申菱环境——液冷龙头价值重估
   statement: 申菱环境同为华为系液冷供应商出海，海外订单规模不低于英维克，市值仅为英维克1/3。预计明年20亿利润对应600亿市值。6-7月催化密集(谷歌/亚马逊液冷下单)。逢低关注重新定价机会。
   evidence_quote: 海外订单规模≥英维克,而市值过去仅为英维克的1/3...预计明年20亿利润,假设给30倍PE能看到600亿...逢低关注后期重新定价机会
@@ -127,9 +168,16 @@ claims:
   - 价值重估
   - 英维克
   supersedes: []
-  contradicts: ["claim-20260529-005-g"]
+  contradicts:
+  - claim-20260529-005-g
   intensity: medium
+  links: {}
 - id: claim-20260605-001-g
+  source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
+  source_date: '2026-06-05'
+  source_type: 早盘
+  extracted_at: '2026-06-05'
+  subject: 昇腾产业链
   topic: 昇腾产业链调整后赔率升高
   statement: 昇腾产业链短期调整幅度很大，配置赔率已显著升高。华丰科技定增锁价133.9元(收139.38元)显示项目含金量。航天电器短期军工+昇腾双重下杀接近估值底部。预计6月中下旬回归国产算力主航道。核心标的：华丰科技、航天电器、意华股份。
   evidence_quote: 当前昇腾产业链短期调整幅度很大,配置赔率已显著升高...定增锁价133.9元(周四收盘139.38元),足见项目含金量...预计6月中下旬逐步回到国产算力主航道
@@ -153,10 +201,17 @@ claims:
   - 意华股份
   - 赔率
   - 超跌
-  supersedes: ["claim-20260525-025"]
+  supersedes:
+  - claim-20260525-025
   contradicts: []
   intensity: medium
+  links: {}
 - id: claim-20260605-001-h
+  source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
+  source_date: '2026-06-05'
+  source_type: 早盘
+  extracted_at: '2026-06-05'
+  subject: 创业板指
   topic: 创业板指映射低开高走 + 中小盘赚钱效应是关键
   statement: 创业板指三连阳类似颠倒版0518-20，映射到今日可能变低开高走。在隔夜美股科技股下跌背景下，今日个股迎来大考，关键看赚钱效应和中小盘风格企稳反弹能否夯实。
   evidence_quote: 其这组三连阳有点像颠倒过来的0518-20,循此逻辑,5月21日的高开低走映射到今日,说不定会变成低开高走...关键看"赚钱效应+中小盘风格企稳反弹"能否进一步夯实
@@ -175,7 +230,13 @@ claims:
   supersedes: []
   contradicts: []
   intensity: medium
+  links: {}
 - id: claim-20260605-001-i
+  source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
+  source_date: '2026-06-05'
+  source_type: 早盘
+  extracted_at: '2026-06-05'
+  subject: 大盘
   topic: 操作基调：以做T应对或持股为主
   statement: 盘前预案是做T应对或持股为主。已关注方向以抗波动为主，提防卖在最低点。重心放AI基建上游材料。
   evidence_quote: 盘前预案:以做T应对,或持股为主...对已关注方向,盘前预案是做T应对或持股为主...重心放在AI基建上游材料这一最确定的大方向
@@ -190,6 +251,8 @@ claims:
   - 做T
   - 抗波动
   - 不追高
-  supersedes: ["claim-20260601-001-g"]
+  supersedes:
+  - claim-20260601-001-g
   contradicts: []
   intensity: high
+  links: {}

@@ -1,8 +1,9 @@
 - id: claim-20260420-001
+  topic: 从4月14日尾盘开始把仓位打起来
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  source_date: '2026-04-20'
+  source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: operation
   subject: 仓位策略
   timeframe: short-term
@@ -12,19 +13,24 @@
   confidence: high
   status: active
   supersedes:
-  - claim-20260406-003
+    - claim-20260406-003
   contradicts:
-  - claim-20260426-001
+    - claim-20260426-001
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 操作策略
+    - 主线
+    - 仓位
 - id: claim-20260420-002
+  topic: 牛市持仓纪律
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  source_date: '2026-04-20'
+  source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: methodology
   subject: 牛市持仓纪律
   timeframe: permanent
@@ -40,11 +46,15 @@
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 牛市持仓纪律
+    - 方法论
 - id: claim-20260420-003
+  topic: 右侧交易思路
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  source_date: '2026-04-20'
+  source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: operation
   subject: 右侧交易
   timeframe: short-term
@@ -60,11 +70,16 @@
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 操作策略
+    - 主线
+    - 日线
 - id: claim-20260420-004
+  topic: 四月不能瞎炒概念
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  source_date: '2026-04-20'
+  source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: operation
   subject: 选股纪律
   timeframe: permanent
@@ -75,17 +90,22 @@
   status: active
   supersedes: []
   contradicts:
-  - claim-20260420-001
+    - claim-20260420-001
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 操作策略
+    - 算力租赁
+    - AI
 - id: claim-20260426-001
+  topic: 未来两周偏谨慎
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  source_date: '2026-04-26'
+  source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: operation
   subject: 仓位策略
   timeframe: short-term
@@ -94,18 +114,27 @@
   interpretation: 4月底处于高位兑现期，应降低仓位保住利润，等待5月中旬关键窗口后再布局。
   confidence: high
   status: active
-  supersedes: ["claim-20260604-004-i", "claim-20260527-004-a"]
-  contradicts: ["claim-20260420-001"]
+  supersedes:
+    - claim-20260604-004-i
+    - claim-20260527-004-a
+  contradicts:
+    - claim-20260420-001
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 操作策略
+    - CPO
+    - 仓位
+    - 追高
 - id: claim-20260426-002
+  topic: 若原油逼近或站上100
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  source_date: '2026-04-26'
+  source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: technical-signal
   subject: 油价预警
   timeframe: short-term
@@ -115,17 +144,25 @@
   confidence: high
   status: expired
   supersedes: []
-  contradicts: ["claim-20260406-002"]
+  contradicts:
+    - claim-20260406-002
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 技术信号
+    - 通胀
+    - 降息
+    - 估值
+    - 油价
 - id: claim-20260426-003
+  topic: 关键时间窗口
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  source_date: '2026-04-26'
+  source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: market-cycle
   subject: 关键时间窗口
   timeframe: short-term
@@ -135,17 +172,23 @@
   confidence: high
   status: expired
   supersedes: []
-  contradicts: ["claim-20260528-005-d"]
+  contradicts:
+    - claim-20260528-005-d
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 关键时间窗口
+    - 市场周期
+    - 美联储
 - id: claim-20260426-004
+  topic: 纯概念补涨一定被淘汰
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  source_date: '2026-04-26'
+  source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: operation
   subject: 选股纪律
   timeframe: short-term
@@ -161,11 +204,16 @@
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 操作策略
+    - 主线
+    - 修复
 - id: claim-20260426-005
+  topic: 产业扩散规律
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  source_date: '2026-04-26'
+  source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: methodology
   subject: 产业扩散规律
   timeframe: permanent
@@ -181,11 +229,19 @@
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 燃气轮机
+    - PCB
+    - 新能源
+    - 方法论
+    - 光模块
+    - AI
 - id: claim-20260426-006
+  topic: 牛市中最容易亏钱的方式
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  source_date: '2026-04-26'
+  source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: methodology
   subject: 牛市纪律
   timeframe: permanent
@@ -195,17 +251,23 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260526-019"]
+  contradicts:
+    - claim-20260526-019
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 方法论
+    - 主线
+    - 轮动
 - id: claim-20260426-007
+  topic: 高位爆量阴线就是出货
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  source_date: '2026-04-26'
+  source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: technical-signal
   subject: 出货判断
   timeframe: permanent
@@ -221,3 +283,6 @@
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 技术信号
+    - 出货判断

@@ -1,8 +1,9 @@
 - id: claim-20260406-001
+  topic: 全球滞胀交易
   source_path: sources/raw/财经/周复盘：26-04-06：现实的误判，全球资产重新配置新策略.md
-  source_date: '2026-04-06'
+  source_date: 2026-04-06
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: macro
   subject: 全球滞胀交易
   timeframe: trend
@@ -13,17 +14,26 @@
   status: expired
   supersedes: []
   contradicts:
-  - claim-20260414-001
+    - claim-20260414-001
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 美联储
+    - 降息
+    - 通胀
+    - 滞胀
+    - 油价
+    - 防御
+    - 宏观
 - id: claim-20260406-002
+  topic: 油价不会冲高回落
   source_path: sources/raw/财经/周复盘：26-04-06：现实的误判，全球资产重新配置新策略.md
-  source_date: '2026-04-06'
+  source_date: 2026-04-06
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: macro
   subject: 油价周期
   timeframe: trend
@@ -39,11 +49,17 @@
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 油价
+    - 降息
+    - 宏观
+    - 衰退
 - id: claim-20260406-003
+  topic: A股全球定位
   source_path: sources/raw/财经/周复盘：26-04-06：现实的误判，全球资产重新配置新策略.md
-  source_date: '2026-04-06'
+  source_date: 2026-04-06
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: stock-view
   subject: A股全球定位
   timeframe: trend
@@ -59,11 +75,17 @@
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 个股观点
+    - A股
+    - 防御
+    - 仓位
 - id: claim-20260406-004
+  topic: A股安全主线
   source_path: sources/raw/财经/周复盘：26-04-06：现实的误判，全球资产重新配置新策略.md
-  source_date: '2026-04-06'
+  source_date: 2026-04-06
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: sector-theme
   subject: A股主线
   timeframe: trend
@@ -73,18 +95,27 @@
   confidence: high
   status: active
   supersedes:
-  - claim-20260406-001
+    - claim-20260406-001
   contradicts: []
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 国防军工
+    - 电力设备
+    - 板块主题
+    - 储能
+    - 资源
+    - 主线
+    - A股
 - id: claim-20260414-001
+  topic: 中东冲突定价
   source_path: sources/raw/财经/周复盘：26-04-14：是反弹不是反转，市场为什么对中东冲突麻木了.md
-  source_date: '2026-04-14'
+  source_date: 2026-04-14
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: macro
   subject: 中东冲突定价
   timeframe: short-term
@@ -100,11 +131,15 @@
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 中东冲突定价
+    - 宏观
 - id: claim-20260414-002
+  topic: 美股当前是空头回补行情
   source_path: sources/raw/财经/周复盘：26-04-14：是反弹不是反转，市场为什么对中东冲突麻木了.md
-  source_date: '2026-04-14'
+  source_date: 2026-04-14
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: market-cycle
   subject: 美股判断
   timeframe: short-term
@@ -113,18 +148,29 @@
   interpretation: 美股反弹缺乏基本面支撑，属于技术性修复，不宜追高。
   confidence: high
   status: contradicted
-  supersedes: ["claim-20260607-001-c"]
-  contradicts: ["claim-20260522-002-c"]
+  supersedes:
+    - claim-20260607-001-c
+  contradicts:
+    - claim-20260522-002-c
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 市场周期
+    - 空头回补
+    - 美股
+    - 估值
+    - 反转
+    - 恐慌
+    - 修复
 - id: claim-20260414-003
+  topic: A股四条主线
   source_path: sources/raw/财经/周复盘：26-04-14：是反弹不是反转，市场为什么对中东冲突麻木了.md
-  source_date: '2026-04-14'
+  source_date: 2026-04-14
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: sector-theme
   subject: A股主线
   timeframe: short-term
@@ -133,18 +179,29 @@
   interpretation: 4月中旬A股主线明确，国产AI硬件和资源板块表现最强，红利板块走势最稳。
   confidence: high
   status: active
-  supersedes: ["claim-20260406-004"]
-  contradicts: ["claim-20260604-004-a", "claim-20260604-006-c"]
+  supersedes:
+    - claim-20260406-004
+  contradicts:
+    - claim-20260604-004-a
+    - claim-20260604-006-c
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - 资源
+    - A股
+    - 主线
+    - AI
+    - 涨价
 - id: claim-20260414-004
+  topic: 牛市里散户建议仓位集中
   source_path: sources/raw/财经/周复盘：26-04-14：是反弹不是反转，市场为什么对中东冲突麻木了.md
-  source_date: '2026-04-14'
+  source_date: 2026-04-14
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: methodology
   subject: 仓位管理
   timeframe: permanent
@@ -160,11 +217,15 @@
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 仓位管理
+    - 方法论
 - id: claim-20260414-005
+  topic: PPI判断
   source_path: sources/raw/财经/周复盘：26-04-14：是反弹不是反转，市场为什么对中东冲突麻木了.md
-  source_date: '2026-04-14'
+  source_date: 2026-04-14
   source_type: 周复盘
-  extracted_at: '2026-05-18T14:00:00+08:00'
+  extracted_at: "2026-05-18T14:00:00+08:00"
   claim_type: macro
   subject: PPI判断
   timeframe: trend
@@ -180,3 +241,8 @@
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - PPI
+    - CPI
+    - 石油
+    - 宏观

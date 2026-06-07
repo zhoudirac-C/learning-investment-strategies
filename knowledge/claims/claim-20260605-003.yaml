@@ -1,5 +1,10 @@
 claims:
 - id: claim-20260605-003-a
+  source_path: sources/raw/财经/动态：26-06-05：1151-小满挖坑芒种播种，后面等待收获.md
+  source_date: '2026-06-05'
+  source_type: 动态
+  extracted_at: '2026-06-05'
+  subject: 大盘
   topic: 节气周期：小满挖坑芒种播种
   statement: 小满（5月21日前后）挖坑=调整下跌，芒种（6月5日）播种=加仓上车，后面等待收获=持股等涨。UP用二十四节气类比市场周期，确认今天就是播种/加仓节点。
   evidence_quote: 小满挖坑，芒种播种，后面就是等待收获了。
@@ -15,10 +20,17 @@ claims:
   - 播种=加仓
   - 调整尾声
   - 等待收获
-  supersedes: ["claim-20260525-002", "claim-20260420-001"]
+  supersedes:
+  - claim-20260525-002
+  - claim-20260420-001
   contradicts: []
   intensity: high
+  links: {}
 - id: claim-20260605-003-b
+  source_date: '2026-06-05'
+  source_type: 动态
+  extracted_at: '2026-06-05'
+  subject: 大盘
   topic: 全天加仓节奏确认
   statement: 09:49"加至5成"→11:51"芒种播种"→14:11"下午继续买"，UP全天持续输出加仓信号，未撤回或修正。形成完整剧本。
   evidence_quote: '09:49: 今天差不多了，空仓加至5成; 11:51: 小满挖坑芒种播种; 14:11: 早上没买够的这会儿不都是机会嘛'
@@ -36,3 +48,4 @@ claims:
   contradicts: []
   intensity: high
   source_path: sources/raw/财经/动态：26-06-05：0949-空仓加至5成，这个位置不能看空了.md
+  links: {}

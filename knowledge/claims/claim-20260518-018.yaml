@@ -1,8 +1,9 @@
 - id: claim-20260518-018
+  topic: 市场整体节奏
   source_path: sources/raw/财经/复盘：26-05-18：市场复盘.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 复盘
-  extracted_at: '2026-05-18T21:30:00+08:00'
+  extracted_at: "2026-05-18T21:30:00+08:00"
   claim_type: market-cycle
   subject: 市场整体节奏
   timeframe: short-term
@@ -15,14 +16,21 @@
   contradicts: []
   links:
     wiki_pages: []
-    methodology_pages: [方法论/市场周期判断]
+    methodology_pages:
+      - 方法论/市场周期判断
     cases: []
   intensity: high
+  tags:
+    - 市场周期
+    - 缩量
+    - 轮动
+    - 修复
 - id: claim-20260518-019
+  topic: 量能与仓位管理
   source_path: sources/raw/财经/复盘：26-05-18：市场复盘.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 复盘
-  extracted_at: '2026-05-18T21:30:00+08:00'
+  extracted_at: "2026-05-18T21:30:00+08:00"
   claim_type: methodology
   subject: 量能与仓位管理
   timeframe: short-term
@@ -32,17 +40,26 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: [claim-20260602-001-b]
+  contradicts:
+    - claim-20260602-001-b
   links:
     wiki_pages: []
-    methodology_pages: [方法论/仓位管理]
+    methodology_pages:
+      - 方法论/仓位管理
     cases: []
   intensity: high
+  tags:
+    - 仓位管理
+    - 方法论
+    - 轮动
+    - 追高
+    - 多方
 - id: claim-20260518-020
+  topic: 5月19日节点观察
   source_path: sources/raw/财经/复盘：26-05-18：市场复盘.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 复盘
-  extracted_at: '2026-05-18T21:30:00+08:00'
+  extracted_at: "2026-05-18T21:30:00+08:00"
   claim_type: market-cycle
   subject: 5月19日节点观察
   timeframe: immediate
@@ -55,14 +72,21 @@
   contradicts: []
   links:
     wiki_pages: []
-    methodology_pages: [方法论/节点交易]
+    methodology_pages:
+      - 方法论/节点交易
     cases: []
   intensity: high
+  tags:
+    - 二次恐慌
+    - 市场周期
+    - 反弹
+    - 共振
 - id: claim-20260518-021
+  topic: 长鑫存储产业链
   source_path: sources/raw/财经/复盘：26-05-18：市场复盘.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 复盘
-  extracted_at: '2026-05-18T21:30:00+08:00'
+  extracted_at: "2026-05-18T21:30:00+08:00"
   claim_type: sector-theme
   subject: 长鑫存储产业链
   timeframe: immediate
@@ -72,17 +96,25 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: [claim-20260515-004]
+  contradicts:
+    - claim-20260515-004
   links:
-    wiki_pages: [市场分析/长鑫存储产业链]
+    wiki_pages:
+      - 市场分析/长鑫存储产业链
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - 长鑫存储
+    - 追高
+    - 分化
 - id: claim-20260518-022
+  topic: 物理AI与机器人
   source_path: sources/raw/财经/复盘：26-05-18：市场复盘.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 复盘
-  extracted_at: '2026-05-18T21:30:00+08:00'
+  extracted_at: "2026-05-18T21:30:00+08:00"
   claim_type: sector-theme
   subject: 物理AI与机器人
   timeframe: immediate
@@ -92,17 +124,27 @@
   confidence: medium
   status: active
   supersedes: []
-  contradicts: [claim-20260604-006-c]
+  contradicts:
+    - claim-20260604-006-c
   links:
-    wiki_pages: [市场分析/物理AI与具身智能]
-    methodology_pages: [方法论/节点交易]
+    wiki_pages:
+      - 市场分析/物理AI与具身智能
+    methodology_pages:
+      - 方法论/节点交易
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - 物理AI
+    - 机器人
+    - 轮动
+    - 主线
 - id: claim-20260518-023
+  topic: 次新股在5月18日异常活跃
   source_path: sources/raw/财经/复盘：26-05-18：市场复盘.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 复盘
-  extracted_at: '2026-05-18T21:30:00+08:00'
+  extracted_at: "2026-05-18T21:30:00+08:00"
   claim_type: sector-theme
   subject: 次新股
   timeframe: immediate
@@ -115,14 +157,20 @@
   contradicts: []
   links:
     wiki_pages: []
-    methodology_pages: [方法论/情绪周期判断]
+    methodology_pages:
+      - 方法论/情绪周期判断
     cases: []
   intensity: high
+  tags:
+    - 板块主题
+    - 次新股
+    - 追高
 - id: claim-20260518-024
+  topic: 柏诚股份是大陆本土电子洁净室龙头
   source_path: sources/raw/财经/复盘：26-05-18：市场复盘.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 复盘
-  extracted_at: '2026-05-18T21:30:00+08:00'
+  extracted_at: "2026-05-18T21:30:00+08:00"
   claim_type: stock-view
   subject: 柏诚股份
   timeframe: trend
@@ -134,16 +182,27 @@
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/长鑫存储产业链]
+    wiki_pages:
+      - 市场分析/长鑫存储产业链
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [柏诚股份(601133)]
+  tags:
+    - 长江存储
+    - 个股观点
+    - 中芯国际
+    - 柏诚股份
+    - 长鑫存储
+    - 扩产
+    - 龙头
+  related_stocks:
+    - 柏诚股份(601133)
 - id: claim-20260518-025
+  topic: 北自科技是机器人方向的核心风向标
   source_path: sources/raw/财经/复盘：26-05-18：市场复盘.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 复盘
-  extracted_at: '2026-05-18T21:30:00+08:00'
+  extracted_at: "2026-05-18T21:30:00+08:00"
   claim_type: stock-view
   subject: 北自科技
   timeframe: short-term
@@ -155,16 +214,23 @@
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/物理AI与具身智能]
+    wiki_pages:
+      - 市场分析/物理AI与具身智能
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [北自科技(603082)]
+  tags:
+    - 北自科技
+    - 个股观点
+    - 机器人
+  related_stocks:
+    - 北自科技(603082)
 - id: claim-20260518-026
+  topic: 中天精装通过参股和控股多家半导体企业
   source_path: sources/raw/财经/复盘：26-05-18：市场复盘.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 复盘
-  extracted_at: '2026-05-18T21:30:00+08:00'
+  extracted_at: "2026-05-18T21:30:00+08:00"
   claim_type: stock-view
   subject: 中天精装
   timeframe: trend
@@ -176,16 +242,25 @@
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/半导体封装]
+    wiki_pages:
+      - 市场分析/半导体封装
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [中天精装(002989)]
+  tags:
+    - 个股观点
+    - 中天精装
+    - HBM
+    - 半导体
+    - AI
+  related_stocks:
+    - 中天精装(002989)
 - id: claim-20260518-027
+  topic: 上峰水泥传统水泥主业提供稳定现金流
   source_path: sources/raw/财经/复盘：26-05-18：市场复盘.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 复盘
-  extracted_at: '2026-05-18T21:30:00+08:00'
+  extracted_at: "2026-05-18T21:30:00+08:00"
   claim_type: stock-view
   subject: 上峰水泥
   timeframe: trend
@@ -197,16 +272,24 @@
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/长鑫存储产业链]
+    wiki_pages:
+      - 市场分析/长鑫存储产业链
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [上峰水泥(000672)]
+  tags:
+    - 长鑫存储
+    - 上峰水泥
+    - 个股观点
+    - 半导体
+  related_stocks:
+    - 上峰水泥(000672)
 - id: claim-20260518-028
+  topic: 华峰测控SoC测试机面向国产算力芯片测试
   source_path: sources/raw/财经/复盘：26-05-18：市场复盘.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 复盘
-  extracted_at: '2026-05-18T21:30:00+08:00'
+  extracted_at: "2026-05-18T21:30:00+08:00"
   claim_type: stock-view
   subject: 华峰测控
   timeframe: trend
@@ -218,16 +301,25 @@
   supersedes: []
   contradicts: []
   links:
-    wiki_pages: [市场分析/半导体测试设备]
+    wiki_pages:
+      - 市场分析/半导体测试设备
     methodology_pages: []
     cases: []
   intensity: high
-  related_stocks: [华峰测控(688200)]
+  tags:
+    - 国产算力
+    - 华峰测控
+    - 个股观点
+    - HBM
+    - AI
+  related_stocks:
+    - 华峰测控(688200)
 - id: claim-20260518-029
+  topic: 节点交易模式
   source_path: sources/raw/财经/复盘：26-05-18：市场复盘.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 复盘
-  extracted_at: '2026-05-18T21:30:00+08:00'
+  extracted_at: "2026-05-18T21:30:00+08:00"
   claim_type: methodology
   subject: 节点交易模式
   timeframe: durable
@@ -236,18 +328,26 @@
   interpretation: 从主升浪追涨模式切换到震荡轮动期的节点交易模式，是适应当前市场的核心方法。
   confidence: high
   status: active
-  supersedes: [claim-20260426-006]
-  contradicts: [claim-20260518-020]
+  supersedes:
+    - claim-20260426-006
+  contradicts:
+    - claim-20260518-020
   links:
     wiki_pages: []
-    methodology_pages: [方法论/节点交易]
+    methodology_pages:
+      - 方法论/节点交易
     cases: []
   intensity: high
+  tags:
+    - 节点交易模式
+    - 方法论
+    - 主线
 - id: claim-20260518-030
+  topic: 缩量市场操作纪律
   source_path: sources/raw/财经/复盘：26-05-18：市场复盘.md
-  source_date: '2026-05-18'
+  source_date: 2026-05-18
   source_type: 复盘
-  extracted_at: '2026-05-18T21:30:00+08:00'
+  extracted_at: "2026-05-18T21:30:00+08:00"
   claim_type: methodology
   subject: 缩量市场操作纪律
   timeframe: durable
@@ -260,6 +360,12 @@
   contradicts: []
   links:
     wiki_pages: []
-    methodology_pages: [方法论/仓位管理]
+    methodology_pages:
+      - 方法论/仓位管理
     cases: []
   intensity: high
+  tags:
+    - 方法论
+    - 缩量
+    - 追高
+    - 低吸

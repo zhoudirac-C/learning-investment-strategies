@@ -1,6 +1,7 @@
 id: claim-20260604-002-a
 topic: GPU数据库催化
-text: NVIDIA 6月4日发布《GPU数据库：从并行计算到原生加速》技术博客，将GPU数据库从并行加速器升级为原生加速架构，星环科技作为国内GPU数据库龙头直接受益于该催化
+subject: 星环科技
+statement: NVIDIA 6月4日发布《GPU数据库：从并行计算到原生加速》技术博客，将GPU数据库从并行加速器升级为原生加速架构，星环科技作为国内GPU数据库龙头直接受益于该催化
 evidence_quote: 星环科技拉直线的原因 https://developer.nvidia.cn/blog/gpu-database-native-acceleration/
 interpretation: 'UP分享NVIDIA官方博客解释星环科技盘面异动原因：
 
@@ -14,16 +15,23 @@ interpretation: 'UP分享NVIDIA官方博客解释星环科技盘面异动原因�
 
   '
 claim_type: catalyst
-scope: short-term
-verified: false
-verification_notes: 星环科技GPU数据库产品已通过NVIDIA博客TPC-DS实测数据确认；A股主板无GPU-Native数据库对标标的，海量数据主营Vastbase（openGauss关系型数据库），无GPU数据库产品，已排除
+confidence: high
+status: active
+intensity: medium
+timeframe: short-term
+supersedes: []
+contradicts: []
+source_path: sources/raw/财经/动态：26-06-04：星环科技拉直线原因-GPU数据库原生加速.md
+source_date: '2026-06-04'
+source_type: 动态
+extracted_at: '2026-06-04'
+links:
+  wiki_pages: []
+  methodology_pages: []
 related_stocks:
 - 星环科技(688031.SH)
-priority: B
 tags:
 - GPU计算
 - 数据库
 - AI基础设施
 - 消息催化
-intensity: medium
-source_path: sources/raw/财经/动态：26-06-04：星环科技拉直线原因-GPU数据库原生加速.md

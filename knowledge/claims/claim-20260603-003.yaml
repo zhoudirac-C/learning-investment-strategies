@@ -1,105 +1,127 @@
 - id: claim-20260603-003-a
+  topic: 冲不上去没关系
   source_path: sources/raw/财经/动态：26-06-03-1417：冲不上去没关系，光通信大概率反复.md
-  source_date: '2026-06-03'
+  source_date: 2026-06-03
   source_type: 盘中动态
-  extracted_at: '2026-06-03'
+  extracted_at: 2026-06-03
   claim_type: market-cycle
-  timeframe: short-term
-  confidence: high
-  status: active
   subject: 市场节奏
+  timeframe: short-term
   statement: 冲不上去没关系，等后面站上
   evidence_quote: 今天冲不上去没关系，等后面站上就行了，剧本基本上按视频讲的在走
   interpretation: 早盘上证接近4130但未突破，博主认为无需急于突破，按剧本节奏走即可
+  confidence: high
+  status: active
   supersedes: []
   contradicts: []
   links:
     wiki_pages:
-    - knowledge/wiki/每日复盘/2026-06-03.md
+      - knowledge/wiki/每日复盘/2026-06-03.md
     methodology_pages: []
     cases: []
   intensity: medium
+  tags:
+    - 市场周期
+    - 市场节奏
 - id: claim-20260603-003-b
+  topic: AI硬件和半导体
   source_path: sources/raw/财经/动态：26-06-03-1417：冲不上去没关系，光通信大概率反复.md
-  source_date: '2026-06-03'
+  source_date: 2026-06-03
   source_type: 盘中动态
-  extracted_at: '2026-06-03'
+  extracted_at: 2026-06-03
   claim_type: sector-theme
-  timeframe: short-term
-  confidence: high
-  status: active
   subject: AI硬件和半导体
+  timeframe: short-term
   statement: 今天起来了，是主要领涨方向
   evidence_quote: 今天起来的除了Ai硬件和半导体，其他的一些方向要注意，后面要考
   interpretation: AI硬件和半导体是今天主要上涨方向，其他方向需谨慎
-  supersedes: ["claim-20260525-023"]
-  contradicts: ["claim-20260604-004-c"]
+  confidence: high
+  status: active
+  supersedes:
+    - claim-20260525-023
+  contradicts:
+    - claim-20260604-004-c
   links:
     wiki_pages:
-    - knowledge/wiki/每日复盘/2026-06-03.md
+      - knowledge/wiki/每日复盘/2026-06-03.md
     methodology_pages: []
     cases: []
   intensity: medium
+  tags:
+    - 板块主题
+    - 半导体
+    - AI
 - id: claim-20260603-003-c
+  topic: 大概率能反复
   source_path: sources/raw/财经/动态：26-06-03-1417：冲不上去没关系，光通信大概率反复.md
-  source_date: '2026-06-03'
+  source_date: 2026-06-03
   source_type: 盘中动态
-  extracted_at: '2026-06-03'
+  extracted_at: 2026-06-03
   claim_type: sector-theme
-  timeframe: short-term
-  confidence: high
-  status: active
   subject: 光通信
+  timeframe: short-term
   statement: 大概率能反复，短期没法直接看空
   evidence_quote: 光最近多次利好，大概率是能反复的，短期没办法直接看空
   interpretation: 光通信（CPO/光模块/光纤）近期多次利好，博主认为会反复活跃，短期不看空
+  confidence: high
+  status: active
   supersedes: []
   contradicts: []
   links:
     wiki_pages:
-    - knowledge/wiki/每日复盘/2026-06-03.md
+      - knowledge/wiki/每日复盘/2026-06-03.md
     methodology_pages: []
     cases: []
   intensity: low
+  tags:
+    - 板块主题
+    - 光通信
 - id: claim-20260603-003-d
+  topic: 其他方向
   source_path: sources/raw/财经/动态：26-06-03-1417：冲不上去没关系，光通信大概率反复.md
-  source_date: '2026-06-03'
+  source_date: 2026-06-03
   source_type: 盘中动态
-  extracted_at: '2026-06-03'
+  extracted_at: 2026-06-03
   claim_type: risk
-  timeframe: short-term
-  confidence: high
-  status: active
   subject: 其他方向
+  timeframe: short-term
   statement: 要谨慎
   evidence_quote: 至于其他方向要谨慎一些
   interpretation: 除AI硬件、半导体、光通信外，其他方向需谨慎对待
+  confidence: high
+  status: active
   supersedes: []
   contradicts: []
   links:
     wiki_pages:
-    - knowledge/wiki/每日复盘/2026-06-03.md
+      - knowledge/wiki/每日复盘/2026-06-03.md
     methodology_pages: []
     cases: []
   intensity: low
+  tags:
+    - 其他方向
 - id: claim-20260603-003-e
+  topic: 赚钱更爽更舒服
   source_path: sources/raw/财经/动态：26-06-03-1417：冲不上去没关系，光通信大概率反复.md
-  source_date: '2026-06-03'
+  source_date: 2026-06-03
   source_type: 置顶评论
-  extracted_at: '2026-06-03'
+  extracted_at: 2026-06-03
   claim_type: methodology
-  timeframe: permanent
-  confidence: high
-  status: active
   subject: 低位票
+  timeframe: permanent
   statement: 赚钱更爽更舒服，不必追山顶票
   evidence_quote: 谁说一定要做那种在山顶的才能赚到钱，其他地方的钱吃起来更爽更舒服
   interpretation: 置顶评论强调5月10-13日视频含金量高，有人从中吃到多个涨停。不必执着于追高位核心票，低位/调整中的票同样能赚钱，且更舒服
+  confidence: high
+  status: active
   supersedes: []
   contradicts: []
   links:
     wiki_pages:
-    - knowledge/wiki/投资方法论/交易心态与纪律.md
+      - knowledge/wiki/投资方法论/交易心态与纪律.md
     methodology_pages: []
     cases: []
   intensity: high
+  tags:
+    - 方法论
+    - 低位票

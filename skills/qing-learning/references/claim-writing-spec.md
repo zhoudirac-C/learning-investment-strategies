@@ -3,6 +3,66 @@
 > 基于 2026-06-06「磨底期非科技方向」检索调试的实战经验，结合三个消费路径的代码审查编写。
 >
 > **前置阅读**：`claim-schema.md`（字段定义）、`src/qing_investment/agent/AGENTS.md` §10（架构决策）
+>
+> **最后更新**：2026-06-08（新增 §〇 18字段必需清单 + 全量字段审计流程）
+
+---
+
+## 〇、18 个必需字段（MANDATORY — 写完 claim 必须检查）
+
+**每个 claim 必须包含以下全部字段。缺失任一项会导致 Neo4j 关系不完整、Qdrant 不可检索、Agent 无法引用。**
+
+| # | 字段 | 类型 | 说明 | 消费者 |
+|---|------|------|------|--------|
+| 1 | `id` | str | 唯一标识（如 `claim-20260607-001-a`） | 全系统 |
+| 2 | `statement` | str | 核心文本（embedding 索引） | Qdrant + Neo4j |
+| 3 | `claim_type` | enum | 见枚举表 | Neo4j 实体标签 + Agent 分流 |
+| 4 | `subject` | str | 主题/标的（Qdrant 锚点） | Qdrant + Neo4j |
+| 5 | `source_path` | str | 原始文档路径 | Neo4j EXTRACTED_FROM |
+| 6 | `source_date` | str | 来源日期 `YYYY-MM-DD` | Neo4j + 时效衰减 |
+| 7 | `source_type` | str | `早盘`/`午盘`/`复盘`/`视频`/`动态` | Neo4j 属性 |
+| 8 | `extracted_at` | str | 提取时间 `YYYY-MM-DD` | Neo4j 属性 |
+| 9 | `confidence` | enum | `high`/`medium`/`low` | Qdrant payload + Neo4j |
+| 10 | `status` | enum | `active`/`superseded`（默认 `active`） | Neo4j + 活性过滤 |
+| 11 | `intensity` | enum | `high`/`medium`/`low`（默认 `medium`） | Agent 强度过滤 |
+| 12 | `evidence_quote` | str | 原文引用 | Neo4j 属性 |
+| 13 | `interpretation` | str | LLM 解读 | Neo4j 属性 |
+| 14 | `timeframe` | str | `short-term`/`intraday`/`trend`/`permanent` | fresh_check |
+| 15 | `supersedes` | list | 被取代的 claim ID（无则 `[]`） | Neo4j SUPERSEDES 边 |
+| 16 | `contradicts` | list | 矛盾的 claim ID（无则 `[]`） | Neo4j CONTRADICTS 边 |
+| 17 | `links` | dict | `{wiki_pages:[], methodology_pages:[], cases:[]}` | Neo4j CITED_IN 边 |
+| 18 | `topic` | str | 中文主题词（5-20字） | Agent prompt 展示 |
+
+### 严重度分级
+
+| 缺失组合 | 后果 | 级别 |
+|---------|------|------|
+| 缺 `source_path`/`source_date`/`source_type`/`extracted_at` | Neo4j 无 EXTRACTED_FROM，无法追溯来源 | 🔴 P0 |
+| 缺 `subject` | Neo4j 无实体关联，claim 在图中孤立 | 🔴 P0 |
+| 缺 `links.wiki_pages` | 知识类 claim 无 CITED_IN 关系 | 🟠 P1 |
+| 缺 `supersedes`/`contradicts`（空数组 `[]` 合法） | 无 Claim→Claim 边 | 🟡 P2 |
+| 缺 `topic`/`tags` | Agent 少主题标签 | 🟡 P2 |
+
+### ⚠️ 写完后立即验证
+
+```bash
+cd ~/learning-investment-strategies
+
+# 单项文件
+python3 << 'PYEOF'
+import yaml
+REQUIRED = ['id','statement','claim_type','subject','source_path','source_date',
+    'source_type','extracted_at','confidence','status','intensity','evidence_quote',
+    'interpretation','timeframe','supersedes','contradicts','links','topic']
+data = yaml.safe_load(open('knowledge/claims/新文件.yaml'))
+claims = data.get('claims', data) if isinstance(data, dict) else data
+claims = claims if isinstance(claims, list) else [claims]
+for c in claims:
+    missing = [k for k in REQUIRED if k not in c or c[k] in (None, '')]
+    assert not missing, f'{c.get("id")}: 缺 {missing}'
+print(f'✅ {len(claims)} claims 字段完整')
+PYEOF
+```
 
 ---
 
