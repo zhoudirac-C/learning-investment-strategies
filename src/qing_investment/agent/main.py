@@ -360,18 +360,31 @@ async def chat(req: ChatRequest):
             context_parts.append(f"- {src}: {s['text'][:300]}")
 
     if all_claims:
-        context_parts.append("\n【博主历史观点卡】（⚠️ 历史观点，仅供参考，不得作为当前判断依据）")
-        for c in all_claims[:10]:  # 增加数量，因为现在有图关系信息
-            claim_line = f"- {c.get('id', 'N/A')} ({c.get('source_date','')})"
-            if c.get('claim_type'):
-                claim_line += f" [{c.get('claim_type')}]"
-            claim_line += f": {c.get('statement', '')[:200]}"
-            # 如果有演化关系，添加标记
-            if c.get('superseded_by'):
-                claim_line += f" [已被 {', '.join(c['superseded_by'][:2])} 取代]"
-            if c.get('contradicts'):
-                claim_line += f" [与 {', '.join(c['contradicts'][:2])} 矛盾]"
-            context_parts.append(claim_line)
+        # 分离方法论类和观点类
+        method_claims = [c for c in all_claims if c.get('claim_type') in ('methodology', 'operation')]
+        view_claims = [c for c in all_claims if c.get('claim_type') not in ('methodology', 'operation')]
+        
+        if method_claims:
+            context_parts.append("\n【博主选股方法论/操作框架】（🔧 UP的分析框架，可以作为方法论指导引用）")
+            for c in method_claims[:5]:
+                claim_line = f"- {c.get('id', 'N/A')} ({c.get('source_date','')})"
+                if c.get('claim_type'):
+                    claim_line += f" [{c.get('claim_type')}]"
+                claim_line += f": {c.get('statement', '')[:200]}"
+                context_parts.append(claim_line)
+        
+        if view_claims:
+            context_parts.append("\n【博主历史观点卡】（⚠️ 历史观点，仅供参考，不得作为当前判断依据）")
+            for c in view_claims[:8]:
+                claim_line = f"- {c.get('id', 'N/A')} ({c.get('source_date','')})"
+                if c.get('claim_type'):
+                    claim_line += f" [{c.get('claim_type')}]"
+                claim_line += f": {c.get('statement', '')[:200]}"
+                if c.get('superseded_by'):
+                    claim_line += f" [已被 {', '.join(c['superseded_by'][:2])} 取代]"
+                if c.get('contradicts'):
+                    claim_line += f" [与 {', '.join(c['contradicts'][:2])} 矛盾]"
+                context_parts.append(claim_line)
 
     # 注入持仓数据
     if position_data:
@@ -419,6 +432,7 @@ async def chat(req: ChatRequest):
         "- 查看【博主历史观点卡】中是否有该票或相关方向的提及",
         "- 提取产业逻辑、角色定位、置信度",
         "- ⚠️ 历史观点仅供参考，不能作为当前判断依据",
+        "- 🔧 如果存在【博主选股方法论/操作框架】，必须明确引用UP的选股方法/操作纪律（如「找低位+一季报超预期」），这些是方法论指导不是历史观点",
         "",
         "第五步：结合技术位置和资金面判断风险收益",
         "- 看90日K线：趋势、支撑、压力、量能变化",
