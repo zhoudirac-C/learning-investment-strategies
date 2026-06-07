@@ -283,5 +283,57 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Index documents to Qdrant")
     parser.add_argument("--force-full", action="store_true", help="Force full re-index of all files")
+    parser.add_argument("--skip-agent-kill", action="store_true",
+                        help="Skip auto-killing the Agent (dangerous — may cause Qdrant corruption)")
     args = parser.parse_args()
+
+    # ── Pre-flight: ensure no concurrent Qdrant access ──
+    import os as _os
+    import signal as _signal
+    import time as _time
+
+    if not args.skip_agent_kill:
+        try:
+            result = __import__("subprocess").run(
+                ["pgrep", "-f", "uvicorn qing_investment"],
+                capture_output=True, text=True
+            )
+            pids = result.stdout.strip().split()
+            if pids:
+                print(f"⚠️ Qing-Agent running (PIDs: {', '.join(pids)}), killing...")
+                for pid in pids:
+                    try:
+                        _os.kill(int(pid), _signal.SIGTERM)
+                    except ProcessLookupError:
+                        pass
+                __import__("time").sleep(2)
+                # Force kill if still running
+                result2 = __import__("subprocess").run(
+                    ["pgrep", "-f", "uvicorn qing_investment"],
+                    capture_output=True, text=True
+                )
+                for pid in result2.stdout.strip().split():
+                    try:
+                        _os.kill(int(pid), _signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+                print("✅ Agent stopped")
+        except Exception as e:
+            print(f"⚠️ Agent check failed (non-fatal): {e}")
+
+    _lock_file = str(REPO_ROOT / ".qdrant_data" / ".lock")
+    if _os.path.exists(_lock_file):
+        print(f"⚠️ Qdrant .lock file exists, waiting (max 30s)...")
+        for _i in range(30):
+            if not _os.path.exists(_lock_file):
+                print(f"✅ Qdrant lock released after {_i+1}s")
+                break
+            _time.sleep(1)
+        else:
+            print("⚠️ Qdrant lock still held, forcing removal...")
+            try:
+                _os.remove(_lock_file)
+            except OSError:
+                pass
+
     index_documents(force_full=args.force_full)
