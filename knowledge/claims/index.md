@@ -96,3 +96,6 @@
 - [claim-20260605-002.yaml](claim-20260605-002.yaml)
 - [claim-20260605-003.yaml](claim-20260605-003.yaml)
 - [claim-20260605-004.yaml](claim-20260605-004.yaml)
+
+- [2026-06-07] claim-20260607-001.yaml (5 claims, 轨道A：行情观点)
+- [2026-06-07] claim-20260607-002.yaml (7 claims, 轨道B：技术知识-permanent)
