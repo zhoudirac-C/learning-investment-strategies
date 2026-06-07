@@ -14,11 +14,10 @@ claims:
   interpretation: 技术结构压制接近尾声，第二次止跌信号提升修复概率
   confidence: medium
   status: active
-  supersedes: ["claim-20260602-001-a", "claim-20260518-006"]
-  contradicts: ["claim-20260526-025-a"]
+  supersedes: [claim-20260602-001-a, claim-20260518-006]
+  contradicts: [claim-20260526-025-a]
   links:
-    related_claims:
-    - claim-20260518-019-a
+    related_claims: [claim-20260518-019-a]
     related_stocks: []
     related_sectors: []
   intensity: medium
@@ -37,10 +36,8 @@ claims:
   interpretation: 基于量能规律判断，5月20日可能是阶段低点
   confidence: medium
   status: superseded
-  supersedes:
-  - claim-20260519-003-a
-  contradicts:
-  - claim-20260518-019-a
+  supersedes: [claim-20260519-003-a]
+  contradicts: [claim-20260518-019-a]
   links:
     related_claims: []
     related_stocks: []
@@ -61,7 +58,7 @@ claims:
   interpretation: 恐慌盘已释放充分，二次恐慌是左侧博弈窗口
   confidence: medium
   status: active
-  supersedes: ["claim-20260518-002"]
+  supersedes: [claim-20260518-002]
   contradicts: []
   links:
     related_claims: []
@@ -83,14 +80,12 @@ claims:
   interpretation: IPO进程推进是产业链核心催化事件
   confidence: high
   status: active
-  supersedes: ["claim-20260518-013"]
+  supersedes: [claim-20260518-013]
   contradicts: []
   links:
-    related_claims:
-    - claim-20260518-019-e
+    related_claims: [claim-20260518-019-e]
     related_stocks: []
-    related_sectors:
-    - 半导体存储
+    related_sectors: [半导体存储]
   intensity: high
 - id: claim-20260519-001-e
   source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
@@ -110,13 +105,11 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    related_claims:
-    - claim-20260519-001-d
-    related_stocks:
-    - 深科技
-    related_sectors:
-    - 半导体封测
+    related_claims: [claim-20260519-001-d]
+    related_stocks: [深科技]
+    related_sectors: [半导体封测]
   intensity: medium
+  related_stocks: [深科技(000021)]
 - id: claim-20260519-001-f
   source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
   source_date: '2026-05-19'
@@ -133,15 +126,11 @@ claims:
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260521-002-f"]
+  contradicts: [claim-20260521-002-f]
   links:
-    related_claims:
-    - claim-20260518-018-e
+    related_claims: [claim-20260518-018-e]
     related_stocks: []
-    related_sectors:
-    - 物理AI
-    - 机器人
-    - 具身智能
+    related_sectors: [物理AI, 机器人, 具身智能]
   intensity: high
 - id: claim-20260519-001-g
   source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
@@ -159,7 +148,7 @@ claims:
   confidence: medium
   status: active
   supersedes: []
-  contradicts: ["claim-20260527-004-a"]
+  contradicts: [claim-20260527-004-a]
   links:
     related_claims: []
     related_stocks: []
@@ -186,8 +175,7 @@ claims:
   links:
     related_claims: []
     related_stocks: []
-    related_sectors:
-    - AI应用
+    related_sectors: [AI应用]
   intensity: medium
 - id: claim-20260519-001-i
   source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
@@ -209,8 +197,7 @@ claims:
   links:
     related_claims: []
     related_stocks: []
-    related_sectors:
-    - 电力
+    related_sectors: [电力]
   intensity: medium
 - id: claim-20260519-001-j
   source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
@@ -231,8 +218,7 @@ claims:
   contradicts: []
   links:
     related_claims: []
-    related_stocks:
-    - 蒙娜丽莎
+    related_stocks: [蒙娜丽莎]
     related_sectors: []
   intensity: high
 - id: claim-20260519-001-k
@@ -254,11 +240,10 @@ claims:
   contradicts: []
   links:
     related_claims: []
-    related_stocks:
-    - 领益智造
-    related_sectors:
-    - 算力硬件
+    related_stocks: [领益智造]
+    related_sectors: [算力硬件]
   intensity: medium
+  related_stocks: [领益智造(002600)]
 - id: claim-20260519-001-l
   source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
   source_date: '2026-05-19'
@@ -279,6 +264,5 @@ claims:
   links:
     related_claims: []
     related_stocks: []
-    related_sectors:
-    - 算力调度
+    related_sectors: [算力调度]
   intensity: medium

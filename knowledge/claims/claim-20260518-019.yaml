@@ -15,11 +15,10 @@ claims:
   interpretation: 波浪理论判断A浪结束，B浪反弹即将开始
   confidence: high
   status: superseded
-  supersedes: ["claim-20260521-002-a"]
+  supersedes: [claim-20260521-002-a]
   contradicts: []
   links:
-    related_claims:
-    - claim-20260521-002-a
+    related_claims: [claim-20260521-002-a]
     related_stocks: []
     related_sectors: []
   intensity: high
@@ -38,11 +37,10 @@ claims:
   interpretation: B浪反弹空间有限，约4200点为目标位，需观察量能
   confidence: medium
   status: superseded
-  supersedes: ["claim-20260521-002-b"]
-  contradicts: ["claim-20260518-019-c"]
+  supersedes: [claim-20260521-002-b]
+  contradicts: [claim-20260518-019-c]
   links:
-    related_claims:
-    - claim-20260521-002-a
+    related_claims: [claim-20260521-002-a]
     related_stocks: []
     related_sectors: []
   intensity: high
@@ -62,10 +60,9 @@ claims:
   confidence: medium
   status: superseded
   supersedes: []
-  contradicts: ["claim-20260527-006-c", "claim-20260521-002-a"]
+  contradicts: [claim-20260527-006-c, claim-20260521-002-a]
   links:
-    related_claims:
-    - claim-20260521-002-a
+    related_claims: [claim-20260521-002-a]
     related_stocks: []
     related_sectors: []
   intensity: high
@@ -84,11 +81,10 @@ claims:
   interpretation: 6月中下旬是重要时间窗口，C浪结束后为中线布局良机
   confidence: medium
   status: superseded
-  supersedes: ["claim-20260526-025-a"]
-  contradicts: ["claim-20260528-005-d"]
+  supersedes: [claim-20260526-025-a]
+  contradicts: [claim-20260528-005-d]
   links:
-    related_claims:
-    - claim-20260521-002-a
+    related_claims: [claim-20260521-002-a]
     related_stocks: []
     related_sectors: []
   intensity: high
@@ -109,12 +105,11 @@ claims:
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260518-021"]
+  contradicts: [claim-20260518-021]
   links:
     related_claims: []
     related_stocks: []
-    related_sectors:
-    - 半导体存储
+    related_sectors: [半导体存储]
   intensity: high
 - id: claim-20260518-019-f
   source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
@@ -136,8 +131,7 @@ claims:
   links:
     related_claims: []
     related_stocks: []
-    related_sectors:
-    - 半导体存储
+    related_sectors: [半导体存储]
   intensity: high
 - id: claim-20260518-019-g
   source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
@@ -159,8 +153,7 @@ claims:
   links:
     related_claims: []
     related_stocks: []
-    related_sectors:
-    - 通信运营商
+    related_sectors: [通信运营商]
   intensity: high
 - id: claim-20260518-019-h
   source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
@@ -180,13 +173,11 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    related_claims:
-    - claim-20260518-019-g
-    related_stocks:
-    - 润建股份
-    related_sectors:
-    - 通信设备
+    related_claims: [claim-20260518-019-g]
+    related_stocks: [润建股份]
+    related_sectors: [通信设备]
   intensity: high
+  related_stocks: [润建股份(002929)]
 - id: claim-20260518-019-i
   source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
   source_date: '2026-05-18'
@@ -202,14 +193,12 @@ claims:
   interpretation: 英伟达财报作为外围情绪锚点，当前资本开支趋势支撑业绩预期
   confidence: medium
   status: active
-  supersedes: ["claim-20260521-001-b"]
+  supersedes: [claim-20260521-001-b]
   contradicts: []
   links:
     related_claims: []
-    related_stocks:
-    - 英伟达
-    related_sectors:
-    - 半导体
+    related_stocks: [英伟达]
+    related_sectors: [半导体]
   intensity: high
 - id: claim-20260518-019-j
   source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
@@ -227,13 +216,11 @@ claims:
   confidence: medium
   status: active
   supersedes: []
-  contradicts: ["claim-20260527-004-b"]
+  contradicts: [claim-20260527-004-b]
   links:
     related_claims: []
-    related_stocks:
-    - 英特尔
-    related_sectors:
-    - 半导体
+    related_stocks: [英特尔]
+    related_sectors: [半导体]
   intensity: high
 - id: claim-20260518-019-k
   source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
@@ -254,11 +241,10 @@ claims:
   contradicts: []
   links:
     related_claims: []
-    related_stocks:
-    - 兆易创新
-    related_sectors:
-    - 半导体
+    related_stocks: [兆易创新]
+    related_sectors: [半导体]
   intensity: high
+  related_stocks: [兆易创新(603986)]
 - id: claim-20260518-019-l
   source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
   source_date: '2026-05-18'
@@ -277,13 +263,11 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    related_claims:
-    - claim-20260518-019-j
-    related_stocks:
-    - 中国长城
-    related_sectors:
-    - 信创软件
+    related_claims: [claim-20260518-019-j]
+    related_stocks: [中国长城]
+    related_sectors: [信创软件]
   intensity: high
+  related_stocks: [中国长城(000066)]
 - id: claim-20260518-019-m
   source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
   source_date: '2026-05-18'
@@ -302,8 +286,7 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    related_claims:
-    - claim-20260521-001-j
+    related_claims: [claim-20260521-001-j]
     related_stocks: []
     related_sectors: []
   intensity: high

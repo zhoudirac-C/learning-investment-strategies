@@ -205,9 +205,10 @@ def backfill_stock_names(driver) -> dict:
     print(f"  📋 watchlist.yaml: {len(watchlist_map)} code→name mappings")
 
     with driver.session() as session:
-        # ── Step 1: Delete code=NULL Stock nodes (Priority 4) ──
+        # ── Step 1: Delete redundant Stock nodes (Priority 4) ──
+        # Only delete nodes where BOTH code AND name are NULL (truly orphaned)
         delete_result = session.run(
-            "MATCH (s:Stock) WHERE s.code IS NULL DETACH DELETE s RETURN count(s) AS cnt"
+            "MATCH (s:Stock) WHERE s.code IS NULL AND s.name IS NULL DETACH DELETE s RETURN count(s) AS cnt"
         )
         deleted_count = delete_result.single()["cnt"]
         summary["deleted"] = deleted_count
@@ -301,7 +302,7 @@ def main():
                 "MATCH (s:Stock) WHERE s.name IS NULL RETURN count(s) AS cnt"
             ).single()["cnt"]
             null_code = session.run(
-                "MATCH (s:Stock) WHERE s.code IS NULL RETURN count(s) AS cnt"
+                "MATCH (s:Stock) WHERE s.code IS NULL AND s.name IS NULL RETURN count(s) AS cnt"
             ).single()["cnt"]
             total = session.run("MATCH (s:Stock) RETURN count(s) AS cnt").single()["cnt"]
             abnormal = session.run(

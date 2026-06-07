@@ -15,18 +15,12 @@ claims:
   interpretation: 这是对5月18日波浪结构的明确修正，说明技术结构需要跟随实际走势重新合并和定级，不能机械沿用原ABC路径
   confidence: high
   status: active
-  supersedes:
-  - claim-20260518-019-a
-  - claim-20260518-019-b
-  - claim-20260518-019-c
-  - claim-20260518-019-d
-  - claim-20260521-001-k
+  supersedes: [claim-20260518-019-a, claim-20260518-019-b, claim-20260518-019-c, claim-20260518-019-d,
+    claim-20260521-001-k]
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/指数调整
-    methodology_pages:
-    - 投资方法论/交易纪律
+    wiki_pages: [市场分析/指数调整]
+    methodology_pages: [投资方法论/交易纪律]
     cases: []
   intensity: medium
 - id: claim-20260521-002-b
@@ -44,14 +38,11 @@ claims:
   interpretation: 新复盘把点位从单一4080扩展为均线支撑体系，并给出4170反弹减仓和4047回踩再布局的短线剧本
   confidence: medium
   status: active
-  supersedes: ["claim-20260531-001-f", "claim-20260602-001-a"]
-  contradicts: ["claim-20260420-001"]
+  supersedes: [claim-20260531-001-f, claim-20260602-001-a]
+  contradicts: [claim-20260420-001]
   links:
-    wiki_pages:
-    - 市场分析/指数调整
-    - 市场分析/关键点位
-    methodology_pages:
-    - 投资方法论/仓位管理
+    wiki_pages: [市场分析/指数调整, 市场分析/关键点位]
+    methodology_pages: [投资方法论/仓位管理]
     cases: []
   intensity: medium
 - id: claim-20260521-002-c
@@ -72,11 +63,8 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/半导体产业链
-    - 市场分析/长鑫存储产业链
-    methodology_pages:
-    - 投资方法论/仓位管理
+    wiki_pages: [市场分析/半导体产业链, 市场分析/长鑫存储产业链]
+    methodology_pages: [投资方法论/仓位管理]
     cases: []
   intensity: high
 - id: claim-20260521-002-d
@@ -95,13 +83,10 @@ claims:
   confidence: medium
   status: active
   supersedes: []
-  contradicts: ["claim-20260528-005-h"]
+  contradicts: [claim-20260528-005-h]
   links:
-    wiki_pages:
-    - 市场分析/半导体产业链
-    - 市场分析/长鑫存储产业链
-    methodology_pages:
-    - 投资方法论/交易纪律
+    wiki_pages: [市场分析/半导体产业链, 市场分析/长鑫存储产业链]
+    methodology_pages: [投资方法论/交易纪律]
     cases: []
   intensity: high
 - id: claim-20260521-002-e
@@ -122,12 +107,11 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/半导体设备
-    methodology_pages:
-    - 投资方法论/交易纪律
+    wiki_pages: [市场分析/半导体设备]
+    methodology_pages: [投资方法论/交易纪律]
     cases: []
   intensity: medium
+  related_stocks: [北方华创(002371)]
 - id: claim-20260521-002-f
   source_path: sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
   source_date: '2026-05-21'
@@ -146,10 +130,8 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/国产CPU_GPU与软件
-    methodology_pages:
-    - 投资方法论/主线判断
+    wiki_pages: [市场分析/国产CPU_GPU与软件]
+    methodology_pages: [投资方法论/主线判断]
     cases: []
   intensity: medium
 - id: claim-20260521-002-g
@@ -170,10 +152,8 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 每日复盘/2026-05-21
-    methodology_pages:
-    - 投资方法论/主线判断
+    wiki_pages: [每日复盘/2026-05-21]
+    methodology_pages: [投资方法论/主线判断]
     cases: []
   intensity: medium
 - id: claim-20260521-002-h
@@ -194,11 +174,8 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/光通信
-    - 市场分析/玻璃基板与Micro-LED
-    methodology_pages:
-    - 投资方法论/主线判断
+    wiki_pages: [市场分析/光通信, 市场分析/玻璃基板与Micro-LED]
+    methodology_pages: [投资方法论/主线判断]
     cases: []
   intensity: medium
 - id: claim-20260521-002-i
@@ -220,8 +197,7 @@ claims:
   contradicts: []
   links:
     wiki_pages: []
-    methodology_pages:
-    - 投资方法论/交易纪律
+    methodology_pages: [投资方法论/交易纪律]
     cases: []
   intensity: high
 - id: claim-20260521-002-j
@@ -242,11 +218,8 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 每日复盘/2026-05-21
-    methodology_pages:
-    - 投资方法论/主线判断
-    - 投资方法论/仓位管理
+    wiki_pages: [每日复盘/2026-05-21]
+    methodology_pages: [投资方法论/主线判断, 投资方法论/仓位管理]
     cases: []
   intensity: high
 - id: claim-20260521-002-k
@@ -265,11 +238,9 @@ claims:
   confidence: medium
   status: active
   supersedes: []
-  contradicts: ["claim-20260601-002-b", "claim-20260528-005-c"]
+  contradicts: [claim-20260601-002-b, claim-20260528-005-c]
   links:
-    wiki_pages:
-    - 市场分析/指数调整
-    methodology_pages:
-    - 投资方法论/仓位管理
+    wiki_pages: [市场分析/指数调整]
+    methodology_pages: [投资方法论/仓位管理]
     cases: []
   intensity: medium

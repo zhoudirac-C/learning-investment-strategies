@@ -41,23 +41,80 @@ STATE_PATH = REPO_ROOT / ".migrate_state.json"
 STOCK_CODE_RE = re.compile(r"\b(\d{6})(?:\.SH|\.SZ|\.sh|\.sz)?\b")
 # Also match stock names that might be in positions.yaml
 STOCK_NAME_TO_CODE: dict[str, str] = {}
+STOCK_CODE_TO_NAME: dict[str, str] = {}
 
 def _load_stock_name_mapping() -> dict[str, str]:
-    """Load stock name to code mapping from positions.yaml if available."""
+    """
+    Build stock name→code mapping from positions.yaml + watchlist.yaml.
+
+    Priority: positions.yaml entries overwrite watchlist.yaml entries for
+    same stock name with different codes (with a warning).
+    Also populates STOCK_NAME_TO_CODE and STOCK_CODE_TO_NAME module globals.
+    Returns name→code dict.
+    """
     mapping: dict[str, str] = {}
+    config_dir = REPO_ROOT / "config" / "stock_monitor"
+
+    # 1. Read positions.yaml (highest priority, private file — silent skip)
     try:
-        positions_path = Path("/home/ubuntu/learning-investment-strategies/config/stock_monitor/positions.yaml")
+        positions_path = config_dir / "positions.yaml"
         if positions_path.exists():
-            import yaml
             data = yaml.safe_load(positions_path.read_text(encoding="utf-8"))
             for account in data.get("accounts", []):
                 for pos in account.get("positions", []):
                     name = pos.get("name", "")
                     code = pos.get("code", "").replace(".SZ", "").replace(".SH", "").replace(".sz", "").replace(".sh", "")
                     if name and code:
+                        if name in mapping and mapping[name] != code:
+                            print(f"  ⚠️ positions.yaml: 股票名 '{name}' 已存在(code={mapping[name]}), 覆盖为 {code}")
                         mapping[name] = code
     except Exception:
         pass
+
+    # 2. Read watchlist.yaml (public config file — silent skip if missing)
+    try:
+        watchlist_path = config_dir / "watchlist.yaml"
+        if watchlist_path.exists():
+            data = yaml.safe_load(watchlist_path.read_text(encoding="utf-8"))
+            for theme in data.get("themes", []):
+                for stock in theme.get("stocks", []):
+                    name = stock.get("name", "")
+                    code = stock.get("code", "").replace(".SZ", "").replace(".SH", "").replace(".sz", "").replace(".sh", "")
+                    if name and code:
+                        if name in mapping and mapping[name] != code:
+                            print(f"  ⚠️ watchlist.yaml: 股票名 '{name}' 已存在(code={mapping[name]}), 覆盖为 {code}")
+                        mapping[name] = code
+    except Exception:
+        pass
+
+    # 3. Supplemental mapping for common UP-mentioned stocks not in positions/watchlist
+    supplemental = {
+        "协创数据": "300857", "宏景科技": "301396", "网宿科技": "300017",
+        "润泽科技": "300442", "烽火通信": "600498", "智微智能": "001339",
+        "润和软件": "300339", "富创精密": "688409", "珂玛科技": "301611",
+        "京仪装备": "688652", "润建股份": "002929", "北方华创": "002371",
+        "兆易创新": "603986", "领益智造": "002600", "中科飞测": "688361",
+        "柏诚股份": "601133", "北自科技": "603082", "中天精装": "002989",
+        "上峰水泥": "000672", "华峰测控": "688200", "英维克": "002837",
+        "深科技": "000021", "新易盛": "300502", "通富微电": "002156",
+        "茂莱光学": "688502", "澜起科技": "688008",
+    }
+    for name, code in supplemental.items():
+        if name not in mapping:
+            mapping[name] = code
+
+    # 4. Build reverse mapping (code→name) for backfill use
+    code_to_name: dict[str, str] = {}
+    for name, code in mapping.items():
+        if code in code_to_name and code_to_name[code] != name:
+            print(f"  ⚠️ 代码 {code} 对应多个名称: '{code_to_name[code]}' vs '{name}', 保留 '{name}'")
+        code_to_name[code] = name
+
+    # Update module-level globals for downstream consumers
+    global STOCK_NAME_TO_CODE, STOCK_CODE_TO_NAME
+    STOCK_NAME_TO_CODE = mapping
+    STOCK_CODE_TO_NAME = code_to_name
+
     return mapping
 
 
@@ -265,7 +322,7 @@ def _migrate_single_claim(session, claim: dict):
         """,
         {
             "id": cid,
-            "statement": claim.get("statement", ""),
+            "statement": claim.get("statement", "") or claim.get("text", ""),
             "evidence_quote": claim.get("evidence_quote", ""),
             "interpretation": claim.get("interpretation", ""),
             "confidence": claim.get("confidence", "medium"),
@@ -281,9 +338,7 @@ def _migrate_single_claim(session, claim: dict):
 
     # Extract and link entities
     subject = claim.get("subject", "")
-    statement = claim.get("statement", "")
-
-    # Stock codes
+    statement = claim.get("statement", "") or claim.get("text", "")
     stock_codes = extract_stock_codes(subject + " " + statement)
     name = subject or statement[:100]
     for code in stock_codes:

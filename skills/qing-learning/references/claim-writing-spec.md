@@ -16,6 +16,28 @@
 
 ### Agent 消费规则（时效分级引用）
 
+## 二、related_stocks 字段规范（强制要求）
+
+**所有涉及个股的 claim（`stock-view` 类型）必须填写 `related_stocks` 字段，格式如下：**
+
+```yaml
+related_stocks:
+  - 中国长城(000066)
+  - 航天电器(002025)
+```
+
+### 规则
+1. **必须带 6 位代码**：`股票名(6位代码)` 格式，禁止只写股票名不带代码
+2. **代码不写交易所后缀**：写 `000066` 而非 `000066.SZ` 或 `000066.SH`
+3. **多标的用列表**：`related_stocks: [标的A(代码), 标的B(代码)]`
+4. **`sector-theme` 类型**：如果 statement 中提到了具体标的，也要填写 `related_stocks`
+5. **subject 字段**：如果是股票名，必须确保 `related_stocks` 中有对应条目
+
+### 为什么
+- Neo4j 迁移脚本通过 `related_stocks` 和 statement 中的 6 位数字提取股票代码
+- 没有代码的股票名（如 `related_stocks: ["润建股份"]`）无法建立 `(Claim)-[:ABOUT]->(Stock)` 关系
+- 回填脚本 `scripts/backfill_related_stocks.py` 可以补全已有 YAML，但新写的 claim 应直接带代码
+
 | freshness_label | 天数 | Prompt 区块 | 引用规则 |
 |----------------|------|-------------|---------|
 | 方法论 | 不限 | 【博主选股方法论/操作框架】🔧 | 可作为方法论指导引用，不受时效限制 |

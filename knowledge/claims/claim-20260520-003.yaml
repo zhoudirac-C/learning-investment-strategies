@@ -14,14 +14,11 @@ claims:
   interpretation: 科技核心仍强，但广度显著不足，操作上不能按全市场普涨牛市处理
   confidence: high
   status: active
-  supersedes: ["claim-20260525-020"]
+  supersedes: [claim-20260525-020]
   contradicts: []
   links:
-    wiki_pages:
-    - 每日复盘/2026-05-20
-    - 市场分析/科创50虹吸
-    methodology_pages:
-    - 投资方法论/仓位管理
+    wiki_pages: [每日复盘/2026-05-20, 市场分析/科创50虹吸]
+    methodology_pages: [投资方法论/仓位管理]
     cases: []
   intensity: high
 - id: claim-20260520-003-b
@@ -43,10 +40,8 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/科创50虹吸
-    methodology_pages:
-    - 投资方法论/主线判断
+    wiki_pages: [市场分析/科创50虹吸]
+    methodology_pages: [投资方法论/主线判断]
     cases: []
   intensity: medium
 - id: claim-20260520-003-c
@@ -64,15 +59,11 @@ claims:
   interpretation: 早盘泛科技轮动的不确定性，在复盘中上修为半导体接棒主线，但仍需观察全市场共振
   confidence: high
   status: active
-  supersedes:
-  - claim-20260520-001-e
+  supersedes: [claim-20260520-001-e]
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/半导体产业链
-    - 市场分析/长鑫存储产业链
-    methodology_pages:
-    - 投资方法论/主线判断
+    wiki_pages: [市场分析/半导体产业链, 市场分析/长鑫存储产业链]
+    methodology_pages: [投资方法论/主线判断]
     cases: []
   intensity: high
 - id: claim-20260520-003-d
@@ -93,11 +84,8 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/半导体产业链
-    - 市场分析/光通信
-    methodology_pages:
-    - 投资方法论/主线判断
+    wiki_pages: [市场分析/半导体产业链, 市场分析/光通信]
+    methodology_pages: [投资方法论/主线判断]
     cases: []
   intensity: high
 - id: claim-20260520-003-e
@@ -118,10 +106,8 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/光通信
-    methodology_pages:
-    - 投资方法论/主线判断
+    wiki_pages: [市场分析/光通信]
+    methodology_pages: [投资方法论/主线判断]
     cases: []
   intensity: high
 - id: claim-20260520-003-f
@@ -143,11 +129,8 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/量能判断
-    - 市场分析/科创50虹吸
-    methodology_pages:
-    - 投资方法论/交易纪律
+    wiki_pages: [市场分析/量能判断, 市场分析/科创50虹吸]
+    methodology_pages: [投资方法论/交易纪律]
     cases: []
   intensity: medium
 - id: claim-20260520-003-g
@@ -166,14 +149,11 @@ claims:
   interpretation: 结构牛和虹吸行情下，操作重点从追指数切换到持核心、看扩散、避后排
   confidence: high
   status: active
-  supersedes: ["claim-20260520-001-g"]
+  supersedes: [claim-20260520-001-g]
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/科创50虹吸
-    methodology_pages:
-    - 投资方法论/交易纪律
-    - 投资方法论/仓位管理
+    wiki_pages: [市场分析/科创50虹吸]
+    methodology_pages: [投资方法论/交易纪律, 投资方法论/仓位管理]
     cases: []
   intensity: high
 - id: claim-20260520-003-h
@@ -194,11 +174,11 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/半导体产业链
+    wiki_pages: [市场分析/半导体产业链]
     methodology_pages: []
     cases: []
   intensity: medium
+  related_stocks: [通富微电(002156)]
 - id: claim-20260520-003-i
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
   source_date: '2026-05-20'
@@ -215,14 +195,13 @@ claims:
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260527-001-e"]
+  contradicts: [claim-20260527-001-e]
   links:
-    wiki_pages:
-    - 市场分析/半导体产业链
-    - 市场分析/半导体设备
+    wiki_pages: [市场分析/半导体产业链, 市场分析/半导体设备]
     methodology_pages: []
     cases: []
   intensity: high
+  related_stocks: [中科飞测(688361)]
 - id: claim-20260520-003-j
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
   source_date: '2026-05-20'
@@ -241,11 +220,11 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/光通信
+    wiki_pages: [市场分析/光通信]
     methodology_pages: []
     cases: []
   intensity: high
+  related_stocks: [新易盛(300502)]
 - id: claim-20260520-003-k
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
   source_date: '2026-05-20'
@@ -264,10 +243,8 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/Token算力
-    methodology_pages:
-    - 投资方法论/主线判断
+    wiki_pages: [市场分析/Token算力]
+    methodology_pages: [投资方法论/主线判断]
     cases: []
   intensity: medium
 - id: claim-20260520-003-l
@@ -288,10 +265,7 @@ claims:
   supersedes: []
   contradicts: []
   links:
-    wiki_pages:
-    - 市场分析/光通信
-    - 市场分析/半导体产业链
-    methodology_pages:
-    - 投资方法论/交易纪律
+    wiki_pages: [市场分析/光通信, 市场分析/半导体产业链]
+    methodology_pages: [投资方法论/交易纪律]
     cases: []
   intensity: medium
