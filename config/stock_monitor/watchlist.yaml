@@ -1,41 +1,4 @@
 updated_at: '2026-06-05'
-today_snapshot:
-  fetch_time: 2026-06-05 09:30 CST
-  source: 6-5早盘专栏
-  up_bias: 调整第17天接近尾声。4033/4130不变。做T为主。重心AI基建上游材料(铜缆/光纤/MLCC/超级电容)。非科技尾声。昇腾超跌赔率升高。
-  market_summary: 缩量调整第17天企稳特征。AI上游材料端最确定。煤炭龙头见顶信号。昇腾超跌赔率升高(华丰定增133.9+航天电器双重下杀)。做T为主不开新仓。
-  stocks_with_data:
-  - code: sz000969
-    name: 安泰科技
-    latest: 22.04
-    pct_change: -0.36
-    note: 持仓300股成本28.667，浮亏约-23.1%。微盘股破位下小市值风险大，6-5关注24.5支撑。
-  - code: sz000066
-    name: 中国长城
-    latest: 17.95
-    pct_change: -0.5
-    note: 持仓400股成本18.111，浮亏约-0.89%。信创中线逻辑未坏，等16.0以下补仓机会。
-  - code: sh603920
-    name: 世运电路
-    latest: 62.69
-    pct_change: 10.0
-    note: LPU埋嵌PCB新概念，涨停首日。只观察不追，等分歧回踩。
-  - code: sz002897
-    name: 意华股份
-    latest: 96.15
-    pct_change: 5.43
-    note: CPO+连接器双重卡位，6-4复盘提及LPU关联。+5.43%强势，不追高。
-  - code: sh605376
-    name: 博迁新材
-    latest: 188.0
-    pct_change: -1.08
-    note: MLCC镍粉上游，-1.08%缩量调整。等回踩。
-  - code: sz000636
-    name: 风华高科
-    latest: 63.5
-    pct_change: 4.89
-    note: MLCC核心+4.89%强势。纪律：只观察不介入。
-  overall_action: 6月5日：做T/持股为主。重心AI上游材料。航天电器等昇腾企稳。4033/4130不变。
 themes:
 - id: cpu_self_development
   name: CPU自研链（字节催化，可能裂变为主线）
@@ -93,8 +56,7 @@ themes:
     role: pcie_switch_core
     segment: PCIe Switch
     priority: P1-核心
-    watch_reason: 数渡科技PCIe Switch，国产替代博通。CPU翻倍预期+国产超节点放量→PCIe Switch市场大幅扩容（2026年国内超200亿）。104通道已量产、144通道已投片、PCIe
-      6.0/CXL在研。
+    watch_reason: 数渡科技PCIe Switch，国产替代博通。CPU翻倍预期+国产超节点放量→PCIe Switch市场大幅扩容（2026年国内超200亿）。104通道已量产、144通道已投片、PCIe 6.0/CXL在研。
     sync_with_index: ⚠️ 弱同步——6月1日随科技调整-2.04%，跌破成本
     confirm_with:
     - ST得润
@@ -463,7 +425,7 @@ themes:
     invalidation_setup:
     - 单票走强但功率半导体组无扩散
     - 跌破分时均价
-  - code: sh688381
+  - code: 688381.SH
     name: 帝奥微
     role: analog_ic
     segment: 模拟IC
@@ -707,7 +669,7 @@ themes:
       leader_follower: 板块龙头
       catalyst: AI硬件共振修复
       risk: 短期涨幅已大，需防获利回吐；但产业卡位明确，资金回流优先级高
-  - code: sz002897
+  - code: 002897.SZ
     name: 意华股份
     role: optical_interconnect
     segment: 光互连
@@ -742,7 +704,7 @@ themes:
       leader_follower: 跟随
       catalyst: Marvell被黄仁勋点名
       risk: 炒新不炒旧，需验证接力意愿
-  - code: sz301419
+  - code: 301419.SZ
     name: 阿莱德
     role: optical_interconnect
     segment: 光互连
@@ -1956,7 +1918,7 @@ themes:
     - 需长飞光纤、亨通光电同步承接，不能单票低吸
     invalidation_setup:
     - 跌破41.8日内低点或光纤光缆组无扩散，维持弱势观察
-  - code: sz300265
+  - code: 300265.SZ
     name: 通光线缆
     role: fiber_cable
     segment: 光纤光缆
@@ -2624,7 +2586,7 @@ themes:
     invalidation_setup:
     - 鸿海CPO出货不及预期
     - 单票脉冲但CPO组无联动
-  - code: sh688313
+  - code: 688313.SH
     name: 仕佳光子
     role: cpo_aws_chip
     segment: CPO上游
@@ -2659,7 +2621,7 @@ themes:
       leader_follower: 跟随
       catalyst: 英伟达Spectrum-X量产
       risk: 短期涨幅大，需防兑现
-  - code: sh688025
+  - code: 688025.SH
     name: 杰普特
     role: laser_equipment
     segment: 激光器/CPO
@@ -3374,8 +3336,7 @@ themes:
     role: cpo_switch_odm
     segment: CPO交换机/ODM
     priority: P2-重点
-    watch_reason: UP明确提示"关注地位方向"：CPO供应链核心卡位，全光CPO交换机机柜出货目标从26年超1万台上修至26-27年合计超5万台。英伟达Vera
-      Rubin全面量产受益。
+    watch_reason: UP明确提示"关注地位方向"：CPO供应链核心卡位，全光CPO交换机机柜出货目标从26年超1万台上修至26-27年合计超5万台。英伟达Vera Rubin全面量产受益。
     sync_with_index: 上证
     confirm_with:
     - 天孚通信

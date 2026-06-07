@@ -330,20 +330,6 @@ quant_entry_strategy:
     trigger: 昇腾链企稳+连接器/CPO双重确认，分歧后缩量回踩放量收回
     invalidation: 昇腾链继续走弱，或CPO方向证伪
     note: 主板可交易。UP 6-5列为昇腾核心(华丰/航天电器/意华股份)，叠加LPU+CPO三重逻辑。
-  - code: sz002025
-    name: 航天电器
-    entry_zone: 等企稳信号确认后评估
-    position_ratio: 0.5成
-    trigger: 昇腾链整体企稳，华丰科技/意华股份同步转强，军工+昇腾双重利空消化后缩量回踩确认
-    invalidation: 军工板块继续杀跌拖累，跌破估值底部
-    note: 主板可交易。UP判断赔率升高，6月中下旬回归算力主航道。当前等企稳，不左侧抄底。
-  - code: sz002025
-    name: 航天电器
-    entry_zone: 等企稳信号确认
-    position_ratio: 0.5成
-    trigger: 昇腾链企稳+华丰/意华同步转强，双重利空消化后缩量回踩
-    invalidation: 军工继续杀跌
-    note: 主板可交易。UP：赔率升高，6月中下旬回归算力主航道。等企稳不左侧。
 sector_groups:
 - id: cpu_self_development
   name: CPU自研链
@@ -513,6 +499,92 @@ sector_groups:
     name: 应流股份
   - code: 000534.SZ
     name: 万泽股份
+- id: rubin_pcb_abf_mainboard
+  name: Rubin PCB/ABF/CCL
+  style: offensive
+  members:
+  - code: 002636.SZ
+    name: 金安国纪
+  - code: 301389.SZ
+    name: 隆扬电子
+  - code: 301217.SZ
+    name: 铜冠铜箔
+  - code: 300936.SZ
+    name: 中英科技
+  - code: 002916.SZ
+    name: 深南电路
+  - code: 002436.SZ
+    name: 兴森科技
+  - code: 002463.SZ
+    name: 沪电股份
+  - code: 603228.SH
+    name: 景旺电子
+  - code: 600601.SH
+    name: 方正科技
+  - code: 600183.SH
+    name: 生益科技
+  - code: 603186.SH
+    name: 华正新材
+  - code: 601208.SH
+    name: 东材科技
+  - code: 603256.SH
+    name: 宏和科技
+  - code: 002080.SZ
+    name: 中材科技
+  - code: 600110.SH
+    name: 诺德股份
+  - code: 603002.SH
+    name: 宏昌电子
+  - code: 605589.SH
+    name: 圣泉集团
+  - code: 300476.SZ
+    name: 胜宏科技
+  - code: 002938.SZ
+    name: 鹏鼎控股
+  - code: 688519.SH
+    name: 南亚新材
+- id: advanced_packaging_mainboard
+  name: 先进封装/存储封测
+  style: offensive
+  members:
+  - code: 002156.SZ
+    name: 通富微电
+  - code: 002371.SZ
+    name: 北方华创
+  - code: 603986.SH
+    name: 兆易创新
+- id: changxin_storage
+  name: 长鑫存储产业链
+  style: offensive
+  members:
+  - code: 000021.SZ
+    name: 深科技
+  - code: 688041.SH
+    name: 海光信息
+  - code: 603269.SH
+    name: 海鸥股份
+  - code: 002782.SZ
+    name: 可立克
+- id: domestic_compute
+  name: 国产算力产业链
+  style: offensive
+  members:
+  - code: 000021.SZ
+    name: 深科技
+  - code: 002881.SZ
+    name: 美格智能
+  - code: 002025.SZ
+    name: 航天电器
+  - code: 688629.SH
+    name: 华丰科技
+- id: defensive_rotation
+  name: 防御板块（轮动观察）
+  style: defensive
+  members:
+  - code: 600519.SH
+    name: 贵州茅台
+  - code: 600036.SH
+    name: 招商银行
 sector_rotation_rules:
 - id: offensive_vs_defensive
   name: 进攻vs防御风格切换
@@ -528,11 +600,16 @@ sector_rotation_rules:
   - compute_power
   - lpu_inference
   - ai_energy_gas_turbine
+  - rubin_pcb_abf_mainboard
+  - advanced_packaging_mainboard
+  - changxin_storage
+  - domestic_compute
   defensive_group_ids:
   - medical_observation
   - defensive_stabilizers
   - coal
   - urban_renewal
+  - defensive_rotation
   min_spread_pct: 1.5
   min_red_ratio_spread: 15
   require_offensive_positive: true
@@ -606,3 +683,35 @@ today_snapshot:
   - 安泰科技小市值受微盘股拖累，关注24.5支撑
   - 光互联主升末期，追高风险极大
   - 世运高开>3%不追，等分歧回踩
+  stocks_with_data:
+  - code: 000969.SZ
+    name: 安泰科技
+    latest: 22.04
+    pct_change: -0.36
+    note: 持仓300股成本28.667，浮亏约-23.1%。微盘股破位下小市值风险大，6-5关注24.5支撑。
+  - code: 000066.SZ
+    name: 中国长城
+    latest: 17.95
+    pct_change: -0.5
+    note: 持仓400股成本18.111，浮亏约-0.89%。信创中线逻辑未坏，等16.0以下补仓机会。
+  - code: 603920.SH
+    name: 世运电路
+    latest: 62.69
+    pct_change: 10.0
+    note: LPU埋嵌PCB新概念，涨停首日。只观察不追，等分歧回踩。
+  - code: 002897.SZ
+    name: 意华股份
+    latest: 96.15
+    pct_change: 5.43
+    note: CPO+连接器双重卡位，6-4复盘提及LPU关联。+5.43%强势，不追高。
+  - code: 605376.SH
+    name: 博迁新材
+    latest: 188.0
+    pct_change: -1.08
+    note: MLCC镍粉上游，-1.08%缩量调整。等回踩。
+  - code: 000636.SZ
+    name: 风华高科
+    latest: 63.5
+    pct_change: 4.89
+    note: MLCC核心+4.89%强势。纪律：只观察不介入。
+  overall_action: 6月5日：做T/持股为主。重心AI上游材料。航天电器等昇腾企稳。4033/4130不变。

@@ -1182,6 +1182,16 @@ def format_daily_review_context(
             ]
         )
 
+    stale_warnings = state.get("stale_zone_warnings")
+    if stale_warnings:
+        lines.extend(
+            [
+                "",
+                "⚠️ 持仓价格区间失真警告：",
+                json.dumps(stale_warnings, ensure_ascii=False),
+            ]
+        )
+
     lines.extend(
         [
             "",
@@ -1805,6 +1815,72 @@ def format_live_analysis_context(config: MonitorConfig, value: datetime) -> str:
     return "\n".join(lines)
 
 
+def validate_position_price_zones(
+    config: MonitorConfig,
+    quote_snapshot: dict,
+) -> list[dict]:
+    """检查持仓的 risk_zone / reduce_zone 是否与当前价格距离过大（防失真）。
+
+    返回 stale_warnings 列表，每个条目包含 position 信息和警告原因。
+    规则：
+    - reduce_zone 上限距现价 > 12% → 向上失真（提醒下调）
+    - risk_zone 下限 > 现价（已被跌破）→ 向下失真（提醒已触发但未更新）
+    - reduce_zone / risk_zone 缺失 → 高危漏报
+    """
+    quotes = _quotes_by_code(quote_snapshot)
+    warnings: list[dict] = []
+
+    for row in position_rows(config):
+        code = str(row.get("code", ""))
+        name = str(row.get("name", ""))
+        quote = _quote_for_stock(quotes, code)
+        latest = _to_float((quote or {}).get("latest"))
+        if latest is None:
+            continue
+
+        reduce_zone = parse_price_zone(row.get("reduce_zone"))
+        risk_zone = parse_price_zone(row.get("risk_zone") or row.get("risk_line"))
+
+        # 高危：两个区间都缺失
+        if reduce_zone is None and risk_zone is None:
+            warnings.append({
+                "code": code,
+                "name": name,
+                "issue": "missing_all_zones",
+                "detail": f"缺少 reduce_zone 和 risk_zone，跌停/大跌将无提醒",
+                "latest": latest,
+            })
+            continue
+
+        # 检查 reduce_zone 是否过高（向上失真）
+        if reduce_zone:
+            gap_pct = round((reduce_zone[0] - latest) / latest * 100, 1)
+            if gap_pct > 12:
+                warnings.append({
+                    "code": code,
+                    "name": name,
+                    "issue": "reduce_zone_stale_high",
+                    "detail": f"reduce_zone={_format_zone(reduce_zone)}，距现价{latest}+{gap_pct}%，已失真，建议下调",
+                    "latest": latest,
+                    "gap_pct": gap_pct,
+                })
+
+        # 检查 risk_zone 是否已被跌破（向下失真）
+        if risk_zone:
+            if latest < risk_zone[0]:
+                gap_pct = round((risk_zone[0] - latest) / latest * 100, 1)
+                warnings.append({
+                    "code": code,
+                    "name": name,
+                    "issue": "risk_zone_breached",
+                    "detail": f"risk_zone={_format_zone(risk_zone)}，现价{latest}已跌破下限+{gap_pct}%，风险线已失效",
+                    "latest": latest,
+                    "gap_pct": gap_pct,
+                })
+
+    return warnings
+
+
 def run_tick(
     config: MonitorConfig,
     value: datetime,
@@ -1829,11 +1905,15 @@ def run_tick(
     if emit_status:
         return format_status_message(config, value)
     quote_snapshot = quote_fetcher(collect_quote_targets(config))
+    # 防失真检查：验证持仓价格区间是否与当前行情匹配
+    stale_warnings = validate_position_price_zones(config, quote_snapshot)
     alerts = evaluate_monitor_alerts(config, quote_snapshot, current_time=value)
     resolved_state_path = state_path or config.config_dir / "state.json"
     state = load_monitor_state(resolved_state_path)
     state["version"] = 1
     state["last_updated"] = value.astimezone(CN_TZ).isoformat()
+    if stale_warnings:
+        state["stale_zone_warnings"] = stale_warnings
     if quote_snapshot.get("quotes"):
         state["last_quote_snapshot"] = quote_snapshot
         state.pop("last_fetch_error", None)
