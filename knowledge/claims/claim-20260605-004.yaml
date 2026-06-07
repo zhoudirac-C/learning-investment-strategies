@@ -1,14 +1,10 @@
-source_path: sources/raw/财经/动态：26-06-05：1411-下午继续买，周日复盘梳理行情.md
-source_date: '2026-06-05'
-source_type: 盘中动态
-source_id: '1210328170643849253'
-processed_at: '2026-06-05T18:00:00'
 claims:
 - id: claim-20260605-004-a
   topic: 4033定位修正：科技清仓线非抄底线
   statement: UP在评论回复中明确：4033"到了也是清仓科技，不是今天抄底的品种"。4033从"指数纪律底线"修正为"科技减仓触发线"——跌破4033不是恐慌卖出，而是不在此处抄底科技。
   evidence_quote: 有人提问4033还需要看吗？UP回复：到了也是清仓科技，不是今天抄底的品种。
-  interpretation: 与早盘claim-20260605-001-b的"4033清仓"纪律一致，但语境更细化——UP强调4033附近的正确操作是卖出科技而非买入。"不是今天抄底的品种"暗示UP认为4033即使到了也是卖点不是买点，这可能意味着UP预期4033如果破掉会有更深调整。应标记早盘4033 claim的关联。
+  interpretation: 与早盘claim-20260605-001-b的"4033清仓"纪律一致，但语境更细化——UP强调4033附近的正确操作是卖出科技而非买入。"不是今天抄底的品种"暗示UP认为4033即使到了也是卖点不是买点，这可能意味着UP预期4033如果破掉会有更深调整。应标记早盘4033
+    claim的关联。
   confidence: high
   status: active
   claim_type: operation
@@ -23,6 +19,7 @@ claims:
   contradicts: []
   links:
   - claim-20260605-001-b
+  intensity: high
 - id: claim-20260605-004-b
   topic: 尾盘确认：下午继续买
   statement: 早上没买够的、没来得及交易的，下午14:11仍是机会。UP明确尾盘前继续加仓可执行。
@@ -35,10 +32,11 @@ claims:
   related_stocks: []
   tags:
   - 尾盘加仓
-  - 14:11
+  - 851
   - 继续买
   supersedes: []
   contradicts: []
+  intensity: high
 - id: claim-20260605-004-c
   topic: 周日复盘预告
   statement: UP将在周日复盘梳理今日行情，提示充电粉丝关注。
@@ -54,3 +52,4 @@ claims:
   - 复盘预告
   supersedes: []
   contradicts: []
+  intensity: high

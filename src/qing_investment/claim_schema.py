@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
+VALID_INTENSITY = {"high", "medium", "low"}
+
 VALID_CLAIM_TYPES = {
     "market-cycle",
     "sector-theme",
@@ -35,6 +37,7 @@ REQUIRED_FIELDS = {
     "interpretation",
     "confidence",
     "status",
+    "intensity",
     "supersedes",
     "contradicts",
     "links",
@@ -56,6 +59,7 @@ class Claim:
     interpretation: str
     confidence: str
     status: str
+    intensity: str
     supersedes: list[str]
     contradicts: list[str]
     links: dict[str, list[str]]
@@ -69,6 +73,7 @@ def validate_claim_dict(data: dict[str, Any]) -> Claim:
     _require_enum("claim_type", data["claim_type"], VALID_CLAIM_TYPES)
     _require_enum("timeframe", data["timeframe"], VALID_TIMEFRAMES)
     _require_enum("confidence", data["confidence"], VALID_CONFIDENCE)
+    _require_enum("intensity", data["intensity"], VALID_INTENSITY)
     _require_enum("status", data["status"], VALID_STATUS)
 
     if not isinstance(data["supersedes"], list):
@@ -98,6 +103,7 @@ def validate_claim_dict(data: dict[str, Any]) -> Claim:
         interpretation=str(data["interpretation"]),
         confidence=str(data["confidence"]),
         status=str(data["status"]),
+        intensity=str(data["intensity"]),
         supersedes=[str(item) for item in data["supersedes"]],
         contradicts=[str(item) for item in data["contradicts"]],
         links=links,

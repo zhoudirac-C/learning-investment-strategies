@@ -8,7 +8,7 @@ claims:
   subject: 6月1日盘面定调
   timeframe: short-term
   statement: 今日指数冲高回落，大小票分化明显。核心矛盾是高低位切换与风格切换同步进行，AI科技进入调整而微盘股与全A翻红。量能逐步萎缩，超跌反弹集中在微盘股
-  evidence_quote: "今日指数冲高回落，大小票分化明显。两市涨停超百家，但短线情绪依旧偏弱...当下的核心矛盾，更像是高低位切换与风格切换在同步进行"
+  evidence_quote: 今日指数冲高回落，大小票分化明显。两市涨停超百家，但短线情绪依旧偏弱...当下的核心矛盾，更像是高低位切换与风格切换在同步进行
   interpretation: 6月1日盘面特征：①指数冲高回落，大小票分化；②涨停超百家但情绪偏弱，强势股回撤效应大；③高低位切换+风格切换同步：AI科技调整，微盘股反而翻红；④量能萎缩，明日或再少3000亿；⑤超跌反弹集中在微盘股，ST板块涨停潮
   confidence: high
   status: active
@@ -19,6 +19,7 @@ claims:
     - knowledge/wiki/每日复盘/2026-06-01.md
     methodology_pages: []
     cases: []
+  intensity: high
 - id: claim-20260601-004-b
   source_path: sources/raw/财经/复盘：26-06-01：指数冲高回落，大小票分化，AIPC相对占优.md
   source_date: '2026-06-01'
@@ -28,8 +29,9 @@ claims:
   subject: 板块轮动与AIPC相对占优
   timeframe: short-term
   statement: 市场快速轮动，煤炭、养殖业、AI应用、AIPC涨幅居前。AI应用/AIPC走出持续性的可能性相对更高，更偏向AI Agent延伸，但成为主线难度不小，更可能是小周期行情
-  evidence_quote: "相比之下，AI应用、AIPC走出持续性的可能性相对更高一些，从产业趋势上看，更偏向AI Agent这条线的延伸...当然，要真正成为主线难度不小，更可能是一段小周期行情"
-  interpretation: 板块轮动分析：①电力高位回撤（辨识度个股回撤，日内波动大）；②煤炭接棒电力避险角色，但本质补涨，波动大不易做；③养殖业反转需时间沉淀，持续性偏弱；④AI应用/AIPC相对占优：低位+科技双重属性，产业逻辑+位置低；⑤英伟达Vera CPU和N1X催化AI Agent方向；⑥判断：小周期行情，非主升
+  evidence_quote: 相比之下，AI应用、AIPC走出持续性的可能性相对更高一些，从产业趋势上看，更偏向AI Agent这条线的延伸...当然，要真正成为主线难度不小，更可能是一段小周期行情
+  interpretation: 板块轮动分析：①电力高位回撤（辨识度个股回撤，日内波动大）；②煤炭接棒电力避险角色，但本质补涨，波动大不易做；③养殖业反转需时间沉淀，持续性偏弱；④AI应用/AIPC相对占优：低位+科技双重属性，产业逻辑+位置低；⑤英伟达Vera
+    CPU和N1X催化AI Agent方向；⑥判断：小周期行情，非主升
   confidence: medium
   status: active
   supersedes: []
@@ -39,6 +41,7 @@ claims:
     - knowledge/wiki/市场分析/AI应用与软件.md
     methodology_pages: []
     cases: []
+  intensity: high
 - id: claim-20260601-004-c
   source_path: sources/raw/财经/复盘：26-06-01：指数冲高回落，大小票分化，AIPC相对占优.md
   source_date: '2026-06-01'
@@ -48,7 +51,7 @@ claims:
   subject: AIPC核心标的逻辑
   timeframe: short-term
   statement: AIPC今日表现好因兼具低位+科技双重属性。硬件端多个一字，华勤技术涨停，软件端从软通动力扩散到办公软件。春秋电子是AIPC换机潮偏卖铲属性环节，软通动力对应智能体落地逻辑
-  evidence_quote: "AIPC这个方向今日表现相对好一点，原因在于它兼具了低位+科技双重属性...硬件端出现多个一字，体量稍大的华勤技术也涨停，软件端则从软通动力扩散到办公软件"
+  evidence_quote: AIPC这个方向今日表现相对好一点，原因在于它兼具了低位+科技双重属性...硬件端出现多个一字，体量稍大的华勤技术也涨停，软件端则从软通动力扩散到办公软件
   interpretation: AIPC方向分析：①催化：盘前增量信息发酵，硬件端多个一字，华勤技术涨停；②软件端扩散：从软通动力到办公软件；③春秋电子逻辑：AIPC芯片功耗更高→散热与外观要求更苛刻→结构件单价与精密度提升；全球笔记本精密结构件核心供应商，客户覆盖联想、三星、惠普、戴尔；收购Asetek（液冷散热器ODM，年出货70-100万台）；④软通动力逻辑：智能体落地→把大模型能力打包成标准化服务→嵌入企业ERP/CRM/OA；搭建天鹤AutoAgent+天枢FSim+Meraki工具链；案例：为金盘科技开发标书智能体，缩短招投标周期
   confidence: medium
   status: active
@@ -59,6 +62,7 @@ claims:
     - knowledge/wiki/市场分析/AI应用与软件.md
     methodology_pages: []
     cases: []
+  intensity: high
 - id: claim-20260601-004-d
   source_path: sources/raw/财经/复盘：26-06-01：指数冲高回落，大小票分化，AIPC相对占优.md
   source_date: '2026-06-01'
@@ -68,8 +72,9 @@ claims:
   subject: 产业链延伸阅读（MLCC/AI Agent/AI Infra）
   timeframe: short-term
   statement: MLCC是AI服务器第三大成本项，产能扩张弹性偏刚性，存在量价齐升可能。AI Agent商业化拐点临近（扣子3.0上线）。AI Infra软件价值凸显，美股IGV单月涨超21%
-  evidence_quote: "MLCC已成为AI服务器物料清单中的第三大成本项，仅次于GPU和存储芯片...字节跳动旗下扣子(Coze)3.0版本正式上线...美股软件股5月迎来大幅反弹，IGV单月涨幅超21%"
-  interpretation: 产业链延伸：①MLCC：AI服务器第三大成本项（仅次于GPU和存储），产能扩张弹性偏刚性（年增长率10%左右），技术向低压高容量演进，全球市场规模2026年257.3亿→2030年478.8亿美元；相关：风华高科、双星新材；②AI Agent：扣子3.0支持多人多Agent协作，接入Claude Code/Codex CLI；范式从自动化走向自主性；相关：索辰科技、天娱数科；③AI Infra软件：美股IGV单月涨21%（2001年10月以来最强），Snowflake/Datadog/Crowdstrike亮眼；关注：深信服、星环科技、达梦数据、海天瑞声、海量数据、英方软件
+  evidence_quote: MLCC已成为AI服务器物料清单中的第三大成本项，仅次于GPU和存储芯片...字节跳动旗下扣子(Coze)3.0版本正式上线...美股软件股5月迎来大幅反弹，IGV单月涨幅超21%
+  interpretation: 产业链延伸：①MLCC：AI服务器第三大成本项（仅次于GPU和存储），产能扩张弹性偏刚性（年增长率10%左右），技术向低压高容量演进，全球市场规模2026年257.3亿→2030年478.8亿美元；相关：风华高科、双星新材；②AI
+    Agent：扣子3.0支持多人多Agent协作，接入Claude Code/Codex CLI；范式从自动化走向自主性；相关：索辰科技、天娱数科；③AI Infra软件：美股IGV单月涨21%（2001年10月以来最强），Snowflake/Datadog/Crowdstrike亮眼；关注：深信服、星环科技、达梦数据、海天瑞声、海量数据、英方软件
   confidence: medium
   status: active
   supersedes: []
@@ -80,6 +85,7 @@ claims:
     - knowledge/wiki/市场分析/AI应用与软件.md
     methodology_pages: []
     cases: []
+  intensity: high
 - id: claim-20260601-004-e
   source_path: sources/raw/财经/复盘：26-06-01：指数冲高回落，大小票分化，AIPC相对占优.md
   source_date: '2026-06-01'
@@ -89,7 +95,7 @@ claims:
   subject: 节奏理解与操作纪律
   timeframe: short-term
   statement: 市场处于新旧势力交替的混沌轮动中。AI可能从单边强趋势转向宽幅波动，关键是守住破位纪律。今日全A阳线但缺强共振，更像轮动反抽，大涨分支接近兑现位。接下来波动仍会偏大，适合保持耐心、降低频率
-  evidence_quote: "整体看，市场更像处在新旧势力交替的混沌轮动中...今日AI科技高位是主动调整...这意味着AI可能从单边强趋势上涨，转向宽幅波动...节奏上更适合保持耐心、降低频率"
+  evidence_quote: 整体看，市场更像处在新旧势力交替的混沌轮动中...今日AI科技高位是主动调整...这意味着AI可能从单边强趋势上涨，转向宽幅波动...节奏上更适合保持耐心、降低频率
   interpretation: 节奏判断：①市场定位：新旧势力交替的混沌轮动，旧高位（AI硬科技）不退场，新低位不平推；②AI调整性质：从单边强趋势→宽幅波动，短期波动大；③中线持仓：难受程度偏高，关键是守住破位纪律；④短线：全A阳线但缺强共振，轮动反抽而非新攻势；⑤大涨分支接近兑现位而非介入位；⑥缺一次主线级别的集体共振；⑦操作建议：保持耐心、降低频率
   confidence: high
   status: active
@@ -100,6 +106,7 @@ claims:
     - knowledge/wiki/投资方法论/交易纪律.md
     methodology_pages: []
     cases: []
+  intensity: high
 - id: claim-20260601-004-f
   source_path: sources/raw/财经/复盘：26-06-01：指数冲高回落，大小票分化，AIPC相对占优.md
   source_date: '2026-06-01'
@@ -109,7 +116,7 @@ claims:
   subject: 明日展望
   timeframe: short-term
   statement: 明日泛科技惯性回落后可能进入左侧观察区。今日强势方向中AI应用/AIPC概率相对高，但成为主线难度不小，更可能是小周期行情
-  evidence_quote: "明日可以留意的是：泛科技在惯性回落之后，无论指数还是情绪端，都有进入左侧观察区的可能...AI应用/AIPC的概率相对高一些（但成为主线难度不小，更可能是小周期行情）"
+  evidence_quote: 明日可以留意的是：泛科技在惯性回落之后，无论指数还是情绪端，都有进入左侧观察区的可能...AI应用/AIPC的概率相对高一些（但成为主线难度不小，更可能是小周期行情）
   interpretation: 明日策略：①泛科技惯性回落后→左侧观察区；②今日强势方向中筛选持续性分支；③AI应用/AIPC概率相对高；④但定性：小周期行情，非主线；⑤参与需谨慎，不追高
   confidence: medium
   status: active
@@ -120,3 +127,4 @@ claims:
     - knowledge/wiki/每日复盘/2026-06-01.md
     methodology_pages: []
     cases: []
+  intensity: high

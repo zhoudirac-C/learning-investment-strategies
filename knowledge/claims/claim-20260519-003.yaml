@@ -1,131 +1,145 @@
 claims:
-  - id: claim-20260519-003-a
-    source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
-    source_date: "2026-05-19"
-    source_type: dynamic
-    extracted_at: "2026-05-19"
-    claim_type: market-cycle
-    subject: 市场资金意图
-    timeframe: 短期（1-3日）
-    statement: 资金不想突破，将延长调整周期
-    evidence_quote: >
-      "很明显，资金不想突破，那就延长调整周期就好了。"
-    interpretation: 盘中观察到资金缺乏进攻意愿，突破预期落空，调整时间将拉长
-    confidence: high
-    status: active
-    supersedes: [claim-20260519-001-a]
-    contradicts: []
-    links:
-      related_claims: [claim-20260519-001-b]
-      related_stocks: []
-      related_sectors: []
+- id: claim-20260519-003-a
+  source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
+  source_date: '2026-05-19'
+  source_type: dynamic
+  extracted_at: '2026-05-19'
+  claim_type: market-cycle
+  subject: 市场资金意图
+  timeframe: 短期（1-3日）
+  statement: 资金不想突破，将延长调整周期
+  evidence_quote: '"很明显，资金不想突破，那就延长调整周期就好了。"
 
-  - id: claim-20260519-003-b
-    source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
-    source_date: "2026-05-19"
-    source_type: dynamic
-    extracted_at: "2026-05-19"
-    claim_type: market-cycle
-    subject: 市场格局
-    timeframe: 短期
-    statement: 当前市场呈现明显的一九分化格局，资金向少数核心标的集中，接力性价比变差
-    evidence_quote: >
-      "当前市场整体呈现出明显的一九分化格局，资金进一步向少数核心标的集中，
-      市场容量持续收缩，这两天的接力性价比已经变得很差。"
-    interpretation: 市场从普涨转向极端分化，只有10%的票有资金关注，操作难度加大
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    links:
-      related_claims: []
-      related_stocks: []
-      related_sectors: []
+    '
+  interpretation: 盘中观察到资金缺乏进攻意愿，突破预期落空，调整时间将拉长
+  confidence: high
+  status: active
+  supersedes:
+  - claim-20260519-001-a
+  contradicts: []
+  links:
+    related_claims:
+    - claim-20260519-001-b
+    related_stocks: []
+    related_sectors: []
+  intensity: medium
+- id: claim-20260519-003-b
+  source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
+  source_date: '2026-05-19'
+  source_type: dynamic
+  extracted_at: '2026-05-19'
+  claim_type: market-cycle
+  subject: 市场格局
+  timeframe: 短期
+  statement: 当前市场呈现明显的一九分化格局，资金向少数核心标的集中，接力性价比变差
+  evidence_quote: '"当前市场整体呈现出明显的一九分化格局，资金进一步向少数核心标的集中， 市场容量持续收缩，这两天的接力性价比已经变得很差。"
 
-  - id: claim-20260519-003-c
-    source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
-    source_date: "2026-05-19"
-    source_type: dynamic
-    extracted_at: "2026-05-19"
-    claim_type: sector-theme
-    subject: 封测板块
-    timeframe: 当日
-    statement: 封测板块强度已明显衰竭，今日是预期中的兑现节点
-    evidence_quote: >
-      "昨天尾盘异动拉升的封测板块，今天虽然给了大部分资金拉红离场的机会，
-      但板块强度已经比昨天明显衰竭，按照这个节奏来看，今天本来就是预期中的兑现节点。"
-    interpretation: 封测作为昨日异动方向，今日拉红是离场机会而非买点，老题材兑现
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    links:
-      related_claims: [claim-20260519-001-e]
-      related_stocks: [深科技, 长电科技, 通富微电]
-      related_sectors: [半导体封测]
+    '
+  interpretation: 市场从普涨转向极端分化，只有10%的票有资金关注，操作难度加大
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  intensity: high
+- id: claim-20260519-003-c
+  source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
+  source_date: '2026-05-19'
+  source_type: dynamic
+  extracted_at: '2026-05-19'
+  claim_type: sector-theme
+  subject: 封测板块
+  timeframe: 当日
+  statement: 封测板块强度已明显衰竭，今日是预期中的兑现节点
+  evidence_quote: '"昨天尾盘异动拉升的封测板块，今天虽然给了大部分资金拉红离场的机会， 但板块强度已经比昨天明显衰竭，按照这个节奏来看，今天本来就是预期中的兑现节点。"
 
-  - id: claim-20260519-003-d
-    source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
-    source_date: "2026-05-19"
-    source_type: dynamic
-    extracted_at: "2026-05-19"
-    claim_type: sector-theme
-    subject: 存储芯片
-    timeframe: 短期（1-3日）
-    statement: 存储芯片是新分支，需关注能否承接流出资金成为新市场主线
-    evidence_quote: >
-      "在老题材纷纷兑现的背景下，接下来需要重点关注新分支存储芯片板块的持续性，
-      看看它能否承接住流出的资金，成为新的市场主线。"
-    interpretation: 存储芯片与其他半导体方向分离，单独作为新主线观察
-    confidence: medium
-    status: active
-    supersedes: []
-    contradicts: []
-    links:
-      related_claims: [claim-20260518-019-e, claim-20260519-001-d]
-      related_stocks: []
-      related_sectors: [半导体存储]
+    '
+  interpretation: 封测作为昨日异动方向，今日拉红是离场机会而非买点，老题材兑现
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    related_claims:
+    - claim-20260519-001-e
+    related_stocks:
+    - 深科技
+    - 长电科技
+    - 通富微电
+    related_sectors:
+    - 半导体封测
+  intensity: medium
+- id: claim-20260519-003-d
+  source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
+  source_date: '2026-05-19'
+  source_type: dynamic
+  extracted_at: '2026-05-19'
+  claim_type: sector-theme
+  subject: 存储芯片
+  timeframe: 短期（1-3日）
+  statement: 存储芯片是新分支，需关注能否承接流出资金成为新市场主线
+  evidence_quote: '"在老题材纷纷兑现的背景下，接下来需要重点关注新分支存储芯片板块的持续性， 看看它能否承接住流出的资金，成为新的市场主线。"
 
-  - id: claim-20260519-003-e
-    source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
-    source_date: "2026-05-19"
-    source_type: dynamic
-    extracted_at: "2026-05-19"
-    claim_type: operation
-    subject: 半导体操作
-    timeframe: 当日
-    statement: 半导体（非存储）该撤撤，卖半导体老题材，买存储芯片新分支
-    evidence_quote: >
-      "半导体该撤撤，下一轮修复差不多也得等到周二周三了。
-      卖半导体，买存储芯片，时间节点都是按照低点说的。"
-    interpretation: 半导体内部做切换：卖出封测/设备等老题材，买入存储芯片新分支
-    confidence: high
-    status: active
-    supersedes: [claim-20260519-001-g]
-    contradicts: []
-    links:
-      related_claims: []
-      related_stocks: []
-      related_sectors: [半导体]
+    '
+  interpretation: 存储芯片与其他半导体方向分离，单独作为新主线观察
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    related_claims:
+    - claim-20260518-019-e
+    - claim-20260519-001-d
+    related_stocks: []
+    related_sectors:
+    - 半导体存储
+  intensity: medium
+- id: claim-20260519-003-e
+  source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
+  source_date: '2026-05-19'
+  source_type: dynamic
+  extracted_at: '2026-05-19'
+  claim_type: operation
+  subject: 半导体操作
+  timeframe: 当日
+  statement: 半导体（非存储）该撤撤，卖半导体老题材，买存储芯片新分支
+  evidence_quote: '"半导体该撤撤，下一轮修复差不多也得等到周二周三了。 卖半导体，买存储芯片，时间节点都是按照低点说的。"
 
-  - id: claim-20260519-003-f
-    source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
-    source_date: "2026-05-19"
-    source_type: dynamic
-    extracted_at: "2026-05-19"
-    claim_type: operation
-    subject: 仓位管理
-    timeframe: 短期
-    statement: 不想操作就减仓，等周五或下周再看，下一轮修复预计周二周三
-    evidence_quote: >
-      "想操作就操作，不想操作就减仓去玩，等周五或者下周再看就好了。
-      半导体该撤撤，下一轮修复差不多也得等到周二周三了。"
-    interpretation: 调整周期延长，仓位管理优先，下一轮修复窗口在周二周三
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    links:
-      related_claims: []
-      related_stocks: []
-      related_sectors: []
+    '
+  interpretation: 半导体内部做切换：卖出封测/设备等老题材，买入存储芯片新分支
+  confidence: high
+  status: active
+  supersedes:
+  - claim-20260519-001-g
+  contradicts: []
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors:
+    - 半导体
+  intensity: high
+- id: claim-20260519-003-f
+  source_path: sources/raw/财经/动态：26-05-19：注意仓位管理，卖半导体买存储芯片.md
+  source_date: '2026-05-19'
+  source_type: dynamic
+  extracted_at: '2026-05-19'
+  claim_type: operation
+  subject: 仓位管理
+  timeframe: 短期
+  statement: 不想操作就减仓，等周五或下周再看，下一轮修复预计周二周三
+  evidence_quote: '"想操作就操作，不想操作就减仓去玩，等周五或者下周再看就好了。 半导体该撤撤，下一轮修复差不多也得等到周二周三了。"
+
+    '
+  interpretation: 调整周期延长，仓位管理优先，下一轮修复窗口在周二周三
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  intensity: high

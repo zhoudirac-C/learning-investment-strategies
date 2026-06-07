@@ -18,6 +18,7 @@ def valid_claim_dict():
         "interpretation": "该表述应进入板块主线跟踪，但是否升级为长期方法论需要后续 review。",
         "confidence": "high",
         "status": "active",
+        "intensity": "high",
         "supersedes": [],
         "contradicts": [],
         "links": {"wiki_pages": [], "methodology_pages": [], "cases": []},
@@ -29,6 +30,7 @@ def test_validate_claim_accepts_complete_claim():
     assert isinstance(claim, Claim)
     assert claim.id == "claim-20260516-001"
     assert claim.claim_type == "market-cycle"
+    assert claim.intensity == "high"
 
 
 def test_validate_claim_rejects_missing_required_field():
@@ -43,3 +45,25 @@ def test_validate_claim_rejects_unknown_enum():
     data["status"] = "fresh"
     with pytest.raises(ValueError, match="status"):
         validate_claim_dict(data)
+
+
+def test_validate_claim_rejects_invalid_intensity():
+    data = valid_claim_dict()
+    data["intensity"] = "extreme"
+    with pytest.raises(ValueError, match="intensity"):
+        validate_claim_dict(data)
+
+
+def test_validate_claim_rejects_missing_intensity():
+    data = valid_claim_dict()
+    data.pop("intensity")
+    with pytest.raises(ValueError, match="intensity"):
+        validate_claim_dict(data)
+
+
+def test_validate_claim_accepts_all_intensity_levels():
+    for level in ("high", "medium", "low"):
+        data = valid_claim_dict()
+        data["intensity"] = level
+        claim = validate_claim_dict(data)
+        assert claim.intensity == level
