@@ -169,6 +169,7 @@ async def chat(req: ChatRequest):
 
     seen_ids: set[str] = set(c.get("id") or "" for c in claims)
 
+    # ── Neo4j 检索（单次连接，合并图遍历补充）──
     try:
         neo4j = Neo4jClient()
         
@@ -195,14 +196,9 @@ async def chat(req: ChatRequest):
                         claims.append(c)
                 if len(claims) >= 15:
                     break
-        neo4j.close()
-    except Exception:
-        pass
 
-    # ── 图遍历补充：通过共享实体发现相关 claims（方案1）──
-    if claims:
-        try:
-            neo4j = Neo4jClient()
+        # ── 图遍历补充：通过共享实体发现相关 claims（方案1）──
+        if claims:
             graph_related_ids: set[str] = set()
             for c in claims[:3]:
                 cid = c.get("id", "")
@@ -216,24 +212,16 @@ async def chat(req: ChatRequest):
                 rc = neo4j.get_claim_evolution(rid)
                 if rc:
                     first = rc[0] if isinstance(rc, list) else rc
-                    node = first.get("c", {}) if isinstance(first, dict) else {}
-                    if node:
-                        claims.append({
-                            "id": rid,
-                            "statement": node.get("statement", ""),
-                            "subject": node.get("subject", ""),
-                            "source_date": node.get("source_date", ""),
-                            "confidence": node.get("confidence", ""),
-                            "claim_type": node.get("claim_type", ""),
-                            "status": node.get("status", ""),
-                            "source": "graph_traversal",
-                        })
+                    if first and first.get("id"):
+                        first["source"] = "graph_traversal"
+                        claims.append(first)
                         seen_ids.add(rid)
-            neo4j.close()
-        except Exception:
-            pass
 
-    # ── 【新增】主动获取实时数据 ──
+        neo4j.close()
+    except Exception:
+        pass
+
+
     market_snapshot: dict = {"quotes": []}
     external_sector_boards: dict = {"available": False}
     fetched_stock_code: str | None = None

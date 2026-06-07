@@ -542,10 +542,13 @@ _BEARISH_WORDS = {"看空", "回避", "规避", "减仓", "卖出", "风险", "�
 def _detect_claim_conflicts(claims: list[dict]) -> list[dict]:
     """检测同一 subject 下是否存在方向相反的 active claims。
 
+    优先使用 Neo4j 的 CONTRADICTS 边，其次用关键词启发式作为补充。
+
     返回格式：
     [
       {
         "subject": "半导体",
+        "source": "graph",     # "graph" | "keyword"
         "claims": [
           {"id": "claim-A", "statement": "...", "source_date": "2026-06-03", "direction": "bullish"},
           {"id": "claim-B", "statement": "...", "source_date": "2026-06-04", "direction": "bearish"}
@@ -555,20 +558,62 @@ def _detect_claim_conflicts(claims: list[dict]) -> list[dict]:
     """
     from collections import defaultdict
 
-    # 按 subject 分组（只处理有 subject 的 claim）
+    # 构建 id → claim 映射
+    claim_map: dict[str, dict] = {}
     by_subject: dict[str, list[dict]] = defaultdict(list)
     for c in claims:
+        cid = c.get("id", "")
+        if cid:
+            claim_map[cid] = c
         subj = (c.get("subject") or "").strip()
         if subj:
             by_subject[subj].append(c)
 
     conflicts: list[dict] = []
+    seen_pairs: set[tuple[str, str]] = set()
+
+    # ── 阶段一：基于 Neo4j CONTRADICTS 边 ──
+    for c in claims:
+        cid = c.get("id", "")
+        contradicts = c.get("contradicts", []) or []
+        if not contradicts:
+            continue
+        for opp_id in contradicts:
+            if opp_id not in claim_map:
+                continue
+            # 检查是否属于同一 subject，避免跨主题误报
+            c_subj = (c.get("subject") or "").strip()
+            opp_subj = (claim_map[opp_id].get("subject") or "").strip()
+            if c_subj and opp_subj and c_subj == opp_subj:
+                pair_key = tuple(sorted([cid, opp_id]))
+                if pair_key not in seen_pairs:
+                    seen_pairs.add(pair_key)
+                    conflicts.append({
+                        "subject": c_subj,
+                        "source": "graph",
+                        "claims": [
+                            {"id": cid, "statement": c.get("statement", ""),
+                             "source_date": c.get("source_date", ""), "direction": "unknown"},
+                            {"id": opp_id, "statement": claim_map[opp_id].get("statement", ""),
+                             "source_date": claim_map[opp_id].get("source_date", ""), "direction": "unknown"},
+                        ],
+                    })
+
+    # ── 阶段二：关键词启发式补充（仅检出未被 graph 覆盖的矛盾）──
     for subj, group in by_subject.items():
         if len(group) < 2:
             continue
-        # 检测每条 claim 的方向
         directed: list[dict] = []
         for c in group:
+            cid = c.get("id", "")
+            # 如果该 claim 已通过 graph 检出矛盾，跳过
+            already_in_conflict = any(
+                cid in [cl["id"] for cl in conf["claims"]]
+                for conf in conflicts
+                if conf.get("source") == "graph" and conf["subject"] == subj
+            )
+            if already_in_conflict:
+                continue
             stmt = c.get("statement", "")
             bull = any(w in stmt for w in _BULLISH_WORDS)
             bear = any(w in stmt for w in _BEARISH_WORDS)
@@ -579,19 +624,20 @@ def _detect_claim_conflicts(claims: list[dict]) -> list[dict]:
             else:
                 direction = "neutral"
             directed.append({
-                "id": c.get("id", ""),
+                "id": cid,
                 "statement": stmt,
                 "source_date": c.get("source_date", ""),
                 "direction": direction,
             })
-        # 检查同一 subject 下是否有相反方向的 active claims
         has_bull = any(d["direction"] == "bullish" for d in directed)
         has_bear = any(d["direction"] == "bearish" for d in directed)
         if has_bull and has_bear:
             conflicts.append({
                 "subject": subj,
+                "source": "keyword",
                 "claims": directed,
             })
+
     return conflicts
 
 
@@ -701,18 +747,9 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
                 rc = neo4j.get_claim_evolution(rid)
                 if rc:
                     first = rc[0] if isinstance(rc, list) else rc
-                    node = first.get("c", {}) if isinstance(first, dict) else {}
-                    if node:
-                        claims.append({
-                            "id": rid,
-                            "statement": node.get("statement", ""),
-                            "confidence": node.get("confidence", ""),
-                            "source_date": node.get("source_date", ""),
-                            "status": node.get("status", ""),
-                            "subject": node.get("subject", ""),
-                            "claim_type": node.get("claim_type", ""),
-                            "source": "graph_traversal",
-                        })
+                    if first and first.get("id"):
+                        first["source"] = "graph_traversal"
+                        claims.append(first)
                         seen_ids.add(rid)
         except Exception:
             pass  # 图遍历失败不阻断主流程

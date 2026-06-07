@@ -33,12 +33,23 @@ class Neo4jClient:
             return session.run(query, stock_code=stock_code, limit=limit).data()
 
     def get_claim_evolution(self, claim_id: str) -> list[dict]:
+        """Get a claim and its evolution (supersedes, superseded_by, contradicts).
+
+        Returns a single-row list with the claim fields and evolution arrays,
+        or an empty list if the claim is not found.
+        """
         query = """
         MATCH (c:Claim {id: $claim_id})
         OPTIONAL MATCH (c)-[:SUPERSEDES]->(old:Claim)
-        OPTIONAL MATCH (c)-[:CONTRADICTS]->(opp:Claim)
         OPTIONAL MATCH (new:Claim)-[:SUPERSEDES]->(c)
-        RETURN c, old, opp, new
+        OPTIONAL MATCH (c)-[:CONTRADICTS]->(opp:Claim)
+        RETURN c.id as id, c.statement as statement, c.subject as subject,
+               c.confidence as confidence, c.source_date as source_date,
+               c.status as status, c.claim_type as claim_type,
+               coalesce(c.intensity, 'medium') as intensity,
+               collect(DISTINCT old.id) as supersedes,
+               collect(DISTINCT new.id) as superseded_by,
+               collect(DISTINCT opp.id) as contradicts
         """
         with self.driver.session() as session:
             return session.run(query, claim_id=claim_id).data()
