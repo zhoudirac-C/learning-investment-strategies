@@ -161,6 +161,7 @@ def migrate(*, force_full: bool = False):
         session.run("CREATE CONSTRAINT source_path IF NOT EXISTS FOR (s:SourceDocument) REQUIRE s.path IS UNIQUE")
         session.run("CREATE INDEX claim_status IF NOT EXISTS FOR (c:Claim) ON (c.status)")
         session.run("CREATE INDEX claim_type IF NOT EXISTS FOR (c:Claim) ON (c.claim_type)")
+        session.run("CREATE INDEX claim_intensity IF NOT EXISTS FOR (c:Claim) ON (c.intensity)")
 
     # Collect files and determine which need processing
     yaml_files = sorted(glob.glob(str(CLAIMS_DIR / "*.yaml")))
@@ -255,6 +256,7 @@ def _migrate_single_claim(session, claim: dict):
             confidence: $confidence,
             status: $status,
             claim_type: $claim_type,
+            intensity: $intensity,
             time_frame: $time_frame,
             subject: $subject,
             source_date: $source_date,
@@ -269,6 +271,7 @@ def _migrate_single_claim(session, claim: dict):
             "confidence": claim.get("confidence", "medium"),
             "status": claim.get("status", "active"),
             "claim_type": claim.get("claim_type", claim.get("type", "general")),
+            "intensity": claim.get("intensity", "medium"),
             "time_frame": claim.get("time_frame", ""),
             "subject": claim.get("subject", ""),
             "source_date": claim.get("source_date", ""),

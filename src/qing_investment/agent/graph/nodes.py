@@ -595,6 +595,30 @@ def _detect_claim_conflicts(claims: list[dict]) -> list[dict]:
     return conflicts
 
 
+def _apply_intensity_weight(claims: list[dict], is_stock_query: bool = False) -> list[dict]:
+    """对个股查询，低强度 claims 降权/过滤（方案C）。
+
+    - 个股查询: intensity=low → 排到末尾 + 标记 penalty
+    - intensity=high → boost 往前排7天
+    - 大盘/板块查询: 不影响排序（大盘走 _filter_methodology_only）
+    """
+    for c in claims:
+        intensity = c.get("intensity", "medium")
+        days = c.get("days_ago", 999)
+
+        if is_stock_query and intensity == "low":
+            # 个股查询：low intensity 排到末尾
+            c["intensity_penalty"] = True
+            c["_sort_key"] = days + 365
+        elif intensity == "high":
+            c["_sort_key"] = max(0, days - 7)  # boost 7天
+        else:
+            c["_sort_key"] = days
+
+    claims.sort(key=lambda x: x.get("_sort_key", 999))
+    return claims
+
+
 async def retrieve_knowledge(state: AgentState) -> AgentState:
     query = state.get("query", "")
     stock_code = state.get("parsed_intent", {}).get("stock_code")
@@ -661,6 +685,9 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
 
     # ── Claims 时效衰减排序（P0 新增）──
     claims = _apply_claim_freshness(claims)
+
+    # ── Intensity boost/penalty（方案C）──
+    claims = _apply_intensity_weight(claims, is_stock_query=bool(stock_code))
 
     # ── 同一主题矛盾检测（P1 新增）──
     potential_conflicts = _detect_claim_conflicts(claims)

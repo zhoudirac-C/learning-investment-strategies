@@ -55,6 +55,7 @@ def apply_claim_freshness(claims: list[dict]) -> list[dict]:
         c_copy = dict(c)
         c_copy["days_ago"] = days_ago
         c_copy["freshness_label"] = label
+        c_copy["intensity"] = c.get("intensity", "medium")
         filtered.append(c_copy)
 
     filtered.sort(key=lambda x: x.get("days_ago", 999))

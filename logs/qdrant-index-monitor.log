@@ -1,0 +1,40 @@
+[
+  {
+    "timestamp": "2026-06-07 09:34:21",
+    "status": "success",
+    "elapsed_sec": 25.7,
+    "mem_free_mb": 4531,
+    "mem_total_mb": 7685,
+    "claims_indexed": "50",
+    "error": ""
+  },
+  {
+    "timestamp": "2026-06-07 12:55:57",
+    "status": "error",
+    "elapsed_sec": 8.2,
+    "mem_free_mb": 3840,
+    "mem_total_mb": 7685,
+    "claims_indexed": "?",
+    "error": "Traceback (most recent call last): |     raise RuntimeError( | RuntimeError: Storage folder /home/ubuntu/learning-investment-strategies/.qdrant_data is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.",
+    "full_stderr": "^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ubuntu/learning-investment-strategies/src/qing_investment/agent/tools/qdrant_client.py\", line 25, in __init__\n    self._client = QdrantClient(path=self.local_path)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ubuntu/learning-investment-strategies/.venv/lib/python3.11/site-packages/qdrant_client/qdrant_client.py\", line 127, in __init__\n    self._client = QdrantLocal(\n                   ^^^^^^^^^^^^\n  File \"/home/ubuntu/learning-investment-strategies/.venv/lib/python3.11/site-packages/qdrant_client/local/qdrant_local.py\", line 63, in __init__\n    self._load()\n  File \"/home/ubuntu/learning-investment-strategies/.venv/lib/python3.11/site-packages/qdrant_client/local/qdrant_local.py\", line 149, in _load\n    raise RuntimeError(\nRuntimeError: Storage folder /home/ubuntu/learning-investment-strategies/.qdrant_data is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead."
+  },
+  {
+    "timestamp": "2026-06-07 12:56:46",
+    "status": "error",
+    "elapsed_sec": 24.8,
+    "mem_free_mb": 5321,
+    "mem_total_mb": 7685,
+    "claims_indexed": "?",
+    "error": "Traceback (most recent call last): | ValueError: could not broadcast input array from shape (512,) into shape (1,)",
+    "full_stderr": "    return self._client.upsert(\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ubuntu/learning-investment-strategies/.venv/lib/python3.11/site-packages/qdrant_client/local/qdrant_local.py\", line 559, in upsert\n    collection.upsert(points, update_filter=update_filter, update_mode=update_mode)\n  File \"/home/ubuntu/learning-investment-strategies/.venv/lib/python3.11/site-packages/qdrant_client/local/local_collection.py\", line 2560, in upsert\n    self._upsert_point(point, update_filter=update_filter, update_mode=update_mode)\n  File \"/home/ubuntu/learning-investment-strategies/.venv/lib/python3.11/site-packages/qdrant_client/local/local_collection.py\", line 2547, in _upsert_point\n    self._add_point(point)\n  File \"/home/ubuntu/learning-investment-strategies/.venv/lib/python3.11/site-packages/qdrant_client/local/local_collection.py\", line 2430, in _add_point\n    named_vectors[idx] = vector_np\n    ~~~~~~~~~~~~~^^^^^\nValueError: could not broadcast input array from shape (512,) into shape (1,)"
+  },
+  {
+    "timestamp": "2026-06-07 12:57:25",
+    "status": "success",
+    "elapsed_sec": 25.2,
+    "mem_free_mb": 5353,
+    "mem_total_mb": 7685,
+    "claims_indexed": "50",
+    "error": ""
+  }
+]

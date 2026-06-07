@@ -12,14 +12,20 @@ class Neo4jClient:
             auth=(settings.neo4j_user, settings.neo4j_password),
         )
 
-    def get_claims_about_stock(self, stock_code: str, limit: int = 10) -> list[dict]:
+    def get_claims_about_stock(self, stock_code: str, limit: int = 10, min_intensity: str | None = None) -> list[dict]:
         query = """
         MATCH (c:Claim)-[:ABOUT]->(s:Stock {code: $stock_code})
-        WHERE c.status IN ['active', 'superseded']
+        WHERE c.status IN ['active']
+        """
+        if min_intensity == "medium":
+            query += " AND c.intensity IN ['high', 'medium']\n"
+        elif min_intensity == "high":
+            query += " AND c.intensity = 'high'\n"
+        query += """
         RETURN c.id as id, c.statement as statement,
                c.confidence as confidence, coalesce(c.source_date, '') as source_date,
                c.status as status, coalesce(c.subject, '') as subject,
-               c.claim_type as claim_type
+               c.claim_type as claim_type, coalesce(c.intensity, 'medium') as intensity
         ORDER BY source_date DESC
         LIMIT $limit
         """
@@ -52,17 +58,24 @@ class Neo4jClient:
         with self.driver.session() as session:
             return session.run(query, keyword=keyword, limit=limit).data()
 
-    def get_claims_with_evolution(self, stock_code: str, limit: int = 10) -> list[dict]:
+    def get_claims_with_evolution(self, stock_code: str, limit: int = 10, min_intensity: str | None = None) -> list[dict]:
         """Get claims about a stock, including their evolution (superseded/contradicted status)."""
         query = """
         MATCH (c:Claim)-[:ABOUT]->(s:Stock {code: $stock_code})
-        WHERE c.status IN ['active', 'superseded']
+        WHERE c.status IN ['active']
+        """
+        if min_intensity == "medium":
+            query += " AND c.intensity IN ['high', 'medium']\n"
+        elif min_intensity == "high":
+            query += " AND c.intensity = 'high'\n"
+        query += """
         OPTIONAL MATCH (c)-[:SUPERSEDES]->(old:Claim)
         OPTIONAL MATCH (new:Claim)-[:SUPERSEDES]->(c)
         OPTIONAL MATCH (c)-[:CONTRADICTS]->(opp:Claim)
         RETURN c.id as id, c.statement as statement, c.subject as subject,
                c.confidence as confidence, c.source_date as source_date,
                c.status as status, c.claim_type as claim_type,
+               coalesce(c.intensity, 'medium') as intensity,
                collect(DISTINCT old.id) as supersedes,
                collect(DISTINCT new.id) as superseded_by,
                collect(DISTINCT opp.id) as contradicts

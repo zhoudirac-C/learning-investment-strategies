@@ -45,6 +45,9 @@ def _format_claim_line(c: dict) -> str:
     label = c.get("freshness_label", "")
     if label:
         parts.append(f" [{label}]")
+    intensity = c.get("intensity", "medium")
+    intensity_tag = {"high": "🔴", "medium": "🟡", "low": "⚪"}.get(intensity, "⚪")
+    parts.append(f" [{intensity_tag}]")
     parts.append(f": {c.get('statement', '')[:200]}")
     if c.get('superseded_by'):
         parts.append(f" [已被 {', '.join(c['superseded_by'][:2])} 取代]")
@@ -403,6 +406,11 @@ async def chat(req: ChatRequest):
         recent_views = [c for c in view_claims if c.get("freshness_label") == "近期"]
         historical_views = [c for c in view_claims if c.get("freshness_label") == "历史"]
 
+        # 个股查询：过滤 low intensity，避免 UP 随口一提被当作操作依据
+        if fetched_stock_code:
+            fresh_views = [c for c in fresh_views if c.get("intensity") != "low"]
+            recent_views = [c for c in recent_views if c.get("intensity") != "low"]
+
         if fresh_views:
             context_parts.append("\n【UP最新观点】（≤7天，可作为判断的辅助参考，需搭配实时数据使用）")
             for c in fresh_views[:5]:
@@ -501,9 +509,13 @@ async def chat(req: ChatRequest):
         "8. 【UP历史观点（31-90天）仅供背景参考，不得作为判断依据】",
         "9. 禁止引用claim ID支持当前观点",
         "10. 如果【实时行情数据】为空，请明确说明无法获取数据，不要编造",
-        "11. 如果知识库中没有相关信息，请明确说明，不要编造",
-        "12. 【输出格式】回复开头必须标注：'[Qing-Agent 分析]'，然后空一行再写正文",
-        "13. 分析必须按上述六步框架执行，不能跳过步骤",
+        "11. 如果知识库中没有相关信息，请明确说明，不要编造\n"
+        "12. 【输出格式】回复开头必须标注：'[Qing-Agent 分析]'，然后空一行再写正文\n"
+        "13. 分析必须按上述六步框架执行，不能跳过步骤\n"
+        "14. 【intensity分级】UP观点按分析深度分级，引用时需注意：\n"
+        "    🔴 high = UP专题分析/视频重点推荐 → 可引用，但必须配实时数据交叉验证\n"
+        "    🟡 medium = UP复盘提及/方向判断 → 参考价值中等，需标注时效\n"
+        "    ⚪ low = UP盘中随口/转发/评论回复 → 仅供参考背景，不得作为操作依据\n"
         "",
         *context_parts,
         f"\n用户：{req.message}\n",

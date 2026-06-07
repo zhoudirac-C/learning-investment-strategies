@@ -168,7 +168,7 @@ def main():
             "MATCH (c:Claim) RETURN c.id as id, c.statement as statement, "
             "c.subject as subject, c.source_date as source_date, "
             "c.confidence as confidence, c.status as status, "
-            "c.claim_type as claim_type"
+            "c.claim_type as claim_type, c.intensity as intensity"
         )
         claims = list(result)
 
@@ -204,6 +204,7 @@ def main():
                 "confidence": claim.get("confidence", ""),
                 "status": claim.get("status", ""),
                 "claim_type": claim.get("claim_type", ""),
+                "intensity": claim.get("intensity", "medium"),
             },
         ))
 

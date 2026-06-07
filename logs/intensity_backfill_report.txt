@@ -1,0 +1,34 @@
+# Intensity Backfill Report
+# Generated: 2026-06-07 14:10:27
+# Total files scanned: 91
+
+## Classification Rules Applied
+1. methodology/operation/technical-knowledge → high
+2. confidence=high + strong language keywords → high
+3. bilibili_video/bilibili_column → high
+4. repost/转发 source_type → low
+5. stock code in subject + statement < 50 chars → low
+6. stock-view + confidence=low → low
+7. evidence_quote < 30 chars → low
+8. default → medium
+
+## Summary
+Total claims: 561
+Updated (new intensity): 0
+Already had intensity (skipped): 561
+
+### Distribution
+- high:   444
+- medium: 115
+- low:    2
+
+## ⚪ LOW intensity claims (review for correctness)
+  Count: 0
+  These are claims classified as casual mentions / one-liners.
+  If any are actually serious analysis, reclassify to medium or high.
+
+
+## 🟡 MEDIUM intensity claims (defaults, needs review)
+  Count: 0
+  These fell through all rules and got the default.
+  If any contain strong analysis, reclassify to high.
