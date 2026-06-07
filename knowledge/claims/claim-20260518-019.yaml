@@ -15,7 +15,7 @@ claims:
   interpretation: 波浪理论判断A浪结束，B浪反弹即将开始
   confidence: high
   status: superseded
-  supersedes: []
+  supersedes: ["claim-20260521-002-a"]
   contradicts: []
   links:
     related_claims:
@@ -38,8 +38,8 @@ claims:
   interpretation: B浪反弹空间有限，约4200点为目标位，需观察量能
   confidence: medium
   status: superseded
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260521-002-b"]
+  contradicts: ["claim-20260518-019-c"]
   links:
     related_claims:
     - claim-20260521-002-a
@@ -62,7 +62,7 @@ claims:
   confidence: medium
   status: superseded
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260527-006-c", "claim-20260521-002-a"]
   links:
     related_claims:
     - claim-20260521-002-a
@@ -84,8 +84,8 @@ claims:
   interpretation: 6月中下旬是重要时间窗口，C浪结束后为中线布局良机
   confidence: medium
   status: superseded
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260526-025-a"]
+  contradicts: ["claim-20260528-005-d"]
   links:
     related_claims:
     - claim-20260521-002-a
@@ -109,7 +109,7 @@ claims:
   confidence: high
   status: active
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260518-021"]
   links:
     related_claims: []
     related_stocks: []
@@ -202,7 +202,7 @@ claims:
   interpretation: 英伟达财报作为外围情绪锚点，当前资本开支趋势支撑业绩预期
   confidence: medium
   status: active
-  supersedes: []
+  supersedes: ["claim-20260521-001-b"]
   contradicts: []
   links:
     related_claims: []
@@ -227,7 +227,7 @@ claims:
   confidence: medium
   status: active
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260527-004-b"]
   links:
     related_claims: []
     related_stocks:

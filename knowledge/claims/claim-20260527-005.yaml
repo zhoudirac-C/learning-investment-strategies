@@ -17,7 +17,7 @@ claims:
     '
   confidence: high
   status: active
-  supersedes: []
+  supersedes: ["claim-20260524-014"]
   contradicts: []
   links:
     related_claims: []
@@ -70,7 +70,7 @@ claims:
   confidence: medium
   status: active
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260601-004-f"]
   links:
     related_claims: []
     related_stocks: []
@@ -99,7 +99,7 @@ claims:
     '
   confidence: high
   status: active
-  supersedes: []
+  supersedes: ["claim-20260521-003-f"]
   contradicts: []
   links:
     related_claims:
@@ -252,7 +252,7 @@ claims:
   confidence: high
   status: active
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260601-004-b", "claim-20260601-004-f"]
   links:
     related_claims:
     - claim-20260527-005-c

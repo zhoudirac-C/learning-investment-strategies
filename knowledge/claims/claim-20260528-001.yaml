@@ -33,7 +33,7 @@ claims:
   interpretation: 三个锚点构成开盘观察框架：①防御股走强=资金偏谨慎，风格偏防守；②跌停缩短=情绪回暖，可操作窗口打开；③半导体龙头封板=主线接力成功，科技风格延续。三个锚点的组合决定当日攻防节奏。
   confidence: high
   status: active
-  supersedes: []
+  supersedes: ["claim-20260527-006-e"]
   contradicts: []
   links:
     wiki_pages:
@@ -101,8 +101,8 @@ claims:
   interpretation: 缩量市场的选股原则：①老主线（半导体龙头）封不住板，说明资金承接力下降；②新分支（华塑股份）平盘回封，说明有资金愿意在低位布局；③新分支事件催化硬（涨价、技术升级）、位置低、消耗资金少，更适合缩量环境。
   confidence: medium
   status: active
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260527-005-c"]
+  contradicts: ["claim-20260531-002-a"]
   links:
     wiki_pages:
     - knowledge/wiki/投资方法论/主线判断.md
@@ -125,7 +125,7 @@ claims:
   confidence: medium
   status: active
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260604-006-c"]
   links:
     wiki_pages:
     - knowledge/wiki/市场分析/海外映射.md

@@ -34,7 +34,7 @@ claims:
   confidence: high
   status: active
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260603-004-a"]
   links:
     wiki_pages:
     - knowledge/wiki/市场分析/情绪周期.md
@@ -55,8 +55,8 @@ claims:
   interpretation: 博主的操作逻辑：①技术上30分钟底部结构+情绪拐点=可以参与；②但美股风险未释放=可能有更低买点；③选择不主动号召抄底，让投资者根据自身风险偏好决策。这体现了"留弹性"的核心原则——不赌单边，等风险释放后再确认。
   confidence: high
   status: active
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260601-002-b"]
+  contradicts: ["claim-20260522-002-c"]
   links:
     wiki_pages:
     - knowledge/wiki/投资方法论/仓位管理.md
@@ -78,7 +78,7 @@ claims:
   confidence: high
   status: active
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260607-001-a", "claim-20260607-001-c"]
   links:
     wiki_pages:
     - knowledge/wiki/市场分析/指数分析.md
@@ -120,8 +120,8 @@ claims:
   interpretation: 仓位管理的双向建议：①空仓者→上5成（情绪拐点不宜过度悲观，但不满仓因外盘风险）；②满仓者→降仓（外盘风险未释放，需留操作空间）。核心逻辑：今日情绪拐点已现，但尚未经考验；明日若调整=更好确定点，留弹性才能应对。
   confidence: high
   status: active
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260525-002"]
+  contradicts: ["claim-20260605-002-a"]
   links:
     wiki_pages:
     - knowledge/wiki/投资方法论/仓位管理.md
@@ -141,7 +141,7 @@ claims:
   interpretation: 更好确定点的含义——①今日情绪拐点已出现，但尚未经受过考验；②明日若调整，可验证4055低点是否有效；③调整不创新低等于底部确认，可加仓；④调整创新低等于支撑失效，需重新评估。这是一种先观察再确认的审慎策略，不急于在拐点日满仓。
   confidence: medium
   status: active
-  supersedes: []
+  supersedes: ["claim-20260527-004-a", "claim-20260526-022"]
   contradicts: []
   links:
     wiki_pages:
@@ -163,7 +163,7 @@ claims:
   confidence: medium
   status: active
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260604-004-b", "claim-20260521-002-d", "claim-20260521-001-e"]
   links:
     wiki_pages:
     - knowledge/wiki/市场分析/板块轮动.md

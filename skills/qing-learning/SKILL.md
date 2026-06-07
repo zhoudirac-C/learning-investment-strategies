@@ -133,6 +133,8 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 28. **Qdrant 向量损坏排查**：参考 `references/qdrant-corruption-root-cause.md`（根因链、为什么只 claims 不 documents、`--force-recreate` 一键修复、完整性自检机制）。
 29. **Claim intensity 分级**：参考 `references/claim-writing-spec.md` §「Agent 消费规则（intensity 分级）」和 `references/claim-schema-validation.md` §「Intensity 自动回填」。
 30. **Claim intensity 回填脚本**：`scripts/backfill_claim_intensity.py` — 对已有 claims 自动分类 intensity（8条规则），生成 `logs/intensity_backfill_report.txt` 审计报告。
+31. **Neo4j 关系更新流水线**：参考 [`docs/neo4j-relation-pipeline.md`](../../docs/neo4j-relation-pipeline.md)（完整四步流程：discover → Neo4j migrate → Qdrant rebuild → restart Agent，每步命令、原理、常见陷阱、定时维护建议）。
+32. **发现进度汇报脚本**：`scripts/run_discover_with_progress.sh`（skill 内脚本副本，与原项目 `scripts/` 下同步）。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
@@ -242,6 +244,15 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     ls knowledge/claims/claim-YYYYMMDD-*.yaml 2>/dev/null | tail -5
     ```
     若 `claim-20260604-001.yaml` 已被占用 → 按序递增命名（如 `claim-20260604-004.yaml`）。**不要**用 `write_file` 覆盖已有文件——会丢失之前 session 提取的 claims。若已意外覆盖，立即 `git checkout HEAD -- <file>` 恢复。同时，`mv` 重命名后必须 `sed -i` 批量替换文件内的 claim ID 引用。
+21. **`discover_claim_relations.py` 常见陷阱**：此脚本用于自动发现 claim 间的 SUPERSEDES/CONTRADICTS/SUPPLEMENTS 关系。
+    - **没有 `--all` 模式**：脚本只支持 `--file`、`--claim-id`、`--all-missing`。不要编造不存在的 CLI 参数——先读 `--help` 或脚本源码确认。**真实后果（2026-06-07）**：Agent 错误认为存在 `--all` 模式，将原本单一的 `--all-missing` 任务拆分为"已结束的 `--all`"和"当前运行的 `--all-missing`"两个任务，用户明确纠正了这一误解。中断后重新运行 `--all-missing` 就是续跑，不需额外管理。
+    - **YAML 缩进 corruption**：`write_results_to_yaml()` 曾硬编码 4 空格前缀写入 `supersedes:`/`contradicts:` 字段，导致 YAML 解析失败（42 个文件被损坏，错误模式：`mapping values are not allowed here` 或 `expected <block end>, but found '<block mapping start>'`）。**已修复**：改为保留原始缩进（`line[:len(line) - len(line.lstrip())]`）。若重跑旧版本脚本，会导致新一轮 corruption。
+    - **修复已损坏文件**：`git checkout -- knowledge/claims/` 恢复干净版最快。不要逐文件手工修——42 个文件有 162 行缩进错误。
+    - **项目使用 `.venv` 不是 `venv`**：两个 venv 都存在于项目目录下，只有 `.venv/bin/python` 包含 `langchain_openai` 等完整依赖。
+    - **进度汇报 wrapper**：长任务（500+ claims × 10s/条 ≈ 90分钟）建议用 `scripts/run_discover_with_progress.sh`，每 10 分钟输出进度到日志文件 + `progress_reporter` 后台进程。中断时自动记录 exit code 原因（SIGTERM/SIGKILL/OOM/正常完成）。使用方式：`terminal(background=True, notify_on_complete=True)` 运行 wrapper。
+    - **续跑机制**：`--all-missing` 只处理尚无 `supersedes`/`contradicts` 的 claims，天然支持中断续跑——已处理过的自动跳过。
+    - **完整流水线**：关系发现是第一步，完成后必须运行 `migrate_claims_to_neo4j.py` → `index_claims_to_qdrant.py --force-recreate` → 重启 Agent。详见 `docs/neo4j-relation-pipeline.md`。
+
 11. **推理模式抽取混淆观点与推理**：`"UP看好MLCC"` 是观点，应进 claims；`"UP是怎么得出看好MLCC的（5步推理链）"` 是推理模式，应进 `framework/reasoning-patterns.yaml`。不要将单日盘面判断误标为推理模式。
 12. **单raw依赖陷阱——批量抽取后必须聚合**：`scripts/extract_reasoning_patterns.py` 批量抽取时，会把每篇含推理链的 raw 都生成一个独立模式。运行一段时间后会出现：①99%的模式只关联1个raw ②主题高度重叠 ③文件持续膨胀无收敛 ④匹配噪声增大。**解决方案**：
     - **长期方案（推荐）**：抽取时直接让 LLM 判断归入10个通用框架，作为 `examples` 追加。这是 Phase 6 改造后的默认行为，详见 `references/reasoning-pattern-extraction-workflow.md` §8。

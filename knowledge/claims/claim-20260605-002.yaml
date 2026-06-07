@@ -14,8 +14,8 @@ claims:
   - 5成仓位
   - 不能看空
   - 调整第17天
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260420-001", "claim-20260525-019"]
+  contradicts: ["claim-20260426-001"]
   intensity: high
 - id: claim-20260605-002-b
   topic: 持股不动策略：不卖不T
@@ -31,6 +31,6 @@ claims:
   - 持股不动
   - 不做T
   - 等待修复
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260605-002-a", "claim-20260605-001-i"]
+  contradicts: ["claim-20260426-001"]
   intensity: high

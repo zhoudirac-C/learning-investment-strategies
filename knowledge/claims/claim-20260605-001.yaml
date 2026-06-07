@@ -15,7 +15,7 @@ claims:
   - 企稳信号
   - 日线顶部
   - 第17天
-  supersedes: []
+  supersedes: ["claim-20260518-006", "claim-20260525-001", "claim-20260527-006-d"]
   contradicts: []
   intensity: medium
 - id: claim-20260605-001-b
@@ -34,7 +34,7 @@ claims:
   - 机械化标准
   - '4033'
   - '4130'
-  supersedes: []
+  supersedes: ["claim-20260515-013"]
   contradicts: []
   intensity: high
 - id: claim-20260605-001-c
@@ -83,7 +83,7 @@ claims:
   - 非科技
   - 尾声
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260602-001-e"]
   intensity: medium
 - id: claim-20260605-001-e
   topic: 珂玛科技静电卡盘0→1突破
@@ -127,7 +127,7 @@ claims:
   - 价值重估
   - 英维克
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260529-005-g"]
   intensity: medium
 - id: claim-20260605-001-g
   topic: 昇腾产业链调整后赔率升高
@@ -190,6 +190,6 @@ claims:
   - 做T
   - 抗波动
   - 不追高
-  supersedes: []
+  supersedes: ["claim-20260601-001-g"]
   contradicts: []
   intensity: high

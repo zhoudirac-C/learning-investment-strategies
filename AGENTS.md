@@ -41,3 +41,15 @@ The stock monitor configuration lives in `config/stock_monitor/`.
 When running from Hermes cron, always set the workdir to this repository root.
 For local and cloud installs, prefer setting `HERMES_REPO_ROOT` to that path and
 using it as the cron workdir.
+
+## Knowledge Maintenance
+
+After adding new claims or updating existing ones (via raw document extraction),
+run the full pipeline to sync Neo4j and Qdrant:
+
+```
+discover → Neo4j migrate → Qdrant rebuild → restart Agent
+```
+
+Full workflow documented in
+[`docs/neo4j-relation-pipeline.md`](docs/neo4j-relation-pipeline.md).

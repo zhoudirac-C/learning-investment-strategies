@@ -12,7 +12,7 @@ claims:
   interpretation: 盘中操作要点：①4032点盘中得到验证——与早盘claim-20260602-001-a的"盯住4032点"一致；②"先买后卖"意味着在支撑位低吸，反弹后卖出——这是日内T+0的标准做法；③前提条件：4032点不破，且反弹有量能配合；④若4032跌破，T策略失效需止损。这是一个具体的日内操作指令，不是趋势判断。
   confidence: high
   status: active
-  supersedes: []
+  supersedes: ["claim-20260531-001-f"]
   contradicts: []
   links:
     wiki_pages:
@@ -34,7 +34,7 @@ claims:
   confidence: high
   status: active
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260605-001-c", "claim-20260526-017"]
   links:
     wiki_pages:
     - knowledge/wiki/市场分析/产业链认知.md

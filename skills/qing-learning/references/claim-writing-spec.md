@@ -265,10 +265,19 @@ claim-g (sector-theme)：磨底期非科技方向——消费
 - [ ] `supersedes`/`contradicts` 是否附带了 reason？
 - [ ] `links.wiki_pages` 是否指向存在的 wiki 页面？
 - [ ] `intensity` 是否合理？（方法论/视频分析 → `high`，复盘提及 → `medium`，随口/转发 → `low`）
+- [ ] YAML 格式是否为**完整 schema 格式**？（必须包含全部 REQUIRED_FIELDS。简化格式 `topic`/`text` 虽被 backfill 脚本兼容，但 `validate_claim_dict` 会拒绝——写完必须 pytest 验证）
 
 ---
 
-## 六、版本历史
+## 六、YAML 格式兼容性陷阱
+
+项目中的 claims YAML 存在**两种格式**：完整 schema 格式（含 `source_path`/`source_date`/`subject`/`statement`/`links` 等全部 REQUIRED_FIELDS）vs 简化格式（`topic`/`text` 替代 `subject`/`statement`）。`migrate_claims_to_neo4j.py` 有 fallback (`claim.get("statement", claim.get("text", ""))`) 所以两种都能迁移，但 `claim_schema.py` 的 `validate_claim_dict()` 只接受标准字段名。**新建 claim 必须用完整 schema 格式**，写完立即 pytest 验证。反例：本次 session 006.yaml 先用简化格式 → `ValueError: Missing required claim fields` → 重写为完整格式。
+
+## 七、补充标的清单模式
+
+已有方向 claims 只写了核心标的、用户要求补完整清单时：创建新 claim 文件（如 `-006.yaml`），用完整标的清单覆盖该方向，同时在原 claim 的 `interpretation` 中添加交叉引用。新 claim 的 `statement` 必须自包含全部标的+代码。
+
+## 八、版本历史
 
 | 日期 | 变更 | 触发 |
 |------|------|------|

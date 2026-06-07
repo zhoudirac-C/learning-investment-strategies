@@ -14,8 +14,8 @@ claims:
   interpretation: 当前节点风险收益比不佳，应先降仓避险，而非硬扛等待反弹
   confidence: high
   status: active
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260426-001"]
+  contradicts: ["claim-20260525-019", "claim-20260605-001-i"]
   links:
     related_claims: []
     related_stocks: []
@@ -105,7 +105,7 @@ claims:
   interpretation: 债市定价从通胀转向衰退，美联储陷入滞胀困境，政策空间受限
   confidence: high
   status: active
-  supersedes: []
+  supersedes: ["claim-20260406-001"]
   contradicts: []
   links:
     related_claims: []

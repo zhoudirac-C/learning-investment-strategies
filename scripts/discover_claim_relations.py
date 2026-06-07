@@ -215,18 +215,14 @@ def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run
                         break
 
                 if line.strip().startswith("supersedes:"):
-                    if results["supersedes"]:
-                        new_lines.append(f"    supersedes: {json.dumps(results['supersedes'])}")
-                    else:
-                        new_lines.append(line)
+                    indent = line[:len(line) - len(line.lstrip())]
+                    new_lines.append(f"{indent}supersedes: {json.dumps(results['supersedes'])}")
                     updated = True
                     i += 1
                     continue
                 elif line.strip().startswith("contradicts:"):
-                    if results["contradicts"]:
-                        new_lines.append(f"    contradicts: {json.dumps(results['contradicts'])}")
-                    else:
-                        new_lines.append(line)
+                    indent = line[:len(line) - len(line.lstrip())]
+                    new_lines.append(f"{indent}contradicts: {json.dumps(results['contradicts'])}")
                     updated = True
                     i += 1
                     continue
