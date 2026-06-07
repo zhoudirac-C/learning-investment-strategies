@@ -63,19 +63,23 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 
 新增 raw 文档或 claim 后，**不需要全量重跑**，使用增量同步：
 
+> ⚠️ **同步前必须关 Agent**：Qdrant 本地模式不支持并发访问。脚本已内置自动杀 Agent 逻辑（SIGTERM → 等2s → SIGKILL）。若需手动控制，加 `--skip-agent-kill`。
+
 ```bash
-# 增量同步文档到 Qdrant（只处理新/修改的文件）
-.venv/bin/python scripts/index_documents_to_qdrant.py
+# 1. 关 Agent（如果脚本自动杀失败）
+kill $(pgrep -f "uvicorn qing_investment") 2>/dev/null
 
-# 增量同步 claims 到 Neo4j（图关系）
-.venv/bin/python scripts/migrate_claims_to_neo4j.py
+# 2. 增量同步（三脚本串行运行，不要并行！）
+.venv/bin/python scripts/index_documents_to_qdrant.py     # 文档 → Qdrant
+.venv/bin/python scripts/migrate_claims_to_neo4j.py        # claims → Neo4j
+PYTHONUNBUFFERED=1 .venv/bin/python scripts/index_claims_to_qdrant_monitored.py  # claims → Qdrant
 
-# 增量同步 claims embedding 到 Qdrant（语义搜索）
-.venv/bin/python scripts/index_claims_to_qdrant.py
+# 3. 重启 Agent
+nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
 ```
 
 **状态文件**（自动创建）：
-- `.index_state.json` — Qdrant 同步状态
+- `.index_state.json` — Qdrant 文档同步状态
 - `.migrate_state.json` — Neo4j 同步状态
 
 **强制全量重跑**（数据损坏或怀疑不一致时）：
@@ -83,6 +87,12 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 .venv/bin/python scripts/index_documents_to_qdrant.py --force-full
 .venv/bin/python scripts/migrate_claims_to_neo4j.py --force-full
 ```
+
+**Qdrant claims 集合损坏修复**（症状：`ValueError: could not broadcast input array from shape (512,) into shape (1,)`）：
+```bash
+.venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate
+```
+此命令自动：杀 Agent → 等锁释放 → 删旧 collection → 重建 → 全量索引 → 完整性自检。
 
 ---
 

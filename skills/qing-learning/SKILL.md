@@ -129,6 +129,8 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     24. **推理模式跨方向复用性**：参考 `references/reasoning-pattern-cross-direction-reuse.md`（通用框架的 `examples` 列表如何支撑跨方向复用——同一推理骨架适用于不同主题的具体案例、复用边界、何时需要新增框架）。
     25. **推理模式通用性 FAQ**：当用户问"推理模式是否只能针对单一方向""是否不够通用""是不是只能从单个文件提取"时，直接引用 `references/reasoning-pattern-cross-direction-reuse.md` 的"核心结论"和"复用示例"表格。不要重新解释 Phase 6 架构——用户的问题说明已有文档未被有效引用，Agent 应直接展示复用示例（如 `upstream_cycle` 同时支撑 MLCC/PCB/存储/硅片），而非重复论证设计合理性。
 26. **非科技方向 Neo4j 图谱设计**：当需要将研报中推荐的个股入库 Neo4j 以便 Qing-Agent 检索时，参考 `references/non-tech-stock-graph-design.md`（四种节点：Theme/Stock/Claim/ResearchReport + 五种关系 + Agent 检索路径）。
+27. **混合内容 ingestion（轨道A+轨道B 同 raw）**：参考 `references/mixed-content-ingestion.md`（单篇 raw 同时含技术教学和行情观点时的拆分规则、文件编号惯例、反面案例）。
+28. **Qdrant 向量损坏排查**：参考 `references/qdrant-corruption-root-cause.md`（根因链、为什么只 claims 不 documents、`--force-recreate` 一键修复、完整性自检机制）。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
@@ -176,25 +178,30 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     **⚠️ 前置步骤：Qdrant 本地模式独占文件锁**
     Qing-Agent 启动后会持有 `.qdrant_data/` 的独占锁。索引脚本无法与 Agent 同时运行（会报 `Storage folder already accessed` 或静默卡死）。**索引前必须先关 Agent。**
 
+    > 💡 **脚本已内置自动杀 Agent**（2026-06-07）：`index_claims_to_qdrant.py` 和 `index_documents_to_qdrant.py` 启动时自动 SIGTERM→SIGKILL uvicorn 进程，然后等待 `.qdrant_data/.lock` 释放。以下手动关 Agent 步骤为兜底方案。
+
+    **⚠️ 三个脚本必须串行运行，不能并行！** 并行运行会导致两个 QdrantClient 同时访问同一 SQLite → 向量存储损坏。
+
     ```bash
-    # 1. 关 Agent
+    # 1. 关 Agent（脚本自动杀失败时的兜底）
     kill $(pgrep -f "uvicorn qing_investment") 2>/dev/null
 
-    # 2. 增量同步（PYTHONUNBUFFERED=1 必须加，否则 Hermes 后台运行时 stdout 缓冲导致无输出）
+    # 2. 增量同步 — 串行！一个接一个跑
     cd ~/learning-investment-strategies
     PYTHONUNBUFFERED=1 .venv/bin/python scripts/index_documents_to_qdrant.py   # 文档 → Qdrant
     .venv/bin/python scripts/migrate_claims_to_neo4j.py                        # claims → Neo4j
-    .venv/bin/python scripts/index_claims_to_qdrant_monitored.py               # claims → Qdrant（带监控）
+    .venv/bin/python scripts/index_claims_to_qdrant_monitored.py               # claims → Qdrant（带监控+自检）
 
     # 3. 重启 Agent
     nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
     ```
 
     - 增量模式（默认）：只处理 `hash 有变化` 或 `新创建` 的文件，增量 < 30 秒
-    - 强制全量模式（数据损坏时）：`--force-full`，全量 10,687 chunks 预计 20-25 分钟
+    - 强制全量模式（数据损坏时）：`--force-recreate`（claims Qdrant，删旧collection→全量重建+自检）或 `--force-full`（文档 Qdrant）
     - **必须在 git commit 之后运行**（脚本基于文件 hash 判断是否已同步）
-    - **⚠️ 同步后必须验证 Agent 能否检索到新内容**（见下方 Pitfall #15）
-    - **常见陷阱**：`PYTHONUNBUFFERED=1` 是关键——否则 Python stdout 缓冲导致进程管理捕获不到输出，看起来像卡死。ONNX 单线程（`intra_op_num_threads=1`）在 2 核 VM 上必须设置，否则 futex spin-lock 死锁。详见 `qing-stock-analysis` 的 `references/qing-agent-lightweight.md`。
+    - **⚠️ 同步后必须验证 Agent 能否检索到新内容**（见 Pitfall #15）
+    - **常见陷阱**：`PYTHONUNBUFFERED=1` 是关键——否则 Python stdout 缓冲导致进程管理捕获不到输出。ONNX 单线程（`intra_op_num_threads=1`）在 2 核 VM 上必须设置，否则 futex spin-lock 死锁。
+    - **索引脚本已内置 Agent 杀进程 + 锁等待**（2026-06-07）：不再需要手动 `kill` Agent，脚本启动时自动处理。手动 kill 仅作备用。
 
 ### Ingestion 关键 Pitfalls
 
@@ -211,21 +218,22 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 8. **未关 Agent 就运行同步脚本（Qdrant 本地模式）**：Qing-Agent 启动后持有 `.qdrant_data/` 独占文件锁。不关 Agent 直接运行索引脚本会导致 `Storage folder already accessed` 错误或静默卡死。正确流程：`kill` Agent → 同步 → 重启 Agent。详见步骤13「知识库增量同步」。
 9. **忘记 PYTHONUNBUFFERED=1**：Hermes cron/后台进程管理器捕获 Python stdout 时，默认缓冲会导致无输出（看起来像卡死）。索引命令必须加 `PYTHONUNBUFFERED=1` 前缀。详见步骤13。
 
-10. **Qdrant claims 索引报 `ValueError: could not broadcast input array from shape (512,) into shape (1,)`**：本地模式存储损坏，现有 collection 中向量形状不一致。**不要**尝试增量修复——直接删除 `qing_claims` collection 并全量重建：
-    ```python
-    from qdrant_client import QdrantClient
-    from qing_investment.agent.config import settings
-    from qdrant_client.models import Distance, VectorParams
+10. **Qdrant claims 索引报向量维度错误（已修复 2026-06-07）**：
 
-    client = QdrantClient(path=settings.qdrant_local_path)
-    client.delete_collection('qing_claims')
-    client.create_collection(
-        collection_name='qing_claims',
-        vectors_config=VectorParams(size=512, distance=Distance.COSINE),
-    )
-    # 然后重新运行 index_claims_to_qdrant.py
+    **错误症状**：`ValueError: could not broadcast input array from shape (512,) into shape (1,)`
+    **根因**：Qdrant 本地模式（`QdrantClient(path=...)`）底层 SQLite 不支持并发访问。当 Agent 未关闭时运行索引脚本，或两个索引脚本并行运行 → 并发写入竞争 → SQLite 向量存储内部某条记录维度错乱（shape `(1,)` 而非 `(512,)`）。之后每次增量 upsert 到该坏记录触发崩溃。
+
+    **一键修复**（2026-06-07 新增）：
+    ```bash
+    .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate
     ```
-    **触发条件**：claims 索引到中途（如 500/548）时突然报此错。**不是** embedding 维度问题（collection config 显示 size=512 正确），是本地 SQLite 存储层的向量数据不一致。删除重建后全量索引即可。
+    此命令自动执行：杀 Agent → 等锁释放 → 删旧 collection → 重建 → 全量索引 → 完整性自检（随机抽样10条验证维度=512）。
+
+    **防护机制**（2026-06-07 已集成）：
+    - 两个索引脚本（`index_claims_to_qdrant.py` / `index_documents_to_qdrant.py`）启动时**自动 kill uvicorn Qing-Agent**（`--skip-agent-kill` 可跳过）
+    - 等待 `.qdrant_data/.lock` 释放（最多 30s）
+    - `index_claims_to_qdrant.py` 索引后**完整性自检**（随机抽样10条验证向量维度=512，异常时退出码=2）
+    - 若需手动控制：`--skip-agent-kill` 跳过 Agent 杀进程（危险）
 
 11. **Claim 文件编号与已有 claims 冲突**：同一日期可能已有其他 session 或同一 session 的不同子 agent 创建了 claims。**写入前必须检查**：
     ```bash
@@ -244,11 +252,11 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     - 直接写入目标编号文件，不要先写成 `-001` 再 `mv` 重命名——`write_file` 会覆盖已有文件，导致旧 claims 丢失
     - 若已误覆盖：立即 `git checkout HEAD -- <旧文件>` 恢复，再写入正确编号的新文件
 
-15. **Qdrant Claims 索引失败 + Agent 检索不到新内容**：`index_claims_to_qdrant.py` 可能因 ONNX embedding 维度不匹配而失败（`ValueError: could not broadcast input array from shape (512,) into shape (1,)`）。症状：Neo4j 同步成功、文档 Qdrant 索引成功，但 Agent 的 `/chat` 仍返回旧数据、找不到新 claims。**同步后必须验证**：
-    - 若 `index_claims_to_qdrant.py` 非零退出，说明 claims 未进入 Qdrant 向量库
-    - 此时 Agent 的检索只能靠 Neo4j 图遍历（如果代码支持），或完全找不到新内容
-    - **修复方向**：检查 Qdrant collection 的向量维度配置是否与 ONNX 模型输出（512-dim）一致；或考虑清除旧 collection 重建
-    - **临时绕过**：确保 Neo4j 同步完成——部分检索路径可能不走 Qdrant 而走图数据库。但 Claims 的语义搜索依赖 Qdrant，无索引 = 无法语义召回
+15. **Qdrant Claims 索引失败 + Agent 检索不到新内容**：症状：Neo4j 同步成功、文档 Qdrant 索引成功，但 Agent 的 `/chat` 仍返回旧数据。**排查步骤**：
+    - 若 `index_claims_to_qdrant.py` 非零退出 → 常见为向量损坏（见 Pitfall #10），用 `--force-recreate` 修复
+    - 索引成功后 Agent 仍检索不到 → 检查 `.qdrant_data/collection/qing_claims/storage.sqlite` 是否被另一进程锁定
+    - **验证方法**：索引用 `index_claims_to_qdrant_monitored.py`（带监控日志），确认退出码=0 且日志显示 `✅ Indexed N claims`
+    - **修复**：`--force-recreate` 一键修复（自动杀Agent→重建collection→全量索引→完整性自检）
 
 16. **Agent 不显示 claim 内容时，按三层排查（claim → prompt 构建 → Agent 代码）**：当 Agent 回答缺少某条 claim 的关键信息时，按以下顺序排查——
     ① **claim 层**：statement 是否超 200 字被截断？subject 是否包含搜索关键词？claim_type 是否正确（methodology/operation 进入可引用区块，其他进入时效分级）？
@@ -261,11 +269,12 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     原则：claim 是知识载体→prompt 是消费管道→Agent 是执行层。修复也应从上到下，不要跳过层级直接改 Agent。
 
 17. **raw 文档整理遗漏——三种典型类型**：用户直接提供文档时，整理后可能发生以下遗漏（2026-06-07 真实案例）：
-    - **尾部遗漏**：长文档处理时对结尾段关注度下降，尤其最后一个话题段容易被跳过（如港股建仓在文档尾段丢失）
-    - **力度弱化**：LLM 倾向将口语规范化，UP 的力度词被降级——「一季报特别炸的」→「一季报可以的」，丢失了「超预期」这个关键信号
-    - **案例丢失**：LLM 提取方法论时丢弃了 UP 当场举例的具体标的——「中国长城」作为 F10 分析现场案例被遗漏
-    - **防范**：严格按工作流程 3b 逐段核验。核验时特别检查：①文档末尾 3 段是否完整 ②是否有口语力度词被替换为平淡用词 ③是否有标的名称只作为例子出现但未被收录
-    - **不确定时主动向用户提问**：遇到模糊文字、不确定的内容、无法辨认的标的名称——**不要猜、不要跳过、不要自行改写**，直接向用户提问确认。
+    - **尾部遗漏**：长文档处理时对结尾段关注度下降，尤其最后一个话题段容易被跳过
+    - **力度弱化**：LLM 倾向将口语规范化，UP 的力度词被降级——「一季报特别炸的」→「一季报可以的」
+    - **案例丢失**：LLM 提取方法论时丢弃了 UP 当场举例的具体标的
+    - **防范**：严格按工作流程 3b 逐段核验。不确定时主动向用户提问。
+
+18. **混合内容 ingestion 未分轨**：单篇 raw 同时包含技术教学和行情观点时，把所有 claims 都写入同一个文件。这会导致：①permanent 知识与 time-limited 观点混在一起 ②Agent 检索时无法区分 ③时效管理混乱。**正确做法**：拆分为两个独立 claim 文件——`-001.yaml`（轨道A，行情观点，short/medium-term）+ `-002.yaml`（轨道B，技术知识，permanent）。详见 `references/mixed-content-ingestion.md`。
 
 ---
 
@@ -410,6 +419,7 @@ git status --short
 - 技术教学内容不进入 `claims/`（因为不是"观点"是"知识"）
 - 技术教学内容直接进入 `framework/technical-analysis-framework.md` 和 `methodology/technical-analysis.md`
 - 若需标记 claim，使用 `claim_type: technical-knowledge`，`timeframe: permanent`
+- **⚠️ 混合内容分离规则**：当单篇 raw 同时包含轨道A（行情观点）和轨道B（技术教学）时，必须拆分为**两个独立的 claim 文件**（`-001.yaml` 轨道A + `-002.yaml` 轨道B），不能混在同一文件。详见 `references/mixed-content-ingestion.md`
 - **技术知识不需要"多次提及"才进 framework** — 与轨道A的 durable rule 标准不同，技术工具是正规金融学内容，一旦教学即可沉淀
 - **技术工具不进总纲** — `博主方法论总纲.md` 只放市场认知层的稳定框架，具体K线形态/指标公式进 `technical-analysis-framework.md`
 - **交易规则进 trading-rules.md** — 具体操作纪律（如接力标的选择、尾盘套利法、买卖点条件）属于可执行规则，进 `framework/trading-rules.md`，不进 `technical-analysis-framework.md`
