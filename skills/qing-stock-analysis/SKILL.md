@@ -31,7 +31,7 @@ description: Use when the user asks to analyze an individual stock through the b
 18. `skills/qing-stock-analysis/references/holdings-direction-alignment-check.md` — **持仓方向与 UP 近期内容核对手册**：当用户问"UP 是否提到我的持仓""核对我的持仓方向"时触发。扫描最近 2-3 天 UP 内容（视频/复盘/早盘/动态），逐只核对持仓是否被提及、UP 态度如何、语言强度评级。与"持仓更新"子任务区分：本流程不做盈亏计算，只做方向一致性评估。
 19. `skills/qing-stock-analysis/references/claim-leakage-architecture-analysis.md` — **Claims 泄漏路径架构分析**：`/chat` 和 `/analyze/trigger` 两条路径中 claim 从 Neo4j/Qdrant 到 LLM prompt 的完整数据流。识别两处剩余泄漏风险（Neo4j 图遍历个股 claims、stock_analyst 全量传入），评估方案C（intensity 字段）的加固效果。修改检索链路或做 claims 质量评估前必读。
 20. `skills/qing-stock-analysis/references/claim-intensity-system.md` — **Claim Intensity 系统完整文档**：方案C实现。covering schema 层（VALID_INTENSITY）、数据回填规则（8条）、检索链路三层防护（Neo4j min_intensity / _apply_intensity_weight / prompt 分级标签）、验收方法。新增或修改 intensity 相关代码前必读。
-21. `skills/qing-stock-analysis/references/claim-relation-discovery.md` — **Claim 关系发现（方案1+3）**：图遍历检索增强 + LLM 自动判断 claim 间 supersedes/contradicts/supplements 关系。covering `discover_claim_relations.py` 脚本用法、成本估算、测试结果。处理 claims 关系缺失问题时必读。**已知问题：** `--all-missing` 会重复判断 supplements/none（不写入 YAML → 下次重跑 90%+ claims）；`/analyze/trigger` 链路用 `get_claims_about_stock()` 而非 `get_claims_with_evolution()`，CONTRADICTS 边不被 LangGraph 消费。
+21. `skills/qing-stock-analysis/references/claim-relation-discovery.md` — **Claim 关系发现（方案1+3）**：图遍历检索增强 + LLM 自动判断 claim 间 supersedes/contradicts/supplements 关系。covering `discover_claim_relations.py` 脚本用法、成本估算、测试结果、设计决策（supplements/none 不写入 Neo4j 的理由）、`last_discovered` 防重复判断机制。处理 claims 关系缺失问题时必读。**修复历史（2026-06-07）：** ① `--all-missing` 改为检查 `last_discovered` 标记，避免重复判断；② `nodes.py` 改用 `get_claims_with_evolution()`，LangGraph 链路已能消费 CONTRADICTS 边。
 
 ## 双轨制兼容性
 

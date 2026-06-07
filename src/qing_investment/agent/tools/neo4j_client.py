@@ -111,5 +111,21 @@ class Neo4jClient:
         with self.driver.session() as session:
             return session.run(query, claim_id=claim_id, limit=limit).data()
 
+    def get_stock_by_name(self, name: str) -> list[dict]:
+        """Search Stock nodes whose name CONTAINS the given string.
+
+        Returns list of dicts with code, name, and optionally a count of
+        associated claims.
+        """
+        query = """
+        MATCH (s:Stock)
+        WHERE s.name CONTAINS $name
+        OPTIONAL MATCH (c:Claim)-[:ABOUT]->(s)
+        RETURN s.code as code, s.name as name, count(DISTINCT c) as claim_count
+        ORDER BY s.code
+        """
+        with self.driver.session() as session:
+            return session.run(query, name=name).data()
+
     def close(self):
         self.driver.close()

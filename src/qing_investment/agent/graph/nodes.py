@@ -760,6 +760,10 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
     # ── Intensity boost/penalty（方案C）──
     claims = _apply_intensity_weight(claims, is_stock_query=bool(stock_code))
 
+    # ── 个股查询过滤 low intensity（与 /chat 保持一致）──
+    if stock_code:
+        claims = [c for c in claims if c.get("intensity") != "low"]
+
     # ── 同一主题矛盾检测（P1 新增）──
     potential_conflicts = _detect_claim_conflicts(claims)
 

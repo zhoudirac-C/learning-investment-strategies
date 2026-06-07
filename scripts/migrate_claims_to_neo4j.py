@@ -285,15 +285,17 @@ def _migrate_single_claim(session, claim: dict):
 
     # Stock codes
     stock_codes = extract_stock_codes(subject + " " + statement)
+    name = subject or statement[:100]
     for code in stock_codes:
         session.run(
             """
             MERGE (s:Stock {code: $code})
+            SET s.name = $name
             WITH s
             MATCH (c:Claim {id: $cid})
             MERGE (c)-[:ABOUT {relation_type: 'mentions'}]->(s)
             """,
-            {"code": code, "cid": cid},
+            {"code": code, "name": name, "cid": cid},
         )
 
     # Sectors / themes

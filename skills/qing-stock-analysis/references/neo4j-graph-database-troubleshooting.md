@@ -4,20 +4,19 @@
 
 2026-06-06 用户质疑 Qing-Agent 的推理框架是否只能针对单一方向投资思路。深入排查后发现，Neo4j 图数据库存在严重数据质量问题，导致 claims 的关系图谱价值未发挥。
 
-## 当前状态快照（2026-06-06 修复后）
+## 当前状态快照（2026-06-07 二次修复后）
 
-| 指标 | 修复前 | 修复后 | 健康标准 |
-|------|--------|--------|---------|
-| Claims 节点 | 540 | 540 | — |
-| 关系总数 | 1,105 | ~1,500 | — |
-| SUPERSEDES 关系 | 18 | 18 | 应有数百条 |
-| CONTRADICTS 关系 | 7 | 7 | 应有数十条 |
-| Stock 节点 | **0** | **38** | ✅ 已修复 |
-| Macro 节点 | **0** | **102** | ✅ 已修复 |
-| Methodology 节点 | **0** | **118** | ✅ 已修复 |
-| Sector 节点 | 28 | 167 | ✅ 已修复 |
-| Theme 节点 | 465 | 465 | — |
-| claim_type 分布 | 全部 `general` | 9种类型 | ✅ 已修复 |
+| 指标 | 首轮修复前 (06-06) | 首轮修复后 (06-06) | 二轮修复后 (06-07) |
+|------|-------------------|-------------------|-------------------|
+| Claims 节点 | 540 | 540 | **578** |
+| SUPERSEDES 关系 | 18 | 18 | **154** |
+| CONTRADICTS 关系 | 7 | 7 | **143** |
+| Stock 节点 | 0 | 38 | **80** |
+| /chat 使用图遍历 | ❌ | ✅ | ✅ |
+| /analyze/trigger 使用演化 | ❌ | ❌ | ✅ |
+| discover 防重复 | ❌ | ❌ | ✅ (`last_discovered`) |
+| _detect_claim_conflicts 用图边 | ❌ | ❌ | ✅ |
+| main.py Neo4j 连接数 | 2 | 2 | **1** |
 
 ## 根因分析（已修复）
 
@@ -267,7 +266,79 @@ for kw in keywords[:3]:
 
 **注意**：关键词匹配可能有噪音（如"中国"匹配到"中国石油"），需去重和限制数量。
 
-## 关键教训
+## 第二轮架构问题修复（2026-06-07）
+
+2026-06-07 全面审查 Neo4j 读写路径，发现并修复了 4 个 P0-P2 架构问题。
+
+### 问题1：discover 重复判断（P0）
+
+**症状**：`--all-missing` 每次跑 90%+ claims，其中 75% 只出 supplements/none，不写 YAML → 下次重跑。~1074 次 LLM 调用空转/次。
+
+**根因**：跳过条件检查 `supersedes`/`contradicts`，但 supplements/none 不写入。
+
+**修复**：`scripts/discover_claim_relations.py`：
+- 跳过条件改为 `c.get("last_discovered")`
+- 处理后始终写 `last_discovered: YYYY-MM-DD` 到 YAML
+
+### 问题2：检索链路不一致 — CONTRADICTS 边在 LangGraph 中未使用（P0）
+
+**症状**：`retrieve_knowledge`（nodes.py）用 `get_claims_about_stock()`，不返回演化关系。但 `reviewer.txt` prompt 要求检查「是否与UP的历史立场矛盾？（检查 contradicts 关系）」。
+
+**修复**：`src/qing_investment/agent/graph/nodes.py:637`：
+- `get_claims_about_stock()` → `get_claims_with_evolution()`
+
+### 问题3：get_claim_evolution 返回值被浪费（P1）
+
+**症状**：查询用 3 个 OPTIONAL MATCH 返回笛卡尔积（c×old×opp×new），但调用方只取 `first.get("c", {})`，丢弃 all old/opp/new。
+
+**修复**：`src/qing_investment/agent/tools/neo4j_client.py:35-55`：
+- 改为 `collect(DISTINCT ...)` 单行返回
+- `main.py` 和 `nodes.py` 调用方直接使用结构化结果（含 `supersedes`、`superseded_by`、`contradicts` 数组）
+
+### 问题4：_detect_claim_conflicts 不查 CONTRADICTS 边（P1）
+
+**症状**：冲突检测用关键词启发式（`_BULLISH_WORDS` 词表匹配），Neo4j 里 143 条 contradicts 关系不被消费。
+
+**修复**：`src/qing_investment/agent/graph/nodes.py:542-595`：
+- 阶段一：优先查 claims 的 `contradicts` 数组（Neo4j 边）
+- 阶段二：关键词启发式作为补充，跳过已通过图边检出的 claim
+
+### 问题5：main.py 开两次 Neo4j 连接（P2）
+
+**症状**：第 173 行打开一次，第 205 行再打开一次。每个请求 2 次 TCP 握手。
+
+**修复**：合并为单个 try 块，复用一个 session。
+
+### 剩余未修项目（P2-P3）
+
+| 问题 | 优先级 | 影响 | 估计 |
+|------|--------|------|------|
+| Stock 节点无 `name` 属性 → 名称搜索靠硬编码字典 | P2 | 用户体验差 | 中 |
+| keyword 检索用 CONTAINS 不走索引 | P3 | 578 条时无感 | 低 |
+| intensity 过滤策略不一致（/chat 过滤 low, nodes.py 只排序） | P3 | 轻微行为差异 | 低 |
+
+### 系统架构修复检查清单（新加 claims 后）
+
+```bash
+# 1. 运行关系发现（首次全量，后续增量）
+.venv/bin/python scripts/discover_claim_relations.py --all-missing
+
+# 2. 迁移到 Neo4j
+.venv/bin/python scripts/migrate_claims_to_neo4j.py
+
+# 3. 索引到 Qdrant
+PYTHONUNBUFFERED=1 .venv/bin/python scripts/index_claims_to_qdrant_monitored.py
+
+# 4. 验证关系边
+.venv/bin/python -c "
+from qing_investment.agent.tools.neo4j_client import Neo4jClient
+c = Neo4jClient()
+with c.driver.session() as s:
+    for rt in ['SUPERSEDES', 'CONTRADICTS']:
+        cnt = s.run(f'MATCH ()-[r:{rt}]->() RETURN count(r)').single()[0]
+        print(f'{rt}: {cnt}')
+c.close()
+"
 
 1. **字段命名一致性**：YAML 用 `claim_type`，代码中混用 `type` 和 `claim_type` 导致全部 fallback 到 `general`
 2. **正则表达式要覆盖真实数据格式**：`.SH`/`.SZ` 后缀、无空格分隔、中文名称等

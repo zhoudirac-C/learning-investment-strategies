@@ -27,11 +27,40 @@ RETURN related
 
 新增 claim 时，ONNX embedding 搜索 Qdrant top-3 相似 claims，LLM 判断关系：
 - **supersedes**: 新 claim 取代旧 claim
-- **supplements**: 新 claim 补充旧 claim（不写入 Neo4j 边）
+- **supplements**: 新 claim 补充旧 claim（**不写入 Neo4j 边**）
 - **contradicts**: 矛盾
 - **none**: 无关
 
 结果写入 YAML 的 `supersedes` / `contradicts` 字段，迁移时自动建边。
+
+### 设计决策：为什么 supplements/none 不写入
+
+| 关系类型 | 是否写入 | 理由 |
+|----------|---------|------|
+| **SUPERSEDES** | ✅ 写入 | 改变 claim 有效性，Agent 决策关键（旧观点已过时） |
+| **CONTRADICTS** | ✅ 写入 | 观点方向相反，Agent 需要二选一 |
+| **SUPPLEMENTS** | ❌ 不写 | 不改变 claim 有效性；Qdrant 语义相似 + entity 图遍历已覆盖关联发现；写入会增加 prompt 噪音 |
+| **NONE** | ❌ 不写 | 反模式——图数据库不应存储「无关系」边 |
+
+### last_discovered 防重复机制（2026-06-07 新增）
+
+`--all-missing` 原跳过条件：检查 YAML 是否有 `supersedes`/`contradicts`。
+问题是：supplements/none 结果不写入 → 下次全量重跑。
+
+**修复**：引入 `last_discovered` 时间戳标记，跳过条件改为检查此标记。
+
+**逻辑**：
+```python
+# 改前（每次重跑 90%+ claims）
+if c.get("supersedes") or c.get("contradicts"):
+    continue
+
+# 改后（每个 claim 只跑一次）
+if c.get("last_discovered"):
+    continue
+```
+
+**效果**：只有新增/从未跑过的 claim 才执行 LLM 判断，历史 claims 直接跳过。每年 $200+ → 日常增量 $0。
 
 **脚本**: `scripts/discover_claim_relations.py`
 

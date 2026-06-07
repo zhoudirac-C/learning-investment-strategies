@@ -169,9 +169,28 @@ async def chat(req: ChatRequest):
 
     seen_ids: set[str] = set(c.get("id") or "" for c in claims)
 
+    # ── 股票代码提取（先于 Neo4j 检索，供后续复用）──
+    fetched_stock_code: str | None = None
+    try:
+        import re
+        stock_code_match = re.search(r'(\d{6})', req.message)
+        if stock_code_match:
+            fetched_stock_code = stock_code_match.group(1)
+    except Exception:
+        pass
+
     # ── Neo4j 检索（单次连接，合并图遍历补充）──
     try:
         neo4j = Neo4jClient()
+
+        # 若未提取到股票代码，尝试按名称从 Neo4j 模糊匹配
+        if not fetched_stock_code:
+            try:
+                name_matches = neo4j.get_stock_by_name(req.message)
+                if name_matches:
+                    fetched_stock_code = name_matches[0]["code"]
+            except Exception:
+                pass
         
         # 如果提取到股票代码，使用图遍历获取相关 claims（包括演化关系）
         if fetched_stock_code:
@@ -224,7 +243,6 @@ async def chat(req: ChatRequest):
 
     market_snapshot: dict = {"quotes": []}
     external_sector_boards: dict = {"available": False}
-    fetched_stock_code: str | None = None
 
     # 1. 检测查询类型
     query_lower = req.message.lower()
@@ -232,13 +250,7 @@ async def chat(req: ChatRequest):
     is_sector_query = any(kw in query_lower for kw in ["板块", "行业", "概念"])
     is_stock_query = any(kw in query_lower for kw in ["股", "走势", "分析", "低点", "高点", "买入", "卖出", "抄底", "减仓", "加仓", "持仓", "套牢", "解套", "止损", "止盈", "目标价", "支撑", "压力"])
     
-    # 2. 提取股票代码
-    import re
-    stock_code_match = re.search(r'(\d{6})', req.message)
-    if stock_code_match:
-        fetched_stock_code = stock_code_match.group(1)
-    
-    # 2.1 如果没有提取到代码，从持仓配置中匹配股票名称
+    # 2. 如果没有提取到代码，从持仓配置中匹配股票名称
     if not fetched_stock_code:
         try:
             import yaml
@@ -286,20 +298,18 @@ async def chat(req: ChatRequest):
     if fetched_stock_code or is_stock_query:
         try:
             from qing_investment.agent.tools.stock_data import fetch_single_stock, fetch_stock_kline, fetch_stock_intraday
-            # 优先使用提取到的代码，否则尝试从名称匹配（简化版）
             code_to_fetch = fetched_stock_code
             if not code_to_fetch:
-                # 尝试从常见股票名称映射（可扩展）
-                name_to_code = {
-                    "中国长城": "000066",
-                    "贵州茅台": "600519",
-                    "比亚迪": "002594",
-                    "宁德时代": "300750",
-                }
-                for name, code in name_to_code.items():
-                    if name in req.message:
-                        code_to_fetch = code
-                        break
+                # 从 Neo4j 按名称模糊匹配股票代码（若 Neo4j 检索段失败时的再尝试）
+                try:
+                    from qing_investment.agent.tools.neo4j_client import Neo4jClient
+                    n4j = Neo4jClient()
+                    name_matches = n4j.get_stock_by_name(req.message)
+                    n4j.close()
+                    if name_matches:
+                        code_to_fetch = name_matches[0]["code"]
+                except Exception:
+                    pass
             if code_to_fetch:
                 # 获取实时行情
                 stock_quote = fetch_single_stock(code_to_fetch)
