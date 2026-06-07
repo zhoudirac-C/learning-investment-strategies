@@ -15,6 +15,7 @@ from qing_investment.agent.tools.llm_client import get_embedding_model, get_llm_
 from qing_investment.agent.tools.mem0_client import Mem0ClientWrapper
 from qing_investment.agent.tools.neo4j_client import Neo4jClient
 from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
+from qing_investment.agent.tools.claim_freshness import apply_claim_freshness
 
 app = FastAPI(title="Qing-Agent", version="0.1.0")
 graph = build_graph()
@@ -34,6 +35,22 @@ _SECTOR_KEYWORDS: dict[str, list[str]] = {
     "新能源": ["新能源", "光伏", "锂电", "储能", "风电"],
     "资源": ["铜", "铝", "锂", "稀土", "黄金", "煤炭", "硫磺"],
 }
+
+
+def _format_claim_line(c: dict) -> str:
+    """Format a single claim for display in the prompt context."""
+    parts = [f"- {c.get('id', 'N/A')} ({c.get('source_date','')})"]
+    if c.get('claim_type'):
+        parts.append(f" [{c.get('claim_type')}]")
+    label = c.get("freshness_label", "")
+    if label:
+        parts.append(f" [{label}]")
+    parts.append(f": {c.get('statement', '')[:200]}")
+    if c.get('superseded_by'):
+        parts.append(f" [已被 {', '.join(c['superseded_by'][:2])} 取代]")
+    if c.get('contradicts'):
+        parts.append(f" [与 {', '.join(c['contradicts'][:2])} 矛盾]")
+    return "".join(parts)
 
 
 def _extract_keywords(text: str) -> list[str]:
@@ -361,31 +378,45 @@ async def chat(req: ChatRequest):
             context_parts.append(f"- {src}: {s['text'][:300]}")
 
     if all_claims:
+        # 应用时效分级
+        fresh_claims = apply_claim_freshness(all_claims)
+
         # 分离方法论类和观点类
-        method_claims = [c for c in all_claims if c.get('claim_type') in ('methodology', 'operation')]
-        view_claims = [c for c in all_claims if c.get('claim_type') not in ('methodology', 'operation')]
-        
+        method_claims = [
+            c for c in fresh_claims
+            if c.get('claim_type') in ('methodology', 'operation')
+        ]
+        view_claims = [
+            c for c in fresh_claims
+            if c.get('claim_type') not in ('methodology', 'operation')
+        ]
+
+        # 方法论块（不受时效限制）
         if method_claims:
             context_parts.append("\n【博主选股方法论/操作框架】（🔧 UP的分析框架，可以作为方法论指导引用）")
             for c in method_claims[:5]:
-                claim_line = f"- {c.get('id', 'N/A')} ({c.get('source_date','')})"
-                if c.get('claim_type'):
-                    claim_line += f" [{c.get('claim_type')}]"
-                claim_line += f": {c.get('statement', '')[:200]}"
+                claim_line = _format_claim_line(c)
                 context_parts.append(claim_line)
-        
-        if view_claims:
-            context_parts.append("\n【博主历史观点卡】（⚠️ 历史观点，仅供参考，不得作为当前判断依据）")
-            for c in view_claims[:8]:
-                claim_line = f"- {c.get('id', 'N/A')} ({c.get('source_date','')})"
-                if c.get('claim_type'):
-                    claim_line += f" [{c.get('claim_type')}]"
-                claim_line += f": {c.get('statement', '')[:200]}"
-                if c.get('superseded_by'):
-                    claim_line += f" [已被 {', '.join(c['superseded_by'][:2])} 取代]"
-                if c.get('contradicts'):
-                    claim_line += f" [与 {', '.join(c['contradicts'][:2])} 矛盾]"
-                context_parts.append(claim_line)
+
+        # 按时效等级分组
+        fresh_views = [c for c in view_claims if c.get("freshness_label") == "最新"]
+        recent_views = [c for c in view_claims if c.get("freshness_label") == "近期"]
+        historical_views = [c for c in view_claims if c.get("freshness_label") == "历史"]
+
+        if fresh_views:
+            context_parts.append("\n【UP最新观点】（≤7天，可作为判断的辅助参考，需搭配实时数据使用）")
+            for c in fresh_views[:5]:
+                context_parts.append(_format_claim_line(c))
+
+        if recent_views:
+            context_parts.append("\n【UP近期观点】（8-30天，参考价值递减，请注意时效）")
+            for c in recent_views[:4]:
+                context_parts.append(_format_claim_line(c))
+
+        if historical_views:
+            context_parts.append("\n【UP历史观点】（31-90天，仅供参考，不得作为当前判断依据）")
+            for c in historical_views[:3]:
+                context_parts.append(_format_claim_line(c))
 
     # 注入持仓数据
     if position_data:
@@ -409,37 +440,45 @@ async def chat(req: ChatRequest):
     prompt_lines = [
         "你是青枫浦上Q的助手，风格犀利但不劝赌，不用机构研报腔。",
         "",
-        "【分析框架——必须按此顺序执行】",
+        "【分析框架——必须严格按此顺序执行】",
         "",
         "第一步：判断市场周期和情绪阶段",
         "- 看大盘指数（上证/深证/创业板/科创50）的涨跌和量能",
-        "- 判断当前是冰点/回暖/高潮/退潮/混沌轮动中的哪个阶段",
-        "- 结论必须基于【实时行情数据】",
+        "- 🔑 优先使用【UP最新观点】中的周期判断（如有≤7天的market-cycle观点）",
+        "  UP每天复盘解读盘面，他的周期定位比LLM自己看几个数字更准",
+        "- 实时数据用来验证UP的周期判断，而不是推翻（除非出现明显背离：如UP说磨底但指数放量跌破关键位）",
+        "- 结论格式：「UP观点：...（采纳/修正/放弃，原因是...）」",
         "",
         "第二步：判断所属板块是否是当前主线",
-        "- 看板块数据（如果有），判断该票所属板块今日表现",
-        "- 判断是主线/支线/边缘/退潮方向",
+        "- 🔒 此步只能基于实时板块数据（板块涨跌幅、资金流向）",
+        "- 板块轮动快，以当日数据为准，UP的方向判断仅作补充参考",
+        "- 判断板块是主线/支线/边缘/退潮方向",
         "- 如果是支线或边缘，要说明为什么",
         "",
         "第三步：判断个股地位",
-        "- 核心（产业链最核心、资金最认可）",
-        "- 跟风（跟随核心标的涨跌）",
-        "- 补涨（板块后期才启动的标的）",
-        "- 案例（博主用来举例说明逻辑的标的）",
-        "- 过期（逻辑已兑现或已退潮）",
-        "- 地位判断必须基于量价结构和板块内相对强弱",
+        "- ⭐ 如果UP在claim中明确给出了个股地位标签（龙头/中军/核心/趋势/跟风），优先采用",
+        "  UP的个股定位经过产业逻辑验证，比看一天K线准，且大票定性不频繁变化",
+        "- 如果UP从未提及该股，用量化数据判断（板块内相对强弱、市值、换手率）",
+        "- 个股地位不受时效衰减影响（中军就是中军，不会因为两周过去变成跟风）",
         "",
         "第四步：检索博主历史提及（如有）",
-        "- 查看【博主历史观点卡】中是否有该票或相关方向的提及",
-        "- 提取产业逻辑、角色定位、置信度",
-        "- ⚠️ 历史观点仅供参考，不能作为当前判断依据",
-        "- 🔧 如果存在【博主选股方法论/操作框架】，必须明确引用UP的选股方法/操作纪律（如「找低位+一季报超预期」），这些是方法论指导不是历史观点",
+        "- 查看【UP最新观点】中是否有该票或相关方向的提及——≤7天的可作为辅助参考",
+        "- 查看【UP近期观点】——参考价值递减，需注意时效",
+        "- 查看【UP历史观点】——仅供参考，不得作为判断依据",
+        "- ⚠️ 【引用纪律——每引用一条claim必须配对至少一条实时数据】",
+        "  格式：（数据）...→（UP观点）...→（结论）...",
+        "  如果找不到对应的数据支撑，该claim不得引用",
+        "- 🔧 如果存在【博主选股方法论/操作框架】，必须明确引用UP的选股方法/操作纪律",
+        "（如「找低位+一季报超预期」），方法论指导不受时效限制",
         "",
         "第五步：结合技术位置和资金面判断风险收益",
         "- 看90日K线：趋势、支撑、压力、量能变化",
         "- 看当日分时：开盘/盘中/尾盘结构，资金流向",
         "- 看实时行情：价格、涨跌幅、换手率（如有）",
         "- 判断当前位置的风险收益比",
+        "- 引用UP方法论时，必须同时给出对应的实时数据交叉验证",
+        "  ✅ 正确：该票自5月初下跌30%（数据），Q1净利润+150%（数据）→ 符合UP「找低位+业绩」方法论",
+        "  ❌ 错误：UP说磨底期做低位方向，所以买这个票（用claim替代了数据分析）",
         "",
         "第六步：输出证伪条件和跟踪字段",
         "- 如果看多，什么信号出现会证伪这个判断？",
@@ -452,14 +491,19 @@ async def chat(req: ChatRequest):
         "- 所有操作建议必须附带条件（'若X则Y'），禁止无条件买卖指令",
         "",
         "【核心原则】",
-        "1. 所有判断必须基于【实时行情数据】，不能基于历史观点",
-        "2. 【博主分析方法论】是UP的分析框架和概念定义，可以引用作为方法论指导",
-        "3. 【博主历史观点卡】是历史观点，仅供参考，不得作为当前判断的依据",
-        "4. 禁止引用claim ID支持当前观点",
-        "5. 如果【实时行情数据】为空，请明确说明无法获取数据，不要编造",
-        "6. 如果知识库中没有相关信息，请明确说明，不要编造",
-        "7. 【输出格式】回复开头必须标注：'[Qing-Agent 分析]'，然后空一行再写正文",
-        "8. 分析必须按上述六步框架执行，不能跳过步骤",
+        "1. 【实时数据是客观基准】——所有判断起点必须是实时数据，不能编造，获取不到时明确说明",
+        "2. 【UP周期判断优先】——≤7天的market-cycle观点优先于LLM自主周期判断（UP每天复盘更准）",
+        "3. 【UP个股定位优先】——UP点名过的个股地位是权威来源，不随时效衰减",
+        "4. 【UP方法论可引用】——选股方法论/操作框架不受时效限制，但必须和当前数据配合使用",
+        "5. 【引用纪律——数据必在claim前】——每引用一条claim必须有对应实时数据交叉验证",
+        "6. 【UP最新观点（≤7天）可作为辅助参考，但不得替代实时数据】",
+        "7. 【UP近期观点（8-30天）参考价值递减，需标注时效】",
+        "8. 【UP历史观点（31-90天）仅供背景参考，不得作为判断依据】",
+        "9. 禁止引用claim ID支持当前观点",
+        "10. 如果【实时行情数据】为空，请明确说明无法获取数据，不要编造",
+        "11. 如果知识库中没有相关信息，请明确说明，不要编造",
+        "12. 【输出格式】回复开头必须标注：'[Qing-Agent 分析]'，然后空一行再写正文",
+        "13. 分析必须按上述六步框架执行，不能跳过步骤",
         "",
         *context_parts,
         f"\n用户：{req.message}\n",

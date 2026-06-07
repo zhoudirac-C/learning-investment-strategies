@@ -523,41 +523,15 @@ def _extract_sector_keywords(query: str) -> list[str]:
 def _apply_claim_freshness(claims: list[dict]) -> list[dict]:
     """对 claims 做时效性衰减排序和标注。
 
-    - ≤7 天: 标为 [最新]
-    - 8-30 天: 正常展示
-    - 31-90 天: 标为 [近期] 并降权
-    - >90 天: 标为 [历史] 并过滤掉（不返回）
-    - status=superseded: 直接过滤
+    委托给共享模块 tools/claim_freshness.py，保证 /chat 和 /analyze/trigger 两路径一致。
+
+    - ≤7 天: 标为 [最新] — 当前观点，可作为辅助参考
+    - 8-30 天: 标为 [近期] — 近期观点，参考价值递减
+    - 31-90 天: 标为 [历史] — 仅作背景参考，不得作为判断依据
+    - >90 天 / superseded: 直接过滤
     """
-    from datetime import datetime, date, timedelta
-    today = date.today()
-    filtered: list[dict] = []
-    for c in claims:
-        if c.get("status") == "superseded":
-            continue
-        sd = c.get("source_date", "")
-        try:
-            claim_date = datetime.strptime(str(sd), "%Y-%m-%d").date()
-            days_ago = (today - claim_date).days
-        except Exception:
-            days_ago = 999
-        if days_ago > 90:
-            continue
-        if days_ago <= 7:
-            label = "最新"
-        elif days_ago <= 30:
-            label = ""
-        elif days_ago <= 90:
-            label = "近期"
-        else:
-            label = "历史"
-        c_copy = dict(c)
-        c_copy["days_ago"] = days_ago
-        c_copy["freshness_label"] = label
-        filtered.append(c_copy)
-    # 排序：days_ago 小的在前（最新的在前）
-    filtered.sort(key=lambda x: x.get("days_ago", 999))
-    return filtered
+    from qing_investment.agent.tools.claim_freshness import apply_claim_freshness
+    return apply_claim_freshness(claims)
 
 
 # 方向词表用于矛盾检测（P1）
@@ -785,7 +759,9 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
 def _filter_methodology_only(claims: list[dict]) -> list[dict]:
     """过滤claims，只保留方法论相关的，移除具体观点claim。
 
-    保留：包含方法论关键词的claim（如"框架"、"周期"、"方法论"、"规则"）
+    保留：
+    - 含方法论关键词的claim（如"框架"、"周期"、"冰点"、"纪律"）
+    - ≤7天的 market-cycle 周期判断（UP近期观点）
     移除：具体看多/看空某股的claim
     """
     methodology_keywords = {
@@ -800,9 +776,14 @@ def _filter_methodology_only(claims: list[dict]) -> list[dict]:
         if any(kw in stmt for kw in methodology_keywords):
             filtered.append(c)
             continue
-        # 如果claim的subject是方法论相关，保留
         subj = (c.get("subject") or "").lower()
         if any(kw in subj for kw in methodology_keywords):
+            filtered.append(c)
+            continue
+        # ≤7天的 market-cycle claim 保留（UP近期周期判断）
+        ct = c.get("claim_type", "")
+        days = c.get("days_ago", 999)
+        if ct == "market-cycle" and days <= 7:
             filtered.append(c)
             continue
         # 否则过滤掉（具体观点claim）
