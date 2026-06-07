@@ -12,7 +12,24 @@
 |--------|-----------|--------|---------|
 | **Neo4j** (`migrate_claims_to_neo4j.py`) | `id`, `statement`, `subject`, `claim_type`, `links`, `supersedes`, `contradicts` | 建节点+关系边，正则提取股票代码 | 不做语义搜索 |
 | **Qdrant** (`index_claims_to_qdrant.py`) | **仅** `subject` + `statement` | 拼接为 `"{subject} \| {statement}"` → embedding → 语义搜索 | 不读 `interpretation`/`evidence_quote`/`links` |
-| **Agent** (`/chat`, `/analyze/trigger`) | Qdrant 召回 → payload 中的 `claim_id`, `statement`, `subject`, `source_date`, `confidence`, `status`, `claim_type` | 注入 prompt 作为「博主历史观点（仅供参考）」 | 不在运行时遍历 Neo4j 图找标的 |
+| **Agent** (`/chat`, `/analyze/trigger`) | Qdrant 召回 → payload 中的 `claim_id`, `statement`, `subject`, `source_date`, `confidence`, `status`, `claim_type` | 注入 prompt，按 `claim_type` 分流 + 按 `source_date` 时效分级标注 | 不在运行时遍历 Neo4j 图找标的 |
+
+### Agent 消费规则（时效分级引用）
+
+| freshness_label | 天数 | Prompt 区块 | 引用规则 |
+|----------------|------|-------------|---------|
+| 方法论 | 不限 | 【博主选股方法论/操作框架】🔧 | 可作为方法论指导引用，不受时效限制 |
+| 最新 | ≤7天 | 【UP最新观点】 | **可作为判断的辅助参考**，每 claim 必须配对至少一条实时数据 |
+| 近期 | 8-30天 | 【UP近期观点】 | 参考价值递减，需标注时效 |
+| 历史 | 31-90天 | 【UP历史观点】 | 仅供背景参考，不得作为判断依据 |
+| — | >90天 / superseded | 不展示 | 已过滤 |
+
+**引用纪律——数据必在 claim 前**：
+```
+每引用一条 claim，必须在同一句话中给出至少一条实时数据交叉验证
+格式：（数据）...→（UP观点）...→（结论）...
+如果找不到对应的数据支撑，该 claim 不得引用
+```
 
 **核心推论**：`subject` 和 `statement` 是唯一影响 Qdrant 搜索召回率的字段。如果这两个字段写不好，Agent 搜不到。
 
@@ -79,30 +96,30 @@
 
 ### 2.3 `claim_type` — Neo4j 实体标签 + Agent 隐式过滤 + prompt 分流
 
-**消费者**：Neo4j（决定节点标签：Stock/Sector/Macro/Methodology/Theme）、Agent（`market_analyst` 按方法论关键词过滤）、**Agent prompt 构建（`/chat` 端点按 claim_type 分流：methodology/operation → 可引用区块，其他 → 仅供参考区块）**
+**消费者**：Neo4j（决定节点标签：Stock/Sector/Macro/Methodology/Theme）、Agent（`market_analyst` 按方法论关键词过滤）、**Agent prompt 构建（`/chat` 端点按 claim_type 分流：methodology/operation → 可引用区块，其他 → 按 freshness_label 分级）**
 
 **枚举值**（以 `claim_schema.py` 为准）：
 
-| claim_type | Neo4j 实体标签 | market_analyst 行为 | 典型用途 |
-|-----------|---------------|-------------------|---------|
-| `market-cycle` | Macro | ✅ 不屏蔽（含「周期」「磨底」等关键词） | 市场阶段判断 |
-| `macro` | Macro | ✅ 不屏蔽 | 宏观/流动性判断 |
-| `sector-theme` | Sector | ⚠️ 可能被部分屏蔽（不含方法论关键词） | 板块/方向判断 |
-| `methodology` | Methodology | ✅ 不屏蔽 | 选股/操作方法 |
-| `operation` | Methodology | ✅ 不屏蔽（含「纪律」「风控」等关键词） | 交易纪律 |
-| `technical-knowledge` | Theme (默认) | ✅ 不屏蔽（关键词命中率高） | 技术分析教学 |
-| `risk` | Theme (默认) | ⚠️ 可能被部分屏蔽 | 风险提示 |
-| `stock-view` | Stock | ❌ 被 `_filter_methodology_only()` 屏蔽 | 单一个股观点 |
-| `general` | Theme (默认) | ⚠️ 可能被屏蔽 | 一般性观点 |
+| claim_type | Neo4j 实体标签 | prompt 分流 | 典型用途 |
+|-----------|---------------|-------------|---------|
+| `market-cycle` | Macro | 进入时效分级（≤7天→最新/可参考，>7天→递减） | 市场阶段判断 |
+| `macro` | Macro | 进入时效分级 | 宏观/流动性判断 |
+| `sector-theme` | Sector | 进入时效分级 | 板块/方向判断 |
+| `methodology` | Methodology | **方法论区块（不受时效限制）** | 选股/操作方法 |
+| `operation` | Methodology | **方法论区块（不受时效限制）** | 交易纪律 |
+| `technical-knowledge` | Theme (默认) | 进入时效分级 | 技术分析教学 |
+| `risk` | Theme (默认) | 进入时效分级 | 风险提示 |
+| `stock-view` | Stock | 不展示（market_analyst 过滤） | 单一个股观点 |
+| `general` | Theme (默认) | 进入时效分级 | 一般性观点 |
 
 **规则**：
 
 1. **方向/板块推荐用 `sector-theme`**，不要用 `stock-view`。
 2. **市场阶段判断用 `market-cycle`**。
-3. **选股方法论/操作纪律用 `methodology` 或 `operation`**。
+3. **选股方法论/操作纪律用 `methodology` 或 `operation`**——它们会进入「方法论区块」不受时效限制。
 4. **不要随意用 `general`**——`general` 在 Agent 侧可能被方法论过滤器屏蔽。
 
-> **注意**：Agent 的 `_filter_methodology_only()` 不是按 `claim_type` 字段过滤的，而是按 statement 文本中是否含方法论关键词（框架/周期/规则/冰点/回暖/主线/仓位/纪律/风控/选股法 等）。但 `claim_type` 影响 Neo4j 图结构，所以两个维度都要对。
+> **注意**：Agent 的 `_filter_methodology_only()` 不是按 `claim_type` 字段过滤的，而是按 statement 文本中是否含方法论关键词（框架/周期/规则/冰点/回暖/主线/仓位/纪律/风控/选股法 等）。但 `claim_type` 影响 Neo4j 图结构和 prompt 分流，所以两个维度都要对。
 
 ### 2.4 `interpretation` — 仅供人类阅读
 
@@ -162,6 +179,8 @@
 claim-a (market-cycle)：市场阶段判断——磨底期
   statement 包含：
   - 指数判断（4033/4130 生命线）
+  - 选股方法论（低位+Q1超预期）
+  - 港股左侧建仓
   - 全部6个方向的名称 + 代表性标的（每个方向 2-3 只）
   - 明确说「非科技方向」「规避科技」
   → 用户搜「磨底期非科技方向」→ Qdrant 命中 claim-a → 一条 claim 拿到全景
@@ -179,7 +198,7 @@ claim-g (sector-theme)：磨底期非科技方向——消费
 
 ### 规则
 
-1. **claim-a 必须是「总入口」**。作为 `market-cycle` 类型，在 statement 末尾用一句话汇总全部方向：「UP 明确推荐磨底期布局的非科技方向：燃气轮机（A/B/C）、储能（D/E/F）、消费（G/H）...」
+1. **claim-a 必须是「总入口」**。作为 `market-cycle` 类型，在 statement 中汇总：选股方法论 + 港股 + 全部方向+代表性标的。
 2. **总入口 claim-a ≤ 200 字**。Agent 截断 200 字，超出部分 LLM 看不到。示例——压缩前（242字，港股被截断）：
 
    > ❌ 指数处于磨底期，4033为生命线、4130为满仓线，两点之间持股做T；不看向下跌太多。选股核心：找低位+一季报超预期的标的（打开F10看毛利/净利/收入，「炸裂」就是一季报超预期，中报不会差）。UP推荐磨底期布局的非科技方向：燃气轮机（杰瑞股份/中国动力/万泽股份）、储能六氟磷酸锂（天赐材料/恩捷股份/鹏辉能源）、消费（罗莱生活/亚朵）、创新药（药明康德/百济神州/信达生物）、出海链（大金重工/银轮股份/涛涛车业）、商业航天（窗口期有限）。**港股左侧建仓OK**。规避：科技股、有色金属
@@ -230,7 +249,7 @@ claim-g (sector-theme)：磨底期非科技方向——消费
 - [ ] 每条 claim 的 `statement` 是否自包含？（不依赖其他 claim 的上下文）
 - [ ] 方向推荐类 claim 的 `statement` 是否包含标的代码（6 位数字格式）？
 - [ ] `subject` 是否包含用户可能搜索的关键词？
-- [ ] `claim_type` 是否正确？（方向推荐 → `sector-theme`，选股方法 → `methodology`，操作纪律 → `operation`。Agent 用此字段做 prompt 分流：methodology/operation 进入「可引用」区块，其他进入「仅供参考」区块）
+- [ ] `claim_type` 是否正确？（方向推荐 → `sector-theme`，选股方法 → `methodology`，操作纪律 → `operation`。Agent 用此字段做 prompt 分流：methodology/operation 进入「可引用」区块，其他进入时效分级）
 - [ ] 多方向 raw 是否有「总入口」claim？
 - [ ] `related_stocks` 中的代码是否在 `statement` 中出现过？
 - [ ] `supersedes`/`contradicts` 是否附带了 reason？
@@ -244,3 +263,4 @@ claim-g (sector-theme)：磨底期非科技方向——消费
 |------|------|------|
 | 2026-06-06 | 初稿 | 「磨底期非科技方向」检索调试 → 发现 statement 缺乏标的代码 + 缺少总入口 claim → 代码审查 Neo4j/Qdrant/Agent 三个消费路径后系统化 |
 | 2026-06-07 | +200字硬约束 + 压缩示例 | Agent 截断 200 字导致港股部分丢失 → 总入口压缩到 207 字。原则：claim 层修复优先于 Agent 代码改动 |
+| 2026-06-07 | +Agent 时效分级引用规则 + 引用纪律 | 全面修改 Agent prompt：六级框架重写、核心原则重写、claims 按时效分级注入。改为「≤7天可参考但需配对数据」 |
