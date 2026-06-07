@@ -266,6 +266,89 @@ for kw in keywords[:3]:
 
 **注意**：关键词匹配可能有噪音（如"中国"匹配到"中国石油"），需去重和限制数量。
 
+## 第三轮数据质量审计与修复（2026-06-07，同一天）
+
+第三轮全面审计 Neo4j 数据质量，发现 **42 个孤立 Claim 节点 + 34 个 Stock name 乱填 + 8 个 claim statement 缺失**。根因链涉及 4 个脚本之间的因果依赖。
+
+### 审计方法（可复用）
+
+对 Neo4j 做数据质量审计的标准流程：
+
+```cypher
+-- Step 1: 节点完整性检查
+MATCH (c:Claim) WHERE c.statement IS NULL RETURN count(c);
+
+-- Step 2: 关系完整性检查 — 找孤立 Claim
+MATCH (c:Claim) WHERE NOT EXISTS { MATCH (c)-[:ABOUT]->() } RETURN count(c);
+
+-- Step 3: 节点数据质量 — 找异常 name
+MATCH (s:Stock) WHERE s.name CONTAINS '——' RETURN s.code, s.name;
+
+-- Step 4: 检查反向引用完整性
+MATCH (s:Stock) WHERE NOT EXISTS { MATCH (c:Claim)-[:ABOUT]->(s) } RETURN s;
+
+-- Step 5: 重复 code 检查
+MATCH (s:Stock) WITH s.code AS code, collect(s) AS nodes WHERE size(nodes) > 1 RETURN code, size(nodes);
+```
+
+### 根因3a：`text` vs `statement` 字段命名不一致（8 个 claim）
+
+**症状**：8 个 claim 在 Neo4j 中 `statement` 为空。
+
+**根因**：早期 YAML 使用 `text` 字段名，迁移脚本只读了 `statement`。
+
+**修复**：`migrate_claims_to_neo4j.py` — 增加 `or claim.get("text", "")` 兜底。
+
+### 根因3b：backfill 误删 Stock 节点导致孤立 Claim（42 个 claim）
+
+**根因链（3 层因果依赖）**：
+
+```
+第 1 层：migrate 脚本创建 code=NULL 的 Stock 节点
+  -> entity_label=="Stock" 但 extract_stock_codes(subject) 返回空
+  -> MERGE (e:Stock {name: '润建股份'})     ← 无 code
+
+第 2 层：backfill_stock_names.py 删除 code=NULL 的 Stock 节点
+  -> MATCH (s:Stock) WHERE s.code IS NULL DETACH DELETE s
+  -> 删除了 '润建股份'
+
+第 3 层：DETACH 级联删除 ABOUT 边
+  -> (Claim)-[:ABOUT]->(Stock) 边也被删
+  -> claim 变成孤立
+```
+
+**修复**：`backfill_stock_names.py` 删除条件加强为 `code IS NULL AND name IS NULL`。
+
+### 根因3c：Stock name 乱填（34 个节点）
+
+**根因**：`backfill` 把 `c.subject`（题材主题如「磨底期非科技方向——储能」）当作 Stock 的 `name`。
+
+**修复**：从 claim statement 文本中解析股票名（模式 `天赐材料(002709)`），而非用 `c.subject`。
+
+### 根因3d：stock-view claim 缺 6 位代码（全部 39 个）
+
+**根因**：`_load_stock_name_mapping()` 只读 `positions.yaml`（9 条），`extract_stock_codes('润建股份')` 返回空。
+
+**修复**：
+- 三源映射：positions(9) + watchlist(154) + supplemental(26) = 174 条
+- 新增 `scripts/backfill_related_stocks.py` — 补 `related_stocks` 字段（27 claim）
+- claim-writing-spec.md 强制要求带 6 位代码
+
+### 关键教训：根因追溯顺序
+
+不要直接写修复脚本。按顺序排查：
+
+```
+症状（孤立 Claim）
+  -> 查 Neo4j 状态（审计）
+  -> 查迁移脚本（migrate）
+  -> 查 YAML 源文件字段
+  -> 查中间脚本是否误删（backfill）
+  -> 修最上游环节，然后全量重跑
+```
+
+每层向上游追溯一层，每层都可能是根因。跳步修 = 表象好了根因还在。
+
 ## 第二轮架构问题修复（2026-06-07）
 
 2026-06-07 全面审查 Neo4j 读写路径，发现并修复了 4 个 P0-P2 架构问题。

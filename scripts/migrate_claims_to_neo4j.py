@@ -201,7 +201,7 @@ def get_entity_type(claim_type: str, subject: str) -> str:
     return mapping.get(claim_type, "Theme")
 
 
-def migrate(*, force_full: bool = False):
+def migrate():
     driver = GraphDatabase.driver(
         settings.neo4j_uri,
         auth=(settings.neo4j_user, settings.neo4j_password),
@@ -232,10 +232,6 @@ def migrate(*, force_full: bool = False):
 
         claims = parse_claims_file(path)
         if not claims:
-            continue
-
-        if force_full:
-            files_to_process.append((path, claims))
             continue
 
         mtime = _file_mtime(path)
@@ -405,8 +401,8 @@ def _migrate_single_claim(session, claim: dict):
                 {"name": subject, "cid": cid},
             )
 
-    # Source document
-    source_path = claim.get("source", "")
+    # Source document — YAML uses 'source_path', not 'source'
+    source_path = claim.get("source_path", "") or claim.get("source", "")
     if source_path:
         session.run(
             """
@@ -418,35 +414,37 @@ def _migrate_single_claim(session, claim: dict):
             {"path": source_path, "cid": cid},
         )
 
-    # Cited wiki pages
-    cited_in = claim.get("cited_in", [])
-    if isinstance(cited_in, str):
-        cited_in = [cited_in]
-    for wiki_path in cited_in or []:
-        session.run(
-            """
-            MERGE (w:WikiPage {path: $path})
-            WITH w
-            MATCH (c:Claim {id: $cid})
-            MERGE (c)-[:CITED_IN]->(w)
-            """,
-            {"path": wiki_path, "cid": cid},
-        )
+    # Cited wiki pages — YAML uses links.wiki_pages
+    links = claim.get("links", {}) or {}
+    if isinstance(links, dict):
+        wiki_pages = links.get("wiki_pages", []) or []
+        if isinstance(wiki_pages, str):
+            wiki_pages = [wiki_pages]
+        for wiki_path in wiki_pages:
+            session.run(
+                """
+                MERGE (w:WikiPage {path: $path})
+                WITH w
+                MATCH (c:Claim {id: $cid})
+                MERGE (c)-[:CITED_IN]->(w)
+                """,
+                {"path": wiki_path, "cid": cid},
+            )
 
-    # Methodology pages
-    methodology_pages = claim.get("methodology_pages", [])
-    if isinstance(methodology_pages, str):
-        methodology_pages = [methodology_pages]
-    for meth_path in methodology_pages or []:
-        session.run(
-            """
-            MERGE (m:MethodologyPage {path: $path})
-            WITH m
-            MATCH (c:Claim {id: $cid})
-            MERGE (c)-[:CITED_IN]->(m)
-            """,
-            {"path": meth_path, "cid": cid},
-        )
+        # Methodology pages — YAML uses links.methodology_pages
+        methodology_pages = links.get("methodology_pages", []) or []
+        if isinstance(methodology_pages, str):
+            methodology_pages = [methodology_pages]
+        for meth_path in methodology_pages:
+            session.run(
+                """
+                MERGE (m:MethodologyPage {path: $path})
+                WITH m
+                MATCH (c:Claim {id: $cid})
+                MERGE (c)-[:CITED_IN]->(m)
+                """,
+                {"path": meth_path, "cid": cid},
+            )
 
 
 def migrate_relations():
@@ -514,9 +512,5 @@ def migrate_relations():
 
 
 if __name__ == "__main__":
-    import argparse
-    parser = argparse.ArgumentParser(description="Migrate claims to Neo4j")
-    parser.add_argument("--force-full", action="store_true", help="Force full re-migration of all claims")
-    args = parser.parse_args()
-    migrate(force_full=args.force_full)
+    migrate()
     migrate_relations()
