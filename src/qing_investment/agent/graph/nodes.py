@@ -629,6 +629,7 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
     mem0 = Mem0ClientWrapper()
 
     claims, wiki_snippets, memories, few_shot = [], [], [], []
+    seen_ids: set[str] = set()
 
     try:
         if stock_code:
@@ -648,7 +649,6 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
                     for r in claim_results
                 ]
                 # Fetch full claim details from Neo4j by IDs
-                seen_ids: set[str] = set()
                 for cid in claim_ids:
                     if cid and cid not in seen_ids:
                         seen_ids.add(cid)
@@ -668,7 +668,6 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
             else:
                 # Fallback to keyword search if embedding model unavailable
                 keywords = _extract_sector_keywords(query)
-                seen_ids: set[str] = set()
                 for kw in keywords:
                     batch = neo4j.get_claims_by_keyword(kw, limit=10)
                     for c in batch:
@@ -682,6 +681,41 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
         import traceback, logging
         logging.getLogger(__name__).warning("Claims retrieval failed: %s", traceback.format_exc())
         claims = []
+
+    # ── 图遍历补充：通过共享实体发现相关 claims（方案1）──
+    if claims:
+        try:
+            graph_related_ids: set[str] = set()
+            # 取 top-3 检索 claims，遍历同实体相关 claims
+            for c in claims[:3]:
+                cid = c.get("id", "")
+                if cid:
+                    related = neo4j.get_related_claims(cid, limit=5)
+                    for rc in related:
+                        rid = rc.get("id", "")
+                        if rid and rid not in seen_ids:
+                            graph_related_ids.add(rid)
+            
+            # 获取全文并合并
+            for rid in graph_related_ids:
+                rc = neo4j.get_claim_evolution(rid)
+                if rc:
+                    first = rc[0] if isinstance(rc, list) else rc
+                    node = first.get("c", {}) if isinstance(first, dict) else {}
+                    if node:
+                        claims.append({
+                            "id": rid,
+                            "statement": node.get("statement", ""),
+                            "confidence": node.get("confidence", ""),
+                            "source_date": node.get("source_date", ""),
+                            "status": node.get("status", ""),
+                            "subject": node.get("subject", ""),
+                            "claim_type": node.get("claim_type", ""),
+                            "source": "graph_traversal",
+                        })
+                        seen_ids.add(rid)
+        except Exception:
+            pass  # 图遍历失败不阻断主流程
 
     # ── Claims 时效衰减排序（P0 新增）──
     claims = _apply_claim_freshness(claims)

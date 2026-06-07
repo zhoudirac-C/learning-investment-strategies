@@ -167,6 +167,8 @@ async def chat(req: ChatRequest):
     except Exception as e:
         print(f"Knowledge retrieval error: {e}")
 
+    seen_ids: set[str] = set(c.get("id") or "" for c in claims)
+
     try:
         neo4j = Neo4jClient()
         
@@ -183,7 +185,6 @@ async def chat(req: ChatRequest):
                 for kw in cluster_kws:
                     if kw in req.message and kw not in keywords:
                         keywords.append(kw)
-            seen_ids: set[str] = set(c.get("id") or "" for c in claims)
             for kw in keywords[:3]:
                 batch = neo4j.get_claims_by_keyword(kw, limit=5)
                 for c in batch:
@@ -197,6 +198,40 @@ async def chat(req: ChatRequest):
         neo4j.close()
     except Exception:
         pass
+
+    # ── 图遍历补充：通过共享实体发现相关 claims（方案1）──
+    if claims:
+        try:
+            neo4j = Neo4jClient()
+            graph_related_ids: set[str] = set()
+            for c in claims[:3]:
+                cid = c.get("id", "")
+                if cid:
+                    related = neo4j.get_related_claims(cid, limit=5)
+                    for rc in related:
+                        rid = rc.get("id", "")
+                        if rid and rid not in seen_ids:
+                            graph_related_ids.add(rid)
+            for rid in graph_related_ids:
+                rc = neo4j.get_claim_evolution(rid)
+                if rc:
+                    first = rc[0] if isinstance(rc, list) else rc
+                    node = first.get("c", {}) if isinstance(first, dict) else {}
+                    if node:
+                        claims.append({
+                            "id": rid,
+                            "statement": node.get("statement", ""),
+                            "subject": node.get("subject", ""),
+                            "source_date": node.get("source_date", ""),
+                            "confidence": node.get("confidence", ""),
+                            "claim_type": node.get("claim_type", ""),
+                            "status": node.get("status", ""),
+                            "source": "graph_traversal",
+                        })
+                        seen_ids.add(rid)
+            neo4j.close()
+        except Exception:
+            pass
 
     # ── 【新增】主动获取实时数据 ──
     market_snapshot: dict = {"quotes": []}
