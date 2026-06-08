@@ -1,0 +1,61 @@
+claims:
+  - id: claim-20260608-002-a
+    topic: 硬科技修复完继续看空，非硬科技正常做
+    statement: 硬科技修复完继续看空，其他方向按照早盘规划正常做即可，今天看修复。手里不是硬科技就行。开盘清仓应在修复后执行而非开盘直接砸，早盘清仓信号不等于开盘必须马上卖
+    source_path: sources/raw/财经/动态：26-06-08：大盘一步到位，硬科技修复完继续看空.md
+    source_date: '2026-06-08'
+    source_type: 动态
+    extracted_at: '2026-06-08'
+    claim_type: operation
+    subject: 操作节奏
+    timeframe: 短期（当日）
+    evidence_quote: |
+      "硬科技修复完继续看空，其他方向按照我们说好的正常做就行了，今天看修复。"
+      UP评论："修复了不要掉以轻心""手里的票不是硬科技就行"
+      UP回复："我在开盘前说的先看修复，你们要听话啊"
+    interpretation: 两个关键操作修正：①硬科技清仓不急于开盘砸，等修复再执行（卖在反弹）；②非硬科技方向不受影响，按原计划正常做。UP批评了开盘就清仓的粉丝——纪律≠机械执行
+    confidence: medium
+    status: active
+    intensity: high
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260608-001-a
+        - claim-20260608-001-i
+      related_stocks: []
+      related_sectors: []
+    tags:
+      - 硬科技
+      - 修复
+      - 操作节奏
+      - 非硬科技
+
+  - id: claim-20260608-002-b
+    topic: 最大风险仍在后面——今晚美股和CPI数据
+    statement: 修复了不要掉以轻心，最危险的是今晚的美股和后面的CPI数据。当前修复只是盘中走势，真正的风险事件尚未落地
+    source_path: sources/raw/财经/动态：26-06-08：大盘一步到位，硬科技修复完继续看空.md
+    source_date: '2026-06-08'
+    source_type: 动态
+    extracted_at: '2026-06-08'
+    claim_type: risk
+    subject: 风险事件
+    timeframe: 短期（1-3天）
+    evidence_quote: |
+      "修复了不要掉以轻心，最危险的是今晚的美股和后面的CPI数据"
+    interpretation: UP在盘中修复时提醒风险：修复≠反转，美股（今晚）和CPI（6/10）是更大变量。这与早盘001-b中"4000点考验"和001-i中"等纠错信号"形成递进关系
+    confidence: medium
+    status: active
+    intensity: high
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260608-001-b
+        - claim-20260608-001-i
+      related_stocks: []
+      related_sectors: []
+    tags:
+      - 美股
+      - CPI
+      - 风险

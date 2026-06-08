@@ -324,6 +324,8 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     - **历史补救**：若已积累大量独立模式，定期（如每新增50个模式后）执行聚合——按推理结构相似性将模式聚类为通用框架（如`upstream_cycle`、`mainline_identification`等），每个框架保留通用`reasoning_chain`+原模式作为`examples`。聚合后模式数从116→10，文件大小从255KB→78KB，主题覆盖率保持100%。详见 `references/reasoning-pattern-extraction-workflow.md` §7。
 13. **用户质疑推理模式通用性时的响应方式**：当用户问"推理思路都是从单个文件提取的是否不够通用""只能针对一个方向吗"时，**不要重新解释 Phase 6 设计 rationale**——直接展示 `references/reasoning-pattern-cross-direction-reuse.md` 中的复用示例表格（`upstream_cycle` 支撑 MLCC/PCB/存储/硅片等），用具体案例回答。用户的问题通常意味着已有文档未被有效发现，Agent 应充当文档导航器而非重新论证者。
 
+14. **Claims 审核：重复内容 vs 不同 type**：发现两条 claim 的 statement 描述同一事件但 claim_type 不同（如 operation vs methodology），不应合并。Agent 按 claim_type 做 prompt 分流——operation 进即时操作信号、methodology 进框架沉淀，合并会丢检索维度。规则：先看 type 是否不同，再看内容是否重叠。
+
 14. **Claim 编写规范（系统性约定）**：写 claim 时必须遵循 `references/claim-writing-spec.md`。核心原则：①`subject` 和 `statement` 是唯一影响 Qdrant 搜索召回率的字段（`interpretation`/`evidence_quote` 不参与嵌入）；②方向推荐类 claim 的 `statement` 必须自包含标的代码（Neo4j 用正则从 subject+statement 提取 6 位代码建 Claim→Stock 边，Agent 不遍历图找标的）；③多方向 raw 需设「总入口」claim（claim-a 汇总全部方向+标的）；④`claim_type` 影响 Neo4j 实体标签和 Agent 方法论过滤器的行为。详见 `references/claim-writing-spec.md`。
 14. **Claim 文件编号冲突（同一日期多次 ingestion）**：同一日期可能有多篇 raw 需要学习（早盘、盘中动态、盘后视频等），每次 ingestion 生成独立的 claim 文件（`claim-YYYYMMDD-001.yaml`、`-002.yaml`...）。**新建前必须检查已有编号**：
     - `ls knowledge/claims/claim-YYYYMMDD-*.yaml` 确认已有编号

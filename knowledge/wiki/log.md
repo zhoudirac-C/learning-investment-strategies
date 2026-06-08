@@ -59,3 +59,4 @@
 - 2026-06-07 12:49 | 学习视频：26-06-07：技术分析第二课 | raw保存 → claims 12条(轨道A 5条 + 轨道B 7条) → technical-analysis-framework更新 → methodology更新 → wiki更新
 - 2026-06-08 | 学习充电专栏：26-06-07：非农本质+风格切换+AI产业链 | 专栏raw → claims 17条(轨道A, a-q) → wiki补充 → index更新
 - 2026-06-08 | 学习早盘：26-06-08：指数纪律+清仓信号+机器人接力 | 早盘raw → claims 9条(轨道A) → wiki新建 → index更新
+- 2026-06-08 | 学习盘中动态：26-06-08：修复节奏+风险提醒 | 动态raw → claims 2条(轨道A) → wiki追加

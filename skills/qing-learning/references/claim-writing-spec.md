@@ -355,6 +355,7 @@ claim-g (sector-theme)：磨底期非科技方向——消费
 | 总入口 claim 的 statement 不含方向汇总 | 全景查询需要召回多条 claim | claim-a 做一站式汇总 |
 | market-cycle 类 claim 混淆"进行时"与"完成时" | 把"正在挖坑"写成"已是坑底"，抄底时机判断错误 | 区分过程（正在挖/进行中）vs 状态（已经是/已完成），对应 UP 原话的时态 |
 | stock-view 类 claim 未标注 688/300 不可交易 | 用户看到推荐但实际无交易权限，浪费分析时间 | 在 interpretation 中加注 ⚠️ 688/300 不可交易，仅作产业趋势跟踪 |
+| **因内容重叠而合并不同 claim_type 的 claims** | operation 和 methodology 虽描述同一操作但 Agent 分流路径不同——operation 进即时操作信号、methodology 进框架沉淀。合并后丢失一个检索维度 | **不同 claim_type 的 claims 不合并**。判断标准：先看 claim_type 是否不同，再看内容是否重叠。即使 statement 完全一致，类型不同也保留两条 |
 
 ---
 
@@ -396,3 +397,4 @@ claim-g (sector-theme)：磨底期非科技方向——消费
 | 2026-06-08 | +原子性规则（含反模式+验证清单） | 用户审核拒绝合并 claim：004-i 化工+养殖+非银+光伏 4条合一→拆为4条；004-m 金禄+天准 2只合一→拆为2条。核心理由：多主题合并导致 Qdrant 语义向量不精准、Agent 无法单独引用 |
 | 2026-06-08 | +claim_type 分类边界（macro vs market-cycle） | 用户纠正：非农数据用 `macro` 非 `market-cycle`，黄金增持同属 `macro`。边界规则：海外宏观指标→`macro`，A股自身周期→`market-cycle` |
 | 2026-06-08 | +688/300 不可交易标注规则 | 用户提醒：标的如绿的谐波(688017)、天准科技(688003)为科创板，用户无法交易。stock-view 类 claim 须在 interpretation 中标注 ⚠️ 不可交易，tags 加 `688不可交易` |
+| 2026-06-08 | +不同 claim_type 不因重叠而合并 | 用户纠正：001-a(operation)与001-i(methodology)虽都描述清仓+纠错信号，但operation是即时操作指令、methodology是框架沉淀，Agent按claim_type分流后功能不同。合并会丢失一个维度的检索能力 |
