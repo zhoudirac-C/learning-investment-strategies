@@ -40,3 +40,21 @@
   2. `related_claims` 链接前后时间点的相关 claim
   3. wiki 中用时间线章节串联（一/二/三）
 - **验证**：审核时查同一日期多篇 raw → 确认每条 interpretation 含时间线标注
+
+## 5. "随便验证"=系统性验证，非抽样检查
+
+当用户说"随便验证一下"某事（如"随便验证一下claim字段是否完整"），这不是敷衍请求——用户期望的是**系统性全量验证**。
+
+- **反面案例**：只做单文件抽样检查 → 用户实际期望全部claims字段完整性审计
+- **正确做法**：执行完整验证流程（如全部claims的18个必需字段检查），汇报具体数字（"✅ 21/21 claims 字段完整"）
+- **规则**："随便"是用户的自谦表达，不代表降低标准
+
+## 6. 元认知工作流请求（Memory + Skills 更新）
+
+当用户要求"Review the conversation above and update two things: Memory + Skills"时，这是**元认知工作流请求**，期望agent在重要session结束后主动反思。
+
+- **执行内容**：
+  1. Memory：检查是否有新发现的用户偏好、纠正、个人细节
+  2. Skills：检查是否有需要patch的内容（pitfall、workflow改进、反模式）
+  3. 汇报：说明更新了哪些memory条目、skill patch内容
+- **信号判断**：用户说"update two things"是明确的结构化指令，不是开放式讨论——直接执行，不需要先问"您想更新什么"
