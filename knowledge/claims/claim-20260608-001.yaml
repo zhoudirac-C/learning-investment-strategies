@@ -15,8 +15,9 @@ claims:
     confidence: high
     status: active
     intensity: high
-    supersedes: []
-    contradicts: []
+    supersedes: ["claim-20260601-001-a"]
+    contradicts: ["claim-20260602-001-a", "claim-20260605-001-b"]
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-003-c
@@ -46,8 +47,9 @@ claims:
     confidence: medium
     status: active
     intensity: high
-    supersedes: []
+    supersedes: ["claim-20260602-001-a", "claim-20260601-004-a"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -76,6 +78,7 @@ claims:
     intensity: high
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -103,7 +106,8 @@ claims:
     status: active
     intensity: high
     supersedes: []
-    contradicts: []
+    contradicts: ["claim-20260531-002-a"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -130,8 +134,9 @@ claims:
     confidence: medium
     status: active
     intensity: medium
-    supersedes: []
+    supersedes: ["claim-20260526-011"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -159,6 +164,7 @@ claims:
     intensity: high
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-003-d
@@ -192,6 +198,7 @@ claims:
     intensity: medium
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260608-001-f
@@ -224,6 +231,7 @@ claims:
     intensity: medium
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -249,8 +257,9 @@ claims:
     confidence: high
     status: active
     intensity: high
-    supersedes: []
-    contradicts: []
+    supersedes: ["claim-20260515-013"]
+    contradicts: ["claim-20260526-011"]
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260608-001-a
