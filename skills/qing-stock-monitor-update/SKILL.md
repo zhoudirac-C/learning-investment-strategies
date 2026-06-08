@@ -53,7 +53,9 @@ description: |
 23. `src/qing_investment/agent/tools/stock_sector_mapper.py` — **个股板块三层定位**：当 UP 未提及某标的时，通过新浪 API 获取实时板块排名，量化判断个股地位（日内龙头/中军/趋势/跟风）。含本地缓存管理和定时重建脚本 `scripts/build_sector_mapping.py`。
 24. `skills/qing-stock-monitor-update/references/config-health-check.md` — **配置健康检查**：watchlist/strategy_pack/positions 完整性检查清单（code 格式、entry 去重、sector 覆盖、防失真、非主板标记）。每次 config review 或大更新后执行。
 25. `scripts/validate_config.py` — **配置一致性校验脚本**：独立运行 `python scripts/validate_config.py` 自动检查 code 格式、entry 去重、sector_groups 覆盖、today_snapshot 位置、claims 一致性、持仓区间完整性。退出码 0=干净，1=警告，2=错误。推荐每次 config 更新后运行。详见 `references/validate-config-script.md`。
-26. `references/scan-all-stocks-json-summary.md` — **scan_all_stocks JSON 输出**：`--json-summary` 标志的使用说明、输出格式、集成方式。
+27. `skills/qing-stock-monitor-update/references/scan-all-stocks-json-summary.md` — **scan_all_stocks JSON 输出**：`--json-summary` 标志的使用说明、输出格式、集成方式。
+28. `skills/qing-stock-monitor-update/references/trader-mindset-design-philosophy.md` — **设计哲学纠正（2026-06-08）**：用户明确纠正 v1.0 方向——系统不应走向更多量化规则，而应让 LLM 以交易者思维（赔率思维+机会发现）做出判断。所有后续修改必须遵循此哲学。
+27. `references/architecture-review-framework.md` — **配置架构系统性Review框架**：四步法（现状→缺陷→方案→优先级），区别于 config-health-check（配置完整性检查）。当用户要求对 config+cron 做全链路架构 review 时使用。
 
 ## 工作流程
 
@@ -488,6 +490,7 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 
 ## 关键纪律
 
+-1. **设计哲学（2026-06-08 用户纠正）**：本系统的目标不是做量化规则引擎，而是让 LLM 像 UP 一样以交易者思维做出判断。不能为了让系统"更稳定"而走向更多硬编码的量化规则——那会杀死 AI 判断的核心价值。每次修改 cron prompt 或 agent 逻辑时，必须问："这是在增强 LLM 的交易者思考能力，还是在用规则替代它？" 详见 `references/trader-mindset-design-philosophy.md`。
 0. **配置 Review 必须覆盖全链路（2026-06-06 用户纠正）**：当用户要求 review 观察池/持仓池/策略配置时，**不能只看 YAML 文件**。必须同时 review：
    - `config/stock_monitor/*.yaml`（watchlist, strategy_pack, positions）
    - `skills/qing-stock-monitor-update/SKILL.md`（更新流程与纪律）

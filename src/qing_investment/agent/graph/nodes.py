@@ -18,9 +18,15 @@ _PROMPT_DIR = _REPO_ROOT / "src" / "qing_investment" / "agent" / "prompts" / "sy
 
 def _load_prompt(name: str) -> str:
     path = _PROMPT_DIR / f"{name}.txt"
-    if path.exists():
-        return path.read_text(encoding="utf-8")
-    return f"[Prompt {name} not found]"
+    if not path.exists():
+        return f"[Prompt {name} not found]"
+    content = path.read_text(encoding="utf-8")
+    # 自动注入交易者人格（Phase 1 新增）
+    mindset_path = _PROMPT_DIR / "trader_mindset.txt"
+    if mindset_path.exists() and name in ("market_analyst", "stock_analyst"):
+        mindset = mindset_path.read_text(encoding="utf-8")
+        content = f"{mindset}\n\n---\n\n{content}"
+    return content
 
 
 def _load_analysis_framework() -> str:
@@ -1029,6 +1035,7 @@ def market_analyst(state: AgentState) -> AgentState:
             "main_themes": [],
             "sector_strength": {},
             "emotion_signals": {},
+            "opportunity_scan": [],  # Phase 1 新增
             "position_plans": [],
         }
 
@@ -1191,6 +1198,7 @@ def stock_analyst(state: AgentState) -> AgentState:
             "role_reasoning": "LLM未返回结果或API未配置",
             "bullish_evidence": [],
             "bearish_evidence": [],
+            "odds_analysis": {},  # Phase 1 新增
             "trigger_conditions": "未配置",
             "invalidation_conditions": "未配置",
             "risk_notes": "",
@@ -1335,11 +1343,26 @@ def synthesize(state: AgentState) -> AgentState:
             index_lines.append(f"支撑{idx.get('support', 'N/A')} / 压力{idx.get('resistance', 'N/A')}")
             index_lines.append(f"跌破→{idx.get('action_below', 'N/A')}；突破→{idx.get('action_above', 'N/A')}；中间→{idx.get('middle_zone', 'N/A')}")
 
+        # Phase 1 新增：机会扫描展示
+        opportunity_scan = market.get("opportunity_scan", [])
+        opportunity_lines = []
+        if opportunity_scan:
+            opportunity_lines.append("【机会扫描】")
+            for opp in opportunity_scan:
+                opportunity_lines.append(
+                    f"  · {opp.get('stock', 'N/A')}({opp.get('code', '')}): "
+                    f"{opp.get('pattern', '')} | "
+                    f"触发: {opp.get('trigger', '')} | "
+                    f"赔率: {opp.get('odds', 'N/A')} | "
+                    f"置信: {opp.get('confidence', 'N/A')}"
+                )
+
         position_lines = _build_position_plan_lines(market, positions)
 
         sector_joined = '\n'.join(sector_lines) if sector_lines else '暂无'
         theme_joined = '\n'.join(theme_lines) if theme_lines else '暂无'
         index_joined = '\n'.join(index_lines) if index_lines else '暂无'
+        opportunity_joined = '\n'.join(opportunity_lines) if opportunity_lines else ''
         position_joined = '\n'.join(position_lines) if position_lines else ''
 
         draft = f"""【盘面】{market.get('market_summary', '暂无')}
@@ -1353,6 +1376,8 @@ def synthesize(state: AgentState) -> AgentState:
 
 【题材落地】
 {theme_joined}
+
+{opportunity_joined}
 
 【指数纪律】
 {index_joined}
