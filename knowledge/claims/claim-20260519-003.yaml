@@ -14,9 +14,9 @@ claims:
     interpretation: 盘中观察到资金缺乏进攻意愿，突破预期落空，调整时间将拉长
     confidence: high
     status: active
-    supersedes:
-      - claim-20260519-001-a
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260519-001-b
@@ -43,7 +43,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts: []
+    contradicts: ["claim-20260603-001-d"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -70,6 +71,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260519-001-e
@@ -99,8 +101,9 @@ claims:
     interpretation: 存储芯片与其他半导体方向分离，单独作为新主线观察
     confidence: medium
     status: active
-    supersedes: []
+    supersedes: ["claim-20260518-004"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260518-019-e
@@ -128,9 +131,9 @@ claims:
     interpretation: 半导体内部做切换：卖出封测/设备等老题材，买入存储芯片新分支
     confidence: high
     status: active
-    supersedes:
-      - claim-20260519-001-g
-    contradicts: []
+    supersedes: []
+    contradicts: ["claim-20260526-025-f"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -156,10 +159,9 @@ claims:
     interpretation: 调整周期延长，仓位管理优先，下一轮修复窗口在周二周三
     confidence: high
     status: active
-    supersedes:
-      - claim-20260524-021
-      - claim-20260525-002
-    contradicts: []
+    supersedes: ["claim-20260524-021"]
+    contradicts: ["claim-20260525-002"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []

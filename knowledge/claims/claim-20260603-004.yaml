@@ -14,9 +14,9 @@ claims:
       周期定位与调整性质判断：①上午主升结构已成型——按正常节奏市场可有回落但不会出现调整级别下杀；②下午急跌由外力触发——彭博关税消息（上午已有）+ 午后1:37欧盟贸易战消息扩散 → 情绪放大 → 量化踩踏；③关键区分：外力打破平衡 vs 内生主线瓦解——前者是扰动，后者是反转，当前属于前者；④消息面评估：12.5%关税力度弱于此前且能否通过存疑，光连接走的是全球共振产业链，产业趋势未因传闻改变；⑤综合判断：下午消化情绪后后市大概率仍按内生性逻辑向上。这是对6月3日市场走势的核心定性，与早盘claim-20260603-001-a"调整临近尾声"形成连续确认。
     confidence: high
     status: active
-    supersedes: []
-    contradicts:
-      - claim-20260528-005-b
+    supersedes: ["claim-20260528-005-b", "claim-20260518-006"]
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/每日复盘/2026-06-03.md
@@ -42,9 +42,9 @@ claims:
       市场结构判断：①当前是轮动市而非普涨市——结构性行情特征明显；②打破结构的关键是增量资金——不是等主线死掉释放资金，而是等新资金进场；③科技方向明早大概率仍承压、午盘有望逐步回流——今日原本预计弱分化，过程曲折但结果符合预期；④防御方向（电力）下午科技回落时出现高潮迹象——明日大概率分化，前排晋级、后排回落。这是对当前市场运行机制的深层判断，与早盘claim-20260603-001-d"风格切换继续"形成呼应。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260601-004-e
+    supersedes: ["claim-20260601-004-e"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/风格切换.md
@@ -71,8 +71,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260604-004-c
+    contradicts: ["claim-20260607-003-c"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/主线判断.md
@@ -102,6 +102,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/产业链认知.md
@@ -132,6 +133,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/交易纪律.md
@@ -160,6 +162,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/产业链认知.md
@@ -191,6 +194,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/每日复盘/2026-06-03.md
@@ -218,6 +222,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/每日复盘/2026-06-03.md

@@ -13,9 +13,9 @@ claims:
     interpretation: 指数技术状态判断：①上证指数日线顶部结构第13天是重要时间窗口，通常顶部结构后的第13天左右可能出现变盘或加速；②4032点是趋势破位参考位，有效跌破意味着调整级别扩大；③科创50 120分钟顶部结构第3天+主跌阶段，早盘惯性下探是技术面大概率事件；④中期看全A等权已回吐5月涨幅，估值合理+油价回落+地缘缓和，不具备持续大跌基础。短期偏空、中期不悲观。
     confidence: high
     status: active
-    supersedes: []
-    contradicts:
-      - claim-20260518-006
+    supersedes: ["claim-20260518-006"]
+    contradicts: ["claim-20260602-001-a", "claim-20260605-001-a"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/指数分析.md
@@ -45,6 +45,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/风格切换.md
@@ -69,10 +70,9 @@ claims:
     interpretation: 板块策略：①AI主线是观察市场转强的核心信号——共振反弹=转强确认；②PCB是周末新催化，可能成为资金新进攻方向；③跷跷板效应是重要约束条件——防御走强会挤压科技反弹空间；④上周五电力、食品饮料、零售逆势走强，芯片产业链集体调整，今日需观察这一格局是否延续。操作层面：若防御继续强则科技股观望，若防御转弱+科技走强则可小仓位参与。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260602-003-b
-    contradicts:
-      - claim-20260604-004-b
+    supersedes: []
+    contradicts: ["claim-20260604-004-b"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/主线判断.md
@@ -104,6 +104,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/情绪判断.md
@@ -130,6 +131,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/情绪判断.md
@@ -154,10 +156,9 @@ claims:
     interpretation: 新热点优先级：①英伟达AI PC端侧和MiniMax上市是周末发酵的新催化；②资金优先级：新热点 > 光通信 > PCB > 算力上游涨价品种；③前提条件：指数与科技股共振反弹——若指数继续弱势，新热点也难以独立走强；④这是一个日内/短期的资金轮动预判，不是中长期主线判断。操作层面：若共振反弹出现，优先关注新热点首板机会。
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260602-001-d
-    contradicts:
-      - claim-20260604-004-b
+    supersedes: []
+    contradicts: ["claim-20260604-004-b", "claim-20260604-006-c"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/主线判断.md
@@ -186,8 +187,9 @@ claims:
     interpretation: 操作纪律：①总体原则——谨慎、观察优先、不急于抄底；②积极条件（同时满足）：泓淋电力竞价良好 + AI快速走强 + 跌停家数减少 → 小仓位参与新热点首板+PCB辨识度个股；③消极条件（任一出现）：泓淋电力竞价不及预期 / 科技股低开低走 / 跌停家数多 → 继续观望；④持仓管理：科技股跌破关键支撑→减仓；⑤PCB特殊纪律：不追高，等领涨龙头确认。这是一个完整的多情景操作预案，体现了博主的风控优先原则。
     confidence: high
     status: active
-    supersedes: []
+    supersedes: ["claim-20260605-001-i"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/仓位管理.md
@@ -218,6 +220,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/仓位管理.md

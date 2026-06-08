@@ -13,11 +13,9 @@ claims:
     interpretation: 周期定位更新：①顶部结构后第15天，调整时间已足够长；②15度角浅调整——形态上不是急跌，是缓跌，这是趋势中继而非反转的典型特征；③回撤幅度20%处于历史区间下沿——意味着继续下跌空间有限；④两个止跌信号叠加：120分钟低9（周一）+ 30分钟底部结构（周二）——技术面支持短期企稳；⑤核心结论：调整临近尾声，短期企稳概率较大。这是对当前市场周期的关键判断，与昨日复盘claim-20260602-003-a"共振修复"形成连续判断。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260605-001-a
-      - claim-20260518-006
-      - claim-20260526-025-a
+    supersedes: ["claim-20260605-001-a", "claim-20260518-006", "claim-20260526-025-a"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/指数分析.md
@@ -45,9 +43,9 @@ claims:
     interpretation: 操作纪律：①4033点是清仓线——收盘跌破即执行，不是盘中跌破；②4130点是满仓线——向上突破即满仓；③纪律线不带感情——这是博主反复强调的交易纪律；④与昨日（6月2日）4032点相比，清仓线上移至4033点，满仓线维持4130点不变；⑤心理承受力偏弱的人，死守这一条标准即可。这是明确的操作规则，属于durable rule级别。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260605-001-b
+    supersedes: ["claim-20260602-001-a"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/交易纪律.md
@@ -73,8 +71,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260604-006-c
+    contradicts: ["claim-20260604-006-c"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/主线判断.md
@@ -103,6 +101,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/风格切换.md
@@ -127,9 +126,9 @@ claims:
     interpretation: 细分方向跟踪：①MLCC——高盛点燃价值重估，服务器价值量排名第3超越PCB，短期有望类似铜箔走势；②光互连——Marvell被黄仁勋点名，但周二资金只能拉冷门裕太微且炸板，若今日仍无接力则印证"炒新不炒旧"；③CPO——英伟达Spectrum-X硅光量产，能效提升5倍；④光纤光缆——全球首条三波段多芯光缆开通，CRU预测2026年缺口1.8亿芯公里（缺口率16.4%），2-3年高景气周期；⑤模拟IC——意法半导体大涨15.2%，板块处于库存修复向需求修复切换窗口。这是对多个细分方向的跟踪要点。
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260525-003
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/产业链认知.md
@@ -154,10 +153,9 @@ claims:
     interpretation: 今日操作预案：①做T为主——不是开新仓，是已有持仓的日内操作；②重点跟踪三个方向：存储（抗跌）、MLCC（最强分支）、光互连/CPO（资金接力验证）；③风格判断：风格切换大概率延续，留意指数能否缩量上行确认反弹性质；④心态管理：若仍下跌可不看盘——防止情绪性卖在最低点；⑤纪律线不变：4033清仓/4130满仓。这是明确的日内操作框架。
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260605-001-i
-      - claim-20260601-001-g
+    supersedes: ["claim-20260601-001-g", "claim-20260522-001-e"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/仓位管理.md

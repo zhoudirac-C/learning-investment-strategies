@@ -13,8 +13,9 @@ claims:
     interpretation: 午盘判断的核心逻辑：①6月1日午盘不是强势反转，而是缩量修复——量能不足意味着资金参与度不高，修复持续性存疑；②"还是很难做"——博主对当前操作环境的定性，与早盘"安分点"形成呼应；③资金观望态度明显——说明市场仍在等待更明确的信号，可能是外盘方向或内部主线确认。这是对早盘"控制仓位"建议的午盘确认。
     confidence: high
     status: active
-    supersedes: []
+    supersedes: ["claim-20260601-004-a"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/情绪判断.md
@@ -40,8 +41,8 @@ claims:
     confidence: medium
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260602-001-d
+    contradicts: ["claim-20260602-001-d"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/PCB与先进封装.md

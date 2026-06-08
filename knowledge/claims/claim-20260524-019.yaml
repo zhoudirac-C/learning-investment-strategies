@@ -14,6 +14,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/AI资本开支周期与泡沫风险
@@ -41,6 +42,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/AI资本开支周期与泡沫风险
@@ -66,11 +68,9 @@
   interpretation: 这是一套事件窗口型仓位纪律，重点不是判断长期AI结束，而是在流动性风险落地前避免满仓和追高。
   confidence: medium
   status: active
-  supersedes:
-    - claim-20260426-001
-    - claim-20260420-001
-  contradicts:
-    - claim-20260525-002
+  supersedes: ["claim-20260426-001"]
+  contradicts: ["claim-20260525-002", "claim-20260420-001"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-24
@@ -99,6 +99,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/PCB与先进封装
@@ -127,6 +128,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/情绪判断
@@ -153,8 +155,8 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts:
-    - claim-20260604-004-b
+  contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/半导体产业链

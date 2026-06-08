@@ -15,10 +15,9 @@ claims:
       日线级别的MACD顶部结构/顶背离在5月14日触发，预计完整调整周期约16个交易日（斐波那契数列经验值）。 5月26日为第8个交易日，正好处于调整中期，尚未完成。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260525-001
-    contradicts:
-      - claim-20260518-006
+    supersedes: ["claim-20260527-006-d"]
+    contradicts: ["claim-20260518-006"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -47,9 +46,9 @@ claims:
       5分钟级别的K线形态（双顶）结合MACD顶背离（价格创新高4137.20但MACD未创新高）， 两个顶部形态叠加的理论调整周期约2小时。实际走势中10:05至14:05的调整约4小时， 14:05后V型反弹验证时间点判断。小级别周期推算需叠加情绪判断才能更精准。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260526-022
+    supersedes: ["claim-20260526-022"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -77,6 +76,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -104,6 +104,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -131,6 +132,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -157,10 +159,9 @@ claims:
       华为韬定律为半导体提供了新的催化剂，使炒作逻辑从"长鑫扩产"单一叙事扩展为"全产业链国产替代+新催化"。 EDA等 previously 未动的细分方向开始补涨，表明资金正在全面覆盖半导体上下游， 行情从结构性升级为板块性，持续时间和空间都可能延长。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260520-002-b
-      - claim-20260525-023
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks:
@@ -192,6 +193,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -218,9 +220,9 @@ claims:
       从波浪理论视角，当前处于大周期上涨后的回调阶段（ABC中的B浪）。B浪特征是有结构性行情但非全面主升， 操作应以波段和结构性机会为主，不预期全面普涨。真正的C浪结束后才是新一轮主升的启动点。
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260518-018
-    contradicts: []
+    supersedes: []
+    contradicts: ["claim-20260607-003-e", "claim-20260518-018"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -246,9 +248,9 @@ claims:
       长鑫上会（5/27）是半导体短期催化剂的落地节点。若市场选择强势向上，则调整周期可能缩短； 但从波浪节奏看，博主更希望先完成充分调整（1-2周）后再启动，这样后续上涨空间更足。 操作层面：5/27观察半导体承接质量，不追高，若走弱则按原计划减仓。
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260518-021
+    supersedes: ["claim-20260526-021", "claim-20260518-021"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []

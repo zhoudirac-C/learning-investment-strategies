@@ -14,6 +14,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-25
@@ -44,8 +45,9 @@
   interpretation: 这是对远期题材催化的追高过滤：时间越远、兑现越慢，越不能把当天发酵加速等同于持续主升，需要用第二天承接和指数环境验证。
   confidence: high
   status: active
-  supersedes: []
+  supersedes: ["claim-20260604-004-b"]
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-25
@@ -73,9 +75,9 @@
   interpretation: 该观点延续5月21日晚间的事件节点仓位节奏：过会前后防阶段兑现，上市前仍保留中期产业逻辑，不把短期减仓点误判为长周期结束。
   confidence: high
   status: active
-  supersedes:
-    - claim-20260518-021
+  supersedes: ["claim-20260518-021"]
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-25
@@ -104,11 +106,9 @@
   interpretation: 4170成为从盘中修复转向更强反弹的确认阈值；未确认前，仓位管理比方向押注更重要，既保留核心仓参与，又避免高位科技回撤打满。
   confidence: high
   status: active
-  supersedes: []
-  contradicts:
-    - claim-20260605-002-a
-    - claim-20260527-004-a
-    - claim-20260420-001
+  supersedes: ["claim-20260605-002-a"]
+  contradicts: ["claim-20260420-001"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-25

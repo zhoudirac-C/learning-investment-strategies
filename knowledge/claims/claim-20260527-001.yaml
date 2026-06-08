@@ -14,10 +14,9 @@ claims:
     interpretation: 调整尚未结束，量能是核心观察指标
     confidence: high
     status: active
-    supersedes:
-      - claim-20260602-001-b
-    contradicts:
-      - claim-20260521-001-a
+    supersedes: ["claim-20260602-001-b"]
+    contradicts: ["claim-20260605-001-a"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -43,9 +42,9 @@ claims:
     interpretation: 情绪退潮已从短线蔓延至中线趋势票，调整级别扩大
     confidence: high
     status: active
-    supersedes: []
-    contradicts:
-      - claim-20260518-002
+    supersedes: ["claim-20260518-023"]
+    contradicts: ["claim-20260518-002"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -71,6 +70,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -94,9 +94,9 @@ claims:
     interpretation: 调整期以观望为主，不急于操作
     confidence: high
     status: active
-    supersedes:
-      - claim-20260520-001-g
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -120,10 +120,9 @@ claims:
     interpretation: 半导体内部分化，非核心方向进入调整
     confidence: high
     status: active
-    supersedes:
-      - claim-20260521-001-g
-    contradicts:
-      - claim-20260521-002-f
+    supersedes: ["claim-20260521-001-g"]
+    contradicts: ["claim-20260521-001-e"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -151,6 +150,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -176,8 +176,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260519-001-d
+    contradicts: ["claim-20260521-001-f", "claim-20260521-001-e"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks:
@@ -209,6 +209,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -234,8 +235,8 @@ claims:
     confidence: medium
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260529-001-c
+    contradicts: ["claim-20260529-001-c"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -260,9 +261,9 @@ claims:
     interpretation: 人形机器人进入产业化1-10阶段，IPO催化密集
     confidence: high
     status: active
-    supersedes:
-      - claim-20260521-003-e
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260519-001-f
@@ -289,9 +290,9 @@ claims:
     interpretation: 玻璃基板是先进封装的新方向，产业催化加速
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260521-001-d
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks:
@@ -320,6 +321,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks:
@@ -348,6 +350,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260519-001-d
@@ -377,6 +380,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks:

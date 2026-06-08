@@ -20,11 +20,9 @@ claims:
   - 企稳信号
   - 日线顶部
   - 第17天
-  supersedes:
-  - claim-20260518-006
-  - claim-20260525-001
-  - claim-20260527-006-d
+  supersedes: ["claim-20260518-006", "claim-20260527-006-d", "claim-20260603-001-a"]
   contradicts: []
+  last_discovered: 2026-06-08
   intensity: medium
   links: {}
 - id: claim-20260605-001-b
@@ -48,9 +46,9 @@ claims:
   - 机械化标准
   - '4033'
   - '4130'
-  supersedes:
-  - claim-20260515-013
+  supersedes: ["claim-20260602-001-a"]
   contradicts: []
+  last_discovered: 2026-06-08
   intensity: high
   links: {}
 - id: claim-20260605-001-c
@@ -82,9 +80,9 @@ claims:
   - 超级电容
   - AI基建
   - 板块框架
-  supersedes:
-  - claim-20260524-015
+  supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   intensity: medium
   links: {}
 - id: claim-20260605-001-d
@@ -111,8 +109,8 @@ claims:
   - 非科技
   - 尾声
   supersedes: []
-  contradicts:
-  - claim-20260602-001-e
+  contradicts: ["claim-20260602-001-e", "claim-20260607-003-l"]
+  last_discovered: 2026-06-08
   intensity: medium
   links: {}
 - id: claim-20260605-001-e
@@ -141,6 +139,7 @@ claims:
   - 北方华创
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   intensity: medium
   links: {}
 - id: claim-20260605-001-f
@@ -168,8 +167,8 @@ claims:
   - 价值重估
   - 英维克
   supersedes: []
-  contradicts:
-  - claim-20260529-005-g
+  contradicts: ["claim-20260426-010"]
+  last_discovered: 2026-06-08
   intensity: medium
   links: {}
 - id: claim-20260605-001-g
@@ -201,9 +200,9 @@ claims:
   - 意华股份
   - 赔率
   - 超跌
-  supersedes:
-  - claim-20260525-025
-  contradicts: []
+  supersedes: ["claim-20260525-025"]
+  contradicts: ["claim-20260607-003-c"]
+  last_discovered: 2026-06-08
   intensity: medium
   links: {}
 - id: claim-20260605-001-h
@@ -227,8 +226,9 @@ claims:
   - 形态类比
   - 赚钱效应
   - 中小盘
-  supersedes: []
+  supersedes: ["claim-20260603-001-d"]
   contradicts: []
+  last_discovered: 2026-06-08
   intensity: medium
   links: {}
 - id: claim-20260605-001-i
@@ -251,8 +251,8 @@ claims:
   - 做T
   - 抗波动
   - 不追高
-  supersedes:
-  - claim-20260601-001-g
+  supersedes: ["claim-20260603-001-f"]
   contradicts: []
+  last_discovered: 2026-06-08
   intensity: high
   links: {}

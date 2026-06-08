@@ -13,8 +13,8 @@
   confidence: high
   status: expired
   supersedes: []
-  contradicts:
-    - claim-20260414-001
+  contradicts: ["claim-20260531-002-a"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -44,6 +44,7 @@
   status: expired
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -68,8 +69,9 @@
   interpretation: A股在全球动荡中具备相对优势，但短期需等待更好的布局窗口。
   confidence: high
   status: superseded
-  supersedes: []
+  supersedes: ["claim-20260527-004-f"]
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -94,9 +96,9 @@
   interpretation: 在滞胀防御背景下，安全+成长双主线配置，国产替代和能源安全是核心逻辑。
   confidence: high
   status: active
-  supersedes:
-    - claim-20260406-001
+  supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -126,6 +128,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -148,10 +151,9 @@
   interpretation: 美股反弹缺乏基本面支撑，属于技术性修复，不宜追高。
   confidence: high
   status: contradicted
-  supersedes:
-    - claim-20260607-001-c
-  contradicts:
-    - claim-20260522-002-c
+  supersedes: ["claim-20260607-001-c"]
+  contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -179,11 +181,9 @@
   interpretation: 4月中旬A股主线明确，国产AI硬件和资源板块表现最强，红利板块走势最稳。
   confidence: high
   status: active
-  supersedes:
-    - claim-20260406-004
-  contradicts:
-    - claim-20260604-004-a
-    - claim-20260604-006-c
+  supersedes: ["claim-20260406-004"]
+  contradicts: ["claim-20260604-004-a", "claim-20260604-006-c"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -212,6 +212,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -236,6 +237,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []

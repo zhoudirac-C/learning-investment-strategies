@@ -15,6 +15,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/宏观政策/全球经济K型分化.md
@@ -41,6 +42,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/宏观政策/全球经济K型分化.md
@@ -65,8 +67,8 @@ claims:
     confidence: medium
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260406-001
+    contradicts: ["claim-20260406-001"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/宏观政策/全球经济K型分化.md
@@ -94,7 +96,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts: []
+    contradicts: ["claim-20260607-003-a"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/宏观政策/全球经济K型分化.md
@@ -123,6 +126,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/宏观政策/港股通投资机会.md
@@ -149,8 +153,8 @@ claims:
     confidence: medium
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260604-004-n
+    contradicts: ["claim-20260604-004-n"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/宏观政策/港股通投资机会.md
@@ -177,6 +181,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/房地产城市更新.md
@@ -202,6 +207,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/房地产城市更新.md
@@ -227,8 +233,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260531-002-a
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/消费新结构.md
@@ -256,6 +262,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/消费新结构.md
@@ -280,7 +287,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts: []
+    contradicts: ["claim-20260528-003-a"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/博主方法论总纲.md

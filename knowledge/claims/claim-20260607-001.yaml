@@ -22,9 +22,9 @@ claims:
   - 防御方向
   - 科技股调整
   - 美股暴跌
-  supersedes:
-  - claim-20260607-001-d
+  supersedes: ["claim-20260528-005-d"]
   contradicts: []
+  last_discovered: 2026-06-08
   intensity: medium
   links: {}
 - id: claim-20260607-001-b
@@ -52,6 +52,7 @@ claims:
   - 一空一多
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   intensity: medium
   links: {}
 - id: claim-20260607-001-c
@@ -78,6 +79,7 @@ claims:
   - 趋势破坏
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   intensity: medium
   links: {}
 - id: claim-20260607-001-d
@@ -105,6 +107,7 @@ claims:
   - 操作剧本
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   intensity: high
   links: {}
 - id: claim-20260607-001-e
@@ -129,7 +132,7 @@ claims:
   - 中期选举
   - 科技股回调
   supersedes: []
-  contradicts:
-  - claim-20260607-001-c
+  contradicts: ["claim-20260607-001-c"]
+  last_discovered: 2026-06-08
   intensity: medium
   links: {}

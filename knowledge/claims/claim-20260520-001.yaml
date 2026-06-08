@@ -14,9 +14,9 @@ claims:
     interpretation: 左侧止跌后的首个验证日不能直接定义为新主升，需要用量能、接力和主线聚焦度确认反弹级别
     confidence: high
     status: active
-    supersedes:
-      - claim-20260527-005-a
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/修复性质判断
@@ -48,6 +48,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/情绪判断
@@ -77,6 +78,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/情绪判断
@@ -105,6 +107,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/Token算力
@@ -132,8 +135,9 @@ claims:
     interpretation: 科技修复仍处于主线筛选阶段，不能把多方向轮动误判为主升一致加速
     confidence: high
     status: superseded
-    supersedes: []
+    supersedes: ["claim-20260526-030"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/长鑫存储产业链
@@ -164,9 +168,9 @@ claims:
     interpretation: 财报前波动预期提高，海外链容易出现抢跑兑现或低吸博弈，操作上应避免一致追高
     confidence: medium
     status: superseded
-    supersedes:
-      - claim-20260521-001-b
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/修复性质判断
@@ -193,10 +197,9 @@ claims:
     interpretation: 左侧止跌后的验证日仍需保持仓位克制，先用日内T处理轮动，等待右侧确认信号
     confidence: high
     status: active
-    supersedes: []
-    contradicts:
-      - claim-20260525-002
-      - claim-20260420-001
+    supersedes: ["claim-20260525-002"]
+    contradicts: ["claim-20260420-001"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages: []
       methodology_pages:

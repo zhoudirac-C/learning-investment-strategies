@@ -13,9 +13,9 @@ claims:
     interpretation: 指数状态判断：①调整第14天，时间窗口延续；②4032点是趋势破位参考位，与昨日早盘claim-20260601-001-a一致；③4000点上方有承接——这是新增信息，说明下方支撑有效；④百股涨停（118家）但指数跌——结构性特征：机构股弱、非机构股强；⑤止跌企稳信号来自非机构股的抵抗，不是全面反转。短期偏谨慎但不再悲观。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260519-001-a
+    supersedes: ["claim-20260519-001-a"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/指数分析.md
@@ -42,9 +42,9 @@ claims:
     interpretation: 量能判断：①弱势放量=砸盘资金增多，不是增量入场——这是博主对弱势行情量能特征的核心判断；②3万亿+日均成交已接近上限，难到4万亿——说明当前量能水平已高，但方向是抛压而非买盘；③黄白线分离+东山精密跌停→机构股跳水——机构筹码松动是昨日指数走弱的核心原因；④策略不变：等缩量（抛压衰竭）、等情绪回暖（跌停家数下降）、等利好落地（催化确认）。重个股轻指数意味着结构性机会优先于指数贝塔。
     confidence: high
     status: active
-    supersedes: []
-    contradicts:
-      - claim-20260518-019
+    supersedes: ["claim-20260518-018"]
+    contradicts: ["claim-20260518-019", "claim-20260603-001-d"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/量能分析.md
@@ -69,8 +69,9 @@ claims:
     interpretation: 风格切换判断：①机构股信任危机：小作文+调仓→实质影响小但心理影响大；②日韩-A股存储传导钝化——说明A股存储股已脱离海外映射，走独立逻辑（或独立下跌）；③风格切换方向：题材炒作/非机构股受益→更小市值、更小成交额——这是博主对6月初风格演化的核心预判；④与昨日复盘"市场处于新旧势力交替的混沌轮动中"形成呼应。操作层面：关注小市值题材，规避机构重仓的大市值标的。
     confidence: high
     status: active
-    supersedes: []
+    supersedes: ["claim-20260529-003-b"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/风格切换.md
@@ -95,9 +96,9 @@ claims:
     interpretation: 今日科技方向优先级：①AIPC端侧+MiniMax大模型——周末新热点，AI应用端（非硬件），这是逆势走强的核心原因；②炒新不炒旧——MLCC、超级电容已体现，昨日反包个股多出自新方向；③PCB等传统方向相对弱势——资金偏好新催化；④AIPC催化：英伟达Windows PC本周亮相+微软ARM跟进+建银国际PC换代空间。相关：春秋电子、英力股份。这是一个明确的日内资金轮动预判：新热点>AIPC>MiniMax>传统科技。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260601-001-f
+    supersedes: ["claim-20260601-004-b"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/主线判断.md
@@ -123,7 +124,8 @@ claims:
     confidence: medium
     status: active
     supersedes: []
-    contradicts: []
+    contradicts: ["claim-20260605-001-d"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/风格切换.md
@@ -150,10 +152,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260603-001-d
-      - claim-20260426-004
-      - claim-20260602-001-c
+    contradicts: ["claim-20260603-001-d", "claim-20260426-004", "claim-20260602-001-c"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/交易纪律.md
@@ -177,8 +177,9 @@ claims:
     interpretation: 今日操作预案：①基准情景：科技正常反弹概率较大；②最优走势：小高开→兑现→再回流——这是博主对日内节奏的理想预判；③风险提示：科技未必企稳——反弹可能是技术性修复而非趋势反转；④安全做法：等大环境进入反弹周期（不是左侧抢反弹）；⑤操作纪律：重个股轻指数+紧盯4032点——与昨日早盘"先观察再动手"形成延续，但今日对科技反弹的预期更积极一些（"正常反弹概率较大"）。
     confidence: medium
     status: active
-    supersedes: []
+    supersedes: ["claim-20260601-004-a"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/仓位管理.md

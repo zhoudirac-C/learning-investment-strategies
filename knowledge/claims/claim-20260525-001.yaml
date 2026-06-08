@@ -12,9 +12,9 @@
   interpretation: 指数反弹仍需按小级别修复处理，不能因为消息高开就确认新周期，关键看能否放量突破5日均线并抵消前一根阴线。
   confidence: high
   status: active
-  supersedes:
-    - claim-20260518-006
+  supersedes: ["claim-20260518-006"]
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-25
@@ -44,11 +44,9 @@
   interpretation: 这延续周末“不追高、等分歧”的纪律，但早盘给出略高仓位区间，前提是AI硬件核心持续性和指数放量配合。
   confidence: medium
   status: active
-  supersedes:
-    - claim-20260520-001-g
-    - claim-20260524-021
-  contradicts:
-    - claim-20260420-001
+  supersedes: ["claim-20260520-001-g"]
+  contradicts: ["claim-20260420-001"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-25
@@ -78,8 +76,8 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts:
-    - claim-20260602-001-d
+  contradicts: ["claim-20260602-001-d"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-25
@@ -111,6 +109,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-25
@@ -140,8 +139,8 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts:
-    - claim-20260604-006-c
+  contradicts: ["claim-20260604-006-c"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-25

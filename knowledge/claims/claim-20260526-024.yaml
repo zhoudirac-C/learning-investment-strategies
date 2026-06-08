@@ -14,6 +14,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-26
@@ -42,8 +43,8 @@
   confidence: medium
   status: active
   supersedes: []
-  contradicts:
-    - claim-20260527-005-a
+  contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-26
@@ -72,8 +73,9 @@
   interpretation: 该观点延续早盘“半导体不大跌、有承接即可继续观察”的框架，并在盘后用尾盘修复强化为主线回流观察，而不是主线瓦解。
   confidence: high
   status: active
-  supersedes: []
+  supersedes: ["claim-20260527-005-a"]
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-26
@@ -104,6 +106,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-26
@@ -135,6 +138,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-26
@@ -164,6 +168,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/PCB与先进封装
@@ -189,10 +194,9 @@
   interpretation: 该观点把“分歧后主动性”作为韬定律从事件催化上修为主线候选的关键证据；后续仍需看先进封装、3D堆叠、EDA、设备材料等是否持续联动。
   confidence: high
   status: active
-  supersedes:
-    - claim-20260526-026
-    - claim-20260520-001-e
+  supersedes: ["claim-20260526-026", "claim-20260520-001-e"]
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/华为韬定律与3DIC
@@ -224,6 +228,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/光通信
@@ -252,6 +257,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/国产CPU_GPU与软件
@@ -281,6 +287,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/玻璃基板与Micro-LED
@@ -309,9 +316,9 @@
   interpretation: 该信号需要次日验证：若防御与主线共振，风格偏均衡；若防御强而主线回落，则要警惕资金从科技撤退。
   confidence: medium
   status: active
-  supersedes:
-    - claim-20260525-013
-  contradicts: []
+  supersedes: []
+  contradicts: ["claim-20260525-013"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 每日复盘/2026-05-26
@@ -343,6 +350,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/制冷剂与氟化工
@@ -370,6 +378,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/AI电源与超级电容
@@ -401,6 +410,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/AI上游涨价链

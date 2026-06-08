@@ -14,9 +14,9 @@ claims:
     interpretation: 放量大阴线不能机械等同于趋势终结，需要结合跌停扩散、科技核心封死情况和承接强度判断是崩盘还是高位换手
     confidence: high
     status: active
-    supersedes:
-      - claim-20260522-002-a
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 每日复盘/2026-05-21
@@ -46,9 +46,9 @@ claims:
     interpretation: 高位阶段的核心不是预测指数单日涨跌，而是用分歧检验个股成色，淘汰破位跟风股并保留有承接的核心方向
     confidence: high
     status: active
-    supersedes:
-      - claim-20260518-018
+    supersedes: ["claim-20260518-018"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 每日复盘/2026-05-21
@@ -77,8 +77,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260604-004-b
+    contradicts: ["claim-20260604-004-b"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/半导体产业链
@@ -110,6 +110,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/PCB与先进封装
@@ -140,8 +141,8 @@ claims:
     confidence: medium
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260521-002-g
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/机器人与具身智能
@@ -172,6 +173,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/AI电源与超级电容
@@ -199,8 +201,9 @@ claims:
     interpretation: 二次冰点低吸不是见跌就买，而是等待急杀、放量拉回、主动方向率先翻红三者共振
     confidence: high
     status: active
-    supersedes: []
+    supersedes: ["claim-20260525-002"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/情绪判断
@@ -233,9 +236,9 @@ claims:
     interpretation: 仓位管理从单纯半仓做T进一步细化为持仓质量分层，指数反弹不代表所有个股都会修复
     confidence: high
     status: active
-    supersedes:
-      - claim-20260605-002-a
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages: []
       methodology_pages:
@@ -264,6 +267,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 每日复盘/2026-05-21
@@ -295,9 +299,9 @@ claims:
     interpretation: 二次冰点策略必须配套失败条件，若跌停扩散和放量下杀同时出现，就从低吸窗口切换为等待下一止跌信号
     confidence: high
     status: active
-    supersedes:
-      - claim-20260602-001-a
-    contradicts: []
+    supersedes: []
+    contradicts: ["claim-20260602-001-a"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/情绪判断

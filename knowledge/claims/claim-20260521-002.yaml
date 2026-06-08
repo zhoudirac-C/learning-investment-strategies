@@ -14,13 +14,9 @@ claims:
     interpretation: 这是对5月18日波浪结构的明确修正，说明技术结构需要跟随实际走势重新合并和定级，不能机械沿用原ABC路径
     confidence: high
     status: active
-    supersedes:
-      - claim-20260518-019-a
-      - claim-20260518-019-b
-      - claim-20260518-019-c
-      - claim-20260518-019-d
-      - claim-20260521-001-k
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/指数调整
@@ -47,11 +43,9 @@ claims:
     interpretation: 新复盘把点位从单一4080扩展为均线支撑体系，并给出4170反弹减仓和4047回踩再布局的短线剧本
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260531-001-f
-      - claim-20260602-001-a
-    contradicts:
-      - claim-20260420-001
+    supersedes: ["claim-20260531-001-f", "claim-20260602-001-a"]
+    contradicts: ["claim-20260420-001"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/指数调整
@@ -81,6 +75,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/半导体产业链
@@ -111,8 +106,8 @@ claims:
     confidence: medium
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260528-005-h
+    contradicts: ["claim-20260528-005-h"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/半导体产业链
@@ -142,6 +137,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/半导体设备
@@ -172,6 +168,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/国产CPU_GPU与软件
@@ -202,6 +199,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 每日复盘/2026-05-21
@@ -230,6 +228,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/光通信
@@ -259,6 +258,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages: []
       methodology_pages:
@@ -285,7 +285,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts: []
+    contradicts: ["claim-20260604-001-a"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 每日复盘/2026-05-21
@@ -313,9 +314,8 @@ claims:
     confidence: medium
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260601-002-b
-      - claim-20260528-005-c
+    contradicts: ["claim-20260603-002-a", "claim-20260601-002-b"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/指数调整

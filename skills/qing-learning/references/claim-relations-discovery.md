@@ -2,7 +2,7 @@
 
 ## 脚本
 
-`scripts/discover_claim_relations.py` — 通过 ONNX embedding + LLM 自动发现 claim 间关系。
+`src/qing_investment/agent/tools/discover_claim_relations.py` — 通过 ONNX embedding + LLM 自动发现 claim 间关系。（2026-06-08 已从 `scripts/` 迁移至 agent tools，与 neo4j_client / llm_client 同目录）
 
 ### 模式
 
@@ -61,9 +61,9 @@ grep -E '^\[[0-9]+/[0-9]+\]' logs/discover_relations_*.log | tail -1
 cat logs/discover_relations_*.progress
 ```
 
-## YAML 缩进 Corruption（已修复）
+## YAML 缩进 Corruption（已修复，2026-06-08 补充）
 
-### 根因
+### 根因 1：硬编码 4 空格前缀
 
 `write_results_to_yaml()` 曾硬编码 4 空格前缀：
 ```python
@@ -77,12 +77,61 @@ new_lines.append(f"    supersedes: {json.dumps(results['supersedes'])}")
 - `mapping values are not allowed here`（行级字段缩进错误）
 - `expected <block end>, but found '<block mapping start>'`（跨 claim 边界缩进错误）
 
-### 修复
+### 修复 1
 
 改为保留原始行缩进：
 ```python
 indent = line[:len(line) - len(line.lstrip())]
 new_lines.append(f"{indent}supersedes: {json.dumps(results['supersedes'])}")
+```
+
+### 根因 2：`last_discovered` 插入位置不当（2026-06-08 发现）
+
+旧版代码在 claim 块**末尾**追加 `last_discovered` 行（while 循环结束后 append）。在 list-格式 YAML（`- id:` 开头）中，如 claim 块末尾有 `tags:` 序列：
+
+```yaml
+- id: claim-xxx
+  tags:
+  - AI
+  - 芯片
+  last_discovered: 2026-06-08    ← 插入此处 → YAML 解析器处于序列上下文！
+- id: claim-yyy
+```
+
+YAML 解析器遇到 `tags:` 后进入序列上下文，此时插入映射键 `last_discovered:` 导致 `mapping values are not allowed here`。80+ 文件因此损坏，discover 返回 0 关系。
+
+**症状识别**：
+- discover 输出 `Found 0 supersedes/contradicts relations` 但 Neo4j 有大量现有关系
+- `yaml.safe_load()` 报 `mapping values are not allowed here in "<string>", line N, column N: last_discovered: 2026-06-08`
+
+### 修复 2
+
+`last_discovered` 现在紧跟 `contradicts:` 行写入（在 while 循环内部，而非循环后）：
+
+```python
+elif line.strip().startswith("contradicts:"):
+    indent = line[:len(line) - len(line.lstrip())]
+    new_lines.append(f"{indent}contradicts: {json.dumps(results['contradicts'])}")
+    # Write last_discovered right after contradicts (avoid tags sequence conflict)
+    if results.get("supersedes") or results.get("contradicts") or force:
+        new_lines.append(f"{indent}last_discovered: {today_str}")
+        has_last_discovered = True
+```
+
+**2026-06-08 事件完整复盘**：三轮 discover 均返回 0 关系。第一轮→YAML 损坏（游离列表项）+ `_parse_claims` 静默返回空；第二轮→写入 bug 把 YAML 写坏；第三轮→先 revert 到 clean HEAD + 修复写入逻辑 = 预期正常。
+
+### Python import shadowing（2026-06-08 新发现）
+
+当 discover 脚本从 `src/qing_investment/agent/tools/` 运行时，Python 自动将脚本所在目录加到 `sys.path[0]`。该目录下的 `qdrant_client.py` 会遮蔽 pip 包 `qdrant_client`，导致：
+```
+ImportError: cannot import name 'QdrantClient' from 'qdrant_client'
+```
+
+**修复**：已在脚本中内置——导入前 pop 掉脚本目录：
+```python
+_script_dir = str(Path(__file__).resolve().parent)
+if sys.path and sys.path[0] == _script_dir:
+    sys.path.pop(0)
 ```
 
 ### 批量修复已损坏文件
@@ -100,10 +149,10 @@ git checkout -- knowledge/claims/
 
 ```bash
 # ✅ 正确
-.venv/bin/python scripts/discover_claim_relations.py --all-missing
+.venv/bin/python src/qing_investment/agent/tools/discover_claim_relations.py --all-missing
 
 # ❌ 错误 — 缺少 langchain_openai
-venv/bin/python scripts/discover_claim_relations.py --all-missing
+venv/bin/python src/qing_investment/agent/tools/discover_claim_relations.py --all-missing
 ```
 
 ## 预估耗时

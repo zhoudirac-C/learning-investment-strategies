@@ -14,11 +14,9 @@ claims:
     interpretation: 当前节点风险收益比不佳，应先降仓避险，而非硬扛等待反弹
     confidence: high
     status: active
-    supersedes:
-      - claim-20260426-001
-    contradicts:
-      - claim-20260525-019
-      - claim-20260605-001-i
+    supersedes: ["claim-20260525-019", "claim-20260426-001", "claim-20260520-001-g"]
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -43,9 +41,9 @@ claims:
     interpretation: 美股多个背离信号同时出现，表明市场处于不健康的高位状态
     confidence: high
     status: active
-    supersedes:
-      - claim-20260414-002
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks:
@@ -76,6 +74,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -102,6 +101,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -125,9 +125,9 @@ claims:
     interpretation: 债市定价从通胀转向衰退，美联储陷入滞胀困境，政策空间受限
     confidence: high
     status: active
-    supersedes:
-      - claim-20260406-001
+    supersedes: ["claim-20260406-001"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -155,9 +155,9 @@ claims:
     interpretation: A股自身不具备独立发动进攻的条件，需要等待多个条件共振
     confidence: high
     status: active
-    supersedes:
-      - claim-20260603-001-d
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260527-001-d
@@ -186,6 +186,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -211,8 +212,9 @@ claims:
     interpretation: 三个独立风险维度同时恶化，形成系统性脆弱结构，风险远超单一因素
     confidence: high
     status: active
-    supersedes: []
+    supersedes: ["claim-20260521-001-j"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks:
@@ -241,6 +243,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []

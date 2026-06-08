@@ -14,11 +14,9 @@ claims:
     interpretation: 技术结构压制接近尾声，第二次止跌信号提升修复概率
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260602-001-a
-      - claim-20260518-006
-    contradicts:
-      - claim-20260526-025-a
+    supersedes: ["claim-20260518-006"]
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260518-019-a
@@ -47,10 +45,9 @@ claims:
     interpretation: 基于量能规律判断，5月20日可能是阶段低点
     confidence: medium
     status: superseded
-    supersedes:
-      - claim-20260519-003-a
-    contradicts:
-      - claim-20260518-019-a
+    supersedes: []
+    contradicts: ["claim-20260526-025-a"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -74,9 +71,9 @@ claims:
     interpretation: 恐慌盘已释放充分，二次恐慌是左侧博弈窗口
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260518-002
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -104,9 +101,9 @@ claims:
     interpretation: IPO进程推进是产业链核心催化事件
     confidence: high
     status: active
-    supersedes:
-      - claim-20260518-013
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260518-019-e
@@ -136,6 +133,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260519-001-d
@@ -166,8 +164,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260521-002-f
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260518-018-e
@@ -197,9 +195,9 @@ claims:
     interpretation: 空方衰竭+日内交易+左侧博弈
     confidence: medium
     status: active
-    supersedes: []
-    contradicts:
-      - claim-20260527-004-a
+    supersedes: ["claim-20260529-002-d"]
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -226,6 +224,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -253,6 +252,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -280,6 +280,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks:
@@ -306,6 +307,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks:
@@ -337,6 +339,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []

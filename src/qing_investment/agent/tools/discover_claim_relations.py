@@ -128,7 +128,7 @@ def fetch_full_claim(claim_id: str, neo4j: Neo4jClient) -> dict | None:
 
 
 def judge_relation(claim_a: dict, claim_b: dict, llm) -> dict:
-    """Ask LLM to judge the relation between two claims."""
+    """Ask LLM to judge the relation between two claims. Retries on timeout."""
     prompt = RELATION_PROMPT.format(
         subject_a=claim_a.get("subject", ""),
         statement_a=claim_a.get("statement", ""),
@@ -141,17 +141,23 @@ def judge_relation(claim_a: dict, claim_b: dict, llm) -> dict:
         date_b=claim_b.get("source_date", ""),
         type_b=claim_b.get("claim_type", ""),
     )
-    try:
-        resp = llm.invoke(prompt).content or ""
-        # Extract JSON from response
-        resp = resp.strip()
-        if resp.startswith("```"):
-            resp = resp.split("\n", 1)[1]
-            if resp.endswith("```"):
-                resp = resp[:-3]
-        return json.loads(resp)
-    except (json.JSONDecodeError, Exception) as e:
-        return {"relation": "none", "reason": f"LLM parse error: {e}"}
+    import time as _time
+    last_error = None
+    for attempt in range(3):
+        try:
+            resp = llm.invoke(prompt).content or ""
+            # Extract JSON from response
+            resp = resp.strip()
+            if resp.startswith("```"):
+                resp = resp.split("\n", 1)[1]
+                if resp.endswith("```"):
+                    resp = resp[:-3]
+            return json.loads(resp)
+        except (json.JSONDecodeError, Exception) as e:
+            last_error = e
+            if attempt < 2:
+                _time.sleep(2 ** attempt)  # 1s, 2s, 4s backoff
+    return {"relation": "none", "reason": f"LLM error after 3 retries: {last_error}"}
 
 
 def process_claim(

@@ -14,8 +14,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260526-025-b
+    contradicts: ["claim-20260529-005-b"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/半导体产业链.md
@@ -43,9 +43,9 @@ claims:
     interpretation: 博穿越是高风险操作，必须满足两个条件：①大盘没有系统性风险（博主判断4050附近支撑有效）；②仓位必须轻（3个点以内，亏不到1个点）。同时强调时间敏感性：10点钟的位置是好的，但涨起来后再追就是不应该的。
     confidence: medium
     status: active
-    supersedes: []
-    contradicts:
-      - claim-20260527-006-g
+    supersedes: ["claim-20260601-002-b"]
+    contradicts: ["claim-20260527-006-g"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/仓位管理.md
@@ -71,9 +71,9 @@ claims:
     interpretation: 4258是多重周期（日线、周线等）的共振压力区。突破虽表面强势，但会形成更大级别的顶部结构，导致调整时间延长（16-24个交易日），压缩下半年炒作窗口。因此当前在4258下方的回调反而是健康的，为后续行情留空间。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260518-006
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/指数分析.md
@@ -98,9 +98,9 @@ claims:
     interpretation: 日线顶部结构的调整周期有明确时间框架。目前已过半程，剩余6-14个交易日。博主偏好横盘震荡而非深跌，因为深跌会破坏市场结构，而横盘可以消化顶背离、修复技术指标，为下一轮行情蓄势。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260526-025-a
+    supersedes: ["claim-20260526-025-a", "claim-20260525-001", "claim-20260518-006"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/指数分析.md
@@ -127,8 +127,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260526-025-c
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/交易纪律.md
@@ -159,6 +159,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/半导体产业链.md
@@ -183,8 +184,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260526-023
+    contradicts: ["claim-20260526-023"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/博主方法论总纲.md
@@ -211,6 +212,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/仓位管理.md

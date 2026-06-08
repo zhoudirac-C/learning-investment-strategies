@@ -14,9 +14,9 @@ claims:
     interpretation: 波浪理论判断A浪结束，B浪反弹即将开始
     confidence: high
     status: superseded
-    supersedes:
-      - claim-20260521-002-a
-    contradicts: []
+    supersedes: ["claim-20260521-002-a"]
+    contradicts: ["claim-20260518-007"]
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260521-002-a
@@ -42,10 +42,9 @@ claims:
     interpretation: B浪反弹空间有限，约4200点为目标位，需观察量能
     confidence: medium
     status: superseded
-    supersedes:
-      - claim-20260521-002-b
-    contradicts:
-      - claim-20260518-019-c
+    supersedes: []
+    contradicts: ["claim-20260518-019-c"]
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260521-002-a
@@ -72,9 +71,8 @@ claims:
     confidence: medium
     status: superseded
     supersedes: []
-    contradicts:
-      - claim-20260527-006-c
-      - claim-20260521-002-a
+    contradicts: ["claim-20260518-019-b", "claim-20260527-006-c", "claim-20260521-002-a"]
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260521-002-a
@@ -99,10 +97,9 @@ claims:
     interpretation: 6月中下旬是重要时间窗口，C浪结束后为中线布局良机
     confidence: medium
     status: superseded
-    supersedes:
-      - claim-20260526-025-a
-    contradicts:
-      - claim-20260528-005-d
+    supersedes: []
+    contradicts: ["claim-20260528-005-d"]
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260521-002-a
@@ -129,8 +126,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260518-021
+    contradicts: ["claim-20260518-021"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -159,6 +156,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -185,6 +183,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -211,6 +210,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260518-019-g
@@ -239,9 +239,9 @@ claims:
     interpretation: 英伟达财报作为外围情绪锚点，当前资本开支趋势支撑业绩预期
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260521-001-b
-    contradicts: []
+    supersedes: []
+    contradicts: ["claim-20260521-001-b"]
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks:
@@ -268,8 +268,8 @@ claims:
     confidence: medium
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260527-004-b
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks:
@@ -299,6 +299,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks:
@@ -328,6 +329,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260518-019-j
@@ -358,6 +360,7 @@ claims:
     status: superseded
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260521-001-j

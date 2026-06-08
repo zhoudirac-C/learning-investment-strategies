@@ -15,6 +15,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/交易纪律.md
@@ -38,9 +39,9 @@ claims:
     interpretation: 博主给出半导体短期卖点和再入场时间：①当前半导体指数跌约10%（从高点回调），明后两天（周三周四）可能反弹；②反弹到6200左右是卖点——做日线级别双顶；③双顶完成后继续回调，七八月份再看；④七八月份筛选标准：有业绩的半导体才能走出来，没业绩的直接pass；⑤有业绩的半导体（如汇成真空）可能走出独立行情
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260526-020
+    supersedes: ["claim-20260526-020"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/半导体产业链.md
@@ -67,6 +68,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/半导体产业链.md
@@ -97,6 +99,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/AI应用与软件.md
@@ -123,8 +126,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260604-004-i
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/交易纪律.md
@@ -149,8 +152,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260426-008
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/宏观与流动性.md
@@ -175,9 +178,9 @@ claims:
     interpretation: 博主更新算力租赁和液冷判断：①算力租赁：D300机器从600多万涨到800万，二季度业绩看好，还是可以去看；②一通电子：上周五异动失败被砸，5月26号提醒过压异动，压不住就得走；③液冷：英伟达提到"屏蔽泵"概念，大元泵业有表现，但液冷整体大概率还没到，继续等；④英维克等机构关注的都没问题，燃气轮机也没问题
     confidence: medium
     status: active
-    supersedes: []
-    contradicts:
-      - claim-20260605-001-f
+    supersedes: ["claim-20260426-010"]
+    contradicts: ["claim-20260605-001-f"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/AI基础设施与能源转型.md
@@ -202,9 +205,9 @@ claims:
     interpretation: 博主给出6月市场定位：①6月优势：没业绩的题材（软件/AIPC）没法证伪，可以炒；②但正儿八经做多要等世界杯开始（推测为某个重要时间节点/事件的代称）；③磨底还得磨两周左右，上面不让砸太深，有缺口也不像话；④硬扛是唯一选择，此时割肉不像话；⑤润泽科技看到2100亿，金风科技看到2000亿，年前观点不变
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260522-002-a
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/情绪周期.md

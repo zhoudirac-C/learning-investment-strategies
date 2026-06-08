@@ -15,6 +15,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/指数分析.md
@@ -39,9 +40,9 @@ claims:
     interpretation: 三个锚点构成开盘观察框架：①防御股走强=资金偏谨慎，风格偏防守；②跌停缩短=情绪回暖，可操作窗口打开；③半导体龙头封板=主线接力成功，科技风格延续。三个锚点的组合决定当日攻防节奏。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260527-006-e
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/交易纪律.md
@@ -68,9 +69,9 @@ claims:
     interpretation: 超级电容的叙事升级：①从边缘概念（实验室）到核心组件（机柜标配）；②有明确的量化指标（电网峰值需求降低30%）；③有券商背书（国金算力新瓶颈）。标的明确：江海股份（涨停）、凯恩股份。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260527-005-d
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/AI电源与超级电容.md
@@ -95,9 +96,9 @@ claims:
     interpretation: 功率半导体的涨价逻辑：①双龙头（英飞凌+TI）同步第二轮提价，说明行业性供需紧张；②AI驱动价值量跃升（2.5倍）；③8英寸晶圆紧缺下，产能规模+顺价能力是竞争焦点。标的：芯联集成（产能最大）、捷捷微电。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260527-003-a
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/半导体产业链.md
@@ -125,10 +126,9 @@ claims:
     interpretation: 缩量市场的选股原则：①老主线（半导体龙头）封不住板，说明资金承接力下降；②新分支（华塑股份）平盘回封，说明有资金愿意在低位布局；③新分支事件催化硬（涨价、技术升级）、位置低、消耗资金少，更适合缩量环境。
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260527-005-c
-    contradicts:
-      - claim-20260531-002-a
+    supersedes: []
+    contradicts: ["claim-20260531-002-a"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/主线判断.md
@@ -157,8 +157,8 @@ claims:
     confidence: medium
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260604-006-c
+    contradicts: ["claim-20260604-006-c"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/海外映射.md

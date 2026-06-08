@@ -14,8 +14,9 @@ claims:
     interpretation: 补发确认早盘盘面没有明显走弱，短线修复窗口仍在，但仍需量能和主线聚焦继续验证
     confidence: medium
     status: active
-    supersedes: []
+    supersedes: ["claim-20260521-001-a"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/修复性质判断
@@ -42,9 +43,9 @@ claims:
     interpretation: 长鑫链条是早盘资金最主动方向，但仍处于局部强势和内部分化阶段，尚需扩散成板块级持续进攻
     confidence: high
     status: active
-    supersedes:
-      - claim-20260518-001
+    supersedes: ["claim-20260518-021", "claim-20260518-001"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/长鑫存储产业链
@@ -73,6 +74,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages: []
       methodology_pages:

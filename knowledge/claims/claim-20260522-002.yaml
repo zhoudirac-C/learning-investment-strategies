@@ -14,9 +14,9 @@ claims:
     interpretation: 这是对早盘主文“判断是假摔还是调整第一根大阴线”的日内上修，核心证据从指数分时转向趋势核心仍能新高或强承接
     confidence: high
     status: active
-    supersedes:
-      - claim-20260522-001-a
+    supersedes: ["claim-20260520-001-a"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 每日复盘/2026-05-22
@@ -46,6 +46,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/指数调整
@@ -75,6 +76,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 每日复盘/2026-05-22
@@ -103,8 +105,9 @@ claims:
     interpretation: 这是一条情绪纪律：当大周期风险未被证实且趋势核心未破时，不用盘中即时修复来否定原先的假摔判断
     confidence: medium
     status: active
-    supersedes: []
+    supersedes: ["claim-20260518-006"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/修复性质判断

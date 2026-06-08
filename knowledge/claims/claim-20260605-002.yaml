@@ -19,11 +19,9 @@ claims:
   - 5成仓位
   - 不能看空
   - 调整第17天
-  supersedes:
-  - claim-20260420-001
-  - claim-20260525-019
-  contradicts:
-  - claim-20260426-001
+  supersedes: ["claim-20260420-001", "claim-20260525-019"]
+  contradicts: ["claim-20260426-001"]
+  last_discovered: 2026-06-08
   intensity: high
   links: {}
 - id: claim-20260605-002-b
@@ -45,10 +43,8 @@ claims:
   - 持股不动
   - 不做T
   - 等待修复
-  supersedes:
-  - claim-20260605-002-a
-  - claim-20260605-001-i
-  contradicts:
-  - claim-20260426-001
+  supersedes: ["claim-20260605-001-i", "claim-20260604-001-a"]
+  contradicts: []
+  last_discovered: 2026-06-08
   intensity: high
   links: {}

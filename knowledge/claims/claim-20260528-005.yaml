@@ -15,6 +15,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/指数分析.md
@@ -38,9 +39,9 @@ claims:
     interpretation: 反弹由两个因素驱动：①情绪拐点（市场从恐慌/悲观转向企稳）；②30分钟级别底部结构（短周期技术指标信号）。但博主明确限定「不会太大的周期」，说明这只是日内或1-2个交易日的小级别反弹，不是趋势反转。这与「大级别调整还没结束」的判断一致。
     confidence: high
     status: active
-    supersedes: []
-    contradicts:
-      - claim-20260603-004-a
+    supersedes: ["claim-20260525-001"]
+    contradicts: ["claim-20260603-004-a", "claim-20260518-006"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/情绪周期.md
@@ -69,10 +70,9 @@ claims:
     interpretation: 博主的操作逻辑：①技术上30分钟底部结构+情绪拐点=可以参与；②但美股风险未释放=可能有更低买点；③选择不主动号召抄底，让投资者根据自身风险偏好决策。这体现了「留弹性」的核心原则——不赌单边，等风险释放后再确认。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260601-002-b
-    contradicts:
-      - claim-20260522-002-c
+    supersedes: ["claim-20260522-002-c"]
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/仓位管理.md
@@ -98,9 +98,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260607-001-a
-      - claim-20260607-001-c
+    contradicts: ["claim-20260607-001-a"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/指数分析.md
@@ -127,9 +126,9 @@ claims:
     interpretation: 博主对地缘风险的定性：①规模小（4艘船只+开火警告+象征性无人机攻击）；②伊朗克制（仅3-4架无人机，非大规模报复）；③无实质损失（美军开火未造成人员/财产损失）；④不构成系统性风险。真正的市场变量是美股对此事件的反应，而非事件本身。
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260414-001
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/地缘风险.md
@@ -153,10 +152,9 @@ claims:
     interpretation: 仓位管理的双向建议：①空仓者→上5成（情绪拐点不宜过度悲观，但不满仓因外盘风险）；②满仓者→降仓（外盘风险未释放，需留操作空间）。核心逻辑：今日情绪拐点已现，但尚未经考验；明日若调整=更好确定点，留弹性才能应对。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260525-002
-    contradicts:
-      - claim-20260605-002-a
+    supersedes: ["claim-20260605-002-a", "claim-20260525-002"]
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/仓位管理.md
@@ -181,10 +179,9 @@ claims:
     interpretation: 更好确定点的含义——①今日情绪拐点已出现，但尚未经受过考验；②明日若调整，可验证4055低点是否有效；③调整不创新低等于底部确认，可加仓；④调整创新低等于支撑失效，需重新评估。这是一种先观察再确认的审慎策略，不急于在拐点日满仓。
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260527-004-a
-      - claim-20260526-022
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/交易纪律.md
@@ -209,10 +206,8 @@ claims:
     confidence: medium
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260604-004-b
-      - claim-20260521-002-d
-      - claim-20260521-001-e
+    contradicts: ["claim-20260604-004-b", "claim-20260521-002-d", "claim-20260521-001-e"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/板块轮动.md
@@ -240,6 +235,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/研究框架.md
@@ -266,6 +262,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/板块轮动.md

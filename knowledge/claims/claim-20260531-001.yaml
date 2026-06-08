@@ -14,7 +14,8 @@ claims:
     confidence: medium
     status: active
     supersedes: []
-    contradicts: []
+    contradicts: ["claim-20260607-001-c"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/宏观政策/全球经济K型分化.md
@@ -40,8 +41,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260522-002-c
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/宏观政策/全球经济K型分化.md
@@ -68,6 +69,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/AI上游涨价链.md
@@ -94,8 +96,9 @@ claims:
     interpretation: 大宗商品判断：①原油看空至80，与博主之前对油价的判断一致（中东局势降温、美伊谅解录）；②黄金看空至4200，4627是短期压力位，200日均线附近反弹未能突破，技术面偏空；③对A股的影响：油价下行利好制造业成本（PPI修复），黄金调整可能释放部分避险资金回流风险资产。但需跟踪实际走势验证。
     confidence: medium
     status: active
-    supersedes: []
+    supersedes: ["claim-20260607-003-g"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/宏观政策/全球经济K型分化.md
@@ -122,6 +125,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/情绪判断.md
@@ -146,11 +150,9 @@ claims:
     interpretation: 上证技术判断的完整框架：①30分钟底部结构支撑4055；②不跌破→周一反弹预期；③反弹定性为"小级别"（不是大级别反转）；④周二不继续走强→执行卖出。这是典型的"先看反弹力度再定去留"的纪律，不是无条件看多。与5月28日4050第一波支撑的判断一脉相承。
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260521-002-b
-      - claim-20260515-009
-      - claim-20260602-001-a
+    supersedes: ["claim-20260602-001-a"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/关键点位.md
@@ -176,9 +178,9 @@ claims:
     interpretation: 科创50技术判断：①120分钟双顶是中期调整信号（非日线级别）；②4-6个交易日的时间窗口对应下周前半周；③"较深调整"后才是介入机会，不是现在；④对持仓者：若科创50在调整中，半导体/科技核心可能同步承压，需控制仓位；对观望者：等待调整到位后的低吸窗口。与5月27日科创50 120分钟双顶卖出信号的判断一致。
     confidence: medium
     status: active
-    supersedes:
-      - claim-20260525-001
+    supersedes: ["claim-20260525-001"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/关键点位.md
@@ -205,6 +207,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/交易纪律.md
@@ -231,6 +234,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/AI上游涨价链.md
@@ -259,6 +263,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/消费新结构.md

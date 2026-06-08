@@ -12,11 +12,9 @@
   interpretation: 当前调整是技术性调整而非趋势反转，参考1月行情节奏，调整后有望重新回升。
   confidence: high
   status: active
-  supersedes:
-    - claim-20260525-001
-    - claim-20260605-001-a
-  contradicts:
-    - claim-20260527-006-d
+  supersedes: []
+  contradicts: ["claim-20260527-006-d"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/指数调整
@@ -42,9 +40,9 @@
   interpretation: 低开是短期博弈反弹的机会，但真正的调整结束需要看到量能萎缩到2.5万亿左右。
   confidence: high
   status: active
-  supersedes:
-    - claim-20260515-010
+  supersedes: ["claim-20260515-010"]
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/量能判断
@@ -70,8 +68,8 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts:
-    - claim-20260604-006-c
+  contradicts: ["claim-20260604-006-c"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/半导体设备
@@ -96,9 +94,9 @@
   interpretation: Token算力是算力租赁的进化形态，运营商凭借资源优势推动行业集中度提升，市场空间快速扩大。
   confidence: high
   status: active
-  supersedes:
-    - claim-20260420-005
+  supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/Token算力
@@ -125,6 +123,7 @@
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages:
       - 市场分析/新型储能
@@ -150,8 +149,8 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts:
-    - claim-20260520-001-e
+  contradicts: ["claim-20260520-001-e"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []

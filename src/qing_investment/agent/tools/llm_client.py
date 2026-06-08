@@ -99,6 +99,7 @@ def get_llm_client() -> ChatOpenAI:
         base_url=base_url,
         temperature=0.3,
         max_tokens=4096,
+        request_timeout=120,  # 防止 API hang 死
     )
 
 

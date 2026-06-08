@@ -13,8 +13,8 @@ claims:
   confidence: high
   status: active
   supersedes: []
-  contradicts:
-  - claim-20260530-001-d
+  contradicts: ["claim-20260607-003-c"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -42,6 +42,7 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -63,11 +64,9 @@ claims:
   interpretation: 科技股补跌是系统性的，不要有侥幸心理。利通电子（本轮领涨龙头）先跌是明确的撤退信号。
   confidence: high
   status: active
-  supersedes:
-  - claim-20260604-004-b
-  contradicts:
-  - claim-20260529-002-b
-  - claim-20260601-004-b
+  supersedes: ["claim-20260604-004-b"]
+  contradicts: ["claim-20260529-002-b", "claim-20260602-003-b"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -91,9 +90,9 @@ claims:
   interpretation: 方向明确切换：科技规避→机器人+商业航天进攻+蓝筹防御。商业航天有即将到来的催化剂（SpaceX上市+UP产业逻辑视频）。
   confidence: high
   status: active
-  supersedes:
-  - claim-20260604-004-a
+  supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -123,6 +122,7 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -145,8 +145,9 @@ claims:
   interpretation: 原油价格是黄金坑深度的决定变量。信用利差是关键观测指标。
   confidence: medium
   status: active
-  supersedes: []
+  supersedes: ["claim-20260414-001"]
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -168,8 +169,9 @@ claims:
   interpretation: 黄金4230是UP的明确买入目标位。黄金走势是A股调整深度的领先指标。
   confidence: medium
   status: active
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260528-005-d"]
+  contradicts: ["claim-20260607-003-b"]
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -192,8 +194,8 @@ claims:
   confidence: medium
   status: active
   supersedes: []
-  contradicts:
-  - claim-20260420-003
+  contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -220,6 +222,7 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -244,8 +247,8 @@ claims:
   confidence: medium
   status: active
   supersedes: []
-  contradicts:
-  - claim-20260604-004-b
+  contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -272,6 +275,7 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -296,6 +300,7 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
     wiki_pages: []
     methodology_pages: []

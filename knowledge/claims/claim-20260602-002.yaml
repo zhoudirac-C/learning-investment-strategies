@@ -13,9 +13,9 @@ claims:
     interpretation: 盘中操作要点：①4032点盘中得到验证——与早盘claim-20260602-001-a的"盯住4032点"一致；②"先买后卖"意味着在支撑位低吸，反弹后卖出——这是日内T+0的标准做法；③前提条件：4032点不破，且反弹有量能配合；④若4032跌破，T策略失效需止损。这是一个具体的日内操作指令，不是趋势判断。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260531-001-f
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/做T策略.md
@@ -41,9 +41,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260605-001-c
-      - claim-20260526-017
+    contradicts: ["claim-20260605-001-c", "claim-20260526-017"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/产业链认知.md
@@ -72,6 +71,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/量能分析.md
@@ -100,8 +100,9 @@ claims:
     interpretation: 方法论教训：①先知先觉 vs 后知后觉——MLCC提前1-2周提示，现在追涨是典型韭菜行为；②"不能光看见涨上去的东西"——这是博主反复强调的操作纪律：提前布局、不追高；③与昨日复盘"MLCC周期上行确认，但只观察不追高"一致；④对当前持仓的启示：安泰科技/万通发展如果提前按博主逻辑布局，现在应已有利润；⑤对中国长城的启示：新买入需有明确的催化逻辑和止损纪律，不能盲目追热点。
     confidence: high
     status: active
-    supersedes: []
+    supersedes: ["claim-20260607-003-c"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/交易纪律.md
@@ -128,6 +129,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/市场分析/产业链认知.md
@@ -155,6 +157,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - knowledge/wiki/投资方法论/交易纪律.md

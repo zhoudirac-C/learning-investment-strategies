@@ -14,9 +14,9 @@ claims:
     interpretation: 当市场一致预期反弹但不看好高度时，不能只看指数红绿，需要用开盘兑现、放量能否推升指数、科创是否继续虹吸来判断修复质量
     confidence: high
     status: active
-    supersedes: []
-    contradicts:
-      - claim-20260527-001-a
+    supersedes: ["claim-20260520-002-a"]
+    contradicts: ["claim-20260527-001-a"]
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 每日复盘/2026-05-21
@@ -45,9 +45,9 @@ claims:
     interpretation: 财报好坏已不是唯一变量，海外AI链关键转为利好落地后的资金兑现与核心承接
     confidence: high
     status: active
-    supersedes:
-      - claim-20260520-001-f
+    supersedes: ["claim-20260520-001-f"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/光通信
@@ -77,9 +77,9 @@ claims:
     interpretation: 存储链从事件催化转向产业链纵深验证，设备中军和材料补涨决定其是否仍是主线助攻而非纯情绪高潮
     confidence: high
     status: active
-    supersedes:
-      - claim-20260520-002-b
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/半导体产业链
@@ -112,6 +112,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/玻璃基板与Micro-LED
@@ -139,8 +140,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260527-001-e
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 每日复盘/2026-05-21
@@ -169,6 +170,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/半导体产业链
@@ -196,9 +198,9 @@ claims:
     interpretation: 复盘不能只看主线逻辑是否还在，也要看短线情绪载体是否提供了足够支撑
     confidence: high
     status: active
-    supersedes:
-      - claim-20260527-001-e
+    supersedes: ["claim-20260527-001-e"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 每日复盘/2026-05-21
@@ -227,8 +229,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260528-001-e
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/半导体设备
@@ -258,6 +260,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages: []
       methodology_pages:
@@ -283,9 +286,9 @@ claims:
     interpretation: 5月21日仓位纪律从5月18日完整吃B浪，演化为用半仓和做T应对时间换空间，属于阶段节奏调整
     confidence: high
     status: active
-    supersedes:
-      - claim-20260518-019-m
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages: []
       methodology_pages:
@@ -313,6 +316,7 @@ claims:
     status: superseded
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/指数调整
@@ -338,9 +342,9 @@ claims:
     interpretation: 这是高波动分歧日的条件单，不是无条件抄底；关键在等待尾盘和确认没有提前反弹
     confidence: high
     status: active
-    supersedes:
-      - claim-20260519-001-g
+    supersedes: ["claim-20260519-001-g"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages: []
       methodology_pages:
@@ -369,6 +373,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/光通信
@@ -398,6 +403,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       wiki_pages:
         - 市场分析/玻璃基板与Micro-LED

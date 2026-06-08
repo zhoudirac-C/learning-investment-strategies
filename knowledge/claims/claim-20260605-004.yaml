@@ -20,9 +20,9 @@ claims:
   - 科技清仓线
   - 不是抄底品种
   - 卖出科技
-  supersedes:
-  - claim-20260527-006-e
+  supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   links:
   - claim-20260605-001-b
   intensity: high
@@ -45,10 +45,9 @@ claims:
   - 尾盘加仓
   - 851
   - 继续买
-  supersedes: []
-  contradicts:
-  - claim-20260527-004-a
-  - claim-20260520-001-g
+  supersedes: ["claim-20260520-001-g"]
+  contradicts: []
+  last_discovered: 2026-06-08
   intensity: high
   links: {}
 - id: claim-20260605-004-c
@@ -66,6 +65,7 @@ claims:
   - 复盘预告
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   intensity: high
   source_path: sources/raw/财经/动态：26-06-05：1411-下午继续买，周日复盘梳理行情.md
   source_date: '2026-06-05'

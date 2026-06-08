@@ -15,9 +15,9 @@ claims:
       三个信号同时验证周期切换：①月底切换规律（近几个月周期切换均发生在月底）； ②微盘股下午提前企稳（调整最大压制因素解除）；③高位科技尾盘完成补跌（风险释放）。 这种组合 historically 指向情绪周期切换而非系统性下跌。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260524-014
+    supersedes: ["claim-20260524-014"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -42,8 +42,9 @@ claims:
       周期切换初期不宜急于重仓，需用2个交易日观察：①强势板块（超级电容/端侧AI/散热等） 能否反包延续；②微盘股能否持续企稳；③是否出现真正进攻性强的"领涨矛"。 强修复则跟进，弱修复则继续等待。
     confidence: high
     status: active
-    supersedes: []
+    supersedes: ["claim-20260602-003-d", "claim-20260602-003-b"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260527-005-a
@@ -72,8 +73,8 @@ claims:
     confidence: medium
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260601-004-f
+    contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -103,9 +104,9 @@ claims:
       超级电容是AI服务器功耗升级后传统备电架构失效的必然替代方向。 需求端（英伟达GB300/Rubin拉动20倍）与供给端（全球龙头产能严重不足）的剪刀差 构成典型的"占比小、弹性大"的投资叙事。江海股份涨停、海星股份8天4板验证资金认可。
     confidence: high
     status: active
-    supersedes:
-      - claim-20260521-003-f
+    supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260527-003-a
@@ -140,6 +141,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks:
@@ -170,6 +172,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260527-003-a
@@ -205,6 +208,7 @@ claims:
     status: active
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260527-003-a
@@ -235,8 +239,9 @@ claims:
       周期切换初期的核心纪律：①给市场2个交易日确认方向；②观察强势板块反包质量； ③观察微盘股企稳持续性；④观察是否出现真正进攻性领涨方向。 在情景明确前，宁可空仓等待也不要在低质量反弹中加重仓。
     confidence: high
     status: active
-    supersedes: []
+    supersedes: ["claim-20260604-004-i"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260527-005-b
@@ -264,9 +269,8 @@ claims:
     confidence: high
     status: active
     supersedes: []
-    contradicts:
-      - claim-20260601-004-b
-      - claim-20260601-004-f
+    contradicts: ["claim-20260601-004-b", "claim-20260601-004-f"]
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260527-005-c

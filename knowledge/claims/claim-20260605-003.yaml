@@ -20,10 +20,9 @@ claims:
   - 播种=加仓
   - 调整尾声
   - 等待收获
-  supersedes:
-  - claim-20260525-002
-  - claim-20260420-001
+  supersedes: ["claim-20260525-002"]
   contradicts: []
+  last_discovered: 2026-06-08
   intensity: high
   links: {}
 - id: claim-20260605-003-b
@@ -46,6 +45,7 @@ claims:
   - 09:49-11:51-14:11
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-08
   intensity: high
   source_path: sources/raw/财经/动态：26-06-05：0949-空仓加至5成，这个位置不能看空了.md
   links: {}

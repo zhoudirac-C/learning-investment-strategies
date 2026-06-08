@@ -143,6 +143,8 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 
 36. **Claim topic/tags 自动生成**：当旧格式 claims 缺少 `topic`/`tags` 字段时，运行 `scripts/add_topics_tags.py` 进行批量回填。该脚本基于规则提取（非LLM），从 `subject`/`statement`/`claim_type` 自动生成中文主题词和标签。详见 `references/claim-topic-tag-generation.md`。
 
+37. **Claim 字段完整性审计**：当怀疑 claim 数据质量下降时（如 Neo4j 出现孤立节点、YAML 格式混用），参考 `references/claim-field-audit-workflow.md`（全量审计命令、常见问题模式、修复优先级、验证流程）。
+
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
 2. `framework/contradiction-policy.md`
@@ -202,27 +204,36 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     " && git add knowledge/claims/ || (echo '❌ 字段缺失，请补全后再提交' && exit 1)
     ```
     **这是硬性门禁——不通过不能提交。**
-13. **知识库增量同步**：运行三个增量同步脚本，将新的 claims 和 wiki 推送到 Qing-Agent 的检索后端。
+13. **知识库增量同步 — 四步强制流水线（不可跳过任何一步）**：
+
+    > ⚠️ **步骤顺序是硬性约束。跳过 discover 直接 migrate 会导致 Neo4j 中 SUPERSEDES/CONTRADICTS 关系边为空或过期。**
+    >
+    > 详细原理见 [`docs/neo4j-relation-pipeline.md`](../../docs/neo4j-relation-pipeline.md)。
+
+    ```
+    ① discover_claim_relations.py   →   ② migrate_claims_to_neo4j.py   →   ③ index_claims_to_qdrant.py   →   ④ 重启 Agent
+        (ONNX+LLM 发现关系)                (增量写入 Neo4j)                     (向量重建)                       (uvicorn)
+    ```
 
     **⚠️ 前置步骤：Qdrant 本地模式独占文件锁**
-    Qing-Agent 启动后会持有 `.qdrant_data/` 的独占锁。索引脚本无法与 Agent 同时运行（会报 `Storage folder already accessed` 或静默卡死）。**索引前必须先关 Agent。**
-
-    > 💡 **脚本已内置自动杀 Agent**（2026-06-07）：`index_claims_to_qdrant.py` 和 `index_documents_to_qdrant.py` 启动时自动 SIGTERM→SIGKILL uvicorn 进程，然后等待 `.qdrant_data/.lock` 释放。以下手动关 Agent 步骤为兜底方案。
-
-    **⚠️ 三个脚本必须串行运行，不能并行！** 并行运行会导致两个 QdrantClient 同时访问同一 SQLite → 向量存储损坏。
+    Qing-Agent 启动后会持有 `.qdrant_data/` 的独占锁。索引脚本无法与 Agent 同时运行。**索引前必须先关 Agent。**
 
     ```bash
-    # 1. 关 Agent（脚本自动杀失败时的兜底）
+    # 停 Agent + 全量重建（新增 claims 后必须跑）
+    cd ~/learning-investment-strategies
     kill $(pgrep -f "uvicorn qing_investment") 2>/dev/null
 
-    # 2. 增量同步 — 串行！一个接一个跑
-    cd ~/learning-investment-strategies
-    PYTHONUNBUFFERED=1 .venv/bin/python scripts/index_documents_to_qdrant.py   # 文档 → Qdrant
-    .venv/bin/python scripts/migrate_claims_to_neo4j.py                        # claims → Neo4j
-    .venv/bin/python scripts/index_claims_to_qdrant_monitored.py               # claims → Qdrant（带监控+自检）
+    # ① 关系发现（必须！ONNX embedding + LLM 判断 supersedes/contradicts）
+    PYTHONPATH=src .venv/bin/python src/qing_investment/agent/tools/discover_claim_relations.py --all-missing
 
-    # 3. 重启 Agent
-    nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
+    # ② Neo4j 增量迁移（同步 ① 写入的 supersedes/contradicts 到图）
+    PYTHONPATH=src .venv/bin/python scripts/migrate_claims_to_neo4j.py
+
+    # ③ Qdrant 重建（claims 向量索引）
+    PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate
+
+    # ④ 重启 Agent
+    PYTHONPATH=src .venv/bin/python -m uvicorn qing_investment.agent.main:app --host 0.0.0.0 --port 8000 --log-level info &
     ```
 
     - 增量模式（默认）：只处理 `hash 有变化` 或 `新创建` 的文件，增量 < 30 秒
@@ -233,6 +244,24 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     - **索引脚本已内置 Agent 杀进程 + 锁等待**（2026-06-07）：不再需要手动 `kill` Agent，脚本启动时自动处理。手动 kill 仅作备用。
 
 ### Ingestion 关键 Pitfalls
+
+0. **⚠️ 跳过 discover 直接 migrate 是数据事故**（2026-06-08）：管道顺序是硬性约束 — ①discover → ②migrate → ③Qdrant → ④restart。跳过 discover 的后果：Neo4j 中 SUPERSEDES/CONTRADICTS 边过期，新关系不被发现。**特别危险场景**：对全部 claims 批量回填空字段时（如补 `supersedes: []` / `contradicts: []`），YAML 中的空列表会覆盖 Neo4j 已有关系边。必须重跑 `--all-missing` 重新发现所有关系后再 migrate。
+
+   **Python import shadowing when running discover from `agent/tools/`**（2026-06-08）：当 `discover_claim_relations.py` 运行于 `src/qing_investment/agent/tools/` 时，Python 自动将脚本目录加到 `sys.path[0]`。该目录下的 `qdrant_client.py` 会遮蔽 pip 包 `qdrant_client`，导致 `ImportError: cannot import name 'QdrantClient' from 'qdrant_client'`。**修复**：在 discover 脚本中，导入前移除自动添加的脚本目录：
+   ```python
+   _script_dir = str(Path(__file__).resolve().parent)
+   if sys.path and sys.path[0] == _script_dir:
+       sys.path.pop(0)
+   ```
+   已在 `src/qing_investment/agent/tools/discover_claim_relations.py` 中内置修复。**批量 YAML 字段回填的游离列表项陷阱**（2026-06-08）：对 claims 批量回填空字段时，若脚本在 `supersedes: []` / `contradicts: []` 之后插入 `- claim-xxx` 列表项，这些游离项会成为非法 YAML（不属于任何 key 的列表）。80+ 文件因此损坏，导致 `discover --all-missing` 返回 0 关系。**修复脚本**：`scripts/fix_corrupted_yaml.py` — 移除游离行 + 从 Neo4j 回填关系。**验证**：`python -c "import yaml; yaml.safe_load(open(f))"` 检查所有 files。：当两个变体共享同一形态特征但含义相反时，定义段容易只写「实体很小，下影线极长」就跳转到表格。
+
+1. **遗漏 wiki/index.md 更新**
+   ```python
+   _script_dir = str(Path(__file__).resolve().parent)
+   if sys.path and sys.path[0] == _script_dir:
+       sys.path.pop(0)
+   ```
+   已在 `src/qing_investment/agent/tools/discover_claim_relations.py` 中内置修复。：管道顺序是硬性约束 — ①discover → ②migrate → ③Qdrant → ④restart。跳过 discover 的后果：Neo4j 中 SUPERSEDES/CONTRADICTS 边过期，新关系不被发现。**特别危险场景**：对全部 claims 批量回填空字段时（如补 `supersedes: []` / `contradicts: []`），YAML 中的空列表会覆盖 Neo4j 已有关系边。必须重跑 `--all-missing` 重新发现所有关系后再 migrate。
 
 1. **遗漏 wiki/index.md 更新**：`knowledge/wiki/index.md` 是最容易被遗漏的索引文件。每次更新 wiki 页面（尤其是新增专题页或每日复盘）后，必须检查并更新 wiki/index.md。若新增专题页未加入索引，用户后续无法通过索引发现该页面。
 2. **跳过 claim schema 直接写 claims**：不写 claims 前不读 `references/claim-schema.md` 是常见错误。虽然 LLM 生成的 YAML 通常格式正确，但字段缺失、枚举值错误、特殊字符未转义等问题只有在对比 schema 后才能避免。一次 YAML 格式错误会导致后续自动化流程（索引生成、wiki 链接、矛盾检测）全部中断。
@@ -271,11 +300,22 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     若 `claim-20260604-001.yaml` 已被占用 → 按序递增命名（如 `claim-20260604-004.yaml`）。**不要**用 `write_file` 覆盖已有文件——会丢失之前 session 提取的 claims。若已意外覆盖，立即 `git checkout HEAD -- <file>` 恢复。同时，`mv` 重命名后必须 `sed -i` 批量替换文件内的 claim ID 引用。
 21. **`discover_claim_relations.py` 常见陷阱**：此脚本用于自动发现 claim 间的 SUPERSEDES/CONTRADICTS/SUPPLEMENTS 关系。
     - **没有 `--all` 模式**：脚本只支持 `--file`、`--claim-id`、`--all-missing`。不要编造不存在的 CLI 参数——先读 `--help` 或脚本源码确认。**真实后果（2026-06-07）**：Agent 错误认为存在 `--all` 模式，将原本单一的 `--all-missing` 任务拆分为"已结束的 `--all`"和"当前运行的 `--all-missing`"两个任务，用户明确纠正了这一误解。中断后重新运行 `--all-missing` 就是续跑，不需额外管理。
-    - **YAML 缩进 corruption**：`write_results_to_yaml()` 曾硬编码 4 空格前缀写入 `supersedes:`/`contradicts:` 字段，导致 YAML 解析失败（42 个文件被损坏，错误模式：`mapping values are not allowed here` 或 `expected <block end>, but found '<block mapping start>'`）。**已修复**：改为保留原始缩进（`line[:len(line) - len(line.lstrip())]`）。若重跑旧版本脚本，会导致新一轮 corruption。
-    - **修复已损坏文件**：`git checkout -- knowledge/claims/` 恢复干净版最快。不要逐文件手工修——42 个文件有 162 行缩进错误。
+    - **脚本已迁移至 `src/qing_investment/agent/tools/`（2026-06-08）**：不在 `scripts/` 下了。`scripts/discover_claim_relations.py` 已改为报错重定向脚本。新运行命令：`PYTHONPATH=src .venv/bin/python src/qing_investment/agent/tools/discover_claim_relations.py --all-missing`。
+    - **⚠️ Python import shadowing（2026-06-08 新发现）**：当脚本从 `agent/tools/` 运行时，Python 自动将脚本所在目录加到 `sys.path[0]`。该目录下的 `qdrant_client.py` 会遮蔽 pip 包 `qdrant_client`，导致 `ImportError: cannot import name 'QdrantClient' from 'qdrant_client'`。**修复**：已在 discover 脚本中内置——启动前 pop 掉 Python 自动添加的脚本目录（`if sys.path and sys.path[0] == _script_dir: sys.path.pop(0)`）。不要手动调整 sys.path。
+    - **YAML 缩进 corruption**：`write_results_to_yaml()` 曾硬编码 4 空格前缀写入 `supersedes:`/`contradicts:` 字段，导致 YAML 解析失败（42 个文件被损坏，错误模式：`mapping values are not allowed here` 或 `expected <block end>, but found '<block mapping start>'`）。**已修复**：改为保留原始缩进（`line[:len(line) - len(line.lstrip())]`）。
+    - **⚠️ `last_discovered` 插入位置 bug（2026-06-08 新发现）**：旧版代码在 claim 块**末尾**追加 `last_discovered` 行。在 list-格式 YAML（`- id:` 开头）中，claim 块末尾如有 `tags:` 序列（如 `tags:\\n  - AI\\n  - 芯片`），YAML 解析器处于序列上下文。此时插入映射键 `last_discovered:` 会导致 `mapping values are not allowed here` 或 `expected <block end>` 错误，80+ 文件因此损坏。**修复**：`last_discovered` 现在紧跟在 `contradicts:` 行之后写入（在 while 循环内而非循环后），确保不会落在 `tags:` 序列上下文中。**症状识别**：discover 返回 `Found 0 supersedes/contradicts relations` 或 YAML 解析报错 `mapping values are not allowed here` at `last_discovered` 行。
+    - **⚠️ `fetch_full_claim` 与 `get_claim_evolution` 返回格式耦合（2026-06-08 新发现）**
+    - **⚠️ "0 relations" 诊断工作流**：当 discover 三轮都返回 0 关系时的系统排查流程（Qdrant→Neo4j→LLM→YAML 逐层验证）、强制重跑步骤、修复脚本索引。详见 `references/discover-zero-relations-debugging.md`。：`discover_claim_relations.py` 中的 `fetch_full_claim()` 从 Neo4j 获取相似 claim 的完整内容。它依赖 `get_claim_evolution()` 的返回格式。**2026-06-07 修复 P1-1 时将 `get_claim_evolution` 从嵌套 `{"c": {...}}` 改为扁平 `{...}` 格式，但 `fetch_full_claim` 仍用 `first.get("c", {})` 解析旧格式 → 返回空 dict → `if not node: return None` → 所有相似 claim 被静默跳过 → discover 三轮全部返回 0 关系**。**修复**：`fetch_full_claim` 同步改为扁平格式（`first.get("statement")` 替代 `node.get("statement")`）。**纪律**：修改 Neo4j 查询函数的返回格式时，必须 grep 所有调用方并同步更新。
+    - **批量字段回填的游离列表项陷阱（2026-06-08）**：对 claims 批量回填空字段时，若在 `supersedes: []` 之后插入 `- claim-xxx` 列表项（缩进错误），这些游离项会成为非法 YAML。修复脚本：`scripts/fix_corrupted_yaml.py` — 移除游离行 + 从 Neo4j 回填关系。
+    - **修复已损坏文件**：`git checkout -- knowledge/claims/` 恢复干净版最快。不要逐文件手工修。
     - **项目使用 `.venv` 不是 `venv`**：两个 venv 都存在于项目目录下，只有 `.venv/bin/python` 包含 `langchain_openai` 等完整依赖。
     - **进度汇报 wrapper**：长任务（500+ claims × 10s/条 ≈ 90分钟）建议用 `scripts/run_discover_with_progress.sh`，每 10 分钟输出进度到日志文件 + `progress_reporter` 后台进程。中断时自动记录 exit code 原因（SIGTERM/SIGKILL/OOM/正常完成）。使用方式：`terminal(background=True, notify_on_complete=True)` 运行 wrapper。
-    - **续跑机制**：`--all-missing` 只处理尚无 `supersedes`/`contradicts` 的 claims，天然支持中断续跑——已处理过的自动跳过。
+    - **续跑机制**：`--all-missing` 只处理尚无 `last_discovered` 字段的 claims，天然支持中断续跑——已处理过的自动跳过。即使进程崩溃或 API 超时中断，重启后只处理剩余 claims，不浪费已完成工作。
+    - **⚠️ LLM API 超时 hang 死（2026-06-08 新发现）**：DeepSeek API 调用可能长时间不响应（80+ 分钟），因为 `ChatOpenAI` 默认无 `request_timeout`。**修复**：
+      - 在 `llm_client.py` 的 `ChatOpenAI()` 构造中添加 `request_timeout=120`
+      - 在 `judge_relation()` 中添加 3 次重试 + 指数退避（1s/2s/4s）
+      - 症状：进程 `ps` 显示 `Sl` 状态，`/proc/<pid>/stack` 无活动，网络连接 ESTABLISHED 但无数据传输
+      - 验证：`ss -tnp | grep <pid>` 查看对端 IP（DeepSeek=43.141.130.88:443），若连接存活超 5 分钟无进展 = hang
     - **完整流水线**：关系发现是第一步，完成后必须运行 `migrate_claims_to_neo4j.py` → `index_claims_to_qdrant.py --force-recreate` → 重启 Agent。详见 `docs/neo4j-relation-pipeline.md`。
 
 11. **推理模式抽取混淆观点与推理**：`"UP看好MLCC"` 是观点，应进 claims；`"UP是怎么得出看好MLCC的（5步推理链）"` 是推理模式，应进 `framework/reasoning-patterns.yaml`。不要将单日盘面判断误标为推理模式。
@@ -324,7 +364,11 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 
 22. **`search_files` 不能可靠判定文件不存在**：`search_files` 对含中文路径或特殊字符的目录可能返回空结果，即使文件确实存在。反面案例（2026-06-07）：`search_files(pattern='2026-06-07', path='knowledge/wiki')` 返回 0 结果，但 `每日复盘/2026-06-07.md` 实际存在。**规则**：判定文件是否存在时，用 `ls <path>` 或 `read_file(path)` 做确定性检查，不要依赖 `search_files` 的搜索结果。
 
-## Review（方法论复盘）工作流程 **配对形态的定义段只描述共同特征不命名变体**：当两个变体共享同一形态特征但含义相反时，定义段容易只写「实体很小，下影线极长」就跳转到表格。这导致读者不知道这个形状在不同位置叫什么。反面案例（2026-06-07）：§1.3 定义段只写了共同形态，铁锤线和倒装铁锤线只有在表格里才被命名。用户说「这两个线的定义你有补上去吗？好像我没看到它的定义」。规则：定义段必须在共同特征之后**明确列出两个变体的名称和各自含义**，格式为「- **上吊线**：上述形态出现在上涨末端 → ...\\n- **铁锤线**：上述形态出现在下跌末端 → ...」。
+23. **⚠️ `--force-full` 全量迁移是已被禁用的破坏性操作**（2026-06-08）：`migrate_claims_to_neo4j.py` 已移除 `--force-full` 选项。该操作会 `DETACH DELETE` 清空所有 Neo4j 节点和关系（数据丢失），绕过增量追踪。**正确的"全量恢复"方式**：删除 `.migrate_state.json` → 增量模式会自动检测所有文件为"新"并重建——效果等同于全量但保留了增量架构的幂等性。
+
+### Ingestion 关键 Pitfalls
+
+0. **⚠️ 跳过 discover 直接 migrate 是数据事故**（2026-06-08）：管道顺序是硬性约束 — ①discover → ②migrate → ③Qdrant → ④restart。跳过 discover 的后果：Neo4j 中 SUPERSEDES/CONTRADICTS 边过期，新关系不被发现。**特别危险场景**：对全部 claims 批量回填空字段时（如补 `supersedes: []` / `contradicts: []`），YAML 中的空列表会覆盖 Neo4j 已有关系边。必须重跑 `--all-missing` 重新发现所有关系后再 migrate。：当两个变体共享同一形态特征但含义相反时，定义段容易只写「实体很小，下影线极长」就跳转到表格。这导致读者不知道这个形状在不同位置叫什么。反面案例（2026-06-07）：§1.3 定义段只写了共同形态，铁锤线和倒装铁锤线只有在表格里才被命名。用户说「这两个线的定义你有补上去吗？好像我没看到它的定义」。规则：定义段必须在共同特征之后**明确列出两个变体的名称和各自含义**，格式为「- **上吊线**：上述形态出现在上涨末端 → ...\\n- **铁锤线**：上述形态出现在下跌末端 → ...」。
 
 21. **同日期 wiki 覆盖——双轨内容合并而非覆盖**：当同一日期已有 wiki（如轨道B技术课程学习），现在又要写入新内容（如轨道A周复盘）时，**不能直接用 `write_file` 覆盖**。反面案例（2026-06-07）：`每日复盘/2026-06-07.md` 已存在（技术分析第二课学习），agent 直接覆盖为周复盘内容 → 丢失了轨道B的 K 线形态表格和 claims 引用。**正确做法**：①用 `ls` 或直接 `read_file` 检查目标 wiki 是否已存在（不要只依赖 `search_files`——可能返回空结果）→ ②若已存在，读取原文 → ③合并两个内容到同一文件，用 `## 一、...（轨道B）` + `## 二、...（轨道A）` 分区 → ④更新 wiki/index.md 中该条目的描述以反映合并内容。恢复已覆盖文件：`git show HEAD:path > path`。
 
