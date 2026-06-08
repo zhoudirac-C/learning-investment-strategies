@@ -374,6 +374,8 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 
 25. **⚠️ 审核时不要因内容重叠删 claim——claim_type 不同则功能不同**（2026-06-08）：两条 claims 的 statement 可能存在重叠（如都包含"清仓+纠错信号"），但如果 `claim_type` 不同（如 `operation` vs `methodology`），它们在 Agent 中的消费逻辑完全不同——operation 是即时操作信号，methodology 是框架沉淀。**只删除 claim_type 相同且内容真正重复的 claim**。反面案例：Agent 建议删除 001-a(operation) 因为与 001-i(methodology) 内容重叠 → 用户纠正："不同的 type，可以删吗？" → 结论：不能删。
 
+26. **⚠️ 同日期多 raw 的 timeline 必须进 claim interpretation**（2026-06-08）：当同一日期处理多篇时间点不同的 raw（如早盘→盘中动态→午盘动态），每条 claim 的 `interpretation` 必须明确标注其在该时间点的位置角色，以及它与前后 raw 的关系。反面案例：6/8 早盘 09:03 专栏说"今日早盘执行硬科技清仓"，09:28 动态追加"今天看修复，修复完继续看空"——但如果 002-a 的 interpretation 不写明「盘前2分钟紧急追加的节奏修正」，Agent 检索时会把这些当平行信号，无法理解清仓 vs 等修复的递进关系。正确做法：①每条 claim 的 `interpretation` 说清它在时间线中的位置（是初始信号/修正/强化）②`related_claims` 链接前后时间点的相关 claim ③wiki 中用时间线串联（一/二/三章节）
+
 ### Ingestion 关键 Pitfalls
 
 0. **⚠️ 跳过 discover 直接 migrate 是数据事故**（2026-06-08）：管道顺序是硬性约束 — ①discover → ②migrate → ③Qdrant → ④restart。跳过 discover 的后果：Neo4j 中 SUPERSEDES/CONTRADICTS 边过期，新关系不被发现。**特别危险场景**：对全部 claims 批量回填空字段时（如补 `supersedes: []` / `contradicts: []`），YAML 中的空列表会覆盖 Neo4j 已有关系边。必须重跑 `--all-missing` 重新发现所有关系后再 migrate。：当两个变体共享同一形态特征但含义相反时，定义段容易只写「实体很小，下影线极长」就跳转到表格。这导致读者不知道这个形状在不同位置叫什么。反面案例（2026-06-07）：§1.3 定义段只写了共同形态，铁锤线和倒装铁锤线只有在表格里才被命名。用户说「这两个线的定义你有补上去吗？好像我没看到它的定义」。规则：定义段必须在共同特征之后**明确列出两个变体的名称和各自含义**，格式为「- **上吊线**：上述形态出现在上涨末端 → ...\\n- **铁锤线**：上述形态出现在下跌末端 → ...」。

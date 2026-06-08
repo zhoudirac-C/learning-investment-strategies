@@ -17,8 +17,9 @@ claims:
     confidence: medium
     status: active
     intensity: high
-    supersedes: []
+    supersedes: ["claim-20260608-001-a"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260608-001-a
@@ -47,8 +48,9 @@ claims:
     confidence: medium
     status: active
     intensity: high
-    supersedes: []
-    contradicts: []
+    supersedes: ["claim-20260522-002-d"]
+    contradicts: ["claim-20260521-002-k"]
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260608-001-b
