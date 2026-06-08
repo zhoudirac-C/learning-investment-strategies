@@ -1,8 +1,8 @@
 ---
 name: qing-methodology-review
 description: |
+  Use when: user asks for "qing review", "方法论复盘", "review claims", "检查一致性" or similar requests.
   周期性检查 claims、wiki、methodology 和 framework，识别长期方法论变化、矛盾、过期观点和需要人工确认的问题。
-  当用户要求 "qing review"、"方法论复盘"、"review claims"、"检查一致性" 或类似请求时触发。
 ---
 
 # qing-methodology-review

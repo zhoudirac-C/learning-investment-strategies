@@ -695,15 +695,22 @@ def filter_new_alerts(
         last_entry = history.get(fp)
 
         # Same-day dedupe for reduce/risk alerts on same stock
+        # 只在时间间隔 < dedupe_minutes 时生效（避免与 history-based dedupe 冲突）
         code_action_key = f"{alert.stock_code}_{alert.action}"
         daily_key = (daily_emitted.get(today_str, {}) if isinstance(daily_emitted, dict) else {})
         same_day_price = daily_key.get(code_action_key)
 
         if same_day_price is not None and alert.action in ("减仓观察", "风控观察"):
-            pct_change = abs((alert.price - same_day_price) / same_day_price) * 100 if same_day_price > 0 else 0
-            if pct_change < 2.0:
-                # Same stock + same action already fired today, and price barely moved → suppress
-                continue
+            # 检查 history 中的上次时间，确认是否仍在 dedupe 窗口内
+            if isinstance(last_entry, dict):
+                last_time = _parse_state_time(last_entry.get("time"))
+                if last_time is not None:
+                    elapsed_minutes = (current - last_time).total_seconds() / 60
+                    if elapsed_minutes < dedupe_minutes:
+                        pct_change = abs((alert.price - same_day_price) / same_day_price) * 100 if same_day_price > 0 else 0
+                        if pct_change < 2.0:
+                            # Same stock + same action already fired today within dedupe window, and price barely moved → suppress
+                            continue
 
         if last_entry is None:
             fresh.append(alert)

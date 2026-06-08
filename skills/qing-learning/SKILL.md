@@ -2,10 +2,9 @@
 name: qing-learning
 description: |
   Investment knowledge management for the 青枫浦上Q (Qing) blogger content system.
+  Use when: adding new material, updating methodologies, reviewing existing claims for contradictions and drift.
   Covers the full lifecycle: ingestion (学习/消化/ingest raw content), extraction (claims → wiki → framework),
   and periodic review (qing review / 方法论复盘 / consistency audits).
-  Use for any task involving blogger content — whether adding new material, updating methodologies,
-  or reviewing existing claims for contradictions and drift.
 ---
 
 # qing-investment-knowledge

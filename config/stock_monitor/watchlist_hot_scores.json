@@ -1,104 +1,80 @@
 {
-  "calculated_at": "2026-06-08T21:46:17.023885",
+  "calculated_at": "2026-06-08T22:20:26.980177",
   "total_stocks": 164,
   "tier_summary": {
     "A": 0,
-    "B": 1,
+    "B": 2,
     "C": 162,
-    "D": 1
+    "D": 0
   },
   "top_20": [
     {
-      "code": "002353.SZ",
-      "name": "杰瑞股份",
-      "hot_score": 6.05,
+      "code": "000534.SZ",
+      "name": "万泽股份",
+      "hot_score": 6.2,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 6.0,
-        "priority_base": 10,
+        "priority_base": 7,
         "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 10.0
       },
       "ranking_tier": "B",
       "theme": "AI能源/燃气轮机（UP深度方向，确定性高）",
       "theme_id": "ai_energy_gas_turbine"
     },
     {
-      "code": "002025.SZ",
-      "name": "航天电器",
-      "hot_score": 5.85,
+      "code": "002353.SZ",
+      "name": "杰瑞股份",
+      "hot_score": 6.0,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "国产算力产业链",
-      "theme_id": "domestic_compute"
-    },
-    {
-      "code": "000636.SZ",
-      "name": "万通发展",
-      "hot_score": 5.65,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
+        "up_mention_recency": 6.0,
         "priority_base": 10,
         "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
-      "ranking_tier": "C",
-      "theme": "CPU自研链（字节催化，可能裂变为主线）",
-      "theme_id": "cpu_self_development"
-    },
-    {
-      "code": "002463.SZ",
-      "name": "沪电股份",
-      "hot_score": 5.65,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
-        "priority_base": 10,
-        "technical_setup": 10.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "LPU/推理芯片链（博通新概念）",
-      "theme_id": "lpu_inference_chip"
+      "ranking_tier": "B",
+      "theme": "AI能源/燃气轮机（UP深度方向，确定性高）",
+      "theme_id": "ai_energy_gas_turbine"
     },
     {
       "code": "603920.SH",
       "name": "世运电路",
-      "hot_score": 5.6,
+      "hot_score": 5.7,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 6.0,
         "priority_base": 7,
         "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "LPU/推理芯片链（博通新概念）",
       "theme_id": "lpu_inference_chip"
     },
     {
-      "code": "002475.SZ",
-      "name": "立讯精密",
-      "hot_score": 5.6,
+      "code": "002463.SZ",
+      "name": "沪电股份",
+      "hot_score": 5.7,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 6.0,
-        "priority_base": 7,
+        "up_mention_recency": 4.0,
+        "priority_base": 10,
         "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "LPU/推理芯片链（博通新概念）",
@@ -107,320 +83,360 @@
     {
       "code": "603308.SH",
       "name": "应流股份",
-      "hot_score": 5.6,
+      "hot_score": 5.7,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 6.0,
         "priority_base": 7,
         "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "AI能源/燃气轮机（UP深度方向，确定性高）",
       "theme_id": "ai_energy_gas_turbine"
     },
     {
-      "code": "000534.SZ",
-      "name": "万泽股份",
+      "code": "301018.SZ",
+      "name": "申菱环境",
       "hot_score": 5.6,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 6.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "up_mention_recency": 8.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "AI能源/燃气轮机（UP深度方向，确定性高）",
-      "theme_id": "ai_energy_gas_turbine"
+      "theme": "液冷/散热（华为链，韬定律催化）",
+      "theme_id": "liquid_cooling_heat_dissipation"
     },
     {
       "code": "688629.SH",
       "name": "华丰科技",
-      "hot_score": 5.55,
+      "hot_score": 5.4,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 8.0,
         "priority_base": 5.0,
         "technical_setup": 10.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 6.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "国产算力产业链",
       "theme_id": "domestic_compute"
     },
     {
-      "code": "301611.SZ",
-      "name": "珂玛科技",
-      "hot_score": 5.55,
+      "code": "605376.SH",
+      "name": "博迁新材",
+      "hot_score": 5.3,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
+        "up_mention_recency": 6.0,
         "priority_base": 5.0,
         "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "半导体材料与电子材料",
-      "theme_id": "semiconductor_materials"
-    },
-    {
-      "code": "000636.SZ",
-      "name": "风华高科",
-      "hot_score": 5.5,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
-        "priority_base": 10,
-        "technical_setup": 10.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "上游涨价链（位置低，扩散广）",
       "theme_id": "upstream_price_increase"
     },
     {
-      "code": "300476.SZ",
-      "name": "胜宏科技",
-      "hot_score": 5.45,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 10,
-        "technical_setup": 10.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "002897.SZ",
-      "name": "意华股份",
-      "hot_score": 5.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 4,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "液冷/散热（华为链，韬定律催化）",
-      "theme_id": "liquid_cooling_heat_dissipation"
-    },
-    {
-      "code": "301018.SZ",
-      "name": "申菱环境",
-      "hot_score": 5.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "液冷/散热（华为链，韬定律催化）",
-      "theme_id": "liquid_cooling_heat_dissipation"
-    },
-    {
-      "code": "300308.SZ",
-      "name": "中际旭创",
+      "code": "002025.SZ",
+      "name": "航天电器",
       "hot_score": 5.3,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 10,
+        "up_mention_recency": 8.0,
+        "priority_base": 7,
         "technical_setup": 10.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "光通信/CPO（高位核心，确认景气但不追）",
-      "theme_id": "cpo_optical_communication"
+      "theme": "国产算力产业链",
+      "theme_id": "domestic_compute"
     },
     {
-      "code": "300408.SZ",
-      "name": "三环集团",
-      "hot_score": 5.3,
+      "code": "000636.SZ",
+      "name": "风华高科",
+      "hot_score": 5.25,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
-        "priority_base": 10,
-        "technical_setup": 9.0,
+        "priority_base": 7,
+        "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "MLCC/被动元件周期上行（外溢承接，非类存储大紧缺）",
       "theme_id": "mlcc_passive_cycle"
     },
     {
-      "code": "600160.SH",
-      "name": "巨化股份",
-      "hot_score": 5.3,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 10,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "化工涨价（安赛蜜+制冷剂）",
-      "theme_id": "chemical_price_increase"
-    },
-    {
-      "code": "002916.SZ",
-      "name": "深南电路",
-      "hot_score": 5.2,
+      "code": "000636.SZ",
+      "name": "万通发展",
+      "hot_score": 5.1,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 4.0,
+        "priority_base": 10,
+        "technical_setup": 10.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "CPU自研链（字节催化，可能裂变为主线）",
+      "theme_id": "cpu_self_development"
+    },
+    {
+      "code": "301611.SZ",
+      "name": "珂玛科技",
+      "hot_score": 5.1,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 8.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "半导体材料与电子材料",
+      "theme_id": "semiconductor_materials"
+    },
+    {
+      "code": "002475.SZ",
+      "name": "立讯精密",
+      "hot_score": 5.1,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 6.0,
         "priority_base": 7,
         "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "LPU/推理芯片链（博通新概念）",
       "theme_id": "lpu_inference_chip"
     },
     {
-      "code": "688630.SH",
-      "name": "芯碁微装",
-      "hot_score": 5.15,
+      "code": "600584.SH",
+      "name": "长电科技",
+      "hot_score": 5.05,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "半导体老主线（观察为主，暂不介入）",
+      "theme_id": "semiconductor_legacy_watch"
+    },
+    {
+      "code": "000636.SZ",
+      "name": "风华高科",
+      "hot_score": 5.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 4.0,
         "priority_base": 10,
-        "technical_setup": 9.0,
+        "technical_setup": 10.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "上游涨价链（位置低，扩散广）",
       "theme_id": "upstream_price_increase"
     },
     {
-      "code": "688347.SH",
-      "name": "华虹公司",
-      "hot_score": 5.15,
+      "code": "002897.SZ",
+      "name": "意华股份",
+      "hot_score": 5.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 8.0,
+        "priority_base": 4,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "液冷/散热（华为链，韬定律催化）",
+      "theme_id": "liquid_cooling_heat_dissipation"
+    },
+    {
+      "code": "002636.SZ",
+      "name": "金安国纪",
+      "hot_score": 4.95,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "605589.SH",
+      "name": "圣泉集团",
+      "hot_score": 4.95,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "300476.SZ",
+      "name": "胜宏科技",
+      "hot_score": 4.95,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 10,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "technical_setup": 10.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "上游涨价链（位置低，扩散广）",
-      "theme_id": "upstream_price_increase"
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "600036.SH",
+      "name": "招商银行",
+      "hot_score": 4.95,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "防御板块（轮动观察，控制仓位）",
+      "theme_id": "defensive_rotation"
     }
   ],
   "all_scores": [
     {
-      "code": "002353.SZ",
-      "name": "杰瑞股份",
-      "hot_score": 6.05,
+      "code": "000534.SZ",
+      "name": "万泽股份",
+      "hot_score": 6.2,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 6.0,
-        "priority_base": 10,
+        "priority_base": 7,
         "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 10.0
       },
       "ranking_tier": "B",
       "theme": "AI能源/燃气轮机（UP深度方向，确定性高）",
       "theme_id": "ai_energy_gas_turbine"
     },
     {
-      "code": "002025.SZ",
-      "name": "航天电器",
-      "hot_score": 5.85,
+      "code": "002353.SZ",
+      "name": "杰瑞股份",
+      "hot_score": 6.0,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "国产算力产业链",
-      "theme_id": "domestic_compute"
-    },
-    {
-      "code": "000636.SZ",
-      "name": "万通发展",
-      "hot_score": 5.65,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
+        "up_mention_recency": 6.0,
         "priority_base": 10,
         "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
-      "ranking_tier": "C",
-      "theme": "CPU自研链（字节催化，可能裂变为主线）",
-      "theme_id": "cpu_self_development"
-    },
-    {
-      "code": "002463.SZ",
-      "name": "沪电股份",
-      "hot_score": 5.65,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
-        "priority_base": 10,
-        "technical_setup": 10.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "LPU/推理芯片链（博通新概念）",
-      "theme_id": "lpu_inference_chip"
+      "ranking_tier": "B",
+      "theme": "AI能源/燃气轮机（UP深度方向，确定性高）",
+      "theme_id": "ai_energy_gas_turbine"
     },
     {
       "code": "603920.SH",
       "name": "世运电路",
-      "hot_score": 5.6,
+      "hot_score": 5.7,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 6.0,
         "priority_base": 7,
         "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "LPU/推理芯片链（博通新概念）",
       "theme_id": "lpu_inference_chip"
     },
     {
-      "code": "002475.SZ",
-      "name": "立讯精密",
-      "hot_score": 5.6,
+      "code": "002463.SZ",
+      "name": "沪电股份",
+      "hot_score": 5.7,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 6.0,
-        "priority_base": 7,
+        "up_mention_recency": 4.0,
+        "priority_base": 10,
         "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "LPU/推理芯片链（博通新概念）",
@@ -429,434 +445,938 @@
     {
       "code": "603308.SH",
       "name": "应流股份",
-      "hot_score": 5.6,
+      "hot_score": 5.7,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 6.0,
         "priority_base": 7,
         "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "AI能源/燃气轮机（UP深度方向，确定性高）",
       "theme_id": "ai_energy_gas_turbine"
     },
     {
-      "code": "000534.SZ",
-      "name": "万泽股份",
+      "code": "301018.SZ",
+      "name": "申菱环境",
       "hot_score": 5.6,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 6.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "up_mention_recency": 8.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "AI能源/燃气轮机（UP深度方向，确定性高）",
-      "theme_id": "ai_energy_gas_turbine"
+      "theme": "液冷/散热（华为链，韬定律催化）",
+      "theme_id": "liquid_cooling_heat_dissipation"
     },
     {
       "code": "688629.SH",
       "name": "华丰科技",
-      "hot_score": 5.55,
+      "hot_score": 5.4,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 8.0,
         "priority_base": 5.0,
         "technical_setup": 10.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 6.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "国产算力产业链",
       "theme_id": "domestic_compute"
     },
     {
-      "code": "301611.SZ",
-      "name": "珂玛科技",
-      "hot_score": 5.55,
+      "code": "605376.SH",
+      "name": "博迁新材",
+      "hot_score": 5.3,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
+        "up_mention_recency": 6.0,
         "priority_base": 5.0,
         "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "半导体材料与电子材料",
-      "theme_id": "semiconductor_materials"
-    },
-    {
-      "code": "000636.SZ",
-      "name": "风华高科",
-      "hot_score": 5.5,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
-        "priority_base": 10,
-        "technical_setup": 10.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "上游涨价链（位置低，扩散广）",
       "theme_id": "upstream_price_increase"
     },
     {
-      "code": "300476.SZ",
-      "name": "胜宏科技",
-      "hot_score": 5.45,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 10,
-        "technical_setup": 10.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "002897.SZ",
-      "name": "意华股份",
-      "hot_score": 5.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 4,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "液冷/散热（华为链，韬定律催化）",
-      "theme_id": "liquid_cooling_heat_dissipation"
-    },
-    {
-      "code": "301018.SZ",
-      "name": "申菱环境",
-      "hot_score": 5.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "液冷/散热（华为链，韬定律催化）",
-      "theme_id": "liquid_cooling_heat_dissipation"
-    },
-    {
-      "code": "300308.SZ",
-      "name": "中际旭创",
+      "code": "002025.SZ",
+      "name": "航天电器",
       "hot_score": 5.3,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 10,
+        "up_mention_recency": 8.0,
+        "priority_base": 7,
         "technical_setup": 10.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "光通信/CPO（高位核心，确认景气但不追）",
-      "theme_id": "cpo_optical_communication"
+      "theme": "国产算力产业链",
+      "theme_id": "domestic_compute"
     },
     {
-      "code": "300408.SZ",
-      "name": "三环集团",
-      "hot_score": 5.3,
+      "code": "000636.SZ",
+      "name": "风华高科",
+      "hot_score": 5.25,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
-        "priority_base": 10,
-        "technical_setup": 9.0,
+        "priority_base": 7,
+        "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "MLCC/被动元件周期上行（外溢承接，非类存储大紧缺）",
       "theme_id": "mlcc_passive_cycle"
     },
     {
-      "code": "600160.SH",
-      "name": "巨化股份",
-      "hot_score": 5.3,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 10,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "化工涨价（安赛蜜+制冷剂）",
-      "theme_id": "chemical_price_increase"
-    },
-    {
-      "code": "002916.SZ",
-      "name": "深南电路",
-      "hot_score": 5.2,
+      "code": "000636.SZ",
+      "name": "万通发展",
+      "hot_score": 5.1,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 4.0,
+        "priority_base": 10,
+        "technical_setup": 10.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "CPU自研链（字节催化，可能裂变为主线）",
+      "theme_id": "cpu_self_development"
+    },
+    {
+      "code": "301611.SZ",
+      "name": "珂玛科技",
+      "hot_score": 5.1,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 8.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "半导体材料与电子材料",
+      "theme_id": "semiconductor_materials"
+    },
+    {
+      "code": "002475.SZ",
+      "name": "立讯精密",
+      "hot_score": 5.1,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 6.0,
         "priority_base": 7,
         "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "LPU/推理芯片链（博通新概念）",
       "theme_id": "lpu_inference_chip"
     },
     {
-      "code": "688630.SH",
-      "name": "芯碁微装",
-      "hot_score": 5.15,
+      "code": "600584.SH",
+      "name": "长电科技",
+      "hot_score": 5.05,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
-        "priority_base": 10,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "上游涨价链（位置低，扩散广）",
-      "theme_id": "upstream_price_increase"
-    },
-    {
-      "code": "688347.SH",
-      "name": "华虹公司",
-      "hot_score": 5.15,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 10,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "上游涨价链（位置低，扩散广）",
-      "theme_id": "upstream_price_increase"
-    },
-    {
-      "code": "688381.SH",
-      "name": "帝奥微",
-      "hot_score": 5.15,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 6.0,
         "priority_base": 5.0,
         "technical_setup": 10.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "半导体老主线（观察为主，暂不介入）",
+      "theme_id": "semiconductor_legacy_watch"
+    },
+    {
+      "code": "000636.SZ",
+      "name": "风华高科",
+      "hot_score": 5.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 4.0,
+        "priority_base": 10,
+        "technical_setup": 10.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "上游涨价链（位置低，扩散广）",
       "theme_id": "upstream_price_increase"
     },
     {
-      "code": "300602.SZ",
-      "name": "飞荣达",
-      "hot_score": 5.15,
+      "code": "002897.SZ",
+      "name": "意华股份",
+      "hot_score": 5.0,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 10,
-        "technical_setup": 9.0,
+        "up_mention_recency": 8.0,
+        "priority_base": 4,
+        "technical_setup": 10.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "液冷/散热（华为链，韬定律催化）",
       "theme_id": "liquid_cooling_heat_dissipation"
     },
     {
-      "code": "002897.SZ",
-      "name": "意华股份",
-      "hot_score": 5.15,
+      "code": "002636.SZ",
+      "name": "金安国纪",
+      "hot_score": 4.95,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 6.0,
+        "up_mention_recency": 3.0,
         "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "光通信/CPO（高位核心，确认景气但不追）",
-      "theme_id": "cpo_optical_communication"
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
     },
     {
-      "code": "301419.SZ",
-      "name": "阿莱德",
-      "hot_score": 5.15,
+      "code": "605589.SH",
+      "name": "圣泉集团",
+      "hot_score": 4.95,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 6.0,
+        "up_mention_recency": 3.0,
         "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "光通信/CPO（高位核心，确认景气但不追）",
-      "theme_id": "cpo_optical_communication"
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
     },
     {
-      "code": "300265.SZ",
-      "name": "通光线缆",
-      "hot_score": 5.15,
+      "code": "300476.SZ",
+      "name": "胜宏科技",
+      "hot_score": 4.95,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 6.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 10,
+        "technical_setup": 10.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "600036.SH",
+      "name": "招商银行",
+      "hot_score": 4.95,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
         "priority_base": 5.0,
         "technical_setup": 10.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "防御板块（轮动观察，控制仓位）",
+      "theme_id": "defensive_rotation"
+    },
+    {
+      "code": "000066.SZ",
+      "name": "中国长城",
+      "hot_score": 4.95,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "国产CPU/服务器/基础软件主板观察池",
+      "theme_id": "mainboard_compute_software"
+    },
+    {
+      "code": "603019.SH",
+      "name": "中科曙光",
+      "hot_score": 4.95,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "国产CPU/服务器/基础软件主板观察池",
+      "theme_id": "mainboard_compute_software"
+    },
+    {
+      "code": "000977.SZ",
+      "name": "浪潮信息",
+      "hot_score": 4.95,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "国产CPU/服务器/基础软件主板观察池",
+      "theme_id": "mainboard_compute_software"
+    },
+    {
+      "code": "601869.SH",
+      "name": "长飞光纤",
+      "hot_score": 4.95,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "Micro-LED/光互联/精密光学主板观察池",
       "theme_id": "micro_led_optics_mainboard"
     },
     {
-      "code": "688313.SH",
-      "name": "仕佳光子",
-      "hot_score": 5.15,
+      "code": "600487.SH",
+      "name": "亨通光电",
+      "hot_score": 4.95,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 6.0,
+        "up_mention_recency": 3.0,
         "priority_base": 5.0,
         "technical_setup": 10.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "CPO/光背板（鸿海今年出货1万台）",
-      "theme_id": "cpo_optical_backplane"
+      "theme": "Micro-LED/光互联/精密光学主板观察池",
+      "theme_id": "micro_led_optics_mainboard"
     },
     {
-      "code": "688025.SH",
-      "name": "杰普特",
-      "hot_score": 5.15,
+      "code": "002185.SZ",
+      "name": "华天科技",
+      "hot_score": 4.95,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 6.0,
+        "up_mention_recency": 3.0,
         "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "CPO/光背板（鸿海今年出货1万台）",
-      "theme_id": "cpo_optical_backplane"
+      "theme": "半导体老主线（观察为主，暂不介入）",
+      "theme_id": "semiconductor_legacy_watch"
     },
     {
-      "code": "605376.SH",
-      "name": "博迁新材",
-      "hot_score": 5.0,
+      "code": "002409.SZ",
+      "name": "雅克科技",
+      "hot_score": 4.95,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 6.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "半导体材料与电子材料",
+      "theme_id": "semiconductor_materials"
+    },
+    {
+      "code": "603650.SH",
+      "name": "彤程新材",
+      "hot_score": 4.95,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "半导体材料与电子材料",
+      "theme_id": "semiconductor_materials"
+    },
+    {
+      "code": "600673.SH",
+      "name": "东阳光",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
         "priority_base": 5.0,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "上游涨价链（位置低，扩散广）",
       "theme_id": "upstream_price_increase"
     },
     {
-      "code": "002938.SZ",
-      "name": "鹏鼎控股",
-      "hot_score": 5.0,
+      "code": "603115.SH",
+      "name": "海星股份",
+      "hot_score": 4.85,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
+      "theme": "上游涨价链（位置低，扩散广）",
+      "theme_id": "upstream_price_increase"
     },
     {
-      "code": "000636.SZ",
-      "name": "风华高科",
-      "hot_score": 5.0,
+      "code": "002028.SZ",
+      "name": "思源电气",
+      "hot_score": 4.85,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
-        "priority_base": 7,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "上游涨价链（位置低，扩散广）",
+      "theme_id": "upstream_price_increase"
+    },
+    {
+      "code": "002518.SZ",
+      "name": "科士达",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "上游涨价链（位置低，扩散广）",
+      "theme_id": "upstream_price_increase"
+    },
+    {
+      "code": "002922.SZ",
+      "name": "伊戈尔",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "上游涨价链（位置低，扩散广）",
+      "theme_id": "upstream_price_increase"
+    },
+    {
+      "code": "300308.SZ",
+      "name": "中际旭创",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 10,
         "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "光通信/CPO（高位核心，确认景气但不追）",
+      "theme_id": "cpo_optical_communication"
+    },
+    {
+      "code": "002156.SZ",
+      "name": "通富微电",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "先进封装/存储封测主板观察池",
+      "theme_id": "advanced_packaging_mainboard"
+    },
+    {
+      "code": "002371.SZ",
+      "name": "北方华创",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "先进封装/存储封测主板观察池",
+      "theme_id": "advanced_packaging_mainboard"
+    },
+    {
+      "code": "603986.SH",
+      "name": "兆易创新",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "先进封装/存储封测主板观察池",
+      "theme_id": "advanced_packaging_mainboard"
+    },
+    {
+      "code": "002639.SZ",
+      "name": "雪人股份",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "AI基础设施与能源转型",
+      "theme_id": "ai_infrastructure_energy"
+    },
+    {
+      "code": "002837.SZ",
+      "name": "英维克",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "AI基础设施与能源转型",
+      "theme_id": "ai_infrastructure_energy"
+    },
+    {
+      "code": "000021.SZ",
+      "name": "深科技",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "长鑫存储产业链",
+      "theme_id": "changxin_storage"
+    },
+    {
+      "code": "688041.SH",
+      "name": "海光信息",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "长鑫存储产业链",
+      "theme_id": "changxin_storage"
+    },
+    {
+      "code": "603269.SH",
+      "name": "海鸥股份",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "长鑫存储产业链",
+      "theme_id": "changxin_storage"
+    },
+    {
+      "code": "002782.SZ",
+      "name": "可立克",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "长鑫存储产业链",
+      "theme_id": "changxin_storage"
+    },
+    {
+      "code": "600519.SH",
+      "name": "贵州茅台",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "防御板块（轮动观察，控制仓位）",
+      "theme_id": "defensive_rotation"
+    },
+    {
+      "code": "000021.SZ",
+      "name": "深科技",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "国产算力产业链",
+      "theme_id": "domestic_compute"
+    },
+    {
+      "code": "002881.SZ",
+      "name": "美格智能",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "国产算力产业链",
+      "theme_id": "domestic_compute"
+    },
+    {
+      "code": "000938.SZ",
+      "name": "紫光股份",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "国产CPU/服务器/基础软件主板观察池",
+      "theme_id": "mainboard_compute_software"
+    },
+    {
+      "code": "000063.SZ",
+      "name": "中兴通讯",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "国产CPU/服务器/基础软件主板观察池",
+      "theme_id": "mainboard_compute_software"
+    },
+    {
+      "code": "600536.SH",
+      "name": "中国软件",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "国产CPU/服务器/基础软件主板观察池",
+      "theme_id": "mainboard_compute_software"
+    },
+    {
+      "code": "603138.SH",
+      "name": "海量数据",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "国产CPU/服务器/基础软件主板观察池",
+      "theme_id": "mainboard_compute_software"
+    },
+    {
+      "code": "002429.SZ",
+      "name": "兆驰股份",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Micro-LED/光互联/精密光学主板观察池",
+      "theme_id": "micro_led_optics_mainboard"
+    },
+    {
+      "code": "002273.SZ",
+      "name": "水晶光电",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Micro-LED/光互联/精密光学主板观察池",
+      "theme_id": "micro_led_optics_mainboard"
+    },
+    {
+      "code": "002222.SZ",
+      "name": "福晶科技",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Micro-LED/光互联/精密光学主板观察池",
+      "theme_id": "micro_led_optics_mainboard"
+    },
+    {
+      "code": "002338.SZ",
+      "name": "奥普光电",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Micro-LED/光互联/精密光学主板观察池",
+      "theme_id": "micro_led_optics_mainboard"
+    },
+    {
+      "code": "600522.SH",
+      "name": "中天科技",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Micro-LED/光互联/精密光学主板观察池",
+      "theme_id": "micro_led_optics_mainboard"
+    },
+    {
+      "code": "300408.SZ",
+      "name": "三环集团",
+      "hot_score": 4.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 10,
+        "technical_setup": 9.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "MLCC/被动元件周期上行（外溢承接，非类存储大紧缺）",
       "theme_id": "mlcc_passive_cycle"
-    },
-    {
-      "code": "300502.SZ",
-      "name": "新易盛",
-      "hot_score": 4.85,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "光通信/CPO（高位核心，确认景气但不追）",
-      "theme_id": "cpo_optical_communication"
-    },
-    {
-      "code": "300394.SZ",
-      "name": "天孚通信",
-      "hot_score": 4.85,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "光通信/CPO（高位核心，确认景气但不追）",
-      "theme_id": "cpo_optical_communication"
-    },
-    {
-      "code": "688519.SH",
-      "name": "南亚新材",
-      "hot_score": 4.85,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
     },
     {
       "code": "601088.SH",
@@ -868,903 +1388,261 @@
         "priority_base": 7,
         "technical_setup": 9.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 6.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "煤炭（安监风暴+迎峰度夏）",
       "theme_id": "coal_safety_summer"
     },
     {
-      "code": "603968.SH",
-      "name": "醋化股份",
+      "code": "600160.SH",
+      "name": "巨化股份",
       "hot_score": 4.85,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
-        "priority_base": 7,
+        "priority_base": 10,
         "technical_setup": 9.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "化工涨价（安赛蜜+制冷剂）",
       "theme_id": "chemical_price_increase"
     },
     {
-      "code": "601668.SH",
-      "name": "中国建筑",
-      "hot_score": 4.85,
+      "code": "688381.SH",
+      "name": "帝奥微",
+      "hot_score": 4.8,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "城市更新（十五五13万亿，专项债可作资本金）",
-      "theme_id": "urban_renewal"
-    },
-    {
-      "code": "300054.SZ",
-      "name": "鼎龙股份",
-      "hot_score": 4.85,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
+        "up_mention_recency": 6.0,
+        "priority_base": 5.0,
         "technical_setup": 10.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "关注地位方向_20260602",
-      "theme_id": "focus_direction_20260602"
-    },
-    {
-      "code": "688515.SH",
-      "name": "裕太微",
-      "hot_score": 4.85,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "关注地位方向_20260602",
-      "theme_id": "focus_direction_20260602"
-    },
-    {
-      "code": "601138.SH",
-      "name": "工业富联",
-      "hot_score": 4.85,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "关注地位方向_20260602",
-      "theme_id": "focus_direction_20260602"
-    },
-    {
-      "code": "002384.SZ",
-      "name": "东山精密",
-      "hot_score": 4.85,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "关注地位方向_20260602",
-      "theme_id": "focus_direction_20260602"
-    },
-    {
-      "code": "000807.SZ",
-      "name": "云铝股份",
-      "hot_score": 4.85,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "关注地位方向_20260602",
-      "theme_id": "focus_direction_20260602"
-    },
-    {
-      "code": "002055.SZ",
-      "name": "ST得润",
-      "hot_score": 4.75,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
-        "priority_base": 4,
-        "technical_setup": 10.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "CPU自研链（字节催化，可能裂变为主线）",
-      "theme_id": "cpu_self_development"
-    },
-    {
-      "code": "688469.SH",
-      "name": "芯联集成",
-      "hot_score": 4.7,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "上游涨价链（位置低，扩散广）",
       "theme_id": "upstream_price_increase"
     },
     {
-      "code": "688668.SH",
-      "name": "鼎通科技",
-      "hot_score": 4.7,
+      "code": "002897.SZ",
+      "name": "意华股份",
+      "hot_score": 4.8,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 6.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "光通信/CPO（高位核心，确认景气但不追）",
+      "theme_id": "cpo_optical_communication"
+    },
+    {
+      "code": "301419.SZ",
+      "name": "阿莱德",
+      "hot_score": 4.8,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 6.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "光通信/CPO（高位核心，确认景气但不追）",
+      "theme_id": "cpo_optical_communication"
+    },
+    {
+      "code": "300265.SZ",
+      "name": "通光线缆",
+      "hot_score": 4.8,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 6.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Micro-LED/光互联/精密光学主板观察池",
+      "theme_id": "micro_led_optics_mainboard"
+    },
+    {
+      "code": "688313.SH",
+      "name": "仕佳光子",
+      "hot_score": 4.8,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 6.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "CPO/光背板（鸿海今年出货1万台）",
+      "theme_id": "cpo_optical_backplane"
+    },
+    {
+      "code": "688025.SH",
+      "name": "杰普特",
+      "hot_score": 4.8,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 6.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "CPO/光背板（鸿海今年出货1万台）",
+      "theme_id": "cpo_optical_backplane"
+    },
+    {
+      "code": "002916.SZ",
+      "name": "深南电路",
+      "hot_score": 4.8,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 4.0,
+        "priority_base": 7,
+        "technical_setup": 10.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "LPU/推理芯片链（博通新概念）",
+      "theme_id": "lpu_inference_chip"
+    },
+    {
+      "code": "688630.SH",
+      "name": "芯碁微装",
+      "hot_score": 4.75,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
-        "priority_base": 7,
+        "priority_base": 10,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "上游涨价链（位置低，扩散广）",
+      "theme_id": "upstream_price_increase"
+    },
+    {
+      "code": "688347.SH",
+      "name": "华虹公司",
+      "hot_score": 4.75,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 10,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "上游涨价链（位置低，扩散广）",
+      "theme_id": "upstream_price_increase"
+    },
+    {
+      "code": "300602.SZ",
+      "name": "飞荣达",
+      "hot_score": 4.75,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 10,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "液冷/散热（华为链，韬定律催化）",
       "theme_id": "liquid_cooling_heat_dissipation"
     },
     {
-      "code": "300383.SZ",
-      "name": "光环新网",
-      "hot_score": 4.7,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "算力租赁/token工厂（新增催化）",
-      "theme_id": "compute_rental_token"
-    },
-    {
-      "code": "300738.SZ",
-      "name": "奥飞数据",
-      "hot_score": 4.7,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "算力租赁/token工厂（新增催化）",
-      "theme_id": "compute_rental_token"
-    },
-    {
-      "code": "002463.SZ",
-      "name": "沪电股份",
-      "hot_score": 4.7,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "600584.SH",
-      "name": "长电科技",
-      "hot_score": 4.7,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "半导体老主线（观察为主，暂不介入）",
-      "theme_id": "semiconductor_legacy_watch"
-    },
-    {
-      "code": "002138.SZ",
-      "name": "顺络电子",
-      "hot_score": 4.7,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "MLCC/电阻/电感（被动元件周期上行）",
-      "theme_id": "mlcc_resistor_inductor"
-    },
-    {
-      "code": "300285.SZ",
-      "name": "国瓷材料",
-      "hot_score": 4.7,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "MLCC上游材料（瓷粉/载带/离型膜）",
-      "theme_id": "mlcc_upstream_materials"
-    },
-    {
       "code": "601225.SH",
       "name": "陕西煤业",
-      "hot_score": 4.7,
+      "hot_score": 4.75,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 7,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 6.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "煤炭（安监+迎峰度夏+煤化工）",
       "theme_id": "coal_full_chain"
     },
     {
-      "code": "002597.SZ",
-      "name": "金禾实业",
-      "hot_score": 4.7,
+      "code": "002938.SZ",
+      "name": "鹏鼎控股",
+      "hot_score": 4.65,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 7,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "化工-安赛蜜（三轮涨价87.5%）",
-      "theme_id": "chemical_acesulfame"
-    },
-    {
-      "code": "603379.SH",
-      "name": "三美股份",
-      "hot_score": 4.7,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "化工-制冷剂/PFA（巨化双催化）",
-      "theme_id": "refrigerant_pfa"
-    },
-    {
-      "code": "002881.SZ",
-      "name": "美格智能",
-      "hot_score": 4.7,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）",
-      "theme_id": "aipc_edge_ai"
-    },
-    {
-      "code": "603893.SH",
-      "name": "瑞芯微",
-      "hot_score": 4.7,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）",
-      "theme_id": "aipc_edge_ai"
-    },
-    {
-      "code": "603296.SH",
-      "name": "华勤技术",
-      "hot_score": 4.7,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）",
-      "theme_id": "aipc_edge_ai"
-    },
-    {
-      "code": "000969.SZ",
-      "name": "安泰科技",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "上游涨价链（位置低，扩散广）",
-      "theme_id": "upstream_price_increase"
-    },
-    {
-      "code": "002636.SZ",
-      "name": "金安国纪",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "301389.SZ",
-      "name": "隆扬电子",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "301217.SZ",
-      "name": "铜冠铜箔",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "300936.SZ",
-      "name": "中英科技",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "002916.SZ",
-      "name": "深南电路",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "002436.SZ",
-      "name": "兴森科技",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "603228.SH",
-      "name": "景旺电子",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "600601.SH",
-      "name": "方正科技",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "600183.SH",
-      "name": "生益科技",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "603186.SH",
-      "name": "华正新材",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "601208.SH",
-      "name": "东材科技",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "603256.SH",
-      "name": "宏和科技",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "002080.SZ",
-      "name": "中材科技",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "600110.SH",
-      "name": "诺德股份",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "603002.SH",
-      "name": "宏昌电子",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "605589.SH",
-      "name": "圣泉集团",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Rubin PCB/ABF/CCL主板观察池",
-      "theme_id": "rubin_pcb_abf_mainboard"
-    },
-    {
-      "code": "600036.SH",
-      "name": "招商银行",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "防御板块（轮动观察，控制仓位）",
-      "theme_id": "defensive_rotation"
-    },
-    {
-      "code": "000066.SZ",
-      "name": "中国长城",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "国产CPU/服务器/基础软件主板观察池",
-      "theme_id": "mainboard_compute_software"
-    },
-    {
-      "code": "603019.SH",
-      "name": "中科曙光",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "国产CPU/服务器/基础软件主板观察池",
-      "theme_id": "mainboard_compute_software"
-    },
-    {
-      "code": "000977.SZ",
-      "name": "浪潮信息",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "国产CPU/服务器/基础软件主板观察池",
-      "theme_id": "mainboard_compute_software"
-    },
-    {
-      "code": "601869.SH",
-      "name": "长飞光纤",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Micro-LED/光互联/精密光学主板观察池",
-      "theme_id": "micro_led_optics_mainboard"
-    },
-    {
-      "code": "600487.SH",
-      "name": "亨通光电",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Micro-LED/光互联/精密光学主板观察池",
-      "theme_id": "micro_led_optics_mainboard"
-    },
-    {
-      "code": "002185.SZ",
-      "name": "华天科技",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "半导体老主线（观察为主，暂不介入）",
-      "theme_id": "semiconductor_legacy_watch"
-    },
-    {
-      "code": "002409.SZ",
-      "name": "雅克科技",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "半导体材料与电子材料",
-      "theme_id": "semiconductor_materials"
-    },
-    {
-      "code": "603650.SH",
-      "name": "彤程新材",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "半导体材料与电子材料",
-      "theme_id": "semiconductor_materials"
-    },
-    {
-      "code": "603678.SH",
-      "name": "火炬电子",
-      "hot_score": 4.55,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 4,
         "technical_setup": 10.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "MLCC/被动元件周期上行（外溢承接，非类存储大紧缺）",
-      "theme_id": "mlcc_passive_cycle"
-    },
-    {
-      "code": "002859.SZ",
-      "name": "洁美科技",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "上游涨价链（位置低，扩散广）",
-      "theme_id": "upstream_price_increase"
-    },
-    {
-      "code": "600673.SH",
-      "name": "东阳光",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "上游涨价链（位置低，扩散广）",
-      "theme_id": "upstream_price_increase"
-    },
-    {
-      "code": "603115.SH",
-      "name": "海星股份",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "上游涨价链（位置低，扩散广）",
-      "theme_id": "upstream_price_increase"
-    },
-    {
-      "code": "002028.SZ",
-      "name": "思源电气",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "上游涨价链（位置低，扩散广）",
-      "theme_id": "upstream_price_increase"
-    },
-    {
-      "code": "002518.SZ",
-      "name": "科士达",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "上游涨价链（位置低，扩散广）",
-      "theme_id": "upstream_price_increase"
-    },
-    {
-      "code": "002922.SZ",
-      "name": "伊戈尔",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "上游涨价链（位置低，扩散广）",
-      "theme_id": "upstream_price_increase"
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
     },
     {
       "code": "002364.SZ",
       "name": "中恒电气",
-      "hot_score": 4.4,
+      "hot_score": 4.55,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 5.0,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 6.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "上游涨价链（位置低，扩散广）",
@@ -1773,14 +1651,736 @@
     {
       "code": "605111.SH",
       "name": "新洁能",
-      "hot_score": 4.4,
+      "hot_score": 4.55,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 5.0,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 6.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "上游涨价链（位置低，扩散广）",
+      "theme_id": "upstream_price_increase"
+    },
+    {
+      "code": "300502.SZ",
+      "name": "新易盛",
+      "hot_score": 4.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "光通信/CPO（高位核心，确认景气但不追）",
+      "theme_id": "cpo_optical_communication"
+    },
+    {
+      "code": "300394.SZ",
+      "name": "天孚通信",
+      "hot_score": 4.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "光通信/CPO（高位核心，确认景气但不追）",
+      "theme_id": "cpo_optical_communication"
+    },
+    {
+      "code": "688519.SH",
+      "name": "南亚新材",
+      "hot_score": 4.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "603968.SH",
+      "name": "醋化股份",
+      "hot_score": 4.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "化工涨价（安赛蜜+制冷剂）",
+      "theme_id": "chemical_price_increase"
+    },
+    {
+      "code": "601668.SH",
+      "name": "中国建筑",
+      "hot_score": 4.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "城市更新（十五五13万亿，专项债可作资本金）",
+      "theme_id": "urban_renewal"
+    },
+    {
+      "code": "300054.SZ",
+      "name": "鼎龙股份",
+      "hot_score": 4.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "关注地位方向_20260602",
+      "theme_id": "focus_direction_20260602"
+    },
+    {
+      "code": "688515.SH",
+      "name": "裕太微",
+      "hot_score": 4.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "关注地位方向_20260602",
+      "theme_id": "focus_direction_20260602"
+    },
+    {
+      "code": "601138.SH",
+      "name": "工业富联",
+      "hot_score": 4.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "关注地位方向_20260602",
+      "theme_id": "focus_direction_20260602"
+    },
+    {
+      "code": "002384.SZ",
+      "name": "东山精密",
+      "hot_score": 4.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "关注地位方向_20260602",
+      "theme_id": "focus_direction_20260602"
+    },
+    {
+      "code": "000807.SZ",
+      "name": "云铝股份",
+      "hot_score": 4.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "关注地位方向_20260602",
+      "theme_id": "focus_direction_20260602"
+    },
+    {
+      "code": "002055.SZ",
+      "name": "ST得润",
+      "hot_score": 4.5,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 4.0,
+        "priority_base": 4,
+        "technical_setup": 10.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "CPU自研链（字节催化，可能裂变为主线）",
+      "theme_id": "cpu_self_development"
+    },
+    {
+      "code": "688469.SH",
+      "name": "芯联集成",
+      "hot_score": 4.45,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "上游涨价链（位置低，扩散广）",
+      "theme_id": "upstream_price_increase"
+    },
+    {
+      "code": "688668.SH",
+      "name": "鼎通科技",
+      "hot_score": 4.45,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "液冷/散热（华为链，韬定律催化）",
+      "theme_id": "liquid_cooling_heat_dissipation"
+    },
+    {
+      "code": "300383.SZ",
+      "name": "光环新网",
+      "hot_score": 4.45,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "算力租赁/token工厂（新增催化）",
+      "theme_id": "compute_rental_token"
+    },
+    {
+      "code": "300738.SZ",
+      "name": "奥飞数据",
+      "hot_score": 4.45,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "算力租赁/token工厂（新增催化）",
+      "theme_id": "compute_rental_token"
+    },
+    {
+      "code": "002463.SZ",
+      "name": "沪电股份",
+      "hot_score": 4.45,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "002138.SZ",
+      "name": "顺络电子",
+      "hot_score": 4.45,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "MLCC/电阻/电感（被动元件周期上行）",
+      "theme_id": "mlcc_resistor_inductor"
+    },
+    {
+      "code": "300285.SZ",
+      "name": "国瓷材料",
+      "hot_score": 4.45,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "MLCC上游材料（瓷粉/载带/离型膜）",
+      "theme_id": "mlcc_upstream_materials"
+    },
+    {
+      "code": "002597.SZ",
+      "name": "金禾实业",
+      "hot_score": 4.45,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "化工-安赛蜜（三轮涨价87.5%）",
+      "theme_id": "chemical_acesulfame"
+    },
+    {
+      "code": "603379.SH",
+      "name": "三美股份",
+      "hot_score": 4.45,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "化工-制冷剂/PFA（巨化双催化）",
+      "theme_id": "refrigerant_pfa"
+    },
+    {
+      "code": "002881.SZ",
+      "name": "美格智能",
+      "hot_score": 4.45,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）",
+      "theme_id": "aipc_edge_ai"
+    },
+    {
+      "code": "603893.SH",
+      "name": "瑞芯微",
+      "hot_score": 4.45,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）",
+      "theme_id": "aipc_edge_ai"
+    },
+    {
+      "code": "603296.SH",
+      "name": "华勤技术",
+      "hot_score": 4.45,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）",
+      "theme_id": "aipc_edge_ai"
+    },
+    {
+      "code": "000969.SZ",
+      "name": "安泰科技",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "上游涨价链（位置低，扩散广）",
+      "theme_id": "upstream_price_increase"
+    },
+    {
+      "code": "301389.SZ",
+      "name": "隆扬电子",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "301217.SZ",
+      "name": "铜冠铜箔",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "300936.SZ",
+      "name": "中英科技",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "002916.SZ",
+      "name": "深南电路",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "002436.SZ",
+      "name": "兴森科技",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "603228.SH",
+      "name": "景旺电子",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "600601.SH",
+      "name": "方正科技",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "600183.SH",
+      "name": "生益科技",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "603186.SH",
+      "name": "华正新材",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "601208.SH",
+      "name": "东材科技",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "603256.SH",
+      "name": "宏和科技",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "002080.SZ",
+      "name": "中材科技",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "600110.SH",
+      "name": "诺德股份",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "603002.SH",
+      "name": "宏昌电子",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "Rubin PCB/ABF/CCL主板观察池",
+      "theme_id": "rubin_pcb_abf_mainboard"
+    },
+    {
+      "code": "603678.SH",
+      "name": "火炬电子",
+      "hot_score": 4.35,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 10.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "MLCC/被动元件周期上行（外溢承接，非类存储大紧缺）",
+      "theme_id": "mlcc_passive_cycle"
+    },
+    {
+      "code": "002859.SZ",
+      "name": "洁美科技",
+      "hot_score": 4.25,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "上游涨价链（位置低，扩散广）",
@@ -1789,14 +2389,16 @@
     {
       "code": "603989.SH",
       "name": "艾华集团",
-      "hot_score": 4.4,
+      "hot_score": 4.25,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 5.0,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "上游涨价链（位置低，扩散广）",
@@ -1805,14 +2407,16 @@
     {
       "code": "600114.SH",
       "name": "东睦股份",
-      "hot_score": 4.4,
+      "hot_score": 4.25,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 5.0,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "上游涨价链（位置低，扩散广）",
@@ -1821,382 +2425,52 @@
     {
       "code": "300623.SZ",
       "name": "捷捷微电",
-      "hot_score": 4.4,
+      "hot_score": 4.25,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 5.0,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "上游涨价链（位置低，扩散广）",
       "theme_id": "upstream_price_increase"
     },
     {
-      "code": "002156.SZ",
-      "name": "通富微电",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "先进封装/存储封测主板观察池",
-      "theme_id": "advanced_packaging_mainboard"
-    },
-    {
-      "code": "002371.SZ",
-      "name": "北方华创",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "先进封装/存储封测主板观察池",
-      "theme_id": "advanced_packaging_mainboard"
-    },
-    {
-      "code": "603986.SH",
-      "name": "兆易创新",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "先进封装/存储封测主板观察池",
-      "theme_id": "advanced_packaging_mainboard"
-    },
-    {
-      "code": "002639.SZ",
-      "name": "雪人股份",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "AI基础设施与能源转型",
-      "theme_id": "ai_infrastructure_energy"
-    },
-    {
-      "code": "002837.SZ",
-      "name": "英维克",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "AI基础设施与能源转型",
-      "theme_id": "ai_infrastructure_energy"
-    },
-    {
-      "code": "000021.SZ",
-      "name": "深科技",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "长鑫存储产业链",
-      "theme_id": "changxin_storage"
-    },
-    {
-      "code": "688041.SH",
-      "name": "海光信息",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "长鑫存储产业链",
-      "theme_id": "changxin_storage"
-    },
-    {
-      "code": "603269.SH",
-      "name": "海鸥股份",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "长鑫存储产业链",
-      "theme_id": "changxin_storage"
-    },
-    {
-      "code": "002782.SZ",
-      "name": "可立克",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "长鑫存储产业链",
-      "theme_id": "changxin_storage"
-    },
-    {
-      "code": "600519.SH",
-      "name": "贵州茅台",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "防御板块（轮动观察，控制仓位）",
-      "theme_id": "defensive_rotation"
-    },
-    {
-      "code": "000021.SZ",
-      "name": "深科技",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "国产算力产业链",
-      "theme_id": "domestic_compute"
-    },
-    {
-      "code": "002881.SZ",
-      "name": "美格智能",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "国产算力产业链",
-      "theme_id": "domestic_compute"
-    },
-    {
-      "code": "000938.SZ",
-      "name": "紫光股份",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "国产CPU/服务器/基础软件主板观察池",
-      "theme_id": "mainboard_compute_software"
-    },
-    {
-      "code": "000063.SZ",
-      "name": "中兴通讯",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "国产CPU/服务器/基础软件主板观察池",
-      "theme_id": "mainboard_compute_software"
-    },
-    {
       "code": "002230.SZ",
       "name": "科大讯飞",
-      "hot_score": 4.4,
+      "hot_score": 4.25,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 5.0,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "国产CPU/服务器/基础软件主板观察池",
       "theme_id": "mainboard_compute_software"
-    },
-    {
-      "code": "600536.SH",
-      "name": "中国软件",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "国产CPU/服务器/基础软件主板观察池",
-      "theme_id": "mainboard_compute_software"
-    },
-    {
-      "code": "603138.SH",
-      "name": "海量数据",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "国产CPU/服务器/基础软件主板观察池",
-      "theme_id": "mainboard_compute_software"
-    },
-    {
-      "code": "002429.SZ",
-      "name": "兆驰股份",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Micro-LED/光互联/精密光学主板观察池",
-      "theme_id": "micro_led_optics_mainboard"
-    },
-    {
-      "code": "002273.SZ",
-      "name": "水晶光电",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Micro-LED/光互联/精密光学主板观察池",
-      "theme_id": "micro_led_optics_mainboard"
-    },
-    {
-      "code": "002222.SZ",
-      "name": "福晶科技",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Micro-LED/光互联/精密光学主板观察池",
-      "theme_id": "micro_led_optics_mainboard"
-    },
-    {
-      "code": "002338.SZ",
-      "name": "奥普光电",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Micro-LED/光互联/精密光学主板观察池",
-      "theme_id": "micro_led_optics_mainboard"
-    },
-    {
-      "code": "600522.SH",
-      "name": "中天科技",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "Micro-LED/光互联/精密光学主板观察池",
-      "theme_id": "micro_led_optics_mainboard"
     },
     {
       "code": "000983.SZ",
       "name": "山西焦煤",
-      "hot_score": 4.4,
+      "hot_score": 4.25,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "煤炭（安监风暴+迎峰度夏）",
@@ -2205,14 +2479,16 @@
     {
       "code": "002271.SZ",
       "name": "东方雨虹",
-      "hot_score": 4.4,
+      "hot_score": 4.25,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "城市更新（十五五13万亿，专项债可作资本金）",
@@ -2221,14 +2497,16 @@
     {
       "code": "002015.SZ",
       "name": "协鑫能科",
-      "hot_score": 4.4,
+      "hot_score": 4.25,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "算电协同（绿色算力全栈AI平台上线）",
@@ -2237,30 +2515,52 @@
     {
       "code": "001896.SZ",
       "name": "豫能控股",
-      "hot_score": 4.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 4,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "算电协同（绿色算力全栈AI平台上线）",
-      "theme_id": "compute_power_synergy"
-    },
-    {
-      "code": "002484.SZ",
-      "name": "江海股份",
       "hot_score": 4.25,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "算电协同（绿色算力全栈AI平台上线）",
+      "theme_id": "compute_power_synergy"
+    },
+    {
+      "code": "600584.SH",
+      "name": "长电科技",
+      "hot_score": 4.2,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 8.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "规避方向（博主明确提示）",
+      "theme_id": "avoid_sector"
+    },
+    {
+      "code": "002484.SZ",
+      "name": "江海股份",
+      "hot_score": 4.15,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 9.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "上游涨价链（位置低，扩散广）",
@@ -2269,14 +2569,16 @@
     {
       "code": "603811.SH",
       "name": "诚意药业",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "医药观察（博主提示，节点不错）",
@@ -2285,14 +2587,16 @@
     {
       "code": "000078.SZ",
       "name": "ST海王",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "医药观察（博主提示，节点不错）",
@@ -2301,14 +2605,16 @@
     {
       "code": "002086.SZ",
       "name": "东方海洋",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "医药观察（博主提示，节点不错）",
@@ -2317,14 +2623,16 @@
     {
       "code": "688260.SH",
       "name": "昀冢科技",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "MLCC/电阻/电感（被动元件周期上行）",
@@ -2333,14 +2641,16 @@
     {
       "code": "301013.SZ",
       "name": "利和兴",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "MLCC/电阻/电感（被动元件周期上行）",
@@ -2349,14 +2659,16 @@
     {
       "code": "301458.SZ",
       "name": "钧崴电子",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "MLCC/电阻/电感（被动元件周期上行）",
@@ -2365,14 +2677,16 @@
     {
       "code": "300975.SZ",
       "name": "商络电子",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "被动元件经销（渠道涨价受益）",
@@ -2381,14 +2695,16 @@
     {
       "code": "000670.SZ",
       "name": "盈方微",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "被动元件经销（渠道涨价受益）",
@@ -2397,14 +2713,16 @@
     {
       "code": "301270.SZ",
       "name": "云汉芯城",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "被动元件经销（渠道涨价受益）",
@@ -2413,14 +2731,16 @@
     {
       "code": "000062.SZ",
       "name": "深圳华强",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "被动元件经销（渠道涨价受益）",
@@ -2429,14 +2749,16 @@
     {
       "code": "301123.SZ",
       "name": "奕东电子",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "连接器（安费诺7月第二轮涨价）",
@@ -2445,14 +2767,16 @@
     {
       "code": "301439.SZ",
       "name": "泓淋电力",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "高速铜缆（戴尔AI服务器催化）",
@@ -2461,14 +2785,16 @@
     {
       "code": "300570.SZ",
       "name": "太辰光",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "CPO/光背板（鸿海今年出货1万台）",
@@ -2477,14 +2803,16 @@
     {
       "code": "000657.SZ",
       "name": "中钨高新",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "PCB钻针（M9硬度提升5-8倍消耗）",
@@ -2493,14 +2821,16 @@
     {
       "code": "688308.SH",
       "name": "欧科亿",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "PCB钻针（M9硬度提升5-8倍消耗）",
@@ -2509,14 +2839,16 @@
     {
       "code": "601699.SH",
       "name": "潞安环能",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "煤炭（安监+迎峰度夏+煤化工）",
@@ -2525,14 +2857,16 @@
     {
       "code": "601898.SH",
       "name": "中煤能源",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "煤炭（安监+迎峰度夏+煤化工）",
@@ -2541,14 +2875,16 @@
     {
       "code": "600985.SH",
       "name": "淮北矿业",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "煤炭（安监+迎峰度夏+煤化工）",
@@ -2557,14 +2893,16 @@
     {
       "code": "601666.SH",
       "name": "平煤股份",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "煤炭（安监+迎峰度夏+煤化工）",
@@ -2573,14 +2911,16 @@
     {
       "code": "600188.SH",
       "name": "兖矿能源",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "煤炭（安监+迎峰度夏+煤化工）",
@@ -2589,14 +2929,16 @@
     {
       "code": "601186.SH",
       "name": "中国铁建",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "城市更新-基建（13万亿+专项债作资本金）",
@@ -2605,14 +2947,16 @@
     {
       "code": "601390.SH",
       "name": "中国中铁",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "城市更新-基建（13万亿+专项债作资本金）",
@@ -2621,14 +2965,16 @@
     {
       "code": "601800.SH",
       "name": "中国交建",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "城市更新-基建（13万亿+专项债作资本金）",
@@ -2637,14 +2983,16 @@
     {
       "code": "601618.SH",
       "name": "中国中冶",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "城市更新-基建（13万亿+专项债作资本金）",
@@ -2653,14 +3001,16 @@
     {
       "code": "600170.SH",
       "name": "上海建工",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "城市更新-基建（13万亿+专项债作资本金）",
@@ -2669,14 +3019,16 @@
     {
       "code": "600820.SH",
       "name": "隧道股份",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "城市更新-基建（13万亿+专项债作资本金）",
@@ -2685,14 +3037,16 @@
     {
       "code": "600502.SH",
       "name": "安徽建工",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "城市更新-基建（13万亿+专项债作资本金）",
@@ -2701,14 +3055,16 @@
     {
       "code": "603060.SH",
       "name": "国检集团",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "城市更新-检测（房屋安全体检制度）",
@@ -2717,14 +3073,16 @@
     {
       "code": "301115.SZ",
       "name": "联检科技",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "城市更新-检测（房屋安全体检制度）",
@@ -2733,14 +3091,16 @@
     {
       "code": "300977.SZ",
       "name": "深圳瑞捷",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "城市更新-检测（房屋安全体检制度）",
@@ -2749,14 +3109,16 @@
     {
       "code": "002081.SZ",
       "name": "金螳螂",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "城市更新-地产后周期（装修装饰）",
@@ -2765,14 +3127,16 @@
     {
       "code": "002375.SZ",
       "name": "亚厦股份",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "城市更新-地产后周期（装修装饰）",
@@ -2781,14 +3145,16 @@
     {
       "code": "000681.SZ",
       "name": "视觉中国",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "MiniMax IPO（AI模型公司上市催化）",
@@ -2797,14 +3163,16 @@
     {
       "code": "301171.SZ",
       "name": "易点天下",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "MiniMax IPO（AI模型公司上市催化）",
@@ -2813,14 +3181,16 @@
     {
       "code": "603236.SH",
       "name": "移远通信",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）",
@@ -2829,14 +3199,16 @@
     {
       "code": "300638.SZ",
       "name": "广和通",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）",
@@ -2845,14 +3217,16 @@
     {
       "code": "300458.SZ",
       "name": "全志科技",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）",
@@ -2861,14 +3235,16 @@
     {
       "code": "688099.SH",
       "name": "晶晨股份",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）",
@@ -2877,14 +3253,16 @@
     {
       "code": "603341.SH",
       "name": "龙旗科技",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）",
@@ -2893,14 +3271,16 @@
     {
       "code": "001314.SZ",
       "name": "亿道信息",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）",
@@ -2909,48 +3289,36 @@
     {
       "code": "300602.SZ",
       "name": "飞荣达",
-      "hot_score": 4.25,
+      "hot_score": 4.15,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 9.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
       },
       "ranking_tier": "C",
       "theme": "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）",
       "theme_id": "aipc_edge_ai"
     },
     {
-      "code": "600584.SH",
-      "name": "长电科技",
-      "hot_score": 4.1,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 4,
-        "technical_setup": 8.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
-      },
-      "ranking_tier": "C",
-      "theme": "规避方向（博主明确提示）",
-      "theme_id": "avoid_sector"
-    },
-    {
       "code": "600519.SH",
       "name": "贵州茅台",
-      "hot_score": 3.95,
+      "hot_score": 4.1,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 7.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
       },
-      "ranking_tier": "D",
+      "ranking_tier": "C",
       "theme": "规避方向（博主明确提示）",
       "theme_id": "avoid_sector"
     }

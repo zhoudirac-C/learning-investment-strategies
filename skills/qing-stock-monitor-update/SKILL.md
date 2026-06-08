@@ -54,10 +54,11 @@ description: |
 24. `skills/qing-stock-monitor-update/references/config-health-check.md` — **配置健康检查**：watchlist/strategy_pack/positions 完整性检查清单（code 格式、entry 去重、sector 覆盖、防失真、非主板标记）。每次 config review 或大更新后执行。
 25. `scripts/validate_config.py` — **配置一致性校验脚本**：独立运行 `python scripts/validate_config.py` 自动检查 code 格式、entry 去重、sector_groups 覆盖、today_snapshot 位置、claims 一致性、持仓区间完整性。退出码 0=干净，1=警告，2=错误。推荐每次 config 更新后运行。详见 `references/validate-config-script.md`。
 27. `skills/qing-stock-monitor-update/references/scan-all-stocks-json-summary.md` — **scan_all_stocks JSON 输出**：`--json-summary` 标志的使用说明、输出格式、集成方式。
-28. `skills/qing-stock-monitor-update/references/trader-mindset-design-philosophy.md` — **设计哲学纠正（2026-06-08）**：用户明确纠正 v1.0 方向——系统不应走向更多量化规则，而应让 LLM 以交易者思维（赔率思维+机会发现）做出判断。所有后续修改必须遵循此哲学。
+28. `references/trader-mindset-design-philosophy.md` — **设计哲学纠正（2026-06-08）**：用户明确纠正 v1.0 方向——系统不应走向更多量化规则，而应让 LLM 以交易者思维（赔率思维+机会发现）做出判断。所有后续修改必须遵循此哲学。
 29. `references/architecture-review-framework.md` — **配置架构系统性Review框架**：四步法（现状→缺陷→方案→优先级），区别于 config-health-check（配置完整性检查）。当用户要求对 config+cron 做全链路架构 review 时使用。
 30. `references/prompt-layer-transformation-playbook.md` — **Prompt 层改造实战手册**：当系统被诊断为"太保守、只减仓不提醒买入"时，如何仅通过重写 system prompt 实现交易者人格嵌入、赔率框架激活、反保守自检。含 5 个 prompt 文件改造清单、nodes.py 注入逻辑、JSON 字段扩展指南。
 31. `references/daily-state-hot-score-implementation.md` — **Phase 3-4 架构实现参考**：daily_state 状态机、hot_score 热度分、claims_to_entry 桥接、3节点 cron prompt（**09:26/14:00/15:20**，注意 09:26 是集合竞价后，不可改为 09:30）、add_zone 触发逻辑的完整实现细节与维护指南。
+32. `references/config-field-audit-checklist.md` — **Config 字段补全核对清单**：当用户要求"核对改动是否与架构文档一致"时使用。覆盖 Prompt/代码/Config 三层，含自动化核对脚本、常见遗漏模式、修复优先级。
 
 ## 工作流程
 
