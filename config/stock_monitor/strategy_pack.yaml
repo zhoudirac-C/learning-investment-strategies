@@ -715,3 +715,30 @@ today_snapshot:
     pct_change: 4.89
     note: MLCC核心+4.89%强势。纪律：只观察不介入。
   overall_action: 6月5日：做T/持股为主。重心AI上游材料。航天电器等昇腾企稳。4033/4130不变。
+linked_daily_state: config/stock_monitor/daily_state.json
+strategy_meta:
+  version: 8
+  last_full_review: '2026-06-08'
+  last_updated_by: 15:20收盘复盘cron
+  pending_review_items: []
+entry_points: []
+entry_points_schema:
+  description: 活跃条件单模板
+  template:
+    code: 000000.SZ
+    name: 示例股票
+    status: active
+    entry_zone: 30.5-31.0
+    position_ratio: 0.5成
+    trigger: 回踩30.5-31.0企稳
+    invalidation: 跌破30且30分钟不能收回
+    opportunity_pattern: 技术支撑确认
+    odds_analysis:
+      upside_pct: 15
+      downside_pct: 5
+      odds_ratio: '3:1'
+      estimated_probability_up: 45
+      expected_value: 4.0
+      updated_at: '2026-06-08'
+    claim_basis: 'claim-20260604-003: UP明确说明'
+    note: 备注

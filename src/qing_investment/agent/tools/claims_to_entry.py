@@ -206,6 +206,68 @@ def generate_entry_suggestions(
     return entries
 
 
+def update_watchlist_linked_claims(
+    entries: list[dict],
+    watchlist_data: dict | None = None,
+) -> dict:
+    """【新增】将 claims 关联回写到 watchlist.yaml 的 linked_claims 字段。
+    
+    对于每个 entry 中的 code，在对应的 watchlist stock 中追加 linked_claims 记录。
+    
+    Returns:
+        更新后的 watchlist_data
+    """
+    if watchlist_data is None:
+        from qing_investment.agent.tools.hot_score import load_watchlist
+        watchlist_data = load_watchlist()
+    
+    # 构建 code -> stock 引用映射
+    code_to_stock: dict[str, dict] = {}
+    for theme in watchlist_data.get("themes", []):
+        for stock in theme.get("stocks", []):
+            code = stock.get("code", "").replace(".SH", "").replace(".SZ", "")
+            code_to_stock[code] = stock
+    
+    updated_count = 0
+    for entry in entries:
+        code = entry["code"]
+        stock = code_to_stock.get(code)
+        if not stock:
+            continue
+        
+        # 确保 linked_claims 字段存在
+        if "linked_claims" not in stock:
+            stock["linked_claims"] = []
+        
+        # 检查是否已存在相同 claim_id
+        existing_ids = {lc.get("claim_id") for lc in stock["linked_claims"]}
+        claim_id = entry.get("claim_id", "")
+        
+        if claim_id and claim_id not in existing_ids:
+            stock["linked_claims"].append({
+                "claim_id": claim_id,
+                "relevance": "direct",
+                "claim_type": "operation",
+                "added_at": datetime.now().isoformat(),
+            })
+            updated_count += 1
+            
+            # 同时刷新 lifecycle.last_activity
+            if "lifecycle" in stock:
+                stock["lifecycle"]["last_activity"] = datetime.now().strftime("%Y-%m-%d")
+    
+    logger.info("Updated linked_claims for %d stocks in watchlist", updated_count)
+    return watchlist_data
+
+
+def save_watchlist(watchlist_data: dict, path: Path | None = None) -> None:
+    """【新增】保存 watchlist.yaml。"""
+    watchlist_path = path or (repo_root() / "config" / "stock_monitor" / "watchlist.yaml")
+    with open(watchlist_path, "w", encoding="utf-8") as f:
+        yaml.dump(watchlist_data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+    logger.info("Saved watchlist to %s", watchlist_path)
+
+
 def merge_with_existing_entries(
     suggestions: list[dict],
     existing_entries: list[dict],
@@ -294,6 +356,7 @@ def run_claims_to_entry_bridge(
     neo4j_client: Any,
     days_back: int = 7,
     auto_merge: bool = False,
+    update_watchlist: bool = True,  # 【新增】默认回写 linked_claims
 ) -> Path | None:
     """运行 Claims → Entry 桥接流程。
 
@@ -301,6 +364,7 @@ def run_claims_to_entry_bridge(
         neo4j_client: Neo4j 客户端
         days_back: 扫描最近 N 天的 claims
         auto_merge: 是否自动合并到 strategy_pack（默认 False，生成建议文件）
+        update_watchlist: 是否回写 linked_claims 到 watchlist.yaml（默认 True）
 
     Returns:
         生成的建议文件路径
@@ -318,7 +382,15 @@ def run_claims_to_entry_bridge(
     # 2. 回填信息
     suggestions = generate_entry_suggestions(entries)
 
-    # 3. 与现有 entry_points 合并（或生成建议文件）
+    # 3. 【新增】回写 linked_claims 到 watchlist.yaml
+    if update_watchlist:
+        from qing_investment.agent.tools.hot_score import load_watchlist
+        watchlist_data = load_watchlist()
+        updated_watchlist = update_watchlist_linked_claims(suggestions, watchlist_data)
+        save_watchlist(updated_watchlist)
+        logger.info("Updated watchlist linked_claims")
+
+    # 4. 与现有 entry_points 合并（或生成建议文件）
     if auto_merge:
         strategy_pack = load_strategy_pack()
         existing = strategy_pack.get("entry_points", [])

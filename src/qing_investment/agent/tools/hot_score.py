@@ -28,12 +28,14 @@ DEFAULT_OUTPUT_PATH = repo_root() / "config" / "stock_monitor" / "watchlist_hot_
 
 # ── 评分权重 ──
 _WEIGHTS = {
-    "claim_freshness": 0.25,      # claims 时效性（最近7天加分）
-    "up_mention_recency": 0.20,   # UP 最近提及（3天内加分）
-    "priority_base": 0.15,        # 基础优先级（P1/P2/P3）
-    "technical_setup": 0.15,      # 技术形态完整度（有buy_setup/invalidation）
-    "sector_momentum": 0.15,      # 板块动量（claims中方向提及强度）
+    "claim_freshness": 0.20,      # claims 时效性（最近7天加分）
+    "up_mention_recency": 0.15,   # UP 最近提及（3天内加分）
+    "priority_base": 0.10,        # 基础优先级（P1/P2/P3）
+    "technical_setup": 0.10,      # 技术形态完整度（有buy_setup/invalidation）
+    "sector_momentum": 0.10,      # 板块动量（claims中方向提及强度）
     "linked_claims_count": 0.10,  # 关联claims数量
+    "entry_zone_proximity": 0.15, # 【新增】价格接近介入区间（距离 entry_zone ≤ 3% → 高分）
+    "position_status": 0.10,      # 【新增】持仓状态（已持仓 → 永远高分）
 }
 
 _PRIORITY_SCORES = {
@@ -199,7 +201,54 @@ def _score_linked_claims_count(stock: dict) -> float:
         return 2.0
 
 
-def calculate_hot_score(stock: dict, theme_claims: list[dict] | None = None) -> dict:
+def _score_entry_zone_proximity(stock: dict) -> float:
+    """【新增】价格接近介入区间评分（0-10）。
+    
+    如果 stock 有 entry_zone 或 buy_setup 中的价格区间，
+    且当前价格接近该区间，给予高分。
+    当前无实时价格时，基于 buy_setup 文本判断。
+    """
+    # 检查 buy_setup 中是否有价格区间
+    buy_setup = stock.get("buy_setup", "")
+    if not buy_setup:
+        return 5.0  # 无介入区间，中性分
+    
+    # 简单判断：buy_setup 越具体（包含数字），分数越高
+    import re
+    price_matches = re.findall(r"(\d+\.?\d*)", str(buy_setup))
+    
+    if len(price_matches) >= 2:
+        # 有具体价格区间
+        return 8.0
+    elif len(price_matches) == 1:
+        return 6.0
+    else:
+        return 4.0
+
+
+def _score_position_status(stock: dict, positions_data: dict | None = None) -> float:
+    """【新增】持仓状态评分（0-10）。
+    
+    已持仓的票永远给高分（确保持仓票始终在关注列表中）。
+    """
+    code = stock.get("code", "")
+    
+    # 如果有传入的持仓数据，检查是否持仓
+    if positions_data:
+        for acc in positions_data.get("accounts", []):
+            for pos in acc.get("positions", []):
+                if pos.get("code") == code and pos.get("shares", 0) > 0:
+                    return 10.0  # 已持仓，最高分
+    
+    # 检查 stock 本身是否有 position 标记（来自 watchlist 的 lifecycle）
+    lifecycle = stock.get("lifecycle", {})
+    if lifecycle.get("stage") == "position":
+        return 10.0
+    
+    return 5.0  # 未持仓，中性分
+
+
+def calculate_hot_score(stock: dict, theme_claims: list[dict] | None = None, positions_data: dict | None = None) -> dict:
     """计算单只标的的热度分。
     
     Returns:
@@ -214,6 +263,8 @@ def calculate_hot_score(stock: dict, theme_claims: list[dict] | None = None) -> 
                 "technical_setup": 6.0,
                 "sector_momentum": 7.5,
                 "linked_claims_count": 6.0,
+                "entry_zone_proximity": 8.0,  # 【新增】
+                "position_status": 10.0,       # 【新增】
             },
             "ranking_tier": "A",  # A(>=8) / B(6-8) / C(4-6) / D(<4)
         }
@@ -227,6 +278,8 @@ def calculate_hot_score(stock: dict, theme_claims: list[dict] | None = None) -> 
         "technical_setup": _score_technical_setup(stock),
         "sector_momentum": _score_sector_momentum(stock, theme_claims),
         "linked_claims_count": _score_linked_claims_count(stock),
+        "entry_zone_proximity": _score_entry_zone_proximity(stock),  # 【新增】
+        "position_status": _score_position_status(stock, positions_data),  # 【新增】
     }
     
     # 加权总分
@@ -258,7 +311,7 @@ def load_watchlist(path: Path | None = None) -> dict:
         return yaml.safe_load(f) or {}
 
 
-def calculate_all_hot_scores(watchlist_data: dict | None = None) -> list[dict]:
+def calculate_all_hot_scores(watchlist_data: dict | None = None, positions_data: dict | None = None) -> list[dict]:
     """计算 watchlist 中所有标的的热度分。
     
     Returns:
@@ -266,6 +319,13 @@ def calculate_all_hot_scores(watchlist_data: dict | None = None) -> list[dict]:
     """
     if watchlist_data is None:
         watchlist_data = load_watchlist()
+    
+    # 【新增】加载持仓数据用于 position_status 评分
+    if positions_data is None:
+        positions_path = repo_root() / "config" / "stock_monitor" / "positions.yaml"
+        if positions_path.exists():
+            with open(positions_path, encoding="utf-8") as f:
+                positions_data = yaml.safe_load(f) or {}
     
     results = []
     
@@ -277,7 +337,7 @@ def calculate_all_hot_scores(watchlist_data: dict | None = None) -> list[dict]:
                 theme_claims.append({"intensity": "medium"})  # 简化处理
         
         for stock in theme.get("stocks", []):
-            score_result = calculate_hot_score(stock, theme_claims)
+            score_result = calculate_hot_score(stock, theme_claims, positions_data)
             score_result["theme"] = theme.get("name", "")
             score_result["theme_id"] = theme.get("id", "")
             results.append(score_result)

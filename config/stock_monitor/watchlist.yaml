@@ -51,12 +51,24 @@ themes:
       leader_follower: 独立走势
       catalyst: 字节自研CPU
       risk: ST退市风险、监管风险
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 000636.SZ
     name: 万通发展
     role: pcie_switch_core
     segment: PCIe Switch
     priority: P1-核心
-    watch_reason: 数渡科技PCIe Switch，国产替代博通。CPU翻倍预期+国产超节点放量→PCIe Switch市场大幅扩容（2026年国内超200亿）。104通道已量产、144通道已投片、PCIe 6.0/CXL在研。
+    watch_reason: 数渡科技PCIe Switch，国产替代博通。CPU翻倍预期+国产超节点放量→PCIe Switch市场大幅扩容（2026年国内超200亿）。104通道已量产、144通道已投片、PCIe
+      6.0/CXL在研。
     sync_with_index: ⚠️ 弱同步——6月1日随科技调整-2.04%，跌破成本
     confirm_with:
     - ST得润
@@ -89,6 +101,17 @@ themes:
       leader_follower: 板块跟随
       catalyst: 字节自研CPU
       risk: 组内分化严重，ST得润+5%但万通-2.1%，跌破成本
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: upstream_price_increase
   name: 上游涨价链（位置低，扩散广）
   source_docs:
@@ -137,6 +160,17 @@ themes:
       leader_follower: 板块龙头
       catalyst: AI硬件共振修复
       risk: 普涨共振格局，反弹预期需降低；短期涨幅已大，需防获利回吐
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002859.SZ
     name: 洁美科技
     role: mlcc_upstream_material
@@ -151,6 +185,17 @@ themes:
     invalidation_setup:
     - 5月25日若跌破64.25分时均价且风华高科炸板，先按MLCC扩散降温处理
     - 跌破趋势平台且不能快速收回
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 605376.SH
     name: 博迁新材
     role: passive_material_watch
@@ -169,6 +214,17 @@ themes:
       mention_context: 6月4日复盘专栏：MLCC镍粉上游，博迁新材
       explicit_operation: null
       sentiment: 中性提及
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600673.SH
     name: 东阳光
     role: ai_power_chain
@@ -183,6 +239,17 @@ themes:
     - 必须与江海股份、海星股份或思源电气形成组内联动
     invalidation_setup:
     - 跌破37.33日内低点或电源链继续弱于MLCC，维持弱势观察
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603115.SH
     name: 海星股份
     role: electrode_foil_core
@@ -196,6 +263,17 @@ themes:
     - 只有风华高科封稳且电容材料组同步回流时才重新观察
     invalidation_setup:
     - 跌破104.68日内低点或反抽无量，视为电极箔分支证伪
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002028.SZ
     name: 思源电气
     role: hvdc_power_equipment
@@ -209,6 +287,17 @@ themes:
     - 若单独走强但AI硬件核心回落，按防御轮动降级
     invalidation_setup:
     - 跌破198.06日内低点或无法站回分时均价，维持弱跟随
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002518.SZ
     name: 科士达
     role: data_center_power
@@ -223,6 +312,17 @@ themes:
     - 需英维克、江海股份或思源电气至少两只同步承接
     invalidation_setup:
     - 跌破61.05日内低点或电源链无扩散，继续弱势观察
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002922.SZ
     name: 伊戈尔
     role: power_supply_core
@@ -239,6 +339,17 @@ themes:
     invalidation_setup:
     - 单票走强但电源链无扩散，降低电源整机扩散预期
     - 跌破趋势支撑且金盘科技、中恒电气同步回落
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002364.SZ
     name: 中恒电气
     role: hvdc_power_core
@@ -255,6 +366,17 @@ themes:
     invalidation_setup:
     - HVDC逻辑不被资金认可，单票冲高回落
     - 跌破分时均价且伊戈尔、金盘科技同步走弱
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 605111.SH
     name: 新洁能
     role: gan_power_device
@@ -271,6 +393,17 @@ themes:
     invalidation_setup:
     - 功率器件方向单独走弱，无电源链联动
     - 跌破分时均价且扬杰科技、伊戈尔同步回落
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603989.SH
     name: 艾华集团
     role: supercapacitor_elastic
@@ -288,6 +421,17 @@ themes:
     - 单票冲高但超级电容组无联动
     - 跌破分时均价且江海股份、海星股份同步回落
     - 新技术分支逻辑不被资金持续认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 000969.SZ
     name: 安泰科技
     role: nanocrystalline_soft_magnetic
@@ -319,6 +463,17 @@ themes:
       leader_follower: 板块跟随
       catalyst: AI硬件共振修复
       risk: AI电源链整体走弱，已减仓降风险
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600114.SH
     name: 东睦股份
     role: nanocrystalline_soft_magnetic
@@ -336,6 +491,17 @@ themes:
     - 单票走弱且安泰科技同步回落
     - 跌破前低且无修复
     - AI电源链整体走弱
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 300623.SZ
     name: 捷捷微电
     role: power_semiconductor_elastic
@@ -351,6 +517,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但组内无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 688630.SH
     name: 芯碁微装
     role: advanced_packaging_core
@@ -370,6 +547,17 @@ themes:
     - 单票走强但先进封装组无扩散
     - 跌破分时均价且华虹公司同步回落
     - 涨价逻辑不被持续认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 688347.SH
     name: 华虹公司
     role: foundry_leader
@@ -389,6 +577,17 @@ themes:
     - 单票脉冲但代工组无联动
     - 跌破分时均价
     - 先进封装调整超预期延长
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002484.SZ
     name: 江海股份
     role: supercapacitor_core
@@ -407,6 +606,17 @@ themes:
     invalidation_setup:
     - 单票冲高但组内无联动
     - 跌破分时均价且艾华集团同步回落
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 688469.SH
     name: 芯联集成
     role: power_semiconductor_core
@@ -425,6 +635,17 @@ themes:
     invalidation_setup:
     - 单票走强但功率半导体组无扩散
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 688381.SH
     name: 帝奥微
     role: analog_ic
@@ -459,6 +680,17 @@ themes:
       leader_follower: 跟随
       catalyst: 意法半导体大涨15.2%
       risk: 切换窗口初期，持续性待验证
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: liquid_cooling_heat_dissipation
   name: 液冷/散热（华为链，韬定律催化）
   source_docs:
@@ -487,6 +719,17 @@ themes:
     - 单票冲高但散热链无联动
     - 跌破分时均价且鼎通科技同步回落
     - 华为链催化不被持续认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 688668.SH
     name: 鼎通科技
     role: liquid_cooling_cage
@@ -505,6 +748,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但液冷组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002897.SZ
     name: 意华股份
     role: liquid_cooling_connector
@@ -540,6 +794,17 @@ themes:
       - 前高压力
       pattern: 强势后震荡
       note: UP纳入昇腾核心+LPU关联
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 301018.SZ
     name: 申菱环境
     role: liquid_cooling_overseas
@@ -567,6 +832,17 @@ themes:
     sector_narrative:
       catalyst: 6-7月谷歌/亚马逊液冷下单
       risk: 液冷价格战
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: cpo_optical_communication
   name: 光通信/CPO（高位核心，确认景气但不追）
   source_docs:
@@ -609,6 +885,17 @@ themes:
       leader_follower: 板块龙头
       catalyst: AI硬件共振修复
       risk: 短期涨幅已大，需防普涨后高低切换与获利回吐
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 300502.SZ
     name: 新易盛
     role: cpo_follower
@@ -639,6 +926,17 @@ themes:
       leader_follower: 板块龙头
       catalyst: AI硬件共振修复
       risk: 高位品种，短期涨幅已大需防获利回吐
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 300394.SZ
     name: 天孚通信
     role: cpo_follower
@@ -669,6 +967,17 @@ themes:
       leader_follower: 板块龙头
       catalyst: AI硬件共振修复
       risk: 短期涨幅已大，需防获利回吐；但产业卡位明确，资金回流优先级高
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002897.SZ
     name: 意华股份
     role: optical_interconnect
@@ -704,6 +1013,17 @@ themes:
       leader_follower: 跟随
       catalyst: Marvell被黄仁勋点名
       risk: 炒新不炒旧，需验证接力意愿
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 301419.SZ
     name: 阿莱德
     role: optical_interconnect
@@ -739,6 +1059,17 @@ themes:
       leader_follower: 跟随
       catalyst: Marvell被黄仁勋点名
       risk: 炒新不炒旧，需验证接力意愿
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: medical_observation
   name: 医药观察（博主提示，节点不错）
   source_docs:
@@ -765,6 +1096,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但组内无联动
     - 科技主线强势，医药被虹吸
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 000078.SZ
     name: ST海王
     role: medical_observation
@@ -781,6 +1123,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但组内无联动
     - ST板块整体走弱
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002086.SZ
     name: 东方海洋
     role: marine_economy
@@ -797,6 +1150,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但组内无联动
     - 科技主线强势，防御方向被虹吸
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: compute_rental_token
   name: 算力租赁/token工厂（新增催化）
   source_docs:
@@ -824,6 +1188,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但AIDC组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 300738.SZ
     name: 奥飞数据
     role: compute_rental
@@ -840,6 +1215,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但组内无联动
     - token概念不被持续认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: avoid_sector
   name: 规避方向（博主明确提示）
   source_docs:
@@ -874,6 +1260,17 @@ themes:
       leader_follower: 板块跟随
       catalyst: AI硬件共振修复
       risk: 半导体调整周期深化，业绩支撑不足，下半年才有望改善
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600519.SH
     name: 贵州茅台
     role: avoid_consumer
@@ -886,6 +1283,17 @@ themes:
     invalidation_setup:
     - 白酒板块持续回调
     - 资金回流科技，消费被虹吸
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: rubin_pcb_abf_mainboard
   name: Rubin PCB/ABF/CCL主板观察池
   tradability: mainboard_only
@@ -920,6 +1328,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 1250.1 且不能收回
     - 跌破MA5 1292.85 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 301389.SZ
     name: 隆扬电子
     role: pcb_material_elastic_chinext_observation
@@ -933,6 +1352,17 @@ themes:
     - 观察强弱，不作为主板观察池介入触发
     invalidation_setup:
     - 铜箔材料分支只剩情绪脉冲
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 301217.SZ
     name: 铜冠铜箔
     role: pcb_material_elastic_chinext_observation
@@ -946,6 +1376,17 @@ themes:
     - 观察强弱，不作为主板观察池介入触发
     invalidation_setup:
     - 铜箔链不能形成组内联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 300936.SZ
     name: 中英科技
     role: pcb_long_option_chinext_observation
@@ -959,6 +1400,17 @@ themes:
     - 观察产业突破，不作为主板观察池介入触发
     invalidation_setup:
     - 期权层先高潮但核心层走弱
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002916.SZ
     name: 深南电路
     role: capacity_core
@@ -976,6 +1428,17 @@ themes:
     invalidation_setup:
     - 板块高开低走且容量票同步放量回落
     - 跌破分歧低点后不能收回
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002436.SZ
     name: 兴森科技
     role: elastic_abf_substrate
@@ -992,6 +1455,17 @@ themes:
     invalidation_setup:
     - 载板链扩散失败，个股冲高回落
     - 低位弹性变成纯概念补涨
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002463.SZ
     name: 沪电股份
     role: pcb_mid_core
@@ -1021,6 +1495,17 @@ themes:
       leader_follower: 板块龙头
       catalyst: AI硬件共振修复
       risk: PCB/MLCC/存储同一节奏，缺乏独立情绪载体，高度能否打开存疑
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603228.SH
     name: 景旺电子
     role: pcb_core_extension
@@ -1036,6 +1521,17 @@ themes:
     - 只在沪电股份、生益科技等容量锚承接后再看补强
     invalidation_setup:
     - 扩展层强但核心层转弱
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600601.SH
     name: 方正科技
     role: pcb_core_extension
@@ -1051,6 +1547,17 @@ themes:
     - 只作为PCB扩展层补强，不作为双核心反包的第一买点
     invalidation_setup:
     - Compute Tray预期不能带动扩展层
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600183.SH
     name: 生益科技
     role: ccl_core
@@ -1066,6 +1573,17 @@ themes:
     - 若一字或一致高开，不追，等换手确认
     invalidation_setup:
     - 材料链不能跟随PCB扩散
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603186.SH
     name: 华正新材
     role: ccl_abf_material_watch
@@ -1082,6 +1600,17 @@ themes:
     invalidation_setup:
     - 只靠材料概念冲高，未出现客户验证或板块联动
     - PCB核心反包但华正新材弱于材料组
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 601208.SH
     name: 东材科技
     role: pcb_material_elastic
@@ -1097,6 +1626,17 @@ themes:
     - 不追一字和公告式加速，只等分歧后回流
     invalidation_setup:
     - 树脂材料逻辑未被CCL链条确认
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603256.SH
     name: 宏和科技
     role: pcb_material_elastic
@@ -1111,6 +1651,17 @@ themes:
     - 需要生益科技或华正新材确认，不能单票脉冲
     invalidation_setup:
     - 只有小票脉冲，核心PCB不跟
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002080.SZ
     name: 中材科技
     role: pcb_long_option
@@ -1125,6 +1676,17 @@ themes:
     - 长期期权层只看低吸确认，不做追高
     invalidation_setup:
     - 玻纤逻辑未体现在PCB/CCL主线承接中
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600110.SH
     name: 诺德股份
     role: pcb_long_option
@@ -1138,6 +1700,17 @@ themes:
     - 铜箔链形成组内联动，且不是单纯锂电反弹
     invalidation_setup:
     - 高端铜箔逻辑被锂电属性拖累
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603002.SH
     name: 宏昌电子
     role: abf_material_speculative
@@ -1153,6 +1726,17 @@ themes:
     invalidation_setup:
     - 公告型高开低走
     - 材料侧无客户验证进展
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 605589.SH
     name: 圣泉集团
     role: advanced_material_watch
@@ -1167,6 +1751,17 @@ themes:
     - 必须由宏昌电子、华正新材、生益科技至少两只同步承接确认
     invalidation_setup:
     - 跌破43.98日内低点或先进材料组继续分化，维持弱势观察
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 300476.SZ
     name: 胜宏科技
     role: pcb_high_layer_core
@@ -1198,6 +1793,17 @@ themes:
       leader_follower: 板块跟随
       catalyst: AI硬件共振修复
       risk: PCB与CPO/MLCC同一节奏，普涨共振下高度存疑
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002938.SZ
     name: 鹏鼎控股
     role: pcb_fpcb_core
@@ -1228,6 +1834,17 @@ themes:
       leader_follower: 板块龙头
       catalyst: AI硬件共振修复
       risk: 普涨共振格局，反弹预期需降低
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 688519.SH
     name: 南亚新材
     role: ccl_high_speed
@@ -1244,6 +1861,17 @@ themes:
     invalidation_setup:
     - 材料链不能跟随PCB扩散
     - 单票脉冲但CCL组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: advanced_packaging_mainboard
   name: 先进封装/存储封测主板观察池
   tradability: mainboard_only
@@ -1274,6 +1902,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 55.01 且不能收回
     - 跌破MA5 70.4 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002371.SZ
     name: 北方华创
     role: semicap_equipment_mainboard_core
@@ -1291,6 +1930,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 548.0 且不能收回
     - 跌破MA5 662.42 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603986.SH
     name: 兆易创新
     role: storage_mid_core
@@ -1308,6 +1958,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 339.33 且不能收回
     - 跌破MA5 501.2 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: ai_infrastructure_energy
   name: AI基础设施与能源转型
   source_docs:
@@ -1334,6 +1995,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 14.7 且不能收回
     - 跌破MA5 15.83 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002837.SZ
     name: 英维克
     role: watch
@@ -1351,6 +2023,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 88.02 且不能收回
     - 跌破MA5 97.64 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: changxin_storage
   name: 长鑫存储产业链
   source_docs:
@@ -1380,6 +2063,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 31.38 且不能收回
     - 跌破MA5 42.06 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 688041.SH
     name: 海光信息
     role: compute_chip
@@ -1396,6 +2090,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 290.89 且不能收回
     - 跌破MA5 319.18 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603269.SH
     name: 海鸥股份
     role: cooling_equipment
@@ -1412,6 +2117,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 17.39 且不能收回
     - 跌破MA5 22.25 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002782.SZ
     name: 可立克
     role: magnetic_component
@@ -1428,6 +2144,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 20.84 且不能收回
     - 跌破MA5 28.93 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: defensive_rotation
   name: 防御板块（轮动观察，控制仓位）
   source_docs:
@@ -1453,6 +2180,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 1250.1 且不能收回
     - 跌破MA5 1292.85 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600036.SH
     name: 招商银行
     role: defensive_anchor
@@ -1483,6 +2221,17 @@ themes:
       leader_follower: 防御锚点
       catalyst: 上证回调时防御配置
       risk: 科技主线强势时防御被虹吸
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: domestic_compute
   name: 国产算力产业链
   source_docs:
@@ -1513,6 +2262,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 31.38 且不能收回
     - 跌破MA5 42.06 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002881.SZ
     name: 美格智能
     role: edge_ai_elastic
@@ -1530,6 +2290,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 40.31 且不能收回
     - 跌破MA5 47.4 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002025.SZ
     name: 航天电器
     role: ascend_connector_core
@@ -1565,6 +2336,17 @@ themes:
       leader_follower: 跟随华丰科技
       catalyst: 昇腾950量产前认证
       risk: 军工拖累+昇腾调整延长
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 688629.SH
     name: 华丰科技
     role: ascend_interconnect_leader
@@ -1595,6 +2377,17 @@ themes:
       relative_strength: 昇腾链核心
       catalyst: 昇腾950认证
       risk: 定增解锁抛压
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: mainboard_compute_software
   name: 国产CPU/服务器/基础软件主板观察池
   tradability: mainboard_only
@@ -1638,6 +2431,17 @@ themes:
       leader_follower: 板块跟随
       catalyst: AI硬件共振修复
       risk: 科技线调整中，单票无扩散风险
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603019.SH
     name: 中科曙光
     role: server_capacity
@@ -1669,6 +2473,17 @@ themes:
       leader_follower: 板块跟随
       catalyst: AI硬件共振修复
       risk: 服务器方向受益英伟达Vera Rubin量产，但普涨共振下非焦点
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 000977.SZ
     name: 浪潮信息
     role: server_core
@@ -1700,6 +2515,17 @@ themes:
       leader_follower: 板块跟随
       catalyst: AI硬件共振修复
       risk: 推理时代CPU:GPU配比1:8→1:1，通用服务器需求激活，但短期非情绪焦点
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 000938.SZ
     name: 紫光股份
     role: network_server_watch
@@ -1716,6 +2542,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 27.16 且不能收回
     - 跌破MA5 29.1 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 000063.SZ
     name: 中兴通讯
     role: ict_capacity
@@ -1732,6 +2569,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 34.43 且不能收回
     - 跌破MA5 36.33 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002230.SZ
     name: 科大讯飞
     role: ai_software_mid
@@ -1746,6 +2594,17 @@ themes:
     - 放量站上分时均线后回踩不破
     invalidation_setup:
     - 软件冲高但硬件主线不同步
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600536.SH
     name: 中国软件
     role: os_platform
@@ -1760,6 +2619,17 @@ themes:
     - 5月25日不能脱离国产硬件单独追
     invalidation_setup:
     - 跌破37.68日内低点或中国长城继续弱势，软件组降级观察
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603138.SH
     name: 海量数据
     role: database_watch
@@ -1773,6 +2643,17 @@ themes:
     - 数据库方向必须由中国软件、科大讯飞共同回流确认
     invalidation_setup:
     - 跌破17.22日内低点或基础软件组无扩散，维持弱势观察
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: micro_led_optics_mainboard
   name: Micro-LED/光互联/精密光学主板观察池
   tradability: mainboard_only
@@ -1802,6 +2683,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 11.44 且不能收回
     - 跌破MA5 12.23 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002273.SZ
     name: 水晶光电
     role: optics_watch
@@ -1819,6 +2711,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 35.7 且不能收回
     - 跌破MA5 40.92 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002222.SZ
     name: 福晶科技
     role: precision_optics_watch
@@ -1835,6 +2738,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 98.31 且不能收回
     - 跌破MA5 104.91 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002338.SZ
     name: 奥普光电
     role: precision_optics_watch
@@ -1851,6 +2765,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 55.46 且不能收回
     - 跌破MA5 60.6 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 601869.SH
     name: 长飞光纤
     role: fiber_core
@@ -1878,6 +2803,17 @@ themes:
       leader_follower: 板块龙头
       catalyst: AI硬件共振修复
       risk: 普涨共振格局，高度能否打开存疑
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600487.SH
     name: 亨通光电
     role: fiber_cable_core
@@ -1905,6 +2841,17 @@ themes:
       leader_follower: 板块龙头
       catalyst: AI硬件共振修复
       risk: 光纤产业近期无特别大的新变化，能否承担情绪载体存疑
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600522.SH
     name: 中天科技
     role: fiber_cable_capacity
@@ -1918,6 +2865,17 @@ themes:
     - 需长飞光纤、亨通光电同步承接，不能单票低吸
     invalidation_setup:
     - 跌破41.8日内低点或光纤光缆组无扩散，维持弱势观察
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 300265.SZ
     name: 通光线缆
     role: fiber_cable
@@ -1953,6 +2911,17 @@ themes:
       leader_follower: 跟随
       catalyst: 全球首条三波段多芯光缆开通
       risk: 供需缺口逻辑需持续验证
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: semiconductor_legacy_watch
   name: 半导体老主线（观察为主，暂不介入）
   source_docs:
@@ -1993,6 +2962,17 @@ themes:
       leader_follower: 板块跟随
       catalyst: AI硬件共振修复
       risk: 半导体调整周期深化，业绩支撑不足，下半年才有望改善
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002185.SZ
     name: 华天科技
     role: packaging_elastic
@@ -2009,6 +2989,17 @@ themes:
     invalidation_setup:
     - 跌破15日低点 13.89 且不能收回
     - 跌破MA10 17.31 且30分钟不能收回
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: semiconductor_materials
   name: 半导体材料与电子材料
   source_docs:
@@ -2041,6 +3032,17 @@ themes:
     - 若反抽126-128.50不能站稳，且材料链不扩散，优先T出部分利润
     - 跌破121后不能收回
     - 冲高无量且材料链不扩散
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603650.SH
     name: 彤程新材
     role: materials_holding
@@ -2062,6 +3064,17 @@ themes:
     - 若不能站稳60或重新跌回59成本线下，优先减弱留强
     - 站不回成本附近且资金继续流出
     - 跌回58.4附近不能修复
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 301611.SZ
     name: 珂玛科技
     role: esc_ceramic_breakthrough
@@ -2088,6 +3101,17 @@ themes:
     sector_narrative:
       catalyst: 静电卡盘国产替代、日企涨价倒逼扩产
       risk: 卡盘认证周期长
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: mlcc_passive_cycle
   name: MLCC/被动元件周期上行（外溢承接，非类存储大紧缺）
   source_docs:
@@ -2117,6 +3141,17 @@ themes:
     - 单票脉冲但MLCC组无联动
     - 跌破分时均价且风华高科同步回落
     - 高端MLCC客户验证不及预期
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 000636.SZ
     name: 风华高科
     role: mlcc_mainboard_core
@@ -2149,6 +3184,17 @@ themes:
       leader_follower: 板块龙头
       catalyst: AI硬件共振修复
       risk: 普涨共振格局，反弹预期需降低；短期涨幅已大，需防获利回吐
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603678.SH
     name: 火炬电子
     role: mlcc_military_elastic
@@ -2178,6 +3224,17 @@ themes:
       leader_follower: 板块龙头
       catalyst: AI硬件共振修复
       risk: 下午频繁开板，连板高度受限；普涨共振下反弹预期需降低
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: coal_safety_summer
   name: 煤炭（安监风暴+迎峰度夏）
   source_docs:
@@ -2206,6 +3263,17 @@ themes:
     - 煤价回升不及预期
     - 安监煤矿大规模复产
     - 科技主线强势，煤炭作为防御被虹吸
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 000983.SZ
     name: 山西焦煤
     role: coking_coal_elastic
@@ -2223,6 +3291,17 @@ themes:
     - 山西煤矿大规模复产
     - 焦煤价格回落
     - 单票脉冲但煤炭组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: chemical_price_increase
   name: 化工涨价（安赛蜜+制冷剂）
   source_docs:
@@ -2250,6 +3329,17 @@ themes:
     - 安赛蜜价格回落
     - 三寡头协同破裂
     - 单票脉冲但化工涨价组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600160.SH
     name: 巨化股份
     role: refrigerant_pfa_dual
@@ -2267,6 +3357,17 @@ themes:
     - 制冷剂价格大幅回落
     - 超纯PFA客户验证不及预期
     - 单票脉冲但氟化工组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: urban_renewal
   name: 城市更新（十五五13万亿，专项债可作资本金）
   source_docs:
@@ -2296,6 +3397,17 @@ themes:
     - 专项债发行不及预期
     - 科技主线强势，基建被虹吸
     - 单票脉冲但城市更新组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002271.SZ
     name: 东方雨虹
     role: post_property_cycle
@@ -2311,6 +3423,17 @@ themes:
     invalidation_setup:
     - 地产数据继续恶化
     - 单票脉冲但地产后周期无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: compute_power_synergy
   name: 算电协同（绿色算力全栈AI平台上线）
   source_docs:
@@ -2336,6 +3459,17 @@ themes:
     invalidation_setup:
     - 算电协同概念不被资金持续认可
     - 单票脉冲但组内无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 001896.SZ
     name: 豫能控股
     role: green_power_compute
@@ -2351,6 +3485,17 @@ themes:
     invalidation_setup:
     - 算电协同概念不被资金持续认可
     - 单票脉冲但组内无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: mlcc_resistor_inductor
   name: MLCC/电阻/电感（被动元件周期上行）
   source_docs:
@@ -2375,6 +3520,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但MLCC组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 301013.SZ
     name: 利和兴
     role: mlcc_equipment
@@ -2390,6 +3546,17 @@ themes:
     invalidation_setup:
     - MLCC扩产不及预期
     - 单票脉冲但组内无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 301458.SZ
     name: 钧崴电子
     role: resistor_core
@@ -2405,6 +3572,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但被动元件组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002138.SZ
     name: 顺络电子
     role: inductor_core
@@ -2420,6 +3598,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但被动元件组无联动
     - 跌破分时均价且三环集团同步回落
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: mlcc_upstream_materials
   name: MLCC上游材料（瓷粉/载带/离型膜）
   source_docs:
@@ -2445,6 +3634,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但上游组无联动
     - 高端瓷粉替代进度不及预期
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: passive_components_distribution
   name: 被动元件经销（渠道涨价受益）
   source_docs:
@@ -2469,6 +3669,17 @@ themes:
     invalidation_setup:
     - 渠道涨价不能持续
     - 单票脉冲但分销组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 000670.SZ
     name: 盈方微
     role: passive_distribution
@@ -2484,6 +3695,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但分销组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 301270.SZ
     name: 云汉芯城
     role: passive_distribution
@@ -2499,6 +3721,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但分销组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 000062.SZ
     name: 深圳华强
     role: passive_distribution
@@ -2514,6 +3747,17 @@ themes:
     invalidation_setup:
     - 渠道涨价不能持续
     - 单票脉冲但分销组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: connector_second_round_hike
   name: 连接器（安费诺7月第二轮涨价）
   source_docs:
@@ -2538,6 +3782,17 @@ themes:
     invalidation_setup:
     - 安费诺涨价不及预期
     - 单票脉冲但连接器组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: high_speed_copper_cable
   name: 高速铜缆（戴尔AI服务器催化）
   source_docs:
@@ -2562,6 +3817,17 @@ themes:
     invalidation_setup:
     - 戴尔交付不及预期
     - 单票脉冲但铜缆组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: cpo_optical_backplane
   name: CPO/光背板（鸿海今年出货1万台）
   source_docs:
@@ -2586,6 +3852,17 @@ themes:
     invalidation_setup:
     - 鸿海CPO出货不及预期
     - 单票脉冲但CPO组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 688313.SH
     name: 仕佳光子
     role: cpo_aws_chip
@@ -2621,6 +3898,17 @@ themes:
       leader_follower: 跟随
       catalyst: 英伟达Spectrum-X量产
       risk: 短期涨幅大，需防兑现
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 688025.SH
     name: 杰普特
     role: laser_equipment
@@ -2656,6 +3944,17 @@ themes:
       leader_follower: 跟随
       catalyst: 英伟达Spectrum-X量产
       risk: 短期涨幅大，需防兑现
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: pcb_drill_needle
   name: PCB钻针（M9硬度提升5-8倍消耗）
   source_docs:
@@ -2680,6 +3979,17 @@ themes:
     invalidation_setup:
     - M9渗透率不及预期
     - 单票脉冲但钻针组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 688308.SH
     name: 欧科亿
     role: pcb_drill_needle
@@ -2695,6 +4005,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但钻针组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: coal_full_chain
   name: 煤炭（安监+迎峰度夏+煤化工）
   source_docs:
@@ -2721,6 +4042,17 @@ themes:
     - 山西煤矿大规模复产
     - 焦煤价格回落
     - 单票脉冲但煤炭组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 601225.SH
     name: 陕西煤业
     role: thermal_coal_core
@@ -2738,6 +4070,17 @@ themes:
     - 煤价回升不及预期
     - 安监煤矿大规模复产
     - 科技主线强势，煤炭被虹吸
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 601898.SH
     name: 中煤能源
     role: thermal_coal_core
@@ -2753,6 +4096,17 @@ themes:
     invalidation_setup:
     - 煤价回升不及预期
     - 单票脉冲但煤炭组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600985.SH
     name: 淮北矿业
     role: coking_coal_elastic
@@ -2768,6 +4122,17 @@ themes:
     invalidation_setup:
     - 焦煤价格回落
     - 单票脉冲但煤炭组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 601666.SH
     name: 平煤股份
     role: coking_coal_elastic
@@ -2783,6 +4148,17 @@ themes:
     invalidation_setup:
     - 焦煤价格回落
     - 单票脉冲但煤炭组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600188.SH
     name: 兖矿能源
     role: thermal_coal_core
@@ -2798,6 +4174,17 @@ themes:
     invalidation_setup:
     - 煤价回升不及预期
     - 单票脉冲但煤炭组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: chemical_acesulfame
   name: 化工-安赛蜜（三轮涨价87.5%）
   source_docs:
@@ -2823,6 +4210,17 @@ themes:
     - 安赛蜜价格回落
     - 三寡头协同破裂
     - 单票脉冲但化工涨价组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: refrigerant_pfa
   name: 化工-制冷剂/PFA（巨化双催化）
   source_docs:
@@ -2848,6 +4246,17 @@ themes:
     invalidation_setup:
     - 制冷剂价格大幅回落
     - 单票脉冲但氟化工组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: urban_renewal_infrastructure
   name: 城市更新-基建（13万亿+专项债作资本金）
   source_docs:
@@ -2874,6 +4283,17 @@ themes:
     - 专项债发行不及预期
     - 科技主线强势，基建被虹吸
     - 单票脉冲但城市更新组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 601390.SH
     name: 中国中铁
     role: construction_core
@@ -2889,6 +4309,17 @@ themes:
     invalidation_setup:
     - 专项债发行不及预期
     - 单票脉冲但城市更新组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 601800.SH
     name: 中国交建
     role: construction_core
@@ -2904,6 +4335,17 @@ themes:
     invalidation_setup:
     - 专项债发行不及预期
     - 单票脉冲但城市更新组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 601618.SH
     name: 中国中冶
     role: construction_core
@@ -2919,6 +4361,17 @@ themes:
     invalidation_setup:
     - 专项债发行不及预期
     - 单票脉冲但城市更新组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600170.SH
     name: 上海建工
     role: construction_regional
@@ -2934,6 +4387,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但城市更新组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600820.SH
     name: 隧道股份
     role: construction_regional
@@ -2949,6 +4413,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但城市更新组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 600502.SH
     name: 安徽建工
     role: construction_regional
@@ -2964,6 +4439,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但城市更新组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: urban_renewal_inspection
   name: 城市更新-检测（房屋安全体检制度）
   source_docs:
@@ -2988,6 +4474,17 @@ themes:
     invalidation_setup:
     - 房屋安全体检制度落地不及预期
     - 单票脉冲但检测组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 301115.SZ
     name: 联检科技
     role: inspection_elastic
@@ -3003,6 +4500,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但检测组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 300977.SZ
     name: 深圳瑞捷
     role: inspection_elastic
@@ -3018,6 +4526,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但检测组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: urban_renewal_post_property
   name: 城市更新-地产后周期（装修装饰）
   source_docs:
@@ -3042,6 +4561,17 @@ themes:
     invalidation_setup:
     - 地产数据继续恶化
     - 单票脉冲但地产后周期无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002375.SZ
     name: 亚厦股份
     role: decoration_elastic
@@ -3057,6 +4587,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但地产后周期无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: minimax_ipo
   name: MiniMax IPO（AI模型公司上市催化）
   source_docs:
@@ -3080,6 +4621,17 @@ themes:
     invalidation_setup:
     - MiniMax上市进度不及预期
     - 单票脉冲但概念组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 301171.SZ
     name: 易点天下
     role: ai_marketing
@@ -3094,6 +4646,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但AI应用组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: aipc_edge_ai
   name: AIPC/端侧AI（英伟达AI PC+端侧推理扩散）
   source_docs:
@@ -3125,6 +4688,17 @@ themes:
     - 单票冲高但端侧AI组无联动
     - 跌破分时均价且瑞芯微同步回落
     - 端侧AI逻辑不被资金持续认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603236.SH
     name: 移远通信
     role: aipc_modem
@@ -3140,6 +4714,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但模组组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 300638.SZ
     name: 广和通
     role: aipc_modem
@@ -3155,6 +4740,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但模组组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603893.SH
     name: 瑞芯微
     role: aipc_soc_core
@@ -3173,6 +4769,17 @@ themes:
     - 单票走强但端侧芯片组无扩散
     - 跌破分时均价且全志科技同步回落
     - 端侧芯片逻辑不被资金持续认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 300458.SZ
     name: 全志科技
     role: aipc_soc
@@ -3188,6 +4795,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但芯片组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 688099.SH
     name: 晶晨股份
     role: aipc_soc
@@ -3203,6 +4821,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但芯片组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603296.SH
     name: 华勤技术
     role: aipc_odm_core
@@ -3219,6 +4848,17 @@ themes:
     - 单票走强但AI PC组无扩散
     - 跌破分时均价
     - AI PC换机潮逻辑不被资金认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603341.SH
     name: 龙旗科技
     role: aipc_odm
@@ -3234,6 +4874,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但ODM组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 001314.SZ
     name: 亿道信息
     role: aipc_hardware
@@ -3249,6 +4900,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但硬件组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 300602.SZ
     name: 飞荣达
     role: aipc_cooling
@@ -3264,6 +4926,17 @@ themes:
     invalidation_setup:
     - 单票脉冲但散热组无联动
     - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - name: 关注地位方向_20260602
   description: UP 6月2日复盘明确提示的"关注地位方向"：普涨轮动阶段，地位与卡位决定资金回流的优先级。CPO供应链核心卡位、国产替代地位标的、全球市占/产业链地位。
   priority: P2
@@ -3300,6 +4973,17 @@ themes:
       leader_follower: 国产替代龙头
       catalyst: 光刻胶/CMP国产替代，产能落地
       risk: 半导体整体业绩支撑不足，下半年才有望改善
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 688515.SH
     name: 裕太微
     role: ethernet_phy_dsp
@@ -3331,12 +5015,24 @@ themes:
       leader_follower: Marvell概念龙头
       catalyst: 英伟达点名Marvell，DSP国产替代
       risk: 短期涨幅已大，需防获利回吐；概念炒作成分
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 601138.SH
     name: 工业富联
     role: cpo_switch_odm
     segment: CPO交换机/ODM
     priority: P2-重点
-    watch_reason: UP明确提示"关注地位方向"：CPO供应链核心卡位，全光CPO交换机机柜出货目标从26年超1万台上修至26-27年合计超5万台。英伟达Vera Rubin全面量产受益。
+    watch_reason: UP明确提示"关注地位方向"：CPO供应链核心卡位，全光CPO交换机机柜出货目标从26年超1万台上修至26-27年合计超5万台。英伟达Vera
+      Rubin全面量产受益。
     sync_with_index: 上证
     confirm_with:
     - 天孚通信
@@ -3362,6 +5058,17 @@ themes:
       leader_follower: CPO交换机龙头
       catalyst: CPO交换机机柜出货上修至5万台
       risk: 短期涨幅已大，需防获利回吐
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002384.SZ
     name: 东山精密
     role: fpc_pcb_global
@@ -3393,6 +5100,17 @@ themes:
       leader_follower: 全球市占龙头
       catalyst: AI服务器PCB+光模块收购+机器人研发中心
       risk: 多维布局分散精力，收购整合风险
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 000807.SZ
     name: 云铝股份
     role: green_aluminum_export
@@ -3424,6 +5142,17 @@ themes:
       leader_follower: 绿色铝龙头
       catalyst: 美伊冲突致中东产能受损，沪伦价差历史极值利好出口
       risk: 美伊冲突缓和导致铝价回落
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   id: focus_direction_20260602
 - id: lpu_inference_chip
   name: LPU/推理芯片链（博通新概念）
@@ -3475,6 +5204,17 @@ themes:
       leader_follower: 板块龙头
       catalyst: 英伟达LPU Q3提前发货+博通财报催化
       risk: 新概念首日，连板高度不确定；涨停次日高开易兑现
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002463.SZ
     name: 沪电股份
     role: lpu_high_layer_pcb
@@ -3513,6 +5253,17 @@ themes:
       leader_follower: 板块龙头
       catalyst: 英伟达LPU Q3发货+AI服务器PCB高景气
       risk: 短期涨幅已大(+8.49%)，追高性价比低
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002916.SZ
     name: 深南电路
     role: lpu_pcb_substrate
@@ -3551,6 +5302,17 @@ themes:
       leader_follower: 板块跟随
       catalyst: 英伟达LPU先进封装基板需求
       risk: 封装基板主力为台系(欣兴/Ibiden)，A股订单弹性有限
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 002475.SZ
     name: 立讯精密
     role: lpu_high_speed_connector
@@ -3589,6 +5351,17 @@ themes:
       leader_follower: 板块跟随
       catalyst: 英伟达LPU PCIe 6.0高速连接需求
       risk: 供应链高度集中，A股公司多为二级备选
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: ai_energy_gas_turbine
   name: AI能源/燃气轮机（UP深度方向，确定性高）
   source_docs:
@@ -3643,6 +5416,17 @@ themes:
       leader_follower: 板块龙头
       catalyst: 北美AIDC缺电+燃机EPC订单持续兑现
       risk: 涨停+10%短期过热，追高性价比低。UP：回调是上车机会
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 603308.SH
     name: 应流股份
     role: turbine_blade_core
@@ -3680,6 +5464,17 @@ themes:
       leader_follower: 板块跟随
       catalyst: 703产业链出海+GE/西门子供应链认证
       risk: PS：PCC等海外龙头产能扩张可能压缩中国企业份额
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
   - code: 000534.SZ
     name: 万泽股份
     role: turbine_blade_superalloy
@@ -3716,3 +5511,14 @@ themes:
       leader_follower: 板块跟随
       catalyst: 703产业链出海+高温合金国产替代
       risk: 海外主机厂扩产传闻可能短期冲击(4/17已有先例)
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
