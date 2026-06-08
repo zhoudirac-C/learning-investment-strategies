@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 import re
 import subprocess
 import time as time_module
@@ -17,6 +18,7 @@ import yaml
 from qing_investment.paths import repo_root
 
 
+logger = logging.getLogger(__name__)
 CN_TZ = ZoneInfo("Asia/Shanghai")
 DEFAULT_CONFIG_DIR = repo_root() / "config" / "stock_monitor"
 QUOTE_FIELDS = "f12,f13,f14,f2,f3,f4,f5,f6,f15,f16,f17,f18"
@@ -1021,6 +1023,14 @@ def format_agent_analysis_context(
             if prompt_path.exists():
                 cron_prompt = prompt_path.read_text(encoding="utf-8")
 
+    # ── Phase 4 新增：加载观察池热度排行 ──
+    hot_score_summary = ""
+    try:
+        from qing_investment.agent.tools.hot_score import format_hot_score_summary
+        hot_score_summary = format_hot_score_summary(limit=10)
+    except Exception as e:
+        logger.warning("Failed to load hot scores: %s", e)
+
     lines = [
         "[Hermes股票监控大模型分析上下文]",
         f"时间：{data['timestamp']}",
@@ -1032,6 +1042,9 @@ def format_agent_analysis_context(
         "",
         "=== daily_state 当前状态 ===",
         state_summary,
+        "",
+        "=== 观察池热度排行 ===",
+        hot_score_summary if hot_score_summary else "热度分尚未计算",
         "",
         "=== 节点专属指令 ===",
         cron_prompt if cron_prompt else "（使用默认分析模板）",

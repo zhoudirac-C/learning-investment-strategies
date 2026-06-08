@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from datetime import datetime, timedelta
+
 from neo4j import GraphDatabase
 
 from qing_investment.agent.config import settings
@@ -126,6 +128,35 @@ class Neo4jClient:
         """
         with self.driver.session() as session:
             return session.run(query, name=name).data()
+
+    def get_recent_claims(self, claim_type: str | None = None, days: int = 7, limit: int = 50) -> list[dict]:
+        """Get recent claims, optionally filtered by type.
+
+        Args:
+            claim_type: Filter by claim_type (e.g., 'operation', 'methodology')
+            days: How many days back to look
+            limit: Max results
+        """
+        query = """
+        MATCH (c:Claim)
+        WHERE c.source_date >= $cutoff_date
+        """
+        params = {"cutoff_date": (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d"), "limit": limit}
+
+        if claim_type:
+            query += " AND c.claim_type = $claim_type\n"
+            params["claim_type"] = claim_type
+
+        query += """
+        RETURN c.id as id, c.statement as statement,
+               c.confidence as confidence, coalesce(c.source_date, '') as source_date,
+               c.status as status, coalesce(c.subject, '') as subject,
+               c.claim_type as claim_type, coalesce(c.intensity, 'medium') as intensity
+        ORDER BY source_date DESC
+        LIMIT $limit
+        """
+        with self.driver.session() as session:
+            return session.run(query, **params).data()
 
     def close(self):
         self.driver.close()
