@@ -72,46 +72,25 @@ class AgentAnalysisTrigger:
 
 DEFAULT_AGENT_ANALYSIS_SCHEDULE = [
     {
-        "id": "open_auction",
-        "time": "09:26",
-        "name": "集合竞价后",
-        "focus": "核心持仓和观察池是否超预期高开低开",
+        "id": "morning_open",
+        "time": "09:30",
+        "name": "开盘定调",
+        "focus": "竞价方向判断、建立今日核心假设、方向优先级初判、持仓应对",
+        "prompt": "cron_opening",
     },
     {
-        "id": "open_confirm",
-        "time": "09:45",
-        "name": "开盘15分钟确认",
-        "focus": "指数是否失守关键位，科技/CPO/PCB/半导体谁主动",
-    },
-    {
-        "id": "morning_confirm",
-        "time": "10:30",
-        "name": "30分钟确认",
-        "focus": "底部钝化和主线修复质量是否成立",
-    },
-    {
-        "id": "noon_review",
-        "time": "11:20",
-        "name": "上午收盘前",
-        "focus": "上午定性为强修复、弱修复、防御切换还是继续分歧",
-    },
-    {
-        "id": "afternoon_risk",
-        "time": "13:10",
-        "name": "午后风险窗口",
-        "focus": "冲高无扩散时是否需要兑现或减亏",
-    },
-    {
-        "id": "mid_afternoon",
+        "id": "midday_check",
         "time": "14:00",
         "name": "午盘监控",
-        "focus": "午后一小时盘面验证：持仓是否触发风控、观察池是否出现分歧低吸点。只讲当下，不预判尾盘，不做次日预案。",
+        "focus": "上午假设验证、午后走势评估、尾盘预案、今日机会扫描",
+        "prompt": "cron_midday",
     },
     {
-        "id": "tail_condition",
-        "time": "14:50",
-        "name": "尾盘条件单",
-        "focus": "是否符合尾盘低吸、减仓或规避尾盘杀的条件",
+        "id": "closing_review",
+        "time": "15:20",
+        "name": "收盘复盘",
+        "focus": "全天观点演进回顾、预判准确性评估、方向优先级重排、明日核心假设、更新daily_state",
+        "prompt": "cron_closing",
     },
 ]
 
@@ -255,6 +234,30 @@ def evaluate_position_alerts(
                     price=latest,
                     trigger=trigger,
                     severity="risk",
+                    summary=summary,
+                )
+            )
+
+        # ── Phase 3 新增：add_zone 加仓触发 ──
+        add_zone = parse_price_zone(row.get("add_zone"))
+        if add_zone and add_zone[0] <= latest <= add_zone[1]:
+            trigger = f"进入预设加仓区{_format_zone(add_zone)}"
+            key = (code, "加仓观察", trigger)
+            if key in seen:
+                continue
+            seen.add(key)
+            summary = (
+                f"加仓观察：{name}({code}) 当前价={latest:g} 涨跌幅={pct_change}%；"
+                f"{trigger}。逻辑没变、赔率变好，考虑加仓。"
+            )
+            alerts.append(
+                RuleAlert(
+                    action="加仓观察",
+                    stock_code=code,
+                    stock_name=name,
+                    price=latest,
+                    trigger=trigger,
+                    severity="opportunity",  # Phase 3: 机会级别，非风险
                     summary=summary,
                 )
             )
@@ -994,6 +997,30 @@ def format_agent_analysis_context(
     data = _agent_context_data(config, value, trigger, alerts, quote_snapshot, state)
     stage = data["market_framework"]["stage"]
     core_question = data["market_framework"]["core_question"]
+
+    # ── Phase 3 新增：加载 daily_state ──
+    from qing_investment.agent.tools.daily_state import load_daily_state, get_state_summary
+    daily_state = load_daily_state()
+    state_summary = get_state_summary(daily_state)
+
+    # ── Phase 3 新增：加载差异化 prompt ──
+    cron_prompt = ""
+    schedule_rows = agent_analysis_schedule_rows(config)
+    current_row = None
+    for row in schedule_rows:
+        row_time = str(row.get("time", ""))
+        current_hhmm = value.astimezone(CN_TZ).strftime("%H:%M")
+        if row_time == current_hhmm:
+            current_row = row
+            break
+
+    if current_row:
+        prompt_name = current_row.get("prompt", "")
+        if prompt_name:
+            prompt_path = repo_root() / "src" / "qing_investment" / "agent" / "prompts" / "system" / f"{prompt_name}.txt"
+            if prompt_path.exists():
+                cron_prompt = prompt_path.read_text(encoding="utf-8")
+
     lines = [
         "[Hermes股票监控大模型分析上下文]",
         f"时间：{data['timestamp']}",
@@ -1002,6 +1029,12 @@ def format_agent_analysis_context(
         f"触发原因：{data['trigger']['reason']}",
         f"当前框架：{stage}",
         f"核心问题：{core_question}",
+        "",
+        "=== daily_state 当前状态 ===",
+        state_summary,
+        "",
+        "=== 节点专属指令 ===",
+        cron_prompt if cron_prompt else "（使用默认分析模板）",
         "",
         "规则信号：",
     ]
@@ -1063,12 +1096,12 @@ def format_agent_analysis_context(
             "每只触发/重点持仓必须单独一行，最多8行。",
             "【观察池】",
             "- 可买：最多3个满足/接近买入条件的标的和买点。",
-            "- 暂不买：一句话说明主因。",
-            "【脚注】数据源=...；时间=...；异常=...。不要给无条件买卖指令。",
+            "- 不买：最多3个不符合条件或风险较大的标的和原因。",
+            "【参考来源】列出依据的UP观点/框架/实时数据。",
         ]
     )
-    return "\n".join(lines)
 
+    return "\n".join(lines)
 
 def format_agent_json_context(
     config: MonitorConfig,

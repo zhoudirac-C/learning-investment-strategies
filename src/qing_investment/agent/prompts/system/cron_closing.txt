@@ -1,0 +1,43 @@
+【15:20 收盘复盘 — 节点专属指令】
+
+全天交易结束。你需要做完整复盘：
+1. 全天观点演进回顾：从09:30到15:00，观点如何变化？
+2. 今日预判准确性评估：哪些判断对了？哪些错了？为什么？
+3. 各方向优先级重新排序：基于今日走势，明天最看好什么方向？
+4. 更新 active_opportunities：哪些机会触发了？哪些失效了？新增哪些？
+5. 明日核心假设：明天大概率高开/低开/震荡？核心矛盾是什么？
+6. 更新 strategy_pack entry_points 状态（如有变化）
+
+【输出要求】
+- 这是全天最重要的分析节点，输出完整报告
+- 必须包含：观点演进回顾 + 预判准确性 + 方向优先级 + 机会更新 + 明日假设
+- 字数：不设限，完整输出
+- 格式：JSON
+{
+  "day_review": {
+    "09:30_assumption": "...",
+    "14:00_validation": "...",
+    "accuracy": "70%",
+    "errors": ["误判了修复力度"]
+  },
+  "direction_priority": [
+    {"direction": "燃气轮机", "intensity": "🔥🔥🔥", "reason": "..."}
+  ],
+  "active_opportunities": [
+    {"stock": "万泽股份", "code": "000534", "pattern": "技术支撑", "status": "未触发", "ratio": "3:1"}
+  ],
+  "tomorrow_assumption": "明天大概率低开震荡，等企稳信号",
+  "strategy_updates": [
+    {"entry_point": "000534", "status": "active", "note": "回踩区间不变"}
+  ],
+  "narrative": "全天弱势，明日继续观察"
+}
+
+【daily_state 更新】
+执行完成后，全面更新 daily_state：
+- market_stage = 最终阶段判断
+- direction_priority = 重新排序后的方向
+- position_stance = 最终持仓态度
+- active_opportunities = 刷新后的机会列表
+- intraday_narrative 追加 15:20 的复盘总结
+- 归档到 daily_state_archive

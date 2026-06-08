@@ -15,9 +15,10 @@ description: Use when the user asks to analyze an individual stock through the b
 2. `skills/qing-stock-analysis/references/data-source-strategy.md`
 3. `skills/qing-stock-analysis/references/glmv-stock-analyst-workflow.md`
 4. `skills/qing-stock-analysis/references/f10-financial-analysis.md`
-5. `skills/qing-stock-analysis/references/qing-stock-framework.md`
-6. `skills/qing-stock-analysis/references/report-contract.md`
-7. `src/qing_investment/stock_monitor.py` — 监控脚本源码，包含 CLI flag、去重逻辑、板块轮动计算、大模型分析上下文格式。** cron 极简微信提醒的模板定义在源码中（搜索 `format_agent_analysis_context` 和 `请按本项目 AGENTS.md`），无独立参考文件。**
+7. `skills/qing-stock-analysis/references/qing-stock-framework.md`
+8. `skills/qing-stock-analysis/references/report-contract.md`
+9. `skills/qing-stock-analysis/references/prompt-persona-engineering.md` — **Prompt 人格工程与反保守改造**：从风控机器人到AI交易助手的完整改造方案。含独立人格文件模式、反保守自检指令、赔率思维强制框架、Context Builder claims注入架构、实施顺序与验收标准。当系统被诊断为"太保守"或"只减仓不提醒买入"时必读。
+10. `src/qing_investment/stock_monitor.py` — 监控脚本源码，包含 CLI flag、去重逻辑、板块轮动计算、大模型分析上下文格式。** cron 极简微信提醒的模板定义在源码中（搜索 `format_agent_analysis_context` 和 `请按本项目 AGENTS.md`），无独立参考文件。**
 8. `skills/qing-stock-analysis/references/realtime-quote-fetch.md` — **实时行情 curl 兜底**：当 Python 包不可用时，用 curl + 腾讯财经 API 获取 A 股实时行情
 9. `skills/qing-stock-analysis/references/tencent-api-field-guide.md` — **腾讯财经 API 字段解析参考**：`qt.gtimg.cn` 返回字段的索引会随买卖盘深度漂移，必须用手动计算（最新-昨收）/昨收 或动态定位时间戳，禁止硬编码索引
 10. `skills/qing-stock-analysis/references/watchlist-theme-recovery.md` — **观察池 themes 恢复操作手册**：当用户要求恢复历史上被替换/移除的 themes 时，按此手册执行 Git 历史溯源、字段精简和验证
@@ -576,6 +577,9 @@ curl -s 'https://qt.gtimg.cn/q=sz000969,sz000066,sh600487' | iconv -f gbk -t utf
 18. **UP 评论回复与主动态内容矛盾（高危）**：UP 在自己动态下的评论回复可能包含与主动态文字相反的关键判断。典型案例如 2026-06-05 14:11 动态——主文字"下午继续买"（看多），但评论回复"4033到了清仓科技，不是今天抄底的品种"（看空科技）。处理盘中动态时必须：①读取 B站原始 API 数据或 original 文件检查是否有UP评论；②若评论判断与主动态文字方向相反，标记为**内部矛盾**，在操作建议中显式提醒用户；③不能只采信主动态文字而忽略评论中的致命条件。**这在指数关键点位（如4033）附近尤为重要**——评论中的条件可能覆盖主动态的加仓指令。
 19. **个股板块地位判断机制**：当用户问"XX股票在板块内是什么地位"时，当前系统基于 Neo4j 中 UP 的历史观点（定性标签：龙头/中军/情绪载体/趋势/活口/铲子/锚点/先锋/补涨），而非实时计算板块内排名。系统缺少板块成分股列表、涨停家数、换手率、龙虎榜等实时数据，无法执行通用"龙头战法"中的量化排名计算。详见 `references/stock-role-classification.md`。
 20. **中军定义纠偏**：用户明确纠正——"中军一般都是大票，因为冗余大资金，你只看排名不对的"。中军不是涨幅排名靠前的票，而是大市值（通常500亿+）、机构主导、基本面支撑、板块稳定器的角色。详见 `references/stock-role-classification.md` §二。
+22. **Prompt 层改造是最高杠杆改动（2026-06-08）**：当系统被诊断出"太保守、只减仓不提醒买入"时，最高杠杆的修复不是改代码加 buy_zone，而是重写 system prompt——嵌入交易者人格 + 赔率思维框架 + 反保守自检指令。Phase 1 仅改 prompt 文件就实现了：机会扫描字段、赔率分析强制输出、反保守5条自检。这比改代码快10倍，效果可能更大。详见 `references/prompt-persona-engineering.md`。
+23. ** traders_mindset.txt 独立文件模式**：将交易者人格定义从 prompt 正文中抽离为独立 `trader_mindset.txt`，由 `_load_prompt()` 自动注入到 market_analyst 和 stock_analyst。好处：①一处修改全局生效；②人格定义可独立迭代；③避免每个 prompt 文件重复粘贴相同内容。详见 `references/prompt-persona-engineering.md` §独立人格文件模式。
+24. **Context Builder — Claims 实时注入（Phase 2）**：在 `retrieve_knowledge` 节点中自动构建增强上下文，将 Neo4j 图遍历（ABOUT 边）+ Qdrant 语义召回的 claims 浓缩为结构化摘要（每只标的≤3条，每条≤50字），注入 `stock_contexts` + `direction_signals`。解决 LLM "不知道 UP 对这个票的判断是什么" 的问题。详见 `references/prompt-persona-engineering.md` §Phase 2。
 
 ## YAML 合约与同步规范
 
