@@ -75,8 +75,8 @@ class AgentAnalysisTrigger:
 DEFAULT_AGENT_ANALYSIS_SCHEDULE = [
     {
         "id": "morning_open",
-        "time": "09:30",
-        "name": "开盘定调",
+        "time": "09:26",
+        "name": "集合竞价后",
         "focus": "竞价方向判断、建立今日核心假设、方向优先级初判、持仓应对",
         "prompt": "cron_opening",
     },
