@@ -60,6 +60,52 @@ bash scripts/run_discover_with_progress.sh
 2. **YAML 缩进 bug 已修复**：`write_results_to_yaml()` 曾硬编码 4 空格导致 42 个文件损坏。修复方案：改为保留原始行缩进。如再次遇到缩进错误，最快恢复方式：`git checkout -- knowledge/claims/`
 3. **耗时**：547 条 claims × ~10 秒/条 ≈ 90 分钟
 
+### 🐛 已修复的历史 bug（2026-06-08）
+
+以下 bug 在 2026-06-08 的 discover 迁移+修复 session 中发现并修复，记录在此防止再次踩坑。
+
+#### Bug 1: Python 脚本目录遮蔽 pip 包
+**症状**：`ImportError: cannot import name 'QdrantClient' from 'qdrant_client'`
+**根因**：Python 运行脚本时自动把脚本所在目录加到 `sys.path[0]`。discover 脚本在 `src/qing_investment/agent/tools/` 下，该目录的 `qdrant_client.py` 遮蔽了 pip 包 `qdrant_client`。
+**修复**：在 discover 脚本中检测并移除 `sys.path[0]`（如果它是脚本目录）。
+**代码**：`discover_claim_relations.py` 第 35-38 行
+
+#### Bug 2: `get_claim_evolution` 返回格式变更导致 fetch_full_claim 永远返回 None
+**症状**：discover 三轮跑完 578 条全部返回 0 关系，但 LLM 单独测试能正确判断
+**根因**：之前 P1-1 修复将 `get_claim_evolution` 的返回格式从 `{"c": {...}}` 改为扁平 `{id, statement, ...}`。`fetch_full_claim` 仍用 `node = first.get("c", {})` 取值，永远得到空 dict → 返回 None → 所有相似 claim 被跳过。
+**修复**：`fetch_full_claim` 直接读取扁平 dict，不再通过 `"c"` 键嵌套。
+**教训**：改 Neo4j 查询返回格式时，**必须 grep 所有调用方**确认兼容。
+
+#### Bug 3: `write_results_to_yaml` 写入后留下孤儿列表项
+**症状**：YAML 出现 `supersedes: []` 后跟 `    - claim-xxx` 孤儿行，导致 parse error
+**根因**：HEAD 版本 YAML 用 `supersedes:\n    - claim-xxx` 格式（非内联）。discover 将 `supersedes:` 替换为 `supersedes: []`（JSON 内联），但**没有删除后面缩进的列表项**。
+**修复**：写入 `supersedes: []` / `contradicts: []` 后，循环跳过后续 `  - claim-` 开头的孤儿行。
+**代码**：`write_results_to_yaml()` 第 240-245 行
+
+#### Bug 4: `last_discovered` 在 tags 序列后插入导致 YAML 损坏
+**症状**：list-格式 YAML 文件的 `tags:` 列表项后出现 `last_discovered:` 映射键，parser 从序列上下文切回映射时报错
+**根因**：`write_results_to_yaml` 在 claim 块末尾追加 `last_discovered`，但 list-格式文件末尾可能是 `tags:\n  - xxx`，映射键插入序列上下文导致 parse error
+**修复**：`last_discovered` 紧跟在 `contradicts:` 写入之后（在标签列表之前），不再在块末尾追加。
+**代码**：`write_results_to_yaml()` 第 247-252 行
+
+#### Bug 5: 迁移脚本路径后 PROJECT_ROOT 计算错误
+**症状**：脚本从 `scripts/` 迁移到 `src/qing_investment/agent/tools/` 后，`PROJECT_ROOT = parent.parent` 指向错误目录
+**修复**：`PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent.parent`（5 级 `.parent` 回到仓库根目录）
+
+### 🔧 调试工具
+
+- `scripts/debug_discover.py` — 单条 claim 的 discover 管道追踪（Qdrant 搜索 → Neo4j 获取 → LLM 判断）
+- `scripts/fix_corrupted_yaml.py` — 批量修复 YAML 孤儿行，从 Neo4j 回填 supersedes/contradicts
+
+### 🩺 故障诊断速查
+
+| 症状 | 可能原因 | 检查方法 |
+|------|---------|---------|
+| 0 关系 | Bug 2: fetch 返回 None | `debug_discover.py` 追踪 |
+| 0 关系 | Bug 1: Qdrant 遮蔽 | 检查 import 报错 |
+| YAML parse error | Bug 3: 孤儿列表项 | `grep -A1 'supersedes: \[]' *.yaml` |
+| YAML parse error (list格式) | Bug 4: last_discovered 位置 | `grep -B2 'last_discovered' *.yaml` |
+
 ---
 
 ## 第二步：Neo4j 迁移
