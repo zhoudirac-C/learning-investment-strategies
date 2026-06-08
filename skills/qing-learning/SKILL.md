@@ -144,6 +144,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 36. **Claim topic/tags 自动生成**：当旧格式 claims 缺少 `topic`/`tags` 字段时，运行 `scripts/add_topics_tags.py` 进行批量回填。该脚本基于规则提取（非LLM），从 `subject`/`statement`/`claim_type` 自动生成中文主题词和标签。详见 `references/claim-topic-tag-generation.md`。
 
 37. **Claim 字段完整性审计**：当怀疑 claim 数据质量下降时（如 Neo4j 出现孤立节点、YAML 格式混用），参考 `references/claim-field-audit-workflow.md`（全量审计命令、常见问题模式、修复优先级、验证流程）。
+38. **Claim 审核清单**：参考 `references/claim-review-checklist.md`（三条补充规则：同日期多 raw 独立阅读、禁止多主题合并、不同 claim_type 可重叠）。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
@@ -316,6 +317,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
       - 在 `judge_relation()` 中添加 3 次重试 + 指数退避（1s/2s/4s）
       - 症状：进程 `ps` 显示 `Sl` 状态，`/proc/<pid>/stack` 无活动，网络连接 ESTABLISHED 但无数据传输
       - 验证：`ss -tnp | grep <pid>` 查看对端 IP（DeepSeek=43.141.130.88:443），若连接存活超 5 分钟无进展 = hang
+    - **⚠️ SUPPLEMENTS 只存 YAML，不进 Neo4j**（2026-06-08）：discover 写入三个关系标签（supersedes/contradicts/supplements）到 YAML，但 migrate 脚本只将 SUPERSEDES 和 CONTRADICTS 导入 Neo4j。SUPPLEMENTS 仅存在于 YAML 文件中。讨论 Neo4j 关系数量时只统计前两者。
     - **完整流水线**：关系发现是第一步，完成后必须运行 `migrate_claims_to_neo4j.py` → `index_claims_to_qdrant.py --force-recreate` → 重启 Agent。详见 `docs/neo4j-relation-pipeline.md`。
 
 11. **推理模式抽取混淆观点与推理**：`"UP看好MLCC"` 是观点，应进 claims；`"UP是怎么得出看好MLCC的（5步推理链）"` 是推理模式，应进 `framework/reasoning-patterns.yaml`。不要将单日盘面判断误标为推理模式。
