@@ -212,8 +212,10 @@ related_stocks:
 
 | claim_type | Neo4j 实体标签 | prompt 分流 | 典型用途 |
 |-----------|---------------|-------------|---------|
-| `market-cycle` | Macro | 进入时效分级（≤7天→最新/可参考，>7天→递减） | 市场阶段判断 |
-| `macro` | Macro | 进入时效分级 | 宏观/流动性判断 |
+| `market-cycle` | Macro | 进入时效分级（≤7天→最新/可参考，>7天→递减） | A股市场阶段判断（指数周期/风格切换/情绪周期） |
+| `macro` | Macro | 进入时效分级 | 宏观/流动性/海外数据（非农/CPI/央行操作/汇率/原油） |
+
+**分类边界**：如果 subject 是「美国非农数据」「央行黄金增持」「美联储加息」，用 `macro`；如果 subject 是「A股市场阶段」「指数支撑位」「风格切换」，用 `market-cycle`。反例：`claim-20260607-004-a` 初版用 `market-cycle` 标记非农数据——非农是海外宏观指标，非 A 股市场自身周期，应改为 `macro`。
 | `sector-theme` | Sector | 进入时效分级 | 板块/方向判断 |
 | `methodology` | Methodology | **方法论区块（不受时效限制）** | 选股/操作方法 |
 | `operation` | Methodology | **方法论区块（不受时效限制）** | 交易纪律 |
@@ -352,6 +354,7 @@ claim-g (sector-theme)：磨底期非科技方向——消费
 | related_stocks 里的标的不在 statement 中出现 | Neo4j 有边但 Agent 看不到 | 确保代码至少在 statement 中出现一次 |
 | 总入口 claim 的 statement 不含方向汇总 | 全景查询需要召回多条 claim | claim-a 做一站式汇总 |
 | market-cycle 类 claim 混淆"进行时"与"完成时" | 把"正在挖坑"写成"已是坑底"，抄底时机判断错误 | 区分过程（正在挖/进行中）vs 状态（已经是/已完成），对应 UP 原话的时态 |
+| stock-view 类 claim 未标注 688/300 不可交易 | 用户看到推荐但实际无交易权限，浪费分析时间 | 在 interpretation 中加注 ⚠️ 688/300 不可交易，仅作产业趋势跟踪 |
 
 ---
 
@@ -391,3 +394,5 @@ claim-g (sector-theme)：磨底期非科技方向——消费
 | 2026-06-07 | +外部研究报告处理规则 (`references/external-research-handling.md`) | 用户提供高盛报告→确认不入 raw/不提取 claims，单独归档 `sources/research/` |
 | 2026-06-07 | +反模式"过程 vs 状态混淆" | 用户纠正："正在挖黄金坑"≠"已是黄金坑"，claim statement 必须区分进行时 vs 完成时 |
 | 2026-06-08 | +原子性规则（含反模式+验证清单） | 用户审核拒绝合并 claim：004-i 化工+养殖+非银+光伏 4条合一→拆为4条；004-m 金禄+天准 2只合一→拆为2条。核心理由：多主题合并导致 Qdrant 语义向量不精准、Agent 无法单独引用 |
+| 2026-06-08 | +claim_type 分类边界（macro vs market-cycle） | 用户纠正：非农数据用 `macro` 非 `market-cycle`，黄金增持同属 `macro`。边界规则：海外宏观指标→`macro`，A股自身周期→`market-cycle` |
+| 2026-06-08 | +688/300 不可交易标注规则 | 用户提醒：标的如绿的谐波(688017)、天准科技(688003)为科创板，用户无法交易。stock-view 类 claim 须在 interpretation 中标注 ⚠️ 不可交易，tags 加 `688不可交易` |
