@@ -1,0 +1,401 @@
+claims:
+  - id: claim-20260607-004-a
+    topic: 非农数据结构性分析
+    statement: 5月非农17.2万远超预期的8万，但数据结构经不起"全面走强"解读——休闲酒店（约7万，近三年最高，可能受世界杯用工拉动）、地方政府（约5.2万）、教育医保（约4万）三项贡献了绝大部分，其余行业合计仅约1万，较前月9.3万明显回落。本质是结构性、季节性、带临时因素的"强"，而非需求广谱回暖
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: market-cycle
+    subject: 美国非农数据
+    timeframe: 短期（1-2周）
+    evidence_quote: |
+      "新增就业主要由休闲酒店(约7万,近三年最高,或受今夏世界杯用工拉动)、地方政府(约5.2万)、教育医保(约4万)三项贡献,其余行业合计仅约1万,较前月的9.3万明显回落。换言之,这是结构性、季节性、带临时因素的「强」,而非需求广谱回暖。"
+    interpretation: 非农"超预期"有临时因素，市场过度反应。后续是否加息仍取决于通胀数据，本次非农波动含统计噪音
+    confidence: medium
+    status: active
+    intensity: high
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors: []
+    tags:
+      - 非农
+      - 美股
+      - 宏观
+      - 结构性分析
+
+  - id: claim-20260607-004-b
+    topic: AI军备竞赛城投模式类比
+    statement: 美国AI军备竞赛被类比为中国"城投模式"——举债扩张、大干快上、政府担保，AI产业逻辑虽强但受融资条件约束，尤其在自由现金流逐渐耗尽的阶段。在特朗普政府和美联储有实质动作前，建议偏谨慎
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: macro
+    subject: AI产业融资环境
+    timeframe: 中期（1-3个月）
+    evidence_quote: |
+      "将美国AI军备竞赛类比为「城投模式」——举债扩张、大干快上、政府担保。在特朗普政府和美联储有实质动作前,建议偏谨慎。"
+    interpretation: 这是机构观点（非UP原创），提供了一个框架：AI产业逻辑强但融资约束收紧，关注政策层面实质动作（降息/财政扩张）
+    confidence: medium
+    status: active
+    intensity: high
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors:
+        - AI算力
+    tags:
+      - AI
+      - 融资环境
+      - 城投模式
+      - 宏观
+
+  - id: claim-20260607-004-c
+    topic: 风格切换内核——两次分化本质不同
+    statement: 周五"科技大票杀跌、小微盘反弹"的形态上周五已出现过一次，但两次内核不同：上一次领涨的是消费等超跌方向（需增量资金加持），这一次领涨的是机器人、智能体、商业航天（本身就是科技内部分流资金愿意去的产业趋势方向）。这次风格切换成功的概率比上次单纯的超跌反弹大得多
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: sector-theme
+    subject: A股风格切换
+    timeframe: 短期（1-2周）
+    evidence_quote: |
+      "差别在于资金的去向是否有产业趋势承接。消费等超跌方向要走出持续性,需要增量资金加持;而机器人、智能体、商业航天本身就是科技内部分流资金愿意去的产业趋势方向。因此这一次风格切换成功的概率,要比上一次单纯的超跌反弹大得多。"
+    interpretation: 风格切换的可靠性取决于领涨方向的产业趋势承接力——机器人/智能体/商业航天有产业逻辑，不是纯超跌反弹。这比上一次（5月30日）消费领涨更可靠
+    confidence: medium
+    status: active
+    intensity: high
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260607-003-d
+      related_stocks: []
+      related_sectors:
+        - 机器人
+        - 智能体
+        - 商业航天
+    tags:
+      - 风格切换
+      - 机器人
+      - 智能体
+      - 商业航天
+
+  - id: claim-20260607-004-d
+    topic: 风格切换时间窗口——1-2个月，中报节点
+    statement: 科技大幅回调后需要时间修复，美股科技修复可能更快（本次非农波动含临时与统计因素）；AI产业趋势仍在、业绩维持高增速。这轮风格切换的时间窗口可能维持1–2个月，中报或许是市场重回科技大票的节点。周一科技开盘仍将承压
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: market-cycle
+    subject: A股风格切换时间窗口
+    timeframe: 中期（1-2个月）
+    evidence_quote: |
+      "科技大幅回调后需要时间修复,美股科技修复可能更快(本次非农波动含临时与统计因素);AI产业趋势仍在、业绩维持高增速,因此这轮风格切换的时间窗口可能维持1–2个月,中报或许是市场重回科技大票的节点。"
+    interpretation: UP推演的时间窗口：1-2个月风格切换期，中报是科技大票回归节点。这是主观推演，非确定性时间表
+    confidence: low
+    status: active
+    intensity: medium
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260607-003-d
+        - claim-20260607-004-c
+      related_stocks: []
+      related_sectors:
+        - 科技
+    tags:
+      - 时间窗口
+      - 中报
+      - 风格切换
+
+  - id: claim-20260607-004-e
+    topic: 智能体有望成为风格切换主流方向
+    statement: 切换方向大概率不是纯投机——电力已经涨了很久，往"类投机的产业趋势"切的可能性更高。从周五盘面看，智能体有望成为主流方向，且很可能炒广义智能体概念：软件智能体与具身智能（人形机器人、自动驾驶）同步炒作的概率偏大
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: sector-theme
+    subject: 智能体
+    timeframe: 中期（1-2个月）
+    evidence_quote: |
+      "切换方向大概率不是纯投机——电力已经涨了很久,因此往「类投机的产业趋势」切的可能性更高...从周五盘面看,智能体有望成为主流方向,且很可能炒广义智能体概念:软件智能体与具身智能(与端侧AI、物理AI同一范畴,如人形机器人、自动驾驶)同步炒作的概率偏大。"
+    interpretation: 智能体是风格切换中的潜在主线，广义概念涵盖软件智能体（达实智能、能科科技等）+具身智能/物理AI，类比去年福建纯投机退潮后商业航天接棒的路径
+    confidence: medium
+    status: active
+    intensity: high
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260607-003-d
+      related_stocks: []
+      related_sectors:
+        - 智能体
+        - 具身智能
+        - 物理AI
+    tags:
+      - 智能体
+      - 具身智能
+      - 物理AI
+      - 主线
+
+  - id: claim-20260607-004-f
+    topic: Google-SpaceX算力协议——估值叙事工具
+    statement: 谷歌与SpaceX的算力协议属实——2026年10月起至2029年6月，每月9.2亿美元，对应约11万颗英伟达GPU，总额约300亿美元。谷歌定性为补充过渡产能的"短期协议"，但市场的真正看点是算力租赁正在成为一级市场估值叙事的工具（SpaceX下周IPO目标估值超1.75万亿）。Anthropic已签下每月12.5亿美元类似协议
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: sector-theme
+    subject: AI算力租赁
+    timeframe: 中期（1-3个月）
+    evidence_quote: |
+      "谷歌与SpaceX的算力协议属实,但细节值得点透:协议为2026年10月起至2029年6月、每月9.2亿美元、对应约11万颗英伟达GPU,总额约300亿美元。关键在于性质——谷歌方面将其定性为补充过渡产能的「短期协议」,而市场普遍把它读成为SpaceX下周IPO(目标估值超1.75万亿美元)铺垫的营收叙事...这条信息的真正看点不是「谷歌缺算力」,而是算力租赁正在成为一级市场估值叙事的工具。"
+    interpretation: SpaceX算力协议不是简单的算力需求信号，而是用于IPO估值叙事——这种模式对算力租赁标的（B300卡厂商）是利好，但需区分叙事vs实际需求
+    confidence: medium
+    status: active
+    intensity: high
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260607-003-i
+      related_stocks: []
+      related_sectors:
+        - 算力租赁
+        - AI算力
+    tags:
+      - 算力租赁
+      - SpaceX
+      - Google
+      - IPO估值
+
+  - id: claim-20260607-004-g
+    topic: 物理AI——中期主线跟踪方向
+    statement: 物理AI是值得跟踪的中期主线。湖北省工业物理AI实验室6月5日在武汉成立，底层逻辑正从大语言模型的"语言理解"转向世界模型的"预测世界"。中泰证券研报提出物理AI有望进入"数据增长—模型迭代—能力提升—场景扩张"的飞轮。物理AI与具身智能、端侧AI属同一范畴
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: sector-theme
+    subject: 物理AI
+    timeframe: 中期（3-6个月）
+    evidence_quote: |
+      "产业趋势层面,物理AI是值得跟踪的中期主线。湖北省工业物理AI实验室6月5日在武汉成立,围绕「AI+工业软件+物理机理+制造数据」开展攻关。底层逻辑正从大语言模型的「语言理解」转向世界模型的「预测世界」,中泰证券研报提出物理AI有望进入「数据增长—模型迭代—能力提升—场景扩张」的飞轮。"
+    interpretation: 物理AI是AI从"理解语言"到"预测世界"的里程碑式转型方向，属中期产业趋势。结合智能体/具身智能炒作方向，物理AI相关标的（金禄电子、天准科技等）值得跟踪
+    confidence: low
+    status: active
+    intensity: medium
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260607-004-e
+      related_stocks: []
+      related_sectors:
+        - 物理AI
+        - 具身智能
+    tags:
+      - 物理AI
+      - 世界模型
+      - 产业趋势
+
+  - id: claim-20260607-004-h
+    topic: 央行黄金增持加速——金价跌央行反而加速买
+    statement: 央行5月增持黄金32万盎司（连续第19个月，近15个月新高），今年2-5月增持逐月加速（3万→16万→26万→32万盎司）。更关键的是，增持发生在3/4/5月金价连续收跌的震荡下行通道中——"金价跌、央行反而加速买"的背离
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: macro
+    subject: 黄金
+    timeframe: 中期（1-3个月）
+    evidence_quote: |
+      "央行5月增持黄金32万盎司,连续第19个月增持...增持发生在3/4/5月金价连续收跌的震荡下行通道中,「金价跌、央行反而加速买」的背离比绝对数字更有信息量。"
+    interpretation: 央行的逆势加速增持是黄金中期底部的有效信号。与黄金目标位4230（claim-20260607-003-g）配合使用——央行行为确认底部支撑逻辑
+    confidence: medium
+    status: active
+    intensity: high
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260607-003-g
+      related_stocks: []
+      related_sectors: []
+    tags:
+      - 黄金
+      - 央行
+      - 宏观
+
+  - id: claim-20260607-004-i
+    topic: 化工/贵金属/养殖/非银/光伏——多条线索速记
+    statement: 多条行业线索：①化工——印度钾肥大合同涨34美元/吨，国内取消尿素出口指导价，海峡通航后油价回落是成本博弈换牌节点；②鸡蛋淡季批发价环比涨26%，近5年同期新高；③非银金融PB-ROE吸引力已超9·24行情前水平（中信测算ROE分位76.9%/PB分位6.1%）；④光伏全年装机预期500GW+，国金预计2026年反内卷政策推动扭亏
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: sector-theme
+    subject: 多行业线索
+    timeframe: 中期（1-3个月）
+    evidence_quote: |
+      "据行业数据,印度2026年钾肥大合同价格较去年上涨34美元/吨...国内取消尿素出口指导价限制。""6月初国内鸡蛋批发价淡季环比上涨约26%,为近5年同期新高。""据中信测算,非银金融PB-ROE吸引力(ROE分位76.9%、PB分位6.1%)已超「9·24行情」前水平。""2026年全球光伏新增装机有望维持500GW以上...国金证券姚遥此前预计2026年「反内卷」政策有望推动落后产能加速出清。"
+    interpretation: 四条独立行业线索合并为一条速记型claim：化工看海峡通航后的供需回补信号，养殖看鸡蛋淡季异动，非银看PB-ROE吸引力（可作蓝筹配置参考），光伏看扭亏预期
+    confidence: low
+    status: active
+    intensity: medium
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks:
+        - sh600030  # 中信证券 (非银参考)
+      related_sectors:
+        - 化工
+        - 养殖
+        - 非银金融
+        - 光伏
+    tags:
+      - 化工
+      - 黄金
+      - 养殖
+      - 非银
+      - 光伏
+
+  # ─── 个股 claims ───
+
+  - id: claim-20260607-004-j
+    topic: 达实智能——智能体情绪标杆
+    statement: 达实智能被盘面视为智能体方向情绪标杆。已披露口径：AIoT平台V7.1（1个超级智能体+5个场景智能体架构），本地部署硬件成本十余万元。达实大厦物业人员从2019年161人降至88人。2025年AIoT签约7847万元（Q4单季4066.54万元超前三季总和），已签约招商银行及某头部新能源车企
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: stock-view
+    subject: 达实智能
+    timeframe: 短期（1-2周）
+    evidence_quote: |
+      "达实智能被盘面视为情绪标杆。公司已披露的口径是:自研AIoT平台迭代至V7.1、搭载「1个超级智能体+5个场景智能体」架构,本地部署硬件成本十余万元,达实大厦案例物业人员由2019年161人降至88人;2025年全年AIoT平台签约7847万元,Q4单季签约4066.54万元超前三季总和。"
+    interpretation: 智能体方向情绪标杆，AIoT签约Q4加速明显（单季超前三季总和），有招商银行+头部新能源车企客户背书。但"行业首家深度融合"等定性表述为公司自述，需独立验证
+    confidence: low
+    status: active
+    intensity: medium
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260607-004-e
+      related_stocks:
+        - sz002421
+      related_sectors:
+        - 智能体
+    tags:
+      - 达实智能
+      - 智能体
+      - AIoT
+
+  - id: claim-20260607-004-k
+    topic: 能科科技——具身智能大脑定位
+    statement: 能科科技"灵系列"AI产品已在150多个工业场景开发出25个有显性业务价值的智能体、在70余家龙头/重点企业落地，定位具身智能"大脑"角色。这些为公司自述落地规模，具体收入贡献与可复用性需结合财报验证
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: stock-view
+    subject: 能科科技
+    timeframe: 短期（1-2周）
+    evidence_quote: |
+      "能科科技披露其「灵系列」AI产品已在150多个工业场景开发出25个有显性业务价值的智能体、在70余家龙头/重点企业落地,定位具身智能「大脑」角色。"
+    interpretation: 具身智能方向标的，声称已落地70+家企业。但"显性业务价值"定义模糊，需财报验证收入贡献——目前仍属叙事阶段
+    confidence: low
+    status: active
+    intensity: medium
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260607-004-e
+      related_stocks: []
+      related_sectors:
+        - 具身智能
+        - 智能体
+    tags:
+      - 能科科技
+      - 具身智能
+      - 智能体
+
+  - id: claim-20260607-004-l
+    topic: 绿的谐波——机器人方向领涨，市占率口径未统一
+    statement: 绿的谐波是周五午后机器人方向领涨标的。谐波减速器在人形机器人BOM中价值量高、壁垒深。公司国内市占率不同信源给出30%-60%的较宽区间（口径差异大，需谨慎引用），公司称2025年实现国际头部机器人客户批量交付
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: stock-view
+    subject: 绿的谐波
+    timeframe: 短期（1-2周）
+    evidence_quote: |
+      "绿的谐波是周五午后机器人方向的领涨标的。可核的产业事实是:谐波减速器在高精度人形机器人BOM中价值量高、壁垒深;公司国内市占率,不同信源给出约30%–60%的较宽区间(信源口径差异较大,需谨慎引用);公司称2025年实现国际头部机器人客户批量交付。"
+    interpretation: 机器人方向领涨标的，产业地位真实（谐波减速器壁垒高），但市占率数据不统一是风险信号——叙事先行，需跟踪订单兑现
+    confidence: low
+    status: active
+    intensity: medium
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260607-003-d
+        - claim-20260607-004-c
+      related_stocks:
+        - sh688017
+      related_sectors:
+        - 机器人
+        - 人形机器人
+    tags:
+      - 绿的谐波
+      - 机器人
+      - 谐波减速器
+
+  - id: claim-20260607-004-m
+    topic: 物理AI链条标的——金禄电子、天准科技
+    statement: 物理AI链条上，金禄电子（PCB）、天准科技（控制器）的布局多为公司表态或媒体报道，产业映射成立但订单与业绩兑现度需另行核实。暂按跟踪观察处理，不构成投资建议
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: stock-view
+    subject: 金禄电子/天准科技
+    timeframe: 中期（3-6个月）
+    evidence_quote: |
+      "物理AI链条上,金禄电子、天准科技的PCB与控制器布局多为公司表态或媒体报道,产业映射成立但订单与业绩兑现度需另行核实。"
+    interpretation: 物理AI方向的映射标的，产业逻辑成立（PCB/控制器），但目前属于叙事阶段——无业绩验证。与光伏链条的横店东磁/岱勒新材同理
+    confidence: low
+    status: active
+    intensity: low
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260607-004-g
+      related_stocks:
+        - sz301282
+        - sh688003
+      related_sectors:
+        - 物理AI
+        - PCB
+    tags:
+      - 金禄电子
+      - 天准科技
+      - 物理AI
+      - 映射标的
