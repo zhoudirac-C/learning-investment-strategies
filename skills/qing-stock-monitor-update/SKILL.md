@@ -57,7 +57,7 @@ description: |
 28. `skills/qing-stock-monitor-update/references/trader-mindset-design-philosophy.md` — **设计哲学纠正（2026-06-08）**：用户明确纠正 v1.0 方向——系统不应走向更多量化规则，而应让 LLM 以交易者思维（赔率思维+机会发现）做出判断。所有后续修改必须遵循此哲学。
 29. `references/architecture-review-framework.md` — **配置架构系统性Review框架**：四步法（现状→缺陷→方案→优先级），区别于 config-health-check（配置完整性检查）。当用户要求对 config+cron 做全链路架构 review 时使用。
 30. `references/prompt-layer-transformation-playbook.md` — **Prompt 层改造实战手册**：当系统被诊断为"太保守、只减仓不提醒买入"时，如何仅通过重写 system prompt 实现交易者人格嵌入、赔率框架激活、反保守自检。含 5 个 prompt 文件改造清单、nodes.py 注入逻辑、JSON 字段扩展指南。
-31. `references/daily-state-hot-score-implementation.md` — **Phase 3-4 架构实现参考**：daily_state 状态机、hot_score 热度分、claims_to_entry 桥接、3节点 cron prompt、add_zone 触发逻辑的完整实现细节与维护指南。
+31. `references/daily-state-hot-score-implementation.md` — **Phase 3-4 架构实现参考**：daily_state 状态机、hot_score 热度分、claims_to_entry 桥接、3节点 cron prompt（**09:26/14:00/15:20**，注意 09:26 是集合竞价后，不可改为 09:30）、add_zone 触发逻辑的完整实现细节与维护指南。
 
 ## 工作流程
 
@@ -492,6 +492,7 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 
 ## 关键纪律
 
+-2. **Cron 时间必须与文档一致**：`config-cron-architecture-review.md` 明确指定 3 节点为 09:26（集合竞价后）/ 14:00 / 15:20。**不可将 09:26 改为 09:30**——09:26 是竞价结束、结果可用的精确时刻，09:30 已错过最佳定调窗口。修改 cron 时间前必须核对文档，不可凭直觉"取整"。
 -1. **设计哲学（2026-06-08 用户纠正）**：本系统的目标不是做量化规则引擎，而是让 LLM 像 UP 一样以交易者思维做出判断。不能为了让系统"更稳定"而走向更多硬编码的量化规则——那会杀死 AI 判断的核心价值。每次修改 cron prompt 或 agent 逻辑时，必须问："这是在增强 LLM 的交易者思考能力，还是在用规则替代它？" 详见 `references/trader-mindset-design-philosophy.md`。
 0. **配置 Review 必须覆盖全链路（2026-06-06 用户纠正）**：当用户要求 review 观察池/持仓池/策略配置时，**不能只看 YAML 文件**。必须同时 review：
    - `config/stock_monitor/*.yaml`（watchlist, strategy_pack, positions）
