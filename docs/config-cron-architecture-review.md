@@ -321,36 +321,61 @@ Step 5: 组装 prompt 上下文：
 - Qdrant 语义召回：用"当前标的技术面描述"作为 query，找到类似情境下的 claims 判断
 - Claims 浓度控制：每只标的最多注入 3 条最相关的 claims 摘要（每条 50 字以内），防止上下文溢出
 
-### 4.4 核心改造3：Cron 精简 + 观点连续性
+### 4.4 核心改造3：Cron 差异化 + 观点连续性
 
-#### 4.4.1 Cron 任务重构
+#### 4.4.1 Cron 改造方向纠正
 
-| 当前（9个） | 改造后（3个 + 量化轮询） | 类型 |
-|------------|------------------------|------|
-| 09:26 集合竞价 | → 09:30 开盘简报 | LLM 完整分析 |
-| 09:45 开盘确认 | → （删除，合并入09:30） | - |
-| 10:00 10点确认 | → （删除） | - |
-| 10:30 30分钟确认 | → （删除，量化轮询覆盖） | - |
-| 11:00 11点确认 | → （删除） | - |
-| 11:20 上午收盘前 | → （删除，量化轮询覆盖） | - |
-| 13:10 午后风险 | → （删除） | - |
-| 14:00 午盘监控 | → 14:00 午盘验证 | LLM 完整分析 |
-| 14:55 尾盘条件单 | → （删除，量化轮询覆盖） | - |
-| - | → stock_monitor 2分钟轮询 | 纯规则告警 |
-| 15:20 收盘复盘 | → 15:20 收盘复盘 | LLM 完整分析 |
+v1.0 的方案是「9→3，其余用量化轮询覆盖」。用户指出：**"目前的设计是在一些关键时间点，让AI做判断"** ——这是正确的设计理念。问题不是节点太多，而是每个节点跑的**同一套无差异的 prompt**。
 
-**3个LLM节点的差异化 prompt**：
+**纠正后的方案**：不减少节点数，但每个节点有**独立的、差异化的 prompt**，且所有节点共享 `daily_state` 实现观点连续性。
 
-| 时间 | 名称 | 重点 |
-|------|------|------|
-| 09:30 | 开盘简报 | 竞价方向 + 今日应该盯哪些票 + 昨日状态复现 |
-| 14:00 | 午盘验证 | 上午走势 vs 早盘预期 → 确认/修正 + 持仓调整 |
-| 15:20 | 收盘复盘 | 全天总结 + 更新 daily_state + 明日预案 |
+#### 4.4.2 差异化 Cron 节点设计
 
-**量化轮询（stock_monitor.py 增强）**：
-- 频率：2分钟一次（交易时段内）
-- 触发后推送精简告警（1-2句话，非完整分析）
-- 新增 `buy_zone` 触发逻辑（对标 reduce_zone，但方向相反）
+| 时间 | 名称 | 差异化 Prompt 焦点 | 类型 |
+|------|------|-------------------|------|
+| 09:26 | 集合竞价后 | **开盘定调**：竞价方向（高开/低开/平开），方向强弱对比，建立今天核心假设，更新 daily_state | LLM |
+| 09:45 | 开盘15分钟确认 | **假设验证1**：9:30假设是否成立？开盘15分钟内指数和方向是否按预期走？若不成立，修正假设 | LLM |
+| 10:00 | 10点确认 | **早盘定性**：30分钟后，今天基调基本确定。是强修复/弱修复/分歧/防御？写出今日机会模式初筛 | LLM |
+| 10:30 | 30分钟确认 | **机会扫描**：基于早盘走势，7大机会模式逐一检查，给出「今日最有希望触发机会的3-5只标的」 | LLM |
+| 11:20 | 上午收盘前 | **半场总结**：上午定性 + 午后预案。"如果下午延续上午，该做什么？如果下午反转，该做什么？" | LLM |
+| 13:10 | 午后风险窗口 | **午后纪律检查**：验证午后只看不买纪律，检查持仓是否触发风控，识别午后冲高回落风险 | LLM |
+| 14:00 | 午盘监控 | **假设验证2**：对比上午预期和下午实际走势，决定是否需要尾盘调整 | LLM |
+| 14:55 | 尾盘条件单 | **收盘决策**：是否触发尾盘买入/卖出/尾盘杀风险？今日持仓怎么过夜？ | LLM |
+| 15:20 | 收盘复盘 | **全天总结+策略更新**：全天观点演进回顾，更新 daily_state + strategy_pack，写复盘报告 | LLM |
+
+**差异化 prompt 的关键设计**：
+
+```
+每个节点的 system prompt 分为三段：
+
+【共享段】— 所有节点相同的部分
+- 交易者人格（15年职业交易员）
+- 赔率思维框架
+- 反保守自检指令
+- daily_state 当前内容
+
+【节点专属段】— 每个节点不同
+- 当前时间节点的市场焦点（如09:26只关心竞价，不需要看持仓风险）
+- 输出要求（如09:45只输出"假设验证结果+修正建议"，不要求完整分析）
+- 字数限制（不同节点不同：09:26=150字精简，15:20=完整报告）
+
+【事件驱动段】— 按需注入
+- 盘中若出现异常（跌停/涨停/指数破位），在最近的下一个节点自动追加"异常检测"模块
+```
+
+#### 4.4.3 观点连续性：daily_state 作为共享记忆
+
+所有节点读写同一个 `daily_state.json`：
+
+```
+09:26 → 写入核心假设："今天判断等修复，重心机器人+燃气轮机"
+09:45 → 读取假设 → 验证："竞价判断基本正确，创业板未创新低"
+10:30 → 读取前两次判断 → "上午未发现恐慌超卖机会，继续等"
+14:00 → 读取 → "午后修复力度弱于上午预期，降低尾盘预期"
+15:20 → 读取全天演进 → 更新第二天方向优先级和策略
+```
+
+每个节点看到的不是孤立数据，而是**一整天的观点演进链**。
 
 #### 4.4.2 daily_state.json — 状态机
 
@@ -397,7 +422,295 @@ Step 5: 组装 prompt 上下文：
 }
 ```
 
-### 4.5 核心改造4：观察池「热度排序」替代删减
+### 4.5 核心改造4：Config 层架构调整
+
+#### 4.5.1 watchlist.yaml — 从「文档坟场」到「活水观察池」
+
+**现状问题**：3718 行，大量票永不过期，没有优先级，缺少从「关注→行动」的桥接。
+
+**保留不变**：
+- `themes` / `stocks` 层级结构 — 这是好的，按产业链组织
+- `code` / `name` / `role` / `segment` / `priority` — 核心字段
+- `confirm_with` / `buy_setup` / `invalidation_setup` — 条件逻辑
+- `up_mention_status` / `technical_narrative` / `sector_narrative` — 描述型字段
+
+**新增字段（增量，不破坏现有数据）**：
+
+```yaml
+stocks:
+  - code: 000636.SZ
+    name: 万通发展
+    # ... 现有字段保留 ...
+
+    # 【新增】生命周期状态
+    lifecycle:
+      stage: watching          # watching | ready | position | closed | archived
+      entered_stage: "2026-05-28"
+      last_activity: "2026-06-08"
+      auto_downgrade_after: 30  # 30天无活动 → archived
+
+    # 【新增】今日热度（由脚本自动计算，不手动维护）
+    hot_score: 7.5             # 0-10分，每日开盘前 scripts/calc_hot_scores.py 刷新
+
+    # 【新增】与 claims 的显式关联（替代隐式的 mention_context）
+    linked_claims:
+      - claim_id: "claim-20260528-004"
+        relevance: "direct"    # direct | theme | background
+        claim_type: "sector-theme"
+      - claim_id: "claim-20260604-003"
+        relevance: "direct"
+        claim_type: "operation"
+
+    # 【新增】机会模式匹配
+    opportunity_patterns:
+      primary: "技术支撑确认"   # 7大模式之一，或 null
+      secondary: "板块轮动早期"
+      last_matched: "2026-06-08"
+```
+
+**关键设计决策**：
+- `lifecycle` / `hot_score` / `linked_claims` / `opportunity_patterns` 都是新增字段，不影响现有代码
+- 存量票自动初始化为 `lifecycle.stage: watching`（脚本迁移）
+- `hot_score` 由独立的 `scripts/calc_hot_scores.py` 每日开盘前自动刷新
+- `linked_claims` 在每次 discover + migrate 后自动回填
+
+#### 4.5.2 strategy_pack.yaml — 从「文档」到「活策略」
+
+**现状问题**：`entry_points` 是静态文档，写的介入区间到了也不知道；`position_rules` 没有映射到7大机会模式。
+
+**保留不变**：
+- `market_framework` / `index_rules` / `intraday_schedule` — 周期判断框架
+- `sector_groups` / `sector_rotation_rules` — 板块轮动
+- `agent_analysis_schedule` — 时间表
+
+**需要调整**：
+
+```yaml
+# 【新增】连接 daily_state
+linked_daily_state: "config/stock_monitor/daily_state.json"
+
+# 【改造】entry_points — 从静态文档变为"活跃条件单"
+entry_points:
+  - code: 000534.SZ
+    name: 万泽股份
+    status: active              # active | triggered | expired | executed
+    entry_zone: 30.5-31.0
+    position_ratio: 0.5成
+    trigger: 回踩30.5-31.0企稳
+    invalidation: 跌破30且30分钟不能收回
+    # 【新增】关联机会模式
+    opportunity_pattern: "技术支撑确认"
+    # 【新增】赔率分析
+    odds_analysis:
+      upside_pct: 15
+      downside_pct: 5
+      odds_ratio: "3:1"
+      estimated_probability_up: 45
+      expected_value: 4.0
+      updated_at: "2026-06-08"
+    # 【新增】claims依据
+    claim_basis: "claim-20260604-003: UP明确'回调即是买点'，燃气轮机方向最看好"
+    note: 华宝唯一保留持仓，等回踩加仓
+
+# 【改造】position_rules — 映射到7大机会模式
+position_rules:
+  - id: opportunity_panic_oversold
+    name: 恐慌超卖策略
+    description: 对应机会模式1。当板块系统性回调（非个股利空），日内跌>5%时触发
+    action: 评估赔率后试探买入
+    max_position: 1成
+    stop_loss_pct: 3
+    claim_basis: "UP的'别人恐慌我贪婪'思想"
+
+  - id: opportunity_breakout
+    name: 平台突破策略
+    description: 对应机会模式2。横盘2+周后放量突破区间上沿
+    action: 确认突破有效性（次日不回落）后追入
+    max_position: 1.5成
+    # ...
+
+# 【新增】策略版本与更新追踪
+strategy_meta:
+  version: 8
+  last_full_review: "2026-06-08"
+  last_updated_by: "15:20收盘复盘cron"
+  pending_review_items:
+    - "万泽股份entry_zone需要基于6/9收盘价重新校验"
+```
+
+**关键设计决策**：
+- `entry_points` 加 `status` 字段，脚本可以检测 "价格进入介入区间 → 自动推送提醒"
+- `odds_analysis` 字段由 LLM 在收盘复盘时填充，不是手动写死
+- `position_rules` 与7大机会模式一一对应，LLM 在盘中 cron 触发时根据模式自动匹配策略
+
+#### 4.5.3 positions.yaml — 从「风控单」到「交易日志」
+
+**现状问题**：只有 `reduce_zone` / `risk_zone`，缺少买入相关的操作记录和历史跟踪。
+
+**保留不变**：
+- `code` / `name` / `shares` / `cost` / `account` / `open_date`
+- `reduce_zone` / `risk_zone` / `t_zone`
+
+**新增字段**：
+
+```yaml
+accounts:
+  - name: 华宝账号
+    positions:
+      - code: 000534.SZ
+        name: 万泽股份
+        shares: 200
+        cost: 32.506
+        reduce_zone: 34.0-35.0
+        risk_zone: 30.5-31.0
+        t_zone: 31.5-33.0
+
+        # 【新增】买入决策记录
+        entry_decision:
+          pattern: "技术支撑确认"        # 触发该笔买入的机会模式
+          odds_at_entry: "3:1"            # 买入时的赔率
+          claim_basis: "claim-20260604-003"
+          entry_price: 32.506
+          entry_date: "2026-06-05"
+
+        # 【新增】加仓条件（替代原来藏在 today_plan 里的模糊描述）
+        add_zone: "30.5-31.0"
+        add_trigger: "回踩30.5-31.0企稳，分时不创新低"
+        add_position_ratio: "0.5成"
+        add_invalidation: "跌破30且30分钟不能收回"
+
+        # 【新增】操作历史（自动写入，不手动维护）
+        trade_log:
+          - date: "2026-06-05"
+            action: "买入"
+            price: 32.506
+            shares: 200
+            reason: "燃气轮机UP最看好方向，试探仓"
+          # 后续减仓/加仓/清仓会自动追加
+
+# 【新增】持仓组合层面统计
+portfolio_stats:
+  total_positions: 1
+  total_exposure_pct: 5           # 总仓位占资金比例
+  weighted_avg_odds: "3:1"        # 加权平均赔率
+  direction_concentration:        # 方向集中度
+    燃气轮机: 100%
+```
+
+**关键设计决策**：
+- `add_zone` 对标 `reduce_zone`，方向相反——价格跌到 add_zone 触发"加仓提醒"，而非减仓
+- `trade_log` 由 cron 任务在检测到操作后自动追加，不手动维护
+- `entry_decision` 记录了"为什么买"——后续复盘时可以对比"买入理由 vs 实际结果"
+
+### 4.6 核心改造5：策略更新时机与自动化管线
+
+#### 4.6.1 三种触发时机
+
+| 触发时机 | 更新内容 | 自动化程度 |
+|----------|---------|-----------|
+| **事件驱动：UP发新内容** | 新claims → watchlist linked_claims + entry_points odds_analysis | 半自动（脚本生成建议，人工确认） |
+| **定时驱动：每日收盘复盘** | daily_state 更新 + strategy_pack entry_points 状态刷新 + positions portfolio_stats | 全自动（15:20 cron 执行） |
+| **条件驱动：价格接近介入区** | 对应 entry_point 的 status 从 active → triggered，推送提醒 | 全自动（stock_monitor 轮询检测） |
+
+#### 4.6.2 事件驱动管线（UP新内容→策略更新）
+
+```
+B站监控检测到新内容（已有 cron）
+         │
+         ▼
+  人工/Agent 提取 claims（现有流程 ✅）
+         │
+         ▼
+  discover → Neo4j → Qdrant（现有流程 ✅）
+         │
+         ▼
+  【新增】scripts/sync_claims_to_config.py  ←── 这个脚本是新增的
+    1. 读取新 claims，提取 related_stocks 和方向判断
+    2. 匹配 watchlist 中的标的
+    3. 自动更新 watchlist：
+       - linked_claims 追加新 claim
+       - lifecycle.last_activity 刷新
+       - hot_score 重新计算
+    4. 对匹配的标的，生成 entry_points 更新建议：
+       - 若 claim 中有介入建议 → 更新 entry_zone + odds_analysis
+       - 若 claim 中明确"不介入" → status = expired
+    5. 对 positions 中已有持仓，更新 claim_basis
+         │
+         ▼
+  Agent 重启（自动完成）
+         │
+         ▼
+  Git commit + push（自动完成）
+```
+
+#### 4.6.3 定时驱动管线（每日收盘复盘）
+
+```
+15:20 收盘复盘 cron 触发
+         │
+         ▼
+  LLM 分析（使用差异化 prompt——全天总结）
+         │
+         ▼
+  【自动写入】daily_state.json：
+    - market_stage 更新
+    - direction_priority 重新排序
+    - intraday_narrative 追加今日观点演进
+    - active_opportunities 刷新
+         │
+         ▼
+  【自动更新】strategy_pack.yaml：
+    - entry_points 中所有 status=active 的条目重新校验（价格是否仍然有效？）
+    - odds_analysis 刷新（基于新的收盘价）
+    - market_framework 更新（周期阶段判断）
+    - strategy_meta.last_full_review 更新
+         │
+         ▼
+  【自动更新】positions.yaml：
+    - portfolio_stats 重算
+    - 每个持仓的 t_zone 基于新收盘价刷新
+         │
+         ▼
+  Git commit + push（自动完成）
+```
+
+#### 4.6.4 条件驱动管线（价格触发）
+
+```
+stock_monitor.py 轮询（2分钟间隔）
+         │
+         ▼
+  检测到某标的进入 entry_zone 区间
+         │
+         ▼
+  读取该标的的 odds_analysis + claim_basis
+         │
+         ▼
+  推送微信精简提醒：
+  "【机会触发】万泽股份 30.8（-2.1%）进入 add_zone 30.5-31.0
+   赔率3:1，UP:燃气轮机回调即是买点。止损30"
+         │
+         ▼
+  无需 LLM（纯规则推送即可）
+```
+
+#### 4.6.5 策略文档的全链路自动化总结
+
+```
+当前流程（6-7步手动）：
+  UP新内容 → 手工提取claims → 手工更新watchlist →
+  手工更新entry_points → 手工跑discover → Neo4j → Qdrant → 重启Agent
+
+改造后流程（1-2步确认）：
+  UP新内容 → Agent提取claims → [自动]discover/Neo4j/Qdrant →
+  [自动]sync_claims_to_config.py 生成更新建议 →
+  人工确认(1-click) → [自动]写入config + 提交推送 + 重启Agent
+  
+  每日15:20 → [自动]收盘复盘更新 daily_state + strategy_pack + positions
+  盘中轮询 → [自动]价格触发推送提醒
+```
+
+### 4.7 核心改造6：观察池「热度排序」替代删减
 
 **不删票**。每天开盘前自动生成"今日热度 Top-N"：
 
@@ -417,7 +730,7 @@ Step 5: 组装 prompt 上下文：
 
 **好处**：金安国纪这样的票不会丢——当 UP 重新提到它，或者价格接近介入区间时，它会自动浮到 Top。
 
-### 4.6 核心改造5：Claims → 操作半自动化
+### 4.8 核心改造7：Claims → 操作半自动化
 
 每次新增 claims 后：
 1. 脚本自动提取 claims 中的标的和方向判断
