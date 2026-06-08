@@ -54,7 +54,7 @@ progress_reporter "$LOG_FILE" "$PROGRESS_FILE" &
 REPORTER_PID=$!
 
 cd /home/ubuntu/learning-investment-strategies
-PYTHONPATH=src .venv/bin/python scripts/discover_claim_relations.py --all-missing 2>&1 | tee -a "$LOG_FILE"
+PYTHONPATH=src .venv/bin/python src/qing_investment/agent/tools/discover_claim_relations.py --all-missing 2>&1 | tee -a "$LOG_FILE"
 
 kill $REPORTER_PID 2>/dev/null || true
 wait $REPORTER_PID 2>/dev/null || true

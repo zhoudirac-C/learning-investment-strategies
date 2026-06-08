@@ -1,7 +1,7 @@
 # Neo4j Claim 关系更新流水线
 
 > 全流程操作手册：从关系发现到索引重建、Agent 重启。
-> 最后更新：2026-06-07（全量回填完成后验证）
+> 最后更新：2026-06-08（discover 脚本迁移至 src/qing_investment/agent/tools/）
 
 ## 流水线总览
 
@@ -11,6 +11,7 @@ discover_claim_relations.py    migrate_claims_to_neo4j.py    index_claims_to_qdr
 ```
 
 **每一步的输出是下一步的输入，不可跳过。**
+**⚠️ 必须先跑 discover，再跑 migrate！** 否则 YAML 中的空 `supersedes: []` / `contradicts: []` 会覆盖 Neo4j 中已有关系边。
 
 ---
 
@@ -18,7 +19,9 @@ discover_claim_relations.py    migrate_claims_to_neo4j.py    index_claims_to_qdr
 
 ### 脚本
 
-`scripts/discover_claim_relations.py`
+`src/qing_investment/agent/tools/discover_claim_relations.py`
+
+> 已从 `scripts/` 迁移至 agent tools 目录，与 neo4j_client / llm_client 同目录。
 
 ### 原理
 
@@ -32,7 +35,7 @@ discover_claim_relations.py    migrate_claims_to_neo4j.py    index_claims_to_qdr
 
 ```bash
 cd /home/ubuntu/learning-investment-strategies
-PYTHONPATH=src .venv/bin/python scripts/discover_claim_relations.py --all-missing
+PYTHONPATH=src .venv/bin/python src/qing_investment/agent/tools/discover_claim_relations.py --all-missing
 ```
 
 ### 续跑机制

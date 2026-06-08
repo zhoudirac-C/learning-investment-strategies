@@ -2,6 +2,13 @@
 """
 Migrate claims from knowledge/claims/*.yaml into Neo4j.
 
+⚠️ 前置条件（必须！）：
+  本脚本读取 YAML 中的 supersedes/contradicts 字段来创建 Neo4j 关系边。
+  如果 YAML 中这些字段为空（[]），会删除 Neo4j 中已有的 SUPERSEDES/CONTRADICTS 边！
+  必须先运行 discover_claim_relations.py 重新发现所有关系：
+    PYTHONPATH=src .venv/bin/python src/qing_investment/agent/tools/discover_claim_relations.py --all-missing
+  完整流程见：docs/neo4j-relation-pipeline.md
+
 Supports incremental sync: only processes files modified since the last run.
 State is tracked in .migrate_state.json.
 
