@@ -1,6 +1,6 @@
 # Claims 审核清单
 
-> 从 2026-06-08 ingestion 中提炼的四条规则，补充到 claim 审核流程。
+> 从 2026-06-08 ingestion 中提炼的规则，补充到 claim 审核流程。
 
 ## 1. 同日期多篇 raw 必须独立阅读
 
@@ -58,3 +58,14 @@
   2. Skills：检查是否有需要patch的内容（pitfall、workflow改进、反模式）
   3. 汇报：说明更新了哪些memory条目、skill patch内容
 - **信号判断**：用户说"update two things"是明确的结构化指令，不是开放式讨论——直接执行，不需要先问"您想更新什么"
+
+## 7. 置顶评论补充的 claim 审核要点
+
+当处理 UP 置顶评论补充时，审核需额外关注：
+
+- **intensity 必须 high**：置顶评论是 UP 复盘后追加的重要补充，不是普通评论
+- **related_claims 必须链接主 claim**：补充 claim 必须与同一 raw 的主 claims 建立关联（如 `claim-20260608-004-j` 链接 `claim-20260608-004-a`）
+- **interpretation 必须说明补充性质**：明确标注这是"复盘后追加""视频遗漏补充"，与主 claims 的关系（补充/修正/强化）
+- **tags 必须含 `置顶评论`**：便于后续检索和分类
+- **不要重复提取主 claims 内容**：补充 claim 只包含置顶评论中的新信息，不重复 raw 正文中已有的内容
+- **evidence_quote 必须完整**：置顶评论通常很短（1-3句话），应完整引用原文

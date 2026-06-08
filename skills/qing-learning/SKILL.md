@@ -244,6 +244,9 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     PYTHONPATH=src .venv/bin/python scripts/migrate_claims_to_neo4j.py
 
     # ③ Qdrant 重建（claims 向量索引）
+    # 标准命令（增量模式）：
+    PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py
+    # 若遇到向量维度错误（ValueError: could not broadcast...），用 --force-recreate：
     PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate
 
     # ④ 重启 Agent
@@ -251,7 +254,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     ```
 
     - 增量模式（默认）：只处理 `hash 有变化` 或 `新创建` 的文件，增量 < 30 秒
-    - 强制全量模式（数据损坏时）：`--force-recreate`（claims Qdrant，删旧collection→全量重建+自检）或 `--force-full`（文档 Qdrant）
+    - 强制重建模式（数据损坏时）：`--force-recreate`（claims Qdrant，删旧collection→全量重建+自检）
     - **必须在 git commit 之后运行**（脚本基于文件 hash 判断是否已同步）
     - **⚠️ 同步后必须验证 Agent 能否检索到新内容**（见 Pitfall #15）
     - **常见陷阱**：`PYTHONUNBUFFERED=1` 是关键——否则 Python stdout 缓冲导致进程管理捕获不到输出。ONNX 单线程（`intra_op_num_threads=1`）在 2 核 VM 上必须设置，否则 futex spin-lock 死锁。
@@ -290,7 +293,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 8. **未关 Agent 就运行同步脚本（Qdrant 本地模式）**：Qing-Agent 启动后持有 `.qdrant_data/` 独占文件锁。不关 Agent 直接运行索引脚本会导致 `Storage folder already accessed` 错误或静默卡死。正确流程：`kill` Agent → 同步 → 重启 Agent。详见步骤13「知识库增量同步」。
 9. **忘记 PYTHONUNBUFFERED=1**：Hermes cron/后台进程管理器捕获 Python stdout 时，默认缓冲会导致无输出（看起来像卡死）。索引命令必须加 `PYTHONUNBUFFERED=1` 前缀。详见步骤13。
 
-10. **Qdrant claims 索引报向量维度错误（已修复 2026-06-07）**：
+  - **⚠️ Qdrant claims 索引报向量维度错误（已修复 2026-06-07）**：
 
     **错误症状**：`ValueError: could not broadcast input array from shape (512,) into shape (1,)`
     **根因**：Qdrant 本地模式（`QdrantClient(path=...)`）底层 SQLite 不支持并发访问。当 Agent 未关闭时运行索引脚本，或两个索引脚本并行运行 → 并发写入竞争 → SQLite 向量存储内部某条记录维度错乱（shape `(1,)` 而非 `(512,)`）。之后每次增量 upsert 到该坏记录触发崩溃。
@@ -300,6 +303,12 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate
     ```
     此命令自动执行：杀 Agent → 等锁释放 → 删旧 collection → 重建 → 全量索引 → 完整性自检（随机抽样10条验证维度=512）。
+
+    **何时使用 `--force-recreate`**：
+    - 增量索引时遇到 `ValueError: could not broadcast...`（确定症状）
+    - 新增 claims 后 Agent 检索不到新内容（可能为向量损坏导致索引中断）
+    - 定期维护（建议每周一次）预防性重建
+    - **知识库同步的标准最后一步**：当 discover + migrate 成功但 Qdrant 索引失败时，用 `--force-recreate` 替代普通索引命令
 
     **防护机制**（2026-06-07 已集成）：
     - 两个索引脚本（`index_claims_to_qdrant.py` / `index_documents_to_qdrant.py`）启动时**自动 kill uvicorn Qing-Agent**（`--skip-agent-kill` 可跳过）
