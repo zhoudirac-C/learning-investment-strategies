@@ -6,7 +6,7 @@ claims:
     source_date: '2026-06-07'
     source_type: 专栏
     extracted_at: '2026-06-08'
-    claim_type: market-cycle
+    claim_type: macro
     subject: 美国非农数据
     timeframe: 短期（1-2周）
     evidence_quote: |
@@ -239,19 +239,21 @@ claims:
       - 央行
       - 宏观
 
+  # ─── 行业速记（拆分自原004-i） ───
+
   - id: claim-20260607-004-i
-    topic: 化工/贵金属/养殖/非银/光伏——多条线索速记
-    statement: 多条行业线索：①化工——印度钾肥大合同涨34美元/吨，国内取消尿素出口指导价，海峡通航后油价回落是成本博弈换牌节点；②鸡蛋淡季批发价环比涨26%，近5年同期新高；③非银金融PB-ROE吸引力已超9·24行情前水平（中信测算ROE分位76.9%/PB分位6.1%）；④光伏全年装机预期500GW+，国金预计2026年反内卷政策推动扭亏
+    topic: 化工——钾肥大合同涨价+尿素出口放开+海峡通航成本博弈
+    statement: 印度2026年钾肥大合同价格较去年上涨34美元/吨，远高于2016–2025年间约8美元/吨的平均溢价；国内取消尿素出口指导价限制。海峡通航可能是成本博弈"换牌"时刻——下游等通航后油价回落再提负荷，上游成本高、开工率低、累库也不愿让价。只有海峡通航与供需同时回补，价格信号才更有说服力
     source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
     source_date: '2026-06-07'
     source_type: 专栏
     extracted_at: '2026-06-08'
     claim_type: sector-theme
-    subject: 多行业线索
+    subject: 化工
     timeframe: 中期（1-3个月）
     evidence_quote: |
-      "据行业数据,印度2026年钾肥大合同价格较去年上涨34美元/吨...国内取消尿素出口指导价限制。""6月初国内鸡蛋批发价淡季环比上涨约26%,为近5年同期新高。""据中信测算,非银金融PB-ROE吸引力(ROE分位76.9%、PB分位6.1%)已超「9·24行情」前水平。""2026年全球光伏新增装机有望维持500GW以上...国金证券姚遥此前预计2026年「反内卷」政策有望推动落后产能加速出清。"
-    interpretation: 四条独立行业线索合并为一条速记型claim：化工看海峡通航后的供需回补信号，养殖看鸡蛋淡季异动，非银看PB-ROE吸引力（可作蓝筹配置参考），光伏看扭亏预期
+      "据行业数据,印度2026年钾肥大合同价格较去年上涨34美元/吨,远高于2016–2025年间约8美元/吨的平均溢价;国内取消尿素出口指导价限制。关于周期的判断——海峡通航可能是成本博弈「换牌」的时刻:下游等通航后油价回落再提负荷,上游成本高、开工率低、累库也不愿让价。"
+    interpretation: 化工板块两条独立催化：①钾肥/尿素政策面涨价利好；②海峡通航后的供需回补是核心观察信号——上下游成本博弈何时打破
     confidence: low
     status: active
     intensity: medium
@@ -259,23 +261,105 @@ claims:
     contradicts: []
     links:
       related_claims: []
+      related_stocks: []
+      related_sectors:
+        - 化工
+    tags:
+      - 化工
+      - 钾肥
+      - 尿素
+      - 海峡通航
+
+  - id: claim-20260607-004-j
+    topic: 养殖——鸡蛋淡季批发价异动
+    statement: 6月初国内鸡蛋批发价淡季环比上涨约26%，为近5年同期新高，反映淡季异动
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: sector-theme
+    subject: 养殖
+    timeframe: 短期（1-2周）
+    evidence_quote: |
+      "据行业批发价数据,6月初国内鸡蛋批发价淡季环比上涨约26%,为近5年同期新高(反映淡季异动)。"
+    interpretation: 鸡蛋淡季大幅涨价是异常信号，可能反映供给端去化或需求端结构性变化。单一数据点不足以做方向判断，但作为养殖板块的跟踪信号值得关注
+    confidence: low
+    status: active
+    intensity: low
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors:
+        - 养殖
+    tags:
+      - 养殖
+      - 鸡蛋
+      - 淡季异动
+
+  - id: claim-20260607-004-k
+    topic: 非银金融——PB-ROE吸引力超9·24行情前
+    statement: 据中信测算，非银金融PB-ROE吸引力（ROE分位76.9%、PB分位6.1%）已超"9·24行情"前水平。可作为蓝筹防御配置的参考信号
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: sector-theme
+    subject: 非银金融
+    timeframe: 中期（1-3个月）
+    evidence_quote: |
+      "据中信测算,非银金融PB-ROE吸引力(ROE分位76.9%、PB分位6.1%)已超「9·24行情」前水平。"
+    interpretation: 非银金融PB处于历史极低分位而ROE处于中高分位，这种"低PB+高ROE"组合是价值配置信号。与蓝筹防御配置方向（电力/家电/风电/医药）互补
+    confidence: low
+    status: active
+    intensity: medium
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260607-003-l
       related_stocks:
         - sh600030  # 中信证券 (非银参考)
       related_sectors:
-        - 化工
-        - 养殖
         - 非银金融
+    tags:
+      - 非银
+      - PB-ROE
+      - 蓝筹
+
+  - id: claim-20260607-004-l
+    topic: 光伏——装机500GW+扭亏预期
+    statement: 2026年全球光伏新增装机有望维持500GW以上，4月组件出口东南亚同比高增，海外订单排产饱满。国金证券姚遥预计2026年"反内卷"政策有望推动落后产能加速出清、产业链有望年度扭亏。以上为机构预测，需后续数据验证
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: sector-theme
+    subject: 光伏
+    timeframe: 中期（3-6个月）
+    evidence_quote: |
+      "有报道称2026年全球光伏新增装机有望维持500GW以上,4月组件出口在东南亚市场同比高增,海外订单排产饱满;国金证券姚遥此前预计2026年「反内卷」政策有望推动落后产能加速出清、产业链有望年度扭亏。"
+    interpretation: 光伏板块两条正向信号——海外需求强劲（东南亚出口高增）+政策端反内卷（去产能）。但扭亏是机构预测非确定性，需跟踪Q2/Q3财报验证
+    confidence: low
+    status: active
+    intensity: medium
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims: []
+      related_stocks: []
+      related_sectors:
         - 光伏
     tags:
-      - 化工
-      - 黄金
-      - 养殖
-      - 非银
       - 光伏
+      - 装机
+      - 反内卷
+      - 扭亏
 
   # ─── 个股 claims ───
 
-  - id: claim-20260607-004-j
+  - id: claim-20260607-004-m
     topic: 达实智能——智能体情绪标杆
     statement: 达实智能被盘面视为智能体方向情绪标杆。已披露口径：AIoT平台V7.1（1个超级智能体+5个场景智能体架构），本地部署硬件成本十余万元。达实大厦物业人员从2019年161人降至88人。2025年AIoT签约7847万元（Q4单季4066.54万元超前三季总和），已签约招商银行及某头部新能源车企
     source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
@@ -305,7 +389,7 @@ claims:
       - 智能体
       - AIoT
 
-  - id: claim-20260607-004-k
+  - id: claim-20260607-004-n
     topic: 能科科技——具身智能大脑定位
     statement: 能科科技"灵系列"AI产品已在150多个工业场景开发出25个有显性业务价值的智能体、在70余家龙头/重点企业落地，定位具身智能"大脑"角色。这些为公司自述落地规模，具体收入贡献与可复用性需结合财报验证
     source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
@@ -335,7 +419,7 @@ claims:
       - 具身智能
       - 智能体
 
-  - id: claim-20260607-004-l
+  - id: claim-20260607-004-o
     topic: 绿的谐波——机器人方向领涨，市占率口径未统一
     statement: 绿的谐波是周五午后机器人方向领涨标的。谐波减速器在人形机器人BOM中价值量高、壁垒深。公司国内市占率不同信源给出30%-60%的较宽区间（口径差异大，需谨慎引用），公司称2025年实现国际头部机器人客户批量交付
     source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
@@ -347,7 +431,7 @@ claims:
     timeframe: 短期（1-2周）
     evidence_quote: |
       "绿的谐波是周五午后机器人方向的领涨标的。可核的产业事实是:谐波减速器在高精度人形机器人BOM中价值量高、壁垒深;公司国内市占率,不同信源给出约30%–60%的较宽区间(信源口径差异较大,需谨慎引用);公司称2025年实现国际头部机器人客户批量交付。"
-    interpretation: 机器人方向领涨标的，产业地位真实（谐波减速器壁垒高），但市占率数据不统一是风险信号——叙事先行，需跟踪订单兑现
+    interpretation: 机器人方向领涨标的，产业地位真实（谐波减速器壁垒高），但市占率数据不统一是风险信号——叙事先行，需跟踪订单兑现。⚠️ 688017 为科创板，用户无法交易，仅作产业趋势跟踪
     confidence: low
     status: active
     intensity: medium
@@ -366,20 +450,21 @@ claims:
       - 绿的谐波
       - 机器人
       - 谐波减速器
+      - 688不可交易
 
-  - id: claim-20260607-004-m
-    topic: 物理AI链条标的——金禄电子、天准科技
-    statement: 物理AI链条上，金禄电子（PCB）、天准科技（控制器）的布局多为公司表态或媒体报道，产业映射成立但订单与业绩兑现度需另行核实。暂按跟踪观察处理，不构成投资建议
+  - id: claim-20260607-004-p
+    topic: 金禄电子——物理AI/PCB映射标的
+    statement: 金禄电子的PCB布局多为公司表态或媒体报道，产业映射（物理AI链条）成立但订单与业绩兑现度需另行核实。暂按跟踪观察处理，不构成投资建议
     source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
     source_date: '2026-06-07'
     source_type: 专栏
     extracted_at: '2026-06-08'
     claim_type: stock-view
-    subject: 金禄电子/天准科技
+    subject: 金禄电子
     timeframe: 中期（3-6个月）
     evidence_quote: |
       "物理AI链条上,金禄电子、天准科技的PCB与控制器布局多为公司表态或媒体报道,产业映射成立但订单与业绩兑现度需另行核实。"
-    interpretation: 物理AI方向的映射标的，产业逻辑成立（PCB/控制器），但目前属于叙事阶段——无业绩验证。与光伏链条的横店东磁/岱勒新材同理
+    interpretation: 物理AI方向的映射标的，产业逻辑成立（PCB），但目前属于叙事阶段——无业绩验证。需跟踪物理AI产业链订单落地情况
     confidence: low
     status: active
     intensity: low
@@ -390,12 +475,43 @@ claims:
         - claim-20260607-004-g
       related_stocks:
         - sz301282
-        - sh688003
       related_sectors:
         - 物理AI
         - PCB
     tags:
       - 金禄电子
+      - 物理AI
+      - PCB
+      - 映射标的
+
+  - id: claim-20260607-004-q
+    topic: 天准科技——物理AI/控制器映射标的
+    statement: 天准科技的控制器布局多为公司表态或媒体报道，产业映射（物理AI链条）成立但订单与业绩兑现度需另行核实。暂按跟踪观察处理，不构成投资建议
+    source_path: sources/raw/财经/专栏：26-06-07：非农砸盘本质、风格切换与AI产业链梳理.md
+    source_date: '2026-06-07'
+    source_type: 专栏
+    extracted_at: '2026-06-08'
+    claim_type: stock-view
+    subject: 天准科技
+    timeframe: 中期（3-6个月）
+    evidence_quote: |
+      "物理AI链条上,金禄电子、天准科技的PCB与控制器布局多为公司表态或媒体报道,产业映射成立但订单与业绩兑现度需另行核实。"
+    interpretation: 物理AI方向的映射标的，产业逻辑成立（控制器），但目前属于叙事阶段——无业绩验证。⚠️ 688003 为科创板，用户无法交易，仅作产业趋势跟踪
+    confidence: low
+    status: active
+    intensity: low
+    supersedes: []
+    contradicts: []
+    links:
+      related_claims:
+        - claim-20260607-004-g
+      related_stocks:
+        - sh688003
+      related_sectors:
+        - 物理AI
+        - 控制器
+    tags:
       - 天准科技
       - 物理AI
-      - 映射标的
+      - 控制器
+      - 688不可交易
