@@ -341,6 +341,8 @@ claim-g (sector-theme)：磨底期非科技方向——消费
 
 | 反模式 | 后果 | 正确做法 |
 |--------|------|---------|
+| **一条 claim 合并多个不相关主题** | Qdrant 对混合主题的语义向量不精准，Agent 无法单独引用某一部分 | 拆成多条，每条一个 subject/statement |
+| **一条 claim 合并多只标的** | 标的 A 和 B 的业务/逻辑不同，合并后检索精度下降 | 每只标的一条独立 claim |
 | statement 不含标的代码，只写「核心标的见 related_stocks」 | Agent 搜到 claim 但不知道买什么 | 标的代码写入 statement |
 | subject 写「观点一」「关于XX的看法」 | Qdrant 搜索无法命中 | 写具体关键词：「科技规避——半导体估值过高」 |
 | interpretation 里写了关键逻辑但 statement 很简略 | Agent 看不到 interpretation | 关键逻辑写入 statement |
@@ -357,6 +359,7 @@ claim-g (sector-theme)：磨底期非科技方向——消费
 
 写完 claim 文件后，逐条检查：
 
+- [ ] **原子性**：每条 claim 是否只包含一个主题/一个方向/一只标的？（禁止多主题合并）
 - [ ] 每条 claim 的 `statement` 是否自包含？（不依赖其他 claim 的上下文）
 - [ ] 方向推荐类 claim 的 `statement` 是否包含标的代码（6 位数字格式）？
 - [ ] `subject` 是否包含用户可能搜索的关键词？
@@ -387,3 +390,4 @@ claim-g (sector-theme)：磨底期非科技方向——消费
 | 2026-06-07 | +Agent 时效分级引用规则 + 引用纪律 | 全面修改 Agent prompt：六级框架重写、核心原则重写、claims 按时效分级注入。改为「≤7天可参考但需配对数据」 |
 | 2026-06-07 | +外部研究报告处理规则 (`references/external-research-handling.md`) | 用户提供高盛报告→确认不入 raw/不提取 claims，单独归档 `sources/research/` |
 | 2026-06-07 | +反模式"过程 vs 状态混淆" | 用户纠正："正在挖黄金坑"≠"已是黄金坑"，claim statement 必须区分进行时 vs 完成时 |
+| 2026-06-08 | +原子性规则（含反模式+验证清单） | 用户审核拒绝合并 claim：004-i 化工+养殖+非银+光伏 4条合一→拆为4条；004-m 金禄+天准 2只合一→拆为2条。核心理由：多主题合并导致 Qdrant 语义向量不精准、Agent 无法单独引用 |

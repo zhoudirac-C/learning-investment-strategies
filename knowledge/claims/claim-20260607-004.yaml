@@ -17,6 +17,7 @@ claims:
     intensity: high
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -45,6 +46,7 @@ claims:
     intensity: high
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -72,8 +74,9 @@ claims:
     confidence: medium
     status: active
     intensity: high
-    supersedes: []
-    contradicts: []
+    supersedes: ["claim-20260603-001-d"]
+    contradicts: ["claim-20260604-004-c", "claim-20260531-002-a"]
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-003-d
@@ -104,8 +107,9 @@ claims:
     confidence: low
     status: active
     intensity: medium
-    supersedes: []
+    supersedes: ["claim-20260603-001-d"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-003-d
@@ -134,8 +138,9 @@ claims:
     confidence: medium
     status: active
     intensity: high
-    supersedes: []
+    supersedes: ["claim-20260521-002-g"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-003-d
@@ -168,6 +173,7 @@ claims:
     intensity: high
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-003-i
@@ -199,6 +205,7 @@ claims:
     intensity: medium
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-004-e
@@ -227,8 +234,9 @@ claims:
     confidence: medium
     status: active
     intensity: high
-    supersedes: []
+    supersedes: ["claim-20260420-001"]
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-003-g
@@ -259,6 +267,7 @@ claims:
     intensity: medium
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -288,6 +297,7 @@ claims:
     intensity: low
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -316,6 +326,7 @@ claims:
     intensity: medium
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-003-l
@@ -346,6 +357,7 @@ claims:
     intensity: medium
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims: []
       related_stocks: []
@@ -377,6 +389,7 @@ claims:
     intensity: medium
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-004-e
@@ -407,6 +420,7 @@ claims:
     intensity: medium
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-004-e
@@ -437,6 +451,7 @@ claims:
     intensity: medium
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-003-d
@@ -470,6 +485,7 @@ claims:
     intensity: low
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-004-g
@@ -502,6 +518,7 @@ claims:
     intensity: low
     supersedes: []
     contradicts: []
+    last_discovered: 2026-06-08
     links:
       related_claims:
         - claim-20260607-004-g
