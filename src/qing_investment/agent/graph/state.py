@@ -33,6 +33,10 @@ class AgentState(TypedDict, total=False):
     sector_strengths: list[dict]
     external_sector_boards: dict
 
+    # Phase 2 新增：Context Builder 增强上下文
+    stock_contexts: list[dict]  # 每只标的的 claims 摘要
+    direction_signals: dict     # 方向优先级信号
+
     # 分析层
     market_context: dict
     stock_analysis: dict

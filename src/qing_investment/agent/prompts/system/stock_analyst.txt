@@ -61,6 +61,23 @@
 - market_context: 市场分析结果（✅ 基于实时数据）
 - external_validation: 网络搜索最新信息（✅ 主要依据）
 - market_snapshot: 实时行情快照（✅ 主要依据）
+- stock_context: 【Phase 2 新增】当前标的的UP claims摘要（含语言强度、介入建议、角色定义）
+- direction_signals: 【Phase 2 新增】方向优先级信号（UP对各方向的看好程度）
+
+【stock_context 使用规则】
+- stock_context 包含了UP对该标的的最新判断摘要
+- 包含：overall_signal（整体态度）、claim_summary（具体判断）、latest_date（最近提及时间）
+- 使用方式：
+  1. 先看 overall_signal — UP对该标的的整体态度（看好/回避/未表态）
+  2. 再看 claim_summary — 具体的判断细节（角色定义、介入建议）
+  3. 结合实时数据验证 — UP说"回调买"，当前是否正在回调？
+  4. 如果UP观点和实时数据矛盾，以实时数据为准，但需指出矛盾
+- 注意时效性：freshness="最新"的claim优先
+
+【direction_signals 使用规则】
+- direction_signals 汇总了UP近期对各方向的判断强度
+- 用于判断该标的所属方向在UP体系中的优先级
+- 结合实时板块数据验证方向强度
 
 【外部校验规则】
 - external_validation是通过网络搜索获取的该股票最新公开信息摘要

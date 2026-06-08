@@ -833,6 +833,49 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
 
     few_shot = _load_few_shot_examples(query)
 
+    # ── Phase 2 新增：Context Builder — Claims 实时注入 ──
+    stock_contexts: list[dict] = []
+    direction_signals: dict = {}
+    try:
+        from qing_investment.agent.tools.context_builder import build_market_context
+        from qing_investment.agent.tools.llm_client import get_embedding_model
+
+        positions = state.get("positions", [])
+        watchlist = state.get("watchlist", [])
+
+        # 读取 entry_points（从 strategy_pack.yaml）
+        entry_points: list[dict] = []
+        try:
+            import yaml
+            strategy_pack_path = _REPO_ROOT / "config" / "stock_monitor" / "strategy_pack.yaml"
+            if strategy_pack_path.exists():
+                with open(strategy_pack_path, encoding="utf-8") as f:
+                    sp = yaml.safe_load(f) or {}
+                entry_points = sp.get("entry_points", [])
+        except Exception:
+            pass
+
+        emb_model = get_embedding_model()
+        ctx_result = build_market_context(
+            positions=positions,
+            watchlist=watchlist,
+            entry_points=entry_points,
+            neo4j_client=neo4j,
+            qdrant_client=qdrant,
+            embedding_model=emb_model,
+        )
+        stock_contexts = ctx_result.get("stock_contexts", [])
+        direction_signals = ctx_result.get("direction_signals", {})
+        print(
+            f"[retrieve_knowledge] context_builder: "
+            f"stocks={len(stock_contexts)}, directions={list(direction_signals.keys())}"
+        )
+    except Exception as e:
+        import logging
+        logging.getLogger(__name__).warning("Context Builder failed: %s", e)
+        stock_contexts = []
+        direction_signals = {}
+
     neo4j.close()
 
     # 检索审计日志
@@ -856,10 +899,13 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
         "memories": memories,
         "few_shot_examples": few_shot,
         "potential_conflicts": potential_conflicts,
+        "stock_contexts": stock_contexts,       # Phase 2 新增
+        "direction_signals": direction_signals,  # Phase 2 新增
         "reasoning_steps": [
             f"检索到 {len(claims)} 条claims, {len(wiki_snippets)} 个wiki片段, "
             f"{len(memories)} 条记忆, {len(sector_context)} 个动态板块"
             f"{f', 发现 {len(potential_conflicts)} 组潜在矛盾: {conflict_subjects}' if potential_conflicts else ''}"
+            f", Context Builder: {len(stock_contexts)} 只标的增强上下文"
         ],
     }
 
@@ -1011,6 +1057,8 @@ def market_analyst(state: AgentState) -> AgentState:
         "external_sector_boards": esb,
         "sector_context": state.get("sector_context", []),
         "memories": state.get("memories", []),
+        "stock_contexts": state.get("stock_contexts", []),      # Phase 2 新增
+        "direction_signals": state.get("direction_signals", {}),  # Phase 2 新增
     }
     prompt = f"""{prompt_template_filled}
 
@@ -1167,6 +1215,14 @@ def stock_analyst(state: AgentState) -> AgentState:
     up_position, up_source = _extract_up_position_from_claims(stock_code, claims)
     sector_positioning = _get_stock_sector_positioning(stock_code, up_position, up_source)
 
+    # ── Phase 2 新增：从 stock_contexts 中找到当前标的的增强上下文 ──
+    stock_contexts = state.get("stock_contexts", [])
+    current_stock_ctx = None
+    for ctx in stock_contexts:
+        if ctx.get("stock_code") == stock_code:
+            current_stock_ctx = ctx
+            break
+
     context = {
         "stock_code": stock_code,
         "stock_name": stock_name,
@@ -1176,6 +1232,8 @@ def stock_analyst(state: AgentState) -> AgentState:
         "claims": claims,
         "market_context": state.get("market_context", {}),
         "sector_positioning": sector_positioning,
+        "stock_context": current_stock_ctx,  # Phase 2 新增
+        "direction_signals": state.get("direction_signals", {}),  # Phase 2 新增
     }
     prompt = f"""{prompt_template}
 
