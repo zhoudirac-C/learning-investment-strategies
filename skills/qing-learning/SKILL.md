@@ -140,10 +140,13 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 
 35. **外部研究报告处理**：参考【外部研究报告处理规则】
 
-36. **Claim topic/tags 自动生成**：当旧格式 claims 缺少 `topic`/`tags` 字段时，运行 `scripts/add_topics_tags.py` 进行批量回填。该脚本基于规则提取（非LLM），从 `subject`/`statement`/`claim_type` 自动生成中文主题词和标签。详见 `references/claim-topic-tag-generation.md`。
+37. **Claim topic/tags 自动生成**：当旧格式 claims 缺少 `topic`/`tags` 字段时，运行 `scripts/add_topics_tags.py` 进行批量回填。该脚本基于规则提取（非LLM），从 `subject`/`statement`/`claim_type` 自动生成中文主题词和标签。详见 `references/claim-topic-tag-generation.md`。
 
-37. **Claim 字段完整性审计**：当怀疑 claim 数据质量下降时（如 Neo4j 出现孤立节点、YAML 格式混用），参考 `references/claim-field-audit-workflow.md`（全量审计命令、常见问题模式、修复优先级、验证流程）。
-38. **Claim 审核清单**：参考 `references/claim-review-checklist.md`（三条补充规则：同日期多 raw 独立阅读、禁止多主题合并、不同 claim_type 可重叠）。
+38. **Claim 字段完整性审计**：当怀疑 claim 数据质量下降时（如 Neo4j 出现孤立节点、YAML 格式混用），参考 `references/claim-field-audit-workflow.md`（全量审计命令、常见问题模式、修复优先级、验证流程）。
+39. **Claim 审核清单**：参考 `references/claim-review-checklist.md`（三条补充规则：同日期多 raw 独立阅读、禁止多主题合并、不同 claim_type 可重叠）。
+40. **股票代码查询 API**：写 claim 时查询个股代码，参考 `references/stock-code-lookup-api.md`（东方财富搜索 API、URL 编码、批量查询、验证方法）。
+41. **Claim 执行时自检清单**：写完 claims 后提交前必须完成的五步自检，参考 `references/claim-execution-self-check.md`（字段完整性、股票代码、related_stocks、原子性、claim_type）。
+40. **股票代码查询 API**：写 claim 时查询个股代码，参考 `references/stock-code-lookup-api.md`（东方财富搜索 API、URL 编码、批量查询、验证方法）。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
@@ -185,6 +188,10 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     日常动态/简讯类 raw 通常不含推理链，跳过即可。
 
     **Phase 6 改造要点**：单文件提取后，脚本不再直接新增独立 pattern，而是让 LLM 判断归入10个通用框架中的哪一个，作为该框架的 `examples` 追加。这解决了之前116个单raw模式（99.1%只关联1个raw）的问题。详见 `references/reasoning-pattern-extraction-workflow.md` §8。
+12a. **⚠️ 推理模式抽取时同步更新 `framework/reasoning-patterns.yaml` 的 `last_updated` 字段**（2026-06-08）：
+    - 每次新增/修改推理模式后，必须同步更新 YAML 文件中的 `last_updated` 字段
+    - 这是版本控制信号，帮助后续 Agent 判断推理模式是否是最新版本
+    - 格式：`last_updated: "2026-06-08T15:30:00+08:00"`
 13. 输出 Learning Update Report。
 13a. **⚠️ 字段完整性强制检查**：写入 claims YAML 后，必须运行以下验证确保所有 18 个必需字段完整（参考 `references/claim-writing-spec.md` §〇）：
     ```bash
@@ -204,6 +211,13 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     " && git add knowledge/claims/ || (echo '❌ 字段缺失，请补全后再提交' && exit 1)
     ```
     **这是硬性门禁——不通过不能提交。**
+13b. **⚠️ 股票代码完整性强制检查**（2026-06-08 新增）：字段检查通过后，必须逐条检查 claim 中涉及的个股是否已标注代码：
+    - 检查 `statement` 中是否所有公司名称都带 6 位数字代码（格式：`公司名(6位代码)`）
+    - 检查 `related_stocks` 是否已填写（涉及个股的 claim 必须填）
+    - 检查 `interpretation` 是否已标注 688/300 不可交易（如适用）
+    - **不要以"先写claim后补代码"为借口**——skill规范要求"新写的claim应直接带代码"
+    - **反面案例**：004-h 乔锋智能/宣安科技、004-i 风语筑/软通动力 最初都没有代码，用户纠正后才补充。这是执行层面的遗漏，不是规范问题。
+    - **代码查询方法**：用东方财富搜索API `https://searchapi.eastmoney.com/api/suggest/get?input=公司名&type=14&count=1` 查询，注意URL编码中文。返回JSON中 `QuotationCodeTable.Data[0].Code` 即为代码。
 13. **知识库增量同步 — 四步强制流水线（不可跳过任何一步）**：
 
     > ⚠️ **步骤顺序是硬性约束。跳过 discover 直接 migrate 会导致 Neo4j 中 SUPERSEDES/CONTRADICTS 关系边为空或过期。**
@@ -326,7 +340,12 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 13. **用户质疑推理模式通用性时的响应方式**：当用户问"推理思路都是从单个文件提取的是否不够通用""只能针对一个方向吗"时，**不要重新解释 Phase 6 设计 rationale**——直接展示 `references/reasoning-pattern-cross-direction-reuse.md` 中的复用示例表格（`upstream_cycle` 支撑 MLCC/PCB/存储/硅片等），用具体案例回答。用户的问题通常意味着已有文档未被有效发现，Agent 应充当文档导航器而非重新论证者。
 
 38. **Claim 审核：重复内容 vs 不同 type**：发现两条 claim 的 statement 描述同一事件但 claim_type 不同（如 operation vs methodology），不应合并。Agent 按 claim_type 做 prompt 分流——operation 进即时操作信号、methodology 进框架沉淀，合并会丢检索维度。规则：先看 type 是否不同，再看内容是否重叠。
-39. **设计文档 vs 实现核对**：当用户要求"核对改动是否和文档一样"时，参考 `references/design-doc-implementation-audit.md`（核对工作流四步法、Config层漏更新陷阱、典型案例）。
+39. **⚠️ 执行时自检——写完claim后立即对照skill规范核对**（2026-06-08 新增）：
+    - 写完 claims 后，不要直接提交，先逐条对照 skill 中的硬性规范自检
+    - 自检清单：①字段完整性（18个必需字段）②股票代码（所有公司名称带代码）③related_stocks（涉及个股的claim必须填）④claim原子性（单主题/单标的）⑤claim_type正确性
+    - **反面案例**：004-h和004-i最初都没有代码，因为执行时跳过了自检步骤。用户纠正后才补充。
+    - **纪律**：自检不是"可选优化"，是硬性步骤。跳过自检 = 违反skill规范。
+40. **设计文档 vs 实现核对**：当用户要求"核对改动是否和文档一样"时，参考 `references/design-doc-implementation-audit.md`（核对工作流四步法、Config层漏更新陷阱、典型案例）。
 40. **Claim 编写规范（系统性约定）**：写 claim 时必须遵循 `references/claim-writing-spec.md`。
 14. **Claim 文件编号冲突（同一日期多次 ingestion）**：同一日期可能有多篇 raw 需要学习（早盘、盘中动态、盘后视频等），每次 ingestion 生成独立的 claim 文件（`claim-YYYYMMDD-001.yaml`、`-002.yaml`...）。**新建前必须检查已有编号**：
     - `ls knowledge/claims/claim-YYYYMMDD-*.yaml` 确认已有编号
