@@ -1,4 +1,4 @@
-updated_at: '2026-06-05'
+updated_at: '2026-06-09'
 source_claims:
 - knowledge/claims/claim-20260604-001.yaml
 - knowledge/claims/claim-20260605-001.yaml
@@ -9,74 +9,79 @@ source_claims:
 - framework/stock-analysis-playbook.md
 - knowledge/claims/claim-20260604-003.yaml
 market_framework:
-  current_stage: 调整第17天接近尾声。AI上游材料端最确定。非科技尾声。昇腾超跌赔率升高，6月中下旬回归。
-  core_question: 创业板低开高走？赚钱效应夯实？AI上游材料延续最强？昇腾赔率窗口？
-  up_quote: 6月5日早盘：第17天接近尾声。4033/4130。重心AI上游材料。做T为主。昇腾赔率升高。
+  current_stage: 磨底期恐慌中后段，电风扇行情不追涨杀跌。突破4120才是趋势买点。工程机械/燃气轮机/创新药为低位配置方向。
+  core_question: 指数能否站稳4000并突破4120？燃气轮机方向延续性？工程机械/创新药能否形成新主线？万泽风控线是否守住？
+  up_quote: 6月9日：磨底期恐慌中后段。突破4120才是趋势买点。电风扇行情不追涨杀跌。工程机械/燃气轮机/创新药低位配置。
   key_assumptions:
-  - 调整第17天接近尾声
-  - AI上游材料端最确定
-  - 非科技方向尾声
-  - 昇腾赔率升高6月中下旬回归
-  - 做T/持股不开新仓
-  - 4033/4130不变
+  - 磨底期恐慌中后段，接近尾声
+  - 突破4120才是趋势买点
+  - 电风扇行情不追涨杀跌
+  - 工程机械/燃气轮机/创新药为低位配置方向
+  - 不碰消费和半导体
+  - 4000/4120为关键点位
   invalidation_conditions:
-  - 收盘跌穿4033→清仓
-  - 创业板低开高走证伪
-  - AI上游材料集体走弱
+  - 收盘跌破4000整数关→减仓
+  - 燃气轮机方向集体走弱
+  - 万泽跌破30.5风控线→执行减仓
 intraday_schedule:
 - window: 09:15-09:30
   name: 集合竞价
   action_bias: 只观察
   rules:
-  - 观察AI上游材料端(MLCC/铜缆/光纤/超级电容)是否延续强势
-  - 观察煤炭/大消费是否走弱
-  - 观察昇腾链是否企稳
-  - 观察创业板低开→能否高走
+  - 观察燃气轮机方向(杰瑞/应流/万泽)是否延续强势
+  - 观察工程机械(徐工)是否企稳
+  - 观察创新药(药明康德)是否止跌
+  - 观察全A指数(000985)是否与上证背离
 - window: 09:30-09:45
   name: 开盘观察
-  action_bias: 确认AI上游材料方向
+  action_bias: 确认燃气轮机/工程机械方向
   rules:
-  - 看AI上游材料端主动走强
-  - 看煤炭见顶回落
-  - 看昇腾链止跌
-  - 看创业板低开高走兑现
+  - 看燃气轮机方向主动走强还是回调
+  - 看工程机械能否放量企稳
+  - 看创新药止跌信号是否确认
+  - 看科技是否继续上涨(UP规避但需观察)
 - window: 09:45-10:30
   name: 急跌确认
   action_bias: 等确认，不水下盲吸
   rules:
-  - 调整不创新低(4000上)且放量收回→观察
-  - AI上游材料回调关注企稳
-  - MLCC只观察不介入
-  - 昇腾止跌可关注航天电器/意华股份
+  - 指数不创新低(4000上)且放量收回→观察
+  - 燃气轮机回调关注企稳买点
+  - 工程机械缩量回踩关注
+  - 万泽逼近风控线30.5需重点监控
 - window: 10:30-13:30
   name: 主修复窗口
   action_bias: 可做T，可观察
   rules:
-  - 趋势未破的化工涨价硬逻辑票，满足分时确认后可观察
-  - MLCC已提前提示，现在追涨是韭菜行为——只观察不介入
+  - 燃气轮机方向若强势可持有/做T
+  - 工程机械/创新药等低位方向满足分时确认后可观察
   - 反弹到预设区但板块不扩散，优先观察不介入
-  - 现金为主，新增观察池买点必须等情景确认
+  - 现金为主，新增买点必须等情景确认
+  - 不碰消费和半导体
 - window: 13:30-15:00
   name: 午后风险窗口
   action_bias: 只看不买
   rules:
   - 午后冲高无扩散，优先观察不介入
-  - MLCC已提前提示，现在追涨是韭菜行为——只观察不介入
+  - 电风扇行情不追涨杀跌
   - 尾盘回落跌破4000，降低次日预期
   - 若尾盘再度快速修复但成交不能放大，警惕继续透支次日预期
 agent_analysis_schedule:
 - id: open_auction
   time: 09:26
   name: 集合竞价后
-  focus: MLCC/煤炭/化工是否超预期，科技是否继续低开，今天偏进攻还是防守。**判断大盘是否止跌企稳：低开高走/平开震荡=企稳信号；低开低走/高开低走=未企稳。若企稳可观察准备低吸，若未企稳继续等待。**
+  focus: 燃气轮机/工程机械/创新药是否按预期走，今天偏进攻还是防守。**判断大盘是否止跌企稳：低开高走/平开震荡=企稳信号；低开低走/高开低走=未企稳。若企稳可观察准备低吸，若未企稳继续等待。**
 - id: open_confirm
   time: 09:45
   name: 开盘15分钟确认
-  focus: 指数是否失守4000，MLCC/化工谁主动，科技是否继续杀跌，跌停是否缩短。**判断大盘是否止跌企稳：15分钟内不创新低且放量收回=企稳；继续创新低=未企稳。**
+  focus: 指数是否失守4000，燃气轮机/工程机械谁主动，持仓是否触发风控。**判断大盘是否止跌企稳：15分钟内不创新低且放量收回=企稳；继续创新低=未企稳。**
 - id: morning_confirm
+  time: '10:00'
+  name: 10点确认
+  focus: 30分钟后今天基调基本确定——强修复/弱修复/分歧/防御？写出今日机会模式初筛。**判断大盘是否止跌企稳：30分钟内出现日内低点后反弹且持续=企稳。**
+- id: opportunity_scan
   time: '10:30'
   name: 30分钟确认
-  focus: 调整是否不创新低，MLCC/化工能否做T或观察。**判断大盘是否止跌企稳：30分钟内出现日内低点后反弹且持续=企稳。**
+  focus: 调整是否不创新低，燃气轮机/工程机械能否做T或观察，万泽是否触发风控。**判断大盘是否止跌企稳：30分钟内出现日内低点后反弹且持续=企稳。**
 - id: noon_review
   time: '11:20'
   name: 上午收盘前
@@ -88,9 +93,9 @@ agent_analysis_schedule:
 - id: mid_afternoon
   time: '14:00'
   name: 午盘监控
-  focus: 午后一小时盘面验证：MLCC/化工是否触发观察点、持仓是否触发风控。只讲当下，不预判尾盘。**判断大盘是否止跌企稳：14:00前后出现低点后反弹=企稳。**
+  focus: 午后一小时盘面验证：燃气轮机/工程机械是否触发观察点、持仓是否触发风控、万泽是否逼近30.5。只讲当下，不预判尾盘。**判断大盘是否止跌企稳：14:00前后出现低点后反弹=企稳。**
 - id: tail_condition
-  time: '14:50'
+  time: '14:55'
   name: 尾盘条件单
   focus: 判断是否符合尾盘观察、规避尾盘杀的条件。**判断大盘是否止跌企稳：尾盘维持震荡或小幅回升=企稳；尾盘跳水=未企稳。若企稳可低吸，若未企稳只观察不买。**
 position_rules:
@@ -139,108 +144,17 @@ position_rules:
   stop_loss_pct: 5
 quant_entry_strategy:
   position_advice:
-    empty_account: 等新周期。4033/4130不变。AI上游材料端。MLCC不追。昇腾等企稳。
-    full_account: 优先减仓止损。保留现金。
-    current_bias: 做T为主/持股为主。第17天接近尾声不急于抄底。重心AI上游材料。不开新仓。
+    empty_account: 等指数突破4120确认趋势。当前关注燃气轮机/工程机械/创新药低位配置。不碰消费和半导体。
+    full_account: 优先减仓止损。保留现金。万泽逼近风控线需警惕。
+    current_bias: 做T为主/持股为主。磨底期不急于抄底。重心燃气轮机方向。不开新仓。
   entry_points:
-  - code: sh600487
-    name: 亨通光电
-    entry_zone: 82-85区间
-    position_ratio: 1成
-    trigger: 光纤龙头，三波段光缆催化，等回踩82-85企稳
-    invalidation: 跌破80且30分钟不能收回
-    note: 主升末期不追高，早盘+6.61%继续大涨。等充分回踩后再考虑。技术评分2(buy)，均线多头排列
-  - code: sh601869
-    name: 长飞光纤
-    entry_zone: 等分歧回踩
-    position_ratio: 0.5成
-    trigger: 光纤中军，板块阵型稳定
-    invalidation: 板块联动证伪
-    note: 高价大票，注意资金漂移风险。技术评分1(buy)
-  - code: sh600522
-    name: 中天科技
-    entry_zone: 42-43区间
-    position_ratio: 1成
-    trigger: 光纤+海缆，相对低位
-    invalidation: 跌破41且30分钟不能收回
-    note: 等回踩42-43介入。技术评分1(buy)，短期均线多头
-  - code: sz300394
-    name: 天孚通信
-    entry_zone: 460-470区间
-    position_ratio: 1成
-    trigger: CPO核心，早盘-2.79%回调
-    invalidation: 跌破450且30分钟不能收回
-    note: 等回踩460-470企稳。技术评分1(buy)，均线多头排列。【非主板300，不可交易】
-  - code: sz300502
-    name: 新易盛
-    entry_zone: 740-750区间
-    position_ratio: 1成
-    trigger: CPO三巨头，-1.27%十字星变盘信号
-    invalidation: 跌破730且30分钟不能收回
-    note: 等回踩740-750。技术评分1(buy)，均线多头排列，K线十字星。【非主板300，不可交易】
-  - code: sz300308
-    name: 中际旭创
-    entry_zone: 1180-1200区间
-    position_ratio: 1成
-    trigger: CPO中军，-0.25%
-    invalidation: 跌破1150且30分钟不能收回
-    note: 等回踩1180-1200。技术评分0(neutral)，均线多头排列。【非主板300，不可交易】
-  - code: sh688515
-    name: 裕太微
-    entry_zone: 等充分调整（10-15%）
-    position_ratio: 0.5成（高弹性，控制仓位）
-    trigger: 光互连/DSP，Marvell催化
-    invalidation: 跌破210且30分钟不能收回
-    note: 早盘+15.2%大幅高开，昨日已大涨18%。等充分调整后再考虑。技术评分1(buy)。【非主板688，不可交易】
-  - code: sh603986
-    name: 兆易创新
-    entry_zone: 470-480区间
-    position_ratio: 1.5成
-    trigger: 存储芯片，+6.41%大阳线，抗跌性最好
-    invalidation: 跌破460且30分钟不能收回
-    note: 等回踩470-480。技术评分1(buy)，均线缠绕趋势不明但中期偏强
-  - code: sh688008
-    name: 澜起科技
-    entry_zone: 240-245区间
-    position_ratio: 1成
-    trigger: 存储接口，+2.84%
-    invalidation: 跌破235且30分钟不能收回
-    note: 等回踩240-245。技术评分0(neutral)，均线缠绕。【非主板688，不可交易】
-  - code: sh605111
-    name: 新洁能
-    entry_zone: 60-62区间
-    position_ratio: 1成
-    trigger: 模拟IC，-0.85%缩量
-    invalidation: 跌破58且30分钟不能收回
-    note: 等回踩60-62。技术评分-1(sell)，均线缠绕，缩量
-  - code: sz000636
-    name: 风华高科
-    entry_zone: 只观察不介入
-    position_ratio: '0'
-    trigger: 【纪律】MLCC已提前1-2周提示，现在追涨是韭菜行为
-    invalidation: 无
-    note: 早盘+2.66%，不是介入信号。只观察不介入
-  - code: sh603678
-    name: 火炬电子
-    entry_zone: 只观察不介入
-    position_ratio: '0'
-    trigger: 【纪律】MLCC情绪载体，只观察不介入
-    invalidation: 无
-    note: 0%，只观察不介入
-  - code: sz000969
-    name: 安泰科技
-    entry_zone: 持仓拿着等
-    position_ratio: 已有持仓
-    trigger: 周二共振修复品种，后面都会有表现
-    invalidation: 跌破21且30分钟不能收回
-    note: 持仓300股成本28.667，浮亏约-23.5%。纳米晶/软磁方向偏弱，但博主说周二共振修复的品种拿着等
-  - code: sz000066
-    name: 中国长城
-    entry_zone: 持仓做T
-    position_ratio: 已有持仓
-    trigger: 周二共振修复品种，持有做T
-    invalidation: 跌破17.5且30分钟不能收回
-    note: 持仓300股成本18.158，浮亏约-0.35%。持有做T
+  - code: sh603920
+    name: 世运电路
+    entry_zone: 57-59区间（回踩5日线）
+    position_ratio: 1成（高弹性新概念，控制仓位）
+    trigger: LPU新概念首日涨停+10%，等分歧后缩量回踩5日线
+    invalidation: 跌破56.5且30分钟不能收回；LPU概念一日游
+    note: 6/4涨停+10%收62.69，新概念首日。不追高，等回踩57-59。UP规避科技但LPU为新方向需观察
   - code: sh603920
     name: 世运电路
     entry_zone: 57-59区间（回踩5日线）
@@ -650,12 +564,12 @@ sector_rotation_rules:
   note: 博主明确规避半导体和消费，若出现异动需警惕是否为诱多
 notification_policy:
   only_notify_when:
-  - 液冷/散热触发买入点或证伪
-  - 上游涨价链触发观察点或扩散确认
-  - CPU自研链组内联动（中国长城/ST得润）或产业催化超预期
-  - 大盘4055支撑验证或跌破
-  - 半导体/消费出现规避方向异动
-  - 算力租赁/token概念发酵
+  - 燃气轮机方向(杰瑞/应流/万泽)触发买入点或风控
+  - 工程机械(徐工)触发观察点或企稳确认
+  - 创新药(药明康德)止跌信号确认
+  - 大盘4000支撑验证或跌破
+  - 万泽逼近/触发风控线30.5
+  - 全A指数与上证出现背离
   suppress_when:
   - 只是普通红绿波动
   - 单票异动但板块不共振
@@ -686,67 +600,163 @@ notification_policy:
 index_rules:
   primary_index: 上证指数
   key_levels:
-    support: 4033
-    resistance: 4130
-  trend_defense: 4033
+    support: 4000
+    resistance: 4120
+  trend_defense: 4000
 today_snapshot:
   date: '2026-06-09'
-  source: 6-4收盘复盘 + 6-4视频 + 6-4复盘专栏
-  market_stage: 调整第16天，微盘股破位，主升末期→防御过渡
-  index_status: 上证约4080(+0.3%)微红，微盘股大幅破位
-  volume_note: 量能萎缩，一九行情
+  source: 6/9实时盘面 + UP 6/8~6/9观点
+  market_stage: 磨底期恐慌中后段，电风扇行情
+  index_status: 上证收盘约3991，创业板+3.46%，科技大涨但UP规避
+  volume_note: 量能分化，科技放量非科技缩量
   up_bias: UP 6/9：磨底期恐慌中后段，突破4120才是趋势买点。电风扇行情不追涨杀跌。工程机械/燃气轮机/创新药为低位配置方向
   key_signals:
-  - 微盘股破位——最要命的信号，流动性进一步枯竭
-  - UP"放弃执念"：不要死扛亏损，该止损止损
-  - LPU推理芯片（博通概念）首日发酵，世运涨停+10%
-  - MLCC风华+4.9%周期上行确认，但纪律不追
-  - 光互联走末路，补跌风险 > 延续
-  - 新增AI能源/燃气轮机方向(UP深度方向)，杰瑞涨停/应流+4.3%/万泽+7.2%
+  - 上证收盘3991未站上4000，磨底继续
+  - 创业板+3.46%科技大涨，但UP规避科技方向
+  - 燃气轮机方向(杰瑞/应流/万泽)为当前核心持仓方向
+  - 天赐材料已清仓(亏损113.83元)，大同账号清空
+  - 万泽逼近风控线30.5仅~3%
   risk_reminders:
-  - 微盘股继续新低→所有左侧抄底暂停
-  - 安泰科技小市值受微盘股拖累，关注24.5支撑
-  - 光互联主升末期，追高风险极大
-  - 世运高开>3%不追，等分歧回踩
+  - 万泽距风控线30.5仅~3%，跌破须执行减仓
+  - 电风扇行情不追涨杀跌
+  - 科技大涨但UP规避，不参与
+  - 等指数突破4120确认趋势再加仓
   stocks_with_data:
-  - code: 000969.SZ
-    name: 安泰科技
-    latest: 22.04
-    pct_change: -0.36
-    note: 持仓300股成本28.667，浮亏约-23.1%。微盘股破位下小市值风险大，6-5关注24.5支撑。
-  - code: 000066.SZ
-    name: 中国长城
-    latest: 17.95
-    pct_change: -0.5
-    note: 持仓400股成本18.111，浮亏约-0.89%。信创中线逻辑未坏，等16.0以下补仓机会。
-  - code: 603920.SH
-    name: 世运电路
-    latest: 62.69
-    pct_change: 10.0
-    note: LPU埋嵌PCB新概念，涨停首日。只观察不追，等分歧回踩。
-  - code: 002897.SZ
-    name: 意华股份
-    latest: 96.15
-    pct_change: 5.43
-    note: CPO+连接器双重卡位，6-4复盘提及LPU关联。+5.43%强势，不追高。
-  - code: 605376.SH
-    name: 博迁新材
-    latest: 188.0
-    pct_change: -1.08
-    note: MLCC镍粉上游，-1.08%缩量调整。等回踩。
-  - code: 000636.SZ
-    name: 风华高科
-    latest: 63.5
-    pct_change: 4.89
-    note: MLCC核心+4.89%强势。纪律：只观察不介入。
-  overall_action: 6月5日：做T/持股为主。重心AI上游材料。航天电器等昇腾企稳。4033/4130不变。
+  - code: 000534.SZ
+    name: 万泽股份
+    latest: 31.53
+    pct_change: 0.54
+    note: 华宝持仓200股成本32.506，浮亏约-3.1%。燃气轮机涡轮叶片核心标的。风控线30.5-31.0。
+  - code: 002709.SZ
+    name: 天赐材料
+    latest: 47.97
+    pct_change: 2.26
+    note: 已清仓(6/9)，亏损113.83元。大同账号已清空。
+  overall_action: 6月9日：持股万泽观察。天赐已清仓。等指数突破4120确认趋势。燃气轮机方向为当前核心。
 linked_daily_state: config/stock_monitor/daily_state.json
 strategy_meta:
-  version: 8
-  last_full_review: '2026-06-08'
-  last_updated_by: 15:20收盘复盘cron
-  pending_review_items: []
-entry_points: []
+  version: 9
+  last_full_review: '2026-06-09'
+  last_updated_by: 手动全量审计-Hermes
+  pending_review_items:
+  - 清理watchlist中已清仓科技股
+  - entry_points中旧方向(AI上游材料/MLCC/光纤/昇腾)清理
+  - source_claims更新到最新
+entry_points:
+  - code: sh603920
+    name: 世运电路
+    entry_zone: 57-59区间（回踩5日线）
+    position_ratio: 1成
+    trigger: LPU新概念首日涨停+10%，等分歧后缩量回踩5日线
+    invalidation: 跌破56.5且30分钟不能收回；LPU概念一日游
+    note: 6/4涨停+10%收62.69。不追高，等回踩。UP规避科技但LPU为新方向需观察
+  - code: sz002463
+    name: 沪电股份
+    entry_zone: 132-136区间(回踩支撑)
+    position_ratio: 1成
+    trigger: 6/4+8.49%大阳线逼近涨停，等分歧回踩5日线。PCB/AI硬件景气确认
+    invalidation: 跌破132且30分钟不能收回
+    note: 英伟达高端PCB主力供应商。不追高，等回踩。
+  - code: sz002916
+    name: 深南电路
+    entry_zone: 370-385区间
+    position_ratio: 0.5成
+    trigger: 6/4+2.98%温和上涨，等回踩370-385。封装基板+高多层PCB双逻辑
+    invalidation: 跌破370且30分钟不能收回
+    note: PCB封装基板能力稀缺。弹性低于沪电。0.5成谨慎仓位
+  - code: sz002475
+    name: 立讯精密
+    entry_zone: 72.5-74区间
+    position_ratio: 1成
+    trigger: 6/4-0.28%缩量微跌，震荡中等分歧买点。LPU高速连接器逻辑
+    invalidation: 跌破72.5且30分钟不能收回
+    note: 大盘股弹性偏低，产业逻辑配置。UP未直接提及，来自Qing-Agent+券商分析。
+  - code: sz002353
+    name: 杰瑞股份
+    entry_zone: 143-150区间(等回踩涨停起点)
+    position_ratio: 1成
+    trigger: 6/4涨停+10%，不追高。UP纪律：回调是上车机会。等分歧回踩
+    invalidation: 跌破143且30分钟不能收回
+    note: 燃机EPC龙头，最早兑现业绩。涨停后高开易兑现，等回踩。UP:类比锂电池，可以格局。
+  - code: sh603308
+    name: 应流股份
+    entry_zone: 63-64区间(回踩5日线)
+    position_ratio: 0.5成
+    trigger: 涡轮叶片价值量最高环节(20%)。6/4+4.27%温和上涨，等分歧回踩
+    invalidation: 跌破63且30分钟不能收回
+    note: 涡轮叶片稀缺标的。弹性和优先级低于杰瑞。UP研报多次提及。
+  - code: sz000534
+    name: 万泽股份
+    entry_zone: 31-32区间(回踩支撑)
+    position_ratio: 0.5成
+    trigger: 6/4+7.17%强势，等分歧回踩。UP 4/17研报：调整即是布局机会
+    invalidation: 跌破30且30分钟不能收回
+    note: 涡轮叶片+高温合金双逻辑。当前持仓200股成本32.506。风控线30.5-31.0。
+  - code: sz002025
+    name: 航天电器
+    entry_zone: 等企稳信号确认后评估
+    position_ratio: 0.5成
+    trigger: 昇腾链整体企稳。军工+昇腾双重利空消化后缩量回踩确认
+    invalidation: 军工板块继续杀跌拖累
+    note: 主板可交易。UP判断：赔率升高，6月中下旬回归算力主航道。当前等企稳。
+  - code: sz002897
+    name: 意华股份
+    entry_zone: 等回踩确认（+5.43%后不追）
+    position_ratio: 0.5成
+    trigger: 昇腾链企稳+连接器/CPO双重确认，分歧后缩量回踩放量收回
+    invalidation: 昇腾链继续走弱，或CPO方向证伪
+    note: 主板可交易。UP列为昇腾核心。叠加LPU+CPO三重逻辑。
+  - code: 000425.SZ
+    name: 徐工机械
+    status: active
+    opportunity_pattern: 基本面背离修复
+    entry_zone: 9.10-9.60
+    entry_trigger: 缩量回踩9.10-9.60区间，分时企稳不创新低。等上证站稳4000以上再考虑
+    position_ratio: 1-1.5成
+    stop_loss: null
+    invalidation: 跌破8.80且30分钟不能收回；6月挖机销量增速跌破20%
+    note: UP 6/9推荐工程机械方向。5月销量+36.2%连续3月加速。回撤-20%，PE约13x。
+    upside_pct: '+25%'
+    downside_pct: '-8%'
+    odds_ratio: '3:1'
+    estimated_probability_up: 45
+    expected_value: 正期望
+    claim_basis: claim-20260609-001-f
+    odds_analysis: 下方60日低9.10硬支撑，上方12.43前高压力。赔率约3:1
+  - code: 605060.SH
+    name: 联德股份
+    status: active
+    opportunity_pattern: 深度回调+产业逻辑
+    entry_zone: 47.0-49.5
+    entry_trigger: 缩量回踩47-49.5区间，今日+4.3%反弹不宜追，等回踩确认
+    position_ratio: 0.5-1成
+    stop_loss: null
+    invalidation: 跌破46.0且放量；燃气轮机板块出现利空
+    note: UP 6/4点名燃气轮机核心标的。回撤-30.5%候选中最深。燃机板块增速50%+。高弹性控仓
+    upside_pct: '+40%'
+    downside_pct: '-5%'
+    odds_ratio: '8:1'
+    estimated_probability_up: 35
+    expected_value: 正期望
+    claim_basis: claim-20260604-004-f, claim-20260604-007-c
+    odds_analysis: 回撤30%+距60日低仅+5%，赔率极高
+  - code: 603259.SH
+    name: 药明康德
+    status: active
+    opportunity_pattern: 龙头回调+防御属性
+    entry_zone: 85.5-92.0
+    entry_trigger: 今日-5.1%大跌，等缩量止跌信号（下影线/十字星）在85.5-92区间出现
+    position_ratio: 0.5-1成
+    stop_loss: null
+    invalidation: 跌破84且30分钟不能收回；创新药板块出现政策利空
+    note: UP 6/4明确创新药防御属性。今日-5.1%是一次性回踩还是趋势走坏需观察。
+    upside_pct: '+20%'
+    downside_pct: '-6%'
+    odds_ratio: 3.3:1
+    estimated_probability_up: 40
+    expected_value: 正期望
+    claim_basis: claim-20260604-004-a, claim-20260604-004-h
+    odds_analysis: 距60日低85.5仅+6%，赔率>3:1
 entry_points_schema:
   description: 活跃条件单模板
   template:
