@@ -1,0 +1,38 @@
+# 需要同步知识库的修改文件清单 (2026-06-09)
+# timeline normalization batch — 26 claim files modified
+
+## 修复类型 A: time_frame → timeframe 重命名 (4 files)
+knowledge/claims/claim-20260604-005.yaml
+knowledge/claims/claim-20260605-001.yaml
+knowledge/claims/claim-20260607-001.yaml
+knowledge/claims/claim-20260607-002.yaml
+
+## 修复类型 B: 非标 timeframe 值规范化 (22 files)
+knowledge/claims/claim-20260518-018.yaml   # immediate→intraday, durable→trend
+knowledge/claims/claim-20260518-019.yaml   # 短期(1-2周)→short-term, 中期→trend, 次日→intraday, 持续有效→permanent
+knowledge/claims/claim-20260519-001.yaml   # 短期(1-2日)→short-term, 中期(2026全年)→trend, 当日→intraday
+knowledge/claims/claim-20260519-002.yaml   # 持续有效→permanent
+knowledge/claims/claim-20260519-003.yaml   # 短期(1-3日)→short-term, 当日→intraday
+knowledge/claims/claim-20260527-001.yaml   # 短期→short-term, 中期→trend
+knowledge/claims/claim-20260527-002.yaml   # 持续有效→permanent
+knowledge/claims/claim-20260527-003.yaml   # 中期(2026H2)→trend, 短期→short-term
+knowledge/claims/claim-20260527-004.yaml   # 短期→short-term, 长期→industry
+knowledge/claims/claim-20260529-005.yaml   # long-term→industry
+knowledge/claims/claim-20260602-001.yaml   # medium-term→trend
+knowledge/claims/claim-20260602-002.yaml   # medium-term→trend
+knowledge/claims/claim-20260602-003.yaml   # medium-term→trend
+knowledge/claims/claim-20260604-001.yaml   # date→short-term
+knowledge/claims/claim-20260604-007.yaml   # 中期(1-3个月)→trend
+knowledge/claims/claim-20260607-004.yaml   # 短期(1-2周)→short-term, 中期(1-3个月/3-6个月)→trend
+knowledge/claims/claim-20260608-001.yaml   # 短期(1-3天/1-2周)→short-term, 中期(1-3个月)→trend
+knowledge/claims/claim-20260608-002.yaml   # 短期(当日/1-3天)→short-term
+knowledge/claims/claim-20260608-003.yaml   # 短期(当日)→short-term
+knowledge/claims/claim-20260608-004.yaml   # 短期(1-3天/1-2周)→short-term, 中期(1-4周/1-3个月/3-6个月)→trend
+knowledge/claims/claim-20260609-001.yaml   # medium-term→trend
+knowledge/claims/claim-20260609-004.yaml   # medium-term→trend
+
+## 同步步骤
+# 1. discover --all-missing（重新发现关系）
+# 2. migrate（同步到 Neo4j）
+# 3. Qdrant --force-recreate（全量重建索引）
+# 4. restart Qing-Agent
