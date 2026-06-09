@@ -1,4 +1,4 @@
-updated_at: '2026-06-05'
+updated_at: '2026-06-09'
 themes:
 - id: cpu_self_development
   name: CPU自研链（字节催化，可能裂变为主线）
@@ -107,7 +107,11 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - &id001
+      claim_id: claim-20260605-001-c
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -166,7 +170,8 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - *id001
     opportunity_patterns:
       primary: null
       secondary: null
@@ -220,7 +225,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260604-005-g
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -800,7 +808,15 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - &id002
+      claim_id: claim-20260604-005-f
+      claim_type: sector-theme
+      relevance: direct
+    - &id003
+      claim_id: claim-20260605-001-g
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -838,7 +854,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260605-001-f
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -932,7 +951,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260520-003-j
+      claim_type: stock-view
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1019,7 +1041,9 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - *id002
+    - *id003
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1161,6 +1185,58 @@ themes:
       primary: null
       secondary: null
       last_matched: null
+  - priority: P1-核心
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/4推荐创新药方向，防御属性在磨底期体现
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-15.0%。UP说'从924翻3倍跌不下来'。今日-5.1%回调等企稳
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 603259.SH
+    name: 药明康德
+    role: innovative_drug_core
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/4推荐创新药方向，防御属性在磨底期体现
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-21.7%。创新药主板核心。UP 6/4提及创新药方向
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 600276.SH
+    name: 恒瑞医药
+    role: innovative_drug_core
 - id: compute_rental_token
   name: 算力租赁/token工厂（新增催化）
   source_docs:
@@ -1908,7 +1984,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260520-003-h
+      claim_type: stock-view
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1936,7 +2015,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260521-002-e
+      claim_type: stock-view
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1964,7 +2046,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260518-019-k
+      claim_type: stock-view
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2029,7 +2114,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260426-010
+      claim_type: stock-view
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2069,7 +2157,11 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - &id004
+      claim_id: claim-20260519-001-e
+      claim_type: stock-view
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2232,6 +2324,58 @@ themes:
       primary: null
       secondary: null
       last_matched: null
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-36.9%🔥低位！商用发动机核心主线，C919 26年28架
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 600893.SH
+    name: 航发动力
+    role: military_bluechip
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-24.6%。分红比例≥80%，消费+蓝筹。UP 6/4点名
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 002027.SZ
+    name: 分众传媒
+    role: consumption_media
 - id: domestic_compute
   name: 国产算力产业链
   source_docs:
@@ -2268,7 +2412,8 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - *id004
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2342,7 +2487,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260605-001-g
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2383,7 +2531,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260605-001-g
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2437,7 +2588,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260518-019-l
+      claim_type: stock-view
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2809,7 +2963,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260605-001-c
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2847,7 +3004,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260605-001-c
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3107,7 +3267,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260518-016
+      claim_type: stock-view
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3190,7 +3353,8 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - *id001
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3269,7 +3433,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260605-001-d
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -5522,3 +5689,273 @@ themes:
       primary: null
       secondary: null
       last_matched: null
+  - priority: P1-核心
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/4视频：燃气轮机类比上一轮锂电池，确定性最高
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-18.1%。703燃机出海加速。UP 6/4点名燃气轮机核心标的
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 600482.SH
+    name: 中国动力
+    role: gas_turbine_703
+  - priority: P1-核心
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/4视频：燃气轮机类比上一轮锂电池，确定性最高
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-22.6%。燃机热管理+出海双逻辑。UP 6/4点名
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 002126.SZ
+    name: 银轮股份
+    role: gas_turbine_heat
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/4视频：燃气轮机类比上一轮锂电池，确定性最高
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-30.5%🔥低位。燃机板块增速50%+。UP 6/4点名
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 605060.SH
+    name: 联德股份
+    role: gas_turbine_parts
+- id: engineering_machinery
+  name: 工程机械（销量超预期+PB周期底，UP 6/9推荐）
+  strategy: 磨底期低估值修复。5月挖机销售+36.2%连续3月加速，核心龙头PB回落至1.8倍周期底。UP明确'安全边际较充足'。等指数企稳+放量阳线确认介入。
+  priority: P1-重点关注
+  stocks:
+  - priority: P1-核心
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐工程机械方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 5月挖机销售+36.2%，连续3月加速；PB周期底1.8倍
+      risk: ''
+    watch_reason: 60日回撤-13.2%，PB约1.81x，海外毛利率比国内高11pct。UP 6/9点名。回撤不够深，等更充分调整
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 600031.SH
+    name: 三一重工
+    role: engineering_leader
+  - priority: P1-核心
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐工程机械方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 5月挖机销售+36.2%，连续3月加速；PB周期底1.8倍
+      risk: ''
+    watch_reason: 60日回撤-20.1%，PE约13x。销量连续超预期。位置比三一更低
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 000425.SZ
+    name: 徐工机械
+    role: engineering_tier1
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐工程机械方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 5月挖机销售+36.2%，连续3月加速；PB周期底1.8倍
+      risk: ''
+    watch_reason: 60日回撤-21.8%，PE约11x最低估值。今日-2.5%情绪偏弱
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 000157.SZ
+    name: 中联重科
+    role: engineering_tier1
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐工程机械方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 5月挖机销售+36.2%，连续3月加速；PB周期底1.8倍
+      risk: ''
+    watch_reason: 60日回撤-17.2%。二线标的
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 000528.SZ
+    name: 柳工
+    role: engineering_tier2
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐工程机械方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 5月挖机销售+36.2%，连续3月加速；PB周期底1.8倍
+      risk: ''
+    watch_reason: 60日回撤仅-3.0%高位，暂不介入仅观察
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 601100.SH
+    name: 恒立液压
+    role: hydraulic_leader
+- id: commercial_aerospace
+  name: 商业航天（回调>30%尾声+8节点+SpaceX IPO，UP 6/9推荐）
+  strategy: 反弹修复逻辑，非趋势机会。下半年8个发射/回收节点密集，SpaceX 6月IPO。偏博弈，控仓快进快出。
+  priority: P2-观察
+  stocks:
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘：商业航天回调>30%接近尾声，下半年8个节点+SpaceX IPO
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 6-12月密集发射节点；SpaceX 6月IPO目标估值1.75-1.8万亿
+      risk: ''
+    watch_reason: 60日回撤-31.2%🔥低位。主板卫星链核心。今日-5.0%大跌需等企稳
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 600118.SH
+    name: 中国卫星
+    role: satellite_chain
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘：商业航天回调>30%接近尾声，下半年8个节点+SpaceX IPO
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 6-12月密集发射节点；SpaceX 6月IPO目标估值1.75-1.8万亿
+      risk: ''
+    watch_reason: 60日回撤-19.7%中位。主板火箭链。今日-3.2%
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 600879.SH
+    name: 航天电子
+    role: rocket_chain
