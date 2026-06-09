@@ -1,0 +1,76 @@
+claims:
+- id: claim-20260609-005-a
+  source_path: sources/raw/财经/晚盘：26-06-09：中国准备投入2950亿美元支持全国性AI建设.md
+  source_date: '2026-06-09'
+  source_type: 晚盘动态
+  extracted_at: '2026-06-09T23:30:00+08:00'
+  claim_type: sector-theme
+  subject: 中国2万亿AI算力基建计划
+  statement: 彭博报道中国即将启动2万亿人民币(2950亿美元)全国AI数据中心建设计划，为期5年。由发改委牵头，中国移动(600941)、中国电信(601728)等国企运营，要求80%技术来自本土供应商（华为等），旨在排挤英伟达(NVDA)/AMD(AMD)。这是'六网'计划的一部分——构建统一计算网络，整合分散区域资源。
+  evidence_quote: 中国正准备在未来5年内投入约2万亿元人民币（2950亿美元）用于在全国各地建设数据中心...依靠华为技术有限公司等本土供应商提供至少80%的技术，如人工智能芯片，从而有效排挤英伟达公司。
+  interpretation: 这是国家级AI算力基建信号——2万亿规模相当于年化4000亿，将对算力产业链形成长期拉动。三个关键维度：①国产替代加速——80%本土供应要求直接利好华为昇腾产业链及国产AI芯片；②数据中心建设——国企主导的全国互联计算中心网络将拉动服务器/光模块/液冷/电源需求；③'六网'框架——意味着数据中心的定位不仅是算力中心，更是连接网络的一部分。但需注意：这是彭博报道（非官方正式发布），具体实施节奏和资金来源有待确认。
+  confidence: high
+  status: active
+  intensity: high
+  timeframe: industry
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '600941'
+    name: 中国移动
+    role: 数据中心运营主体-主板
+  - code: '601728'
+    name: 中国电信
+    role: 数据中心运营主体-主板
+  topic: 中国2万亿AI算力基建计划——国家级AI算力信号
+  tags:
+  - AI算力
+  - 数据中心
+  - 华为昇腾
+  - 国产替代
+  - 六网计划
+- id: claim-20260609-005-b
+  source_path: sources/raw/财经/晚盘：26-06-09：中国准备投入2950亿美元支持全国性AI建设.md
+  source_date: '2026-06-09'
+  source_type: 晚盘动态
+  extracted_at: '2026-06-09T23:30:00+08:00'
+  claim_type: sector-theme
+  subject: AI算力国产替代——80%本土供应目标
+  statement: 该计划明确要求至少80%技术来自本土供应商（华为等），直接排挤英伟达(NVDA)和AMD(AMD)。这是对AI芯片国产替代路线的国家级背书，华为昇腾产业链将成为最大受益方。相关A股标的：拓维信息(002261,昇腾服务器合作伙伴)、神州数码(000034,华为算力分销商)。
+  evidence_quote: 依靠华为技术有限公司等本土供应商提供至少80%的技术，如人工智能芯片，从而有效排挤英伟达公司。以及先进微设备公司。
+  interpretation: 80%本土供应是硬性指标——这不仅是产业趋势，更是政策指令。受益产业链：①华为昇腾芯片（直接受益）→ ②算力服务器组装（如拓维信息(002261)/神州数码(000034)等昇腾合作伙伴，均为深主板可交易）→
+    ③配套（光模块/液冷/电源）。但区分短期和中长期：政策框架到实际执行有1-2年滞后，短期更多是主题催化而非业绩兑现。已有华为算力概念的标的面临的是估值提升逻辑，而非当期业绩。
+  confidence: medium
+  status: active
+  intensity: high
+  timeframe: trend
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '600941'
+    name: 中国移动
+    role: 数据中心运营-主板
+  - code: '601728'
+    name: 中国电信
+    role: 数据中心运营-主板
+  - code: '002261'
+    name: 拓维信息
+    role: 昇腾服务器合作伙伴-深主板可交易
+  - code: '000034'
+    name: 神州数码
+    role: 华为算力分销商-深主板可交易
+  topic: AI算力国产替代——80%本土供应目标利好华为昇腾链
+  tags:
+  - AI芯片
+  - 国产替代
+  - 华为昇腾
+  - 拓维信息
+  - 神州数码
