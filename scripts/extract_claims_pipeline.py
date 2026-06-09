@@ -209,6 +209,22 @@ def next_action(session: dict) -> dict:
             "auto": True,
         }
 
+    elif state == "gate3_pass":
+        return {
+            "step": "step4_postprocess",
+            "title": "Step 4: 后处理 — 移动 YAML + 更新 wiki / index / commit",
+            "prompt": f"""YAML 已生成在 {sess_dir / 'step3_yaml/'}。请完成以下后处理：
+
+1. **核对编号**：检查 knowledge/claims/ 下已有最大编号，将 YAML 移动到正确编号
+2. **更新 wiki**：对应的每日复盘 wiki + 专题 wiki（如有）
+3. **更新索引**：claims/index.md + wiki/index.md
+4. **更新 log**：knowledge/wiki/log.md
+5. **Git 提交**：git add 并 commit
+6. **汇报**：告诉用户完成了什么
+""",
+            "auto": False,
+        }
+
     elif state == "step3_done":
         return {
             "step": "step4_postprocess",
@@ -338,10 +354,8 @@ def cmd_continue(session_id: str = None):
         cmd_continue(session_id)
         return
 
-    # 检查所有 gate 都过了 → 到 Step 4
+    # 检查所有 gate 都过了 → 到 Step 4（Agent 后处理）
     if session["state"] == "gate3_pass":
-        session["state"] = "done"
-        save_session(session)
         _print_next(session)
         return
 
