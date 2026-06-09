@@ -1,30 +1,32 @@
 claims:
-  - id: claim-20260608-003-a
-    topic: 仓位管理——不能赌，盈亏比太差
-    statement: 今天仓位管理需要控制，真正的危险是今晚美股和CPI数据。不能赌——盈亏比太差，赌对也没多少收益，赌错下场会很惨。UP上午单独再发一次强调，说明风险级别高于常规提醒
-    source_path: sources/raw/财经/动态：26-06-08：再提醒仓位管理，不能赌.md
-    source_date: '2026-06-08'
-    source_type: 动态
-    extracted_at: '2026-06-08'
-    claim_type: risk
-    subject: 仓位管理
-    timeframe: 短期（当日）
-    evidence_quote: |
-      "再单独发一次，提醒一下，真正的危险是今晚的美股和CPI数据，所以你们今天仓位管理还是需要控制一下，不要忽视大环境的风险，这种时候不能赌，盈亏比太差，赌对也没多少收益，赌错下场会很惨。"
-    interpretation: UP用"再单独发一次"强调此前已经说过但可能有人没重视。核心不是具体方向判断，而是仓位纪律——当前环境盈亏比不对称，属于"赌对无效、赌错致命"的阶段。这条与002-b风险提醒形成递进（提醒→再单独强调）
-    confidence: high
-    status: active
-    intensity: high
-    supersedes: ["claim-20260426-001"]
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims:
-        - claim-20260608-002-b
-      related_stocks: []
-      related_sectors: []
-    tags:
-      - 仓位管理
-      - 风险
-      - 美股
-      - CPI
+- id: claim-20260608-003-a
+  topic: 仓位管理——不能赌，盈亏比太差
+  statement: 今天仓位管理需要控制，真正的危险是今晚美股和CPI数据。不能赌——盈亏比太差，赌对也没多少收益，赌错下场会很惨。UP上午单独再发一次强调，说明风险级别高于常规提醒
+  source_path: sources/raw/财经/动态：26-06-08：再提醒仓位管理，不能赌.md
+  source_date: '2026-06-08'
+  source_type: 动态
+  extracted_at: '2026-06-08'
+  claim_type: risk
+  subject: 仓位管理
+  timeframe: short-term
+  evidence_quote: '"再单独发一次，提醒一下，真正的危险是今晚的美股和CPI数据，所以你们今天仓位管理还是需要控制一下，不要忽视大环境的风险，这种时候不能赌，盈亏比太差，赌对也没多少收益，赌错下场会很惨。"
+
+    '
+  interpretation: UP用"再单独发一次"强调此前已经说过但可能有人没重视。核心不是具体方向判断，而是仓位纪律——当前环境盈亏比不对称，属于"赌对无效、赌错致命"的阶段。这条与002-b风险提醒形成递进（提醒→再单独强调）
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260426-001
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims:
+    - claim-20260608-002-b
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 仓位管理
+  - 风险
+  - 美股
+  - CPI

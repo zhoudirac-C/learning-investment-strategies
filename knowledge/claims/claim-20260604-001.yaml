@@ -19,7 +19,7 @@ interpretation: '博主对6月4日盘中的定性：
   '
 claim_type: market-cycle
 scope: short-term
-timeframe: '2026-06-04'
+timeframe: short-term
 confidence: high
 status: active
 tags:
@@ -32,7 +32,9 @@ related_claims: []
 contradicts: []
 last_discovered: 2026-06-08
 links: {}
-supersedes: ["claim-20260603-001-d", "claim-20260527-004-f"]
+supersedes:
+- claim-20260603-001-d
+- claim-20260527-004-f
 intensity: medium
 source_path: sources/raw/财经/动态：26-06-04：盘中提示-持股为主不追高等新周期.md
 source_type: 动态

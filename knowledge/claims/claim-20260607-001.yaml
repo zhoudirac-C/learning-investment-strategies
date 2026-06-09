@@ -12,7 +12,6 @@ claims:
   confidence: high
   status: active
   claim_type: market-cycle
-  time_frame: short-term
   related_stocks: []
   tags:
   - 黄金坑
@@ -22,11 +21,13 @@ claims:
   - 防御方向
   - 科技股调整
   - 美股暴跌
-  supersedes: ["claim-20260528-005-d"]
+  supersedes:
+  - claim-20260528-005-d
   contradicts: []
   last_discovered: 2026-06-08
   intensity: medium
   links: {}
+  timeframe: short-term
 - id: claim-20260607-001-b
   source_path: sources/raw/财经/视频：26-06-07：技术分析第二课-长黑线、上吊线与流星线.md
   source_date: '2026-06-07'
@@ -40,7 +41,6 @@ claims:
   confidence: medium
   status: active
   claim_type: sector-theme
-  time_frame: short-term
   related_stocks: []
   tags:
   - 上吊线
@@ -55,6 +55,7 @@ claims:
   last_discovered: 2026-06-08
   intensity: medium
   links: {}
+  timeframe: short-term
 - id: claim-20260607-001-c
   source_path: sources/raw/财经/视频：26-06-07：技术分析第二课-长黑线、上吊线与流星线.md
   source_date: '2026-06-07'
@@ -68,7 +69,6 @@ claims:
   confidence: high
   status: active
   claim_type: market-cycle
-  time_frame: short-term
   related_stocks: []
   tags:
   - 美股
@@ -82,6 +82,7 @@ claims:
   last_discovered: 2026-06-08
   intensity: medium
   links: {}
+  timeframe: short-term
 - id: claim-20260607-001-d
   source_path: sources/raw/财经/视频：26-06-07：技术分析第二课-长黑线、上吊线与流星线.md
   source_date: '2026-06-07'
@@ -95,7 +96,6 @@ claims:
   confidence: medium
   status: active
   claim_type: operation
-  time_frame: medium-term
   related_stocks: []
   tags:
   - 黄金坑
@@ -110,6 +110,7 @@ claims:
   last_discovered: 2026-06-08
   intensity: high
   links: {}
+  timeframe: trend
 - id: claim-20260607-001-e
   source_path: sources/raw/财经/视频：26-06-07：技术分析第二课-长黑线、上吊线与流星线.md
   source_date: '2026-06-07'
@@ -123,7 +124,6 @@ claims:
   confidence: medium
   status: active
   claim_type: market-cycle
-  time_frame: medium-term
   related_stocks: []
   tags:
   - 化解
@@ -132,7 +132,9 @@ claims:
   - 中期选举
   - 科技股回调
   supersedes: []
-  contradicts: ["claim-20260607-001-c"]
+  contradicts:
+  - claim-20260607-001-c
   last_discovered: 2026-06-08
   intensity: medium
   links: {}
+  timeframe: trend

@@ -12,7 +12,6 @@ claims:
   confidence: medium
   status: active
   claim_type: market-cycle
-  time_frame: short-term
   related_stocks: []
   tags:
   - 调整周期
@@ -20,11 +19,15 @@ claims:
   - 企稳信号
   - 日线顶部
   - 第17天
-  supersedes: ["claim-20260518-006", "claim-20260527-006-d", "claim-20260603-001-a"]
+  supersedes:
+  - claim-20260518-006
+  - claim-20260527-006-d
+  - claim-20260603-001-a
   contradicts: []
   last_discovered: 2026-06-08
   intensity: medium
   links: {}
+  timeframe: short-term
 - id: claim-20260605-001-b
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
   source_date: '2026-06-05'
@@ -38,7 +41,6 @@ claims:
   confidence: high
   status: active
   claim_type: operation
-  time_frame: short-term
   related_stocks: []
   tags:
   - 指数纪律
@@ -46,11 +48,13 @@ claims:
   - 机械化标准
   - '4033'
   - '4130'
-  supersedes: ["claim-20260602-001-a"]
+  supersedes:
+  - claim-20260602-001-a
   contradicts: []
   last_discovered: 2026-06-08
   intensity: high
   links: {}
+  timeframe: short-term
 - id: claim-20260605-001-c
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
   source_date: '2026-06-05'
@@ -64,7 +68,6 @@ claims:
   confidence: high
   status: active
   claim_type: sector-theme
-  time_frame: medium-term
   related_stocks:
   - code: 000636.SZ
     name: 风华高科
@@ -85,6 +88,7 @@ claims:
   last_discovered: 2026-06-08
   intensity: medium
   links: {}
+  timeframe: trend
 - id: claim-20260605-001-d
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
   source_date: '2026-06-05'
@@ -98,7 +102,6 @@ claims:
   confidence: medium
   status: active
   claim_type: sector-theme
-  time_frame: short-term
   related_stocks:
   - code: 601088.SH
     name: 中国神华
@@ -109,10 +112,13 @@ claims:
   - 非科技
   - 尾声
   supersedes: []
-  contradicts: ["claim-20260602-001-e", "claim-20260607-003-l"]
+  contradicts:
+  - claim-20260602-001-e
+  - claim-20260607-003-l
   last_discovered: 2026-06-08
   intensity: medium
   links: {}
+  timeframe: short-term
 - id: claim-20260605-001-e
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
   source_date: '2026-06-05'
@@ -126,7 +132,6 @@ claims:
   confidence: medium
   status: active
   claim_type: sector-theme
-  time_frame: medium-term
   related_stocks:
   - code: sh688
     name: 珂玛科技
@@ -142,6 +147,7 @@ claims:
   last_discovered: 2026-06-08
   intensity: medium
   links: {}
+  timeframe: trend
 - id: claim-20260605-001-f
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
   source_date: '2026-06-05'
@@ -155,7 +161,6 @@ claims:
   confidence: medium
   status: active
   claim_type: sector-theme
-  time_frame: medium-term
   related_stocks:
   - code: sz301018
     name: 申菱环境
@@ -167,10 +172,12 @@ claims:
   - 价值重估
   - 英维克
   supersedes: []
-  contradicts: ["claim-20260426-010"]
+  contradicts:
+  - claim-20260426-010
   last_discovered: 2026-06-08
   intensity: medium
   links: {}
+  timeframe: trend
 - id: claim-20260605-001-g
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
   source_date: '2026-06-05'
@@ -184,7 +191,6 @@ claims:
   confidence: medium
   status: active
   claim_type: sector-theme
-  time_frame: medium-term
   related_stocks:
   - code: 688629.SH
     name: 华丰科技
@@ -200,11 +206,14 @@ claims:
   - 意华股份
   - 赔率
   - 超跌
-  supersedes: ["claim-20260525-025"]
-  contradicts: ["claim-20260607-003-c"]
+  supersedes:
+  - claim-20260525-025
+  contradicts:
+  - claim-20260607-003-c
   last_discovered: 2026-06-08
   intensity: medium
   links: {}
+  timeframe: trend
 - id: claim-20260605-001-h
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
   source_date: '2026-06-05'
@@ -218,7 +227,6 @@ claims:
   confidence: medium
   status: active
   claim_type: market-cycle
-  time_frame: short-term
   related_stocks: []
   tags:
   - 创业板指
@@ -226,11 +234,13 @@ claims:
   - 形态类比
   - 赚钱效应
   - 中小盘
-  supersedes: ["claim-20260603-001-d"]
+  supersedes:
+  - claim-20260603-001-d
   contradicts: []
   last_discovered: 2026-06-08
   intensity: medium
   links: {}
+  timeframe: short-term
 - id: claim-20260605-001-i
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
   source_date: '2026-06-05'
@@ -244,15 +254,16 @@ claims:
   confidence: high
   status: active
   claim_type: operation
-  time_frame: short-term
   related_stocks: []
   tags:
   - 操作策略
   - 做T
   - 抗波动
   - 不追高
-  supersedes: ["claim-20260603-001-f"]
+  supersedes:
+  - claim-20260603-001-f
   contradicts: []
   last_discovered: 2026-06-08
   intensity: high
   links: {}
+  timeframe: short-term

@@ -1,192 +1,204 @@
 claims:
-  - id: claim-20260602-001-a
-    topic: 日线顶部结构已成
-    source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-    source_date: 2026-06-02
-    source_type: 早盘
-    extracted_at: 2026-06-02
-    claim_type: market-cycle
-    subject: 调整第14天，4032点趋势位是短期关键，4000点上方有承接
-    timeframe: short-term
-    statement: 日线顶部结构已成，今日为调整第14个交易日。短期只需盯住趋势位4032点是否破位即可。上证4000点上方近几日明显有承接，昨日百股涨停但指数仍跌，说明机构股以外的多数个股已不愿再跌，市场出现止跌企稳信号
-    evidence_quote: 日线顶部结构已成，今日为调整第14个交易日。短期只需盯住趋势位4032点是否破位即可。上证4000点上方近几日明显有承接，结合昨日百股涨停（收盘118家，超过5月任一交易日，年内仅次于1月12日和4月8日）但指数仍跌，说明机构股以外的多数个股已不愿再跌，市场出现止跌企稳信号。
-    interpretation: 指数状态判断：①调整第14天，时间窗口延续；②4032点是趋势破位参考位，与昨日早盘claim-20260601-001-a一致；③4000点上方有承接——这是新增信息，说明下方支撑有效；④百股涨停（118家）但指数跌——结构性特征：机构股弱、非机构股强；⑤止跌企稳信号来自非机构股的抵抗，不是全面反转。短期偏谨慎但不再悲观。
-    confidence: high
-    status: active
-    supersedes: ["claim-20260519-001-a"]
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/指数分析.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 市场周期
-      - 顶部结构
-      - 日线
-      - 上证
-      - 止跌
-  - id: claim-20260602-001-b
-    topic: 弱势行情下放量等于砸盘资金变多
-    source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-    source_date: 2026-06-02
-    source_type: 早盘
-    extracted_at: 2026-06-02
-    claim_type: market-cycle
-    subject: 弱势行情放量等于砸盘资金变多，策略仍是等缩量等情绪回暖
-    timeframe: short-term
-    statement: 弱势行情下放量等于砸盘资金变多，头顶悬剑。日均成交已3万亿+，难指望进一步放量到4万亿。策略仍是等缩量、等情绪回暖、等利好落地，过程中重个股、轻指数
-    evidence_quote: 弱势行情下放量=砸盘资金变多，头顶悬剑；日均成交已3万亿+，难指望进一步放量到4万亿。黄白线在10点半后被拉开，恰是东山精密跌停时点，传导至机构股引发跳水。策略仍是上周那句——等缩量、等情绪回暖、等利好落地，过程中重个股、轻指数。
-    interpretation: 量能判断：①弱势放量=砸盘资金增多，不是增量入场——这是博主对弱势行情量能特征的核心判断；②3万亿+日均成交已接近上限，难到4万亿——说明当前量能水平已高，但方向是抛压而非买盘；③黄白线分离+东山精密跌停→机构股跳水——机构筹码松动是昨日指数走弱的核心原因；④策略不变：等缩量（抛压衰竭）、等情绪回暖（跌停家数下降）、等利好落地（催化确认）。重个股轻指数意味着结构性机会优先于指数贝塔。
-    confidence: high
-    status: active
-    supersedes: ["claim-20260518-018"]
-    contradicts: ["claim-20260518-019", "claim-20260603-001-d"]
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/量能分析.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 市场周期
-      - 缩量
-      - 放量
-  - id: claim-20260602-001-c
-    topic: 机构股近期草木皆兵
-    source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-    source_date: 2026-06-02
-    source_type: 早盘
-    extracted_at: 2026-06-02
-    claim_type: sector-theme
-    subject: 机构股草木皆兵，风格向更小市值更小成交额靠拢
-    timeframe: short-term
-    statement: 机构股近期草木皆兵，怀疑种子一旦种下关系即生裂痕。日韩股市大涨背景下A股存储股却不涨反跌，传导链条已钝化。一旦风格切换延续，题材炒作/非机构股或成最大受益者，风格理论上会向更小市值、更小成交额靠拢
-    evidence_quote: 机构股近期草木皆兵：小到东山精密因小作文跌停，大到公募调基准/调仓，实质影响小于盘面反应，但怀疑种子一旦种下关系即生裂痕。这也解释了日韩股市大涨背景下A股存储股却不涨反跌——韩国股市-三星-存储传导链条已钝化。一旦风格切换延续，题材炒作/非机构股或成最大受益者；指数若就此缩量，风格理论上会向更小市值、更小成交额靠拢。
-    interpretation: 风格切换判断：①机构股信任危机：小作文+调仓→实质影响小但心理影响大；②日韩-A股存储传导钝化——说明A股存储股已脱离海外映射，走独立逻辑（或独立下跌）；③风格切换方向：题材炒作/非机构股受益→更小市值、更小成交额——这是博主对6月初风格演化的核心预判；④与昨日复盘"市场处于新旧势力交替的混沌轮动中"形成呼应。操作层面：关注小市值题材，规避机构重仓的大市值标的。
-    confidence: high
-    status: active
-    supersedes: ["claim-20260529-003-b"]
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/风格切换.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 板块主题
-      - A股
-      - 存储
-  - id: claim-20260602-001-d
-    topic: 重点看英伟达AIPC端侧和MiniMax
-    source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-    source_date: 2026-06-02
-    source_type: 早盘
-    extracted_at: 2026-06-02
-    claim_type: sector-theme
-    subject: 今日重点看AIPC端侧和MiniMax大模型能否进一步走强，炒新不炒旧
-    timeframe: intraday
-    statement: 重点看英伟达AIPC端侧和MiniMax上市大模型能否进一步走强，二者本质都属AI应用端非硬件。炒新不炒旧在MLCC、超级电容上已体现，昨日反包个股多出自此方向，板块整体强于PCB等传统方向
-    evidence_quote: 重点看英伟达AIPC（端侧）和MiniMax上市（大模型）能否进一步走强——二者本质都属AI应用端（非硬件），这是相关个股能逆势走强的核心原因。上周末新热点大概率被优先关注。炒新不炒旧在MLCC、超级电容上已体现，昨日反包个股多出自此方向，板块整体强于PCB等传统方向。
-    interpretation: 今日科技方向优先级：①AIPC端侧+MiniMax大模型——周末新热点，AI应用端（非硬件），这是逆势走强的核心原因；②炒新不炒旧——MLCC、超级电容已体现，昨日反包个股多出自新方向；③PCB等传统方向相对弱势——资金偏好新催化；④AIPC催化：英伟达Windows PC本周亮相+微软ARM跟进+建银国际PC换代空间。相关：春秋电子、英力股份。这是一个明确的日内资金轮动预判：新热点>AIPC>MiniMax>传统科技。
-    confidence: high
-    status: active
-    supersedes: ["claim-20260601-004-b"]
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/主线判断.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 板块主题
-      - PCB
-      - AI
-  - id: claim-20260602-001-e
-    topic: 昨日指数走弱理论上电力应走强
-    source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-    source_date: 2026-06-02
-    source_type: 早盘
-    extracted_at: 2026-06-02
-    claim_type: sector-theme
-    subject: 防御内部同样炒新不炒旧，煤炭走强电力走弱，后续或向炒小炒低价演绎
-    timeframe: short-term
-    statement: 昨日指数走弱理论上电力应走强，但华电辽能、华电能源双双大跌，粤电力开板180次，反而煤炭走强——证明防御内部同样遵循炒新不炒旧，后续不排除向炒小、炒低价、炒绩差演绎
-    evidence_quote: 昨日指数走弱，理论上电力应走强，但华电辽能、华电能源双双大跌，粤电力开板180次，反而煤炭走强——证明防御内部同样遵循炒新不炒旧，后续不排除向炒小、炒低价、炒绩差演绎（昨日ST强度不逊色）。上周已提示煤炭，再证盘口重要性。
-    interpretation: 防御板块内部轮动：①电力走弱（华电辽能/华电能源大跌，粤电力开板180次）——电力已从避险核心退位；②煤炭走强——接棒避险角色，但本质是补涨；③核心规律：防御内部也"炒新不炒旧"——煤炭相对电力是"新"方向；④后续演化：可能向炒小、炒低价、炒绩差（ST）演绎——这是博主对防御板块风格演化的预判；⑤与昨日复盘"煤炭接棒电力避险角色"一致，但今日更强调防御内部的轮动规律。
-    confidence: medium
-    status: active
-    supersedes: []
-    contradicts: ["claim-20260605-001-d"]
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/风格切换.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 板块主题
-      - 电力
-      - 煤炭
-      - 防御
-  - id: claim-20260602-001-f
-    topic: 今年机构风格、基本面主导、有真实订单
-    source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-    source_date: 2026-06-02
-    source_type: 早盘
-    extracted_at: 2026-06-02
-    claim_type: methodology
-    subject: 补涨和不涨的才是最大的风险，耐心等大环境调整结束
-    timeframe: medium-term
-    statement: 今年机构风格、基本面主导、有真实订单的千亿万亿市值个股创新高趋势下，补涨和不涨的才是最大的风险，科技低位股反而无人愿做。耐心等大环境调整结束，继续关注真正有基本面的方向
-    evidence_quote: 但今年机构风格、基本面主导、有真实订单的千亿万亿市值个股创新高趋势下，补涨和不涨的才是最大的风险，科技低位股反而无人愿做。耐心等大环境调整结束，继续关注真正有基本面的方向。
-    interpretation: 中长期市场定性：①机构风格主导——基本面+真实订单的千亿万亿市值个股创新高；②"补涨和不涨的才是最大的风险"——这是博主对当前市场核心矛盾的定性，与散户"低位安全"的直觉相反；③科技低位股无人愿做——资金偏好有基本面的龙头，而非低位补涨；④操作建议：耐心等大环境调整结束，不急于抄底低位；⑤关注真正有基本面的方向——与机构风格一致。这是一个重要的方法论判断：当前市场不是"低位安全"，而是"不涨即风险"。
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: ["claim-20260603-001-d", "claim-20260426-004", "claim-20260602-001-c"]
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/投资方法论/交易纪律.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 补涨和不涨的
-      - 方法论
-  - id: claim-20260602-001-g
-    topic: 今日科技正常反弹概率较大
-    source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-    source_date: 2026-06-02
-    source_type: 早盘
-    extracted_at: 2026-06-02
-    claim_type: operation
-    subject: 今日科技正常反弹概率较大，最优走势小高开兑现再回流，紧盯4032点
-    timeframe: intraday
-    statement: 今日科技正常反弹概率较大，最优走势是小高开—兑现—再回流；但科技未必企稳，安全做法仍是等大环境进入反弹周期，过程中重个股轻指数，紧盯4032点
-    evidence_quote: 一句话结论：今日科技正常反弹概率较大，最优走势是小高开—兑现—再回流；但科技未必企稳，安全做法仍是等大环境进入反弹周期，过程中重个股轻指数，紧盯4032点。
-    interpretation: 今日操作预案：①基准情景：科技正常反弹概率较大；②最优走势：小高开→兑现→再回流——这是博主对日内节奏的理想预判；③风险提示：科技未必企稳——反弹可能是技术性修复而非趋势反转；④安全做法：等大环境进入反弹周期（不是左侧抢反弹）；⑤操作纪律：重个股轻指数+紧盯4032点——与昨日早盘"先观察再动手"形成延续，但今日对科技反弹的预期更积极一些（"正常反弹概率较大"）。
-    confidence: medium
-    status: active
-    supersedes: ["claim-20260601-004-a"]
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/投资方法论/仓位管理.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 今日科技正常
-      - 操作策略
-      - 反弹
+- id: claim-20260602-001-a
+  topic: 日线顶部结构已成
+  source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
+  source_date: 2026-06-02
+  source_type: 早盘
+  extracted_at: 2026-06-02
+  claim_type: market-cycle
+  subject: 调整第14天，4032点趋势位是短期关键，4000点上方有承接
+  timeframe: short-term
+  statement: 日线顶部结构已成，今日为调整第14个交易日。短期只需盯住趋势位4032点是否破位即可。上证4000点上方近几日明显有承接，昨日百股涨停但指数仍跌，说明机构股以外的多数个股已不愿再跌，市场出现止跌企稳信号
+  evidence_quote: 日线顶部结构已成，今日为调整第14个交易日。短期只需盯住趋势位4032点是否破位即可。上证4000点上方近几日明显有承接，结合昨日百股涨停（收盘118家，超过5月任一交易日，年内仅次于1月12日和4月8日）但指数仍跌，说明机构股以外的多数个股已不愿再跌，市场出现止跌企稳信号。
+  interpretation: 指数状态判断：①调整第14天，时间窗口延续；②4032点是趋势破位参考位，与昨日早盘claim-20260601-001-a一致；③4000点上方有承接——这是新增信息，说明下方支撑有效；④百股涨停（118家）但指数跌——结构性特征：机构股弱、非机构股强；⑤止跌企稳信号来自非机构股的抵抗，不是全面反转。短期偏谨慎但不再悲观。
+  confidence: high
+  status: active
+  supersedes:
+  - claim-20260519-001-a
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/指数分析.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 市场周期
+  - 顶部结构
+  - 日线
+  - 上证
+  - 止跌
+- id: claim-20260602-001-b
+  topic: 弱势行情下放量等于砸盘资金变多
+  source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
+  source_date: 2026-06-02
+  source_type: 早盘
+  extracted_at: 2026-06-02
+  claim_type: market-cycle
+  subject: 弱势行情放量等于砸盘资金变多，策略仍是等缩量等情绪回暖
+  timeframe: short-term
+  statement: 弱势行情下放量等于砸盘资金变多，头顶悬剑。日均成交已3万亿+，难指望进一步放量到4万亿。策略仍是等缩量、等情绪回暖、等利好落地，过程中重个股、轻指数
+  evidence_quote: 弱势行情下放量=砸盘资金变多，头顶悬剑；日均成交已3万亿+，难指望进一步放量到4万亿。黄白线在10点半后被拉开，恰是东山精密跌停时点，传导至机构股引发跳水。策略仍是上周那句——等缩量、等情绪回暖、等利好落地，过程中重个股、轻指数。
+  interpretation: 量能判断：①弱势放量=砸盘资金增多，不是增量入场——这是博主对弱势行情量能特征的核心判断；②3万亿+日均成交已接近上限，难到4万亿——说明当前量能水平已高，但方向是抛压而非买盘；③黄白线分离+东山精密跌停→机构股跳水——机构筹码松动是昨日指数走弱的核心原因；④策略不变：等缩量（抛压衰竭）、等情绪回暖（跌停家数下降）、等利好落地（催化确认）。重个股轻指数意味着结构性机会优先于指数贝塔。
+  confidence: high
+  status: active
+  supersedes:
+  - claim-20260518-018
+  contradicts:
+  - claim-20260518-019
+  - claim-20260603-001-d
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/量能分析.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 市场周期
+  - 缩量
+  - 放量
+- id: claim-20260602-001-c
+  topic: 机构股近期草木皆兵
+  source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
+  source_date: 2026-06-02
+  source_type: 早盘
+  extracted_at: 2026-06-02
+  claim_type: sector-theme
+  subject: 机构股草木皆兵，风格向更小市值更小成交额靠拢
+  timeframe: short-term
+  statement: 机构股近期草木皆兵，怀疑种子一旦种下关系即生裂痕。日韩股市大涨背景下A股存储股却不涨反跌，传导链条已钝化。一旦风格切换延续，题材炒作/非机构股或成最大受益者，风格理论上会向更小市值、更小成交额靠拢
+  evidence_quote: 机构股近期草木皆兵：小到东山精密因小作文跌停，大到公募调基准/调仓，实质影响小于盘面反应，但怀疑种子一旦种下关系即生裂痕。这也解释了日韩股市大涨背景下A股存储股却不涨反跌——韩国股市-三星-存储传导链条已钝化。一旦风格切换延续，题材炒作/非机构股或成最大受益者；指数若就此缩量，风格理论上会向更小市值、更小成交额靠拢。
+  interpretation: 风格切换判断：①机构股信任危机：小作文+调仓→实质影响小但心理影响大；②日韩-A股存储传导钝化——说明A股存储股已脱离海外映射，走独立逻辑（或独立下跌）；③风格切换方向：题材炒作/非机构股受益→更小市值、更小成交额——这是博主对6月初风格演化的核心预判；④与昨日复盘"市场处于新旧势力交替的混沌轮动中"形成呼应。操作层面：关注小市值题材，规避机构重仓的大市值标的。
+  confidence: high
+  status: active
+  supersedes:
+  - claim-20260529-003-b
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/风格切换.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 板块主题
+  - A股
+  - 存储
+- id: claim-20260602-001-d
+  topic: 重点看英伟达AIPC端侧和MiniMax
+  source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
+  source_date: 2026-06-02
+  source_type: 早盘
+  extracted_at: 2026-06-02
+  claim_type: sector-theme
+  subject: 今日重点看AIPC端侧和MiniMax大模型能否进一步走强，炒新不炒旧
+  timeframe: intraday
+  statement: 重点看英伟达AIPC端侧和MiniMax上市大模型能否进一步走强，二者本质都属AI应用端非硬件。炒新不炒旧在MLCC、超级电容上已体现，昨日反包个股多出自此方向，板块整体强于PCB等传统方向
+  evidence_quote: 重点看英伟达AIPC（端侧）和MiniMax上市（大模型）能否进一步走强——二者本质都属AI应用端（非硬件），这是相关个股能逆势走强的核心原因。上周末新热点大概率被优先关注。炒新不炒旧在MLCC、超级电容上已体现，昨日反包个股多出自此方向，板块整体强于PCB等传统方向。
+  interpretation: 今日科技方向优先级：①AIPC端侧+MiniMax大模型——周末新热点，AI应用端（非硬件），这是逆势走强的核心原因；②炒新不炒旧——MLCC、超级电容已体现，昨日反包个股多出自新方向；③PCB等传统方向相对弱势——资金偏好新催化；④AIPC催化：英伟达Windows
+    PC本周亮相+微软ARM跟进+建银国际PC换代空间。相关：春秋电子、英力股份。这是一个明确的日内资金轮动预判：新热点>AIPC>MiniMax>传统科技。
+  confidence: high
+  status: active
+  supersedes:
+  - claim-20260601-004-b
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/主线判断.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 板块主题
+  - PCB
+  - AI
+- id: claim-20260602-001-e
+  topic: 昨日指数走弱理论上电力应走强
+  source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
+  source_date: 2026-06-02
+  source_type: 早盘
+  extracted_at: 2026-06-02
+  claim_type: sector-theme
+  subject: 防御内部同样炒新不炒旧，煤炭走强电力走弱，后续或向炒小炒低价演绎
+  timeframe: short-term
+  statement: 昨日指数走弱理论上电力应走强，但华电辽能、华电能源双双大跌，粤电力开板180次，反而煤炭走强——证明防御内部同样遵循炒新不炒旧，后续不排除向炒小、炒低价、炒绩差演绎
+  evidence_quote: 昨日指数走弱，理论上电力应走强，但华电辽能、华电能源双双大跌，粤电力开板180次，反而煤炭走强——证明防御内部同样遵循炒新不炒旧，后续不排除向炒小、炒低价、炒绩差演绎（昨日ST强度不逊色）。上周已提示煤炭，再证盘口重要性。
+  interpretation: 防御板块内部轮动：①电力走弱（华电辽能/华电能源大跌，粤电力开板180次）——电力已从避险核心退位；②煤炭走强——接棒避险角色，但本质是补涨；③核心规律：防御内部也"炒新不炒旧"——煤炭相对电力是"新"方向；④后续演化：可能向炒小、炒低价、炒绩差（ST）演绎——这是博主对防御板块风格演化的预判；⑤与昨日复盘"煤炭接棒电力避险角色"一致，但今日更强调防御内部的轮动规律。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts:
+  - claim-20260605-001-d
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/风格切换.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 板块主题
+  - 电力
+  - 煤炭
+  - 防御
+- id: claim-20260602-001-f
+  topic: 今年机构风格、基本面主导、有真实订单
+  source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
+  source_date: 2026-06-02
+  source_type: 早盘
+  extracted_at: 2026-06-02
+  claim_type: methodology
+  subject: 补涨和不涨的才是最大的风险，耐心等大环境调整结束
+  timeframe: trend
+  statement: 今年机构风格、基本面主导、有真实订单的千亿万亿市值个股创新高趋势下，补涨和不涨的才是最大的风险，科技低位股反而无人愿做。耐心等大环境调整结束，继续关注真正有基本面的方向
+  evidence_quote: 但今年机构风格、基本面主导、有真实订单的千亿万亿市值个股创新高趋势下，补涨和不涨的才是最大的风险，科技低位股反而无人愿做。耐心等大环境调整结束，继续关注真正有基本面的方向。
+  interpretation: 中长期市场定性：①机构风格主导——基本面+真实订单的千亿万亿市值个股创新高；②"补涨和不涨的才是最大的风险"——这是博主对当前市场核心矛盾的定性，与散户"低位安全"的直觉相反；③科技低位股无人愿做——资金偏好有基本面的龙头，而非低位补涨；④操作建议：耐心等大环境调整结束，不急于抄底低位；⑤关注真正有基本面的方向——与机构风格一致。这是一个重要的方法论判断：当前市场不是"低位安全"，而是"不涨即风险"。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts:
+  - claim-20260603-001-d
+  - claim-20260426-004
+  - claim-20260602-001-c
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 补涨和不涨的
+  - 方法论
+- id: claim-20260602-001-g
+  topic: 今日科技正常反弹概率较大
+  source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
+  source_date: 2026-06-02
+  source_type: 早盘
+  extracted_at: 2026-06-02
+  claim_type: operation
+  subject: 今日科技正常反弹概率较大，最优走势小高开兑现再回流，紧盯4032点
+  timeframe: intraday
+  statement: 今日科技正常反弹概率较大，最优走势是小高开—兑现—再回流；但科技未必企稳，安全做法仍是等大环境进入反弹周期，过程中重个股轻指数，紧盯4032点
+  evidence_quote: 一句话结论：今日科技正常反弹概率较大，最优走势是小高开—兑现—再回流；但科技未必企稳，安全做法仍是等大环境进入反弹周期，过程中重个股轻指数，紧盯4032点。
+  interpretation: 今日操作预案：①基准情景：科技正常反弹概率较大；②最优走势：小高开→兑现→再回流——这是博主对日内节奏的理想预判；③风险提示：科技未必企稳——反弹可能是技术性修复而非趋势反转；④安全做法：等大环境进入反弹周期（不是左侧抢反弹）；⑤操作纪律：重个股轻指数+紧盯4032点——与昨日早盘"先观察再动手"形成延续，但今日对科技反弹的预期更积极一些（"正常反弹概率较大"）。
+  confidence: medium
+  status: active
+  supersedes:
+  - claim-20260601-004-a
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/仓位管理.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 今日科技正常
+  - 操作策略
+  - 反弹

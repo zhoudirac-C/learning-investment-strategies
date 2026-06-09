@@ -1,220 +1,223 @@
 claims:
-  - id: claim-20260529-005-a
-    topic: 机构市回调幅度规律
-    source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-    source_date: 2026-05-29
-    source_type: 视频
-    extracted_at: 2026-06-01
-    claim_type: methodology
-    subject: 机构市回调幅度规律
-    timeframe: permanent
-    statement: 机构看好的方向，指数回调20%时个股回调36-40%是正常幅度。牛市多急跌，长期看好方向回调30-40%非常正常
-    evidence_quote: 你从顶上回调，你随便看一下板块回调20%，你这种东西，它回调起来都会很夸张的。随便拉一下36%，40%这么多，每一轮回调它都得这个幅度的。你指数回调20个点，个股上回调40个点是正常的
-    interpretation: 博主用上一轮牛市锂电池类比，给出机构市回调的量化规律：①机构重点看好的方向（如燃气轮机、锂电池），不代表不回调；②指数回调20%，个股回调36-40%是正常幅度；③这是牛市特征——急涨急跌，回调幅度大但修复也快；④当前半导体指数跌约10%，个股跌约20%，还有回调空间；⑤长期看好的方向，硬扛是唯一选择，此时割肉不像话
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/投资方法论/交易纪律.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 机构市回调幅
-      - 方法论
-  - id: claim-20260529-005-b
-    topic: 半导体双顶卖点判断
-    source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-    source_date: 2026-05-29
-    source_type: 视频
-    extracted_at: 2026-06-01
-    claim_type: operation
-    subject: 半导体双顶卖点判断
-    timeframe: short-term
-    statement: 半导体指数到6200左右可以卖，后面再看半导体要等到七八月份，有业绩的才能走出来
-    evidence_quote: 差不多到6200，如果半导体指数能谈到6200，我觉得可以了，那么这一波直接就开卖了，好吧，就不要去再看了。至于后面你再往再去看半导体，那你至少要等到七八月份
-    interpretation: 博主给出半导体短期卖点和再入场时间：①当前半导体指数跌约10%（从高点回调），明后两天（周三周四）可能反弹；②反弹到6200左右是卖点——做日线级别双顶；③双顶完成后继续回调，七八月份再看；④七八月份筛选标准：有业绩的半导体才能走出来，没业绩的直接pass；⑤有业绩的半导体（如汇成真空）可能走出独立行情
-    confidence: medium
-    status: active
-    supersedes: ["claim-20260526-020"]
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/半导体产业链.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 操作策略
-      - 半导体
-      - 业绩
-  - id: claim-20260529-005-c
-    topic: 半导体设备国产化远期预期
-    source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-    source_date: 2026-05-29
-    source_type: 视频
-    extracted_at: 2026-06-01
-    claim_type: sector-theme
-    subject: 半导体设备国产化远期预期
-    timeframe: long-term
-    statement: 半导体卡脖子的关键是光刻机，上海微电子/新凯来最迟2027年IPO，届时100-200亿市值的标的买不到。汇成真空、茂莱光学都是占未来的
-    evidence_quote: 正儿八经半导体卡脖子的是什么是光刻机，所以汇成真空茂莱光学这些东西，它都是占未来的，那么上海微电子新凯来什么时候上？我估计他们也是在后面差不多要上了，我觉得最迟应该二七年就要就要IPO了
-    interpretation: 博主给出半导体设备国产化的远期投资逻辑：①当前炒的是扩产（长鑫存储），还没到卡脖子关键节点；②真正卡脖子的是光刻机，上海微电子/新凯来是核心；③最迟2027年IPO，届时相关产业链标的（汇成真空、茂莱光学）100-200亿市值将买不到；④当前有业绩的半导体设备股（汇成真空Q2业绩应该很好）可以高看一眼；⑤强芯（已要上）→上海微电子/新凯来（下一波预期），这是半导体炒作的两阶段逻辑
-    confidence: medium
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/半导体产业链.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 上海微电子
-      - 茂莱光学
-      - 汇成真空
-      - 板块主题
-      - IPO
-      - 新凯来
-      - 半导体
-  - id: claim-20260529-005-d
-    topic: 软件/AIPC 6月题材窗口
-    source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-    source_date: 2026-05-29
-    source_type: 视频
-    extracted_at: 2026-06-01
-    claim_type: sector-theme
-    subject: 软件/AIPC 6月题材窗口
-    timeframe: short-term
-    statement: 软件/AIPC在6月可以高看一眼，时间窗口合适（低位+适合炒+持续催化），但七八月炒业绩时就没法炒了。中国长城是AIPC/CPU绕不开的标的
-    evidence_quote: 软件它必然是没业绩的。你没业绩，6月份炒一炒OK了，你等到七八月份开始炒业绩了，你这东西没法炒。从时间窗口来讲，一是低位，二是确实适合炒，三是有持续的催化。那么我觉得最近可以高看一眼。中国长城这个东西，你如果真要炒AIPC炒CPU这个东西一定是绕不开的
-    interpretation: 博主给出软件/AIPC的6月炒作逻辑：①软件必然没业绩，但6月没法证伪，适合炒概念；②时间窗口三要素：低位+适合炒+持续催化（台北电脑展6/1-4、AIPC发布会6/2-5、苹果开发者大会6/9等）；③七八月炒业绩时，没业绩的软件必须下来；④中国长城是AIPC/CPU绕不开的标的，但看好的人太多太一致+市场环境不好，走得不顺畅；⑤参与节点：等半导体反弹时软件被砸出来的坑
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/AI应用与软件.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 板块主题
-      - AI
-      - 业绩
-      - 催化
-  - id: claim-20260529-005-e
-    topic: 强势板块尾盘套利法
-    source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-    source_date: 2026-05-29
-    source_type: 视频
-    extracted_at: 2026-06-01
-    claim_type: methodology
-    subject: 强势板块尾盘套利法
-    timeframe: permanent
-    statement: 板块发酵确认后（涨停超过七八个），不敢参与强势股的可以去20cm/30cm标的尾盘套利。买点在尾盘，第二天高开出。这是适用于大多数启动时间节点的套利方式
-    evidence_quote: 板块发酵了，就算是如果整个涨停板的比例比较多，比如说连续涨停板等于超过七八个或者比较多的，那个时候你就可以看到是整体的一个板块发酵。你不敢去参与那种强势股票的一个打板，那么你就可以去参与这种强势板块的套利。强势板块套利，也就是这种，这种股票也就走出类似于这种射击之星或者仙人指路的样子之后，你去尾盘吸一把
-    interpretation: 博主教授强势板块尾盘套利法：①前提：板块发酵确认（连续涨停超过七八个）；②标的：20cm或30cm的弹性票（如光云科技、新致软件、鼎捷智能、美登等）；③买点：尾盘，走出"射击之星"或"仙人指路"形态（长上影）时；④卖点：第二天高开位置出掉；⑤胜率：连续强势涨停的，第二天一般不会直接干下来，大概率能赚钱走；⑥适用：大多数启动时间节点，是右侧交易的补充策略
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/投资方法论/交易纪律.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 强势板块尾盘
-      - 方法论
-  - id: claim-20260529-005-f
-    topic: 汇率风险与出口型企业筛选
-    source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-    source_date: 2026-05-29
-    source_type: 视频
-    extracted_at: 2026-06-01
-    claim_type: risk
-    subject: 汇率风险与出口型企业筛选
-    timeframe: short-term
-    statement: 人民币强势导致有海外业务的公司汇兑损失大，一季度出现的问题在二季度依旧会出现。需要筛选：有无涨价能力、有无外汇套保
-    evidence_quote: 人民币太强势了，一路升值，导致他们这些有海外业务的公司，整个汇兑损失有点大。所以你们需要去看一下二季度。因为我们最近人民币走的又有点长了，所以我们在一季报发现的东西出现的问题，它在二季报依旧会出现
-    interpretation: 博主提示汇率风险对出口型企业的影响：①网宿科技案例：一季报不及预期因为人民币升值导致汇兑损失；②人民币近期又走强，二季度同样问题会重现；③筛选标准：a)有没有涨价能力（转嫁汇率成本）；b)有没有做外汇套保（锁定汇率）；④没有套保+没有议价能力的公司，后面会有问题；⑤拓维信息二季度应该起来（接了单），但需确认汇率影响
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/宏观与流动性.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 人民币
-      - 涨价
-      - 汇率
-  - id: claim-20260529-005-g
-    topic: 算力租赁与液冷现状
-    source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-    source_date: 2026-05-29
-    source_type: 视频
-    extracted_at: 2026-06-01
-    claim_type: sector-theme
-    subject: 算力租赁与液冷现状
-    timeframe: short-term
-    statement: 算力租赁二季度业绩大概率不差，D300机器已炒到800万（此前600多万）。液冷今天有利好（英伟达屏蔽泵概念）但大概率还没到，继续等
-    evidence_quote: 算力租赁二季度的业绩，它大概率也不会差，也会很好。现在D300那个机器已经炒到800万了，已经炒到800万了，我们当时炒算力租赁的时候，它的价格是600多万。液冷今天今天是有利好的，因为今天你整个炒AIPC，好像英伟达那边又说了一个什么概念叫屏蔽泵的这个大元泵业，今天还可以，但是也就看明天明天还有没有反复。所以这一块儿我觉得还没到
-    interpretation: 博主更新算力租赁和液冷判断：①算力租赁：D300机器从600多万涨到800万，二季度业绩看好，还是可以去看；②一通电子：上周五异动失败被砸，5月26号提醒过压异动，压不住就得走；③液冷：英伟达提到"屏蔽泵"概念，大元泵业有表现，但液冷整体大概率还没到，继续等；④英维克等机构关注的都没问题，燃气轮机也没问题
-    confidence: medium
-    status: active
-    supersedes: ["claim-20260426-010"]
-    contradicts: ["claim-20260605-001-f"]
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/AI基础设施与能源转型.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 板块主题
-      - 算力租赁
-      - 业绩
-  - id: claim-20260529-005-h
-    topic: 6月市场定位与磨底时间
-    source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-    source_date: 2026-05-29
-    source_type: 视频
-    extracted_at: 2026-06-01
-    claim_type: market-cycle
-    subject: 6月市场定位与磨底时间
-    timeframe: short-term
-    statement: 6月没有业绩的东西没法证伪可以做，但正儿八经做多要等世界杯开始。磨底还得磨两周左右
-    evidence_quote: 6月份有一个好处是什么，就是这种没有业绩的东西，它没办法证伪，你没办法证伪，他就能做。磨底肯定是很很烦人的，磨底肯定是很烦人，还得磨，还得磨两周左右。你最近不是吹吹世界杯吹的那么狠，那么就等着世界杯正儿八经的开始。那我觉得我们正儿八经可以多多的时候
-    interpretation: 博主给出6月市场定位：①6月优势：没业绩的题材（软件/AIPC）没法证伪，可以炒；②但正儿八经做多要等世界杯开始（推测为某个重要时间节点/事件的代称）；③磨底还得磨两周左右，上面不让砸太深，有缺口也不像话；④硬扛是唯一选择，此时割肉不像话；⑤润泽科技看到2100亿，金风科技看到2000亿，年前观点不变
-    confidence: medium
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/情绪周期.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 6月市场定位
-      - 市场周期
-      - 业绩
+- id: claim-20260529-005-a
+  topic: 机构市回调幅度规律
+  source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
+  source_date: 2026-05-29
+  source_type: 视频
+  extracted_at: 2026-06-01
+  claim_type: methodology
+  subject: 机构市回调幅度规律
+  timeframe: permanent
+  statement: 机构看好的方向，指数回调20%时个股回调36-40%是正常幅度。牛市多急跌，长期看好方向回调30-40%非常正常
+  evidence_quote: 你从顶上回调，你随便看一下板块回调20%，你这种东西，它回调起来都会很夸张的。随便拉一下36%，40%这么多，每一轮回调它都得这个幅度的。你指数回调20个点，个股上回调40个点是正常的
+  interpretation: 博主用上一轮牛市锂电池类比，给出机构市回调的量化规律：①机构重点看好的方向（如燃气轮机、锂电池），不代表不回调；②指数回调20%，个股回调36-40%是正常幅度；③这是牛市特征——急涨急跌，回调幅度大但修复也快；④当前半导体指数跌约10%，个股跌约20%，还有回调空间；⑤长期看好的方向，硬扛是唯一选择，此时割肉不像话
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 机构市回调幅
+  - 方法论
+- id: claim-20260529-005-b
+  topic: 半导体双顶卖点判断
+  source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
+  source_date: 2026-05-29
+  source_type: 视频
+  extracted_at: 2026-06-01
+  claim_type: operation
+  subject: 半导体双顶卖点判断
+  timeframe: short-term
+  statement: 半导体指数到6200左右可以卖，后面再看半导体要等到七八月份，有业绩的才能走出来
+  evidence_quote: 差不多到6200，如果半导体指数能谈到6200，我觉得可以了，那么这一波直接就开卖了，好吧，就不要去再看了。至于后面你再往再去看半导体，那你至少要等到七八月份
+  interpretation: 博主给出半导体短期卖点和再入场时间：①当前半导体指数跌约10%（从高点回调），明后两天（周三周四）可能反弹；②反弹到6200左右是卖点——做日线级别双顶；③双顶完成后继续回调，七八月份再看；④七八月份筛选标准：有业绩的半导体才能走出来，没业绩的直接pass；⑤有业绩的半导体（如汇成真空）可能走出独立行情
+  confidence: medium
+  status: active
+  supersedes:
+  - claim-20260526-020
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/半导体产业链.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 操作策略
+  - 半导体
+  - 业绩
+- id: claim-20260529-005-c
+  topic: 半导体设备国产化远期预期
+  source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
+  source_date: 2026-05-29
+  source_type: 视频
+  extracted_at: 2026-06-01
+  claim_type: sector-theme
+  subject: 半导体设备国产化远期预期
+  timeframe: industry
+  statement: 半导体卡脖子的关键是光刻机，上海微电子/新凯来最迟2027年IPO，届时100-200亿市值的标的买不到。汇成真空、茂莱光学都是占未来的
+  evidence_quote: 正儿八经半导体卡脖子的是什么是光刻机，所以汇成真空茂莱光学这些东西，它都是占未来的，那么上海微电子新凯来什么时候上？我估计他们也是在后面差不多要上了，我觉得最迟应该二七年就要就要IPO了
+  interpretation: 博主给出半导体设备国产化的远期投资逻辑：①当前炒的是扩产（长鑫存储），还没到卡脖子关键节点；②真正卡脖子的是光刻机，上海微电子/新凯来是核心；③最迟2027年IPO，届时相关产业链标的（汇成真空、茂莱光学）100-200亿市值将买不到；④当前有业绩的半导体设备股（汇成真空Q2业绩应该很好）可以高看一眼；⑤强芯（已要上）→上海微电子/新凯来（下一波预期），这是半导体炒作的两阶段逻辑
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/半导体产业链.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 上海微电子
+  - 茂莱光学
+  - 汇成真空
+  - 板块主题
+  - IPO
+  - 新凯来
+  - 半导体
+- id: claim-20260529-005-d
+  topic: 软件/AIPC 6月题材窗口
+  source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
+  source_date: 2026-05-29
+  source_type: 视频
+  extracted_at: 2026-06-01
+  claim_type: sector-theme
+  subject: 软件/AIPC 6月题材窗口
+  timeframe: short-term
+  statement: 软件/AIPC在6月可以高看一眼，时间窗口合适（低位+适合炒+持续催化），但七八月炒业绩时就没法炒了。中国长城是AIPC/CPU绕不开的标的
+  evidence_quote: 软件它必然是没业绩的。你没业绩，6月份炒一炒OK了，你等到七八月份开始炒业绩了，你这东西没法炒。从时间窗口来讲，一是低位，二是确实适合炒，三是有持续的催化。那么我觉得最近可以高看一眼。中国长城这个东西，你如果真要炒AIPC炒CPU这个东西一定是绕不开的
+  interpretation: 博主给出软件/AIPC的6月炒作逻辑：①软件必然没业绩，但6月没法证伪，适合炒概念；②时间窗口三要素：低位+适合炒+持续催化（台北电脑展6/1-4、AIPC发布会6/2-5、苹果开发者大会6/9等）；③七八月炒业绩时，没业绩的软件必须下来；④中国长城是AIPC/CPU绕不开的标的，但看好的人太多太一致+市场环境不好，走得不顺畅；⑤参与节点：等半导体反弹时软件被砸出来的坑
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/AI应用与软件.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 板块主题
+  - AI
+  - 业绩
+  - 催化
+- id: claim-20260529-005-e
+  topic: 强势板块尾盘套利法
+  source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
+  source_date: 2026-05-29
+  source_type: 视频
+  extracted_at: 2026-06-01
+  claim_type: methodology
+  subject: 强势板块尾盘套利法
+  timeframe: permanent
+  statement: 板块发酵确认后（涨停超过七八个），不敢参与强势股的可以去20cm/30cm标的尾盘套利。买点在尾盘，第二天高开出。这是适用于大多数启动时间节点的套利方式
+  evidence_quote: 板块发酵了，就算是如果整个涨停板的比例比较多，比如说连续涨停板等于超过七八个或者比较多的，那个时候你就可以看到是整体的一个板块发酵。你不敢去参与那种强势股票的一个打板，那么你就可以去参与这种强势板块的套利。强势板块套利，也就是这种，这种股票也就走出类似于这种射击之星或者仙人指路的样子之后，你去尾盘吸一把
+  interpretation: 博主教授强势板块尾盘套利法：①前提：板块发酵确认（连续涨停超过七八个）；②标的：20cm或30cm的弹性票（如光云科技、新致软件、鼎捷智能、美登等）；③买点：尾盘，走出"射击之星"或"仙人指路"形态（长上影）时；④卖点：第二天高开位置出掉；⑤胜率：连续强势涨停的，第二天一般不会直接干下来，大概率能赚钱走；⑥适用：大多数启动时间节点，是右侧交易的补充策略
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 强势板块尾盘
+  - 方法论
+- id: claim-20260529-005-f
+  topic: 汇率风险与出口型企业筛选
+  source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
+  source_date: 2026-05-29
+  source_type: 视频
+  extracted_at: 2026-06-01
+  claim_type: risk
+  subject: 汇率风险与出口型企业筛选
+  timeframe: short-term
+  statement: 人民币强势导致有海外业务的公司汇兑损失大，一季度出现的问题在二季度依旧会出现。需要筛选：有无涨价能力、有无外汇套保
+  evidence_quote: 人民币太强势了，一路升值，导致他们这些有海外业务的公司，整个汇兑损失有点大。所以你们需要去看一下二季度。因为我们最近人民币走的又有点长了，所以我们在一季报发现的东西出现的问题，它在二季报依旧会出现
+  interpretation: 博主提示汇率风险对出口型企业的影响：①网宿科技案例：一季报不及预期因为人民币升值导致汇兑损失；②人民币近期又走强，二季度同样问题会重现；③筛选标准：a)有没有涨价能力（转嫁汇率成本）；b)有没有做外汇套保（锁定汇率）；④没有套保+没有议价能力的公司，后面会有问题；⑤拓维信息二季度应该起来（接了单），但需确认汇率影响
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/宏观与流动性.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 人民币
+  - 涨价
+  - 汇率
+- id: claim-20260529-005-g
+  topic: 算力租赁与液冷现状
+  source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
+  source_date: 2026-05-29
+  source_type: 视频
+  extracted_at: 2026-06-01
+  claim_type: sector-theme
+  subject: 算力租赁与液冷现状
+  timeframe: short-term
+  statement: 算力租赁二季度业绩大概率不差，D300机器已炒到800万（此前600多万）。液冷今天有利好（英伟达屏蔽泵概念）但大概率还没到，继续等
+  evidence_quote: 算力租赁二季度的业绩，它大概率也不会差，也会很好。现在D300那个机器已经炒到800万了，已经炒到800万了，我们当时炒算力租赁的时候，它的价格是600多万。液冷今天今天是有利好的，因为今天你整个炒AIPC，好像英伟达那边又说了一个什么概念叫屏蔽泵的这个大元泵业，今天还可以，但是也就看明天明天还有没有反复。所以这一块儿我觉得还没到
+  interpretation: 博主更新算力租赁和液冷判断：①算力租赁：D300机器从600多万涨到800万，二季度业绩看好，还是可以去看；②一通电子：上周五异动失败被砸，5月26号提醒过压异动，压不住就得走；③液冷：英伟达提到"屏蔽泵"概念，大元泵业有表现，但液冷整体大概率还没到，继续等；④英维克等机构关注的都没问题，燃气轮机也没问题
+  confidence: medium
+  status: active
+  supersedes:
+  - claim-20260426-010
+  contradicts:
+  - claim-20260605-001-f
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/AI基础设施与能源转型.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 板块主题
+  - 算力租赁
+  - 业绩
+- id: claim-20260529-005-h
+  topic: 6月市场定位与磨底时间
+  source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
+  source_date: 2026-05-29
+  source_type: 视频
+  extracted_at: 2026-06-01
+  claim_type: market-cycle
+  subject: 6月市场定位与磨底时间
+  timeframe: short-term
+  statement: 6月没有业绩的东西没法证伪可以做，但正儿八经做多要等世界杯开始。磨底还得磨两周左右
+  evidence_quote: 6月份有一个好处是什么，就是这种没有业绩的东西，它没办法证伪，你没办法证伪，他就能做。磨底肯定是很很烦人的，磨底肯定是很烦人，还得磨，还得磨两周左右。你最近不是吹吹世界杯吹的那么狠，那么就等着世界杯正儿八经的开始。那我觉得我们正儿八经可以多多的时候
+  interpretation: 博主给出6月市场定位：①6月优势：没业绩的题材（软件/AIPC）没法证伪，可以炒；②但正儿八经做多要等世界杯开始（推测为某个重要时间节点/事件的代称）；③磨底还得磨两周左右，上面不让砸太深，有缺口也不像话；④硬扛是唯一选择，此时割肉不像话；⑤润泽科技看到2100亿，金风科技看到2000亿，年前观点不变
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/情绪周期.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 6月市场定位
+  - 市场周期
+  - 业绩

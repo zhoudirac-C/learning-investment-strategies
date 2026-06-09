@@ -1,171 +1,176 @@
 claims:
-  - id: claim-20260602-002-a
-    topic: 盘中4032点企稳确认，可做先买后卖的T
-    source_path: sources/raw/财经/动态：26-06-02：盘中4032企稳，先买后卖做T.md
-    source_date: 2026-06-02
-    source_type: 动态
-    extracted_at: 2026-06-02
-    claim_type: operation
-    subject: 盘中4032点企稳确认，可做先买后卖的T
-    timeframe: intraday
-    statement: 指数盘中下探4032点后企稳反弹，确认该支撑位有效。在支撑确认的前提下，可执行先买后卖的日内T策略
-    evidence_quote: 指数刚好打到4032稳住了，这种地方就可以做先买后卖的T
-    interpretation: 盘中操作要点：①4032点盘中得到验证——与早盘claim-20260602-001-a的"盯住4032点"一致；②"先买后卖"意味着在支撑位低吸，反弹后卖出——这是日内T+0的标准做法；③前提条件：4032点不破，且反弹有量能配合；④若4032跌破，T策略失效需止损。这是一个具体的日内操作指令，不是趋势判断。
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/投资方法论/做T策略.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 盘中4032
-      - 操作策略
-      - 反弹
-  - id: claim-20260602-002-b
-    topic: 光纤的最大需求驱动力不是AI光通信
-    source_path: sources/raw/财经/动态：26-06-02：光纤最大卖点在地缘冲突而非AI.md
-    source_date: 2026-06-02
-    source_type: 动态
-    extracted_at: 2026-06-02
-    claim_type: sector-theme
-    subject: 光纤核心逻辑是地缘冲突（军用无人机），不是AI
-    timeframe: medium-term
-    statement: 光纤的最大需求驱动力不是AI光通信，而是地缘冲突下的军用无人机。光纤龙头多有军工背景，只要"安全"概念持续，光纤需求就有支撑
-    evidence_quote: 光纤的最大卖点其实不在Ai，而在地缘冲突，现在的战争都是无人机，光纤用的最多的地方就是无人机，而不是Ai，所以几个光纤大头也都是军工相关的。所以只要安全这个概念一直在提，光纤就会一直高需求。
-    interpretation: 光纤产业链定性：①市场普遍将光纤归为AI光通信产业链，但博主指出核心驱动力是地缘冲突（军用无人机）；②光纤龙头多有军工背景——与AI光通信标的不同；③持续性条件："安全"概念持续→光纤需求持续；④UP主明确提醒"没让你们冲光纤，知道一下逻辑就行了，还是位置问题"——当前位置不适合介入，仅作认知更新。这是一个重要的产业链认知修正：光纤≠AI，光纤=军工+地缘。
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: ["claim-20260605-001-c", "claim-20260526-017"]
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/产业链认知.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 板块主题
-      - 无人机
-      - 龙头
-      - 军工
-      - AI
-  - id: claim-20260602-002-c
-    topic: 半导体今日反弹是缩量
-    source_path: sources/raw/财经/动态：26-06-02：半导体AI硬件缩量反弹，MLCC已说很久.md
-    source_date: 2026-06-02
-    source_type: 动态
-    extracted_at: 2026-06-02
-    claim_type: market-cycle
-    subject: 半导体缩量反弹符合调整中继，AI硬件放量但放不大，缩量上涨=阶段结束
-    timeframe: short-term
-    statement: 半导体今日反弹是缩量的（符合调整中继特征），AI硬件还在放量但"应该放不大"。等科技方向出现缩量上涨，资金就会流向调整已久的价值股，风格切换调整时间不会短
-    evidence_quote: 半导体和AI硬件，你们需要去看一下量，看一下是不是缩量反弹，半导体算是符合了，Ai硬件那边还在放量，但是应该放不大。等这些东西缩量上涨，那么基本上就结束了，出来的量就会去做别的方向，一些调整比较久的价值股，有业绩预期的都会迎来修复，那么一旦这种情况形成，调整时间都不会短。
-    interpretation: 量能与风格判断：①半导体缩量反弹=调整中继——不是反转，是下跌过程中的技术性修复；②AI硬件放量但"放不大"——增量资金有限，难以持续；③关键信号："缩量上涨"——当科技方向出现缩量上涨，意味着资金开始流出，阶段结束；④资金去向：调整较久的价值股、有业绩预期的标的；⑤调整时间不会短——风格切换一旦形成，周期较长；⑥与早盘claim-20260602-001-b"弱势放量=砸盘资金增多"形成呼应：半导体缩量=抛压减少但买盘也未增加，AI硬件放量=最后的买盘涌入但即将衰竭。
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/量能分析.md
-        - knowledge/wiki/市场分析/风格切换.md
-      methodology_pages: []
-      cases: []
-    intensity: medium
-    tags:
-      - 市场周期
-      - 半导体
-      - 缩量
-      - 反弹
-      - 放量
-      - AI
-  - id: claim-20260602-002-d
-    topic: 博主已提前1-2周提示MLCC机会
-    source_path: sources/raw/财经/动态：26-06-02：半导体AI硬件缩量反弹，MLCC已说很久.md
-    source_date: 2026-06-02
-    source_type: 动态
-    extracted_at: 2026-06-02
-    claim_type: methodology
-    subject: MLCC已提前1-2周提示，现在追涨是韭菜行为
-    timeframe: permanent
-    statement: 博主已提前1-2周提示MLCC机会，现在才去冲是韭菜行为。强调先知先觉的重要性，不能光看见涨上去的东西才追
-    evidence_quote: 所以你们做股票，不能光看见涨上去的东西，Mlcc都说了多久了，视频都发了一两周了，现在才去冲，也太韭菜了。
-    interpretation: 方法论教训：①先知先觉 vs 后知后觉——MLCC提前1-2周提示，现在追涨是典型韭菜行为；②"不能光看见涨上去的东西"——这是博主反复强调的操作纪律：提前布局、不追高；③与昨日复盘"MLCC周期上行确认，但只观察不追高"一致；④对当前持仓的启示：安泰科技/万通发展如果提前按博主逻辑布局，现在应已有利润；⑤对中国长城的启示：新买入需有明确的催化逻辑和止损纪律，不能盲目追热点。
-    confidence: high
-    status: active
-    supersedes: ["claim-20260607-003-c"]
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/投资方法论/交易纪律.md
-      methodology_pages:
-        - framework/trading-rules.md
-      cases: []
-    intensity: high
-    tags:
-      - MLCC已提
-      - 方法论
-  - id: claim-20260602-002-e
-    topic: AI数据中心瓶颈从"算力"向供电端
-    source_path: sources/raw/财经/动态：26-06-02：AI算力新增量-甲骨文SOFC与Marvell DSP.md
-    source_date: 2026-06-02
-    source_type: 动态
-    extracted_at: 2026-06-02
-    claim_type: sector-theme
-    subject: AI数据中心瓶颈向两端延伸：供电端SOFC和互联端DSP
-    timeframe: medium-term
-    statement: AI数据中心瓶颈从"算力"向供电端（电不够用）和互联端（互联卡脖子）延伸。SOFC（固体氧化物燃料电池）是供电新解法，甲骨文与Bloom Energy 2.8GW大单；DSP是800G/1.6T光模块核心芯片，全球仅4家量产
-    evidence_quote: AI数据中心的瓶颈正在从'算力'向两端延伸——一端是电不够用，一端是互联卡脖子。
-    interpretation: AI硬件产业新催化：①瓶颈转移：算力→供电+互联——这是AI基础设施演化的重要判断；②SOFC：固体氧化物燃料电池，发电效率50%-65%，甲骨文2.8GW大单。A股间接逻辑：潮州三环（电解质陶瓷）、潍柴动力（系统/整机）；③DSP：数字信号处理器，800G/1.6T光模块"大脑"，成本占比20%-30%。全球仅博通/Marvell/MaxLinear/Credo四家量产。确定性层：中际旭创、新易盛、天孚通信；预期层：裕太微、光迅科技、烽火通信；④海外确定性 vs 国内预期：SOFC和DSP都是海外有订单/需求，国内多在早期/在研；⑤硬信号等待：订单、流片、量产落地才能从概念走向业绩。这是两个新的AI硬件细分方向，属于产业链认知更新。
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/产业链认知.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 板块主题
-      - 光模块
-      - AI
-      - 算力
-  - id: claim-20260602-002-f
-    topic: SOFC国产化早期、DSP国产替代在研
-    source_path: sources/raw/财经/动态：26-06-02：AI算力新增量-甲骨文SOFC与Marvell DSP.md
-    source_date: 2026-06-02
-    source_type: 动态
-    extracted_at: 2026-06-02
-    claim_type: sector-theme
-    subject: SOFC和DSP国内多是预期博弈，需等硬信号落地
-    timeframe: medium-term
-    statement: SOFC国产化早期、DSP国产替代在研，国内标的目前多是预期博弈。真正有业绩支撑的是供电端材料卡位和互联端模块龙头，弹性最大的国产替代端需等订单/流片/量产硬信号
-    evidence_quote: 海外是确定性（Bloom拿下甲骨文大单、Marvell需求爆发），国内多是预期博弈（SOFC国产化早期、DSP国产替代在研）。真正有业绩支撑的，供电端看材料卡位、互联端看模块龙头；而SOFC国产化和DSP国产替代这两端弹性最大，但都要等订单、流片、量产这些硬信号落地，才能从概念走向业绩。
-    interpretation: 投资层级划分：①确定性层（海外订单/真实业绩）：SOFC-Bloom Energy、DSP-中际旭创/新易盛/天孚通信；②预期层（国内早期/在研）：潮州三环、潍柴动力、裕太微、光迅科技、烽火通信；③核心纪律：预期博弈需等硬信号（订单、流片、量产）——不能仅凭概念买入；④与博主一贯强调的"有真实订单/基本面的方向"一致；⑤对观察池的启示：SOFC和DSP可纳入观察，但暂不满足"有真实订单"的买入条件，需跟踪硬信号落地。
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/投资方法论/交易纪律.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 板块主题
-      - 国产替代
-      - 龙头
-      - 业绩
+- id: claim-20260602-002-a
+  topic: 盘中4032点企稳确认，可做先买后卖的T
+  source_path: sources/raw/财经/动态：26-06-02：盘中4032企稳，先买后卖做T.md
+  source_date: 2026-06-02
+  source_type: 动态
+  extracted_at: 2026-06-02
+  claim_type: operation
+  subject: 盘中4032点企稳确认，可做先买后卖的T
+  timeframe: intraday
+  statement: 指数盘中下探4032点后企稳反弹，确认该支撑位有效。在支撑确认的前提下，可执行先买后卖的日内T策略
+  evidence_quote: 指数刚好打到4032稳住了，这种地方就可以做先买后卖的T
+  interpretation: 盘中操作要点：①4032点盘中得到验证——与早盘claim-20260602-001-a的"盯住4032点"一致；②"先买后卖"意味着在支撑位低吸，反弹后卖出——这是日内T+0的标准做法；③前提条件：4032点不破，且反弹有量能配合；④若4032跌破，T策略失效需止损。这是一个具体的日内操作指令，不是趋势判断。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/做T策略.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 盘中4032
+  - 操作策略
+  - 反弹
+- id: claim-20260602-002-b
+  topic: 光纤的最大需求驱动力不是AI光通信
+  source_path: sources/raw/财经/动态：26-06-02：光纤最大卖点在地缘冲突而非AI.md
+  source_date: 2026-06-02
+  source_type: 动态
+  extracted_at: 2026-06-02
+  claim_type: sector-theme
+  subject: 光纤核心逻辑是地缘冲突（军用无人机），不是AI
+  timeframe: trend
+  statement: 光纤的最大需求驱动力不是AI光通信，而是地缘冲突下的军用无人机。光纤龙头多有军工背景，只要"安全"概念持续，光纤需求就有支撑
+  evidence_quote: 光纤的最大卖点其实不在Ai，而在地缘冲突，现在的战争都是无人机，光纤用的最多的地方就是无人机，而不是Ai，所以几个光纤大头也都是军工相关的。所以只要安全这个概念一直在提，光纤就会一直高需求。
+  interpretation: 光纤产业链定性：①市场普遍将光纤归为AI光通信产业链，但博主指出核心驱动力是地缘冲突（军用无人机）；②光纤龙头多有军工背景——与AI光通信标的不同；③持续性条件："安全"概念持续→光纤需求持续；④UP主明确提醒"没让你们冲光纤，知道一下逻辑就行了，还是位置问题"——当前位置不适合介入，仅作认知更新。这是一个重要的产业链认知修正：光纤≠AI，光纤=军工+地缘。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts:
+  - claim-20260605-001-c
+  - claim-20260526-017
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/产业链认知.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 板块主题
+  - 无人机
+  - 龙头
+  - 军工
+  - AI
+- id: claim-20260602-002-c
+  topic: 半导体今日反弹是缩量
+  source_path: sources/raw/财经/动态：26-06-02：半导体AI硬件缩量反弹，MLCC已说很久.md
+  source_date: 2026-06-02
+  source_type: 动态
+  extracted_at: 2026-06-02
+  claim_type: market-cycle
+  subject: 半导体缩量反弹符合调整中继，AI硬件放量但放不大，缩量上涨=阶段结束
+  timeframe: short-term
+  statement: 半导体今日反弹是缩量的（符合调整中继特征），AI硬件还在放量但"应该放不大"。等科技方向出现缩量上涨，资金就会流向调整已久的价值股，风格切换调整时间不会短
+  evidence_quote: 半导体和AI硬件，你们需要去看一下量，看一下是不是缩量反弹，半导体算是符合了，Ai硬件那边还在放量，但是应该放不大。等这些东西缩量上涨，那么基本上就结束了，出来的量就会去做别的方向，一些调整比较久的价值股，有业绩预期的都会迎来修复，那么一旦这种情况形成，调整时间都不会短。
+  interpretation: 量能与风格判断：①半导体缩量反弹=调整中继——不是反转，是下跌过程中的技术性修复；②AI硬件放量但"放不大"——增量资金有限，难以持续；③关键信号："缩量上涨"——当科技方向出现缩量上涨，意味着资金开始流出，阶段结束；④资金去向：调整较久的价值股、有业绩预期的标的；⑤调整时间不会短——风格切换一旦形成，周期较长；⑥与早盘claim-20260602-001-b"弱势放量=砸盘资金增多"形成呼应：半导体缩量=抛压减少但买盘也未增加，AI硬件放量=最后的买盘涌入但即将衰竭。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/量能分析.md
+    - knowledge/wiki/市场分析/风格切换.md
+    methodology_pages: []
+    cases: []
+  intensity: medium
+  tags:
+  - 市场周期
+  - 半导体
+  - 缩量
+  - 反弹
+  - 放量
+  - AI
+- id: claim-20260602-002-d
+  topic: 博主已提前1-2周提示MLCC机会
+  source_path: sources/raw/财经/动态：26-06-02：半导体AI硬件缩量反弹，MLCC已说很久.md
+  source_date: 2026-06-02
+  source_type: 动态
+  extracted_at: 2026-06-02
+  claim_type: methodology
+  subject: MLCC已提前1-2周提示，现在追涨是韭菜行为
+  timeframe: permanent
+  statement: 博主已提前1-2周提示MLCC机会，现在才去冲是韭菜行为。强调先知先觉的重要性，不能光看见涨上去的东西才追
+  evidence_quote: 所以你们做股票，不能光看见涨上去的东西，Mlcc都说了多久了，视频都发了一两周了，现在才去冲，也太韭菜了。
+  interpretation: 方法论教训：①先知先觉 vs 后知后觉——MLCC提前1-2周提示，现在追涨是典型韭菜行为；②"不能光看见涨上去的东西"——这是博主反复强调的操作纪律：提前布局、不追高；③与昨日复盘"MLCC周期上行确认，但只观察不追高"一致；④对当前持仓的启示：安泰科技/万通发展如果提前按博主逻辑布局，现在应已有利润；⑤对中国长城的启示：新买入需有明确的催化逻辑和止损纪律，不能盲目追热点。
+  confidence: high
+  status: active
+  supersedes:
+  - claim-20260607-003-c
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages:
+    - framework/trading-rules.md
+    cases: []
+  intensity: high
+  tags:
+  - MLCC已提
+  - 方法论
+- id: claim-20260602-002-e
+  topic: AI数据中心瓶颈从"算力"向供电端
+  source_path: sources/raw/财经/动态：26-06-02：AI算力新增量-甲骨文SOFC与Marvell DSP.md
+  source_date: 2026-06-02
+  source_type: 动态
+  extracted_at: 2026-06-02
+  claim_type: sector-theme
+  subject: AI数据中心瓶颈向两端延伸：供电端SOFC和互联端DSP
+  timeframe: trend
+  statement: AI数据中心瓶颈从"算力"向供电端（电不够用）和互联端（互联卡脖子）延伸。SOFC（固体氧化物燃料电池）是供电新解法，甲骨文与Bloom
+    Energy 2.8GW大单；DSP是800G/1.6T光模块核心芯片，全球仅4家量产
+  evidence_quote: AI数据中心的瓶颈正在从'算力'向两端延伸——一端是电不够用，一端是互联卡脖子。
+  interpretation: AI硬件产业新催化：①瓶颈转移：算力→供电+互联——这是AI基础设施演化的重要判断；②SOFC：固体氧化物燃料电池，发电效率50%-65%，甲骨文2.8GW大单。A股间接逻辑：潮州三环（电解质陶瓷）、潍柴动力（系统/整机）；③DSP：数字信号处理器，800G/1.6T光模块"大脑"，成本占比20%-30%。全球仅博通/Marvell/MaxLinear/Credo四家量产。确定性层：中际旭创、新易盛、天孚通信；预期层：裕太微、光迅科技、烽火通信；④海外确定性
+    vs 国内预期：SOFC和DSP都是海外有订单/需求，国内多在早期/在研；⑤硬信号等待：订单、流片、量产落地才能从概念走向业绩。这是两个新的AI硬件细分方向，属于产业链认知更新。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/产业链认知.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 板块主题
+  - 光模块
+  - AI
+  - 算力
+- id: claim-20260602-002-f
+  topic: SOFC国产化早期、DSP国产替代在研
+  source_path: sources/raw/财经/动态：26-06-02：AI算力新增量-甲骨文SOFC与Marvell DSP.md
+  source_date: 2026-06-02
+  source_type: 动态
+  extracted_at: 2026-06-02
+  claim_type: sector-theme
+  subject: SOFC和DSP国内多是预期博弈，需等硬信号落地
+  timeframe: trend
+  statement: SOFC国产化早期、DSP国产替代在研，国内标的目前多是预期博弈。真正有业绩支撑的是供电端材料卡位和互联端模块龙头，弹性最大的国产替代端需等订单/流片/量产硬信号
+  evidence_quote: 海外是确定性（Bloom拿下甲骨文大单、Marvell需求爆发），国内多是预期博弈（SOFC国产化早期、DSP国产替代在研）。真正有业绩支撑的，供电端看材料卡位、互联端看模块龙头；而SOFC国产化和DSP国产替代这两端弹性最大，但都要等订单、流片、量产这些硬信号落地，才能从概念走向业绩。
+  interpretation: 投资层级划分：①确定性层（海外订单/真实业绩）：SOFC-Bloom Energy、DSP-中际旭创/新易盛/天孚通信；②预期层（国内早期/在研）：潮州三环、潍柴动力、裕太微、光迅科技、烽火通信；③核心纪律：预期博弈需等硬信号（订单、流片、量产）——不能仅凭概念买入；④与博主一贯强调的"有真实订单/基本面的方向"一致；⑤对观察池的启示：SOFC和DSP可纳入观察，但暂不满足"有真实订单"的买入条件，需跟踪硬信号落地。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 板块主题
+  - 国产替代
+  - 龙头
+  - 业绩

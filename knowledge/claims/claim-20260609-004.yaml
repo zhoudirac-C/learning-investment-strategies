@@ -10,10 +10,11 @@ claims:
   confidence: high
   status: active
   intensity: market
-  evidence_quote: "定价日6月11日，首个交易日6月12日，发行价每股135美元，募资约750亿美元，对应估值1.75万亿美元"
+  evidence_quote: 定价日6月11日，首个交易日6月12日，发行价每股135美元，募资约750亿美元，对应估值1.75万亿美元
   interpretation: SpaceX上市是商业航天板块的全球估值锚事件。A股商业航天概念（低轨卫星、太空算力、火箭配套）可能受映射效应催化。UP强调这不是短期题材炒作，而是信息基础设施从地面向太空延伸的产业趋势。IPO解禁采用阶梯错峰，马斯克锁定366天传递信心。
   timeframe: short-term
-  supersedes: ["claim-20260527-001-n"]
+  supersedes:
+  - claim-20260527-001-n
   contradicts: []
   last_discovered: 2026-06-09
   links:
@@ -22,9 +23,12 @@ claims:
   - code: 600118.SH
     name: 中国卫星
     role: 卫星链参考标的
-  tags: [商业航天, SpaceX, IPO, 太空算力]
+  tags:
+  - 商业航天
+  - SpaceX
+  - IPO
+  - 太空算力
   topic: 商业航天
-
 - id: claim-20260609-004-b
   statement: 中国商业航天已跨过分水岭，从试验阶段进入万星组网、批量制造、规模运营的新阶段，从航天工程转向航天工业。当前面临ITU规则带来的时间压力——已申请约20万颗卫星，要求两年内完成15%部署、7年内全部完成。
   subject: 商业航天-产业发展阶段
@@ -36,9 +40,9 @@ claims:
   confidence: high
   status: active
   intensity: market
-  evidence_quote: "中国商业航天已经跨过分水岭，从试验阶段进入万星组网、批量制造、规模运营的新阶段，从航天工程转向航天工业"
+  evidence_quote: 中国商业航天已经跨过分水岭，从试验阶段进入万星组网、批量制造、规模运营的新阶段，从航天工程转向航天工业
   interpretation: 这是UP对商业航天产业的周期定位——从0-1验证进入1-100工业化阶段。时间压力（ITU规则）是超预期催化剂，未来3-7年配套订单放量确定性高。中国vs美国差距大=弹性大。
-  timeframe: medium-term
+  timeframe: trend
   supersedes: []
   contradicts: []
   last_discovered: 2026-06-09
@@ -50,9 +54,13 @@ claims:
   - code: 600879.SH
     name: 航天电子
     role: 火箭配套-配套环节
-  tags: [商业航天, 产业发展, 低轨卫星, ITU, 批量化制造]
+  tags:
+  - 商业航天
+  - 产业发展
+  - 低轨卫星
+  - ITU
+  - 批量化制造
   topic: 商业航天
-
 - id: claim-20260609-004-c
   statement: 商业航天当前高度关注源于四大拐点同时出现：①政策拐点（完整政策体系已形成）；②技术拐点（可回收火箭、星间激光通信等同时从0到1）；③成本拐点（可回收火箭+批量化制造，目标入轨成本200美元/公斤）；④需求拐点（通信/遥感/物联网/AI四类清晰需求）。
   subject: 商业航天-四大拐点
@@ -64,18 +72,22 @@ claims:
   confidence: high
   status: active
   intensity: market
-  evidence_quote: "商业航天当前被高度关注，核心源于四个拐点：①政策拐点…②技术拐点…③成本拐点…④需求拐点"
+  evidence_quote: 商业航天当前被高度关注，核心源于四个拐点：①政策拐点…②技术拐点…③成本拐点…④需求拐点
   interpretation: UP用四拐点框架分析商业航天爆发逻辑。这种"政策+技术+成本+需求"多变量共振的分析范式可复用于其他新兴产业链（如低空经济、氢能、量子计算等）。四拐点同时出现=产业从主题投资向基本面投资切换的前兆。
   timeframe: permanent
   supersedes: []
-  contradicts: ["claim-20260604-004-l"]
+  contradicts:
+  - claim-20260604-004-l
   last_discovered: 2026-06-09
   links:
   - framework/stock-analysis-playbook.md
   related_stocks: []
-  tags: [商业航天, 四大拐点, 分析框架, 产业方法论]
+  tags:
+  - 商业航天
+  - 四大拐点
+  - 分析框架
+  - 产业方法论
   topic: 商业航天
-
 - id: claim-20260609-004-d
   statement: 中美商业航天路径存在根本差异：美国是资本驱动、超级公司垂直整合的一家独大模式；中国是战略驱动、举国协同、多类主体共同推进的多方探索模式。中国依托完整制造业体系形成产业集群，制造业龙头跨界进入航天是核心机会。
   subject: 商业航天-中美路径差异
@@ -87,7 +99,7 @@ claims:
   confidence: high
   status: active
   intensity: market
-  evidence_quote: "美国SpaceX是超级公司垂直整合的一家独大模式...中国是战略驱动、应用驱动、举国协同的多方探索模式，依托完整制造业体系形成产业集群"
+  evidence_quote: 美国SpaceX是超级公司垂直整合的一家独大模式...中国是战略驱动、应用驱动、举国协同的多方探索模式，依托完整制造业体系形成产业集群
   interpretation: 这个判断对选股方向有直接影响：UP认为中国商业航天的投资机会不在纯航天企业，而在能够和航天产业资源结合的制造业龙头（跨界延伸逻辑）。这与美股的逻辑完全不同，A股投资者需要区分赛道和标的逻辑。
   timeframe: permanent
   supersedes: []
@@ -95,9 +107,12 @@ claims:
   last_discovered: 2026-06-09
   links: []
   related_stocks: []
-  tags: [商业航天, 中美对比, 跨界延伸, 制造业龙头]
+  tags:
+  - 商业航天
+  - 中美对比
+  - 跨界延伸
+  - 制造业龙头
   topic: 商业航天
-
 - id: claim-20260609-004-e
   statement: 低轨卫星通信核心市场在全球（一带一路沿线发展中国家），可满足这些国家对第二套低轨通信网络的需求。中国低轨通信当前从试验到规模化，核心瓶颈是发射成本和批量化制造，目标是年产2000-3000颗卫星。
   subject: 商业航天-卫星通信市场
@@ -109,9 +124,9 @@ claims:
   confidence: high
   status: active
   intensity: market
-  evidence_quote: "中国低轨卫星通信的核心市场在全球，尤其是一带一路沿线发展中国家"
+  evidence_quote: 中国低轨卫星通信的核心市场在全球，尤其是一带一路沿线发展中国家
   interpretation: 卫星通信载荷占整星成本50-60%，是价值量最高的子系统。规模化需求（年产2000-3000颗卫星）会带动通信载荷、相控阵天线、星间激光通信等配套环节订单放量。
-  timeframe: medium-term
+  timeframe: trend
   supersedes: []
   contradicts: []
   last_discovered: 2026-06-09
@@ -123,9 +138,12 @@ claims:
   - code: 601698.SH
     name: 中国卫通
     role: 卫星通信运营-配套
-  tags: [商业航天, 卫星通信, 一带一路, 通信载荷]
+  tags:
+  - 商业航天
+  - 卫星通信
+  - 一带一路
+  - 通信载荷
   topic: 商业航天
-
 - id: claim-20260609-004-f
   statement: 太空算力是商业航天下一个十年的核心主线，当前存在四大瓶颈：能源供应（超柔性展开太阳翼）、热管理（太空只能辐射散热，是核心制约）、抗辐射计算（宇航级芯片vs商规芯片+容错两条路线）、星间通信。大规模太空数据中心至少需要10-15年验证。
   subject: 商业航天-太空算力瓶颈
@@ -137,7 +155,7 @@ claims:
   confidence: high
   status: active
   intensity: market
-  evidence_quote: "太空算力是商业航天下一个十年的核心主线，当前存在四大瓶颈"
+  evidence_quote: 太空算力是商业航天下一个十年的核心主线，当前存在四大瓶颈
   interpretation: UP明确指出太空算力落地节奏比市场预期更慢（10-15年），短期机会在配套环节（热控、能源、抗辐射计算验证）而非大规模中心。这是对市场过度炒作的冷静判断——验证了UP一贯的"不要追概念"风格。
   timeframe: permanent
   supersedes: []
@@ -145,9 +163,13 @@ claims:
   last_discovered: 2026-06-09
   links: []
   related_stocks: []
-  tags: [商业航天, 太空算力, AI计算, 热管理, 抗辐射]
+  tags:
+  - 商业航天
+  - 太空算力
+  - AI计算
+  - 热管理
+  - 抗辐射
   topic: 商业航天
-
 - id: claim-20260609-004-g
   statement: 商业航天产业链配套环节（测控、热控、太空态势感知）的先发壁垒高、能产生持续现金流，在万星组网时代需求确定性更强，商业成熟速度会快于前端整星项目。核心机会在制造业龙头跨界延伸。
   subject: 商业航天-投资逻辑
@@ -159,7 +181,7 @@ claims:
   confidence: high
   status: active
   intensity: market
-  evidence_quote: "配套环节的价值高于整星/火箭...测控、热控、太空态势感知等配套环节，先发壁垒高，能产生持续现金流"
+  evidence_quote: 配套环节的价值高于整星/火箭...测控、热控、太空态势感知等配套环节，先发壁垒高，能产生持续现金流
   interpretation: 这是UP对商业航天产业链的投资优先级排序：配套>整星/火箭。最受益的是已有制造业基础、跨界进入航天的龙头公司。投资偏好"0.5阶段"项目（已初步验证、缺规模化能力）。
   timeframe: permanent
   supersedes: []
@@ -176,9 +198,12 @@ claims:
   - code: 000901.SZ
     name: 航天科技
     role: 航天机电配套-配套环节
-  tags: [商业航天, 产业配套, 投资逻辑, 0.5阶段]
+  tags:
+  - 商业航天
+  - 产业配套
+  - 投资逻辑
+  - 0.5阶段
   topic: 商业航天
-
 - id: claim-20260609-004-h
   statement: SpaceX的Starlink已迭代四代，V3单星带宽1024Gb，单次发射总带宽61440Gb（相比V2提升20倍+）。当前Starlink用户达1030万，覆盖164个国家，中位下载速度225Mbps，目标今年内降到20毫秒。
   subject: 商业航天-Starlink演进
@@ -190,13 +215,18 @@ claims:
   confidence: high
   status: active
   intensity: market
-  evidence_quote: "Starlink已经经历四代技术演进…V3带宽将达到1024Gb…用户已经达到1030万，覆盖164个国家"
+  evidence_quote: Starlink已经经历四代技术演进…V3带宽将达到1024Gb…用户已经达到1030万，覆盖164个国家
   interpretation: Starlink已形成"运力-容量-用户-现金流"正向闭环，这是SpaceX估值1.75万亿的核心支撑。中国需要快速追赶，配套企业面临巨大的国产替代机遇。
-  timeframe: medium-term
+  timeframe: trend
   supersedes: []
   contradicts: []
   last_discovered: 2026-06-09
   links: []
   related_stocks: []
-  tags: [商业航天, Starlink, 星链, 卫星通信, SpaceX]
+  tags:
+  - 商业航天
+  - Starlink
+  - 星链
+  - 卫星通信
+  - SpaceX
   topic: 商业航天

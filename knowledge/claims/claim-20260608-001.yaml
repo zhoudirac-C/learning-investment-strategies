@@ -1,274 +1,285 @@
 claims:
-  - id: claim-20260608-001-a
-    topic: 指数破位——硬科技清仓信号触发
-    statement: 周五创业板指放量跌超3%、深成指跌超2%已构成趋势破位。今日早盘或周五尾盘需执行硬科技清仓动作。纠错信号有两个：60分钟以上周期形成明确底部结构，或价格突破4120点站稳。在这两个信号出现之前，不轻易回补仓位
-    source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
-    source_date: '2026-06-08'
-    source_type: 专栏
-    extracted_at: '2026-06-08'
-    claim_type: operation
-    subject: A股指数破位
-    timeframe: 短期（1-3天）
-    evidence_quote: |
-      "周五创业板指放量跌超3%、深成指跌超2%已构成趋势破位。严格按照交易标准，今日早盘或周五尾盘需执行硬科技清仓动作。纠错信号有两个:60分钟以上周期形成明确底部结构,或价格突破4120点站稳。在这两个信号出现之前,不轻易回补仓位。"
-    interpretation: 明确的卖出纪律：指数破位=清仓触发。同时给出了可操作的纠错条件（60分钟底部结构或站上4120），属于"卖出不等于永久离场"的纪律框架
-    confidence: high
-    status: active
-    intensity: high
-    supersedes: ["claim-20260601-001-a"]
-    contradicts: ["claim-20260602-001-a", "claim-20260605-001-b"]
-    last_discovered: 2026-06-08
-    links:
-      related_claims:
-        - claim-20260607-003-c
-      related_stocks: []
-      related_sectors:
-        - 创业板
-        - 深成指
-    tags:
-      - 清仓
-      - 纠错信号
-      - 指数破位
-      - 操作纪律
+- id: claim-20260608-001-a
+  topic: 指数破位——硬科技清仓信号触发
+  statement: 周五创业板指放量跌超3%、深成指跌超2%已构成趋势破位。今日早盘或周五尾盘需执行硬科技清仓动作。纠错信号有两个：60分钟以上周期形成明确底部结构，或价格突破4120点站稳。在这两个信号出现之前，不轻易回补仓位
+  source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
+  source_date: '2026-06-08'
+  source_type: 专栏
+  extracted_at: '2026-06-08'
+  claim_type: operation
+  subject: A股指数破位
+  timeframe: short-term
+  evidence_quote: '"周五创业板指放量跌超3%、深成指跌超2%已构成趋势破位。严格按照交易标准，今日早盘或周五尾盘需执行硬科技清仓动作。纠错信号有两个:60分钟以上周期形成明确底部结构,或价格突破4120点站稳。在这两个信号出现之前,不轻易回补仓位。"
 
-  - id: claim-20260608-001-b
-    topic: 4000点/3950支撑位——缩量是企稳核心前提
-    statement: 今日大概率低开，需重点观察4000点整数关口。即便盘中跌破，也能看向3950支撑位，若能快速收复，短期仍可维持震荡格局；若失守后无力修复，则需警惕"推倒重来"的风险。这轮调整与以往最大的不同在于量能始终无法稳定，缩量是判断企稳的核心前提
-    source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
-    source_date: '2026-06-08'
-    source_type: 专栏
-    extracted_at: '2026-06-08'
-    claim_type: market-cycle
-    subject: 上证指数支撑位
-    timeframe: 短期（1-3天）
-    evidence_quote: |
-      "需重点观察的是4000点整数关口——即便盘中跌破，也能看向3950支撑位,若能快速收复,短期仍可维持上有顶、下有底的震荡格局;若失守后无力修复,则需警惕「推倒重来」的风险。这轮调整与以往最大的不同在于量能始终无法稳定,因此缩量这张「安全牌」依然是判断企稳的核心前提。"
-    interpretation: 两个观察点：①4000点识别震荡/崩盘分界线；②3950是第二支撑位。核心判断准则是缩量——量缩不下来就不算企稳
-    confidence: medium
-    status: active
-    intensity: high
-    supersedes: ["claim-20260602-001-a", "claim-20260601-004-a"]
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims: []
-      related_stocks: []
-      related_sectors: []
-    tags:
-      - 4000点
-      - 3950
-      - 缩量
-      - 支撑位
+    '
+  interpretation: 明确的卖出纪律：指数破位=清仓触发。同时给出了可操作的纠错条件（60分钟底部结构或站上4120），属于"卖出不等于永久离场"的纪律框架
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260601-001-a
+  contradicts:
+  - claim-20260602-001-a
+  - claim-20260605-001-b
+  last_discovered: 2026-06-08
+  links:
+    related_claims:
+    - claim-20260607-003-c
+    related_stocks: []
+    related_sectors:
+    - 创业板
+    - 深成指
+  tags:
+  - 清仓
+  - 纠错信号
+  - 指数破位
+  - 操作纪律
+- id: claim-20260608-001-b
+  topic: 4000点/3950支撑位——缩量是企稳核心前提
+  statement: 今日大概率低开，需重点观察4000点整数关口。即便盘中跌破，也能看向3950支撑位，若能快速收复，短期仍可维持震荡格局；若失守后无力修复，则需警惕"推倒重来"的风险。这轮调整与以往最大的不同在于量能始终无法稳定，缩量是判断企稳的核心前提
+  source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
+  source_date: '2026-06-08'
+  source_type: 专栏
+  extracted_at: '2026-06-08'
+  claim_type: market-cycle
+  subject: 上证指数支撑位
+  timeframe: short-term
+  evidence_quote: '"需重点观察的是4000点整数关口——即便盘中跌破，也能看向3950支撑位,若能快速收复,短期仍可维持上有顶、下有底的震荡格局;若失守后无力修复,则需警惕「推倒重来」的风险。这轮调整与以往最大的不同在于量能始终无法稳定,因此缩量这张「安全牌」依然是判断企稳的核心前提。"
 
-  - id: claim-20260608-001-c
-    topic: 科技交易拥挤度背离——盈利/市值/成交三者不匹配
-    statement: A股科技板块盈利占比约8%、市值占比约20%，但机构配置与成交占比均超过50%，交易拥挤度已显著背离海外市场"盈利/市值/成交三者匹配"的健康结构。历史上成交占比进入40%-51%区间后，主线行情均会进入缩圈阶段——核心矛盾已从"涨不涨"转为"持续性"
-    source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
-    source_date: '2026-06-08'
-    source_type: 专栏
-    extracted_at: '2026-06-08'
-    claim_type: sector-theme
-    subject: A股科技板块
-    timeframe: 中期（1-3个月）
-    evidence_quote: |
-      "当前A股科技板块盈利占比约8%、市值占比约20%,但机构配置与成交占比均超过50%,交易拥挤度已显著背离海外市场「盈利、市值、成交三者匹配」的健康结构。历史上成交占比进入40%-51%区间后,主线行情均会进入缩圈阶段。"
-    interpretation: 科技板块的量化拥挤度指标——盈利仅8%但交易占50%+，这是结构性泡沫的信号。历史规律是缩圈而非崩盘，意味着核心标的可能仍有机会但边缘标的危险
-    confidence: medium
-    status: active
-    intensity: high
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims: []
-      related_stocks: []
-      related_sectors:
-        - 科技
-    tags:
-      - 交易拥挤度
-      - 缩圈
-      - 结构性分析
+    '
+  interpretation: 两个观察点：①4000点识别震荡/崩盘分界线；②3950是第二支撑位。核心判断准则是缩量——量缩不下来就不算企稳
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260602-001-a
+  - claim-20260601-004-a
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 4000点
+  - 3950
+  - 缩量
+  - 支撑位
+- id: claim-20260608-001-c
+  topic: 科技交易拥挤度背离——盈利/市值/成交三者不匹配
+  statement: A股科技板块盈利占比约8%、市值占比约20%，但机构配置与成交占比均超过50%，交易拥挤度已显著背离海外市场"盈利/市值/成交三者匹配"的健康结构。历史上成交占比进入40%-51%区间后，主线行情均会进入缩圈阶段——核心矛盾已从"涨不涨"转为"持续性"
+  source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
+  source_date: '2026-06-08'
+  source_type: 专栏
+  extracted_at: '2026-06-08'
+  claim_type: sector-theme
+  subject: A股科技板块
+  timeframe: trend
+  evidence_quote: '"当前A股科技板块盈利占比约8%、市值占比约20%,但机构配置与成交占比均超过50%,交易拥挤度已显著背离海外市场「盈利、市值、成交三者匹配」的健康结构。历史上成交占比进入40%-51%区间后,主线行情均会进入缩圈阶段。"
 
-  - id: claim-20260608-001-d
-    topic: 光模块=茅指数——科技大票承压
-    statement: 光模块已类似2021年茅指数，沦为无超额收益的贝塔品种。叠加隔夜费城半导体单日10%级别跌幅（历史上仅对应危机场景），科技大票今日仍将承压。周五玻璃基板上午一致、下午分化是持续性问题在微观层面的体现
-    source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
-    source_date: '2026-06-08'
-    source_type: 专栏
-    extracted_at: '2026-06-08'
-    claim_type: sector-theme
-    subject: 光模块
-    timeframe: 中期（1-3个月）
-    evidence_quote: |
-      "光模块已类似2021年茅指数,沦为无超额收益的贝塔品种;科技方向的核心矛盾已从「涨不涨」转为「持续性」,这一点周五玻璃基板上午一致、下午分化已有所体现。叠加隔夜美股AI主线再度大跌——费城半导体单日10%级别的跌幅历史上仅对应危机场景——科技大票今日开盘仍将承压。"
-    interpretation: 光模块从超额收益品种沦为贝塔品种，类比茅指数见顶后的命运。费城半导体10%级暴跌确认科技方向短期承压。玻璃基板的分化是微观信号
-    confidence: medium
-    status: active
-    intensity: high
-    supersedes: []
-    contradicts: ["claim-20260531-002-a"]
-    last_discovered: 2026-06-08
-    links:
-      related_claims: []
-      related_stocks: []
-      related_sectors:
-        - 光模块
-    tags:
-      - 光模块
-      - 茅指数
-      - 费城半导体
+    '
+  interpretation: 科技板块的量化拥挤度指标——盈利仅8%但交易占50%+，这是结构性泡沫的信号。历史规律是缩圈而非崩盘，意味着核心标的可能仍有机会但边缘标的危险
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors:
+    - 科技
+  tags:
+  - 交易拥挤度
+  - 缩圈
+  - 结构性分析
+- id: claim-20260608-001-d
+  topic: 光模块=茅指数——科技大票承压
+  statement: 光模块已类似2021年茅指数，沦为无超额收益的贝塔品种。叠加隔夜费城半导体单日10%级别跌幅（历史上仅对应危机场景），科技大票今日仍将承压。周五玻璃基板上午一致、下午分化是持续性问题在微观层面的体现
+  source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
+  source_date: '2026-06-08'
+  source_type: 专栏
+  extracted_at: '2026-06-08'
+  claim_type: sector-theme
+  subject: 光模块
+  timeframe: trend
+  evidence_quote: '"光模块已类似2021年茅指数,沦为无超额收益的贝塔品种;科技方向的核心矛盾已从「涨不涨」转为「持续性」,这一点周五玻璃基板上午一致、下午分化已有所体现。叠加隔夜美股AI主线再度大跌——费城半导体单日10%级别的跌幅历史上仅对应危机场景——科技大票今日开盘仍将承压。"
 
-  - id: claim-20260608-001-e
-    topic: 个股韧性信号——3200只上涨+跌停控制在10家
-    statement: 全市场仍超3200只个股上涨，跌停家数连续四日控制在10家左右，说明机构股以外的多数个股已"跌不太动"。有上周一逆势百股涨停的先例，只要指数不过分难看，个股层面仍具备结构性机会
-    source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
-    source_date: '2026-06-08'
-    source_type: 专栏
-    extracted_at: '2026-06-08'
-    claim_type: market-cycle
-    subject: 市场情绪
-    timeframe: 短期（1-3天）
-    evidence_quote: |
-      "全市场仍超3200只个股上涨,跌停家数连续四日控制在10家左右,说明机构股以外的多数个股已「跌不太动」。有上周一逆势百股涨停的先例,只要指数不过分难看,个股层面仍具备结构性机会。"
-    interpretation: 指数大跌但个股涨多跌少+跌停不扩散，说明机构重仓的科技大票在跌，非机构股已经拒绝跟跌。这是结构性机会的信号——重个股轻指数的前提成立
-    confidence: medium
-    status: active
-    intensity: medium
-    supersedes: ["claim-20260526-011"]
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims: []
-      related_stocks: []
-      related_sectors: []
-    tags:
-      - 市场情绪
-      - 跌停
-      - 结构性机会
+    '
+  interpretation: 光模块从超额收益品种沦为贝塔品种，类比茅指数见顶后的命运。费城半导体10%级暴跌确认科技方向短期承压。玻璃基板的分化是微观信号
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts:
+  - claim-20260531-002-a
+  last_discovered: 2026-06-08
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors:
+    - 光模块
+  tags:
+  - 光模块
+  - 茅指数
+  - 费城半导体
+- id: claim-20260608-001-e
+  topic: 个股韧性信号——3200只上涨+跌停控制在10家
+  statement: 全市场仍超3200只个股上涨，跌停家数连续四日控制在10家左右，说明机构股以外的多数个股已"跌不太动"。有上周一逆势百股涨停的先例，只要指数不过分难看，个股层面仍具备结构性机会
+  source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
+  source_date: '2026-06-08'
+  source_type: 专栏
+  extracted_at: '2026-06-08'
+  claim_type: market-cycle
+  subject: 市场情绪
+  timeframe: short-term
+  evidence_quote: '"全市场仍超3200只个股上涨,跌停家数连续四日控制在10家左右,说明机构股以外的多数个股已「跌不太动」。有上周一逆势百股涨停的先例,只要指数不过分难看,个股层面仍具备结构性机会。"
 
-  - id: claim-20260608-001-f
-    topic: 机器人接力电力——避险生态位交接
-    statement: 周五机器人与电力"一涨一跌"有交接班迹象。此前指数回调时电力股带头走强，周五午后资金切换至机器人板块。机器人已多次逆势走强，若后续指数承压，机器人至少能暂时取代电力的避险生态位。催化密集：华为CloudRobo月内公测、英伟达Isaac GR00T更新、工信部智能工厂体系建设
-    source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
-    source_date: '2026-06-08'
-    source_type: 专栏
-    extracted_at: '2026-06-08'
-    claim_type: sector-theme
-    subject: 机器人
-    timeframe: 短期（1-2周）
-    evidence_quote: |
-      "周五最值得关注的信息点是机器人与电力的「一涨一跌」。此前指数回调时电力股带头走强,而周五午后资金切换至机器人板块,两者有交接班迹象。考虑到机器人板块已多次逆势走强,若后续指数走势承压,机器人股至少能暂时取代电力股的避险生态位。"
-    interpretation: 机器人正在替代电力成为新的避险方向——核心逻辑不再是纯产业趋势，而是在科技股普跌中成为资金避风港。催化剂密集（华为/英伟达/工信部）支撑这一角色
-    confidence: medium
-    status: active
-    intensity: high
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims:
-        - claim-20260607-003-d
-        - claim-20260607-004-c
-      related_stocks: []
-      related_sectors:
-        - 机器人
-        - 电力
-    tags:
-      - 机器人
-      - 电力
-      - 避险
-      - 交接班
-      - 华为CloudRobo
+    '
+  interpretation: 指数大跌但个股涨多跌少+跌停不扩散，说明机构重仓的科技大票在跌，非机构股已经拒绝跟跌。这是结构性机会的信号——重个股轻指数的前提成立
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes:
+  - claim-20260526-011
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 市场情绪
+  - 跌停
+  - 结构性机会
+- id: claim-20260608-001-f
+  topic: 机器人接力电力——避险生态位交接
+  statement: 周五机器人与电力"一涨一跌"有交接班迹象。此前指数回调时电力股带头走强，周五午后资金切换至机器人板块。机器人已多次逆势走强，若后续指数承压，机器人至少能暂时取代电力的避险生态位。催化密集：华为CloudRobo月内公测、英伟达Isaac
+    GR00T更新、工信部智能工厂体系建设
+  source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
+  source_date: '2026-06-08'
+  source_type: 专栏
+  extracted_at: '2026-06-08'
+  claim_type: sector-theme
+  subject: 机器人
+  timeframe: short-term
+  evidence_quote: '"周五最值得关注的信息点是机器人与电力的「一涨一跌」。此前指数回调时电力股带头走强,而周五午后资金切换至机器人板块,两者有交接班迹象。考虑到机器人板块已多次逆势走强,若后续指数走势承压,机器人股至少能暂时取代电力股的避险生态位。"
 
-  - id: claim-20260608-001-g
-    topic: 产业链观察方向——触觉传感/电子皮肤
-    statement: 华为云CloudRobo具身智能开发平台月内公测、英伟达Isaac GR00T平台更新、工信部智能工厂体系建设等催化密集，触觉传感、电子皮肤等数据采集环节（如相关功能材料、传感方向标的）可作为产业链观察方向
-    source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
-    source_date: '2026-06-08'
-    source_type: 专栏
-    extracted_at: '2026-06-08'
-    claim_type: sector-theme
-    subject: 机器人产业链
-    timeframe: 中期（1-2个月）
-    evidence_quote: |
-      "消息面上华为云CloudRobo具身智能开发平台月内公测、英伟达Isaac GR00T平台更新、工信部智能工厂体系建设等催化密集,触觉传感、电子皮肤等数据采集环节(如相关功能材料、传感方向标的)可作为产业链观察方向。"
-    interpretation: 机器人产业链的上游细分机会——触觉传感/电子皮肤是数据采集入口，在具身智能框架中是基础设施环节。三大催化（华为/英伟达/工信部）提供了中期跟踪确定性
-    confidence: low
-    status: active
-    intensity: medium
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims:
-        - claim-20260608-001-f
-      related_stocks: []
-      related_sectors:
-        - 触觉传感
-        - 电子皮肤
-        - 机器人
-    tags:
-      - 触觉传感
-      - 电子皮肤
-      - 机器人
-      - 产业链
+    '
+  interpretation: 机器人正在替代电力成为新的避险方向——核心逻辑不再是纯产业趋势，而是在科技股普跌中成为资金避风港。催化剂密集（华为/英伟达/工信部）支撑这一角色
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims:
+    - claim-20260607-003-d
+    - claim-20260607-004-c
+    related_stocks: []
+    related_sectors:
+    - 机器人
+    - 电力
+  tags:
+  - 机器人
+  - 电力
+  - 避险
+  - 交接班
+  - 华为CloudRobo
+- id: claim-20260608-001-g
+  topic: 产业链观察方向——触觉传感/电子皮肤
+  statement: 华为云CloudRobo具身智能开发平台月内公测、英伟达Isaac GR00T平台更新、工信部智能工厂体系建设等催化密集，触觉传感、电子皮肤等数据采集环节（如相关功能材料、传感方向标的）可作为产业链观察方向
+  source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
+  source_date: '2026-06-08'
+  source_type: 专栏
+  extracted_at: '2026-06-08'
+  claim_type: sector-theme
+  subject: 机器人产业链
+  timeframe: trend
+  evidence_quote: '"消息面上华为云CloudRobo具身智能开发平台月内公测、英伟达Isaac GR00T平台更新、工信部智能工厂体系建设等催化密集,触觉传感、电子皮肤等数据采集环节(如相关功能材料、传感方向标的)可作为产业链观察方向。"
 
-  - id: claim-20260608-001-h
-    topic: 午后率先走强题材模式——资金反复尝试直至亏钱
-    statement: 可持续留意午后率先走强的题材模式（上周四液冷、周五机器人），资金短期会反复尝试该模式直至亏钱效应出现
-    source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
-    source_date: '2026-06-08'
-    source_type: 专栏
-    extracted_at: '2026-06-08'
-    claim_type: methodology
-    subject: 资金行为模式
-    timeframe: 短期（1-2周）
-    evidence_quote: |
-      "可持续留意午后率先走强的题材模式(上周四液冷、周五机器人),资金短期会反复尝试该模式直至亏钱效应出现。"
-    interpretation: 短线交易的方法论——当前市场阶段特征是午后资金会尝试点火某个题材，该模式可复用（上周四液冷→周五机器人）。跟风的退出信号是亏钱效应出现
-    confidence: medium
-    status: active
-    intensity: medium
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims: []
-      related_stocks: []
-      related_sectors: []
-    tags:
-      - 午后题材
-      - 资金行为
-      - 短线模式
+    '
+  interpretation: 机器人产业链的上游细分机会——触觉传感/电子皮肤是数据采集入口，在具身智能框架中是基础设施环节。三大催化（华为/英伟达/工信部）提供了中期跟踪确定性
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims:
+    - claim-20260608-001-f
+    related_stocks: []
+    related_sectors:
+    - 触觉传感
+    - 电子皮肤
+    - 机器人
+  tags:
+  - 触觉传感
+  - 电子皮肤
+  - 机器人
+  - 产业链
+- id: claim-20260608-001-h
+  topic: 午后率先走强题材模式——资金反复尝试直至亏钱
+  statement: 可持续留意午后率先走强的题材模式（上周四液冷、周五机器人），资金短期会反复尝试该模式直至亏钱效应出现
+  source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
+  source_date: '2026-06-08'
+  source_type: 专栏
+  extracted_at: '2026-06-08'
+  claim_type: methodology
+  subject: 资金行为模式
+  timeframe: short-term
+  evidence_quote: '"可持续留意午后率先走强的题材模式(上周四液冷、周五机器人),资金短期会反复尝试该模式直至亏钱效应出现。"
 
-  - id: claim-20260608-001-i
-    topic: 操作纪律总结——清仓等纠错，重个股不重指数
-    statement: 指数破位，纪律优先。清仓信号已触发，等待纠错信号（60分钟底部结构或突破4120点）再做应对。当前阶段重个股轻指数，但前提是指数不发生系统性崩塌。中期警惕科技缩圈后的"裸泳者"，非科技辅线（券商、机器人接力等）存在结构性机会
-    source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
-    source_date: '2026-06-08'
-    source_type: 专栏
-    extracted_at: '2026-06-08'
-    claim_type: methodology
-    subject: 操作纪律
-    timeframe: 短期（1-2周）
-    evidence_quote: |
-      "指数破位,纪律优先,清仓信号已触发,等待纠错信号(60分钟底部结构或突破4120点)再做应对。当前阶段重个股轻指数,但前提是指数不发生系统性崩塌。中期维度,需警惕科技缩圈后的「裸泳者」,非科技辅线(券商、机器人接力等)存在结构性机会。"
-    interpretation: 三段式操作框架：①清仓（已触发）→ ②等纠错信号 → ③重个股轻指数。风险边界清晰（系统性崩塌是止损前提），方向明确（非科技辅线）
-    confidence: high
-    status: active
-    intensity: high
-    supersedes: ["claim-20260515-013"]
-    contradicts: ["claim-20260526-011"]
-    last_discovered: 2026-06-08
-    links:
-      related_claims:
-        - claim-20260608-001-a
-        - claim-20260608-001-c
-      related_stocks: []
-      related_sectors:
-        - 券商
-        - 机器人
-    tags:
-      - 操作纪律
-      - 缩圈
-      - 非科技辅线
+    '
+  interpretation: 短线交易的方法论——当前市场阶段特征是午后资金会尝试点火某个题材，该模式可复用（上周四液冷→周五机器人）。跟风的退出信号是亏钱效应出现
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 午后题材
+  - 资金行为
+  - 短线模式
+- id: claim-20260608-001-i
+  topic: 操作纪律总结——清仓等纠错，重个股不重指数
+  statement: 指数破位，纪律优先。清仓信号已触发，等待纠错信号（60分钟底部结构或突破4120点）再做应对。当前阶段重个股轻指数，但前提是指数不发生系统性崩塌。中期警惕科技缩圈后的"裸泳者"，非科技辅线（券商、机器人接力等）存在结构性机会
+  source_path: sources/raw/财经/早盘：26-06-08：指数纪律优先，硬科技清仓信号触发.md
+  source_date: '2026-06-08'
+  source_type: 专栏
+  extracted_at: '2026-06-08'
+  claim_type: methodology
+  subject: 操作纪律
+  timeframe: short-term
+  evidence_quote: '"指数破位,纪律优先,清仓信号已触发,等待纠错信号(60分钟底部结构或突破4120点)再做应对。当前阶段重个股轻指数,但前提是指数不发生系统性崩塌。中期维度,需警惕科技缩圈后的「裸泳者」,非科技辅线(券商、机器人接力等)存在结构性机会。"
+
+    '
+  interpretation: 三段式操作框架：①清仓（已触发）→ ②等纠错信号 → ③重个股轻指数。风险边界清晰（系统性崩塌是止损前提），方向明确（非科技辅线）
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260515-013
+  contradicts:
+  - claim-20260526-011
+  last_discovered: 2026-06-08
+  links:
+    related_claims:
+    - claim-20260608-001-a
+    - claim-20260608-001-c
+    related_stocks: []
+    related_sectors:
+    - 券商
+    - 机器人
+  tags:
+  - 操作纪律
+  - 缩圈
+  - 非科技辅线

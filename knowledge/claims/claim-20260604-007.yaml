@@ -1,365 +1,427 @@
-# 6-4 视频研报标的汇总 — 从原始研报文档提取
-# 这些标的来自 UP 1-5月动态中带图片的机构研报，UP在6/4视频中指示"翻到1月份整理"
 claims:
-  - id: claim-20260604-007-a
-    topic: 机构研报标的——储能/锂电/材料
-    statement: |
-      储能/锂电/材料方向机构推荐标的（UP动态转发）：
-      储能系统：海博思创(688411)、阳光电源(300274)
-      电池：宁德时代(300750)、亿纬锂能(300014)、鹏辉能源(300438)、欣旺达(300207)、瑞浦兰钧(00666.HK)
-      隔膜：恩捷股份(002812，27年明确紧缺翻倍空间)
-      六氟/电解液：天赐材料(002709，涨价兑现Q2继续涨)、华盛锂电(VC挺价坚决)、石大胜华(603026)
-      铁锂：湖南裕能(301358)、富临精工(300432，Q1单吨2k+)
-      碳酸锂/盐湖：华友钴业(603799)、盐湖股份(000792，锂价有望20-25万)
-      储能壳体：旭升集团(603305，北美大客户储能壳体最重要供应商)
-      UP 6/4视频特别强调：六氟磷酸锂方向优于锂矿（储能用量是动力电池3-5倍，VC从4.5万涨到30万六倍）
-    source_path: sources/raw/财经/研报：26-01-06：旭升集团78亿定点，储能机器人航空航天.md
-    source_date: '2026-01-06'
-    source_type: 机构研报（UP动态转发）
-    extracted_at: '2026-06-08'
-    claim_type: sector-theme
-    subject: 储能/锂电/材料——机构研报标的汇总
-    timeframe: 中期（1-3个月）
-    evidence_quote: |
-      来自多篇研报：
-      - 01/26：户储电芯满产不放假，均价4毛3/Wh，首推鹏辉能源
-      - 02/09：电池产业链底部明确Q2加速，天赐/恩捷/富临精工
-      - 02/26：青海首个储能容量电价落地(海博思创)，津巴布韦锂矿禁令(华友钴业)
-      - 01/06：旭升集团收到78亿定点，储能壳体最重要供应商
-    interpretation: |
-      机构研报汇总，非UP独立推荐。主板可交易：天赐材料(002709)、石大胜华(603026)、华友钴业(603799)、盐湖股份(000792)、旭升集团(603305)。其余为创业板/科创板/港股，用户不可交易。UP在6/4视频中额外强调六氟磷酸锂优于锂矿
-    confidence: low
-    status: active
-    intensity: medium
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims:
-        - claim-20260604-004-a
-        - claim-20260604-006-a
-      related_stocks:
-        - code: 002709.SZ
-          name: 天赐材料
-          role: 参考标的
-        - code: 603026.SH
-          name: 石大胜华
-          role: 参考标的
-        - code: 603799.SH
-          name: 华友钴业
-          role: 参考标的
-        - code: 000792.SZ
-          name: 盐湖股份
-          role: 参考标的
-        - code: 603305.SH
-          name: 旭升集团
-          role: 参考标的
-      related_sectors:
-        - 储能
-        - 锂电
-        - 六氟磷酸锂
-    tags:
-      - 储能
-      - 锂电
-      - 六氟磷酸锂
-      - 天赐材料
-      - 恩捷股份
-      - 机构研报
+- id: claim-20260604-007-a
+  topic: 机构研报标的——储能/锂电/材料
+  statement: '储能/锂电/材料方向机构推荐标的（UP动态转发）：
 
-  - id: claim-20260604-007-b
-    topic: 机构研报标的——风电
-    statement: |
-      风电方向机构推荐标的：大金重工(002487)——管桩全年新增订单预计200亿(翻倍+)，规划建设11艘甲板运输船，与欧洲4港口签署合作协议(预计年内增至9个以上)。27年开建2艘管桩安装船(单船日租金约400万，年利润超10亿)。2030年前有望实现百亿利润，加速向千亿市值迈进。
-      UP 6/4视频补充：金风科技(002202)稍差但5个点也有，"这个位置接没有任何问题"
-    source_path: sources/raw/财经/研报：26-04-20：旭创Q1超预期、大金重工全链条、杰瑞Q1燃机兑现、Claude Opus 4.7.md
-    source_date: '2026-04-20'
-    source_type: 机构研报（UP动态转发）
-    extracted_at: '2026-06-08'
-    claim_type: sector-theme
-    subject: 风电——机构研报标的汇总
-    timeframe: 中期（1-3个月）
-    evidence_quote: |
-      大金重工：管桩全年新增订单预计200亿(翻倍+)，11艘运输船，欧洲9港口合作，2030年前百亿利润→千亿市值
-    interpretation: |
-      主板可交易：大金重工(002487)、金风科技(002202)。大金同时属于出海链。风电属于UP认定的"相对低位"方向
-    confidence: low
-    status: active
-    intensity: medium
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims:
-        - claim-20260604-004-a
-        - claim-20260604-006-d
-      related_stocks:
-        - code: 002487.SZ
-          name: 大金重工
-          role: 参考标的
-        - code: 002202.SZ
-          name: 金风科技
-          role: 参考标的
-      related_sectors:
-        - 风电
-        - 出海链
-    tags:
-      - 风电
-      - 大金重工
-      - 金风科技
-      - 机构研报
+    储能系统：海博思创(688411)、阳光电源(300274)
 
-  - id: claim-20260604-007-c
-    topic: 机构研报标的——燃气轮机
-    statement: |
-      燃气轮机方向机构推荐标的（UP 6/4视频类比"上一轮牛市锂电池，确定性最高"）：
-      杰瑞股份(002353)——26Q1燃机交付1亿+美元，归母5.88亿(+26.3%，还原汇兑+76%)，电力业务收入超钻完井时间可能提前至2027年，市值看向1690~1870亿
-      中国动力(600482)——703燃机出海加速，涡轮叶片产能往中国传递
-      万泽股份(000534)——涡轮叶片标的
-      银轮股份(002126)——卡特燃气发电机组后处理(单台15万美元)，在手订单4000~5000台
-      联德股份(605060)——燃机板块增速50%+，压缩机20%，新增农机/美国重卡
-    source_path: sources/raw/财经/研报：26-04-20：旭创Q1超预期、大金重工全链条、杰瑞Q1燃机兑现、Claude Opus 4.7.md
-    source_date: '2026-04-20'
-    source_type: 机构研报（UP动态转发）
-    extracted_at: '2026-06-08'
-    claim_type: sector-theme
-    subject: 燃气轮机——机构研报标的汇总
-    timeframe: 中期（1-3个月）
-    evidence_quote: |
-      杰瑞股份26Q1燃机交付规模1亿+美元，还原汇兑后归母+76%，市值看向1690-1870亿
-      银轮股份卡特燃气发电机后处理单台15万美元，在手订单4000-5000台
-      联德股份燃机板块增速50%+
-    interpretation: |
-      主板可交易：杰瑞股份(002353)、中国动力(600482)、万泽股份(000534)、银轮股份(002126)、联德股份(605060)。全部为沪市/深市主板，用户全部可交易！UP将其类比"上一轮牛市的锂电池"，是6/4视频中语言强度最高的方向之一（🔥🔥🔥）。核心标的杰瑞股份Q1业绩已兑现
-    confidence: low
-    status: active
-    intensity: high
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims:
-        - claim-20260604-004-a
-        - claim-20260604-006-c
-      related_stocks:
-        - code: 002353.SZ
-          name: 杰瑞股份
-          role: 参考标的
-        - code: 600482.SH
-          name: 中国动力
-          role: 参考标的
-        - code: 000534.SZ
-          name: 万泽股份
-          role: 参考标的
-        - code: 002126.SZ
-          name: 银轮股份
-          role: 参考标的
-        - code: 605060.SH
-          name: 联德股份
-          role: 参考标的
-      related_sectors:
-        - 燃气轮机
-        - 电力设备
-    tags:
-      - 燃气轮机
-      - 杰瑞股份
-      - 中国动力
-      - 万泽股份
-      - 银轮股份
-      - 联德股份
-      - 机构研报
+    电池：宁德时代(300750)、亿纬锂能(300014)、鹏辉能源(300438)、欣旺达(300207)、瑞浦兰钧(00666.HK)
 
-  - id: claim-20260604-007-d
-    topic: 机构研报标的——消费/消费品
-    statement: |
-      消费/消费品方向机构推荐标的（UP动态转发）：
-      亚朵(ATAT)——25Q1线上+41%，超指引11pcts，零售被低估
-      罗莱生活(002293)——6/4视频提及"卖枕头的"，睡眠科技
-      中粮科技(000930)——国内唯一阿洛酮糖许可，25年前三季度归母+724%
-      H&H国际控股(01112.HK)——合生元+Swisse受益欧洲奶粉召回
-      分众传媒(002027)——退出数禾不影响分红，分红比例≥80%
-      中文在线(300364)——IP+AI创作"次元神笔"降本70%
-      奥飞娱乐(002292)——陀螺单品+赛事+AI，安全垫+弹性
-      三七互娱(002555)——26年产品储备丰富，AI赋能
-    source_path: sources/raw/财经/研报：26-01-22：中粮科技阿洛酮糖、字节漫剧、深信服青云凯盛兖矿帝科.md
-    source_date: '2026-01-22'
-    source_type: 机构研报（UP动态转发）
-    extracted_at: '2026-06-08'
-    claim_type: sector-theme
-    subject: 消费/消费品——机构研报标的汇总
-    timeframe: 中期（1-3个月）
-    evidence_quote: |
-      中粮科技：国内唯一阿洛酮糖许可，25年前三季度归母+724%
-      中文在线："次元神笔"AI创作降本70%
-      分众传媒：退出数禾，分红比例≥80%不受影响
-    interpretation: |
-      主板可交易：罗莱生活(002293)、中粮科技(000930)、分众传媒(002027)、奥飞娱乐(002292)、三七互娱(002555)。UP 6/4视频提到的"卖枕头的"=罗莱生活，"打开F10看毛利净利"
-    confidence: low
-    status: active
-    intensity: medium
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims:
-        - claim-20260604-004-a
-      related_stocks:
-        - code: 002293.SZ
-          name: 罗莱生活
-          role: 参考标的
-        - code: 000930.SZ
-          name: 中粮科技
-          role: 参考标的
-        - code: 002027.SZ
-          name: 分众传媒
-          role: 参考标的
-        - code: 002292.SZ
-          name: 奥飞娱乐
-          role: 参考标的
-        - code: 002555.SZ
-          name: 三七互娱
-          role: 参考标的
-      related_sectors:
-        - 消费
-    tags:
-      - 消费
-      - 罗莱生活
-      - 中粮科技
-      - 机构研报
+    隔膜：恩捷股份(002812，27年明确紧缺翻倍空间)
 
-  - id: claim-20260604-007-e
-    topic: 机构研报标的——创新药/医疗
-    statement: |
-      创新药/医疗方向机构推荐标的（UP动态转发）：
-      百济神州(688235/06160.HK)——国际化龙头
-      百利天恒(688506)——co-co模式出海
-      信达生物(01801.HK)——与礼来88亿美元战略合作
-      恒瑞医药(600276)——在研国际化
-      科伦博泰(06990.HK)——ADC出海标杆
-      康方生物(09926.HK)——双抗国际化
-      药明康德(603259)——从924翻3倍，跌不下来
-      产业逻辑：中国创新药BD总额25年1357亿美元
-    source_path: sources/raw/财经/研报：26-01-08：环旭电子、创新药、盛邦安全、立昂微.md
-    source_date: '2026-01-08'
-    source_type: 机构研报（UP动态转发）
-    extracted_at: '2026-06-08'
-    claim_type: sector-theme
-    subject: 创新药/医疗——机构研报标的汇总
-    timeframe: 中期（1-3个月）
-    evidence_quote: |
-      创新药BD总额25年1357亿美元，研发效率5-10倍提升
-      信达生物与礼来88亿美元合作
-    interpretation: |
-      主板可交易：恒瑞医药(600276)、药明康德(603259)。其余科创板/港股不可交易。创新药是2-3年战略性机会，非短期交易
-    confidence: low
-    status: active
-    intensity: medium
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims:
-        - claim-20260604-004-a
-      related_stocks:
-        - code: 600276.SH
-          name: 恒瑞医药
-          role: 参考标的
-        - code: 603259.SH
-          name: 药明康德
-          role: 参考标的
-      related_sectors:
-        - 创新药
-    tags:
-      - 创新药
-      - 恒瑞医药
-      - 药明康德
-      - 机构研报
+    六氟/电解液：天赐材料(002709，涨价兑现Q2继续涨)、华盛锂电(VC挺价坚决)、石大胜华(603026)
 
-  - id: claim-20260604-007-f
-    topic: 机构研报标的——出海链
-    statement: |
-      出海链方向机构推荐标的（UP 6/4视频点名"12月29日视频讲过"）：
-      大金重工(002487)——欧洲港口+管桩出口+运输全链条
-      银轮股份(002126)——卡特冷却+液冷进北美AI体系
-      涛涛车业(301345)——美国球车Q1 1.3万台+，PE仅17x
-      旭升集团(603305)——Lucid 78亿定点+墨西哥扩产，26年底量产
-    source_path: sources/raw/财经/研报：26-01-06：旭升集团78亿定点，储能机器人航空航天.md
-    source_date: '2026-01-06'
-    source_type: 机构研报（UP动态转发）
-    extracted_at: '2026-06-08'
-    claim_type: sector-theme
-    subject: 出海链——机构研报标的汇总
-    timeframe: 中期（1-3个月）
-    evidence_quote: |
-      旭升集团Lucid 78亿定点+墨西哥扩产
-      大金重工欧洲9港口合作
-    interpretation: |
-      主板可交易：大金重工(002487)、银轮股份(002126)、旭升集团(603305)。涛涛车业(301345)为创业板不可交易
-    confidence: low
-    status: active
-    intensity: medium
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims:
-        - claim-20260604-004-a
-      related_stocks:
-        - code: 002487.SZ
-          name: 大金重工
-          role: 参考标的
-        - code: 002126.SZ
-          name: 银轮股份
-          role: 参考标的
-        - code: 603305.SH
-          name: 旭升集团
-          role: 参考标的
-      related_sectors:
-        - 出海链
-    tags:
-      - 出海链
-      - 大金重工
-      - 银轮股份
-      - 机构研报
+    铁锂：湖南裕能(301358)、富临精工(300432，Q1单吨2k+)
 
-  - id: claim-20260604-007-g
-    topic: 机构研报标的——蓝筹/传统行业
-    statement: |
-      蓝筹方向机构推荐标的（UP动态转发）：
-      兖矿能源(600188)——产能3.2亿吨/年，承诺分红60%
-      航发动力(600893)——商用发动机核心主线，C919 26年28架
-      UP 6/4视频定位：下一轮指数主升靠蓝筹引领
-    source_path: sources/raw/财经/研报：26-01-22：中粮科技阿洛酮糖、字节漫剧、深信服青云凯盛兖矿帝科.md
-    source_date: '2026-01-22'
-    source_type: 机构研报（UP动态转发）
-    extracted_at: '2026-06-08'
-    claim_type: sector-theme
-    subject: 蓝筹/传统行业——机构研报标的汇总
-    timeframe: 中期（1-3个月）
-    evidence_quote: |
-      兖矿能源：产能3.2亿吨，承诺分红60%
-      航发动力：商用发动机核心主线，C919 26年28架
-    interpretation: |
-      全部主板可交易。UP定位为下一轮指数主升引领板块，磨底期优先布局
-    confidence: low
-    status: active
-    intensity: high
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      related_claims:
-        - claim-20260604-004-c
-      related_stocks:
-        - code: 600188.SH
-          name: 兖矿能源
-          role: 参考标的
-        - code: 600893.SH
-          name: 航发动力
-          role: 参考标的
-      related_sectors:
-        - 蓝筹
-    tags:
-      - 蓝筹
-      - 兖矿能源
-      - 航发动力
-      - 机构研报
+    碳酸锂/盐湖：华友钴业(603799)、盐湖股份(000792，锂价有望20-25万)
+
+    储能壳体：旭升集团(603305，北美大客户储能壳体最重要供应商)
+
+    UP 6/4视频特别强调：六氟磷酸锂方向优于锂矿（储能用量是动力电池3-5倍，VC从4.5万涨到30万六倍）
+
+    '
+  source_path: sources/raw/财经/研报：26-01-06：旭升集团78亿定点，储能机器人航空航天.md
+  source_date: '2026-01-06'
+  source_type: 机构研报（UP动态转发）
+  extracted_at: '2026-06-08'
+  claim_type: sector-theme
+  subject: 储能/锂电/材料——机构研报标的汇总
+  timeframe: trend
+  evidence_quote: '来自多篇研报：
+
+    - 01/26：户储电芯满产不放假，均价4毛3/Wh，首推鹏辉能源
+
+    - 02/09：电池产业链底部明确Q2加速，天赐/恩捷/富临精工
+
+    - 02/26：青海首个储能容量电价落地(海博思创)，津巴布韦锂矿禁令(华友钴业)
+
+    - 01/06：旭升集团收到78亿定点，储能壳体最重要供应商
+
+    '
+  interpretation: '机构研报汇总，非UP独立推荐。主板可交易：天赐材料(002709)、石大胜华(603026)、华友钴业(603799)、盐湖股份(000792)、旭升集团(603305)。其余为创业板/科创板/港股，用户不可交易。UP在6/4视频中额外强调六氟磷酸锂优于锂矿
+
+    '
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims:
+    - claim-20260604-004-a
+    - claim-20260604-006-a
+    related_stocks:
+    - code: 002709.SZ
+      name: 天赐材料
+      role: 参考标的
+    - code: 603026.SH
+      name: 石大胜华
+      role: 参考标的
+    - code: 603799.SH
+      name: 华友钴业
+      role: 参考标的
+    - code: 000792.SZ
+      name: 盐湖股份
+      role: 参考标的
+    - code: 603305.SH
+      name: 旭升集团
+      role: 参考标的
+    related_sectors:
+    - 储能
+    - 锂电
+    - 六氟磷酸锂
+  tags:
+  - 储能
+  - 锂电
+  - 六氟磷酸锂
+  - 天赐材料
+  - 恩捷股份
+  - 机构研报
+- id: claim-20260604-007-b
+  topic: 机构研报标的——风电
+  statement: '风电方向机构推荐标的：大金重工(002487)——管桩全年新增订单预计200亿(翻倍+)，规划建设11艘甲板运输船，与欧洲4港口签署合作协议(预计年内增至9个以上)。27年开建2艘管桩安装船(单船日租金约400万，年利润超10亿)。2030年前有望实现百亿利润，加速向千亿市值迈进。
+
+    UP 6/4视频补充：金风科技(002202)稍差但5个点也有，"这个位置接没有任何问题"
+
+    '
+  source_path: sources/raw/财经/研报：26-04-20：旭创Q1超预期、大金重工全链条、杰瑞Q1燃机兑现、Claude Opus 4.7.md
+  source_date: '2026-04-20'
+  source_type: 机构研报（UP动态转发）
+  extracted_at: '2026-06-08'
+  claim_type: sector-theme
+  subject: 风电——机构研报标的汇总
+  timeframe: trend
+  evidence_quote: '大金重工：管桩全年新增订单预计200亿(翻倍+)，11艘运输船，欧洲9港口合作，2030年前百亿利润→千亿市值
+
+    '
+  interpretation: '主板可交易：大金重工(002487)、金风科技(002202)。大金同时属于出海链。风电属于UP认定的"相对低位"方向
+
+    '
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims:
+    - claim-20260604-004-a
+    - claim-20260604-006-d
+    related_stocks:
+    - code: 002487.SZ
+      name: 大金重工
+      role: 参考标的
+    - code: 002202.SZ
+      name: 金风科技
+      role: 参考标的
+    related_sectors:
+    - 风电
+    - 出海链
+  tags:
+  - 风电
+  - 大金重工
+  - 金风科技
+  - 机构研报
+- id: claim-20260604-007-c
+  topic: 机构研报标的——燃气轮机
+  statement: '燃气轮机方向机构推荐标的（UP 6/4视频类比"上一轮牛市锂电池，确定性最高"）：
+
+    杰瑞股份(002353)——26Q1燃机交付1亿+美元，归母5.88亿(+26.3%，还原汇兑+76%)，电力业务收入超钻完井时间可能提前至2027年，市值看向1690~1870亿
+
+    中国动力(600482)——703燃机出海加速，涡轮叶片产能往中国传递
+
+    万泽股份(000534)——涡轮叶片标的
+
+    银轮股份(002126)——卡特燃气发电机组后处理(单台15万美元)，在手订单4000~5000台
+
+    联德股份(605060)——燃机板块增速50%+，压缩机20%，新增农机/美国重卡
+
+    '
+  source_path: sources/raw/财经/研报：26-04-20：旭创Q1超预期、大金重工全链条、杰瑞Q1燃机兑现、Claude Opus 4.7.md
+  source_date: '2026-04-20'
+  source_type: 机构研报（UP动态转发）
+  extracted_at: '2026-06-08'
+  claim_type: sector-theme
+  subject: 燃气轮机——机构研报标的汇总
+  timeframe: trend
+  evidence_quote: '杰瑞股份26Q1燃机交付规模1亿+美元，还原汇兑后归母+76%，市值看向1690-1870亿
+
+    银轮股份卡特燃气发电机后处理单台15万美元，在手订单4000-5000台
+
+    联德股份燃机板块增速50%+
+
+    '
+  interpretation: '主板可交易：杰瑞股份(002353)、中国动力(600482)、万泽股份(000534)、银轮股份(002126)、联德股份(605060)。全部为沪市/深市主板，用户全部可交易！UP将其类比"上一轮牛市的锂电池"，是6/4视频中语言强度最高的方向之一（🔥🔥🔥）。核心标的杰瑞股份Q1业绩已兑现
+
+    '
+  confidence: low
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims:
+    - claim-20260604-004-a
+    - claim-20260604-006-c
+    related_stocks:
+    - code: 002353.SZ
+      name: 杰瑞股份
+      role: 参考标的
+    - code: 600482.SH
+      name: 中国动力
+      role: 参考标的
+    - code: 000534.SZ
+      name: 万泽股份
+      role: 参考标的
+    - code: 002126.SZ
+      name: 银轮股份
+      role: 参考标的
+    - code: 605060.SH
+      name: 联德股份
+      role: 参考标的
+    related_sectors:
+    - 燃气轮机
+    - 电力设备
+  tags:
+  - 燃气轮机
+  - 杰瑞股份
+  - 中国动力
+  - 万泽股份
+  - 银轮股份
+  - 联德股份
+  - 机构研报
+- id: claim-20260604-007-d
+  topic: 机构研报标的——消费/消费品
+  statement: '消费/消费品方向机构推荐标的（UP动态转发）：
+
+    亚朵(ATAT)——25Q1线上+41%，超指引11pcts，零售被低估
+
+    罗莱生活(002293)——6/4视频提及"卖枕头的"，睡眠科技
+
+    中粮科技(000930)——国内唯一阿洛酮糖许可，25年前三季度归母+724%
+
+    H&H国际控股(01112.HK)——合生元+Swisse受益欧洲奶粉召回
+
+    分众传媒(002027)——退出数禾不影响分红，分红比例≥80%
+
+    中文在线(300364)——IP+AI创作"次元神笔"降本70%
+
+    奥飞娱乐(002292)——陀螺单品+赛事+AI，安全垫+弹性
+
+    三七互娱(002555)——26年产品储备丰富，AI赋能
+
+    '
+  source_path: sources/raw/财经/研报：26-01-22：中粮科技阿洛酮糖、字节漫剧、深信服青云凯盛兖矿帝科.md
+  source_date: '2026-01-22'
+  source_type: 机构研报（UP动态转发）
+  extracted_at: '2026-06-08'
+  claim_type: sector-theme
+  subject: 消费/消费品——机构研报标的汇总
+  timeframe: trend
+  evidence_quote: '中粮科技：国内唯一阿洛酮糖许可，25年前三季度归母+724%
+
+    中文在线："次元神笔"AI创作降本70%
+
+    分众传媒：退出数禾，分红比例≥80%不受影响
+
+    '
+  interpretation: '主板可交易：罗莱生活(002293)、中粮科技(000930)、分众传媒(002027)、奥飞娱乐(002292)、三七互娱(002555)。UP
+    6/4视频提到的"卖枕头的"=罗莱生活，"打开F10看毛利净利"
+
+    '
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims:
+    - claim-20260604-004-a
+    related_stocks:
+    - code: 002293.SZ
+      name: 罗莱生活
+      role: 参考标的
+    - code: 000930.SZ
+      name: 中粮科技
+      role: 参考标的
+    - code: 002027.SZ
+      name: 分众传媒
+      role: 参考标的
+    - code: 002292.SZ
+      name: 奥飞娱乐
+      role: 参考标的
+    - code: 002555.SZ
+      name: 三七互娱
+      role: 参考标的
+    related_sectors:
+    - 消费
+  tags:
+  - 消费
+  - 罗莱生活
+  - 中粮科技
+  - 机构研报
+- id: claim-20260604-007-e
+  topic: 机构研报标的——创新药/医疗
+  statement: '创新药/医疗方向机构推荐标的（UP动态转发）：
+
+    百济神州(688235/06160.HK)——国际化龙头
+
+    百利天恒(688506)——co-co模式出海
+
+    信达生物(01801.HK)——与礼来88亿美元战略合作
+
+    恒瑞医药(600276)——在研国际化
+
+    科伦博泰(06990.HK)——ADC出海标杆
+
+    康方生物(09926.HK)——双抗国际化
+
+    药明康德(603259)——从924翻3倍，跌不下来
+
+    产业逻辑：中国创新药BD总额25年1357亿美元
+
+    '
+  source_path: sources/raw/财经/研报：26-01-08：环旭电子、创新药、盛邦安全、立昂微.md
+  source_date: '2026-01-08'
+  source_type: 机构研报（UP动态转发）
+  extracted_at: '2026-06-08'
+  claim_type: sector-theme
+  subject: 创新药/医疗——机构研报标的汇总
+  timeframe: trend
+  evidence_quote: '创新药BD总额25年1357亿美元，研发效率5-10倍提升
+
+    信达生物与礼来88亿美元合作
+
+    '
+  interpretation: '主板可交易：恒瑞医药(600276)、药明康德(603259)。其余科创板/港股不可交易。创新药是2-3年战略性机会，非短期交易
+
+    '
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims:
+    - claim-20260604-004-a
+    related_stocks:
+    - code: 600276.SH
+      name: 恒瑞医药
+      role: 参考标的
+    - code: 603259.SH
+      name: 药明康德
+      role: 参考标的
+    related_sectors:
+    - 创新药
+  tags:
+  - 创新药
+  - 恒瑞医药
+  - 药明康德
+  - 机构研报
+- id: claim-20260604-007-f
+  topic: 机构研报标的——出海链
+  statement: '出海链方向机构推荐标的（UP 6/4视频点名"12月29日视频讲过"）：
+
+    大金重工(002487)——欧洲港口+管桩出口+运输全链条
+
+    银轮股份(002126)——卡特冷却+液冷进北美AI体系
+
+    涛涛车业(301345)——美国球车Q1 1.3万台+，PE仅17x
+
+    旭升集团(603305)——Lucid 78亿定点+墨西哥扩产，26年底量产
+
+    '
+  source_path: sources/raw/财经/研报：26-01-06：旭升集团78亿定点，储能机器人航空航天.md
+  source_date: '2026-01-06'
+  source_type: 机构研报（UP动态转发）
+  extracted_at: '2026-06-08'
+  claim_type: sector-theme
+  subject: 出海链——机构研报标的汇总
+  timeframe: trend
+  evidence_quote: '旭升集团Lucid 78亿定点+墨西哥扩产
+
+    大金重工欧洲9港口合作
+
+    '
+  interpretation: '主板可交易：大金重工(002487)、银轮股份(002126)、旭升集团(603305)。涛涛车业(301345)为创业板不可交易
+
+    '
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims:
+    - claim-20260604-004-a
+    related_stocks:
+    - code: 002487.SZ
+      name: 大金重工
+      role: 参考标的
+    - code: 002126.SZ
+      name: 银轮股份
+      role: 参考标的
+    - code: 603305.SH
+      name: 旭升集团
+      role: 参考标的
+    related_sectors:
+    - 出海链
+  tags:
+  - 出海链
+  - 大金重工
+  - 银轮股份
+  - 机构研报
+- id: claim-20260604-007-g
+  topic: 机构研报标的——蓝筹/传统行业
+  statement: '蓝筹方向机构推荐标的（UP动态转发）：
+
+    兖矿能源(600188)——产能3.2亿吨/年，承诺分红60%
+
+    航发动力(600893)——商用发动机核心主线，C919 26年28架
+
+    UP 6/4视频定位：下一轮指数主升靠蓝筹引领
+
+    '
+  source_path: sources/raw/财经/研报：26-01-22：中粮科技阿洛酮糖、字节漫剧、深信服青云凯盛兖矿帝科.md
+  source_date: '2026-01-22'
+  source_type: 机构研报（UP动态转发）
+  extracted_at: '2026-06-08'
+  claim_type: sector-theme
+  subject: 蓝筹/传统行业——机构研报标的汇总
+  timeframe: trend
+  evidence_quote: '兖矿能源：产能3.2亿吨，承诺分红60%
+
+    航发动力：商用发动机核心主线，C919 26年28架
+
+    '
+  interpretation: '全部主板可交易。UP定位为下一轮指数主升引领板块，磨底期优先布局
+
+    '
+  confidence: low
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    related_claims:
+    - claim-20260604-004-c
+    related_stocks:
+    - code: 600188.SH
+      name: 兖矿能源
+      role: 参考标的
+    - code: 600893.SH
+      name: 航发动力
+      role: 参考标的
+    related_sectors:
+    - 蓝筹
+  tags:
+  - 蓝筹
+  - 兖矿能源
+  - 航发动力
+  - 机构研报

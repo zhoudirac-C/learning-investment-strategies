@@ -1,212 +1,218 @@
 claims:
-  - id: claim-20260602-003-a
-    topic: 今日是一波恐慌杀跌之后的共振修复
-    source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
-    source_date: 2026-06-02
-    source_type: 复盘
-    extracted_at: 2026-06-02
-    claim_type: market-cycle
-    subject: 「情绪拐点确认，10:50已表明否极泰来，今日为恐慌杀跌后的共振修复」
-    timeframe: short-term
-    statement: "今日是一波恐慌杀跌之后的共振修复，AI硬科技带领全A指数同步修复。上午10:50已表明是情绪拐点、否极泰来。判断前置的原因是希望低吸成本能低一点，因为情绪反弹初期会有反复"
-    evidence_quote: "今天是一波恐慌杀跌之后的共振修复，AI硬科技带领全A指数同步修复。上午10:50已表明是情绪拐点、否极泰来——彼时AI科技刚起来，只有局部分支大涨，还有很多AI科技仍在低位。把判断前置的原因是希望低吸成本能低一点，因为情绪反弹初期会有反复，成本低后面能从容一点。"
-    interpretation: 「情绪周期判断：①今日定性为」恐慌杀跌后的共振修复"——与早盘claim-20260602-001-g「科技正常反弹概率较大」形成呼应，但复盘将级别提升为「共振修复」；②10:50情绪拐点确认——博主盘中已前置判断，不是马后炮；③判断前置的原因：希望低吸成本低一点，反弹初期有反复——这是博主对情绪拐点的操作逻辑；④与昨日（6月1日）「指数冲高回落」形成对比，今日氛围明显更活跃。这是一个重要的周期定位更新：从「调整中继」转向「共振修复初期」。"
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/情绪判断.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 情绪拐点
-      - 杀跌
-      - 低吸
-      - 反弹
-      - AI
-      - 共振
-      - 恐慌
-      - 修复
-  - id: claim-20260602-003-b
-    topic: 共振修复后通常走向两种格局
-    source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
-    source_date: 2026-06-02
-    source_type: 复盘
-    extracted_at: 2026-06-02
-    claim_type: market-cycle
-    subject: 今日属于「普涨共振」而非「强共振」，宽度有但高度不足，反弹预期需降低
-    timeframe: short-term
-    statement: 共振修复后通常走向两种格局：强共振（有明显主线分支和情绪载体）或普涨共振（有AI科技主线但没有可预期情绪载体）。今日属于第二种——MLCC、CPO、PCB等全线上涨，但无绝对聚焦分支，是普涨修复。宽度有但高度不足
-    evidence_quote: 今天属于第二种。MLCC、CPO、PCB等全线上涨，但并没有绝对聚焦于某一个分支，是普涨修复。宽度有了，但没有明显能带情绪的高度。
-    interpretation: 共振格局辨析：①强共振 vs 普涨共振——这是博主对修复行情分类的重要框架；②今日属于「普涨共振」：MLCC/CPO/PCB全线上涨，但无绝对聚焦分支；③宽度有（多个分支上涨）但高度不足（无明确情绪载体）——这是判断反弹预期的关键；④情绪载体候选：火炬电子（4天3板但下午频繁开板，连板拓高度有难度）、亨通光电（涨停创历史新高但光纤产业无大变化）——两者都有瑕疵；⑤核心结论：普涨轮动阶段，反弹预期要降低一点。这是对今日行情定性的核心判断。
-    confidence: high
-    status: active
-    supersedes: ["claim-20260607-003-c"]
-    contradicts: ["claim-20260602-003-a"]
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/情绪判断.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 市场周期
-      - CPO
-      - PCB
-      - 主线
-      - AI
-      - 共振
-      - 修复
-  - id: claim-20260602-003-c
-    topic: AI硬件是本轮修复的核心主线
-    source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
-    source_date: 2026-06-02
-    source_type: 复盘
-    extracted_at: 2026-06-02
-    claim_type: sector-theme
-    subject: AI硬件是核心主线但已从一家独大转为反复轮动，CPO业绩兑现路径从远期走向当期订单
-    timeframe: short-term
-    statement: AI硬件是本轮修复的核心主线，但已从前两个月的「一家独大」转为反复轮动。CPO/光互连业绩兑现路径正从远期预期走向当期订单放量，是当前最有产业逻辑支撑的分支。PCB、MLCC、存储同一节奏。半导体强度稍弱，主因业绩支撑不足
-    evidence_quote: AI硬件（核心主线）：光互连领涨，CPO业绩兑现路径正从远期预期走向当期订单放量；PCB、MLCC、存储同一节奏；半导体/芯片强度稍弱，主因业绩支撑不足，下半年有望明显改善。
-    interpretation: AI硬件主线判断：①核心主线地位确认——但已从「一家独大」转为「反复轮动」，这是重要的风格变化；②CPO/光互连：业绩兑现路径从「远期预期」走向「当期订单放量」——这是产业逻辑的核心变化，天孚、源杰、光库等有真实订单支撑；③PCB、MLCC、存储：同一节奏，属情绪与产业共振；④半导体：强度稍弱，业绩支撑不足——与盘中claim-20260602-002-c「半导体缩量反弹=调整中继」一致；⑤风险提示：CPO短期涨幅已大，需防普涨后高低切换与获利回吐。这是对AI硬件各分支的精细化判断。
-    confidence: high
-    status: active
-    supersedes: ["claim-20260525-003"]
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/主线判断.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - PCB
-      - CPO
-      - 半导体
-      - 轮动
-      - 放量
-      - 主线
-      - 业绩
-      - 存储
-  - id: claim-20260602-003-d
-    topic: 明天正常来说情绪核心就应该强势表现
-    source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
-    source_date: 2026-06-02
-    source_type: 复盘
-    extracted_at: 2026-06-02
-    claim_type: sector-theme
-    subject: 明日情绪核心应强势表现，资金能否聚焦某一分支决定修复行情强度和持续性
-    timeframe: intraday
-    statement: 明天正常来说情绪核心就应该强势表现，市场资金能否聚焦于某一个分支，将直接关系到接下来这轮修复行情的强度和持续性。这是接下来需要进一步观察的重点
-    evidence_quote: 明天正常来说情绪核心就应该强势表现，市场资金能否聚焦于某一个分支，将直接关系到接下来这轮修复行情的强度和持续性——这是接下来需要进一步观察的重点。
-    interpretation: 明日观察要点：①情绪核心应强势表现——这是对明日盘面的基准预期；②关键变量：资金能否聚焦某一分支——从「普涨共振」走向「强共振」的转化条件；③若无法聚焦：反弹预期降低——与今日「普涨共振」判断一致；④观察标的：火炬电子（MLCC）、亨通光电（光纤）能否继续走强并带动分支；⑤与早盘claim-20260602-001-g「最优走势是小高开—兑现—再回流」形成呼应。这是一个明确的明日操作框架。
-    confidence: medium
-    status: active
-    supersedes: ["claim-20260527-005-b"]
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/投资方法论/仓位管理.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 明日情绪核心
-      - 板块主题
-      - 修复
-  - id: claim-20260602-003-e
-    topic: 研报核心方向
-    source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
-    source_date: 2026-06-02
-    source_type: 复盘
-    extracted_at: 2026-06-02
-    claim_type: sector-theme
-    subject: 感光干膜、镁合金、洗碗机、东南亚两轮车等新研报方向梳理
-    timeframe: medium-term
-    statement: 研报核心方向：①感光干膜——AI算力向PCB上游耗材传导，国产替代空间超70%，核心福斯特/容大感光；②镁合金——半固态注射成型降本34%，三重新兴需求（AIPC散热/电动自行车/人形机器人），核心伊之密/宝武镁业/星源卓镁；③洗碗机——内需承压外需强劲，出口占比77%，核心老板电器/海尔智家；④东南亚两轮车——越南7月禁燃令，2.1亿油摩电动化，核心雅迪/爱玛/安乃达
-    evidence_quote: AI算力向PCB上游耗材传导。24年全球市场80.3亿元、中国52.1亿元，29年有望达110.9亿/74.8亿元...半固态注射成型综合降本34%，镁对铝成本优势全面确立...「内需承压，外需强劲」。26Q1产量303.8万台...美伊战争后油价高企+越南河内7月禁燃令，2.1亿油摩存量市场电动化加速。
-    interpretation: 研报方向梳理：①感光干膜——PCB上游耗材，HDI/IC载板用增速快于传统多层板，国产替代空间超70%；②镁合金——AIPC散热（渗透率26年35%→28年79.7%）、电动自行车新国标、人形机器人量产三重驱动；③洗碗机——出口占比77%，欧洲最大拉动市场；④东南亚两轮车——越南禁燃令催化，2.1亿油摩存量电动化，雅迪/爱玛PE仅9倍；⑤这些方向属于「产业认知更新」，不是立即买入信号，需跟踪订单/业绩验证。这是对多个新方向的系统性梳理。
-    confidence: medium
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/产业链认知.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 国产替代
-      - 板块主题
-      - PCB
-      - 机器人
-      - 算力
-      - AI
-  - id: claim-20260602-003-f
-    topic: 英伟达Computex催化
-    source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
-    source_date: 2026-06-02
-    source_type: 复盘
-    extracted_at: 2026-06-02
-    claim_type: sector-theme
-    subject: 英伟达点名新方向：有色锡算力金属、服务器全面量产、裕太微DSP热
-    timeframe: short-term
-    statement: "英伟达Computex催化：①有色锡——AI服务器用锡量是普通3-5倍，全球储采比降至17-21年，锡价中枢系统性上移；②服务器——Vera Rubin全面量产，推理时代CPU:GPU配比从1:8向1:1靠拢，通用服务器需求激活；③裕太微——黄仁勋称Marvell或成下一家万亿美元公司，裕太微DSP方向大涨18%，华为哈勃持股6.97%"
-    evidence_quote: "全球锡储采比已降至17-21年...AI服务器用锡量是普通服务器3-5倍...英伟达Vera Rubin进入全面量产...推理时代CPU:GPU配比从1:8向1:1靠拢...Computex上黄仁勋称Marvell可能成'下一家万亿美元公司'...裕太微大涨18%..."
-    interpretation: "英伟达产业链新催化：①有色锡——「算力金属」新叙事，AI服务器用锡量3-5倍，全球库存仅17天，锡价中枢上移；②服务器——Vera Rubin量产，推理时代CPU需求被激活（配比1:8→1:1），戴尔/联想/工业富联业绩验证；③裕太微——Marvell被黄仁勋点名，裕太微作为A股DSP潜在标的大涨18%，华为哈勃持股6.97%；④这些催化属于「事件驱动+产业逻辑」双重支撑，但短期涨幅已大，需防利好兑现。这是对英伟达产业链扩散的系统性梳理。"
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/市场分析/产业链认知.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 板块主题
-      - 有色
-      - 算力
-      - 华为
-      - 催化
-      - AI
-      - 美元
-  - id: claim-20260602-003-g
-    topic: 在反复轮动、宽度有余而高度不足的格局下
-    source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
-    source_date: 2026-06-02
-    source_type: 复盘
-    extracted_at: 2026-06-02
-    claim_type: operation
-    subject: 普涨轮动阶段，地位与卡位决定资金回流优先级，业绩兑现清晰的龙头优于纯情绪标的
-    timeframe: short-term
-    statement: 在反复轮动、宽度有余而高度不足的格局下，资金更倾向于回流到有明确产业卡位、份额或地位领先的龙头。核心思路：普涨轮动阶段，地位与卡位决定资金回流的优先级，业绩兑现节点清晰的龙头优于纯情绪炒作标的
-    evidence_quote: 核心思路：普涨轮动阶段，地位与卡位决定资金回流的优先级，业绩兑现节点清晰的龙头优于纯情绪炒作标的。
-    interpretation: 操作策略：①普涨轮动阶段的选股原则——地位/卡位优先，不是涨幅优先；②CPO供应链核心卡位：天孚通信（光引擎/FAU/ELS）、工业富联（CPO交换机）；③国产替代地位：鼎龙股份（光刻胶/CMP国产第一）、巨化股份（电子级PTFE）、裕太微（以太网PHY）；④全球市占地位：东山精密（FPC全球第二/PCB全球第三）、云铝股份（绿色铝龙头）；⑤MLCC环节：火炬电子、深圳华强；⑥核心纪律：业绩兑现节点清晰的龙头优于纯情绪炒作——这与博主一贯强调的「有真实订单/基本面的方向」完全一致。这是对当前操作环境的明确指导。
-    confidence: high
-    status: active
-    supersedes: []
-    contradicts: []
-    last_discovered: 2026-06-08
-    links:
-      wiki_pages:
-        - knowledge/wiki/投资方法论/交易纪律.md
-      methodology_pages: []
-      cases: []
-    intensity: high
-    tags:
-      - 操作策略
-      - 轮动
-      - 龙头
-      - 业绩
+- id: claim-20260602-003-a
+  topic: 今日是一波恐慌杀跌之后的共振修复
+  source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
+  source_date: 2026-06-02
+  source_type: 复盘
+  extracted_at: 2026-06-02
+  claim_type: market-cycle
+  subject: 「情绪拐点确认，10:50已表明否极泰来，今日为恐慌杀跌后的共振修复」
+  timeframe: short-term
+  statement: 今日是一波恐慌杀跌之后的共振修复，AI硬科技带领全A指数同步修复。上午10:50已表明是情绪拐点、否极泰来。判断前置的原因是希望低吸成本能低一点，因为情绪反弹初期会有反复
+  evidence_quote: 今天是一波恐慌杀跌之后的共振修复，AI硬科技带领全A指数同步修复。上午10:50已表明是情绪拐点、否极泰来——彼时AI科技刚起来，只有局部分支大涨，还有很多AI科技仍在低位。把判断前置的原因是希望低吸成本能低一点，因为情绪反弹初期会有反复，成本低后面能从容一点。
+  interpretation: 「情绪周期判断：①今日定性为」恐慌杀跌后的共振修复"——与早盘claim-20260602-001-g「科技正常反弹概率较大」形成呼应，但复盘将级别提升为「共振修复」；②10:50情绪拐点确认——博主盘中已前置判断，不是马后炮；③判断前置的原因：希望低吸成本低一点，反弹初期有反复——这是博主对情绪拐点的操作逻辑；④与昨日（6月1日）「指数冲高回落」形成对比，今日氛围明显更活跃。这是一个重要的周期定位更新：从「调整中继」转向「共振修复初期」。"
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/情绪判断.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 情绪拐点
+  - 杀跌
+  - 低吸
+  - 反弹
+  - AI
+  - 共振
+  - 恐慌
+  - 修复
+- id: claim-20260602-003-b
+  topic: 共振修复后通常走向两种格局
+  source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
+  source_date: 2026-06-02
+  source_type: 复盘
+  extracted_at: 2026-06-02
+  claim_type: market-cycle
+  subject: 今日属于「普涨共振」而非「强共振」，宽度有但高度不足，反弹预期需降低
+  timeframe: short-term
+  statement: 共振修复后通常走向两种格局：强共振（有明显主线分支和情绪载体）或普涨共振（有AI科技主线但没有可预期情绪载体）。今日属于第二种——MLCC、CPO、PCB等全线上涨，但无绝对聚焦分支，是普涨修复。宽度有但高度不足
+  evidence_quote: 今天属于第二种。MLCC、CPO、PCB等全线上涨，但并没有绝对聚焦于某一个分支，是普涨修复。宽度有了，但没有明显能带情绪的高度。
+  interpretation: 共振格局辨析：①强共振 vs 普涨共振——这是博主对修复行情分类的重要框架；②今日属于「普涨共振」：MLCC/CPO/PCB全线上涨，但无绝对聚焦分支；③宽度有（多个分支上涨）但高度不足（无明确情绪载体）——这是判断反弹预期的关键；④情绪载体候选：火炬电子（4天3板但下午频繁开板，连板拓高度有难度）、亨通光电（涨停创历史新高但光纤产业无大变化）——两者都有瑕疵；⑤核心结论：普涨轮动阶段，反弹预期要降低一点。这是对今日行情定性的核心判断。
+  confidence: high
+  status: active
+  supersedes:
+  - claim-20260607-003-c
+  contradicts:
+  - claim-20260602-003-a
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/情绪判断.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 市场周期
+  - CPO
+  - PCB
+  - 主线
+  - AI
+  - 共振
+  - 修复
+- id: claim-20260602-003-c
+  topic: AI硬件是本轮修复的核心主线
+  source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
+  source_date: 2026-06-02
+  source_type: 复盘
+  extracted_at: 2026-06-02
+  claim_type: sector-theme
+  subject: AI硬件是核心主线但已从一家独大转为反复轮动，CPO业绩兑现路径从远期走向当期订单
+  timeframe: short-term
+  statement: AI硬件是本轮修复的核心主线，但已从前两个月的「一家独大」转为反复轮动。CPO/光互连业绩兑现路径正从远期预期走向当期订单放量，是当前最有产业逻辑支撑的分支。PCB、MLCC、存储同一节奏。半导体强度稍弱，主因业绩支撑不足
+  evidence_quote: AI硬件（核心主线）：光互连领涨，CPO业绩兑现路径正从远期预期走向当期订单放量；PCB、MLCC、存储同一节奏；半导体/芯片强度稍弱，主因业绩支撑不足，下半年有望明显改善。
+  interpretation: AI硬件主线判断：①核心主线地位确认——但已从「一家独大」转为「反复轮动」，这是重要的风格变化；②CPO/光互连：业绩兑现路径从「远期预期」走向「当期订单放量」——这是产业逻辑的核心变化，天孚、源杰、光库等有真实订单支撑；③PCB、MLCC、存储：同一节奏，属情绪与产业共振；④半导体：强度稍弱，业绩支撑不足——与盘中claim-20260602-002-c「半导体缩量反弹=调整中继」一致；⑤风险提示：CPO短期涨幅已大，需防普涨后高低切换与获利回吐。这是对AI硬件各分支的精细化判断。
+  confidence: high
+  status: active
+  supersedes:
+  - claim-20260525-003
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/主线判断.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - PCB
+  - CPO
+  - 半导体
+  - 轮动
+  - 放量
+  - 主线
+  - 业绩
+  - 存储
+- id: claim-20260602-003-d
+  topic: 明天正常来说情绪核心就应该强势表现
+  source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
+  source_date: 2026-06-02
+  source_type: 复盘
+  extracted_at: 2026-06-02
+  claim_type: sector-theme
+  subject: 明日情绪核心应强势表现，资金能否聚焦某一分支决定修复行情强度和持续性
+  timeframe: intraday
+  statement: 明天正常来说情绪核心就应该强势表现，市场资金能否聚焦于某一个分支，将直接关系到接下来这轮修复行情的强度和持续性。这是接下来需要进一步观察的重点
+  evidence_quote: 明天正常来说情绪核心就应该强势表现，市场资金能否聚焦于某一个分支，将直接关系到接下来这轮修复行情的强度和持续性——这是接下来需要进一步观察的重点。
+  interpretation: 明日观察要点：①情绪核心应强势表现——这是对明日盘面的基准预期；②关键变量：资金能否聚焦某一分支——从「普涨共振」走向「强共振」的转化条件；③若无法聚焦：反弹预期降低——与今日「普涨共振」判断一致；④观察标的：火炬电子（MLCC）、亨通光电（光纤）能否继续走强并带动分支；⑤与早盘claim-20260602-001-g「最优走势是小高开—兑现—再回流」形成呼应。这是一个明确的明日操作框架。
+  confidence: medium
+  status: active
+  supersedes:
+  - claim-20260527-005-b
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/仓位管理.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 明日情绪核心
+  - 板块主题
+  - 修复
+- id: claim-20260602-003-e
+  topic: 研报核心方向
+  source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
+  source_date: 2026-06-02
+  source_type: 复盘
+  extracted_at: 2026-06-02
+  claim_type: sector-theme
+  subject: 感光干膜、镁合金、洗碗机、东南亚两轮车等新研报方向梳理
+  timeframe: trend
+  statement: 研报核心方向：①感光干膜——AI算力向PCB上游耗材传导，国产替代空间超70%，核心福斯特/容大感光；②镁合金——半固态注射成型降本34%，三重新兴需求（AIPC散热/电动自行车/人形机器人），核心伊之密/宝武镁业/星源卓镁；③洗碗机——内需承压外需强劲，出口占比77%，核心老板电器/海尔智家；④东南亚两轮车——越南7月禁燃令，2.1亿油摩电动化，核心雅迪/爱玛/安乃达
+  evidence_quote: AI算力向PCB上游耗材传导。24年全球市场80.3亿元、中国52.1亿元，29年有望达110.9亿/74.8亿元...半固态注射成型综合降本34%，镁对铝成本优势全面确立...「内需承压，外需强劲」。26Q1产量303.8万台...美伊战争后油价高企+越南河内7月禁燃令，2.1亿油摩存量市场电动化加速。
+  interpretation: 研报方向梳理：①感光干膜——PCB上游耗材，HDI/IC载板用增速快于传统多层板，国产替代空间超70%；②镁合金——AIPC散热（渗透率26年35%→28年79.7%）、电动自行车新国标、人形机器人量产三重驱动；③洗碗机——出口占比77%，欧洲最大拉动市场；④东南亚两轮车——越南禁燃令催化，2.1亿油摩存量电动化，雅迪/爱玛PE仅9倍；⑤这些方向属于「产业认知更新」，不是立即买入信号，需跟踪订单/业绩验证。这是对多个新方向的系统性梳理。
+  confidence: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/产业链认知.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 国产替代
+  - 板块主题
+  - PCB
+  - 机器人
+  - 算力
+  - AI
+- id: claim-20260602-003-f
+  topic: 英伟达Computex催化
+  source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
+  source_date: 2026-06-02
+  source_type: 复盘
+  extracted_at: 2026-06-02
+  claim_type: sector-theme
+  subject: 英伟达点名新方向：有色锡算力金属、服务器全面量产、裕太微DSP热
+  timeframe: short-term
+  statement: 英伟达Computex催化：①有色锡——AI服务器用锡量是普通3-5倍，全球储采比降至17-21年，锡价中枢系统性上移；②服务器——Vera
+    Rubin全面量产，推理时代CPU:GPU配比从1:8向1:1靠拢，通用服务器需求激活；③裕太微——黄仁勋称Marvell或成下一家万亿美元公司，裕太微DSP方向大涨18%，华为哈勃持股6.97%
+  evidence_quote: 全球锡储采比已降至17-21年...AI服务器用锡量是普通服务器3-5倍...英伟达Vera Rubin进入全面量产...推理时代CPU:GPU配比从1:8向1:1靠拢...Computex上黄仁勋称Marvell可能成'下一家万亿美元公司'...裕太微大涨18%...
+  interpretation: 英伟达产业链新催化：①有色锡——「算力金属」新叙事，AI服务器用锡量3-5倍，全球库存仅17天，锡价中枢上移；②服务器——Vera
+    Rubin量产，推理时代CPU需求被激活（配比1:8→1:1），戴尔/联想/工业富联业绩验证；③裕太微——Marvell被黄仁勋点名，裕太微作为A股DSP潜在标的大涨18%，华为哈勃持股6.97%；④这些催化属于「事件驱动+产业逻辑」双重支撑，但短期涨幅已大，需防利好兑现。这是对英伟达产业链扩散的系统性梳理。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/市场分析/产业链认知.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 板块主题
+  - 有色
+  - 算力
+  - 华为
+  - 催化
+  - AI
+  - 美元
+- id: claim-20260602-003-g
+  topic: 在反复轮动、宽度有余而高度不足的格局下
+  source_path: sources/raw/财经/复盘：26-06-02：共振修复，AI硬件普涨，情绪拐点确认.md
+  source_date: 2026-06-02
+  source_type: 复盘
+  extracted_at: 2026-06-02
+  claim_type: operation
+  subject: 普涨轮动阶段，地位与卡位决定资金回流优先级，业绩兑现清晰的龙头优于纯情绪标的
+  timeframe: short-term
+  statement: 在反复轮动、宽度有余而高度不足的格局下，资金更倾向于回流到有明确产业卡位、份额或地位领先的龙头。核心思路：普涨轮动阶段，地位与卡位决定资金回流的优先级，业绩兑现节点清晰的龙头优于纯情绪炒作标的
+  evidence_quote: 核心思路：普涨轮动阶段，地位与卡位决定资金回流的优先级，业绩兑现节点清晰的龙头优于纯情绪炒作标的。
+  interpretation: 操作策略：①普涨轮动阶段的选股原则——地位/卡位优先，不是涨幅优先；②CPO供应链核心卡位：天孚通信（光引擎/FAU/ELS）、工业富联（CPO交换机）；③国产替代地位：鼎龙股份（光刻胶/CMP国产第一）、巨化股份（电子级PTFE）、裕太微（以太网PHY）；④全球市占地位：东山精密（FPC全球第二/PCB全球第三）、云铝股份（绿色铝龙头）；⑤MLCC环节：火炬电子、深圳华强；⑥核心纪律：业绩兑现节点清晰的龙头优于纯情绪炒作——这与博主一贯强调的「有真实订单/基本面的方向」完全一致。这是对当前操作环境的明确指导。
+  confidence: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-08
+  links:
+    wiki_pages:
+    - knowledge/wiki/投资方法论/交易纪律.md
+    methodology_pages: []
+    cases: []
+  intensity: high
+  tags:
+  - 操作策略
+  - 轮动
+  - 龙头
+  - 业绩
