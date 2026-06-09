@@ -831,3 +831,74 @@ stock_monitor.py 轮询（2分钟间隔）
 ---
 
 *文档版本：v2.0 — 基于用户反馈和LLM交易Agent研究重写*
+*实施记录：v2.1 — 2026-06-09，架构对齐修复*
+
+## 七、实施记录（2026-06-09）
+
+### 7.1 发现的核心问题
+
+**问题1：cron prompt 与实际调用链脱节**
+
+9 个看盘 cron job 通过 `qing_stock_monitor_agent.py` → `stock_monitor.py --agent-json-context` → POST qing-agent `/analyze/trigger`。LLM 调用发生在 qing-agent 内部的 LangGraph 工作流中，使用的是 `market_analyst.txt` 等 qing-agent 自带的 system prompt。`cron_*.txt` 的节点专属指令由 `stock_monitor.py::format_agent_analysis_context()` 作为**上下文数据**注入（不是 system prompt），仅 qing-agent 不可达时的文本 fallback 路径才会直接用到 cron job 的 prompt 字段。
+
+**关键认知**：`market_analyst.txt` 是 LLM 实际收到的 system prompt，所有 persona/赔率框架/Few-Shot/异常检测指令都应加在这里。`cron_*.txt` 是上下文补充。
+
+**问题2：daily_state 写回链断裂**
+
+最初将 `daily_state` 输出指令加在 `cron_*.txt` 中，但 qing-agent 不读这些文件。正确做法是加在 `market_analyst.txt` 末尾——qing-agent 输出后由 `sync_daily_state.py` 扫描 `~/.hermes/cron/output/` 提取 `daily_state` 代码块并写入 `daily_state.json`。
+
+**问题3：条件驱动管线未部署**
+
+`stock_monitor.py::evaluate_position_alerts()` 已实现 add_zone 触发逻辑，但 9 个看盘 cron 都走 `--agent-json-context`（LLM 路径），不经过 `run_tick()`（纯规则路径）。解决方案：新增独立 cron job `qing_stock_monitor_poll.py`，每 5 分钟拉行情检查 add_zone/reduce_zone/risk_zone，纯规则推送、0 token。
+
+**问题4：linked_claims 全空**
+
+607 条 claims 中仅 31 条有 `related_stocks` 字段（新格式），且格式为 `协创数据(300857)` 而非纯数字。用 `backfill_linked_claims.py` 从 YAML 文件直接提取回填，21 只票成功关联。
+
+### 7.2 修改清单
+
+#### qing-agent prompt（`market_analyst.txt`）
+
+| 新增内容 | 对应文档 |
+|---------|---------|
+| Few-Shot 买入示例（2正例+3反例） | §4.2 买入案例 Few-Shot |
+| `daily_state` 输出格式指令（9个时间节点对应JSON） | §4.4.3 观点连续性 |
+| 事件驱动异常检测（5种信号自动标注） | §4.4.2 事件驱动段 |
+
+#### 新增文件
+
+| 文件 | 用途 |
+|------|------|
+| `prompts/system/trader_mindset.txt` | Phase 1.3 占位，指向 market_analyst.txt |
+| `scripts/sync_claims_to_config.py` | Claims→Entry 桥接 CLI |
+| `scripts/sync_daily_state.py` | 扫描 cron 输出提取 daily_state JSON |
+| `scripts/qing_stock_monitor_poll.py` | 条件驱动轮询（add_zone/风控） |
+| `scripts/backfill_linked_claims.py` | 从 YAML 全量回填 linked_claims |
+| `skills/qing-learning/references/claims-to-entry-bridge.md` | 桥接参考文档 |
+
+#### 新增 cron job
+
+| Job | 频率 | 类型 | 用途 |
+|-----|------|------|------|
+| Daily State 同步扫描 | */5 9-15 * * 1-5 | no-agent | 提取 daily_state JSON→写入 |
+| A股条件驱动轮询 | */5 9-15 * * 1-5 | no-agent | add_zone/reduce_zone/risk_zone 检查 |
+
+#### Config 更新
+
+| 文件 | 改动 |
+|------|------|
+| `strategy_pack.yaml` | 新增 `position_rules`（7大机会模式） |
+| `watchlist.yaml` | 21只票回填 `linked_claims` |
+
+#### Skill 更新
+
+| Skill | 改动 |
+|-------|------|
+| `qing-learning` | 新增 13b 步骤（Claims→Config桥接）、参考 #43 |
+| `qing-stock-monitor-update` | 新增 2.5f（entry_points生命周期+赔率）、add_zone/trade_log/portfolio_stats 维护规范、纪律 #24/25 |
+
+### 7.3 遗留问题
+
+1. **linked_claims 覆盖率低**（21/164，13%）：607 条 claims 中仅 31 条有 `related_stocks` 字段。后续新 claims 继续回填，老 claims 无法批量补充（需逐条手动标注）。
+2. **daily_state 写回依赖 LLM 输出格式**：若 qing-agent 未按格式输出 `daily_state` 代码块，扫描器无法解析。当前靠 prompt 约束，无 fallback。
+3. **sync_claims_to_config.py 首次运行返回 0**：因 claims 中缺少可量化的介入区间（operation claims 多为策略级而非标的具体价位），桥接目前只生成 linked_claims 回填。

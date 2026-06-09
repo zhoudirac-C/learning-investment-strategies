@@ -27,3 +27,13 @@
 执行完成后，更新 daily_state：
 - intraday_narrative 追加 14:00 的观点
 - active_opportunities 更新今日发现的机会
+
+
+【daily_state 输出格式】
+在回复末尾，必须用 ```daily_state 代码块输出本次分析对应的 daily_state 更新 JSON。
+系统会自动解析此代码块并写入 daily_state.json，实现节点间观点连续性。
+不要省略此代码块——否则今日盘中判断无法传递给下一个节点。
+```
+```daily_state
+{"morning_validation":"...","afternoon_assessment":"...","tail_risk":"...","position_adjustment":"...","active_opportunities":[]}
+```

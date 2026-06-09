@@ -50,7 +50,7 @@ description: |
 19. `skills/qing-stock-monitor-update/references/yaml-patterns-20260604.md` — **新增 YAML 配置模式（已代码实现）**：dedupe_by_type 差异化去重（风控15min/减仓30min/板块轮动30min + 价格突破阈值）、t_zone 做T区间拆分、sector_group 清理三同步
 20. `skills/qing-stock-monitor-update/references/dedupe-by-type-implementation.md` — **dedupe_by_type 代码实现细节**：映射规则、价格突破逻辑、向后兼容策略、7个单元测试覆盖。已代码实现，配置生效中。
 22. `skills/qing-stock-monitor-update/references/direction-performance-scan.md` — **全方向性能扫描**：模式 C——当用户要求"梳理所有方向哪些在调整"时，全方向 × 全标的 × 全行情的批量扫描方法论。含腾讯 API 批量获取、theme 分组统计、缺口检测流程。
-23. `src/qing_investment/agent/tools/stock_sector_mapper.py` — **个股板块三层定位**：当 UP 未提及某标的时，通过新浪 API 获取实时板块排名，量化判断个股地位（日内龙头/中军/趋势/跟风）。含本地缓存管理和定时重建脚本 `scripts/build_sector_mapping.py`。
+23. `src/qing_investment/agent/tools/stock_sector_mapper.py` — **个股板块三层定位**：当 UP 未提及某标的时，通过新浪 API 获取实时板块排名，量化判断个股地位（日内龙头/中军/趋势/跟风）。含本地缓存管理（`config/stock_monitor/stock_sector_mapping.json`，TTL=24h）。定时重建脚本 `scripts/build_sector_mapping.py`，cron `*/30 6-8 * * 1-5`（盘前 6:00-8:30 每半小时，共 6 次）——增量模式：缓存新鲜则秒级跳过，过期自动全量重建（~6 分钟）。`--force` 强制全量，`--retries 3` 失败自动重试（指数退避）。HTTP 层已内置 3 次重试（5s/10s/20s），timeout 30s。当缓存过期且所有 cron 次都失败时，`get_stock_sectors()` 降级为快速反查模式（只查 20 个最热门板块）。
 24. `skills/qing-stock-monitor-update/references/config-health-check.md` — **配置健康检查**：watchlist/strategy_pack/positions 完整性检查清单（code 格式、entry 去重、sector 覆盖、防失真、非主板标记）。每次 config review 或大更新后执行。
 25. `scripts/validate_config.py` — **配置一致性校验脚本**：独立运行 `python scripts/validate_config.py` 自动检查 code 格式、entry 去重、sector_groups 覆盖、today_snapshot 位置、claims 一致性、持仓区间完整性。退出码 0=干净，1=警告，2=错误。推荐每次 config 更新后运行。详见 `references/validate-config-script.md`。
 27. `skills/qing-stock-monitor-update/references/scan-all-stocks-json-summary.md` — **scan_all_stocks JSON 输出**：`--json-summary` 标志的使用说明、输出格式、集成方式。
@@ -59,6 +59,9 @@ description: |
 30. `references/prompt-layer-transformation-playbook.md` — **Prompt 层改造实战手册**：当系统被诊断为"太保守、只减仓不提醒买入"时，如何仅通过重写 system prompt 实现交易者人格嵌入、赔率框架激活、反保守自检。含 5 个 prompt 文件改造清单、nodes.py 注入逻辑、JSON 字段扩展指南。
 31. `references/daily-state-hot-score-implementation.md` — **Phase 3-4 架构实现参考**：daily_state 状态机、hot_score 热度分、claims_to_entry 桥接、3节点 cron prompt（**09:26/14:00/15:20**，注意 09:26 是集合竞价后，不可改为 09:30）、add_zone 触发逻辑的完整实现细节与维护指南。
 32. `references/config-field-audit-checklist.md` — **Config 字段补全核对清单**：当用户要求"核对改动是否与架构文档一致"时使用。覆盖 Prompt/代码/Config 三层，含自动化核对脚本、常见遗漏模式、修复优先级。
+33. `references/no-agent-cron-timeout-patterns.md` — **no-agent Cron 超时防御模式**：增量+高频 cron、`save_cache` 防测试破坏、HTTP 重试+退避、`python -u` 非缓冲输出。适用于所有 `no_agent: true` 的长运行 cron 脚本。
+34. `references/batch-kline-qing-agent-fallback.md` — **Qing-Agent K线拉取不可靠 → 本地批量兜底**：Qing-Agent /chat 端点的自动K线拉取成功率低（18只仅1只成功），应改为本地批量拉取后再结构化注入。含 `scripts/batch_kline_analysis.py` 使用说明和内联代码示例。
+35. `references/market-index-config.md` — **市场指数配置与数据注入**：当前拉取的五大指数（上证/深证/创业板/科创50/全A）、全A指数来源说明（同花顺无API→中证全指替代）、新增指数的两步修改法（stock_monitor.py + stock_data.py）、验证命令。
 
 ## 工作流程
 
@@ -145,6 +148,9 @@ quotes['sz002055']  # KeyError
 api_key = parts[2]  # '002055'
 quotes[api_key] = {...}
 ```
+
+**更新前检查 entry_suggestions**：
+若 `config/stock_monitor/entry_suggestions/` 目录下有待确认文件（由 `scripts/sync_claims_to_config.py` 生成），先读取并展示给用户确认。确认后写入 strategy_pack.yaml，删除建议文件。
 
 ### Step 2: 检查 UP 最新观点（模式 A + 模式 B）
 
@@ -282,6 +288,37 @@ Qing-Agent 返回的是**定性判断**（方向/态度/策略基调），不是
 - `stop_loss` 字段只用于已有持仓的票
 - 观察池新票只配置 `entry_zone` + `invalidation`（失效条件）
 
+### Step 2.5f: entry_points 状态生命周期管理
+
+架构文档 §4.5.2 为 entry_points 引入了 `status` / `opportunity_pattern` / `odds_analysis` / `claim_basis` 字段。每次更新 strategy_pack 时必须逐条检查：
+
+**status 状态机**：
+- `active` → 当前价仍在介入区间附近，等待触发
+- `triggered` → 价格已进入介入区间，需推送提醒
+- `expired` → 价格已远离区间（>10%）或 claim 已过期，不再有效
+- `executed` → 用户已执行操作，转为持仓或归档
+
+**状态转换规则**：
+- active → triggered：现价进入 entry_zone 区间，在 note 中记录触发日期
+- active → expired：现价偏离 entry_zone > 10% 且无新 claims 支撑，或引用 claim 被 superseded
+- triggered → executed：用户确认已买入，记录执行价和日期
+- triggered → active：触发超过 5 天未执行，价格仍在区间 → 保持 active；价格已远离 → expired
+- executed → 从 entry_points 移除，归档到 positions 的 entry_decision
+
+**赔率分析（odds_analysis）填写规范**：
+- `upside_pct`：基于 claim 目标位 vs 当前价的上行空间（如 +15%）
+- `downside_pct`：基于技术支撑位 vs 当前价的下行风险（如 -5%）
+- `odds_ratio`：upside/downside，如 "3:1"
+- `estimated_probability_up`：主观概率估计（如 45%）
+- `expected_value`：赔率 × 概率 = 期望收益（如 3×0.45 - 1×0.55 = 0.8）
+- **赔率 < 2:1 不配置 entry_point**（不符合不对称机会原则）
+- 由 LLM 或人工在更新时填充，非写死
+
+**claim_basis 校验**：
+- 每条 entry_point 应标注来源 claim ID（如 `claim-20260604-003`）
+- 若引用 claim 被 superseded → 更新 claim_basis 到新 claim
+- 若引用 claim 的 statement 与 entry 逻辑矛盾 → 修正或删除 entry_point
+
 ### Step 3: 更新 watchlist.yaml
 
 **追加原则**：
@@ -391,9 +428,10 @@ Qing-Agent 返回的是**定性判断**（方向/态度/策略基调），不是
 - 每个持仓的 `today_plan`：基于**当前价格+最新 claims**重新编写（不保留旧计划）
 
 **持仓变动处理**：
-- **新建持仓**：添加完整字段（code, name, shares, cost, reduce_zone, risk_zone, account, open_date, note, today_plan）
+- **持仓-YAML缺口检测（必须优先执行）**：用户告知持仓后，先对比 `positions.yaml`。若用户说了某只票但 YAML 中没有 → 这是缺口，必须新建。常见场景：用户手动建仓后还没更新配置，或上次清仓后重新开仓。**反面案例**：用户说"大同证券天赐材料200股"，positions.yaml 中大同账号 `positions: []`（已全部清仓），Agent 只更新了华宝的万泽股份而遗漏了天赐材料。
+- **新建持仓**：添加完整字段（code, name, shares, cost, reduce_zone, risk_zone, account, open_date, note, today_plan）。同时更新 `strategy_summary` 和 `portfolio_stats`（total_positions +1, direction_concentration 追加）
 - **减仓**：更新 shares 和 cost（用户会提供新的 cost），在 note 中标注"减仓后X股（原Y股）"
-- **清仓**：从 `positions` 列表移除，添加到 `closed_positions`，记录卖出价和盈亏
+- **清仓**：从 `positions` 列表移除，添加到 `closed_positions`，记录卖出价和盈亏。同时更新 `strategy_summary` 和 `portfolio_stats`
 - **账户重命名**：若用户要求更改账户名称，同步更新所有 `account` 字段和 `strategy_summary` 中的描述
 
 **用户减仓响应流程（新增）**：
@@ -435,6 +473,30 @@ AI：收到。更新安泰科技持仓：700股→500股，成本24.702保持不
 - **关键陷阱**：若只配 `risk_line: 44.5` 而期望区间触发（如 44.5-45.5），必须用 `risk_zone: "44.5-45.5"`。
 - **`positions.example.yaml` 必须使用 `risk_zone` 而非 `risk_line`**：示例文件作为模板应使用推荐字段名，避免复制后形成旧习惯。
 - **高危漏报**：若持仓未配置 `reduce_zone` 或 `risk_zone`/`risk_line`，`evaluate_position_alerts()` 将完全跳过该持仓，导致跌停/大跌无任何提醒。更新时必须逐条确认每个持仓都配置了价格区间字段。
+
+**add_zone 维护规范（架构文档 §4.5.3）**：
+- `add_zone` 与 `reduce_zone` 对称，方向相反——价格跌到 add_zone 触发"加仓提醒"
+- 计算依据：技术支撑位（MA20/MA60/前低）上方 1-3%
+- 与 reduce_zone 的空间关系：add_zone < 现价 < reduce_zone
+- `add_trigger`：触发条件，如"回踩30.5-31.0企稳，分时不创新低"
+- `add_position_ratio`：加仓仓位，如"0.5成"
+- `add_invalidation`：加仓失效条件，如"跌破30且30分钟不能收回"
+- 每次更新持仓时，基于当前价重新校验 add_zone 是否仍然有效
+
+**trade_log 维护规范**：
+- 由 cron 或手动在检测到持仓操作后自动追加
+- 格式：`{date, action, price, shares, reason}`
+- 操作类型：买入/加仓/减仓/清仓/做T
+- 15:20 cron 复盘时自动校验 trade_log 与 shares 一致性
+- 手动更新持仓后也需追加 trade_log 记录
+
+**portfolio_stats 维护规范**：
+- `total_positions`：当前持仓数量
+- `total_exposure_pct`：总仓位占资金比例
+- `weighted_avg_odds`：按仓位加权的平均赔率
+- `direction_concentration`：各方向仓位集中度
+- 每次持仓变动（建仓/加减仓/清仓）后需重算
+- 15:20 cron 复盘时自动重算
 
 **已清仓标的处理**：
 - 已清仓标的必须移入 `closed_positions`，同时从 `positions` 列表中删除。
@@ -529,6 +591,15 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 21. **代码格式标准化**：`stock_monitor.py` 的 `stock_code_to_secid()` 只接受 `XXXXXX.SZ` / `XXXXXX.SH` 格式（正则 `(\d{6})\.(SZ|SH)`）。**任何时候添加新标的到 watchlist/strategy_pack，code 必须使用此标准格式**。非标准格式如 `sh688381`、`sz002897` 会导致行情拉取静默失败（`stock_code_to_secid` 返回 `None`，该标的被跳过）。**反面案例（2026-06-06）**：watchlist 中 6 个标的用了 `sh######` 格式，其中 3 个在定期行情拉取中被跳过。修复方法：`sh688381 → 688381.SH`，`sz002897 → 002897.SZ`。
 22. **entry_points 重复**：同一标的在 `entry_points` 中出现多次，每次更新时容易因追加操作产生重复。重复条目浪费 prompt token 且暗示标的被强调。**每次更新 strategy_pack 后，必须检查 entry_points 去重**：按 `code + name` 组合检测重复，保留最详细的条目。**反面案例（2026-06-06）**：航天电器（002025.SZ）在 entry_points 中出现 3 次，3 条内容几乎相同。
 23. **today_snapshot 双写**：`watchlist.yaml` 和 `strategy_pack.yaml` 曾同时包含 `today_snapshot`，内容互不一致（一个说"调整第17天接近尾声"，另一个说"放弃执念"）。**已规定**：`today_snapshot` 只放在 `strategy_pack.yaml` 中，`watchlist.yaml` 不应包含此字段。添加新数据到 watchlist 时不要创建 today_snapshot 块。
+24. **hot_score 消费规则**：热度分由 cron 每日 09:00 自动计算（`scripts/calc_hot_scores.py`），不需要手动触发。每次手动更新 watchlist 后，检查 `config/stock_monitor/watchlist_hot_scores.json`：Top 10-15 作为"今日重点关注"写入 strategy_pack 的 today_snapshot；热度分骤变（>3分变化）的标的需优先检查 claims 更新；热度分持续 <3 超过 30 天 → 建议用户将 lifecycle 降级为 archived。
+25. **entry_suggestions 检查**：每次手动更新前，检查 `config/stock_monitor/entry_suggestions/` 是否有由 `sync_claims_to_config.py` 生成的待确认文件。如有，优先处理——UP 的操作建议不应积压。确认后写入 strategy_pack，删除建议文件。
+26. **add_zone 配置会被条件驱动轮询消费**：`scripts/qing_stock_monitor_poll.py`（cron 每5分钟 no-agent 轮询）会拉行情并检查持仓的 add_zone——配置了 add_zone 的持仓，价格进入区间时会自动推送"加仓观察"提醒。因此 add_zone 必须保持与当前价格的有效距离（太低不会被触发，太高会频繁误报）。每次手动更新持仓后需重新校验 add_zone。
+27. **Cron prompt 不直达 qing-agent（架构陷阱）**：9个看盘 cron 通过 HTTP 调用本地 qing-agent，qing-agent 使用自己的 LangGraph system prompt（`prompts/system/market_analyst.txt` 等）。修改 cron job 的 `prompt` 字段对 qing-agent 无效——只影响 fallback 文本路径。**修改 LLM 分析行为 → 改 `market_analyst.txt`；修改 cron 调用参数 → 改 `strategy_pack.yaml` 的 `agent_analysis_schedule`。** 反面案例：Agent 修改 9 个 cron prompt 引用 `cron_*.txt`，但 qing-agent 完全不读 cron prompt。详见 `references/cron-pipeline-architecture.md`。
+28. **no-agent cron 超时陷阱（~120s）**：Hermes 对 no-agent cron 有隐式超时（约 120 秒）。超过此时间的脚本会被 kill 并报告 error，即使脚本已部分成功（如 build_sector_mapping.py 已保存缓存但被超时 kill）。防御模式：增量+高频 cron、`save_cache` 参数防止测试破坏生产缓存、HTTP 层重试+退避、`python -u` 非缓冲输出。详见 `references/no-agent-cron-timeout-patterns.md`。
+29. **`--max-sectors`/限制参数必须防御缓存破坏**：任何带 `--max-*`/`--limit`/`--dry-run` 的构建类脚本，必须确保这些标志不会触发生产缓存写入。反面案例：`--force --max-sectors 5` 将 4331 条全量缓存覆盖为 242 条。修复模式：底层函数增加 `save_cache: bool = True` 参数，调用端 `save_cache=args.max_sectors is None`。详见 `references/no-agent-cron-timeout-patterns.md` 模式 B。
+30. **Qing-Agent /chat 端点K线自动拉取不可靠（2026-06-09）**：Qing-Agent v4 理论支持含代码的消息自动拉取 90 日 K 线，但实测 18 只标的仅 1 只成功（其余静默降级）。**不要依赖此能力**。正确做法：先用腾讯 API 批量拉取（`scripts/batch_kline_analysis.py` 或 execute_code 内联），按回撤分四档（🔥>30%/🟡20-30%/🟠10-20%/🔴<10%），作为结构化文本注入 Qing-Agent message。详见 `references/batch-kline-qing-agent-fallback.md`。
+31. **10jqka 同花顺全A(883657)无公开API（2026-06-09）**：同花顺全A是同花顺客户端私有指数，腾讯/东方财富/同花顺 HTTP API 均返回 404。替代方案：中证全指(000985)，腾讯 API `sh000985` 原生支持，走势高度一致。已注入 stock_monitor.py `MARKET_INDEXES` 和 stock_data.py `fetch_index_quotes`。详见 `references/market-index-config.md`。
+32. **微信 iLink 限流导致 cron 推送静默丢失（2026-06-09）**：cron 分析正常执行（status: ok），但 delivery 因 iLink rate limited 静默失败。现象：jobs list 中 `last_delivery_error: "Weixin send failed: iLink sendmessage rate limited"`。不影响分析生成，输出仍可在 `~/.hermes/cron/output/<job_id>/` 读取。当前无已知修复方案（平台限制），多次触发可考虑合并推送或降频。
 
 ## 从复盘文档批量更新 narrative 的规范流程
 

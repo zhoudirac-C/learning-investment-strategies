@@ -97,26 +97,42 @@ class StockPositioningResult:
 
 
 # ── HTTP 工具 ──
-def _http_get(url: str, timeout: float = 10.0, encoding: str = "utf-8") -> str:
-    global _last_request_time
-    # 频率限制保护
-    elapsed = time.time() - _last_request_time
-    if elapsed < _REQUEST_DELAY:
-        time.sleep(_REQUEST_DELAY - elapsed)
-    _last_request_time = time.time()
+_HTTP_RETRY_COUNT = 3
+_HTTP_RETRY_BACKOFF_BASE = 5.0  # 5s, 10s, 20s 退避
 
-    req = urllib.request.Request(url, headers=_HEADERS)
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        raw = resp.read()
-        # 新浪接口多为 GBK
-        if encoding == "auto":
-            for enc in ("gbk", "gb2312", "utf-8"):
-                try:
-                    return raw.decode(enc, errors="ignore")
-                except Exception:
-                    continue
-            return raw.decode("utf-8", errors="ignore")
-        return raw.decode(encoding, errors="ignore")
+
+def _http_get(
+    url: str, timeout: float = 30.0, encoding: str = "utf-8", retries: int = _HTTP_RETRY_COUNT,
+) -> str:
+    global _last_request_time
+    last_err = None
+    for attempt in range(1, retries + 1):
+        try:
+            # 频率限制保护
+            elapsed = time.time() - _last_request_time
+            if elapsed < _REQUEST_DELAY:
+                time.sleep(_REQUEST_DELAY - elapsed)
+            _last_request_time = time.time()
+
+            req = urllib.request.Request(url, headers=_HEADERS)
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                raw = resp.read()
+                # 新浪接口多为 GBK
+                if encoding == "auto":
+                    for enc in ("gbk", "gb2312", "utf-8"):
+                        try:
+                            return raw.decode(enc, errors="ignore")
+                        except Exception:
+                            continue
+                    return raw.decode("utf-8", errors="ignore")
+                return raw.decode(encoding, errors="ignore")
+        except Exception as e:
+            last_err = e
+            if attempt < retries:
+                wait = _HTTP_RETRY_BACKOFF_BASE * (2 ** (attempt - 1))
+                print(f"  [RETRY] {url[:80]}... attempt {attempt} failed ({e}), waiting {wait}s")
+                time.sleep(wait)
+    raise last_err  # type: ignore[misc]
 
 
 def _http_get_json(url: str, timeout: float = 10.0) -> list | dict:
@@ -217,6 +233,7 @@ def _save_mapping_cache(mapping: dict[str, list[dict]]) -> None:
 def build_stock_sector_mapping(
     max_sectors: int | None = None,
     progress_callback: callable | None = None,
+    save_cache: bool = True,
 ) -> dict[str, list[dict]]:
     """全量建立个股→板块映射。
 
@@ -224,8 +241,9 @@ def build_stock_sector_mapping(
     概念+行业约259个板块，全量请求约需6-10分钟（含1.5秒间隔）。
 
     Args:
-        max_sectors: 限制处理的板块数量（用于测试）
+        max_sectors: 限制处理的板块数量（用于测试，会覆盖全量缓存！）
         progress_callback: (current, total, sector_name) -> None
+        save_cache: 是否写入本地缓存文件（测试时设为 False）
     """
     sectors: list[SectorInfo] = []
     for bt in ("concept", "industry"):
@@ -265,7 +283,8 @@ def build_stock_sector_mapping(
             failed_sectors.append(sector.name)
             continue
 
-    _save_mapping_cache(mapping)
+    if save_cache:
+        _save_mapping_cache(mapping)
     if failed_sectors:
         print(f"[WARN] {len(failed_sectors)} 个板块获取失败: {failed_sectors[:5]}...")
     return mapping

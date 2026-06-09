@@ -60,7 +60,7 @@
 
 | # | 缺陷 | 改进方案 | 优先级 |
 |---|------|---------|--------|
-| 1 | Cron任务冗余（9个→实际只4-5个有价值）| 精简为3个LLM节点+量化轮询 | P0 |
+| 1 | Cron任务差异化不足（同一prompt跑9个时间点）| 9个节点各配独立prompt + 共享daily_state | P0 |
 | 2 | Watchlist膨胀（3718行，无生命周期）| 增加lifecycle_stage字段+降级机制 | P1 |
 | 3 | Claims→操作全手动（6-7步）| 自动桥接脚本 | P1-P2 |
 | 4 | entry_points只是文档，无触发 | 条件单机制 | P1 |
@@ -80,3 +80,36 @@
 - 跨会话引用：后续cron任务或Agent可以引用这些文档
 
 文档结构模板参见 `docs/config-cron-architecture-review.md`。
+
+## 常见陷阱
+
+### 陷阱1：把三条管线的修改混在一个地方提方案
+
+当系统有手动触发（skill）、定时触发（cron）、事件触发（ingestion pipeline）三条独立管线时，review 输出必须分别标注每条改动属于哪条管线。
+
+**反面案例（2026-06-09）**：Agent 建议在 qing-stock-monitor-update skill 的 Step 0 加入 cron 管线的决策树 → 用户纠正："skill 不是只能手动触发吗？定时任务和事件驱动会调用 skill 吗？要改也是分别改三个地方"。
+
+**正确做法**：
+- 手动触发 → 改 skill 工作流（SKILL.md）
+- 定时触发 → 改 cron prompt / cron 配置 / stock_monitor.py 代码
+- 事件触发 → 改 qing-learning ingestion 流程
+
+### 陷阱2：cron 命令子命令名
+
+更新 cron job 的 prompt 字段使用 `hermes cron edit <job_id> --prompt "..."`，不是 `hermes cronjob update`（该子命令不存在）。
+
+### 陷阱3：cron prompt vs schedule prompt 易混淆
+
+- cron job 的 prompt 字段（`hermes cron edit --prompt`）= LLM 在 cron 运行时收到的指令
+- strategy_pack.yaml 的 `agent_analysis_schedule` 中的 `prompt` 字段 = `stock_monitor.py::format_agent_analysis_context()` 读取并注入到上下文的节点专属指令文件名
+- 两者互补但独立：cron prompt 告诉 LLM "读哪个文件"，schedule prompt 告诉 stock_monitor "注入哪个文件内容"
+
+### 陷阱4：cron 走 qing-agent 时，system prompt 的正确位置
+
+当 cron 任务通过 `qing_stock_monitor_agent.py` → `stock_monitor.py --agent-json-context` → POST qing-agent 的链路运行时：
+
+- **LLM 调用发生在 qing-agent 内部**，使用的是 qing-agent 自己的 system prompt（`market_analyst.txt`、`style_writer.txt` 等）
+- **cron job 的 prompt 字段和 cron_*.txt 不会被 qing-agent 读取**——它们只在 qing-agent 不可达时的 fallback 文本路径生效
+- 需要注入 persona、赔率框架、daily_state 输出格式等系统级指令时，**必须修改 qing-agent 的 prompt 文件**（如 `prompts/system/market_analyst.txt`），而非 cron prompt
+
+**反面案例（2026-06-09）**：Agent 在 9 个 cron prompt 中引用 cron_*.txt、在 cron_*.txt 中添加 daily_state 代码块要求，但这些改动对 LLM 路径完全无效——因为 qing-agent 不读 cron prompt。用户纠正："定时任务不应该直接调我们本地的 q-agent 吗？是直接调用大模型吗？那我们的设计不就全部没用了" → 修正：daily_state 指令移入 market_analyst.txt，cron prompt 恢复简洁 fallback 版本。

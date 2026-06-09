@@ -1,5 +1,5 @@
 {
-  "calculated_at": "2026-06-08T22:20:26.980177",
+  "calculated_at": "2026-06-09T09:00:42.669846",
   "total_stocks": 164,
   "tier_summary": {
     "A": 0,
@@ -63,24 +63,6 @@
       "theme_id": "lpu_inference_chip"
     },
     {
-      "code": "002463.SZ",
-      "name": "沪电股份",
-      "hot_score": 5.7,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
-        "priority_base": 10,
-        "technical_setup": 10.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 8.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "LPU/推理芯片链（博通新概念）",
-      "theme_id": "lpu_inference_chip"
-    },
-    {
       "code": "603308.SH",
       "name": "应流股份",
       "hot_score": 5.7,
@@ -99,40 +81,22 @@
       "theme_id": "ai_energy_gas_turbine"
     },
     {
-      "code": "301018.SZ",
-      "name": "申菱环境",
-      "hot_score": 5.6,
+      "code": "002463.SZ",
+      "name": "沪电股份",
+      "hot_score": 5.4,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
+        "up_mention_recency": 2.0,
+        "priority_base": 10,
+        "technical_setup": 10.0,
+        "sector_momentum": 6.0,
         "linked_claims_count": 2.0,
         "entry_zone_proximity": 8.0,
         "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "液冷/散热（华为链，韬定律催化）",
-      "theme_id": "liquid_cooling_heat_dissipation"
-    },
-    {
-      "code": "688629.SH",
-      "name": "华丰科技",
-      "hot_score": 5.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 6.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "国产算力产业链",
-      "theme_id": "domestic_compute"
+      "theme": "LPU/推理芯片链（博通新概念）",
+      "theme_id": "lpu_inference_chip"
     },
     {
       "code": "605376.SH",
@@ -153,22 +117,22 @@
       "theme_id": "upstream_price_increase"
     },
     {
-      "code": "002025.SZ",
-      "name": "航天电器",
+      "code": "301018.SZ",
+      "name": "申菱环境",
       "hot_score": 5.3,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
+        "up_mention_recency": 6.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
         "sector_momentum": 5.0,
         "linked_claims_count": 2.0,
-        "entry_zone_proximity": 4.0,
+        "entry_zone_proximity": 8.0,
         "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "国产算力产业链",
-      "theme_id": "domestic_compute"
+      "theme": "液冷/散热（华为链，韬定律催化）",
+      "theme_id": "liquid_cooling_heat_dissipation"
     },
     {
       "code": "000636.SZ",
@@ -207,22 +171,22 @@
       "theme_id": "cpu_self_development"
     },
     {
-      "code": "301611.SZ",
-      "name": "珂玛科技",
+      "code": "688629.SH",
+      "name": "华丰科技",
       "hot_score": 5.1,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
+        "up_mention_recency": 6.0,
         "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
         "linked_claims_count": 2.0,
-        "entry_zone_proximity": 4.0,
+        "entry_zone_proximity": 6.0,
         "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "半导体材料与电子材料",
-      "theme_id": "semiconductor_materials"
+      "theme": "国产算力产业链",
+      "theme_id": "domestic_compute"
     },
     {
       "code": "002475.SZ",
@@ -279,13 +243,13 @@
       "theme_id": "upstream_price_increase"
     },
     {
-      "code": "002897.SZ",
-      "name": "意华股份",
+      "code": "002025.SZ",
+      "name": "航天电器",
       "hot_score": 5.0,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 4,
+        "up_mention_recency": 6.0,
+        "priority_base": 7,
         "technical_setup": 10.0,
         "sector_momentum": 5.0,
         "linked_claims_count": 2.0,
@@ -293,8 +257,8 @@
         "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "液冷/散热（华为链，韬定律催化）",
-      "theme_id": "liquid_cooling_heat_dissipation"
+      "theme": "国产算力产业链",
+      "theme_id": "domestic_compute"
     },
     {
       "code": "002636.SZ",
@@ -367,6 +331,42 @@
       "ranking_tier": "C",
       "theme": "防御板块（轮动观察，控制仓位）",
       "theme_id": "defensive_rotation"
+    },
+    {
+      "code": "000066.SZ",
+      "name": "中国长城",
+      "hot_score": 4.95,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "国产CPU/服务器/基础软件主板观察池",
+      "theme_id": "mainboard_compute_software"
+    },
+    {
+      "code": "603019.SH",
+      "name": "中科曙光",
+      "hot_score": 4.95,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 8.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "国产CPU/服务器/基础软件主板观察池",
+      "theme_id": "mainboard_compute_software"
     }
   ],
   "all_scores": [
@@ -425,24 +425,6 @@
       "theme_id": "lpu_inference_chip"
     },
     {
-      "code": "002463.SZ",
-      "name": "沪电股份",
-      "hot_score": 5.7,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
-        "priority_base": 10,
-        "technical_setup": 10.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 8.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "LPU/推理芯片链（博通新概念）",
-      "theme_id": "lpu_inference_chip"
-    },
-    {
       "code": "603308.SH",
       "name": "应流股份",
       "hot_score": 5.7,
@@ -461,40 +443,22 @@
       "theme_id": "ai_energy_gas_turbine"
     },
     {
-      "code": "301018.SZ",
-      "name": "申菱环境",
-      "hot_score": 5.6,
+      "code": "002463.SZ",
+      "name": "沪电股份",
+      "hot_score": 5.4,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 5.0,
+        "up_mention_recency": 2.0,
+        "priority_base": 10,
+        "technical_setup": 10.0,
+        "sector_momentum": 6.0,
         "linked_claims_count": 2.0,
         "entry_zone_proximity": 8.0,
         "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "液冷/散热（华为链，韬定律催化）",
-      "theme_id": "liquid_cooling_heat_dissipation"
-    },
-    {
-      "code": "688629.SH",
-      "name": "华丰科技",
-      "hot_score": 5.4,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 5.0,
-        "technical_setup": 10.0,
-        "sector_momentum": 5.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 6.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "国产算力产业链",
-      "theme_id": "domestic_compute"
+      "theme": "LPU/推理芯片链（博通新概念）",
+      "theme_id": "lpu_inference_chip"
     },
     {
       "code": "605376.SH",
@@ -515,22 +479,22 @@
       "theme_id": "upstream_price_increase"
     },
     {
-      "code": "002025.SZ",
-      "name": "航天电器",
+      "code": "301018.SZ",
+      "name": "申菱环境",
       "hot_score": 5.3,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
+        "up_mention_recency": 6.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
         "sector_momentum": 5.0,
         "linked_claims_count": 2.0,
-        "entry_zone_proximity": 4.0,
+        "entry_zone_proximity": 8.0,
         "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "国产算力产业链",
-      "theme_id": "domestic_compute"
+      "theme": "液冷/散热（华为链，韬定律催化）",
+      "theme_id": "liquid_cooling_heat_dissipation"
     },
     {
       "code": "000636.SZ",
@@ -569,22 +533,22 @@
       "theme_id": "cpu_self_development"
     },
     {
-      "code": "301611.SZ",
-      "name": "珂玛科技",
+      "code": "688629.SH",
+      "name": "华丰科技",
       "hot_score": 5.1,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
+        "up_mention_recency": 6.0,
         "priority_base": 5.0,
-        "technical_setup": 9.0,
-        "sector_momentum": 6.0,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
         "linked_claims_count": 2.0,
-        "entry_zone_proximity": 4.0,
+        "entry_zone_proximity": 6.0,
         "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "半导体材料与电子材料",
-      "theme_id": "semiconductor_materials"
+      "theme": "国产算力产业链",
+      "theme_id": "domestic_compute"
     },
     {
       "code": "002475.SZ",
@@ -641,13 +605,13 @@
       "theme_id": "upstream_price_increase"
     },
     {
-      "code": "002897.SZ",
-      "name": "意华股份",
+      "code": "002025.SZ",
+      "name": "航天电器",
       "hot_score": 5.0,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
-        "priority_base": 4,
+        "up_mention_recency": 6.0,
+        "priority_base": 7,
         "technical_setup": 10.0,
         "sector_momentum": 5.0,
         "linked_claims_count": 2.0,
@@ -655,8 +619,8 @@
         "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "液冷/散热（华为链，韬定律催化）",
-      "theme_id": "liquid_cooling_heat_dissipation"
+      "theme": "国产算力产业链",
+      "theme_id": "domestic_compute"
     },
     {
       "code": "002636.SZ",
@@ -1487,6 +1451,24 @@
       "theme_id": "micro_led_optics_mainboard"
     },
     {
+      "code": "301611.SZ",
+      "name": "珂玛科技",
+      "hot_score": 4.8,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 6.0,
+        "priority_base": 5.0,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "半导体材料与电子材料",
+      "theme_id": "semiconductor_materials"
+    },
+    {
       "code": "688313.SH",
       "name": "仕佳光子",
       "hot_score": 4.8,
@@ -1521,24 +1503,6 @@
       "ranking_tier": "C",
       "theme": "CPO/光背板（鸿海今年出货1万台）",
       "theme_id": "cpo_optical_backplane"
-    },
-    {
-      "code": "002916.SZ",
-      "name": "深南电路",
-      "hot_score": 4.8,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
-        "priority_base": 7,
-        "technical_setup": 10.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 4.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "LPU/推理芯片链（博通新概念）",
-      "theme_id": "lpu_inference_chip"
     },
     {
       "code": "688630.SH",
@@ -1611,6 +1575,24 @@
       "ranking_tier": "C",
       "theme": "煤炭（安监+迎峰度夏+煤化工）",
       "theme_id": "coal_full_chain"
+    },
+    {
+      "code": "002897.SZ",
+      "name": "意华股份",
+      "hot_score": 4.7,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 6.0,
+        "priority_base": 4,
+        "technical_setup": 10.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "液冷/散热（华为链，韬定律催化）",
+      "theme_id": "liquid_cooling_heat_dissipation"
     },
     {
       "code": "002938.SZ",
@@ -1863,6 +1845,24 @@
       "ranking_tier": "C",
       "theme": "CPU自研链（字节催化，可能裂变为主线）",
       "theme_id": "cpu_self_development"
+    },
+    {
+      "code": "002916.SZ",
+      "name": "深南电路",
+      "hot_score": 4.5,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 2.0,
+        "priority_base": 7,
+        "technical_setup": 10.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 4.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "LPU/推理芯片链（博通新概念）",
+      "theme_id": "lpu_inference_chip"
     },
     {
       "code": "688469.SH",

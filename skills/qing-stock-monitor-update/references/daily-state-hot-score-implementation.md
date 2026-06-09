@@ -12,7 +12,7 @@
 | daily_state | `src/qing_investment/agent/tools/daily_state.py` | 盘中观点连续性状态机 | 每个 cron 节点读写 |
 | hot_score | `src/qing_investment/agent/tools/hot_score.py` | 观察池热度分计算 | 每日开盘前 |
 | claims_to_entry | `src/qing_investment/agent/tools/claims_to_entry.py` | Claims→Entry Point 桥接 | 新 claims 入库后 |
-| cron prompts | `src/qing_investment/agent/prompts/system/cron_*.txt` | 3个差异化节点指令 | 09:30/14:00/15:20 |
+| cron prompts | `src/qing_investment/agent/prompts/system/cron_*.txt` | 3个差异化节点指令 | 09:26/14:00/15:20 |
 
 ---
 
@@ -144,7 +144,7 @@ suggestions:
 
 | 时间 | ID | 焦点 | 字数 | Prompt 文件 |
 |------|-----|------|------|------------|
-| 09:30 | morning_open | 竞价定调+核心假设+方向初判 | 200字 | `cron_opening.txt` |
+| 09:26 | morning_open | 竞价定调+核心假设+方向初判 | 200字 | `cron_opening.txt` |
 | 14:00 | midday_check | 假设验证+尾盘预案+机会扫描 | 300字 | `cron_midday.txt` |
 | 15:20 | closing_review | 全天复盘+预判准确性+明日假设 | 不限 | `cron_closing.txt` |
 
@@ -216,7 +216,7 @@ if add_zone and add_zone[0] <= latest <= add_zone[1]:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  Cron 09:30/14:00/15:20                                     │
+│  Cron 09:26/14:00/15:20                                     │
 │  └─→ stock_monitor.py::format_agent_analysis_context()     │
 │      ├─→ daily_state.load_daily_state() → 注入状态摘要      │
 │      ├─→ hot_score.format_hot_score_summary() → 注入热度排行 │

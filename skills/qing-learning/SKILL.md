@@ -144,9 +144,12 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 
 38. **Claim 字段完整性审计**：当怀疑 claim 数据质量下降时（如 Neo4j 出现孤立节点、YAML 格式混用），参考 `references/claim-field-audit-workflow.md`（全量审计命令、常见问题模式、修复优先级、验证流程）。
 39. **Claim 审核清单**：参考 `references/claim-review-checklist.md`（三条补充规则：同日期多 raw 独立阅读、禁止多主题合并、不同 claim_type 可重叠）。
-40. **股票代码查询 API**：写 claim 时查询个股代码，参考 `references/stock-code-lookup-api.md`（东方财富搜索 API、URL 编码、批量查询、验证方法）。
+41. **股票代码查询 API**：写 claim 时查询个股代码，参考 `references/stock-code-lookup-api.md`（东方财富搜索 API、URL 编码、批量查询、验证方法）。
+42. **从研报文档提取 Claims**：参考 `references/claim-extraction-from-research-reports.md`（当 UP 视频引用了动态图片研报中的标的清单时，如何找到原始研报文件、按方向创建 claims、设置正确的 source_path）。
 41. **Claim 执行时自检清单**：写完 claims 后提交前必须完成的五步自检，参考 `references/claim-execution-self-check.md`（字段完整性、股票代码、related_stocks、原子性、claim_type）。
-40. **股票代码查询 API**：写 claim 时查询个股代码，参考 `references/stock-code-lookup-api.md`（东方财富搜索 API、URL 编码、批量查询、验证方法）。
+41. **股票代码查询 API**：写 claim 时查询个股代码，参考 `references/stock-code-lookup-api.md`（东方财富搜索 API、URL 编码、批量查询、验证方法）。
+42. **从研报文档提取 Claims**：参考 `references/claim-extraction-from-research-reports.md`（当 UP 视频引用了动态图片研报中的标的清单时，如何找到原始研报文件、按方向创建 claims、设置正确的 source_path）。
+43. **Claims→Entry 桥接**：参考 `references/claims-to-entry-bridge.md`（新 claims 入库后如何生成 entry_point 建议、提取规则、人工确认流程、与 qing-stock-monitor-update 的衔接）。
 
 ### Review 参考
 1. `framework/methodology-review-protocol.md`
@@ -259,6 +262,25 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
     - **⚠️ 同步后必须验证 Agent 能否检索到新内容**（见 Pitfall #15）
     - **常见陷阱**：`PYTHONUNBUFFERED=1` 是关键——否则 Python stdout 缓冲导致进程管理捕获不到输出。ONNX 单线程（`intra_op_num_threads=1`）在 2 核 VM 上必须设置，否则 futex spin-lock 死锁。
     - **索引脚本已内置 Agent 杀进程 + 锁等待**（2026-06-07）：不再需要手动 `kill` Agent，脚本启动时自动处理。手动 kill 仅作备用。
+
+13b. **Claims→Config 桥接（新增 operation 类型 claims 后执行）**：
+
+    > ⚠️ 若本次 ingestion 产生了 `claim_type: operation` 的 claim（含介入区间/仓位/止损建议），
+    > 必须在知识库同步后运行桥接——否则 UP 的操作建议永远不会变成可执行的 entry_point。
+
+    ```bash
+    cd ~/learning-investment-strategies
+    PYTHONPATH=src .venv/bin/python scripts/sync_claims_to_config.py
+    ```
+
+    输出：`config/stock_monitor/entry_suggestions/entry_suggestions_YYYYMMDD.yaml`
+
+    告知用户："生成了 N 条 entry_point 建议，是否需要人工确认后写入 strategy_pack？"
+
+    若用户确认：复制建议条目到 `strategy_pack.yaml` → `entry_points`，git commit。
+    若用户拒绝：保留建议文件供后续参考，不写入 config。
+
+    详见 `references/claims-to-entry-bridge.md`。
 
 ### Ingestion 关键 Pitfalls
 
