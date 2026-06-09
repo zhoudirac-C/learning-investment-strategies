@@ -1,13 +1,20 @@
 updated_at: '2026-06-09'
 source_claims:
-- knowledge/claims/claim-20260604-001.yaml
-- knowledge/claims/claim-20260605-001.yaml
+- knowledge/claims/claim-20260609-001.yaml
+- knowledge/claims/claim-20260609-002.yaml
+- knowledge/claims/claim-20260609-003.yaml
+- knowledge/claims/claim-20260608-001.yaml
+- knowledge/claims/claim-20260608-002.yaml
+- knowledge/claims/claim-20260608-003.yaml
+- knowledge/claims/claim-20260608-004.yaml
+- knowledge/claims/claim-20260607-001.yaml
+- knowledge/claims/claim-20260607-002.yaml
+- knowledge/claims/claim-20260607-003.yaml
+- knowledge/claims/claim-20260607-004.yaml
 - knowledge/claims/claim-20260604-004.yaml
-- knowledge/claims/claim-20260604-002.yaml
+- knowledge/claims/claim-20260604-007.yaml
 - framework/market-cycle-framework.md
-- knowledge/claims/claim-20260604-005.yaml
 - framework/stock-analysis-playbook.md
-- knowledge/claims/claim-20260604-003.yaml
 market_framework:
   current_stage: 磨底期恐慌中后段，电风扇行情不追涨杀跌。突破4120才是趋势买点。工程机械/燃气轮机/创新药为低位配置方向。
   core_question: 指数能否站稳4000并突破4120？燃气轮机方向延续性？工程机械/创新药能否形成新主线？万泽风控线是否守住？
@@ -272,7 +279,8 @@ quant_entry_strategy:
 sector_groups:
 - id: cpu_self_development
   name: CPU自研链
-  style: offensive
+  style: monitor_only
+  note: UP规避科技方向，降级为只监控不介入
   members:
   - code: 000066.SZ
     name: 中国长城
@@ -280,7 +288,8 @@ sector_groups:
     name: ST得润
 - id: upstream_price_increase
   name: 上游涨价链
-  style: offensive
+  style: monitor_only
+  note: UP规避科技方向，降级为只监控不介入
   members:
   - code: 688630.SH
     name: 芯碁微装
@@ -292,7 +301,8 @@ sector_groups:
     name: 安泰科技
 - id: liquid_cooling
   name: 液冷/散热
-  style: offensive
+  style: monitor_only
+  note: UP规避科技方向，降级为只监控不介入
   members:
   - code: 300602.SZ
     name: 飞荣达
@@ -302,7 +312,8 @@ sector_groups:
     name: 意华股份
 - id: cpo_optical
   name: 光通信/CPO
-  style: offensive
+  style: monitor_only
+  note: UP规避科技方向，降级为只监控不介入
   members:
   - code: 300308.SZ
     name: 中际旭创
@@ -312,7 +323,8 @@ sector_groups:
     name: 天孚通信
 - id: compute_rental
   name: 算力租赁
-  style: offensive
+  style: monitor_only
+  note: UP规避科技方向，降级为只监控不介入
   members:
   - code: 300383.SZ
     name: 光环新网
@@ -358,7 +370,8 @@ sector_groups:
     name: 平安银行
 - id: mlcc_passive
   name: MLCC/被动元件
-  style: offensive
+  style: monitor_only
+  note: UP已不推荐追涨，降级为只监控不介入
   members:
   - code: 300408.SZ
     name: 三环集团
@@ -368,7 +381,8 @@ sector_groups:
     name: 火炬电子
 - id: coal
   name: 煤炭
-  style: defensive
+  style: monitor_only
+  note: UP已转向其他方向，降级为只监控不介入
   members:
   - code: 601088.SH
     name: 中国神华
@@ -376,7 +390,8 @@ sector_groups:
     name: 山西焦煤
 - id: chemical_price
   name: 化工涨价
-  style: offensive
+  style: monitor_only
+  note: UP已转向其他方向，降级为只监控不介入
   members:
   - code: 603968.SH
     name: 醋化股份
@@ -384,7 +399,8 @@ sector_groups:
     name: 巨化股份
 - id: ai_agent_application
   name: AI应用/AI Agent
-  style: offensive
+  style: monitor_only
+  note: UP规避科技方向，降级为只监控不介入
   members:
   - code: 301236.SZ
     name: 软通动力
@@ -410,7 +426,8 @@ sector_groups:
     name: 东方雨虹
 - id: compute_power
   name: 算电协同
-  style: offensive
+  style: monitor_only
+  note: UP规避科技方向，降级为只监控不介入
   members:
   - code: 002015.SZ
     name: 协鑫能科
@@ -440,7 +457,8 @@ sector_groups:
     name: 万泽股份
 - id: rubin_pcb_abf_mainboard
   name: Rubin PCB/ABF/CCL
-  style: offensive
+  style: monitor_only
+  note: UP规避科技方向，降级为只监控不介入
   members:
   - code: 002636.SZ
     name: 金安国纪
@@ -484,7 +502,8 @@ sector_groups:
     name: 南亚新材
 - id: advanced_packaging_mainboard
   name: 先进封装/存储封测
-  style: offensive
+  style: monitor_only
+  note: UP规避科技方向，降级为只监控不介入
   members:
   - code: 002156.SZ
     name: 通富微电
@@ -494,7 +513,8 @@ sector_groups:
     name: 兆易创新
 - id: changxin_storage
   name: 长鑫存储产业链
-  style: offensive
+  style: monitor_only
+  note: UP规避科技方向，降级为只监控不介入
   members:
   - code: 000021.SZ
     name: 深科技
@@ -506,7 +526,8 @@ sector_groups:
     name: 可立克
 - id: domestic_compute
   name: 国产算力产业链
-  style: offensive
+  style: monitor_only
+  note: UP规避科技方向，降级为只监控不介入
   members:
   - code: 000021.SZ
     name: 深科技
@@ -528,6 +549,9 @@ sector_rotation_rules:
 - id: offensive_vs_defensive
   name: 进攻vs防御风格切换
   offensive_group_ids:
+  - lpu_inference
+  - ai_energy_gas_turbine
+  monitor_only_group_ids:
   - cpu_self_development
   - upstream_price_increase
   - liquid_cooling
@@ -537,8 +561,6 @@ sector_rotation_rules:
   - chemical_price
   - ai_agent_application
   - compute_power
-  - lpu_inference
-  - ai_energy_gas_turbine
   - rubin_pcb_abf_mainboard
   - advanced_packaging_mainboard
   - changxin_storage
@@ -638,10 +660,7 @@ strategy_meta:
   version: 9
   last_full_review: '2026-06-09'
   last_updated_by: 手动全量审计-Hermes
-  pending_review_items:
-  - 清理watchlist中已清仓科技股
-  - entry_points中旧方向(AI上游材料/MLCC/光纤/昇腾)清理
-  - source_claims更新到最新
+  pending_review_items: []
 entry_points:
   - code: sh603920
     name: 世运电路
