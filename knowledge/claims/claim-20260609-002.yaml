@@ -1,0 +1,74 @@
+claims:
+- id: claim-20260609-002-a
+  source_path: sources/raw/财经/盘中动态：26-06-09：电风扇行情，保险券商配置价值.md
+  source_date: '2026-06-09'
+  source_type: 动态
+  extracted_at: '2026-06-09T10:45:00+08:00'
+  claim_type: sector-theme
+  subject: 电风扇行情下保险券商配置价值
+  timeframe: short-term
+  statement: 板块是电风扇行情，追涨杀跌容易来回挨打。从配置角度，保险券商最近更合适。想躺平不动的话，选保险平稳度过这段时间即可。
+  evidence_quote: 从配置的角度，保险券商最近会更合适一些，板块肯定是电风扇行情，需要一定的能力，如果想躺的话，选保险平稳度过这段时间就行了。
+  interpretation: |
+    UP明确当前行情性质=电风扇（轮动快、无主线），操作难度高。给出两条路径：
+    ①有能力做轮动→券商（弹性大，但需择时能力）
+    ②想躺平不动→保险（稳健，平稳度过）
+    
+    这与6/4"磨底期减少操作频率"一脉相承——UP在反复强调当前阶段不要频繁操作。保险方向具体标的：中国平安(601318)、中国人寿(601628)、中国太保(601601)，均为沪市主板，用户可交易。
+  confidence: high
+  intensity: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+    related_stocks:
+    - 中国平安(601318)
+    - 中国人寿(601628)
+    - 中国太保(601601)
+    related_sectors:
+    - 保险
+    - 券商
+  topic: 电风扇行情保险券商配置
+  tags:
+  - 板块主题
+  - 保险
+  - 券商
+  - 电风扇
+
+- id: claim-20260609-002-b
+  source_path: sources/raw/财经/盘中动态：26-06-09：电风扇行情，保险券商配置价值.md
+  source_date: '2026-06-09'
+  source_type: 动态
+  extracted_at: '2026-06-09T10:45:00+08:00'
+  claim_type: operation
+  subject: 电风扇行情纪律——不追涨杀跌 + 多氟多仓位管理
+  timeframe: short-term
+  statement: 电风扇行情下不要追涨杀跌，容易来回挨打。UP在评论中提及多氟多，昨天提醒的仓位管理——暗示对弹性标的要控制仓位。
+  evidence_quote: '板块肯定是电风扇行情，需要一定的能力。UP评论回复：多氟多昨天提醒的仓位管理。'
+  interpretation: |
+    两条操作纪律：
+    ①电风扇行情不做追涨杀跌——与早盘"小心两头挨打"形成呼应
+    ②多氟多仓位管理——UP举了具体案例说明弹性标的要管仓位
+    
+    对用户持仓影响：万泽(燃气轮机)+天赐(六氟)都是非科技方向，当前策略就是持有不动。保险可以作为防御配置的补充方向。
+  confidence: high
+  intensity: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+    related_stocks:
+    - 多氟多(002407)
+  topic: 电风扇行情纪律
+  tags:
+  - 操作策略
+  - 仓位管理
+  - 追涨杀跌
