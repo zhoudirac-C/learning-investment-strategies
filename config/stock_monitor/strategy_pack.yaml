@@ -94,75 +94,49 @@ agent_analysis_schedule:
   name: 尾盘条件单
   focus: 判断是否符合尾盘观察、规避尾盘杀的条件。**判断大盘是否止跌企稳：尾盘维持震荡或小幅回升=企稳；尾盘跳水=未企稳。若企稳可低吸，若未企稳只观察不买。**
 position_rules:
-- id: empty_position_discipline
-  name: 空仓纪律
-  applies_to:
-  - all
-  all_required:
-  - 空仓可上3成以内（调整深化，控制仓位）
-  - 等调整确认不创新低后再加仓
-  - 只参与化工涨价结构性机会，不抄底科技，不追MLCC
-  forbidden:
-  - 情景未明时建新仓
-  - 追高潮
-  - 抢一字
-  - 防御板块追高
-  - 买入半导体/消费（博主明确规避或定性为过渡）
-- id: full_position_discipline
-  name: 满仓纪律
-  applies_to:
-  - all
-  all_required:
-  - 满仓应大幅降仓至3成以内
-  - 增厚止盈安全垫，等图形与趋势再度走好时卷土重来
-  forbidden:
-  - 满仓不动
-  - 追高加仓
-  - 抄底科技
-- id: mlcc_entry
-  name: MLCC观察纪律（不介入）
-  applies_to:
-  - mlcc_high_end_core
-  - mlcc_mainboard_core
-  all_required:
-  - MLCC已提前1-2周提示，现在追涨是韭菜行为
-  - 只观察不介入，等回调或新催化
-  - 若已持有，可做T但不加仓
-  forbidden:
-  - 任何价位新建MLCC仓位
-  - 回调时"抄底"MLCC
-  - 追涨风华高科/火炬电子/三环集团
-  action: 只观察不介入
-  position_ratio: '0'
-- id: chemical_entry
-  name: 化工涨价介入确认
-  applies_to:
-  - refrigerant_pfa_dual
-  - acesulfame_potassium_leader
-  all_required:
-  - 化工涨价组强于全A或强于防御组
-  - 个股不是一致高开后的追高点
-  - 分歧后放量收回分时均线
-  - 涨价逻辑持续（安赛蜜/制冷剂价格上行）
-  forbidden:
-  - 发酵日追高
-  - 单票异动但板块不共振
-  action: 第二优先级介入
-  position_ratio: 巨化股份1成 + 醋化股份1成 = 2成
-- id: avoid_sector_discipline
-  name: 规避方向纪律
-  applies_to:
-  - avoid_semiconductor
-  - avoid_consumer
-  all_required:
-  - 博主明确规避半导体
-  - 消费/白酒过渡性质确认，防御走强是分化而非切换
-  forbidden:
-  - 买入半导体
-  - 买入消费/白酒
-  - 抄底半导体
-  - 追防御板块
-  action: 只观察不介入
+- id: opportunity_panic_oversold
+  name: 恐慌超卖策略
+  description: 对应机会模式1。当板块系统性回调（非个股利空），日内跌>5%时触发
+  action: 评估赔率后试探买入
+  max_position: 1成
+  stop_loss_pct: 3
+  claim_basis: UP的'别人恐慌我贪婪'思想
+- id: opportunity_breakout
+  name: 平台突破策略
+  description: 对应机会模式2。横盘2+周后放量突破区间上沿
+  action: 确认突破有效性（次日不回落）后追入
+  max_position: 1.5成
+  stop_loss_pct: 5
+- id: opportunity_technical_support
+  name: 技术支撑确认
+  description: 对应机会模式3。回踩关键均线/平台企稳，缩量确认
+  action: 企稳后试探买入
+  max_position: 1成
+  stop_loss_pct: 3
+- id: opportunity_sector_rotation
+  name: 板块轮动早期
+  description: 对应机会模式4。新方向首日启动，龙头涨停，观察次日持续性
+  action: 龙头首日不追，次日确认后轻仓试探
+  max_position: 0.5成
+  stop_loss_pct: 5
+- id: opportunity_leader_pullback
+  name: 龙头分歧低吸
+  description: 对应机会模式5。主线龙头首次大分歧，缩量回踩
+  action: 分歧日尾盘或次日低吸
+  max_position: 1.5成
+  stop_loss_pct: 3
+- id: opportunity_tail_condition
+  name: 尾盘条件单
+  description: 对应机会模式6。14:30后符合特定技术条件（回踩不破、放量企稳）
+  action: 尾盘确认后买入
+  max_position: 0.5成
+  stop_loss_pct: 2
+- id: opportunity_event_driven
+  name: 事件驱动
+  description: 对应机会模式7。突发利好/利空导致赔率突变
+  action: 评估事件实质影响后决策
+  max_position: 1成
+  stop_loss_pct: 5
 quant_entry_strategy:
   position_advice:
     empty_account: 等新周期。4033/4130不变。AI上游材料端。MLCC不追。昇腾等企稳。
@@ -330,6 +304,57 @@ quant_entry_strategy:
     trigger: 昇腾链企稳+连接器/CPO双重确认，分歧后缩量回踩放量收回
     invalidation: 昇腾链继续走弱，或CPO方向证伪
     note: 主板可交易。UP 6-5列为昇腾核心(华丰/航天电器/意华股份)，叠加LPU+CPO三重逻辑。
+  - code: 000425.SZ
+    name: 徐工机械
+    status: active
+    opportunity_pattern: 基本面背离修复
+    entry_zone: 9.10-9.60
+    entry_trigger: 缩量回踩9.10-9.60区间，分时企稳不创新低。等上证站稳4000以上再考虑
+    position_ratio: 1-1.5成
+    stop_loss: null
+    invalidation: 跌破8.80且30分钟不能收回；6月挖机销量增速跌破20%
+    note: UP 6/9推荐工程机械方向。5月销量+36.2%连续3月加速。回撤-20%，PE约13x。距60日低9.10仅+6%。介入前提：指数不破3955
+    upside_pct: +25%
+    downside_pct: -8%
+    odds_ratio: '3:1'
+    estimated_probability_up: 45%
+    expected_value: 正期望
+    claim_basis: claim-20260609-001-f
+    odds_analysis: 下方60日低9.10硬支撑，上方12.43前高压力。赔率约3:1，符合不对称机会原则
+  - code: 605060.SH
+    name: 联德股份
+    status: active
+    opportunity_pattern: 深度回调+产业逻辑
+    entry_zone: 47.0-49.5
+    entry_trigger: 缩量回踩47-49.5区间，今日+4.3%反弹不宜追，等回踩确认
+    position_ratio: 0.5-1成
+    stop_loss: null
+    invalidation: 跌破46.0且放量；燃气轮机板块出现利空
+    note: UP 6/4点名燃气轮机核心标的。回撤-30.5%为候选中最深🔥。燃机板块增速50%+。今日+4.3%反弹不宜追，等回踩。高弹性，控仓
+    upside_pct: +40%
+    downside_pct: -5%
+    odds_ratio: '8:1'
+    estimated_probability_up: 35%
+    expected_value: 正期望
+    claim_basis: claim-20260604-004-f, claim-20260604-007-c
+    odds_analysis: 回撤30%+距60日低仅+5%，上方67.9前高有40%空间。赔率极高，但方向确认度中等
+  - code: 603259.SH
+    name: 药明康德
+    status: active
+    opportunity_pattern: 龙头回调+防御属性
+    entry_zone: 85.5-92.0
+    entry_trigger: 今日-5.1%大跌，等缩量止跌信号（下影线/十字星）在85.5-92区间出现
+    position_ratio: 0.5-1成
+    stop_loss: null
+    invalidation: 跌破84且30分钟不能收回；创新药板块出现政策利空
+    note: UP 6/4明确创新药防御属性。药明'从924翻3倍且跌不下来'。今日-5.1%是一次性回踩还是趋势走坏需观察。等缩量止跌再考虑。60日低85.5是硬支撑
+    upside_pct: +20%
+    downside_pct: -6%
+    odds_ratio: 3.3:1
+    estimated_probability_up: 40%
+    expected_value: 正期望
+    claim_basis: claim-20260604-004-a, claim-20260604-004-h
+    odds_analysis: 距60日低85.5仅+6%，上方112.9前高有20%空间。赔率>3:1。今日大跌后性价比提升
 sector_groups:
 - id: cpu_self_development
   name: CPU自研链
@@ -665,12 +690,12 @@ index_rules:
     resistance: 4130
   trend_defense: 4033
 today_snapshot:
-  date: '2026-06-05'
+  date: '2026-06-09'
   source: 6-4收盘复盘 + 6-4视频 + 6-4复盘专栏
   market_stage: 调整第16天，微盘股破位，主升末期→防御过渡
   index_status: 上证约4080(+0.3%)微红，微盘股大幅破位
   volume_note: 量能萎缩，一九行情
-  up_bias: 6-4视频"放弃执念，都是星辰大海"——别跟趋势做对，等右侧确认
+  up_bias: UP 6/9：磨底期恐慌中后段，突破4120才是趋势买点。电风扇行情不追涨杀跌。工程机械/燃气轮机/创新药为低位配置方向
   key_signals:
   - 微盘股破位——最要命的信号，流动性进一步枯竭
   - UP"放弃执念"：不要死扛亏损，该止损止损
