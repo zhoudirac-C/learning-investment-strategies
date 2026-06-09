@@ -1,0 +1,266 @@
+claims:
+- id: claim-20260609-001-a
+  source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
+  source_date: '2026-06-09'
+  source_type: 专栏
+  extracted_at: '2026-06-09T10:30:00+08:00'
+  claim_type: market-cycle
+  subject: 市场阶段——失守4000点，恐慌进入中后段
+  timeframe: short-term
+  statement: 上证失守4000点心理关口，大跌进一步加剧恐慌。但上证已自高位回落约300点，距年内低点3794点仅150多点。基于空间与情绪的概率判断：越是恐慌，越可能说明下跌已进入中后阶段。但这不是对底部的确认——底部钝化已消失，见底后反弹的时间和持续性都不易判断。
+  evidence_quote: 尽管大跌进一步加剧恐慌，但上证指数已自高位回落约300点，距年内低点3794点仅150多点。若以此衡量，市场越是恐慌，越可能说明下跌已进入中后阶段。需要强调，这是基于空间与情绪的概率判断，并非对底部的确认。
+  interpretation: |
+    UP将生命线从4033下调至4000——目前已跌破。但恐慌中后段≠立即抄底：①底部钝化消失→反弹时空不确定②下一次买点以趋势为准：突破4120才确认回归上升趋势③在此之前以观望与纪律为主。
+
+    对比6/4的生命线体系(4033清仓/4130满仓)：当前4000已破但UP未说清仓，态度从"4033清仓"转为"观望不杀跌"——这是对磨底期策略的修正。
+  confidence: high
+  intensity: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+    related_stocks: []
+    related_sectors: []
+  topic: 市场阶段——失守4000点恐慌中后段
+  tags:
+  - 市场周期
+  - 磨底期
+  - 4000点
+  - 恐慌
+
+- id: claim-20260609-001-b
+  source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
+  source_date: '2026-06-09'
+  source_type: 专栏
+  extracted_at: '2026-06-09T10:30:00+08:00'
+  claim_type: sector-theme
+  subject: 机器人与物理AI成为两条新主线
+  timeframe: short-term
+  statement: 非科技方向的机器人与科技方向的物理AI成为当前两条主线。机器人：宇树科技过会+英伟达推新品催化，资金从消息驱动/容量/位置三维度认可。物理AI：AI方向需要区别于硬件的低位方向，英伟达Cosmos官宣成为催化。两者共性：低位+有催化+资金认可。但UP补充评论明确：下一波并不一定就要起机器人，今天观望，小心两头挨打。
+  evidence_quote: 与其说是英伟达推新，不如说资金本身迫切希望走出新方向，而机器人从消息驱动、容量、位置三个维度都较符合资金需求。物理AI能够脱颖而出逻辑类似：AI方向资金同样需要一个有消息催化、且区别于AI硬件的低位方向。
+  interpretation: |
+    UP在正文中正面描述机器人与物理AI的崛起逻辑，但随后在评论中降温——"下一波并不一定就要起机器人，今天观望吧，小心两头挨打"。这说明：
+    ①机器人/物理AI的崛起是市场事实（资金行为），但UP对其持续性存疑
+    ②"小心两头挨打"=不要因为怕错过机器人而去追机器人，也不要因为看好其他方向就忽视机器人可能的持续性
+    ③态度：认可逻辑但不下注，观望等确认
+  confidence: high
+  intensity: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+    related_stocks:
+    - 宇树科技(未上市)
+    - 索辰科技(688507)
+    - 天娱数科(002354)
+    - 凡拓数创(301313)
+  topic: 机器人与物理AI成为两条新主线
+  tags:
+  - 板块主题
+  - 机器人
+  - 物理AI
+
+- id: claim-20260609-001-c
+  source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
+  source_date: '2026-06-09'
+  source_type: 专栏
+  extracted_at: '2026-06-09T10:30:00+08:00'
+  claim_type: methodology
+  subject: 底部信号——90分钟序列低9 + 趋势买点
+  timeframe: short-term
+  statement: 前一交易日90分钟序列出现低9，当日日线序列为低9。今明两日若仍有下跌，短期见底概率较大。但由于底部钝化消失，见底后反弹的时间和持续性都不易判断。下一次买点以趋势为准：突破4120点才确认重回上升趋势，届时才可判断上涨具备持续性。在此之前以观望与纪律为主。已持仓者不宜再杀跌。
+  evidence_quote: 前一交易日90分钟序列出现低9，当日日线序列为低9。今明两日若仍有下跌，短期市场见底的概率较大。上周五尾盘与本周一早盘未处理持仓的，当日不宜再杀跌。下一次买点仍以趋势为准：突破4120点。
+  interpretation: |
+    UP给出两层技术信号：
+    ①短期见底信号：90分钟+日线双低9序列，今明若再跌则短期见底概率大
+    ②趋势买点未到：底部钝化消失=反弹强弱不明，需等突破4120趋势确认
+    
+    实操含义：不杀跌（卖了可能卖在地板上）、不抄底（底部钝化消失不确定性大）、等4120突破才能加仓。
+  confidence: high
+  intensity: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-09
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - framework/technical-analysis-framework.md
+    cases: []
+  topic: 底部信号——90分钟序列低9+趋势买点
+  tags:
+  - 技术分析
+  - 低9序列
+  - 趋势
+  - 4120
+
+- id: claim-20260609-001-d
+  source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
+  source_date: '2026-06-09'
+  source_type: 专栏
+  extracted_at: '2026-06-09T10:30:00+08:00'
+  claim_type: sector-theme
+  subject: AI算力链细分分化——ABF载板/铜箔强，MLCC补跌
+  timeframe: short-term
+  statement: 前一交易日ABF载板与铜箔表现较强，MLCC补跌。当日重点观察这几个细分对AI整体的带动作用再决定下一步。谷歌向英特尔下达超300万TPU订单，第八代TPU采用OCS+全浸没液冷+Boardfly拓扑；黄仁勋称SK海力士2030年产能翻倍计划还不够。
+  evidence_quote: 前一交易日ABF载板与铜箔表现较强，MLCC补跌。当日重点观察这几个细分对AI整体的带动作用，再决定下一步。
+  interpretation: |
+    AI算力链内部分化加剧：①ABF载板/铜箔走强（受益谷歌TPU+存储扩产逻辑）②MLCC补跌（前期强势方向回调）③液冷/光通信有新催化（谷歌TPU全浸没液冷、烽火通信CLF低至0.04）。
+    
+    用户（非科创板/创业板）可关注的主板AI算力标的：三孚股份(603938)、飞凯材料(300398)、三安光电(600703)、时代电气(688187不可交易)、烽火通信(600498)。
+  confidence: medium
+  intensity: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+    related_stocks:
+    - 三孚股份(603938)
+    - 飞凯材料(300398)
+    - 烽火通信(600498)
+    - 三安光电(600703)
+    related_sectors:
+    - AI算力
+    - ABF载板
+    - MLCC
+  topic: AI算力链细分分化
+  tags:
+  - AI算力
+  - ABF载板
+  - MLCC
+  - 液冷
+
+- id: claim-20260609-001-e
+  source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
+  source_date: '2026-06-09'
+  source_type: 专栏
+  extracted_at: '2026-06-09T10:30:00+08:00'
+  claim_type: sector-theme
+  subject: 商业航天回调接近尾声，下半年催化剂密集
+  timeframe: medium-term
+  statement: 商业航天板块自5月11日以来累计下跌超20%，自1月13日高点累计下跌超30%，部分优质标的已回调至2025年12月初位置。空间层面回调已接近尾声，除非朱雀三号回收失败。下半年8个首飞/回收验证节点密集（6-12月），SpaceX计划6月中IPO目标估值1.75-1.8万亿美元。反弹修复关注：火箭链（超捷股份/西部材料/斯瑞新材/高华科技）、卫星链（上海瀚讯/中国卫星/信科移动）、SpaceX链（迈为股份/钧达股份/信维通信）。
+  evidence_quote: 商业航天板块自5月11日以来累计下跌超20%，自1月13日高点累计下跌超30%。空间层面回调已接近尾声，除非朱雀三号回收失败。存在强催化与板块切换的可能，可关注低位布局机会。
+  interpretation: |
+    商业航天方向UP给出明确"回调近尾声+下半年催化密集"的判断。但注意：
+    ①括号内声明"存在强催化与板块切换的可能"=有概率但非确定
+    ②"朱雀三号回收失败"是最大证伪风险
+    ③SpaceX IPO是板块估值的天花板打开事件
+
+    用户主板可交易的相关标的需进一步筛选（多数卫星链标的为科创板/创业板）。
+  confidence: medium
+  intensity: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+    related_stocks:
+    - 超捷股份(301123)
+    - 西部材料(002149)
+    - 高华科技(未上市)
+    - 上海瀚讯(688155)
+    - 中国卫星(600118)
+    - 信科移动(688387)
+    - 迈为股份(300751)
+    - 钧达股份(002865)
+    - 信维通信(300136)
+    - 海格通信(002465)
+    related_sectors:
+    - 商业航天
+  topic: 商业航天回调尾声
+  tags:
+  - 商业航天
+  - SpaceX
+  - 卫星
+  - 火箭
+
+- id: claim-20260609-001-f
+  source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
+  source_date: '2026-06-09'
+  source_type: 专栏
+  extracted_at: '2026-06-09T10:30:00+08:00'
+  claim_type: sector-theme
+  subject: 工程机械基本面与走势背离，低估值修复机会
+  timeframe: trend
+  statement: 2026年5月挖掘机销售24794台同比+36.2%，内销+38.6%出口+34.2%，3/4/5月销量连续超预期且增速逐月加速。高油价不是压制而是利好——矿产品涨价驱动设备购入。三一重工海外毛利率较国内高10.95pct。受资金抽血影响板块出现基本面与走势显著背离，核心龙头PB一度回落至周期底部1.8倍以下。前瞻PE：三一约16x、徐工约13x、中联约11x。重点关注三一重工(600031)、徐工机械(000425)、中联重科(000157)、柳工(000528)、恒立液压(601100)。
+  evidence_quote: 2026年5月我国挖掘机销售24794台，同比增长36.2%。3/4/5月销量连续超预期且增速逐月加速。受资金向部分科技题材抽血影响，板块出现基本面与走势的显著背离。
+  interpretation: |
+    工程机械是UP在今日早盘中唯一给出"安全边际较充足"明确评价的方向：
+    ①销售数据连续3个月加速→基本面向上
+    ②PB跌至周期底1.8倍→估值向下
+    ③背离=修复机会，但不等于立即上涨
+    
+    全为主板标的，用户全部可交易。PE最低的是中联重科(000157, 11x)。
+  confidence: medium
+  intensity: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+    related_stocks:
+    - 三一重工(600031)
+    - 徐工机械(000425)
+    - 中联重科(000157)
+    - 柳工(000528)
+    - 恒立液压(601100)
+    related_sectors:
+    - 工程机械
+  topic: 工程机械低估值修复
+  tags:
+  - 工程机械
+  - 低估值
+  - 业绩
+
+- id: claim-20260609-001-g
+  source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
+  source_date: '2026-06-09'
+  source_type: 专栏
+  extracted_at: '2026-06-09T10:30:00+08:00'
+  claim_type: operation
+  subject: UP评论——观望防两头挨打，下一波不一定机器人
+  timeframe: short-term
+  statement: UP在早盘发布后的评论中明确：下一波并不一定就要起机器人，今天观望吧，小心两头挨打。核心含义——①不追机器人（即使它现在是主线）②不放弃其他方向（即使机器人很强）③今天以观望为主，不操作。
+  evidence_quote: 下一波并不一定就要起机器人，今天观望吧，小心两头挨打。
+  interpretation: |
+    这条评论对持仓操作有直接指导意义：
+    ①万泽股份(燃气轮机)：非科技方向，不受机器人主线切换影响，持有不动
+    ②天赐材料(储能/六氟)：同上，持有不动
+    ③今日不建新仓，不加减现有仓位
+    ④"两头挨打"=追机器人怕被套+卖了老仓怕踏空→最优策略是不动
+    
+    这是对6/4磨底期策略的延续和强化——磨底期减少操作频率。
+  confidence: high
+  intensity: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+    related_stocks: []
+  topic: 观望防两头挨打
+  tags:
+  - 操作策略
+  - 观望
+  - 机器人
