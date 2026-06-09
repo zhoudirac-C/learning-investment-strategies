@@ -93,10 +93,10 @@ def save_session(session: dict):
 
 # ── 门禁运行 ──────────────────────────────────────────
 
-def run_gate(file_path: str) -> tuple[bool, str]:
+def run_gate(file_path: str, step: int = 2) -> tuple[bool, str]:
     """运行验证门禁，返回 (通过?, 输出文本)"""
     result = subprocess.run(
-        [sys.executable, str(GATE_SCRIPT), file_path],
+        [sys.executable, str(GATE_SCRIPT), "--step", str(step), file_path],
         capture_output=True, text=True, cwd=REPO_ROOT, timeout=30,
     )
     output = result.stdout + result.stderr
@@ -289,10 +289,10 @@ def cmd_continue(session_id: str = None):
     step2_file = sess_dir / "step2_enriched.json"
     yaml_dir = sess_dir / "step3_yaml"
 
-    # Gate 1: step1 存在且未验过
+    # Gate 1: step1 存在且未验过（仅查字段完整性+枚举+原子性）
     if step1_file.exists() and not (sess_dir / "gate1_result.json").exists():
-        print(f"🔍 运行 Gate 1...")
-        ok, output = run_gate(str(step1_file))
+        print(f"🔍 运行 Gate 1（字段完整性+枚举+原子性）...")
+        ok, output = run_gate(str(step1_file), step=1)
         with open(sess_dir / "gate1_result.json", "w") as f:
             json.dump({"passed": ok, "output": output, "errors": _parse_errors(output)}, f, ensure_ascii=False)
         if ok:

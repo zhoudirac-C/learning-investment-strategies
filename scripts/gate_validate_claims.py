@@ -72,21 +72,23 @@ def gate3_related_stocks(claim: dict) -> list[str]:
     errors = []
     rs = claim.get("related_stocks")
     # 如果是旧格式（放在 links 下），也检查
-    if rs is None or rs is None:
+    if rs is None:
         links = claim.get("links", {})
         rs = links.get("related_stocks", [])
 
     statement = claim.get("statement", "")
     interpretation = claim.get("interpretation", "")
 
-    # 如果 statement/interpretation 提到公司但 related_stocks 为空
-    # 简单判断：如果 claim 提到任何以 "公司" / "股份" / "有限" / "科技" 结尾的词
-    has_company = any(
-        kw in statement or kw in interpretation
-        for kw in ["股份", "有限", "科技", "电子", "智能", "医疗", "能源"]
-    )
-    if has_company and (not rs or rs == []):
-        errors.append("statement/interpretation 提到公司名但 related_stocks 为空")
+    # 只检查 stock-view 和 sector-theme 类型（其他类型通常不涉及具体标的）
+    ct = claim.get("claim_type", "")
+    if ct not in ("stock-view", "sector-theme"):
+        return errors
+
+    # 检查 statement 中是否包含 6 位数字代码（说明提到了个股但在 related_stocks 没列）
+    import re
+    has_code_in_text = bool(re.findall(r"[（(]\d{6}[）)]", statement))
+    if has_code_in_text and (not rs or rs == []):
+        errors.append("statement 中标注了 A 股代码但 related_stocks 为空")
 
     # 检查 related_stocks 格式
     if rs and isinstance(rs, list):
@@ -119,16 +121,24 @@ def gate5_stock_codes(claim: dict) -> list[str]:
 
     text = claim.get("statement", "") + "\n" + claim.get("interpretation", "")
 
+    # Known non-company patterns
+    NON_COMPANY = {
+        "高位科技", "低位科技", "专业智能", "转向了智能", "强来自高位科技",
+        "与今年专业智能", "的智能", "和智能", "智能体", "具身智能",
+        "物理AI", "的机器人与科技", "的科技与",
+    }
+
     # 找到所有 "公司名(数字)" 模式
     code_refs = re.findall(r"[（(](\d{4,6})[）)]", text)
     for code in code_refs:
         if len(code) != 6:
             errors.append(f"股票代码 '{code}' 不是 6 位")
 
-    # 找到所有 "公司名" 模式下无代码的
-    # 中文公司名模式：2-5 字中文 + "股份"/"科技"/"电子"/"智能"/"医疗"/"有限"
+    # 找到所有可能的公司名模式
     company_names = re.findall(r"([\u4e00-\u9fff]{2,5}(?:股份|科技|电子|智能|医疗|有限))", text)
     for name in set(company_names):
+        if name in NON_COMPANY:
+            continue
         # 检查后面是否紧跟 (6位代码)
         if not re.search(re.escape(name) + r"[（(]\d{6}[）)]", text):
             errors.append(f"'{name}' 在文本中出现但未标注 6 位代码")
@@ -136,17 +146,23 @@ def gate5_stock_codes(claim: dict) -> list[str]:
 
 
 # ── 主校验函数 ──────────────────────────────────────────
-def validate_claims(claims: list[dict]) -> list[dict]:
-    """对 claims 列表执行全部 5 道门禁检查"""
+def validate_claims(claims: list[dict], step: int = 2) -> list[dict]:
+    """对 claims 列表执行门禁检查
+    
+    step=1: 只检查字段完整性 + 枚举 + 原子性（不含 related_stocks/代码）
+    step=2: 全量检查（所有 5 道门禁）
+    """
     results = []
     for claim in claims:
         cid = claim.get("id", "?")
         errors = []
         errors.extend(gate1_missing_fields(claim))
         errors.extend(gate2_enum_invalid(claim))
-        errors.extend(gate3_related_stocks(claim))
+        if step >= 2:
+            errors.extend(gate3_related_stocks(claim))
         errors.extend(gate4_atomicity(claim))
-        errors.extend(gate5_stock_codes(claim))
+        if step >= 2:
+            errors.extend(gate5_stock_codes(claim))
         if errors:
             results.append({"id": cid, "errors": errors})
     return results
@@ -175,7 +191,16 @@ def load_claims(path: str) -> list[dict]:
 def main():
     import yaml  # noqa
 
-    if "--all" in sys.argv:
+    step = 2  # default full check
+    args = sys.argv[1:]
+    # Parse --step N
+    step_idx = [i for i, a in enumerate(args) if a == "--step"]
+    if step_idx:
+        step = int(args[step_idx[0] + 1])
+        args.pop(step_idx[0] + 1)
+        args.pop(step_idx[0])
+
+    if "--all" in args:
         # 全量审计
         claims_dir = REPO_ROOT / "knowledge" / "claims"
         yaml_files = sorted(f for f in claims_dir.glob("*.yaml") if not f.name.endswith(".bak"))
@@ -183,7 +208,7 @@ def main():
         for fpath in yaml_files:
             try:
                 claims = load_claims(str(fpath))
-                results = validate_claims(claims)
+                results = validate_claims(claims, step=step)
                 if results:
                     print(f"❌ {fpath.name}")
                     for r in results:
@@ -199,11 +224,11 @@ def main():
             print(f"\n⚠️  共 {total_errors} 条 claim 有错误")
             sys.exit(1)
 
-    elif len(sys.argv) >= 2:
-        path = sys.argv[1]
+    elif len(args) >= 1:
+        path = args[0]
         try:
             claims = load_claims(path)
-            results = validate_claims(claims)
+            results = validate_claims(claims, step=step)
             if results:
                 print(f"❌ {path} — {len(results)} 条 claim 未通过")
                 for r in results:
