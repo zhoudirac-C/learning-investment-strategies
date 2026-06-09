@@ -386,8 +386,9 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 15. **Qdrant Claims 索引失败 + Agent 检索不到新内容**：症状：Neo4j 同步成功、文档 Qdrant 索引成功，但 Agent 的 `/chat` 仍返回旧数据。**排查步骤**：
     - 若 `index_claims_to_qdrant.py` 非零退出 → 常见为向量损坏（见 Pitfall #10），用 `--force-recreate` 修复
     - 索引成功后 Agent 仍检索不到 → 检查 `.qdrant_data/collection/qing_claims/storage.sqlite` 是否被另一进程锁定
-    - **验证方法**：索引用 `index_claims_to_qdrant_monitored.py`（带监控日志），确认退出码=0 且日志显示 `✅ Indexed N claims`
-    - **修复**：`--force-recreate` 一键修复（自动杀Agent→重建collection→全量索引→完整性自检）
+    - **验证方法**：索引用 `index_claims_to_qdrant_monitored.py`，确认退出码=0
+    - **修复**：`--force-recreate` 一键修复
+    - **⚠️ 同步后必须验证 Agent 在线**：curl `/health`。Agent 未重启→下一个 cron 走 fallback 而非 Qing-Agent，失去完整推理链路。反面案例：6/9 多次 cron 走 fallback 因 Agent 未重启。
 
 16. **Agent 不显示 claim 内容时，按三层排查（claim → prompt 构建 → Agent 代码）**：当 Agent 回答缺少某条 claim 的关键信息时，按以下顺序排查——
     ① **claim 层**：statement 是否超 200 字被截断？subject 是否包含搜索关键词？claim_type 是否正确（methodology/operation 进入可引用区块，其他进入时效分级）？
