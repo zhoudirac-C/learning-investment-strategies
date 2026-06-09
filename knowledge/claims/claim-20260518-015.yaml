@@ -28,7 +28,9 @@
     - 反转
     - 业绩
   related_stocks:
-    - 富创精密(688409)
+    - code: 688409.SH
+      name: 富创精密
+      role: 参考标的
 - id: claim-20260518-016
   topic: 珂玛科技陶瓷加热器已成为长存流片瓶颈
   source_path: sources/raw/财经/研报：26-05-18：半导体设备零部件与存储耗材产业链三公司跟踪.md
@@ -57,7 +59,9 @@
     - 个股观点
     - 放量
   related_stocks:
-    - 珂玛科技(301611)
+    - code: 301611.SZ
+      name: 珂玛科技
+      role: 参考标的
 - id: claim-20260518-017
   topic: 京仪装备温控在两存和先进逻辑客户接近独供
   source_path: sources/raw/财经/研报：26-05-18：半导体设备零部件与存储耗材产业链三公司跟踪.md
@@ -85,4 +89,6 @@
     - 京仪装备
     - 个股观点
   related_stocks:
-    - 京仪装备(688652)
+    - code: 688652.SH
+      name: 京仪装备
+      role: 参考标的

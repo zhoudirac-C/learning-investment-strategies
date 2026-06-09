@@ -147,7 +147,9 @@ claims:
       - 深科技
       - 长鑫
     related_stocks:
-      - 深科技(000021)
+      - code: 000021.SZ
+        name: 深科技
+        role: 参考标的
   - id: claim-20260519-001-f
     topic: 物理AI与机器人
     source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
@@ -321,7 +323,9 @@ claims:
       - 美元
       - 算力
     related_stocks:
-      - 领益智造(002600)
+      - code: 002600.SZ
+        name: 领益智造
+        role: 参考标的
   - id: claim-20260519-001-l
     topic: 算力网正在从单一资源向统一调度入口转变
     source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md

@@ -39,11 +39,21 @@ claims:
         - claim-20260604-004-a
         - claim-20260604-006-a
       related_stocks:
-        - 天赐材料(002709)
-        - 石大胜华(603026)
-        - 华友钴业(603799)
-        - 盐湖股份(000792)
-        - 旭升集团(603305)
+        - code: 002709.SZ
+          name: 天赐材料
+          role: 参考标的
+        - code: 603026.SH
+          name: 石大胜华
+          role: 参考标的
+        - code: 603799.SH
+          name: 华友钴业
+          role: 参考标的
+        - code: 000792.SZ
+          name: 盐湖股份
+          role: 参考标的
+        - code: 603305.SH
+          name: 旭升集团
+          role: 参考标的
       related_sectors:
         - 储能
         - 锂电
@@ -83,8 +93,12 @@ claims:
         - claim-20260604-004-a
         - claim-20260604-006-d
       related_stocks:
-        - 大金重工(002487)
-        - 金风科技(002202)
+        - code: 002487.SZ
+          name: 大金重工
+          role: 参考标的
+        - code: 002202.SZ
+          name: 金风科技
+          role: 参考标的
       related_sectors:
         - 风电
         - 出海链
@@ -127,11 +141,21 @@ claims:
         - claim-20260604-004-a
         - claim-20260604-006-c
       related_stocks:
-        - 杰瑞股份(002353)
-        - 中国动力(600482)
-        - 万泽股份(000534)
-        - 银轮股份(002126)
-        - 联德股份(605060)
+        - code: 002353.SZ
+          name: 杰瑞股份
+          role: 参考标的
+        - code: 600482.SH
+          name: 中国动力
+          role: 参考标的
+        - code: 000534.SZ
+          name: 万泽股份
+          role: 参考标的
+        - code: 002126.SZ
+          name: 银轮股份
+          role: 参考标的
+        - code: 605060.SH
+          name: 联德股份
+          role: 参考标的
       related_sectors:
         - 燃气轮机
         - 电力设备
@@ -179,11 +203,21 @@ claims:
       related_claims:
         - claim-20260604-004-a
       related_stocks:
-        - 罗莱生活(002293)
-        - 中粮科技(000930)
-        - 分众传媒(002027)
-        - 奥飞娱乐(002292)
-        - 三七互娱(002555)
+        - code: 002293.SZ
+          name: 罗莱生活
+          role: 参考标的
+        - code: 000930.SZ
+          name: 中粮科技
+          role: 参考标的
+        - code: 002027.SZ
+          name: 分众传媒
+          role: 参考标的
+        - code: 002292.SZ
+          name: 奥飞娱乐
+          role: 参考标的
+        - code: 002555.SZ
+          name: 三七互娱
+          role: 参考标的
       related_sectors:
         - 消费
     tags:
@@ -226,8 +260,12 @@ claims:
       related_claims:
         - claim-20260604-004-a
       related_stocks:
-        - 恒瑞医药(600276)
-        - 药明康德(603259)
+        - code: 600276.SH
+          name: 恒瑞医药
+          role: 参考标的
+        - code: 603259.SH
+          name: 药明康德
+          role: 参考标的
       related_sectors:
         - 创新药
     tags:
@@ -266,9 +304,15 @@ claims:
       related_claims:
         - claim-20260604-004-a
       related_stocks:
-        - 大金重工(002487)
-        - 银轮股份(002126)
-        - 旭升集团(603305)
+        - code: 002487.SZ
+          name: 大金重工
+          role: 参考标的
+        - code: 002126.SZ
+          name: 银轮股份
+          role: 参考标的
+        - code: 603305.SH
+          name: 旭升集团
+          role: 参考标的
       related_sectors:
         - 出海链
     tags:
@@ -306,8 +350,12 @@ claims:
       related_claims:
         - claim-20260604-004-c
       related_stocks:
-        - 兖矿能源(600188)
-        - 航发动力(600893)
+        - code: 600188.SH
+          name: 兖矿能源
+          role: 参考标的
+        - code: 600893.SH
+          name: 航发动力
+          role: 参考标的
       related_sectors:
         - 蓝筹
     tags:

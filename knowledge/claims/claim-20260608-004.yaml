@@ -154,7 +154,9 @@ claims:
       related_claims:
         - claim-20260608-004-c
       related_stocks:
-        - 索辰科技(688507)
+        - code: 688507.SH
+          name: 索辰科技
+          role: 参考标的
       related_sectors:
         - 物理AI
         - CAE仿真
@@ -187,7 +189,9 @@ claims:
     links:
       related_claims: []
       related_stocks:
-        - 泰和新材(002254)
+        - code: 002254.SZ
+          name: 泰和新材
+          role: 参考标的
       related_sectors:
         - AI数据中心
         - 光纤
@@ -221,7 +225,9 @@ claims:
     links:
       related_claims: []
       related_stocks:
-        - 粤桂股份(000833)
+        - code: 000833.SZ
+          name: 粤桂股份
+          role: 参考标的
       related_sectors:
         - 硫铁矿
         - 硫磺

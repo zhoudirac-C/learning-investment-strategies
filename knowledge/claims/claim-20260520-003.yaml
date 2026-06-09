@@ -245,7 +245,9 @@ claims:
       - 放量
       - AI
     related_stocks:
-      - 通富微电(002156)
+      - code: 002156.SZ
+        name: 通富微电
+        role: 参考标的
   - id: claim-20260520-003-i
     topic: 中科飞测是半导体检测量测核心弹性标的
     source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
@@ -279,7 +281,9 @@ claims:
       - 扩产
       - 长鑫
     related_stocks:
-      - 中科飞测(688361)
+      - code: 688361.SH
+        name: 中科飞测
+        role: 参考标的
   - id: claim-20260520-003-j
     topic: 新易盛仍是光通信逻辑核心
     source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
@@ -309,7 +313,9 @@ claims:
       - 新易盛
       - 业绩
     related_stocks:
-      - 新易盛(300502)
+      - code: 300502.SZ
+        name: 新易盛
+        role: 参考标的
   - id: claim-20260520-003-k
     topic: 国产算力与昇腾
     source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md

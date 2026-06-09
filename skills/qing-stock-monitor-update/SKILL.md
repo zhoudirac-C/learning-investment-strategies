@@ -392,6 +392,7 @@ Qing-Agent 返回的是**定性判断**（方向/态度/策略基调），不是
 - 已清仓标的必须从 sector_group 中移除，否则会拖累组平均涨幅，产生错误的板块轮动信号。
 - **清理 sector_group 时必须执行三同步**：①从 `sector_groups.members` 移除 → ②从 `offensive_group_ids` 移除（若组变空）→ ③更新 `notification_policy.only_notify_when` 中的对应提醒条件。
 - **ST/高风险标的处理**：不要单独拆到独立的 `st_watch` `avoid` 组。用户偏好是 ST/高风险标的保留在原来的 thematic group 中（如 ST得润留在 cpu_self_development），保持 group 结构简单。不创建单独的 ST 观察组。
+- **旧方向降级为 monitor_only（不删除）**：当 UP 切换关注方向（如 MLCC→燃气轮机），不要删除旧的 sector_groups。改为 `style: monitor_only` + 添加 `note` 说明原因。在 `sector_rotation_rules` 中新增 `monitor_only_group_ids` 列表，将降级组从 `offensive_group_ids` 移入。这样旧主题仍参与板块强弱监测但不触发买入信号。示例：`style: monitor_only` + `note: UP已转向其他方向，降级为只监控不介入` + sector_rotation_rules 新增 `monitor_only_group_ids` 列表。
 
 ### Step 5: 更新 positions.yaml
 
@@ -556,6 +557,10 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 # positions.yaml 已 gitignored，不提交
 ```
 
+## 用户交互模式：方案确认后批量执行
+
+用户偏好先读完分析结论→确认→再执行。当给出 config 审计或修改方案时，先展示摘要（P0/P1/P2 分级），等用户说"按照你的说法改"后再批量执行。不要在未确认时直接改。
+
 ## 关键纪律
 
 -2. **Cron 时间必须与文档一致**：`config-cron-architecture-review.md` 明确指定 3 节点为 09:26（集合竞价后）/ 14:00 / 15:20。**不可将 09:26 改为 09:30**——09:26 是竞价结束、结果可用的精确时刻，09:30 已错过最佳定调窗口。修改 cron 时间前必须核对文档，不可凭直觉"取整"。
@@ -609,6 +614,8 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 33. **微信 iLink 限流导致 cron 推送静默丢失（2026-06-09）**：cron 分析正常执行（status: ok），但 delivery 因 iLink rate limited 静默失败。现象：jobs list 中 `last_delivery_error: "Weixin send failed: iLink sendmessage rate limited"`。不影响分析生成，输出仍可在 `~/.hermes/cron/output/<job_id>/` 读取。当前无已知修复方案（平台限制），但可通过偏移 cron 分钟数减少碰撞：`*/5` → `1-56/5`（:01, :06, :11...），`*/10` → `1-51/10`。B站监控（`*/10`）也是整10分碰撞源。
 34. **DeepSeek API 流式断连（2026-06-09 首次观测）**：deepseek-v4-pro API 返回 HTTP 200 但 0 bytes 0 chunks，持续 3×180s 超时后耗尽重试。这不是 key 限流（同一 key 的其他请求正常），是服务端部分推理节点挂死。症状：agent.log 出现 `Stream stale for 180s — no chunks received` + `RemoteProtocolError: peer closed connection without sending complete message body`。区分方法：API 故障 → 有 AI call 但失败；schedule 不匹配 → 根本没有 AI call（`script produced no output`）。修复：等 API 恢复。详见 `references/config-cron-alignment-debugging.md` Step 4。
 35. **Qing-Agent 双入口差异（/analyze/trigger vs /chat）**：两个入口架构完全不同。`/analyze/trigger` 走完整 LangGraph 管线，要求调用方提供全部实时数据，market_analyst 节点无数据时硬拒绝。`/chat` 自己拉数据（Qdrant+Neo4j+行情），拉不到就降级，不拒绝分析。盘后配置审查、知识库分析等不需要实时行情的任务，必须用 `/chat` 而非 `/analyze/trigger`。详见 `references/qing-agent-endpoints.md`。
+
+36. **`read_file` 输出污染陷阱（2026-06-09 首次发现）**：`read_file` 工具的默认输出格式包含行号前缀（`     N|`）。若将此输出通过 `write_file` 写回文件，行号前缀会被写入内容导致文件损坏（双列格式）。**安全做法**：在 `execute_code` 中始终用 Python `Path(path).read_text()` 读取原始内容作为修改源，不要依赖 `read_file` 的输出作为回写数据。**修复已损坏文件**：`git checkout -- path` 恢复，或从 git history 提取正确版本。
 
 ## 从复盘文档批量更新 narrative 的规范流程
 

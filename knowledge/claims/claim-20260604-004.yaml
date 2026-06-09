@@ -155,9 +155,13 @@ claims:
       methodology_pages: []
       cases: []
       related_stocks:
-        - 天赐材料(002709)
+        - code: 002709.SZ
+          name: 天赐材料
+          role: 参考标的
         - 华盛锂电
-        - 石大胜华(603026)
+        - code: 603026.SH
+          name: 石大胜华
+          role: 参考标的
     intensity: high
     tags:
       - 板块主题
@@ -192,9 +196,15 @@ claims:
       methodology_pages: []
       cases: []
       related_stocks:
-        - 杰瑞股份(002353)
-        - 中国动力(600482)
-        - 万泽股份(000534)
+        - code: 002353.SZ
+          name: 杰瑞股份
+          role: 参考标的
+        - code: 600482.SH
+          name: 中国动力
+          role: 参考标的
+        - code: 000534.SZ
+          name: 万泽股份
+          role: 参考标的
     intensity: high
     tags:
       - 燃气轮机
@@ -228,7 +238,9 @@ claims:
       methodology_pages: []
       cases: []
       related_stocks:
-        - 罗莱生活(002293)
+        - code: 002293.SZ
+          name: 罗莱生活
+          role: 参考标的
         - 亚朵(ATAT)
     intensity: high
     tags:
@@ -263,8 +275,12 @@ claims:
       methodology_pages: []
       cases: []
       related_stocks:
-        - 药明康德(603259)
-        - 百济神州(688235)
+        - code: 603259.SH
+          name: 药明康德
+          role: 参考标的
+        - code: 688235.SH
+          name: 百济神州
+          role: 参考标的
         - 信达生物(01801.HK)
     intensity: high
     tags:
@@ -327,10 +343,18 @@ claims:
       methodology_pages: []
       cases: []
       related_stocks:
-        - 大金重工(002487)
-        - 银轮股份(002126)
-        - 涛涛车业(301345)
-        - 旭升集团(603305)
+        - code: 002487.SZ
+          name: 大金重工
+          role: 参考标的
+        - code: 002126.SZ
+          name: 银轮股份
+          role: 参考标的
+        - code: 301345.SZ
+          name: 涛涛车业
+          role: 参考标的
+        - code: 603305.SH
+          name: 旭升集团
+          role: 参考标的
     intensity: high
     tags:
       - 板块主题
@@ -389,9 +413,15 @@ claims:
       methodology_pages: []
       cases: []
       related_stocks:
-        - 航天动力(600343)
-        - 臻镭科技(688270)
-        - 烽火通信(600498)
+        - code: 600343.SH
+          name: 航天动力
+          role: 参考标的
+        - code: 688270.SH
+          name: 臻镭科技
+          role: 参考标的
+        - code: 600498.SH
+          name: 烽火通信
+          role: 参考标的
     intensity: high
     tags:
       - 板块主题
@@ -423,14 +453,30 @@ claims:
       methodology_pages: []
       cases: []
       related_stocks:
-        - 杰瑞股份(002353)
-        - 大金重工(002487)
-        - 天赐材料(002709)
-        - 罗莱生活(002293)
-        - 药明康德(603259)
-        - 银轮股份(002126)
-        - 涛涛车业(301345)
-        - 盛德鑫泰(300881)
+        - code: 002353.SZ
+          name: 杰瑞股份
+          role: 参考标的
+        - code: 002487.SZ
+          name: 大金重工
+          role: 参考标的
+        - code: 002709.SZ
+          name: 天赐材料
+          role: 参考标的
+        - code: 002293.SZ
+          name: 罗莱生活
+          role: 参考标的
+        - code: 603259.SH
+          name: 药明康德
+          role: 参考标的
+        - code: 002126.SZ
+          name: 银轮股份
+          role: 参考标的
+        - code: 301345.SZ
+          name: 涛涛车业
+          role: 参考标的
+        - code: 300881.SZ
+          name: 盛德鑫泰
+          role: 参考标的
     intensity: high
     tags:
       - 机构推荐的获

@@ -223,7 +223,9 @@ claims:
       - 润建股份
       - 个股观点
     related_stocks:
-      - 润建股份(002929)
+      - code: 002929.SZ
+        name: 润建股份
+        role: 参考标的
   - id: claim-20260518-019-i
     topic: 英伟达5月20日财报大概率没问题
     source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
@@ -311,7 +313,9 @@ claims:
       - 兆易创新
       - 个股观点
     related_stocks:
-      - 兆易创新(603986)
+      - code: 603986.SH
+        name: 兆易创新
+        role: 参考标的
   - id: claim-20260518-019-l
     topic: 中国长城明日收阳线概率很大
     source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
@@ -342,7 +346,9 @@ claims:
       - 中国长城
       - 个股观点
     related_stocks:
-      - 中国长城(000066)
+      - code: 000066.SZ
+        name: 中国长城
+        role: 参考标的
   - id: claim-20260518-019-m
     topic: 波浪理论操作策略
     source_path: sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
