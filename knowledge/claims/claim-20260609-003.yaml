@@ -1,0 +1,141 @@
+claims:
+- id: claim-20260609-003-a
+  source_path: sources/raw/财经/午盘动态：26-06-09：修复不构成共振，上游涨价链持续居前.md
+  source_date: '2026-06-09'
+  source_type: 动态
+  extracted_at: '2026-06-09T14:00:00+08:00'
+  claim_type: market-cycle
+  subject: 修复不构成共振，力度弱于前两次
+  timeframe: short-term
+  statement: 上午修复尚不构成共振修复。科技进攻多点开花但强度中等、缺乏聚焦，全A指数仍偏弱未出中阳线。对比5月22日和6月2日两次"全A联动+核心分支"共振修复，今日力度级别更弱。午后关键：若全A与科技联动出中阳线→下跌趋势缓和、可参与性提升；若不能共振→短期压制未解除。
+  evidence_quote: 需要明确的是，上午的修复尚不构成共振修复。一是科技进攻虽多点开花，但强度中等、缺乏明显聚焦，难以形成具引领性的新分支；二是全A指数上午依然偏弱，未走出中阳线。对比5月22日、6月2日两次"全A联动+核心分支"的共振修复，今日上午的力度级别更弱。
+  interpretation: |
+    UP给上午修复定性：不及格（未达共振标准）。核心对比框架是5/22和6/2——那两次是全A+核心分支联动的真修复，这次是散点式弱修复。午后判断标准很明确：全A+科技联动出中阳线=可参与，否则继续观望。
+    
+    这对早盘"恐慌中后段"+盘中"电风扇观望"形成补充——修复力度不够，不是反转信号。
+  confidence: high
+  intensity: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 修复不构成共振
+  tags:
+  - 市场周期
+  - 修复
+  - 共振
+
+- id: claim-20260609-003-b
+  source_path: sources/raw/财经/午盘动态：26-06-09：修复不构成共振，上游涨价链持续居前.md
+  source_date: '2026-06-09'
+  source_type: 动态
+  extracted_at: '2026-06-09T14:00:00+08:00'
+  claim_type: sector-theme
+  subject: 上游涨价链持续居前——MLCC/光纤/电子布/CCL中报业绩确定性
+  timeframe: trend
+  statement: 上游涨价链条——MLCC、光纤、电子布/树脂/CCL——近期持续居前，推断主因在于中报业绩确定性相对较高。验证信号：关注上游涨价能否扩散至非半导体的部分化工品种——这是区分"炒一时业绩"还是"持续业绩"的关键。
+  evidence_quote: 整体看，上游涨价链条——MLCC、光纤、电子布/树脂/CCL——近期持续居前，推断主因或在于中报业绩确定性相对较高。此外，可跟踪上游涨价能否扩散至非半导体的部分化工品种——这是区分"炒一时业绩"还是"持续业绩"的验证信号。
+  interpretation: |
+    UP确认当前盘面最强逻辑=中报业绩确定性→上游涨价链。这与6/4"找低位+Q1超预期→中报不差"的选股方法论一致。但UP加了验证条件：涨价能否扩散到非半导体化工？能→持续业绩逻辑，不能→只是炒一时。
+    
+    主板可关注的上游涨价链：MLCC（风华高科000636/三环集团300408不可交易）、光纤（长飞光纤601869/亨通光电600487/中天科技600522）、CCL（华正新材603186/金安国纪002636）。
+  confidence: high
+  intensity: high
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+    related_stocks:
+    - 长飞光纤(601869)
+    - 亨通光电(600487)
+    - 中天科技(600522)
+    - 华正新材(603186)
+    - 金安国纪(002636)
+    related_sectors:
+    - MLCC
+    - 光纤
+    - CCL
+  topic: 上游涨价链中报业绩确定性
+  tags:
+  - 板块主题
+  - 涨价
+  - MLCC
+  - 光纤
+  - 业绩
+
+- id: claim-20260609-003-c
+  source_path: sources/raw/财经/午盘动态：26-06-09：修复不构成共振，上游涨价链持续居前.md
+  source_date: '2026-06-09'
+  source_type: 动态
+  extracted_at: '2026-06-09T14:00:00+08:00'
+  claim_type: sector-theme
+  subject: 光纤板块强势——康宁亚马逊催化，亨通光电创新高
+  timeframe: short-term
+  statement: 光纤板块今日领涨科技修复。催化：康宁因亚马逊签下数十亿美元长期光纤采购协议（用于连接美国数据中心）涨5.61%。长飞光纤、亨通光电、中天科技等市占率较高的个股相对强势，亨通光电走出新高。
+  evidence_quote: 盘面上AI硬科技多方向轮动进攻，几乎每个分支都有表现，其中以光纤为代表：康宁与亚马逊的合作消息盘前对光纤板块形成支撑，长飞光纤、亨通光电、中天科技等市占率较高的个股相对强势，亨通光电更走出新高。
+  interpretation: |
+    光纤是今日科技修复中最强分支。逻辑链清晰：康宁+亚马逊大单→AI数据中心光纤需求指数级增长→A股上游受益。亨通光电创新高说明资金认可这个逻辑。
+    
+    主板光纤标的全部可交易：长飞光纤(601869)、亨通光电(600487)、中天科技(600522)。但UP整体判断修复力度不够——光纤独强不代表市场转势。
+  confidence: high
+  intensity: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+    related_stocks:
+    - 长飞光纤(601869)
+    - 亨通光电(600487)
+    - 中天科技(600522)
+    related_sectors:
+    - 光纤
+    - AI算力
+  topic: 光纤板块强势
+  tags:
+  - 板块主题
+  - 光纤
+  - AI算力
+  - 康宁
+
+- id: claim-20260609-003-d
+  source_path: sources/raw/财经/午盘动态：26-06-09：修复不构成共振，上游涨价链持续居前.md
+  source_date: '2026-06-09'
+  source_type: 动态
+  extracted_at: '2026-06-09T14:00:00+08:00'
+  claim_type: sector-theme
+  subject: 半导体普涨修复——洁净室/硅片偏强，芯片跟随，消息面未证实
+  timeframe: short-term
+  statement: 半导体板块以普涨修复为主。洁净室、硅片分支偏强，芯片在硅片带动下集体走高（相关消息面尚未证实，盘后需留意是否有新闻落地）。PCB、CPO以跟随修复为主，阵型一般。整体科技修复缺乏聚焦，难以形成具引领性的新分支。
+  evidence_quote: 半导体板块以普涨修复为主，洁净室、硅片分支偏强，芯片在硅片带动下集体走高(相关消息面尚未证实，盘后需留意是否有新闻落地)；PCB、CPO以跟随修复为主，阵型一般。
+  interpretation: |
+    半导体是普涨而非结构性突破。洁净室/硅片偏强但消息面未证实=资金在赌消息但信心不足。PCB/CPO跟随修复=被动上涨，无独立逻辑。
+    
+    这与6/4"科技阶段性规避"不矛盾——规避是指不追高建新仓，但已有科技持仓趁修复减仓是合理的。等消息面落地后再判断半导体是否有持续性。
+  confidence: medium
+  intensity: medium
+  status: active
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体普涨修复缺乏聚焦
+  tags:
+  - 板块主题
+  - 半导体
+  - 硅片
+  - PCB
