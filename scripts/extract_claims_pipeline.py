@@ -17,6 +17,9 @@ extract_claims_pipeline.py — C2 编排控制器
   # 只跑验证（不触发编排）
   python scripts/extract_claims_pipeline.py validate --file temp/claims/step1_raw.json
 
+  # 清理临时文件
+  python scripts/extract_claims_pipeline.py done <session_id>
+
 工作流目录: temp/claims/<session_id>/
   session.json     — 会话状态
   step1_raw.json   — Step 1: 提取草稿（宽松格式）
@@ -221,6 +224,7 @@ def next_action(session: dict) -> dict:
 4. **更新 log**：knowledge/wiki/log.md
 5. **Git 提交**：git add 并 commit
 6. **汇报**：告诉用户完成了什么
+7. **清理**：完成后运行 `python scripts/extract_claims_pipeline.py done {session["session_id"]}` 删除临时文件
 """,
             "auto": False,
         }
@@ -407,12 +411,37 @@ def cmd_validate(file: str):
     sys.exit(0 if ok else 1)
 
 
+def cmd_done(session_id: str):
+    """清理指定会话的临时文件"""
+    sess_dir = TEMP_DIR / session_id
+    if not sess_dir.exists():
+        print(f"⚠️  会话目录不存在: {sess_dir}")
+        sys.exit(1)
+
+    # 确认 YAML 已移动到正式位置
+    yaml_dir = sess_dir / "step3_yaml"
+    yamls_left = list(yaml_dir.glob("*.yaml")) if yaml_dir.exists() else []
+    if yamls_left:
+        print(f"⚠️  YAML 尚未移走: {[y.name for y in yamls_left]}")
+        print("   请先完成 Step 4（移动 YAML 到 knowledge/claims/）再清理")
+        sys.exit(1)
+
+    shutil.rmtree(sess_dir)
+    print(f"🧹 临时文件已清理: {sess_dir.name}")
+
+    # 如果 temp/claims/ 为空，连父目录也删
+    if TEMP_DIR.exists() and not any(TEMP_DIR.iterdir()):
+        TEMP_DIR.rmdir()
+        TEMP_DIR.parent.rmdir()  # temp/
+
+
 def main():
     if len(sys.argv) < 2:
         print("用法:")
         print("  python scripts/extract_claims_pipeline.py start --raw <path>")
         print("  python scripts/extract_claims_pipeline.py continue [session_id]")
         print("  python scripts/extract_claims_pipeline.py validate --file <path>")
+        print("  python scripts/extract_claims_pipeline.py done <session_id>")
         sys.exit(1)
 
     cmd = sys.argv[1]
@@ -437,6 +466,12 @@ def main():
             sys.exit(1)
         file_idx = sys.argv.index("--file") + 1
         cmd_validate(sys.argv[file_idx])
+
+    elif cmd == "done":
+        if len(sys.argv) < 3:
+            print("❌ 缺少 session_id")
+            sys.exit(1)
+        cmd_done(sys.argv[2])
 
     else:
         print(f"❌ 未知命令: {cmd}")
