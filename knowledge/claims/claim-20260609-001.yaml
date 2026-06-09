@@ -169,17 +169,34 @@ claims:
     wiki_pages: []
     methodology_pages: []
     cases: []
-    related_stocks:
-    - 超捷股份(301123)
-    - 西部材料(002149)
-    - 高华科技(未上市)
-    - 上海瀚讯(688155)
-    - 中国卫星(600118)
-    - 信科移动(688387)
-    - 迈为股份(300751)
-    - 钧达股份(002865)
-    - 信维通信(300136)
-    - 海格通信(002465)
+  related_stocks:
+  - code: 600118.SH
+    name: 中国卫星
+    role: 卫星链龙头-主板可交易
+  - code: 301123.SZ
+    name: 超捷股份
+    role: 火箭链标的-创业板不可交易
+  - code: 002149.SZ
+    name: 西部材料
+    role: 火箭链标的-中小板不可交易
+  - code: 688155.SH
+    name: 上海瀚讯
+    role: 卫星链标的-科创板不可交易
+  - code: 688387.SH
+    name: 信科移动
+    role: 卫星链标的-科创板不可交易
+  - code: 300751.SZ
+    name: 迈为股份
+    role: SpaceX映射-创业板不可交易
+  - code: 002865.SZ
+    name: 钧达股份
+    role: SpaceX映射-中小板不可交易
+  - code: 300136.SZ
+    name: 信维通信
+    role: SpaceX映射-创业板不可交易
+  - code: 002465.SZ
+    name: 海格通信
+    role: 卫星通信配套-中小板不可交易
     related_sectors:
     - 商业航天
   topic: 商业航天回调尾声
