@@ -35,21 +35,16 @@ sleep 2
 PYTHONPATH=src .venv/bin/python -m uvicorn qing_investment.agent.main:app --host 0.0.0.0 --port 8000 --log-level info &
 ```
 
-## Claims→Entry 桥接
+## ~~Claims→Entry 桥接（2026-06-10 已废弃）~~
 
-新增 `claim_type: operation` 后运行：
-
-```bash
-PYTHONPATH=src .venv/bin/python scripts/sync_claims_to_config.py
-```
-
-输出：`config/stock_monitor/entry_suggestions/entry_suggestions_YYYYMMDD.yaml`
-
-告知用户确认后写入 strategy_pack。
+`sync_claims_to_config.py` 功能设计未落地，`entry_suggestions/` 始终为空。此步骤已从管线移除。
 
 ## 关键坑
 
-1. **必须先停 Agent**（Qdrant 本地模式独占文件锁）
+1. **必须先停 Qing-Agent + MCP server**（Qdrant 本地模式独占文件锁）
+   - `kill $(pgrep -f "mcp_qdrant_server")` 和 `kill $(pgrep -f "mcp_neo4j_server")` — 同步脚本的自动杀进程逻辑只针对 `uvicorn qing_investment`，不杀 Hermes 的 MCP 子进程
+   - 若 MCP 死得突然，检查并清理 `.qdrant_data/.lock`
+   - 同步完成后需重启 Hermes（`hermes restart`）让 MCP server 重新接入
 2. `PYTHONUNBUFFERED=1` — 否则 cron 捕获不到 stdout
 3. **仅改元数据字段**（timeframe/related_stocks/tags）→ discover 输出 0 relations 是预期的，可跳过 discover 直接 migrate
 4. **改 supersedes/contradicts** → 必须跑 discover --all-missing，否则空列表覆盖 Neo4j 已有关系
