@@ -120,13 +120,14 @@ python3 scripts/check_config_consistency.py --json
 **根因**：uvicorn 单 worker 串行排队 + 管线 30s+ 耗时 vs 脚本 45s 超时。第一个慢请求触发 worker 忙碌 → 后续请求排队 → 全部超时走 fallback。不是代码 bug，是超时争用。
 
 **已修复（2026-06-10）**：
-1. **超时调大**：45s → **120s** + 3 次指数退避重试
+1. **超时调大**：45s → **180s** + 3 次指数退避重试
 2. **uvicorn → gunicorn 单 worker**：进程崩溃自动重启、优雅关闭、统一日志
 3. **成功/失败显式标记**：`[Qing-Agent ✓]` / `[Qing-Agent ✗ FALLBACK]`
+4. **Qdrant 锁冲突解决**：停止 MCP Qdrant server，让 Qing-Agent 独占 `.qdrant_data` 本地文件访问（Qdrant 本地模式使用排他锁，同一时刻只能有一个进程）
 
-**QING_AGENT_TIMEOUT 调优**：脚本默认 45s 对 30s+ 管线偏紧。已改为 **120s** + **3 次指数退避重试**（1s/2s/4s）。环境变量可覆盖：
+**QING_AGENT_TIMEOUT 调优**：脚本默认 45s 对 30s+ 管线偏紧。已改为 **180s** + **3 次指数退避重试**（1s/2s/4s）。环境变量可覆盖：
 ```bash
-export QING_AGENT_TIMEOUT=120  # 置入 .bashrc 或 cron 环境
+export QING_AGENT_TIMEOUT=180  # 置入 .bashrc 或 cron 环境
 export QING_AGENT_MAX_RETRIES=3
 ```
 
