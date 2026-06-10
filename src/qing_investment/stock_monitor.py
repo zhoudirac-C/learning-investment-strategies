@@ -910,6 +910,72 @@ def find_agent_analysis_trigger(
     return None
 
 
+def find_any_agent_analysis_trigger(
+    config: MonitorConfig,
+    state: dict,
+    value: datetime,
+    alerts: list[RuleAlert],
+) -> AgentAnalysisTrigger | None:
+    """Always return a scheduled trigger if one exists for current time,
+    regardless of whether it's in agent_analysis_schedule.
+
+    This bypasses the time-restriction so cron jobs can run at any time.
+    """
+    history = _agent_history(state)
+
+    # First check event-driven triggers (alerts)
+    if alerts:
+        actions = "、".join(dict.fromkeys(alert.action for alert in alerts))
+        fingerprints = ",".join(alert_fingerprint(alert) for alert in alerts)
+        dedupe_key = (
+            f"event:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{fingerprints}"
+        )
+        if dedupe_key not in history:
+            return AgentAnalysisTrigger(
+                kind="event",
+                id="rule_alert",
+                title="规则触发",
+                reason=f"出现新的规则信号：{actions}",
+                dedupe_key=dedupe_key,
+            )
+
+    # Build trigger from current time — no schedule restriction
+    current_hhmm = _hhmm(value)
+
+    # Try to find matching row in schedule for metadata
+    schedule_rows = agent_analysis_schedule_rows(config)
+    current_row = None
+    for row in schedule_rows:
+        if str(row.get("time", "")) == current_hhmm:
+            current_row = row
+            break
+
+    # If matched scheduled row, use its metadata
+    if current_row:
+        dedupe_key = _agent_dedupe_key_for_schedule(current_row, value)
+        if dedupe_key in history:
+            return None
+        return AgentAnalysisTrigger(
+            kind="scheduled",
+            id=str(current_row.get("id", current_hhmm)),
+            title=str(current_row.get("name", current_hhmm)),
+            reason=str(current_row.get("focus", "")),
+            dedupe_key=dedupe_key,
+        )
+
+    # No scheduled row for this time — create a generic trigger
+    dedupe_key = f"scheduled:any:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{current_hhmm}"
+    if dedupe_key in history:
+        return None
+    return AgentAnalysisTrigger(
+        kind="scheduled",
+        id=f"any_{current_hhmm}",
+        title=f"{current_hhmm} 定时分析",
+        reason="定时触发分析",
+        dedupe_key=dedupe_key,
+    )
+
+
 def record_agent_analysis_trigger(
     state: dict,
     trigger: AgentAnalysisTrigger,
@@ -2213,7 +2279,15 @@ def run_tick(
     dedupe_minutes: int = 30,
     agent_context_on_trigger: bool = False,
     agent_json_context: bool = False,
+    agent_any_time: bool = False,
 ) -> str:
+    """Run one monitor tick.
+
+    If agent_any_time=True, bypass the agent_analysis_schedule time restriction
+    and always produce an agent trigger when --agent-json-context or
+    --agent-context-on-trigger is used. This lets cron jobs run at arbitrary
+    times without needing the time to be listed in strategy_pack.yaml.
+    """
     scheduled_agent_time = (agent_context_on_trigger or agent_json_context) and is_scheduled_agent_analysis_time(
         config, value
     )
@@ -2255,7 +2329,10 @@ def run_tick(
     record_alert_decision_log(state, alerts, new_alerts, value)
     agent_trigger = None
     if agent_context_on_trigger or agent_json_context:
-        agent_trigger = find_agent_analysis_trigger(config, state, value, new_alerts)
+        if agent_any_time:
+            agent_trigger = find_any_agent_analysis_trigger(config, state, value, new_alerts)
+        else:
+            agent_trigger = find_agent_analysis_trigger(config, state, value, new_alerts)
     if new_alerts:
         record_emitted_alerts(state, new_alerts, value)
     save_monitor_state(resolved_state_path, state)
@@ -2351,6 +2428,15 @@ def build_parser() -> argparse.ArgumentParser:
         ),
     )
     parser.add_argument(
+        "--agent-any-time",
+        action="store_true",
+        help=(
+            "Bypass agent_analysis_schedule time restriction. "
+            "Always produce agent context when --agent-json-context is used, "
+            "regardless of whether current time is in the schedule."
+        ),
+    )
+    parser.add_argument(
         "--daily-review-context",
         action="store_true",
         help="Print an end-of-day monitoring review context from the state file.",
@@ -2407,6 +2493,7 @@ def main(argv: list[str] | None = None) -> int:
         dedupe_minutes=args.dedupe_minutes,
         agent_context_on_trigger=args.agent_context_on_trigger,
         agent_json_context=args.agent_json_context,
+        agent_any_time=args.agent_any_time,
     )
     if message:
         print(message)

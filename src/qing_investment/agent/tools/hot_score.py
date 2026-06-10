@@ -328,6 +328,7 @@ def calculate_all_hot_scores(watchlist_data: dict | None = None, positions_data:
                 positions_data = yaml.safe_load(f) or {}
     
     results = []
+    seen_codes = set()
     
     for theme in watchlist_data.get("themes", []):
         theme_claims = []
@@ -337,6 +338,11 @@ def calculate_all_hot_scores(watchlist_data: dict | None = None, positions_data:
                 theme_claims.append({"intensity": "medium"})  # 简化处理
         
         for stock in theme.get("stocks", []):
+            code = stock.get("code", "")
+            if code in seen_codes:
+                continue  # 去重：同一标的只计算一次（取首次出现的 theme）
+            seen_codes.add(code)
+            
             score_result = calculate_hot_score(stock, theme_claims, positions_data)
             score_result["theme"] = theme.get("name", "")
             score_result["theme_id"] = theme.get("id", "")

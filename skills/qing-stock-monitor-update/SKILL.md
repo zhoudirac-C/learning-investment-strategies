@@ -36,6 +36,10 @@ description: |
 | Qing-Agent 服务架构（uvicorn→gunicorn 单 worker） | `references/qing-agent-gunicorn-migration.md` |
 | 系统问题修复记录（2026-06-10） | `references/fix-monitor-system-issues-20260610.md` |
 | Qdrant 本地模式并发锁机制 | `references/qdrant-concurrency-lock.md` |
+| Cron 脚本超时诊断手册 | `references/cron-script-timeout-diagnosis.md` |
+| **Agent 时间限制绕过** | `references/agent-any-time-bypass.md` |
+| **Cron 超时外部化配置** | `references/cron-timeout-external-config.md` |
+| **Skill 文档维护卫生** | `references/skill-doc-maintenance-hygiene.md` |
 
 ---
 
@@ -118,6 +122,8 @@ python3 scripts/check_config_consistency.py --json
 
 **反面案例（2026-06-10）**：Agent 挂了整整一个上午——`/health` 返回 OK，但 `/analyze/trigger` 挂死无响应。全部 cron 静默走 LLM fallback，输出过期方向词且无 claims 引用。
 
+**Cron 脚本超时（2026-06-10 新增）**：`qing_stock_monitor_agent.py` wrapper 在 cron 中 120s 超时。根因通常是 Qing-Agent `/analyze/trigger` 端点无响应，脚本内部 `urlopen` 阻塞直到 cron kill。**不是代码 bug，是服务不可用**。诊断与修复见 `references/cron-script-timeout-diagnosis.md`。
+
 **数据源降级导致的 fallback 连锁反应（2026-06-10 下午）**：
 
 cron job 报告出现持仓幻觉（"景旺电子 +4.18%、鼎龙股份 +2.03%"），但用户实际空仓。根因链：
@@ -160,11 +166,13 @@ print(f'source={result[\"source\"]}, quotes={len(result[\"quotes\"])}/{len(targe
 3. **成功/失败显式标记**：`[Qing-Agent ✓]` / `[Qing-Agent ✗ FALLBACK]`
 4. **Qdrant 锁冲突解决**：停止 MCP Qdrant server，让 Qing-Agent 独占 `.qdrant_data` 本地文件访问（Qdrant 本地模式使用排他锁，同一时刻只能有一个进程）
 
-**QING_AGENT_TIMEOUT 调优**：脚本默认 45s 对 30s+ 管线偏紧。已改为 **180s** + **3 次指数退避重试**（1s/2s/4s）。环境变量可覆盖：
+- **QING_AGENT_TIMEOUT 调优**：脚本默认 45s 对 30s+ 管线偏紧。已改为 **180s** + **3 次指数退避重试**（1s/2s/4s）。环境变量可覆盖：
 ```bash
 export QING_AGENT_TIMEOUT=180  # 置入 .bashrc 或 cron 环境
 export QING_AGENT_MAX_RETRIES=3
 ```
+
+- **Cron 外层超时 ≥ 脚本内超时 + 20s**：cron job 的 `timeout` 字段必须 ≥ `QING_AGENT_TIMEOUT + 20`。若脚本内 180s，cron 至少 200s。否则脚本还在重试就被 cron kill。
 
 **正确做法**：Step 1 前置真实端点检测（含 blast radius 扫描 + `/analyze/trigger` 实测，max-time 30s）。运维命令速查见 `references/qing-agent-service-operations.md`。
 ```bash
@@ -336,7 +344,7 @@ python3 scripts/hermes_stock_monitor_agent.py
 
 **正确做法**：新增调用 Neo4jClient 的代码时，先检查类定义是否已有该方法。没有的话先补方法再调代码。
 
-### 陷阱 7: trader_mindset.txt 是空壳，人格定义重复内嵌
+### 陷阱 8: trader_mindset.txt 是空壳，人格定义重复内嵌
 
 **反面案例（2026-06-10）**：`trader_mindset.txt` 只有两行说明文字，实际人格定义（核心原则、反保守自检、UP表达风格）全部内嵌在 `market_analyst.txt` 和 `stock_analyst.txt` 中。导致：
 1. 人格定义无法独立迭代
@@ -360,7 +368,7 @@ grep -c "核心原则" src/qing_investment/agent/prompts/system/market_analyst.t
 # 应输出 0
 ```
 
-### 陷阱 8: context_builder claims 排序未利用 reasoning_patterns
+### 陷阱 9: Context Builder 未根据 reasoning pattern 优先展示 claims
 
 **反面案例（2026-06-10）**：`context_builder.py` 的 `_score_claim_relevance()` 只考虑股票代码匹配、介入信号、角色定义、时效性，没有根据当前分析应激活的 reasoning pattern 来优先展示相关 claims。导致：用户问"MLCC 怎么看"时，涉及"涨价"、"周期位置"的 claims 没有获得额外加分，可能排在不相关的 claims 后面。
 
@@ -377,6 +385,83 @@ grep -c "核心原则" src/qing_investment/agent/prompts/system/market_analyst.t
 # 检查 _score_claim_relevance 是否包含 pattern 匹配逻辑
 grep -c "active_patterns" src/qing_investment/agent/tools/context_builder.py
 # 应输出 >=3（函数签名 + 调用处 + 循环体）
+```
+
+### 陷阱 10: Agent Analysis Schedule 时间限制导致静默跳过
+
+**反面案例（2026-06-10）**：用户要求"把 agent_analysis_schedule 的时间点限制删了"，因为 cron job 在非 schedule 时间点触发时，`find_agent_analysis_trigger()` 返回 `None`，导致 Agent 分析静默跳过，用户看到空输出。
+
+**根因**：`stock_monitor.py` 的 `find_agent_analysis_trigger()` 严格匹配 `agent_analysis_schedule` 中的时间。cron schedule 和 agent_analysis_schedule 不同步时，出现"cron 触发但无输出"。
+
+**已修复（2026-06-10）**：
+1. 新增 `find_any_agent_analysis_trigger()` 函数：绕过时间限制，任何时间都能触发
+2. 新增 `--agent-any-time` CLI 参数
+3. `hermes_stock_monitor_agent.py` wrapper 自动传递 `--agent-any-time`
+
+**正确做法**：
+- wrapper 脚本（cron 调用）使用 `--agent-any-time` 绕过限制
+- 手动测试时保留默认行为（检查 schedule）
+- 修改 cron 时间时无需同步更新 strategy_pack.yaml 的 schedule
+
+**相关文件**：
+- `src/qing_investment/stock_monitor.py`
+- `scripts/hermes_stock_monitor_agent.py`
+
+**参考文档**：`references/agent-any-time-bypass.md`
+
+### 陷阱 11: Cron 外层超时 < 脚本内超时导致静默 kill
+
+**反面案例（2026-06-10）**：`QING_AGENT_TIMEOUT=180s`，但 Hermes cron job 默认超时 120s。脚本还在重试时被 cron kill，输出为空，用户无感知。
+
+**根因**：超时层级未对齐。脚本内 180s > cron 外层 120s。
+
+**已修复（2026-06-10）**：
+1. 脚本新增 `CRON_WRAPPER_TIMEOUT` 环境变量（默认 200s）
+2. 文档化超时层级关系：LLM(30-60s) < gunicorn(120s) < 脚本 HTTP(180s) < cron(200s)
+
+**正确做法**：
+- 设置 cron timeout ≥ `QING_AGENT_TIMEOUT + 20s`
+- 通过环境变量外部化配置，避免硬编码
+- 诊断时检查 `time cronjob action=list` 的输出
+
+**参考文档**：`references/cron-timeout-external-config.md`
+
+### 陷阱 12: calc_hot_scores.py 重复计算跨 theme 股票
+
+**反面案例（2026-06-10）**：`calculate_all_hot_scores()` 没有去重逻辑，10 只股票出现在多个 theme 中（如风华高科同时在 `mlcc_passive_cycle` 和 `upstream_price_increase`），被计算了两次。导致：
+- 总股票数虚高（180 vs 实际 170）
+- 重复票取首次出现的 theme 数据，后续 theme 的 claims/权重被忽略
+- `watchlist_hot_scores.json` 中同一只股票出现多条记录
+
+**已修复（2026-06-10）**：在 `calculate_all_hot_scores()` 中增加 `seen_codes` 集合去重：
+```python
+seen_codes = set()
+for theme in watchlist_data.get("themes", []):
+    for stock in theme.get("stocks", []):
+        code = stock.get("code", "")
+        if code in seen_codes:
+            continue  # 去重：同一标的只计算一次（取首次出现的 theme）
+        seen_codes.add(code)
+        ...
+```
+
+**涉及文件**：
+- `src/qing_investment/agent/tools/hot_score.py`
+
+**验证命令**：
+```bash
+cd ~/learning-investment-strategies
+python3 -c "
+import sys; sys.path.insert(0, 'src')
+from qing_investment.agent.tools.hot_score import calculate_all_hot_scores, load_watchlist
+w = load_watchlist()
+results = calculate_all_hot_scores(w)
+seen = set()
+dups = [r['code'] for r in results if r['code'] in seen or seen.add(r['code'])]
+print(f'Total: {len(results)}, Duplicates: {len(dups)}')
+assert len(dups) == 0, f'Duplicates found: {dups}'
+print('✓ 去重验证通过')
+"
 ```
 
 ---

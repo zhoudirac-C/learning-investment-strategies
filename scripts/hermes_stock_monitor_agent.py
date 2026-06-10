@@ -21,6 +21,10 @@ QING_AGENT_URL = os.environ.get("QING_AGENT_URL", "http://localhost:8000/analyze
 QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "180"))
 QING_AGENT_MAX_RETRIES = int(os.environ.get("QING_AGENT_MAX_RETRIES", "3"))
 
+# Cron job wrapper timeout (seconds) — must be >= QING_AGENT_TIMEOUT + 20s margin
+# to avoid the cron killing the script while it's still retrying.
+CRON_WRAPPER_TIMEOUT = float(os.environ.get("CRON_WRAPPER_TIMEOUT", "200"))
+
 
 def repo_root() -> str:
     configured = os.environ.get("HERMES_REPO_ROOT")
@@ -53,7 +57,7 @@ def _run_stock_monitor(root: Path, *extra_args: str) -> subprocess.CompletedProc
 
 def fetch_json_context(root: Path) -> dict | None:
     """Run stock_monitor.py --agent-json-context and parse the JSON output."""
-    result = _run_stock_monitor(root, "--agent-json-context", "--ignore-trading-time")
+    result = _run_stock_monitor(root, "--agent-json-context", "--ignore-trading-time", "--agent-any-time")
     stdout = result.stdout.strip()
     if not stdout:
         return None
@@ -65,7 +69,7 @@ def fetch_json_context(root: Path) -> dict | None:
 
 def fetch_fallback_text_context(root: Path) -> str:
     """Run stock_monitor.py --agent-context-on-trigger to get plain text context."""
-    result = _run_stock_monitor(root, "--agent-context-on-trigger", "--ignore-trading-time")
+    result = _run_stock_monitor(root, "--agent-context-on-trigger", "--ignore-trading-time", "--agent-any-time")
     return result.stdout
 
 
@@ -111,6 +115,13 @@ def call_qing_agent(data: dict) -> dict | None:
             return None
         except urllib.error.URLError as e:
             print(f"[qing-agent unreachable retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e.reason}", file=sys.stderr)
+            if attempt < QING_AGENT_MAX_RETRIES:
+                import time
+                time.sleep(2 ** attempt)
+                continue
+            return None
+        except TimeoutError as e:
+            print(f"[qing-agent timeout retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e}", file=sys.stderr)
             if attempt < QING_AGENT_MAX_RETRIES:
                 import time
                 time.sleep(2 ** attempt)
