@@ -21,14 +21,16 @@ description: |
 
 ## 跨 Skill 兼容性
 
-qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）：
+qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层），这对下游 skill 有明确影响：
 
 | 下游 Skill | 影响 | 处理方式 |
 |-----------|------|---------|
-| `qing-stock-analysis` | 检索 claims 时需区分市场认知 vs 技术工具 | 技术 claims 只作为工具引用 |
-| `qing-methodology-review` | 技术 claims 不参与 drift/contradiction 分析 | 跳过 `claim_type: technical-knowledge` 的 claims |
-| `stock-research-engine` | 无直接影响 | 通用个股研究工具 |
-| `valuation-analysis` | 无直接影响 | 基于《股市真规则》方法论 |
+| `qing-stock-analysis` | 检索 claims 时需区分市场认知 vs 技术工具 | 技术 claims 只作为工具引用，不用于判断当前市场方向 |
+| `qing-learning-review` | 技术 claims 不参与 drift/contradiction 分析 | 跳过 `claim_type: technical-knowledge` 且 `timeframe: permanent` 的 claims |
+| `stock-research-engine` | 无直接影响 | 通用个股研究工具，不依赖 qing-learning claims |
+| `valuation-analysis` | 无直接影响 | 基于《股市真规则》方法论，独立于博主内容体系 |
+
+> **注意**：下游 skill 不应重复定义本兼容性说明，应引用本总入口 skill。历史上曾因 skill 合并导致内容错放——详见 `qing-learning-review/references/skill-scope-boundary.md`。
 
 ## 用户偏好（核心）
 
@@ -51,3 +53,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 ## 参考
 
 完整文档和 35+ 参考文件：`skills/qing-learning/references/`
+
+### Skill Name Collision
+
+当 Hermes global skills 与 project repo skills 同名时，使用 `-hermes-copy` 后缀解决。详见 `references/skill-name-collision-hermes-copy-pattern.md`。

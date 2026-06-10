@@ -43,21 +43,23 @@ grep "source_date:" knowledge/claims/claim-*.yaml | sort
 
 按 `framework/contradiction-policy.md`：
 
-| 类型 | 处理 |
-|------|------|
-| timeframe-shift | 无需标记 |
-| cycle-shift | 标记，更新 status |
-| logic-broken | 标记 contradicts |
-| risk-repriced | 标记 |
-| true-conflict | 高亮提醒用户 |
+| 类型 | 含义 | 处理方式 |
+|------|------|----------|
+| timeframe-shift | 短期与长期视角不同 | 无需标记，说明时间维度 |
+| cycle-shift | 市场阶段变化导致观点变化 | 标记为 cycle-shift，更新 status |
+| logic-broken | 个股或板块逻辑被证伪 | 标记 contradicts，旧 claim 更新 status |
+| risk-repriced | 宏观/流动性/风险偏好改变 | 标记 risk-repriced |
+| agent-up-conflict | Qing-Agent 分析 vs UP 观点矛盾 | 检查知识库是否完整→补 claims→重新分析；若仍矛盾→UP 优先 |
+| true-conflict | 暂无清晰解释，需人工 review | 标记 true-conflict，高亮提醒用户 |
 
 ### Step 5: Durable Rule 筛选
 
 进 framework 条件（满足其一）：
-1. 有具体数字/条件/阈值
-2. 同一方法论出现 2 次以上
-3. 能解释旧冲突
-4. 改变操作纪律
+1. **明确规则**：有具体数字、条件、阈值（如"赚20%砍半仓"）
+2. **多次重复**：同一方法论在不同日期出现 2 次以上
+3. **解释旧冲突**：能解释之前矛盾的新规则
+4. **改变操作纪律**：直接影响买卖/仓位/风控的决策规则
+5. **例外条款**：**首次出现但直接影响当前持仓决策的操作纪律**，即使只出现1次也应进入 framework。例如：UP 说"能做T做T，反弹之后减仓，等黄金坑再补"——这是针对当前持仓的具体操作框架，不应等"出现2次"再采纳。判断标准：该规则是否直接回答了"现在怎么办"的问题？是→首次即入。
 
 ### Step 6: 一致性检查
 
@@ -82,3 +84,30 @@ git add reports/methodology-review-YYYYMMDD.md
 - 轨道B（technical-knowledge）不参与 drift 分析
 - timeframe-shift 和 cycle-shift 是正常变化，不是错误
 - durable rule 门槛要高，不要将单日观点推入 framework
+- **用户确认**：标记 true-conflict 时必须高亮提醒用户，不要自行裁决
+- **技术教学内容 vs 操作纪律**：博主的技术教学（如长红线、K线形态、布林线）属于工具层知识，与操作纪律（仓位管理、买卖规则）不同。技术教学首次出现时留在 wiki 层，只有被多次验证、形成明确交易规则后才进入 framework。不要因单次技术课程就推入 framework。
+- **周期调整 vs 逻辑证伪**：当博主说某方向"调整一段时间""规避"时，要区分是 cycle-shift（阶段性调整，后期可能回归）还是 logic-broken（逻辑证伪，永久失效）。前者不标记 claims 过期，后者才标记 superseded。半导体从"接棒主线"到"规避"属于 cycle-shift，claims 保持 active。
+- **双轨制对 Review 的影响**：轨道B（技术课程）的 claims 不参与 drift 分析。详见 `qing-learning` 总入口 skill 的跨 Skill 兼容性说明。
+
+## Skill 职责边界
+
+本 skill 是**只读分析**：读 claims → 统计 → 漂移分析 → 矛盾识别 → 生成报告。
+**不写 config、不给操作建议、不定义架构**。详见 `references/skill-scope-boundary.md`。
+
+## 历史合并记录
+
+2026-06-10：`qing-methodology-review` 合并入本 skill。合并时遵循了**内容归属校验**原则——不属于方法论复盘的内容（持仓更新 pipeline、操作建议关联 claims、跨 Skill 架构定义）未迁移，只保留了矛盾分类、Durable Rule 筛选、主题漂移分析等核心复盘能力。详见 `references/skill-scope-boundary.md` 的「历史背景」章节。
+
+## 输出要求
+
+- 结论前置：先给 3-5 条核心结论
+- 结构化：分主题、分日期、分变化类型
+- 量化：提供 claim 数量、比例、分布
+- 区分事实与判断：明确哪些是 claim 原文，哪些是 review 的分析判断
+
+## 禁止事项
+
+- 不用脚本替代 LLM 判断方法论变化。
+- 不把单日语境直接提升为长期 framework。
+- 不创建没有 source path 和 evidence quote 的 claim。
+- 不删除旧观点；冲突观点使用 supersedes 或 contradicts 连接。
