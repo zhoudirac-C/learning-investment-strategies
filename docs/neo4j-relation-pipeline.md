@@ -7,7 +7,7 @@
 
 ```
 discover_claim_relations.py    migrate_claims_to_neo4j.py    index_claims_to_qdrant.py    重启 Agent
-   (关系发现)          →         (Neo4j 同步)         →      (Qdrant 重建)         →    (uvicorn)
+   (关系发现)          →         (Neo4j 同步)         →      (Qdrant 重建)         →    (uvicorn + MCP)
 ```
 
 **每一步的输出是下一步的输入，不可跳过。**
@@ -154,7 +154,9 @@ PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recrea
 
 ### ⚠️ 关键坑
 
-1. **必须先停 Agent**：脚本会自动检测并 kill Agent 进程（释放 Qdrant lock）
+1. **必须先停 Agent + MCP server**：脚本会自动检测并 kill Agent 进程（释放 Qdrant lock），但 **不会杀 Hermes 的 MCP 子进程**。MCP server 持有 Qdrant 文件锁会导致索引失败。
+   - 手动杀 MCP：`kill $(pgrep -f "mcp_qdrant_server") && kill $(pgrep -f "mcp_neo4j_server")`
+   - 同步完成后：`hermes restart`（MCP server 自动重新接入）
 2. **Qdrant lock 问题**：脚本有 30 秒等待 + 强制删除机制
 3. **完整性自检**：完成后自动抽检 10 条向量，确认维度 (512) 和内容非空
 
@@ -188,6 +190,10 @@ curl -s http://localhost:8000/health
 ```bash
 cd /home/ubuntu/learning-investment-strategies
 
+# 0. 停 MCP server（如果有）
+kill $(pgrep -f "mcp_qdrant_server") 2>/dev/null
+kill $(pgrep -f "mcp_neo4j_server") 2>/dev/null
+
 # 1. 关系发现（带进度）
 bash scripts/run_discover_with_progress.sh
 
@@ -197,9 +203,12 @@ PYTHONPATH=src .venv/bin/python scripts/migrate_claims_to_neo4j.py
 # 3. Qdrant 重建
 PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate
 
-# 4. 重启
+# 4. 重启 Agent
 PYTHONPATH=src .venv/bin/python -m uvicorn qing_investment.agent.main:app \
   --host 0.0.0.0 --port 8000 --log-level info &
+
+# 5. 重启 MCP server（Hermes 自动接回）
+hermes restart
 ```
 
 ---
