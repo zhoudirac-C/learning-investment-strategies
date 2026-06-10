@@ -81,6 +81,49 @@
 
 文档结构模板参见 `docs/config-cron-architecture-review.md`。
 
+## 新增：实施状态核查（Implementation Audit）
+
+当用户问"XX改造做完了吗""现在还有问题吗"时，必须执行**实施状态核查**——对比设计文档 vs 代码实际状态，找出"设计有但实现缺"的缺口。
+
+### 核查方法论
+
+| 步骤 | 操作 | 产出 |
+|------|------|------|
+| 1. 定位设计文档 | 读取 `docs/config-cron-architecture-review.md` 或相关设计文档 | 改造清单（含优先级） |
+| 2. 逐条检查实现 | 对每条改造项，grep 代码库确认是否实现 | 实现/未实现/部分实现 |
+| 3. 运行功能验证 | 检查关键文件是否存在、服务是否运行、数据是否生成 | 功能正常/异常 |
+| 4. 分级输出 | P0=功能完全失效 / P1=功能受限 / P2=设计意图未达成 | 优先级缺口清单 |
+
+### 关键核查点（基于2026-06-10实践）
+
+**Prompt 层改造**：
+- `market_analyst.txt` 是否包含交易者人格 + 反保守自检 + 赔率框架？
+- `stock_analyst.txt` 是否包含赔率分析 JSON 字段？
+- `style_writer.txt` 是否包含机会发现表达强化？
+- `trader_mindset.txt` 是否独立承载人格定义（而非空壳指向）？
+
+**Context Builder**：
+- `context_builder.py` 是否存在且被 `retrieve_knowledge()` 调用？
+- 方向关键词是否硬编码（vs 动态提取）？
+- Qdrant 语义召回 query 是否利用当前技术面描述？
+
+**Daily State 状态机**：
+- `daily_state.json` 文件是否存在？（⚠️ 最常见失效点）
+- `sync_daily_state.py` 是否成功解析 ````daily_state` 代码块？
+- `stock_monitor.py::format_agent_analysis_context()` 是否注入 daily_state 摘要？
+- 9 个 cron job 的差异化 prompt 文件（`cron_*.txt`）是否存在且被加载？
+
+### 常见失效模式
+
+| 失效模式 | 现象 | 排查命令 |
+|---------|------|---------|
+| daily_state.json 不存在 | 观点连续性完全失效，每个 cron 孤立运行 | `ls config/stock_monitor/daily_state.json` |
+| sync_daily_state 解析失败 | LLM 输出不含 ````daily_state` 代码块，或格式错误 | `python scripts/sync_daily_state.py --dry-run` |
+| cron_*.txt 未加载 | 所有节点输出风格一致，无差异化 | 检查 `stock_monitor.py` 中 `prompt_path.exists()` 日志 |
+| trader_mindset.txt 空壳 | 人格定义内嵌在 market_analyst.txt，无法独立迭代 | `cat prompts/system/trader_mindset.txt` |
+
+---
+
 ## 常见陷阱
 
 ### 陷阱1：把三条管线的修改混在一个地方提方案

@@ -134,6 +134,65 @@ agent_analysis_schedule:
     → 确认 cron schedule 的分钟数与 strategy_pack 的 time 字段一致
 ```
 
+## Qing-Agent 静默 fallback 诊断
+
+**症状**：微信消息正常收到，但分析质量下降——无 claims 引用、方向词可能过期。Qing-Agent 实际未参与。
+
+**原因**：`/health` 返回 200 但 `/analyze/trigger` 挂死。脚本等到 120s 超时后走 fallback → Hermes LLM 直接用原始监控数据生成分析。
+
+**⚠️ 级联 fallback 风险（2026-06-10 确认，已修复）**：不是每次独立超时——一旦第一个 cron 请求的管线耗时超过 120s 触发超时，gunicorn worker 仍在后台继续处理（无中断机制）。后续 cron 到达时 worker 繁忙，排队等待 → 全部超时。**一次慢请求可以瘫痪全天 9 个 cron。**
+
+**修复措施（2026-06-10 已实施）**：
+1. **超时调大**：脚本默认 45s → **120s**（环境变量 `QING_AGENT_TIMEOUT` 可覆盖）
+2. **指数退避重试**：3 次重试，间隔 1s/2s/4s
+3. **uvicorn → gunicorn 单 worker**：获得进程崩溃自动重启、优雅关闭、统一日志
+4. **成功/失败显式标记**：输出含 `[Qing-Agent ✓]` 或 `[Qing-Agent ✗ FALLBACK]`，blast radius 可扫
+
+**超时调优**：管线 30s+，脚本默认 120s 已足够覆盖正常情况。若仍频繁集体 fallback：
+```bash
+export QING_AGENT_TIMEOUT=120  # 置入 .bashrc 或 cron 环境
+export QING_AGENT_MAX_RETRIES=3
+```
+注意：仅增大超时仍无法完全消除风险——DeepSeek API 在交易时段偶发 >120s 延迟时的后备方案仍是 fallback。
+
+**blast radius 快速检查**：
+```bash
+# 新版标记：[Qing-Agent ✗ FALLBACK]  旧版标记（兼容）：[qing-agent fallback
+for dir in ~/.hermes/cron/output/*/; do
+  latest=$(ls -t "$dir"/*.md 2>/dev/null | head -1)
+  [ -n "$latest" ] && grep -lE "Qing-Agent . FALLBACK|qing-agent fallback" "$latest" && echo "  $(basename $dir)"
+done
+```
+- 输出为空 → 所有 cron 的 Qing-Agent 正常工作
+- 有输出 → 列出的 job ID 全部在走 fallback
+
+**端点验证**：
+```bash
+# /health 通过 ≠ 管线正常
+curl -s http://localhost:8000/health        # 确认进程存活
+
+# 必须测实际工作端点（gunicorn 单 worker 下约 15-30s）
+curl -v --max-time 30 -X POST http://localhost:8000/analyze/trigger \
+  -H "Content-Type: application/json" \
+  -d '{"query":"诊断","session_id":"diag-001","analysis_type":"market"}'
+# 正常：返回 JSON 含 final_output
+# 异常：timeout / 0 bytes / connection refused
+```
+
+**gunicorn 进程检查**：
+```bash
+pgrep -a -f "gunicorn"
+# 应看到：master (PID X) + worker (PID Y)
+# 如果只看到一个进程 → 可能还在用旧 uvicorn，需重启
+```
+
+**区分**：fallback 消息 vs 正常消息：
+| 标记 | 含义 |
+|------|------|
+| 输出含 `[Qing-Agent ✓]` | Qing-Agent 正常参与 |
+| 输出含 `[Qing-Agent ✗ FALLBACK]` | Qing-Agent 离线，LLM 直出 |
+| 无任何标记 | 非 agent cron（no_agent=true）或独立路径（如收盘复盘） |
+
 ## 微信 iLink 限流与 Cron 偏移
 
 **问题**：多个 cron job 在同一分钟（如 :00、:10、:30）向微信发送消息时，iLink 触发 rate limit，导致部分消息静默丢失。

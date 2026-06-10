@@ -855,6 +855,12 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
         except Exception:
             pass
 
+        # Phase 6: 预计算 active reasoning patterns 用于 claims 排序
+        # 注意：这里使用简化版匹配（基于 query 关键词），
+        # 而非 market_analyst 中的完整 Embedding+LLM rerank
+        # 目的是在 retrieve_knowledge 阶段就给匹配到 pattern 的 claims 加分
+        active_patterns = _load_reasoning_patterns(state)
+
         emb_model = get_embedding_model()
         ctx_result = build_market_context(
             positions=positions,
@@ -863,12 +869,14 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
             neo4j_client=neo4j,
             qdrant_client=qdrant,
             embedding_model=emb_model,
+            active_patterns=active_patterns,  # Phase 6: 传入激活的 reasoning patterns
         )
         stock_contexts = ctx_result.get("stock_contexts", [])
         direction_signals = ctx_result.get("direction_signals", {})
         print(
             f"[retrieve_knowledge] context_builder: "
-            f"stocks={len(stock_contexts)}, directions={list(direction_signals.keys())}"
+            f"stocks={len(stock_contexts)}, directions={list(direction_signals.keys())}, "
+            f"active_patterns={[p['pattern_id'] for p in active_patterns]}"
         )
     except Exception as e:
         import logging

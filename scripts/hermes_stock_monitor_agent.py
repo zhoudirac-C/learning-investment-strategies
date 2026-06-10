@@ -18,7 +18,8 @@ import urllib.request
 from pathlib import Path
 
 QING_AGENT_URL = os.environ.get("QING_AGENT_URL", "http://localhost:8000/analyze/trigger")
-QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "45"))
+QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "120"))
+QING_AGENT_MAX_RETRIES = int(os.environ.get("QING_AGENT_MAX_RETRIES", "3"))
 
 
 def repo_root() -> str:
@@ -69,7 +70,10 @@ def fetch_fallback_text_context(root: Path) -> str:
 
 
 def call_qing_agent(data: dict) -> dict | None:
-    """POST the context dict to qing-agent and return the response JSON."""
+    """POST the context dict to qing-agent and return the response JSON.
+    
+    Retries with exponential backoff on transient failures (URLError, timeout, HTTP 5xx).
+    """
     payload = json.dumps({
         "query": f"{data.get('trigger', {}).get('title', '')}：{data.get('trigger', {}).get('reason', '')}",
         "session_id": f"hermes-{data.get('timestamp', 'now')}",
@@ -91,19 +95,35 @@ def call_qing_agent(data: dict) -> dict | None:
         method="POST",
     )
 
-    try:
-        with urllib.request.urlopen(req, timeout=QING_AGENT_TIMEOUT) as resp:
-            return json.loads(resp.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        body = e.read().decode("utf-8") if e.fp else ""
-        print(f"[qing-agent HTTP {e.code}] {body}", file=sys.stderr)
-        return None
-    except urllib.error.URLError as e:
-        print(f"[qing-agent unreachable] {e.reason}", file=sys.stderr)
-        return None
-    except Exception as e:
-        print(f"[qing-agent error] {e}", file=sys.stderr)
-        return None
+    for attempt in range(1, QING_AGENT_MAX_RETRIES + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=QING_AGENT_TIMEOUT) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8") if e.fp else ""
+            if 500 <= e.code < 600:
+                print(f"[qing-agent HTTP {e.code} retry {attempt}/{QING_AGENT_MAX_RETRIES}] {body}", file=sys.stderr)
+                if attempt < QING_AGENT_MAX_RETRIES:
+                    import time
+                    time.sleep(2 ** attempt)  # 2, 4, 8s backoff
+                    continue
+            print(f"[qing-agent HTTP {e.code}] {body}", file=sys.stderr)
+            return None
+        except urllib.error.URLError as e:
+            print(f"[qing-agent unreachable retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e.reason}", file=sys.stderr)
+            if attempt < QING_AGENT_MAX_RETRIES:
+                import time
+                time.sleep(2 ** attempt)
+                continue
+            return None
+        except Exception as e:
+            print(f"[qing-agent error retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e}", file=sys.stderr)
+            if attempt < QING_AGENT_MAX_RETRIES:
+                import time
+                time.sleep(2 ** attempt)
+                continue
+            return None
+    return None
 
 
 def main():
@@ -120,13 +140,14 @@ def main():
 
     # 3. Output
     if response and response.get("final_output"):
+        print("[Qing-Agent ✓]")
         print(response["final_output"])
         if response.get("claims_cited"):
             print(f"\n[引用claims: {', '.join(response['claims_cited'])}]")
         return 0
 
     # 4. Fallback: qing-agent unavailable or returned empty — print original text context
-    print("[qing-agent fallback — 输出原始监控上下文]")
+    print("[Qing-Agent ✗ FALLBACK]")
     print(fetch_fallback_text_context(root))
     return 0
 

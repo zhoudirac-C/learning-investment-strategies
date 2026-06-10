@@ -101,11 +101,25 @@ def _summarize_claim(claim: dict, max_len: int = 50) -> dict:
     }
 
 
-def _score_claim_relevance(claim: dict, stock_code: str, stock_name: str) -> float:
-    """评分 claim 与标的的相关性（越高越相关）。"""
+def _score_claim_relevance(
+    claim: dict,
+    stock_code: str,
+    stock_name: str,
+    active_patterns: list[dict] | None = None,
+) -> float:
+    """评分 claim 与标的的相关性（越高越相关）。
+
+    Args:
+        claim: claim 字典
+        stock_code: 股票代码
+        stock_name: 股票名称
+        active_patterns: 当前激活的 reasoning patterns（可选），
+                        匹配到 pattern applicable_themes 的 claim 获得额外加分
+    """
     score = 0.0
     stmt = claim.get("statement", "")
     subject = claim.get("subject", "")
+    claim_type = claim.get("claim_type", "")
 
     # 直接提到股票代码或名称
     pure_code = stock_code.replace("sh", "").replace("sz", "").replace(".", "")
@@ -141,6 +155,18 @@ def _score_claim_relevance(claim: dict, stock_code: str, stock_name: str) -> flo
         except Exception:
             pass
 
+    # Phase 6: reasoning pattern 匹配加分
+    if active_patterns:
+        # 从 claim 的 subject 和 statement 中提取主题关键词
+        claim_text = f"{subject} {stmt}".lower()
+        for pattern in active_patterns:
+            applicable_themes = pattern.get("applicable_themes", [])
+            for theme in applicable_themes:
+                if theme.lower() in claim_text:
+                    # 匹配到 active pattern 的主题，额外加分
+                    score += 4.0
+                    break  # 每个 pattern 只加一次分
+
     return score
 
 
@@ -150,6 +176,7 @@ def build_stock_context(
     neo4j_claims: list[dict],
     qdrant_claims: list[dict] | None = None,
     max_claims: int = 3,
+    active_patterns: list[dict] | None = None,
 ) -> dict:
     """为单只标的构建增强上下文。
 
@@ -159,6 +186,7 @@ def build_stock_context(
         neo4j_claims: 从 Neo4j 检索到的 claims（ABOUT 边）
         qdrant_claims: 从 Qdrant 语义召回的 claims（可选）
         max_claims: 最多注入几条 claims 摘要（防止上下文溢出）
+        active_patterns: 当前激活的 reasoning patterns（可选），用于 claims 排序
 
     Returns:
         {
@@ -189,9 +217,9 @@ def build_stock_context(
                 seen_ids.add(cid)
                 all_claims.append(c)
 
-    # 按相关性评分排序
+    # 按相关性评分排序（传入 active_patterns）
     scored = [
-        (c, _score_claim_relevance(c, stock_code, stock_name))
+        (c, _score_claim_relevance(c, stock_code, stock_name, active_patterns))
         for c in all_claims
     ]
     scored.sort(key=lambda x: -x[1])
@@ -234,11 +262,16 @@ def build_market_context(
     neo4j_client: Any,
     qdrant_client: Any | None = None,
     embedding_model: Any | None = None,
+    active_patterns: list[dict] | None = None,
 ) -> dict:
     """为市场分析构建完整的增强上下文。
 
     识别需要分析的标的（持仓 + entry_points 中接近触发条件的票），
     对每只标的调用 build_stock_context 构建 claims 摘要。
+
+    Args:
+        active_patterns: 当前激活的 reasoning patterns（来自 _load_reasoning_patterns），
+                         用于指导 claims 排序优先级
 
     Returns:
         {
@@ -285,7 +318,18 @@ def build_market_context(
 
     # 为每只标的构建上下文
     stock_contexts = []
+    # 收集方向信号（用于方向优先级判断）
+    # Phase 2.1: 从 Neo4j 动态查询 sector-theme 方向（替代硬编码列表）
     direction_claims: dict[str, list[dict]] = {}
+    try:
+        if isinstance(neo4j_client, Neo4jClient):
+            sector_themes = neo4j_client.get_sector_themes(days=30, limit=100)
+            dynamic_directions = [st["direction"] for st in sector_themes]
+        else:
+            dynamic_directions = []
+    except Exception as e:
+        logger.warning("Failed to get dynamic sector themes: %s", e)
+        dynamic_directions = []
 
     for code in target_codes:
         name = code_to_name.get(code, "")
@@ -298,11 +342,45 @@ def build_market_context(
         except Exception as e:
             logger.warning("Neo4j claims retrieval failed for %s: %s", code, e)
 
-        # Qdrant 语义召回（可选）
+        # Qdrant 语义召回（Phase 3: 动态 query 生成）
         qdrant_claims = None
         if qdrant_client and embedding_model:
             try:
-                query_text = f"{name} {code} 技术分析 介入建议"
+                # Phase 3: 构建动态语义 query
+                # 结合标的名称 + entry_points 触发条件 + 方向信息
+                query_parts = [name, code.replace(".SZ", "").replace(".SH", "")]
+
+                # 从 entry_points 找该标的的触发条件
+                ep_trigger = ""
+                for ep in entry_points:
+                    if ep.get("code") == code and ep.get("status") == "active":
+                        trigger = ep.get("trigger", "")
+                        setup = ep.get("buy_setup", "")
+                        if trigger:
+                            ep_trigger = trigger
+                        elif setup:
+                            ep_trigger = setup
+                        break
+
+                if ep_trigger:
+                    query_parts.append(ep_trigger)
+                else:
+                    # fallback: 从 claims 中提取技术面关键词
+                    tech_keywords = []
+                    for c in neo4j_claims[:3]:
+                        stmt = c.get("statement", "")
+                        # 提取常见技术信号
+                        for kw in ["回踩", "突破", "企稳", "放量", "缩量", "分歧", "加速", "回调"]:
+                            if kw in stmt and kw not in tech_keywords:
+                                tech_keywords.append(kw)
+                    if tech_keywords:
+                        query_parts.extend(tech_keywords)
+                    else:
+                        query_parts.extend(["技术分析", "介入建议"])
+
+                query_text = " ".join(query_parts)
+                logger.debug("Qdrant query for %s: %s", code, query_text)
+
                 query_vec = embedding_model.encode(query_text).tolist()[0]
                 results = qdrant_client.search(query_vec, collection="qing_claims", limit=5)
                 qdrant_claims = []
@@ -319,14 +397,14 @@ def build_market_context(
             except Exception as e:
                 logger.warning("Qdrant claims retrieval failed for %s: %s", code, e)
 
-        # 构建上下文
-        ctx = build_stock_context(code, name, neo4j_claims, qdrant_claims)
+        # 构建上下文（传入 active_patterns）
+        ctx = build_stock_context(code, name, neo4j_claims, qdrant_claims, active_patterns=active_patterns)
         stock_contexts.append(ctx)
 
-        # 收集方向信号（用于方向优先级判断）
+        # 收集方向信号（使用动态方向列表）
         for c in neo4j_claims:
             stmt = c.get("statement", "")
-            for direction in ["燃气轮机", "机器人", "半导体", "光互连", "PCB", "存储", "电力", "煤炭"]:
+            for direction in dynamic_directions:
                 if direction in stmt:
                     direction_claims.setdefault(direction, []).append(c)
 

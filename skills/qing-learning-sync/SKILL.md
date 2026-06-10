@@ -60,6 +60,11 @@ hermes restart   # MCP 自动接回
 3. **仅改元数据字段**（timeframe/related_stocks/tags）→ discover 输出 0 relations 是预期的，可跳过 discover 直接 migrate
 4. **改 supersedes/contradicts** → 必须跑 discover --all-missing，否则空列表覆盖 Neo4j 已有关系
 5. **同步后必须验证 Agent 在线**：`curl http://localhost:8000/health`
+6. **`hermes restart` 不重启 Qing-Agent（2026-06-10 发现）**：
+   - `hermes restart` 只重启 Hermes 进程和 MCP server，**不负责 Qing-Agent（独立 uvicorn 进程）**
+   - 同步时 Step 0 杀了 qing-agent → Qdrant 重建 → `hermes restart` **不会**把 qing-agent 带回来
+   - **正确做法**：Step 4 先手动重启 qing-agent（uvicorn），Step 5/6 再 `hermes restart`
+   - **反面案例**：Qdrant 重建完成后执行 `hermes restart`，以为一切正常，结果下一个 cron 又走了 fallback——因为 qing-agent 根本没被重启
 
 ## 详细文档
 

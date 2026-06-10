@@ -81,7 +81,7 @@ Body: ChatRequest { message, session_id }
     → /chat
 ```
 
-## 实战陷阱（2026-06-09）
+## 实战陷阱 #1（2026-06-09）：错用入口
 
 **场景**：盘后用 `/analyze/trigger` 请求 config 审查，传了 `analysis_type: "market"` 但没传 `external_sector_boards`。
 
@@ -90,3 +90,103 @@ Body: ChatRequest { message, session_id }
 **正确做法**：应该用 `/chat`，消息里写明要分析的 config 内容和问题。`/chat` 即使拉不到行情数据，照样用知识库产出分析。
 
 **教训**：盘后分析型任务永远用 `/chat`，不要用 `/analyze/trigger`。
+
+---
+
+## 实战陷阱 #2（2026-06-10）：/health 通过但 /analyze/trigger 挂死
+
+**症状**：
+- `curl http://localhost:8000/health` → `{"status":"ok"}` ✅ 进程活着
+- `curl -X POST http://localhost:8000/analyze/trigger` → 超时，0 bytes 返回 ❌
+- 所有 cron job 输出文件含 `[Qing-Agent ✗ FALLBACK]` 标记（旧版：`[qing-agent fallback`）
+- 微信消息正常收到，但内容是 Hermes LLM 直接生成的（无 Qing-Agent 知识库检索）
+
+**诊断方法**：
+```bash
+# 1. 检查 blast radius — 有多少 cron job 在走 fallback
+# 新版标记：[Qing-Agent ✗ FALLBACK]  旧版标记：[qing-agent fallback
+# 搜索时两个都查
+for dir in ~/.hermes/cron/output/*/; do
+  latest=$(ls -t "$dir"/*.md 2>/dev/null | head -1)
+  [ -n "$latest" ] && grep -lE "Qing-Agent . FALLBACK|qing-agent fallback" "$latest" && echo "  ↳ FALLBACK: $dir"
+done
+
+# 2. 直接测试 /analyze/trigger 端点（verbose + 超时）
+curl -v --max-time 15 -X POST http://localhost:8000/analyze/trigger \
+  -H "Content-Type: application/json" \
+  -d '{"query":"诊断测试","session_id":"diag-001","analysis_type":"market"}' 2>&1 | tail -5
+# 正常：应返回 JSON（含 final_output）
+# 异常：0 bytes received / Operation timed out
+
+# 3. 区分"进程活着"和"管线工作"
+# 只查 /health = 只能确认进程没崩
+# 必须测 /analyze/trigger = 才能确认 LangGraph 管线正常
+```
+
+**根因（已确认，2026-06-10，2026-06-10 二次深化）**：
+
+不是「进程坏了」，是**超时+单worker串行排队**的连锁反应：
+
+1. **LangGraph 管线耗时 30s+**：`/analyze/trigger` 走完整 7 节点管线，含 5 次 LLM 调用（parse_query → market_analyst ∥ stock_analyst → style_writer → reviewer），正常耗 30s
+2. **Hermes 脚本硬超时 45s**：`hermes_stock_monitor_agent.py` 中 `QING_AGENT_TIMEOUT` 默认 45s（可通过环境变量调整）
+3. **uvicorn 单 worker 串行处理**：无 `--workers` 参数时只有一个 worker，请求严格串行
+
+连锁反应：
+```
+09:26 cron → POST qing-agent → pipeline 30s，但 DeepSeek API 偶发慢（交易时段）
+  → 超过 45s → 脚本超时，走 fallback
+  → 但 uvicorn worker 还在后台继续处理（无中断机制！）
+
+09:45 cron → POST → worker 正忙着处理上个请求 → 排队 45s → 又超时 → fallback
+10:00 cron → POST → worker 还在忙 → 又超时
+...全天 9 个 cron 全部 fallback
+```
+
+**验证**：
+- 单请求完成 30s ✅
+- 5 并发测试：前 4 个 30s 超时，第 5 个才返回 → 证实串行排队
+- 同一代码 kill+重启（清空队列）→ 立即恢复
+- DeepSeek API 在交易时段出现过 `APIConnectionError`
+
+**修复（三层）**：
+
+| 层级 | 修复 | 效果 |
+|------|------|------|
+| 治标 | `kill + restart` | 清空队列，立即恢复 |
+| 治本 | 设 `QING_AGENT_TIMEOUT=90` | 给管线足够时间完成 |
+| 防护 | 脚本加重试逻辑 | 一次超时不放弃，3 次 backoff |
+
+**重启命令**：
+```bash
+# 1. 杀旧进程
+kill $(pgrep -f "uvicorn qing_investment") 2>/dev/null
+sleep 2
+
+# 2. 重启动（必须在 repo root，pydantic 从 .env 读 LLM_PROVIDER/DEEPSEEK_API_KEY）
+cd ~/learning-investment-strategies
+nohup .venv/bin/python -m uvicorn qing_investment.agent.main:app \
+  --host 127.0.0.1 --port 8000 > /tmp/qing-agent.log 2>&1 &
+
+# 3. 验证 /analyze/trigger（非仅 /health）
+sleep 3
+curl -s --max-time 5 http://localhost:8000/health && echo ""
+curl -s --max-time 30 -X POST http://localhost:8000/analyze/trigger \
+  -H "Content-Type: application/json" \
+  -d '{"query":"重启验证","session_id":"restart-check","analysis_type":"market"}' \
+  | python3 -c "import sys,json; d=json.load(sys.stdin); print('RESTART OK' if d.get('final_output') else 'STILL BROKEN')"
+```
+
+**Cron 输出标记规范**（2026-06-10 起生效）：
+| 输出前缀 | 含义 | 对应 grep |
+|----------|------|-----------|
+| `[Qing-Agent ✓]` | 成功调用 Qing-Agent | `grep -l "Qing-Agent ✓"` |
+| `[Qing-Agent ✗ FALLBACK]` | Qing-Agent 不可达，LLM fallback | `grep -l "Qing-Agent ✗ FALLBACK"` |
+
+标记由 `scripts/hermes_stock_monitor_agent.py` 在 main() 中输出，Qing-Agent 成功时打印 `[Qing-Agent ✓]` 然后输出 final_output，fallback 时打印 `[Qing-Agent ✗ FALLBACK]` 然后输出原始监控上下文。
+
+**对用户的影响**：
+- 所有 cron 分析退化为 Hermes LLM 直出（无 Qing-Agent 的 claims 检索/Neo4j 图推理/reviewer 事实核查）
+- 可能出现过期方向词、缺少 claims 引用等退化特征
+- `/health` 通过造成的假安全感：用户以为 Qing-Agent 在线，实际没参与
+
+**教训**：健康检查必须测实际工作端点，不能只测 `/health`。
