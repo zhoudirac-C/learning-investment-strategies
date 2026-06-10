@@ -168,8 +168,8 @@ api_key = parts[2]  # '002055'
 quotes[api_key] = {...}
 ```
 
-**更新前检查 entry_suggestions**：
-若 `config/stock_monitor/entry_suggestions/` 目录下有待确认文件（由 `scripts/sync_claims_to_config.py` 生成），先读取并展示给用户确认。确认后写入 strategy_pack.yaml，删除建议文件。
+**~~更新前检查 entry_suggestions（已废弃，2026-06-10）~~**：
+`sync_claims_to_config.py` 虽存在但从未产生输出，`entry_suggestions/` 目录始终为空。此功能设计未落地，检查步骤已移除。
 
 ### Step 2: 检查 UP 最新观点（模式 A + 模式 B）
 
@@ -655,7 +655,7 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 22. **entry_points 重复**：同一标的在 `entry_points` 中出现多次，每次更新时容易因追加操作产生重复。重复条目浪费 prompt token 且暗示标的被强调。**每次更新 strategy_pack 后，必须检查 entry_points 去重**：按 `code + name` 组合检测重复，保留最详细的条目。**反面案例（2026-06-06）**：航天电器（002025.SZ）在 entry_points 中出现 3 次，3 条内容几乎相同。
 23. **today_snapshot 双写**：`watchlist.yaml` 和 `strategy_pack.yaml` 曾同时包含 `today_snapshot`，内容互不一致（一个说"调整第17天接近尾声"，另一个说"放弃执念"）。**已规定**：`today_snapshot` 只放在 `strategy_pack.yaml` 中，`watchlist.yaml` 不应包含此字段。添加新数据到 watchlist 时不要创建 today_snapshot 块。
 24. **hot_score 消费规则**：热度分由 cron 每日 09:00 自动计算（`scripts/calc_hot_scores.py`），不需要手动触发。每次手动更新 watchlist 后，检查 `config/stock_monitor/watchlist_hot_scores.json`：Top 10-15 作为"今日重点关注"写入 strategy_pack 的 today_snapshot；热度分骤变（>3分变化）的标的需优先检查 claims 更新；热度分持续 <3 超过 30 天 → 建议用户将 lifecycle 降级为 archived。
-25. **entry_suggestions 检查**：每次手动更新前，检查 `config/stock_monitor/entry_suggestions/` 是否有由 `sync_claims_to_config.py` 生成的待确认文件。如有，优先处理——UP 的操作建议不应积压。确认后写入 strategy_pack，删除建议文件。
+25. ~~`entry_suggestions` 检查（已废弃，2026-06-10）~~：`sync_claims_to_config.py` 从未落地，目录始终为空。
 26. **add_zone 配置会被条件驱动轮询消费**：`scripts/qing_stock_monitor_poll.py`（cron 每5分钟 no-agent 轮询）会拉行情并检查持仓的 add_zone——配置了 add_zone 的持仓，价格进入区间时会自动推送"加仓观察"提醒。因此 add_zone 必须保持与当前价格的有效距离（太低不会被触发，太高会频繁误报）。每次手动更新持仓后需重新校验 add_zone。
 27. **Cron prompt 不直达 qing-agent（架构陷阱）**：9个看盘 cron 通过 HTTP 调用本地 qing-agent，qing-agent 使用自己的 LangGraph system prompt（`prompts/system/market_analyst.txt` 等）。修改 cron job 的 `prompt` 字段对 qing-agent 无效——只影响 fallback 文本路径。**修改 LLM 分析行为 → 改 `market_analyst.txt`；修改 cron 调用参数 → 改 `strategy_pack.yaml` 的 `agent_analysis_schedule`。** 反面案例：Agent 修改 9 个 cron prompt 引用 `cron_*.txt`，但 qing-agent 完全不读 cron prompt。详见 `references/cron-pipeline-architecture.md`（含 Cron 空输出诊断决策树 + 三重对齐检查表）。**2026-06-10 新增子陷阱**：Qing-Agent 挂掉后 cron 静默降级为 LLM fallback，消息质量严重退化（方向过期、无全A分析、无UP框架感）但无任何告警。诊断流程第一步必须是 `curl localhost:8000/health`，详见 `references/config-cron-alignment-debugging.md` Step 0。
     **⚠️ 时间同步子陷阱**：`agent_analysis_schedule` 的 `time` 字段（HH:MM）必须与 cron job 的 `schedule` 分钟数完全一致。差一分钟 → `find_agent_analysis_trigger()` 返回 None → 脚本空输出 → cron 静默跳过。反面案例（2026-06-09）：strategy_pack 尾盘条件单 `time: '14:50'` 但 cron `55 14 * * 1-5`；10:00 cron 存在但 strategy_pack 完全缺失 10:00 条目；10:30 的 ID 从 `morning_confirm` 错写（源码为 `opportunity_scan`）。**三个 cron 同日空输出，根因相同**。修复后验证方法：手动运行 `scripts/hermes_stock_monitor_agent.py` 检查 stdout 是否非空。
