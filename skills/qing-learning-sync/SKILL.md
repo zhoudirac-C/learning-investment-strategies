@@ -65,6 +65,26 @@ hermes restart   # MCP 自动接回
    - 同步时 Step 0 杀了 qing-agent → Qdrant 重建 → `hermes restart` **不会**把 qing-agent 带回来
    - **正确做法**：Step 4 先手动重启 qing-agent（uvicorn），Step 5/6 再 `hermes restart`
    - **反面案例**：Qdrant 重建完成后执行 `hermes restart`，以为一切正常，结果下一个 cron 又走了 fallback——因为 qing-agent 根本没被重启
+   - **2026-06-10 补充**：如果 Qing-Agent 被 systemd/supervisor 管理（auto-restart），kill 后它会自动重启。可通过 `sleep 3 && pgrep -f 'uvicorn qing_investment'` 确认。这种情况下不需要显式 `uvicorn &` 命令，但需验证自动重启是否成功加载了新 Qdrant 数据。
+7. **000636 类歧义警告排查**：`migrate_claims_to_neo4j.py` 的代码→名称映射从 `positions.yaml` + `watchlist.yaml` 动态构建，不会出错。歧义通常来自**其他脚本的独立映射表**（如 `backfill_claim_related_stocks.py` 的 supplemental 硬编码字典）。排查路径：
+   - 先确认 YAML 源文件正确：`grep '000636\|万通发展' config/stock_monitor/watchlist.yaml`
+   - 再查所有脚本的独立映射表：`grep -rn '000636' scripts/ --include='*.py'`
+   - 修复后重新 migrate + Qdrant rebuild（--force-recreate），旧进程的警告来自遗留进程
+8. **Neo4j migrate 被 SIGTERM 终止是安全的**：exit 143（128+15）表示超时或手动 kill。Neo4j MERGE 是原子写入，已提交的条目不回滚。重新运行 migrate 会显示 "All N files up to date"——不需要 panic，校验即可：
+   ```bash
+   # 校验 Neo4j 实际节点数
+   PYTHONPATH=src .venv/bin/python -c "
+   from neo4j import GraphDatabase
+   from qing_investment.agent.config import settings
+   d = GraphDatabase.driver(settings.NEO4J_URI, auth=(settings.NEO4J_USER, settings.NEO4J_PASSWORD))
+   with d.session() as s:
+       r = s.run('MATCH (c:Claim) RETURN count(c) as cnt'); print(f'Claims: {r.single()[\"cnt\"]}')
+       r = s.run('MATCH (s:Stock) RETURN count(s) as cnt'); print(f'Stocks: {r.single()[\"cnt\"]}')
+       r = s.run('MATCH ()-[r:ABOUT]->() RETURN count(r) as cnt'); print(f'ABOUT: {r.single()[\"cnt\"]}')
+   d.close()
+   "
+   ```
+9. **Qdrant 重建时 Vector dimension mismatch**：`ValueError: could not broadcast input array from shape (512,) into shape (1,)` 表示旧 collection 的 schema 与新模型不匹配。**必须用 `--force-recreate`** 删除旧 collection 重建。不要手动删 `.qdrant_data/` 目录——Qdrant local 模式有内部状态，直接用脚本的 `delete_collection()` 接口。
 
 ## 详细文档
 

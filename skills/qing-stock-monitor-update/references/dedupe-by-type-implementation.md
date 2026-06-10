@@ -49,4 +49,39 @@ if breakthrough_pct > 0 and last_price is not None and last_price > 0:
 - `test_dedupe_by_type_backward_compat_with_old_string_format` — 旧格式兼容
 - `test_tick_passes_dedupe_by_type_from_config` — run_tick 集成
 
-全部 49 个测试（42 原有 + 7 新增）通过。
+全部 49 个测试通过。
+
+## 已知修复：same-day dedupe 使用全局超时而非 per-type
+
+**发现时间**：2026-06-10  
+**测试**：`test_dedupe_by_type_overrides_global_dedupe_minutes`
+
+### 症状
+
+设置 risk_alert 去重 15min、全局 30min。第 20min 的 alert 应该通过（20 ≥ 15 类型窗口），但仍被拦截。
+
+### 根因
+
+`filter_new_alerts()` 的 same-day dedupe 块在比较时间间隔时使用了全局 `dedupe_minutes`（30min）而非 per-type 的 `effective_minutes`（15min）：
+
+```python
+# 修复前
+if elapsed_minutes < dedupe_minutes:  # ← 全局 30min
+    continue  # → 错误拦截
+
+# 修复后
+# per-type effective_minutes 计算提前到 same-day dedupe 之前
+effective_minutes = type_config.get("dedupe_minutes", dedupe_minutes)
+if elapsed_minutes < effective_minutes:  # ← per-type 15min
+    continue
+```
+
+### 影响
+
+只有设置了 `dedupe_by_type` 且类型窗口 < 全局窗口的场景触发。全局 30min + risk_alert 15min 时，15-30min 之间的 alert 被错误拦截。
+
+### 修复
+
+1. 将 `dedupe_type / type_config / effective_minutes` 计算提前到 same-day dedupe 块之前
+2. `effective_minutes` 同时被 same-day dedupe 和 history-based dedupe 使用（移除重复计算）
+3. 涉及文件：`src/qing_investment/stock_monitor.py` 的 `filter_new_alerts()`

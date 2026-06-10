@@ -43,6 +43,7 @@ description: |
 | Cron 脚本超时诊断手册 | `references/cron-script-timeout-diagnosis.md` |
 | **Agent 时间限制绕过** | `references/agent-any-time-bypass.md` |
 | **Cron 超时外部化配置** | `references/cron-timeout-external-config.md` |
+| **条件驱动轮询消息丰富化** | `references/condition-driven-alert-message-enrichment.md` |
 | **Skill 文档维护卫生** | `references/skill-doc-maintenance-hygiene.md` |
 | **实时数据降级模式** | `references/realtime-data-degradation-pattern.md` |
 | **daily_state 链路断裂根因** | `references/daily-state-pipeline-root-cause.md` |
