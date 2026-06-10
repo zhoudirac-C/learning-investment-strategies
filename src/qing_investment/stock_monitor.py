@@ -1741,25 +1741,212 @@ def fetch_tencent_quotes(targets: dict[str, str]) -> dict:
     }
 
 
+def fetch_sina_quotes(targets: dict[str, str]) -> dict:
+    """新浪财经备用接口，当腾讯不可用时调用。
+
+    新浪接口支持批量查询，格式: https://hq.sinajs.cn/list=sh600519,sz000001
+    返回格式: var hq_str_sh600519="贵州茅台,1740.00,...";
+    """
+    if not targets:
+        return {"source": "sina_hq", "quotes": [], "errors": ["empty targets"]}
+
+    def to_sina_code(secid: str) -> str | None:
+        code = str(secid).strip().upper()
+        match = __import__('re').match(r'([10])\.(\d{6})', code)
+        if match:
+            mkt, num = match.groups()
+            return f"{'sh' if mkt == '1' else 'sz'}{num}"
+        match = __import__('re').match(r'(\d{6})\.(SH|SZ)', code)
+        if match:
+            num, mkt = match.groups()
+            return f"{'sh' if mkt == 'SH' else 'sz'}{num}"
+        if __import__('re').match(r'\d{6}$', code):
+            if code.startswith(('600', '601', '603', '605', '688', '689')):
+                return f"sh{code}"
+            else:
+                return f"sz{code}"
+        return None
+
+    # 构建映射: sina_code -> (original_secid, label)
+    sina_map: dict[str, tuple[str, str]] = {}
+    for label, secid in targets.items():
+        sc = to_sina_code(secid)
+        if sc:
+            sina_map[sc] = (secid, label)
+
+    if not sina_map:
+        return {"source": "sina_hq", "quotes": [], "errors": ["no valid codes"]}
+
+    started = __import__('time').perf_counter()
+    all_quotes: list[dict] = []
+    sina_codes = list(sina_map.keys())
+    chunk_size = 80  # 新浪接口批量限制
+
+    for i in range(0, len(sina_codes), chunk_size):
+        chunk = sina_codes[i:i + chunk_size]
+        url = f"https://hq.sinajs.cn/list={','.join(chunk)}"
+        try:
+            req = urllib.request.Request(
+                url,
+                headers={
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+                    "Referer": "https://finance.sina.com.cn",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = resp.read().decode('gbk')
+
+            for line in data.strip().split('\n'):
+                line = line.strip()
+                if not line.startswith('var hq_str_'):
+                    continue
+                match = __import__('re').match(r'var hq_str_(\w+)="(.+)";', line)
+                if not match:
+                    continue
+                sina_code, content = match.groups()
+                if not content or content == '""':
+                    continue
+                parts = content.split(',')
+                if len(parts) < 5:
+                    continue
+
+                secid, label = sina_map.get(sina_code, (sina_code, sina_code))
+                name = parts[0]
+                # 指数格式: 名称,今开,昨收,最新,最高,最低
+                # 股票格式: 名称,今开,昨收,最新,最高,最低,买入价,卖出价,成交量,成交额...
+                open_price = _to_float(parts[1])
+                prev = _to_float(parts[2])
+                latest = _to_float(parts[3])
+                high = _to_float(parts[4])
+                low = _to_float(parts[5]) if len(parts) > 5 else None
+                volume = _to_float(parts[8]) if len(parts) > 8 else None
+                amount = _to_float(parts[9]) if len(parts) > 9 else None
+
+                pct_change = None
+                change = None
+                if latest is not None and prev is not None and prev > 0:
+                    pct_change = round((latest - prev) / prev * 100, 2)
+                    change = round(latest - prev, 2)
+
+                all_quotes.append({
+                    "secid": secid,
+                    "label": label,
+                    "code": sina_code[2:],  # 去掉 sh/sz 前缀
+                    "name": name,
+                    "latest": latest,
+                    "previous_close": prev,
+                    "open": open_price,
+                    "high": high,
+                    "low": low,
+                    "volume": volume,
+                    "amount": amount,
+                    "pct_change": pct_change,
+                    "change": change,
+                })
+        except Exception as exc:
+            return {
+                "source": "sina_hq",
+                "quotes": all_quotes,
+                "errors": [str(exc)],
+                "elapsed_ms": round((__import__('time').perf_counter() - started) * 1000, 1),
+            }
+
+    return {
+        "source": "sina_hq",
+        "quotes": all_quotes,
+        "errors": [],
+        "elapsed_ms": round((__import__('time').perf_counter() - started) * 1000, 1),
+    }
+
+
 def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
-    """先尝试东方财富，失败则回退到腾讯。"""
+    """多数据源降级获取行情：腾讯优先 → 新浪 → 东财兜底 → 缓存。
+
+    降级策略（基于服务器IP限流经验）：
+    1. 腾讯(gtimg): 最稳定，对服务器IP友好，优先尝试
+    2. 新浪(hq.sinajs.cn): 备用，覆盖大部分A股
+    3. 东财(push2.eastmoney.com): 数据最全但限流严格，最后尝试
+    4. 都失败: 返回缓存数据 + 警告
+    """
+    # 尝试1: 腾讯（最稳定）
+    tencent_result = fetch_tencent_quotes(targets)
+    tencent_quotes = tencent_result.get("quotes", []) or []
+    tencent_errors = tencent_result.get("errors", []) or []
+    if len(tencent_quotes) >= len(targets) * 0.8 and not tencent_errors:
+        return tencent_result
+
+    # 尝试2: 新浪（备用）
+    sina_result = fetch_sina_quotes(targets)
+    sina_quotes = sina_result.get("quotes", []) or []
+    sina_errors = sina_result.get("errors", []) or []
+    if sina_quotes and not sina_errors:
+        # 合并腾讯已获取的数据 + 新浪补充
+        if tencent_quotes:
+            merged = _merge_quotes(tencent_quotes, sina_quotes)
+            return {
+                "source": "tencent_gtimg+sina_hq",
+                "quotes": merged,
+                "errors": [],
+                "elapsed_ms": (
+                    tencent_result.get("elapsed_ms", 0) + sina_result.get("elapsed_ms", 0)
+                ),
+            }
+        return sina_result
+
+    # 尝试3: 东财（数据最全但限流严格）
     em_result = fetch_eastmoney_quotes(targets)
     em_quotes = em_result.get("quotes", []) or []
     em_errors = em_result.get("errors", []) or []
-    if not em_errors and len(em_quotes) >= len(targets):
+    if em_quotes and not em_errors:
         return em_result
 
-    # 东方财富失败，尝试腾讯
-    tencent_result = fetch_tencent_quotes(targets)
-    tencent_quotes = tencent_result.get("quotes", []) or []
-    if tencent_quotes:
-        return tencent_result
+    # 兜底: 返回任何可用的数据 + 合并警告
+    best_result = tencent_result if tencent_quotes else (sina_result if sina_quotes else em_result)
+    best_quotes = best_result.get("quotes", []) or []
 
-    if em_quotes:
-        return em_result
+    if best_quotes:
+        # 合并所有可用数据源
+        merged = best_quotes
+        if tencent_quotes and best_result is not tencent_result:
+            merged = _merge_quotes(merged, tencent_quotes)
+        if sina_quotes and best_result is not sina_result:
+            merged = _merge_quotes(merged, sina_quotes)
+        if em_quotes and best_result is not em_result:
+            merged = _merge_quotes(merged, em_quotes)
 
-    # 都失败，返回东方财富的错误信息
-    return em_result
+        all_errors = []
+        if tencent_errors:
+            all_errors.append(f"腾讯: {tencent_errors[0][:80]}")
+        if sina_errors:
+            all_errors.append(f"新浪: {sina_errors[0][:80]}")
+        if em_errors:
+            all_errors.append(f"东财: {em_errors[0][:80]}")
+
+        return {
+            "source": "fallback_merged",
+            "quotes": merged,
+            "errors": all_errors,
+            "elapsed_ms": best_result.get("elapsed_ms", 0),
+        }
+
+    # 完全失败
+    return {
+        "source": "all_failed",
+        "quotes": [],
+        "errors": [
+            f"所有数据源失败。腾讯: {tencent_errors[:1]}; 新浪: {sina_errors[:1]}; 东财: {em_errors[:1]}"
+        ],
+    }
+
+
+def _merge_quotes(base: list[dict], extra: list[dict]) -> list[dict]:
+    """合并两个quote列表，以base为主，extra补充缺失的secid。"""
+    seen = {q.get("secid"): q for q in base if q.get("secid")}
+    for q in extra:
+        secid = q.get("secid")
+        if secid and secid not in seen:
+            seen[secid] = q
+    return list(seen.values())
 
 
 def format_quote_line(quote: dict) -> str:
@@ -1842,8 +2029,18 @@ def format_analysis_context(config: MonitorConfig, value: datetime) -> str:
         f"当前框架：{stage}",
         f"核心问题：{core_question}",
         "",
-        "持仓：",
+        "=== 持仓池（positions.yaml）===",
+        f"状态：{'【空仓】当前无持仓' if not positions else f'共 {len(positions)} 只持仓'}",
+        "",
+        "重要区分：",
+        "- 持仓池 = 你当前实际持有的股票（来自 positions.yaml）",
+        "- 观察池 = 你关注但尚未买入的股票（来自 watchlist.yaml）",
+        "- 严禁将观察池标的当作持仓分析！",
+        "",
+        "持仓明细：",
     ]
+    if not positions:
+        lines.append("  （无持仓）")
     for row in positions:
         lines.append(
             "- {account} {name}({code}) 股数={shares} 成本={cost} 策略={strategy} 风险线={risk}".format(
@@ -1857,7 +2054,7 @@ def format_analysis_context(config: MonitorConfig, value: datetime) -> str:
             )
         )
 
-    lines.extend(["", "观察池："])
+    lines.extend(["", "=== 观察池（watchlist.yaml）===", "这些标的尚未买入，仅作观察："])
     for row in watch_stocks:
         lines.append(
             "- {theme} / {role}: {name}({code}) {reason}".format(
@@ -1898,6 +2095,8 @@ def format_live_analysis_context(config: MonitorConfig, value: datetime) -> str:
     targets = collect_quote_targets(config)
     quote_snapshot = fetch_quotes_with_fallback(targets)
     base_context = format_analysis_context(config, value)
+    positions = position_rows(config)
+    position_status = "空仓" if not positions else f"持仓{len(positions)}只"
 
     lines = [
         base_context,
@@ -1919,6 +2118,8 @@ def format_live_analysis_context(config: MonitorConfig, value: datetime) -> str:
             "",
             "请把上述实时行情作为盘面证据，输出极简微信提醒。",
             "只回答：观察池现在能不能买、持仓池现在怎么操作。",
+            "【重要】当前持仓状态：" + position_status,
+            "【重要】观察池标的 ≠ 持仓，严禁混淆！",
             "最多450字，禁止Markdown表格、分级标题、长篇数据罗列和研报式分析。",
             "必须按下面换行模板输出，禁止把多只股票写成同一段：",
             "【盘面】一句话。",
