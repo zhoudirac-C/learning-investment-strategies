@@ -57,7 +57,7 @@ description: |
 28. `references/trader-mindset-design-philosophy.md` — **设计哲学纠正（2026-06-08）**：用户明确纠正 v1.0 方向——系统不应走向更多量化规则，而应让 LLM 以交易者思维（赔率思维+机会发现）做出判断。所有后续修改必须遵循此哲学。
 29. `references/architecture-review-framework.md` — **配置架构系统性Review框架**：四步法（现状→缺陷→方案→优先级），区别于 config-health-check（配置完整性检查）。当用户要求对 config+cron 做全链路架构 review 时使用。
 30. `references/prompt-layer-transformation-playbook.md` — **Prompt 层改造实战手册**：当系统被诊断为"太保守、只减仓不提醒买入"时，如何仅通过重写 system prompt 实现交易者人格嵌入、赔率框架激活、反保守自检。含 5 个 prompt 文件改造清单、nodes.py 注入逻辑、JSON 字段扩展指南。
-31. `references/daily-state-hot-score-implementation.md` — **Phase 3-4 架构实现参考**：daily_state 状态机、hot_score 热度分、claims_to_entry 桥接、3节点 cron prompt（**09:26/14:00/15:20**，注意 09:26 是集合竞价后，不可改为 09:30）、add_zone 触发逻辑的完整实现细节与维护指南。
+31. `references/daily-state-hot-score-implementation.md` — **Phase 3-4 架构实现参考**：daily_state 状态机、hot_score 热度分、claims_to_entry 桥接、**9 个看盘 cron 节点**（09:26→09:45→10:00→10:30→11:20→13:10→14:00→14:55→15:35，按3类差异化prompt：竞价/确认/风险），注意 09:26 是集合竞价后，不可改为 09:30、add_zone 触发逻辑的完整实现细节与维护指南。
 32. `references/config-field-audit-checklist.md` — **Config 字段补全核对清单**：当用户要求"核对改动是否与架构文档一致"时使用。覆盖 Prompt/代码/Config 三层，含自动化核对脚本、常见遗漏模式、修复优先级。
 33. `references/no-agent-cron-timeout-patterns.md` — **no-agent Cron 超时防御模式**
 34. `references/batch-kline-screening-workflow.md` — **批量K线筛选+介入点生成工作流**：拉60日K线→UP标准筛选→Qing-Agent分析→生成entry_points→更新watchlist：增量+高频 cron、`save_cache` 防测试破坏、HTTP 重试+退避、`python -u` 非缓冲输出。适用于所有 `no_agent: true` 的长运行 cron 脚本。
@@ -65,10 +65,26 @@ description: |
 35. `references/batch-kline-qing-agent-fallback.md` — **Qing-Agent K线拉取不可靠 → 本地批量兜底**：Qing-Agent /chat 端点的自动K线拉取成功率低（18只仅1只成功），应改为本地批量拉取后再结构化注入。含 `scripts/batch_kline_analysis.py` 使用说明和内联代码示例。
 36. `references/market-index-config.md` — **市场指数配置与数据注入**：当前拉取的五大指数（上证/深证/创业板/科创50/全A）、全A指数来源说明（同花顺无API→中证全指替代）、新增指数的两步修改法（stock_monitor.py + stock_data.py）、验证命令。
 37. `references/qing-agent-endpoints.md` — **Qing-Agent 双入口差异**：`/analyze/trigger` vs `/chat` 的架构差异、数据流对比、选择决策树、实战陷阱。盘后分析用 `/chat`。
+38. `references/mcp-powered-directional-update.md` — **MCP 驱动的轻量方向更新**：纯 claims 驱动（不拉价格）的 config 更新模式，利用 MCP Qdrant+Neo4j 工具加速 UP 观点检索。适用场景：上午非交易时段、纯方向策略调整。
 
 ## 工作流程
 
 ### Step 0: 前置检查
+
+0. **Qing-Agent 健康检查（2026-06-10 新增，P0）**：
+   在开始任何 config 更新前，必须先检查 Qing-Agent 是否在线：
+   ```bash
+   curl -s -o /dev/null -w '%{http_code}' http://localhost:8000/health
+   ```
+   - 返回 `200` → 正常，Cron 会走 Qing-Agent 路径（claims 驱动分析）
+   - 返回空/Connection refused → **Qing-Agent 挂了**——所有 Cron 会静默降级为 LLM fallback，消息质量严重退化（方向过期、无全A分析、无 claims 引用）。**必须立即重启**：
+     ```bash
+     cd ~/learning-investment-strategies
+     PYTHONPATH=src .venv/bin/python -m uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
+     # 等3秒验证
+     sleep 3 && curl -s http://127.0.0.1:8000/health
+     ```
+   - **反面案例（2026-06-10）**：Agent 挂了整个上午，9个 Cron 全部输出过期的"4000点防守"分析，直到手动排查才发现根因。诊断步骤第一步必须是这个 health check。
 
 1. **`git pull`**：确保本地文件是最新版本，避免基于旧版本修改后产生冲突。
 2. **Cron 脚本同步检查**：若用户同时修改了 cron 监控脚本（如 `hermes_stock_monitor_agent.py`、`hermes_stock_monitor_daily_review.py`），必须确保 `~/.hermes/scripts/` 与项目目录 `~/learning-investment-strategies/scripts/` 保持一致。推荐方案：前者使用 **Wrapper 委托模式**（真实文件，内容委托到项目版本），详见 `references/cron-script-sync.md`。用户硬性要求："每次改动都需要保证两边一致"。
@@ -157,7 +173,21 @@ quotes[api_key] = {...}
 
 ### Step 2: 检查 UP 最新观点（模式 A + 模式 B）
 
-**读取最近 3 天的内容**（必须执行）：
+**触发源（2026-06-10 扩展）**：
+- `knowledge/claims/claim-YYYYMMDD-*.yaml`（已结构化的 claims）
+- `knowledge/wiki/每日复盘/YYYY-MM-DD.md`
+- `sources/raw/财经/`（最近 3 天）
+- **B站动态** → `sources/original/bilibili/` → 未处理时先转录为 raw（`sources/raw/财经/动态：*.md`），再走 qing-learning 管线提取 claims
+
+**全A锚点（2026-06-10 新增，强制）**：
+每次方向更新必须先定位**全A指数（中证全指 000985）**的当前状态作为定性锚：
+- 全A涨跌幅 + 方向判断（强修复 >0.5% / 弱修复 0~0.5% / 分歧 <0%）
+- 这是 strategy_pack `core_question` 的核心变量——"全A能否跟随科技补涨脱离破位区"
+
+**🚀 MCP 工具优先**（当 Hermes 已接入 MCP server 时）：
+使用 `mcp_qdrant_search_claims`（语义搜索）+ `mcp_neo4j_get_recent_claims`（时间序列）+ `mcp_neo4j_search_claims_graph`（精确匹配）替代手动翻文件。详见 `references/mcp-powered-directional-update.md`。
+
+**传统方式（MCP 不可用时）**：
 - `knowledge/claims/claim-YYYYMMDD-*.yaml`
 - `knowledge/wiki/每日复盘/YYYY-MM-DD.md`
 - `sources/raw/财经/`（最近 3 天）
@@ -223,6 +253,16 @@ Qing-Agent 返回的是**定性判断**（方向/态度/策略基调），不是
 4. 如果 claim 中只有方向判断没有具体标的，如实告知："UP 给了方向判断但未点名具体标的，需要联网搜索或等后续内容"
 
 ### Step 2.5: 同步更新 strategy_pack.yaml（必须与 watchlist 同步，不可遗漏）
+
+**⚠️ Agent-UP 矛盾升级流程（2026-06-10 新增，P0）**：
+当 Qing-Agent 的操作建议与 UP 最新观点矛盾时（例如：Agent 基于技术面建议清仓，UP 基于产业逻辑说"直接砍不合适"），按以下流程处理：
+1. **先检查时序**：UP 观点是否在 Agent 分析之后发布？如果是，以 UP 为准（Agent 分析时没有这个信息）
+2. **归类矛盾类型**：
+   - **信息不对称**（Agent 缺少 claims）→ 补充 claims→重新分析。这是最常见的——Agent 的知识库缺最新观点
+   - **方法论差异**（Agent 纯技术面 vs UP 产业逻辑+基本面）→ **UP 优先**，但记录分歧
+   - **真正矛盾**（同一信息下结论相反）→ 标记 `true-conflict`，提醒用户人工裁决
+3. **更新 strategy_pack 标注来源**：在 `key_assumptions` 中明确标注决策依据（claim ID），注明"Qing-Agent 建议 X，但 UP 观点 Y，采用 UP"
+4. **反面案例（2026-06-10）**：万泽跌停，Qing-Agent 基于技术面建议清仓，UP 10:04 B站动态说"能做T做T，反弹之后减仓，直接砍不合适"。Agent 分析时 UP 观点尚未入库（时序问题），但应触发矛盾检测
 
 **不可遗漏**：只更新 watchlist 而不更新 strategy_pack 会导致观察池无法指导实际交易。用户明确反馈："不只是更新watchlist 你每次更新的时候都要把操作策略，介入股价都加上，不然什么时候能买入呢？观察有啥有用呢"
 
@@ -323,6 +363,11 @@ Qing-Agent 返回的是**定性判断**（方向/态度/策略基调），不是
 - 若引用 claim 的 statement 与 entry 逻辑矛盾 → 修正或删除 entry_point
 
 ### Step 3: 更新 watchlist.yaml
+
+**⚠️ 交叉校验（2026-06-10 新增）**：更新完成后，必须将本次分析中列出的所有 UP 明确提及的标的与 watchlist 逐条对照：
+- UP **直接点名**的方向/标的遗漏 → 这是疏漏，必须补入
+- Agent **框架推理补充**的标的 → 可加可不加，需向用户说明来源
+- 详见 `references/mcp-powered-directional-update.md` 陷阱 1
 
 **追加原则**：
 - 新 theme → 追加到 `themes` 列表末尾
@@ -602,7 +647,7 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 24. **hot_score 消费规则**：热度分由 cron 每日 09:00 自动计算（`scripts/calc_hot_scores.py`），不需要手动触发。每次手动更新 watchlist 后，检查 `config/stock_monitor/watchlist_hot_scores.json`：Top 10-15 作为"今日重点关注"写入 strategy_pack 的 today_snapshot；热度分骤变（>3分变化）的标的需优先检查 claims 更新；热度分持续 <3 超过 30 天 → 建议用户将 lifecycle 降级为 archived。
 25. **entry_suggestions 检查**：每次手动更新前，检查 `config/stock_monitor/entry_suggestions/` 是否有由 `sync_claims_to_config.py` 生成的待确认文件。如有，优先处理——UP 的操作建议不应积压。确认后写入 strategy_pack，删除建议文件。
 26. **add_zone 配置会被条件驱动轮询消费**：`scripts/qing_stock_monitor_poll.py`（cron 每5分钟 no-agent 轮询）会拉行情并检查持仓的 add_zone——配置了 add_zone 的持仓，价格进入区间时会自动推送"加仓观察"提醒。因此 add_zone 必须保持与当前价格的有效距离（太低不会被触发，太高会频繁误报）。每次手动更新持仓后需重新校验 add_zone。
-27. **Cron prompt 不直达 qing-agent（架构陷阱）**：9个看盘 cron 通过 HTTP 调用本地 qing-agent，qing-agent 使用自己的 LangGraph system prompt（`prompts/system/market_analyst.txt` 等）。修改 cron job 的 `prompt` 字段对 qing-agent 无效——只影响 fallback 文本路径。**修改 LLM 分析行为 → 改 `market_analyst.txt`；修改 cron 调用参数 → 改 `strategy_pack.yaml` 的 `agent_analysis_schedule`。** 反面案例：Agent 修改 9 个 cron prompt 引用 `cron_*.txt`，但 qing-agent 完全不读 cron prompt。详见 `references/cron-pipeline-architecture.md`（含 Cron 空输出诊断决策树 + 三重对齐检查表）。
+27. **Cron prompt 不直达 qing-agent（架构陷阱）**：9个看盘 cron 通过 HTTP 调用本地 qing-agent，qing-agent 使用自己的 LangGraph system prompt（`prompts/system/market_analyst.txt` 等）。修改 cron job 的 `prompt` 字段对 qing-agent 无效——只影响 fallback 文本路径。**修改 LLM 分析行为 → 改 `market_analyst.txt`；修改 cron 调用参数 → 改 `strategy_pack.yaml` 的 `agent_analysis_schedule`。** 反面案例：Agent 修改 9 个 cron prompt 引用 `cron_*.txt`，但 qing-agent 完全不读 cron prompt。详见 `references/cron-pipeline-architecture.md`（含 Cron 空输出诊断决策树 + 三重对齐检查表）。**2026-06-10 新增子陷阱**：Qing-Agent 挂掉后 cron 静默降级为 LLM fallback，消息质量严重退化（方向过期、无全A分析、无UP框架感）但无任何告警。诊断流程第一步必须是 `curl localhost:8000/health`，详见 `references/config-cron-alignment-debugging.md` Step 0。
     **⚠️ 时间同步子陷阱**：`agent_analysis_schedule` 的 `time` 字段（HH:MM）必须与 cron job 的 `schedule` 分钟数完全一致。差一分钟 → `find_agent_analysis_trigger()` 返回 None → 脚本空输出 → cron 静默跳过。反面案例（2026-06-09）：strategy_pack 尾盘条件单 `time: '14:50'` 但 cron `55 14 * * 1-5`；10:00 cron 存在但 strategy_pack 完全缺失 10:00 条目；10:30 的 ID 从 `morning_confirm` 错写（源码为 `opportunity_scan`）。**三个 cron 同日空输出，根因相同**。修复后验证方法：手动运行 `scripts/hermes_stock_monitor_agent.py` 检查 stdout 是否非空。
     **⚠️ `--daily-review-context` 例外**：15:20（收盘复盘）使用独立路径 `stock_monitor.py --daily-review-context`，**不经过** `find_agent_analysis_trigger()`，不检查 `agent_analysis_schedule`。其空输出原因通常是 DeepSeek API 流式断连（agent.log 出现 "Stream stale for 180s"），而非 schedule 不匹配。两者症状相同（微信没收到），根因完全不同。
     **⚠️ 批量诊断工具**：发现 cron 空输出时，使用三步诊断法：①检查输出文件 >0字节否？②agent.log 搜索 "script produced no output" ③三方对齐表（cron schedule vs strategy_pack.time vs DEFAULT.time）。详见 references/config-cron-alignment-debugging.md。

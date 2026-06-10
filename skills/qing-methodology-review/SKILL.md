@@ -56,7 +56,7 @@ cd /home/ubuntu/learning-investment-strategies
 grep "source_date:" knowledge/claims/claim-YYYYMMDD-*.yaml
 ```
 
-- 读取窗口内所有 claim 文件
+- 读取窗口内所有 claim 文件（含 B站动态等非传统 source_type）
 - 注意 YAML 解析错误（部分文件可能有格式问题），跳过错误文件继续
 - 提取：date, topic, text, type, confidence, status, supersedes, contradicts
 
@@ -92,6 +92,7 @@ grep "source_date:" knowledge/claims/claim-YYYYMMDD-*.yaml
 | cycle-shift | 市场阶段变化导致观点变化 | 标记为 cycle-shift，更新 status |
 | logic-broken | 个股或板块逻辑被证伪 | 标记 contradicts，旧 claim 更新 status |
 | risk-repriced | 宏观/流动性/风险偏好改变 | 标记 risk-repriced |
+| agent-up-conflict | **Qing-Agent 分析 vs UP 观点矛盾（2026-06-10 新增）** | 检查知识库是否完整→补 claims→重新分析；若仍矛盾→UP 优先 |
 | true-conflict | 暂无清晰解释，需人工 review | 标记 true-conflict，高亮提醒用户 |
 
 ### Step 6: Durable Rule 筛选
