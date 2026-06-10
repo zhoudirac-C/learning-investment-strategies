@@ -1,10 +1,57 @@
 # Config-Cron 对齐诊断决策树
 
-## 症状
+## 症状 A：微信消息质量明显下降
 
-微信没收到某条 cron 消息，但 cron `list` 显示 `last_status: ok`。
+**典型信号**（2026-06-10 发现）：
+- 输出引用的方向已过期（如还在说「燃气轮机/工程机械/创新药」，但 UP 已转向「上游材料/半导体」）
+- 引用的关键点位已过期（如还在说「上证跌破4000减仓」，但指数已在4000附近拉锯多日）
+- 输出完全没有分析中证全指(000985)，只有上证
+- 输出风格缺乏 UP 框架感（干瘪的技术罗列而非「赔率思维」「修复质量推演」）
 
-## 三步诊断法
+**根因**：Qing-Agent 服务挂了，cron 走了 LLM fallback 路径——LLM 无法访问 Qdrant/Neo4j claims，只能基于 strategy_pack 的纯文本做分析（而 strategy_pack 的文本可能已过期）。
+
+## 症状 B：微信没收到某条 cron 消息
+
+cron `list` 显示 `last_status: ok` 但没收到。
+
+## 诊断决策树（按优先级）
+
+### Step 0: Qing-Agent 健康检查（新增，必须先执行）
+
+当发现消息质量下降或空输出时，第一步先检查 qing-agent：
+
+```bash
+curl -s http://localhost:8000/health
+```
+
+- **200 + `{\"status\":\"ok\"}`** → qing-agent 正常，继续 Step 1
+- **无响应 / Connection refused** → qing-agent 挂了，这是根因。立即重启：
+
+```bash
+cd ~/learning-investment-strategies
+# 先清理旧进程
+pkill -f 'uvicorn.*qing_investment' 2>/dev/null
+sleep 1
+# 启动（必须 PYTHONPATH=src）
+PYTHONPATH=src .venv/bin/python -m uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
+# 验证
+sleep 3 && curl -s http://localhost:8000/health
+```
+
+**Qing-Agent 挂了的完整影响链**：
+```
+Qing-Agent 进程停止
+  → hermes_stock_monitor_agent.py: call_qing_agent() 失败
+    → 走 fallback 路径（line 128-130）
+      → stock_monitor.py --agent-context-on-trigger
+        → 输出原始文本 context（无 claims 注入）
+          → Hermes LLM 用 cron prompt 直接生成消息
+            → 没有 Qdrant/Neo4j claims → UP 框架缺失 → 质量下降
+```
+
+**注意**：Qing-Agent 正常时，cron prompt 几乎不参与（qing-agent 用自己的 LangGraph + claims）。fallback 时才依赖 cron prompt + strategy_pack 文本。所以：
+- **改 cron prompt 对 qing-agent 路径无效**（见 skill 纪律 #27）
+- **改 strategy_pack + 重启 qing-agent 才是正解**
 
 ### Step 1: 检查输出文件
 

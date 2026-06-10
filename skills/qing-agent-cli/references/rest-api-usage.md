@@ -69,6 +69,28 @@ curl -s -X POST http://127.0.0.1:8000/analyze/trigger \
 | `500 Internal Server Error` | LLM API 异常或知识库连接失败 | 检查 Neo4j/Qdrant 状态 |
 | 超时 (>60s) | LLM 响应慢或知识库检索慢 | 重试或查 API key 配额 |
 
+## 静默降级检测（Cron 场景）
+
+Qing-Agent 挂了不会触发任何告警——cron 任务会**静默降级**为 LLM fallback 路径。检测方法：
+
+**症状**：微信收到的 cron 消息质量明显下降
+- 方向关键词过期（还在说几周前的旧方向）
+- 缺失 UP 框架感（无「赔率思维」「修复质量推演」等）
+- 只分析上证不分析全A
+
+**根因**：Qing-Agent 挂 → hermes_stock_monitor_agent.py fallback → LLM 直调（无 claims/Qdrant）
+
+**一线命令**：
+```bash
+curl -s http://localhost:8000/health   # 确认是否挂了
+cd ~/learning-investment-strategies
+pkill -f 'uvicorn.*qing_investment'
+PYTHONPATH=src .venv/bin/python -m uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
+sleep 3 && curl -s http://localhost:8000/health   # 验证恢复
+```
+
+详见 `skills/qing-stock-monitor-update/references/config-cron-alignment-debugging.md` Step 0。
+
 ## 降级路径
 
 ```

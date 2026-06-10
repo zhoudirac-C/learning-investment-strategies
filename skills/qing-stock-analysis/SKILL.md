@@ -25,8 +25,9 @@ description: Use when the user asks to analyze an individual stock through the b
 10. `skills/qing-stock-analysis/references/watchlist-bulk-update-from-raw.md` — **从复盘文档批量更新观察池**：提取 raw 文档中的标的提及，去重后按主题分组追加到 watchlist.yaml 的完整流程
 11. `skills/qing-stock-analysis/references/stock-monitor-internals.md` — **监控脚本内部机制与状态文件结构**：收盘监控复盘时排查提醒来源、去重逻辑、漏报原因的参考手册
 12. `skills/qing-stock-analysis/references/stock-monitor-cli-behavior.md` — **监控脚本 CLI 行为与状态文件**：`--status`、`--daily-review-context`、`--live-analysis-context` 等命令的输出格式和用途
-12. `skills/qing-stock-analysis/references/stock-monitor-source-internals.md` — **监控脚本源码级技术参考**：通过直接阅读 `stock_monitor.py` ~1800行源码提取的完整数据流、函数详解、状态文件结构、CLI参数速查。当需要修改触发逻辑、排查bug、理解去重机制时读本文件；SKILL.md正文中的"监控脚本内部机制"是面向分析的用法参考。
-15. `skills/qing-stock-analysis/references/daily-review-cases.md` — **收盘监控复盘案例库**：历史复盘典型案例，含有效性判断标准、开盘诱多识别 checklist、相对强弱伪信号识别方法、盘中配置更新时序陷阱、板块轮动标签语义混淆
+12. `skills/qing-stock-analysis/references/stock-monitor-source-internals.md` — **监控脚本源码级技术参考**：通过直接阅读 `stock_monitor.py` ~1800行源码提取的完整数据流
+15. `skills/qing-stock-analysis/references/daily-review-cases.md` — **收盘监控复盘案例库**
+16. `skills/qing-stock-analysis/references/morning-cron-observation-guide.md` — **早盘监控观察指南（2026-06-10 新增）**：当预运行脚本输出 `qing-agent fallback` 且需要执行早盘开盘定性分析时，本文件提供完整的数据流、关键验证点、板块联动交叉验证方法和典型案例。
 16. `skills/qing-stock-analysis/references/index-etf-analysis-guide.md` — **指数/ETF买入分析指南**：当用户询问指数或ETF（如恒生科技、科创50）时使用，含时间窗口分析、ETF代码推荐、与个股分析的区别
 17. `skills/qing-stock-analysis/references/qing-agent-lightweight.md` — **Qing-Agent零基础设施运行模式 + 索引故障排查手册**：LangGraph多智能体系统可在无Docker容器的情况下运行，含 Qdrant 本地文件模式实战部署（config/代码/UUID兼容）。覆盖架构概览、降级机制、启动流程、同步脚本。⚠️ **三大陷阱**：①fallback模型的 `.encode().tolist()` 返回1D list，不是2D batch；②ONNX Runtime 多线程在2核VM上 futex spin-lock 死锁（修：`intra_op_num_threads=1`）；③Qdrant 本地模式独占锁→索引前必须关 Agent。
 18. `skills/qing-stock-analysis/references/holdings-direction-alignment-check.md` — **持仓方向与 UP 近期内容核对手册**：当用户问"UP 是否提到我的持仓""核对我的持仓方向"时触发。扫描最近 2-3 天 UP 内容（视频/复盘/早盘/动态），逐只核对持仓是否被提及、UP 态度如何、语言强度评级。与"持仓更新"子任务区分：本流程不做盈亏计算，只做方向一致性评估。
@@ -201,7 +202,7 @@ description: Use when the user asks to analyze an individual stock through the b
 
 ### 脚本执行失败时的降级路径
 
-当 cron 任务报告脚本路径错误（如 `Blocked: script path resolves outside the scripts directory`）或脚本无法运行时，按以下降级路径获取数据：
+当 cron 任务报告脚本路径错误（如 `Blocked: script path resolves outside the scripts directory`）、脚本输出为 `[qing-agent fallback — 输出原始监控上下文]`（表示监控脚本的 agent 分析层未生成结构化上下文）、或脚本无法运行时，按以下降级路径获取数据：
 
 1. **优先尝试模块方式**：`cd $HERMES_REPO_ROOT && python -m qing_investment.stock_monitor --live-analysis-context`
 2. **若模块方式失败**：直接调用 `python -m qing_investment.stock_monitor --live-analysis-context`（假设当前目录为项目根目录或模块在 PYTHONPATH 中）
@@ -219,6 +220,81 @@ curl -s 'https://qt.gtimg.cn/q=sz000969,sz000066,sh600487' | iconv -f gbk -t utf
 ```
 - `a[4]` = 最新价，`a[5]` = 昨收，`($4-$5)/$5*100` = 涨跌幅
 - 字段索引漂移：不同股票买卖盘深度不同导致 `split('~')` 后字段数不一致，涨跌幅**禁止硬编码索引**，必须用 `(最新-昨收)/昨收` 计算
+
+## 子任务：早盘监控极简微信提醒（09:30 Cron 触发）
+
+当 cron job 在 09:30 触发（市场开盘初期）并要求输出早盘监控微信提醒时，按以下模板执行。
+
+### 与 14:00 午盘提醒的区别
+
+| 维度 | 早盘 09:30 | 午盘 14:00 |
+|------|-----------|-----------|
+| Focus | 开盘定性 + 关键点位验证 + 板块方向确认 | 午后一小时盘面验证，只讲当下 |
+| 核心问题 | 上证是否守住/收复关键点位？进攻方向是否延续/走弱？持仓是否触及风控？ | 盘面是否维持上午方向？有无尾盘变盘信号？ |
+| 动作偏多 | 减仓观察、风控观察（开盘杀跌时） | 持有确认、做T尾段 |
+| 预判成分 | 允许以"若XX则XX"格式给出30分钟验证条件 | 禁止预判尾盘和次日 |
+
+### 输入
+
+- 预运行脚本的输出（若为 `[qing-agent fallback — 输出原始监控上下文]`，按降级路径用 curl 腾讯 API 获取数据）
+- `config/stock_monitor/positions.yaml`（读取持仓、成本、风控线）
+- `config/stock_monitor/strategy_pack.yaml`（读取市场框架、板块规则、关键点位）
+- `config/stock_monitor/watchlist.yaml`（读取观察池买入/证伪条件）
+- `knowledge/claims/` 最近 claims（读取市场周期判断、板块定性）
+
+### 输出结构（固定五段）
+
+```
+【盘面】一句话定性：指数点位/涨跌幅，是否守住关键点位（4000/4120），量能对比（可选）。
+【持仓池】
+- 标的(代码)：动作=持有/做T/减仓观察/风控观察；触发=当前价X.XX/涨跌幅+X.X%/成本+浮亏/关键位置状态；证伪=具体价位或板块信号导致判断失效
+（每只持仓必须单独一行，禁止合并；只列 shares > 0 的标的）
+【观察池】
+- 可买：最多3个满足/接近买入条件的标的和买点（价格区间+确认信号）。
+- 暂不买：一句话说明主因（如"上证失守4000+进攻方向集体走弱，不满足任何买入条件"）。
+【关键信号】3-5条开盘即确认的板块/指数/持仓关键信号，每条含意义说明。
+【脚注】数据源=腾讯财经实时接口；时间=YYYY-MM-DD HH:MM；异常=无/某票数据未提供/某板块异常波动。
+```
+
+### 关键约束
+
+- **总字数 ≤ 500 字（中文）**。
+- **Focus**：开盘定性——验证上周/昨日收盘后的框架预期是否兑现。上证是否守住 4000？进攻方向（燃气轮机/LPU）是延续还是走弱？防守方向（工程机械/创新药）是否企稳？
+- **持仓池每只股票必须单独一行**，动作从 {持有, 做T, 减仓观察, 风控观察} 中选择。
+- **触发字段必须包含完整原文**：当前价格、涨跌幅、成本/浮亏、关键位置状态。
+- **证伪字段必须包含具体价位和板块联动条件**：如"跌破30.5→减半/有效跌破30→清仓/燃气轮机方向集体走弱(杰瑞-5%+)"。
+- 观察池"可买"最多 3 个，写清买点（价格区间 + 确认信号）；无可买则写"暂无可买"。
+- **关键信号段是早盘独有**：列出开盘即确认的板块/个股信号（如"燃气轮机方向集体走弱"触发 strategy_pack invalidation、"上证失守4000"触发减仓警戒等）。
+- 脚注必须包含：数据源、时间戳、行情异常；不要给无条件买卖指令。
+- **数据验证（防幻觉）**：所有股价、涨跌幅数字必须来自脚本输出或 curl 腾讯 API。禁止编造任何数字。
+- **板块联动交叉验证**：当持仓所属方向出现领涨标的深度回调（如杰瑞-5%+），必须检查同方向其他标的以确认是集体走弱还是个股问题。方法见"常见陷阱与防循环指南 §25"。
+
+### 早盘持仓动作决策树
+
+```
+上证是否守住关键点位(4000)?
+├── 开在4000以下（今日失守）→ 按strategy_pack"收盘跌破4000→减仓"警戒，持仓动作偏防御
+├── 开在4000-4030（弱势震荡）→ 正常风控观察，不新开仓
+└── 开在4030+（强于预期）→ 可谨慎观察买点
+
+持仓方向是否集体走弱?
+├── 是（领涨票跌>5%+同方向多票同步跌）→ 动作偏"风控观察"，证伪字段引用板块联动信号
+└── 否（温和调整/分化）→ 正常持有/做T
+
+持仓是否逼近风控线?
+├── 距风控线<3% → 风控观察，必须写收回条件
+└── 距风控线>3% → 正常持有/持有观察
+```
+
+### 数据源优先级（与 14:00 模板相同）
+
+同 14:00 午盘模板的"数据源优先级"。关键差异：脚本失败时（输出 `qing-agent fallback`），必须立即执行 curl 腾讯 API 降级路径，不能因为开盘初期数据不完整而跳过。
+
+### 与 14:00 模板的共用约束
+
+- 持仓池只包含有持仓标的（`positions.yaml` 中 `shares > 0`）
+- 不给出无条件买卖指令
+- 所有股价数据必须来自脚本或 curl API
 
 ## 子任务：指数/ETF买入分析（Index/ETF Buy Analysis）
 
@@ -574,6 +650,10 @@ curl -s 'https://qt.gtimg.cn/q=sz000969,sz000066,sh600487' | iconv -f gbk -t utf
    - 若缺失 → 直接 curl 腾讯 API，不尝试 pip install（可能超时或权限不足）
    - 数据到手后 → 用纯 Python 文本分析，不依赖 pandas/numpy（若可用则用，不可用则手写解析）
 7. **腾讯财经 API 字段索引陷阱**：`qt.gtimg.cn` 返回的字段中，涨跌幅不在固定索引位置。不同股票的买卖盘深度不同，导致 `split('~')` 后的字段数不一致。**涨跌幅字段必须动态定位**：先找到时间戳字段（格式 `YYYYMMDDhhmmss`，如 `20260602112927`），其后的第 2 个字段为涨跌额、第 3 个字段为涨跌幅。或者直接用 `a[5]`（昨收）和 `a[4]`（最新）手动计算：`(最新-昨收)/昨收*100`。推荐后者，避免索引漂移。
+
+- **验证与 awk 差异**：`awk -F'~'` 硬编码 `$33` 或 `$34` 作为涨跌幅在不同类型股票上返回不同值（指数 vs 个股买卖盘字段数不同）。**正确做法**：用 `awk -F'~' '{print ($4-$5)/$5*100}'` 计算涨跌幅，不依赖索引定位。
+
+25. **板块集体走弱 vs 个股独立利空的实时交叉验证（2026-06-10 新发现）**：当预运行脚本失败（输出 `qing-agent fallback`），通过 curl 腾讯 API 获取行情数据后，必须手动执行**板块内交叉验证**——检查同方向多只标的是否同步下跌。典型场景：燃气轮机方向（杰瑞/应流/万泽）若同时大跌（如杰瑞-6.76%/应流-2.52%/万泽-1.91%），直接触发 `strategy_pack.yaml` 中的 `invalidation_setup` 条件（如"燃气轮机方向集体走弱"）。此时单独看持仓（万泽-1.91%）可能不严重，但板块联动信号已将方向定性为集体走弱。**操作方法**：①从 `watchlist.yaml` 的 `confirm_with` 或 `sector_groups` 获取同方向标的；②从 curl 结果中查询它们的实时涨跌幅；③若多数同向下跌（尤其领涨标的如杰瑞大跌 >5%），标记为板块方向性走弱；④在持仓动作的"证伪"字段中引用板块联动信号。
    - 错误做法：`awk` 硬编码 `a[32]` 或 `a[34]` 作为涨跌幅 → 不同股票返回不同值
    - 正确做法：`curl -s 'https://qt.gtimg.cn/q=sz000969' | iconv -f gbk -t utf-8 | awk -F'~' '{print ($4-$5)/$5*100}'`
 18. **UP 评论回复与主动态内容矛盾（高危）**：UP 在自己动态下的评论回复可能包含与主动态文字相反的关键判断。典型案例如 2026-06-05 14:11 动态——主文字"下午继续买"（看多），但评论回复"4033到了清仓科技，不是今天抄底的品种"（看空科技）。处理盘中动态时必须：①读取 B站原始 API 数据或 original 文件检查是否有UP评论；②若评论判断与主动态文字方向相反，标记为**内部矛盾**，在操作建议中显式提醒用户；③不能只采信主动态文字而忽略评论中的致命条件。**这在指数关键点位（如4033）附近尤为重要**——评论中的条件可能覆盖主动态的加仓指令。
