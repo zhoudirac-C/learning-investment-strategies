@@ -231,6 +231,53 @@ endlegend
     └── Prompt 组装 ──▶ LLM 分析 ──▶ 输出
 ```
 
+**`/analyze/trigger` 端点数据流**（Hermes cron 调用）：
+
+```
+stock_monitor.py --agent-json-context
+    │  {trigger, alerts, market_snapshot, positions, watchlist, sector_strengths, external_sector_boards}
+    ▼
+Qing-Agent /analyze/trigger
+    │
+    ├── 1. parse_query ──▶ analysis_type=market/stock/portfolio
+    │
+    ├── 2. retrieve_knowledge ──▶ Qdrant: qing_knowledge(wiki 10条) + qing_claims(12条)
+    │       mem0: user_memories(2条)
+    │       sector_extractor: sector_context(3条，若有)
+    │       [_apply_claim_freshness] 时效过滤
+    │       [_detect_claim_conflicts] 矛盾检测
+    │
+    ├── 3. market_analyst ──▶ 核心分析节点（必走）
+    │       ├── 板块数据可用性守卫（external_sector_boards.available=false → 拒绝分析）
+    │       ├── Framework 显式加载 + 11项分析框架片段
+    │       ├── 推理模式匹配（ONNX Embedding召回Top5 → LLM rerank Top1-3）
+    │       └── 输出 market_context JSON + 持久化 daily_state.json
+    │
+    ├── 4. synthesize ──▶ 拼接草稿，注入【参考来源】、持仓操作计划
+    │
+    ├── 5. style_writer ──▶ UP 口吻风格化（人格 prompt + 口头禅）
+    │
+    ├── 6. reviewer ──▶ 事实核查、禁用词检测、citation 检查
+    │       └── 不通过 → 回 style_writer（最多 3 次）
+    │
+    └── 7. TriggerResponse {final_output, claims_cited, data_sources, confidence, review_passed}
+    │
+    └── hermes_stock_monitor_agent.py 收到 final_output → 微信推送
+        若 Qing-Agent 不可达 → fallback: stock_monitor.py --agent-context-on-trigger（纯文本 LLM 降级）
+```
+
+**与 `/chat` 的核心区别**：
+
+| 维度 | `/analyze/trigger` | `/chat` |
+|------|-------------------|---------|
+| 调用方 | Hermes cron（`stock_monitor.py` 采集的结构化数据） | 用户直接对话 |
+| 输入来源 | `stock_monitor.py --agent-json-context` 输出的 JSON | 自然语言文本 |
+| 记忆检索 | 不查询 mem0 用户记忆 | 查 mem0 + Neo4j 图遍历 |
+| 板块数据 | 外部传入 `external_sector_boards`（必填） | Agent 自行实时获取 |
+| 实时行情 | 传入 `market_snapshot` 快照 | Agent 自行抓取 |
+| daily_state | 写入 `config/stock_monitor/daily_state.json` | 不写入 |
+| 降级路径 | Qing-Agent 离线 → 纯文本 LLM fallback | 无降级，直接报错 |
+
 | 节点 | 职责 | 是否调用 LLM |
 |------|------|-------------|
 | `parse_query` | 意图解析：提取 stock_code / analysis_type / urgency | ✅ |
@@ -640,38 +687,45 @@ if analysis_type in ("market", "portfolio") and not esb.get("available"):
 ### 8.1 核心端点
 
 ```
-GET  /health
-POST /analyze/trigger  ← Hermes 调用
-POST /chat             ← 用户对话（带记忆检索 + 实时数据获取 + Neo4j 图遍历）
-POST /memory/add       ← 追加用户记忆
+GET  /health                              ← 健康检查（健康检查脚本 `check_qing_agent.sh` 每 5 分钟调用）
+POST /analyze/trigger                     ← Hermes cron 调用（完整 LangGraph 分析流水线）
+POST /chat                                ← 用户对话（带记忆检索 + 实时数据获取 + Neo4j 图遍历）
+POST /memory/add?session_id=&content=     ← 追加用户记忆
 ```
 
-### 8.2 TriggerRequest 字段
+### 8.2 TriggerRequest 字段详解
 
-```python
-class TriggerRequest(BaseModel):
-    trigger: dict           # Hermes 触发信息
-    alerts: list[dict]      # 规则信号列表
-    market_snapshot: dict   # 行情快照
-    positions: list[dict]   # 当前持仓（含 latest/pct_change）
-    watchlist: list[dict]   # 观察池
-    sector_strengths: list[dict]   # 内部板块涨跌
-    external_sector_boards: dict   # 外部板块数据（概念+行业）
-    session_id: str
-    query: str
-```
+| 字段 | 类型 | 必填 | 来源 | 说明 |
+|------|------|------|------|------|
+| `query` | string | ✅ | Hermes | 分析标题，如"每日收盘复盘"；空时从 `trigger.title` + `trigger.reason` 拼接 |
+| `analysis_type` | string | ❌ | Hermes | `market`（默认） / `stock` / `portfolio` |
+| `session_id` | string | ❌ | Hermes | 默认 `"default"`，Hermes 传入 `"hermes-{timestamp}"` |
+| `trigger` | dict | ✅ | `stock_monitor.py` | `{title, reason, type, time_frame, urgency}` — 触发条件与控制参数 |
+| `alerts` | list[dict] | ❌ | `stock_monitor.py` | 规则信号：`[{type, message, stock_code, priority}]` |
+| `market_snapshot` | dict | ❌ | `stock_monitor.py` | 行情快照：`{timestamp, quotes, index_quotes, limit_up_stocks, limit_down_stocks}` |
+| `positions` | list[dict] | ❌ | `positions.yaml` | 当前持仓：`[{code, name, shares, cost, current_price, profit_pct, position_ratio}]` |
+| `watchlist` | list[dict] | ❌ | `strategy_pack.yaml` | 观察池标的：`[{code, name, price, change_pct, reason}]` |
+| `sector_strengths` | list[dict] | ❌ | 内部样本 | 板块强弱（基于 `sector_groups`）：`[{sector_name, strength, top_stocks}]` |
+| `external_sector_boards` | dict | ✅ | 东财/新浪 | **外部全量板块数据**：`{available: bool, concept: {...}, industry: {...}}`。`market`/`portfolio` 分析时 `available` 必须 `true` |
 
-### 8.3 TriggerResponse 字段
+**必填约束**：`query` + `external_sector_boards`（market/portfolio 时 `available=true`）
+**输入来源**：所有字段由 `hermes_stock_monitor_agent.py` 通过 `stock_monitor.py --agent-json-context` 采集并转发。
 
-```python
-class TriggerResponse(BaseModel):
-    final_output: str       # UP 风格化最终文本
-    claims_cited: list[str] # 引用的 claim IDs
-    data_sources: list[str] # 数据来源
-    confidence: str         # high/medium/low
-    review_passed: bool     # 事实核查是否通过
-    reasoning_steps: list[str]
-```
+### 8.3 TriggerResponse 字段详解
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| `final_output` | string | **核心输出** — UP 风格化最终分析文本，直接作为微信推送内容 |
+| `claims_cited` | list[string] | 引用的 claim IDs（追溯分析依据） |
+| `data_sources` | list[string] | 数据来源列表 |
+| `confidence` | string | 置信度：`"high"` / `"medium"` / `"low"` |
+| `review_passed` | bool | 事实核查是否通过（reviewer 最多打回 3 次） |
+| `reasoning_steps` | list[string] | 分析思考步骤（调试用） |
+
+**响应处理**（`hermes_stock_monitor_agent.py`）：
+- `response.final_output` 非空 → 打印 `[Qing-Agent ✓]` + UP 风格文本
+- 不可达/超时 → 打印 `[Qing-Agent ✗ FALLBACK]` + 纯文本降级输出
+- 无 trigger → 静默退出（空输出 = cron 不推送）
 
 ---
 

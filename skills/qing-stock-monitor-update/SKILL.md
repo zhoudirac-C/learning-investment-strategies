@@ -552,7 +552,32 @@ print('✓ 去重验证通过')
 **修复方案（已实施方案 A）**：
 1. ✅ 在 Qing-Agent `market_analyst` 节点 LLM 返回后，提取 ````daily_state` 代码块并调用 `save_daily_state()`
 2. ✅ 从 `market_context` 规范化字段推导 fallback（当 LLM 未输出代码块时）
-3. 具体实现见 `references/daily-state-persist-implementation.md`
+3. ✅ 本地单节点测试通过：`daily_state.json` 可被正常创建并更新
+4. ⏳ **待交易时段实测验证**：09:26 集合竞价后 cron 触发，确认端到端写入
+
+**测试发现的问题**（2026-06-10 本地单节点测试）：
+
+| 发现 | 影响 | 状态 |
+|------|------|------|
+| `Persisted daily_state from market_analyst:None` 执行成功 | ✅ `daily_state.json` 正常创建 | 已确认 |
+| 完整链路 ~66s（parse_query 2.4s → retrieve_knowledge 6.0s → market_analyst 36.8s → synthesize 0.0s → style_writer 12.4s → reviewer 14.3s） | ✅ 性能在预期范围内 | 已确认 |
+| `review_passed=False`（测试 query 无持仓/板块数据） | ✅ 期望行为，reviewer 未通过走 fallback | 已确认 |
+| `Context Builder failed: '>' not supported between instances of 'Date' and 'str'` | ⚠️ retrieve_knowledge 中日期比较失败，影响 claim 时效性过滤 | **未修复，需跟进** |
+
+**⚠️ 跟进项：Context Builder 日期比较 Bug**（在 retrieve_knowledge 节点测试中发现）：
+
+```
+Context Builder failed: '>' not supported between instances of 'Date' and 'str'
+```
+
+**根因推测**：`context_builder.py` 将 claim 的 `source_date` 作为 `datetime.date` 处理，但某些 claims 的 `source_date` 仍为字符串格式。不同源（Neo4j vs Qdrant）返回类型不一致。
+
+**排查方向**：
+1. 检查 `context_builder.py` 中所有 `source_date` 比较操作（`>`, `<`, `>=`, `<=`）
+2. 确认 Neo4j vs Qdrant 返回的 `source_date` 类型是否一致
+3. 比较前统一转换为 `datetime.date` 或字符串
+
+**临时缓解**：被 `try/except` 捕获，Context Builder 跳过该 claim 继续执行，不崩溃。但时效性标注缺失，降低排序质量。
 
 **Qing-Agent 完整链路耗时基准（2026-06-10 实测）**：
 
