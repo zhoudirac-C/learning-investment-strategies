@@ -352,12 +352,174 @@ def load_strategy_pack(path: Path | None = None) -> dict:
         return yaml.safe_load(f) or {}
 
 
+def _check_entry_conflicts(
+    suggestions: list[dict],
+    existing_entries: list[dict],
+) -> list[dict]:
+    """检查新建议与现有 entry_points 的冲突。
+
+    Returns:
+        冲突列表，每个冲突包含类型和描述
+    """
+    conflicts = []
+    existing_map = {e["code"].replace(".SH", "").replace(".SZ", ""): e for e in existing_entries}
+
+    for sug in suggestions:
+        code = sug["code"]
+        if code in existing_map:
+            existing = existing_map[code]
+            existing_status = existing.get("status", "")
+            existing_zone = existing.get("entry_zone", "")
+            sug_zone = sug.get("entry_zone", "")
+
+            if existing_status in ("active", "triggered"):
+                # 检查介入区间是否重叠
+                if existing_zone and sug_zone:
+                    conflicts.append({
+                        "type": "duplicate_active",
+                        "code": code,
+                        "description": f"{code} 已有 {existing_status} entry（区间: {existing_zone}），"
+                                       f"新建议区间: {sug_zone}",
+                        "suggestion": "建议更新现有 entry 的 claim_basis，不新增重复 entry",
+                        "existing_entry": existing,
+                    })
+                else:
+                    conflicts.append({
+                        "type": "duplicate_active_no_zone",
+                        "code": code,
+                        "description": f"{code} 已有 {existing_status} entry，新建议无明确区间",
+                        "suggestion": "建议更新现有 entry 的 claim_basis",
+                        "existing_entry": existing,
+                    })
+            elif existing_status == "executed":
+                conflicts.append({
+                    "type": "already_executed",
+                    "code": code,
+                    "description": f"{code} 已有 executed entry，可能已持仓",
+                    "suggestion": "检查 positions.yaml，如需加仓应更新 add_zone 而非 entry_points",
+                    "existing_entry": existing,
+                })
+
+    return conflicts
+
+
+def generate_preview_result(
+    neo4j_client: Any,
+    days_back: int = 7,
+) -> dict[str, Any]:
+    """生成结构化的预览结果（用于人工审核）。
+
+    Returns:
+        JSON 格式的建议摘要，含冲突检测
+    """
+    from qing_investment.agent.tools.hot_score import load_watchlist
+
+    logger.info("Generating preview (days_back=%d)...", days_back)
+
+    # 1. 扫描 claims
+    entries = scan_claims_for_entries(neo4j_client, days_back)
+    if not entries:
+        return {
+            "batch_id": "",
+            "generated_at": datetime.now().isoformat(),
+            "new_claims_count": 0,
+            "watchlist_updates": [],
+            "entry_points_suggestions": [],
+            "conflicts": [],
+            "summary_for_wechat": "📋 未发现新的 entry point 建议",
+        }
+
+    # 2. 回填信息
+    suggestions = generate_entry_suggestions(entries)
+
+    # 3. 构建 watchlist 更新建议
+    watchlist_data = load_watchlist()
+    code_to_stock: dict[str, dict] = {}
+    for theme in watchlist_data.get("themes", []):
+        for stock in theme.get("stocks", []):
+            code = stock.get("code", "").replace(".SH", "").replace(".SZ", "")
+            code_to_stock[code] = stock
+
+    watchlist_updates = []
+    for i, sug in enumerate(suggestions, 1):
+        code = sug["code"]
+        stock = code_to_stock.get(code)
+        if stock:
+            current_links = stock.get("linked_claims", [])
+            current_ids = {lc.get("claim_id") for lc in current_links}
+            claim_id = sug.get("claim_id", "")
+
+            if claim_id and claim_id not in current_ids:
+                watchlist_updates.append({
+                    "index": i,
+                    "code": code,
+                    "name": sug.get("name", ""),
+                    "action": "add_linked_claim",
+                    "claim_id": claim_id,
+                    "current_linked_claims": len(current_links),
+                    "suggested_linked_claims": len(current_links) + 1,
+                    "rationale": f"新 claim {claim_id} 提及该标的",
+                })
+
+    # 4. 构建 entry_points 建议
+    strategy_pack = load_strategy_pack()
+    existing_entries = strategy_pack.get("entry_points", [])
+
+    entry_suggestions = []
+    for i, sug in enumerate(suggestions, 1):
+        code = sug["code"]
+        entry_suggestions.append({
+            "index": i,
+            "code": code,
+            "name": sug.get("name", ""),
+            "action": "create",
+            "entry_zone": sug.get("entry_zone", ""),
+            "position_ratio": sug.get("position_ratio", "未指定"),
+            "stop_loss": sug.get("stop_loss", "未指定"),
+            "odds_ratio": "3:1",  # 默认，实际应由 LLM 或用户填写
+            "claim_basis": f"{sug.get('claim_id', '')}: {sug.get('claim_statement', '')[:80]}",
+            "rationale": f"UP明确给出介入区间 {sug.get('entry_zone', '')}",
+            "conflict_check": None,
+        })
+
+    # 5. 冲突检测
+    conflicts = _check_entry_conflicts(suggestions, existing_entries)
+
+    # 将冲突信息附加到对应 suggestion
+    conflict_by_code = {c["code"]: c for c in conflicts}
+    for es in entry_suggestions:
+        if es["code"] in conflict_by_code:
+            es["action"] = "update"  # 建议更新而非新建
+            es["conflict_check"] = conflict_by_code[es["code"]]["suggestion"]
+
+    # 6. 生成微信摘要
+    total_watchlist = len(watchlist_updates)
+    total_entry = len(entry_suggestions)
+    conflict_count = len(conflicts)
+
+    if conflict_count > 0:
+        summary = f"📋 {len(entries)}条claims → {total_watchlist}只watchlist更新 + {total_entry}个entry建议（⚠️ {conflict_count}个冲突需处理）"
+    else:
+        summary = f"📋 {len(entries)}条claims → {total_watchlist}只watchlist更新 + {total_entry}个entry建议"
+
+    return {
+        "batch_id": "",
+        "generated_at": datetime.now().isoformat(),
+        "new_claims_count": len(entries),
+        "watchlist_updates": watchlist_updates,
+        "entry_points_suggestions": entry_suggestions,
+        "conflicts": conflicts,
+        "summary_for_wechat": summary,
+    }
+
+
 def run_claims_to_entry_bridge(
     neo4j_client: Any,
     days_back: int = 7,
     auto_merge: bool = False,
     update_watchlist: bool = True,  # 【新增】默认回写 linked_claims
-) -> Path | None:
+    preview_mode: bool = False,  # 【新增】预览模式
+) -> Path | dict | None:
     """运行 Claims → Entry 桥接流程。
 
     Args:
@@ -365,10 +527,16 @@ def run_claims_to_entry_bridge(
         days_back: 扫描最近 N 天的 claims
         auto_merge: 是否自动合并到 strategy_pack（默认 False，生成建议文件）
         update_watchlist: 是否回写 linked_claims 到 watchlist.yaml（默认 True）
+        preview_mode: 是否只生成预览 JSON 不写入文件（默认 False）
 
     Returns:
-        生成的建议文件路径
+        preview_mode=True: 返回 dict
+        否则: 返回生成的建议文件路径
     """
+    # 【新增】预览模式
+    if preview_mode:
+        return generate_preview_result(neo4j_client, days_back)
+
     logger.info("Running claims-to-entry bridge (days_back=%d)...", days_back)
 
     # 1. 扫描 claims

@@ -48,6 +48,10 @@ def main():
         "--auto-merge", action="store_true",
         help="自动合并到 strategy_pack（默认生成待确认文件）"
     )
+    parser.add_argument(
+        "--preview", action="store_true",
+        help="只生成预览 JSON，不写入文件（用于人工审核）"
+    )
     args = parser.parse_args()
 
     logger.info("初始化 Neo4j 连接...")
@@ -65,6 +69,7 @@ def main():
             days_back=args.days,
             auto_merge=args.auto_merge,
             update_watchlist=True,
+            preview_mode=args.preview,
         )
     except Exception as e:
         logger.error("桥接失败: %s", e)
@@ -72,6 +77,9 @@ def main():
 
     if result is None:
         logger.info("未发现新的介入建议。")
+    elif args.preview:
+        import json
+        print(json.dumps(result, ensure_ascii=False, indent=2))
     elif args.auto_merge:
         logger.info("✅ 已自动合并到 strategy_pack: %s", result)
     else:
