@@ -187,3 +187,28 @@ grep -n "def get_sector_themes" src/qing_investment/agent/tools/neo4j_client.py
 - 需要注入 persona、赔率框架、daily_state 输出格式等系统级指令时，**必须修改 qing-agent 的 prompt 文件**（如 `prompts/system/market_analyst.txt`），而非 cron prompt
 
 **反面案例（2026-06-09）**：Agent 在 9 个 cron prompt 中引用 cron_*.txt、在 cron_*.txt 中添加 daily_state 代码块要求，但这些改动对 LLM 路径完全无效——因为 qing-agent 不读 cron prompt。用户纠正："定时任务不应该直接调我们本地的 q-agent 吗？是直接调用大模型吗？那我们的设计不就全部没用了" → 修正：daily_state 指令移入 market_analyst.txt，cron prompt 恢复简洁 fallback 版本。
+
+### 陷阱5：bare `except: pass` 隐藏了完全失效的功能
+
+**反面案例（2026-06-10）**：`context_builder.py` 从第一天起 4 处 `max(dates)` / `datetime.strptime()` 因 Neo4j 返回 `neotime.Date` 对象统一抛 `TypeError`。但调用处都用裸 `except: pass` 捕获：
+
+```python
+try:
+    dt = datetime.strptime(source_date, "%Y-%m-%d")
+    ...
+except Exception:
+    pass  # ← 吞掉了 TypeErrors，context_builder 对 LLM 贡献为零
+```
+
+结果：429 行代码全部落地，**但没有一行真正工作**。文档标记 ✅"已实现"，但实际效果等于 ❌。
+
+**核查清单**（当看到 `except Exception: pass` 时必查）：
+1. 这个 `try` 块内的逻辑是否真的被完整执行过？
+2. 如果失败，fallback 是什么？是功能受限还是功能消失？
+3. 有没有办法给这个功能加一个单独的测试/验证路径？（如 `verify_context_builder()` 单节点测试）
+
+**正确做法**：
+- 宁可在临界点写多行类型处理，也不要裸 `except: pass`
+- `except` 必须标注具体异常类型（`TypeError`, `ValueError` 等），至少要 `except Exception as e: logger.warning(...)`
+- 对跨数据源（Neo4j vs Qdrant vs mem0）的字段，必须统一类型后再操作——不要假设返回值是某种类型
+- 新增功能必须做端到端验证（如 `build_market_context()` 传入真实持仓 + Neo4j 客户端测试输出），不能只测"import 不报错"
