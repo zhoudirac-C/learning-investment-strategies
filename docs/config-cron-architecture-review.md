@@ -644,30 +644,41 @@ portfolio_stats:
 | **定时驱动：每日收盘复盘** | daily_state 更新 + strategy_pack entry_points 状态刷新 + positions portfolio_stats | 全自动（15:20 cron 执行） |
 | **条件驱动：价格接近介入区** | 对应 entry_point 的 status 从 active → triggered，推送提醒 | 全自动（stock_monitor 轮询检测） |
 
-#### 4.6.2 事件驱动管线（UP新内容→策略更新）
+#### 4.6.2 事件驱动管线（UP新内容→策略更新建议→人工审核）
 
 ```
 B站监控检测到新内容（已有 cron）
          │
          ▼
-  人工/Agent 提取 claims（现有流程 ✅）
+  人工/Agent 提取 claims（现有流程 ✅，需人工审核观点准确性）
          │
          ▼
   discover → Neo4j → Qdrant（现有流程 ✅）
          │
          ▼
-  【新增】scripts/sync_claims_to_config.py  ←── 这个脚本是新增的
+  【新增】scripts/sync_claims_to_config.py  ←── 只生成建议，不自动执行
     1. 读取新 claims，提取 related_stocks 和方向判断
     2. 匹配 watchlist 中的标的
-    3. 自动更新 watchlist：
+    3. 生成 watchlist 更新建议：
        - linked_claims 追加新 claim
        - lifecycle.last_activity 刷新
        - hot_score 重新计算
     4. 对匹配的标的，生成 entry_points 更新建议：
-       - 若 claim 中有介入建议 → 更新 entry_zone + odds_analysis
-       - 若 claim 中明确"不介入" → status = expired
-    5. 对 positions 中已有持仓，更新 claim_basis
+       - 若 claim 中有介入建议 → 建议更新 entry_zone + odds_analysis
+       - 若 claim 中明确"不介入" → 建议 status = expired
+    5. 对 positions 中已有持仓，建议更新 claim_basis
          │
+         ▼
+  ┌──────────────────────────────────────┐
+  │  【人工审核门禁】                      │
+  │  ⚠️ claim 提取后的所有 config 改动     │
+  │     必须经用户确认后才能执行             │
+  │  ⚠️ 重点审核：观点时效性、方向判断是否   │
+  │     与当前市场阶段一致、介入区间合理性    │
+  │  ⚠️ sync_claims_to_config.py --auto-merge│
+  │     仅供测试，不应在生产管线中使用        │
+  └──────────────────────────────────────┘
+         │ 用户确认后
          ▼
   Agent 重启（自动完成）
          │
@@ -729,14 +740,20 @@ stock_monitor.py 轮询（2分钟间隔）
 #### 4.6.5 策略文档的全链路自动化总结
 
 ```
+**关键设计原则**：claim 提取后的所有 config 修改必须经过人工审核。脚本只生成「建议」，不自动执行。`sync_claims_to_config.py --auto-merge` 仅供测试。
+
 当前流程（6-7步手动）：
+```
   UP新内容 → 手工提取claims → 手工更新watchlist →
   手工更新entry_points → 手工跑discover → Neo4j → Qdrant → 重启Agent
+```
 
-改造后流程（1-2步确认）：
-  UP新内容 → Agent提取claims → [自动]discover/Neo4j/Qdrant →
-  [自动]sync_claims_to_config.py 生成更新建议 →
-  人工确认(1-click) → [自动]写入config + 提交推送 + 重启Agent
+改造后流程（2步：Agent生成建议 → 人工确认）：
+```
+  UP新内容 → Agent提取claims → discover/Neo4j/Qdrant →
+  sync_claims_to_config.py 生成更新建议 →
+  【人工审核门禁】→ 确认后 Agent 重启 + Git 提交
+```
   
   每日15:20 → [自动]收盘复盘更新 daily_state + strategy_pack + positions
   盘中轮询 → [自动]价格触发推送提醒
@@ -810,7 +827,7 @@ stock_monitor.py 轮询（2分钟间隔）
 |------|------|
 | 4.1 | 热度分计算脚本 + 每日开盘前自动运行 |
 | 4.2 | Claims → Entry 半自动桥接脚本 |
-| 4.3 | 全链路自动化：claims → watchlist → discover → Neo4j → Qdrant → Agent |
+| 4.3 | Claims → Config：sync_claims_to_config 生成建议 → 人工审核 → 执行（不含 Agent 重启等全自动步骤）|
 
 ---
 
@@ -902,7 +919,7 @@ stock_monitor.py 轮询（2分钟间隔）
 1. **linked_claims 覆盖率低**（23/180，13%）：607 条 claims 中仅 31 条有 `related_stocks` 字段。后续新 claims 继续回填，老 claims 无法批量补充（需逐条手动标注）。Context Builder 依赖 linked_claims 实现精确的 Stock→Claim 图遍历，覆盖率低意味着大部分标的的 claims 检索依赖 Qdrant 语义模糊匹配，精度打折扣。
 2. **daily_state 写回依赖 LLM 输出格式**：`market_analyst` 节点已增加 `_persist_daily_state_from_market_context()` fallback（从 JSON 字段推导），但仍然不是 100% 可靠。若 LLM 既未输出 `daily_state` 代码块又未输出结构化 JSON 字段，则 daily_state 无法更新。**当前状态：从「无 fallback」改进为「有 fallback 但有剩余风险」。**
 3. **sync_claims_to_config.py 首次运行返回 0**：因 claims 中缺少可量化的介入区间（operation claims 多为策略级而非标的具体价位），桥接目前只生成 linked_claims 回填。entry_points 中仅 3/12 有 status/odds_analysis/claim_basis 等增强字段。
-4. **全链路自动化管线未完成**：从「新 claims → 自动 discover → Neo4j → Qdrant → Agent 重启」的端到端自动化管线未实现。每次 UP 新观点仍需手动 6-7 步。
+4. **事件驱动管线（claims→建议→人工审核）未投入生产**：`sync_claims_to_config.py` 存在且可生成建议，但缺少从「新 claims → 跑脚本 → 人工审核 → 确认执行」的 SOP 流程。当前每次 UP 新观点仍需手动 6-7 步。注意：这不是「技术上缺失全自动管线」的问题，而是设计上有意保留人工审核门禁，实际缺的是 SOP 和 skill 集成。
 5. **positions.yaml 空仓**：当前 `positions.yaml` 无任何持仓（`entry_decision/add_zone/trade_log` 字段未验证，`portfolio_stats` 已存在但为空）。
 
 ### 7.4 全量差距报告（2026-06-10 审计）
@@ -1030,7 +1047,7 @@ for field in ['status','opportunity_pattern','odds_analysis','claim_basis']:
 | 优先级 | 任务 | 原因 |
 |--------|------|------|
 | 🔴 P0 | 补满 entry_points 9/12 的增强字段（status/odds_analysis/claim_basis） | Context Builder 检索了但 LLM 看不到量化操作依据 |
-| 🔴 P0 | 实现 sync_claims_to_config + discover/Neo4j/Qdrant/Agent 重启管线 | 每次 UP 新观点仍需 6-7 步手动 |
+| 🔴 P0 | sync_claims_to_config + 人工审核门禁未部署 | sync_claims_to_config.py 虽存在，但事件驱动管线（claims→建议→人工审核→执行）未投入生产使用。当前每次 UP 新观点仍需手动 6-7 步，脚本的 bridge 路径未被纳入工作流。|
 | 🟡 P1 | 持续回填 linked_claims（目标 50%+） | Context Builder 精度提升关键 |
 | 🟡 P1 | 条件驱动轮询触发消息按文档示例格式化 | 提升提醒可读性 |
 | 🟢 P2 | 同步文档过期项 | 防止后续维护者被误导 |
