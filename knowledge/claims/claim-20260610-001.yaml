@@ -1,0 +1,321 @@
+claims:
+- id: claim-20260610-006-a
+  source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
+  source_date: '2026-06-10'
+  source_type: 早盘
+  extracted_at: '2026-06-10T09:20:00+08:00'
+  claim_type: market-cycle
+  subject: 隔夜外盘——美股深度回调，加息担忧升温
+  timeframe: short-term
+  statement: 隔夜美股开盘上涨后转跌，标普500盘中跌逾2%，纳斯达克100一度跌逾4%，收盘有所收窄。金价跌破4300美元，比特币下探6万美元，美元指数超跌反弹接近100关口。震荡加剧的触发点是北京时间22:00美国5月成屋销售数据（年化417万套，创5个月新高），市场将其解读为加息担忧的催化剂。CME
+    FedWatch显示12月加息概率约68%。做市商大幅撤走买盘导致流动性极度匮乏，是盘中2-4%夸张振幅的合理解释。科技股遭集中抛售，但消费股上涨、小盘股一度翻红、防御板块相对抗跌——资金从偏贵板块向相对便宜方向切换。本轮高位洗牌是否完全结束较难判断，韩国股市周一跌停熔断、周二涨停熔断说明市场极度敏感。
+  evidence_quote: 美股开盘上涨后转跌、跌幅扩大，标普500盘中一度跌逾2%，纳斯达克100一度跌逾4%，但收盘均有所收窄。与此同时，金价跌破4300美元，比特币向下测试6万美元，油价跌破90美元，美元指数超跌反弹、再度接近100关口。
+  interpretation: UP 对隔夜外盘的解读框架：①核心触发是成屋销售数据好于预期→加息担忧重燃→科技被杀估值；②盘中剧烈震荡的性质是流动性崩塌（做市商撤单）而非基本面突变；③科技被抛但消费/小盘/防御上涨，说明是轮动而非全面崩盘；④韩国股市熔断式波动说明全球市场处于极端情绪化状态。三个观察企稳的信号：美股科技巨头波动率收窄、汇率稳定、油价进一步回落。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 隔夜外盘——美股深度回调，加息担忧驱动科技抛售
+  related_stocks: []
+  tags:
+  - 隔夜外盘
+  - 美股
+  - 加息
+  - 流动性风险
+  - 轮动
+- id: claim-20260610-006-b
+  source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
+  source_date: '2026-06-10'
+  source_type: 早盘
+  extracted_at: '2026-06-10T09:20:00+08:00'
+  claim_type: market-cycle
+  subject: 周二A股修复质量——缩量反弹，结构似曾相识
+  timeframe: short-term
+  statement: 周二A股震荡反弹，沪指重回4000点上方，创业板指涨近4%。PCB上游电子树脂开盘冲高，半导体产业链集体走强，模拟芯片/硅片领涨，光纤午后爆发。两市成交2.6万亿（缩量1524亿），缩量使反弹可攻可守。但最近三个交易日几乎在复制上周0529-0602走势——当时判断是技术性反弹而非趋势反转。目前创业板指面临510/20日均线压制，沪指尚未补掉跳空缺口，条件比上周同期更严峻。唯一的好消息是量能更小、跌停家数更少。
+  evidence_quote: 周二市场震荡反弹，沪指重回4000点上方，创业板指涨近4%。盘面上，PCB上游电子树脂方向开盘冲高，随后半导体产业链集体走强，模拟芯片、硅片方向领涨，光纤概念午后爆发。
+  interpretation: UP 对昨日修复的定性：技术性反弹而非反转。核心论据：①走势几乎复制0529-0602的剧本，那次最终证明只是技术性反弹；②创业板指面临均线压制，沪指连缺口都没补完——条件比上周更差；③唯一积极信号是缩量使得反弹结构更稳、跌停更少。整体评价是「质量较好的修复」但不足以确认反转。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts:
+  - claim-20260610-006-c
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 周二A股修复——缩量反弹但条件比上周更严峻
+  related_stocks: []
+  tags:
+  - A股修复
+  - 缩量反弹
+  - 结构性反弹
+  - 均线压制
+  - 技术性反弹
+- id: claim-20260610-006-c
+  source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
+  source_date: '2026-06-10'
+  source_type: 早盘
+  extracted_at: '2026-06-10T09:20:00+08:00'
+  claim_type: market-cycle
+  subject: 涨停数据——127家涨停半年新高，持续性需验证
+  timeframe: short-term
+  statement: 昨日127家涨停为1月12日以来新高。但涨停可以减少，至少不应腰斩；按15%一进二晋级率衡量，最好能有17家以上二连板才能匹配昨日强度。此外，前期超跌品种若能止跌也是积极信号。微盘股基本仍在底部——前几次正是全A与微盘股后持续破位使行情难以展开。
+  evidence_quote: 昨日127家涨停为1月12日以来新高，但持续性同样重要。涨停数量可以减少，但至少不应'腰斩'；同时若按15%的一进二晋级率衡量，最好能有17家以上二连板，才能匹配昨日的强度。
+  interpretation: 涨停数量创半年新高是积极信号，但持续性才是关键。UP 给出了两个量化观察指标：①涨停数量不能腰斩（今日至少64家以上）；②二连板数量≥17家（15%晋级率）。结合微盘股仍在底部的事实，这轮修复能否持续完全取决于全A指数能否跟随上涨、脱离破位区。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 涨停127家创半年新高，持续性待验证
+  related_stocks: []
+  tags:
+  - 涨停数据
+  - 连板晋级率
+  - 情绪观察
+  - 微盘股
+  - 全A指数
+- id: claim-20260610-006-d
+  source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
+  source_date: '2026-06-10'
+  source_type: 早盘
+  extracted_at: '2026-06-10T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: 主线一——上游材料（辅材）方向
+  timeframe: short-term
+  statement: 昨日竞价两个一字板直接反映资金方向选择。第一条主线是上游材料（辅材）方向：上午从缺货的电子树脂向硅微粉、铜粉、电镀药水发散；下午光纤走强后，又向上游的对位芳纶、石英等方向挖掘。AI硬科技中板块阵型更好的分别是PCB上游的CCL与树脂、以及光纤。这一组合与5月22日、6月2日共振齐飞较为类似。
+  evidence_quote: 第一条主线是上游材料（辅材）方向，反弹预期与具体方向同时被点名。上午资金从缺货的电子树脂逐渐向硅微粉、铜粉、电镀药水发散，下午光纤走强后，又向上游的对位芳纶、石英等方向挖掘。
+  interpretation: 上游材料方向继续被 UP 确认为修复最强主线。特征：①竞价一字板确认资金态度；②日内扩散路径清晰（树脂→硅微粉→铜粉→药水→光纤→芳纶/石英），说明资金有深度挖掘意愿；③与5月22日和6月2日的共振类似，这两个时间点是此前两轮最强修复阶段。注意：虽然结构类似，但全A条件和微盘股位置比那两次更差。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 主线一——上游材料（辅材）方向涨幅最好，树脂→硅微粉→光纤扩散
+  related_stocks: []
+  tags:
+  - 上游材料
+  - 辅材
+  - 电子树脂
+  - 光纤
+  - 扩散路径
+- id: claim-20260610-006-e
+  source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
+  source_date: '2026-06-10'
+  source_type: 早盘
+  extracted_at: '2026-06-10T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: 主线二——半导体（模拟芯片领涨）
+  timeframe: short-term
+  statement: 第二条主线是半导体，大方向跟随费城半导体指数反弹，但领涨个股以模拟芯片为主。此前意法半导体因AI需求激增而上调数据中心收入目标，资金围绕「最新」与「最缺」两条路径炒作。
+  evidence_quote: 第二条主线是半导体，大方向跟随费城半导体指数反弹，但领涨个股以模拟芯片为主。结合此前意法半导体因AI需求激增而上调数据中心收入目标的消息，资金本质上仍围绕「最新」与「最缺」两条路径炒作。
+  interpretation: UP 定性的「最新」与「最缺」两条发散逻辑仍在延续。模拟芯片属于此前涨幅相对较小、最近因海外消息催化（意法半导体上调目标）的细分方向，符合「最新」逻辑。硅片方向（上游材料）继续受益「最缺」逻辑。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 主线二——半导体跟随费半反弹，模拟芯片领涨
+  related_stocks: []
+  tags:
+  - 半导体
+  - 模拟芯片
+  - 费城半导体
+  - 最新最缺
+  - 硅片
+- id: claim-20260610-006-f
+  source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
+  source_date: '2026-06-10'
+  source_type: 早盘
+  extracted_at: '2026-06-10T09:20:00+08:00'
+  claim_type: methodology
+  subject: 修复质量的两种情形推演——强修复 vs 弱修复
+  timeframe: short-term
+  statement: 对于明后两天，两种情形推演：①强修复——今日科技明显修复，明日弱分歧，全A指数补涨，同向修复使全A短期脱离破位风险区。到时AI科技分歧回落时可考虑低吸，新的情绪载体核心可能出自PCB上游CCL与树脂、或光纤龙头。②弱修复——科技独立修复，微盘股与全A继续破位，类似5月22日、6月2日全A后续创新低的走法。因本次硬科技聚焦程度不及那两次，市场预期应相应降低。时间维度经验：5月22日和6月2日即便后续全A破位也用了两日半，尾盘低吸埋伏有三两日空间。但本次全A距破位更近（尤其微盘股），需更谨慎。
+  evidence_quote: 第一种情况：今日科技为明显修复，明日弱分歧，全A指数补涨，从而形成同向修复，全A短期脱离破位风险区。第二种情况：科技独立修复，而微盘股与全A继续破位，类似5月22日、6月2日全A后续继续创新低的走法。
+  interpretation: 这是 UP 的核心推演框架——用两种情形（强/弱）框定明后两天的观察重点。关键变量是「全A指数能否跟随补涨」。这与6/4提出的「大小盘同步决定主升质量」方法论一脉相承——即使科技修复质量再好，全A不跟就只是局部反弹而非趋势反转。操作含义：强修复→分歧低吸科技核心；弱修复→更谨慎。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 方法论——强修复vs弱修复两种情形推演
+  related_stocks: []
+  tags:
+  - 方法论
+  - 修复质量
+  - 全A指数
+  - 大小盘同步
+  - 分歧低吸
+- id: claim-20260610-006-g
+  source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
+  source_date: '2026-06-10'
+  source_type: 早盘
+  extracted_at: '2026-06-10T09:20:00+08:00'
+  claim_type: operation
+  subject: 操作策略——做T为主，等信号确认
+  timeframe: short-term
+  statement: 今日操作策略：已关注方向仍可考虑做T，主动性不强的可保留先手仓位。若今日整体表现超预期，领涨方向可相应增加关注，具体等开盘再看。核心仍是继续验证昨日修复质量——能否把全A指数从持续下跌中牵引出来，形成一轮有质量的上涨。接下来一周主要任务是观察反弹的持续性与力度，判断是下跌中继还是反转。
+  evidence_quote: 具体应对上，已关注方向今日仍可考虑做T，主动性不强的可保留先手仓位。若今日整体表现超预期，领涨方向可相应增加关注，具体等开盘再看。
+  interpretation: UP 延续保守偏中性的操作基调：①做T为主、不开新仓；②保留先手仓位但不加仓；③超预期时再考虑增加关注——仍是条件驱动的思路（右侧确认而非左侧预判）。一周的时间窗口判断也符合此前多次提到的「等结构理顺」框架。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 操作策略——做T为主，等一周验证反弹质量
+  related_stocks: []
+  tags:
+  - 操作策略
+  - 做T
+  - 先手仓位
+  - 右侧确认
+  - 等待观察
+- id: claim-20260610-006-h
+  source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
+  source_date: '2026-06-10'
+  source_type: 早盘
+  extracted_at: '2026-06-10T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: 电子树脂——沙特地缘供应链危机，PCB半导体化双催化
+  timeframe: trend
+  statement: 沙特朱拜勒工业区此前供应全球约70%的PPE树脂，地缘冲突正从能源市场向电子产品供应链蔓延。树脂是制造印刷电路板的重要材料，PPE树脂主要用于高端产品。卖方观点认为，随着「PCB半导体化」，大量铜缆/连接器价值向PCB转移，带动覆铜板从M8/M9向M10体系升级，细分原料端有望迎来量价共振。
+  evidence_quote: 电子树脂：地缘冲突的影响正从能源市场向电子产品供应链蔓延。据了解，沙特朱拜勒工业区此前供应了全球约70%的PPE树脂，而树脂是制造印刷电路板的重要材料。卖方观点认为，随着行业开启'PCB半导体化'，大量铜缆、连接器价值向PCB转移，直接带动覆铜板由M8/M9材料体系向更高端的M10体系升级，细分原料端有望迎来量价共振。
+  interpretation: 这是一个双催化逻辑：①沙特供应链中断（70%全球份额被地缘冲突威胁）→供给收缩；②PCB半导体化（铜缆/连接器价值向PCB转移）→需求升级（M10体系）。两个催化叠加构成量价齐升预期。需注意这是卖方观点，兑现节奏需以企业数据验证。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 电子树脂——沙特地缘断供+PCB半导体化双催化
+  related_stocks: []
+  tags:
+  - 电子树脂
+  - PPE树脂
+  - 地缘冲突
+  - PCB半导体化
+  - M10
+- id: claim-20260610-006-i
+  source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
+  source_date: '2026-06-10'
+  source_type: 早盘
+  extracted_at: '2026-06-10T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: 存储——18.61亿美元采购合同，机构预计紧缺延续至2027年
+  timeframe: trend
+  statement: 相关公司公告称与某存储原厂签订18.61亿美元日常经营性采购合同，锁量锁价，承诺采购期24个月。卖方观点：2026Q1以来各类存储产品价格环比急剧上涨，全年价格持续上涨可期；2026年全球新增供给有限，机构预计存储紧缺趋势或延续至2027年。
+  evidence_quote: 相关公司公告称，与某存储原厂签订日常经营性采购合同，合同总承诺采购金额为18.61亿美元，锁量锁价。卖方观点：2026年一季度以来各类存储产品价格环比急剧上涨，在能见度范围内今年价格持续上涨可期，同时2026年全球新增供给有限，有机构预计存储紧缺趋势或延续至2027年。
+  interpretation: 存储方向出现明确的产业信号：①18.61亿美元锁量锁价合同说明产业链对缺货有共识（否则不会提前锁定24个月）；②Q1价格暴涨+新增供给有限→全年涨价预期强烈；③机构预期紧缺延续至2027年。这是继5/23
+    Rubin BOM拆解后存储逻辑的进一步确认。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储——18.61亿美元锁价采购合同确认产业紧缺
+  related_stocks: []
+  tags:
+  - 存储
+  - 锁价合同
+  - 存储紧缺
+  - 涨价
+  - 增量供给有限
+- id: claim-20260610-006-j
+  source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
+  source_date: '2026-06-10'
+  source_type: 早盘
+  extracted_at: '2026-06-10T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: 人形机器人——消费级预售3000台，产品矩阵扩容
+  timeframe: trend
+  statement: 相关公司旗下消费级人形机器人全尺寸超仿生机器人在电商平台预售8天，小订数量累计突破3000台。此前4月还推出过适用于导览/接待/资讯场景的产品，产品矩阵持续扩容。卖方观点认为国内外在人形机器人上基本处于同一起跑线，本土企业积极推进海内外商业化落地。小订数量与最终交付存在差异，不宜直接等同于业绩。
+  evidence_quote: 相关公司宣布，旗下消费级人形机器人品牌的全尺寸超仿生人形机器人在电商平台预售开启仅8天，小订数量累计突破3000台。
+  interpretation: UP 引用但态度保守——明确标注「小订≠业绩」。3000台预售8天消息本身意味着消费级人形机器人已进入可量化跟踪阶段，但UP 强调这是预售意向，需等交付数据验证。结合6/9复盘「机器人方向底部缓慢抬升」的判断，人形机器人处于早期趋势观察阶段。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 人形机器人——消费级预售3000台，小订≠业绩
+  related_stocks: []
+  tags:
+  - 人形机器人
+  - 消费级
+  - 预售
+  - 趋势观察
+  - 小订与交付差异
+- id: claim-20260610-006-k
+  source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
+  source_date: '2026-06-10'
+  source_type: 早盘
+  extracted_at: '2026-06-10T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: 算力互联——连接器龙头逆势大涨，NPO与400V直流受益
+  timeframe: trend
+  statement: 海外某连接器龙头隔夜上涨7.29%，有第三方研究报告认为NPO与400V直流解决方案将立即成为最大受益者，传统配套厂商承接算力互联增量，2026-2027年业绩兑现确定性相对更高。涉及A股标的：鼎通科技(688668)、奕东电子(301123)、意华股份(002897)。
+  evidence_quote: 海外某连接器龙头隔夜上涨7.29%，有第三方研究报告认为NPO与400V直流解决方案将立即成为最大受益者，传统配套厂商承接算力互联增量，2026-2027年业绩兑现的确定性相对更高。
+  interpretation: 算力互联方向的海外映射信号——连接器龙头在大盘下跌7.29%逆势上涨，说明资金对算力互联逻辑有独立认可。A股映射方向：鼎通科技（北美链光模块/液冷连接器）、奕东电子、意华股份（昇腾链）。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 算力互联——连接器龙头逆势大涨，NPO与400V直流受益
+  related_stocks:
+  - code: '688668'
+    name: 鼎通科技
+    role: 北美链光模块/液冷连接器-科创板不可交易
+  - code: '301123'
+    name: 奕东电子
+    role: 跟随标的-创业板不可交易
+  - code: 002897
+    name: 意华股份
+    role: 昇腾链光模块/液冷连接器-主板可交易
+  tags:
+  - 算力互联
+  - 连接器
+  - NPO
+  - 400V直流
+  - 海外映射

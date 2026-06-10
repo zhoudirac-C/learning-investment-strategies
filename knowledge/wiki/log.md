@@ -1,6 +1,12 @@
      1|# 操作日志
      2|
-     3|## 2026-06-07 | qing-learning ingest | 6-07周复盘视频：博通引发全球科技调整，A股方向切换机器人与商业航天
+     3|## 2026-06-10 | qing-learning ingest | 6/10早盘：冷眼旁观，等结构慢慢理顺
+
+- 处理 raw：`sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md`（B站专栏）
+- 新增 claims：`claim-20260610-001.yaml`（11 条：market-cycle×3, sector-theme×5, methodology×1, operation×1）
+- 更新门禁：`gate_validate_claims.py` NON_COMPANY 集扩展，减少假阳性
+
+## 2026-06-07 | qing-learning ingest | 6-07周复盘视频：博通引发全球科技调整，A股方向切换机器人与商业航天
      4|
      5|- 处理 raw：`sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md`（语音转录+人工纠错）
      6|- 新增 claims：`claim-20260607-003.yaml`（12 条：market-cycle×2, operation×1, sector-theme×2, macro×4, stock-view×2, methodology×1）
