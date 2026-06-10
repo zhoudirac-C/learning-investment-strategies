@@ -562,22 +562,29 @@ print('✓ 去重验证通过')
 | `Persisted daily_state from market_analyst:None` 执行成功 | ✅ `daily_state.json` 正常创建 | 已确认 |
 | 完整链路 ~66s（parse_query 2.4s → retrieve_knowledge 6.0s → market_analyst 36.8s → synthesize 0.0s → style_writer 12.4s → reviewer 14.3s） | ✅ 性能在预期范围内 | 已确认 |
 | `review_passed=False`（测试 query 无持仓/板块数据） | ✅ 期望行为，reviewer 未通过走 fallback | 已确认 |
-| `Context Builder failed: '>' not supported between instances of 'Date' and 'str'` | ⚠️ retrieve_knowledge 中日期比较失败，影响 claim 时效性过滤 | **未修复，需跟进** |
+| `Context Builder failed: '>' not supported between instances of 'Date' and 'str'` | ⚠️ retrieve_knowledge 中日期比较失败，影响 claim 时效性过滤 | ✅ **2026-06-10 已修复** |
 
-**⚠️ 跟进项：Context Builder 日期比较 Bug**（在 retrieve_knowledge 节点测试中发现）：
+**⚠️ 跟进项：Context Builder 日期比较 Bug（已在 2026-06-10 修复）**：
 
 ```
 Context Builder failed: '>' not supported between instances of 'Date' and 'str'
 ```
 
-**根因推测**：`context_builder.py` 将 claim 的 `source_date` 作为 `datetime.date` 处理，但某些 claims 的 `source_date` 仍为字符串格式。不同源（Neo4j vs Qdrant）返回类型不一致。
+**根因**：`context_builder.py` 中 `source_date` 来自 Neo4j 时为 `neotime.Date` 对象，但代码用 `datetime.strptime(str_val, "%Y-%m-%d")` 或裸 `max(dates)` 比较时，Date 对象 vs str 不兼容 → `TypeError`。
 
-**排查方向**：
-1. 检查 `context_builder.py` 中所有 `source_date` 比较操作（`>`, `<`, `>=`, `<=`）
-2. 确认 Neo4j vs Qdrant 返回的 `source_date` 类型是否一致
-3. 比较前统一转换为 `datetime.date` 或字符串
+涉及 4 处：
+1. `_summarize_claim()` — `datetime.strptime(source_date, ...)` 传入 Date 对象
+2. `_score_claim_relevance()` — 同上
+3. `build_stock_context()` — `max(dates)` 列表中混入 Date 对象
+4. `build_market_context()` — `max(claims, key=lambda c: c.get("source_date"))` key 返回 Date 对象
 
-**临时缓解**：被 `try/except` 捕获，Context Builder 跳过该 claim 继续执行，不崩溃。但时效性标注缺失，降低排序质量。
+**已实施修复（2026-06-10）**：
+1. 新增 `_to_date_str()` 工具函数：Date 对象 → `"%Y-%m-%d"` 字符串
+2. 新增 `_parse_date()` 工具函数：统一先转字符串再 `strptime`，支持 `neotime.Date` / `datetime.date` / str
+3. 4 处调用点全部改用上述工具函数
+4. `_summarize_claim()` 返回 `source_date` 已归一化为字符串
+
+**验证**：3 只标的（北方华创、杰瑞股份、科力尔）全部成功检索到 claims，时效标签正确。无异常。
 
 **Qing-Agent 完整链路耗时基准（2026-06-10 实测）**：
 

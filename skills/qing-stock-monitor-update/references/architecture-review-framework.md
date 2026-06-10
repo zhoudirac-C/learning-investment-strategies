@@ -113,6 +113,37 @@
 - `stock_monitor.py::format_agent_analysis_context()` 是否注入 daily_state 摘要？
 - 9 个 cron job 的差异化 prompt 文件（`cron_*.txt`）是否存在且被加载？
 
+### §4.3 Context Builder 核查（2026-06-10 发现）
+
+**背景**：`docs/config-cron-architecture-review.md` §4.3 仍标 ❌"未实现"，但代码实际已全部落地。
+
+**核查方法**（当看到 ❌ 时，先查代码再下结论）：
+
+```bash
+# 1. 检查 context_builder.py 是否存在
+ls src/qing_investment/agent/tools/context_builder.py
+
+# 2. 检查 retrieve_knowledge 是否调用了它
+grep -n "context_builder" src/qing_investment/agent/graph/nodes.py
+
+# 3. 检查 Neo4j 调用的方法是否存在
+grep -n "def get_claims_about_stock" src/qing_investment/agent/tools/neo4j_client.py
+grep -n "def get_sector_themes" src/qing_investment/agent/tools/neo4j_client.py
+```
+
+**实际实现状态**：
+
+| 功能 | 位置 | 状态 |
+|------|------|------|
+| Neo4j 图遍历（Stock→ABOUT→Claim） | `context_builder.py::build_stock_context()` → `neo4j_client.get_claims_about_stock()` | ✅ 已实现 |
+| Qdrant 语义召回（动态 query 生成） | `context_builder.py::build_market_context()` 第 347-396 行 | ✅ 已实现 |
+| 浓度控制（最多 3 条，每条约 50 字） | `build_stock_context(max_claims=3)` + `_summarize_claim(max_len=50)` | ✅ 已实现 |
+| 集成到 retrieve_knowledge | `nodes.py` 第 1014-1096 行 | ✅ 已实现 |
+| Reasoning pattern 排序 | `_score_claim_relevance(active_patterns=...)` 第 158-168 行 | ✅ 已实现 |
+| 方向信号汇总 | `build_market_context()` 第 411-423 行 → `direction_signals` | ✅ 已实现 |
+
+**更新设计文档**：确认代码已实现后，必须同步更新 `docs/config-cron-architecture-review.md` 的状态标记。
+
 ### 常见失效模式
 
 | 失效模式 | 现象 | 排查命令 |

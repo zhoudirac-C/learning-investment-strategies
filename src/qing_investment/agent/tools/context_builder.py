@@ -17,6 +17,33 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
+
+def _to_date_str(val: Any) -> str:
+    """Normalize source_date to string format 'YYYY-MM-DD'.
+    
+    Neo4j returns Date objects; Qdrant returns strings. This handles both.
+    """
+    if isinstance(val, str):
+        return val
+    if hasattr(val, "strftime"):
+        return val.strftime("%Y-%m-%d")
+    return str(val)
+
+
+def _parse_date(val: Any) -> datetime | None:
+    """Parse a Date object or string into datetime for age calculation.
+    
+    Neo4j may return neotime.Date; Qdrant returns strings. Both are
+    normalized to string first, then parsed.
+    """
+    date_str = _to_date_str(val)
+    if not date_str:
+        return None
+    try:
+        return datetime.strptime(date_str, "%Y-%m-%d")
+    except (ValueError, TypeError):
+        return None
+
 # ── 语言强度映射 ──
 _INTENSITY_MAP = {
     "high": "🔥🔥🔥",
@@ -73,15 +100,14 @@ def _summarize_claim(claim: dict, max_len: int = 50) -> dict:
     # 计算时效性标签
     freshness = "历史"
     if source_date:
-        try:
-            dt = datetime.strptime(source_date, "%Y-%m-%d")
+        dt = _parse_date(source_date)
+        if dt:
             days_ago = (datetime.now() - dt).days
             if days_ago <= 7:
                 freshness = "最新"
             elif days_ago <= 30:
                 freshness = "近期"
-        except Exception:
-            pass
+        # 非 str 则不做 `strftime`，因为后面还要用 source_date
 
     # 提取关键信号
     entry_signal = _extract_entry_signal(stmt)
@@ -97,7 +123,7 @@ def _summarize_claim(claim: dict, max_len: int = 50) -> dict:
         "freshness": freshness,
         "entry_signal": entry_signal,
         "role_definition": role_def,
-        "source_date": source_date,
+        "source_date": _to_date_str(source_date),  # 统一为字符串
     }
 
 
@@ -143,8 +169,8 @@ def _score_claim_relevance(
 
     source_date = claim.get("source_date", "")
     if source_date:
-        try:
-            dt = datetime.strptime(source_date, "%Y-%m-%d")
+        dt = _parse_date(source_date)
+        if dt:
             days_ago = (datetime.now() - dt).days
             if days_ago <= 3:
                 score += 3.0
@@ -152,8 +178,6 @@ def _score_claim_relevance(
                 score += 2.0
             elif days_ago <= 14:
                 score += 1.0
-        except Exception:
-            pass
 
     # Phase 6: reasoning pattern 匹配加分
     if active_patterns:
@@ -242,7 +266,7 @@ def build_stock_context(
         overall = "UP近期未明确表态，以实时数据为准"
 
     # 最新提及日期
-    dates = [c.get("source_date", "") for c in all_claims if c.get("source_date")]
+    dates = [_to_date_str(c.get("source_date", "")) for c in all_claims if c.get("source_date")]
     latest_date = max(dates) if dates else ""
 
     return {
@@ -414,7 +438,7 @@ def build_market_context(
         if not claims:
             continue
         # 找最新且强度最高的
-        latest = max(claims, key=lambda c: c.get("source_date", ""))
+        latest = max(claims, key=lambda c: _to_date_str(c.get("source_date", "")))
         intensity = latest.get("intensity", "medium")
         direction_signals[direction] = {
             "intensity": _INTENSITY_MAP.get(intensity, "🔥🔥"),
