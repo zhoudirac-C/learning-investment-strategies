@@ -6,12 +6,12 @@
 ## 流水线总览
 
 ```
-discover_claim_relations.py    migrate_claims_to_neo4j.py    index_claims_to_qdrant.py    重启 Agent
-   (关系发现)          →         (Neo4j 同步)         →      (Qdrant 重建)         →    (uvicorn + MCP)
+discover_claim_relations.py    migrate_claims_to_neo4j.py    index_claims_to_qdrant.py    重启
+   (关系发现)          →         (Neo4j MERGE)        →      (Qdrant 独占重建)      →    (Agent+MCP)
 ```
 
 **每一步的输出是下一步的输入，不可跳过。**
-**⚠️ 必须先跑 discover，再跑 migrate！** 否则 YAML 中的空 `supersedes: []` / `contradicts: []` 会覆盖 Neo4j 中已有关系边。
+**⚠️ Qdrant 重建前必须停 Qing-Agent + MCP server**（两者共用 `.qdrant_data/.lock`）。Neo4j 迁移不需要停。
 
 ---
 
@@ -132,6 +132,7 @@ PYTHONPATH=src .venv/bin/python scripts/migrate_claims_to_neo4j.py
 
 - 仅迁移有变化的文件（按 mtime 判断）
 - 关系边使用 `MERGE` 避免重复创建
+- **不需要停 Qing-Agent**：Neo4j 使用 MVCC 并发控制，MERGE 是原子操作，Agent 的 MATCH 只读查询不受影响
 
 ---
 
@@ -154,10 +155,23 @@ PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recrea
 
 ### ⚠️ 关键坑
 
-1. **必须先停 Agent + MCP server**：脚本会自动检测并 kill Agent 进程（释放 Qdrant lock），但 **不会杀 Hermes 的 MCP 子进程**。MCP server 持有 Qdrant 文件锁会导致索引失败。
-   - 手动杀 MCP：`kill $(pgrep -f "mcp_qdrant_server") && kill $(pgrep -f "mcp_neo4j_server")`
-   - 同步完成后：`hermes restart`（MCP server 自动重新接入）
-2. **Qdrant lock 问题**：脚本有 30 秒等待 + 强制删除机制
+1. **必须先停 Qing-Agent + MCP server（2026-06-10 修正）**：
+   - Qdrant 本地模式通过 `.qdrant_data/.lock` 文件实现独占访问
+   - **两个进程同时持有该锁**：Qing-Agent（uvicorn）和 MCP Qdrant server（Hermes 子进程）
+   - `force_recreate` 调用 `delete_collection()` 需要独占写锁，任一进程持有锁都会导致失败
+   - 脚本内置 30 秒等待 + 强制删除兜底，但**强制删除活跃进程的锁可能损坏数据**
+   - **正确做法**：两个都要停
+     ```bash
+     kill $(pgrep -f "mcp_qdrant_server") 2>/dev/null
+     kill $(pgrep -f "mcp_neo4j_server") 2>/dev/null
+     kill $(pgrep -f "uvicorn.*qing_investment") 2>/dev/null
+     ```
+   - 同步完成后重启：
+     ```bash
+     PYTHONPATH=src .venv/bin/python -m uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
+     hermes restart   # MCP 自动接回
+     ```
+2. **Neo4j 迁移不需要停 Qing-Agent**：Neo4j 使用 `MERGE` 原子操作，原生支持 MVCC 并发读写。Qing-Agent 的 `MATCH` 只读查询不会与迁移写操作冲突。
 3. **完整性自检**：完成后自动抽检 10 条向量，确认维度 (512) 和内容非空
 
 ---
@@ -190,24 +204,28 @@ curl -s http://localhost:8000/health
 ```bash
 cd /home/ubuntu/learning-investment-strategies
 
-# 0. 停 MCP server（如果有）
+# 0. 停 MCP server + Qing-Agent（Qdrant .lock 需要释放）
 kill $(pgrep -f "mcp_qdrant_server") 2>/dev/null
 kill $(pgrep -f "mcp_neo4j_server") 2>/dev/null
+kill $(pgrep -f "uvicorn.*qing_investment") 2>/dev/null
 
 # 1. 关系发现（带进度）
 bash scripts/run_discover_with_progress.sh
 
-# 2. Neo4j 同步
+# 2. Neo4j 同步（MERGE 原子操作，可安全执行）
 PYTHONPATH=src .venv/bin/python scripts/migrate_claims_to_neo4j.py
 
-# 3. Qdrant 重建
+# 3. Qdrant 重建（需要独占锁，Step 0 已释放）
 PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate
 
-# 4. 重启 Agent
+# 4. 重启 Qing-Agent
 PYTHONPATH=src .venv/bin/python -m uvicorn qing_investment.agent.main:app \
-  --host 0.0.0.0 --port 8000 --log-level info &
+  --host 127.0.0.1 --port 8000 --log-level info &
 
-# 5. 重启 MCP server（Hermes 自动接回）
+# 5. 验证
+sleep 3 && curl -s http://localhost:8000/health
+
+# 6. 重启 MCP server（Hermes 自动接回）
 hermes restart
 ```
 
