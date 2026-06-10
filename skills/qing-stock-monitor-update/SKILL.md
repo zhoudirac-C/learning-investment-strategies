@@ -41,7 +41,7 @@ cd ~/learning-investment-strategies
 python3 scripts/check_config_consistency.py
 ```
 
-输出 **7 维差异报告**（P0/P1/P2 分级）：
+输出 **8 维差异报告**（P0/P1/P2 分级）：
 1. strategy_pack 过期（日期、点位、方向词）
 2. watchlist 缺口（claims 提到的标的未在 watchlist）
 3. watchlist ↔ strategy_pack 对齐
@@ -49,6 +49,7 @@ python3 scripts/check_config_consistency.py
 5. invalidation 点位过期
 6. cron focus 过期
 7. claims 引用完整性
+8. watchlist 字段校验（code 格式/priority/lifecycle/linked_claims/sentiment）
 
 ```bash
 # JSON 输出供 LLM 消费

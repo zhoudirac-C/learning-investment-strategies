@@ -236,6 +236,61 @@ def check_claims_consistency(sp: dict) -> list[dict]:
     return issues
 
 
+# ── 8. watchlist 字段校验 ───────────────────────────────
+
+VALID_PRIORITIES = {"P1-核心", "P2-重点", "P2-观察", "P3-观察", "P3-弹性"}
+VALID_STAGES = {"watching", "active", "archived", "entered", "monitor_only"}
+VALID_SENTIMENTS = {"积极观察", "中性提及", "明确规避", "未提及", None}
+VALID_RELEVANCE = {"direct", "indirect"}
+
+def check_watchlist_fields(watchlist: dict) -> list[dict]:
+    issues = []
+    for theme in watchlist.get("themes", []):
+        for stock in theme.get("stocks", []):
+            code = stock.get("code", "")
+            name = stock.get("name", "?")
+
+            # code format
+            if code and not re.match(r'^\d{6}\.(SZ|SH)$', code):
+                issues.append({"level": P0, "dim": "字段校验",
+                               "msg": f"{name} code '{code}' 格式错误（应为 XXXXXX.SZ/SH）",
+                               "fix": f"修正 code 为标准格式"})
+
+            # priority
+            pri = stock.get("priority")
+            if pri and pri not in VALID_PRIORITIES:
+                issues.append({"level": P1, "dim": "字段校验",
+                               "msg": f"{name}({code}) priority='{pri}' 不合法",
+                               "fix": f"修正为 {VALID_PRIORITIES}"})
+
+            # lifecycle.stage
+            stage = (stock.get("lifecycle") or {}).get("stage")
+            if stage and stage not in VALID_STAGES:
+                issues.append({"level": P1, "dim": "字段校验",
+                               "msg": f"{name}({code}) lifecycle.stage='{stage}' 不合法",
+                               "fix": f"修正为 {VALID_STAGES}"})
+
+            # linked_claims
+            for lc in stock.get("linked_claims", []) or []:
+                if not lc.get("claim_id"):
+                    issues.append({"level": P1, "dim": "字段校验",
+                                   "msg": f"{name}({code}) linked_claims 缺 claim_id",
+                                   "fix": "补充 claim_id"})
+                if lc.get("relevance") not in VALID_RELEVANCE:
+                    issues.append({"level": P2, "dim": "字段校验",
+                                   "msg": f"{name}({code}) linked_claims relevance='{lc.get('relevance')}' 不合法",
+                                   "fix": "修正为 direct/indirect"})
+
+            # up_mention_status.sentiment
+            sent = (stock.get("up_mention_status") or {}).get("sentiment")
+            if sent is not None and sent not in VALID_SENTIMENTS:
+                issues.append({"level": P2, "dim": "字段校验",
+                               "msg": f"{name}({code}) sentiment='{sent}' 不合法",
+                               "fix": f"修正为 {VALID_SENTIMENTS}"})
+
+    return issues
+
+
 # ── Main ────────────────────────────────────────────────────
 
 def main():
@@ -275,6 +330,7 @@ def main():
     all_issues.extend(check_invalidation_points(sp))
     all_issues.extend(check_cron_alignment(sp))
     all_issues.extend(check_claims_consistency(sp))
+    all_issues.extend(check_watchlist_fields(wl))
 
     p0 = [i for i in all_issues if i["level"] == P0]
     p1 = [i for i in all_issues if i["level"] == P1]
