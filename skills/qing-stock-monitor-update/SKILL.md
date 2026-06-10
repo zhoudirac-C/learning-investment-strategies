@@ -11,6 +11,8 @@ description: |
 
 **每次更新必须交叉检查全部 config**。不按文件分步，而是一个 checklist 覆盖 watchlist + strategy_pack + positions + cron 的一致性。
 
+**Claims→Config 管线止于生成建议，不自动执行。** `sync_claims_to_config.py` 只输出 diff 报告和修改建议，所有 config 修改必须经用户确认后才能执行。`--auto-merge` 仅供测试，不应用在生产流程中。
+
 ## 触发条件
 
 - "更新观察池" / "更新方向" / "更新策略"
@@ -83,6 +85,20 @@ python3 scripts/check_config_consistency.py --json
 | B站动态 | `sources/original/bilibili/` → unprocessed 时转录 raw | raw 文件 |
 | 用户操作 | 用户明确说的清仓/建仓/减仓 | 持仓变动 |
 | 市场行情 | 腾讯 API 拉全A + 关键标的（仅 full update） | 实时价格 |
+
+### Step 2.5: Claims→Config 建议生成
+
+**当 Step 2 检测到新 claims 可能影响 config（watchlist/strategy_pack/positions）时：**
+
+1. **只生成建议，不修改 config。** 运行 `sync_claims_to_config.py` 输出 diff 报告：
+   ```bash
+   cd ~/learning-investment-strategies
+   python3 scripts/sync_claims_to_config.py
+   # 输出：linked_claims 建议 + entry_points 更新建议 + 人工审核要点
+   ```
+2. **将建议放入 Step 3 的差异报告**，标注为 P1/P2（⚠️ 需要人工审核观点准确性）
+3. **用户确认后再执行修改**（回到 Step 4）
+4. **重点审核项**：观点时效性、方向判断是否与当前市场阶段一致、介入区间合理性
 
 ### Step 3: 差异报告 → 用户确认
 
