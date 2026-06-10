@@ -1055,5 +1055,5 @@ for field in ['status','opportunity_pattern','odds_analysis','claim_basis']:
 | 🔴 P0 | 补满 entry_points 增强字段 | ✅ **已完成**（3/12→12/12）。9 只旧 entry_points 补全 status/opportunity_pattern/odds_analysis/claim_basis。|
 | 🔴 P0 | sync_claims_to_config + 人工审核门禁未部署 | sync_claims_to_config.py 虽存在，但事件驱动管线（claims→建议→人工审核→执行）未投入生产使用。当前每次 UP 新观点仍需手动 6-7 步，脚本的 bridge 路径未被纳入工作流。|
 | 🟡 P1 | 持续回填 linked_claims | ✅ **已完成**（23/180→70/180，13%→39%）。通过 `backfill_claim_related_stocks.py` 自动回填 53 条 claims，Neo4j 新增 241 条 ABOUT 关系。|
-| 🟡 P1 | 条件驱动轮询触发消息按文档示例格式化 | 提升提醒可读性 |
+| 🟡 P1 | 条件驱动轮询触发消息按文档示例格式化 | ✅ **已完成**（加赔率/UP观点/止损，action用【机会触发】） |
 | 🟢 P2 | 同步文档过期项 | ✅ **已完成**（2026-06-10 全量同步） |
