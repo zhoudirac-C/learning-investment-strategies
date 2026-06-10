@@ -169,7 +169,7 @@ parse_query → retrieve_knowledge ──┬── market_analyst ──┐
 | 端点 | 用途 |
 |------|------|
 | `GET /health` | 健康检查 |
-| `POST /analyze/trigger` | **Hermes 调用** — 接收行情快照、持仓、板块数据，返回 UP 风格复盘 |
+| `POST /analyze/trigger` | **Hermes cron 调用** — 接收 `stock_monitor.py` 采集的行情快照+持仓+板块数据，经完整 7 节点 LangGraph 工作流（retrieve_knowledge → market_analyst → style_writer → reviewer），返回 UP 风格复盘文本。`final_output` 直接作为微信推送内容 |
 | `POST /chat` | 用户对话（带记忆检索） |
 | `POST /memory/add` | 追加用户记忆（mem0 或本地 JSON fallback） |
 

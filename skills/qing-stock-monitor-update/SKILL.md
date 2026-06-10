@@ -42,6 +42,9 @@ description: |
 | **Skill 文档维护卫生** | `references/skill-doc-maintenance-hygiene.md` |
 | **实时数据降级模式** | `references/realtime-data-degradation-pattern.md` |
 | **daily_state 链路断裂根因** | `references/daily-state-pipeline-root-cause.md` |
+| **daily_state 持久化实现细节** | `references/daily-state-persist-implementation.md` |
+| **Qing-Agent 完整链路耗时基准** | `references/qing-agent-timing-benchmark.md` |
+| **LLM 结构化输出管线调试（通用）** | `references/debugging-structured-output-pipeline.md` |
 
 ---
 
@@ -546,25 +549,61 @@ print('✓ 去重验证通过')
 - `synthesize` → `style_writer` → `reviewer` 链路中没有任何节点提取或保存 daily_state
 - **Qing-Agent 内部没有任何节点调用 `save_daily_state()`**
 
-**修复方案（二选一）**：
-1. **方案 A（推荐）**：在 Qing-Agent `market_analyst` 节点或 graph 末尾增加 `persist_daily_state` 节点，直接调用 `save_daily_state()`
-2. **方案 B**：在 Hermes 层闭环——9 个 cron prompt 加入 daily_state 要求 + fallback 路径也提取保存
+**修复方案（已实施方案 A）**：
+1. ✅ 在 Qing-Agent `market_analyst` 节点 LLM 返回后，提取 ````daily_state` 代码块并调用 `save_daily_state()`
+2. ✅ 从 `market_context` 规范化字段推导 fallback（当 LLM 未输出代码块时）
+3. 具体实现见 `references/daily-state-persist-implementation.md`
+
+**Qing-Agent 完整链路耗时基准（2026-06-10 实测）**：
+
+| 阶段 | 耗时 | 说明 |
+|------|------|------|
+| 行情拉取 | ~15s | `fetch_quotes_with_fallback()` 腾讯+新浪+东财 |
+| HTTP API 调用 | ~50-55s | `/analyze/trigger` 端到端（含 LangGraph 管线） |
+| 脚本开销 | ~5-10s | JSON 序列化、文件写入、日志 |
+| **总计** | **~70-75s** | 完整链路 |
+
+> **关键推论**：`QING_AGENT_TIMEOUT` 必须 ≥ 90s（留 20s 缓冲），推荐 120-180s。`HERMES_CRON_SCRIPT_TIMEOUT` 必须 ≥ 150s（覆盖完整链路 + 20s 缓冲），推荐 200-300s。
 
 **验证命令**：
 ```bash
-# 检查 daily_state.json 是否存在
+# 1. 检查 daily_state.json 是否存在且最近有更新
 ls -la ~/learning-investment-strategies/config/stock_monitor/daily_state.json
+# 期望：文件存在，mtime 在 5 分钟内
 
-# 检查 sync_daily_state.py 是否能解析到代码块
-python3 scripts/sync_daily_state.py --dry-run
+# 2. 检查文件内容结构
+python3 -c "
+import json
+with open('config/stock_monitor/daily_state.json') as f:
+    d = json.load(f)
+assert 'timestamp' in d, '缺少 timestamp'
+assert 'market_status' in d, '缺少 market_status'
+assert 'sector_rotations' in d, '缺少 sector_rotations'
+print(f'✓ daily_state 结构正确，timestamp={d[\"timestamp\"]}')
+"
 
-# 检查 Qing-Agent 输出是否含 daily_state
-curl -s --max-time 30 -X POST http://localhost:8000/analyze/trigger \
+# 3. 触发一次 Qing-Agent 分析并检查输出
+curl -s --max-time 200 -X POST http://localhost:8000/analyze/trigger \
   -H "Content-Type: application/json" \
-  -d '{"query":"测试","session_id":"test","analysis_type":"market"}' \
-  | grep -c "daily_state"
+  -d '{"query":"测试daily_state","session_id":"test-ds","analysis_type":"market"}' \
+  | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+output = d.get('final_output', '')
+has_block = 'daily_state' in output
+print(f'final_output length={len(output)}, has_daily_state_block={has_block}')
+"
+# 期望：length > 500, has_daily_state_block=True
+
+# 4. 检查 sync_daily_state.py 是否能解析最近 cron 输出
+python3 scripts/sync_daily_state.py --dry-run
+# 期望：找到至少一个含 daily_state 代码块的 cron 输出文件
 ```
 
+**详细文档**：
+- `references/daily-state-pipeline-root-cause.md` —— 四层断裂根因分析
+- `references/daily-state-persist-implementation.md` —— `market_analyst` 节点持久化实现
+- `references/qing-agent-timing-benchmark.md` —— 完整链路耗时基准数据
 **详细文档**：`references/daily-state-pipeline-root-cause.md`
 
 ### 陷阱 14: 条件驱动轮询未部署
@@ -640,8 +679,10 @@ ls -la config/stock_monitor/daily_state.json 2>/dev/null || echo "❌ 不存在"
 - [ ] Qing-Agent `/analyze/trigger` 端点测试通过（非仅 /health）
 - [ ] strategy_pack.updated_at 已更新
 - [ ] cron prompt 已验证（dry-run）
-- [ ] `daily_state.json` 存在且最近 5 分钟有更新（需 Qing-Agent 启动 + persist 节点实现）
+- [ ] `daily_state.json` 存在且最近 5 分钟有更新（需 Qing-Agent 启动 + `market_analyst` 节点 `_persist_daily_state_from_market_context()` 已部署）
 - [ ] `sync_daily_state.py` 能成功解析最近 cron 输出（含 ```daily_state 代码块）
 - [ ] `qing_stock_monitor_poll.py` 存在且可独立运行
 - [ ] add_zone/reduce_zone/risk_zone 纯规则提醒正常推送
+- [ ] **Qing-Agent 完整链路耗时 ≤ 90s**（基准 70-75s，见 `references/qing-agent-timing-benchmark.md`）
+- [ ] **超时层级对齐**：`HERMES_CRON_SCRIPT_TIMEOUT` ≥ `QING_AGENT_TIMEOUT` + 60s
 - [ ] Git 已提交

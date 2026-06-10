@@ -345,24 +345,97 @@ PYTHONUNBUFFERED=1 .venv/bin/python scripts/index_documents_to_qdrant.py
 
 ## 8. API 端点
 
-### 8.1 /analyze/trigger（Hermes 调用）
+### 8.1 /analyze/trigger（Hermes 看盘调用）
+
+**定位**：这是 Hermes 股票监控系统（`hermes_stock_monitor_agent.py`）调用的分析端点，不是用户直接对话的接口。每个交易时段（9:25-15:00）的 9 个 cron job 通过此端点获取 UP 风格复盘。
+
+**与 `/chat` 的核心区别**：
+
+| 维度 | `/analyze/trigger` | `/chat` |
+|------|-------------------|---------|
+| 调用方 | Hermes cron（`stock_monitor.py --agent-json-context` 提供输入数据） | 用户直接对话 |
+| 输入 | 结构化行情快照 + 持仓 + 板块数据（由 `stock_monitor.py` 采集） | 自然语言文本（`message`），Agent 自行检索知识库 |
+| 记忆 | 无（不查询 mem0 用户记忆） | 有（mem0 检索 + Neo4j 图遍历） |
+| 工作流 | 完整 7 节点 LangGraph 流水线 | 同样走 LangGraph，但输入是纯文本 |
+| daily_state | 写入 `daily_state.json`（`market_analyst` 节点返回后自动持久化） | 不写入 |
 
 ```python
 POST /analyze/trigger
-{
-  "query": "每日收盘复盘",
-  "analysis_type": "market",
-  "trigger": {...},
-  "alerts": [...],
-  "market_snapshot": {...},
-  "positions": [...],
-  "watchlist": [...],
-  "sector_strengths": [...],
-  "external_sector_boards": {"available": true, "concept": {...}, "industry": {...}}
-}
 ```
 
-**必填**：`query` + `external_sector_boards`（market/portfolio 分析时必须 `available=true`）
+**请求体**（`TriggerRequest`）：
+
+| 字段 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| `query` | string | ✅ | 分析标题，例如 "每日收盘复盘"；若为空则从 `trigger.title` + `trigger.reason` 拼接 |
+| `analysis_type` | string | ❌ | 分析类型：`market`（默认）/ `stock` / `portfolio` |
+| `session_id` | string | ❌ | 会话 ID，默认 `"default"`；Hermes 传入为 `"hermes-{timestamp}"` |
+| `trigger` | dict | ✅ | 触发信息：`{title, reason, type, time_frame, urgency}` — 控制分析标题和紧急度 |
+| `alerts` | list[dict] | ❌ | 规则信号列表：`[{type, message, stock_code, priority, ...}]` |
+| `market_snapshot` | dict | ❌ | 行情快照：`{timestamp, quotes: [{code, name, price, change_pct, volume, ...}], index_quotes: [...], limit_up_stocks: [], limit_down_stocks: []}` |
+| `positions` | list[dict] | ❌ | 当前持仓：`[{code, name, shares, cost, current_price, profit_pct, position_ratio, ...}]` |
+| `watchlist` | list[dict] | ❌ | 观察池关键标的：`[{code, name, price, change_pct, reason, ...}]` |
+| `sector_strengths` | list[dict] | ❌ | 板块强弱数据（内部样本）：`[{sector_name, strength, top_stocks, ...}]` |
+| `external_sector_boards` | dict | ✅ | **外部全量板块数据**（东财/新浪双源）：`{available: bool, concept: {...}, industry: {...}}`。`market`/`portfolio` 分析时 `available` 必须为 `true`，否则 `market_analyst` 返回「数据不可用」拒绝生成分析 |
+
+**必填约束**：`query` + `external_sector_boards`（`market`/`portfolio` 分析时 `available=true`）
+
+**响应体**（`TriggerResponse`）：
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| `final_output` | string | UP 风格化最终分析文本（核心输出，直接作为 Hermes cron 的微信推送内容） |
+| `claims_cited` | list[string] | 引用的 claim IDs（用于追溯来源） |
+| `data_sources` | list[string] | 数据来源列表 |
+| `confidence` | string | 置信度：`"high"` / `"medium"` / `"low"` |
+| `review_passed` | bool | 事实核查是否通过（reviewer 最多打回 3 次） |
+| `reasoning_steps` | list[string] | 分析思考步骤 |
+
+**LangGraph 工作流**（按顺序执行 7 节点）：
+
+```
+parse_query → retrieve_knowledge → market_analyst → synthesize → style_writer → reviewer → 返回 final_output
+```
+
+关键路径说明：
+
+1. **`parse_query`** — 解析 `query` + `analysis_type` 为结构化意图
+2. **`retrieve_knowledge`** — Qdrant 召回 claims(12条) + wiki(10条)，mem0 用户记忆(2条)，sector_ctx 板块上下文(3条)；检测 claim 时效性和冲突
+3. **`market_analyst`** — ✅ **核心分析节点**：加载推理模式匹配（ONNX Embedding 召回 + LLM rerank）、显式注入分析 framework 片段、生成结构化 `market_context`
+4. **`synthesize`** — 拼接草稿、注入【参考来源】、持仓计划
+5. **`style_writer`** — UP 口吻风格化（人格 prompt + 口头禅），强制保留来源标注
+6. **`reviewer`** — 事实核查、禁用词检测、citation 检查（最多 3 次打回）
+7. 返回 `TriggerResponse`
+
+**daily_state 持久化**（2026-06-10 新增）：
+
+`market_analyst` 节点返回后，自动从 `market_context` 提取大盘阶段判断等结构化字段，持久化到 `config/stock_monitor/daily_state.json`。此文件被 `stock_monitor.py` 用于位置条件驱动轮询（见陷阱 13）。
+
+**调用示例**：
+
+```bash
+# Hermes cron 内部调用（实际走 hermes_stock_monitor_agent.py）
+curl -s --max-time 240 -X POST http://localhost:8000/analyze/trigger \
+  -H "Content-Type: application/json" \
+  -d '{
+    "query": "10:00 盘中监测",
+    "analysis_type": "market",
+    "trigger": {"title": "盘中监测", "reason": "10:00 例行检查", "type": "scheduled"},
+    "market_snapshot": {"timestamp": "2026-06-10T10:00:00", "quotes": [...], "index_quotes": [...]},
+    "positions": [{"code": "000001", "shares": 1000, "cost": 12.5}],
+    "external_sector_boards": {"available": true, "concept": {...}, "industry": {...}}
+  }'
+```
+
+**超时与重试**（由 `hermes_stock_monitor_agent.py` 实现）：
+
+| 参数 | 默认值 | 说明 |
+|------|--------|------|
+| `QING_AGENT_TIMEOUT` | 240s | 单次请求超时（LangGraph 含多次 LLM 调用，通常 30-60s） |
+| `QING_AGENT_MAX_RETRIES` | 3 | 超时/5xx 时的指数退避重试次数（2s → 4s → 8s） |
+| `CRON_WRAPPER_TIMEOUT` | 260s | cron 脚本级超时，必须 ≥ `QING_AGENT_TIMEOUT` + 20s |
+
+**降级路径**：若 `/analyze/trigger` 不可达（Qing-Agent 离线或超时），`hermes_stock_monitor_agent.py` 自动回退到纯文本 LLM fallback（通过 `stock_monitor.py --agent-context-on-trigger`），输出格式与 UP 风格不一致，属于降级运行。
 
 ### 8.2 /chat（用户对话）
 
