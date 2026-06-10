@@ -109,3 +109,35 @@ Step 4:
 ☐ 已更新 wiki/index/log
 ☐ git commit 已推
 ```
+
+## 已知坑点
+
+### 1. Gate 结果缓存导致重跑卡在失败状态
+
+Gate 1/2/3 的结果缓存（`gate1_result.json` / `gate2_result.json` / `gate3_result.json`）
+在 `continue` 时作为「是否已验过」的判断依据存在。修改 step 产物后若缓存未清理，
+pipeline 会跳过门禁重跑，继续输出 retry 指令。
+
+**修复**：删除对应 gate 结果文件后重跑 `continue`：
+
+```bash
+rm temp/claims/<session_id>/gate{N}_result.json
+python scripts/extract_claims_pipeline.py continue
+```
+
+### 2. Gate 5（股票代码检测）的假阳性
+
+`gate_validate_claims.py` 的 `gate5_stock_codes()` 使用正则
+`[\u4e00-\u9fff]{2,5}(?:股份|科技|电子|智能|医疗|有限)` 检测是否遗漏股票代码。
+在处理板块/市场类早盘（讨论宏观方向和板块而非具体个股）时极易命中假阳性，
+将通用词汇误认为公司名。
+
+**修复**：在 `gate_validate_claims.py` 的 `NON_COMPANY` 集合中补充新的假阳性模式。
+这是一个持续维护的过程——每处理一类新的 raw 文档类型都可能遇到新假阳性。
+发现后直接追加到 NON_COMPANY 即可，无需改动门禁逻辑。
+
+### 3. subject 字段的符号限制
+
+`gate4_atomicity()` 禁止 subject 包含 `、` `/` `+` `&` `and`。
+早盘/复盘类 claim 的主题经常需要表达对比关系（如「强修复 vs 弱修复」）。
+**应对**：用中文替代禁止符号，如「强修复/弱修复」→「强修复与弱修复」。

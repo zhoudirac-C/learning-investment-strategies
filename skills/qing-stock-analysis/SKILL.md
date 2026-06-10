@@ -32,7 +32,8 @@ description: Use when the user asks to analyze an individual stock through the b
 18. `skills/qing-stock-analysis/references/holdings-direction-alignment-check.md` — **持仓方向与 UP 近期内容核对手册**：当用户问"UP 是否提到我的持仓""核对我的持仓方向"时触发。扫描最近 2-3 天 UP 内容（视频/复盘/早盘/动态），逐只核对持仓是否被提及、UP 态度如何、语言强度评级。与"持仓更新"子任务区分：本流程不做盈亏计算，只做方向一致性评估。
 19. `skills/qing-stock-analysis/references/claim-leakage-architecture-analysis.md` — **Claims 泄漏路径架构分析**：`/chat` 和 `/analyze/trigger` 两条路径中 claim 从 Neo4j/Qdrant 到 LLM prompt 的完整数据流。识别两处剩余泄漏风险（Neo4j 图遍历个股 claims、stock_analyst 全量传入），评估方案C（intensity 字段）的加固效果。修改检索链路或做 claims 质量评估前必读。
 20. `skills/qing-stock-analysis/references/claim-intensity-system.md` — **Claim Intensity 系统完整文档**：方案C实现。covering schema 层（VALID_INTENSITY）、数据回填规则（8条）、检索链路三层防护（Neo4j min_intensity / _apply_intensity_weight / prompt 分级标签）、验收方法。新增或修改 intensity 相关代码前必读。
-21. `skills/qing-stock-analysis/references/claim-relation-discovery.md` — **Claim 关系发现（方案1+3）**：图遍历检索增强 + LLM 自动判断 claim 间 supersedes/contradicts/supplements 关系。covering `discover_claim_relations.py` 脚本用法、成本估算、测试结果、设计决策（supplements/none 不写入 Neo4j 的理由）、`last_discovered` 防重复判断机制。处理 claims 关系缺失问题时必读。**修复历史（2026-06-07）：** ① `--all-missing` 改为检查 `last_discovered` 标记，避免重复判断；② `nodes.py` 改用 `get_claims_with_evolution()`，LangGraph 链路已能消费 CONTRADICTS 边。
+21. `skills/qing-stock-analysis/references/claim-relation-discovery.md` — **Claim 关系发现（方案1+3）**：图遍历检索增强 + LLM 自动判断 claim 间 supersedes/contradicts/supplements 关系。covering `discover_claim_relations.py` 脚本用法。
+22. `skills/qing-stock-analysis/references/knowledge-base-direct-query.md` — **对话 Agent 直连 Qdrant + Neo4j**：从对话中语义搜索 claims/wiki（Qdrant 本地模式 BGE-small-zh-v1.5 ONNX）和图遍历查询（Neo4j Cypher）。当需要超越 grep 的语义检索时使用。：图遍历检索增强 + LLM 自动判断 claim 间 supersedes/contradicts/supplements 关系。covering `discover_claim_relations.py` 脚本用法、成本估算、测试结果、设计决策（supplements/none 不写入 Neo4j 的理由）、`last_discovered` 防重复判断机制。处理 claims 关系缺失问题时必读。**修复历史（2026-06-07）：** ① `--all-missing` 改为检查 `last_discovered` 标记，避免重复判断；② `nodes.py` 改用 `get_claims_with_evolution()`，LangGraph 链路已能消费 CONTRADICTS 边。
 
 ## 双轨制兼容性
 
@@ -52,6 +53,7 @@ description: Use when the user asks to analyze an individual stock through the b
 5. 搜索精准新闻、公告和研报。
 6. 检索本地 `knowledge/claims`、`knowledge/wiki`、`knowledge/cases`。
    - **区分市场认知 claims 与技术工具 claims**：`claim_type: technical-knowledge` 属于永久有效的技术分析知识，与市场周期/板块判断类 claims 分开引用，避免混淆时间敏感观点与永久工具知识。
+   - **对话 Agent 可直接查询 Qdrant + Neo4j**（语义搜索 + 图遍历），而非仅 grep 文件。详见 `references/knowledge-base-direct-query.md`。
 7. 按博主框架判断市场、板块、个股地位。
 8. 按 F10 方法论执行公司类型识别、报表质量、ROE/杜邦、现金流和估值方法选择。
 9. 生成 `report.md`、`report.html` 和聊天窗口精简总结。
