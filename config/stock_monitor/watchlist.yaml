@@ -700,6 +700,96 @@ themes:
       primary: null
       secondary: null
       last_matched: null
+  - code: 605358.SH
+    name: 立昂微
+    role: silicon_wafer_12inch_core
+    segment: 12英寸硅片/功率器件
+    priority: P1-核心
+    watch_reason: UP连续多日明确硅片是上游材料最强分支（6/9-6/10），12英寸硅片被列为Type 1涨价逻辑（高端需求自身爆发）。长江存储扩产+AI芯片拉动高端硅片需求，立昂微是主板最纯正的12英寸硅片标的（涨停过、逻辑已验证）。沪硅产业(688)更纯但科创板不可交易，立昂微是主板的最近似替代。
+    confirm_with:
+    - TCL中环
+    buy_setup:
+    - 硅片方向持续走强确认（UP反复强调），立昂微放量突破前高后缩量回踩
+    - 不追高，等分歧后缩量回踩承接
+    - 需TCL中环或半导体材料方向同步扩散确认
+    invalidation_setup:
+    - 硅片方向走弱或UP降级上游材料方向
+    - 单票脉冲但硅片链无联动
+    - 跌破趋势支撑且不能快速收回
+    up_mention_status:
+      last_mentioned_date: '2026-06-10'
+      mention_context: UP在6/9-6/10连续提到"半导体内部以最上游的硅片最强"，12英寸硅片被列为Type 1高端涨价逻辑
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 硅片分支偏强，6/9-6/10连续领涨
+      note: 主板12英寸硅片核心标的，替代科创板沪硅产业
+    sector_narrative:
+      relative_strength: 硅片分支在半导体内部最强
+      catalyst: 长江存储扩产、AI芯片拉动高端硅片需求、12英寸硅片涨价
+      risk: 沪硅产业(688)更纯正但不可交易，立昂微作为替代弹性可能受限
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-10'
+      last_activity: '2026-06-10'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260609-005-b
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260609-005-c
+      claim_type: methodology
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002129.SZ
+    name: TCL中环
+    role: silicon_wafer_diversified
+    segment: 半导体硅片/光伏硅片
+    priority: P2-观察
+    watch_reason: 深耕高纯硅材料和半导体硅片，规模制造优势。UP明确硅片是上游材料最强分支。但光伏硅片占比较高（半导体硅片占比小），纯度不如立昂微，作为硅片方向的辅助确认标的。
+    confirm_with:
+    - 立昂微
+    buy_setup:
+    - 硅片方向持续走强，TCL中环缩量回踩后放量
+    - 需立昂微同步承接确认
+    - 不追高，等分歧后承接
+    invalidation_setup:
+    - 硅片方向走弱或立昂微同步回落
+    - 单票脉冲但硅片链无联动
+    - 跌破趋势支撑
+    up_mention_status:
+      last_mentioned_date: '2026-06-10'
+      mention_context: UP在6/9-6/10连续提到硅片是上游材料最强分支，TCL中环作为半导体硅片主板标的间接受益
+      explicit_operation: null
+      sentiment: 中性观察
+    technical_narrative:
+      trend: 随硅片方向修复
+      note: 光伏+半导体双主业，半导体硅片纯度低于立昂微，作为辅助观察
+    sector_narrative:
+      relative_strength: 硅片方向偏强
+      catalyst: 12英寸硅片涨价、半导体材料方向扩散
+      risk: 光伏业务占比高，半导体硅片弹性有限
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-10'
+      last_activity: '2026-06-10'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260609-005-b
+      claim_type: sector-theme
+      relevance: indirect
+    - claim_id: claim-20260609-005-c
+      claim_type: methodology
+      relevance: indirect
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
 - id: liquid_cooling_heat_dissipation
   name: 液冷/散热（华为链，韬定律催化）
   source_docs:
