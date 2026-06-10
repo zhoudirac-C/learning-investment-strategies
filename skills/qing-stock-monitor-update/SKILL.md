@@ -27,6 +27,7 @@ description: |
 | MCP 驱动方向更新 | `references/mcp-powered-directional-update.md` |
 | 数据源降级 | `references/data-source-fallback-chain.md` |
 | Claims 一致性校验 | `references/claims-consistency-check.md` |
+| Entry points 增强字段分析工作流 | `references/entry-points-enhancement-workflow.md` |
 | Entry points 生成 | `references/entry-points-generation.md` |
 | 配置健康检查 | `references/config-health-check.md` |
 | 持仓观察池区分修复记录 | `references/position-watchlist-distinction-fix.md` |
