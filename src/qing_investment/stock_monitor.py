@@ -228,6 +228,45 @@ def evaluate_position_alerts(
     alerts: list[RuleAlert] = []
     seen: set[tuple[str, str, str]] = set()
 
+    # ── 加载 entry_points 用于丰富提醒消息 ──
+    def _norm_code(raw: str) -> str:
+        c = raw.lower().strip().replace('.sh', '').replace('.sz', '')
+        if c.startswith('sh') or c.startswith('sz'):
+            c = c[2:]
+        return c
+
+    entry_by_code: dict[str, dict] = {}
+    for ep in config.strategy_pack.get("entry_points", []):
+        ep_code = _norm_code(str(ep.get("code", "")))
+        if ep_code:
+            entry_by_code[ep_code] = ep
+
+    def _enrich_summary(action_label: str, row: dict, trigger: str,
+                         latest: float, pct_change: str) -> str:
+        """Build alert message with entry_points enrichment."""
+        code = str(row.get("code", ""))
+        name = str(row.get("name", ""))
+        norm = _norm_code(code)
+        entry = entry_by_code.get(norm)
+        risk_zone_raw = row.get("risk_zone") or row.get("risk_line", "")
+
+        parts = [f"【{action_label}】{name}({code}) {latest:g}（{pct_change}%）{trigger}"]
+
+        if entry:
+            odds = entry.get("odds_analysis", "")
+            cb_id = entry.get("claim_basis", "")
+            if odds:
+                # Truncate long odds_analysis to fit WeChat messages
+                odds_short = odds[:120] + ("…" if len(odds) > 120 else "")
+                parts.append(f"赔率：{odds_short}")
+            if cb_id:
+                parts.append(f"参考：{cb_id}")
+
+        if risk_zone_raw:
+            parts.append(f"止损：{risk_zone_raw}")
+
+        return " | ".join(parts)
+
     for row in position_rows(config):
         code = str(row.get("code", ""))
         quote = _quote_for_stock(quotes, code)
@@ -237,6 +276,8 @@ def evaluate_position_alerts(
 
         name = str(row.get("name") or (quote or {}).get("name") or "")
         pct_change = (quote or {}).get("pct_change", "")
+
+        # ── 减仓观察 ──
         reduce_zone = parse_price_zone(row.get("reduce_zone"))
         if reduce_zone and reduce_zone[0] <= latest <= reduce_zone[1]:
             trigger = f"进入预设减仓区{_format_zone(reduce_zone)}"
@@ -244,10 +285,7 @@ def evaluate_position_alerts(
             if key in seen:
                 continue
             seen.add(key)
-            summary = (
-                f"减仓观察：{name}({code}) 当前价={latest:g} 涨跌幅={pct_change}%；"
-                f"{trigger}。只作为降低集中度/做T候选，需再确认板块扩散与分时承接。"
-            )
+            summary = _enrich_summary("减仓观察", row, trigger, latest, pct_change)
             alerts.append(
                 RuleAlert(
                     action="减仓观察",
@@ -260,6 +298,7 @@ def evaluate_position_alerts(
                 )
             )
 
+        # ── 风控观察 ──
         risk_zone = parse_price_zone(row.get("risk_zone") or row.get("risk_line"))
         if risk_zone and latest <= risk_zone[1]:
             trigger = f"触及或跌破风险线{_format_zone(risk_zone)}"
@@ -267,10 +306,7 @@ def evaluate_position_alerts(
             if key in seen:
                 continue
             seen.add(key)
-            summary = (
-                f"风控观察：{name}({code}) 当前价={latest:g} 涨跌幅={pct_change}%；"
-                f"{trigger}。若不能快速收回，需要按仓位纪律降级处理。"
-            )
+            summary = _enrich_summary("风控观察", row, trigger, latest, pct_change)
             alerts.append(
                 RuleAlert(
                     action="风控观察",
@@ -283,7 +319,7 @@ def evaluate_position_alerts(
                 )
             )
 
-        # ── Phase 3 新增：add_zone 加仓触发 ──
+        # ── 加仓观察 ──
         add_zone = parse_price_zone(row.get("add_zone"))
         if add_zone and add_zone[0] <= latest <= add_zone[1]:
             trigger = f"进入预设加仓区{_format_zone(add_zone)}"
@@ -291,10 +327,7 @@ def evaluate_position_alerts(
             if key in seen:
                 continue
             seen.add(key)
-            summary = (
-                f"加仓观察：{name}({code}) 当前价={latest:g} 涨跌幅={pct_change}%；"
-                f"{trigger}。逻辑没变、赔率变好，考虑加仓。"
-            )
+            summary = _enrich_summary("机会触发", row, trigger, latest, pct_change)
             alerts.append(
                 RuleAlert(
                     action="加仓观察",
@@ -302,7 +335,7 @@ def evaluate_position_alerts(
                     stock_name=name,
                     price=latest,
                     trigger=trigger,
-                    severity="opportunity",  # Phase 3: 机会级别，非风险
+                    severity="opportunity",
                     summary=summary,
                 )
             )

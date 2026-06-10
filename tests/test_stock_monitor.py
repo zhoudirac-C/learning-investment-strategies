@@ -532,8 +532,8 @@ def test_alert_message_includes_action_price_and_context(tmp_path):
 
     assert "[Hermes股票监控提醒]" in message
     assert "深科技(000021.SZ)" in message
-    assert "当前价=37.1" in message
-    assert "减仓观察" in message
+    assert "37.1（2.1%）" in message or "37.1（2.10%）" in message
+    assert "减仓观察" in message or "【减仓观察】" in message
 
 
 def test_tick_emits_alert_message_when_rules_trigger(tmp_path):
@@ -899,7 +899,8 @@ def test_agent_analysis_context_contains_trigger_alerts_and_quotes(tmp_path):
 
     assert "[Hermes股票监控大模型分析上下文]" in message
     assert "30分钟确认" in message
-    assert "减仓观察：深科技进入减仓区" in message
+    assert "【减仓观察】" in message or "减仓观察" in message
+    assert "深科技" in message
     assert "深科技(000021.SZ)" in message
     assert "观察池现在能不能买" in message
     assert "最多450字" in message
