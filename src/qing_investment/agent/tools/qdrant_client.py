@@ -74,34 +74,23 @@ class QdrantClientWrapper:
         else:
             query_vec = np.array(query_vector).flatten()
         
-        if self._is_local:
-            try:
-                # Try query_points first
-                resp = self._client.query_points(
-                    collection_name=collection,
-                    query=query_vec.tolist(),
-                    limit=limit,
-                    with_payload=True,
-                )
-                return [
-                    {"id": r.id, "score": r.score, "payload": r.payload or {}}
-                    for r in resp.points
-                ]
-            except Exception:
-                # Fallback: manual cosine similarity via scroll
-                return self._search_manual(query_vec, collection, limit)
-        else:
-            # Remote mode uses search() via REST
-            results = self._client.search(
+        try:
+            # Try query_points first (works for both local and remote)
+            resp = self._client.query_points(
                 collection_name=collection,
-                query_vector=query_vec.tolist(),
+                query=query_vec.tolist(),
                 limit=limit,
                 with_payload=True,
             )
             return [
                 {"id": r.id, "score": r.score, "payload": r.payload or {}}
-                for r in results
+                for r in resp.points
             ]
+        except Exception:
+            # Fallback: manual cosine similarity for local mode only
+            if self._is_local:
+                return self._search_manual(query_vec, collection, limit)
+            raise
     
     def _search_manual(self, query_vec: np.ndarray, collection: str, limit: int):
         """Manual cosine similarity search for local mode fallback."""
