@@ -849,6 +849,7 @@ stock_monitor.py 轮询（2分钟间隔）
 
 *文档版本：v2.0 — 基于用户反馈和LLM交易Agent研究重写*
 *实施记录：v2.1 — 2026-06-09，架构对齐修复*
+*实施记录：v2.2 — 2026-06-10，文档过期项全量同步（文件清单/cron数/Config状态）*
 
 ## 七、实施记录（2026-06-09）
 
@@ -891,6 +892,8 @@ stock_monitor.py 轮询（2分钟间隔）
 | `scripts/sync_daily_state.py` | 扫描 cron 输出提取 daily_state JSON |
 | `scripts/qing_stock_monitor_poll.py` | 条件驱动轮询（add_zone/风控） |
 | `scripts/backfill_linked_claims.py` | 从 YAML 全量回填 linked_claims |
+| `tools/daily_state.py` | daily_state 模型定义 + 读写模块（Phase 3.1） |
+| `tools/hot_score.py` | 热度分计算核心逻辑（Phase 4.1） |
 | `skills/qing-learning/references/claims-to-entry-bridge.md` | 桥接参考文档 |
 
 #### 新增 cron job
@@ -899,6 +902,7 @@ stock_monitor.py 轮询（2分钟间隔）
 |-----|------|------|------|
 | Daily State 同步扫描 | */5 9-15 * * 1-5 | no-agent | 提取 daily_state JSON→写入 |
 | A股条件驱动轮询 | */5 9-15 * * 1-5 | no-agent | add_zone/reduce_zone/risk_zone 检查 |
+| Qing-Agent 健康检查 | */5 9-15 * * 1-5 | no-agent | 保活+Qdrant锁检查 |
 
 #### Config 更新
 
@@ -918,7 +922,7 @@ stock_monitor.py 轮询（2分钟间隔）
 
 1. **linked_claims 覆盖率提升至 39%（70/180）**：通过 `backfill_claim_related_stocks.py` 脚本从 53 条 claims 的 statement 中提取 stock codes/names 回填 `related_stocks` 字段，并更新 Neo4j + Qdrant 索引（241 条 ABOUT 关系）。覆盖全部 stock-view 中引用个股的 claims 和 sector-theme 中列了股票代码的 claims。剩余 111 只标的无 linked_claims，原因是这些标的的 claims 基于方向判断（如"算力"、"燃气轮机"）而非个股——不需要填 related_stocks。
 2. **daily_state 写回依赖 LLM 输出格式**：`market_analyst` 节点已增加 `_persist_daily_state_from_market_context()` fallback（从 JSON 字段推导），但仍然不是 100% 可靠。若 LLM 既未输出 `daily_state` 代码块又未输出结构化 JSON 字段，则 daily_state 无法更新。**当前状态：从「无 fallback」改进为「有 fallback 但有剩余风险」。**
-3. **sync_claims_to_config.py 首次运行返回 0**：因 claims 中缺少可量化的介入区间（operation claims 多为策略级而非标的具体价位），桥接目前只生成 linked_claims 回填。entry_points 中仅 3/12 有 status/odds_analysis/claim_basis 等增强字段。
+3. **sync_claims_to_config.py 首次运行返回 0**：因 claims 中缺少可量化的介入区间（operation claims 多为策略级而非标的具体价位），桥接目前只生成 linked_claims 回填。entry_points 增强字段（status/odds_analysis/claim_basis）已通过 2026-06-10 脚本全量补满 12/12。**当前状态：全量完成。**
 4. **事件驱动管线（claims→建议→人工审核）未投入生产**：`sync_claims_to_config.py` 存在且可生成建议，但缺少从「新 claims → 跑脚本 → 人工审核 → 确认执行」的 SOP 流程。当前每次 UP 新观点仍需手动 6-7 步。注意：这不是「技术上缺失全自动管线」的问题，而是设计上有意保留人工审核门禁，实际缺的是 SOP 和 skill 集成。
 5. **positions.yaml 空仓**：当前 `positions.yaml` 无任何持仓（`entry_decision/add_zone/trade_log` 字段未验证，`portfolio_stats` 已存在但为空）。
 
@@ -1015,9 +1019,9 @@ for field in ['status','opportunity_pattern','odds_analysis','claim_basis']:
 | 配置 | 字段 | 覆盖率 |
 |------|------|--------|
 | `watchlist.yaml` | lifecycle/hot_score/linked_claims/opportunity_patterns | **180/180 (100%)** 字段存在 |
-| `watchlist.yaml` | linked_claims 非空 | **23/180 (13%)** 有值 |
+| `watchlist.yaml` | linked_claims 非空 | **70/180 (39%)** 有值 |
 | `strategy_pack.yaml` | position_rules | ✅ 7 条规则（对应 7 大机会模式） |
-| `strategy_pack.yaml` | entry_points 增强字段 | **3/12 (25%)** 有 status/odds_analysis/claim_basis |
+| `strategy_pack.yaml` | entry_points 增强字段 | **12/12 (100%)** 有 status/odds_analysis/claim_basis |
 | `positions.yaml` | portfolio_stats | ✅ 存在但为空 |
 | `positions.yaml` | entry_decision/add_zone/trade_log | ⏳ 空仓，无法验证 |
 
@@ -1035,12 +1039,14 @@ for field in ['status','opportunity_pattern','odds_analysis','claim_basis']:
 
 #### 文档过时期限清单
 
-以下内容在 2026-06-10 审计时已过时，需要同步更新：
+文档已全部同步（2026-06-10 更新）：
 
-1. **§7.2 新增文件列表遗漏**：`tools/daily_state.py` 和 `tools/hot_score.py` 已实现但未在文档中列出
-2. **§7.2「新增 cron job 2 个」**：实际新增 3 个（含健康检查 `07df0a7909f4`）
-3. **§7.3 遗留问题#2「无 fallback」**：`market_analyst` 节点已有 `_persist_daily_state_from_market_context()` fallback，应更新为「有 fallback 但有剩余风险」
-4. **§7.3 遗留问题#1 linked_claims 数据集**：从 21/164 更新为 23/180
+1. ✅ **§7.2 新增文件列表**：已补充 `tools/daily_state.py` 和 `tools/hot_score.py`
+2. ✅ **§7.2「新增 cron job」**：已补充健康检查条目（3 个 → 3 个）
+3. ✅ **§7.3 遗留问题#2「无 fallback」**：已更新为「有 fallback 但有剩余风险」
+4. ✅ **§7.3 遗留问题#1 linked_claims 数据集**：已同步为 70/180（39%）
+5. ✅ **§7.3 遗留问题#3 entry_points 字段**：已更新为 12/12（100%）
+6. ✅ **§7.4 Config 层状态**：linked_claims 23/180→70/180，entry_points 3/12→12/12
 
 #### 实施建议优先级
 
@@ -1048,6 +1054,6 @@ for field in ['status','opportunity_pattern','odds_analysis','claim_basis']:
 |--------|------|------|
 | 🔴 P0 | 补满 entry_points 增强字段 | ✅ **已完成**（3/12→12/12）。9 只旧 entry_points 补全 status/opportunity_pattern/odds_analysis/claim_basis。|
 | 🔴 P0 | sync_claims_to_config + 人工审核门禁未部署 | sync_claims_to_config.py 虽存在，但事件驱动管线（claims→建议→人工审核→执行）未投入生产使用。当前每次 UP 新观点仍需手动 6-7 步，脚本的 bridge 路径未被纳入工作流。|
-| 🟡 P1 | 持续回填 linked_claims | ✅ **已完成**（23/180→70/180，13%→39%）。通过 `backfill_claim_related_stocks.py` 自动回填 53 条 claims，N​eo4j 新增 241 条 ABOUT 关系。|
+| 🟡 P1 | 持续回填 linked_claims | ✅ **已完成**（23/180→70/180，13%→39%）。通过 `backfill_claim_related_stocks.py` 自动回填 53 条 claims，Neo4j 新增 241 条 ABOUT 关系。|
 | 🟡 P1 | 条件驱动轮询触发消息按文档示例格式化 | 提升提醒可读性 |
-| 🟢 P2 | 同步文档过期项 | 防止后续维护者被误导 |
+| 🟢 P2 | 同步文档过期项 | ✅ **已完成**（2026-06-10 全量同步） |
