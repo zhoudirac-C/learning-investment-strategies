@@ -2,15 +2,30 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
+import re
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 import numpy as np
 
+from qing_investment.agent.tools.daily_state import (
+    load_daily_state,
+    save_daily_state,
+    update_market_stage,
+    update_direction_priority,
+    update_position_stance,
+    add_opportunity,
+    add_intraday_narrative,
+)
 from qing_investment.agent.tools.llm_client import get_llm_client
 from qing_investment.agent.tools.mem0_client import Mem0ClientWrapper
 from qing_investment.agent.tools.neo4j_client import Neo4jClient
 from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
 from .state import AgentState
+
+logger = logging.getLogger(__name__)
+_CN_TZ = timezone(timedelta(hours=8))
 
 _REPO_ROOT = Path(__file__).resolve().parents[4]
 _PROMPT_DIR = _REPO_ROOT / "src" / "qing_investment" / "agent" / "prompts" / "system"
@@ -56,6 +71,169 @@ def _get_tone_by_market_phase(phase: str) -> str:
         "退潮期": "收缩、防御",
     }
     return mapping.get(phase, "中性")
+
+
+# ── Daily State 提取与持久化（新增）──
+def _extract_daily_state_block(content: str) -> dict | None:
+    """从 LLM 原始输出中提取 ```daily_state 代码块。"""
+    if not content:
+        return None
+    pattern = re.compile(r"```daily_state\s*\n(.*?)```", re.DOTALL)
+    match = pattern.search(content)
+    if not match:
+        return None
+    json_str = match.group(1).strip()
+    try:
+        return json.loads(json_str)
+    except json.JSONDecodeError:
+        return None
+
+
+def _now_cn_str(fmt: str = "%H:%M") -> str:
+    return datetime.now(_CN_TZ).strftime(fmt)
+
+
+def _persist_daily_state_from_market_context(
+    market_context: dict,
+    daily_state_override: dict | None,
+    source_tag: str,
+) -> None:
+    """根据 market_analyst 输出更新 daily_state.json。
+
+    优先使用 LLM 显式输出的 ```daily_state 代码块；
+    若不存在，则从 market_context 的规范化字段推导。
+    """
+    try:
+        state = load_daily_state()
+        now_iso = datetime.now(_CN_TZ).isoformat()
+        now_time = _now_cn_str("%H:%M")
+
+        # 1) 应用 LLM 显式输出的 daily_state 块
+        if daily_state_override:
+            # market_stage
+            if "market_stage" in daily_state_override:
+                ms = daily_state_override["market_stage"]
+                if isinstance(ms, dict) and ms.get("phase"):
+                    state = update_market_stage(
+                        state,
+                        phase=ms["phase"],
+                        detail=ms.get("detail", ""),
+                        updated_by=source_tag,
+                    )
+            # direction_priority
+            dp = daily_state_override.get("direction_priority")
+            if dp:
+                if isinstance(dp, list) and dp:
+                    if isinstance(dp[0], str):
+                        dp = [{"direction": d, "intensity": "", "source": source_tag} for d in dp]
+                    else:
+                        dp = [{**d, "source": d.get("source", source_tag)} for d in dp]
+                    state = update_direction_priority(state, dp, source_tag)
+            # position_stance
+            ps = daily_state_override.get("position_stance")
+            if ps:
+                state = update_position_stance(state, str(ps), source_tag)
+            # active_opportunities
+            for opp in daily_state_override.get("active_opportunities", []):
+                if isinstance(opp, dict) and opp.get("code"):
+                    state = add_opportunity(
+                        state,
+                        stock=opp.get("stock", opp.get("code", "")),
+                        code=opp["code"],
+                        pattern=opp.get("pattern", ""),
+                        trigger=opp.get("trigger", ""),
+                        upside=opp.get("upside", opp.get("upside_pct", "")),
+                        downside=opp.get("downside", opp.get("downside_pct", "")),
+                        ratio=opp.get("ratio", opp.get("odds", "")),
+                        status=opp.get("status", "未触发"),
+                    )
+            # intraday narrative keys (various node-specific fields)
+            narrative_keys = {
+                "core_assumption": "核心假设",
+                "assumption_validation": "假设验证",
+                "corrected_assumption": "假设修正",
+                "morning_character": "早盘定性",
+                "active_direction": "活跃方向",
+                "morning_summary": "上午总结",
+                "afternoon_plan_continue": "午后计划(延续)",
+                "afternoon_plan_reverse": "午后计划(反转)",
+                "discipline_check": "纪律检查",
+                "risk_status": "风险状态",
+                "pullback_alert": "回调预警",
+                "morning_validation": "早盘验证",
+                "afternoon_assessment": "午后评估",
+                "tail_risk": "尾盘风险",
+                "position_adjustment": "仓位调整",
+                "tail_buy": "尾盘买入",
+                "tail_sell": "尾盘卖出",
+                "overnight_stance": "过夜策略",
+                "tomorrow_preview": "明日预览",
+                "tomorrow_assumption": "明日假设",
+            }
+            for key, label in narrative_keys.items():
+                val = daily_state_override.get(key)
+                if val:
+                    summary = str(val)[:200]
+                    state = add_intraday_narrative(state, f"{now_time} {label}", summary)
+
+        # 2) 从 market_context 推导补充（如果显式块没给）
+        if not daily_state_override or not daily_state_override.get("market_stage"):
+            phase = market_context.get("market_phase", "")
+            if phase and phase not in ("未配置", "数据不可用"):
+                state = update_market_stage(
+                    state,
+                    phase=phase,
+                    detail=market_context.get("phase_reasoning", "")[:200],
+                    updated_by=f"{source_tag}:derived",
+                )
+
+        if not daily_state_override or not daily_state_override.get("direction_priority"):
+            main_themes = market_context.get("main_themes", [])
+            if main_themes:
+                dp = [{"direction": str(t), "intensity": "", "source": f"{source_tag}:derived"} for t in main_themes[:5]]
+                state = update_direction_priority(state, dp, source_tag)
+
+        if not daily_state_override or not daily_state_override.get("position_stance"):
+            position_plans = market_context.get("position_plans", [])
+            if position_plans:
+                # Derive a simple stance from first position plan advice
+                first = position_plans[0]
+                advice = first.get("position_advice", "")
+                if advice:
+                    state = update_position_stance(state, advice, f"{source_tag}:derived")
+
+        # 3) 补充机会扫描到 active_opportunities
+        if not daily_state_override or not daily_state_override.get("active_opportunities"):
+            for opp in market_context.get("opportunity_scan", []):
+                if isinstance(opp, dict) and opp.get("code"):
+                    state = add_opportunity(
+                        state,
+                        stock=opp.get("stock", opp.get("code", "")),
+                        code=opp["code"],
+                        pattern=opp.get("pattern", ""),
+                        trigger=opp.get("trigger", ""),
+                        upside=opp.get("upside_pct", ""),
+                        downside=opp.get("downside_pct", ""),
+                        ratio=opp.get("odds", ""),
+                        status=opp.get("status", "未触发"),
+                    )
+
+        # 4) 添加本节点综合叙事
+        market_summary = market_context.get("market_summary", "")
+        if market_summary:
+            state = add_intraday_narrative(
+                state, f"{now_time} 节点分析", str(market_summary)[:200]
+            )
+
+        # 写入元数据
+        state.setdefault("_meta", {})
+        state["_meta"]["last_persisted_by"] = source_tag
+        state["_meta"]["last_persisted_at"] = now_iso
+
+        save_daily_state(state)
+        logger.info("Persisted daily_state from %s", source_tag)
+    except Exception as e:
+        logger.warning("Failed to persist daily_state: %s", e)
 
 
 # ── Framework 显式加载（Phase 1 新增）──
@@ -1089,6 +1267,11 @@ def market_analyst(state: AgentState) -> AgentState:
             "opportunity_scan": [],  # Phase 1 新增
             "position_plans": [],
         }
+
+    # 【新增】提取并持久化 daily_state，保证观点上下文连续性
+    daily_state_override = _extract_daily_state_block(content)
+    source_tag = f"market_analyst:{analysis_type}"
+    _persist_daily_state_from_market_context(result, daily_state_override, source_tag)
 
     return {
         "market_context": result,

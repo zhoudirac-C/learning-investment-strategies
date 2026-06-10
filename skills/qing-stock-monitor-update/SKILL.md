@@ -41,6 +41,7 @@ description: |
 | **Cron 超时外部化配置** | `references/cron-timeout-external-config.md` |
 | **Skill 文档维护卫生** | `references/skill-doc-maintenance-hygiene.md` |
 | **实时数据降级模式** | `references/realtime-data-degradation-pattern.md` |
+| **daily_state 链路断裂根因** | `references/daily-state-pipeline-root-cause.md` |
 
 ---
 
@@ -522,28 +523,49 @@ print('✓ 去重验证通过')
 "
 ```
 
-### 陷阱 13: daily_state 写回链断裂
+### 陷阱 13: daily_state 写回链断裂（sync_daily_state.py 已存在但无法工作）
 
-**反面案例（2026-06-10）**：`market_analyst.txt` 和 9 个 `cron_*.txt` 都包含 ```daily_state 输出指令，LLM 输出也确实包含此代码块。但 `daily_state.json` 从未被创建，因为缺少 `sync_daily_state.py` 扫描器。
+**反面案例（2026-06-10）**：`sync_daily_state.py` 已存在（250 行）且已注册为 cron job（`0a62d01fbd45`，每 5 分钟），但 `daily_state.json` 从未被创建。
 
-**根因链**：
-1. `stock_monitor.py` 加载 `daily_state.py` 并注入 prompt → LLM 看到空状态或初始状态
-2. LLM 输出包含 ```daily_state 代码块 → 写入 cron output markdown
-3. **无扫描器提取** → `daily_state.json` 从未更新
-4. 下一个 cron 节点再次加载 → 仍然是空状态
+**根因链（四层断裂）**：
 
-**影响**：观点连续性完全失效。09:26 的核心假设不会被 09:45 读取，15:20 复盘看不到全天演进。
+```
+1. Qing-Agent 服务未启动（8000 端口无监听）
+   → hermes_stock_monitor_agent.py 走 fallback 路径
+2. Fallback 输出是 stock_monitor.py 的文本上下文
+   → Hermes cron 用 prompt 字段让 LLM 直接生成微信提醒
+3. Hermes cron prompt 里没有 daily_state 输出要求
+   → LLM 输出不含 ```daily_state 代码块
+4. sync_daily_state.py 扫描不到代码块
+   → daily_state.json 永远不会被创建
+```
 
-**修复方案**：
-1. 实现 `scripts/sync_daily_state.py`：扫描 `~/.hermes/cron/output/` 最新 markdown，正则提取 ```daily_state 代码块，解析 JSON，调用 `daily_state.save_daily_state()`
-2. 注册 Hermes cron job：`*/5 9-15 * * 1-5` 运行 sync_daily_state.py
-3. 或修改 Qing-Agent `/analyze/trigger` 端点，在返回前直接写 daily_state（更可靠）
+**即使 Qing-Agent 启动后，仍有第二层断裂**：
+- `market_analyst` 节点要求 LLM 输出 JSON + ```daily_state 代码块
+- 但节点只解析 JSON 部分作为 `market_context`，代码块被丢弃
+- `synthesize` → `style_writer` → `reviewer` 链路中没有任何节点提取或保存 daily_state
+- **Qing-Agent 内部没有任何节点调用 `save_daily_state()`**
+
+**修复方案（二选一）**：
+1. **方案 A（推荐）**：在 Qing-Agent `market_analyst` 节点或 graph 末尾增加 `persist_daily_state` 节点，直接调用 `save_daily_state()`
+2. **方案 B**：在 Hermes 层闭环——9 个 cron prompt 加入 daily_state 要求 + fallback 路径也提取保存
 
 **验证命令**：
 ```bash
+# 检查 daily_state.json 是否存在
 ls -la ~/learning-investment-strategies/config/stock_monitor/daily_state.json
-# 期望：文件存在，且修改时间在最近 5 分钟内（如果 sync 在运行）
+
+# 检查 sync_daily_state.py 是否能解析到代码块
+python3 scripts/sync_daily_state.py --dry-run
+
+# 检查 Qing-Agent 输出是否含 daily_state
+curl -s --max-time 30 -X POST http://localhost:8000/analyze/trigger \
+  -H "Content-Type: application/json" \
+  -d '{"query":"测试","session_id":"test","analysis_type":"market"}' \
+  | grep -c "daily_state"
 ```
+
+**详细文档**：`references/daily-state-pipeline-root-cause.md`
 
 ### 陷阱 14: 条件驱动轮询未部署
 
@@ -618,8 +640,8 @@ ls -la config/stock_monitor/daily_state.json 2>/dev/null || echo "❌ 不存在"
 - [ ] Qing-Agent `/analyze/trigger` 端点测试通过（非仅 /health）
 - [ ] strategy_pack.updated_at 已更新
 - [ ] cron prompt 已验证（dry-run）
-- [ ] `daily_state.json` 存在且最近 5 分钟有更新
-- [ ] `sync_daily_state.py` 能成功解析最近 cron 输出
+- [ ] `daily_state.json` 存在且最近 5 分钟有更新（需 Qing-Agent 启动 + persist 节点实现）
+- [ ] `sync_daily_state.py` 能成功解析最近 cron 输出（含 ```daily_state 代码块）
 - [ ] `qing_stock_monitor_poll.py` 存在且可独立运行
 - [ ] add_zone/reduce_zone/risk_zone 纯规则提醒正常推送
 - [ ] Git 已提交
