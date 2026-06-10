@@ -39,6 +39,49 @@ claims:
   - 储能
   - 板块主题
   - 锂电
+  related_stocks:
+  - code: '688411'
+    name: 海博思创
+    role: 参考标的
+  - code: '300274'
+    name: 阳光电源
+    role: 参考标的
+  - code: '300750'
+    name: 宁德时代
+    role: 参考标的
+  - code: '300014'
+    name: 亿纬锂能
+    role: 参考标的
+  - code: '300438'
+    name: 鹏辉能源
+    role: 参考标的
+  - code: '300207'
+    name: 欣旺达
+    role: 参考标的
+  - code: 002812
+    name: 恩捷股份
+    role: 参考标的
+  - code: 002709
+    name: 天赐材料
+    role: 参考标的
+  - code: '603026'
+    name: 石大胜华
+    role: 参考标的
+  - code: '301358'
+    name: 湖南裕能
+    role: 参考标的
+  - code: '300432'
+    name: 富临精工
+    role: 参考标的
+  - code: '603799'
+    name: 华友钴业
+    role: 参考标的
+  - code: 000792
+    name: 盐湖股份
+    role: 参考标的
+  - code: '603305'
+    name: 旭升集团
+    role: 参考标的
 - id: claim-20260604-006-b
   source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
   source_date: '2026-06-04'
@@ -77,6 +120,25 @@ claims:
   - AI
   - 板块主题
   - 消费
+  related_stocks:
+  - code: 002293
+    name: 罗莱生活
+    role: 参考标的
+  - code: 000930
+    name: 中粮科技
+    role: 参考标的
+  - code: '002027'
+    name: 分众传媒
+    role: 参考标的
+  - code: '300364'
+    name: 中文在线
+    role: 参考标的
+  - code: 002292
+    name: 奥飞娱乐
+    role: 参考标的
+  - code: '002555'
+    name: 三七互娱
+    role: 参考标的
 - id: claim-20260604-006-c
   source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
   source_date: '2026-06-04'
@@ -102,7 +164,8 @@ claims:
   intensity: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260607-003-d"]
+  contradicts:
+  - claim-20260607-003-d
   last_discovered: 2026-06-08
   links:
     wiki_pages: []
@@ -111,6 +174,13 @@ claims:
   topic: 蓝筹/传统行业方向标的清单
   tags:
   - 板块主题
+  related_stocks:
+  - code: '600188'
+    name: 兖矿能源
+    role: 参考标的
+  - code: '600893'
+    name: 航发动力
+    role: 参考标的
 - id: claim-20260604-006-d
   source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
   source_date: '2026-06-04'
@@ -151,6 +221,16 @@ claims:
   - 新能源
   - 板块主题
   - 电力
+  related_stocks:
+  - code: '688223'
+    name: 晶科能源
+    role: 参考标的
+  - code: 002028
+    name: 思源电气
+    role: 参考标的
+  - code: 000039
+    name: 中集集团
+    role: 参考标的
 - id: claim-20260604-006-e
   source_path: sources/raw/财经/视频：26-06-04：科技股风险与6月谨慎操作——磨底期策略与低位方向布局.md
   source_date: '2026-06-04'
@@ -185,3 +265,7 @@ claims:
   - 周期
   - 板块主题
   - 航运
+  related_stocks:
+  - code: '601872'
+    name: 招商轮船
+    role: 参考标的

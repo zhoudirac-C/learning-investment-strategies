@@ -58,12 +58,15 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260528-004-f
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
       last_matched: null
-  - code: 000636.SZ
+  - code: 600246.SH
     name: 万通发展
     role: pcie_switch_core
     segment: PCIe Switch
@@ -110,6 +113,14 @@ themes:
     hot_score: 5.0
     linked_claims:
     - &id001
+      claim_id: claim-20260528-004-f
+      claim_type: sector-theme
+      relevance: direct
+    - &id002
+      claim_id: claim-20260601-004-d
+      claim_type: sector-theme
+      relevance: direct
+    - &id003
       claim_id: claim-20260605-001-c
       claim_type: sector-theme
       relevance: direct
@@ -173,6 +184,8 @@ themes:
     hot_score: 5.0
     linked_claims:
     - *id001
+    - *id002
+    - *id003
     opportunity_patterns:
       primary: null
       secondary: null
@@ -302,7 +315,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260604-006-d
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -532,7 +548,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260528-001-d
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -592,7 +611,13 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260520-003-c
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260522-001-f
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -621,7 +646,13 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260521-003-i
+      claim_type: stock-view
+      relevance: direct
+    - claim_id: claim-20260528-001-c
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -650,7 +681,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260528-001-d
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -853,7 +887,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260610-006-k
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -900,12 +937,16 @@ themes:
       auto_downgrade_after: 30
     hot_score: 5.0
     linked_claims:
-    - &id002
+    - &id004
       claim_id: claim-20260604-005-f
       claim_type: sector-theme
       relevance: direct
-    - &id003
+    - &id005
       claim_id: claim-20260605-001-g
+      claim_type: sector-theme
+      relevance: direct
+    - &id006
+      claim_id: claim-20260610-006-k
       claim_type: sector-theme
       relevance: direct
     opportunity_patterns:
@@ -1001,7 +1042,13 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260602-002-e
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260602-002-f
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1046,6 +1093,12 @@ themes:
     - claim_id: claim-20260520-003-j
       claim_type: stock-view
       relevance: direct
+    - claim_id: claim-20260602-002-e
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260602-002-f
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1086,7 +1139,13 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260602-002-e
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260602-002-f
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1133,8 +1192,9 @@ themes:
       auto_downgrade_after: 30
     hot_score: 5.0
     linked_claims:
-    - *id002
-    - *id003
+    - *id004
+    - *id005
+    - *id006
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1217,7 +1277,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260528-005-j
+      claim_type: stock-view
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1244,7 +1307,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260528-005-j
+      claim_type: stock-view
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1271,7 +1337,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260528-005-j
+      claim_type: stock-view
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1302,6 +1371,10 @@ themes:
     code: 603259.SH
     name: 药明康德
     role: innovative_drug_core
+    linked_claims:
+    - claim_id: claim-20260607-003-l
+      claim_type: sector-theme
+      relevance: direct
   - priority: P2-观察
     up_mention_status:
       last_mentioned_date: '2026-06-09'
@@ -1328,6 +1401,10 @@ themes:
     code: 600276.SH
     name: 恒瑞医药
     role: innovative_drug_core
+    linked_claims:
+    - claim_id: claim-20260607-003-l
+      claim_type: sector-theme
+      relevance: direct
 - id: compute_rental_token
   name: 算力租赁/token工厂（新增催化）
   source_docs:
@@ -1433,7 +1510,23 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - &id009
+      claim_id: claim-20260525-027
+      claim_type: sector-theme
+      relevance: direct
+    - &id010
+      claim_id: claim-20260526-030
+      claim_type: sector-theme
+      relevance: direct
+    - &id011
+      claim_id: claim-20260527-006-f
+      claim_type: sector-theme
+      relevance: direct
+    - &id012
+      claim_id: claim-20260529-002-b
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1601,7 +1694,11 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - &id013
+      claim_id: claim-20260525-003
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1746,7 +1843,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260529-002-b
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -1966,7 +2066,13 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260525-003
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260525-022
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2007,7 +2113,16 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260525-003
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260525-022
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260529-002-b
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2079,6 +2194,12 @@ themes:
     - claim_id: claim-20260520-003-h
       claim_type: stock-view
       relevance: direct
+    - claim_id: claim-20260525-027
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260604-003-f
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2107,8 +2228,17 @@ themes:
       auto_downgrade_after: 30
     hot_score: 5.0
     linked_claims:
+    - claim_id: claim-20260520-002-b
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260521-001-f
+      claim_type: sector-theme
+      relevance: direct
     - claim_id: claim-20260521-002-e
       claim_type: stock-view
+      relevance: direct
+    - claim_id: claim-20260522-001-f
+      claim_type: sector-theme
       relevance: direct
     opportunity_patterns:
       primary: null
@@ -2138,8 +2268,20 @@ themes:
       auto_downgrade_after: 30
     hot_score: 5.0
     linked_claims:
+    - claim_id: claim-20260515-004
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260518-001
+      claim_type: sector-theme
+      relevance: direct
     - claim_id: claim-20260518-019-k
       claim_type: stock-view
+      relevance: direct
+    - claim_id: claim-20260520-002-b
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260521-001-f
+      claim_type: sector-theme
       relevance: direct
     opportunity_patterns:
       primary: null
@@ -2209,6 +2351,9 @@ themes:
     - claim_id: claim-20260426-010
       claim_type: stock-view
       relevance: direct
+    - claim_id: claim-20260529-005-g
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2249,7 +2394,11 @@ themes:
       auto_downgrade_after: 30
     hot_score: 5.0
     linked_claims:
-    - &id004
+    - &id007
+      claim_id: claim-20260518-001
+      claim_type: sector-theme
+      relevance: direct
+    - &id008
       claim_id: claim-20260519-001-e
       claim_type: stock-view
       relevance: direct
@@ -2441,6 +2590,10 @@ themes:
     code: 600893.SH
     name: 航发动力
     role: military_bluechip
+    linked_claims:
+    - claim_id: claim-20260604-006-c
+      claim_type: sector-theme
+      relevance: direct
   - priority: P2-观察
     up_mention_status:
       last_mentioned_date: '2026-06-09'
@@ -2467,6 +2620,10 @@ themes:
     code: 002027.SZ
     name: 分众传媒
     role: consumption_media
+    linked_claims:
+    - claim_id: claim-20260604-006-b
+      claim_type: sector-theme
+      relevance: direct
 - id: domestic_compute
   name: 国产算力产业链
   source_docs:
@@ -2504,7 +2661,8 @@ themes:
       auto_downgrade_after: 30
     hot_score: 5.0
     linked_claims:
-    - *id004
+    - *id007
+    - *id008
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2579,6 +2737,9 @@ themes:
       auto_downgrade_after: 30
     hot_score: 5.0
     linked_claims:
+    - claim_id: claim-20260603-004-h
+      claim_type: stock-view
+      relevance: direct
     - claim_id: claim-20260605-001-g
       claim_type: sector-theme
       relevance: direct
@@ -2683,6 +2844,9 @@ themes:
     - claim_id: claim-20260518-019-l
       claim_type: stock-view
       relevance: direct
+    - claim_id: claim-20260529-005-d
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2766,7 +2930,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260529-003-f
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -2894,7 +3061,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260601-004-d
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3096,6 +3266,12 @@ themes:
       auto_downgrade_after: 30
     hot_score: 5.0
     linked_claims:
+    - claim_id: claim-20260602-003-d
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260603-004-h
+      claim_type: stock-view
+      relevance: direct
     - claim_id: claim-20260605-001-c
       claim_type: sector-theme
       relevance: direct
@@ -3219,7 +3395,11 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - *id009
+    - *id010
+    - *id011
+    - *id012
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3246,7 +3426,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260529-002-b
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3289,7 +3472,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260518-001
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3401,7 +3587,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260603-004-f
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3446,6 +3635,8 @@ themes:
     hot_score: 5.0
     linked_claims:
     - *id001
+    - *id002
+    - *id003
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3485,7 +3676,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260602-003-d
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3593,7 +3787,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260531-002-g
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3621,7 +3818,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260531-002-h
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3723,7 +3923,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260531-002-k
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3749,7 +3952,13 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260531-002-k
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260603-004-h
+      claim_type: stock-view
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -3898,7 +4107,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260603-004-f
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -4011,7 +4223,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260520-003-k
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -4046,7 +4261,13 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260609-001-e
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260610-006-k
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -4438,7 +4659,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260604-006-c
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -4474,7 +4698,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260531-002-g
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -5112,7 +5339,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260601-004-c
+      claim_type: stock-view
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -5237,7 +5467,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260525-027
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -5279,7 +5512,19 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260602-002-e
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260602-002-f
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260602-003-f
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260603-001-e
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -5322,7 +5567,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260602-003-f
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -5364,7 +5612,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260602-001-c
+      claim_type: sector-theme
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -5566,7 +5817,8 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - *id013
     opportunity_patterns:
       primary: null
       secondary: null
@@ -5680,7 +5932,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260610-007-b
+      claim_type: operation
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -5775,7 +6030,10 @@ themes:
       last_activity: '2026-06-05'
       auto_downgrade_after: 30
     hot_score: 5.0
-    linked_claims: []
+    linked_claims:
+    - claim_id: claim-20260610-007-b
+      claim_type: operation
+      relevance: direct
     opportunity_patterns:
       primary: null
       secondary: null
@@ -5806,6 +6064,7 @@ themes:
     code: 600482.SH
     name: 中国动力
     role: gas_turbine_703
+    linked_claims: []
   - priority: P1-核心
     up_mention_status:
       last_mentioned_date: '2026-06-09'
@@ -5832,6 +6091,7 @@ themes:
     code: 002126.SZ
     name: 银轮股份
     role: gas_turbine_heat
+    linked_claims: []
   - priority: P2-观察
     up_mention_status:
       last_mentioned_date: '2026-06-09'
@@ -5858,6 +6118,7 @@ themes:
     code: 605060.SH
     name: 联德股份
     role: gas_turbine_parts
+    linked_claims: []
 - id: engineering_machinery
   name: 工程机械（销量超预期+PB周期底，UP 6/9推荐）
   strategy: 磨底期低估值修复。5月挖机销售+36.2%连续3月加速，核心龙头PB回落至1.8倍周期底。UP明确'安全边际较充足'。等指数企稳+放量阳线确认介入。
@@ -5889,6 +6150,7 @@ themes:
     code: 600031.SH
     name: 三一重工
     role: engineering_leader
+    linked_claims: []
   - priority: P1-核心
     up_mention_status:
       last_mentioned_date: '2026-06-09'
@@ -5915,6 +6177,7 @@ themes:
     code: 000425.SZ
     name: 徐工机械
     role: engineering_tier1
+    linked_claims: []
   - priority: P2-观察
     up_mention_status:
       last_mentioned_date: '2026-06-09'
@@ -5941,6 +6204,7 @@ themes:
     code: 000157.SZ
     name: 中联重科
     role: engineering_tier1
+    linked_claims: []
   - priority: P2-观察
     up_mention_status:
       last_mentioned_date: '2026-06-09'
@@ -5967,6 +6231,7 @@ themes:
     code: 000528.SZ
     name: 柳工
     role: engineering_tier2
+    linked_claims: []
   - priority: P2-观察
     up_mention_status:
       last_mentioned_date: '2026-06-09'
@@ -5993,6 +6258,7 @@ themes:
     code: 601100.SH
     name: 恒立液压
     role: hydraulic_leader
+    linked_claims: []
 - id: commercial_aerospace
   name: 商业航天（回调>30%尾声+8节点+SpaceX IPO，UP 6/9推荐）
   strategy: 反弹修复逻辑，非趋势机会。下半年8个发射/回收节点密集，SpaceX 6月IPO。偏博弈，控仓快进快出。
@@ -6024,6 +6290,16 @@ themes:
     code: 600118.SH
     name: 中国卫星
     role: satellite_chain
+    linked_claims:
+    - claim_id: claim-20260609-001-e
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260609-004-a
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260609-004-e
+      claim_type: sector-theme
+      relevance: direct
   - priority: P2-观察
     up_mention_status:
       last_mentioned_date: '2026-06-09'
@@ -6050,3 +6326,10 @@ themes:
     code: 600879.SH
     name: 航天电子
     role: rocket_chain
+    linked_claims:
+    - claim_id: claim-20260609-004-b
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260609-004-g
+      claim_type: methodology
+      relevance: direct

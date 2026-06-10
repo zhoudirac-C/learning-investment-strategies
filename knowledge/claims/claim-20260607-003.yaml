@@ -13,7 +13,8 @@ claims:
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260607-003-c"]
+  contradicts:
+  - claim-20260607-003-c
   last_discovered: 2026-06-08
   links:
     wiki_pages: []
@@ -64,8 +65,11 @@ claims:
   interpretation: 科技股补跌是系统性的，不要有侥幸心理。利通电子（本轮领涨龙头）先跌是明确的撤退信号。
   confidence: high
   status: active
-  supersedes: ["claim-20260604-004-b"]
-  contradicts: ["claim-20260529-002-b", "claim-20260602-003-b"]
+  supersedes:
+  - claim-20260604-004-b
+  contradicts:
+  - claim-20260529-002-b
+  - claim-20260602-003-b
   last_discovered: 2026-06-08
   links:
     wiki_pages: []
@@ -145,7 +149,8 @@ claims:
   interpretation: 原油价格是黄金坑深度的决定变量。信用利差是关键观测指标。
   confidence: medium
   status: active
-  supersedes: ["claim-20260414-001"]
+  supersedes:
+  - claim-20260414-001
   contradicts: []
   last_discovered: 2026-06-08
   links:
@@ -169,8 +174,10 @@ claims:
   interpretation: 黄金4230是UP的明确买入目标位。黄金走势是A股调整深度的领先指标。
   confidence: medium
   status: active
-  supersedes: ["claim-20260528-005-d"]
-  contradicts: ["claim-20260607-003-b"]
+  supersedes:
+  - claim-20260528-005-d
+  contradicts:
+  - claim-20260607-003-b
   last_discovered: 2026-06-08
   links:
     wiki_pages: []
@@ -207,6 +214,10 @@ claims:
   - 个股分析
   - 数据中心
   - 跌破
+  related_stocks:
+  - code: '300442'
+    name: 润泽科技
+    role: 参考标的
 - id: claim-20260607-003-i
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
   source_date: '2026-06-07'
@@ -312,3 +323,10 @@ claims:
   - 板块主题
   - 电力
   - 风电
+  related_stocks:
+  - code: '603259'
+    name: 药明康德
+    role: 参考标的
+  - code: '600276'
+    name: 恒瑞医药
+    role: 参考标的

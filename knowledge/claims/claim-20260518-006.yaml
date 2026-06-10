@@ -3,7 +3,7 @@
   source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
   source_date: 2026-05-18
   source_type: 早盘
-  extracted_at: "2026-05-18T13:25:00+08:00"
+  extracted_at: '2026-05-18T13:25:00+08:00'
   claim_type: market-cycle
   subject: 指数调整节奏
   timeframe: short-term
@@ -13,25 +13,26 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260527-006-d"]
+  contradicts:
+  - claim-20260527-006-d
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 市场分析/指数调整
+    - 市场分析/指数调整
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 指数调整
-    - 市场周期
-    - 顶部结构
-    - 日线
+  - 指数调整
+  - 市场周期
+  - 顶部结构
+  - 日线
 - id: claim-20260518-007
   topic: 连续两日大跌后
   source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
   source_date: 2026-05-18
   source_type: 早盘
-  extracted_at: "2026-05-18T13:25:00+08:00"
+  extracted_at: '2026-05-18T13:25:00+08:00'
   claim_type: technical-signal
   subject: 量能判断
   timeframe: short-term
@@ -40,25 +41,26 @@
   interpretation: 低开是短期博弈反弹的机会，但真正的调整结束需要看到量能萎缩到2.5万亿左右。
   confidence: high
   status: active
-  supersedes: ["claim-20260515-010"]
+  supersedes:
+  - claim-20260515-010
   contradicts: []
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 市场分析/量能判断
+    - 市场分析/量能判断
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 技术信号
-    - 反弹
-    - 黄金
+  - 技术信号
+  - 反弹
+  - 黄金
 - id: claim-20260518-008
   topic: 半导体设备
   source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
   source_date: 2026-05-18
   source_type: 早盘
-  extracted_at: "2026-05-18T13:25:00+08:00"
+  extracted_at: '2026-05-18T13:25:00+08:00'
   claim_type: sector-theme
   subject: 半导体设备
   timeframe: short-term
@@ -68,24 +70,25 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260604-006-c"]
+  contradicts:
+  - claim-20260604-006-c
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 市场分析/半导体设备
+    - 市场分析/半导体设备
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 板块主题
-    - 半导体
-    - 主线
+  - 板块主题
+  - 半导体
+  - 主线
 - id: claim-20260518-009
   topic: Token算力
   source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
   source_date: 2026-05-18
   source_type: 早盘
-  extracted_at: "2026-05-18T13:25:00+08:00"
+  extracted_at: '2026-05-18T13:25:00+08:00'
   claim_type: sector-theme
   subject: Token算力
   timeframe: short-term
@@ -99,20 +102,24 @@
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 市场分析/Token算力
+    - 市场分析/Token算力
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 算力租赁
-    - 板块主题
-    - 资源
+  - 算力租赁
+  - 板块主题
+  - 资源
+  related_stocks:
+  - code: '601728'
+    name: 中国电信
+    role: 参考标的
 - id: claim-20260518-010
   topic: 新型储能政策驱动明确
   source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
   source_date: 2026-05-18
   source_type: 早盘
-  extracted_at: "2026-05-18T13:25:00+08:00"
+  extracted_at: '2026-05-18T13:25:00+08:00'
   claim_type: sector-theme
   subject: 新型储能
   timeframe: short-term
@@ -126,20 +133,20 @@
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 市场分析/新型储能
+    - 市场分析/新型储能
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 板块主题
-    - 储能
-    - 算力
+  - 板块主题
+  - 储能
+  - 算力
 - id: claim-20260518-011
   topic: 主线优先级
   source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
   source_date: 2026-05-18
   source_type: 早盘
-  extracted_at: "2026-05-18T13:25:00+08:00"
+  extracted_at: '2026-05-18T13:25:00+08:00'
   claim_type: operation
   subject: 主线优先级
   timeframe: intraday
@@ -149,7 +156,8 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260520-001-e"]
+  contradicts:
+  - claim-20260520-001-e
   last_discovered: 2026-06-08
   links:
     wiki_pages: []
@@ -157,9 +165,9 @@
     cases: []
   intensity: high
   tags:
-    - 操作策略
-    - 半导体
-    - 储能
-    - 算力
-    - 存储
-    - 主线
+  - 操作策略
+  - 半导体
+  - 储能
+  - 算力
+  - 存储
+  - 主线

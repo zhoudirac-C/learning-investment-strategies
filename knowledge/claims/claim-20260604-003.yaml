@@ -36,7 +36,8 @@ claims:
   related_claims: []
   contradicts: []
   last_discovered: 2026-06-08
-  supersedes: ["claim-20260527-006-d"]
+  supersedes:
+  - claim-20260527-006-d
   intensity: medium
   links: {}
 - id: claim-20260604-003-b
@@ -109,7 +110,8 @@ claims:
   related_claims: []
   contradicts: []
   last_discovered: 2026-06-08
-  supersedes: ["claim-20260526-015"]
+  supersedes:
+  - claim-20260526-015
   intensity: high
   links: {}
 - id: claim-20260604-003-d
@@ -229,3 +231,7 @@ claims:
   supersedes: []
   intensity: medium
   links: {}
+  related_stocks:
+  - code: '002156'
+    name: 通富微电
+    role: 参考标的

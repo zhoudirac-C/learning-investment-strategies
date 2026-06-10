@@ -3,7 +3,7 @@
   source_path: sources/raw/财经/午盘：26-05-18：长鑫产业链新生启动，指数共振乏力待观察.md
   source_date: 2026-05-18
   source_type: 午盘
-  extracted_at: "2026-05-18T13:20:00+08:00"
+  extracted_at: '2026-05-18T13:20:00+08:00'
   claim_type: sector-theme
   subject: 长鑫存储产业链
   timeframe: short-term
@@ -12,27 +12,41 @@
   interpretation: 长鑫产业链具备成为阶段主线的条件（产业消息、扩产逻辑、板块阵型、容量中军），但指数共振不足制约其升级为阶段新主流。
   confidence: high
   status: active
-  supersedes: ["claim-20260515-004"]
+  supersedes:
+  - claim-20260515-004
   contradicts: []
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 市场分析/长鑫存储产业链
+    - 市场分析/长鑫存储产业链
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 板块主题
-    - 长鑫存储
-    - 扩产
-    - 进攻
-    - 共振
+  - 板块主题
+  - 长鑫存储
+  - 扩产
+  - 进攻
+  - 共振
+  related_stocks:
+  - code: '603986'
+    name: 兆易创新
+    role: 参考标的
+  - code: 002409
+    name: 雅克科技
+    role: 参考标的
+  - code: '000672'
+    name: 上峰水泥
+    role: 参考标的
+  - code: '000021'
+    name: 深科技
+    role: 参考标的
 - id: claim-20260518-002
   topic: 量能明显缩减表明当前不是情绪拐点式
   source_path: sources/raw/财经/午盘：26-05-18：长鑫产业链新生启动，指数共振乏力待观察.md
   source_date: 2026-05-18
   source_type: 午盘
-  extracted_at: "2026-05-18T13:20:00+08:00"
+  extracted_at: '2026-05-18T13:20:00+08:00'
   claim_type: market-cycle
   subject: 市场情绪
   timeframe: intraday
@@ -42,26 +56,27 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260528-004-a"]
+  contradicts:
+  - claim-20260528-004-a
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 市场分析/量能判断
+    - 市场分析/量能判断
     methodology_pages: []
     cases: []
   intensity: medium
   tags:
-    - 情绪拐点
-    - 市场周期
-    - 市场情绪
-    - 量能
-    - 修复
+  - 情绪拐点
+  - 市场周期
+  - 市场情绪
+  - 量能
+  - 修复
 - id: claim-20260518-003
   topic: 只有成板块建制的进攻
   source_path: sources/raw/财经/午盘：26-05-18：长鑫产业链新生启动，指数共振乏力待观察.md
   source_date: 2026-05-18
   source_type: 午盘
-  extracted_at: "2026-05-18T13:20:00+08:00"
+  extracted_at: '2026-05-18T13:20:00+08:00'
   claim_type: methodology
   subject: 板块判断方法论
   timeframe: permanent
@@ -75,20 +90,20 @@
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 投资方法论/主线判断
+    - 投资方法论/主线判断
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 方法论
-    - 主线
-    - 进攻
+  - 方法论
+  - 主线
+  - 进攻
 - id: claim-20260518-004
   topic: 长鑫存储产业链
   source_path: sources/raw/财经/午盘：26-05-18：长鑫产业链新生启动，指数共振乏力待观察.md
   source_date: 2026-05-18
   source_type: 午盘
-  extracted_at: "2026-05-18T13:20:00+08:00"
+  extracted_at: '2026-05-18T13:20:00+08:00'
   claim_type: sector-theme
   subject: 长鑫存储产业链
   timeframe: short-term
@@ -102,21 +117,21 @@
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 市场分析/长鑫存储产业链
+    - 市场分析/长鑫存储产业链
     methodology_pages: []
     cases: []
   intensity: medium
   tags:
-    - 情绪拐点
-    - 板块主题
-    - 长鑫存储
-    - 共振
+  - 情绪拐点
+  - 板块主题
+  - 长鑫存储
+  - 共振
 - id: claim-20260518-005
   topic: 在指数未确认共振前
   source_path: sources/raw/财经/午盘：26-05-18：长鑫产业链新生启动，指数共振乏力待观察.md
   source_date: 2026-05-18
   source_type: 午盘
-  extracted_at: "2026-05-18T13:20:00+08:00"
+  extracted_at: '2026-05-18T13:20:00+08:00'
   claim_type: operation
   subject: 操作策略
   timeframe: intraday
@@ -130,12 +145,12 @@
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 投资方法论/仓位管理
+    - 投资方法论/仓位管理
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 操作策略
-    - 仓位
-    - 共振
-    - 长鑫
+  - 操作策略
+  - 仓位
+  - 共振
+  - 长鑫

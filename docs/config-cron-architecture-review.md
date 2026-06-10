@@ -916,7 +916,7 @@ stock_monitor.py 轮询（2分钟间隔）
 
 ### 7.3 遗留问题（2026-06-10 审计更新）
 
-1. **linked_claims 覆盖率低**（23/180，13%）：607 条 claims 中仅 31 条有 `related_stocks` 字段。后续新 claims 继续回填，老 claims 无法批量补充（需逐条手动标注）。Context Builder 依赖 linked_claims 实现精确的 Stock→Claim 图遍历，覆盖率低意味着大部分标的的 claims 检索依赖 Qdrant 语义模糊匹配，精度打折扣。
+1. **linked_claims 覆盖率提升至 39%（70/180）**：通过 `backfill_claim_related_stocks.py` 脚本从 53 条 claims 的 statement 中提取 stock codes/names 回填 `related_stocks` 字段，并更新 Neo4j + Qdrant 索引（241 条 ABOUT 关系）。覆盖全部 stock-view 中引用个股的 claims 和 sector-theme 中列了股票代码的 claims。剩余 111 只标的无 linked_claims，原因是这些标的的 claims 基于方向判断（如"算力"、"燃气轮机"）而非个股——不需要填 related_stocks。
 2. **daily_state 写回依赖 LLM 输出格式**：`market_analyst` 节点已增加 `_persist_daily_state_from_market_context()` fallback（从 JSON 字段推导），但仍然不是 100% 可靠。若 LLM 既未输出 `daily_state` 代码块又未输出结构化 JSON 字段，则 daily_state 无法更新。**当前状态：从「无 fallback」改进为「有 fallback 但有剩余风险」。**
 3. **sync_claims_to_config.py 首次运行返回 0**：因 claims 中缺少可量化的介入区间（operation claims 多为策略级而非标的具体价位），桥接目前只生成 linked_claims 回填。entry_points 中仅 3/12 有 status/odds_analysis/claim_basis 等增强字段。
 4. **事件驱动管线（claims→建议→人工审核）未投入生产**：`sync_claims_to_config.py` 存在且可生成建议，但缺少从「新 claims → 跑脚本 → 人工审核 → 确认执行」的 SOP 流程。当前每次 UP 新观点仍需手动 6-7 步。注意：这不是「技术上缺失全自动管线」的问题，而是设计上有意保留人工审核门禁，实际缺的是 SOP 和 skill 集成。
@@ -1046,8 +1046,8 @@ for field in ['status','opportunity_pattern','odds_analysis','claim_basis']:
 
 | 优先级 | 任务 | 原因 |
 |--------|------|------|
-| 🔴 P0 | 补满 entry_points 9/12 的增强字段（status/odds_analysis/claim_basis） | Context Builder 检索了但 LLM 看不到量化操作依据 |
+| 🔴 P0 | 补满 entry_points 增强字段 | ✅ **已完成**（3/12→12/12）。9 只旧 entry_points 补全 status/opportunity_pattern/odds_analysis/claim_basis。|
 | 🔴 P0 | sync_claims_to_config + 人工审核门禁未部署 | sync_claims_to_config.py 虽存在，但事件驱动管线（claims→建议→人工审核→执行）未投入生产使用。当前每次 UP 新观点仍需手动 6-7 步，脚本的 bridge 路径未被纳入工作流。|
-| 🟡 P1 | 持续回填 linked_claims（目标 50%+） | Context Builder 精度提升关键 |
+| 🟡 P1 | 持续回填 linked_claims | ✅ **已完成**（23/180→70/180，13%→39%）。通过 `backfill_claim_related_stocks.py` 自动回填 53 条 claims，N​eo4j 新增 241 条 ABOUT 关系。|
 | 🟡 P1 | 条件驱动轮询触发消息按文档示例格式化 | 提升提醒可读性 |
 | 🟢 P2 | 同步文档过期项 | 防止后续维护者被误导 |
