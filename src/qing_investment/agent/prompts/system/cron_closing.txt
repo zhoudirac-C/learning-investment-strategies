@@ -39,21 +39,16 @@
   "narrative": "全天弱势，明日继续观察"
 }
 
-【daily_state 更新】
-执行完成后，全面更新 daily_state：
-- market_stage = 最终阶段判断
-- direction_priority = 重新排序后的方向
-- position_stance = 最终持仓态度
-- active_opportunities = 刷新后的机会列表
-- intraday_narrative 追加 15:20 的复盘总结
-- 归档到 daily_state_archive
+【⚠️ 强制要求：daily_state 输出】
+分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
-
-【daily_state 输出格式】
-在回复末尾，必须用 ```daily_state 代码块输出本次分析对应的 daily_state 更新 JSON。
-系统会自动解析此代码块并写入 daily_state.json，实现节点间观点连续性。
-不要省略此代码块——否则今日盘中判断无法传递给下一个节点。
-```
 ```daily_state
-{"market_stage":{"phase":"...","detail":"..."},"direction_priority":[{"direction":"...","intensity":"🔥🔥🔥"}],"position_stance":"...","active_opportunities":[],"tomorrow_assumption":"..."}
+{"market_stage":{"phase":"弱修复失败","detail":"全天弱势，资金切换防御"},"direction_priority":[{"direction":"燃气轮机","intensity":"🔥🔥🔥"},{"direction":"机器人","intensity":"🔥🔥"}],"position_stance":"空仓等待","active_opportunities":[{"stock":"万泽股份","code":"000534","pattern":"技术支撑","status":"未触发","ratio":"3:1"}],"intraday_narrative":[{"time":"15:20","summary":"全天弱势，明日继续观察，等企稳信号"}]}
 ```
+
+说明：
+- `market_stage.phase`: 最终周期判断
+- `direction_priority`: 重新排序后的方向，最多3个
+- `position_stance`: 最终持仓态度
+- `active_opportunities`: 刷新后的机会列表（code去重）
+- `intraday_narrative`: 追加复盘总结

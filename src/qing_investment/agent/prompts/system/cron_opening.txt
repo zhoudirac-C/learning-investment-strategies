@@ -25,7 +25,15 @@
   "narrative": "竞价低开，但机器人方向相对抗跌，判断今日等修复"
 }
 
-【daily_state 更新】
-执行完成后，更新 daily_state：
-- market_stage.phase = 你的周期判断
-- intraday_narrative 追加 09:26 的观点
+【⚠️ 强制要求：daily_state 输出】
+分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
+
+```daily_state
+{"market_stage":{"phase":"等修复","detail":"竞价低开，机器人抗跌"},"direction_priority":[{"direction":"机器人","intensity":"🔥🔥"},{"direction":"燃气轮机","intensity":"🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"09:26","summary":"竞价低开，机器人方向相对抗跌，判断今日等修复"}]}
+```
+
+说明：
+- `phase`: 周期判断（如"等修复"/"强修复"/"弱修复"/"分歧"/"防御"）
+- `direction_priority`: 方向优先级数组，最多3个
+- `position_stance`: 持仓态度（空仓等待/轻仓试探/重仓持有）
+- `intraday_narrative`: 观点演进记录，time=节点时间，summary=一句话总结

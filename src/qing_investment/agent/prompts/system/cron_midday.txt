@@ -29,17 +29,15 @@
   "narrative": "午后修复力度弱，降低尾盘预期"
 }
 
-【daily_state 更新】
-执行完成后，更新 daily_state：
-- intraday_narrative 追加 14:00 的观点
-- active_opportunities 更新今日发现的机会
+【⚠️ 强制要求：daily_state 输出】
+分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
-
-【daily_state 输出格式】
-在回复末尾，必须用 ```daily_state 代码块输出本次分析对应的 daily_state 更新 JSON。
-系统会自动解析此代码块并写入 daily_state.json，实现节点间观点连续性。
-不要省略此代码块——否则今日盘中判断无法传递给下一个节点。
-```
 ```daily_state
-{"morning_validation":"...","afternoon_assessment":"...","tail_risk":"...","position_adjustment":"...","active_opportunities":[]}
+{"market_stage":{"phase":"等修复","detail":"..."},"direction_priority":[{"direction":"...","intensity":"🔥🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"14:00","summary":"一句话总结本节点观点"}]}
 ```
+
+说明：
+- `market_stage.phase`: 周期判断（等修复/强修复/弱修复/分歧/防御）
+- `direction_priority`: 方向优先级数组，最多3个
+- `position_stance`: 持仓态度（空仓等待/轻仓试探/重仓持有）
+- `intraday_narrative`: 观点演进记录，time=节点时间，summary=一句话总结

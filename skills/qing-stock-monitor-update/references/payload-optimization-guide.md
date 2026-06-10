@@ -1,6 +1,6 @@
 # Payload 优化指南 — qing-stock-monitor-update
 
-> 当 Qing-Agent 调用 timeout 或 payload 过大时，参考本指南优化 `_agent_context_data()` 的 JSON 输出。
+> 当 Qing-Agent 调用 timeout 或 payload 过大时，参考本指南诊断和优化 `_agent_context_data()` 的 JSON 输出。
 
 ---
 
@@ -14,16 +14,32 @@ Qing-Agent timeout 可能有三个原因：
 | **Qdrant 并发锁** | 日志出现 `Storage folder .qdrant_data is already accessed` | 重启 Qing-Agent 或改用 Qdrant server 模式 |
 | **LLM 管线慢** | `/health` 通过但 `/analyze/trigger` 超时 | 增加 timeout（120→180s） |
 
+**重要**：先检查日志确认根因，不要假设是 payload 问题。2026-06-10 的实际案例显示 timeout 根因是 Qdrant 锁冲突，而非 payload 大小。
+
+---
+
+## Payload 构成分析（2026-06-10 实测）
+
+| 部分 | 大小 | 占比 | 说明 |
+|------|------|------|------|
+| **watchlist** | 58.7 KB | 73% | 180 条观察标的，每条 484 字节 |
+| quote_snapshot | 10.2 KB | 13% | 40 条行情 |
+| external_sector_boards | 6.0 KB | 8% | 东方财富板块数据 |
+| 其他 | 4.7 KB | 6% | trigger、positions 等 |
+| **总计** | **78.6 KB** | 100% | |
+
+**结论**：watchlist 是 payload 优化的最大收益点。
+
 ---
 
 ## 优化策略
 
 ### 1. 精简 watchlist（最大收益）
 
-**优化前**：180 条 × 484 字节 = 87KB
-**优化后**：30 条 × 307 字节 = 9KB
+**优化前**：180 条 × 484 字节 = 58.7 KB
+**优化后（实验）**：30 条 × 307 字节 = 9.2 KB
 
-实现：`_build_compact_watchlist()` 函数
+实现思路：`_build_compact_watchlist()` 函数
 
 ```python
 def _build_compact_watchlist(
@@ -37,7 +53,7 @@ def _build_compact_watchlist(
     # 文本截断：超长自动加 "..."
 ```
 
-**效果**：watchlist 大小 -84%，总 payload -46%
+**预期效果**：watchlist 大小 -84%，总 payload -46%
 
 ### 2. 截断长文本字段
 
@@ -51,6 +67,18 @@ def _build_compact_watchlist(
 ### 3. 减少 quote_snapshot 条目
 
 当前 40 条，可考虑减少到 20 条（持仓 + 观察池前 20）
+
+---
+
+## 实施状态
+
+**2026-06-10**：
+- 已分析 payload 构成并验证优化效果
+- 代码改动被用户要求回滚（用户希望先思考再决定）
+- 当前代码中 **未实现** `_build_compact_watchlist()`
+- 当前采用 **timeout 180s + 停止 MCP Qdrant server** 解决 timeout
+
+**未来如需实施 payload 优化**，参考上述 `_build_compact_watchlist()` 思路修改 `src/qing_investment/stock_monitor.py` 的 `_agent_context_data()`。
 
 ---
 
@@ -71,19 +99,9 @@ for key in data:
 
 ---
 
-## 长期方案
-
-当前优化是治标。根本问题是 **Qdrant 本地模式不支持并发访问**（Qing-Agent + MCP 同时访问 `.qdrant_data`）。
-
-**长期方案**：
-1. Qing-Agent 使用 Qdrant HTTP API 而非本地文件
-2. 或部署独立 Qdrant server（docker run qdrant/qdrant）
-3. 或增加 Qing-Agent 和 MCP 的访问协调机制
-
----
-
 ## 相关文件
 
-- `src/qing_investment/stock_monitor.py` — `_build_compact_watchlist()` 实现
+- `src/qing_investment/stock_monitor.py` — `_agent_context_data()` 位置
 - `scripts/hermes_stock_monitor_agent.py` — timeout 配置（默认 180s）
 - `src/qing_investment/agent/tools/qdrant_client.py` — Qdrant 客户端
+- `references/qdrant-concurrency-lock.md` — Qdrant 锁冲突详细说明

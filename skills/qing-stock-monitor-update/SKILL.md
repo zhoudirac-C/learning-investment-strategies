@@ -27,12 +27,15 @@ description: |
 | Claims 一致性校验 | `references/claims-consistency-check.md` |
 | Entry points 生成 | `references/entry-points-generation.md` |
 | 配置健康检查 | `references/config-health-check.md` |
+| 持仓观察池区分修复记录 | `references/position-watchlist-distinction-fix.md` |
+| 腾讯→新浪→东财降级链详情 | `references/tencent-sina-eastmoney-fallback-chain.md` |
 | Agent-UP 矛盾处理 | 本 SKILL §陷阱 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
 | 实施状态核查 | `references/implementation-audit-checklist.md` |
 | Qing-Agent 服务运维速查 | `references/qing-agent-service-operations.md` |
 | Qing-Agent 服务架构（uvicorn→gunicorn 单 worker） | `references/qing-agent-gunicorn-migration.md` |
 | 系统问题修复记录（2026-06-10） | `references/fix-monitor-system-issues-20260610.md` |
+| Qdrant 本地模式并发锁机制 | `references/qdrant-concurrency-lock.md` |
 
 ---
 
@@ -115,6 +118,38 @@ python3 scripts/check_config_consistency.py --json
 
 **反面案例（2026-06-10）**：Agent 挂了整整一个上午——`/health` 返回 OK，但 `/analyze/trigger` 挂死无响应。全部 cron 静默走 LLM fallback，输出过期方向词且无 claims 引用。
 
+**数据源降级导致的 fallback 连锁反应（2026-06-10 下午）**：
+
+cron job 报告出现持仓幻觉（"景旺电子 +4.18%、鼎龙股份 +2.03%"），但用户实际空仓。根因链：
+1. `stock_monitor.py` 的 `fetch_quotes_with_fallback()` **东财优先**，服务器 IP 被东财严格限流
+2. 东财返回 0 quotes + errors，但判断条件 `len(em_quotes) >= len(targets)` 不成立时**不会触发降级**
+3. 脚本阻塞重试直至超时，cron 静默失败
+4. 当 Agent 分析时，部分标的无实时行情 → 分析质量下降 → AI 幻觉（将 watchlist 标的误认为持仓）
+
+**已修复（2026-06-10）**：
+1. **数据源优先级反转**：腾讯(gtimg) 优先 → 新浪(hq.sinajs.cn) 备用 → 东财(push2) 兜底
+2. **新增 `fetch_sina_quotes()`**：新浪财经批量接口，chunk_size=80
+3. **重写 `fetch_quotes_with_fallback()`**：
+   - 腾讯成功条件：返回 ≥80% 标的 且 无错误
+   - 新浪补充：合并腾讯已获取数据 + 新浪补充缺失标的
+   - 兜底合并：所有可用数据源数据合并 + 汇总错误信息
+   - 完全失败：返回 `all_failed` + 三源错误摘要
+4. **新增 `_merge_quotes()`**：以主源为主，补充缺失 secid
+
+**验证命令**：
+```bash
+cd ~/learning-investment-strategies
+python3 -c "
+import sys; sys.path.insert(0, 'src')
+from qing_investment.stock_monitor import fetch_quotes_with_fallback, collect_quote_targets, load_monitor_config
+config = load_monitor_config()
+targets = collect_quote_targets(config)
+result = fetch_quotes_with_fallback(targets)
+print(f'source={result[\"source\"]}, quotes={len(result[\"quotes\"])}/{len(targets)}, errors={result.get(\"errors\",[])}')
+"
+# 期望输出：source=tencent_gtimg, quotes=184/184, errors=[]
+```
+
 **⚠️ `/health` 通过 ≠ 管线正常**。`/health` 只检查进程存活，不检查 LangGraph 管线。
 
 **根因**：uvicorn 单 worker 串行排队 + 管线 30s+ 耗时 vs 脚本 45s 超时。第一个慢请求触发 worker 忙碌 → 后续请求排队 → 全部超时走 fallback。不是代码 bug，是超时争用。
@@ -140,7 +175,7 @@ for dir in ~/.hermes/cron/output/*/; do
   [ -n "$latest" ] && grep -lE "Qing-Agent . FALLBACK|qing-agent fallback" "$latest" && echo "  ↳ $(basename $dir)"
 done
 
-# 第二步：直接测 /analyze/trigger（非 /health，max-time 30s 匹配 120s 超时 + 管线耗时）
+# 第二步：直接测 /analyze/trigger（非 /health，max-time 30s 匹配 180s 超时 + 管线耗时）
 curl -s --max-time 30 -X POST http://127.0.0.1:8000/analyze/trigger \
   -H "Content-Type: application/json" \
   -d '{"query":"健康检查","session_id":"health-001","analysis_type":"market"}' \
@@ -155,6 +190,8 @@ curl -s --max-time 30 -X POST http://127.0.0.1:8000/analyze/trigger \
 # 1. 杀旧进程（同时杀 uvicorn 和 gunicorn，防混用）
 kill $(pgrep -f "uvicorn qing_investment") 2>/dev/null
 kill $(pgrep -f "gunicorn") 2>/dev/null
+# 同时停止 MCP Qdrant server（避免 Qdrant 本地文件锁冲突）
+kill $(pgrep -f "mcp_qdrant_server") 2>/dev/null
 sleep 2
 
 # 2. 确认端口释放
@@ -179,6 +216,8 @@ curl -s --max-time 30 -X POST http://localhost:8000/analyze/trigger \
 
 > **为什么用 gunicorn 替代 uvicorn？** gunicorn 提供进程管理（崩溃自动重启、优雅关闭、统一日志），但 Qdrant 本地模式不支持多 worker 并发，所以用 `-w 1`。详见 `references/qing-agent-gunicorn-migration.md`。
 
+> **为什么停止 MCP Qdrant server？** Qdrant 本地文件模式使用 `portalocker.EXCLUSIVE` 排他锁，同一时刻只能有一个进程访问 `.qdrant_data`。Qing-Agent 和 MCP 同时运行会导致 `RuntimeError: Storage folder is already accessed`。解决方案：让 Qing-Agent 独占 Qdrant，MCP 查询通过 Qing-Agent API 代理或错峰运行。
+
 > **参数速查**：
 > | 参数 | 含义 |
 > |---|---|
@@ -196,11 +235,85 @@ curl -s --max-time 30 -X POST http://localhost:8000/analyze/trigger \
 2. 归类：信息不对称（Agent 缺 claim-007）→ 补 claims → 重新分析
 3. 写入 strategy_pack 时标注来源 claim ID
 
+### 陷阱 3b: AI 持仓幻觉（观察池 vs 持仓池混淆）
+
+**反面案例（2026-06-10）**：用户实际空仓（positions.yaml: `positions: []`），但 cron 报告输出"景旺电子(CCL) +4.18%、鼎龙股份(材料) +2.03%"，仿佛这些标的是持仓。
+
+**根因链**：
+1. `format_analysis_context()` 中"持仓："标题后无明确空仓标注
+2. AI 将 watchlist.yaml 中的标的误认为持仓
+3. 9个 cron prompt 均无"持仓池 vs 观察池"区分说明
+
+**已修复（2026-06-10）**：
+1. **`format_analysis_context()` 明确标注**：
+   ```
+   === 持仓池（positions.yaml）===
+   状态：【空仓】当前无持仓
+   
+   重要区分：
+   - 持仓池 = 你当前实际持有的股票（来自 positions.yaml）
+   - 观察池 = 你关注但尚未买入的股票（来自 watchlist.yaml）
+   - 严禁将观察池标的当作持仓分析！
+   
+   持仓明细：
+     （无持仓）
+   
+   === 观察池（watchlist.yaml）===
+   这些标的尚未买入，仅作观察：
+   ```
+2. **`format_live_analysis_context()` 注入提醒**：
+   ```
+   【重要】当前持仓状态：空仓
+   【重要】观察池标的 ≠ 持仓，严禁混淆！
+   ```
+3. **9个 cron prompt 增加区分说明**：每个 prompt 开头插入
+   ```
+   【持仓池 vs 观察池 区分说明】
+   - 持仓池 = positions.yaml 中列出的股票，是你当前实际持有的仓位
+   - 观察池 = watchlist.yaml 中列出的股票，是你关注但尚未买入的标的
+   - 【严禁】将观察池标的当作持仓分析或给出持仓操作建议！
+   - 当前持仓状态已在上下文顶部标明，分析前务必确认
+   ```
+
+**涉及文件**：
+- `src/qing_investment/stock_monitor.py`（`format_analysis_context()` + `format_live_analysis_context()`）
+- `src/qing_investment/agent/prompts/system/cron_*.txt`（9个文件）
+
+**验证命令**：
+```bash
+cd ~/learning-investment-strategies
+python3 -c "
+import sys; sys.path.insert(0, 'src')
+from qing_investment.stock_monitor import format_analysis_context, load_monitor_config
+from datetime import datetime
+from zoneinfo import ZoneInfo
+config = load_monitor_config()
+ctx = format_analysis_context(config, datetime.now(ZoneInfo('Asia/Shanghai')))
+assert '【空仓】当前无持仓' in ctx, '空仓标注缺失'
+assert '严禁将观察池标的当作持仓分析' in ctx, '区分说明缺失'
+assert '持仓池（positions.yaml）' in ctx, '持仓池标题缺失'
+assert '观察池（watchlist.yaml）' in ctx, '观察池标题缺失'
+print('✓ 持仓/观察池区分验证通过')
+"
+```
+
 ### 陷阱 4: invalidation 点位过期
 
 数字点位（如"收盘跌破4000"）和当前指数偏离 >3% 时自动检测。Step 1 门禁覆盖。
 
-### 陷阱 5: Cron prompt 空改
+### 陷阱 5: 未经用户确认直接修改代码
+
+**反面案例（2026-06-10）**：用户说"payload 过大怎么优化"，AI 直接修改了 `_agent_context_data()` 添加 `_build_compact_watchlist()`，用户发现后要求回滚。
+
+**根因**：AI 没有等待用户确认就执行代码修改，违反了"先报告后修改"原则。
+
+**正确做法**：
+1. 先分析问题和可能的解决方案
+2. 展示方案给用户，等待明确确认（"可以改" / "按方案A执行"）
+3. 用户确认后再修改代码
+4. 如果用户说"让我想想"、"等下"、"别改"——立即停止，回滚未确认改动
+
+### 陷阱 6: Cron prompt 空改
 
 改了 cron prompt 但没验证 → 下次 cron 执行才发现不生效。
 
@@ -210,7 +323,7 @@ python3 scripts/hermes_stock_monitor_agent.py
 # 检查输出是否含新框架关键词
 ```
 
-### 陷阱 6: Neo4jClient 方法缺失导致 Context Builder 失效
+### 陷阱 7: Neo4jClient 方法缺失导致 Context Builder 失效
 
 **反面案例（2026-06-10）**：`context_builder.py` 调用 `neo4j_client.get_claims_about_stock()` 和 `neo4j_client.get_sector_themes()`，但 `Neo4jClient` 类中不存在这两个方法 → `AttributeError` → Context Builder 完全失效 → claims 无法注入 Agent 分析。
 
@@ -270,10 +383,12 @@ grep -c "active_patterns" src/qing_investment/agent/tools/context_builder.py
 
 ## 关键纪律
 
-- **先报告后修改**：差异报告必须经用户确认
+- **先报告后修改**：差异报告必须经用户确认；代码改动同样需用户明确说"可以改"后再执行
+- **用户说"让我想想" / "等下" / "别改"时立即停止**：回滚未确认改动，不争论
 - **全链路检查**：不能只看 watchlist 不看 strategy_pack
 - **claims 优先**：UP 直接点名的方向/标的必须补入 watchlist
-- **Agent 健康优先**：Qing-Agent 离线时先重启再分析（用 gunicorn 单 worker，非 uvicorn）
+- **Agent 健康优先**：Qing-Agent 离线时先重启再分析（用 gunicorn 单 worker，非 uvicorn；同时停止 MCP Qdrant server 避免锁冲突）
+- **不未经确认提交**：用户说"不要提交"或"让我想想"时，立即停止并回滚未确认改动
 - **验证必须跑**：`validate_config.py` + `check_config_consistency.py --json`
 - **主板-only**：用户只能交易 sh6xxxxx / sz0xxxxx。非主板标的标记 `tradable: false`
 - **不删旧数据**：旧 theme 降级为 monitor_only，不删除

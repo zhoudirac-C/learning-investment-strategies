@@ -140,7 +140,7 @@ curl -s 'http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Mar
 ### 方案 5：东方财富直接 API（curl）
 
 ```bash
-# 单只标的
+# 单只标的（深市 sz 前缀用 secid=0.，沪市 sh 前缀用 secid=1.）
 curl -s "https://push2.eastmoney.com/api/qt/stock/get?secid=0.300054&fields=f43,f44,f45,f46,f47,f48,f57,f58,f60,f170"
 ```
 
@@ -149,14 +149,55 @@ curl -s "https://push2.eastmoney.com/api/qt/stock/get?secid=0.300054&fields=f43,
 - `f44` = 最高价 × 100
 - `f45` = 最低价 × 100
 - `f46` = 开盘价 × 100
-- `f47` = 成交量
-- `f48` = 成交额
+- `f47` = 成交量（手）
+- `f48` = 成交额（元）
 - `f57` = 股票代码
 - `f58` = 股票名称
 - `f60` = 昨收 × 100
-- `f170` = 涨跌幅
+- `f170` = 涨跌额 × 100（注意：不是涨跌幅百分比，需手动计算 `(f43-f60)/f60*100`）
 
-**注意**：此 API 在非交易时段可能返回空数据或缓存数据。
+**注意**：
+- 此 API 在非交易时段可能返回空数据或缓存数据
+- **IP 限流警告**：连续高频请求（如脚本循环批量调用）会触发东财服务器限流，返回空响应 `{}` 或连接重置。限流后需等待 5-10 分钟恢复
+- **推荐做法**：单脚本内调用东财 API 时加入 `sleep 1-3` 间隔；若需批量获取多只标的，优先使用腾讯 API（方案 1）或新浪 API（方案 4），它们对批量请求更友好
+- **指数 K 线历史数据**：`push2his.eastmoney.com/api/qt/stock/kline/get?secid=1.000985&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61&klt=101&lmt=5` 可获取近 N 日 K 线，限流风险低于实时行情接口
+
+---
+
+### 方案 6：新浪实时行情 API（curl，支持批量）
+
+```bash
+# 批量获取（最多约 30 只，逗号分隔）
+curl -s "https://hq.sinajs.cn/list=sh603228,sz300408,sz300054,sz300433,sh600584" -H "Referer: https://finance.sina.com.cn" | iconv -f gb2312 -t utf-8
+```
+
+**返回格式**：`var hq_str_CODE="name,pre_close,latest,high,low,volume,amount,...,date,time"`
+
+**字段位置**（逗号分隔）：
+- `name` = 股票名称
+- `pre_close` = 昨收
+- `latest` = 最新价
+- `high` = 最高价
+- `low` = 最低价
+- `volume` = 成交量（股）
+- `amount` = 成交额（元）
+- 末尾 `date,time` = 数据时间戳
+
+**涨跌幅计算**：`(latest - pre_close) / pre_close * 100`
+
+**优点**：
+- 支持批量查询（一次最多约 30 只）
+- 数据实时，无明显的 IP 限流（比东财更稳定）
+- 返回数据包含时间戳，可验证数据新鲜度
+
+**缺点**：
+- 需要 `Referer` header（`https://finance.sina.com.cn`）
+- 需要 GB2312 → UTF-8 转码
+- 指数数据（如 `sh000985` 中证全指）可能返回空值
+
+**注意**：
+- 批量查询时标的数量过多会导致返回截断，建议每批 ≤ 30 只
+- 科创板（688 开头）和创业板（300 开头）数据均可正常返回
 
 ---
 
