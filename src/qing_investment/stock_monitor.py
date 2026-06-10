@@ -728,8 +728,14 @@ def filter_new_alerts(
         fp = alert_fingerprint(alert)
         last_entry = history.get(fp)
 
+        # Determine per-type dedupe minutes (used by both same-day and history dedupe)
+        dedupe_type = _action_to_dedupe_type(alert.action)
+        type_config = (dedupe_by_type or {}).get(dedupe_type, {})
+        effective_minutes = type_config.get("dedupe_minutes", dedupe_minutes)
+        breakthrough_pct = type_config.get("breakthrough_if_price_change_pct", 0)
+
         # Same-day dedupe for reduce/risk alerts on same stock
-        # 只在时间间隔 < dedupe_minutes 时生效（避免与 history-based dedupe 冲突）
+        # 只在时间间隔 < effective_minutes 时生效（避免与 history-based dedupe 冲突）
         code_action_key = f"{alert.stock_code}_{alert.action}"
         daily_key = (daily_emitted.get(today_str, {}) if isinstance(daily_emitted, dict) else {})
         same_day_price = daily_key.get(code_action_key)
@@ -740,7 +746,7 @@ def filter_new_alerts(
                 last_time = _parse_state_time(last_entry.get("time"))
                 if last_time is not None:
                     elapsed_minutes = (current - last_time).total_seconds() / 60
-                    if elapsed_minutes < dedupe_minutes:
+                    if elapsed_minutes < effective_minutes:
                         pct_change = abs((alert.price - same_day_price) / same_day_price) * 100 if same_day_price > 0 else 0
                         if pct_change < 2.0:
                             # Same stock + same action already fired today within dedupe window, and price barely moved → suppress
@@ -761,12 +767,6 @@ def filter_new_alerts(
         if last_time is None:
             fresh.append(alert)
             continue
-
-        # Determine per-type dedupe minutes and breakthrough threshold
-        dedupe_type = _action_to_dedupe_type(alert.action)
-        type_config = (dedupe_by_type or {}).get(dedupe_type, {})
-        effective_minutes = type_config.get("dedupe_minutes", dedupe_minutes)
-        breakthrough_pct = type_config.get("breakthrough_if_price_change_pct", 0)
 
         elapsed_minutes = (current - last_time).total_seconds() / 60
         if elapsed_minutes >= effective_minutes:
