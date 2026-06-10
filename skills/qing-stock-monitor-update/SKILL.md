@@ -583,6 +583,16 @@ python3 -m qing_investment.stock_monitor --analysis-context
 python3 scripts/validate_config.py
 ```
 
+**Cron prompt 验证（2026-06-10 新增）**：更新 cron prompt 后必须手动 dry-run 一次确认 prompt 已生效：
+```bash
+# 模拟下一个 cron 时间点运行，检查输出是否包含新框架关键词
+cd ~/learning-investment-strategies
+python3 scripts/hermes_stock_monitor_agent.py
+# 预期输出中应包含：全A、第三次修复、上游材料等关键词
+# 若输出为空或仍是旧方向词（燃气轮机/4000防守）→ prompt 未生效，检查 cronjob list
+```
+**反面案例（2026-06-10）**：更新了 9 个 cron prompt 但未验证，直到下次 cron 执行才知道是否生效。加上此步骤后每次改 prompt 必验证。
+
 确认：
 - YAML 解析无错误
 - `validate_config.py` 退出码为 0（无错误）或仅预期内的 sector 覆盖警告
@@ -654,7 +664,12 @@ git commit -m "monitor: update watchlist/strategy for $(date +%Y-%m-%d)"
 28. **no-agent cron 超时陷阱（~120s）**：Hermes 对 no-agent cron 有隐式超时（约 120 秒）。超过此时间的脚本会被 kill 并报告 error，即使脚本已部分成功（如 build_sector_mapping.py 已保存缓存但被超时 kill）。防御模式：增量+高频 cron、`save_cache` 参数防止测试破坏生产缓存、HTTP 层重试+退避、`python -u` 非缓冲输出。详见 `references/no-agent-cron-timeout-patterns.md`。
 29. **`--max-sectors`/限制参数必须防御缓存破坏**：任何带 `--max-*`/`--limit`/`--dry-run` 的构建类脚本，必须确保这些标志不会触发生产缓存写入。反面案例：`--force --max-sectors 5` 将 4331 条全量缓存覆盖为 242 条。修复模式：底层函数增加 `save_cache: bool = True` 参数，调用端 `save_cache=args.max_sectors is None`。详见 `references/no-agent-cron-timeout-patterns.md` 模式 B。
 30. **Qing-Agent /chat 端点K线自动拉取不可靠（2026-06-09）**：Qing-Agent v4 理论支持含代码的消息自动拉取 90 日 K 线，但实测 18 只标的仅 1 只成功（其余静默降级）。**不要依赖此能力**。正确做法：先用腾讯 API 批量拉取（`scripts/batch_kline_analysis.py` 或 execute_code 内联），按回撤分四档（🔥>30%/🟡20-30%/🟠10-20%/🔴<10%），作为结构化文本注入 Qing-Agent message。详见 `references/batch-kline-qing-agent-fallback.md`。
-31. **strategy_pack 过期诊断**：配置文件的 updated_at、current_stage、up_quote 日期、关键点位、盘中方向关键词必须与 UP 最新观点一致。过期待征：updated_at > 3天前、关键点位与 UP 矛盾、盘中方向词已从 UP 关注中消失。修复：grep 过期关键词→对比 today_snapshot.up_bias→系统重写 framework/schedule/focus/index_rules/policy。
+31. **strategy_pack 过期诊断（2026-06-10 增强）**：配置文件的 updated_at、current_stage、up_quote 日期、关键点位、盘中方向关键词必须与 UP 最新观点一致。
+   - **日期过期**：updated_at > 3天前
+   - **点位过期（新增）**：关键点位已脱离当前价格区间（如"4000防守"在指数已在4000±50晃了多日后不再有意义）。检测方法：对比 `invalidation_conditions` 中的数字点位与当前指数实际位置，偏离 >3% 即过期
+   - **方向过期**：盘中方向词已从 UP 关注中消失（如"燃气轮机/工程机械/创新药"→已被"上游材料/半导体/硅片"替代）
+   - 修复：grep 过期关键词→对比 today_snapshot.up_bias→系统重写 framework/schedule/focus/index_rules/policy。
+   - **反面案例（2026-06-10）**：`invalidation_conditions` 仍写"收盘跌破4000减仓"，但上证已在4000附近晃了一周，该点位已无指导意义。应更新为当前实际关键位。
 32. **10jqka 同花顺全A(883657)无公开API（2026-06-09）**：同花顺全A是同花顺客户端私有指数，腾讯/东方财富/同花顺 HTTP API 均返回 404。替代方案：中证全指(000985)，腾讯 API `sh000985` 原生支持，走势高度一致。已注入 stock_monitor.py `MARKET_INDEXES` 和 stock_data.py `fetch_index_quotes`。详见 `references/market-index-config.md`。
 33. **微信 iLink 限流导致 cron 推送静默丢失（2026-06-09）**：cron 分析正常执行（status: ok），但 delivery 因 iLink rate limited 静默失败。现象：jobs list 中 `last_delivery_error: "Weixin send failed: iLink sendmessage rate limited"`。不影响分析生成，输出仍可在 `~/.hermes/cron/output/<job_id>/` 读取。当前无已知修复方案（平台限制），但可通过偏移 cron 分钟数减少碰撞：`*/5` → `1-56/5`（:01, :06, :11...），`*/10` → `1-51/10`。B站监控（`*/10`）也是整10分碰撞源。
 34. **DeepSeek API 流式断连（2026-06-09 首次观测）**：deepseek-v4-pro API 返回 HTTP 200 但 0 bytes 0 chunks，持续 3×180s 超时后耗尽重试。这不是 key 限流（同一 key 的其他请求正常），是服务端部分推理节点挂死。症状：agent.log 出现 `Stream stale for 180s — no chunks received` + `RemoteProtocolError: peer closed connection without sending complete message body`。区分方法：API 故障 → 有 AI call 但失败；schedule 不匹配 → 根本没有 AI call（`script produced no output`）。修复：等 API 恢复。详见 `references/config-cron-alignment-debugging.md` Step 4。

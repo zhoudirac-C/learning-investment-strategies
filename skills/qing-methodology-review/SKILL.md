@@ -64,7 +64,7 @@ grep "source_date:" knowledge/claims/claim-YYYYMMDD-*.yaml
 
 - 每日 claim 数量
 - 主题分布（Top 20）
-- Claim type 分布（sector-theme, operation, market-cycle, methodology, risk 等）
+- Claim type 分布（sector-theme, operation, market-cycle, methodology, risk, stock-view 等）
 - Confidence 分布
 - Status 分布（active/superseded）
 - 有 supersedes/contradicts 的 claims
@@ -103,6 +103,7 @@ grep "source_date:" knowledge/claims/claim-YYYYMMDD-*.yaml
 2. **多次重复**：同一方法论在不同日期出现 2 次以上
 3. **解释旧冲突**：能解释之前矛盾的新规则
 4. **改变操作纪律**：直接影响买卖/仓位/风控的决策规则
+5. **例外条款（2026-06-10 新增）**：**首次出现但直接影响当前持仓决策的操作纪律**，即使只出现1次也应进入 framework。例如：UP 说"能做T做T，反弹之后减仓，等黄金坑再补"——这是针对当前持仓的具体操作框架，不应等"出现2次"再采纳。判断标准：该规则是否直接回答了"现在怎么办"的问题？是→首次即入。
 
 ### Step 7: 一致性检查
 
