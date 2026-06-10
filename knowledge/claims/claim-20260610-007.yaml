@@ -1,0 +1,82 @@
+claims:
+- id: claim-20260610-007-a
+  source_path: sources/raw/财经/动态：26-06-10：燃气轮机跟北美链条，能做T做T反弹减仓.md
+  source_date: '2026-06-10'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-10T10:15:00+08:00'
+  claim_type: sector-theme
+  subject: 燃气轮机对标北美链条——美股是最大变量，基本面无问题
+  timeframe: short-term
+  statement: UP 在10:04 B站动态中解释燃气轮机下跌原因：燃气轮机一直对标北美链条，美国不好过→燃气轮机好不起来。涨太高的开始补跌。但强调业绩没有问题、预期也没有问题——美股自身是当前最大的问题。核心逻辑链条：美股下跌→北美链燃气轮机承压→A股燃气轮机跟跌。
+  evidence_quote: 燃气轮机一直跟的是北美链条，美国不好过，燃气轮机确实也好不起来，有些涨的太高的，现在也开始补跌了，业绩没有问题，预期也没有问题，但是美股现在本身就是最大的问题。
+  interpretation: |
+    这是一个「外部环境拖累基本面良好板块」的经典结构。UP 对燃气轮机的定位是：①基本面（业绩+预期）没有变化——中长线逻辑完好；②短期压力来自美股走势（外部因素，非内生）；③当前下跌是「美股映射」而非「逻辑证伪」。
+    这和 Qing-Agent 此前基于技术面给出的「退潮方向」判断有差异——Qing-Agent 从价格行为判断为资金抛弃，但 UP 从产业逻辑出发认为基本面完好。
+    关键跟踪指标：美股科技股企稳→燃气轮机止跌。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 燃气轮机对标北美链条，美股下跌是核心压力
+  related_stocks: []
+  tags:
+  - 燃气轮机
+  - 北美链条
+  - 美股映射
+  - 基本面完好
+  - 补跌
+- id: claim-20260610-007-b
+  source_path: sources/raw/财经/动态：26-06-10：燃气轮机跟北美链条，能做T做T反弹减仓.md
+  source_date: '2026-06-10'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-10T10:15:00+08:00'
+  claim_type: operation
+  subject: 燃气轮机操作纪律——做T→反弹减仓→等黄金坑补仓（不是直接砍）
+  timeframe: short-term
+  statement: |
+    UP 对燃气轮机持仓给出三层操作框架：
+    ①能做T做T — 利用日内波动降低成本
+    ②反弹之后减仓 — 不直接砍，等反弹再减
+    ③等后面黄金坑出现之后再补 — 中长线看好，等深跌后捡回来
+    
+    两个禁忌：直接砍不合适（底部割肉），拿着硬抗也不合适（被动深套）。
+    核心思想：控制仓位而非清仓离场——保持在场但降低暴露，等美股企稳+黄金坑确认后再加回。
+  evidence_quote: 这种节点能做T做T，反弹之后减仓，直接砍也不合适，拿着硬抗也不合适，等后面黄金坑出现之后再补吧。
+  interpretation: |
+    这是 UP 交易哲学的核心体现——赔率思维下的仓位管理：
+    - 「直接砍不合适」= 当前价位已不具备止损的赔率优势（反弹减仓比跌停清仓更优）
+    - 「拿着硬抗不合适」= 被动接受回撤不是专业交易者的做法
+    - 「做T→反弹减仓→黄金坑补」= 主动管理仓位，保持方向判断但缩短持仓周期
+    
+    对比此前 Qing-Agent 的「明日开盘择机清仓」建议：Qing-Agent 从纯技术面出发（跌停放量破位→止损），但缺少了 UP 的「基本面完好+美股映射」的判断维度。UP 的方法论强调区分「逻辑证伪」和「外部扰动」——后者不应触发清仓。
+    
+    跟踪指标：反弹力度（能否回31以上）、美股科技企稳信号、燃气轮机板块联动。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 燃气轮机操作纪律——做T→反弹减仓→黄金坑补
+  related_stocks:
+  - code: '000534'
+    name: 万泽股份
+    role: 燃气轮机-涡轮叶片核心标的
+  - code: '002353'
+    name: 杰瑞股份
+    role: 燃气轮机-板块龙头
+  tags:
+  - 操作纪律
+  - 仓位管理
+  - 做T
+  - 反弹减仓
+  - 黄金坑
+  - 赔率思维
