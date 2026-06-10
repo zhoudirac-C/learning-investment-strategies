@@ -1086,6 +1086,11 @@ def _agent_context_data(
         "sector_strengths": sector_strengths,
         "external_sector_boards": external_sector_boards,
         "quote_snapshot": quote_snapshot,
+        "market_snapshot": {
+            "quotes": quote_snapshot.get("quotes", []),
+            "source": quote_snapshot.get("source", "unknown"),
+            "elapsed_ms": quote_snapshot.get("elapsed_ms", 0),
+        },
         "positions": enriched_positions,
         "watchlist": [
             {

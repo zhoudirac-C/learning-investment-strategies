@@ -13,6 +13,7 @@ class TriggerRequest(BaseModel):
     external_sector_boards: dict = Field(default_factory=dict, description="外部行情源板块数据（概念+行业）")
     session_id: str = Field(default="default", description="会话ID")
     query: str = Field(default="", description="用户原始问题")
+    analysis_type: str = Field(default="market", description="分析类型：market/stock/portfolio")
 
 
 class TriggerResponse(BaseModel):

@@ -37,6 +37,9 @@ class AgentState(TypedDict, total=False):
     stock_contexts: list[dict]  # 每只标的的 claims 摘要
     direction_signals: dict     # 方向优先级信号
 
+    # 【新增】数据降级标记
+    _data_missing_note: str     # 实时数据缺失时的降级说明
+
     # 分析层
     market_context: dict
     stock_analysis: dict

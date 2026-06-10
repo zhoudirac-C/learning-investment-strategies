@@ -110,6 +110,7 @@ async def analyze_trigger(req: TriggerRequest):
         "confidence": "medium",
         "review_passed": False,
         "reasoning_steps": [],
+        "parsed_intent": {"analysis_type": req.analysis_type},
     }
 
     result = await graph.ainvoke(state)

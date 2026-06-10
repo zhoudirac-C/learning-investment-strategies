@@ -18,12 +18,12 @@ import urllib.request
 from pathlib import Path
 
 QING_AGENT_URL = os.environ.get("QING_AGENT_URL", "http://localhost:8000/analyze/trigger")
-QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "180"))
+QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "240"))
 QING_AGENT_MAX_RETRIES = int(os.environ.get("QING_AGENT_MAX_RETRIES", "3"))
 
 # Cron job wrapper timeout (seconds) — must be >= QING_AGENT_TIMEOUT + 20s margin
 # to avoid the cron killing the script while it's still retrying.
-CRON_WRAPPER_TIMEOUT = float(os.environ.get("CRON_WRAPPER_TIMEOUT", "200"))
+CRON_WRAPPER_TIMEOUT = float(os.environ.get("CRON_WRAPPER_TIMEOUT", "260"))
 
 
 def repo_root() -> str:

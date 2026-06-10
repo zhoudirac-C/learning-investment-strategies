@@ -964,24 +964,17 @@ def market_analyst(state: AgentState) -> AgentState:
         (market_snapshot.get("quotes") and len(market_snapshot.get("quotes", [])) > 0)
     )
 
+    # 【修改】实时数据缺失时降级为知识库分析，而非直接拒绝
+    # 原因：cron job 在数据源限流时频繁失败，claims 知识库足以支撑基础分析
     if analysis_type in ("market", "portfolio") and not has_realtime_data:
-        return {
-            "market_context": {
-                "market_phase": "数据不可用",
-                "phase_reasoning": "缺少实时行情数据（external_sector_boards和market_snapshot均不可用），无法生成独立分析。请先获取市场数据。",
-                "main_themes": [],
-                "sector_map": {},
-                "themes_in_focus": [],
-                "index_discipline": {},
-                "volume_note": "",
-                "emotion_signals": {},
-                "tomorrow_watch": [],
-                "position_plans": [],
-                "risk_notes": "实时行情数据缺失，本次分析被中止。请检查网络连接或等行情源恢复后重试。",
-                "citations": [],
-            },
-            "reasoning_steps": ["market_analyst: 实时数据不可用，拒绝生成分析"],
-        }
+        # 不 return 空结果，而是继续执行，让 LLM 基于 claims 知识库分析
+        # 在 prompt 中注入数据缺失说明，由 LLM 自行处理
+        state["_data_missing_note"] = (
+            "【注意】实时行情数据暂时无法获取（数据源限流或网络问题）。"
+            "本次分析将基于 UP 历史观点（claims）和策略框架进行，"
+            "缺少实时价格验证，分析结论的时效性可能受限。"
+        )
+        # 继续执行后续代码，不中断
 
     # Truncate market_snapshot quotes to keep prompt size reasonable
     all_quotes = market_snapshot.get("quotes", []) or []
@@ -1069,6 +1062,8 @@ def market_analyst(state: AgentState) -> AgentState:
         "direction_signals": state.get("direction_signals", {}),  # Phase 2 新增
     }
     prompt = f"""{prompt_template_filled}
+
+{state.get("_data_missing_note", "")}
 
 检索到的知识（已过滤，仅保留方法论内容）：
 {json.dumps(context, ensure_ascii=False, indent=2)}

@@ -31,7 +31,7 @@ description: |
 | 腾讯→新浪→东财降级链详情 | `references/tencent-sina-eastmoney-fallback-chain.md` |
 | Agent-UP 矛盾处理 | 本 SKILL §陷阱 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
-| 实施状态核查 | `references/implementation-audit-checklist.md` |
+| 设计文档 vs 代码实现差距核查 | `references/design-doc-vs-implementation-gap.md` |
 | Qing-Agent 服务运维速查 | `references/qing-agent-service-operations.md` |
 | Qing-Agent 服务架构（uvicorn→gunicorn 单 worker） | `references/qing-agent-gunicorn-migration.md` |
 | 系统问题修复记录（2026-06-10） | `references/fix-monitor-system-issues-20260610.md` |
@@ -40,6 +40,7 @@ description: |
 | **Agent 时间限制绕过** | `references/agent-any-time-bypass.md` |
 | **Cron 超时外部化配置** | `references/cron-timeout-external-config.md` |
 | **Skill 文档维护卫生** | `references/skill-doc-maintenance-hygiene.md` |
+| **实时数据降级模式** | `references/realtime-data-degradation-pattern.md` |
 
 ---
 
@@ -234,6 +235,31 @@ curl -s --max-time 30 -X POST http://localhost:8000/analyze/trigger \
 > | `--timeout 120` | worker 处理请求的最大时间（秒） |
 > | `--keep-alive 5` | HTTP keep-alive 连接保持 5s |
 
+### 陷阱 2b: 实时数据硬约束导致 cron 静默失败
+
+**反面案例（2026-06-10）**：`market_analyst` 节点在 `analysis_type in ("market", "portfolio")` 且没有实时数据时直接 return 空结果，拒绝生成分析。Cron job 在数据源限流时频繁触发此路径，输出"数据不可用"或无输出。
+
+**根因**：`nodes.py` 第 967-984 行的硬约束设计——认为没有实时数据就不能做市场/持仓分析。但 claims 知识库包含 UP 的周期判断、方向观点、操作框架，足以支撑基础分析。
+
+**已修复（2026-06-10）**：
+1. **硬约束改为降级模式**：不再 return 空结果，而是设置 `state["_data_missing_note"]` 降级说明，继续执行
+2. **AgentState 增加 `_data_missing_note` 字段**：`state.py`
+3. **Prompt 注入降级说明**：`nodes.py` prompt 构建处
+4. **`/analyze/trigger` 端点传递 `analysis_type`**：`schemas.py` + `main.py`
+5. **`market_snapshot` 加入 JSON 上下文**：`stock_monitor.py` 的 `_agent_context_data()`
+
+**效果**：无实时数据时，Agent 基于 claims 知识库生成分析（约 800-1100 字），不再返回空结果。响应时间约 55-85 秒。
+
+**验证命令**：
+```bash
+curl -s --max-time 200 -X POST http://localhost:8000/analyze/trigger \
+  -H "Content-Type: application/json" \
+  -d '{"query":"测试降级","session_id":"test-001","analysis_type":"market"}' \
+  | python3 -c "import sys,json; d=json.load(sys.stdin); print('OK' if d.get('final_output') else 'EMPTY')"
+```
+
+**详细文档**：`references/realtime-data-degradation-pattern.md`
+
 ### 陷阱 3: Agent vs UP 矛盾
 
 **反面案例（2026-06-10）**：万泽跌停，Qing-Agent 建议清仓，UP 10:04 说"直接砍不合适"。
@@ -409,20 +435,52 @@ grep -c "active_patterns" src/qing_investment/agent/tools/context_builder.py
 
 **参考文档**：`references/agent-any-time-bypass.md`
 
-### 陷阱 11: Cron 外层超时 < 脚本内超时导致静默 kill
+### 陷阱 11: Hermes cron scheduler 默认 120s 脚本超时导致静默 kill
 
-**反面案例（2026-06-10）**：`QING_AGENT_TIMEOUT=180s`，但 Hermes cron job 默认超时 120s。脚本还在重试时被 cron kill，输出为空，用户无感知。
+**反面案例（2026-06-10）**：`QING_AGENT_TIMEOUT=180s`、`CRON_WRAPPER_TIMEOUT=200s`，但 cron 仍然频繁超时。完整链路实测 173s（stock_monitor 行情 15s + HTTP API 119s + 开销 39s），但输出为空。
 
-**根因**：超时层级未对齐。脚本内 180s > cron 外层 120s。
+**根因（2026-06-10 发现）**：超时层级未对齐，且存在一个未知的**外层限流**。深入排查后发现 Hermes agent 源码 `/home/ubuntu/.hermes/hermes-agent/cron/scheduler.py` 第 813 行硬编码：
+
+```python
+_DEFAULT_SCRIPT_TIMEOUT = 120  # seconds
+```
+
+Hermes scheduler 在**最外层**执行脚本时强制 120s 超时。脚本内的 `QING_AGENT_TIMEOUT=180` 和 `CRON_WRAPPER_TIMEOUT=200` 完全无效——脚本在 120s 就被 scheduler kill，根本没机会跑完。
+
+**完整的超时层级（从内到外）**：
+
+| 层级 | 超时值 | 配置位置 |
+|------|--------|---------|
+| LLM 推理 | 30-60s | 模型自身 |
+| gunicorn worker | 120s | gunicorn --timeout |
+| 脚本 HTTP `urlopen` | 180s | QING_AGENT_TIMEOUT 环境变量 |
+| 脚本 wrapper | 200s | CRON_WRAPPER_TIMEOUT 环境变量 |
+| **Hermes scheduler** | **120s (默认)** | **`scheduler.py` 第 813 行** ← 最外层杀手 |
 
 **已修复（2026-06-10）**：
-1. 脚本新增 `CRON_WRAPPER_TIMEOUT` 环境变量（默认 200s）
-2. 文档化超时层级关系：LLM(30-60s) < gunicorn(120s) < 脚本 HTTP(180s) < cron(200s)
+1. 脚本新增 `CRON_WRAPPER_TIMEOUT` 环境变量（默认 200s）——但此变量对最外层无效
+2. 文档化超时层级关系
+3. **发现了真正根因：Hermes scheduler 的 `_DEFAULT_SCRIPT_TIMEOUT = 120`**
+
+**三种覆盖方式（优先级从高到低）**：
+
+| 优先级 | 方式 | 配置 |
+|--------|------|------|
+| 1（最高） | 环境变量 | `export HERMES_CRON_SCRIPT_TIMEOUT=300` |
+| 2 | config.yaml | `cron:\n  script_timeout_seconds: 300` |
+| 3 | 模块 monkeypatch | `scheduler._SCRIPT_TIMEOUT = 300`（仅测试用） |
+
+**Source 源码 `_get_script_timeout()` 确定机制（`scheduler.py` 第818-848行）**：
+1. 检查模块级 `_SCRIPT_TIMEOUT` 是否被 monkeypatch
+2. 检查环境变量 `HERMES_CRON_SCRIPT_TIMEOUT`
+3. 检查 `config.yaml` 的 `cron.script_timeout_seconds`
+4. 回退到 `_DEFAULT_SCRIPT_TIMEOUT = 120`
 
 **正确做法**：
-- 设置 cron timeout ≥ `QING_AGENT_TIMEOUT + 20s`
+- **必须同时设置 `HERMES_CRON_SCRIPT_TIMEOUT` ≥ 300（覆盖 120s 默认）**
+- 确保超时层级递增：LLM(60s) < gunicorn(120s) < 脚本 HTTP(180s) < Hermes scheduler(300s)
+- 验证：`hermes cron run <job_id>` 观察是否被 120s 提前 kill
 - 通过环境变量外部化配置，避免硬编码
-- 诊断时检查 `time cronjob action=list` 的输出
 
 **参考文档**：`references/cron-timeout-external-config.md`
 
@@ -464,6 +522,77 @@ print('✓ 去重验证通过')
 "
 ```
 
+### 陷阱 13: daily_state 写回链断裂
+
+**反面案例（2026-06-10）**：`market_analyst.txt` 和 9 个 `cron_*.txt` 都包含 ```daily_state 输出指令，LLM 输出也确实包含此代码块。但 `daily_state.json` 从未被创建，因为缺少 `sync_daily_state.py` 扫描器。
+
+**根因链**：
+1. `stock_monitor.py` 加载 `daily_state.py` 并注入 prompt → LLM 看到空状态或初始状态
+2. LLM 输出包含 ```daily_state 代码块 → 写入 cron output markdown
+3. **无扫描器提取** → `daily_state.json` 从未更新
+4. 下一个 cron 节点再次加载 → 仍然是空状态
+
+**影响**：观点连续性完全失效。09:26 的核心假设不会被 09:45 读取，15:20 复盘看不到全天演进。
+
+**修复方案**：
+1. 实现 `scripts/sync_daily_state.py`：扫描 `~/.hermes/cron/output/` 最新 markdown，正则提取 ```daily_state 代码块，解析 JSON，调用 `daily_state.save_daily_state()`
+2. 注册 Hermes cron job：`*/5 9-15 * * 1-5` 运行 sync_daily_state.py
+3. 或修改 Qing-Agent `/analyze/trigger` 端点，在返回前直接写 daily_state（更可靠）
+
+**验证命令**：
+```bash
+ls -la ~/learning-investment-strategies/config/stock_monitor/daily_state.json
+# 期望：文件存在，且修改时间在最近 5 分钟内（如果 sync 在运行）
+```
+
+### 陷阱 14: 条件驱动轮询未部署
+
+**反面案例（2026-06-10）**：`stock_monitor.py::evaluate_position_alerts()` 已实现 add_zone 触发逻辑，但 9 个看盘 cron 都走 `--agent-json-context`（LLM 路径，消耗 token），不经过 `run_tick()`（纯规则路径）。
+
+**根因**：缺少独立的 no-agent cron job 调用纯规则检查。
+
+**修复方案**：
+1. 实现 `scripts/qing_stock_monitor_poll.py`：调用 `stock_monitor.run_tick()` 或独立实现行情拉取 + add_zone/reduce_zone/risk_zone 检查
+2. 纯规则推送微信消息，0 token
+3. 注册 Hermes cron job：`*/5 9-15 * * 1-5`，no-agent 模式
+
+**与 LLM 路径的分工**：
+- 轮询路径（no-agent）：价格触发提醒、风控告警、机会触发通知
+- LLM 路径（agent）：深度分析、方向判断、策略更新
+
+### 陷阱 15: 设计文档 vs 代码实现差距
+
+**反面案例（2026-06-10）**：用户要求"根据 config-cron-architecture-review.md 检查 skill 需要哪些更新"。AI 初判"大部分已落地"，但深入核查后发现多个关键文件缺失。
+
+**根因**：设计文档（`docs/config-cron-architecture-review.md` §7.2）列出了"新增文件"和"新增 cron job"，但**文件系统检查确认它们不存在**。这是典型的"文档先行、代码滞后"。
+
+**缺失文件清单**（截至 2026-06-10）：
+| 文件 | 文档状态 | 实际状态 |
+|------|---------|---------|
+| `scripts/sync_claims_to_config.py` | ✅ 新增 | ❌ 不存在 |
+| `scripts/sync_daily_state.py` | ✅ 新增 | ❌ 不存在 |
+| `scripts/qing_stock_monitor_poll.py` | ✅ 新增 | ❌ 不存在 |
+| `scripts/backfill_linked_claims.py` | ✅ 新增 | ⚠️ 需核实（linked_claims 已回填但脚本位置不明）|
+| `config/stock_monitor/daily_state.json` | ✅ 状态机 | ❌ 从未被创建 |
+
+**正确做法**：
+1. 不要凭文档判断实现状态——**必须文件系统检查**
+2. 对设计文档中的"新增文件"逐项 `ls` 或 `search_files` 确认
+3. 区分"代码已写"和"文档已写"——后者不等于前者
+4. Skill 更新时必须标注：✅ 已落地 / ❌ 未实现 / ⚠️ 部分实现
+
+**验证命令**：
+```bash
+cd ~/learning-investment-strategies
+echo "=== 核查设计文档中的新增文件 ==="
+for f in scripts/sync_claims_to_config.py scripts/sync_daily_state.py \
+         scripts/qing_stock_monitor_poll.py scripts/backfill_linked_claims.py; do
+  if [ -f "$f" ]; then echo "✅ $f"; else echo "❌ $f"; fi
+done
+echo "=== daily_state.json ==="
+ls -la config/stock_monitor/daily_state.json 2>/dev/null || echo "❌ 不存在"
+```
+
 ---
 
 ## 关键纪律
@@ -478,6 +607,7 @@ print('✓ 去重验证通过')
 - **主板-only**：用户只能交易 sh6xxxxx / sz0xxxxx。非主板标的标记 `tradable: false`
 - **不删旧数据**：旧 theme 降级为 monitor_only，不删除
 - **不编造价格**：数据源降级时诚实说明
+- **文档≠代码**：设计文档中的"新增文件"必须文件系统确认，不能凭文档判断实现状态
 
 ---
 
@@ -488,4 +618,8 @@ print('✓ 去重验证通过')
 - [ ] Qing-Agent `/analyze/trigger` 端点测试通过（非仅 /health）
 - [ ] strategy_pack.updated_at 已更新
 - [ ] cron prompt 已验证（dry-run）
+- [ ] `daily_state.json` 存在且最近 5 分钟有更新
+- [ ] `sync_daily_state.py` 能成功解析最近 cron 输出
+- [ ] `qing_stock_monitor_poll.py` 存在且可独立运行
+- [ ] add_zone/reduce_zone/risk_zone 纯规则提醒正常推送
 - [ ] Git 已提交
