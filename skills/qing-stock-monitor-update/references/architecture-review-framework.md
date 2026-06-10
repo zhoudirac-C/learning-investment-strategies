@@ -144,6 +144,64 @@ grep -n "def get_sector_themes" src/qing_investment/agent/tools/neo4j_client.py
 
 **更新设计文档**：确认代码已实现后，必须同步更新 `docs/config-cron-architecture-review.md` 的状态标记。
 
+### 核查 Claims 覆盖率的正确方法
+
+**常见错误**：报 "claims 中 related_stocks 覆盖率只有 X%"，然后按这个百分比推动全员回填。
+
+**正确做法**：审计时必须按 `claim_type` 拆解，因为不同类型的 claims 天然不需要个股映射：
+
+| claim_type | 总数 | 需要 related_stocks？ | 判断标准 |
+|-----------|------|---------------------|---------|
+| stock-view | 44 | ✅ 是（主题=个股） | statement 中提到的个股必须填 |
+| sector-theme | 231 | ⚠️ 部分需要 | 只填 statement 明确写了股票代码的。纯方向判断不填 |
+| operation | 94 | ❌ 否 | 操作纪律、仓位管理，不指向具体个股 |
+| market-cycle / methodology / risk / macro / technical-signal / technical-knowledge | ~280 | ❌ 否 | 市场判断/方法论/风险提示，均不指向个股 |
+
+**实操结论**（2026-06-10 审计）：
+- 真正需要回填的只有 41 条（17 stock-view + 24 sector-theme 含股票代码）
+- 使用 `scripts/backfill_claim_related_stocks.py` 自动回填（从 statement 中提取代码+名称）
+- 覆盖率报表不应该按总数计算，应该按"应填量"计算
+- 不要对 market-cycle/methodology 等类型提回填要求——这些 claim 加了 `related_stocks` 也是多余
+
+**验证命令**：
+```bash
+cd ~/learning-investment-strategies
+python3 -c "
+import yaml, glob
+for f in sorted(glob.glob('knowledge/claims/claim-*.yaml')):
+    data = yaml.safe_load(open(f))
+    for c in (data.get('claims',[]) if isinstance(data,dict) else (data if isinstance(data,list) else [])):
+        if not isinstance(c,dict): continue
+        rs = c.get('related_stocks',[])
+        has = isinstance(rs,list) and any(isinstance(s,dict) and s.get('code') for s in rs)
+        if c.get('claim_type') in ('stock-view','sector-theme') and not has:
+            print(f'MISS: {c[\"id\"]:35s} [{c[\"claim_type\"]:15s}] {c.get(\"subject\",\"\")[:40]}')
+```
+Only stock-view and sector-theme should be flagged — the 280+ other-type claims are intentionally empty.
+
+### 跨数据源字段类型不匹配的陷阱
+
+当代码同时对接 Neo4j、Qdrant、YAML 文件三个数据源时，同一个字段（如 `source_date`）可能返回三种不同的 Python 类型：
+
+| 数据源 | 返回类型 | 示例 |
+|--------|---------|------|
+| Neo4j | `neotime.Date` | `Date(2026, 6, 4)` — 有 `strftime` 但非 `datetime.date` 子类 |
+| Qdrant payload | `str` | `"2026-06-04"` |
+| YAML 文件 | `datetime.date` | `date(2026, 6, 4)` — Python 标准库类型 |
+
+**正确的防御模式**：对跨数据源的字段，不要假设类型，写一个统一转换函数：
+
+```python
+def _to_date_str(val: Any) -> str:
+    if isinstance(val, str):
+        return val
+    if hasattr(val, "strftime"):  # 同时处理 datetime.date 和 neotime.Date
+        return val.strftime("%Y-%m-%d")
+    return str(val)
+```
+
+**反面案例（2026-06-10）**：`context_builder.py` 对 `source_date` 直接用 `datetime.strptime(val, "%Y-%m-%d")`（期望 str）和 `max(dates)`（期望可比较类型），但 Neo4j 返回 `neotime.Date`。因所有调用点被 `except: pass` 吞掉，429 行代码工作了零天。
+
 ### 常见失效模式
 
 | 失效模式 | 现象 | 排查命令 |
