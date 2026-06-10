@@ -88,6 +88,7 @@ git add reports/methodology-review-YYYYMMDD.md
 - **技术教学内容 vs 操作纪律**：博主的技术教学（如长红线、K线形态、布林线）属于工具层知识，与操作纪律（仓位管理、买卖规则）不同。技术教学首次出现时留在 wiki 层，只有被多次验证、形成明确交易规则后才进入 framework。不要因单次技术课程就推入 framework。
 - **周期调整 vs 逻辑证伪**：当博主说某方向"调整一段时间""规避"时，要区分是 cycle-shift（阶段性调整，后期可能回归）还是 logic-broken（逻辑证伪，永久失效）。前者不标记 claims 过期，后者才标记 superseded。半导体从"接棒主线"到"规避"属于 cycle-shift，claims 保持 active。
 - **双轨制对 Review 的影响**：轨道B（技术课程）的 claims 不参与 drift 分析。详见 `qing-learning` 总入口 skill 的跨 Skill 兼容性说明。
+- **Review 后的 Framework 写入**：本 skill 是只读分析，但用户 workflow 通常要求 review 后将 durable rules 写入 framework。写入操作不属于本 skill 职责——详见 `qing-learning` 总入口 skill 的「Review→Write 工作流」章节。本 skill 的输出（报告 + durable rule 候选列表）是下游写入操作的输入。
 
 ## Skill 职责边界
 
@@ -97,6 +98,23 @@ git add reports/methodology-review-YYYYMMDD.md
 ## 历史合并记录
 
 2026-06-10：`qing-methodology-review` 合并入本 skill。合并时遵循了**内容归属校验**原则——不属于方法论复盘的内容（持仓更新 pipeline、操作建议关联 claims、跨 Skill 架构定义）未迁移，只保留了矛盾分类、Durable Rule 筛选、主题漂移分析等核心复盘能力。详见 `references/skill-scope-boundary.md` 的「历史背景」章节。
+
+## 自动化复盘脚本
+
+对于周期性复盘（如"review 过去14天"），可使用自动化脚本替代手工分析：
+
+```bash
+cd ~/learning-investment-strategies
+python3 scripts/methodology_review.py --days 14 --output reports/methodology-review-$(date +%Y%m%d).md
+```
+
+脚本功能：
+- 读取指定窗口内所有 claims
+- 自动生成统计、主题漂移、矛盾分类、Durable Rule 候选
+- 输出结构化报告（Markdown 格式）
+- 自动 git add 报告文件
+
+详见 `references/automated-review-script.md`。
 
 ## 输出要求
 

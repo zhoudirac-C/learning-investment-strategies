@@ -42,6 +42,37 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 6. **操作建议必须关联 claims**：引用具体 claim ID
 7. **修改前先提交+拉取**：`git stash → pull → stash pop`
 
+## Review→Write 工作流
+
+`qing-learning-review` 是**只读分析** skill（读 claims → 统计 → 漂移 → 报告）。但用户 workflow 通常要求 review 后将 durable rules 写入 framework 文件。这个写入操作**不属于 review skill 的职责**，而是独立的后续步骤：
+
+```
+qing-learning-review（只读）
+  → 输出：review 报告 + durable rule 候选列表
+  → 用户确认哪些规则写入 framework
+  → Agent 执行写入（patch trading-rules.md / market-cycle-framework.md / stock-analysis-playbook.md）
+  → git add + git commit
+```
+
+**写入目标文件**：
+| 规则类型 | 目标文件 |
+|---------|---------|
+| 交易规则（买卖条件、风控线、操作纪律） | `framework/trading-rules.md` |
+| 市场周期判断框架 | `framework/market-cycle-framework.md` |
+| 个股分析 playbook | `framework/stock-analysis-playbook.md` |
+
+**写入规范**：
+1. 先读取目标文件的完整内容（`read_file`，不用 offset/limit）
+2. 用 `patch` 做精确替换，避免覆盖其他内容
+3. 同步更新：目录索引、相关 claims 链接、更新记录
+4. 写入后 `git status` 确认改动范围
+5. 等用户说"提交"或"执行写入"后再 `git add + git commit`
+
+**禁止**：
+- review skill 直接修改 framework 文件（违反只读职责）
+- 未确认就 commit（用户可能想先检查 diff）
+- 用 offset/limit 读文件后 patch（warning 提示 partial view）
+
 ## 禁止事项
 
 - 不删除旧观点；冲突用 supersedes/contradicts 连接
