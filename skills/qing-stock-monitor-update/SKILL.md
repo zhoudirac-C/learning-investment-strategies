@@ -31,7 +31,8 @@ description: |
 | 腾讯→新浪→东财降级链详情 | `references/tencent-sina-eastmoney-fallback-chain.md` |
 | Agent-UP 矛盾处理 | 本 SKILL §陷阱 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
-| 设计文档 vs 代码实现差距核查 | `references/design-doc-vs-implementation-gap.md` |
+| **设计文档 vs 代码实现差距核查** | `references/design-doc-vs-implementation-gap.md` |
+| **Config-cron 架构设计差距审计（2026-06-10）** | `references/design-doc-gap-audit-20260610.md` |
 | Qing-Agent 服务运维速查 | `references/qing-agent-service-operations.md` |
 | Qing-Agent 服务架构（uvicorn→gunicorn 单 worker） | `references/qing-agent-gunicorn-migration.md` |
 | 系统问题修复记录（2026-06-10） | `references/fix-monitor-system-issues-20260610.md` |
@@ -652,6 +653,35 @@ python3 scripts/sync_daily_state.py --dry-run
 **与 LLM 路径的分工**：
 - 轮询路径（no-agent）：价格触发提醒、风控告警、机会触发通知
 - LLM 路径（agent）：深度分析、方向判断、策略更新
+
+### 陷阱 16: bare `except: pass` 隐藏了完全失效的功能
+
+**反面案例（2026-06-10）**：`context_builder.py`（429行）完整实现了 Neo4j 图遍历 + Qdrant 语义召回 + 浓度控制，但从第一天起 4 处 `max(dates)` / `datetime.strptime()` 因 Neo4j 返回 `neotime.Date` 对象统一抛 `TypeError`。所有调用点都用裸 `except: pass` 捕获，**日志无警告、无崩溃、无提示**。
+
+结果：429 行代码全部落地，但**没有一行真正工作过**。SKILL.md 标记 ✅"已实现"，但实际效果等于 ❌。
+
+**根因链**：
+```
+Neo4j 返回 neotime.Date 类型（非 Python datetime.date，非 str）
+  → context_builder.py 用 strptime() / max(dates) 直接处理
+  → TypeError: '>' not supported between instances of 'Date' and 'str'
+  → except Exception: pass 吞掉异常
+  → build_market_context() 返回空 stock_contexts + direction_signals
+  → LLM 收不到任何 claims 增强上下文
+```
+
+**核查清单**（遇到 `except Exception: pass` 时必查）：
+1. 这个 `try` 块内的逻辑是否真的被完整执行过？不只是"import 不报错"
+2. 如果失败，fallback 是功能受限还是功能消失？
+3. 有没有办法给这个功能加一个独立的测试/验证路径？
+
+**正确做法**：
+- 宁可在临界点写多行类型处理，也不要裸 `except: pass`
+- `except` 必须标注具体异常类型（`TypeError`, `ValueError` 等），至少 `except Exception as e: logger.warning(...)`
+- 对跨数据源（Neo4j vs Qdrant vs mem0）的字段，必须统一类型后再操作
+- 新增功能必须做端到端验证（如 `build_market_context()` 传入真实数据测试输出），不能只测"import 不报错"
+
+**详细参考**：`references/architecture-review-framework.md` §陷阱5
 
 ### 陷阱 15: 设计文档 vs 代码实现差距
 

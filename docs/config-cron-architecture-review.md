@@ -897,8 +897,140 @@ stock_monitor.py 轮询（2分钟间隔）
 | `qing-learning` | 新增 13b 步骤（Claims→Config桥接）、参考 #43 |
 | `qing-stock-monitor-update` | 新增 2.5f（entry_points生命周期+赔率）、add_zone/trade_log/portfolio_stats 维护规范、纪律 #24/25 |
 
-### 7.3 遗留问题
+### 7.3 遗留问题（2026-06-10 审计更新）
 
-1. **linked_claims 覆盖率低**（21/164，13%）：607 条 claims 中仅 31 条有 `related_stocks` 字段。后续新 claims 继续回填，老 claims 无法批量补充（需逐条手动标注）。
-2. **daily_state 写回依赖 LLM 输出格式**：若 qing-agent 未按格式输出 `daily_state` 代码块，扫描器无法解析。当前靠 prompt 约束，无 fallback。
-3. **sync_claims_to_config.py 首次运行返回 0**：因 claims 中缺少可量化的介入区间（operation claims 多为策略级而非标的具体价位），桥接目前只生成 linked_claims 回填。
+1. **linked_claims 覆盖率低**（23/180，13%）：607 条 claims 中仅 31 条有 `related_stocks` 字段。后续新 claims 继续回填，老 claims 无法批量补充（需逐条手动标注）。Context Builder 依赖 linked_claims 实现精确的 Stock→Claim 图遍历，覆盖率低意味着大部分标的的 claims 检索依赖 Qdrant 语义模糊匹配，精度打折扣。
+2. **daily_state 写回依赖 LLM 输出格式**：`market_analyst` 节点已增加 `_persist_daily_state_from_market_context()` fallback（从 JSON 字段推导），但仍然不是 100% 可靠。若 LLM 既未输出 `daily_state` 代码块又未输出结构化 JSON 字段，则 daily_state 无法更新。**当前状态：从「无 fallback」改进为「有 fallback 但有剩余风险」。**
+3. **sync_claims_to_config.py 首次运行返回 0**：因 claims 中缺少可量化的介入区间（operation claims 多为策略级而非标的具体价位），桥接目前只生成 linked_claims 回填。entry_points 中仅 3/12 有 status/odds_analysis/claim_basis 等增强字段。
+4. **全链路自动化管线未完成**：从「新 claims → 自动 discover → Neo4j → Qdrant → Agent 重启」的端到端自动化管线未实现。每次 UP 新观点仍需手动 6-7 步。
+5. **positions.yaml 空仓**：当前 `positions.yaml` 无任何持仓（`entry_decision/add_zone/trade_log` 字段未验证，`portfolio_stats` 已存在但为空）。
+
+### 7.4 全量差距报告（2026-06-10 审计）
+
+基于 `docs/config-cron-architecture-review.md` v2.0 全部 Phase + §7.2 修改清单，对实际代码库逐项核查。
+
+#### 核查方法
+
+```bash
+cd ~/learning-investment-strategies
+
+# watchlist 新增字段
+grep -c "lifecycle:" config/stock_monitor/watchlist.yaml     # 预期 ≥1
+
+# 脚本存在性
+for f in sync_claims_to_config sync_daily_state qing_stock_monitor_poll backfill_linked_claims calc_hot_scores; do
+  [ -f "scripts/${f}.py" ] && echo "✅ $f" || echo "❌ $f"
+done
+
+# entry_points 增强字段
+python3 -c "
+import yaml
+with open('config/stock_monitor/strategy_pack.yaml') as f:
+    d = yaml.safe_load(f)
+eps = d.get('entry_points', [])
+for field in ['status','opportunity_pattern','odds_analysis','claim_basis']:
+    count = sum(1 for ep in eps if field in ep)
+    print(f'{field}: {count}/{len(eps)}')
+"
+```
+
+#### Phase 1：Prompt 层改造 ✅ 全部完成
+
+| 任务 | 实现 | 位置 |
+|------|------|------|
+| 重写 market_analyst prompt（含赔率框架） | ✅ 12.7KB，赔率出现 10 次，daily_state 3 处 | `prompts/system/market_analyst.txt` |
+| 重写 9 个 cron prompt 差异化 | ✅ 9 个文件，38-54 行/个，含独立 focus | `prompts/system/cron_*.txt` |
+| trader_mindset.txt 真实人格（非空壳） | ✅ 89 行/4.7KB，含核心原则、赔率思维、Few-Shot | `prompts/system/trader_mindset.txt` |
+
+关键验证：`grep "赔率思维" prompts/system/trader_mindset.txt` → 返回 1✅
+
+#### Phase 2：Context Builder ✅ 全部完成
+
+> **⚠️ 重要发现**：429行代码从第一天起因 `neotime.Date` vs `str` 类型不匹配静默失效。2026-06-10 修复后才真正工作。
+
+| 任务 | 实现 | 位置 |
+|------|------|------|
+| context_builder.py（Neo4j + Qdrant + 浓度控制） | ✅ 429 行，含 `_to_date_str()`/`_parse_date()` 类型统一 | `tools/context_builder.py` |
+| 集成到 retrieve_knowledge 节点 | ✅ | `graph/nodes.py:1014-1096` |
+| Reasoning pattern 匹配排序 | ✅ `_score_claim_relevance(active_patterns=...)` 额外 +4 分 | `context_builder.py:158-168` |
+| 方向信号汇总 | ✅ 从 Neo4j 动态 query sector-theme 方向，非硬编码 | `context_builder.py:411-423` |
+
+#### Phase 3：Cron + 状态机 ⚠️ 大部分完成
+
+| 任务 | 实现 |
+|------|------|
+| daily_state.json 读写 | ✅ 存在（5KB），结构完整（market_stage/direction_priority/intraday_narrative） |
+| 9个 cron job 差异化 | ✅ 全部启用，`qing_stock_monitor_agent.py` 调用 Qing-Agent LangGraph |
+| add_zone 触发逻辑 | ⚠️ `evaluate_position_alerts()` 已实现，但触发消息格式未按文档示例定制化 |
+| 条件驱动轮询 cron | ✅ `qing_stock_monitor_poll.py`（49行，no-agent），`d343f89ef487`，每5分钟 |
+
+**Cron job 清单（16个，其中本系统相关 13 个）：**
+
+| job_id | 名称 | 调度 | 脚本 | 类型 |
+|--------|------|------|------|------|
+| `3a1c39a7e543` | 集合竞价后 | 26 9 * * 1-5 | `qing_stock_monitor_agent.py` | LLM |
+| `2761c40519b8` | 开盘15分确认 | 45 9 * * 1-5 | 同上 | LLM |
+| `20063caf1c46` | 10点确认 | 0 10 * * 1-5 | 同上 | LLM |
+| `40859a5c0546` | 30分确认 | 30 10 * * 1-5 | 同上 | LLM |
+| `f103249d0301` | 上午收盘前 | 20 11 * * 1-5 | 同上 | LLM |
+| `6e2c0c4f929b` | 午后风险窗口 | 10 13 * * 1-5 | 同上 | LLM |
+| `41c8e6da0e65` | 午盘监控 | 0 14 * * 1-5 | 同上 | LLM |
+| `0763d55a8472` | 尾盘条件单 | 55 14 * * 1-5 | 同上 | LLM |
+| `fc7d8a270d84` | 收盘复盘 | 35 15 * * 1-5 | `hermes_stock_monitor_daily_review.py` | LLM |
+| `d343f89ef487` | 条件驱动轮询 | 1-56/5 9-15 | `qing_stock_monitor_poll.py` | no-agent |
+| `0a62d01fbd45` | Daily State 同步 | */5 9-15 | `sync_daily_state.py` | no-agent |
+| `07df0a7909f4` | Qing-Agent 健康检查 | */5 9-15 | `check_qing_agent.sh` | no-agent |
+| `4444fe34c5cd` | 观察池热度分 | 0 9 * * 1-5 | `calc_hot_scores.py` | no-agent |
+| `71bcaf596d7c` | B站UP主动态 | */10 9-14,21-23 | `run_bilibili_notify.sh` | no-agent |
+| `f52d727a2f38` | Cookie过期提醒 | 30 8,20 * * * | `check_bilibili_cookie.sh` | no-agent |
+| `e6d89f5206ec` | 板块映射缓存 | */30 6-8 | `build_sector_mapping.py` | no-agent |
+
+#### Phase 4：观察池热度 + Claims 自动化 ⚠️ 部分完成
+
+| 任务 | 实现 |
+|------|------|
+| 热度分计算 | ✅ `calc_hot_scores.py` + `tools/hot_score.py`，cron 每天 09:00 |
+| Claims → Entry 桥接 | ⚠️ `sync_claims_to_config.py` 存在，`claims_to_entry.py` 有桥接逻辑，但 **仅 3/12 entry_points 有增强字段**（status/odds_analysis/claim_basis） |
+| 全链路自动化 | ❌ 新 claims → watchlist → discover → Neo4j → Qdrant → Agent 重启 6 步管线未实现 |
+
+#### Config 层新增字段状态
+
+| 配置 | 字段 | 覆盖率 |
+|------|------|--------|
+| `watchlist.yaml` | lifecycle/hot_score/linked_claims/opportunity_patterns | **180/180 (100%)** 字段存在 |
+| `watchlist.yaml` | linked_claims 非空 | **23/180 (13%)** 有值 |
+| `strategy_pack.yaml` | position_rules | ✅ 7 条规则（对应 7 大机会模式） |
+| `strategy_pack.yaml` | entry_points 增强字段 | **3/12 (25%)** 有 status/odds_analysis/claim_basis |
+| `positions.yaml` | portfolio_stats | ✅ 存在但为空 |
+| `positions.yaml` | entry_decision/add_zone/trade_log | ⏳ 空仓，无法验证 |
+
+#### 新增文件清单核查
+
+| 文件 | 行数 | 状态 |
+|------|------|------|
+| `scripts/sync_claims_to_config.py` | 84 | ✅ |
+| `scripts/sync_daily_state.py` | 250 | ✅ |
+| `scripts/qing_stock_monitor_poll.py` | 49 | ✅ |
+| `scripts/backfill_linked_claims.py` | 76 | ✅ |
+| `scripts/calc_hot_scores.py` | 64 | ✅ |
+| `prompts/system/trader_mindset.txt` | 89 | ✅ |
+| `skills/qing-learning/references/claims-to-entry-bridge.md` | — | ✅ |
+
+#### 文档过时期限清单
+
+以下内容在 2026-06-10 审计时已过时，需要同步更新：
+
+1. **§7.2 新增文件列表遗漏**：`tools/daily_state.py` 和 `tools/hot_score.py` 已实现但未在文档中列出
+2. **§7.2「新增 cron job 2 个」**：实际新增 3 个（含健康检查 `07df0a7909f4`）
+3. **§7.3 遗留问题#2「无 fallback」**：`market_analyst` 节点已有 `_persist_daily_state_from_market_context()` fallback，应更新为「有 fallback 但有剩余风险」
+4. **§7.3 遗留问题#1 linked_claims 数据集**：从 21/164 更新为 23/180
+
+#### 实施建议优先级
+
+| 优先级 | 任务 | 原因 |
+|--------|------|------|
+| 🔴 P0 | 补满 entry_points 9/12 的增强字段（status/odds_analysis/claim_basis） | Context Builder 检索了但 LLM 看不到量化操作依据 |
+| 🔴 P0 | 实现 sync_claims_to_config + discover/Neo4j/Qdrant/Agent 重启管线 | 每次 UP 新观点仍需 6-7 步手动 |
+| 🟡 P1 | 持续回填 linked_claims（目标 50%+） | Context Builder 精度提升关键 |
+| 🟡 P1 | 条件驱动轮询触发消息按文档示例格式化 | 提升提醒可读性 |
+| 🟢 P2 | 同步文档过期项 | 防止后续维护者被误导 |
