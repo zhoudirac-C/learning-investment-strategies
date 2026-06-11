@@ -22,7 +22,7 @@ def _build_foo(config, quote_snapshot, state, ...) -> dict:
     # Source A: quote_snapshot (real-time API data)
     for pos in position_rows(config):
         quote = _quote_for_stock(quotes, code)
-        close = _to_float(quote.get("previous_close"))
+        close = _to_float(quote.get("latest"))  # 当日收盘价，不是previous_close(昨收)
         ...
         
         # Initialize with nulls for all fields
@@ -126,7 +126,8 @@ Benefits:
 
 | Source | Data | Staleness | Notes |
 |--------|------|-----------|-------|
-| `quote_snapshot.previous_close` | Yesterday's close | Real-time (API) | One number per stock, always fresh |
+| `quote_snapshot.latest` | Today's close/latest | Real-time (API) | **USE THIS for close price**, not `previous_close` |
+| `quote_snapshot.previous_close` | Yesterday's close | Real-time (API) | ⚠️ **Do NOT use as today's close** — 昨收≠当日收盘. Only use as denominator for pct_change calculation |
 | `state.json` quote fields | OHLC + vol + amt | Last cron tick | May be hours old if cron skipped |
 | Kline cache (SQLite) | OHLC + MA computation | Varies by stock | Some stocks have 3 entries, some 30. `turnover` field always None. Closes don't match API `previous_close` |
 | `daily_state.json` | Market stage/direction | Last closing review | Updated by 15:20 cron |

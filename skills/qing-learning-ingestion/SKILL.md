@@ -19,7 +19,24 @@ description: |
 # 检查 claims 和 wiki 是否已有对应内容
 ls knowledge/claims/claim-YYYYMMDD-*.yaml 2>/dev/null
 ls knowledge/wiki/每日复盘/YYYY-MM-DD.md 2>/dev/null
+
+# 检查原始文件是否已处理（sources/original/bilibili/ 目录下）
+head -5 sources/original/bilibili/*.md 2>/dev/null | grep "unprocessed: true"
 ```
+
+### Step 0.5: 将原始文件复制到 raw 目录
+
+B站文件从 `sources/original/bilibili/` 获取，编排管线需要文件在 `sources/raw/财经/`：
+
+```bash
+# 找到待处理的原始文件
+grep -l "unprocessed: true" sources/original/bilibili/*.md
+
+# 复制到 raw 目录（文件名简短化，去掉特殊字符）
+cp "sources/original/bilibili/原始文件名.md" "sources/raw/财经/YYYY-MM-DD-类别-简短描述.md"
+```
+
+**文件名规范**：去掉长中文描述中的特殊字符（如 `、` `）` `（` 等），用中划线分隔，保持日期+类别前缀。
 
 ### Step 1: 写 Claim（走编排管线）
 
@@ -64,7 +81,9 @@ git commit -m "feat: ..."
 
 1. **同日期多 raw 的编号冲突**：写入前 `ls knowledge/claims/claim-YYYYMMDD-*.yaml` 检查，用递增编号
 2. **同日期 wiki 覆盖**：写入每日复盘前 `read_file` 检查是否存在，合并而非覆盖
-3. **最终修改 raw 的 ingest_status**：完成上述流程后，改 raw frontmatter `ingest_status: pending` → `ingest_status: processed`
+3. **在原始文件标记已处理**：完成上述流程后，改原始文件 frontmatter `unprocessed: true` → `unprocessed: false`
+4. **Pipeline done 清理失败**：`extract_claims_pipeline.py done` 检测到 temp 目录中尚有 YAML 会报错。如果已手动复制 YAML 到正式目录，直接 `rm -rf temp/claims/<session_id>` 手动清理即可
+5. **缓存门禁结果阻塞重跑**：修改 step 产物（如 step2_enriched.json）后必须删除对应 `gateN_result.json` 缓存文件，否则 `continue` 读到旧缓存不会验证你的改动
 
 ## 参考文件
 

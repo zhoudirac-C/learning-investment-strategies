@@ -54,7 +54,8 @@ description: |
 | 个股深度分析数据层设计 | `docs/design/individual-stock-deep-analysis-design.md` — 竞价快照 + 昨日特征 + 成本保护线 + 持仓类型分支框架 + 龙虎榜总榜交叉校验(§7.4) + 板块梯队(§7.3) |
 | **Cron Prompt 数据流（4 层架构）** | `references/cron-prompt-data-flow-pattern.md` — _agent_context_data → text/JSON context → cron prompts 的完整链路，Phase 5 的新增字段引用矩阵 |
 | **Prompt 输出模板格式重组** | `references/prompt-output-template-restructure.md` — 合并/拆分/精简三类操作，含执行步骤和陷阱 |
-| **Context Pipeline 数据层验证** | `references/context-pipeline-test-pattern.md` — 不消耗 token 的数据层验证脚本模式 |
+| **Cron Pipeline 数据层验证** | `references/context-pipeline-test-pattern.md` |
+| **Post-Review Config 同步工作流** | `references/post-review-config-sync.md` — positions + watchlist + cron prompts 三步同步
 | 个股深度分析实施任务 | `docs/tasks/individual-stock-deep-analysis-implementation.md` — Phase 0-8 状态追踪 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
 | **Cron 调度优化** | `references/cron-schedule-optimization.md` |
@@ -1068,6 +1069,7 @@ nohup .venv/bin/gunicorn qing_investment.agent.main:app \
 - **验证必须跑**：`validate_config.py` + `check_config_consistency.py --json` + **no-agent 轮询脚本 dry-run**（`stock_monitor.py --ignore-trading-time`）\n- **cron 健康必查**：config 修改后至少验证一个 agent cron job（`hermes_stock_monitor_agent.py`）和一个 no-agent cron job（`stock_monitor.py`）能正常执行，输出文件非 0 字节\n- **Prompt 数据字段必须先存在**：写 cron prompt 引用某字段前，确认它已存在于 `format_agent_analysis_context()` 输出的 text context 中。prompt 只看到 text context 的内容，看不到代码中的 dict。有依赖就提前实现（跨阶段也无妨）——详见 `references/cron-prompt-data-flow-pattern.md` 陷阱 1
 - **主板-only**：用户只能交易 sh6xxxxx / sz0xxxxx。非主板标的标记 `tradable: false`
 - **不删旧数据**：旧 theme 降级为 monitor_only，不删除
+- **止损/止盈建议发布前必须 4 项交叉校验**：close vs change_pct / close vs cost / close vs [low, high] / close vs unrealized_pct。单字段自洽不够，必须跨独立字段验证。（见陷阱 36）
 - **不编造价格**：数据源降级时诚实说明
 - **区分设计决策 vs 遗留问题**：文档标 ❌ 的项，必须先确认是「设计如此」还是「尚未实现」。意图上保留人工审核门禁的流程不应列为"全链路自动化缺失"。差距报告必须区分 P0（真正缺失）、P1（可优化）、以及「已知设计约束」三类。
 - **文档≠代码**：设计文档中的"新增文件"必须文件系统确认，不能凭文档判断实现状态
@@ -1251,6 +1253,57 @@ if len(past_volumes) < 5:
     past_volumes = [...]
 ```
 
+### 陷阱 36: Quote 字段混淆 — `previous_close` ≠ 当日收盘价
+
+**反面案例（2026-06-11）**：`_build_yesterday_summary()` 用 `quote.get("previous_close")` 作为当日收盘价，导致 `daily_review_summary.json` 中雅克科技 close=122.55（昨收）而非 134.81（实际涨停价）。整个明日策略基于错误收盘价判断为"止损已触发"，被用户纠正后才翻转。
+
+**根因**：Tencent API（`gtimg`）返回两个价格字段：
+
+| 字段 | 含义 | 用途 |
+|------|------|------|
+| `latest` (parts[3]) | **当日最新价/收盘价** | ✅ 收盘价、浮盈计算、MA 计算 |
+| `previous_close` (parts[4]) | 昨收价 | ⚠️ 仅用于 pct_change 分母 |
+
+代码误把 `previous_close` 当作当日收盘，两个字段都存在于 quote dict 中，**不会抛异常** → 静默错误数据。
+
+**识别方法**：
+- close 和 open/high/low 数值明显不匹配（如 close=122.55 但 high=134.81）
+- change_pct 为正但 cost > close → 浮盈计算矛盾
+- `amplitude` = (high-low)/close，如果 close 用错了，振幅也错
+
+**正确做法**：
+```python
+# ✅ 当日收盘价
+close = _to_float(quote.get("latest"))
+
+# ⚠️ 昨收 — 仅用于 pct_change 计算
+prev = _to_float(quote.get("previous_close"))
+```
+
+**受影响的函数**：任何从 quote dict 读取收盘价的代码（`_build_yesterday_summary`、`_agent_context_data`、`_auction_snapshot` 等）。排查方法：`grep -n 'previous_close' src/qing_investment/stock_monitor.py`，确认每个调用点的上下文是否正确。
+
+**附带修复**：`daily_review_summary.json` 中已有的错误数据需手动修正（或删除后重新生成）。
+
+### 陷阱 38: _build_yesterday_summary() close 字段用 previous_close 而非 latest
+
+**反面案例（2026-06-11）**：`daily_review_summary.json` 存储的 close 价格是昨收（122.55）而非当日收盘（134.81），导致策略分析误判"止损已触发"。用户纠正后排查发现 `stock_monitor.py:1801`：
+
+```python
+# ❌ 错误 — 读的是昨收
+close = _to_float(quote.get("previous_close"))
+
+# ✅ 正确 — 读的是当日收盘/最新价
+close = _to_float(quote.get("latest"))
+```
+
+**根因**：Tencent API quote dict 有两个字段：`previous_close`=昨收，`latest`=当日最新价（收盘后=收盘价）。代码混用了。
+
+**判断方法**：对比 `daily_review_summary.json` 的 close 与行情源的当日收盘。若偏差 >0.5%，检查 `_build_yesterday_summary()` 的字段名。
+
+**教训**：
+1. 数据层字段映射必须用真实行情数据验证（mock 已知 close → assert）
+2. "close" / "previous_close" / "latest" 三个词在不同数据源中含义不同，不能想当然
+
 ### 陷阱 35: 跳过API调研直接标记 P2 — 用户说"所有api你都调研过了吗？"
 
 **反面案例（2026-06-11）**：龙虎榜数据调研任务，AI 搜索到 `stock-role-classification.md` 有「❌ 未获取」标记，未实际调用 akshare API 确认，直接结论"无数据源 → 标记 P2 待办"。用户追问后发现 akshare 的 `stock_lhb_stock_detail_em` 完全可用，且数据质量高（含席位名称、买卖金额、净额）。
@@ -1338,6 +1391,45 @@ Fix C — 数据优先级提示（`format_agent_analysis_context()` + `format_li
 **金丝雀**：输出含非当前年份（2025/2024）→ 幻觉；含"数据断链/缺失/不可用" → 数据源问题。
 
 **涉及文件**：`scripts/hermes_stock_monitor_agent.py` + `src/qing_investment/stock_monitor.py`
+
+### 陷阱 37: 接受自动化管线的收盘价而不交叉校验 → 策略结论完全翻转
+
+> ℹ️ 本陷阱与 陷阱 36 同根同源：陷阱 36 讲**代码根因**（`previous_close` vs `latest`），陷阱 37 讲**操作纪律**（发布建议前必须交叉校验）。
+
+**反面案例（2026-06-11）**：基于 `daily_review_summary.json` 的 close 字段更新明日策略：雅克科技 close=122.55（→ 浮亏-5.5%，止损触发→建议卖出），风华高科 close=59.81（→ 浮亏-6.64%，止损触发→建议卖出）。但实际收盘是雅克 134.81（涨停，+3.95%浮盈）、风华 64.3（+0.36%浮盈）。一个错误收盘价导致策略从「持有等确认」完全翻转为「止损卖出」。
+
+**根因**：`daily_review_summary.json` 的 close 字段存了前日收盘，而非当日收盘。AI 读取后未与同记录中的其他字段交叉校验。
+
+**必须执行的交叉校验（发布止损/止盈建议之前）**：
+
+```
+✅ 检查 1: close vs change_pct
+   如果 change_pct = +10% (涨停)，close 必须是 prev_close × 1.10
+   122.55 × 1.10 = 134.81 → 实际涨停价 = 134.81 ✓
+
+✅ 检查 2: close vs cost
+   如果 cost=129.68 且今日涨停，close 必须 > cost
+   122.55 < 129.68 → 不可能！（股票从 111 涨到 122.55，但 cost 在 129.68？）
+   → 收盘价数据有误
+
+✅ 检查 3: close 必须在 [low, high] 区间内
+   high=134.81, low=124.0, close=122.55 → 不在区间内 → 数据有误
+
+✅ 检查 4: close vs unrealized_pct
+   如果 unrealized_pct=-5.5%，则 (close-cost)/cost = -5.5%
+   (122.55-129.683)/129.683 = -5.5% → 自洽的，但前提是 close 正确
+   → 自洽≠正确——当 close 本身错时，衍生字段也会错
+```
+
+**最可靠的 signal：change_pct 与 close 的一致性**。涨停 +10% 时，close 必须 >= prev_close × 1.10。如果对不上→数据源有 bug。
+
+**教训**：
+1. **止损/止盈建议是最高风险操作**——错误建议直接导致用户金钱损失。发布前必须执行上述 4 项交叉校验
+2. **单字段自洽不够**（unrealized_pct 可能从错误 close 衍生），必须跨独立字段校验（change_pct 来自行情源API，close 来自缓存管线）
+3. **daily_review_summary.json 的 close 字段不可信**——已知存了前日收盘价而非当日收盘。优先用 change_pct + previous_close 反推，或用 positions 中手动输入的 close
+4. **如果无法确认收盘价，宁可告诉用户"数据不一致，需要确认"也不要用不确定的数据做止损决策**
+
+**涉及文件**：`daily_review_summary.json`（close 字段来源 bug）、`stock_monitor.py`（生成逻辑）
 
 ## 验证清单
 
