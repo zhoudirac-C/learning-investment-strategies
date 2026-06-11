@@ -1437,6 +1437,8 @@ def _agent_context_data(
                 "role": row.get("role", ""),
                 "name": row.get("name", ""),
                 "code": row.get("code", ""),
+                "latest": _to_float((_quote_for_stock(quotes_by_code, row.get("code", "")) or {}).get("latest")),
+                "pct_change": _to_float((_quote_for_stock(quotes_by_code, row.get("code", "")) or {}).get("pct_change")),
                 "watch_reason": row.get("watch_reason", ""),
                 "buy_setup": _string_items(row.get("buy_setup")),
                 "invalidation_setup": _string_items(row.get("invalidation_setup")),
@@ -1557,6 +1559,8 @@ def format_agent_analysis_context(
 
     lines.extend(
         [
+            "",
+            "【⚠️ 数据优先级】实时行情快照（上方的实际价格和涨跌幅）优先于下方 config 配置文件中的参考价。如果实时行情快照中有标的的最新价/涨跌幅，请以实时行情为准，不要用配置文件中的陈旧参考价(current_ref)。",
             "",
             "请按本项目 AGENTS.md 与 qing-stock-analysis 框架输出极简微信提醒：",
             "输出必须覆盖三件事：全A指数涨跌方向（强/弱修复定性）+ 观察池现在能不能买 + 持仓池现在怎么操作。",
@@ -2525,6 +2529,8 @@ def format_live_analysis_context(config: MonitorConfig, value: datetime) -> str:
 
     lines.extend(
         [
+            "",
+            "【⚠️ 数据优先级】实时行情快照（上方的实际价格和涨跌幅）优先于下方 config 配置文件中的参考价。如果实时行情快照中有标的的最新价/涨跌幅，请以实时行情为准，不要用配置文件中的陈旧参考价(current_ref)。",
             "",
             "请把上述实时行情作为盘面证据，输出极简微信提醒。",
             "只回答：观察池现在能不能买、持仓池现在怎么操作。",

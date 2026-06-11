@@ -11,10 +11,12 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import subprocess
 import sys
 import urllib.error
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 QING_AGENT_URL = os.environ.get("QING_AGENT_URL", "http://localhost:8000/analyze/trigger")
@@ -140,6 +142,28 @@ def call_qing_agent(data: dict) -> dict | None:
     return None
 
 
+# ── 幻觉检测模式 ──
+_HALLUCINATION_PATTERNS = [
+    re.compile(r"202[0-5]年"),
+    re.compile(r"数据断链|数据缺失|数据不可用|暂无数据|量化API断供"),
+    re.compile(r"数据恢复是最关键"),
+    re.compile(r"这是\d{4}年\d{1,2}月\d{1,2}日(盘后)?复盘"),
+]
+
+
+def _is_hallucinated(output: str) -> bool:
+    current_year = datetime.now(timezone.utc).year
+    year_matches = re.findall(r"(20\d{2})年", output)
+    for y_str in year_matches:
+        y = int(y_str)
+        if abs(y - current_year) >= 1:
+            return True
+    for pat in _HALLUCINATION_PATTERNS:
+        if pat.search(output):
+            return True
+    return False
+
+
 def main():
     root = Path(repo_root())
 
@@ -152,10 +176,17 @@ def main():
     # 2. Call qing-agent
     response = call_qing_agent(data)
 
-    # 3. Output
+    # 3. Output with hallucination check
     if response and response.get("final_output"):
+        output = response["final_output"]
+        if _is_hallucinated(output):
+            import logging
+            logging.warning("Qing-Agent output hallucinated (wrong date/patterns), falling back to live context")
+            print("[Qing-Agent ✗ HALLUCINATION]")
+            print(fetch_fallback_text_context(root))
+            return 0
         print("[Qing-Agent ✓]")
-        print(response["final_output"])
+        print(output)
         if response.get("claims_cited"):
             print(f"\n[引用claims: {', '.join(response['claims_cited'])}]")
         return 0
