@@ -119,41 +119,43 @@ if __name__ == "__main__":
 3. **prompt 写了但表达风格缺失**：market_analyst.txt 有推理框架，但缺少「先给结论」「敢于预判」等风格约束 → LLM 输出仍然保守模糊
 4. **claims_to_entry 提取了但没回写**：提取了 entry 建议，但没有 `update_watchlist_linked_claims` → watchlist 的 `linked_claims` 永远为空
 
-## 跨字段一致性检查（新增 — 2026-06-11）
+## 跨字段一致性检查（2026-06-11 更新）
 
-以上 1-4 是「字段是否存在」的问题，但还有一种更隐蔽的：读者和写着用不同字段表达同一含义。
+以上 1-4 是「字段是否存在」的问题，但还有两种更隐蔽的。
 
-**典型案例**：poll 读 `buy_setup` 提取价格区间，但 watchlist 写入者写的是 `entry_zone.price_range`。两个字段都存在且非空，但读者根本不在看写者写的位置。
+### 类型 A：读者和写着用不同字段表达同一含义（已修复）
 
-### 检查清单
+**反面案例**：poll 读 `buy_setup` 提取价格区间，但 watchlist 写入者写的是 `entry_zone.price_range`。
+
+**修复（2026-06-11）**：`stock_monitor.py:407-409` 从 `stock.get("buy_setup")` 改为 `stock.get("entry_zone", {}).get("price_range")`。
+
+### 类型 B：P3-观察标的的语义 price_range（已清理）
+
+**反面案例**：和远气体(002971) P3-观察，`price_range: "48.0 ~ 50.0（仅供参考，不建议主动介入）"`。注释说「不建议介入」，但 parse_price_zone 只认数字，提取出 (48.0, 50.0)，poll 会把它当作有价格区间的候选——注释和代码逻辑矛盾。
+
+**规则**：P3-观察标的的 `price_range` 必须为 `null`。禁止写数字区间（哪怕带说明文字），因为 poll 只认数字。
+
+**验证命令**：
+```bash
+python scripts/validate_watchlist.py
+# P3 标的带数字 price_range 会显示 ⚠️ 警告
+```
+
+### 检查清单（2026-06-11 更新后）
 
 | 检查项 | 读者用的字段 | 写着用的字段 | 验证方法 |
 |--------|-------------|-------------|---------|
-| poll watchlist 回退路径 | `stock["buy_setup"]` | `stock["entry_zone"]["price_range"]` | `grep "buy_setup" src/qing_investment/stock_monitor.py` |
+| poll watchlist 回退路径 | `stock["entry_zone"]["price_range"]` | `stock["entry_zone"]["price_range"]` | ✅ 已修复一致 |
 | poll entry_points 路径 | `entry["entry_zone"]` | `strategy_pack.entry_points[].entry_zone` | ✅ 一致 |
 | poll positions 路径 | `pos["add_zone"]` | `positions.positions[].add_zone` | ✅ 一致 |
 | hot_score 读取路径 | `stock["priority"]` | `watchlist.stocks[].priority` | ✅ 一致 |
-
-### 检查方法
-
-```python
-import yaml
-with open("config/stock_monitor/watchlist.yaml") as f:
-    data = yaml.safe_load(f)
-for theme in data.get("themes", []):
-    for stock in theme.get("stocks", []):
-        has_buy_setup = "buy_setup" in stock
-        ez = stock.get("entry_zone", {}) or {}
-        has_price_range = "price_range" in ez
-        if has_price_range and not has_buy_setup:
-            print(f"WARN {stock['code']}: poll reads buy_setup but writer uses entry_zone.price_range")
-```
 
 ### 判定规则
 
 - 当字段同时存在于两个位置时，**以代码中代码的读取路径为准**，不以后续人工约定为准
 - 修复方案：**改读者不改写着**（改读者影响 1 个函数的几行，改写着需修改全部已有数据）
 - 新增字段时必须同时确定读者和写者的使用路径
+- **P3-观察标的的 price_range 必须为 null**——任何数字区间都会被 poll 误判为候选
 
 ## 修复优先级
 

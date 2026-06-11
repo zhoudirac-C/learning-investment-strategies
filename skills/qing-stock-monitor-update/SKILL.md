@@ -32,6 +32,8 @@ description: |
 | **Curl K线批量拉取（轻量替代）** | `references/curl-kline-batch-fetch.md` |
 | 配置健康检查 | `references/config-health-check.md` |
 | Watchlist 字段校验 | `scripts/validate_watchlist.py` |
+| P3-观察标的介入区间计算 | `references/p3-kline-entry-zone-workflow.md` |
+| Poll 字段读取路径 | `references/poll-field-lineage.md` |
 | 持仓观察池区分修复记录 | `references/position-watchlist-distinction-fix.md` |
 | 腾讯→新浪→东财降级链详情 | `references/tencent-sina-eastmoney-fallback-chain.md` |
 | 早盘驱动 Config 更新清单 | `references/morning-briefing-update-checklist.md` |
@@ -43,6 +45,7 @@ description: |
 | **K线缓存 + 预拉取基础设施** | `src/qing_investment/kline_cache.py` + `scripts/pre_fetch_klines.py` |
 | Agent-UP 矛盾处理 | 本 SKILL §陷阱 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
+| **Cron 调度优化** | `references/cron-schedule-optimization.md` |
 | **设计文档 vs 代码实现差距核查** | `references/design-doc-vs-implementation-gap.md` |
 | **Config-cron 架构设计差距审计（2026-06-10）** | `references/design-doc-gap-audit-20260610.md` |
 | Qing-Agent 服务运维速查 | `references/qing-agent-service-operations.md` |
@@ -68,10 +71,18 @@ description: |
 
 ```bash
 cd ~/learning-investment-strategies
-python3 scripts/check_config_consistency.py
 ```
 
-输出 **8 维差异报告**（P0/P1/P2 分级）：
+**⚠️ 注意**：`check_config_consistency.py` 在陷阱 15 中被标记为 "❌ 不存在"——它是设计文档中的计划文件，尚未创建。以下为实际可用的替代检查：
+
+| 检查维度 | 可用工具 | 说明 |
+|---------|---------|------|
+| Watchlist 字段完整性 | `python scripts/validate_watchlist.py` | ✅ 已实现（2026-06-11）——校验 code/priority/price_range/hard_stop |
+| Watchlist 字段详情 | `python scripts/validate_watchlist.py --json` | JSON 输出，供 LLM 消费 |
+| Config YAML 语法 | `python -c "import yaml; yaml.safe_load(open('config/stock_monitor/watchlist.yaml'))"` | 基础语法校验 |
+| 轮询脚本不崩溃 | `PYTHONPATH=src timeout 30 .venv/bin/python scripts/stock_monitor.py --ignore-trading-time` | 端到端运行验证 |
+
+**设计中的 8 维差异报告**（待实现，见陷阱 15）：
 1. strategy_pack 过期（日期、点位、方向词）
 2. watchlist 缺口（claims 提到的标的未在 watchlist）
 3. watchlist ↔ strategy_pack 对齐
@@ -80,11 +91,6 @@ python3 scripts/check_config_consistency.py
 6. cron focus 过期
 7. claims 引用完整性
 8. watchlist 字段校验（code 格式/priority/lifecycle/linked_claims/sentiment）
-
-```bash
-# JSON 输出供 LLM 消费
-python3 scripts/check_config_consistency.py --json
-```
 
 ### Step 2: 收集变化源
 
@@ -136,11 +142,10 @@ python3 scripts/check_config_consistency.py --json
 
 用户确认后：
 1. 逐项修改（优先 P0 → P1 → P2）
-2. 运行 `python3 scripts/validate_config.py` 验证
-3. 运行 `python3 scripts/check_config_consistency.py --json` 确认 P0 清零
-4. **运行 no-agent 轮询脚本确认不崩溃**：`PYTHONPATH=src timeout 30 .venv/bin/python scripts/stock_monitor.py --ignore-trading-time`
-5. 更新 strategy_pack.updated_at
-6. Git 提交
+2. 运行 `python scripts/validate_watchlist.py` 确认 P0 清零（Watchlist 字段）**
+3. 运行 no-agent 轮询脚本确认不崩溃：`PYTHONPATH=src timeout 30 .venv/bin/python scripts/stock_monitor.py --ignore-trading-time`
+4. 更新 strategy_pack.updated_at
+5. Git 提交
 
 ---
 
@@ -158,11 +163,7 @@ python3 scripts/check_config_consistency.py --json
 | 添加操作规则（板块级微调） | 修改 positions 的建仓目标 |
 | 更新 intraday_schedule 观察点 | 大幅重写 strategy_pack 框架 |
 
-**执行流**：
-1. 读早盘 raw + claims → 对照 `references/morning-briefing-update-checklist.md` 的 5 项必查
-2. 输出差异报告（P0/P1/P2 分级）
-3. 用户确认后逐项 patch
-4. `validate_config.py` + `check_config_consistency.py --json` → P0 清零
+**执行流**：\n1. 读早盘 raw + claims → 对照 `references/morning-briefing-update-checklist.md` 的 5 项必查\n2. 输出差异报告（P0/P1/P2 分级）\n3. 用户确认后逐项 patch\n4. `python scripts/validate_watchlist.py` 确认 P0 清零
 5. **`PYTHONPATH=src timeout 30 .venv/bin/python scripts/stock_monitor.py --ignore-trading-time`** → 确认 no-agent 脚本不崩溃
 6. Git 提交
 
@@ -1065,6 +1066,7 @@ nohup .venv/bin/gunicorn qing_investment.agent.main:app \
 - **poll 静默输出 ≠ 失败**：poll cron 输出 0 字节 + status=ok 时，先确认是否"无规则触发"的正常状态，再排查脚本可用性。区分"全天全 0"（故障）和"间歇性 0"（正常）。（见陷阱 27）
 - **改 config 必须同步改 cron prompt**：Agent cron job 的 prompt 字段是创建时的快照，不会随 config 更新自动同步。config 框架变更后必须对照更新 cron prompt，否则 Agent 仍用旧框架分析。（见陷阱 28）
 - **测试 cron 避开已有时间点**：同一 HH:MM 的去重 key 为 `scheduled:{id}:{date}`，第二个 job 会被跳过。测试用一次性 cron 必须使用不同的分钟数。（见陷阱 29）
+- **Cron 调度优化三原则**：移动（move）盘前/盘后任务、偏移（offset）分钟位避开 Agent 整点、降频（reduce）非关键轮询。**不删除有功能价值的任务**，用户说"很重要"时保留并偏移，不要直接删除。（见 `references/cron-schedule-optimization.md`）
 
 ---
 
@@ -1190,6 +1192,14 @@ print('✅ poll 读取 entry_zone.price_range 正常')
 ```
 
 **与陷阱 30 的区别**：陷阱 30 是代码清洗逻辑的 bug（字符串 replace 顺序），陷阱 31 是**架构层面的字段映射不一致**——写入者和读取者用了不同的字段名表达同一概念。前者是「怎么写错了」，后者是「用哪个字段来写/读根本没定」。
+
+**子案例：P3-观察标的 price_range 语义矛盾**
+
+同一次修复中发现的和远气体(002971)案例：P3-观察标的，`price_range: "48.0 ~ 50.0（仅供参考，不建议主动介入）"`。注释写「不建议介入」，但 parse_price_zone 提取数字 (48.0, 50.0)，poll 视为有效的介入区间，每天参与 6 条件评估。——代码不读注释。
+
+**规则**：P3-观察标的的 price_range **必须为 null**。禁止写数字区间（哪怕带说明文字）。`validate_watchlist.py` 的 `--fix-null` 修复文本描述，但对含数字的混合文本需要手动处理。
+
+**修复（2026-06-11）**：6 只 P3 标的的 price_range 统一清理为 null。`scripts/validate_watchlist.py` 增加对 P3+数字 price_range 的 ⚠️ 警告。
 
 
 ## 验证清单
