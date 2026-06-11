@@ -34,6 +34,7 @@ description: |
 | 配置健康检查 | `references/config-health-check.md` |
 | 持仓观察池区分修复记录 | `references/position-watchlist-distinction-fix.md` |
 | 腾讯→新浪→东财降级链详情 | `references/tencent-sina-eastmoney-fallback-chain.md` |
+| **早盘驱动 Config 更新清单** | `references/morning-briefing-update-checklist.md` |
 | Agent-UP 矛盾处理 | 本 SKILL §陷阱 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
 | **设计文档 vs 代码实现差距核查** | `references/design-doc-vs-implementation-gap.md` |

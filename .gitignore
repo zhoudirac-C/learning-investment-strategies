@@ -29,5 +29,14 @@ models/
 # Qdrant local file mode data (auto-generated)
 .qdrant_data/
 
+# Qdrant server runtime data (auto-generated)
+storage/
+
+# Qdrant binary (downloaded externally)
+bin/qdrant
+
+# Qdrant local backup
+.qdrant_data.bak*/
+
 config/stock_monitor/stock_sector_mapping.json
 *.bak
