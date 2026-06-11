@@ -30,12 +30,13 @@ description: |
 | Entry points 增强字段分析工作流 | `references/entry-points-enhancement-workflow.md` |
 | Entry points 生成 | `references/entry-points-generation.md` |
 | **Curl K线批量拉取（轻量替代）** | `references/curl-kline-batch-fetch.md` |
-| 配置健康检查 | `references/config-health-check.md` |线批量拉取（轻量替代）** | `references/curl-kline-batch-fetch.md` |
 | 配置健康检查 | `references/config-health-check.md` |
+| Watchlist 字段校验 | `scripts/validate_watchlist.py` |
 | 持仓观察池区分修复记录 | `references/position-watchlist-distinction-fix.md` |
 | 腾讯→新浪→东财降级链详情 | `references/tencent-sina-eastmoney-fallback-chain.md` |
 | 早盘驱动 Config 更新清单 | `references/morning-briefing-update-checklist.md` |
 | **Cron 静默失败排查清单** | `references/cron-silent-failure-checklist.md` |
+| **Hermes Cron 包装器设计约定** | `references/hermes-cron-wrapper-conventions.md` |
 | **买入信号检测系统设计** | `references/buy-signal-detection-design.md` → `docs/design/buy-signal-detection-system.md` |
 | **买入信号实施任务清单** | `docs/tasks/buy-signal-implementation.md`（Phase 0-4 状态追踪） |
 | **框架过期自锁闭环（4033案例）** | `references/framework-staleness-self-lock.md` |
@@ -1060,8 +1061,136 @@ nohup .venv/bin/gunicorn qing_investment.agent.main:app \
 - **文档≠代码**：设计文档中的"新增文件"必须文件系统确认，不能凭文档判断实现状态
 - **Agent 输出必须二值化**：买/不买 + 原因 + 价位，不允许「等」「观察」「关注」等安全词模糊结论。标题和正文结论必须一致 — 「等」就不要用「✅ 可买」
 - **买入信号 > 风控提醒**：poll 脚本的第一优先级是检测量价配合 + 介入区间确认，推买入信号；风控告警是第二优先级
+- **`parents[n]` 深度校验**：新增文件在 `src/qing_investment/agent/tools/`（深度4）vs `src/qing_investment/`（深度2）vs `scripts/`（深度1）时，`Path(__file__).resolve().parents[n]` 的 n 不同。加新文件时必须确认 n 指向 repo root，否则数据文件会写到错误目录（如 `kline_cache.py` 的 `parents[3]→parents[2]` 修复案例）
+- **poll 静默输出 ≠ 失败**：poll cron 输出 0 字节 + status=ok 时，先确认是否"无规则触发"的正常状态，再排查脚本可用性。区分"全天全 0"（故障）和"间歇性 0"（正常）。（见陷阱 27）
+- **改 config 必须同步改 cron prompt**：Agent cron job 的 prompt 字段是创建时的快照，不会随 config 更新自动同步。config 框架变更后必须对照更新 cron prompt，否则 Agent 仍用旧框架分析。（见陷阱 28）
+- **测试 cron 避开已有时间点**：同一 HH:MM 的去重 key 为 `scheduled:{id}:{date}`，第二个 job 会被跳过。测试用一次性 cron 必须使用不同的分钟数。（见陷阱 29）
 
 ---
+
+### 陷阱 27: poll 静默输出 ≠ 失败 — 无提醒时是正常行为
+
+**反面理解（2026-06-11 澄清）**：用户和 AI 看到 poll cron 输出 0 字节 + status=ok，第一反应是"又静默失败了"。但 poll 脚本（`d343f89ef487`）的 0 字节输出在**没有规则触发条件满足时是正常状态**——代表没有 add_zone/risk_zone/板块轮动 触发。
+
+**与陷阱 20/21/23 的区别**：
+
+| 陷阱 | 症状 | 持续性 | 性质 |
+|------|------|--------|------|
+| 20 | 0 字节 + status=ok | 全天才 0 | 💥 脚本文件不存在 |
+| 21 | 0 字节 + status=ok | 全天才 0 | 💥 subprocess 路径失效 |
+| 23 | 有内容但不对 | 全天才误报 | 💥 LLM fallback |
+| **27** | **0 字节 + status=ok** | **间歇性（有时有内容）** | ✅ **正常** |
+
+**判断方法**：不要只看单次输出的字节数。查 poll 的最近 10 次输出——如果有内容输出和 0 字节输出交替出现 → 正常（市场没有触发条件）。如果全天所有输出都是 0 → 排查脚本可用性。
+
+**教训**：
+1. **poll 输出 0 字节 ≠ 静默失败**，先确认是否有规则触发条件
+2. **区分"全天全 0"和"间歇性 0"**：前者排查脚本可用性，后者是正常行为
+3. **验证方法**：手动跑 `stock_monitor.py --ignore-trading-time` 看事件日志
+
+### 陷阱 28: cron prompt 过期 — 改 config 不改 prompt → Agent 仍用旧框架
+
+**反面案例（2026-06-11）**：清理了 `strategy_pack.yaml` 和 `daily_state.json` 中 4033 过期引用后，14:00 cron 的 Agent 分析仍输出"第三次修复观察期"框架关键词，而非新的"地量信号+情景A/B"。
+
+**根因**：Agent cron job 的 `prompt` 字段在创建时写入固定文本，不会被 `strategy_pack.yaml` 修改自动更新。Agent 收到的 prompt 是 cron 创建时的快照。config 框架演进多轮，cron prompt 停在创建时。
+
+**修复流程**：
+1. 修改 `strategy_pack.yaml` market_framework → 同步更新 cron job 的 `prompt` 字段
+2. 用 `cronjob(action='list')` 列出所有 agent cron 的 prompt → 对照新框架
+3. 用 `cronjob(action='update', job_id=..., prompt=...)` 逐个更新
+4. 验证：下一个 cron 触发时 Agent 输出是否含新框架关键词
+
+**教训**：
+1. **改 config ≠ 改 cron prompt**：cron prompt 是独立快照，不会自动同步
+2. **Agent 输出的框架关键词是"金丝雀"**：看到旧框架词（"4033清仓""第三次修复观察期"）→ prompt 过期
+3. **config 框架更新后必须检查 cron prompt 一致性**
+
+### 陷阱 29: 同 HH:MM 测试 cron 被去重 — 测试 job 需避开已有时间点
+
+**反面案例（2026-06-11）**：13:55 创建了 14:00 测试 job（`df4609ef3de4`），但已有日常 cron（`41c8e6da0e65`）在 14:00 触发。测试 job 输出为空。
+
+**根因**：`find_agent_analysis_trigger()` 的去重 key 为 `scheduled:{id}:{date}`。同一 HH:MM 的第二个 job 即使 job_id 不同，也被判定为"今日已分析过"。
+
+**正确做法**：测试用一次性 cron 必须使用**与现有 cron 不同的 HH:MM**，如 14:05、14:10。现有 cron 时间点见 `agent_analysis_schedule` 或 `cronjob list`。
+
+### 陷阱 30: _normalize_code 后缀处理 — .replace('sz','') 吃掉 .SZ
+
+**反面案例（2026-06-11）**：`pre_fetch_klines.py` 拉取 13 只标的全部失败（`'list' object has no attribute 'get'`），但 `fetch_stock_kline('600378')` 手动测试正常。根因：`_extract_stock_codes()` 返回带后缀代码（如 `000636.SZ`），`_normalize_code()` 用 `.replace("sz", "")` 逐层清洗 → `000636.SZ` → `000636.S` → `000636S` → API 收到 `sz000636S` → `param error` → `data["data"]` 返回空 list → `.get()` 失败。
+
+**根因链**：
+```python
+# ❌ 顺序替换 = 灾难
+"000636.SZ".replace("sh", "").replace("sz", "").replace(".", "")
+# → "000636SZ" → "000636.S" → "000636S"
+# full_code = "sz000636S"  ← API 不认识
+
+# ✅ 先剥离已知后缀
+if code.endswith(".sz") or code.endswith(".sh"):
+    code = code[:-3]
+pure = code.replace("sh", "").replace("sz", "")
+```
+
+**为什么人工测试能过**：手动传入无后缀代码（`'600378'`），绕过了后缀清洗路径。
+
+**教训**：
+1. **字符串清洗必须按结构处理**：先剥离已知后缀，再清洗残余前缀。裸 `replace()` 无法区分上下文
+2. **测试要覆盖带后缀的输入**：如果 test 只用无后缀码（`'600378'`），永远发现不了 `'000636.SZ'` 的 bug
+3. **API 返回空 list ≠ 网络失败**：`'list' object has no attribute 'get'` 这个错误信息暗示的是数据形状变化，不是网络不通
+4. **涉及文件**：`src/qing_investment/agent/tools/stock_data.py`，修复在 `f8d37b4`
+
+### 陷阱 31: poll 读 watchlist 时用了错误字段 — `buy_setup` vs `entry_zone.price_range`
+
+**反面案例（2026-06-11）**：用户问 poll 为什么从不检测 watchlist 中的买入机会。排查发现：poll 的 watchlist 回退路径读的是 `stock["buy_setup"]`，但所有 P1/P2 标的的价格区间写在 `stock["entry_zone"]["price_range"]` 里。两个字段表达同一含义，但写入者和读取者各指各的。
+
+**根因链**：
+```
+写入者/手动编辑: entry_zone.price_range: "118.0 ~ 122.0"
+  ↓
+poll 读取: buy_setup = stock.get("buy_setup", "")  → 大部分标的没有此字段
+  ↓
+parse_price_zone("") → None
+  ↓
+poll 静默跳过该票（无日志，无警告）
+  ↓
+用户以为 poll 在看，实际上该票从不在候选列表里
+```
+
+**涉及代码** (`stock_monitor.py:403-418`)：
+```python
+# ❌ 当前（读 buy_setup）
+buy_setup = stock.get("buy_setup", "")       # 大部分标的没有这个字段
+zone = parse_price_zone(buy_setup)           # → None → 该票永远不被 poll 看到
+
+# ✅ 正确（读 entry_zone.price_range）
+ez = stock.get("entry_zone", {}) or {}
+pr = ez.get("price_range", "")
+zone = parse_price_zone(pr)                  # "118.0~122.0" → (118.0, 122.0)
+```
+
+**为什么 entry_points 路径能触发但 watchlist 路径不能**：`strategy_pack.entry_points[]` 的读取路径是对的（读 `entry_zone` 字段），`positions.add_zone` 的读取路径也是对的，唯独 watchlist 回退路径读错了字段。所以 entry_points 生成的候选能触发，watchlist 标的从不触发——表面上它在监控，实际它在冷宫。
+
+**正确做法**：
+1. **修复 poll 读取路径**：`stock_monitor.py:407-409` 从 `stock.get("buy_setup")` 改为 `stock.get("entry_zone", {}).get("price_range")`
+2. **废除 `buy_setup` 作为价格区间字段**：`buy_setup` 仅作为"买入条件补充说明"（如"等昊华科技企稳"），poll 不应从中提取数字。**唯一的区间字段 = `entry_zone.price_range`**，格式 `"低~高"` 或 `"低-高"`
+3. **P3-观察标的写 `price_range: null`**，取代 `"不设介入区间（仅观察）"` 这类描述字符串（parse_price_zone 解析失败无警告）
+4. **在 `save_watchlist()` 中加字段完整性校验**：P1/P2 标的必须有 `entry_zone.price_range`，格式是数字范围
+
+**验证命令（修复后）**：
+```bash
+cd ~/learning-investment-strategies
+python3 -c "
+import sys; sys.path.insert(0, 'src')
+stock = {'entry_zone': {'price_range': '118.0 ~ 122.0'}}
+ez = stock.get('entry_zone', {}) or {}
+from qing_investment.stock_monitor import parse_price_zone
+z = parse_price_zone(ez.get('price_range', ''))
+assert z == (118.0, 122.0), f'→ {z}'
+print('✅ poll 读取 entry_zone.price_range 正常')
+"
+```
+
+**与陷阱 30 的区别**：陷阱 30 是代码清洗逻辑的 bug（字符串 replace 顺序），陷阱 31 是**架构层面的字段映射不一致**——写入者和读取者用了不同的字段名表达同一概念。前者是「怎么写错了」，后者是「用哪个字段来写/读根本没定」。
+
 
 ## 验证清单
 
@@ -1081,3 +1210,4 @@ nohup .venv/bin/gunicorn qing_investment.agent.main:app \
 - [ ] **K线缓存初始化**：`infra/data/kline_cache.db` 存在且有数据（`python3 -c "from qing_investment.kline_cache import get_cache_stats; print(get_cache_stats())"`）
 - [ ] **pre_fetch cron 已部署**：`~/.hermes/scripts/qing_pre_fetch_klines.py` 存在 + cron job `44bce96fa7a7` 已调度（06:30 周一到周五）
 - [ ] **买入信号检测可用**：`evaluate_buy_signal_candidates()` 可正常运行（`PYTHONPATH=src .venv/bin/python -c "from qing_investment.stock_monitor import evaluate_buy_signal_candidates, load_monitor_config; print(evaluate_buy_signal_candidates(load_monitor_config(), {}))"`）
+- [ ] **Watchlist 字段校验**：`python scripts/validate_watchlist.py` 退出码=0

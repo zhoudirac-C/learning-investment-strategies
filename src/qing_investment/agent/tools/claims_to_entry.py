@@ -260,8 +260,47 @@ def update_watchlist_linked_claims(
     return watchlist_data
 
 
+def validate_stock_entry(stock: dict) -> list[str]:
+    """校验 watchlist 中单只 stock 的 poll 必要字段。"""
+    errors: list[str] = []
+    code = stock.get("code", "") or ""
+    name = stock.get("name", "") or ""
+
+    if not code:
+        errors.append("缺少 code")
+    if not name:
+        errors.append(f"[{code}] 缺少 name")
+
+    priority = str(stock.get("priority", ""))
+    ez = stock.get("entry_zone") or {}
+    pr = (ez or {}).get("price_range", "")
+
+    if priority.startswith("P1") or priority.startswith("P2"):
+        if not pr:
+            errors.append(f"[{code}/{name}] {priority} 标的缺少 entry_zone.price_range")
+        elif not re.search(r"\d+\.?\d*\s*[~\-]\s*\d+\.?\d*", str(pr)):
+            errors.append(f"[{code}/{name}] entry_zone.price_range 格式异常: '{pr}'（应为 '低~高' 数字区间）")
+        if not ez.get("hard_stop"):
+            errors.append(f"[{code}/{name}] {priority} 标的缺少 entry_zone.hard_stop")
+
+    # 跨字段一致性检查：防止 poll 读 entry_zone.price_range 但写着用了 buy_setup
+    if "buy_setup" in stock and ez:
+        errors.append(f"[{code}/{name}] 同时存在 buy_setup 和 entry_zone，字段重叠。poll 现在只读 entry_zone.price_range")
+
+    return errors
+
+
 def save_watchlist(watchlist_data: dict, path: Path | None = None) -> None:
-    """【新增】保存 watchlist.yaml。"""
+    """保存 watchlist.yaml（含写入前校验）。"""
+    # 写入前校验
+    all_errors: list[str] = []
+    for theme in watchlist_data.get("themes", []):
+        for stock in theme.get("stocks", []):
+            all_errors.extend(validate_stock_entry(stock))
+    if all_errors:
+        logger.warning("Watchlist 校验发现 %d 个问题:\n%s",
+                       len(all_errors), "\n".join(all_errors))
+
     watchlist_path = path or (repo_root() / "config" / "stock_monitor" / "watchlist.yaml")
     with open(watchlist_path, "w", encoding="utf-8") as f:
         yaml.dump(watchlist_data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)

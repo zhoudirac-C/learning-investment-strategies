@@ -404,9 +404,10 @@ def evaluate_buy_signal_candidates(
         for stock in theme.get("stocks", []):
             stock_code = _norm_code(str(stock.get("code", "")))
             if stock_code and stock_code not in entry_by_code:
-                buy_setup = stock.get("buy_setup", "")
-                # 尝试从 buy_setup 解析介入区间
-                zone = parse_price_zone(buy_setup)
+                # 从标准字段 entry_zone.price_range 提取介入区间
+                ez = stock.get("entry_zone", {}) or {}
+                price_range_text = ez.get("price_range", "")
+                zone = parse_price_zone(price_range_text)
                 if zone:
                     entry_by_code[stock_code] = {
                         "code": stock.get("code", ""),

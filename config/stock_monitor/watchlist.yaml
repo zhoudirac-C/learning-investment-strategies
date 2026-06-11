@@ -240,6 +240,7 @@ themes:
       price_range: '10.8 ~ 11.5'
       method: 震荡票近期低点法，基于20日低点10.47。均线空头需等更低
       confirm_signal: 隆基+晶澳同步走强+光伏板块放量+MA5上穿MA10
+      hard_stop: 跌破10.5且30分钟不能收回
       position_ratio: 0.3成以下（隆基企稳后作为方向确认，不单独建仓）
 
   - code: 002459.SZ
