@@ -174,7 +174,7 @@ agent_analysis_schedule:
   name: 午盘监控
   focus: 午后一小时盘面验证。涨价线是否维持、光伏是否回落、是否有尾盘杀信号。
 - id: tail_condition
-  time: '14:55'
+  time: '14:52'
   name: 尾盘条件单
   focus: 判断是否符合尾盘低吸条件（强修复日才可）。不符合则不做。
 
