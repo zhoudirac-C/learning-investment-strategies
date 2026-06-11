@@ -137,6 +137,29 @@ python3 scripts/check_config_consistency.py --json
 
 ---
 
+## 早盘快捷模式
+
+当变化源是**早盘（09:17 发布）**而非晚间复盘时，使用快速清单而非完整 4-step workflow。详细清单见 `references/morning-briefing-update-checklist.md`。
+
+**速记**：早盘 = 战术微调，复盘 = 战略重构。
+
+| 早盘可做 | 早盘不可做 |
+|---------|-----------|
+| 更新 market_framework（情景分支） | 重写全部优先级（优先级来自复盘） |
+| 新增 P3-观察 标的（连板/情绪映射） | 为 confidence=low 的标的设介入区间 |
+| 补充方向 positioning 的验证框架 | 为「仅观察」标的拉 K 线计算技术位 |
+| 添加操作规则（板块级微调） | 修改 positions 的建仓目标 |
+| 更新 intraday_schedule 观察点 | 大幅重写 strategy_pack 框架 |
+
+**执行流**：
+1. 读早盘 raw + claims → 对照 `references/morning-briefing-update-checklist.md` 的 5 项必查
+2. 输出差异报告（P0/P1/P2 分级）
+3. 用户确认后逐项 patch
+4. `validate_config.py` + `check_config_consistency.py --json` → P0 清零
+5. Git 提交
+
+---
+
 ## 陷阱
 
 ### 陷阱 1: 只更新一个文件忘记交叉检查

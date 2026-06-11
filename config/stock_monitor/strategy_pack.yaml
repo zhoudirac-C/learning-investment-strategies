@@ -30,9 +30,9 @@ sector_rotation_rules:
   name: 涨价线 vs 低位修复轮动
   description: 涨价方向（电子特气/覆铜板材料/钨）和低位修复方向（光伏/医药/证券）之间的轮动
   offensive_groups:
-  - pricing_power: [雅克科技, 昊华科技, 中钨高新, 风华高科]
+  - pricing_power
   defensive_groups:
-  - low_recovery: [隆基绿能, 爱旭股份, 晶澳科技]
+  - low_recovery
   min_spread_pct: 2.0
   min_red_ratio_spread: 15
   require_offensive_positive: true
