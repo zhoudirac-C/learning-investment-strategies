@@ -1,0 +1,149 @@
+updated_at: '2026-06-11'
+source: 6/11 早盘后建仓
+privacy: private-local-only
+portfolio:
+  estimated_total_assets: 700000
+  cash_note: 6/11 轻仓试探。情景A（开盘缩量→修复）触发，右侧量价确认后建仓雅克科技+风华高科。总仓位约2.8%。
+  max_total_position_ratio: 0.7
+  preferred_total_position_ratio:
+    strong_repair: 0.40-0.50
+    normal_repair: 0.20-0.30
+    weak_repair: 0.10-0.15
+    defense_day: 0.00
+accounts:
+- name: 华宝账号
+  positions: []
+  closed_positions:
+  - code: 000534.SZ
+    name: 万泽股份
+    shares: 0
+    cost: 32.506
+    closed_note: 6-10跌停清仓（28.75），亏损约751元。燃气轮机退潮+跌破风控线。
+  - code: 000969.SZ
+    name: 安泰科技
+    shares: 0
+    closed_note: 6-8清仓
+  - code: 002025.SZ
+    name: 航天电器
+    shares: 0
+    closed_note: 6-8清仓
+  - code: 002897.SZ
+    name: 意华股份
+    shares: 0
+    closed_note: 6-8清仓
+  - code: 002353.SZ
+    name: 杰瑞股份
+    shares: 0
+    closed_note: 6-8清仓
+  - code: 000021.SZ
+    name: 深科技
+    shares: 0
+    closed_note: 盈利约38451元
+  - code: 002156.SZ
+    name: 通富微电
+    shares: 0
+    closed_note: 盈利约2758元
+  - code: 002371.SZ
+    name: 北方华创
+    shares: 0
+    closed_note: 亏损631元
+  - code: 603186.SH
+    name: 华正新材
+    shares: 0
+    closed_note: 触发风控清仓
+  - code: 600246.SH
+    name: 万通发展
+    shares: 0
+    closed_note: 卖出价15.49元
+- name: 大同账号
+  positions:
+  - code: 002409.SZ
+    name: 雅克科技
+    shares: 100
+    cost: 129.683
+    entered_at: '2026-06-11'
+    direction: 覆铜板上游材料
+    stop_loss: 123.2
+    note: 右侧进场，覆铜板材料方向。回踩MA5-MA10区间介入。
+  - code: 000636.SZ
+    name: 风华高科
+    shares: 100
+    cost: 64.067
+    entered_at: '2026-06-11'
+    direction: MLCC/被动元件
+    stop_loss: 60.9
+    note: MLCC国产龙头，今日走势验证高低切换。缩量止跌后介入。
+  closed_positions:
+  - code: 002709.SZ
+    name: 天赐材料
+    shares: 0
+    closed_note: 亏损113.83元
+  - code: 000066.SZ
+    name: 中国长城
+    shares: 0
+    closed_note: 6-8清仓
+  - code: 603989.SH
+    name: 艾华集团
+    shares: 0
+    closed_note: 亏损260.92元
+  - code: 002484.SZ
+    name: 江海股份
+    shares: 0
+    closed_note: 盈利1281元（首次），二次已清
+  - code: 002636.SZ
+    name: 金安国纪
+    shares: 0
+    closed_note: 已清空
+  - code: 603650.SH
+    name: 彤程新材
+    shares: 0
+    closed_note: 已清空
+  - code: 002409.SZ
+    name: 雅克科技
+    shares: 0
+    closed_note: 卖出价约118元
+  - code: 603186.SH
+    name: 华正新材
+    shares: 0
+    closed_note: 300股已清
+  - code: 600246.SH
+    name: 万通发展
+    shares: 0
+    closed_note: 300股已清，亏损约213.9元
+  - code: 000969.SZ
+    name: 安泰科技
+    shares: 0
+    closed_note: 转移后清仓
+strategy_summary:
+  current_stage: 轻仓试探期。UP 6/11 早盘定性地量信号初现，情景A触发（开盘缩量→修复），右侧量价确认后轻仓建仓。做T为主，不见量价确认不加仓。持仓方向与UP框架一致（覆铜板上游材料+MLCC高低切换验证）。
+  core_question: 指数能否站回4000+MLCC领涨验证高低切换→决定是否加仓或做T。雅克科技回踩MA5不破可持有，风华高科需MLCC组联动确认。
+  next_buy_targets:
+    first_priority:
+    - 昊华科技(600378)：回踩20日线不破+WF6涨价数据验证
+    second_priority:
+    - 隆基绿能(601012)：光伏强制标准确认+放量突破前高
+    - 中钨高新(000657)：钨价继续反弹+鼎泰高科同步企稳
+  position_status: 持仓2只（雅克科技100股+风华高科100股），总仓位约2.8%
+  risk_reminder: 严格止损（雅克123.2/风华60.9）。情景B切换（放量下杀）→减仓或清仓。
+today_key_signals:
+- 6/11 早盘：地量信号初现（午后缩量砸不动），风险释放大半
+- 今日操作取决于开盘量能：情景A（缩量→修复）/ 情景B（放量下杀→防守）
+- 资金在科技内部高切低，MLCC/铜箔/液冷(材料端)昨日抗跌→今日领涨与否=高低切换定性信号
+- WF6 涨价逻辑强化：99.999%纯度 1670-1810元/kg，同比+200%
+- 半导体降级为区间交易；防御方向（红利/银行/电力）连涨后警惕拥挤
+- 6/10 缩量防守日，银行保险领涨（避险信号）
+- 光伏尾盘20亿爆拉（隆基+8.8%、爱旭/晶澳涨停）
+source_claims:
+- knowledge/claims/claim-20260611-001.yaml  # 6/11 早盘（地量信号+操作预案）
+- knowledge/claims/claim-20260610-038.yaml  # 6/10 操作总纲
+- knowledge/claims/claim-20260610-016.yaml  # 涨价逻辑优先级
+- knowledge/claims/claim-20260610-018.yaml  # 覆铜板上游材料
+- knowledge/claims/claim-20260610-017.yaml  # 电子特气
+- knowledge/claims/claim-20260610-036.yaml  # 6/17美联储对冲策略
+portfolio_stats:
+  total_positions: 2
+  total_exposure_pct: 2.8
+  weighted_avg_odds: null
+  direction_concentration:
+    覆铜板上游材料: 1
+    MLCC/被动元件: 1
