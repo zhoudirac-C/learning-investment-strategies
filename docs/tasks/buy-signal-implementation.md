@@ -69,11 +69,11 @@
 ### 2.3 集成到 `evaluate_monitor_alerts()`
 - [x] `evaluate_buy_signal_alerts()` 将候选转换为 RuleAlert（action="机会候选"）
 - [x] `evaluate_monitor_alerts()` 追加 buy_signal alert 到总 alert 列表
-- [ ] 候选写入 `daily_state.json` → `active_opportunities`（待 Phase 4）
+- [x] 候选写入 `daily_state.json` → `active_opportunities`（`sync_buy_candidates()` 在 `tick()` 中调用）
 
 ### 2.4 单元测试
-- [ ] 模拟 K线数据 → 验证缩量/均线计算正确性
-- [ ] 模拟实时行情 → 验证价格区间/涨跌幅判断正确性
+- [x] 模拟 K线数据 → 验证缩量/均线计算正确性（test_buy_signal_e2e.py 8/8 通过）
+- [x] 模拟实时行情 → 验证价格区间/涨跌幅判断正确性（含价格超出区间拒绝测试）
 - [x] 现有 stock_monitor 测试全部通过（83/83）
 
 ---
@@ -136,13 +136,13 @@
 
 > 以下任务需要云端 Hermes 环境配合，本地完成后标记为 [云端待部署]，等待云端识别实现。
 
-- [ ] **[云端]** Hermes cron 新增 `pre_fetch_klines` 任务（06:30，周一到周五）
-- [ ] **[云端]** 确认云端服务器时区为 `Asia/Shanghai`，或 cron 配置显式指定 timezone
+- [x] **[云端]** Hermes cron 新增 `pre_fetch_klines` 任务（06:30，周一到周五） `job_id=44bce96fa7a7`
+- [x] **[云端]** 确认云端服务器时区为 `Asia/Shanghai`，或 cron 配置显式指定 timezone（`timedatectl` 确认 CST +0800）
 - [x] 本地已创建 `scripts/hermes_pre_fetch_klines.py`（Hermes 稳定入口 wrapper）
-- [ ] **[云端]** 创建 `~/.hermes/scripts/qing_pre_fetch_klines.py` → 指向项目 wrapper
-- [ ] **[云端]** 确认 `HERMES_REPO_ROOT` 环境变量指向正确路径
-- [ ] **[云端]** 验证 pre_fetch 在云端网络环境下可正常访问东财 API（无防火墙拦截）
-- [ ] **[云端]** 验证 SQLite WAL 文件在云端磁盘权限正常（可读写 `infra/data/`）
+- [x] **[云端]** 创建 `~/.hermes/scripts/qing_pre_fetch_klines.py` → 指向项目 wrapper
+- [x] **[云端]** 确认 `HERMES_REPO_ROOT` 环境变量指向正确路径（`/home/ubuntu/learning-investment-strategies`）
+- [x] **[云端]** 验证 pre_fetch 在云端网络环境下可正常访问东财 API（无防火墙拦截）— `build_sector_mapping` / `calc_hot_scores` / `pre_fetch_klines` 均通过 `-m` 方式正常执行
+- [x] **[云端]** 验证 SQLite WAL 文件在云端磁盘权限正常（`infra/data/kline_cache.db` 已创建，ubuntu:ubuntu 可读写）
 - [ ] **[云端]** pre_fetch 失败率 >20% 时，Hermes 发送告警通知
 - [ ] **[云端]** 验收：盘中某标的价格进入介入区 → 自动收到买入信号/不买推送
 
@@ -150,18 +150,19 @@
 
 ## 当前推进任务
 
-**当前状态**：Phase 0-4 核心代码全部实现完毕，本地测试通过（83/83）
+**当前状态**：Phase 0-4 核心代码全部实现完毕，本地测试 97/99 通过（2个skill metadata预存在），云端部署 7/9 完成。
 
 **已完成**：
-- ✅ Phase 0: K线缓存基础设施（SQLite + WAL + 06:30 pre-fetch）
-- ✅ Phase 1: Agent prompt 买入确认模式（`stock_analyst.txt` 新增分支）
-- ✅ Phase 2: Poll 候选筛选（`BuySignalCandidate` + 6 项条件判断）
-- ✅ Phase 3: Agent 单票分析链路（`analysis_type="stock"` + 动态 payload）
-- ✅ Phase 4: 全自动闭环（daily_state 同步 + 价格分桶去重 + 失效检测）
+- ✅ Phase 0: K线缓存基础设施（SQLite + WAL + 06:30 pre-fetch cron `44bce96fa7a7`）
+- ✅ Phase 1: Agent prompt 买入确认模式（`stock_analyst.txt` 新增分支 + 标签修正）
+- ✅ Phase 2: Poll 候选筛选（`BuySignalCandidate` + 6 项条件判断 + daily_state 同步）
+- ✅ Phase 3: Agent 单票分析链路（`analysis_type="stock"` + 动态 payload + buy_signal_candidate trigger）
+- ✅ Phase 4: 全自动闭环（daily_state 同步 + 价格分桶去重 + 失效检测 + 异常降级）
+- ✅ 云端：时区/路径/权限/网络全部验证通过
+- ✅ Hermes 包装器全部改为 `PYTHONPATH=scripts:src python -m <module>`
+- ✅ 修复 `kline_cache.py` parents[3]→parents[2] 路径 bug
 
-**待验证/待部署**：
-1. **[本地]** ✅ 端到端测试：8/8 通过（候选检测 → alert → trigger → JSON payload）
-2. **[本地]** ✅ 全量回归测试：91/91 通过
-3. **[云端]** 部署 `hermes_pre_fetch_klines.py` wrapper 到 `~/.hermes/scripts/`
-4. **[云端]** 验证 pre_fetch 在云端网络环境下可正常访问东财 API
-5. **[云端]** 验收：盘中某标的价格进入介入区 → 自动收到买入信号/不买推送
+**待完成**：
+1. **[云端]** pre_fetch 失败率 >20% 时自动告警
+2. **[云端]** 盘中验收：候选推送 → Agent 单票分析 → 微信买入信号
+3. **[可选]** Phase 2.5: 历史回测验证（akshare 获取 2024-2025 年日K）
