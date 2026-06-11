@@ -1,0 +1,6335 @@
+updated_at: '2026-06-10'
+monitor_only_note: 2026-06-10 UP观点：第三次修复中。上游材料(辅材)#1、半导体(模拟芯片)#2已确认为主线，升级为进攻/观察。但操作基调仍为做T为主、右侧确认——不等同于全面翻多。维持monitor_only：国产算力(补涨候选未确认)、光通信/CPO、算力租赁、煤炭/化工涨价、CPU自研链。维持进攻：LPU/推理芯片、AI能源/燃气轮机、上游涨价链、CCL/树脂、MLCC被动元件。
+themes:
+- id: cpu_self_development
+  name: CPU自研链（字节催化，可能裂变为主线）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
+  - knowledge/claims/claim-20260528-004.yaml
+  - knowledge/claims/claim-20260528-005.yaml
+  market_checks:
+  - CPU自研链是否成为聚焦主线
+  - Socket/PCIe Switch是否组内联动
+  - 字节自研CPU新闻是否持续发酵
+  - 全球CPU短缺逻辑是否被资金认可
+  stocks:
+  - code: 002055.SZ
+    name: ST得润
+    role: cpu_socket_core
+    segment: CPU Socket
+    priority: P3-观察
+    watch_reason: 字节自研CPU→Socket 1:1刚性绑定。大陆唯一通过Intel官方认证、量产千针级CPU Socket的上市公司，全球仅四家。鸿腾+嘉泽占90%份额且产能饱和，外溢订单优先流向得润。ST身份需单独风控。
+    sync_with_index: ❌ 不同步——5/28下午大盘V起时ST得润跌停，完全逆大盘，ST风险暴露
+    confirm_with:
+    - 万通发展
+    - 中际旭创
+    buy_setup:
+    - CPU自研链组内联动，ST得润放量突破
+    - 不追高，等分歧后缩量回踩承接
+    - 需万通发展（PCIe Switch）或Socket逻辑同步扩散确认
+    - ST身份单独控制仓位，严格止损
+    invalidation_setup:
+    - 单票脉冲但CPU链无联动
+    - 跌破今日低点7.14且30分钟不能收回
+    - ST板块整体走弱或监管风险
+    - 字节自研CPU逻辑不被持续认可
+    up_mention_status:
+      last_mentioned_date: '2026-05-28'
+      mention_context: 博主在5/28复盘视频中提到CPU自研链，ST得润作为Socket核心标的
+      explicit_operation: null
+      sentiment: 中性提及
+    technical_narrative:
+      trend: 6月1日+5.0%反弹，但ST风险仍在
+      volume_character: 放量反弹
+      key_levels:
+      - 支撑：7.14
+      - 压力：8.50
+      pattern: 跌停后反弹
+      note: ST身份限制，只观察不介入
+    sector_narrative:
+      relative_strength: CPU链内相对强
+      money_flow: 游资参与
+      leader_follower: 独立走势
+      catalyst: 字节自研CPU
+      risk: ST退市风险、监管风险
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260528-004-f
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600246.SH
+    name: 万通发展
+    role: pcie_switch_core
+    segment: PCIe Switch
+    priority: P1-核心
+    watch_reason: 数渡科技PCIe Switch，国产替代博通。CPU翻倍预期+国产超节点放量→PCIe Switch市场大幅扩容（2026年国内超200亿）。104通道已量产、144通道已投片、PCIe
+      6.0/CXL在研。
+    sync_with_index: ⚠️ 弱同步——6月1日随科技调整-2.04%，跌破成本
+    confirm_with:
+    - ST得润
+    - 寒武纪
+    - 海光信息
+    buy_setup:
+    - CPU自研链组内联动，万通发展放量突破
+    - 不追涨停，等分歧后缩量回踩
+    - 需ST得润或算力芯片方向同步扩散
+    invalidation_setup:
+    - 单票冲高但CPU链无联动
+    - 跌破15.00且30分钟不能收回
+    - 国产替代逻辑不被资金持续认可
+    up_mention_status:
+      last_mentioned_date: '2026-05-28'
+      mention_context: 博主在5/28复盘视频中提到CPU自研链，万通发展作为PCIe Switch核心标的
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月1日-2.10%跌破成本，短期弱势
+      volume_character: 缩量调整
+      key_levels:
+      - 支撑：15.00
+      - 压力：16.50
+      pattern: 高位回落后震荡
+      note: 6月1日收盘15.83跌破成本16.203，CPU自研链分化，需观察链是否重新聚焦
+    sector_narrative:
+      relative_strength: CPU链内偏弱
+      money_flow: 主力资金流出
+      leader_follower: 板块跟随
+      catalyst: 字节自研CPU
+      risk: 组内分化严重，ST得润+5%但万通-2.1%，跌破成本
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - &id001
+      claim_id: claim-20260528-004-f
+      claim_type: sector-theme
+      relevance: direct
+    - &id002
+      claim_id: claim-20260601-004-d
+      claim_type: sector-theme
+      relevance: direct
+    - &id003
+      claim_id: claim-20260605-001-c
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: upstream_price_increase
+  name: 上游涨价链（位置低，扩散广）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
+  - sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
+  market_checks:
+  - 涨价链是否持续扩散（功率半导体→高频变压器→SST→电子布）
+  - 是否有明确的'领涨矛'出现
+  - 机构资金是否持续流入上游材料
+  stocks:
+  - code: 000636.SZ
+    name: 风华高科
+    role: mlcc_mainboard_core
+    segment: MLCC/被动元件
+    priority: P1-核心
+    watch_reason: UP明确提到的AI服务器MLCC国产龙头；被动元件全面进入周期上行，6月1日+3.81%逆势强势。
+    sync_with_index: ❌ 逆势——6月1日上证-0.27%但风华+3.81%，MLCC周期上行确认
+    confirm_with:
+    - 洁美科技
+    - 博迁新材
+    - 三环集团
+    buy_setup:
+    - MLCC组整体转强，风华高科放量突破
+    - 不追高，等分歧后缩量回踩
+    - 需三环集团或洁美科技同步承接
+    invalidation_setup:
+    - MLCC被误判为类存储大紧缺后情绪退潮
+    - 三环集团大幅回落
+    - 指数继续大跌
+    up_mention_status:
+      last_mentioned_date: '2026-05-31'
+      mention_context: 博主在5/31复盘明确提到被动元件全面进入周期上行，MLCC是最确定的中观线索
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月2日+8.83%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+8.83%共振修复中MLCC全线上涨，周期上行确认。收盘59.91，上证+0.43%背景下独立强势。火炬电子4天3板，MLCC组内联动确认。
+    sector_narrative:
+      relative_strength: MLCC组最强，全市场逆势
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 普涨共振格局，反弹预期需降低；短期涨幅已大，需防获利回吐
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - *id001
+    - *id002
+    - *id003
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002859.SZ
+    name: 洁美科技
+    role: mlcc_upstream_material
+    segment: 载带/离型膜/精密光学延伸
+    watch_reason: MLCC上游材料与光刻机镜头加工设备预期叠加；只看趋势内分歧。
+    confirm_with:
+    - 风华高科
+    - 博迁新材
+    buy_setup:
+    - 风华高科稳住，洁美科技缩量回踩后再放量
+    - 不能在连续加速后追高
+    invalidation_setup:
+    - 5月25日若跌破64.25分时均价且风华高科炸板，先按MLCC扩散降温处理
+    - 跌破趋势平台且不能快速收回
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 605376.SH
+    name: 博迁新材
+    role: passive_material_watch
+    segment: 电子材料/被动元件上游
+    watch_reason: 被动元件上游材料观察样本；只作为MLCC扩散确认，不单独重仓。
+    confirm_with:
+    - 风华高科
+    - 洁美科技
+    buy_setup:
+    - 5月25日涨停后不追，只观察封板质量和MLCC组扩散
+    - 若炸板后能回踩167.7分时均价不破并重新回封，才作为MLCC强度确认
+    invalidation_setup:
+    - 炸板后不能回封，且风华高科或洁美科技同步转弱，降低被动元件上游扩散预期
+    up_mention_status:
+      last_mentioned_date: '2026-06-04'
+      mention_context: 6月4日复盘专栏：MLCC镍粉上游，博迁新材
+      explicit_operation: null
+      sentiment: 中性提及
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260604-005-g
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600673.SH
+    name: 东阳光
+    role: ai_power_chain
+    segment: 电容材料/AI电源链
+    watch_reason: AI电源链主板观察；用于确认电源和被动元件是否扩散。
+    confirm_with:
+    - 江海股份
+    - 海星股份
+    - 思源电气
+    buy_setup:
+    - 5月25日明显弱于MLCC，不站回38.33分时均价前不触发买入观察
+    - 必须与江海股份、海星股份或思源电气形成组内联动
+    invalidation_setup:
+    - 跌破37.33日内低点或电源链继续弱于MLCC，维持弱势观察
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603115.SH
+    name: 海星股份
+    role: electrode_foil_core
+    segment: 电极箔/电容材料
+    watch_reason: AI服务器供电架构升级受益链；适合看涨价链低位轮动。
+    confirm_with:
+    - 江海股份
+    - 东阳光
+    buy_setup:
+    - 5月25日大幅冲高回落，重新站回112.97分时均价前不触发买入观察
+    - 只有风华高科封稳且电容材料组同步回流时才重新观察
+    invalidation_setup:
+    - 跌破104.68日内低点或反抽无量，视为电极箔分支证伪
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002028.SZ
+    name: 思源电气
+    role: hvdc_power_equipment
+    segment: 电力设备/HVDC
+    watch_reason: HVDC与供电链容量观察；科技修复失败时若单独走强，要按防御轮动降级。
+    confirm_with:
+    - 江海股份
+    - 东阳光
+    buy_setup:
+    - 只在AI电源链扩散时观察，5月25日低于201.82分时均价不追
+    - 若单独走强但AI硬件核心回落，按防御轮动降级
+    invalidation_setup:
+    - 跌破198.06日内低点或无法站回分时均价，维持弱跟随
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260604-006-d
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002518.SZ
+    name: 科士达
+    role: data_center_power
+    segment: UPS/储能/数据中心电源
+    watch_reason: 数据中心电源与储能主板样本；只在AI电源链扩散时观察。
+    confirm_with:
+    - 英维克
+    - 江海股份
+    - 思源电气
+    buy_setup:
+    - 5月25日弱于AI硬件主线，重新站回61.9分时均价前不触发买入观察
+    - 需英维克、江海股份或思源电气至少两只同步承接
+    invalidation_setup:
+    - 跌破61.05日内低点或电源链无扩散，继续弱势观察
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002922.SZ
+    name: 伊戈尔
+    role: power_supply_core
+    segment: 配电/电源整机
+    watch_reason: 电源/SST核心赛道标的；英伟达平台电源价值量提升直接受益。下半年HVDC与SST需求同步紧张，现在是预热阶段。
+    confirm_with:
+    - 金盘科技
+    - 中恒电气
+    - 新洁能
+    buy_setup:
+    - 电源/SST组整体转强，且伊戈尔放量突破分时均线
+    - 不追高，等缩量回踩或分歧后的承接确认
+    - 下半年（2026H2）HVDC放量前可提前布局，现在只跟踪不买入
+    invalidation_setup:
+    - 单票走强但电源链无扩散，降低电源整机扩散预期
+    - 跌破趋势支撑且金盘科技、中恒电气同步回落
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002364.SZ
+    name: 中恒电气
+    role: hvdc_power_core
+    segment: HVDC电源
+    watch_reason: HVDC独立电源方案核心受益标的；Vera Rubin CPX方案电源价值量较GB200增长超10倍。
+    confirm_with:
+    - 伊戈尔
+    - 金盘科技
+    - 新洁能
+    buy_setup:
+    - HVDC方案被资金认可，中恒电气放量突破日内高点
+    - 需伊戈尔、金盘科技至少一只同步承接确认
+    - 2026年下半年HVDC需求紧张前可提前布局，现在只跟踪
+    invalidation_setup:
+    - HVDC逻辑不被资金认可，单票冲高回落
+    - 跌破分时均价且伊戈尔、金盘科技同步走弱
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 605111.SH
+    name: 新洁能
+    role: gan_power_device
+    segment: GaN功率器件
+    watch_reason: A股GaN核心标的；电源走向800V直流架构，SiC与GaN是最大受益方向。
+    confirm_with:
+    - 扬杰科技
+    - 伊戈尔
+    - 金盘科技
+    buy_setup:
+    - 功率器件方向被资金认可，新洁能放量突破
+    - 800V趋势确认，且电源链整体扩散
+    - 下半年产能挤压+涨价预期是核心博弈窗口，现在只跟踪不追高
+    invalidation_setup:
+    - 功率器件方向单独走弱，无电源链联动
+    - 跌破分时均价且扬杰科技、伊戈尔同步回落
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603989.SH
+    name: 艾华集团
+    role: supercapacitor_elastic
+    segment: 超级电容/铝电解电容
+    watch_reason: AI供电三剑客之超级电容方向；5/27涨停，新技术分支从0到1，英伟达平台电源架构升级受益。
+    confirm_with:
+    - 江海股份
+    - 海星股份
+    - 东阳光
+    buy_setup:
+    - 超级电容组（江海股份、海星股份、东阳光）至少两只同步转强
+    - 不追涨停，等分歧后缩量回踩并重新放量
+    - AI电源链整体扩散而非单票脉冲
+    invalidation_setup:
+    - 单票冲高但超级电容组无联动
+    - 跌破分时均价且江海股份、海星股份同步回落
+    - 新技术分支逻辑不被资金持续认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 000969.SZ
+    name: 安泰科技
+    role: nanocrystalline_soft_magnetic
+    segment: 纳米晶/金属软磁
+    watch_reason: AI供电三剑客之纳米晶方向；英伟达800V直流架构推动金属软磁需求从0到1，变压器小型化核心材料。
+    confirm_with:
+    - 东睦股份
+    - 伊戈尔
+    - 金盘科技
+    buy_setup:
+    - 纳米晶/软磁方向被资金认可，安泰科技放量突破分时均线
+    - 不追高，等缩量回踩或分歧后承接确认
+    - 需东睦股份或电源链（伊戈尔、金盘科技）同步承接
+    invalidation_setup:
+    - 单票走强但纳米晶方向无扩散
+    - 跌破趋势支撑且东睦股份同步回落
+    - AI电源链整体走弱
+    technical_narrative:
+      trend: 6月2日-2.44%共振修复
+      volume_character: 缩量调整
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 弱势震荡
+      note: 6月2日-2.44%，减仓后700股成本24.702，收盘21.96浮亏约-11.1%。纳米晶/软磁板块弱势。
+    sector_narrative:
+      relative_strength: 纳米晶/软磁方向偏弱
+      money_flow: 资金流出
+      leader_follower: 板块跟随
+      catalyst: AI硬件共振修复
+      risk: AI电源链整体走弱，已减仓降风险
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600114.SH
+    name: 东睦股份
+    role: nanocrystalline_soft_magnetic
+    segment: MIM/粉末冶金/纳米晶软磁
+    watch_reason: AI供电纳米晶方向；MIM业务稳健，软磁粉芯受益800V架构趋势，5/27微跌提供观察窗口。
+    confirm_with:
+    - 安泰科技
+    - 伊戈尔
+    - 中恒电气
+    buy_setup:
+    - 纳米晶方向被资金认可，东睦股份缩量企稳后放量
+    - 不追高，等回踩确认
+    - 需安泰科技或电源链同步承接
+    invalidation_setup:
+    - 单票走弱且安泰科技同步回落
+    - 跌破前低且无修复
+    - AI电源链整体走弱
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 300623.SZ
+    name: 捷捷微电
+    role: power_semiconductor_elastic
+    segment: 功率半导体/MOSFET
+    watch_reason: 功率半导体涨价链弹性标的；英飞凌/TI第二轮提价覆盖PMIC、MOSFET。
+    confirm_with:
+    - 芯联集成
+    - 扬杰科技
+    - 新洁能
+    buy_setup:
+    - 功率半导体组整体转强
+    - 不追高，等分歧后回踩确认
+    invalidation_setup:
+    - 单票脉冲但组内无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260528-001-d
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 688630.SH
+    name: 芯碁微装
+    role: advanced_packaging_core
+    segment: PCB直写光刻/先进封装/IC载板
+    priority: P1-核心
+    watch_reason: PCB直写光刻DI设备全球龙头，卡位先进封装（WLP2000已出货、类CoWoS-L已量产）、IC载板、掩模版。'涨价链+国产替代+先进封装'三重逻辑交集。5/28机构净买入4.88亿。
+    sync_with_index: ✅ 同步——5/28下午低点13:01，与大盘同步V起，13:12后+10.81%，共振最强
+    confirm_with:
+    - 华虹公司
+    - 鼎通科技
+    - 飞荣达
+    buy_setup:
+    - 先进封装/涨价链方向被资金认可，芯碁微装放量突破
+    - 不追高，等分歧后缩量回踩承接
+    - 需华虹公司或先进封装组同步扩散
+    invalidation_setup:
+    - 单票走强但先进封装组无扩散
+    - 跌破分时均价且华虹公司同步回落
+    - 涨价逻辑不被持续认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 688347.SH
+    name: 华虹公司
+    role: foundry_leader
+    segment: 晶圆代工
+    priority: P1-核心
+    watch_reason: 晶圆代工领涨，5/28大涨超15%续创新高，机构净买入第一（6.26亿）。先进封装调整一天后明天大概率重回强势。
+    sync_with_index: ✅ 同步——5/28下午低点13:04，与大盘同步V起，13:12后+2.32%
+    confirm_with:
+    - 芯碁微装
+    - 中芯国际
+    - 长电科技
+    buy_setup:
+    - 晶圆代工/先进封装方向被资金认可
+    - 不追高，等分歧后回踩确认
+    - 需芯碁微装或封测组同步承接
+    invalidation_setup:
+    - 单票脉冲但代工组无联动
+    - 跌破分时均价
+    - 先进封装调整超预期延长
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260520-003-c
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260522-001-f
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002484.SZ
+    name: 江海股份
+    role: supercapacitor_core
+    segment: 超级电容/铝电解电容
+    priority: P3-观察
+    watch_reason: AI供电三剑客之超级电容核心；英伟达GB300将电解电容集成至电源架，电网峰值需求降低30%。涨价链扩散路径：模拟芯片→功率半导体→高频变压器→SST。
+    sync_with_index: ❌ 不同步——5/28下午横盘不动，13:12后0%，没跟着大盘涨
+    confirm_with:
+    - 艾华集团
+    - 海星股份
+    - 芯联集成
+    buy_setup:
+    - 超级电容/涨价链组整体转强
+    - 不追涨停，等分歧后缩量回踩
+    - AI电源链整体扩散而非单票脉冲
+    invalidation_setup:
+    - 单票冲高但组内无联动
+    - 跌破分时均价且艾华集团同步回落
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260521-003-i
+      claim_type: stock-view
+      relevance: direct
+    - claim_id: claim-20260528-001-c
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 688469.SH
+    name: 芯联集成
+    role: power_semiconductor_core
+    segment: 功率半导体/IGBT/SiC
+    priority: P2-重点
+    watch_reason: 功率半导体年内第二轮涨价受益；英飞凌+德州仪器7月1日起第二轮提价。8/12英寸硅基月产能17万/3万片。
+    sync_with_index: ✅ 同步——5/28下午低点13:02，与大盘同步V起，13:12后+1.13%
+    confirm_with:
+    - 捷捷微电
+    - 扬杰科技
+    - 新洁能
+    buy_setup:
+    - 功率半导体方向被资金认可
+    - 英飞凌/TI涨价逻辑持续
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - 单票走强但功率半导体组无扩散
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260528-001-d
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 688381.SH
+    name: 帝奥微
+    role: analog_ic
+    segment: 模拟IC
+    priority: P2-观察
+    watch_reason: 6月3日早盘提及：模拟IC板块切换窗口，意法半导体大涨15.2%
+    sync_with_index: 半导体板块
+    confirm_with:
+    - 新洁能
+    buy_setup:
+    - 模拟IC板块持续强势
+    - 意法半导体催化
+    invalidation_setup:
+    - 板块回调
+    - 意法半导体回落
+    up_mention_status:
+      last_mentioned_date: '2026-06-03'
+      mention_context: 6月3日早盘：模拟IC板块切换窗口
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月3日早盘+2.38%
+      volume_character: 早盘竞价
+      key_levels:
+      - 支撑：昨日收盘
+      - 压力：+5%
+      pattern: 板块切换窗口
+      note: 帝奥微早盘+2.38%，模拟IC切换窗口
+    sector_narrative:
+      relative_strength: 模拟IC组
+      money_flow: 板块切换
+      leader_follower: 跟随
+      catalyst: 意法半导体大涨15.2%
+      risk: 切换窗口初期，持续性待验证
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 605358.SH
+    name: 立昂微
+    role: silicon_wafer_12inch_core
+    segment: 12英寸硅片/功率器件
+    priority: P1-核心
+    watch_reason: UP连续多日明确硅片是上游材料最强分支（6/9-6/10），12英寸硅片被列为Type 1涨价逻辑（高端需求自身爆发）。长江存储扩产+AI芯片拉动高端硅片需求，立昂微是主板最纯正的12英寸硅片标的（涨停过、逻辑已验证）。沪硅产业(688)更纯但科创板不可交易，立昂微是主板的最近似替代。
+    confirm_with:
+    - TCL中环
+    buy_setup:
+    - 硅片方向持续走强确认（UP反复强调），立昂微放量突破前高后缩量回踩
+    - 不追高，等分歧后缩量回踩承接
+    - 需TCL中环或半导体材料方向同步扩散确认
+    invalidation_setup:
+    - 硅片方向走弱或UP降级上游材料方向
+    - 单票脉冲但硅片链无联动
+    - 跌破趋势支撑且不能快速收回
+    up_mention_status:
+      last_mentioned_date: '2026-06-10'
+      mention_context: UP在6/9-6/10连续提到"半导体内部以最上游的硅片最强"，12英寸硅片被列为Type 1高端涨价逻辑
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 硅片分支偏强，6/9-6/10连续领涨
+      note: 主板12英寸硅片核心标的，替代科创板沪硅产业
+    sector_narrative:
+      relative_strength: 硅片分支在半导体内部最强
+      catalyst: 长江存储扩产、AI芯片拉动高端硅片需求、12英寸硅片涨价
+      risk: 沪硅产业(688)更纯正但不可交易，立昂微作为替代弹性可能受限
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-10'
+      last_activity: '2026-06-10'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260609-005-b
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260609-005-c
+      claim_type: methodology
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002129.SZ
+    name: TCL中环
+    role: silicon_wafer_diversified
+    segment: 半导体硅片/光伏硅片
+    priority: P2-观察
+    watch_reason: 深耕高纯硅材料和半导体硅片，规模制造优势。UP明确硅片是上游材料最强分支。但光伏硅片占比较高（半导体硅片占比小），纯度不如立昂微，作为硅片方向的辅助确认标的。
+    confirm_with:
+    - 立昂微
+    buy_setup:
+    - 硅片方向持续走强，TCL中环缩量回踩后放量
+    - 需立昂微同步承接确认
+    - 不追高，等分歧后承接
+    invalidation_setup:
+    - 硅片方向走弱或立昂微同步回落
+    - 单票脉冲但硅片链无联动
+    - 跌破趋势支撑
+    up_mention_status:
+      last_mentioned_date: '2026-06-10'
+      mention_context: UP在6/9-6/10连续提到硅片是上游材料最强分支，TCL中环作为半导体硅片主板标的间接受益
+      explicit_operation: null
+      sentiment: 中性观察
+    technical_narrative:
+      trend: 随硅片方向修复
+      note: 光伏+半导体双主业，半导体硅片纯度低于立昂微，作为辅助观察
+    sector_narrative:
+      relative_strength: 硅片方向偏强
+      catalyst: 12英寸硅片涨价、半导体材料方向扩散
+      risk: 光伏业务占比高，半导体硅片弹性有限
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-10'
+      last_activity: '2026-06-10'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260609-005-b
+      claim_type: sector-theme
+      relevance: indirect
+    - claim_id: claim-20260609-005-c
+      claim_type: methodology
+      relevance: indirect
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: liquid_cooling_heat_dissipation
+  name: 液冷/散热（华为链，韬定律催化）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
+  market_checks:
+  - 华为散热链是否持续发酵
+  - 液冷cage是否进入放量期
+  - 韬定律后续是否有更多催化
+  stocks:
+  - code: 300602.SZ
+    name: 飞荣达
+    role: huawei_cooling_core
+    segment: 华为散热/微泵液冷
+    priority: P1-核心
+    watch_reason: 华为散热战略供应商，微泵液冷+风扇方案最核心标的。秋季麒麟芯片逻辑折叠→散热问题更严峻，Mate80 Pro Max首搭微型风扇。卖方目标400亿（约60%空间）。
+    sync_with_index: ✅ 同步——5/28下午低点13:06，与大盘同步V起，13:12后+9.73%，共振极强
+    confirm_with:
+    - 鼎通科技
+    - 意华股份
+    - 英维克
+    buy_setup:
+    - 华为散热链被资金认可，飞荣达放量突破
+    - 不追高，等分歧后缩量回踩
+    - 需鼎通科技或液冷组同步扩散
+    invalidation_setup:
+    - 单票冲高但散热链无联动
+    - 跌破分时均价且鼎通科技同步回落
+    - 华为链催化不被持续认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 688668.SH
+    name: 鼎通科技
+    role: liquid_cooling_cage
+    segment: 液冷cage
+    priority: P2-重点
+    watch_reason: 液冷cage核心标的，去年Q4开始出货样品。海外大厂审厂关键期，6月有望部分出货。卖方目标700亿。
+    sync_with_index: ⚠️ 涨但不同步——5/28下午低点14:02，不是和大盘一起起来的，13:12后仅+0.04%
+    confirm_with:
+    - 飞荣达
+    - 意华股份
+    - 奕东电子
+    buy_setup:
+    - 液冷cage方向被资金认可
+    - 不追高，等分歧后回踩确认
+    - 需飞荣达或液冷组同步承接
+    invalidation_setup:
+    - 单票脉冲但液冷组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260610-006-k
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002897.SZ
+    name: 意华股份
+    role: liquid_cooling_connector
+    segment: 液冷cage+高速连接+光模块配套
+    priority: P3-观察
+    watch_reason: 液冷cage+高速连接+光模块配套多重交集。华为侧液冷cage刚放量，利润低于海外但蛋糕大。
+    sync_with_index: ❌ 不同步——5/28下午没跟着大盘涨，13:12后-0.19%，逆势跌
+    confirm_with:
+    - 飞荣达
+    - 鼎通科技
+    - 中际旭创
+    buy_setup:
+    - 液冷/连接方向被资金认可
+    - 不追高，等分歧后回踩
+    - 需飞荣达或鼎通科技同步承接
+    invalidation_setup:
+    - 单票脉冲但组内无联动
+    - 跌破分时均价
+    up_mention_status:
+      last_mentioned_date: '2026-06-05'
+      mention_context: 6月5日早盘第四部分：昇腾产业链核心（华丰科技/航天电器/意华股份），叠加LPU+CPO双重卡位
+      explicit_operation: null
+      sentiment: 积极观察
+    sector_narrative:
+      relative_strength: 昇腾+LPU+CPO三重卡位
+      leader_follower: 连接器+CPO双重受益
+      catalyst: 昇腾950认证+LPU新方向+CPO景气
+      risk: 三重概念叠加，昇腾短期调整压力
+    technical_narrative:
+      trend: 6月4日+5.43%强势
+      volume_character: 放量上涨
+      key_levels:
+      - 前高压力
+      pattern: 强势后震荡
+      note: UP纳入昇腾核心+LPU关联
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - &id004
+      claim_id: claim-20260604-005-f
+      claim_type: sector-theme
+      relevance: direct
+    - &id005
+      claim_id: claim-20260605-001-g
+      claim_type: sector-theme
+      relevance: direct
+    - &id006
+      claim_id: claim-20260610-006-k
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 301018.SZ
+    name: 申菱环境
+    role: liquid_cooling_overseas
+    segment: 液冷出海
+    priority: P2-观察
+    tradable: false
+    note: 不可交易（创业板301），仅观察学习UP思路
+    watch_reason: 华为系液冷出海，海外订单≥英维克，市值仅1/3。亚马逊1MW CDU+谷歌测试+矿机30亿。明年20亿利润→600亿。6-7月催化密集。
+    confirm_with:
+    - 英维克
+    buy_setup:
+    - 液冷出海订单落地
+    - 6-7月谷歌/亚马逊下单催化
+    invalidation_setup:
+    - 液冷价格战恶化
+    - 海外订单低于预期
+    up_mention_status:
+      last_mentioned_date: '2026-06-05'
+      mention_context: 6月5日早盘第四部分：华为系液冷出海，市值仅英维克1/3，逢低重新定价机会
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: UP提示价值重估机会
+      note: 不可交易（创业板301）
+    sector_narrative:
+      catalyst: 6-7月谷歌/亚马逊液冷下单
+      risk: 液冷价格战
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260605-001-f
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: cpo_optical_communication
+  name: 光通信/CPO（高位核心，确认景气但不追）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
+  market_checks:
+  - CPO能否维持核心地位
+  - 高位是否滞涨拖累指数
+  - 是否出现新的情绪空间
+  stocks:
+  - code: 300308.SZ
+    name: 中际旭创
+    role: cpo_core
+    segment: 光模块/CPO
+    priority: P1-核心
+    watch_reason: CPO核心，5/28齐创历史新高，是唯一能'带动指数'的方向。但已是高位品种，提供确认而非空间。
+    sync_with_index: ✅ 同步——5/28下午低点13:12，与大盘同步V起，13:12后+6.10%
+    confirm_with:
+    - 新易盛
+    - 天孚通信
+    - 剑桥科技
+    buy_setup:
+    - CPO组整体强势，中际旭创主动领涨
+    - 不追高，等深度回调至关键支撑
+    - 仅作为趋势持仓参考，新开仓不选
+    invalidation_setup:
+    - 高位滞涨且组内跟风票回落
+    - 跌破5日均线且无修复
+    - 量能萎缩且板块不扩散
+    technical_narrative:
+      trend: 6月2日+5.47%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+5.47%共振修复。CPO核心主线，业绩兑现路径从远期预期走向当期订单放量。收盘1191.81。高位品种，提供确认而非空间。
+    sector_narrative:
+      relative_strength: CPO组核心，共振修复
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 短期涨幅已大，需防普涨后高低切换与获利回吐
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260602-002-e
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260602-002-f
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 300502.SZ
+    name: 新易盛
+    role: cpo_follower
+    segment: 光模块/CPO
+    priority: P2-重点
+    watch_reason: CPO三巨头之一，跟风上涨。高位不追。
+    sync_with_index: ✅ 同步——5/28下午低点13:12，与大盘同步V起，13:12后+3.96%
+    confirm_with:
+    - 中际旭创
+    - 天孚通信
+    buy_setup:
+    - CPO组整体强势
+    - 不追高，等深度回调
+    invalidation_setup:
+    - 高位滞涨
+    - 跌破5日均线
+    technical_narrative:
+      trend: 6月2日+9.88%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+9.88%共振修复。CPO三巨头之一，跟风上涨。收盘747.0。高位不追。
+    sector_narrative:
+      relative_strength: CPO组跟风，共振修复
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 高位品种，短期涨幅已大需防获利回吐
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260520-003-j
+      claim_type: stock-view
+      relevance: direct
+    - claim_id: claim-20260602-002-e
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260602-002-f
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 300394.SZ
+    name: 天孚通信
+    role: cpo_follower
+    segment: 光模块/CPO
+    priority: P2-重点
+    watch_reason: CPO三巨头之一，跟风上涨。高位不追。
+    sync_with_index: ✅ 同步——5/28下午低点13:12，与大盘同步V起，13:12后+5.59%
+    confirm_with:
+    - 中际旭创
+    - 新易盛
+    buy_setup:
+    - CPO组整体强势
+    - 不追高，等深度回调
+    invalidation_setup:
+    - 高位滞涨
+    - 跌破5日均线
+    technical_narrative:
+      trend: 6月2日+6.56%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+6.56%共振修复。CPO三巨头之一。英伟达CPO供应链光引擎/FAU/ELS三大核心组件核心上游伙伴。收盘457.0。
+    sector_narrative:
+      relative_strength: CPO供应链核心卡位，光引擎/FAU/ELS
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 短期涨幅已大，需防获利回吐；但产业卡位明确，资金回流优先级高
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260602-002-e
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260602-002-f
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002897.SZ
+    name: 意华股份
+    role: optical_interconnect
+    segment: 光互连
+    priority: P2-观察
+    watch_reason: 6月3日早盘提及：意华股份为光互连方向标的，Marvell被黄仁勋点名催化；6-4复盘：CPO+连接器双重卡位，LPU方向间接受益。
+    sync_with_index: 光互连板块
+    confirm_with:
+    - 中际旭创
+    - 新易盛
+    buy_setup:
+    - 光互连资金接力确认
+    - 板块联动
+    invalidation_setup:
+    - 资金不接力
+    - 炸板回落
+    up_mention_status:
+      last_mentioned_date: '2026-06-04'
+      mention_context: 6月4日复盘专栏提到CPO+连接器双重卡位
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月3日早盘+7.80%
+      volume_character: 早盘竞价
+      key_levels:
+      - 支撑：昨日收盘
+      - 压力：+5%
+      pattern: 事件驱动高开
+      note: 意华股份早盘+7.80%，大幅高开；6-4收96.15(+5.43%)强势。
+    sector_narrative:
+      relative_strength: 光互连组
+      money_flow: 事件驱动
+      leader_follower: 跟随
+      catalyst: Marvell被黄仁勋点名
+      risk: 炒新不炒旧，需验证接力意愿
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - *id004
+    - *id005
+    - *id006
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 301419.SZ
+    name: 阿莱德
+    role: optical_interconnect
+    segment: 光互连
+    priority: P2-观察
+    watch_reason: 6月3日早盘提及：阿莱德为光互连方向标的，Marvell被黄仁勋点名催化
+    sync_with_index: 光互连板块
+    confirm_with:
+    - 中际旭创
+    - 新易盛
+    buy_setup:
+    - 光互连资金接力确认
+    - 板块联动
+    invalidation_setup:
+    - 资金不接力
+    - 炸板回落
+    up_mention_status:
+      last_mentioned_date: '2026-06-03'
+      mention_context: 6月3日早盘：光互连方向，Marvell被黄仁勋点名
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月3日早盘+2.25%
+      volume_character: 早盘竞价
+      key_levels:
+      - 支撑：昨日收盘
+      - 压力：+5%
+      pattern: 事件驱动高开
+      note: 阿莱德早盘+2.25%，正常开盘
+    sector_narrative:
+      relative_strength: 光互连组
+      money_flow: 事件驱动
+      leader_follower: 跟随
+      catalyst: Marvell被黄仁勋点名
+      risk: 炒新不炒旧，需验证接力意愿
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: medical_observation
+  name: 医药观察（博主提示，节点不错）
+  source_docs:
+  - sources/raw/财经/动态：26-05-28：产业逻辑视频计划与观察标的.md
+  market_checks:
+  - 医药方向是否有系统性机会
+  - 博主产业逻辑视频是否覆盖该方向
+  - 是否与科技主线形成跷跷板
+  stocks:
+  - code: 603811.SH
+    name: 诚意药业
+    role: medical_observation
+    segment: 医药
+    priority: P3-观察
+    watch_reason: 博主置顶评论提示'观察一下，诚意药业、海王生物、东方海洋。今天节点不错'。
+    sync_with_index: ✅ 同步——5/28下午低点13:00，与大盘同步，但13:12后仅+0.09%，弹性极弱
+    confirm_with:
+    - 海王生物
+    - 东方海洋
+    buy_setup:
+    - 医药组整体转强
+    - 不追高，等分歧后回踩
+    - 仅观察，不构成买入建议
+    invalidation_setup:
+    - 单票脉冲但组内无联动
+    - 科技主线强势，医药被虹吸
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260528-005-j
+      claim_type: stock-view
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 000078.SZ
+    name: ST海王
+    role: medical_observation
+    segment: 医药/生物
+    priority: P3-观察
+    watch_reason: 博主提示观察。ST身份需单独风控。
+    sync_with_index: ❌ 不同步——5/28下午横盘不动，13:12后0%，没跟着大盘涨
+    confirm_with:
+    - 诚意药业
+    - 东方海洋
+    buy_setup:
+    - 医药组整体转强
+    - ST身份单独控制仓位
+    invalidation_setup:
+    - 单票脉冲但组内无联动
+    - ST板块整体走弱
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260528-005-j
+      claim_type: stock-view
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002086.SZ
+    name: 东方海洋
+    role: marine_economy
+    segment: 海洋经济/水产
+    priority: P3-观察
+    watch_reason: 博主提示观察。可能与海洋经济/水产方向产业逻辑视频相关。
+    sync_with_index: ✅ 同步——5/28下午低点13:13，与大盘同步V起，13:12后+0.53%
+    confirm_with:
+    - 诚意药业
+    - 海王生物
+    buy_setup:
+    - 海洋经济方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但组内无联动
+    - 科技主线强势，防御方向被虹吸
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260528-005-j
+      claim_type: stock-view
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - priority: P1-核心
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/4推荐创新药方向，防御属性在磨底期体现
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-15.0%。UP说'从924翻3倍跌不下来'。今日-5.1%回调等企稳
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 603259.SH
+    name: 药明康德
+    role: innovative_drug_core
+    linked_claims:
+    - claim_id: claim-20260607-003-l
+      claim_type: sector-theme
+      relevance: direct
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/4推荐创新药方向，防御属性在磨底期体现
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-21.7%。创新药主板核心。UP 6/4提及创新药方向
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 600276.SH
+    name: 恒瑞医药
+    role: innovative_drug_core
+    linked_claims:
+    - claim_id: claim-20260607-003-l
+      claim_type: sector-theme
+      relevance: direct
+- id: compute_rental_token
+  name: 算力租赁/token工厂（新增催化）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
+  market_checks:
+  - token期货概念是否发酵
+  - 算力租赁是否有资金流入
+  - 与AIDC方向是否形成联动
+  stocks:
+  - code: 300383.SZ
+    name: 光环新网
+    role: aidc_idc
+    segment: IDC/数据中心
+    priority: P2-重点
+    watch_reason: 字节700亿美元AI资本支出直接利好AIDC。复盘评论补充：'明天算力租赁可能会有点东西，算力租赁加之前的token工厂，关注一下。'
+    sync_with_index: ✅ 同步——5/28下午低点13:11，与大盘同步V起，13:12后+2.76%
+    confirm_with:
+    - 奥飞数据
+    - 数据港
+    - 宝信软件
+    buy_setup:
+    - 算力租赁/AIDC方向被资金认可
+    - 不追高，等分歧后缩量回踩
+    - 需奥飞数据或IDC组同步扩散
+    invalidation_setup:
+    - 单票脉冲但AIDC组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 300738.SZ
+    name: 奥飞数据
+    role: compute_rental
+    segment: 算力租赁/IDC
+    priority: P2-重点
+    watch_reason: 算力租赁弹性标的；token工厂+token期货双重催化。
+    sync_with_index: ✅ 同步——5/28下午低点13:12，与大盘同步V起，13:12后+3.03%
+    confirm_with:
+    - 光环新网
+    - 数据港
+    buy_setup:
+    - 算力租赁方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但组内无联动
+    - token概念不被持续认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: avoid_sector
+  name: 规避方向（博主明确提示）
+  source_docs:
+  - sources/raw/财经/动态：26-05-28：尾盘仓位建议与明日策略.md
+  market_checks:
+  - 半导体是否如预期走弱
+  - 消费/白酒是否持续回调
+  stocks:
+  - code: 600584.SH
+    name: 长电科技
+    role: avoid_semiconductor
+    segment: 封测
+    priority: P3-观察
+    watch_reason: 博主置顶评论明确'不要买半导体'。受美股科技股波动影响，短期规避。
+    sync_with_index: ✅ 同步——5/28下午低点13:13，与大盘同步V起，13:12后+1.73%，但博主明确规避半导体
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup:
+    - 半导体板块整体走弱
+    - 美股科技股大跌传导
+    technical_narrative:
+      trend: 6月2日-0.40%共振修复
+      volume_character: 缩量调整
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 弱势震荡
+      note: 6月2日-0.4%微跌。半导体规避方向，博主明确不要买半导体。强度稍弱，主因业绩支撑不足。
+    sector_narrative:
+      relative_strength: 半导体组最弱，规避方向
+      money_flow: 资金流出
+      leader_follower: 板块跟随
+      catalyst: AI硬件共振修复
+      risk: 半导体调整周期深化，业绩支撑不足，下半年才有望改善
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - &id009
+      claim_id: claim-20260525-027
+      claim_type: sector-theme
+      relevance: direct
+    - &id010
+      claim_id: claim-20260526-030
+      claim_type: sector-theme
+      relevance: direct
+    - &id011
+      claim_id: claim-20260527-006-f
+      claim_type: sector-theme
+      relevance: direct
+    - &id012
+      claim_id: claim-20260529-002-b
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600519.SH
+    name: 贵州茅台
+    role: avoid_consumer
+    segment: 白酒
+    priority: P3-观察
+    watch_reason: 消费/白酒过渡性质确认，非主线。博主明确规避。
+    sync_with_index: ❌ 不同步——5/28下午没跟着大盘涨，14:11才见低点，13:12后-0.39%，逆势跌
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup:
+    - 白酒板块持续回调
+    - 资金回流科技，消费被虹吸
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: rubin_pcb_abf_mainboard
+  name: Rubin PCB/ABF/CCL主板观察池
+  tradability: mainboard_only
+  source_docs:
+  - knowledge/wiki/市场分析/AI上游涨价链.md
+  - knowledge/wiki/市场分析/PCB与先进封装.md
+  - sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
+  - sources/raw/财经/研报：26-05-25：AI PCB Rubin产业链深度报告（结构化raw）.md
+  - knowledge/claims/claim-20260525-006.yaml
+  - docs/标的深度研究/主板-方向二：国产算力产业链个股分析报告-20260518.html
+  market_checks:
+  - PCB与华为韬定律至少一个方向反包成功后，才看主板观察池买点
+  - PCB/ABF/CCL是否强于半导体平均修复
+  - 板块是否由容量票带队，而不是单只小票一字
+  - Rubin BOM扩散是否从PCB延伸到载板、CCL和材料
+  stocks:
+  - code: 002636.SZ
+    name: 金安国纪
+    role: weak_repair_holding
+    segment: 覆铜板/电子玻纤布
+    watch_reason: 持仓票，但已弱于PCB核心层，明日只看反抽减亏，不作为加仓观察。
+    confirm_with:
+    - 生益科技
+    - 南亚新材
+    - 沪电股份
+    - 胜宏科技
+    buy_setup:
+    - '技术分析: 短期强势，15日涨跌-2.6%'
+    - '买入区间: 1228.21-1292.85'
+    - 回踩5日线低吸
+    - 等回踩MA5(1292.85)附近低吸
+    invalidation_setup:
+    - 跌破15日低点 1250.1 且不能收回
+    - 跌破MA5 1292.85 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 301389.SZ
+    name: 隆扬电子
+    role: pcb_material_elastic_chinext_observation
+    segment: 低粗糙度铜箔/HVLP5期权
+    watch_reason: 材料弹性层，创业板票只作为HVLP5验证和铜箔弹性观察锚。
+    confirm_with:
+    - 铜冠铜箔
+    - 诺德股份
+    - 沪电股份
+    buy_setup:
+    - 观察强弱，不作为主板观察池介入触发
+    invalidation_setup:
+    - 铜箔材料分支只剩情绪脉冲
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 301217.SZ
+    name: 铜冠铜箔
+    role: pcb_material_elastic_chinext_observation
+    segment: HVLP4量产/HVLP5送样
+    watch_reason: 材料弹性层，创业板票只作为HVLP4/5验证和高端服务器链导入观察锚。
+    confirm_with:
+    - 隆扬电子
+    - 诺德股份
+    - 沪电股份
+    buy_setup:
+    - 观察强弱，不作为主板观察池介入触发
+    invalidation_setup:
+    - 铜箔链不能形成组内联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 300936.SZ
+    name: 中英科技
+    role: pcb_long_option_chinext_observation
+    segment: PTFE高频覆铜板
+    watch_reason: 长期期权层，创业板票只观察高频材料订单和服务器链客户导入。
+    confirm_with:
+    - 生益科技
+    - 华正新材
+    - 沪电股份
+    buy_setup:
+    - 观察产业突破，不作为主板观察池介入触发
+    invalidation_setup:
+    - 期权层先高潮但核心层走弱
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002916.SZ
+    name: 深南电路
+    role: capacity_core
+    segment: ABF/FC-BGA载板/平台型PCB能力
+    watch_reason: ABF/FC-BGA和平台能力观察锚，不直接混同为普通Rubin PCB成品核心；只等板块分歧后放量收回分时均线。
+    confirm_with:
+    - 兴森科技
+    - 沪电股份
+    - 生益科技
+    buy_setup:
+    - PCB/ABF主板组强于全A且红盘家数扩散
+    - 个股回踩不破前一交易日低点或关键均线
+    - 分时放量拐头，后一个反弹峰超过前峰
+    - 组合仓位偏高，只允许用弱票减仓资金置换，不新增净仓
+    invalidation_setup:
+    - 板块高开低走且容量票同步放量回落
+    - 跌破分歧低点后不能收回
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - &id013
+      claim_id: claim-20260525-003
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002436.SZ
+    name: 兴森科技
+    role: elastic_abf_substrate
+    segment: BT/ABF载板
+    watch_reason: 主板ABF/BT载板弹性标的；介入点必须看换手承接和客户/良率验证预期。
+    confirm_with:
+    - 深南电路
+    - 通富微电
+    - 生益科技
+    buy_setup:
+    - 深南电路等容量锚稳定，兴森科技放量跟随而非单独脉冲
+    - 高开不追，等回踩分时均线后再次放量
+    - 只在PCB/ABF分歧后反包确认时观察
+    invalidation_setup:
+    - 载板链扩散失败，个股冲高回落
+    - 低位弹性变成纯概念补涨
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002463.SZ
+    name: 沪电股份
+    role: pcb_mid_core
+    segment: AI服务器高多层板/Midplane
+    watch_reason: 短期Rubin PCB核心层之一；适合看分歧低吸确认，不适合追一致高潮。
+    confirm_with:
+    - 胜宏科技
+    - 生益科技
+    - 景旺电子
+    buy_setup:
+    - AI硬件修复由PCB/CCL主动带队，且不是一致高开后的追高点
+    - 缩量回踩后放量收回分时均线，后一个反弹峰超过前峰
+    invalidation_setup:
+    - PCB组强但沪电明显弱于板块
+    - PCB冲高回落且生益科技/胜宏科技同步转弱
+    technical_narrative:
+      trend: 6月2日+6.93%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+6.93%共振修复。PCB核心层，AI服务器高多层板。收盘131.0。
+    sector_narrative:
+      relative_strength: PCB组核心，共振修复
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: PCB/MLCC/存储同一节奏，缺乏独立情绪载体，高度能否打开存疑
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603228.SH
+    name: 景旺电子
+    role: pcb_core_extension
+    segment: Switch Tray/Midplane扩展
+    watch_reason: 确定性扩展层，重点看Delta认证、GB300 Switch Tray和Midplane弹性；等核心层承接后再看补强。
+    confirm_with:
+    - 沪电股份
+    - 方正科技
+    - 生益科技
+    buy_setup:
+    - 核心层稳定，扩展层换手后继续放量
+    - 不追一致高开
+    - 只在沪电股份、生益科技等容量锚承接后再看补强
+    invalidation_setup:
+    - 扩展层强但核心层转弱
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600601.SH
+    name: 方正科技
+    role: pcb_core_extension
+    segment: Compute Tray/Mellanox链
+    watch_reason: 确定性扩展层，重点看Gamma认证、Mellanox供应链和GB300 Compute Tray订单。
+    confirm_with:
+    - 景旺电子
+    - 胜宏科技
+    - 沪电股份
+    buy_setup:
+    - 扩展层至少两只票同步走强
+    - 回踩分时均线后再次放量
+    - 只作为PCB扩展层补强，不作为双核心反包的第一买点
+    invalidation_setup:
+    - Compute Tray预期不能带动扩展层
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600183.SH
+    name: 生益科技
+    role: ccl_core
+    segment: 高速覆铜板/CCL
+    watch_reason: M7/M8高速材料升级核心观察；适合做容量确认锚。
+    confirm_with:
+    - 沪电股份
+    - 深南电路
+    - 华正新材
+    buy_setup:
+    - CCL材料与PCB同向扩散
+    - 放量突破日内前高后回踩不破
+    - 若一字或一致高开，不追，等换手确认
+    invalidation_setup:
+    - 材料链不能跟随PCB扩散
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260529-002-b
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603186.SH
+    name: 华正新材
+    role: ccl_abf_material_watch
+    segment: 高频高速覆铜板/CBF积层膜
+    watch_reason: 长期期权/边界观察，兼具CCL和类ABF材料替代预期；只在材料侧有换手承接时观察。
+    confirm_with:
+    - 生益科技
+    - 东材科技
+    - 宏和科技
+    buy_setup:
+    - ABF材料/CCL分支出现板块级承接
+    - 个股充分换手后收回分时均线
+    - 已有持仓时只看做T确认，不做新增净仓
+    invalidation_setup:
+    - 只靠材料概念冲高，未出现客户验证或板块联动
+    - PCB核心反包但华正新材弱于材料组
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 601208.SH
+    name: 东材科技
+    role: pcb_material_elastic
+    segment: M9碳氢树脂/封装树脂
+    watch_reason: 材料弹性层，重点看M9树脂批量供货、进入主流CCL厂体系和产能释放。
+    confirm_with:
+    - 生益科技
+    - 华正新材
+    - 宏和科技
+    buy_setup:
+    - 材料侧至少两只主板票换手承接
+    - CCL核心没有同步走弱
+    - 不追一字和公告式加速，只等分歧后回流
+    invalidation_setup:
+    - 树脂材料逻辑未被CCL链条确认
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603256.SH
+    name: 宏和科技
+    role: pcb_material_elastic
+    segment: 电子布/Q-Glass/玻纤
+    watch_reason: 材料弹性层，重点看Low-Dk/Q-Glass突破、客户验证和收入占比。
+    confirm_with:
+    - 生益科技
+    - 东材科技
+    - 中材科技
+    buy_setup:
+    - 玻纤/电子布分支与CCL材料同向扩散
+    - 需要生益科技或华正新材确认，不能单票脉冲
+    invalidation_setup:
+    - 只有小票脉冲，核心PCB不跟
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002080.SZ
+    name: 中材科技
+    role: pcb_long_option
+    segment: Low-Dk玻纤/NE2玻纤
+    watch_reason: 长期期权层，PCB业务占比小，重点看Low-Dk玻纤突破和业务占比提升。
+    confirm_with:
+    - 宏和科技
+    - 生益科技
+    - 东材科技
+    buy_setup:
+    - 玻纤分支由宏和科技和生益科技共同确认
+    - 长期期权层只看低吸确认，不做追高
+    invalidation_setup:
+    - 玻纤逻辑未体现在PCB/CCL主线承接中
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600110.SH
+    name: 诺德股份
+    role: pcb_long_option
+    segment: 高端铜箔/业务转型
+    watch_reason: 长期期权层，重点看境外铜箔资产协同和锂电业务拖累是否改善。
+    confirm_with:
+    - 铜冠铜箔
+    - 隆扬电子
+    - 沪电股份
+    buy_setup:
+    - 铜箔链形成组内联动，且不是单纯锂电反弹
+    invalidation_setup:
+    - 高端铜箔逻辑被锂电属性拖累
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603002.SH
+    name: 宏昌电子
+    role: abf_material_speculative
+    segment: 环氧树脂/增层膜合作研发
+    watch_reason: ABF材料合作研发映射，题材弹性强但验证难度高；只看换手后的低吸确认。
+    confirm_with:
+    - 华正新材
+    - 中京电子
+    - 莲花控股
+    buy_setup:
+    - ABF材料组不是单点一字，至少两只主板票换手承接
+    - 回踩后重新放量站上分时均线
+    invalidation_setup:
+    - 公告型高开低走
+    - 材料侧无客户验证进展
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 605589.SH
+    name: 圣泉集团
+    role: advanced_material_watch
+    segment: 电子树脂/HBM封装材料
+    watch_reason: 先进封装材料补充观察；只在AI电子材料扩散时参与观察。
+    confirm_with:
+    - 宏昌电子
+    - 华正新材
+    - 生益科技
+    buy_setup:
+    - 5月25日弱于材料链，重新站回45.22分时均价前不触发买入观察
+    - 必须由宏昌电子、华正新材、生益科技至少两只同步承接确认
+    invalidation_setup:
+    - 跌破43.98日内低点或先进材料组继续分化，维持弱势观察
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 300476.SZ
+    name: 胜宏科技
+    role: pcb_high_layer_core
+    segment: 高多层PCB/AI服务器
+    priority: P1-核心
+    watch_reason: 高多层PCB核心，AI服务器PCB价值量提升直接受益，UP复盘明确提及。VR200单机柜PCB价值同比+233%。
+    confirm_with:
+    - 沪电股份
+    - 鹏鼎控股
+    - 生益科技
+    buy_setup:
+    - PCB组整体转强，胜宏科技放量突破
+    - 不追高，等分歧后缩量回踩
+    - 需沪电股份或生益科技同步扩散
+    invalidation_setup:
+    - 单票脉冲但PCB组无联动
+    - 跌破分时均价且沪电股份同步回落
+    technical_narrative:
+      trend: 6月2日+1.97%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+1.97%共振修复。高多层PCB核心。收盘349.08。
+    sector_narrative:
+      relative_strength: PCB组核心，共振修复
+      money_flow: 主力净流入
+      leader_follower: 板块跟随
+      catalyst: AI硬件共振修复
+      risk: PCB与CPO/MLCC同一节奏，普涨共振下高度存疑
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260525-003
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260525-022
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002938.SZ
+    name: 鹏鼎控股
+    role: pcb_fpcb_core
+    segment: FPC/高阶HDI
+    priority: P2-重点
+    watch_reason: FPC龙头，UP复盘提及。AI终端/服务器FPC需求增长，高阶HDI产能释放。
+    confirm_with:
+    - 胜宏科技
+    - 沪电股份
+    - 生益科技
+    buy_setup:
+    - PCB组整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但PCB组无联动
+    - 跌破分时均价
+    technical_narrative:
+      trend: 6月2日+8.27%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+8.27%触及涨停。PCB/FPC龙头。收盘111.89。
+    sector_narrative:
+      relative_strength: PCB组强势，触及涨停
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 普涨共振格局，反弹预期需降低
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260525-003
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260525-022
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260529-002-b
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 688519.SH
+    name: 南亚新材
+    role: ccl_high_speed
+    segment: 高速覆铜板/CCL
+    priority: P2-重点
+    watch_reason: 高速覆铜板核心标的，UP复盘提及。M7/M8材料升级直接受益，AI服务器CCL需求增长。
+    confirm_with:
+    - 生益科技
+    - 沪电股份
+    - 胜宏科技
+    buy_setup:
+    - CCL材料与PCB同向扩散
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 材料链不能跟随PCB扩散
+    - 单票脉冲但CCL组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: advanced_packaging_mainboard
+  name: 先进封装/存储封测主板观察池
+  tradability: mainboard_only
+  source_docs:
+  - knowledge/wiki/市场分析/半导体产业链.md
+  - knowledge/wiki/市场分析/长鑫存储产业链.md
+  - docs/标的深度研究/主板-方向一：长鑫存储产业链全景梳理-20260518.md
+  market_checks:
+  - 华为韬定律是否由长电科技、通富微电、华天科技等先进封装中军延续主动修复
+  - 半导体修复是否从权重扩散到封测
+  - 长鑫链是否仍由设备/材料/封测共同承接
+  - 封测票是否强于后排概念
+  stocks:
+  - code: 002156.SZ
+    name: 通富微电
+    role: advanced_packaging_elastic
+    segment: AMD/AI CPU封测/先进封装
+    watch_reason: AI CPU封测核心重估方向；只等先进封装扩散和分时确认。
+    confirm_with:
+    - 长电科技
+    - 深科技
+    - 华天科技
+    buy_setup:
+    - '技术分析: 震荡整理，15日涨跌7.81%'
+    - '买入区间: 55.56-60.57'
+    - 震荡下轨低吸
+    - 等回踩15日低点(55.01)或斐波236支撑(60.57)企稳
+    invalidation_setup:
+    - 跌破15日低点 55.01 且不能收回
+    - 跌破MA5 70.4 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260520-003-h
+      claim_type: stock-view
+      relevance: direct
+    - claim_id: claim-20260525-027
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260604-003-f
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002371.SZ
+    name: 北方华创
+    role: semicap_equipment_mainboard_core
+    segment: 半导体设备
+    watch_reason: 主板半导体设备容量核心；作为科技主线修复质量锚，不追高加速。
+    confirm_with:
+    - 兆易创新
+    - 深科技
+    - 雅克科技
+    buy_setup:
+    - '技术分析: 震荡整理，15日涨跌9.89%'
+    - '买入区间: 553.48-588.97'
+    - 震荡下轨低吸
+    - 等回踩15日低点(548.0)或斐波236支撑(588.97)企稳
+    invalidation_setup:
+    - 跌破15日低点 548.0 且不能收回
+    - 跌破MA5 662.42 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260520-002-b
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260521-001-f
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260521-002-e
+      claim_type: stock-view
+      relevance: direct
+    - claim_id: claim-20260522-001-f
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603986.SH
+    name: 兆易创新
+    role: storage_mid_core
+    segment: 存储/MCU
+    watch_reason: 存储链主板中军；观察长鑫链是否由情绪炒作回到中军承接。
+    confirm_with:
+    - 深科技
+    - 北方华创
+    - 雅克科技
+    buy_setup:
+    - '技术分析: 震荡整理，15日涨跌28.96%'
+    - '买入区间: 342.72-389.71'
+    - 震荡下轨低吸
+    - 等回踩15日低点(339.33)或斐波236支撑(389.71)企稳
+    invalidation_setup:
+    - 跌破15日低点 339.33 且不能收回
+    - 跌破MA5 501.2 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260515-004
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260518-001
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260518-019-k
+      claim_type: stock-view
+      relevance: direct
+    - claim_id: claim-20260520-002-b
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260521-001-f
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: ai_infrastructure_energy
+  name: AI基础设施与能源转型
+  source_docs:
+  - docs/标的深度研究/主板-方向三：AI基础设施与能源转型个股分析报告-20260518.html
+  - docs/标的深度研究/主板-方向三：AI基础设施与能源转型产业链梳理-20260518.md
+  market_checks:
+  - AI电力、液冷、数据中心能源是否独立走强
+  - 若科技主线分歧，能源链是否只是防御轮动
+  stocks:
+  - code: 002639.SZ
+    name: 雪人股份
+    role: watch
+    segment: 液冷/能源设备
+    watch_reason: AI基础设施能源链观察样本。
+    confirm_with:
+    - 英维克
+    - 科士达
+    - 东阳光
+    buy_setup:
+    - '技术分析: 短期强势，15日涨跌-6.22%'
+    - '买入区间: 15.04-15.83'
+    - 回踩5日线低吸
+    - 等回踩MA5(15.83)附近低吸
+    invalidation_setup:
+    - 跌破15日低点 14.7 且不能收回
+    - 跌破MA5 15.83 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002837.SZ
+    name: 英维克
+    role: watch
+    segment: 液冷/温控
+    watch_reason: 算力基础设施温控方向观察样本。
+    confirm_with:
+    - 雪人股份
+    - 科士达
+    - 思源电气
+    buy_setup:
+    - '技术分析: 空头排列，15日涨跌-10.92%'
+    - '买入区间: 91.64-96.91'
+    - 超跌反弹/趋势反转确认后买入
+    - 需站上MA5(97.64)或放量突破才考虑买入
+    invalidation_setup:
+    - 跌破15日低点 88.02 且不能收回
+    - 跌破MA5 97.64 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260426-010
+      claim_type: stock-view
+      relevance: direct
+    - claim_id: claim-20260529-005-g
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: changxin_storage
+  name: 长鑫存储产业链
+  source_docs:
+  - docs/标的深度研究/主板-方向一：长鑫存储产业链个股分析报告-20260518.html
+  - docs/标的深度研究/方向一：长鑫存储产业链全景梳理-20260518.md
+  - docs/标的深度研究/长鑫扩产收益节点分析-设备国产化视角.md
+  market_checks:
+  - 存储链是否强于半导体平均修复
+  - 容量核心是否止跌并收回分时均线
+  - 设备、材料、封测是否从单点修复扩散
+  stocks:
+  - code: 000021.SZ
+    name: 深科技
+    role: core_holding
+    segment: 存储制造/封测
+    watch_reason: 持仓核心，兼具存储扩产和国产算力映射。
+    confirm_with:
+    - 北方华创
+    - 寒武纪
+    - 华虹公司
+    - 佰维存储
+    buy_setup:
+    - '技术分析: 震荡整理，15日涨跌20.69%'
+    - '买入区间: 31.69-35.07'
+    - 震荡下轨低吸
+    - 等回踩15日低点(31.38)或斐波236支撑(35.07)企稳
+    invalidation_setup:
+    - 跌破15日低点 31.38 且不能收回
+    - 跌破MA5 42.06 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - &id007
+      claim_id: claim-20260518-001
+      claim_type: sector-theme
+      relevance: direct
+    - &id008
+      claim_id: claim-20260519-001-e
+      claim_type: stock-view
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 688041.SH
+    name: 海光信息
+    role: compute_chip
+    segment: CPU/DCU
+    watch_reason: 国产算力芯片核心标的；算力出海主线之一。
+    confirm_with:
+    - 寒武纪
+    - 中科曙光
+    buy_setup:
+    - '技术分析: 震荡整理，15日涨跌-15.83%'
+    - '买入区间: 293.8-306.92'
+    - 震荡下轨低吸
+    - 等回踩15日低点(290.89)或斐波236支撑(306.92)企稳
+    invalidation_setup:
+    - 跌破15日低点 290.89 且不能收回
+    - 跌破MA5 319.18 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603269.SH
+    name: 海鸥股份
+    role: cooling_equipment
+    segment: 液冷一次侧冷却塔
+    watch_reason: 算力配套设备；液冷一次侧冷却塔核心标的。
+    confirm_with:
+    - 英维克
+    - 科士达
+    buy_setup:
+    - '技术分析: 震荡整理，15日涨跌16.22%'
+    - '买入区间: 17.56-18.91'
+    - 震荡下轨低吸
+    - 等回踩15日低点(17.39)或斐波236支撑(18.91)企稳
+    invalidation_setup:
+    - 跌破15日低点 17.39 且不能收回
+    - 跌破MA5 22.25 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002782.SZ
+    name: 可立克
+    role: magnetic_component
+    segment: 高密度磁件
+    watch_reason: 算力配套设备；5.5kW/8.5kW高密度磁件核心标的。
+    confirm_with:
+    - 海鸥股份
+    - 英维克
+    buy_setup:
+    - '技术分析: 震荡整理，15日涨跌23.64%'
+    - '买入区间: 21.05-23.29'
+    - 震荡下轨低吸
+    - 等回踩15日低点(20.84)或斐波236支撑(23.29)企稳
+    invalidation_setup:
+    - 跌破15日低点 20.84 且不能收回
+    - 跌破MA5 28.93 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: defensive_rotation
+  name: 防御板块（轮动观察，控制仓位）
+  source_docs:
+  - sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md
+  market_checks:
+  - 上证是否连续走回调
+  - 科创50是否走弱
+  - 防御板块是否形成趋势
+  stocks:
+  - code: 600519.SH
+    name: 贵州茅台
+    role: defensive_anchor
+    segment: 白酒
+    watch_reason: 防御板块锚点；只有上证连续回调时才会有主升浪，震荡市不形成趋势。
+    confirm_with:
+    - 五粮液
+    - 泸州老窖
+    buy_setup:
+    - '技术分析: 短期强势，15日涨跌-2.6%'
+    - '买入区间: 1228.21-1292.85'
+    - 回踩5日线低吸
+    - 等回踩MA5(1292.85)附近低吸
+    invalidation_setup:
+    - 跌破15日低点 1250.1 且不能收回
+    - 跌破MA5 1292.85 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600036.SH
+    name: 招商银行
+    role: defensive_anchor
+    segment: 银行
+    watch_reason: 防御板块锚点；只有上证连续回调时才会有主升浪。
+    confirm_with:
+    - 平安银行
+    - 工商银行
+    buy_setup:
+    - '技术分析: 短期强势，15日涨跌0.11%'
+    - '买入区间: 35.35-37.21'
+    - 回踩5日线低吸
+    - 等回踩MA5(37.21)附近低吸
+    invalidation_setup:
+    - 跌破15日低点 36.78 且不能收回
+    - 跌破MA5 37.21 且板块无联动
+    technical_narrative:
+      trend: 6月1日+0.47%稳定
+      volume_character: 正常成交
+      key_levels:
+      - 支撑：37.50
+      - 压力：39.00
+      pattern: 防御性震荡
+      note: 6月1日+0.47%，防御稳定线强于进攻组，尾盘防御切换观察确认
+    sector_narrative:
+      relative_strength: 防御组最强
+      money_flow: 稳健资金流入
+      leader_follower: 防御锚点
+      catalyst: 上证回调时防御配置
+      risk: 科技主线强势时防御被虹吸
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-36.9%🔥低位！商用发动机核心主线，C919 26年28架
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 600893.SH
+    name: 航发动力
+    role: military_bluechip
+    linked_claims:
+    - claim_id: claim-20260604-006-c
+      claim_type: sector-theme
+      relevance: direct
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-24.6%。分红比例≥80%，消费+蓝筹。UP 6/4点名
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 002027.SZ
+    name: 分众传媒
+    role: consumption_media
+    linked_claims:
+    - claim_id: claim-20260604-006-b
+      claim_type: sector-theme
+      relevance: direct
+- id: domestic_compute
+  name: 国产算力产业链
+  source_docs:
+  - docs/标的深度研究/主板-方向二：国产算力产业链个股分析报告-20260518.html
+  - docs/标的深度研究/方向二：国产算力产业链与Token经济学深度梳理-20260518.md
+  - knowledge/wiki/市场分析/Token算力.md
+  market_checks:
+  - PCB与华为韬定律是否至少一个反包成功
+  - 科创50是否同步修复而非拖累科技主线
+  - 国产算力、存储、先进封装、PCB/CCL是否扩散
+  - 两市成交额是否维持高量能
+  stocks:
+  - code: 000021.SZ
+    name: 深科技
+    role: core
+    segment: 存储/国产算力
+    watch_reason: 当前核心持仓且组合占比高，需要监控做T和降集中度。
+    confirm_with:
+    - 华海诚科
+    - 香农芯创
+    - 佰维存储
+    - 德明利
+    buy_setup:
+    - '技术分析: 震荡整理，15日涨跌20.69%'
+    - '买入区间: 31.69-35.07'
+    - 震荡下轨低吸
+    - 等回踩15日低点(31.38)或斐波236支撑(35.07)企稳
+    invalidation_setup:
+    - 跌破15日低点 31.38 且不能收回
+    - 跌破MA5 42.06 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - *id007
+    - *id008
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002881.SZ
+    name: 美格智能
+    role: edge_ai_elastic
+    segment: 端侧AI/智能模组
+    watch_reason: 端侧AI补涨分支；AI中后期从云端向边缘计算扩散，智能模组和AIoT终端受益，5/27涨停。
+    confirm_with:
+    - 科大讯飞
+    - 中兴通讯
+    - 中科曙光
+    buy_setup:
+    - '技术分析: 震荡整理，15日涨跌8.55%'
+    - '买入区间: 40.71-42.59'
+    - 震荡下轨低吸
+    - 等回踩15日低点(40.31)或斐波236支撑(42.59)企稳
+    invalidation_setup:
+    - 跌破15日低点 40.31 且不能收回
+    - 跌破MA5 47.4 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002025.SZ
+    name: 航天电器
+    role: ascend_connector_core
+    segment: 昇腾连接器/军工电子
+    priority: P2-重点
+    tradable: true
+    watch_reason: 昇腾产业链核心标的，短期军工+昇腾双重下杀接近估值底部。华丰科技定增锁价133.9元确认行业含金量。
+    sync_with_index: ⚠️ 弱同步——双重下杀后等企稳
+    confirm_with:
+    - 华丰科技
+    - 意华股份
+    buy_setup:
+    - 昇腾产业链整体企稳，华丰科技或意华股份同步转强
+    - 等缩量回踩或分歧后放量收回均线
+    invalidation_setup:
+    - 单票脉冲但昇腾链无联动
+    - 跌破估值底部且30分钟不能收回
+    up_mention_status:
+      last_mentioned_date: '2026-06-05'
+      mention_context: 6月5日早盘第四部分：华丰科技定增锁价确认昇腾含金量，航天电器短期双重下杀接近估值底部
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 双重下杀后接近估值底部
+      volume_character: 待观察
+      key_levels:
+      - 支撑：估值底部
+      - 压力：待确认
+      pattern: 超跌后磨底
+      note: UP：赔率升高，6月中下旬回归算力主航道
+    sector_narrative:
+      relative_strength: 昇腾链内偏弱（军工拖累）
+      leader_follower: 跟随华丰科技
+      catalyst: 昇腾950量产前认证
+      risk: 军工拖累+昇腾调整延长
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260603-004-h
+      claim_type: stock-view
+      relevance: direct
+    - claim_id: claim-20260605-001-g
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 688629.SH
+    name: 华丰科技
+    role: ascend_interconnect_leader
+    segment: 昇腾高速互联
+    priority: P2-观察
+    tradable: false
+    note: 不可交易（科创板688），仅观察学习UP思路
+    watch_reason: 国产AI互联龙头，定增锁价133.9元确认含金量。昇腾950量产前高速线缆模组认证进展。
+    confirm_with:
+    - 航天电器
+    - 意华股份
+    buy_setup:
+    - 昇腾950认证进展确认
+    invalidation_setup:
+    - 定增破发(133.9)
+    - 认证低于预期
+    up_mention_status:
+      last_mentioned_date: '2026-06-05'
+      mention_context: 6月5日早盘第四部分：定增锁价133.9，国产AI互联龙头
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 定增锁价133.9支撑
+      key_levels:
+      - 支撑：133.9
+      note: 不可交易（科创板688）
+    sector_narrative:
+      relative_strength: 昇腾链核心
+      catalyst: 昇腾950认证
+      risk: 定增解锁抛压
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260605-001-g
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: mainboard_compute_software
+  name: 国产CPU/服务器/基础软件主板观察池
+  tradability: mainboard_only
+  source_docs:
+  - knowledge/wiki/市场分析/国产CPU_GPU与软件.md
+  - sources/raw/财经/周复盘：26-05-10：特朗普访华，六张牌交易框架，4200攻防，国产算力主线.md
+  - sources/raw/财经/复盘：26-05-11：周末复盘补充，一超多强格局，电子布卓郎智能，Token工厂，算力网国常会.md
+  market_checks:
+  - 半导体减仓资金是否回流国产CPU/服务器/基础软件
+  - 中国长城是否能成为信创/CPU方向先锋
+  - 软件方向是否只是轮动，还是有硬件主线配合
+  stocks:
+  - code: 000066.SZ
+    name: 中国长城
+    role: cpu_xinchuang_pioneer
+    segment: 信创/CPU联动
+    watch_reason: UP多次提到的信创/CPU联动先锋；只等低开收阳或分时确认，不追一字加速。
+    confirm_with:
+    - 中国软件
+    - 中科曙光
+    - 浪潮信息
+    buy_setup:
+    - '技术分析: 空头排列，15日涨跌-23.93%'
+    - '买入区间: 19.13-20.71'
+    - 超跌反弹/趋势反转确认后买入
+    - 需站上MA5(18.95)或放量突破才考虑买入
+    invalidation_setup:
+    - 跌破15日低点 17.6 且不能收回
+    - 跌破MA5 18.95 且板块无联动
+    technical_narrative:
+      trend: 6月2日-2.11%共振修复
+      volume_character: 缩量调整
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 弱势震荡
+      note: 6月2日-2.11%，新买入400股成本18.32，收盘18.09浮亏约-1.25%。国产CPU/信创方向。
+    sector_narrative:
+      relative_strength: 信创方向中等，随科技线调整
+      money_flow: 资金流出
+      leader_follower: 板块跟随
+      catalyst: AI硬件共振修复
+      risk: 科技线调整中，单票无扩散风险
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260518-019-l
+      claim_type: stock-view
+      relevance: direct
+    - claim_id: claim-20260529-005-d
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603019.SH
+    name: 中科曙光
+    role: server_capacity
+    segment: 国产服务器/算力基础设施
+    watch_reason: 国产算力硬件容量票；看服务器整机是否承接半导体减仓资金。
+    confirm_with:
+    - 浪潮信息
+    - 紫光股份
+    - 中兴通讯
+    buy_setup:
+    - '技术分析: 空头排列，15日涨跌-11.82%'
+    - '买入区间: 90.09-94.43'
+    - 超跌反弹/趋势反转确认后买入
+    - 需站上MA5(92.25)或放量突破才考虑买入
+    invalidation_setup:
+    - 跌破15日低点 87.89 且不能收回
+    - 跌破MA5 92.25 且板块无联动
+    technical_narrative:
+      trend: 6月2日+0.73%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+0.73%微涨。服务器整机，Vera Rubin量产受益。收盘86.02。
+    sector_narrative:
+      relative_strength: 服务器组跟随，涨幅较小
+      money_flow: 主力净流入
+      leader_follower: 板块跟随
+      catalyst: AI硬件共振修复
+      risk: 服务器方向受益英伟达Vera Rubin量产，但普涨共振下非焦点
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 000977.SZ
+    name: 浪潮信息
+    role: server_core
+    segment: AI服务器/整机
+    watch_reason: 服务器整机中军；只在国产算力硬件扩散时观察。
+    confirm_with:
+    - 中科曙光
+    - 紫光股份
+    - 中兴通讯
+    buy_setup:
+    - '技术分析: 空头排列，15日涨跌-14.96%'
+    - '买入区间: 65.32-68.86'
+    - 超跌反弹/趋势反转确认后买入
+    - 需站上MA5(66.41)或放量突破才考虑买入
+    invalidation_setup:
+    - 跌破15日低点 63.07 且不能收回
+    - 跌破MA5 66.41 且板块无联动
+    technical_narrative:
+      trend: 6月2日+1.34%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+1.34%微涨。服务器整机中军。收盘65.0。
+    sector_narrative:
+      relative_strength: 服务器组跟随，涨幅较小
+      money_flow: 主力净流入
+      leader_follower: 板块跟随
+      catalyst: AI硬件共振修复
+      risk: 推理时代CPU:GPU配比1:8→1:1，通用服务器需求激活，但短期非情绪焦点
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260529-003-f
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 000938.SZ
+    name: 紫光股份
+    role: network_server_watch
+    segment: 服务器/网络设备
+    watch_reason: 国产算力硬件配套观察；需要和服务器整机组联动。
+    confirm_with:
+    - 浪潮信息
+    - 中兴通讯
+    buy_setup:
+    - '技术分析: 空头排列，15日涨跌-9.62%'
+    - '买入区间: 28.31-29.96'
+    - 超跌反弹/趋势反转确认后买入
+    - 需站上MA5(29.1)或放量突破才考虑买入
+    invalidation_setup:
+    - 跌破15日低点 27.16 且不能收回
+    - 跌破MA5 29.1 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 000063.SZ
+    name: 中兴通讯
+    role: ict_capacity
+    segment: ICT设备/服务器网络
+    watch_reason: ICT容量锚，用于判断国产算力硬件是否有大票承接。
+    confirm_with:
+    - 紫光股份
+    - 浪潮信息
+    buy_setup:
+    - '技术分析: 短期强势，15日涨跌-6.11%'
+    - '买入区间: 34.51-36.33'
+    - 回踩5日线低吸
+    - 等回踩MA5(36.33)附近低吸
+    invalidation_setup:
+    - 跌破15日低点 34.43 且不能收回
+    - 跌破MA5 36.33 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002230.SZ
+    name: 科大讯飞
+    role: ai_software_mid
+    segment: AI大模型/昇腾生态软件
+    watch_reason: 软件生态中军；软件方向只能按轮动看，不作为硬件主线底仓。
+    confirm_with:
+    - 中国软件
+    - 海量数据
+    - 中国长城
+    buy_setup:
+    - 软件组跟随国产算力硬件扩散，而不是单独脉冲
+    - 放量站上分时均线后回踩不破
+    invalidation_setup:
+    - 软件冲高但硬件主线不同步
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600536.SH
+    name: 中国软件
+    role: os_platform
+    segment: 国产操作系统/基础软件
+    watch_reason: 国产操作系统平台映射；适合观察信创软件轮动强度。
+    confirm_with:
+    - 中国长城
+    - 科大讯飞
+    - 海量数据
+    buy_setup:
+    - 基础软件只按轮动处理，需中国长城、科大讯飞同步站回分时均价
+    - 5月25日不能脱离国产硬件单独追
+    invalidation_setup:
+    - 跌破37.68日内低点或中国长城继续弱势，软件组降级观察
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603138.SH
+    name: 海量数据
+    role: database_watch
+    segment: 国产数据库
+    watch_reason: 国产数据库主板观察；只在基础软件组出现板块级承接时观察。
+    confirm_with:
+    - 中国软件
+    - 科大讯飞
+    buy_setup:
+    - 5月25日明显弱势，重新站回17.52分时均价前不触发买入观察
+    - 数据库方向必须由中国软件、科大讯飞共同回流确认
+    invalidation_setup:
+    - 跌破17.22日内低点或基础软件组无扩散，维持弱势观察
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260601-004-d
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: micro_led_optics_mainboard
+  name: Micro-LED/光互联/精密光学主板观察池
+  tradability: mainboard_only
+  source_docs:
+  - knowledge/wiki/市场分析/玻璃基板与Micro-LED.md
+  - knowledge/wiki/市场分析/光通信.md
+  - sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
+  market_checks:
+  - Micro-LED光互联是否从远期题材走出换手承接
+  - 光互联是否和AI硬件主线同向，而不是单纯公告刺激
+  - 光通信高位分化时，低位光学是否承接但不过度追高
+  stocks:
+  - code: 002429.SZ
+    name: 兆驰股份
+    role: micro_led_chain
+    segment: LED/光通信延伸
+    watch_reason: Micro-LED光互联主板映射；远期题材，只看换手承接。
+    confirm_with:
+    - 水晶光电
+    - 福晶科技
+    - 奥普光电
+    buy_setup:
+    - '技术分析: 空头排列，15日涨跌-11.99%'
+    - '买入区间: 11.78-12.37'
+    - 超跌反弹/趋势反转确认后买入
+    - 需站上MA5(12.23)或放量突破才考虑买入
+    invalidation_setup:
+    - 跌破15日低点 11.44 且不能收回
+    - 跌破MA5 12.23 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002273.SZ
+    name: 水晶光电
+    role: optics_watch
+    segment: 光学元件/微透镜映射
+    watch_reason: 光学主板观察样本；用于判断精密光学扩散强度。
+    confirm_with:
+    - 兆驰股份
+    - 福晶科技
+    - 奥普光电
+    buy_setup:
+    - '技术分析: 震荡整理，15日涨跌4.29%'
+    - '买入区间: 36.06-37.73'
+    - 震荡下轨低吸
+    - 等回踩15日低点(35.7)或斐波236支撑(37.73)企稳
+    invalidation_setup:
+    - 跌破15日低点 35.7 且不能收回
+    - 跌破MA5 40.92 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002222.SZ
+    name: 福晶科技
+    role: precision_optics_watch
+    segment: 精密光学/晶体材料
+    watch_reason: 光刻机供应链与精密光学主板映射；只看板块共振。
+    confirm_with:
+    - 水晶光电
+    - 奥普光电
+    buy_setup:
+    - '技术分析: 震荡整理，15日涨跌-7.48%'
+    - '买入区间: 99.29-104.51'
+    - 震荡下轨低吸
+    - 等回踩15日低点(98.31)或斐波236支撑(104.51)企稳
+    invalidation_setup:
+    - 跌破15日低点 98.31 且不能收回
+    - 跌破MA5 104.91 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002338.SZ
+    name: 奥普光电
+    role: precision_optics_watch
+    segment: 精密光学
+    watch_reason: 精密光学主板弹性样本；不单独追高，只跟随光学组确认。
+    confirm_with:
+    - 福晶科技
+    - 水晶光电
+    buy_setup:
+    - '技术分析: 空头排列，15日涨跌-11.76%'
+    - '买入区间: 57.24-60.23'
+    - 超跌反弹/趋势反转确认后买入
+    - 需站上MA5(60.6)或放量突破才考虑买入
+    invalidation_setup:
+    - 跌破15日低点 55.46 且不能收回
+    - 跌破MA5 60.6 且板块无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 601869.SH
+    name: 长飞光纤
+    role: fiber_core
+    segment: 光纤光缆/空芯光纤
+    watch_reason: 光纤材料主板容量观察；看AI数据中心光互联扩散。
+    confirm_with:
+    - 亨通光电
+    - 中天科技
+    buy_setup:
+    - 光纤光缆组需整体转强，5月25日仅站上381.92分时均价不够
+    - 需亨通光电、中天科技同步收回分时均价
+    invalidation_setup:
+    - 跌破378.05日内低点或光纤光缆组无承接，维持弱势观察
+    technical_narrative:
+      trend: 6月2日+10.00%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日涨停+10.0%，光纤板块共振。收盘408.74。
+    sector_narrative:
+      relative_strength: 光纤组联动涨停
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 普涨共振格局，高度能否打开存疑
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260605-001-c
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600487.SH
+    name: 亨通光电
+    role: fiber_cable_core
+    segment: 光纤光缆/海缆
+    watch_reason: 光通信与光纤主板中军；用于确认光通信是否仍有承接。
+    confirm_with:
+    - 长飞光纤
+    - 中天科技
+    buy_setup:
+    - 5月25日明显弱势，重新站回70.92分时均价前不触发买入观察
+    - 需长飞光纤、中天科技同步回流确认
+    invalidation_setup:
+    - 跌破69.67日内低点或光通信组继续弱于AI硬件，维持弱势观察
+    technical_narrative:
+      trend: 6月2日+10.01%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日涨停+10.01%创历史新高。光纤板块共振，长飞光纤同步涨停。能否承担情绪载体重任还需观察，瑕疵在于光纤产业近期无大变化。
+    sector_narrative:
+      relative_strength: 光纤组龙头，涨停创历史新高
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 光纤产业近期无特别大的新变化，能否承担情绪载体存疑
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260602-003-d
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260603-004-h
+      claim_type: stock-view
+      relevance: direct
+    - claim_id: claim-20260605-001-c
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600522.SH
+    name: 中天科技
+    role: fiber_cable_capacity
+    segment: 光纤光缆/海缆
+    watch_reason: 光通信主板容量锚；只在光纤光缆组扩散时观察。
+    confirm_with:
+    - 长飞光纤
+    - 亨通光电
+    buy_setup:
+    - 5月25日明显弱势，重新站回42.39分时均价前不触发买入观察
+    - 需长飞光纤、亨通光电同步承接，不能单票低吸
+    invalidation_setup:
+    - 跌破41.8日内低点或光纤光缆组无扩散，维持弱势观察
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 300265.SZ
+    name: 通光线缆
+    role: fiber_cable
+    segment: 光纤光缆
+    priority: P2-观察
+    watch_reason: 6月3日早盘提及：通光线缆与长飞光纤合资设立子公司，主营光纤光缆
+    sync_with_index: 光纤光缆板块
+    confirm_with:
+    - 亨通光电
+    - 中天科技
+    buy_setup:
+    - 光纤板块持续强势
+    - 合资公司进展
+    invalidation_setup:
+    - 板块回调
+    - 合资公司无实质进展
+    up_mention_status:
+      last_mentioned_date: '2026-06-03'
+      mention_context: 6月3日早盘：光纤光缆，全球首条三波段多芯光缆开通
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月3日早盘-0.17%
+      volume_character: 早盘竞价
+      key_levels:
+      - 支撑：昨日收盘
+      - 压力：+5%
+      pattern: 事件驱动
+      note: 通光线缆早盘-0.17%
+    sector_narrative:
+      relative_strength: 光纤组
+      money_flow: 事件驱动
+      leader_follower: 跟随
+      catalyst: 全球首条三波段多芯光缆开通
+      risk: 供需缺口逻辑需持续验证
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: semiconductor_legacy_watch
+  name: 半导体老主线（观察为主，暂不介入）
+  source_docs:
+  - sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md
+  - knowledge/claims/claim-20260527-006.yaml
+  market_checks:
+  - 半导体是否出现真正的领涨矛
+  - 长电/华天封板能力
+  - 调整周期是否走完（4~6天）
+  stocks:
+  - code: 600584.SH
+    name: 长电科技
+    role: capacity_anchor
+    segment: 封测龙头
+    watch_reason: 半导体容量中军，判断退潮节奏的核心锚点。5/27封单小，起不到带头作用。
+    confirm_with:
+    - 华天科技
+    - 通富微电
+    buy_setup:
+    - '技术分析: 震荡整理，15日涨跌46.96%'
+    - '买入区间: 53.72-63.03'
+    - 震荡下轨低吸
+    - 等回踩15日低点(53.19)或斐波236支撑(63.03)企稳
+    invalidation_setup:
+    - 跌破15日低点 53.19 且不能收回
+    - 跌破MA5 84.26 且板块无联动
+    technical_narrative:
+      trend: 6月2日-0.40%共振修复
+      volume_character: 缩量调整
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 弱势震荡
+      note: 6月2日-0.4%微跌。半导体规避方向，博主明确不要买半导体。强度稍弱，主因业绩支撑不足。
+    sector_narrative:
+      relative_strength: 半导体组最弱，规避方向
+      money_flow: 资金流出
+      leader_follower: 板块跟随
+      catalyst: AI硬件共振修复
+      risk: 半导体调整周期深化，业绩支撑不足，下半年才有望改善
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - *id009
+    - *id010
+    - *id011
+    - *id012
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002185.SZ
+    name: 华天科技
+    role: packaging_elastic
+    segment: 先进封装
+    watch_reason: 先进封装弹性标的；5/27接近涨停但封单量小，观察封板能力。
+    confirm_with:
+    - 长电科技
+    - 通富微电
+    buy_setup:
+    - '技术分析: 多头排列，15日涨跌31.21%'
+    - '买入区间: 16.79-17.31'
+    - 回踩均线买入
+    - 等回踩MA10(17.31)或MA5(19.32)附近企稳
+    invalidation_setup:
+    - 跌破15日低点 13.89 且不能收回
+    - 跌破MA10 17.31 且30分钟不能收回
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260529-002-b
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: semiconductor_materials
+  name: 半导体材料与电子材料
+  source_docs:
+  - knowledge/claims/claim-20260522-001.yaml
+  - knowledge/wiki/市场分析/半导体产业链.md
+  - knowledge/wiki/市场分析/AI上游涨价链.md
+  market_checks:
+  - 半导体修复是否由核心容量票带动
+  - 材料票上涨是否伴随资金回流
+  - 低位新分支是否经换手承接验证
+  stocks:
+  - code: 002409.SZ
+    name: 雅克科技
+    role: hard_logic_holding
+    segment: 电子特气/前驱体
+    watch_reason: 持仓票，半导体材料硬逻辑。
+    confirm_with:
+    - 南大光电
+    - 彤程新材
+    - 华特气体
+    buy_setup:
+    - '技术分析: 震荡整理，15日涨跌13.88%'
+    - '买入区间: 92.26-100.03'
+    - 震荡下轨低吸
+    - 等回踩15日低点(91.35)或斐波236支撑(100.03)企稳
+    invalidation_setup:
+    - 跌破15日低点 91.35 且不能收回
+    - 跌破MA5 118.56 且板块无联动
+    sell_setup:
+    - 若反抽126-128.50不能站稳，且材料链不扩散，优先T出部分利润
+    - 跌破121后不能收回
+    - 冲高无量且材料链不扩散
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260518-001
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603650.SH
+    name: 彤程新材
+    role: materials_holding
+    segment: 光刻胶/电子材料
+    watch_reason: 持仓票，观察材料链修复质量。
+    confirm_with:
+    - 雅克科技
+    - 南大光电
+    - 晶瑞电材
+    buy_setup:
+    - '技术分析: 空头排列，15日涨跌-8.14%'
+    - '买入区间: 54.06-56.93'
+    - 超跌反弹/趋势反转确认后买入
+    - 需站上MA5(57.45)或放量突破才考虑买入
+    invalidation_setup:
+    - 跌破15日低点 52.31 且不能收回
+    - 跌破MA5 57.45 且板块无联动
+    sell_setup:
+    - 若不能站稳60或重新跌回59成本线下，优先减弱留强
+    - 站不回成本附近且资金继续流出
+    - 跌回58.4附近不能修复
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 301611.SZ
+    name: 珂玛科技
+    role: esc_ceramic_breakthrough
+    segment: 静电卡盘/陶瓷加热器
+    priority: P2-观察
+    tradable: false
+    note: 不可交易（创业板301），仅观察学习UP思路
+    watch_reason: 静电卡盘(ESC)在国产设备龙头突破，首次批量订单。华创26年刻蚀设备超百亿→卡盘10亿+后市场20亿→利润弹性10亿→市值期权500亿。日企涨价10-15%倒逼国产加速。
+    confirm_with:
+    - 北方华创
+    buy_setup:
+    - 卡盘批量订单持续落地
+    invalidation_setup:
+    - 卡盘认证失败
+    - 日企降价打压
+    up_mention_status:
+      last_mentioned_date: '2026-06-05'
+      mention_context: 6月5日早盘第四部分：静电卡盘0→1突破，卡盘空间≥加热器，明显预期差
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 新业务0→1突破催化
+      note: 不可交易（创业板301）
+    sector_narrative:
+      catalyst: 静电卡盘国产替代、日企涨价倒逼扩产
+      risk: 卡盘认证周期长
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260518-016
+      claim_type: stock-view
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: mlcc_passive_cycle
+  name: MLCC/被动元件周期上行（外溢承接，非类存储大紧缺）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  - knowledge/claims/claim-20260531-002.yaml
+  - knowledge/wiki/市场分析/MLCC与被动元件.md
+  market_checks:
+  - MLCC涨价是否从高容扩散至常规规格
+  - 中低容交期是否继续延长至12周以上
+  - 国产高端MLCC（三环、风华）是否获得客户验证
+  - 连接器（安费诺）7月第二轮涨价是否落地
+  stocks:
+  - code: 300408.SZ
+    name: 三环集团
+    role: mlcc_high_end_core
+    segment: MLCC/陶瓷材料
+    priority: P1-核心
+    watch_reason: 国产高端MLCC龙头，UP在复盘中明确提及。高容MLCC国产替代核心标的，AI服务器高容占比提升（35%→40%）直接受益。
+    confirm_with:
+    - 风华高科
+    - 火炬电子
+    buy_setup:
+    - MLCC组整体转强，三环集团放量突破
+    - 不追高，等分歧后缩量回踩
+    - 需风华高科或连接器方向同步扩散
+    invalidation_setup:
+    - 单票脉冲但MLCC组无联动
+    - 跌破分时均价且风华高科同步回落
+    - 高端MLCC客户验证不及预期
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260603-004-f
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 000636.SZ
+    name: 风华高科
+    role: mlcc_mainboard_core
+    segment: MLCC/被动元件
+    priority: P2-重点
+    watch_reason: AI服务器MLCC国产龙头，5/30逆势+9.03%。MLCC周期上行核心受益标的。量的改善强于价的改善，行情本质是外溢承接而非类存储大紧缺。
+    confirm_with:
+    - 三环集团
+    - 洁美科技
+    - 博迁新材
+    buy_setup:
+    - MLCC组强于AI硬件平均修复
+    - 个股不追高，回踩承接后放量上穿分时均线
+    - 高容涨价30%逻辑持续，常规规格6月跟进涨价
+    invalidation_setup:
+    - 海外涨价预期未能带动A股组内扩散
+    - MLCC被误判为类存储大紧缺后情绪退潮
+    - 中低容交期缩短至10周以下
+    technical_narrative:
+      trend: 6月2日+8.83%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日+8.83%共振修复中MLCC全线上涨，周期上行确认。收盘59.91，上证+0.43%背景下独立强势。火炬电子4天3板，MLCC组内联动确认。
+    sector_narrative:
+      relative_strength: MLCC组最强，全市场逆势
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 普涨共振格局，反弹预期需降低；短期涨幅已大，需防获利回吐
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - *id001
+    - *id002
+    - *id003
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603678.SH
+    name: 火炬电子
+    role: mlcc_military_elastic
+    segment: 军用MLCC/电子元器件
+    priority: P3-观察
+    watch_reason: 军用MLCC弹性标的，民用MLCC周期上行带动估值修复。观察军民两用MLCC扩散情况。
+    confirm_with:
+    - 三环集团
+    - 风华高科
+    buy_setup:
+    - MLCC板块整体转强
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - 单票脉冲但MLCC组无联动
+    - 军工板块独立走弱
+    technical_narrative:
+      trend: 6月2日+10.00%共振修复
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: 6月2日涨停+10.0%，4天3板。下午频繁开板，连板拓高度有难度，后面更多是趋势。MLCC普涨共振情绪载体候选但瑕疵明显。
+    sector_narrative:
+      relative_strength: MLCC组内最强弹性，但情绪载体承载力存疑
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: AI硬件共振修复
+      risk: 下午频繁开板，连板高度受限；普涨共振下反弹预期需降低
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260602-003-d
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: coal_safety_summer
+  name: 煤炭（安监风暴+迎峰度夏）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  - knowledge/claims/claim-20260531-002.yaml
+  market_checks:
+  - 山西炼焦煤矿复产进度是否低于预期
+  - 迎峰度夏电厂日耗是否继续攀升
+  - 秦港5500大卡是否回升至800-1000元/吨
+  - 煤化工耗煤增量是否兑现
+  stocks:
+  - code: 601088.SH
+    name: 中国神华
+    role: thermal_coal_core
+    segment: 动力煤/煤炭龙头
+    priority: P2-重点
+    watch_reason: 动力煤龙头，高股息+央企，迎峰度夏旺季直接受益。安监导致供给收缩，煤价重启上涨。
+    confirm_with:
+    - 陕西煤业
+    - 兖矿能源
+    buy_setup:
+    - 煤炭板块整体转强
+    - 秦港5500大卡价格回升确认
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 煤价回升不及预期
+    - 安监煤矿大规模复产
+    - 科技主线强势，煤炭作为防御被虹吸
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260605-001-d
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 000983.SZ
+    name: 山西焦煤
+    role: coking_coal_elastic
+    segment: 焦煤
+    priority: P3-观察
+    watch_reason: 焦煤弹性标的，山西112座炼焦煤矿停产（产能1.22亿吨），供给收缩最直接受益。京唐港主焦煤已周涨120元。
+    confirm_with:
+    - 中国神华
+    - 陕西煤业
+    buy_setup:
+    - 焦煤价格继续上行
+    - 山西复产进度低于预期
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 山西煤矿大规模复产
+    - 焦煤价格回落
+    - 单票脉冲但煤炭组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: chemical_price_increase
+  name: 化工涨价（安赛蜜+制冷剂）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  - knowledge/claims/claim-20260531-002.yaml
+  market_checks:
+  - 安赛蜜价格是否继续上涨
+  - 制冷剂配额制下价格是否突破8-10万元/吨
+  - 巨化超纯PFA半导体客户验证进展
+  - 化工涨价是否扩散至其他细分
+  stocks:
+  - code: 603968.SH
+    name: 醋化股份
+    role: acesulfame_potassium_leader
+    segment: 安赛蜜/食品添加剂
+    priority: P2-重点
+    watch_reason: 安赛蜜国内有效产能三寡头之一（1.5万吨），年初以来三轮涨价87.5%（3.2万→6万/吨）。格局优异，涨价具备持续性。
+    confirm_with:
+    - 金禾实业
+    buy_setup:
+    - 安赛蜜价格继续上涨
+    - 化工涨价板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 安赛蜜价格回落
+    - 三寡头协同破裂
+    - 单票脉冲但化工涨价组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260531-002-g
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600160.SH
+    name: 巨化股份
+    role: refrigerant_pfa_dual
+    segment: 制冷剂/氟化工/超纯PFA
+    priority: P1-核心
+    watch_reason: 双重催化：①HFCs制冷剂配额制下享超长景气，31万吨配额×每涨1万元=25亿利润增厚；②超纯PFA突破半导体要求（ppt级），全球被科慕垄断，国产替代+成本低15-25%。
+    confirm_with:
+    - 三美股份
+    - 醋化股份
+    buy_setup:
+    - 制冷剂价格继续上涨或超纯PFA客户验证进展
+    - 化工涨价板块整体转强
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - 制冷剂价格大幅回落
+    - 超纯PFA客户验证不及预期
+    - 单票脉冲但氟化工组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260531-002-h
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: urban_renewal
+  name: 城市更新（十五五13万亿，专项债可作资本金）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  - knowledge/claims/claim-20260531-002.yaml
+  - knowledge/wiki/市场分析/房地产城市更新.md
+  market_checks:
+  - 城市更新专项债发行规模是否超预期
+  - 房建/管网/园林是否由大市值央企带队
+  - 检测板块是否独立走强
+  - 地产后周期（装修装饰）是否有资金流入
+  stocks:
+  - code: 601668.SH
+    name: 中国建筑
+    role: construction_core
+    segment: 房建/基建
+    priority: P2-重点
+    watch_reason: 房建龙头，城市更新房建+地下管网+园林绿化（总量占比近9成）最大受益者。13万亿规划+专项债可作资本金直接利好。
+    confirm_with:
+    - 中国中铁
+    - 上海建工
+    buy_setup:
+    - 城市更新板块整体转强
+    - 大市值央企带队
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 专项债发行不及预期
+    - 科技主线强势，基建被虹吸
+    - 单票脉冲但城市更新组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002271.SZ
+    name: 东方雨虹
+    role: post_property_cycle
+    segment: 防水材料/地产后周期
+    priority: P3-观察
+    watch_reason: 地产后周期核心标的，城市更新中装修装饰受益方向。观察地产后周期是否有独立行情。
+    confirm_with:
+    - 中国建筑
+    - 科顺股份
+    buy_setup:
+    - 地产后周期板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 地产数据继续恶化
+    - 单票脉冲但地产后周期无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: compute_power_synergy
+  name: 算电协同（绿色算力全栈AI平台上线）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  - knowledge/claims/claim-20260531-002.yaml
+  market_checks:
+  - 算电协同平台是否有更多省市跟进
+  - 绿电企业是否获得算力中心直供合同
+  - 2030年算力中心用电7000亿千瓦时预期是否强化
+  stocks:
+  - code: 002015.SZ
+    name: 协鑫能科
+    role: green_power_compute
+    segment: 绿电/算力配套
+    priority: P3-观察
+    watch_reason: 绿电+算力协同核心标的，全国首个绿色算力全栈AI平台落地内蒙古，算力调度交易+词元结算模式直接受益。
+    confirm_with:
+    - 豫能控股
+    - 申能股份
+    buy_setup:
+    - 算电协同板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 算电协同概念不被资金持续认可
+    - 单票脉冲但组内无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260531-002-k
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 001896.SZ
+    name: 豫能控股
+    role: green_power_compute
+    segment: 电力/算力配套
+    priority: P3-观察
+    watch_reason: 明确将算电协同作为核心战略，UP复盘提及。全国首个绿色算力全栈AI平台落地内蒙古直接受益。
+    confirm_with:
+    - 协鑫能科
+    - 申能股份
+    buy_setup:
+    - 算电协同板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 算电协同概念不被资金持续认可
+    - 单票脉冲但组内无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260531-002-k
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260603-004-h
+      claim_type: stock-view
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: mlcc_resistor_inductor
+  name: MLCC/电阻/电感（被动元件周期上行）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - MLCC涨价是否从高容扩散至常规规格
+  - 国产高端MLCC是否获得客户验证
+  - 电阻/电感是否跟随MLCC联动
+  stocks:
+  - code: 688260.SH
+    name: 昀冢科技
+    role: mlcc_elastic
+    segment: MLCC/精密电子零部件
+    priority: P3-观察
+    watch_reason: MLCC弹性标的，UP复盘提及。小型化MLCC零部件，受益国产替代和AI服务器需求。
+    confirm_with:
+    - 三环集团
+    - 风华高科
+    buy_setup:
+    - MLCC组整体转强
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - 单票脉冲但MLCC组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 301013.SZ
+    name: 利和兴
+    role: mlcc_equipment
+    segment: MLCC设备/自动化
+    priority: P3-观察
+    watch_reason: MLCC设备标的，UP复盘提及。受益MLCC扩产和设备国产化。
+    confirm_with:
+    - 三环集团
+    - 风华高科
+    buy_setup:
+    - MLCC扩产逻辑被认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - MLCC扩产不及预期
+    - 单票脉冲但组内无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 301458.SZ
+    name: 钧崴电子
+    role: resistor_core
+    segment: 电阻/电流感测
+    priority: P3-观察
+    watch_reason: 电阻核心标的，UP复盘提及。电流感测电阻受益AI服务器电源管理需求增长。
+    confirm_with:
+    - 风华高科
+    - 三环集团
+    buy_setup:
+    - 被动元件组整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但被动元件组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002138.SZ
+    name: 顺络电子
+    role: inductor_core
+    segment: 电感/磁性器件
+    priority: P2-重点
+    watch_reason: 国产电感龙头，UP复盘明确提及。AI服务器电感用量提升，高端产品国产替代。
+    confirm_with:
+    - 三环集团
+    - 风华高科
+    buy_setup:
+    - 电感/被动元件组整体转强
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - 单票脉冲但被动元件组无联动
+    - 跌破分时均价且三环集团同步回落
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: mlcc_upstream_materials
+  name: MLCC上游材料（瓷粉/载带/离型膜）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 海外MLCC大厂是否持续扩产
+  - 上游材料是否跟随涨价
+  - 国产材料替代进度
+  stocks:
+  - code: 300285.SZ
+    name: 国瓷材料
+    role: mlcc_ceramic_powder
+    segment: MLCC陶瓷粉体
+    priority: P2-重点
+    watch_reason: MLCC上游陶瓷粉体核心，UP复盘提及。高端瓷粉是国产MLCC核心瓶颈，替代空间大。
+    confirm_with:
+    - 洁美科技
+    - 博迁新材
+    - 三环集团
+    buy_setup:
+    - MLCC上游材料组整体转强
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - 单票脉冲但上游组无联动
+    - 高端瓷粉替代进度不及预期
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260603-004-f
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: passive_components_distribution
+  name: 被动元件经销（渠道涨价受益）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 渠道库存是否继续下降
+  - 贸易商涨价是否传导至终端
+  - 经销商业绩是否兑现
+  stocks:
+  - code: 300975.SZ
+    name: 商络电子
+    role: passive_distribution
+    segment: 电子元器件分销
+    priority: P3-观察
+    watch_reason: 被动元件分销商，UP复盘提及。渠道涨价和缺货环境下，分销商议价能力提升。
+    confirm_with:
+    - 深圳华强
+    - 盈方微
+    buy_setup:
+    - 分销板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 渠道涨价不能持续
+    - 单票脉冲但分销组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 000670.SZ
+    name: 盈方微
+    role: passive_distribution
+    segment: 电子元器件分销
+    priority: P3-观察
+    watch_reason: 电子分销标的，UP复盘提及。被动元件涨价周期中分销环节受益。
+    confirm_with:
+    - 商络电子
+    - 深圳华强
+    buy_setup:
+    - 分销板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但分销组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 301270.SZ
+    name: 云汉芯城
+    role: passive_distribution
+    segment: 电子元器件电商分销
+    priority: P3-观察
+    watch_reason: 电子元器件电商分销，UP复盘提及。线上分销模式受益被动元件涨价和缺货。
+    confirm_with:
+    - 商络电子
+    - 深圳华强
+    buy_setup:
+    - 分销板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但分销组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 000062.SZ
+    name: 深圳华强
+    role: passive_distribution
+    segment: 电子元器件分销
+    priority: P3-观察
+    watch_reason: 电子分销龙头，UP复盘提及。被动元件涨价周期中分销环节直接受益。
+    confirm_with:
+    - 商络电子
+    - 盈方微
+    buy_setup:
+    - 分销板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 渠道涨价不能持续
+    - 单票脉冲但分销组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260520-003-k
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: connector_second_round_hike
+  name: 连接器（安费诺7月第二轮涨价）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 安费诺7月1日第二轮涨价是否落地
+  - 上游铜/金涨价是否继续传导
+  - 224G升级是否带动需求
+  stocks:
+  - code: 301123.SZ
+    name: 奕东电子
+    role: connector_upstream
+    segment: 连接器上游/精密组件
+    priority: P3-观察
+    watch_reason: 连接器上游标的，UP复盘提及。受益安费诺涨价和高速连接器需求增长。
+    confirm_with:
+    - 鼎通科技
+    - 意华股份
+    buy_setup:
+    - 连接器组整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 安费诺涨价不及预期
+    - 单票脉冲但连接器组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260609-001-e
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260610-006-k
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: high_speed_copper_cable
+  name: 高速铜缆（戴尔AI服务器催化）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 戴尔AI服务器交付是否持续放量
+  - 高速铜缆需求是否超预期
+  - 1.6T铜缆认证进度
+  stocks:
+  - code: 301439.SZ
+    name: 泓淋电力
+    role: high_speed_copper_cable
+    segment: 高速铜缆/电源线组件
+    priority: P3-观察
+    watch_reason: 戴尔电源线组件长期供应商+高速铜缆核心布局，UP复盘提及。戴尔AI服务器月交付从3万台提升至数万台，高速铜缆配套用量量级放大。
+    confirm_with:
+    - 中际旭创
+    - 新易盛
+    buy_setup:
+    - 高速铜缆方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 戴尔交付不及预期
+    - 单票脉冲但铜缆组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: cpo_optical_backplane
+  name: CPO/光背板（鸿海今年出货1万台）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 鸿海CPO交换机出货进度
+  - 光背板技术是否获得头部客户认可
+  - 康宁供应链关系是否稳固
+  stocks:
+  - code: 300570.SZ
+    name: 太辰光
+    role: cpo_optical_backplane
+    segment: CPO/光背板/光纤互联
+    priority: P3-观察
+    watch_reason: CPO交换机内部核心互联环节前瞻布局，UP复盘提及。光纤路由柔性板及Shuffle Box已完成头部客户验证，绑定康宁（英伟达重要光互连供应商）。
+    confirm_with:
+    - 中际旭创
+    - 天孚通信
+    buy_setup:
+    - CPO/光背板方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 鸿海CPO出货不及预期
+    - 单票脉冲但CPO组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 688313.SH
+    name: 仕佳光子
+    role: cpo_aws_chip
+    segment: CPO上游
+    priority: P2-观察
+    watch_reason: 6月3日早盘提及：仕佳光子为CPO/光互连上游标的
+    sync_with_index: CPO板块
+    confirm_with:
+    - 中际旭创
+    - 天孚通信
+    buy_setup:
+    - CPO板块持续强势
+    - 英伟达Spectrum-X量产催化
+    invalidation_setup:
+    - 板块回调
+    - 资金不接力
+    up_mention_status:
+      last_mentioned_date: '2026-06-03'
+      mention_context: 6月3日早盘：CPO英伟达Spectrum-X硅光全面量产
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月3日早盘+4.08%
+      volume_character: 早盘竞价
+      key_levels:
+      - 支撑：昨日收盘
+      - 压力：+5%
+      pattern: 事件驱动
+      note: 仕佳光子早盘+4.08%
+    sector_narrative:
+      relative_strength: CPO上游
+      money_flow: 事件驱动
+      leader_follower: 跟随
+      catalyst: 英伟达Spectrum-X量产
+      risk: 短期涨幅大，需防兑现
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 688025.SH
+    name: 杰普特
+    role: laser_equipment
+    segment: 激光器/CPO
+    priority: P2-观察
+    watch_reason: 6月3日早盘提及：杰普特为CPO/光互连上游标的
+    sync_with_index: CPO板块
+    confirm_with:
+    - 中际旭创
+    - 天孚通信
+    buy_setup:
+    - CPO板块持续强势
+    - 英伟达Spectrum-X量产催化
+    invalidation_setup:
+    - 板块回调
+    - 资金不接力
+    up_mention_status:
+      last_mentioned_date: '2026-06-03'
+      mention_context: 6月3日早盘：CPO英伟达Spectrum-X硅光全面量产
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月3日早盘+3.20%
+      volume_character: 早盘竞价
+      key_levels:
+      - 支撑：昨日收盘
+      - 压力：+5%
+      pattern: 事件驱动
+      note: 杰普特早盘+3.20%
+    sector_narrative:
+      relative_strength: CPO上游
+      money_flow: 事件驱动
+      leader_follower: 跟随
+      catalyst: 英伟达Spectrum-X量产
+      risk: 短期涨幅大，需防兑现
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: pcb_drill_needle
+  name: PCB钻针（M9硬度提升5-8倍消耗）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - M9覆铜板渗透率是否提升
+  - 钻针消耗量是否跟随增长
+  - 国产钻针替代进度
+  stocks:
+  - code: 000657.SZ
+    name: 中钨高新
+    role: pcb_drill_needle
+    segment: 硬质合金/PCB钻针
+    priority: P3-观察
+    watch_reason: PCB钻针核心材料，UP复盘提及。M9覆铜板硬度提升使钻针消耗量增至传统5-8倍。
+    confirm_with:
+    - 欧科亿
+    - 沪电股份
+    buy_setup:
+    - PCB钻针方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - M9渗透率不及预期
+    - 单票脉冲但钻针组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 688308.SH
+    name: 欧科亿
+    role: pcb_drill_needle
+    segment: 硬质合金刀具/钻针
+    priority: P3-观察
+    watch_reason: 硬质合金刀具标的，UP复盘提及。受益PCB钻针消耗量增长和国产替代。
+    confirm_with:
+    - 中钨高新
+    - 沪电股份
+    buy_setup:
+    - PCB钻针方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但钻针组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: coal_full_chain
+  name: 煤炭（安监+迎峰度夏+煤化工）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 山西炼焦煤矿复产进度
+  - 秦港5500大卡价格是否回升至800-1000元
+  - 煤化工耗煤增量是否兑现
+  stocks:
+  - code: 601699.SH
+    name: 潞安环能
+    role: coking_coal_elastic
+    segment: 焦煤
+    priority: P3-观察
+    watch_reason: 焦煤弹性标的，UP复盘提及。高现货比例，业绩弹性最大。
+    confirm_with:
+    - 山西焦煤
+    - 中国神华
+    buy_setup:
+    - 煤炭板块整体转强
+    - 焦煤价格继续上行
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 山西煤矿大规模复产
+    - 焦煤价格回落
+    - 单票脉冲但煤炭组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 601225.SH
+    name: 陕西煤业
+    role: thermal_coal_core
+    segment: 动力煤
+    priority: P2-重点
+    watch_reason: 动力煤核心标的，UP复盘提及。高股息+央企，迎峰度夏旺季受益。
+    confirm_with:
+    - 中国神华
+    - 兖矿能源
+    buy_setup:
+    - 煤炭板块整体转强
+    - 秦港5500大卡价格回升确认
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 煤价回升不及预期
+    - 安监煤矿大规模复产
+    - 科技主线强势，煤炭被虹吸
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 601898.SH
+    name: 中煤能源
+    role: thermal_coal_core
+    segment: 动力煤/煤化工
+    priority: P3-观察
+    watch_reason: 动力煤+煤化工双主业，UP复盘提及。煤化工耗煤高增直接受益。
+    confirm_with:
+    - 中国神华
+    - 陕西煤业
+    buy_setup:
+    - 煤炭板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 煤价回升不及预期
+    - 单票脉冲但煤炭组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600985.SH
+    name: 淮北矿业
+    role: coking_coal_elastic
+    segment: 焦煤
+    priority: P3-观察
+    watch_reason: 焦煤弹性标的，UP复盘提及。受益焦煤供给收缩和价格上涨。
+    confirm_with:
+    - 山西焦煤
+    - 潞安环能
+    buy_setup:
+    - 焦煤价格继续上行
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 焦煤价格回落
+    - 单票脉冲但煤炭组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 601666.SH
+    name: 平煤股份
+    role: coking_coal_elastic
+    segment: 焦煤
+    priority: P3-观察
+    watch_reason: 焦煤弹性标的，UP复盘提及。受益焦煤供给收缩和价格上涨。
+    confirm_with:
+    - 山西焦煤
+    - 潞安环能
+    buy_setup:
+    - 焦煤价格继续上行
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 焦煤价格回落
+    - 单票脉冲但煤炭组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600188.SH
+    name: 兖矿能源
+    role: thermal_coal_core
+    segment: 动力煤/焦煤
+    priority: P3-观察
+    watch_reason: 动力煤+焦煤双主业，UP复盘提及。高股息+国际化布局。
+    confirm_with:
+    - 中国神华
+    - 陕西煤业
+    buy_setup:
+    - 煤炭板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 煤价回升不及预期
+    - 单票脉冲但煤炭组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260604-006-c
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: chemical_acesulfame
+  name: 化工-安赛蜜（三轮涨价87.5%）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 安赛蜜价格是否继续上涨
+  - 三寡头协同是否稳固
+  - 硫酸成本是否继续上行
+  stocks:
+  - code: 002597.SZ
+    name: 金禾实业
+    role: acesulfame_potassium
+    segment: 安赛蜜/食品添加剂
+    priority: P2-重点
+    watch_reason: 安赛蜜国内有效产能三寡头之一（1.4万吨），UP复盘提及。年初以来三轮涨价87.5%，格局优异。
+    confirm_with:
+    - 醋化股份
+    buy_setup:
+    - 安赛蜜价格继续上涨
+    - 化工涨价板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 安赛蜜价格回落
+    - 三寡头协同破裂
+    - 单票脉冲但化工涨价组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260531-002-g
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: refrigerant_pfa
+  name: 化工-制冷剂/PFA（巨化双催化）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 制冷剂价格是否突破8-10万元/吨
+  - 巨化超纯PFA半导体客户验证进展
+  - 配额制下格局是否稳固
+  stocks:
+  - code: 603379.SH
+    name: 三美股份
+    role: refrigerant_core
+    segment: 制冷剂/氟化工
+    priority: P2-重点
+    watch_reason: 制冷剂核心标的，UP复盘提及。配额制下享超长景气周期，价格每涨1万元增厚显著利润。
+    confirm_with:
+    - 巨化股份
+    - 醋化股份
+    buy_setup:
+    - 制冷剂价格继续上涨
+    - 化工涨价板块整体转强
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - 制冷剂价格大幅回落
+    - 单票脉冲但氟化工组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: urban_renewal_infrastructure
+  name: 城市更新-基建（13万亿+专项债作资本金）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 城市更新专项债发行规模是否超预期
+  - 房建/管网/园林是否由大市值央企带队
+  - 科技主线是否虹吸基建资金
+  stocks:
+  - code: 601186.SH
+    name: 中国铁建
+    role: construction_core
+    segment: 基建/房建
+    priority: P3-观察
+    watch_reason: 基建龙头，UP复盘提及。城市更新13万亿规划+专项债可作资本金直接利好。
+    confirm_with:
+    - 中国建筑
+    - 中国中铁
+    buy_setup:
+    - 城市更新板块整体转强
+    - 大市值央企带队
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 专项债发行不及预期
+    - 科技主线强势，基建被虹吸
+    - 单票脉冲但城市更新组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 601390.SH
+    name: 中国中铁
+    role: construction_core
+    segment: 基建/铁路
+    priority: P3-观察
+    watch_reason: 基建龙头，UP复盘提及。城市更新13万亿规划+地下管网大修受益。
+    confirm_with:
+    - 中国建筑
+    - 中国铁建
+    buy_setup:
+    - 城市更新板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 专项债发行不及预期
+    - 单票脉冲但城市更新组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 601800.SH
+    name: 中国交建
+    role: construction_core
+    segment: 基建/交通
+    priority: P3-观察
+    watch_reason: 基建龙头，UP复盘提及。城市更新中交通基建受益。
+    confirm_with:
+    - 中国建筑
+    - 中国铁建
+    buy_setup:
+    - 城市更新板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 专项债发行不及预期
+    - 单票脉冲但城市更新组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 601618.SH
+    name: 中国中冶
+    role: construction_core
+    segment: 基建/冶金
+    priority: P3-观察
+    watch_reason: 基建龙头，UP复盘提及。城市更新中老旧厂区改造受益。
+    confirm_with:
+    - 中国建筑
+    - 中国铁建
+    buy_setup:
+    - 城市更新板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 专项债发行不及预期
+    - 单票脉冲但城市更新组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600170.SH
+    name: 上海建工
+    role: construction_regional
+    segment: 区域基建
+    priority: P3-观察
+    watch_reason: 区域基建龙头，UP复盘提及。长三角城市更新受益。
+    confirm_with:
+    - 中国建筑
+    - 隧道股份
+    buy_setup:
+    - 城市更新板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但城市更新组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600820.SH
+    name: 隧道股份
+    role: construction_regional
+    segment: 地下工程/隧道
+    priority: P3-观察
+    watch_reason: 地下工程龙头，UP复盘提及。城市更新中地下管网大修直接受益。
+    confirm_with:
+    - 中国建筑
+    - 上海建工
+    buy_setup:
+    - 城市更新板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但城市更新组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 600502.SH
+    name: 安徽建工
+    role: construction_regional
+    segment: 区域基建
+    priority: P3-观察
+    watch_reason: 区域基建标的，UP复盘提及。中部地区城市更新受益。
+    confirm_with:
+    - 中国建筑
+    - 中国铁建
+    buy_setup:
+    - 城市更新板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但城市更新组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: urban_renewal_inspection
+  name: 城市更新-检测（房屋安全体检制度）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 房屋安全体检制度是否落地
+  - 检测板块是否独立走强
+  - 城市更新是否带动检测需求
+  stocks:
+  - code: 603060.SH
+    name: 国检集团
+    role: inspection_core
+    segment: 检测认证
+    priority: P3-观察
+    watch_reason: 检测龙头，UP复盘提及。房屋安全体检制度直接受益。
+    confirm_with:
+    - 联检科技
+    - 深圳瑞捷
+    buy_setup:
+    - 检测板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 房屋安全体检制度落地不及预期
+    - 单票脉冲但检测组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 301115.SZ
+    name: 联检科技
+    role: inspection_elastic
+    segment: 检测认证
+    priority: P3-观察
+    watch_reason: 检测弹性标的，UP复盘提及。受益房屋安全体检制度。
+    confirm_with:
+    - 国检集团
+    - 深圳瑞捷
+    buy_setup:
+    - 检测板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但检测组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 300977.SZ
+    name: 深圳瑞捷
+    role: inspection_elastic
+    segment: 工程检测
+    priority: P3-观察
+    watch_reason: 工程检测标的，UP复盘提及。城市更新中工程质量检测需求增长。
+    confirm_with:
+    - 国检集团
+    - 联检科技
+    buy_setup:
+    - 检测板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但检测组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: urban_renewal_post_property
+  name: 城市更新-地产后周期（装修装饰）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - 地产销售是否边际改善
+  - 装修装饰是否有资金流入
+  - 安置补偿是否传导至后周期
+  stocks:
+  - code: 002081.SZ
+    name: 金螳螂
+    role: decoration_core
+    segment: 装修装饰
+    priority: P3-观察
+    watch_reason: 装修装饰龙头，UP复盘提及。城市更新安置补偿边际拉动地产销售，传导至装修装饰。
+    confirm_with:
+    - 亚厦股份
+    - 中国建筑
+    buy_setup:
+    - 地产后周期板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 地产数据继续恶化
+    - 单票脉冲但地产后周期无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002375.SZ
+    name: 亚厦股份
+    role: decoration_elastic
+    segment: 装修装饰
+    priority: P3-观察
+    watch_reason: 装修装饰弹性标的，UP复盘提及。受益地产后周期改善。
+    confirm_with:
+    - 金螳螂
+    - 中国建筑
+    buy_setup:
+    - 地产后周期板块整体转强
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但地产后周期无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: minimax_ipo
+  name: MiniMax IPO（AI模型公司上市催化）
+  source_docs:
+  - sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
+  market_checks:
+  - MiniMax上市进度
+  - AI模型公司估值是否被资金认可
+  - 关联公司是否有实质性合作
+  stocks:
+  - code: 000681.SZ
+    name: 视觉中国
+    role: minimax_investor
+    segment: AI视觉/内容版权
+    priority: P3-观察
+    watch_reason: 对MiniMax战略投资并深度合作，UP复盘提及。MiniMax启动A股IPO辅导直接催化。
+    confirm_with:
+    - 易点天下
+    buy_setup:
+    - MiniMax概念被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - MiniMax上市进度不及预期
+    - 单票脉冲但概念组无联动
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 301171.SZ
+    name: 易点天下
+    role: ai_marketing
+    segment: AI营销/数智解决方案
+    priority: P3-观察
+    watch_reason: 发布AIDrive2.0数智营销解决方案，UP复盘提及。AI应用落地标的。
+    confirm_with:
+    - 视觉中国
+    buy_setup:
+    - AI应用方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但AI应用组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: aipc_edge_ai
+  name: AIPC/端侧AI（英伟达AI PC+端侧推理扩散）
+  source_docs:
+  - knowledge/wiki/市场分析/端侧AI与AIPC.md
+  - sources/raw/财经/复盘：26-05-27：等了很久的回踩，月底切换与新技术分支.md
+  - sources/raw/财经/午盘：26-02-27：震荡轮动，CPO韧性最强，国产算力走强，铟预期差突出.md
+  market_checks:
+  - 英伟达AI PC端侧发布进展
+  - AI PC/AI手机换机潮数据（Canalys/IDC）
+  - 端侧AI模组出货量（美格智能等）
+  - 特朗普访华科技限制松动程度
+  - 端侧芯片（瑞芯微/全志/晶晨）资金认可度
+  stocks:
+  - code: 002881.SZ
+    name: 美格智能
+    role: aipc_edge_ai_core
+    segment: AI模组/端侧AI龙头
+    priority: P2-重点
+    watch_reason: 端侧AI模组龙头，77 TOPS AI模组大规模量产，配套700 TOPS人形机器人AIBOX+5G舱联AI模组，"机器人+智能座舱+边缘计算"三轨驱动。已完成OpenClaw本地部署。
+    confirm_with:
+    - 瑞芯微
+    - 移远通信
+    - 华勤技术
+    buy_setup:
+    - 端侧AI组整体转强，美格智能放量突破
+    - 不追高，等分歧后缩量回踩
+    - 需瑞芯微或AI模组方向同步扩散
+    invalidation_setup:
+    - 单票冲高但端侧AI组无联动
+    - 跌破分时均价且瑞芯微同步回落
+    - 端侧AI逻辑不被资金持续认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603236.SH
+    name: 移远通信
+    role: aipc_modem
+    segment: 物联网模组/AI模组
+    priority: P3-观察
+    watch_reason: 全球蜂窝模组市占率第一，AI模组产品线完善，端侧AI连接层核心标的。
+    confirm_with:
+    - 美格智能
+    - 广和通
+    buy_setup:
+    - AI模组方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但模组组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 300638.SZ
+    name: 广和通
+    role: aipc_modem
+    segment: 无线通信模组
+    priority: P3-观察
+    watch_reason: 车载/PC/机器人多场景覆盖，AI模组受益端侧AI渗透。
+    confirm_with:
+    - 美格智能
+    - 移远通信
+    buy_setup:
+    - AI模组方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但模组组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603893.SH
+    name: 瑞芯微
+    role: aipc_soc_core
+    segment: 端侧SoC/AI芯片
+    priority: P2-重点
+    watch_reason: 端侧SoC龙头，边缘盒子核心芯片，高分辨率解码+算力。腾讯OpenClaw生态合作，AI PC/智能座舱/机器人多场景。
+    confirm_with:
+    - 全志科技
+    - 晶晨股份
+    - 美格智能
+    buy_setup:
+    - 端侧芯片方向被资金认可，瑞芯微放量突破
+    - 不追高，等分歧后缩量回踩
+    - 需全志科技或晶晨股份同步承接
+    invalidation_setup:
+    - 单票走强但端侧芯片组无扩散
+    - 跌破分时均价且全志科技同步回落
+    - 端侧芯片逻辑不被资金持续认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 300458.SZ
+    name: 全志科技
+    role: aipc_soc
+    segment: 智能车载/安防SoC
+    priority: P3-观察
+    watch_reason: 智能车载、安防终端SoC，端侧AI受益标的。
+    confirm_with:
+    - 瑞芯微
+    - 晶晨股份
+    buy_setup:
+    - 端侧芯片方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但芯片组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 688099.SH
+    name: 晶晨股份
+    role: aipc_soc
+    segment: 智能机顶盒/电视芯片
+    priority: P3-观察
+    watch_reason: AI音视频处理芯片，智能机顶盒/电视AI升级受益。
+    confirm_with:
+    - 瑞芯微
+    - 全志科技
+    buy_setup:
+    - 端侧芯片方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但芯片组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603296.SH
+    name: 华勤技术
+    role: aipc_odm_core
+    segment: ODM/AI PC代工
+    priority: P2-重点
+    watch_reason: 全球手机/PC/服务器ODM龙头，AI PC核心代工厂。直接受益AI PC换机潮。
+    confirm_with:
+    - 龙旗科技
+    - 亿道信息
+    buy_setup:
+    - AI PC方向被资金认可，华勤技术放量突破
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - 单票走强但AI PC组无扩散
+    - 跌破分时均价
+    - AI PC换机潮逻辑不被资金认可
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260601-004-c
+      claim_type: stock-view
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603341.SH
+    name: 龙旗科技
+    role: aipc_odm
+    segment: ODM/智能终端
+    priority: P3-观察
+    watch_reason: 小米/联想等AI终端代工，AI PC/AI手机渗透受益。
+    confirm_with:
+    - 华勤技术
+    - 亿道信息
+    buy_setup:
+    - AI PC方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但ODM组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 001314.SZ
+    name: 亿道信息
+    role: aipc_hardware
+    segment: 全栈适配硬件
+    priority: P3-观察
+    watch_reason: 首批全栈适配OpenClaw等端侧AI平台，AI PC/边缘计算硬件受益。
+    confirm_with:
+    - 华勤技术
+    - 美格智能
+    buy_setup:
+    - 端侧AI硬件方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但硬件组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 300602.SZ
+    name: 飞荣达
+    role: aipc_cooling
+    segment: 散热/华为链
+    priority: P3-观察
+    watch_reason: 华为散热战略供应商，AI手机/PC/服务器多线布局。端侧AI设备算力提升→散热需求升级。
+    confirm_with:
+    - 中石科技
+    - 思泉新材
+    buy_setup:
+    - 端侧AI散热方向被资金认可
+    - 不追高，等分歧后回踩
+    invalidation_setup:
+    - 单票脉冲但散热组无联动
+    - 跌破分时均价
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- name: 关注地位方向_20260602
+  description: UP 6月2日复盘明确提示的"关注地位方向"：普涨轮动阶段，地位与卡位决定资金回流的优先级。CPO供应链核心卡位、国产替代地位标的、全球市占/产业链地位。
+  priority: P2
+  trigger_condition: 资金聚焦某一分支时优先回流
+  stocks:
+  - code: 300054.SZ
+    name: 鼎龙股份
+    role: photoresist_cmp_leader
+    segment: 光刻胶/CMP
+    priority: P2-重点
+    watch_reason: UP明确提示"关注地位方向"：高端光刻胶/CMP国产替代第一，有实际产能落地、批量供货节点清晰，确定性相对更高。半导体方向中业绩支撑度够的稀缺标的。
+    sync_with_index: 半导体板块
+    confirm_with:
+    - 沪硅产业
+    - 安集科技
+    buy_setup:
+    - 半导体板块整体企稳
+    - 光刻胶/CMP国产替代逻辑被市场认可
+    - 不追高，等缩量回踩
+    invalidation_setup:
+    - 半导体业绩证伪
+    - 国产替代进度不及预期
+    technical_narrative:
+      trend: 6月2日跟随半导体板块，强度稍弱
+      volume_character: 正常成交
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 震荡蓄势
+      note: UP明确提示关注，半导体方向中确定性相对更高的标的，有实际产能落地
+    sector_narrative:
+      relative_strength: 半导体组内地位领先，光刻胶/CMP国产第一
+      money_flow: 待观察
+      leader_follower: 国产替代龙头
+      catalyst: 光刻胶/CMP国产替代，产能落地
+      risk: 半导体整体业绩支撑不足，下半年才有望改善
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260525-027
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 688515.SH
+    name: 裕太微
+    role: ethernet_phy_dsp
+    segment: 以太网PHY/DSP
+    priority: P2-重点
+    watch_reason: UP明确提示"关注地位方向"：以太网PHY全栈，华为哈勃持股6.97%。英伟达点名Marvell可能成"万亿公司"引发DSP热，裕太微大涨18%，已在DSP方向构建核心算法储备。SerDes芯片预计26年下半年量产。
+    sync_with_index: 科创50
+    confirm_with:
+    - 盛科通信
+    - 中兴通讯
+    buy_setup:
+    - DSP/光通信方向持续强势
+    - SerDes芯片量产进度确认
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - Marvell概念退潮
+    - DSP量产进度延迟
+    technical_narrative:
+      trend: 6月2日大涨18%，英伟达点名Marvell催化
+      volume_character: 放量大涨
+      key_levels:
+      - 支撑：大涨前平台
+      - 压力：历史新高
+      pattern: 突破加速
+      note: UP明确提示关注，Marvell/DSP概念核心标的，车载业务2025年营收增速超14倍
+    sector_narrative:
+      relative_strength: DSP/光通信组最强弹性
+      money_flow: 主力大幅净流入
+      leader_follower: Marvell概念龙头
+      catalyst: 英伟达点名Marvell，DSP国产替代
+      risk: 短期涨幅已大，需防获利回吐；概念炒作成分
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260602-002-e
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260602-002-f
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260602-003-f
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260603-001-e
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 601138.SH
+    name: 工业富联
+    role: cpo_switch_odm
+    segment: CPO交换机/ODM
+    priority: P2-重点
+    watch_reason: UP明确提示"关注地位方向"：CPO供应链核心卡位，全光CPO交换机机柜出货目标从26年超1万台上修至26-27年合计超5万台。英伟达Vera
+      Rubin全面量产受益。
+    sync_with_index: 上证
+    confirm_with:
+    - 天孚通信
+    - 中际旭创
+    buy_setup:
+    - CPO方向持续强势
+    - 英伟达供应链逻辑确认
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - CPO整体走弱
+    - 英伟达出货不及预期
+    technical_narrative:
+      trend: 6月2日共振修复
+      volume_character: 正常成交
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: UP明确提示关注，CPO交换机机柜出货上修，英伟达Vera Rubin量产受益
+    sector_narrative:
+      relative_strength: CPO供应链核心卡位
+      money_flow: 主力净流入
+      leader_follower: CPO交换机龙头
+      catalyst: CPO交换机机柜出货上修至5万台
+      risk: 短期涨幅已大，需防获利回吐
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260602-003-f
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002384.SZ
+    name: 东山精密
+    role: fpc_pcb_global
+    segment: FPC/PCB/光通信
+    priority: P2-重点
+    watch_reason: UP明确提示"关注地位方向"：FPC全球第二、PCB全球第三。计划投资不超10亿美元建高端PCB项目（聚焦AI服务器）；拟收购索尔思光电100%股权切入光模块；与上交大成立机器人联合研发中心。
+    sync_with_index: 深证成指
+    confirm_with:
+    - 鹏鼎控股
+    - 沪电股份
+    buy_setup:
+    - PCB/光通信方向持续强势
+    - 收购索尔思光电进度确认
+    - 不追高，等分歧后缩量回踩
+    invalidation_setup:
+    - PCB整体走弱
+    - 收购进度不及预期
+    technical_narrative:
+      trend: 6月2日共振修复
+      volume_character: 正常成交
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: UP明确提示关注，FPC全球第二/PCB全球第三，多维布局AI服务器+光模块+机器人
+    sector_narrative:
+      relative_strength: PCB/FPC组全球地位领先
+      money_flow: 主力净流入
+      leader_follower: 全球市占龙头
+      catalyst: AI服务器PCB+光模块收购+机器人研发中心
+      risk: 多维布局分散精力，收购整合风险
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260602-001-c
+      claim_type: sector-theme
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 000807.SZ
+    name: 云铝股份
+    role: green_aluminum_export
+    segment: 绿色铝
+    priority: P2-重点
+    watch_reason: UP明确提示"关注地位方向"：绿色铝龙头。26Q1营收163.8亿（+13.7%），归母净利36亿（+269.5%），创单季盈利新高。美伊冲突致中东电解铝产能受损，沪伦价差降至3238元/吨接近22年历史极值，内外盘价差创新低利好出口。
+    sync_with_index: 上证
+    confirm_with:
+    - 中国铝业
+    - 神火股份
+    buy_setup:
+    - 铝价维持强势
+    - 出口逻辑持续
+    - 不追高，等缩量回踩
+    invalidation_setup:
+    - 铝价大幅回落
+    - 美伊冲突缓和
+    technical_narrative:
+      trend: 6月2日共振修复
+      volume_character: 正常成交
+      key_levels:
+      - 支撑：近期平台
+      - 压力：前高
+      pattern: 共振修复
+      note: UP明确提示关注，绿色铝龙头，26Q1归母净利+269.5%创单季新高，美伊冲突利好出口
+    sector_narrative:
+      relative_strength: 有色铝组龙头
+      money_flow: 主力净流入
+      leader_follower: 绿色铝龙头
+      catalyst: 美伊冲突致中东产能受损，沪伦价差历史极值利好出口
+      risk: 美伊冲突缓和导致铝价回落
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  id: focus_direction_20260602
+- id: lpu_inference_chip
+  name: LPU/推理芯片链（博通新概念）
+  source_docs:
+  - knowledge/claims/claim-20260604-005.yaml
+  - knowledge/wiki/每日复盘/2026-06-04.md
+  - knowledge/claims/claim-20260525.yaml
+  market_checks:
+  - LPU概念是否持续发酵
+  - 博通AVGO是否继续催化
+  - 世运电路LPU埋嵌PCB订单能否落地
+  - 沪电/深南PCB订单能否持续
+  - 立讯精密高速连接器是否获英伟达新增订单
+  stocks:
+  - code: 603920.SH
+    name: 世运电路
+    role: lpu_embedded_pcb_core
+    segment: LPU埋嵌PCB
+    priority: P2-重点
+    watch_reason: 英伟达LPU产品预计Q3提前发货，世运电路"芯创智载"埋嵌工艺匹配LPU需求，单平米价值量是普通车载PCB的近百倍，2027年若百万颗出货对应百亿级市场。6/4涨停+10%确认首日爆发。
+    sync_with_index: 独立走势——LPU新概念第一天
+    confirm_with:
+    - 意华股份
+    - AVGO(博通)
+    buy_setup:
+    - LPU概念被资金认可，世运电路放量突破后缩量回踩
+    - 不追高，等分歧后缩量回踩5日线（约57-58）
+    - 需产业链逻辑持续（博通/英伟达催化）
+    invalidation_setup:
+    - 单票脉冲但LPU链无联动
+    - 跌破56.5（6/4涨停开盘价）且30分钟不能收回
+    - LPU逻辑不被资金持续认可
+    up_mention_status:
+      last_mentioned_date: '2026-06-04'
+      mention_context: 6月4日复盘专栏：LPU埋嵌PCB，英伟达Q3提前发货，单平米价值量近百倍
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月4日涨停+10.0%首日爆发
+      volume_character: 放量涨停
+      key_levels:
+      - 支撑：56.5（涨停开盘价）
+      - 压力：62.7（涨停板）
+      pattern: 事件驱动首板
+      note: 6月4日涨停+10.0%收62.69，LPU新概念首次发酵。连板高度待验证。
+    sector_narrative:
+      relative_strength: LPU链唯一主板核心标的
+      money_flow: 涨停主力封板
+      leader_follower: 板块龙头
+      catalyst: 英伟达LPU Q3提前发货+博通财报催化
+      risk: 新概念首日，连板高度不确定；涨停次日高开易兑现
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002463.SZ
+    name: 沪电股份
+    role: lpu_high_layer_pcb
+    segment: 高多层PCB/AI服务器
+    priority: P1-核心
+    watch_reason: 英伟达高端PCB主力供应商，已量产服务器20层+高多层板，高密度互连需求直接受益LPU。6/4+8.49%大阳线。已在rubin_pcb_abf主题中。
+    sync_with_index: AI硬件板块联动
+    confirm_with:
+    - 深南电路
+    - 世运电路
+    - 鹏鼎控股
+    buy_setup:
+    - AI服务器PCB需求延续，沪电放量突破
+    - 不追高(+8.49%当日)，等分歧后缩量回踩5日线
+    - 需深南电路或鹏鼎控股同步承接确认
+    invalidation_setup:
+    - 单票冲高但PCB链无联动
+    - 跌破132且30分钟不能收回(6/4开盘价)
+    - 英伟达LPU逻辑不被资金持续认可
+    up_mention_status:
+      last_mentioned_date: '2026-05-25'
+      mention_context: 5月25日AI硬件核心观察：PCB/MLCC容量核心，深南电路/鹏鼎控股/胜宏科技
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月4日+8.49%放量大阳线
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：132（开盘价）
+      - 压力：142.78（涨停板/历史新高）
+      pattern: 大阳线突破新高
+      note: 6/4收140.82(+8.49%)，盘中至142.78涨停。PCB/AI硬件确认景气度。已在rubin_pcb_abf主题中。
+    sector_narrative:
+      relative_strength: AI PCB最强容量核心
+      money_flow: 主力净流入
+      leader_follower: 板块龙头
+      catalyst: 英伟达LPU Q3发货+AI服务器PCB高景气
+      risk: 短期涨幅已大(+8.49%)，追高性价比低
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002916.SZ
+    name: 深南电路
+    role: lpu_pcb_substrate
+    segment: 高多层PCB/封装基板
+    priority: P2-重点
+    watch_reason: 具备封装基板能力，若LPU采用先进封装(2.5D/3D)可切入供应链。已量产AI服务器PCB，与沪电同为英伟达PCB供应体系。6/4+2.98%温和上涨。已在rubin_pcb_abf主题中。
+    sync_with_index: AI硬件板块联动
+    confirm_with:
+    - 沪电股份
+    - 鹏鼎控股
+    - 胜宏科技
+    buy_setup:
+    - PCB/AI硬件方向延续，深南电路放量
+    - 不追高，等分歧后缩量回踩
+    - 需沪电股份或鹏鼎控股同步承接确认
+    invalidation_setup:
+    - 单票脉冲但PCB链无联动
+    - 跌破370且30分钟不能收回
+    - 英伟达LPU封装基板逻辑证伪
+    up_mention_status:
+      last_mentioned_date: '2026-05-25'
+      mention_context: 5月25日：PCB/MLCC容量核心，深南电路
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月4日+2.98%温和上涨
+      volume_character: 温和放量
+      key_levels:
+      - 支撑：370
+      - 压力：398（日内高点）
+      pattern: 温和上涨，尚未突破
+      note: 6/4收393.38(+2.98%)。已在rubin_pcb_abf主题中。弹性低于沪电。
+    sector_narrative:
+      relative_strength: PCB组中位，跟随而非领涨
+      money_flow: 主力跟随
+      leader_follower: 板块跟随
+      catalyst: 英伟达LPU先进封装基板需求
+      risk: 封装基板主力为台系(欣兴/Ibiden)，A股订单弹性有限
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - *id013
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 002475.SZ
+    name: 立讯精密
+    role: lpu_high_speed_connector
+    segment: 高速连接器/内部线束
+    priority: P2-重点
+    watch_reason: 英伟达服务器内部线束+外部高速连接器(PCIe 5.0/6.0)供应商。LPU单机柜256颗对高速连接器用量大幅增加。6/4-0.28%缩量微跌，震荡中。
+    sync_with_index: AI硬件板块联动
+    confirm_with:
+    - 意华股份
+    - 沪电股份
+    - 中航光电
+    buy_setup:
+    - AI硬件/连接器方向延续，立讯精密放量
+    - 不追高，等分歧后缩量回踩
+    - 需意华股份或中航光电同步承接确认
+    invalidation_setup:
+    - 单票脉冲但连接器链无联动
+    - 跌破72.5且30分钟不能收回(6/4最低)
+    - LPU连接器用量增加逻辑证伪
+    up_mention_status:
+      last_mentioned_date: '2026-06-04'
+      mention_context: 未直接提及立讯精密，作为LPU产业链从Qing-Agent+券商补充分析
+      explicit_operation: null
+      sentiment: 未提及(推断)
+    technical_narrative:
+      trend: 6月4日-0.28%缩量微跌
+      volume_character: 缩量震荡
+      key_levels:
+      - 支撑：72.5
+      - 压力：75.6
+      pattern: 区间震荡
+      note: 6/4收74.59(-0.28%)。立讯为大盘股，弹性偏低，更偏产业逻辑配置。
+    sector_narrative:
+      relative_strength: 连接器组中位
+      money_flow: 资金中性
+      leader_follower: 板块跟随
+      catalyst: 英伟达LPU PCIe 6.0高速连接需求
+      risk: 供应链高度集中，A股公司多为二级备选
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+- id: ai_energy_gas_turbine
+  name: AI能源/燃气轮机（UP深度方向，确定性高）
+  source_docs:
+  - sources/raw/财经/研报：26-05-07：AI基础设施与能源转型——燃机核电绿色燃料智能交通.md
+  - sources/raw/财经/视频：26-05-12：AI基础设施与能源转型，燃机核电绿色燃料智能交通五大主线.md
+  - knowledge/claims/claim-20260604-003.yaml
+  - knowledge/claims/claim-20260603-001.yaml
+  - knowledge/claims/claim-20260529-005.yaml
+  - sources/raw/财经/研报：26-04-17：PCB沪电生益鹏鼎、703燃机产业链、亚朵Q1超预期、华丰科技AI互联龙头.md
+  market_checks:
+  - 燃气轮机/703产业链是否持续催化
+  - 北美AIDC缺电逻辑是否继续发酵
+  - 杰瑞股份燃机EPC订单能否持续兑现
+  - 应流/万泽涡轮叶片是否获得GE/西门子供应链认证
+  - 板块是否出现组内联动（杰瑞+应流+万泽同步）
+  stocks:
+  - code: 002353.SZ
+    name: 杰瑞股份
+    role: gas_turbine_epc_leader
+    segment: 燃机EPC/整机
+    priority: P1-核心
+    watch_reason: 燃机EPC绝对龙头，最早兑现业绩的北美缺电标的。25Q4+26Q1燃机交付1亿美元+，天然气EPC暴增+278%。市值目标1690~1870亿。UP视频明确将其定位为AI基础设施与能源转型的核心标的。6/4涨停+10%，短线过热。
+    sync_with_index: 独立走势——燃气轮机有独立逻辑，不跟AI节奏
+    confirm_with:
+    - 应流股份
+    - 万泽股份
+    - 东方电气
+    buy_setup:
+    - 燃气轮机板块整体联动，杰瑞放量突破后回踩
+    - 不追涨停(+10%)，等分歧后缩量回踩5日线(约143-150)
+    - UP纪律：回调是上车机会，但短期涨太多需要等
+    invalidation_setup:
+    - 单票涨停但燃机链无联动
+    - 跌破143(6/4昨收)且30分钟不能收回
+    - 北美AIDC缺电逻辑证伪或GEV扩产超预期替代中国企业
+    up_mention_status:
+      last_mentioned_date: '2026-06-04'
+      mention_context: 6/4视频6-4充电专栏含燃气轮机板块。5/12专题视频五大主线之燃机。4/20研报杰瑞Q1燃机兑现。多次机构买入TOP标的。
+      explicit_operation: null
+      sentiment: 机构重点看好(UP:类比锂电池，可以格局)
+    technical_narrative:
+      trend: 6月4日涨停+10.0%
+      volume_character: 放量涨停
+      key_levels:
+      - 支撑：143（昨收/涨停起点）
+      - 压力：157.34（涨停板）
+      pattern: 强势涨停突破
+      note: 6/4涨停收157.34(+10.0%)。燃机EPC龙头，业绩已兑现。等分歧回踩。
+    sector_narrative:
+      relative_strength: 燃机链绝对龙头
+      money_flow: 涨停主力封板
+      leader_follower: 板块龙头
+      catalyst: 北美AIDC缺电+燃机EPC订单持续兑现
+      risk: 涨停+10%短期过热，追高性价比低。UP：回调是上车机会
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260610-007-b
+      claim_type: operation
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 603308.SH
+    name: 应流股份
+    role: turbine_blade_core
+    segment: 涡轮叶片(20%价值量)
+    priority: P2-重点
+    watch_reason: 涡轮叶片是燃机产业链价值量最高的单一环节(20%)，应流股份是国内稀缺的涡轮叶片供应商。UP研报指出：进入GE/西门子供应链的叶片企业最先受益。6/4+4.27%温和上涨。
+    sync_with_index: 独立走势
+    confirm_with:
+    - 万泽股份
+    - 杰瑞股份
+    - 三角防务
+    buy_setup:
+    - 涡轮叶片方向被资金认可，应流放量突破
+    - 等分歧后缩量回踩5日线(约63-64)
+    - 需万泽股份或杰瑞同步承接确认
+    invalidation_setup:
+    - 跌破63且30分钟不能收回
+    - GE/西门子供应链认证受阻
+    up_mention_status:
+      last_mentioned_date: '2026-06-04'
+      mention_context: 5/12视频+5/7研报：涡轮叶片价值量最高，703产业链核心标的
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月4日+4.27%温和上涨
+      volume_character: 温和放量
+      key_levels:
+      - 支撑：63
+      - 压力：68.33(日内高)
+      pattern: 温和上涨
+      note: 6/4收66.60(+4.27%)。涡轮叶片核心，弹性适中。
+    sector_narrative:
+      relative_strength: 燃机链中等弹性
+      money_flow: 跟随资金流入
+      leader_follower: 板块跟随
+      catalyst: 703产业链出海+GE/西门子供应链认证
+      risk: PS：PCC等海外龙头产能扩张可能压缩中国企业份额
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims: []
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - code: 000534.SZ
+    name: 万泽股份
+    role: turbine_blade_superalloy
+    segment: 涡轮叶片+高温合金
+    priority: P2-重点
+    watch_reason: 涡轮叶片+高温合金双属性，燃机产业链核心弹性标的。UP 4/17研报明确说调整即是布局机会。6/4+7.17%强势。
+    sync_with_index: 独立走势
+    confirm_with:
+    - 应流股份
+    - 杰瑞股份
+    - 图南股份
+    buy_setup:
+    - 涡轮叶片+高温合金共振，万泽放量
+    - 等分歧后缩量回踩(约31-32)
+    - 需应流股份或杰瑞同步承接
+    invalidation_setup:
+    - 跌破30.1(6/4最低)且30分钟不能收回
+    up_mention_status:
+      last_mentioned_date: '2026-06-04'
+      mention_context: 5/12视频+4/17研报：调整即是布局机会
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: 6月4日+7.17%强势
+      volume_character: 放量上涨
+      key_levels:
+      - 支撑：30.1
+      - 压力：33.5(日内高)
+      pattern: 强势上涨
+      note: 6/4收33.05(+7.17%)。叶片+高温合金双逻辑。
+    sector_narrative:
+      relative_strength: 燃机链中等弹性
+      money_flow: 主力净流入
+      leader_follower: 板块跟随
+      catalyst: 703产业链出海+高温合金国产替代
+      risk: 海外主机厂扩产传闻可能短期冲击(4/17已有先例)
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-05'
+      last_activity: '2026-06-05'
+      auto_downgrade_after: 30
+    hot_score: 5.0
+    linked_claims:
+    - claim_id: claim-20260610-007-b
+      claim_type: operation
+      relevance: direct
+    opportunity_patterns:
+      primary: null
+      secondary: null
+      last_matched: null
+  - priority: P1-核心
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/4视频：燃气轮机类比上一轮锂电池，确定性最高
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-18.1%。703燃机出海加速。UP 6/4点名燃气轮机核心标的
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 600482.SH
+    name: 中国动力
+    role: gas_turbine_703
+    linked_claims: []
+  - priority: P1-核心
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/4视频：燃气轮机类比上一轮锂电池，确定性最高
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-22.6%。燃机热管理+出海双逻辑。UP 6/4点名
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 002126.SZ
+    name: 银轮股份
+    role: gas_turbine_heat
+    linked_claims: []
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/4视频：燃气轮机类比上一轮锂电池，确定性最高
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: ''
+      risk: ''
+    watch_reason: 60日回撤-30.5%🔥低位。燃机板块增速50%+。UP 6/4点名
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 605060.SH
+    name: 联德股份
+    role: gas_turbine_parts
+    linked_claims: []
+- id: engineering_machinery
+  name: 工程机械（销量超预期+PB周期底，UP 6/9推荐）
+  strategy: 磨底期低估值修复。5月挖机销售+36.2%连续3月加速，核心龙头PB回落至1.8倍周期底。UP明确'安全边际较充足'。等指数企稳+放量阳线确认介入。
+  priority: P1-重点关注
+  stocks:
+  - priority: P1-核心
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐工程机械方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 5月挖机销售+36.2%，连续3月加速；PB周期底1.8倍
+      risk: ''
+    watch_reason: 60日回撤-13.2%，PB约1.81x，海外毛利率比国内高11pct。UP 6/9点名。回撤不够深，等更充分调整
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 600031.SH
+    name: 三一重工
+    role: engineering_leader
+    linked_claims: []
+  - priority: P1-核心
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐工程机械方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 5月挖机销售+36.2%，连续3月加速；PB周期底1.8倍
+      risk: ''
+    watch_reason: 60日回撤-20.1%，PE约13x。销量连续超预期。位置比三一更低
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 000425.SZ
+    name: 徐工机械
+    role: engineering_tier1
+    linked_claims: []
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐工程机械方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 5月挖机销售+36.2%，连续3月加速；PB周期底1.8倍
+      risk: ''
+    watch_reason: 60日回撤-21.8%，PE约11x最低估值。今日-2.5%情绪偏弱
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 000157.SZ
+    name: 中联重科
+    role: engineering_tier1
+    linked_claims: []
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐工程机械方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 5月挖机销售+36.2%，连续3月加速；PB周期底1.8倍
+      risk: ''
+    watch_reason: 60日回撤-17.2%。二线标的
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 000528.SZ
+    name: 柳工
+    role: engineering_tier2
+    linked_claims: []
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘推荐工程机械方向
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 5月挖机销售+36.2%，连续3月加速；PB周期底1.8倍
+      risk: ''
+    watch_reason: 60日回撤仅-3.0%高位，暂不介入仅观察
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 601100.SH
+    name: 恒立液压
+    role: hydraulic_leader
+    linked_claims: []
+- id: commercial_aerospace
+  name: 商业航天（回调>30%尾声+8节点+SpaceX IPO，UP 6/9推荐）
+  strategy: 反弹修复逻辑，非趋势机会。下半年8个发射/回收节点密集，SpaceX 6月IPO。偏博弈，控仓快进快出。
+  priority: P2-观察
+  stocks:
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘：商业航天回调>30%接近尾声，下半年8个节点+SpaceX IPO
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 6-12月密集发射节点；SpaceX 6月IPO目标估值1.75-1.8万亿
+      risk: ''
+    watch_reason: 60日回撤-31.2%🔥低位。主板卫星链核心。今日-5.0%大跌需等企稳
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 600118.SH
+    name: 中国卫星
+    role: satellite_chain
+    linked_claims:
+    - claim_id: claim-20260609-001-e
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260609-004-a
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260609-004-e
+      claim_type: sector-theme
+      relevance: direct
+  - priority: P2-观察
+    up_mention_status:
+      last_mentioned_date: '2026-06-09'
+      mention_context: UP 6/9早盘：商业航天回调>30%接近尾声，下半年8个节点+SpaceX IPO
+      explicit_operation: null
+      sentiment: 积极观察
+    technical_narrative:
+      trend: ''
+      volume_character: ''
+      key_levels: []
+      pattern: ''
+      note: ''
+    sector_narrative:
+      relative_strength: ''
+      money_flow: ''
+      leader_follower: ''
+      catalyst: 6-12月密集发射节点；SpaceX 6月IPO目标估值1.75-1.8万亿
+      risk: ''
+    watch_reason: 60日回撤-19.7%中位。主板火箭链。今日-3.2%
+    sync_with_index: ''
+    confirm_with: []
+    buy_setup: []
+    invalidation_setup: []
+    code: 600879.SH
+    name: 航天电子
+    role: rocket_chain
+    linked_claims:
+    - claim_id: claim-20260609-004-b
+      claim_type: sector-theme
+      relevance: direct
+    - claim_id: claim-20260609-004-g
+      claim_type: methodology
+      relevance: direct
