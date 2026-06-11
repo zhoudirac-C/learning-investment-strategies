@@ -14,11 +14,12 @@ source_docs:
 - sources/raw/财经/复盘：26-06-09：冷眼旁观，等结构慢慢理顺.md
 market_framework:
   up_quote: 「高位反弹减仓，低位耐心等待；涨价为王，业绩为锚；短期不猜涨跌，中线看切换；冷眼旁观，等待结构性的分化。」
-  current_stage: 弱势震荡筑底期 — 地量信号初现，风险释放大半。今日操作取决于开盘量能：情景A（开盘缩量=抛压衰竭→修复概率↑）；情景B（开盘放量下杀→防守为先）。近一周主要任务=观察反弹持续性。
-  core_operation: 右侧进场、量价确认 — 做T为主，不见量价确认不加仓。等指数站回关键均线+放量板块带头再加仓。宁可踏空一段启动，也不在筑底反复中被反复消磨。
+  current_stage: 调整尾部等确认信号 — 全A趋势下跌23个交易日，到达历史级别尾部区域。午后回升提前消耗修复动能，明日冲高概率下降。全A放量中阳线=唯一确认信号，在此之前不扩大风险敞口。
+  core_operation: 持有不追、不加仓、紧守止损。建仓动作只在全A中阳线企稳后展开。恐慌买阴是小仓位博弈≠建仓。仓位纪律高于一切判断。当前持有雅克科技+风华高科，总仓位2.8%。
   opening_scenarios:
-    scenario_A_缩量修复: 开盘缩量→抛压衰竭→修复概率↑。可评估轻仓试探（严格右侧量价确认），重点看MLCC/铜箔/液冷(材料端)是否主动领涨。
-    scenario_B_放量下杀: 开盘放量下杀→防守为先。不做任何进攻动作，已关注方向仅做T。
+    scenario_A_修复确认: 全A放量中阳线+科技主动承接→可评估是否加仓，但绝不追高。加仓窗口只在量价确认后。
+    scenario_B_偏弱震荡: 平开/低开/缩量→持有不动，紧守止损。UP提示午后回升提前消耗修复动能，冲高概率下降。
+    scenario_C_放量下杀: 放量破位→止损纪律优先，不考虑任何买入。
   two_switching_logics:
     1_高低切换: 高位科技硬件/存储/CPU/科创50反弹减仓；资金流向跌深、低位、有预期的方向
     2_涨价为王: 弱市里唯有真实涨价+需求放量的品种能坚挺。真正值得配置的是「低位+涨价」交集（六氟化钨、球形硅微粉、前驱体）
@@ -47,24 +48,24 @@ themes:
     role: platform_core
     segment: 球硅/前驱体/光刻胶三线平台
     priority: P1-核心
-    watch_reason: UP明确点名：「尤其值得关注，同时挂在球硅、前驱体（海力士）、光刻胶三条线上，平台型逻辑已反复验证」。6/10涨停。是主板里唯一覆盖AI上游材料核心赛道的标的。
+    watch_reason: UP明确点名：「尤其值得关注，同时挂在球硅、前驱体（海力士）、光刻胶三条线上」。6/11 涨停收盘134.81，已在持仓中（成本129.68，+3.95%浮盈）。龙虎榜深股通+机构主导，买盘质量好。
     confirm_with:
     - 联瑞新材(688300-科创)
     - 中化国际
     entry_zone:
-      description: 多头趋势票，等回踩MA5~MA10区间。均线多头(MA5=116.16>MA10=113.44)，近5日+7.2%需等分歧
-      current_ref: 2026-06-11 最新=126.22 MA5=116.16 MA10=113.44 MA20=115.25
-      price_range: 118.0 ~ 122.0
-      method: 回撤百分比法(5-8%)，基于20日高点127.84
-      confirm_signal: 缩量回踩至区间后放量阳线+联瑞新材同步企稳+全A不创新低
-      hard_stop: 跌破112且30分钟不能收回
-      position_ratio: 1.0-1.5成
+      description: 【已持仓】不再设介入区间。当前成本129.68，止损123.2。涨停次日防高开低走。
+      current_ref: 2026-06-11 收盘=134.81(涨停) 浮盈+3.95% 止损=123.2
+      price_range: null
+      method: 已持仓
+      confirm_signal: 全A放量中阳线+联瑞新材同步→可考虑持仓但暂不加仓
+      hard_stop: 跌破123.2止损
+      position_ratio: 已持仓（100股）
     up_mention_status:
-      last_mentioned_date: '2026-06-10'
-      mention_context: 6/10复盘明确点名，平台型逻辑，列为第一梯队里更可持有的方向
+      last_mentioned_date: '2026-06-11'
+      mention_context: 6/11 复盘点名涨价主线扩散，覆铜板上游材料方向
       sentiment: 积极看好
     lifecycle:
-      stage: watching
+      stage: holding
       entered_stage: '2026-06-11'
   - code: 600500.SH
     name: 中化国际
@@ -144,12 +145,12 @@ themes:
     - 中船特气(688146-科创)
     - 和远气体
     entry_zone:
-      description: 连续涨停+近5日暴涨46.7%，需等深度回撤。UP原话「右侧轻仓带止损」，大涨后绝不在加速段追
-      current_ref: 2026-06-11 最新=63.89(涨停) MA5=54.32 MA10=47.98 MA20=42.49 近5日+46.7%
-      price_range: 52.0 ~ 55.0
-      method: 回撤百分比法(15-20%)，基于近期高点63.89。与MA5(54.32)交叉验证
-      confirm_signal: 回踩MA5附近不破+WF6涨价数据持续+缩量企稳再放量+中船特气同步企稳
-      hard_stop: 跌破48且30分钟不能收回
+      description: 连续涨停+近5日暴涨46.7%，需等深度回撤。UP原话「右侧轻仓带止损」，大涨后绝不在加速段追。全A中阳线为前置条件
+      current_ref: 2026-06-11 收盘=63.89(涨停) MA5=54.32 MA10=47.98 近5日+46.7%
+      price_range: 57.0 ~ 60.0
+      method: 回撤百分比法(6-11%)，基于涨停价63.89。等回踩第一支撑区
+      confirm_signal: 回踩至区间不破+WF6涨价数据持续+缩量企稳再放量+中船特气同步+全A中阳线
+      hard_stop: 跌破54且30分钟不能收回
       position_ratio: 0.5-1.0成（严格控仓，UP原话「右侧轻仓带止损」）
     up_mention_status:
       last_mentioned_date: '2026-06-10'
@@ -256,11 +257,11 @@ themes:
     - 晶澳科技
     - 光伏ETF
     entry_zone:
-      description: 均线空头排列(MA5=13.27<MA10=13.41<MA20=14.17)，等缩量止跌+MA5上穿MA10确认企稳
-      current_ref: 2026-06-11 最新=13.75(-1.07%) MA5=13.27 MA10=13.41 MA20=14.17
-      price_range: 12.5 ~ 13.2
+      description: 均线空头排列(MA5=13.27<MA10=13.41<MA20=14.17)，等缩量止跌+MA5上穿MA10确认企稳。全A中阳线为前置条件
+      current_ref: 2026-06-11 收盘=13.64(-3.12%) MA5=13.27 MA10=13.41 MA20=14.17
+      price_range: 12.8 ~ 13.5
       method: 震荡票近期低点法，基于20日低点12.22。均线空头需等更低位置
-      confirm_signal: 缩量止跌+不创新低+MA5上穿MA10+光伏板块同步企稳
+      confirm_signal: 缩量止跌+不创新低+MA5上穿MA10+光伏板块同步企稳+全A中阳线
       hard_stop: 跌破12.0且30分钟不能收回
       position_ratio: 0.5-1.0成（中长线思路，不做短线）
     up_mention_status:
@@ -325,11 +326,11 @@ themes:
     confirm_with:
     - 鼎泰高科(301377-创业)
     entry_zone:
-      description: 多头趋势中微回调（MA5=70.90>MA10=69.82>MA20=65.28），等回踩MA5-MA10区间
-      current_ref: 2026-06-11 最新=72.80(-2.1%) MA5=70.90 MA10=69.82 MA20=65.28 近5日-2.1%
-      price_range: 69.0 ~ 71.5
-      method: 均线法(MA5=70.90)，多头趋势正常回调中
-      confirm_signal: 回踩MA5-MA10不破+鼎泰高科同步企稳+钨价继续反弹
+      description: 多头趋势中（MA5=70.90>MA10=69.82），等回踩MA5-MA10区间。全A中阳线为前置条件
+      current_ref: 2026-06-11 收盘=77.95(+6.93%) MA5=70.90 MA10=69.82 MA20=65.28
+      price_range: 73.0 ~ 76.0
+      method: 回撤百分比法(2-6%)，基于收盘价77.95。多头趋势正常回调中
+      confirm_signal: 回踩MA10附近不破+鼎泰高科同步企稳+钨价继续反弹+全A中阳线
       hard_stop: 跌破66且30分钟不能收回
       position_ratio: 0.3-0.5成
     lifecycle:
@@ -377,19 +378,20 @@ themes:
     role: mlcc_core
     segment: MLCC国产龙头
     priority: P1-核心
-    watch_reason: 多次被UP点名的AI服务器MLCC国产龙头。被动元件周期上行，中报业绩确定性。已从旧watchlist保留。
+    watch_reason: 多次被UP点名的AI服务器MLCC国产龙头。6/11收盘64.3（+7.51%），已在持仓中（成本64.07，+0.36%浮盈）。需MLCC板块联动验证。
     confirm_with:
     - 三环集团(300408-创业)
     - 洁美科技(002859)
     entry_zone:
-      description: 今日收跌等缩量止跌+MLCC组整体转强
-      current_ref: 2026-06-11 最新=57.70(-3.53%)
-      price_range: 55.0 ~ 57.5
-      confirm_signal: 缩量止跌+MLCC组（三环/洁美）同步企稳+放量回到58以上
-      hard_stop: 跌破52且30分钟不能收回
-      position_ratio: 0.5-1.0成
+      description: 【已持仓】不再设介入区间。当前成本64.07，止损60.9。需MLCC组（三环/洁美）同步走强确认。
+      current_ref: 2026-06-11 收盘=64.3（+7.51%） 浮盈+0.36% 止损=60.9
+      price_range: null
+      method: 已持仓
+      confirm_signal: MLCC板块联动+全A放量中阳线→可持有但暂不加仓
+      hard_stop: 跌破60.9止损
+      position_ratio: 已持仓（100股）
     lifecycle:
-      stage: watching
+      stage: holding
       entered_stage: '2026-06-11'
 - id: sk_hynix_adr_mapping
   name: SK海力士ADR映射

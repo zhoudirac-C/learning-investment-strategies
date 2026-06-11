@@ -1798,7 +1798,7 @@ def _build_yesterday_summary(
         quote = _quote_for_stock(quotes, code_pure) or _quote_for_stock(quotes, code_raw) or {}
 
         # ── A. 基础行情（7个字段）──
-        close = _to_float(quote.get("previous_close"))
+        close = _to_float(quote.get("latest"))
         open_ = _to_float(quote.get("open"))
         high = _to_float(quote.get("high"))
         low = _to_float(quote.get("low"))
