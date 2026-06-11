@@ -36,6 +36,7 @@ description: |
 | 腾讯→新浪→东财降级链详情 | `references/tencent-sina-eastmoney-fallback-chain.md` |
 | 早盘驱动 Config 更新清单 | `references/morning-briefing-update-checklist.md` |
 | **Cron 静默失败排查清单** | `references/cron-silent-failure-checklist.md` |
+| **买入信号检测系统设计** | `references/buy-signal-detection-design.md` → `docs/design/buy-signal-detection-system.md` |
 | Agent-UP 矛盾处理 | 本 SKILL §陷阱 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
 | **设计文档 vs 代码实现差距核查** | `references/design-doc-vs-implementation-gap.md` |
