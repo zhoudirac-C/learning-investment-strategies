@@ -64,6 +64,10 @@ description: Use when the user asks to analyze an individual stock through the b
 
 当用户要求"将观察池策略写到量化配置里"、"更新观察池"、"修改操作量化策略"、"新增XX方向到观察池"、"使用qing stock monitor update"时，按以下流程执行。
 
+**增量新增 vs 全量重构**：
+- 增量新增：保留旧 theme，追加新 theme → 见下方"新增主题/方向到观察池"
+- 全量重构：UP 方向重大变化时重置全部 theme → 见 `references/watchlist-full-restructuring.md`
+
 ### 执行流程
 
 1. **拉取最新数据**：运行 `stock_monitor.py --live-analysis-context` 获取观察池所有标的实时行情
@@ -87,7 +91,11 @@ description: Use when the user asks to analyze an individual stock through the b
 用户可能说"新增AIPC方向""加入端侧AI""使用qing stock monitor update新增XX"，触发本流程：
 
 1. **读取现有 watchlist.yaml**：确认当前 themes 结构和已有标的，避免重复
-2. **搜索本地知识库**：在 `knowledge/wiki/市场分析/`、`knowledge/claims/`、`sources/raw/财经/` 中搜索该方向的标的和逻辑
+2. **搜索本地知识库**：按优先级搜索 UP 观点源（⚠️ 顺序不能错！）：
+   - **第一优先**：`sources/original/bilibili/` — 自动抓取的原始专栏/动态（最完整，含全板块研判+组合策略+标的清单）。Claims 的 `source_path` 指向这里时，必须追回去读原文。
+   - **第二优先**：`knowledge/claims/` — 从上面提取的结构化 claims（有 stock codes、置信度、source_path 指针）
+   - **第三优先**：`sources/raw/财经/` — 手动转录的 markdown（不一定覆盖所有内容）
+   - **辅助**：`knowledge/wiki/` — 深度研究文档
 3. **构建主题 YAML 块**：
    - `id`: 小写下划线命名（如 `aipc_edge_ai`）
    - `name`: 中文描述（如 "AIPC/端侧AI（英伟达AI PC+端侧推理扩散）"）

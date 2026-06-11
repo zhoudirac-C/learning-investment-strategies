@@ -134,9 +134,28 @@ python scripts/extract_claims_pipeline.py continue
 
 **修复**：在 `gate_validate_claims.py` 的 `NON_COMPANY` 集合中补充新的假阳性模式。
 这是一个持续维护的过程——每处理一类新的 raw 文档类型都可能遇到新假阳性。
-发现后直接追加到 NON_COMPANY 即可，无需改动门禁逻辑。
 
-### 3. subject 字段的符号限制
+**标准修复流程**：
+1. 查看具体 claim 文本，确认是假阳性（非公司名，是描述性词汇）
+2. **直接编辑** `gate_validate_claims.py`，在 `NON_COMPANY` 集合中追加新模式
+3. **⚠️ 不要**使用 sed 全局替换或其他自动化文本替换——可能误伤真阳性
+4. 删除 `gate2_result.json` 缓存后重跑 `continue`
+
+**参考**：`references/gate5-false-positive-patterns.md` — 已积累的模式库和按 raw 类型的预判表
+
+### 3. Step 4 git 提交时的临时文件清理
+
+Step 4 后处理中，`git add -A` 可能意外将 `temp/claims/` 或 `skills/` 目录下的文件 stage。
+
+**正确做法**：
+```bash
+# 只 add 知识库相关文件
+git add knowledge/claims/ knowledge/wiki/ scripts/gate_validate_claims.py
+# 或 add 后检查，unstage 不需要的文件
+git reset HEAD temp/ skills/
+```
+
+### 4. subject 字段的符号限制
 
 `gate4_atomicity()` 禁止 subject 包含 `、` `/` `+` `&` `and`。
 早盘/复盘类 claim 的主题经常需要表达对比关系（如「强修复 vs 弱修复」）。

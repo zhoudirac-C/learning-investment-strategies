@@ -29,6 +29,8 @@ description: |
 | Claims 一致性校验 | `references/claims-consistency-check.md` |
 | Entry points 增强字段分析工作流 | `references/entry-points-enhancement-workflow.md` |
 | Entry points 生成 | `references/entry-points-generation.md` |
+| **Curl K线批量拉取（轻量替代）** | `references/curl-kline-batch-fetch.md` |
+| 配置健康检查 | `references/config-health-check.md` |线批量拉取（轻量替代）** | `references/curl-kline-batch-fetch.md` |
 | 配置健康检查 | `references/config-health-check.md` |
 | 持仓观察池区分修复记录 | `references/position-watchlist-distinction-fix.md` |
 | 腾讯→新浪→东财降级链详情 | `references/tencent-sina-eastmoney-fallback-chain.md` |
@@ -705,7 +707,51 @@ echo "=== daily_state.json ==="
 ls -la config/stock_monitor/daily_state.json 2>/dev/null || echo "❌ 不存在"
 ```
 
-### 陷阱 17: bare `except: pass` 隐藏了完全失效的功能
+### 陷阱 17: UP 复盘源文件搜索漏了 `sources/original/bilibili/`
+
+**反面案例（2026-06-11）**：用户要求「根据 UP 昨天晚上复盘的观点梳理观察方向和核心标的」，AI 先搜了 `sources/raw/财经/` 里的 6/10 早盘和动态，又搜了 claims，但错过了关键信息 — 全板块研判、组合策略、具体标的都在 **`sources/original/bilibili/`** 的 6/10 22:54 复盘原文中（claims 已从此提取，但 AI 没有沿着 `source_path` 追回原文）。
+
+**根因**：搜索优先级错了 — 先 raw 后 claims，唯独没搜 `sources/original/bilibili/`。
+
+**正确的数据源优先级（构建 watchlist 时）**：
+1. **`sources/original/bilibili/`** — 自动抓取的原始专栏/动态（最完整，含全板块研判 + 组合策略 + 标的清单）
+2. **`knowledge/claims/`** — 从上面提取的结构化 claims（有 `source_path` 指针、stock codes、置信度）
+3. **`sources/raw/财经/`** — 手动转录的 markdown（不一定有所有内容）
+4. **关键纪律**：读取 claims 时，检查 `source_path` 字段 → 如果指向 `sources/original/bilibili/`，**先追回去读原文**。Claims 是摘要，原文才有完整语境。
+
+**「构建观察池」任务的强制搜索清单（防止再次漏搜）**：
+
+```
+Step A: 获取近期 claims
+  mcp_neo4j_get_recent_claims(days=2)
+  → 获取全部 claim_type（sector-theme + operation + market-cycle）
+
+Step B: 找到晚间复盘原文（22:54 附近）
+  ls -lt sources/original/bilibili/ | head -5
+  → 找到最近一期标题含「复盘」的文件
+  → 如果 claims source_path 指向了它，直接 read_file
+
+Step C: 读取原文全文
+  → 原文 = 全板块研判 + 具体标的 + 组合策略 + 操作总纲
+  → 不要只依赖 claims 摘要
+
+Step D: 补充早盘和动态
+  ls -lt sources/raw/财经/ | head -10
+  → 读取同期「早盘」「动态」文件（原文可能不在 original 中）
+
+Step E: 按优先级生成
+  → 原文全板块排序 = 第一梯队/第二梯队/规避清单
+  → 过滤主板（sh6xxxxx/sz0xxxxx）
+  → 计算介入价位（curl 腾讯 API → 按涨跌幅分策略）
+```
+
+**反面案例（2026-06-11 两次被纠正）**：
+1. 第一次纠正：用户说「你这复盘搜的不对，复盘里有核心策略…你用了知识库没？」→ AI 只搜了 raw 早盘和动态，没读 22:54 的原文
+2. 第二次纠正：「是6-10号的复盘？不是6/9的，知识库里没有吗？」→ AI 把 6/9 复盘当成了 6/10 复盘，没注意到 claims 的 source_date 是 6/10 且 source_path 指向 original/bilibili
+
+**教训**：当用户问「根据 UP 昨晚复盘」时，必须执行 Step A→B→C 完整链路，不能跳到 raw 就停止。
+
+### 陷阱 18: bare `except: pass` 隐藏了完全失效的功能
 
 **反面案例（2026-06-10）**：`context_builder.py`（429行）完整实现了 Neo4j 图遍历 + Qdrant 语义召回 + 浓度控制，但从第一天起 4 处 `max(dates)` / `datetime.strptime()` 因 Neo4j 返回 `neotime.Date` 对象统一抛 `TypeError`。所有调用点都用裸 `except: pass` 捕获，**日志无警告、无崩溃、无提示**。
 

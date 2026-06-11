@@ -10,8 +10,15 @@
 
 ```
 Step 1: 获取实时行情 + 历史K线
-  └─ 运行 scripts/scan_all_stocks.py 或单独获取
+  └─ 运行 scripts/scan_all_stocks.py 或 ad-hoc curl K线批量拉取
+  └─ curl方式见 references/curl-kline-batch-fetch.md
   └─ 记录：现价、今日高低、MA5/10/20、近期高低点、量比
+
+Step 2: 判断均线状态
+  └─ 多头排列(最新>MA5>MA10>MA20) → 趋势向上，用均线法
+  └─ 多头回调(MA5>MA10>MA20但最新<MA5) → 趋势中回调，用均线法
+  └─ 空头排列(最新<MA5<MA10<MA20) → 趋势向下，用近期低点法
+  └─ 均线缠绕 → 震荡，用近期低点法
 
 Step 2: 读取博主观点
   └─ 扫描最近 3 天 claims
@@ -184,6 +191,21 @@ venv/bin/python3 scripts/scan_all_stocks.py
 2. 当前价是否在介入区间内
 3. 技术评分是否支持买入
 4. 与博主观点是否矛盾
+
+## watchlist entry_zone 字段格式
+
+```yaml
+entry_zone:
+  description: 一句话描述策略逻辑（如"多头趋势票，等回踩MA5-MA10"）
+  current_ref: '日期 最新=XX.XX MA5=XX.XX MA10=XX.XX MA20=XX.XX 近5日=+XX%'
+  price_range: 'XX.XX ~ XX.XX'
+  method: 均线法/回撤百分比法/近期低点法/分时低点法 + 计算依据
+  confirm_signal: 确认买入信号（缩量止跌+放量阳线+板块联动）
+  hard_stop: 跌破XX且30分钟不能收回
+  position_ratio: X.X-X.X成
+```
+
+**current_ref 必须包含**：最新价、MA5/MA10/MA20、近5日涨跌幅——这些是让后续维护者判断区间是否需要更新的关键数据。
 
 ---
 

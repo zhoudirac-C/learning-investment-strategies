@@ -1,15 +1,16 @@
 updated_at: '2026-06-11'
 source_claims:
+- knowledge/claims/claim-20260611-001.yaml  # 6/11 早盘（地量信号+操作预案）
 - knowledge/claims/claim-20260610-008.yaml
 - knowledge/claims/claim-20260610-001.yaml
 - knowledge/claims/claim-20260610-007.yaml
 - knowledge/claims/claim-20260609-005.yaml
 - framework/stock-analysis-playbook.md
 
-# === 市场框架（from 6/10 复盘 16字总纲）===
+# === 市场框架（from 6/10 复盘 + 6/11 早盘更新）===
 market_framework:
-  current_stage: 弱势震荡筑底期 — 缩量防守日，不可做进攻动作。大盘调整近一个月跌超300点已较充分，但修复弹性依赖外围
-  core_question: 指数何时重新站上关键均线+出现放量板块带头？在那之前只观察不建仓。
+  current_stage: 弱势震荡筑底期 — 地量信号初现（午后缩量砸不动），风险释放大半。今日操作取决于开盘量能二选一：情景A（开盘缩量=抛压衰竭→修复↑）/ 情景B（开盘放量下杀→防守为先）。近一周核心任务=观察反弹持续性而非进攻。
+  core_question: 指数何时重新站上关键均线+出现放量板块带头？情景A下可评估轻仓试探（严格右侧量价确认），情景B则继续防守。
   up_quote: 「高位反弹减仓，低位耐心等待；涨价为王，业绩为锚；短期不猜涨跌，中线看切换；冷眼旁观，等待结构性的分化。」
   key_assumptions:
   - 缩量防守日正确姿态是降频、降仓、只在确定性方向上做减法
@@ -92,6 +93,15 @@ position_rules:
   - 全A成交缩量+银行保险领涨→防守日确认
   - 涨停<60家或二连板<15家→弱修复
   action_bias: 只观察、不买入
+- id: semiconductor_range_trade
+  name: 半导体降级为区间交易
+  description: 6/11 早盘明确：半导体应由「持股待涨」转向「区间交易」。不追涨、不做突破策略，以区间内做T为主。
+  apply_to: [MLCC, 被动元件]
+  source_claim: claim-20260611-001-e
+- id: defense_sector_crowding
+  name: 防御方向拥挤警示
+  description: 红利/银行/电力是过渡板块非进攻主线。连涨后警惕拥挤——不做追涨，不做加仓。若防御板块持续领涨→市场仍在避险模式，非进攻信号。
+  source_claim: claim-20260611-001-e
 
 # === 内部分时调度 ===
 intraday_schedule:
@@ -110,6 +120,7 @@ intraday_schedule:
   - 全A方向确认——上攻(偏强) vs 横盘(中性) vs 下探(偏弱)
   - 涨停数量、二连板晋级率
   - 涨价方向 vs 低位修复方向谁主动领涨
+  - MLCC/铜箔/液冷(材料端)是否主动领涨→高低切换成立；补跌→科技进入普遍出清
 - window: '10:30'
   name: 30分钟确认
   action_bias: 可评估买点（仅限满足右侧条件时）
@@ -138,7 +149,7 @@ agent_analysis_schedule:
 - id: open_confirm
   time: '09:45'
   name: 开盘15分钟确认
-  focus: 全A方向确认。覆铜板材料/电子特气/光伏谁主动领涨。是否出现右侧信号。
+  focus: 全A方向确认。覆铜板材料/电子特气/光伏谁主动领涨。MLCC/铜箔/液冷是否领涨→高低切换验证。是否出现右侧信号。
 - id: morning_confirm
   time: '10:00'
   name: 10点确认

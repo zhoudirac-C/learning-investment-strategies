@@ -1,21 +1,26 @@
 updated_at: '2026-06-11'
 source_claims:
+- knowledge/claims/claim-20260611-001.yaml  # 6/11 09:17 早盘（地量信号+科技高切低+WF6涨价+SK海力士ADR）
 - knowledge/claims/claim-20260610-008.yaml  # 6/10 22:54 复盘（全板块研判+组合策略）
 - knowledge/claims/claim-20260610-001.yaml  # 6/10 早盘
 - knowledge/claims/claim-20260610-007.yaml  # 6/10 燃气轮机动态
 - knowledge/claims/claim-20260609-005.yaml  # 6/9 AI上游材料/国产算力
 - knowledge/claims/claim-20260609-003.yaml  # 6/9 上游涨价链
 source_docs:
+- sources/raw/财经/早盘：26-06-11：地量信号初现，科技内部高切低.md
 - sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
 - sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
 - sources/raw/财经/动态：26-06-10：燃气轮机跟北美链条，能做T做T反弹减仓.md
 - sources/raw/财经/复盘：26-06-09：冷眼旁观，等结构慢慢理顺.md
 
-# === 市场框架（来自 6/10 复盘总纲）===
+# === 市场框架（from 6/10 复盘 + 6/11 早盘更新）===
 market_framework:
   up_quote: 「高位反弹减仓，低位耐心等待；涨价为王，业绩为锚；短期不猜涨跌，中线看切换；冷眼旁观，等待结构性的分化。」
-  current_stage: 弱势震荡筑底期 — 缩量防守日，不可做进攻动作。大盘调整近一个月跌超300点，中线已较充分，但修复弹性依赖外围（美联储路径+油价）
-  core_operation: 右侧进场、量价确认 — 等指数站回关键均线+放量板块带头再加仓。宁可踏空一段启动，也不在筑底反复中被反复消磨。
+  current_stage: 弱势震荡筑底期 — 地量信号初现，风险释放大半。今日操作取决于开盘量能：情景A（开盘缩量=抛压衰竭→修复概率↑）；情景B（开盘放量下杀→防守为先）。近一周主要任务=观察反弹持续性。
+  core_operation: 右侧进场、量价确认 — 做T为主，不见量价确认不加仓。等指数站回关键均线+放量板块带头再加仓。宁可踏空一段启动，也不在筑底反复中被反复消磨。
+  opening_scenarios:
+    scenario_A_缩量修复: 开盘缩量→抛压衰竭→修复概率↑。可评估轻仓试探（严格右侧量价确认），重点看MLCC/铜箔/液冷(材料端)是否主动领涨。
+    scenario_B_放量下杀: 开盘放量下杀→防守为先。不做任何进攻动作，已关注方向仅做T。
   two_switching_logics:
     1_高低切换: 高位科技硬件/存储/CPU/科创50反弹减仓；资金流向跌深、低位、有预期的方向
     2_涨价为王: 弱市里唯有真实涨价+需求放量的品种能坚挺。真正值得配置的是「低位+涨价」交集（六氟化钨、球形硅微粉、前驱体）
@@ -84,6 +89,22 @@ themes:
       confirm_signal: 回踩补缺口不破+雅克科技同步企稳+缩量再放量
       hard_stop: 跌破6.0且30分钟不能收回
       position_ratio: 0.3-0.5成（比雅克仓位更小，弹性大）
+
+  - code: 605589.SH
+    name: 圣泉集团
+    role: resin_concept
+    segment: 电子树脂（酚醛/环氧）
+    priority: P3-观察
+    watch_reason: 6/11 早盘 UP 点名连板，电子树脂方向验证。不追板，仅作方向扩散确认。
+    confirm_with:
+    - 雅克科技
+    - 中化国际
+    entry_zone:
+      description: 连板状态不追，仅观察。等回踩或方向扩散确认后评估
+      price_range: 不设介入区间（连板不追）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
 
   - code: 002971.SZ
     name: 和远气体
@@ -288,7 +309,7 @@ themes:
 
 - id: mlcc_passive_component
   name: MLCC/被动元件涨价线
-  up_positioning: UC上游涨价链持续居前（claim-20260609-003-b），MLCC中报业绩确定性
+  up_positioning: 「今日高低切换验证关键方向」— 早盘明确 MLCC/铜箔/液冷(材料端)昨日抗跌，今天若能主动领涨则科技内部高低切换成立；补跌则科技进入普遍出清。UC上游涨价链持续居前，MLCC中报业绩确定性。
   stocks:
   - code: 000636.SZ
     name: 风华高科
@@ -306,6 +327,25 @@ themes:
       confirm_signal: 缩量止跌+MLCC组（三环/洁美）同步企稳+放量回到58以上
       hard_stop: 跌破52且30分钟不能收回
       position_ratio: 0.5-1.0成
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+
+- id: sk_hynix_adr_mapping
+  name: SK海力士ADR映射
+  up_positioning: 「情绪层面联动」— SK海力士8月赴美ADR，HBM4超2/3订单。太极实业持合资55%股权是实质性关联非纯题材，但映射强度取决于市场风偏。弱市环境下不宜过度解读。
+  source_claims:
+  - knowledge/claims/claim-20260611-001-f
+  stocks:
+  - code: 600667.SH
+    name: 太极实业
+    role: hynix_adr_mapping
+    segment: 海太半导体合资（55%股权）
+    priority: P3-观察
+    watch_reason: 6/11 早盘 UP 点名 SK海力士ADR映射。持有海太半导体55%股权为实质性关联。但 UP 自评 confidence=low，弱市环境不宜追高，仅观察。
+    entry_zone:
+      description: 仅观察，不主动买入。映射强度取决于市场整体风偏回升。
+      price_range: 不设介入区间（P3仅观察+弱市环境）
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'

@@ -338,36 +338,50 @@ tail -5 /tmp/qdrant-server.log
 
 ### Phase 7：清理与 Git 提交
 
-- [ ] **7.1** 提交所有改动
+- [x] **7.1** 提交所有改动
 
 ```bash
 cd ~/learning-investment-strategies
-git add src/qing_investment/agent/tools/qdrant_client.py
-git add src/qing_investment/agent/config.py         # 如果改了
-git add scripts/migrate_qdrant_local_to_remote.py   # 迁移脚本
-git add .env                                         # 如果改了
+git add src/qing_investment/agent/config.py
+git add scripts/migrate_qdrant_local_to_remote.py
+git add docs/qdrant-local-to-server-migration.md
 git commit -m "feat: Qdrant 本地模式 → 二进制服务端
 
-- 修复 QdrantClientWrapper.search() 远程模式 bug (search()→query_points())
+- 切换 qdrant_local_path 为空字符串，启用远程模式
 - 新增 migrate_qdrant_local_to_remote.py 迁移脚本
-- 切换 qdrant_local_path 为空，启用远程模式
+- 新增迁移文档 docs/qdrant-local-to-server-migration.md
 - MCP 和 Qing-Agent 并发访问，消除 portalocker 锁冲突"
 ```
 
-- [ ] **7.2** 标记旧数据目录（保留 7 天作为保险）
+结果：commit `7b37b8a`，3 files changed, 592 insertions(+)
+
+- [x] **7.2** 标记旧数据目录（保留 7 天作为保险）
 
 ```bash
-mv .qdrant_data .qdrant_data.old.$(date +%Y%m%d)
-# 备份保留在 .qdrant_data.bak.20260610
+mv .qdrant_data .qdrant_data.old.20260611
 ```
 
-- [ ] **7.3** 推送
+备份保留：`.qdrant_data.bak.20260611`（预检时创建）
+
+- [x] **7.3** 推送
 
 ```bash
 git push
 ```
 
+结果：`master → master` 推送成功
+
 ---
+
+## 迁移完成总结
+
+| 项目 | 结果 |
+|------|------|
+| qing_claims | 699 points → 远程 ✓ |
+| qing_knowledge | 10,880 points → 远程 ✓ |
+| 锁冲突 | 消除 ✓ |
+| MCP + Agent 并发 | 验证通过 ✓ |
+| Git 提交 | `7b37b8a` ✓ |
 
 ## 回滚计划
 

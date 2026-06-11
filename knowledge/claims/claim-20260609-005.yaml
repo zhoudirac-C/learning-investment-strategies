@@ -13,8 +13,9 @@ claims:
   status: active
   intensity: high
   timeframe: short-term
-  supersedes: []
+  supersedes: ["claim-20260518-018"]
   contradicts: []
+  last_discovered: 2026-06-11
   links:
     wiki_pages: []
     methodology_pages: []
@@ -42,7 +43,8 @@ claims:
   intensity: high
   timeframe: trend
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260604-006-c"]
+  last_discovered: 2026-06-11
   links:
     wiki_pages: []
     methodology_pages: []
@@ -74,6 +76,7 @@ claims:
   timeframe: permanent
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-11
   links:
     wiki_pages: []
     methodology_pages: []
@@ -103,6 +106,7 @@ claims:
   timeframe: trend
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-11
   links:
     wiki_pages: []
     methodology_pages: []
@@ -139,6 +143,7 @@ claims:
   timeframe: short-term
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-11
   links:
     wiki_pages: []
     methodology_pages: []
@@ -166,9 +171,9 @@ claims:
   status: active
   intensity: high
   timeframe: short-term
-  supersedes:
-  - claim-20260608-001-a
+  supersedes: ["claim-20260601-004-e"]
   contradicts: []
+  last_discovered: 2026-06-11
   links:
     wiki_pages: []
     methodology_pages: []
