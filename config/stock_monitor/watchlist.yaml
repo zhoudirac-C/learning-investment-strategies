@@ -93,8 +93,13 @@ themes:
     - 雅克科技
     - 中化国际
     entry_zone:
-      description: 连板状态不追，仅观察。等回踩或方向扩散确认后评估
-      price_range: null
+      description: 连板状态不追。MA5=54.30 MA10=52.45 MA20=48.61 均线多头。连板放量后正常分歧，等深度回踩确认
+      current_ref: '2026-06-10 最新=60.10(涨停) MA5=54.30 MA10=52.45 MA20=48.61 近5日+10.5%'
+      price_range: 50.0 ~ 53.0
+      method: 均线法，基于MA10(52.45)±2%。连板票等回踩MA5-MA10区间
+      confirm_signal: 回踩至区间不破+雅克科技同步企稳+电子树脂方向扩散确认+缩量再放量
+      hard_stop: 跌破48且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察，不主动建仓，仅方向扩散确认）
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
@@ -108,11 +113,13 @@ themes:
     - 昊华科技
     - 中船特气(688146-科创)
     entry_zone:
-      description: 涨停日等回踩，小盘波动大，只观察不主动买
-      current_ref: 2026-06-11 最新=52.75(涨停+10.01%)
-      price_range: null
-      confirm_signal: 昊华科技先企稳+WF6方向整体扩散
-      position_ratio: 不超过0.3成
+      description: 涨停日等回踩。MA5=41.57 MA10=37.92 MA20=37.15 均线多头。小盘弹性大(+28%近5日)，等深度回调
+      current_ref: '2026-06-10 最新=47.95(涨停) MA5=41.57 MA10=37.92 MA20=37.15 近5日+28.2%'
+      price_range: 38.0 ~ 42.0
+      method: 均线法，基于MA5(41.57)±10%。小盘弹性大，区间宽设
+      confirm_signal: 昊华科技先企稳+WF6方向整体扩散+缩量回踩至区间不破
+      hard_stop: 跌破35且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察+小盘波动大，仅方向扩散确认）
 - id: electronic_gas_wf6
   name: 电子特气/六氟化钨（WF6）涨价主线
   up_positioning: 「涨价主线最干净」「第一梯队，严格控仓」—产能永久退出+涨价有财报兑现。但位置已贵、龙头严重异动，参与方式应是「右侧、轻仓、带止损」，二线标的（昊华/中巨芯）回踩不破趋势风险收益比优于龙头
@@ -174,9 +181,13 @@ themes:
     confirm_with:
     - 昊华科技
     entry_zone:
-      description: 仅观察，不主动买入
-      current_ref: 2026-06-11 最新=64.00(+6.70%)
-      price_range: null
+      description: 大涨后等回踩。MA5=53.51 MA10=48.81 MA20=47.63 均线多头。WF6上游9N四氯化硅方向扩散，等MA10附近
+      current_ref: '2026-06-10 最新=59.98(+6.70%) MA5=53.51 MA10=48.81 MA20=47.63 近5日+24.9%'
+      price_range: 48.0 ~ 52.0
+      method: 均线法，基于MA10(48.81)±3%。多头趋势正常回踩
+      confirm_signal: 昊华科技先企稳+WF6涨价数据持续+缩量回踩至区间
+      hard_stop: 跌破45且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察，WF6上游方向扩散，不单独建仓）
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
@@ -241,9 +252,13 @@ themes:
     confirm_with:
     - 隆基绿能
     entry_zone:
-      description: 不单独建仓，仅作方向确认
-      current_ref: 2026-06-11 最新=9.25(+1.09%)
-      price_range: null
+      description: 均线空头(MA5=8.51<MA10=8.77<MA20=9.37)，等缩量止跌+MA5上穿MA10。光伏方向联动确认
+      current_ref: '2026-06-10 最新=9.15(+1.09%) MA5=8.51 MA10=8.77 MA20=9.37 20日低=7.92'
+      price_range: 8.0 ~ 8.5
+      method: 震荡票近期低点法，基于20日低7.92。均线空头需等更低位置
+      confirm_signal: 隆基+爱旭同步走强+光伏板块放量+MA5上穿MA10+缩量止跌不创新低
+      hard_stop: 跌破7.5且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察+不单独建仓，仅方向扩散确认）
     invalidation_setup:
     - 板块联动失效
     lifecycle:
@@ -288,9 +303,13 @@ themes:
     priority: P3-观察
     watch_reason: UP点名AI算力→电力需求长逻辑的注脚。中线方向认同，但短期结合电价与政策节奏，不急于加仓。
     entry_zone:
-      description: 仅观察，不主动买入（UP说"不急于加仓"）
-      current_ref: 2026-06-11 最新=33.33(+4.48%)
-      price_range: null
+      description: 均线多头(MA5=31.11>MA10=29.04>MA20=24.63)，等回踩MA10~MA20区间。UP说「不急于加仓」
+      current_ref: '2026-06-10 最新=31.90(-1.1%) MA5=31.11 MA10=29.04 MA20=24.63 20日低=18.32'
+      price_range: 25.0 ~ 29.0
+      method: 均线法，基于MA10(29.04)~MA20(24.63)区间。中线长逻辑标的
+      confirm_signal: 回踩MA10附近不破+绿电/核电板块同步走强+缩量企稳再放量
+      hard_stop: 跌破23且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察+UP说不急于加仓，仅方向跟踪）
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
@@ -330,8 +349,13 @@ themes:
     priority: P3-观察
     watch_reason: 6/11 早盘 UP 点名 SK海力士ADR映射。持有海太半导体55%股权为实质性关联。但 UP 自评 confidence=low，弱市环境不宜追高，仅观察。
     entry_zone:
-      description: 仅观察，不主动买入。映射强度取决于市场整体风偏回升。
-      price_range: null
+      description: 均线多头(MA5=15.80>MA10=14.89>MA20=13.97)，等缩量回踩MA10~MA20区间。弱市环境+UP自评confidence=low，仅观察
+      current_ref: '2026-06-10 最新=15.92(-2.7%) MA5=15.80 MA10=14.89 MA20=13.97 20日低=12.14'
+      price_range: 14.0 ~ 15.0
+      method: 均线法，基于MA10(14.89)~MA20(13.97)区间。SK映射逻辑需市场风偏支撑
+      confirm_signal: 缩量回踩不破MA20+SK海力士ADR走势正面+科技板块整体回暖+放量回到MA5以上
+      hard_stop: 跌破13且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察+弱市环境，仅方向观察）
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
