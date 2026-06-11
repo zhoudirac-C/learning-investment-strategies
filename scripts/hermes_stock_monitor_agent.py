@@ -78,13 +78,16 @@ def call_qing_agent(data: dict) -> dict | None:
     
     Retries with exponential backoff on transient failures (URLError, timeout, HTTP 5xx).
     """
+    analysis_type = data.get("analysis_type", "market")
+    stock_code = data.get("stock_code", "")
     payload = json.dumps({
         "query": f"{data.get('trigger', {}).get('title', '')}：{data.get('trigger', {}).get('reason', '')}",
         "session_id": f"hermes-{data.get('timestamp', 'now')}",
-        "stock_code": "",
-        "analysis_type": "market",
+        "stock_code": stock_code,
+        "analysis_type": analysis_type,
         "trigger": data.get("trigger", {}),
         "alerts": data.get("alerts", []),
+        "buy_signal_candidates": data.get("buy_signal_candidates", []),
         "market_snapshot": data.get("quote_snapshot", {}),
         "positions": data.get("positions", []),
         "watchlist": data.get("watchlist", []),

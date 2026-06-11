@@ -93,6 +93,7 @@ async def analyze_trigger(req: TriggerRequest):
         "watchlist": req.watchlist,
         "sector_strengths": req.sector_strengths,
         "external_sector_boards": req.external_sector_boards,
+        "buy_signal_candidates": req.buy_signal_candidates,
         "sector_context": [],
         "claims": [],
         "wiki_snippets": [],
@@ -110,7 +111,10 @@ async def analyze_trigger(req: TriggerRequest):
         "confidence": "medium",
         "review_passed": False,
         "reasoning_steps": [],
-        "parsed_intent": {"analysis_type": req.analysis_type},
+        "parsed_intent": {
+            "analysis_type": req.analysis_type,
+            "stock_code": req.market_snapshot.get("stock_code", ""),
+        },
     }
 
     result = await graph.ainvoke(state)

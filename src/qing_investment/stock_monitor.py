@@ -73,6 +73,20 @@ class AgentAnalysisTrigger:
     dedupe_key: str
 
 
+@dataclass
+class BuySignalCandidate:
+    """买入信号候选（poll 层输出，不是最终信号）"""
+    stock_code: str
+    stock_name: str
+    price: float
+    is_candidate: bool
+    matched_conditions: list[str]
+    entry_zone: tuple[float, float] | None = None
+    stop_loss: float | None = None
+    claim_basis: str = ""
+    odds_analysis: dict | None = None
+
+
 DEFAULT_AGENT_ANALYSIS_SCHEDULE = [
     {
         "id": "open_auction",
@@ -339,6 +353,172 @@ def evaluate_position_alerts(
                     summary=summary,
                 )
             )
+
+    return alerts
+
+
+def evaluate_buy_signal_candidates(
+    config: MonitorConfig,
+    quote_snapshot: dict,
+) -> list[BuySignalCandidate]:
+    """基于本地 SQLite K线 + 实时行情做买入信号候选筛选。
+
+    判断"这只票是否值得 LLM 做深度买入确认"。
+    不判断"能不能买"，只判断"该不该分析"。
+    """
+    quotes = _quotes_by_code(quote_snapshot)
+    candidates: list[BuySignalCandidate] = []
+    seen_codes: set[str] = set()
+
+    # ── 加载 entry_points 和 add_zone 配置 ──
+    def _norm_code(raw: str) -> str:
+        c = raw.lower().strip().replace(".sh", "").replace(".sz", "")
+        if c.startswith("sh") or c.startswith("sz"):
+            c = c[2:]
+        return c
+
+    entry_by_code: dict[str, dict] = {}
+    for ep in config.strategy_pack.get("entry_points", []):
+        ep_code = _norm_code(str(ep.get("code", "")))
+        if ep_code:
+            entry_by_code[ep_code] = ep
+
+    # 从 positions 中提取 add_zone
+    for account in config.positions.get("accounts", []):
+        for pos in account.get("positions", []) or []:
+            pos_code = _norm_code(str(pos.get("code", "")))
+            if pos_code and pos_code not in entry_by_code:
+                add_zone = parse_price_zone(pos.get("add_zone"))
+                if add_zone:
+                    entry_by_code[pos_code] = {
+                        "code": pos.get("code", ""),
+                        "name": pos.get("name", ""),
+                        "entry_zone": f"{add_zone[0]}-{add_zone[1]}",
+                        "stop_loss": pos.get("risk_zone") or pos.get("risk_line"),
+                        "claim_basis": "",
+                        "odds_analysis": {},
+                    }
+
+    # 从 watchlist 中提取 entry_zone（如果 entry_points 没有覆盖）
+    for theme in config.watchlist.get("themes", []):
+        for stock in theme.get("stocks", []):
+            stock_code = _norm_code(str(stock.get("code", "")))
+            if stock_code and stock_code not in entry_by_code:
+                buy_setup = stock.get("buy_setup", "")
+                # 尝试从 buy_setup 解析介入区间
+                zone = parse_price_zone(buy_setup)
+                if zone:
+                    entry_by_code[stock_code] = {
+                        "code": stock.get("code", ""),
+                        "name": stock.get("name", ""),
+                        "entry_zone": f"{zone[0]}-{zone[1]}",
+                        "stop_loss": stock.get("invalidation_setup", ""),
+                        "claim_basis": "",
+                        "odds_analysis": {},
+                    }
+
+    # ── 遍历所有有介入区间的标的 ──
+    for code_norm, entry in entry_by_code.items():
+        quote = _quote_for_stock(quotes, entry.get("code", code_norm))
+        if not quote:
+            continue
+
+        latest = _to_float(quote.get("latest"))
+        if latest is None:
+            continue
+
+        name = str(quote.get("name") or entry.get("name", ""))
+        pct_change = _to_float(quote.get("pct_change", 0)) or 0.0
+
+        zone = parse_price_zone(entry.get("entry_zone"))
+        if not zone:
+            continue
+
+        # 六项条件
+        price_in_zone = zone[0] <= latest <= zone[1]
+        not_crashing = pct_change > -3.0
+        no_limit_up = pct_change < 7.0
+        has_claim_support = bool(entry.get("claim_basis"))
+
+        # 本地 K线条件（SQLite 读取，零网络延迟）
+        volume_shrinking = False
+        above_key_ma = False
+        try:
+            from qing_investment.kline_cache import get_klines, get_ma
+            klines = get_klines(entry.get("code", code_norm), days=5)
+            if len(klines) >= 4:
+                vols = [d.get("volume", 0) for d in klines[-3:]]
+                if all(vols):
+                    volume_shrinking = vols[0] < vols[1] < vols[2]
+            ma20 = get_ma(entry.get("code", code_norm), days=20)
+            if ma20 and klines:
+                above_key_ma = klines[-1].get("close", 0) > ma20
+        except Exception:
+            pass  # K线读取失败，跳过量价条件
+
+        conditions = {
+            "价格进入区间": price_in_zone,
+            "非系统性大跌": not_crashing,
+            "未涨停": no_limit_up,
+            "UP明确看好": has_claim_support,
+            "近3日缩量": volume_shrinking,
+            "MA20上方": above_key_ma,
+        }
+        matched = [k for k, v in conditions.items() if v]
+        is_candidate = len(matched) >= 4
+
+        candidates.append(
+            BuySignalCandidate(
+                stock_code=entry.get("code", code_norm),
+                stock_name=name,
+                price=latest,
+                is_candidate=is_candidate,
+                matched_conditions=matched,
+                entry_zone=zone,
+                stop_loss=_to_float(entry.get("stop_loss")),
+                claim_basis=entry.get("claim_basis", ""),
+                odds_analysis=entry.get("odds_analysis") or {},
+            )
+        )
+
+    return candidates
+
+
+def evaluate_buy_signal_alerts(
+    config: MonitorConfig,
+    quote_snapshot: dict,
+) -> list[RuleAlert]:
+    """将买入信号候选转换为 RuleAlert，供现有 alert 管道处理。"""
+    candidates = evaluate_buy_signal_candidates(config, quote_snapshot)
+    alerts: list[RuleAlert] = []
+
+    for candidate in candidates:
+        if not candidate.is_candidate:
+            continue
+
+        zone_str = (
+            f"{candidate.entry_zone[0]:g}-{candidate.entry_zone[1]:g}"
+            if candidate.entry_zone
+            else "未知"
+        )
+        summary = (
+            f"【机会候选】{candidate.stock_name}({candidate.stock_code}) "
+            f"现价{candidate.price:g} 进入介入区间{zone_str} "
+            f"满足{len(candidate.matched_conditions)}/6条件："
+            f"{', '.join(candidate.matched_conditions)}"
+        )
+
+        alerts.append(
+            RuleAlert(
+                action="机会候选",
+                stock_code=candidate.stock_code,
+                stock_name=candidate.stock_name,
+                price=candidate.price,
+                trigger=f"进入介入区间{zone_str}",
+                severity="opportunity",
+                summary=summary,
+            )
+        )
 
     return alerts
 
@@ -614,6 +794,7 @@ def evaluate_monitor_alerts(
         evaluate_market_alerts(config, quote_snapshot, current_time=current_time)
         + evaluate_sector_rotation_alerts(config, quote_snapshot)
         + evaluate_position_alerts(config, quote_snapshot)
+        + evaluate_buy_signal_alerts(config, quote_snapshot)
     )
 
 
@@ -911,6 +1092,54 @@ def find_agent_analysis_trigger(
     alerts: list[RuleAlert],
 ) -> AgentAnalysisTrigger | None:
     history = _agent_history(state)
+
+    # ── 买入信号候选优先 ──
+    buy_candidates = [a for a in alerts if a.action == "机会候选"]
+    if buy_candidates:
+        # 价格分桶 + 4小时冷却窗口去重（Phase 4）
+        try:
+            from qing_investment.agent.tools.daily_state import (
+                load_daily_state,
+                should_trigger_agent_for_candidate,
+            )
+            daily_state = load_daily_state()
+            # 只允许至少有一个候选通过去重检查时才触发
+            triggerable = []
+            for alert in buy_candidates:
+                if should_trigger_agent_for_candidate(
+                    daily_state, alert.stock_code, alert.price or 0, now=value
+                ):
+                    triggerable.append(alert)
+            if triggerable:
+                codes = ",".join(dict.fromkeys(a.stock_code for a in triggerable))
+                dedupe_key = f"buy_candidate:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{codes}"
+                if dedupe_key not in history:
+                    names = "、".join(dict.fromkeys(a.stock_name for a in triggerable))
+                    return AgentAnalysisTrigger(
+                        kind="buy_signal_candidate",
+                        id="buy_signal_candidate",
+                        title="买入信号候选触发",
+                        reason=f"{names}({codes}) 满足买入条件，需要深度确认",
+                        dedupe_key=dedupe_key,
+                    )
+            # 所有买入候选都已被去重 → 不再 fallback 到 event trigger
+            return None
+        except Exception:
+            # daily_state 去重失败时 fallback 到原有逻辑
+            codes = ",".join(dict.fromkeys(a.stock_code for a in buy_candidates))
+            dedupe_key = f"buy_candidate:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{codes}"
+            if dedupe_key not in history:
+                names = "、".join(dict.fromkeys(a.stock_name for a in buy_candidates))
+                return AgentAnalysisTrigger(
+                    kind="buy_signal_candidate",
+                    id="buy_signal_candidate",
+                    title="买入信号候选触发",
+                    reason=f"{names}({codes}) 满足买入条件，需要深度确认",
+                    dedupe_key=dedupe_key,
+                )
+            # 买入候选已去重 → 不再 fallback 到 event trigger
+            return None
+
     if alerts:
         actions = "、".join(dict.fromkeys(alert.action for alert in alerts))
         fingerprints = ",".join(alert_fingerprint(alert) for alert in alerts)
@@ -955,6 +1184,51 @@ def find_any_agent_analysis_trigger(
     This bypasses the time-restriction so cron jobs can run at any time.
     """
     history = _agent_history(state)
+
+    # ── 买入信号候选优先 ──
+    buy_candidates = [a for a in alerts if a.action == "机会候选"]
+    if buy_candidates:
+        # 价格分桶 + 4小时冷却窗口去重（Phase 4）
+        try:
+            from qing_investment.agent.tools.daily_state import (
+                load_daily_state,
+                should_trigger_agent_for_candidate,
+            )
+            daily_state = load_daily_state()
+            triggerable = []
+            for alert in buy_candidates:
+                if should_trigger_agent_for_candidate(
+                    daily_state, alert.stock_code, alert.price or 0, now=value
+                ):
+                    triggerable.append(alert)
+            if triggerable:
+                codes = ",".join(dict.fromkeys(a.stock_code for a in triggerable))
+                dedupe_key = f"buy_candidate:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{codes}"
+                if dedupe_key not in history:
+                    names = "、".join(dict.fromkeys(a.stock_name for a in triggerable))
+                    return AgentAnalysisTrigger(
+                        kind="buy_signal_candidate",
+                        id="buy_signal_candidate",
+                        title="买入信号候选触发",
+                        reason=f"{names}({codes}) 满足买入条件，需要深度确认",
+                        dedupe_key=dedupe_key,
+                    )
+            # 所有买入候选都已被去重 → 不再 fallback 到 event trigger
+            return None
+        except Exception:
+            codes = ",".join(dict.fromkeys(a.stock_code for a in buy_candidates))
+            dedupe_key = f"buy_candidate:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{codes}"
+            if dedupe_key not in history:
+                names = "、".join(dict.fromkeys(a.stock_name for a in buy_candidates))
+                return AgentAnalysisTrigger(
+                    kind="buy_signal_candidate",
+                    id="buy_signal_candidate",
+                    title="买入信号候选触发",
+                    reason=f"{names}({codes}) 满足买入条件，需要深度确认",
+                    dedupe_key=dedupe_key,
+                )
+            # 买入候选已去重 → 不再 fallback 到 event trigger
+            return None
 
     # First check event-driven triggers (alerts)
     if alerts:
@@ -1101,8 +1375,38 @@ def _agent_context_data(
             "industry": {"leaders": [], "laggards": [], "count": 0, "source": "none"},
         }
 
+    # 买入信号候选详情（仅在 trigger.kind == "buy_signal_candidate" 时填充）
+    buy_signal_candidates: list[dict] = []
+    if trigger.kind == "buy_signal_candidate":
+        try:
+            candidates = evaluate_buy_signal_candidates(config, quote_snapshot)
+            for c in candidates:
+                if c.is_candidate:
+                    buy_signal_candidates.append({
+                        "stock_code": c.stock_code,
+                        "stock_name": c.stock_name,
+                        "price": c.price,
+                        "entry_zone": list(c.entry_zone) if c.entry_zone else None,
+                        "stop_loss": c.stop_loss,
+                        "matched_conditions": c.matched_conditions,
+                        "claim_basis": c.claim_basis,
+                        "odds_analysis": c.odds_analysis,
+                    })
+        except Exception:
+            pass  # 候选提取失败不影响主流程
+
+    # 确定 analysis_type
+    analysis_type = "market"
+    primary_stock_code = ""
+    if trigger.kind == "buy_signal_candidate":
+        analysis_type = "stock"
+        if buy_signal_candidates:
+            primary_stock_code = buy_signal_candidates[0]["stock_code"]
+
     return {
         "timestamp": value.astimezone(CN_TZ).isoformat(),
+        "analysis_type": analysis_type,
+        "stock_code": primary_stock_code,
         "trigger": {
             "kind": trigger.kind,
             "id": trigger.id,
@@ -1114,6 +1418,7 @@ def _agent_context_data(
             "core_question": core_question,
         },
         "alerts": alert_dicts,
+        "buy_signal_candidates": buy_signal_candidates,
         "market_state": state.get("last_market_state", {}),
         "sector_signal_counts": state.get("sector_signal_counts", {}),
         "sector_strengths": sector_strengths,
@@ -2357,6 +2662,35 @@ def run_tick(
             "errors": quote_snapshot.get("errors", []),
             "elapsed_ms": quote_snapshot.get("elapsed_ms"),
         }
+
+    # ── Phase 4: 同步买入候选到 daily_state ──
+    try:
+        from qing_investment.agent.tools.daily_state import (
+            load_daily_state,
+            save_daily_state,
+            sync_buy_candidates,
+        )
+        daily_state = load_daily_state()
+        candidates = evaluate_buy_signal_candidates(config, quote_snapshot)
+        candidate_dicts = [
+            {
+                "stock_code": c.stock_code,
+                "stock_name": c.stock_name,
+                "price": c.price,
+                "entry_zone": list(c.entry_zone) if c.entry_zone else None,
+                "stop_loss": c.stop_loss,
+                "matched_conditions": c.matched_conditions,
+                "odds_analysis": c.odds_analysis,
+            }
+            for c in candidates if c.is_candidate
+        ]
+        if candidate_dicts:
+            daily_state = sync_buy_candidates(daily_state, candidate_dicts, now=value)
+            save_daily_state(daily_state)
+    except Exception as e:
+        import logging
+        logging.getLogger(__name__).warning("Sync buy candidates to daily_state failed: %s", e)
+
     notification_policy = config.strategy_pack.get("notification_policy", {}) or {}
     dedupe_by_type = notification_policy.get("dedupe_by_type", {}) or {}
     new_alerts = filter_new_alerts(

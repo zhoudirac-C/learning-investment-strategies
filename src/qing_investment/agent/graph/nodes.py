@@ -1390,6 +1390,9 @@ def stock_analyst(state: AgentState) -> AgentState:
             "reasoning_steps": ["个股分析: 跳过（market/portfolio查询或无标的）"],
         }
 
+    # 根据 trigger.kind 选择 prompt：买入确认模式 vs 常规个股分析
+    trigger = state.get("trigger", {})
+    is_buy_signal_mode = trigger.get("kind") == "buy_signal_candidate"
     prompt_template = _load_prompt("stock_analyst")
     market_snapshot = state.get("market_snapshot", {})
     watchlist = state.get("watchlist", [])
@@ -1409,6 +1412,14 @@ def stock_analyst(state: AgentState) -> AgentState:
             current_stock_ctx = ctx
             break
 
+    # ── 买入确认模式：注入候选详情 ──
+    buy_signal_candidates = state.get("buy_signal_candidates", [])
+    current_candidate = None
+    for c in buy_signal_candidates:
+        if c.get("stock_code") == stock_code:
+            current_candidate = c
+            break
+
     context = {
         "stock_code": stock_code,
         "stock_name": stock_name,
@@ -1420,6 +1431,8 @@ def stock_analyst(state: AgentState) -> AgentState:
         "sector_positioning": sector_positioning,
         "stock_context": current_stock_ctx,  # Phase 2 新增
         "direction_signals": state.get("direction_signals", {}),  # Phase 2 新增
+        "trigger_kind": trigger.get("kind", ""),
+        "buy_signal_candidate": current_candidate if is_buy_signal_mode else None,
     }
     prompt = f"""{prompt_template}
 

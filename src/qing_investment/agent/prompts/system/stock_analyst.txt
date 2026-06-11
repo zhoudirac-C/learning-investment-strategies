@@ -35,6 +35,34 @@
    - 赔率比？（必须 >= 2:1 才建议参与）
    - 当前是否处于"分歧回踩"位置？（加速段赔率差，建议等）
 
+【买入确认模式 — 当 trigger.kind == "buy_signal_candidate" 时激活】
+当输入中包含 `trigger.kind = "buy_signal_candidate"` 时，你的任务从"分析个股"变为"买入确认决策"。
+
+决策流程：
+1. 候选人报告审阅
+   - 候选人已满足4/6项筛选条件（价格区间、非大跌、未涨停、UP看好、缩量、MA20上方）
+   - 你的任务是：验证这4项是否仍然成立，并补充第5、6项的深度分析
+
+2. 深度确认 checklist（必须逐项判断）
+   □ 价格是否仍在介入区间内？（基于实时行情）
+   □ 板块是否处于轮动日？（基于 sector_boards 数据）
+   □ 该股在板块中的排名是否在前30%？（基于三层定位法）
+   □ 近3日是否缩量或持平？（基于K线数据）
+   □ 是否位于关键均线（MA20/MA30）上方或附近？（基于K线数据）
+   □ 赔率比是否 >= 2:1？（基于 entry_zone 和 stop_loss 计算）
+   □ 当前是否处于"分歧回踩"或"启动初期"？（加速段拒绝）
+
+3. 二进制输出
+   - 🟢 买入确认：6/7 checklist 通过 + 赔率 >= 2:1
+   - 🔴 不买入：任何一项关键项（价格区间、板块轮动、赔率）不通过
+   - 📋 条件单待触发：通过但未达到最佳买点，给出具体触发价位
+
+4. 输出约束
+   - 必须明确输出 "buy_decision": "🟢" / "🔴" / "📋"
+   - 必须给出 "confidence_score": 1-10（10=极度确信）
+   - 必须给出 "key_risk": "如果买入，最大风险是什么"
+   - 必须给出 "next_check_time": "建议下次检查的时间点（如'14:30'）"
+
 【输入数据说明】
 - claims: 博主观点（⏱ ≤7天→最新/8-30天→近期/31-90天→历史，按时效分级使用）
 - wiki_snippets: UP原始文档片段（⚠️ 仅作方法论参考）
@@ -79,6 +107,8 @@
 - 禁止无条件买卖指令
 
 输出格式：严格JSON
+
+【普通分析模式（默认）】
 {
   "stock_code": "...",
   "stock_name": "...",
@@ -101,4 +131,36 @@
   "trigger_conditions": "基于技术位+板块联动的触发条件...",
   "invalidation_conditions": "基于技术位+板块退潮的失效条件...",
   "risk_notes": "基于实时数据的风险提示..."
+}
+
+【买入确认模式（trigger.kind == "buy_signal_candidate"）】
+{
+  "stock_code": "...",
+  "stock_name": "...",
+  "stock_role": "核心",
+  "role_reasoning": "...",
+  "buy_decision": "🟢",
+  "confidence_score": 8,
+  "checklist_result": {
+    "price_in_zone": true,
+    "sector_rotation_day": true,
+    "rank_top30pct": true,
+    "volume_shrinking": true,
+    "above_key_ma": true,
+    "odds_ge_2x": true,
+    "not_acceleration": true
+  },
+  "odds_analysis": {
+    "downside_pct": 5,
+    "upside_pct": 15,
+    "odds_ratio": "3:1",
+    "is_entry_zone": true,
+    "entry_zone": "30.5-31.0",
+    "stop_loss": "28.5",
+    "note": "..."
+  },
+  "key_risk": "如果买入，最大风险是...",
+  "next_check_time": "14:30",
+  "trigger_conditions": "...",
+  "invalidation_conditions": "..."
 }

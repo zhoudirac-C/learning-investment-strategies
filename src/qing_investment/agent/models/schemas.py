@@ -11,6 +11,7 @@ class TriggerRequest(BaseModel):
     watchlist: list[dict] = Field(default_factory=list, description="观察池关键标的")
     sector_strengths: list[dict] = Field(default_factory=list, description="板块强弱数据")
     external_sector_boards: dict = Field(default_factory=dict, description="外部行情源板块数据（概念+行业）")
+    buy_signal_candidates: list[dict] = Field(default_factory=list, description="买入信号候选列表（trigger.kind=buy_signal_candidate时填充）")
     session_id: str = Field(default="default", description="会话ID")
     query: str = Field(default="", description="用户原始问题")
     analysis_type: str = Field(default="market", description="分析类型：market/stock/portfolio")

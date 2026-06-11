@@ -226,6 +226,140 @@ def get_state_summary(state: dict) -> str:
     return "\n".join(lines) if lines else "今日尚未建立市场判断。"
 
 
+def _price_bucket(price: float, bucket_size_pct: float = 1.0) -> str:
+    """计算价格分桶键（用于去重）。
+
+    bucket_size_pct: 分桶大小百分比，默认 1.0%（如 30.0 元 → 桶大小 0.3 元）
+    """
+    if price <= 0:
+        return "0"
+    bucket = round(price * bucket_size_pct / 100, 2)
+    bucket_idx = int(price / bucket) if bucket > 0 else 0
+    return f"{bucket_idx * bucket:.2f}-{(bucket_idx + 1) * bucket:.2f}"
+
+
+def sync_buy_candidates(
+    state: dict,
+    candidates: list[dict],
+    now: datetime | None = None,
+) -> dict:
+    """同步买入信号候选到 daily_state 的 active_opportunities。
+
+    - 新候选：若不存在或已失效，添加为"候选"
+    - 已有候选：若仍在列表中，更新价格和时间戳
+    - 失效候选：若之前是候选但现在不在列表中，标记为"失效"
+
+    candidates: list[dict] 格式见 stock_monitor.py 中的 buy_signal_candidates
+    """
+    if now is None:
+        now = datetime.now()
+    now_iso = now.isoformat()
+
+    opportunities = state.get("active_opportunities", [])
+    candidate_codes = {c["stock_code"] for c in candidates}
+
+    # 1. 更新已有机会的状态
+    for opp in opportunities:
+        code = opp.get("code", "")
+        if code in candidate_codes:
+            # 仍在候选列表中 → 更新信息
+            for c in candidates:
+                if c["stock_code"] == code:
+                    opp["status"] = "候选"
+                    opp["price"] = c.get("price")
+                    opp["price_bucket"] = _price_bucket(c.get("price", 0))
+                    opp["entry_zone"] = c.get("entry_zone")
+                    opp["stop_loss"] = c.get("stop_loss")
+                    opp["matched_conditions"] = c.get("matched_conditions", [])
+                    opp["updated_at"] = now_iso
+                    break
+        else:
+            # 不在候选列表中 → 如果之前是候选，标记为失效
+            if opp.get("status") == "候选":
+                opp["status"] = "失效"
+                opp["updated_at"] = now_iso
+
+    # 2. 添加新候选
+    existing_codes = {o.get("code", "") for o in opportunities}
+    for c in candidates:
+        code = c["stock_code"]
+        if code not in existing_codes:
+            opportunities.append({
+                "stock": c.get("stock_name", ""),
+                "code": code,
+                "pattern": "买入信号候选",
+                "trigger": f"价格{c.get('price')} 进入区间 {c.get('entry_zone')}",
+                "status": "候选",
+                "upside": str(c.get("odds_analysis", {}).get("upside_pct", "")),
+                "downside": str(c.get("odds_analysis", {}).get("downside_pct", "")),
+                "ratio": str(c.get("odds_analysis", {}).get("odds_ratio", "")),
+                "price": c.get("price"),
+                "price_bucket": _price_bucket(c.get("price", 0)),
+                "entry_zone": c.get("entry_zone"),
+                "stop_loss": c.get("stop_loss"),
+                "matched_conditions": c.get("matched_conditions", []),
+                "updated_at": now_iso,
+                "last_agent_check": None,
+            })
+
+    state["active_opportunities"] = opportunities
+    return state
+
+
+def should_trigger_agent_for_candidate(
+    state: dict,
+    code: str,
+    price: float,
+    now: datetime | None = None,
+    cooldown_hours: float = 4.0,
+) -> bool:
+    """判断是否应该为该候选触发 Agent 分析（价格分桶 + 冷却窗口去重）。
+
+    规则：
+    1. 同一股票同一价格桶内，4 小时内不重复触发
+    2. 价格桶变化 或 冷却期已过 → 允许触发
+    """
+    if now is None:
+        now = datetime.now()
+
+    opportunities = state.get("active_opportunities", [])
+    bucket = _price_bucket(price)
+    cutoff = now - timedelta(hours=cooldown_hours)
+
+    for opp in opportunities:
+        if opp.get("code") != code:
+            continue
+        # 检查是否是同一价格桶且冷却期内
+        if opp.get("price_bucket") == bucket:
+            last_check = opp.get("last_agent_check")
+            if last_check:
+                try:
+                    last_dt = datetime.fromisoformat(last_check)
+                    if last_dt > cutoff:
+                        return False  # 冷却期内，同一价格桶，不触发
+                except ValueError:
+                    pass
+        # 价格桶不同 → 允许触发（价格发生了显著变化）
+        return True
+
+    # 未找到该股票的机会 → 允许触发（新候选）
+    return True
+
+
+def mark_candidate_checked(state: dict, code: str, now: datetime | None = None) -> dict:
+    """标记候选已被 Agent 检查过（更新 last_agent_check 时间戳）。"""
+    if now is None:
+        now = datetime.now()
+
+    for opp in state.get("active_opportunities", []):
+        if opp.get("code") == code:
+            opp["last_agent_check"] = now.isoformat()
+            opp["updated_at"] = now.isoformat()
+            break
+
+    return state
+
+
 def archive_daily_state(path: Path | None = None) -> Path | None:
     """收盘后将 daily_state 归档到历史目录。"""
     state_path = path or DEFAULT_STATE_PATH

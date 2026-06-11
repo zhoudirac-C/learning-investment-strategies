@@ -288,11 +288,37 @@ def fetch_stock_kline_eastmoney(code: str, days: int = 90) -> list[dict]:
 
 
 def fetch_stock_kline(code: str, days: int = 90) -> list[dict]:
-    """获取个股历史日K线（腾讯优先，失败降级东方财富）。"""
+    """获取个股历史日K线。
+
+    优先级：
+    1. 查本地 SQLite 缓存（开盘前 pre_fetch 已预拉取）
+    2. 本地 miss 或不足 → 调 API（腾讯优先，降级东财）
+    3. API 返回后写入 SQLite 缓存（供下次使用）
+    """
+    # 1. 优先查本地 SQLite
+    try:
+        from qing_investment.kline_cache import get_klines
+        local = get_klines(code, days=days)
+        # 本地数据足够（>=80% 请求天数）且非空，直接返回
+        if local and len(local) >= max(1, days * 0.8):
+            return local
+    except Exception:
+        pass  # 本地读取失败，继续调 API
+
+    # 2. 本地 miss → 调 API
     klines = fetch_stock_kline_tencent(code, days)
+    if not klines:
+        klines = fetch_stock_kline_eastmoney(code, days)
+
+    # 3. 写入本地缓存（失败不阻塞主流程）
     if klines:
-        return klines
-    return fetch_stock_kline_eastmoney(code, days)
+        try:
+            from qing_investment.kline_cache import save_klines
+            save_klines(code, klines)
+        except Exception:
+            pass
+
+    return klines or []
 
 
 # ── 当日分时 ──
