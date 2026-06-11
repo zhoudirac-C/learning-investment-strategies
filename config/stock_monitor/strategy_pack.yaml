@@ -55,14 +55,16 @@ index_rules:
   description: UP自高点调整300点后月线支撑区。若收盘跌破→筑底失败信号。
   trigger_condition: close_below
 - valid_close_level: 4033
-  name: 上证生命线
-  description: UP前期生命线4033，站回才算有效修复。最终确认需月线两根强阳。
+  name: 上证生命线（已降级）
+  description: UP 6/3引入4033清仓线，6/9已下调至4000并转"观望不杀跌"。4033仅作为历史参考保留，不作为当前操作锚。
+  deprecated: true
+  replaced_by: 地量信号+情景A/B框架（缩量修复/放量防守）
 - weak_close_level: 4000
-  name: 上证弱修复线
-  description: 4000点心理关口。缩量站回4000不算有效修复，需放量确认。
-- close_between: [3950, 4033]
-  name: 上证筑底震荡区间
-  description: 在3950-4033之间震荡属正常筑底，不触发预警
+  name: 上证心理关口
+  description: 4000点心理关口。缩量站回4000不算有效修复，需放量+科技高低切确认。
+- close_between: [3900, 4000]
+  name: 上证当前运行区间（已替代4033上限）
+  description: 6/11收盘3962，实际运行在3900-4000区间。区间下限对应月线支撑3950，上限对应4000心理关口。
 
 # === 操作纪律（from 6/10 复盘）===
 position_rules:
@@ -179,9 +181,12 @@ agent_analysis_schedule:
 # === 关键点位 ===
 key_levels:
   shanghai_index:
-    valid_repair: 4033
-    weak_repair: 4000
-    trend_defense: 3950
+    valid_repair: 量价确认+科技高低切（已替代4033固定点位，6/9后UP不再使用4033作为修复标准）
+    weak_repair: 4000（心理关口，缩量站回无效，需放量+科技主动承接）
+    trend_defense: 3950（月线支撑，收盘跌破→筑底失败信号）
+    framework_evolution: |
+      6/3: 4033/4130纪律线引入。6/5: 4033修正为科技清仓线。6/9: 生命线下调至4000。
+      6/11: 地量信号+情景A/B框架替代二元点位判断。4033已连续12天被跌破（收盘3962，差距5.4%）。
   nasdaq:
     watch: 费城半导体指数是否稳住震荡区间
   oil:
