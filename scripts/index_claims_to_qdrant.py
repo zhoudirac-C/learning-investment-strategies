@@ -183,6 +183,9 @@ def main():
         cid = claim["id"]
         text = f"{claim.get('subject', '')} | {claim.get('statement', '')}"
         emb = emb_model.encode(text).tolist()
+        # ONNX encode returns (1, 512) → flatten nested list
+        if isinstance(emb, list) and len(emb) > 0 and isinstance(emb[0], list):
+            emb = emb[0]
 
         sd = claim.get("source_date", "")
         if hasattr(sd, "iso_format"):
