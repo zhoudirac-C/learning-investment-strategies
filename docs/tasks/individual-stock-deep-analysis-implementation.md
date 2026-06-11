@@ -168,28 +168,23 @@
 
 ## Phase 6: Prompt 层 — Context Builder 改造
 
-### 6.1 注入 yesterday_summary + auction_snapshot
-- [ ] 修改 `format_agent_analysis_context()`：在文本输出顶部增加"=== 昨日特征摘要 ==="段落
-- [ ] 修改 `format_agent_json_context()`：在 JSON 顶层增加 `yesterday_summary` 和 `auction_snapshot` 字段
-- [ ] **验证方式**：`--agent-json-context` 输出 → jq 检查 `yesterday_summary.is_limit_up`、`auction_snapshot.auction_change_pct`
+### 6.1 注入 yesterday_summary + auction_snapshot ✅（Phases 1-2 已提前完成）
+- [x] `format_agent_analysis_context()` 已有"=== 昨日特征摘要 ==="段落（第2824行）
+- [x] `format_agent_analysis_context()` 已有"=== 竞价快照 ==="段落（第2840行）
+- [x] `format_agent_json_context()` 通过 `_agent_context_data()` 返回 `yesterday_summary` 和 `auction_snapshot`
 
-### 6.2 注入持仓类型标记
-- [ ] 在 `_agent_context_data()` 中，为每个 position 自动计算 `position_type`：
-  - `consecutive_limit_ups >= 2` → `"limit_up_chain"`
-  - `weak_board == true` → `"weak_board"`
-  - `unrealized_pct < -5` → `"floating_loss"`
-  - 其他均线多头 → `"trend"`
-- [ ] 将 `position_type` 注入 position dict
-- [ ] **验证方式**：mock 四种类型持仓 → 检查 JSON 中 `position_type` 是否正确
+### 6.2 注入持仓类型标记 ✅（Phase 5 已合并实施）
+- [x] `_agent_context_data()` 中计算 `position_type`（第2626-2646行）
+- [x] 规则：limit_up / weak_board / floating_loss / trend
+- [x] `format_agent_analysis_context()` 输出到 text context（第2868-2872行）
 
-### 6.3 重组输出格式
-- [ ] 修改 `format_agent_analysis_context()` 底部固定输出模板：
-  - 【盘面】一句话定性（必须含全A涨跌幅）
-  - 【重点分析】1-2只重点票，每只80-100字（持仓类型分支自动套用）
-  - 【其他持仓】每只15字（动作+触发+证伪）
-  - 【观察池】最多3只，每只15字
-  - 【参考来源】列出依据
-- [ ] **验证方式**：检查文本输出是否符合新模板结构
+### 6.3 重组输出格式 ✅
+- [x] 合并【盘面】+【全A锚】→ 单一【盘面】段（全A锚合并）
+- [x] 拆分【持仓池】→ 【重点分析】(1-2只, 80-100字, 含持仓类型分支) + 【其他持仓】(每只15字)
+- [x] 简化【观察池】→ 最多3只，每只15字
+- [x] 同步更新 daily_review_context 模板（两处保持一致）
+- [x] 更新测试断言（assert 新旧模板差异）
+- [x] 验证：49/49 pytest 通过
 
 ---
 
@@ -262,6 +257,6 @@
   - 其他 6 个节点微调保护线检查/午后预案/09:45假设回顾
 
 **下一步行动**：
-1. Phase 6: Context Builder 改造（注入 yesterday_summary/auction_snapshot → 已部分完成；还需重组输出格式）
+- Phase 6: Context Builder 改造（已完成 6.1/6.2/6.3 全部子任务）✅
 2. Phase 7: 测试与验收
 3. Phase 8: 迭代优化

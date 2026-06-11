@@ -49,9 +49,10 @@ description: |
 | **框架过期自锁闭环（4033案例）** | `references/framework-staleness-self-lock.md` |
 | **K线缓存 + 预拉取基础设施** | `src/qing_investment/kline_cache.py` + `scripts/pre_fetch_klines.py` |
 | Agent-UP 矛盾处理 | 本 SKILL §陷阱 |
-| 数据层实现模式（build/save/load/fallback） | `references/data-layer-implementation-pattern.md` — 含 Phase 1-2-3-4 扩展（昨日特征摘要、竞价快照回填、持仓成本注入、板块梯队、明天剧本） |
+| 数据层实现模式（build/save/load/fallback） | `references/data-layer-implementation-pattern.md` — 含 Phase 1-2-3-4-5 扩展（昨日特征摘要、竞价快照回填、持仓成本注入、板块梯队、明天剧本、Prompt 数据字段引用矩阵） |
 | **龙虎榜数据源（akshare 东方财富）** | `references/akshare-dragon-tiger-apis.md` — 个股龙虎榜API、席位分类、买一行为判断 |
 | 个股深度分析数据层设计 | `docs/design/individual-stock-deep-analysis-design.md` — 竞价快照 + 昨日特征 + 成本保护线 + 持仓类型分支框架 + 龙虎榜总榜交叉校验(§7.4) + 板块梯队(§7.3) |
+| **Cron Prompt 数据流（4 层架构）** | `references/cron-prompt-data-flow-pattern.md` — _agent_context_data → text/JSON context → cron prompts 的完整链路，Phase 5 的新增字段引用矩阵 |
 | 个股深度分析实施任务 | `docs/tasks/individual-stock-deep-analysis-implementation.md` — Phase 0-8 状态追踪 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
 | **Cron 调度优化** | `references/cron-schedule-optimization.md` |
@@ -1062,8 +1063,7 @@ nohup .venv/bin/gunicorn qing_investment.agent.main:app \
 - **claims 优先**：UP 直接点名的方向/标的必须补入 watchlist
 - **Agent 健康优先**：Qing-Agent 离线时先重启再分析（用 gunicorn 单 worker，非 uvicorn；同时停止 MCP Qdrant server 避免锁冲突）
 - **不未经确认提交**：用户说"不要提交"或"让我想想"时，立即停止并回滚未确认改动
-- **验证必须跑**：`validate_config.py` + `check_config_consistency.py --json` + **no-agent 轮询脚本 dry-run**（`stock_monitor.py --ignore-trading-time`）
-- **cron 健康必查**：config 修改后至少验证一个 agent cron job（`hermes_stock_monitor_agent.py`）和一个 no-agent cron job（`stock_monitor.py`）能正常执行，输出文件非 0 字节
+- **验证必须跑**：`validate_config.py` + `check_config_consistency.py --json` + **no-agent 轮询脚本 dry-run**（`stock_monitor.py --ignore-trading-time`）\n- **cron 健康必查**：config 修改后至少验证一个 agent cron job（`hermes_stock_monitor_agent.py`）和一个 no-agent cron job（`stock_monitor.py`）能正常执行，输出文件非 0 字节\n- **Prompt 数据字段必须先存在**：写 cron prompt 引用某字段前，确认它已存在于 `format_agent_analysis_context()` 输出的 text context 中。prompt 只看到 text context 的内容，看不到代码中的 dict。有依赖就提前实现（跨阶段也无妨）——详见 `references/cron-prompt-data-flow-pattern.md` 陷阱 1
 - **主板-only**：用户只能交易 sh6xxxxx / sz0xxxxx。非主板标的标记 `tradable: false`
 - **不删旧数据**：旧 theme 降级为 monitor_only，不删除
 - **不编造价格**：数据源降级时诚实说明

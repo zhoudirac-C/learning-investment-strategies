@@ -906,7 +906,8 @@ def test_agent_analysis_context_contains_trigger_alerts_and_quotes(tmp_path):
     assert "最多450字" in message
     assert "禁止Markdown表格" in message
     assert "禁止把多只股票写成同一段" in message
-    assert "每只触发/重点持仓必须单独一行" in message
+    assert "【重点分析】1-2只重点票，每只80-100字" in message
+    assert "【其他持仓】剩余持仓每只15字" in message
 
 
 def test_tick_emits_agent_context_at_key_time_and_dedupes(tmp_path):
