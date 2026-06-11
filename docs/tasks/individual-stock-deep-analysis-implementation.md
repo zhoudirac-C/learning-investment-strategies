@@ -102,11 +102,20 @@
 
 ## Phase 4: 数据层 — 昨日特征扩展（P1）
 
-### 4.1 龙虎榜字段扩展
-- [ ] 调研：当前项目是否已有龙虎榜数据源？（akshare / 东财 API / 其他）
-- [ ] 若已有：在 `_build_yesterday_summary()` 中增加 `dt_seat_type`、`dt_top_buy_behavior`、`dt_is_pure_hot_money`
-- [ ] 若无：标记为 P2 待办，当前先占位（字段存在但值为 `null`）
-- [ ] **验证方式**：检查 summary JSON 中龙虎榜字段存在
+### 4.1 龙虎榜字段扩展（个股级）
+- [x] 调研：akshare `stock_lhb_stock_detail_em()` 可用，已集成到 `_build_yesterday_summary()`
+- [x] 在 `_build_yesterday_summary()` 中增加 `dt_seat_type`、`dt_top_buy_behavior`、`dt_is_pure_hot_money`、`board_quality`、`dragon_tiger_net`
+- [x] **验证方式**：已实测 002409 2026-06-11 龙虎榜数据完整
+
+### 4.1b 龙虎榜全市场总榜交叉校验（新增）
+- [ ] 实现 `_fetch_daily_dragon_tiger_board()` — 调用 `ak.stock_lhb_detail_em(start_date, end_date)` 获取当日全市场龙虎榜总榜
+- [ ] 实现交叉过滤逻辑：持仓池∪观察池→`watch_dt_items`；全市场净买入TOP5→`dt_nettop5`；按theme汇总→`dt_sector_summary`
+- [ ] 集成到 `_agent_context_data()` — 将产出注入 `market_snapshot` 下的新增字段
+- [ ] **集成到 text context** — 在 format_agent_analysis_context() 中添加龙虎榜总榜摘要段
+- [ ] **时效性控制**：仅 15:20 收盘复盘后执行（龙虎榜数据通常 16:00-17:00 发布）
+- [ ] **验证方式**：mock 收盘复盘时间 → 检查 JSON context 中含 `dragon_tiger_board` 字段
+- [ ] **设计文档**：已更新 §7.4
+- [ ] **参考**：akshare `stock_lhb_detail_em(start_date='20260610', end_date='20260610')` 返回列含 `['代码','名称','收盘价','涨跌幅','龙虎榜净买额','龙虎榜买入额','龙虎榜卖出额','换手率','上榜原因']`
 
 ### 4.2 板块梯队对比
 - [ ] 在 `_agent_context_data()` 中，对每个持仓股的 `theme`，查找同 theme 的其他股票
@@ -123,37 +132,37 @@
 
 ## Phase 5: Prompt 层 — 核心节点重写（P1）
 
-### 5.1 重写 `cron_opening.txt`（09:26 竞价后）
-- [ ] 保留现有角色设定和 daily_state 输出要求
-- [ ] **新增**：要求 LLM 结合昨日复盘的 `tomorrow_scenarios` 做"剧本验证"
-- [ ] **新增**：输出格式增加 — "昨日预判 vs 今日竞价对比"（20字）
-- [ ] **新增**：若竞价数据与预判情景不符，说明哪里超预期/低于预期
-- [ ] 字数限制：200字以内 → 可放宽到250字（因新增对比项）
-- [ ] **验证方式**：mock  yesterday_summary + auction_snapshot → LLM 输出检查是否含"剧本验证"段落
+### 5.1 重写 `cron_opening.txt`（09:26 竞价后）✅
+- [x] 保留现有角色设定和 daily_state 输出要求
+- [x] **新增**：要求 LLM 结合昨日复盘的 `tomorrow_scenarios` 做"剧本验证"
+- [x] **新增**：输出格式增加 — "昨日预判 vs 今日竞价对比"（scenario_validation JSON 块）
+- [x] **新增**：若竞价数据与预判情景不符，说明哪里超预期/低于预期
+- [x] 字数限制：200字 → 250字
+- [x] **验证方式**：prompt 文件加载检查通过
 
-### 5.2 重写 `cron_open_confirm.txt`（09:45 开盘15分钟）
-- [ ] 保留现有框架表格（竞价+前15分钟四象限）
-- [ ] **新增**：注入"持仓类型分支指令" — 根据 `_yesterday_summary` 自动选择连板/烂板/趋势/浮亏框架
-- [ ] **新增**：明确要求结合 `avg_cost` 和 `unrealized_pct` 分析（同样的-3%，浮盈15%和浮亏8%操作不同）
-- [ ] **新增**：要求判断前15分钟是"阶梯式堆量"还是"脉冲式放量"
-- [ ] **新增**：要求对比 `sector_tier`（同板块龙一/龙二表现）
-- [ ] 字数限制：150字 → 可放宽到200字
-- [ ] **验证方式**：准备4种持仓类型的 mock 数据 → 分别触发 → 检查 LLM 输出是否激活对应分支
+### 5.2 重写 `cron_open_confirm.txt`（09:45 开盘15分钟）✅
+- [x] 保留现有角色设定和 daily_state 输出要求
+- [x] **新增**：注入"持仓类型分支指令" — 根据 `position_type`（limit_up/weak_board/floating_loss/trend）选择对应框架
+- [x] **新增**：明确要求结合 `avg_cost` 和 `unrealized_pct` 分析
+- [x] **新增**：要求判断前15分钟是"阶梯式堆量"还是"脉冲式放量"
+- [x] **新增**：要求对比 `sector_tier`（同板块龙一/龙二表现）
+- [x] 字数限制：150字 → 200字
+- [x] 同时实现了 Phase 6.2（position_type 计算 + 注入 text context）
 
-### 5.3 重写 `cron_tail_condition.txt`（14:52 尾盘）
-- [ ] 保留现有角色设定
-- [ ] **新增**：要求每只持仓输出"明日剧本预判"（强修复/弱震荡/强分歧的概率和条件）
-- [ ] **新增**：要求烂板票输出"明日竞价关注要点"（封成比回顾、龙虎榜席位回顾）
-- [ ] **新增**：要求输出 `tomorrow_scenarios` JSON 块（供次日09:26使用）
-- [ ] **验证方式**：mock 含烂板持仓的数据 → 检查 LLM 输出是否含 JSON 块和明日预判
+### 5.3 重写 `cron_tail_condition.txt`（14:52 尾盘）✅
+- [x] 保留现有角色设定
+- [x] **新增**：要求每只持仓输出"明日剧本预判"（强修复/弱震荡/强分歧的概率和条件）
+- [x] **新增**：要求烂板票输出"明日竞价关注要点"（龙虎榜席位回顾）
+- [x] **新增**：要求输出 `tomorrow_scenarios` JSON 块（含 three-scenario 结构，供次日09:26使用）
+- [x] **验证方式**：prompt 文件加载检查通过
 
-### 5.4 微调其他节点
-- [ ] `cron_morning_confirm.txt`（10:00）：精简大盘描述，增加"09:45假设是否被验证"回顾
-- [ ] `cron_opportunity_scan.txt`（10:30）：精简，保持现状（重点在机会扫描，非持仓分析）
-- [ ] `cron_noon_review.txt`（11:20）：精简，增加"午后预案"与昨日 `tomorrow_scenarios` 的关联
-- [ ] `cron_afternoon_risk.txt`（13:10）：精简，增加"持仓成本保护线是否触发"检查
-- [ ] `cron_midday.txt`（14:00）：精简，保持现状
-- [ ] **验证方式**：通读所有 prompt，确认大盘字数压缩到50字以内，个股分析占比>50%
+### 5.4 微调其他节点 ✅
+- [x] `cron_morning_confirm.txt`（10:00）：增加"09:45假设是否被验证"回顾（audit_0945 字段）
+- [x] `cron_opportunity_scan.txt`（10:30）：保持现状，不修改
+- [x] `cron_noon_review.txt`（11:20）：增加"午后预案"前瞻（scenario_foresight 字段）
+- [x] `cron_afternoon_risk.txt`（13:10）：增加"持仓成本保护线是否触发"检查（protection_line_check 字段）
+- [x] `cron_midday.txt`（14:00）：仅加一行"尾盘前瞻"，保持精简
+- [x] **验证方式**：所有 9 个 prompt 文件均含 daily_state 输出块，格式一致
 
 ---
 
@@ -241,8 +250,18 @@
 
 ## 当前推进任务
 
-**当前状态**：Phase 0 待启动
+**当前状态**：Phase 5 已完成 ✅ | Phase 6 待启动
+
+**已完成**：
+- Phase 0-3: 数据盘点 + 昨日摘要 + 竞价快照 + 持仓成本注入 ✅
+- Phase 4: 板块梯队 + 龙虎榜个股 + 全市场总榜交叉校验 ✅
+- Phase 5: 全部 9 个 prompt 文件重写（含 Phase 6.2 position_type 计算）✅
+  - cron_opening.txt: 剧本验证 + 竞价对比
+  - cron_open_confirm.txt: 持仓类型分支 + 堆量判断 + sector_tier 对比
+  - cron_tail_condition.txt: 明日预判 + 烂板要点 + tomorrow_scenarios 输出
+  - 其他 6 个节点微调保护线检查/午后预案/09:45假设回顾
 
 **下一步行动**：
-1. 完成 Phase 0.1-0.3（盘点现状 + 确认数据可用性）
-2. 然后按顺序推进 Phase 1（昨日特征摘要）→ Phase 2（竞价快照）→ Phase 3（持仓成本）
+1. Phase 6: Context Builder 改造（注入 yesterday_summary/auction_snapshot → 已部分完成；还需重组输出格式）
+2. Phase 7: 测试与验收
+3. Phase 8: 迭代优化

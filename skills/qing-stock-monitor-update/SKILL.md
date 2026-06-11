@@ -13,6 +13,8 @@ description: |
 
 **Claims→Config 管线止于生成建议，不自动执行。** `sync_claims_to_config.py` 只输出 diff 报告和修改建议，所有 config 修改必须经用户确认后才能执行。`--auto-merge` 仅供测试，不应用在生产流程中。
 
+**只改系统消费的字段**：加字段前确认有代码/工具读它。父 theme / 中间层级 / 装饰性说明字段不会被 poll、热度分、context builder 消费——加了等于白加。详见 `references/config-field-consumer-map.md`。
+
 ## 触发条件
 
 - "更新观察池" / "更新方向" / "更新策略"
@@ -32,6 +34,7 @@ description: |
 | Entry points 生成 | `references/entry-points-generation.md` |
 | **Curl K线批量拉取（轻量替代）** | `references/curl-kline-batch-fetch.md` |
 | 配置健康检查 | `references/config-health-check.md` |
+| **Config 字段消费方映射** | `references/config-field-consumer-map.md` |
 | Watchlist 字段校验 | `scripts/validate_watchlist.py` |
 | P3-观察标的介入区间计算 | `references/p3-kline-entry-zone-workflow.md` |
 | Poll 字段读取路径 | `references/poll-field-lineage.md` |
@@ -46,6 +49,10 @@ description: |
 | **框架过期自锁闭环（4033案例）** | `references/framework-staleness-self-lock.md` |
 | **K线缓存 + 预拉取基础设施** | `src/qing_investment/kline_cache.py` + `scripts/pre_fetch_klines.py` |
 | Agent-UP 矛盾处理 | 本 SKILL §陷阱 |
+| 数据层实现模式（build/save/load/fallback） | `references/data-layer-implementation-pattern.md` — 含 Phase 1-2-3-4 扩展（昨日特征摘要、竞价快照回填、持仓成本注入、板块梯队、明天剧本） |
+| **龙虎榜数据源（akshare 东方财富）** | `references/akshare-dragon-tiger-apis.md` — 个股龙虎榜API、席位分类、买一行为判断 |
+| 个股深度分析数据层设计 | `docs/design/individual-stock-deep-analysis-design.md` — 竞价快照 + 昨日特征 + 成本保护线 + 持仓类型分支框架 + 龙虎榜总榜交叉校验(§7.4) + 板块梯队(§7.3) |
+| 个股深度分析实施任务 | `docs/tasks/individual-stock-deep-analysis-implementation.md` — Phase 0-8 状态追踪 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
 | **Cron 调度优化** | `references/cron-schedule-optimization.md` |
 | **设计文档 vs 代码实现差距核查** | `references/design-doc-vs-implementation-gap.md` |
@@ -55,7 +62,7 @@ description: |
 | 系统问题修复记录（2026-06-10） | `references/fix-monitor-system-issues-20260610.md` |
 | Qdrant 本地模式并发锁机制 | `references/qdrant-concurrency-lock.md` |
 | Cron 脚本超时诊断手册 | `references/cron-script-timeout-diagnosis.md` |
-| **Agent 时间限制绕过** | `references/agent-any-time-bypass.md` |
+| **LLM 幻觉防范（含 Fix A/B/C 架构）** | `references/llm-hallucination-prevention.md` → `docs/hallucination-defense-layers.md` |
 | **Cron 超时外部化配置** | `references/cron-timeout-external-config.md` |
 | **条件驱动轮询消息丰富化** | `references/condition-driven-alert-message-enrichment.md` |
 | **Skill 文档维护卫生** | `references/skill-doc-maintenance-hygiene.md` |
@@ -1203,7 +1210,104 @@ print('✅ poll 读取 entry_zone.price_range 正常')
 
 **修复（2026-06-11）**：6 只 P3 标的的 price_range 统一清理为 null。`scripts/validate_watchlist.py` 增加对 P3+数字 price_range 的 ⚠️ 警告。
 
-### 陷阱 32: Qing-Agent 返回幻觉数据但 wrapper 当成成功
+### 陷阱 33: 多数据源不一致导致技术指标计算偏差
+
+(内容保持不变)
+
+### 陷阱 34: 数据层实现时留 stub 不主动回填 — 用户说"补拉前五天不行吗？"
+
+**反面案例（2026-06-11）**：实现 `_compute_auction_volume_ratio` 时，竞价量缓存只有今天的数据（第一天部署），代码用 `pass` 占位 K线回填逻辑，计划"等5天积累。"用户发现后说：「你补拉前五天的缓存不行吗？」
+
+**根因**：习惯性留"过几天自动好"的 stub，没有从已有的更完整数据源（K线缓存）主动做一次性回填。
+
+**教训**：
+1. **数据层新功能第一天就应该能用**：如果缺历史数据，找最接近的数据源做一次性回填，带 `source: backfill` 标记，随着真实数据积累自然替换
+2. **回填数据标记来源**：`"source": "kline_backfill"` 让下次编码时能区分"这是真实采集的"还是"这是回填近似值"
+3. **近似值够用**：日K volume × 0.5 作为竞价量近似值，量比本身就是相对比较（今天 vs 过去），不是绝对值。方向信号（异常放量/缩量）比精确值更重要
+4. **回填数据自然替换**：每天 09:26 新采集的竞价数据覆盖同日期回填数据，5 个交易日后缓存全部为真实数据
+5. **判断标准**：新功能第 1 天只有基础数据能用？→ 没做回填，需要补
+
+**正确做法**：
+```python
+# ❌ 错误：留 stub 等待积累
+if len(past_volumes) < 5:
+    pass  # 等几天缓存就有了
+
+# ✅ 正确：从已有数据源回填
+if len(past_volumes) < 5:
+    klines = get_klines(code, days=10)
+    for k in klines[-8:]:
+        k_volume = k.get("volume")
+        if k_volume:
+            cache[code].append({
+                "date": k.get("date"),
+                "volume": k_volume * 0.5,
+                "source": "kline_backfill",
+            })
+    _save_auction_cache(cache)
+    # 重新计算 past_volumes
+    past_volumes = [...]
+```
+
+### 陷阱 35: 跳过API调研直接标记 P2 — 用户说"所有api你都调研过了吗？"
+
+**反面案例（2026-06-11）**：龙虎榜数据调研任务，AI 搜索到 `stock-role-classification.md` 有「❌ 未获取」标记，未实际调用 akshare API 确认，直接结论"无数据源 → 标记 P2 待办"。用户追问后发现 akshare 的 `stock_lhb_stock_detail_em` 完全可用，且数据质量高（含席位名称、买卖金额、净额）。
+
+**根因**：
+1. 依赖文档中的「❌ 未获取」标记作为"不可用"证据，没有实际调用 API 验证
+2. 文档中的「❌ 未获取」可能意味着"未被集成到管线"，不等于"API 不存在"
+3. 新功能调研的正确顺序是：**调用 API → 看返回数据 → 判断可用性**，不是查文档
+
+**调查清单**（调研新数据源时）：
+```python
+# Step 1: 列出候选函数
+import akshare as ak
+funcs = [f for f in dir(ak) if 'keyword' in f.lower()]
+
+# Step 2: 检查签名
+import inspect
+sig = inspect.signature(ak.stock_lhb_stock_detail_em)
+print(f'{ak.stock_lhb_stock_detail_em.__name__}{sig}')
+
+# Step 3: 调用测试（用真实代码）
+try:
+    df = ak.stock_lhb_stock_detail_em(symbol='002409', date='20260610', flag='买入')
+    if df is not None and not df.empty:
+        print('✅ 有数据')
+        print(df.columns.tolist())
+        print(df.head(2).to_string())
+except Exception as e:
+    print(f'❌ 错误: {e}')
+```
+
+**教训**：
+1. **文档标记「❌ 未获取」≠ API 不存在** — 可能只是尚未集成到管线中
+2. **调研新 API 的正确顺序**：调用 → 看返回 → 判断，不是查文档 → 下结论
+3. **"P2 = 需要新数据源"这个判断本身需要验证** — 数据源可能已存在但未被使用
+4. **尤其注意 akshare**：3000+ 函数覆盖绝大多数 A 股数据需求，`dir(ak)` 加关键词搜索是最快的调研方法
+
+**本案例的实际发现**：
+| 函数 | 参数 | 返回 | 结论 |
+|------|------|------|------|
+| `stock_lhb_stock_detail_em` | symbol, date, flag | TOP5 买卖席位 | ✅ 可用，含净额 |
+| `stock_lhb_stock_detail_date_em` | symbol | 上榜日期列表 | ✅ 可用 |
+| `stock_lhb_detail_em` | start_date, end_date | 全市场龙虎榜 | ✅ 可用 |
+
+**数据源差异**：
+| 来源 | 002409 close | 用途 | 更新频率 |
+|------|-------------|------|---------|
+| API `previous_close` | 122.55 | 昨收 | 实时 |
+| K线缓存 | 119.8 | MA计算 | 06:30 预拉取 |
+| state.json quote | 122.55 | 备份 | 每个 cron tick |
+
+**教训**：
+1. **不要假设不同数据源的数值一致**——API 快照和 K 线缓存可能相差 2%+
+2. **K线缓存的 `turnover` 字段始终为 None**——不要依赖它，需要从其他源获取换手率
+3. **`vs_ma5` 需要至少 5 条 K 线**——持仓少于 5 个交易日时标记为 null 是正确行为
+4. **`near5d_return` 计算容易偏差**——K线缓存可能包含未修正的历史数据，与 API 的当日涨幅不一致
+5. **数据层函数必须有清晰的字段来源注释**：`# from kline cache`, `# from API`, `# from config`
+
+**正确做法**：在字段元数据中标注每个字段的数据来源，消费者（LLM prompt）可以据此判断数据可靠性。
 
 **反面案例（2026-06-11）**：尾盘条件单（14:52）输出数据全错——风华高科今天涨 7.51% 但报告说跌停，雅克科技涨停但报告说亏损。输出中有 `[Qing-Agent ✓]` 但内容年份为 "2025年4月12日"。
 
@@ -1235,6 +1339,7 @@ Fix C — 数据优先级提示（`format_agent_analysis_context()` + `format_li
 
 ## 验证清单
 
+### Config + Cron 验证
 - [ ] `check_config_consistency.py` P0 清零
 - [ ] `validate_config.py` 退出码 ≤1
 - [ ] Qing-Agent `/analyze/trigger` 端点测试通过（非仅 /health）
@@ -1250,5 +1355,23 @@ Fix C — 数据优先级提示（`format_agent_analysis_context()` + `format_li
 - [ ] Git 已提交，且 **未使用 `-f` 强制添加 gitignored 文件**（`git status` 不出现 positions.yaml 等隐私文件）
 - [ ] **K线缓存初始化**：`infra/data/kline_cache.db` 存在且有数据（`python3 -c "from qing_investment.kline_cache import get_cache_stats; print(get_cache_stats())"`）
 - [ ] **pre_fetch cron 已部署**：`~/.hermes/scripts/qing_pre_fetch_klines.py` 存在 + cron job `44bce96fa7a7` 已调度（06:30 周一到周五）
-- [ ] **买入信号检测可用**：`evaluate_buy_signal_candidates()` 可正常运行（`PYTHONPATH=src .venv/bin/python -c "from qing_investment.stock_monitor import evaluate_buy_signal_candidates, load_monitor_config; print(evaluate_buy_signal_candidates(load_monitor_config(), {}))"`）
+### 文档同步检查
+
+Config 改动后，设计文档往往滞后。每次 config/code 修改后同步检查：
+
+| 文档 | 上次更新 | 检查项 |
+|------|---------|--------|
+| `docs/qing-agent-technical-design.md` | 2026-06-11 | 数据流、新节点、API 字段变化 |
+| `docs/hermes-stock-monitor-technical-design.md` | 2026-06-11 | Phase 状态、新增组件、数据流 |
+| `docs/config-cron-architecture-review.md` | 2026-06-11 v2.3 | 实施清单、遗留问题、文件清单 |
+| `docs/hallucination-defense-layers.md` | 2026-06-11 | Fix A/B/C 架构 |
+
+**工作流**：
+1. `git log --oneline -20` → 列出最近改动
+2. `find docs/ -name '*.md' -printf '%T@ %p\n' | sort -t. -k1,1rn` → 按 mtime 排序文档
+3. 对比：改动日期 > 文档版本日期 → 需要更新
+4. 用 `patch` 精准增补，不用 `write_file` 全量重写（保留原有编号和链接）
+5. 更新后统一版本号到当天
+
+### 端到端验证
 - [ ] **Watchlist 字段校验**：`python scripts/validate_watchlist.py` 退出码=0

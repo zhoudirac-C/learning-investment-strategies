@@ -1,4 +1,4 @@
-【15:20 收盘复盘 — 节点专属指令】
+【17:00 收盘复盘（含龙虎榜） — 节点专属指令】
 
 【持仓池 vs 观察池 区分说明】
 - 持仓池 = positions.yaml 中列出的股票，是你当前实际持有的仓位
@@ -38,6 +38,31 @@
   ],
   "narrative": "全天弱势，明日继续观察"
 }
+
+【⚠️ 新增：tomorrow_scenarios 输出（明日剧本）】
+请在 JSON 中额外输出 `tomorrow_scenarios` 字段，作为次日竞价分析的对比基准：
+
+{
+  "tomorrow_scenarios": {
+    "strong_repair": {
+      "probability": "30%",
+      "auction_signature": "全A高开>0.5%，竞价量放大，持仓股竞价符合预期",
+      "action_if_match": "持仓不动，观察加仓机会"
+    },
+    "weak_consolidation": {
+      "probability": "50%",
+      "auction_signature": "全A平开±0.3%，竞价量正常，个股分化",
+      "action_if_match": "做T为主，不新增净仓"
+    },
+    "strong_divergence": {
+      "probability": "20%",
+      "auction_signature": "全A低开>0.5%，竞价量萎缩或放量下杀",
+      "action_if_match": "直接降仓，跌破risk_line执行风控"
+    }
+  }
+}
+
+probability 总和应为 100%。auction_signature 应尽量具体（含指数、竞价量、持仓股特征）。
 
 【⚠️ 强制要求：daily_state 输出】
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：

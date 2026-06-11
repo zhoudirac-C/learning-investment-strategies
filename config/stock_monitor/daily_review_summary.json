@@ -1,0 +1,113 @@
+{
+  "2026-06-11": {
+    "date": "2026-06-11",
+    "built_at": "2026-06-11T21:18:07.128133+08:00",
+    "market": {
+      "stage": "结构性轮动（周期主导）",
+      "stage_detail": "资源周期股爆发，科技分化，指数震荡收跌，全A未中阳线。量能持平，结构分化明显。",
+      "direction_priority": [
+        {
+          "direction": "涨价周期（化工/有色金属）",
+          "intensity": "",
+          "source": "market_analyst:stock"
+        },
+        {
+          "direction": "MLCC/被动元件",
+          "intensity": "",
+          "source": "market_analyst:stock"
+        },
+        {
+          "direction": "科技（AI/半导体）= 等待回流信号",
+          "intensity": "",
+          "source": "market_analyst:stock"
+        }
+      ],
+      "position_stance": "持有雅克科技、风华高科，不追高，等回踩加仓。总仓位6成以内。",
+      "key_levels": {
+        "shanghai_index": {
+          "valid_repair": "量价确认+科技高低切（已替代4033固定点位，6/9后UP不再使用4033作为修复标准）",
+          "weak_repair": "4000（心理关口，缩量站回无效，需放量+科技主动承接）",
+          "trend_defense": "3950（月线支撑，收盘跌破→筑底失败信号）",
+          "framework_evolution": "6/3: 4033/4130纪律线引入。6/5: 4033修正为科技清仓线。6/9: 生命线下调至4000。\n6/11: 地量信号+情景A/B框架替代二元点位判断。4033已连续12天被跌破（收盘3962，差距5.4%）。\n"
+        },
+        "nasdaq": {
+          "watch": "费城半导体指数是否稳住震荡区间"
+        },
+        "oil": {
+          "escalation_threshold": "90美元",
+          "relief_threshold": "80美元"
+        }
+      }
+    },
+    "positions": {
+      "002409": {
+        "close": 122.55,
+        "open": 126.22,
+        "high": 134.81,
+        "low": 124.0,
+        "change_pct": 10.0,
+        "volume": 576461.0,
+        "amount": "750477",
+        "is_limit_up": true,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 8.82,
+        "volume_ratio": 0.13,
+        "vs_ma5": null,
+        "vs_ma10": null,
+        "near5d_return": -1.0,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": "above",
+        "entry_zone_range": "118-122",
+        "avg_cost": 129.683,
+        "unrealized_pct": -5.5,
+        "cost_protection_line": 129.68
+      },
+      "000636": {
+        "close": 59.81,
+        "open": 60.01,
+        "high": 65.79,
+        "low": 59.5,
+        "change_pct": 7.51,
+        "volume": 1831329.0,
+        "amount": "1169423",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 10.52,
+        "volume_ratio": 1.05,
+        "vs_ma5": -0.2,
+        "vs_ma10": 3.7,
+        "near5d_return": -1.2,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": "above",
+        "entry_zone_range": "55-57.5",
+        "avg_cost": 64.067,
+        "unrealized_pct": -6.64,
+        "cost_protection_line": 64.07
+      }
+    },
+    "tomorrow_scenarios": {
+      "strong_repair": {
+        "probability": "30%"
+      },
+      "weak_consolidation": {
+        "probability": "50%"
+      }
+    }
+  }
+}

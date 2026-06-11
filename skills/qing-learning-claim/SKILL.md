@@ -100,7 +100,7 @@ Step 1:
 ☐ 18 个必需字段齐全
 
 Step 2:
-☐ statement 中公司名已带 6 位代码
+☐ statement 和 interpretation 中所有公司名已带 6 位代码
 ☐ related_stocks 已填结构化对象（无标的写 []）
 ☐ non-mainboard 已在 role 中标注不可交易
 ☐ tags 已补充（3-5 个）
@@ -118,10 +118,20 @@ Gate 1/2/3 的结果缓存（`gate1_result.json` / `gate2_result.json` / `gate3_
 在 `continue` 时作为「是否已验过」的判断依据存在。修改 step 产物后若缓存未清理，
 pipeline 会跳过门禁重跑，继续输出 retry 指令。
 
+**症状**：你修正了 step 文件（如 step2_enriched.json）中的错误（如补了股票代码），
+但 `continue` 仍然输出与之前**完全相同的错误列表**。这不是你的修正无效——
+而是 pipeline 读了缓存的 `gateN_result.json`，没看到你的改动。
+
+**根因**（`extract_claims_pipeline.py:313`）：
+```python
+if step2_file.exists() and not (sess_dir / "gate2_result.json").exists():
+```
+pipeline 不比较时间戳——不知道 step 产物被编辑过。
+
 **修复**：删除对应 gate 结果文件后重跑 `continue`：
 
 ```bash
-rm temp/claims/<session_id>/gate{N}_result.json
+rm temp/claims/<session_id>/gate2_result.json
 python scripts/extract_claims_pipeline.py continue
 ```
 

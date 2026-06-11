@@ -1,30 +1,53 @@
 {
   "date": "2026-06-11",
   "market_stage": {
-    "phase": "调整期",
-    "detail": "上证破4033，全A未企稳，调整延续中。科技分支（上游材料）逆势但未形成板块扩散，情绪偏弱。防御模式启动。",
-    "updated_by": "market_analyst:market",
-    "updated_at": "2026-06-11T13:11:30.723922"
+    "phase": "结构性轮动（周期主导）",
+    "detail": "资源周期股爆发，科技分化，指数震荡收跌，全A未中阳线。量能持平，结构分化明显。",
+    "updated_by": "market_analyst:stock",
+    "updated_at": "2026-06-11T14:57:15.699958"
   },
   "direction_priority": [
     {
-      "direction": "上游涨价链（等待回踩）",
+      "direction": "涨价周期（化工/有色金属）",
       "intensity": "",
-      "source": "market_analyst:market"
+      "source": "market_analyst:stock"
     },
     {
-      "direction": "工程机械（赔率较好但需等指数企稳）",
+      "direction": "MLCC/被动元件",
       "intensity": "",
-      "source": "market_analyst:market"
+      "source": "market_analyst:stock"
     },
     {
-      "direction": "光伏（观察明日持续性）",
+      "direction": "科技（AI/半导体）= 等待回流信号",
       "intensity": "",
-      "source": "market_analyst:market"
+      "source": "market_analyst:stock"
     }
   ],
-  "position_stance": "轻仓或空仓，持仓股设好止损，指数破位不轻易加仓。",
-  "active_opportunities": [],
+  "position_stance": "持有雅克科技、风华高科，不追高，等回踩加仓。总仓位6成以内。",
+  "active_opportunities": [
+    {
+      "stock": "雅克科技",
+      "code": "002409",
+      "pattern": "涨停突破后等回踩",
+      "trigger": "回踩130-131企稳，缩量分时不创新低",
+      "status": "未触发（当前涨停无法买入）",
+      "upside": "",
+      "downside": "",
+      "ratio": "2:1（目标150/止损123.2）",
+      "updated_at": "2026-06-11T14:57:15.699975"
+    },
+    {
+      "stock": "风华高科",
+      "code": "000636",
+      "pattern": "放量突破后等确认",
+      "trigger": "明日继续放量突破65.8或回踩62.5-63.0且板块跟风",
+      "status": "观望",
+      "upside": "",
+      "downside": "",
+      "ratio": "1.8:1（目标70/止损60.9）",
+      "updated_at": "2026-06-11T14:57:15.699980"
+    }
+  ],
   "intraday_narrative": [
     {
       "time": "---- 4033框架演化记录 ----",
@@ -35,6 +58,16 @@
       "time": "13:11 明日假设",
       "summary": "若明日全A继续向下测试6000点，则继续观望；若科技方向（雅克、风华）能带动板块走强，可能形成左侧止跌信号，但概率低。倾向先观察尾盘是否有资金抄底。",
       "timestamp": "2026-06-11T13:11:30.723943"
+    },
+    {
+      "time": "14:01 核心假设",
+      "summary": "市场处于调整末期修复初期，但指数未站回4033前按反弹处理",
+      "timestamp": "2026-06-11T14:01:35.401975"
+    },
+    {
+      "time": "14:57 明日假设",
+      "summary": "周期板块出现分歧，科技有回流可能，但主线暂未切换回科技。上证在3980-4000区间震荡概率大。",
+      "timestamp": "2026-06-11T14:57:15.699988"
     }
   ],
   "version": 2,
@@ -44,11 +77,11 @@
     "current_anchor": "量价配合（缩量止跌+放量阳线）+ 科技高低切确认 + 全A指数方向",
     "updated_by": "hermes manual cleanup",
     "updated_at": "2026-06-11T12:00:00+08:00",
-    "direction_updated_by": "market_analyst:market",
-    "direction_updated_at": "2026-06-11T13:11:30.723931",
-    "stance_updated_by": "market_analyst:market",
-    "stance_updated_at": "2026-06-11T13:11:30.723935",
-    "last_persisted_by": "market_analyst:market",
-    "last_persisted_at": "2026-06-11T13:11:30.723903+08:00"
+    "direction_updated_by": "market_analyst:stock",
+    "direction_updated_at": "2026-06-11T14:57:15.699966",
+    "stance_updated_by": "market_analyst:stock",
+    "stance_updated_at": "2026-06-11T14:57:15.699969",
+    "last_persisted_by": "market_analyst:stock",
+    "last_persisted_at": "2026-06-11T14:57:15.699940+08:00"
   }
 }

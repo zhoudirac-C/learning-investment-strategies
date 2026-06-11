@@ -308,20 +308,18 @@ def _migrate_single_claim(session, claim: dict):
     # Merge Claim node (fresh properties after delete + recreate)
     session.run(
         """
-        CREATE (c:Claim {
-            id: $id,
-            statement: $statement,
-            evidence_quote: $evidence_quote,
-            interpretation: $interpretation,
-            confidence: $confidence,
-            status: $status,
-            claim_type: $claim_type,
-            intensity: $intensity,
-            time_frame: $time_frame,
-            subject: $subject,
-            source_date: $source_date,
-            file: $file
-        })
+        MERGE (c:Claim {id: $id})
+        SET c.statement = $statement,
+            c.evidence_quote = $evidence_quote,
+            c.interpretation = $interpretation,
+            c.confidence = $confidence,
+            c.status = $status,
+            c.claim_type = $claim_type,
+            c.intensity = $intensity,
+            c.time_frame = $time_frame,
+            c.subject = $subject,
+            c.source_date = $source_date,
+            c.file = $file
         """,
         {
             "id": cid,

@@ -6,30 +6,36 @@
 - 【严禁】将观察池标的当作持仓分析或给出持仓操作建议！
 - 当前持仓状态已在上下文顶部标明，分析前务必确认
 
-你刚看完集合竞价数据。现在需要做：
-1. 竞价方向判断：高开/低开/平开？幅度多大？
-2. 方向强弱对比：哪个方向在竞价中相对强？（对比各板块竞价涨幅）
-3. 建立今天核心假设："今天大概率是XXX"
-4. 如果有持仓，判断竞价对持仓的影响
+你刚看完集合竞价数据。注意上下文中有昨日复盘的「tomorrow_scenarios」（明日剧本），现在需要验证。具体做：
+1. 竞价方向判断：高开/低开/平开？幅度多大？（对比昨日收盘价）
+2. 【新增】剧本验证：对比明日剧本（strong_repair / weak_consolidation / strong_divergence）与今日竞价实际表现，哪个情景匹配度最高？若有偏差说明差异
+3. 方向强弱对比：哪个方向在竞价中相对强？（对比各板块竞价涨幅）
+4. 建立今天核心假设："今天大概率是XXX"
+5. 如果有持仓，判断竞价对持仓的影响（特别关注烂板票和浮亏票的竞价表现）
 
 【输出要求】
 - 只输出核心判断，不要完整分析
-- 必须包含：今日核心假设 + 方向优先级初判 + 持仓应对
-- 字数：200字以内
+- 必须包含：剧本验证结果 + 今日核心假设 + 方向优先级初判 + 持仓应对
+- 字数：250字以内
 - 格式：JSON
 {
+  "scenario_validation": {
+    "closest_match": "weak_consolidation",
+    "deviation": "竞价低开幅度超预期，但机器人抗跌",
+    "score": "70%"
+  },
   "core_assumption": "今天判断等修复，重心机器人+燃气轮机",
   "direction_priority": ["机器人", "燃气轮机"],
   "position_action": "持仓不动，等回踩加仓",
   "risk_alert": "无",
-  "narrative": "竞价低开，但机器人方向相对抗跌，判断今日等修复"
+  "narrative": "竞价低开，剧本弱震荡匹配，但机器人方向相对抗跌，判断今日等修复"
 }
 
 【⚠️ 强制要求：daily_state 输出】
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
 ```daily_state
-{"market_stage":{"phase":"等修复","detail":"竞价低开，机器人抗跌"},"direction_priority":[{"direction":"机器人","intensity":"🔥🔥"},{"direction":"燃气轮机","intensity":"🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"09:26","summary":"竞价低开，机器人方向相对抗跌，判断今日等修复"}]}
+{"market_stage":{"phase":"等修复","detail":"竞价低开，机器人抗跌，剧本弱震荡匹配"},"direction_priority":[{"direction":"机器人","intensity":"🔥🔥"},{"direction":"燃气轮机","intensity":"🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"09:26","summary":"竞价低开，机器人方向相对抗跌，判断今日等修复"}]}
 ```
 
 说明：

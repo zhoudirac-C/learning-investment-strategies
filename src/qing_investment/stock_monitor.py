@@ -1304,6 +1304,1182 @@ def is_scheduled_agent_analysis_time(config: MonitorConfig, value: datetime) -> 
     return any(str(row.get("time", "")) == current_hhmm for row in agent_analysis_schedule_rows(config))
 
 
+# ──────────────────────────────────────────────
+# Phase 1: 昨日特征摘要系统
+# ──────────────────────────────────────────────
+
+SUMMARY_CONFIG_DIR = DEFAULT_CONFIG_DIR
+SUMMARY_FILENAME = "daily_review_summary.json"
+
+# 字段清单（设计文档 §1.1）
+SUMMARY_FIELDS_BASIC = ["close", "open", "high", "low", "change_pct", "volume", "amount"]
+SUMMARY_FIELDS_BOARD = ["is_limit_up", "consecutive_limit_ups", "weak_board",
+                        "board_open_count", "first_board_time", "board_seal_ratio",
+                        "board_quality"]
+SUMMARY_FIELDS_TECH = ["turnover_rate", "amplitude", "volume_ratio",
+                       "vs_ma5", "vs_ma10", "near5d_return"]
+SUMMARY_FIELDS_DETAIL = ["intraday_pattern", "sector_avg_change",
+                         "dragon_tiger_net", "entry_zone_distance", "entry_zone_range",
+                         "dt_seat_type", "dt_top_buy_behavior", "dt_is_pure_hot_money"]
+SUMMARY_FIELDS_COST = ["avg_cost", "unrealized_pct", "cost_protection_line"]
+ALL_SUMMARY_FIELDS = (SUMMARY_FIELDS_BASIC + SUMMARY_FIELDS_BOARD + SUMMARY_FIELDS_TECH
+                      + SUMMARY_FIELDS_DETAIL + SUMMARY_FIELDS_COST)
+
+# 涨停判定阈值（主板10%，创业板/科创板20% — 但用户仅主板可交易）
+LIMIT_UP_THRESHOLD = 9.5  # 涨停临界%
+
+# 通用计算函数
+# 为兼容性，不在模块最外层定义，放在函数内部
+
+
+def _summary_file_path(config_dir: Path | None = None) -> Path:
+    """返回 summary 文件路径。"""
+    return (config_dir or SUMMARY_CONFIG_DIR) / SUMMARY_FILENAME
+
+
+def _compute_vs_ma(close: float, klines: list[dict], ma_days: int) -> float | None:
+    """计算收盘价相对 MA 的位置百分比。"""
+    closes = [d.get("close", 0) for d in klines[-ma_days:] if d.get("close")]
+    if len(closes) < ma_days:
+        return None
+    ma = sum(closes) / len(closes)
+    return round((close - ma) / ma * 100, 1) if ma else None
+
+
+def _compute_near5d_return(klines: list[dict]) -> float | None:
+    """计算近5个交易日的累计涨跌幅。"""
+    if len(klines) < 2:
+        return None
+    # 取最近5个有收盘价的交易日
+    closes = [d.get("close") for d in klines[-6:] if d.get("close") is not None]
+    if len(closes) < 2:
+        return None
+    return round((closes[-1] - closes[0]) / closes[0] * 100, 1)
+
+
+def _compute_volume_ratio(today_volume: float, klines: list[dict]) -> float | None:
+    """计算今日量/近5日均量的比值。"""
+    vols = [d.get("volume", 0) for d in klines[-6:-1] if d.get("volume")]
+    if not vols:
+        return None
+    avg_5d = sum(vols) / len(vols)
+    return round(today_volume / avg_5d, 2) if avg_5d else None
+
+
+def _check_entry_zone_distance(code: str, close: float, config: MonitorConfig) -> dict:
+    """判断收盘价距 entry_zone 的距离。"""
+    result = {"entry_zone_distance": None, "entry_zone_range": None}
+
+    # 从 strategy_pack entry_points 查找
+    for ep in config.strategy_pack.get("entry_points", []):
+        ep_code = _pure_stock_code(str(ep.get("code", "")))
+        if ep_code == _pure_stock_code(code):
+            zone_raw = ep.get("entry_zone") or ""
+            zone = parse_price_zone(zone_raw)
+            if zone:
+                result["entry_zone_range"] = _format_zone(zone)
+                if close < zone[0]:
+                    result["entry_zone_distance"] = "below"
+                elif close <= zone[1]:
+                    result["entry_zone_distance"] = "in"
+                else:
+                    result["entry_zone_distance"] = "above"
+            return result
+
+    # 从 watchlist 查找
+    for theme in config.watchlist.get("themes", []):
+        for stock in theme.get("stocks", []):
+            if _pure_stock_code(str(stock.get("code", ""))) == _pure_stock_code(code):
+                ez = stock.get("entry_zone", {}) or {}
+                zone = parse_price_zone(ez.get("price_range", ""))
+                if zone:
+                    result["entry_zone_range"] = _format_zone(zone)
+                    if close < zone[0]:
+                        result["entry_zone_distance"] = "below"
+                    elif close <= zone[1]:
+                        result["entry_zone_distance"] = "in"
+                    else:
+                        result["entry_zone_distance"] = "above"
+                return result
+
+    return result
+
+
+# ── 龙虎榜数据采集（akshare 东方财富接口）──
+
+_SEAT_TYPE_KEYWORDS = {
+    "深股通专用": "外资",
+    "沪股通专用": "外资",
+    "机构专用": "机构",
+    "中信证券股份有限公司": "游资",
+    "中国国际金融股份有限公司": "量化",
+    "量化": "量化",
+}
+
+
+def _classify_seat_type(name: str) -> str:
+    """根据营业部名称判断席位性质。"""
+    for keyword, seat_type in _SEAT_TYPE_KEYWORDS.items():
+        if keyword in name:
+            return seat_type
+    # 默认游资（非机构/外资席位）
+    return "游资"
+
+
+def _classify_top_buy_behavior(
+    df_buy: "pd.DataFrame",
+    df_sell: "pd.DataFrame",
+) -> str:
+    """判断买一席位的次日行为倾向。
+
+    买一的行为：
+    - 锁仓：买一金额 >> 卖一金额，且净额大额为正
+    - 做T：买一出现在卖出榜（买卖双向操作）
+    - 出局：卖一金额大，且买一不在买入榜前5
+    - 加仓：买一金额远超其他席位的卖出
+    """
+    try:
+        top_buy_name = df_buy.iloc[0]["交易营业部名称"]
+        top_buy_net = float(df_buy.iloc[0]["净额"])
+        top_sell_net = float(df_sell.iloc[0]["净额"]) if not df_sell.empty else 0
+
+        # 检查买一是否也出现在卖出榜（做T）
+        buy_names = set(df_buy["交易营业部名称"].tolist())
+        sell_names = set(df_sell["交易营业部名称"].tolist())
+        overlap = buy_names & sell_names
+
+        if top_buy_name in overlap:
+            # 买一同时买卖 → 做T
+            return "做T"
+        elif top_buy_net > abs(top_sell_net) * 3:
+            # 买一净额是卖一净额的3倍以上 → 抢筹锁仓
+            return "锁仓"
+        elif top_buy_net > abs(top_sell_net) * 1.5:
+            return "加仓"
+        elif top_buy_net < abs(top_sell_net) * 0.5:
+            return "出局"
+        else:
+            return "混合"
+    except Exception:
+        return "unknown"
+
+
+def _assess_board_quality(df_buy: "pd.DataFrame", df_sell: "pd.DataFrame") -> str:
+    """评估封板质量。"""
+    try:
+        # 净买入总额
+        total_buy = float(df_buy["净额"].sum()) if "净额" in df_buy.columns else 0
+        total_sell = float(df_sell["净额"].sum()) if "净额" in df_sell.columns else 0
+        net = total_buy  # 买入榜净额之和
+
+        if net > 0 and net > abs(total_sell) * 2:
+            return "strong"
+        elif net > 0:
+            return "medium"
+        else:
+            return "weak"
+    except Exception:
+        return "NA"
+
+
+def _fetch_dragon_tiger_data(
+    code: str,
+    date_str: str,
+    timeout: int = 10,
+) -> dict:
+    """获取个股龙虎榜数据（akshare 东方财富接口）。
+
+    Args:
+        code: 6位股票代码
+        date_str: 日期 "2026-06-11" 或 "20260611"
+        timeout: 超时秒数
+
+    Returns:
+        dict: {
+            "dragon_tiger_net": str,        # 净买入额字符串 "+1.56亿"
+            "dt_seat_type": str,            # "机构+游资" | "机构" | "游资" | "量化" | "混合"
+            "dt_top_buy_behavior": str,     # "锁仓" | "加仓" | "做T" | "出局" | "混合"
+            "dt_is_pure_hot_money": bool,   # 是否纯游资
+            "board_quality": str,           # "strong" | "medium" | "weak" | "NA"
+            "_error": str,                  # 错误信息（如有）
+        }
+    """
+    result = {
+        "dragon_tiger_net": None,
+        "dt_seat_type": None,
+        "dt_top_buy_behavior": None,
+        "dt_is_pure_hot_money": None,
+        "board_quality": None,
+    }
+
+    try:
+        date_compact = date_str.replace("-", "")
+        import akshare as ak
+
+        df_buy = ak.stock_lhb_stock_detail_em(symbol=code, date=date_compact, flag="买入")
+        df_sell = ak.stock_lhb_stock_detail_em(symbol=code, date=date_compact, flag="卖出")
+
+        if df_buy is None:
+            result["_error"] = "当日未上榜"
+            return result
+        try:
+            if df_buy.empty:
+                result["_error"] = "当日未上榜"
+                return result
+        except Exception:
+            pass  # 不是 DataFrame 也能接受
+
+        # ── 净额 ──
+        total_net = float(df_buy["净额"].sum())
+        if abs(total_net) >= 100_000_000:
+            net_str = f"{'+' if total_net >= 0 else ''}{total_net / 100_000_000:.2f}亿"
+        elif abs(total_net) >= 10_000:
+            net_str = f"{'+' if total_net >= 0 else ''}{total_net / 10_000:.0f}万"
+        else:
+            net_str = f"{total_net:.0f}"
+        result["dragon_tiger_net"] = net_str
+
+        # ── 席位类型分布 ──
+        seat_types = set()
+        for _, row in df_buy.iterrows():
+            seat_types.add(_classify_seat_type(str(row.get("交易营业部名称", ""))))
+        for _, row in df_sell.iterrows():
+            seat_types.add(_classify_seat_type(str(row.get("交易营业部名称", ""))))
+
+        seat_types.discard("游资")  # 游资是默认值，不特别标注
+        if not seat_types:
+            result["dt_seat_type"] = "游资"
+            result["dt_is_pure_hot_money"] = True
+        elif len(seat_types) == 1:
+            result["dt_seat_type"] = list(seat_types)[0]
+            result["dt_is_pure_hot_money"] = list(seat_types)[0] == "游资"
+        else:
+            result["dt_seat_type"] = "+".join(sorted(seat_types))
+            result["dt_is_pure_hot_money"] = False
+
+        # ── 买一行为 ──
+        result["dt_top_buy_behavior"] = _classify_top_buy_behavior(df_buy, df_sell)
+
+        # ── 封板质量 ──
+        result["board_quality"] = _assess_board_quality(df_buy, df_sell)
+
+    except ImportError:
+        result["_error"] = "akshare not installed"
+    except Exception as e:
+        result["_error"] = str(e)
+
+    return result
+
+
+def _fetch_daily_dragon_tiger_board(
+    date_str: str,
+    timeout: int = 15,
+) -> dict:
+    """获取当日全市场龙虎榜总榜（akshare 东方财富接口）。
+
+    数据源：stock_lhb_detail_em
+    通常16:00-17:00发布当日数据，因此仅在 >= 16:00 时尝试获取。
+
+    Returns:
+        {
+            "available": bool,
+            "board": [{"code","name","net_buy","reason","pct_change","turnover_rate"}, ...],
+            "fetched_at": str,
+            "_error": str | None,
+        }
+    """
+    result: dict = {
+        "available": False,
+        "board": [],
+        "fetched_at": datetime.now(tz=CN_TZ).isoformat(),
+        "_error": None,
+    }
+
+    try:
+        import akshare as ak
+
+        date_compact = date_str.replace("-", "")
+        df = ak.stock_lhb_detail_em(start_date=date_compact, end_date=date_compact)
+
+        if df is None or df.empty:
+            result["_error"] = "当日龙虎榜数据未发布或为空"
+            return result
+
+        board = []
+        for _, row in df.iterrows():
+            net_raw = str(row.get("龙虎榜净买额", "0"))
+            entry = {
+                "code": str(row.get("代码", "")).strip(),
+                "name": str(row.get("名称", "")),
+                "net_buy": _format_net_buy_str(net_raw),
+                "reason": str(row.get("上榜原因", "")),
+                "pct_change": _to_float(row.get("涨跌幅")),
+                "turnover_rate": _to_float(row.get("换手率")),
+            }
+            board.append(entry)
+
+        result["board"] = board
+        result["available"] = True
+        result["_error"] = None
+
+    except ImportError:
+        result["_error"] = "akshare not installed"
+    except Exception as e:
+        result["_error"] = str(e)
+
+    return result
+
+
+def _filter_dragon_tiger_board(
+    board: list[dict],
+    config: MonitorConfig,
+) -> dict:
+    """对全市场龙虎榜总榜做三层交叉过滤。
+
+    Args:
+        board: _fetch_daily_dragon_tiger_board() 返回的 board list
+        config: MonitorConfig
+
+    Returns:
+        {
+            "watch_dt_items": [str],    # 持仓/观察池上榜标记
+            "dt_nettop5": [dict],       # 全市场净买入TOP5
+            "dt_sector_summary": {str: dict},  # theme_id → {total_net, stocks}
+        }
+    """
+    result = {
+        "watch_dt_items": [],
+        "dt_nettop5": [],
+        "dt_sector_summary": {},
+    }
+
+    if not board:
+        return result
+
+    # ── 构建持仓+观察池的 code 集合 ──
+    watch_codes: set[str] = set()
+    for pos in position_rows(config):
+        watch_codes.add(_pure_stock_code(str(pos.get("code", ""))))
+    for theme in config.watchlist.get("themes", []):
+        for stock in theme.get("stocks", []):
+            watch_codes.add(_pure_stock_code(str(stock.get("code", ""))))
+
+    # ── 构建 code→theme_ids 映射 ──
+    code_to_themes: dict[str, list[str]] = {}
+    for theme in config.watchlist.get("themes", []):
+        tid = theme.get("id", "")
+        for stock in theme.get("stocks", []):
+            c = _pure_stock_code(str(stock.get("code", "")))
+            if c:
+                code_to_themes.setdefault(c, []).append(tid)
+
+    # ── 过滤1: 持仓/观察池上榜（按 code 去重，取净额绝对值最大的）──
+    best_dt_per_code: dict[str, dict] = {}
+    for entry in board:
+        code = _pure_stock_code(entry.get("code", ""))
+        if code not in watch_codes:
+            continue
+        net_abs = abs(_parse_net_buy_float(entry.get("net_buy", "0")))
+        if code not in best_dt_per_code or net_abs > best_dt_per_code[code]["_net_abs"]:
+            best_dt_per_code[code] = {"entry": entry, "_net_abs": net_abs}
+
+    for code, data in best_dt_per_code.items():
+        entry = data["entry"]
+        result["watch_dt_items"].append(
+            f"{entry.get('name','')}({code}) 净买{entry.get('net_buy','0')}"
+        )
+
+    # ── 过滤2: 全市场净买入TOP5 ──
+    sorted_board = sorted(
+        board,
+        key=lambda x: _parse_net_buy_float(x.get("net_buy", "0")),
+        reverse=True,
+    )
+    result["dt_nettop5"] = [
+        {"code": e.get("code"), "name": e.get("name"), "net_buy": e.get("net_buy")}
+        for e in sorted_board[:5]
+    ]
+
+    # ── 过滤3: 按持仓 theme 汇总 ──
+    for entry in board:
+        code = _pure_stock_code(entry.get("code", ""))
+        themes = code_to_themes.get(code, [])
+        net_float = _parse_net_buy_float(entry.get("net_buy", "0"))
+        for tid in themes:
+            if tid not in result["dt_sector_summary"]:
+                result["dt_sector_summary"][tid] = {"total_net": 0.0, "stocks": []}
+            result["dt_sector_summary"][tid]["total_net"] += net_float
+            if code not in result["dt_sector_summary"][tid]["stocks"]:
+                result["dt_sector_summary"][tid]["stocks"].append(code)
+
+    # 格式化 net 为可读字符串
+    for tid in result["dt_sector_summary"]:
+        net = result["dt_sector_summary"][tid]["total_net"]
+        if abs(net) >= 100_000_000:
+            net_str = f"{'+' if net >= 0 else ''}{net / 100_000_000:.2f}亿"
+        elif abs(net) >= 10_000:
+            net_str = f"{'+' if net >= 0 else ''}{net / 10_000:.0f}万"
+        else:
+            net_str = f"{net:.0f}"
+        result["dt_sector_summary"][tid]["total_net_str"] = net_str
+        del result["dt_sector_summary"][tid]["total_net"]
+
+    return result
+
+
+def _parse_net_buy_float(net_str: str) -> float:
+    """将龙虎榜净买额字符串转为浮动数值。"""
+    try:
+        text = str(net_str).strip()
+        if not text or text in ("-", "--"):
+            return 0.0
+        sign = -1.0 if text.startswith("-") else 1.0
+        text = text.lstrip("+-").strip()
+        if "亿" in text:
+            return sign * float(text.replace("亿", "")) * 100_000_000
+        elif "万" in text:
+            return sign * float(text.replace("万", "")) * 10_000
+        else:
+            return sign * float(text)
+    except (ValueError, TypeError):
+        return 0.0
+
+
+def _format_net_buy_str(net_raw: str) -> str:
+    """将龙虎榜净买额原始字符串格式化为 '+X.XX亿' 或 '+XXXX万' 格式。"""
+    try:
+        net_float = float(str(net_raw).strip().replace(",", ""))
+        if abs(net_float) >= 100_000_000:
+            return f"{'+' if net_float >= 0 else ''}{net_float / 100_000_000:.2f}亿"
+        elif abs(net_float) >= 10_000:
+            return f"{'+' if net_float >= 0 else ''}{net_float / 10_000:.0f}万"
+        else:
+            return f"{net_float:.0f}"
+    except (ValueError, TypeError):
+        return str(net_raw)
+
+
+def _build_yesterday_summary(
+    config: MonitorConfig,
+    quote_snapshot: dict,
+    state: dict,
+    daily_state: dict | None = None,
+) -> dict:
+    """构建昨日特征摘要：从 state.json + daily_state.json + K线缓存 提取。
+
+    产出物结构（设计文档 §1.1）：
+    {
+        "date": "2026-06-11",
+        "market": {...},
+        "positions": {
+            "002409": { 18+ 字段 },
+            "000636": { 18+ 字段 }
+        },
+        "tomorrow_scenarios": null,  # 由收盘复盘 LLM 填充
+    }
+    """
+    date_str = datetime.now(tz=CN_TZ).strftime("%Y-%m-%d")
+    quotes = _quotes_by_code(quote_snapshot)
+
+    # ── 市场层面数据（来自 daily_state + strategy_pack）──
+    market_info = {
+        "stage": (daily_state or {}).get("market_stage", {}).get("phase", ""),
+        "stage_detail": (daily_state or {}).get("market_stage", {}).get("detail", ""),
+        "direction_priority": (daily_state or {}).get("direction_priority", []),
+        "position_stance": (daily_state or {}).get("position_stance", ""),
+        "key_levels": config.strategy_pack.get("key_levels", {}),
+    }
+
+    # ── 逐个持仓计算 ──
+    positions_summary: dict[str, dict] = {}
+    for pos in position_rows(config):
+        code_raw = str(pos.get("code", ""))
+        code_pure = _pure_stock_code(code_raw)
+        quote = _quote_for_stock(quotes, code_pure) or _quote_for_stock(quotes, code_raw) or {}
+
+        # ── A. 基础行情（7个字段）──
+        close = _to_float(quote.get("previous_close"))
+        open_ = _to_float(quote.get("open"))
+        high = _to_float(quote.get("high"))
+        low = _to_float(quote.get("low"))
+        change_pct = _to_float(quote.get("pct_change"))
+        volume = _to_float(quote.get("volume"))
+        amount = quote.get("amount", "")
+
+        if close is None:
+            continue  # 无有效行情，跳过
+
+        entry: dict = {
+            "close": close,
+            "open": open_,
+            "high": high,
+            "low": low,
+            "change_pct": change_pct,
+            "volume": volume,
+            "amount": amount,
+            # 默认 null 占位
+            **{k: None for k in SUMMARY_FIELDS_BOARD},
+            **{k: None for k in SUMMARY_FIELDS_TECH},
+            **{k: None for k in SUMMARY_FIELDS_DETAIL},
+            **{k: None for k in SUMMARY_FIELDS_COST},
+        }
+
+        # ── is_limit_up 从 change_pct 推导 ──
+        if change_pct is not None and change_pct >= LIMIT_UP_THRESHOLD:
+            entry["is_limit_up"] = True
+        elif change_pct is not None:
+            entry["is_limit_up"] = False
+
+        # ── C. 技术/量价特征（从 K线缓存）──
+        try:
+            from qing_investment.kline_cache import get_klines
+            klines = get_klines(code_pure, days=30)
+            if len(klines) >= 2:
+                last_kline = klines[-1]
+                # turnover: 换手率（从 K线直接取）
+                entry["turnover_rate"] = _to_float(last_kline.get("turnover"))
+                # amplitude: 振幅 = (high - low) / pre_close * 100
+                if all(v is not None for v in [high, low, close]):
+                    # 用当日最高最低算振幅
+                    pass  # 下面单独算
+                # 从 K线 amplitude 字段（如果存在）
+                entry["amplitude"] = _to_float(last_kline.get("amplitude"))
+
+            # 量比 (今日量/近5日均量)
+            if volume is not None:
+                entry["volume_ratio"] = _compute_volume_ratio(volume, klines)
+
+            # vs_ma5, vs_ma10
+            if close:
+                entry["vs_ma5"] = _compute_vs_ma(close, klines, 5)
+                entry["vs_ma10"] = _compute_vs_ma(close, klines, 10)
+
+            # 近5日涨幅
+            entry["near5d_return"] = _compute_near5d_return(klines)
+
+            # 若 K线缓存有振幅而上面没取到，补充
+            if entry["amplitude"] is None and all(v is not None for v in [high, low]):
+                entry["amplitude"] = round((high - low) / close * 100, 2)
+        except Exception as e:
+            logger.warning("K线缓存计算失败 %s: %s", code_pure, e)
+
+        # ── D. entry_zone 距离 ──
+        zone_info = _check_entry_zone_distance(code_pure, close, config)
+        entry["entry_zone_distance"] = zone_info["entry_zone_distance"]
+        entry["entry_zone_range"] = zone_info["entry_zone_range"]
+
+        # ── 持仓成本 ──
+        cost = _to_float(pos.get("cost"))
+        shares = pos.get("shares", 0)
+        if cost is not None and cost > 0:
+            entry["avg_cost"] = cost
+            if close:
+                unrealized = round((close - cost) / cost * 100, 2)
+                entry["unrealized_pct"] = unrealized
+                # 成本保护线：浮盈>10% → 成本+5%；浮盈5-10% → 成本+3%；浮盈<5% → 成本
+                if unrealized > 10:
+                    entry["cost_protection_line"] = round(cost * 1.05, 2)
+                elif unrealized > 5:
+                    entry["cost_protection_line"] = round(cost * 1.03, 2)
+                else:
+                    entry["cost_protection_line"] = round(cost * 1.00, 2)
+
+        # ── E. 龙虎榜数据（akshare 东方财富接口）──
+        # 仅对涨停/连板持仓采集（非涨停不用费 API 调用）
+        if entry.get("is_limit_up"):
+            try:
+                dt_data = _fetch_dragon_tiger_data(code_pure, date_str)
+                if dt_data.get("_error") and "未上榜" in dt_data["_error"]:
+                    pass  # 当日未上榜，保留 null
+                else:
+                    for key in ["dragon_tiger_net", "dt_seat_type",
+                                "dt_top_buy_behavior", "dt_is_pure_hot_money",
+                                "board_quality"]:
+                        if dt_data.get(key) is not None:
+                            entry[key] = dt_data[key]
+            except Exception as e:
+                logger.warning("龙虎榜数据获取失败 %s: %s", code_pure, e)
+
+        positions_summary[code_pure] = entry
+
+    return {
+        "date": date_str,
+        "built_at": datetime.now(tz=CN_TZ).isoformat(),
+        "market": market_info,
+        "positions": positions_summary,
+        "tomorrow_scenarios": None,  # 由收盘复盘 LLM 填充
+    }
+
+
+def _save_yesterday_summary(summary: dict, config_dir: Path | None = None) -> bool:
+    """持久化昨日特征摘要到 daily_review_summary.json。
+
+    格式：按日期键存储，如 {"2026-06-11": {...}, "2026-06-12": {...}}
+    """
+    try:
+        file_path = _summary_file_path(config_dir)
+        existing: dict = {}
+        if file_path.exists():
+            existing = json.loads(file_path.read_text(encoding="utf-8"))
+
+        date_str = summary.get("date", datetime.now(tz=CN_TZ).strftime("%Y-%m-%d"))
+        existing[date_str] = summary
+
+        file_path.write_text(
+            json.dumps(existing, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        logger.info("昨日特征摘要已保存: %s (%s 条持仓)", file_path,
+                     len(summary.get("positions", {})))
+        return True
+    except Exception as e:
+        logger.error("保存昨日特征摘要失败: %s", e)
+        return False
+
+
+def _update_summary_tomorrow_scenarios(
+    tomorrow_scenarios: dict,
+    config_dir: Path | None = None,
+    date_str: str | None = None,
+) -> bool:
+    """更新已持久化的 summary 中的 tomorrow_scenarios（由收盘复盘 cron 在 LLM 输出后调用）。
+
+    Args:
+        tomorrow_scenarios: {"strong_repair": {...}, "weak_consolidation": {...}, ...}
+        config_dir: 配置目录
+        date_str: 目标日期（默认今天）
+
+    Returns:
+        True 更新成功，False 失败
+    """
+    try:
+        file_path = _summary_file_path(config_dir)
+        if not file_path.exists():
+            logger.warning("summary 文件不存在，无法更新 tomorrow_scenarios")
+            return False
+
+        existing = json.loads(file_path.read_text(encoding="utf-8"))
+        if date_str is None:
+            date_str = datetime.now(tz=CN_TZ).strftime("%Y-%m-%d")
+
+        if date_str not in existing:
+            logger.warning("summary 无 %s 日数据，无法更新 tomorrow_scenarios", date_str)
+            return False
+
+        existing[date_str]["tomorrow_scenarios"] = tomorrow_scenarios
+        file_path.write_text(
+            json.dumps(existing, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        logger.info("tomorrow_scenarios 已更新到 %s: %s", date_str,
+                     list(tomorrow_scenarios.keys()) if isinstance(tomorrow_scenarios, dict) else "N/A")
+        return True
+    except Exception as e:
+        logger.error("更新 tomorrow_scenarios 失败: %s", e)
+        return False
+
+
+def _load_yesterday_summary(
+    config_dir: Path | None = None,
+    date_str: str | None = None,
+) -> dict | None:
+    """读取昨日特征摘要，优先级：文件 > state.json 快照 > 无数据。
+
+    Args:
+        config_dir: 配置目录（默认 stock_monitor）
+        date_str: 目标日期（默认昨天）
+
+    Returns:
+        summary dict 或 None（完全无数据）
+    """
+    config_dir = config_dir or DEFAULT_CONFIG_DIR
+    if date_str is None:
+        from datetime import timedelta
+        date_str = (datetime.now(tz=CN_TZ) - timedelta(days=1)).strftime("%Y-%m-%d")
+
+    # ── 优先：从 daily_review_summary.json 读取 ──
+    file_path = _summary_file_path(config_dir)
+    if file_path.exists():
+        try:
+            data = json.loads(file_path.read_text(encoding="utf-8"))
+            if isinstance(data, dict):
+                # 如果直接是日期键结构
+                if date_str in data:
+                    logger.info("读取昨日特征摘要: 文件命中 %s", date_str)
+                    return data[date_str]
+                # 如果文件里只有一个键且是日期格式，可能是新格式
+                # 也尝试按日期匹配
+                for key in data:
+                    if isinstance(data[key], dict) and "positions" in data.get(key, {}):
+                        if key == date_str:
+                            logger.info("读取昨日特征摘要: 文件命中 %s", date_str)
+                            return data[key]
+
+            # 如果整个文件就是这个日期的 summary（单记录格式）
+            if isinstance(data, dict) and "positions" in data and "date" in data:
+                if data.get("date") == date_str:
+                    return data
+
+            logger.info("读取昨日特征摘要: 文件存在但未命中日期 %s", date_str)
+        except Exception as e:
+            logger.warning("读取 daily_review_summary.json 失败: %s", e)
+
+    # ── Fallback: 从 state.json 的 last_quote_snapshot 提取 ──
+    try:
+        state_path = config_dir / "state.json"
+        if state_path.exists():
+            state = json.loads(state_path.read_text(encoding="utf-8"))
+            qs = state.get("last_quote_snapshot", {})
+            if qs and qs.get("quotes"):
+                logger.info("读取昨日特征摘要: fallback → state.json last_quote_snapshot")
+                summary = {
+                    "date": date_str,
+                    "built_at": datetime.now(tz=CN_TZ).isoformat(),
+                    "source": "fallback_state_json",
+                    "market": {},
+                    "positions": {},
+                    "tomorrow_scenarios": None,
+                }
+                for q in qs.get("quotes", []):
+                    code = _pure_stock_code(str(q.get("code", "")))
+                    summary["positions"][code] = {
+                        "close": _to_float(q.get("previous_close")),
+                        "open": _to_float(q.get("open")),
+                        "high": _to_float(q.get("high")),
+                        "low": _to_float(q.get("low")),
+                        "change_pct": _to_float(q.get("pct_change")),
+                        "volume": _to_float(q.get("volume")),
+                        "amount": q.get("amount", ""),
+                        **{k: None for k in SUMMARY_FIELDS_BOARD},
+                        **{k: None for k in SUMMARY_FIELDS_TECH},
+                        **{k: None for k in SUMMARY_FIELDS_DETAIL},
+                        **{k: None for k in SUMMARY_FIELDS_COST},
+                    }
+                return summary
+    except Exception as e:
+        logger.warning("Fallback state.json 读取失败: %s", e)
+
+    logger.warning("昨日特征摘要完全不可用: %s", date_str)
+    return None
+
+
+# ──────────────────────────────────────────────
+# Phase 2: 竞价快照系统
+# ──────────────────────────────────────────────
+
+AUCTION_CACHE_FILENAME = "auction_volume_cache.json"
+AUCTION_CACHE_MAX_DAYS = 10  # keep 10 days, use last 5 for avg
+
+
+def _auction_cache_path(config_dir: Path | None = None) -> Path:
+    """返回竞价量缓存文件路径。"""
+    return (config_dir or DEFAULT_CONFIG_DIR) / AUCTION_CACHE_FILENAME
+
+
+def _load_auction_cache(config_dir: Path | None = None) -> dict:
+    """读取竞价量缓存。"""
+    path = _auction_cache_path(config_dir)
+    if path.exists():
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except Exception as e:
+            logger.warning("读取竞价量缓存失败: %s", e)
+    return {}
+
+
+def _save_auction_cache(cache: dict, config_dir: Path | None = None) -> bool:
+    """保存竞价量缓存。"""
+    try:
+        path = _auction_cache_path(config_dir)
+        path.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
+        logger.debug("竞价量缓存已保存: %s (%d 只股票)", path, len(cache))
+        return True
+    except Exception as e:
+        logger.error("保存竞价量缓存失败: %s", e)
+        return False
+
+
+def _update_auction_cache(
+    auction_data: dict[str, dict],  # {code_pure: {volume, price, date}}
+    config_dir: Path | None = None,
+) -> None:
+    """更新竞价量缓存，追加当日数据，保留最近 AUCTION_CACHE_MAX_DAYS 天。"""
+    cache = _load_auction_cache(config_dir)
+    today = datetime.now(tz=CN_TZ).strftime("%Y-%m-%d")
+
+    for code, data in auction_data.items():
+        if code not in cache:
+            cache[code] = []
+        # 如果今天已有记录，覆盖
+        existing_entries = [e for e in cache[code] if e.get("date") != today]
+        existing_entries.append({
+            "date": today,
+            "volume": data.get("volume"),
+            "price": data.get("price"),
+            "change_pct": data.get("change_pct"),
+        })
+        # 保留最近 N 天
+        existing_entries.sort(key=lambda e: e.get("date", ""), reverse=True)
+        cache[code] = existing_entries[:AUCTION_CACHE_MAX_DAYS]
+
+    _save_auction_cache(cache, config_dir)
+
+
+def _compute_auction_volume_ratio(
+    code: str,
+    today_volume: float | None,
+    config_dir: Path | None = None,
+) -> float | None:
+    """计算今日竞价量 / 近5日竞价量均值。
+
+    不足5天的缓存时自动从 K线缓存回填（日K volume 作为竞价量近似值）。
+    回填数据写入 cache 后复用，随着真实竞价数据积累逐渐替换。
+
+    Args:
+        code: 股票代码（6位纯数字）
+        today_volume: 今日竞价量
+        config_dir: 配置目录
+
+    Returns:
+        量比，或 None（数据不足）
+    """
+    if today_volume is None or today_volume <= 0:
+        return None
+
+    cache = _load_auction_cache(config_dir)
+    entries = cache.get(code, [])
+    today = datetime.now(tz=CN_TZ).strftime("%Y-%m-%d")
+
+    # ── 从 cache 取历史竞价量（排除今天）──
+    past_entries = sorted(
+        [e for e in entries if e.get("date") != today and e.get("volume") is not None],
+        key=lambda x: x.get("date", ""),
+        reverse=True,
+    )
+    past_volumes = [e["volume"] for e in past_entries[:5]]
+
+    # ── 如果不足5条，从 K线缓存回填日K volume ──
+    cache_updated = False
+    if len(past_volumes) < 5:
+        try:
+            from qing_investment.kline_cache import get_klines
+            klines = get_klines(code, days=10)
+            if klines:
+                # 已有的 cache 日期集合，避免重复
+                cached_dates = {e.get("date") for e in past_entries if e.get("date")}
+
+                # 从 K线取最后5个交易日（排除今天），作为竞价量近似值回填
+                for k in reversed(klines[-8:]):  # 取稍多些以确保有足够近5日
+                    k_date = str(k.get("date", ""))
+                    if k_date in cached_dates or k_date == today:
+                        continue
+                    k_volume = _to_float(k.get("volume"))
+                    if k_volume and k_volume > 0:
+                        # 用日K volume 作为竞价量近似值
+                        if code not in cache:
+                            cache[code] = []
+                        cache[code].append({
+                            "date": k_date,
+                            "volume": k_volume * 0.5,  # 日K volume 远大于竞价量，但相对比较仍有效
+                            "price": None,
+                            "change_pct": None,
+                            "source": "kline_backfill",
+                        })
+                        cached_dates.add(k_date)
+                        cache_updated = True
+
+                # 重新排序 + 去重 + 计数
+                if cache_updated and code in cache:
+                    cache[code] = sorted(
+                        cache[code],
+                        key=lambda e: e.get("date", ""),
+                        reverse=True,
+                    )[:AUCTION_CACHE_MAX_DAYS]
+
+                    # 重新计算 past_volumes（含回填数据）
+                    past_entries = [
+                        e for e in cache[code]
+                        if e.get("date") != today and e.get("volume") is not None
+                    ][:5]
+                    past_volumes = [e["volume"] for e in past_entries]
+
+        except Exception:
+            pass
+
+    # ── 保存 cache（如有更新）──
+    if cache_updated:
+        _save_auction_cache(cache, config_dir)
+
+    if len(past_volumes) < 2:
+        return None  # 数据不足
+
+    avg_volume = sum(past_volumes) / len(past_volumes)
+    if avg_volume <= 0:
+        return None
+
+    return round(today_volume / avg_volume, 2)
+
+
+def _compute_auction_vs_yesterday_volume(
+    code: str,
+    today_auction_volume: float | None,
+    config: MonitorConfig,
+    quote_snapshot: dict,
+) -> float | None:
+    """计算竞价量 / 昨日全天成交量。"""
+    if today_auction_volume is None or today_auction_volume <= 0:
+        return None
+
+    # 从 quote_snapshot 中找该股票的昨日成交量
+    quotes = _quotes_by_code(quote_snapshot)
+    quote = _quote_for_stock(quotes, code) or {}
+    yesterday_volume = _to_float(quote.get("volume"))
+
+    if yesterday_volume is None or yesterday_volume <= 0:
+        return None
+
+    return round(today_auction_volume / yesterday_volume, 4)
+
+
+def _auction_snapshot(
+    config: MonitorConfig,
+    quote_snapshot: dict,
+    *,
+    auto_cache: bool = True,
+    config_dir: Path | None = None,
+) -> dict:
+    """采集竞价快照。
+
+    从实时行情快照的 quote 字段提取竞价数据。
+    需要在 09:25-09:26 之间调用（此时 f2/latest = 竞价撮合价）。
+
+    Args:
+        config: MonitorConfig
+        quote_snapshot: 实时行情快照（东财API返回）
+        auto_cache: 是否自动更新竞价量缓存
+        config_dir: 配置目录
+
+    Returns:
+        auction_data: dict, keyed by 6-digit code
+    """
+    quotes = _quotes_by_code(quote_snapshot)
+    config_dir = config_dir or config.config_dir
+
+    # 要采集的标的：持仓 + 观察池
+    all_stocks: list[dict] = position_rows(config) + watchlist_stock_rows(config)
+    seen_codes: set[str] = set()
+    result: dict[str, dict] = {}
+    cache_data: dict[str, dict] = {}  # 用于缓存更新
+
+    for stock in all_stocks:
+        code_raw = str(stock.get("code", ""))
+        code_pure = _pure_stock_code(code_raw)
+        if code_pure in seen_codes:
+            continue
+        seen_codes.add(code_pure)
+
+        quote = _quote_for_stock(quotes, code_pure) or _quote_for_stock(quotes, code_raw) or {}
+        if not quote:
+            continue
+
+        # ── 基础字段（来自东财API f2/f3/f5/f15/f17/f18）──
+        auction_price = _to_float(quote.get("latest"))
+        auction_change_pct = _to_float(quote.get("pct_change"))
+        auction_open = _to_float(quote.get("open"))
+        previous_close = _to_float(quote.get("previous_close"))
+        low_price = _to_float(quote.get("low"))
+        high_price = _to_float(quote.get("high"))
+
+        # 竞价量 = 截至09:26的累计成交量（此时仅有竞价撮合量）
+        auction_volume = _to_float(quote.get("volume"))
+
+        if auction_price is None:
+            continue
+
+        # 如果 open 和 latest 不一致，说明已有盘中交易
+        # 此时 open 仍是竞价价，latest 是盘中价
+        effective_auction_price = auction_open if auction_open is not None else auction_price
+        effective_auction_pct = (
+            round((effective_auction_price - previous_close) / previous_close * 100, 2)
+            if previous_close and previous_close > 0 and effective_auction_price
+            else None
+        )
+
+        # 计算竞价振幅（open vs 竞价阶段的 low/high）
+        auction_amplitude = None
+        if all(v is not None for v in [high_price, low_price, previous_close]) and previous_close > 0:
+            if low_price and high_price:
+                auction_amplitude = round((high_price - low_price) / previous_close * 100, 2)
+
+        # 竞价量与昨日成交量对比
+        auction_vs_yesterday = _compute_auction_vs_yesterday_volume(
+            code_pure, auction_volume, config, quote_snapshot
+        )
+
+        entry = {
+            # 基础6字段
+            "auction_price": effective_auction_price,
+            "auction_change_pct": effective_auction_pct,
+            "auction_volume": auction_volume,
+            "previous_close": previous_close,
+            "auction_open": effective_auction_price,
+            "auction_amplitude": auction_amplitude,
+            # 评审补充字段（无数据源）
+            "auction_volume_ratio": None,  # 等缓存更新后重新计算
+            "auction_vs_yesterday_volume": auction_vs_yesterday,
+            "last5min_high_pct": None,
+            "last5min_low_pct": None,
+            "auction_trend_920_925": "unknown",
+            "unmatched_buy_ratio": None,
+            # 元数据
+            "data_source": "eastmoney_push2_open_price",
+            "note": "9:20-9:25轨迹竞价不可用（需Level-2数据），标记为unknown",
+        }
+        result[code_pure] = entry
+
+        # 收集缓存数据
+        if auction_volume is not None:
+            cache_data[code_pure] = {
+                "volume": auction_volume,
+                "price": effective_auction_price,
+                "change_pct": effective_auction_pct,
+            }
+
+    # ── 更新竞价量缓存 ──
+    if auto_cache and cache_data:
+        _update_auction_cache(cache_data, config_dir)
+
+    # ── 使用更新后的缓存重新计算量比 ──
+    for code_pure, entry in result.items():
+        cache_vol = cache_data.get(code_pure, {}).get("volume")
+        entry["auction_volume_ratio"] = _compute_auction_volume_ratio(
+            code_pure, cache_vol, config_dir
+        )
+
+    return result
+
+
+def _extract_auction_snapshot_for_context(
+    auction_data: dict[str, dict],
+    config: MonitorConfig,
+) -> dict:
+    """将竞价快照转换为 agent context 可注入的格式。
+
+    仅保留持仓+关键观察池标的，方便 LLM 使用。
+    """
+    # 确定哪些标的要注入：持仓 + 有 claims 支撑的观察池标的
+    core_codes: set[str] = set()
+    for pos in position_rows(config):
+        core_codes.add(_pure_stock_code(str(pos.get("code", ""))))
+
+    for theme in config.watchlist.get("themes", []):
+        for stock in theme.get("stocks", []):
+            code_pure = _pure_stock_code(str(stock.get("code", "")))
+            linked = stock.get("linked_claims") or stock.get("claim_basis")
+            if linked:
+                core_codes.add(code_pure)
+
+    filtered = {
+        code: entry for code, entry in auction_data.items()
+        if code in core_codes
+    }
+    return filtered
+
+
+def _build_sector_tiers(
+    config: MonitorConfig,
+    enriched_positions: list[dict],
+    quotes_by_code: dict[str, dict],
+) -> dict[str, dict]:
+    """计算每个持仓股的板块梯队（同theme标的按涨幅排序 T1/T2/T3）。
+
+    Returns:
+        {code_pure: {tier1_code, tier1_pct, tier2_code, tier2_pct,
+                      tier3_code, tier3_pct, avg_change, peers_count}}
+    """
+    # ── 1. 构建 code→[theme_id] 映射（从 watchlist）──
+    code_to_themes: dict[str, list[str]] = {}
+    for theme in config.watchlist.get("themes", []):
+        tid = theme.get("id", "")
+        for stock in theme.get("stocks", []):
+            c = _pure_stock_code(str(stock.get("code", "")))
+            if c:
+                code_to_themes.setdefault(c, []).append(tid)
+
+    # ── 2. 构建同 theme 的 code→pct_change 一览（持仓+观察池）──
+    # 先收集所有标的的实时涨跌
+    all_pct: dict[str, float] = {}
+    for _, quote in quotes_by_code.items():
+        c = _pure_stock_code(str(quote.get("code", "")))
+        pct = _to_float(quote.get("pct_change"))
+        if c and pct is not None:
+            all_pct[c] = pct
+
+    # 再从 positions 补充（可能不在 quotes 中）
+    for pos in enriched_positions:
+        c = _pure_stock_code(str(pos.get("code", "")))
+        pct = _to_float(pos.get("pct_change"))
+        if c and pct is not None and c not in all_pct:
+            all_pct[c] = pct
+
+    # ── 3. 对每个持仓，查它的 theme → 找同 theme 标的 → 排序 ──
+    result: dict[str, dict] = {}
+    for pos in enriched_positions:
+        code_pure = _pure_stock_code(str(pos.get("code", "")))
+        themes = code_to_themes.get(code_pure, [])
+        if not themes:
+            continue
+
+        # 收集所有同 theme 的标的（去重）
+        peers_set: set[str] = set()
+        for tid in themes:
+            for theme in config.watchlist.get("themes", []):
+                if theme.get("id") != tid:
+                    continue
+                for stock in theme.get("stocks", []):
+                    c = _pure_stock_code(str(stock.get("code", "")))
+                    if c:
+                        peers_set.add(c)
+
+        if not peers_set:
+            continue
+
+        # 按涨幅排序
+        peer_pct = [(c, all_pct.get(c)) for c in peers_set if all_pct.get(c) is not None]
+        peer_pct.sort(key=lambda x: x[1], reverse=True)
+
+        if not peer_pct:
+            continue
+
+        pct_values = [p for _, p in peer_pct]
+        avg_change = round(sum(pct_values) / len(pct_values), 2) if pct_values else None
+
+        tier = {
+            "avg_change": avg_change,
+            "peers_count": len(peer_pct),
+        }
+        # Tier 1/2/3（最多3个）
+        for i, (c, p) in enumerate(peer_pct[:3]):
+            tier[f"tier{i+1}_code"] = c
+            tier[f"tier{i+1}_pct"] = p
+            # 标记是否持仓
+            tier[f"tier{i+1}_is_position"] = any(
+                _pure_stock_code(str(p2.get("code", ""))) == c
+                for p2 in enriched_positions
+            )
+
+        # 标记自身的排名
+        for i, (c, _) in enumerate(peer_pct):
+            if c == code_pure:
+                tier["self_rank"] = i + 1
+                tier["self_rank_label"] = f"T{i+1}" if i < 3 else f"T{i+1}+"
+                break
+
+        result[code_pure] = tier
+
+    return result
+
+
 def _agent_context_data(
     config: MonitorConfig,
     value: datetime,
@@ -1349,6 +2525,25 @@ def _agent_context_data(
             enriched["latest"] = latest
         if pct is not None:
             enriched["pct_change"] = pct
+
+        # ── Phase 3: 实时持仓成本注入 ──
+        cost = _to_float(p.get("cost"))
+        if cost is not None and cost > 0 and latest is not None:
+            unrealized_pct = round((latest - cost) / cost * 100, 2)
+            enriched["avg_cost"] = cost
+            enriched["unrealized_pct"] = unrealized_pct
+            # 成本保护线：浮盈>10%→成本+5%; 5-10%→成本+3%; <5%→成本
+            if unrealized_pct > 10:
+                enriched["cost_protection_line"] = round(cost * 1.05, 2)
+            elif unrealized_pct > 5:
+                enriched["cost_protection_line"] = round(cost * 1.03, 2)
+            elif unrealized_pct > 0:
+                enriched["cost_protection_line"] = round(cost * 1.00, 2)
+            else:
+                # 浮亏：保护线 = 成本价（-3%以内守成本，-3%以上守95%成本）
+                enriched["cost_protection_line"] = round(
+                    cost * (1.0 if unrealized_pct >= -3 else 0.95), 2
+                )
         enriched_positions.append(enriched)
     sector_strengths = [
         {
@@ -1404,6 +2599,69 @@ def _agent_context_data(
         if buy_signal_candidates:
             primary_stock_code = buy_signal_candidates[0]["stock_code"]
 
+    # ── Phase 2: 竞价快照注入 ──
+    # 从当前 quote_snapshot 提取竞价数据（仅 09:20-09:30 有效）
+    auction_snapshot_data: dict = {}
+    current_time = value.astimezone(CN_TZ).time()
+    if time(9, 20) <= current_time <= time(9, 31):
+        try:
+            raw_auction = _auction_snapshot(
+                config, quote_snapshot,
+                auto_cache=True, config_dir=config.config_dir,
+            )
+            auction_snapshot_data = _extract_auction_snapshot_for_context(raw_auction, config)
+        except Exception as e:
+            logger.warning("竞价快照提取失败: %s", e)
+            auction_snapshot_data = {"_error": str(e)}
+
+    # ── Phase 4.2: 板块梯队对比 ──
+    sector_tier_data = _build_sector_tiers(config, enriched_positions, quotes_by_code)
+
+    # ── 将板块梯队注入每个持仓的 enriched dict ──
+    for pos in enriched_positions:
+        code = _pure_stock_code(str(pos.get("code", "")))
+        if code in sector_tier_data:
+            pos["sector_tier"] = sector_tier_data[code]
+
+    # ── Phase 6.2: 持仓类型标记 ──
+    # 为每个持仓自动分类：limit_up / weak_board / floating_loss / trend
+    _ys_for_ptype = _load_yesterday_summary(config_dir=config.config_dir)
+    yesterday_positions = (_ys_for_ptype or {}).get("positions", {})
+    for pos in enriched_positions:
+        code = _pure_stock_code(str(pos.get("code", "")))
+        yp = yesterday_positions.get(code, {})
+        is_limit_up = yp.get("is_limit_up", False) or pos.get("pct_change", 0) >= 9.0
+        unrealized = pos.get("unrealized_pct", 0) or 0
+        board_quality = yp.get("board_quality", "")
+        change_pct = yp.get("change_pct", 0) or 0
+        amplitude = yp.get("amplitude", 0) or 0
+
+        if is_limit_up and (board_quality == "weak" or amplitude > 6.0):
+            pos["position_type"] = "weak_board"
+        elif is_limit_up:
+            pos["position_type"] = "limit_up"
+        elif unrealized < -5:
+            pos["position_type"] = "floating_loss"
+        else:
+            pos["position_type"] = "trend"
+
+    # ── Phase 4.1b: 龙虎榜全市场总榜交叉校验 ──
+    # 仅收盘后（>= 16:00）执行，龙虎榜数据一般16:00-17:00发布
+    dt_board_data: dict = {}
+    if current_time >= time(16, 0):
+        try:
+            date_today = _state_date(value)
+            raw_board = _fetch_daily_dragon_tiger_board(date_today)
+            if raw_board.get("available") and raw_board.get("board"):
+                dt_board_data = _filter_dragon_tiger_board(
+                    raw_board["board"], config
+                )
+                dt_board_data["_board_count"] = len(raw_board["board"])
+                dt_board_data["_fetched_at"] = raw_board.get("fetched_at")
+        except Exception as e:
+            logger.warning("龙虎榜总榜获取失败: %s", e)
+            dt_board_data = {"_error": str(e)}
+
     return {
         "timestamp": value.astimezone(CN_TZ).isoformat(),
         "analysis_type": analysis_type,
@@ -1447,6 +2705,9 @@ def _agent_context_data(
             }
             for row in watch_stocks
         ],
+        "yesterday_summary": _load_yesterday_summary(config_dir=config.config_dir),
+        "auction_snapshot": auction_snapshot_data,
+        "dragon_tiger_board": dt_board_data,
     }
 
 
@@ -1556,6 +2817,80 @@ def format_agent_analysis_context(
         lines.append(f"行情错误：{'; '.join(quote_snapshot.get('errors', []))}")
     for quote in quote_snapshot.get("quotes", [])[:30]:
         lines.append(format_quote_line(quote))
+
+    # ── Phase 1+2: 注入昨日特征摘要 + 竞价快照 ──
+    yesterday = data.get("yesterday_summary")
+    if yesterday and yesterday.get("positions"):
+        lines.extend(["", "=== 昨日特征摘要 ==="])
+        lines.append(f"市场阶段: {yesterday.get('market', {}).get('stage', '')}")
+        for code, pos in yesterday.get("positions", {}).items():
+            up_flag = "🔒" if pos.get("is_limit_up") else ""
+            parts = [
+                f"{pos.get('avg_cost', '?')}",  # 成本
+                f"浮盈{pos.get('unrealized_pct', '?')}%",
+            ]
+            if pos.get("vs_ma5") is not None:
+                parts.append(f"vsMA5={pos.get('vs_ma5')}%")
+            if pos.get("entry_zone_distance"):
+                parts.append(f"区间{pos.get('entry_zone_range')}({pos.get('entry_zone_distance')})")
+            lines.append(f"- {code}{up_flag}: close={pos.get('close')} {'|'.join(parts)}")
+
+    auction = data.get("auction_snapshot")
+    if auction:
+        lines.extend(["", "=== 竞价快照 ==="])
+        for code, entry in auction.items():
+            trend = entry.get("auction_trend_920_925", "unknown")
+            vol_ratio = entry.get("auction_volume_ratio")
+            vs_yest = entry.get("auction_vs_yesterday_volume")
+            parts = [f"价={entry.get('auction_price')} ({entry.get('auction_change_pct')}%)"]
+            if entry.get("auction_volume") is not None:
+                parts.append(f"量={entry.get('auction_volume')}")
+            if vol_ratio is not None:
+                parts.append(f"量比={vol_ratio}")
+            if vs_yest is not None:
+                parts.append(f"vs昨={vs_yest}")
+            lines.append(f"- {code}: {' '.join(parts)}")
+
+    # ── Phase 3: 持仓成本信息注入 ──
+    if data.get("positions"):
+        lines.extend(["", "=== 持仓成本 ==="])
+        for pos in data["positions"]:
+            code = _pure_stock_code(str(pos.get("code", "")))
+            cost = pos.get("avg_cost")
+            unrealized = pos.get("unrealized_pct")
+            prot_line = pos.get("cost_protection_line")
+            tier = pos.get("sector_tier")
+            tier_str = ""
+            if tier:
+                rank = tier.get("self_rank_label", "")
+                avg = tier.get("avg_change", "")
+                tier_str = f" T{rank}/板块{avg}%"
+            ptype = pos.get("position_type", "")
+            ptype_str = f" [{ptype}]" if ptype else ""
+            if cost is not None:
+                lines.append(
+                    f"- {code}:{ptype_str} 成本{cost} 浮盈{unrealized}% 保护线{prot_line}{tier_str}"
+                )
+
+    # ── Phase 4.1b: 龙虎榜总榜摘要 ──
+    dt_board = data.get("dragon_tiger_board", {})
+    if dt_board and not dt_board.get("_error"):
+        watch_items = dt_board.get("watch_dt_items", [])
+        nettops = dt_board.get("dt_nettop5", [])
+        sector_summary = dt_board.get("dt_sector_summary", {})
+        lines.extend(["", "=== 龙虎榜总榜 ==="])
+        if watch_items:
+            lines.append(f"你的池子上榜: {'; '.join(watch_items[:3])}")
+        if nettops:
+            top_items = [f"{e.get('name','')}({e.get('net_buy','')})" for e in nettops[:3]]
+            lines.append(f"全市场净买TOP: {'; '.join(top_items)}")
+        if sector_summary:
+            sector_lines = [
+                f"{tid}: {info['total_net_str']} ({len(info['stocks'])}只)"
+                for tid, info in sector_summary.items()
+            ]
+            lines.append(f"板块龙虎汇总: {'; '.join(sector_lines)}")
+        lines.append(f"上榜总数: {dt_board.get('_board_count', 0)}只")
 
     lines.extend(
         [
@@ -2847,7 +4182,47 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     if args.daily_review_context:
         state_path = Path(args.state_file) if args.state_file else config.config_dir / "state.json"
-        print(format_daily_review_context(config, current, load_monitor_state(state_path)))
+        state = load_monitor_state(state_path)
+        print(format_daily_review_context(config, current, state))
+
+        # ── Phase 1.4: 收盘复盘自动提取昨日特征摘要 ──
+        # 从 state.json 的 last_quote_snapshot 提取并保存
+        qs = state.get("last_quote_snapshot", {})
+        if qs and qs.get("quotes"):
+            try:
+                daily_state = json.loads(
+                    (config.config_dir / "daily_state.json").read_text(encoding="utf-8")
+                ) if (config.config_dir / "daily_state.json").exists() else None
+            except Exception:
+                daily_state = None
+
+            summary = _build_yesterday_summary(config, qs, state, daily_state)
+            _save_yesterday_summary(summary, config.config_dir)
+            logger.info("收盘复盘: 昨日特征摘要已自动构建并保存 (%s 条持仓)",
+                         len(summary.get("positions", {})))
+
+            # ── 龙虎榜全市场总榜（17:00 数据已就绪）──
+            try:
+                date_today = _state_date(current)
+                raw_board = _fetch_daily_dragon_tiger_board(date_today)
+                if raw_board.get("available") and raw_board.get("board"):
+                    board_filtered = _filter_dragon_tiger_board(raw_board["board"], config)
+                    # 将龙虎榜数据保存到 summary 的 market 字段中
+                    summary["dragon_tiger_board"] = {
+                        "board_count": len(raw_board["board"]),
+                        "watch_dt_items": board_filtered.get("watch_dt_items", []),
+                        "dt_nettop5": board_filtered.get("dt_nettop5", []),
+                        "dt_sector_summary": board_filtered.get("dt_sector_summary", {}),
+                        "fetched_at": raw_board.get("fetched_at"),
+                    }
+                    _save_yesterday_summary(summary, config.config_dir)
+                    logger.info("龙虎榜总榜已采集: %d 只上榜, %d 只持仓/观察池命中",
+                                 len(raw_board["board"]),
+                                 len(board_filtered.get("watch_dt_items", [])))
+            except Exception as e:
+                logger.warning("龙虎榜总榜采集失败（不影响主流程）: %s", e)
+        else:
+            logger.warning("收盘复盘: last_quote_snapshot 无数据，skip 特征摘要保存")
         return 0
 
     if args.freshness_check:

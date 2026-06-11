@@ -10,20 +10,50 @@
 1. 尾盘买入决策：是否触发尾盘低吸条件？（回踩企稳/放量/板块联动）
 2. 尾盘卖出决策：是否触发减仓/清仓条件？（破位/尾盘杀/次日风险）
 3. 持仓过夜决策：今日持仓怎么过夜？（满仓/半仓/空仓）
-4. 明日预案：基于今日收盘，明天的核心假设
+4. 【新增】每只持仓输出明日剧本预判：给出每只持仓的明日预期（强修复/弱震荡/强分歧）及概率、核心关注点
+5. 【新增】烂板票特殊处理：若某持仓是 weak_board 类型，需回顾龙虎榜席位（买一/买二行为、净买额）、封板质量，给出"明日竞价关注要点"
 
 【输出要求】
-- 重点：尾盘决策 + 过夜策略
-- 必须包含：买入/卖出/过夜决策 + 明日预案
-- 字数：200字以内
+- 重点：尾盘决策 + 过夜策略 + 明日预判
+- 必须包含：买入/卖出/过夜决策 + 明日预判 + tomorrow_scenarios
+- 字数：300字以内（因新增预判）
 - 格式：JSON
 {
   "tail_buy": "无",
   "tail_sell": "无",
   "overnight_stance": "轻仓过夜",
   "tomorrow_preview": "明天大概率低开，等企稳信号",
+  "position_previews": [
+    {"code": "002409", "type": "weak_board", "tomorrow_expectation": "若竞价高开>2%则持有，低开<1%则竞价减半", "key_level": "成本线23.5"},
+    {"code": "000636", "type": "trend", "tomorrow_expectation": "趋势延续概率60%，连涨后可能分歧", "key_level": "MA5=32.1"}
+  ],
   "narrative": "尾盘无操作，轻仓过夜等明天"
 }
+
+【⚠️ 新增：tomorrow_scenarios 输出（明日剧本，供次日09:26使用）】
+请在 JSON 中额外输出 `tomorrow_scenarios` 字段，作为次日竞价分析的对比基准：
+
+{
+  "tomorrow_scenarios": {
+    "strong_repair": {
+      "probability": "30%",
+      "auction_signature": "全A高开>0.5%，竞价量放大，持仓股竞价符合预期",
+      "action_if_match": "持仓不动，观察加仓机会"
+    },
+    "weak_consolidation": {
+      "probability": "50%",
+      "auction_signature": "全A平开±0.3%，竞价量正常，个股分化",
+      "action_if_match": "做T为主，不新增净仓"
+    },
+    "strong_divergence": {
+      "probability": "20%",
+      "auction_signature": "全A低开>0.5%，竞价量萎缩或放量下杀",
+      "action_if_match": "直接降仓，跌破risk_line执行风控"
+    }
+  }
+}
+
+probability 总和应为 100%。auction_signature 应尽量具体（含指数、竞价量、持仓股特征）。
 
 【⚠️ 强制要求：daily_state 输出】
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
