@@ -1,0 +1,548 @@
+claims:
+- id: claim-20260611-001-a
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: market-cycle
+  subject: 全A指数趋势性下跌时间维度
+  timeframe: short-term
+  statement: 全A指数本轮趋势性下跌已超过23个交易日，此前最长一波单边下跌为2024年1月的24个交易日（量化去雪球化产品引发的流动性踩踏），本轮已是近几年第二长的持续下跌
+  evidence_quote: 全A指数本轮趋势性下跌已超过23个交易日。历史对照来看，此前最长的一波单边下跌出现在2024年1月——量化去雪球化产品引发的流动性踩踏，持续约24个交易日。本轮下跌的时间长度已是最近几年第二长。
+  interpretation: UP从时间维度判断调整已接近历史极值（24天），但不等于马上见底，而是风险收益比正在向有利方向倾斜
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    methodology_pages: []
+    cases: []
+  topic: 全A指数23个连续交易日下跌，接近2024年1月流动性踩踏的24天纪录
+  related_stocks: []
+  tags:
+  - 全A指数
+  - 趋势性下跌
+  - 历史对照
+  - 风险收益比
+- id: claim-20260611-001-b
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: market-cycle
+  subject: 本轮趋势性下跌结构特征
+  timeframe: short-term
+  statement: 本轮下跌是连续性阴跌，中间没有整理平台，属于温水煮蛙式持续阴跌，在历史上极为少见；市场承接力量在持续而缓慢地消耗，而非一次性出清
+  evidence_quote: 本轮下跌与历史多数调整有一个关键的结构差异：以往的持续下跌中间通常会出现整理平台，市场休整之后再继续调整，呈跌歇跌的台阶式节奏；而这一次是连续性的阴跌，中间没有像样的休整平台，也没有过度的单边恐慌杀跌。这种温水煮蛙式的持续阴跌在历史上极为少见，意味着市场承接力量在持续而缓慢地消耗，而非一次性出清。
+  interpretation: UP强调本轮下跌结构与历史上典型的台阶式下跌不同，是连续阴跌。这意味着出清方式不同，不会出现恐慌性底部，而是缓慢消耗后可能以时间换空间的方式见底
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    methodology_pages: []
+    cases: []
+  topic: 本轮下跌为连续阴跌而非台阶式下跌，结构特征在历史上极为少见
+  related_stocks: []
+  tags:
+  - 连续阴跌
+  - 温水煮蛙
+  - 结构差异
+  - 历史对比
+- id: claim-20260611-001-c
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: market-cycle
+  subject: 全A中阳线企稳信号
+  timeframe: short-term
+  statement: 在趋势扭转之前一切局部热点都是存量博弈下的腾挪；只有全A指数收出一根放量中阳线后，阶段性区间底部才可预期，市场的操作难度才会大幅下降
+  evidence_quote: 当下市场的症结只有一个：全A指数处于趋势性下跌之中。在趋势扭转之前，一切局部热点都是存量博弈下的腾挪。什么时候全A指数能收出一根放量中阳线——不能说那就直接是底部企稳，但阶段性区间底部就可预期，市场的操作难度会相应大幅下降。
+  interpretation: UP将全A放量中阳线定位为当前唯一需要重点盯住的指标，在此之前不预测只跟随
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    methodology_pages: []
+    cases: []
+  topic: 全A放量中阳线是趋势扭转的唯一确认信号
+  related_stocks: []
+  tags:
+  - 全A指数
+  - 中阳线
+  - 企稳信号
+  - 不预测只跟随
+- id: claim-20260611-001-d
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: market-cycle
+  subject: 修复动能提前消耗
+  timeframe: intraday
+  statement: 午后市场震荡回升提前消耗了部分修复动能，原本预期次日修复性反弹的逻辑被削弱
+  evidence_quote: 中午曾提示：如果下午市场没有回暖，明天有望迎来一个修复性反弹。但实际结果是午后市场震荡回升，提前消耗了部分修复动能。
+  interpretation: UP认为午后提前回升消耗了次日修复预期，属于偏不利的信号
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    methodology_pages: []
+    cases: []
+  topic: 午后回升提前消耗次日修复动能
+  related_stocks: []
+  tags:
+  - 午后回升
+  - 修复动能
+  - 预期管理
+- id: claim-20260611-001-e
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: sector-theme
+  subject: 涨价主线扩散至高潮
+  timeframe: short-term
+  statement: 涨价逻辑从AI上游材料发散到半导体材料，进一步扩散到锂电材料、化工材料、有色金属，属于典型的高潮迹象，主升阶段接近尾声，性价比转向补涨方向
+  evidence_quote: 板块层面没有太大变化，主线仍是科技上游的涨价行情，且愈演愈烈。扩散路径清晰可见：最初从AI上游材料出发，发散到半导体材料，今日甚至锂电材料、部分化工材料以及有色金属都出现明显异动。涨价逻辑扩散到与AI关联度递减的外围品种，这是典型的高潮迹象——当一个主题开始雨露均沾，往往意味着主升阶段接近尾声，性价比转向补涨方向。
+  interpretation: UP判断涨价主线已扩散到高潮阶段，再追性价比下降，应关注补涨方向
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    - 市场分析/涨价主线
+    methodology_pages: []
+    cases: []
+  topic: 涨价主线从AI上游材料扩散到有色金属等外围品种，主升接近尾声
+  related_stocks: []
+  tags:
+  - 涨价主线
+  - 高潮迹象
+  - 雨露均沾
+  - 补涨方向
+- id: claim-20260611-001-f
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: sector-theme
+  subject: 补涨方向看设备和封测
+  timeframe: short-term
+  statement: 涨价主线补涨方向不必局限在材料里继续挖，晶圆制造、设备、封装工艺等受益于涨价与扩产但尚未充分定价的环节值得关注
+  evidence_quote: 补涨的找法不必局限在材料里继续挖。产业链上同样受益于涨价与扩产、但尚未充分定价的环节值得关注：晶圆制造、设备、封装工艺等。
+  interpretation: UP给出明确的补涨方向：从材料切换到设备和封测环节，逻辑是受益于涨价扩产但尚未充分定价
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    - 市场分析/涨价主线
+    methodology_pages: []
+    cases: []
+  topic: 涨价补涨方向从材料向晶圆制造、设备、封装切换
+  related_stocks: []
+  tags:
+  - 补涨
+  - 晶圆制造
+  - 设备
+  - 封装
+  - 涨价扩散
+- id: claim-20260611-001-g
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: sector-theme
+  subject: 指数反转后核心主线回归
+  timeframe: trend
+  statement: 等到指数反转时，资金大概率会重新回到芯片、光互连、存储、PCB等核心主线方向，这是本轮行情的母题，回调不改地位
+  evidence_quote: 而等到最后指数要反转的时候，资金大概率会重新回到芯片、光互连、存储、PCB等核心主线方向上——这是本轮行情的母题，回调不改地位。
+  interpretation: UP确认芯片/光互连/存储/PCB为A股本轮行情核心主线母题，回调后仍是反转时的首选方向
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    - 市场分析/科技主线
+    methodology_pages: []
+    cases: []
+  topic: 芯片/光互连/存储/PCB是行情母题，回调不改地位
+  related_stocks: []
+  tags:
+  - 芯片
+  - 光互连
+  - 存储
+  - PCB
+  - 核心主线
+  - 母题
+- id: claim-20260611-001-h
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: sector-theme
+  subject: 智能体A股预期差
+  timeframe: trend
+  statement: 2026年全球token消耗最大增长极是推理，海外智能体标的大幅上涨（智谱涨超10倍、Anthropic估值近万亿美元、英伟达战略核心转向推理），但国内A股除了算力租赁和云服务商之外对此毫无定价，存在显著预期差
+  evidence_quote: 始终放不下的一个方向是智能体（Agent）。逻辑链条：今年token消耗的最大增长极是推理。德勤、IDC、Gartner等机构均表述2026年推理需求已超过训练需求。全球各类智能体如雨后春笋般涌现。海外映射上，英特尔、ARM、AMD今年均录得数倍涨幅，智谱涨了十几倍，Anthropic在算力受限的情况下年化增速达80倍、估值逼近万亿美元；英伟达的战略核心开始向推理倾斜，字节跳动启动自研CPU。但国内A股市场上，除了算力租赁和云服务商之外对此毫无定价，这是不合理的。
+  interpretation: UP认为推理智能体是A股当前最大的预期差方向，海外映射凶猛但A股没有对应标的定价，值得持续跟踪等待催化与载体出现
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    - 市场分析/智能体
+    methodology_pages: []
+    cases: []
+  topic: 智能体推理需求是A股最大预期差方向，海外映射凶猛但A股尚未定价
+  related_stocks: []
+  tags:
+  - 智能体
+  - 推理需求
+  - 预期差
+  - 算力租赁
+  - 海外映射
+- id: claim-20260611-001-i
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: sector-theme
+  subject: 硅电容AI原生增量
+  timeframe: trend
+  statement: 硅电容是被动元件里少有的AI原生增量品种，采用半导体工艺（超薄100μm以下、高频低阻抗、寿命约为传统MLCC的20倍），适配3D先进封装，已获英伟达和苹果验证应用；三星电机已拿下约10亿美元订单，2026年国际市场硅电容短缺率恐高达57%；火炬电子(600678)持有天极科技约51.58%股权，天极科技已实现6寸量产、8寸中试
+  evidence_quote: 传统MLCC在AI芯片高频、高温、高功耗环境下性能衰减明显；硅电容采用半导体工艺，具备超薄（可降至100μm以下）、高频下极低阻抗、寿命可达传统MLCC约20倍等优势，且天然适配3D先进封装，已获英伟达和苹果率先验证应用。三星电机已拿下约10亿美元硅电容订单（2027年起交付）。摩根士丹利供需模型推演显示，扣除台积电自产自用体系后，2026年国际市场硅电容短缺率恐高达57%，未来三年结构性紧缺预计持续。子公司天极科技已实现6寸量产、8寸中试，产品应用于AI服务器GPU、800G/1.6T光模块及军工微波领域并批量供货；火炬电子持有天极科技约51.58%股权并纳入合并报表。
+  interpretation: UP将硅电容定位为AI原生增量品种，与今日盘面涨价向半导体材料扩散的主线共振；关键跟踪点为天极科技8寸产线量产进度以及国际订单外溢至国产供应链的可能性
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    - 市场分析/被动元件
+    methodology_pages: []
+    cases: []
+  topic: 硅电容是AI原生增量品种，火炬电子(600678)子公司天极科技6寸量产8寸中试
+  related_stocks:
+  - code: '600678'
+    name: 火炬电子
+    role: 持有天极科技51.58%股权的母公司，硅电容AI增量核心标的-主板可交易
+  tags:
+  - 硅电容
+  - AI原生增量
+  - 火炬电子
+  - 天极科技
+  - 被动元件
+  - MLCC替代
+- id: claim-20260611-001-j
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: sector-theme
+  subject: 长川科技昇腾测试链
+  timeframe: trend
+  statement: 长川科技(300604)是国内唯一具备高端SoC测试机批量出货能力的供应商，D9000系列数字测试机已切入昇腾、平头哥等AI芯片供应链，该领域国产化率不足10%；瑞银预计其高端SoC测试机收入2026-28年CAGR为65%，中长期潜在市场规模或超20亿美元
+  evidence_quote: 长川科技是国内唯一具备高端SoC测试机批量出货能力的供应商，D9000系列数字测试机已切入昇腾、平头哥等AI芯片供应链，该领域国产化率尚不足10%。瑞银预计其高端SoC测试机收入2026–28年CAGR为65%；中长期假设GPU年出货1000万张、测试强度1.5%，潜在市场规模或超20亿美元。
+  interpretation: UP将长川科技(300604)定位为时间缩微时代设备端价值重估的卡位品种，受益于华为昇腾950放量和国产替代；跟踪点：昇腾950放量节奏与D9000订单兑现
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    - 市场分析/半导体设备
+    - 市场分析/昇腾生态
+    methodology_pages: []
+    cases: []
+  topic: 长川科技(300604)是昇腾生态测试环节卡位品种，国产化率不足10%
+  related_stocks:
+  - code: '300604'
+    name: 长川科技
+    role: 昇腾生态测试设备卡位品种-创业板不可交易
+  tags:
+  - 长川科技
+  - SoC测试机
+  - 昇腾
+  - 国产替代
+  - 半导体设备
+- id: claim-20260611-001-k
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: sector-theme
+  subject: 上海微电子DUV光刻机交付
+  timeframe: short-term
+  statement: 市场流传消息称本周日6月14日上海微电子首台量产浸没式DUV光刻机将正式交付ICRD；茂莱光学(688502)被传为国产28nm浸没式DUV物镜镜片与匀光系统供应商，单机价值量5000万元以上，2025年交付40套、2026年订单超100套；多项关键数据未经公司公告或权威渠道核实
+  evidence_quote: 市场流传消息称：本周日（6月14日）上海微电子首台量产浸没式DUV光刻机将正式交付ICRD（上海集成电路研发中心），定位为可商用、可量产的国产高端光刻机节点。流传材料中关于茂莱光学的具体表述包括：为国产28nm浸没式DUV物镜镜片与匀光系统供应商，单机价值量5000万元以上；2025年交付40套、2026年订单超100套；同时为KLA、Camtek等量检测厂商核心光学件供应商；2026年一季度末在手订单6.6亿元、半导体占比69%、半导体订单同比增82%；5.63亿元可转债募资投向深紫外光学器件。
+  interpretation: UP提示这是市场流传消息未经公司公告或权威渠道核实，需警惕利好兑现即利空风险、科创板20%涨跌幅双向波动剧烈、光学件毛利率量产初期承压；事件可跟踪，传言不可当作研究
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    - 市场分析/半导体设备
+    methodology_pages: []
+    cases: []
+  topic: 上海微电子DUV光刻机交付传闻，茂莱光学(688502)为物镜镜片供应商（未经核实）
+  related_stocks:
+  - code: '688502'
+    name: 茂莱光学
+    role: 国产28nm浸没式DUV物镜镜片与匀光系统供应商（未经核实）-科创板不可交易
+  tags:
+  - 上海微电子
+  - DUV光刻机
+  - 茂莱光学
+  - 国产替代
+  - 市场传闻
+- id: claim-20260611-001-l
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: methodology
+  subject: 趋势下跌中恐慌买阴策略
+  timeframe: short-term
+  statement: 趋势性下跌中恐慌买阴（借外部因素引发的恐慌买入）属于博弈属性的操作，本质是抢反抽；震荡市中阴线买阴胜率尚可，但当前趋势性下跌中只有恐慌买阴（等极端情绪释放时介入）胜率才会高一些，且不应该用大仓位
+  evidence_quote: 恐慌买阴的本质是抢反抽，属于博弈属性的操作——能博弈到喝点汤就喝，喝不到也不打紧，因为博弈本身就不该用大仓位。一般而言，震荡市中阴线买阴的胜率尚可；而在当前这种趋势性下跌中，只有恐慌买阴（即等极端情绪释放时介入）胜率才会高一些。
+  interpretation: UP明确当前市场环境下买阴策略的定义和边界：1）必须是恐慌买阴（极端情绪释放时），不是普通阴线；2）博弈属性，小仓位；3）今日恐慌烈度不够，反抽力度一般属正常概率分布
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    methodology_pages: []
+    cases:
+    - 2026-06-11买阴案例
+  topic: 趋势性下跌中只有恐慌买阴策略有效，且须小仓位博弈
+  related_stocks: []
+  tags:
+  - 恐慌买阴
+  - 博弈策略
+  - 仓位管理
+  - 趋势下跌
+- id: claim-20260611-001-m
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: operation
+  subject: 仓位纪律高于判断
+  timeframe: permanent
+  statement: 趋势下跌中恐慌买阴是小仓位博弈不是建仓动作；建仓动作只在全A中阳线企稳之后展开；仓位纪律高于一切判断，判断可以错纪律不能破
+  evidence_quote: 趋势下跌中，恐慌买阴是小仓位博弈，不是建仓动作；建仓动作只在全A中阳线企稳之后展开。仓位纪律高于一切判断——判断可以错，纪律不能破。
+  interpretation: UP将仓位纪律定位为最高优先级的操作原则，判断允许出错但纪律必须遵守；区分博弈性买入和建仓性买入的不同条件和仓位管理
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    methodology_pages:
+    - 框架/仓位管理
+    cases: []
+  topic: 仓位纪律高于判断，建仓只在全A中阳线企稳后
+  related_stocks: []
+  tags:
+  - 仓位纪律
+  - 建仓条件
+  - 全A中阳线
+  - 博弈vs建仓
+- id: claim-20260611-001-n
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: risk
+  subject: 情绪端割裂严重
+  timeframe: intraday
+  statement: 今日A股情绪端割裂严重，涨停与跌停数量都不少，20%涨跌幅弹性个股表现突出，资金在局部高度活跃与整体避险之间撕裂
+  evidence_quote: 情绪端割裂较为严重：涨停与跌停数量都不少，且20%涨跌幅的弹性个股表现突出，资金在局部高度活跃与整体避险之间撕裂。
+  interpretation: UP认为当前市场情绪结构矛盾，局部活跃与整体避险并存，不是健康的市场状态
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    methodology_pages: []
+    cases: []
+  topic: 今日情绪端涨停跌停数量都不少，资金在局部活跃与整体避险之间撕裂
+  related_stocks: []
+  tags:
+  - 情绪割裂
+  - 涨停
+  - 跌停
+  - 20%涨跌幅
+  - 避险
+- id: claim-20260611-001-o
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: sector-theme
+  subject: 天地源国资科技资产注入
+  timeframe: trend
+  statement: 天地源(600665)确立以跨界并购为核心、基金培育产业链与投参控衔接为两翼的转型方案，与西安高新金控合作聚焦六大新质生产力领域投资并购，西高投已助推铂力特(688333)、炬光科技(688167)等登陆资本市场，属于地产壳加国资科技资产注入预期范式，弹性来自预期，落地节奏与标的质量是最大变数
+  evidence_quote: 公司在今年业绩说明会上表示，已确立以跨界并购为核心，基金培育产业链与投参控衔接为两翼的系统性转型方案，制定了明确的产业收并购计划，并与西部证券等机构构建了涵盖投行、产业基金的协作网络。去年公司已与西安高新金融控股集团签署战略合作协议，围绕未来信息、未来智造、未来健康、未来能源、未来材料、未来空间六大新质生产力领域合作，范围涵盖投资并购、共同设立基金、股权收购及参与上市公司定增。
+  interpretation: UP将天地源(600665)定位为地产壳加国资科技资产注入预期的弹性品种，事件驱动属性强，基本面尚未兑现，落地节奏与标的质量是最大变数
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    methodology_pages: []
+    cases: []
+  topic: 天地源(600665)地产壳加国资科技资产注入预期，属于事件驱动型品种
+  related_stocks:
+  - code: '600665'
+    name: 天地源
+    role: 地产壳加国资科技资产注入预期的弹性品种-主板可交易
+  tags:
+  - 天地源
+  - 国资科技资产注入
+  - 壳价值
+  - 事件驱动
+  - 西安高新
+- id: claim-20260611-001-p
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: sector-theme
+  subject: DeepSeek昇腾验证与韬定律
+  timeframe: trend
+  statement: DeepSeek-V4首次在华为昇腾NPU上完成细粒度专家并行方案验证，打通国产大模型与国产算力的适配通道；华为发布韬定律指引芯片性能演进从几何缩微转向时间缩微，架构趋向多芯片封装3D堆叠；预计2026年下半年昇腾950超节点批量上市
+  evidence_quote: 据瑞银证券：DeepSeek-V4首次在华为昇腾NPU上完成细粒度专家并行方案验证，将万亿参数级模型首次写入国产芯片官方硬件清单，打通国产大模型与国产算力的适配通道；预计2026年下半年昇腾950超节点批量上市后将进一步推动昇腾系AI芯片放量。截至2026年3月，全国日均Token调用量已突破140万亿，两年间增长超千倍。华为于2026年5月发布韬（τ）定律，指引芯片性能演进从依赖光刻的几何缩微转向时间缩微，架构趋向多芯片封装、3D堆叠等高复杂度形态。
+  interpretation: UP将DeepSeek昇腾验证和韬定律定位为国产算力生态的重大进展，为昇腾生态链（含长川科技(300604)等设备股）提供中期叙事支撑
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    - 市场分析/昇腾生态
+    methodology_pages: []
+    cases: []
+  topic: DeepSeek-V4成功适配华为昇腾NPU，华为韬定律指引算力架构趋势
+  related_stocks: []
+  tags:
+  - DeepSeek
+  - 昇腾
+  - 韬定律
+  - 时间缩微
+  - 国产算力
+- id: claim-20260611-001-q
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: macro
+  subject: 国常会科技强国部署
+  timeframe: trend
+  statement: 国务院常务会议（李强主持）听取贯彻落实全国科技大会精神情况汇报，明确锚定科技强国建设目标，强化国家战略科技力量体系化协同攻关，加快实现高水平科技自立自强
+  evidence_quote: 国务院常务会议（李强主持）听取贯彻落实全国科技大会精神情况汇报。会议指出，要锚定科技强国建设目标，高效组织实施国家重大科技任务，促进重大设施高效利用，强化国家战略科技力量体系化协同攻关；要夯实科技强国建设根基，进一步明确基础研究主攻方向和重点领域，营造有利于原始创新的科研生态，加快实现高水平科技自立自强。
+  interpretation: UP认为政策对科技自立自强表述强度延续，与盘面国产链中期叙事互为支撑；政策面是慢变量不构成短期交易信号，但确认了科技主线母题地位不变
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    methodology_pages: []
+    cases: []
+  topic: 国常会强调科技强国建设，政策面对科技主线构成中长期支撑
+  related_stocks: []
+  tags:
+  - 国常会
+  - 科技强国
+  - 政策面
+  - 科技自立自强
+- id: claim-20260611-001-r
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: sector-theme
+  subject: 国产链核心品种表现
+  timeframe: intraday
+  statement: 今日收盘观察国产链核心品种海光信息(688041)、中芯国际(688981)、北方华创(002371)等权重容量股日内收红的居多
+  evidence_quote: 收盘观察，国产链核心品种——海光信息、中芯国际、北方华创等权重容量股——日内收红的居多。
+  interpretation: UP观察到国产链核心品种相对抗跌，与国常会科技强国政策叙事和DeepSeek昇腾验证催化形成呼应
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    methodology_pages: []
+    cases: []
+  topic: 海光信息(688041)/中芯国际(688981)/北方华创(002371)等国产链核心权重今日收红居多
+  related_stocks:
+  - code: '002371'
+    name: 北方华创
+    role: 国产链核心权重容量股，今日收红-主板可交易
+  - code: '688041'
+    name: 海光信息
+    role: 国产链核心权重容量股，今日收红-科创板不可交易
+  - code: '688981'
+    name: 中芯国际
+    role: 国产链核心权重容量股，今日收红-科创板不可交易
+  tags:
+  - 海光信息
+  - 中芯国际
+  - 北方华创
+  - 国产链
+  - 权重容量股
