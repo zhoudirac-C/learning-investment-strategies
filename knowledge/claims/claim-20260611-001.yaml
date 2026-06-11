@@ -1,0 +1,114 @@
+claims:
+- id: claim-20260611-001-a
+  source_path: sources/original/bilibili/2026-06-11-0917-图片-一、隔夜与开盘预判 周三市场全天震荡调整，深成指、创业板指均.md
+  source_date: '2026-06-11'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-11T09:25:00'
+  claim_type: market-cycle
+  subject: 6月11日市场定性——地量信号+科技内部高切低
+  statement: 沪指失守4000点但午后缩量"砸不动"，地量信号初现。外盘冲击（SpaceX IPO美元虹吸）主要体现于开盘定价，A股随后回归自身节奏。资金在科技内部做"高切低"而非全面防御，是偏积极信号。今日关键：开盘缩量=修复概率↑；开盘放量下杀=防守为先。
+  evidence_quote: 地量出现意味着市场风险已释放大半，近一周的主要任务就是观察反弹的持续性。今天的关键牌只有一张——开盘量能。资金没有转向全面防御，而是在科技内部做"高切低"，这是偏积极的信号。
+  interpretation: 市场处于风险释放尾声，但反弹强度取决于开盘量能。科技内部分化而非全面退潮，结构性机会在涨价硬逻辑方向。
+  confidence: high
+  status: active
+  intensity: high
+  tags: [市场周期判断, 地量, 高切低]
+
+- id: claim-20260611-001-b
+  source_path: sources/original/bilibili/2026-06-11-0917-图片-一、隔夜与开盘预判 周三市场全天震荡调整，深成指、创业板指均.md
+  source_date: '2026-06-11'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-11T09:25:00'
+  claim_type: sector-theme
+  subject: 上游材料——电子树脂/六氟化钨继续是科技内部相对强势分支
+  statement: 电子树脂和六氟化钨比"光"更主动，既有连板的圣泉集团、和远气体，也有走趋势的中船特气、中巨芯。缺货+涨价的硬逻辑比远期叙事更让资金踏实，短期或继续是科技内部的相对强势分支。
+  evidence_quote: 昨天电子树脂和六氟化钨走得比"光"更主动，相比天娱数科这种资金抱团的产物，既有连板的圣泉集团、和远气体，也有走趋势的中船特气、中巨芯。缺货＋涨价的硬逻辑确实比远期叙事更让资金踏实，短期或继续是科技内部的相对强势分支。
+  interpretation: 上游材料(WF6/电子树脂)仍是第一梯队方向。连板票(和远气体/圣泉集团)+趋势票(中船特气/中巨芯)并存说明方向深度足够。硬逻辑>远期叙事。
+  confidence: high
+  status: active
+  intensity: high
+  tags: [上游材料, 电子特气, WF6, 电子树脂]
+  related_stocks:
+  - code: '002971'
+    name: 和远气体
+    role: 主板可交易
+  - code: '605589'
+    name: 圣泉集团
+    role: 主板可交易
+
+- id: claim-20260611-001-c
+  source_path: sources/original/bilibili/2026-06-11-0917-图片-一、隔夜与开盘预判 周三市场全天震荡调整，深成指、创业板指均.md
+  source_date: '2026-06-11'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-11T09:25:00'
+  claim_type: sector-theme
+  subject: 电子特气/WF6涨价逻辑强化——同比涨幅超200%
+  statement: 国内99.999%纯度六氟化钨现价1670-1810元/kg，同比涨幅超200%。钨出口管制+海外原料短缺，2026年下半年海外供应将无法得到保证，推动国内需求增长和价格上涨。
+  evidence_quote: 据买化塑研究院监测，国内99.999%纯度六氟化钨现价1670–1810元/kg，同比涨幅超200%。山西证券冀泳洁认为，2026年下半年六氟化钨海外供应将无法得到保证，从而推动国内市场需求增长和价格上涨。
+  interpretation: WF6涨价逻辑收获新的第三方数据验证，涨幅超预期(200%而非此前的3-4倍)。持续性强化的催化剂：①价格数据持续更新；②海外停产如期执行。
+  confidence: high
+  status: active
+  intensity: high
+  tags: [电子特气, WF6, 涨价逻辑]
+  related_stocks:
+  - code: '002971'
+    name: 和远气体
+    role: 主板可交易
+  - code: '600378'
+    name: 昊华科技
+    role: 主板可交易
+  - code: '688146'
+    name: 中船特气
+    role: 科创板-不可交易
+
+- id: claim-20260611-001-d
+  source_path: sources/original/bilibili/2026-06-11-0917-图片-一、隔夜与开盘预判 周三市场全天震荡调整，深成指、创业板指均.md
+  source_date: '2026-06-11'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-11T09:25:00'
+  claim_type: sector-theme
+  subject: 今日两个核心观察点——MLCC/铜箔/液冷抗跌方向+光模块/电源超跌修复
+  statement: 观察点一：MLCC/铜箔/液冷(材料端)昨日抗跌→主动领涨则科技高低切换成立；补跌则科技进入普遍出清。观察点二：光模块/数据中心电源昨日超跌→缩量弱反抽=做T；放量承接=参与。半导体应转向区间交易，光模块/PCB是资金承接方向。
+  evidence_quote: 半导体应由"持股待涨"转向"区间交易"；若资金从半导体撤出，光模块与PCB是机构共识度较高的承接方向。MLCC、铜箔、液冷（材料端）等昨日抗跌方向，今天若能主动领涨，说明科技内部的高低切换成立。
+  interpretation: 今日核心盯盘框架已明确。抗跌方向(MLCC/铜箔/液冷材料)的走势定性决定科技是继续修复还是全面出清。超跌方向修复质量决定操作深度。半导体降级为区间交易。
+  confidence: high
+  status: active
+  intensity: high
+  tags: [操作策略, 盯盘框架, MLCC, 光模块, PCB]
+
+- id: claim-20260611-001-e
+  source_path: sources/original/bilibili/2026-06-11-0917-图片-一、隔夜与开盘预判 周三市场全天震荡调整，深成指、创业板指均.md
+  source_date: '2026-06-11'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-11T09:25:00'
+  claim_type: operation
+  subject: 6月11日操作预案——做T为主，右侧量价确认不加仓
+  statement: 总基调：已关注方向以盘前预案做T为主，进攻力度较弱的保留先手，不见量价确认不加仓，右侧原则不变。半导体转向区间交易。防御方向（红利/银行/电力）是过渡板块非进攻主线。低位板块等双底突破或下沿企稳右侧信号，宁可错过左侧。
+  evidence_quote: 总基调：已关注方向以盘前预案做T为主，进攻力度较弱的保留先手，盘中看力度再做应对——不见量价确认不加仓，右侧原则不变。半导体应由"持股待涨"转向"区间交易"。耐心为先：低位板块尚未出现双底突破或下沿企稳的右侧信号，宁可错过左侧，等信号出现后再参与。
+  interpretation: 操作纪律延续6/10复盘框架：做T为主、右侧原则不变。新增：半导体降级为区间交易、防御方向非进攻主线、低位板块需等右侧信号。
+  confidence: high
+  status: active
+  intensity: high
+  tags: [操作纪律, 做T, 右侧交易, 区间交易]
+
+- id: claim-20260611-001-f
+  source_path: sources/original/bilibili/2026-06-11-0917-图片-一、隔夜与开盘预判 周三市场全天震荡调整，深成指、创业板指均.md
+  source_date: '2026-06-11'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-11T09:25:00'
+  claim_type: sector-theme
+  subject: SK海力士ADR——A股映射太极实业、佰维存储
+  statement: SK海力士计划8月赴美发行ADR，已拿下HBM4超2/3订单，市值突破1万亿美元。A股映射：太极实业(600667)持有合资55%股权；佰维存储与SK海力士建立长期合作。映射强度取决于市场整体风偏，更多是情绪层面联动。
+  evidence_quote: SK海力士计划8月在美发行ADR。A股映射方面：太极实业持有与SK海力士合资的海太半导体55%股权；佰维存储与三星、SK海力士、美光等主要存储晶圆厂建立了长期合作关系。映射强度取决于市场整体风偏，更多是情绪层面的联动。
+  interpretation: SK海力士ADR对映射标的属情绪催化，在当前弱势环境下不宜过度解读。但太极实业(600667)的55%合资股权是实质性关联，非纯题材。
+  confidence: low
+  status: active
+  intensity: low
+  tags: [SK海力士, 存储, ADR]
+  related_stocks:
+  - code: '600667'
+    name: 太极实业
+    role: 主板可交易
+  - code: '688525'
+    name: 佰维存储
+    role: 科创板-不可交易
