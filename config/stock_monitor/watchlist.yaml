@@ -53,11 +53,12 @@ themes:
     - 联瑞新材(688300-科创)
     - 中化国际
     entry_zone:
-      description: 等分歧回踩至5日线~10日线区间，缩量企稳后再放量
-      current_ref: '2026-06-11 最新=127.08(+3.70%)'
-      price_range: '120.0 ~ 124.0'
-      confirm_signal: 缩量回踩至区间后放量阳线+联瑞新材同步企稳
-      hard_stop: 跌破115且30分钟不能收回
+      description: 多头趋势票，等回踩MA5~MA10区间。均线多头(MA5=116.16>MA10=113.44)，近5日+7.2%需等分歧
+      current_ref: '2026-06-11 最新=126.22 MA5=116.16 MA10=113.44 MA20=115.25'
+      price_range: '118.0 ~ 122.0'
+      method: 回撤百分比法(5-8%)，基于20日高点127.84
+      confirm_signal: 缩量回踩至区间后放量阳线+联瑞新材同步企稳+全A不创新低
+      hard_stop: 跌破112且30分钟不能收回
       position_ratio: 1.0-1.5成
     up_mention_status:
       last_mentioned_date: '2026-06-10'
@@ -76,12 +77,13 @@ themes:
     - 雅克科技
     - 泰和新材(002254)
     entry_zone:
-      description: 涨停日等回踩补缺口，不追板
-      current_ref: '2026-06-11 最新=7.21(涨停+10.08%)'
-      price_range: '6.5 ~ 6.9'
+      description: 涨停日+近5日大涨26.5%，等深度回踩补缺口。不追板
+      current_ref: '2026-06-11 最新=7.21(涨停) MA5=6.16 MA10=5.98 MA20=5.93 近5日+26.5%'
+      price_range: '6.3 ~ 6.6'
+      method: 回撤百分比法(8-12%)，基于近期高点7.21
       confirm_signal: 回踩补缺口不破+雅克科技同步企稳+缩量再放量
-      hard_stop: 跌破6.2且30分钟不能收回
-      position_ratio: 0.5成以下（比雅克科技仓位更小）
+      hard_stop: 跌破6.0且30分钟不能收回
+      position_ratio: 0.3-0.5成（比雅克仓位更小，弹性大）
 
   - code: 002971.SZ
     name: 和远气体
@@ -120,11 +122,12 @@ themes:
     - 中船特气(688146-科创)
     - 和远气体
     entry_zone:
-      description: 涨停日等分歧回踩补缺口，回踩至昨收~今日中位
-      current_ref: '2026-06-11 最新=63.89(涨停+10.00%)'
-      price_range: '58.0 ~ 61.0'
-      confirm_signal: 回踩补缺口不破+WF6涨价数据持续验证+缩量企稳再放量
-      hard_stop: 跌破55且30分钟不能收回
+      description: 连续涨停+近5日暴涨46.7%，需等深度回撤。UP原话「右侧轻仓带止损」，大涨后绝不在加速段追
+      current_ref: '2026-06-11 最新=63.89(涨停) MA5=54.32 MA10=47.98 MA20=42.49 近5日+46.7%'
+      price_range: '52.0 ~ 55.0'
+      method: 回撤百分比法(15-20%)，基于近期高点63.89。与MA5(54.32)交叉验证
+      confirm_signal: 回踩MA5附近不破+WF6涨价数据持续+缩量企稳再放量+中船特气同步企稳
+      hard_stop: 跌破48且30分钟不能收回
       position_ratio: 0.5-1.0成（严格控仓，UP原话「右侧轻仓带止损」）
     up_mention_status:
       last_mentioned_date: '2026-06-10'
@@ -188,11 +191,12 @@ themes:
     - 晶澳科技
     - 光伏ETF
     entry_zone:
-      description: 今日收跌等缩量止跌企稳，确认不再创新低后轻仓
-      current_ref: '2026-06-11 最新=13.93(-1.07%)'
-      price_range: '13.5 ~ 13.9'
-      confirm_signal: 缩量止跌+不创新低+光伏板块同步企稳+强制标准传闻确认
-      hard_stop: 跌破13.2且30分钟不能收回
+      description: 均线空头排列(MA5=13.27<MA10=13.41<MA20=14.17)，等缩量止跌+MA5上穿MA10确认企稳
+      current_ref: '2026-06-11 最新=13.75(-1.07%) MA5=13.27 MA10=13.41 MA20=14.17'
+      price_range: '12.5 ~ 13.2'
+      method: 震荡票近期低点法，基于20日低点12.22。均线空头需等更低位置
+      confirm_signal: 缩量止跌+不创新低+MA5上穿MA10+光伏板块同步企稳
+      hard_stop: 跌破12.0且30分钟不能收回
       position_ratio: 0.5-1.0成（中长线思路，不做短线）
     up_mention_status:
       last_mentioned_date: '2026-06-10'
@@ -210,11 +214,12 @@ themes:
     - 隆基绿能
     - 晶澳科技
     entry_zone:
-      description: 隆基企稳后作为方向确认，不单独建仓
-      current_ref: '2026-06-11 最新=12.58(+4.23%)'
-      price_range: '11.8 ~ 12.3'
-      confirm_signal: 隆基+晶澳同步走强+光伏板块放量
-      position_ratio: 0.3成以下
+      description: 均线空头排列(MA5=11.40<MA10=11.64<MA20=12.24)，等更低位置。隆基企稳后作为方向确认
+      current_ref: '2026-06-11 最新=12.07(+4.23%) MA5=11.40 MA10=11.64 MA20=12.24'
+      price_range: '10.8 ~ 11.5'
+      method: 震荡票近期低点法，基于20日低点10.47。均线空头需等更低
+      confirm_signal: 隆基+晶澳同步走强+光伏板块放量+MA5上穿MA10
+      position_ratio: 0.3成以下（隆基企稳后作为方向确认，不单独建仓）
 
   - code: 002459.SZ
     name: 晶澳科技
@@ -234,7 +239,6 @@ themes:
       stage: watching
       entered_stage: '2026-06-11'
 
-# ---- 第二梯队：观察/轻仓 ----
 - id: tungsten_pcb_drill
   name: 钨产业链/PCB钻针
   up_positioning: 「涨价主线的配置补充」—与WF6同源（钨出口管制），鼎泰高科的钻针龙头+Rubin放量是清晰的量增逻辑，比纯涨价品种多一层需求侧支撑
@@ -251,11 +255,12 @@ themes:
     confirm_with:
     - 鼎泰高科(301377-创业)
     entry_zone:
-      description: 等回踩确认支撑，小涨日可等分时均线附近
-      current_ref: '2026-06-11 最新=74.00(+1.51%)'
-      price_range: '71.0 ~ 73.0'
-      confirm_signal: 回踩不破71+鼎泰高科同步企稳+钨价继续反弹
-      hard_stop: 跌破68且30分钟不能收回
+      description: 多头趋势中微回调（MA5=70.90>MA10=69.82>MA20=65.28），等回踩MA5-MA10区间
+      current_ref: '2026-06-11 最新=72.80(-2.1%) MA5=70.90 MA10=69.82 MA20=65.28 近5日-2.1%'
+      price_range: '69.0 ~ 71.5'
+      method: 均线法(MA5=70.90)，多头趋势正常回调中
+      confirm_signal: 回踩MA5-MA10不破+鼎泰高科同步企稳+钨价继续反弹
+      hard_stop: 跌破66且30分钟不能收回
       position_ratio: 0.3-0.5成
     lifecycle:
       stage: watching
