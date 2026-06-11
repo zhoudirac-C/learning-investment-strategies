@@ -27,7 +27,13 @@ def _http_get(url: str, timeout: float = 10.0, encoding: str = "utf-8", headers:
 
 def _normalize_code(code: str) -> tuple[str, str]:
     """标准化股票代码，返回 (pure_code, full_code)。"""
-    pure_code = code.replace("sh", "").replace("sz", "").replace(".", "")
+    code = code.strip().lower()
+    # 先去掉 .sz / .sh 后缀（如果有）
+    if code.endswith(".sz"):
+        code = code[:-3]
+    elif code.endswith(".sh"):
+        code = code[:-3]
+    pure_code = code.replace("sh", "").replace("sz", "")
     market = "sh" if pure_code.startswith("6") else "sz"
     full_code = f"{market}{pure_code}"
     return pure_code, full_code
