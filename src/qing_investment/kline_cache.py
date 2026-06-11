@@ -16,7 +16,7 @@ from typing import Any
 
 # ── 路径配置 ──
 _DEFAULT_DB_PATH = (
-    Path(__file__).resolve().parents[3] / "infra" / "data" / "kline_cache.db"
+    Path(__file__).resolve().parents[2] / "infra" / "data" / "kline_cache.db"
 )
 
 _CN_TZ = timezone(timedelta(hours=8))
