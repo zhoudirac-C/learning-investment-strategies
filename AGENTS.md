@@ -42,6 +42,15 @@ When running from Hermes cron, always set the workdir to this repository root.
 For local and cloud installs, prefer setting `HERMES_REPO_ROOT` to that path and
 using it as the cron workdir.
 
+## Git Discipline
+
+- **Never use `git add -f` / `--force`** to bypass `.gitignore`. Files in
+  `.gitignore` are excluded for a reason — `positions.yaml` contains private
+  holding data, `storage/` and `.qdrant_data*` are auto-generated binaries.
+- Use `git add -A` or `git add <file>` for staged changes.
+- Before committing, verify with `git status --short` that no gitignored files
+  are staged.
+
 ## Knowledge Maintenance
 
 After adding new claims or updating existing ones (via raw document extraction),
