@@ -37,6 +37,7 @@ description: |
 | 早盘驱动 Config 更新清单 | `references/morning-briefing-update-checklist.md` |
 | **Cron 静默失败排查清单** | `references/cron-silent-failure-checklist.md` |
 | **买入信号检测系统设计** | `references/buy-signal-detection-design.md` → `docs/design/buy-signal-detection-system.md` |
+| **买入信号实施任务清单** | `docs/tasks/buy-signal-implementation.md`（Phase 0-4 状态追踪） |
 | **框架过期自锁闭环（4033案例）** | `references/framework-staleness-self-lock.md` |
 | **K线缓存 + 预拉取基础设施** | `src/qing_investment/kline_cache.py` + `scripts/pre_fetch_klines.py` |
 | Agent-UP 矛盾处理 | 本 SKILL §陷阱 |
