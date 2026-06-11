@@ -55,7 +55,8 @@ description: |
 | **Cron Prompt 数据流（4 层架构）** | `references/cron-prompt-data-flow-pattern.md` — _agent_context_data → text/JSON context → cron prompts 的完整链路，Phase 5 的新增字段引用矩阵 |
 | **Prompt 输出模板格式重组** | `references/prompt-output-template-restructure.md` — 合并/拆分/精简三类操作，含执行步骤和陷阱 |
 | **Cron Pipeline 数据层验证** | `references/context-pipeline-test-pattern.md` |
-| **Post-Review Config 同步工作流** | `references/post-review-config-sync.md` — positions + watchlist + cron prompts 三步同步
+| **Post-Review Config 同步工作流** | `references/post-review-config-sync.md` — 17:00 复盘自动同步到 strategy_pack/positions/watchlist |
+| **Config 同步脚本** | `scripts/sync_config_from_review.py` — 从 cron 输出提取 daily_state JSON 写回 config YAML |
 | 个股深度分析实施任务 | `docs/tasks/individual-stock-deep-analysis-implementation.md` — Phase 0-8 状态追踪 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
 | **Cron 调度优化** | `references/cron-schedule-optimization.md` |
@@ -1440,6 +1441,7 @@ Fix C — 数据优先级提示（`format_agent_analysis_context()` + `format_li
 - [ ] strategy_pack.updated_at 已更新
 - [ ] cron prompt 已验证（dry-run）
 - [ ] `daily_state.json` 存在且最近 5 分钟有更新（需 Qing-Agent 启动 + `market_analyst` 节点 `_persist_daily_state_from_market_context()` 已部署）
+- [ ] **post-sync 验证**：`PYTHONPATH=src python3 scripts/sync_config_from_review.py --dry-run` → 输出"无变更"或合理的变更摘要
 - [ ] `sync_daily_state.py` 能成功解析最近 cron 输出（含 ```daily_state 代码块）
 - [ ] `qing_stock_monitor_poll.py` 存在且可独立运行
 - [ ] **no-agent 轮询脚本 dry-run 通过**：`PYTHONPATH=src timeout 30 .venv/bin/python scripts/stock_monitor.py --ignore-trading-time`（exit 0, 无 TypeError/KeyError）
