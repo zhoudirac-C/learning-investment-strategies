@@ -546,3 +546,31 @@ claims:
   - 北方华创
   - 国产链
   - 权重容量股
+- id: claim-20260611-001-s
+  source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
+  source_date: '2026-06-11'
+  source_type: 专栏
+  extracted_at: '2026-06-11T23:32:39'
+  claim_type: market-cycle
+  subject: 调整已到历史级别尾部区域
+  timeframe: short-term
+  statement: 从时间维度看，全A指数本轮调整已走到历史级别的尾部区域，不意味着明天就是底，但风险收益比正在向有利方向倾斜
+  evidence_quote: 时间维度上，调整已经走到了历史级别的尾部区域。这不等于明天就是底，但意味着风险收益比正在向有利的方向倾斜，剩下的问题是等待确认信号。
+  interpretation: UP强调调整在时间维度上已接近历史极值（23交易日接近2024年1月24天纪录），但不等于马上见底，而是赔率在改善，需要等待确认信号
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 每日复盘/2026-06-11
+    methodology_pages: []
+    cases: []
+  topic: 全A调整时间维度已到历史级别尾部区域，风险收益比在倾斜
+  related_stocks: []
+  tags:
+  - 全A指数
+  - 调整尾部区域
+  - 风险收益比
+  - 等待确认信号
