@@ -35,6 +35,7 @@ description: |
 | Watchlist 字段校验 | `scripts/validate_watchlist.py` |
 | P3-观察标的介入区间计算 | `references/p3-kline-entry-zone-workflow.md` |
 | Poll 字段读取路径 | `references/poll-field-lineage.md` |
+| Agent 实时行情注入 | `src/qing_investment/stock_monitor.py` §§_agent_context_data + format_agent_analysis_context |
 | 持仓观察池区分修复记录 | `references/position-watchlist-distinction-fix.md` |
 | 腾讯→新浪→东财降级链详情 | `references/tencent-sina-eastmoney-fallback-chain.md` |
 | 早盘驱动 Config 更新清单 | `references/morning-briefing-update-checklist.md` |
@@ -1202,6 +1203,35 @@ print('✅ poll 读取 entry_zone.price_range 正常')
 
 **修复（2026-06-11）**：6 只 P3 标的的 price_range 统一清理为 null。`scripts/validate_watchlist.py` 增加对 P3+数字 price_range 的 ⚠️ 警告。
 
+### 陷阱 32: Qing-Agent 返回幻觉数据但 wrapper 当成成功
+
+**反面案例（2026-06-11）**：尾盘条件单（14:52）输出数据全错——风华高科今天涨 7.51% 但报告说跌停，雅克科技涨停但报告说亏损。输出中有 `[Qing-Agent ✓]` 但内容年份为 "2025年4月12日"。
+
+**根因链**：
+```
+Qing-Agent 返回了日期错误但 final_output 存在的输出
+  → wrapper 检查 response.get("final_output") 存在 → 打印 [Qing-Agent ✓]
+  → LLM 发现日期不对，丢弃 Script Output
+  → 没有实时行情可替换 → 用 stale config current_ref 报价
+  → 输出全部落后于实际行情
+```
+
+**修复（2026-06-11，三处改动）**：
+
+Fix A — wrapper 幻觉检测（`hermes_stock_monitor_agent.py`）：
+- 新增 `_is_hallucinated()` 检测年份偏差 >1 年 + 已知幻觉模式（"数据断链"、"量化API断供"等）
+- 检测到幻觉时输出 `[Qing-Agent ✗ HALLUCINATION]`，走 fallback
+
+Fix B — watchlist 实时价注入（`_agent_context_data()`）：
+- watchlist 标的 JSON 上下文新增 `latest` 和 `pct_change` 字段（同 positions 已有逻辑对齐）
+- 不再仅靠 config current_ref
+
+Fix C — 数据优先级提示（`format_agent_analysis_context()` + `format_live_analysis_context()`）：
+- 在 LLM prompt 末尾增加 `【⚠️ 数据优先级】实时行情快照优先于 config 参考价(current_ref)`
+
+**金丝雀**：输出含非当前年份（2025/2024）→ 幻觉；含"数据断链/缺失/不可用" → 数据源问题。
+
+**涉及文件**：`scripts/hermes_stock_monitor_agent.py` + `src/qing_investment/stock_monitor.py`
 
 ## 验证清单
 
