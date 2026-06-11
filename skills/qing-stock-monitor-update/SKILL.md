@@ -53,6 +53,8 @@ description: |
 | **龙虎榜数据源（akshare 东方财富）** | `references/akshare-dragon-tiger-apis.md` — 个股龙虎榜API、席位分类、买一行为判断 |
 | 个股深度分析数据层设计 | `docs/design/individual-stock-deep-analysis-design.md` — 竞价快照 + 昨日特征 + 成本保护线 + 持仓类型分支框架 + 龙虎榜总榜交叉校验(§7.4) + 板块梯队(§7.3) |
 | **Cron Prompt 数据流（4 层架构）** | `references/cron-prompt-data-flow-pattern.md` — _agent_context_data → text/JSON context → cron prompts 的完整链路，Phase 5 的新增字段引用矩阵 |
+| **Prompt 输出模板格式重组** | `references/prompt-output-template-restructure.md` — 合并/拆分/精简三类操作，含执行步骤和陷阱 |
+| **Context Pipeline 数据层验证** | `references/context-pipeline-test-pattern.md` — 不消耗 token 的数据层验证脚本模式 |
 | 个股深度分析实施任务 | `docs/tasks/individual-stock-deep-analysis-implementation.md` — Phase 0-8 状态追踪 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
 | **Cron 调度优化** | `references/cron-schedule-optimization.md` |
