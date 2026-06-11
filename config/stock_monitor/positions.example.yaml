@@ -9,16 +9,16 @@ portfolio:
   cash_note: "更新为当前持仓市值和仓位比例"
   max_total_position_ratio: 0.70
   preferred_total_position_ratio:
-    strong_repair: "0.60-0.70"
-    normal_repair: "0.50-0.60"
-    tech_breakdown: "0.40-0.50"
-    active_avoid: "0.15-0.30"
+    strong_repair: "0.40-0.50"
+    normal_repair: "0.20-0.30"
+    weak_repair: "0.10-0.15"
+    defense_day: "0.00"
   latest_quote_snapshot:
     source: "data_source_YYYY-MM-DD_close"
     snapshot_time: "YYYY-MM-DD 15:00 CST"
     trading_status: "收盘快照"
-    note: "填写收盘价和盘面定性"
-  latest_up_bias: "填写UP最新判断基调"
+    note: "【当前框架】6/10 UP复盘：弱势震荡筑底期，缩量防守日。操作总纲：「高位反弹减仓，低位耐心等待；涨价为王，业绩为锚」"
+  latest_up_bias: "UP 6/10复盘总纲：「高位反弹减仓，低位耐心等待；涨价为王，业绩为锚；短期不猜涨跌，中线看切换；冷眼旁观，等待结构性的分化。」"
   today_key_signals:
     - "信号1"
     - "信号2"
