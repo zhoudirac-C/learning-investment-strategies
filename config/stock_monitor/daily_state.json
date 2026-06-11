@@ -1,30 +1,40 @@
 {
   "date": "2026-06-11",
   "market_stage": {
-    "phase": "弱势震荡筑底期 — 地量信号初现",
-    "detail": "沪指失守4000但午后缩量「砸不动」，地量信号初现。资金在科技内部做「高切低」而非全面防御，偏积极信号。4033/4130纪律线已于6/9降级（生命线4033→4000，态度从清仓→观望不杀跌）。当前以量价配合+情景A/B替代固定点位判断。",
-    "updated_by": "manual: hermes 2026-06-11 清理过期4033引用",
-    "updated_at": "2026-06-11T12:00:00.000000"
+    "phase": "调整期",
+    "detail": "上证破4033，全A未企稳，调整延续中。科技分支（上游材料）逆势但未形成板块扩散，情绪偏弱。防御模式启动。",
+    "updated_by": "market_analyst:market",
+    "updated_at": "2026-06-11T13:11:30.723922"
   },
   "direction_priority": [
     {
-      "direction": "上游涨价材料（CCL/树脂/电子特气/MLCC）",
-      "intensity": "第一梯队，地量市场中涨价为王",
-      "source": "claim-20260611-001 + watchlist.yaml"
+      "direction": "上游涨价链（等待回踩）",
+      "intensity": "",
+      "source": "market_analyst:market"
     },
     {
-      "direction": "光模块/数据中心电源（超跌修复观察）",
-      "intensity": "昨日超跌，今日观察修复质量",
-      "source": "claim-20260611-001"
+      "direction": "工程机械（赔率较好但需等指数企稳）",
+      "intensity": "",
+      "source": "market_analyst:market"
+    },
+    {
+      "direction": "光伏（观察明日持续性）",
+      "intensity": "",
+      "source": "market_analyst:market"
     }
   ],
-  "position_stance": "轻仓(2.8%)，持仓雅克科技/风华高科做T为主。情景A（开盘缩量）可评估试探上游材料；情景B（开盘放量下杀）防守不进攻。不加仓不新开，等量价确认。",
+  "position_stance": "轻仓或空仓，持仓股设好止损，指数破位不轻易加仓。",
   "active_opportunities": [],
   "intraday_narrative": [
     {
       "time": "---- 4033框架演化记录 ----",
       "summary": "6/3: UP引入4033清仓/4130满仓纪律线。6/5: 修正为科技清仓线非指数清仓线。6/9: 生命线下调至4000，态度转观望不杀跌。6/11: 地量信号+情景A/B框架完全替代4033/4130二元框架。4033已连续12天被跌破，以收盘3962计差距5.4%。",
       "timestamp": "2026-06-11T12:00:00"
+    },
+    {
+      "time": "13:11 明日假设",
+      "summary": "若明日全A继续向下测试6000点，则继续观望；若科技方向（雅克、风华）能带动板块走强，可能形成左侧止跌信号，但概率低。倾向先观察尾盘是否有资金抄底。",
+      "timestamp": "2026-06-11T13:11:30.723943"
     }
   ],
   "version": 2,
@@ -33,6 +43,12 @@
     "4033_status": "已降级为历史参考。6/9后UP不再使用此点位作为操作锚。",
     "current_anchor": "量价配合（缩量止跌+放量阳线）+ 科技高低切确认 + 全A指数方向",
     "updated_by": "hermes manual cleanup",
-    "updated_at": "2026-06-11T12:00:00+08:00"
+    "updated_at": "2026-06-11T12:00:00+08:00",
+    "direction_updated_by": "market_analyst:market",
+    "direction_updated_at": "2026-06-11T13:11:30.723931",
+    "stance_updated_by": "market_analyst:market",
+    "stance_updated_at": "2026-06-11T13:11:30.723935",
+    "last_persisted_by": "market_analyst:market",
+    "last_persisted_at": "2026-06-11T13:11:30.723903+08:00"
   }
 }

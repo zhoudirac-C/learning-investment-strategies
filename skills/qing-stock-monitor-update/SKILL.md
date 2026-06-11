@@ -37,6 +37,8 @@ description: |
 | 早盘驱动 Config 更新清单 | `references/morning-briefing-update-checklist.md` |
 | **Cron 静默失败排查清单** | `references/cron-silent-failure-checklist.md` |
 | **买入信号检测系统设计** | `references/buy-signal-detection-design.md` → `docs/design/buy-signal-detection-system.md` |
+| **框架过期自锁闭环（4033案例）** | `references/framework-staleness-self-lock.md` |
+| **K线缓存 + 预拉取基础设施** | `src/qing_investment/kline_cache.py` + `scripts/pre_fetch_klines.py` |
 | Agent-UP 矛盾处理 | 本 SKILL §陷阱 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
 | **设计文档 vs 代码实现差距核查** | `references/design-doc-vs-implementation-gap.md` |
@@ -895,6 +897,7 @@ command = [python_cmd, "-m", "qing_investment.stock_monitor", *extra_args]
 1. **subprocess 调用项目内模块永远用 `-m`**，不要用文件路径
 2. **`-m` 的前提**：目标模块必须有 `if __name__ == "__main__"` 入口
 3. **排查时先确认 subprocess 调用链**：外层 cron → 脚本 A → subprocess 脚本 B，B 路径失效时外层无感知
+4. **Hermes 包装器规则（2026-06-11 补充）**：`~/.hermes/scripts/` 下的包装器调用项目脚本时，统一用 `PYTHONPATH=scripts:src python -m <module>`，不要用 `python scripts/xxx.py`。跨文件系统边界的文件路径在 cron 环境下极易失效
 
 ### 陷阱 22: `git add -f` 绕过 .gitignore 导致隐私文件被推送
 
@@ -993,6 +996,50 @@ cron 定时触发 → Qing-Agent 分析 → 输出："昊华科技，等缩量�
 4. **买入信号检测是 poll 脚本的第一优先级功能**，比风控提醒更重要 — 现在是反过来的
 5. **完整设计方案**：见 `docs/design/buy-signal-detection-system.md`
 
+### 陷阱 25: 框架过期自锁闭环 — 配置文件中的过期点位被 Agent 反复引用
+
+**反面案例（2026-06-11）**：`daily_state.json` 和 `strategy_pack.yaml` 以 4033 作为操作锚，但 UP 已在 6/9 将生命线下调至 4000、6/11 完全不用 4033 了。Agent 每次分析都说"上证收盘3962<4033清仓线"——一个 12 天前就被跌破且 UP 已抛弃的数字。
+
+**自锁机制**：
+```
+strategy_pack.yaml 含过期框架
+  → Agent prompt 注入过期框架
+  → Agent 输出："上证收盘3962<4033清仓线"
+  → market_analyst 写入 daily_state.json
+  → 下次 Agent 又从 daily_state.json 读到 4033
+  → 循环
+```
+
+**打破方法**：手动更新 strategy_pack.yaml → 重启 Agent → 重写 daily_state.json。
+
+**判断过期的信号**：
+- 点位引用连续多天被实际行情大幅偏离（>3% 且持续 >5 天）
+- claims 中同一主题的 statement 已出现修正/降级
+- UP 最新早盘/复盘完全不再提该数字
+
+**修复流程**：
+1. `mcp_neo4j_search_claims_graph(keyword="点位")` → 找到最新相关 claim + 后续修正
+2. 对比 `daily_state.json` / `strategy_pack.yaml` → 识别过期引用
+3. 更新：点位 → `deprecated: true` + 演化说明；操作锚 → 对齐最新 UP 观点
+4. 记录框架迁移到 `daily_state.json._meta.framework_migration`
+
+**详细案例**：见 `references/framework-staleness-self-lock.md`
+
+### 陷阱 26: 配置文件修改后 Agent 未重启 → 仍用旧框架分析
+
+**反面案例（2026-06-11）**：清理 4033 过期引用后，`strategy_pack.yaml` 和 `daily_state.json` 已更新，但 Qing-Agent 的 gunicorn worker 持有旧代码缓存在内存中，下次 cron 分析仍可能引用过期框架。
+
+**正确做法**：修改 Agent prompt 或配置文件后，**必须重启 Qing-Agent**：
+```bash
+kill $(pgrep -f "gunicorn") 2>/dev/null
+sleep 2
+cd ~/learning-investment-strategies
+nohup .venv/bin/gunicorn qing_investment.agent.main:app \
+  -w 1 -k uvicorn.workers.UvicornWorker \
+  --bind 127.0.0.1:8000 --timeout 120 --keep-alive 5 \
+  > /tmp/qing-agent.log 2>&1 &
+```
+
 ---
 
 ## 关键纪律
@@ -1030,3 +1077,6 @@ cron 定时触发 → Qing-Agent 分析 → 输出："昊华科技，等缩量�
 - [ ] **Qing-Agent 完整链路耗时 ≤ 90s**（基准 70-75s，见 `references/qing-agent-timing-benchmark.md`）
 - [ ] **超时层级对齐**：`HERMES_CRON_SCRIPT_TIMEOUT` ≥ `QING_AGENT_TIMEOUT` + 60s
 - [ ] Git 已提交，且 **未使用 `-f` 强制添加 gitignored 文件**（`git status` 不出现 positions.yaml 等隐私文件）
+- [ ] **K线缓存初始化**：`infra/data/kline_cache.db` 存在且有数据（`python3 -c "from qing_investment.kline_cache import get_cache_stats; print(get_cache_stats())"`）
+- [ ] **pre_fetch cron 已部署**：`~/.hermes/scripts/qing_pre_fetch_klines.py` 存在 + cron job `44bce96fa7a7` 已调度（06:30 周一到周五）
+- [ ] **买入信号检测可用**：`evaluate_buy_signal_candidates()` 可正常运行（`PYTHONPATH=src .venv/bin/python -c "from qing_investment.stock_monitor import evaluate_buy_signal_candidates, load_monitor_config; print(evaluate_buy_signal_candidates(load_monitor_config(), {}))"`）
