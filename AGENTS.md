@@ -51,6 +51,22 @@ using it as the cron workdir.
 - Before committing, verify with `git status --short` that no gitignored files
   are staged.
 
+## Cron Script Architecture
+
+Cron jobs reference scripts under `~/.hermes/scripts/` (the Hermes system scripts
+directory). These are thin wrappers that delegate to the project's scripts:
+
+```
+~/.hermes/scripts/qing_stock_monitor_agent.py  →  project/scripts/hermes_stock_monitor_agent.py
+~/.hermes/scripts/qing_stock_monitor_daily_review.py → project/scripts/hermes_stock_monitor_daily_review.py
+~/.hermes/scripts/qing_stock_monitor_poll.py   →  project/scripts/qing_stock_monitor_poll.py
+```
+
+**Rule**: The `qing_` prefix files in `~/.hermes/scripts/` are STABLE entrypoints.
+Never rename them. The `hermes_` files in the project can evolve freely. When
+updating scripts, only modify the `hermes_` project versions — the wrappers
+auto-delegate.
+
 ## Knowledge Maintenance
 
 After adding new claims or updating existing ones (via raw document extraction),
