@@ -1,40 +1,30 @@
 {
   "date": "2026-06-11",
   "market_stage": {
-    "phase": "调整期",
-    "detail": "全A未企稳，上证破4033，资源防御领涨科技无修复，假修复确认",
+    "phase": "调整期（破位模式）",
+    "detail": "上证收盘3962<4033清仓线，全A-1.26%跌破6100，科技主线未修复，资源防御领涨，假修复特征明显。调整性质确立，非日内脉冲可逆转。",
     "updated_by": "market_analyst:market",
-    "updated_at": "2026-06-11T10:06:45.469293"
+    "updated_at": "2026-06-11T11:21:57.407891"
   },
   "direction_priority": [
     {
-      "direction": "资源涨价链（有色/化工）",
-      "intensity": "",
-      "source": "market_analyst:market"
-    },
-    {
-      "direction": "防御（猪肉/鸡肉）",
-      "intensity": "",
-      "source": "market_analyst:market"
-    },
-    {
-      "direction": "光伏（个股脉冲，需等待板块共振）",
+      "direction": "无（防御观望）",
       "intensity": "",
       "source": "market_analyst:market"
     }
   ],
-  "position_stance": "空仓或极轻仓（<2成），不参与任何右侧追涨",
+  "position_stance": "减仓至3成以下，持仓标的设置严格止损，不加仓不新开。",
   "active_opportunities": [
     {
       "stock": "雅克科技",
       "code": "002409",
-      "pattern": "放量突破压力位",
-      "trigger": "回踩125-127企稳",
+      "pattern": "技术支撑观察",
+      "trigger": "等待回踩125-126缩量企稳",
       "status": "未触发",
       "upside": "",
       "downside": "",
-      "ratio": "2.5:1",
-      "updated_at": "2026-06-11T09:56:52.515654"
+      "ratio": "1.4:1",
+      "updated_at": "2026-06-11T11:21:57.407913"
     },
     {
       "stock": "三一重工",
@@ -50,24 +40,24 @@
     {
       "stock": "风华高科",
       "code": "000636",
-      "pattern": "MLCC修复",
-      "trigger": "放量+6.64%站稳63",
-      "status": "未触发（等回踩60）",
+      "pattern": "高位放量回落后减仓",
+      "trigger": "跌破62减半，跌破60.9清仓",
+      "status": "持有中",
       "upside": "",
       "downside": "",
-      "ratio": "2.5:1",
-      "updated_at": "2026-06-11T10:06:45.469323"
+      "ratio": "0.7:1",
+      "updated_at": "2026-06-11T11:21:57.407918"
     },
     {
       "stock": "中钨高新",
       "code": "000657",
-      "pattern": "资源涨价+放量突破",
-      "trigger": "今日放量+6.58%突破前高，成交48.7亿",
-      "status": "未触发（需明日确认持续）",
+      "pattern": "龙头强势突破",
+      "trigger": "等回踩75-76缩量",
+      "status": "未触发",
       "upside": "",
       "downside": "",
-      "ratio": "2.8:1",
-      "updated_at": "2026-06-11T10:06:45.469317"
+      "ratio": "2.5:1",
+      "updated_at": "2026-06-11T10:43:49.741603"
     },
     {
       "stock": "东材科技",
@@ -145,6 +135,28 @@
       "downside": "",
       "ratio": "2.5:1",
       "updated_at": "2026-06-11T10:05:20.633218"
+    },
+    {
+      "stock": "爱旭股份",
+      "code": "600732",
+      "pattern": "低位修复回踩",
+      "trigger": "等回踩12元",
+      "status": "未触发",
+      "upside": "",
+      "downside": "",
+      "ratio": "3:1",
+      "updated_at": "2026-06-11T10:43:49.741608"
+    },
+    {
+      "stock": "亨通光电",
+      "code": "600487",
+      "pattern": "光通信回踩支撑",
+      "trigger": "等18元附近",
+      "status": "未触发",
+      "upside": "",
+      "downside": "",
+      "ratio": "2.2:1",
+      "updated_at": "2026-06-11T10:43:49.741612"
     }
   ],
   "intraday_narrative": [
@@ -197,15 +209,25 @@
       "time": "10:06 明日假设",
       "summary": "若全A继续下探破6000，全面空仓防御；若全A在6100附近缩量企稳且科技方向有主动修复（科创50翻红），可小仓位低吸前强科技核心（如光连接、PCB）",
       "timestamp": "2026-06-11T10:06:45.469336"
+    },
+    {
+      "time": "10:43 明日假设",
+      "summary": "全A若继续下挫，结构行情难持续；若企稳，上游涨价链有望扩散",
+      "timestamp": "2026-06-11T10:43:49.741620"
+    },
+    {
+      "time": "11:21 明日假设",
+      "summary": "上证大概率低开测试3900，盘中可能有护盘资金，但修复质量看科技主线是否回流。若开盘直接反弹至4000以上并维持至午盘，可视为弱修复，不追高；若继续缩量阴跌，则继续减仓。",
+      "timestamp": "2026-06-11T11:21:57.407927"
     }
   ],
   "version": 1,
   "_meta": {
     "direction_updated_by": "market_analyst:market",
-    "direction_updated_at": "2026-06-11T10:06:45.469304",
+    "direction_updated_at": "2026-06-11T11:21:57.407902",
     "stance_updated_by": "market_analyst:market",
-    "stance_updated_at": "2026-06-11T10:06:45.469309",
+    "stance_updated_at": "2026-06-11T11:21:57.407906",
     "last_persisted_by": "market_analyst:market",
-    "last_persisted_at": "2026-06-11T10:06:45.469253+08:00"
+    "last_persisted_at": "2026-06-11T11:21:57.407868+08:00"
   }
 }
