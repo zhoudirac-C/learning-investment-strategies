@@ -894,6 +894,26 @@ command = [python_cmd, "-m", "qing_investment.stock_monitor", *extra_args]
 2. **`-m` 的前提**：目标模块必须有 `if __name__ == "__main__"` 入口
 3. **排查时先确认 subprocess 调用链**：外层 cron → 脚本 A → subprocess 脚本 B，B 路径失效时外层无感知
 
+### 陷阱 22: `git add -f` 绕过 .gitignore 导致隐私文件被推送
+
+**反面案例（2026-06-11）**：用户更新持仓后，AI 用 `git add -f config/stock_monitor/positions.yaml` 强制添加了 .gitignore 中已显式排除的文件，导致持仓隐私数据被推送到 GitHub。用户发现后要求立即回滚。
+
+**根因**：
+```bash
+# ❌ -f 绕过 .gitignore 保护
+git add -f config/stock_monitor/positions.yaml
+
+# ✅ 普通 add 尊重 .gitignore
+git add config/stock_monitor/positions.yaml    # 会被忽略
+git add -A                                       # 不会添加 gitignored 文件
+git add .                                        # 同上
+```
+
+**教训**：
+1. **永远不要对 gitignored 文件使用 `-f` / `--force`**：`.gitignore` 的存在本身就是意图声明
+2. **`positions.yaml` 是最高敏感级别**：包含实盘持仓成本、股数、账户名，已在 `.gitignore` + `positions.example.yaml` 模板模式保护下
+3. **提交前检查**：`git status` 中不应出现 positions.yaml，出现时说明 gitignore 有问题，不是去 `-f`
+
 ---
 
 ## 关键纪律
@@ -928,4 +948,4 @@ command = [python_cmd, "-m", "qing_investment.stock_monitor", *extra_args]
 - [ ] add_zone/reduce_zone/risk_zone 纯规则提醒正常推送
 - [ ] **Qing-Agent 完整链路耗时 ≤ 90s**（基准 70-75s，见 `references/qing-agent-timing-benchmark.md`）
 - [ ] **超时层级对齐**：`HERMES_CRON_SCRIPT_TIMEOUT` ≥ `QING_AGENT_TIMEOUT` + 60s
-- [ ] Git 已提交
+- [ ] Git 已提交，且 **未使用 `-f` 强制添加 gitignored 文件**（`git status` 不出现 positions.yaml 等隐私文件）
