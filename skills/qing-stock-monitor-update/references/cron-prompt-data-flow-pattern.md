@@ -165,3 +165,46 @@ if data.get("new_field_parent"):
 **反面案例（2026-06-11）**：在 `_agent_context_data()` 的 return dict 中有 `_load_yesterday_summary(...)`，但 position_type 计算在 return dict 之前需要这个数据。
 
 **正确做法**：任何函数中间需要的 `_load_*` 数据，在第一个需要的地方显式 load。
+
+### 陷阱 3: 输出模板存在于两个地方（format_agent_analysis_context + format_daily_review_context）
+
+**反面案例（2026-06-11 Phase 6.3）**：修改 `format_agent_analysis_context()` 底部的输出格式模板（合并【盘面】+【全A锚】，拆分【持仓池】→【重点分析】+【其他持仓】），但 `format_daily_review_context()` 中有一个独立的、用途不同的模板，结构类似但字段不同。第一次 patch 只改了一处，导致 daily review 输出格式不统一。
+
+**根因**：
+- `format_agent_analysis_context()` 的模板在 `stock_monitor.py` ~2904 行（供 9 个 cron 节点使用）
+- `format_daily_review_context()` 的模板在 ~3870 行（供 17:00 收盘复盘使用）
+- 两个模板都是 `lines.extend([...])` 中的固定字符串列表，没有共享代码
+
+**正确做法**：
+- 修改输出模板时，全局搜索 `format_daily_review_context` + 确认它的模板也同步修改
+- 两个模板的 section 结构应当一致（【盘面】→【重点分析】→【其他持仓】→【观察池】→【脚注/参考来源】）
+- daily review 可以在描述上更精简（没有分支指令），但 section 顺序不应有歧义
+
+**修复方法（2026-06-11）**：
+1. 先更新 `format_agent_analysis_context()` 模板（主要修改）
+2. 然后搜索 `format_daily_review_context` 找到第二个模板
+3. 按相同的 section 结构调整第二个模板（保留尾部差异如【脚注】）
+4. 更新测试断言（见陷阱 4）
+5. `pytest tests/test_stock_monitor.py -x -q` 全部通过
+
+### 陷阱 4: 模板字符串更改后测试断言过时
+
+**反面案例（2026-06-11 Phase 6.3）**：合并【盘面】+【全A锚】后，`test_agent_analysis_context_contains_trigger_alerts_and_quotes` 测试断言 `assert "每只触发/重点持仓必须单独一行" in message` 失败，因为该字符串已被移除。
+
+**根因**：测试硬编码了旧模板中的特定字符串。模板更新后测试未同步更新。
+
+**正确做法**：
+- 修改 template 字符串时，在项目内搜索该字符串：`search_files(pattern="旧字符串", path="tests/")`
+- 更新测试断言以匹配新模板内容
+- 测试应该断言「新模板的特征性内容」而非「旧模板的残留」
+
+**验证命令**：
+```bash
+# 修改模板前，记录有哪些测试可能受影响
+grep -r "旧模板关键词" tests/
+
+# 修改模板后，验证所有测试
+pytest tests/test_stock_monitor.py -x -q
+```
+
+**教训**：不要断言模板中的「句式细节」（如"每只触发/重点持仓必须单独一行"），而要断言「section 存在性和期望的结构特征」（如"【重点分析】"和"【其他持仓】"同时出现）。结构断言对模板改动的容忍度更高。

@@ -1,40 +1,40 @@
 {
   "date": "2026-06-11",
   "market_stage": {
-    "phase": "结构性轮动（周期主导）",
-    "detail": "资源周期股爆发，科技分化，指数震荡收跌，全A未中阳线。量能持平，结构分化明显。",
+    "phase": "震荡修复（情绪加速段）",
+    "detail": "半导体材料主线加速中，预期差缩小，UP建议做T为主，不加仓。全A需等待中阳线确认真修复。",
     "updated_by": "market_analyst:stock",
-    "updated_at": "2026-06-11T14:57:15.699958"
+    "updated_at": "2026-06-11T22:30:57.459390"
   },
   "direction_priority": [
     {
-      "direction": "涨价周期（化工/有色金属）",
+      "direction": "半导体材料",
       "intensity": "",
       "source": "market_analyst:stock"
     },
     {
-      "direction": "MLCC/被动元件",
+      "direction": "钨产业链",
       "intensity": "",
       "source": "market_analyst:stock"
     },
     {
-      "direction": "科技（AI/半导体）= 等待回流信号",
+      "direction": "AI应用低位修复",
       "intensity": "",
       "source": "market_analyst:stock"
     }
   ],
-  "position_stance": "持有雅克科技、风华高科，不追高，等回踩加仓。总仓位6成以内。",
+  "position_stance": "持股观察，不加仓，利用利润垫动态管理。雅克科技持有1000股，成本32，现35.2。",
   "active_opportunities": [
     {
       "stock": "雅克科技",
       "code": "002409",
-      "pattern": "涨停突破后等回踩",
-      "trigger": "回踩130-131企稳，缩量分时不创新低",
-      "status": "未触发（当前涨停无法买入）",
+      "pattern": "趋势持有",
+      "trigger": "未触发加减仓",
+      "status": "持有",
       "upside": "",
       "downside": "",
-      "ratio": "2:1（目标150/止损123.2）",
-      "updated_at": "2026-06-11T14:57:15.699975"
+      "ratio": "利润垫10%",
+      "updated_at": "2026-06-11T22:30:57.459414"
     },
     {
       "stock": "风华高科",
@@ -46,6 +46,17 @@
       "downside": "",
       "ratio": "1.8:1（目标70/止损60.9）",
       "updated_at": "2026-06-11T14:57:15.699980"
+    },
+    {
+      "stock": "中科曙光",
+      "code": "603019",
+      "pattern": "主升龙头分歧回踩",
+      "trigger": "回踩5日线企稳",
+      "status": "未触发",
+      "upside": "",
+      "downside": "",
+      "ratio": "3:1",
+      "updated_at": "2026-06-11T22:24:58.027081"
     }
   ],
   "intraday_narrative": [
@@ -68,6 +79,26 @@
       "time": "14:57 明日假设",
       "summary": "周期板块出现分歧，科技有回流可能，但主线暂未切换回科技。上证在3980-4000区间震荡概率大。",
       "timestamp": "2026-06-11T14:57:15.699988"
+    },
+    {
+      "time": "22:24 明日假设",
+      "summary": "延续回暖，但需观察量能是否放大；若继续缩量则反弹高度有限。",
+      "timestamp": "2026-06-11T22:24:58.027093"
+    },
+    {
+      "time": "22:27 明日假设",
+      "summary": "获取实时行情后重新判断；重点看全A指数是否中阳、电子特气板块是否有资金介入。",
+      "timestamp": "2026-06-11T22:27:04.459333"
+    },
+    {
+      "time": "22:28 核心假设",
+      "summary": "实时数据缺失，无法形成核心假设。基于历史框架，假设市场处于调整末期，但需数据验证。",
+      "timestamp": "2026-06-11T22:28:43.684523"
+    },
+    {
+      "time": "22:30 明日假设",
+      "summary": "半导体材料分歧分化，观察资金是否回流AI应用或防御方向。关注量能是否放大。",
+      "timestamp": "2026-06-11T22:30:57.459426"
     }
   ],
   "version": 2,
@@ -78,10 +109,10 @@
     "updated_by": "hermes manual cleanup",
     "updated_at": "2026-06-11T12:00:00+08:00",
     "direction_updated_by": "market_analyst:stock",
-    "direction_updated_at": "2026-06-11T14:57:15.699966",
+    "direction_updated_at": "2026-06-11T22:30:57.459401",
     "stance_updated_by": "market_analyst:stock",
-    "stance_updated_at": "2026-06-11T14:57:15.699969",
+    "stance_updated_at": "2026-06-11T22:30:57.459406",
     "last_persisted_by": "market_analyst:stock",
-    "last_persisted_at": "2026-06-11T14:57:15.699940+08:00"
+    "last_persisted_at": "2026-06-11T22:30:57.459367+08:00"
   }
 }
