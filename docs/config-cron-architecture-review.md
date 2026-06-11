@@ -142,6 +142,16 @@ buy_zone 触发    → 买入提醒（从未实现）
 │  └──────────────────────┬──────────────────────────┘    │
 │                         │                               │
 │  ┌──────────────────────▼──────────────────────────┐    │
+│  │  Layer 3.5: Hallucination Defense 🔴 新增        │    │
+│  │  ┌─────────────────────────────────────────┐    │    │
+│  │  │ Fix A: Hermes wrapper 年份检测+fallback  │    │    │
+│  │  │ Fix B: watchlist 实时价注入               │    │    │
+│  │  │ Fix C: prompt 数据优先级指令              │    │    │
+│  │  │ 详见 docs/hallucination-defense-layers.md │    │    │
+│  │  └─────────────────────────────────────────┘    │    │
+│  └──────────────────────┬──────────────────────────┘    │
+│                         │                               │
+│  ┌──────────────────────▼──────────────────────────┐    │
 │  │  Layer 3: Reviewer Agent（已有，微调）             │    │
 │  │  - 事实核查（价格/claims引用准确性）             │    │
 │  │  - 风控底线（不是机会判断，是安全检查）          │    │
@@ -839,6 +849,8 @@ stock_monitor.py 轮询（2分钟间隔）
 | Claims 注入过多→上下文溢出 | 每只标的最多3条claims摘要，总上下文控制在合理范围 |
 | Few-Shot 示例导致过拟合 | 定期轮换示例，覆盖不同市场环境 |
 | 状态机更新不及时→错误延续 | 每次LLM调用时强制检查状态机与实际盘面的偏差 |
+| **LLM 价格/年份幻觉**（2026-06-11 识别） | Fix A: wrapper 年份检测+fallback。Fix B: 实时价注入。Fix C: prompt 优先级指令。详见 [`docs/hallucination-defense-layers.md`](hallucination-defense-layers.md) |
+| **Poll 字段路径不一致→静默跳过**（2026-06-11 修复） | 统一读取路径：entry_points[].entry_zone.price_range。所有读取点同步修改 |
 
 **开放问题**：
 1. 是否需要一个独立的"激进程度"参数，让你可以手动调节 LLM 的买入倾向？（保守/中性/积极）
@@ -850,6 +862,7 @@ stock_monitor.py 轮询（2分钟间隔）
 *文档版本：v2.0 — 基于用户反馈和LLM交易Agent研究重写*
 *实施记录：v2.1 — 2026-06-09，架构对齐修复*
 *实施记录：v2.2 — 2026-06-10，文档过期项全量同步（文件清单/cron数/Config状态）*
+*实施记录：v2.3 — 2026-06-11，补幻觉防御层/P3 K-line entry zone/poll字段链路*
 
 ## 七、实施记录（2026-06-09）
 
@@ -895,6 +908,7 @@ stock_monitor.py 轮询（2分钟间隔）
 | `tools/daily_state.py` | daily_state 模型定义 + 读写模块（Phase 3.1） |
 | `tools/hot_score.py` | 热度分计算核心逻辑（Phase 4.1） |
 | `skills/qing-learning/references/claims-to-entry-bridge.md` | 桥接参考文档 |
+| **`docs/hallucination-defense-layers.md`**（v2.3 新增） | **Fix A/B/C 幻觉防御层架构总览** |
 
 #### 新增 cron job
 
@@ -918,17 +932,19 @@ stock_monitor.py 轮询（2分钟间隔）
 | `qing-learning` | 新增 13b 步骤（Claims→Config桥接）、参考 #43 |
 | `qing-stock-monitor-update` | 新增 2.5f（entry_points生命周期+赔率）、add_zone/trade_log/portfolio_stats 维护规范、纪律 #24/25 |
 
-### 7.3 遗留问题（2026-06-10 审计更新）
+### 7.3 遗留问题（2026-06-11 审计更新）
 
 1. **linked_claims 覆盖率提升至 39%（70/180）**：通过 `backfill_claim_related_stocks.py` 脚本从 53 条 claims 的 statement 中提取 stock codes/names 回填 `related_stocks` 字段，并更新 Neo4j + Qdrant 索引（241 条 ABOUT 关系）。覆盖全部 stock-view 中引用个股的 claims 和 sector-theme 中列了股票代码的 claims。剩余 111 只标的无 linked_claims，原因是这些标的的 claims 基于方向判断（如"算力"、"燃气轮机"）而非个股——不需要填 related_stocks。
 2. **daily_state 写回依赖 LLM 输出格式**：`market_analyst` 节点已增加 `_persist_daily_state_from_market_context()` fallback（从 JSON 字段推导），但仍然不是 100% 可靠。若 LLM 既未输出 `daily_state` 代码块又未输出结构化 JSON 字段，则 daily_state 无法更新。**当前状态：从「无 fallback」改进为「有 fallback 但有剩余风险」。**
 3. **sync_claims_to_config.py 首次运行返回 0**：因 claims 中缺少可量化的介入区间（operation claims 多为策略级而非标的具体价位），桥接目前只生成 linked_claims 回填。entry_points 增强字段（status/odds_analysis/claim_basis）已通过 2026-06-10 脚本全量补满 12/12。**当前状态：全量完成。**
 4. **事件驱动管线（claims→建议→人工审核）未投入生产**：`sync_claims_to_config.py` 存在且可生成建议，但缺少从「新 claims → 跑脚本 → 人工审核 → 确认执行」的 SOP 流程。当前每次 UP 新观点仍需手动 6-7 步。注意：这不是「技术上缺失全自动管线」的问题，而是设计上有意保留人工审核门禁，实际缺的是 SOP 和 skill 集成。
 5. **positions.yaml 空仓**：当前 `positions.yaml` 无任何持仓（`entry_decision/add_zone/trade_log` 字段未验证，`portfolio_stats` 已存在但为空）。
+6. **LLM 幻觉防御层已部署但范围有限（v2.3 新增）**：Fix A/B/C 已上线（2026-06-10），覆盖年份幻觉（2025）和价格幻觉。但 Fix A 只检测年份 regex，缺少通用的事实校验。详见 [`docs/hallucination-defense-layers.md`](hallucination-defense-layers.md)。
+7. **Poll 字段路径修复已完成（v2.3 新增）**：统一了 entry_points 中 price_range 的读取路径，消除静默跳过风险。
 
-### 7.4 全量差距报告（2026-06-10 审计）
+### 7.4 全量差距报告（2026-06-11 审计）
 
-基于 `docs/config-cron-architecture-review.md` v2.0 全部 Phase + §7.2 修改清单，对实际代码库逐项核查。
+基于 `docs/config-cron-architecture-review.md` v2.3（2026-06-11）全部 Phase + §7.2 修改清单，对实际代码库逐项核查。
 
 #### 核查方法
 
@@ -976,7 +992,7 @@ for field in ['status','opportunity_pattern','odds_analysis','claim_basis']:
 | Reasoning pattern 匹配排序 | ✅ `_score_claim_relevance(active_patterns=...)` 额外 +4 分 | `context_builder.py:158-168` |
 | 方向信号汇总 | ✅ 从 Neo4j 动态 query sector-theme 方向，非硬编码 | `context_builder.py:411-423` |
 
-#### Phase 3：Cron + 状态机 ⚠️ 大部分完成
+#### Phase 3：Cron + 状态机 ⚠️ 大部分完成（+ P3 K-line entry zone）
 
 | 任务 | 实现 |
 |------|------|
@@ -984,6 +1000,8 @@ for field in ['status','opportunity_pattern','odds_analysis','claim_basis']:
 | 9个 cron job 差异化 | ✅ 全部启用，`qing_stock_monitor_agent.py` 调用 Qing-Agent LangGraph |
 | add_zone 触发逻辑 | ⚠️ `evaluate_position_alerts()` 已实现，但触发消息格式未按文档示例定制化 |
 | 条件驱动轮询 cron | ✅ `qing_stock_monitor_poll.py`（49行，no-agent），`d343f89ef487`，每5分钟 |
+| **P3 K-line entry zone**（2026-06-11 新增） | ✅ entry_points 新增 `entry_zone.price_range`、`entry_zone.source_kline` 字段，poll 读取新字段路径 |
+| **Poll 字段路径统一**（2026-06-11 新增） | ✅ poll / Agent context builder / config update 使用统一路径方案，消除静默跳过风险 |
 
 **Cron job 清单（16个，其中本系统相关 13 个）：**
 
@@ -1039,7 +1057,7 @@ for field in ['status','opportunity_pattern','odds_analysis','claim_basis']:
 
 #### 文档过时期限清单
 
-文档已全部同步（2026-06-10 更新）：
+文档已全部同步（2026-06-11 全量同步）：
 
 1. ✅ **§7.2 新增文件列表**：已补充 `tools/daily_state.py` 和 `tools/hot_score.py`
 2. ✅ **§7.2「新增 cron job」**：已补充健康检查条目（3 个 → 3 个）
@@ -1047,6 +1065,11 @@ for field in ['status','opportunity_pattern','odds_analysis','claim_basis']:
 4. ✅ **§7.3 遗留问题#1 linked_claims 数据集**：已同步为 70/180（39%）
 5. ✅ **§7.3 遗留问题#3 entry_points 字段**：已更新为 12/12（100%）
 6. ✅ **§7.4 Config 层状态**：linked_claims 23/180→70/180，entry_points 3/12→12/12
+7. ✅ **§6 风险表**：补 LLM 幻觉风险项和 poll 字段路径风险项（v2.3）
+8. ✅ **§4.1 架构总览图**：补 Layer 3.5 Hallucination Defense（v2.3）
+9. ✅ **§7.3 遗留问题**：补 #6 幻觉防御范围有限 + #7 poll 字段修复（v2.3）
+10. ✅ **§7.2 新增文件**：补 hallucination-defense-layers.md（v2.3）
+11. ✅ **§7.4 日期升级**：v2.0 → v2.3（2026-06-11）
 
 #### 实施建议优先级
 

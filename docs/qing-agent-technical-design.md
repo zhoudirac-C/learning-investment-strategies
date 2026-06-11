@@ -1,7 +1,8 @@
 # Qing-Agent 技术设计文档
 
-> 版本: 2026-06-05  
-> 对应 Commit: `e8d2e9e`
+> 版本: 2026-06-11  
+> 对应 Commit: `8006274` (Fix A/B/C 同步提交)
+> 最后更新：补 hallucination 防御层 + reviewer 局限性说明 + 数据流修正
 
 ---
 
@@ -308,6 +309,8 @@ query ──▶ Neo4j (claims 图遍历) ──┐
 | `reviewer` | 事实核查：禁用词检测、claims 引用验证 | ✅ |
 | `review_router` | 审核通过则 END，不通过则回写 style_writer（最多 3 次） | ❌ |
 
+> **⚠️ reviewer 局限性**（2026-06-11 补充）：reviewer 不做数值事实核查。它只验证禁用词、claim ID 引用和【参考来源】段落是否存在。🟡 不检查价格准确性，🟡 不检查数据时效性，🟡 不交叉验证事实声明。数值和时效性保护由 Hermes 集成层的 Fix A/B/C 承担（见 §4.5 幻觉防御层）。
+
 ---
 
 ## 3. 各节点详解
@@ -536,6 +539,35 @@ styled_output + claims
     ──▶ reviewer ──▶ final_output (审核后文本)
 ```
 
+### 4.5 幻觉防御层（2026-06-11 新增）
+
+LLM 固有幻觉可能导致价格错误、时间错误、事实错误。Hermes 集成层和输入层建立三层拦截，详见独立文档 [`docs/hallucination-defense-layers.md`](hallucination-defense-layers.md)：
+
+| 层级 | 名称 | 位置 | 职责 | 效果 |
+|------|------|------|------|------|
+| Fix A | 输出侧拦截 | `scripts/hermes_stock_monitor_agent.py` | 检测年份幻觉（2025），走 fallback | ✅ 拦截 2025 年季报 |
+| Fix B | 输入侧注入 | `stock_monitor.py` `_agent_context_data()` | Watchlist 注入 `latest/pct_change` | ✅ LLM 不再记忆旧价 |
+| Fix C | Prompt 约束 | `stock_monitor.py` `format_*_context()` | 显式"实时价优先"指令 | ✅ 防止 LLM 忽略实时数据 |
+
+**防御链**：
+
+```
+LLM 输出 → Fix A [年份检测] → 通过 → Fix B [含实时价的上下文] → Fix C [优先级指令] → 微信推送
+                  │ 失败
+                  ▼
+          fallback: 本机 LLM + 实时行情
+```
+
+**与 §3.7 reviewer 的关系**：
+
+| 层 | 位置 | 检查范围 | 异常处理 |
+|----|------|---------|---------|
+| Fix A | Hermes wrapper | 年份幻觉 | 丢弃输出，走 fallback |
+| Fix B+C | Hermes 上下文构造 | 价格准确性（提供数据+约束） | LLM 不强制遵守）
+| Reviewer | Qing-Agent | 风格/引用合规 | 回 style_writer 重写 |
+
+**缺口**：Fix A 只检测年份幻觉，缺少通用事实校验层。
+
 ---
 
 ## 5. 板块数据源设计（核心）
@@ -588,7 +620,7 @@ if analysis_type in ("market", "portfolio") and not esb.get("available"):
 
 ### 6.1 数据 enrichment
 
-`stock_monitor._agent_context_data` 自动为每个 `position` 注入：
+`stock_monitor._agent_context_data` 自动为每个 `position` 和 `watchlist` 条目注入：
 - `latest`: 实时最新价
 - `pct_change`: 当日涨跌幅
 
@@ -704,7 +736,7 @@ POST /memory/add?session_id=&content=     ← 追加用户记忆
 | `alerts` | list[dict] | ❌ | `stock_monitor.py` | 规则信号：`[{type, message, stock_code, priority}]` |
 | `market_snapshot` | dict | ❌ | `stock_monitor.py` | 行情快照：`{timestamp, quotes, index_quotes, limit_up_stocks, limit_down_stocks}` |
 | `positions` | list[dict] | ❌ | `positions.yaml` | 当前持仓：`[{code, name, shares, cost, current_price, profit_pct, position_ratio}]` |
-| `watchlist` | list[dict] | ❌ | `strategy_pack.yaml` | 观察池标的：`[{code, name, price, change_pct, reason}]` |
+| `watchlist` | list[dict] | ❌ | `strategy_pack.yaml`（实时价由 API 注入） | 观察池标的：`[{code, name, latest, pct_change, watch_reason}]`。⚠️ `latest`/`pct_change` 由 Hermes 在构造 JSON 时从实时行情 API 注入，非 YAML 存储。LLM 应优先使用 API 实时价而非记忆中的旧价（见 §4.5 Fix B）。 |
 | `sector_strengths` | list[dict] | ❌ | 内部样本 | 板块强弱（基于 `sector_groups`）：`[{sector_name, strength, top_stocks}]` |
 | `external_sector_boards` | dict | ✅ | 东财/新浪 | **外部全量板块数据**：`{available: bool, concept: {...}, industry: {...}}`。`market`/`portfolio` 分析时 `available` 必须 `true` |
 
@@ -755,8 +787,11 @@ POST /memory/add?session_id=&content=     ← 追加用户记忆
 2. `_agent_context_data()` 构建结构化数据：
    - 获取实时行情（东财 quote API）
    - 获取外部板块数据（`sector_data.py`）
-   - Enrich positions（注入 latest/pct_change）
-3. `hermes_stock_monitor_agent.py` 读取 JSON，POST 到 `qing-agent`
+   - Enrich positions + watchlist（注入 latest/pct_change，见 §4.5 Fix B）
+3. `hermes_stock_monitor_agent.py` 读取 JSON，执行 Fix A 包装器：
+   - POST 到 `qing-agent`
+   - 若 qing-agent 返回包含年份幻觉（2025）→ 标记 HALLUCINATION，走 fallback
+   - 若正常运行 → 检查 JSON 获取实时行情
 4. `qing-agent` 运行 LangGraph，返回 `final_output`
 5. 若 qing-agent 不可用，fallback 输出原始监控上下文
 

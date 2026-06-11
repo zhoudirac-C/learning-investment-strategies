@@ -1,8 +1,9 @@
 # Hermes Stock Monitor Technical Design
 
-> Date: 2026-05-22  
-> Scope: A-share intraday monitoring, rule-triggered Hermes analysis, and Weixin alerts.  
+> Date: 2026-06-11 (updated from 2026-05-22)
+> Scope: A-share intraday monitoring, rule-triggered Hermes analysis, and Weixin alerts.
 > Principle: The system only sends alerts. It never places orders.
+> Recent additions: P3 K-line entry zone, real-time quote injection (Fix B), hallucination detection (Fix A), K-line cache, buy signal detection, poll field lineage.
 
 ## Goal
 
@@ -288,6 +289,8 @@ Deduplication policy:
 
 ## Hermes Scheduling
 
+**Schedule alignment** (2026-06-10): `14:55` → `14:52` tail-end order job, aligned with broker back-office cut-off. All schedules synced across `strategy_pack.yaml`, cron jobs, and prompt files.
+
 The formal job should run in no-agent mode:
 
 ```bash
@@ -346,10 +349,11 @@ Estimated quota usage: about 1.4%-6% per month
 4. Python fetches live quotes from Eastmoney.
 5. Python evaluates configured index, sector, and holding rules.
 6. If nothing triggers, it prints nothing.
-7. If a rule triggers, it prints a compact analysis context.
-8. Hermes analyzes the context with `AGENTS.md` and `qing-stock-analysis`.
-9. Hermes delivers the final alert to Weixin.
-10. The run output is archived under `~/.hermes/cron/output/`.
+7. If a rule triggers, it builds a structured JSON context with **real-time quote injection** for both positions and watchlist (`latest`/`pct_change` — Fix B).
+8. `hermes_stock_monitor_agent.py` wraps the call: POSTs to Qing-Agent, runs **hallucination detection** (Fix A). If year 2025 detected → discard, fallback to local LLM.
+9. Hermes analyzes the context with `AGENTS.md` and `qing-stock-analysis`.
+10. Hermes delivers the final alert to Weixin.
+11. The run output is archived under `~/.hermes/cron/output/`.
 
 ## Current Live Test Baseline
 
@@ -467,6 +471,111 @@ Current implementation status:
   command for a 15:20 Hermes review job
 - not yet automated: writing accepted YAML changes back into configuration
   files; the review proposes changes for manual confirmation first
+
+## Recent Architecture Additions (2026-06-11)
+
+### Real-Time Quote Injection (Fix B)
+
+**What changed**: `stock_monitor._agent_context_data()` now injects `latest` and `pct_change` fields for both **positions** (existing) and **watchlist** (new Fix B) entries in the JSON context sent to Qing-Agent.
+
+```python
+# Position enrichment (existing)
+"latest": quote["latest"],
+"pct_change": quote["pct_change"],
+
+# Watchlist enrichment (Fix B, line 1437-1440)
+"latest": _to_float((_quote_for_stock(quotes_by_code, row.get("code", "")) or {}).get("latest")),
+"pct_change": _to_float((_quote_for_stock(quotes_by_code, row.get("code", "")) or {}).get("pct_change")),
+```
+
+**Design**: Data comes from the real-time Eastmoney quote API at JSON construction time. Never written to `watchlist.yaml`. In-memory only.
+
+**Prompt-level reinforcement (Fix C)**: `format_agent_analysis_context()` and `format_live_analysis_context()` both include:
+
+```
+【⚠️ 数据优先级】实时行情快照优先于下方 config 配置文件中的参考价。
+```
+
+### Hallucination Detection Wrapper (Fix A)
+
+`hermes_stock_monitor_agent.py` now wraps the Qing-Agent call:
+
+- If `final_output` contains `"2025"` (current year is 2026) → mark **HALLUCINATION**
+- Discard hallucinated output → fallback to local LLM with real-time data injected
+- Fallback output quality is lower (no reasoning pattern matching) but data is correct
+
+See [`docs/hallucination-defense-layers.md`](hallucination-defense-layers.md).
+
+### P3 K-Line Entry Zone (Observation Pool)
+
+**File**: `src/qing_investment/stock_monitor.py` — K-line driven entry zone for observation pool entries.
+
+**Workflow**:
+1. Poll reads `strategy_pack.yaml` entry_points with `entry_zone.price_range` field
+2. Live price enters zone → auto-trigger notification
+3. Trigger message format: `"【机会触发】{name} {price}（{pct_change}%）进入介入区间 {zone}。赔率 {odds}，止损 {stop_loss}"`
+
+Reference: `skills/qing-stock-monitor-update/references/p3-kline-entry-zone-workflow.md`
+
+### Poll Field Lineage Fix
+
+**Problem**: Poll script read watchlist using old field paths that didn't match the restructured `strategy_pack.yaml` format.
+
+**Fix**: Unified field access across all entry points — poll, agent context builder, and config update all use the same path scheme:
+
+```yaml
+entry_points:
+  - code: 000534.SZ
+    entry_zone:
+      price_range: "30.5-31.0"    # poll reads here
+      source_kline: "2026-06-08"
+```
+
+Reference: `skills/qing-stock-monitor-update/references/poll-field-lineage.md`
+
+### K-Line Cache Layer (SQLite)
+
+**What**: Pre-fetches daily K-lines before market open (06:30) for watchlist + positions. Poll and Agent layers read local cache first, fill missing data on demand.
+
+**Benefit**: Reduces API duplicate calls and latency. Fallback when API is unreachable.
+
+### Buy Signal Detection System
+
+**Design doc**: `docs/design/buy-signal-detection-system.md` (v1.2, 2026-06-11)
+
+Implements Phase 0-4 detection rules based on UP methodology:
+- Phase 0: Sector rotation detection
+- Phase 1: Price zone entry patterns
+- Phase 2: Volume confirmation
+- Phase 3: K-line shape analysis
+- Phase 4: Multi-factor synthesis
+
+### Cron Schedule Alignment
+
+`14:55` → `14:52` tail-end order job, aligned with actual broker back-office cut-off. Config synced across `strategy_pack.yaml`, cron job schedules, and prompt files.
+
+## Updated Implementation Status
+
+### Phase 4 (updated): Triggered Hermes Analysis + Hallucination Detection
+
+| Feature | Status |
+|---------|--------|
+| Seven fixed model-analysis times (09:26/09:45/10:30/11:20/13:30/14:52/15:05) | ✅ |
+| Dedup via agent_analysis_history | ✅ |
+| `scripts/hermes_stock_monitor_agent.py` wrapper | ✅ |
+| Seven Hermes cron jobs created | ✅ |
+| **Hallucination detection (Fix A) in wrapper** | **✅ 2026-06-10** |
+| **Real-time quote injection for watchlist + prompt priority (Fix B+C)** | **✅ 2026-06-10** |
+
+### Phase 5 (new): P3 K-Line Entry Zone + Buy Signal + Poll Integrity
+
+| Feature | Status |
+|---------|--------|
+| P3 K-line driven entry zone price_range field | ✅ |
+| Poll field lineage unification | ✅ |
+| K-line cache layer (SQLite pre-fetch) | ✅ |
+| Buy signal detection system (Phase 0-4) | ✅ Design doc, partial code |
+| Cron schedule 14:55→14:52 alignment | ✅ |
 
 ## Operating Model
 
