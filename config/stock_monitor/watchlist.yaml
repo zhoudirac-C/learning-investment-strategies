@@ -52,14 +52,13 @@ themes:
     confirm_with:
     - 联瑞新材(688300-科创)
     - 中化国际
-    buy_setup:
-    - 等分歧回踩，不追涨停。回踩至5日线/10日线且缩量企稳后再放量
-    - 需联瑞新材或国瓷材料同步承接确认（科创板标的仅作方向验证）
-    - 全A指数不创新低+科技方向出现放量领涨
-    invalidation_setup:
-    - 涨停次日放量冲高回落（假突破）→ 短期追高被套信号
-    - 联瑞新材大幅回落+球硅逻辑被证伪
-    - 跌破涨停日分时均价且30分钟不能收回
+    entry_zone:
+      description: 等分歧回踩至5日线~10日线区间，缩量企稳后再放量
+      current_ref: '2026-06-11 最新=127.08(+3.70%)'
+      price_range: '120.0 ~ 124.0'
+      confirm_signal: 缩量回踩至区间后放量阳线+联瑞新材同步企稳
+      hard_stop: 跌破115且30分钟不能收回
+      position_ratio: 1.0-1.5成
     up_mention_status:
       last_mentioned_date: '2026-06-10'
       mention_context: 6/10复盘明确点名，平台型逻辑，列为第一梯队里更可持有的方向
@@ -76,15 +75,29 @@ themes:
     confirm_with:
     - 雅克科技
     - 泰和新材(002254)
-    buy_setup:
-    - 雅克科技稳住，中化国际缩量回踩后放量
-    - PPO/对位芳纶方向有持续催化（沙特断供扩大/光纤需求数据）
-    invalidation_setup:
-    - PPO涨价被证伪（沙特供应恢复）
-    - 跌破趋势平台且对位芳纶方向无联动
-    lifecycle:
-      stage: watching
-      entered_stage: '2026-06-11'
+    entry_zone:
+      description: 涨停日等回踩补缺口，不追板
+      current_ref: '2026-06-11 最新=7.21(涨停+10.08%)'
+      price_range: '6.5 ~ 6.9'
+      confirm_signal: 回踩补缺口不破+雅克科技同步企稳+缩量再放量
+      hard_stop: 跌破6.2且30分钟不能收回
+      position_ratio: 0.5成以下（比雅克科技仓位更小）
+
+  - code: 002971.SZ
+    name: 和远气体
+    role: wf6_small_cap
+    segment: WF6（500吨小盘）
+    priority: P3-观察
+    watch_reason: UP点名500吨小盘WF6标的。小盘弹性大，但波动也大。仅作WF6方向扩散确认观察，不重仓。
+    confirm_with:
+    - 昊华科技
+    - 中船特气(688146-科创)
+    entry_zone:
+      description: 涨停日等回踩，小盘波动大，只观察不主动买
+      current_ref: '2026-06-11 最新=52.75(涨停+10.01%)'
+      price_range: '48.0 ~ 50.0（仅供参考，不建议主动介入）'
+      confirm_signal: 昊华科技先企稳+WF6方向整体扩散
+      position_ratio: 不超过0.3成
 
 - id: electronic_gas_wf6
   name: 电子特气/六氟化钨（WF6）涨价主线
@@ -106,14 +119,13 @@ themes:
     confirm_with:
     - 中船特气(688146-科创)
     - 和远气体
-    buy_setup:
-    - 等回踩趋势支撑（20日线附近）不破+缩量企稳后放量
-    - 绝不在加速段追板
-    - WF6涨价数据持续验证+日本停产如期执行
-    invalidation_setup:
-    - 龙头（中船特气）大幅回落跌破平台
-    - WF6价格回落或停产被延迟
-    - 放量跌破20日线且30分钟不能收回
+    entry_zone:
+      description: 涨停日等分歧回踩补缺口，回踩至昨收~今日中位
+      current_ref: '2026-06-11 最新=63.89(涨停+10.00%)'
+      price_range: '58.0 ~ 61.0'
+      confirm_signal: 回踩补缺口不破+WF6涨价数据持续验证+缩量企稳再放量
+      hard_stop: 跌破55且30分钟不能收回
+      position_ratio: 0.5-1.0成（严格控仓，UP原话「右侧轻仓带止损」）
     up_mention_status:
       last_mentioned_date: '2026-06-10'
       mention_context: 6/10复盘点名二线标的「回踩不破趋势、量价配合，风险收益比优于已大幅异动的龙头」
@@ -146,10 +158,10 @@ themes:
     watch_reason: UP点名9N四氯化硅方向，与WF6产业链关联。仅观察WF6方向扩散，不单独建仓。
     confirm_with:
     - 昊华科技
-    buy_setup:
-    - 电子特气方向整体走强+三孚放量突破
-    invalidation_setup:
-    - 电子特气方向走弱
+    entry_zone:
+      description: 仅观察，不主动买入
+      current_ref: '2026-06-11 最新=64.00(+6.70%)'
+      price_range: 不设介入区间（P3仅观察）
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
@@ -175,14 +187,13 @@ themes:
     - 爱旭股份
     - 晶澳科技
     - 光伏ETF
-    buy_setup:
-    - 等突破前高加速再考虑兑现（中长线思路）
-    - 不做短线、不追单日爆拉
-    - 强制标准传闻确认后可适当加大关注
-    invalidation_setup:
-    - 强制标准传闻被证伪→板块回到纯超跌反弹逻辑
-    - 尾盘20亿爆拉次日放量冲高回落（诱多）
-    - 光伏产能过剩基本面继续恶化
+    entry_zone:
+      description: 今日收跌等缩量止跌企稳，确认不再创新低后轻仓
+      current_ref: '2026-06-11 最新=13.93(-1.07%)'
+      price_range: '13.5 ~ 13.9'
+      confirm_signal: 缩量止跌+不创新低+光伏板块同步企稳+强制标准传闻确认
+      hard_stop: 跌破13.2且30分钟不能收回
+      position_ratio: 0.5-1.0成（中长线思路，不做短线）
     up_mention_status:
       last_mentioned_date: '2026-06-10'
       sentiment: 低位修复里最看好
@@ -198,13 +209,13 @@ themes:
     confirm_with:
     - 隆基绿能
     - 晶澳科技
-    buy_setup:
-    - 隆基+爱旭+晶澳同步走强时，作为方向确认
-    invalidation_setup:
-    - 单票冲高但板块无联动
-    lifecycle:
-      stage: watching
-      entered_stage: '2026-06-11'
+    entry_zone:
+      description: 隆基企稳后作为方向确认，不单独建仓
+      current_ref: '2026-06-11 最新=12.58(+4.23%)'
+      price_range: '11.8 ~ 12.3'
+      confirm_signal: 隆基+晶澳同步走强+光伏板块放量
+      position_ratio: 0.3成以下
+
   - code: 002459.SZ
     name: 晶澳科技
     role: pv_follower
@@ -213,8 +224,10 @@ themes:
     watch_reason: UP点名涨停，光伏方向联动确认。
     confirm_with:
     - 隆基绿能
-    buy_setup:
-    - 光伏三票同步走强时确认板块趋势
+    entry_zone:
+      description: 不单独建仓，仅作方向确认
+      current_ref: '2026-06-11 最新=9.25(+1.09%)'
+      price_range: 不设介入区间（P3仅观察）
     invalidation_setup:
     - 板块联动失效
     lifecycle:
@@ -237,12 +250,13 @@ themes:
     watch_reason: UP点名钨矿代表。钨出口管制+APT较年初+14.9%。与WF6同源逻辑，可作为涨价主线补充。
     confirm_with:
     - 鼎泰高科(301377-创业)
-    buy_setup:
-    - 钨价继续反弹+钻针方向联动
-    - WF6方向持续走强时作为补充配置
-    invalidation_setup:
-    - 钨出口管制放开
-    - 鼎泰高科大幅回落且无联动
+    entry_zone:
+      description: 等回踩确认支撑，小涨日可等分时均线附近
+      current_ref: '2026-06-11 最新=74.00(+1.51%)'
+      price_range: '71.0 ~ 73.0'
+      confirm_signal: 回踩不破71+鼎泰高科同步企稳+钨价继续反弹
+      hard_stop: 跌破68且30分钟不能收回
+      position_ratio: 0.3-0.5成
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
@@ -259,10 +273,10 @@ themes:
     segment: 核聚变概念（AI电力逻辑注脚）
     priority: P3-观察
     watch_reason: UP点名AI算力→电力需求长逻辑的注脚。中线方向认同，但短期结合电价与政策节奏，不急于加仓。
-    buy_setup:
-    - AI电力逻辑被资金认可+绿电方向整体走强
-    invalidation_setup:
-    - AI电力逻辑不被认可
+    entry_zone:
+      description: 仅观察，不主动买入（UP说"不急于加仓"）
+      current_ref: '2026-06-11 最新=33.33(+4.48%)'
+      price_range: 不设介入区间（P3仅观察，且UP明确不急于加仓）
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
@@ -280,12 +294,13 @@ themes:
     confirm_with:
     - 三环集团(300408-创业)
     - 洁美科技(002859)
-    buy_setup:
-    - MLCC组整体转强+风华放量突破
-    - 等分歧后缩量回踩
-    invalidation_setup:
-    - MLCC被误判为类存储大紧缺后情绪退潮
-    - 三环集团大幅回落
+    entry_zone:
+      description: 今日收跌等缩量止跌+MLCC组整体转强
+      current_ref: '2026-06-11 最新=57.70(-3.53%)'
+      price_range: '55.0 ~ 57.5'
+      confirm_signal: 缩量止跌+MLCC组（三环/洁美）同步企稳+放量回到58以上
+      hard_stop: 跌破52且30分钟不能收回
+      position_ratio: 0.5-1.0成
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
