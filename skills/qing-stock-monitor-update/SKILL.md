@@ -34,7 +34,8 @@ description: |
 | 配置健康检查 | `references/config-health-check.md` |
 | 持仓观察池区分修复记录 | `references/position-watchlist-distinction-fix.md` |
 | 腾讯→新浪→东财降级链详情 | `references/tencent-sina-eastmoney-fallback-chain.md` |
-| **早盘驱动 Config 更新清单** | `references/morning-briefing-update-checklist.md` |
+| 早盘驱动 Config 更新清单 | `references/morning-briefing-update-checklist.md` |
+| **Cron 静默失败排查清单** | `references/cron-silent-failure-checklist.md` |
 | Agent-UP 矛盾处理 | 本 SKILL §陷阱 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
 | **设计文档 vs 代码实现差距核查** | `references/design-doc-vs-implementation-gap.md` |
@@ -913,6 +914,46 @@ git add .                                        # 同上
 1. **永远不要对 gitignored 文件使用 `-f` / `--force`**：`.gitignore` 的存在本身就是意图声明
 2. **`positions.yaml` 是最高敏感级别**：包含实盘持仓成本、股数、账户名，已在 `.gitignore` + `positions.example.yaml` 模板模式保护下
 3. **提交前检查**：`git status` 中不应出现 positions.yaml，出现时说明 gitignore 有问题，不是去 `-f`
+
+### 陷阱 23: Cron script 字段指向 project/scripts/ 的文件 → Hermes 找不到 → LLM fallback
+
+**反面案例（2026-06-11）**：用户发现定时任务的输出内容异常——不是 Qing-Agent 的分析结果，而是 LLM 直接处理 cron prompt 后生成的通用回答。排查后发现 cron 的 script 字段指向了项目目录下的文件，但 Hermes scheduler 只在 `~/.hermes/scripts/` 下查找。
+
+```
+# ❌ Hermes 找不到 → 静默 fallback 到 LLM 模式
+script: "hermes_stock_monitor_agent.py"
+
+# ✅ Hermes 能找到 → 执行脚本
+script: "qing_stock_monitor_agent.py"
+```
+
+**根因**：Hermes cron scheduler 的 script 字段**始终相对于 `~/.hermes/scripts/` 解析**，不受 workdir 影响。当 script 文件不存在时，Hermes **不报 error**，而是将 cron prompt 直接交给 LLM 处理——这就是为什么 cron 输出"有内容"但内容不对。
+
+**为什么容易踩**：
+- 项目 `scripts/` 下有 `hermes_*` 文件，直觉上 cron 应该能引用
+- LLM fallback 输出**有内容**（不像陷阱 20 的 0 字节），更容易误判为"正常工作"
+- **判断标准**：输出是不是 Qing-Agent 的分析格式（含介入价位、技术分析），还是 LLM 的通用投资建议
+
+**与陷阱 20/21 的区别**：
+
+| 陷阱 | 症状 | 根因 |
+|------|------|------|
+| 20 | 0 字节 + status=ok | `~/.hermes/scripts/` 下文件名写错了，完全找不到 |
+| 21 | 0 字节 + status=ok | 脚本存在但内部 subprocess 路径失效 |
+| **23** | **有内容但不对** + status=ok | 脚本根本不在 `~/.hermes/scripts/`（在 project 里），Hermes 静默回退 LLM |
+
+**架构约束**（已写入 AGENTS.md）：
+```
+~/.hermes/scripts/qing_*.py   ← 稳定入口（cron script 字段引用，永不改名）
+    │ delegate/subprocess
+    ▼
+project/scripts/hermes_*.py   ← 实际逻辑（可演进，可重命名）
+```
+
+**教训**：
+1. **cron script 字段只能引用 `~/.hermes/scripts/` 下的文件**，不能引用 project 目录下的
+2. **判断 cron 是否走了 LLM fallback**：看输出内容——Qing-Agent 分析有固定的结构化格式，LLM fallback 是通用投资建议
+3. **架构分离**：`~/.hermes/scripts/` 是稳定接口层，project `scripts/` 是实现层。修改实现层文件不需要改 cron，改接口层才需要
 
 ---
 
