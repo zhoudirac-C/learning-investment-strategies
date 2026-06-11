@@ -26,14 +26,14 @@ def main():
     else:
         # Fallback to uv run if venv not found
         return subprocess.call(
-            ["uv", "run", "python", "scripts/stock_monitor.py", "--daily-review-context"]
+            ["uv", "run", "python", "-m", "qing_investment.stock_monitor", "--daily-review-context"]
             + sys.argv[1:],
             cwd=root,
         )
 
     command = [
         python_cmd,
-        "scripts/stock_monitor.py",
+        "-m", "qing_investment.stock_monitor",
         "--daily-review-context",
     ] + sys.argv[1:]
     env = os.environ.copy()

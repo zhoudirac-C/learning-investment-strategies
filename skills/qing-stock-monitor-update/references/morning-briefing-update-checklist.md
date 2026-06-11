@@ -49,4 +49,7 @@
 python3 scripts/check_config_consistency.py --json | python3 -c "import sys,json; d=json.load(sys.stdin); assert d['p0_count']==0, f'P0={d[\"p0_count\"]}'; print('✓ P0=0')"
 # 结构校验
 python3 scripts/validate_config.py
+# no-agent 轮询脚本不崩溃（TypeError/KeyError 等 YAML 格式错误在此暴露）
+PYTHONPATH=src timeout 30 .venv/bin/python scripts/stock_monitor.py --ignore-trading-time
+echo "exit=$?"
 ```

@@ -24,7 +24,7 @@ def main() -> int:
 
     command = [
         str(venv_python),
-        str(REPO_ROOT / "scripts" / "stock_monitor.py"),
+        "-m", "qing_investment.stock_monitor",
         "--ignore-trading-time",
     ]
     env = os.environ.copy()

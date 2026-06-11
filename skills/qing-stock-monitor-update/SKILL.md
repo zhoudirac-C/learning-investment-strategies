@@ -132,8 +132,9 @@ python3 scripts/check_config_consistency.py --json
 1. 逐项修改（优先 P0 → P1 → P2）
 2. 运行 `python3 scripts/validate_config.py` 验证
 3. 运行 `python3 scripts/check_config_consistency.py --json` 确认 P0 清零
-4. 更新 strategy_pack.updated_at
-5. Git 提交
+4. **运行 no-agent 轮询脚本确认不崩溃**：`PYTHONPATH=src timeout 30 .venv/bin/python scripts/stock_monitor.py --ignore-trading-time`
+5. 更新 strategy_pack.updated_at
+6. Git 提交
 
 ---
 
@@ -156,7 +157,8 @@ python3 scripts/check_config_consistency.py --json
 2. 输出差异报告（P0/P1/P2 分级）
 3. 用户确认后逐项 patch
 4. `validate_config.py` + `check_config_consistency.py --json` → P0 清零
-5. Git 提交
+5. **`PYTHONPATH=src timeout 30 .venv/bin/python scripts/stock_monitor.py --ignore-trading-time`** → 确认 no-agent 脚本不崩溃
+6. Git 提交
 
 ---
 
@@ -804,6 +806,94 @@ Neo4j 返回 neotime.Date 类型（非 Python datetime.date，非 str）
 
 **详细参考**：`references/architecture-review-framework.md` §陷阱5
 
+### 陷阱 19: sector_rotation_rules YAML dict-in-list 导致 poll cron 崩溃
+
+**反面案例（2026-06-11）**：修改 watchlist/strategy_pack 后，no-agent 轮询 job（`qing_stock_monitor_poll.py`）报 `TypeError: unhashable type: 'dict'`，崩溃在 `_aggregate_sector_strength()` 第 526 行。
+
+**根因**：`strategy_pack.yaml` 的 `sector_rotation_rules` 中 `offensive_groups`/`defensive_groups` 写成了**内嵌股票列表的 dict 格式**：
+```yaml
+# ❌ 错误格式
+offensive_groups:
+- pricing_power: [雅克科技, 昊华科技, 中钨高新, 风华高科]
+```
+YAML 解析为 `[{pricing_power: [...]}]` — list of dicts。但 `_aggregate_sector_strength(strengths, group_ids)` 期望 `group_ids: list[str]`，把 dict 当 str 做 hash lookup → `TypeError`。
+
+**这个格式是 pre-existing 的**（早于我们本次 config 修改），但因为 no-agent 轮询 job 是近期才部署的，此前从未触发过此代码路径。LLM-based cron job 不走 `evaluate_sector_rotation_alerts()` 所以未暴露。
+
+**正确格式**：offensive_groups 只需字符串列表——group ID 在 `sector_groups` 中已有定义，内嵌的股票列表从未被代码使用。
+```yaml
+# ✅ 正确格式
+offensive_groups:
+- pricing_power
+```
+
+**排查方法**：cron job 报错后，直接复现脚本调用链：
+```bash
+cd ~/learning-investment-strategies
+PYTHONPATH=src .venv/bin/python scripts/stock_monitor.py --ignore-trading-time
+# 看完整 traceback → 定位实际崩溃行 → 对照 YAML 格式
+```
+
+**教训**：
+1. **修改 config 后必须至少跑一次 no-agent 脚本验证**，不能只跑 `validate_config.py`（它不检查 dict vs list 类型错误）
+2. **YAML 中嵌入 dict 做 key 映射是反模式**：宁可用 `{id: xxx, members: [...]}` 扁平结构，也不要用 `{key: value}` 做 list 元素
+3. **「改了 config 后 cron 崩了」时**：先不要假设是自己改坏的，用脚本直接复现看完整 traceback，根因可能在 pre-existing 格式问题
+
+### 陷阱 20: Cron script 文件名不匹配 → 全静默空输出
+
+**反面案例（2026-06-11）**：修改 config 之后，用户发现「所有看盘定时任务都没有发过微信消息」。排查发现全部 9 个 agent cron job 当天输出都是 **0 字节空文件**，但 cron status 全部显示 `ok`——无任何 error 信号。
+
+**根因**：
+```
+cron script 字段 = "qing_stock_monitor_agent.py"（文件不存在）
+  实际文件 = "hermes_stock_monitor_agent.py"
+  → Hermes scheduler 找不到脚本 → 静默跳过，无 error
+  → 输出 0 字节空文件 + status "ok"
+```
+
+**为什么之前能工作**：文件可能曾以旧名称存在（或软链接），在 git 操作中被移除后 cron job 定义未同步更新。昨天的输出有内容，今天全是空的。
+
+**如何排查静默失败**：
+```bash
+# 1. 检查 cron 输出文件大小
+ls -lt ~/.hermes/cron/output/<job_id>/ | head -3
+stat -c%s ~/.hermes/cron/output/<job_id>/<latest>
+# 0 字节 + status=ok → 极可能是脚本不存在
+
+# 2. 检查 script 字段引用的文件是否存在
+ls -la scripts/<script_field_value>
+```
+
+**教训**：
+1. **cron status "ok" ≠ 脚本执行成功**：scheduler 在脚本不存在时可能不报 error
+2. **重命名脚本时必须同步更新所有引用它的 cron job**
+3. **Config 修改后验证应包括 cron 端到端**：至少 dry-run 一个 agent job 和一个 no-agent job
+
+### 陷阱 21: subprocess 调用使用硬编码文件路径 → 文件重命名/移动后静默失败
+
+**反面案例（2026-06-11，多次发生）**：`hermes_stock_monitor_agent.py`、`qing_stock_monitor_poll.py`、`hermes_stock_monitor_daily_review.py` 等脚本通过 `subprocess.run(["python", "scripts/stock_monitor.py", ...])` 调用 `stock_monitor.py`。文件名/路径一旦变化（重命名、重构、移动），脚本内部 subprocess 调用全部静默失败——**外层 cron status=ok + 0字节输出**，与陷阱 20 的表象完全相同。
+
+**根因**：
+```python
+# ❌ 硬编码文件路径 — 脚本重命名后全部失效
+command = [python_cmd, "scripts/stock_monitor.py", *extra_args]
+
+# ✅ 模块路径 — 不依赖文件名
+command = [python_cmd, "-m", "qing_investment.stock_monitor", *extra_args]
+```
+
+**涉及的所有脚本（2026-06-11 批量修复）**：
+| 脚本 | 硬编码调用 | 修复 |
+|------|-----------|------|
+| `hermes_stock_monitor_agent.py` | `scripts/stock_monitor.py` (×2) | `-m qing_investment.stock_monitor` |
+| `hermes_stock_monitor_daily_review.py` | `scripts/stock_monitor.py` (×2) | `-m qing_investment.stock_monitor` |
+| `qing_stock_monitor_poll.py` | `REPO_ROOT/"scripts"/"stock_monitor.py"` | `-m qing_investment.stock_monitor` |
+
+**教训**：
+1. **subprocess 调用项目内模块永远用 `-m`**，不要用文件路径
+2. **`-m` 的前提**：目标模块必须有 `if __name__ == "__main__"` 入口
+3. **排查时先确认 subprocess 调用链**：外层 cron → 脚本 A → subprocess 脚本 B，B 路径失效时外层无感知
+
 ---
 
 ## 关键纪律
@@ -814,7 +904,8 @@ Neo4j 返回 neotime.Date 类型（非 Python datetime.date，非 str）
 - **claims 优先**：UP 直接点名的方向/标的必须补入 watchlist
 - **Agent 健康优先**：Qing-Agent 离线时先重启再分析（用 gunicorn 单 worker，非 uvicorn；同时停止 MCP Qdrant server 避免锁冲突）
 - **不未经确认提交**：用户说"不要提交"或"让我想想"时，立即停止并回滚未确认改动
-- **验证必须跑**：`validate_config.py` + `check_config_consistency.py --json`
+- **验证必须跑**：`validate_config.py` + `check_config_consistency.py --json` + **no-agent 轮询脚本 dry-run**（`stock_monitor.py --ignore-trading-time`）
+- **cron 健康必查**：config 修改后至少验证一个 agent cron job（`hermes_stock_monitor_agent.py`）和一个 no-agent cron job（`stock_monitor.py`）能正常执行，输出文件非 0 字节
 - **主板-only**：用户只能交易 sh6xxxxx / sz0xxxxx。非主板标的标记 `tradable: false`
 - **不删旧数据**：旧 theme 降级为 monitor_only，不删除
 - **不编造价格**：数据源降级时诚实说明
@@ -833,6 +924,7 @@ Neo4j 返回 neotime.Date 类型（非 Python datetime.date，非 str）
 - [ ] `daily_state.json` 存在且最近 5 分钟有更新（需 Qing-Agent 启动 + `market_analyst` 节点 `_persist_daily_state_from_market_context()` 已部署）
 - [ ] `sync_daily_state.py` 能成功解析最近 cron 输出（含 ```daily_state 代码块）
 - [ ] `qing_stock_monitor_poll.py` 存在且可独立运行
+- [ ] **no-agent 轮询脚本 dry-run 通过**：`PYTHONPATH=src timeout 30 .venv/bin/python scripts/stock_monitor.py --ignore-trading-time`（exit 0, 无 TypeError/KeyError）
 - [ ] add_zone/reduce_zone/risk_zone 纯规则提醒正常推送
 - [ ] **Qing-Agent 完整链路耗时 ≤ 90s**（基准 70-75s，见 `references/qing-agent-timing-benchmark.md`）
 - [ ] **超时层级对齐**：`HERMES_CRON_SCRIPT_TIMEOUT` ≥ `QING_AGENT_TIMEOUT` + 60s

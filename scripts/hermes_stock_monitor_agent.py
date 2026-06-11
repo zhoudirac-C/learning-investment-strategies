@@ -41,14 +41,14 @@ def _run_stock_monitor(root: Path, *extra_args: str) -> subprocess.CompletedProc
     venv_python = root / ".venv" / "bin" / "python"
     if venv_python.exists():
         python_cmd = str(venv_python)
-        command = [python_cmd, "scripts/stock_monitor.py", *extra_args]
+        command = [python_cmd, "-m", "qing_investment.stock_monitor", *extra_args]
         env = os.environ.copy()
         env["PYTHONPATH"] = str(root / "src")
         return subprocess.run(command, cwd=root, env=env, capture_output=True, text=True)
 
     # Fallback to uv run
     return subprocess.run(
-        ["uv", "run", "python", "scripts/stock_monitor.py", *extra_args],
+        ["uv", "run", "python", "-m", "qing_investment.stock_monitor", *extra_args],
         cwd=root,
         capture_output=True,
         text=True,

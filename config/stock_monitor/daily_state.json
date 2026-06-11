@@ -1,142 +1,211 @@
 {
-  "date": "2026-06-10",
+  "date": "2026-06-11",
   "market_stage": {
-    "phase": "技术性反弹（回暖初期）",
-    "detail": "缩量2.6万亿，创业板涨近4%，半导体+上游材料双线并进，结构似0529-0602，但更缩量且跌停更少。全A指数未验证，需明日确认真修复。",
-    "updated_by": "market_analyst:None",
-    "updated_at": "2026-06-10T18:50:10.047293"
+    "phase": "调整期",
+    "detail": "全A未企稳，上证破4033，资源防御领涨科技无修复，假修复确认",
+    "updated_by": "market_analyst:market",
+    "updated_at": "2026-06-11T10:06:45.469293"
   },
   "direction_priority": [
     {
-      "direction": "上游材料（电子树脂/光纤）",
+      "direction": "资源涨价链（有色/化工）",
       "intensity": "",
-      "source": "market_analyst:None"
+      "source": "market_analyst:market"
     },
     {
-      "direction": "半导体（模拟芯片）",
+      "direction": "防御（猪肉/鸡肉）",
       "intensity": "",
-      "source": "market_analyst:None"
+      "source": "market_analyst:market"
     },
     {
-      "direction": "商业航天（超跌修复）",
+      "direction": "光伏（个股脉冲，需等待板块共振）",
       "intensity": "",
-      "source": "market_analyst:None"
+      "source": "market_analyst:market"
     }
   ],
-  "position_stance": "当前空仓。上游材料主升已加速，不建议追高；半导体和商业航天可逢分歧低吸，等待回踩企稳信号后建仓。",
+  "position_stance": "空仓或极轻仓（<2成），不参与任何右侧追涨",
   "active_opportunities": [
     {
-      "stock": "东材科技",
-      "code": "601208",
-      "pattern": "主线龙头涨停确认",
-      "trigger": "一字板确认，等分歧回踩",
+      "stock": "雅克科技",
+      "code": "002409",
+      "pattern": "放量突破压力位",
+      "trigger": "回踩125-127企稳",
       "status": "未触发",
       "upside": "",
       "downside": "",
       "ratio": "2.5:1",
-      "updated_at": "2026-06-10T18:41:57.326404"
+      "updated_at": "2026-06-11T09:56:52.515654"
     },
     {
       "stock": "三一重工",
       "code": "600031",
       "pattern": "基本面背离修复",
-      "trigger": "缩量回踩16-17元区间企稳",
-      "status": "未触发",
-      "upside": "",
-      "downside": "",
-      "ratio": "3:1",
-      "updated_at": "2026-06-10T18:50:10.047316"
-    },
-    {
-      "stock": "亨通光电",
-      "code": "600487",
-      "pattern": "主线扩散中军",
-      "trigger": "板块走强，等分歧低吸",
+      "trigger": "板块放量阳线+突破20日线",
       "status": "未触发",
       "upside": "",
       "downside": "",
       "ratio": "2:1",
-      "updated_at": "2026-06-10T18:41:57.326409"
+      "updated_at": "2026-06-11T10:05:20.633222"
+    },
+    {
+      "stock": "风华高科",
+      "code": "000636",
+      "pattern": "MLCC修复",
+      "trigger": "放量+6.64%站稳63",
+      "status": "未触发（等回踩60）",
+      "upside": "",
+      "downside": "",
+      "ratio": "2.5:1",
+      "updated_at": "2026-06-11T10:06:45.469323"
+    },
+    {
+      "stock": "中钨高新",
+      "code": "000657",
+      "pattern": "资源涨价+放量突破",
+      "trigger": "今日放量+6.58%突破前高，成交48.7亿",
+      "status": "未触发（需明日确认持续）",
+      "upside": "",
+      "downside": "",
+      "ratio": "2.8:1",
+      "updated_at": "2026-06-11T10:06:45.469317"
+    },
+    {
+      "stock": "东材科技",
+      "code": "601208",
+      "pattern": "事件驱动",
+      "trigger": "电子树脂开盘走强且板块联动",
+      "status": "未触发（缺实时数据）",
+      "upside": "",
+      "downside": "",
+      "ratio": "2.5:1",
+      "updated_at": "2026-06-11T10:01:33.420032"
+    },
+    {
+      "stock": "超捷股份",
+      "code": "301005",
+      "pattern": "板块回调末端",
+      "trigger": "商业航天止跌企稳信号",
+      "status": "未触发",
+      "upside": "",
+      "downside": "",
+      "ratio": "3:1",
+      "updated_at": "2026-06-11T10:01:33.420037"
     },
     {
       "stock": "圣邦股份",
       "code": "300661",
-      "pattern": "板块反弹龙头",
-      "trigger": "模拟芯片领涨，观察持续性",
+      "pattern": "板块延续",
+      "trigger": "半导体不低开且圣邦分时强势",
       "status": "未触发",
       "upside": "",
       "downside": "",
-      "ratio": "2:1",
-      "updated_at": "2026-06-10T18:41:57.326414"
+      "ratio": "2.2:1",
+      "updated_at": "2026-06-11T10:01:33.420041"
     },
     {
-      "stock": "生益科技",
-      "code": "600183",
-      "pattern": "上游材料龙头回踩",
-      "trigger": "明日若缩量回踩5日线（约28-28.5元）企稳",
-      "status": "观察",
-      "upside": "",
-      "downside": "",
-      "ratio": "2.5:1",
-      "updated_at": "2026-06-10T18:50:10.047322"
-    },
-    {
-      "stock": "中简科技",
-      "code": "300489",
-      "pattern": "回踩企稳+上游扩散",
-      "trigger": "29.5-30.0缩量止跌",
-      "status": "未触发",
-      "upside": "",
-      "downside": "",
-      "ratio": "3.5:1",
-      "updated_at": "2026-06-10T18:51:32.849310"
-    },
-    {
-      "stock": "斯瑞新材",
-      "code": "688102",
-      "pattern": "超跌反弹+底部放量",
-      "trigger": "16.5-17.0缩量止跌",
-      "status": "未触发",
+      "stock": "万泽股份",
+      "code": "000534",
+      "pattern": "技术支撑确认",
+      "trigger": "回踩30.5-31.0企稳",
+      "status": "未触发（无实时数据验证）",
       "upside": "",
       "downside": "",
       "ratio": "3:1",
-      "updated_at": "2026-06-10T18:51:32.849317"
+      "updated_at": "2026-06-11T10:02:55.225560"
+    },
+    {
+      "stock": "航天电器",
+      "code": "002025",
+      "pattern": "板块轮动早期",
+      "trigger": "回踩62-63区间且昇腾板块资金流入",
+      "status": "未触发（无实时数据验证）",
+      "upside": "",
+      "downside": "",
+      "ratio": "2.2:1",
+      "updated_at": "2026-06-11T10:02:55.225566"
+    },
+    {
+      "stock": "超捷股份",
+      "code": "000318",
+      "pattern": "超跌反弹",
+      "trigger": "商业航天板块企稳日线底分型",
+      "status": "未触发，需今日数据确认",
+      "upside": "",
+      "downside": "",
+      "ratio": "3:1",
+      "updated_at": "2026-06-11T10:04:20.415041"
+    },
+    {
+      "stock": "隆基绿能",
+      "code": "601012",
+      "pattern": "低位放量修复",
+      "trigger": "回踩5日线不破+板块量能维持",
+      "status": "未触发",
+      "upside": "",
+      "downside": "",
+      "ratio": "2.5:1",
+      "updated_at": "2026-06-11T10:05:20.633218"
     }
   ],
   "intraday_narrative": [
     {
-      "time": "18:40 明日假设",
-      "summary": "全A指数若放量突破6000点并带动上涨家数回升，修复可升级；否则维持轮动结构，只等分歧低吸。",
-      "timestamp": "2026-06-10T18:40:34.765099"
+      "time": "09:52 明日假设",
+      "summary": "预计明日缩量震荡确认今日修复有效性。若半导体材料/设备继续领涨且全A小幅放量，则回暖延续；若领涨方向明日无溢价，则重回弱势震荡。",
+      "timestamp": "2026-06-11T09:52:12.147762"
     },
     {
-      "time": "18:41 明日假设",
-      "summary": "若全A指数放量企稳、北证继续强势、主线不分化，则可确认修复延续，考虑在分歧回踩时低吸上游材料核心标的；若缩量分化，则按反弹减仓处理。",
-      "timestamp": "2026-06-10T18:41:57.326429"
+      "time": "09:56 明日假设",
+      "summary": "全A大概率继续探底，若低开反弹则继续观望，若放量拉回4033上方则考虑小仓位试仓半导体/涨价链",
+      "timestamp": "2026-06-11T09:56:52.515669"
     },
     {
-      "time": "18:50 明日假设",
-      "summary": "假设量能维持2.5万亿以上且全A走中阳线，则反弹延续，可小幅加仓上游材料核心；若缩量至2.2万亿以下或权重护盘中小盘失血，则减仓至3成防御。",
-      "timestamp": "2026-06-10T18:50:10.047337"
+      "time": "09:59 核心假设",
+      "summary": "上证仍在4033下方，市场处于调整末期混沌阶段，以震荡筑底看待",
+      "timestamp": "2026-06-11T09:59:16.874735"
     },
     {
-      "time": "18:51 核心假设",
-      "summary": "今日修复结构与5/29-6/2相似，但创业板均线压制更重，判断为冰点后的技术性反弹，非趋势反转。需要补量+主线持续+权重接力才能升级。",
-      "timestamp": "2026-06-10T18:51:32.849324"
+      "time": "10:01 明日假设",
+      "summary": "若全A中阳线且电子树脂/半导体共振，则上修至'修复确认';否则按反弹对待，不追高。",
+      "timestamp": "2026-06-11T10:01:12.668557"
     },
     {
-      "time": "18:51 明日假设",
-      "summary": "若沪指放量突破4130同时创业板突破均线压制，则修复升级为阶段反弹，持股或加仓做多；若量能无法放大、指数冲高回落，则做好止盈保护，继续等待冰点后的真正分歧买点。",
-      "timestamp": "2026-06-10T18:51:32.849335"
+      "time": "10:01 明日假设",
+      "summary": "若今日放量中阳线且主线明确（半导体/电子树脂），可小仓位试错；若继续缩量震荡，保持空仓",
+      "timestamp": "2026-06-11T10:01:33.420049"
+    },
+    {
+      "time": "10:02 明日假设",
+      "summary": "若早盘放量（30分钟成交>6000亿）且半导体/光纤领涨，则回暖延续；若缩量震荡或防御方向走强，则继续做T等待。关键观察：全A中阳线+科技核心主动承接。",
+      "timestamp": "2026-06-11T10:02:55.225581"
+    },
+    {
+      "time": "10:03 核心假设",
+      "summary": "市场缩量震荡，全A与上证背离，赚钱效应差。需要等待放量确认方向，当前以防守为思路。",
+      "timestamp": "2026-06-11T10:03:29.267527"
+    },
+    {
+      "time": "10:04 明日假设",
+      "summary": "若无实时数据，无法做出明日假设，需补充行情数据",
+      "timestamp": "2026-06-11T10:04:20.415050"
+    },
+    {
+      "time": "10:05 明日假设",
+      "summary": "全A可能继续震荡，光伏修复若量能持续则带动人气，否则回归防守",
+      "timestamp": "2026-06-11T10:05:20.633231"
+    },
+    {
+      "time": "10:06 明日假设",
+      "summary": "若全A继续下探破6000，全面空仓防御；若全A在6100附近缩量企稳且科技方向有主动修复（科创50翻红），可小仓位低吸前强科技核心（如光连接、PCB）",
+      "timestamp": "2026-06-11T10:06:45.469336"
     }
   ],
   "version": 1,
   "_meta": {
-    "direction_updated_by": "market_analyst:None",
-    "direction_updated_at": "2026-06-10T18:51:32.849297",
-    "stance_updated_by": "market_analyst:None",
-    "stance_updated_at": "2026-06-10T18:51:32.849302",
-    "last_persisted_by": "market_analyst:None",
-    "last_persisted_at": "2026-06-10T18:51:32.849274+08:00"
+    "direction_updated_by": "market_analyst:market",
+    "direction_updated_at": "2026-06-11T10:06:45.469304",
+    "stance_updated_by": "market_analyst:market",
+    "stance_updated_at": "2026-06-11T10:06:45.469309",
+    "last_persisted_by": "market_analyst:market",
+    "last_persisted_at": "2026-06-11T10:06:45.469253+08:00"
   }
 }
