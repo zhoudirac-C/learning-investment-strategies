@@ -10,12 +10,28 @@ from __future__ import annotations
 import os
 import subprocess
 import sys
+from datetime import datetime, time
 from pathlib import Path
 
 REPO_ROOT = Path("/home/ubuntu/learning-investment-strategies")
 
+# ── 交易时段门控 ──────────────────────────────────
+MORNING_START = time(9, 15)
+MORNING_END   = time(11, 30)
+AFTERNOON_START = time(14, 0)
+AFTERNOON_END   = time(15, 0)
+
+
+def _in_trading_window() -> bool:
+    """只在 09:15–11:30 或 14:00–15:00 执行。"""
+    now = datetime.now().time()
+    return (MORNING_START <= now <= MORNING_END) or (AFTERNOON_START <= now <= AFTERNOON_END)
+
 
 def main() -> int:
+    if not _in_trading_window():
+        # 不在交易时段，静默退出，不打扰用户
+        return 0
     venv_python = REPO_ROOT / ".venv" / "bin" / "python"
 
     if not venv_python.exists():
