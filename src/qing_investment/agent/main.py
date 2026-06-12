@@ -20,6 +20,16 @@ _handler = TimedRotatingFileHandler(
     backupCount=30,
     encoding="utf-8",
 )
+
+# 自定义 namer：将 qing-agent.log → qing-agent.YYYY-MM-DD.log
+def _log_namer(default_name: str) -> str:
+    # default_name = "qing-agent.log.2026-06-12" → "qing-agent.2026-06-12.log"
+    base = _log_file.stem  # "qing-agent"
+    ext = _log_file.suffix  # ".log"
+    date_part = Path(default_name).suffix.lstrip(".")  # "2026-06-12"
+    return str(_log_dir / f"{base}.{date_part}{ext}")
+
+_handler.namer = _log_namer
 _handler.setFormatter(logging.Formatter(
     "%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
