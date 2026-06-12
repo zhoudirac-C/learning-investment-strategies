@@ -1,8 +1,8 @@
 # Qing-Agent 技术设计文档
 
-> 版本: 2026-06-12  
-> 对应 Commit: `db95d14` (Phase 8 更新)
-> 最后更新：修正/chat端点数据流描述，更新数据规模，补充Phase 8改动
+> 版本: 2026-06-12  (v3)
+> 对应 Commit: `当前` (§4.6 指数K线管线 + §4.7 日志系统)
+> 最后更新：新增 §4.6 指数多级别K线数据管线（MACD/九转/斐波那契）架构、注入方式、使用边界
 
 ---
 
@@ -592,7 +592,119 @@ LLM 输出 → Fix A [年份检测] → 通过 → Fix B [含实时价的上下�
 
 **缺口**：Fix A 只检测年份幻觉，缺少通用事实校验层。
 
-### 4.6 Phase 8 新增 — 日志系统（2026-06-12）
+### 4.6 指数多级别K线数据管线（MACD/九转/斐波那契）— 2026-06-12 新增
+
+#### 4.6.1 为什么需要
+
+UP（青枫浦上Q）的大盘分析方法论核心之一是多级别顶底结构判断：
+- **MACD 多级别背离/金叉/死叉** → 判断大盘的顶底结构（日线/120min/90min/60min/30min）
+- **神奇九转（TD Sequential）** → 判断涨跌持续时间，辅助MACD确认顶底（高9/低9）
+- **斐波那契数列** → 判断时间窗口是否到位（8/13/21/34/55交易日）
+
+这些数据**只用于大盘（全A指数/上证指数）顶底判断，不用于个股分析**。个股技术分析使用：成交量、换手率、支撑位、压力位、K线形态、分时图。
+
+#### 4.6.2 数据管线架构
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ 数据源：东方财富 API (push2.eastmoney.com)                       │
+│ klt=30 (30分钟) / 60 (60分钟) / 120 (120分钟) / 101 (日线)       │
+│ secid=1.000001 (上证) / 1.000985 (中证全指)                      │
+└───────────────────────────┬─────────────────────────────────────┘
+                            │ pre_fetch (每天06:30) + 盘中增量 (每30min)
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ SQLite 缓存层：infra/data/kline_cache.db                         │
+│ 表 index_klines: (code, timeframe, bar_time, O/H/L/C, volume,   │
+│                   dif, dea, macd_hist)                           │
+│ 90分钟由3根30分钟K线合并（东财不支持原生klt=90）                  │
+│ 规模：4指数 × 5时间级别 × ~160根K线 = 2,428+ 条                  │
+└───────────────────────────┬─────────────────────────────────────┘
+                            │ 读取
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 读取层：kline_cache.py                                           │
+│                                                                  │
+│ format_multi_tf_macd_report()  → 精简MACD快照（536字符）          │
+│   - 每个指数一行：{级别}{柱方向}(DIF值)，五级别紧凑排列              │
+│   - 中证全指日线+60分钟各最近5根详细                               │
+│   - 默认只处理 sh000001(上证) + sh000985(全A)，不分析深证/创业板   │
+│                                                                  │
+│ calculate_td_sequential_multi_tf()  → TD9报告                     │
+│   - 五级别（日线/120min/90min/60min/30min）的TD9买/卖信号          │
+│   - 包含当前计数和状态                                              │
+│                                                                  │
+│ calculate_fibonacci_time_window()  → 斐波那契时间窗口报告          │
+│   - 从最近高/低点计算距8/13/21/34/55交易日的差值                   │
+│   - 标记到期的窗口                                                 │
+└───────────────────────────┬─────────────────────────────────────┘
+                            │ 注入 AgentState
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ Agent 上下文注入：graph/nodes.py market_analyst 节点              │
+│                                                                  │
+│ macd_multi_tf_report   →  str  (精简MACD快照)                     │
+│ td_sequential_report   →  str  (九转报告)                         │
+│ fibonacci_time_report  →  str  (斐波那契时间窗口)                 │
+│                                                                  │
+│ 三个字段注入到 AgentState，market_analyst 节点通过 prompt          │
+│ 中的 Step 2（多级别顶底结构）使用这些数据。                          │
+└───────────────────────────┬─────────────────────────────────────┘
+                            │ LLM 使用约束
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ Prompt 层（使用边界约束）                                         │
+│                                                                  │
+│ market_analysis_framework.txt Step 2 — 大盘分析框架：             │
+│   "⚠️ MACD/九转/斐波那契数据只用于大盘（全A/上证）顶底判断"         │
+│   "个股技术分析用：成交量/换手率/支撑位/压力位/K线形态/分时图"       │
+│   "MACD/九转/斐波那契分析结果不是独立段落，融入【综合判断】中"       │
+│                                                                  │
+│ stock_analyst.txt 技术位置分析 — 个股分析框架：                   │
+│   "⚠️ 严禁在个股分析中使用MACD/九转/斐波那契"                     │
+│   "个股技术分析使用：成交量、换手率、支撑位、压力位、K线形态、分时图"  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+#### 4.6.3 文件清单与链接
+
+| 文件 | 职责 | 说明 |
+|------|------|------|
+| [`src/qing_investment/kline_cache.py`](../../src/qing_investment/kline_cache.py) | K线缓存+MACD计算+九转+斐波那契 | 核心数据层，包含所有读取和计算函数 |
+| [`src/qing_investment/agent/graph/nodes.py`](../../src/qing_investment/agent/graph/nodes.py) | Agent节点实现，注入三个数据字段 | 搜索 `macd_multi_tf_report` / `td_sequential_report` / `fibonacci_time_report` 定位注入点 |
+| [`scripts/qing_pre_fetch_klines.py`](../../scripts/qing_pre_fetch_klines.py) | 开盘前预拉取脚本 | cron `30 6 * * 1-5` |
+| [`scripts/update_index_klines_intraday.py`](../../scripts/update_index_klines_intraday.py) | 盘中增量更新脚本 | cron `*/30 9-15 * * 1-5` |
+| [`prompts/system/market_analysis_framework.txt`](../../src/qing_investment/agent/prompts/system/market_analysis_framework.txt) | 大盘分析框架（Step 2规则+边界） | 含MACD/九转/斐波那契判断规则及使用边界说明 |
+| [`prompts/system/stock_analyst.txt`](../../src/qing_investment/agent/prompts/system/stock_analyst.txt) | 个股分析prompt | 含明确禁止MACD/九转的条款 |
+| [`prompts/system/market_analyst.txt`](../../src/qing_investment/agent/prompts/system/market_analyst.txt) | 市场分析主prompt | 所有市场分析最终都由这个节点执行 |
+
+#### 4.6.4 数据使用规则（严格约束）
+
+1. **适用范围**：MACD/九转/斐波那契 → 仅用于**全A指数(000985)和上证指数(000001)**的顶底判断
+2. **格式要求**：分析结果**不独立成段**（如单独的【MACD结构】段落），必须融入大盘判断的综合结论中
+3. **个股禁用**：个股分析使用 成交量/换手率/支撑位/压力位/K线形态/分时图，**严禁使用MACD**
+4. **数据量**：MACD报告已压缩至 536 字符（五级别快照+日线+60min详），直接注入 LLM 上下文免LLM自行计算
+5. **仅两个指数**：深证成指、创业板指不做多级别MACD分析——只分析上证和中证全指
+
+#### 4.6.5 关键实现细节
+
+**90分钟数据合成**（东财不支持原生klt=90）：
+- 取最近3根30分钟K线（klt=30）
+- 合并规则：O=第一根O, H=三根max(H), L=三根min(L), C=最后一根C, V=三根sum(V)
+- MACD 用最后一根30分钟的数据代表
+
+**每日数据更新时序**：
+1. 06:30 — 预拉取：全量拉取5指数×4时间级别×~160根K线
+2. 09:30~15:00 — 盘中增量（每30分钟）：只拉取最新数据，INSERT OR REPLACE 去重
+3. MACD 在写入时由 SQLite 存储，读取时不再重复计算
+
+#### 4.6.6 后续扩展方向
+
+- 增加60分钟级别TD9的94%柱线信号过滤（当前只有9转基础计数）
+- 增加全A日线级别的双低9统计（已有基础数据）
+- 跨指数MACD背离比较（全A vs 上证分化判断）
+
+### 4.7 日志系统（Phase 8 新增 — 2026-06-12）
 
 **位置**：`main.py` 启动时配置 RotatingFileHandler → `logs/qing-agent.YYYY-MM-DD.log`
 **轮转**：按天轮转，保留30天。`logs/.gitignore` 已有保护不提交。
@@ -912,6 +1024,9 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 | `src/qing_investment/agent/tools/qdrant_client.py` | 文档向量检索（REST API 兼容 Qdrant 1.9.7，支持本地模式 fallback） |
 | `src/qing_investment/agent/tools/mem0_client.py` | 记忆层 |
 | `src/qing_investment/agent/tools/llm_client.py` | LLM 统一封装 + Embedding 工厂（ONNX 优先） |
+| `src/qing_investment/kline_cache.py` | 指数K线缓存+MACD/TD9/斐波那契计算（§4.6 核心数据层） |
+| `scripts/qing_pre_fetch_klines.py` | 开盘前指数K线预拉取（cron 06:30） |
+| `scripts/update_index_klines_intraday.py` | 盘中指数K线增量更新（cron */30 9-15） |
 | `src/qing_investment/agent/prompts/system/market_analyst.txt` | 市场分析主 prompt（含 `{analysis_framework}` 占位符） |
 | `src/qing_investment/agent/prompts/system/market_analysis_framework.txt` | 11 项分析框架片段（被 market_analyst 动态加载） |
 | `src/qing_investment/agent/prompts/system/style_writer.txt` | UP 风格化 prompt（强制保留来源标注） |
