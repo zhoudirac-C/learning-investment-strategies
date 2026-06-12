@@ -3046,6 +3046,28 @@ def format_daily_review_context(
             ]
         )
 
+    # ── 收盘复盘新增：MACD/九转/斐波那契大盘分析数据 ──
+    try:
+        from qing_investment.kline_cache import (
+            format_multi_tf_macd_report,
+            compute_td_report,
+            compute_fibonacci_time_report,
+        )
+        import sqlite3
+        macd = format_multi_tf_macd_report()
+        td_sh = compute_td_report("sh000001", "daily")
+        td_ci = compute_td_report("sh000985", "daily")
+        fib_sh = compute_fibonacci_time_report("sh000001")
+        fib_ci = compute_fibonacci_time_report("sh000985")
+        if macd:
+            lines.extend(["", "📊 大盘多级别MACD：", macd])
+        if td_sh or td_ci:
+            lines.extend(["", "🔢 神奇九转：", td_sh, td_ci])
+        if fib_sh or fib_ci:
+            lines.extend(["", "📅 斐波那契时间窗口：", fib_sh, fib_ci])
+    except Exception as e:
+        lines.extend(["", f"⚠️ MACD数据获取失败: {e}"])
+
     stale_warnings = state.get("stale_zone_warnings")
     if stale_warnings:
         lines.extend(
