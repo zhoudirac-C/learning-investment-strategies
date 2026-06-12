@@ -17,7 +17,7 @@ source_docs:
 market_framework:
   up_quote: 「指数方向未明，仓位与节奏以防守反击为主。题材主战场仍在科技上游材料（电子化学品、靶材、光刻胶、电子特气）。个股在等指数企稳——一旦指数给出确认信号，题材端弹性可能快速释放。」
   current_stage: 调整尾部等确认信号 — 全A趋势下跌23个交易日首次触及年线（924以来首次），调整时间空间均近历史极值。情绪逐日加强（20cm不开板，逆势涨的是科技而非反指），个股在等指数企稳。全A放量中阳线=唯一确认信号，在此之前不扩大风险敞口。结构未明朗前以防守反击为主。
-  core_operation: 右侧确认纪律——结构成立前不做左侧抄底。向上看放量突破站稳→反弹级别上修；向下看60分钟以上底部结构。持有不追、不加仓、紧守止损。当前持有雅克科技+风华高科，总仓位2.8%。
+  core_operation: 右侧确认纪律——结构成立前不做左侧抄底。向上看放量突破站稳→反弹级别上修；向下看60分钟以上底部结构。持有不追、不加仓、紧守止损。当前仅持有雅克科技，总仓位1.4%。
   opening_scenarios:
     scenario_A_向上突破: 放量突破并站稳→反弹级别和参与价值上修，可评估加仓但绝不追高。
     scenario_B_偏弱震荡: 平开/低开/缩量→持有不动，紧守止损。向下则观察60分钟以上底部结构能否形成。
@@ -406,22 +406,24 @@ themes:
     name: 风华高科
     role: mlcc_core
     segment: MLCC国产龙头
-    priority: P1-核心
-    watch_reason: 多次被UP点名的AI服务器MLCC国产龙头。6/11收盘64.3（+7.51%），已在持仓中（成本64.07，+0.36%浮盈）。需MLCC板块联动验证。
+    priority: P3-观察
+    watch_reason: 多次被UP点名的AI服务器MLCC国产龙头。6/12触发60.9止损清仓（执行价约60.68-60.9），亏损约5.1%。止损纪律执行完毕。保留MLCC方向锚点观察，若MLCC板块再次放量走强+新高可重新评估。
     confirm_with:
     - 三环集团(300408-创业)
     - 洁美科技(002859)
     entry_zone:
-      description: 【已持仓】不再设介入区间。当前成本64.07，止损60.9。需MLCC组（三环/洁美）同步走强确认。
-      current_ref: 2026-06-11 收盘=64.3（+7.51%） 浮盈+0.36% 止损=60.9
+      description: 【已止损清仓】6/12触发60.9止损出局。保留观察，若MLCC板块放量走强+新高+全A中阳线可重新评估。
+      current_ref: 2026-06-12 收盘=60.92(-5.26%) 止损执行 亏损约-5.1%
       price_range: null
-      method: 已持仓
-      confirm_signal: MLCC板块联动+全A放量中阳线→可持有但暂不加仓
-      hard_stop: 跌破60.9止损
-      position_ratio: 已持仓（100股）
+      method: 已止损，等待重新评估信号
+      confirm_signal: MLCC板块放量走强+全A放量中阳线+风华高科重新站稳MA5
+      hard_stop: null
+      position_ratio: 0（已清仓）
     lifecycle:
-      stage: holding
+      stage: stopped_out
       entered_stage: '2026-06-11'
+      stopped_out_at: '2026-06-12'
+      stopped_note: 触发60.9止损清仓，亏损约330元(-5.1%)
 - id: sk_hynix_adr_mapping
   name: SK海力士ADR映射
   up_positioning: 「情绪层面联动」— SK海力士8月赴美ADR，HBM4超2/3订单。太极实业持合资55%股权是实质性关联非纯题材，但映射强度取决于市场风偏。弱市环境下不宜过度解读。
