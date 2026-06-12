@@ -60,6 +60,7 @@ grep "source_date:" knowledge/claims/claim-*.yaml | sort
 3. **解释旧冲突**：能解释之前矛盾的新规则
 4. **改变操作纪律**：直接影响买卖/仓位/风控的决策规则
 5. **例外条款**：**首次出现但直接影响当前持仓决策的操作纪律**，即使只出现1次也应进入 framework。例如：UP 说"能做T做T，反弹之后减仓，等黄金坑再补"——这是针对当前持仓的具体操作框架，不应等"出现2次"再采纳。判断标准：该规则是否直接回答了"现在怎么办"的问题？是→首次即入。
+6. **方法论框架对比**：将本次 review 窗口内的 methodology claims（claim_type=methodology, timeframe=permanent）与 `framework/market-breadth-framework.md` 和 `knowledge/wiki/投资方法论/大盘分析方法论.md` 交叉对比。标记状态：已收录 / 新方法论（建议追加）/ 矛盾（需人工裁决）。矛盾归入 contradiction 分类处理。若发现新方法论，在报告中标注"建议运行更新方法论"。
 
 ### Step 6: 一致性检查
 

@@ -1,0 +1,401 @@
+#!/usr/bin/env python3
+"""
+指数多级别K线盘中增量更新。
+
+设计目标:
+  - 每30分钟运行一次（交易时段 9:30-15:00）
+  - 只拉最新几根K线，与DB对比，发现新bar就入库
+  - 增量计算 MACD（重算最近35根以保证EMA连续性）
+  - 幂等：重复运行不会产生重复数据（PRIMARY KEY约束自动去重）
+
+用法:
+  python scripts/update_index_klines_intraday.py
+  python scripts/update_index_klines_intraday.py --dry-run
+"""
+
+from __future__ import annotations
+
+import json
+import os
+import sys
+import time
+import urllib.request
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+from typing import Any
+
+REPO_ROOT = Path(__file__).resolve().parents[1] if __file__ != "__main__" else Path.cwd()
+DB_PATH = REPO_ROOT / "infra" / "data" / "kline_cache.db"
+CN_TZ = timezone(timedelta(hours=8))
+
+INDICES = {
+    "sh000001": {"secid": "1.000001", "name": "上证指数"},
+    "sh000985": {"secid": "1.000985", "name": "中证全指"},
+    "sz399001": {"secid": "0.399001", "name": "深证成指"},
+    "sz399006": {"secid": "0.399006", "name": "创业板指"},
+}
+
+TIMEFRAMES = {
+    "30min": {"klt": 30, "name": "30分钟"},
+    "60min": {"klt": 60, "name": "60分钟"},
+    "120min": {"klt": 120, "name": "120分钟"},
+    "daily": {"klt": 101, "name": "日线"},
+}
+
+FETCH_BARS = 5          # 每次拉最新5根
+RECOMPUTE_BARS = 35     # 重算最近35根的MACD（保证EMA稳定）
+DELAY = 1.0             # 请求间隔
+
+
+def _http_get(url: str) -> str:
+    headers = {
+        "Referer": "https://quote.eastmoney.com/",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    }
+    req = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        return resp.read().decode()
+
+
+def _ema(values: list[float], period: int) -> list[float | None]:
+    if len(values) < period:
+        return [None] * len(values)
+    k = 2 / (period + 1)
+    result: list[float | None] = [None] * (period - 1)
+    result.append(sum(values[:period]) / period)
+    for v in values[period:]:
+        result.append(v * k + result[-1] * (1 - k))  # type: ignore[operator]
+    return result
+
+
+def fetch_latest_klines(code: str, klt: int, count: int = FETCH_BARS) -> list[dict]:
+    """拉取最新 N 根K线（升序）。"""
+    secid = INDICES[code]["secid"]
+    url = (
+        "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+        f"?secid={secid}"
+        "&fields1=f1,f2,f3,f4,f5,f6"
+        "&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61"
+        f"&klt={klt}&fqt=1&end=20500101&lmt={count + 3}"
+    )
+    data = json.loads(_http_get(url))
+    raw = data.get("data", {}).get("klines", [])
+    if not raw:
+        return []
+
+    result = []
+    for row in raw:
+        parts = row.split(",")
+        if len(parts) < 6:
+            continue
+        try:
+            result.append({
+                "bar_time": parts[0],
+                "open": float(parts[1]),
+                "close": float(parts[2]),
+                "high": float(parts[3]),
+                "low": float(parts[4]),
+                "volume": float(parts[5]),
+                "amount": float(parts[6]) if len(parts) > 6 else 0.0,
+            })
+        except (ValueError, IndexError):
+            continue
+
+    result.sort(key=lambda k: k["bar_time"])
+    return result[-count:] if len(result) > count else result
+
+
+def compute_macd_range(klines: list[dict]) -> list[dict]:
+    """为K线列表计算 MACD。"""
+    closes = [k["close"] for k in klines]
+    n = len(closes)
+    ema12 = _ema(closes, 12)
+    ema26 = _ema(closes, 26)
+
+    dif = []
+    for i in range(n):
+        if ema12[i] is not None and ema26[i] is not None:
+            dif.append(ema12[i] - ema26[i])
+        else:
+            dif.append(None)
+
+    valid_dif = [d for d in dif if d is not None]
+    if not valid_dif:
+        return klines
+
+    valid_start = next(i for i, d in enumerate(dif) if d is not None)
+    dea_raw = _ema(valid_dif, 9)
+
+    dea: list[float | None] = [None] * n
+    for i, val in enumerate(dea_raw):
+        if val is not None:
+            dea[valid_start + i] = val
+
+    for i, k in enumerate(klines):
+        k["dif"] = round(dif[i], 4) if dif[i] is not None else None  # type: ignore[arg-type]
+        k["dea"] = round(dea[i], 4) if dea[i] is not None else None  # type: ignore[arg-type]
+        if dif[i] is not None and dea[i] is not None:
+            k["macd_hist"] = round((dif[i] - dea[i]) * 2, 4)
+        else:
+            k["macd_hist"] = None
+
+    return klines
+
+
+def update_one(code: str, timeframe: str, dry_run: bool = False) -> dict:
+    """更新单个指数×周期的K线。返回统计。"""
+    import sqlite3
+
+    klt = TIMEFRAMES[timeframe]["klt"]
+    idx_name = INDICES[code]["name"]
+    tf_name = TIMEFRAMES[timeframe]["name"]
+
+    # 1. 从API拉最新N根
+    latest = fetch_latest_klines(code, klt, FETCH_BARS)
+    if not latest:
+        return {"status": "no_api_data", "code": code, "tf": timeframe}
+
+    newest_bar = latest[-1]["bar_time"]
+
+    # 2. 查DB中最新的 bar_time
+    conn = sqlite3.connect(str(DB_PATH))
+    conn.row_factory = sqlite3.Row
+    db_latest = conn.execute(
+        "SELECT MAX(bar_time) as latest FROM index_klines WHERE code=? AND timeframe=?",
+        (code, timeframe)
+    ).fetchone()["latest"]
+
+    if db_latest and db_latest >= newest_bar:
+        conn.close()
+        return {"status": "up_to_date", "code": code, "tf": timeframe, "db_latest": db_latest}
+
+    # 3. 有新bar：从DB取最近 RECOMPUTE_BARS 根（含新bar之前的历史）
+    existing = conn.execute(
+        "SELECT * FROM index_klines WHERE code=? AND timeframe=? ORDER BY bar_time ASC",
+        (code, timeframe)
+    ).fetchall()
+
+    existing_bars = [dict(r) for r in existing]
+    existing_times = {r["bar_time"] for r in existing_bars}
+
+    # 找出新bar
+    new_bars = [k for k in latest if k["bar_time"] not in existing_times]
+
+    if not new_bars:
+        conn.close()
+        return {"status": "no_new_bars", "code": code, "tf": timeframe}
+
+    # 4. 取最近 RECOMPUTE_BARS 根用于重算MACD
+    all_bars = existing_bars + new_bars
+    all_bars.sort(key=lambda k: k["bar_time"])
+    compute_window = all_bars[-RECOMPUTE_BARS:] if len(all_bars) > RECOMPUTE_BARS else all_bars
+    compute_window = compute_macd_range(compute_window)
+
+    # 5. 写入新bar（含重算的MACD）
+    if not dry_run:
+        now = datetime.now(CN_TZ).isoformat()
+        # 只写入新bar（compute_window的后半部分）
+        new_bar_times = {k["bar_time"] for k in new_bars}
+        bars_to_write = [k for k in compute_window if k["bar_time"] in new_bar_times]
+
+        conn.executemany(
+            """INSERT OR REPLACE INTO index_klines
+                (code, timeframe, bar_time, open, high, low, close, volume, amount,
+                 dif, dea, macd_hist, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            [
+                (
+                    code, timeframe, k["bar_time"],
+                    k["open"], k["high"], k["low"], k["close"],
+                    k["volume"], k["amount"],
+                    k.get("dif"), k.get("dea"), k.get("macd_hist"),
+                    now,
+                )
+                for k in bars_to_write
+            ]
+        )
+        conn.commit()
+
+    conn.close()
+
+    return {
+        "status": "updated",
+        "code": code,
+        "tf": timeframe,
+        "new_bars": len(new_bars),
+        "newest_bar": newest_bar,
+        "bars": [k["bar_time"] for k in new_bars],
+    }
+
+
+# ── 90分钟合成 ──
+
+def _fetch_and_compute_macd(klines: list[dict]) -> list[dict]:
+    """为K线列表计算MACD（内联版，避免重复导入EMA逻辑）。"""
+    def _ema(values, period):
+        if len(values) < period:
+            return [None] * len(values)
+        k = 2 / (period + 1)
+        result = [None] * (period - 1)
+        result.append(sum(values[:period]) / period)
+        for v in values[period:]:
+            result.append(v * k + result[-1] * (1 - k))  # type: ignore[operator]
+        return result
+
+    closes = [k["close"] for k in klines]
+    n = len(closes)
+    ema12 = _ema(closes, 12)
+    ema26 = _ema(closes, 26)
+
+    dif = []
+    for i in range(n):
+        if ema12[i] is not None and ema26[i] is not None:
+            dif.append(ema12[i] - ema26[i])
+        else:
+            dif.append(None)
+
+    valid_dif = [d for d in dif if d is not None]
+    if not valid_dif:
+        return klines
+
+    valid_start = next(i for i, d in enumerate(dif) if d is not None)
+    dea_raw = _ema(valid_dif, 9)
+
+    dea: list[float | None] = [None] * n
+    for i, val in enumerate(dea_raw):
+        if val is not None:
+            dea[valid_start + i] = val
+
+    for i, k in enumerate(klines):
+        k["dif"] = round(dif[i], 4) if dif[i] is not None else None
+        k["dea"] = round(dea[i], 4) if dea[i] is not None else None
+        if dif[i] is not None and dea[i] is not None:
+            k["macd_hist"] = round((dif[i] - dea[i]) * 2, 4)
+        else:
+            k["macd_hist"] = None
+
+    return klines
+
+
+def synthesize_90min_klines(code: str, dry_run: bool = False) -> int:
+    """从30分钟K线合成90分钟K线，计算MACD后入库。"""
+    import sqlite3
+
+    conn = sqlite3.connect(str(DB_PATH))
+    conn.row_factory = sqlite3.Row
+
+    rows = conn.execute(
+        "SELECT * FROM index_klines WHERE code=? AND timeframe='30min' ORDER BY bar_time ASC",
+        (code,)
+    ).fetchall()
+
+    if len(rows) < 3:
+        conn.close()
+        return 0
+
+    bars_90min = []
+    for g in range(len(rows) // 3):
+        group = rows[g*3:(g+1)*3]
+        bar = {
+            "bar_time": group[-1]["bar_time"],
+            "open": group[0]["open"],
+            "high": max(r["high"] for r in group),
+            "low": min(r["low"] for r in group),
+            "close": group[-1]["close"],
+            "volume": sum(r["volume"] for r in group),
+            "amount": sum(r["amount"] for r in group if r["amount"]),
+        }
+        bars_90min.append(bar)
+
+    bars_90min = _fetch_and_compute_macd(bars_90min)
+
+    if not dry_run:
+        now = datetime.now(CN_TZ).isoformat()
+        # 删旧写新（90分钟数据量小，全量覆盖）
+        conn.execute("DELETE FROM index_klines WHERE code=? AND timeframe='90min'", (code,))
+        conn.executemany(
+            """INSERT INTO index_klines
+                (code, timeframe, bar_time, open, high, low, close, volume, amount,
+                 dif, dea, macd_hist, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            [
+                (
+                    code, "90min", k["bar_time"],
+                    k["open"], k["high"], k["low"], k["close"],
+                    k["volume"], k["amount"],
+                    k.get("dif"), k.get("dea"), k.get("macd_hist"),
+                    now,
+                )
+                for k in bars_90min
+            ]
+        )
+        conn.commit()
+
+    conn.close()
+    return len(bars_90min)
+
+
+def is_trading_time() -> bool:
+    """判断当前是否在A股交易时段（含盘前15分钟缓冲）。"""
+    now = datetime.now(CN_TZ)
+    # 周一至周五
+    if now.weekday() >= 5:
+        return False
+    t = now.hour * 60 + now.minute
+    # 9:15 - 15:15
+    return 9 * 60 + 15 <= t <= 15 * 60 + 15
+
+
+def main() -> int:
+    import argparse
+    parser = argparse.ArgumentParser(description="指数多级别K线盘中增量更新")
+    parser.add_argument("--dry-run", action="store_true", help="仅测试，不写DB")
+    parser.add_argument("--force", action="store_true", help="非交易时段也执行")
+    args = parser.parse_args()
+
+    if not args.force and not is_trading_time():
+        now = datetime.now(CN_TZ)
+        print(f"[{now.strftime('%H:%M')}] 非交易时段，跳过（--force 可强制执行）")
+        return 0
+
+    now = datetime.now(CN_TZ)
+    results = []
+    total_new = 0
+
+    print(f"[{now.strftime('%H:%M')}] 盘中增量更新开始")
+
+    for code in INDICES:
+        for tf in TIMEFRAMES:
+            time.sleep(DELAY)
+            r = update_one(code, tf, args.dry_run)
+            results.append(r)
+
+            if r["status"] == "updated":
+                bars_str = ", ".join(r.get("bars", []))
+                print(f"  ✅ {INDICES[code]['name']} {TIMEFRAMES[tf]['name']}: +{r['new_bars']}根 {bars_str}")
+                total_new += r["new_bars"]
+            elif r["status"] == "no_new_bars":
+                pass  # 静默
+            elif r["status"] == "up_to_date":
+                pass  # 静默
+            else:
+                print(f"  ⚠️ {INDICES[code]['name']} {TIMEFRAMES[tf]['name']}: {r['status']}")
+
+    updated = sum(1 for r in results if r["status"] == "updated")
+    skipped = sum(1 for r in results if r["status"] in ("up_to_date", "no_new_bars"))
+    errors = sum(1 for r in results if r["status"] not in ("updated", "up_to_date", "no_new_bars"))
+
+    # ── 90分钟合成（从30分钟）──
+    # 只有30分钟数据被更新时才触发合成
+    if any(r["status"] == "updated" and r["tf"] == "30min" for r in results):
+        for code in INDICES:
+            n = synthesize_90min_klines(code, args.dry_run)
+            if n:
+                print(f"  🔧 {INDICES[code]['name']}: 90分钟合成 {n}根")
+
+    print(f"[完成] 新增 {total_new} 根K线, 更新 {updated} 组, 跳过 {skipped} 组, 错误 {errors}")
+    return 0 if errors == 0 else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

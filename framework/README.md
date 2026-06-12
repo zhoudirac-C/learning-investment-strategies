@@ -16,6 +16,7 @@
 | [livestock-classification.md](livestock-classification.md) | 活口分类方法论（退潮活口 vs 复苏活口） | A |
 | [market-participant-framework.md](market-participant-framework.md) | 市场参与者分析框架（三类资金结构） | A |
 | [market-cycle-framework.md](market-cycle-framework.md) | 市场周期与调整修复方法论 | A |
+| [market-breadth-framework.md](market-breadth-framework.md) | 市场广度分析框架（多级别顶底+全A+微盘+情绪） | A |
 | [technical-analysis-framework.md](technical-analysis-framework.md) | 技术分析可执行框架（K线/指标/量价/纪律） | B |
 | [trading-rules.md](trading-rules.md) | 交易规则手册（接力方法论、尾盘套利法等操作纪律） | A/B |
 

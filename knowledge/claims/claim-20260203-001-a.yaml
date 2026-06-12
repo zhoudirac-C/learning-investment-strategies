@@ -1,0 +1,25 @@
+id: claim-20260203-001-a
+source_path: sources/raw/财经/早盘：26-02-03：指数破位逼近4000，等ETF持续买入，4095纠错线.md
+source_type: 早盘
+source_date: "2026-02-03"
+claim_type: methodology
+subject: 双冰点结构判断方法——红盘家数的量化阈值
+timeframe: permanent
+statement: "双冰点结构的确认方法：昨日尾盘恐慌盘集中释放+今日低开且红盘家数<1000→双冰点结构确认。其他情景：红盘开盘但<1500→弱修复；红盘>2000→修复偏快需警惕追高。情绪修复路径为：跌停减少→5家以内→完全消灭。"
+evidence_quote: "昨日尾盘半小时恐慌盘集中释放，红盘一度压缩至700家。今日情绪判断：低开+红盘<1000→双冰点结构确认；红盘开盘但<1500→弱修复；红盘>2000→修复偏快，警惕追高。情绪修复路径：跌停减少→5家以内→完全消灭。"
+interpretation: "UP首次系统化定义'双冰点'概念并给出量化阈值（红盘<1000）。这是情绪周期判断中冰点概念的完整成型——不仅有定义，还有操作含义（双冰点=可保持基础仓位关注修复机会）。同时给出了情绪修复的三阶段路径（跌停减少→5家以内→完全消灭），这是UP情绪判断框架的核心骨架。"
+confidence: high
+status: active
+intensity: high
+supersedes: []
+contradicts: []
+last_discovered: 2026-06-12
+links:
+  wiki_pages:
+  - 市场分析/情绪判断.md
+  methodology_pages:
+  - market-cycle-framework.md
+  cases: []
+topic: 双冰点结构的量化定义与情绪修复三阶段路径
+tags: [情绪判断, 双冰点, 红盘家数, 修复路径, 量化阈值]
+related_stocks: []

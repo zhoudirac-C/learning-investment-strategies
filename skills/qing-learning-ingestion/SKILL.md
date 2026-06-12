@@ -77,6 +77,24 @@ git add sources/raw/ knowledge/claims/ knowledge/wiki/
 git commit -m "feat: ..."
 ```
 
+### Step 6: Methodology Check（方法论感知）
+
+每轮 ingestion 完成后，检查本次新增的 claims 是否包含大盘分析方法论：
+
+```bash
+# 检查新 claims 中是否有 methodology 类型
+grep -l "claim_type: methodology" knowledge/claims/claim-YYYYMMDD-*.yaml | while read f; do
+  grep "timeframe: permanent" "$f" >/dev/null && echo "  → $f"
+done
+```
+
+若检测到方法论 claims，输出提示：
+```
+本轮 ingestion 新增 X 条方法论 claims。建议运行「更新方法论」合并到 framework。
+```
+
+**⚠️ 此步骤不自动写 framework。** 必须等用户明确指令（"更新方法论"）后才执行合并。Agent 只做检测和提醒。
+
 ## 关键坑
 
 1. **同日期多 raw 的编号冲突**：写入前 `ls knowledge/claims/claim-YYYYMMDD-*.yaml` 检查，用递增编号
@@ -122,4 +140,5 @@ git commit -m "feat: ..."
 | 录音错别字修正 | `references/recording-transcript-correction.md` |
 | B站文章提取 | `references/bilibili-article-content-extraction.md` |
 | 混合内容（轨道A+轨道B） | `references/mixed-content-ingestion.md` |
+| **大盘方法论批量提取** | `references/bulk-methodology-extraction-guide.md` |
 | 用户手动录入 | 本 skill SKILL.md §「手动录入流程」 |

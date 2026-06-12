@@ -109,5 +109,130 @@
         "probability": "50%"
       }
     }
+  },
+  "2026-06-12": {
+    "date": "2026-06-12",
+    "built_at": "2026-06-12T17:00:04.721547+08:00",
+    "market": {
+      "stage": "调整末期/震荡修复",
+      "stage_detail": "全A日线MACD绿柱收敛但未转正，60分钟红柱但DIF为负，仅30分钟底部结构。上证收盘<4033触发清仓线。资源股独涨、科技杀跌，假修复特征。成交量3136亿地量，方向未明，防守反击。",
+      "direction_priority": [
+        {
+          "direction": "资源涨价（钨/钼/铜）",
+          "intensity": "",
+          "source": "market_analyst:market"
+        },
+        {
+          "direction": "航空装备",
+          "intensity": "",
+          "source": "market_analyst:market"
+        },
+        {
+          "direction": "券商",
+          "intensity": "",
+          "source": "market_analyst:market"
+        }
+      ],
+      "position_stance": "2-3成保守仓位，不追高，等上证站回4033+全A中阳确认后再加仓。",
+      "key_levels": {
+        "shanghai_index": {
+          "valid_repair": "量价确认+科技高低切（已替代4033固定点位，6/9后UP不再使用4033作为修复标准）",
+          "weak_repair": "4000（心理关口，缩量站回无效，需放量+科技主动承接）",
+          "trend_defense": "3950（月线支撑，收盘跌破→筑底失败信号）",
+          "framework_evolution": "6/3: 4033/4130纪律线引入。6/5: 4033修正为科技清仓线。6/9: 生命线下调至4000。\n6/11早盘: 地量信号+情景A/B框架替代二元点位判断。4033已连续12天被跌破。\n6/11晚间: 全A趋势下跌23个交易日→历史级别尾部。午后回升提前消耗修复动能。\n全A中阳线替代一切点位判断→成为唯一确认信号。仓位纪律高于判断。\n"
+        },
+        "nasdaq": {
+          "watch": "费城半导体指数是否稳住震荡区间"
+        },
+        "oil": {
+          "escalation_threshold": "90美元",
+          "relief_threshold": "80美元"
+        }
+      }
+    },
+    "positions": {
+      "002409": {
+        "close": 132.99,
+        "open": 140.01,
+        "high": 144.5,
+        "low": 131.81,
+        "change_pct": -1.35,
+        "volume": 663193.0,
+        "amount": "913308",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 9.54,
+        "volume_ratio": 0.15,
+        "vs_ma5": null,
+        "vs_ma10": null,
+        "near5d_return": -1.0,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 129.683,
+        "unrealized_pct": 2.55,
+        "cost_protection_line": 129.68
+      }
+    },
+    "tomorrow_scenarios": null,
+    "dragon_tiger_board": {
+      "board_count": 47,
+      "watch_dt_items": [
+        "和远气体(002971) 净买-1.92亿"
+      ],
+      "dt_nettop5": [
+        {
+          "code": "002119",
+          "name": "康强电子",
+          "net_buy": "+3.70亿"
+        },
+        {
+          "code": "000630",
+          "name": "铜陵有色",
+          "net_buy": "+3.60亿"
+        },
+        {
+          "code": "000032",
+          "name": "深桑达A",
+          "net_buy": "+3.43亿"
+        },
+        {
+          "code": "300263",
+          "name": "隆华科技",
+          "net_buy": "+2.94亿"
+        },
+        {
+          "code": "001257",
+          "name": "盛龙股份",
+          "net_buy": "+1.64亿"
+        }
+      ],
+      "dt_sector_summary": {
+        "ccL_resin_upstream": {
+          "stocks": [
+            "002971"
+          ],
+          "total_net_str": "-5.61亿"
+        },
+        "electronic_gas_wf6": {
+          "stocks": [
+            "002971"
+          ],
+          "total_net_str": "-5.61亿"
+        }
+      },
+      "fetched_at": "2026-06-12T17:00:04.722200+08:00"
+    }
   }
 }

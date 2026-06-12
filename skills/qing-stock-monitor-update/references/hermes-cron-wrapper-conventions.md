@@ -53,6 +53,23 @@ sys.exit(subprocess.call(
 | 有内容但非 Qing-Agent 格式 | script 字段指向 project/scripts/ 下文件，Hermes 找不到→LLM fallback | 确认文件在 `~/.hermes/scripts/` 下 |
 | ModuleNotFoundError | PYTHONPATH 缺了 src/ 或 scripts/ | 同时设置 `scripts:src` |
 
+## no_agent 模式说明
+
+当 cron job 设置为 `no_agent: true` 时，Hermes scheduler 直接执行 `script` 字段引用的脚本，**不走 LLM**。输出由 `deliver` 字段控制：
+- `deliver: local`：仅保存到本地文件，不推送
+- `deliver: weixin`：推送微信（仅用于有阈值触发的纯规则检查）
+
+此模式下可用**简单 shell 包装器**替代 Python 包装器（因为不需要 subprocess 管理）：
+
+```bash
+#!/bin/bash
+# ~/.hermes/scripts/update_index_klines_intraday.sh
+cd ~/learning-investment-strategies || exit 1
+exec ~/.hermes/hermes-agent/venv/bin/python3 scripts/update_index_klines_intraday.py "$@"
+```
+
+关键点：`exec` 确保脚本 PID 替换 shell PID，scheduler 能正确捕获退出码和 stdout。
+
 ## 涉及的全部包装器（2026-06-11 已修复）
 
 | 包装器 | 模块调用 | 用途 |
@@ -63,3 +80,4 @@ sys.exit(subprocess.call(
 | `build_sector_mapping.py` | `-m build_sector_mapping` | 板块映射缓存 |
 | `calc_hot_scores.py` | `-m calc_hot_scores` | 热度分计算 |
 | `qing_pre_fetch_klines.py` | `-m pre_fetch_klines` | K线预拉取 |
+| `update_index_klines_intraday.sh` | shell → `scripts/update_index_klines_intraday.py` | **指数K线盘中增量更新（no_agent）.sh 包装器** |

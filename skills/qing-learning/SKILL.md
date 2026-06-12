@@ -18,6 +18,8 @@ description: |
 | 处理 raw、学习、整理文档 | **qing-learning-ingestion**（完整管线） |
 | qing review、方法论复盘、review claims、检查一致性 | **qing-learning-review** |
 | 同步知识库、sync、discover、migrate、重建索引 | **qing-learning-sync** |
+| 更新方法论、merge methodology、合并方法论 | **methodology-merge** 工作流（见 `references/methodology-merge-workflow.md`） |
+| 提取大盘方法、bulk extract | **方法论批量提取** 工作流（见 `references/methodology-extraction-pattern.md`） |
 
 ## 跨 Skill 兼容性
 
@@ -34,6 +36,7 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 
 ## 用户偏好（核心）
 
+0. **设计优先**：涉及知识库架构、新增 pipeline、跨 skill 改造等复杂工作时，先输出方案文档再实施。方案需包含：目标、架构设计、执行阶段、文件改动清单、验收标准。不经确认不写代码。
 1. **文档驱动执行**：有文档时直接读文档执行，无需逐步确认
 2. **内容验证优先**：检查文件时读原文内容，不只比较文件名
 3. **先处理文档，后改脚本**：硬性优先级
@@ -59,6 +62,8 @@ qing-learning-review（只读）
 |---------|---------|
 | 交易规则（买卖条件、风控线、操作纪律） | `framework/trading-rules.md` |
 | 市场周期判断框架 | `framework/market-cycle-framework.md` |
+| 市场广度分析（多级别顶底+全A+微盘+情绪） | `framework/market-breadth-framework.md` |
+| 大盘分析方法论（完整 wiki） | `knowledge/wiki/投资方法论/大盘分析方法论.md` |
 | 个股分析 playbook | `framework/stock-analysis-playbook.md` |
 
 **写入规范**：
@@ -83,7 +88,11 @@ qing-learning-review（只读）
 
 ## 参考
 
-完整文档和 35+ 参考文件：`skills/qing-learning/references/`
+完整文档和 38+ 参考文件：`skills/qing-learning/references/`
+
+### 方法论批量提取
+
+从大量历史 raw 文件中系统提取某类方法论的模式，详见 `references/methodology-extraction-pattern.md`。
 
 ### Skill Name Collision
 
