@@ -68,11 +68,15 @@ python scripts/extract_claims_pipeline.py continue
 ### related_stocks 格式
 
 ```yaml
-# ✅ 正确（结构化对象，在 claim 顶级，不在 links 下）
+# ✅ 正确（结构化对象，code 为字符串带引号，含前导零）
 related_stocks:
-- code: 600118
-  name: 中国卫星
-  role: 卫星链龙头-主板可交易
+- code: '002971'
+  name: 和远气体
+  role: WF6小盘标的-主板可交易
+
+# ❌ 错误（code 裸数字，前导零丢失）
+  - code: 002971  # YAML 解析为整数 2971
+  - code: 688981  # 虽然 6 位但类型错误
 
 # ❌ 旧格式（字符串，Agent 无法结构化检索）
 related_stocks: [中国卫星(600118)]
@@ -82,6 +86,11 @@ links:
   wiki_pages: []
   related_stocks: []  # ← 错误位置！
 ```
+
+**⚠️ `code` 必须用引号包裹为字符串**（如 `'002971'`），
+不能写成裸数字。YAML 会把 `code: 002971` 当作八进制整数 → 2971。
+`extract_claims_pipeline.py` 的 `_auto_format_yaml()` 已有后处理自动加引号，
+Gate 3 校验也已新增 `isinstance(code_val, int)` 检查。存量文件需用 `gate_validate_claims.py --all` 扫描修复。
 
 ### 股票代码查询
 
@@ -103,8 +112,13 @@ Step 1:
 Step 2:
 ☐ statement 和 interpretation 中所有公司名已带 6 位代码
 ☐ related_stocks 已填结构化对象（无标的写 []）
+☐ related_stocks 中的 code 是字符串类型（用引号包裹，如 '002971'）
 ☐ non-mainboard 已在 role 中标注不可交易
 ☐ tags 已补充（3-5 个）
+
+Step 3:
+☐ Step 3 自动完成后运行 `python scripts/gate_validate_claims.py <yaml_path>` 手动验证
+☐ 特别检查：related_stocks code 未被解析为整数
 
 Step 4:
 ☐ 已更新 wiki/index/log
@@ -152,7 +166,8 @@ python scripts/extract_claims_pipeline.py continue
 3. **⚠️ 不要**使用 sed 全局替换或其他自动化文本替换——可能误伤真阳性
 4. 删除 `gate2_result.json` 缓存后重跑 `continue`
 
-**参考**：`references/gate5-false-positive-patterns.md` — 已积累的模式库和按 raw 类型的预判表
+**参考**：`references/gate5-false-positive-patterns.md` — 已积累的模式库和按 raw 类型的预判表。
+`references/yaml-stock-code-leading-zero.md` — stock code 前导零丢失的修复记录。
 
 ### 3. Step 4 git 提交时的临时文件清理
 
@@ -192,3 +207,41 @@ claim-s: statement="调整已到历史级别尾部区域，风险收益比在倾
 **判断标准**：如果一条 claim 的 `interpretation` 包含了一个可以独立存在且具有检索价值的判断，就应该拆为独立 claim。
 
 **用户偏好**：宁拆勿合。独立定性判断值得单独检索和引用，不应埋在其他 claim 的解读文本中。
+
+### 7. 同日期 claim 编号冲突
+
+写 `claim-YYYYMMDD-NNN.yaml` 前必须检查已有文件：
+
+```bash
+ls knowledge/claims/claim-YYYYMMDD-*.yaml 2>/dev/null | tail -3
+# 如果有 -001.yaml，新文件用 -002.yaml
+# 如果有 -001.yaml 和 -002.yaml，用 -003.yaml
+```
+
+**典型场景**：同一个日期有多份 raw（如早盘+盘中+复盘），编号必须递增且不重复。
+Pipeline 的 step3 输出的暂存 YAML 文件名不含 NNN 段，需要 Agent 在 Step 4 手动核对后复制。
+
+**2026-06-12 实战**：写 10:47 盘中动态的 claim 时，6/12 早盘已存在 `claim-20260612-001.yaml`，
+须用 `claim-20260612-002.yaml`。如果在 Step 1 就用了重复编号，需在 step1_raw.json 和后续所有 step 中全部修正。
+
+### 8. YAML 中 stock code 前导零丢失（code: 002971 → 整数 2971）
+
+`_auto_format_yaml()` 使用 `yaml.dump()` 输出时，6 位字符串 `"002971"` 被写成裸数字 `code: 002971`。
+YAML 1.1 解析器将前导零的数字视为八进制整数，读回时变成 `2971`。
+
+**影响范围**：所有以 `0` 开头的 6 位股票代码（002xxx/001xxx/000xxx/300xxx 等）。
+
+**已在** `extract_claims_pipeline.py:_auto_format_yaml()` 中新增后处理：
+```python
+# 自动加引号修复：code: 002971 → code: '002971'
+fixed = re.sub(r'(?m)^(  - code: )0(\d{5})\s*$', r"\1'0\2'", raw)
+fixed = re.sub(r'(?m)^(  - code: )([1-9]\d{5})\s*$', lambda m: f"  - code: '{m.group(2)}'", fixed)
+```
+
+**防御**：`gate_validate_claims.py:gate3_related_stocks()` 新增 `isinstance(code_val, int)` 检查，
+在 Gate 3 阶段捕获遗留的整数 code。
+
+**存量扫描**：
+```bash
+python scripts/gate_validate_claims.py --all --step 2 | grep "是整数类型"
+```

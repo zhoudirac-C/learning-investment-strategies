@@ -1,118 +1,259 @@
 {
-  "date": "2026-06-11",
+  "date": "2026-06-12",
   "market_stage": {
-    "phase": "震荡修复（情绪加速段）",
-    "detail": "半导体材料主线加速中，预期差缩小，UP建议做T为主，不加仓。全A需等待中阳线确认真修复。",
-    "updated_by": "market_analyst:stock",
-    "updated_at": "2026-06-11T22:30:57.459390"
+    "phase": "震荡回暖期",
+    "detail": "上证收盘4034.06（+1.18%）刚站上4033关键位，但全A仅涨1.32%未现中阳线，领涨方向为军工有色补涨，科技核心芯片/光互连未主动修复。成交量1.44万亿温和放大但非进攻量。属于资金从高位科技分流至低位的补涨轮动，并非真修复，需观察明日持续性。",
+    "updated_by": "market_analyst:portfolio",
+    "updated_at": "2026-06-12T10:32:29.414575"
   },
   "direction_priority": [
     {
-      "direction": "半导体材料",
+      "direction": "PCB（Rubin BOM扩散，重点关注回踩机会）",
       "intensity": "",
-      "source": "market_analyst:stock"
+      "source": "market_analyst:portfolio"
     },
     {
-      "direction": "钨产业链",
+      "direction": "科技上游材料（电子特气/靶材，分化中聚焦龙头）",
       "intensity": "",
-      "source": "market_analyst:stock"
+      "source": "market_analyst:portfolio"
     },
     {
-      "direction": "AI应用低位修复",
+      "direction": "有色金属（钼/铜，高潮后等分歧，不追高）",
       "intensity": "",
-      "source": "market_analyst:stock"
+      "source": "market_analyst:portfolio"
+    },
+    {
+      "direction": "军工航天（观察持续性，一日游则放弃）",
+      "intensity": "",
+      "source": "market_analyst:portfolio"
     }
   ],
-  "position_stance": "持股观察，不加仓，利用利润垫动态管理。雅克科技持有1000股，成本32，现35.2。",
+  "position_stance": "总仓位5成以内，雅克科技持有观察，不新增追高仓位。重点跟踪PCB回踩机会。",
   "active_opportunities": [
     {
-      "stock": "雅克科技",
-      "code": "002409",
-      "pattern": "趋势持有",
-      "trigger": "未触发加减仓",
-      "status": "持有",
+      "stock": "圣泉集团",
+      "code": "605589.SH",
+      "pattern": "买入信号候选",
+      "trigger": "价格61.0 进入区间 [50.0, 53.0]",
+      "status": "候选",
       "upside": "",
       "downside": "",
-      "ratio": "利润垫10%",
-      "updated_at": "2026-06-11T22:30:57.459414"
+      "ratio": "",
+      "price": 61.4,
+      "price_bucket": "61.00-61.61",
+      "entry_zone": [
+        50.0,
+        53.0
+      ],
+      "stop_loss": null,
+      "matched_conditions": [
+        "非系统性大跌",
+        "未涨停",
+        "近3日缩量",
+        "MA20上方"
+      ],
+      "updated_at": "2026-06-12T11:08:32.974851+08:00",
+      "last_agent_check": null
     },
     {
-      "stock": "风华高科",
-      "code": "000636",
-      "pattern": "放量突破后等确认",
-      "trigger": "明日继续放量突破65.8或回踩62.5-63.0且板块跟风",
-      "status": "观望",
+      "stock": "爱旭股份",
+      "code": "600732.SH",
+      "pattern": "买入信号候选",
+      "trigger": "价格12.54 进入区间 [10.8, 11.5]",
+      "status": "候选",
       "upside": "",
       "downside": "",
-      "ratio": "1.8:1（目标70/止损60.9）",
-      "updated_at": "2026-06-11T14:57:15.699980"
+      "ratio": "",
+      "price": 12.79,
+      "price_bucket": "12.74-12.87",
+      "entry_zone": [
+        10.8,
+        11.5
+      ],
+      "stop_loss": null,
+      "matched_conditions": [
+        "非系统性大跌",
+        "未涨停",
+        "近3日缩量",
+        "MA20上方"
+      ],
+      "updated_at": "2026-06-12T11:08:32.974851+08:00",
+      "last_agent_check": null
     },
     {
-      "stock": "中科曙光",
-      "code": "603019",
-      "pattern": "主升龙头分歧回踩",
-      "trigger": "回踩5日线企稳",
+      "stock": "中钨高新",
+      "code": "000657.SZ",
+      "pattern": "买入信号候选",
+      "trigger": "价格77.95 进入区间 [73.0, 76.0]",
+      "status": "候选",
+      "upside": "",
+      "downside": "",
+      "ratio": "",
+      "price": 80.52,
+      "price_bucket": "80.19-81.00",
+      "entry_zone": [
+        73.0,
+        76.0
+      ],
+      "stop_loss": null,
+      "matched_conditions": [
+        "非系统性大跌",
+        "未涨停",
+        "近3日缩量",
+        "MA20上方"
+      ],
+      "updated_at": "2026-06-12T11:08:32.974851+08:00",
+      "last_agent_check": null
+    },
+    {
+      "stock": "中船特气",
+      "code": "688146",
+      "pattern": "产业涨价主线启动",
+      "trigger": "回踩5日均线或分时企稳",
+      "status": "未触发（无实时数据，等待盘中确认）",
+      "upside": "",
+      "downside": "",
+      "ratio": "3:1",
+      "updated_at": "2026-06-12T09:36:47.317040"
+    },
+    {
+      "stock": "江丰电子",
+      "code": "300666",
+      "pattern": "产业涨价主线启动",
+      "trigger": "回踩10日均线",
+      "status": "未触发",
+      "upside": "",
+      "downside": "",
+      "ratio": "2.5:1",
+      "updated_at": "2026-06-12T09:36:47.317044"
+    },
+    {
+      "stock": "待定",
+      "code": "暂无",
+      "pattern": "等待指数反转后的主线低吸",
+      "trigger": "全A中阳线+科技主动领航",
+      "status": "未触发",
+      "upside": "",
+      "downside": "",
+      "ratio": "待算",
+      "updated_at": "2026-06-12T09:37:55.154105"
+    },
+    {
+      "stock": "生益科技",
+      "code": "600183",
+      "pattern": "强势板块分歧回踩",
+      "trigger": "回踩MA5（152-155）缩量企稳",
+      "status": "未触发",
+      "upside": "",
+      "downside": "",
+      "ratio": "2.5:1",
+      "updated_at": "2026-06-12T10:32:29.414593"
+    },
+    {
+      "stock": "华正新材",
+      "code": "603186",
+      "pattern": "技术支撑确认",
+      "trigger": "回踩175-180区间",
       "status": "未触发",
       "upside": "",
       "downside": "",
       "ratio": "3:1",
-      "updated_at": "2026-06-11T22:24:58.027081"
+      "updated_at": "2026-06-12T10:32:29.414598"
+    },
+    {
+      "stock": "生益科技",
+      "code": "600183.SH",
+      "pattern": "分歧回踩",
+      "trigger": "回踩150-153",
+      "status": "未触发",
+      "upside": "",
+      "downside": "",
+      "ratio": "3.5:1",
+      "updated_at": "2026-06-12T10:01:40.343764"
+    },
+    {
+      "stock": "雅克科技",
+      "code": "002409.SZ",
+      "pattern": "利润垫加仓",
+      "trigger": "回踩135-137",
+      "status": "未触发",
+      "upside": "",
+      "downside": "",
+      "ratio": "4:1",
+      "updated_at": "2026-06-12T10:01:40.343768"
+    },
+    {
+      "stock": "深南电路",
+      "code": "002916.SZ",
+      "pattern": "龙回头",
+      "trigger": "回踩375-380",
+      "status": "观察",
+      "upside": "",
+      "downside": "",
+      "ratio": "2.5:1",
+      "updated_at": "2026-06-12T10:01:40.343772"
+    },
+    {
+      "stock": "和远气体",
+      "code": "002971",
+      "pattern": "龙头连板博弈",
+      "trigger": "明日竞价高开+同板块助攻",
+      "status": "关注竞价",
+      "upside": "",
+      "downside": "",
+      "ratio": "1.8:1",
+      "updated_at": "2026-06-12T10:32:29.414602"
     }
   ],
   "intraday_narrative": [
     {
-      "time": "---- 4033框架演化记录 ----",
-      "summary": "6/3: UP引入4033清仓/4130满仓纪律线。6/5: 修正为科技清仓线非指数清仓线。6/9: 生命线下调至4000，态度转观望不杀跌。6/11: 地量信号+情景A/B框架完全替代4033/4130二元框架。4033已连续12天被跌破，以收盘3962计差距5.4%。",
-      "timestamp": "2026-06-11T12:00:00"
+      "time": "09:27 假设验证",
+      "summary": "高开修复验证为真修复：全A+1.48%中阳线，科技主线（电子设备+3.24%）领涨，非防御板块主导",
+      "timestamp": "2026-06-12T09:27:40.050113"
     },
     {
-      "time": "13:11 明日假设",
-      "summary": "若明日全A继续向下测试6000点，则继续观望；若科技方向（雅克、风华）能带动板块走强，可能形成左侧止跌信号，但概率低。倾向先观察尾盘是否有资金抄底。",
-      "timestamp": "2026-06-11T13:11:30.723943"
+      "time": "09:27 假设修正",
+      "summary": "上证未站上4033前不认定主升，仍按修复趋势处理",
+      "timestamp": "2026-06-12T09:27:40.050116"
     },
     {
-      "time": "14:01 核心假设",
-      "summary": "市场处于调整末期修复初期，但指数未站回4033前按反弹处理",
-      "timestamp": "2026-06-11T14:01:35.401975"
+      "time": "09:31 核心假设",
+      "summary": "科技主导修复，全A中阳线为真修复起点，需确认4033能否站稳",
+      "timestamp": "2026-06-12T09:31:34.877047"
     },
     {
-      "time": "14:57 明日假设",
-      "summary": "周期板块出现分歧，科技有回流可能，但主线暂未切换回科技。上证在3980-4000区间震荡概率大。",
-      "timestamp": "2026-06-11T14:57:15.699988"
+      "time": "09:36 明日假设",
+      "summary": "若今日钨产业链无显著表现，则方向优先级不变；若出现批量涨停，可适度追入中军（江丰电子）。若指数破4033，放弃所有买入计划。",
+      "timestamp": "2026-06-12T09:36:47.317052"
     },
     {
-      "time": "22:24 明日假设",
-      "summary": "延续回暖，但需观察量能是否放大；若继续缩量则反弹高度有限。",
-      "timestamp": "2026-06-11T22:24:58.027093"
+      "time": "09:37 明日假设",
+      "summary": "若实时数据恢复，重点观察全A是否中阳、科技是否主动领涨、跌停是否压缩。决策需等明确反转信号。",
+      "timestamp": "2026-06-12T09:37:55.154121"
     },
     {
-      "time": "22:27 明日假设",
-      "summary": "获取实时行情后重新判断；重点看全A指数是否中阳、电子特气板块是否有资金介入。",
-      "timestamp": "2026-06-11T22:27:04.459333"
+      "time": "09:49 明日假设",
+      "summary": "大盘缩量震荡整理，PCB方向分化，关注前排核心回踩机会，不追高。",
+      "timestamp": "2026-06-12T09:49:01.755652"
     },
     {
-      "time": "22:28 核心假设",
-      "summary": "实时数据缺失，无法形成核心假设。基于历史框架，假设市场处于调整末期，但需数据验证。",
-      "timestamp": "2026-06-11T22:28:43.684523"
+      "time": "10:01 明日假设",
+      "summary": "普涨次日大概率分歧，重点观察科创50和半导体设备能否维持强势、风华高科能否止跌。若指数守住4033则持股做T，若放量跌破则轻仓观望。",
+      "timestamp": "2026-06-12T10:01:40.343781"
     },
     {
-      "time": "22:30 明日假设",
-      "summary": "半导体材料分歧分化，观察资金是否回流AI应用或防御方向。关注量能是否放大。",
-      "timestamp": "2026-06-11T22:30:57.459426"
+      "time": "10:32 明日假设",
+      "summary": "假设明日市场惯性冲高但分化，上证4033需验证，科技核心可能弱修复但不一定成为主线；军工/有色走分化；PCB大概率继续趋势但需回踩均线。操作上以观察和等待为主要基调，不追高，只考虑核心方向分歧回踩机会。",
+      "timestamp": "2026-06-12T10:32:29.414611"
     }
   ],
-  "version": 2,
+  "version": 1,
   "_meta": {
-    "framework_migration": "4033/4130 纪律线 → 地量信号+情景A/B（缩量修复/放量防守）",
-    "4033_status": "已降级为历史参考。6/9后UP不再使用此点位作为操作锚。",
-    "current_anchor": "量价配合（缩量止跌+放量阳线）+ 科技高低切确认 + 全A指数方向",
-    "updated_by": "hermes manual cleanup",
-    "updated_at": "2026-06-11T12:00:00+08:00",
-    "direction_updated_by": "market_analyst:stock",
-    "direction_updated_at": "2026-06-11T22:30:57.459401",
-    "stance_updated_by": "market_analyst:stock",
-    "stance_updated_at": "2026-06-11T22:30:57.459406",
-    "last_persisted_by": "market_analyst:stock",
-    "last_persisted_at": "2026-06-11T22:30:57.459367+08:00"
+    "direction_updated_by": "market_analyst:portfolio",
+    "direction_updated_at": "2026-06-12T10:32:29.414583",
+    "last_persisted_by": "market_analyst:portfolio",
+    "last_persisted_at": "2026-06-12T10:32:29.414555+08:00",
+    "stance_updated_by": "market_analyst:portfolio",
+    "stance_updated_at": "2026-06-12T10:32:29.414587"
   }
 }

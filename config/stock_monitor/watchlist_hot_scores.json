@@ -1,5 +1,5 @@
 {
-  "calculated_at": "2026-06-11T13:42:20.290142",
+  "calculated_at": "2026-06-12T08:00:39.396625",
   "total_stocks": 13,
   "tier_summary": {
     "A": 0,
@@ -29,14 +29,14 @@
     {
       "code": "600378.SH",
       "name": "昊华科技",
-      "hot_score": 5.65,
+      "hot_score": 5.95,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 10.0,
+        "up_mention_recency": 8.0,
         "priority_base": 10,
         "technical_setup": 5.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
+        "linked_claims_count": 8.0,
         "entry_zone_proximity": 5.0,
         "position_status": 5.0
       },
@@ -47,10 +47,10 @@
     {
       "code": "601012.SH",
       "name": "隆基绿能",
-      "hot_score": 5.65,
+      "hot_score": 5.35,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 10.0,
+        "up_mention_recency": 8.0,
         "priority_base": 10,
         "technical_setup": 5.0,
         "sector_momentum": 6.0,
@@ -79,6 +79,42 @@
       "ranking_tier": "C",
       "theme": "MLCC/被动元件涨价线",
       "theme_id": "mlcc_passive_component"
+    },
+    {
+      "code": "000657.SZ",
+      "name": "中钨高新",
+      "hot_score": 4.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 8.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "钨产业链/PCB钻针",
+      "theme_id": "tungsten_pcb_drill"
+    },
+    {
+      "code": "603938.SH",
+      "name": "三孚股份",
+      "hot_score": 4.6,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 8.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "电子特气/六氟化钨（WF6）涨价主线",
+      "theme_id": "electronic_gas_wf6"
     },
     {
       "code": "600500.SH",
@@ -115,24 +151,6 @@
       "ranking_tier": "C",
       "theme": "光伏低位修复",
       "theme_id": "photovoltaic_low_recovery"
-    },
-    {
-      "code": "000657.SZ",
-      "name": "中钨高新",
-      "hot_score": 4.3,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "钨产业链/PCB钻针",
-      "theme_id": "tungsten_pcb_drill"
     },
     {
       "code": "002459.SZ",
@@ -187,24 +205,6 @@
       "ranking_tier": "C",
       "theme": "高频高速覆铜板上游材料（球形硅微粉/PPO）",
       "theme_id": "ccL_resin_upstream"
-    },
-    {
-      "code": "603938.SH",
-      "name": "三孚股份",
-      "hot_score": 4.0,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 4,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "电子特气/六氟化钨（WF6）涨价主线",
-      "theme_id": "electronic_gas_wf6"
     },
     {
       "code": "603011.SH",
@@ -265,14 +265,14 @@
     {
       "code": "600378.SH",
       "name": "昊华科技",
-      "hot_score": 5.65,
+      "hot_score": 5.95,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 10.0,
+        "up_mention_recency": 8.0,
         "priority_base": 10,
         "technical_setup": 5.0,
         "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
+        "linked_claims_count": 8.0,
         "entry_zone_proximity": 5.0,
         "position_status": 5.0
       },
@@ -283,10 +283,10 @@
     {
       "code": "601012.SH",
       "name": "隆基绿能",
-      "hot_score": 5.65,
+      "hot_score": 5.35,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 10.0,
+        "up_mention_recency": 8.0,
         "priority_base": 10,
         "technical_setup": 5.0,
         "sector_momentum": 6.0,
@@ -315,6 +315,42 @@
       "ranking_tier": "C",
       "theme": "MLCC/被动元件涨价线",
       "theme_id": "mlcc_passive_component"
+    },
+    {
+      "code": "000657.SZ",
+      "name": "中钨高新",
+      "hot_score": 4.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 8.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "钨产业链/PCB钻针",
+      "theme_id": "tungsten_pcb_drill"
+    },
+    {
+      "code": "603938.SH",
+      "name": "三孚股份",
+      "hot_score": 4.6,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 8.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "电子特气/六氟化钨（WF6）涨价主线",
+      "theme_id": "electronic_gas_wf6"
     },
     {
       "code": "600500.SH",
@@ -351,24 +387,6 @@
       "ranking_tier": "C",
       "theme": "光伏低位修复",
       "theme_id": "photovoltaic_low_recovery"
-    },
-    {
-      "code": "000657.SZ",
-      "name": "中钨高新",
-      "hot_score": 4.3,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 7,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "钨产业链/PCB钻针",
-      "theme_id": "tungsten_pcb_drill"
     },
     {
       "code": "002459.SZ",
@@ -423,24 +441,6 @@
       "ranking_tier": "C",
       "theme": "高频高速覆铜板上游材料（球形硅微粉/PPO）",
       "theme_id": "ccL_resin_upstream"
-    },
-    {
-      "code": "603938.SH",
-      "name": "三孚股份",
-      "hot_score": 4.0,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 4,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "电子特气/六氟化钨（WF6）涨价主线",
-      "theme_id": "electronic_gas_wf6"
     },
     {
       "code": "603011.SH",

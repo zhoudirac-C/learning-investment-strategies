@@ -18,7 +18,7 @@ description: |
 ## 触发条件
 
 - "更新观察池" / "更新方向" / "更新策略"
-- "更新持仓" / "清仓" / "减仓"
+- "更新持仓" / "清仓" / "减仓" / "触发止损" → 详见 `references/stop-loss-event-handling.md`
 - "检查配置" / "config review"
 - "加标的" / "新增方向"
 - "检查定时任务" / "检查调度" / "cron review"
@@ -60,6 +60,8 @@ description: |
 | 个股深度分析实施任务 | `docs/tasks/individual-stock-deep-analysis-implementation.md` — Phase 0-8 状态追踪 |
 | Cron pipeline 架构 | `references/cron-pipeline-architecture.md` |
 | **Cron 调度优化** | `references/cron-schedule-optimization.md` |
+| **Sector theme from knowledge — 从UP框架构建观察池主题** | `references/sector-theme-from-knowledge.md` |
+| **止损/清仓事件处理流程** | `references/stop-loss-event-handling.md` |
 | **设计文档 vs 代码实现差距核查** | `references/design-doc-vs-implementation-gap.md` |
 | **Config-cron 架构设计差距审计（2026-06-10）** | `references/design-doc-gap-audit-20260610.md` |
 | Qing-Agent 服务运维速查 | `references/qing-agent-service-operations.md` |
@@ -160,6 +162,39 @@ cd ~/learning-investment-strategies
 3. 运行 no-agent 轮询脚本确认不崩溃：`PYTHONPATH=src timeout 30 .venv/bin/python scripts/stock_monitor.py --ignore-trading-time`
 4. 更新 strategy_pack.updated_at
 5. Git 提交
+
+---
+
+## 复盘同步模式（17:00 → 17:10 自动化）
+
+**自动更新链**：
+
+```
+17:00  复盘 Agent（prompt 含结构化输出格式要求）
+       ↓ 输出 ```daily_state JSON 代码块
+17:10  sync_config_from_review.sh（no-agent cron）
+       ↓ 提取 JSON → 写回 config YAML
+       ├─ strategy_pack.yaml:  market_framework.current_stage
+       ├─ positions.yaml:     risk_reminder / today_key_signals / tomorrow_scenarios
+       └─ watchlist.yaml:     per-stock entry_zone.current_ref
+```
+
+**触发条件**：任何涉及"明天操作策略"、"趋势判断"、"阶段定位"的问题，应先检查 SYNC_CONFIG_LAST 追踪文件确认今日已同步。如果 17:10 cron 尚未执行，手动跑：
+
+```bash
+cd ~/learning-investment-strategies
+PYTHONPATH=src python3 scripts/sync_config_from_review.py --dry-run
+```
+
+确认无异常后去掉 --dry-run 执行。
+
+**追加要点**：
+- 复盘 prompt 必须包含 `risk_reminder`、`today_key_signals`、`tomorrow_scenarios`、`entry_zone_updates` 的 JSON 输出格式
+- 如果 Agent 未输出这些字段 → sync 脚本跳过对应 config 文件
+- 同步后的字段次日 09:26 cron 直接可用，无需手动同步 cron prompt（但其他框架更新仍需要）
+
+**脚本**：`scripts/sync_config_from_review.py`
+**参考**：`references/post-review-config-sync.md`
 
 ---
 
@@ -1285,6 +1320,78 @@ prev = _to_float(quote.get("previous_close"))
 
 **附带修复**：`daily_review_summary.json` 中已有的错误数据需手动修正（或删除后重新生成）。
 
+### 陷阱 39: 双Prompt架构导致不同Cron Job输出格式不一致
+
+**反面案例（2026-06-12）**：用户发现 09:45（`2761c40519b8`）和 10:30（`40859a5c0546`）两个 cron job 的输出格式完全不同。09:45 像结构化 LLM 分析，10:30 是正常的 Qing-Agent UP 风格。用户疑惑：「定时任务有个提示词，qing-agent 有个提示词——难道09:45回落到定时任务LLM的提示词了？」——完全正确。
+
+**架构真相**：
+
+所有 agent cron job（脚本 `qing_stock_monitor_agent.py`）默认 `no_agent=False`，意味着 Hermes agent（LLM）会**同时在两条路径运行**：
+
+```
+路径 A: script 运行 → qing-agent API → final_output
+         ↓ 如果 qing-agent 可达
+         输出 [Qing-Agent ✓] + UP风格分析
+
+路径 B: script 运行 → qing-agent 不可达
+         ↓ fallback
+         输出 [Qing-Agent ✗ FALLBACK] + 原始文本context
+         ↓ Hermes agent (LLM) + cron prompt
+         输出 LLM 基于原始数据 + 定时任务prompt生成的分析
+```
+
+**所以有两个"提示词"**：
+
+| 提示词 | 位置 | 用途 | 触发 |
+|--------|------|------|------|
+| Cron prompt | 定义在 cron job 的 `prompt` 字段（创建时快照） | 仅在 **路径 B**（fallback）时生效，指导 LLM 分析原始数据 | qing-agent 不可达时 |
+| Qing-Agent prompt | `src/qing_investment/agent/prompts/system/` | 正常路径：决定 UP 风格输出格式 | 路径 A |
+
+**为什么两个 path 输出格式不同**：
+
+| 维度 | 路径 A（Qing-Agent ✓） | 路径 B（FALLBACK + cron prompt） |
+|------|------------------------|---------------------------------|
+| 格式 | 【盘面】【重点分析】【参考来源】UP 风格 | 符合 cron prompt 要求的 JSON/结构化格式 |
+| 质量 | 仓位保护线、浮盈计算、UP 表态引用 | 通用投资建议，无持仓上下文 |
+| 速度 | ~70-75s（含 LangGraph 管线） | ~15-20s（LLM 直接处理原始数据） |
+
+**如何判断 cron 走了哪条路径**：
+
+1. 输出前缀被 delivery strip 了，所以看不到 `[Qing-Agent ✓]` / `[Qing-Agent ✗ FALLBACK]`
+2. **看格式**：UP 风格的 【盘面】【重点分析】 = 走了 qing-agent；结构化/JSON = fallback
+3. **看内容**：有保护线计算、浮盈数值、claims 引用 = qing-agent；笼统数据描述 = fallback
+4. **看速度**：接近整点触发后 2-3 分钟才收到消息 = qing-agent（~70s）；立即收到 = fallback（~15s）
+
+**与陷阱 23 的区别**：
+
+| 陷阱 | 场景 | 脚本字段 | 输出 | 根因 |
+|------|------|---------|------|------|
+| 20 | 脚本完全不存在 | 文件名错 | 0 字节 | `~/.hermes/scripts/` 下无此文件 |
+| 23 | 脚本在 project 不在 ~/.hermes/scripts/ | 项目路径 | 有内容但不对 | Hermes 找不到脚本 → 直接 LLM fallback |
+| **39** | 脚本正常，但 qing-agent 不可达 | 正确 | **格式不同** | Script fallback → 原始数据 → cron prompt LLM |
+
+**诊断命令**：
+
+```bash
+# 1. 检查最近 cron 输出来源标记
+for dir in ~/.hermes/cron/output/*/; do
+  latest=$(ls -t "$dir"/*.md 2>/dev/null | head -1)
+  [ -n "$latest" ] && head -5 "$latest" | grep -oE "Qing-Agent .|FALLBACK|HALLUCINATION" && echo "  ↳ $(basename $dir)"
+done
+
+# 2. 如果有 "FALLBACK" 标记 → 检查 qing-agent 是否在运行
+curl -s --max-time 5 http://localhost:8000/health
+
+# 3. 如果 /health 返回 OK 但 FALLBACK 频繁 → 不是进程死了，是 /analyze/trigger 挂死
+# 参考陷阱 2 (Qing-Agent 假在线) 排查
+```
+
+**教训**：
+1. 格式不同 = 一个走了 qing-agent 一个走了 fallback，不是 bug
+2. 当 qing-agent 不可达时，cron prompt 会"显灵"——生产了和正常路径完全不同的格式
+3. 判断标准不是"前缀是否可见"，而是"输出的分析深度是否符合 qing-agent 水准"
+4. 要真正避免 fallback，要么修好 qing-agent，要么把 cron job 改为 `no_agent=True` 直接 qing-stock-monitor-agent.py 的输出
+
 ### 陷阱 38: _build_yesterday_summary() close 字段用 previous_close 而非 latest
 
 **反面案例（2026-06-11）**：`daily_review_summary.json` 存储的 close 价格是昨收（122.55）而非当日收盘（134.81），导致策略分析误判"止损已触发"。用户纠正后排查发现 `stock_monitor.py:1801`：
@@ -1305,7 +1412,25 @@ close = _to_float(quote.get("latest"))
 1. 数据层字段映射必须用真实行情数据验证（mock 已知 close → assert）
 2. "close" / "previous_close" / "latest" 三个词在不同数据源中含义不同，不能想当然
 
-### 陷阱 35: 跳过API调研直接标记 P2 — 用户说"所有api你都调研过了吗？"
+### 陷阱 35a: akshare 部分连通 ≠ 全部不可用 — 腾讯云 IP 被东财限流但不一致
+
+**反面案例（2026-06-12）**：用户问网络能否修，排查后发现 akshare 龙虎榜函数完全正常，但部分财务函数和 push2 接口不通。之前笼统地说 "akshare 不通" 是错误的。
+
+**实际连通性（腾讯云 1.12.x.x 实测）**：
+
+| akshare 函数 | 状态 | 背后域名 |
+|---|---|---|
+| stock_lhb_stock_detail_em (龙虎榜) | ✅ | datacenter.eastmoney.com |
+| stock_lhb_detail_em (全市场龙虎榜) | ✅ | datacenter.eastmoney.com |
+| stock_yjbb_em (利润表) | ✅ | datacenter.eastmoney.com |
+| stock_zh_a_hist (K线历史) | ❌ Reset | push2.eastmoney.com |
+| stock_board_concept_name_em (概念) | ❌ Reset | push2.eastmoney.com |
+
+**规律**: datacenter.eastmoney.com ✅ 通; push2.eastmoney.com ❌ 数据中心IP被限流。
+
+**影响判断**: 核心系统（腾讯行情+龙虎榜）完全不受影响。不需要代理，无需尝试修复。调试时先确认具体哪个域名不通，再判断影响面。
+
+### 陷阱 35b: 跳过API调研直接标记 P2 — 用户说"所有api你都调研过了吗？"
 
 **反面案例（2026-06-11）**：龙虎榜数据调研任务，AI 搜索到 `stock-role-classification.md` 有「❌ 未获取」标记，未实际调用 akshare API 确认，直接结论"无数据源 → 标记 P2 待办"。用户追问后发现 akshare 的 `stock_lhb_stock_detail_em` 完全可用，且数据质量高（含席位名称、买卖金额、净额）。
 
