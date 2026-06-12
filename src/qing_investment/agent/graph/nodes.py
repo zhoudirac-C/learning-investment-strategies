@@ -1226,6 +1226,25 @@ def market_analyst(state: AgentState) -> AgentState:
         if s.get("source", "").startswith("framework/") or "投资方法论" in s.get("source", "")
     ]
 
+    # ── 提取watchlist entry_zone数据注入机会扫描用（Phase 8 新增）──
+    watchlist_entry_zones = []
+    for w_item in state.get("watchlist", []) or []:
+        entry_zone = w_item.get("entry_zone", {}) or {}
+        # Only include stocks with defined price ranges
+        price_range = entry_zone.get("price_range")
+        if price_range:
+            watchlist_entry_zones.append({
+                "code": w_item.get("code", ""),
+                "name": w_item.get("name", ""),
+                "role": w_item.get("role", ""),
+                "priority": w_item.get("priority", ""),
+                "price_range": price_range,
+                "method": entry_zone.get("method", ""),
+                "confirm_signal": entry_zone.get("confirm_signal", ""),
+                "hard_stop": entry_zone.get("hard_stop", ""),
+            })
+    print(f"[market_analyst] watchlist_with_entry_zones={len(watchlist_entry_zones)}, codes={[z['code'] for z in watchlist_entry_zones]}")
+
     context = {
         "claims": methodology_claims,  # 只注入方法论claim
         "wiki_snippets": methodology_wiki,  # 只注入方法论wiki
@@ -1238,6 +1257,7 @@ def market_analyst(state: AgentState) -> AgentState:
         "memories": state.get("memories", []),
         "stock_contexts": state.get("stock_contexts", []),      # Phase 2 新增
         "direction_signals": state.get("direction_signals", {}),  # Phase 2 新增
+        "watchlist_entry_zones": watchlist_entry_zones,  # Phase 8 新增：entry_zone价格区间
     }
     prompt = f"""{prompt_template_filled}
 
@@ -1548,9 +1568,21 @@ def _build_position_plan_lines(market_context: dict, positions: list[dict]) -> l
 
 
 def synthesize(state: AgentState) -> AgentState:
+    logger = logging.getLogger(__name__)
     market = state.get("market_context", {})
     stock = state.get("stock_analysis", {})
     positions = state.get("positions", [])
+
+    # Log input data summary
+    pos_count = len(positions)
+    opp_count = len(market.get("opportunity_scan", []))
+    theme_count = len(market.get("themes_in_focus", []))
+    has_stock = bool(stock)
+    logger.info(
+        f"synthesize: has_stock={has_stock} "
+        f"positions={pos_count} opportunity_scan={opp_count} themes={theme_count} "
+        f"market_phase={market.get('market_phase', 'N/A')}"
+    )
 
     if stock:
         draft = f"""【盘面】{market.get('market_summary', '暂无')}
@@ -1658,6 +1690,7 @@ def synthesize(state: AgentState) -> AgentState:
 
 
 def style_writer(state: AgentState) -> AgentState:
+    logger = logging.getLogger(__name__)
     prompt_template = _load_prompt("style_writer")
     draft = state.get("draft_analysis", "")
     market_phase = state.get("market_context", {}).get("market_phase", "")
@@ -1676,8 +1709,17 @@ def style_writer(state: AgentState) -> AgentState:
         revision_hint=revision_hint,
     )
 
+    # Log input summary before LLM call
+    has_vague_terms = any(w in draft for w in ["等回踩", "等分歧", "逢低关注", "逢低布局"])
+    logger.info(
+        f"style_writer: draft_len={len(draft)} market_phase={market_phase} "
+        f"has_vague_terms={has_vague_terms} review_round={len(review_notes)}"
+    )
+
     content = _safe_llm_invoke(prompt)
     styled = content if content else f"[UP风格化] {draft}"
+
+    logger.info(f"style_writer: output_len={len(styled)} generated={bool(content)}")
 
     return {
 

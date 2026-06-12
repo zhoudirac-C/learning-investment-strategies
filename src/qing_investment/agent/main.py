@@ -1,8 +1,54 @@
 from __future__ import annotations
 
+import logging
+import os
 import re
+from logging.handlers import RotatingFileHandler
+from pathlib import Path
 
 from fastapi import FastAPI
+
+# ── 日志配置（Phase 8 新增：日志写入文件，方便排查问题）──
+_log_dir = Path(__file__).resolve().parents[3] / "logs"
+_log_dir.mkdir(parents=True, exist_ok=True)
+_log_file = _log_dir / "qing-agent.log"
+
+_handler = RotatingFileHandler(
+    str(_log_file),
+    maxBytes=10 * 1024 * 1024,  # 10MB
+    backupCount=5,
+    encoding="utf-8",
+)
+_handler.setFormatter(logging.Formatter(
+    "%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+))
+
+# Clear default handlers and add file handler
+_root_logger = logging.getLogger()
+_root_logger.setLevel(logging.DEBUG if os.environ.get("QING_AGENT_LOG_LEVEL", "").upper() == "DEBUG" else logging.INFO)
+# Remove existing handlers to avoid duplicate logs
+for h in _root_logger.handlers[:]:
+    _root_logger.removeHandler(h)
+_root_logger.addHandler(_handler)
+
+# Also log to stderr for docker/k8s environments
+_console = logging.StreamHandler()
+_console.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
+_root_logger.addHandler(_console)
+
+# Set module-specific loggers
+for mod_name in [
+    "qing_investment.agent.graph.nodes",
+    "qing_investment.agent.graph.builder",
+    "qing_investment.agent.tools.llm_client",
+    "qing_investment.agent.tools.neo4j_client",
+    "qing_investment.agent.tools.qdrant_client",
+]:
+    logging.getLogger(mod_name).setLevel(logging.DEBUG if os.environ.get("QING_AGENT_LOG_LEVEL", "").upper() == "DEBUG" else logging.INFO)
+
+logger = logging.getLogger(__name__)
+logger.info(f"日志初始化完成，路径={_log_file}")
 
 from qing_investment.agent.graph.builder import build_graph
 from qing_investment.agent.models.schemas import (
