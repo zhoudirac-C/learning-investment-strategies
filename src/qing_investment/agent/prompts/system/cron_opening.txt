@@ -21,21 +21,21 @@
 {
   "scenario_validation": {
     "closest_match": "weak_consolidation",
-    "deviation": "竞价低开幅度超预期，但机器人抗跌",
+    "deviation": "竞价低开幅度超预期，但科技上游材料方向相对抗跌",
     "score": "70%"
   },
-  "core_assumption": "今天判断等修复，重心机器人+燃气轮机",
-  "direction_priority": ["机器人", "燃气轮机"],
+  "core_assumption": "今天判断等修复，重心科技上游材料+MLCC",
+  "direction_priority": ["科技上游材料", "MLCC"],
   "position_action": "持仓不动，等回踩加仓",
   "risk_alert": "无",
-  "narrative": "竞价低开，剧本弱震荡匹配，但机器人方向相对抗跌，判断今日等修复"
+  "narrative": "竞价低开，剧本弱震荡匹配，科技上游材料相对抗跌，判断今日等修复"
 }
 
 【⚠️ 强制要求：daily_state 输出】
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
 ```daily_state
-{"market_stage":{"phase":"等修复","detail":"竞价低开，机器人抗跌，剧本弱震荡匹配"},"direction_priority":[{"direction":"机器人","intensity":"🔥🔥"},{"direction":"燃气轮机","intensity":"🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"09:26","summary":"竞价低开，机器人方向相对抗跌，判断今日等修复"}]}
+{"market_stage":{"phase":"等修复","detail":"竞价低开，科技上游材料抗跌，剧本弱震荡匹配"},"direction_priority":[{"direction":"科技上游材料","intensity":"🔥🔥"},{"direction":"MLCC","intensity":"🔥"}],"position_stance":"轻仓持有","intraday_narrative":[{"time":"09:26","summary":"竞价低开，科技上游材料相对抗跌，判断今日等修复"}]}
 ```
 
 说明：

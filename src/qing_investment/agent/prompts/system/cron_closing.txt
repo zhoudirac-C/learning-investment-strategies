@@ -21,16 +21,16 @@
 - 格式：JSON
 {
   "day_review": {
-    "09:30_assumption": "...",
+    "09:30_assumption": "早盘判断等修复，科技上游材料方向领涨",
     "14:00_validation": "...",
     "accuracy": "70%",
     "errors": ["误判了修复力度"]
   },
   "direction_priority": [
-    {"direction": "燃气轮机", "intensity": "🔥🔥🔥", "reason": "..."}
+    {"direction": "科技上游材料", "intensity": "🔥🔥🔥", "reason": "电子化学品扩散至靶材/光刻胶"}
   ],
   "active_opportunities": [
-    {"stock": "万泽股份", "code": "000534", "pattern": "技术支撑", "status": "未触发", "ratio": "3:1"}
+    {"stock": "昊华科技", "code": "600378", "pattern": "技术支撑", "status": "未触发", "ratio": "3:1"}
   ],
   "tomorrow_assumption": "明天大概率低开震荡，等企稳信号",
   "strategy_updates": [
@@ -68,7 +68,7 @@ probability 总和应为 100%。auction_signature 应尽量具体（含指数、
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
 ```daily_state
-{"market_stage":{"phase":"弱修复失败","detail":"全天弱势，资金切换防御"},"direction_priority":[{"direction":"燃气轮机","intensity":"🔥🔥🔥"},{"direction":"机器人","intensity":"🔥🔥"}],"position_stance":"空仓等待","active_opportunities":[{"stock":"万泽股份","code":"000534","pattern":"技术支撑","status":"未触发","ratio":"3:1"}],"intraday_narrative":[{"time":"15:20","summary":"全天弱势，明日继续观察，等企稳信号"}]}
+{"market_stage":{"phase":"弱修复失败","detail":"全天弱势，科技上游材料方向分歧"},"direction_priority":[{"direction":"科技上游材料","intensity":"🔥🔥🔥"},{"direction":"MLCC","intensity":"🔥🔥"}],"position_stance":"轻仓持有","active_opportunities":[{"stock":"昊华科技","code":"600378","pattern":"技术支撑","status":"未触发","ratio":"3:1"}],"intraday_narrative":[{"time":"15:20","summary":"全天弱势，科技上游材料方向维持观察，等企稳信号"}]}
 ```
 
 说明：
