@@ -174,7 +174,20 @@ async def analyze_trigger(req: TriggerRequest):
         },
     }
 
+    import logging, time
+    _req_logger = logging.getLogger("qing_investment.agent.main")
+    _req_t0 = time.time()
+    _req_logger.info(f"analyze_trigger start: type={req.analysis_type} trigger={req.trigger.get('title','')}")
+
     result = await graph.ainvoke(state)
+
+    _req_dur = time.time() - _req_t0
+    _req_logger.info(
+        f"analyze_trigger end: duration={_req_dur:.1f}s "
+        f"passed={result.get('review_passed')} "
+        f"output_len={len(result.get('final_output', ''))} "
+        f"claims_cited={len(result.get('claims_cited', []))}"
+    )
 
     return TriggerResponse(
         final_output=result.get("final_output", ""),

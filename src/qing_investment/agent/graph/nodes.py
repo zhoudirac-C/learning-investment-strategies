@@ -4,6 +4,7 @@ import asyncio
 import json
 import logging
 import re
+import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -22,6 +23,7 @@ from qing_investment.agent.tools.llm_client import get_llm_client
 from qing_investment.agent.tools.mem0_client import Mem0ClientWrapper
 from qing_investment.agent.tools.neo4j_client import Neo4jClient
 from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
+from qing_investment.kline_cache import format_multi_tf_macd_report, compute_td_report, compute_fibonacci_time_report
 from .state import AgentState
 
 logger = logging.getLogger(__name__)
@@ -238,7 +240,7 @@ def _persist_daily_state_from_market_context(
 
 # ── Framework 显式加载（Phase 1 新增）──
 _FRAMEWORK_LOADERS: dict[str, list[str]] = {
-    "market": ["market-cycle-framework.md", "sector-diffusion-framework.md", "trading-rules.md"],
+    "market": ["market-cycle-framework.md", "sector-diffusion-framework.md", "trading-rules.md", "market-breadth-framework.md"],
     "stock": ["stock-analysis-playbook.md", "technical-analysis-framework.md", "trading-rules.md"],
     "portfolio": ["trading-rules.md", "market-cycle-framework.md", "sector-diffusion-framework.md"],
 }
@@ -1131,12 +1133,24 @@ def _filter_methodology_only(claims: list[dict]) -> list[dict]:
 
 
 def market_analyst(state: AgentState) -> AgentState:
+    logger = logging.getLogger(__name__)
+    _t0 = time.time()
     prompt_template = _load_prompt("market_analyst")
     esb = state.get("external_sector_boards", {})
     analysis_type = (state.get("parsed_intent") or {}).get("analysis_type", "stock")
 
-    # ── 【新增】强制数据获取检查 ──
+    # ── Log input data stats ──
     market_snapshot = dict(state.get("market_snapshot") or {})
+    quotes = market_snapshot.get("quotes", []) or []
+    claims = state.get("claims", []) or []
+    positions = state.get("positions", []) or []
+    watchlist = state.get("watchlist", []) or []
+    logger.info(
+        f"market_analyst_input: quotes={len(quotes)} claims={len(claims)} "
+        f"positions={len(positions)} watchlist={len(watchlist)} "
+        f"esb_available={esb.get('available')} "
+        f"analysis_type={analysis_type}"
+    )
     has_realtime_data = (
         esb.get("available") or
         (market_snapshot.get("quotes") and len(market_snapshot.get("quotes", [])) > 0)
@@ -1245,11 +1259,44 @@ def market_analyst(state: AgentState) -> AgentState:
             })
     print(f"[market_analyst] watchlist_with_entry_zones={len(watchlist_entry_zones)}, codes={[z['code'] for z in watchlist_entry_zones]}")
 
+    # ── 生成多级别MACD分析报告（Step 3 新增）──
+    try:
+        macd_report = format_multi_tf_macd_report(bars=10)
+    except Exception:
+        macd_report = "[MACD数据暂不可用]"
+
+    # ── 生成神奇九转报告（Step 3 新增）──
+    tf_order_local = ["daily", "120min", "90min", "60min", "30min"]
+    td_reports = []
+    for code in ["sh000001", "sh000985"]:
+        for tf in tf_order_local:
+            try:
+                r = compute_td_report(code, tf, bars=30)
+                if r:
+                    td_reports.append(f"[{code} {tf}]\n{r}")
+            except Exception:
+                pass
+    td_report = "\n".join(td_reports) if td_reports else "[九转序列数据暂不可用]"
+
+    # ── 生成斐波那契时间分析报告（Step 3 新增）──
+    fib_reports = []
+    for code in ["sh000001", "sh000985"]:
+        try:
+            r = compute_fibonacci_time_report(code)
+            if r:
+                fib_reports.append(f"[{code}]\n{r}")
+        except Exception:
+            pass
+    fib_report = "\n".join(fib_reports) if fib_reports else "[斐波那契数据暂不可用]"
+
     context = {
-        "claims": methodology_claims,  # 只注入方法论claim
-        "wiki_snippets": methodology_wiki,  # 只注入方法论wiki
-        "framework_rules": framework_context,  # 显式注入方法论框架
-        "reasoning_patterns": reasoning_patterns,  # Phase 4 注入推理模式
+        "claims": methodology_claims,
+        "wiki_snippets": methodology_wiki,
+        "framework_rules": framework_context,
+        "reasoning_patterns": reasoning_patterns,
+        "macd_multi_tf_report": macd_report,
+        "td_sequential_report": td_report,
+        "fibonacci_time_report": fib_report,
         "market_snapshot": market_snapshot,
         "sector_strengths": state.get("sector_strengths", []),
         "external_sector_boards": esb,
@@ -1272,6 +1319,8 @@ def market_analyst(state: AgentState) -> AgentState:
 请输出JSON：
 """
     content = _safe_llm_invoke(prompt)
+    _t1 = time.time()
+    logger.info(f"market_analyst_llm: duration={_t1-_t0:.1f}s prompt_len={len(prompt)}")
     try:
         result = json.loads(content) if content else {}
     except json.JSONDecodeError:
@@ -1729,9 +1778,12 @@ def style_writer(state: AgentState) -> AgentState:
 
 
 def reviewer(state: AgentState) -> AgentState:
+    logger = logging.getLogger(__name__)
+    _t0 = time.time()
     prompt_template = _load_prompt("reviewer")
     output = state.get("styled_output", "")
     claims = state.get("claims", [])
+    retry_count = state.get("_retry_count", 0)
 
     prompt = f"""{prompt_template}
 
@@ -1769,9 +1821,18 @@ def reviewer(state: AgentState) -> AgentState:
         else:
             review_notes.append(str(item))
 
-    return {
+    _t1 = time.time()
+    passed = result.get("passed", False)
+    logger.info(
+        f"reviewer: passed={passed} retry={retry_count} "
+        f"issues={len(raw_issues)} duration={_t1-_t0:.1f}s "
+        f"output_len={len(output)}"
+    )
+    if not passed and raw_issues:
+        logger.info(f"reviewer_issues: {' | '.join(str(i)[:80] for i in raw_issues[:3])}")
 
-        "review_passed": result.get("passed", False),
+    return {
+        "review_passed": passed,
         "review_notes": review_notes,
         "claims_cited": result.get("verified_claims", []),
         "data_sources": [],
