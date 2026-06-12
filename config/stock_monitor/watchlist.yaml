@@ -602,6 +602,226 @@ themes:
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
+- id: pcb_ai_chain
+  name: PCB AI硬件链（成品板→CCL→上游材料→ABF载板）
+  up_positioning: UP定性为AI硬件双核心主线之一。VR200单柜PCB价值量从3.51万→11.67万美元(+233%)，逻辑延伸至Rubin Ultra/Kyber(78层正交背板/800VDC供电PCB/CoWoP封装映射)。跨代际价值阶梯，不是一次性估值重估。
+  source_docs:
+  - knowledge/wiki/市场分析/PCB与先进封装.md
+  - knowledge/wiki/市场分析/AI上游涨价链.md
+  - knowledge/claims/claim-20260525-006.yaml
+  market_checks:
+  - Midplane/高多层板认证进度（沪电股份/景旺电子作为验证）
+  - M8/M9 CCL量产和客户认证（生益科技作为锚点）
+  - 胜宏科技(300)/鹏鼎控股作为PCB情绪锚点观测板块方向
+  - SerDes速率(112G→224G→448G)决定材料升级节奏
+  stocks:
+  # === 情绪锚点（不可交易，观测方向强度） ===
+  - code: 002938.SZ
+    name: 鹏鼎控股
+    role: pcb_sentiment_anchor
+    segment: PCB人气先锋/情绪载体
+    priority: P3-观察
+    watch_reason: UP定义为人气先锋/情绪载体，5/26冲高回落但板块无亏钱效应。不可交易标的（待确认代码归属），仅作PCB板块情绪温度计。
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  # === CCL/高速材料（核心层·确定性优先） ===
+  - code: 600183.SH
+    name: 生益科技
+    role: ccl_core_material
+    segment: 高速CCL/覆铜板
+    priority: P3-观察
+    watch_reason: UP核心层标的，大陆唯一M9 CCL送样厂商。CCL材料升级M7→M8→M9是Rubin价值量提升关键环节，上游材料卡位核心。PE≈95x。
+    confirm_with:
+    - 沪电股份
+    - 东材科技
+    entry_zone:
+      description: 均线多头，当前153.5处于高位。等缩量回踩MA10-MA20区间+全A中阳线
+      current_ref: '2026-06-11 收盘=153.50 PE=94.92'
+      price_range: 130.0 ~ 145.0
+      method: 均线法，MA10约140附近。PE偏高需等回调
+      confirm_signal: 缩量回踩至区间不破+PCB板块同步企稳+全A放量中阳线
+      hard_stop: 跌破120且30分钟不能收回
+      position_ratio: 不超过0.5成（P3-观察+核心层但PE高需等回调）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  # === 确定性扩展层（接近主流供应链） ===
+  - code: 603228.SH
+    name: 景旺电子
+    role: pcb_extended_certainty
+    segment: AI服务器PCB/Switch Tray
+    priority: P3-观察
+    watch_reason: UP确定性扩展层标的，Delta认证通过，GB300 Switch Tray供应商。Midplane弹性值得跟踪。PE≈66x。
+    confirm_with:
+    - 沪电股份
+    - 生益科技
+    entry_zone:
+      description: 当前76.23，均线多头。等缩量回踩MA10-MA20区间
+      current_ref: '2026-06-11 收盘=76.23 PE=65.92'
+      price_range: 65.0 ~ 73.0
+      method: 均线法，MA10约70附近。确定性扩展层等PCB板块整体企稳
+      confirm_signal: 缩量回踩至区间不破+沪电股份/生益科技同步企稳+全A中阳线
+      hard_stop: 跌破58且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察+扩展层标的）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  - code: 600601.SH
+    name: 方正科技
+    role: pcb_extended_certainty
+    segment: AI服务器PCB/Compute Tray
+    priority: P3-观察
+    watch_reason: UP确定性扩展层标的，Gamma认证，Mellanox供应链，GB300 Compute Tray。认证兑现进度是关键观察点。PE≈81x。
+    confirm_with:
+    - 沪电股份
+    - 景旺电子
+    entry_zone:
+      description: 当前11.88，均线多头排列。等缩量回踩MA10-MA20区间+PCB板块企稳
+      current_ref: '2026-06-11 收盘=11.88 PE=81.19'
+      price_range: 10.0 ~ 11.2
+      method: 均线法，MA10约11附近。价格低弹性大
+      confirm_signal: 缩量回踩至区间不破+沪电/景旺同步企稳+全A中阳线
+      hard_stop: 跌破9.0且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察+扩展层标的）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  # === 弹性层（上游材料·2026突破窗口） ===
+  - code: 601208.SH
+    name: 东材科技
+    role: pcb_material_elastic
+    segment: M9碳氢树脂/封装树脂
+    priority: P3-观察
+    watch_reason: UP弹性层第一标的，M9碳氢树脂+封装树脂预期。树脂是CCL上游关键材料，突破M9级别树脂供应是Rubin材料升级的核心卡位。PE≈168x极高，弹性大风险也大。
+    confirm_with:
+    - 生益科技
+    - 宏和科技
+    entry_zone:
+      description: 当前63.08，弹性层PE极高需严格等深度回调
+      current_ref: '2026-06-11 收盘=63.08 PE=167.52'
+      price_range: 50.0 ~ 58.0
+      method: 回撤百分比法(8-20%)，基于收盘63。弹性标的区间放宽
+      confirm_signal: 深度回调至区间+生益科技先企稳+客户验证/订单催化+全A中阳线
+      hard_stop: 跌破45且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察+高PE弹性标的）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  - code: 603256.SH
+    name: 宏和科技
+    role: pcb_material_elastic
+    segment: 电子布/Q-Glass/低介电玻纤
+    priority: P3-观察
+    watch_reason: UP弹性层标的，Low-Dk/Q-Glass突破是CCL材料升级的隐形骨架。当前PE 625x极高，纯弹性观察，需客户导入验证才能考虑介入。
+    confirm_with:
+    - 生益科技
+    - 东材科技
+    entry_zone:
+      description: 当前215.20，PE极高。仅作方向观察，不设定预设介入区间
+      current_ref: '2026-06-11 收盘=215.20 PE=625.39'
+      note: PE极端偏高，锁定观察不预设建仓。等Q-Glass客户验证/收入确认后再评估
+      position_ratio: 0（纯观察，不建仓）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  # === ABF/FC-BGA载板（先进封装底座交叉） ===
+  - code: 002916.SZ
+    name: 深南电路
+    role: abf_substrate_core
+    segment: ABF/FC-BGA封装基板+高端PCB平台
+    priority: P3-观察
+    watch_reason: UP定位为ABF/FC-BGA封装基板容量核心，同时具备高端PCB平台属性。不是普通PCB成品板标的，核心价值在先进封装底座突破。PE≈72x。
+    confirm_with:
+    - 兴森科技
+    - 沪电股份
+    entry_zone:
+      description: 当前383.18。高价+高市值票，等深度回踩MA20-MA60区间
+      current_ref: '2026-06-11 收盘=383.18 PE=71.81 流通市值≈2327亿'
+      price_range: 330.0 ~ 370.0
+      method: 均线法，大市值高价票波动小，区间收窄
+      confirm_signal: 缩量回踩至区间+ABF/FC-BGA载板行业订单催化+全A中阳线
+      hard_stop: 跌破300且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察+大市值弹性有限）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  - code: 002436.SZ
+    name: 兴森科技
+    role: abf_substrate_elastic
+    segment: BT/ABF载板
+    priority: P3-观察
+    watch_reason: UP定位为BT/ABF载板弹性标的，产能爬坡和客户验证是关键观察点。PE≈439x极高，距离业绩兑现还有较大不确定。
+    confirm_with:
+    - 深南电路
+    entry_zone:
+      description: 当前37.30。PE极高仅作方向观察，等深度回调+客户/订单验证
+      current_ref: '2026-06-11 收盘=37.30 PE=439.29'
+      price_range: 30.0 ~ 35.0
+      method: 近期低点法。弹性标的需要深回踩+验证催化
+      confirm_signal: 缩量回踩不破+BT/ABF载板客户验证/订单催化+深南电路稳定+全A中阳线
+      hard_stop: 跌破28且30分钟不能收回
+      position_ratio: 不超过0.2成（P3-观察+PE极高弹性标的）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  # === 期权层（中长期突破跟踪） ===
+  - code: 603186.SH
+    name: 华正新材
+    role: pcb_option_bfilm
+    segment: CBF积层绝缘膜/覆铜板
+    priority: P3-观察
+    watch_reason: UP期权层标的，CBF积层绝缘膜是ABF替代路线探索。需关注终端验证、系列化和量产进度。PE≈94x。
+    confirm_with:
+    - 生益科技
+    - 深南电路
+    entry_zone:
+      description: 当前173.55。期权层标的等深度回调后+验证催化再评估
+      current_ref: '2026-06-11 收盘=173.55 PE=94.08'
+      price_range: 140.0 ~ 165.0
+      method: 回撤百分比法(5-20%)。期权层区间放宽
+      confirm_signal: 深度回调不破+CBF验证进展+生益科技同步+全A中阳线
+      hard_stop: 跌破130且30分钟不能收回
+      position_ratio: 不超过0.2成（P3-观察+期权层，仅验证催化后考虑）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  - code: 002080.SZ
+    name: 中材科技
+    role: pcb_option_glassfiber
+    segment: NE2低介电玻纤
+    priority: P3-观察
+    watch_reason: UP期权层，NE2低介电玻纤量产但PCB业务占比小。需跟踪Low-Dk玻纤突破和在PCB业务中的收入占比提升。PE≈56x相对合理。
+    confirm_with:
+    - 宏和科技
+    - 生益科技
+    entry_zone:
+      description: 当前65.88，PE≈56x为PCB链最低。等缩量回踩MA10-MA20区间
+      current_ref: '2026-06-11 收盘=65.88 PE=56.31'
+      price_range: 55.0 ~ 62.0
+      method: 均线法，PE相对合理有安全边际
+      confirm_signal: 缩量回踩至区间不破+CCL材料方向验证+全A中阳线
+      hard_stop: 跌破50且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察+PE相对合理+期权层跟踪）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  - code: 600110.SH
+    name: 诺德股份
+    role: pcb_option_copperfoil
+    segment: 铜箔（锂电+高端PCB铜箔）
+    priority: P3-观察
+    watch_reason: UP期权层，收购境外铜箔资产切入高端链条。PE负值（-97.55）反映锂电业务拖累。仅观察收购进展和高端铜箔协同。
+    confirm_with:
+    - 生益科技
+    entry_zone:
+      description: 当前12.41。锂电业务拖累严重，仅作方向观察不预设介入
+      current_ref: '2026-06-11 收盘=12.41 PE=-97.55'
+      note: 锂电业务拖累+PE为负，仅观察不预设建仓。等收购落地/业务改善后再评估
+      position_ratio: 0（纯观察，不建仓）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
 avoid_and_reduce:
   avoid:
   - 存储芯片（M头+颈线+量价顶背离，反弹减仓）
