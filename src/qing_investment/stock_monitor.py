@@ -437,6 +437,14 @@ def evaluate_buy_signal_candidates(
 
         # 六项条件
         price_in_zone = zone[0] <= latest <= zone[1]
+        # 价格偏离度保护：现价 > 区间上限×1.05 时强制判定为"偏离，不触发"
+        price_deviated = latest > zone[1] * 1.05
+        if price_deviated:
+            price_in_zone = False
+            logger.info(
+                f"buy_signal_deviation: {name}({code_norm}) "
+                f"price={latest:.1f} > zone_upper={zone[1]:.1f}×1.05={zone[1]*1.05:.1f} → 偏离不触发"
+            )
         not_crashing = pct_change > -3.0
         no_limit_up = pct_change < 7.0
         has_claim_support = bool(entry.get("claim_basis"))
