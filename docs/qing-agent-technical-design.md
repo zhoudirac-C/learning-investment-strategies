@@ -1,8 +1,8 @@
 # Qing-Agent 技术设计文档
 
-> 版本: 2026-06-11  
-> 对应 Commit: `8006274` (Fix A/B/C 同步提交)
-> 最后更新：补 hallucination 防御层 + reviewer 局限性说明 + 数据流修正
+> 版本: 2026-06-12  
+> 对应 Commit: `db95d14` (Phase 8 更新)
+> 最后更新：修正/chat端点数据流描述，更新数据规模，补充Phase 8改动
 
 ---
 
@@ -211,32 +211,52 @@ endlegend
                                                                 (时效过滤+矛盾检测)     (UP风格+来源标注)   (citation检查,最多3次打回)
 ```
 
-**`/chat` 端点数据流**（2026-06-06）：
+**`/chat` 端点数据流**（2026-06-12 修正 — 不走 LangGraph 流水线，是独立的检索→构建→LLM 流程）：
 
 ```
-用户消息 ──▶ 查询类型检测（大盘/板块/个股）
+用户消息
     │
-    ├── 个股查询 ──▶ 提取股票代码 ──▶ Neo4j: get_claims_with_evolution(stock_code)
-    │                                    （图遍历，含 SUPERSEDES/CONTRADICTS）
+    ├── mem0 记忆检索：mem0.search(message, session_id)
+    │   （获取用户历史上下文）
     │
-    ├── 板块/市场查询 ──▶ Neo4j: get_claims_by_keyword(keyword)
-    │                      （关键词匹配）
+    ├── Qdrant 语义检索：qing_knowledge(wiki 8条) + qing_claims(8条)
+    │   （向量语义检索 wiki 文档和 claims）
     │
-    └── 所有查询 ──▶ Qdrant: qing_knowledge(wiki) + qing_claims(语义)
-                       （向量语义检索）
+    ├── Neo4j 图遍历检索：
+    │   ├── 如消息含股票代码 → get_claims_with_evolution(code)（图遍历，含演化关系）
+    │   ├── 无代码但有板块关键词 → get_claims_by_keyword(keyword)（关键词匹配）
+    │   └── 图遍历补充：get_related_claims(claim_id)（共享实体发现关联 claims）
     │
-    └── 实时数据获取 ──▶ 指数/个股行情/板块数据/历史K线
+    ├── 实时数据获取：
+    │   ├── 指数行情（上证/深证/创业板/科创50）
+    │   ├── 板块数据（东财/新浪，如查询与板块/市场相关）
+    │   ├── 个股实时价（如匹配到股票代码）
+    │   ├── 90日 K线 + 当日分时（如个股查询）
+    │   └── 持仓匹配（positions.yaml 中匹配标的）
     │
-    └── 持仓匹配 ──▶ positions.yaml
+    ├── 时效过滤 + 分组：
+    │   ├── apply_claim_freshness() 按天数打时效标签
+    │   ├── 方法论类 claim 不分时效 → 独立块
+    │   ├── 最新(≤7天) / 近期(8-30天) / 历史(31-90天) 三级分组
+    │   └── 个股查询时过滤 low intensity claim
     │
-    └── Prompt 组装 ──▶ LLM 分析 ──▶ 输出
+    ├── Prompt 组装（六步分析框架，hardcode 在 main.py）：
+    │   ① 市场周期判断 → ② 板块主线判断 → ③ 个股地位判断 →
+    │   ④ UP 历史引用（时效配对数据）→ ⑤ 技术面+资金面 → ⑥ 证伪条件
+    │
+    ├── 直接调用 LLM：llm.invoke(prompt)
+    │   （⚠️ 不走 graph.ainvoke，无 synthesize/style_writer/reviewer 节点）
+    │
+    └── ChatResponse {reply, memories_used}
 ```
+
+**核心区别**：/chat 不走 LangGraph 流水线，不经过 market_analyst/stock_analyst 等节点。是一个独立的"检索+构建+LLM"流程，prompt 中的六步框架直接嵌入 main.py 代码中，不依赖任何 prompt 模板文件。
 
 **`/analyze/trigger` 端点数据流**（Hermes cron 调用）：
 
 ```
 stock_monitor.py --agent-json-context
-    │  {trigger, alerts, market_snapshot, positions, watchlist, sector_strengths, external_sector_boards}
+    │  {trigger, alerts, buy_signal_candidates, market_snapshot, positions, watchlist, sector_strengths, external_sector_boards}
     ▼
 Qing-Agent /analyze/trigger
     │
@@ -249,9 +269,13 @@ Qing-Agent /analyze/trigger
     │       [_detect_claim_conflicts] 矛盾检测
     │
     ├── 3. market_analyst ──▶ 核心分析节点（必走）
-    │       ├── 板块数据可用性守卫（external_sector_boards.available=false → 拒绝分析）
+    │       ├── 板块数据可用性守卫（external_sector_boards.available=false
+    │       │   → 不再拒绝分析，注入 _data_missing_note 继续，LLM基于知识库降级）
     │       ├── Framework 显式加载 + 11项分析框架片段
     │       ├── 推理模式匹配（ONNX Embedding召回Top5 → LLM rerank Top1-3）
+    │       ├── watchlist_entry_zones 注入（Phase 8 新增：从watchlist提取price_range
+    │       │   + method+confirm_signal，供机会扫描附价格区间，禁模糊表述）
+    │       ├── 行情截断：quotes>50只保留指数+持仓/观察池+涨跌幅TOP15
     │       └── 输出 market_context JSON + 持久化 daily_state.json
     │
     ├── 4. synthesize ──▶ 拼接草稿，注入【参考来源】、持仓操作计划
@@ -568,6 +592,23 @@ LLM 输出 → Fix A [年份检测] → 通过 → Fix B [含实时价的上下�
 
 **缺口**：Fix A 只检测年份幻觉，缺少通用事实校验层。
 
+### 4.6 Phase 8 新增 — 日志系统（2026-06-12）
+
+**位置**：`main.py` 启动时配置 RotatingFileHandler → `logs/qing-agent.YYYY-MM-DD.log`
+**轮转**：按天轮转，保留30天。`logs/.gitignore` 已有保护不提交。
+
+**关键节点日志**：
+
+| 节点 | 日志内容 | 定位 |
+|------|---------|------|
+| `market_analyst` | framework加载数、推理模式匹配数、claims过滤统计、watchlist_entry_zones注入数 | 追踪数据源是否正常注入 |
+| `synthesize` | has_stock/positions/opportunity_scan/themes数量 | 检查各节点产出是否为空 |
+| `style_writer` | draft长度、market_phase、has_vague_terms模糊词标记、review_round | 定位观察池模糊表述问题 |
+| `main.py` | 服务启动、日志初始化路径 | 确认日志系统工作 |
+
+**环境变量**：
+- `QING_AGENT_LOG_LEVEL=DEBUG` — 开启模块级 DEBUG 日志（`nodes`, `builder`, `llm_client`, `neo4j_client`, `qdrant_client`）
+
 ---
 
 ## 5. 板块数据源设计（核心）
@@ -661,15 +702,15 @@ if analysis_type in ("market", "portfolio") and not esb.get("available"):
 **节点类型**：`Claim`, `Stock`, `Sector`, `Theme`, `Macro`, `Methodology`, `SourceDocument`, `WikiPage`, `MethodologyPage`  
 **关系类型**：`ABOUT`, `SUPERSEDES`, `CONTRADICTS`, `CITED_IN`, `EXTRACTED_FROM`
 
-**数据规模**（2026-06-06）：
-- Claims: 540（9 种 claim_type）
+**数据规模**（2026-06-12）：
+- Claims: 746（9 种 claim_type）
 - Stock: 38（含 code + name 属性）
 - Sector: 167
 - Theme: 465
 - Macro: 102
 - Methodology: 118
-- SUPERSEDES 关系: 18
-- CONTRADICTS 关系: 7
+- SUPERSEDES 关系: 21
+- CONTRADICTS 关系: 8
 
 **查询方式**：
 - `get_claims_about_stock(stock_code)` → 某股票相关的历史观点（Cypher: `MATCH (c:Claim)-[:ABOUT]->(s:Stock {code: $code})`）
@@ -691,10 +732,10 @@ if analysis_type in ("market", "portfolio") and not esb.get("available"):
 - 来源 boost：`framework/` +0.15, `wiki/投资方法论` +0.10, `wiki/市场分析` +0.05
 
 **Collection `qing_claims`**（claims 语义索引，Phase 3.3 新增）：
-- 540 claims 的向量索引
+- 746 claims 的向量索引
 - Embedding: 同上 ONNX 模型
 - 用途：claims 语义搜索，与 Neo4j 图查询协同
-- Payload: `id`, `subject`, `statement`, `status`, `source_date`, `claim_type`
+- Payload: `id`, `subject`, `statement`, `status`, `source_date`, `claim_type`, `intensity`, `freshness_label`
 
 **Neo4j + Qdrant 协同策略**（2026-06-06）：
 
@@ -738,8 +779,9 @@ POST /memory/add?session_id=&content=     ← 追加用户记忆
 | `positions` | list[dict] | ❌ | `positions.yaml` | 当前持仓：`[{code, name, shares, cost, current_price, profit_pct, position_ratio}]` |
 | `watchlist` | list[dict] | ❌ | `strategy_pack.yaml`（实时价由 API 注入） | 观察池标的：`[{code, name, latest, pct_change, watch_reason}]`。⚠️ `latest`/`pct_change` 由 Hermes 在构造 JSON 时从实时行情 API 注入，非 YAML 存储。LLM 应优先使用 API 实时价而非记忆中的旧价（见 §4.5 Fix B）。 |
 | `sector_strengths` | list[dict] | ❌ | 内部样本 | 板块强弱（基于 `sector_groups`）：`[{sector_name, strength, top_stocks}]` |
-| `external_sector_boards` | dict | ✅ | 东财/新浪 | **外部全量板块数据**：`{available: bool, concept: {...}, industry: {...}}`。`market`/`portfolio` 分析时 `available` 必须 `true` |
-
+|| `external_sector_boards` | dict | ✅ | 东财/新浪 | **外部全量板块数据**：`{available: bool, concept: {...}, industry: {...}}`。`market`/`portfolio` 分析时 `available` 必须 `true` |
+|| `buy_signal_candidates` | list[dict] | ❌ | `stock_monitor.py`（Hermes poll 规则引擎） | 买入信号候选列表。`trigger.kind=buy_signal_candidate` 时触发个股买入确认分析 |
+|
 **必填约束**：`query` + `external_sector_boards`（market/portfolio 时 `available=true`）
 **输入来源**：所有字段由 `hermes_stock_monitor_agent.py` 通过 `stock_monitor.py --agent-json-context` 采集并转发。
 
