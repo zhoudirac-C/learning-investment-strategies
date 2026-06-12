@@ -30,7 +30,7 @@ extract_claims_pipeline.py — C2 编排控制器
   gate3_result.json — Gate 3 校验结果
 """
 
-import json, sys, os, uuid, shutil, subprocess
+import json, sys, os, re, uuid, shutil, subprocess
 from pathlib import Path
 from datetime import datetime
 
@@ -400,6 +400,24 @@ def _auto_format_yaml(json_path: str, yaml_out_dir: str):
         yaml_path = yaml_out / f"claim-{src_date}-output.yaml"
         with open(yaml_path, "w") as f:
             yaml.dump({"claims": enriched}, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+
+        # Post-process: quote YAML stock codes with leading zeros
+        # yaml.dump outputs code: 002971 as bare number → YAML parser sees octal int 2971
+        raw = yaml_path.read_text(encoding="utf-8")
+        fixed = re.sub(
+            r'(?m)^(  - code: )0(\d{5})\s*$',
+            r"\1'0\2'",
+            raw,
+        )
+        # Also catch non-leading-zero 6-digit codes that got output as ints
+        fixed = re.sub(
+            r'(?m)^(  - code: )([1-9]\d{5})\s*$',
+            lambda m: f"  - code: '{m.group(2)}'",
+            fixed,
+        )
+        if fixed != raw:
+            yaml_path.write_text(fixed, encoding="utf-8")
+            print(f"  🔧 自动引号修复: 处理了 stock codes")
 
         print(f"  📄 YAML 暂存到: {yaml_path}")
         print(f"  ℹ️  最终编号由 Agent 在 Step 4 核对后确认")

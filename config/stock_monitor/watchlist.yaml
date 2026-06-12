@@ -235,6 +235,29 @@ themes:
     - claim_id: claim-20260611-005-a
       relevance: theme
       claim_type: risk
+  - code: 601958.SH
+    name: 金钼股份
+    role: molybdenum_leader
+    segment: 钼矿/钼靶材龙头
+    priority: P3-观察
+    watch_reason: UP 6/12早盘产业资讯，SK海力士375层NAND以钼替钨打开金属钼空间。金钼股份为钼矿/钼靶材主板可交易龙头。PE极低，但当前仍为产业资讯阶段非UP主动推荐，仅方向观察。
+    confirm_with:
+    - 隆华科技(300263-创业)
+    entry_zone:
+      description: 当前25.52平稳运行。等全A中阳线+钼靶材方向验证
+      current_ref: '2026-06-12 参考价≈25.52'
+      price_range: 23.0 ~ 25.0
+      method: 均线法，PE极低安全边际高
+      confirm_signal: 全A放量中阳线+金钼股份放量站稳MA5+存储材料方向验证
+      hard_stop: 跌破22且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察+产业资讯非主动推荐）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-12'
+    linked_claims:
+    - claim_id: claim-20260612-013-m
+      relevance: direct
+      claim_type: catalyst
 - id: photovoltaic_low_recovery
   name: 光伏低位修复
   up_positioning: 「低位修复里最看好的」—唯一同时具备「调整到位+大资金进场+实质政策催化」三要素。但這是「反内卷预期+超跌反弹」不是「景气反转」。中长线看核心龙头或ETF，不做短线。

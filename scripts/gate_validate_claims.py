@@ -98,6 +98,12 @@ def gate3_related_stocks(claim: dict) -> list[str]:
             elif isinstance(item, dict):
                 if "code" not in item or "name" not in item:
                     errors.append(f"related_stocks 项 {item} 缺 code/name 字段")
+                # Gate 3b: code 必须是字符串（6位数字代码），不能是整数
+                code_val = item.get("code")
+                if isinstance(code_val, int):
+                    errors.append(f"related_stocks code={code_val} 是整数类型，应改为字符串 '{code_val}'")
+                elif isinstance(code_val, str) and not code_val.isdigit():
+                    errors.append(f"related_stocks code='{code_val}' 不是纯数字字符串")
     return errors
 
 
