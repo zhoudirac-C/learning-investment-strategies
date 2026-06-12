@@ -524,6 +524,84 @@ themes:
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
+- id: core_mainline_recovery
+  name: 核心主线修复（芯片/光互连/存储/PCB）
+  up_positioning: UP 6/11复盘：「等到最后指数要反转的时候，资金大概率会重新回到芯片、光互连、存储、PCB等核心主线方向上——这是本轮行情的「母题」，回调不改地位。」全A中阳线=唯一建仓前置条件。当前仅观察。
+  source_docs:
+  - sources/original/bilibili/2026-06-11-2152-专栏-全A指数本轮趋势性下跌已超过23个交易日。历史对照来看，此前.md
+  market_checks:
+  - 全A放量中阳线（建仓前置条件）
+  - 中际旭创/新易盛（创业板）是否领涨→光互连方向确认
+  - 沪电股份/深南电路是否放量突破
+  stocks:
+  - code: 002049.SZ
+    name: 紫光国微
+    role: chip_specialty
+    segment: 特种芯片/FPGA
+    priority: P3-观察
+    watch_reason: 主板芯片方向代表标的。特种芯片龙头，PE 36x为芯片里最低。6/11跌2.16%处于回调。
+    entry_zone:
+      description: 均线偏空，等缩量止跌+全A中阳线。PE低有安全边际
+      current_ref: 2026-06-11 收盘=71.42(-2.16%) PE=36.73
+      price_range: 66.0 ~ 70.0
+      method: 回撤法，近期低点参考
+      confirm_signal: 缩量止跌至区间+全A中阳线+芯片板块整体回暖
+      hard_stop: 跌破62且30分钟不能收回
+      position_ratio: 不超过0.5成（P3-观察+反转方向埋伏）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  - code: 002281.SZ
+    name: 光迅科技
+    role: optical_device
+    segment: 光器件/光模块
+    priority: P3-观察
+    watch_reason: 光互连方向主板核心标的。光器件龙头，CPO/高速光模块受益AI互联瓶颈。PE 160x估值偏高需注意。
+    entry_zone:
+      description: 高位运行，等深度回踩。PE高容错率低
+      current_ref: 2026-06-11 收盘=205.40(+1.38%) PE=159.92
+      price_range: 185.0 ~ 200.0
+      method: 回撤百分比法(3-10%)，基于收盘205
+      confirm_signal: 回踩至区间不破+全A中阳线+中际旭创/新易盛领涨确认
+      hard_stop: 跌破175且30分钟不能收回
+      position_ratio: 不超过0.5成（P3-观察+高PE需严格止损）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  - code: 603986.SH
+    name: 兆易创新
+    role: memory_nor
+    segment: NOR Flash/DRAM
+    priority: P3-观察
+    watch_reason: 存储方向主板核心标的。NOR Flash龙头+DRAM布局，受益存储涨价周期。PE 118x需注意。6/11涨0.55%偏稳。
+    entry_zone:
+      description: 均线多头，高位运行。等深度回踩MA20-MA60区间
+      current_ref: 2026-06-11 收盘=483.50(+0.55%) PE=117.92 市值=3229亿
+      price_range: 430.0 ~ 470.0
+      method: 回撤百分比法(3-11%)，基于收盘483
+      confirm_signal: 全A中阳线+存储板块共振+缩量回踩至区间
+      hard_stop: 跌破400且30分钟不能收回
+      position_ratio: 不超过0.3成（高价+高PE+小仓位）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  - code: 002463.SZ
+    name: 沪电股份
+    role: pcb_core
+    segment: 高速PCB（AI服务器）
+    priority: P3-观察
+    watch_reason: PCB方向主板核心标的。AI服务器高速PCB龙头，受益AI机架/交换机放量。PE 57x在PCB里偏低。
+    entry_zone:
+      description: 高位回调中(-2.83%)，等缩量止跌+全A中阳线
+      current_ref: 2026-06-11 收盘=126.91(-2.83%) PE=56.77
+      price_range: 118.0 ~ 125.0
+      method: 回撤百分比法(1-7%)，基于收盘127
+      confirm_signal: 缩量止跌至区间+全A中阳线+PCB板块同步企稳
+      hard_stop: 跌破110且30分钟不能收回
+      position_ratio: 不超过0.5成（P3-观察+反转方向埋伏）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
 avoid_and_reduce:
   avoid:
   - 存储芯片（M头+颈线+量价顶背离，反弹减仓）
