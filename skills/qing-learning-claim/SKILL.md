@@ -20,6 +20,31 @@ Step 4: Agent 更新 wiki/index/commit
 
 ## 使用方法
 
+### ⚠️ 预检查：内容是否已被现有 claims 覆盖
+
+**在 run `start` 之前**，先检查该 raw 文件的内容是否已被现有 claims 覆盖。
+Bilibili 动态内容可能已被 Agent 的证券研究管线先提取（通过 `sources/raw/财经/` 路径），
+导致重复提取。
+
+```bash
+# 1. 检查同日期已有哪些 claim
+ls knowledge/claims/claim-YYYYMMDD-*.yaml 2>/dev/null
+
+# 2. 阅读现有 claim 的 evidence_quote 判断是否与本 raw 重合
+#    如果现有 claims 的 source_path 指向 sources/raw/财经/而非 sources/original/，
+#    且 evidence_quote 与 Bilibili 动态原文完全一致 → 跳过提取
+```
+
+**决策规则**：如果已有 claims 的 statement/evidence_quote 与该 raw 高度重合，
+直接跳过流程（`rm -rf temp/claims/<session>`），不做重复提取。
+
+**注意**：`extract_claims_pipeline.py done <session>` 会拒绝清理（因为 YAML 未被移走）。
+直接 `rm -rf temp/claims/<session>` 是正确做法。
+
+**2026-06-12 实战**：10:47 动态的原始 Bilibili 内容已通过 Agent 盘中分析管线被
+先提取为 `claim-20260612-002`（source_path = `sources/raw/财经/...`），
+7 条候选 claim 全部被覆盖。不应再创建重复提取。
+
 ### 启动新提取
 
 ```bash

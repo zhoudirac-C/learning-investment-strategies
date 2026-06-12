@@ -102,9 +102,9 @@ async def list_tools() -> list[Tool]:
         Tool(
             name="search_claims",
             description=(
-                "语义搜索投资观点库（Qdrant qing_claims 集合，645条）。"
-                "输入中文查询，返回最相关的 claims，含 claim_id/subject/statement/claim_type/confidence/source_date。"
-                "适用场景：查找 UP 对某个话题的方法论、板块观点、操作纪律等。"
+                "语义搜索投资观点库（645条观点）。"
+                "输入中文查询，返回最相关的 claims（含 ID/主题/陈述/类型/置信度/来源日期）。"
+                "适合查找 UP 对某话题的方法论、板块观点、操作纪律。"
             ),
             inputSchema={
                 "type": "object",
@@ -125,9 +125,9 @@ async def list_tools() -> list[Tool]:
         Tool(
             name="search_knowledge",
             description=(
-                "语义搜索知识文档库（Qdrant qing_knowledge 集合，10880条）。"
-                "包含 wiki、框架文档、深度研究报告等长文内容。"
-                "适用场景：查找产业链分析、标的深度研究、板块扩散路径等。"
+                "语义搜索知识文档库（10880篇知识文档）。"
+                "包含 wiki、框架文档、深度研报。"
+                "适合查找产业链分析、标的深度、板块扩散路径。"
             ),
             inputSchema={
                 "type": "object",

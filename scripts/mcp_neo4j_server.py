@@ -164,9 +164,9 @@ async def list_tools() -> list[Tool]:
         Tool(
             name="get_claim_relations",
             description=(
-                "查询一个 claim 的所有关系边（supersedes取代/contradicts矛盾/supplements补充）。"
-                "输入 claim ID（如 claim-20260609-005-c），返回它与其他 claims 的关系图谱。"
-                "适用场景：检查某个观点是否被后续观点取代、是否存在矛盾的判断。"
+                "查询 claim 关系边（supersedes取代/contradicts矛盾/supplements补充）。"
+                "输入 claim ID，返回与其他 claims 的关系图谱。"
+                "用于检查观点是否被取代或存在矛盾。"
             ),
             inputSchema={
                 "type": "object",
@@ -182,8 +182,8 @@ async def list_tools() -> list[Tool]:
         Tool(
             name="search_claims_graph",
             description=(
-                "按关键词在 Neo4j 图中搜索 claims（匹配 statement/subject 字段）。"
-                "与 Qdrant 语义搜索互补：这里是精确关键词匹配，适合搜股票代码、板块名称等。"
+                "在 Neo4j 精确关键词搜索 claims（匹配陈述/主题字段）。"
+                "与语义搜索互补：精确关键词匹配，适合搜股票代码、板块名称。"
             ),
             inputSchema={
                 "type": "object",
@@ -204,9 +204,9 @@ async def list_tools() -> list[Tool]:
         Tool(
             name="get_recent_claims",
             description=(
-                "获取最近 N 天的 claims，可按 claim_type 过滤。"
-                "claim_type 可选值：market-cycle / sector-theme / methodology / operation / risk。"
-                "适用场景：快速了解最近的市场观点、操作纪律更新等。"
+                "获取最近 N 天的 claims，可按类型过滤。"
+                "类型：market-cycle / sector-theme / methodology / operation / risk。"
+                "适合快速了解近期市场观点和操作纪律更新。"
             ),
             inputSchema={
                 "type": "object",

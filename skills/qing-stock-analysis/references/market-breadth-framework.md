@@ -1,7 +1,7 @@
 # 市场广度分析框架（UP 方法论提取）
 
 > 来源：UP 2026年6月上旬早盘/复盘专栏原文提取  
-> 状态：2026-06-12 提取，待整合入 Agent prompt
+> 状态：2026-06-12 提取，**2026-06-12 已整合入 Agent prompt** → 见 `src/qing_investment/agent/prompts/system/market_analysis_framework.txt`
 
 ## 概述
 
@@ -140,16 +140,16 @@ UP 使用历史最长下跌周期作为参照：
 
 ---
 
-## 整合入 Agent 的建议
+## 整合入 Agent 的状态
 
-当前 `market_analysis_framework.txt` 的问题：
-- 只定义输出格式（1-11项），不包含分析逻辑
-- LLM凭自身知识编造，而非调用UP方法论
+> ✅ **2026-06-12 验证：四层分析链已全部整合入 Agent prompt**。
+> 见 `src/qing_investment/agent/prompts/system/market_analysis_framework.txt`（133行）：
+> - Step 1 全A趋势结构 / Step 3 三指数共振 / Step 2 多级别结构 / Step 5 情绪指标 → 对应 L1-L4
+> - 三步共振法（MACD+九转+斐波那契整合）已注入
+> - MACD/九转/斐波那契使用边界已声明（仅大盘，不加个股）
+> - 本文作为提取源文档存档，Agent 实际使用以 prompt 文件为准
 
-建议修改：
-1. 在 prompt 开头注入四层分析链：`全A趋势 → 三指数共振 → 多级别结构 → 情绪验证`
-2. 将分析逻辑作为必执行步骤，而非仅输出格式
-3. 不确定时明确声明"数据不足以判断X层"，而非跳过该层
+**历史背景**：本文最初于 2026-06-12 从 UP 源文档提取，当时 `market_analysis_framework.txt` 只定义了输出格式（1-11项），缺少分析逻辑链，导致 Agent 分析浮于表面。之后 prompt 已被补充完整，本文转为存档参考。
 
 ---
 

@@ -429,7 +429,7 @@ def format_multi_tf_macd_report(
     import sqlite3
 
     if codes is None:
-        codes = ["sh000001", "sh000985"]
+        codes = ["sh000985", "sh000001"]
     index_names = {
         "sh000001": "上证指数", "sh000985": "中证全指",
     }
@@ -458,9 +458,10 @@ def format_multi_tf_macd_report(
                 vals.append(f"{tf_short}{arrow}({row['dif']:.0f})")
         lines.append(f"  {name}: {' '.join(vals)}")
 
-    # 全A日线最近5根详细
-    code_primary = "sh000985"
-    lines.append(f"\n📈 {index_names[code_primary]}日线细节:")
+    # 详情段：按 codes 列表中第一个指数展示（而非硬编码 sh000985）
+    code_primary = codes[0] if codes else "sh000985"
+    primary_name = index_names.get(code_primary, code_primary)
+    lines.append(f"\n📈 {primary_name}日线细节:")
     rows = conn.execute(
         "SELECT bar_time, close, dif, dea, macd_hist FROM index_klines WHERE code=? AND timeframe='daily' ORDER BY bar_time DESC LIMIT 5",
         (code_primary,)
@@ -470,8 +471,8 @@ def format_multi_tf_macd_report(
         color = "🔴" if h and h > 0 else "🟢" if h and h < 0 else "⚪"
         lines.append(f"  {r['bar_time'][-5:]} C:{r['close']:.0f} DIF:{r['dif']:.0f} DEA:{r['dea']:.0f} 柱:{h:.0f} {color}")
 
-    # 全A60分钟最近5根
-    lines.append(f"\n⏱️ {index_names[code_primary]}60分钟细节:")
+    # 60分钟最近5根（同样跟第一个指数）
+    lines.append(f"\n⏱️ {primary_name}60分钟细节:")
     rows = conn.execute(
         "SELECT bar_time, close, dif, dea, macd_hist FROM index_klines WHERE code=? AND timeframe='60min' ORDER BY bar_time DESC LIMIT 5",
         (code_primary,)
@@ -564,13 +565,23 @@ def compute_td_report(
     recent: list[str] = []
     completions: list[str] = []  # 已经完成的9次信号（历史事件）
     latest_status = ""
+    last_cpl_type = ""  # 防重复：连续同方向的9只记第一次
+    last_cpl_bar = ""
     for i in range(len(td_seq) - 1, max(len(td_seq) - bars - 1, -1), -1):
         if i < 0:
             break
         t = td_seq[i]
         k = klines[i]
         if t["td_count"] == 9:
-            completions.append(f"  {k['bar_time']}  {'🔴高9' if t['td_type']=='高' else '🟢低9'}")
+            cpl_key = t["td_type"]
+            if cpl_key != last_cpl_type:  # 方向变了才算新完成信号
+                completions.append(f"  {k['bar_time']}  {'🔴高9' if t['td_type']=='高' else '🟢低9'}")
+                last_cpl_type = cpl_key
+                last_cpl_bar = k['bar_time']
+            elif i == len(td_seq) - 1:
+                # 最新一根还是同方向9→标记为延续而非新信号
+                if completions:
+                    completions[-1] = f"  {last_cpl_bar}  {'🔴高9(延续中)' if t['td_type']=='高' else '🟢低9(延续中)'}"
         elif t["td_count"] >= 8:
             recent.append(f"  {k['bar_time']}  {'🔴高'+str(t['td_count']):>6s}" if t["td_type"] == "高" else f"  {k['bar_time']}  {'🟢低'+str(t['td_count']):>6s}")
         if i == len(td_seq) - 1 and t["td_count"] > 0:
