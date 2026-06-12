@@ -1,8 +1,15 @@
      1|# 操作日志
 
 ## 2026-06-12 | qing-learning ingest | 6/12早盘：指数方向未明+情绪逐日加强+上游材料扩散+OCS/液冷/CPU产业梳理
-     2|
-     3|## 2026-06-10 | qing-learning ingest | 6/10早盘：冷眼旁观，等结构慢慢理顺
+
+## 2026-06-12 | qing-learning ingest | 6/12盘中：科技内部跷跷板+硬科技自主程度分类+商业航天IPO双面效应
+
+- 处理 raw：`sources/raw/财经/盘中：26-06-12：机器人与半导体材料构成科技内部跷跷板，商业航天IPO双面效应.md`（B站充电专属）
+- 新增 claims：`claim-20260612-002.yaml`（6 条：sector-theme×3, operation×1, market-cycle×1, risk×1）
+- 核心观点：科技内部跷跷板（物理AI/机器人 vs 半导体材料/光模块）、硬科技按自主程度分化、商业航天IPO双面效应、调整期1-2个月仓位策略（国产替代穿越/AI硬件右侧/商业航天等IPO）、美股滞涨下周一暴跌风险
+- 更新门禁：`gate_validate_claims.py` NON_COMPANY 集扩展（上下文"科技"假阳性）
+
+## 2026-06-10 | qing-learning ingest | 6/10早盘：冷眼旁观，等结构慢慢理顺
 
 - 处理 raw：`sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md`（B站专栏）
 - 新增 claims：`claim-20260610-001.yaml`（11 条：market-cycle×3, sector-theme×5, methodology×1, operation×1）
