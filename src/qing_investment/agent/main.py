@@ -3,20 +3,21 @@ from __future__ import annotations
 import logging
 import os
 import re
-from logging.handlers import RotatingFileHandler
+from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
 
 from fastapi import FastAPI
 
-# ── 日志配置（Phase 8 新增：日志写入文件，方便排查问题）──
+# ── 日志配置（Phase 8 新增：按天轮转日志，保留30天）──
 _log_dir = Path(__file__).resolve().parents[3] / "logs"
 _log_dir.mkdir(parents=True, exist_ok=True)
 _log_file = _log_dir / "qing-agent.log"
 
-_handler = RotatingFileHandler(
+_handler = TimedRotatingFileHandler(
     str(_log_file),
-    maxBytes=10 * 1024 * 1024,  # 10MB
-    backupCount=5,
+    when="midnight",
+    interval=1,
+    backupCount=30,
     encoding="utf-8",
 )
 _handler.setFormatter(logging.Formatter(
