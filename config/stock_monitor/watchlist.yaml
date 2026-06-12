@@ -432,6 +432,98 @@ themes:
   name: 机器人
   up_positioning: 「观察名单而非配置名单」，等放量站稳60日线
   note: 分歧大、未形成趋势，暂不设标的。
+- id: equipment_packaging_catchup
+  name: 设备/封测补涨（涨价主线扩散方向）
+  up_positioning: 「补涨看设备、封测环节」— UP 6/11晚间复盘明确：涨价主线扩散至高潮后，性价比转向补涨方向。晶圆制造、设备、封装工艺等尚未充分定价的环节值得关注。全A中阳线为前置建仓条件。
+  source_docs:
+  - sources/original/bilibili/2026-06-11-2152-专栏-全A指数本轮趋势性下跌已超过23个交易日。历史对照来看，此前.md
+  market_checks:
+  - 全A是否出现放量中阳线（建仓前置条件）
+  - 北方华创作为设备锚点是否能止跌站稳
+  - 通富微电是否有AMD封装订单催化
+  - 深科技/长鑫封测订单是否持续放量
+  stocks:
+  - code: 002371.SZ
+    name: 北方华创
+    role: equipment_leader
+    segment: 半导体设备平台（刻蚀/薄膜/清洗/炉管）
+    priority: P3-观察
+    watch_reason: 半导体设备绝对龙头。6/11涨2.96%未加速，作为设备方向情绪锚点观察。市值4617亿弹性有限，更适合做板块温度计而非交易标的。
+    entry_zone:
+      description: 大市值龙头，均线多头排列(MA5~600)，等缩量回踩MA5-MA10区间。全A中阳线为前置条件
+      current_ref: 2026-06-11 收盘=637.50 PE=82.87 流通市值=4617亿
+      price_range: 600 ~ 620
+      method: 均线法，基于MA5附近±3%。大市值票波动小，区间收窄
+      confirm_signal: 缩量回踩MA5不破+全A中阳线+半导体设备板块同步企稳
+      hard_stop: 跌破570且30分钟不能收回
+      position_ratio: 不超过0.5成（大市值弹性有限，仅作为设备方向配置）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+    linked_claims:
+    - claim_id: claim-20260611-001-f
+      relevance: theme
+      claim_type: sector-theme
+  - code: 002156.SZ
+    name: 通富微电
+    role: packaging_lead
+    segment: 先进封装（AMD封测核心伙伴）
+    priority: P2-重点
+    watch_reason: UP提及补涨方向直接受益标的。AMD最核心封装伙伴，先进封装(2.5D/3D)逻辑清晰。6/11跌2.2%处于回调位，性价比优于北方华创。
+    confirm_with:
+    - AMD(美股)
+    - 北方华创
+    entry_zone:
+      description: 均线多头排列，6/11回调。等缩量止跌+全A中阳线确认信号后介入
+      current_ref: 2026-06-11 收盘=60.09(-2.2%) PE=63.05 流通市值=912亿
+      price_range: 56.0 ~ 59.0
+      method: 回撤百分比法(2-7%)，基于收盘60.09。等缩量回踩支撑区
+      confirm_signal: 缩量止跌至区间+全A中阳线+AMD/北方华创同步企稳
+      hard_stop: 跌破53且30分钟不能收回
+      position_ratio: 0.5-1.0成（补涨方向核心标的）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  - code: 000021.SZ
+    name: 深科技
+    role: hynix_packaging
+    segment: 长鑫封测（沛顿科技）
+    priority: P3-观察
+    watch_reason: 沛顿科技承接长鑫60-70%委外封测订单，UP提及封测补涨方向。用户曾持股盈利约3.8万。6/11涨1.93%。PE 51x为封测里最低。
+    confirm_with:
+    - 长鑫存储
+    - 通富微电
+    entry_zone:
+      description: 均线偏多，等缩量回踩MA20附近。用户对该股有交易经验，可重点关注
+      current_ref: 2026-06-11 收盘=39.08(+1.93%) PE=51.32 流通市值=615亿
+      price_range: 36.0 ~ 38.5
+      method: 均线法，基于MA20±3%。PE最低，估值有安全边际
+      confirm_signal: 缩量回踩至区间不破+通富微电同步+全A中阳线
+      hard_stop: 跌破34且30分钟不能收回
+      position_ratio: 不超过0.5成（P3-观察+补涨方向辅助配置）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
+  - code: 002185.SZ
+    name: 华天科技
+    role: packaging_follower
+    segment: 封测第三极（CIS/存储/汽车电子）
+    priority: P3-观察
+    watch_reason: 封测行业第三，补涨方向跟随标的。催化剂偏弱，仅作为方向扩散确认。
+    confirm_with:
+    - 通富微电
+    - 北方华创
+    entry_zone:
+      description: 均线盘整，等缩量止跌。补涨跟随标的，需通富微电先确立方向
+      current_ref: 2026-06-11 收盘=16.75(-2.1%)
+      price_range: 15.5 ~ 16.5
+      method: 震荡区间法，近期低点15附近
+      confirm_signal: 通富微电先企稳+全A中阳线+放量回到17以上
+      hard_stop: 跌破14.5且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察+跟随标的不单独建仓）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-11'
 avoid_and_reduce:
   avoid:
   - 存储芯片（M头+颈线+量价顶背离，反弹减仓）
