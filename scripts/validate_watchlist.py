@@ -101,7 +101,10 @@ def _check_stock(stock: dict, theme_id: str) -> list[dict]:
 
     # ── 不可交易标的检查 ──
     note = stock.get("note", "")
-    is_untradeable = "不可交易" in str(note)
+    pure_code = code.replace(".SH", "").replace(".SZ", "").strip()
+    is_untradeable = ("不可交易" in str(note)
+                      or pure_code.startswith("300")
+                      or pure_code.startswith("688"))
     has_entry_zone = bool(stock.get("entry_zone"))
     has_position_ratio = bool(ez.get("position_ratio")) if ez else False
 

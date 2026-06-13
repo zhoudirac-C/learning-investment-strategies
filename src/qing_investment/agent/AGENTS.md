@@ -20,7 +20,7 @@
 
 ## 2. 快速启动
 
-### 2.1 依赖容器（必须提前启动）
+### 2.1 依赖组件
 
 ```bash
 # Neo4j（claims 图数据库）
@@ -34,6 +34,11 @@ docker run -d --name qing-qdrant -p 6333:6333 qdrant/qdrant:v1.9.7
 docker run -d --name qing-postgres -p 5432:5432 \
   -e POSTGRES_PASSWORD=qing postgres:15
 ```
+
+**当前服务器（腾讯云）备注**：当前环境 Docker 守护进程不可用（`permission denied`），因此 Qdrant 和 Neo4j 使用降级方案运行：
+- **Qdrant**：走本地二进制服务端 `./bin/qdrant`（约85MB，Rust编译，RocksDB），数据在 `./storage/`。启动：`./bin/qdrant > /tmp/qdrant-server.log 2>&1 &`。验证 curl `localhost:6333/readyz`。迁移记录见 `docs/qdrant-local-to-server-migration.md`。
+- **Neo4j**：当前未运行，需 Docker 环境。本地部署需另外启动。
+- 服务器重启后需手动拉起上述服务（无 systemd 自动拉起）。
 
 ### 2.2 环境变量
 
@@ -384,7 +389,7 @@ POST /analyze/trigger
 | `alerts` | list[dict] | ❌ | 规则信号列表：`[{type, message, stock_code, priority, ...}]` |
 | `market_snapshot` | dict | ❌ | 行情快照：`{timestamp, quotes: [{code, name, price, change_pct, volume, ...}], index_quotes: [...], limit_up_stocks: [], limit_down_stocks: []}` |
 | `positions` | list[dict] | ❌ | 当前持仓：`[{code, name, shares, cost, current_price, profit_pct, position_ratio, ...}]` |
-| `watchlist` | list[dict] | ❌ | 观察池关键标的：`[{code, name, price, change_pct, reason, ...}]` |
+|| `watchlist` | list[dict] | ❌ | 观察池标的（Phase 8.1 增强）：`[{code, name, theme, role, priority, latest, pct_change, watch_reason, entry_price_range, entry_hard_stop, lifecycle_stage, reduce_zone_desc, risk_zone_desc, up_sentiment, ...}]` — 含UP设定的介入区间/止损/生命周期/减仓条件，供机会扫描使用 |
 | `sector_strengths` | list[dict] | ❌ | 板块强弱数据（内部样本）：`[{sector_name, strength, top_stocks, ...}]` |
 | `external_sector_boards` | dict | ✅ | **外部全量板块数据**（东财/新浪双源）：`{available: bool, concept: {...}, industry: {...}}`。`market`/`portfolio` 分析时 `available` 必须为 `true`，否则 `market_analyst` 返回「数据不可用」拒绝生成分析 |
 

@@ -32,6 +32,27 @@
 - 用于确定"方向优先级"——哪些方向是UP当前最看好的
 - 结合实时板块数据验证：UP看好"燃气轮机"，今天燃气轮机板块是否走强？
 
+【watchlist_summary 使用规则（Phase 8.1 新增）】
+- 按优先级排序：P1=最核心 → P2=重点 → P3=一般观察
+- 关键字段含义：
+  · entry_info: UP设定的介入区间+止损价（如"介入区间:6.3~6.6 止损:跌破6.0"）
+  · lifecycle: holding=已持仓 / 观察=等待介入 / entered=刚介入
+  · reduce_zone: 减仓条件（如"跌破125→减半仓位"）
+  · risk_zone: 止损条件（如"跌破123.2→清仓"）
+  · up_sentiment: UP对该股的最新情绪（积极看好/中性/谨慎）
+- 机会扫描（Step 5）必须使用 watchlist_summary：
+  1. 检查当前价是否接近 entry_info 中的介入区间
+  2. 检查 lifecycle 状态——已持仓的按 reduce/risk zone 管理，观察中的按 entry zone 评估
+  3. 检查 up_sentiment——如果 UP 最近已经转中性/谨慎，即使价格到位也等重新确认
+  4. 如果当前价远超介入区间（>+15%）→标注「已过介入窗口，等下次回踩」
+  5. 如果当前价进入介入区间且 watch_reason_short 仍然有效→标注「🟢 可能触发」
+  6. 如果当前价接近/跌破 risk_zone→标注「🔴 止损关注」
+
+【reference_stocks 使用规则（Phase 8.1 新增）】
+- reference_stocks 是创业板(300)和科创板(688)标的，**仅作方向/情绪参考，不可操作**
+- 即使 UP 特别看好某只 reference_stock，也需说明「该标的是非主板，仅作板块方向锚点，不可买入」
+- 机会扫描（Step 5）中：reference_stocks 不列入操作候选，但可标注「XX板块有参考标的大涨→板块方向验证」
+
 【数据使用优先级】
 1. 最高优先：external_sector_boards、market_snapshot（实时数据）
 2. 中优先：sector_context.news（最新动态）

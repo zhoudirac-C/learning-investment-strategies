@@ -1240,24 +1240,72 @@ def market_analyst(state: AgentState) -> AgentState:
         if s.get("source", "").startswith("framework/") or "投资方法论" in s.get("source", "")
     ]
 
-    # ── 提取watchlist entry_zone数据注入机会扫描用（Phase 8 新增）──
-    watchlist_entry_zones = []
+    # ── 构建watchlist摘要（按优先级分组，Phase 8.1 增强）──
+    watchlist_summary = []
+    reference_stocks = []  # P4: 非主板（创业板/科创板），仅作情绪锚点
+    _PRIORITY_SORT = {"P1": 0, "P1-核心": 0, "P2": 1, "P2-重点": 1, "P3": 2, "P3-观察": 2}
+
+    def _is_mainboard(code: str) -> bool:
+        """判断是否为可交易的主板标的（sh6xxxxx / sz0xxxxx，排除300创业板+688科创板）。"""
+        pure = code.replace(".SH", "").replace(".SZ", "").strip()
+        if not pure:
+            return False
+        if pure.startswith("688"):
+            return False
+        if pure.startswith("300"):
+            return False
+        return True
+
     for w_item in state.get("watchlist", []) or []:
-        entry_zone = w_item.get("entry_zone", {}) or {}
-        # Only include stocks with defined price ranges
-        price_range = entry_zone.get("price_range")
+        entry_info_parts = []
+        price_range = w_item.get("entry_price_range") or ""
         if price_range:
-            watchlist_entry_zones.append({
-                "code": w_item.get("code", ""),
-                "name": w_item.get("name", ""),
-                "role": w_item.get("role", ""),
-                "priority": w_item.get("priority", ""),
-                "price_range": price_range,
-                "method": entry_zone.get("method", ""),
-                "confirm_signal": entry_zone.get("confirm_signal", ""),
-                "hard_stop": entry_zone.get("hard_stop", ""),
-            })
-    print(f"[market_analyst] watchlist_with_entry_zones={len(watchlist_entry_zones)}, codes={[z['code'] for z in watchlist_entry_zones]}")
+            entry_info_parts.append(f"介入区间:{price_range}")
+        hs = w_item.get("entry_hard_stop") or ""
+        if hs:
+            entry_info_parts.append(f"止损:{hs}")
+        entry_info = " ".join(entry_info_parts)
+
+        lifecycle = w_item.get("lifecycle_stage") or "观察"
+        code = w_item.get("code", "")
+        priority = w_item.get("priority", "P3")
+        sort_key = _PRIORITY_SORT.get(priority, 99)
+
+        item = {
+            "code": code,
+            "name": w_item.get("name", ""),
+            "priority": priority,
+            "sort_key": sort_key,
+            "theme": w_item.get("theme", ""),
+            "segment": w_item.get("segment", ""),
+            "role": w_item.get("role", ""),
+            "lifecycle": lifecycle,
+            "entry_info": entry_info,
+            "latest": w_item.get("latest"),
+            "pct_change": w_item.get("pct_change"),
+            "watch_reason_short": (w_item.get("watch_reason") or "")[:80],
+            "reduce_zone": w_item.get("reduce_zone_desc", ""),
+            "risk_zone": w_item.get("risk_zone_desc", ""),
+            "up_sentiment": w_item.get("up_sentiment", ""),
+        }
+
+        if _is_mainboard(code):
+            watchlist_summary.append(item)
+        else:
+            # 非主板 → 自动归为P4，不入机会扫描
+            item["priority"] = "P4-锚点"
+            item["sort_key"] = 3
+            reference_stocks.append(item)
+
+    watchlist_summary.sort(key=lambda x: x["sort_key"])
+    reference_stocks.sort(key=lambda x: x["sort_key"])
+    _wl_with_entry = sum(1 for z in watchlist_summary if z["entry_info"])
+    _wl_with_lifecycle = sum(1 for z in watchlist_summary if z["lifecycle"] and z["lifecycle"] != "观察")
+    logger.info(
+        f"watchlist_summary: tradeable={len(watchlist_summary)} "
+        f"reference={len(reference_stocks)} "
+        f"with_entry_zone={_wl_with_entry} with_lifecycle={_wl_with_lifecycle}"
+    )
 
     # ── 生成多级别MACD分析报告（Step 3 新增）──
     try:
@@ -1304,7 +1352,8 @@ def market_analyst(state: AgentState) -> AgentState:
         "memories": state.get("memories", []),
         "stock_contexts": state.get("stock_contexts", []),      # Phase 2 新增
         "direction_signals": state.get("direction_signals", {}),  # Phase 2 新增
-        "watchlist_entry_zones": watchlist_entry_zones,  # Phase 8 新增：entry_zone价格区间
+        "watchlist_summary": watchlist_summary,  # Phase 8.1 增强：可交易主板标的摘要
+        "reference_stocks": reference_stocks,    # Phase 8.1 P4-锚点：非主板（情绪参考，不可操作）
     }
     prompt = f"""{prompt_template_filled}
 

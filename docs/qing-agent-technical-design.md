@@ -295,8 +295,10 @@ Qing-Agent /analyze/trigger
     │       │   → 不再拒绝分析，注入 _data_missing_note 继续，LLM基于知识库降级）
     │       ├── Framework 显式加载 + 11项分析框架片段
     │       ├── 推理模式匹配（ONNX Embedding召回Top5 → LLM rerank Top1-3）
-    │       ├── watchlist_entry_zones 注入（Phase 8 新增：从watchlist提取price_range
-    │       │   + method+confirm_signal，供机会扫描附价格区间，禁模糊表述）
+    │       ├── watchlist_summary 注入（Phase 8.1 增强：按优先级排序 + 主板/非主板分离，
+    │       │   主板→watchlist_summary（可交易，P1-P3），非主板→reference_stocks
+    │       │   （P4-锚点，仅作情绪参考不可操作），含entry_info/reduce_zone/risk_zone/
+    │       │   lifecycle/up_sentiment，供机会扫描直接判定"当前价是否接近介入区间"）
     │       ├── 行情截断：quotes>50只保留指数+持仓/观察池+涨跌幅TOP15
     │       └── 输出 market_context JSON + 持久化 daily_state.json
     │
@@ -735,7 +737,7 @@ UP（青枫浦上Q）的大盘分析方法论核心之一是多级别顶底结�
 
 | 节点 | 日志内容 | 定位 |
 |------|---------|------|
-| `market_analyst` | framework加载数、推理模式匹配数、claims过滤统计、watchlist_entry_zones注入数 | 追踪数据源是否正常注入 |
+| `market_analyst` | framework加载数、推理模式匹配数、claims过滤统计、watchlist_summary注入数（含entry_zone/lifecycle统计） | 追踪数据源是否正常注入 |
 | `synthesize` | has_stock/positions/opportunity_scan/themes数量 | 检查各节点产出是否为空 |
 | `style_writer` | draft长度、market_phase、has_vague_terms模糊词标记、review_round | 定位观察池模糊表述问题 |
 | `main.py` | 服务启动、日志初始化路径 | 确认日志系统工作 |

@@ -238,7 +238,7 @@ def check_claims_consistency(sp: dict) -> list[dict]:
 
 # ── 8. watchlist 字段校验 ───────────────────────────────
 
-VALID_PRIORITIES = {"P1-核心", "P2-重点", "P2-观察", "P3-观察", "P3-弹性"}
+VALID_PRIORITIES = {"P1-核心", "P2-重点", "P2-观察", "P3-观察", "P3-弹性", "P4-锚点"}
 VALID_STAGES = {"watching", "active", "archived", "entered", "monitor_only"}
 VALID_SENTIMENTS = {"积极观察", "中性提及", "明确规避", "未提及", None}
 VALID_RELEVANCE = {"direct", "indirect"}

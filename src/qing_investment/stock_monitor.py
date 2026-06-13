@@ -2670,6 +2670,16 @@ def _agent_context_data(
             logger.warning("龙虎榜总榜获取失败: %s", e)
             dt_board_data = {"_error": str(e)}
 
+    # Phase 8.1 日志：watchlist序列化统计
+    _wl_with_entry = sum(1 for row in watch_stocks if row.get("entry_zone", {}).get("price_range"))
+    _wl_with_stop = sum(1 for row in watch_stocks if row.get("entry_zone", {}).get("hard_stop"))
+    _wl_with_lifecycle = sum(1 for row in watch_stocks if row.get("lifecycle", {}).get("stage"))
+    logger.info(
+        f"watchlist_serialized: total={len(watch_stocks)} "
+        f"with_entry_zone={_wl_with_entry} with_stop={_wl_with_stop} "
+        f"with_lifecycle={_wl_with_lifecycle}"
+    )
+
     return {
         "timestamp": value.astimezone(CN_TZ).isoformat(),
         "analysis_type": analysis_type,
@@ -2703,6 +2713,7 @@ def _agent_context_data(
                 "role": row.get("role", ""),
                 "name": row.get("name", ""),
                 "code": row.get("code", ""),
+                "priority": row.get("priority", ""),
                 "latest": _to_float((_quote_for_stock(quotes_by_code, row.get("code", "")) or {}).get("latest")),
                 "pct_change": _to_float((_quote_for_stock(quotes_by_code, row.get("code", "")) or {}).get("pct_change")),
                 "watch_reason": row.get("watch_reason", ""),
@@ -2711,6 +2722,23 @@ def _agent_context_data(
                 "invalidation_setup": _string_items(row.get("invalidation_setup")),
                 "sell_setup": _string_items(row.get("sell_setup")),
                 "confirm_with": _string_items(row.get("confirm_with")),
+                # Phase 8.1 新增：决策关键字段
+                "segment": row.get("segment", ""),
+                "entry_price_range": row.get("entry_zone", {}).get("price_range"),
+                "entry_method": row.get("entry_zone", {}).get("method"),
+                "entry_confirm_signal": row.get("entry_zone", {}).get("confirm_signal"),
+                "entry_hard_stop": row.get("entry_zone", {}).get("hard_stop"),
+                "entry_position_ratio": row.get("entry_zone", {}).get("position_ratio"),
+                "lifecycle_stage": row.get("lifecycle", {}).get("stage"),
+                "reduce_zone_desc": row.get("reduce_zone", {}).get("description"),
+                "reduce_zone_price": _to_float(row.get("reduce_zone", {}).get("price")),
+                "reduce_zone_action": row.get("reduce_zone", {}).get("action"),
+                "risk_zone_desc": row.get("risk_zone", {}).get("description"),
+                "risk_zone_price": _to_float(row.get("risk_zone", {}).get("price")),
+                "risk_zone_action": row.get("risk_zone", {}).get("action"),
+                "last_mentioned_date": row.get("up_mention_status", {}).get("last_mentioned_date"),
+                "up_sentiment": row.get("up_mention_status", {}).get("sentiment"),
+                "mention_context": (row.get("up_mention_status", {}) or {}).get("mention_context", ""),
             }
             for row in watch_stocks
         ],

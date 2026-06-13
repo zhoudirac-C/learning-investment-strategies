@@ -329,16 +329,23 @@ def build_market_context(
             target_codes.add(code)
             code_to_name[code] = ep.get("name", "")
 
-    # 3. watchlist 中 priority=high 的票（Top 10）
+    # 3. watchlist 中优先级高的票（Top 10）——支持 "high" 和 "P1/P2/P3" 两种体系
+    _PRIORITY_HIGH = {"high", "P1", "P1-核心"}
     high_priority = [
         w for w in watchlist
-        if w.get("priority") == "high"
+        if w.get("priority", "") in _PRIORITY_HIGH
     ][:10]
     for w in high_priority:
         code = w.get("code", "")
         if code:
             target_codes.add(code)
             code_to_name[code] = w.get("name", "")
+    if high_priority:
+        logger.info(
+            f"context_builder_watchlist: matched {len(high_priority)} high-priority items "
+            f"codes={[w.get('code') for w in high_priority]} "
+            f"priorities={[w.get('priority') for w in high_priority]}"
+        )
 
     # 为每只标的构建上下文
     stock_contexts = []
