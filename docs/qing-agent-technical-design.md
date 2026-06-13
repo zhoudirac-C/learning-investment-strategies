@@ -447,7 +447,7 @@ query ──▶ Neo4j (claims 图遍历) ──┐
     "其他": []
   },
   "themes_in_focus": [{"theme": "...", "catalyst": "...", "risk": "..."}],
-  "index_discipline": {"support": "4033", "resistance": "4130", ...},
+  "index_discipline": {"support": "3950", "resistance": "4130", ...},
   "volume_note": "...",
   "emotion_signals": {"涨停": 50, "跌停": 8},
   "tomorrow_watch": [...],
@@ -652,11 +652,11 @@ UP（青枫浦上Q）的大盘分析方法论核心之一是多级别顶底结�
 │   - 中证全指日线+60分钟各最近5根详细                               │
 │   - 默认只处理 sh000001(上证) + sh000985(全A)，不分析深证/创业板   │
 │                                                                  │
-│ calculate_td_sequential_multi_tf()  → TD9报告                     │
+│ compute_td_sequential()  → TD9报告                                │
 │   - 五级别（日线/120min/90min/60min/30min）的TD9买/卖信号          │
 │   - 包含当前计数和状态                                              │
 │                                                                  │
-│ calculate_fibonacci_time_window()  → 斐波那契时间窗口报告          │
+│ compute_fibonacci_time_report()  → 斐波那契时间窗口报告            │
 │   - 从最近高/低点计算距8/13/21/34/55交易日的差值                   │
 │   - 标记到期的窗口                                                 │
 └───────────────────────────┬─────────────────────────────────────┘
@@ -694,7 +694,7 @@ UP（青枫浦上Q）的大盘分析方法论核心之一是多级别顶底结�
 |------|------|------|
 | [`src/qing_investment/kline_cache.py`](../../src/qing_investment/kline_cache.py) | K线缓存+MACD计算+九转+斐波那契 | 核心数据层，包含所有读取和计算函数 |
 | [`src/qing_investment/agent/graph/nodes.py`](../../src/qing_investment/agent/graph/nodes.py) | Agent节点实现，注入三个数据字段 | 搜索 `macd_multi_tf_report` / `td_sequential_report` / `fibonacci_time_report` 定位注入点 |
-| [`scripts/qing_pre_fetch_klines.py`](../../scripts/qing_pre_fetch_klines.py) | 开盘前预拉取脚本 | cron `30 6 * * 1-5` |
+| [`scripts/hermes_pre_fetch_klines.py`](../../scripts/hermes_pre_fetch_klines.py) | 开盘前预拉取脚本 | cron `30 6 * * 1-5` |
 | [`scripts/update_index_klines_intraday.py`](../../scripts/update_index_klines_intraday.py) | 盘中增量更新脚本 | cron `*/30 9-15 * * 1-5` |
 | [`prompts/system/market_analysis_framework.txt`](../../src/qing_investment/agent/prompts/system/market_analysis_framework.txt) | 大盘分析框架（Step 2规则+边界） | 含MACD/九转/斐波那契判断规则及使用边界说明 |
 | [`prompts/system/stock_analyst.txt`](../../src/qing_investment/agent/prompts/system/stock_analyst.txt) | 个股分析prompt | 含明确禁止MACD/九转的条款 |
