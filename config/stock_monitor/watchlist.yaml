@@ -539,6 +539,56 @@ themes:
     - claim_id: claim-20260612-015-o
       relevance: theme
       claim_type: sector-theme
+  - code: 300308.SZ
+    name: 中际旭创
+    role: ocs_sentiment_anchor
+    segment: 光模块龙头
+    priority: P3-观察
+    watch_reason: UP『易中天』之一，光模块龙头，光通信板块情绪锚点。创业板不可交易，仅作方向观察。
+    note: 不可交易标的（创业板300开头），仅作光通信/OCS板块情绪温度计
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
+  - code: 300502.SZ
+    name: 新易盛
+    role: ocs_sentiment_anchor
+    segment: 光模块
+    priority: P3-观察
+    watch_reason: UP『易中天』之一，光模块核心标的。创业板不可交易，仅作方向观察。
+    note: 不可交易标的（创业板300开头），仅作光通信板块情绪温度计
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
+  - code: 688498.SH
+    name: 源杰科技
+    role: ocs_sentiment_anchor
+    segment: 光芯片/CW激光器
+    priority: P3-观察
+    watch_reason: UP推荐光芯片标的，CW激光器已批量出货。科创板不可交易，仅作光芯片方向观察。
+    note: 不可交易标的（科创板688开头），仅作光芯片方向情绪锚点
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
+  - code: 688048.SH
+    name: 长光华芯
+    role: ocs_sentiment_anchor
+    segment: 光芯片/ELS
+    priority: P3-观察
+    watch_reason: UP首推ELS赛道标的，EML龙头。科创板不可交易，仅作光芯片方向观察。
+    note: 不可交易标的（科创板688开头），仅作光芯片方向情绪锚点
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
+  - code: 688313.SH
+    name: 仕佳光子
+    role: ocs_sentiment_anchor
+    segment: AWG晶圆/400G/800G
+    priority: P3-观察
+    watch_reason: UP 4/20早盘点名「谷歌OCS核心标的：仕佳光子」。AWG晶圆用于400G/800G光模块。科创板不可交易，仅作方向观察。
+    note: 不可交易标的（科创板688开头），仅作光通信方向情绪锚点
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
 - id: equipment_packaging_catchup
   name: 设备/封测补涨（涨价主线扩散方向）
   up_positioning: 「补涨看设备、封测环节」— UP 6/11晚间复盘明确：涨价主线扩散至高潮后，性价比转向补涨方向。晶圆制造、设备、封装工艺等尚未充分定价的环节值得关注。全A中阳线为前置建仓条件。
@@ -657,6 +707,36 @@ themes:
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
+  - code: 688008.SH
+    name: 澜起科技
+    role: chip_sentiment_anchor
+    segment: CXL/内存接口芯片
+    priority: P3-观察
+    watch_reason: UP多次点名，全球首发CXL MXC芯片3.1版本。科创板不可交易，仅作芯片设计方向情绪锚点。
+    note: 不可交易标的（科创板688开头），仅作芯片设计方向情绪温度计
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
+  - code: 688041.SH
+    name: 海光信息
+    role: chip_sentiment_anchor
+    segment: 国产CPU/GPU
+    priority: P3-观察
+    watch_reason: UP核心标的，DeepSeek V4运行于昇腾950PR。科创板不可交易，仅作国产算力芯片方向情绪锚点。
+    note: 不可交易标的（科创板688开头），仅作国产CPU/GPU方向情绪温度计
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
+  - code: 688047.SH
+    name: 龙芯中科
+    role: chip_sentiment_anchor
+    segment: 国产CPU
+    priority: P3-观察
+    watch_reason: UP核心标的，国产算力芯片第二阶段。科创板不可交易，仅作国产CPU方向情绪锚点。
+    note: 不可交易标的（科创板688开头），仅作国产CPU方向情绪温度计
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
 - id: memory_nor
   name: 存储芯片（NOR Flash/DRAM涨价周期）
   up_positioning: UP 6/11复盘：「等到最后指数要反转的时候，资金大概率会重新回到存储等核心主线方向上——这是本轮行情的「母题」，回调不改地位。」全A中阳线=唯一建仓前置条件。当前仅观察。
@@ -683,6 +763,56 @@ themes:
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
+  - code: 688766.SH
+    name: 普冉股份
+    role: memory_sentiment_anchor
+    segment: 存储芯片/NOR Flash
+    priority: P3-观察
+    watch_reason: UP点名存储芯片，「牛市横着走」标的。科创板不可交易，仅作存储芯片方向情绪锚点。
+    note: 不可交易标的（科创板688开头），仅作存储芯片方向情绪温度计
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
+  - code: 301308.SZ
+    name: 江波龙
+    role: memory_sentiment_anchor
+    segment: 企业级存储
+    priority: P3-观察
+    watch_reason: UP推荐企业级存储标的。创业板不可交易，仅作存储方向情绪锚点。
+    note: 不可交易标的（创业板301开头），仅作存储方向情绪温度计
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
+  - code: 300223.SZ
+    name: 北京君正
+    role: memory_sentiment_anchor
+    segment: 车规存储
+    priority: P3-观察
+    watch_reason: UP月度金股，车规存储龙头。创业板不可交易，仅作车规存储方向情绪锚点。
+    note: 不可交易标的（创业板300开头），仅作车规存储方向情绪温度计
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
+  - code: 688525.SH
+    name: 佰维存储
+    role: memory_sentiment_anchor
+    segment: 存储芯片
+    priority: P3-观察
+    watch_reason: UP提及存储芯片爆发领涨标的。科创板不可交易，仅作存储芯片方向情绪锚点。
+    note: 不可交易标的（科创板688开头），仅作存储芯片方向情绪温度计
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
+  - code: 688449.SH
+    name: 联芸科技
+    role: memory_sentiment_anchor
+    segment: SSD主控
+    priority: P3-观察
+    watch_reason: UP推荐SSD主控芯片标的。科创板不可交易，仅作存储主控方向情绪锚点。
+    note: 不可交易标的（科创板688开头），仅作存储主控方向情绪温度计
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
 - id: pcb_ai_chain
   name: PCB AI硬件链（成品板→CCL→上游材料→ABF载板）
   up_positioning: UP定性为AI硬件双核心主线之一。VR200单柜PCB价值量从3.51万→11.67万美元(+233%)，逻辑延伸至Rubin
