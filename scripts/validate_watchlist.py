@@ -99,6 +99,31 @@ def _check_stock(stock: dict, theme_id: str) -> list[dict]:
         issues.append({"level": "⚠️", "field": "buy_setup",
                        "msg": f"[{code}/{name}] 同时有 buy_setup 和 entry_zone，字段重叠"})
 
+    # ── 不可交易标的检查 ──
+    note = stock.get("note", "")
+    is_untradeable = "不可交易" in str(note)
+    has_entry_zone = bool(stock.get("entry_zone"))
+    has_position_ratio = bool(ez.get("position_ratio")) if ez else False
+
+    if is_untradeable:
+        if not note:
+            issues.append({"level": "❌", "field": "note",
+                           "msg": f"[{code}/{name}] 不可交易标的缺少 note 字段说明不可交易原因"})
+        if has_entry_zone:
+            issues.append({"level": "❌", "field": "entry_zone",
+                           "msg": f"[{code}/{name}] 不可交易标的不应有 entry_zone 字段"})
+        if has_position_ratio:
+            issues.append({"level": "❌", "field": "entry_zone.position_ratio",
+                           "msg": f"[{code}/{name}] 不可交易标的不应有 position_ratio 字段"})
+    else:
+        # 可交易标的检查
+        if priority.startswith("P1") or priority.startswith("P2") or priority.startswith("P3"):
+            if not has_entry_zone and lifecycle_stage != "holding":
+                # P3-观察标的可以没有 entry_zone（纯观察），但P1/P2必须有
+                if priority.startswith("P1") or priority.startswith("P2"):
+                    issues.append({"level": "⚠️", "field": "entry_zone",
+                                   "msg": f"[{code}/{name}] {priority} 可交易标的缺少 entry_zone"})
+
     return issues
 
 
