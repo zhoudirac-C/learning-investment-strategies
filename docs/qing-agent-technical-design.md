@@ -54,8 +54,8 @@ package "知识沉淀" #ECEFF1 {
     folder "framework" as Framework
     folder "framework/reasoning-patterns.yaml" as ReasonPat #FFF9C4
     note right of ReasonPat
-      推理模式库（116 条）
-      IDF 加权倒排索引匹配
+      推理模式库（128 条 patterns）
+      ONNX Embedding 召回 + LLM rerank 两阶段匹配
     end note
 }
 
@@ -78,13 +78,22 @@ package "① 输入层" #E3F2FD {
 
 package "② 解析层" #FFFFFF {
     [parse_query] as Parse
+    note right of Parse
+      graph/nodes.py
+    end note
 }
 
 package "③ 检索层" #F3E5F5 {
     [retrieve_knowledge] as Retrieve
+    note right of Retrieve
+      graph/nodes.py
+      + tools/neo4j_client.py
+      + tools/qdrant_client.py
+      + tools/mem0_client.py
+    end note
     
-    [qing_knowledge\n10,685 chunks] as QWiki
-    [qing_claims\n533 claims] as QClaims
+    [qing_knowledge\n~10,000 chunks] as QWiki
+    [qing_claims\n746 claims] as QClaims
     [mem0] as Mem0
     [sector_extractor] as SectorExt
     
@@ -108,12 +117,15 @@ package "④ 分析层" #E8F5E9 {
     [stock_analyst] as Stock
     
     note right of Market
+      graph/nodes.py
       Framework 显式加载
       + 11项分析框架片段
+      + ONNX Embedding召回→LLM rerank
       + 【时效性自检】
     end note
     
     note right of Stock
+      graph/nodes.py
       DuckDuckGo 外部校验
       主营业务 vs claims
     end note
@@ -124,7 +136,17 @@ package "⑤ 生成层" #FFF8E1 {
     [style_writer] as Style
     [reviewer] as Review
     
+    note left of Synth
+      graph/nodes.py
+      纯规则拼接，不调用LLM
+    end note
+    
+    note left of Style
+      graph/nodes.py
+    end note
+    
     note left of Review
+      graph/nodes.py
       citation 检查
       缺失 → 打回 style_writer
       最多 3 次
@@ -363,8 +385,8 @@ query ──▶ Neo4j (claims 图遍历) ──┐
 
 | 存储 | 内容 | 用途 | 检索方式 |
 |------|------|------|---------|
-| **Qdrant `qing_knowledge`** | 557 文件 → 10,685 chunks（wiki + framework + raw） | 向量语义检索原始文档和方法论片段 | ONNX 语义嵌入（512维），按来源类型 boost 排序 |
-| **Qdrant `qing_claims`** | 511 claims 的语义向量索引 | claims 语义搜索（替代原 `CONTAINS` 字符串匹配） | ONNX 语义嵌入 |
+|| **Qdrant `qing_knowledge`** | 499 文件 → ~10,000 chunks（wiki + framework + raw） | 向量语义检索原始文档和方法论片段 | ONNX 语义嵌入（512维），按来源类型 boost 排序 |
+|| **Qdrant `qing_claims`** | 746 claims 的语义向量索引 | claims 语义搜索（替代原 `CONTAINS` 字符串匹配） | ONNX 语义嵌入 |
 | **Neo4j** | claims 图数据库（节点+关系） | 按股票代码精确查询、关联 claims 遍历 | Cypher 查询 |
 | **mem0** | 本地记忆（框架 + 活跃 claims） | 长期方法论上下文 | 关键词匹配 |
 
@@ -404,9 +426,9 @@ query ──▶ Neo4j (claims 图遍历) ──┐
 ### 3.3 market_analyst
 
 **核心逻辑**：
-1. **可用性检查**：`analysis_type` 为 `market`/`portfolio` 时，若 `external_sector_boards.available == false`，直接返回 `"数据不可用"`，拒绝生成分析
+1. **可用性检查**：`analysis_type` 为 `market`/`portfolio` 时，若 `external_sector_boards.available == false`，注入 `_data_missing_note` 降级说明，LLM 基于知识库继续分析（不再拒绝生成）
 2. **Framework 显式加载**（Phase 1 新增）：根据 `analysis_type` 从 `framework/` 目录加载对应的 playbook 文件（如 `market-cycle-framework.md`、`sector-diffusion-framework.md`），截断到 4000 字符注入 prompt
-3. **推理模式匹配**（Phase 4 新增）：通过 `_load_reasoning_patterns()` 从 `framework/reasoning-patterns.yaml`（116 条）中匹配当前分析主题。使用倒排索引 + IDF 加权评分，Top 5 模式注入 prompt context
+3. **推理模式匹配**（Phase 4 新增）：通过 `_load_reasoning_patterns()` 从 `framework/reasoning-patterns.yaml`（128 条 patterns）中匹配当前分析主题。使用 ONNX Embedding 召回 Top 5 → LLM rerank Top 1-3 的两阶段匹配，注入 prompt context
 4. **动态分析框架片段**（Phase 3 新增）：通过 `_load_analysis_framework()` 加载 `market_analysis_framework.txt` 中的 11 项分析框架，替换 prompt 中的 `{analysis_framework}` 占位符
 5. **Prompt 截断**：`market_snapshot.quotes` 超过 50 条时，只保留指数 + 持仓/观察池 + 涨跌幅 TOP15，减少 token
 6. **时效性自检**（P0 新增）：prompt 强制要求 Agent 检查 claim 的 `freshness_label`，标注过时观点，处理 framework 与实时数据的矛盾
@@ -543,7 +565,7 @@ query ──▶ Neo4j (claims) ──┐
 
 ```
 claims + wiki + sector_context + external_sector_boards + market_snapshot +
-reasoning_patterns (Phase 4: IDF 加权倒排索引匹配 Top 5)
+reasoning_patterns (Phase 4: ONNX Embedding 召回 Top 5 → LLM rerank Top 1-3)
     ──▶ market_analyst ──▶ market_context (JSON)
 
 claims + wiki + positions
@@ -844,7 +866,7 @@ if analysis_type in ("market", "portfolio") and not esb.get("available"):
 - 来源 boost：`framework/` +0.15, `wiki/投资方法论` +0.10, `wiki/市场分析` +0.05
 
 **Collection `qing_claims`**（claims 语义索引，Phase 3.3 新增）：
-- 746 claims 的向量索引
+|- 746 claims 的向量索引（与 Neo4j 图数据同步）
 - Embedding: 同上 ONNX 模型
 - 用途：claims 语义搜索，与 Neo4j 图查询协同
 - Payload: `id`, `subject`, `statement`, `status`, `source_date`, `claim_type`, `intensity`, `freshness_label`
@@ -1016,7 +1038,7 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 | `src/qing_investment/agent/models/schemas.py` | Pydantic 模型 |
 | `src/qing_investment/agent/graph/builder.py` | LangGraph 组装 |
 | `src/qing_investment/agent/graph/state.py` | AgentState TypedDict |
-| `src/qing_investment/agent/graph/nodes.py` | 7 个节点实现 |
+| `src/qing_investment/agent/graph/nodes.py` | 7 个节点实现（parse_query, retrieve_knowledge, market_analyst, stock_analyst, synthesize, style_writer, reviewer） |
 | `src/qing_investment/agent/graph/edges.py` | review_router |
 | `src/qing_investment/agent/tools/sector_data.py` | 外部板块数据源（东财+新浪） |
 | `src/qing_investment/agent/tools/sector_extractor.py` | 动态板块识别+网络搜索 |
@@ -1025,7 +1047,7 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 | `src/qing_investment/agent/tools/mem0_client.py` | 记忆层 |
 | `src/qing_investment/agent/tools/llm_client.py` | LLM 统一封装 + Embedding 工厂（ONNX 优先） |
 | `src/qing_investment/kline_cache.py` | 指数K线缓存+MACD/TD9/斐波那契计算（§4.6 核心数据层） |
-| `scripts/qing_pre_fetch_klines.py` | 开盘前指数K线预拉取（cron 06:30） |
+| `scripts/pre_fetch_klines.py` | 开盘前指数K线预拉取（cron 06:30） |
 | `scripts/update_index_klines_intraday.py` | 盘中指数K线增量更新（cron */30 9-15） |
 | `src/qing_investment/agent/prompts/system/market_analyst.txt` | 市场分析主 prompt（含 `{analysis_framework}` 占位符） |
 | `src/qing_investment/agent/prompts/system/market_analysis_framework.txt` | 11 项分析框架片段（被 market_analyst 动态加载） |
@@ -1034,6 +1056,6 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 | `scripts/hermes_stock_monitor_agent.py` | Hermes cron 入口 |
 | `scripts/index_claims_to_qdrant.py` | Claims 语义索引脚本（Qdrant `qing_claims`） |
 | `scripts/freshness_check.py` | 每日知识库健康检查（未处理 raw、stale claims） |
-| `framework/reasoning-patterns.yaml` | **推理模式库**（116 条 UP 推理链，IDF 加权倒排索引匹配） |
+| `framework/reasoning-patterns.yaml` | **推理模式库**（128 条 patterns，ONNX Embedding 召回 + LLM rerank 两阶段匹配） |
 | `scripts/extract_reasoning_patterns.py` | 从 raw 文件批量抽取推理模式（--dry-run / --single / --incremental） |
-| `skills/qing-learning/references/reasoning-pattern-extraction-workflow.md` | 推理模式抽取、集成、IDF 调优完整工作流 |
+| `skills/qing-learning/references/reasoning-pattern-extraction-workflow.md` | 推理模式抽取、集成、ONNX Embedding 调优完整工作流 |

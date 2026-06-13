@@ -1,7 +1,7 @@
 # 指数多级别K线 + MACD/九转/斐波那契 数据层
 
 > 支持 Qing-Agent 按 UP 方法论做多时间维度顶底结构判断的数据基础设施。
-> 最后更新：2026-06-12 (v2 — 新增§使用边界 + 数据流架构 + prompt文件链接)
+> 最后更新：2026-06-12 (v3 — 修复MACD详情硬编码 + TD9去重 + 默认全A优先)
 
 ---
 
@@ -36,7 +36,7 @@
 东方财富 API (push2.eastmoney.com)
   klt=30/60/120/101, secid=1.000001(上证)/1.000985(全A)
     │
-    ├── 06:30 预拉取 (qing_pre_fetch_klines.py, cron)
+    ├── 06:30 预拉取 (pre_fetch_klines.py, cron)
     │     全量拉取160根/指数/周期, 计算MACD, 合成90min
     │
     └── 每30min 盘中增量 (update_index_klines_intraday.py, cron)
@@ -53,8 +53,8 @@ SQLite: infra/data/kline_cache.db → index_klines 表
 kline_cache.py (读取层)
   │
   ├── format_multi_tf_macd_report()     → 精简MACD快照(536字符)
-  │     默认只处理 sh000001 + sh000985 (不加深证/创业板)
-  │     输出: 上证一行 + 全A一行, 日线60min详
+  │     默认处理 sh000985 + sh000001, 全A优先(sh000985排列)
+  │     详情段跟随 codes[0], 输出: 全A一行 + 上证一行, 全A日线60min详
   │
   ├── calculate_td_sequential_multi_tf() → TD9报告
   │     5周期高9/低9检测
@@ -163,6 +163,7 @@ report = format_multi_tf_macd_report(codes=["sh000985"], bars=10)
 td = compute_td_report("sh000985", "daily")  
 # → "神奇九转（daily）: 当前序列 🔴高1
 #     已完成信号: 2026-06-11 🟢低9  2026-05-14 🔴高9"
+#   同方向连续9只记第一次完成信号, 延续中标记为"低9(延续中)"
 
 # 斐波那契时间窗口
 fib = compute_fibonacci_time_report("sh000985")
@@ -285,35 +286,25 @@ SELECT MIN(bar_time), MAX(bar_time) FROM index_klines WHERE code='sh000001' AND 
 
 ---
 
-## ⚠️ 已知Bug（2026-06-12 数据管线巡检发现）
+## ✅ 已修复Bug（2026-06-12 commit b69736c）
 
 ### Bug 1：MACD 报告详情段硬编码中证全指
 
-**文件**：`kline_cache.py` 第462行
+**修复**：`kline_cache.py` `format_multi_tf_macd_report()` 第462行 `code_primary` 从硬编码 `"sh000985"` 改为 `codes[0]`。默认 codes 顺序从 `["sh000001", "sh000985"]` 改为 `["sh000985", "sh000001"]`（全A优先，符合UP"全A是唯一锚"）。
 
-```python
-code_primary = "sh000985"  # ← 写死了！
-```
-
-**现象**：`format_multi_tf_macd_report(codes=['sh000001'])` 调用时，快照行正确显示"上证指数: ..."，但下方的"📈 日线细节"和"⏱️ 60分钟细节"段强制展示中证全指的数据，无论请求的是哪个指数。
-
-**影响**：中。Agent 做大盘分析时主要看全A（主锚），但上证独立走势的判断依赖被污染。如果 Agent 想确认上证的多级别 MACD 细节，拿到的是全A的数据。
-
-**修复方向**：`code_primary` 应改用 `codes[0]`（或循环遍历所有请求的指数），取代硬编码的 `"sh000985"`。
+**效果**：
+- 只看上证 → 标题"上证指数日线细节"，数据上证 ✅
+- 只看全A → 标题"中证全指日线细节"，数据全A ✅
+- 两者都看（默认）→ 详情段跟全A ✅
 
 ---
 
 ### Bug 2：TD9 序列到达9后不标记完成，重复显示"低9/高9"
 
-**文件**：`kline_cache.py` 第516/520行
+**修复**：`kline_cache.py` `compute_td_report()` 新增 `last_cpl_type` 跟踪最后一次完成信号的类型。同方向连续出现 count=9 时，只记第一次为"已完成信号"，后续同方向9若为最新一根则更新标记为"低9(延续中)"或"高9(延续中)"。
 
-```python
-result.append({"td_type": "高", "td_count": min(sell_count, 9)})
-# min(sell_count, 9) 只封顶9，不会标记"已完成"→继续同一方向仍显示9
-```
+**效果**：
+- 之前: `06-10 🟢低9` + `06-11 🟢低9`（重复）
+- 现在: `06-11 🟢低9(延续中)`（仅一条，清晰标记延续状态）
 
-**现象**：2026-06-10 🟢低9、2026-06-11 也 🟢低9。实际应该是 6/10 低9完成，6/11 是低10（九转延伸段）。如果连续13根下跌，会显示5次"低9"。
-
-**影响**：低。Prompt 中已写明"九转是计数器"，Agent 知道低9完成后的含义。但重复显示可能让 Agent 误以为又出一个新低9，或忽略已经出现的低9信号。
-
-**修复方向**：完成一次完整9计数后，标记为"已完成"而非继续报9。后续延伸方向相同的K线应报"延伸"（如低10、低11）或清空计数器。参考 TD Sequential 标准实现：连续9根后计数器暂停，直到方向切换或出现反方向计数才重置。
+---

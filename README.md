@@ -14,20 +14,20 @@
 
 - 默认分支：`master`
 - 保留开发分支：`feature-continuous-learning-system-build`
-- 已迁移旧项目中的 UP 原始数据：`sources/raw/财经` 下 540+ 篇 Markdown 原稿
-- 已包含 **4 个核心 skill**：`qing-learning`、`qing-methodology-review`、`qing-stock-analysis`、`qing-stock-monitor-update`
+- 已迁移旧项目中的 UP 原始数据：`sources/raw/财经` 下 499 篇 Markdown 原稿
+- 已包含 **9 个 skill**：`qing-agent-cli`、`qing-event-pipeline`、`qing-learning`、`qing-learning-claim`、`qing-learning-ingestion`、`qing-learning-review`、`qing-learning-sync`、`qing-stock-analysis`、`qing-stock-monitor-update`
 - 已接入 F10 基本面分析方法论，并 vendor 了 `glmv-stock-analyst` 作为个股数据分析底座
 - **Qing-Agent**（`src/qing_investment/agent/`）已上线：LangGraph 7 节点工作流 + FastAPI 服务，支持每日复盘、持仓操作建议、板块维度分析
 - **知识检索三阶段升级**（2026-06）：
   - Phase 1 — 打通「能读到」：framework 文件加入向量索引，Agent 显式加载方法论框架
   - Phase 2 — 升级「读得准」：ONNX Runtime + `bge-small-zh-v1.5` 本地语义嵌入（512维），替代 hash 嵌入
   - Phase 3 — 做到「说得清来源」：来源类型 boost 排序、输出强制标注引用来源、reviewer citation 检查（最多3次打回）
-  - Phase 4 — 模仿「怎么推理」：从 479 篇 raw 中抽取推理模式，10 个通用框架（upstream_cycle/mainline_identification 等）+ 118 条 examples，两阶段匹配（ONNX Embedding 召回 Top5 + LLM 重排序 Top3）注入 market_analyst prompt，让 Agent 按 UP 的推理步骤思考
+  - Phase 4 — 模仿「怎么推理」：从 499 篇 raw 中抽取推理模式，10 个通用框架（upstream_cycle/mainline_identification 等）+ 128 条 patterns，两阶段匹配（ONNX Embedding 召回 Top5 + LLM 重排序 Top3）注入 market_analyst prompt，让 Agent 按 UP 的推理步骤思考
 - **Neo4j 图关系修复**（2026-06-06）：
   - 修复 claim_type 字段映射（支持 `claim_type` 和 `type` 双字段）
   - 修复股票代码提取（支持 `.SH`/`.SZ` 后缀和 `positions.yaml` 名称映射）
   - 修复 Stock 节点属性（Primary entity 使用 `code` 而非 `name`）
-  - 图数据现状：540 claims，9 种 claim_type，38 Stock 节点，102 Macro 节点，118 Methodology 节点
+  - 图数据现状：746 claims，9 种 claim_type，38 Stock 节点，102 Macro 节点，118 Methodology 节点
   - 新增图查询：`get_claims_with_evolution`（含 SUPERSEDES/CONTRADICTS）、`get_related_claims`
 - **个股板块三层定位法**（2026-06-06）：
   - 解决 UP 未提及个股的板块地位判断问题
@@ -47,13 +47,13 @@ sources/
   processed-log.md  已学习原稿记录
 
 knowledge/
-  claims/           原子观点与证据（~505 条已入库 Neo4j）
+  claims/           原子观点与证据（746 条已入库 Neo4j）
   wiki/             结构化知识库
   cases/            历史案例与回归样本
 
 methodology/        长期方法论沉淀（F10、板块轮动、仓位风控、技术分析等）
 framework/          可执行分析流程与输出契约（8 个 playbook + reasoning-patterns.yaml）
-  reasoning-patterns.yaml  推理模式库（10 个通用框架 + 118 条 examples，Embedding+LLM rerank 匹配）
+  reasoning-patterns.yaml  推理模式库（10 个通用框架 + 128 条 patterns，ONNX Embedding 召回 + LLM rerank 两阶段匹配）
 
 config/stock_monitor/   行情监控配置
   watchlist.yaml        观察池（公共）
@@ -63,7 +63,11 @@ config/stock_monitor/   行情监控配置
 
 src/qing_investment/
   agent/            Qing-Agent 分析大脑（LangGraph + FastAPI）
-    graph/          7 节点工作流（parse_query → retrieve_knowledge → market_analyst → stock_analyst → synthesize → style_writer → reviewer）
+    graph/          LangGraph 工作流
+      nodes.py      7 节点实现（parse_query, retrieve_knowledge, market_analyst, stock_analyst, synthesize, style_writer, reviewer）
+      builder.py    LangGraph 组装
+      edges.py      review_router（条件边：通过→END / 失败→style_writer，最多3次）
+      state.py      AgentState TypedDict
     tools/          外部板块数据、Neo4j/Qdrant/mem0 客户端、LLM 封装、板块映射（stock_sector_mapper）
     prompts/        System prompt（market_analyst、style_writer、reviewer 等）
   stock_monitor.py  Hermes 行情监控核心（~1945 行）
@@ -403,7 +407,7 @@ uv run python scripts/lint_knowledge.py
 | `src/qing_investment/agent/AGENTS.md` | Qing-Agent 模块维护指南（节点维护、prompt 维护、调试方法） |
 | `docs/qing-agent-technical-design.md` | Qing-Agent 技术设计文档（架构图、数据流、API 字段） |
 | `docs/hermes-stock-monitor-technical-design.md` | 行情监控技术设计文档 |
-| `framework/reasoning-patterns.yaml` | 推理模式库（116 条 UP 推理链） |
+| `framework/reasoning-patterns.yaml` | 推理模式库（10 通用框架 + 128 条 patterns） |
 | `skills/qing-learning/references/reasoning-pattern-architecture.md` | 推理模式三层架构设计 |
 | `skills/qing-learning/references/reasoning-pattern-extraction-workflow.md` | 推理模式抽取、集成、调优完整工作流 |
 | `config/stock_monitor/README.md` | 监控配置 YAML 字段契约 |
