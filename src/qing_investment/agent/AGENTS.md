@@ -135,6 +135,16 @@ nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8
 | `stock_analyst.txt` | 个股地位/多空证据 + 外部校验指令 | 低 |
 | `style_writer.txt` | UP 口吻风格化 | 中（口头禅、语气调整） |
 | `reviewer.txt` | 事实核查 + citation 检查 | 低 |
+| `trader_mindset.txt` | 交易心态/纪律提醒 | 低 |
+| `cron_opening.txt` | 盘前开盘确认 prompt | 中 |
+| `cron_morning_confirm.txt` | 早盘确认 prompt | 中 |
+| `cron_midday.txt` | 午间分析 prompt | 中 |
+| `cron_noon_review.txt` | 午盘回顾 prompt | 中 |
+| `cron_afternoon_risk.txt` | 午后风险扫描 prompt | 中 |
+| `cron_opportunity_scan.txt` | 尾盘机会扫描 prompt | 中 |
+| `cron_tail_condition.txt` | 尾盘条件单检查 prompt | 中 |
+| `cron_closing.txt` | 收盘总结 prompt | 中 |
+| `cron_open_confirm.txt` | 开盘条件确认 prompt | 中 |
 
 **新增时效性相关维护**：
 - 修改 `market_analyst.txt` 中的【时效性自检】段落时，需同步测试 Agent 是否正确标注 claim 时效
@@ -182,7 +192,7 @@ nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8
 
 ### 6.5.1 架构
 
-`stock_analyst` 节点通过 `stock_sector_mapper.py` 实现**三层定位法**：
+`stock_analyst` 节点通过 `stock_sector_mapping.json` 实现**三层定位法**（映射由 `scripts/build_sector_mapping.py` 生成）：
 
 ```
 ┌─────────────────────────────────────────┐
@@ -234,7 +244,7 @@ nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8
 
 **运行时查询**：
 ```python
-from qing_investment.agent.tools.stock_sector_mapper import get_stock_positioning, to_agent_format
+from qing_investment.stock_sector_mapping import get_stock_positioning, to_agent_format
 
 result = get_stock_positioning("002892")
 print(to_agent_format(result))
@@ -313,7 +323,7 @@ print(result['final_output'])
 # 1. 关 Agent
 kill $(pgrep -f "uvicorn qing_investment") 2>/dev/null
 
-# 2. 清空旧数据 + 全量索引（预计 15-25 分钟，10,687 chunks）
+# 2. 清空旧数据 + 全量索引（预计 15-25 分钟，~10,000 chunks）
 cd ~/learning-investment-strategies
 rm -rf .qdrant_data .index_state.json
 PYTHONUNBUFFERED=1 .venv/bin/python scripts/index_documents_to_qdrant.py
@@ -338,7 +348,7 @@ PYTHONUNBUFFERED=1 .venv/bin/python scripts/index_documents_to_qdrant.py
 - 单线程 ONNX（`inter_op_num_threads=1`）— 2核VM 禁用多线程，否则死锁
 
 **预期性能**（2核/7.5GB VM，ONNX BGE-small CPU 推理）：
-- 全量 10,687 chunks → 20-25 分钟
+- 全量 ~10,000 chunks → 20-25 分钟
 - 增量 < 100 chunks → < 30 秒
 
 ---
@@ -515,7 +525,7 @@ src/qing_investment/agent/
 | 数据诚实 | ❌ 让历史 claims 充当"权威标的列表"，绕过实时数据验证 | ✅ 标的作为"UP 说过的话"呈现，保持背景参考定位 |
 | 方法论过滤器 | ❌ 绕过 `_filter_methodology_only()` 有意隔离个股 claims 的设计 | ✅ 不绕过过滤器，尊重 market_analyst 只接收方法论 claims 的架构 |
 | Prompt 规则 | ❌ 与"claims 仅供背景参考，不得作为当前判断依据"矛盾 | ✅ 标的跟随 claim 文本一起出现，标注为 UP 观点 |
-| Schema 迁移 | ❌ 需新建 Sector→Stock 边，与 `stock_sector_mapper.py` 功能重复 | ✅ 零改动 |
+| Schema 迁移 | ❌ 需新建 Sector→Stock 边，与 `stock_sector_mapping.json` 功能重复 | ✅ 零改动 |
 | Agent 行为 | ❌ 会让 LLM 把历史推荐当买卖信号 | ✅ LLM 仍需用实时数据验证后才给建议 |
 
 **原则**：Claims 管"UP 怎么看这个方向"，实时数据管"这个方向现在有哪些标的、涨得怎么样"。两者分工，不互相替代。
