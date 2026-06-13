@@ -471,6 +471,74 @@ themes:
   name: 机器人
   up_positioning: 「观察名单而非配置名单」，等放量站稳60日线
   note: 分歧大、未形成趋势，暂不设标的。
+- id: ocs_optical_switching
+  name: OCS光交换（AI算力互联新技术路径）
+  up_positioning: 「光的新技术路径」— UP 5/6明确将OCS列为光通信第四梯队（光芯片→光模块→黑马→新技术），6/12早盘产业资讯确认OCS从试验性部署走向规模化商用，CAGR 58%。谷歌第八代TPU采用OCS+全浸没液冷+Boardfly拓扑。光迅科技为UP明确点名的OCS核心标的（sz002281，主板可交易），腾景科技（688195科创板不可交易）为OCS人气龙头仅作方向锚点。
+  source_docs:
+  - sources/raw/财经/早盘：26-05-06：节后首日+情绪上升第三日.md
+  - sources/raw/财经/早盘：26-04-20：上升趋势持股为主，日线高9禁追高，谷歌OCS华为昇腾五大分支.md
+  - knowledge/claims/claim-20260612-001.yaml
+  - knowledge/claims/claim-20260609-001.yaml
+  market_checks:
+  - 谷歌Cloud Next大会OCS部署进度是否超预期
+  - 光迅科技3.2T全光交换方案客户验证进展
+  - 国内CPO/OCS产业链是否有新增订单/合作公告
+  - 全A中阳线为前置建仓条件（当前阶段）
+  stocks:
+  - code: 002281.SZ
+    name: 光迅科技
+    role: ocs_core
+    segment: 光模块/OCS/DCI全栈方案
+    priority: P2-重点
+    watch_reason: UP明确点名OCS核心标的（5/6早盘+4/20早盘两次点名）。拥有3.2T全光交换、800G ZR Lite全栈方案，前瞻布局CPO/OCS。6/2复盘东吴证券称CPO交换机规模放量在即。主板可交易，市值1600亿流动性好。当前PE≈159偏高，需等缩量回踩。
+    confirm_with:
+    - 中际旭创(300308-创业，情绪锚点不可交易)
+    - 腾景科技(688195-科创，OCS人气龙头不可交易)
+    entry_zone:
+      description: 当前204.97，PE≈159偏高。均线多头排列(MA5~200>MA10~190)，等缩量回踩MA10-MA20区间。全A中阳线为前置条件
+      current_ref: 2026-06-12 收盘=204.97 PE=159.59 MA5≈200 MA10≈190 近5日-0.43%
+      price_range: 185.0 ~ 195.0
+      method: 回撤百分比法(5-10%)，基于近期高点211。PE偏高需更深回踩
+      confirm_signal: 缩量回踩至区间不破+全A中阳线+光通信板块同步企稳+OCS产业催化
+      hard_stop: 跌破175且30分钟不能收回
+      position_ratio: 0.3-0.5成（P2-重点，PE偏高严格控仓）
+    up_mention_status:
+      last_mentioned_date: '2026-05-06'
+      mention_context: 5/6早盘明确点名「OCS看好腾景」，4/20早盘「谷歌OCS核心标的：光迅科技、仕佳光子、德科立、天孚通信」
+      sentiment: 积极看好（新技术路径）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
+    linked_claims:
+    - claim_id: claim-20260612-015-o
+      relevance: theme
+      claim_type: sector-theme
+    - claim_id: claim-20260609-001-a
+      relevance: theme
+      claim_type: catalyst
+  - code: 600330.SH
+    name: 天通股份
+    role: tfln_material
+    segment: 薄膜铌酸锂晶体
+    priority: P3-观察
+    watch_reason: UP 5/6早盘将薄膜铌酸锂列为光通信新技术路径之一，点名「天通」。全球少数批量生产铌酸锂晶体，国内唯一8英寸铌酸锂晶圆量产。PE负值(-136)反映光伏/磁性材料业务拖累，薄膜铌酸锂业务占比尚小。仅作新技术路径观察。
+    confirm_with:
+    - 光迅科技
+    entry_zone:
+      description: 当前28.25，PE=-136.65（光伏业务拖累）。薄膜铌酸锂业务占比小，仅作方向观察不预设介入
+      current_ref: 2026-06-12 收盘=28.25 PE=-136.65 近5日-3.62%
+      price_range: null
+      method: 纯观察，PE为负不设介入区间
+      confirm_signal: 薄膜铌酸锂业务放量信号+光通信板块整体走强+全A中阳线
+      hard_stop: null
+      position_ratio: 0（纯观察，PE为负不设仓位）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-13'
+    linked_claims:
+    - claim_id: claim-20260612-015-o
+      relevance: theme
+      claim_type: sector-theme
 - id: equipment_packaging_catchup
   name: 设备/封测补涨（涨价主线扩散方向）
   up_positioning: 「补涨看设备、封测环节」— UP 6/11晚间复盘明确：涨价主线扩散至高潮后，性价比转向补涨方向。晶圆制造、设备、封装工艺等尚未充分定价的环节值得关注。全A中阳线为前置建仓条件。
@@ -510,43 +578,43 @@ themes:
     priority: P2-重点
     watch_reason: UP提及补涨方向直接受益标的。AMD最核心封装伙伴，先进封装(2.5D/3D)逻辑清晰。6/11跌2.2%处于回调位，性价比优于北方华创。
     confirm_with:
-    - AMD(美股)
     - 北方华创
+    - 深科技(000021)
     entry_zone:
-      description: 均线多头排列，6/11回调。等缩量止跌+全A中阳线确认信号后介入
-      current_ref: 2026-06-11 收盘=60.09(-2.2%) PE=63.05 流通市值=912亿
-      price_range: 56.0 ~ 59.0
-      method: 回撤百分比法(2-7%)，基于收盘60.09。等缩量回踩支撑区
-      confirm_signal: 缩量止跌至区间+全A中阳线+AMD/北方华创同步企稳
-      hard_stop: 跌破53且30分钟不能收回
-      position_ratio: 0.5-1.0成（补涨方向核心标的）
+      description: 均线多头排列(MA5=32.21>MA10=30.89>MA20=29.44)，等缩量回踩MA10附近。全A中阳线为前置条件
+      current_ref: 2026-06-11 收盘=32.21 PE=50.55
+      price_range: 30.0 ~ 31.5
+      method: 均线法，基于MA10(30.89)±3%
+      confirm_signal: 缩量回踩MA10不破+全A中阳线+AMD封装订单催化+板块同步企稳
+      hard_stop: 跌破27且30分钟不能收回
+      position_ratio: 0.3-0.5成（P2-重点，补涨方向弹性优于大市值设备）
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
+    linked_claims:
+    - claim_id: claim-20260611-001-f
+      relevance: theme
+      claim_type: sector-theme
   - code: 000021.SZ
     name: 深科技
-    role: hynix_packaging
-    segment: 长鑫封测（沛顿科技）
+    role: packaging_memory
+    segment: 存储封测（长鑫核心伙伴）
     priority: P3-观察
-    watch_reason: 沛顿科技承接长鑫60-70%委外封测订单，UP提及封测补涨方向。用户曾持股盈利约3.8万。6/11涨1.93%。PE 51x为封测里最低。
+    watch_reason: 存储封测龙头，长鑫核心合作伙伴。存储方向UP建议反弹减仓，封测补涨逻辑弱于通富微电(AMD)。仅作观察。
     confirm_with:
-    - 长鑫存储
     - 通富微电
+    - 北方华创
     entry_zone:
-      description: 均线偏多，等缩量回踩MA20附近。用户对该股有交易经验，可重点关注
-      current_ref: 2026-06-11 收盘=39.08(+1.93%) PE=51.32 流通市值=615亿
-      price_range: 36.0 ~ 38.5
-      method: 均线法，基于MA20±3%。PE最低，估值有安全边际
-      confirm_signal: 缩量回踩至区间不破+通富微电同步+全A中阳线
-      hard_stop: 跌破34且30分钟不能收回
-      position_ratio: 不超过0.5成（P3-观察+补涨方向辅助配置）
+      description: 均线多头排列(MA5=22.13>MA10=21.45>MA20=20.88)，等缩量回踩MA10附近。全A中阳线为前置条件
+      current_ref: 2026-06-11 收盘=22.13 PE=42.13
+      price_range: 21.0 ~ 22.0
+      method: 均线法，基于MA10(21.45)±3%
+      confirm_signal: 缩量回踩MA10不破+通富微电同步企稳+全A中阳线
+      hard_stop: 跌破19且30分钟不能收回
+      position_ratio: 不超过0.3成（P3-观察，存储方向UP建议减仓，封测补涨弹性有限）
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
-  - code: 002185.SZ
-    name: 华天科技
-    role: packaging_follower
-    segment: 封测第三极（CIS/存储/汽车电子）
     priority: P3-观察
     watch_reason: 封测行业第三，补涨方向跟随标的。催化剂偏弱，仅作为方向扩散确认。
     confirm_with:
@@ -563,15 +631,14 @@ themes:
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
-- id: core_mainline_recovery
-  name: 核心主线修复（芯片/光互连/存储/PCB）
-  up_positioning: UP 6/11复盘：「等到最后指数要反转的时候，资金大概率会重新回到芯片、光互连、存储、PCB等核心主线方向上——这是本轮行情的「母题」，回调不改地位。」全A中阳线=唯一建仓前置条件。当前仅观察。
+- id: chip_specialty
+  name: 芯片特种/FPGA（国产替代核心）
+  up_positioning: UP 6/11复盘：「等到最后指数要反转的时候，资金大概率会重新回到芯片等核心主线方向上——这是本轮行情的「母题」，回调不改地位。」全A中阳线=唯一建仓前置条件。当前仅观察。
   source_docs:
   - sources/original/bilibili/2026-06-11-2152-专栏-全A指数本轮趋势性下跌已超过23个交易日。历史对照来看，此前.md
   market_checks:
   - 全A放量中阳线（建仓前置条件）
-  - 中际旭创/新易盛（创业板）是否领涨→光互连方向确认
-  - 沪电股份/深南电路是否放量突破
+  - 芯片板块整体回暖确认
   stocks:
   - code: 002049.SZ
     name: 紫光国微
@@ -590,23 +657,15 @@ themes:
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
-  - code: 002281.SZ
-    name: 光迅科技
-    role: optical_device
-    segment: 光器件/光模块
-    priority: P3-观察
-    watch_reason: 光互连方向主板核心标的。光器件龙头，CPO/高速光模块受益AI互联瓶颈。PE 160x估值偏高需注意。
-    entry_zone:
-      description: 高位运行，等深度回踩。PE高容错率低
-      current_ref: 2026-06-11 收盘=205.40(+1.38%) PE=159.92
-      price_range: 185.0 ~ 200.0
-      method: 回撤百分比法(3-10%)，基于收盘205
-      confirm_signal: 回踩至区间不破+全A中阳线+中际旭创/新易盛领涨确认
-      hard_stop: 跌破175且30分钟不能收回
-      position_ratio: 不超过0.5成（P3-观察+高PE需严格止损）
-    lifecycle:
-      stage: watching
-      entered_stage: '2026-06-11'
+- id: memory_nor
+  name: 存储芯片（NOR Flash/DRAM涨价周期）
+  up_positioning: UP 6/11复盘：「等到最后指数要反转的时候，资金大概率会重新回到存储等核心主线方向上——这是本轮行情的「母题」，回调不改地位。」全A中阳线=唯一建仓前置条件。当前仅观察。
+  source_docs:
+  - sources/original/bilibili/2026-06-11-2152-专栏-全A指数本轮趋势性下跌已超过23个交易日。历史对照来看，此前.md
+  market_checks:
+  - 全A放量中阳线（建仓前置条件）
+  - 存储板块共振确认
+  stocks:
   - code: 603986.SH
     name: 兆易创新
     role: memory_nor
@@ -621,23 +680,6 @@ themes:
       confirm_signal: 全A中阳线+存储板块共振+缩量回踩至区间
       hard_stop: 跌破400且30分钟不能收回
       position_ratio: 不超过0.3成（高价+高PE+小仓位）
-    lifecycle:
-      stage: watching
-      entered_stage: '2026-06-11'
-  - code: 002463.SZ
-    name: 沪电股份
-    role: pcb_core
-    segment: 高速PCB（AI服务器）
-    priority: P3-观察
-    watch_reason: PCB方向主板核心标的。AI服务器高速PCB龙头，受益AI机架/交换机放量。PE 57x在PCB里偏低。
-    entry_zone:
-      description: 高位回调中(-2.83%)，等缩量止跌+全A中阳线
-      current_ref: 2026-06-11 收盘=126.91(-2.83%) PE=56.77
-      price_range: 118.0 ~ 125.0
-      method: 回撤百分比法(1-7%)，基于收盘127
-      confirm_signal: 缩量止跌至区间+全A中阳线+PCB板块同步企稳
-      hard_stop: 跌破110且30分钟不能收回
-      position_ratio: 不超过0.5成（P3-观察+反转方向埋伏）
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'

@@ -76,14 +76,21 @@ def _check_stock(stock: dict, theme_id: str) -> list[dict]:
         issues.append({"level": "❌", "field": "priority", "msg": f"[{code}] 缺少 priority"})
 
     # ── P1：P1/P2 标的缺少 price_range ──
+    # 已持仓标的(holding)允许price_range为null，因为不再设介入区间
+    lifecycle_stage = (stock.get("lifecycle") or {}).get("stage", "")
+    is_holding = lifecycle_stage == "holding"
+
     if priority.startswith("P1") or priority.startswith("P2"):
-        if not pr:
+        if not pr and not is_holding:
             issues.append({"level": "❌", "field": "entry_zone.price_range",
                            "msg": f"[{code}/{name}] {priority} 缺少 price_range"})
+        elif not pr and is_holding:
+            # 已持仓标的price_range=null是设计意图，跳过
+            pass
         elif not re.search(r"\d+\.?\d*\s*[~\-]\s*\d+\.?\d*", str(pr)):
             issues.append({"level": "⚠️", "field": "entry_zone.price_range",
                            "msg": f"[{code}/{name}] price_range 格式异常: '{pr}'，建议改为 null 或数字区间"})
-        if not ez.get("hard_stop"):
+        if not ez.get("hard_stop") and not is_holding:
             issues.append({"level": "⚠️", "field": "entry_zone.hard_stop",
                            "msg": f"[{code}/{name}] {priority} 缺少 hard_stop"})
 

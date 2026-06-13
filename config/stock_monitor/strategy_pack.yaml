@@ -27,6 +27,10 @@ market_framework:
     intensity: 中
   - direction: 国产替代（半导体设备/材料）
     intensity: 中
+  - direction: 芯片特种/FPGA（国产替代核心）
+    intensity: 中
+  - direction: 存储芯片（NOR Flash/DRAM涨价周期）
+    intensity: 中
 sector_rotation_rules:
 - id: price_increase_vs_low_recovery
   name: 涨价线 vs 低位修复轮动
