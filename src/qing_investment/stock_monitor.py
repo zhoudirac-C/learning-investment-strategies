@@ -2706,6 +2706,7 @@ def _agent_context_data(
                 "latest": _to_float((_quote_for_stock(quotes_by_code, row.get("code", "")) or {}).get("latest")),
                 "pct_change": _to_float((_quote_for_stock(quotes_by_code, row.get("code", "")) or {}).get("pct_change")),
                 "watch_reason": row.get("watch_reason", ""),
+                "note": row.get("note", ""),
                 "buy_setup": _string_items(row.get("buy_setup")),
                 "invalidation_setup": _string_items(row.get("invalidation_setup")),
                 "sell_setup": _string_items(row.get("sell_setup")),
