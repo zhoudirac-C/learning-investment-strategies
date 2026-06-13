@@ -315,6 +315,32 @@ Qing-Agent /analyze/trigger
         若 Qing-Agent 不可达 → fallback: stock_monitor.py --agent-context-on-trigger（纯文本 LLM 降级）
 ```
 
+### Watchlist 优先级体系（P1-P4）
+
+| 级别 | 标签 | 适用标的 | 是否进机会扫描 | 行为 |
+|------|------|---------|:----------:|------|
+| **P1** | P1-核心 | 主板核心持仓/观察 | ✅ | context_builder 做 claims 检索，hot_score 最高，机会扫描重点检查 |
+| **P2** | P2-重点 | 主板重点关注 | ✅ | 机会扫描常规检查，hot_score 中等 |
+| **P3** | P3-观察 | 主板一般观察 | ✅ | 机会扫描低优先级，hot_score 较低 |
+| **P4** | P4-锚点 | **创业板(300) / 科创板(688)** | ❌ | **仅作板块方向/情绪参考，不可操作**。hot_score 最低，不列入机会扫描候选 |
+
+**自动归类规则**（`nodes.py` `_is_mainboard()`）：
+- 代码以 `300` 开头（创业板）或 `688` 开头（科创板）→ **自动归入 P4-锚点**
+- 其余主板代码（sh6xxxxx / sz0xxxxx，含 000/001/002）→ 按 YAML 中 priority 字段归入 P1-P3
+- YAML 中 `priority` 字段与实际代码前缀冲突时，**以代码前缀为准**（安全优先）
+
+**数据流向**：
+```
+watchlist.yaml (全量 46 只)
+  ↓
+_agent_context_data() 序列化（全部保留，原样透传）
+  ↓
+market_analyst 节点
+  ├─ _is_mainboard() 过滤
+  ├─ ✅ 主板 34 只 → watchlist_summary（进 prompt，机会扫描检查）
+  └─ ❌ 非主板 12 只 → reference_stocks（进 prompt，仅作情绪锚点标记）
+```
+
 **与 `/chat` 的核心区别**：
 
 | 维度 | `/analyze/trigger` | `/chat` |
