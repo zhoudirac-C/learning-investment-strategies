@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import logging
 import os
 from typing import Any
+
+logger = logging.getLogger(__name__)
 
 from langchain_openai import ChatOpenAI
 
@@ -73,6 +76,7 @@ def get_llm_client(provider: str | None = None) -> ChatOpenAI:
         provider: 目标 provider，如 'kimi', 'deepseek'。None 则使用 settings.llm_provider。
     """
     target = (provider or settings.llm_provider).lower()
+    logger.info("[get_llm_client] target=%s (requested=%s, default=%s)", target, provider, settings.llm_provider)
     if target not in LLM_PROVIDERS:
         raise ValueError(
             f"Unknown LLM provider: {target}. "
@@ -86,15 +90,16 @@ def get_llm_client(provider: str | None = None) -> ChatOpenAI:
     )
     base_url = settings.llm_base_url or config["base_url"]
     model = settings.llm_model or config["default_model"]
+    logger.info("[get_llm_client] target=%s model=%s base_url=%s has_key=%s", target, model, base_url, bool(api_key))
 
     if not api_key:
         raise ValueError(
-            f"Provider '{provider}' requires {config['api_key_env']}. "
+            f"Provider '{target}' requires {config['api_key_env']}. "
             f"Set it in .env or environment variable."
         )
     if not base_url:
         raise ValueError(
-            f"Provider '{provider}' requires llm_base_url to be set."
+            f"Provider '{target}' requires llm_base_url to be set."
         )
 
     return ChatOpenAI(

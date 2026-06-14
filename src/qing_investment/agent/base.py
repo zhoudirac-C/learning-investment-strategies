@@ -13,7 +13,10 @@ from abc import ABC, abstractmethod
 from decimal import Decimal
 from typing import Any, Protocol
 
+import logging
 from pydantic import BaseModel, Field
+
+logger = logging.getLogger(__name__)
 
 
 class AgentOutput(BaseModel):
@@ -67,8 +70,12 @@ class Agent(ABC):
 
     # ── 内部方法 ──
 
-    def _track_llm_call(self) -> None:
-        """记录一次 LLM 调用（子类在调 LLM 后必须调用此方法）。"""
+    def _track_llm_call(self, provider: str = "unknown") -> None:
+        """记录一次 LLM 调用（子类在调 LLM 后必须调用此方法）。
+
+        Args:
+            provider: provider 名称（仅用于日志）
+        """
         self._llm_calls += 1
         if self.llm and hasattr(self.llm, "cost_per_call"):
             cost = self.llm.cost_per_call
@@ -76,18 +83,20 @@ class Agent(ABC):
                 self._total_cost += cost
             elif isinstance(cost, (int, float)):
                 self._total_cost += Decimal(str(cost))
+        logger.debug("[%s] _track_llm_call: calls=%d cost=%s", self.name, self._llm_calls, self._total_cost)
 
     def _reset_stats(self) -> None:
         """重置统计（每次 run 前调用）。"""
         self._llm_calls = 0
         self._total_cost = Decimal("0")
         self._start_time = __import__("time").time()
+        logger.debug("[%s] _reset_stats", self.name)
 
     def _build_output(
         self, findings: list[dict], errors: list[str] | None = None
     ) -> AgentOutput:
         """构造标准化输出。"""
-        return AgentOutput(
+        output = AgentOutput(
             agent_name=self.name,
             findings=findings,
             errors=errors or [],
@@ -95,3 +104,9 @@ class Agent(ABC):
             cost_usd=self._total_cost,
             latency_ms=(__import__("time").time() - self._start_time) * 1000,
         )
+        logger.info(
+            "[%s] _build_output: findings=%d errors=%d llm_calls=%d cost_usd=%s latency_ms=%.0f",
+            self.name, len(findings), len(errors or []),
+            output.llm_calls, output.cost_usd, output.latency_ms,
+        )
+        return output

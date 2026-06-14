@@ -38,6 +38,7 @@ class MarketAnalystAgent(Agent):
             - context: dict — 分析上下文数据
         """
         self._reset_stats()
+        logger.info("[MarketAnalystAgent.run] starting")
 
         prompt = kwargs.get("prompt", "")
         if not prompt:
@@ -45,7 +46,9 @@ class MarketAnalystAgent(Agent):
             context = kwargs.get("context", {})
             if template and context:
                 prompt = f"{template}\n\n{json.dumps(context, ensure_ascii=False, indent=2)}"
+                logger.info("[MarketAnalystAgent.run] built prompt from template+context: len=%d", len(prompt))
             else:
+                logger.warning("[MarketAnalystAgent.run] no prompt provided")
                 return self._build_output(
                     findings=[],
                     errors=["No prompt or prompt_template+context provided"],
@@ -65,29 +68,39 @@ class MarketAnalystAgent(Agent):
 
     def _invoke_llm(self, prompt: str) -> str:
         """调用 LLM（使用 self.llm 或 fallback 到全局 get_llm_client）。"""
+        prompt_len = len(prompt)
         if self.llm is not None:
-            # 通过 LLMProtocol 调用
+            logger.info("[MarketAnalystAgent] _invoke_llm: using injected llm, prompt_len=%d", prompt_len)
             response = self.llm.chat([{"role": "user", "content": prompt}])
-            return response.get("content", "")
+            content = response.get("content", "")
+            logger.info("[MarketAnalystAgent] _invoke_llm: response_len=%d", len(content))
+            return content
 
-        # Fallback: 使用全局 LLM 客户端
+        logger.info("[MarketAnalystAgent] _invoke_llm: fallback to global get_llm_client(), prompt_len=%d", prompt_len)
         from qing_investment.agent.tools.llm_client import get_llm_client
 
         llm = get_llm_client()
         result = llm.invoke(prompt)
-        return result.content if hasattr(result, "content") else str(result)
+        content = result.content if hasattr(result, "content") else str(result)
+        logger.info("[MarketAnalystAgent] _invoke_llm: response_len=%d", len(content))
+        return content
 
     def _parse_response(self, content: str) -> list[dict]:
         """解析 LLM 响应为 findings 列表。"""
         if not content:
+            logger.warning("[MarketAnalystAgent] _parse_response: empty content")
             return []
 
         try:
             parsed = json.loads(content) if isinstance(content, str) else content
             if isinstance(parsed, dict):
+                logger.info("[MarketAnalystAgent] _parse_response: parsed as dict (1 finding)")
                 return [parsed]
             if isinstance(parsed, list):
+                logger.info("[MarketAnalystAgent] _parse_response: parsed as list (%d findings)", len(parsed))
                 return parsed
+            logger.warning("[MarketAnalystAgent] _parse_response: unexpected type=%s", type(parsed).__name__)
             return [{"raw": content}]
-        except (json.JSONDecodeError, TypeError):
+        except (json.JSONDecodeError, TypeError) as e:
+            logger.warning("[MarketAnalystAgent] _parse_response: JSON decode failed: %s", e)
             return [{"raw": content}]

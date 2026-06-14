@@ -148,10 +148,9 @@ def _aggregate_cost(cost_tracking: list[dict]) -> dict:
             total_cost += Decimal(entry.get("total_cost_usd", "0"))
         except Exception:
             pass
-    return {
-        "llm_calls": total_calls,
-        "total_cost_usd": str(total_cost),
-    }
+    result = {"llm_calls": total_calls, "total_cost_usd": str(total_cost)}
+    logger.info("[_aggregate_cost] entries=%d total_calls=%d total_cost_usd=%s", len(cost_tracking), total_calls, result["total_cost_usd"])
+    return result
 
 
 @app.get("/health")

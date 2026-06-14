@@ -1699,7 +1699,11 @@ def _format_devils_advocate_block(state: AgentState) -> str:
     """格式化 Devil's Advocate 质疑点段落。"""
     findings = state.get("devils_advocate_findings", [])
     if not findings:
+        logger = logging.getLogger(__name__)
+        logger.debug("[_format_devils_advocate_block] no findings, skipping")
         return ""
+    logger = logging.getLogger(__name__)
+    logger.info("[_format_devils_advocate_block] formatting %d findings for output", len(findings))
 
     lines = ["", "⚠️ 反向质疑"]
     for f in findings:
@@ -1950,6 +1954,7 @@ def style_writer(state: AgentState) -> AgentState:
     _sw_ct = CostTracker()
     _sw_ct.record_call(provider=(settings.llm_provider or "deepseek"))
     _sw_cost = _sw_ct.snapshot()
+    logger.info("[style_writer] cost_tracking: calls=%s cost=%s", _sw_cost["llm_calls"], _sw_cost["total_cost_usd"])
 
     return {
         "styled_output": styled,
@@ -1982,6 +1987,7 @@ def reviewer(state: AgentState) -> AgentState:
     _rv_ct = CostTracker()
     _rv_ct.record_call(provider=(settings.llm_provider or "deepseek"))
     _rv_cost = _rv_ct.snapshot()
+    logger.info("[reviewer] cost_tracking: calls=%s cost=%s", _rv_cost["llm_calls"], _rv_cost["total_cost_usd"])
 
     try:
         result = json.loads(content) if content else {}

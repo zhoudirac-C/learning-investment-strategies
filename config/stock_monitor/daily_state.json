@@ -1,220 +1,62 @@
 {
-  "date": "2026-06-13",
+  "date": "2026-06-14",
   "market_stage": {
-    "phase": "回暖期（弱修复）",
-    "detail": "中证全指日线MACD绿柱收窄，60分钟红柱扩散，TD低9后反弹；主线科技上游材料加速但预期差缩小，属调整末期弱修复，非主升开启",
-    "updated_by": "market_analyst:portfolio",
-    "updated_at": "2026-06-13T19:29:37.547440"
+    "phase": "回暖期",
+    "detail": "调整第22个交易日，全A日线MACD绿柱连续缩短但未金叉，60分钟MACD红柱持续但力度减弱，指数处于6120-6300区间震荡。UP 6/12观点'指数方向未明，防守反击'，与当前技术特征一致。斐波那契窗口（21/55）双重共振，变盘迫近。",
+    "updated_by": "market_analyst:market",
+    "updated_at": "2026-06-14T21:09:48.838764"
   },
   "direction_priority": [
     {
-      "direction": "科技上游材料（等分歧回踩）",
+      "direction": "钨产业链涨价",
       "intensity": "",
-      "source": "market_analyst:portfolio"
+      "source": "market_analyst:market"
     },
     {
-      "direction": "光互连/芯片（观察回流）",
+      "direction": "光伏低位修复",
       "intensity": "",
-      "source": "market_analyst:portfolio"
+      "source": "market_analyst:market"
     }
   ],
-  "position_stance": "持股不变（雅克科技100股），不加仓，等雅克回踩125~128或光迅回踩195~200出现赔率机会再行动",
+  "position_stance": "3-4成仓位，聚焦钨涨价和光伏两条线，等全A放量突破6300且日线金叉后再加仓。不追高，只做分歧回踩。",
   "active_opportunities": [
     {
-      "stock": "雅克科技",
-      "code": "002409",
-      "pattern": "持仓套利+技术支撑确认",
-      "trigger": "若回踩22.0-22.2区间缩量企稳且分时不再创新低，可做T补仓。",
-      "status": "未触发",
-      "upside": 7.5,
-      "downside": 2.6,
-      "ratio": "2.9:1",
-      "updated_at": "2026-06-13T18:35:30.422876"
+      "stock": "中船特气",
+      "code": "688146",
+      "pattern": "主线启动确认+分歧回踩",
+      "trigger": "回踩34.5-35.0缩量企稳",
+      "status": "未触发（科创板仅参考，不可买入）",
+      "upside": "",
+      "downside": "",
+      "ratio": "4:1",
+      "updated_at": "2026-06-14T21:09:48.838781"
     },
     {
       "stock": "爱旭股份",
-      "code": "600732.SH",
-      "pattern": "买入信号候选",
-      "trigger": "价格12.7 进入区间 [12.0, 13.0]",
-      "status": "候选",
-      "upside": "",
-      "downside": "",
-      "ratio": "",
-      "price": 12.7,
-      "price_bucket": "12.61-12.74",
-      "entry_zone": [
-        12.0,
-        13.0
-      ],
-      "stop_loss": null,
-      "matched_conditions": [
-        "价格进入区间",
-        "非系统性大跌",
-        "未涨停",
-        "近3日缩量",
-        "MA20上方"
-      ],
-      "updated_at": "2026-06-13T18:49:29.868994+08:00",
-      "last_agent_check": null
-    },
-    {
-      "stock": "中钨高新",
-      "code": "000657.SZ",
-      "pattern": "买入信号候选",
-      "trigger": "价格79.0 进入区间 [76.0, 78.0]",
-      "status": "候选",
-      "upside": "",
-      "downside": "",
-      "ratio": "",
-      "price": 79.0,
-      "price_bucket": "79.00-79.79",
-      "entry_zone": [
-        76.0,
-        78.0
-      ],
-      "stop_loss": null,
-      "matched_conditions": [
-        "非系统性大跌",
-        "未涨停",
-        "近3日缩量",
-        "MA20上方"
-      ],
-      "updated_at": "2026-06-13T18:49:29.868994+08:00",
-      "last_agent_check": null
-    },
-    {
-      "stock": "昊华科技",
-      "code": "600378",
-      "pattern": "跌停洗盘/黄金坑",
-      "trigger": "57.15进入UP介入区间57~60，需等次日企稳",
+      "code": "600732",
+      "pattern": "低位修复确认+分歧回踩",
+      "trigger": "回踩5.8-6.0缩量企稳",
       "status": "未触发",
-      "upside": "",
-      "downside": "",
-      "ratio": "2.5:1",
-      "updated_at": "2026-06-13T18:50:38.911643"
-    },
-    {
-      "stock": "隆基绿能",
-      "code": "601012",
-      "pattern": "介入区间上沿测试",
-      "trigger": "13.46接近区间上沿13.5，回调可考虑",
-      "status": "未触发",
-      "upside": "",
-      "downside": "",
-      "ratio": "2:1",
-      "updated_at": "2026-06-13T18:50:38.911650"
-    },
-    {
-      "stock": "雅克科技",
-      "code": "002409.SZ",
-      "pattern": "相对抗跌，等待加仓",
-      "trigger": "回踩125-128且缩量企稳",
-      "status": "未触发（当前132.99，等待继续回调）",
-      "upside": "",
-      "downside": "",
-      "ratio": "3.5:1",
-      "updated_at": "2026-06-13T18:51:00.202200"
-    },
-    {
-      "stock": "昊华科技",
-      "code": "600378.SH",
-      "pattern": "跌停回踩介入区",
-      "trigger": "明日低开不新低+30分钟缩量企稳",
-      "status": "未触发（今日跌停，恐慌未释放）",
-      "upside": "",
-      "downside": "",
-      "ratio": "2.5:1",
-      "updated_at": "2026-06-13T18:51:00.202205"
-    },
-    {
-      "stock": "中化国际",
-      "code": "600500.SH",
-      "pattern": "分歧回踩",
-      "trigger": "6.6~6.8",
-      "status": "未触发",
-      "upside": "",
-      "downside": "",
-      "ratio": "2.8:1",
-      "updated_at": "2026-06-13T18:56:00.817950"
-    },
-    {
-      "stock": "光迅科技",
-      "code": "002281.SZ",
-      "pattern": "等回踩介入区间",
-      "trigger": "当前204.97，接近上限195，若回踩195~200可考虑",
-      "status": "未触发",
-      "upside": "",
-      "downside": "",
-      "ratio": "2.5:1",
-      "updated_at": "2026-06-13T19:29:37.547468"
-    },
-    {
-      "stock": "光迅科技",
-      "code": "002281",
-      "pattern": "技术支撑回踩",
-      "trigger": "回踩185-195区间",
-      "status": "未触发（现价205）",
-      "upside": "",
-      "downside": "",
-      "ratio": "2.5:1",
-      "updated_at": "2026-06-13T18:53:24.475745"
-    },
-    {
-      "stock": "中化国际",
-      "code": "600500",
-      "pattern": "技术支撑回踩",
-      "trigger": "回踩6.3-6.6区间",
-      "status": "未触发（现价7.21）",
       "upside": "",
       "downside": "",
       "ratio": "3:1",
-      "updated_at": "2026-06-13T18:53:24.475750"
+      "updated_at": "2026-06-14T21:09:48.838786"
     }
   ],
   "intraday_narrative": [
     {
-      "time": "18:35 节点分析",
-      "summary": "全A指数6211，位于6000-6500区间中期，日线MACD绿柱持续收敛、底背离倾向未破坏，60分钟/30分钟MACD金叉向上，短期反弹结构初步形成。但成交量缺位＋板块数据不可用，反弹强度待验证。时间窗口：上证/全A距5-13高点恰好21个交易日（斐波那契变盘窗），6-11刚出低9信号，当前日线高1，存在先反弹后遇压的可能。",
-      "timestamp": "2026-06-13T18:35:30.422881"
-    },
-    {
-      "time": "18:50 明日假设",
-      "summary": "若上证站稳4033且科技止跌，则修复延续；若低开破4008则进入防御",
-      "timestamp": "2026-06-13T18:50:38.911664"
-    },
-    {
-      "time": "18:51 明日假设",
-      "summary": "科技上游材料板块延续分歧但可能企稳，资源周期冲高回落，全A在6150-6250区间震荡。雅克科技若能守住125则维持持有，否则触发减仓。",
-      "timestamp": "2026-06-13T18:51:00.202214"
-    },
-    {
-      "time": "18:52 明日假设",
-      "summary": "若全A指数放量突破6250且科技主线领涨，则确认回暖开启，可短线参与光迅科技回踩195-200的买点；否则维持震荡格局，持股不动。",
-      "timestamp": "2026-06-13T18:52:12.434180"
-    },
-    {
-      "time": "18:53 明日假设",
-      "summary": "全A若放量突破6250且科技板块共振，则修复性质从假修复转向真修复；若缩量震荡则继续防守。",
-      "timestamp": "2026-06-13T18:53:24.475759"
-    },
-    {
-      "time": "18:56 明日假设",
-      "summary": "若全A走出中阳线且科技主线（PPO/光互连）持续，则拐点确认；若继续缩量调整，则仍需等待。",
-      "timestamp": "2026-06-13T18:56:00.817960"
-    },
-    {
-      "time": "19:29 明日假设",
-      "summary": "科技上游材料继续分化，资金可能向光互连或芯片回流；中证全指若放量突破6250则修复强度提升，否则继续震荡",
-      "timestamp": "2026-06-13T19:29:37.547486"
+      "time": "21:09 明日假设",
+      "summary": "如果全A早盘放量站上6300且日线MACD金叉，则确认拐点，可适度加仓钨和光伏主线；如果缩量低开低走跌破6119，则60分钟反弹结束，将仓位收缩至2成以下等待二次冰点。",
+      "timestamp": "2026-06-14T21:09:48.838800"
     }
   ],
   "version": 1,
   "_meta": {
-    "stance_updated_by": "market_analyst:portfolio",
-    "stance_updated_at": "2026-06-13T19:29:37.547457",
-    "last_persisted_by": "market_analyst:portfolio",
-    "last_persisted_at": "2026-06-13T19:29:37.547418+08:00",
-    "direction_updated_by": "market_analyst:portfolio",
-    "direction_updated_at": "2026-06-13T19:29:37.547452"
+    "direction_updated_by": "market_analyst:market",
+    "direction_updated_at": "2026-06-14T21:09:48.838771",
+    "stance_updated_by": "market_analyst:market",
+    "stance_updated_at": "2026-06-14T21:09:48.838775",
+    "last_persisted_by": "market_analyst:market",
+    "last_persisted_at": "2026-06-14T21:09:48.838744+08:00"
   }
 }

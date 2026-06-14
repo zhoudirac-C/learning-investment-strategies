@@ -8,7 +8,10 @@
 
 from __future__ import annotations
 
+import logging
 from decimal import Decimal
+
+logger = logging.getLogger(__name__)
 
 # Provider 单价（USD/次调用，按输出 token ≈500 估算）
 # 价格基准时间：2026-06-14
@@ -46,20 +49,22 @@ class CostTracker:
         Args:
             provider: provider 名称，对应 _PROVIDER_COST 中的 key
         """
+        cost = _PROVIDER_COST.get(provider, _DEFAULT_COST)
         self.calls += 1
-        self._total_cost += _PROVIDER_COST.get(provider, _DEFAULT_COST)
+        self._total_cost += cost
+        logger.debug("[CostTracker] record_call: provider=%s cost=%s total_calls=%d total_cost=%s", provider, cost, self.calls, self._total_cost)
 
     def merge(self, other: CostTracker) -> None:
         """合并另一个追踪器的统计（用于跨节点叠加）。"""
         self.calls += other.calls
         self._total_cost += other._total_cost
+        logger.debug("[CostTracker] merge: added_calls=%d added_cost=%s total_calls=%d", other.calls, other._total_cost, self.calls)
 
     def snapshot(self) -> dict:
         """返回当前快照。"""
-        return {
-            "llm_calls": self.calls,
-            "total_cost_usd": str(self._total_cost),
-        }
+        snap = {"llm_calls": self.calls, "total_cost_usd": str(self._total_cost)}
+        logger.info("[CostTracker] snapshot: %s", snap)
+        return snap
 
     @classmethod
     def provider_cost(cls, provider: str) -> Decimal:

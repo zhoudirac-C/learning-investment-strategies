@@ -9,8 +9,11 @@
 from __future__ import annotations
 
 import json
+import logging
 
 from qing_investment.agent.base import Agent, AgentOutput
+
+logger = logging.getLogger(__name__)
 
 
 class DevilsAdvocateAgent(Agent):
@@ -43,12 +46,16 @@ class DevilsAdvocateAgent(Agent):
             AgentOutput，findings 为质疑点 JSON 数组
         """
         self._reset_stats()
+        logger.info("[DevilsAdvocate] run: starting, target_model=%s", self._target_model)
 
         market_analysis = kwargs.get("market_analysis", "")
         stock_analysis = kwargs.get("stock_analysis", "")
         claims_cited = kwargs.get("claims_cited", [])
+        logger.info("[DevilsAdvocate] run: market_len=%d stock_len=%d claims=%d",
+                    len(market_analysis), len(stock_analysis), len(claims_cited))
 
         if not market_analysis and not stock_analysis:
+            logger.warning("[DevilsAdvocate] run: no analysis to challenge, skipping")
             return self._build_output(
                 findings=[],
                 errors=["No analysis to challenge"],
@@ -56,11 +63,14 @@ class DevilsAdvocateAgent(Agent):
 
         try:
             prompt = self._build_prompt(market_analysis, stock_analysis, claims_cited)
+            logger.info("[DevilsAdvocate] run: prompt_len=%d", len(prompt))
             content = self._invoke_llm(prompt)
-            self._track_llm_call()
+            self._track_llm_call(provider=self._target_model)
             findings = self._parse_findings(content)
+            logger.info("[DevilsAdvocate] run: findings=%d errors=%d", len(findings), 0)
             return self._build_output(findings=findings)
         except Exception as e:
+            logger.error("[DevilsAdvocate] run: failed: %s", e, exc_info=True)
             return self._build_output(
                 findings=[],
                 errors=[f"Devil's Advocate failed: {e}"],
@@ -106,25 +116,33 @@ class DevilsAdvocateAgent(Agent):
 
     def _invoke_llm(self, prompt: str) -> str:
         """调用 LLM。"""
+        prompt_len = len(prompt)
         if self.llm is not None:
+            logger.info("[DevilsAdvocate] _invoke_llm: using injected llm, prompt_len=%d", prompt_len)
             response = self.llm.chat([{"role": "user", "content": prompt}])
-            return response.get("content", "")
+            content = response.get("content", "")
+            logger.info("[DevilsAdvocate] _invoke_llm: response_len=%d", len(content))
+            return content
 
+        logger.info("[DevilsAdvocate] _invoke_llm: using get_llm_client(provider=%s), prompt_len=%d", self._target_model, prompt_len)
         from qing_investment.agent.tools.llm_client import get_llm_client
 
         llm = get_llm_client(provider=self._target_model)
         result = llm.invoke(prompt)
-        return result.content if hasattr(result, "content") else str(result)
+        content = result.content if hasattr(result, "content") else str(result)
+        logger.info("[DevilsAdvocate] _invoke_llm: response_len=%d", len(content))
+        return content
 
     def _parse_findings(self, content: str) -> list[dict]:
         """解析 LLM 响应为质疑点列表。"""
         if not content:
+            logger.warning("[DevilsAdvocate] _parse_findings: empty content")
             return []
 
         # 尝试清理 markdown 代码块包裹
         cleaned = content.strip()
-        if cleaned.startswith("```"):
-            # 移除 ```json ... ``` 包裹
+        had_markdown_fence = cleaned.startswith("```")
+        if had_markdown_fence:
             cleaned = cleaned.split("\n", 1)[-1]
             if "```" in cleaned:
                 cleaned = cleaned.rsplit("```", 1)[0]
@@ -133,10 +151,13 @@ class DevilsAdvocateAgent(Agent):
         try:
             parsed = json.loads(cleaned)
             if isinstance(parsed, list):
+                logger.info("[DevilsAdvocate] _parse_findings: %d items (markdown_fence=%s)", len(parsed), had_markdown_fence)
                 return parsed
             if isinstance(parsed, dict):
+                logger.info("[DevilsAdvocate] _parse_findings: 1 item (dict) (markdown_fence=%s)", had_markdown_fence)
                 return [parsed]
+            logger.warning("[DevilsAdvocate] _parse_findings: unexpected type=%s", type(parsed).__name__)
             return []
-        except (json.JSONDecodeError, TypeError):
-            # 如果 LLM 没有返回 JSON，尝试提取
+        except (json.JSONDecodeError, TypeError) as e:
+            logger.warning("[DevilsAdvocate] _parse_findings: JSON decode failed: %s (len=%d)", e, len(content))
             return [{"target": "解析错误", "concern": content[:200], "severity": "low", "confidence": 0.3}]
