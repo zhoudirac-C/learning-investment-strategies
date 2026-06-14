@@ -39,6 +39,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any
 
 logger = logging.getLogger(__name__)
@@ -692,3 +693,317 @@ def build_watchlist_context(
         "token_estimate": ctx.token_estimate,
         "stock_count": ctx.stock_count,
     }
+
+
+def format_agent_analysis_context(data: dict) -> str:
+    """将 agent 分析数据结构化为可读文本。
+
+    data 来自 _agent_context_data() 的输出：
+        {timestamp, trigger, market_framework, alerts,
+         market_state, sector_signal_counts, quote_snapshot, positions, watchlist}
+
+    Returns:
+        str: 格式化后的分析上下文文本
+    """
+    lines = [
+        "[Hermes股票监控大模型分析上下文]",
+        f"时间：{data.get('timestamp', '未知')}",
+    ]
+
+    trigger = data.get("trigger", {})
+    if trigger:
+        lines.extend(
+            [
+                f"触发类型：{trigger.get('kind', '未知')}",
+                f"触发点：{trigger.get('title', '')}",
+                f"触发原因：{trigger.get('reason', '')}",
+            ]
+        )
+
+    mf = data.get("market_framework", {})
+    if mf:
+        lines.extend(
+            [
+                f"当前框架：{mf.get('stage', '未配置')}",
+                f"核心问题：{mf.get('core_question', '未配置')}",
+            ]
+        )
+
+    alerts = data.get("alerts", [])
+    lines.extend(["", "规则信号："])
+    if alerts:
+        for a in alerts:
+            lines.append(f"- {a.get('summary', '')}")
+    else:
+        lines.append("- 无新增规则信号")
+
+    lines.append("")
+    lines.append(f"持仓：{len(data.get('positions', []))} 只")
+    lines.append(f"观察池：{len(data.get('watchlist', []))} 只")
+
+    return "\n".join(lines)
+
+
+def format_agent_json_context(data: dict) -> str:
+    """将 agent 分析数据结构化为 JSON 字符串。
+
+    Args:
+        data: _agent_context_data() 输出的分析数据
+
+    Returns:
+        str: JSON 格式的上下文文本
+    """
+    import json
+
+    # 移除可能过大的 quote_snapshot，避免 token 浪费
+    output = {k: v for k, v in data.items() if k != "quote_snapshot"}
+    return json.dumps(output, ensure_ascii=False, indent=2, default=str)
+
+
+def load_yaml(path: str | Path) -> dict:
+    """加载 YAML 文件。
+
+    Args:
+        path: YAML 文件路径
+
+    Returns:
+        dict: 解析后的字典，文件不存在或解析失败返回空字典
+    """
+    import yaml
+
+    path_obj = Path(path) if isinstance(path, str) else path
+    if not path_obj.exists():
+        return {}
+    try:
+        data = yaml.safe_load(path_obj.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {}
+    except Exception:
+        return {}
+
+
+def load_monitor_config(path: str | Path) -> Any:
+    """加载监控配置。
+
+    从指定目录加载 positions.yaml / watchlist.yaml / strategy_pack.yaml。
+
+    Args:
+        path: 配置目录路径或配置文件路径
+
+    Returns:
+        MonitorConfig: 监控配置对象
+    """
+    from qing_investment.stock_monitor import MonitorConfig
+
+    config_dir = Path(path) if isinstance(path, str) else path
+    if config_dir.is_file():
+        config_dir = config_dir.parent
+
+    positions_path = config_dir / "positions.yaml"
+    if not positions_path.exists():
+        positions_path = config_dir / "positions.example.yaml"
+
+    return MonitorConfig(
+        config_dir=config_dir,
+        positions=load_yaml(positions_path),
+        watchlist=load_yaml(config_dir / "watchlist.yaml"),
+        strategy_pack=load_yaml(config_dir / "strategy_pack.yaml"),
+        positions_path=positions_path,
+    )
+
+
+def _extract_auction_snapshot_for_context(snapshot: dict) -> dict:
+    """从竞价快照提取关键字段用于 context。
+
+    Args:
+        snapshot: 竞价快照数据
+
+    Returns:
+        dict: 精简后的竞价数据
+    """
+    if not snapshot:
+        return {}
+
+    result = {}
+    for code, data in snapshot.items():
+        if isinstance(data, dict):
+            result[code] = {
+                "latest": data.get("latest"),
+                "volume": data.get("volume"),
+                "pct_change": data.get("pct_change"),
+                "time": data.get("time"),
+            }
+    return result
+
+
+def _build_sector_tiers(
+    config: Any,
+    quote_snapshot: dict,
+) -> dict:
+    """构建板块分层 — 计算每个持仓股的板块梯队。
+
+    同 theme 标的按涨幅排序 T1/T2/T3，用于 context 注入。
+
+    Args:
+        config: MonitorConfig（运行时动态解析）
+        quote_snapshot: 行情快照
+
+    Returns:
+        dict: {code_pure: {tier1_code, tier1_pct, ..., peers_count}}
+    """
+    quotes = _quotes_by_code(quote_snapshot)
+    positions = position_rows(config)
+
+    # code → theme_id mapping from watchlist
+    code_to_themes: dict[str, list[str]] = {}
+    for theme in config.watchlist.get("themes", []):
+        tid = theme.get("id", "")
+        for stock in theme.get("stocks", []):
+            c = _pure_stock_code(str(stock.get("code", "")))
+            if c:
+                code_to_themes.setdefault(c, []).append(tid)
+
+    # all pct changes
+    all_pct: dict[str, float] = {}
+    for _, quote in quotes.items():
+        c = _pure_stock_code(str(quote.get("code", "")))
+        pct = _to_float(quote.get("pct_change"))
+        if c and pct is not None:
+            all_pct[c] = pct
+
+    result: dict[str, dict] = {}
+    for pos in positions:
+        code_pure = _pure_stock_code(str(pos.get("code", "")))
+        themes = code_to_themes.get(code_pure, [])
+        if not themes:
+            continue
+
+        peers_set: set[str] = set()
+        for tid in themes:
+            for theme in config.watchlist.get("themes", []):
+                if theme.get("id") != tid:
+                    continue
+                for stock in theme.get("stocks", []):
+                    c = _pure_stock_code(str(stock.get("code", "")))
+                    if c:
+                        peers_set.add(c)
+
+        if not peers_set:
+            continue
+
+        peer_pct = [(c, all_pct.get(c)) for c in peers_set if all_pct.get(c) is not None]
+        peer_pct.sort(key=lambda x: x[1], reverse=True)
+
+        tiers: dict = {"peers_count": len(peer_pct)}
+        for i, (pc, pp) in enumerate(peer_pct[:3]):
+            tiers[f"tier{i+1}_code"] = pc
+            tiers[f"tier{i+1}_pct"] = pp
+
+        # Calculate average
+        if peer_pct:
+            tiers["avg_change"] = round(sum(p for _, p in peer_pct) / len(peer_pct), 2)
+
+        result[code_pure] = tiers
+
+    return result
+
+
+def _agent_context_data(
+    config: Any,
+    quote_snapshot: dict,
+    state: dict,
+) -> dict:
+    """构建 Agent 分析所需的 context 数据。
+
+    Args:
+        config: MonitorConfig
+        quote_snapshot: 行情快照
+        state: 监控状态
+
+    Returns:
+        dict: 结构化分析数据
+    """
+    import json
+
+    stage = config.strategy_pack.get("market_framework", {}).get(
+        "current_stage", "未配置"
+    )
+    core_question = config.strategy_pack.get("market_framework", {}).get(
+        "core_question", "未配置"
+    )
+
+    return {
+        "market_framework": {
+            "stage": stage,
+            "core_question": core_question,
+        },
+        "market_state": state.get("last_market_state", {}),
+        "sector_signal_counts": state.get("sector_signal_counts", {}),
+        "quote_snapshot": quote_snapshot,
+        "positions": position_rows(config),
+        "watchlist": watchlist_stock_rows(config),
+    }
+
+
+def format_daily_review_context(review: dict) -> str:
+    """格式化每日复盘 context。
+
+    Args:
+        review: 复盘数据字典
+
+    Returns:
+        str: 格式化后的复盘上下文文本
+    """
+    lines = [
+        "[Hermes股票监控收盘复盘上下文]",
+        f"日期：{review.get('date', '未知')}",
+    ]
+
+    summary = review.get("summary", {})
+    if summary:
+        lines.extend(
+            [
+                "",
+                "统计：",
+                f"- 已发送提醒：{len(summary.get('emitted_alerts', []))}",
+                f"- 被去重压制：{len(summary.get('suppressed_alerts', []))}",
+            ]
+        )
+
+    entries = review.get("entries", [])
+    if entries:
+        lines.extend(["", "详细条目："])
+        for entry in entries:
+            lines.append(f"- {entry}")
+
+    return "\n".join(lines)
+
+
+def format_live_analysis_context(context_data: dict) -> str:
+    """格式化实时分析 context。
+
+    Args:
+        context_data: 实时分析数据字典
+
+    Returns:
+        str: 格式化后的实时分析上下文
+    """
+    lines = [
+        "[Hermes股票监控实时分析上下文]",
+    ]
+
+    base = context_data.get("base_context", "")
+    if base:
+        lines.append(base)
+
+    quotes = context_data.get("quotes", [])
+    if quotes:
+        lines.extend(["", "实时行情快照："])
+        from qing_investment.monitor.output import format_quote_line
+        for q in quotes:
+            lines.append(format_quote_line(q))
+
+    elapsed = context_data.get("elapsed_ms")
+    if elapsed is not None:
+        lines.append(f"行情请求耗时：{elapsed} ms")
+
+    return "\n".join(lines)

@@ -610,3 +610,48 @@ def record_emitted_alerts(
         }
         code_action_key = f"{alert.stock_code}_{alert.action}"
         today_entry[code_action_key] = alert.price
+
+
+def format_quote_line(quote: dict) -> str:
+    """格式化单条行情为文本行。
+
+    Args:
+        quote: 行情数据字典
+
+    Returns:
+        str: 格式化后的行情行
+    """
+    return (
+        "- {label}: 最新={latest} 涨跌幅={pct}% 涨跌={change} "
+        "开={open} 高={high} 低={low} 昨收={prev} 成交额={amount}"
+    ).format(
+        label=quote.get("label") or quote.get("name") or quote.get("code"),
+        latest=quote.get("latest"),
+        pct=quote.get("pct_change"),
+        change=quote.get("change"),
+        open=quote.get("open"),
+        high=quote.get("high"),
+        low=quote.get("low"),
+        prev=quote.get("previous_close"),
+        amount=quote.get("amount"),
+    )
+
+
+def format_smoke_message(smoke: dict) -> str:
+    """格式化烟雾测试消息。
+
+    Args:
+        smoke: 烟雾测试数据字典
+
+    Returns:
+        str: 格式化后的烟雾测试消息
+    """
+    lines = [
+        "[Hermes股票监控测试]",
+        "这是一条手动 smoke test，不代表买卖建议。",
+    ]
+    status_msg = smoke.get("status", "")
+    if status_msg:
+        lines.append(status_msg)
+    lines.append("下一步：接入实时行情后，cron tick 将只在触发买入/卖出/风控条件时输出。")
+    return "\n".join(lines)

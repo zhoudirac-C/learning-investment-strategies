@@ -436,3 +436,39 @@ def _format_net_buy_str(net_raw: str) -> str:
             return f"{net_float:.0f}"
     except (ValueError, TypeError):
         return str(net_raw)
+
+
+def _compute_auction_volume_ratio(
+    auction_volume: float,
+    yesterday_volume: float,
+) -> float | None:
+    """计算竞价量相对昨日成交量的比值。
+
+    Args:
+        auction_volume: 今日竞价量（手）
+        yesterday_volume: 昨日全天成交量（手）
+
+    Returns:
+        量比，或 None（数据不足）
+    """
+    if yesterday_volume is None or yesterday_volume <= 0:
+        return None
+    return round(auction_volume / yesterday_volume, 4)
+
+
+def _compute_auction_vs_yesterday_volume(
+    auction_volume: float,
+    yesterday_volume: float,
+) -> float | None:
+    """计算竞价量相对昨日成交量的百分比。
+
+    Args:
+        auction_volume: 今日竞价量（手）
+        yesterday_volume: 昨日全天成交量（手）
+
+    Returns:
+        百分比（如 0.15 表示 15%），或 None（数据不足）
+    """
+    if yesterday_volume is None or yesterday_volume <= 0:
+        return None
+    return round(auction_volume / yesterday_volume, 4)

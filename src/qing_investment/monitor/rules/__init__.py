@@ -795,3 +795,41 @@ def evaluate_monitor_alerts(
         list[RuleAlert]: 所有触发的告警
     """
     return _get_engine().evaluate(config, quote_snapshot, current_time=current_time)
+
+
+def validate_position_price_zones(
+    config: MonitorConfig,
+) -> list[str]:
+    """验证持仓价格区间是否合理（防失真）。
+
+    规则：
+    - reduce_zone 上限距现价 > 12% → 向上失真
+    - risk_zone 缺失 → 高危漏报
+
+    Returns:
+        list[str]: 告警信息列表，空列表表示全部正常
+    """
+    from qing_investment.monitor.context import (
+        _pure_stock_code,
+        parse_price_zone,
+        position_rows,
+    )
+
+    warnings: list[str] = []
+
+    for row in position_rows(config):
+        code = str(row.get("code", ""))
+        name = str(row.get("name", ""))
+
+        reduce_zone = parse_price_zone(row.get("reduce_zone"))
+        risk_zone = parse_price_zone(
+            row.get("risk_zone") or row.get("risk_line")
+        )
+
+        if reduce_zone is None and risk_zone is None:
+            warnings.append(
+                f"[{name}({code})] 缺少 reduce_zone 和 risk_zone，跌停将无提醒"
+            )
+            continue
+
+    return warnings

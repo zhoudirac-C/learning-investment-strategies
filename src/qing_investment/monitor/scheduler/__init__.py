@@ -607,7 +607,7 @@ def record_agent_analysis_trigger(
 
 
 class ConfigWatcher:
-    """配置热更新监听器。"""
+    """配置热更新监听器（轮询模式）。"""
 
     def __init__(self, config_dir: Path | str, check_interval: int = 30):
         self.config_dir = Path(config_dir) if isinstance(config_dir, str) else config_dir
@@ -657,6 +657,86 @@ class ConfigWatcher:
     @property
     def config_version(self) -> int:
         return self._config_version
+
+
+class InotifyConfigWatcher:
+    """配置热更新监听器（inotify 事件驱动模式）。
+
+    使用 watchdog 库监听文件变更事件，无需轮询。
+    必须在事件循环线程中运行（watchdog 内部管理线程）。
+
+    降级: 如果 import watchdog 失败，使用 ConfigWatcher（轮询）。
+
+    用法:
+        watcher = InotifyConfigWatcher(config_dir)
+        watcher.start()
+        ...
+        if watcher.check():  # 非阻塞，检查是否有变更
+            reload_config()
+        ...
+        watcher.stop()
+    """
+
+    def __init__(self, config_dir: Path | str):
+        self.config_dir = Path(config_dir) if isinstance(config_dir, str) else config_dir
+        self._changed = False
+        self._observer = None
+        self._watch_files = {
+            "positions.yaml",
+            "watchlist.yaml",
+            "strategy_pack.yaml",
+        }
+
+    def start(self) -> bool:
+        """启动 inotify 监听。
+
+        Returns:
+            True if started successfully, False if watchdog unavailable.
+        """
+        try:
+            from watchdog.observers import Observer
+            from watchdog.events import FileSystemEventHandler
+
+            class _Handler(FileSystemEventHandler):
+                def __init__(self, parent):
+                    self.parent = parent
+
+                def on_modified(self, event):
+                    if not event.is_directory:
+                        fname = Path(event.src_path).name
+                        if fname in self.parent._watch_files:
+                            self.parent._changed = True
+
+            self._observer = Observer()
+            self._handler = _Handler(self)
+            self._observer.schedule(self._handler, str(self.config_dir), recursive=False)
+            self._observer.start()
+            return True
+        except ImportError:
+            return False
+        except Exception:
+            return False
+
+    def check(self) -> bool:
+        """检查配置是否有变更（非阻塞）。
+
+        Returns:
+            True if config changed since last check.
+        """
+        if self._changed:
+            self._changed = False
+            return True
+        return False
+
+    def stop(self) -> None:
+        """停止监听。"""
+        if self._observer:
+            try:
+                self._observer.stop()
+                self._observer.join(timeout=2)
+            except Exception:
+                pass
+            self._observer = None
 
 
 # ──────────────────────────────────────────
@@ -1057,14 +1137,7 @@ def _summary_file_path(config_dir: Path | None = None) -> Path:
     """返回 summary 文件路径。"""
     return (config_dir or _SUMMARY_CONFIG_DIR) / _SUMMARY_FILENAME
 
-
-
-
-def _auction_cache_path(config_dir: Path | None = None) -> Path:
-    """返回竞价量缓存文件路径。"""
-    return (config_dir or _DEFAULT_CONFIG_DIR) / _AUCTION_CACHE_FILENAME
-
-
+_AUCTION_CACHE_FILENAME = "auction_volume_cache.json"
 
 
 def _state_date(value: datetime) -> str:
@@ -1072,58 +1145,35 @@ def _state_date(value: datetime) -> str:
 
 
 
+def _auction_cache_path(config_dir: Path | None = None) -> Path:
+    """返回竞价量缓存文件路径（向后兼容，委托给 AuctionCache）。"""
+    from qing_investment.monitor.cache import AuctionCache
+    ac = AuctionCache(config_dir)
+    return ac._cache_file
+
 
 def _load_auction_cache(config_dir: Path | None = None) -> dict:
-    """读取竞价量缓存。"""
-    path = _auction_cache_path(config_dir)
-    if path.exists():
-        try:
-            return json.loads(path.read_text(encoding="utf-8"))
-        except Exception as e:
-            logger.warning("读取竞价量缓存失败: %s", e)
-    return {}
-
-
+    """读取竞价量缓存（内存→文件，委托给 AuctionCache）。"""
+    from qing_investment.monitor.cache import AuctionCache
+    ac = AuctionCache(config_dir)
+    return ac.load()
 
 
 def _save_auction_cache(cache: dict, config_dir: Path | None = None) -> bool:
-    """保存竞价量缓存。"""
-    try:
-        path = _auction_cache_path(config_dir)
-        path.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
-        logger.debug("竞价量缓存已保存: %s (%d 只股票)", path, len(cache))
-        return True
-    except Exception as e:
-        logger.error("保存竞价量缓存失败: %s", e)
-        return False
-
-
+    """保存竞价量缓存（内存+文件双写，委托给 AuctionCache）。"""
+    from qing_investment.monitor.cache import AuctionCache
+    ac = AuctionCache(config_dir)
+    return ac.save(cache)
 
 
 def _update_auction_cache(
-    auction_data: dict[str, dict],  # {code_pure: {volume, price, date}}
+    auction_data: dict[str, dict],
     config_dir: Path | None = None,
 ) -> None:
-    """更新竞价量缓存，追加当日数据，保留最近 _AUCTION_CACHE_MAX_DAYS 天。"""
-    cache = _load_auction_cache(config_dir)
-    today = datetime.now(tz=_CN_TZ).strftime("%Y-%m-%d")
-
-    for code, data in auction_data.items():
-        if code not in cache:
-            cache[code] = []
-        # 如果今天已有记录，覆盖
-        existing_entries = [e for e in cache[code] if e.get("date") != today]
-        existing_entries.append({
-            "date": today,
-            "volume": data.get("volume"),
-            "price": data.get("price"),
-            "change_pct": data.get("change_pct"),
-        })
-        # 保留最近 N 天
-        existing_entries.sort(key=lambda e: e.get("date", ""), reverse=True)
-        cache[code] = existing_entries[:_AUCTION_CACHE_MAX_DAYS]
-
-    _save_auction_cache(cache, config_dir)
+    """更新竞价量缓存（委托给 AuctionCache）。"""
+    from qing_investment.monitor.cache import AuctionCache
+    ac = AuctionCache(config_dir)
+    ac.update(auction_data)
 
 
 
@@ -1562,6 +1612,7 @@ def run_tick(
     emit_status: bool,
     ignore_trading_time: bool,
     quote_fetcher=None,
+    use_concurrent_fetcher: bool = False,
     state_path: Path | None = None,
     dedupe_minutes: int = 30,
     agent_context_on_trigger: bool = False,
@@ -1574,9 +1625,13 @@ def run_tick(
     and always produce an agent trigger when --agent-json-context or
     --agent-context-on-trigger is used. This lets cron jobs run at arbitrary
     times without needing the time to be listed in strategy_pack.yaml.
+
+    If use_concurrent_fetcher=True, uses ConcurrentDataFetcher with ThreadPoolExecutor
+    to parallelize data source fetching (行情/龙虎榜) and adds TTL caching.
     """
     # Lazy imports
-    from qing_investment.monitor.rules import evaluate_monitor_alerts, evaluate_buy_signal_candidates, validate_position_price_zones
+    from qing_investment.monitor.rules import evaluate_monitor_alerts
+    from qing_investment.stock_monitor import evaluate_buy_signal_candidates
     from qing_investment.monitor.fetchers import collect_quote_targets, fetch_quotes_with_fallback as _local_fetch
     from qing_investment.monitor.output import filter_new_alerts, record_emitted_alerts, format_alerts_message
     from qing_investment.monitor.context import format_agent_json_context, format_agent_analysis_context
@@ -1593,10 +1648,27 @@ def run_tick(
         return ""
     if emit_status:
         return format_status_message(value)
-    quote_snapshot = fetcher(collect_quote_targets(config))
+    if use_concurrent_fetcher:
+        from qing_investment.monitor.fetchers import ConcurrentDataFetcher
+        cf = ConcurrentDataFetcher()
+        fetcher_result = cf.fetch_all_sources(config, include_dragon_tiger=False)
+        quote_snapshot = fetcher_result.get("quotes", {"quotes": [], "errors": []})
+    else:
+        quote_snapshot = fetcher(collect_quote_targets(config))
     # 防失真检查：验证持仓价格区间是否与当前行情匹配
-    stale_warnings = validate_position_price_zones(config, quote_snapshot)
-    alerts = evaluate_monitor_alerts(config, quote_snapshot, current_time=value)
+    from qing_investment.monitor.rules import validate_position_price_zones as _vppz
+    stale_warnings = _vppz(config)
+    # RuleEngine 内部用 config.get() 访问 dict 格式 → MonitorConfig 需要转换
+    _sp = getattr(config, "strategy_pack", {})
+    _cfg_dict: dict = {
+        "positions": getattr(config, "positions", {}),
+        "watchlist": getattr(config, "watchlist", {}),
+        "strategy_pack": _sp,
+        "entry_points": _sp.get("entry_points", []) or getattr(config, "entry_points", []),
+        "market_framework": _sp.get("market_framework", {}) or getattr(config, "market_framework", {}),
+        "sector_groups": _sp.get("sector_groups", []) or getattr(config, "sector_groups", []),
+    }
+    alerts = evaluate_monitor_alerts(_cfg_dict, quote_snapshot, current_time=value)
     resolved_state_path = state_path or config.config_dir / "state.json"
     state = load_monitor_state(resolved_state_path)
     state["version"] = 1
@@ -1648,7 +1720,7 @@ def run_tick(
         alerts, state, value, dedupe_minutes=dedupe_minutes, dedupe_by_type=dedupe_by_type
     )
     update_sector_signal_counts(state, alerts, value)
-    update_market_state(state, alerts, quote_snapshot, value)
+    update_market_state(state, alerts, value)
     record_alert_decision_log(state, alerts, new_alerts, value)
     agent_trigger = None
     if agent_context_on_trigger or agent_json_context:

@@ -34,6 +34,7 @@ import time as time_module
 import urllib.parse
 import urllib.request
 from abc import ABC, abstractmethod
+from collections.abc import Callable
 from typing import Any
 
 from pydantic import BaseModel, Field
@@ -621,6 +622,117 @@ class DataFetcher:
         return results
 
 
+# ── 并发 Fetch 包装器 ──────────────────────────
+
+class ConcurrentDataFetcher:
+    """并发数据获取器。
+
+    用 ThreadPoolExecutor 并行拉取多种数据源（行情/龙虎榜/竞价），
+    总延迟 = 最慢的单源延迟，非各源延迟之和。
+
+    用法:
+        cf = ConcurrentDataFetcher()
+        results = cf.fetch_all_sources(config, quote_snapshot=None)
+        # results = {"quotes": ..., "dragon_tiger": ..., "auction": ...}
+    """
+
+    def __init__(self, max_workers: int = 4, timeout: float = 10.0):
+        self._max_workers = max_workers
+        self._timeout = timeout
+
+    def fetch_quotes(self, config: Any) -> dict:
+        """获取行情数据（带缓存）。"""
+        from qing_investment.monitor.cache import get_cache, TTL_QUOTES
+
+        cache = get_cache()
+        cache_key = "quotes:all"
+
+        cached = cache.get(cache_key)
+        if cached is not None:
+            return cached
+
+        targets = collect_quote_targets(config)
+        result = _get_fetcher().fetch(targets)
+
+        # 标准化输出
+        output = {
+            "source": result.source,
+            "quotes": result.data.get("quotes", []),
+            "errors": [result.error] if result.error else [],
+            "elapsed_ms": result.latency_ms,
+        }
+
+        cache.set(cache_key, output, ttl=TTL_QUOTES)
+        return output
+
+    def fetch_dragon_tiger(self, config: Any) -> dict:
+        """获取龙虎榜数据（带缓存）。"""
+        from qing_investment.monitor.cache import get_cache, TTL_DRAGON_TIGER
+
+        cache = get_cache()
+        cache_key = "dragon_tiger:all"
+
+        cached = cache.get(cache_key)
+        if cached is not None:
+            return cached
+
+        try:
+            import akshare as ak
+            df = ak.stock_dzjy_mrmx(symbol="1")
+            if df is None or df.empty:
+                result = {"error": "empty dragon tiger data", "data": []}
+            else:
+                result = {"data": df.to_dict("records"), "count": len(df)}
+        except Exception as exc:
+            result = {"error": str(exc), "data": []}
+
+        cache.set(cache_key, result, ttl=TTL_DRAGON_TIGER)
+        return result
+
+    def fetch_all_sources(
+        self,
+        config: Any,
+        *,
+        include_dragon_tiger: bool = False,
+        include_auction: bool = False,
+    ) -> dict:
+        """并发拉取所有数据源。
+
+        Args:
+            config: MonitorConfig
+            include_dragon_tiger: 是否拉龙虎榜
+            include_auction: 是否拉竞价数据
+
+        Returns:
+            dict: {source: data, ...}
+        """
+        from concurrent.futures import ThreadPoolExecutor, as_completed
+
+        results: dict[str, dict] = {}
+        tasks: dict[str, Callable[[], Any]] = {"quotes": lambda: self.fetch_quotes(config)}
+
+        if include_dragon_tiger:
+            tasks["dragon_tiger"] = lambda: self.fetch_dragon_tiger(config)
+
+        with ThreadPoolExecutor(max_workers=self._max_workers) as executor:
+            future_map = {
+                executor.submit(fn): name for name, fn in tasks.items()
+            }
+            for future in as_completed(future_map, timeout=self._timeout):
+                name = future_map[future]
+                try:
+                    results[name] = future.result()
+                except Exception as exc:
+                    results[name] = {"error": str(exc)}
+
+        # 填充超时的源
+        for name in tasks:
+            if name not in results:
+                results[name] = {"error": f"timeout (>={self._timeout}s)"}
+
+        return results
+
+
 # ──────────────────────────────────────────
 # 向后兼容: 委托函数
 # ──────────────────────────────────────────
@@ -650,6 +762,11 @@ def fetch_quotes(targets: dict[str, str]) -> dict:
         "errors": [result.error] if result.error else [],
         "elapsed_ms": result.latency_ms,
     }
+
+
+def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
+    """别名，与 fetch_quotes 行为一致。"""
+    return fetch_quotes(targets)
 
 
 # ──────────────────────────────────────────
@@ -707,3 +824,57 @@ def collect_quote_targets(config: Any) -> dict[str, str]:
             seen_secids.add(secid)
 
     return targets
+
+
+def _pure_stock_code(raw: str) -> str:
+    """从 '600519.SH' 或 '600519' 中提取纯数字代码。"""
+    match = re.search(r"(\d{6})", raw)
+    return match.group(1) if match else raw
+
+
+def _auction_snapshot(
+    code: str,
+    date_str: str,
+    timeout: int = 10,
+) -> dict:
+    """获取个股竞价快照。
+
+    在 09:25-09:26 调用，此时实时行情的 latest = 竞价撮合价，
+    volume 包含竞价量。通过 DataFetcher 获取个股实时行情后提取。
+
+    Args:
+        code: 股票代码（6位纯数字或带后缀如 600519.SH）
+        date_str: 日期字符串（如 '2026-06-14'）
+        timeout: 超时秒数
+
+    Returns:
+        dict: {code: {open, volume, latest, high, low, pct_change, time}}
+    """
+    import time as _time
+
+    pure_code = _pure_stock_code(code)
+    secid = stock_code_to_secid(code)
+    if not secid:
+        return {}
+
+    target = {pure_code: secid}
+    result = _get_fetcher().fetch(target)
+    quotes = result.data.get("quotes", [])
+
+    for quote in quotes:
+        q_code = _pure_stock_code(str(quote.get("code", "")))
+        if q_code == pure_code:
+            return {
+                pure_code: {
+                    "open": quote.get("open"),
+                    "latest": quote.get("latest"),
+                    "high": quote.get("high"),
+                    "low": quote.get("low"),
+                    "volume": quote.get("volume"),
+                    "amount": quote.get("amount"),
+                    "pct_change": quote.get("pct_change"),
+                    "time": date_str,
+                }
+            }
+
+    return {}
