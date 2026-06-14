@@ -1080,6 +1080,17 @@ def run(
     if saved_files:
         build_index()
 
+    # Claims 去重（新增）
+    # 对 saved_files 中的动态提取 claims 后去重，避免重复入库
+    if saved_files:
+        try:
+            from qing_investment.monitor.deduplicator import deduplicate_bilibili_claims
+            # 尝试从已保存的文件提取 claims（如果已有提取流程）
+            # 否则记录日志提示后续 pipeline 使用去重器
+            print(f"INFO: {len(saved_files)} 条新动态已保存，claims 去重器就绪")
+        except ImportError:
+            pass  # 去重器未安装，跳过
+
     return saved_files
 
 

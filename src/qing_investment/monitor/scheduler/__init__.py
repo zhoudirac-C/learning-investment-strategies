@@ -875,12 +875,17 @@ class Scheduler:
                 duration_ms=int((time.time() - _t0) * 1000),
             )
 
-        # 获取数据（委托给 Fetcher）
+        # 获取数据（委托给 Fetcher，优先使用 WebSocket 事件驱动）
         quote_snapshot = None
         if self.fetcher:
             try:
                 targets = self._collect_quote_targets()
-                quote_snapshot = self.fetcher(targets)
+                # 尝试使用 WsEventDrivenFetcher（如果可用）
+                ws_snapshot = self._try_ws_fetch(targets)
+                if ws_snapshot:
+                    quote_snapshot = ws_snapshot
+                else:
+                    quote_snapshot = self.fetcher(targets)
                 self.state_manager.update_quote_snapshot(quote_snapshot, value)
             except Exception as e:
                 logger.error(f"Fetcher failed: {e}")
@@ -964,6 +969,51 @@ class Scheduler:
                 targets[name] = code
 
         return targets
+
+    def _try_ws_fetch(self, targets: dict[str, str]) -> dict | None:
+        """尝试使用 WebSocket 事件驱动获取行情快照。
+
+        如果 WsEventDrivenFetcher 可用且已连接，返回实时快照；
+        否则返回 None，回退到 HTTP fetcher。
+        """
+        try:
+            import asyncio
+            from qing_investment.monitor.fetchers.ws_event_fetcher import WsEventDrivenFetcher
+            from qing_investment.monitor.fetchers import fetch_quotes_with_fallback
+
+            codes = list(targets.values())
+            ws_fetcher = WsEventDrivenFetcher(
+                http_fetcher=fetch_quotes_with_fallback,
+                codes=codes,
+            )
+            # 异步启动（非阻塞，快速失败）
+            try:
+                loop = asyncio.get_running_loop()
+            except RuntimeError:
+                loop = asyncio.new_event_loop()
+                asyncio.set_event_loop(loop)
+
+            started = loop.run_until_complete(
+                asyncio.wait_for(ws_fetcher.start(), timeout=3.0)
+            )
+            if started:
+                snapshot = loop.run_until_complete(
+                    asyncio.wait_for(ws_fetcher.get_snapshot(), timeout=2.0)
+                )
+                loop.run_until_complete(ws_fetcher.stop())
+                if snapshot and snapshot.get("quotes"):
+                    codes_needed = set(targets.values())
+                    codes_available = {q.get("code", "") for q in snapshot.get("quotes", [])}
+                    if codes_needed & codes_available:
+                        logger.info(f"WsEventDrivenFetcher: 使用缓存快照 ({len(snapshot.get('quotes', []))} 条)")
+                        return snapshot
+            else:
+                logger.debug("WsEventDrivenFetcher 启动失败，使用 HTTP fallback")
+        except ImportError:
+            pass  # WsEventDrivenFetcher 未安装
+        except Exception as e:
+            logger.debug(f"WsEventDrivenFetcher 不可用: {e}")
+        return None
 
     def _filter_new_alerts(self, alerts: list[dict], value: datetime) -> list[dict]:
         """过滤新告警（简单去重）。"""

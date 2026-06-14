@@ -176,7 +176,20 @@ def main():
     # 2. Call qing-agent
     response = call_qing_agent(data)
 
-    # 3. Output with hallucination check
+    # 3. Citation validation (new)
+    citation_warning = ""
+    if response and response.get("final_output"):
+        try:
+            from qing_investment.agent.validators.citation_validator import CitationValidator
+            validator = CitationValidator(coverage_threshold=0.6)
+            report = validator.validate(response["final_output"])
+            if report.coverage < 0.6:
+                citation_warning = f"[引用警告: 覆盖率{report.coverage:.0%}，建议补充来源标注]"
+        except Exception as e:
+            # Validator not available or error — non-blocking
+            citation_warning = f"[引用检查未运行: {e}]"
+
+    # 4. Output with hallucination check + citation warning
     if response and response.get("final_output"):
         output = response["final_output"]
         if _is_hallucinated(output):
@@ -185,7 +198,7 @@ def main():
             print("[Qing-Agent ✗ HALLUCINATION]")
             print(fetch_fallback_text_context(root))
             return 0
-        print("[Qing-Agent ✓]")
+        print("[Qing-Agent ✓]" + (f" {citation_warning}" if citation_warning else ""))
         print(output)
         if response.get("claims_cited"):
             print(f"\n[引用claims: {', '.join(response['claims_cited'])}]")
