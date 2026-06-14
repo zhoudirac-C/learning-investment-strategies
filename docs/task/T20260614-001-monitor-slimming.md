@@ -79,12 +79,16 @@
 **验收标准**:
 - [x] 12个函数在 `monitor/analysis/__init__.py` 中有真实实现
 - [x] 保留 pandas/akshare 依赖和异常处理
+- [x] `python -m py_compile` 通过
+- [x] 导入测试通过（stock_monitor.py 委托调用正常）
+- [x] 功能测试通过（_compute_vs_ma, _parse_net_buy_float 等）
 - [x] E2E测试通过
 
 **状态**: ✅ 已完成（2026-06-14）
 - 从 git 历史提取原实现（commit 8129ee6）
 - 创建 monitor/analysis/__init__.py（400行）
 - 修复导入问题（timedelta, TYPE_CHECKING）
+- 修复类型注解问题（MonitorConfig 循环导入）
 
 ---
 
