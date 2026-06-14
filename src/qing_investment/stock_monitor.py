@@ -799,12 +799,23 @@ def evaluate_monitor_alerts(
     *,
     current_time: datetime | None = None,
 ) -> list[RuleAlert]:
-    return (
-        evaluate_market_alerts(config, quote_snapshot, current_time=current_time)
-        + evaluate_sector_rotation_alerts(config, quote_snapshot)
-        + evaluate_position_alerts(config, quote_snapshot)
-        + evaluate_buy_signal_alerts(config, quote_snapshot)
-    )
+    """Evaluate all monitoring rules — 委托给 Phase 1 RuleEngine 模块。
+
+    原实现已迁移至: qing_investment.monitor.rules.RuleEngine
+    保留此函数以保持向后兼容。
+    """
+    from qing_investment.monitor.rules import evaluate_monitor_alerts as _new_evaluate
+
+    try:
+        return _new_evaluate(config, quote_snapshot, current_time=current_time)
+    except Exception as e:
+        logger.warning(f"RuleEngine delegation failed: {e}, falling back to legacy logic")
+        return (
+            evaluate_market_alerts(config, quote_snapshot, current_time=current_time)
+            + evaluate_sector_rotation_alerts(config, quote_snapshot)
+            + evaluate_position_alerts(config, quote_snapshot)
+            + evaluate_buy_signal_alerts(config, quote_snapshot)
+        )
 
 
 def format_alerts_message(
@@ -812,6 +823,18 @@ def format_alerts_message(
     value: datetime,
     quote_snapshot: dict,
 ) -> str:
+    """格式化告警消息 — 委托给 Phase 3 OutputManager 模块。
+
+    原实现已迁移至: qing_investment.monitor.output.AlertOutputManager
+    保留此函数以保持向后兼容。
+    """
+    from qing_investment.monitor.output import format_alerts_message as _new_format
+
+    try:
+        return _new_format(alerts, value, quote_snapshot)
+    except Exception as e:
+        logger.warning(f"OutputManager delegation failed: {e}, falling back to legacy logic")
+
     if not alerts:
         return ""
 
@@ -847,21 +870,41 @@ def alert_fingerprint(alert: RuleAlert) -> str:
 
 
 def load_monitor_state(path: Path) -> dict:
-    if not path.exists():
-        return {}
+    """加载监控状态 — 委托给 Phase 5 Scheduler 模块。
+
+    原实现已迁移至: qing_investment.monitor.scheduler.StateManager
+    保留此函数以保持向后兼容。
+    """
+    from qing_investment.monitor.scheduler import load_monitor_state as _new_load
     try:
-        data = json.loads(path.read_text(encoding="utf-8"))
-    except (json.JSONDecodeError, OSError):
-        return {}
-    return data if isinstance(data, dict) else {}
+        return _new_load(path)
+    except Exception as e:
+        logger.warning(f"StateManager delegation failed: {e}, falling back to legacy logic")
+        if not path.exists():
+            return {}
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            return {}
+        return data if isinstance(data, dict) else {}
 
 
 def save_monitor_state(path: Path, state: dict) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True),
-        encoding="utf-8",
-    )
+    """保存监控状态 — 委托给 Phase 5 Scheduler 模块。
+
+    原实现已迁移至: qing_investment.monitor.scheduler.StateManager
+    保留此函数以保持向后兼容。
+    """
+    from qing_investment.monitor.scheduler import save_monitor_state as _new_save
+    try:
+        return _new_save(path, state)
+    except Exception as e:
+        logger.warning(f"StateManager delegation failed: {e}, falling back to legacy logic")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(
+            json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True),
+            encoding="utf-8",
+        )
 
 
 def _parse_state_time(value: object) -> datetime | None:
@@ -3159,14 +3202,13 @@ def is_a_share_trading_day(value: datetime) -> bool:
 
 
 def is_a_share_trading_time(value: datetime) -> bool:
-    local = value.astimezone(CN_TZ)
-    if not is_a_share_trading_day(local):
-        return False
-    current = local.time()
-    return (
-        time(9, 15) <= current <= time(11, 30)
-        or time(13, 0) <= current <= time(15, 0)
-    )
+    """判断是否为A股交易时段 — 委托给 Phase 5 Scheduler 模块。
+
+    原实现已迁移至: qing_investment.monitor.scheduler.TradingTimeChecker
+    保留此函数以保持向后兼容。
+    """
+    from qing_investment.monitor.scheduler import TradingTimeChecker
+    return TradingTimeChecker.is_trading_time(value)
 
 
 def position_rows(config: MonitorConfig) -> list[dict]:
@@ -3663,93 +3705,13 @@ def fetch_sina_quotes(targets: dict[str, str]) -> dict:
 
 
 def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
-    """多数据源降级获取行情：腾讯优先 → 新浪 → 东财兜底 → 缓存。
+    """多数据源降级获取行情 — 委托给 Phase 0 Fetcher 模块。
 
-    降级策略（基于服务器IP限流经验）：
-    1. 腾讯(gtimg): 最稳定，对服务器IP友好，优先尝试
-    2. 新浪(hq.sinajs.cn): 备用，覆盖大部分A股
-    3. 东财(push2.eastmoney.com): 数据最全但限流严格，最后尝试
-    4. 都失败: 返回缓存数据 + 警告
+    原实现已迁移至: qing_investment.monitor.fetchers.DataFetcher
+    保留此函数以保持向后兼容。
     """
-    # 尝试1: 腾讯（最稳定）
-    tencent_result = fetch_tencent_quotes(targets)
-    tencent_quotes = tencent_result.get("quotes", []) or []
-    tencent_errors = tencent_result.get("errors", []) or []
-    if len(tencent_quotes) >= len(targets) * 0.8 and not tencent_errors:
-        return tencent_result
-
-    # 尝试2: 新浪（备用）
-    sina_result = fetch_sina_quotes(targets)
-    sina_quotes = sina_result.get("quotes", []) or []
-    sina_errors = sina_result.get("errors", []) or []
-    if sina_quotes and not sina_errors:
-        # 合并腾讯已获取的数据 + 新浪补充
-        if tencent_quotes:
-            merged = _merge_quotes(tencent_quotes, sina_quotes)
-            return {
-                "source": "tencent_gtimg+sina_hq",
-                "quotes": merged,
-                "errors": [],
-                "elapsed_ms": (
-                    tencent_result.get("elapsed_ms", 0) + sina_result.get("elapsed_ms", 0)
-                ),
-            }
-        return sina_result
-
-    # 尝试3: 东财（数据最全但限流严格）
-    em_result = fetch_eastmoney_quotes(targets)
-    em_quotes = em_result.get("quotes", []) or []
-    em_errors = em_result.get("errors", []) or []
-    if em_quotes and not em_errors:
-        return em_result
-
-    # 兜底: 返回任何可用的数据 + 合并警告
-    best_result = tencent_result if tencent_quotes else (sina_result if sina_quotes else em_result)
-    best_quotes = best_result.get("quotes", []) or []
-
-    if best_quotes:
-        # 合并所有可用数据源
-        merged = best_quotes
-        if tencent_quotes and best_result is not tencent_result:
-            merged = _merge_quotes(merged, tencent_quotes)
-        if sina_quotes and best_result is not sina_result:
-            merged = _merge_quotes(merged, sina_quotes)
-        if em_quotes and best_result is not em_result:
-            merged = _merge_quotes(merged, em_quotes)
-
-        all_errors = []
-        if tencent_errors:
-            all_errors.append(f"腾讯: {tencent_errors[0][:80]}")
-        if sina_errors:
-            all_errors.append(f"新浪: {sina_errors[0][:80]}")
-        if em_errors:
-            all_errors.append(f"东财: {em_errors[0][:80]}")
-
-        return {
-            "source": "fallback_merged",
-            "quotes": merged,
-            "errors": all_errors,
-            "elapsed_ms": best_result.get("elapsed_ms", 0),
-        }
-
-    # 完全失败
-    return {
-        "source": "all_failed",
-        "quotes": [],
-        "errors": [
-            f"所有数据源失败。腾讯: {tencent_errors[:1]}; 新浪: {sina_errors[:1]}; 东财: {em_errors[:1]}"
-        ],
-    }
-
-
-def _merge_quotes(base: list[dict], extra: list[dict]) -> list[dict]:
-    """合并两个quote列表，以base为主，extra补充缺失的secid。"""
-    seen = {q.get("secid"): q for q in base if q.get("secid")}
-    for q in extra:
-        secid = q.get("secid")
-        if secid and secid not in seen:
-            seen[secid] = q
-    return list(seen.values())
+    from qing_investment.monitor.fetchers import fetch_quotes
+    return fetch_quotes(targets)
 
 
 def format_quote_line(quote: dict) -> str:
