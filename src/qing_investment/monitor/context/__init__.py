@@ -661,7 +661,7 @@ class TokenBudgetManager:
     def compress(
         self,
         state_update: dict,
-        max_tokens: int = 6000,
+        max_tokens: int = 8000,
         strategy: str = "priority",
     ) -> dict:
         """压缩 Agent 检索层上下文，确保不超过 token 预算。

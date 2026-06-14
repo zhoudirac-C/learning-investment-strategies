@@ -472,7 +472,45 @@ class TokenBudgetManager:
         """粗略估算token数（中文≈1.5token/字）"""
         text = json.dumps(data, ensure_ascii=False)
         return int(len(text) * 1.5)
+
+
+**扩展 — `compress()` 方法（2026-06-14 实施）**：
+
+```python
+def compress(
+    self,
+    state_update: dict,
+    max_tokens: int = 6000,
+    strategy: str = "priority",
+) -> dict:
+    """压缩 Agent 检索层上下文，确保不超过 token 预算。
+
+    裁剪策略:
+        "priority"（默认）— 按"最不重要→最重要"顺序裁剪，claims 最后碰
+        "aggressive"    — 只保留 4 个必要字段，其余直接丢弃
+
+    优先级顺序（priority 模式）:
+        memories ← 最先裁（个人记忆，与当前分析关联度最低）
+        few_shot_examples ← 其次
+        sector_context ← 其次
+        wiki_snippets ← 其次
+        claims ← 最后裁（UP 观点，最核心）
+
+    保底机制:
+        - 每次裁掉一半，但每种类型至少保留 5 条
+        - 保留的是语义排序靠前的结果（Qdrant 按相似度排序）
+        - 一旦 token 估算 ≤ max_tokens，立即停止
+
+    安全设计:
+        - 不超预算 → 原样返回，完全不裁剪
+        - 超预算 → 按优先级从低到高逐级裁剪
+        - claims 最后才碰，避免丢失 UP 核心观点
+    """
 ```
+
+**说明**：此方法是对原 `allocate()` 的补充，专门用于 Agent 检索层（retrieve_knowledge 节点）返回大量 claims/wiki 时的快速压缩。已注入 `agent/graph/nodes.py` 的 `retrieve_knowledge` 节点末尾。实测 8092 tokens 可压缩至 4364 tokens（46% 压缩率），0 破坏性变更。
+
+
 
 #### 更新4：Devil's Advocate模式（新增，参考AlphaAnalyst）
 

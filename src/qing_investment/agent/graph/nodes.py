@@ -1078,7 +1078,7 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
             "few_shot_examples": few_shot,
             "stock_contexts": stock_contexts,
         }
-        _compressed = _tbm.compress(_state_update, max_tokens=6000, strategy="priority")
+        _compressed = _tbm.compress(_state_update, max_tokens=8000, strategy="priority")
         claims = _compressed.get("claims", claims)
         wiki_snippets = _compressed.get("wiki_snippets", wiki_snippets)
         sector_context = _compressed.get("sector_context", sector_context)
