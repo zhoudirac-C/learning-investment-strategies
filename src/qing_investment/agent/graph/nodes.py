@@ -1946,10 +1946,15 @@ def style_writer(state: AgentState) -> AgentState:
 
     logger.info(f"style_writer: output_len={len(styled)} generated={bool(content)}")
 
-    return {
+    # 成本追踪
+    _sw_ct = CostTracker()
+    _sw_ct.record_call(provider=(settings.llm_provider or "deepseek"))
+    _sw_cost = _sw_ct.snapshot()
 
+    return {
         "styled_output": styled,
         "reasoning_steps": ["风格化生成完成"],
+        "cost_tracking": [_sw_cost],
     }
 
 
@@ -1972,6 +1977,12 @@ def reviewer(state: AgentState) -> AgentState:
 请输出JSON：
 """
     content = _safe_llm_invoke(prompt)
+
+    # 成本追踪
+    _rv_ct = CostTracker()
+    _rv_ct.record_call(provider=(settings.llm_provider or "deepseek"))
+    _rv_cost = _rv_ct.snapshot()
+
     try:
         result = json.loads(content) if content else {}
     except json.JSONDecodeError:
@@ -2017,4 +2028,5 @@ def reviewer(state: AgentState) -> AgentState:
         "reasoning_steps": [
             f"事实核查: {'通过' if result.get('passed') else '未通过'}"
         ],
+        "cost_tracking": [_rv_cost],
     }

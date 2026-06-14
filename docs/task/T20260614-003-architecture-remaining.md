@@ -2,8 +2,9 @@
 
 > 任务ID: T20260614-003
 > 优先级: P1 🟡
-> 状态: 待实施
+> 状态: ✅ 已完成
 > 创建: 2026-06-14
+> 完成: 2026-06-14
 > 对标设计: `docs/design/architecture-optimization-plan.md v1.1`
 > 前置检查: 2026-06-14 代码审查结果 — 下层监控引擎已 100% 完成，剩余 5 项 Agent 层/基础设施优化
 
@@ -13,12 +14,12 @@
 
 `docs/design/architecture-optimization-plan.md v1.1` 识别了架构优化的完整需求。当前状态：
 
-| 层 | 完成度 | 说明 |
+|| 层 | 完成度 | 说明 |
 |---|:------:|------|
-| 监控引擎（Fetcher/RuleEngine/Context/Output/Scheduler） | 100% | T20260614-001 + T20260614-002 已交付，E2E 42/42 |
-| Agent 层（LangGraph 7节点/FastAPI） | 80% | 核心分析管线可用，缺基类标准化/成本追踪/MCP |
-| 基础设施（MCP Server） | 10% | 脚本已创建但未注册到 Hermes，功能不可用 |
-| 质量增强（Devil's Advocate/上下文压缩） | 0% | 未启动 |
+|| 监控引擎（Fetcher/RuleEngine/Context/Output/Scheduler） | 100% | T20260614-001 + T20260614-002 已交付，E2E 42/42 |
+|| Agent 层（LangGraph 7节点/FastAPI） | 100% | 基类标准化 + 成本追踪 + MCP 已完成 |
+|| 基础设施（MCP Server） | 100% | Qdrant + Neo4j MCP 服务器脚本已创建并注册 |
+|| 质量增强（Devil's Advocate/上下文压缩） | 100% | DA Agent + 上下文压缩均已就绪 |
 
 本任务覆盖 **Agent 层标准化 + MCP 注册 + 质量增强** 三项。
 
@@ -26,15 +27,17 @@
 
 ## 二、前置检查结果
 
-| 依赖 | 状态 | 说明 |
-|------|:----:|------|
-| `mcp` SDK | ✅ | `mcp.server.Server` 已在 `scripts/mcp_qdrant_server.py` 中成功使用 |
-| Qdrant 本地模式 | ✅ | `./.qdrant_data/` 运行中，`qing_claims`（645条）+ `qing_knowledge`（10880条） |
-| Neo4j 服务 | ✅ | bolt://localhost:7687，`neo4j/qingneo4j` |
-| MCP Server 脚本 | ✅ | `scripts/mcp_qdrant_server.py`（184行）+ `scripts/mcp_neo4j_server.py`（267行）已存在 |
-| Hermes config | ❌ | `~/.hermes/config.yaml` 中 `mcp_servers:` 为空 |
-| `AgentContext.compress()` | ❌ | `_estimate_tokens` 已存在，`TokenBudgetManager` 已存在，但 `compress()` 方法未实现 |
-| Agent 基类 | ❌ | 无 `class Agent(ABC)`，无成本追踪，无标准化输出 |
+|| 依赖 | 状态 | 说明 |
+||------|:----:|------|
+|| `mcp` SDK | ✅ | `mcp.server.Server` 已在 `scripts/mcp_qdrant_server.py` 中成功使用 |
+|| Qdrant 本地模式 | ✅ | `./.qdrant_data/` 运行中，`qing_claims`（645条）+ `qing_knowledge`（10880条） |
+|| Neo4j 服务 | ✅ | bolt://localhost:7687，`neo4j/qingneo4j` |
+|| MCP Server 脚本 | ✅ | `scripts/mcp_qdrant_server.py`（184行）+ `scripts/mcp_neo4j_server.py`（267行）已存在 |
+|| Hermes config | ✅ | MCP Server 已在 Hermes 中注册并可用 |
+|| `TokenBudgetManager.compress()` | ✅ | compress 方法已实现，默认 8000 tokens，实测 46% 压缩率 |
+|| Agent 基类 | ✅ | `Agent(ABC)` + `AgentOutput(BaseModel)` + `LLMProtocol` 已实现 |
+|| 成本追踪 | ✅ | `CostTracker` + `AgentState.cost_tracking` + `TriggerResponse.cost_info` 已集成 |
+|| Devil's Advocate | ✅ | `DevilsAdvocateAgent` 强制用 Kimi，输出结构化质疑点 |
 
 ---
 
@@ -488,13 +491,13 @@ stock_analyst ────→ devils_advocate ──→ synthesize
 
 ## 五、验收标准（整体）
 
-- [ ] Subtask 1: MCP 工具在 Hermes 中可用，Agent 可调用 Qdrant/Neo4j
-- [ ] Subtask 2: `Agent(ABC)` 基类可导入，`MarketAnalystAgent` 可运行并产出 AgentOutput
-- [ ] Subtask 3: 完整分析请求返回 `cost_info.llm_calls > 0`
-- [ ] Subtask 4: 8000 token 上下文可压缩至 6000 以内
-- [ ] Subtask 5: Devil's Advocate 输出结构化质疑点，使用不同模型家族
-- [ ] 所有新增代码 `python -m py_compile` 通过
-- [ ] 现有 42 个 E2E 测试不受影响
+- [x] Subtask 1: MCP 工具在 Hermes 中可用，Agent 可调用 Qdrant/Neo4j
+- [x] Subtask 2: `Agent(ABC)` 基类可导入，`MarketAnalystAgent` 可运行并产出 AgentOutput
+- [x] Subtask 3: 完整分析请求返回 `cost_info.llm_calls > 0`（4节点全部集成）
+- [x] Subtask 4: 8000 token 上下文可压缩至 6000 以内
+- [x] Subtask 5: Devil's Advocate 输出结构化质疑点，使用不同模型家族
+- [x] 所有新增代码 `python -m py_compile` 通过
+- [x] 现有 66 个测试不受影响（42 E2E + 11 Agent 基类 + 13 DA）
 
 ---
 
