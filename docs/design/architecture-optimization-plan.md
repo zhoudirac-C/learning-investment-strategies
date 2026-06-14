@@ -141,52 +141,208 @@ Frontend → FastAPI Orchestrator → asyncio.gather
 
 ### 3.2 目标架构 v1.1
 
+```plantuml
+@startuml
+!define RECTANGLE class
+
+skinparam backgroundColor #FAFAFA
+skinparam componentStyle rectangle
+skinparam linetype ortho
+skinparam defaultFontSize 11
+skinparam packageBorderColor #90A4AE
+skinparam packageFontColor #37474F
+skinparam rectangleBorderColor #546E7A
+skinparam rectangleFontColor #263238
+skinparam rectangleBackgroundColor #FFFFFF
+skinparam databaseBackgroundColor #E3F2FD
+skinparam folderBackgroundColor #FFF8E1
+skinparam noteBackgroundColor #FFFDE7
+skinparam noteBorderColor #FBC02D
+
+title Qing-Agent v1.1 目标架构 — 6层模块化 + 竞品最佳实践
+
+package "Layer 0: 数据源" #ECEFF1 {
+    database "东财API" as EM
+    database "新浪API" as SINA
+    database "WebSocket" as WS
+    database "Neo4j\n(Claims图)" as NEO
+    database "Qdrant\n(向量检索)" as QDR
+    database "mem0\n(记忆)" as MEM
+    folder "B站动态" as BZ
+    folder "本地文档" as DOC
+}
+
+package "Layer 1: 数据接入层 (NEW)" #E3F2FD {
+    [DataFetcher] as DF #BBDEFB
+    [KlineCache] as KC #BBDEFB
+    [KnowledgeFetcher] as KF #BBDEFB
+    [WebSocketClient] as WSC #BBDEFB
+
+    note right of DF
+      参考AlphaAnalyst设计
+      统一行情拉取 + 降级链
+      东财 → 新浪 → 缓存
+    end note
+
+    note right of KF
+      并发查询Neo4j+Qdrant
+      异步聚合claims+wiki
+    end note
+}
+
+package "Layer 2: 规则引擎层 (NEW)" #F3E5F5 {
+    [RuleEngine] as RE #CE93D8
+    [IndexRules] as IR #CE93D8
+    [SectorRules] as SR #CE93D8
+    [PositionRules] as PR #CE93D8
+    [WatchlistRules] as WR #CE93D8
+    [BuySignalDetector] as BSD #CE93D8
+    [RiskAlertRules] as RAR #CE93D8
+
+    note right of RE
+      插件化规则，支持热注册
+      参考A-Scope风控Agent
+    end note
+
+    note right of RAR
+      新增：风险预警规则
+      止损/回撤/异常波动检测
+    end note
+}
+
+package "Layer 3: 上下文构建层 (NEW)" #E8F5E9 {
+    [ContextBuilder] as CB #A5D6A7
+    [ConfigLoader] as CL #A5D6A7
+    [HotScoreCalculator] as HSC #A5D6A7
+    [TokenBudgetManager] as TBM #A5D6A7
+
+    note right of CB
+      按需构建，P4主板/非主板分离
+      Top15聚焦进LLM上下文
+    end note
+
+    note right of TBM
+      新增：token预算控制
+      防止watchlist膨胀导致超时
+      参考AlphaAnalyst成本追踪
+    end note
+}
+
+package "Layer 4: 告警与输出层 (NEW)" #FFF8E1 {
+    [AlertManager] as AM #FFE082
+    [DedupFilter] as DF2 #FFE082
+    [RateLimiter] as RL #FFE082
+    [WeixinFormatter] as WF #FFE082
+
+    note right of AM
+      分级：info / warning / critical
+      支持微信/日志/HTTP回调
+    end note
+}
+
+package "Layer 5: 分析引擎层 (保留+优化)" #FFF3E0 {
+    [parse_query] as PQ
+    [retrieve_knowledge] as RK
+    [market_analyst] as MA
+    [stock_analyst] as SA
+    [synthesize] as SYN
+    [style_writer] as SW
+    [reviewer] as REV
+    [CitationValidator] as CV #FFCC80
+    [DevilsAdvocate] as DA #FFCC80
+
+    note right of MA
+      优化：market_analyst + stock_analyst
+      并行执行，共享状态
+      （原串行：先MA后SA）
+    end note
+
+    note right of CV
+      新增：来源校验器
+      每个数字claim必须带citation
+      参考AlphaAnalyst设计
+    end note
+
+    note right of DA
+      新增：反向质疑Agent
+      强制用不同模型家族
+      Phase 3接入，预留接口
+    end note
+}
+
+package "Layer 6: 调度输出层 (保留)" #E0F7FA {
+    [Hermes Cron] as CRON #80DEEA
+    [定时触发] as TIMER #80DEEA
+}
+
+' === 数据流 ===
+EM --> DF : HTTP
+SINA --> DF : HTTP (fallback)
+WS --> WSC : WebSocket
+
+NEO --> KF : Cypher查询
+QDR --> KF : 向量检索
+MEM --> KF : 记忆读取
+
+DF --> KC : 缓存写入
+KC --> DF : 缓存读取
+
+BZ --> KF : 动态提取
+DOC --> KF : 文档解析
+
+' Layer 1 → Layer 2
+DF --> RE : 行情数据
+KF --> RE : 知识上下文
+
+' Layer 2 → Layer 3
+RE --> CB : RuleAlert[]
+IR --> CB : 指数信号
+SR --> CB : 板块信号
+PR --> CB : 持仓信号
+WR --> CB : 观察池信号
+BSD --> CB : 买入候选
+RAR --> CB : 风险预警
+
+' Layer 3 → Layer 4
+CB --> AM : AgentContext
+CL --> CB : 配置热更新
+HSC --> CB : Top15排序
+TBM --> CB : token预算
+
+' Layer 4 → Layer 5
+AM --> PQ : 触发分析
+
+' Layer 5 内部
+PQ --> RK : 查询意图
+RK --> MA : 知识片段
+RK --> SA : 知识片段
+MA --> SYN : 市场分析
+SA --> SYN : 个股分析
+SYN --> CV : 合成报告
+CV --> SW : 校验通过
+SW --> REV : 格式化输出
+REV --> DA : 质量审核
+DA --> REV : 反向质疑
+
+' Layer 5 → Layer 6
+REV --> CRON : 最终输出
+CRON --> WF : 微信推送
+CRON --> TIMER : 定时调度
+
+' 配置热更新
+CL ..> RE : 规则重载
+CL ..> CB : 配置刷新
+
+@enduml
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                        目标架构 v1.1                                  │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│  Layer 0: 数据源                                                     │
-│  ├── 东财API / 新浪API / WebSocket (行情)                           │
-│  ├── Neo4j (Claims图) / Qdrant (向量检索) / mem0 (记忆)             │
-│  └── B站动态 / 本地文档 (非结构化)                                   │
-│                                                                     │
-│  Layer 1: 数据接入层 (NEW) ⭐ 参考AlphaAnalyst Fetcher设计           │
-│  ├── DataFetcher (统一行情拉取，东财→新浪降级)                       │
-│  ├── KlineCache (SQLite/InfluxDB，盘前预取)                           │
-│  ├── KnowledgeFetcher (Neo4j+Qdrant并发查询)                         │
-│  └── WebSocketClient (预留，Phase 2)                                 │
-│                                                                     │
-│  Layer 2: 规则引擎层 (NEW)                                           │
-│  ├── RuleEngine (插件化，支持热注册)                                 │
-│  ├── IndexRules / SectorRules / PositionRules                       │
-│  ├── WatchlistRules / BuySignalDetector                             │
-│  └── ⭐ 新增: RiskAlertRules (风险预警，参考A-Scope风控Agent)         │
-│                                                                     │
-│  Layer 3: 上下文构建层 (NEW)                                         │
-│  ├── ContextBuilder (按需构建，P4分离)                                 │
-│  ├── ConfigLoader (watchdog热更新)                                   │
-│  ├── HotScoreCalculator (Top15聚焦)                                   │
-│  └── ⭐ 新增: TokenBudgetManager (token预算控制，参考AlphaAnalyst成本追踪)│
-│                                                                     │
-│  Layer 4: 告警与输出层 (NEW)                                         │
-│  ├── AlertManager (分级: info/warning/critical)                      │
-│  ├── DedupFilter (30分钟去重窗口)                                     │
-│  ├── RateLimiter (防刷屏)                                            │
-│  └── WeixinFormatter (微信格式化)                                    │
-│                                                                     │
-│  Layer 5: 分析引擎层 (保留+优化)                                      │
-│  ├── parse_query → retrieve_knowledge (MCP调用)                     │
-│  ├── market_analyst + stock_analyst (⭐ 并行执行，共享状态)            │
-│  ├── synthesize (⭐ 新增: CitationValidator，来源校验)                 │
-│  ├── style_writer + reviewer                                         │
-│  └── ⭐ 新增: Devil's Advocate (反向质疑，强制用不同模型)                │
-│                                                                     │
-│  Layer 6: 调度输出层 (保留)                                          │
-│  └── Hermes Cron (定时触发)                                          │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
-```
+
+**架构图说明：**
+- **6层清晰分离**：数据→接入→规则→上下文→告警→分析→调度
+- **绿色模块**：新增组件（v1.1 vs v1.0）
+- **橙色模块**：分析引擎层优化点
+- **虚线**：配置热更新通道（watchdog监听）
+- **降级链**：东财→新浪→缓存（Layer 1）
+- **预留接口**：Devil's Advocate（Phase 3接入）
 
 ### 3.3 关键更新点（vs v1.0）
 
