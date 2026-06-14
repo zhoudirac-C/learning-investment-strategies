@@ -27,6 +27,11 @@ LLM_PROVIDERS: dict[str, dict[str, Any]] = {
         "default_model": "moonshot-v1-128k",
         "api_key_env": "KIMI_API_KEY",
     },
+    "kimi-coding": {
+        "base_url": "https://api.kimi.com",
+        "default_model": "kimi-k2-turbo-preview",
+        "api_key_env": "KIMI_API_KEY",
+    },
     "deepseek": {
         "base_url": "https://api.deepseek.com/v1",
         "default_model": "deepseek-v4-flash",
@@ -69,11 +74,15 @@ LLM_PROVIDERS: dict[str, dict[str, Any]] = {
 _embedding_model = None
 
 
-def get_llm_client(provider: str | None = None) -> ChatOpenAI:
+def get_llm_client(provider: str | None = None) -> Any:
     """根据配置的 provider 返回对应的 LLM 客户端。
 
     Args:
         provider: 目标 provider，如 'kimi', 'deepseek'。None 则使用 settings.llm_provider。
+
+    Returns:
+        ChatOpenAI — 标准 OpenAI 协议 provider
+        KimiCodingClient — Kimi Coding Plan（Anthropic 协议）
     """
     target = (provider or settings.llm_provider).lower()
     logger.info("[get_llm_client] target=%s (requested=%s, default=%s)", target, provider, settings.llm_provider)
@@ -97,6 +106,18 @@ def get_llm_client(provider: str | None = None) -> ChatOpenAI:
             f"Provider '{target}' requires {config['api_key_env']}. "
             f"Set it in .env or environment variable."
         )
+
+    # Kimi Coding Plan 走 Anthropic 协议 → 返回专用客户端
+    if target == "kimi-coding":
+        from .kimi_coding_client import KimiCodingClient
+
+        return KimiCodingClient(
+            api_key=api_key,
+            model=model,
+            base_url=base_url,
+        )
+
+    # 标准 OpenAI 协议 provider
     if not base_url:
         raise ValueError(
             f"Provider '{target}' requires llm_base_url to be set."

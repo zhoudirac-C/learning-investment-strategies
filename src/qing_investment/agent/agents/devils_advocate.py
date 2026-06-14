@@ -31,6 +31,8 @@ class DevilsAdvocateAgent(Agent):
     def __init__(self, llm=None):
         super().__init__(llm=llm)
         self._target_model = "kimi"
+        self._last_used_provider: str | None = None  # 实际使用的 provider（可能 fallback）
+        self._used_provider: str | None = None        # 供外部查询
 
     # ── 公开方法 ──
 
@@ -46,6 +48,8 @@ class DevilsAdvocateAgent(Agent):
             AgentOutput，findings 为质疑点 JSON 数组
         """
         self._reset_stats()
+        self._last_used_provider = None
+        self._used_provider = None
         logger.info("[DevilsAdvocate] run: starting, target_model=%s", self._target_model)
 
         market_analysis = kwargs.get("market_analysis", "")
@@ -65,7 +69,10 @@ class DevilsAdvocateAgent(Agent):
             prompt = self._build_prompt(market_analysis, stock_analysis, claims_cited)
             logger.info("[DevilsAdvocate] run: prompt_len=%d", len(prompt))
             content = self._invoke_llm(prompt)
-            self._track_llm_call(provider=self._target_model)
+            # 记录实际使用的 provider（可能 fallback 过）
+            actual_provider = self._last_used_provider or self._target_model
+            self._track_llm_call(provider=actual_provider)
+            self._used_provider = actual_provider  # 供外部查询
             findings = self._parse_findings(content)
             logger.info("[DevilsAdvocate] run: findings=%d errors=%d", len(findings), 0)
             return self._build_output(findings=findings)
@@ -115,23 +122,70 @@ class DevilsAdvocateAgent(Agent):
         )
 
     def _invoke_llm(self, prompt: str) -> str:
-        """调用 LLM。"""
+        """调用 LLM。兼容 ChatOpenAI.invoke() 和 LLMProtocol.chat()。
+
+        支持 fallback：如果 Kimi 失败（API key 无效或网络问题），
+        自动降级到 DeepSeek 以确保 Devil's Advocate 仍能输出。
+        """
         prompt_len = len(prompt)
+
+        # ── 情况1：外部注入了 llm（测试或替换场景）──
         if self.llm is not None:
             logger.info("[DevilsAdvocate] _invoke_llm: using injected llm, prompt_len=%d", prompt_len)
-            response = self.llm.chat([{"role": "user", "content": prompt}])
-            content = response.get("content", "")
+            if hasattr(self.llm, "chat") and callable(self.llm.chat):
+                response = self.llm.chat([{"role": "user", "content": prompt}])
+                content = response.get("content", "")
+            elif hasattr(self.llm, "invoke") and callable(self.llm.invoke):
+                result = self.llm.invoke(prompt)
+                content = result.content if hasattr(result, "content") else str(result)
+            else:
+                logger.error("[DevilsAdvocate] _invoke_llm: llm has no chat() or invoke()")
+                return ""
             logger.info("[DevilsAdvocate] _invoke_llm: response_len=%d", len(content))
             return content
 
-        logger.info("[DevilsAdvocate] _invoke_llm: using get_llm_client(provider=%s), prompt_len=%d", self._target_model, prompt_len)
+        # ── 情况2：走配置的 provider（默认 Kimi），带 fallback ──
         from qing_investment.agent.tools.llm_client import get_llm_client
 
-        llm = get_llm_client(provider=self._target_model)
-        result = llm.invoke(prompt)
-        content = result.content if hasattr(result, "content") else str(result)
-        logger.info("[DevilsAdvocate] _invoke_llm: response_len=%d", len(content))
-        return content
+        fallback_order = [self._target_model, "kimi-coding", "deepseek"]
+        last_error = None
+
+        for idx, provider in enumerate(fallback_order):
+            try:
+                logger.info(
+                    "[DevilsAdvocate] _invoke_llm: attempt %d/%d provider=%s",
+                    idx + 1, len(fallback_order), provider,
+                )
+                llm = get_llm_client(provider=provider)
+                result = llm.invoke(prompt)
+                content = result.content if hasattr(result, "content") else str(result)
+                if content and len(content) > 20:
+                    self._last_used_provider = provider  # 记录成功 provider
+                    logger.info(
+                        "[DevilsAdvocate] _invoke_llm: success provider=%s response_len=%d",
+                        provider, len(content),
+                    )
+                    return content
+                else:
+                    logger.warning(
+                        "[DevilsAdvocate] _invoke_llm: short/empty response from %s (len=%d), trying fallback",
+                        provider, len(content),
+                    )
+                    last_error = f"Empty/short response from {provider}"
+            except Exception as e:
+                logger.warning(
+                    "[DevilsAdvocate] _invoke_llm: failed provider=%s error=%s, trying fallback",
+                    provider, e,
+                )
+                last_error = str(e)
+
+        logger.error(
+            "[DevilsAdvocate] _invoke_llm: all providers failed. last_error=%s",
+            last_error,
+        )
+        raise RuntimeError(
+            f"Devil's Advocate LLM call failed on all providers: {last_error}"
+        )
 
     def _parse_findings(self, content: str) -> list[dict]:
         """解析 LLM 响应为质疑点列表。"""

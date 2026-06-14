@@ -1383,10 +1383,10 @@ def market_analyst(state: AgentState) -> AgentState:
 {state.get("_data_missing_note", "")}
 
 检索到的知识（已过滤，仅保留方法论内容）：
-{json.dumps(context, ensure_ascii=False, indent=2)}
+{json.dumps(context, ensure_ascii=False, indent=2, default=str)}
 
 当前持仓：
-{json.dumps(state.get('positions', []), ensure_ascii=False, indent=2)}
+{json.dumps(state.get('positions', []), ensure_ascii=False, indent=2, default=str)}
 
 请输出JSON：
 """
