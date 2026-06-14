@@ -49,33 +49,42 @@
 **验收标准**:
 - [x] 11个函数在 `monitor/context/__init__.py` 中有真实实现
 - [x] 处理重复定义（sector_group_rows, _string_items 等已有重复）
-- [ ] `python -m py_compile` 通过
+- [x] `python -m py_compile` 通过
 - [x] E2E测试通过
+
+**状态**: ✅ 已完成（2026-06-14）
+- 删除重复定义函数（4个函数重复）
+- 文件从 755 行瘦身至 629 行（-126行）
 
 ---
 
 ### Subtask 2: monitor/analysis（12个函数）
 **优先级**: 🔴 P0 | **预估工时**: 3-4h | **依赖**: Subtask 1
 
-| 函数 | 说明 | 当前位置 |
-|------|------|----------|
-| `_compute_vs_ma` | 计算相对MA位置 | stock_monitor.py:560 |
-| `_compute_near5d_return` | 近5日涨跌幅 | stock_monitor.py:567 |
-| `_compute_volume_ratio` | 量比计算 | stock_monitor.py:574 |
-| `_check_entry_zone_distance` | 买入区间检查 | stock_monitor.py:581 |
-| `_classify_seat_type` | 席位类型判断 | stock_monitor.py:601 |
-| `_classify_top_buy_behavior` | 买一行为判断 | stock_monitor.py:608 |
-| `_assess_board_quality` | 封板质量评估 | stock_monitor.py:618 |
-| `_fetch_dragon_tiger_data` | 龙虎榜数据获取 | stock_monitor.py:625 |
-| `_fetch_daily_dragon_tiger_board` | 全市场龙虎榜 | stock_monitor.py:636 |
-| `_filter_dragon_tiger_board` | 龙虎榜过滤 | stock_monitor.py:646 |
-| `_parse_net_buy_float` | 净买额解析 | stock_monitor.py:657 |
-| `_format_net_buy_str` | 净买额格式化 | stock_monitor.py:664 |
+|| 函数 | 说明 | 当前位置 |
+||------|------|----------|
+|| `_compute_vs_ma` | 计算相对MA位置 | stock_monitor.py:560 |
+|| `_compute_near5d_return` | 近5日涨跌幅 | stock_monitor.py:567 |
+|| `_compute_volume_ratio` | 量比计算 | stock_monitor.py:574 |
+|| `_check_entry_zone_distance` | 买入区间检查 | stock_monitor.py:581 |
+|| `_classify_seat_type` | 席位类型判断 | stock_monitor.py:601 |
+|| `_classify_top_buy_behavior` | 买一行为判断 | stock_monitor.py:608 |
+|| `_assess_board_quality` | 封板质量评估 | stock_monitor.py:618 |
+|| `_fetch_dragon_tiger_data` | 龙虎榜数据获取 | stock_monitor.py:625 |
+|| `_fetch_daily_dragon_tiger_board` | 全市场龙虎榜 | stock_monitor.py:636 |
+|| `_filter_dragon_tiger_board` | 龙虎榜过滤 | stock_monitor.py:646 |
+|| `_parse_net_buy_float` | 净买额解析 | stock_monitor.py:657 |
+|| `_format_net_buy_str` | 净买额格式化 | stock_monitor.py:664 |
 
 **验收标准**:
-- [ ] 12个函数在 `monitor/analysis/__init__.py` 中有真实实现
-- [ ] 保留 pandas/akshare 依赖和异常处理
+- [x] 12个函数在 `monitor/analysis/__init__.py` 中有真实实现
+- [x] 保留 pandas/akshare 依赖和异常处理
 - [x] E2E测试通过
+
+**状态**: ✅ 已完成（2026-06-14）
+- 从 git 历史提取原实现（commit 8129ee6）
+- 创建 monitor/analysis/__init__.py（400行）
+- 修复导入问题（timedelta, TYPE_CHECKING）
 
 ---
 
