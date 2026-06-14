@@ -467,26 +467,10 @@ def update_sector_signal_counts(
     alerts: list[RuleAlert],
     value: datetime,
 ) -> None:
-    sector_alerts = [alert for alert in alerts if alert.stock_name == "板块强弱"]
-    if not sector_alerts:
-        state["sector_signal_counts"] = {}
-        return
-
-    previous = state.get("sector_signal_counts", {})
-    if not isinstance(previous, dict):
-        previous = {}
-    current_counts: dict[str, dict] = {}
-    current_time = value.astimezone(CN_TZ).isoformat()
-    for alert in sector_alerts:
-        key = alert_fingerprint(alert)
-        prior = previous.get(key, {})
-        count = int(prior.get("count", 0)) + 1 if isinstance(prior, dict) else 1
-        current_counts[key] = {
-            "action": alert.action,
-            "count": count,
-            "last_seen_at": current_time,
-        }
-    state["sector_signal_counts"] = current_counts
+    """更新板块信号计数 — 委托给 monitor.scheduler 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.scheduler import update_sector_signal_counts as _new_update
+    return _new_update(state, alerts, value)
 
 
 def update_market_state(
@@ -495,37 +479,38 @@ def update_market_state(
     quote_snapshot: dict,
     value: datetime,
 ) -> None:
-    state["last_market_state"] = {
-        "time": value.astimezone(CN_TZ).isoformat(),
-        "quote_count": len(quote_snapshot.get("quotes", []) or []),
-        "alert_count": len(alerts),
-        "risk_count": sum(1 for alert in alerts if alert.severity == "risk"),
-        "observe_count": sum(1 for alert in alerts if alert.severity == "observe"),
-        "sector_actions": [
-            alert.action for alert in alerts if alert.stock_name == "板块强弱"
-        ],
-    }
+    """更新市场状态 — 委托给 monitor.scheduler 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.scheduler import update_market_state as _new_update
+    return _new_update(state, alerts, value)
 
 
 def agent_analysis_schedule_rows(config: MonitorConfig) -> list[dict]:
-    rows = config.strategy_pack.get("agent_analysis_schedule")
-    if not rows:
-        rows = DEFAULT_AGENT_ANALYSIS_SCHEDULE
-    return [dict(row) for row in rows if isinstance(row, dict)]
+    """获取Agent分析计划行 — 委托给 monitor.scheduler 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.scheduler import agent_analysis_schedule_rows as _new_rows
+    return _new_rows(config)
 
 
 def _hhmm(value: datetime) -> str:
-    return value.astimezone(CN_TZ).strftime("%H:%M")
+    """获取时间HH:MM格式 — 委托给 monitor.scheduler 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.scheduler import _hhmm as _new_hhmm
+    return _new_hhmm(value)
 
 
 def _agent_history(state: dict) -> dict:
-    history = state.get("agent_analysis_history", {})
-    return history if isinstance(history, dict) else {}
+    """获取Agent分析历史 — 委托给 monitor.scheduler 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.scheduler import _agent_history as _new_history
+    return _new_history(state)
 
 
 def _agent_dedupe_key_for_schedule(row: dict, value: datetime) -> str:
-    date_text = value.astimezone(CN_TZ).strftime("%Y-%m-%d")
-    return f"scheduled:{row.get('id', row.get('time', 'unknown'))}:{date_text}"
+    """获取Agent分析去重键 — 委托给 monitor.scheduler 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.scheduler import _agent_dedupe_key_for_schedule as _new_key
+    return _new_key(row, value)
 
 
 def find_agent_analysis_trigger(
@@ -534,85 +519,10 @@ def find_agent_analysis_trigger(
     value: datetime,
     alerts: list[RuleAlert],
 ) -> AgentAnalysisTrigger | None:
-    history = _agent_history(state)
-
-    # ── 买入信号候选优先 ──
-    buy_candidates = [a for a in alerts if a.action == "机会候选"]
-    if buy_candidates:
-        # 价格分桶 + 4小时冷却窗口去重（Phase 4）
-        try:
-            from qing_investment.agent.tools.daily_state import (
-                load_daily_state,
-                should_trigger_agent_for_candidate,
-            )
-            daily_state = load_daily_state()
-            # 只允许至少有一个候选通过去重检查时才触发
-            triggerable = []
-            for alert in buy_candidates:
-                if should_trigger_agent_for_candidate(
-                    daily_state, alert.stock_code, alert.price or 0, now=value
-                ):
-                    triggerable.append(alert)
-            if triggerable:
-                codes = ",".join(dict.fromkeys(a.stock_code for a in triggerable))
-                dedupe_key = f"buy_candidate:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{codes}"
-                if dedupe_key not in history:
-                    names = "、".join(dict.fromkeys(a.stock_name for a in triggerable))
-                    return AgentAnalysisTrigger(
-                        kind="buy_signal_candidate",
-                        id="buy_signal_candidate",
-                        title="买入信号候选触发",
-                        reason=f"{names}({codes}) 满足买入条件，需要深度确认",
-                        dedupe_key=dedupe_key,
-                    )
-            # 所有买入候选都已被去重 → 不再 fallback 到 event trigger
-            return None
-        except Exception:
-            # daily_state 去重失败时 fallback 到原有逻辑
-            codes = ",".join(dict.fromkeys(a.stock_code for a in buy_candidates))
-            dedupe_key = f"buy_candidate:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{codes}"
-            if dedupe_key not in history:
-                names = "、".join(dict.fromkeys(a.stock_name for a in buy_candidates))
-                return AgentAnalysisTrigger(
-                    kind="buy_signal_candidate",
-                    id="buy_signal_candidate",
-                    title="买入信号候选触发",
-                    reason=f"{names}({codes}) 满足买入条件，需要深度确认",
-                    dedupe_key=dedupe_key,
-                )
-            # 买入候选已去重 → 不再 fallback 到 event trigger
-            return None
-
-    if alerts:
-        actions = "、".join(dict.fromkeys(alert.action for alert in alerts))
-        fingerprints = ",".join(alert_fingerprint(alert) for alert in alerts)
-        dedupe_key = (
-            f"event:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{fingerprints}"
-        )
-        if dedupe_key not in history:
-            return AgentAnalysisTrigger(
-                kind="event",
-                id="rule_alert",
-                title="规则触发",
-                reason=f"出现新的规则信号：{actions}",
-                dedupe_key=dedupe_key,
-            )
-
-    current_hhmm = _hhmm(value)
-    for row in agent_analysis_schedule_rows(config):
-        if str(row.get("time", "")) != current_hhmm:
-            continue
-        dedupe_key = _agent_dedupe_key_for_schedule(row, value)
-        if dedupe_key in history:
-            return None
-        return AgentAnalysisTrigger(
-            kind="scheduled",
-            id=str(row.get("id", current_hhmm)),
-            title=str(row.get("name", current_hhmm)),
-            reason=str(row.get("focus", "")),
-            dedupe_key=dedupe_key,
-        )
-    return None
+    """查找Agent分析触发器 — 委托给 monitor.scheduler 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.scheduler import find_agent_analysis_trigger as _new_find
+    return _new_find(config, state, value, alerts)
 
 
 def find_any_agent_analysis_trigger(
@@ -621,109 +531,10 @@ def find_any_agent_analysis_trigger(
     value: datetime,
     alerts: list[RuleAlert],
 ) -> AgentAnalysisTrigger | None:
-    """Always return a scheduled trigger if one exists for current time,
-    regardless of whether it's in agent_analysis_schedule.
-
-    This bypasses the time-restriction so cron jobs can run at any time.
-    """
-    history = _agent_history(state)
-
-    # ── 买入信号候选优先 ──
-    buy_candidates = [a for a in alerts if a.action == "机会候选"]
-    if buy_candidates:
-        # 价格分桶 + 4小时冷却窗口去重（Phase 4）
-        try:
-            from qing_investment.agent.tools.daily_state import (
-                load_daily_state,
-                should_trigger_agent_for_candidate,
-            )
-            daily_state = load_daily_state()
-            triggerable = []
-            for alert in buy_candidates:
-                if should_trigger_agent_for_candidate(
-                    daily_state, alert.stock_code, alert.price or 0, now=value
-                ):
-                    triggerable.append(alert)
-            if triggerable:
-                codes = ",".join(dict.fromkeys(a.stock_code for a in triggerable))
-                dedupe_key = f"buy_candidate:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{codes}"
-                if dedupe_key not in history:
-                    names = "、".join(dict.fromkeys(a.stock_name for a in triggerable))
-                    return AgentAnalysisTrigger(
-                        kind="buy_signal_candidate",
-                        id="buy_signal_candidate",
-                        title="买入信号候选触发",
-                        reason=f"{names}({codes}) 满足买入条件，需要深度确认",
-                        dedupe_key=dedupe_key,
-                    )
-            # 所有买入候选都已被去重 → 不再 fallback 到 event trigger
-            return None
-        except Exception:
-            codes = ",".join(dict.fromkeys(a.stock_code for a in buy_candidates))
-            dedupe_key = f"buy_candidate:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{codes}"
-            if dedupe_key not in history:
-                names = "、".join(dict.fromkeys(a.stock_name for a in buy_candidates))
-                return AgentAnalysisTrigger(
-                    kind="buy_signal_candidate",
-                    id="buy_signal_candidate",
-                    title="买入信号候选触发",
-                    reason=f"{names}({codes}) 满足买入条件，需要深度确认",
-                    dedupe_key=dedupe_key,
-                )
-            # 买入候选已去重 → 不再 fallback 到 event trigger
-            return None
-
-    # First check event-driven triggers (alerts)
-    if alerts:
-        actions = "、".join(dict.fromkeys(alert.action for alert in alerts))
-        fingerprints = ",".join(alert_fingerprint(alert) for alert in alerts)
-        dedupe_key = (
-            f"event:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{fingerprints}"
-        )
-        if dedupe_key not in history:
-            return AgentAnalysisTrigger(
-                kind="event",
-                id="rule_alert",
-                title="规则触发",
-                reason=f"出现新的规则信号：{actions}",
-                dedupe_key=dedupe_key,
-            )
-
-    # Build trigger from current time — no schedule restriction
-    current_hhmm = _hhmm(value)
-
-    # Try to find matching row in schedule for metadata
-    schedule_rows = agent_analysis_schedule_rows(config)
-    current_row = None
-    for row in schedule_rows:
-        if str(row.get("time", "")) == current_hhmm:
-            current_row = row
-            break
-
-    # If matched scheduled row, use its metadata
-    if current_row:
-        dedupe_key = _agent_dedupe_key_for_schedule(current_row, value)
-        if dedupe_key in history:
-            return None
-        return AgentAnalysisTrigger(
-            kind="scheduled",
-            id=str(current_row.get("id", current_hhmm)),
-            title=str(current_row.get("name", current_hhmm)),
-            reason=str(current_row.get("focus", "")),
-            dedupe_key=dedupe_key,
-        )
-
-    # No scheduled row for this time — create a generic trigger
-    dedupe_key = f"scheduled:any:{value.astimezone(CN_TZ).strftime('%Y-%m-%d')}:{current_hhmm}"
-    if dedupe_key in history:
-        return None
-    return AgentAnalysisTrigger(
-        kind="scheduled",
-        id=f"any_{current_hhmm}",
-        title=f"{current_hhmm} 定时分析",
-        reason="定时触发分析",
-        dedupe_key=dedupe_key,
-    )
+    """查找任意Agent分析触发器 — 委托给 monitor.scheduler 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.scheduler import find_any_agent_analysis_trigger as _new_find
+    return _new_find(config, state, value, alerts)
 
 
 def record_agent_analysis_trigger(
@@ -731,14 +542,10 @@ def record_agent_analysis_trigger(
     trigger: AgentAnalysisTrigger,
     value: datetime,
 ) -> None:
-    history = state.setdefault("agent_analysis_history", {})
-    history[trigger.dedupe_key] = {
-        "time": value.astimezone(CN_TZ).isoformat(),
-        "kind": trigger.kind,
-        "id": trigger.id,
-        "title": trigger.title,
-        "reason": trigger.reason,
-    }
+    """记录Agent分析触发器 — 委托给 monitor.scheduler 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.scheduler import record_agent_analysis_trigger as _new_record
+    return _new_record(state, trigger, value)
 
 
 def is_scheduled_agent_analysis_time(config: MonitorConfig, value: datetime) -> bool:
