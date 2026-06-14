@@ -2676,51 +2676,6 @@ def watchlist_stock_rows(config: MonitorConfig) -> list[dict]:
     return _new_watchlist_rows(config)
 
 
-def _string_items(value: object) -> list[str]:
-    """将值转换为字符串列表 — 委托给 monitor.context 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
-    from qing_investment.monitor.context import _string_items as _new_string_items
-    return _new_string_items(value)
-
-
-def format_watchlist_condition_line(row: dict) -> str:
-    """格式化观察列表条件行 — 委托给 monitor.context 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
-    from qing_investment.monitor.context import format_watchlist_condition_line as _new_format
-    return _new_format(row)
-
-
-def sector_group_rows(config: MonitorConfig) -> list[dict]:
-    """提取板块组成员行 — 委托给 monitor.context 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
-    from qing_investment.monitor.context import sector_group_rows as _new_sector_rows
-    return _new_sector_rows(config)
-
-
-def unique_stock_count(rows: list[dict]) -> int:
-    """统计唯一股票数量 — 委托给 monitor.context 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
-    from qing_investment.monitor.context import unique_stock_count as _new_count
-    return _new_count(rows)
-
-
-# ──────────────────────────────────────────
-# 股票代码工具函数 — 已委托给 monitor.fetchers 模块
-# 以下为向后兼容的包装函数，内部调用 Phase 0 新模块
-# ──────────────────────────────────────────
-
-def stock_code_to_secid(code: str) -> str | None:
-    """将股票代码转换为 secid 格式 — 委托给 monitor.fetchers 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
-    from qing_investment.monitor.fetchers import stock_code_to_secid as _new_stock_code_to_secid
-    return _new_stock_code_to_secid(code)
-
-
-def collect_quote_targets(config: MonitorConfig) -> dict[str, str]:
-    """收集所有需要获取行情的标的 — 委托给 monitor.fetchers 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
-    from qing_investment.monitor.fetchers import collect_quote_targets as _new_collect
-    return _new_collect(config)
 
 
 @dataclass(frozen=True)
