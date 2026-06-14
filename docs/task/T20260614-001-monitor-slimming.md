@@ -186,9 +186,51 @@
 **状态**: ✅ 已完成（从 git `472e2d5^` 提取原实现，追加到 scheduler）
 - 从 stock_monitor.py 历史版本提取17个函数（含 format_agent_*）
 - 添加常量/懒导入处理循环依赖
-- 修复 run_tick 中 collect_quote_targets 的模块引用（fetchers 而非 context）
 - scheduler 模块从 1029 行 → 1975 行（+946行）
 - stock_monitor.py 仍保留974行（83个委托包装函数）
+
+---
+
+### 🔧 待修复：损坏的委托链路（不在原 Subtask 范围内）
+
+**背景**: 第十次瘦身（`472e2d5`）将所有函数改为委托包装，但部分函数从未迁移到子模块。当前存在 **19 个损坏的委托目标**。
+
+#### 类型 A：包装器指向错误模块（6个，实现已存在但 import 路径错）
+
+| 包装器路径 | 实际实现位置 | 修复方案 |
+|-----------|------------|---------|
+| `monitor.fetchers._fetch_dragon_tiger_data` | `monitor.analysis` | 改 stock_monitor.py import 路径 |
+| `monitor.fetchers._fetch_daily_dragon_tiger_board` | `monitor.analysis` | 同上 |
+| `monitor.fetchers._filter_dragon_tiger_board` | `monitor.analysis` | 同上 |
+| `monitor.context.format_agent_analysis_context` | `monitor.scheduler` | 同上 |
+| `monitor.context.format_analysis_context` | `monitor.scheduler` | 同上 |
+| `monitor.output.format_status_message` | `monitor.scheduler` | 同上 |
+
+**修复方式**: 只需改 stock_monitor.py 中对应行的 `from ... import` 模块名。
+
+#### 类型 B：完全缺失（13个，原实现已删除从未迁移）
+
+**需从 git 历史提取并补到对应模块**:
+
+| 缺失函数 | 归属模块 | 优先级 | 说明 |
+|---------|---------|--------|------|
+| `_compute_auction_volume_ratio` | analysis | 🔴 | 竞价量比计算 |
+| `_compute_auction_vs_yesterday_volume` | analysis | 🔴 | 竞价量对比 |
+| `_auction_snapshot` | fetchers | 🔴 | 竞价快照获取 |
+| `validate_position_price_zones` | rules | 🔴 | 持仓价格区间校验 |
+| `load_monitor_config` | context | 🔴 | 配置加载 |
+| `load_yaml` | context | 🟡 | YAML文件加载 |
+| `format_quote_line` | output | 🟡 | 行情行格式化 |
+| `format_smoke_message` | output | 🟡 | 烟雾测试消息 |
+| `_extract_auction_snapshot_for_context` | context | 🟡 | 快照字段提取 |
+| `_build_sector_tiers` | context | 🟡 | 板块分层 |
+| `_agent_context_data` | context | 🟡 | Agent数据构建 |
+| `format_daily_review_context` | context | 🟡 | 复盘context |
+| `format_live_analysis_context` | context | 🟡 | 实时分析context |
+
+**执行建议**:
+1. 先修类型 A（6个import路径，5分钟）
+2. 类型 B 按优先级 🔴 → 🟡 顺序，从 git `472e2d5^` 或 `4f669b5` 提取
 
 ---
 
