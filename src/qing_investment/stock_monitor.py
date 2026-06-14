@@ -3356,351 +3356,47 @@ def chunk_quote_targets(
     ]
 
 
+# ──────────────────────────────────────────
+# 数据获取函数 — 已委托给 monitor.fetchers 模块
+# 以下为向后兼容的包装函数，内部调用 Phase 0 新模块
+# ──────────────────────────────────────────
+
 def fetch_eastmoney_quotes(targets: dict[str, str], timeout: float = 8.0) -> dict:
-    if not targets:
-        return {"source": "eastmoney_push2", "quotes": [], "errors": ["empty targets"]}
-
-    started = time_module.perf_counter()
-    quotes: list[dict] = []
-    errors: list[str] = []
-    for chunk in chunk_quote_targets(targets):
-        chunk_result = _fetch_eastmoney_quote_chunk_adaptive(chunk, timeout=timeout)
-        quotes.extend(chunk_result.get("quotes", []) or [])
-        errors.extend(chunk_result.get("errors", []) or [])
-
+    """东财行情获取 — 委托给 monitor.fetchers.EastmoneyFetcher。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.fetchers import EastmoneyFetcher
+    result = EastmoneyFetcher().fetch(targets)
     return {
-        "source": "eastmoney_push2",
-        "quotes": quotes,
-        "errors": errors,
-        "elapsed_ms": round((time_module.perf_counter() - started) * 1000, 1),
+        "source": result.source,
+        "quotes": result.data.get("quotes", []),
+        "errors": [result.error] if result.error else [],
+        "elapsed_ms": result.latency_ms,
     }
-
-
-def _fetch_eastmoney_quote_chunk_adaptive(
-    targets: dict[str, str],
-    timeout: float = 8.0,
-    depth: int = 1,
-) -> dict:
-    result = _fetch_eastmoney_quote_chunk(targets, timeout=timeout)
-    if not result.get("errors") or len(targets) <= 1 or depth <= 0:
-        return result
-
-    split_results = [
-        _fetch_eastmoney_quote_chunk_adaptive(chunk, timeout=timeout, depth=depth - 1)
-        for chunk in chunk_quote_targets(targets, chunk_size=max(1, len(targets) // 2))
-    ]
-    quotes = [
-        quote
-        for split_result in split_results
-        for quote in split_result.get("quotes", []) or []
-    ]
-    errors = [
-        error
-        for split_result in split_results
-        for error in split_result.get("errors", []) or []
-    ]
-    if quotes:
-        return {"source": "eastmoney_push2", "quotes": quotes, "errors": errors}
-    return result
-
-
-def _fetch_eastmoney_quote_chunk(targets: dict[str, str], timeout: float = 8.0) -> dict:
-    params = urllib.parse.urlencode(
-        {
-            "fltt": "2",
-            "invt": "2",
-            "fields": QUOTE_FIELDS,
-            "secids": ",".join(targets.values()),
-        },
-        safe=",",
-    )
-    url = f"{EASTMONEY_QUOTE_URL}?{params}"
-    request = urllib.request.Request(
-        url,
-        headers={"User-Agent": "Mozilla/5.0"},
-    )
-
-    try:
-        with urllib.request.urlopen(request, timeout=timeout) as response:
-            payload = json.loads(response.read().decode("utf-8"))
-    except Exception as exc:  # pragma: no cover - network dependent
-        curl_payload = _fetch_eastmoney_quote_chunk_with_curl(
-            url, targets, timeout=timeout
-        )
-        if not curl_payload.get("errors"):
-            return curl_payload
-        return {
-            "source": "eastmoney_push2",
-            "quotes": [],
-            "errors": [str(exc), *curl_payload.get("errors", [])],
-        }
-
-    rows = (payload.get("data") or {}).get("diff") or []
-    quotes = parse_eastmoney_quote_rows(rows, targets)
-
-    return {
-        "source": "eastmoney_push2",
-        "quotes": quotes,
-        "errors": [],
-    }
-
-
-def _fetch_eastmoney_quote_chunk_with_curl(
-    url: str,
-    targets: dict[str, str],
-    timeout: float = 8.0,
-) -> dict:
-    try:
-        result = subprocess.run(
-            [
-                "curl",
-                "-fsSL",
-                "--max-time",
-                str(int(timeout)),
-                "-H",
-                "User-Agent: Mozilla/5.0",
-                url,
-            ],
-            check=True,
-            capture_output=True,
-            text=True,
-        )
-        payload = json.loads(result.stdout)
-    except Exception as exc:  # pragma: no cover - subprocess/network dependent
-        return {"source": "eastmoney_push2", "quotes": [], "errors": [str(exc)]}
-
-    rows = (payload.get("data") or {}).get("diff") or []
-    return {
-        "source": "eastmoney_push2",
-        "quotes": parse_eastmoney_quote_rows(rows, targets),
-        "errors": [],
-    }
-
-
 
 
 def fetch_tencent_quotes(targets: dict[str, str]) -> dict:
-    """腾讯财经备用接口，当东方财富不可用时调用。"""
-    if not targets:
-        return {"source": "tencent_gtimg", "quotes": [], "errors": ["empty targets"]}
-
-    import urllib.request
-    import re
-
-    def to_tencent_code(code_str: str) -> str | None:
-        code = str(code_str).strip().upper()
-        # 处理 secid 格式: "1.000001" (1=SH, 0=SZ)
-        match = __import__('re').match(r'([10])\.(\d{6})', code)
-        if match:
-            mkt, num = match.groups()
-            return f"{'sh' if mkt == '1' else 'sz'}{num}"
-        # 处理 "000001.SZ" 格式
-        match = __import__('re').match(r'(\d{6})\.(SH|SZ)', code)
-        if match:
-            num, mkt = match.groups()
-            return f"{'sh' if mkt == 'SH' else 'sz'}{num}"
-        # 处理纯数字
-        if __import__('re').match(r'\d{6}$', code):
-            if code.startswith(('600', '601', '603', '605', '688', '689')):
-                return f"sh{code}"
-            else:
-                return f"sz{code}"
-        return None
-
-    # 构建腾讯格式代码映射
-    tencent_map: dict[str, str] = {}  # tencent_code -> original secid
-    name_map: dict[str, str] = {}  # tencent_code -> label
-    for label, secid in targets.items():
-        tc = to_tencent_code(secid)
-        if tc:
-            tencent_map[tc] = secid
-            name_map[tc] = label
-
-    if not tencent_map:
-        return {"source": "tencent_gtimg", "quotes": [], "errors": ["no valid codes"]}
-
-    started = __import__('time').perf_counter()
-    all_quotes: list[dict] = []
-    tencent_codes = list(tencent_map.keys())
-    chunk_size = 60
-
-    for i in range(0, len(tencent_codes), chunk_size):
-        chunk = tencent_codes[i:i + chunk_size]
-        url = f"https://qt.gtimg.cn/q={','.join(chunk)}"
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-            with urllib.request.urlopen(req, timeout=15) as resp:
-                data = resp.read().decode('gbk')
-            for line in data.strip().split(';'):
-                line = line.strip()
-                if not line or not line.startswith('v_'):
-                    continue
-                match = __import__('re').match(r'v_(\w+)="(.+)"', line)
-                if not match:
-                    continue
-                tc_code, content = match.groups()
-                parts = content.split('~')
-                if len(parts) < 35:
-                    continue
-                latest = _to_float(parts[3])
-                prev = _to_float(parts[4])
-                open_price = _to_float(parts[5])
-                high = _to_float(parts[33])
-                low = _to_float(parts[34])
-                volume = _to_float(parts[6])
-                amount = _to_float(parts[37]) if len(parts) > 37 else None
-                pct_change = None
-                change = None
-                if latest is not None and prev is not None and prev > 0:
-                    pct_change = round((latest - prev) / prev * 100, 2)
-                    change = round(latest - prev, 2)
-
-                all_quotes.append({
-                    "secid": tencent_map.get(tc_code, tc_code),
-                    "label": name_map.get(tc_code, parts[1]),
-                    "code": parts[2],
-                    "name": parts[1],
-                    "latest": parts[3],
-                    "previous_close": parts[4],
-                    "open": parts[5],
-                    "high": parts[33] if high is not None else None,
-                    "low": parts[34] if low is not None else None,
-                    "volume": parts[6],
-                    "amount": parts[37] if len(parts) > 37 else None,
-                    "pct_change": pct_change,
-                    "change": change,
-                })
-        except Exception as exc:
-            return {
-                "source": "tencent_gtimg",
-                "quotes": all_quotes,
-                "errors": [str(exc)],
-                "elapsed_ms": round((__import__('time').perf_counter() - started) * 1000, 1),
-            }
-
+    """腾讯行情获取 — 委托给 monitor.fetchers.TencentFetcher。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.fetchers import TencentFetcher
+    result = TencentFetcher().fetch(targets)
     return {
-        "source": "tencent_gtimg",
-        "quotes": all_quotes,
-        "errors": [],
-        "elapsed_ms": round((__import__('time').perf_counter() - started) * 1000, 1),
+        "source": result.source,
+        "quotes": result.data.get("quotes", []),
+        "errors": [result.error] if result.error else [],
+        "elapsed_ms": result.latency_ms,
     }
 
 
 def fetch_sina_quotes(targets: dict[str, str]) -> dict:
-    """新浪财经备用接口，当腾讯不可用时调用。
-
-    新浪接口支持批量查询，格式: https://hq.sinajs.cn/list=sh600519,sz000001
-    返回格式: var hq_str_sh600519="贵州茅台,1740.00,...";
-    """
-    if not targets:
-        return {"source": "sina_hq", "quotes": [], "errors": ["empty targets"]}
-
-    def to_sina_code(secid: str) -> str | None:
-        code = str(secid).strip().upper()
-        match = __import__('re').match(r'([10])\.(\d{6})', code)
-        if match:
-            mkt, num = match.groups()
-            return f"{'sh' if mkt == '1' else 'sz'}{num}"
-        match = __import__('re').match(r'(\d{6})\.(SH|SZ)', code)
-        if match:
-            num, mkt = match.groups()
-            return f"{'sh' if mkt == 'SH' else 'sz'}{num}"
-        if __import__('re').match(r'\d{6}$', code):
-            if code.startswith(('600', '601', '603', '605', '688', '689')):
-                return f"sh{code}"
-            else:
-                return f"sz{code}"
-        return None
-
-    # 构建映射: sina_code -> (original_secid, label)
-    sina_map: dict[str, tuple[str, str]] = {}
-    for label, secid in targets.items():
-        sc = to_sina_code(secid)
-        if sc:
-            sina_map[sc] = (secid, label)
-
-    if not sina_map:
-        return {"source": "sina_hq", "quotes": [], "errors": ["no valid codes"]}
-
-    started = __import__('time').perf_counter()
-    all_quotes: list[dict] = []
-    sina_codes = list(sina_map.keys())
-    chunk_size = 80  # 新浪接口批量限制
-
-    for i in range(0, len(sina_codes), chunk_size):
-        chunk = sina_codes[i:i + chunk_size]
-        url = f"https://hq.sinajs.cn/list={','.join(chunk)}"
-        try:
-            req = urllib.request.Request(
-                url,
-                headers={
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-                    "Referer": "https://finance.sina.com.cn",
-                },
-            )
-            with urllib.request.urlopen(req, timeout=15) as resp:
-                data = resp.read().decode('gbk')
-
-            for line in data.strip().split('\n'):
-                line = line.strip()
-                if not line.startswith('var hq_str_'):
-                    continue
-                match = __import__('re').match(r'var hq_str_(\w+)="(.+)";', line)
-                if not match:
-                    continue
-                sina_code, content = match.groups()
-                if not content or content == '""':
-                    continue
-                parts = content.split(',')
-                if len(parts) < 5:
-                    continue
-
-                secid, label = sina_map.get(sina_code, (sina_code, sina_code))
-                name = parts[0]
-                # 指数格式: 名称,今开,昨收,最新,最高,最低
-                # 股票格式: 名称,今开,昨收,最新,最高,最低,买入价,卖出价,成交量,成交额...
-                open_price = _to_float(parts[1])
-                prev = _to_float(parts[2])
-                latest = _to_float(parts[3])
-                high = _to_float(parts[4])
-                low = _to_float(parts[5]) if len(parts) > 5 else None
-                volume = _to_float(parts[8]) if len(parts) > 8 else None
-                amount = _to_float(parts[9]) if len(parts) > 9 else None
-
-                pct_change = None
-                change = None
-                if latest is not None and prev is not None and prev > 0:
-                    pct_change = round((latest - prev) / prev * 100, 2)
-                    change = round(latest - prev, 2)
-
-                all_quotes.append({
-                    "secid": secid,
-                    "label": label,
-                    "code": sina_code[2:],  # 去掉 sh/sz 前缀
-                    "name": name,
-                    "latest": latest,
-                    "previous_close": prev,
-                    "open": open_price,
-                    "high": high,
-                    "low": low,
-                    "volume": volume,
-                    "amount": amount,
-                    "pct_change": pct_change,
-                    "change": change,
-                })
-        except Exception as exc:
-            return {
-                "source": "sina_hq",
-                "quotes": all_quotes,
-                "errors": [str(exc)],
-                "elapsed_ms": round((__import__('time').perf_counter() - started) * 1000, 1),
-            }
-
+    """新浪行情获取 — 委托给 monitor.fetchers.SinaFetcher。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.fetchers import SinaFetcher
+    result = SinaFetcher().fetch(targets)
     return {
-        "source": "sina_hq",
-        "quotes": all_quotes,
-        "errors": [],
-        "elapsed_ms": round((__import__('time').perf_counter() - started) * 1000, 1),
+        "source": result.source,
+        "quotes": result.data.get("quotes", []),
+        "errors": [result.error] if result.error else [],
+        "elapsed_ms": result.latency_ms,
     }
 
 
