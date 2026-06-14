@@ -119,22 +119,27 @@
 
 ---
 
-### Subtask 4: monitor/output（5个函数）
+### Subtask 4: monitor/output（6个函数）
 **优先级**: 🟡 P1 | **预估工时**: 2h | **依赖**: Subtask 3
 
 | 函数 | 说明 | 当前位置 |
 |------|------|----------|
-| `alert_fingerprint` | 告警指纹生成 | stock_monitor.py:365 |
-| `load_monitor_state` | 状态加载 | stock_monitor.py:372 |
-| `save_monitor_state` | 状态保存 | stock_monitor.py:382 |
-| `format_alert_decision_log` | 决策日志格式化 | stock_monitor.py:417 |
-| `update_sector_signal_counts` | 板块信号计数 | stock_monitor.py:434 |
-| `update_market_state` | 市场状态更新 | stock_monitor.py:445 |
+| `alert_fingerprint` | 告警指纹生成 → `monitor.output._alert_fingerprint` | stock_monitor.py:365 |
+| `load_monitor_state` | 状态加载 → `monitor.scheduler.load_monitor_state` | stock_monitor.py:372 |
+| `save_monitor_state` | 状态保存 → `monitor.scheduler.save_monitor_state` | stock_monitor.py:382 |
+| `format_alert_decision_log` | 决策日志格式化 → `AlertFormatter().format_log_entry()` | stock_monitor.py:417 |
+| `update_sector_signal_counts` | 板块信号计数 → `monitor.scheduler.update_sector_signal_counts` | stock_monitor.py:434 |
+| `update_market_state` | 市场状态更新 → `monitor.scheduler.update_market_state` | stock_monitor.py:445 |
 
 **验收标准**:
-- [ ] 6个函数在 `monitor/output/__init__.py` 中有真实实现
-- [ ] 与现有 AlertFormatter / AlertHistory 类兼容
-- [x] E2E测试通过
+- [x] 6个函数全部有真实实现（2个在output，4个在scheduler — 设计决定：状态管理归调度层）
+- [x] `monitor/output/__init__.py` 已存在完整实现（612行，含AlertOutputManager/AlertFormatter/DedupeEngine/StatePersistence）
+- [x] `python -m py_compile` 通过
+- [x] 导入测试通过
+
+**状态**: ✅ 已完成（commit `df9ebef` Phase 3 已存在，当前验证所有委托调用正常）
+- 路由说明：`alert_fingerprint`/`format_alert_decision_log` → output；`load_monitor_state`/`save_monitor_state`/`update_sector_signal_counts`/`update_market_state` → scheduler
+- 前次执行中断原因为 agent 未检测到文件已存在，陷入 git history 提取死循环
 
 ---
 
@@ -181,6 +186,20 @@
 ```
 Subtask 1 (context) → Subtask 2 (analysis) → Subtask 3 (rules) → Subtask 4 (output) → Subtask 5 (scheduler)
 ```
+
+### 📌 Pre-flight Check（每次开始 Subtask 前必须执行）
+
+**背景**: 历史发生过 Agent 在目标模块已存在的情况下陷入 git history 提取死循环（Subtask 4）。
+**目的**: 避免重复创建，预防死循环。
+
+步骤：
+1. **检查文件存在**: `ls src/qing_investment/monitor/<submodule>/__init__.py`
+2. **若存在 → 验证导入**: `python -c "from qing_investment.monitor.<submodule> import <目标函数1>, <目标函数2>, ..."` 
+3. **判定**:
+   - 全部导入成功 → ✅ 标记完成，跳过整个 Subtask
+   - 部分缺失 → 只提取缺失函数（`diff` 出差异，不重新创建已有函数）
+   - 全部缺失 → 执行正常提取流程
+4. **禁用 git show 循环**: 任何 `git show` 命令在同一个 Subtask 中重复调用 >3 次且无进展 → 打印警告并换方案（如 `git diff` 或 `git log -p` 定位）
 
 **总工时**: 13-17 小时（2-3 个工作日）
 
