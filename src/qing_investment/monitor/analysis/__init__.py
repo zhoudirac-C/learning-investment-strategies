@@ -52,7 +52,7 @@ def _compute_volume_ratio(today_volume: float, klines: list[dict]) -> float | No
     return round(today_volume / avg_5d, 2) if avg_5d else None
 
 
-def _check_entry_zone_distance(code: str, close: float, config: MonitorConfig) -> dict:
+def _check_entry_zone_distance(code: str, close: float, config: "MonitorConfig") -> dict:
     """判断收盘价距 entry_zone 的距离。"""
     result = {"entry_zone_distance": None, "entry_zone_range": None}
 
@@ -122,7 +122,7 @@ def _classify_top_buy_behavior(
     - 加仓：买一金额远超其他席位的卖出
     """
     try:
-        top_buy_name = df_buy.iloc[0]["交易营业部名称"]
+        top_buy_name = str(df_buy.iloc[0]["交易营业部名称"])
         top_buy_net = float(df_buy.iloc[0]["净额"])
         top_sell_net = float(df_sell.iloc[0]["净额"]) if not df_sell.empty else 0
 
@@ -311,7 +311,7 @@ def _fetch_daily_dragon_tiger_board(
 
 def _filter_dragon_tiger_board(
     board: list[dict],
-    config: MonitorConfig,
+    config: "MonitorConfig",
 ) -> dict:
     """对全市场龙虎榜总榜做三层交叉过滤。
 
