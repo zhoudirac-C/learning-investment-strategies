@@ -376,17 +376,7 @@ def evaluate_monitor_alerts(
     保留此函数以保持向后兼容。
     """
     from qing_investment.monitor.rules import evaluate_monitor_alerts as _new_evaluate
-
-    try:
-        return _new_evaluate(config, quote_snapshot, current_time=current_time)
-    except Exception as e:
-        logger.warning(f"RuleEngine delegation failed: {e}, falling back to legacy logic")
-        return (
-            evaluate_market_alerts(config, quote_snapshot, current_time=current_time)
-            + evaluate_sector_rotation_alerts(config, quote_snapshot)
-            + evaluate_position_alerts(config, quote_snapshot)
-            + evaluate_buy_signal_alerts(config, quote_snapshot)
-        )
+    return _new_evaluate(config, quote_snapshot, current_time=current_time)
 
 
 def format_alerts_message(
@@ -400,33 +390,7 @@ def format_alerts_message(
     保留此函数以保持向后兼容。
     """
     from qing_investment.monitor.output import format_alerts_message as _new_format
-
-    try:
-        return _new_format(alerts, value, quote_snapshot)
-    except Exception as e:
-        logger.warning(f"OutputManager delegation failed: {e}, falling back to legacy logic")
-
-    if not alerts:
-        return ""
-
-    lines = [
-        "[Hermes股票监控提醒]",
-        f"时间：{value.astimezone(CN_TZ).strftime('%Y-%m-%d %H:%M:%S %Z')}",
-        f"数据源：{quote_snapshot.get('source', 'unknown')}",
-        f"行情请求耗时：{quote_snapshot.get('elapsed_ms')} ms",
-        "",
-        "触发信号：",
-    ]
-    for alert in alerts:
-        lines.append(f"- {alert.summary}")
-
-    lines.extend(
-        [
-            "",
-            "处理原则：这是规则触发的观察提醒，不是无条件买卖指令；执行前仍需确认指数、板块扩散和分时承接。",
-        ]
-    )
-    return "\n".join(lines)
+    return _new_format(alerts, value, quote_snapshot)
 
 
 def alert_fingerprint(alert: RuleAlert) -> str:
@@ -443,17 +407,7 @@ def load_monitor_state(path: Path) -> dict:
     保留此函数以保持向后兼容。
     """
     from qing_investment.monitor.scheduler import load_monitor_state as _new_load
-    try:
-        return _new_load(path)
-    except Exception as e:
-        logger.warning(f"StateManager delegation failed: {e}, falling back to legacy logic")
-        if not path.exists():
-            return {}
-        try:
-            data = json.loads(path.read_text(encoding="utf-8"))
-        except (json.JSONDecodeError, OSError):
-            return {}
-        return data if isinstance(data, dict) else {}
+    return _new_load(path)
 
 
 def save_monitor_state(path: Path, state: dict) -> None:
@@ -463,15 +417,7 @@ def save_monitor_state(path: Path, state: dict) -> None:
     保留此函数以保持向后兼容。
     """
     from qing_investment.monitor.scheduler import save_monitor_state as _new_save
-    try:
-        return _new_save(path, state)
-    except Exception as e:
-        logger.warning(f"StateManager delegation failed: {e}, falling back to legacy logic")
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(
-            json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True),
-            encoding="utf-8",
-        )
+    return _new_save(path, state)
 
 
 def filter_new_alerts(
