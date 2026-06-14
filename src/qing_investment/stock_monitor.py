@@ -378,14 +378,10 @@ def format_alerts_message(
 
 
 def alert_fingerprint(alert: RuleAlert) -> str:
-    return "|".join(
-        [
-            alert.action,
-            alert.stock_code,
-            alert.stock_name,
-            alert.trigger,
-        ]
-    )
+    """生成告警指纹 — 委托给 monitor.output 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.output import _alert_fingerprint
+    return _alert_fingerprint(alert)
 
 
 def load_monitor_state(path: Path) -> dict:
@@ -426,36 +422,6 @@ def save_monitor_state(path: Path, state: dict) -> None:
         )
 
 
-def _parse_state_time(value: object) -> datetime | None:
-    if not value:
-        return None
-    try:
-        parsed = datetime.fromisoformat(str(value))
-    except ValueError:
-        return None
-    if parsed.tzinfo is None:
-        parsed = parsed.replace(tzinfo=CN_TZ)
-    return parsed.astimezone(CN_TZ)
-
-
-def _action_to_dedupe_type(action: str) -> str:
-    """Map alert action string to a dedupe_by_type key.
-
-    Mapping rules (aligned with yaml-patterns-20260604.md):
-        - 风控/风险 → risk_alert
-        - 减仓       → reduce_alert
-        - 进攻/防御/指数/回流/轮动/板块 → sector_rotation
-        - 其他       → default (falls back to global dedupe_minutes)
-    """
-    if "风控" in action or "风险" in action:
-        return "risk_alert"
-    if "减仓" in action:
-        return "reduce_alert"
-    if any(kw in action for kw in ("进攻", "防御", "指数", "回流", "轮动", "板块")):
-        return "sector_rotation"
-    return "default"
-
-
 def filter_new_alerts(
     alerts: list[RuleAlert],
     state: dict,
@@ -464,75 +430,10 @@ def filter_new_alerts(
     dedupe_minutes: int,
     dedupe_by_type: dict | None = None,
 ) -> list[RuleAlert]:
-    if dedupe_minutes <= 0:
-        return alerts
-
-    history = state.get("alert_history", {})
-    if not isinstance(history, dict):
-        history = {}
-    current = value.astimezone(CN_TZ)
-    # Same-day dedupe: {date: {code_action: price}}
-    daily_emitted = state.get("daily_emitted", {})
-    today_str = current.strftime("%Y-%m-%d")
-
-    fresh: list[RuleAlert] = []
-    for alert in alerts:
-        fp = alert_fingerprint(alert)
-        last_entry = history.get(fp)
-
-        # Determine per-type dedupe minutes (used by both same-day and history dedupe)
-        dedupe_type = _action_to_dedupe_type(alert.action)
-        type_config = (dedupe_by_type or {}).get(dedupe_type, {})
-        effective_minutes = type_config.get("dedupe_minutes", dedupe_minutes)
-        breakthrough_pct = type_config.get("breakthrough_if_price_change_pct", 0)
-
-        # Same-day dedupe for reduce/risk alerts on same stock
-        # 只在时间间隔 < effective_minutes 时生效（避免与 history-based dedupe 冲突）
-        code_action_key = f"{alert.stock_code}_{alert.action}"
-        daily_key = (daily_emitted.get(today_str, {}) if isinstance(daily_emitted, dict) else {})
-        same_day_price = daily_key.get(code_action_key)
-
-        if same_day_price is not None and alert.action in ("减仓观察", "风控观察"):
-            # 检查 history 中的上次时间，确认是否仍在 dedupe 窗口内
-            if isinstance(last_entry, dict):
-                last_time = _parse_state_time(last_entry.get("time"))
-                if last_time is not None:
-                    elapsed_minutes = (current - last_time).total_seconds() / 60
-                    if elapsed_minutes < effective_minutes:
-                        pct_change = abs((alert.price - same_day_price) / same_day_price) * 100 if same_day_price > 0 else 0
-                        if pct_change < 2.0:
-                            # Same stock + same action already fired today within dedupe window, and price barely moved → suppress
-                            continue
-
-        if last_entry is None:
-            fresh.append(alert)
-            continue
-
-        # Backward compat: old format was plain ISO string, new format is dict
-        if isinstance(last_entry, str):
-            last_time = _parse_state_time(last_entry)
-            last_price = None
-        else:
-            last_time = _parse_state_time(last_entry.get("time"))
-            last_price = last_entry.get("price")
-
-        if last_time is None:
-            fresh.append(alert)
-            continue
-
-        elapsed_minutes = (current - last_time).total_seconds() / 60
-        if elapsed_minutes >= effective_minutes:
-            fresh.append(alert)
-            continue
-
-        # Breakthrough: price changed significantly since last alert
-        if breakthrough_pct > 0 and last_price is not None and last_price > 0:
-            pct_change = abs((alert.price - last_price) / last_price) * 100
-            if pct_change >= breakthrough_pct:
-                fresh.append(alert)
-                continue
-
-    return fresh
+    """告警去重 — 委托给 monitor.output 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.output import filter_new_alerts as _new_filter
+    return _new_filter(alerts, state, value, dedupe_minutes=dedupe_minutes, dedupe_by_type=dedupe_by_type)
 
 
 def record_emitted_alerts(
@@ -540,54 +441,27 @@ def record_emitted_alerts(
     alerts: list[RuleAlert],
     value: datetime,
 ) -> None:
-    history = state.setdefault("alert_history", {})
-    daily = state.setdefault("daily_emitted", {})
-    current = value.astimezone(CN_TZ).isoformat()
-    today_str = value.astimezone(CN_TZ).strftime("%Y-%m-%d")
-    today_entry = daily.setdefault(today_str, {})
-    for alert in alerts:
-        history[alert_fingerprint(alert)] = {
-            "time": current,
-            "price": alert.price,
-        }
-        # Record for same-day dedupe
-        code_action_key = f"{alert.stock_code}_{alert.action}"
-        today_entry[code_action_key] = alert.price
+    """记录已发出告警 — 委托给 monitor.output 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.output import record_emitted_alerts as _new_record
+    return _new_record(state, alerts, value)
 
 
-def alert_to_log_entry(
-    alert: RuleAlert,
-    value: datetime,
-    *,
-    status: str,
-) -> dict:
-    local = value.astimezone(CN_TZ)
-    return {
-        "date": local.strftime("%Y-%m-%d"),
-        "time": local.isoformat(),
-        "status": status,
-        "fingerprint": alert_fingerprint(alert),
-        "action": alert.action,
-        "stock_code": alert.stock_code,
-        "stock_name": alert.stock_name,
-        "price": alert.price,
-        "severity": alert.severity,
-        "trigger": alert.trigger,
-        "summary": alert.summary,
-    }
-
-
-def record_alert_decision_log(
-    state: dict,
-    alerts: list[RuleAlert],
+def format_alert_decision_log(
+    all_alerts: list[RuleAlert],
     emitted_alerts: list[RuleAlert],
     value: datetime,
-) -> None:
+) -> list[dict]:
+    """格式化告警决策日志 — 委托给 monitor.output 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.output import AlertFormatter
+    formatter = AlertFormatter()
     emitted_keys = {alert_fingerprint(alert) for alert in emitted_alerts}
-    log = state.setdefault("alert_decision_log", [])
-    for alert in alerts:
+    log: list[dict] = []
+    for alert in all_alerts:
         status = "emitted" if alert_fingerprint(alert) in emitted_keys else "suppressed"
-        log.append(alert_to_log_entry(alert, value, status=status))
+        log.append(formatter.format_log_entry(alert, value, status=status))
+    return log
 
 
 def update_sector_signal_counts(
