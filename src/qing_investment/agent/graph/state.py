@@ -9,6 +9,22 @@ def _merge_reasoning(existing: list[str], new_steps: list[str]) -> list[str]:
     return existing + new_steps
 
 
+def _merge_cost_tracking(existing: list[dict], new: list[dict]) -> list[dict]:
+    """合并多个节点的成本追踪（并行节点累加）。"""
+    if not existing and not new:
+        return []
+    total_calls = 0
+    total_cost = __import__("decimal").Decimal("0")
+    for d in existing + new:
+        if isinstance(d, dict):
+            total_calls += d.get("llm_calls", 0)
+            try:
+                total_cost += __import__("decimal").Decimal(d.get("total_cost_usd", "0"))
+            except Exception:
+                pass
+    return [{"llm_calls": total_calls, "total_cost_usd": str(total_cost)}]
+
+
 class AgentState(TypedDict, total=False):
     # 输入层
     query: str
@@ -56,6 +72,9 @@ class AgentState(TypedDict, total=False):
     confidence: str
     review_passed: bool
     reasoning_steps: Annotated[list[str], _merge_reasoning]
+
+    # 成本追踪（Subtask 3 新增，Annotated reducer 实现在并行节点间累加）
+    cost_tracking: Annotated[list[dict], _merge_cost_tracking]
 
     # 内部控制
     _retry_count: int

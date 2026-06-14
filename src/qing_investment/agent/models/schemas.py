@@ -24,6 +24,7 @@ class TriggerResponse(BaseModel):
     confidence: str = Field(default="medium", description="置信度")
     review_passed: bool = Field(default=False, description="事实核查是否通过")
     reasoning_steps: list[str] = Field(default_factory=list, description="思考步骤")
+    cost_info: dict = Field(default_factory=dict, description="LLM 调用成本信息")
 
 
 class ChatRequest(BaseModel):

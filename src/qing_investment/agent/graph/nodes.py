@@ -23,6 +23,8 @@ from qing_investment.agent.tools.llm_client import get_llm_client
 from qing_investment.agent.tools.mem0_client import Mem0ClientWrapper
 from qing_investment.agent.tools.neo4j_client import Neo4jClient
 from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
+from qing_investment.agent.tools.cost_tracker import CostTracker
+from qing_investment.agent.config import settings
 from qing_investment.kline_cache import format_multi_tf_macd_report, compute_td_report, compute_fibonacci_time_report
 from .state import AgentState
 
@@ -1391,6 +1393,12 @@ def market_analyst(state: AgentState) -> AgentState:
     content = _safe_llm_invoke(prompt)
     _t1 = time.time()
     logger.info(f"market_analyst_llm: duration={_t1-_t0:.1f}s prompt_len={len(prompt)}")
+
+    # 成本追踪
+    _ct = CostTracker()
+    _ct.record_call(provider=(settings.llm_provider or "deepseek"))
+    _cost_snapshot = _ct.snapshot()
+
     try:
         result = json.loads(content) if content else {}
     except json.JSONDecodeError:
@@ -1417,6 +1425,7 @@ def market_analyst(state: AgentState) -> AgentState:
         "reasoning_steps": [
             f"市场周期: {result.get('market_phase', 'N/A')}"
         ],
+        "cost_tracking": [_cost_snapshot],
     }
 
 
@@ -1581,6 +1590,12 @@ def stock_analyst(state: AgentState) -> AgentState:
 请输出JSON：
 """
     content = _safe_llm_invoke(prompt)
+
+    # 成本追踪
+    _sa_ct = CostTracker()
+    _sa_ct.record_call(provider=(settings.llm_provider or "deepseek"))
+    _sa_cost = _sa_ct.snapshot()
+
     try:
         result = json.loads(content) if content else {}
     except json.JSONDecodeError:
@@ -1605,6 +1620,7 @@ def stock_analyst(state: AgentState) -> AgentState:
         "reasoning_steps": [
             f"个股地位: {result.get('stock_role', 'N/A')}"
         ],
+        "cost_tracking": [_sa_cost],
     }
 
 

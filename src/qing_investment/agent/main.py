@@ -133,6 +133,27 @@ def _extract_keywords(text: str) -> list[str]:
     return result
 
 
+def _aggregate_cost(cost_tracking: list[dict]) -> dict:
+    """从 Annotated 合并的 cost_tracking 列表中提取总成本快照。
+
+    cost_tracking 格式: [{"llm_calls": int, "total_cost_usd": str}]
+    """
+    from decimal import Decimal
+
+    total_calls = 0
+    total_cost = Decimal("0")
+    for entry in cost_tracking:
+        total_calls += entry.get("llm_calls", 0)
+        try:
+            total_cost += Decimal(entry.get("total_cost_usd", "0"))
+        except Exception:
+            pass
+    return {
+        "llm_calls": total_calls,
+        "total_cost_usd": str(total_cost),
+    }
+
+
 @app.get("/health")
 async def health():
     return {"status": "ok", "version": "0.1.0"}
@@ -196,6 +217,7 @@ async def analyze_trigger(req: TriggerRequest):
         confidence=result.get("confidence", "medium"),
         review_passed=result.get("review_passed", False),
         reasoning_steps=result.get("reasoning_steps", []),
+        cost_info=_aggregate_cost(result.get("cost_tracking", [])),
     )
 
 
