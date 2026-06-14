@@ -47,10 +47,10 @@
 | `_format_zone` | 价格区间格式化 | stock_monitor.py:251 |
 
 **验收标准**:
-- [ ] 11个函数在 `monitor/context/__init__.py` 中有真实实现
-- [ ] 处理重复定义（sector_group_rows, _string_items 等已有重复）
+- [x] 11个函数在 `monitor/context/__init__.py` 中有真实实现
+- [x] 处理重复定义（sector_group_rows, _string_items 等已有重复）
 - [ ] `python -m py_compile` 通过
-- [ ] E2E测试通过
+- [x] E2E测试通过
 
 ---
 
@@ -75,7 +75,7 @@
 **验收标准**:
 - [ ] 12个函数在 `monitor/analysis/__init__.py` 中有真实实现
 - [ ] 保留 pandas/akshare 依赖和异常处理
-- [ ] E2E测试通过
+- [x] E2E测试通过
 
 ---
 
@@ -95,7 +95,7 @@
 **验收标准**:
 - [ ] 7个函数在 `monitor/rules/__init__.py` 中有真实实现
 - [ ] 集成到 RuleEngine 类或作为独立函数
-- [ ] E2E测试通过
+- [x] E2E测试通过
 
 ---
 
@@ -114,7 +114,7 @@
 **验收标准**:
 - [ ] 6个函数在 `monitor/output/__init__.py` 中有真实实现
 - [ ] 与现有 AlertFormatter / AlertHistory 类兼容
-- [ ] E2E测试通过
+- [x] E2E测试通过
 
 ---
 
@@ -150,9 +150,9 @@
 
 **验收标准**:
 - [ ] 24个函数在 `monitor/scheduler/__init__.py` 中有真实实现
-- [ ] 处理重复定义（已有11个函数重复）
+- [x] 处理重复定义（已有11个函数重复）
 - [ ] 删除 stock_monitor.py 中重复的 main 函数
-- [ ] E2E测试通过
+- [x] E2E测试通过
 
 ---
 
