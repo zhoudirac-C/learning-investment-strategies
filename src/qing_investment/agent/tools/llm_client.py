@@ -66,16 +66,20 @@ LLM_PROVIDERS: dict[str, dict[str, Any]] = {
 _embedding_model = None
 
 
-def get_llm_client() -> ChatOpenAI:
-    """根据配置的 provider 返回对应的 LLM 客户端。"""
-    provider = settings.llm_provider.lower()
-    if provider not in LLM_PROVIDERS:
+def get_llm_client(provider: str | None = None) -> ChatOpenAI:
+    """根据配置的 provider 返回对应的 LLM 客户端。
+
+    Args:
+        provider: 目标 provider，如 'kimi', 'deepseek'。None 则使用 settings.llm_provider。
+    """
+    target = (provider or settings.llm_provider).lower()
+    if target not in LLM_PROVIDERS:
         raise ValueError(
-            f"Unknown LLM provider: {provider}. "
+            f"Unknown LLM provider: {target}. "
             f"Supported: {', '.join(LLM_PROVIDERS.keys())}"
         )
 
-    config = LLM_PROVIDERS[provider]
+    config = LLM_PROVIDERS[target]
     api_key = (
         getattr(settings, config["api_key_env"].lower(), None)
         or os.environ.get(config["api_key_env"])

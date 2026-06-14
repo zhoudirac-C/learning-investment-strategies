@@ -76,5 +76,8 @@ class AgentState(TypedDict, total=False):
     # 成本追踪（Subtask 3 新增，Annotated reducer 实现在并行节点间累加）
     cost_tracking: Annotated[list[dict], _merge_cost_tracking]
 
+    # Devin's Advocate 质疑点（Subtask 5 新增）
+    devils_advocate_findings: list[dict]
+
     # 内部控制
     _retry_count: int

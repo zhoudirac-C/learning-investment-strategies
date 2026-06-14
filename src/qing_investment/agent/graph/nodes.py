@@ -1624,6 +1624,94 @@ def stock_analyst(state: AgentState) -> AgentState:
     }
 
 
+def devils_advocate(state: AgentState) -> AgentState:
+    """Devil's Advocate 节点 — 强制使用不同模型家族对分析结论进行反向质疑。
+
+    插入在 stock_analyst/market_analyst 之后、synthesize 之前。
+    主分析失败不影响此节点正常执行。
+    """
+    logger = logging.getLogger(__name__)
+
+    market_ctx = state.get("market_context", {})
+    stock_analysis = state.get("stock_analysis", {})
+    claims_cited = state.get("claims_cited", [])
+    da_findings = state.get("devils_advocate_findings", [])
+
+    # 如果没有分析内容，跳过
+    if not market_ctx and not stock_analysis:
+        logger.info("devils_advocate: skipped (no analysis to challenge)")
+        return {"devils_advocate_findings": da_findings}
+
+    try:
+        from qing_investment.agent.agents.devils_advocate import DevilsAdvocateAgent
+        from qing_investment.agent.tools.llm_client import get_llm_client
+
+        # 强制用 Kimi（不同模型家族）
+        llm = get_llm_client(provider="kimi")
+        agent = DevilsAdvocateAgent(llm=llm)
+
+        import asyncio
+        result = asyncio.run(agent.run(
+            market_analysis=_market_ctx_summary(market_ctx),
+            stock_analysis=_stock_analysis_summary(stock_analysis),
+            claims_cited=claims_cited,
+        ))
+        logger.info(
+            f"devils_advocate: findings={len(result.findings)} "
+            f"errors={len(result.errors)} cost={result.cost_usd}"
+        )
+        return {"devils_advocate_findings": result.findings}
+    except Exception as e:
+        logger.warning("devils_advocate failed: %s", e)
+        return {"devils_advocate_findings": da_findings}
+
+
+def _market_ctx_summary(ctx: dict) -> str:
+    """提取大盘分析的可读摘要。"""
+    parts = [
+        f"周期: {ctx.get('market_phase', 'N/A')}",
+        f"推理: {ctx.get('phase_reasoning', '')}",
+    ]
+    themes = ctx.get("main_themes", [])
+    if themes:
+        parts.append(f"主线: {', '.join(themes)}")
+    notes = ctx.get("risk_notes", "")
+    if notes:
+        parts.append(f"风险: {notes}")
+    return "\n".join(parts)
+
+
+def _stock_analysis_summary(analysis: dict) -> str:
+    """提取个股分析的可读摘要。"""
+    parts = [
+        f"地位: {analysis.get('stock_role', 'N/A')}",
+    ]
+    bullish = analysis.get("bullish_evidence", [])
+    bearish = analysis.get("bearish_evidence", [])
+    if bullish:
+        parts.append(f"利多: {'; '.join(bullish[:3])}")
+    if bearish:
+        parts.append(f"利空: {'; '.join(bearish[:3])}")
+    return "\n".join(parts)
+
+
+def _format_devils_advocate_block(state: AgentState) -> str:
+    """格式化 Devil's Advocate 质疑点段落。"""
+    findings = state.get("devils_advocate_findings", [])
+    if not findings:
+        return ""
+
+    lines = ["", "⚠️ 反向质疑"]
+    for f in findings:
+        target = f.get("target", "未知")
+        concern = f.get("concern", "")
+        severity = f.get("severity", "low")
+        confidence = f.get("confidence", 0.5)
+        sev_icon = {"high": "🔴", "medium": "🟡", "low": "⚪"}.get(severity, "⚪")
+        lines.append(f"  {sev_icon} [{target}] {concern} (severity={severity}, confidence={confidence})")
+    return "\n".join(lines)
+
+
 def _format_source_block(state: AgentState) -> str:
     """从检索到的知识构建参考来源段落，强制注入到草稿末尾。
 
@@ -1742,6 +1830,7 @@ def synthesize(state: AgentState) -> AgentState:
 """
         # Append position plans for any held positions even in stock mode
         draft += "\n".join(_build_position_plan_lines(market, positions))
+        draft += _format_devils_advocate_block(state)
         draft += _format_source_block(state)
     else:
         sector_map = market.get("sector_map", {})
@@ -1815,6 +1904,7 @@ def synthesize(state: AgentState) -> AgentState:
 【风险提示】{market.get('risk_notes', '')}
 {position_joined}
 """
+        draft += _format_devils_advocate_block(state)
         draft += _format_source_block(state)
 
     return {
