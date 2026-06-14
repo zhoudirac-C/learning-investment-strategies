@@ -1066,6 +1066,27 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
 
     neo4j.close()
 
+    # ── 上下文压缩：确保不超过 token 预算 ──
+    try:
+        from qing_investment.monitor.context import TokenBudgetManager
+        _tbm = TokenBudgetManager()
+        _state_update = {
+            "claims": claims,
+            "wiki_snippets": wiki_snippets,
+            "sector_context": sector_context,
+            "memories": memories,
+            "few_shot_examples": few_shot,
+            "stock_contexts": stock_contexts,
+        }
+        _compressed = _tbm.compress(_state_update, max_tokens=6000, strategy="priority")
+        claims = _compressed.get("claims", claims)
+        wiki_snippets = _compressed.get("wiki_snippets", wiki_snippets)
+        sector_context = _compressed.get("sector_context", sector_context)
+        memories = _compressed.get("memories", memories)
+        few_shot = _compressed.get("few_shot_examples", few_shot)
+    except Exception:
+        pass  # 压缩失败不影响主流程
+
     # 检索审计日志
     wiki_framework_count = sum(1 for s in wiki_snippets if s.get("source", "").startswith("framework/"))
     wiki_meth_count = sum(1 for s in wiki_snippets if "wiki/投资方法论" in s.get("source", ""))

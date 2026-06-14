@@ -658,6 +658,49 @@ class TokenBudgetManager:
             "reason": reason,
         }
 
+    def compress(
+        self,
+        state_update: dict,
+        max_tokens: int = 6000,
+        strategy: str = "priority",
+    ) -> dict:
+        """压缩 Agent 检索层上下文，确保不超过 token 预算。
+
+        Args:
+            state_update: AgentState 的检索层更新，含 claims/wiki_snippets 等
+            max_tokens: 允许的最大 token 数
+            strategy: 裁剪策略
+                "priority" — 按类别优先级保留下层，上层先裁
+                "aggressive" — 只保留 claims + wiki_snippets
+
+        Returns:
+            dict: 压缩后的 state_update
+        """
+        total = _estimate_tokens(__import__("json").dumps(state_update, ensure_ascii=False))
+        if total <= max_tokens:
+            return state_update
+
+        compressed = dict(state_update)
+
+        if strategy == "aggressive":
+            keep_keys = {"claims", "wiki_snippets", "sector_context", "memories"}
+            compressed = {k: v for k, v in state_update.items() if k in keep_keys}
+
+        # priority: 按 claims > wiki > sector > memories 顺序裁
+        priority_keys = ["memories", "few_shot_examples", "sector_context", "wiki_snippets", "claims"]
+        for key in priority_keys:
+            if key not in compressed:
+                continue
+            items = compressed[key]
+            if isinstance(items, list) and len(items) > 5:
+                half = max(5, len(items) // 2)
+                compressed[key] = items[:half]
+                total = _estimate_tokens(__import__("json").dumps(compressed, ensure_ascii=False))
+                if total <= max_tokens:
+                    break
+
+        return compressed
+
 
 # ──────────────────────────────────────────
 # 向后兼容：简化接口
