@@ -218,67 +218,6 @@ def _format_zone(zone: tuple[float, float]) -> str:
     return f"{low:g}-{high:g}"
 
 
-# ──────────────────────────────────────────
-# 数据模型
-# ──────────────────────────────────────────
-    for theme in config.watchlist.get("themes", []) or []:
-        theme_id = theme.get("id", "")
-        theme_name = theme.get("name", "")
-        for stock in theme.get("stocks", []) or []:
-            row = dict(stock)
-            row["theme_id"] = theme_id
-            row["theme_name"] = theme_name
-            rows.append(row)
-    return rows
-
-
-def sector_group_rows(config: Any) -> list[dict]:
-    """提取板块组成员行。"""
-    rows: list[dict] = []
-    for group in config.strategy_pack.get("sector_groups", []) or []:
-        group_id = group.get("id", "")
-        group_name = group.get("name", "")
-        style = group.get("style", "")
-        for member in group.get("members", []) or []:
-            row = dict(member)
-            row["group_id"] = group_id
-            row["group_name"] = group_name
-            row["style"] = style
-            rows.append(row)
-    return rows
-
-
-def _string_items(value: object) -> list[str]:
-    """将值转换为字符串列表。"""
-    if value is None:
-        return []
-    if isinstance(value, list):
-        return [str(item) for item in value if item not in (None, "")]
-    return [str(value)]
-
-
-def format_watchlist_condition_line(row: dict) -> str:
-    """格式化观察列表条件行。"""
-    parts: list[str] = []
-    confirm_with = _string_items(row.get("confirm_with"))
-    if confirm_with:
-        parts.append(f"确认锚：{'、'.join(confirm_with)}")
-
-    field_labels = [
-        ("buy_setup", "买入观察"),
-        ("invalidation_setup", "买点失效"),
-        ("sell_setup", "持仓卖出/做T"),
-    ]
-    for field, label in field_labels:
-        items = _string_items(row.get(field))
-        if items:
-            parts.append(f"{label}：{'；'.join(items)}")
-    return " | ".join(parts)
-
-
-def unique_stock_count(rows: list[dict]) -> int:
-    """统计唯一股票数量。"""
-    return len({row.get("code") for row in rows if row.get("code")})
 
 
 # ──────────────────────────────────────────
