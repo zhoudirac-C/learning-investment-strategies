@@ -2587,11 +2587,17 @@ def load_monitor_config(config_dir: Path = DEFAULT_CONFIG_DIR) -> MonitorConfig:
 
 
 def now_cn() -> datetime:
-    return datetime.now(tz=CN_TZ)
+    """获取当前北京时间 — 委托给 monitor.scheduler 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.scheduler import now_cn as _new_now_cn
+    return _new_now_cn()
 
 
 def is_a_share_trading_day(value: datetime) -> bool:
-    return value.astimezone(CN_TZ).weekday() < 5
+    """判断是否为A股交易日 — 委托给 monitor.scheduler 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.scheduler import is_a_share_trading_day as _new_is_day
+    return _new_is_day(value)
 
 
 def is_a_share_trading_time(value: datetime) -> bool:
@@ -2605,27 +2611,17 @@ def is_a_share_trading_time(value: datetime) -> bool:
 
 
 def position_rows(config: MonitorConfig) -> list[dict]:
-    rows: list[dict] = []
-    for account in config.positions.get("accounts", []) or []:
-        account_name = account.get("name", "")
-        for position in account.get("positions", []) or []:
-            row = dict(position)
-            row["account"] = account_name
-            rows.append(row)
-    return rows
+    """提取持仓行 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import position_rows as _new_position_rows
+    return _new_position_rows(config)
 
 
 def watchlist_stock_rows(config: MonitorConfig) -> list[dict]:
-    rows: list[dict] = []
-    for theme in config.watchlist.get("themes", []) or []:
-        theme_id = theme.get("id", "")
-        theme_name = theme.get("name", "")
-        for stock in theme.get("stocks", []) or []:
-            row = dict(stock)
-            row["theme_id"] = theme_id
-            row["theme_name"] = theme_name
-            rows.append(row)
-    return rows
+    """提取观察列表行 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import watchlist_stock_rows as _new_watchlist_rows
+    return _new_watchlist_rows(config)
 
 
 def _string_items(value: object) -> list[str]:

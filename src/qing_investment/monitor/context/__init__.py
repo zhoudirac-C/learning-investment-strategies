@@ -45,6 +45,36 @@ logger = logging.getLogger(__name__)
 
 
 # ──────────────────────────────────────────
+# 数据提取工具函数
+# ──────────────────────────────────────────
+
+def position_rows(config: Any) -> list[dict]:
+    """提取持仓行。"""
+    rows: list[dict] = []
+    for account in config.positions.get("accounts", []) or []:
+        account_name = account.get("name", "")
+        for position in account.get("positions", []) or []:
+            row = dict(position)
+            row["account"] = account_name
+            rows.append(row)
+    return rows
+
+
+def watchlist_stock_rows(config: Any) -> list[dict]:
+    """提取观察列表行。"""
+    rows: list[dict] = []
+    for theme in config.watchlist.get("themes", []) or []:
+        theme_id = theme.get("id", "")
+        theme_name = theme.get("name", "")
+        for stock in theme.get("stocks", []) or []:
+            row = dict(stock)
+            row["theme_id"] = theme_id
+            row["theme_name"] = theme_name
+            rows.append(row)
+    return rows
+
+
+# ──────────────────────────────────────────
 # 数据模型
 # ──────────────────────────────────────────
 

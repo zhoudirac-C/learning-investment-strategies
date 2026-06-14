@@ -734,6 +734,16 @@ class Scheduler:
 # ──────────────────────────────────────────
 
 
+def now_cn() -> datetime:
+    """获取当前北京时间。"""
+    return datetime.now(tz=_CN_TZ)
+
+
+def is_a_share_trading_day(value: datetime) -> bool:
+    """判断是否为A股交易日。"""
+    return value.astimezone(_CN_TZ).weekday() < 5
+
+
 def is_a_share_trading_time(value: datetime) -> bool:
     """向后兼容：委托给 TradingTimeChecker。"""
     return TradingTimeChecker.is_trading_time(value)
