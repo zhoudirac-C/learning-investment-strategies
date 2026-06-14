@@ -650,3 +650,60 @@ def fetch_quotes(targets: dict[str, str]) -> dict:
         "errors": [result.error] if result.error else [],
         "elapsed_ms": result.latency_ms,
     }
+
+
+# ──────────────────────────────────────────
+# 股票代码工具函数
+# ──────────────────────────────────────────
+
+
+# 市场指数映射（与 stock_monitor.py 保持一致）
+MARKET_INDEXES = {
+    "上证指数": "1.000001",
+    "深证成指": "0.399001",
+    "创业板指": "0.399006",
+    "科创50": "1.000688",
+    "全A指数": "1.000985",
+}
+
+
+def stock_code_to_secid(code: str) -> str | None:
+    """将股票代码转换为 secid 格式。
+
+    例如: 600519.SH -> 1.600519
+          000001.SZ -> 0.000001
+    """
+    match = re.fullmatch(r"(\d{6})\.(SH|SZ)", code.strip().upper())
+    if not match:
+        return None
+    pure, market = match.groups()
+    return f"{'1' if market == 'SH' else '0'}.{pure}"
+
+
+def collect_quote_targets(config: Any) -> dict[str, str]:
+    """收集所有需要获取行情的标的。
+
+    包括: 市场指数 + 持仓股票 + 观察列表股票 + 板块组成员
+    """
+    from qing_investment.monitor.context import position_rows, watchlist_stock_rows, sector_group_rows
+
+    targets = dict(MARKET_INDEXES)
+    seen_secids = set(targets.values())
+
+    for row in position_rows(config) + watchlist_stock_rows(config):
+        code = str(row.get("code", ""))
+        secid = stock_code_to_secid(code)
+        if secid and secid not in seen_secids:
+            label = f"{row.get('name', '')}({code})"
+            targets[label] = secid
+            seen_secids.add(secid)
+
+    for row in sector_group_rows(config):
+        code = str(row.get("code", ""))
+        secid = stock_code_to_secid(code)
+        if secid and secid not in seen_secids:
+            label = f"{row.get('group_name', '')}/{row.get('name', '')}({code})"
+            targets[label] = secid
+            seen_secids.add(secid)
+
+    return targets

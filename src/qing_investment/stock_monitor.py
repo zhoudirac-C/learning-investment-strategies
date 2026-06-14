@@ -33,6 +33,58 @@ MARKET_INDEXES = {
 }
 
 
+# ──────────────────────────────────────────
+# 数据提取工具函数 — 已委托给 monitor.context 模块
+# 以下为向后兼容的包装函数，内部调用 Phase 2 新模块
+# ──────────────────────────────────────────
+
+def _string_items(value: object) -> list[str]:
+    """将值转换为字符串列表 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import _string_items as _new_string_items
+    return _new_string_items(value)
+
+
+def format_watchlist_condition_line(row: dict) -> str:
+    """格式化观察列表条件行 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import format_watchlist_condition_line as _new_format
+    return _new_format(row)
+
+
+def sector_group_rows(config: MonitorConfig) -> list[dict]:
+    """提取板块组成员行 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import sector_group_rows as _new_sector_rows
+    return _new_sector_rows(config)
+
+
+def unique_stock_count(rows: list[dict]) -> int:
+    """统计唯一股票数量 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import unique_stock_count as _new_count
+    return _new_count(rows)
+
+
+# ──────────────────────────────────────────
+# 股票代码工具函数 — 已委托给 monitor.fetchers 模块
+# 以下为向后兼容的包装函数，内部调用 Phase 0 新模块
+# ──────────────────────────────────────────
+
+def stock_code_to_secid(code: str) -> str | None:
+    """将股票代码转换为 secid 格式 — 委托给 monitor.fetchers 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.fetchers import stock_code_to_secid as _new_stock_code_to_secid
+    return _new_stock_code_to_secid(code)
+
+
+def collect_quote_targets(config: MonitorConfig) -> dict[str, str]:
+    """收集所有需要获取行情的标的 — 委托给 monitor.fetchers 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.fetchers import collect_quote_targets as _new_collect
+    return _new_collect(config)
+
+
 @dataclass(frozen=True)
 class MonitorConfig:
     config_dir: Path
@@ -2625,82 +2677,60 @@ def watchlist_stock_rows(config: MonitorConfig) -> list[dict]:
 
 
 def _string_items(value: object) -> list[str]:
-    if value is None:
-        return []
-    if isinstance(value, list):
-        return [str(item) for item in value if item not in (None, "")]
-    return [str(value)]
+    """将值转换为字符串列表 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import _string_items as _new_string_items
+    return _new_string_items(value)
 
 
 def format_watchlist_condition_line(row: dict) -> str:
-    parts: list[str] = []
-    confirm_with = _string_items(row.get("confirm_with"))
-    if confirm_with:
-        parts.append(f"确认锚：{'、'.join(confirm_with)}")
-
-    field_labels = [
-        ("buy_setup", "买入观察"),
-        ("invalidation_setup", "买点失效"),
-        ("sell_setup", "持仓卖出/做T"),
-    ]
-    for field, label in field_labels:
-        items = _string_items(row.get(field))
-        if items:
-            parts.append(f"{label}：{'；'.join(items)}")
-    return " | ".join(parts)
+    """格式化观察列表条件行 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import format_watchlist_condition_line as _new_format
+    return _new_format(row)
 
 
 def sector_group_rows(config: MonitorConfig) -> list[dict]:
-    rows: list[dict] = []
-    for group in config.strategy_pack.get("sector_groups", []) or []:
-        group_id = group.get("id", "")
-        group_name = group.get("name", "")
-        style = group.get("style", "")
-        for member in group.get("members", []) or []:
-            row = dict(member)
-            row["group_id"] = group_id
-            row["group_name"] = group_name
-            row["style"] = style
-            rows.append(row)
-    return rows
+    """提取板块组成员行 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import sector_group_rows as _new_sector_rows
+    return _new_sector_rows(config)
 
 
 def unique_stock_count(rows: list[dict]) -> int:
-    return len({row.get("code") for row in rows if row.get("code")})
+    """统计唯一股票数量 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import unique_stock_count as _new_count
+    return _new_count(rows)
 
+
+# ──────────────────────────────────────────
+# 股票代码工具函数 — 已委托给 monitor.fetchers 模块
+# 以下为向后兼容的包装函数，内部调用 Phase 0 新模块
+# ──────────────────────────────────────────
 
 def stock_code_to_secid(code: str) -> str | None:
-    match = re.fullmatch(r"(\d{6})\.(SH|SZ)", code.strip().upper())
-    if not match:
-        return None
-    pure, market = match.groups()
-    return f"{'1' if market == 'SH' else '0'}.{pure}"
+    """将股票代码转换为 secid 格式 — 委托给 monitor.fetchers 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.fetchers import stock_code_to_secid as _new_stock_code_to_secid
+    return _new_stock_code_to_secid(code)
 
 
 def collect_quote_targets(config: MonitorConfig) -> dict[str, str]:
-    targets = dict(MARKET_INDEXES)
-    seen_secids = set(targets.values())
-    for row in position_rows(config) + watchlist_stock_rows(config):
-        code = str(row.get("code", ""))
-        secid = stock_code_to_secid(code)
-        if secid and secid not in seen_secids:
-            label = f"{row.get('name', '')}({code})"
-            targets[label] = secid
-            seen_secids.add(secid)
-    for row in sector_group_rows(config):
-        code = str(row.get("code", ""))
-        secid = stock_code_to_secid(code)
-        if secid and secid not in seen_secids:
-            label = f"{row.get('group_name', '')}/{row.get('name', '')}({code})"
-            targets[label] = secid
-            seen_secids.add(secid)
-    return targets
+    """收集所有需要获取行情的标的 — 委托给 monitor.fetchers 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.fetchers import collect_quote_targets as _new_collect
+    return _new_collect(config)
 
 
-# ──────────────────────────────────────────
-# 数据获取函数 — 已委托给 monitor.fetchers 模块
-# 以下为向后兼容的包装函数，内部调用 Phase 0 新模块
-# ──────────────────────────────────────────
+@dataclass(frozen=True)
+class MonitorConfig:
+    config_dir: Path
+    positions: dict
+    watchlist: dict
+    strategy_pack: dict
+    positions_path: Path
+
 
 def fetch_eastmoney_quotes(targets: dict[str, str], timeout: float = 8.0) -> dict:
     """东财行情获取 — 委托给 monitor.fetchers.EastmoneyFetcher。
