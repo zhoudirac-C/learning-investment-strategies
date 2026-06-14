@@ -234,407 +234,39 @@ def _format_zone(zone: tuple[float, float]) -> str:
     return f"{low:g}-{high:g}"
 
 
+# ──────────────────────────────────────────
+# 规则评估函数 — 已委托给 monitor.rules 模块
+# 以下为向后兼容的包装函数，内部调用 Phase 1 新模块
+# ──────────────────────────────────────────
+
 def evaluate_position_alerts(
     config: MonitorConfig,
     quote_snapshot: dict,
 ) -> list[RuleAlert]:
-    quotes = _quotes_by_code(quote_snapshot)
-    alerts: list[RuleAlert] = []
-    seen: set[tuple[str, str, str]] = set()
-
-    # ── 加载 entry_points 用于丰富提醒消息 ──
-    def _norm_code(raw: str) -> str:
-        c = raw.lower().strip().replace('.sh', '').replace('.sz', '')
-        if c.startswith('sh') or c.startswith('sz'):
-            c = c[2:]
-        return c
-
-    entry_by_code: dict[str, dict] = {}
-    for ep in config.strategy_pack.get("entry_points", []):
-        ep_code = _norm_code(str(ep.get("code", "")))
-        if ep_code:
-            entry_by_code[ep_code] = ep
-
-    def _enrich_summary(action_label: str, row: dict, trigger: str,
-                         latest: float, pct_change: str) -> str:
-        """Build alert message with entry_points enrichment."""
-        code = str(row.get("code", ""))
-        name = str(row.get("name", ""))
-        norm = _norm_code(code)
-        entry = entry_by_code.get(norm)
-        risk_zone_raw = row.get("risk_zone") or row.get("risk_line", "")
-
-        parts = [f"【{action_label}】{name}({code}) {latest:g}（{pct_change}%）{trigger}"]
-
-        if entry:
-            odds = entry.get("odds_analysis", "")
-            cb_id = entry.get("claim_basis", "")
-            if odds:
-                # Truncate long odds_analysis to fit WeChat messages
-                odds_short = odds[:120] + ("…" if len(odds) > 120 else "")
-                parts.append(f"赔率：{odds_short}")
-            if cb_id:
-                parts.append(f"参考：{cb_id}")
-
-        if risk_zone_raw:
-            parts.append(f"止损：{risk_zone_raw}")
-
-        return " | ".join(parts)
-
-    for row in position_rows(config):
-        code = str(row.get("code", ""))
-        quote = _quote_for_stock(quotes, code)
-        latest = _to_float((quote or {}).get("latest"))
-        if latest is None:
-            continue
-
-        name = str(row.get("name") or (quote or {}).get("name") or "")
-        pct_change = (quote or {}).get("pct_change", "")
-
-        # ── 减仓观察 ──
-        reduce_zone = parse_price_zone(row.get("reduce_zone"))
-        if reduce_zone and reduce_zone[0] <= latest <= reduce_zone[1]:
-            trigger = f"进入预设减仓区{_format_zone(reduce_zone)}"
-            key = (code, "减仓观察", trigger)
-            if key in seen:
-                continue
-            seen.add(key)
-            summary = _enrich_summary("减仓观察", row, trigger, latest, pct_change)
-            alerts.append(
-                RuleAlert(
-                    action="减仓观察",
-                    stock_code=code,
-                    stock_name=name,
-                    price=latest,
-                    trigger=trigger,
-                    severity="observe",
-                    summary=summary,
-                )
-            )
-
-        # ── 风控观察 ──
-        risk_zone = parse_price_zone(row.get("risk_zone") or row.get("risk_line"))
-        if risk_zone and latest <= risk_zone[1]:
-            trigger = f"触及或跌破风险线{_format_zone(risk_zone)}"
-            key = (code, "风控观察", trigger)
-            if key in seen:
-                continue
-            seen.add(key)
-            summary = _enrich_summary("风控观察", row, trigger, latest, pct_change)
-            alerts.append(
-                RuleAlert(
-                    action="风控观察",
-                    stock_code=code,
-                    stock_name=name,
-                    price=latest,
-                    trigger=trigger,
-                    severity="risk",
-                    summary=summary,
-                )
-            )
-
-        # ── 加仓观察 ──
-        add_zone = parse_price_zone(row.get("add_zone"))
-        if add_zone and add_zone[0] <= latest <= add_zone[1]:
-            trigger = f"进入预设加仓区{_format_zone(add_zone)}"
-            key = (code, "加仓观察", trigger)
-            if key in seen:
-                continue
-            seen.add(key)
-            summary = _enrich_summary("机会触发", row, trigger, latest, pct_change)
-            alerts.append(
-                RuleAlert(
-                    action="加仓观察",
-                    stock_code=code,
-                    stock_name=name,
-                    price=latest,
-                    trigger=trigger,
-                    severity="opportunity",
-                    summary=summary,
-                )
-            )
-
-    return alerts
+    """持仓规则评估 — 委托给 monitor.rules.PositionRuleEngine。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.rules import PositionRuleEngine
+    return PositionRuleEngine(config).evaluate(quote_snapshot)
 
 
 def evaluate_buy_signal_candidates(
     config: MonitorConfig,
     quote_snapshot: dict,
 ) -> list[BuySignalCandidate]:
-    """基于本地 SQLite K线 + 实时行情做买入信号候选筛选。
-
-    判断"这只票是否值得 LLM 做深度买入确认"。
-    不判断"能不能买"，只判断"该不该分析"。
-    """
-    quotes = _quotes_by_code(quote_snapshot)
-    candidates: list[BuySignalCandidate] = []
-    seen_codes: set[str] = set()
-
-    # ── 加载 entry_points 和 add_zone 配置 ──
-    def _norm_code(raw: str) -> str:
-        c = raw.lower().strip().replace(".sh", "").replace(".sz", "")
-        if c.startswith("sh") or c.startswith("sz"):
-            c = c[2:]
-        return c
-
-    entry_by_code: dict[str, dict] = {}
-    for ep in config.strategy_pack.get("entry_points", []):
-        ep_code = _norm_code(str(ep.get("code", "")))
-        if ep_code:
-            entry_by_code[ep_code] = ep
-
-    # 从 positions 中提取 add_zone
-    for account in config.positions.get("accounts", []):
-        for pos in account.get("positions", []) or []:
-            pos_code = _norm_code(str(pos.get("code", "")))
-            if pos_code and pos_code not in entry_by_code:
-                add_zone = parse_price_zone(pos.get("add_zone"))
-                if add_zone:
-                    entry_by_code[pos_code] = {
-                        "code": pos.get("code", ""),
-                        "name": pos.get("name", ""),
-                        "entry_zone": f"{add_zone[0]}-{add_zone[1]}",
-                        "stop_loss": pos.get("risk_zone") or pos.get("risk_line"),
-                        "claim_basis": "",
-                        "odds_analysis": {},
-                    }
-
-    # 从 watchlist 中提取 entry_zone（如果 entry_points 没有覆盖）
-    for theme in config.watchlist.get("themes", []):
-        for stock in theme.get("stocks", []):
-            stock_code = _norm_code(str(stock.get("code", "")))
-            if stock_code and stock_code not in entry_by_code:
-                # 从标准字段 entry_zone.price_range 提取介入区间
-                ez = stock.get("entry_zone", {}) or {}
-                price_range_text = ez.get("price_range", "")
-                zone = parse_price_zone(price_range_text)
-                if zone:
-                    entry_by_code[stock_code] = {
-                        "code": stock.get("code", ""),
-                        "name": stock.get("name", ""),
-                        "entry_zone": f"{zone[0]}-{zone[1]}",
-                        "stop_loss": stock.get("invalidation_setup", ""),
-                        "claim_basis": "",
-                        "odds_analysis": {},
-                    }
-
-    # ── 遍历所有有介入区间的标的 ──
-    for code_norm, entry in entry_by_code.items():
-        quote = _quote_for_stock(quotes, entry.get("code", code_norm))
-        if not quote:
-            continue
-
-        latest = _to_float(quote.get("latest"))
-        if latest is None:
-            continue
-
-        name = str(quote.get("name") or entry.get("name", ""))
-        pct_change = _to_float(quote.get("pct_change", 0)) or 0.0
-
-        zone = parse_price_zone(entry.get("entry_zone"))
-        if not zone:
-            continue
-
-        # 六项条件
-        price_in_zone = zone[0] <= latest <= zone[1]
-        # 价格偏离度保护：现价 > 区间上限×1.05 时强制判定为"偏离，不触发"
-        price_deviated = latest > zone[1] * 1.05
-        if price_deviated:
-            price_in_zone = False
-            logger.info(
-                f"buy_signal_deviation: {name}({code_norm}) "
-                f"price={latest:.1f} > zone_upper={zone[1]:.1f}×1.05={zone[1]*1.05:.1f} → 偏离不触发"
-            )
-        not_crashing = pct_change > -3.0
-        no_limit_up = pct_change < 7.0
-        has_claim_support = bool(entry.get("claim_basis"))
-
-        # 本地 K线条件（SQLite 读取，零网络延迟）
-        volume_shrinking = False
-        above_key_ma = False
-        try:
-            from qing_investment.kline_cache import get_klines, get_ma
-            klines = get_klines(entry.get("code", code_norm), days=5)
-            if len(klines) >= 4:
-                vols = [d.get("volume", 0) for d in klines[-3:]]
-                if all(vols):
-                    volume_shrinking = vols[0] < vols[1] < vols[2]
-            ma20 = get_ma(entry.get("code", code_norm), days=20)
-            if ma20 and klines:
-                above_key_ma = klines[-1].get("close", 0) > ma20
-        except Exception:
-            pass  # K线读取失败，跳过量价条件
-
-        conditions = {
-            "价格进入区间": price_in_zone,
-            "非系统性大跌": not_crashing,
-            "未涨停": no_limit_up,
-            "UP明确看好": has_claim_support,
-            "近3日缩量": volume_shrinking,
-            "MA20上方": above_key_ma,
-        }
-        matched = [k for k, v in conditions.items() if v]
-        is_candidate = len(matched) >= 4
-
-        candidates.append(
-            BuySignalCandidate(
-                stock_code=entry.get("code", code_norm),
-                stock_name=name,
-                price=latest,
-                is_candidate=is_candidate,
-                matched_conditions=matched,
-                entry_zone=zone,
-                stop_loss=_to_float(entry.get("stop_loss")),
-                claim_basis=entry.get("claim_basis", ""),
-                odds_analysis=entry.get("odds_analysis") or {},
-            )
-        )
-
-    return candidates
+    """买入信号候选筛选 — 委托给 monitor.rules.BuySignalRuleEngine。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.rules import BuySignalRuleEngine
+    return BuySignalRuleEngine(config).evaluate(quote_snapshot)
 
 
 def evaluate_buy_signal_alerts(
     config: MonitorConfig,
     quote_snapshot: dict,
 ) -> list[RuleAlert]:
-    """将买入信号候选转换为 RuleAlert，供现有 alert 管道处理。"""
-    candidates = evaluate_buy_signal_candidates(config, quote_snapshot)
-    alerts: list[RuleAlert] = []
-
-    for candidate in candidates:
-        if not candidate.is_candidate:
-            continue
-
-        zone_str = (
-            f"{candidate.entry_zone[0]:g}-{candidate.entry_zone[1]:g}"
-            if candidate.entry_zone
-            else "未知"
-        )
-        summary = (
-            f"【机会候选】{candidate.stock_name}({candidate.stock_code}) "
-            f"现价{candidate.price:g} 进入介入区间{zone_str} "
-            f"满足{len(candidate.matched_conditions)}/6条件："
-            f"{', '.join(candidate.matched_conditions)}"
-        )
-
-        alerts.append(
-            RuleAlert(
-                action="机会候选",
-                stock_code=candidate.stock_code,
-                stock_name=candidate.stock_name,
-                price=candidate.price,
-                trigger=f"进入介入区间{zone_str}",
-                severity="opportunity",
-                summary=summary,
-            )
-        )
-
-    return alerts
-
-
-def _is_market_closed(value: datetime | None = None) -> bool:
-    """Return True if A-share market has closed for the day (after 15:00)."""
-    if value is None:
-        value = now_cn()
-    local = value.astimezone(CN_TZ)
-    if not is_a_share_trading_day(local):
-        return False
-    return local.time() >= time(15, 0)
-
-
-def _evaluate_generic_index_rule(
-    rule: dict, latest: float, index_name: str, quote: dict | None,
-    *, current_time: datetime | None = None,
-) -> RuleAlert | None:
-    """Evaluate a single index rule using the generic trigger_condition format.
-
-    ``close_below`` / ``close_above`` are only evaluated after 15:00.
-    ``intraday_below`` / ``intraday_above`` are evaluated during trading hours.
-    """
-    trigger_condition = rule.get("trigger_condition")
-    threshold = _to_float(rule.get("threshold"))
-
-    if not trigger_condition or threshold is None:
-        return None
-
-    is_close_rule = trigger_condition in ("close_below", "close_above")
-    is_intraday_rule = trigger_condition in ("intraday_below", "intraday_above")
-
-    if is_close_rule and not _is_market_closed(current_time):
-        return None
-
-    if trigger_condition in ("close_below", "intraday_below"):
-        if not (latest <= threshold):
-            return None
-    elif trigger_condition in ("close_above", "intraday_above"):
-        if not (latest >= threshold):
-            return None
-    else:
-        return None
-
-    severity = rule.get("severity", "observe")
-    action = rule.get("action") or "指数规则触发"
-
-    trigger_template = rule.get("trigger_template", "")
-    if trigger_template:
-        trigger = trigger_template.format(threshold=threshold)
-    else:
-        direction = "跌破" if "below" in trigger_condition else "突破"
-        trigger = f"{direction}{threshold:g}"
-
-    interpretation = rule.get("interpretation", "")
-    if interpretation:
-        summary = (
-            f"{action}：{index_name} 当前点位={latest:g}；{trigger}。"
-            f"{interpretation}"
-        )
-    else:
-        summary = (
-            f"{action}：{index_name} 当前点位={latest:g}；{trigger}。"
-            "需要降低进攻预期，观察科技主线是否继续承接。"
-        )
-
-    return RuleAlert(
-        action=action,
-        stock_code=str((quote or {}).get("code", "")),
-        stock_name=index_name,
-        price=latest,
-        trigger=trigger,
-        severity=severity,
-        summary=summary,
-    )
-
-
-def _evaluate_legacy_index_rule(
-    rule: dict, latest: float, index_name: str, quote: dict | None
-) -> RuleAlert | None:
-    """Backward-compatible evaluation for legacy trend_defense / weak_close_level format."""
-    trend_defense = _to_float(rule.get("trend_defense"))
-    weak_close_level = _to_float(rule.get("weak_close_level"))
-
-    if trend_defense is not None and latest <= trend_defense:
-        action = "指数趋势防线观察"
-        trigger = f"跌至趋势防线{trend_defense:g}附近或下方"
-        severity = "risk"
-    elif weak_close_level is not None and latest < weak_close_level:
-        action = "指数弱修复观察"
-        trigger = f"低于弱修复阈值{weak_close_level:g}"
-        severity = "observe"
-    else:
-        return None
-
-    return RuleAlert(
-        action=action,
-        stock_code=str((quote or {}).get("code", "")),
-        stock_name=index_name,
-        price=latest,
-        trigger=trigger,
-        severity=severity,
-        summary=(
-            f"{action}：{index_name} 当前点位={latest:g}；{trigger}。"
-            "需要降低进攻预期，观察科技主线是否继续承接。"
-        ),
-    )
+    """买入信号告警 — 委托给 monitor.rules.BuySignalRuleEngine。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.rules import BuySignalRuleEngine
+    return BuySignalRuleEngine(config).evaluate(quote_snapshot)
 
 
 def evaluate_market_alerts(
@@ -643,154 +275,41 @@ def evaluate_market_alerts(
     *,
     current_time: datetime | None = None,
 ) -> list[RuleAlert]:
-    alerts: list[RuleAlert] = []
-    quotes = _quotes_by_label(quote_snapshot)
-    index_rules = (
-        config.strategy_pack.get("market_framework", {}).get("index_rules", [])
-        or []
-    )
-
-    for rule in index_rules:
-        index_name = str(rule.get("index", ""))
-        quote = quotes.get(index_name)
-        latest = _to_float((quote or {}).get("latest"))
-        if latest is None:
-            continue
-
-        # Try generic format first, then fall back to legacy format
-        alert = _evaluate_generic_index_rule(rule, latest, index_name, quote, current_time=current_time)
-        if alert is None:
-            alert = _evaluate_legacy_index_rule(rule, latest, index_name, quote)
-        if alert is not None:
-            alerts.append(alert)
-
-    return alerts
+    """指数规则评估 — 委托给 monitor.rules.IndexRuleEngine。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.rules import IndexRuleEngine
+    return IndexRuleEngine(config).evaluate(quote_snapshot, current_time=current_time)
 
 
 def compute_sector_strength(
     config: MonitorConfig,
     quote_snapshot: dict,
 ) -> list[SectorStrength]:
-    quotes = _quotes_by_code(quote_snapshot)
-    strengths: list[SectorStrength] = []
-
-    for group in config.strategy_pack.get("sector_groups", []) or []:
-        pct_changes: list[float] = []
-        red_count = 0
-        total_amount = 0.0
-        for member in group.get("members", []) or []:
-            quote = _quote_for_stock(quotes, member.get("code"))
-            pct_change = _to_float((quote or {}).get("pct_change"))
-            if pct_change is None:
-                continue
-            pct_changes.append(pct_change)
-            if pct_change > 0:
-                red_count += 1
-            amount = _to_float((quote or {}).get("amount"))
-            if amount is not None:
-                total_amount += amount
-
-        quote_count = len(pct_changes)
-        if quote_count == 0:
-            continue
-        strengths.append(
-            SectorStrength(
-                id=str(group.get("id", "")),
-                name=str(group.get("name", "")),
-                style=str(group.get("style", "")),
-                average_pct_change=round(sum(pct_changes) / quote_count, 3),
-                red_ratio=round(red_count / quote_count, 3),
-                quote_count=quote_count,
-                total_amount=round(total_amount, 2),
-            )
-        )
-
-    return strengths
+    """板块强度计算 — 委托给 monitor.rules.SectorRotationRuleEngine。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.rules import SectorRotationRuleEngine
+    # _compute_sector_strength 是实例方法，需要创建实例
+    return SectorRotationRuleEngine(config)._compute_sector_strength(config, quote_snapshot)
 
 
 def _aggregate_sector_strength(
     strengths: dict[str, SectorStrength],
     group_ids: list[str],
 ) -> SectorStrength | None:
-    selected = [strengths[group_id] for group_id in group_ids if group_id in strengths]
-    if not selected:
-        return None
-
-    quote_count = sum(item.quote_count for item in selected)
-    if quote_count == 0:
-        return None
-
-    average_pct_change = sum(
-        item.average_pct_change * item.quote_count for item in selected
-    ) / quote_count
-    red_ratio = sum(item.red_ratio * item.quote_count for item in selected) / quote_count
-    total_amount = sum(item.total_amount for item in selected)
-    return SectorStrength(
-        id=",".join(group_ids),
-        name="、".join(item.name for item in selected),
-        style="aggregate",
-        average_pct_change=round(average_pct_change, 3),
-        red_ratio=round(red_ratio, 3),
-        quote_count=quote_count,
-        total_amount=round(total_amount, 2),
-    )
+    """板块聚合 — 委托给 monitor.rules.SectorRotationRuleEngine。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.rules import SectorRotationRuleEngine
+    return SectorRotationRuleEngine._aggregate(strengths, group_ids)
 
 
 def evaluate_sector_rotation_alerts(
     config: MonitorConfig,
     quote_snapshot: dict,
 ) -> list[RuleAlert]:
-    strengths = {item.id: item for item in compute_sector_strength(config, quote_snapshot)}
-    alerts: list[RuleAlert] = []
-
-    for rule in config.strategy_pack.get("sector_rotation_rules", []) or []:
-        offensive = _aggregate_sector_strength(
-            strengths, rule.get("offensive_groups", []) or []
-        )
-        defensive = _aggregate_sector_strength(
-            strengths, rule.get("defensive_groups", []) or []
-        )
-        if offensive is None or defensive is None:
-            continue
-
-        min_spread = _to_float(rule.get("min_spread_pct")) or 1.0
-        min_red_ratio_spread = _to_float(rule.get("min_red_ratio_spread")) or 0.0
-        pct_spread = round(offensive.average_pct_change - defensive.average_pct_change, 3)
-        red_ratio_spread = round(offensive.red_ratio - defensive.red_ratio, 3)
-
-        if pct_spread >= min_spread and red_ratio_spread >= min_red_ratio_spread:
-            action = "进攻回流观察"
-            trigger = (
-                f"{offensive.name} 均涨幅{offensive.average_pct_change:g}%、"
-                f"红盘率{offensive.red_ratio:g}，强于 {defensive.name}"
-            )
-            severity = "observe"
-        elif -pct_spread >= min_spread and -red_ratio_spread >= min_red_ratio_spread:
-            action = "防御切换观察"
-            trigger = (
-                f"{defensive.name} 均涨幅{defensive.average_pct_change:g}%、"
-                f"红盘率{defensive.red_ratio:g}，强于 {offensive.name}"
-            )
-            severity = "risk"
-        else:
-            continue
-
-        alerts.append(
-            RuleAlert(
-                action=action,
-                stock_code=str(rule.get("id", "")),
-                stock_name="板块强弱",
-                price=abs(pct_spread),
-                trigger=trigger,
-                severity=severity,
-                summary=(
-                    f"{action}：{trigger}。当前强弱差={abs(pct_spread):g}pct，"
-                    "需要结合指数关键位和持仓分时承接确认。"
-                ),
-            )
-        )
-
-    return alerts
+    """板块轮动规则评估 — 委托给 monitor.rules.SectorRotationRuleEngine。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.rules import SectorRotationRuleEngine
+    return SectorRotationRuleEngine(config).evaluate(quote_snapshot)
 
 
 def evaluate_monitor_alerts(
