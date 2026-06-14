@@ -207,83 +207,52 @@ DEFAULT_AGENT_ANALYSIS_SCHEDULE = [
 
 
 def parse_price_zone(value: object) -> tuple[float, float] | None:
-    if value is None:
-        return None
-    if isinstance(value, int | float):
-        price = float(value)
-        return (price, price)
-
-    text = str(value).strip()
-    if not text:
-        return None
-    normalized = (
-        text.replace("至", "-")
-        .replace("到", "-")
-        .replace("~", "-")
-        .replace("—", "-")
-        .replace("–", "-")
-    )
-    numbers = [float(match) for match in re.findall(r"\d+(?:\.\d+)?", normalized)]
-    if not numbers:
-        return None
-    if len(numbers) == 1:
-        return (numbers[0], numbers[0])
-    low, high = sorted(numbers[:2])
-    return (low, high)
+    """解析价格区间 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import parse_price_zone as _new_parse
+    return _new_parse(value)
 
 
 def _to_float(value: object) -> float | None:
-    if value is None:
-        return None
-    if isinstance(value, int | float):
-        return float(value)
-    text = str(value).strip()
-    if not text or text in {"-", "--"}:
-        return None
-    try:
-        return float(text)
-    except ValueError:
-        return None
+    """转换为浮点数 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import _to_float as _new_to_float
+    return _new_to_float(value)
 
 
 def _pure_stock_code(code: object) -> str:
-    text = str(code or "").strip().upper()
-    match = re.fullmatch(r"(\d{6})(?:\.(?:SH|SZ))?", text)
-    return match.group(1) if match else text
+    """从 '600519.SH' 提取 '600519' — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import _pure_stock_code as _new_pure
+    return _new_pure(code)
 
 
 def _quotes_by_code(quote_snapshot: dict) -> dict[str, dict]:
-    quotes: dict[str, dict] = {}
-    for quote in quote_snapshot.get("quotes", []) or []:
-        secid = quote.get("secid")
-        if secid:
-            quotes[str(secid)] = quote
-        if quote.get("code"):
-            quotes.setdefault(_pure_stock_code(quote.get("code")), quote)
-    return quotes
+    """将 quote_snapshot 按股票代码索引 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import _quotes_by_code as _new_quotes
+    return _new_quotes(quote_snapshot)
 
 
 def _quote_for_stock(quotes: dict[str, dict], code: object) -> dict | None:
-    secid = stock_code_to_secid(str(code or ""))
-    if secid and secid in quotes:
-        return quotes[secid]
-    return quotes.get(_pure_stock_code(code))
+    """从 quotes 字典中查找指定股票代码的行情 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import _quote_for_stock as _new_quote
+    return _new_quote(quotes, code)
 
 
 def _quotes_by_label(quote_snapshot: dict) -> dict[str, dict]:
-    quotes: dict[str, dict] = {}
-    for quote in quote_snapshot.get("quotes", []) or []:
-        for key in (quote.get("label"), quote.get("name")):
-            if key:
-                quotes[str(key)] = quote
-    return quotes
+    """将 quote_snapshot 按标签索引 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import _quotes_by_label as _new_quotes
+    return _new_quotes(quote_snapshot)
 
 
 def _format_zone(zone: tuple[float, float]) -> str:
-    low, high = zone
-    if low == high:
-        return f"{low:g}"
-    return f"{low:g}-{high:g}"
+    """格式化价格区间 — 委托给 monitor.context 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。"""
+    from qing_investment.monitor.context import _format_zone as _new_format
+    return _new_format(zone)
 
 
 # ──────────────────────────────────────────

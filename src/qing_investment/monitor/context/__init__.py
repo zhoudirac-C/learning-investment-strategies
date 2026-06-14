@@ -124,6 +124,164 @@ def unique_stock_count(rows: list[dict]) -> int:
 
 
 # ──────────────────────────────────────────
+# 新增：价格区间解析工具函数
+# ──────────────────────────────────────────
+
+import re
+
+
+def parse_price_zone(value: object) -> tuple[float, float] | None:
+    """解析价格区间。"""
+    if value is None:
+        return None
+    if isinstance(value, int | float):
+        price = float(value)
+        return (price, price)
+
+    text = str(value).strip()
+    if not text:
+        return None
+    normalized = (
+        text.replace("至", "-")
+        .replace("到", "-")
+        .replace("~", "-")
+        .replace("—", "-")
+        .replace("–", "-")
+    )
+    numbers = [float(match) for match in re.findall(r"\d+(?:\.\d+)?", normalized)]
+    if not numbers:
+        return None
+    if len(numbers) == 1:
+        return (numbers[0], numbers[0])
+    low, high = sorted(numbers[:2])
+    return (low, high)
+
+
+def _to_float(value: object) -> float | None:
+    """转换为浮点数。"""
+    if value is None:
+        return None
+    if isinstance(value, int | float):
+        return float(value)
+    text = str(value).strip()
+    if not text or text in {"-", "--"}:
+        return None
+    try:
+        return float(text)
+    except ValueError:
+        return None
+
+
+def _pure_stock_code(code: object) -> str:
+    """从 '600519.SH' 提取 '600519'。"""
+    text = str(code or "").strip().upper()
+    match = re.fullmatch(r"(\d{6})(?:\.(?:SH|SZ))?", text)
+    return match.group(1) if match else text
+
+
+def _quotes_by_code(quote_snapshot: dict) -> dict[str, dict]:
+    """将 quote_snapshot 按股票代码索引。"""
+    quotes: dict[str, dict] = {}
+    for quote in quote_snapshot.get("quotes", []) or []:
+        secid = quote.get("secid")
+        if secid:
+            quotes[str(secid)] = quote
+        if quote.get("code"):
+            quotes.setdefault(_pure_stock_code(quote.get("code")), quote)
+    return quotes
+
+
+def _quote_for_stock(quotes: dict[str, dict], code: object) -> dict | None:
+    """从 quotes 字典中查找指定股票代码的行情。"""
+    from qing_investment.monitor.fetchers import stock_code_to_secid
+    secid = stock_code_to_secid(str(code or ""))
+    if secid and secid in quotes:
+        return quotes[secid]
+    return quotes.get(_pure_stock_code(code))
+
+
+def _quotes_by_label(quote_snapshot: dict) -> dict[str, dict]:
+    """将 quote_snapshot 按标签索引。"""
+    quotes: dict[str, dict] = {}
+    for quote in quote_snapshot.get("quotes", []) or []:
+        for key in (quote.get("label"), quote.get("name")):
+            if key:
+                quotes[str(key)] = quote
+    return quotes
+
+
+def _format_zone(zone: tuple[float, float]) -> str:
+    """格式化价格区间。"""
+    low, high = zone
+    if low == high:
+        return f"{low:g}"
+    return f"{low:g}-{high:g}"
+
+
+# ──────────────────────────────────────────
+# 数据模型
+# ──────────────────────────────────────────
+    for theme in config.watchlist.get("themes", []) or []:
+        theme_id = theme.get("id", "")
+        theme_name = theme.get("name", "")
+        for stock in theme.get("stocks", []) or []:
+            row = dict(stock)
+            row["theme_id"] = theme_id
+            row["theme_name"] = theme_name
+            rows.append(row)
+    return rows
+
+
+def sector_group_rows(config: Any) -> list[dict]:
+    """提取板块组成员行。"""
+    rows: list[dict] = []
+    for group in config.strategy_pack.get("sector_groups", []) or []:
+        group_id = group.get("id", "")
+        group_name = group.get("name", "")
+        style = group.get("style", "")
+        for member in group.get("members", []) or []:
+            row = dict(member)
+            row["group_id"] = group_id
+            row["group_name"] = group_name
+            row["style"] = style
+            rows.append(row)
+    return rows
+
+
+def _string_items(value: object) -> list[str]:
+    """将值转换为字符串列表。"""
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return [str(item) for item in value if item not in (None, "")]
+    return [str(value)]
+
+
+def format_watchlist_condition_line(row: dict) -> str:
+    """格式化观察列表条件行。"""
+    parts: list[str] = []
+    confirm_with = _string_items(row.get("confirm_with"))
+    if confirm_with:
+        parts.append(f"确认锚：{'、'.join(confirm_with)}")
+
+    field_labels = [
+        ("buy_setup", "买入观察"),
+        ("invalidation_setup", "买点失效"),
+        ("sell_setup", "持仓卖出/做T"),
+    ]
+    for field, label in field_labels:
+        items = _string_items(row.get(field))
+        if items:
+            parts.append(f"{label}：{'；'.join(items)}")
+    return " | ".join(parts)
+
+
+def unique_stock_count(rows: list[dict]) -> int:
+    """统计唯一股票数量。"""
+    return len({row.get("code") for row in rows if row.get("code")})
+
+
+# ──────────────────────────────────────────
 # 数据模型
 # ──────────────────────────────────────────
 
