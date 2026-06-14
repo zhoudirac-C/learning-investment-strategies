@@ -6,8 +6,11 @@ alerting task, use the local project framework before giving conclusions.
 
 ## Required Workflow
 
-1. Read `skills/qing-stock-analysis/SKILL.md`.
-2. Follow these references when relevant:
+1. **Superpowers 强制**: 所有对该项目的代码/文档改动，必须先加载对应的 superpower skill。Hermes 会自动从 `skills/` 目录加载。
+
+2. Read `skills/qing-stock-analysis/SKILL.md`.
+
+3. Follow these references when relevant:
    - `framework/stock-analysis-playbook.md`
    - `skills/qing-stock-analysis/references/data-source-strategy.md`
    - `skills/qing-stock-analysis/references/glmv-stock-analyst-workflow.md`
