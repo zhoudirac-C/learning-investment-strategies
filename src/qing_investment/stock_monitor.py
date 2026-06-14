@@ -3308,54 +3308,6 @@ def collect_quote_targets(config: MonitorConfig) -> dict[str, str]:
     return targets
 
 
-def parse_eastmoney_quote_rows(rows: list[dict], targets: dict[str, str]) -> list[dict]:
-    reverse = {secid: label for label, secid in targets.items()}
-    quotes = []
-    for item in rows:
-        code = item.get("f12")
-        market = item.get("f13")
-        secid = f"{market}.{code}" if market not in (None, "") and code else None
-        label = reverse.get(secid or "")
-        if not label:
-            matches = [
-                name for name, target in targets.items() if target.endswith(f".{code}")
-            ]
-            label = matches[0] if len(matches) == 1 else item.get("f14", "")
-
-        quotes.append(
-            {
-                "secid": secid,
-                "label": label,
-                "code": code,
-                "name": item.get("f14"),
-                "latest": item.get("f2"),
-                "pct_change": item.get("f3"),
-                "change": item.get("f4"),
-                "volume": item.get("f5"),
-                "amount": item.get("f6"),
-                "high": item.get("f15"),
-                "low": item.get("f16"),
-                "open": item.get("f17"),
-                "previous_close": item.get("f18"),
-            }
-        )
-    return quotes
-
-
-def chunk_quote_targets(
-    targets: dict[str, str],
-    *,
-    chunk_size: int = QUOTE_CHUNK_SIZE,
-) -> list[dict[str, str]]:
-    if chunk_size <= 0:
-        raise ValueError("chunk_size must be positive")
-    items = list(targets.items())
-    return [
-        dict(items[index : index + chunk_size])
-        for index in range(0, len(items), chunk_size)
-    ]
-
-
 # ──────────────────────────────────────────
 # 数据获取函数 — 已委托给 monitor.fetchers 模块
 # 以下为向后兼容的包装函数，内部调用 Phase 0 新模块
