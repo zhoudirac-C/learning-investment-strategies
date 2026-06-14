@@ -106,9 +106,16 @@
 | `evaluate_sector_rotation_alerts` | 板块轮动告警 | stock_monitor.py:326 |
 
 **验收标准**:
-- [ ] 7个函数在 `monitor/rules/__init__.py` 中有真实实现
-- [ ] 集成到 RuleEngine 类或作为独立函数
+- [x] 7个函数在 `monitor/rules/__init__.py` 中有真实实现（类已存在）
+- [x] 集成到 RuleEngine 类或作为独立函数（已实现）
+- [x] 导入测试通过（stock_monitor.py 委托调用正常）
 - [x] E2E测试通过
+
+**状态**: ✅ 已完成（2026-06-14）
+- 发现 monitor/rules/__init__.py 已有完整实现（797行）
+- PositionRuleEngine, BuySignalRuleEngine, IndexRuleEngine, SectorRotationRuleEngine 类已存在
+- _aggregate 和 _compute_sector_strength 方法已存在
+- stock_monitor.py 委托调用正常
 
 ---
 
