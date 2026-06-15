@@ -1,0 +1,356 @@
+claims:
+- id: claim-20260615-001
+  source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T10:56:33+08:00'
+  claim_type: market-cycle
+  subject: 大盘判断：磨底末段
+  timeframe: short-term
+  statement: 当前市场更接近磨底末段而非趋势破坏。周五特征是指数强于个股、赚钱效应一般，伴随风格切换。本周大概率回归个股行情，指数关注4088点近端参照。
+  evidence_quote: 推断层面：周五特征是'指数强于个股、赚钱效应一般'，伴随风格切换。结合机构口径转向（'短期底部明确、鱼尾行情有望重启''年内第二个买点到来'），当前更接近磨底末段而非趋势破坏。本周大概率回归个股行情，指数关注4088点这一近端参照。
+  interpretation: UP认为磨底接近结束，本周将回归个股行情。4088点是沪指近端参照位，收盘站上则是确认信号。机构口径转向是佐证之一。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 大盘研判
+  related_stocks: []
+  tags:
+  - 磨底末段
+  - 4088点
+  - 个股行情
+- id: claim-20260615-002
+  source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T10:56:33+08:00'
+  claim_type: market-cycle
+  subject: 结构信号：创业板追赶沪指是科技走强节点
+  timeframe: trend
+  statement: 创业板指加速追赶沪指时，是科技板块再走强的节点；反超沪指后，可能成为科技方向短期见顶信号。
+  evidence_quote: 结构信号（推断，供节奏参照）：沪指已重回4000点，创业板指仍在3800附近徘徊。创业板指加速追赶沪指时，或是科技股再走强的节点；反超沪指后，又可能成为科技股短期见顶信号。
+  interpretation: 这是UP提出的一个市场结构观察指标，用于判断科技方向的节奏。并非交易信号，而是风格切换的参照框架。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 大盘研判
+  related_stocks: []
+  tags:
+  - 风格切换
+  - 创业板追赶
+  - 科技节奏
+- id: claim-20260615-003
+  source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T10:56:33+08:00'
+  claim_type: sector-theme
+  subject: 科技股关键变量：六氟化钨持续性
+  timeframe: short-term
+  statement: 科技股当前最关键变量是六氟化钨（钨基材料）题材能否持续。若持续则周五切换只是普通分歧；若不能则观察钼、铜箔等新故事接力；若仍无才需正视切换问题。只有光模块逻辑出现实质反转，资金对科技方向的信仰才可能真正扭转。
+  evidence_quote: 科技股关键变量：先看六氟化钨故事能否讲完——周五20cm首板无一晋级，10cm独苗反复开板，高度已现疲态。若能持续，则周五切换只是普通分歧；若不能，则观察钼、铜箔等是否有新故事接力；若仍无，才需正视切换问题。再退一步，只有光模块逻辑出现实质反转，资金对科技股的信仰才可能真正扭转。目前尚未到第三层。
+  interpretation: UP提出了三层观察框架：(1)六氟化钨能否持续→(2)钼/铜箔接力→(3)光模块反转。目前处于第1层观察期，尚未到需要担忧切换的程度。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 科技股
+  related_stocks: []
+  tags:
+  - 六氟化钨
+  - 切换观察
+  - 三层框架
+- id: claim-20260615-004
+  source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T10:56:33+08:00'
+  claim_type: sector-theme
+  subject: 中报主线：半导体材料业绩确定
+  timeframe: trend
+  statement: 半导体材料是当前业绩确定性较高的中报方向。电子级氢氟酸、溴素涨价（滨化股份(601678)报价环比涨18%/22%，存储扩产拉动需求，Q2业绩预增127%、估值约8倍PE）；MSAP药水切入高阶HDI/封装基板（光华科技(002741)单价为普通PCB药水5.3倍、毛利68%）；钐铁氮磁材+芯片电感重组（新莱福(301323-创业板不可交易)）；存储芯片封测并购（蓝箭电子(301348-创业板不可交易)拟收购芯翼信息）。
+  evidence_quote: ① 半导体材料（业绩确定性相对明确）这是当前业绩确定性较高的方向，6/14市场已有映射：电子级氢氟酸、溴素涨价（滨化股份报价环比涨18%/22%，存储扩产拉动需求，Q2业绩预增127%、估值约8倍PE）；MSAP药水切入高阶HDI、封装基板（光华科技单价为普通PCB药水5.3倍、毛利68%）；钐铁氮磁材+芯片电感重组（新莱福）；存储芯片封测并购（蓝箭电子拟收购芯翼信息）。
+  interpretation: 中报期重点方向。涨价+国产替代+并购多重逻辑叠加。滨化股份(601678)业绩确定性最高（预增127%，8倍PE），光华科技(002741)高毛利（68%），新莱福(301323)、蓝箭电子(301348)为创业板不可交易标的。与'涨价为王'弱市筛选逻辑高度契合。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 中报业绩
+  related_stocks:
+  - code: '601678'
+    name: 滨化股份
+    role: 半导体材料-业绩预增127%+8倍PE-主板可交易
+  - code: '002741'
+    name: 光华科技
+    role: MSAP药水-毛利68%-主板可交易
+  - code: '301323'
+    name: 新莱福
+    role: 钐铁氮磁材+芯片电感重组-创业板不可交易
+  - code: '301348'
+    name: 蓝箭电子
+    role: 存储芯片封测并购-创业板不可交易
+  tags:
+  - 半导体材料
+  - 中报业绩
+  - 涨价
+  - 国产替代
+- id: claim-20260615-005
+  source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T10:56:33+08:00'
+  claim_type: sector-theme
+  subject: 铜箔：供需矛盾激化量价齐升
+  timeframe: trend
+  statement: 铜箔供需矛盾加速激化，可作为科技方向接力候选。铜冠铜箔(301217-创业板不可交易)6/1起PCB标准铜箔加工费统一上调2000元/吨；HVLP4代从18万/吨跳涨至20万/吨（涨幅11%）；4.5μm极薄锂电铜箔加工费6/12报27000元/吨、周涨1000元、年内累涨超40%。HVLP生产设备进口交期已排至2027年。行业从'成本加成'切换至'供给溢价'。诺德股份(600110)、超华科技(002288)为主板相关标的。
+  evidence_quote: ② 铜箔（量价齐升）铜箔供需矛盾加速激化，可作为科技股接力的候选之一。事件层面：铜冠铜箔6/1起PCB标准铜箔加工费统一上调2000元/吨，HVLP4代从18万/吨跳涨至20万/吨（涨幅11%）；4.5μm极薄锂电铜箔加工费6/12报27000元/吨、周涨1000元、年内累涨超40%。产业逻辑是需求三浪叠加（锂电+AI/PCB+加工费弹性）与供给刚性约束——HVLP生产设备进口交期已排至2027年，新产能短期无法落地。行业正从'成本加成'切换至'供给溢价'。
+  interpretation: 铜箔是UP重点推荐的中报方向，核心逻辑是需求三浪叠加+供给刚性约束导致涨价持续性。同时映射AI硬件与新能源两条赛道。铜冠铜箔(301217)、嘉元科技(688388)为核心但均为非主板；主板可关注诺德股份(600110)、超华科技(002288)。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 铜箔
+  related_stocks:
+  - code: '301217'
+    name: 铜冠铜箔
+    role: 铜箔龙头-HVLP涨价-创业板不可交易
+  - code: '688388'
+    name: 嘉元科技
+    role: 铜箔-科创板不可交易
+  - code: '600110'
+    name: 诺德股份
+    role: 铜箔-主板可交易
+  - code: '002288'
+    name: 超华科技
+    role: 铜箔-主板可交易
+  - code: '301176'
+    name: 逸豪新材
+    role: 铜箔投产-创业板不可交易
+  tags:
+  - 铜箔
+  - 涨价
+  - 供给溢价
+  - HVLP
+  - 量价齐升
+- id: claim-20260615-006
+  source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T10:56:33+08:00'
+  claim_type: sector-theme
+  subject: DrMOS：AI服务器电源链国产替代窗口
+  timeframe: trend
+  statement: DrMOS成为AI服务器电源链最紧缺环节之一。2026年全球AI服务器出货约370万台（同比+51.3%）；英伟达Rubin平台单芯片DrMOS用量增至360颗、相比H100翻倍，单GPU价值量从不足10美元提升至近30美元。国产化率不足15%，杰华特(688141-科创板不可交易)、晶丰明源(688368-科创板不可交易)、圣邦微(300661-创业板不可交易)等已从0到1突破，2026-2027年是国产替代黄金窗口。
+  evidence_quote: ③ DrMOS（AI服务器电源链国产替代窗口）DrMOS成为AI服务器电源链最紧缺环节之一。群智咨询预测2026年全球AI服务器出货约370万台（同比+51.3%）；英伟达Rubin平台单芯片DrMOS用量增至360颗、相比H100翻倍，单GPU价值量从不足10美元提升至近30美元。国产化率不足15%，杰华特、晶丰明源、圣邦微等已从0到1突破，2026-2027年是国产替代黄金窗口。
+  interpretation: DrMOS是AI服务器电源链国产替代方向。用量翻倍+价值量3倍提升+国产化率低，三因素共振。但核心标的杰华特(688141)、晶丰明源(688368)均为科创板不可交易，圣邦微(300661)为创业板不可交易。关注主板替代标的。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 半导体
+  related_stocks:
+  - code: '688141'
+    name: 杰华特
+    role: DrMOS-30A-90A全系列-科创板不可交易
+  - code: '688368'
+    name: 晶丰明源
+    role: DrMOS-自研BCD工艺二代量产-科创板不可交易
+  - code: '300661'
+    name: 圣邦微
+    role: DrMOS相关-创业板不可交易
+  tags:
+  - DrMOS
+  - AI服务器
+  - 国产替代
+  - 电源链
+- id: claim-20260615-007
+  source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T10:56:33+08:00'
+  claim_type: sector-theme
+  subject: 有色金属：地缘缓和与AI基建刚需双重逻辑
+  timeframe: trend
+  statement: 有色金属受益于地缘局势缓和（风险偏好回升）和AI基建刚需。国际金价突破4200美元关口；6/14 LME铜涨2.3%至9870美元/吨、铝涨1.8%。国内基建投资增速超预期，铜铝稀有金属正从传统周期品向'AI基建时代工业刚需'升级。紫金矿业(601899)、洛阳钼业(603993)、新威凌(871634-北交所不可交易)为相关标的。
+  evidence_quote: 有色金属（缓和→风险偏好回升+AI基建刚需）：国际金价盘中重新突破4200美元关口；6/14 LME铜涨2.3%至9870美元/吨、铝涨1.8%。国内基建投资增速超预期、新能源金属需求叠加南美铜矿供应扰动，库存已连续8周去化。产业上AI基建带动算力中心、光缆、电网建设，铜铝稀有金属正从传统周期品向'AI基建时代工业刚需'升级。
+  interpretation: 有色金属有双重逻辑支撑：短期地缘缓和提升风险偏好，长期AI基建创造工业刚需。紫金矿业(601899)、洛阳钼业(603993)为主板可交易核心标的。新威凌(871634)为北交所不可交易。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 有色金属
+  related_stocks:
+  - code: '601899'
+    name: 紫金矿业
+    role: 铜金矿龙头-主板可交易
+  - code: '603993'
+    name: 洛阳钼业
+    role: 铜钼矿-主板可交易
+  - code: '871634'
+    name: 新威凌
+    role: 军工特种铅锌-北交所不可交易
+  tags:
+  - 有色金属
+  - 地缘缓和
+  - AI基建
+  - 铜铝
+- id: claim-20260615-008
+  source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T10:56:33+08:00'
+  claim_type: sector-theme
+  subject: 油价回落链：美伊协议预期下的受益方向
+  timeframe: short-term
+  statement: 美伊协议若签署将导致油价回落至80-85美元区间。A股逻辑从'油价飙升受益'切换至'油价回落受益'，炼化、航空、化工迎盈利修复窗口（中国石化(600028)、中国国航(601111)、万华化学(600309)等）。此逻辑与有色方向相反，且签署时点存在不确定性（伊朗外交部表态6/14未必签署）。
+  evidence_quote: 油价回落链（美伊协议预期→油价承压）：特朗普称美伊协议拟6/14签署、霍尔木兹海峡将立即开放，若落地油价预计回落至80-85美元区间。A股逻辑将从'油价飙升受益'切换至'油价回落受益'，炼化、航空、化工迎盈利修复窗口（中国石化、中国国航、万华化学等）。此条与有色逻辑方向相反，需注意这是预期交易，签署时点本身存在不确定性（伊朗外交部已表态6/14未必签署），追逐需谨慎。
+  interpretation: 油价回落链与有色方向相反，属于对冲逻辑。炼化、航空、化工受益于成本下降。但签署时点不确定，属于预期交易，需谨慎。中国石化(600028)、中国国航(601111)、万华化学(600309)均为主板可交易。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts:
+  - claim-20260615-007
+  links: []
+  topic: 油价
+  related_stocks:
+  - code: '600028'
+    name: 中国石化
+    role: 炼化-油价回落受益-主板可交易
+  - code: '601111'
+    name: 中国国航
+    role: 航空-油价回落受益-主板可交易
+  - code: '600309'
+    name: 万华化学
+    role: 化工-油价回落受益-主板可交易
+  tags:
+  - 美伊协议
+  - 油价回落
+  - 炼化
+  - 航空
+- id: claim-20260615-009
+  source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T10:56:33+08:00'
+  claim_type: sector-theme
+  subject: 锂电：6月排产新高储能占比提升
+  timeframe: short-term
+  statement: 锂电6月排产约268GWh、环比+7.6%、连续第四个月刷新峰值，储能电芯排产占比升至41.4%。大电芯加速迭代（亿纬锂能(300014-创业板不可交易)628Ah批量交付、宁德时代(300750-创业板不可交易)587Ah放量），板块从'预期修复'切换至'业绩兑现'。
+  evidence_quote: 锂电——6月排产约268GWh、环比+7.6%、连续第四个月刷新峰值，储能电芯排产占比升至41.4%，大电芯加速迭代（亿纬628Ah批量交付、宁德587Ah放量），板块从'预期修复'切换至'业绩兑现'。
+  interpretation: 锂电基本面持续向好，排产数据连续创新高，储能成为结构性增量。板块从炒作预期转向业绩兑现阶段。核心标的亿纬锂能(300014)、宁德时代(300750)均为创业板不可交易。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 锂电储能
+  related_stocks:
+  - code: '300014'
+    name: 亿纬锂能
+    role: 大电芯628Ah批量交付-创业板不可交易
+  - code: '300750'
+    name: 宁德时代
+    role: 大电芯587Ah放量-创业板不可交易
+  tags:
+  - 锂电
+  - 排产新高
+  - 储能
+  - 业绩兑现
+- id: claim-20260615-010
+  source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T10:56:33+08:00'
+  claim_type: sector-theme
+  subject: 锡矿和锡焊膏：AI服务器需求拉动
+  timeframe: trend
+  statement: 锡价单日涨3.2%至24.8万元/吨。AI服务器、800G光模块焊锡消耗量为消费级6-8倍。缅甸进口同比降42%。供需双重驱动。
+  evidence_quote: 锡矿/锡焊膏——锡价单日涨3.2%至24.8万元/吨，AI服务器、800G光模块焊锡用量为消费电子6-8倍，缅甸进口同比降42%。
+  interpretation: 锡受益于AI硬件需求拉动（焊锡消耗量为消费级6-8倍）和供给收缩（缅甸进口降42%），供需双重利好。相关主板标的包括锡业股份(000960)等。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 有色金属
+  related_stocks:
+  - code: '000960'
+    name: 锡业股份
+    role: 锡矿龙头-主板可交易
+  tags:
+  - 锡
+  - AI服务器
+  - 光模块
+  - 供给收缩
+- id: claim-20260615-011
+  source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T10:56:33+08:00'
+  claim_type: sector-theme
+  subject: 商业航天：卫星光学镜头和星链供应链
+  timeframe: trend
+  statement: 商业航天方向：福光股份(688010-科创板不可交易)（卫星光学镜头、控股股东拟增持）、信维通信(300136-创业板不可交易)（切入星链二代供应链）。
+  evidence_quote: 商业航天——福光股份（卫星光学镜头、控股股东拟增持）、信维通信（切入星链二代供应链）。
+  interpretation: 商业航天是UP持续跟踪的方向之一。福光股份(688010)和信维通信(300136)有实质性业务进展，但均为非主板不可交易。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 商业航天
+  related_stocks:
+  - code: '688010'
+    name: 福光股份
+    role: 卫星光学镜头-科创板不可交易
+  - code: '300136'
+    name: 信维通信
+    role: 星链二代供应链-创业板不可交易
+  tags:
+  - 商业航天
+  - 卫星
+  - 星链
+- id: claim-20260615-012
+  source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T10:56:33+08:00'
+  claim_type: operation
+  subject: 操作策略：磨底期后强者恒强右侧确认
+  timeframe: short-term
+  statement: 磨底期过后即上升段，赚钱难度下降。操作上可关注'强者恒强'品种。已关注方向暂以持股为主，待上升趋势确认、接力情绪回归后再做换强，不在分歧未解时盲目追高。需谨记'超跌不等于必然反弹'，仍以右侧确认为入场前提。中报期重点跟踪半导体材料的业绩兑现，以及铜箔、DrMOS的涨价/放量持续性。
+  evidence_quote: 周一预案：磨底期过后即上升段，赚钱难度下降，操作上可关注'强者恒强'品种。已关注方向暂以持股为主，待上升趋势确认、接力情绪回归后再做换强，不在分歧未解时盲目追高。需谨记'超跌不等于必然反弹'，仍以右侧确认为入场前提。中报期重点跟踪半导体材料的业绩兑现，以及铜箔、DrMOS的涨价/放量持续性。
+  interpretation: UP给出了明确的操作策略：持股为主、不追高、右侧确认。强调超跌不是买入理由，需要右侧信号确认。中报期跟踪三个方向：半导体材料业绩兑现、铜箔涨价、DrMOS放量。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 操作策略
+  related_stocks: []
+  tags:
+  - 持股为主
+  - 右侧确认
+  - 中报期
+  - 强者恒强
