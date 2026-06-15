@@ -296,17 +296,20 @@ def main() -> int:
         print(msg)
 
     # ── 触发下游 claims pipeline ──
-    has_new = any(dedup_results.get(str(fp), False) for fp in [str(p) for p in saved_files])
-    if has_new:
-        import subprocess
+    import subprocess
+
+    for filepath in saved_files:
+        is_new = dedup_results.get(str(filepath), True)
+        if not is_new:
+            continue
         pipeline_cmd = [
             sys.executable,
             str(repo_root() / "scripts" / "extract_claims_pipeline.py"),
             "start",
-            "--source", "bilibili_dynamic",
+            "--raw", str(filepath),
         ]
         try:
-            print("INFO: 触发 claims pipeline...", file=sys.stderr)
+            print(f"INFO: 触发 claims pipeline ← {filepath.name}", file=sys.stderr)
             subprocess.Popen(
                 pipeline_cmd,
                 cwd=str(repo_root()),
