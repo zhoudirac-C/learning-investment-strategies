@@ -4,6 +4,47 @@ source_claims:
 - knowledge/claims/claim-20260614-001.yaml
 - knowledge/claims/claim-20260612-001.yaml
 - knowledge/claims/claim-20260611-001.yaml
+- knowledge/claims/claim-20260610-001.yaml
+- knowledge/claims/claim-20260609-001.yaml
+- knowledge/claims/claim-20260608-001.yaml
+- knowledge/claims/claim-20260607-001.yaml
+- knowledge/claims/claim-20260606-001.yaml
+- knowledge/claims/claim-20260605-001.yaml
+- knowledge/claims/claim-20260604-001.yaml
+- knowledge/claims/claim-20260603-001.yaml
+- knowledge/claims/claim-20260602-001.yaml
+- knowledge/claims/claim-20260601-001.yaml
+- knowledge/claims/claim-20260531-001.yaml
+- knowledge/claims/claim-20260530-001.yaml
+- knowledge/claims/claim-20260529-001.yaml
+- knowledge/claims/claim-20260528-001.yaml
+- knowledge/claims/claim-20260527-001.yaml
+- knowledge/claims/claim-20260526-001.yaml
+- knowledge/claims/claim-20260525-001.yaml
+- knowledge/claims/claim-20260524-001.yaml
+- knowledge/claims/claim-20260523-001.yaml
+- knowledge/claims/claim-20260522-001.yaml
+- knowledge/claims/claim-20260521-001.yaml
+- knowledge/claims/claim-20260520-001.yaml
+- knowledge/claims/claim-20260519-001.yaml
+- knowledge/claims/claim-20260518-001.yaml
+- knowledge/claims/claim-20260517-001.yaml
+- knowledge/claims/claim-20260516-001.yaml
+- knowledge/claims/claim-20260515-001.yaml
+- knowledge/claims/claim-20260514-001.yaml
+- knowledge/claims/claim-20260513-001.yaml
+- knowledge/claims/claim-20260512-001.yaml
+- knowledge/claims/claim-20260511-001.yaml
+- knowledge/claims/claim-20260510-001.yaml
+- knowledge/claims/claim-20260509-001.yaml
+- knowledge/claims/claim-20260508-001.yaml
+- knowledge/claims/claim-20260507-001.yaml
+- knowledge/claims/claim-20260506-001.yaml
+- knowledge/claims/claim-20260505-001.yaml
+- knowledge/claims/claim-20260504-001.yaml
+- knowledge/claims/claim-20260503-001.yaml
+- knowledge/claims/claim-20260502-001.yaml
+- knowledge/claims/claim-20260501-001.yaml
 market_framework:
   current_stage: 缩量修复待验证 — 6/15全A中阳+AI硬科技普涨，上午UP给出条件「站上4088可满仓干」，收盘大概率触发。但晚间复盘强调两个隐忧：①缩量（量能未维持3万亿+）②AI内部聚焦度不够（普涨无核心）。因此6/16是关键验证日，看两点：尾盘补涨（广度）+情绪核心出现（深度）。量能为唯一裁判。
   core_question: 6/16能否验证UP的两条线索？——①AI震荡时尾盘股是否强势补涨 ②MLCC/光模块能否浮出情绪核心（风华高科/东山精密候选）。同时注意6/17 FOMC点阵图（加息55%概率）。
@@ -85,6 +126,8 @@ position_rules:
   max_position_first_buy: 1成
 - id: yakou_stop_loss
   name: 雅克科技止损明细
+  deprecated: true
+  reason: 雅克科技已于6/15止盈清仓，此规则不再适用。保留作为历史记录。
   description: 6/12高开低走（开140→收133，最高144.5→最低131.81），振幅9.54%，成交量91万手为近期天量。多空分歧巨大，但成本129.68保护线未破。
   apply_to:
   - 雅克科技(002409)

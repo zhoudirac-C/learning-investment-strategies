@@ -201,7 +201,8 @@ def fetch_stock_kline_tencent(code: str, days: int = 90) -> list[dict]:
     except Exception:
         return []
     
-    klines = data.get("data", {}).get(full_code, {}).get("qfqday", [])
+    stock_data = data.get("data", {}).get(full_code, {})
+    klines = stock_data.get("qfqday", []) or stock_data.get("day", [])
     if not klines:
         return []
     
