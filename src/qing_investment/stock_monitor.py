@@ -17,6 +17,111 @@ from zoneinfo import ZoneInfo
 import yaml
 
 from qing_investment.paths import repo_root
+from qing_investment.monitor.fetchers import parse_eastmoney_quote_rows
+
+
+# 向后兼容：fetch 函数（原实现已迁移到 monitor.fetchers）
+def fetch_eastmoney_quotes(targets: dict[str, str], timeout: float = 8.0) -> dict:
+    """东财行情获取 — 向后兼容实现，使用 urllib + curl 降级。"""
+    if not targets:
+        return {"source": "eastmoney", "quotes": [], "errors": [], "elapsed_ms": 0}
+
+    QUOTE_FIELDS = "f12,f13,f14,f2,f3,f4,f5,f6,f15,f16,f17,f18"
+    BASE_URL = "https://push2.eastmoney.com/api/qt/ulist.np/get"
+
+    started = time_module.perf_counter()
+    quotes: list[dict] = []
+    errors: list[str] = []
+
+    for chunk in _chunk_targets(targets):
+        params = urllib.parse.urlencode(
+            {
+                "fltt": "2",
+                "invt": "2",
+                "fields": QUOTE_FIELDS,
+                "secids": ",".join(chunk.values()),
+            },
+            safe=",",
+        )
+        url = f"{BASE_URL}?{params}"
+
+        try:
+            request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+        except Exception as exc:
+            # curl 降级
+            try:
+                result = subprocess.run(
+                    ["curl", "-s", "-L", "--max-time", str(int(timeout)), url],
+                    capture_output=True,
+                    text=True,
+                    check=True,
+                )
+                payload = json.loads(result.stdout)
+            except Exception as curl_exc:
+                # 如果 chunk 包含多个标的，尝试拆分为单个标的
+                if len(chunk) > 1:
+                    for single_label, single_sec_id in chunk.items():
+                        single_chunk = {single_label: single_sec_id}
+                        single_params = urllib.parse.urlencode(
+                            {
+                                "fltt": "2",
+                                "invt": "2",
+                                "fields": QUOTE_FIELDS,
+                                "secids": single_sec_id,
+                            },
+                            safe=",",
+                        )
+                        single_url = f"{BASE_URL}?{single_params}"
+                        try:
+                            single_request = urllib.request.Request(single_url, headers={"User-Agent": "Mozilla/5.0"})
+                            with urllib.request.urlopen(single_request, timeout=timeout) as single_response:
+                                single_payload = json.loads(single_response.read().decode("utf-8"))
+                                quotes.extend(parse_eastmoney_quote_rows(single_payload.get("data", {}).get("diff", []), single_chunk))
+                        except Exception:
+                            try:
+                                single_result = subprocess.run(
+                                    ["curl", "-s", "-L", "--max-time", str(int(timeout)), single_url],
+                                    capture_output=True,
+                                    text=True,
+                                    check=True,
+                                )
+                                single_payload = json.loads(single_result.stdout)
+                                quotes.extend(parse_eastmoney_quote_rows(single_payload.get("data", {}).get("diff", []), single_chunk))
+                            except Exception:
+                                pass
+                else:
+                    errors.append(f"urllib: {exc}; curl: {curl_exc}")
+                continue
+
+        quotes.extend(parse_eastmoney_quote_rows(payload.get("data", {}).get("diff", []), chunk))
+
+    latency = round((time_module.perf_counter() - started) * 1000, 1)
+    return {
+        "source": "eastmoney",
+        "quotes": quotes,
+        "errors": errors,
+        "elapsed_ms": latency,
+    }
+
+
+def _chunk_targets(targets: dict[str, str], chunk_size: int = 80) -> list[dict[str, str]]:
+    """将目标拆分为多个 chunk。"""
+    items = list(targets.items())
+    return [dict(items[i : i + chunk_size]) for i in range(0, len(items), chunk_size)]
+
+
+def fetch_tencent_quotes(targets: dict[str, str]) -> dict:
+    """腾讯行情获取 — 委托给 monitor.fetchers.TencentFetcher。"""
+    from qing_investment.monitor.fetchers import TencentFetcher
+    result = TencentFetcher().fetch(targets)
+    return {
+        "source": "tencent_gtimg",
+        "quotes": result.data.get("quotes", []),
+        "errors": [result.error] if result.error else [],
+        "elapsed_ms": result.latency_ms,
+    }
 
 
 logger = logging.getLogger(__name__)
@@ -86,13 +191,39 @@ def collect_quote_targets(config: MonitorConfig) -> dict[str, str]:
     return _new_collect(config)
 
 
-@dataclass(frozen=True)
+@dataclass
 class MonitorConfig:
     config_dir: Path
     positions: dict
     watchlist: dict
     strategy_pack: dict
     positions_path: Path
+
+    def get(self, key: str, default: Any = None) -> Any:
+        """模拟 dict.get() 以兼容 RuleEngine。"""
+        if key == "positions":
+            return self.positions
+        if key == "watchlist":
+            return self.watchlist
+        if key == "strategy_pack":
+            return self.strategy_pack
+        if key == "config_dir":
+            return str(self.config_dir)
+        if key == "positions_path":
+            return str(self.positions_path)
+        # 兼容 strategy_pack 中的字段（如 market_framework, sector_groups 等）
+        if self.strategy_pack and isinstance(self.strategy_pack, dict):
+            return self.strategy_pack.get(key, default)
+        return default
+
+    def __getitem__(self, key: str) -> Any:
+        result = self.get(key)
+        if result is None:
+            raise KeyError(key)
+        return result
+
+    def __contains__(self, key: str) -> bool:
+        return self.get(key) is not None
 
 
 @dataclass(frozen=True)
@@ -278,7 +409,8 @@ def evaluate_buy_signal_candidates(
     """买入信号候选筛选 — 委托给 monitor.rules.BuySignalRuleEngine。
     原实现已迁移，保留函数签名以保持向后兼容。"""
     from qing_investment.monitor.rules import BuySignalRuleEngine
-    return BuySignalRuleEngine().evaluate(config, quote_snapshot)
+    engine = BuySignalRuleEngine()
+    return engine._evaluate_candidates(config.strategy_pack if hasattr(config, 'strategy_pack') else config, quote_snapshot)
 
 
 def evaluate_buy_signal_alerts(
@@ -452,7 +584,7 @@ def update_market_state(
     """更新市场状态 — 委托给 monitor.scheduler 模块。
     原实现已迁移，保留函数签名以保持向后兼容。"""
     from qing_investment.monitor.scheduler import update_market_state as _new_update
-    return _new_update(state, alerts, value)
+    return _new_update(state, alerts, value, quote_snapshot)
 
 
 def agent_analysis_schedule_rows(config: MonitorConfig) -> list[dict]:
@@ -814,21 +946,86 @@ def _agent_context_data(
 
 
 def format_agent_analysis_context(
-    data: dict,
+    *args,
 ) -> str:
     """格式化 Agent 分析 context — 委托给 monitor.context 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
+    原实现已迁移，保留函数签名以保持向后兼容。
+    
+    支持两种调用方式:
+        format_agent_analysis_context(data)           # 新方式（单 dict）
+        format_agent_analysis_context(config, datetime, trigger, alerts, quotes, state)  # 旧方式
+    """
     from qing_investment.monitor.context import format_agent_analysis_context as _new_format
-    return _new_format(data)
+    if len(args) == 1 and isinstance(args[0], dict):
+        return _new_format(args[0])
+    # 旧方式：6个位置参数
+    if len(args) == 6:
+        config, value, trigger, alerts, quotes, state = args
+        data = {
+            "config": config,
+            "value": value,
+            "trigger": trigger,
+            "alerts": alerts,
+            "quotes": quotes,
+            "state": state,
+        }
+        return _new_format(data)
+    raise TypeError(f"format_agent_analysis_context() takes 1 or 6 arguments ({len(args)} given)")
 
 
-def format_agent_json_context(
-    data: dict,
-) -> str:
+def format_agent_json_context(*args) -> str:
     """格式化 Agent JSON context — 委托给 monitor.context 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
+    原实现已迁移，保留函数签名以保持向后兼容。
+    
+    支持两种调用方式:
+        format_agent_json_context(data)                              # 新方式（单 dict）
+        format_agent_json_context(config, value, trigger, alerts, snapshot, state)  # 旧方式
+    """
     from qing_investment.monitor.context import format_agent_json_context as _new_format
-    return _new_format(data)
+    if len(args) == 6:
+        # 旧调用方式: format_agent_json_context(config, value, trigger, alerts, snapshot, state)
+        config, value, trigger, alerts, snapshot, state = args
+        # 构建 buy_signal_candidates
+        buy_signal_candidates = []
+        try:
+            from qing_investment.monitor.rules import BuySignalRuleEngine
+            engine = BuySignalRuleEngine()
+            cfg = config.strategy_pack if hasattr(config, 'strategy_pack') else config
+            raw_candidates = engine._evaluate_candidates(cfg, snapshot)
+            for c in raw_candidates:
+                if getattr(c, 'is_candidate', False):
+                    buy_signal_candidates.append({
+                        "stock_code": c.stock_code,
+                        "stock_name": c.stock_name,
+                        "price": c.price,
+                        "entry_zone": list(c.entry_zone) if c.entry_zone else None,
+                        "stop_loss": c.stop_loss,
+                        "matched_conditions": c.matched_conditions,
+                        "claim_basis": getattr(c, 'claim_basis', ''),
+                        "odds_analysis": getattr(c, 'odds_analysis', {}),
+                    })
+        except Exception:
+            pass
+        data = {
+            "timestamp": value.astimezone(ZoneInfo("Asia/Shanghai")).isoformat(),
+            "trigger": {
+                "kind": trigger.kind,
+                "id": trigger.id,
+                "title": trigger.title,
+                "reason": trigger.reason,
+            },
+            "alerts": [{"action": a.action, "stock_code": a.stock_code,
+                        "stock_name": getattr(a, "stock_name", ""),
+                        "summary": a.summary} for a in alerts],
+            "quote_snapshot": snapshot,
+            "positions": config.positions,
+            "watchlist": config.watchlist,
+            "market_framework": config.strategy_pack.get("market_framework", {}),
+            "state": state,
+            "buy_signal_candidates": buy_signal_candidates,
+        }
+        return _new_format(data)
+    return _new_format(args[0])
 
 
 def _state_date(
@@ -841,14 +1038,24 @@ def _state_date(
 
 
 def summarize_daily_review(
-    config: MonitorConfig,
-    quote_snapshot: dict,
-    state: dict,
+    config_or_state: Any,
+    quote_snapshot_or_date: Any,
+    state: dict | None = None,
 ) -> dict:
     """汇总每日复盘 — 委托给 monitor.scheduler 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
+    原实现已迁移，保留函数签名以保持向后兼容。
+    支持两种调用方式:
+        summarize_daily_review(config, quote_snapshot, state)  # 旧方式
+        summarize_daily_review(state, date_text)                # 新方式
+    """
     from qing_investment.monitor.scheduler import summarize_daily_review as _new_summarize
-    return _new_summarize(config, quote_snapshot, state)
+    if state is not None:
+        # 旧调用方式: summarize_daily_review(config, quote_snapshot, state)
+        # 从 state 中提取日期，或用当前日期
+        date_text = state.get("last_review_date", "")
+        return _new_summarize(state, date_text)
+    # 新调用方式: summarize_daily_review(state, date_text)
+    return _new_summarize(config_or_state, quote_snapshot_or_date)
 
 
 def _append_review_entries(
@@ -862,12 +1069,24 @@ def _append_review_entries(
 
 
 def format_daily_review_context(
-    review: dict,
+    config_or_review: Any,
+    value: datetime | None = None,
+    state: dict | None = None,
 ) -> str:
-    """格式化每日复盘 context — 委托给 monitor.context 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
+    """格式化每日复盘 context — 委托给 monitor.scheduler 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。
+    支持两种调用方式:
+        format_daily_review_context(config, datetime, state)  # 旧方式
+        format_daily_review_context(review)                      # 新方式
+    """
     from qing_investment.monitor.context import format_daily_review_context as _new_format
-    return _new_format(review)
+    if value is not None and state is not None:
+        # 旧调用方式: format_daily_review_context(config, datetime, state)
+        # 构造 review dict
+        review = summarize_daily_review(state, value.strftime("%Y-%m-%d"))
+        return _new_format(review)
+    # 新调用方式: format_daily_review_context(review)
+    return _new_format(config_or_review)
 
 
 def load_yaml(
@@ -901,18 +1120,23 @@ def format_status_message(
     config_or_status: Any,
     value: datetime | None = None,
 ) -> str:
-    """格式化状态消息 — 委托给 monitor.output 模块。
+    """格式化状态消息 — 委托给 monitor.scheduler 模块。
     原实现已迁移，保留函数签名以保持向后兼容。
     支持两种调用方式:
         format_status_message(config, datetime)  # 旧方式
-        format_status_message(status)             # 新方式
+        format_status_message(status)             # 新方式（status dict 需含 config）
     """
-    from qing_investment.monitor.output import format_status_message as _new_format
     from qing_investment.monitor.scheduler import format_status_message as _scheduler_format
     if value is not None:
         # 旧调用方式: format_status_message(config, datetime)
         return _scheduler_format(config_or_status, value)
-    return _new_format(config_or_status)
+    # 新调用方式: format_status_message(status)
+    # status dict 中应该有 config 和 datetime 信息，尝试提取
+    status = config_or_status
+    if isinstance(status, dict) and "config" in status and "time" in status:
+        return _scheduler_format(status["config"], status["time"])
+    # 兜底：直接格式化 dict
+    return f"[状态] {status}"
 
 
 def format_smoke_message(
@@ -925,12 +1149,22 @@ def format_smoke_message(
 
 
 def format_analysis_context(
-    context: dict,
+    config_or_context: Any,
+    value: datetime | None = None,
 ) -> str:
-    """格式化分析 context — 委托给 monitor.context 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
+    """格式化分析 context — 委托给 monitor.context/scheduler 模块。
+    原实现已迁移，保留函数签名以保持向后兼容。
+    支持两种调用方式:
+        format_analysis_context(config, datetime)  # 旧方式
+        format_analysis_context(context)             # 新方式
+    """
+    if value is not None:
+        # 旧调用方式: format_analysis_context(config, datetime)
+        from qing_investment.monitor.scheduler import format_analysis_context as _scheduler_format
+        return _scheduler_format(config_or_context, value)
+    # 新调用方式: format_analysis_context(context)
     from qing_investment.monitor.context import format_analysis_context as _new_format
-    return _new_format(context)
+    return _new_format(config_or_context)
 
 
 def format_live_analysis_context(
@@ -961,6 +1195,7 @@ def run_tick(
     quote_fetcher: Any | None = None,
     state_path: str | None = None,
     dedupe_minutes: int = 30,
+    agent_context_on_trigger: bool = False,
 ) -> dict | str:
     """执行一次监控 tick — 委托给 monitor.scheduler 模块。
     原实现已迁移，保留函数签名以保持向后兼容。
@@ -971,22 +1206,30 @@ def run_tick(
     from qing_investment.monitor.scheduler import run_tick as _new_run, is_a_share_trading_time
     if isinstance(quote_snapshot_or_time, datetime):
         # 旧调用方式: run_tick(config, datetime, emit_status=..., ignore_trading_time=...)
-        # 需要构建 quote_snapshot 和 state
         time_value = quote_snapshot_or_time
-        if not ignore_trading_time and not is_a_share_trading_time(time_value):
-            return "" if emit_status else {}
-        # 构建空的 quote_snapshot 和 state
-        empty_snapshot: dict = {}
-        empty_state: dict = {}
-        if quote_fetcher is not None:
-            targets = collect_quote_targets(config)
-            empty_snapshot = quote_fetcher(targets)
-        result = _new_run(config, empty_snapshot, empty_state)
-        if emit_status and result:
-            return format_status_message(config, time_value)
-        return result if result else ("" if emit_status else {})
-    # 新调用方式
-    return _new_run(config, quote_snapshot_or_time, state or {})
+        return _new_run(
+            config,
+            time_value,
+            emit_status=emit_status,
+            ignore_trading_time=ignore_trading_time,
+            quote_fetcher=quote_fetcher,
+            state_path=Path(state_path) if state_path else None,
+            dedupe_minutes=dedupe_minutes,
+            agent_context_on_trigger=agent_context_on_trigger,
+        )
+    # 新调用方式: run_tick(config, quote_snapshot, state)
+    # scheduler.run_tick 不接受这种签名，需要适配
+    empty_state = state or {}
+    # 从 quote_snapshot 推断时间（如果可能）或用当前时间
+    from datetime import datetime as _dt
+    now = _dt.now(CN_TZ)
+    return _new_run(
+        config,
+        now,
+        emit_status=False,
+        ignore_trading_time=True,
+        quote_fetcher=lambda _targets: quote_snapshot_or_time,
+    )
 
 
 def build_parser() -> "argparse.ArgumentParser":
@@ -996,16 +1239,9 @@ def build_parser() -> "argparse.ArgumentParser":
     return _new_build()
 
 
-def main() -> None:
+def main(argv: list[str] | None = None) -> int:
     """主入口 — 委托给 monitor.scheduler 模块。
     原实现已迁移，保留函数签名以保持向后兼容。"""
     from qing_investment.monitor.scheduler import main as _new_main
-    return _new_main()
-
-
-def main() -> None:
-    """主入口 — 委托给 monitor.scheduler 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
-    from qing_investment.monitor.scheduler import main as _new_main
-    return _new_main()
+    return _new_main(argv)
 

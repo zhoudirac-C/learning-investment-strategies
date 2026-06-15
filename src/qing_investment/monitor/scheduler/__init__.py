@@ -43,6 +43,15 @@ _CN_TZ = ZoneInfo("Asia/Shanghai")
 # ──────────────────────────────────────────
 
 
+@dataclass(frozen=True)
+class AgentAnalysisTrigger:
+    kind: str
+    id: str
+    title: str
+    reason: str
+    dedupe_key: str
+
+
 @dataclass
 class TickState:
     """单次 tick 的运行状态。"""
@@ -319,8 +328,20 @@ class AgentSchedule:
         current_minute = value.hour * 60 + value.minute
 
         for row in self.schedule_rows:
-            h = row.get("hour", 0)
-            m = row.get("minute", 0)
+            # 支持两种格式: {"hour": 9, "minute": 26} 或 {"time": "09:26"}
+            h = row.get("hour")
+            m = row.get("minute")
+            if h is None or m is None:
+                time_str = str(row.get("time", ""))
+                if time_str and ":" in time_str:
+                    try:
+                        h_str, m_str = time_str.split(":")
+                        h = int(h_str)
+                        m = int(m_str)
+                    except ValueError:
+                        continue
+                else:
+                    continue
             scheduled_minute = h * 60 + m
             # 允许 ±2 分钟误差
             if abs(current_minute - scheduled_minute) <= 2:
@@ -345,6 +366,12 @@ class AgentSchedule:
             _, h, m = candidates[0]
             return value.replace(hour=h, minute=m, second=0, microsecond=0)
         return None
+
+    def dedupe_key(self, row: dict, value: datetime) -> str:
+        """生成 Agent 分析去重键。"""
+        date_text = value.astimezone(_CN_TZ).strftime("%Y-%m-%d")
+        return f"scheduled:{row.get('id', row.get('time', 'unknown'))}:{date_text}"
+
 
 def _agent_dedupe_key_for_schedule(row: dict, value: datetime) -> str:
     """获取Agent分析去重键。"""
@@ -399,6 +426,7 @@ def update_market_state(
     state: dict,
     alerts: list,
     value: datetime,
+    quote_snapshot: dict | None = None,
 ) -> None:
     """更新市场状态 — 向后兼容的委托函数。"""
     from qing_investment.stock_monitor import alert_fingerprint
@@ -433,6 +461,17 @@ def update_market_state(
                 "last_seen_at": value.astimezone(_CN_TZ).isoformat(),
             }
         state["position_alerts"] = current
+
+    # 4. 最新市场状态摘要（兼容旧测试）
+    risk_count = sum(1 for a in alerts if a.severity == "risk")
+    sector_actions = [a.action for a in alerts if a.stock_name == "板块强弱"]
+    quote_count = len(quote_snapshot.get("quotes", [])) if isinstance(quote_snapshot, dict) else len(alerts)
+    state["last_market_state"] = {
+        "alert_count": len(alerts),
+        "risk_count": risk_count,
+        "sector_actions": sector_actions,
+        "quote_count": quote_count,
+    }
 
 
 def _hhmm(value: datetime) -> str:
@@ -490,7 +529,13 @@ def find_agent_analysis_trigger(
 
     current_hhmm = _hhmm(value)
     for row in agent_analysis_schedule_rows(config):
-        if str(row.get("time", "")) != current_hhmm:
+        row_time = str(row.get("time", ""))
+        if not row_time:
+            # 新格式: {"hour": 9, "minute": 26}
+            h = row.get("hour", 0)
+            m = row.get("minute", 0)
+            row_time = f"{h:02d}:{m:02d}"
+        if row_time != current_hhmm:
             continue
         dedupe_key = _agent_dedupe_key_for_schedule(row, value)
         if dedupe_key in history:
@@ -592,6 +637,15 @@ def record_agent_analysis_trigger(
 ) -> None:
     """记录Agent分析触发器。"""
     history = state.setdefault("agent_analysis_history", {})
+    # 兼容 list 格式（来自 TickState.agent_analysis_log）
+    if isinstance(history, list):
+        # 转换为 dict 格式
+        history_dict = {}
+        for entry in history:
+            if isinstance(entry, dict) and "dedupe_key" in entry:
+                history_dict[entry["dedupe_key"]] = entry
+        history = history_dict
+        state["agent_analysis_history"] = history
     history[trigger.dedupe_key] = {
         "time": value.astimezone(_CN_TZ).isoformat(),
         "kind": trigger.kind,
@@ -1131,14 +1185,23 @@ def is_a_share_trading_time(value: datetime) -> bool:
 def load_monitor_state(path: Path) -> dict:
     """向后兼容：加载监控状态。"""
     manager = StateManager(path)
-    return manager.get().to_dict()
+    result = manager.get().to_dict()
+    # 字段映射：新字段名 → 旧字段名（向后兼容）
+    if "emitted_alerts" in result:
+        result["alert_history"] = result["emitted_alerts"]
+    if "agent_analysis_log" in result:
+        result["agent_analysis_history"] = result["agent_analysis_log"]
+    return result
 
 
 def save_monitor_state(path: Path, state: dict) -> None:
     """向后兼容：保存监控状态。"""
     manager = StateManager(path)
+    # 字段映射：旧字段名 → 新字段名
+    field_map = {"alert_history": "emitted_alerts", "agent_analysis_history": "agent_analysis_log"}
     for key, value in state.items():
-        manager.update(**{key: value})
+        mapped_key = field_map.get(key, key)
+        manager.update(**{mapped_key: value})
     manager.save()
 
 
@@ -1403,7 +1466,7 @@ def record_alert_decision_log(
     from qing_investment.monitor.output import _alert_fingerprint; emitted_keys = {_alert_fingerprint(alert) for alert in emitted_alerts}
     log = state.setdefault("alert_decision_log", [])
     for alert in alerts:
-        status = "emitted" if alert_fingerprint(alert) in emitted_keys else "suppressed"
+        status = "emitted" if _alert_fingerprint(alert) in emitted_keys else "suppressed"
         from qing_investment.monitor.output import AlertFormatter; log.append(AlertFormatter().format_log_entry(alert, value, status=status))
 
 
@@ -1618,6 +1681,11 @@ def _append_review_entries(lines: list[str], entries: list[dict], limit: int = 1
 
 
 
+def unique_stock_count(rows: list[dict]) -> int:
+    """统计唯一股票数量。"""
+    return len({row.get("code") for row in rows if row.get("code")})
+
+
 def format_status_message(config: "MonitorConfig", value: datetime) -> str:
     from qing_investment.monitor.context import position_rows, watchlist_stock_rows
     positions = position_rows(config)
@@ -1697,7 +1765,7 @@ def run_tick(
     ):
         return ""
     if emit_status:
-        return format_status_message(value)
+        return format_status_message(config, value)
     if use_concurrent_fetcher:
         from qing_investment.monitor.fetchers import ConcurrentDataFetcher
         cf = ConcurrentDataFetcher()
@@ -1900,7 +1968,8 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    config = load_monitor_config(Path(args.config_dir))  # noqa: F821
+    from qing_investment.stock_monitor import load_monitor_config
+    config = load_monitor_config(Path(args.config_dir))
     current = datetime.now(_CN_TZ)
 
     if args.smoke:
@@ -1916,6 +1985,7 @@ def main(argv: list[str] | None = None) -> int:
         print(format_live_analysis_context(config, current))
         return 0
     if args.daily_review_context:
+        from qing_investment.stock_monitor import format_daily_review_context
         state_path = Path(args.state_file) if args.state_file else config.config_dir / "state.json"
         state = load_monitor_state(state_path)
         print(format_daily_review_context(config, current, state))

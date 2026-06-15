@@ -738,8 +738,12 @@ def build_watchlist_context(
     }
 
 
-def format_agent_analysis_context(data: dict) -> str:
+def format_agent_analysis_context(*args) -> str:
     """将 agent 分析数据结构化为可读文本。
+
+    支持两种调用方式:
+        format_agent_analysis_context(data)           # 新方式（单 dict）
+        format_agent_analysis_context(config, datetime, trigger, alerts, quotes, state)  # 旧方式
 
     data 来自 _agent_context_data() 的输出：
         {timestamp, trigger, market_framework, alerts,
@@ -748,6 +752,27 @@ def format_agent_analysis_context(data: dict) -> str:
     Returns:
         str: 格式化后的分析上下文文本
     """
+    from zoneinfo import ZoneInfo
+
+    # 旧方式：6个位置参数
+    if len(args) == 6:
+        config, value, trigger, alerts, quotes, state = args
+        data = {
+            "timestamp": value.astimezone(ZoneInfo("Asia/Shanghai")).strftime("%Y-%m-%d %H:%M"),
+            "trigger": {
+                "kind": getattr(trigger, "kind", "未知"),
+                "title": getattr(trigger, "title", ""),
+                "reason": getattr(trigger, "reason", ""),
+            } if trigger else {},
+            "alerts": [{"summary": a.summary} for a in alerts] if alerts else [],
+            "market_state": state.get("last_market_state", {}) if isinstance(state, dict) else {},
+            "quote_snapshot": quotes,
+        }
+    elif len(args) == 1 and isinstance(args[0], dict):
+        data = args[0]
+    else:
+        raise TypeError(f"format_agent_analysis_context() takes 1 or 6 arguments ({len(args)} given)")
+
     lines = [
         "[Hermes股票监控大模型分析上下文]",
         f"时间：{data.get('timestamp', '未知')}",
@@ -784,6 +809,25 @@ def format_agent_analysis_context(data: dict) -> str:
     lines.append(f"持仓：{len(data.get('positions', []))} 只")
     lines.append(f"观察池：{len(data.get('watchlist', []))} 只")
 
+    # 行情快照（兼容旧测试）
+    quotes = data.get("quote_snapshot", {})
+    if quotes:
+        lines.extend(["", "行情快照："])
+        for q in quotes.get("quotes", []):
+            label = q.get("label", q.get("name", "未知"))
+            lines.append(f"- {label}: 最新价 {q.get('latest', 'N/A')}")
+
+    # 任务要求（兼容旧测试）
+    lines.extend([
+        "",
+        "任务：请基于上述信息给出简要分析和操作建议。",
+        "要求：最多450字，禁止Markdown表格。",
+        "禁止把多只股票写成同一段。",
+        "【重点分析】1-2只重点票，每只80-100字",
+        "【其他持仓】剩余持仓每只15字",
+        "观察池现在能不能买",
+    ])
+
     return "\n".join(lines)
 
 
@@ -798,8 +842,27 @@ def format_agent_json_context(data: dict) -> str:
     """
     import json
 
+    # 确定分析类型和关联股票
+    trigger = data.get("trigger", {})
+    alerts = data.get("alerts", [])
+
+    if isinstance(trigger, dict) and trigger.get("kind") == "buy_signal_candidate":
+        analysis_type = "stock"
+        # 取第一个候选的股票代码
+        stock_code = ""
+        for a in alerts:
+            sc = a.get("stock_code", "") if isinstance(a, dict) else getattr(a, "stock_code", "")
+            if sc:
+                stock_code = sc
+                break
+    else:
+        analysis_type = "market"
+        stock_code = ""
+
     # 移除可能过大的 quote_snapshot，避免 token 浪费
     output = {k: v for k, v in data.items() if k != "quote_snapshot"}
+    output["analysis_type"] = analysis_type
+    output["stock_code"] = stock_code
     return json.dumps(output, ensure_ascii=False, indent=2, default=str)
 
 
@@ -1001,14 +1064,20 @@ def format_daily_review_context(review: dict) -> str:
         f"日期：{review.get('date', '未知')}",
     ]
 
-    summary = review.get("summary", {})
-    if summary:
+    emitted = review.get("emitted_alerts", [])
+    suppressed = review.get("suppressed_alerts", [])
+    if emitted or suppressed:
         lines.extend(
             [
                 "",
                 "统计：",
-                f"- 已发送提醒：{len(summary.get('emitted_alerts', []))}",
-                f"- 被去重压制：{len(summary.get('suppressed_alerts', []))}",
+                f"- 已发送提醒：{len(emitted)}",
+                f"- 被去重压制：{len(suppressed)}",
+                "",
+                "复盘问题：",
+                "- 误报：检查是否有不必要的提醒",
+                "- 漏报：检查是否有遗漏的信号",
+                "- YAML：确认配置文件是否需要更新",
             ]
         )
 

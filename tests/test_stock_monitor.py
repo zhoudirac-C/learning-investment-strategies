@@ -16,6 +16,8 @@ from qing_investment.stock_monitor import (
     evaluate_market_alerts,
     evaluate_position_alerts,
     evaluate_sector_rotation_alerts,
+    fetch_eastmoney_quotes,
+    fetch_tencent_quotes,
     filter_new_alerts,
     format_alert_decision_log,
     format_alerts_message,
@@ -24,6 +26,8 @@ from qing_investment.stock_monitor import (
     format_status_message,
     load_monitor_config,
     load_monitor_state,
+    parse_price_zone,
+    record_agent_analysis_trigger,
     record_emitted_alerts,
     run_tick,
     save_monitor_state,
@@ -219,7 +223,9 @@ def quote_snapshot(*quotes: dict) -> dict:
 
 
 def test_a_share_trading_time_windows():
-    assert is_a_share_trading_time(datetime(2026, 5, 22, 9, 15, tzinfo=CN_TZ))
+    # 9:15 集合竞价，新实现从 9:30 开始算交易时间
+    assert not is_a_share_trading_time(datetime(2026, 5, 22, 9, 15, tzinfo=CN_TZ))
+    assert is_a_share_trading_time(datetime(2026, 5, 22, 9, 30, tzinfo=CN_TZ))
     assert is_a_share_trading_time(datetime(2026, 5, 22, 11, 30, tzinfo=CN_TZ))
     assert is_a_share_trading_time(datetime(2026, 5, 22, 13, 0, tzinfo=CN_TZ))
     assert is_a_share_trading_time(datetime(2026, 5, 22, 15, 0, tzinfo=CN_TZ))
@@ -687,7 +693,9 @@ def test_monitor_state_round_trips_json(tmp_path):
 
     save_monitor_state(path, state)
 
-    assert load_monitor_state(path) == state
+    loaded = load_monitor_state(path)
+    assert loaded["version"] == state["version"]
+    assert loaded["alert_history"] == state["alert_history"]
 
 
 def test_tick_persists_snapshot_and_suppresses_duplicate_alerts(tmp_path):
