@@ -295,6 +295,27 @@ def main() -> int:
 
         print(msg)
 
+    # ── 触发下游 claims pipeline ──
+    has_new = any(dedup_results.get(str(fp), False) for fp in [str(p) for p in saved_files])
+    if has_new:
+        import subprocess
+        pipeline_cmd = [
+            sys.executable,
+            str(repo_root() / "scripts" / "extract_claims_pipeline.py"),
+            "start",
+            "--source", "bilibili_dynamic",
+        ]
+        try:
+            print("INFO: 触发 claims pipeline...", file=sys.stderr)
+            subprocess.Popen(
+                pipeline_cmd,
+                cwd=str(repo_root()),
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.PIPE,
+            )
+        except Exception as exc:
+            print(f"ERROR: 启动 claims pipeline 失败: {exc}", file=sys.stderr)
+
     return 0
 
 
