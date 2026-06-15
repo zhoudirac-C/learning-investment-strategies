@@ -17,6 +17,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from qing_investment.monitor.health_stats import get_health_registry
+
 
 class CacheEntry:
     """缓存条目。"""
@@ -118,7 +120,7 @@ class DataCache:
     def stats(self) -> dict:
         """缓存统计。"""
         total = self._hits + self._misses
-        return {
+        stats = {
             "size": len(self._data),
             "max_entries": self._max_entries,
             "hits": self._hits,
@@ -128,6 +130,12 @@ class DataCache:
             "expired": self._expired,
             "evictions": self._evictions,
         }
+        # 上报到健康指标
+        try:
+            get_health_registry().update_cache_stats(stats)
+        except Exception:
+            pass
+        return stats
 
     def clear(self) -> None:
         """清空全部缓存。"""

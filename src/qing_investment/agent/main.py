@@ -215,6 +215,7 @@ async def analyze_trigger(req: TriggerRequest):
         data_sources=result.get("data_sources", []),
         confidence=result.get("confidence", "medium"),
         review_passed=result.get("review_passed", False),
+        citation_report=result.get("citation_report"),
         reasoning_steps=result.get("reasoning_steps", []),
         cost_info=_aggregate_cost(result.get("cost_tracking", [])),
     )

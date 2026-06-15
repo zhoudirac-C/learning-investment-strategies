@@ -63,6 +63,7 @@ class AgentState(TypedDict, total=False):
 
     # 生成层
     styled_output: str
+    citation_report: dict | None  # CitationValidator 校验报告
     review_notes: list[str]
 
     # 输出层

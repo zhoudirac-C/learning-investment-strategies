@@ -104,11 +104,13 @@ def main() -> int:
     in_window = (6 <= hour < 9) or (hour == 9 and minute < 15)
 
     if not in_window:
-        print(
-            f"[SKIP] 当前时间 {now_cn.strftime('%H:%M')} 不是预拉取窗口"
-            f"（06:00-09:15 CST），跳过执行。"
-        )
-        return 0
+        # 手动执行时跳过时间检查（DEBUG模式）
+        if os.environ.get("FORCE_KLINE_FETCH") != "1":
+            print(
+                f"[SKIP] 当前时间 {now_cn.strftime('%H:%M')} 不是预拉取窗口"
+                f"（06:00-09:15 CST），跳过执行。"
+            )
+            return 0
 
     # 环境变量提示
     tz_env = os.environ.get("TZ", "")

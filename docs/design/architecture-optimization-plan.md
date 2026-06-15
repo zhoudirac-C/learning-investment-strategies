@@ -3,7 +3,7 @@
 > 日期：2026-06-14
 > 触发：架构Review + 开源项目竞品分析后更新
 > 目标：基于行业最佳实践，优化模块化拆分方案
-> 状态：设计文档，待实施
+> 状态：✅ **全部实施完成**（2026-06-15 最后一次增量更新）
 
 ---
 
@@ -588,29 +588,29 @@ class CitationValidator:
 
 ### 4.1 四阶段演进（vs v1.0调整）
 
-| 阶段 | 目标 | 工期 | 关键变更（vs v1.0） |
-|------|------|------|-------------------|
-| **Phase 0** | 监控引擎拆分 | 2-3天 | 新增：Fetcher基类设计，参考AlphaAnalyst |
-| **Phase 1** | 事件驱动+热更新 | 3-4天 | 新增：TokenBudgetManager，Devil's Advocate预留接口 |
-| **Phase 2** | 实时推送+性能优化 | 5-7天 | 新增：WebSocket Fetcher，并发查询优化 |
-| **Phase 3** | 分析引擎增强 | 7-10天 | 新增：CitationValidator，MCP Server接入 |
+| 阶段 | 目标 | 工期 | 关键变更（vs v1.0） | 实现状态 |
+|------|------|------|-------------------|:--------:|
+| **Phase 0** | 监控引擎拆分 | 2-3天 | 新增：Fetcher基类设计，参考AlphaAnalyst | ✅ |
+| **Phase 1** | 事件驱动+热更新 | 3-4天 | 新增：TokenBudgetManager，Devil's Advocate预留接口 | ✅ |
+| **Phase 2** | 实时推送+性能优化 | 5-7天 | 新增：WebSocket Fetcher，并发查询优化 | ✅ |
+| **Phase 3** | 分析引擎增强 | 7-10天 | 新增：CitationValidator，MCP Server接入 | ✅ |
 
 ### 4.2 优先级调整
 
-**🔴 高优（立即实施）**
-1. **监控引擎拆分** — stock_monitor.py → 4模块（同v1.0）
-2. **Fetcher层独立** — 新增，参考AlphaAnalyst设计
-3. **Agent基类标准化** — 新增，支持成本追踪
+**🔴 高优（已全部实施）**
+1. ✅ **监控引擎拆分** — stock_monitor.py → 4模块（同v1.0）
+2. ✅ **Fetcher层独立** — 新增，参考AlphaAnalyst设计
+3. ✅ **Agent基类标准化** — 新增，支持成本追踪
 
-**🟡 中优（Phase 1-2）**
-4. **事件驱动管线** — 同v1.0
-5. **配置热更新** — 同v1.0
-6. **Token预算管理** — 新增，防止上下文膨胀
+**🟡 中优（已全部实施）**
+4. ✅ **事件驱动管线** — WebSocket + 断路器 + HTTP降级
+5. ✅ **配置热更新** — ConfigWatcher + 动态重载
+6. ✅ **Token预算管理** — TokenBudgetManager（46%压缩率）
 
-**🟢 低优（Phase 3）**
-7. **Devil's Advocate** — 新增，反向质疑机制
-8. **CitationValidator** — 新增，来源校验
-9. **MCP Server** — 同v1.0
+**🟢 低优（已全部实施）**
+7. ✅ **Devil's Advocate** — 反向质疑机制（强制用Kimi）
+8. ✅ **CitationValidator** — 来源校验（纯规则，已集成graph节点）
+9. ✅ **MCP Server** — Qdrant + Neo4j MCP服务器注册
 
 ---
 
@@ -618,14 +618,15 @@ class CitationValidator:
 
 | 维度 | Qing-Agent (当前) | AlphaAnalyst | llm-stock-team-analyzer | A-Scope-Research |
 |------|-------------------|--------------|------------------------|-----------------|
-| **架构模式** | LangGraph 7节点 | 线性Pipeline+并发 | LangGraph状态图 | MCP+多Agent辩论 |
-| **数据层** | 直接HTTP调用 | 10个Fetcher并发 | Yahoo Finance | MCP协议 |
+| **架构模式** | LangGraph 8节点 | 线性Pipeline+并发 | LangGraph状态图 | MCP+多Agent辩论 |
+| **数据层** | 直接HTTP调用 + 事件驱动(WS) | 10个Fetcher并发 | Yahoo Finance | MCP协议 |
 | **知识库** | Neo4j+Qdrant+mem0 | pgvector | 无 | 无 |
-| **Agent设计** | 7角色串行 | 6+1（含Devil's Advocate） | 5角色并行 | 5角色辩论 |
-| **成本追踪** | 无 | 每个Agent独立记录 | 无 | 无 |
-| **来源校验** | 无 | CitationValidator | 无 | 无 |
+| **Agent设计** | 8角色串行（含citation validator） | 6+1（含Devil's Advocate） | 5角色并行 | 5角色辩论 |
+| **成本追踪** | ✅ 每个节点独立记录 | 每个Agent独立记录 | 无 | 无 |
+| **来源校验** | ✅ CitationValidator（规则节点） | CitationValidator | 无 | 无 |
+| **健康监控** | ✅ 断路器/降级/缓存指标→微信 | 无 | 无 | 无 |
 | **中国A股** | ✅ 是 | ❌ 美股 | ❌ 美股 | ✅ 是 |
-| **实时性** | 10分钟轮询 | 按需触发 | 按需触发 | 按需触发 |
+| **实时性** | 事件驱动(WS) + 10分钟轮询 | 按需触发 | 按需触发 | 按需触发 |
 | **生产就绪** | 接近 | 是 | 实验性 | 实验性 |
 
 ---
@@ -684,6 +685,6 @@ class CitationValidator:
 
 ---
 
-*文档版本: v1.1*
-*设计: 2026-06-14*
-*状态: 设计完成，基于竞品分析更新，待实施*
+*文档版本: v1.2*
+*设计: 2026-06-14 | 实施完成: 2026-06-15*
+*状态: ✅ 全部实施完成*

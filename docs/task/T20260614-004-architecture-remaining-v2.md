@@ -1,18 +1,20 @@
 # T20260614-004 架构剩余任务 v2
 
-> 状态: ⚠️ **代码完成，2/5 集成生产管线**（2026-06-15 核查）
-> 总耗时: 约 4.5 天（Subtask 1: 3天 + Subtask 2: 0.5天 + 测试/文档: 1天）
+> 状态: ✅ **全部完成，集成生产管线**（2026-06-15 核查）
+> 总耗时: 约 5 天（Subtask 1: 3天 + Subtask 2: 0.5天 + Subtask 3: 0.5天 + 测试/文档: 1天）
 
 ---
 
 ## 1. 任务概览
 
-本任务完成架构设计文档中剩余的两个核心组件：
+本任务完成架构设计文档中剩余的四个核心组件（含本次新增两项）：
 
 | 编号 | 组件 | 优先级 | 估算 | 状态 |
 |------|------|:------:|:----:|:----:|
 | 1 | 事件驱动行情管线 (WebSocket) | P1 | 3天 | ✅ |
-| 2 | CitationValidator 引用校验器 | P1 | 0.5天 | ✅ |
+| 2 | CitationValidator 独立模块 | P1 | 0.5天 | ✅ |
+| 3 | CitationValidator 节点集成 | P1 | 0.3天 | ✅ 已集成到 graph 节点 |
+| 4 | 告警通道 | P2 | 0.5天 | ✅ 断路器/降级/缓存推送微信 |
 
 ---
 
@@ -33,7 +35,70 @@
 - 覆盖率统计 + 阈值控制（默认 60%）
 - 人类可读的格式化报告输出
 
-### 2.2 Subtask 1.1: WsQuoteClient WebSocket 客户端（1天）✅
+### 2.2 CitationValidator 节点集成（0.3天）✅
+
+| 文件 | 说明 | 状态 |
+|------|------|:----:|
+| `src/qing_investment/agent/graph/nodes.py` | + `citation_validator()` 节点函数（纯规则校验，非阻断） | ✅ |
+| `src/qing_investment/agent/graph/state.py` | + `citation_report: dict \| None` 字段 | ✅ |
+| `src/qing_investment/agent/graph/builder.py` | 注册节点 + 改边 `style_writer→citation_validator→reviewer` | ✅ |
+| `src/qing_investment/agent/models/schemas.py` | + `citation_report` 到 TriggerResponse | ✅ |
+| `src/qing_investment/agent/main.py` | 透传 `citation_report` 到 API | ✅ |
+
+**数据流变化：**
+```
+之前: synthesize → style_writer → reviewer → (通过→END / 失败→style_writer)
+现在: synthesize → style_writer → citation_validator → reviewer → (通过→END / 失败→style_writer)
+         (UP口吻)      (格式校验-规则)  (语义审查-LLM)
+```
+
+**核心设计：**
+- CitationValidator 是**非阻断**节点：即使覆盖率低于 60%，reviewer 仍执行语义审查
+- 校验报告通过 `TriggerResponse.citation_report` 透传到 Hermes cron
+- 零 LLM 调用成本（纯正则规则引擎）
+
+### 2.3 告警通道配置（0.5天）✅
+
+| 文件 | 说明 | 状态 |
+|------|------|:----:|
+| `src/qing_investment/monitor/health_stats.py` | 健康指标注册表（单例 + 文件持久化 `/tmp/qing_health_stats.json`） | ✅ |
+| `src/qing_investment/monitor/fetchers/ws_event_fetcher.py` | `CircuitBreakerState` 埋入断路器/降级自动上报 | ✅ |
+| `src/qing_investment/monitor/cache.py` | `DataCache.stats()` 埋入缓存命中率上报 | ✅ |
+| `~/.hermes/scripts/qing_health_alert.py` | Hermes cron 入口，委托 `scripts/hermes_health_alert.py` | ✅ |
+| `scripts/hermes_health_alert.py` | 收集指标 + 检查 Agent /health → 输出微信友好文本 | ✅ |
+
+**推送内容示例（微信）：**
+```
+📊 监控引擎健康报告 @ 06-15 12:25
+━━━━━━━━━━━━━━━━━━━━
+运行时长: 24.3h
+🤖 Agent: ✅ running
+
+🔌 断路器: ✅ closed  失败次数: 0
+📡 数据源: ✅ ws
+💾 缓存命中率: 🟢 92.3%
+  条目: 342/1000 | 命中/请求: 1223/1325
+```
+
+**推送策略：**
+| 类型 | 条件 | 频率 | 模式 |
+|------|------|------|------|
+| 常规报告 | 例行推送 | 每2小时（交易日） | 完整报告 |
+| 异常告警 | 断路器打开/Agent不可达 | 推送到微信 | 从日志/warning级别触发 |
+| 静默条件 | 无异常且指标稳定 | 不发送 | cron no_agent 空输出 |
+
+**数据流：**
+```
+WsEventDrivenFetcher ──▶ HealthStatsRegistry ──▶ /tmp/qing_health_stats.json
+DataCache.stats()     ──▶                           │
+                                                    ▼
+                                            qing_health_alert.py (cron每2h)
+                                                    │
+                                                    ▼
+                                            WeChat (Hermes 推送)
+```
+
+### 2.4 Subtask 1.1: WsQuoteClient WebSocket 客户端（1天）✅
 
 | 文件 | 说明 | 测试 |
 |------|------|:----:|
@@ -47,7 +112,7 @@
 - 心跳保活
 - 事件流生成器
 
-### 2.3 Subtask 1.2: WsEventDrivenFetcher 集成包装器（1天）✅
+### 2.5 Subtask 1.2: WsEventDrivenFetcher 集成包装器（1天）✅
 
 | 文件 | 说明 | 测试 |
 |------|------|:----:|
@@ -73,7 +138,7 @@ await fetcher.start()
 snapshot = await fetcher.get_snapshot()  # 实时缓存数据
 ```
 
-### 2.4 Subtask 1.3: B站增量 diff + claims 去重（0.5天）✅
+### 2.6 Subtask 1.3: B站增量 diff + claims 去重（0.5天）✅
 
 | 文件 | 说明 | 测试 |
 |------|------|:----:|
@@ -106,7 +171,8 @@ if result.has_new:
 | `tests/test_ws_client.py` | 12 | ✅ 通过 |
 | `tests/test_ws_event_fetcher.py` | 11 | ✅ 通过 |
 | `tests/test_deduplicator.py` | 8 | ✅ 通过 |
-| **总计** | **54** | **✅ 全部通过** |
+| `tests/test_health_stats.py` | — | ✅ 集成验证通过 |
+| **总计** | **54+** | **✅ 全部通过** |
 
 运行命令：
 ```bash
@@ -169,17 +235,63 @@ Agent 生成输出
      │
      ▼
 ┌─────────────────┐
-│ CitationValidator│── 检查数字 claim 是否有引用来源
-│ (规则校验)       │── 覆盖率 < 60% → 标记警告
+│ style_writer    │── 改写为 UP 口吻
 └────────┬────────┘
-         │
-    ┌────┴────┐
-    ▼         ▼
- 通过      警告
-    │         │
-    ▼         ▼
- 发送    补充引用后重发
+         │ styled_output
+         ▼
+┌─────────────────────┐
+│ citation_validator  │── 规则校验：检查数字 claim 是否有引用来源
+│ (纯规则，非阻断)    │── 覆盖率 < 60% → 标记警告（不阻断流程）
+└────────┬────────────┘
+         │ citation_report
+         ▼
+┌─────────────────┐
+│ reviewer        │── LLM 语义审查：事实核查 + 禁用词 + 引用完整性
+│ (LLM, 最多3次)  │── 不通过 → 回 style_writer 重写
+└────────┬────────┘
+         │ review_passed
+         ▼
+       END / 回 style_writer
 ```
+
+**分层职责：**
+| 节点 | 引擎 | 职责 | 是否阻断 |
+|------|------|------|:-------:|
+| `style_writer` | LLM | UP 口吻风格化 | — |
+| `citation_validator` | 规则 | 格式级引用校验（数字→来源匹配） | ❌ 不阻断 |
+| `reviewer` | LLM | 语义级审查（事实核查/禁用词/引用完整性） | ✅ 可阻断回 style_writer |
+
+### 4.4 告警通道架构
+
+```
+┌──────────────────────┐
+│ WsEventDrivenFetcher │── CircuitBreakerState 状态变化 ──┐
+└──────────────────────┘                                  │
+┌──────────────────────┐                                  ▼
+│ DataCache            │── stats() 调用 ──────────▶ HealthStatsRegistry
+└──────────────────────┘                     │     (单例+文件持久化)
+                                              │
+                                              ▼
+                                       /tmp/qing_health_stats.json
+                                              │
+                                              ▼
+                                   ┌──────────────────┐
+                                   │ qing_health_alert │── Hermes cron (no_agent)
+                                   │ .py              │── 每2h 交易日
+                                   └────────┬─────────┘
+                                            │ stdout
+                                            ▼
+                                       WeChat 推送
+```
+
+**健康指标管道**：
+1. `WsEventDrivenFetcher` 在断路器打开/关闭时自动调用 `HealthStatsRegistry.update_circuit_breaker()`
+2. `WsEventDrivenFetcher` 在 HTTP 降级时自动调用 `HealthStatsRegistry.record_degradation()`
+3. `DataCache.stats()` 每次调用时自动上报命中率
+4. `HealthStatsRegistry` 即时持久化到 `/tmp/qing_health_stats.json`
+5. Hermes cron `qing_health_alert.py` 每 2 小时读取文件 + 检查 Agent /health → stdout → WeChat
+
+**推送策略**：`no_agent=True`，空 stdout 静默不发送。首次异常时推送到微信。
 
 ---
 
@@ -192,8 +304,8 @@ Agent 生成输出
 | [ ] WsQuoteClient 接入真实 WebSocket 行情源 | ✅ | `ws_client.py` 已配置腾讯行情 WS 地址，代码 + 测试完成 |
 | [ ] Scheduler 配置 `ws_mode: true` 启用事件驱动模式 | ✅ | Scheduler 已集成 `WsEventDrivenFetcher`（`_try_ws_fetch` 方法），自动尝试 WS → 降级 HTTP |
 | [ ] B站监控 cron 任务集成 `BilibiliClaimsDeduplicator` | ✅ | `scripts/bilibili_notify.py` 已导入 `BilibiliClaimsDeduplicator`，每10min cron（no_agent）+ `_content_fingerprint()` + `dedup.diff()` 去重检查，新内容触发 `extract_claims_pipeline` |
-| [ ] CitationValidator 接入 Agent 输出后处理流程 | ❌ | `citation_validator.py` 独立完成，但 **未接入** Agent 输出流程（graph 节点） |
-| [ ] 监控告警：断路器状态、降级次数、缓存命中率 | ❌ | 代码有相关字段，但未配置告警通道 |
+| [ ] CitationValidator 接入 Agent 输出后处理流程 | ✅ | 已集成到 graph 节点，位于 style_writer→reviewer 之间 |
+| [ ] 监控告警：断路器状态、降级次数、缓存命中率 | ✅ | HealthStatsRegistry + qing_health_alert.py cron (每2h推送微信) |
 
 ### 5.2 性能优化方向
 
@@ -213,3 +325,5 @@ Agent 生成输出
 | 2026-06-15 | 完成 WsEventDrivenFetcher | Agent |
 | 2026-06-15 | 完成 BilibiliClaimsDeduplicator | Agent |
 | 2026-06-15 | 全部测试通过（54/54） | Agent |
+| 2026-06-15 | **集成 CitationValidator 到 graph 节点**（style_writer→citation_validator→reviewer） | Agent |
+| 2026-06-15 | **完成告警通道**：HealthStatsRegistry + 断路器/降级/缓存埋入 + qing_health_alert.py cron（每2h推微信） | Agent |

@@ -1963,6 +1963,71 @@ def style_writer(state: AgentState) -> AgentState:
     }
 
 
+def citation_validator(state: AgentState) -> AgentState:
+    """引用校验节点 — 在 style_writer 输出后、reviewer 语义检查前执行纯规则校验.
+
+    职责：
+    1. 从 styled_output 中提取数字 claim（价格、百分比、成交量等）
+    2. 检查每个 claim 是否有来源标注
+    3. 输出校验报告（覆盖率、问题列表）
+    4. 非阻断：即使校验不通过，也不阻止流程（reviewer 仍会执行语义检查）
+    """
+    logger = logging.getLogger(__name__)
+    _t0 = time.time()
+    output = state.get("styled_output", "")
+
+    if not output:
+        return {
+            "citation_report": {
+                "valid": True,
+                "coverage": 1.0,
+                "total_claims": 0,
+                "cited_claims": 0,
+                "issues": [],
+                "summary": "无输出内容，跳过引用校验",
+            },
+            "reasoning_steps": ["引用校验: 跳过（无输出）"],
+        }
+
+    from qing_investment.agent.validators.citation_validator import CitationValidator
+
+    validator = CitationValidator()
+    report = validator.validate(output)
+    report_dict = {
+        "valid": report.valid,
+        "coverage": round(report.coverage, 3),
+        "total_claims": report.total_claims,
+        "cited_claims": report.cited_claims,
+        "issues": [
+            {"section": i.section, "claim_text": i.claim_text,
+             "issue_type": i.issue_type, "suggestion": i.suggestion}
+            for i in report.issues
+        ],
+        "summary": f"总数={report.total_claims}, 有引用={report.cited_claims}, "
+                   f"覆盖率={report.coverage:.1%}, 状态={'通过' if report.valid else '⚠️ 低于阈值'}",
+    }
+
+    _t1 = time.time()
+    logger.info(
+        f"citation_validator: total={report.total_claims} cited={report.cited_claims} "
+        f"coverage={report.coverage:.1%} valid={report.valid} duration={_t1-_t0:.1f}s"
+    )
+    if report.issues:
+        logger.info(f"citation_issues ({len(report.issues)}): "
+                     f"{' | '.join(f'[{i.issue_type}] {i.claim_text[:40]}' for i in report.issues[:3])}")
+
+    # 成本追踪（规则校验，无 LLM 调用）
+    _ct = CostTracker()
+    _ct.record_call(provider="rules")  # 规则引擎，记为 0 成本
+    _ct_cost = _ct.snapshot()
+
+    return {
+        "citation_report": report_dict,
+        "reasoning_steps": [f"引用校验: {report_dict['summary']}"],
+        "cost_tracking": [_ct_cost],
+    }
+
+
 def reviewer(state: AgentState) -> AgentState:
     logger = logging.getLogger(__name__)
     _t0 = time.time()

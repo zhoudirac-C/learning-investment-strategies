@@ -228,9 +228,9 @@ endlegend
 **简化版数据流：**
 
 ```
-输入层 (Chat/Trigger) ──▶ parse_query ──▶ retrieve_knowledge ──┬──▶ market_analyst ──┐
-                                                                   └──▶ stock_analyst ───┼──▶ synthesize ──▶ style_writer ──▶ reviewer ──▶ END
-                                                                (时效过滤+矛盾检测)     (UP风格+来源标注)   (citation检查,最多3次打回)
+|输入层 (Chat/Trigger) ──▶ parse_query ──▶ retrieve_knowledge ──┬──▶ market_analyst ──┐
+                                                                   └──▶ stock_analyst ───┼──▶ synthesize ──▶ style_writer ──▶ citation_validator ──▶ reviewer ──▶ END
+                                                                (时效过滤+矛盾检测)     (UP风格+来源标注)   (格式校验)   (语义审查+禁用词)
 ```
 
 **`/chat` 端点数据流**（2026-06-12 修正 — 不走 LangGraph 流水线，是独立的检索→构建→LLM 流程）：

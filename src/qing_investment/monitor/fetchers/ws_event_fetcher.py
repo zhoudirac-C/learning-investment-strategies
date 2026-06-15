@@ -16,6 +16,7 @@ from datetime import datetime, timedelta
 from typing import Any, Callable
 
 from qing_investment.monitor.fetchers.ws_client import QuoteEvent, WsQuoteClient
+from qing_investment.monitor.health_stats import get_health_registry
 
 logger = logging.getLogger(__name__)
 
@@ -36,6 +37,20 @@ class CircuitBreakerState:
             self.is_open = True
             self.cooldown_until = datetime.now() + timedelta(hours=1)
             logger.warning(f"Circuit breaker OPENED. Cooldown until {self.cooldown_until}")
+        # 上报到健康指标
+        try:
+            registry = get_health_registry()
+            remaining = 0.0
+            if self.cooldown_until:
+                remaining = max(0.0, (self.cooldown_until - datetime.now()).total_seconds() / 3600)
+            registry.update_circuit_breaker(
+                is_open=self.is_open,
+                failures=self.failures,
+                cooldown_remaining_hours=remaining,
+                last_failure_time=self.last_failure.isoformat() if self.last_failure else "",
+            )
+        except Exception:
+            pass
 
     def record_success(self) -> None:
         if self.failures > 0:
@@ -43,6 +58,13 @@ class CircuitBreakerState:
             self.is_open = False
             self.cooldown_until = None
             logger.info("Circuit breaker CLOSED (success)")
+        # 上报到健康指标
+        try:
+            get_health_registry().update_circuit_breaker(
+                is_open=False, failures=0,
+            )
+        except Exception:
+            pass
 
     def can_attempt(self) -> bool:
         if not self.is_open:
@@ -227,11 +249,26 @@ class WsEventDrivenFetcher:
             from qing_investment.monitor.fetchers import collect_quote_targets
             targets = {code: code for code in self._codes}
             result = self._http_fetcher(targets)
+            reason = "circuit_breaker" if self._circuit.is_open else "ws_not_started"
             result["source"] = "http_fallback"
-            result["ws_fallback_reason"] = "circuit_breaker" if self._circuit.is_open else "ws_not_started"
+            result["ws_fallback_reason"] = reason
+            # 上报降级
+            try:
+                get_health_registry().record_degradation(
+                    source="http_fallback", reason=reason,
+                )
+            except Exception:
+                pass
             return result
         except Exception as e:
             logger.error(f"HTTP fallback also failed: {e}")
+            # 上报降级失败
+            try:
+                get_health_registry().record_degradation(
+                    source="none", reason="http_fallback_failed",
+                )
+            except Exception:
+                pass
             return {
                 "source": "none",
                 "quotes": [],

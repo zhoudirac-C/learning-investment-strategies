@@ -7,6 +7,7 @@ logger = logging.getLogger(__name__)
 
 from .edges import review_router
 from .nodes import (
+    citation_validator,
     devils_advocate,
     market_analyst,
     parse_query,
@@ -21,7 +22,7 @@ from .state import AgentState
 
 def build_graph():
     logger.info("[build_graph] starting with %d nodes", 9)
-    logger.info("[build_graph] topology: parse_query → retrieve_knowledge → market_analyst+stock_analyst → devils_advocate → synthesize → style_writer → reviewer → END")
+    logger.info("[build_graph] topology: parse_query → retrieve_knowledge → market_analyst+stock_analyst → devils_advocate → synthesize → style_writer → citation_validator → reviewer → END")
     builder = StateGraph(AgentState)
 
     builder.add_node("parse_query", parse_query)
@@ -31,6 +32,7 @@ def build_graph():
     builder.add_node("devils_advocate", devils_advocate)
     builder.add_node("synthesize", synthesize)
     builder.add_node("style_writer", style_writer)
+    builder.add_node("citation_validator", citation_validator)
     builder.add_node("reviewer", reviewer)
 
     builder.set_entry_point("parse_query")
@@ -43,7 +45,8 @@ def build_graph():
     # devil's advocate 完成后 → synthesize
     builder.add_edge("devils_advocate", "synthesize")
     builder.add_edge("synthesize", "style_writer")
-    builder.add_edge("style_writer", "reviewer")
+    builder.add_edge("style_writer", "citation_validator")
+    builder.add_edge("citation_validator", "reviewer")
     builder.add_conditional_edges(
         "reviewer",
         review_router,
