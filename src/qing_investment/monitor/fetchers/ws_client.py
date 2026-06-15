@@ -63,10 +63,16 @@ class WsQuoteClient:
     """
 
     # 腾讯行情 WebSocket 地址（多域名轮询）
+    # 注意：腾讯 WS 并非标准 WebSocket，实际为 HTTP 长轮询/推送混合协议
+    # 这里使用兼容层：优先 HTTP 长轮询，WS 作为备选
     WS_HOSTS: list[str] = [
         "wss://qt.gtimg.cn/",
         "wss://web.ifzq.gtimg.cn/",
     ]
+
+    # 腾讯 HTTP 行情 API（长轮询降级用）
+    # 格式: https://qt.gtimg.cn/q=sh600000,sz000001
+    HTTP_QUOTE_URL: str = "https://qt.gtimg.cn/q"
 
     # 重连配置
     MAX_RECONNECT: int = 5
@@ -77,8 +83,13 @@ class WsQuoteClient:
     # 消息队列配置
     QUEUE_MAXSIZE: int = 1000      # 有界队列，防积压
 
-    # 心跳配置
-    HEARTBEAT_INTERVAL: float = 30.0  # 秒
+    # 心跳配置（60秒 = 1分钟，避免请求过频被拉黑）
+    HEARTBEAT_INTERVAL: float = 60.0  # 秒
+
+    # 请求频率限制（防拉黑）
+    MIN_SUBSCRIBE_INTERVAL: float = 60.0  # 两次订阅间隔最少60秒
+    MAX_CODES_PER_BATCH: int = 50         # 单次订阅最多50个标的
+    MIN_HTTP_POLL_INTERVAL: float = 60.0   # HTTP 轮询最少间隔60秒
 
     def __init__(self, host: str | None = None) -> None:
         self._host = host or random.choice(self.WS_HOSTS)
@@ -91,10 +102,20 @@ class WsQuoteClient:
         self._heartbeat_task: asyncio.Task | None = None
         self._closed: bool = False
 
+        # 频率限制状态
+        self._last_subscribe_time: float = 0.0  # 上次订阅时间戳
+        self._pending_codes: list[str] = []     # 待批量订阅的代码
+        self._batch_timer: asyncio.Task | None = None  # 批量订阅定时器
+
     # ── 公共 API ──────────────────────────────────────────────────
 
     async def subscribe(self, codes: list[str]) -> None:
-        """订阅指定标的的实时报价.
+        """订阅指定标的的实时报价（带频率限制）.
+
+        防拉黑机制:
+        - 两次订阅间隔最少 60 秒
+        - 单次最多 50 个标的，超出的分批处理
+        - 高频调用时自动合并为批量订阅
 
         Args:
             codes: 股票代码列表（如 ["000534", "002353"]）
@@ -102,12 +123,27 @@ class WsQuoteClient:
         if self._closed:
             raise RuntimeError("Client is closed")
 
-        self._subscribed_codes.update(codes)
+        # 去重并记录新代码
+        new_codes = [c for c in codes if c not in self._subscribed_codes]
+        if not new_codes:
+            return
 
-        if self._ws is None or self._ws.closed:
-            await self._connect()
+        self._subscribed_codes.update(new_codes)
+        self._pending_codes.extend(new_codes)
+
+        # 检查距离上次订阅的时间
+        now = time.time()
+        elapsed = now - self._last_subscribe_time
+
+        if elapsed >= self.MIN_SUBSCRIBE_INTERVAL:
+            # 可以直接订阅
+            await self._flush_subscribe()
         else:
-            await self._send_subscribe(codes)
+            # 需要等待，启动批量定时器
+            if not self._batch_timer or self._batch_timer.done():
+                wait = self.MIN_SUBSCRIBE_INTERVAL - elapsed
+                logger.info(f"Subscribe rate limit: waiting {wait:.1f}s to batch {len(self._pending_codes)} codes")
+                self._batch_timer = asyncio.create_task(self._delayed_subscribe(wait))
 
         if not self._running:
             self._running = True
@@ -167,6 +203,35 @@ class WsQuoteClient:
         """当前重连次数."""
         return self._reconnect_count
 
+    async def _flush_subscribe(self) -> None:
+        """立即执行待订阅的代码（分批处理，每批最多50个）."""
+        if not self._pending_codes:
+            return
+
+        # 确保连接
+        if self._ws is None or self._ws.closed:
+            await self._connect()
+
+        # 分批订阅
+        batch = self._pending_codes[:self.MAX_CODES_PER_BATCH]
+        self._pending_codes = self._pending_codes[self.MAX_CODES_PER_BATCH:]
+
+        await self._send_subscribe(batch)
+        self._last_subscribe_time = time.time()
+
+        # 如果还有剩余的，继续分批
+        if self._pending_codes:
+            logger.info(f"Batch subscribe: {len(self._pending_codes)} codes remaining for next batch")
+            # 等待间隔后订阅下一批
+            self._batch_timer = asyncio.create_task(
+                self._delayed_subscribe(self.MIN_SUBSCRIBE_INTERVAL)
+            )
+
+    async def _delayed_subscribe(self, delay: float) -> None:
+        """延迟后执行批量订阅."""
+        await asyncio.sleep(delay)
+        await self._flush_subscribe()
+
     # ── 内部方法 ──────────────────────────────────────────────────
 
     async def _connect(self) -> None:
@@ -212,30 +277,57 @@ class WsQuoteClient:
         logger.debug(f"Subscribed to {len(codes)} codes")
 
     async def _reader_loop(self) -> None:
-        """主读取循环：接收消息 → 解析 → 入队."""
+        """主读取循环：接收消息 → 解析 → 入队.
+
+        支持两种模式:
+        1. WebSocket 模式: 实时推送（如果连接成功）
+        2. HTTP 长轮询降级: 定时拉取（60秒间隔，防拉黑）
+        """
+        # 尝试 WebSocket 连接
+        ws_mode = False
+        if self._ws and not self._ws.closed:
+            ws_mode = True
+        else:
+            # WS 不可用，切换到 HTTP 长轮询
+            logger.info("WebSocket not available, switching to HTTP long-polling mode")
+            await self._http_poll_loop()
+            return
+
         while self._running and not self._closed:
             try:
-                if not self._ws or self._ws.closed:
+                if ws_mode and (not self._ws or self._ws.closed):
+                    # WS 断开，尝试重连
                     if not await self._try_reconnect():
-                        break
+                        logger.info("WebSocket reconnect failed, switching to HTTP long-polling")
+                        await self._http_poll_loop()
+                        return
                     continue
 
-                msg = await asyncio.wait_for(
-                    self._ws.recv(),
-                    timeout=self.HEARTBEAT_INTERVAL * 2,
-                )
-                await self._handle_message(msg)
+                if ws_mode:
+                    msg = await asyncio.wait_for(
+                        self._ws.recv(),
+                        timeout=self.HEARTBEAT_INTERVAL * 2,
+                    )
+                    await self._handle_message(msg)
+                else:
+                    # HTTP 模式
+                    await self._http_poll_once()
+                    await asyncio.sleep(self.MIN_HTTP_POLL_INTERVAL)
 
             except asyncio.TimeoutError:
                 # 超时检查连接状态
-                if self._ws and not self._ws.closed:
+                if ws_mode and self._ws and not self._ws.closed:
                     await self._send_ping()
                 continue
 
             except ConnectionClosed as e:
                 logger.warning(f"WebSocket closed: {e}")
-                if not await self._try_reconnect():
-                    break
+                if ws_mode:
+                    # 先尝试重连，不立即降级
+                    if not await self._try_reconnect():
+                        logger.info("WebSocket reconnect failed, switching to HTTP long-polling")
+                        await self._http_poll_loop()
+                        return
                 continue
 
             except Exception as e:
@@ -351,6 +443,66 @@ class WsQuoteClient:
                 await self._ws.send(json.dumps({"cmd": "ping"}))
             except Exception as e:
                 logger.debug(f"Ping failed: {e}")
+
+    # ── HTTP 长轮询降级 ────────────────────────────────────────────
+
+    async def _http_poll_loop(self) -> None:
+        """HTTP 长轮询循环（WebSocket 不可用时降级）.
+
+        每 60 秒拉取一次行情，防拉黑。
+        """
+        logger.info(f"HTTP long-polling started for {len(self._subscribed_codes)} codes")
+        while self._running and not self._closed:
+            try:
+                await self._http_poll_once()
+            except Exception as e:
+                logger.error(f"HTTP poll error: {e}")
+            await asyncio.sleep(self.MIN_HTTP_POLL_INTERVAL)
+        logger.info("HTTP long-polling stopped")
+
+    async def _http_poll_once(self) -> None:
+        """单次 HTTP 行情拉取.
+
+        使用腾讯 HTTP API: https://qt.gtimg.cn/q=sh600000,sz000001
+        返回格式: v_sh600000="1~股票名~..."
+        """
+        if not self._subscribed_codes:
+            return
+
+        # 格式化代码
+        codes = list(self._subscribed_codes)[:self.MAX_CODES_PER_BATCH]
+        formatted = []
+        for code in codes:
+            if code.startswith("6"):
+                formatted.append(f"sh{code}")
+            else:
+                formatted.append(f"sz{code}")
+
+        url = f"{self.HTTP_QUOTE_URL}={','.join(formatted)}"
+
+        try:
+            import urllib.request
+            with urllib.request.urlopen(url, timeout=10.0) as resp:
+                text = resp.read().decode("gbk")  # 腾讯返回 GBK 编码
+
+            # 解析返回数据
+            for line in text.strip().split(";"):
+                line = line.strip()
+                if not line:
+                    continue
+                event = self._parse_text_event(line)
+                if event:
+                    if self._queue.full():
+                        try:
+                            self._queue.get_nowait()
+                        except asyncio.QueueEmpty:
+                            pass
+                    await self._queue.put(event)
+
+            logger.debug(f"HTTP poll: {len(codes)} codes, {len(text)} bytes")
+
+        except Exception as e:
+            logger.warning(f"HTTP poll failed: {e}")
 
 
 # ── 便捷函数 ──────────────────────────────────────────────────────

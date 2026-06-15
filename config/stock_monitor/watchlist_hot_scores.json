@@ -1,38 +1,20 @@
 {
-  "calculated_at": "2026-06-12T08:00:39.396625",
-  "total_stocks": 13,
+  "calculated_at": "2026-06-15T08:00:42.333695",
+  "total_stocks": 47,
   "tier_summary": {
     "A": 0,
-    "B": 1,
-    "C": 10,
-    "D": 2
+    "B": 0,
+    "C": 33,
+    "D": 14
   },
   "top_20": [
     {
-      "code": "002409.SZ",
-      "name": "雅克科技",
-      "hot_score": 6.15,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 10.0,
-        "priority_base": 10,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 10.0
-      },
-      "ranking_tier": "B",
-      "theme": "高频高速覆铜板上游材料（球形硅微粉/PPO）",
-      "theme_id": "ccL_resin_upstream"
-    },
-    {
       "code": "600378.SH",
       "name": "昊华科技",
-      "hot_score": 5.95,
+      "hot_score": 5.65,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
+        "up_mention_recency": 6.0,
         "priority_base": 10,
         "technical_setup": 5.0,
         "sector_momentum": 6.0,
@@ -45,12 +27,48 @@
       "theme_id": "electronic_gas_wf6"
     },
     {
-      "code": "601012.SH",
-      "name": "隆基绿能",
+      "code": "002409.SZ",
+      "name": "雅克科技",
+      "hot_score": 5.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 6.0,
+        "priority_base": 10,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 10.0
+      },
+      "ranking_tier": "C",
+      "theme": "高频高速覆铜板上游材料（球形硅微粉/PPO）",
+      "theme_id": "ccL_resin_upstream"
+    },
+    {
+      "code": "601699.SH",
+      "name": "潞安环能",
       "hot_score": 5.35,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
+        "up_mention_recency": 10.0,
+        "priority_base": 7,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "焦炭/煤炭涨价右侧信号（戴维斯双击预期）",
+      "theme_id": "coke_coal_upcycle"
+    },
+    {
+      "code": "601012.SH",
+      "name": "隆基绿能",
+      "hot_score": 5.05,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 6.0,
         "priority_base": 10,
         "technical_setup": 5.0,
         "sector_momentum": 6.0,
@@ -63,22 +81,22 @@
       "theme_id": "photovoltaic_low_recovery"
     },
     {
-      "code": "000636.SZ",
-      "name": "风华高科",
-      "hot_score": 5.0,
+      "code": "601001.SH",
+      "name": "晋控煤业",
+      "hot_score": 5.05,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 10,
+        "up_mention_recency": 10.0,
+        "priority_base": 4,
         "technical_setup": 5.0,
-        "sector_momentum": 5.0,
+        "sector_momentum": 6.0,
         "linked_claims_count": 2.0,
         "entry_zone_proximity": 5.0,
-        "position_status": 10.0
+        "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "MLCC/被动元件涨价线",
-      "theme_id": "mlcc_passive_component"
+      "theme": "焦炭/煤炭涨价右侧信号（戴维斯双击预期）",
+      "theme_id": "coke_coal_upcycle"
     },
     {
       "code": "000657.SZ",
@@ -117,6 +135,42 @@
       "theme_id": "electronic_gas_wf6"
     },
     {
+      "code": "002281.SZ",
+      "name": "光迅科技",
+      "hot_score": 4.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 2.0,
+        "priority_base": 7,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 6.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "OCS光交换（AI算力互联新技术路径）",
+      "theme_id": "ocs_optical_switching"
+    },
+    {
+      "code": "002156.SZ",
+      "name": "通富微电",
+      "hot_score": 4.4,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 4.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "设备/封测补涨（涨价主线扩散方向）",
+      "theme_id": "equipment_packaging_catchup"
+    },
+    {
       "code": "600500.SH",
       "name": "中化国际",
       "hot_score": 4.3,
@@ -153,6 +207,24 @@
       "theme_id": "photovoltaic_low_recovery"
     },
     {
+      "code": "601958.SH",
+      "name": "金钼股份",
+      "hot_score": 4.2,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 4.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "电子特气/六氟化钨（WF6）涨价主线",
+      "theme_id": "electronic_gas_wf6"
+    },
+    {
       "code": "002459.SZ",
       "name": "晶澳科技",
       "hot_score": 4.2,
@@ -169,6 +241,42 @@
       "ranking_tier": "C",
       "theme": "光伏低位修复",
       "theme_id": "photovoltaic_low_recovery"
+    },
+    {
+      "code": "600330.SH",
+      "name": "天通股份",
+      "hot_score": 4.2,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 4.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "OCS光交换（AI算力互联新技术路径）",
+      "theme_id": "ocs_optical_switching"
+    },
+    {
+      "code": "002371.SZ",
+      "name": "北方华创",
+      "hot_score": 4.1,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 4.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "设备/封测补涨（涨价主线扩散方向）",
+      "theme_id": "equipment_packaging_catchup"
     },
     {
       "code": "605589.SH",
@@ -207,68 +315,68 @@
       "theme_id": "ccL_resin_upstream"
     },
     {
-      "code": "603011.SH",
-      "name": "合锻智能",
-      "hot_score": 3.9,
+      "code": "300308.SZ",
+      "name": "中际旭创",
+      "hot_score": 4.0,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 5.0,
-        "sector_momentum": 5.0,
+        "sector_momentum": 6.0,
         "linked_claims_count": 2.0,
         "entry_zone_proximity": 5.0,
         "position_status": 5.0
       },
-      "ranking_tier": "D",
-      "theme": "绿电（AI算力→电力需求长逻辑）",
-      "theme_id": "green_power_ai_electric"
+      "ranking_tier": "C",
+      "theme": "OCS光交换（AI算力互联新技术路径）",
+      "theme_id": "ocs_optical_switching"
     },
     {
-      "code": "600667.SH",
-      "name": "太极实业",
-      "hot_score": 3.9,
+      "code": "300502.SZ",
+      "name": "新易盛",
+      "hot_score": 4.0,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
         "priority_base": 4,
         "technical_setup": 5.0,
-        "sector_momentum": 5.0,
+        "sector_momentum": 6.0,
         "linked_claims_count": 2.0,
         "entry_zone_proximity": 5.0,
         "position_status": 5.0
       },
-      "ranking_tier": "D",
-      "theme": "SK海力士ADR映射",
-      "theme_id": "sk_hynix_adr_mapping"
+      "ranking_tier": "C",
+      "theme": "OCS光交换（AI算力互联新技术路径）",
+      "theme_id": "ocs_optical_switching"
+    },
+    {
+      "code": "688498.SH",
+      "name": "源杰科技",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "OCS光交换（AI算力互联新技术路径）",
+      "theme_id": "ocs_optical_switching"
     }
   ],
   "all_scores": [
     {
-      "code": "002409.SZ",
-      "name": "雅克科技",
-      "hot_score": 6.15,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 10.0,
-        "priority_base": 10,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 10.0
-      },
-      "ranking_tier": "B",
-      "theme": "高频高速覆铜板上游材料（球形硅微粉/PPO）",
-      "theme_id": "ccL_resin_upstream"
-    },
-    {
       "code": "600378.SH",
       "name": "昊华科技",
-      "hot_score": 5.95,
+      "hot_score": 5.65,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
+        "up_mention_recency": 6.0,
         "priority_base": 10,
         "technical_setup": 5.0,
         "sector_momentum": 6.0,
@@ -281,12 +389,48 @@
       "theme_id": "electronic_gas_wf6"
     },
     {
-      "code": "601012.SH",
-      "name": "隆基绿能",
+      "code": "002409.SZ",
+      "name": "雅克科技",
+      "hot_score": 5.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 6.0,
+        "priority_base": 10,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 10.0
+      },
+      "ranking_tier": "C",
+      "theme": "高频高速覆铜板上游材料（球形硅微粉/PPO）",
+      "theme_id": "ccL_resin_upstream"
+    },
+    {
+      "code": "601699.SH",
+      "name": "潞安环能",
       "hot_score": 5.35,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 8.0,
+        "up_mention_recency": 10.0,
+        "priority_base": 7,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "焦炭/煤炭涨价右侧信号（戴维斯双击预期）",
+      "theme_id": "coke_coal_upcycle"
+    },
+    {
+      "code": "601012.SH",
+      "name": "隆基绿能",
+      "hot_score": 5.05,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 6.0,
         "priority_base": 10,
         "technical_setup": 5.0,
         "sector_momentum": 6.0,
@@ -299,22 +443,22 @@
       "theme_id": "photovoltaic_low_recovery"
     },
     {
-      "code": "000636.SZ",
-      "name": "风华高科",
-      "hot_score": 5.0,
+      "code": "601001.SH",
+      "name": "晋控煤业",
+      "hot_score": 5.05,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 10,
+        "up_mention_recency": 10.0,
+        "priority_base": 4,
         "technical_setup": 5.0,
-        "sector_momentum": 5.0,
+        "sector_momentum": 6.0,
         "linked_claims_count": 2.0,
         "entry_zone_proximity": 5.0,
-        "position_status": 10.0
+        "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "MLCC/被动元件涨价线",
-      "theme_id": "mlcc_passive_component"
+      "theme": "焦炭/煤炭涨价右侧信号（戴维斯双击预期）",
+      "theme_id": "coke_coal_upcycle"
     },
     {
       "code": "000657.SZ",
@@ -353,6 +497,42 @@
       "theme_id": "electronic_gas_wf6"
     },
     {
+      "code": "002281.SZ",
+      "name": "光迅科技",
+      "hot_score": 4.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 2.0,
+        "priority_base": 7,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 6.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "OCS光交换（AI算力互联新技术路径）",
+      "theme_id": "ocs_optical_switching"
+    },
+    {
+      "code": "002156.SZ",
+      "name": "通富微电",
+      "hot_score": 4.4,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 4.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "设备/封测补涨（涨价主线扩散方向）",
+      "theme_id": "equipment_packaging_catchup"
+    },
+    {
       "code": "600500.SH",
       "name": "中化国际",
       "hot_score": 4.3,
@@ -389,6 +569,24 @@
       "theme_id": "photovoltaic_low_recovery"
     },
     {
+      "code": "601958.SH",
+      "name": "金钼股份",
+      "hot_score": 4.2,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 4.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "电子特气/六氟化钨（WF6）涨价主线",
+      "theme_id": "electronic_gas_wf6"
+    },
+    {
       "code": "002459.SZ",
       "name": "晶澳科技",
       "hot_score": 4.2,
@@ -405,6 +603,42 @@
       "ranking_tier": "C",
       "theme": "光伏低位修复",
       "theme_id": "photovoltaic_low_recovery"
+    },
+    {
+      "code": "600330.SH",
+      "name": "天通股份",
+      "hot_score": 4.2,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 4.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "OCS光交换（AI算力互联新技术路径）",
+      "theme_id": "ocs_optical_switching"
+    },
+    {
+      "code": "002371.SZ",
+      "name": "北方华创",
+      "hot_score": 4.1,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 4.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "设备/封测补涨（涨价主线扩散方向）",
+      "theme_id": "equipment_packaging_catchup"
     },
     {
       "code": "605589.SH",
@@ -443,6 +677,294 @@
       "theme_id": "ccL_resin_upstream"
     },
     {
+      "code": "300308.SZ",
+      "name": "中际旭创",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "OCS光交换（AI算力互联新技术路径）",
+      "theme_id": "ocs_optical_switching"
+    },
+    {
+      "code": "300502.SZ",
+      "name": "新易盛",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "OCS光交换（AI算力互联新技术路径）",
+      "theme_id": "ocs_optical_switching"
+    },
+    {
+      "code": "688498.SH",
+      "name": "源杰科技",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "OCS光交换（AI算力互联新技术路径）",
+      "theme_id": "ocs_optical_switching"
+    },
+    {
+      "code": "688048.SH",
+      "name": "长光华芯",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "OCS光交换（AI算力互联新技术路径）",
+      "theme_id": "ocs_optical_switching"
+    },
+    {
+      "code": "688313.SH",
+      "name": "仕佳光子",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "OCS光交换（AI算力互联新技术路径）",
+      "theme_id": "ocs_optical_switching"
+    },
+    {
+      "code": "002938.SZ",
+      "name": "鹏鼎控股",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "PCB AI硬件链（成品板→CCL→上游材料→ABF载板）",
+      "theme_id": "pcb_ai_chain"
+    },
+    {
+      "code": "600183.SH",
+      "name": "生益科技",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "PCB AI硬件链（成品板→CCL→上游材料→ABF载板）",
+      "theme_id": "pcb_ai_chain"
+    },
+    {
+      "code": "603228.SH",
+      "name": "景旺电子",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "PCB AI硬件链（成品板→CCL→上游材料→ABF载板）",
+      "theme_id": "pcb_ai_chain"
+    },
+    {
+      "code": "600601.SH",
+      "name": "方正科技",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "PCB AI硬件链（成品板→CCL→上游材料→ABF载板）",
+      "theme_id": "pcb_ai_chain"
+    },
+    {
+      "code": "601208.SH",
+      "name": "东材科技",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "PCB AI硬件链（成品板→CCL→上游材料→ABF载板）",
+      "theme_id": "pcb_ai_chain"
+    },
+    {
+      "code": "603256.SH",
+      "name": "宏和科技",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "PCB AI硬件链（成品板→CCL→上游材料→ABF载板）",
+      "theme_id": "pcb_ai_chain"
+    },
+    {
+      "code": "002916.SZ",
+      "name": "深南电路",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "PCB AI硬件链（成品板→CCL→上游材料→ABF载板）",
+      "theme_id": "pcb_ai_chain"
+    },
+    {
+      "code": "002436.SZ",
+      "name": "兴森科技",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "PCB AI硬件链（成品板→CCL→上游材料→ABF载板）",
+      "theme_id": "pcb_ai_chain"
+    },
+    {
+      "code": "603186.SH",
+      "name": "华正新材",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "PCB AI硬件链（成品板→CCL→上游材料→ABF载板）",
+      "theme_id": "pcb_ai_chain"
+    },
+    {
+      "code": "002080.SZ",
+      "name": "中材科技",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "PCB AI硬件链（成品板→CCL→上游材料→ABF载板）",
+      "theme_id": "pcb_ai_chain"
+    },
+    {
+      "code": "600110.SH",
+      "name": "诺德股份",
+      "hot_score": 4.0,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "PCB AI硬件链（成品板→CCL→上游材料→ABF载板）",
+      "theme_id": "pcb_ai_chain"
+    },
+    {
       "code": "603011.SH",
       "name": "合锻智能",
       "hot_score": 3.9,
@@ -461,6 +983,24 @@
       "theme_id": "green_power_ai_electric"
     },
     {
+      "code": "000636.SZ",
+      "name": "风华高科",
+      "hot_score": 3.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "MLCC/被动元件涨价线",
+      "theme_id": "mlcc_passive_component"
+    },
+    {
       "code": "600667.SH",
       "name": "太极实业",
       "hot_score": 3.9,
@@ -477,6 +1017,204 @@
       "ranking_tier": "D",
       "theme": "SK海力士ADR映射",
       "theme_id": "sk_hynix_adr_mapping"
+    },
+    {
+      "code": "000021.SZ",
+      "name": "深科技",
+      "hot_score": 3.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "设备/封测补涨（涨价主线扩散方向）",
+      "theme_id": "equipment_packaging_catchup"
+    },
+    {
+      "code": "002049.SZ",
+      "name": "紫光国微",
+      "hot_score": 3.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "芯片特种/FPGA（国产替代核心）",
+      "theme_id": "chip_specialty"
+    },
+    {
+      "code": "688008.SH",
+      "name": "澜起科技",
+      "hot_score": 3.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "芯片特种/FPGA（国产替代核心）",
+      "theme_id": "chip_specialty"
+    },
+    {
+      "code": "688041.SH",
+      "name": "海光信息",
+      "hot_score": 3.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "芯片特种/FPGA（国产替代核心）",
+      "theme_id": "chip_specialty"
+    },
+    {
+      "code": "688047.SH",
+      "name": "龙芯中科",
+      "hot_score": 3.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "芯片特种/FPGA（国产替代核心）",
+      "theme_id": "chip_specialty"
+    },
+    {
+      "code": "603986.SH",
+      "name": "兆易创新",
+      "hot_score": 3.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "存储芯片（NOR Flash/DRAM涨价周期）",
+      "theme_id": "memory_nor"
+    },
+    {
+      "code": "688766.SH",
+      "name": "普冉股份",
+      "hot_score": 3.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "存储芯片（NOR Flash/DRAM涨价周期）",
+      "theme_id": "memory_nor"
+    },
+    {
+      "code": "301308.SZ",
+      "name": "江波龙",
+      "hot_score": 3.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "存储芯片（NOR Flash/DRAM涨价周期）",
+      "theme_id": "memory_nor"
+    },
+    {
+      "code": "300223.SZ",
+      "name": "北京君正",
+      "hot_score": 3.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "存储芯片（NOR Flash/DRAM涨价周期）",
+      "theme_id": "memory_nor"
+    },
+    {
+      "code": "688525.SH",
+      "name": "佰维存储",
+      "hot_score": 3.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "存储芯片（NOR Flash/DRAM涨价周期）",
+      "theme_id": "memory_nor"
+    },
+    {
+      "code": "688449.SH",
+      "name": "联芸科技",
+      "hot_score": 3.9,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "存储芯片（NOR Flash/DRAM涨价周期）",
+      "theme_id": "memory_nor"
     }
   ]
 }
