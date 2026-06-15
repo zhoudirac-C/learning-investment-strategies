@@ -220,6 +220,10 @@ class DedupeEngine:
         for alert in alerts:
             fp = _alert_fingerprint(alert)
             last_entry = history.get(fp)
+            # 兼容旧格式指纹（包含股票名）
+            if last_entry is None:
+                old_fp = "|".join([alert.action, alert.stock_code, alert.stock_name, alert.trigger])
+                last_entry = history.get(old_fp)
 
             # 确定该类型的去重配置
             dedupe_type = _action_to_dedupe_type(alert.action)
@@ -615,10 +619,18 @@ def filter_new_alerts(
     dedupe_minutes: int = 10,
     dedupe_by_type: dict[str, dict[str, Any]] | None = None,
 ) -> list[Any]:
-    """向后兼容：从 state 字典中去重。"""
-    engine = DedupeEngine(DedupeConfig(default_minutes=dedupe_minutes, by_type=dedupe_by_type or {}))
+    by_type = {k: dict(v) for k, v in dedupe_by_type.items()} if dedupe_by_type else {}
+    engine = DedupeEngine(DedupeConfig(default_minutes=dedupe_minutes, by_type=dict(by_type)))
+    # 传入的 dedupe_minutes 覆盖默认类型配置（仅在用户未显式配置该类型时）
+    for type_name, type_config in engine.config.by_type.items():
+        if type_name not in by_type:
+            type_config["dedupe_minutes"] = dedupe_minutes
     history = state.get("alert_history", {})
+    if isinstance(history, list):
+        history = {}
     daily_emitted = state.get("daily_emitted", {})
+    if isinstance(daily_emitted, list):
+        daily_emitted = {}
     return engine.filter_new_alerts(alerts, history, daily_emitted, current_time)
 
 
@@ -629,7 +641,14 @@ def record_emitted_alerts(
 ) -> None:
     """向后兼容：记录到 state 字典。"""
     history = state.setdefault("alert_history", {})
+    if isinstance(history, list):
+        # 旧格式是 list，转换为 dict
+        history = {}
+        state["alert_history"] = history
     daily = state.setdefault("daily_emitted", {})
+    if isinstance(daily, list):
+        daily = {}
+        state["daily_emitted"] = daily
     current = current_time.astimezone(CN_TZ).isoformat()
     today_str = current_time.astimezone(CN_TZ).strftime("%Y-%m-%d")
     today_entry = daily.setdefault(today_str, {})

@@ -88,11 +88,17 @@ def _norm_code(raw: str) -> str:
     return c
 
 
-def parse_price_zone(text: str | None) -> tuple[float, float] | None:
-    """解析价格区间文本，如 '73-76' 或 '73~76'。"""
+def parse_price_zone(value: object) -> tuple[float, float] | None:
+    """解析价格区间文本，如 '73-76' 或 '73~76'；也支持单个数值。"""
+    if value is None:
+        return None
+    if isinstance(value, int | float):
+        price = float(value)
+        return (price, price)
+
+    text = str(value).strip()
     if not text:
         return None
-    text = str(text).strip()
     # 支持 - 或 ~ 分隔
     for sep in ["-", "~", "—", "到"]:
         if sep in text:
@@ -100,7 +106,7 @@ def parse_price_zone(text: str | None) -> tuple[float, float] | None:
             if len(parts) == 2:
                 low = _to_float(parts[0].strip())
                 high = _to_float(parts[1].strip())
-                if low is not None and high is not None and low < high:
+                if low is not None and high is not None and low <= high:
                     return (low, high)
     return None
 
@@ -111,11 +117,16 @@ def _format_zone(zone: tuple[float, float]) -> str:
 
 
 def _quotes_by_code(quote_snapshot: dict) -> dict[str, dict]:
-    """按代码索引行情数据。"""
+    """按代码索引行情数据（优先使用 secid，回退到 code）。"""
     quotes: dict[str, dict] = {}
     for q in quote_snapshot.get("quotes", []) or []:
+        # 优先使用 secid（含市场信息，如 0.000001 / 1.000001）
+        secid = str(q.get("secid", ""))
+        if secid:
+            quotes[secid] = q
+        # 同时用 code 索引（用于无 secid 的兼容场景）
         code = str(q.get("code", ""))
-        if code:
+        if code and code not in quotes:
             quotes[code] = q
     return quotes
 
@@ -137,11 +148,19 @@ def _quote_for_stock(quotes: dict[str, dict], code: str) -> dict | None:
     # 先尝试精确匹配
     if code in quotes:
         return quotes[code]
-    # 尝试标准化后匹配
+    # 尝试 secid 匹配（如 0.000001.SZ -> 0.000001）
     norm = _norm_code(code)
     for k, v in quotes.items():
+        # 直接匹配标准化后的 code
         if _norm_code(k) == norm:
             return v
+        # 尝试 secid 匹配（secid 格式: 市场.代码，如 0.000001）
+        secid = str(v.get("secid", ""))
+        if secid:
+            # secid 格式: 0.000001，标准化后: 000001
+            secid_norm = secid.split(".", 1)[1] if "." in secid else secid
+            if secid_norm == norm:
+                return v
     return None
 
 

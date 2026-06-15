@@ -299,13 +299,13 @@ class TencentFetcher(BaseFetcher):
 
     def fetch(self, targets: dict[str, str]) -> FetcherOutput:
         if not targets:
-            return FetcherOutput(source="tencent", error="empty targets")
+            return FetcherOutput(source="tencent_gtimg", error="empty targets")
 
         started = time_module.perf_counter()
         tencent_map, name_map = self._build_code_maps(targets)
 
         if not tencent_map:
-            return FetcherOutput(source="tencent", error="no valid codes")
+            return FetcherOutput(source="tencent_gtimg", error="no valid codes")
 
         all_quotes: list[dict] = []
         tencent_codes = list(tencent_map.keys())
@@ -319,7 +319,7 @@ class TencentFetcher(BaseFetcher):
         except Exception as exc:
             latency = round((time_module.perf_counter() - started) * 1000, 1)
             return FetcherOutput(
-                source="tencent",
+                source="tencent_gtimg",
                 data={"quotes": all_quotes},
                 latency_ms=latency,
                 error=str(exc),
@@ -328,7 +328,7 @@ class TencentFetcher(BaseFetcher):
 
         latency = round((time_module.perf_counter() - started) * 1000, 1)
         return FetcherOutput(
-            source="tencent",
+            source="tencent_gtimg",
             data={"quotes": all_quotes},
             latency_ms=latency,
             quotes_count=len(all_quotes),
