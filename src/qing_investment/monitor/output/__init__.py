@@ -531,9 +531,41 @@ def _alert_fingerprint(alert: Any) -> str:
     return "|".join([
         alert.action,
         alert.stock_code,
-        alert.stock_name,
         alert.trigger,
     ])
+
+
+def alert_to_log_entry(
+    alert: Any,
+    value: datetime,
+    *,
+    status: str,
+) -> dict:
+    """格式化单条告警为日志条目（模块级便捷函数）。
+
+    Args:
+        alert: RuleAlert 或兼容对象
+        value: 时间戳
+        status: 状态字符串
+
+    Returns:
+        日志条目字典
+    """
+    from qing_investment.monitor.scheduler import _CN_TZ
+    local = value.astimezone(_CN_TZ)
+    return {
+        "date": local.strftime("%Y-%m-%d"),
+        "time": local.isoformat(),
+        "status": status,
+        "fingerprint": _alert_fingerprint(alert),
+        "action": alert.action,
+        "stock_code": alert.stock_code,
+        "stock_name": getattr(alert, "stock_name", ""),
+        "price": getattr(alert, "price", 0.0),
+        "severity": getattr(alert, "severity", "medium"),
+        "trigger": alert.trigger,
+        "summary": getattr(alert, "summary", ""),
+    }
 
 
 def _action_to_dedupe_type(action: str) -> str:

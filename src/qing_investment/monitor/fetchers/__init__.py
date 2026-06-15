@@ -41,6 +41,33 @@ from pydantic import BaseModel, Field
 
 
 # ──────────────────────────────────────────
+# 工具函数
+# ──────────────────────────────────────────
+
+def chunk_quote_targets(
+    targets: dict[str, str],
+    *,
+    chunk_size: int = 15,
+) -> list[dict[str, str]]:
+    """将行情目标分批，每批不超过 chunk_size 个。
+
+    Args:
+        targets: {名称: 代码} 字典
+        chunk_size: 每批大小（默认15，匹配东财API限制）
+
+    Returns:
+        分批后的字典列表
+    """
+    if chunk_size <= 0:
+        raise ValueError("chunk_size must be positive")
+    items = list(targets.items())
+    return [
+        dict(items[index : index + chunk_size])
+        for index in range(0, len(items), chunk_size)
+    ]
+
+
+# ──────────────────────────────────────────
 # 数据模型
 # ──────────────────────────────────────────
 
@@ -782,6 +809,41 @@ MARKET_INDEXES = {
     "科创50": "1.000688",
     "全A指数": "1.000985",
 }
+
+
+def parse_eastmoney_quote_rows(rows: list[dict], targets: dict[str, str]) -> list[dict]:
+    """解析东财行情返回数据。"""
+    reverse = {secid: label for label, secid in targets.items()}
+    quotes = []
+    for item in rows:
+        code = item.get("f12")
+        market = item.get("f13")
+        secid = f"{market}.{code}" if market not in (None, "") and code else None
+        label = reverse.get(secid or "")
+        if not label:
+            matches = [
+                name for name, target in targets.items() if target.endswith(f".{code}")
+            ]
+            label = matches[0] if len(matches) == 1 else item.get("f14", "")
+
+        quotes.append(
+            {
+                "secid": secid,
+                "label": label,
+                "code": code,
+                "name": item.get("f14"),
+                "latest": item.get("f2"),
+                "pct_change": item.get("f3"),
+                "change": item.get("f4"),
+                "volume": item.get("f5"),
+                "amount": item.get("f6"),
+                "high": item.get("f15"),
+                "low": item.get("f16"),
+                "open": item.get("f17"),
+                "previous_close": item.get("f18"),
+            }
+        )
+    return quotes
 
 
 def stock_code_to_secid(code: str) -> str | None:

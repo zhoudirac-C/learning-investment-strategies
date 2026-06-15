@@ -9,41 +9,45 @@ import yaml
 from qing_investment.stock_monitor import (
     AgentAnalysisTrigger,
     RuleAlert,
-    _action_to_dedupe_type,
     alert_fingerprint,
     agent_analysis_schedule_rows,
-    alert_to_log_entry,
-    chunk_quote_targets,
     collect_quote_targets,
     compute_sector_strength,
     evaluate_market_alerts,
     evaluate_position_alerts,
     evaluate_sector_rotation_alerts,
     filter_new_alerts,
-    fetch_eastmoney_quotes,
-    fetch_quotes_with_fallback,
-    find_agent_analysis_trigger,
-    format_analysis_context,
-    format_agent_analysis_context,
+    format_alert_decision_log,
     format_alerts_message,
+    format_analysis_context,
     format_daily_review_context,
-    format_quote_line,
     format_status_message,
-    is_a_share_trading_time,
     load_monitor_config,
     load_monitor_state,
-    parse_eastmoney_quote_rows,
-    parse_price_zone,
-    position_rows,
     record_emitted_alerts,
-    record_agent_analysis_trigger,
-    record_alert_decision_log,
     run_tick,
     save_monitor_state,
-    summarize_daily_review,
     stock_code_to_secid,
-    update_sector_signal_counts,
+    summarize_daily_review,
     update_market_state,
+    update_sector_signal_counts,
+)
+
+# 已从 stock_monitor 迁移到子模块的函数
+from qing_investment.monitor.fetchers import (
+    chunk_quote_targets,
+    fetch_quotes_with_fallback,
+    parse_eastmoney_quote_rows,
+)
+from qing_investment.monitor.output import alert_to_log_entry, format_quote_line
+from qing_investment.monitor.scheduler import (
+    find_agent_analysis_trigger,
+    is_a_share_trading_time,
+    record_alert_decision_log,
+)
+from qing_investment.monitor.context import (
+    format_agent_analysis_context,
+    position_rows,
     watchlist_stock_rows,
 )
 
@@ -1115,6 +1119,7 @@ def test_daily_review_cli_prints_context(tmp_path, capsys):
 
 def test_action_to_dedupe_type_mapping():
     """_action_to_dedupe_type correctly maps action strings to type keys."""
+    from qing_investment.monitor.output import _action_to_dedupe_type
     assert _action_to_dedupe_type("风控观察") == "risk_alert"
     assert _action_to_dedupe_type("减仓观察") == "reduce_alert"
     assert _action_to_dedupe_type("进攻回流观察") == "sector_rotation"

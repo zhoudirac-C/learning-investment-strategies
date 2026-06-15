@@ -11,6 +11,7 @@ import urllib.request
 from dataclasses import dataclass
 from datetime import datetime, time
 from pathlib import Path
+from typing import Any
 from zoneinfo import ZoneInfo
 
 import yaml
@@ -267,7 +268,7 @@ def evaluate_position_alerts(
     """持仓规则评估 — 委托给 monitor.rules.PositionRuleEngine。
     原实现已迁移，保留函数签名以保持向后兼容。"""
     from qing_investment.monitor.rules import PositionRuleEngine
-    return PositionRuleEngine(config).evaluate(quote_snapshot)
+    return PositionRuleEngine().evaluate(config, quote_snapshot)
 
 
 def evaluate_buy_signal_candidates(
@@ -277,7 +278,7 @@ def evaluate_buy_signal_candidates(
     """买入信号候选筛选 — 委托给 monitor.rules.BuySignalRuleEngine。
     原实现已迁移，保留函数签名以保持向后兼容。"""
     from qing_investment.monitor.rules import BuySignalRuleEngine
-    return BuySignalRuleEngine(config).evaluate(quote_snapshot)
+    return BuySignalRuleEngine().evaluate(config, quote_snapshot)
 
 
 def evaluate_buy_signal_alerts(
@@ -287,7 +288,7 @@ def evaluate_buy_signal_alerts(
     """买入信号告警 — 委托给 monitor.rules.BuySignalRuleEngine。
     原实现已迁移，保留函数签名以保持向后兼容。"""
     from qing_investment.monitor.rules import BuySignalRuleEngine
-    return BuySignalRuleEngine(config).evaluate(quote_snapshot)
+    return BuySignalRuleEngine().evaluate(config, quote_snapshot)
 
 
 def evaluate_market_alerts(
@@ -299,7 +300,7 @@ def evaluate_market_alerts(
     """指数规则评估 — 委托给 monitor.rules.IndexRuleEngine。
     原实现已迁移，保留函数签名以保持向后兼容。"""
     from qing_investment.monitor.rules import IndexRuleEngine
-    return IndexRuleEngine(config).evaluate(quote_snapshot, current_time=current_time)
+    return IndexRuleEngine().evaluate(config, quote_snapshot, current_time=current_time)
 
 
 def compute_sector_strength(
@@ -310,7 +311,7 @@ def compute_sector_strength(
     原实现已迁移，保留函数签名以保持向后兼容。"""
     from qing_investment.monitor.rules import SectorRotationRuleEngine
     # _compute_sector_strength 是实例方法，需要创建实例
-    return SectorRotationRuleEngine(config)._compute_sector_strength(config, quote_snapshot)
+    return SectorRotationRuleEngine()._compute_sector_strength(config, quote_snapshot)
 
 
 def _aggregate_sector_strength(
@@ -330,7 +331,7 @@ def evaluate_sector_rotation_alerts(
     """板块轮动规则评估 — 委托给 monitor.rules.SectorRotationRuleEngine。
     原实现已迁移，保留函数签名以保持向后兼容。"""
     from qing_investment.monitor.rules import SectorRotationRuleEngine
-    return SectorRotationRuleEngine(config).evaluate(quote_snapshot)
+    return SectorRotationRuleEngine().evaluate(config, quote_snapshot)
 
 
 def evaluate_monitor_alerts(
@@ -897,12 +898,21 @@ def format_quote_line(
 
 
 def format_status_message(
-    status: dict,
+    config_or_status: Any,
+    value: datetime | None = None,
 ) -> str:
     """格式化状态消息 — 委托给 monitor.output 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
+    原实现已迁移，保留函数签名以保持向后兼容。
+    支持两种调用方式:
+        format_status_message(config, datetime)  # 旧方式
+        format_status_message(status)             # 新方式
+    """
     from qing_investment.monitor.output import format_status_message as _new_format
-    return _new_format(status)
+    from qing_investment.monitor.scheduler import format_status_message as _scheduler_format
+    if value is not None:
+        # 旧调用方式: format_status_message(config, datetime)
+        return _scheduler_format(config_or_status, value)
+    return _new_format(config_or_status)
 
 
 def format_smoke_message(
@@ -943,13 +953,40 @@ def validate_position_price_zones(
 
 def run_tick(
     config: MonitorConfig,
-    quote_snapshot: dict,
-    state: dict,
-) -> dict:
+    quote_snapshot_or_time: Any,
+    state: dict | None = None,
+    *,
+    emit_status: bool = False,
+    ignore_trading_time: bool = False,
+    quote_fetcher: Any | None = None,
+    state_path: str | None = None,
+    dedupe_minutes: int = 30,
+) -> dict | str:
     """执行一次监控 tick — 委托给 monitor.scheduler 模块。
-    原实现已迁移，保留函数签名以保持向后兼容。"""
-    from qing_investment.monitor.scheduler import run_tick as _new_run
-    return _new_run(config, quote_snapshot, state)
+    原实现已迁移，保留函数签名以保持向后兼容。
+    支持两种调用方式:
+        run_tick(config, quote_snapshot, state)              # 新方式
+        run_tick(config, datetime, emit_status=..., ...)    # 旧方式
+    """
+    from qing_investment.monitor.scheduler import run_tick as _new_run, is_a_share_trading_time
+    if isinstance(quote_snapshot_or_time, datetime):
+        # 旧调用方式: run_tick(config, datetime, emit_status=..., ignore_trading_time=...)
+        # 需要构建 quote_snapshot 和 state
+        time_value = quote_snapshot_or_time
+        if not ignore_trading_time and not is_a_share_trading_time(time_value):
+            return "" if emit_status else {}
+        # 构建空的 quote_snapshot 和 state
+        empty_snapshot: dict = {}
+        empty_state: dict = {}
+        if quote_fetcher is not None:
+            targets = collect_quote_targets(config)
+            empty_snapshot = quote_fetcher(targets)
+        result = _new_run(config, empty_snapshot, empty_state)
+        if emit_status and result:
+            return format_status_message(config, time_value)
+        return result if result else ("" if emit_status else {})
+    # 新调用方式
+    return _new_run(config, quote_snapshot_or_time, state or {})
 
 
 def build_parser() -> "argparse.ArgumentParser":
