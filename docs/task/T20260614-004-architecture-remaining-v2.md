@@ -1,6 +1,6 @@
 # T20260614-004 架构剩余任务 v2
 
-> 状态: ✅ **全部完成**（2026-06-15）
+> 状态: ⚠️ **代码完成，2/5 集成生产管线**（2026-06-15 核查）
 > 总耗时: 约 4.5 天（Subtask 1: 3天 + Subtask 2: 0.5天 + 测试/文档: 1天）
 
 ---
@@ -187,11 +187,13 @@ Agent 生成输出
 
 ### 5.1 生产环境部署 checklist
 
-- [ ] WsQuoteClient 接入真实 WebSocket 行情源（需配置 URL、认证参数）
-- [ ] Scheduler 配置 `ws_mode: true` 启用事件驱动模式
-- [ ] B站监控 cron 任务集成 `BilibiliClaimsDeduplicator`
-- [ ] CitationValidator 接入 Agent 输出后处理流程
-- [ ] 监控告警：断路器状态、降级次数、缓存命中率
+| 项目 | 状态 | 说明 |
+|------|:----:|------|
+| [ ] WsQuoteClient 接入真实 WebSocket 行情源 | ✅ | `ws_client.py` 已配置腾讯行情 WS 地址，代码 + 测试完成 |
+| [ ] Scheduler 配置 `ws_mode: true` 启用事件驱动模式 | ✅ | Scheduler 已集成 `WsEventDrivenFetcher`（`_try_ws_fetch` 方法），自动尝试 WS → 降级 HTTP |
+| [ ] B站监控 cron 任务集成 `BilibiliClaimsDeduplicator` | ✅ | `scripts/bilibili_notify.py` 已导入 `BilibiliClaimsDeduplicator`，每10min cron（no_agent）+ `_content_fingerprint()` + `dedup.diff()` 去重检查，新内容触发 `extract_claims_pipeline` |
+| [ ] CitationValidator 接入 Agent 输出后处理流程 | ❌ | `citation_validator.py` 独立完成，但 **未接入** Agent 输出流程（graph 节点） |
+| [ ] 监控告警：断路器状态、降级次数、缓存命中率 | ❌ | 代码有相关字段，但未配置告警通道 |
 
 ### 5.2 性能优化方向
 

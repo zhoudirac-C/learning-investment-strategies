@@ -1852,23 +1852,39 @@ def run_tick(
     if agent_trigger:
         record_agent_analysis_trigger(state, agent_trigger, value)
         save_monitor_state(resolved_state_path, state)
+
+        # 使用新模块的单 dict 方式构建 context 数据
+        from zoneinfo import ZoneInfo
+        cn_tz = ZoneInfo("Asia/Shanghai")
+        context_data = {
+            "timestamp": value.astimezone(cn_tz).isoformat(),
+            "trigger": {
+                "kind": agent_trigger.kind,
+                "id": agent_trigger.id,
+                "title": agent_trigger.title,
+                "reason": agent_trigger.reason,
+            },
+            "alerts": [
+                {
+                    "action": a.action,
+                    "stock_code": a.stock_code,
+                    "stock_name": getattr(a, "stock_name", ""),
+                    "summary": a.summary,
+                }
+                for a in new_alerts
+            ],
+            "quote_snapshot": quote_snapshot,
+            "positions": config.positions,
+            "watchlist": config.watchlist,
+            "market_framework": config.strategy_pack.get("market_framework", {}),
+            "state": state,
+            "market_state": state.get("last_market_state", {}),
+            "sector_signal_counts": state.get("sector_signal_counts", {}),
+        }
+
         if agent_json_context:
-            return format_agent_json_context(
-                config,
-                value,
-                agent_trigger,
-                new_alerts,
-                quote_snapshot,
-                state,
-            )
-        return format_agent_analysis_context(
-            config,
-            value,
-            agent_trigger,
-            new_alerts,
-            quote_snapshot,
-            state,
-        )
+            return format_agent_json_context(context_data)
+        return format_agent_analysis_context(context_data)
     if new_alerts:
         return format_alerts_message(new_alerts, value, quote_snapshot)
     return ""

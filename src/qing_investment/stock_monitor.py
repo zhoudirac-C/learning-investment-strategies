@@ -1245,3 +1245,7 @@ def main(argv: list[str] | None = None) -> int:
     from qing_investment.monitor.scheduler import main as _new_main
     return _new_main(argv)
 
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+

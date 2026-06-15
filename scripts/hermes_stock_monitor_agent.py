@@ -58,21 +58,63 @@ def _run_stock_monitor(root: Path, *extra_args: str) -> subprocess.CompletedProc
 
 
 def fetch_json_context(root: Path) -> dict | None:
-    """Run stock_monitor.py --agent-json-context and parse the JSON output."""
-    result = _run_stock_monitor(root, "--agent-json-context", "--ignore-trading-time", "--agent-any-time")
-    stdout = result.stdout.strip()
-    if not stdout:
+    """Run stock_monitor tick and return parsed JSON context (replaces subprocess call)."""
+    # Add src to sys.path for direct imports
+    src_dir = str(root / "src")
+    if src_dir not in sys.path:
+        sys.path.insert(0, src_dir)
+
+    from qing_investment.stock_monitor import load_monitor_config
+    from qing_investment.monitor.scheduler import run_tick
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    from pathlib import Path
+
+    cn_tz = ZoneInfo("Asia/Shanghai")
+    config = load_monitor_config(root / "config" / "stock_monitor")
+
+    message = run_tick(
+        config,
+        datetime.now(cn_tz),
+        emit_status=False,
+        ignore_trading_time=True,
+        state_path=root / "config" / "stock_monitor" / "state.json",
+        agent_json_context=True,
+        agent_any_time=True,
+    )
+    if not message:
         return None
     try:
-        return json.loads(stdout)
-    except json.JSONDecodeError:
+        return json.loads(message) if isinstance(message, str) else message
+    except (json.JSONDecodeError, TypeError):
         return None
 
 
 def fetch_fallback_text_context(root: Path) -> str:
-    """Run stock_monitor.py --agent-context-on-trigger to get plain text context."""
-    result = _run_stock_monitor(root, "--agent-context-on-trigger", "--ignore-trading-time", "--agent-any-time")
-    return result.stdout
+    """Run stock_monitor tick and return plain text context (replaces subprocess call)."""
+    src_dir = str(root / "src")
+    if src_dir not in sys.path:
+        sys.path.insert(0, src_dir)
+
+    from qing_investment.stock_monitor import load_monitor_config
+    from qing_investment.monitor.scheduler import run_tick
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    from pathlib import Path
+
+    cn_tz = ZoneInfo("Asia/Shanghai")
+    config = load_monitor_config(root / "config" / "stock_monitor")
+
+    message = run_tick(
+        config,
+        datetime.now(cn_tz),
+        emit_status=False,
+        ignore_trading_time=True,
+        state_path=root / "config" / "stock_monitor" / "state.json",
+        agent_context_on_trigger=True,
+        agent_any_time=True,
+    )
+    return message if isinstance(message, str) else ""
 
 
 def call_qing_agent(data: dict) -> dict | None:
