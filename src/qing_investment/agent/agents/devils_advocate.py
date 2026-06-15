@@ -20,7 +20,7 @@ class DevilsAdvocateAgent(Agent):
     """对已有分析结论进行反向质疑。
 
     设计原则:
-        - 强制使用与主分析不同的模型（主分析 DeepSeek → 这里用 Kimi）
+        - 强制使用与主分析不同的模型（主分析 DeepSeek → 这里用 Zhipu GLM-4-Flash 免费版）
         - 输出结构化质疑点，不自行下结论
         - 记录每个质疑点的置信度
         - 主分析失败不影响 DA 正常执行
@@ -30,7 +30,7 @@ class DevilsAdvocateAgent(Agent):
 
     def __init__(self, llm=None):
         super().__init__(llm=llm)
-        self._target_model = "kimi"
+        self._target_model = "zhipu"
         self._last_used_provider: str | None = None  # 实际使用的 provider（可能 fallback）
         self._used_provider: str | None = None        # 供外部查询
 

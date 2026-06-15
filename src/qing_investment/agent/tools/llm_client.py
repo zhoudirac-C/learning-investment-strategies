@@ -39,7 +39,7 @@ LLM_PROVIDERS: dict[str, dict[str, Any]] = {
     },
     "zhipu": {
         "base_url": "https://open.bigmodel.cn/api/paas/v4",
-        "default_model": "glm-4",
+        "default_model": "glm-4-flash",
         "api_key_env": "ZHIPU_API_KEY",
     },
     "qwen": {

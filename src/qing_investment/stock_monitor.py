@@ -772,7 +772,7 @@ def _fetch_daily_dragon_tiger_board(
 ) -> dict:
     """获取当日全市场龙虎榜总榜（akshare 东方财富接口）— 委托给 monitor.fetchers 模块。
     原实现已迁移，保留函数签名以保持向后兼容。"""
-    from qing_investment.monitor.fetchers import _fetch_daily_dragon_tiger_board as _new_fetch
+    from qing_investment.monitor.analysis import _fetch_daily_dragon_tiger_board as _new_fetch
     return _new_fetch(date_str, timeout)
 
 
@@ -782,7 +782,7 @@ def _filter_dragon_tiger_board(
 ) -> dict:
     """对全市场龙虎榜总榜做三层交叉过滤 — 委托给 monitor.fetchers 模块。
     原实现已迁移，保留函数签名以保持向后兼容。"""
-    from qing_investment.monitor.fetchers import _filter_dragon_tiger_board as _new_filter
+    from qing_investment.monitor.analysis import _filter_dragon_tiger_board as _new_filter
     return _new_filter(board, config)
     return result
 

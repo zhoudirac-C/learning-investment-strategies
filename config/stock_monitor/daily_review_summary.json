@@ -234,5 +234,82 @@
       },
       "fetched_at": "2026-06-12T17:00:04.722200+08:00"
     }
+  },
+  "2026-06-15": {
+    "date": "2026-06-15",
+    "built_at": "2026-06-15T17:04:16.735587+08:00",
+    "market": {
+      "stage": "震荡修复期",
+      "stage_detail": "上证3950-4000区间缩量震荡，全A指数MACD日线仍负但60分钟翻多，方向未明需等待放量确认",
+      "direction_priority": [
+        {
+          "direction": "科技上游材料（钨/钼/电子特气）",
+          "intensity": "",
+          "source": "market_analyst:market"
+        },
+        {
+          "direction": "有色金属（金铜/钼资源）",
+          "intensity": "",
+          "source": "market_analyst:market"
+        },
+        {
+          "direction": "高频高速覆铜板上游材料（分歧期）",
+          "intensity": "",
+          "source": "market_analyst:market"
+        }
+      ],
+      "position_stance": "1成以内，持仓做T不加总仓位。雅克科技逻辑未变，若128-129区间分时企稳可考虑补仓100股（补后不超过2成）。修复期不追高，只做分歧低吸。",
+      "key_levels": {
+        "shanghai_index": {
+          "valid_repair": "量价确认+科技高低切（已替代4033固定点位，6/9后UP不再使用4033作为修复标准）",
+          "weak_repair": "4000（心理关口，缩量站回无效，需放量+科技主动承接）",
+          "trend_defense": "3950（月线支撑，收盘跌破→筑底失败信号）",
+          "framework_evolution": "6/3: 4033/4130纪律线引入。6/5: 4033修正为科技清仓线。6/9: 生命线下调至4000。\n6/11早盘: 地量信号+情景A/B框架替代二元点位判断。4033已连续12天被跌破。\n6/11晚间: 全A趋势下跌23个交易日→历史级别尾部。午后回升提前消耗修复动能。\n全A中阳线替代一切点位判断→成为唯一确认信号。仓位纪律高于判断。\n"
+        },
+        "nasdaq": {
+          "watch": "费城半导体指数是否稳住震荡区间"
+        },
+        "oil": {
+          "escalation_threshold": "90美元",
+          "relief_threshold": "80美元"
+        }
+      }
+    },
+    "positions": {
+      "159381": {
+        "close": 1.357,
+        "open": 1.282,
+        "high": 1.357,
+        "low": 1.27,
+        "change_pct": 7.44,
+        "volume": 3722956.0,
+        "amount": "48875",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 6.41,
+        "volume_ratio": null,
+        "vs_ma5": null,
+        "vs_ma10": null,
+        "near5d_return": null,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 1.344,
+        "unrealized_pct": 0.97,
+        "cost_protection_line": 1.34
+      }
+    },
+    "tomorrow_scenarios": null
   }
 }

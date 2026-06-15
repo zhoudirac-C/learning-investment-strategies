@@ -1477,6 +1477,25 @@ def _build_yesterday_summary(
         "tomorrow_scenarios": null,  # 由收盘复盘 LLM 填充
     }
     """
+    # 本地导入避免循环依赖 — 这些函数定义在 qing_investment.monitor.context 中
+    from qing_investment.monitor.context import (  # noqa: F811
+        _pure_stock_code,
+        _quotes_by_code,
+        _quote_for_stock,
+        _to_float,
+        position_rows,
+    )
+    from qing_investment.stock_monitor import (  # noqa: F811
+        _check_entry_zone_distance,
+        _compute_near5d_return,
+        _compute_volume_ratio,
+        _compute_vs_ma,
+        _fetch_dragon_tiger_data,
+    )
+    # lazy__fetch_dt — 龙虎榜数据懒加载包装
+    def lazy__fetch_dt(code: str, date_str: str) -> dict:
+        return _fetch_dragon_tiger_data(code, date_str)
+
     date_str = datetime.now(tz=_CN_TZ).strftime("%Y-%m-%d")
     quotes = _quotes_by_code(quote_snapshot)
 
@@ -1517,10 +1536,10 @@ def _build_yesterday_summary(
             "volume": volume,
             "amount": amount,
             # 默认 null 占位
-            **{k: None for k in SUMMARY_FIELDS_BOARD},
-            **{k: None for k in SUMMARY_FIELDS_TECH},
-            **{k: None for k in SUMMARY_FIELDS_DETAIL},
-            **{k: None for k in SUMMARY_FIELDS_COST},
+            **{k: None for k in _SUMMARY_FIELDS_BOARD},
+            **{k: None for k in _SUMMARY_FIELDS_TECH},
+            **{k: None for k in _SUMMARY_FIELDS_DETAIL},
+            **{k: None for k in _SUMMARY_FIELDS_COST},
         }
 
         # ── is_limit_up 从 change_pct 推导 ──
@@ -2011,9 +2030,13 @@ def main(argv: list[str] | None = None) -> int:
             # ── 龙虎榜全市场总榜（17:00 数据已就绪）──
             try:
                 date_today = _state_date(current)
-                raw_board = fetch_dt_board_placeholder(date_today)
+                from qing_investment.stock_monitor import (
+                    _fetch_daily_dragon_tiger_board,
+                    _filter_dragon_tiger_board,
+                )
+                raw_board = _fetch_daily_dragon_tiger_board(date_today)
                 if raw_board.get("available") and raw_board.get("board"):
-                    board_filtered = filter_dt_board_placeholder(raw_board["board"], config)
+                    board_filtered = _filter_dragon_tiger_board(raw_board["board"], config)
                     # 将龙虎榜数据保存到 summary 的 market 字段中
                     summary["dragon_tiger_board"] = {
                         "board_count": len(raw_board["board"]),
