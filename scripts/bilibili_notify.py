@@ -17,6 +17,7 @@ B站动态拉取 + 微信通知脚本。
 from __future__ import annotations
 
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -41,6 +42,36 @@ from fetch_bilibili_up_v2 import (
     repo_root,
     build_index,
 )
+
+# B站 claims 去重器
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+from qing_investment.monitor.deduplicator import BilibiliClaimsDeduplicator
+
+
+def _content_fingerprint(content: str) -> str:
+    """生成内容指纹（用于去重）。
+
+    基于动态原文 + OCR + 评论内容的哈希，忽略元数据行。
+    """
+    import hashlib
+    lines = content.split("\n")
+    # 只取原文 + OCR + 评论段，忽略标题/时间/URL等元数据
+    body_lines = []
+    in_body = False
+    for line in lines:
+        if line.startswith("## 原文"):
+            in_body = True
+            continue
+        if line.startswith("## ") and in_body:
+            if "图片" in line or "互动数据" in line or "置顶评论" not in line:
+                pass
+        if line.startswith("pub_time:") or line.startswith("url:") or line.startswith("dynamic_id:"):
+            continue
+        body_lines.append(line.strip())
+    text = " ".join(body_lines)
+    # 规范化：去空格标点，取前200字符
+    normalized = re.sub(r"\s+|[，。！？、；：\"'（）【】\n]", "", text)[:200]
+    return hashlib.md5(normalized.encode("utf-8")).hexdigest()[:16]
 
 
 def main() -> int:
@@ -79,6 +110,11 @@ def main() -> int:
     state = load_state(state_path)
     processed_ids: set = set(state.get("processed_ids", []))
 
+    # 初始化去重器
+    dedup_cache_dir = Path.home() / ".hermes" / "bilibili_dedup_cache"
+    dedup_cache_dir.mkdir(parents=True, exist_ok=True)
+    dedup = BilibiliClaimsDeduplicator(cache_dir=dedup_cache_dir)
+
     # 拉取动态列表
     resp = fetch_dynamic_list(uid, sessdata)
     if resp.get("code") != 0:
@@ -104,6 +140,7 @@ def main() -> int:
     temp_dir.mkdir(exist_ok=True)
 
     saved_files = []
+    dedup_results: dict[str, bool] = {}  # filepath -> is_new
     for dynamic_id, item in reversed(new_items[:5]):  # 最多处理5条
         try:
             basic = item.get("basic", {})
@@ -149,6 +186,20 @@ def main() -> int:
             saved_files.append(filepath)
             processed_ids.add(dynamic_id)
             state["last_dynamic_id"] = dynamic_id
+
+            # ── 内容级去重 ──
+            content = filepath.read_text(encoding="utf-8")
+            fp = _content_fingerprint(content)
+            # 包装为伪 claim（仅用于去重检查）
+            pseudo_claim = {"claim_type": "bilibili_dynamic", "statement": content[:500]}
+            # 检查: 如果指纹已存在则标记为重复
+            result = dedup.diff([pseudo_claim])
+            is_new = result.has_new
+            dedup_results[str(filepath)] = is_new
+            if is_new:
+                print(f"INFO: ✅ 新内容 {filepath.name}（指纹: {fp[:8]}）", file=sys.stderr)
+            else:
+                print(f"INFO: ⏭️ 已处理过 {filepath.name}（指纹: {fp[:8]}）", file=sys.stderr)
         except Exception as exc:
             print(f"ERROR: 保存动态 {dynamic_id} 失败: {exc}", file=sys.stderr)
 
@@ -170,6 +221,7 @@ def main() -> int:
 
     # 输出微信通知内容（stdout 会被 Hermes cron 发送到微信）
     for filepath in saved_files:
+        is_new = dedup_results.get(str(filepath), True)
         content = filepath.read_text(encoding="utf-8")
         # 提取关键信息
         lines = content.split("\n")
@@ -218,6 +270,8 @@ def main() -> int:
 
         # 构建微信消息（尽量展示完整原文）
         msg = f"📢 **青枫浦上Q 新动态**\n\n"
+        if not is_new:
+            msg += f"🔄 *此内容已处理过，本次跳过*\n\n"
         msg += f"⏰ {pub_time}\n"
         msg += f"🔗 {url}\n\n"
 
@@ -232,6 +286,12 @@ def main() -> int:
         # 评论完整展示
         if comment_full:
             msg += f"**置顶评论：**\n{comment_full}\n\n"
+
+        # 去重标记（供下游 Agent 解析）
+        if is_new:
+            msg += f"<!-- BILIBILI_NEW_CONTENT:{filepath.name} -->\n"
+        else:
+            msg += f"<!-- BILIBILI_DUPLICATE:{filepath.name} -->\n"
 
         print(msg)
 
