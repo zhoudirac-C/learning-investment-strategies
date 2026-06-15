@@ -1,0 +1,609 @@
+claims:
+- id: claim-20260615-004
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: market-cycle
+  subject: 2026-06-15 AI硬科技修复启动，全A收中阳，但缩量下聚焦度不足
+  timeframe: intraday
+  statement: 6月15日AI硬科技集中走强（从元件到PCB再到CPO），全A指数中阳，各大类指数基本完成修复。但全天缩量背景下修复性质偏资金回流而非情绪进攻，内部聚焦度不足。MLCC和光模块是最强势的两个方向。
+  evidence_quote: 今天AI硬科技呈现的是一个修复启动的走势——从元件到PCB，再到CPO，基本上所有AI硬科技分支都出现了修复。…普涨而无核心，往往意味着是资金的修复性回流，而非由明确主线带动的情绪进攻。
+  interpretation: 当日修复是事实，但缩量+普涨无核心这两个特征表明性质偏弱。需区别修复启动和情绪进攻两种性质，判断后续高度。缩量是最大的制约因素。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 盘面定性·市场周期
+  related_stocks: []
+  tags:
+  - 市场判断
+  - 盘面分析
+  - 结构行情
+- id: claim-20260615-005
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: risk
+  subject: 微盘股破位风险：可能拖累全A指数及AI科技修复可持续性
+  timeframe: short-term
+  statement: 微盘股持续处于破位边缘是一条潜在的拖累链条：微盘破位→拖累全A→全A走弱→拖累AI科技。AI科技的修复持续性受制于指数层面稳定，尤其受制于微盘股能否守住。
+  evidence_quote: 微盘股持续处于破位边缘。这是一条潜在的拖累链条：微盘股一旦破位，会拖累全A指数，而全A指数走弱又会反过来拖累AI科技。
+  interpretation: UP指出AI科技修复并非独立于大盘环境。微盘股作为先行指标，其破位将制约整体做多情绪。需持续监控微盘股指数走势，这是已验证的风险推断。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 风险提示·微盘股
+  related_stocks: []
+  tags:
+  - 风险提示
+  - 微盘股
+  - 市场结构
+- id: claim-20260615-006
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: methodology
+  subject: 判断修复质量的两条线索：尾盘股补涨和情绪载体核心出现
+  timeframe: intraday
+  statement: 明天（6月16日）两条验证线索：1）AI震荡时尾盘股是否强势补涨（验证修复广度）；2）情绪载体核心能否浮出水面（验证修复深度）。核心候选为风华高科(000636)（MLCC）和东山精密(002384)（光模块）。
+  evidence_quote: 明天就显得很关键，具体看两条线索能否兑现：其一，AI科技震荡时，尾盘股是否会强势补涨…其二，情绪载体核心能否浮出水面。MLCC方向的风华高科(000636)、光模块方向的东山精密(002384)成为核心的概率相对更高。
+  interpretation: UP给出了明确的次日验证框架，这是可执行的盘面观察方法论。补涨检验广度、核心检验深度，两条同时满足才是高质量修复。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 方法论·盘面验证
+  related_stocks: []
+  tags:
+  - 盘面验证
+  - 方法论
+  - 操作框架
+- id: claim-20260615-007
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: sector-theme
+  subject: 光多通道替代电高速是确定性趋势，MPO产业链核心受益
+  timeframe: trend
+  statement: 无论最终采用光模块、NPO还是CPO方案，光多通道、单路低速替代电少通道、单路高速是确定的产业方向。通道数增加给MPO产业链带来高芯数价值量激增，光纤布线与MPO有望成为光互联的下一个超级行业。
+  evidence_quote: 无论最终走向哪种方案，逐步用光多通道、单路低速替代电少通道、单路高速都是确定性方向，而通道数增加会给MPO产业链带来高芯数的价值量激增和庞大需求。
+  interpretation: UP强调MPO是光互联中路线确定性的受益方，不受具体技术路线之争影响。MT插芯是核心组件，16芯以上高阶产品单价大幅提升、进入壁垒高。这是一个确定性强的产业链逻辑。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 光通信·CPO·MPO
+  related_stocks:
+  - code: '300570'
+    name: 太辰光
+    role: MPO-创业板不可交易
+  - code: '600353'
+    name: 旭光电子
+    role: 光通信-主板可交易
+  - code: '688167'
+    name: 炬光科技
+    role: 光器件-科创板不可交易
+  - code: '002281'
+    name: 光迅科技
+    role: 光模块-主板可交易
+  - code: '002384'
+    name: 东山精密
+    role: 光模块-FPC-主板可交易
+  - code: '601869'
+    name: 长飞光纤
+    role: 光纤光缆-主板可交易
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块-创业板不可交易
+  - code: '300502'
+    name: 新易盛
+    role: 光模块-创业板不可交易
+  - code: '300394'
+    name: 天孚通信
+    role: 光器件-创业板不可交易
+  - code: '301486'
+    name: 致尚科技
+    role: MPO连接器-创业板不可交易
+  tags:
+  - 光通信
+  - MPO
+  - CPO
+  - AI算力
+- id: claim-20260615-008
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: sector-theme
+  subject: MT插芯是MPO连接器核心组件，高阶产品价值量数倍提升
+  timeframe: trend
+  statement: MT插芯是MPO连接器最核心组件，需微米级精密对准。从8芯/12芯向16芯及以上升级时，模具精度与注塑难度数量级提升，16芯以上高阶插芯单价较传统产品大幅提升。MPO进入北美供应链认证周期长，具备量产能力的厂商少，强者恒强。
+  evidence_quote: MT插芯是MPO连接器最核心的组件，需在微米级实现多根光纤精密对准…芯数从8芯、12芯向16芯及以上升级后，模具精度与注塑难度数量级提升，16芯及以上高阶插芯单价较传统产品大幅提升。
+  interpretation: MT插芯是MPO产业链中价值量最大、壁垒最高的环节。东吴证券/国盛证券研报逻辑支撑。标的逻辑偏产业趋势而非短期炒作。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 光通信·MPO·MT插芯
+  related_stocks:
+  - code: '300570'
+    name: 太辰光
+    role: MPO-创业板不可交易
+  - code: '301486'
+    name: 致尚科技
+    role: MPO连接器-创业板不可交易
+  tags:
+  - MT插芯
+  - MPO
+  - 光通信
+- id: claim-20260615-009
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: sector-theme
+  subject: CPO或NPO或OCS三大技术路线2026H2迎商业化窗口
+  timeframe: short-term
+  statement: 东吴证券观点认为，CPO、NPO、OCS三大技术路线在2026年下半年迎来明确的商业化窗口，有望成为下半年科技最重要主线。CPO是终极形态，NPO是过渡方案（谷歌已采购），OCS从谷歌独家利器演变为数据中心标配（Lumentum(美股LITE)积压订单超4亿美元）。
+  evidence_quote: AI光通信技术变革正进入产业密集催化期，CPO、NPO、OCS三大技术路线在2026年下半年迎来明确的商业化窗口，有望成为下半年科技领域最重要的主线。
+  interpretation: 光通信产业链存在多条并行技术路线，每条都有对应的受益标的。东吴证券判断明确，但商业化节奏和规模仍是待验证的条件性预期。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 光通信·CPO·NPO·OCS
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块-创业板不可交易
+  - code: '300502'
+    name: 新易盛
+    role: 光模块-创业板不可交易
+  - code: '300394'
+    name: 天孚通信
+    role: 光器件-创业板不可交易
+  - code: '688167'
+    name: 炬光科技
+    role: 光器件-科创板不可交易
+  - code: '002384'
+    name: 东山精密
+    role: 光模块-FPC-主板可交易
+  - code: '601869'
+    name: 长飞光纤
+    role: 光纤光缆-主板可交易
+  tags:
+  - CPO
+  - NPO
+  - OCS
+  - 光通信
+- id: claim-20260615-010
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: sector-theme
+  subject: AI PCB高端化：特种油墨吨价翻倍，国产替代加速
+  timeframe: trend
+  statement: AI服务器PCB层数从8层升至20-30层，单台油墨用量从几百克增至几千克。消费电子阻焊油墨吨价2-3万元，AI服务器特种油墨吨价突破8万元，AI/IC载板专用油墨毛利率45%以上。日系产能收缩，国产油墨价格低30-40%、交付周期快50%以上。
+  evidence_quote: 消费电子用常规阻焊油墨吨价仅2至3万元，而AI服务器主板、IC载板用特种油墨吨价可突破8万元，AI、IC载板专用阻焊油墨毛利率可达45%以上…国产油墨同规格下价格较日系低30%至40%。
+  interpretation: PCB油墨是此前关注度较低的算力高景气细分，逻辑清晰：AI升级驱动用量增+结构升级+国产替代三重驱动。日系供给收缩加速国产替代窗口。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: PCB·光刻胶·油墨
+  related_stocks:
+  - code: '300576'
+    name: 容大感光
+    role: PCB油墨-创业板不可交易
+  - code: '300537'
+    name: 广信材料
+    role: PCB油墨-创业板不可交易
+  tags:
+  - PCB
+  - 油墨
+  - 光刻胶
+  - 算力
+- id: claim-20260615-011
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: sector-theme
+  subject: 强力新材PSPI国产替代：日本旭化成限供，百公斤级订单验证商业化
+  timeframe: short-term
+  statement: 强力新材(300429)是国内少数深耕光刻胶专用电子化学品的企业。2025年5月日本旭化成发布PIMEL限供通知，PSPI迎来国产替代窗口。公司高温PSPI产品已收到贸易商百公斤级订单（应用于前制程应力缓冲层），从样品验证向商业化销售迈出关键一步。年产395.2吨先进封装材料项目一期259吨已验收。
+  evidence_quote: 2025年5月日本旭化成发布PIMEL限供通知，PSPI迎来国产替代关键窗口期；近期公司高温PSPI产品已收到贸易商百公斤级订单，标志着从样品验证向商业化销售迈出关键一步。
+  interpretation: UP明确区分了事实（百公斤级订单+项目验收）和推断（国产替代规模兑现节奏仍需跟踪）。这是典型的产业链逻辑梳理，非推荐。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: PCB·光刻胶·PSPI
+  related_stocks:
+  - code: '300429'
+    name: 强力新材
+    role: 光刻胶化学品-创业板不可交易
+  tags:
+  - PCB
+  - 油墨
+  - 光刻胶
+  - 算力
+- id: claim-20260615-012
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: sector-theme
+  subject: MLCC结构性缺货周期超越2018年超级周期，AI驱动是核心
+  timeframe: trend
+  statement: 国巨、华新科、禾伸堂、信昌电四大龙头确认本轮由AI驱动的MLCC缺货周期将超越2018年超级周期。华新科将缺货时间轴延伸至2027年后，国巨订单出货比升至1.3以上。与2018年全品类普涨不同，本轮是结构性缺货——AI料占用产能是普通料4-7倍，AI高容先紧、高压后紧。
+  evidence_quote: 国巨、华新科、禾伸堂、信昌电四大龙头在股东会上异口同声看旺景气，确认这一轮由AI驱动的缺货周期将超越2018年被动元件超级大循环…本轮缺货是结构性而非全面性的。
+  interpretation: MLCC本轮逻辑不同于2018年：结构性而非全面，AI服务器用量是传统服务器的数十倍。VR200机柜单机MLCC用量60万颗（vs传统服务器1800-2500颗）。关键跟踪指标：国巨B/B值、高端MLCC价格走势。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: MLCC·被动元件
+  related_stocks:
+  - code: '000636'
+    name: 风华高科
+    role: MLCC龙头-主板可交易
+  - code: '603678'
+    name: 火炬电子
+    role: MLCC-主板可交易
+  - code: '300408'
+    name: 三环集团
+    role: MLCC-创业板不可交易
+  tags:
+  - MLCC
+  - 被动元件
+  - AI服务器
+- id: claim-20260615-013
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: sector-theme
+  subject: MLCC上游陶瓷粉体供给缺口：2029-2030年形成显著缺口
+  timeframe: trend
+  statement: 2025-2030年全球AI服务器MLCC需求从642亿颗增至3816亿颗（CAGR 42.8%），对应陶瓷粉体需求从0.45万吨增至3.82万吨。测算显示2029、2030年将分别形成0.29万吨、1.31万吨供给缺口。国瓷材料(300285)掌握水热法制备钛酸钡核心技术，是全球第二家掌握该工艺的企业。
+  evidence_quote: 2025至2030年全球AI服务器MLCC需求从642亿颗增至3816亿颗，复合增速42.8%，对应陶瓷粉体需求从0.45万吨增至3.82万吨；测算显示2029、2030年将分别形成0.29万吨、1.31万吨的供给缺口。
+  interpretation: UP通过研报数据展示了MLCC上游粉体的长期供给缺口逻辑。国瓷材料(300285)是核心标的。这是一个远期确定性逻辑，短期弹性取决于MLCC缺货的扩散节奏。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: MLCC·陶瓷粉体
+  related_stocks:
+  - code: '300285'
+    name: 国瓷材料
+    role: MLCC陶瓷粉体-创业板不可交易
+  tags:
+  - MLCC
+  - 被动元件
+  - AI服务器
+- id: claim-20260615-014
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: operation
+  subject: 新金路：铌钽锡多金属矿达产年化产值约33亿，项目2026年底逐步投产
+  timeframe: trend
+  statement: 新金路(000510)控股51.76%的广西栗木铌钽锡多金属矿是国内少数同时具备这四种金属原生资源储备的标的。项目2026年底逐步建成投产、2027年逐步达产，目标年产锡精矿4275吨、钨精矿600吨、氧化铌50吨及氧化钽200吨。按当前价格测算，达产年化产值约33.45亿元。
+  evidence_quote: 据华创证券研报预计项目2026年底有望逐步建成投产、2027年逐步达产…据上述产能规划及最新价格测算，栗木矿若达产，合计年化产值约33.45亿元。
+  interpretation: UP明确标注：产能规划与价格为已披露事实，达产产值为基于假设的测算推断。锡42.65万/吨、铌4735-4900元/kg、钨52.3-52.6万/标吨均为高价金属。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 稀有金属·新金路
+  related_stocks:
+  - code: '000510'
+    name: 新金路
+    role: 铌钽锡多金属矿-主板可交易
+  tags:
+  - 稀有金属
+  - 新金路
+  - 铌钽锡
+- id: claim-20260615-015
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: operation
+  subject: 博迁新材：国内唯一可量产80nm级镍粉企业，MLCC超级周期直接受益
+  timeframe: short-term
+  statement: 博迁新材(605376)拥有独家PVD工艺，是国内唯一可量产80纳米级镍粉的企业。高端MLCC向超薄介质层演进，80nm超细镍粉是实现超薄化的核心材料。与三星电机签有长协但留有价格显著变化可另行协商条款，其他客户（国巨、风华高科(000636)、潮州三环）不绑定长协。中报存在超预期可能。
+  evidence_quote: 公司拥有独家PVD工艺，是目前国内唯一可量产80纳米级镍粉的企业…只要高端MLCC持续供不应求，加工费就能持续上移…中报存在超预期的可能性。
+  interpretation: UP明确标注中报超预期是推断而非确定结论。博迁新材(605376)在MLCC超级周期中的弹性逻辑清晰，需关注MLCC缺货持续性和三星长协的加工费调整。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: MLCC·博迁新材
+  related_stocks:
+  - code: '605376'
+    name: 博迁新材
+    role: MLCC镍粉-主板可交易
+  tags:
+  - MLCC
+  - 被动元件
+  - AI服务器
+- id: claim-20260615-016
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: operation
+  subject: 天承科技：国内唯一通过英伟达PCN认证的国产PCB化学品供应商
+  timeframe: short-term
+  statement: 天承科技(688603)是国内唯一通过英伟达PCN终端认证的国产PCB化学品供应商，其SkyStrate VF系列电镀添加剂可精准适配mSAP工艺。公司正同步扩充珠海及泰国两处新产能，投产后总产能预计翻三倍，有望在沉铜与电镀双轮驱动下迎接业绩放量。
+  evidence_quote: 天承科技(688603)是国内唯一通过英伟达PCN终端认证的国产PCB化学品供应商…投产后总产能预计翻三倍，有望在沉铜与电镀双轮驱动下迎接业绩放量。
+  interpretation: 英伟达PCN认证是极强壁垒。产能翻倍+认证壁垒，但业绩兑现节奏仍需验证。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: PCB·天承科技
+  related_stocks:
+  - code: '688603'
+    name: 天承科技
+    role: PCB化学品-科创板不可交易
+  tags:
+  - PCB
+  - 油墨
+  - 光刻胶
+  - 算力
+- id: claim-20260615-017
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: sector-theme
+  subject: MLCC缺货扩散至消费电子规格，47uF或10uF或22uF均供不应求
+  timeframe: short-term
+  statement: MLCC缺货已不局限于AI用规格，主要规格产品均供不应求。华新科指出最短缺规格为47uF，AI高端订单挤压日韩产能，连手机、PC用量庞大的10uF、22uF及X5R都受影响。受益标的包括昊志机电(300503)（MLCC设备）和有研粉材(688456)（镍浆验证中）。
+  evidence_quote: MLCC缺货已不局限于AI用规格，主要规格产品均供不应求…AI高端订单挤压日韩产能，连手机、PC用量庞大的10uF、22uF及X5R都受影响。
+  interpretation: MLCC缺货从AI料向消费电子规格扩散，是结构性行情扩散的标志。但消费电子需求恢复的持续性存疑，需跟踪。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: MLCC·扩散逻辑
+  related_stocks:
+  - code: '300503'
+    name: 昊志机电
+    role: MLCC设备-创业板不可交易
+  - code: '688456'
+    name: 有研粉材
+    role: MLCC镍浆-科创板不可交易
+  - code: '000636'
+    name: 风华高科
+    role: MLCC龙头-主板可交易
+  - code: '300408'
+    name: 三环集团
+    role: MLCC-创业板不可交易
+  tags:
+  - MLCC
+  - 被动元件
+  - AI服务器
+- id: claim-20260615-018
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: sector-theme
+  subject: 锂电产业链步入新一轮上行周期，亿纬锂能中报预增95-110%
+  timeframe: short-term
+  statement: 亿纬锂能(300014)公告预计2026年半年度归母净利润31.30-33.71亿元、同比增95-110%，营收同比增约60%。东莞证券认为锂电产业链已步入新一轮上行周期，供需紧平衡延续，盈利修复趋势明确。关注电芯、碳酸锂、6F、VC、LFP、隔膜、铜箔等涨价弹性品种。
+  evidence_quote: 亿纬锂能(300014)公告预计2026年半年度归母净利润31.30亿至33.71亿元、同比增长95%至110%，主要系营收同比增长约60%。…锂电产业链已步入新一轮上行周期。
+  interpretation: 亿纬锂能(300014)中报高增是已披露事实，锂电链上行周期判断来自券商研报。新宙邦(300037)（电解液）和湘潭电化(002125)（锰酸锂）作为产业链代表提及。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 锂电池·产业链
+  related_stocks:
+  - code: '300014'
+    name: 亿纬锂能
+    role: 锂电池-创业板不可交易
+  - code: '300037'
+    name: 新宙邦
+    role: 电解液-创业板不可交易
+  - code: '002125'
+    name: 湘潭电化
+    role: 锰酸锂-主板可交易
+  tags:
+  - 锂电池
+  - 亿纬锂能
+  - 产业链
+- id: claim-20260615-019
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: sector-theme
+  subject: 北美人形机器人量产和国内NEV回暖和欧洲渗透提升三条主线共振
+  timeframe: short-term
+  statement: 瑞银走访纪要显示：北美人形机器人龙头即将量产，国内零部件厂机器人业务进展积极。双环传动(002472)NEV齿轮Q2环比增长、产能利用率突破90%，并与北美人形机器人龙头合作开发定制减速器；隆达股份(688231)精密丝杠已获量产批准、6月订单起量。三条主线：国内NEV回暖、欧洲渗透提升、北美人形机器人量产。
+  evidence_quote: 国内NEV相关业务Q2环比改善、欧洲NEV渗透提升带来增量，北美人形机器人龙头即将量产，国内零部件厂机器人业务进展积极。
+  interpretation: UP引用瑞银调研纪要，三条主线共振逻辑。但需注意人形机器人商业化进度不及预期和原材料涨价风险（UP已明确指出）。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 机器人·汽车产业链
+  related_stocks:
+  - code: '002472'
+    name: 双环传动
+    role: 齿轮减速器-主板可交易
+  - code: '688231'
+    name: 隆达股份
+    role: 精密丝杠-科创板不可交易
+  - code: '002850'
+    name: 科达利
+    role: 结构件-主板可交易
+  tags:
+  - 人形机器人
+  - 减速器
+  - 丝杠
+  - NEV
+- id: claim-20260615-020
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: sector-theme
+  subject: 制冷剂配额强约束下长景气持续，巨化股份超纯PFA量产填补国内空白
+  timeframe: short-term
+  statement: 生态环境部公布2026年度首次配额调整，HFCs仅微增3473吨，总量约束框架清晰。巨化股份(600160)子公司巨圣超纯PFA已正式量产、纯度达半导体级，填补国内空白。永和股份(605020)邵武高纯PFA已进入试生产。核心公司包括巨化股份(600160)、永和股份(605020)、三美股份(603379)。
+  evidence_quote: 制冷剂配额强约束下三代HFCs长景气周期持续。…巨化股份(600160)子公司巨圣的超纯PFA已正式量产、纯度达半导体级，填补国内空白。
+  interpretation: 制冷剂有配额约束的确定性供给收缩逻辑，UP提及但未作为重点。PFA是半导体级高端氟材料，国产替代逻辑。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 制冷剂·氟化工
+  related_stocks:
+  - code: '600160'
+    name: 巨化股份
+    role: 制冷剂-PFA-主板可交易
+  - code: '605020'
+    name: 永和股份
+    role: 制冷剂-PFA-主板可交易
+  - code: '603379'
+    name: 三美股份
+    role: 制冷剂-主板可交易
+  tags:
+  - 制冷剂
+  - HFCs
+  - 配额
+  - PFA
+- id: claim-20260615-021
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: sector-theme
+  subject: DCI数据中心互联：政策密集落地，康宁预测10亿美元商机
+  timeframe: trend
+  statement: 2026年2月工信部启动三级算力互联互通节点建设、4月国家数据局将算力网纳入十五五重大工程。康宁(美股GLW)CEO公开表示DCI市场到2030年末有望带来10亿美元级商机。相关公司：法狮龙(605318)（转型ICT/算力调度平台）、烽火通信(600498)（国内DCI核心系统设备商）。
+  evidence_quote: 算力集群分布式建设趋势正将DCI推向核心基础设施位置…康宁(美股GLW)CEO公开表示DCI市场到2030年末有望带来10亿美元级商机。
+  interpretation: DCI是算力基建的延伸逻辑，政策密集但商业化节奏偏远期。法狮龙(605318)处于转型初期，烽火通信(600498)是相对核心的标的。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: DCI·算力互联
+  related_stocks:
+  - code: '605318'
+    name: 法狮龙
+    role: DCI算力转型-主板可交易
+  - code: '600498'
+    name: 烽火通信
+    role: DCI光通信-主板可交易
+  tags:
+  - DCI
+  - 算力互联
+  - 数据中心
+- id: claim-20260615-022
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: sector-theme
+  subject: 铜铝供给缺口：全球铜缺口约10万吨，铝产能关停344万吨
+  timeframe: short-term
+  statement: 全球铜矿增量严重不及预期，全年精炼铜平衡转向缺口约10万吨。中东与莫桑比克合计关停约344万吨铝产能（占全球运行产能4.58%），2026年全球120万吨铝产能缺口正在蓄力。6月30日美国232调查关税预期是铜的额外催化。铜铝标包紫金矿业(601899)、洛阳钼业(603993)、云铝股份(000807)、神火股份(000933)。
+  evidence_quote: 全球铜矿增量严重不及预期，全年精炼铜平衡转向缺口约10万吨…中东与莫桑比克合计关停约344万吨产能、占全球运行产能4.58%，2026年全球120万吨产能缺口正在蓄力。
+  interpretation: UP强调海峡通航和关税落地均为条件性事件。铜铝逻辑在当前位置的赔率较好（极低PE已计价加息担忧），但需事件触发。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 有色金属·铜铝
+  related_stocks:
+  - code: '601899'
+    name: 紫金矿业
+    role: 铜金矿-主板可交易
+  - code: '603993'
+    name: 洛阳钼业
+    role: 铜钴矿-主板可交易
+  - code: '000807'
+    name: 云铝股份
+    role: 电解铝-主板可交易
+  - code: '000933'
+    name: 神火股份
+    role: 电解铝-主板可交易
+  tags:
+  - 有色金属
+  - 铜铝
+  - 供给缺口
+- id: claim-20260615-023
+  source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
+  source_date: '2026-06-15'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-15T23:00:00'
+  claim_type: market-cycle
+  subject: 全面行情需量能验证，科技股博弈重心转向业绩验证
+  timeframe: intraday
+  statement: 今天（6月15日）AI修复是在缩量背景下完成的，结构性行情的核心没有改变。全面行情的预期因美伊和平协议增强，但能否兑现需以量能为唯一裁判。科技股博弈重心正从题材想象转向业绩验证，中报窗口临近意味着博弈节点可能前移，应警惕利好出尽式反应。超跌滞涨中的有色与大金融也不应忽略。
+  evidence_quote: 全面行情的预期因美伊和平协议而增强，但能否兑现仍需以量能为唯一裁判。…科技股的博弈重心正从题材想象转向业绩验证，中报窗口临近意味着博弈节点可能前移。
+  interpretation: UP的小结是全文最重要的方法论判断：量能作为唯一裁判、中报窗口博弈前移、警惕利好出尽。三条操作纪律应纳入监控体系。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 操作纪律·市场判断
+  related_stocks: []
+  tags:
+  - 操作纪律
+  - 量能验证
+  - 中报窗口

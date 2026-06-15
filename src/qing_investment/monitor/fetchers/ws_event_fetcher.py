@@ -129,6 +129,13 @@ class WsEventDrivenFetcher:
         if not self._circuit.can_attempt():
             logger.info("Circuit breaker open, using HTTP fallback immediately")
             self._fallback_active = True
+            # 上报降级状态
+            try:
+                get_health_registry().record_degradation(
+                    source="http_fallback", reason="circuit_breaker",
+                )
+            except Exception:
+                pass
             return False
 
         try:
@@ -147,6 +154,13 @@ class WsEventDrivenFetcher:
             logger.error(f"WebSocket start failed: {e}")
             self._circuit.record_failure()
             self._fallback_active = True
+            # 上报降级状态
+            try:
+                get_health_registry().record_degradation(
+                    source="http_fallback", reason="ws_start_failed",
+                )
+            except Exception:
+                pass
             return False
 
     async def stop(self) -> None:

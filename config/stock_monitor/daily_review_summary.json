@@ -237,7 +237,7 @@
   },
   "2026-06-15": {
     "date": "2026-06-15",
-    "built_at": "2026-06-15T17:04:16.735587+08:00",
+    "built_at": "2026-06-15T17:29:58.057707+08:00",
     "market": {
       "stage": "震荡修复期",
       "stage_detail": "上证3950-4000区间缩量震荡，全A指数MACD日线仍负但60分钟翻多，方向未明需等待放量确认",
@@ -310,6 +310,63 @@
         "cost_protection_line": 1.34
       }
     },
-    "tomorrow_scenarios": null
+    "tomorrow_scenarios": null,
+    "dragon_tiger_board": {
+      "board_count": 85,
+      "watch_dt_items": [
+        "和远气体(002971) 净买-1.43亿",
+        "太辰光(300570) 净买+4.76亿",
+        "中化国际(600500) 净买+3.01亿"
+      ],
+      "dt_nettop5": [
+        {
+          "code": "300620",
+          "name": "光库科技",
+          "net_buy": "+15.37亿"
+        },
+        {
+          "code": "300548",
+          "name": "长芯博创",
+          "net_buy": "+9.76亿"
+        },
+        {
+          "code": "301217",
+          "name": "铜冠铜箔",
+          "net_buy": "+9.11亿"
+        },
+        {
+          "code": "603993",
+          "name": "洛阳钼业",
+          "net_buy": "+7.86亿"
+        },
+        {
+          "code": "301217",
+          "name": "铜冠铜箔",
+          "net_buy": "+5.57亿"
+        }
+      ],
+      "dt_sector_summary": {
+        "ccL_resin_upstream": {
+          "stocks": [
+            "002971",
+            "600500"
+          ],
+          "total_net_str": "+1.58亿"
+        },
+        "electronic_gas_wf6": {
+          "stocks": [
+            "002971"
+          ],
+          "total_net_str": "-1.43亿"
+        },
+        "mpo_optical_connector": {
+          "stocks": [
+            "300570"
+          ],
+          "total_net_str": "+4.76亿"
+        }
+      },
+      "fetched_at": "2026-06-15T17:29:58.058528+08:00"
+    }
   }
 }

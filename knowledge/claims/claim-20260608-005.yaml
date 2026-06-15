@@ -1,0 +1,487 @@
+claims:
+- id: qing-2026-06-08-market-fund-flow-switch-001
+  topic: 短线资金从中际旭创切换到机器人和商业航天
+  statement: 2026年6月8日UP判断：上周五砸中际旭创（易中天）的短线资金（游资、私募、散户），出逃后转头就干了机器人和商业航天，砸盘和拉升的是同一批资金。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: market-cycle
+  subject: 短线资金从中际旭创切换到机器人和商业航天
+  timeframe: short-term
+  evidence_quote: 这些短线资金出来了之后，转头就去干了机器人和商业航天，这样能理解吗？所以周五砸易中天的这些人和周五和今天拉机器人、商业航天的是一批人。
+  interpretation: 该 claim 定义了当前A股短线资金的行为模式：从高位AI硬件（光模块）撤退，切换至低位进攻方向（机器人+商业航天）。它解释了当日中际旭创-7%拉起和机器人板块上涨的因果关系，为后续操作提供了资金流向的底层逻辑。关键推论：进攻方向由这批短线资金主导，一旦上证企稳，这批快钱可能再次切换。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20260521-002-g"]
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 资金切换
+  - 中际旭创
+  - 易中天
+  - 机器人
+  - 商业航天
+  - 短线资金
+- id: qing-2026-06-08-macro-us-equity-opening-critical-001
+  topic: 美股当晚开盘决定短期方向——量化连锁反应风险
+  statement: 2026年6月8日UP判断：6月8日晚美股开盘若缺乏强力买盘支撑，上周五追进的看涨期权会形成抛压，触发量化基金连锁反应，下砸力度会非常狠。若口头救市能止跌则科技股V型反弹+黄金短期止跌，否则迎来巨大回撤。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: risk
+  subject: 美股当晚开盘决定短期方向——量化连锁反应风险
+  timeframe: short-term
+  evidence_quote: 如果美股今晚开盘缺乏有强力买盘支撑，那么他是会触发量化基金的。因为上周五追进了很多的看涨期权...如果今天晚上一开始就是没有强力的买盘支撑的话，这一部分会直接形成抛压，然后就会形成一个连锁反应。
+  interpretation: 该 claim 将6月8日晚美股开盘定义为关键节点，给出了双向推演路径。核心风险机制：看涨期权→缺乏买盘→抛压→量化基金→连锁反应。关键变量：特朗普口头救市能否止跌。这一定性判断可用于判定后续A股周二是否反弹、周三是否抢跑。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260528-005-c"]
+  contradicts: []
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 美股
+  - 量化基金
+  - 看涨期权
+  - 特朗普
+  - 开盘
+- id: qing-2026-06-08-macro-bond-redline-gs-delay-001
+  topic: 特朗普政治红线4.67 + 高盛推迟降息至2027年
+  statement: 2026年6月8日UP判断：原油已到94美元，10年期美债收益率政治红线为4.67%，若突破将触发特朗普强力干预。高盛研报推测今年不再降息，降息时间节点推迟到2027年。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: macro
+  subject: 特朗普政治红线4.67 + 高盛推迟降息至2027年
+  timeframe: trend
+  evidence_quote: 原油这边的价格也已经94块钱了...10年期的美债收益率你如果再往4.6往上去走，那么特朗普那边的一个点位是4.67，红线，政治红线是4.67...高盛那边也出了研报推测，今年就不会再降息啦，然后把整个降息的时间节点也推到了2027年。
+  interpretation: 该 claim 将两个宏观约束条件明确定量：美债4.67是特朗普的政治红线（触及必干预），高盛将降息推迟至2027年意味着市场需要重新定价利率路径。原油94→100的路径会加剧通胀压力，与46家央行通胀超标的背景形成共振。这对全球风险资产定价构成中期压制。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20260530-001-c"]
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 美债收益率
+  - 原油
+  - 特朗普
+  - 高盛
+  - 降息
+  - '4.67'
+- id: qing-2026-06-08-macro-2024-july-analogy-001
+  topic: 本轮对标2024年7月衰退交易→降息→新高剧本
+  statement: 2026年6月8日UP判断：本轮全球市场回撤可能复刻2024年7月剧本：失业率上升触发衰退交易→高位科技股松动→日元套息交易逆转→全球金融条件收紧→8月急跌→美联储超预期降息→10月财报季科技景气度重新确认创新高。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: macro
+  subject: 本轮对标2024年7月衰退交易→降息→新高剧本
+  timeframe: trend
+  evidence_quote: 如果这样一个路线能够形成，那么这一轮的整体的表现就会像是2024年7月份...以失业率快速上升被触发的...谷歌云的广告收入不及预期...日元套息交易开始发生逆转，全球金融条件骤然收紧...到了8月份实在跌的不行了，随后美联储宣布降息超预期的降息了50个基点。
+  interpretation: 该 claim 建立了一个完整的宏观路径类比框架，用途是给当前调整提供"剧本参考"而非精确预测。核心逻辑链：衰退恐慌→流动性危机→政策转向→景气度修复。关键推论：(1) 下跌不会顺畅；(2) 反弹也不会顺畅；(3) 最终科技会创新高。这一框架可用于判断调整是否"到位"。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: ["claim-20260610-006-a"]
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 2024年7月
+  - 衰退交易
+  - 日元套息
+  - 降息
+  - 类比
+- id: qing-2026-06-08-market-sp500-correction-15pct-001
+  topic: 标普500回调15%目标位6400，对应创业板3400、中际旭创900
+  statement: 2026年6月8日UP判断：若本轮标普500回调15%（对标2024年7月纳指19000→16000的回撤幅度），标普目标约6400，对应A股创业板约3400，中际旭创约900元，其他品种调整更深。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: market-cycle
+  subject: 标普500回调15%目标位6400，对应创业板3400、中际旭创900
+  timeframe: medium-term
+  evidence_quote: 这一波的整体的回撤是纳指从19000掉到了16000，回撤大约是15%的样子...这一轮如果是回撤15%，从标普500来看...差不多就是6400...创业板那至少也差不多3400这个位置了...中际旭创往下来掉到个900多块钱也是合适的。
+  interpretation: 该 claim 给出了具体的回撤目标区间，是推演框架的量化落地。注意这些数字是"如果发生15%回撤"的映射，而非确定预测。用途：作为调整是否充分的参照锚点。中际旭创因是中国AI运力龙头，调得比别的缓，900元是它的相对目标。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 标普500
+  - '6400'
+  - 创业板
+  - '3400'
+  - 中际旭创
+  - '900'
+  - 回撤目标
+- id: qing-2026-06-08-sector-zhongji-ai-transport-pillar-001
+  topic: 中际旭创是中国AI运力龙头，调整会比其他科技股缓
+  statement: 2026年6月8日UP判断：AI分为算力和运力，中国只占运力，中际旭创是中国AI运力龙头和产业支柱，因此调整幅度会比其他科技股更缓。不要因为当天只跌2个点就觉得相安无事，调整才刚开始。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: sector-theme
+  subject: 中际旭创是中国AI运力龙头，调整会比其他科技股缓
+  timeframe: trend
+  evidence_quote: AI整个AI我们分算力运力，我们中国只占运力，这个运力的龙头就是中际旭创啊，我们算力和存储是站不住脚的...这是我们AI产业的支柱。所以它会调整的稍微缓一点。
+  interpretation: 该 claim 对中国AI产业链做了清晰分工：算力/存储是中国短板，运力（光模块）是优势支柱。这解释了为什么中际旭创在调整中相对抗跌，但同时警告"调整才刚开始"——运力龙头也会跌，只是跌得比别人慢。对操作的意义：不能以中际旭创的跌幅来判断整体科技调整是否到位。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20260529-002-b"]
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 中际旭创
+  - AI运力
+  - 光模块
+  - 算力
+  - 存储
+  - 产业链
+- id: qing-2026-06-08-market-structural-divergence-001
+  topic: A股结构性分化——2000多只已到去年4月低点
+  statement: 2026年6月8日UP判断：当前A股已有2000多只股票跌到去年4月7日低点，接近全部个股的一半，金风科技距离该低点还有很大空间，属于典型结构性分化行情，不是全面熊市。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: market-cycle
+  subject: A股结构性分化——2000多只已到去年4月低点
+  timeframe: short-term
+  evidence_quote: 今天A股已经有两千多只股票跌到去年4月7号的低点了...接近一半的个股跌到去年4月7号低点了...金风科技往上面看你距离去年4月7号的低点那是好几十个点，那离得远得很。
+  interpretation: 该 claim 是判断当前市场性质的关键依据：接近一半个股已回到去年低点，意味着下跌空间非常有限，不具备全面熊市条件，而是结构性分化。对操作的意义：(1) 已到低点的品种不用割；(2) 金风科技这种还没到的需要等轮动；(3) 整体市场不是系统性风险，而是节奏问题。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 结构性分化
+  - 4月7日低点
+  - 金风科技
+  - 不是熊市
+  - 2000只
+- id: qing-2026-06-08-market-june-fan-heater-001
+  topic: 6月大概率走电风扇行情，安全垫厚的板块轮动
+  statement: 2026年6月8日UP判断：6月外围不确定性高（美股还有的砸），大概率走电风扇行情——下跌空间小、安全垫厚的板块都会轮动上涨，没轮到就持有等涨完出掉。不能把希望全聚焦为一个方向。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: market-cycle
+  subject: 6月大概率走电风扇行情，安全垫厚的板块轮动
+  timeframe: short-term
+  evidence_quote: 整个6月份我们能够看见外面外围有一系列的事情...美股这还有的砸...大概率是这个月是要去搞电风扇行情的，每一个安全系数比较高安全垫比较厚...基本上都能轮到。如果没有涨到你这个地方，你就先拿着就好了，等涨完了你把它出掉不就行了吗？
+  interpretation: 该 claim 定义了6月的操作总纲：(1) 电风扇 = 轮动快、不做单一方向押注；(2) 选股标准 = 安全垫厚（向下空间小）；(3) 操作纪律 = 拿着等轮到、轮到就出。对已有持仓的建议是不要追涨杀跌换方向，等轮动。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 电风扇行情
+  - 6月
+  - 轮动
+  - 安全垫
+- id: qing-2026-06-08-methodology-correct-vs-profitable-001
+  topic: 操作对错与盈亏分离——赚钱≠正确，亏钱≠错误
+  statement: 交易不存在确定性，赚钱的操作不一定是正确的，亏钱不赚钱的操作不一定是错误的。当前节点买老登防守是正确操作（哪怕没赚钱），追高高位AI才是错误操作。机器人赚钱只是运气好，刚好方向和资金切换方向一致。所有收益都是市场给的。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: methodology
+  subject: 操作对错与盈亏分离——赚钱≠正确，亏钱≠错误
+  timeframe: durable
+  evidence_quote: 你做交易哪有确定性的东西...你选择做机器人你赚了钱就证明这个事情是个对的事情...这都是市场给的钱...你买了老登这件事情它绝对是一个正确的事情，但这个正确的事情没有赚到钱...你不能把一笔没有赚钱的对的操作去把它归结为一笔错误的亏钱的操作。
+  interpretation: 这是方法论层面的核心 claim，建立了"操作正确性≠盈亏结果"的投资认知框架。正确性由方向判断和纪律决定，盈亏由市场决定。对充电用户的意义：(1) 不要因短期亏损否定正确策略；(2) 不要因短期盈利高估自己能力；(3) 心态上保持对市场的敬畏。这属于 durable rule。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 方法论
+  - 对错分离
+  - 盈亏
+  - 认知
+  - 敬畏市场
+  - durable-rule
+- id: qing-2026-06-08-macro-warsh-hold-steady-001
+  topic: 沃什上台大概率按兵不动——鹰派背景+特朗普提名=两难
+  statement: 2026年6月8日UP判断：沃什本身是鹰派但被特朗普推上去，一上台不能表现鸽派（会影响美联储地位使全球风险资产失去锚点），也不能表现太鹰派（不符合特朗普预期），因此美联储大概率按兵不动。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: macro
+  subject: 沃什上台大概率按兵不动——鹰派背景+特朗普提名=两难
+  timeframe: medium-term
+  evidence_quote: 沃什本来他是鹰派，但是现在是被特朗普推上去的...他一上台不可能表现出鸽派，如果一旦表现出鸽派那么美联储的整个地位就会受到影响...美联储的地位受到影响那直接这件事情就直接GG了，全球风险资产就没有锚点了。所以它既不能表现的过于鹰派也不能表现得过于鸽派...按兵不动。
+  interpretation: 该 claim 对下周三沃什上台后的美联储政策路径做了概率判断。核心逻辑：沃什处于特朗普压力与美联储独立性之间的两难困境→按兵不动是最优解。推论：(1) 短期不会降息；(2) 也不会加息；(3) 政策信号模糊会增加市场波动（一波三折）。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 沃什
+  - 美联储
+  - 按兵不动
+  - 鹰派
+  - 鸽派
+  - 锚点
+- id: qing-2026-06-08-macro-46-cbs-above-target-001
+  topic: 全球46家央行通胀超目标，欧洲可能加息，美国难降息
+  statement: 2026年6月8日UP判断：已有46家央行通胀率超过其通胀目标或目标区间终点，欧洲通胀尤其夸张，部分可能加息。在此背景下美国不太可能强行降息。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: macro
+  subject: 全球46家央行通胀超目标，欧洲可能加息，美国难降息
+  timeframe: trend
+  evidence_quote: 根据美联的首席策略师分析，已经有46家的通胀率超过其通胀目标或者目标区间的终点...欧洲那些地方通胀非常夸张，基本上都有可能会进行加息...美国在这种时候你是不太可能非得要去干降息这个事情。
+  interpretation: 该 claim 将美联储的降息困境放在全球通胀背景下理解：(1) 全球性通胀压力意味着各国央行难以同步宽松；(2) 欧洲可能加息→美元相对走弱压力减小→美国更没必要急于降息；(3) 这强化了"按兵不动"判断。对A股的意义：外部流动性短期不会改善，需要靠内部结构性行情。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 通胀
+  - 46家央行
+  - 欧洲加息
+  - 全球
+- id: qing-2026-06-08-sector-defense-energy-storage-001
+  topic: 防守方向优先储能（偏AI方向），非新能源车锂电池
+  statement: 2026年6月8日UP判断：防守方向重点做储能（偏AI方向的储能），而不是单纯的锂电池或新能源车方向。储能和老登属性类似——安全垫够高，偏防守。进攻方向在机器人和商业航天。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: sector-theme
+  subject: 防守方向优先储能（偏AI方向），非新能源车锂电池
+  timeframe: medium-term
+  evidence_quote: 我们要去重点就要去做储能这边，而不是单纯的锂电池，我们还是要去偏AI方向的，而不是新能源车这块...这种东西和老登是没有什么太大区别的，都是因为安全垫够高，都是偏防守的方向。
+  interpretation: 该 claim 对防守方向做了精细拆分：新能源内部要区分"AI储能"与"新能源车电池"。前者偏AI产业链受益，后者偏传统周期。这对选股有直接指导意义——同样是新能源，选储能>锂电池>新能源车。进攻和防守是两条腿：(1) 进攻=机器人+商业航天（短线）；(2) 防守=老登+AI储能（中线等轮动）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260604-006-a"]
+  contradicts: []
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 储能
+  - AI方向
+  - 防守
+  - 锂电池
+  - 新能源车
+  - 老登
+- id: qing-2026-06-08-sector-fluorochem-catalyst-001
+  topic: 6月2日氟化工催化→多氟多/永太科技表现优于天赐材料
+  statement: 2026年6月8日UP判断：6月2日磷化工（氟化工）有催化事件，因此跟氟化工的多氟多、永太科技表现好；跟纯锂电池的天赐材料表现不好。多氟多和永太科技一季报业绩非常炸裂，且已经调整很长时间，宁德时代止跌后还会再涨。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: sector-theme
+  subject: 6月2日氟化工催化→多氟多/永太科技表现优于天赐材料
+  timeframe: short-term
+  evidence_quote: 6月2号磷化工一句话...所以这一波它走的是氟化工...多氟多和永泰科技这种表现就好，因为他们跟的是氟化工，所以不一样...整体一季报基本上都特别的炸裂...已经调整过很长一段时间了。
+  interpretation: 该 claim 解释了化工板块内部的分化逻辑：催化剂决定了资金选择方向。氟化工（有催化+一季报炸裂+调整久）> 纯锂电池（天赐材料，无催化）。操作推论：宁德时代企稳后，有业绩支撑+调整充分的氟化工标的还有上涨行情。注意区分"氟化工催化"vs"锂电周期"——这是两个不同的逻辑线。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20260604-004-e"]
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 氟化工
+  - 磷化工
+  - 多氟多
+  - 永太科技
+  - 天赐材料
+  - 催化
+  - 一季报
+- id: qing-2026-06-08-market-shanghai-bottom-near-001
+  topic: 上证指数下方空间不大，不是熊市，已调整票不割
+  statement: 2026年6月8日UP判断：当前不是牛市转熊市，上证指数下方空间已经很小，已经调整充分且财报没问题的个股，割肉没有任何意义，反而跌下来可以加仓。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: market-cycle
+  subject: 上证指数下方空间不大，不是熊市，已调整票不割
+  timeframe: short-term
+  evidence_quote: 现在又不是熊市...上证指数它下面你看的不是那么的深了，它下面没有什么太大空间了...你现在这个节点已经没有割的意义了，你已经吃了这么多回撤...这种东西你跌下来你是敢加仓的。
+  interpretation: 该 claim 是仓位管理的核心依据——不割肉的前提：(1) 不是熊市转势；(2) 上证下方空间有限；(3) 持仓个股财报没问题。三者同时成立才适用"不割+等轮动"策略。如果持仓个股业绩出问题则不适用。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 上证指数
+  - 不割肉
+  - 加仓
+  - 不是熊市
+  - 下方空间
+- id: qing-2026-06-08-strategy-july-meeting-reentry-001
+  topic: 等7月底会议确定大方向后再接回调整充分的硬科技
+  statement: 2026年6月8日UP判断：节奏安排：6月电风扇行情做防守轮动→7月底会议结束确定国内大方向→接回调整充分的硬科技。当前不需要着急抄底。6月底中报预期研报密集出台后，有业绩的品种会有表现。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: operation
+  subject: 等7月底会议确定大方向后再接回调整充分的硬科技
+  timeframe: medium-term
+  evidence_quote: 等我们7月份结束，7月份我们这边不是还有个会吗？等那个会开完我们确定我们这边的一个大方向之后，我们再去把那些已经调整过很长时间的硬科技，我们再去接回来...6月底集中的那些中报预期的研报就出来了，这个时候有业绩的品种它就能够被卖方重新提及。
+  interpretation: 该 claim 给出了中线操作节奏表：(1) 6月防守（电风扇轮动，拿安全垫厚的等涨了出）；(2) 6月底中报预期催化（有业绩的品种会被卖方重新覆盖）；(3) 7月底会议后接回硬科技。核心原则：不在不确定期重仓进攻，等政策和业绩双重确认后再入场。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260607-003-c"]
+  contradicts: []
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 7月会议
+  - 硬科技
+  - 节奏
+  - 中报
+  - 抄底
+- id: qing-2026-06-08-methodology-ai-obsolete-nonusers-001
+  topic: AI淘汰的是不用AI的人，如同当年淘汰不用智能机的老人
+  statement: AI不会淘汰具体职业，只会淘汰不用AI的人。哪怕不懂计算机、不会装Python，也可以通过豆包等AI工具一步步学会部署。一天不行花两天，一周内肯定能搞定。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: methodology
+  subject: AI淘汰的是不用AI的人，如同当年淘汰不用智能机的老人
+  timeframe: durable
+  evidence_quote: AI淘汰人...它最重要的就是会淘汰不用AI的人...就跟我们以前去嘲笑那些不会用智能机的老人是一样的呀...哪怕你不懂计算机...你问豆包嘛，让它一步一步教你，只要你认识字...一天不行你花两天时间。
+  interpretation: 这是方法论层面的 durable rule，不属于市场判断，而是投资工具论——AI是新一代投资者的必备基础设施。UP强调零基础可部署（识字即可+豆包指导+一周时间），降低了AI工具的心理门槛。对应充电用户的赛博清哥部署要求。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - AI
+  - 工具
+  - 豆包
+  - 赛博清哥
+  - 学习
+  - durable-rule
+- id: qing-2026-06-08-strategy-main-uptrend-learning-001
+  topic: 主升浪期间降低仓位、学习产业逻辑，等黄金坑后再进场
+  statement: 大多数人赚钱最好赚的地方在主升浪。主升浪期间应降低仓位，该工作工作该生活生活，抽时间学习产业逻辑和公司基本面。等科技砸出黄金坑后再进场做那些研究过的标的。牛市要沉淀下来吃到最肥美的主升浪，格局放大。
+  source_path: sources/raw/财经/视频：26-06-08：美股终极决战，资金切换、外围推演与方向选择.md
+  source_date: '2026-06-08'
+  source_type: 视频复盘
+  extracted_at: '2026-06-15'
+  claim_type: operation
+  subject: 主升浪期间降低仓位、学习产业逻辑，等黄金坑后再进场
+  timeframe: durable
+  evidence_quote: 你一定在主升浪这段时间你就把你的仓位降低你该工作该工作该生活生活该学习学习...你去把各种的产业逻辑看一下...到后面这一波科技砸出来黄金坑之后我们回去还是要做那些...牛市认认真真的下点功夫肯定是能够改善生活的。
+  interpretation: 该 claim 定义了"A股赚钱节奏"的方法论：(1) 主升浪=唯一容易赚钱的窗口；(2) 非主升浪=学习+降低仓位+等待；(3) 黄金坑=研究成果变现的时刻。核心原则：用非主升浪的时间研究产业+公司，用主升浪的时间执行。格局放大——不要盯着已被套十几个点的品种焦虑。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-15
+  links:
+    related_claims: []
+    related_stocks: []
+    related_sectors: []
+  tags:
+  - 主升浪
+  - 学习
+  - 黄金坑
+  - 产业逻辑
+  - 节奏
+  - durable-rule

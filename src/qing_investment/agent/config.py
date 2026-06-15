@@ -41,6 +41,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
+        extra = "ignore"  # Hermes MCP 启动时注入大量环境变量，忽略未定义字段
 
 
 settings = Settings()
