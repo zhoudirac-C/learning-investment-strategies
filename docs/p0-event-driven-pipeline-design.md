@@ -59,10 +59,14 @@
 
 | 组件 | 文件 | 状态 |
 |------|------|------|
-| B站动态监控 | `scripts/bilibili_notify.py` | ✅ 每 10 分钟运行 |
+| B站动态监控 | `scripts/bilibili_notify.py` | ✅ 每 10 分钟运行（no_agent=True） |
 | 微信通知 | stdout → Hermes cron | ✅ 新内容到达时推送 |
 
-**当前行为**: B站新内容 → 保存到 `sources/raw/财经/` → 微信推送原文+OCR+评论
+**当前行为**: B站新内容 → 保存到 `sources/original/bilibili/` → 微信推送原文+OCR+评论
+
+> ⚠️ **重要约束**: bilibili_notify.py 以 `no_agent=True` 模式运行（纯脚本，不走LLM循环）。
+> 该模式下**无法驱动 C2 编排器**（extract_claims_pipeline.py），自动开 session 只会卡在 `init` 状态。
+> 2026-06-15 已删除自动触发 pipeline 的代码。Claims 提取改为纯人工手动触发。
 
 **需要改造**: 微信消息末尾增加指令提示：
 ```
@@ -346,7 +350,7 @@ B站监控cron          Hermes(微信)         用户              C2编排     
 | 🔴 P0 | `pending_review_queue.py` 队列管理模块 | 3h | 无 |
 | 🔴 P0 | `sync_claims_to_config.py --preview` 改造 | 2h | 无 |
 | 🔴 P0 | Hermes skill 指令解析（确认/修改/跳过/查看） | 3h | 队列模块 |
-| 🟡 P1 | `event_pipeline_trigger.py` B站后链路触发 | 2h | bilibili_notify |
+| 🟡 P1 | ~~`event_pipeline_trigger.py` B站后链路触发~~ | **已取消** | bilibili_notify (no_agent=True无法驱动C2) |
 | 🟡 P1 | `apply_pending_updates.py` 执行脚本 | 3h | 队列模块 |
 | 🟡 P1 | Claim 审核交互流程（C2 编排 → 队列 → 微信） | 3h | skill |
 | 🟢 P2 | 冲突检测增强（entry_points 重复检测） | 2h | claims_to_entry |

@@ -13,8 +13,9 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260507-001-a"]
+  contradicts: ["claim-20260603-001-d"]
+  last_discovered: 2026-06-15
   links: []
   topic: 大盘研判
   related_stocks: []
@@ -38,6 +39,7 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-15
   links: []
   topic: 大盘研判
   related_stocks: []
@@ -60,7 +62,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260604-004-b"]
+  last_discovered: 2026-06-15
   links: []
   topic: 科技股
   related_stocks: []
@@ -84,6 +87,7 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-15
   links: []
   topic: 中报业绩
   related_stocks:
@@ -120,6 +124,7 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-15
   links: []
   topic: 铜箔
   related_stocks:
@@ -160,6 +165,7 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-15
   links: []
   topic: 半导体
   related_stocks:
@@ -193,6 +199,7 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-15
   links: []
   topic: 有色金属
   related_stocks:
@@ -225,8 +232,8 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts:
-  - claim-20260615-007
+  contradicts: ["claim-20260607-003-f"]
+  last_discovered: 2026-06-15
   links: []
   topic: 油价
   related_stocks:
@@ -259,7 +266,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260610-028-a"]
+  last_discovered: 2026-06-15
   links: []
   topic: 锂电储能
   related_stocks:
@@ -290,6 +298,7 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-15
   links: []
   topic: 有色金属
   related_stocks: []
@@ -314,6 +323,7 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-15
   links: []
   topic: 商业航天
   related_stocks:
@@ -341,8 +351,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260604-001-a", "claim-20260610-006-g"]
   contradicts: []
+  last_discovered: 2026-06-15
   links: []
   topic: 操作策略
   related_stocks: []

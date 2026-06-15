@@ -1,6 +1,7 @@
-updated_at: '2026-06-14'
+updated_at: '2026-06-15'
 source_claims:
 - knowledge/claims/claim-20260614-001.yaml
+- knowledge/claims/claim-20260615-003.yaml
 - knowledge/claims/claim-20260612-001.yaml
 - knowledge/claims/claim-20260611-001.yaml
 - knowledge/claims/claim-20260610-008.yaml
@@ -1091,6 +1092,117 @@ themes:
     lifecycle:
       stage: watching
       entered_stage: '2026-06-14'
+- id: mpo_optical_connector
+  name: MPO光连接器（光互联Scale-up放量下的无源弹性环节）
+  up_positioning: 「冷眼旁观，等待结构性的分化」— 6/15充电动态发布MPO概念股全梳理图，按产业链卡位分5层。目前表态观望，等待真龙头vs蹭概念的结构性分化。MPO是光互联Scale-up下放量最大的无源环节，800G/1.6T升级驱动MPO用量倍增。
+  source_docs:
+  - sources/original/bilibili/2026-06-15-1239-图片-动态-1214015309901463569.md
+  - knowledge/claims/claim-20260615-003.yaml
+  market_checks:
+  - 800G/1.6T光模块出货量同比增速（MPO用量倍数增长）
+  - 英伟达/Meta/谷歌Scale-up光互联架构演进方向
+  - MPO连接器价格趋势与产能瓶颈
+  - 板块结构性分化：真卡位供应商vs蹭概念标的
+  - 全A中阳线为建仓前置条件（当前磨底阶段）
+  stocks:
+  - code: 002179.SZ
+    name: 中航光电
+    role: mpo_npo_dual
+    segment: NPO/MPO双线量产
+    priority: P3-观察
+    watch_reason: MPO光器件平台延伸层标的。NPO/MPO双线量产，12-48芯全覆盖，插损<0.35dB。主板可交易，军品+民品双驱动。UP当前观望态度，仅作卡位观察。
+    confirm_with:
+    - 太辰光(300570-创业，锚点)
+    - 中贝通信
+    entry_zone:
+      description: 当前等待结构性分化，不预设介入区间。等板块分化确认+全A中阳线。
+      current_ref: 2026-06-15 未提供实时价格
+      price_range: null
+      method: 等待
+      confirm_signal: 结构性分化确认（太辰光等龙头稳+蹭概念回落）+MPO订单/价格催化+全A中阳线
+      hard_stop: null
+      position_ratio: 0（P3-观察，等待分化）
+    up_mention_status:
+      last_mentioned_date: '2026-06-15'
+      mention_context: 6/15充电动态MPO概念图 — 光器件平台延伸，NPO/MPO双线量产
+      sentiment: 中性（仅知识梳理，观望态度）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-15'
+    linked_claims:
+    - claim_id: claim-20260615-014
+      relevance: theme
+      claim_type: sector-theme
+  - code: 603220.SH
+    name: 中贝通信
+    role: mpo_16t_batch
+    segment: MPO光连接线+1.6T光学组件
+    priority: P3-观察
+    watch_reason: MPO光器件平台延伸层标的。MPO光连接线批量供货，1.6T高端光学组件规模量产，有实际业务落地。主板可交易。UP当前观望态度，仅作观察。
+    confirm_with:
+    - 中航光电
+    - 太辰光(300570-创业，锚点)
+    entry_zone:
+      description: 当前等待结构性分化，不预设介入区间。
+      current_ref: 2026-06-15 未提供实时价格
+      price_range: null
+      method: 等待
+      confirm_signal: 结构性分化确认+1.6T放量/订单催化+全A中阳线
+      hard_stop: null
+      position_ratio: 0（P3-观察，等待分化）
+    up_mention_status:
+      last_mentioned_date: '2026-06-15'
+      mention_context: 6/15充电动态MPO概念图 — MPO光连接线+1.6T批量
+      sentiment: 中性（仅知识梳理，观望态度）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-15'
+    linked_claims:
+    - claim_id: claim-20260615-014
+      relevance: theme
+      claim_type: sector-theme
+  - code: 000070.SZ
+    name: 特发信息
+    role: mpo_google_vendor
+    segment: 谷歌MPO第二供应商+越南产能
+    priority: P3-观察
+    watch_reason: MPO海外巨头绑定层标的。谷歌MPO第二供应商，越南产能，自研超薄高密度插芯适配CPO。主板可交易（深圳000开头）。客户绑定明确但未见订单金额披露。UP当前观望态度。
+    confirm_with:
+    - 中航光电
+    - 太辰光(300570-创业，锚点)
+    entry_zone:
+      description: 当前等待结构性分化，不预设介入区间。
+      current_ref: 2026-06-15 未提供实时价格
+      price_range: null
+      method: 等待
+      confirm_signal: 谷歌MPO订单/框架协议落地+结构性分化确认+全A中阳线
+      hard_stop: null
+      position_ratio: 0（P3-观察，等待分化）
+    up_mention_status:
+      last_mentioned_date: '2026-06-15'
+      mention_context: 6/15充电动态MPO概念图 — 谷歌MPO第二供应商
+      sentiment: 中性（仅知识梳理，观望态度）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-15'
+    linked_claims:
+    - claim_id: claim-20260615-014
+      relevance: theme
+      claim_type: sector-theme
+  - code: 300570.SZ
+    name: 太辰光
+    role: mpo_global_leader
+    segment: 全球第二大MPO供应商~18%市占
+    priority: P3-观察
+    watch_reason: MPO全球级核心供应商，全球第二大~18%市占，绑康宁，间接供英伟达/Meta，北美第三方跳线超40%。创业板不可交易，仅作MPO板块情绪锚点与结构性分化参照。UP当前观望态度。
+    note: 不可交易标的（创业板300开头），仅作MPO板块情绪温度计和分化锚点
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-15'
+    linked_claims:
+    - claim_id: claim-20260615-014
+      relevance: theme
+      claim_type: sector-theme
 avoid_and_reduce:
   avoid:
   - 存储芯片（M头+颈线+量价顶背离，反弹减仓）

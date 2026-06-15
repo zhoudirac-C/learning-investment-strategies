@@ -929,17 +929,17 @@ class Scheduler:
                 duration_ms=int((time.time() - _t0) * 1000),
             )
 
-        # 获取数据（委托给 Fetcher，优先使用 WebSocket 事件驱动）
+        # 获取数据（委托给 Fetcher）
+        # ⚠️ 2026-06-15: 移除 WebSocket 尝试。ws_client.py 试图连接腾讯/东方财富的 WS 端点，
+        #    但中国免费行情供应商（腾讯/东方财富/新浪/同花顺）均不提供公开 WS 接口。
+        #    实测所有已知端点均返回非 WS 响应。断路器误报噪音 > 实际价值。
+        #    后续如需 WS 实时行情，需接入付费供应商（Wind/Tushare Pro）。
+        #    详见 ws_client.py 注释。
         quote_snapshot = None
         if self.fetcher:
             try:
                 targets = self._collect_quote_targets()
-                # 尝试使用 WsEventDrivenFetcher（如果可用）
-                ws_snapshot = self._try_ws_fetch(targets)
-                if ws_snapshot:
-                    quote_snapshot = ws_snapshot
-                else:
-                    quote_snapshot = self.fetcher(targets)
+                quote_snapshot = self.fetcher(targets)
                 self.state_manager.update_quote_snapshot(quote_snapshot, value)
             except Exception as e:
                 logger.error(f"Fetcher failed: {e}")
@@ -1025,49 +1025,35 @@ class Scheduler:
         return targets
 
     def _try_ws_fetch(self, targets: dict[str, str]) -> dict | None:
-        """尝试使用 WebSocket 事件驱动获取行情快照。
+        """[已禁用] 尝试使用 WebSocket 事件驱动获取行情快照。
 
-        如果 WsEventDrivenFetcher 可用且已连接，返回实时快照；
-        否则返回 None，回退到 HTTP fetcher。
+        ⚠️ 2026-06-15: 中国免费行情供应商均不提供公开 WS 接口，该方法已禁用。
+           保留代码作为架构参考，未来接入付费供应商（Wind/Tushare Pro）时可复用。
+           详见 tick() 注释。
+
+        历史实现:
+        - 连接 ws_client.py → 腾讯/东方财富 WS 端点 → 全部返回 HTTP 200 非 WS 响应
+        - 断路器每次 tick 触发，写健康指标文件，造成误报
+        - 实际数据由 HTTP fetcher 正常获取，WS 降级路径从未真正工作过
         """
-        try:
-            import asyncio
-            from qing_investment.monitor.fetchers.ws_event_fetcher import WsEventDrivenFetcher
-            from qing_investment.monitor.fetchers import fetch_quotes_with_fallback
-
-            codes = list(targets.values())
-            ws_fetcher = WsEventDrivenFetcher(
-                http_fetcher=fetch_quotes_with_fallback,
-                codes=codes,
-            )
-            # 异步启动（非阻塞，快速失败）
-            try:
-                loop = asyncio.get_running_loop()
-            except RuntimeError:
-                loop = asyncio.new_event_loop()
-                asyncio.set_event_loop(loop)
-
-            started = loop.run_until_complete(
-                asyncio.wait_for(ws_fetcher.start(), timeout=3.0)
-            )
-            if started:
-                snapshot = loop.run_until_complete(
-                    asyncio.wait_for(ws_fetcher.get_snapshot(), timeout=2.0)
-                )
-                loop.run_until_complete(ws_fetcher.stop())
-                if snapshot and snapshot.get("quotes"):
-                    codes_needed = set(targets.values())
-                    codes_available = {q.get("code", "") for q in snapshot.get("quotes", [])}
-                    if codes_needed & codes_available:
-                        logger.info(f"WsEventDrivenFetcher: 使用缓存快照 ({len(snapshot.get('quotes', []))} 条)")
-                        return snapshot
-            else:
-                logger.debug("WsEventDrivenFetcher 启动失败，使用 HTTP fallback")
-        except ImportError:
-            pass  # WsEventDrivenFetcher 未安装
-        except Exception as e:
-            logger.debug(f"WsEventDrivenFetcher 不可用: {e}")
         return None
+        # === 以下代码已禁用（保留供参考） ===
+        # try:
+        #     import asyncio
+        #     from qing_investment.monitor.fetchers.ws_event_fetcher import WsEventDrivenFetcher
+        #     from qing_investment.monitor.fetchers import fetch_quotes_with_fallback
+        #
+        #     codes = list(targets.values())
+        #     ws_fetcher = WsEventDrivenFetcher(
+        #         http_fetcher=fetch_quotes_with_fallback,
+        #         codes=codes,
+        #     )
+        #     ...
+        # except ImportError:
+        #     pass
+        # except Exception as e:
+        #     logger.debug(f"WsEventDrivenFetcher 不可用: {e}")
+        # return None
 
     def _filter_new_alerts(self, alerts: list[dict], value: datetime) -> list[dict]:
         """过滤新告警（简单去重）。"""

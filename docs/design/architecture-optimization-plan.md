@@ -287,7 +287,7 @@ MEM --> KF : 记忆读取
 DF --> KC : 缓存写入
 KC --> DF : 缓存读取
 
-BZ --> KF : 动态提取
+BZ --> KF : 动态提取（仅抓取+微信通知，claims人工触发）
 DOC --> KF : 文档解析
 
 ' Layer 1 → Layer 2
@@ -343,6 +343,7 @@ CL ..> CB : 配置刷新
 - **虚线**：配置热更新通道（watchdog监听）
 - **降级链**：东财→新浪→缓存（Layer 1）
 - **预留接口**：Devil's Advocate（Phase 3接入）
+- **B站动态**：仅抓取+微信通知，claims提取由用户看到微信后人工触发Agent执行，避免no_agent cron空转浪费token
 
 ### 3.3 关键更新点（vs v1.0）
 
@@ -627,7 +628,79 @@ class CitationValidator:
 | **健康监控** | ✅ 断路器/降级/缓存指标→微信 | 无 | 无 | 无 |
 | **中国A股** | ✅ 是 | ❌ 美股 | ❌ 美股 | ✅ 是 |
 | **实时性** | 事件驱动(WS) + 10分钟轮询 | 按需触发 | 按需触发 | 按需触发 |
+| **B站动态** | ✅ 抓取+微信通知，claims人工触发（不自动走pipeline，避免cron空转浪费token） | 无 | 无 | 无 |
 | **生产就绪** | 接近 | 是 | 实验性 | 实验性 |
+
+---
+
+## 附录：B站动态处理流程（2026-06-15 更新）
+
+### 设计决策
+
+**问题**：是否让 cron 自动执行 claims 提取 pipeline？
+
+**分析**：
+- cron 每 10 分钟运行一次（no_agent=true）
+- 如果改为 no_agent=false，每次启动 Agent 都会消耗 token
+- 一天 144 次调用，可能只有 2-3 次有动态，其余 140+ 次都是空转浪费
+
+**决策**：**不自动提取 claims**
+
+```
+Cron (no_agent=true, 每10min)
+  │
+  ▼ bilibili_notify.py
+    │
+    ├─ [无动态] → 静默 → 0 token ✅
+    │
+    ├─ [重复动态] → 发微信 → 0 token ✅
+    │
+    └─ [有新内容] → 发微信 → 0 token ✅
+                      │
+                      ▼ 用户看到微信后
+                        │
+                        ▼ 人工触发 Agent
+                          │
+                          ▼ extract_claims_pipeline.py
+                            │
+                            ├─ Step 1: Agent 提取 claims
+                            ├─ Gate 1: 自动校验
+                            ├─ Step 2: Agent 补全股票代码
+                            ├─ Gate 2: 自动校验
+                            ├─ Step 3: 自动格式化 YAML
+                            ├─ Gate 3: 自动校验
+                            │
+                            └─ 到达 gate3_pass → 停止，等待人工核对
+                                      │
+                                      ▼ 用户确认后
+                                        │
+                                        ▼ done → 知识库同步
+```
+
+**关键原则**：
+1. **cron 只发微信，不消耗 LLM token**
+2. **claims 提取由用户主动触发**，按需付费
+3. **pipeline 自动执行 gate + step3**，减少人工操作
+4. **gate3_pass 后停止**，给用户人工核对机会，避免错误入库
+
+### 状态流转
+
+| 状态 | 触发方式 | 自动/人工 |
+|------|---------|----------|
+| 动态抓取 | cron | 自动 |
+| 微信通知 | cron stdout | 自动 |
+| claims 提取 | 用户触发 Agent | 人工 |
+| gate 校验 | pipeline | 自动 |
+| 知识库同步 | 用户确认后 done | 人工 |
+
+### 相关文件
+
+| 文件 | 说明 |
+|------|------|
+| `~/.hermes/scripts/bilibili_notify.py` | 主脚本，只发微信 |
+| `scripts/extract_claims_pipeline.py` | claims 提取 pipeline（含 auto_full 命令） |
+| `scripts/gate_validate_claims.py` | gate 校验 |
+| `temp/claims/<session_id>/` | pipeline 工作目录 |
 
 ---
 

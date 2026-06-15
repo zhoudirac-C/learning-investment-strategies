@@ -270,6 +270,7 @@ def cmd_start(raw_path: str):
     action = next_action(session)
     print(f"🔨 会话: {session_id}")
     print(f"📄 raw: {session['raw_basename']}")
+    print(f"session_id={session_id}")
     print(f"⏭  下一步:")
     print(json.dumps(action, ensure_ascii=False, indent=2))
 
@@ -365,6 +366,46 @@ def cmd_continue(session_id: str = None):
 
     # 否则输出当前 next_action
     _print_next(session)
+
+
+def cmd_auto_full(session_id: str):
+    """自动全量执行 pipeline 到 gate3_pass（不进入 done/知识库同步）"""
+    max_steps = 10
+    for step in range(max_steps):
+        session = load_session(session_id)
+        state = session["state"]
+        print(f"\n[auto_full] step={step+1} state={state}")
+
+        if state == "done":
+            print("[auto_full] 已完成")
+            break
+        if state == "gate3_pass":
+            print("[auto_full] 到达 gate3_pass，等待人工核对")
+            break
+        if state in ("gate1_fail", "gate2_fail", "gate3_fail"):
+            print(f"[auto_full] gate 失败: {state}，停止")
+            break
+
+        # 执行 continue
+        cmd_continue(session_id)
+
+        # 检查状态是否变化
+        new_session = load_session(session_id)
+        new_state = new_session["state"]
+        if new_state == state:
+            print(f"[auto_full] 状态未变化 ({state})，停止")
+            break
+        # 如果到达 gate3_pass，成功完成
+        if new_state == "gate3_pass":
+            print(f"[auto_full] 到达 gate3_pass，等待人工核对")
+            break
+        # 如果状态变成需要 Agent 执行的步骤，也停止
+        if new_state in ("gate1_pass", "gate2_pass"):
+            # 这些状态需要 Agent 执行下一步，auto_full 无法自动推进
+            print(f"[auto_full] 到达 {new_state}，需要 Agent 执行 enrich/format，停止")
+            break
+    else:
+        print(f"[auto_full] 达到最大步数 {max_steps}，停止")
 
 
 def _print_next(session: dict):
@@ -484,6 +525,12 @@ def main():
             sys.exit(1)
         file_idx = sys.argv.index("--file") + 1
         cmd_validate(sys.argv[file_idx])
+
+    elif cmd == "auto_full":
+        if len(sys.argv) < 3:
+            print("❌ 缺少 session_id")
+            sys.exit(1)
+        cmd_auto_full(sys.argv[2])
 
     elif cmd == "done":
         if len(sys.argv) < 3:

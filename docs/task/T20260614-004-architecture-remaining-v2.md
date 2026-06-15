@@ -303,7 +303,7 @@ Agent 生成输出
 |------|:----:|------|
 | [ ] WsQuoteClient 接入真实 WebSocket 行情源 | ✅ | `ws_client.py` 已配置腾讯行情 WS 地址，代码 + 测试完成 |
 | [ ] Scheduler 配置 `ws_mode: true` 启用事件驱动模式 | ✅ | Scheduler 已集成 `WsEventDrivenFetcher`（`_try_ws_fetch` 方法），自动尝试 WS → 降级 HTTP |
-| [ ] B站监控 cron 任务集成 `BilibiliClaimsDeduplicator` | ✅ | `scripts/bilibili_notify.py` 已导入 `BilibiliClaimsDeduplicator`，每10min cron（no_agent）+ `_content_fingerprint()` + `dedup.diff()` 去重检查，新内容触发 `extract_claims_pipeline` |
+| [ ] B站监控 cron 任务集成 `BilibiliClaimsDeduplicator` | ⚠️ 已回退 | `scripts/bilibili_notify.py` 已导入 `BilibiliClaimsDeduplicator`，每10min cron（no_agent）。**但pipieline自动触发已删除**——no_agent=True模式无法驱动C2编排器，2026-06-15改为纯人工手动触发。去重器仅用于微信通知标记新旧内容。 |
 | [ ] CitationValidator 接入 Agent 输出后处理流程 | ✅ | 已集成到 graph 节点，位于 style_writer→reviewer 之间 |
 | [ ] 监控告警：断路器状态、降级次数、缓存命中率 | ✅ | HealthStatsRegistry + qing_health_alert.py cron (每2h推送微信) |
 

@@ -295,29 +295,10 @@ def main() -> int:
 
         print(msg)
 
-    # ── 触发下游 claims pipeline ──
-    import subprocess
-
-    for filepath in saved_files:
-        is_new = dedup_results.get(str(filepath), True)
-        if not is_new:
-            continue
-        pipeline_cmd = [
-            sys.executable,
-            str(repo_root() / "scripts" / "extract_claims_pipeline.py"),
-            "start",
-            "--raw", str(filepath),
-        ]
-        try:
-            print(f"INFO: 触发 claims pipeline ← {filepath.name}", file=sys.stderr)
-            subprocess.Popen(
-                pipeline_cmd,
-                cwd=str(repo_root()),
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.PIPE,
-            )
-        except Exception as exc:
-            print(f"ERROR: 启动 claims pipeline 失败: {exc}", file=sys.stderr)
+    # ── 注意：不再自动触发 claims pipeline ──
+    # no_agent=True 模式下无法驱动 C2 编排器推进 pipeline 流程，
+    # 只会创建空 session 卡在 init 状态，浪费资源。
+    # Claims 提取改为人工手动触发（见 docs/p0-event-driven-pipeline-design.md 门禁1）。
 
     return 0
 
