@@ -1,5 +1,6 @@
 updated_at: '2026-06-15'
 source_claims:
+- knowledge/claims/claim-20260615-004-to-023.yaml
 - knowledge/claims/claim-20260614-001.yaml
 - knowledge/claims/claim-20260615-003.yaml
 - knowledge/claims/claim-20260612-001.yaml
@@ -1203,6 +1204,227 @@ themes:
     - claim_id: claim-20260615-014
       relevance: theme
       claim_type: sector-theme
+- id: mlcc_super_cycle
+  name: MLCC被动元件超级周期（AI驱动结构性缺货）
+  up_positioning: 「结构性缺货超越2018年超级周期」— 四大龙头（国巨/华新科/禾伸堂/信昌电）确认AI驱动，缺货延至2027年。本轮是结构性非全品类：AI料产能占用是普通料4-7倍，高容先紧、高压后紧。VR200机柜单机60万颗(vs传统1800-2500颗)。缺货已扩散至消费电子规格(47uF/10uF/22uF)。
+  source_docs:
+  - sources/original/bilibili/2026-06-15-2232-专栏-6.15（复盘）.md
+  - knowledge/claims/claim-20260615-004-to-023.yaml
+  market_checks:
+  - 国巨B/B值是否维持1.3以上
+  - MLCC涨价告示/渠道商价格是否持续上调
+  - 风华高科/博迁新材是否联动走强
+  - 高端陶瓷粉体供给缺口是否进一步确认
+  stocks:
+  - code: 000636.SZ
+    name: 风华高科
+    role: mlcc_leader
+    segment: MLCC龙头（国内第一大）
+    priority: P0-满仓候选
+    watch_reason: UP 6/15 复盘点名「MLCC方向核心概率最高」。国内MLCC龙头，主板可交易。曾6/12止损失62元(-5.1%)，当前MLCC方向共振更强，等回踩确认再进场。6/15涨停确认MLCC板块最强地位。
+    confirm_with:
+    - 火炬电子(603678)
+    - 博迁新材(605376)
+    - 三环集团(300408-创业，锚点)
+    entry_zone:
+      description: 6/15已涨停，等回踩不破MA5（换手充分后企稳）。不追涨停板。
+      current_ref: 2026-06-15 涨停收盘
+      price_range: 等回踩MA5附近（约涨停价下方5-8%）
+      method: 涨停回踩法，等缩量企稳确认后右侧进场
+      confirm_signal: MLCC板块联动+风华换手稳定+全A量能维持+博迁新材同步
+      hard_stop: 买入价下方5%
+      position_ratio: 0.5-1.0成（P0-满仓候选，轻仓试探）
+    up_mention_status:
+      last_mentioned_date: '2026-06-15'
+      mention_context: 6/15 复盘点名MLCC最强势方向，风华/东山为核心候选
+      sentiment: 积极
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-15'
+    linked_claims:
+    - claim_id: claim-20260615-012
+      relevance: direct
+      claim_type: sector-theme
+  - code: 605376.SH
+    name: 博迁新材
+    role: mlcc_nickel_powder
+    segment: MLCC超细镍粉（80nm，国内唯一PVD量产）
+    priority: P0-满仓候选
+    watch_reason: UP 6/15复盘点名。独家PVD工艺国内唯一80nm镍粉量产，是MLCC超薄化核心材料。三星长协留调价条款，其他客户（国巨/风华/三环）不绑定长协→MLCC缺货下加工费持续上移。中报存在超预期可能。主板可交易。
+    confirm_with:
+    - 风华高科(000636)
+    - 三环集团(300408-创业，锚点)
+    entry_zone:
+      description: 跟随MLCC板块共振。等风华首板确认后，博迁作为上游材料弹性更大可做同级或更高仓位。
+      current_ref: 2026-06-15
+      price_range: 等风华企稳后同步进场
+      method: 板块共振法，MLCC涨停潮确认后右侧进场
+      confirm_signal: 风华高科联动走强+MLCC涨价数据持续+全A量能维持
+      hard_stop: 买入价下方5%
+      position_ratio: 0.5-1.0成
+    up_mention_status:
+      last_mentioned_date: '2026-06-15'
+      mention_context: 6/15复盘点名MLCC镍粉标的，中报超预期可能
+      sentiment: 积极
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-15'
+    linked_claims:
+    - claim_id: claim-20260615-015
+      relevance: direct
+      claim_type: stock-view
+  - code: 603678.SH
+    name: 火炬电子
+    role: mlcc_tier2
+    segment: MLCC（军用+民用）
+    priority: P1-核心
+    watch_reason: UP复盘中MLCC方向点名涨停标的。主板可交易，作为风华高科的辅助确认标的。在风华回踩不到位时，火炬可作为替代试探方向。
+    confirm_with:
+    - 风华高科
+    entry_zone:
+      description: 等MLCC板块共振确认，在风华涨停日不能买时可以火炬做第二选择。
+      current_ref: 2026-06-15
+      price_range: 板块共振日盘中评估
+      method: 板块共振法
+      confirm_signal: 风华高科联动涨停+MLCC板块整体走强
+      hard_stop: 买入价下方5%
+      position_ratio: 0.3-0.5成
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-15'
+    linked_claims:
+    - claim_id: claim-20260615-012
+      relevance: theme
+      claim_type: sector-theme
+- id: optical_communication
+  name: 光通信/MPO/CPO — 光多通道替代电高速
+  up_positioning: 「确定性方向，不受技术路线之争」— 无论光模块/NPO/CPO哪种路线胜出，光多通道+MT插芯都是核心受益方。CPO/NPO/OCS三路线2026H2迎商业化窗口。MT插芯进入北美供应链认证极严，强者恒强。12:39发布MPO概念股全梳理。
+  source_docs:
+  - sources/original/bilibili/2026-06-15-2232-专栏-6.15（复盘）.md
+  - sources/original/bilibili/2026-06-15-1239-图片-动态-1214015309901463569.md
+  - knowledge/claims/claim-20260615-004-to-023.yaml
+  market_checks:
+  - MT插芯16芯以上单价是否持续上移
+  - CPO/NPO/OCS商用化进展（谷歌/Lumentum）
+  - 东山精密/光迅科技共振是否持续
+  - 特发信息谷歌订单是否确认
+  stocks:
+  - code: 002384.SZ
+    name: 东山精密
+    role: optical_core
+    segment: 光模块+FPC双主线
+    priority: P0-满仓候选
+    watch_reason: UP 6/15复盘点名「光模块方向核心概率更高」。主板可交易，光模块+PCB双线共振。光通信+消费电子双弹性。
+    confirm_with:
+    - 光迅科技(002281)
+    - 太辰光(300570-创业，锚点)
+    entry_zone:
+      description: 等回踩企稳确认。不追连涨。
+      current_ref: 2026-06-15
+      price_range: 等回踩5-8%
+      method: 回踩确认法
+      confirm_signal: 光通信板块联动+全A量能维持+CPO消息催化
+      hard_stop: 买入价下方5%
+      position_ratio: 0.5-1.0成
+    up_mention_status:
+      last_mentioned_date: '2026-06-15'
+      mention_context: 6/15复盘点名光模块方向核心候选
+      sentiment: 积极
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-15'
+    linked_claims:
+    - claim_id: claim-20260615-007
+      relevance: direct
+      claim_type: sector-theme
+  - code: 002281.SZ
+    name: 光迅科技
+    role: optical_module
+    segment: 光模块/OCS/DCI全栈
+    priority: P1-核心
+    watch_reason: 已有OCS主题跟踪（P2-重点）。UP复盘点名光模块方向领衔标的。主板可交易，已有配置框架。当前从P2升级到P1，与OCS/DCI方向叠加。
+    confirm_with:
+    - 东山精密
+    - 烽火通信
+    entry_zone:
+      description: 已有配置框架（OCS主题），复用即可。等光通信板块共振确认后进场。
+      current_ref: 2026-06-15
+      price_range: 复用OCS框架区间（需回踩确认）
+      method: 板块共振法
+      confirm_signal: 东山精密同步走强+OCS光交换催化+全A量能
+      hard_stop: 已有OCS主题框架止损
+      position_ratio: 已有OCS主题配置
+    up_mention_status:
+      last_mentioned_date: '2026-06-15'
+      mention_context: 6/15复盘点名+已为OCS核心标的
+      sentiment: 积极
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-12'
+    linked_claims:
+    - claim_id: claim-20260615-007
+      relevance: theme
+      claim_type: sector-theme
+  - code: 601869.SH
+    name: 长飞光纤
+    role: fiber_optic
+    segment: 光纤光缆龙头
+    priority: P2-重点
+    watch_reason: UP 6/15复盘中在东吴证券产业链梳理中提及。主板可交易，光纤光缆龙头+全球份额领先。光纤是MPO/CPO基础设施层，受益于光通信整体放量。
+    confirm_with:
+    - 太辰光(300570-创业，锚点)
+    - 烽火通信
+    entry_zone:
+      description: 等待结构性分化后择机。不在当前板块共振最高潮追涨。
+      current_ref: 2026-06-15
+      price_range: 等板块共振确认+回踩
+      method: 板块扩散法（等光通信主线确认后，光纤作为扩散受益方向）
+      confirm_signal: 光通信板块联动+MT插芯/MPO订单催化
+      hard_stop: 买入价下方5%
+      position_ratio: 0.3-0.5成
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-15'
+    linked_claims:
+    - claim_id: claim-20260615-007
+      relevance: theme
+      claim_type: sector-theme
+- id: copper_aluminum_shortage
+  name: 铜铝供给缺口（美伊协议触发器）
+  up_positioning: 「极低PE已计价加息担忧，赔率好但需事件触发」— 铜缺口约10万吨/年，铝产能关停344万吨(4.58%)，120万吨缺口蓄力。6/30美国232调查是额外催化。条件性事件（海峡通航/关税落地）。
+  source_docs:
+  - sources/original/bilibili/2026-06-15-2232-专栏-6.15（复盘）.md
+  - knowledge/claims/claim-20260615-004-to-023.yaml
+  market_checks:
+  - 美伊协议签署+霍尔木兹开放（铜铝反弹触发器）
+  - 6/30美国232调查关税落地
+  - LME铜铝库存去化是否持续
+  stocks:
+  - code: 601899.SH
+    name: 紫金矿业
+    role: copper_leader
+    segment: 铜金矿全球龙头
+    priority: P2-重点
+    watch_reason: UP复盘点名铜铝标的。主板可交易，铜价与AI基建双重受益逻辑。等美伊协议落地信号确认。
+    confirm_with:
+    - 洛阳钼业
+    - LME铜价
+    entry_zone:
+      description: 等美伊协议签署催化。不提前埋伏。
+      current_ref: 2026-06-15
+      price_range: 事件催化后盘中评估
+      method: 事件驱动法
+      confirm_signal: 美伊协议签署+LME铜跳涨+全A放量
+      hard_stop: 买入价下方5%
+      position_ratio: 0.3-0.5成
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-15'
+    linked_claims:
+    - claim_id: claim-20260615-022
+      relevance: direct
+      claim_type: sector-theme
+  
 avoid_and_reduce:
   avoid:
   - 存储芯片（M头+颈线+量价顶背离，反弹减仓）
