@@ -334,10 +334,30 @@ directions:
     current_stage: early_direction
     industry_chain:
       upstream:
-        - segment: 光芯片/ELS/CW激光器
-          stocks: []
+        - segment: 光芯片（DFB/EML/CW/硅光）
+          stocks:
+            - code: 002281.SZ
+              name: 光迅科技
+            - code: 000988.SZ
+              name: 华工科技
+            - code: 600703.SH
+              name: 三安光电
+            - code: 002384.SZ
+              name: 东山精密
+            - code: 600487.SH
+              name: 亨通光电
+            - code: 600105.SH
+              name: 永鼎股份
           pumped: false
-          note: "❓光芯片：源杰科技(688498)、长光华芯(688048)为科创，缺主板标的"
+          note: "光迅科技(InP DFB/EML/CW+硅光+AWG全平台,自给率~70%)、华工科技(华工正源InP光芯片,自给率~80%)、三安光电(6英寸GaAs/InP IDM,400G/800G数通芯片批量)、东山精密(索尔思光电100G/200G EML,12亿扩产)、亨通光电(硅光芯片配套800G模块)、永鼎股份(有源/无源光芯片IDM电信级)"
+        - segment: 光芯片衬底/外延（上游材料）
+          stocks:
+            - code: 600206.SH
+              name: 有研新材
+            - code: 002428.SZ
+              name: 云南锗业
+          pumped: false
+          note: "有研新材(GaAs/InP外延片量产)、云南锗业(15万片/年InP单晶衬底,国产替代)"
         - segment: 单芯陶瓷插芯
           stocks:
             - code: 000988.SZ

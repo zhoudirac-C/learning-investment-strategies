@@ -1066,6 +1066,98 @@ stocks:
       no_consecutive_limit_up: true
     fallback: []
 
+  # ── 光芯片（光通信上游） ───────────────────────────
+
+  - code: 600703.SH
+    name: 三安光电
+    direction: optical_communication
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "化合物半导体IDM龙头，6英寸GaAs/InP产线，400G/800G数通光芯片批量"
+    entry:
+      primary_zone: [15.0, 18.0]
+      method: "均线法"
+      hard_stop: 12.5
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 600487.SH
+    name: 亨通光电
+    direction: optical_communication
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "光纤光缆龙头，硅光芯片自研配套800G光模块批量交付"
+    entry:
+      primary_zone: [16.0, 20.0]
+      method: "均线法"
+      hard_stop: 13.5
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 600105.SH
+    name: 永鼎股份
+    direction: optical_communication
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "光通信IDM全链条，有源/无源光芯片电信级"
+    entry:
+      primary_zone: [5.0, 6.5]
+      method: "均线法"
+      hard_stop: 4.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 600206.SH
+    name: 有研新材
+    direction: optical_communication
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "GaAs/InP外延片量产，高速光芯片核心上游材料"
+    entry:
+      primary_zone: [12.0, 15.0]
+      method: "均线法"
+      hard_stop: 10.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 002428.SZ
+    name: 云南锗业
+    direction: optical_communication
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "15万片/年InP单晶衬底，光通信芯片衬底国产化"
+    entry:
+      primary_zone: [14.0, 17.0]
+      method: "均线法"
+      hard_stop: 11.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
   # ── 绿电运营 ──────────────────────────────────
 
   # 纯新能源运营（风光）
