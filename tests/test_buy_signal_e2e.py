@@ -73,6 +73,20 @@ class TestBuySignalE2E:
                     }
                 ],
             },
+            stock_pool={
+                "stocks": [
+                    {
+                        "code": "000001",
+                        "name": "平安银行",
+                        "direction": "test_dir",
+                        "entry": {"primary_zone": [10.0, 11.0]},
+                        "pre_condition": {
+                            "sector_diverged": True,
+                            "market_actionable": True,
+                        },
+                    }
+                ]
+            },
         )
 
     def _make_quote_snapshot(self, price: float = 10.5, pct_change: float = 1.5) -> dict:
@@ -100,13 +114,27 @@ class TestBuySignalE2E:
         c = candidates[0]
         assert c.stock_code == "000001"
         assert c.is_candidate is True
-        assert len(c.matched_conditions) >= 4
+        assert len(c.matched_conditions) >= 5
         assert "价格进入区间" in c.matched_conditions
+        assert "板块分歧" in c.matched_conditions
+        assert "大盘可操作" in c.matched_conditions
         assert c.entry_zone == (10.0, 11.0)
 
     def test_evaluate_buy_signal_candidates_rejects_when_price_out_of_zone(self):
         """候选检测：价格不在区间内 → 不是候选。"""
         config = self._make_config()
+        # 显式关闭前置条件，确保价格不在区间时总满足条件 < 5
+        config.stock_pool = {
+            "stocks": [
+                {
+                    "code": "000001",
+                    "pre_condition": {
+                        "sector_diverged": False,
+                        "market_actionable": False,
+                    },
+                }
+            ]
+        }
         snapshot = self._make_quote_snapshot(price=12.0, pct_change=1.5)
 
         candidates = evaluate_buy_signal_candidates(config, snapshot)

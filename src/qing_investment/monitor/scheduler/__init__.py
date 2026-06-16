@@ -1790,6 +1790,8 @@ def run_tick(
         "entry_points": _sp.get("entry_points", []) or getattr(config, "entry_points", []),
         "market_framework": _sp.get("market_framework", {}) or getattr(config, "market_framework", {}),
         "sector_groups": _sp.get("sector_groups", []) or getattr(config, "sector_groups", []),
+        "direction_pool": getattr(config, "direction_pool", {}),
+        "stock_pool": getattr(config, "stock_pool", {}),
     }
     alerts = evaluate_monitor_alerts(_cfg_dict, quote_snapshot, current_time=value)
     resolved_state_path = state_path or config.config_dir / "state.json"

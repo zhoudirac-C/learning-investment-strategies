@@ -355,6 +355,19 @@ class BuySignalRuleEngine(BaseRuleEngine):
 
         return alerts
 
+    def _stock_pre_condition(self, config: dict, code_norm: str) -> dict:
+        """从 stock_pool 或 watchlist 读取 pre_condition。"""
+        # 优先 stock_pool
+        for stock in config.get("stock_pool", {}).get("stocks", []) or []:
+            if _norm_code(str(stock.get("code", ""))) == code_norm:
+                return stock.get("pre_condition", {}) or {}
+        # 回退 watchlist
+        for theme in config.get("watchlist", {}).get("themes", []) or []:
+            for stock in theme.get("stocks", []) or []:
+                if _norm_code(str(stock.get("code", ""))) == code_norm:
+                    return stock.get("pre_condition", {}) or {}
+        return {}
+
     def _evaluate_candidates(
         self, config: dict, quote_snapshot: dict
     ) -> list[BuySignalCandidate]:
@@ -447,6 +460,10 @@ class BuySignalRuleEngine(BaseRuleEngine):
             except Exception:
                 pass
 
+            pre_condition = self._stock_pre_condition(config, code_norm)
+            sector_diverged_ok = pre_condition.get("sector_diverged", True)
+            market_actionable_ok = pre_condition.get("market_actionable", True)
+
             conditions = {
                 "价格进入区间": price_in_zone,
                 "非系统性大跌": not_crashing,
@@ -454,9 +471,11 @@ class BuySignalRuleEngine(BaseRuleEngine):
                 "UP明确看好": has_claim_support,
                 "近3日缩量": volume_shrinking,
                 "MA20上方": above_key_ma,
+                "板块分歧": sector_diverged_ok,
+                "大盘可操作": market_actionable_ok,
             }
             matched = [k for k, v in conditions.items() if v]
-            is_candidate = len(matched) >= 4
+            is_candidate = len(matched) >= 5
 
             candidates.append(
                 BuySignalCandidate(

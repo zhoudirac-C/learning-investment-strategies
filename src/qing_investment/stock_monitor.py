@@ -416,7 +416,8 @@ def evaluate_buy_signal_candidates(
     原实现已迁移，保留函数签名以保持向后兼容。"""
     from qing_investment.monitor.rules import BuySignalRuleEngine
     engine = BuySignalRuleEngine()
-    return engine._evaluate_candidates(config.strategy_pack if hasattr(config, 'strategy_pack') else config, quote_snapshot)
+    # 传入完整 config（含 stock_pool / direction_pool），兼容 dict 类型
+    return engine._evaluate_candidates(config if hasattr(config, 'get') else config, quote_snapshot)
 
 
 def evaluate_buy_signal_alerts(
