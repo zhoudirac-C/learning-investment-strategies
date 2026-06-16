@@ -37,7 +37,7 @@ if not claim:
 print(f"Claim: {cid} — {claim.get('statement', '')[:100]}")
 
 # Step 1: Qdrant search
-qdrant = QdrantClientWrapper(local_mode=True)
+qdrant = QdrantClientWrapper()
 emb = get_embedding_model()
 text = f"{claim.get('subject', '')} | {claim.get('statement', '')}"
 vec = emb.encode(text).tolist()

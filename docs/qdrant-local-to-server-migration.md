@@ -1,5 +1,7 @@
 # Qdrant 本地模式 → 二进制服务端迁移计划
 
+> ⚠️ **已完成（2026-06-16）**：自 2026-06-16 起，Qdrant 仅运行二进制服务端模式，本地（SQLite）模式已从代码库中彻底移除。所有客户端（qing-agent、MCP 等）统一通过 `localhost:6333` 访问 Qdrant 服务端。此文档保留作为历史参考。
+
 > 目标：消除 `portalocker.EXCLUSIVE` 单进程锁限制，允许 MCP Qdrant Server 和 Qing-Agent 同时访问
 > 策略：方案① — 下载 Qdrant Rust 二进制，数据从 SQLite 本地模式迁移至 RocksDB 服务端
 > 风险等级：低（每一步可独立回滚）

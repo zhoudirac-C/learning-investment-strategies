@@ -61,8 +61,8 @@ def _init_qdrant():
 
     from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
 
-    logger.info("连接 Qdrant（本地模式）...")
-    _qdrant = QdrantClientWrapper(local_mode=True)
+    logger.info("连接 Qdrant 服务端...")
+    _qdrant = QdrantClientWrapper()
     logger.info("Qdrant 就绪")
     return _qdrant
 

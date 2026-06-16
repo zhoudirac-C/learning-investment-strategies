@@ -148,7 +148,7 @@ def main():
 
     # ── Init ──
     neo4j = Neo4jClient()
-    qdrant = QdrantClientWrapper(local_mode=True)
+    qdrant = QdrantClientWrapper()
     emb_model = get_embedding_model()
 
     # Force recreate if requested or if integrity check on existing collection fails

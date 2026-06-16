@@ -35,8 +35,9 @@ docker run -d --name qing-postgres -p 5432:5432 \
   -e POSTGRES_PASSWORD=qing postgres:15
 ```
 
-**当前服务器（腾讯云）备注**：当前环境 Docker 守护进程不可用（`permission denied`），因此 Qdrant 和 Neo4j 使用降级方案运行：
-- **Qdrant**：走本地二进制服务端 `./bin/qdrant`（约85MB，Rust编译，RocksDB），数据在 `./storage/`。启动：`./bin/qdrant > /tmp/qdrant-server.log 2>&1 &`。验证 curl `localhost:6333/readyz`。迁移记录见 `docs/qdrant-local-to-server-migration.md`。
+**当前服务器（腾讯云）备注**：当前环境 Docker 守护进程不可用（`permission denied`），因此 Qdrant 使用二进制服务端运行：
+
+- **Qdrant**：走本地二进制服务端 `./bin/qdrant`（约85MB，Rust编译，RocksDB），数据在 `./storage/`。启动：`cd project && nohup ./bin/qdrant > /tmp/qdrant.log 2>&1 &`。验证 `curl localhost:6333/collections`。服务端支持多 Client（Agent + MCP）并发访问，无需串行操作。
 - **Neo4j**：当前未运行，需 Docker 环境。本地部署需另外启动。
 - 服务器重启后需手动拉起上述服务（无 systemd 自动拉起）。
 
@@ -72,7 +73,7 @@ uv run uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000
 
 > 📋 **完整流水线文档**：`docs/neo4j-relation-pipeline.md` — 含 discover_claim_relations（LLM 判断 supersedes/contradicts/supplements）→ Neo4j 迁移 → Qdrant 索引 → Agent 重启四步全流程。新增 claims 时必须跑 relation discovery，否则 Neo4j 中 Claim→Claim 关系边为空。
 
-> ⚠️ **同步前必须关 Agent**：Qdrant 本地模式不支持并发访问。脚本已内置自动杀 Agent 逻辑（SIGTERM → 等2s → SIGKILL）。若需手动控制，加 `--skip-agent-kill`。
+> Qdrant 服务端（port 6333）支持多 Client 并发访问。索引脚本和 Agent 可以在线共存，无需串行操作。
 
 ```bash
 # 1. 关 Agent（如果脚本自动杀失败）
@@ -316,28 +317,24 @@ print(result['final_output'])
 | 完整链路 >60s | prompt 过大 + 多次 LLM 调用 | 已做 quotes 截断，如仍慢可考虑减少节点 |
 | **索引脚本无输出/0% CPU** | ONNX Runtime 多线程 futex spin-lock 死锁（2核 VM 常见） | `sess_options.inter_op_num_threads=1; intra_op_num_threads=1` |
 | **`sqlite3.OperationalError: disk I/O error`** | SQLite rollback journal 在长事务 commit 时失败 | 启用 WAL 模式（`PRAGMA journal_mode=WAL`）+ 分批 upsert（25条/批）+ 重试3次 |
-| **`Storage folder already accessed`** | Qdrant 本地模式使用独占文件锁，Agent 和索引脚本不能同时打开 | **索引前必须关 Agent**，索引完重启。见下方「索引 SOP」 |
+| **`Blob type 2 (SQLite) not supported`** | qdrant-client 版本与 RocksDB 数据格式不兼容 | `pip install qdrant-client==1.18.0` 或更高版本 |
 
 ### 7.4 知识库索引 SOP
-
-**Qdrant 本地模式限制**：只有第一个打开 `.qdrant_data/` 的进程能持有锁。Agent 启动后会持锁，因此索引脚本必须等 Agent 关闭后才能运行。
 
 **全量重建（数据损坏/模型升级/首次部署）：**
 
 ```bash
-# 1. 关 Agent
-kill $(pgrep -f "uvicorn qing_investment") 2>/dev/null
-
-# 2. 清空旧数据 + 全量索引（预计 15-25 分钟，~10,000 chunks）
+# Qdrant 服务端（port 6333）支持并发，Agent 不需要关闭
 cd ~/learning-investment-strategies
-rm -rf .qdrant_data .index_state.json
+
+# 1. 文档全量索引（预计 15-25 分钟，~10,000 chunks）
 PYTHONUNBUFFERED=1 .venv/bin/python scripts/index_documents_to_qdrant.py
 
-# 3. 同步 claims embedding
+# 2. 同步 claims embedding
 .venv/bin/python scripts/index_claims_to_qdrant.py
 
-# 4. 重启 Agent
-nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 &
+# 验证
+curl -s localhost:6333/collections
 ```
 
 **增量同步（日常新增文档后）：**
@@ -503,7 +500,7 @@ src/qing_investment/agent/
     ├── sector_data.py      # 外部板块数据源（东财+新浪）
     ├── sector_extractor.py # 动态板块识别+网络搜索
     ├── neo4j_client.py     # Claims 图数据库（含图遍历查询：get_claims_with_evolution / get_related_claims）
-    ├── qdrant_client.py    # 文档向量检索（REST API 兼容 Qdrant 1.9.7，支持本地模式 fallback）
+    ├── qdrant_client.py    # 文档向量检索（REST API 连接 Qdrant 服务端 :6333）
     ├── mem0_client.py      # 记忆层（含本地 JSON fallback）
     ├── llm_client.py       # LLM 统一封装 + Embedding 工厂（ONNX 优先）
     └── embedding_utils.py  # ONNX Embedding Model + Hash Fallback
