@@ -49,22 +49,51 @@ directions:
     current_stage: first_pump
     industry_chain:
       upstream:
-        - segment: 铜箔设备/铜材
+        - segment: 铜原料（阴极铜）
+          stocks:
+            - code: 000630.SZ
+              name: 铜陵有色
+            - code: 600362.SH
+              name: 江西铜业
+            - code: 601899.SH
+              name: 紫金矿业
+          pumped: false
+          note: "铜陵有色（铜冠铜箔实控人，原料自给近70%）、江西铜业（国内阴极铜龙头）、紫金矿业（高纯电解铜）"
+        - segment: HVLP4专用设备/药剂
           stocks: []
           pumped: false
-          note: "❓上游：铜箔生产设备、铜原料供应商，待补充"
+          note: "泰金新能(未上市,国内唯一全套HVLP产线设备商)、三孚新科(688359❌科创,表面处理药剂)、洪田股份(新三板,生箔机)。主板无上市标的，仅做产业链参考"
       midstream:
         - segment: HVLP4铜箔制造
           stocks:
             - code: 600110.SH
               name: 诺德股份
           pumped: true
+          note: "中游HVLP4铜箔厂多为科创/创业板：铜冠铜箔(301217❌)、德福科技(301511❌)、隆扬电子(301389❌)、嘉元科技(688388❌)、逸豪新材(301176❌)。主板仅诺德。日系三井/古河为海外核心原厂"
       downstream:
-        - segment: 高频高速CCL/PCB
-          stocks: []
-          pumped: false
-          note: "❓下游：高速覆铜板、高端PCB厂商，待补充"
-    diffusion_path: []
+        - segment: 高速CCL（覆铜板）
+          stocks:
+            - code: 600183.SH
+              name: 生益科技
+            - code: 603186.SH
+              name: 华正新材
+            - code: 002636.SZ
+              name: 金安国纪
+          pumped: true
+          note: "台资台光/联茂/台耀为全球AI服务器CCL主力，不上市。生益为最大内资HVLP4采购方"
+        - segment: 高速PCB
+          stocks:
+            - code: 002916.SZ
+              name: 深南电路
+            - code: 002463.SZ
+              name: 沪电股份
+            - code: 603228.SH
+              name: 景旺电子
+          pumped: true
+          note: "胜宏科技(300693❌创业)为海外AI整机厂核心PCB供应商。台资欣兴/臻鼎/健鼎大量采购日系+国产HVLP4"
+    diffusion_path:
+      - "铜原料/设备 → HVLP4铜箔制造 → 高速CCL → AI服务器高速PCB"
+      - "铜冠/德福/隆扬(非主板锚点)扩产进度决定国产替代节奏"
     pre_condition:
       market: "全A量能>2.5万亿+非破位状态"
       sector: "分歧日回踩不破"

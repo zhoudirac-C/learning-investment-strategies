@@ -83,6 +83,97 @@ stocks:
       market_actionable: true
       no_consecutive_limit_up: true
     fallback: []
+    chain_alternatives:
+      upstream:
+        - code: 000630.SZ
+          name: 铜陵有色
+          reason: "铜冠铜箔实控人，HVLP4原料自给近70%"
+        - code: 600362.SH
+          name: 江西铜业
+          reason: "国内阴极铜龙头，高端铜箔厂原料供应商"
+      downstream:
+        - code: 002636.SZ
+          name: 金安国纪
+          reason: "中高端高速CCL，采购国产HVLP4替代进口"
+        - code: 002463.SZ
+          name: 沪电股份
+          reason: "英伟达M8/M9高速背板主力，批量使用HVLP4基材"
+
+  # ── 铜箔HVLP4 上游铜原料 ──────────────────────────────
+
+  - code: 000630.SZ
+    name: 铜陵有色
+    direction: copper_foil_hvlp4
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "铜冠铜箔实控人，HVLP4铜箔原料自给近70%"
+    entry:
+      primary_zone: [3.6, 4.2]
+      method: "均线法"
+      hard_stop: 3.2
+    pre_condition:
+      market_actionable: true
+      sector_diverged: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 600362.SH
+    name: 江西铜业
+    direction: copper_foil_hvlp4
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "国内阴极铜龙头，多家中高端铜箔厂原料供应商"
+    entry:
+      primary_zone: [28.0, 32.0]
+      method: "均线法"
+      hard_stop: 25.0
+    pre_condition:
+      market_actionable: true
+      sector_diverged: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  # ── 铜箔HVLP4 下游CCL/PCB ──────────────────────────────
+
+  - code: 002636.SZ
+    name: 金安国纪
+    direction: copper_foil_hvlp4
+    chain_position: downstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "中高端高速CCL，采购国产HVLP4替代进口"
+    entry:
+      primary_zone: [8.5, 10.0]
+      method: "均线法"
+      hard_stop: 7.5
+    pre_condition:
+      market_actionable: true
+      sector_diverged: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 002463.SZ
+    name: 沪电股份
+    direction: copper_foil_hvlp4
+    chain_position: downstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "英伟达M8/M9高端背板主力，批量使用HVLP4基材"
+    entry:
+      primary_zone: [38.0, 44.0]
+      method: "均线法"
+      hard_stop: 33.0
+    pre_condition:
+      market_actionable: true
+      sector_diverged: true
+      no_consecutive_limit_up: true
+    fallback: []
 
   # ── 覆铜板上游材料 ──────────────────────────────
 
