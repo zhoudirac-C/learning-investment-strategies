@@ -495,10 +495,6 @@ stocks:
       sector_diverged: true
       no_consecutive_limit_up: true
     fallback: []
-    cross_directions:
-      - direction: mpo_optical_connector
-        chain_position: upstream
-        note: "同步布局MT插芯与MPO连接器产线"
 
   - code: 003031.SZ
     name: 中瓷电子
@@ -673,11 +669,11 @@ stocks:
       no_consecutive_limit_up: true
     fallback: []
 
-  # ── OCS光交换 ──────────────────────────────────
+  # ── 光通信(OCS) ──────────────────────────────────
 
   - code: 002281.SZ
     name: 光迅科技
-    direction: ocs_optical_switching
+    direction: optical_communication
     chain_position: midstream
     up_mention:
       date: '2026-05-06'
@@ -695,7 +691,7 @@ stocks:
 
   - code: 600330.SH
     name: 天通股份
-    direction: ocs_optical_switching
+    direction: optical_communication
     chain_position: upstream
     up_mention:
       date: '2026-05-06'
@@ -746,11 +742,11 @@ stocks:
       no_consecutive_limit_up: true
     fallback: []
 
-  # ── MPO光连接器 ──────────────────────────────────
+  # ── 光通信(MPO) ──────────────────────────────────
 
   - code: 002179.SZ
     name: 中航光电
-    direction: mpo_optical_connector
+    direction: optical_communication
     chain_position: midstream
     up_mention:
       date: '2026-06-15'

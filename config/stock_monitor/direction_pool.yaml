@@ -378,6 +378,12 @@ directions:
               name: 华工科技
           pumped: false
           note: "中航光电(自研自产,MPO连接器100%自给)、长飞光纤(子公司长芯盛垂直一体化,供谷歌)、华工科技(配套400G/800G光模块)"
+        - segment: 薄膜铌酸锂晶体（OCS光交换）
+          stocks:
+            - code: 600330.SH
+              name: 天通股份
+          pumped: false
+          note: "❓天通股份薄膜铌酸锂业务占比小，PE为负，仅作观察（OCS光交换方向吸收至此）"
       midstream:
         - segment: 光模块/CPO/NPO
           stocks:
@@ -406,83 +412,6 @@ directions:
       timing: "非光通信板块集体涨停"
     max_active_candidates: 3
 
-  - id: ocs_optical_switching
-    name: OCS光交换（AI算力互联新技术路径）
-    up_first_mentioned: '2026-05-06'
-    up_mention_type: direction_call
-    current_stage: early_direction
-    industry_chain:
-      upstream:
-        - segment: 薄膜铌酸锂晶体
-          stocks:
-            - code: 600330.SH
-              name: 天通股份
-          pumped: false
-          note: "❓天通股份薄膜铌酸锂业务占比小，PE为负，仅作观察"
-      midstream:
-        - segment: OCS全光交换设备
-          stocks:
-            - code: 002281.SZ
-              name: 光迅科技
-          pumped: true
-      downstream:
-        - segment: 谷歌TPU集群/AI数据中心
-          stocks: []
-          pumped: false
-    diffusion_path:
-      - "OCS试验→规模化商用(CAGR 58%) → 光交换设备放量"
-    pre_condition:
-      market: "全A量能>2.5万亿+非破位状态+全A中阳线"
-      sector: "谷歌Cloud Next大会催化/OCS商用化进展"
-      timing: "非OCS概念集体涨停"
-    max_active_candidates: 2
-
-  - id: mpo_optical_connector
-    name: MPO光连接器（光互联Scale-up放量下的无源弹性环节）
-    up_first_mentioned: '2026-06-15'
-    up_mention_type: direction_call
-    current_stage: early_direction
-    industry_chain:
-      upstream:
-        - segment: MT多芯插芯（MPO核心精密部件）
-          stocks:
-            - code: 002179.SZ
-              name: 中航光电
-            - code: 601869.SH
-              name: 长飞光纤
-            - code: 000988.SZ
-              name: 华工科技
-          pumped: false
-          note: "中航光电(自研自产,100%自给率)、长飞光纤(长芯盛垂直一体化,供谷歌)、华工科技(配套800G模块+外售)。全球龙头三环/天孚/太辰光在创业板/科创"
-      midstream:
-        - segment: MPO连接器制造/NPO
-          stocks:
-            - code: 002179.SZ
-              name: 中航光电
-          pumped: false
-        - segment: MPO通信设备
-          stocks:
-            - code: 603220.SH
-              name: 中贝通信
-          pumped: false
-          note: "❓中贝通信(603220)：主营通信网络技术，MPO占比待确认"
-        - segment: 光通信器件/MPO
-          stocks:
-            - code: 000070.SZ
-              name: 特发信息
-          pumped: false
-          note: "❓特发信息(000070)：光通信器件/ODN，MPO业务占比待确认"
-      downstream:
-        - segment: 数据中心/AI集群
-          stocks: []
-          pumped: false
-    diffusion_path:
-      - "800G/1.6T升级 → MPO用量倍增 → 连接器厂商受益"
-    pre_condition:
-      market: "全A量能>2.5万亿+非破位状态"
-      sector: "等待结构性分化（真龙头vs蹭概念）"
-      timing: "谷歌MPO订单/框架协议落地前不建仓"
-    max_active_candidates: 2
 
   - id: equipment_packaging_catchup
     name: 设备/封测补涨（涨价主线扩散方向）
