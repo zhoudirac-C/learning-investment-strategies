@@ -86,7 +86,7 @@ class MarketGate:
             latest = market_data.get("all_share_latest") if "全A" in idx_name else market_data.get("sh_index_latest")
             if latest is None:
                 continue
-            if cond == "not_close_below" and latest <= level:
+            if cond == "not_close_below" and float(latest) <= level:
                 return False
         return True
 
@@ -96,9 +96,16 @@ class MarketGate:
         if not volume_checks:
             return market_data.get("total_amount", 0) >= self.VOLUME_THRESHOLD
         for check in volume_checks:
+            metric = check.get("metric", "total_amount")
             threshold = check.get("threshold", self.VOLUME_THRESHOLD)
-            if market_data.get("total_amount", 0) >= threshold:
-                return True
+            if metric == "total_amount":
+                total = market_data.get("total_amount", 0)
+                if isinstance(total, str):
+                    total = float(total)
+                if isinstance(threshold, str):
+                    threshold = float(threshold)
+                if total >= threshold:
+                    return True
         return False
 
     def _check_not_panicking(self, market_data: dict) -> bool:

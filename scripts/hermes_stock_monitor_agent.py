@@ -396,7 +396,18 @@ def main():
         return 0
 
     # 2. Call qing-agent
+    import time as _time
+    t0 = _time.time()
+    # 预估 POST 大小（call_qing_agent 内部会再构建一次 payload）
+    approx_size = len(json.dumps(data, ensure_ascii=False)) if isinstance(data, dict) else 0
+    print(f"[qing-agent POST] ctx=~{approx_size}bytes(~{approx_size//4}tk) url={QING_AGENT_URL}", file=sys.stderr)
     response = call_qing_agent(data)
+    elapsed = _time.time() - t0
+    if response:
+        resp_size = len(json.dumps(response, ensure_ascii=False))
+        print(f"[qing-agent POST] ✓ {elapsed:.1f}s resp={resp_size}bytes", file=sys.stderr)
+    else:
+        print(f"[qing-agent POST] ✗ {elapsed:.1f}s 无响应", file=sys.stderr)
 
     # 3. Citation validation (new)
     citation_warning = ""
@@ -421,6 +432,7 @@ def main():
             print(fetch_fallback_text_context(root, data))
             return 0
         print("[Qing-Agent ✓]" + (f" {citation_warning}" if citation_warning else ""))
+        print(f"[qing-agent OUTPUT] len={len(output)}chars ~{len(output)//4}tk hallucinated=False", file=sys.stderr)
         print(output)
         if response.get("claims_cited"):
             print(f"\n[引用claims: {', '.join(response['claims_cited'])}]")

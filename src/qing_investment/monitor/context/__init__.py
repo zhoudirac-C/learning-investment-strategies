@@ -861,11 +861,21 @@ def _build_direction_state(direction_pool: dict, stock_pool: dict, stock_code: s
             break
 
     if matched_stock is None:
+        logger.info("[direction_state] %s → ❌ 未找到", stock_code)
         return {"direction_id": "", "direction_name": ""}
 
     direction_id = matched_stock.get("direction", "")
     for direction in (direction_pool or {}).get("directions", []) or []:
         if direction.get("id") == direction_id:
+            ez = matched_stock.get("entry", {}).get("primary_zone", [])
+            hs = matched_stock.get("entry", {}).get("hard_stop", None)
+            spc = matched_stock.get("pre_condition", {})
+            logger.info(
+                "[direction_state] %s → %s (stage=%s, chain=%s, entry_zone=%s, hard_stop=%s, stock_pc=%s)",
+                stock_code, direction_id, direction.get("current_stage", ""),
+                matched_stock.get("chain_position", ""), bool(ez), hs is not None,
+                bool(spc),
+            )
             return {
                 "direction_id": direction_id,
                 "direction_name": direction.get("name", ""),
@@ -873,10 +883,11 @@ def _build_direction_state(direction_pool: dict, stock_pool: dict, stock_code: s
                 "chain_position": matched_stock.get("chain_position", ""),
                 "diffusion_path": direction.get("diffusion_path", []),
                 "pre_condition": direction.get("pre_condition", {}),
-                "entry_zone": matched_stock.get("entry", {}).get("primary_zone", []),
-                "hard_stop": matched_stock.get("entry", {}).get("hard_stop", None),
-                "stock_pre_condition": matched_stock.get("pre_condition", {}),
+                "entry_zone": ez,
+                "hard_stop": hs,
+                "stock_pre_condition": spc,
             }
+    logger.info("[direction_state] %s → id=%s 但方向 %s 未找到", stock_code, direction_id, direction_id)
     return {"direction_id": direction_id, "direction_name": ""}
 
 
@@ -912,13 +923,27 @@ def format_agent_json_context(data: dict) -> str:
     output = {k: v for k, v in data.items() if k != "quote_snapshot"}
 
     # 过滤 human_only 字段，减小 LLM token 浪费
+    filtered_count = 0
     for pool_key in ("stock_pool", "direction_pool"):
         pool = output.get(pool_key, {})
         if pool_key == "stock_pool":
             for stock in pool.get("stocks", []) or []:
-                stock.pop("human_note", None)
+                if stock.pop("human_note", None) is not None:
+                    filtered_count += 1
         elif pool_key == "direction_pool":
             pass  # industry_chain[].segment.note 保留，LLM 可见
+
+    # 计算 context 大小
+    import json as _json
+    raw_json = _json.dumps(output, ensure_ascii=False)
+    ctx_size = len(raw_json)
+    logger.info(
+        "[format_agent_json_context] trigger=%s stock=%s ctx=%dchars(~%dtk) human_note_filtered=%d",
+        data.get("trigger", {}).get("kind", "none"),
+        stock_code,
+        ctx_size, ctx_size // 4,
+        filtered_count,
+    )
     output["analysis_type"] = analysis_type
     output["stock_code"] = stock_code
 
