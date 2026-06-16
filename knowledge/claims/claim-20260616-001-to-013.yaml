@@ -13,8 +13,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260609-001-c", "claim-20260610-009-a", "claim-20260615-001"]
   contradicts: []
+  last_discovered: 2026-06-16
   links: {}
   related_stocks: []
   tags:
@@ -38,7 +39,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260614-001-a"]
+  last_discovered: 2026-06-16
   links: {}
   related_stocks: []
   tags:
@@ -62,7 +64,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260614-014-p"]
+  last_discovered: 2026-06-16
   links: {}
   related_stocks: []
   tags:
@@ -88,6 +91,7 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-16
   links: {}
   related_stocks: []
   tags:
@@ -112,6 +116,7 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-16
   links: {}
   related_stocks: []
   tags:
@@ -136,7 +141,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260604-004-b", "claim-20260607-003-c"]
+  last_discovered: 2026-06-16
   links: {}
   related_stocks:
   - code: '002741'
@@ -164,7 +170,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260607-003-c"]
+  last_discovered: 2026-06-16
   links: {}
   related_stocks:
   - code: '301176'
@@ -193,6 +200,7 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-16
   links: {}
   related_stocks:
   - code: '300014'
@@ -221,6 +229,7 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-16
   links: {}
   related_stocks:
   - code: '688981'
@@ -253,6 +262,7 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-16
   links: {}
   related_stocks:
   - code: '301217'
@@ -284,6 +294,7 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-16
   links: {}
   related_stocks:
   - code: '600879'
@@ -315,6 +326,7 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-16
   links: {}
   related_stocks:
   - code: '300014'
@@ -349,6 +361,7 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
+  last_discovered: 2026-06-16
   links: {}
   related_stocks:
   - code: '688027'
