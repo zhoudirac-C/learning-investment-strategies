@@ -1416,3 +1416,20 @@ def test_tick_passes_dedupe_by_type_from_config(tmp_path):
 
     assert "[Hermes股票监控提醒]" in first
     assert second == ""  # suppressed by global dedupe
+
+
+def test_strategy_pack_contains_market_gate_rules(tmp_path):
+    config_dir = make_rule_config_dir(tmp_path)
+    # 手动追加 market_gate_rules 到 strategy_pack.yaml
+    sp_path = config_dir / "strategy_pack.yaml"
+    sp = yaml.safe_load(sp_path.read_text(encoding="utf-8"))
+    sp.setdefault("market_gate_rules", {
+        "index_checks": [{"index": "上证指数", "condition": "not_close_below", "level": 3950}],
+        "actionable_min_pass": 2,
+    })
+    sp_path.write_text(yaml.safe_dump(sp, allow_unicode=True), encoding="utf-8")
+
+    config = load_monitor_config(config_dir)
+    mgr = config.strategy_pack.get("market_gate_rules", {})
+    assert "index_checks" in mgr
+    assert mgr.get("actionable_min_pass") == 2
