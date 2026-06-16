@@ -242,6 +242,29 @@ def test_load_monitor_config_counts_rows(tmp_path):
     assert watchlist_stock_rows(config)[0]["theme_id"] == "domestic_compute"
 
 
+def test_watchlist_key_candidates_have_pre_condition():
+    """P0-1: key entry candidates expose pre_condition for rule engine."""
+    repo_root = Path(__file__).resolve().parents[1]
+    config = load_monitor_config(repo_root / "config" / "stock_monitor")
+
+    stocks_by_code: dict[str, dict] = {}
+    for theme in config.watchlist.get("themes", []):
+        for stock in theme.get("stocks", []):
+            code = stock.get("code")
+            if code:
+                stocks_by_code[code] = stock
+
+    for code in ["000636.SZ", "600110.SH", "002384.SZ"]:
+        assert code in stocks_by_code, f"{code} not found in watchlist"
+        pre = stocks_by_code[code].get("pre_condition")
+        assert pre is not None, f"{code} missing pre_condition"
+        assert pre.get("market_actionable") is True
+        assert pre.get("sector_diverged") is True
+        assert pre.get("no_consecutive_limit_up") is True
+        assert "market_gate_note" in pre
+        assert "sector_gate_note" in pre
+
+
 def test_status_message_summarizes_config(tmp_path):
     config = load_monitor_config(make_config_dir(tmp_path))
 
