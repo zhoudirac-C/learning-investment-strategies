@@ -471,10 +471,42 @@ directions:
     current_stage: early_direction
     industry_chain:
       upstream:
-        - segment: 半导体设备零部件
-          stocks: []
+        - segment: 真空系统（干泵/腔体）
+          stocks:
+            - code: 002158.SZ
+              name: 汉钟精机
+            - code: 603308.SH
+              name: 应流股份
           pumped: false
-          note: "❓上游零部件，待补充"
+          note: "汉钟精机(半导体干式真空泵龙头,批量供北方华创/中微/盛美,直供华虹/中芯)、应流股份(真空腔体/阀体,精密铸件,认证供货阶段)"
+        - segment: 精密陶瓷/石英零部件
+          stocks:
+            - code: 003031.SZ
+              name: 中瓷电子
+            - code: 603688.SH
+              name: 石英股份
+          pumped: false
+          note: "中瓷电子(静电卡盘ESC/陶瓷加热器/绝缘环,供北方华创/中微/拓荆)、石英股份(G5级高纯石英,石英管/环/舟/腔体)"
+        - segment: 电源/温控/传动
+          stocks:
+            - code: 002851.SZ
+              name: 麦格米特
+            - code: 002837.SZ
+              name: 英维克
+            - code: 002046.SZ
+              name: 国机精工
+          pumped: false
+          note: "麦格米特(半导体设备专用电源,刻蚀/PECVD/去胶)、英维克(精密温控,光刻机/刻蚀机恒温)、国机精工(电主轴/轴承/划片刀)"
+        - segment: 光学/流体/阀门（扩展期）
+          stocks:
+            - code: 002338.SZ
+              name: 奥普光电
+            - code: 600071.SH
+              name: 凤凰光学
+            - code: 002438.SZ
+              name: 江苏神通
+          pumped: false
+          note: "奥普光电(光机所精密光学镜头/光栅尺,检测设备)、凤凰光学(精密光学镜片,光刻/检测设备)、江苏神通(高纯真空阀门,设备验证阶段)"
       midstream:
         - segment: 半导体设备平台
           stocks:

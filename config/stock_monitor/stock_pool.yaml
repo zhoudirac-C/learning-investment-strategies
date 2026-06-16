@@ -517,6 +517,10 @@ stocks:
       sector_diverged: true
       no_consecutive_limit_up: true
     fallback: []
+    cross_directions:
+      - direction: equipment_packaging_catchup
+        chain_position: upstream
+        note: "静电卡盘ESC/陶瓷加热器，批量供货北方华创/中微/拓荆"
 
   # ── PCB AI硬件链 ──────────────────────────────────
 
@@ -813,6 +817,170 @@ stocks:
       primary_zone: [36.7, 39.8]
       method: "均线法"
       hard_stop: 19.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  # ── 设备零部件 ──────────────────────────────────
+
+  - code: 002158.SZ
+    name: 汉钟精机
+    direction: equipment_packaging_catchup
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "半导体干式真空泵龙头，供北方华创/中微/盛美+直供华虹/中芯"
+    entry:
+      primary_zone: [22.0, 26.0]
+      method: "均线法"
+      hard_stop: 19.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 603308.SH
+    name: 应流股份
+    direction: equipment_packaging_catchup
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "精密铸件，真空腔体/阀体，认证与批量阶段"
+    entry:
+      primary_zone: [14.0, 17.0]
+      method: "均线法"
+      hard_stop: 12.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 603688.SH
+    name: 石英股份
+    direction: equipment_packaging_catchup
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "G5级高纯石英，石英管/环/舟/腔体，供国内外设备厂"
+    entry:
+      primary_zone: [68.0, 78.0]
+      method: "均线法"
+      hard_stop: 60.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 002851.SZ
+    name: 麦格米特
+    direction: equipment_packaging_catchup
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "半导体设备专用电源（刻蚀/PECVD/去胶）"
+    entry:
+      primary_zone: [32.0, 38.0]
+      method: "均线法"
+      hard_stop: 28.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 002837.SZ
+    name: 英维克
+    direction: equipment_packaging_catchup
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "精密温控，光刻机/刻蚀机高精度恒温"
+    entry:
+      primary_zone: [28.0, 34.0]
+      method: "均线法"
+      hard_stop: 24.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 002046.SZ
+    name: 国机精工
+    direction: equipment_packaging_catchup
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "精密电主轴/轴承/晶圆减薄砂轮/划片刀"
+    entry:
+      primary_zone: [13.0, 16.0]
+      method: "均线法"
+      hard_stop: 11.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 002338.SZ
+    name: 奥普光电
+    direction: equipment_packaging_catchup
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "精密光学镜头/光栅尺，半导体检测设备（扩展期）"
+    entry:
+      primary_zone: [28.0, 34.0]
+      method: "均线法"
+      hard_stop: 24.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 600071.SH
+    name: 凤凰光学
+    direction: equipment_packaging_catchup
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "精密光学镜片/棱镜，光刻/检测设备（扩展期）"
+    entry:
+      primary_zone: [20.0, 25.0]
+      method: "均线法"
+      hard_stop: 17.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 002438.SZ
+    name: 江苏神通
+    direction: equipment_packaging_catchup
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "高纯真空阀门/工艺调节阀，设备验证阶段（扩展期）"
+    entry:
+      primary_zone: [12.0, 15.0]
+      method: "均线法"
+      hard_stop: 10.0
     pre_condition:
       sector_diverged: true
       market_actionable: true
