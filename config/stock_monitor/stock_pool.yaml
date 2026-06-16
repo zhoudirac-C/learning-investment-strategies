@@ -1028,6 +1028,44 @@ stocks:
     note: "高价+高PE(118x)，严格控仓"
     fallback: []
 
+  # ── EDA/IP授权（芯片上游） ───────────────────────────
+
+  - code: 600834.SH
+    name: 申通地铁
+    direction: chip_specialty
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "建元基金参股华大九天，国产EDA替代受益"
+    entry:
+      primary_zone: [9.0, 11.0]
+      method: "均线法"
+      hard_stop: 7.5
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 600820.SH
+    name: 隧道股份
+    direction: chip_specialty
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "产业基金间接参股华大九天，弱产业协同"
+    entry:
+      primary_zone: [6.0, 7.5]
+      method: "均线法"
+      hard_stop: 5.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
   # ── 绿电运营 ──────────────────────────────────
 
   # 纯新能源运营（风光）

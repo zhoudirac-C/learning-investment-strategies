@@ -539,10 +539,16 @@ directions:
     current_stage: early_direction
     industry_chain:
       upstream:
-        - segment: EDA/IP授权
-          stocks: []
+        - segment: EDA工具/IP授权
+          stocks:
+            - code: 002049.SZ
+              name: 紫光国微
+            - code: 600834.SH
+              name: 申通地铁
+            - code: 600820.SH
+              name: 隧道股份
           pumped: false
-          note: "❓EDA/IP：主板EDA标的？"
+          note: "紫光国微(紫光同创FPGA EDA全流程工具链+国微芯数字后端EDA,自主可控商业化)、申通地铁(建元基金→参股华大九天)、隧道股份(产业基金→参股华大九天)。纯EDA龙头华大九天/概伦电子在创业板/科创"
       midstream:
         - segment: 特种芯片/FPGA设计
           stocks:
