@@ -1433,3 +1433,17 @@ def test_strategy_pack_contains_market_gate_rules(tmp_path):
     mgr = config.strategy_pack.get("market_gate_rules", {})
     assert "index_checks" in mgr
     assert mgr.get("actionable_min_pass") == 2
+
+
+def test_direction_pool_yaml_is_valid(tmp_path):
+    """direction_pool.yaml 必须能被 PyYAML 解析且包含至少一个方向。"""
+    repo_root = Path(__file__).resolve().parents[1]
+    dp_path = repo_root / "config" / "stock_monitor" / "direction_pool.yaml"
+    assert dp_path.exists(), "direction_pool.yaml should exist"
+    data = yaml.safe_load(dp_path.read_text(encoding="utf-8"))
+    assert "directions" in data
+    assert len(data["directions"]) >= 1
+    first = data["directions"][0]
+    assert "id" in first
+    assert "industry_chain" in first
+    assert "pre_condition" in first

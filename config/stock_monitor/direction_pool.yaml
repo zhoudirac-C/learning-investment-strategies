@@ -1,0 +1,56 @@
+updated_at: '2026-06-16'
+directions:
+  - id: mlcc_super_cycle
+    name: MLCC超级周期
+    up_first_mentioned: '2026-06-14'
+    up_mention_type: signal_confirmation
+    current_stage: divergence_verification
+    industry_chain:
+      upstream:
+        - segment: 陶瓷粉体
+          stocks:
+            - code: 300285.SZ
+              name: 国瓷材料
+          pumped: false
+      midstream:
+        - segment: MLCC制造
+          stocks:
+            - code: 000636.SZ
+              name: 风华高科
+            - code: 300408.SZ
+              name: 三环集团
+          pumped: true
+      downstream:
+        - segment: 消费电子/汽车
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "MLCC → 被动元件整体 → PCB上游材料"
+    pre_condition:
+      market: "全A量能>2.5万亿+非破位状态"
+      sector: "板块首次分歧（连续上涨后出现1-2日调整）"
+      timing: "非连续涨停日（涨停家数<板块内30%）"
+    max_active_candidates: 3
+
+  - id: copper_foil_hvlp4
+    name: 铜箔（HVLP4代铜箔）
+    up_first_mentioned: '2026-06-16'
+    up_mention_type: signal_confirmation
+    current_stage: first_pump
+    industry_chain:
+      upstream:
+        - segment: 铜箔设备/铜材
+          stocks: []
+          pumped: false
+      midstream:
+        - segment: HVLP4铜箔制造
+          stocks:
+            - code: 600110.SH
+              name: 诺德股份
+          pumped: true
+    diffusion_path: []
+    pre_condition:
+      market: "全A量能>2.5万亿+非破位状态"
+      sector: "分歧日回踩不破"
+      timing: "非一字涨停买不到"
+    max_active_candidates: 2
