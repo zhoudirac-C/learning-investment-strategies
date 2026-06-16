@@ -268,6 +268,134 @@ stocks:
       no_consecutive_limit_up: true
     fallback: []
 
+  # ── WF6上游氟化工原料 ────────────────────────────
+
+  - code: 603505.SH
+    name: 金石资源
+    direction: electronic_gas_wf6
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "A股唯一纯萤石龙头，打通萤石→AHF全链条"
+    entry:
+      primary_zone: [31.0, 35.0]
+      method: "均线法"
+      hard_stop: 27.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 600010.SH
+    name: 包钢股份
+    direction: electronic_gas_wf6
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "白云鄂博伴生萤石，全球最大潜在氟源"
+    entry:
+      primary_zone: [2.2, 2.6]
+      method: "均线法"
+      hard_stop: 1.9
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 600160.SH
+    name: 巨化股份
+    direction: electronic_gas_wf6
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "氟化工全产业链龙头，AHF 40万吨+萤石→氢氟酸→氟气→电子特气全闭环"
+    entry:
+      primary_zone: [22.0, 26.0]
+      method: "均线法"
+      hard_stop: 19.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 002407.SZ
+    name: 多氟多
+    direction: electronic_gas_wf6
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "30万吨AHF+G5电子级4万吨+自建3000吨WF6，氟原料+下游一体化"
+    entry:
+      primary_zone: [14.0, 17.0]
+      method: "均线法"
+      hard_stop: 12.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 603379.SH
+    name: 三美股份
+    direction: electronic_gas_wf6
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "22万吨+AHF产能，华东重要氟原料供应商"
+    entry:
+      primary_zone: [38.0, 44.0]
+      method: "均线法"
+      hard_stop: 34.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 605020.SH
+    name: 永和股份
+    direction: electronic_gas_wf6
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "民营氟化工一体化，萤石矿山+AHF自给率90%+"
+    entry:
+      primary_zone: [22.0, 26.0]
+      method: "均线法"
+      hard_stop: 19.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 601678.SH
+    name: 滨化股份
+    direction: electronic_gas_wf6
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "10万吨AHF+6000吨G5电子级氢氟酸，供韩国半导体"
+    entry:
+      primary_zone: [5.0, 6.0]
+      method: "均线法"
+      hard_stop: 4.2
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
   # ── 钨产业链 ──────────────────────────────────
 
   - code: 000657.SZ

@@ -213,10 +213,28 @@ directions:
     current_stage: diverging
     industry_chain:
       upstream:
-        - segment: 氟化工原料
-          stocks: []
+        - segment: 萤石资源（氟元素源头）
+          stocks:
+            - code: 603505.SH
+              name: 金石资源
+            - code: 600010.SH
+              name: 包钢股份
           pumped: false
-          note: "❓上游氟化工原料供应，待补充"
+          note: "金石资源(A股唯一纯萤石龙头，打通萤石→AHF全链条)、包钢股份(白云鄂博伴生萤石，全球最大潜在氟源)"
+        - segment: 无水氢氟酸/高纯氟气
+          stocks:
+            - code: 600160.SH
+              name: 巨化股份
+            - code: 002407.SZ
+              name: 多氟多
+            - code: 603379.SH
+              name: 三美股份
+            - code: 605020.SH
+              name: 永和股份
+            - code: 601678.SH
+              name: 滨化股份
+          pumped: false
+          note: "巨化股份(氟化工会龙头,AHF 40万吨+全闭环)、多氟多(30万吨AHF+G5电子级4万吨+自建WF6)、三美股份/永和股份/滨化股份(重要氟原料供应商)"
       midstream:
         - segment: 电子特气（WF6/NF3等）
           stocks:
