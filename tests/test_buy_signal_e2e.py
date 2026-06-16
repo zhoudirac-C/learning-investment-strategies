@@ -125,10 +125,8 @@ class TestBuySignalE2E:
         c = candidates[0]
         assert c.stock_code == "000001"
         assert c.is_candidate is True
-        assert len(c.matched_conditions) >= 5
+        assert len(c.matched_conditions) >= 4
         assert "价格进入区间" in c.matched_conditions
-        assert "板块分歧" in c.matched_conditions
-        assert "大盘可操作" in c.matched_conditions
         assert c.entry_zone == (10.0, 11.0)
 
     def test_evaluate_buy_signal_candidates_rejects_when_price_out_of_zone(self):

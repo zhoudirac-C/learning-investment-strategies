@@ -25,6 +25,9 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
+from qing_investment.monitor.chain_scanner import ChainAwareScanner
+from qing_investment.monitor.gates import GateResult
+
 
 # ──────────────────────────────────────────
 # 数据模型 (从 stock_monitor.py 迁移)
@@ -321,8 +324,22 @@ class BuySignalRuleEngine(BaseRuleEngine):
 
     name = "buy_signal"
 
-    def evaluate(self, config: dict, quote_snapshot: dict, **kwargs) -> list[RuleAlert]:
-        candidates = self._evaluate_candidates(config, quote_snapshot)
+    def evaluate(
+        self,
+        config: dict,
+        quote_snapshot: dict,
+        *,
+        current_time: datetime | None = None,
+        market_gate_result: "GateResult" | None = None,
+        sector_gate_results: dict[str, "GateResult"] | None = None,
+        **kwargs,
+    ) -> list[RuleAlert]:
+        candidates = self._evaluate_with_gates(
+            config,
+            quote_snapshot,
+            market_gate_result=market_gate_result,
+            sector_gate_results=sector_gate_results,
+        )
         alerts: list[RuleAlert] = []
 
         for candidate in candidates:
@@ -355,18 +372,44 @@ class BuySignalRuleEngine(BaseRuleEngine):
 
         return alerts
 
-    def _stock_pre_condition(self, config: dict, code_norm: str) -> dict:
-        """从 stock_pool 或 watchlist 读取 pre_condition。"""
-        # 优先 stock_pool
+    def _evaluate_with_gates(
+        self,
+        config: dict,
+        quote_snapshot: dict,
+        *,
+        market_gate_result: "GateResult" | None = None,
+        sector_gate_results: dict[str, "GateResult"] | None = None,
+    ) -> list[BuySignalCandidate]:
+        """四层架构：前置门控已由上层计算，本层只做标的条件检查。"""
+        sector_gate_results = sector_gate_results or {}
+        candidates = self._evaluate_candidates(config, quote_snapshot)
+
+        filtered: list[BuySignalCandidate] = []
+        for candidate in candidates:
+            # 前置门控：市场
+            if market_gate_result is not None and not market_gate_result.passed:
+                candidate.is_candidate = False
+                filtered.append(candidate)
+                continue
+
+            # 前置门控：板块（通过 direction_id 查找）
+            direction_id = self._stock_direction_id(config, candidate.stock_code)
+            sector_result = sector_gate_results.get(direction_id)
+            if sector_result is not None and not sector_result.passed:
+                candidate.is_candidate = False
+                filtered.append(candidate)
+                continue
+
+            filtered.append(candidate)
+        return filtered
+
+    def _stock_direction_id(self, config: dict, code: str) -> str:
+        """从 stock_pool 查找标的所属 direction_id。"""
+        code_norm = _norm_code(code)
         for stock in config.get("stock_pool", {}).get("stocks", []) or []:
             if _norm_code(str(stock.get("code", ""))) == code_norm:
-                return stock.get("pre_condition", {}) or {}
-        # 回退 watchlist
-        for theme in config.get("watchlist", {}).get("themes", []) or []:
-            for stock in theme.get("stocks", []) or []:
-                if _norm_code(str(stock.get("code", ""))) == code_norm:
-                    return stock.get("pre_condition", {}) or {}
-        return {}
+                return stock.get("direction", "")
+        return ""
 
     def _evaluate_candidates(
         self, config: dict, quote_snapshot: dict
@@ -460,10 +503,6 @@ class BuySignalRuleEngine(BaseRuleEngine):
             except Exception:
                 pass
 
-            pre_condition = self._stock_pre_condition(config, code_norm)
-            sector_diverged_ok = pre_condition.get("sector_diverged", True)
-            market_actionable_ok = pre_condition.get("market_actionable", True)
-
             conditions = {
                 "价格进入区间": price_in_zone,
                 "非系统性大跌": not_crashing,
@@ -471,11 +510,9 @@ class BuySignalRuleEngine(BaseRuleEngine):
                 "UP明确看好": has_claim_support,
                 "近3日缩量": volume_shrinking,
                 "MA20上方": above_key_ma,
-                "板块分歧": sector_diverged_ok,
-                "大盘可操作": market_actionable_ok,
             }
             matched = [k for k, v in conditions.items() if v]
-            is_candidate = len(matched) >= 5
+            is_candidate = len(matched) >= 4
 
             candidates.append(
                 BuySignalCandidate(
