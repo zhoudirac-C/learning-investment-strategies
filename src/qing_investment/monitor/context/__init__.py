@@ -831,6 +831,24 @@ def format_agent_analysis_context(*args) -> str:
     return "\n".join(lines)
 
 
+def _extract_pre_condition_text(stock_row: dict) -> str:
+    """从 watchlist stock 行提取 pre_condition 为可读文本。"""
+    pc = stock_row.get("pre_condition") or {}
+    if not pc:
+        return ""
+    parts: list[str] = []
+    if pc.get("market_actionable"):
+        parts.append("大盘可操作")
+    if pc.get("sector_diverged"):
+        parts.append("板块首次分歧")
+    if pc.get("no_consecutive_limit_up"):
+        parts.append("非连续涨停")
+    note = pc.get("market_gate_note") or pc.get("sector_gate_note")
+    if note:
+        parts.append(f"备注：{note}")
+    return "；".join(parts) if parts else ""
+
+
 def format_agent_json_context(data: dict) -> str:
     """将 agent 分析数据结构化为 JSON 字符串。
 
@@ -863,6 +881,21 @@ def format_agent_json_context(data: dict) -> str:
     output = {k: v for k, v in data.items() if k != "quote_snapshot"}
     output["analysis_type"] = analysis_type
     output["stock_code"] = stock_code
+
+    # 为买入候选注入 pre_condition 文本
+    watchlist_rows: dict[str, dict] = {}
+    watchlist = data.get("watchlist") or {}
+    if isinstance(watchlist, dict):
+        for row in watchlist.get("stocks", []) or []:
+            watchlist_rows[str(row.get("code", ""))] = row
+        for theme in watchlist.get("themes", []) or []:
+            for stock in theme.get("stocks", []) or []:
+                watchlist_rows[str(stock.get("code", ""))] = stock
+
+    for candidate in output.get("buy_signal_candidates", []) or []:
+        code = str(candidate.get("stock_code", ""))
+        candidate["pre_condition"] = _extract_pre_condition_text(watchlist_rows.get(code, {}))
+
     return json.dumps(output, ensure_ascii=False, indent=2, default=str)
 
 

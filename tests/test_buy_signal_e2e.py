@@ -46,6 +46,11 @@ class TestBuySignalE2E:
                                 "name": "平安银行",
                                 "buy_setup": "10.0-11.0",
                                 "invalidation_setup": "9.5",
+                                "pre_condition": {
+                                    "market_actionable": True,
+                                    "sector_diverged": True,
+                                    "market_gate_note": "测试大盘备注",
+                                },
                             }
                         ],
                     }
@@ -181,6 +186,7 @@ class TestBuySignalE2E:
         candidate = data["buy_signal_candidates"][0]
         assert candidate["stock_code"] == "000001"
         assert candidate["entry_zone"] == [10.0, 11.0]
+        assert candidate.get("pre_condition") == "大盘可操作；板块首次分歧；备注：测试大盘备注"
 
     def test_json_context_fallback_to_market_for_regular_alert(self):
         """JSON payload：普通 alert → analysis_type="market"。"""
