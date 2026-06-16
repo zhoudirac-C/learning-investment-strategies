@@ -1,17 +1,25 @@
 updated_at: '2026-06-16'
 directions:
+
+  # ── 已在池中，补充完整 ──────────────────────────────────
+
   - id: mlcc_super_cycle
-    name: MLCC超级周期
+    name: MLCC被动元件超级周期（AI驱动结构性缺货）
     up_first_mentioned: '2026-06-14'
     up_mention_type: signal_confirmation
     current_stage: divergence_verification
     industry_chain:
       upstream:
-        - segment: 陶瓷粉体
+        - segment: 陶瓷粉体（钛酸钡）
           stocks:
             - code: 300285.SZ
               name: 国瓷材料
           pumped: false
+        - segment: 超细镍粉（80nm）
+          stocks:
+            - code: 605376.SH
+              name: 博迁新材
+          pumped: true
       midstream:
         - segment: MLCC制造
           stocks:
@@ -19,9 +27,11 @@ directions:
               name: 风华高科
             - code: 300408.SZ
               name: 三环集团
+            - code: 603678.SH
+              name: 火炬电子
           pumped: true
       downstream:
-        - segment: 消费电子/汽车
+        - segment: 消费电子/汽车/AI服务器
           stocks: []
           pumped: false
     diffusion_path:
@@ -42,15 +52,611 @@ directions:
         - segment: 铜箔设备/铜材
           stocks: []
           pumped: false
+          note: "❓上游：铜箔生产设备、铜原料供应商，待补充"
       midstream:
         - segment: HVLP4铜箔制造
           stocks:
             - code: 600110.SH
               name: 诺德股份
           pumped: true
+      downstream:
+        - segment: 高频高速CCL/PCB
+          stocks: []
+          pumped: false
+          note: "❓下游：高速覆铜板、高端PCB厂商，待补充"
     diffusion_path: []
     pre_condition:
       market: "全A量能>2.5万亿+非破位状态"
       sector: "分歧日回踩不破"
       timing: "非一字涨停买不到"
     max_active_candidates: 2
+
+  # ── 新增方向 ─────────────────────────────────────────
+
+  - id: ccL_resin_upstream
+    name: 高频高速覆铜板上游材料（球形硅微粉/PPO）
+    up_first_mentioned: '2026-06-10'
+    up_mention_type: direction_call
+    current_stage: diverging
+    industry_chain:
+      upstream:
+        - segment: 球形硅微粉（化学法）
+          stocks:
+            - code: 002409.SZ
+              name: 雅克科技
+          pumped: true
+          note: "❓上游还有联瑞新材(688300科创不可交易)"
+        - segment: PPO树脂/对位芳纶
+          stocks:
+            - code: 600500.SH
+              name: 中化国际
+          pumped: true
+        - segment: 酚醛树脂
+          stocks:
+            - code: 605589.SH
+              name: 圣泉集团
+          pumped: false
+          note: "❓产业链位置：酚醛树脂是CCL粘结剂材料，具体在链上哪个环节待确认"
+      midstream:
+        - segment: 高频高速CCL
+          stocks: []
+          pumped: false
+          note: "❓中游（CCL成品）：生益科技(600183)、华正新材(603186)在PCB链中，此方向聚焦上游材料"
+      downstream:
+        - segment: AI服务器高速PCB
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "球形硅微粉/PPO → 高频CCL → AI服务器高速PCB"
+    pre_condition:
+      market: "全A量能>2.5万亿+非破位状态"
+      sector: "板块分歧后缩量企稳"
+      timing: "非连续涨停日"
+    max_active_candidates: 2
+
+  - id: pcb_ai_chain
+    name: PCB AI硬件链（成品板→CCL→上游材料→ABF载板）
+    up_first_mentioned: '2026-05-23'
+    up_mention_type: direction_call
+    current_stage: diverging
+    industry_chain:
+      upstream:
+        - segment: 高速CCL（M8/M9）
+          stocks:
+            - code: 600183.SH
+              name: 生益科技
+          pumped: true
+        - segment: 电子布/低介电玻纤
+          stocks:
+            - code: 002080.SZ
+              name: 中材科技
+            - code: 603256.SH
+              name: 宏和科技
+          pumped: false
+        - segment: ABF增层膜/类ABF材料
+          stocks:
+            - code: 603186.SH
+              name: 华正新材
+          pumped: false
+          note: "❓CBF积层绝缘膜(ABF替代路线)，期权层"
+        - segment: PCB设备/耗材
+          stocks: []
+          pumped: false
+          note: "❓钻针/曝光/电镀设备，待补充"
+      midstream:
+        - segment: 高端PCB成品（高多层/HDI/背板）
+          stocks:
+            - code: 002916.SZ
+              name: 深南电路
+            - code: 603228.SH
+              name: 景旺电子
+            - code: 600601.SH
+              name: 方正科技
+          pumped: true
+        - segment: ABF/FC-BGA载板
+          stocks:
+            - code: 002916.SZ
+              name: 深南电路
+          pumped: false
+          note: "❓ABF载板：深南电路有布局，但收入占比待确认"
+        - segment: PCB情绪锚点
+          stocks:
+            - code: 002938.SZ
+              name: 鹏鼎控股
+          pumped: true
+      downstream:
+        - segment: AI服务器/OEM组装
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "高速CCL/玻纤 → 高端PCB/ABF载板 → AI服务器整机"
+      - "SerDes速率升级(112G→224G→448G) → 材料升级加速"
+    pre_condition:
+      market: "全A量能>2.5万亿+非破位状态"
+      sector: "首波上涨后分歧缩量"
+      timing: "非PCB板块集体涨停日"
+    max_active_candidates: 4
+
+  - id: electronic_gas_wf6
+    name: 电子特气/六氟化钨（WF6）涨价主线
+    up_first_mentioned: '2026-06-10'
+    up_mention_type: direction_call
+    current_stage: diverging
+    industry_chain:
+      upstream:
+        - segment: 氟化工原料
+          stocks: []
+          pumped: false
+          note: "❓上游氟化工原料供应，待补充"
+      midstream:
+        - segment: 电子特气（WF6/NF3等）
+          stocks:
+            - code: 600378.SH
+              name: 昊华科技
+          pumped: true
+        - segment: 三氟化氮/六氟化钨
+          stocks:
+            - code: 603938.SH
+              name: 三孚股份
+          pumped: false
+      downstream:
+        - segment: 半导体制造（蚀刻/沉积工艺）
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "六氟化钨涨 → 电子特气整体涨价 → 半导体材料估值重估"
+    pre_condition:
+      market: "全A量能>2.5万亿+非破位状态"
+      sector: "分歧日缩量回踩"
+      timing: "非连续涨停日"
+    max_active_candidates: 2
+
+  - id: tungsten_pcb_drill
+    name: 钨产业链/PCB钻针
+    up_first_mentioned: '2026-06-11'
+    up_mention_type: direction_call
+    current_stage: diverging
+    industry_chain:
+      upstream:
+        - segment: 钨矿开采
+          stocks: []
+          pumped: false
+          note: "❓上游钨矿：厦门钨业、章源钨业等，待确认"
+      midstream:
+        - segment: APT/碳化钨/钨粉
+          stocks:
+            - code: 000657.SZ
+              name: 中钨高新
+          pumped: true
+      downstream:
+        - segment: PCB微型钻针/硬质合金刀具
+          stocks: []
+          pumped: false
+          note: "❓下游钻针：鼎泰高科(301377创业不可交易)，还有其他主板标的吗？"
+    diffusion_path:
+      - "钨矿 → APT/碳化钨 → PCB钻针 → AI服务器PCB扩产"
+    pre_condition:
+      market: "全A量能>2.5万亿+非破位状态"
+      sector: "分歧后缩量企稳"
+      timing: "非钨板块集体涨停"
+    max_active_candidates: 2
+
+  - id: coke_coal_upcycle
+    name: 焦炭/煤炭涨价右侧信号
+    up_first_mentioned: '2026-06-14'
+    up_mention_type: signal_confirmation
+    current_stage: diverging
+    industry_chain:
+      upstream:
+        - segment: 焦煤/动力煤矿
+          stocks:
+            - code: 601001.SH
+              name: 晋控煤业
+          pumped: false
+      midstream:
+        - segment: 焦炭/煤炭一体化
+          stocks:
+            - code: 601699.SH
+              name: 潞安环能
+          pumped: false
+      downstream:
+        - segment: 钢铁/电力（需求端）
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "焦炭连续提涨 → 煤炭PPI转正 → 戴维斯双击"
+    pre_condition:
+      market: "全A量能>2.5万亿+非破位状态+全A中阳线"
+      sector: "焦炭期货价格持续上行+提涨落地"
+      timing: "非煤炭板块集体涨停"
+    max_active_candidates: 2
+
+  - id: optical_communication
+    name: 光通信/MPO/CPO — 光多通道替代电高速
+    up_first_mentioned: '2026-06-15'
+    up_mention_type: direction_call
+    current_stage: early_direction
+    industry_chain:
+      upstream:
+        - segment: 光芯片/ELS/CW激光器
+          stocks: []
+          pumped: false
+          note: "❓光芯片：源杰科技(688498)、长光华芯(688048)为科创，缺主板标的"
+        - segment: MT插芯/陶瓷插芯
+          stocks: []
+          pumped: false
+          note: "❓MT插芯：谁是主板上市的MT插芯龙头？待补充"
+      midstream:
+        - segment: 光模块/CPO/NPO
+          stocks:
+            - code: 002384.SZ
+              name: 东山精密
+          pumped: true
+        - segment: MPO连接器/光纤
+          stocks:
+            - code: 601869.SH
+              name: 长飞光纤
+          pumped: false
+        - segment: 光器件
+          stocks:
+            - code: 002281.SZ
+              name: 光迅科技
+          pumped: true
+      downstream:
+        - segment: 数据中心/AI集群互联
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "光芯片 → 光模块/NPO → MPO连接器 → 数据中心互联"
+    pre_condition:
+      market: "全A量能>2.5万亿+非破位状态"
+      sector: "等待结构性分化，不追一致"
+      timing: "非光通信板块集体涨停"
+    max_active_candidates: 3
+
+  - id: ocs_optical_switching
+    name: OCS光交换（AI算力互联新技术路径）
+    up_first_mentioned: '2026-05-06'
+    up_mention_type: direction_call
+    current_stage: early_direction
+    industry_chain:
+      upstream:
+        - segment: 薄膜铌酸锂晶体
+          stocks:
+            - code: 600330.SH
+              name: 天通股份
+          pumped: false
+          note: "❓天通股份薄膜铌酸锂业务占比小，PE为负，仅作观察"
+      midstream:
+        - segment: OCS全光交换设备
+          stocks:
+            - code: 002281.SZ
+              name: 光迅科技
+          pumped: true
+      downstream:
+        - segment: 谷歌TPU集群/AI数据中心
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "OCS试验→规模化商用(CAGR 58%) → 光交换设备放量"
+    pre_condition:
+      market: "全A量能>2.5万亿+非破位状态+全A中阳线"
+      sector: "谷歌Cloud Next大会催化/OCS商用化进展"
+      timing: "非OCS概念集体涨停"
+    max_active_candidates: 2
+
+  - id: mpo_optical_connector
+    name: MPO光连接器（光互联Scale-up放量下的无源弹性环节）
+    up_first_mentioned: '2026-06-15'
+    up_mention_type: direction_call
+    current_stage: early_direction
+    industry_chain:
+      upstream:
+        - segment: MT插芯/陶瓷插芯
+          stocks: []
+          pumped: false
+          note: "❓上游：MT插芯供应商，主板标的有谁？"
+      midstream:
+        - segment: MPO连接器制造/NPO
+          stocks:
+            - code: 002179.SZ
+              name: 中航光电
+          pumped: false
+        - segment: MPO通信设备
+          stocks:
+            - code: 603220.SH
+              name: 中贝通信
+          pumped: false
+          note: "❓中贝通信(603220)：主营通信网络技术，MPO占比待确认"
+        - segment: 光通信器件/MPO
+          stocks:
+            - code: 000070.SZ
+              name: 特发信息
+          pumped: false
+          note: "❓特发信息(000070)：光通信器件/ODN，MPO业务占比待确认"
+      downstream:
+        - segment: 数据中心/AI集群
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "800G/1.6T升级 → MPO用量倍增 → 连接器厂商受益"
+    pre_condition:
+      market: "全A量能>2.5万亿+非破位状态"
+      sector: "等待结构性分化（真龙头vs蹭概念）"
+      timing: "谷歌MPO订单/框架协议落地前不建仓"
+    max_active_candidates: 2
+
+  - id: equipment_packaging_catchup
+    name: 设备/封测补涨（涨价主线扩散方向）
+    up_first_mentioned: '2026-06-11'
+    up_mention_type: direction_call
+    current_stage: early_direction
+    industry_chain:
+      upstream:
+        - segment: 半导体设备零部件
+          stocks: []
+          pumped: false
+          note: "❓上游零部件，待补充"
+      midstream:
+        - segment: 半导体设备平台
+          stocks:
+            - code: 002371.SZ
+              name: 北方华创
+          pumped: false
+        - segment: 封测服务
+          stocks:
+            - code: 002156.SZ
+              name: 通富微电
+            - code: 000021.SZ
+              name: 深科技
+          pumped: false
+      downstream:
+        - segment: 晶圆代工/IDM
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "涨价链扩散 → 设备/封测补涨 → 全A中阳线为前置条件"
+    pre_condition:
+      market: "全A放量中阳线（核心前置条件）"
+      sector: "设备/封测板块尚未加速"
+      timing: "全A中阳线出现前不建仓"
+    max_active_candidates: 2
+
+  - id: chip_specialty
+    name: 芯片特种/FPGA（国产替代核心）
+    up_first_mentioned: '2026-06-11'
+    up_mention_type: direction_call
+    current_stage: early_direction
+    industry_chain:
+      upstream:
+        - segment: EDA/IP授权
+          stocks: []
+          pumped: false
+          note: "❓EDA/IP：主板EDA标的？"
+      midstream:
+        - segment: 特种芯片/FPGA设计
+          stocks:
+            - code: 002049.SZ
+              name: 紫光国微
+          pumped: false
+      downstream:
+        - segment: 国防/通信/工业
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "芯片（本轮行情母题）→ 指数反转后资金回流核心主线"
+    pre_condition:
+      market: "全A放量中阳线（唯一建仓前置条件）"
+      sector: "芯片板块整体回暖确认"
+      timing: "全A中阳线出现前不建仓"
+    max_active_candidates: 2
+
+  - id: memory_nor
+    name: 存储芯片（NOR Flash/DRAM涨价周期）
+    up_first_mentioned: '2026-06-11'
+    up_mention_type: direction_call
+    current_stage: diverging
+    industry_chain:
+      upstream:
+        - segment: 半导体设备/材料
+          stocks: []
+          pumped: false
+      midstream:
+        - segment: 存储芯片设计
+          stocks:
+            - code: 603986.SH
+              name: 兆易创新
+          pumped: true
+      downstream:
+        - segment: 模组/终端
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "存储涨价 → 芯片母题回流 → AI/数据中心需求驱动"
+    pre_condition:
+      market: "全A放量中阳线（唯一建仓前置条件）"
+      sector: "存储板块共振确认"
+      timing: "全A中阳线出现前不建仓"
+    max_active_candidates: 1
+
+  - id: copper_aluminum_shortage
+    name: 铜铝供给缺口（美伊协议触发器）
+    up_first_mentioned: '2026-06-15'
+    up_mention_type: direction_call
+    current_stage: early_direction
+    industry_chain:
+      upstream:
+        - segment: 铜矿/铝土矿
+          stocks:
+            - code: 601899.SH
+              name: 紫金矿业
+          pumped: false
+      midstream:
+        - segment: 铜铝冶炼
+          stocks: []
+          pumped: false
+          note: "❓中游冶炼：洛阳钼业(603993)等，待补充"
+      downstream:
+        - segment: 铜铝加工
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "美伊协议→霍尔木兹开放→LME铜铝跳涨→铜铝股重估"
+    pre_condition:
+      market: "美伊协议签署+LME铜跳涨+全A放量"
+      sector: "事件驱动型，不提前埋伏"
+      timing: "协议签署确认后右侧进场"
+    max_active_candidates: 1
+
+  - id: sk_hynix_adr
+    name: SK海力士ADR映射
+    up_first_mentioned: '2026-06-11'
+    up_mention_type: direction_call
+    current_stage: diverging
+    industry_chain:
+      upstream: []
+      midstream:
+        - segment: 海力士产业链（合资/关联）
+          stocks:
+            - code: 600667.SH
+              name: 太极实业
+          pumped: true
+      downstream: []
+    diffusion_path:
+      - "SK海力士8月赴美ADR → HBM4产能→ 太极实业估值重估"
+    pre_condition:
+      market: "弱市环境不宜追高"
+      sector: "SK海力士ADR上市进展"
+      timing: "缩量回踩MA10-MA20"
+    max_active_candidates: 1
+
+  - id: green_power_ai_electric
+    name: 绿电（AI算力→电力需求长逻辑）
+    up_first_mentioned: '2026-06-10'
+    up_mention_type: direction_call
+    current_stage: diverging
+    industry_chain:
+      upstream:
+        - segment: 发电设备/核电设备
+          stocks: []
+          pumped: false
+      midstream:
+        - segment: 绿电运营/AI电力
+          stocks:
+            - code: 603011.SH
+              name: 合锻智能
+          pumped: true
+          note: "❓合锻智能是核聚变概念，绿电运营的主板标的有哪些？"
+      downstream:
+        - segment: 电网/配电
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "AI算力→电力需求长逻辑→核电/绿电受益"
+    pre_condition:
+      market: "全A量能>2.5万亿+非破位状态"
+      sector: "绿电板块分歧后缩量"
+      timing: "UP说「不急于加仓」，等分歧"
+    max_active_candidates: 1
+
+  - id: photovoltaic_low_recovery
+    name: 光伏低位修复
+    up_first_mentioned: '2026-06-10'
+    up_mention_type: direction_call
+    current_stage: diverging
+    industry_chain:
+      upstream:
+        - segment: 硅料/设备
+          stocks: []
+          pumped: false
+      midstream:
+        - segment: 光伏组件/电池
+          stocks:
+            - code: 601012.SH
+              name: 隆基绿能
+            - code: 600732.SH
+              name: 爱旭股份
+          pumped: false
+      downstream:
+        - segment: 光伏电站
+          stocks:
+            - code: 002459.SZ
+              name: 晶澳科技
+          pumped: false
+    diffusion_path:
+      - "光伏见底修复→供需再平衡→龙头估值修复"
+    pre_condition:
+      market: "全A中阳线+缩量止跌"
+      sector: "光伏板块底部企稳+隆基/晶澳同步"
+      timing: "缩量止跌不创新低+均线金叉"
+    max_active_candidates: 2
+
+  # ── 纯观察方向（无主板可交易标的，仅作方向跟踪） ─────────
+
+  - id: commercial_aerospace
+    name: 商业航天
+    up_first_mentioned: '2026-06-10'
+    up_mention_type: direction_call
+    current_stage: early_direction
+    industry_chain:
+      upstream: []
+      midstream: []
+      downstream: []
+    diffusion_path: []
+    pre_condition:
+      market: "情景B天然对冲配置"
+      sector: "适合底仓+大波段"
+      timing: "不适合追涨"
+    max_active_candidates: 0
+    note: "无主板可交易标的。有研粉材(688456)为科创不可交易。仅方向跟踪。"
+
+  - id: pharmaceutical_innovation
+    name: 医药/创新药
+    up_first_mentioned: '2026-06-10'
+    up_mention_type: direction_call
+    current_stage: diverging
+    industry_chain:
+      upstream: []
+      midstream: []
+      downstream: []
+    diffusion_path: []
+    pre_condition:
+      market: "跌透了等反弹"
+      sector: "非逻辑反转，用ETF做beta"
+      timing: ""
+    max_active_candidates: 0
+    note: "无具体标的推荐。医药ETF更适合参与。"
+
+  - id: securities_bottom
+    name: 证券
+    up_first_mentioned: '2026-06-10'
+    up_mention_type: direction_call
+    current_stage: early_direction
+    industry_chain:
+      upstream: []
+      midstream: []
+      downstream: []
+    diffusion_path: []
+    pre_condition:
+      market: "等月线两根强阳确认右侧"
+      sector: "底部特征成立但无独立行情"
+      timing: "不适合提前埋伏"
+    max_active_candidates: 0
+    note: "底部特征成立但无独立行情，不适合提前埋伏。"
+
+  - id: robot_observation
+    name: 机器人
+    up_first_mentioned: '2026-06-10'
+    up_mention_type: direction_call
+    current_stage: early_direction
+    industry_chain:
+      upstream: []
+      midstream: []
+      downstream: []
+    diffusion_path: []
+    pre_condition:
+      market: "观察名单而非配置名单"
+      sector: "等放量站稳60日线"
+      timing: "分歧大、未形成趋势"
+    max_active_candidates: 0
+    note: "分歧大、未形成趋势，暂不设标的。"
