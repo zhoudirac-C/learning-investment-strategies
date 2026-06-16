@@ -432,6 +432,7 @@ def format_multi_tf_macd_report(
         codes = ["sh000985", "sh000001"]
     index_names = {
         "sh000001": "上证指数", "sh000985": "中证全指",
+        "sh000932": "中证2000",
     }
     tf_order = ["daily", "120min", "90min", "60min", "30min"]
     tf_names = {"daily": "日线", "120min": "120分钟", "90min": "90分钟", "60min": "60分钟", "30min": "30分钟"}

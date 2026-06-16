@@ -172,7 +172,7 @@ def fetch_stock_quotes(codes: list[str]) -> list[dict]:
 
 def fetch_index_quotes() -> list[dict]:
     """获取主要指数行情。"""
-    return fetch_stock_quotes(["sh000001", "sz399001", "sz399006", "sh000688", "sh000985"])
+    return fetch_stock_quotes(["sh000001", "sz399001", "sz399006", "sh000688", "sh000985", "sh000932"])
 
 
 def fetch_single_stock(code: str) -> dict | None:
