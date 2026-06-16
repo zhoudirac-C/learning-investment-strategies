@@ -8,7 +8,7 @@ import subprocess
 import time as time_module
 import urllib.parse
 import urllib.request
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, time
 from pathlib import Path
 from typing import Any
@@ -198,6 +198,8 @@ class MonitorConfig:
     watchlist: dict
     strategy_pack: dict
     positions_path: Path
+    direction_pool: dict = field(default_factory=dict)
+    stock_pool: dict = field(default_factory=dict)
 
     def get(self, key: str, default: Any = None) -> Any:
         """模拟 dict.get() 以兼容 RuleEngine。"""
@@ -207,6 +209,10 @@ class MonitorConfig:
             return self.watchlist
         if key == "strategy_pack":
             return self.strategy_pack
+        if key == "direction_pool":
+            return self.direction_pool
+        if key == "stock_pool":
+            return self.stock_pool
         if key == "config_dir":
             return str(self.config_dir)
         if key == "positions_path":
@@ -410,7 +416,8 @@ def evaluate_buy_signal_candidates(
     原实现已迁移，保留函数签名以保持向后兼容。"""
     from qing_investment.monitor.rules import BuySignalRuleEngine
     engine = BuySignalRuleEngine()
-    return engine._evaluate_candidates(config.strategy_pack if hasattr(config, 'strategy_pack') else config, quote_snapshot)
+    # 传入完整 config（含 stock_pool / direction_pool），兼容 dict 类型
+    return engine._evaluate_candidates(config if hasattr(config, 'get') else config, quote_snapshot)
 
 
 def evaluate_buy_signal_alerts(
@@ -990,7 +997,7 @@ def format_agent_json_context(*args) -> str:
         try:
             from qing_investment.monitor.rules import BuySignalRuleEngine
             engine = BuySignalRuleEngine()
-            cfg = config.strategy_pack if hasattr(config, 'strategy_pack') else config
+            cfg = config if hasattr(config, 'get') else config
             raw_candidates = engine._evaluate_candidates(cfg, snapshot)
             for c in raw_candidates:
                 if getattr(c, 'is_candidate', False):
@@ -1023,6 +1030,8 @@ def format_agent_json_context(*args) -> str:
             "market_framework": config.strategy_pack.get("market_framework", {}),
             "state": state,
             "buy_signal_candidates": buy_signal_candidates,
+            "direction_pool": getattr(config, "direction_pool", {}),
+            "stock_pool": getattr(config, "stock_pool", {}),
         }
         return _new_format(data)
     return _new_format(args[0])

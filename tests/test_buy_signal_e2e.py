@@ -46,6 +46,11 @@ class TestBuySignalE2E:
                                 "name": "平安银行",
                                 "buy_setup": "10.0-11.0",
                                 "invalidation_setup": "9.5",
+                                "pre_condition": {
+                                    "market_actionable": True,
+                                    "sector_diverged": True,
+                                    "market_gate_note": "测试大盘备注",
+                                },
                             }
                         ],
                     }
@@ -67,6 +72,47 @@ class TestBuySignalE2E:
                         "odds_analysis": {"upside_pct": 15, "downside_pct": 5},
                     }
                 ],
+            },
+            stock_pool={
+                "stocks": [
+                    {
+                        "code": "000001",
+                        "name": "平安银行",
+                        "direction": "test_dir",
+                        "chain_position": "midstream",
+                        "entry": {"primary_zone": [10.0, 11.0]},
+                        "pre_condition": {
+                            "sector_diverged": True,
+                            "market_actionable": True,
+                        },
+                    }
+                ]
+            },
+            direction_pool={
+                "directions": [
+                    {
+                        "id": "test_dir",
+                        "name": "测试方向",
+                        "current_stage": "diverging",
+                        "pre_condition": {"market": "测试市场条件"},
+                        "industry_chain": {
+                            "upstream": [
+                                {
+                                    "segment": "测试上游",
+                                    "stocks": [{"code": "000002.SZ", "name": "测试上游股"}],
+                                    "pumped": False,
+                                }
+                            ],
+                            "midstream": [
+                                {
+                                    "segment": "测试中游",
+                                    "stocks": [{"code": "000001", "name": "平安银行"}],
+                                    "pumped": True,
+                                }
+                            ],
+                        },
+                    }
+                ]
             },
         )
 
@@ -102,6 +148,18 @@ class TestBuySignalE2E:
     def test_evaluate_buy_signal_candidates_rejects_when_price_out_of_zone(self):
         """候选检测：价格不在区间内 → 不是候选。"""
         config = self._make_config()
+        # 显式关闭前置条件，确保价格不在区间时总满足条件 < 5
+        config.stock_pool = {
+            "stocks": [
+                {
+                    "code": "000001",
+                    "pre_condition": {
+                        "sector_diverged": False,
+                        "market_actionable": False,
+                    },
+                }
+            ]
+        }
         snapshot = self._make_quote_snapshot(price=12.0, pct_change=1.5)
 
         candidates = evaluate_buy_signal_candidates(config, snapshot)
@@ -181,6 +239,12 @@ class TestBuySignalE2E:
         candidate = data["buy_signal_candidates"][0]
         assert candidate["stock_code"] == "000001"
         assert candidate["entry_zone"] == [10.0, 11.0]
+        assert candidate.get("pre_condition") == "大盘可操作；板块首次分歧；备注：测试大盘备注"
+        assert data["direction_state"]["direction_id"] == "test_dir"
+        assert "current_stage" in data["direction_state"]
+        assert data["direction_state"]["chain_position"] == "midstream"
+        assert "chain_alternatives" in candidate
+        assert any(a["code"] == "000002.SZ" for a in candidate["chain_alternatives"])
 
     def test_json_context_fallback_to_market_for_regular_alert(self):
         """JSON payload：普通 alert → analysis_type="market"。"""

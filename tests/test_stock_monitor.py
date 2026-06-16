@@ -242,6 +242,29 @@ def test_load_monitor_config_counts_rows(tmp_path):
     assert watchlist_stock_rows(config)[0]["theme_id"] == "domestic_compute"
 
 
+def test_watchlist_key_candidates_have_pre_condition():
+    """P0-1: key entry candidates expose pre_condition for rule engine."""
+    repo_root = Path(__file__).resolve().parents[1]
+    config = load_monitor_config(repo_root / "config" / "stock_monitor")
+
+    stocks_by_code: dict[str, dict] = {}
+    for theme in config.watchlist.get("themes", []):
+        for stock in theme.get("stocks", []):
+            code = stock.get("code")
+            if code:
+                stocks_by_code[code] = stock
+
+    for code in ["000636.SZ", "600110.SH", "002384.SZ"]:
+        assert code in stocks_by_code, f"{code} not found in watchlist"
+        pre = stocks_by_code[code].get("pre_condition")
+        assert pre is not None, f"{code} missing pre_condition"
+        assert pre.get("market_actionable") is True
+        assert pre.get("sector_diverged") is True
+        assert pre.get("no_consecutive_limit_up") is True
+        assert "market_gate_note" in pre
+        assert "sector_gate_note" in pre
+
+
 def test_status_message_summarizes_config(tmp_path):
     config = load_monitor_config(make_config_dir(tmp_path))
 
@@ -1393,3 +1416,98 @@ def test_tick_passes_dedupe_by_type_from_config(tmp_path):
 
     assert "[Hermes股票监控提醒]" in first
     assert second == ""  # suppressed by global dedupe
+
+
+def test_strategy_pack_contains_market_gate_rules(tmp_path):
+    config_dir = make_rule_config_dir(tmp_path)
+    # 手动追加 market_gate_rules 到 strategy_pack.yaml
+    sp_path = config_dir / "strategy_pack.yaml"
+    sp = yaml.safe_load(sp_path.read_text(encoding="utf-8"))
+    sp.setdefault("market_gate_rules", {
+        "index_checks": [{"index": "上证指数", "condition": "not_close_below", "level": 3950}],
+        "actionable_min_pass": 2,
+    })
+    sp_path.write_text(yaml.safe_dump(sp, allow_unicode=True), encoding="utf-8")
+
+    config = load_monitor_config(config_dir)
+    mgr = config.strategy_pack.get("market_gate_rules", {})
+    assert "index_checks" in mgr
+    assert mgr.get("actionable_min_pass") == 2
+
+
+def test_direction_pool_yaml_is_valid(tmp_path):
+    """direction_pool.yaml 必须能被 PyYAML 解析且包含至少一个方向。"""
+    repo_root = Path(__file__).resolve().parents[1]
+    dp_path = repo_root / "config" / "stock_monitor" / "direction_pool.yaml"
+    assert dp_path.exists(), "direction_pool.yaml should exist"
+    data = yaml.safe_load(dp_path.read_text(encoding="utf-8"))
+    assert "directions" in data
+    assert len(data["directions"]) >= 1
+    first = data["directions"][0]
+    assert "id" in first
+    assert "industry_chain" in first
+    assert "pre_condition" in first
+
+
+def test_stock_pool_yaml_is_valid(tmp_path):
+    """stock_pool.yaml 必须能被 PyYAML 解析且每个标的有 direction。"""
+    repo_root = Path(__file__).resolve().parents[1]
+    sp_path = repo_root / "config" / "stock_monitor" / "stock_pool.yaml"
+    assert sp_path.exists(), "stock_pool.yaml should exist"
+    data = yaml.safe_load(sp_path.read_text(encoding="utf-8"))
+    assert "stocks" in data
+    assert len(data["stocks"]) >= 1
+    first = data["stocks"][0]
+    assert "code" in first
+    assert "direction" in first
+    assert "entry" in first
+    assert "pre_condition" in first
+
+
+def test_load_monitor_config_loads_direction_and_stock_pool(tmp_path):
+    config_dir = make_config_dir(tmp_path)
+    # 写入最小 direction_pool / stock_pool
+    write_yaml(
+        config_dir / "direction_pool.yaml",
+        {"directions": [{"id": "test_dir", "name": "测试方向"}]},
+    )
+    write_yaml(
+        config_dir / "stock_pool.yaml",
+        {"stocks": [{"code": "000021.SZ", "name": "深科技", "direction": "test_dir"}]},
+    )
+
+    config = load_monitor_config(config_dir)
+    assert config.direction_pool["directions"][0]["id"] == "test_dir"
+    assert config.stock_pool["stocks"][0]["direction"] == "test_dir"
+
+
+def test_run_tick_respects_market_gate(tmp_path):
+    """当全A指数破位且量能不足时，run_tick 跳过买入信号（保留风控/指数提醒）。"""
+    config_dir = make_rule_config_dir(tmp_path)
+    sp_path = config_dir / "strategy_pack.yaml"
+    sp = yaml.safe_load(sp_path.read_text(encoding="utf-8"))
+    sp["market_gate_rules"] = {
+        "index_checks": [{"index": "全A指数", "condition": "not_close_below", "level": 7000}],
+        "volume_checks": [{"metric": "total_amount", "condition": "greater_than", "threshold": 2_500_000_000_000}],
+    }
+    sp_path.write_text(yaml.safe_dump(sp, allow_unicode=True), encoding="utf-8")
+
+    config = load_monitor_config(config_dir)
+    message = run_tick(
+        config,
+        datetime(2026, 5, 22, 10, 0, tzinfo=CN_TZ),
+        emit_status=False,
+        ignore_trading_time=False,
+        quote_fetcher=lambda _targets: {
+            "source": "test",
+            "quotes": [
+                {"label": "全A指数", "code": "000985", "latest": 6500, "pct_change": -4.0},
+                {"label": "上证指数", "code": "000001", "latest": 3900, "pct_change": -3.5},
+            ],
+            "errors": [],
+        },
+        state_path=tmp_path / "state.json",
+        dedupe_minutes=30,
+    )
+    # 市场门控不通过 → 买入候选被过滤，但指数/风控规则仍可输出
+    assert "机会候选" not in message

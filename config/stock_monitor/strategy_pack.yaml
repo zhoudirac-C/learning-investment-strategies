@@ -66,7 +66,33 @@ market_framework:
   - 情绪核心无法浮出（MLCC/铜箔冲高回落无回流）→深度不足，不加仓
   - 6/17 FOMC加息信号强化→市场情绪急转
   - 全A指数收阴且30分钟不能收回→防守
-  direction_priority:
+
+market_gate_rules:
+  index_checks:
+    - index: "全A指数"
+      condition: "not_close_below"
+      level: 6000
+      note: "全A等权指数破位警戒线"
+    - index: "上证指数"
+      condition: "not_close_below"
+      level: 3950
+      note: "月线趋势防线"
+  volume_checks:
+    - metric: "total_amount"
+      condition: "greater_than"
+      threshold: 2500000000000
+      note: "两市总成交额>2.5万亿"
+  defense_day_checks:
+    - type: "bank_insurance_leading"
+      action: "defense_day"
+      note: "银行保险领涨→防守日，不买入"
+  actionable_min_pass: 2
+  bias_map:
+    pass_3: "可操作"
+    pass_2: "谨慎"
+    pass_1_or_0: "观望"
+
+direction_priority:
   - direction: 🥇 铜箔（HVLP4代铜箔-诺德股份600110）
     intensity: 强 🏆
     trigger: 分歧日回踩12~13区间不破承接好→买入；若直接高开封板则放弃等第二天

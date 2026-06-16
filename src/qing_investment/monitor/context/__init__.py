@@ -42,6 +42,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from qing_investment.monitor.chain_scanner import ChainAwareScanner
+
 logger = logging.getLogger(__name__)
 
 
@@ -831,6 +833,50 @@ def format_agent_analysis_context(*args) -> str:
     return "\n".join(lines)
 
 
+def _extract_pre_condition_text(stock_row: dict) -> str:
+    """从 watchlist stock 行提取 pre_condition 为可读文本。"""
+    pc = stock_row.get("pre_condition") or {}
+    if not pc:
+        return ""
+    parts: list[str] = []
+    if pc.get("market_actionable"):
+        parts.append("大盘可操作")
+    if pc.get("sector_diverged"):
+        parts.append("板块首次分歧")
+    if pc.get("no_consecutive_limit_up"):
+        parts.append("非连续涨停")
+    note = pc.get("market_gate_note") or pc.get("sector_gate_note")
+    if note:
+        parts.append(f"备注：{note}")
+    return "；".join(parts) if parts else ""
+
+
+def _build_direction_state(direction_pool: dict, stock_pool: dict, stock_code: str) -> dict:
+    """查找某只股票所属方向的状态。"""
+    code_norm = _pure_stock_code(stock_code)
+    matched_stock: dict | None = None
+    for stock in (stock_pool or {}).get("stocks", []) or []:
+        if _pure_stock_code(str(stock.get("code", ""))) == code_norm:
+            matched_stock = stock
+            break
+
+    if matched_stock is None:
+        return {"direction_id": "", "direction_name": ""}
+
+    direction_id = matched_stock.get("direction", "")
+    for direction in (direction_pool or {}).get("directions", []) or []:
+        if direction.get("id") == direction_id:
+            return {
+                "direction_id": direction_id,
+                "direction_name": direction.get("name", ""),
+                "current_stage": direction.get("current_stage", ""),
+                "chain_position": matched_stock.get("chain_position", ""),
+                "diffusion_path": direction.get("diffusion_path", []),
+                "pre_condition": direction.get("pre_condition", {}),
+            }
+    return {"direction_id": direction_id, "direction_name": ""}
+
+
 def format_agent_json_context(data: dict) -> str:
     """将 agent 分析数据结构化为 JSON 字符串。
 
@@ -863,6 +909,45 @@ def format_agent_json_context(data: dict) -> str:
     output = {k: v for k, v in data.items() if k != "quote_snapshot"}
     output["analysis_type"] = analysis_type
     output["stock_code"] = stock_code
+
+    # 为买入候选注入 pre_condition 文本
+    watchlist_rows: dict[str, dict] = {}
+    watchlist = data.get("watchlist") or {}
+    if isinstance(watchlist, dict):
+        for row in watchlist.get("stocks", []) or []:
+            watchlist_rows[str(row.get("code", ""))] = row
+        for theme in watchlist.get("themes", []) or []:
+            for stock in theme.get("stocks", []) or []:
+                watchlist_rows[str(stock.get("code", ""))] = stock
+
+    for candidate in output.get("buy_signal_candidates", []) or []:
+        code = str(candidate.get("stock_code", ""))
+        candidate["pre_condition"] = _extract_pre_condition_text(watchlist_rows.get(code, {}))
+
+    # 注入方向状态
+    direction_pool = data.get("direction_pool", {})
+    stock_pool = data.get("stock_pool", {})
+    if stock_code and direction_pool and stock_pool:
+        output["direction_state"] = _build_direction_state(direction_pool, stock_pool, stock_code)
+
+    # 为买入候选附加同产业链替代标的
+    scanner = ChainAwareScanner()
+    for candidate in output.get("buy_signal_candidates", []) or []:
+        code = str(candidate.get("stock_code", ""))
+        direction_id = ""
+        for stock in (stock_pool or {}).get("stocks", []) or []:
+            if str(stock.get("code", "")) == code:
+                direction_id = stock.get("direction", "")
+                break
+        for direction in (direction_pool or {}).get("directions", []) or []:
+            if direction.get("id") == direction_id:
+                alts = scanner.find_alternatives(code, direction)
+                candidate["chain_alternatives"] = [
+                    {"code": a.code, "name": a.name, "chain_position": a.chain_position, "reason": a.reason}
+                    for a in alts
+                ]
+                break
+
     return json.dumps(output, ensure_ascii=False, indent=2, default=str)
 
 
@@ -908,12 +993,17 @@ def load_monitor_config(path: str | Path) -> Any:
     if not positions_path.exists():
         positions_path = config_dir / "positions.example.yaml"
 
+    direction_pool_path = config_dir / "direction_pool.yaml"
+    stock_pool_path = config_dir / "stock_pool.yaml"
+
     return MonitorConfig(
         config_dir=config_dir,
         positions=load_yaml(positions_path),
         watchlist=load_yaml(config_dir / "watchlist.yaml"),
         strategy_pack=load_yaml(config_dir / "strategy_pack.yaml"),
         positions_path=positions_path,
+        direction_pool=load_yaml(direction_pool_path),
+        stock_pool=load_yaml(stock_pool_path),
     )
 
 

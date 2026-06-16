@@ -1753,7 +1753,8 @@ def run_tick(
     to parallelize data source fetching (行情/龙虎榜) and adds TTL caching.
     """
     # Lazy imports
-    from qing_investment.monitor.rules import evaluate_monitor_alerts
+    from qing_investment.monitor.rules import RuleEngine, evaluate_monitor_alerts
+    from qing_investment.monitor.gates import MarketGate, SectorGate
     from qing_investment.stock_monitor import evaluate_buy_signal_candidates
     from qing_investment.monitor.fetchers import collect_quote_targets, fetch_quotes_with_fallback as _local_fetch
     from qing_investment.monitor.output import filter_new_alerts, record_emitted_alerts, format_alerts_message
@@ -1790,8 +1791,27 @@ def run_tick(
         "entry_points": _sp.get("entry_points", []) or getattr(config, "entry_points", []),
         "market_framework": _sp.get("market_framework", {}) or getattr(config, "market_framework", {}),
         "sector_groups": _sp.get("sector_groups", []) or getattr(config, "sector_groups", []),
+        "direction_pool": getattr(config, "direction_pool", {}),
+        "stock_pool": getattr(config, "stock_pool", {}),
     }
-    alerts = evaluate_monitor_alerts(_cfg_dict, quote_snapshot, current_time=value)
+
+    # ── Phase 2: 市场门控 + 板块门控 ──
+    market_gate = MarketGate()
+    market_result = market_gate.evaluate(_cfg_dict, quote_snapshot)
+    sector_gate = SectorGate()
+    sector_results: dict[str, Any] = {}
+    for direction in (config.direction_pool or {}).get("directions", []) or []:
+        did = direction.get("id", "")
+        sector_results[did] = sector_gate.evaluate(direction)
+
+    engine = RuleEngine()
+    alerts = engine.evaluate(
+        _cfg_dict,
+        quote_snapshot,
+        current_time=value,
+        market_gate_result=market_result,
+        sector_gate_results=sector_results,
+    )
     resolved_state_path = state_path or config.config_dir / "state.json"
     state = load_monitor_state(resolved_state_path)
     state["version"] = 1
@@ -1881,6 +1901,8 @@ def run_tick(
             "quote_snapshot": quote_snapshot,
             "positions": config.positions,
             "watchlist": config.watchlist,
+            "direction_pool": config.direction_pool,
+            "stock_pool": config.stock_pool,
             "market_framework": config.strategy_pack.get("market_framework", {}),
             "state": state,
             "market_state": state.get("last_market_state", {}),
