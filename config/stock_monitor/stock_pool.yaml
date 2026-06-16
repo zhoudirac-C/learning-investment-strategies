@@ -1028,6 +1028,265 @@ stocks:
     note: "高价+高PE(118x)，严格控仓"
     fallback: []
 
+  # ── 绿电运营 ──────────────────────────────────
+
+  # 纯新能源运营（风光）
+  - code: 600905.SH
+    name: 三峡能源
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "三峡集团新能源旗舰，海上风电龙头，绿电核心底仓"
+    entry:
+      primary_zone: [5.5, 6.5]
+      method: "均线法"
+      hard_stop: 4.8
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 001289.SZ
+    name: 龙源电力
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "全球风电运营龙头，陆上风电规模第一"
+    entry:
+      primary_zone: [18.0, 22.0]
+      method: "均线法"
+      hard_stop: 15.5
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 601016.SH
+    name: 节能风电
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "中节能纯正风电运营，盈利稳定高分红"
+    entry:
+      primary_zone: [3.5, 4.5]
+      method: "均线法"
+      hard_stop: 3.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 000591.SZ
+    name: 太阳能
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "中节能光伏运营旗舰，集中式光伏为主"
+    entry:
+      primary_zone: [5.0, 6.0]
+      method: "均线法"
+      hard_stop: 4.2
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  # 火电转型绿电
+  - code: 601991.SH
+    name: 大唐发电
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "大唐核心平台，全国首个算电协同绿电直供项目"
+    entry:
+      primary_zone: [3.0, 3.8]
+      method: "均线法"
+      hard_stop: 2.5
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 600011.SH
+    name: 华能国际
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "国内装机规模最大，新能源装机高增"
+    entry:
+      primary_zone: [8.0, 10.0]
+      method: "均线法"
+      hard_stop: 7.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 600027.SH
+    name: 华电国际
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "华电核心平台，火电+新能源双轮驱动"
+    entry:
+      primary_zone: [6.0, 7.5]
+      method: "均线法"
+      hard_stop: 5.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 600795.SH
+    name: 国电电力
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "国家能源集团核心平台，多元布局+大基地"
+    entry:
+      primary_zone: [5.0, 6.5]
+      method: "均线法"
+      hard_stop: 4.2
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 000875.SZ
+    name: 电投绿能
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "国家电投东北区域，风光占比超火电，氢储新业态"
+    entry:
+      primary_zone: [5.5, 7.0]
+      method: "均线法"
+      hard_stop: 4.5
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 600021.SH
+    name: 上海电力
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "长三角核心平台，海上风电+分布式光伏+虚拟电厂"
+    entry:
+      primary_zone: [9.0, 11.0]
+      method: "均线法"
+      hard_stop: 7.5
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  # 水电核心
+  - code: 600900.SH
+    name: 长江电力
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "全球最大水电，现金流断层领先，绿电压舱石"
+    entry:
+      primary_zone: [28.0, 32.0]
+      method: "均线法"
+      hard_stop: 24.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  # 地方国资
+  - code: 600163.SH
+    name: 中闽能源
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "福建海上风电核心，无火电包袱纯绿电"
+    entry:
+      primary_zone: [5.5, 7.0]
+      method: "均线法"
+      hard_stop: 4.5
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 600483.SH
+    name: 福能股份
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "福建海上风电+热电，区域工业用电旺盛"
+    entry:
+      primary_zone: [9.0, 11.0]
+      method: "均线法"
+      hard_stop: 7.5
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  # 民营算电协同
+  - code: 002015.SZ
+    name: 协鑫能科
+    direction: green_power_ai_electric
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "风光绿电+储能+算力直供100%覆盖，算电协同核心弹性标的"
+    entry:
+      primary_zone: [14.0, 18.0]
+      method: "均线法"
+      hard_stop: 11.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
   # ── 铜铝供给缺口 ──────────────────────────────────
 
   - code: 601899.SH
