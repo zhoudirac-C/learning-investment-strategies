@@ -79,11 +79,22 @@ class TestBuySignalE2E:
                         "code": "000001",
                         "name": "平安银行",
                         "direction": "test_dir",
+                        "chain_position": "midstream",
                         "entry": {"primary_zone": [10.0, 11.0]},
                         "pre_condition": {
                             "sector_diverged": True,
                             "market_actionable": True,
                         },
+                    }
+                ]
+            },
+            direction_pool={
+                "directions": [
+                    {
+                        "id": "test_dir",
+                        "name": "测试方向",
+                        "current_stage": "diverging",
+                        "pre_condition": {"market": "测试市场条件"},
                     }
                 ]
             },
@@ -215,6 +226,9 @@ class TestBuySignalE2E:
         assert candidate["stock_code"] == "000001"
         assert candidate["entry_zone"] == [10.0, 11.0]
         assert candidate.get("pre_condition") == "大盘可操作；板块首次分歧；备注：测试大盘备注"
+        assert data["direction_state"]["direction_id"] == "test_dir"
+        assert "current_stage" in data["direction_state"]
+        assert data["direction_state"]["chain_position"] == "midstream"
 
     def test_json_context_fallback_to_market_for_regular_alert(self):
         """JSON payload：普通 alert → analysis_type="market"。"""

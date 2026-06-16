@@ -1883,6 +1883,8 @@ def run_tick(
             "quote_snapshot": quote_snapshot,
             "positions": config.positions,
             "watchlist": config.watchlist,
+            "direction_pool": config.direction_pool,
+            "stock_pool": config.stock_pool,
             "market_framework": config.strategy_pack.get("market_framework", {}),
             "state": state,
             "market_state": state.get("last_market_state", {}),

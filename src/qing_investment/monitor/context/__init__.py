@@ -849,6 +849,32 @@ def _extract_pre_condition_text(stock_row: dict) -> str:
     return "；".join(parts) if parts else ""
 
 
+def _build_direction_state(direction_pool: dict, stock_pool: dict, stock_code: str) -> dict:
+    """查找某只股票所属方向的状态。"""
+    code_norm = _pure_stock_code(stock_code)
+    matched_stock: dict | None = None
+    for stock in (stock_pool or {}).get("stocks", []) or []:
+        if _pure_stock_code(str(stock.get("code", ""))) == code_norm:
+            matched_stock = stock
+            break
+
+    if matched_stock is None:
+        return {"direction_id": "", "direction_name": ""}
+
+    direction_id = matched_stock.get("direction", "")
+    for direction in (direction_pool or {}).get("directions", []) or []:
+        if direction.get("id") == direction_id:
+            return {
+                "direction_id": direction_id,
+                "direction_name": direction.get("name", ""),
+                "current_stage": direction.get("current_stage", ""),
+                "chain_position": matched_stock.get("chain_position", ""),
+                "diffusion_path": direction.get("diffusion_path", []),
+                "pre_condition": direction.get("pre_condition", {}),
+            }
+    return {"direction_id": direction_id, "direction_name": ""}
+
+
 def format_agent_json_context(data: dict) -> str:
     """将 agent 分析数据结构化为 JSON 字符串。
 
@@ -895,6 +921,12 @@ def format_agent_json_context(data: dict) -> str:
     for candidate in output.get("buy_signal_candidates", []) or []:
         code = str(candidate.get("stock_code", ""))
         candidate["pre_condition"] = _extract_pre_condition_text(watchlist_rows.get(code, {}))
+
+    # 注入方向状态
+    direction_pool = data.get("direction_pool", {})
+    stock_pool = data.get("stock_pool", {})
+    if stock_code and direction_pool and stock_pool:
+        output["direction_state"] = _build_direction_state(direction_pool, stock_pool, stock_code)
 
     return json.dumps(output, ensure_ascii=False, indent=2, default=str)
 

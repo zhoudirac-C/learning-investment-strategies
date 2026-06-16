@@ -997,7 +997,7 @@ def format_agent_json_context(*args) -> str:
         try:
             from qing_investment.monitor.rules import BuySignalRuleEngine
             engine = BuySignalRuleEngine()
-            cfg = config.strategy_pack if hasattr(config, 'strategy_pack') else config
+            cfg = config if hasattr(config, 'get') else config
             raw_candidates = engine._evaluate_candidates(cfg, snapshot)
             for c in raw_candidates:
                 if getattr(c, 'is_candidate', False):
@@ -1030,6 +1030,8 @@ def format_agent_json_context(*args) -> str:
             "market_framework": config.strategy_pack.get("market_framework", {}),
             "state": state,
             "buy_signal_candidates": buy_signal_candidates,
+            "direction_pool": getattr(config, "direction_pool", {}),
+            "stock_pool": getattr(config, "stock_pool", {}),
         }
         return _new_format(data)
     return _new_format(args[0])
