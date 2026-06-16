@@ -1,6 +1,7 @@
-updated_at: 2026-06-15T23:30
+updated_at: 2026-06-16T08:58
 source_claims:
 - knowledge/claims/claim-20260615-004-to-023.yaml
+- knowledge/claims/claim-20260616-001-to-013.yaml
 - knowledge/claims/claim-20260614-001.yaml
 - knowledge/claims/claim-20260612-001.yaml
 - knowledge/claims/claim-20260611-001.yaml
@@ -46,15 +47,17 @@ source_claims:
 - knowledge/claims/claim-20260502-001.yaml
 - knowledge/claims/claim-20260501-001.yaml
 market_framework:
-  current_stage: 缩量修复待验证 — 6/15全A中阳+AI硬科技普涨，上午UP给出条件「站上4088可满仓干」，收盘大概率触发。但晚间复盘强调两个隐忧：①缩量（量能未维持3万亿+）②AI内部聚焦度不够（普涨无核心）。因此6/16是关键验证日，看两点：尾盘补涨（广度）+情绪核心出现（深度）。量能为唯一裁判。
-  core_question: 6/16能否验证UP的两条线索？——①AI震荡时尾盘股是否强势补涨 ②MLCC/光模块能否浮出情绪核心（风华高科/东山精密候选）。同时注意6/17 FOMC点阵图（加息55%概率）。
+  current_stage: 6/16分歧验证日 — 6/15全A中阳+AI硬科技普涨，站上4088条件触发。但缩量+无核心使修复性质偏弱。6/16是分歧日：科技股昨天该涨的都涨了，今天看承接（去弱留强），同时确认UP两条线索——尾盘补涨（广度）+情绪核心（深度）。分歧日不追高，等10:00-10:30方向确认再动。
+  core_question: 6/16分歧日如何演绎？——①早盘冲高后能否有承接（不要开盘追）②铜箔/MLCC/光通信中谁能成为情绪核心 ③诺德股份（HVLP4铜箔）分歧日给不给回踩上车机会 ④量能能否维持3万亿+，缩量则降低仓位预期
   up_quote: 「6/15早盘：站上4088，具备交易能力和理想的可以满仓干。不知道做什么、问方向个股的继续躺。晚间复盘：普涨而无核心是修复性回流非情绪进攻，缩量+聚焦度不足。明天关键：尾盘补涨验证广度，情绪核心验证深度。」
   key_assumptions:
   - 6/15修复是事实，但缩量+无核心=性质偏弱。6/16必须验证两线索：尾盘补涨（广度）+情绪核心（深度）
+  - 6/16是分歧日，早盘冲高不应追，应等回踩确认承接后再动手
+  - 分歧日通常是好的上车机会（诺德铜箔/风华MLCC回踩是机会不是风险）
   - 科技股博弈重心正从题材想象转向业绩验证，中报窗口临近博弈前移
-  - UP 09:45 条件式满仓：站上4088→可以满仓，但限「具备交易能力者」，「问方向个股的继续躺」
-  - UP 12:39 MPO概念股全梳理→光通信产业链是当前确定性最强的扩散方向
-  - MLCC四大龙头确认超越2018超级周期，本轮是AI驱动的结构性缺货非全品类普涨
+  - 诺德股份（600110）HVLP4代铜箔订单排至2027下半年，铜箔是AI硬件中弹性最好的细分之一
+  - 锂电中报高增预期（亿纬锂能超预期），蔚蓝锂芯（002245）主板可跟踪
+  - 焦炭涨价右侧信号已现（潞安环能601699），6/15煤炭走弱正好给回踩机会
   invalidation_conditions:
   - 6/16量能继续萎缩→推翻修复预期，维持轻仓
   - 微盘股破位→拖累全A→拖累AI科技，需持续监控
@@ -62,11 +65,26 @@ market_framework:
   - 6/17 FOMC加息信号强化→市场情绪急转
   - 全A指数继续破位且30分钟不能收回→防守
   direction_priority:
-  - direction: MLCC超级周期（风华高科/博迁新材/火炬电子）
+  - direction: 🥇 铜箔（HVLP4代铜箔-诺德股份600110）
     intensity: 强 🏆
-  - direction: 光通信/MPO/CPO（东山精密/光迅科技/长飞光纤）
+    trigger: 分歧日回踩12~13区间不破承接好→买入；若直接高开封板则放弃等第二天
+    entry_range: 12.0~13.0
+  - direction: 🥇 MLCC超级周期（风华高科000636/博迁新材/火炬电子）
     intensity: 强 🏆
-  - direction: PCB油墨/光刻胶/化学品（容大感光300576-创业/天承科技688603-科创）
+    trigger: 分歧日回踩57.8~62.7不破（MA10~MA20区间）
+    entry_range: 57.8~62.7
+  - direction: 🥇 光通信/MPO/CPO（东山精密002384/光迅科技/长飞光纤）
+    intensity: 强 🏆
+    trigger: 分歧日回踩210~228区间
+    entry_range: 210~228
+  - direction: 🥈 焦炭涨价（潞安环能601699）
+    intensity: 中
+    trigger: 回踩16.1~17.2区间，6/15煤炭走弱正好给上车机会
+    entry_range: 16.1~17.2
+  - direction: 🥉 锂电中报高增（蔚蓝锂芯002245）
+    intensity: 谨慎关注
+    trigger: 等锂电板块确认后再跟踪，不急于今天
+  - direction: PCB油墨/光刻胶/化学品
     intensity: 中 ⚠️ 用户不可交易(非主板)
   - direction: 铜铝供给缺口（紫金矿业/洛阳钼业/云铝股份/神火股份）
     intensity: 中
@@ -296,3 +314,82 @@ key_levels:
   oil:
     escalation_threshold: 90美元
     relief_threshold: 80美元
+
+# ═══════════════════════════════════════════════════════════
+# 6/16 分歧日操作计划
+# ═══════════════════════════════════════════════════════════
+operation_plan:
+  date: 2026-06-16
+  type: divergence_day  # 分歧日
+  gold_rule: 开盘冲高先T出一部分 → 观察回落承接 → 决定接回或切换。不要开盘追，等10:00-10:30分歧结果出来再动手。
+  step_by_step:
+  - step: 开盘（09:25-09:40）
+    action: 不操作，观察竞价方向。若ETF/持仓冲高+2%以上，可T出30-50%仓位
+    note: 分歧日开盘冲高大概率是卖点不是买点
+  - step: 早盘分歧（09:40-10:30）
+    action: 观察三方向承接：①铜箔（诺德600110）回踩12~13 ②MLCC（风华000636）回踩57.8~62.7 ③光通信（东山002384）回踩210~228
+    note: 谁第一个回踩企稳放量上攻，谁就是今天的情绪核心候选
+  - step: 方向确认（10:30-11:20）
+    action: 确认全A方向+量能。若放量+承接好→按优先级逐步建仓。若缩量震荡→持有不动
+    note: 分歧日不放量等于没有合力，不宜开新仓
+  - step: 尾盘（14:52）
+    action: 验证今天是否形成情绪核心+尾盘补涨。若两条都满足→持仓可留。若都不满足→减仓
+    note: 尾盘条件是今天最关键的验证点
+
+  buy_priority:
+  - rank: 1
+    stock: 诺德股份（600110）
+    direction: 🥇 铜箔（HVLP4代铜箔）
+    reason: UP今早点名，订单排至2027下半年，分歧日是最好上车机会
+    entry: 12.0~13.0（回踩不破可入）
+    stop_loss: 跌破11.5
+    mainboard: ✅
+  - rank: 2
+    stock: 风华高科（000636）
+    direction: 🥇 MLCC超级周期
+    reason: 6/15情绪核心候选，涨停+10%，回踩MA10~MA20是标准低吸位
+    entry: 57.8~62.7
+    stop_loss: 跌破57
+    mainboard: ✅
+  - rank: 3
+    stock: 东山精密（002384）
+    direction: 🥇 光通信/MPO
+    reason: P0满仓候选，6/15涨停+10%，回踩5-8%是合理介入窗口
+    entry: 210~228
+    stop_loss: 跌破205
+    mainboard: ✅
+  - rank: 4
+    stock: 潞安环能（601699）
+    direction: 🥈 焦炭涨价
+    reason: 焦炭涨价右侧信号已现，6/15煤炭走弱正好给回踩上车机会
+    entry: 16.1~17.2
+    stop_loss: 跌破15.8
+    mainboard: ✅
+  - rank: 5
+    stock: 蔚蓝锂芯（002245）
+    direction: 🥉 锂电中报高增
+    reason: 亿纬锂能超预期传导，等板块确认再跟踪
+    entry: 等板块确认后再提示
+    stop_loss: N/A（尚未入场）
+    mainboard: ✅
+
+  position_plan:
+    scenario_A:
+      condition: 量能维持3万亿+，分歧后承接强，情绪核心出现
+      position: 60-70%
+      action: 等回踩分批建仓，诺德/风华优先
+    scenario_B:
+      condition: 缩量震荡，分歧后承接一般
+      position: 30-40%
+      action: ETF持有+关注，不新开仓
+    scenario_C:
+      condition: 缩量崩盘（<2.5万亿）
+      position: 10%
+      action: 只看不动，严格止损
+
+  etf_plan:
+    etf: 159381
+    open_up_2pct: T出30-50%仓位
+    pullback_1.32_1.34: 缩量回踩不破→接回
+    flat_day: 持有不动，ETF不频繁操作
+    stop_loss: 跌破1.28→减半
