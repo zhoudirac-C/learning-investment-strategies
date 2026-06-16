@@ -42,6 +42,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from qing_investment.monitor.chain_scanner import ChainAwareScanner
+
 logger = logging.getLogger(__name__)
 
 
@@ -927,6 +929,24 @@ def format_agent_json_context(data: dict) -> str:
     stock_pool = data.get("stock_pool", {})
     if stock_code and direction_pool and stock_pool:
         output["direction_state"] = _build_direction_state(direction_pool, stock_pool, stock_code)
+
+    # 为买入候选附加同产业链替代标的
+    scanner = ChainAwareScanner()
+    for candidate in output.get("buy_signal_candidates", []) or []:
+        code = str(candidate.get("stock_code", ""))
+        direction_id = ""
+        for stock in (stock_pool or {}).get("stocks", []) or []:
+            if str(stock.get("code", "")) == code:
+                direction_id = stock.get("direction", "")
+                break
+        for direction in (direction_pool or {}).get("directions", []) or []:
+            if direction.get("id") == direction_id:
+                alts = scanner.find_alternatives(code, direction)
+                candidate["chain_alternatives"] = [
+                    {"code": a.code, "name": a.name, "chain_position": a.chain_position, "reason": a.reason}
+                    for a in alts
+                ]
+                break
 
     return json.dumps(output, ensure_ascii=False, indent=2, default=str)
 

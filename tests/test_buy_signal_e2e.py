@@ -95,6 +95,22 @@ class TestBuySignalE2E:
                         "name": "测试方向",
                         "current_stage": "diverging",
                         "pre_condition": {"market": "测试市场条件"},
+                        "industry_chain": {
+                            "upstream": [
+                                {
+                                    "segment": "测试上游",
+                                    "stocks": [{"code": "000002.SZ", "name": "测试上游股"}],
+                                    "pumped": False,
+                                }
+                            ],
+                            "midstream": [
+                                {
+                                    "segment": "测试中游",
+                                    "stocks": [{"code": "000001", "name": "平安银行"}],
+                                    "pumped": True,
+                                }
+                            ],
+                        },
                     }
                 ]
             },
@@ -227,6 +243,8 @@ class TestBuySignalE2E:
         assert data["direction_state"]["direction_id"] == "test_dir"
         assert "current_stage" in data["direction_state"]
         assert data["direction_state"]["chain_position"] == "midstream"
+        assert "chain_alternatives" in candidate
+        assert any(a["code"] == "000002.SZ" for a in candidate["chain_alternatives"])
 
     def test_json_context_fallback_to_market_for_regular_alert(self):
         """JSON payload：普通 alert → analysis_type="market"。"""
