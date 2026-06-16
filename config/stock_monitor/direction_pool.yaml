@@ -311,10 +311,26 @@ directions:
           stocks: []
           pumped: false
           note: "❓光芯片：源杰科技(688498)、长光华芯(688048)为科创，缺主板标的"
-        - segment: MT插芯/陶瓷插芯
-          stocks: []
+        - segment: 单芯陶瓷插芯
+          stocks:
+            - code: 000988.SZ
+              name: 华工科技
+            - code: 002281.SZ
+              name: 光迅科技
+            - code: 003031.SZ
+              name: 中瓷电子
           pumped: false
-          note: "❓MT插芯：谁是主板上市的MT插芯龙头？待补充"
+          note: "华工科技(华工正源自研陶瓷插芯,全球市占~8.6%)、光迅科技(自产自用+外售)、中瓷电子(高端陶瓷插芯,军工通信场景)"
+        - segment: MT多芯插芯（MPO核心）
+          stocks:
+            - code: 002179.SZ
+              name: 中航光电
+            - code: 601869.SH
+              name: 长飞光纤
+            - code: 000988.SZ
+              name: 华工科技
+          pumped: false
+          note: "中航光电(自研自产,MPO连接器100%自给)、长飞光纤(子公司长芯盛垂直一体化,供谷歌)、华工科技(配套400G/800G光模块)"
       midstream:
         - segment: 光模块/CPO/NPO
           stocks:
@@ -381,10 +397,16 @@ directions:
     current_stage: early_direction
     industry_chain:
       upstream:
-        - segment: MT插芯/陶瓷插芯
-          stocks: []
+        - segment: MT多芯插芯（MPO核心精密部件）
+          stocks:
+            - code: 002179.SZ
+              name: 中航光电
+            - code: 601869.SH
+              name: 长飞光纤
+            - code: 000988.SZ
+              name: 华工科技
           pumped: false
-          note: "❓上游：MT插芯供应商，主板标的有谁？"
+          note: "中航光电(自研自产,100%自给率)、长飞光纤(长芯盛垂直一体化,供谷歌)、华工科技(配套800G模块+外售)。全球龙头三环/天孚/太辰光在创业板/科创"
       midstream:
         - segment: MPO连接器制造/NPO
           stocks:

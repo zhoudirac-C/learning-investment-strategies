@@ -288,6 +288,48 @@ stocks:
       no_consecutive_limit_up: true
     fallback: []
 
+  # ── 陶瓷插芯/MT插芯（光通信上游） ─────────────────────
+
+  - code: 000988.SZ
+    name: 华工科技
+    direction: optical_communication
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "华工正源自研陶瓷插芯+MT插芯，配套400G/800G光模块"
+    entry:
+      primary_zone: [36.0, 42.0]
+      method: "均线法"
+      hard_stop: 32.0
+    pre_condition:
+      market_actionable: true
+      sector_diverged: true
+      no_consecutive_limit_up: true
+    fallback: []
+    cross_directions:
+      - direction: mpo_optical_connector
+        chain_position: upstream
+        note: "同步布局MT插芯与MPO连接器产线"
+
+  - code: 003031.SZ
+    name: 中瓷电子
+    direction: optical_communication
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "中国电科精密陶瓷平台，高精度陶瓷插芯，军工通信场景"
+    entry:
+      primary_zone: [75.0, 85.0]
+      method: "均线法"
+      hard_stop: 65.0
+    pre_condition:
+      market_actionable: true
+      sector_diverged: true
+      no_consecutive_limit_up: true
+    fallback: []
+
   # ── PCB AI硬件链 ──────────────────────────────────
 
   - code: 002916.SZ
