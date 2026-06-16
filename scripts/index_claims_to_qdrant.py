@@ -33,7 +33,7 @@ QDRANT_LOCK_FILE = os.path.join(QDRANT_DATA_DIR, ".lock")
 
 
 def _kill_agent_if_running():
-    """Kill uvicorn Qing-Agent to release Qdrant local mode file lock."""
+    """Kill uvicorn Qing-Agent to release Qdrant file lock."""
     try:
         result = subprocess.run(
             ["pgrep", "-f", "uvicorn qing_investment"],

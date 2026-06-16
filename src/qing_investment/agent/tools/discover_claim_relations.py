@@ -316,7 +316,7 @@ def main():
     args = parser.parse_args()
 
     # Init
-    qdrant = QdrantClientWrapper(local_mode=True)
+    qdrant = QdrantClientWrapper()
     neo4j = Neo4jClient()
     emb_model = get_embedding_model()
     llm = get_llm_client()
