@@ -1479,3 +1479,35 @@ def test_load_monitor_config_loads_direction_and_stock_pool(tmp_path):
     config = load_monitor_config(config_dir)
     assert config.direction_pool["directions"][0]["id"] == "test_dir"
     assert config.stock_pool["stocks"][0]["direction"] == "test_dir"
+
+
+def test_run_tick_respects_market_gate(tmp_path):
+    """当全A指数破位且量能不足时，run_tick 跳过买入信号（保留风控/指数提醒）。"""
+    config_dir = make_rule_config_dir(tmp_path)
+    sp_path = config_dir / "strategy_pack.yaml"
+    sp = yaml.safe_load(sp_path.read_text(encoding="utf-8"))
+    sp["market_gate_rules"] = {
+        "index_checks": [{"index": "全A指数", "condition": "not_close_below", "level": 7000}],
+        "volume_checks": [{"metric": "total_amount", "condition": "greater_than", "threshold": 2_500_000_000_000}],
+    }
+    sp_path.write_text(yaml.safe_dump(sp, allow_unicode=True), encoding="utf-8")
+
+    config = load_monitor_config(config_dir)
+    message = run_tick(
+        config,
+        datetime(2026, 5, 22, 10, 0, tzinfo=CN_TZ),
+        emit_status=False,
+        ignore_trading_time=False,
+        quote_fetcher=lambda _targets: {
+            "source": "test",
+            "quotes": [
+                {"label": "全A指数", "code": "000985", "latest": 6500, "pct_change": -4.0},
+                {"label": "上证指数", "code": "000001", "latest": 3900, "pct_change": -3.5},
+            ],
+            "errors": [],
+        },
+        state_path=tmp_path / "state.json",
+        dedupe_minutes=30,
+    )
+    # 市场门控不通过 → 买入候选被过滤，但指数/风控规则仍可输出
+    assert "机会候选" not in message

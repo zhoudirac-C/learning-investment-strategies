@@ -808,13 +808,28 @@ class RuleEngine:
         ]
 
     def evaluate(
-        self, config: dict, quote_snapshot: dict, *, current_time: datetime | None = None
+        self,
+        config: dict,
+        quote_snapshot: dict,
+        *,
+        current_time: datetime | None = None,
+        market_gate_result: "GateResult" | None = None,
+        sector_gate_results: dict[str, "GateResult"] | None = None,
     ) -> list[RuleAlert]:
         """执行所有规则引擎，合并告警。"""
         all_alerts: list[RuleAlert] = []
         for engine in self._engines:
             try:
-                alerts = engine.evaluate(config, quote_snapshot, current_time=current_time)
+                if isinstance(engine, BuySignalRuleEngine):
+                    alerts = engine.evaluate(
+                        config,
+                        quote_snapshot,
+                        current_time=current_time,
+                        market_gate_result=market_gate_result,
+                        sector_gate_results=sector_gate_results,
+                    )
+                else:
+                    alerts = engine.evaluate(config, quote_snapshot, current_time=current_time)
                 all_alerts.extend(alerts)
             except Exception as exc:
                 # 单个引擎失败不影响其他引擎
