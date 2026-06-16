@@ -405,11 +405,71 @@ stocks:
     up_mention:
       date: '2026-06-11'
       type: direction_call
-      context: "钨产业链核心标的，出口管制受益"
+      context: "钨产业链核心标的，出口管制受益。旗下金洲精工全球第二大PCB微钻，AI服务器钻针国内市占70-80%"
     entry:
       primary_zone: [10.5, 12.0]
       method: "均线法"
       hard_stop: 9.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+    cross_directions:
+      - direction: tungsten_pcb_drill
+        chain_position: downstream
+        note: "金洲精工(持股75%)PCB微钻成品，中钨高新覆盖中游棒材+下游钻针全链条"
+
+  # ── 钨上游矿企 ──────────────────────────────────
+
+  - code: 600549.SH
+    name: 厦门钨业
+    direction: tungsten_pcb_drill
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "全球APT冶炼龙头，超细硬质合金棒材量产，PCB钻针核心基材供应商"
+    entry:
+      primary_zone: [22.0, 26.0]
+      method: "均线法"
+      hard_stop: 19.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 002378.SZ
+    name: 章源钨业
+    direction: tungsten_pcb_drill
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "钨采选-冶炼-深加工一体化，硬质合金棒材供应商"
+    entry:
+      primary_zone: [7.0, 8.5]
+      method: "均线法"
+      hard_stop: 6.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []
+
+  - code: 002842.SZ
+    name: 翔鹭钨业
+    direction: tungsten_pcb_drill
+    chain_position: upstream
+    up_mention:
+      date: '2026-06-16'
+      type: direction_call
+      context: "超细碳化钨粉/硬质合金棒材，配套PCB微钻厂商"
+    entry:
+      primary_zone: [6.5, 8.0]
+      method: "均线法"
+      hard_stop: 5.5
     pre_condition:
       sector_diverged: true
       market_actionable: true

@@ -265,23 +265,32 @@ directions:
     current_stage: diverging
     industry_chain:
       upstream:
-        - segment: 钨矿开采
-          stocks: []
+        - segment: 钨矿开采/钨精矿
+          stocks:
+            - code: 600549.SH
+              name: 厦门钨业
+            - code: 002378.SZ
+              name: 章源钨业
+            - code: 002842.SZ
+              name: 翔鹭钨业
           pumped: false
-          note: "❓上游钨矿：厦门钨业、章源钨业等，待确认"
+          note: "厦门钨业(全球APT冶炼龙头,超细硬质合金棒材量产)、章源钨业(钨采选-冶炼-深加工一体化)、翔鹭钨业(超细碳化钨粉/硬质合金棒材)"
       midstream:
-        - segment: APT/碳化钨/钨粉
+        - segment: APT/碳化钨/超细硬质合金棒材
           stocks:
             - code: 000657.SZ
               name: 中钨高新
           pumped: true
+          note: "母公司的钨矿→APT→碳化钨→合金棒全链条自给，为中钨下游钻针提供原料保障"
       downstream:
-        - segment: PCB微型钻针/硬质合金刀具
-          stocks: []
-          pumped: false
-          note: "❓下游钻针：鼎泰高科(301377创业不可交易)，还有其他主板标的吗？"
+        - segment: PCB微型钻针（钻针成品）
+          stocks:
+            - code: 000657.SZ
+              name: 中钨高新
+          pumped: true
+          note: "中钨旗下金洲精工(持股75%)全球第二大PCB微钻，AI服务器高端钻针国内市占70-80%，50倍超高长径比、纳米金刚石涂层钻针独家量产，绑定英伟达供应链。2025营收14.2亿(+34%)净利润3.6亿(+105%)满产满销"
     diffusion_path:
-      - "钨矿 → APT/碳化钨 → PCB钻针 → AI服务器PCB扩产"
+      - "钨矿 → APT/碳化钨/合金棒 → PCB微钻(金洲精工) → AI服务器高端PCB扩产"
     pre_condition:
       market: "全A量能>2.5万亿+非破位状态"
       sector: "分歧后缩量企稳"
