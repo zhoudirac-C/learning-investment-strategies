@@ -1,0 +1,40 @@
+updated_at: '2026-06-16'
+stocks:
+  - code: 000636.SZ
+    name: 风华高科
+    direction: mlcc_super_cycle
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-15'
+      type: signal_confirmation
+      context: "MLCC情绪核心候选"
+    entry:
+      primary_zone: [57.8, 62.7]
+      method: "MA10-MA20回踩"
+      hard_stop: 54.0
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback:
+      - code: 300285.SZ
+        name: 国瓷材料
+        reason: "MLCC上游陶瓷粉体，风华高科涨停买不到时的替代"
+
+  - code: 600110.SH
+    name: 诺德股份
+    direction: copper_foil_hvlp4
+    chain_position: midstream
+    up_mention:
+      date: '2026-06-16'
+      type: signal_confirmation
+      context: "HVLP4代铜箔订单排至2027下半年"
+    entry:
+      primary_zone: [12.0, 13.0]
+      method: "分歧日回踩"
+      hard_stop: 11.5
+    pre_condition:
+      sector_diverged: true
+      market_actionable: true
+      no_consecutive_limit_up: true
+    fallback: []

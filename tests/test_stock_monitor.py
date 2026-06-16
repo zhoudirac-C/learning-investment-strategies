@@ -1447,3 +1447,18 @@ def test_direction_pool_yaml_is_valid(tmp_path):
     assert "id" in first
     assert "industry_chain" in first
     assert "pre_condition" in first
+
+
+def test_stock_pool_yaml_is_valid(tmp_path):
+    """stock_pool.yaml 必须能被 PyYAML 解析且每个标的有 direction。"""
+    repo_root = Path(__file__).resolve().parents[1]
+    sp_path = repo_root / "config" / "stock_monitor" / "stock_pool.yaml"
+    assert sp_path.exists(), "stock_pool.yaml should exist"
+    data = yaml.safe_load(sp_path.read_text(encoding="utf-8"))
+    assert "stocks" in data
+    assert len(data["stocks"]) >= 1
+    first = data["stocks"][0]
+    assert "code" in first
+    assert "direction" in first
+    assert "entry" in first
+    assert "pre_condition" in first
