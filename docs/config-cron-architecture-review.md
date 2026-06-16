@@ -822,12 +822,12 @@ stock_monitor.py 轮询（2分钟间隔）
 | 2.2 | 在 Qing-Agent 的 retrieve_knowledge 节点集成 Context Builder |
 | 2.3 | 在 cron 任务的 prompt 中注入 claims 上下文 |
 
-### Phase 3：Cron 精简 + 状态机（2-3天）
+### Phase 3：Cron 状态机 + 差异化 Prompt（2-3天）
 
 | 任务 | 内容 |
 |------|------|
 | 3.1 | 实现 `daily_state.json` 读写模块 |
-| 3.2 | 3个LLM cron 节点（09:30 / 14:00 / 15:20），差异化 prompt |
+| 3.2 | 9个LLM cron 节点（9:26/9:45/10:00/10:30/11:20/13:10/14:00/14:52/17:00），差异化 prompt |
 | 3.3 | stock_monitor 新增 `buy_zone` 触发逻辑 |
 | 3.4 | 删除冗余 cron 任务，保留量化轮询 |
 
