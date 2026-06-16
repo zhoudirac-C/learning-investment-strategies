@@ -314,3 +314,47 @@ class ChainAwareScanner:
 1. 今天大盘能动手吗？
 2. 这个板块是分歧还是连涨？
 3. 这个标的是龙头还是替代标的？
+
+---
+
+## 七、Gap 补齐记录（2026-06-16）
+
+### Gap 1：数据契约缺失
+
+**【问题】** 文档定义了 data schema，但没有定义 data exposure contract——哪些字段进 LLM prompt，哪些只停留在代码层。
+
+**【修复】**
+- 新建 `docs/config-data-contract.md`，定义了每个字段的消费端映射和 LLM 可见性
+- 标记 `human_only` 字段（`stock_pool[].human_note`），在 `format_agent_json_context()` 中过滤，不进 LLM
+
+### Gap 2：entry_zone 消费端断链
+
+**【问题】** `entry.primary_zone` / `hard_stop` 字段存在、被填充、被认为重要，但 `_build_direction_state()` 的返回值中没有它们。LLM 只能通过原始 JSON 自己翻。
+
+**【修复】**
+- `_build_direction_state()` 新增返回 3 个字段：`entry_zone`、`hard_stop`、`stock_pre_condition`
+- LLM 在 direction_state 中直接可见这些信息，不再需要自己从原始 JSON 翻
+
+### Gap 3：fallback 两套协议无仲裁
+
+**【问题】** 文档中 `stock_pool[].fallback`（手动指定替代标的）与 `ChainAwareScanner` 的 `industry_chain` 动态扫描两套方案并存，没有明确取舍关系。
+
+**【修复】**
+- 删除 `stock_pool[].fallback` 字段（包括所有 stock 上的手动 fallback 配置）
+- 统一使用 `ChainAwareScanner` 的 `industry_chain` 动态扫描作为替代标的推荐方案
+- `chain_scanner.py` 的实现在设计文档 §3.3 基础上已上线
+
+### 附加清理
+
+| 清理项 | 原因 |
+|-------|------|
+| 删除 `direction_pool[].up_first_mentioned` | 元数据，无代码消费，LLM 不需要 |
+| 删除 `direction_pool[].up_mention_type` | 同左 |
+| 删除 `direction_pool[].max_active_candidates` | 方向级仓位控制引擎未实现 |
+| 删除 `stock_pool[].cross_directions` | 无设计，无代码消费 |
+| 删除 `stock_pool[].chain_alternatives` | scanner 运行时生成，不是静态数据 |
+| `up_mention` 重命名为 `human_note` | 语义更明确：人类参考，不进 LLM |
+
+### 新增文件
+
+`docs/config-data-contract.md` — 完整字段定义、消费端映射、LLM 可见性表。

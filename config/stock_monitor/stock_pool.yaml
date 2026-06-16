@@ -8,7 +8,7 @@ stocks:
     name: 风华高科
     direction: mlcc_super_cycle
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-15'
       type: signal_confirmation
       context: "MLCC情绪核心候选，6/15涨停确认MLCC板块最强地位"
@@ -20,19 +20,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback:
-      - code: 605376.SH
-        name: 博迁新材
-        reason: "MLCC上游镍粉弹性标的，风华买不到时的替代"
-      - code: 603678.SH
-        name: 火炬电子
-        reason: "MLCC第二梯队，风华回踩不到位时的替代试探"
-
   - code: 605376.SH
     name: 博迁新材
     direction: mlcc_super_cycle
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-15'
       type: signal_confirmation
       context: "独家PVD工艺80nm镍粉，中报超预期可能"
@@ -44,13 +36,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 603678.SH
     name: 火炬电子
     direction: mlcc_super_cycle
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-15'
       type: signal_confirmation
       context: "MLCC方向涨停标的，风华辅助确认"
@@ -62,15 +52,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 铜箔(HVLP4) ──────────────────────────────────
 
   - code: 600110.SH
     name: 诺德股份
     direction: copper_foil_hvlp4
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: signal_confirmation
       context: "HVLP4代铜箔订单排至2027下半年"
@@ -82,30 +70,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-    chain_alternatives:
-      upstream:
-        - code: 000630.SZ
-          name: 铜陵有色
-          reason: "铜冠铜箔实控人，HVLP4原料自给近70%"
-        - code: 600362.SH
-          name: 江西铜业
-          reason: "国内阴极铜龙头，高端铜箔厂原料供应商"
-      downstream:
-        - code: 002636.SZ
-          name: 金安国纪
-          reason: "中高端高速CCL，采购国产HVLP4替代进口"
-        - code: 002463.SZ
-          name: 沪电股份
-          reason: "英伟达M8/M9高速背板主力，批量使用HVLP4基材"
-
   # ── 铜箔HVLP4 上游铜原料 ──────────────────────────────
 
   - code: 000630.SZ
     name: 铜陵有色
     direction: copper_foil_hvlp4
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "铜冠铜箔实控人，HVLP4铜箔原料自给近70%"
@@ -117,13 +88,11 @@ stocks:
       market_actionable: true
       sector_diverged: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600362.SH
     name: 江西铜业
     direction: copper_foil_hvlp4
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "国内阴极铜龙头，多家中高端铜箔厂原料供应商"
@@ -135,15 +104,13 @@ stocks:
       market_actionable: true
       sector_diverged: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 铜箔HVLP4 下游CCL/PCB ──────────────────────────────
 
   - code: 002636.SZ
     name: 金安国纪
     direction: copper_foil_hvlp4
     chain_position: downstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "中高端高速CCL，采购国产HVLP4替代进口"
@@ -155,13 +122,11 @@ stocks:
       market_actionable: true
       sector_diverged: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 002463.SZ
     name: 沪电股份
     direction: copper_foil_hvlp4
     chain_position: downstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "英伟达M8/M9高端背板主力，批量使用HVLP4基材"
@@ -173,15 +138,13 @@ stocks:
       market_actionable: true
       sector_diverged: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 覆铜板上游材料 ──────────────────────────────
 
   - code: 002409.SZ
     name: 雅克科技
     direction: ccL_resin_upstream
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-11'
       type: direction_call
       context: "「尤其值得关注」，球硅/前驱体/光刻胶三线平台"
@@ -195,7 +158,7 @@ stocks:
     name: 中化国际
     direction: ccL_resin_upstream
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-11'
       type: direction_call
       context: "南通星辰PPO国内第一/全球第二+对位芳纶第二"
@@ -207,13 +170,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 605589.SH
     name: 圣泉集团
     direction: ccL_resin_upstream
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-11'
       type: direction_call
       context: "酚醛树脂龙头，CCL粘结剂受益"
@@ -225,15 +186,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 电子特气/六氟化钨 ──────────────────────────────
 
   - code: 600378.SH
     name: 昊华科技
     direction: electronic_gas_wf6
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-11'
       type: direction_call
       context: "六氟化钨涨价受益标的"
@@ -245,16 +204,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback:
-      - code: 603938.SH
-        name: 三孚股份
-        reason: "三氟化氮/六氟化钨方向，昊华买不到时的替代"
-
   - code: 603938.SH
     name: 三孚股份
     direction: electronic_gas_wf6
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-11'
       type: direction_call
       context: "三氟化氮/六氟化钨"
@@ -266,15 +220,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── WF6上游氟化工原料 ────────────────────────────
 
   - code: 603505.SH
     name: 金石资源
     direction: electronic_gas_wf6
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "A股唯一纯萤石龙头，打通萤石→AHF全链条"
@@ -286,13 +238,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600010.SH
     name: 包钢股份
     direction: electronic_gas_wf6
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "白云鄂博伴生萤石，全球最大潜在氟源"
@@ -304,13 +254,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600160.SH
     name: 巨化股份
     direction: electronic_gas_wf6
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "氟化工全产业链龙头，AHF 40万吨+萤石→氢氟酸→氟气→电子特气全闭环"
@@ -322,13 +270,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 002407.SZ
     name: 多氟多
     direction: electronic_gas_wf6
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "30万吨AHF+G5电子级4万吨+自建3000吨WF6，氟原料+下游一体化"
@@ -340,13 +286,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 603379.SH
     name: 三美股份
     direction: electronic_gas_wf6
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "22万吨+AHF产能，华东重要氟原料供应商"
@@ -358,13 +302,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 605020.SH
     name: 永和股份
     direction: electronic_gas_wf6
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "民营氟化工一体化，萤石矿山+AHF自给率90%+"
@@ -376,13 +318,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 601678.SH
     name: 滨化股份
     direction: electronic_gas_wf6
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "10万吨AHF+6000吨G5电子级氢氟酸，供韩国半导体"
@@ -394,15 +334,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 钨产业链 ──────────────────────────────────
 
   - code: 000657.SZ
     name: 中钨高新
     direction: tungsten_pcb_drill
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-11'
       type: direction_call
       context: "钨产业链核心标的，出口管制受益。旗下金洲精工全球第二大PCB微钻，AI服务器钻针国内市占70-80%"
@@ -414,19 +352,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-    cross_directions:
-      - direction: tungsten_pcb_drill
-        chain_position: downstream
-        note: "金洲精工(持股75%)PCB微钻成品，中钨高新覆盖中游棒材+下游钻针全链条"
-
   # ── 钨上游矿企 ──────────────────────────────────
 
   - code: 600549.SH
     name: 厦门钨业
     direction: tungsten_pcb_drill
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "全球APT冶炼龙头，超细硬质合金棒材量产，PCB钻针核心基材供应商"
@@ -438,13 +370,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 002378.SZ
     name: 章源钨业
     direction: tungsten_pcb_drill
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "钨采选-冶炼-深加工一体化，硬质合金棒材供应商"
@@ -456,13 +386,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 002842.SZ
     name: 翔鹭钨业
     direction: tungsten_pcb_drill
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "超细碳化钨粉/硬质合金棒材，配套PCB微钻厂商"
@@ -474,15 +402,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 陶瓷插芯/MT插芯（光通信上游） ─────────────────────
 
   - code: 000988.SZ
     name: 华工科技
     direction: optical_communication
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "华工正源自研陶瓷插芯+MT插芯，配套400G/800G光模块"
@@ -494,13 +420,11 @@ stocks:
       market_actionable: true
       sector_diverged: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 003031.SZ
     name: 中瓷电子
     direction: optical_communication
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "中国电科精密陶瓷平台，高精度陶瓷插芯，军工通信场景"
@@ -512,19 +436,13 @@ stocks:
       market_actionable: true
       sector_diverged: true
       no_consecutive_limit_up: true
-    fallback: []
-    cross_directions:
-      - direction: equipment_packaging_catchup
-        chain_position: upstream
-        note: "静电卡盘ESC/陶瓷加热器，批量供货北方华创/中微/拓荆"
-
   # ── PCB AI硬件链 ──────────────────────────────────
 
   - code: 002916.SZ
     name: 深南电路
     direction: pcb_ai_chain
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-05-23'
       type: direction_call
       context: "PCB+ABF载板双主线核心"
@@ -536,13 +454,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 603228.SH
     name: 景旺电子
     direction: pcb_ai_chain
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-05-24'
       type: direction_call
       context: "高多层板/HDI核心标的"
@@ -554,13 +470,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600183.SH
     name: 生益科技
     direction: pcb_ai_chain
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-05-23'
       type: direction_call
       context: "高速CCL(M8/M9)龙头，PCB上游材料锚点"
@@ -572,13 +486,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 002436.SZ
     name: 兴森科技
     direction: pcb_ai_chain
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-05-25'
       type: direction_call
       context: "BT/ABF载板弹性标的"
@@ -590,13 +502,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 603186.SH
     name: 华正新材
     direction: pcb_ai_chain
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-05-26'
       type: direction_call
       context: "CBF积层绝缘膜（ABF替代路线）"
@@ -608,13 +518,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 002080.SZ
     name: 中材科技
     direction: pcb_ai_chain
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-05-26'
       type: direction_call
       context: "NE2低介电玻纤，PCB材料期权层"
@@ -626,15 +534,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 焦炭/煤炭涨价 ──────────────────────────────────
 
   - code: 601699.SH
     name: 潞安环能
     direction: coke_coal_upcycle
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-14'
       type: signal_confirmation
       context: "主营煤炭/焦炭双轮驱动，焦炭连续提涨右侧信号"
@@ -646,16 +552,11 @@ stocks:
       market_actionable: true
       sector_diverged: true
       no_consecutive_limit_up: true
-    fallback:
-      - code: 601001.SH
-        name: 晋控煤业
-        reason: "动力煤联动标的，潞安环能先企稳后晋控跟进"
-
   - code: 601001.SH
     name: 晋控煤业
     direction: coke_coal_upcycle
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-14'
       type: signal_confirmation
       context: "动力煤核心，迎峰度夏保供逻辑"
@@ -667,15 +568,13 @@ stocks:
       market_actionable: true
       sector_diverged: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 光通信(OCS) ──────────────────────────────────
 
   - code: 002281.SZ
     name: 光迅科技
     direction: optical_communication
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-05-06'
       type: direction_call
       context: "OCS核心标的，3.2T全光交换方案，PE偏高"
@@ -687,13 +586,11 @@ stocks:
       market_actionable: true
       sector_diverged: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600330.SH
     name: 天通股份
     direction: optical_communication
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-05-06'
       type: direction_call
       context: "薄膜铌酸锂晶体，全球少数批量生产"
@@ -710,7 +607,7 @@ stocks:
     name: 东山精密
     direction: optical_communication
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-15'
       type: signal_confirmation
       context: "情绪核心候选，光模块/PCB双线布局"
@@ -722,13 +619,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 601869.SH
     name: 长飞光纤
     direction: optical_communication
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-15'
       type: direction_call
       context: "光纤预制棒龙头，DCI光互联受益"
@@ -740,15 +635,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 光通信(MPO) ──────────────────────────────────
 
   - code: 002179.SZ
     name: 中航光电
     direction: optical_communication
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-15'
       type: direction_call
       context: "NPO/MPO双线量产，军工+通信双驱动"
@@ -760,15 +653,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 设备/封测补涨 ──────────────────────────────────
 
   - code: 002371.SZ
     name: 北方华创
     direction: equipment_packaging_catchup
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-11'
       type: direction_call
       context: "半导体设备绝对龙头，板块温度计"
@@ -781,13 +672,11 @@ stocks:
       market_actionable: true
       no_consecutive_limit_up: true
     note: "市值4617亿弹性有限，更适合做板块温度计而非交易标的"
-    fallback: []
-
   - code: 002156.SZ
     name: 通富微电
     direction: equipment_packaging_catchup
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-11'
       type: direction_call
       context: "AMD封装测试核心供应商"
@@ -799,13 +688,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 000021.SZ
     name: 深科技
     direction: equipment_packaging_catchup
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-11'
       type: direction_call
       context: "存储封测（长鑫产业链）"
@@ -817,15 +704,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 设备零部件 ──────────────────────────────────
 
   - code: 002158.SZ
     name: 汉钟精机
     direction: equipment_packaging_catchup
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "半导体干式真空泵龙头，供北方华创/中微/盛美+直供华虹/中芯"
@@ -837,13 +722,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 603308.SH
     name: 应流股份
     direction: equipment_packaging_catchup
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "精密铸件，真空腔体/阀体，认证与批量阶段"
@@ -855,13 +738,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 603688.SH
     name: 石英股份
     direction: equipment_packaging_catchup
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "G5级高纯石英，石英管/环/舟/腔体，供国内外设备厂"
@@ -873,13 +754,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 002851.SZ
     name: 麦格米特
     direction: equipment_packaging_catchup
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "半导体设备专用电源（刻蚀/PECVD/去胶）"
@@ -891,13 +770,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 002837.SZ
     name: 英维克
     direction: equipment_packaging_catchup
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "精密温控，光刻机/刻蚀机高精度恒温"
@@ -909,13 +786,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 002046.SZ
     name: 国机精工
     direction: equipment_packaging_catchup
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "精密电主轴/轴承/晶圆减薄砂轮/划片刀"
@@ -927,13 +802,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 002338.SZ
     name: 奥普光电
     direction: equipment_packaging_catchup
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "精密光学镜头/光栅尺，半导体检测设备（扩展期）"
@@ -945,13 +818,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600071.SH
     name: 凤凰光学
     direction: equipment_packaging_catchup
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "精密光学镜片/棱镜，光刻/检测设备（扩展期）"
@@ -963,13 +834,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 002438.SZ
     name: 江苏神通
     direction: equipment_packaging_catchup
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "高纯真空阀门/工艺调节阀，设备验证阶段（扩展期）"
@@ -981,15 +850,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 芯片特种/FPGA ──────────────────────────────────
 
   - code: 002049.SZ
     name: 紫光国微
     direction: chip_specialty
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-11'
       type: direction_call
       context: "特种芯片龙头，PE 36x为芯片里最低"
@@ -1001,15 +868,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 存储芯片 ──────────────────────────────────
 
   - code: 603986.SH
     name: 兆易创新
     direction: memory_nor
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-11'
       type: direction_call
       context: "NOR Flash龙头+DRAM布局，存储涨价周期"
@@ -1022,15 +887,13 @@ stocks:
       market_actionable: true
       no_consecutive_limit_up: true
     note: "高价+高PE(118x)，严格控仓"
-    fallback: []
-
   # ── EDA/IP授权（芯片上游） ───────────────────────────
 
   - code: 600834.SH
     name: 申通地铁
     direction: chip_specialty
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "建元基金参股华大九天，国产EDA替代受益"
@@ -1042,13 +905,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600820.SH
     name: 隧道股份
     direction: chip_specialty
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "产业基金间接参股华大九天，弱产业协同"
@@ -1060,15 +921,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 光芯片（光通信上游） ───────────────────────────
 
   - code: 600703.SH
     name: 三安光电
     direction: optical_communication
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "化合物半导体IDM龙头，6英寸GaAs/InP产线，400G/800G数通光芯片批量"
@@ -1080,13 +939,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600487.SH
     name: 亨通光电
     direction: optical_communication
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "光纤光缆龙头，硅光芯片自研配套800G光模块批量交付"
@@ -1098,13 +955,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600105.SH
     name: 永鼎股份
     direction: optical_communication
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "光通信IDM全链条，有源/无源光芯片电信级"
@@ -1116,13 +971,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600206.SH
     name: 有研新材
     direction: optical_communication
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "GaAs/InP外延片量产，高速光芯片核心上游材料"
@@ -1134,13 +987,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 002428.SZ
     name: 云南锗业
     direction: optical_communication
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "15万片/年InP单晶衬底，光通信芯片衬底国产化"
@@ -1152,8 +1003,6 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 绿电运营 ──────────────────────────────────
 
   # 纯新能源运营（风光）
@@ -1161,7 +1010,7 @@ stocks:
     name: 三峡能源
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "三峡集团新能源旗舰，海上风电龙头，绿电核心底仓"
@@ -1173,13 +1022,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 001289.SZ
     name: 龙源电力
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "全球风电运营龙头，陆上风电规模第一"
@@ -1191,13 +1038,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 601016.SH
     name: 节能风电
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "中节能纯正风电运营，盈利稳定高分红"
@@ -1209,13 +1054,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 000591.SZ
     name: 太阳能
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "中节能光伏运营旗舰，集中式光伏为主"
@@ -1227,14 +1070,12 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # 火电转型绿电
   - code: 601991.SH
     name: 大唐发电
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "大唐核心平台，全国首个算电协同绿电直供项目"
@@ -1246,13 +1087,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600011.SH
     name: 华能国际
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "国内装机规模最大，新能源装机高增"
@@ -1264,13 +1103,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600027.SH
     name: 华电国际
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "华电核心平台，火电+新能源双轮驱动"
@@ -1282,13 +1119,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600795.SH
     name: 国电电力
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "国家能源集团核心平台，多元布局+大基地"
@@ -1300,13 +1135,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 000875.SZ
     name: 电投绿能
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "国家电投东北区域，风光占比超火电，氢储新业态"
@@ -1318,13 +1151,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600021.SH
     name: 上海电力
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "长三角核心平台，海上风电+分布式光伏+虚拟电厂"
@@ -1336,14 +1167,12 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # 水电核心
   - code: 600900.SH
     name: 长江电力
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "全球最大水电，现金流断层领先，绿电压舱石"
@@ -1355,14 +1184,12 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # 地方国资
   - code: 600163.SH
     name: 中闽能源
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "福建海上风电核心，无火电包袱纯绿电"
@@ -1374,13 +1201,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 600483.SH
     name: 福能股份
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "福建海上风电+热电，区域工业用电旺盛"
@@ -1392,14 +1217,12 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # 民营算电协同
   - code: 002015.SZ
     name: 协鑫能科
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-16'
       type: direction_call
       context: "风光绿电+储能+算力直供100%覆盖，算电协同核心弹性标的"
@@ -1411,15 +1234,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 铜铝供给缺口 ──────────────────────────────────
 
   - code: 601899.SH
     name: 紫金矿业
     direction: copper_aluminum_shortage
     chain_position: upstream
-    up_mention:
+    human_note:
       date: '2026-06-15'
       type: direction_call
       context: "铜金矿全球龙头，铜价与AI基建双重受益"
@@ -1432,15 +1253,13 @@ stocks:
       sector_diverged: true
       no_consecutive_limit_up: true
     note: "美伊协议签署+LME铜跳涨为入场触发，不提前埋伏"
-    fallback: []
-
   # ── SK海力士ADR映射 ──────────────────────────────────
 
   - code: 600667.SH
     name: 太极实业
     direction: sk_hynix_adr
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-11'
       type: direction_call
       context: "海太半导体合资55%股权，SK海力士ADR映射"
@@ -1453,15 +1272,13 @@ stocks:
       market_actionable: true
       no_consecutive_limit_up: true
     note: "UP自评confidence=low，弱市环境仅观察"
-    fallback: []
-
   # ── 绿电 ──────────────────────────────────
 
   - code: 603011.SH
     name: 合锻智能
     direction: green_power_ai_electric
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-10'
       type: direction_call
       context: "核聚变概念（AI电力逻辑注脚）"
@@ -1473,15 +1290,13 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   # ── 光伏低位修复 ──────────────────────────────────
 
   - code: 601012.SH
     name: 隆基绿能
     direction: photovoltaic_low_recovery
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-10'
       type: direction_call
       context: "光伏组件龙头，底部企稳信号"
@@ -1493,16 +1308,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback:
-      - code: 600732.SH
-        name: 爱旭股份
-        reason: "光伏电池环节弹性标的，隆基确认板块方向后可选"
-
   - code: 600732.SH
     name: 爱旭股份
     direction: photovoltaic_low_recovery
     chain_position: midstream
-    up_mention:
+    human_note:
       date: '2026-06-10'
       type: direction_call
       context: "光伏电池龙头，均线空头需等更低位置"
@@ -1514,13 +1324,11 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []
-
   - code: 002459.SZ
     name: 晶澳科技
     direction: photovoltaic_low_recovery
     chain_position: downstream
-    up_mention:
+    human_note:
       date: '2026-06-10'
       type: direction_call
       context: "光伏组件/电站，底部修复"
@@ -1532,4 +1340,3 @@ stocks:
       sector_diverged: true
       market_actionable: true
       no_consecutive_limit_up: true
-    fallback: []

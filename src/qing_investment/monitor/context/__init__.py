@@ -873,6 +873,9 @@ def _build_direction_state(direction_pool: dict, stock_pool: dict, stock_code: s
                 "chain_position": matched_stock.get("chain_position", ""),
                 "diffusion_path": direction.get("diffusion_path", []),
                 "pre_condition": direction.get("pre_condition", {}),
+                "entry_zone": matched_stock.get("entry", {}).get("primary_zone", []),
+                "hard_stop": matched_stock.get("entry", {}).get("hard_stop", None),
+                "stock_pre_condition": matched_stock.get("pre_condition", {}),
             }
     return {"direction_id": direction_id, "direction_name": ""}
 
@@ -907,6 +910,15 @@ def format_agent_json_context(data: dict) -> str:
 
     # 移除可能过大的 quote_snapshot，避免 token 浪费
     output = {k: v for k, v in data.items() if k != "quote_snapshot"}
+
+    # 过滤 human_only 字段，减小 LLM token 浪费
+    for pool_key in ("stock_pool", "direction_pool"):
+        pool = output.get(pool_key, {})
+        if pool_key == "stock_pool":
+            for stock in pool.get("stocks", []) or []:
+                stock.pop("human_note", None)
+        elif pool_key == "direction_pool":
+            pass  # industry_chain[].segment.note 保留，LLM 可见
     output["analysis_type"] = analysis_type
     output["stock_code"] = stock_code
 
