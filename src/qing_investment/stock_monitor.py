@@ -8,7 +8,7 @@ import subprocess
 import time as time_module
 import urllib.parse
 import urllib.request
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, time
 from pathlib import Path
 from typing import Any
@@ -198,6 +198,8 @@ class MonitorConfig:
     watchlist: dict
     strategy_pack: dict
     positions_path: Path
+    direction_pool: dict = field(default_factory=dict)
+    stock_pool: dict = field(default_factory=dict)
 
     def get(self, key: str, default: Any = None) -> Any:
         """模拟 dict.get() 以兼容 RuleEngine。"""
@@ -207,6 +209,10 @@ class MonitorConfig:
             return self.watchlist
         if key == "strategy_pack":
             return self.strategy_pack
+        if key == "direction_pool":
+            return self.direction_pool
+        if key == "stock_pool":
+            return self.stock_pool
         if key == "config_dir":
             return str(self.config_dir)
         if key == "positions_path":

@@ -1462,3 +1462,20 @@ def test_stock_pool_yaml_is_valid(tmp_path):
     assert "direction" in first
     assert "entry" in first
     assert "pre_condition" in first
+
+
+def test_load_monitor_config_loads_direction_and_stock_pool(tmp_path):
+    config_dir = make_config_dir(tmp_path)
+    # 写入最小 direction_pool / stock_pool
+    write_yaml(
+        config_dir / "direction_pool.yaml",
+        {"directions": [{"id": "test_dir", "name": "测试方向"}]},
+    )
+    write_yaml(
+        config_dir / "stock_pool.yaml",
+        {"stocks": [{"code": "000021.SZ", "name": "深科技", "direction": "test_dir"}]},
+    )
+
+    config = load_monitor_config(config_dir)
+    assert config.direction_pool["directions"][0]["id"] == "test_dir"
+    assert config.stock_pool["stocks"][0]["direction"] == "test_dir"

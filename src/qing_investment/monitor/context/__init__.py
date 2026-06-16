@@ -941,12 +941,17 @@ def load_monitor_config(path: str | Path) -> Any:
     if not positions_path.exists():
         positions_path = config_dir / "positions.example.yaml"
 
+    direction_pool_path = config_dir / "direction_pool.yaml"
+    stock_pool_path = config_dir / "stock_pool.yaml"
+
     return MonitorConfig(
         config_dir=config_dir,
         positions=load_yaml(positions_path),
         watchlist=load_yaml(config_dir / "watchlist.yaml"),
         strategy_pack=load_yaml(config_dir / "strategy_pack.yaml"),
         positions_path=positions_path,
+        direction_pool=load_yaml(direction_pool_path),
+        stock_pool=load_yaml(stock_pool_path),
     )
 
 
