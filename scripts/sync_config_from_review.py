@@ -30,6 +30,8 @@ DAILY_STATE_FILE = REPO_ROOT / "config" / "stock_monitor" / "daily_state.json"
 STRATEGY_PACK = REPO_ROOT / "config" / "stock_monitor" / "strategy_pack.yaml"
 POSITIONS = REPO_ROOT / "config" / "stock_monitor" / "positions.yaml"
 WATCHLIST = REPO_ROOT / "config" / "stock_monitor" / "watchlist.yaml"
+STOCK_POOL = REPO_ROOT / "config" / "stock_monitor" / "stock_pool.yaml"
+DIRECTION_CANDIDATES = REPO_ROOT / "config" / "stock_monitor" / "direction_candidates.yaml"
 
 DAILY_REVIEW_JOB_ID = "fc7d8a270d84"
 
@@ -238,13 +240,196 @@ def sync_from_daily_state_file(dry_run: bool) -> list[str]:
     all_changes.extend(update_strategy_pack(state, dry_run))
     all_changes.extend(update_positions(state, dry_run))
     # watchlist 需要 entry_zone_updates 这个字段在 daily_state.json 里
-    # 如果不存在则跳过
     if state.get("entry_zone_updates"):
         all_changes.extend(update_watchlist(state, dry_run))
     else:
         logger.info("daily_state.json 无 entry_zone_updates，跳过 watchlist")
+    # stock_pool entry zone 反写
+    all_changes.extend(update_stock_pool(state, dry_run))
+    # direction candidates 生成
+    all_changes.extend(update_direction_candidates(state, dry_run))
 
     return all_changes
+
+
+# ═══════════════════════════════════════════
+# Stock Pool entry zone 反写
+# ═══════════════════════════════════════════
+
+def parse_entry_zone(text: str) -> list[float] | None:
+    """从文本中提取价格区间，如 '回踩42-43区间' → [42.0, 43.0]"""
+    # 模式1: 数字-数字区间
+    m = re.search(r'(\d+\.?\d*)\s*[-–—~到]\s*(\d+\.?\d*)', text)
+    if m:
+        return [float(m.group(1)), float(m.group(2))]
+    return None
+
+
+def update_stock_pool(state: dict, dry_run: bool) -> list[str]:
+    """从 active_opportunities 反写 stock_pool.yaml entry.primary_zone。
+
+    合并策略:
+    - stock_pool 无 primary_zone → 直接写入
+    - stock_pool 有 primary_zone 且 LLM 建议一致 → 跳过
+    - stock_pool 有 primary_zone 但 LLM 建议不同 → 追加到 backup_zones，保留人工判断
+    """
+    changes = []
+    data = load_yaml(STOCK_POOL)
+    if not data:
+        return changes
+
+    opportunities = state.get("active_opportunities", [])
+    if not opportunities:
+        return changes
+
+    stocks = data.get("stocks", [])
+    if not stocks:
+        return changes
+
+    # 建立 code → opportunity 映射
+    opp_map: dict[str, dict] = {}
+    for opp in opportunities:
+        code = str(opp.get("code", ""))
+        if not code:
+            continue
+        # 标准化：去掉 .SZ/.SH 后缀
+        pure = code.replace(".SZ", "").replace(".SH", "")
+        opp_map[pure] = opp
+        opp_map[code] = opp  # 同时保留原始格式
+
+    for stock in stocks:
+        code = str(stock.get("code", ""))
+        pure = code.replace(".SZ", "").replace(".SH", "")
+        opp = opp_map.get(pure) or opp_map.get(code)
+        if not opp:
+            # 尝试按 name 匹配
+            name = stock.get("name", "")
+            for o in opportunities:
+                if o.get("stock") == name or o.get("name") == name:
+                    opp = o
+                    break
+        if not opp:
+            continue
+
+        # 尝试获取 entry zone
+        zone = None
+        if "entry_zone" in opp and isinstance(opp["entry_zone"], list) and len(opp["entry_zone"]) == 2:
+            zone = [float(opp["entry_zone"][0]), float(opp["entry_zone"][1])]
+        elif opp.get("trigger"):
+            zone = parse_entry_zone(str(opp["trigger"]))
+
+        if not zone:
+            continue
+
+        entry = stock.setdefault("entry", {})
+        current_zone = entry.get("primary_zone")
+
+        # 合并策略
+        if current_zone is None:
+            # 无 zone → 直接写入
+            entry["primary_zone"] = zone
+            changes.append(
+                f"stock_pool.{stock.get('name', code)}.entry.primary_zone: None → {zone}"
+            )
+        elif isinstance(current_zone, list) and len(current_zone) == 2:
+            # 比较是否一致（容忍0.5的偏差）
+            if abs(current_zone[0] - zone[0]) <= 0.5 and abs(current_zone[1] - zone[1]) <= 0.5:
+                continue  # 一致，跳过
+            else:
+                # 不一致 → 追加到 backup_zones
+                backup = entry.setdefault("backup_zones", [])
+                # 检查是否已有相同或相近的 backup
+                already_exists = False
+                for bz in backup:
+                    if (isinstance(bz, list) and len(bz) == 2
+                        and abs(bz[0] - zone[0]) <= 0.5
+                        and abs(bz[1] - zone[1]) <= 0.5):
+                        already_exists = True
+                        break
+                if not already_exists:
+                    backup.append(zone)
+                    changes.append(
+                        f"stock_pool.{stock.get('name', code)}.entry.backup_zones: +{zone} (保留 primary_zone={current_zone})"
+                    )
+
+    if not dry_run:
+        save_yaml(STOCK_POOL, data)
+        logger.info("✅ stock_pool.yaml 已更新")
+    else:
+        if changes:
+            logger.info("[DRY RUN] stock_pool.yaml 将更新")
+
+    return changes
+
+
+# ═══════════════════════════════════════════
+# Direction Candidates 生成
+# ═══════════════════════════════════════════
+
+def update_direction_candidates(state: dict, dry_run: bool) -> list[str]:
+    """从 daily_state 的 direction_signals 更新 direction_candidates.yaml。
+
+    direction_signals 格式:
+    [{"direction": "方向名", "signal": "信号描述",
+      "source": "来源(UP/复盘)", "status": "new/confirmed/expired"}]
+    """
+    changes = []
+    signals = state.get("direction_signals", [])
+    if not signals:
+        return changes
+
+    # 加载或初始化
+    existing = load_yaml(DIRECTION_CANDIDATES) if DIRECTION_CANDIDATES.exists() else {}
+    candidates = existing.get("directions", []) if existing else []
+
+    existing_names = {d.get("direction", "") for d in candidates}
+
+    for sig in signals:
+        name = sig.get("direction", "")
+        if not name:
+            continue
+        status = sig.get("status", "new")
+
+        if status == "expired":
+            # 标记过期
+            for c in candidates:
+                if c.get("direction") == name:
+                    c["status"] = "expired"
+                    changes.append(f"direction_candidates.{name}: → expired")
+                    break
+        elif name in existing_names:
+            # 已存在 → 更新 signal
+            for c in candidates:
+                if c.get("direction") == name and c.get("status") != "expired":
+                    old_signal = c.get("signal", "")
+                    if old_signal != sig.get("signal", ""):
+                        c["signal"] = sig.get("signal", "")
+                        c["updated_at"] = datetime.now(CN_TZ).strftime("%Y-%m-%dT%H:%M")
+                        changes.append(f"direction_candidates.{name}.signal: 已更新")
+                    break
+        else:
+            # 新方向
+            candidates.append({
+                "direction": name,
+                "signal": sig.get("signal", ""),
+                "source": sig.get("source", "未标注"),
+                "status": "new",
+                "first_seen": datetime.now(CN_TZ).strftime("%Y-%m-%dT%H:%M"),
+                "updated_at": datetime.now(CN_TZ).strftime("%Y-%m-%dT%H:%M"),
+            })
+            changes.append(f"direction_candidates.{name}: +new")
+            existing_names.add(name)
+
+    output = {"updated_at": datetime.now(CN_TZ).strftime("%Y-%m-%dT%H:%M"), "directions": candidates}
+
+    if not dry_run and changes:
+        DIRECTION_CANDIDATES.parent.mkdir(parents=True, exist_ok=True)
+        save_yaml(DIRECTION_CANDIDATES, output)
+        logger.info("✅ direction_candidates.yaml 已更新 (%d 条目)", len(candidates))
+    elif dry_run and changes:
+        logger.info("[DRY RUN] direction_candidates.yaml 将更新")
+
+    return changes
 
 
 def sync(dry_run: bool = False, force: bool = False) -> int:
@@ -295,11 +480,24 @@ def sync(dry_run: bool = False, force: bool = False) -> int:
     for block in blocks:
         state.update(block)
 
+    # 4.5 补 active_opportunities（LLM 输出不包含此字段，需从 daily_state.json 读取）
+    if not state.get("active_opportunities") and DAILY_STATE_FILE.exists():
+        try:
+            ds = json.loads(DAILY_STATE_FILE.read_text(encoding="utf-8"))
+            if ds.get("active_opportunities"):
+                state["active_opportunities"] = ds["active_opportunities"]
+                logger.info("从 daily_state.json 补充 active_opportunities (%d 条)",
+                           len(state["active_opportunities"]))
+        except Exception:
+            pass
+
     # 5. 更新各文件
     all_changes = []
     all_changes.extend(update_strategy_pack(state, dry_run))
     all_changes.extend(update_positions(state, dry_run))
     all_changes.extend(update_watchlist(state, dry_run))
+    all_changes.extend(update_stock_pool(state, dry_run))
+    all_changes.extend(update_direction_candidates(state, dry_run))
 
     # 6. 记录追踪
     if not dry_run and all_changes:

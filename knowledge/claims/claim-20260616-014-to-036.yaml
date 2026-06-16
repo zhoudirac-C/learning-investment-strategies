@@ -1,0 +1,590 @@
+claims:
+- id: claim-20260616-001
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: market-cycle
+  subject: 2连板过热信号，隔日情绪通常转差
+  timeframe: short-term
+  statement: 今日2连板个股近30只，近一年经验推断此为过热信号，隔日情绪端通常不会太好。
+  evidence_quote: 一个值得警惕的数据是：今日2连板个股数量大增，上一次出现近30只2连板还要追溯到三个月前...近一年以来只要出现这种2连板密集的数据，往往都是过热的表现，隔日情绪端通常不会太好。下午盘面已经给出了印证——不少人气标的回落明显
+  interpretation: 事实层面：2连板数量大增是客观数据。推断层面：UP基于近一年经验总结，认为这是过热信号。下午回落（中船特气(688146)、铜冠铜箔(301217)、云南诸业等）已部分印证该判断。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 大盘情绪
+  related_stocks:
+  - code: '688146'
+    name: 中船特气
+    role: 科创板不可交易
+  - code: '301217'
+    name: 铜冠铜箔
+    role: 创业板不可交易
+  tags:
+  - 2连板过热信号，隔日情绪通常转差
+  - 大盘情绪
+- id: claim-20260616-002
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: market-cycle
+  subject: 缺乏增量资金背景下防守以过渡为主，非全面退潮
+  timeframe: short-term
+  statement: 在缺乏增量资金的背景下，资金防守大概率以过渡为主而非全面退潮，科技股调整分化力度不会太大。
+  evidence_quote: 我的判断是，在缺乏增量的背景下，资金可能出现的防守大概率仍以过渡为主，而非全面退潮。板块层面，科技股在连续小高潮之后客观上存在调整需求，但分化力度应该不会太大
+  interpretation: UP判断调整是温和的、结构性的，而非系统性的退潮。核心逻辑：增量资金不足决定了无法全面退潮。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260531-002-a", "claim-20260526-034"]
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 大盘情绪
+  related_stocks: []
+  tags:
+  - 缺乏增量资金背景下防守以过渡为主，非全面退潮
+  - 大盘情绪
+- id: claim-20260616-003
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: market-cycle
+  subject: 资金最终回流科技，因其他方向赚钱效应太差
+  timeframe: short-term
+  statement: 当前市场除泛科技景气度赛道外其他方向赚钱效应糟糕，资金即便短暂分流最终仍将回流科技。
+  evidence_quote: 更核心的结构性观察是：目前市场除了泛科技景气度赛道之外，其他方向的赚钱效应太过糟糕。这意味着资金即便短暂分流，最终还是要回流科技。
+  interpretation: 这是结构性的判断：科技主线地位由其他方向的赚钱效应差反推确认，属于市场自发选择的结果而非政策驱动。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 大盘情绪
+  related_stocks: []
+  tags:
+  - 资金最终回流科技，因其他方向赚钱效应太差
+  - 大盘情绪
+- id: claim-20260616-004
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: risk
+  subject: 两大外部风险：美股科技回调与美伊和平协议生变
+  timeframe: trend
+  statement: 若美股科技集体性回调或美伊和平协议生变，则科技调整时间短的判断需推翻，转为防守。
+  evidence_quote: 如果出现外部力量冲击则另当别论——例如美股科技出现集体性回调，或者美伊和平协议生变。在这两类风险未兑现之前，整体来说市场变化不大。
+  interpretation: UP明确指出两个会导致判断失效的外部风险因素。在风险未兑现前维持原有判断，一旦发生需180度转向。这是明确的条件性判断。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 大盘情绪
+  related_stocks: []
+  tags:
+  - 两大外部风险：美股科技回调与美伊和平协议生变
+  - 大盘情绪
+- id: claim-20260616-005
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: methodology
+  subject: 全A指数2连阳抬升底部空间，短期难破位
+  timeframe: short-term
+  statement: 全A指数2连阳抬升底部空间，短期很难破位；微盘股杀跌后反弹解除了风险。
+  evidence_quote: 指数结构上，上午全A指数走出2连阳，全A破位是能够直接影响AI科技走势的关键指数。连续两日阳线抬升了底部空间，短期很难破位。上午微盘股杀跌后快速上涨，进一步解除了风险
+  interpretation: 全A指数是AI科技走势的关键先行指标。2连阳从技术面提供了底部支撑，微盘股日内V型反转进一步确认情绪修复。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260601-004-a", "claim-20260610-006-f"]
+  contradicts: ["claim-20260615-005"]
+  last_discovered: 2026-06-16
+  links: []
+  topic: 大盘情绪
+  related_stocks: []
+  tags:
+  - 全A指数2连阳抬升底部空间，短期难破位
+  - 大盘情绪
+- id: claim-20260616-006
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: operation
+  subject: AI科技第一次分歧回落尾盘是最佳买入节点
+  timeframe: short-term
+  statement: 接下来最好的交易节点是AI科技出现第一次分歧回落的尾盘，在此之前低吸轮动埋伏和盘前增量信息驱动的正向循环仍适用。
+  evidence_quote: 节奏判断：接下来最好的节点，是AI科技出现第一次分歧回落的尾盘。在此之前，无论是低吸轮动埋伏，还是盘前产业增量信息形成的正向循环启动，都仍然适用。
+  interpretation: 这是明确的短线操作纪律：不追高潮，等第一次分歧尾盘低吸。分歧前仍可做低吸轮动或信息驱动交易。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260610-006-f"]
+  contradicts: ["claim-20260607-004-d"]
+  last_discovered: 2026-06-16
+  links: []
+  topic: 大盘情绪
+  related_stocks: []
+  tags:
+  - 大盘情绪
+  - AI科技第一次分歧回落尾盘是最佳买入节点
+- id: claim-20260616-007
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: sector-theme
+  subject: 风华高科主动开板与30天200%异动压制有关
+  timeframe: short-term
+  statement: 风华高科(000636)下午主动开板，推断与触及30天200%异动阈值有关，短期情绪载体核心暂时消失但趋势结构未被破坏。
+  evidence_quote: 我的推断是：大概率与'30天200%异动'有关。风华高科(000636)大概率还有一个涨停板的空间就会触及30天200%的异动阈值...部分资金可能选择了先行兑现。下午开板意味着短期情绪载体核心暂时消失，但这只会影响他的短期爆发力，其趋势结构不会被破坏。
+  interpretation: UP的推断逻辑：从盘面看跟风股（博迁新材(605376)）在加强、封板本无必要打开→排除常规原因→指向异动压制。这是典型的盘面推理（与板块行为不一致的反常现象）。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 情绪载体
+  related_stocks:
+  - code: '000636'
+    name: 风华高科
+    role: 主板可交易
+  - code: '605376'
+    name: 博迁新材
+    role: 主板可交易
+  tags:
+  - 情绪载体
+  - 风华高科主动开板与30天200%异动压制有关
+- id: claim-20260616-008
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: sector-theme
+  subject: 太辰光成为唯一连续两日强势的MPO容量核心
+  timeframe: short-term
+  statement: 风华高科(000636)退选后，太辰光(300570)成为唯一连续两日主动强势的容量核心，短期已大涨不具备交易价值，可用来观察情绪周期运行节奏。
+  evidence_quote: 随着风华高科(000636)主动退选，日内稳定强势的MPO核心太辰光(300570)，成为了唯一连续两日主动强势的容量核心。短期已经连续大涨，不具备交易价值，但可以辅助用来观察这轮情绪周期的运行节奏。
+  interpretation: 太辰光(300570)从交易标的角度已无入场价值（短期涨幅过大），但作为情绪观测指标有参考意义——它的走势可反映这轮情绪周期的强度与持续性。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 情绪载体
+  related_stocks:
+  - code: '000636'
+    name: 风华高科
+    role: 主板可交易
+  - code: '300570'
+    name: 太辰光
+    role: 创业板不可交易
+  tags:
+  - 情绪载体
+  - 太辰光成为唯一连续两日强势的MPO容量核心
+- id: claim-20260616-009
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: sector-theme
+  subject: AMD加速外部激光器采购，CW光源成国产切入先锋
+  timeframe: industry
+  statement: AMD加速外部激光器采购以规避英伟达生态绑定风险；CPO/NPO市场规模预计从2025年约1亿美元增至2030年逾390亿美元；CW光源因技术壁垒较低成为国产切入先锋方向。
+  evidence_quote: 据TrendForce报道，AMD近期大幅提速外部激光器采购，以确保未来产能可用性，并规避与英伟达生态系统绑定带来的供应链风险。同一机构预测，CPO与NPO市场规模将从2025年约1亿美元，跃升至2030年逾390亿美元
+  interpretation: AMD的去英伟达生态绑定策略是明确的产业趋势，这意味着光芯片供应链将从单一依赖英伟达生态转向多供应商格局。CW光源因技术门槛低于EML，成为国产厂商首选突破口。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 光芯片
+  related_stocks: []
+  tags:
+  - 光芯片
+  - AMD加速外部激光器采购，CW光源成国产切入先锋
+- id: claim-20260616-010
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: catalyst
+  subject: Lumentum披露InP光芯片供需缺口25-30%，EML积压超2年
+  timeframe: industry
+  statement: Lumentum披露InP光芯片供需缺口已达25-30%，EML积压订单超2年；全球EML前五家市占率75.92%，高端光芯片国产化率仅4%，供需失衡预计持续至2027年。
+  evidence_quote: Lumentum在FY26Q2业绩会披露InP光芯片供需缺口已达25%—30%，其EML积压订单已超2年；全球EML前五家（Lumentum、Coherent、Broadcom、三菱、住友）2024年合计市占率75.92%，高端光芯片（25Gbps及以上）国产化率仅约4%。全球高速光芯片供需失衡预计持续至2027年。
+  interpretation: 这是已披露事实（Lumentum业绩会官方数据）。供需缺口大、集中度高、国产化率极低构成了光芯片板块的基本面支撑。供需失衡持续至2027年意味着行业高景气周期较长。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 光芯片
+  related_stocks: []
+  tags:
+  - 光芯片
+  - Lumentum披露InP光芯片供需缺口25-30%，EML积压超2年
+- id: claim-20260616-011
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: stock-view
+  subject: 永鼎股份CW光芯片光纤涨价与超导远期题材
+  timeframe: industry
+  statement: 永鼎股份(600105)子公司鼎芯光电以IDM模式建成激光器FAB工厂，70mW/100mW CW-DFB及100G EML已供货；G.657.A2光纤价格涨650%；子公司东部超导布局核聚变REBCO带材。
+  evidence_quote: 永鼎股份(600105)个股逻辑：子公司鼎芯光电成立于2021年1月，以IDM模式建成国内稀缺的激光器FAB工厂...年产7000万颗高速光模块光芯片技改项目于2026年2月完成备案...公司G.657.A2光纤价格从32元/芯公里涨至240元/芯公里，涨幅达650%
+  interpretation: 永鼎有三个独立逻辑：光芯片（IDM Fab+CW激光器）+ 光纤涨价（650%涨幅）+ 超导（远期题材）。需区分：前两者有业绩支撑，超导为远期题材。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 个股分析
+  related_stocks:
+  - code: '600105'
+    name: 永鼎股份
+    role: 主板可交易
+  tags:
+  - 个股分析
+  - 永鼎股份CW光芯片光纤涨价与超导远期题材
+- id: claim-20260616-012
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: sector-theme
+  subject: 3D打印产业拐点临近，苹果折叠屏与商业航天双驱动
+  timeframe: industry
+  statement: 3D打印产业拐点临近，驱动来自苹果折叠屏（iPhone Fold预计2026秋推出，极致精度要求）和商业航天（SpaceX猛禽3大量采用3D打印）。
+  evidence_quote: 传统CNC加工钛合金良率仅30%—40%，而3D打印可将材料利用率提升至95%以上，并实现0.15mm级超薄零件一体化成形。苹果iPhone
+    Fold预计2026年秋推出...若苹果一旦量产，将形成行业示范效应。商业航天是工业级3D打印渗透率提升最确定的赛道之一
+  interpretation: 苹果折叠屏对钛合金中框精度要求极高（0.15mm级），传统CNC无法满足，3D打印是唯一可行方案。若苹果量产则形成示范效应，华为/小米/三星跟进概率大。属于「技术预期走向产业验证」的类型。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: AI科技
+  related_stocks: []
+  tags:
+  - 3D打印产业拐点临近，苹果折叠屏与商业航天双驱动
+  - AI科技
+- id: claim-20260616-013
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: sector-theme
+  subject: 玻璃基板：台积电首次公开披露验证进展，产业链进入产业化前夜
+  timeframe: industry
+  statement: 台积电首次公开披露玻璃基板技术进展，携手Ibiden与群创验证玻璃基板导入CoWoS先进封装；玻璃面板面积利用率是晶圆的4.9倍，解决硅中介层尺寸瓶颈和ABF物理极限双重瓶颈。
+  evidence_quote: 台积电近期首次公开披露'玻璃基板'技术应用进展，确认携手ABF载板大厂Ibiden与面板厂群创，共同验证玻璃基板导入下一代CoWoS先进封装的可行性。12英寸硅晶圆可用面积约7.29万平方毫米，而玻璃面板可达35.75万平方毫米
+  interpretation: 台积电首次公开披露是确认性的里程碑事件，标志着玻璃基板从实验室走向产业验证。产业链分原片（康宁等海外主导）、精加工（TGV成孔技术）、辅材三环节。国内沃格光电(603773)（已建成10万平米TGV量产线）、帝尔激光(300776)（TGV激光全覆盖）等有卡位。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20260608-001-d"]
+  last_discovered: 2026-06-16
+  links: []
+  topic: AI科技
+  related_stocks:
+  - code: '603773'
+    name: 沃格光电
+    role: 主板可交易
+  - code: '300776'
+    name: 帝尔激光
+    role: 创业板不可交易
+  tags:
+  - 玻璃基板：台积电首次公开披露验证进展，产业链进入产业化前夜
+  - AI科技
+- id: claim-20260616-014
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: sector-theme
+  subject: 液冷产业2026年进入订单业绩之年，产能瓶颈而非需求问题
+  timeframe: industry
+  statement: 2026年是液冷产业落地元年，核心矛盾不是需求而是产能紧缺，订单充足但产能不足；市场格局好于预期，客户对供应商份额态度温和。
+  evidence_quote: 2026年是液冷产业落地的元年...2026年是订单与业绩之年。市场热度：非常热，客户需求量大，当前不是订单问题而是产能问题——你有多少胆子和产能接单，客户就愿意给你多少单子。市场格局：远远好于市场预期。不同于上一波新能源和汽车制造业
+  interpretation: 液冷产业的核心逻辑已从'需求何时爆发'切换到'产能如何扩张'。格局好于预期（北美客户对供应商友好，非低价竞标模式），这意味着先发优势和产能壁垒更为重要。设备端（日本/德国高端机床）是主要瓶颈。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: AI科技
+  related_stocks: []
+  tags:
+  - 液冷产业2026年进入订单业绩之年，产能瓶颈而非需求问题
+  - AI科技
+- id: claim-20260616-015
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: catalyst
+  subject: MLCC结构性缺货超越2018超级周期，AI服务器驱动高端化
+  timeframe: industry
+  statement: MLCC本轮由AI驱动的缺货周期将超越2018年被动元件超级大循环；英伟达VR200机柜MLCC用量60万颗，是传统服务器25-33倍；高容高压料号占产能4-7倍。
+  evidence_quote: 国巨、华新科、禾伸堂、信昌电四大龙头在股东会上异口同声看旺景气，确认这一轮由AI驱动的缺货周期将超越2018年被动元件超级大循环。英伟达GB300
+    NVL72单机柜MLCC用量约44万颗，新一代VR200机柜增至60万颗，而传统通用服务器单台仅1800至2500颗
+  interpretation: 本轮MLCC缺货与2018年有本质区别：2018年是消费电子+矿机驱动、全品类普涨；本轮是AI结构化缺货、高容先紧高压后紧。AI料占用产能是普通料4-7倍，这意味着供给弹性更小、涨价持续性更强。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260531-002-d"]
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: MLCC
+  related_stocks:
+  - code: null
+    name: 国巨
+    role: 海外/非A股标的
+  - code: null
+    name: 华新科
+    role: 海外/非A股标的
+  tags:
+  - MLCC
+  - MLCC结构性缺货超越2018超级周期，AI服务器驱动高端化
+- id: claim-20260616-016
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: stock-view
+  subject: 博迁新材：80nm超细镍粉受益于MLCC超薄化趋势
+  timeframe: industry
+  statement: MLCC向超薄介质层演进，内电极需向0.5微米甚至0.4微米突破，80纳米超细镍粉是实现超薄化的核心瓶颈材料，博迁新材(605376)是国内80nm镍粉主要供应商。
+  evidence_quote: 高端MLCC向超薄介质层、超高堆叠层数、超大容量演进，内部电极必须同步减薄——介质膜厚度已从早期5微米降至0.5微米以下...内电极需向0.5微米甚至0.4微米突破。80纳米超细镍粉是实现超薄化的核心基础材料
+  interpretation: 博迁新材(605376)是MLCC超薄化趋势下的上游材料受益标的。80nm镍粉作为MLCC内电极核心材料，随高端MLCC需求爆发而受益。需关注公司产能扩张进度和技术验证进展。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260615-015"]
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 个股分析
+  related_stocks:
+  - code: '605376'
+    name: 博迁新材
+    role: 主板可交易
+  tags:
+  - 个股分析
+  - 博迁新材：80nm超细镍粉受益于MLCC超薄化趋势
+- id: claim-20260616-017
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: stock-view
+  subject: 炬光科技：CPO边缘耦合IP授权，从器件商向技术标准定义者跃迁
+  timeframe: industry
+  statement: 炬光科技(688167)在台积电CPO方案中以MPLA+垂直光学耦合器解决边缘耦合无法wafer级测试的核心卡点，若被台积电采用则从零件供应商跃迁为技术路线定义者，远期市值空间千亿规模（前瞻测算）。
+  evidence_quote: 炬光科技(688167)：CPO边缘耦合核心IP授权，从器件商向平台化IP跃迁...炬光的方案是在wafer上挖沟槽埋入MPLA和垂直光学耦合器，使光路垂直射入wafer，从而在wafer级完成ins2测试...解决了EC方案难以ins2测试的产业化核心卡点
+  interpretation: 这是调研观点，需区分：台积电采用与否仍是待验证事件（未官方确认）。若兑现则商业模式质变（从零部件→IP授权+标准定义）。市值测算（千亿）为前瞻性假设，需对折处理。
+  confidence: low
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 个股分析
+  related_stocks:
+  - code: '688167'
+    name: 炬光科技
+    role: 科创板不可交易
+  tags:
+  - 炬光科技：CPO边缘耦合IP授权，从器件商向技术标准定义者跃迁
+  - 个股分析
+- id: claim-20260616-018
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: stock-view
+  subject: 福光股份：切入Coherent产业链，估值对比腾景存安全边际
+  timeframe: short-term
+  statement: 福光股份(688010)上周接到Coherent准直透镜加工订单（此前市场无预期），同营收体量下市值仅腾景科技(688195)的约1/5（70亿vs370亿），具备安全边际与炒作弹性。
+  evidence_quote: 福光股份(688010)上周接到Coherent准直透镜加工订单（此前市场并无预期，后续不排除还有其他产品）...估值对比：腾景科技(688195)今年9亿元营收、约370亿元市值，福光股份(688010)今年9亿元营收、约70亿元市值。调研者认为股价相对低位、逻辑出现变化、市场无预期
+  interpretation: 这是调研见闻，具备三个要素：低位（相对估值差5倍）+ 逻辑变化（新切入Coherent）+ 市场无预期。安全边际高但爆发力取决于订单的持续性和规模。
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 个股分析
+  related_stocks:
+  - code: '688010'
+    name: 福光股份
+    role: 科创板不可交易
+  - code: '688195'
+    name: 腾景科技
+    role: 科创板不可交易
+  tags:
+  - 个股分析
+  - 福光股份：切入Coherent产业链，估值对比腾景存安全边际
+- id: claim-20260616-019
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: stock-view
+  subject: 东山精密12亿美元光芯片扩产
+  timeframe: industry
+  statement: 东山精密(002384)子公司索尔思光电拟投资12亿美元建设光芯片及光模块扩建项目，与拿到英伟达20亿美元的Coherent、Lumentum处于同一量级。
+  evidence_quote: 东山精密(002384)今日公告，子公司索尔思光电拟投资12亿美元实施光芯片及光模块扩建项目——这一手笔放眼全球都属顶级，与拿到英伟达20亿美元的Coherent、Lumentum处于同一量级。
+  interpretation: 12亿美元投资额对于A股光模块公司是顶级规模。需注意公告已披露的事实与后续产能释放节奏之间的时间差，以及光模块生产设备尚未达到量产条件（公司口径）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 个股分析
+  related_stocks:
+  - code: '002384'
+    name: 东山精密
+    role: 主板可交易
+  tags:
+  - 东山精密12亿美元光芯片扩产
+  - 个股分析
+- id: claim-20260616-020
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: stock-view
+  subject: 通富微电：AMD产业链纯度最高的A股标的
+  timeframe: trend
+  statement: 通富微电(002156)是AMD产业链纯度最高的A股标的；AMD全面开启AI军备竞赛，苏姿丰表示2027年数据中心AI业务年营收数百亿美元。
+  evidence_quote: 通富微电(002156)：AMD产业链纯度最高的A股标的AMD全面开启新一轮AI军备竞赛——向AT&S提供至多20亿欧元支持扩充马来西亚居林高端IC基板产能、洽谈高功率CW激光芯片大单确保光互联产能；CEO苏姿丰表示2027年数据中心AI业务年营收数百亿美元、未来数年超80%长期增长目标。
+  interpretation: 通富微电(002156)的利好来自AMD的大规模AI投资。AMD向AT&S投20亿欧元扩IC基板、洽谈CW激光芯片大单，均利好通富微电(002156)作为AMD封装链核心供应商。但需注意AMD营收指引（数百亿美元）仍然是前瞻性预期。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 个股分析
+  related_stocks:
+  - code: '002156'
+    name: 通富微电
+    role: 主板可交易
+  tags:
+  - 个股分析
+  - 通富微电：AMD产业链纯度最高的A股标的
+- id: claim-20260616-021
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: sector-theme
+  subject: PCB油墨国产替代加速，AI服务器驱动量价齐升
+  timeframe: industry
+  statement: AI服务器PCB层数从8层升至20-30层，特种油墨吨价从2-3万突破8万元；日系有效供给收缩，国产油墨价格低30-40%、交付快50%以上，加速替代。
+  evidence_quote: 消费电子用常规阻焊油墨吨价仅2至3万元，而AI服务器主板、IC载板用特种油墨吨价可突破8万元...AI服务器PCB层数从传统8层升至20至30层，单台油墨用量从几百克增至几千克...太阳油墨将部分产能转向半导体光刻胶、田村化学关闭老旧产线，日系有效供给在收缩
+  interpretation: PCB油墨是AI硬件产业链中弹性较大的上游材料环节。三重利好：AI带来的量价双升 + 日系供给收缩 + 国产替代加速。属于相对冷门但有基本面对应的细分。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260615-010"]
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: AI科技
+  related_stocks: []
+  tags:
+  - AI科技
+  - PCB油墨国产替代加速，AI服务器驱动量价齐升
+- id: claim-20260616-022
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: stock-view
+  subject: 强力新材：PSPI国产替代迎旭化成限供窗口期
+  timeframe: industry
+  statement: 强力新材(300429)加速切入先进封装PSPI材料赛道，2025年5月旭化成发布PIMEL限供通知后PSPI国产替代窗口打开，公司高温PSPI已获百公斤级商业订单。
+  evidence_quote: 2025年5月日本旭化成发布PIMEL限供通知，PSPI迎来国产替代关键窗口期；近期公司高温PSPI产品已收到贸易商百公斤级订单，应用于前制程应力缓冲层，标志着从样品验证向商业化销售迈出关键一步。
+  interpretation: PSPI国产替代有明确的事件驱动（旭化成限供）。百公斤级订单是从样品验证到商业化的转折点，但规模仍然很小。需跟踪后续订单放量节奏。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260615-011"]
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 个股分析
+  related_stocks:
+  - code: '300429'
+    name: 强力新材
+    role: 创业板不可交易
+  tags:
+  - 个股分析
+  - 强力新材：PSPI国产替代迎旭化成限供窗口期
+- id: claim-20260616-023
+  source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
+  source_date: '2026-06-16'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-16T23:50:00'
+  claim_type: stock-view
+  subject: 茂莱光学半导体量检测光通信ARVR三线并进
+  timeframe: industry
+  statement: 茂莱光学(688502)半导体业务增速70%+，FSO产品供货Google Taara项目，AR/VR检测收入同比增长170%，已募集6亿元扩产。
+  evidence_quote: 半导体量检测下游景气度高，海外AI客户单季增速超30%...预计半导体业务整体增速保持70%左右。光通信方面，自由空间光通信FSO产品交付Google
+    Taara项目（20km级20Gbps）...AR/VR检测25年相关收入同比增长170%
+  interpretation: 茂莱光学(688502)三线业务均在高景气赛道。FSO（自由空间光通信）供货Google Taara是亮点，属于星间/地面激光通信赛道。但三线同时布局意味着单一业务爆发对公司弹性可能不如纯正标的。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-16
+  links: []
+  topic: 个股分析
+  related_stocks:
+  - code: '688502'
+    name: 茂莱光学
+    role: 科创板不可交易
+  tags:
+  - 茂莱光学半导体量检测光通信ARVR三线并进
+  - 个股分析

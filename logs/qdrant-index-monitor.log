@@ -82,5 +82,15 @@
     "mem_total_mb": 7685,
     "claims_indexed": "50",
     "error": ""
+  },
+  {
+    "timestamp": "2026-06-16 23:53:01",
+    "status": "error",
+    "elapsed_sec": 3.7,
+    "mem_free_mb": 3833,
+    "mem_total_mb": 7685,
+    "claims_indexed": "?",
+    "error": "index_claims_to_qdrant.py: error: unrecognized arguments: --rebuild",
+    "full_stderr": "[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.\nusage: index_claims_to_qdrant.py [-h] [--force-recreate] [--skip-agent-kill]\nindex_claims_to_qdrant.py: error: unrecognized arguments: --rebuild"
   }
 ]

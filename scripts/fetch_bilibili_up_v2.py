@@ -265,7 +265,7 @@ def fetch_article_content(article_id: str, sessdata: str) -> str:
             continue
         paragraphs = para_container.get("paragraphs", [])
         for para in paragraphs:
-            nodes = para.get("text", {}).get("nodes", [])
+            nodes = (para.get("text") or {}).get("nodes", [])
             line_words = []
             for node in nodes:
                 if node.get("type") == "TEXT_NODE_TYPE_WORD":
