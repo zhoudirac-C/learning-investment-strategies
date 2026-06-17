@@ -1,0 +1,170 @@
+claims:
+- id: claim-20260617-001-a
+  source_path: sources/original/bilibili/2026-06-17-2237-图片-动态-1214911656712208391.md
+  source_date: '2026-06-17'
+  source_type: 动态
+  extracted_at: '2026-06-17T23:27:54+08:00'
+  claim_type: risk
+  subject: 半导体减持风险
+  timeframe: short-term
+  statement: 半导体板块减持集中在5月下旬-6月初板块最强、多股创历史新高之际，股价翻倍后早期投资者兑现逻辑清晰，需警惕高位减持风险
+  evidence_quote: 时点：减持集中在5月下旬-6月初板块最强、多股创历史新高之际，「股价翻倍→早期投资者兑现」逻辑清晰。
+  interpretation: 减持时点与板块高点高度重合，说明早期投资者（大基金、高管、股东）在股价翻倍后选择兑现。这不是个别现象，而是板块性行为，意味着半导体板块短期可能面临获利盘抛压
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体板块高位减持时点分析
+  related_stocks: []
+  tags:
+  - 减持
+  - 大基金
+  - 董监高减持
+  - 半导体
+- id: claim-20260617-001-b
+  source_path: sources/original/bilibili/2026-06-17-2237-图片-动态-1214911656712208391.md
+  source_date: '2026-06-17'
+  source_type: 动态
+  extracted_at: '2026-06-17T23:27:54+08:00'
+  claim_type: operation
+  subject: 大基金减持
+  timeframe: short-term
+  statement: 大基金（一期/二期）是半导体减持绝对主力，年内套现远超100亿元，市场多视为计划内回收，对股价冲击相对可控
+  evidence_quote: 主力：大基金（一期/二期）是绝对主力，年内对沪硅产业、佰维存储、中芯国际等多家完成减持，套现远超100亿元，市场多视为「计划内回收」。
+  interpretation: 大基金减持是计划性行为，市场已有预期，且通过询价转让等方式进行，对二级市场直接冲击较小。但累计套现超100亿元显示退出决心坚定
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大基金减持性质与市场影响
+  related_stocks:
+  - code: '688525'
+    name: 佰维存储
+    role: 减持标的-科创板不可交易
+  - code: '688126'
+    name: 沪硅产业
+    role: 减持标的-科创板不可交易
+  - code: '688981'
+    name: 中芯国际
+    role: 减持标的-科创板不可交易
+  tags:
+  - 减持
+  - 大基金
+  - 半导体
+  - 询价转让
+- id: claim-20260617-001-c
+  source_path: sources/original/bilibili/2026-06-17-2237-图片-动态-1214911656712208391.md
+  source_date: '2026-06-17'
+  source_type: 动态
+  extracted_at: '2026-06-17T23:27:54+08:00'
+  claim_type: risk
+  subject: 董监高减持风险
+  timeframe: short-term
+  statement: 董监高减持与大基金减持性质不同，大基金减持是计划内回收，董监高减持是危险信号，这些票如果蹭着行情继续减持容易被埋
+  evidence_quote: '注意风险
+
+    别忘了五月份的减持，大基金减持没什么问题，董监高不行，这些票如果蹭着这波行情继续减持，容易被埋。'
+  interpretation: UP明确区分减持主体性质：大基金减持=计划内（可接受），董监高减持=内部人看空（危险）。若个股在上涨中继续出现董监高减持，说明内部人对当前估值不认可，股价容易被埋。需要重点监控董监高减持标的
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 董监高减持vs大基金减持的风险区分
+  related_stocks: []
+  tags:
+  - 减持
+  - 大基金
+  - 董监高减持
+- id: claim-20260617-001-d
+  source_path: sources/original/bilibili/2026-06-17-2237-图片-动态-1214911656712208391.md
+  source_date: '2026-06-17'
+  source_type: 动态
+  extracted_at: '2026-06-17T23:27:54+08:00'
+  claim_type: methodology
+  subject: 减持方式差异
+  timeframe: permanent
+  statement: 询价转让仅面向机构、受让方锁定6个月，对二级市场冲击小于集中竞价；计划减持不等于已实施
+  evidence_quote: 方式：询价转让仅面向机构、受让方锁定6个月，对二级市场冲击小于集中竞价；「计划」≠「已实施」。
+  interpretation: 减持方式影响市场冲击：询价转让（机构接盘+锁定期）>大宗交易>集中竞价。同时区分'计划减持'（公告）和'实际减持'（执行），计划不一定全部执行完毕。分析减持影响时需看实际执行进度
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 减持方式对市场冲击的差异分析
+  related_stocks: []
+  tags:
+  - 减持
+  - 询价转让
+  - 风险警示
+  - 板块分析
+- id: claim-20260617-001-e
+  source_path: sources/original/bilibili/2026-06-17-2237-图片-动态-1214911656712208391.md
+  source_date: '2026-06-17'
+  source_type: 动态
+  extracted_at: '2026-06-17T23:27:54+08:00'
+  claim_type: sector-theme
+  subject: 半导体减持全景
+  timeframe: trend
+  statement: 2026年半导体行业年内涉及减持的公司达93家（不完全统计），涵盖设备、存储、设计、材料、光通信、封测等全链条，板块性减持特征明显
+  evidence_quote: 注：媒体口径年内涉及减持的半导体公司达93家（不完全统计），下列为有明确主体/规模的标的
+  interpretation: 93家减持不是个别公司行为，而是全板块现象。从设备（中微公司(688012)、拓荆科技(688072)）到存储（佰维存储(688525)）、设计（翱捷科技(688220)、芯原股份(688521)）、材料（沪硅产业(688126)）、封测（通富微电(002156)、中芯国际(688981)），覆盖半导体全链条。这意味着板块估值可能已处于阶段性高位，产业资本集体选择兑现
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体板块全链条减持全景
+  related_stocks:
+  - code: '688012'
+    name: 中微公司
+    role: 减持标的-科创板不可交易
+  - code: '688072'
+    name: 拓荆科技
+    role: 减持标的-科创板不可交易
+  - code: '688525'
+    name: 佰维存储
+    role: 减持标的-科创板不可交易
+  - code: '688220'
+    name: 翱捷科技
+    role: 减持标的-科创板不可交易
+  - code: '688521'
+    name: 芯原股份
+    role: 减持标的-科创板不可交易
+  - code: '688126'
+    name: 沪硅产业
+    role: 减持标的-科创板不可交易
+  - code: '002156'
+    name: 通富微电
+    role: 减持标的-中小板可交易
+  - code: '688981'
+    name: 中芯国际
+    role: 减持标的-科创板不可交易
+  tags:
+  - 减持
+  - 半导体
+  - 风险警示
+  - 板块分析

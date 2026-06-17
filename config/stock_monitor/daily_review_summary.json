@@ -501,5 +501,203 @@
       "dt_sector_summary": {},
       "fetched_at": "2026-06-16T17:00:12.445488+08:00"
     }
+  },
+  "2026-06-17": {
+    "date": "2026-06-17",
+    "built_at": "2026-06-17T17:00:05.765068+08:00",
+    "market": {
+      "stage": "结构性修复期",
+      "stage_detail": "全A日线高4+上证120分钟高8即将完成，科创50/创业板低序列有修复窗口。科技上游材料（MLCC/电子特气/光通信）是资金主动选择的方向，非普涨式反弹",
+      "direction_priority": [
+        {
+          "direction": "MLCC/AI被动元件（博迁新材、火炬电子）",
+          "intensity": "",
+          "source": "market_analyst:market"
+        },
+        {
+          "direction": "光通信/光互联（东山精密、光迅科技）",
+          "intensity": "",
+          "source": "market_analyst:market"
+        },
+        {
+          "direction": "煤炭/焦炭右侧（潞安环能）",
+          "intensity": "",
+          "source": "market_analyst:market"
+        },
+        {
+          "direction": "上游材料（雅克科技、昊华科技）",
+          "intensity": "",
+          "source": "market_analyst:market"
+        }
+      ],
+      "position_stance": "5成仓位（ETF+少量雅克科技），不追高，等待分歧回踩确认再加仓。",
+      "key_levels": {
+        "shanghai_index": {
+          "full_position_trigger": "4088（UP 6/15 09:45 明确定价：收盘站上可满仓干，但需具备选股能力）",
+          "valid_repair": "量价确认+科技高低切（已替代4033固定点位，6/9后UP不再使用4033作为修复标准）",
+          "weak_repair": "4000（心理关口，缩量站回无效，需放量+科技主动承接）",
+          "trend_defense": "3950（月线支撑，收盘跌破→筑底失败信号）",
+          "framework_evolution": "6/3: 4033/4130纪律线引入。6/5: 4033修正为科技清仓线。6/9: 生命线下调至4000。\n6/11早盘: 地量信号+情景A/B框架替代二元点位判断。4033已连续12天被跌破。\n6/11晚间: 全A趋势下跌23个交易日→历史级别尾部。午后回升提前消耗修复动能。\n全A中阳线替代一切点位判断→成为唯一确认信号。仓位纪律高于判断。\n"
+        },
+        "nasdaq": {
+          "watch": "费城半导体指数是否稳住震荡区间"
+        },
+        "oil": {
+          "escalation_threshold": "90美元",
+          "relief_threshold": "80美元"
+        },
+        "csi2000": {
+          "index_code": "sh000932",
+          "name": "中证2000（微盘股代理指数）",
+          "description": "UP 6/15复盘将微盘股列为第一隐忧和验证维度。中证2000是A股最小的2000只股票的集合，最适合作为微盘股走势的代理指数。",
+          "break_condition": {
+            "level": "🔴 第一隐忧",
+            "description": "收盘持续在20日均线下方运行 = 破位确认",
+            "trigger": "close_below_MA20",
+            "risk_chain": "微盘股破位→拖累全A→拖累AI科技→修复证伪"
+          },
+          "broad_verify": {
+            "level": "✅ 线索① 尾盘补涨（验证广度）",
+            "description": "中证2000收阳且跑赢全A（涨幅>中证全指）= 微盘股补涨确认，意味着\"所有板块同向往上\"条件成立",
+            "trigger": "zz2000_gain > all_share_gain AND zz2000_close_positive"
+          },
+          "monitor_frequency": "每日，关注尾盘（14:52）最终收盘确认",
+          "invalidation_conditions": [
+            "中证2000连续3日收于MA20下方→微盘破位确认，降仓至10%",
+            "中证2000跳空低开且30分钟不补缺→防御模式"
+          ]
+        }
+      }
+    },
+    "positions": {
+      "159381": {
+        "close": 1.407,
+        "open": 1.365,
+        "high": 1.407,
+        "low": 1.362,
+        "change_pct": 1.74,
+        "volume": 3360005.0,
+        "amount": "46565",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 3.2,
+        "volume_ratio": null,
+        "vs_ma5": null,
+        "vs_ma10": null,
+        "near5d_return": null,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 1.344,
+        "unrealized_pct": 4.69,
+        "cost_protection_line": 1.34
+      },
+      "002409": {
+        "close": 147.92,
+        "open": 137.0,
+        "high": 149.22,
+        "low": 136.0,
+        "change_pct": 7.38,
+        "volume": 374932.0,
+        "amount": "542242",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 8.94,
+        "volume_ratio": 0.08,
+        "vs_ma5": null,
+        "vs_ma10": null,
+        "near5d_return": -1.0,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 136.852,
+        "unrealized_pct": 8.09,
+        "cost_protection_line": 140.96
+      }
+    },
+    "tomorrow_scenarios": null,
+    "dragon_tiger_board": {
+      "board_count": 73,
+      "watch_dt_items": [
+        "风华高科(000636) 净买-4.53亿",
+        "中材科技(002080) 净买+7.46亿",
+        "兴森科技(002436) 净买+5.09亿",
+        "深南电路(002916) 净买+1.61亿",
+        "鹏鼎控股(002938) 净买+5.61亿"
+      ],
+      "dt_nettop5": [
+        {
+          "code": "002851",
+          "name": "麦格米特",
+          "net_buy": "+24.17亿"
+        },
+        {
+          "code": "000725",
+          "name": "京东方A",
+          "net_buy": "+15.02亿"
+        },
+        {
+          "code": "000100",
+          "name": "TCL科技",
+          "net_buy": "+10.00亿"
+        },
+        {
+          "code": "300475",
+          "name": "香农芯创",
+          "net_buy": "+8.85亿"
+        },
+        {
+          "code": "300903",
+          "name": "科翔股份",
+          "net_buy": "+7.94亿"
+        }
+      ],
+      "dt_sector_summary": {
+        "mlcc_passive_component": {
+          "stocks": [
+            "000636"
+          ],
+          "total_net_str": "-4.53亿"
+        },
+        "mlcc_super_cycle": {
+          "stocks": [
+            "000636"
+          ],
+          "total_net_str": "-4.53亿"
+        },
+        "pcb_ai_chain": {
+          "stocks": [
+            "002080",
+            "002436",
+            "002916",
+            "002938"
+          ],
+          "total_net_str": "+23.63亿"
+        }
+      },
+      "fetched_at": "2026-06-17T17:00:05.766309+08:00"
+    }
   }
 }
