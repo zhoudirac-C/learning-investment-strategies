@@ -1,5 +1,8 @@
-updated_at: '2026-06-15'
+updated_at: '2026-06-17'
 source_claims:
+- knowledge/claims/claim-2026-06-17-001.yaml
+- knowledge/claims/claim-20260617-038-to-047.yaml
+- knowledge/claims/claim-20260617-025-to-037.yaml
 - knowledge/claims/claim-20260615-004-to-023.yaml
 - knowledge/claims/claim-20260614-001.yaml
 - knowledge/claims/claim-20260615-003.yaml
@@ -774,6 +777,24 @@ themes:
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
+  - code: 001309.SZ
+    name: 德明利
+    role: memory_niche
+    segment: 利基存储/存储模组
+    priority: P2-重点
+    watch_reason: 22:16专栏核心标的，利基存储涨价受益。中报业绩驱动A档，7月初兑现。⚠️需核实是否在22:37减持93家名单中。
+    entry_zone:
+      description: 新增标的，待pre_fetch_klines计算
+      current_ref: '待计算'
+      price_range: 待计算
+      method: 板块共振法
+      confirm_signal: 存储板块走强+中报业绩预期
+      hard_stop: 待设定
+      position_ratio: 不超过0.5成
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-17'
+    note: "⚠️ 需核实22:37减持名单"
   - code: 688766.SH
     name: 普冉股份
     role: memory_sentiment_anchor
@@ -1460,14 +1481,46 @@ themes:
     - claim_id: claim-20260615-022
       relevance: direct
       claim_type: sector-theme
+
+- id: pmic_power
+  name: PMIC电源管理（涨价+算电协同）
+  up_positioning: 22:16专栏核心方向：科技内部切换至中报业绩驱动，PMIC是A档可兑现方向。东阳光为算电协同核心标的。
+  source_claims:
+  - knowledge/claims/claim-20260617-038-to-047.yaml
+  market_checks:
+  - PMIC涨价是否持续
+  - 算电协同政策推进
+  - 中报业绩预期是否兑现
+  stocks:
+  - code: 600673.SH
+    name: 东阳光
+    role: pmic_leader
+    segment: PMIC/算电协同
+    priority: P2-重点
+    watch_reason: 22:16专栏核心标的，PMIC涨价+算电协同。中报业绩驱动A档，7月初兑现。⚠️需核实是否在22:37减持93家名单中。
+    entry_zone:
+      description: 新增标的，待pre_fetch_klines计算
+      current_ref: '待计算'
+      price_range: 待计算
+      method: 板块共振法
+      confirm_signal: PMIC板块走强+中报业绩预期
+      hard_stop: 待设定
+      position_ratio: 不超过0.5成
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-17'
+    note: "⚠️ 需核实22:37减持名单"
+
 avoid_and_reduce:
   avoid:
-  - 存储芯片（M头+颈线+量价顶背离，反弹减仓）
+  - 存储芯片（M头+颈线+量价顶背离，反弹减仓）→ 6/17更新：memory_nor已升级为resuming，中报业绩驱动，但需核实减持
   - CPU（走弱，先出来观察）
-  - 科创50（趋势走坏，反弹是卖点）
+  - 科创50（趋势走坏，反弹是卖点）→ 6/17更新：科创板政策超预期，但688不可交易
   - 房地产（只有交易性机会，无配置价值）
+  - 董监高减持标的（22:37动态：容易被埋，0%容忍）
   reduce_on_rebound:
   - 锂矿电池（位置偏高，反弹至60日线撤）
   - 稀土（60日线撤）
   - 石油（地缘支撑减弱，反弹撤）
   - 黄金（美元/实际利率压制，等反弹）
+  - 大基金减持标的（22:37动态：计划内回收，减半等反弹减仓）
