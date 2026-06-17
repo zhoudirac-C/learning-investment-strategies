@@ -1,6 +1,6 @@
 ---
 name: qing-fupan-morning-usage
-description: Use when the user asks how to use UP's daily 复盘 (evening review) or 早盘 (morning report), how to update direction_pool/stock_pool from claims, or how the three-layer funnel works. PREREQUISITE: claims must already be ingested via qing-learning-claim pipeline (Neo4j 895 claims, Qdrant qing_claims + qing_knowledge).
+description: "Use when the user asks how to use UP's daily 复盘 (evening review) or 早盘 (morning report), how to update direction_pool/stock_pool from claims, or how the three-layer funnel works. PREREQUISITE: claims must already be ingested via qing-learning-claim pipeline."
 ---
 
 # qing-fupan-morning-usage
