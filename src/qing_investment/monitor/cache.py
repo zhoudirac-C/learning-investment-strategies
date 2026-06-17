@@ -6,7 +6,6 @@ TTL 缓存，支持行情/龙虎榜/竞价数据的时间敏感复用。
     - 无外部依赖（纯 dict + time）
     - TTL 过期自动失效
     - 上限控制防内存泄漏
-    - 命中率可追踪
 """
 
 from __future__ import annotations
@@ -16,8 +15,6 @@ import time as time_module
 from datetime import datetime
 from pathlib import Path
 from typing import Any
-
-from qing_investment.monitor.health_stats import get_health_registry
 
 
 class CacheEntry:
@@ -130,11 +127,6 @@ class DataCache:
             "expired": self._expired,
             "evictions": self._evictions,
         }
-        # 上报到健康指标
-        try:
-            get_health_registry().update_cache_stats(stats)
-        except Exception:
-            pass
         return stats
 
     def clear(self) -> None:

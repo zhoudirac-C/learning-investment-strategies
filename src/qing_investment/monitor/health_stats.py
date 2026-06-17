@@ -11,12 +11,10 @@ DataCache 等）上报运行状态。Hermes cron 定期读取并推送微信。
 
 from __future__ import annotations
 
-import json
 import logging
 import os
 import time
-from dataclasses import asdict, dataclass, field
-from datetime import datetime
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -46,37 +44,22 @@ class DegradationMetrics:
 
 
 @dataclass
-class CacheMetrics:
-    """缓存命中率指标."""
-    size: int = 0
-    max_entries: int = 1000
-    hits: int = 0
-    misses: int = 0
-    hit_rate: float = 0.0
-    sets: int = 0
-    expired: int = 0
-    evictions: int = 0
-
-
-@dataclass
 class HealthSnapshot:
     """完整健康快照."""
     timestamp: str = ""
     circuit_breaker: CircuitBreakerMetrics = field(default_factory=CircuitBreakerMetrics)
     degradation: DegradationMetrics = field(default_factory=DegradationMetrics)
-    cache: CacheMetrics = field(default_factory=CacheMetrics)
-    agent_status: str = "unknown"   # running | down | degraded
+    agent_status: str = "unknown"
     uptime_hours: float = 0.0
 
 
 class HealthStatsRegistry:
-    """健康指标注册表（单例，文件持久化）.
+    """健康指标注册表（单例，进程内）。
 
     使用方式:
         registry = HealthStatsRegistry()
         registry.update_circuit_breaker(is_open=True, failures=3)
-        registry.update_cache_hit_rate(hit_rate=0.85)
-        snapshot = registry.get_snapshot()
+        registry.record_degradation(source="ws")
     """
 
     _instance: HealthStatsRegistry | None = None
@@ -92,13 +75,9 @@ class HealthStatsRegistry:
         self._initialized = True
         self._stats_path = Path(stats_path) if stats_path else _DEFAULT_STATS_PATH
         self._uptime_start = time.time()
-        # 进程内缓存
         self._circuit_breaker = CircuitBreakerMetrics()
         self._degradation = DegradationMetrics()
-        self._cache = CacheMetrics()
-        # 标记是否有跨进程写入（共享文件场景）
-        self._file_mode = False
-        logger.info("HealthStatsRegistry initialized, path=%s", self._stats_path)
+        logger.info("HealthStatsRegistry initialized")
 
     # ── 进程内更新 ──────────────────────────────────────────────────
 
@@ -116,7 +95,6 @@ class HealthStatsRegistry:
         if last_failure_time:
             self._circuit_breaker.last_failure_time = last_failure_time
         self._circuit_breaker.status = "open" if is_open else "closed"
-        self._persist()
 
     def record_degradation(
         self,
@@ -130,7 +108,6 @@ class HealthStatsRegistry:
             self._degradation.ws_not_started_count += 1
         self._degradation.current_source = source
         self._degradation.current_reason = reason
-        self._persist()
 
     def update_cache_stats(self, cache: dict) -> None:
         """更新缓存命中率指标."""
@@ -151,18 +128,6 @@ class HealthStatsRegistry:
 
     # ── 快照读取 ────────────────────────────────────────────────────
 
-    def get_snapshot(self) -> HealthSnapshot:
-        """获取当前健康快照（优先读文件，fallback 到进程内缓存）."""
-        # 先尝试从文件加载（跨进程场景）
-        if self._stats_path.exists():
-            try:
-                data = json.loads(self._stats_path.read_text(encoding="utf-8"))
-                return self._dict_to_snapshot(data)
-            except Exception as e:
-                logger.warning("Failed to load health stats file: %s", e)
-
-        # fallback 到进程内缓存
-        return self._build_snapshot()
 
     def format_for_wechat(self) -> str:
         """格式化健康快照为微信消息."""
@@ -201,37 +166,8 @@ class HealthStatsRegistry:
 
     # ── 内部 ────────────────────────────────────────────────────────
 
-    def _persist(self) -> None:
-        """持久化到文件（供跨进程读取）."""
-        try:
-            snapshot = self._build_snapshot()
-            data = {
-                "timestamp": snapshot.timestamp,
-                "circuit_breaker": asdict(snapshot.circuit_breaker),
-                "degradation": asdict(snapshot.degradation),
-                "cache": asdict(snapshot.cache),
-                "agent_status": snapshot.agent_status,
-                "uptime_hours": snapshot.uptime_hours,
-            }
-            self._stats_path.write_text(
-                json.dumps(data, ensure_ascii=False, indent=2),
-                encoding="utf-8",
-            )
-        except Exception as e:
-            logger.warning("Failed to persist health stats: %s", e)
 
-    def _build_snapshot(self) -> HealthSnapshot:
-        """从进程内缓存构建快照."""
-        return HealthSnapshot(
-            timestamp=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            circuit_breaker=self._circuit_breaker,
-            degradation=self._degradation,
-            cache=self._cache,
-            agent_status=getattr(self, "_agent_status", "unknown"),
-            uptime_hours=(time.time() - self._uptime_start) / 3600,
-        )
 
-    @staticmethod
     def _dict_to_snapshot(data: dict) -> HealthSnapshot:
         """从 dict 还原快照."""
         cb_data = data.get("circuit_breaker", {})
@@ -245,16 +181,6 @@ class HealthStatsRegistry:
             agent_status=data.get("agent_status", "unknown"),
             uptime_hours=data.get("uptime_hours", 0.0),
         )
-
-    @staticmethod
-    def _status_icon(status: str) -> str:
-        mapping = {
-            "closed": "✅", "open": "🔴", "half-open": "⚠️",
-            "running": "✅", "down": "❌", "degraded": "⚠️",
-            "ws": "✅", "http_fallback": "⚠️", "none": "❌",
-            "unknown": "❓",
-        }
-        return mapping.get(status, "❓")
 
 
 # ── 便捷函数 ──────────────────────────────────────────────────────
