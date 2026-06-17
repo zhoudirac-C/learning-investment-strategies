@@ -286,4 +286,15 @@ config 变更
 ### 相关 Skill（不要混用）
 - `qing-learning-claim` — claims 提取管线（上游，先跑这个）
 - `qing-learning-sync` — discover → Neo4j → Qdrant 同步（上游）
-- `qing-stock-monitor-update` — cron 配置和 prompt 更新
+
+### 相关脚本
+
+| 脚本 | 用途 | 调用方式 |
+|:-----|:-----|:-----|
+| `scripts/sync_config_from_review.py` | 从 17:00 复盘 daily_state JSON 同步到 config YAML | cron 自动调用 |
+| `scripts/sync_claims_to_config.py` | Claims→Config 差异报告，输出建议不自动执行 | 手动运行 |
+| `scripts/pre_fetch_klines.py` | K线批量预拉取（用于 entry_zone 计算） | `python3 scripts/pre_fetch_klines.py` |
+| `scripts/validate_watchlist.py` | Watchlist 字段校验 | `python3 scripts/validate_watchlist.py` |
+
+### 运维陷阱
+- `references/ops-traps.md` — 6 个踩坑记录（Agent-UP 矛盾、entry_zone 生命周期、cron 超时等）
