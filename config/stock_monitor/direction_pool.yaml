@@ -488,7 +488,7 @@ directions:
 
   - id: memory_nor
     name: 存储芯片（NOR Flash/DRAM涨价周期）
-    current_stage: diverging
+    current_stage: resuming
     industry_chain:
       upstream:
         - segment: 半导体设备/材料
@@ -781,3 +781,45 @@ directions:
       sector: "等放量站稳60日线"
       timing: "分歧大、未形成趋势"
     note: "分歧大、未形成趋势，暂不设标的。"
+
+  # ── 2026-06-17 新增：中报业绩驱动（存储A档+PMIC+晶合集成）────
+
+  - id: mid_report_performance
+    name: 中报业绩驱动（存储A档+PMIC+晶合集成）
+    current_stage: early_direction
+    industry_chain:
+      upstream:
+        - segment: 存储芯片设计/制造
+          stocks:
+            - code: 603986.SH
+              name: 兆易创新
+          pumped: true
+          note: "NOR Flash龙头+DRAM布局，长鑫深度绑定，22:16专栏核心标的"
+        - segment: 利基存储
+          stocks:
+            - code: 001309.SZ
+              name: 德明利
+          pumped: false
+          note: "存储模组，利基存储涨价受益，需确认减持状态"
+      midstream:
+        - segment: PMIC电源管理
+          stocks:
+            - code: 600673.SH
+              name: 东阳光
+          pumped: false
+          note: "PMIC涨价+算电协同，22:16专栏核心标的"
+      downstream:
+        - segment: 晶圆代工/封测
+          stocks:
+            - code: 600667.SH
+              name: 太极实业
+          pumped: true
+          note: "海力士产业链，HBM4产能关联"
+    diffusion_path:
+      - "中报业绩A档（存储/PCB覆铜板/光模块上游/MLCC高端/半导体设备）→ 7月初兑现"
+      - "长鑫上市 → 存储设计（兆易创新）→ 利基存储（德明利）→ PMIC（东阳光）"
+    pre_condition:
+      market: "全A量能>2.5万亿+非破位状态"
+      sector: "存储板块已确认走强，非首次分歧"
+      timing: "中报披露前（7月初）布局窗口"
+    note: "22:16专栏科技切换核心方向，中报业绩驱动替代纯题材炒作"
