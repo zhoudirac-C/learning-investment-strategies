@@ -25,11 +25,11 @@
 
 | 标的角色 | 原区间状态 | 动作 | 原因 |
 |---------|-----------|------|------|
-| P1/P2 核心 | 区间失效但逻辑未变 | 移除 entry_zone 或标记 paused | 等回踩重置区间 |
-| P3 观察 | 区间失效 | 直接设 `entry_zone: null` | P3 本就不设介入区间 |
-| 所有角色 | 连续涨停 | 临时移除候选 | 涨停期间不追高，等分歧日重新算 |
+| 核心标的（midstream/upstream） | 区间失效但逻辑未变 | 移除 entry_zone 或标记 paused | 等回踩重置区间 |
+| 观察标的（downstream/early） | 区间失效 | 直接设 `entry.primary_zone: null` | 观察标的可灵活调整 |
+| 所有标的 | 连续涨停 | 临时移除候选，等分歧日重新算 | 涨停期间不追高 |
 
-**不要在涨上去后删除标的**。保留但停用 entry_zone，等回踩后恢复。
+**不要在涨上去后删除标的**。保留在 direction_pool/stock_pool 中但停用 entry_zone，等回踩后恢复。
 
 ---
 
@@ -59,9 +59,11 @@ python3 scripts/hermes_stock_monitor_agent.py
 
 ## 陷阱 5: Hermes cron 默认 120s 脚本超时
 
-Hermes agent 源码硬编码 `cron/scheduler.py` 第 813 行：脚本超时 120 秒。qing-agent API 调用链（行情 15s + HTTP 119s + 开销 39s ≈ 173s）经常超时。
+Hermes agent `cron/scheduler.py:878` 硬编码 `_DEFAULT_SCRIPT_TIMEOUT = 120`。
+qing-agent API 调用链（行情 15s + HTTP 119s + 开销 ≈ 173s）可能超时。
 
-**规避**：脚本内部自行超时控制 + 拆分长任务为多次短调用。
+**已可配置**（scheduler.py:883-913）：优先级 `env HERMES_CRON_SCRIPT_TIMEOUT` > `config cron.script_timeout_seconds` > default 120s。
+**规避**：未设置时拆分长任务为多次短调用。
 
 ---
 
