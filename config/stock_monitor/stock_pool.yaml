@@ -145,14 +145,14 @@ stocks:
     direction: ccL_resin_upstream
     chain_position: upstream
     human_note:
-      date: '2026-06-11'
+      date: '2026-06-17'
       type: direction_call
-      context: "「尤其值得关注」，球硅/前驱体/光刻胶三线平台"
+      context: FOMC落地低吸回补（前次止盈@137.14），底仓先试等放量确认
     entry:
       primary_zone: null
-      method: "已持仓（成本129.68）"
-      hard_stop: 123.2
-    note: "已持仓，不加仓，止损123.2"
+      method: 回补FOMC落地（成本136.852）
+      hard_stop: 131.0
+    note: "已持仓（100股@136.852），止损131.0（-4.3%），跌破132支撑确认走弱"
 
   - code: 600500.SH
     name: 中化国际
