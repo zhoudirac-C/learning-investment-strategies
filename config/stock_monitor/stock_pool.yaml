@@ -1563,3 +1563,23 @@ stocks:
     market_actionable: true
     no_consecutive_limit_up: true
   note: "⚠️ 需核实是否在22:37减持93家名单中"
+
+- code: 002371.SZ
+  name: 北方华创
+  direction: mid_report_performance
+  chain_position: midstream
+  human_note:
+    date: '2026-06-17'
+    type: direction_call
+    context: 前道设备龙头，22:16专栏+视频双提及，科创板扩围→设备需求
+  entry:
+    primary_zone:
+    - 待计算
+    - 待计算
+    method: 板块共振法
+    hard_stop: 待设定
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+  note: "⚠️ 需核实是否在22:37减持93家名单中"

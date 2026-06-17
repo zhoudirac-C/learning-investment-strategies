@@ -782,6 +782,37 @@ directions:
       timing: "分歧大、未形成趋势"
     note: "分歧大、未形成趋势，暂不设标的。"
 
+  # ── 2026-06-17 新增：科创板AI制度红利（视频claims）────
+
+  - id: kcb_ai_policy
+    name: 科创板AI制度红利（第五套标准扩围）
+    current_stage: early_direction
+    industry_chain:
+      upstream:
+        - segment: AI大模型/算法
+          stocks: []
+          pumped: false
+          note: "科创板第五套标准扩围直接受益，但标的多为688科创板，用户不可交易"
+      midstream:
+        - segment: 国产算力/设备
+          stocks:
+            - code: 002371.SZ
+              name: 北方华创
+          pumped: false
+          note: "前道设备龙头，科创板扩围→设备需求，主板映射标的"
+      downstream:
+        - segment: AI应用/智能体
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "科创板第五套标准扩围 → AI大模型企业上市 → 国产算力需求 → 设备/材料"
+      - "港股AI回归A股 → 丰富产业链标的 → 资金集中"
+    pre_condition:
+      market: "政策确认+全A量能>2.5万亿"
+      sector: "科创板AI企业上市进展"
+      timing: "政策落地初期，长期布局"
+    note: "视频claims核心方向，用户只能交易主板，需找映射标的"
+
   # ── 2026-06-17 新增：中报业绩驱动（存储A档+PMIC+晶合集成）────
 
   - id: mid_report_performance
