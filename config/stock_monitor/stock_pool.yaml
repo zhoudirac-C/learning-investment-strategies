@@ -1,1342 +1,1523 @@
 updated_at: '2026-06-16'
-
 stocks:
-
-  # ── MLCC超级周期 ──────────────────────────────────
-
-  - code: 000636.SZ
-    name: 风华高科
-    direction: mlcc_super_cycle
-    chain_position: midstream
-    human_note:
-      date: '2026-06-15'
-      type: signal_confirmation
-      context: "MLCC情绪核心候选，6/15涨停确认MLCC板块最强地位"
-    entry:
-      primary_zone: [57.8, 62.7]
-      method: "涨停回踩法"
-      hard_stop: 54.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 605376.SH
-    name: 博迁新材
-    direction: mlcc_super_cycle
-    chain_position: upstream
-    human_note:
-      date: '2026-06-15'
-      type: signal_confirmation
-      context: "独家PVD工艺80nm镍粉，中报超预期可能"
-    entry:
-      primary_zone: [176, 191]
-      method: "板块共振法"
-      hard_stop: 157.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 603678.SH
-    name: 火炬电子
-    direction: mlcc_super_cycle
-    chain_position: midstream
-    human_note:
-      date: '2026-06-15'
-      type: signal_confirmation
-      context: "MLCC方向涨停标的，风华辅助确认"
-    entry:
-      primary_zone: [57.6, 62.5]
-      method: "板块共振法"
-      hard_stop: 54.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 铜箔(HVLP4) ──────────────────────────────────
-
-  - code: 600110.SH
-    name: 诺德股份
-    direction: copper_foil_hvlp4
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: signal_confirmation
-      context: "HVLP4代铜箔订单排至2027下半年"
-    entry:
-      primary_zone: [12.0, 13.0]
-      method: "分歧日回踩"
-      hard_stop: 11.5
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 铜箔HVLP4 上游铜原料 ──────────────────────────────
-
-  - code: 000630.SZ
-    name: 铜陵有色
-    direction: copper_foil_hvlp4
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "铜冠铜箔实控人，HVLP4铜箔原料自给近70%"
-    entry:
-      primary_zone: [3.6, 4.2]
-      method: "均线法"
-      hard_stop: 3.2
-    pre_condition:
-      market_actionable: true
-      sector_diverged: true
-      no_consecutive_limit_up: true
-  - code: 600362.SH
-    name: 江西铜业
-    direction: copper_foil_hvlp4
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "国内阴极铜龙头，多家中高端铜箔厂原料供应商"
-    entry:
-      primary_zone: [28.0, 32.0]
-      method: "均线法"
-      hard_stop: 25.0
-    pre_condition:
-      market_actionable: true
-      sector_diverged: true
-      no_consecutive_limit_up: true
-  # ── 铜箔HVLP4 下游CCL/PCB ──────────────────────────────
-
-  - code: 002636.SZ
-    name: 金安国纪
-    direction: copper_foil_hvlp4
-    chain_position: downstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "中高端高速CCL，采购国产HVLP4替代进口"
-    entry:
-      primary_zone: [8.5, 10.0]
-      method: "均线法"
-      hard_stop: 7.5
-    pre_condition:
-      market_actionable: true
-      sector_diverged: true
-      no_consecutive_limit_up: true
-  - code: 002463.SZ
-    name: 沪电股份
-    direction: copper_foil_hvlp4
-    chain_position: downstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "英伟达M8/M9高端背板主力，批量使用HVLP4基材"
-    entry:
-      primary_zone: [38.0, 44.0]
-      method: "均线法"
-      hard_stop: 33.0
-    pre_condition:
-      market_actionable: true
-      sector_diverged: true
-      no_consecutive_limit_up: true
-  # ── 覆铜板上游材料 ──────────────────────────────
-
-  - code: 002409.SZ
-    name: 雅克科技
-    direction: ccL_resin_upstream
-    chain_position: upstream
-    human_note:
-      date: '2026-06-17'
-      type: direction_call
-      context: FOMC落地低吸回补（前次止盈@137.14），底仓先试等放量确认
-    entry:
-      primary_zone: null
-      method: 回补FOMC落地（成本136.852）
-      hard_stop: 131.0
-    note: "已持仓（100股@136.852），止损131.0（-4.3%），跌破132支撑确认走弱"
-
-  - code: 600500.SH
-    name: 中化国际
-    direction: ccL_resin_upstream
-    chain_position: upstream
-    human_note:
-      date: '2026-06-11'
-      type: direction_call
-      context: "南通星辰PPO国内第一/全球第二+对位芳纶第二"
-    entry:
-      primary_zone: [7.2, 8.6]
-      method: "涨停回踩补缺口"
-      hard_stop: 7.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 605589.SH
-    name: 圣泉集团
-    direction: ccL_resin_upstream
-    chain_position: upstream
-    human_note:
-      date: '2026-06-11'
-      type: direction_call
-      context: "酚醛树脂龙头，CCL粘结剂受益"
-    entry:
-      primary_zone: [23.3, 25.5]
-      method: "均线法"
-      hard_stop: 20.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 电子特气/六氟化钨 ──────────────────────────────
-
-  - code: 600378.SH
-    name: 昊华科技
-    direction: electronic_gas_wf6
-    chain_position: midstream
-    human_note:
-      date: '2026-06-11'
-      type: direction_call
-      context: "六氟化钨涨价受益标的"
-    entry:
-      primary_zone: [30.5, 34.2]
-      method: "均线法"
-      hard_stop: 26.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 603938.SH
-    name: 三孚股份
-    direction: electronic_gas_wf6
-    chain_position: midstream
-    human_note:
-      date: '2026-06-11'
-      type: direction_call
-      context: "三氟化氮/六氟化钨"
-    entry:
-      primary_zone: [13.5, 15.0]
-      method: "均线法"
-      hard_stop: 12.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── WF6上游氟化工原料 ────────────────────────────
-
-  - code: 603505.SH
-    name: 金石资源
-    direction: electronic_gas_wf6
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "A股唯一纯萤石龙头，打通萤石→AHF全链条"
-    entry:
-      primary_zone: [31.0, 35.0]
-      method: "均线法"
-      hard_stop: 27.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600010.SH
-    name: 包钢股份
-    direction: electronic_gas_wf6
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "白云鄂博伴生萤石，全球最大潜在氟源"
-    entry:
-      primary_zone: [2.2, 2.6]
-      method: "均线法"
-      hard_stop: 1.9
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600160.SH
-    name: 巨化股份
-    direction: electronic_gas_wf6
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "氟化工全产业链龙头，AHF 40万吨+萤石→氢氟酸→氟气→电子特气全闭环"
-    entry:
-      primary_zone: [22.0, 26.0]
-      method: "均线法"
-      hard_stop: 19.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 002407.SZ
-    name: 多氟多
-    direction: electronic_gas_wf6
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "30万吨AHF+G5电子级4万吨+自建3000吨WF6，氟原料+下游一体化"
-    entry:
-      primary_zone: [14.0, 17.0]
-      method: "均线法"
-      hard_stop: 12.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 603379.SH
-    name: 三美股份
-    direction: electronic_gas_wf6
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "22万吨+AHF产能，华东重要氟原料供应商"
-    entry:
-      primary_zone: [38.0, 44.0]
-      method: "均线法"
-      hard_stop: 34.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 605020.SH
-    name: 永和股份
-    direction: electronic_gas_wf6
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "民营氟化工一体化，萤石矿山+AHF自给率90%+"
-    entry:
-      primary_zone: [22.0, 26.0]
-      method: "均线法"
-      hard_stop: 19.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 601678.SH
-    name: 滨化股份
-    direction: electronic_gas_wf6
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "10万吨AHF+6000吨G5电子级氢氟酸，供韩国半导体"
-    entry:
-      primary_zone: [5.0, 6.0]
-      method: "均线法"
-      hard_stop: 4.2
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 钨产业链 ──────────────────────────────────
-
-  - code: 000657.SZ
-    name: 中钨高新
-    direction: tungsten_pcb_drill
-    chain_position: midstream
-    human_note:
-      date: '2026-06-11'
-      type: direction_call
-      context: "钨产业链核心标的，出口管制受益。旗下金洲精工全球第二大PCB微钻，AI服务器钻针国内市占70-80%"
-    entry:
-      primary_zone: [10.5, 12.0]
-      method: "均线法"
-      hard_stop: 9.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 钨上游矿企 ──────────────────────────────────
-
-  - code: 600549.SH
-    name: 厦门钨业
-    direction: tungsten_pcb_drill
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "全球APT冶炼龙头，超细硬质合金棒材量产，PCB钻针核心基材供应商"
-    entry:
-      primary_zone: [22.0, 26.0]
-      method: "均线法"
-      hard_stop: 19.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 002378.SZ
-    name: 章源钨业
-    direction: tungsten_pcb_drill
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "钨采选-冶炼-深加工一体化，硬质合金棒材供应商"
-    entry:
-      primary_zone: [7.0, 8.5]
-      method: "均线法"
-      hard_stop: 6.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 002842.SZ
-    name: 翔鹭钨业
-    direction: tungsten_pcb_drill
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "超细碳化钨粉/硬质合金棒材，配套PCB微钻厂商"
-    entry:
-      primary_zone: [6.5, 8.0]
-      method: "均线法"
-      hard_stop: 5.5
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 陶瓷插芯/MT插芯（光通信上游） ─────────────────────
-
-  - code: 000988.SZ
-    name: 华工科技
-    direction: optical_communication
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "华工正源自研陶瓷插芯+MT插芯，配套400G/800G光模块"
-    entry:
-      primary_zone: [36.0, 42.0]
-      method: "均线法"
-      hard_stop: 32.0
-    pre_condition:
-      market_actionable: true
-      sector_diverged: true
-      no_consecutive_limit_up: true
-  - code: 003031.SZ
-    name: 中瓷电子
-    direction: optical_communication
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "中国电科精密陶瓷平台，高精度陶瓷插芯，军工通信场景"
-    entry:
-      primary_zone: [75.0, 85.0]
-      method: "均线法"
-      hard_stop: 65.0
-    pre_condition:
-      market_actionable: true
-      sector_diverged: true
-      no_consecutive_limit_up: true
-  # ── PCB AI硬件链 ──────────────────────────────────
-
-  - code: 002916.SZ
-    name: 深南电路
-    direction: pcb_ai_chain
-    chain_position: midstream
-    human_note:
-      date: '2026-05-23'
-      type: direction_call
-      context: "PCB+ABF载板双主线核心"
-    entry:
-      primary_zone: [110, 125]
-      method: "均线法"
-      hard_stop: 95.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 603228.SH
-    name: 景旺电子
-    direction: pcb_ai_chain
-    chain_position: midstream
-    human_note:
-      date: '2026-05-24'
-      type: direction_call
-      context: "高多层板/HDI核心标的"
-    entry:
-      primary_zone: [30.0, 34.0]
-      method: "均线法"
-      hard_stop: 26.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600183.SH
-    name: 生益科技
-    direction: pcb_ai_chain
-    chain_position: upstream
-    human_note:
-      date: '2026-05-23'
-      type: direction_call
-      context: "高速CCL(M8/M9)龙头，PCB上游材料锚点"
-    entry:
-      primary_zone: [28.0, 32.0]
-      method: "均线法"
-      hard_stop: 25.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 002436.SZ
-    name: 兴森科技
-    direction: pcb_ai_chain
-    chain_position: midstream
-    human_note:
-      date: '2026-05-25'
-      type: direction_call
-      context: "BT/ABF载板弹性标的"
-    entry:
-      primary_zone: [12.5, 14.5]
-      method: "均线法"
-      hard_stop: 10.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 603186.SH
-    name: 华正新材
-    direction: pcb_ai_chain
-    chain_position: upstream
-    human_note:
-      date: '2026-05-26'
-      type: direction_call
-      context: "CBF积层绝缘膜（ABF替代路线）"
-    entry:
-      primary_zone: [139, 151]
-      method: "回撤法，期权层放宽区间"
-      hard_stop: 130.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 002080.SZ
-    name: 中材科技
-    direction: pcb_ai_chain
-    chain_position: upstream
-    human_note:
-      date: '2026-05-26'
-      type: direction_call
-      context: "NE2低介电玻纤，PCB材料期权层"
-    entry:
-      primary_zone: [63.1, 68.5]
-      method: "均线法"
-      hard_stop: 50.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 焦炭/煤炭涨价 ──────────────────────────────────
-
-  - code: 601699.SH
-    name: 潞安环能
-    direction: coke_coal_upcycle
-    chain_position: midstream
-    human_note:
-      date: '2026-06-14'
-      type: signal_confirmation
-      context: "主营煤炭/焦炭双轮驱动，焦炭连续提涨右侧信号"
-    entry:
-      primary_zone: [16.1, 17.2]
-      method: "均线法"
-      hard_stop: 15.5
-    pre_condition:
-      market_actionable: true
-      sector_diverged: true
-      no_consecutive_limit_up: true
-  - code: 601001.SH
-    name: 晋控煤业
-    direction: coke_coal_upcycle
-    chain_position: upstream
-    human_note:
-      date: '2026-06-14'
-      type: signal_confirmation
-      context: "动力煤核心，迎峰度夏保供逻辑"
-    entry:
-      primary_zone: [17.9, 21.1]
-      method: "联动法"
-      hard_stop: 18.0
-    pre_condition:
-      market_actionable: true
-      sector_diverged: true
-      no_consecutive_limit_up: true
-  # ── 光通信(OCS) ──────────────────────────────────
-
-  - code: 002281.SZ
-    name: 光迅科技
-    direction: optical_communication
-    chain_position: midstream
-    human_note:
-      date: '2026-05-06'
-      type: direction_call
-      context: "OCS核心标的，3.2T全光交换方案，PE偏高"
-    entry:
-      primary_zone: [204, 221]
-      method: "回撤法"
-      hard_stop: 175.0
-    pre_condition:
-      market_actionable: true
-      sector_diverged: true
-      no_consecutive_limit_up: true
-  - code: 600330.SH
-    name: 天通股份
-    direction: optical_communication
-    chain_position: upstream
-    human_note:
-      date: '2026-05-06'
-      type: direction_call
-      context: "薄膜铌酸锂晶体，全球少数批量生产"
-    entry:
-      primary_zone: null
-      method: "纯观察，PE为负不设介入区间"
-      hard_stop: null
-    note: "PE=-136.65（光伏/磁性材料拖累），薄膜铌酸锂业务占比小，仅观察"
-    pre_condition: {}
-
-  # ── 光通信/MPO/CPO ──────────────────────────────────
-
-  - code: 002384.SZ
-    name: 东山精密
-    direction: optical_communication
-    chain_position: midstream
-    human_note:
-      date: '2026-06-15'
-      type: signal_confirmation
-      context: "情绪核心候选，光模块/PCB双线布局"
-    entry:
-      primary_zone: [30.0, 34.0]
-      method: "均线法"
-      hard_stop: 26.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 601869.SH
-    name: 长飞光纤
-    direction: optical_communication
-    chain_position: midstream
-    human_note:
-      date: '2026-06-15'
-      type: direction_call
-      context: "光纤预制棒龙头，DCI光互联受益"
-    entry:
-      primary_zone: [28.0, 32.0]
-      method: "均线法"
-      hard_stop: 24.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 光通信(MPO) ──────────────────────────────────
-
-  - code: 002179.SZ
-    name: 中航光电
-    direction: optical_communication
-    chain_position: midstream
-    human_note:
-      date: '2026-06-15'
-      type: direction_call
-      context: "NPO/MPO双线量产，军工+通信双驱动"
-    entry:
-      primary_zone: [36.0, 40.0]
-      method: "均线法"
-      hard_stop: 32.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 设备/封测补涨 ──────────────────────────────────
-
-  - code: 002371.SZ
-    name: 北方华创
-    direction: equipment_packaging_catchup
-    chain_position: midstream
-    human_note:
-      date: '2026-06-11'
-      type: direction_call
-      context: "半导体设备绝对龙头，板块温度计"
-    entry:
-      primary_zone: [340, 370]
-      method: "均线法"
-      hard_stop: 300.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-    note: "市值4617亿弹性有限，更适合做板块温度计而非交易标的"
-  - code: 002156.SZ
-    name: 通富微电
-    direction: equipment_packaging_catchup
-    chain_position: midstream
-    human_note:
-      date: '2026-06-11'
-      type: direction_call
-      context: "AMD封装测试核心供应商"
-    entry:
-      primary_zone: [28.0, 32.0]
-      method: "均线法"
-      hard_stop: 25.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 000021.SZ
-    name: 深科技
-    direction: equipment_packaging_catchup
-    chain_position: midstream
-    human_note:
-      date: '2026-06-11'
-      type: direction_call
-      context: "存储封测（长鑫产业链）"
-    entry:
-      primary_zone: [36.7, 39.8]
-      method: "均线法"
-      hard_stop: 19.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 设备零部件 ──────────────────────────────────
-
-  - code: 002158.SZ
-    name: 汉钟精机
-    direction: equipment_packaging_catchup
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "半导体干式真空泵龙头，供北方华创/中微/盛美+直供华虹/中芯"
-    entry:
-      primary_zone: [22.0, 26.0]
-      method: "均线法"
-      hard_stop: 19.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 603308.SH
-    name: 应流股份
-    direction: equipment_packaging_catchup
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "精密铸件，真空腔体/阀体，认证与批量阶段"
-    entry:
-      primary_zone: [14.0, 17.0]
-      method: "均线法"
-      hard_stop: 12.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 603688.SH
-    name: 石英股份
-    direction: equipment_packaging_catchup
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "G5级高纯石英，石英管/环/舟/腔体，供国内外设备厂"
-    entry:
-      primary_zone: [68.0, 78.0]
-      method: "均线法"
-      hard_stop: 60.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 002851.SZ
-    name: 麦格米特
-    direction: equipment_packaging_catchup
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "半导体设备专用电源（刻蚀/PECVD/去胶）"
-    entry:
-      primary_zone: [32.0, 38.0]
-      method: "均线法"
-      hard_stop: 28.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 002837.SZ
-    name: 英维克
-    direction: equipment_packaging_catchup
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "精密温控，光刻机/刻蚀机高精度恒温"
-    entry:
-      primary_zone: [28.0, 34.0]
-      method: "均线法"
-      hard_stop: 24.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 002046.SZ
-    name: 国机精工
-    direction: equipment_packaging_catchup
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "精密电主轴/轴承/晶圆减薄砂轮/划片刀"
-    entry:
-      primary_zone: [13.0, 16.0]
-      method: "均线法"
-      hard_stop: 11.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 002338.SZ
-    name: 奥普光电
-    direction: equipment_packaging_catchup
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "精密光学镜头/光栅尺，半导体检测设备（扩展期）"
-    entry:
-      primary_zone: [28.0, 34.0]
-      method: "均线法"
-      hard_stop: 24.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600071.SH
-    name: 凤凰光学
-    direction: equipment_packaging_catchup
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "精密光学镜片/棱镜，光刻/检测设备（扩展期）"
-    entry:
-      primary_zone: [20.0, 25.0]
-      method: "均线法"
-      hard_stop: 17.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 002438.SZ
-    name: 江苏神通
-    direction: equipment_packaging_catchup
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "高纯真空阀门/工艺调节阀，设备验证阶段（扩展期）"
-    entry:
-      primary_zone: [12.0, 15.0]
-      method: "均线法"
-      hard_stop: 10.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 芯片特种/FPGA ──────────────────────────────────
-
-  - code: 002049.SZ
-    name: 紫光国微
-    direction: chip_specialty
-    chain_position: midstream
-    human_note:
-      date: '2026-06-11'
-      type: direction_call
-      context: "特种芯片龙头，PE 36x为芯片里最低"
-    entry:
-      primary_zone: [74.6, 79.1]
-      method: "回撤法"
-      hard_stop: 62.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 存储芯片 ──────────────────────────────────
-
-  - code: 603986.SH
-    name: 兆易创新
-    direction: memory_nor
-    chain_position: midstream
-    human_note:
-      date: '2026-06-11'
-      type: direction_call
-      context: "NOR Flash龙头+DRAM布局，存储涨价周期"
-    entry:
-      primary_zone: [468, 507]
-      method: "回撤法"
-      hard_stop: 400.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-    note: "高价+高PE(118x)，严格控仓"
-  # ── EDA/IP授权（芯片上游） ───────────────────────────
-
-  - code: 600834.SH
-    name: 申通地铁
-    direction: chip_specialty
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "建元基金参股华大九天，国产EDA替代受益"
-    entry:
-      primary_zone: [9.0, 11.0]
-      method: "均线法"
-      hard_stop: 7.5
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600820.SH
-    name: 隧道股份
-    direction: chip_specialty
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "产业基金间接参股华大九天，弱产业协同"
-    entry:
-      primary_zone: [6.0, 7.5]
-      method: "均线法"
-      hard_stop: 5.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 光芯片（光通信上游） ───────────────────────────
-
-  - code: 600703.SH
-    name: 三安光电
-    direction: optical_communication
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "化合物半导体IDM龙头，6英寸GaAs/InP产线，400G/800G数通光芯片批量"
-    entry:
-      primary_zone: [15.0, 18.0]
-      method: "均线法"
-      hard_stop: 12.5
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600487.SH
-    name: 亨通光电
-    direction: optical_communication
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "光纤光缆龙头，硅光芯片自研配套800G光模块批量交付"
-    entry:
-      primary_zone: [16.0, 20.0]
-      method: "均线法"
-      hard_stop: 13.5
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600105.SH
-    name: 永鼎股份
-    direction: optical_communication
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "光通信IDM全链条，有源/无源光芯片电信级"
-    entry:
-      primary_zone: [5.0, 6.5]
-      method: "均线法"
-      hard_stop: 4.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600206.SH
-    name: 有研新材
-    direction: optical_communication
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "GaAs/InP外延片量产，高速光芯片核心上游材料"
-    entry:
-      primary_zone: [12.0, 15.0]
-      method: "均线法"
-      hard_stop: 10.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 002428.SZ
-    name: 云南锗业
-    direction: optical_communication
-    chain_position: upstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "15万片/年InP单晶衬底，光通信芯片衬底国产化"
-    entry:
-      primary_zone: [14.0, 17.0]
-      method: "均线法"
-      hard_stop: 11.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 绿电运营 ──────────────────────────────────
-
-  # 纯新能源运营（风光）
-  - code: 600905.SH
-    name: 三峡能源
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "三峡集团新能源旗舰，海上风电龙头，绿电核心底仓"
-    entry:
-      primary_zone: [5.5, 6.5]
-      method: "均线法"
-      hard_stop: 4.8
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 001289.SZ
-    name: 龙源电力
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "全球风电运营龙头，陆上风电规模第一"
-    entry:
-      primary_zone: [18.0, 22.0]
-      method: "均线法"
-      hard_stop: 15.5
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 601016.SH
-    name: 节能风电
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "中节能纯正风电运营，盈利稳定高分红"
-    entry:
-      primary_zone: [3.5, 4.5]
-      method: "均线法"
-      hard_stop: 3.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 000591.SZ
-    name: 太阳能
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "中节能光伏运营旗舰，集中式光伏为主"
-    entry:
-      primary_zone: [5.0, 6.0]
-      method: "均线法"
-      hard_stop: 4.2
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # 火电转型绿电
-  - code: 601991.SH
-    name: 大唐发电
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "大唐核心平台，全国首个算电协同绿电直供项目"
-    entry:
-      primary_zone: [3.0, 3.8]
-      method: "均线法"
-      hard_stop: 2.5
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600011.SH
-    name: 华能国际
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "国内装机规模最大，新能源装机高增"
-    entry:
-      primary_zone: [8.0, 10.0]
-      method: "均线法"
-      hard_stop: 7.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600027.SH
-    name: 华电国际
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "华电核心平台，火电+新能源双轮驱动"
-    entry:
-      primary_zone: [6.0, 7.5]
-      method: "均线法"
-      hard_stop: 5.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600795.SH
-    name: 国电电力
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "国家能源集团核心平台，多元布局+大基地"
-    entry:
-      primary_zone: [5.0, 6.5]
-      method: "均线法"
-      hard_stop: 4.2
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 000875.SZ
-    name: 电投绿能
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "国家电投东北区域，风光占比超火电，氢储新业态"
-    entry:
-      primary_zone: [5.5, 7.0]
-      method: "均线法"
-      hard_stop: 4.5
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600021.SH
-    name: 上海电力
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "长三角核心平台，海上风电+分布式光伏+虚拟电厂"
-    entry:
-      primary_zone: [9.0, 11.0]
-      method: "均线法"
-      hard_stop: 7.5
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # 水电核心
-  - code: 600900.SH
-    name: 长江电力
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "全球最大水电，现金流断层领先，绿电压舱石"
-    entry:
-      primary_zone: [28.0, 32.0]
-      method: "均线法"
-      hard_stop: 24.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # 地方国资
-  - code: 600163.SH
-    name: 中闽能源
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "福建海上风电核心，无火电包袱纯绿电"
-    entry:
-      primary_zone: [5.5, 7.0]
-      method: "均线法"
-      hard_stop: 4.5
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600483.SH
-    name: 福能股份
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "福建海上风电+热电，区域工业用电旺盛"
-    entry:
-      primary_zone: [9.0, 11.0]
-      method: "均线法"
-      hard_stop: 7.5
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # 民营算电协同
-  - code: 002015.SZ
-    name: 协鑫能科
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-16'
-      type: direction_call
-      context: "风光绿电+储能+算力直供100%覆盖，算电协同核心弹性标的"
-    entry:
-      primary_zone: [14.0, 18.0]
-      method: "均线法"
-      hard_stop: 11.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 铜铝供给缺口 ──────────────────────────────────
-
-  - code: 601899.SH
-    name: 紫金矿业
-    direction: copper_aluminum_shortage
-    chain_position: upstream
-    human_note:
-      date: '2026-06-15'
-      type: direction_call
-      context: "铜金矿全球龙头，铜价与AI基建双重受益"
-    entry:
-      primary_zone: [28.7, 31.1]
-      method: "事件驱动法"
-      hard_stop: 27.0
-    pre_condition:
-      market_actionable: true
-      sector_diverged: true
-      no_consecutive_limit_up: true
-    note: "美伊协议签署+LME铜跳涨为入场触发，不提前埋伏"
-  # ── SK海力士ADR映射 ──────────────────────────────────
-
-  - code: 600667.SH
-    name: 太极实业
-    direction: sk_hynix_adr
-    chain_position: midstream
-    human_note:
-      date: '2026-06-11'
-      type: direction_call
-      context: "海太半导体合资55%股权，SK海力士ADR映射"
-    entry:
-      primary_zone: [15.2, 16.5]
-      method: "均线法"
-      hard_stop: 13.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-    note: "UP自评confidence=low，弱市环境仅观察"
-  # ── 绿电 ──────────────────────────────────
-
-  - code: 603011.SH
-    name: 合锻智能
-    direction: green_power_ai_electric
-    chain_position: midstream
-    human_note:
-      date: '2026-06-10'
-      type: direction_call
-      context: "核聚变概念（AI电力逻辑注脚）"
-    entry:
-      primary_zone: [29.9, 32.4]
-      method: "均线法"
-      hard_stop: 23.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  # ── 光伏低位修复 ──────────────────────────────────
-
-  - code: 601012.SH
-    name: 隆基绿能
-    direction: photovoltaic_low_recovery
-    chain_position: midstream
-    human_note:
-      date: '2026-06-10'
-      type: direction_call
-      context: "光伏组件龙头，底部企稳信号"
-    entry:
-      primary_zone: [15.8, 17.5]
-      method: "低位震荡法"
-      hard_stop: 14.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 600732.SH
-    name: 爱旭股份
-    direction: photovoltaic_low_recovery
-    chain_position: midstream
-    human_note:
-      date: '2026-06-10'
-      type: direction_call
-      context: "光伏电池龙头，均线空头需等更低位置"
-    entry:
-      primary_zone: [12.0, 13.0]
-      method: "低位震荡法"
-      hard_stop: 10.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
-  - code: 002459.SZ
-    name: 晶澳科技
-    direction: photovoltaic_low_recovery
-    chain_position: downstream
-    human_note:
-      date: '2026-06-10'
-      type: direction_call
-      context: "光伏组件/电站，底部修复"
-    entry:
-      primary_zone: [12.0, 13.0]
-      method: "低位震荡法"
-      hard_stop: 10.0
-    pre_condition:
-      sector_diverged: true
-      market_actionable: true
-      no_consecutive_limit_up: true
+- code: 000636.SZ
+  name: 风华高科
+  direction: mlcc_super_cycle
+  chain_position: midstream
+  human_note:
+    date: '2026-06-15'
+    type: signal_confirmation
+    context: MLCC情绪核心候选，6/15涨停确认MLCC板块最强地位
+  entry:
+    primary_zone:
+    - 57.8
+    - 62.7
+    method: 涨停回踩法
+    hard_stop: 54.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 605376.SH
+  name: 博迁新材
+  direction: mlcc_super_cycle
+  chain_position: upstream
+  human_note:
+    date: '2026-06-15'
+    type: signal_confirmation
+    context: 独家PVD工艺80nm镍粉，中报超预期可能
+  entry:
+    primary_zone:
+    - 176
+    - 191
+    method: 板块共振法
+    hard_stop: 157.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 603678.SH
+  name: 火炬电子
+  direction: mlcc_super_cycle
+  chain_position: midstream
+  human_note:
+    date: '2026-06-15'
+    type: signal_confirmation
+    context: MLCC方向涨停标的，风华辅助确认
+  entry:
+    primary_zone:
+    - 57.6
+    - 62.5
+    method: 板块共振法
+    hard_stop: 54.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600110.SH
+  name: 诺德股份
+  direction: copper_foil_hvlp4
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: signal_confirmation
+    context: HVLP4代铜箔订单排至2027下半年
+  entry:
+    primary_zone:
+    - 12.0
+    - 13.0
+    method: 分歧日回踩
+    hard_stop: 11.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 000630.SZ
+  name: 铜陵有色
+  direction: copper_foil_hvlp4
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 铜冠铜箔实控人，HVLP4铜箔原料自给近70%
+  entry:
+    primary_zone:
+    - 3.6
+    - 4.2
+    method: 均线法
+    hard_stop: 3.2
+  pre_condition:
+    market_actionable: true
+    sector_diverged: true
+    no_consecutive_limit_up: true
+- code: 600362.SH
+  name: 江西铜业
+  direction: copper_foil_hvlp4
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 国内阴极铜龙头，多家中高端铜箔厂原料供应商
+  entry:
+    primary_zone:
+    - 28.0
+    - 32.0
+    method: 均线法
+    hard_stop: 25.0
+  pre_condition:
+    market_actionable: true
+    sector_diverged: true
+    no_consecutive_limit_up: true
+- code: 002636.SZ
+  name: 金安国纪
+  direction: copper_foil_hvlp4
+  chain_position: downstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 中高端高速CCL，采购国产HVLP4替代进口
+  entry:
+    primary_zone:
+    - 8.5
+    - 10.0
+    method: 均线法
+    hard_stop: 7.5
+  pre_condition:
+    market_actionable: true
+    sector_diverged: true
+    no_consecutive_limit_up: true
+- code: 002463.SZ
+  name: 沪电股份
+  direction: copper_foil_hvlp4
+  chain_position: downstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 英伟达M8/M9高端背板主力，批量使用HVLP4基材
+  entry:
+    primary_zone:
+    - 38.0
+    - 44.0
+    method: 均线法
+    hard_stop: 33.0
+  pre_condition:
+    market_actionable: true
+    sector_diverged: true
+    no_consecutive_limit_up: true
+- code: 002409.SZ
+  name: 雅克科技
+  direction: ccL_resin_upstream
+  chain_position: upstream
+  human_note:
+    date: '2026-06-17'
+    type: direction_call
+    context: FOMC落地低吸回补（前次止盈@137.14），底仓先试等放量确认
+  entry:
+    primary_zone:
+    - 133.0
+    - 135.0
+    method: 回补FOMC落地（成本136.852）
+    hard_stop: 131.0
+  note: 已持仓（100股@136.852），止损131.0（-4.3%），跌破132支撑确认走弱
+- code: 600500.SH
+  name: 中化国际
+  direction: ccL_resin_upstream
+  chain_position: upstream
+  human_note:
+    date: '2026-06-11'
+    type: direction_call
+    context: 南通星辰PPO国内第一/全球第二+对位芳纶第二
+  entry:
+    primary_zone:
+    - 7.2
+    - 8.6
+    method: 涨停回踩补缺口
+    hard_stop: 7.0
+    backup_zones:
+    - - 7.5
+      - 7.8
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 605589.SH
+  name: 圣泉集团
+  direction: ccL_resin_upstream
+  chain_position: upstream
+  human_note:
+    date: '2026-06-11'
+    type: direction_call
+    context: 酚醛树脂龙头，CCL粘结剂受益
+  entry:
+    primary_zone:
+    - 23.3
+    - 25.5
+    method: 均线法
+    hard_stop: 20.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600378.SH
+  name: 昊华科技
+  direction: electronic_gas_wf6
+  chain_position: midstream
+  human_note:
+    date: '2026-06-11'
+    type: direction_call
+    context: 六氟化钨涨价受益标的
+  entry:
+    primary_zone:
+    - 30.5
+    - 34.2
+    method: 均线法
+    hard_stop: 26.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 603938.SH
+  name: 三孚股份
+  direction: electronic_gas_wf6
+  chain_position: midstream
+  human_note:
+    date: '2026-06-11'
+    type: direction_call
+    context: 三氟化氮/六氟化钨
+  entry:
+    primary_zone:
+    - 13.5
+    - 15.0
+    method: 均线法
+    hard_stop: 12.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 603505.SH
+  name: 金石资源
+  direction: electronic_gas_wf6
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: A股唯一纯萤石龙头，打通萤石→AHF全链条
+  entry:
+    primary_zone:
+    - 31.0
+    - 35.0
+    method: 均线法
+    hard_stop: 27.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600010.SH
+  name: 包钢股份
+  direction: electronic_gas_wf6
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 白云鄂博伴生萤石，全球最大潜在氟源
+  entry:
+    primary_zone:
+    - 2.2
+    - 2.6
+    method: 均线法
+    hard_stop: 1.9
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600160.SH
+  name: 巨化股份
+  direction: electronic_gas_wf6
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 氟化工全产业链龙头，AHF 40万吨+萤石→氢氟酸→氟气→电子特气全闭环
+  entry:
+    primary_zone:
+    - 22.0
+    - 26.0
+    method: 均线法
+    hard_stop: 19.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002407.SZ
+  name: 多氟多
+  direction: electronic_gas_wf6
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 30万吨AHF+G5电子级4万吨+自建3000吨WF6，氟原料+下游一体化
+  entry:
+    primary_zone:
+    - 14.0
+    - 17.0
+    method: 均线法
+    hard_stop: 12.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 603379.SH
+  name: 三美股份
+  direction: electronic_gas_wf6
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 22万吨+AHF产能，华东重要氟原料供应商
+  entry:
+    primary_zone:
+    - 38.0
+    - 44.0
+    method: 均线法
+    hard_stop: 34.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 605020.SH
+  name: 永和股份
+  direction: electronic_gas_wf6
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 民营氟化工一体化，萤石矿山+AHF自给率90%+
+  entry:
+    primary_zone:
+    - 22.0
+    - 26.0
+    method: 均线法
+    hard_stop: 19.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 601678.SH
+  name: 滨化股份
+  direction: electronic_gas_wf6
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 10万吨AHF+6000吨G5电子级氢氟酸，供韩国半导体
+  entry:
+    primary_zone:
+    - 5.0
+    - 6.0
+    method: 均线法
+    hard_stop: 4.2
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 000657.SZ
+  name: 中钨高新
+  direction: tungsten_pcb_drill
+  chain_position: midstream
+  human_note:
+    date: '2026-06-11'
+    type: direction_call
+    context: 钨产业链核心标的，出口管制受益。旗下金洲精工全球第二大PCB微钻，AI服务器钻针国内市占70-80%
+  entry:
+    primary_zone:
+    - 10.5
+    - 12.0
+    method: 均线法
+    hard_stop: 9.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600549.SH
+  name: 厦门钨业
+  direction: tungsten_pcb_drill
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 全球APT冶炼龙头，超细硬质合金棒材量产，PCB钻针核心基材供应商
+  entry:
+    primary_zone:
+    - 22.0
+    - 26.0
+    method: 均线法
+    hard_stop: 19.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002378.SZ
+  name: 章源钨业
+  direction: tungsten_pcb_drill
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 钨采选-冶炼-深加工一体化，硬质合金棒材供应商
+  entry:
+    primary_zone:
+    - 7.0
+    - 8.5
+    method: 均线法
+    hard_stop: 6.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002842.SZ
+  name: 翔鹭钨业
+  direction: tungsten_pcb_drill
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 超细碳化钨粉/硬质合金棒材，配套PCB微钻厂商
+  entry:
+    primary_zone:
+    - 6.5
+    - 8.0
+    method: 均线法
+    hard_stop: 5.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 000988.SZ
+  name: 华工科技
+  direction: optical_communication
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 华工正源自研陶瓷插芯+MT插芯，配套400G/800G光模块
+  entry:
+    primary_zone:
+    - 36.0
+    - 42.0
+    method: 均线法
+    hard_stop: 32.0
+  pre_condition:
+    market_actionable: true
+    sector_diverged: true
+    no_consecutive_limit_up: true
+- code: 003031.SZ
+  name: 中瓷电子
+  direction: optical_communication
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 中国电科精密陶瓷平台，高精度陶瓷插芯，军工通信场景
+  entry:
+    primary_zone:
+    - 75.0
+    - 85.0
+    method: 均线法
+    hard_stop: 65.0
+  pre_condition:
+    market_actionable: true
+    sector_diverged: true
+    no_consecutive_limit_up: true
+- code: 002916.SZ
+  name: 深南电路
+  direction: pcb_ai_chain
+  chain_position: midstream
+  human_note:
+    date: '2026-05-23'
+    type: direction_call
+    context: PCB+ABF载板双主线核心
+  entry:
+    primary_zone:
+    - 110
+    - 125
+    method: 均线法
+    hard_stop: 95.0
+    backup_zones:
+    - - 366.0
+      - 397.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 603228.SH
+  name: 景旺电子
+  direction: pcb_ai_chain
+  chain_position: midstream
+  human_note:
+    date: '2026-05-24'
+    type: direction_call
+    context: 高多层板/HDI核心标的
+  entry:
+    primary_zone:
+    - 30.0
+    - 34.0
+    method: 均线法
+    hard_stop: 26.0
+    backup_zones:
+    - - 72.9
+      - 79.1
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600183.SH
+  name: 生益科技
+  direction: pcb_ai_chain
+  chain_position: upstream
+  human_note:
+    date: '2026-05-23'
+    type: direction_call
+    context: 高速CCL(M8/M9)龙头，PCB上游材料锚点
+  entry:
+    primary_zone:
+    - 28.0
+    - 32.0
+    method: 均线法
+    hard_stop: 25.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002436.SZ
+  name: 兴森科技
+  direction: pcb_ai_chain
+  chain_position: midstream
+  human_note:
+    date: '2026-05-25'
+    type: direction_call
+    context: BT/ABF载板弹性标的
+  entry:
+    primary_zone:
+    - 12.5
+    - 14.5
+    method: 均线法
+    hard_stop: 10.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 603186.SH
+  name: 华正新材
+  direction: pcb_ai_chain
+  chain_position: upstream
+  human_note:
+    date: '2026-05-26'
+    type: direction_call
+    context: CBF积层绝缘膜（ABF替代路线）
+  entry:
+    primary_zone:
+    - 139
+    - 151
+    method: 回撤法，期权层放宽区间
+    hard_stop: 130.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002080.SZ
+  name: 中材科技
+  direction: pcb_ai_chain
+  chain_position: upstream
+  human_note:
+    date: '2026-05-26'
+    type: direction_call
+    context: NE2低介电玻纤，PCB材料期权层
+  entry:
+    primary_zone:
+    - 63.1
+    - 68.5
+    method: 均线法
+    hard_stop: 50.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 601699.SH
+  name: 潞安环能
+  direction: coke_coal_upcycle
+  chain_position: midstream
+  human_note:
+    date: '2026-06-14'
+    type: signal_confirmation
+    context: 主营煤炭/焦炭双轮驱动，焦炭连续提涨右侧信号
+  entry:
+    primary_zone:
+    - 16.1
+    - 17.2
+    method: 均线法
+    hard_stop: 15.5
+  pre_condition:
+    market_actionable: true
+    sector_diverged: true
+    no_consecutive_limit_up: true
+- code: 601001.SH
+  name: 晋控煤业
+  direction: coke_coal_upcycle
+  chain_position: upstream
+  human_note:
+    date: '2026-06-14'
+    type: signal_confirmation
+    context: 动力煤核心，迎峰度夏保供逻辑
+  entry:
+    primary_zone:
+    - 17.9
+    - 21.1
+    method: 联动法
+    hard_stop: 18.0
+  pre_condition:
+    market_actionable: true
+    sector_diverged: true
+    no_consecutive_limit_up: true
+- code: 002281.SZ
+  name: 光迅科技
+  direction: optical_communication
+  chain_position: midstream
+  human_note:
+    date: '2026-05-06'
+    type: direction_call
+    context: OCS核心标的，3.2T全光交换方案，PE偏高
+  entry:
+    primary_zone:
+    - 204
+    - 221
+    method: 回撤法
+    hard_stop: 175.0
+  pre_condition:
+    market_actionable: true
+    sector_diverged: true
+    no_consecutive_limit_up: true
+- code: 600330.SH
+  name: 天通股份
+  direction: optical_communication
+  chain_position: upstream
+  human_note:
+    date: '2026-05-06'
+    type: direction_call
+    context: 薄膜铌酸锂晶体，全球少数批量生产
+  entry:
+    primary_zone: null
+    method: 纯观察，PE为负不设介入区间
+    hard_stop: null
+  note: PE=-136.65（光伏/磁性材料拖累），薄膜铌酸锂业务占比小，仅观察
+  pre_condition: {}
+- code: 002384.SZ
+  name: 东山精密
+  direction: optical_communication
+  chain_position: midstream
+  human_note:
+    date: '2026-06-15'
+    type: signal_confirmation
+    context: 情绪核心候选，光模块/PCB双线布局
+  entry:
+    primary_zone:
+    - 30.0
+    - 34.0
+    method: 均线法
+    hard_stop: 26.0
+    backup_zones:
+    - - 210.0
+      - 228.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 601869.SH
+  name: 长飞光纤
+  direction: optical_communication
+  chain_position: midstream
+  human_note:
+    date: '2026-06-15'
+    type: direction_call
+    context: 光纤预制棒龙头，DCI光互联受益
+  entry:
+    primary_zone:
+    - 28.0
+    - 32.0
+    method: 均线法
+    hard_stop: 24.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002179.SZ
+  name: 中航光电
+  direction: optical_communication
+  chain_position: midstream
+  human_note:
+    date: '2026-06-15'
+    type: direction_call
+    context: NPO/MPO双线量产，军工+通信双驱动
+  entry:
+    primary_zone:
+    - 36.0
+    - 40.0
+    method: 均线法
+    hard_stop: 32.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002371.SZ
+  name: 北方华创
+  direction: equipment_packaging_catchup
+  chain_position: midstream
+  human_note:
+    date: '2026-06-11'
+    type: direction_call
+    context: 半导体设备绝对龙头，板块温度计
+  entry:
+    primary_zone:
+    - 340
+    - 370
+    method: 均线法
+    hard_stop: 300.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+  note: 市值4617亿弹性有限，更适合做板块温度计而非交易标的
+- code: 002156.SZ
+  name: 通富微电
+  direction: equipment_packaging_catchup
+  chain_position: midstream
+  human_note:
+    date: '2026-06-11'
+    type: direction_call
+    context: AMD封装测试核心供应商
+  entry:
+    primary_zone:
+    - 28.0
+    - 32.0
+    method: 均线法
+    hard_stop: 25.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 000021.SZ
+  name: 深科技
+  direction: equipment_packaging_catchup
+  chain_position: midstream
+  human_note:
+    date: '2026-06-11'
+    type: direction_call
+    context: 存储封测（长鑫产业链）
+  entry:
+    primary_zone:
+    - 36.7
+    - 39.8
+    method: 均线法
+    hard_stop: 19.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002158.SZ
+  name: 汉钟精机
+  direction: equipment_packaging_catchup
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 半导体干式真空泵龙头，供北方华创/中微/盛美+直供华虹/中芯
+  entry:
+    primary_zone:
+    - 22.0
+    - 26.0
+    method: 均线法
+    hard_stop: 19.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 603308.SH
+  name: 应流股份
+  direction: equipment_packaging_catchup
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 精密铸件，真空腔体/阀体，认证与批量阶段
+  entry:
+    primary_zone:
+    - 14.0
+    - 17.0
+    method: 均线法
+    hard_stop: 12.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 603688.SH
+  name: 石英股份
+  direction: equipment_packaging_catchup
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: G5级高纯石英，石英管/环/舟/腔体，供国内外设备厂
+  entry:
+    primary_zone:
+    - 68.0
+    - 78.0
+    method: 均线法
+    hard_stop: 60.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002851.SZ
+  name: 麦格米特
+  direction: equipment_packaging_catchup
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 半导体设备专用电源（刻蚀/PECVD/去胶）
+  entry:
+    primary_zone:
+    - 32.0
+    - 38.0
+    method: 均线法
+    hard_stop: 28.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002837.SZ
+  name: 英维克
+  direction: equipment_packaging_catchup
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 精密温控，光刻机/刻蚀机高精度恒温
+  entry:
+    primary_zone:
+    - 28.0
+    - 34.0
+    method: 均线法
+    hard_stop: 24.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002046.SZ
+  name: 国机精工
+  direction: equipment_packaging_catchup
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 精密电主轴/轴承/晶圆减薄砂轮/划片刀
+  entry:
+    primary_zone:
+    - 13.0
+    - 16.0
+    method: 均线法
+    hard_stop: 11.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002338.SZ
+  name: 奥普光电
+  direction: equipment_packaging_catchup
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 精密光学镜头/光栅尺，半导体检测设备（扩展期）
+  entry:
+    primary_zone:
+    - 28.0
+    - 34.0
+    method: 均线法
+    hard_stop: 24.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600071.SH
+  name: 凤凰光学
+  direction: equipment_packaging_catchup
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 精密光学镜片/棱镜，光刻/检测设备（扩展期）
+  entry:
+    primary_zone:
+    - 20.0
+    - 25.0
+    method: 均线法
+    hard_stop: 17.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002438.SZ
+  name: 江苏神通
+  direction: equipment_packaging_catchup
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 高纯真空阀门/工艺调节阀，设备验证阶段（扩展期）
+  entry:
+    primary_zone:
+    - 12.0
+    - 15.0
+    method: 均线法
+    hard_stop: 10.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002049.SZ
+  name: 紫光国微
+  direction: chip_specialty
+  chain_position: midstream
+  human_note:
+    date: '2026-06-11'
+    type: direction_call
+    context: 特种芯片龙头，PE 36x为芯片里最低
+  entry:
+    primary_zone:
+    - 74.6
+    - 79.1
+    method: 回撤法
+    hard_stop: 62.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 603986.SH
+  name: 兆易创新
+  direction: memory_nor
+  chain_position: midstream
+  human_note:
+    date: '2026-06-11'
+    type: direction_call
+    context: NOR Flash龙头+DRAM布局，存储涨价周期
+  entry:
+    primary_zone:
+    - 468
+    - 507
+    method: 回撤法
+    hard_stop: 400.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+  note: 高价+高PE(118x)，严格控仓
+- code: 600834.SH
+  name: 申通地铁
+  direction: chip_specialty
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 建元基金参股华大九天，国产EDA替代受益
+  entry:
+    primary_zone:
+    - 9.0
+    - 11.0
+    method: 均线法
+    hard_stop: 7.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600820.SH
+  name: 隧道股份
+  direction: chip_specialty
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 产业基金间接参股华大九天，弱产业协同
+  entry:
+    primary_zone:
+    - 6.0
+    - 7.5
+    method: 均线法
+    hard_stop: 5.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600703.SH
+  name: 三安光电
+  direction: optical_communication
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 化合物半导体IDM龙头，6英寸GaAs/InP产线，400G/800G数通光芯片批量
+  entry:
+    primary_zone:
+    - 15.0
+    - 18.0
+    method: 均线法
+    hard_stop: 12.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600487.SH
+  name: 亨通光电
+  direction: optical_communication
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 光纤光缆龙头，硅光芯片自研配套800G光模块批量交付
+  entry:
+    primary_zone:
+    - 16.0
+    - 20.0
+    method: 均线法
+    hard_stop: 13.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600105.SH
+  name: 永鼎股份
+  direction: optical_communication
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 光通信IDM全链条，有源/无源光芯片电信级
+  entry:
+    primary_zone:
+    - 5.0
+    - 6.5
+    method: 均线法
+    hard_stop: 4.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600206.SH
+  name: 有研新材
+  direction: optical_communication
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: GaAs/InP外延片量产，高速光芯片核心上游材料
+  entry:
+    primary_zone:
+    - 12.0
+    - 15.0
+    method: 均线法
+    hard_stop: 10.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002428.SZ
+  name: 云南锗业
+  direction: optical_communication
+  chain_position: upstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 15万片/年InP单晶衬底，光通信芯片衬底国产化
+  entry:
+    primary_zone:
+    - 14.0
+    - 17.0
+    method: 均线法
+    hard_stop: 11.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600905.SH
+  name: 三峡能源
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 三峡集团新能源旗舰，海上风电龙头，绿电核心底仓
+  entry:
+    primary_zone:
+    - 5.5
+    - 6.5
+    method: 均线法
+    hard_stop: 4.8
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 001289.SZ
+  name: 龙源电力
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 全球风电运营龙头，陆上风电规模第一
+  entry:
+    primary_zone:
+    - 18.0
+    - 22.0
+    method: 均线法
+    hard_stop: 15.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 601016.SH
+  name: 节能风电
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 中节能纯正风电运营，盈利稳定高分红
+  entry:
+    primary_zone:
+    - 3.5
+    - 4.5
+    method: 均线法
+    hard_stop: 3.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 000591.SZ
+  name: 太阳能
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 中节能光伏运营旗舰，集中式光伏为主
+  entry:
+    primary_zone:
+    - 5.0
+    - 6.0
+    method: 均线法
+    hard_stop: 4.2
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 601991.SH
+  name: 大唐发电
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 大唐核心平台，全国首个算电协同绿电直供项目
+  entry:
+    primary_zone:
+    - 3.0
+    - 3.8
+    method: 均线法
+    hard_stop: 2.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600011.SH
+  name: 华能国际
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 国内装机规模最大，新能源装机高增
+  entry:
+    primary_zone:
+    - 8.0
+    - 10.0
+    method: 均线法
+    hard_stop: 7.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600027.SH
+  name: 华电国际
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 华电核心平台，火电+新能源双轮驱动
+  entry:
+    primary_zone:
+    - 6.0
+    - 7.5
+    method: 均线法
+    hard_stop: 5.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600795.SH
+  name: 国电电力
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 国家能源集团核心平台，多元布局+大基地
+  entry:
+    primary_zone:
+    - 5.0
+    - 6.5
+    method: 均线法
+    hard_stop: 4.2
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 000875.SZ
+  name: 电投绿能
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 国家电投东北区域，风光占比超火电，氢储新业态
+  entry:
+    primary_zone:
+    - 5.5
+    - 7.0
+    method: 均线法
+    hard_stop: 4.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600021.SH
+  name: 上海电力
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 长三角核心平台，海上风电+分布式光伏+虚拟电厂
+  entry:
+    primary_zone:
+    - 9.0
+    - 11.0
+    method: 均线法
+    hard_stop: 7.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600900.SH
+  name: 长江电力
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 全球最大水电，现金流断层领先，绿电压舱石
+  entry:
+    primary_zone:
+    - 28.0
+    - 32.0
+    method: 均线法
+    hard_stop: 24.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600163.SH
+  name: 中闽能源
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 福建海上风电核心，无火电包袱纯绿电
+  entry:
+    primary_zone:
+    - 5.5
+    - 7.0
+    method: 均线法
+    hard_stop: 4.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600483.SH
+  name: 福能股份
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 福建海上风电+热电，区域工业用电旺盛
+  entry:
+    primary_zone:
+    - 9.0
+    - 11.0
+    method: 均线法
+    hard_stop: 7.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002015.SZ
+  name: 协鑫能科
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-16'
+    type: direction_call
+    context: 风光绿电+储能+算力直供100%覆盖，算电协同核心弹性标的
+  entry:
+    primary_zone:
+    - 14.0
+    - 18.0
+    method: 均线法
+    hard_stop: 11.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 601899.SH
+  name: 紫金矿业
+  direction: copper_aluminum_shortage
+  chain_position: upstream
+  human_note:
+    date: '2026-06-15'
+    type: direction_call
+    context: 铜金矿全球龙头，铜价与AI基建双重受益
+  entry:
+    primary_zone:
+    - 28.7
+    - 31.1
+    method: 事件驱动法
+    hard_stop: 27.0
+  pre_condition:
+    market_actionable: true
+    sector_diverged: true
+    no_consecutive_limit_up: true
+  note: 美伊协议签署+LME铜跳涨为入场触发，不提前埋伏
+- code: 600667.SH
+  name: 太极实业
+  direction: sk_hynix_adr
+  chain_position: midstream
+  human_note:
+    date: '2026-06-11'
+    type: direction_call
+    context: 海太半导体合资55%股权，SK海力士ADR映射
+  entry:
+    primary_zone:
+    - 15.2
+    - 16.5
+    method: 均线法
+    hard_stop: 13.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+  note: UP自评confidence=low，弱市环境仅观察
+- code: 603011.SH
+  name: 合锻智能
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-06-10'
+    type: direction_call
+    context: 核聚变概念（AI电力逻辑注脚）
+  entry:
+    primary_zone:
+    - 29.9
+    - 32.4
+    method: 均线法
+    hard_stop: 23.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 601012.SH
+  name: 隆基绿能
+  direction: photovoltaic_low_recovery
+  chain_position: midstream
+  human_note:
+    date: '2026-06-10'
+    type: direction_call
+    context: 光伏组件龙头，底部企稳信号
+  entry:
+    primary_zone:
+    - 15.8
+    - 17.5
+    method: 低位震荡法
+    hard_stop: 14.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600732.SH
+  name: 爱旭股份
+  direction: photovoltaic_low_recovery
+  chain_position: midstream
+  human_note:
+    date: '2026-06-10'
+    type: direction_call
+    context: 光伏电池龙头，均线空头需等更低位置
+  entry:
+    primary_zone:
+    - 12.0
+    - 13.0
+    method: 低位震荡法
+    hard_stop: 10.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002459.SZ
+  name: 晶澳科技
+  direction: photovoltaic_low_recovery
+  chain_position: downstream
+  human_note:
+    date: '2026-06-10'
+    type: direction_call
+    context: 光伏组件/电站，底部修复
+  entry:
+    primary_zone:
+    - 12.0
+    - 13.0
+    method: 低位震荡法
+    hard_stop: 10.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 603601.SH
+  name: 再升科技
+  direction: commercial_aerospace
+  chain_position: upstream
+  human_note:
+    date: '2026-06-17'
+    type: direction_call
+    context: SpaceX供应链情绪龙头，6天6板。参股链逻辑兑现度最低，仅作情绪风向标
+  entry:
+    primary_zone:
+    - 8.0
+    - 10.0
+    method: 情绪回踩法
+    hard_stop: 7.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 600783.SH
+  name: 鲁信创投
+  direction: commercial_aerospace
+  chain_position: upstream
+  human_note:
+    date: '2026-06-17'
+    type: direction_call
+    context: 参股蓝箭航天0.82%，15天12板。参股比例小业绩贡献有限，纯情绪驱动
+  entry:
+    primary_zone:
+    - 12.0
+    - 15.0
+    method: 情绪回踩法
+    hard_stop: 10.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 603017.SH
+  name: 中衡设计
+  direction: commercial_aerospace
+  chain_position: upstream
+  human_note:
+    date: '2026-06-17'
+    type: direction_call
+    context: 参股致航2.15%+可回收平台设计单位，参股链中逻辑最强位置更低
+  entry:
+    primary_zone:
+    - 14.0
+    - 17.0
+    method: 情绪回踩法
+    hard_stop: 12.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 001270.SZ
+  name: 铖昌科技
+  direction: commercial_aerospace
+  chain_position: midstream
+  human_note:
+    date: '2026-06-17'
+    type: direction_call
+    context: 相控阵TR芯片完整方案，星网量产直接受益。应收账款是主要瑕疵
+  entry:
+    primary_zone:
+    - 45.0
+    - 55.0
+    method: 量能回踩法
+    hard_stop: 40.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true

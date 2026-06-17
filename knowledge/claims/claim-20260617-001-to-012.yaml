@@ -1,0 +1,354 @@
+claims:
+- id: claim-20260617-001-c
+  source_path: sources/original/bilibili/2026-06-17-0857-图片-一、指数 当前三大指数维持上升趋势，整体仍适合持股待涨。需要.md
+  source_date: '2026-06-17'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-17T13:06:00+08:00'
+  claim_type: market-cycle
+  subject: 三大指数维持上升趋势 沪指六连阳后冲高回落属压力提前释放
+  timeframe: short-term
+  statement: 当前三大指数维持上升趋势，整体仍适合持股待涨。沪指已走出六连阳，量能连续数日站稳3万亿以上，周二的冲高回落是上方压力的提前释放而非趋势破坏。隔夜美股科技股回调，若A股顺势回踩反而有利于消化获利盘。
+  evidence_quote: 当前三大指数维持上升趋势，整体仍适合持股待涨。沪指此前已悄然走出六连阳，叠加量能连续数日站稳3万亿元以上，周二的冲高回落更像是上方压力的一次提前释放，而非趋势破坏。
+  interpretation: UP对中期趋势仍看好，认为六连阳+持续3万亿量能是有效信号，冲高回落是良性调整。美股科技回调+端午前博弈是短期修正催化剂，不改上升方向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260605-001-h", "claim-20260602-001-a", "claim-20260612-007-g"]
+  contradicts: []
+  last_discovered: 2026-06-17
+  links: []
+  topic: 大盘趋势
+  related_stocks: []
+  tags:
+  - 大盘趋势
+  - 六连阳
+  - 量能3万亿
+  - 冲高回落
+  - 端午博弈
+- id: claim-20260617-002-m
+  source_path: sources/original/bilibili/2026-06-17-0857-图片-一、指数 当前三大指数维持上升趋势，整体仍适合持股待涨。需要.md
+  source_date: '2026-06-17'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-17T13:06:00+08:00'
+  claim_type: methodology
+  subject: 观察公式三信号 放量极值参照 情绪退潮看停牌 利空关注伊美平衡
+  timeframe: short-term
+  statement: 后市节奏的观察公式继续沿用三个信号：量能方面以前期极值3.54万亿和3.94万亿为参照，越逼近这两个数值短期风险越大；情绪方面长盈通(688143)已停牌，第一只停牌指向意义有限，真正需警惕第二只、第三只何时出现；利空方面关注伊美谅解备忘录后的地区平衡是否再被打破。
+  evidence_quote: 对于后市节奏，此前的观察公式略作调整即可继续沿用，即'等放量、等情绪退潮、等利空出现'三个信号。量能方面以前期两个极值3.54万亿元和3.94万亿元作为参照，越逼近这两个数值风险越大。
+  interpretation: UP更新了三个观察信号的具体量化标准。量能极值从历史最高值确定（3.54/3.94万亿），情绪退潮以停牌个股数量为信号（首只无意义，第二/三只才是危险信号），利空聚焦地缘政治（伊美）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260614-014-p", "claim-20260617-012-m"]
+  contradicts: []
+  last_discovered: 2026-06-17
+  links: []
+  topic: 观察框架
+  related_stocks:
+  - code: '688143'
+    name: 长盈通
+    role: 情绪退潮风向标-科创板不可交易
+  tags:
+  - 观察公式
+  - 量能极值
+  - 停牌预警
+  - 伊美地缘
+  - 3.54万亿
+- id: claim-20260617-003-c
+  source_path: sources/original/bilibili/2026-06-17-0857-图片-一、指数 当前三大指数维持上升趋势，整体仍适合持股待涨。需要.md
+  source_date: '2026-06-17'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-17T13:06:00+08:00'
+  claim_type: market-cycle
+  subject: 分歧日三大信号 铜箔大幅回落 中船特气跳水 MLCC炸板
+  timeframe: intraday
+  statement: 周一情绪高潮后周二转入良性分歧，尾盘出现分歧扩大征兆：铜箔方向大幅回落，中船特气(688146)盘中跳水，MLCC(风华高科000636)出现炸板。
+  evidence_quote: 周二转入良性分歧，尾盘出现几处值得记录的信号：铜箔方向大幅回落，供货靶材的中船特气盘中跳水，MLCC出现炸板。这些都是分歧扩大的征兆。
+  interpretation: UP指出周二分歧日尾盘已出现分歧扩大信号，铜箔/靶材/MLCC三个方向均有走弱征兆。这些是今日观察的核心风向标。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-17
+  links: []
+  topic: 分歧判断
+  related_stocks:
+  - code: '688146'
+    name: 中船特气
+    role: 靶材跳水风向标-科创板不可交易
+  - code: '000636'
+    name: 风华高科
+    role: MLCC龙头炸板风向标-主板可交易
+  tags:
+  - 分歧扩大
+  - 铜箔
+  - 中船特气
+  - MLCC炸板
+  - 风向标
+- id: claim-20260617-004-m
+  source_path: sources/original/bilibili/2026-06-17-0857-图片-一、指数 当前三大指数维持上升趋势，整体仍适合持股待涨。需要.md
+  source_date: '2026-06-17'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-17T13:06:00+08:00'
+  claim_type: methodology
+  subject: 百股涨停后续性判断标准 涨停未腰斩 一进二晋级率15%红线
+  timeframe: short-term
+  statement: 百股涨停后次日持续性的判断标准：涨停数量可以减少但不能腰斩，一进二晋级率可参考15%这条线。6/17日144→116家未腰斩，一进二晋级率18.8%>15%，情绪端实际承压有限。
+  evidence_quote: 涨停数量可以减少，但至少不能腰斩，同时一进二晋级率可参考15%这条线。6月10日那次并未达标，而昨日涨停家数仅由144家降至116家，一进二晋级率更是达到18.8%，因此盘中指数虽有回调，情绪端实际承压有限。
+  interpretation: UP更新了百股涨停后次日情绪判断的量化标准。6/17数据验证：涨停未腰斩（144→116），一进二晋级率18.8%远超15%红线，说明情绪端分歧虽在但未实质性受损。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-17
+  links: []
+  topic: 情绪量化
+  related_stocks: []
+  tags:
+  - 情绪量化
+  - 涨停晋级率
+  - 15%红线
+  - 18.8%
+  - 分歧未伤情绪
+- id: claim-20260617-005-o
+  source_path: sources/original/bilibili/2026-06-17-0857-图片-一、指数 当前三大指数维持上升趋势，整体仍适合持股待涨。需要.md
+  source_date: '2026-06-17'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-17T13:06:00+08:00'
+  claim_type: operation
+  subject: 分歧加大时可承接盘口主动异动标的
+  timeframe: intraday
+  statement: 若今日分歧进一步加大，理论上可考虑承接盘口主动异动且方向逻辑清晰的标的。盘中重点观察铜箔、靶材、MLCC的修复或扩散情况，以此判断分歧力度。
+  evidence_quote: 操作上，若今日分歧进一步加大，理论上可以考虑承接那些盘口主动异动、且方向逻辑清晰的标的，盘中重点观察上述风向标（铜箔、靶材、MLCC）的修复或扩散情况，以此判断分歧力度。
+  interpretation: UP给出了分歧日的操作原则：分歧加大不是卖出信号，而是观察承接机会。前提是标的盘口主动异动+逻辑清晰。核心观察铜箔/靶材/MLCC三个方向能否修复。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: ["claim-20260609-005-f"]
+  last_discovered: 2026-06-17
+  links: []
+  topic: 操作策略
+  related_stocks: []
+  tags:
+  - 操作策略
+  - 分歧承接
+  - 盘口异动
+  - 铜箔靶材MLCC
+- id: claim-20260617-006-s
+  source_path: sources/original/bilibili/2026-06-17-0857-图片-一、指数 当前三大指数维持上升趋势，整体仍适合持股待涨。需要.md
+  source_date: '2026-06-17'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-17T13:06:00+08:00'
+  claim_type: sector-theme
+  subject: 六家公司辟谣均匀分布在铜箔PCB光通信 看谁能成为活口
+  timeframe: intraday
+  statement: 6家热门公司密集发布股票交易异常波动公告和集体辟谣，分布均匀在铜箔、PCB、光通信三个方向。参考上周四晚六氟化钨概念股集体澄清后上周五一度承压但后续涨回。今日关注点：谁能在辟谣后成为"活口"，以及MLCC(风华高科000636)、玻璃基板等是否接棒。
+  evidence_quote: 这次辟谣较为均匀地分布在铜箔、PCB、光通信三个方向上，因此今日的关注点在于：谁能在辟谣后成为'活口'，以及会不会有新方向（如MLCC、玻璃基板等）来接替铜箔、PCB、光通信当前的生态位。
+  interpretation: 六家公司集体辟谣是今天最大的情绪干扰变量。参考WF6前例（集体澄清→短期承压→涨回），今日验证铜箔/PCB/光通信三个方向谁在辟谣后能维持强度（活口）。同时关注新方向（MLCC/玻璃基板）是否借机接棒。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260616-007-c"]
+  contradicts: []
+  last_discovered: 2026-06-17
+  links: []
+  topic: 题材轮动
+  related_stocks:
+  - code: '000636'
+    name: 风华高科
+    role: MLCC龙头-新生态位候选-主板可交易
+  tags:
+  - 集体辟谣
+  - 活口验证
+  - 铜箔PCB光通信
+  - 六氟化钨前例
+  - 生态位切换
+- id: claim-20260617-007-s
+  source_path: sources/original/bilibili/2026-06-17-0857-图片-一、指数 当前三大指数维持上升趋势，整体仍适合持股待涨。需要.md
+  source_date: '2026-06-17'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-17T13:06:00+08:00'
+  claim_type: sector-theme
+  subject: 非科技股走强需独立逻辑 有色对应AI上游加不加息 航运受益海峡通航
+  timeframe: short-term
+  statement: 非科技股近期走强不是单纯防御，而是各自带有独立逻辑。有色对应AI硬件上游材料逻辑+机构预期年内美联储不加息；航运受益于海峡通航改善。
+  evidence_quote: 非科技股方面，近期走强的品种已不再是单纯的防御型题材，而是各自带有独立逻辑才能获得资金青睐。有色一方面对应AI硬件上游材料逻辑，另一方面受机构预期年内美联储不加息提振；航运则受益于海峡通航改善。
+  interpretation: UP对非科技股的分析框架：不能简单归为防御，要看独立逻辑。有色受AI上游材料+加息预期双重驱动，航运有地缘改善催化。这与之前"资金最终回流科技，其他方向赚钱效应太差"的判断一致。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-17
+  links: []
+  topic: 板块轮动
+  related_stocks: []
+  tags:
+  - 非科技股
+  - 独立逻辑
+  - 有色
+  - 航运
+  - 海峡通航
+- id: claim-20260617-008-s
+  source_path: sources/original/bilibili/2026-06-17-0857-图片-一、指数 当前三大指数维持上升趋势，整体仍适合持股待涨。需要.md
+  source_date: '2026-06-17'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-17T13:06:00+08:00'
+  claim_type: sector-theme
+  subject: 超级电容首个国际标准发布 电网调频爆发 数据中心备电2026有望批量
+  timeframe: industry
+  statement: 6月5日中国华能牵头制定全球首个超级电容国际标准（IEC TR 63650:2026）正式发布。超级电容产业正迎来新一轮发展周期：电网调频进入示范应用爆发阶段，数据中心处于送样测试关键期，2026年有望开启批量订单。相关标的：中国西电(601179)、麦格米特(002851)。
+  evidence_quote: 由中国华能集团牵头制定的国际标准《电力储能用超级电容器》（IEC TR 63650:2026）正式发布，为全球首个该领域的国际标准。板块内上市公司包括中国西电、麦格米特等。
+  interpretation: UP首次将超级电容列为值得跟踪的细分方向。催化因素是6月5日国际标准发布+券商集中推荐。核心看点是数据中心备电（毫秒级大功率备电），2026年有望批量订单。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-17
+  links: []
+  topic: 超级电容
+  related_stocks:
+  - code: '601179'
+    name: 中国西电
+    role: 超级电容标的-主板可交易
+  - code: '002851'
+    name: 麦格米特
+    role: 超级电容标的-主板可交易
+  tags:
+  - 超级电容
+  - 国际标准
+  - 电网调频
+  - 数据中心备电
+  - 2026批量
+- id: claim-20260617-009-s
+  source_path: sources/original/bilibili/2026-06-17-0857-图片-一、指数 当前三大指数维持上升趋势，整体仍适合持股待涨。需要.md
+  source_date: '2026-06-17'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-17T13:06:00+08:00'
+  claim_type: sector-theme
+  subject: 玻璃基板 台积电首次公开CoWoS玻璃基板计划 2026产业元年
+  timeframe: industry
+  statement: 台积电首次公开向供应链发布CoWoS玻璃基板开发计划，拟携手欣兴与群创验证玻璃基板导入先进封装可行性。台积电首次公开披露玻璃基板进程，标志着该技术正式跨入产业化验证阶段。兴业证券认为是2026产业元年。核心价值集中于TGV深加工玻璃成品，形成封装载板、中介层、CPO光电基板三类核心产品。相关标的：天承科技(688603)（英伟达认证）、京东方A(000725)。
+  evidence_quote: 台积电近期向供应链发布'CoWoS玻璃基板开发计划'，拟携手ABF载板厂商欣兴与面板厂商群创，共同验证玻璃基板导入CoWoS先进封装的可行性。这是台积电首次公开玻璃基板应用进程，意味着该技术正式跨入产业化验证阶段。
+  interpretation: 玻璃基板方向出现新催化：台积电首次公开披露。与之前"玻璃基板距全面量产仍有距离"不同，这次明确了合作伙伴和验证计划，产业链阶段从"概念"升级为"产业化验证"。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-17
+  links: []
+  topic: 玻璃基板
+  related_stocks:
+  - code: '688603'
+    name: 天承科技
+    role: 沉铜电镀化学品-英伟达认证-科创板不可交易
+  - code: '000725'
+    name: 京东方A
+    role: 玻璃基封装载板合作-主板可交易
+  tags:
+  - 玻璃基板
+  - 台积电
+  - CoWoS
+  - TGV
+  - 2026产业元年
+- id: claim-20260617-010-s
+  source_path: sources/original/bilibili/2026-06-17-0857-图片-一、指数 当前三大指数维持上升趋势，整体仍适合持股待涨。需要.md
+  source_date: '2026-06-17'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-17T13:06:00+08:00'
+  claim_type: sector-theme
+  subject: DeepSeek首轮融资传闻 华为昇腾寒武纪完成适配 国产算力需求加速
+  timeframe: industry
+  statement: 据多家投资机构消息，DeepSeek首轮融资或已敲定：创始人梁文锋个人出资约200亿，腾讯约100亿，宁德时代体系约50亿，网易、京东等各约30亿。DeepSeek V4全面升级，华为昇腾、寒武纪、摩尔线程、沐曦股份(688802)、海光信息等国产算力厂商完成快速适配。相关标的：沐曦股份(688802)（GPU领导者）、华丰科技(688629)（224G光模块）。
+  evidence_quote: DeepSeek首轮融资或已敲定，创始人梁文锋个人出资约200亿元，腾讯约100亿元，宁德时代体系约50亿元。DeepSeek V4全面升级，同时华为昇腾、寒武纪等国产算力厂商完成快速适配，芯模协同生态持续完善。
+  interpretation: UP将DeepSeek融资传闻+国产芯片适配+芯模协同列为国产算力方向的新催化。虽然融资金额是市场传闻待确认，但V4的验证和国产芯片适配进度是真实进展。核心逻辑从单一模型转向芯模协同生态。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-17
+  links: []
+  topic: 国产算力
+  related_stocks:
+  - code: '688802'
+    name: 沐曦股份
+    role: 国产GPU领导者-科创板不可交易
+  - code: '688629'
+    name: 华丰科技
+    role: 224G光模块-科创板不可交易
+  tags:
+  - 国产算力
+  - DeepSeek融资
+  - 芯模协同
+  - 华为昇腾适配
+  - V4升级
+- id: claim-20260617-011-s
+  source_path: sources/original/bilibili/2026-06-17-0857-图片-一、指数 当前三大指数维持上升趋势，整体仍适合持股待涨。需要.md
+  source_date: '2026-06-17'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-17T13:06:00+08:00'
+  claim_type: sector-theme
+  subject: 热管理新材料 Beam Global获PCC相变复合材料专利 被动散热方向
+  timeframe: industry
+  statement: Beam Global昨夜涨近12%，获欧洲专利局授予智能相变复合材料（PCC）技术专利。该材料属于被动散热，在特定温度下自动相变吸收或释放热量，可应用于锂电池、数据中心、消费电子。A股相关：飞荣达(300602)、中石科技(300684)。
+  evidence_quote: Beam Global昨夜涨近12%，公司宣布欧洲专利局已授予其智能相变复合材料（PCC）技术专利。该材料属于被动散热范畴。A股相关公司包括飞荣达、中石科技等。
+  interpretation: UP将热管理新材料作为值得跟踪的方向。催化是美股Beam Global大涨+PCC专利授予。被动散热是AI散热的新分支方向。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-17
+  links: []
+  topic: 散热材料
+  related_stocks:
+  - code: '300602'
+    name: 飞荣达
+    role: 散热材料-创业板不可交易
+  - code: '300684'
+    name: 中石科技
+    role: 散热材料-创业板不可交易
+  tags:
+  - 热管理
+  - PCC材料
+  - 被动散热
+  - Beam Global
+  - 相变材料
+- id: claim-20260617-012-m
+  source_path: sources/original/bilibili/2026-06-17-0857-图片-一、指数 当前三大指数维持上升趋势，整体仍适合持股待涨。需要.md
+  source_date: '2026-06-17'
+  source_type: bilibili_dynamic
+  extracted_at: '2026-06-17T13:06:00+08:00'
+  claim_type: methodology
+  subject: 今日核心观察三维度 分歧力度 新生态位接棒 量能极值预警
+  timeframe: intraday
+  statement: 今日核心观察三方面：分歧力度看铜箔/靶材(中船特气688146)/MLCC(风华高科000636)的修复情况判断是良性换手还是退潮；新生态位看玻璃基板、MLCC能否接棒；若量能逼近3.54/3.94万亿极值或出现第二/三只停牌，需提高警惕。分歧加大+量能不超预期放大，可承接主动异动标的。
+  evidence_quote: 今日的核心仍是观察分歧力度：盯紧铜箔、靶材、MLCC这几个风向标的修复与否，判断市场是良性换手还是情绪退潮；同时留意玻璃基板、MLCC能否接棒成为新的生态位载体。
+  interpretation: UP给出了今日完整的操作观察框架。三维度：分歧力度（老方向修复）、生态位接棒（新方向出现）、量能预警。核心矛盾：分歧会不会从良性升级为退潮？新方向（玻璃基板/MLCC）是否出现？
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-17
+  links: []
+  topic: 操作框架
+  related_stocks:
+  - code: '688146'
+    name: 中船特气
+    role: 靶材分歧风向标-科创板不可交易
+  - code: '000636'
+    name: 风华高科
+    role: MLCC龙头分歧风向标-主板可交易
+  tags:
+  - 三维度观察
+  - 分歧力度
+  - 生态位切换
+  - 量能预警
+  - 今日框架

@@ -1,4 +1,4 @@
-updated_at: 2026-06-17T06:50
+updated_at: 2026-06-17T17:32
 source_claims:
 - knowledge/claims/claim-20260615-004-to-023.yaml
 - knowledge/claims/claim-20260616-001-to-013.yaml
@@ -48,12 +48,13 @@ source_claims:
 - knowledge/claims/claim-20260502-001.yaml
 - knowledge/claims/claim-20260501-001.yaml
 market_framework:
-  current_stage: '【FOMC 6/17已落地】维持利率不变3.50-3.75%，偏鹰(删降息暗示，点阵图全年无降息)，1/3委员暗示加息可能。外部最大不确定性排除，但富时A50凌晨下跌→早盘承压。框架条件：中阳已兑现→分歧验证→FOMC落地→进入利空出尽or偏鹰压制测试。60分钟高9有消化需求，上证4033-4130压力区vs3950支撑。核心转向：①偏鹰措辞是否被市场快速消化(看开盘30分钟)②科技能否在消化后出承接(铜箔/MLCC/光通信)③全A能否站稳6000。'
-  core_question: '6/17 FOMC落地后首日——①偏鹰措辞是否被市场快速消化(开盘30分钟定价)②科技(铜箔/MLCC/光通信)消化后能否有承接，分歧转一致③全A能否站稳6000，上证3950支撑是否有效④量能：3万亿+可上仓位，<2.5万亿全面防守'
+  current_stage: 上升期 — FOMC偏鹰落地后首日，市场快速消化外部压力，科创50放量大涨4.69%验证科技承接强劲。但微盘股广度验证不充分（国证2000+0.39%
+    < 全A+0.40%），处于'深度验证通过、广度待确认'的分化上升阶段。
+  core_question: 6/17 FOMC落地后首日——①偏鹰措辞是否被市场快速消化(开盘30分钟定价)②科技(铜箔/MLCC/光通信)消化后能否有承接，分歧转一致③全A能否站稳6000，上证3950支撑是否有效④量能：3万亿+可上仓位，<2.5万亿全面防守
   up_quote: 「6/15早盘：站上4088，具备交易能力和理想的可以满仓干。不知道做什么、问方向个股的继续躺。晚间复盘：普涨而无核心是修复性回流非情绪进攻，缩量+聚焦度不足。明天关键：尾盘补涨验证广度，情绪核心验证深度。」
   key_assumptions:
-  - '【框架升级 6/16】全A中阳(+1.45%)已兑现，不再讨论中阳概率。框架主线转向：指数间联动验证广度'
-  - '【FOMC 6/17已落地】维持利率不变3.50-3.75%，偏鹰但预期内→利空出尽逻辑成立，但富时A50凌晨下跌说明海外偏鹰情绪还需消化'
+  - 【框架升级 6/16】全A中阳(+1.45%)已兑现，不再讨论中阳概率。框架主线转向：指数间联动验证广度
+  - 【FOMC 6/17已落地】维持利率不变3.50-3.75%，偏鹰但预期内→利空出尽逻辑成立，但富时A50凌晨下跌说明海外偏鹰情绪还需消化
   - 中证2000持续弱于全A→微盘股是广度短板。若中证2000补涨跑赢全A→全面联动信号
   - 6/16是分歧日，早盘冲高不应追，应等回踩确认承接后再动手
   - 分歧日通常是好的上车机会（诺德铜箔/风华MLCC回踩是机会不是风险）
@@ -67,60 +68,74 @@ market_framework:
   - 情绪核心无法浮出（MLCC/铜箔冲高回落无回流）→深度不足，不加仓
   - 富时A50凌晨下跌→A股早盘承压，但A股核心矛盾在内不在外(量能+核心)
   - 全A指数收阴且30分钟不能收回→防守
-
+  direction_priority:
+  - direction: 铜箔（HVLP4代）
+    intensity: 高
+    source: 复盘判断：诺德股份涨停+10.03%，订单排至2027下半年
+  - direction: MLCC超级周期
+    intensity: 高
+    source: 复盘判断：风华高科+4.89%，趋势强劲
+  - direction: 光通信/OCS
+    intensity: 中高
+    source: 复盘判断：光迅科技+5.21%，谷歌第八代TPU采用OCS
+  - direction: 商业航天
+    intensity: 中
+    source: UP/盘面：再升科技涨停+9.97%，SpaceX上市催化
+  - direction: 科创50
+    intensity: 中
+    source: 复盘判断：+4.69%放量，科技情绪锚点
 market_gate_rules:
   index_checks:
-    - index: "全A指数"
-      condition: "not_close_below"
-      level: 6000
-      note: "全A等权指数破位警戒线"
-    - index: "上证指数"
-      condition: "not_close_below"
-      level: 3950
-      note: "月线趋势防线"
+  - index: 全A指数
+    condition: not_close_below
+    level: 6000
+    note: 全A等权指数破位警戒线
+  - index: 上证指数
+    condition: not_close_below
+    level: 3950
+    note: 月线趋势防线
   volume_checks:
-    - metric: "total_amount"
-      condition: "greater_than"
-      threshold: 2500000000000
-      note: "两市总成交额>2.5万亿"
+  - metric: total_amount
+    condition: greater_than
+    threshold: 2500000000000
+    note: 两市总成交额>2.5万亿
   defense_day_checks:
-    - type: "bank_insurance_leading"
-      action: "defense_day"
-      note: "银行保险领涨→防守日，不买入"
+  - type: bank_insurance_leading
+    action: defense_day
+    note: 银行保险领涨→防守日，不买入
   actionable_min_pass: 2
   bias_map:
-    pass_3: "可操作"
-    pass_2: "谨慎"
-    pass_1_or_0: "观望"
-
+    pass_3: 可操作
+    pass_2: 谨慎
+    pass_1_or_0: 观望
 direction_priority:
-  - direction: 🥇 铜箔（HVLP4代铜箔-诺德股份600110）
-    intensity: 强 🏆
-    trigger: 分歧日回踩12~13区间不破承接好→买入；若直接高开封板则放弃等第二天
-    entry_range: 12.0~13.0
-  - direction: 🥇 MLCC超级周期（风华高科000636/博迁新材/火炬电子）
-    intensity: 强 🏆
-    trigger: 分歧日回踩57.8~62.7不破（MA10~MA20区间）
-    entry_range: 57.8~62.7
-  - direction: 🥇 光通信/MPO/CPO（东山精密002384/光迅科技/长飞光纤）
-    intensity: 强 🏆
-    trigger: 分歧日回踩210~228区间
-    entry_range: 210~228
-  - direction: 🥈 焦炭涨价（潞安环能601699）
-    intensity: 中
-    trigger: 回踩16.1~17.2区间，6/15煤炭走弱正好给上车机会
-    entry_range: 16.1~17.2
-  - direction: 🥉 锂电中报高增（蔚蓝锂芯002245）
-    intensity: 谨慎关注
-    trigger: 等锂电板块确认后再跟踪，不急于今天
-  - direction: PCB油墨/光刻胶/化学品
-    intensity: 中 ⚠️ 用户不可交易(非主板)
-  - direction: 铜铝供给缺口（紫金矿业/洛阳钼业/云铝股份/神火股份）
-    intensity: 中
-  - direction: 制冷剂/高端氟材料（巨化股份/永和股份/三美股份）
-    intensity: 中
-  - direction: 覆铜板材料（雅克科技/中化国际）
-    intensity: 观察 — 不在当前主线，等回调
+- direction: 🥇 铜箔（HVLP4代铜箔-诺德股份600110）
+  intensity: 强 🏆
+  trigger: 分歧日回踩12~13区间不破承接好→买入；若直接高开封板则放弃等第二天
+  entry_range: 12.0~13.0
+- direction: 🥇 MLCC超级周期（风华高科000636/博迁新材/火炬电子）
+  intensity: 强 🏆
+  trigger: 分歧日回踩57.8~62.7不破（MA10~MA20区间）
+  entry_range: 57.8~62.7
+- direction: 🥇 光通信/MPO/CPO（东山精密002384/光迅科技/长飞光纤）
+  intensity: 强 🏆
+  trigger: 分歧日回踩210~228区间
+  entry_range: 210~228
+- direction: 🥈 焦炭涨价（潞安环能601699）
+  intensity: 中
+  trigger: 回踩16.1~17.2区间，6/15煤炭走弱正好给上车机会
+  entry_range: 16.1~17.2
+- direction: 🥉 锂电中报高增（蔚蓝锂芯002245）
+  intensity: 谨慎关注
+  trigger: 等锂电板块确认后再跟踪，不急于今天
+- direction: PCB油墨/光刻胶/化学品
+  intensity: 中 ⚠️ 用户不可交易(非主板)
+- direction: 铜铝供给缺口（紫金矿业/洛阳钼业/云铝股份/神火股份）
+  intensity: 中
+- direction: 制冷剂/高端氟材料（巨化股份/永和股份/三美股份）
+  intensity: 中
+- direction: 覆铜板材料（雅克科技/中化国际）
+  intensity: 观察 — 不在当前主线，等回调
 sector_rotation_rules:
 - id: price_increase_vs_low_recovery
   name: 涨价线 vs 低位修复轮动
@@ -346,7 +361,7 @@ key_levels:
   csi2000:
     index_code: sh000932
     name: 中证2000（微盘股代理指数）
-    description: 'UP 6/15复盘将微盘股列为第一隐忧和验证维度。中证2000是A股最小的2000只股票的集合，最适合作为微盘股走势的代理指数。'
+    description: UP 6/15复盘将微盘股列为第一隐忧和验证维度。中证2000是A股最小的2000只股票的集合，最适合作为微盘股走势的代理指数。
     break_condition:
       level: 🔴 第一隐忧
       description: 收盘持续在20日均线下方运行 = 破位确认
@@ -360,13 +375,9 @@ key_levels:
     invalidation_conditions:
     - 中证2000连续3日收于MA20下方→微盘破位确认，降仓至10%
     - 中证2000跳空低开且30分钟不补缺→防御模式
-
-# ═══════════════════════════════════════════════════════════
-# 6/16 分歧日操作计划
-# ═══════════════════════════════════════════════════════════
 operation_plan:
   date: 2026-06-16
-  type: divergence_day  # 分歧日
+  type: divergence_day
   gold_rule: 开盘冲高先T出一部分 → 观察回落承接 → 决定接回或切换。不要开盘追，等10:00-10:30分歧结果出来再动手。
   step_by_step:
   - step: 开盘（09:25-09:40）
@@ -381,7 +392,6 @@ operation_plan:
   - step: 尾盘（14:52）
     action: 验证今天是否形成情绪核心+尾盘补涨。若两条都满足→持仓可留。若都不满足→减仓
     note: 尾盘条件是今天最关键的验证点
-
   buy_priority:
   - rank: 1
     stock: 诺德股份（600110）
@@ -418,7 +428,6 @@ operation_plan:
     entry: 等板块确认后再提示
     stop_loss: N/A（尚未入场）
     mainboard: ✅
-
   position_plan:
     scenario_A_FOMC利空出尽放量上攻:
       condition: FOMC落地偏鹰被快速消化，量能3万亿+，全A站稳6000，铜箔/MLCC出核心
@@ -432,7 +441,6 @@ operation_plan:
       condition: 富时A50传导低开低走，量能<2.5万亿，全A跌破6000
       position: 10%以内
       action: 仅持ETF(2.2%)不动，全A中阳前不操作
-
   etf_plan:
     etf: 159381
     open_up_2pct: T出30-50%仓位

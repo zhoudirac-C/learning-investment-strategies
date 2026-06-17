@@ -270,3 +270,68 @@ fixed = re.sub(r'(?m)^(  - code: )([1-9]\d{5})\s*$', lambda m: f"  - code: '{m.g
 ```bash
 python scripts/gate_validate_claims.py --all --step 2 | grep "是整数类型"
 ```
+
+---
+
+## ⚠️ 9. 下游管线：提取后必须跑 discover → Neo4j → Qdrant
+
+**2026-06-17 实战教训**：提取完 YAML 后直接跳了 Neo4j，**跳过了 discover_claim_relations**。后果是新 12 条 claim 的 supersedes/contradicts 全部为空，没有与已有 871 条建立关系链。
+
+### 完整管线（不可跳过任何一步）
+
+```
+extract → [discover] → Neo4j → Qdrant → 重启
+                           ↑ 漏了这一步 = 关系链全空
+```
+
+### 标准执行流程
+
+```bash
+cd ~/learning-investment-strategies
+
+# 1. 停服务（Qdrant 重建需要独占锁）
+kill $(pgrep -f "mcp_qdrant_server") 2>/dev/null
+kill $(pgrep -f "mcp_neo4j_server") 2>/dev/null
+kill $(pgrep -f "uvicorn.*qing_investment") 2>/dev/null
+sleep 2
+
+# 2. ★ 关系发现（最容易被跳过！一定要跑）
+#    --all-missing 天然只处理没有 last_discovered 的 claim
+#    旧 871 条已有 last_discovered → 自动跳过
+#    新加的 claim 没有 last_discovered → 自动被处理
+bash scripts/run_discover_with_progress.sh
+
+# 3. Neo4j 迁移
+PYTHONPATH=src .venv/bin/python scripts/migrate_claims_to_neo4j.py
+
+# 4. Qdrant 重建
+PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate
+
+# 5. 重启 Agent
+PYTHONPATH=src .venv/bin/python -m uvicorn qing_investment.agent.main:app \
+  --host 127.0.0.1 --port 8000 --log-level info &
+
+# 6. 验证
+sleep 3 && curl -s http://127.0.0.1:8000/health
+# hermes restart  # 如果需要重启 MCP
+```
+
+### `--all-missing` 的跳过逻辑
+
+```python
+# src/qing_investment/agent/tools/discover_claim_relations.py 第 355-358 行
+# Skip if already discovered (supersedes/contradicts or supplements/none)
+if c.get("last_discovered"):
+    continue
+```
+
+- 旧 claim 都有 `last_discovered` → **自动跳过**
+- 新提取的 claim 没有 `last_discovered` → **自动被处理**
+- **不需要手动指定只跑哪些**，也不会重复处理旧数据
+
+### 两种错误模式
+
+| 模式 | 表象 | 后果 |
+|:----|:-----|:-----|
+| **跳 discover** | 新 claim 的 supersedes/contradicts 全空 | 关系链断，检索时找不到观点演进 |
+| **全量重跑 discover** | 不用 --all-missing，自己指定所有文件 | 90 分钟浪费，旧结果被覆盖（数据一致但耗时） |
