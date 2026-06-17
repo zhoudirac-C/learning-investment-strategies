@@ -1,11 +1,11 @@
-updated_at: '2026-06-16'
+updated_at: '2026-06-17'
 directions:
 
   # ── 已在池中，补充完整 ──────────────────────────────────
 
   - id: mlcc_super_cycle
     name: MLCC被动元件超级周期（AI驱动结构性缺货）
-    current_stage: divergence_verification
+    current_stage: diverging
     industry_chain:
       upstream:
         - segment: 陶瓷粉体（钛酸钡）
@@ -701,15 +701,44 @@ directions:
     name: 商业航天
     current_stage: early_direction
     industry_chain:
-      upstream: []
-      midstream: []
-      downstream: []
-    diffusion_path: []
+      upstream:
+        - segment: 特种材料/精密光学（上游原材料）
+          stocks:
+            - code: 603601.SH
+              name: 再升科技
+            - code: 688010.SH
+              name: 福光股份
+          pumped: true
+          note: "再升科技=特种过滤材料用于航天洁净环境，SpaceX概念情绪龙头(6天6板)；福光股份=精密光学元件，已切入低轨卫星对地观测镜头/激光通信，百亿市值以下低位。"
+      midstream:
+        - segment: 火箭/卫星制造（中游总装）
+          stocks:
+            - code: 600783.SH
+              name: 鲁信创投
+            - code: 603017.SH
+              name: 中衡设计
+          pumped: true
+          note: "鲁信创投=参股蓝箭航天0.82%(15天12板)；中衡设计=致航一号参股2.15%+可回收平台设计单位。均属参股/设计环节，非直接制造。"
+        - segment: T/R芯片/相控阵（中游核心器件）
+          stocks:
+            - code: 001270.SZ
+              name: 铖昌科技
+          pumped: false
+          note: "国内少数能提供相控阵TR芯片完整解决方案，星载和地面用星互联网TR芯片已量产。应收账款是主要瑕疵。"
+      downstream:
+        - segment: 地面终端/天线/连接器（下游应用）
+          stocks:
+            - code: 300136.SZ
+              name: 信维通信
+          pumped: true
+          note: "星链地面终端高频高速连接器+天线，收入6→10亿元。半年涨幅300%+实控人减持。创业板不可交易。"
+    diffusion_path:
+      - "按兑现度分档：参股链(情绪) → TR芯片(量产) → 通信/天线(收入落地) → 光学(低位博弈)"
     pre_condition:
-      market: "情景B天然对冲配置"
-      sector: "适合底仓+大波段"
-      timing: "不适合追涨"
-    note: "无主板可交易标的。有研粉材(688456)为科创不可交易。仅方向跟踪。"
+      market: "催化密集期（致航一号发射+7月9日朱雀三号遥二），7月初前有安全边际"
+      sector: "前期板块调整约50%，弹性空间不小"
+      timing: "催化窗口期可参与，但参股链不适合重仓"
+    note: "UP 6/17明确商业航天有望海内外情绪共振。核心催化：SpaceX上市2.6万亿+国内星网组网密集推进+蓝箭可回收火箭发射。政策端商业航天司成立+十五五框架。按兑现度分四档：参股链(情绪)→芯片(量产)→通信(收入落地)→光学(低位博弈)。可交易主板标的：再升科技/鲁信创投/中衡设计/铖昌科技。"
 
   - id: pharmaceutical_innovation
     name: 医药/创新药

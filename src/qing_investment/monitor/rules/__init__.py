@@ -459,6 +459,33 @@ class BuySignalRuleEngine(BaseRuleEngine):
                             "odds_analysis": {},
                         }
 
+        # 从 stock_pool 提取 entry_zone + pre_condition（P1 实现）
+        for stock in config.get("stock_pool", {}).get("stocks", []) or []:
+            stock_code = _norm_code(str(stock.get("code", "")))
+            if not stock_code:
+                continue
+            entry_cfg = stock.get("entry", {}) or {}
+            zone = entry_cfg.get("primary_zone", [])
+            hard_stop = entry_cfg.get("hard_stop")
+            pre_cond = stock.get("pre_condition", {}) or {}
+            if isinstance(zone, list) and len(zone) == 2:
+                # stock_pool 优先（已迁移的标的），仅当 watchlist/positions 未覆盖时才添加
+                if stock_code not in entry_by_code:
+                    entry_by_code[stock_code] = {
+                        "code": stock.get("code", ""),
+                        "name": stock.get("name", ""),
+                        "entry_zone": f"{zone[0]}-{zone[1]}",
+                        "stop_loss": hard_stop,
+                        "claim_basis": "",
+                        "odds_analysis": {},
+                        "pre_condition": pre_cond,
+                    }
+                else:
+                    # 已有 entry 但缺少 pre_condition → 补充
+                    existing = entry_by_code[stock_code]
+                    if "pre_condition" not in existing:
+                        existing["pre_condition"] = pre_cond
+
         # 遍历所有有介入区间的标的
         for code_norm, entry in entry_by_code.items():
             quote = _quote_for_stock(quotes, entry.get("code", code_norm))
@@ -513,6 +540,12 @@ class BuySignalRuleEngine(BaseRuleEngine):
             }
             matched = [k for k, v in conditions.items() if v]
             is_candidate = len(matched) >= 4
+
+            # P1: pre_condition 检查（stock_pool 级代码拦截）
+            pre_cond = entry.get("pre_condition", {}) or {}
+            if pre_cond.get("no_consecutive_limit_up") and not no_limit_up:
+                is_candidate = False
+                matched.append("❌连续涨停中-拦截")
 
             candidates.append(
                 BuySignalCandidate(
