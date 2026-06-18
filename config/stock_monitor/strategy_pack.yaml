@@ -1,5 +1,8 @@
-updated_at: 2026-06-17T23:55
+updated_at: 2026-06-18T18:10
 source_claims:
+- knowledge/claims/claim-20260618-003.yaml
+- knowledge/claims/claim-20260618-002-to-006.yaml
+- knowledge/claims/claim-20260618-001-a.yaml
 - knowledge/claims/claim-2026-06-17-001.yaml
 - knowledge/claims/claim-20260617-038-to-047.yaml
 - knowledge/claims/claim-20260617-025-to-037.yaml
@@ -51,7 +54,7 @@ source_claims:
 - knowledge/claims/claim-20260502-001.yaml
 - knowledge/claims/claim-20260501-001.yaml
 market_framework:
-  current_stage: 上升期 — 陆家嘴论坛政策超预期（科创板第五套标准扩围至AI大模型），科技内部切换至中报业绩驱动。FOMC偏鹰已消化，科创50放量大涨验证科技承接。但需警惕半导体高位减持93家风险（大基金减持=计划内，董监高减持=危险信号）。
+  current_stage: 震荡期|上升期|下跌期 — 今日阶段变化简述
   core_question: 6/18早盘——①陆家嘴论坛政策情绪是否延续（科创板ETF溢价）②中报业绩驱动方向（存储/PMIC/设备）是否发酵③减持93家标的开盘表现（通富微电等是否承压）④量能是否维持2.5万亿+
   up_quote: 「6/17 22:16专栏：科技内部切换至中报业绩驱动，存储A档（兆易创新/德明利）、PMIC（东阳光）、晶合集成。6/17 22:37动态：半导体高位减持93家，大基金减持没问题，董监高不行，容易被埋。6/17视频：陆家嘴论坛政策超预期，科创板第五套标准扩围，上升初期打满仓位+去弱留强。」
   key_assumptions:
@@ -74,27 +77,9 @@ market_framework:
   - 全A指数收阴且30分钟不能收回→防守
   - 减持93家标的集体低开低走→板块风险扩散，暂停科技方向建仓
   direction_priority:
-  - direction: 中报业绩驱动（存储A档+PMIC）
+  - direction: MLCC
     intensity: 高
-    source: 22:16专栏核心：兆易创新/德明利/东阳光，7月初兑现
-  - direction: 科创板AI制度红利
-    intensity: 高
-    source: 视频claims：第五套标准扩围，长期制度红利，北方华创主板映射
-  - direction: 铜箔（HVLP4代）
-    intensity: 高
-    source: 复盘判断：诺德股份涨停+10.03%，订单排至2027下半年
-  - direction: MLCC超级周期
-    intensity: 高
-    source: 复盘判断：风华高科+4.89%，趋势强劲。⚠️注意减持风险
-  - direction: 光通信/OCS
-    intensity: 中高
-    source: 复盘判断：光迅科技+5.21%，谷歌第八代TPU采用OCS
-  - direction: 商业航天
-    intensity: 中
-    source: UP/盘面：再升科技涨停+9.97%，SpaceX上市催化
-  - direction: 存储芯片（NOR/DRAM）
-    intensity: 中
-    source: memory_nor阶段升级resuming，HBM超级周期+长鑫上市
+    source: 复盘判断
 market_gate_rules:
   index_checks:
   - index: 全A指数

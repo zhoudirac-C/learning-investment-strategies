@@ -1,5 +1,8 @@
-updated_at: '2026-06-17'
+updated_at: '2026-06-18'
 source_claims:
+- knowledge/claims/claim-20260618-003.yaml
+- knowledge/claims/claim-20260618-002-to-006.yaml
+- knowledge/claims/claim-20260618-001-a.yaml
 - knowledge/claims/claim-2026-06-17-001.yaml
 - knowledge/claims/claim-20260617-038-to-047.yaml
 - knowledge/claims/claim-20260617-025-to-037.yaml
@@ -432,7 +435,7 @@ themes:
     - 洁美科技(002859)
     entry_zone:
       description: 【已止损清仓】6/12触发60.9止损出局。保留观察，若MLCC板块放量走强+新高+全A中阳线可重新评估。
-      current_ref: 收盘74.06，回踩70-72区间缩量企稳可介入
+      current_ref: 回踩57-62区间缩量企稳可介入
       method: 已止损，等待重新评估信号
       confirm_signal: MLCC板块放量走强+全A放量中阳线+风华高科重新站稳MA5
       hard_stop: null
@@ -1236,7 +1239,7 @@ themes:
     - 三环集团(300408-创业，锚点)
     entry_zone:
       description: 6/15已涨停，等回踩不破MA5（换手充分后企稳）。不追涨停板。
-      current_ref: '2026-06-18 实时: 现价=74.5 (自动更新)'
+      current_ref: 回踩57-62区间缩量企稳可介入
       price_range: 71.5 ~ 77.5
       method: 涨停回踩法，等缩量企稳确认后右侧进场
       confirm_signal: MLCC板块联动+风华换手稳定+全A量能维持+博迁新材同步
