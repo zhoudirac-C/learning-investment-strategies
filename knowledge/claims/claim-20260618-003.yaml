@@ -1,0 +1,111 @@
+claims:
+- id: claim-20260618-003-a
+  source_path: sources/original/bilibili/2026-06-18-1442-图片-今天大盘收十字星，是非常健康的走势，多空在高位充分换手却没有.md
+  source_date: '2026-06-18'
+  source_type: 动态
+  extracted_at: '2026-06-18T14:42+08:00'
+  claim_type: market-cycle
+  subject: 十字星高位换手健康走势节后红包行情
+  timeframe: short-term
+  statement: 大盘收十字星是健康走势，多空在高位充分换手但未失控，节后大概率有红包行情
+  evidence_quote: 今天大盘收十字星，是非常健康的走势，多空在高位充分换手却没有失控，节后大概率有红包行情。
+  interpretation: UP将高位十字星解读为积极信号——传统技术分析中高位十字星是变盘信号（多空平衡），但UP认为今日大盘属于"充分换手未失控"，偏多解读。这与09:42"只要今天大盘砸不下来，节后大概率红包行情"的判断呼应。前提条件"不减仓"在14:42时已兑现（十字星收定），条件兑现后结论置信度提升。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-18
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高位十字星健康换手
+  related_stocks: []
+  tags:
+  - 十字星
+  - 高位换手
+  - 红包行情
+  - 节后判断
+- id: claim-20260618-003-b
+  source_path: sources/original/bilibili/2026-06-18-1442-图片-今天大盘收十字星，是非常健康的走势，多空在高位充分换手却没有.md
+  source_date: '2026-06-18'
+  source_type: 动态
+  extracted_at: '2026-06-18T14:42+08:00'
+  claim_type: market-cycle
+  subject: 节后红包行情确认强化09_42判断
+  timeframe: short-term
+  statement: 节后大概率有红包行情，强化09:42的相同判断
+  evidence_quote: 节后大概率有红包行情。
+  interpretation: 对09:42"红包行情"判断的强化确认。09:42时条件性判断（"只要今天大盘砸不下来"），14:42时条件已兑现（十字星收定、未砸盘），结论置信度从conditional high升级为confirmed high。14:42为节前最后一条动态（明天放假），可以视为UP的节前定调。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-18
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 节后红包行情确认
+  related_stocks: []
+  tags:
+  - 节后
+  - 红包行情
+  - 结轮定调
+- id: claim-20260618-003-c
+  source_path: sources/original/bilibili/2026-06-18-1442-图片-今天大盘收十字星，是非常健康的走势，多空在高位充分换手却没有.md
+  source_date: '2026-06-18'
+  source_type: 动态
+  extracted_at: '2026-06-18T14:42+08:00'
+  claim_type: operation
+  subject: 6_18晚不做复盘6_20_21周末正常更新
+  timeframe: point
+  statement: 6/18放假前一晚不做复盘，6/20-6/21周末正常更新视频与文字复盘
+  evidence_quote: 明天放假，今晚不做复盘；周末正常更新视频与文字复盘。
+  interpretation: 节假日排程信息：6/18晚无复盘，6/20-6/21有视频+文字复盘。这意味着节前最后一个交易日的盘中动态（09:42、13:22、14:42）就是UP的完整输出，无尾盘复盘的补充信息。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-18
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 节假日复盘排程
+  related_stocks: []
+  tags:
+  - 复盘节奏
+  - 端午
+  - 排程信息
+- id: claim-20260618-003-d
+  source_path: sources/original/bilibili/2026-06-18-1442-图片-今天大盘收十字星，是非常健康的走势，多空在高位充分换手却没有.md
+  source_date: '2026-06-18'
+  source_type: 动态
+  extracted_at: '2026-06-18T14:42+08:00'
+  claim_type: methodology
+  subject: 交易核心是持续能力非单次输赢
+  timeframe: trend
+  statement: 交易的核心是持续参与市场的能力，一两次输赢不是关键，需整理情绪、调整节奏、下一个周期赢回来
+  evidence_quote: 一两次的输赢从来不是关键，做交易拼的是一直走下去的能力。整理好情绪，把节奏调回来，下一个周期赢回来。
+  interpretation: UP在节前最后一条动态中注入交易心态指导。核心观点：交易不是一锤子买卖，比拼的是"一直在牌桌上"的能力。赚到钱的需要养足精神迎接下一段行情；没做好的更要彻底放松，调整心态再战。这与UP一贯强调的"交易节奏匹配标的属性而非情绪"（002-d）一脉相承，但更侧重心理层面。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-18
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 交易心态持续能力
+  related_stocks: []
+  tags:
+  - 交易心理
+  - 持续能力
+  - 情绪管理
+  - 节奏调整
