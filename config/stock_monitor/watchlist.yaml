@@ -48,19 +48,23 @@ market_framework:
   - 全A指数继续破位且30分钟不能收回→筑底失败
 themes:
 - id: ccL_resin_upstream
-  name: CCL/覆铜板涨价链（含上游球硅/PPO+CCL本体）
+  name: CCL/覆铜板涨价链（含上游球硅/PPO+CCL本体+M8/M9材料升级）
   up_positioning: 「涨价确定性第一档（与存储同级）」—CCL已4-5轮提价累计涨50%，满产满销卖方市场，客户订单排至2027年底。M6以上高端缺货严重，竞争核心从扩产能转向分子设计+改性工艺+批次一致性+下游认证。上游材料（球硅/PPO）同样涨价×AI需求×国产替代三重交集。
   source_docs:
   - sources/original/bilibili/2026-06-21-2235-专栏-... 
   - knowledge/claims/claim-20260621-001-j
   - knowledge/claims/claim-20260610-006-h
   - knowledge/claims/claim-20260610-018-a
+  - sources/raw/财经/研报：26-05-25：AI PCB Rubin产业链深度报告（结构化raw）.md
   market_checks:
-  - CCL涨价是否延续至2027下半年（涨势未被证伪）
-  - M6以上高端CCL缺货是否加剧
-  - 东材科技PPO/PPE树脂量产进展
-  - 圣泉集团电子树脂客户验证节奏
-  - 国产化替代进度（AI级超低损耗Df 0.0015性能控制）
+  - 【CCL技术等级】M7（Dk~3.3/Df~0.002，112G可用）→ M8（Dk~3.1/Df~0.0012，Rubin 2026需求拐点）→ M9（Dk~3.0/Df~0.0007，Midplane门槛，全球供给紧）
+  - 【涨价持续性】CCL涨价是否延续至2027下半年，FR8已从160涨至200+，下半年为传统旺季
+  - 【供给瓶颈】M6以上高端CCL缺货严重，客户订单排至2027年底，PCB厂库存仅半月-1月
+  - 【国产化进度】AI级超低损耗Df 0.0015性能控制+批次稳定性 vs SABIC/旭化成差距
+  - 【Midplane增量】Rubin NVL144 Midplane从无到有（44层M9+Q-Glass+HVLP4），单柜新增~27,000美元PCB价值
+  - 【玻璃布升级】Q-Glass（Dk~3.8）对接M9门槛，日本Nittobo主导，大陆宏和科技/中材科技切入
+  - 【HVLP铜箔】HVLP4（Rz~0.6-1μm）Rubin必须→诺德股份/铜冠铜箔
+  - 【SerDes速率】NVLink5（112G→M7）→NVLink6（224G→M8/M9）→NVLink6+（448G→M9+HMLP5+Q-Glass）
   stocks:
   - code: 002409.SZ
     name: 雅克科技
