@@ -48,7 +48,8 @@ market_framework:
   - 全A指数继续破位且30分钟不能收回→筑底失败
 themes:
 - id: ccL_resin_upstream
-  name: CCL/覆铜板涨价链（含上游球硅/PPO+CCL本体+M8/M9材料升级）
+  name: 🥇 CCL/覆铜板（独立方向，含上游树脂+CCL本体+M8/M9材料升级）
+  chain_relation: → 下游 PCB 制造（沪电/景旺/胜宏）受CCL供给和价格约束。CCL涨价逻辑独立于PCB需求：上游物料（铜箔/玻璃布/树脂）普涨驱动，卖方市场满产满销，订单排至2027。下游PCB受益于NVIDIA Rubin代际升级（Midplane/高多层板），但议价权弱于CCL。两方向共享M8/M9材料升级长期叙事，但短期驱动因素不同。
   up_positioning: 「涨价确定性第一档（与存储同级）」—CCL已4-5轮提价累计涨50%，满产满销卖方市场，客户订单排至2027年底。M6以上高端缺货严重，竞争核心从扩产能转向分子设计+改性工艺+批次一致性+下游认证。上游材料（球硅/PPO）同样涨价×AI需求×国产替代三重交集。
   source_docs:
   - sources/original/bilibili/2026-06-21-2235-专栏-... 
@@ -852,7 +853,8 @@ themes:
       stage: watching
       entered_stage: '2026-06-13'
 - id: pcb_ai_chain
-  name: PCB AI硬件链（成品板→CCL→上游材料→ABF载板）
+  name: PCB制造（下游，受CCL供给约束+Rubin代际升级驱动）
+  chain_relation: ← 上游 CCL/覆铜板（独立方向）供应与价格约束PCB制造成本与交付节奏。CCL是本轮涨价发起端（上游物料驱动），PCB是传导端（下游AI服务器需求拉动）。PCB驱动来自NVIDIA Rubin：Midplane从无到有、层数/材料升级、单柜价值量+233%。两方向需分开跟踪涨价数据（CCL）vs 认证/量产节奏（PCB）。
   up_positioning: UP定性为AI硬件双核心主线之一。VR200单柜PCB价值量从3.51万→11.67万美元(+233%)，逻辑延伸至Rubin
     Ultra/Kyber(78层正交背板/800VDC供电PCB/CoWoP封装映射)。跨代际价值阶梯，不是一次性估值重估。
   source_docs:
