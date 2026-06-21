@@ -1074,6 +1074,28 @@ themes:
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
+  - code: 002463.SZ
+    name: 沪电股份
+    role: pcb_core_midplane
+    segment: PCB高多层板+Midplane
+    priority: P2-重点
+    watch_reason: Rubin PCB研报第一层确定性标的。Midplane核心（44层M9+Q-Glass+HVLP4从无到有，单柜+$27,000），NVSwitch板（32层M8+），Kyber终极背板（78层）。大陆高多层板北美份额高，Midplane主力供应商。PE≈95x对应M8/M9升级+Midplane增量预期。
+    confirm_with:
+    - 生益科技
+    - 景旺电子
+    entry_zone:
+      description: 【新增待观察】Midplane认证节奏关键。等分歧日缩量企稳后确认介入区间
+      price_range: "待定"
+      method: 待确认
+      confirm_signal: Midplane认证进展+全A非破位+PCB板块整体回踩企稳
+      hard_stop: "待定"
+    lifecycle:
+      stage: observing
+      entered_stage: '2026-06-22'
+    up_mention_status:
+      last_mentioned_date: '2026-05-25'
+      mention_context: Rubin PCB产业链深度报告—Midplane从无到有核心受益，第一层确定性标的
+      sentiment: 积极看好
 - id: coke_coal_upcycle
   name: 焦炭/煤炭涨价右侧信号（戴维斯双击预期）
   up_positioning: 「焦炭连续提涨是确定性的右侧涨价信号」— 6/14复盘明确将焦炭归入"弱市中涨价为王"过滤逻辑。焦炭第六轮提涨落地、第七轮提上日程，连续多轮提涨信号确定性高。迎峰度夏保供+下游刚需，煤炭PPI转正，煤炭股有望迎戴维斯双击。潞安环能主营煤炭/焦炭双轮驱动，晋控煤业以动力煤为核心。
