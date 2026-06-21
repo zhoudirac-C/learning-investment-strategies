@@ -151,3 +151,4 @@
 - [claim-20260615-003.yaml](claim-20260615-003.yaml)
 - [claim-20260615-004-to-023.yaml](claim-20260615-004-to-023.yaml)
 - [claim-2026-06-17-001.yaml](claim-2026-06-17-001.yaml)
+- [claim-20260612-003.yaml](claim-20260612-003.yaml)
