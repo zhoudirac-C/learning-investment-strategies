@@ -1557,11 +1557,13 @@ themes:
     - 福晶科技
     - 茂莱光学(688502-科创，锚点)
     entry_zone:
-      description: 【新增6/22】等数据预拉取后补技术分析。UP定性为情绪催化，仅P3观察不预设介入
-      current_ref: 待预拉取K线
-      method: 待预拉取K线后补充
-      confirm_signal: EUV催化继续发酵+光刻链板块整体扩散+全A非破位
-      position_ratio: 不超过0.2成（P3-观察+情绪催化，严格控仓）
+      description: 【新增6/22】均线空头排列(MA5<MA20<MA60)，现价32.89低于MA20(34.32)。等放量站回MA20+光刻链板块共振后再评估。UP定性为情绪催化，不追
+      current_ref: '2026-06-18 收盘=32.89'
+      price_range: 33.3 ~ 34.3
+      method: MA20(34.32)附近。当前破位需等放量站回再评估
+      confirm_signal: 放量站回MA20+光刻链板块扩散+全A中阳线
+      hard_stop: 30.2
+      position_ratio: 不超过0.2成（P3-观察+破位中，严格控仓）
     lifecycle:
       stage: watching
       entered_stage: '2026-06-22'
@@ -1579,10 +1581,12 @@ themes:
     - 张江高科
     - 奥普光电
     entry_zone:
-      description: 【新增6/22】等数据预拉取后补技术分析。仅P3观察
-      current_ref: 待预拉取K线
-      method: 待预拉取K线后补充
-      confirm_signal: 张江高科先走强+光刻链整体扩散+全A非破位
+      description: 【新增6/22】均线多头(MA5>MA10>MA20)，现价103.0距MA20(97.81)+5.3%但高于介入区间上沿(96.37)约6.9%。等分歧日缩量回踩MA20~MA10区间(94.9~96.4)企稳。UP定性为情绪催化，不追高
+      current_ref: '2026-06-18 收盘=103.0'
+      price_range: 94.9 ~ 96.4
+      method: MA20(97.81)~MA10(94.48)，分歧日缩量企稳。距MA20仅+5.3%，光刻链中最接近介入区
+      confirm_signal: 缩量回踩至区间不破+张江高科先走强+光刻链整体扩散+全A中阳线
+      hard_stop: 86.1
       position_ratio: 不超过0.2成（P3-观察+情绪催化，严格控仓）
     lifecycle:
       stage: watching
@@ -1601,9 +1605,12 @@ themes:
     - 张江高科
     - 南大光电(300346-创业，锚点)
     entry_zone:
-      description: 【新增6/22】等数据预拉取后补技术分析。仅P4锚点不预设介入
-      current_ref: 待预拉取K线
-      method: 待预拉取K线后补充
+      description: 【新增6/22】均线多头(MA5>MA10>MA20)，现价65.98距MA20(57.94)+13.9%偏高。等深度回踩至介入区间(56.2~61.8)企稳。仅P4锚点不预设建仓
+      current_ref: '2026-06-18 收盘=65.98'
+      price_range: 56.2 ~ 61.8
+      method: MA20(57.94)~MA10(60.62)，分歧日缩量企稳
+      confirm_signal: 张江高科先走强+光刻链板块扩散+全A中阳线
+      hard_stop: 51.0
       position_ratio: 0（P4-锚点，仅方向观察不建仓）
     lifecycle:
       stage: watching
