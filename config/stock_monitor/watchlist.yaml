@@ -1454,13 +1454,13 @@ themes:
     - 太辰光(300570-创业，锚点)
     - 烽火通信
     entry_zone:
-      description: 等待结构性分化后择机。不在当前板块共振最高潮追涨。
-      current_ref: '2026-06-18 实时: 现价=472.77 (自动更新)'
-      price_range: 447.3 ~ 498.2
-      method: 板块扩散法（等光通信主线确认后，光纤作为扩散受益方向）
-      confirm_signal: 光通信板块联动+MT插芯/MPO订单催化
-      hard_stop: 买入价下方5%
-      position_ratio: 0.3-0.5成
+      description: 【更新6/22】均线多头(MA5>MA10>MA20)。现价471.55距MA20(425.19)+10.9%，距区间上沿(463.53)仅+1.7%为所有标的最近。保偏光纤AI需求爆发（康宁转向中国采购），方向逻辑强。等缩量回踩MA10~MA20区间企稳
+      current_ref: '2026-06-18 收盘=471.55'
+      price_range: 412.4 ~ 463.5
+      method: MA20(425.19)~MA10(454.44)，分歧日缩量企稳。距区间仅偏高1.7%，性价比最好的光通信标的
+      confirm_signal: 光通信板块联动+保偏光纤订单催化+缩量回踩至区间不破+全A中阳线
+      hard_stop: 374.2
+      position_ratio: 0.2-0.3成（P2-重点，距区间最近有一定安全边际）
     lifecycle:
       stage: watching
       entered_stage: '2026-06-15'
@@ -1638,6 +1638,41 @@ themes:
   - code: 688786.SH
     name: 汇成真空
     role: anchor — 光刻机配套镀膜（科创板不可交易）
+- id: indium_phosphide_chain
+  name: 铟/磷化铟（供给刚性×AI光互联需求）
+  up_positioning: 「涨价确定性第二档，仅次于存储≈CCL」— 铟价年内+60%供给刚性，95%以上为锌铅副产品，磷化铟扩产撞上铟天花板。核心标的锡业股份(000960)全球铟资源第一。
+  source_docs:
+  - knowledge/claims/claim-20260621-001-l
+  - sources/original/bilibili/2026-06-21-2235-专栏-指数定环境——节前双创继续走强、创业板指再创新高，沪指冲高回.md
+  market_checks:
+  - 铟价是否持续上行（6月中旬4785元/kg，较年初+60%）
+  - 磷化铟扩产节奏（Coherent/Lumentum/AXT等）
+  - 锡业股份全球铟资源第一的稀缺溢价
+  chain_note: 铟/磷化铟是涨价链中逻辑最硬的一环——副产品供给刚性×AI光互联需求爆发
+  stocks:
+  - code: 000960.SZ
+    name: 锡业股份
+    role: indium_global_leader
+    segment: 铟资源龙头
+    priority: P3-观察
+    watch_reason: UP 6/21复盘点名铟/磷化铟涨价确定性第二档。全球铟资源第一、国内最大原生铟生产基地。铟价年内+60%，受益AI光互联爆发需求。主板可交易。
+    confirm_with:
+    - 云南锗业(002428)
+    entry_zone:
+      description: 【新增6/22】均线多头(MA5>MA20>MA10)，现价41.74距MA20(39.25)+6.3%。等缩量回踩MA20附近(38.1~39.0)企稳
+      current_ref: '2026-06-18 收盘=41.74'
+      price_range: 38.1 ~ 39.0
+      method: MA20(39.25)附近，分歧日缩量企稳。距MA20仅+6.3%，在涨价链中位置相对合理
+      confirm_signal: 缩量回踩至区间不破+铟价数据持续上行+全A中阳线
+      hard_stop: 34.5
+      position_ratio: 不超过0.3成（P3-观察+涨价确定性第二档）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-22'
+    up_mention_status:
+      last_mentioned_date: '2026-06-21'
+      mention_context: 6/21复盘专栏涨价确定性排序—铟/磷化铟第二档
+      sentiment: 积极看好
 avoid_and_reduce:
   avoid:
   - 存储芯片（M头+颈线+量价顶背离，反弹减仓）→ 6/17更新：memory_nor已升级为resuming，中报业绩驱动，但需核实减持
