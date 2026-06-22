@@ -126,3 +126,9 @@
   - 新增 claims：`claim-20260621-001.yaml`（17条：market-cycle×2, methodology×3, risk×3, sector-theme×7, catalyst×1, stock-view×0）
   - 核心主题：K型分化延续、三层操作框架、涨价链确定性排序（存储≈CCL>铟>光互联>氮化铝）、科创50估值高危、光互联三重逻辑、CCL满产满销、EUV催化
 
+
+## 2026-06-22 | qing-learning ingest | 22:51复盘专栏：放量3.7万亿+结构性转全面预期升温
+
+- 处理 raw：`sources/raw/财经/2026-06-22-2251-复盘专栏-放量3.7万亿-结构性转全面预期升温.md`（B站充电专栏 22:51）
+- 新增 claims：`claim-20260622-003.yaml`（19条：market-cycle×4, sector-theme×12, methodology×1, risk×1, stock-view×0）
+- 核心观点：放量3.7万亿+午后拉升确认强势日=6月12日翻版加强版、全面行情预期升温需验证、增量资金主攻大金融与有色、科技主线6条涨价支线、券商炒中报与补涨三驱动力、操作聚焦小金属/化工+金融两条主线

@@ -1,4 +1,4 @@
-updated_at: '2026-06-17'
+updated_at: '2026-06-22'
 directions:
 
   # ── 已在池中，补充完整 ──────────────────────────────────
@@ -35,7 +35,7 @@ directions:
     diffusion_path:
       - "MLCC → 被动元件整体 → PCB上游材料"
     pre_condition:
-      market: "全A量能>2.5万亿+非破位状态"
+      market: "全A量能>3万亿+非破位状态"
       sector: "板块首次分歧（连续上涨后出现1-2日调整）"
       timing: "非连续涨停日（涨停家数<板块内30%）"
 
@@ -90,7 +90,7 @@ directions:
       - "铜原料/设备 → HVLP4铜箔制造 → 高速CCL → AI服务器高速PCB"
       - "铜冠/德福/隆扬(非主板锚点)扩产进度决定国产替代节奏"
     pre_condition:
-      market: "全A量能>2.5万亿+非破位状态"
+      market: "全A量能>3万亿+非破位状态"
       sector: "分歧日回踩不破"
       timing: "非一字涨停买不到"
 
@@ -130,7 +130,7 @@ directions:
     diffusion_path:
       - "球形硅微粉/PPO → 高频CCL → AI服务器高速PCB"
     pre_condition:
-      market: "全A量能>2.5万亿+非破位状态"
+      market: "全A量能>3万亿+非破位状态"
       sector: "板块分歧后缩量企稳"
       timing: "非连续涨停日"
 
@@ -190,7 +190,7 @@ directions:
       - "高速CCL/玻纤 → 高端PCB/ABF载板 → AI服务器整机"
       - "SerDes速率升级(112G→224G→448G) → 材料升级加速"
     pre_condition:
-      market: "全A量能>2.5万亿+非破位状态"
+      market: "全A量能>3万亿+非破位状态"
       sector: "首波上涨后分歧缩量"
       timing: "非PCB板块集体涨停日"
 
@@ -239,7 +239,7 @@ directions:
     diffusion_path:
       - "六氟化钨涨 → 电子特气整体涨价 → 半导体材料估值重估"
     pre_condition:
-      market: "全A量能>2.5万亿+非破位状态"
+      market: "全A量能>3万亿+非破位状态"
       sector: "分歧日缩量回踩"
       timing: "非连续涨停日"
 
@@ -275,7 +275,7 @@ directions:
     diffusion_path:
       - "钨矿 → APT/碳化钨/合金棒 → PCB微钻(金洲精工) → AI服务器高端PCB扩产"
     pre_condition:
-      market: "全A量能>2.5万亿+非破位状态"
+      market: "全A量能>3万亿+非破位状态"
       sector: "分歧后缩量企稳"
       timing: "非钨板块集体涨停"
 
@@ -384,7 +384,7 @@ directions:
     diffusion_path:
       - "光芯片 → 光模块/NPO → MPO连接器 → 数据中心互联"
     pre_condition:
-      market: "全A量能>2.5万亿+非破位状态"
+      market: "全A量能>3万亿+非破位状态"
       sector: "等待结构性分化，不追一致"
       timing: "非光通信板块集体涨停"
 
@@ -662,7 +662,7 @@ directions:
       - "AI算力→电力需求长逻辑→核电/绿电/算电协同受益"
       - "UP：「继续看好、保持格局」，不急于加仓"
     pre_condition:
-      market: "全A量能>2.5万亿+非破位状态"
+      market: "全A量能>3万亿+非破位状态"
       sector: "绿电板块分歧后缩量"
       timing: "UP说「不急于加仓」，等分歧"
 
@@ -850,7 +850,60 @@ directions:
       - "中报业绩A档（存储/PCB覆铜板/光模块上游/MLCC高端/半导体设备）→ 7月初兑现"
       - "长鑫上市 → 存储设计（兆易创新）→ 利基存储（德明利）→ PMIC（东阳光）"
     pre_condition:
-      market: "全A量能>2.5万亿+非破位状态"
+      market: "全A量能>3万亿+非破位状态"
       sector: "存储板块已确认走强，非首次分歧"
       timing: "中报披露前（7月初）布局窗口"
     note: "22:16专栏科技切换核心方向，中报业绩驱动替代纯题材炒作"
+
+  # ── 6/22 复盘新增方向 ──────────────────────────────────
+
+  - id: small_metal_chemical
+    name: 小金属/化工（AI链扩散至传统行业，涨价未见顶）
+    current_stage: first_pump
+    industry_chain:
+      upstream:
+        - segment: 钨矿
+          stocks:
+            - code: 000657.SZ
+              name: 中钨高新
+          pumped: false
+          note: "PCB钻针棒项目预期弹性（预计三季度投产年化7000万支），此为预期非已实现"
+        - segment: 铟/锆/铪/钛矿
+          stocks: []
+          pumped: false
+      midstream:
+        - segment: 化工/材料加工
+          stocks: []
+          pumped: false
+      downstream:
+        - segment: AI上游材料需求
+          stocks: []
+          pumped: false
+    diffusion_path:
+      - "钨/铟/锆/铪/钛 → AI上游材料 → AI链扩散至传统行业"
+      - "小金属涨价=本质是AI链向传统行业扩散，涨停板前列板块"
+    pre_condition:
+      market: "全A量能>3万亿+非破位状态"
+      sector: "板块分歧后缩量企稳"
+      timing: "非小金属集体涨停日"
+    note: "UP6/22复盘：涨停板前列为小金属与化工，二者本质是同一件事——AI上游材料扩散到传统行业。涨价逻辑已演绎一段时间，目前尚未看到明确见顶信号"
+
+  - id: broker_finance
+    name: 券商/大金融（炒中报与补涨，增量主攻方向）
+    current_stage: first_pump
+    industry_chain:
+      upstream: []
+      midstream:
+        - segment: 券商
+          stocks: []
+          pumped: false
+          note: "自营规模/市值比高的券商弹性更大，跟踪龙头持续性"
+      downstream: []
+    diffusion_path:
+      - "科创板跟投浮盈+ETF赎回减压+全球补涨合理性 → 券商行情延续"
+      - "若明日开盘正常分歧→龙头低吸买点；若加强→接力龙头"
+    pre_condition:
+      market: "全A量能>3万亿+非破位状态"
+      sector: "板块首次分歧（常规分歧日）"
+      timing: "非券商集体涨停日"
+    note: "UP6/22复盘定性：券商暴涨=炒中报与补涨。科创板跟投4-6月浮盈增50多亿。两座大山缓解：ETF赎回近尾声+海外券商跑赢A股有补涨合理性。增量主攻大金融，金融持续性预期优于6月12日那次"
