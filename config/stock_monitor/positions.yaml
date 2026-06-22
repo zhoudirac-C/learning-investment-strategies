@@ -58,6 +58,13 @@ accounts:
     note: FOMC落地低吸回补，前次止盈@137.14。底仓先试，等放量确认再加。止损上移至140（成本上+2.3%），浮盈10%锁利。
     stop_loss: 140.0
     stop_loss_rule: 成本法+2.3%，浮盈10%上移锁利
+  - code: 600110.SH
+    name: 诺德股份
+    shares: 700
+    cost: 17.521
+    entered_at: '2026-06-11'
+    direction: HVLP4铜箔
+    note: 补充录入。HVLP4铜箔方向，UP期权层标的。现价17.57近乎打平成本，距MA20(12.46)+41%处主升加速段。止损建议16.0（成本-8.7%），成本保护。
   closed_positions:
   - code: 002409.SZ
     name: 雅克科技
