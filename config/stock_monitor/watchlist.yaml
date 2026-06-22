@@ -1531,6 +1531,106 @@ themes:
       stage: watching
       entered_stage: '2026-06-17'
     note: ⚠️ 需核实22:37减持名单
+- id: euv_lithography_chain
+  name: 🇨🇳 EUV光刻机/国产光刻链（EUV争议情绪催化）
+  up_positioning: 「高弹性低确定的消息驱动脉冲」— UP 6/21定性：EUV争议强化国产光刻链自主可控主题预期，可能成为节后情绪催化；但本质是消息驱动、缺乏量产兑现的主题行情，与"强者恒强、资金看重真实"的结构特征不完全一致。仅作为情绪催化观察，不适合作为主线重仓。
+  source_docs:
+  - sources/original/bilibili/2026-06-21-2235-专栏-指数定环境——节前双创继续走强、创业板指再创新高，沪指冲高回.md
+  - knowledge/claims/claim-20260621-001-p
+  - knowledge/claims/claim-20260611-001-k
+  - knowledge/claims/claim-20260523-008
+  market_checks:
+  - ASML否认EUV流入中国→美方关切是否升级管制
+  - DUV浸没式光刻机出口许可是否趋严
+  - 上海微电子DUV交付进展（6/14传闻未证实）
+  - 科创50高估值→外部映射对光刻链主题的双刃效应
+  - UP定性：本质是消息驱动、缺乏量产兑现→仅作情绪催化观察，不追高
+  chain_note: 整机平台(张江高科) → 光学/光源(福晶科技/茂莱光学科创) → 工艺设备(芯源微科创) → 零部件清洗(蓝英装备创业) → 光刻胶(彤程新材)。茂莱/芯源微/蓝英装备为不可交易的锚点，主板可交易仅张江高科+福晶科技+彤程新材
+  stocks:
+  - code: 600895.SH
+    name: 张江高科
+    role: litho_platform_core
+    segment: 整机平台 — 上海微电子股东，光刻机情绪核心载体
+    priority: P3-观察
+    watch_reason: UP 6/21复盘点名"整机平台"核心标的。上海微电子股东，国产光刻机产业链情绪载体。6/14 DUV交付传闻+6/18 EUV争议双催化叠加。UP定性：高弹性低确定脉冲，不做主线重仓。
+    confirm_with:
+    - 福晶科技
+    - 茂莱光学(688502-科创，锚点)
+    entry_zone:
+      description: 【新增6/22】等数据预拉取后补技术分析。UP定性为情绪催化，仅P3观察不预设介入
+      current_ref: 待预拉取K线
+      method: 待预拉取K线后补充
+      confirm_signal: EUV催化继续发酵+光刻链板块整体扩散+全A非破位
+      position_ratio: 不超过0.2成（P3-观察+情绪催化，严格控仓）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-22'
+    up_mention_status:
+      last_mentioned_date: '2026-06-21'
+      mention_context: 6/21复盘专栏EUV争议受益环节梳理—整机平台
+      sentiment: 观察（高弹性低确定）
+  - code: 002222.SZ
+    name: 福晶科技
+    role: litho_optics_core
+    segment: 光学/光源链 — 精密光学/晶体材料，光刻机光学元件
+    priority: P3-观察
+    watch_reason: UP 6/21复盘点名"光学/光源"核心标的。精密光学/晶体材料供应商，光刻机光学链主板可交易标的。与张江高科联动观察。
+    confirm_with:
+    - 张江高科
+    - 奥普光电
+    entry_zone:
+      description: 【新增6/22】等数据预拉取后补技术分析。仅P3观察
+      current_ref: 待预拉取K线
+      method: 待预拉取K线后补充
+      confirm_signal: 张江高科先走强+光刻链整体扩散+全A非破位
+      position_ratio: 不超过0.2成（P3-观察+情绪催化，严格控仓）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-22'
+    up_mention_status:
+      last_mentioned_date: '2026-06-21'
+      mention_context: 6/21复盘专栏EUV争议受益环节梳理—光学/光源
+      sentiment: 观察（高弹性低确定）
+  - code: 603650.SH
+    name: 彤程新材
+    role: litho_photoresist
+    segment: 光刻胶 — 光刻工艺核心耗材
+    priority: P4-锚点
+    watch_reason: UP 6/21复盘点名光刻胶方向。光刻胶为光刻工艺核心耗材，主板可交易的光刻胶标的。UP原话是"仅梳理"非主动推荐，仅作方向锚点观察。
+    confirm_with:
+    - 张江高科
+    - 南大光电(300346-创业，锚点)
+    entry_zone:
+      description: 【新增6/22】等数据预拉取后补技术分析。仅P4锚点不预设介入
+      current_ref: 待预拉取K线
+      method: 待预拉取K线后补充
+      position_ratio: 0（P4-锚点，仅方向观察不建仓）
+    lifecycle:
+      stage: watching
+      entered_stage: '2026-06-22'
+    up_mention_status:
+      last_mentioned_date: '2026-06-21'
+      mention_context: 6/21复盘专栏EUV争议受益环节梳理—光刻胶
+      sentiment: 仅梳理
+  anchor_stocks:
+  - code: 688502.SH
+    name: 茂莱光学
+    role: anchor — 光刻机物镜镜片+匀光系统（科创板不可交易）
+  - code: 688037.SH
+    name: 芯源微
+    role: anchor — 光刻工艺设备（科创板不可交易）
+  - code: 300293.SZ
+    name: 蓝英装备
+    role: anchor — 零部件清洗（创业板不可交易）
+  - code: 300346.SZ
+    name: 南大光电
+    role: anchor — 光刻胶（创业板不可交易）
+  - code: 688010.SH
+    name: 福光股份
+    role: anchor — 光刻机物镜想象空间（科创板不可交易）
+  - code: 688786.SH
+    name: 汇成真空
+    role: anchor — 光刻机配套镀膜（科创板不可交易）
 avoid_and_reduce:
   avoid:
   - 存储芯片（M头+颈线+量价顶背离，反弹减仓）→ 6/17更新：memory_nor已升级为resuming，中报业绩驱动，但需核实减持
