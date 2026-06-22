@@ -400,8 +400,11 @@ def call_qing_agent(data: dict) -> dict | None:
 
 
 # ── 幻觉检测模式 ──
+# Only flag future years (2027+) as hallucination — past year mentions (如"2025年PE")
+# are legitimate historical/industry reference, not hallucination.
+_HALLUCINATION_FUTURE_YEAR = re.compile(r"20(2[7-9]|[3-9]\d)年")
 _HALLUCINATION_PATTERNS = [
-    re.compile(r"202[0-5]年"),
+    _HALLUCINATION_FUTURE_YEAR,                                   # future years only
     re.compile(r"数据断链|数据缺失|数据不可用|暂无数据|量化API断供"),
     re.compile(r"数据恢复是最关键"),
     re.compile(r"这是\d{4}年\d{1,2}月\d{1,2}日(盘后)?复盘"),
@@ -409,13 +412,13 @@ _HALLUCINATION_PATTERNS = [
 
 
 def _is_hallucinated(output: str) -> bool:
-    current_year = datetime.now(timezone.utc).year
-    year_matches = re.findall(r"(20\d{2})年", output)
-    for y_str in year_matches:
-        y = int(y_str)
-        if abs(y - current_year) >= 1:
-            return True
-    for pat in _HALLUCINATION_PATTERNS:
+    """Only flags future years (2027+) or known hallucination templates.
+    Past years (2020-2025) are valid references."""
+    # Future year check — 2027+ is definitely hallucination
+    if _HALLUCINATION_FUTURE_YEAR.search(output):
+        return True
+    # Specific hallucination templates
+    for pat in _HALLUCINATION_PATTERNS[1:]:  # skip first, already checked
         if pat.search(output):
             return True
     return False
