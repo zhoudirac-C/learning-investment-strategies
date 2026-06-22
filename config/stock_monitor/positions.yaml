@@ -19,14 +19,18 @@ accounts:
     cost: 274.017
     entered_at: '2026-06-18'
     direction: PCB/光通信
-    note: UP强者恒强方向，尾盘买入。止损255。
+    note: UP强者恒强方向，尾盘买入。止损255（成本下-6.9%，维持）。注意：6/18公告12亿美元光芯片扩产，今日需确认是否正常交易。
+    stop_loss: 255.0
+    stop_loss_rule: 成本法-6.9%，维持
   - code: 000636.SZ
     name: 风华高科
     shares: 100
     cost: 74.262
     entered_at: '2026-06-18'
     direction: MLCC龙头
-    note: 博迁涨停验证MLCC方向，尾盘买入。止损71。
+    note: 博迁涨停验证MLCC方向，尾盘买入。止损下移至68（成本下-8.4%），放宽波动空间。原71太紧（距现价仅4.8%）。
+    stop_loss: 68.0
+    stop_loss_rule: 成本法-8.4%，向下调整放宽
   closed_positions:
   - code: 000636.SZ
     name: 风华高科
@@ -41,14 +45,19 @@ accounts:
     cost: 1.344
     entered_at: '2026-06-15'
     direction: AI主题ETF
-    note: 底仓配置，不设个止。
+    note: 底仓配置。新增动态止损1.34(MA20≈成本)，跌破减半。
+    stop_loss: 1.34
+    stop_loss_rule: MA20动态止损，跌破减半仓
+    reduce_on_break: 1.34
   - code: 002409.SZ
     name: 雅克科技
     shares: 100
     cost: 136.852
     entered_at: '2026-06-17'
     direction: 半导体材料/光刻胶
-    note: FOMC落地低吸回补，前次止盈@137.14。底仓先试，等放量确认再加。止损131.0（-4.3%）。
+    note: FOMC落地低吸回补，前次止盈@137.14。底仓先试，等放量确认再加。止损上移至140（成本上+2.3%），浮盈10%锁利。
+    stop_loss: 140.0
+    stop_loss_rule: 成本法+2.3%，浮盈10%上移锁利
   closed_positions:
   - code: 002409.SZ
     name: 雅克科技
