@@ -20,12 +20,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 QING_AGENT_URL = os.environ.get("QING_AGENT_URL", "http://localhost:8000/analyze/trigger")
+QING_AGENT_HEALTH_URL = os.environ.get("QING_AGENT_HEALTH_URL", "http://localhost:8000/health")
 QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "30"))
 QING_AGENT_MAX_RETRIES = int(os.environ.get("QING_AGENT_MAX_RETRIES", "2"))
 
 # Cron job wrapper timeout (seconds) — must be >= QING_AGENT_TIMEOUT + 20s margin
 # to avoid the cron killing the script while it's still retrying.
-CRON_WRAPPER_TIMEOUT = float(os.environ.get("CRON_WRAPPER_TIMEOUT", "260"))
+CRON_WRAPPER_TIMEOUT = float(os.environ.get("CRON_WRAPPER_TIMEOUT", "680"))  # 600s POST + 60s health + 20s margin
 
 
 def _normalize_positions(positions_raw: dict | list) -> list:
@@ -289,11 +290,45 @@ def _format_fallback_text(data: dict) -> str:
     return "\n".join(lines)
 
 
+def _wait_for_agent_health(health_url: str, max_wait_s: int = 60) -> bool:
+    """Poll /health until agent is ready or max_wait_s expires.
+    
+    Avoids wasting a 300s POST timeout on cold-start -- health check is cheap
+    (5s timeout x 12 retries = 60s max). Returns True when healthy.
+    """
+    import time as _time
+    check_interval = 5.0
+    max_attempts = max(1, int(max_wait_s / check_interval))  # 12 for 60s
+    deadline = _time.monotonic() + max_wait_s
+    
+    for i in range(max_attempts):
+        if _time.monotonic() > deadline:
+            break
+        try:
+            req = urllib.request.Request(health_url, method="GET")
+            with urllib.request.urlopen(req, timeout=check_interval) as resp:
+                if resp.status == 200:
+                    print(f"[health] qing-agent ready (after {i * check_interval:.0f}s)", file=sys.stderr)
+                    return True
+        except Exception:
+            pass
+        _time.sleep(check_interval)
+    
+    print(f"[health] qing-agent NOT ready after {max_wait_s:.0f}s", file=sys.stderr)
+    return False
+
+
 def call_qing_agent(data: dict) -> dict | None:
     """POST the context dict to qing-agent and return the response JSON.
     
+    Pre-flights with health check to avoid 300s POST wait during cold start.
     Retries with exponential backoff on transient failures (URLError, timeout, HTTP 5xx).
     """
+    # Health check: fail fast if agent is in cold start (<=60s wait)
+    if not _wait_for_agent_health(QING_AGENT_HEALTH_URL, max_wait_s=60):
+        print("[qing-agent] agent not ready (cold start?), falling back", file=sys.stderr)
+        return None
+    
     analysis_type = data.get("analysis_type", "market")
     stock_code = data.get("stock_code", "")
     payload = json.dumps({
