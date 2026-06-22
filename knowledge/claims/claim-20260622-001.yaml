@@ -1,0 +1,284 @@
+claims:
+- id: claim-20260622-001-a
+  source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
+  source_date: '2026-06-22'
+  source_type: 早盘专栏
+  extracted_at: '2026-06-22T09:06:00'
+  claim_type: operation
+  subject: 今日核心矛盾=美伊谈判+特朗普盘前发声
+  timeframe: intraday
+  statement: 今天全天节奏本质是"两颗地雷"的定价过程——瑞士会谈结果与特朗普盘前发声。时间轴判断：欧盘15:00-17:00多空第一轮试探（布伦特原油能否回补跳空缺口）；美股盘前20:30-21:30特朗普"小作文时间"；21:30以后才是华尔街真正机构资金入场清算。个人投资者应冷眼旁观，不急于追隔夜情绪，等机构定价。
+  evidence_quote: 今天全天节奏，本质是"两颗地雷"的定价过程——瑞士会谈结果与特朗普盘前发声。我的时间轴判断：欧盘（15:00–17:00）是多空第一轮试探，重点看布伦特原油能否回补早盘跳空缺口；美股盘前（北京时间20:30–21:30）是特朗普"小作文时间"，算法会疯狂抓取关键词；21:30以后才是华尔街真正机构资金入场清算。在聪明钱挤干情绪泡沫、亮出底牌之前，对个人投资者而言，冷眼旁观、不急于追隔夜情绪是更稳妥的姿态。
+  interpretation: UP给出的日内节奏框架非常清晰——白天A股交易时段受情绪驱动（美伊谈判+特朗普），真正的方向选择在晚间美股机构入场后。这意味着盘中不必对任何传闻级消息做应激反应，持股等待晚上10点后信号即可。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-22
+  links:
+    geo_event: 美伊瑞士会谈
+    watch_person: 特朗普
+  topic: 6/22日内核心矛盾——美伊谈判结果+特朗普盘前发声决定全天定价节奏
+  tags:
+  - 美伊谈判
+  - 地缘风险
+  - 日内节奏
+  - 机构定价
+  related_stocks: []
+
+- id: claim-20260622-001-b
+  source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
+  source_date: '2026-06-22'
+  source_type: 早盘专栏
+  extracted_at: '2026-06-22T09:06:00'
+  claim_type: market-cycle
+  subject: 两个观测锚点——美元指数101+10Y美债4.5%
+  timeframe: intraday
+  statement: 美元指数能否站上101，以及10年期美债收益率能否同步站上4.5%，是今晚最该盯的数据而非盘中传闻。若两者同步上行，意味着主流资金确认风险升级与加息预期抬头，将压制科技股与有色估值。
+  evidence_quote: 两个观测锚点：美元指数能否站上101，以及10年期美债收益率能否同步站上4.5%。若两者同步上行，意味着主流资金确认风险升级与加息预期抬头，将压制科技股与有色估值。这是今晚最该盯的数据，而非盘中传闻。
+  interpretation: 美元+美债同步走强=全球风险偏好收缩的信号，对应A股科技和有色板块的估值承压。这是机构级别的观测指标，比盘中的地缘传闻更可靠。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-22
+  links:
+    macro_indicators:
+      - 美元指数
+      - 10Y美债收益率
+  topic: 美元指数101+10Y美债4.5%同步上行=风险信号
+  tags:
+  - 美元指数
+  - 美债收益率
+  - 风险信号
+  - 科技估值
+  - 有色
+  related_stocks: []
+
+- id: claim-20260622-001-c
+  source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
+  source_date: '2026-06-22'
+  source_type: 早盘专栏
+  extracted_at: '2026-06-22T09:06:00'
+  claim_type: methodology
+  subject: 位置决定意义——指数失真，聚焦趋势股
+  timeframe: short-term
+  statement: 当前指数本身容易失真，应多关注有订单、有业绩兑现的大市值趋势股，聚焦科技主线，而非用指数点位简单判断强弱。机构当前共识高度集中于半年报景气方向，AI算力硬件（光通信、半导体、PCB）仍是最强资金共识。
+  evidence_quote: 位置决定意义。当前指数本身容易失真，应多关注有订单、有业绩兑现的大市值趋势股，聚焦科技主线，而非用指数点位简单判断强弱。机构当前共识高度集中于半年报景气方向。AI算力硬件（光通信、半导体、PCB）仍是最强资金共识。
+  interpretation: UP用"位置决定意义"强调在当前K型分化行情下，指数表现已无法反映个股真实情况。选股应从"看指数"转向"看业绩、看订单、看产业链位置"。AI算力硬件（光通信/半导体/PCB）是机构共识最强的方向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []  
+  last_discovered: 2026-06-22
+  links: {}
+  topic: 指数失真，选股应聚焦有业绩兑现的大市值趋势股和AI算力硬件主线
+  tags:
+  - 位置决定意义
+  - 指数失真
+  - 趋势股
+  - AI算力硬件
+  - 光通信
+  - 半导体
+  - PCB
+  - 业绩驱动
+  related_stocks: []
+
+- id: claim-20260622-001-d
+  source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
+  source_date: '2026-06-22'
+  source_type: 早盘专栏
+  extracted_at: '2026-06-22T09:06:00'
+  claim_type: sector-theme
+  subject: 板块分野——缺货涨价逻辑 vs 炒作未来
+  timeframe: short-term
+  statement: 两条线切开节前盘面：一类是"缺货+涨价"现在进行时——MLCC、电子布、存储、CPO、PCB有真实供需缺口支撑，节后大概率仍是主线分支轮动的核心；另一类是"炒作未来"——玻璃基板、碳化硅等未量产概念，板块一致→澄清→次日无溢价的模式大概率殊途同归。上周四资金切向"易中天"为代表的不怕澄清+明牌+机构+核心标的，这种"脱虚就实"风格能否延续是今天最该验证的方向。
+  evidence_quote: 一类是"缺货+涨价"现在进行时——MLCC、电子布、存储得到资金持续认可，更实在的CPO、PCB可能也是同一原理。这类有真实供需缺口支撑，节后大概率仍是主线分支轮动的核心。另一类是"炒作未来"——玻璃基板、碳化硅这种技术上尚未成功量产的概念，节前反复出现"板块一致→个股澄清→次日无溢价"的模式，至少这段时间大概率殊途同归。上周四资金切向"易中天"为代表的不怕澄清+明牌+机构+核心标的，这种"脱虚就实"的风格能否延续，是今天最该验证的方向。
+  interpretation: UP划出了一条关键的板块分界线——有真实供需缺口的方向（MLCC/电子布/存储/CPO/PCB）vs 纯概念炒作（玻璃基板/碳化硅）。风格"脱虚就实"是节前最后一天的明确信号，机构资金在回避澄清型概念、拥抱明牌核心标的。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-22
+  links: {}
+  topic: 板块分野——缺货涨价（MLCC/电子布/存储/CPO/PCB）有真实供需，玻璃基板/碳化硅属炒作未来
+  tags:
+  - 缺货涨价
+  - MLCC
+  - 电子布
+  - 存储
+  - CPO
+  - PCB
+  - 玻璃基板
+  - 碳化硅
+  - 脱虚就实
+  - 易中天
+  related_stocks: [300308, 300502, 300394]
+
+- id: claim-20260622-001-e
+  source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
+  source_date: '2026-06-22'
+  source_type: 早盘专栏
+  extracted_at: '2026-06-22T09:06:00'
+  claim_type: sector-theme
+  subject: MLCC/PCB连续多日上涨后前高附近兑现压力上升
+  timeframe: intraday
+  statement: MLCC、PCB连续多日上涨后，前高附近兑现压力上升，接下来两天谨慎追涨，多留意分歧点上卡位走强的领涨分支。
+  evidence_quote: 但需提防：MLCC、PCB连续多日上涨后，前高附近兑现压力上升，接下来两天谨慎追涨，多留意分歧点上卡位走强的领涨分支。
+  interpretation: UP发出风险预警——MLCC和PCB方向虽是好方向，但短期涨幅过大，前高附近兑现压力上升。操作上从"追涨"转为"等分歧"，在两个方向中找分歧日能卡位走强的子分支。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-22
+  links: {}
+  topic: MLCC/PCB短期涨幅过大，前高附近兑现压力上升，谨慎追涨
+  tags:
+  - MLCC
+  - PCB
+  - 兑现压力
+  - 分歧日
+  - 卡位
+  related_stocks: [000636, 603678, 002916, 600183, 603228]
+
+- id: claim-20260622-001-f
+  source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
+  source_date: '2026-06-22'
+  source_type: 早盘专栏
+  extracted_at: '2026-06-22T09:06:00'
+  claim_type: sector-theme
+  subject: 增量信息方向——氧化锆/PCB链/磷酸铁锂/磷化铟/微信AI
+  timeframe: short-term
+  statement: 今日5条增量信息方向：①氧化锆（日本东曹暂停供应→东方锆业涨价，固态电池/SOFC/核能驱动高端需求）；②PCB链（机构净买入中钨高新1.29亿/兴森科技2.39亿）；③磷酸铁锂（价格翻倍至2.5万/400kg，订单排至2027）；④磷化铟/铟（英伟达战投Coherent扩建6英寸InP晶圆+英特尔布局GaN/SiC/InP）；⑤微信AI"小微"灰度上线（C端AI需求爆发→关注IDC/光模块/交换机/服务器）。
+  evidence_quote: 氧化锆方向，爱迪特公告收到日本东曹氧化锆粉体暂停供应通知...PCB链方面，6月18日机构席位净买入中钨高新1.29亿元、兴森科技2.39亿元...磷酸铁锂方面，一包约400公斤LFP现价超25000元，一年前仅10000元...磷化铟/铟方面，英伟达战投的Coherent在美国扩建6英寸磷化铟晶圆与光互连产能...微信AI"小微"灰度上线，兴业证券指C端AI需求爆发或带动腾讯算力需求。
+  interpretation: UP列出了5个有催化剂的细分方向，其中氧化锆（供给冲击）和磷化铟（英伟达产业链）的催化剂最为清晰。磷酸铁锂价格翻倍数据强但标的（德方纳米/湖南裕能）均为300/创业板不可交易需通过ETF替代。微信AI小微是C端算力需求的新催化，对光模块/IDC方向是增量逻辑。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-22
+  links: {}
+  topic: 5条增量信息：氧化锆/PCB链/磷酸铁锂/磷化铟/微信AI
+  tags:
+  - 氧化锆
+  - PCB链
+  - 磷酸铁锂
+  - 磷化铟
+  - 微信AI
+  - 英伟达
+  - 供给冲击
+  related_stocks: [002167, 000657, 002960, 600657, 300409, 300769, 000960, 002428]
+
+- id: claim-20260622-001-g
+  source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
+  source_date: '2026-06-22'
+  source_type: 早盘专栏
+  extracted_at: '2026-06-22T09:06:00'
+  claim_type: sector-theme
+  subject: 有色是唯一有轮动规律的非科技方向
+  timeframe: short-term
+  statement: 非科技股里，前一日的商业航天、"中字头"均不及预期，低位题材后续大概率仍以轮动为主。但有有色金属是例外——最近两周最后一个交易日都会轮动到（上上周五铜，上周四氧化锆），氧化锆供给端催化是当前最清晰的逻辑。
+  evidence_quote: 非科技股里，前一日活跃的商业航天、"中字头"均不及预期，低位题材后续大概率仍以轮动为主，尽量减少幻想。但有有色金属可能是例外——最近两周的最后一个交易日都会轮动到，只是细分不同（上上周五是铜，上周四是爱迪特氧化锆分支）。可留意这次小金属方向能否多坚持一两天，氧化锆的供给端催化是当前最清晰的逻辑。
+  interpretation: UP验证了有色金属近两周的轮动节奏规律（每周末最后一个交易日轮动到有色），但低预期的是商业航天和中字头。氧化锆作为有供给端催化（日本东曹暂停供应+涨价）的小金属细分，近期持续性值得关注。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-22
+  links: {}
+  topic: 有色金属每周末最后一个交易日轮动，氧化锆供给端催化最清晰
+  tags:
+  - 有色金属
+  - 轮动规律
+  - 氧化锆
+  - 供给端
+  - 商业航天
+  - 中字头
+  related_stocks: [002167, 000657]
+
+- id: claim-20260622-001-h
+  source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
+  source_date: '2026-06-22'
+  source_type: 早盘专栏
+  extracted_at: '2026-06-22T09:06:00'
+  claim_type: operation
+  subject: 盘前预案——持股为主，科技高切低，等机构定价
+  timeframe: intraday
+  statement: ①持股为主，盘中有高潮再取关主动性差的标的，指数容易失真不被点位牵着走；②科技主线内部高切低，接近财报披露窗口存在阶段性再平衡，可考虑AI应用端机遇及价值风格超跌修复，但这是"再平衡"不是"反转"；③隔夜地雷未拆，今晚10点后才是真正的行情起点，盘中对瑞士会谈、特朗普发声的任何传闻级消息保持克制，等机构定价。
+  evidence_quote: 持股为主，盘中有高潮再取关主动性差的标的，指数容易失真，不被点位牵着走。科技主线内部高切低，接近财报披露窗口存在阶段性再平衡，可考虑AI应用端机遇及价值风格超跌修复，但这是"再平衡"不是"反转"。隔夜地雷未拆，今晚10点后才是真正的行情起点，盘中对瑞士会谈、特朗普发声的任何传闻级消息保持克制，等机构定价。
+  interpretation: 核心思想是白天不动作等晚上10点后——因为白天是情绪驱动的定价（两颗地雷未拆），真正的方向选择在晚间美股机构入场后。科技内部从硬件向AI应用高切低是值得关注的再平衡方向，但判定为"再平衡"而非"反转"意味着不改变科技主线格局。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-22
+  links: {}
+  topic: 盘前预案：持股为主→科技高切低（AI应用端）→今晚10后才是真正行情起点
+  tags:
+  - 盘前预案
+  - 持股为主
+  - 高切低
+  - AI应用端
+  - 再平衡
+  - 机构定价
+  - 克制情绪
+  related_stocks: []
+
+- id: claim-20260622-001-i
+  source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
+  source_date: '2026-06-22'
+  source_type: 早盘专栏
+  extracted_at: '2026-06-22T09:06:00'
+  claim_type: operation
+  subject: 磷酸铁锂价格翻倍+头部企业订单排至2027
+  timeframe: medium-term
+  statement: 磷酸铁锂一包约400公斤LFP现价超25000元，一年前仅10000元，价格翻倍但需求旺盛，头部企业订单排至2027年，行业开工率85%-90%。
+  evidence_quote: 磷酸铁锂方面，一包约400公斤LFP现价超25000元，一年前仅10000元，价格翻倍但需求旺盛，头部企业订单排至2027年，行业开工率85%–90%，相关标的德方纳米、湖南裕能。
+  interpretation: 磷酸铁锂涨价幅度大（1年翻倍）+需求确定性高（订单排至2027），但标的德方纳米/湖南裕能均为创业板标的（300），主板无对应替代标，需通过ETF或产业逻辑关注。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-22
+  links: {}
+  topic: 磷酸铁锂价格翻倍+订单排至2027，需求旺盛
+  tags:
+  - 磷酸铁锂
+  - 涨价
+  - 订单排期
+  - 新能源
+  related_stocks: [300769, 300409]
+
+- id: claim-20260622-001-j
+  source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
+  source_date: '2026-06-22'
+  source_type: 早盘专栏
+  extracted_at: '2026-06-22T09:06:00'
+  claim_type: operation
+  subject: 新能源IPO——华润新能源001248发行
+  timeframe: short-term
+  statement: 今日新股华润新能源（001248），发行价10.11元，市盈率21.99倍，主营风光发电。
+  evidence_quote: 今日新股：华润新能源（001248），发行价10.11元，市盈率21.99倍，主营风光发电。
+  interpretation: UP提示新股信息，001248为深市主板标的。风光发电赛道，PE 21.99倍在新能源板块中属合理水平。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  last_discovered: 2026-06-22
+  links: {}
+  topic: 华润新能源001248上市，发行价10.11元，PE 21.99倍
+  tags:
+  - IPO
+  - 新能源
+  - 风光发电
+  related_stocks: [001248]
