@@ -400,14 +400,13 @@ def call_qing_agent(data: dict) -> dict | None:
 
 
 # ── 幻觉检测模式 ──
-# Only flag future years (2027+) as hallucination — past year mentions (如"2025年PE")
-# are legitimate historical/industry reference, not hallucination.
+# Only flag future years (2027+) and genuine hallucination templates.
+# "数据缺失/暂无数据" is legitimate status report when live quotes are unavailable.
 _HALLUCINATION_FUTURE_YEAR = re.compile(r"20(2[7-9]|[3-9]\d)年")
 _HALLUCINATION_PATTERNS = [
     _HALLUCINATION_FUTURE_YEAR,                                   # future years only
-    re.compile(r"数据断链|数据缺失|数据不可用|暂无数据|量化API断供"),
-    re.compile(r"数据恢复是最关键"),
-    re.compile(r"这是\d{4}年\d{1,2}月\d{1,2}日(盘后)?复盘"),
+    re.compile(r"数据恢复是最关键"),                               # meta-hallucination
+    re.compile(r"这是\d{4}年\d{1,2}月\d{1,2}日(盘后)?复盘"),     # date hallucination
 ]
 
 

@@ -919,8 +919,50 @@ def format_agent_json_context(data: dict) -> str:
         analysis_type = "market"
         stock_code = ""
 
-    # 移除可能过大的 quote_snapshot，避免 token 浪费
+    # ── 精选 quote_snapshot：只保留持仓+买入信号候选的行情 ──
+    # 全量67只观察池的报价会浪费大量token，但Agent需要关键标的的实时价格。
+    relevant_codes: set[str] = set()
+    
+    # 1. 持仓标的
+    positions_data = data.get("positions", {})
+    if isinstance(positions_data, dict):
+        for account in positions_data.get("accounts", []) or []:
+            for pos in account.get("positions", []) or []:
+                code = str(pos.get("code", "") or pos.get("stock_code", ""))
+                if code:
+                    relevant_codes.add(code)
+    elif isinstance(positions_data, list):
+        for pos in positions_data:
+            code = str(pos.get("code", "") or pos.get("stock_code", ""))
+            if code:
+                relevant_codes.add(code)
+    
+    # 2. 买入信号候选标的
+    for a in alerts:
+        code = str(a.get("stock_code", "") if isinstance(a, dict) else getattr(a, "stock_code", ""))
+        if code:
+            relevant_codes.add(code)
+    for c in data.get("buy_signal_candidates", []) or []:
+        code = str(c.get("stock_code", ""))
+        if code:
+            relevant_codes.add(code)
+    
+    # 3. 过滤 quotes
+    qs = data.get("quote_snapshot", {})
+    all_quotes = qs.get("quotes", []) or []
+    filtered_quotes = [
+        q for q in all_quotes
+        if str(q.get("code", "") or q.get("secid", "")) in relevant_codes
+    ]
+    kept_quote_snapshot = {
+        "source": qs.get("source", ""),
+        "quotes": filtered_quotes,
+        "_filtered_from": len(all_quotes),
+        "_kept_for_codes": sorted(relevant_codes),
+    }
+    
     output = {k: v for k, v in data.items() if k != "quote_snapshot"}
+    output["quote_snapshot"] = kept_quote_snapshot
 
     # 过滤 human_only 字段，减小 LLM token 浪费
     filtered_count = 0
