@@ -1,4 +1,4 @@
-updated_at: '2026-06-22'
+updated_at: '2026-06-23'
 directions:
 
   # ── 已在池中，补充完整 ──────────────────────────────────
@@ -280,7 +280,7 @@ directions:
       timing: "非钨板块集体涨停"
 
   - id: coke_coal_upcycle
-    name: 焦炭/煤炭涨价右侧信号
+    name: 焦炭/煤炭涨价右侧信号（AI走弱→防御承接方向）
     current_stage: diverging
     industry_chain:
       upstream:
@@ -301,10 +301,12 @@ directions:
           pumped: false
     diffusion_path:
       - "焦炭连续提涨 → 煤炭PPI转正 → 戴维斯双击"
+      - "AI/算力材料走弱时→煤炭电力=防御承接方向（UP6/23早盘预案第四条）"
     pre_condition:
-      market: "全A量能>2.5万亿+非破位状态+全A中阳线"
+      market: "全A量能>2.5万亿+非破位状态+全A中阳线；或AI方向走弱时作为防御切换"
       sector: "焦炭期货价格持续上行+提涨落地"
       timing: "非煤炭板块集体涨停"
+    note: "UP6/23早盘预案第四条明确将电力煤炭列为AI方向走弱时的防御承接方向。与绿电方向（green_power_ai_electric）共同构成防御组合。若一进二晋级率跌破15%、首板大幅减少=确认情绪退潮→防御切换信号。"
 
   - id: optical_communication
     name: 光通信/MPO/CPO — 光多通道替代电高速
@@ -755,7 +757,7 @@ directions:
     note: "无具体标的推荐。医药ETF更适合参与。"
 
   - id: securities_bottom
-    name: 证券
+    name: 证券（已由broker_finance取代）
     current_stage: early_direction
     industry_chain:
       upstream: []
@@ -766,7 +768,7 @@ directions:
       market: "等月线两根强阳确认右侧"
       sector: "底部特征成立但无独立行情"
       timing: "不适合提前埋伏"
-    note: "底部特征成立但无独立行情，不适合提前埋伏。"
+    note: "底部特征成立但无独立行情，不适合提前埋伏。⏩ 已由 broker_finance（券商/大金融）取代。保留此条目作为历史参考。"
 
   - id: robot_observation
     name: 机器人
@@ -858,52 +860,81 @@ directions:
   # ── 6/22 复盘新增方向 ──────────────────────────────────
 
   - id: small_metal_chemical
-    name: 小金属/化工（AI链扩散至传统行业，涨价未见顶）
-    current_stage: first_pump
+    name: 小金属/化工/算力材料（AI上游材料扩散至传统行业，6支线）
+    current_stage: diverging  # 09:47预警确认赶顶剧情已出现→从first_pump下调为diverging
     industry_chain:
       upstream:
-        - segment: 钨矿
+        - segment: 培育钻石（工业金刚石）
+          stocks:
+            - code: 600172.SH
+              name: 黄河旋风
+          pumped: false
+          note: "UP6/23早盘点名培育钻石为算力材料新增方向。工业金刚石超硬材料，英特尔最新光芯片散热方案潜在受益"
+        - segment: 磷化铟（InP衬底）
+          stocks:
+            - code: 002428.SZ
+              name: 云南锗业
+          pumped: true
+          note: "15万片/年InP单晶衬底产能。英特尔光芯片涉及磷化铟需求，UP点名新催化方向"
+        - segment: 钨矿/PCB钻针
           stocks:
             - code: 000657.SZ
               name: 中钨高新
+            - code: 600397.SH
+              name: 江钨装备
           pumped: false
-          note: "PCB钻针棒项目预期弹性（预计三季度投产年化7000万支），此为预期非已实现"
-        - segment: 铟/锆/铪/钛矿
-          stocks: []
+          note: "中钨高新(金洲精工全球第二大PCB微钻，AI服务器钻针国内市占70-80%)；江钨装备(钨矿资源+军工装备，主板稀缺钨标的)"
+        - segment: 靶材（溅射靶材）
+          stocks:
+            - code: 600206.SH
+              name: 有研新材
+          pumped: true
+          note: "GaAs/InP外延片量产，半导体靶材核心供应商。原属optical_communication方向，算力材料6支线之一"
+        - segment: 氧化锆（研磨/陶瓷结构件）
+          stocks:
+            - code: 002167.SZ
+              name: 东方锆业
           pumped: false
+          note: "氧化锆为MLCC/半导体研磨介质关键材料，UP6/23早盘点名算力材料方向，小金属涨价链内扩散"
+        - segment: 钼（金属钼/钼靶材）
+          stocks:
+            - code: 601958.SH
+              name: 金钼股份
+          pumped: false
+          note: "钼精矿龙头。钼靶材用于半导体显示面板溅射，UP6/23早盘点名算力材料6支线之一"
       midstream:
         - segment: 化工/材料加工
           stocks: []
           pumped: false
       downstream:
-        - segment: AI上游材料需求
+        - segment: AI上游材料需求/半导体设备材料
           stocks: []
           pumped: false
     diffusion_path:
-      - "钨/铟/锆/铪/钛 → AI上游材料 → AI链扩散至传统行业"
-      - "小金属涨价=本质是AI链向传统行业扩散，涨停板前列板块"
+      - "钨/铟/锆/铪/钛/钼/钻石 → AI上游材料 → AI链扩散至传统行业"
+      - "算力材料6支线：培育钻石→磷化铟→钨→靶材→氧化锆→钼，UP6/23早盘列为最强主线"
     pre_condition:
-      market: "全A量能>3万亿+非破位状态"
-      sector: "板块分歧后缩量企稳"
-      timing: "非小金属集体涨停日"
-    note: "UP6/22复盘：涨停板前列为小金属与化工，二者本质是同一件事——AI上游材料扩散到传统行业。涨价逻辑已演绎一段时间，目前尚未看到明确见顶信号"
+      market: "全A量能<3.74万亿历史天量阈值+警惕停牌核查+警惕场外变量（保证金/政策）"
+      sector: "板块分歧后缩量企稳；09:47预警若已触发则等待二次分歧确认"
+      timing: "非小金属集体涨停日+非算力材料集体跳水日"
+    note: "UP6/23早盘：算力材料为当日最强赚钱主线含6个方向，但已近赶顶期，聚焦核心龙头或新催化方向。09:47🚨预警确认赶顶剧情出现（昨天视频讲的剧情）。UP11:28补充：非银金融炒作未脱离AI，不会有批量主升浪——进一步确认算力材料结构性行情下高度有限。核心信号：一进二晋级率需维持15%+，首板不减。若AI走弱→电力煤炭防御承接。"
 
   - id: broker_finance
-    name: 券商/大金融（炒中报与补涨，增量主攻方向）
-    current_stage: first_pump
+    name: 券商/大金融（炒中报与补涨，结构性行情非批量主升浪）
+    current_stage: early_direction  # 6/23 11:28验证：涨湖北/长鑫相关，非银未脱离AI→不会有批量主升浪，下调为跟踪等待
     industry_chain:
       upstream: []
       midstream:
         - segment: 券商
           stocks: []
           pumped: false
-          note: "自营规模/市值比高的券商弹性更大，跟踪龙头持续性"
+          note: "湖北券商、长鑫长存关联标的弹性更大。结构性行情，非批量涨停潮"
       downstream: []
     diffusion_path:
-      - "科创板跟投浮盈+ETF赎回减压+全球补涨合理性 → 券商行情延续"
-      - "若明日开盘正常分歧→龙头低吸买点；若加强→接力龙头"
+      - "湖北券商+长鑫长存关联 → 非银金融未脱离AI → 结构性非批量主升浪"
+      - "6/22定性增量主攻金融但6/23修正为结构性行情，分歧买点需更谨慎"
     pre_condition:
-      market: "全A量能>3万亿+非破位状态"
-      sector: "板块首次分歧（常规分歧日）"
-      timing: "非券商集体涨停日"
-    note: "UP6/22复盘定性：券商暴涨=炒中报与补涨。科创板跟投4-6月浮盈增50多亿。两座大山缓解：ETF赎回近尾声+海外券商跑赢A股有补涨合理性。增量主攻大金融，金融持续性预期优于6月12日那次"
+      market: "全A量能<3.74万亿+警惕停牌核查"
+      sector: "板块正常分歧（非湖北/长鑫关联标的领跌）"
+      timing: "非券商集体涨停日+证实为AI扩散而非独立行情"
+    note: "UP6/22复盘：券商暴涨=炒中报与补涨，增量主攻方向。但UP6/23 11:28修正：今天券商涨湖北和长鑫相关，非银未脱离AI，不会有批量主升浪。→下调为early_direction，只跟踪不介入。券商的买点需要看到独立于AI的结构性行情信号，而非AI扩散的跟涨。"

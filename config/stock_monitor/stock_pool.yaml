@@ -1,4 +1,4 @@
-updated_at: '2026-06-22'
+updated_at: '2026-06-23'
 stocks:
 - code: 000636.SZ
   name: 风华高科
@@ -1583,4 +1583,82 @@ stocks:
     market_actionable: true
     no_consecutive_limit_up: true
   note: "⚠️ 需核实是否在22:37减持93家名单中"
+
+# ── 6/23 早盘新增：算力材料6支线 ────────────────────────────
+
+- code: 600172.SH
+  name: 黄河旋风
+  direction: small_metal_chemical
+  chain_position: upstream
+  human_note:
+    date: '2026-06-23'
+    type: direction_call
+    context: "UP6/23早盘点名培育钻石为算力材料新方向。工业金刚石超硬材料，英特尔光芯片散热方案潜在受益"
+  entry:
+    primary_zone:
+    - 待计算
+    - 待计算
+    method: 算力材料波动法
+    hard_stop: 待设定
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+
+- code: 600397.SH
+  name: 江钨装备
+  direction: small_metal_chemical
+  chain_position: upstream
+  human_note:
+    date: '2026-06-23'
+    type: direction_call
+    context: "UP6/23早盘点名钨方向，钨矿资源+军工装备，主板稀缺钨标的"
+  entry:
+    primary_zone:
+    - 待计算
+    - 待计算
+    method: 算力材料波动法
+    hard_stop: 待设定
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+
+- code: 002167.SZ
+  name: 东方锆业
+  direction: small_metal_chemical
+  chain_position: upstream
+  human_note:
+    date: '2026-06-23'
+    type: direction_call
+    context: "UP6/23早盘点名氧化锆方向，MLCC/半导体研磨介质关键材料，小金属涨价链内扩散"
+  entry:
+    primary_zone:
+    - 待计算
+    - 待计算
+    method: 算力材料波动法
+    hard_stop: 待设定
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+
+- code: 601958.SH
+  name: 金钼股份
+  direction: small_metal_chemical
+  chain_position: upstream
+  human_note:
+    date: '2026-06-23'
+    type: direction_call
+    context: "UP6/23早盘点名钼方向，钼精矿龙头。钼靶材用于半导体显示面板溅射"
+  entry:
+    primary_zone:
+    - 待计算
+    - 待计算
+    method: 算力材料波动法
+    hard_stop: 待设定
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
 
