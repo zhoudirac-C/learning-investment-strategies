@@ -1,0 +1,265 @@
+claims:
+- id: claim-20260624-005-a
+  source_path: sources/raw/财经/两根K线吞没形态.md
+  source_date: '2026-06-24'
+  source_type: 视频
+  extracted_at: '2026-06-24T21:19:22'
+  claim_type: technical-knowledge
+  subject: 吞没形态核心定义与信号价值
+  timeframe: permanent
+  statement: 吞没形态是K线体系中力量切换最明确的信号之一，本身自带确认属性，不需要等待后续K线再次确认。定义：两根K线组合中，第二根K线实体完全包裹第一根K线实体。单根K线上吊线/流星线/铁锤线需要次日确认，而吞没形态作为组合K线信号，自身即完成力量反转的叙事。
+  evidence_quote: 吞没形态是K线体系中力量切换最明确的信号之一，本身自带确认属性，不需要等待后续K线再次确认，信号地位较高。
+  interpretation: 核心差异：单根K线是"信号"（需要确认），吞没形态是"叙事"（已完成力量切换）。这是组合K线相对单根K线的核心优势——信息量大、无需等待。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 吞没形态定义：力量切换最明确的K线组合信号
+  related_stocks:
+  - code: '600522'
+    name: 中天科技
+    role: 教学案例-主板可交易
+  tags:
+  - 吞没形态
+  - K线组合
+  - 力量反转
+  - 技术信号
+  - 确认属性
+- id: claim-20260624-005-b
+  source_path: sources/raw/财经/两根K线吞没形态.md
+  source_date: '2026-06-24'
+  source_type: 视频
+  extracted_at: '2026-06-24T21:19:22'
+  claim_type: technical-knowledge
+  subject: 看涨吞没条件体系与信号分级
+  timeframe: permanent
+  statement: 看涨吞没（Bullish Engulfing）出现在下跌末端，共8个条件。基础4条（必须满足）：①前期至少5个交易日下跌；②第一根为阴线；③第二根为阳线；④第二根阳线实体完全包裹第一根阴线实体。加分4条：①包裹影线（不仅实体）；②阳线实体远大于阴线；③成交量放大超过前一根1.5倍；④出现在长期下跌后支撑位。满足全部8条件=A级信号，满足基础+1-3加分=B级，满足基础+1加分=C级（仅视为小反弹）。
+  evidence_quote: 看涨吞没一共8个条件，前4个为必须满足的基础条件：1.前期至少5个交易日下跌；2.第一根为阴线；3.第二根为阳线；4.第二根阳线实体完全包裹第一根阴线实体。后4个为加分条件：1.包裹影线；2.阳线实体远大于阴线；3.成交量放大超过1.5倍；4.出现在长期下跌后支撑位。满足全部8个条件为A级，满足前4个加1-3个加分条件为B级，满足前4个加1个加分条件为C级。
+  interpretation: 看涨吞没的加分条件本质是确认力量反转的强度。阳线越大说明多方进攻越强，放量说明有增量资金进场，支撑位说明位置也配合。A级信号包含位置、量能、力度三重确认。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 看涨吞没：4基础+4加分条件与A/B/C信号分级
+  related_stocks: []
+  tags:
+  - 看涨吞没
+  - 信号分级
+  - 多头反转
+  - 放量确认
+  - K线技术分析
+- id: claim-20260624-005-c
+  source_path: sources/raw/财经/两根K线吞没形态.md
+  source_date: '2026-06-24'
+  source_type: 视频
+  extracted_at: '2026-06-24T21:19:22'
+  claim_type: technical-knowledge
+  subject: 看跌吞没条件体系
+  timeframe: permanent
+  statement: 看跌吞没（Bearish Engulfing）出现在上涨末端，与看涨吞没对称。基础4条（必须满足）：①前期至少5个交易日上涨；②第一根为阳线；③第二根为阴线；④第二根阴线实体完全包裹第一根阳线实体。加分条件与看涨吞没相同（包裹影线、阴线实体远大于阳线、放量>1.5倍、压力位），额外加分项：若前一根阳线本身就是流星线/上吊线等顶部反转K线，信号强度进一步提升。
+  evidence_quote: 看跌吞没出现在上涨末端：头一天是阳线，第二天是阴线，阴线实体完全包住阳线实体，是明确的看空信号。在和看涨吞没相同的加分条件基础上，额外增加一个加分项：若前一根阳线本身就是流星线、上吊线等顶部反转K线，信号强度会进一步提升。
+  interpretation: 看跌吞没的额外加分项说明：单一顶部信号的组合使用可增效。如果前一天已经出现了流星线/上吊线的顶部引线形态，第二天被大阴线实体包裹，相当于两个信号共振，空头力量更强。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 看跌吞没：对称结构与额外加分条件
+  related_stocks:
+  - code: '600519'
+    name: 贵州茅台
+    role: 教学案例-主板可交易
+  tags:
+  - 看跌吞没
+  - 空头反转
+  - 顶部信号
+  - K线组合
+  - 技术分析
+- id: claim-20260624-005-d
+  source_path: sources/raw/财经/两根K线吞没形态.md
+  source_date: '2026-06-24'
+  source_type: 视频
+  extracted_at: '2026-06-24T21:19:22'
+  claim_type: operation
+  subject: 看涨吞没A级操作策略
+  timeframe: trend
+  statement: A级看涨吞没（满足全部8条件，调整>15交易日，跌幅>25%）可使用相对更大仓位介入，止损位设置在第一根阴线的最低点，以收盘价判断是否跌破。不需期待次日立刻上涨，需观察后续5-10个交易日走势。B/C级看涨吞没仅能用轻仓试探，严格止盈止损，跌破止损直接离场。
+  evidence_quote: A级看涨吞没信号强度高，可以使用稍大仓位介入，不需要期待次日立刻上涨，需要观察后续5-10个交易日的走势，止损位设置在第一根阴线的最低点，以收盘价判断是否跌破。B级看涨吞没仅能轻仓试探，C级仅能看作小反弹，都需要设置严格的止盈止损，跌破止损直接离场。
+  interpretation: 操作核心：A级信号放大仓位但仍有止损；B/C级信号轻仓博弈，不恋战。关键区别在于A级信号的三重确认（位置+量能+力度）提供了更高的容错率。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A级看涨吞没操作：较大仓位介入，止损在第一根阴线最低点
+  related_stocks:
+  - code: '600522'
+    name: 中天科技
+    role: 教学案例-主板可交易
+  tags:
+  - 看涨吞没
+  - 操作策略
+  - 仓位管理
+  - 止损设置
+  - A级信号
+- id: claim-20260624-005-e
+  source_path: sources/raw/财经/两根K线吞没形态.md
+  source_date: '2026-06-24'
+  source_type: 视频
+  extracted_at: '2026-06-24T21:19:22'
+  claim_type: operation
+  subject: 看跌吞没A级操作策略
+  timeframe: trend
+  statement: A级看跌吞没（前期上涨>15交易日，涨幅>25%，出现在重要压力位附近，阴线完全包裹阳线包括影线，成交量明显放大）见到直接减仓80%锁定利润，剩余20-30%仓位设置止损位在形态最高点。此时绝对不能加仓，需等待趋势确认反转后再重新评估。
+  evidence_quote: A级看跌吞没：前期上涨超过15个交易日，涨幅超过25%，出现在前期重要压力位附近，阴线完全包裹阳线包括影线，成交量明显放大。见到该形态直接减仓80%锁定利润，剩余20%-30%仓位设置止损位在形态最高点，此时绝对不能加仓。
+  interpretation: 看跌吞没的操作比看涨更激进——直接减仓80%，因为减仓是锁定已有收益风险可控，而买入则是承担新的本金风险。这也是"顶部需要极度敏感，底部可以适当积极"的具体体现。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A级看跌吞没操作：见到直接减仓80%锁定利润
+  related_stocks:
+  - code: '600519'
+    name: 贵州茅台
+    role: 教学案例-主板可交易
+  tags:
+  - 看跌吞没
+  - 减仓策略
+  - 顶部逃顶
+  - 仓位管理
+  - 止盈止损
+- id: claim-20260624-005-f
+  source_path: sources/raw/财经/两根K线吞没形态.md
+  source_date: '2026-06-24'
+  source_type: 视频
+  extracted_at: '2026-06-24T21:19:22'
+  claim_type: technical-knowledge
+  subject: 吞没形态与高档长黑低档长红的对称性差异
+  timeframe: permanent
+  statement: 看跌吞没与高档长黑大多数时候是同一个信号——高档长黑天生满足看跌吞没的形态条件，顶部识别不需要区分两者。但看涨吞没与低档长红不是同一信号——低档长红对前一根K线没有形态要求（可以是阳线/阴线/十字星），底部识别必须细分区分两者。
+  evidence_quote: 看跌吞没和高档长黑大多数时候是同一个信号，高档长黑天生满足看跌吞没的形态条件，所以顶部识别不需要区分两者。看涨吞没和低档长红不是同一个信号，低档长红对前一根K线没有形态要求，所以底部识别必须细分区分两者。
+  interpretation: 顶部信号的对称性差异：因为顶部大阴线天然包裹前一根阳线（前阳通常力度递减），所以高档长黑≈看跌吞没。但底部大阳线不一定包裹前一根阴线（前阴可能也很小），所以低档长红≠看涨吞没。这解释了为什么底部需要更精细的信号识别。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 顶部信号对称/底部信号非对称：看跌吞没≈高档长黑，看涨吞没≠低档长红
+  related_stocks: []
+  tags:
+  - 吞没形态
+  - 高档长黑
+  - 低档长红
+  - 信号区分
+  - 技术分析
+- id: claim-20260624-005-g
+  source_path: sources/raw/财经/两根K线吞没形态.md
+  source_date: '2026-06-24'
+  source_type: 视频
+  extracted_at: '2026-06-24T21:19:22'
+  claim_type: technical-knowledge
+  subject: 调整时间与看涨吞没信号安全性的关系
+  timeframe: permanent
+  statement: 个股调整时间越长、跌幅越充分，出现看涨吞没后反转的安全性越高、越值得介入。A级看涨吞没的标准是调整超过15个交易日且跌幅超过25%。厦门物业案例调整两个半月（约50个交易日）、跌幅36%，A级信号安全性极高。
+  evidence_quote: 个股调整时间越长，跌幅越充分，出现看涨吞没后反转的安全性越高，越值得介入。A级看涨吞没：调整时间超过15个交易日，跌幅超过25%。厦门物业从3月到5月调整两个半月，跌幅达到36%。
+  interpretation: 逻辑：调整越充分→套牢盘洗得越干净→抛压越小→反转阻力越小。实际操作中，调整时间和跌幅需要结合市场周期（牛/熊/震荡）灵活判断，但基本原则是"时间换空间"。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 调整越充分看涨吞没信号越可靠
+  related_stocks: []
+  tags:
+  - 调整时间
+  - 反转可靠性
+  - 看涨吞没
+  - 跌幅充分
+  - 时间换空间
+- id: claim-20260624-005-h
+  source_path: sources/raw/财经/两根K线吞没形态.md
+  source_date: '2026-06-24'
+  source_type: 视频
+  extracted_at: '2026-06-24T21:19:22'
+  claim_type: risk
+  subject: 吞没形态信号局限性
+  timeframe: permanent
+  statement: 炒股没有百分百准确的信号，哪怕吞没形态满足全部A级条件，也可能遇到黑天鹅事件，必须设置止损控制风险。看涨吞没止损设置在第一根阴线最低点，以收盘价判断是否跌破。周线级别信号比日线级别更标准、强度更高。
+  evidence_quote: 炒股没有百分百准确的信号，哪怕满足所有条件，也可能遇到黑天鹅事件，所以必须设置止损控制风险。周线级别的看跌吞没形态比日线级别的更标准，信号强度也更高。
+  interpretation: 双重风险提示：①没有绝对准确的信号→必须止损；②周期越大信号越可靠（周线>日线），但周期越大止损越宽（需结合仓位管理）。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 吞没形态信号必须配合止损，无100%准确信号
+  related_stocks: []
+  tags:
+  - 风险控制
+  - 止损
+  - 信号局限性
+  - 周线级别
+  - 黑天鹅
+- id: claim-20260624-005-i
+  source_path: sources/raw/财经/两根K线吞没形态.md
+  source_date: '2026-06-24'
+  source_type: 视频
+  extracted_at: '2026-06-24T21:19:22'
+  claim_type: technical-knowledge
+  subject: 组合K线与单根K线的信息差异
+  timeframe: permanent
+  statement: 单根K线记录单日市场状态相当于一张照片，组合K线记录多日市场变化相当于一段视频，信息量远大于单根K线。单根K线对形态要求严苛（需符合特定标准才能使用），适用场景比较极端。组合K线能覆盖更多日常行情，更适合判断趋势变化。
+  evidence_quote: 单根K线记录单日的市场状态，相当于一张照片；组合K线记录多日的市场变化，相当于一段视频，能提供更多的信息量，更适合判断趋势变化。市场行情经常次日出现反转，只有通过多K线组合才能捕捉这种变化。
+  interpretation: 方法论基础：K线分析的核心不是识别形态名称，而是理解多根K线之间的力量对比变化。单根K线只看当天结果，组合K线看胜负转换过程。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 组合K线信息量远大于单根K线
+  related_stocks: []
+  tags:
+  - 组合K线
+  - 单根K线
+  - 信息量
+  - 趋势判断
+  - K线教学
