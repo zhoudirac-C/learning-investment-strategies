@@ -1,5 +1,7 @@
-updated_at: '2026-06-22'
+updated_at: '2026-06-24'
 source_claims:
+- knowledge/claims/claim-20260623-005.yaml
+- knowledge/claims/claim-20260623-004.yaml
 - knowledge/claims/claim-20260622-001.yaml
 - knowledge/claims/claim-20260621-001.yaml
 - knowledge/claims/claim-20260618-003.yaml
@@ -30,18 +32,17 @@ source_docs:
 - sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
 - sources/original/bilibili/2026-06-15-0945-图片-如果今天指数收盘能站上4088的话，具备交易能力和理想的，可.md
 market_framework:
-  up_quote: 「6/21 22:35复盘专栏：指数定环境——双创创新高、沪指回落，K型分化深化。板块定方向——科技强者恒强，光模块/CCL/存储/AI新材料多点开花。个股定时点——中报预告临近，业绩高增进入炒作高峰。涨价确定性排序：存储/HDD ≈ 高端CCL（满产满销、订单到2027）＞ 铟/磷化铟（副产品供给刚性）＞ 光互联（CPO节奏，位置最高）＞ 氮化铝/ABF/HBM（认证阶段）。科创50估值历史最高（PE 225倍/PB 9.43倍），看作需随时减仓的高Beta。」
-  current_stage: K型分化深化期 — 双创创新高、沪指偏弱，资金向业绩+产业落地方向集中。涨价链未扩散至非AI上游前相对安全。科创50高估值需警惕海外映射下杀。
-  core_operation: >-
-    6/22六看——量能(是否维持节前水平)、涨价链(CCL/存储/铟/光互联是否延续)、科创50方向(高估值风险)、
-    EUV催化(国产光刻链脉冲)、「脱虚就实」风格(资金是否继续流向明牌机构标的)、
-    美伊瑞士会谈+特朗普盘中发声(两颗地雷的日内定价过程)。
-    ETF持有，不追涨停，等回踩。白天不对传闻做应激反应，等晚间机构定价。
+  up_quote: "6/23 22:13复盘：情绪割裂——超百家涨停vs超百家跌超8%，中间塌陷典型。Token调用量周环比增速从23.5%骤降至4.7%为科技大跌核心归因，AI见顶论为时尚早，定性为拥挤交易再平衡。策略维持AI+能化杠铃结构，等拥挤度消化后捡带血筹码。中期预警：未来2个月左右有大级别技术调整，控制仓位比追逐边际新高更重要。"
+  current_stage: "科技分歧/资金防守过渡期 — 双创大跌(创业板-3.84%)，涨停百家vs跌停百家，情绪割裂。Token调用量增速骤降为科技大跌核心归因，拥挤交易再平衡非趋势反转。周五前不加仓，等拥挤度消化+新主线浮现。"
+  medium_term_warning: "⚠️抛物线式上涨必然迎来抛物线式下跌——未来2个月左右有大级别技术调整。位置决定意义，在拥挤度高位，控制仓位与节奏比追逐边际新高更重要。"
+  core_operation: >
+    6/24操作纪律——UP原话「今天底不要乱抄，先把利润保住；哪怕明天反包也是卖点。周四是风险较大的时间节点」。
+    周四(6/25)前不加仓，等拥挤度消化+新主线浮现。
+    核心：①立即补设新开三只止损(铭普31.0/禾望47.0/横店27.0) ②雅克上移锁利至145 ③周四前不加仓 ④ETF跌破1.40减半仓
   opening_scenarios:
-    scenario_A_海外偏暖+放量接续: 节后海外科技偏暖正反馈到A股，量能3万亿+，涨价链延续强势→可评估介入但绝不追高。需叠加美伊会谈结果偏正面条件。
-    scenario_B_平淡回归+缩量震荡: 海外偏暖未传导，量能<3万亿，K型分化延续→持有不动，等待尾盘确认
-    scenario_C_科创50杀跌+量能退潮: 科创50高估值+海外波动传导，量能<2.5万亿→仅持ETF，不新开仓
-    scenario_D_地雷引爆+避险升温: 美伊会谈破裂或特朗普盘中强硬表态，美元站上101+美债4.5%，油价跳涨→科技+有色同步受压制，降仓至10%以下
+    scenario_A_弱修复反包: AI硬科技核心反弹、量能维持3万亿+→卖点不是买点。雅克反弹165+减半仓，ETF守住1.40
+    scenario_B_延续分歧: 量能缩至<3万亿，创业板继续杀→减ETF/雅克各1/3。新开三只触发止损坚决执行
+    scenario_C_周四地雷窗: 美伊破裂/特朗普强硬/美股科技传导/美元101+美债4.5%→降仓至<50%，现金为王
   intraday_observation:
     1_量能是第一硬指标: 10:00、11:30、14:00三个时间节点横向对比量能趋势
     2_涨价链延续: CCL（东材科技/圣泉集团）、存储（兆易/德明利）、铟（锡业股份）、光互联（旭创/长飞）方向关注
@@ -86,26 +87,28 @@ themes:
     - 联瑞新材(688300-科创)
     - 中化国际
     entry_zone:
-      description: 【已持仓】不再设介入区间。当前成本129.68，止损123.2。涨停次日防高开低走。
-      current_ref: 已持仓100@136.852。回踩138-142区间企稳可加仓（需等全A放量中阳线确认）
-      method: 已持仓
-      confirm_signal: 全A放量中阳线+联瑞新材同步→可考虑持仓但暂不加仓
-      hard_stop: 跌破123.2止损
-      position_ratio: 已持仓（100股）
+      description: 【清仓后更新6/24】现价173.05(涨停+10.0%)。原持仓已全部清仓。等回调至152-165区间缩量企稳再评估。全A中阳线+CCL板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=173.05(涨停+10.0%)'
+      price_range: '152.0 ~ 165.0'
+      method: 涨停后回踩法(8-12%)，基于涨停价173.05
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
+      hard_stop: 清仓后暂不设止损，等待重新评估
+      position_ratio: 0（已清仓）
     up_mention_status:
       last_mentioned_date: '2026-06-11'
       mention_context: 6/11 复盘点名涨价主线扩散，覆铜板上游材料方向
       sentiment: 积极看好
     lifecycle:
-      stage: holding
+      stage: cleared
       entered_stage: '2026-06-11'
+      cleared_note: 2026-06-24全线清仓。原成本129.68，清仓价约155-173区间。等回调至152-165区间再评估。
     reduce_zone:
-      description: 跌破125（MA10附近）→减半仓位
-      price: 125.0
-      action: 减至50股
+      description: 【已清仓】原减半仓位设置已失效
+      price: N/A
+      action: 已清仓，本设置失效
     risk_zone:
-      description: 跌破123.2（止损线）→清仓
-      price: 123.2
+      description: 【已清仓】原止损设置已失效
+      price: N/A
       action: 清仓
   - code: 600500.SH
     name: 中化国际
@@ -117,14 +120,13 @@ themes:
     - 雅克科技
     - 泰和新材(002254)
     entry_zone:
-      description: 涨停日+近5日大涨26.5%，等深度回踩补缺口。不追板
-      current_ref: '2026-06-18 实时: 现价=8.85 (自动更新)'
-      price_range: 8.4 ~ 9.3
+      description: 【区间更新6/24】现价7.75(-3.6%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=7.75(-3.6%)'
+      price_range: '7.3 ~ 7.6'
       method: 回撤百分比法(8-12%)，基于近期高点7.93。二连板后区间上修
-      confirm_signal: 回踩补缺口不破+雅克科技同步企稳+缩量再放量+全A中阳线
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破6.5且30分钟不能收回
       position_ratio: 0.2-0.3成（二连板分歧大，仓位更保守）
-  - code: 605589.SH
     name: 圣泉集团
     role: resin_concept
     segment: 电子树脂（酚醛/环氧）
@@ -134,10 +136,11 @@ themes:
     - 雅克科技
     - 中化国际
     entry_zone:
-      description: 【区间已失效，临时暂停】现价~59远超原区间50-53。连板后分歧中，需等深度回踩。全A中阳线为前置条件
-      current_ref: 2026-06-12 收盘=58.32(-3.36%)
+      description: 【区间更新6/24】现价66.87(+1.1%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=66.87(+1.1%)'
+      price_range: '62.6 ~ 65.8'
       method: 暂停
-      confirm_signal: 回踩至合理区间+雅克科技同步+全A中阳线
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破48且30分钟不能收回
       position_ratio: 0（暂停）
     lifecycle:
@@ -154,14 +157,13 @@ themes:
     - 昊华科技
     - 中船特气(688146-科创)
     entry_zone:
-      description: 涨停日等回踩。MA5=41.57 MA10=37.92 MA20=37.15 均线多头。小盘弹性大(+28%近5日)，等深度回调
-      current_ref: '2026-06-18 实时: 现价=67.38 (自动更新)'
-      price_range: 62.1 ~ 72.6
+      description: 【区间更新6/24】现价71.64(-1.9%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=71.64(-1.9%)'
+      price_range: '67.1 ~ 70.5'
       method: 涨停回踩法(5-15%)，基于涨停价58.03。小盘+WF6方向弹性大，区间放宽
-      confirm_signal: 昊华科技先企稳+WF6方向整体扩散+缩量回踩至区间不破+全A中阳线
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破45且30分钟不能收回
       position_ratio: 不超过0.2成（P3-观察+涨停后波动大，严格控仓）
-  - code: 601208.SH
     name: 东材科技
     role: ccl_resin_core
     segment: 电子树脂（PPO/PPE核心）— CCL上游非本体
@@ -208,11 +210,11 @@ themes:
     - 中船特气(688146-科创)
     - 和远气体
     entry_zone:
-      description: 【区间已上修】6/12收盘57.15(-10%跌停)，原区间57-60仍可维持。但跌停日无买点，等企稳后再评估。全A中阳线为前置条件
-      current_ref: '2026-06-18 实时: 现价=66.1 (自动更新)'
-      price_range: 60.0 ~ 72.2
+      description: 【区间更新6/24】现价67.95(+2.4%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=67.95(+2.4%)'
+      price_range: '63.6 ~ 66.9'
       method: 回撤百分比法(6-11%)，基于前高63.89。跌停日不买，等缩量企稳后再评估
-      confirm_signal: 缩量企稳不创新低+WF6涨价数据持续+中船特气同步+全A中阳线
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破54且30分钟不能收回
       position_ratio: 0.5-1.0成（严格控仓，UP原话「右侧轻仓带止损」）
     up_mention_status:
@@ -274,11 +276,11 @@ themes:
     confirm_with:
     - 昊华科技
     entry_zone:
-      description: 大涨后等回踩。MA5=53.51 MA10=48.81 MA20=47.63 均线多头。WF6上游9N四氯化硅方向扩散，等MA10附近
-      current_ref: '2026-06-18 实时: 现价=54.4 (自动更新)'
-      price_range: 51.7 ~ 57.1
-      method: 均线法，基于MA10(48.81)±3%。多头趋势正常回踩
-      confirm_signal: 昊华科技先企稳+WF6涨价数据持续+缩量回踩至区间
+      description: 【涨停暂停6/24】现价71.6(涨停+10.0%)。等分歧日缩量回踩MA5附近再评估。涨停无买点，不追。
+      current_ref: '2026-06-24 实时: 现价=71.6(涨停+10.0%)'
+      price_range: 暂停（涨停日无买点）
+      method: 暂停，涨停日不设区间
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破45且30分钟不能收回
       position_ratio: 不超过0.3成（P3-观察，WF6上游方向扩散，不单独建仓）
     lifecycle:
@@ -306,11 +308,11 @@ themes:
     confirm_with:
     - 隆华科技(300263-创业)
     entry_zone:
-      description: 当前25.52平稳运行。等全A中阳线+钼靶材方向验证
-      current_ref: '2026-06-18 实时: 现价=28.2 (自动更新)'
-      price_range: 27.0 ~ 29.4
+      description: 【区间更新6/24】现价27.22(-2.1%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=27.22(-2.1%)'
+      price_range: '25.5 ~ 26.8'
       method: 均线法，PE极低安全边际高
-      confirm_signal: 全A放量中阳线+金钼股份放量站稳MA5+存储材料方向验证
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破22且30分钟不能收回
       position_ratio: 不超过0.3成（P3-观察+产业资讯非主动推荐）
     lifecycle:
@@ -342,11 +344,11 @@ themes:
     - 晶澳科技
     - 光伏ETF
     entry_zone:
-      description: 均线空头排列(MA5=13.27<MA10=13.41<MA20=14.17)，等缩量止跌+MA5上穿MA10确认企稳。全A中阳线为前置条件
-      current_ref: '2026-06-18 实时: 现价=12.84 (自动更新)'
-      price_range: 12.5 ~ 13.2
+      description: 【区间更新6/24】现价12.56(-0.4%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=12.56(-0.4%)'
+      price_range: '11.8 ~ 12.4'
       method: 震荡票近期低点法，基于20日低点12.22。均线空头需等更低位置
-      confirm_signal: 缩量止跌+不创新低+MA5上穿MA10+光伏板块同步企稳+全A中阳线
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破12.0且30分钟不能收回
       position_ratio: 0.5-1.0成（中长线思路，不做短线）
     up_mention_status:
@@ -365,14 +367,13 @@ themes:
     - 隆基绿能
     - 晶澳科技
     entry_zone:
-      description: 【区间已上修】6/12收盘12.70，原区间10.8-11.5已偏离。上修至12-13，基于MA5=12.22附近。全A中阳线+隆基企稳为前置条件
-      current_ref: '2026-06-18 实时: 现价=12.55 (自动更新)'
-      price_range: 12.2 ~ 12.9
+      description: 【区间更新6/24】现价12.94(+2.6%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=12.94(+2.6%)'
+      price_range: '12.1 ~ 12.7'
       method: 震荡票近期低点法，基于20日低点10.47。均线空头排列(MA5=12.22<MA10=12.06<MA20=12.34)，等缩量止跌+MA5上穿MA10
-      confirm_signal: 隆基+晶澳同步走强+光伏板块放量+MA5上穿MA10+全A中阳线
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破10.5且30分钟不能收回
       position_ratio: 0.3成以下（隆基企稳后作为方向确认，不单独建仓）
-  - code: 002459.SZ
     name: 晶澳科技
     role: pv_follower
     segment: 光伏组件
@@ -381,11 +382,11 @@ themes:
     confirm_with:
     - 隆基绿能
     entry_zone:
-      description: 均线空头(MA5=8.51<MA10=8.77<MA20=9.37)，等缩量止跌+MA5上穿MA10。光伏方向联动确认
-      current_ref: '2026-06-18 实时: 现价=8.31 (自动更新)'
-      price_range: 8.1 ~ 8.5
+      description: 【区间更新6/24】现价8.06(-0.1%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=8.06(-0.1%)'
+      price_range: '7.6 ~ 7.9'
       method: 震荡票近期低点法，基于20日低7.92。均线空头需等更低位置
-      confirm_signal: 隆基+爱旭同步走强+光伏板块放量+MA5上穿MA10+缩量止跌不创新低
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破7.5且30分钟不能收回
       position_ratio: 不超过0.3成（P3-观察+不单独建仓，仅方向扩散确认）
     invalidation_setup:
@@ -411,11 +412,11 @@ themes:
     confirm_with:
     - 鼎泰高科(301377-创业)
     entry_zone:
-      description: 【区间已上修】6/12收盘79.00(+1.35%)，原区间73-76已偏离。上修至76-78，基于MA5(78.86)±2%。多头趋势中，等回踩MA5-MA10区间
-      current_ref: '2026-06-18 实时: 现价=98.48 (自动更新)'
-      price_range: 94.5 ~ 102.5
+      description: 【区间更新6/24】现价99.15(-3.3%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=99.15(-3.3%)'
+      price_range: '92.8 ~ 97.6'
       method: 回撤百分比法(2-6%)，基于收盘79.00。多头趋势中的正常回调
-      confirm_signal: 回踩MA10附近不破+鼎泰高科同步企稳+钨价继续反弹+全A中阳线
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破66且30分钟不能收回
       position_ratio: 0.3-0.5成
     lifecycle:
@@ -444,11 +445,11 @@ themes:
     priority: P3-观察
     watch_reason: UP点名AI算力→电力需求长逻辑的注脚。中线方向认同，但短期结合电价与政策节奏，不急于加仓。
     entry_zone:
-      description: 均线多头(MA5=31.11>MA10=29.04>MA20=24.63)，等回踩MA10~MA20区间。UP说「不急于加仓」
-      current_ref: '2026-06-18 实时: 现价=39.55 (自动更新)'
-      price_range: 38.0 ~ 41.1
-      method: 均线法，基于MA10(29.04)~MA20(24.63)区间。中线长逻辑标的
-      confirm_signal: 回踩MA10附近不破+绿电/核电板块同步走强+缩量企稳再放量
+      description: 【大跌后更新6/24】现价32.61(-7.4%)。等缩量企稳+全A中阳线确认。压力位在前收盘价附近。
+      current_ref: '2026-06-24 实时: 现价=32.61(大跌7.4%)'
+      price_range: '30.3 ~ 33.6'
+      method: 大跌后企稳法
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破23且30分钟不能收回
       position_ratio: 不超过0.3成（P3-观察+UP说不急于加仓，仅方向跟踪）
     lifecycle:
@@ -468,14 +469,15 @@ themes:
     - 三环集团(300408-创业)
     - 洁美科技(002859)
     entry_zone:
-      description: 【已止损清仓】6/12触发60.9止损出局。保留观察，若MLCC板块放量走强+新高+全A中阳线可重新评估。
-      current_ref: 已持仓100@74.262。若新增仓位：回踩70-72区间（MA10支撑）缩量企稳可补仓
-      method: 已止损，等待重新评估信号
+      description: 【已止损清仓】6/12触发60.9止损出局。6/24现价71.82(+2.3%)已重回MA5上方，MLCC超级周期方向重评中。保留观察，若MLCC板块再次放量走强+新高+全A中阳线可重新评估。
+      current_ref: '2026-06-24 实时: 现价=71.82(+2.3%)'
+      price_range: '71.5 ~ 77.5'
+      method: 已止损，MLCC超级周期方向重评中
       confirm_signal: MLCC板块放量走强+全A放量中阳线+风华高科重新站稳MA5
       hard_stop: null
       position_ratio: 0（已清仓）
     lifecycle:
-      stage: stopped_out
+      stage: evaluating
       entered_stage: '2026-06-11'
       stopped_out_at: '2026-06-12'
       stopped_note: 触发60.9止损清仓，亏损约330元(-5.1%)
@@ -492,11 +494,11 @@ themes:
     priority: P3-观察
     watch_reason: 6/11 早盘 UP 点名 SK海力士ADR映射。持有海太半导体55%股权为实质性关联。但 UP 自评 confidence=low，弱市环境不宜追高，仅观察。
     entry_zone:
-      description: 均线多头(MA5=15.80>MA10=14.89>MA20=13.97)，等缩量回踩MA10~MA20区间。弱市环境+UP自评confidence=low，仅观察
-      current_ref: '2026-06-18 实时: 现价=20.92 (自动更新)'
-      price_range: 20.1 ~ 21.8
-      method: 均线法，基于MA10(14.89)~MA20(13.97)区间。SK映射逻辑需市场风偏支撑
-      confirm_signal: 缩量回踩不破MA20+SK海力士ADR走势正面+科技板块整体回暖+放量回到MA5以上
+      description: 【涨停暂停6/24】现价23.01(涨停+10.0%)。等分歧日缩量回踩MA5附近再评估。涨停无买点，不追。
+      current_ref: '2026-06-24 实时: 现价=23.01(涨停+10.0%)'
+      price_range: 暂停（涨停日无买点）
+      method: 暂停，涨停日不设区间
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破13且30分钟不能收回
       position_ratio: 不超过0.3成（P3-观察+弱市环境，仅方向观察）
     lifecycle:
@@ -573,11 +575,12 @@ themes:
     confirm_with:
     - 光迅科技
     entry_zone:
-      description: 当前28.25，PE=-136.65（光伏业务拖累）。薄膜铌酸锂业务占比小，仅作方向观察不预设介入
-      current_ref: 2026-06-12 收盘=28.25(-3.62%)
+      description: 【区间更新6/24】现价32.29(-0.6%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=32.29(-0.6%)'
+      price_range: '30.2 ~ 31.8'
       method: 纯观察，PE为负不设介入区间
-      confirm_signal: 薄膜铌酸锂业务放量信号+光通信板块整体走强+全A中阳线
-      hard_stop: null
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
+      hard_stop: N/A
       position_ratio: 0（纯观察，PE为负不设仓位）
     lifecycle:
       stage: watching
@@ -654,11 +657,11 @@ themes:
     priority: P3-观察
     watch_reason: 半导体设备绝对龙头。6/11涨2.96%未加速，作为设备方向情绪锚点观察。市值4617亿弹性有限，更适合做板块温度计而非交易标的。
     entry_zone:
-      description: 大市值龙头，均线多头排列(MA5~600)，等缩量回踩MA5-MA10区间。全A中阳线为前置条件
-      current_ref: '2026-06-18 实时: 现价=732.02 (自动更新)'
-      price_range: 710.6 ~ 753.4
+      description: 【区间更新6/24】现价760.6(+1.8%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=760.6(+1.8%)'
+      price_range: '712.0 ~ 748.4'
       method: 均线法，基于MA5附近±3%。大市值票波动小，区间收窄
-      confirm_signal: 缩量回踩MA5不破+全A中阳线+半导体设备板块同步企稳
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破570且30分钟不能收回
       position_ratio: 不超过0.5成（大市值弹性有限，仅作为设备方向配置）
     lifecycle:
@@ -678,11 +681,11 @@ themes:
     - 北方华创
     - 深科技(000021)
     entry_zone:
-      description: 均线多头排列(MA5=32.21>MA10=30.89>MA20=29.44)，等缩量回踩MA10附近。全A中阳线为前置条件
-      current_ref: '2026-06-18 实时: 现价=68.8 (自动更新)'
-      price_range: 66.0 ~ 71.6
+      description: 【区间更新6/24】现价73.68(+7.7%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=73.68(+7.7%)'
+      price_range: '69.0 ~ 72.5'
       method: 均线法，基于MA10(30.89)±3%
-      confirm_signal: 缩量回踩MA10不破+全A中阳线+AMD封装订单催化+板块同步企稳
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破27且30分钟不能收回
       position_ratio: 0.3-0.5成（P2-重点，补涨方向弹性优于大市值设备）
     lifecycle:
@@ -702,11 +705,11 @@ themes:
     - 通富微电
     - 北方华创
     entry_zone:
-      description: 均线多头排列(MA5=22.13>MA10=21.45>MA20=20.88)，等缩量回踩MA10附近。全A中阳线为前置条件
-      current_ref: '2026-06-18 实时: 现价=45.1 (自动更新)'
-      price_range: 43.3 ~ 46.9
-      method: 均线法，基于MA10(21.45)±3%
-      confirm_signal: 缩量回踩MA10不破+通富微电同步企稳+全A中阳线
+      description: 【涨停暂停6/24】现价50.27(涨停+10.0%)。等分歧日缩量回踩MA5附近再评估。涨停无买点，不追。
+      current_ref: '2026-06-24 实时: 现价=50.27(涨停+10.0%)'
+      price_range: 暂停（涨停日无买点）
+      method: 暂停，涨停日不设区间
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破19且30分钟不能收回
       position_ratio: 不超过0.3成（P3-观察，存储方向UP建议减仓，封测补涨弹性有限）
     lifecycle:
@@ -728,11 +731,11 @@ themes:
     priority: P3-观察
     watch_reason: 主板芯片方向代表标的。特种芯片龙头，PE 36x为芯片里最低。6/11跌2.16%处于回调。
     entry_zone:
-      description: 均线偏空，等缩量止跌+全A中阳线。PE低有安全边际
-      current_ref: '2026-06-18 实时: 现价=80.85 (自动更新)'
-      price_range: 78.5 ~ 83.2
+      description: 【区间更新6/24】现价82.84(+1.1%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=82.84(+1.1%)'
+      price_range: '77.6 ~ 81.5'
       method: 回撤法，近期低点参考
-      confirm_signal: 缩量止跌至区间+全A中阳线+芯片板块整体回暖
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破62且30分钟不能收回
       position_ratio: 不超过0.5成（P3-观察+反转方向埋伏）
     lifecycle:
@@ -784,11 +787,11 @@ themes:
     priority: P3-观察
     watch_reason: 存储方向主板核心标的。NOR Flash龙头+DRAM布局，受益存储涨价周期。PE 118x需注意。6/11涨0.55%偏稳。
     entry_zone:
-      description: 均线多头，高位运行。等深度回踩MA20-MA60区间
-      current_ref: '2026-06-18 实时: 现价=644.16 (自动更新)'
-      price_range: 618.4 ~ 669.9
+      description: 【区间更新6/24】现价667.8(+4.2%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=667.8(+4.2%)'
+      price_range: '625.1 ~ 657.1'
       method: 回撤百分比法(3-11%)，基于收盘483
-      confirm_signal: 全A中阳线+存储板块共振+缩量回踩至区间
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破400且30分钟不能收回
       position_ratio: 不超过0.3成（高价+高PE+小仓位）
     lifecycle:
@@ -801,11 +804,11 @@ themes:
     priority: P2-重点
     watch_reason: 22:16专栏核心标的，利基存储涨价受益。中报业绩驱动A档，7月初兑现。⚠️需核实是否在22:37减持93家名单中。
     entry_zone:
-      description: 新增标的，待pre_fetch_klines计算
-      current_ref: '2026-06-18 实时: 现价=721.44'
-      price_range: 671 ~ 743
+      description: 【区间更新6/24】现价795.06(+5.3%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=795.06(+5.3%)'
+      price_range: '744.2 ~ 782.3'
       method: 板块共振法
-      confirm_signal: 存储板块走强+中报业绩预期
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 待设定
       position_ratio: 不超过0.5成
     lifecycle:
@@ -956,11 +959,11 @@ themes:
     - 生益科技
     - 宏和科技
     entry_zone:
-      description: 【更新6/22】现价74.83，距MA20(58.61)+27.7%极度偏离。等深度回踩至CCL上游材料的MA20附近区间(56.9~65.4)企稳
-      current_ref: '2026-06-21 理论: 现价=74.83 (自定义)'
-      price_range: 56.9 ~ 65.4
+      description: 【区间更新6/24】现价73.18(+1.9%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=73.18(+1.9%)'
+      price_range: '68.5 ~ 72.0'
       method: MA20(58.61)~MA10(64.07)，分歧日缩量企稳。距MA20达+27.7%严禁追高
-      confirm_signal: 深度回踩至区间+生益科技先企稳+客户验证/订单催化+全A中阳线
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 49.7
       position_ratio: 不超过0.3成（P3-观察+高PE弹性标的，需严格等深度回踩）
     lifecycle:
@@ -996,11 +999,11 @@ themes:
     - 兴森科技
     - 沪电股份
     entry_zone:
-      description: 当前383.18。高价+高市值票，等深度回踩MA20-MA60区间
-      current_ref: '2026-06-18 实时: 现价=457.19 (自动更新)'
-      price_range: 438.6 ~ 475.8
+      description: 【区间更新6/24】现价429.0(+0.7%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=429.0(+0.7%)'
+      price_range: '401.6 ~ 422.1'
       method: 均线法，大市值高价票波动小，区间收窄
-      confirm_signal: 缩量回踩至区间+ABF/FC-BGA载板行业订单催化+全A中阳线
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破300且30分钟不能收回
       position_ratio: 不超过0.3成（P3-观察+大市值弹性有限）
     lifecycle:
@@ -1303,13 +1306,13 @@ themes:
     - 博迁新材(605376)
     - 三环集团(300408-创业，锚点)
     entry_zone:
-      description: 6/15已涨停，等回踩不破MA5（换手充分后企稳）。不追涨停板。
-      current_ref: 已持仓100@74.262。若新增仓位：回踩70-72区间（MA10支撑）缩量企稳可补仓
-      price_range: 71.5 ~ 77.5
-      method: 涨停回踩法，等缩量企稳确认后右侧进场
-      confirm_signal: MLCC板块联动+风华换手稳定+全A量能维持+博迁新材同步
-      hard_stop: 买入价下方5%
-      position_ratio: 0.5-1.0成（P0-满仓候选，轻仓试探）
+      description: 【已止损但重新观察6/24】现价71.82(+2.3%)。前期60.9止损，但已重回MA5上方。等分歧日缩量回踩MA10(约70)附近企稳。MLCC超级周期确认后可重新评估。
+      current_ref: '2026-06-24 实时: 现价=71.82(+2.3%)'
+      price_range: '71.5 ~ 77.5'
+      method: MA10附近回踩法。等换手充分后缩量企稳。
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
+      hard_stop: 跌破68且30分钟不能收回
+      position_ratio: 不超过0.3成（重新评估阶段）
     pre_condition:
       market_actionable: true
       sector_diverged: true
@@ -1435,11 +1438,11 @@ themes:
     - 东山精密
     - 烽火通信
     entry_zone:
-      description: 已有配置框架（OCS主题），复用即可。等光通信板块共振确认后进场。
-      current_ref: '2026-06-18 实时: 现价=266.2 (自动更新)'
-      price_range: 255.6 ~ 276.8
+      description: 【区间更新6/24】现价264.6(-0.9%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=264.6(-0.9%)'
+      price_range: '247.6 ~ 260.4'
       method: 板块共振法
-      confirm_signal: 东山精密同步走强+OCS光交换催化+全A量能
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 已有OCS主题框架止损
       position_ratio: 已有OCS主题配置
     up_mention_status:
@@ -1566,11 +1569,11 @@ themes:
     - 福晶科技
     - 茂莱光学(688502-科创，锚点)
     entry_zone:
-      description: 【新增6/22】均线空头排列(MA5<MA20<MA60)，现价32.89低于MA20(34.32)。等放量站回MA20+光刻链板块共振后再评估。UP定性为情绪催化，不追
-      current_ref: '2026-06-18 收盘=32.89'
-      price_range: 33.3 ~ 34.3
+      description: 【区间更新6/24】现价33.43(+3.9%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=33.43(+3.9%)'
+      price_range: '31.3 ~ 32.9'
       method: MA20(34.32)附近。当前破位需等放量站回再评估
-      confirm_signal: 放量站回MA20+光刻链板块扩散+全A中阳线
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 30.2
       position_ratio: 不超过0.2成（P3-观察+破位中，严格控仓）
     lifecycle:
@@ -1590,11 +1593,11 @@ themes:
     - 张江高科
     - 奥普光电
     entry_zone:
-      description: 【新增6/22】均线多头(MA5>MA10>MA20)，现价103.0距MA20(97.81)+5.3%但高于介入区间上沿(96.37)约6.9%。等分歧日缩量回踩MA20~MA10区间(94.9~96.4)企稳。UP定性为情绪催化，不追高
-      current_ref: '2026-06-18 收盘=103.0'
-      price_range: 94.9 ~ 96.4
+      description: 【区间更新6/24】现价94.2(+1.3%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=94.2(+1.3%)'
+      price_range: '88.2 ~ 92.7'
       method: MA20(97.81)~MA10(94.48)，分歧日缩量企稳。距MA20仅+5.3%，光刻链中最接近介入区
-      confirm_signal: 缩量回踩至区间不破+张江高科先走强+光刻链整体扩散+全A中阳线
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 86.1
       position_ratio: 不超过0.2成（P3-观察+情绪催化，严格控仓）
     lifecycle:
@@ -1614,11 +1617,11 @@ themes:
     - 张江高科
     - 南大光电(300346-创业，锚点)
     entry_zone:
-      description: 【新增6/22】均线多头(MA5>MA10>MA20)，现价65.98距MA20(57.94)+13.9%偏高。等深度回踩至介入区间(56.2~61.8)企稳。仅P4锚点不预设建仓
-      current_ref: '2026-06-18 收盘=65.98'
-      price_range: 56.2 ~ 61.8
-      method: MA20(57.94)~MA10(60.62)，分歧日缩量企稳
-      confirm_signal: 张江高科先走强+光刻链板块扩散+全A中阳线
+      description: 【涨停暂停6/24】现价77.22(涨停+10.0%)。等分歧日缩量回踩MA5附近再评估。涨停无买点，不追。
+      current_ref: '2026-06-24 实时: 现价=77.22(涨停+10.0%)'
+      price_range: 暂停（涨停日无买点）
+      method: 暂停，涨停日不设区间
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 51.0
       position_ratio: 0（P4-锚点，仅方向观察不建仓）
     lifecycle:
@@ -1668,11 +1671,11 @@ themes:
     confirm_with:
     - 云南锗业(002428)
     entry_zone:
-      description: 【新增6/22】均线多头(MA5>MA20>MA10)，现价41.74距MA20(39.25)+6.3%。等缩量回踩MA20附近(38.1~39.0)企稳
-      current_ref: '2026-06-18 收盘=41.74'
-      price_range: 38.1 ~ 39.0
+      description: 【区间更新6/24】现价43.9(+3.4%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
+      current_ref: '2026-06-24 实时: 现价=43.9(+3.4%)'
+      price_range: '41.1 ~ 43.2'
       method: MA20(39.25)附近，分歧日缩量企稳。距MA20仅+6.3%，在涨价链中位置相对合理
-      confirm_signal: 缩量回踩至区间不破+铟价数据持续上行+全A中阳线
+      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 34.5
       position_ratio: 不超过0.3成（P3-观察+涨价确定性第二档）
     lifecycle:
