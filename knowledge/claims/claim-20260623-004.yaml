@@ -1,0 +1,84 @@
+claims:
+- id: claim-20260623-004-a
+  source_path: sources/raw/财经/2026-06-23-1420-盘中-午盘补充-充电专属.md
+  source_date: '2026-06-23'
+  source_type: 午盘补充
+  extracted_at: '2026-06-23T20:22:33'
+  claim_type: risk
+  subject: 大涨后不急于选择，留足安全空间比抢时间重要
+  timeframe: intraday
+  statement: 当前时间点和价格点位都确定不了，大涨之后无需急于做出买卖选择，核心风控纪律是永远给自己足够的安全空间，做交易比的是谁能活得更久。
+  evidence_quote: 现在这种情况，时间和点位都确定不了，不用急于做出选择，也还是那句话，永远给自己足够的安全空间，特别是在大涨之后，做交易比的是谁能活的更久。
+  interpretation: 这是对早盘09:47预警"科技股注意安全"的午盘补充确认。UP指出：①昨天的视频和早盘提示已覆盖风险预判；②市场对早盘修复存在分歧（有人看多修复、有人当卖点），这种分歧本身说明确定性不足；③核心操作纪律是不急于选择，尤其是在大涨之后需要留足安全边际。这延续了6月23日全天"风险优先于收益"的倾向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260623-004-c", "claim-20260611-006-a", "claim-20260518-014"]
+  last_discovered: 2026-06-25
+  links:
+  - claim-20260623-002-a
+  topic: 风控纪律
+  related_stocks: []
+  tags:
+  - 风控纪律
+  - 安全空间
+  - 大涨后策略
+  - 持股观望
+  - 活得更久
+- id: claim-20260623-004-b
+  source_path: sources/raw/财经/2026-06-23-1420-盘中-午盘补充-充电专属.md
+  source_date: '2026-06-23'
+  source_type: 午盘补充
+  extracted_at: '2026-06-23T20:22:33'
+  claim_type: market-cycle
+  subject: 早盘修复分歧确认市场方向不确定，多空信号并存
+  timeframe: intraday
+  statement: 早盘科技股修复后，市场存在明显多空分歧：一部分人认为科技跌不下去、修复确认强势，另一部分人将修复视为卖出机会。这种分歧本身说明当前处于方向不明确的阶段。
+  evidence_quote: 很多人在早盘还说科技跌不下去，但也有人会觉得早盘修复之后是卖点
+  interpretation: UP观察到市场对早盘科技股修复的两种对立解读，说明当前没有形成一致预期，方向不确定性高。这与前一阶段（6月上旬）"算力材料主线明确"的市场结构形成对比。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260609-005-a"]
+  contradicts: ["claim-20260617-038-c"]
+  last_discovered: 2026-06-23
+  links:
+  - claim-20260623-002-a
+  - claim-20260623-001-a
+  topic: 市场结构
+  related_stocks: []
+  tags:
+  - 市场分歧
+  - 科技股
+  - 早盘修复
+  - 方向不确定
+  - 多空博弈
+- id: claim-20260623-004-c
+  source_path: sources/raw/财经/2026-06-23-1420-盘中-午盘补充-充电专属.md
+  source_date: '2026-06-23'
+  source_type: 午盘补充
+  extracted_at: '2026-06-23T20:22:33'
+  claim_type: operation
+  subject: 时间点和价格点位不确定时不急于操作，原持仓不动更优
+  timeframe: intraday
+  statement: 在时间和价格点位都无法确认的市况下，最优操作是不急于做出新的买卖选择，维持现有持仓观望，避免因焦虑而频繁操作。
+  evidence_quote: 现在这种情况，时间和点位都确定不了，不用急于做出选择
+  interpretation: 这是具体操作指导：当判断依据不足（时间不确定、价格区间不确定）时，最理性的选择是不操作。这与UP一贯的"确定性优先"框架一致——没有确定性依据就不下注。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260426-001"]
+  contradicts: []
+  last_discovered: 2026-06-23
+  links:
+  - claim-20260623-001-n
+  topic: 操作纪律
+  related_stocks: []
+  tags:
+  - 不急于操作
+  - 确定性优先
+  - 持仓不动
+  - 观望
+  - 安全边际

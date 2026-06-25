@@ -1,0 +1,297 @@
+claims:
+- id: claim-20260623-005-a
+  source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
+  source_date: '2026-06-23'
+  source_type: 复盘
+  extracted_at: '2026-06-23T23:26:57'
+  claim_type: market-cycle
+  subject: 科技回落资金防守过渡，情绪割裂但A股调整相对克制
+  timeframe: intraday
+  statement: 6月23日指数震荡单边走弱，双创大跌，沪指跌幅较窄。超百家个股涨停同时超百家跌幅超8%，情绪割裂。但相比韩国KOSPI午后暴跌触发熔断，A股调整已算克制。
+  evidence_quote: 今日指数震荡单边走弱，双创大跌，沪指跌幅相对较窄，短线情绪割裂明显——超百家个股涨停的同时，也有超百家个股跌幅超过8%。这种上下分化、中间塌陷的盘面，是典型的情绪割裂状态。不过相比韩国KOSPI午后暴跌触发熔断，A股的调整已经算克制了。
+  interpretation: UP对6月23日盘面的定性：①情绪割裂（涨停多+跌停多并存）而非系统性恐慌；②相对KOSPI熔断，A股跌幅是相对克制的，暗示不必过度恐慌；③科技回落导致银行/大金融/医药/消费逆势走强，但非科技板块持续性需依赖增量资金。这与14:20的"安全空间"判断一致——不急于操作但也不必恐慌离场。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260610-006-b"]
+  contradicts: []
+  last_discovered: 2026-06-23
+  links:
+  - claim-20260623-004-a
+  - claim-20260623-004-b
+  topic: 当日盘面定性
+  related_stocks: []
+  tags:
+  - 情绪割裂
+  - 科技回落
+  - 防守过渡
+  - KOSPI熔断
+  - A股克制
+- id: claim-20260623-005-b
+  source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
+  source_date: '2026-06-23'
+  source_type: 复盘
+  extracted_at: '2026-06-23T23:26:57'
+  claim_type: methodology
+  subject: Token调用量环比增速是判断AI趋势的核心变量，今日回落是拥挤交易再平衡非趋势反转
+  timeframe: short-term
+  statement: 本周Token调用量周环比增速从23.5%大幅回落至4.7%，是今日科技大跌的核心归因。但远期看多Agent互联和物理AI将驱动Token消耗保持高增速（小鹏VLA车端模型推理Token消耗约等于全国数字AI日调用量的80倍），现在谈论AI见顶为时尚早。
+  evidence_quote: 目前市场上对今日科技大跌的说法大多不靠谱。个人判断，昨日公布的周度Token调用量环比增速大幅回落，可能是一个比较重要的原因——环比增长从23.5%掉到了4.7%。……面对如此迅猛的需求增长，现在谈论AI见顶或为时尚早，今日回落更接近拥挤交易的一次再平衡，而非趋势的反转。
+  interpretation: UP建立了一个新的分析框架：Token调用量增速是判断AI产业趋势的核心高频指标。①3月成为拐点是因为Agent爆发使Token调用量从7-8万亿跃升至20万亿+；②本周增速从23.5%回落至4.7%直接触发科技大跌；③远期物理AI（小鹏VLA举例）将使Token消耗量级再提升80倍，AI见顶论缺乏依据；④今日下跌定性为拥挤交易再平衡而非趋势反转。这是一个重要的增量方法论。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260529-002-b"]
+  contradicts: []
+  last_discovered: 2026-06-23
+  links: []
+  topic: Token调用量分析框架
+  related_stocks: []
+  tags:
+  - Token调用量
+  - AI见顶
+  - 拥挤交易
+  - 物理AI
+  - Agent驱动
+- id: claim-20260623-005-c
+  source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
+  source_date: '2026-06-23'
+  source_type: 复盘
+  extracted_at: '2026-06-23T23:26:57'
+  claim_type: risk
+  subject: 外部三风险叠加：美股科技回调与KOSPI熔断与美联储偏鹰，持仓松动兑现收益
+  timeframe: intraday
+  statement: 今日科技大跌的三大外部诱因：①隔夜美股科技回调（谷歌员工离职引发核心人才脆断担忧、Token降价冲击商业模式）；②KOSPI午后暴跌超8%触发熔断，恐慌情绪传导至国内，前期一致持仓松动；③美联储6月议息偏鹰，市场定价年内不降息且10月加息25bp，强美元压制非AI周期板块。
+  evidence_quote: 1.隔夜美股科技回调……谷歌两位重要员工离职……市场担心的不止谷歌本身，而是当核心员工从A跳到B，建立在少数核心人才上的竞争力，其脆弱性可能比预想的更高。2.海外恐慌传导，前期一致持仓松动……特别是经历周一放量大涨后，投资者短期有兑现收益的诉求。3.美联储6月议息偏鹰……市场目前正预期并定价年内不降息、且在10月加息25个基点。
+  interpretation: UP系统梳理了三个外部风险：①美股科技回调有结构性原因（核心人才流动+商业模式担忧），不仅是短期波动；②KOSPI熔断效应实质是持仓松动催化剂，不是根因；③美联储偏鹰延续了"不降息+强美元"压制，对非AI板块影响更大。三枚炮弹叠加造成了今日的科技大跌。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260610-006-a", "claim-20260622-004-k"]
+  last_discovered: 2026-06-25
+  links:
+  - claim-20260623-002-a
+  topic: 外部风险归因
+  related_stocks: []
+  tags:
+  - 美股科技回调
+  - KOSPI熔断
+  - 美联储偏鹰
+  - 持仓松动
+  - 强美元
+- id: claim-20260623-005-d
+  source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
+  source_date: '2026-06-23'
+  source_type: 复盘
+  extracted_at: '2026-06-23T23:26:57'
+  claim_type: operation
+  subject: 维持AI与能化杠铃结构，等待拥挤度消化后捡带血筹码
+  timeframe: short-term
+  statement: 当前策略是维持"AI核心进攻+能化/高股息防守"的杠铃结构。因为此前已经配置了防守方向，AI硬件仓位不大，实际风险没有盘面看起来那么大。不需要恐慌出逃，而是冷眼旁观等待拥挤度消化后捡带血筹码。
+  evidence_quote: 策略复述：我们一直在做的事…我判断大家的AI硬件仓位本身并不大——在这种结构下，我们的实际风险并没有盘面看起来那么大。这种时候，要做的不是恐慌出逃，而是冷眼旁观、等着捡"带血的筹码"。建议继续维持"AI+能化"的杠铃结构——AI核心进攻+能化/高股息防守。
+  interpretation: UP的核心策略思路：①前期已提醒配置防守，所以读者整体仓位结构偏防守而非全仓AI；②当前需要的是耐心而非恐慌——拥挤度消化需要时间；③"带血的筹码"暗示回踩后的低吸机会，但需要等待信号；④杠铃结构（AI进攻+能化防守）维持不变。这与14:20"不急于做出选择"的纪律一致。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-06-25
+  links:
+  - claim-20260623-004-c
+  topic: 杠铃策略维持
+  related_stocks: []
+  tags:
+  - 杠铃策略
+  - AI进攻
+  - 能化防守
+  - 带血筹码
+  - 拥挤度消化
+- id: claim-20260623-005-e
+  source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
+  source_date: '2026-06-23'
+  source_type: 复盘
+  extracted_at: '2026-06-23T23:26:57'
+  claim_type: risk
+  subject: 大级别技术调整预计未来2个月出现，控制仓位比追逐新高重要
+  timeframe: short-term
+  statement: 抛物线式上涨必然迎来抛物线式下跌。韩国股市一天涨到熔断、一天跌到熔断是最直观的例子。一个大级别的技术调整，应该在未来2个月左右能够看到。在拥挤度高位，控制仓位与节奏比追逐边际新高更重要。
+  evidence_quote: 如此快速的抛物线式上涨，必然会迎来抛物线式的下跌。韩国股市一天涨到熔断、一天跌到熔断，就是最直观的写照。……一个大级别的技术调整，应该在未来2个月左右能够看到。位置决定意义，在拥挤度高位，控制仓位与节奏比追逐边际新高更重要。
+  interpretation: UP对中期风险的明确警示：①抛物线式上涨的必然结果是抛物线式下跌（如KOSPI）；②未来2个月大概率有一次大级别调整——这是对7-8月行情的预判；③"位置决定意义"——当前已在高位拥挤区，不应用正常环境下的估值逻辑判断；④控制仓位比追逐新高优先级更高。这是对"做交易比的是谁能活得更久"的中期延伸。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20260610-009-a"]
+  last_discovered: 2026-06-23
+  links:
+  - claim-20260623-004-a
+  topic: 中期调整预警
+  related_stocks: []
+  tags:
+  - 大级别调整
+  - 抛物线风险
+  - 拥挤度高位
+  - 控制仓位
+  - 中期预警
+- id: claim-20260623-005-f
+  source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
+  source_date: '2026-06-23'
+  source_type: 复盘
+  extracted_at: '2026-06-23T23:26:57'
+  claim_type: sector-theme
+  subject: 三孚股份：光棒涨价向上游高纯四氯化硅传导，公司满负荷运行受益
+  timeframe: short-term
+  statement: 光棒价格大幅跳涨正沿产业链向上游高纯四氯化硅传导。三孚股份(603938)高纯四氯化硅满负荷运行（3万吨/年），电子级四氯化硅已实现突破（500吨/年）。自2025Q4起已进入紧缺涨价周期。
+  evidence_quote: 光棒价格的大幅跳涨，正沿产业链向上游核心原材料高纯四氯化硅环节传导。……三孚股份(603938)高纯四氯化硅目前基本满负荷运行……自2025年第四季度起，高纯四氯化硅已进入紧缺导致的涨价周期。
+  interpretation: UP点名三孚股份(603938)作为光棒涨价的上游受益标的。涨价逻辑从光纤光棒→高纯四氯化硅的传导路径清晰，且有量价双升逻辑（满负荷+涨价周期）。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-06-25
+  links:
+  - claim-20260622-002-h
+  topic: 光纤产业链上游
+  related_stocks:
+  - code: '603938'
+    name: 三孚股份
+    role: 光棒涨价上游-高纯四氯化硅-主板可交易
+  tags:
+  - 三孚股份
+  - 高纯四氯化硅
+  - 光棒涨价
+  - 涨价传导
+  - 光纤产业链
+- id: claim-20260623-005-g
+  source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
+  source_date: '2026-06-23'
+  source_type: 复盘
+  extracted_at: '2026-06-23T23:26:57'
+  claim_type: sector-theme
+  subject: 江南新材：PCB铜基材料龙头向AI液冷散热跃迁，绑定酷冷至尊入英伟达供应链
+  timeframe: short-term
+  statement: 江南新材高精密铜基散热片已直接应用于AI服务器液冷系统，深度绑定全球液冷龙头酷冷至尊（份额20-30%），间接进入英伟达供应链。2025年液冷业务营收3.09亿元同比增长921.53%，液冷是今年中报最大看点。
+  evidence_quote: 公司的高精密铜基散热片……已直接应用于AI服务器液冷系统。……深度绑定全球液冷龙头酷冷至尊（CM），份额约20–30%……液冷将是公司今年中报最大看点。
+  interpretation: UP将江南新材定位为液冷产业链新标的。逻辑：英伟达Rubin全液冷 + 四部门强制液冷政策 → 液冷刚性需求 → 江南新材绑定CM进入英伟达链条。业绩增速极快（921%），中报是验证窗口。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260623-001-i", "claim-20260605-001-f"]
+  last_discovered: 2026-06-25
+  links: []
+  topic: 液冷产业链
+  related_stocks:
+  - code: '603606'
+    name: 江南新材
+    role: 液冷散热-AI服务器-主板可交易
+  tags:
+  - 江南新材
+  - 液冷散热
+  - 酷冷至尊
+  - 英伟达供应链
+  - 中报看点
+- id: claim-20260623-005-h
+  source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
+  source_date: '2026-06-23'
+  source_type: 复盘
+  extracted_at: '2026-06-23T23:26:57'
+  claim_type: sector-theme
+  subject: 长川科技中报略超预期，受益国产算力放量与长鑫HBM扩产
+  timeframe: short-term
+  statement: 长川科技(300604)Q2单季归母净利润预计5.47-6.47亿元略超预期。受益国产算力放量（昇腾/寒武纪/海光），长鑫HBM扩产带动存储测试设备放量。公司是国内为数不多具备量产能力的测试机供应商。
+  evidence_quote: 据公司中报业绩预告，Q2单季归母净利润预计5.47–6.47亿元，略超预期。……随着国产算力崛起，华为昇腾、寒武纪、海光等持续放量……长鑫存储启动HBM扩产也将带动公司存储测试设备进入放量期。
+  interpretation: UP继续看好长川科技(300604)，此前的claim-20260623-001-j已提及中报高增110%，本次进一步细化了逻辑：①SoC测试机全球市场超120亿美元；②国产算力芯片放量（昇腾等）；③长鑫HBM扩产带动存储测试。三重驱动叠加。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260622-003-p", "claim-20260611-001-j"]
+  last_discovered: 2026-06-25
+  links:
+  - claim-20260623-001-j
+  topic: 半导体测试设备
+  related_stocks:
+  - code: '300604'
+    name: 长川科技
+    role: 国产测试机龙头-创业板不可交易
+  tags:
+  - 长川科技
+  - 半导体测试
+  - 中报预增
+  - SoC测试机
+  - 长鑫HBM
+- id: claim-20260623-005-i
+  source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
+  source_date: '2026-06-23'
+  source_type: 复盘
+  extracted_at: '2026-06-23T23:26:57'
+  claim_type: sector-theme
+  subject: 灵晟超算登顶TOP500，算力全产业链硬件软件服务协同发展
+  timeframe: short-term
+  statement: 全国产自主研制灵晟超算以2.19EFlops登顶全球TOP500，时隔九年我国超算重回第一。算力基础设施成长空间从单一服务器延伸至全产业链。鑫科材料(600255)（高速铜连接）和开勒股份(301070)（算力扩容运营）被提及。
+  evidence_quote: 机构称，算力基础设施的成长空间已从单一服务器延伸至全产业链，呈现'硬件+软件+服务'协同发展态势。相关公司方面：鑫科材料(600255)专注算力中心用高速铜连接……开勒股份(301070)孙公司豫资开勒与洛阳昇腾实验室围绕算力资源开展扩容与运营合作。
+  interpretation: 灵晟超算登顶是算力主题的新催化，但UP仅提及而非重仓推荐。标的为鑫科材料(600255)和开勒股份(301070)，都是偏边缘的算力相关标的，非核心算力龙头。这个催化的持续性需观察。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260624-001-i", "claim-20260609-005-d", "claim-20260623-005-h"]
+  last_discovered: 2026-06-25
+  links: []
+  topic: 算力基础设施
+  related_stocks:
+  - code: '600255'
+    name: 鑫科材料
+    role: 高速铜连接-算力-主板可交易
+  - code: '301070'
+    name: 开勒股份
+    role: 算力运营-创业板不可交易
+  tags:
+  - 灵晟超算
+  - TOP500
+  - 鑫科材料
+  - 开勒股份
+  - 算力基础设施
+- id: claim-20260623-005-j
+  source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
+  source_date: '2026-06-23'
+  source_type: 复盘
+  extracted_at: '2026-06-23T23:26:57'
+  claim_type: sector-theme
+  subject: VC价格再度跳涨，Q3或冲击18万至20万每吨，永太科技和石大胜华受益
+  timeframe: short-term
+  statement: VC今日再涨8000元/吨，本轮累计涨约15000元，现价约15.5万/吨。供给端新产能延期+安全限制，需求端7-9月电池厂排产走高，缺口持续放大。Q3
+    VC价格或冲击18-20万/吨。永太科技(002326)规划2028年VC总产能8万吨/年。
+  evidence_quote: 据最新行情，VC今日再涨8000元/吨，本轮累计涨约15000元，现价约15.5万/吨。……Q3 VC价格或冲击18–20万/吨。永太科技(002326)方面：据公司规划，VC已投产产能1万吨/年，在建2万吨/年，叠加本次新增5万吨/年后，2028年VC总产能将提升至8万吨/年。
+  interpretation: VC涨价逻辑持续强化：供需缺口扩大（供给受限+需求旺季），Q3有望冲击新高。永太科技(002326)是核心产能标的（规划8万吨/年），石大胜华(603026)也有受益。这是电解液涨价链条的延续。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-06-25
+  links: []
+  topic: 电解液涨价
+  related_stocks:
+  - code: '002326'
+    name: 永太科技
+    role: VC产能龙头-主板可交易
+  - code: '603026'
+    name: 石大胜华
+    role: 电解液-主板可交易
+  tags:
+  - VC涨价
+  - 电解液
+  - 永太科技
+  - 石大胜华
+  - 供需缺口

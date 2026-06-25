@@ -170,7 +170,7 @@ def process_claim(
 ) -> dict:
     """Process a single claim: find similar, judge relations, return results."""
     cid = claim.get("id", "")
-    results = {"claim_id": cid, "supersedes": [], "contradicts": [], "pairs": []}
+    results = {"claim_id": cid, "supersedes": [], "contradicts": [], "supplements": [], "pairs": []}
 
     similar = find_similar_claims(claim, qdrant, emb_model, top_k=3)
     if not similar:
@@ -199,7 +199,10 @@ def process_claim(
         elif relation == "contradicts":
             if sim["id"] not in results["contradicts"]:
                 results["contradicts"].append(sim["id"])
-
+        elif relation == "supplements":
+            if sim["id"] not in results["supplements"]:
+                results["supplements"].append(sim["id"])
+    
     return results
 
 
@@ -255,11 +258,20 @@ def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run
                     # Skip orphan list items from old YAML format
                     while i < len(lines) and lines[i].strip().startswith("- claim-"):
                         i += 1
-                    # Write last_discovered right after contradicts (avoid tags sequence conflict)
-                    if results.get("supersedes") or results.get("contradicts") or force:
+                    # Write supplements right after contradicts
+                    new_lines.append(f"{indent}supplements: {json.dumps(results.get('supplements', []))}")
+                    updated = True
+                    # Write last_discovered after supplements
+                    if results.get("supersedes") or results.get("contradicts") or results.get("supplements") or force:
                         new_lines.append(f"{indent}last_discovered: {today_str}")
                         updated = True
                         has_last_discovered = True
+                    continue
+                elif line.strip().startswith("supplements:"):
+                    # Existing supplements line — skip (re-written after contradicts above)
+                    i += 1
+                    while i < len(lines) and lines[i].strip().startswith("- claim-"):
+                        i += 1
                     continue
                 elif line.strip().startswith("last_discovered:"):
                     # Already has a last_discovered line, skip it (will re-add below)
@@ -279,7 +291,7 @@ def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run
                         if indent_guess:
                             indent = indent_guess
                         break
-                if results.get("supersedes") or results.get("contradicts") or force:
+                if results.get("supersedes") or results.get("contradicts") or results.get("supplements") or force:
                     new_lines.append(f"{indent}last_discovered: {today_str}")
                     updated = True
             continue
@@ -311,6 +323,8 @@ def main():
     parser.add_argument("--file", type=str, help="Process a single claim YAML file")
     parser.add_argument("--claim-id", type=str, help="Process a single claim by ID")
     parser.add_argument("--all-missing", action="store_true", help="Process all claims missing relations")
+    parser.add_argument("--neo4j-zero-edges", action="store_true", help="Process claims with zero SUPERSEDES/CONTRADICTS edges in Neo4j")
+    parser.add_argument("--supplements-only", action="store_true", help="Only detect and write supplements, skip supersedes/contradicts")
     parser.add_argument("--dry-run", action="store_true", help="Judge but don't write back")
     parser.add_argument("--limit", type=int, default=0, help="Max claims to process (for testing)")
     args = parser.parse_args()
@@ -358,6 +372,25 @@ def main():
                 if c.get("id"):
                     to_process.append((yf, c))
 
+    elif args.neo4j_zero_edges:
+        # Query Neo4j for claims with zero SUPERSEDES/CONTRADICTS edges
+        with neo4j.driver.session() as session:
+            result = session.run("""
+                MATCH (c:Claim)
+                WHERE NOT (c)-[:SUPERSEDES|CONTRADICTS]->()
+                RETURN c.id as id
+            """)
+            zero_edge_ids = {r["id"] for r in result}
+        print(f"Found {len(zero_edge_ids)} claims with zero edges in Neo4j")
+        claims_dir = PROJECT_ROOT / "knowledge" / "claims"
+        for yf in sorted(claims_dir.glob("*.yaml")):
+            data = yaml.safe_load(yf.read_text(encoding="utf-8"))
+            for c in _parse_claims(data):
+                if not isinstance(c, dict):
+                    continue
+                if c.get("id") in zero_edge_ids:
+                    to_process.append((yf, c))
+
     else:
         print("Please specify --file, --claim-id, or --all-missing")
         sys.exit(1)
@@ -374,17 +407,26 @@ def main():
 
         results = process_claim(claim, qdrant, neo4j, emb_model, llm, dry_run=args.dry_run)
 
+        # When --supplements-only, clear supersedes/contradicts so they don't get overwritten
+        if args.supplements_only:
+            results["supersedes"] = []
+            results["contradicts"] = []
+
         for p in results["pairs"]:
             tag = {"supersedes": "↻", "supplements": "+", "contradicts": "✗", "none": "·"}.get(p["relation"], "?")
             print(f"  {tag} {p['relation']:12s} → {p['target_id']} (sim={p['score']:.3f}) {p['reason']}")
-            if p["relation"] in ("supersedes", "contradicts"):
+            if p["relation"] in ("supersedes", "contradicts", "supplements"):
                 total_relations += 1
 
         # Always write last_discovered timestamp (even if only supplements/none found)
         write_results_to_yaml(path, cid, results, args.dry_run, force=True)
 
     neo4j.close()
-    print(f"\n✅ Done. Found {total_relations} supersedes/contradicts relations.")
+    relation_types = []
+    if not args.supplements_only:
+        relation_types.append("supersedes/contradicts")
+    relation_types.append("supplements")
+    print(f"\n✅ Done. Found {total_relations} relations ({' + '.join(relation_types)}).")
     if args.dry_run:
         print("   (dry-run mode, no files modified)")
 

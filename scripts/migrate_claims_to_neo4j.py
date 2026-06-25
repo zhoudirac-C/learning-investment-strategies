@@ -512,8 +512,27 @@ def migrate_relations():
                     },
                 )
 
+            # SUPPLEMENTS
+            supplements = claim.get("supplements", [])
+            if isinstance(supplements, str):
+                supplements = [supplements]
+            for opp_id in supplements or []:
+                if opp_id not in claim_map:
+                    continue
+                session.run(
+                    """
+                    MATCH (a:Claim {id: $a_id}), (b:Claim {id: $b_id})
+                    MERGE (a)-[:SUPPLEMENTS {reason: $reason}]->(b)
+                    """,
+                    {
+                        "a_id": cid,
+                        "b_id": opp_id,
+                        "reason": claim.get("supplements_reason", "supplement"),
+                    },
+                )
+
     driver.close()
-    print("✅ Relations migration (SUPERSEDES/CONTRADICTS) complete.")
+    print("✅ Relations migration (SUPERSEDES/CONTRADICTS/SUPPLEMENTS) complete.")
 
 
 if __name__ == "__main__":
