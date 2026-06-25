@@ -707,25 +707,6 @@ stocks:
     sector_diverged: true
     market_actionable: true
     no_consecutive_limit_up: true
-- code: 002371.SZ
-  name: 北方华创
-  direction: equipment_packaging_catchup
-  chain_position: midstream
-  human_note:
-    date: '2026-06-11'
-    type: direction_call
-    context: 半导体设备绝对龙头，板块温度计
-  entry:
-    primary_zone:
-    - 340
-    - 370
-    method: 均线法
-    hard_stop: 300.0
-  pre_condition:
-    sector_diverged: true
-    market_actionable: true
-    no_consecutive_limit_up: true
-  note: 市值4617亿弹性有限，更适合做板块温度计而非交易标的
 - code: 002156.SZ
   name: 通富微电
   direction: equipment_packaging_catchup
@@ -1569,10 +1550,10 @@ stocks:
     context: 前道设备龙头，22:16专栏+视频双提及，科创板扩围→设备需求
   entry:
     primary_zone:
-    - 693.06
-    - 746.97
+    - 716.17
+    - 754.67
     method: 板块共振法
-    hard_stop: 637.62
+    hard_stop: 658.88
   pre_condition:
     sector_diverged: true
     market_actionable: true
