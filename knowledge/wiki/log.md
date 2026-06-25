@@ -1,5 +1,14 @@
      1|# 操作日志
 
+## 2026-06-25 | qing-learning ingest | 6/25复盘：双创新高，科技独强，增量入场远未结束
+
+- 处理 raw：`sources/original/bilibili/2026-06-25-2249-图片-一、大势研判：双创新高，科技独强，增量入场远未结束 今日指数.md`（B站充电专属图片动态）
+- 背景：22:43 cron 因 `python` 未找到而执行失败，动态已拉取但未推送；脚本修复为 `python3` 后，22:53/23:03 运行因去重器判定已处理而输出为空
+- 新增 claims：`claim-20260625-003.yaml`（21条：market-cycle×3, sector-theme×5, catalyst×8, stock-view×4, operation×1）
+- 核心观点：双创创新高验证增量资金持续入场、券商突破年线是全面行情关键、存储链/被动元件/华为昇腾三方向强势、美光财报与昇腾950催化、十五五储能规划
+- 更新索引：claims/index.md、wiki/每日复盘/2026-06-25.md
+- 更新门禁：`gate_validate_claims.py` NON_COMPANY 集扩展（"科技"/"有限" 上下文假阳性）
+
 ## 2026-06-17 | qing-learning ingest | 22:37动态：半导体高位减持全景+减持主体风险区分
 
 - 处理 raw：`sources/original/bilibili/2026-06-17-2237-图片-动态-1214911656712208391.md`（B站充电专属图片动态）
