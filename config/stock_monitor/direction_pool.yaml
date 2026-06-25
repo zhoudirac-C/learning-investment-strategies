@@ -1,4 +1,4 @@
-updated_at: '2026-06-24'
+updated_at: '2026-06-25'
 directions:
 
   # ── 已在池中，补充完整 ──────────────────────────────────
@@ -396,6 +396,12 @@ directions:
     current_stage: early_direction
     industry_chain:
       upstream:
+        - segment: 洁净室工程（半导体扩产前置刚需）
+          stocks:
+            - code: 000032.SZ
+              name: 深桑达A
+          pumped: false
+          note: "UP6/24复盘：长电科技78亿临港先进封测厂→洁净室为扩产前置刚需。深桑达A为国内洁净室工程龙头，2025年该业务营收398.5亿(占总营收81%)，深度绑定长江存储/长鑫存储"
         - segment: 真空系统（干泵/腔体）
           stocks:
             - code: 002158.SZ
@@ -477,6 +483,12 @@ directions:
             - code: 002049.SZ
               name: 紫光国微
           pumped: false
+        - segment: 国产智算芯片（CPU→GPU延伸）
+          stocks:
+            - code: 000066.SZ
+              name: 中国长城
+          pumped: false
+          note: "UP6/24复盘：飞腾A1000智算芯片超预期亮相，从服务器CPU向智算芯片延展，构筑稀缺的CPU+GPU国产算力底层。天翼云基于飞腾S5000C-E以168.2分刷新SPEC Cloud IaaS 2018世界纪录"
       downstream:
         - segment: 国防/通信/工业
           stocks: []
@@ -896,6 +908,12 @@ directions:
               name: 东方锆业
           pumped: false
           note: "氧化锆为MLCC/半导体研磨介质关键材料，UP6/23早盘点名算力材料方向，小金属涨价链内扩散"
+        - segment: 高速连接器/液冷（昇腾950供应链）
+          stocks:
+            - code: 002025.SZ
+              name: 航天电器
+          pumped: false
+          note: "UP6/24复盘：子公司苏州华旃进入华为昇腾950机柜供应链，成为Cable Tray（含高速背板连接器）与液冷模组Manifold核心供应商。多家券商视2026年为业绩反转之年"
         - segment: 钼（金属钼/钼靶材）
           stocks:
             - code: 601958.SH
@@ -923,6 +941,39 @@ directions:
       sector: "板块分歧后缩量企稳；上游材料抗跌确认+液冷催化时机验证"
       timing: "非小金属集体涨停日+非上游材料集体跳水日+美光财报落地后方向明确"
     note: "UP6/23早盘：算力材料为当日最强赚钱主线含6个方向，但已近赶顶期，聚焦核心龙头或新催化方向。09:47🚨预警确认赶顶剧情出现（昨天视频讲的剧情）。UP11:28补充：非银金融炒作未脱离AI，不会有批量主升浪——进一步确认算力材料结构性行情下高度有限。核心信号：一进二晋级率需维持15%+，首板不减。若AI走弱→电力煤炭防御承接。 | UP6/24早盘更新：①氧化锆/金刚石/氮化铝在指数弱势时展现抗跌性，资金做了两手准备；②液冷获新催化但过于一致+时机不对（模仿氧化锆模式但指数配合不佳）；③一旦指数企稳，上游材料+液冷是进攻首选，功率半导体有冲高信号；④宏观变量：美元指数101为本周最重要变化，美光财报是核按钮，落地后方向明确"
+
+  # ── 6/24 复盘新增：涤纶长丝补库（中报业绩+内外需共振）────
+
+  - id: polyester_filament_refill
+    name: 涤纶长丝补库（中报业绩驱动+内外需共振）
+    current_stage: early_direction
+    industry_chain:
+      upstream:
+        - segment: PTA/原材料
+          stocks:
+            - code: 601233.SH
+              name: 桐昆股份
+          pumped: false
+          note: "头部企业协同减产'以量换价'兑现，PTA+POY单吨净利润优于过去五年中枢"
+        - segment: 涤纶长丝制造
+          stocks:
+            - code: 603225.SH
+              name: 新凤鸣
+          pumped: false
+          note: "涤纶长丝龙头，与桐昆共同受益补库周期"
+      midstream: []
+      downstream:
+        - segment: 纺织服装
+          stocks: []
+          pumped: false
+          note: "1-5月限额以上服装零售同比+7.2%，美国300亿美元关税减免预期（纺织最可能纳入）"
+    diffusion_path:
+      - "协同减产→库存降至20.7天→补库窗口打开→内外需共振"
+    pre_condition:
+      market: "全A量能>2.5万亿+非破位状态"
+      sector: "行业开工率72.6%+库存已降至20.7天低位"
+      timing: "非纺织板块集体涨停日"
+    note: "UP6/24复盘引用中邮证券。头部企业协同减产'以量换价'策略兑现。霍尔木兹海峡复通作为协同极限压力测试，行业机制经受住考验。"
 
   - id: broker_finance
     name: 券商/大金融（炒中报与补涨，结构性行情非批量主升浪）
