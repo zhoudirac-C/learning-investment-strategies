@@ -1,0 +1,522 @@
+claims:
+- id: claim-20260624-006-a
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: market-cycle
+  subject: A股科技逆势大涨独立性增强
+  timeframe: short-term
+  statement: 6月24日A股科技在隔夜美股科技大跌背景下逆势大涨，科创50再创历史新高，是一个重要的独立性信号。此前A股科技方向高度依赖美股映射，本轮节奏上国内市场已具备一定主导能力。第25周中国厂商占平台Token调用量约50.14%（美国36.71%），中国连续八周稳居全球首位，且回调中中国厂商韧性更足。
+  evidence_quote: 今天A股科技在隔夜美股科技大跌的背景下逆势大涨，是一个重要信号。此前A股科技方向定价高度依赖美股映射，本轮虽非完全独立行情，但从节奏上看国内市场已具备一定的主导能力。据公开数据，第25周中国厂商占平台总Token调用量约50.14%，美国厂商约36.71%，中国已连续八周稳居全球首位，且本周回调中中国厂商韧性更足。
+  interpretation: UP在隔夜美股科技大跌的背景下，判断6/24A股科技逆势大涨具有标志性意义：①不再单纯是美股映射的跟风盘，节奏上已具备一定独立性；②中国AI算力Token调用量全球占比连续八周第一，为独立行情提供了基本面的支撑证据；③这是市场结构的质变而非单日行情，意味着A股科技从"跟涨跟跌"向"主导节奏"过渡的潜在拐点。注意UP措辞"虽非完全独立行情"——仍保留谨慎，非断言完全脱钩。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20260607-004-d"]
+  supplements: ["claim-20260617-026-c", "claim-20260608-001-c"]
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A股科技独立性拐点信号
+  related_stocks: []
+  tags:
+  - A股独立性
+  - 科技逆势
+  - 科创50新高
+  - 中美算力对比
+  - Token调用量
+
+- id: claim-20260624-006-b
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: sector-theme
+  subject: 国产算力缺芯主线需更加重视
+  timeframe: trend
+  statement: 国内AI与算力产业链的核心薄弱点是"缺芯"，后市对国产算力产业链要更加重视。这契合"指数定环境·板块定方向·个股定时点"框架：环境偏暖、方向锁定国产算力，剩下是个股时点问题。此轮科技反弹集中在AI硬件上游物料（电子布、铜箔、四氯化硅、磷化铟衬底），多数辨识度标的完成反包。
+  evidence_quote: 国内在AI与算力产业链上的薄弱点也非常明确——缺芯。因此后市对国产算力产业链这一块要更加重视，这也契合"指数定环境·板块定方向·个股定时点"的框架：环境偏暖、方向锁定国产算力，剩下的是个股时点问题。板块层面，科技迎来大面积修复，且修复力度相当不错，多数辨识度标的完成反包。算力硬件方面，存储、PCB、光通信、MLCC概念震荡反弹——其中存储受三星电子大涨刺激掀起涨停潮，其余分支的上涨集中在电子布、铜箔、四氯化硅、磷化铟衬底等上游物料。
+  interpretation: UP明确了当前的核心主线：①缺芯是国内AI算力的最薄弱环节，也是国产替代的核心驱动力；②方向从模糊的"科技"收窄为明确的"国产算力产业链"；③本轮科技反弹的资金流向清晰——集中在AI硬件上游物料（铲子逻辑），而非普涨。这是"方向锁定"级别的判断，为后续择股提供了明确的产业锚点。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260609-005-d"]
+  contradicts: []
+  supplements: ["claim-20260622-001-c", "claim-20260622-004-c"]
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国产算力缺芯主线锁定
+  related_stocks: []
+  tags:
+  - 国产算力
+  - 缺芯
+  - AI硬件上游
+  - 铲子逻辑
+  - 方向锁定
+
+- id: claim-20260624-006-c
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: methodology
+  subject: 位置决定意义：科创50新高下环境偏暖但极致分化
+  timeframe: short-term
+  statement: 当前"位置决定意义"——科创50新高之下，环境偏暖，方向已明确锁定国产算力产业链（缺芯主线），但极致分化意味着只有业绩与产业逻辑兼备的辨识度标的才有持续性，小微盘失血提示普涨不可期。
+  evidence_quote: 个人判断：当前"位置决定意义"——科创50新高之下，环境偏暖，方向已明确锁定国产算力产业链（缺芯主线），但极致分化意味着只有业绩与产业逻辑兼备的辨识度标的才有持续性，小微盘失血提示普涨不可期。
+  interpretation: UP提出了一个方法论框架"位置决定意义"：①市场环境（科创50新高）=偏暖可操作；②方向已锁定（国产算力）≠所有标的都能涨；③极致分化下只有辨识度标的（业绩+产业逻辑双确认）才有持续性；④小微盘失血是重要提示——不要误判为普涨格局。这是一个从"方向判断"到"选股质量"的进阶过滤逻辑。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260609-005-f", "claim-20260622-001-c", "claim-20260622-004-c"]
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 位置决定意义：环境偏暖但精选标的
+  related_stocks: []
+  tags:
+  - 位置决定意义
+  - 极致分化
+  - 辨识度标的
+  - 业绩确定性
+  - 选股过滤
+
+- id: claim-20260624-006-d
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: sector-theme
+  subject: 半导体涨价从先进制程向成熟制程传导
+  timeframe: trend
+  statement: 半导体由先进制程涨价向成熟制程（功率/存储/模拟）传导的逻辑正在打开。受台积电先进制程代工全线涨价催化，晶圆代工、半导体设备及材料、封装测试各分支全面开花。二线带存储/功率逻辑的晶圆厂（如燕东微、华润微、晶合集成）后续弹性值得跟踪。
+  evidence_quote: 半导体由先进制程涨价向成熟制程（功率/存储/模拟）传导的逻辑正在打开，二线带存储/功率逻辑的晶圆厂（如燕东微、华润微、晶合集成）后续弹性值得跟踪。受台积电先进制程代工全线涨价催化，晶圆代工、半导体设备及材料、封装测试各分支全面开花。
+  interpretation: UP判断涨价传导路径：台积电先进制程涨价→代工产能溢出→成熟制程（功率/存储/模拟）接棒涨价。这是产业链涨价逻辑的纵向扩散，意味着机会不仅限于先进封装和设备材料，功率/模拟/存储等成熟制程领域也有传导空间。提及的二线晶圆厂（燕东微688028科创板不可交易、华润微688396科创板不可交易、晶合集成688249科创板不可交易）用户均不可直接交易，但可作为景气度观测指标。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260611-001-e", "claim-20260622-003-f"]
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体涨价传导：先进制程→成熟制程
+  related_stocks: []
+  tags:
+  - 半导体涨价
+  - 先进制程
+  - 功率半导体
+  - 涨价传导
+  - 晶圆代工
+
+- id: claim-20260624-006-e
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: operation
+  subject: 右侧确认+杠铃配置+避免左侧抄底
+  timeframe: short-term
+  statement: 操作上坚持右侧确认，避免在情绪高点对抛物线式标的左侧抄底。维持杠铃配置，对涨幅过大的算力硬件保持一份警惕，等待结构性分化兑现。大金融的间歇性入场可作为指数维稳的观察窗口。
+  evidence_quote: 节奏上仍坚持右侧确认，避免在情绪高点对已经抛物线式的标的左侧抄底。大金融的间歇性入场可作为指数维稳的观察窗口。结构上维持的杠铃配置，对涨幅过大的算力硬件保持一份警惕，等待结构性的分化兑现。
+  interpretation: UP给出了三条明确的操作纪律：①只做右侧确认——不在上涨高潮时追买或左侧抄抛物线式标的；②维持杠铃配置——两头配置（一头进攻一头防守），对算力硬件已经涨幅过大的部分警惕；③大金融间歇性入场≠追金融，而是作为观察窗口判断指数是否维稳。整体偏防守型操作——方向明确但不过度激进。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260610-037-a", "claim-20260622-001-h", "claim-20260609-005-f"]
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 右侧确认+杠铃配置操作纪律
+  related_stocks: []
+  tags:
+  - 右侧确认
+  - 杠铃配置
+  - 避免左侧
+  - 操作纪律
+  - 大金融观察
+
+- id: claim-20260624-006-f
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: sector-theme
+  subject: mSAP工艺紧缺：PCB精度三年内由30μm向5μm跨越
+  timeframe: trend
+  statement: mSAP（半加成法）是高端PCB制造主流选择，伴随PCB高频高速趋势规模化应用。核心催化为英伟达CoWoP封装路线取消传统基板、芯片模组直接焊接至HDI PCB主板。2027-2028年有望迎来亚10μm技术成熟，2030年达5μm规模化应用。关注PCB厂商（鹏鼎控股、深南电路、兴森科技、沪电股份、景旺电子），上游设备材料国产替代（方邦股份、芯碁微装、东威科技等）。
+  evidence_quote: mSAP（半加成法）是高端PCB制造的主流选择，将伴随PCB高频高速趋势规模化应用，当前具备mSAP能力的厂商均在扩产。核心催化在于2025年7月英伟达流出的CoWoP封装路线图——取消传统封装基板、将芯片模组直接焊接至高密度PCB主板。2027–2028年有望迎来亚10μm技术的成熟与规模化，到2030年实现5μm/5μm线宽线距的规模化应用。
+  interpretation: 据国海证券，非UP独立判断。mSAP是PCB产业链从"传统基板"到"高密度主板"的结构性跃迁，AI服务器是核心驱动力。UP在此处引用机构研报，主要是提供产业链标的清单。注意标的中有多个科创板/创业板不可交易标的，主板可交易标的包括鹏鼎控股(002938)、深南电路(002916)、兴森科技(002436)、沪电股份(002463)、景旺电子(603228)。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260525-003"]
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: mSAP工艺紧缺与PCB产业链
+  related_stocks:
+  - code: '002938'
+    name: 鹏鼎控股
+    role: PCB-主板可交易
+  - code: '002916'
+    name: 深南电路
+    role: PCB-主板可交易
+  - code: '002436'
+    name: 兴森科技
+    role: PCB-主板可交易
+  - code: '002463'
+    name: 沪电股份
+    role: PCB-主板可交易
+  - code: '603228'
+    name: 景旺电子
+    role: PCB-主板可交易
+  tags:
+  - mSAP
+  - PCB
+  - AI服务器
+  - CoWoP
+  - 上游材料
+
+- id: claim-20260624-006-g
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: sector-theme
+  subject: MLCC超级周期：原厂全品类涨价，缺口至少到2028年
+  timeframe: trend
+  statement: MLCC行业迎来新一轮超级周期。2026年4月以来渠道全品类均价已涨30%-70%，原厂料三季度开启第一波30%-50%全品类涨价。核心驱动来自AI服务器VR200单机柜MLCC价值量从1530美元暴涨182%至4320美元，数量由32万颗增至57万颗以上。本轮景气至少延续至2028年（乐观至2030年），显著长于2018年仅8个月的周期。核心公司：三环集团、风华高科、火炬电子。
+  evidence_quote: MLCC行业迎来新一轮超级周期。2026年4月以来渠道全品类均价已涨30%–70%，紧缺料号达2–3倍以上，原厂预计三季度开启第一波30%–50%的全品类涨价。核心驱动来自AI服务器需求爆发：VR200单机柜MLCC价值量从1530美元暴涨182%至4320美元。本轮景气至少延续至2028年（乐观至2030年），显著长于2018年仅8个月的周期。
+  interpretation: 据国信证券，非UP独立判断。MLCC超级周期区别于2018年短期周期（仅8个月），本轮有AI服务器需求的结构性驱动（VR200价值量+182%），至少到2028年。核心逻辑：消费产线转产AI存在5-10倍"折算效率"损耗，叠加日韩龙头将15%-30%消费产能切向服务器，供给持续收紧。主板可交易标的：风华高科(000636)、火炬电子(603678)；三环集团(300408)为创业板不可交易。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: MLCC超级周期与AI服务器驱动
+  related_stocks:
+  - code: '000636'
+    name: 风华高科
+    role: MLCC-主板可交易
+  - code: '603678'
+    name: 火炬电子
+    role: MLCC-主板可交易
+  tags:
+  - MLCC
+  - 超级周期
+  - AI服务器
+  - 涨价
+  - 风华高科
+
+- id: claim-20260624-006-h
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: sector-theme
+  subject: 大渡河水电集中兑现，两大股东直接受益
+  timeframe: trend
+  statement: 6月20日大渡河金川水电站全容量投产（总装机86万千瓦，年发电约35亿度），标志增量水电开发最快流域进入集中兑现期。国能大渡河在建装机424万千瓦，其中352万千瓦集中于2025-2026年投产，全部投产后装机规模跳涨约37%，潜在利润增量超10亿。两大股东直接受益：国电电力（持股80%，股息率约4.62%）、川投能源（PE-TTM仅14.70倍，处2021年以来估值分位数4.60%）。
+  evidence_quote: 6月20日大渡河金川水电站全容量投产（总装机86万千瓦，年发电约35亿度），标志增量水电开发最快流域进入集中兑现期。国能大渡河在建装机424万千瓦，其中352万千瓦集中于2025–2026年投产，全部投产后装机规模跳涨约37%，潜在利润增量超10亿。两大股东直接受益：国电电力（持股80%，煤电一体化优势突出，承诺2025–2027年分红不低于净利润60%，对应股息率约4.62%）；川投能源（PE-TTM仅14.70倍，处于2021年以来估值分位数4.60%）。
+  interpretation: 据长江证券，非UP独立判断。大渡河水电集中兑现的逻辑是装机规模跳涨37%带来的利润弹性+高股息防御属性。国电电力(600795)以股息率约4.62%为核心吸引力，川投能源(600674)以低估值（PE 14.7x，历史分位4.60%）为核心吸引力。两者均为主板可交易标的，在当前极致分化行情中具备防御配置价值。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大渡河水电集中兑现
+  related_stocks:
+  - code: '600795'
+    name: 国电电力
+    role: 水电-主板可交易
+  - code: '600674'
+    name: 川投能源
+    role: 水电-主板可交易
+  tags:
+  - 大渡河
+  - 水电
+  - 国电电力
+  - 川投能源
+  - 防御配置
+
+- id: claim-20260624-006-i
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: sector-theme
+  subject: 涤纶长丝补库窗口：库存低位+内外需共振
+  timeframe: trend
+  statement: 头部企业协同减产的"以量换价"策略正在兑现。6月18日行业开工率72.6%、库存天数降至20.7天，PTA+POY单吨净利润优于过去五年中枢。霍尔木兹海峡复通构成协同极限压力测试，经受住考验。叠加1-5月服装鞋帽零售累计同比增长7.2%，以及美国至少300亿美元"非敏感商品"关税减免预期（纺织服装最可能纳入），内外需共振有望开启补库行情。关注桐昆股份、新凤鸣。
+  evidence_quote: 头部企业协同减产的"以量换价"策略正在兑现。6月18日行业开工率72.6%、库存天数降至20.7天，PTA+POY单吨净利润优于过去五年中枢。霍尔木兹海峡复通构成一次协同极限压力测试，原油下跌冲击下行业协同机制经受住考验。叠加2026年1–5月限额以上服装鞋帽针纺织品零售累计同比增长7.2%，以及美国至少300亿美元"非敏感商品"关税减免预期（纺织服装最可能纳入），内外需共振有望开启补库行情。关注桐昆股份、新凤鸣。
+  interpretation: 据中邮证券，非UP独立判断。涤纶长丝补库逻辑的核心验证点是行业协同机制的有效性——原油下跌是协同极限压力测试，头部企业抗住了。内外需共振（国内7.2%零售增长+美国关税减免预期）为需求端提供双重支撑。主板可交易标的：桐昆股份(601233)、新凤鸣(603225)。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 涤纶长丝补库窗口
+  related_stocks:
+  - code: '601233'
+    name: 桐昆股份
+    role: 涤纶长丝-主板可交易
+  - code: '603225'
+    name: 新凤鸣
+    role: 涤纶长丝-主板可交易
+  tags:
+  - 涤纶长丝
+  - 补库
+  - 以量换价
+  - 关税减免
+  - 桐昆股份
+
+- id: claim-20260624-006-j
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: sector-theme
+  subject: 先进封装产业链重新定价：CoWoS占芯片成本21%-25%
+  timeframe: trend
+  statement: 先进封装产业链正在被重新定价。CoWoS及配套测试环节价值量已接近先进制程芯片制造，占芯片成本结构21%-25%，产业链价值分配正在重构。叠加美国对晶圆代工与封测的尽调强化，本土订单加速转移。受益标的：长电科技、通富微电、华天科技；设备端北方华创、中微公司等。
+  evidence_quote: CoWoS及配套测试环节价值量已接近先进制程芯片制造，占芯片成本结构21%–25%，产业链价值分配正在重构；叠加美国对晶圆代工与封测的尽调强化，本土订单加速转移。行情上长电科技涨停（3天2板），通富微电、甬矽电子大涨。
+  interpretation: 据国盛、东吴证券。先进封装价值量重构的核心逻辑：CoWoS不再是简单"封装"环节，而是占芯片成本21-25%的高价值环节。美国尽调强化加速本土订单转移，长电科技(600584)涨停（3天2板）是市场对这一逻辑的认可。主板可交易标的：长电科技(600584)、通富微电(002156)、华天科技(002185)、北方华创(002371)。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260616-009-s", "claim-20260603-004-f", "claim-20260525-015"]
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 先进封装产业链价值重估
+  related_stocks:
+  - code: '600584'
+    name: 长电科技
+    role: 先进封装-主板可交易
+  - code: '002156'
+    name: 通富微电
+    role: 先进封装-主板可交易
+  - code: '002185'
+    name: 华天科技
+    role: 先进封装-主板可交易
+  - code: '002371'
+    name: 北方华创
+    role: 半导体设备-主板可交易
+  tags:
+  - 先进封装
+  - CoWoS
+  - 长电科技
+  - 价值重估
+  - 本土订单转移
+
+- id: claim-20260624-006-k
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: sector-theme
+  subject: 航天电器进入华为昇腾950供应链，2026年业绩反转之年
+  timeframe: trend
+  statement: 航天电器子公司苏州华旃已进入华为昇腾950机柜供应链，成为Cable Tray（含高速背板连接器）与液冷模组Manifold核心供应商，并公布高速模组扩产计划。昇腾950下半年批量上市，多家券商视2026年为业绩反转之年。
+  evidence_quote: 航天电器：据国信、华鑫证券，子公司苏州华旃已进入华为昇腾950机柜供应链，成为Cable Tray（含高速背板连接器）与液冷模组Manifold核心供应商，并公布高速模组扩产计划。昇腾950下半年批量上市，或正处爆发前夕；多家券商视2026年为业绩反转之年。
+  interpretation: UP引用国信、华鑫证券研报，但将其作为产业要点单独列出，重要性较高。航天电器(002025)通过子公司切入昇腾950供应链，高速背板连接器+液冷模组是AI服务器核心组件。昇腾950下半年批量上市是关键催化。主板可交易。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260605-001-g"]
+  contradicts: []
+  supplements: ["claim-20260611-001-p"]
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 航天电器昇腾950供应链
+  related_stocks:
+  - code: '002025'
+    name: 航天电器
+    role: 华为昇腾供应链-主板可交易
+  tags:
+  - 航天电器
+  - 昇腾950
+  - 高速连接器
+  - 液冷
+  - 业绩反转
+
+- id: claim-20260624-006-l
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: sector-theme
+  subject: 深桑达A半导体洁净室工程龙头受益扩产潮
+  timeframe: trend
+  statement: 长电科技6月24日晚公告拟投资78亿元在上海临港建设高端先进封测厂。洁净室工程通常占晶圆/封测厂总投资的20%-30%，为半导体扩产"前置刚需"。深桑达A为国内洁净室工程龙头，2025年该业务营收398.5亿元（占总营收81.04%），海外订单同比大增177%，深度绑定长江存储、长鑫存储。
+  evidence_quote: 深桑达A：长电科技6月24日晚公告拟投资78亿元在上海临港建设高端先进封测厂。洁净室工程通常占晶圆/封测厂总投资的20%–30%，为半导体扩产"前置刚需"。深桑达A为国内洁净室工程龙头，2025年该业务营收398.5亿元（占总营收81.04%），海外订单同比大增177%，深度绑定长江存储、长鑫存储。
+  interpretation: 长电78亿临港封测厂是催化，深桑达A(000032)作为洁净室龙头是"卖铲子"逻辑：①洁净室占总投资20-30%，长电78亿对应约15.6-23.4亿洁净室需求；②海外订单同比+177%是额外弹性；③深度绑定存储大厂（长江存储、长鑫存储）。主板可交易。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260518-024", "claim-20260623-001-j", "claim-20260623-005-h"]
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 深桑达A洁净室工程龙头
+  related_stocks:
+  - code: '000032'
+    name: 深桑达A
+    role: 洁净室工程-主板可交易
+  tags:
+  - 深桑达A
+  - 洁净室
+  - 长电科技
+  - 半导体扩产
+  - 铲子逻辑
+
+- id: claim-20260624-006-m
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: sector-theme
+  subject: 中国长城飞腾A1000智算芯片超预期，GPU新标的
+  timeframe: trend
+  statement: 中国长城飞腾A1000智算芯片超预期亮相，从服务器CPU向智算芯片延展，构筑稀缺的CPU+GPU国产算力底层。天翼云基于飞腾S5000C-E以168.2分刷新SPEC Cloud IaaS 2018世界纪录。服务器电源国内TOP1，关注下半年超节点放量弹性。
+  evidence_quote: 中国长城（GPU新标的）：飞腾A1000智算芯片超预期亮相，从服务器CPU向智算芯片延展，构筑稀缺的CPU+GPU国产算力底层；天翼云基于飞腾S5000C-E以168.2分刷新SPEC Cloud IaaS 2018世界纪录；服务器电源国内TOP1，关注下半年超节点放量弹性。
+  interpretation: UP将中国长城(000066)定位为"GPU新标的"，核心逻辑：①飞腾从CPU向智算芯片（A1000）延伸，形成CPU+GPU双底层能力；②天翼云破纪录验证了飞腾服务器芯片的性能；③服务器电源国内第一提供额外弹性。主板可交易。这是一个从"信创CPU"到"国产算力GPU"的认知升级。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中国长城GPU新标的
+  related_stocks:
+  - code: '000066'
+    name: 中国长城
+    role: CPU+GPU算力-主板可交易
+  tags:
+  - 中国长城
+  - 飞腾A1000
+  - GPU
+  - 国产算力
+  - 服务器电源
+
+- id: claim-20260624-006-n
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: sector-theme
+  subject: 功率/模拟芯片涨价潮：国际巨头7月新价生效
+  timeframe: trend
+  statement: 德州仪器、英飞凌、意法半导体相继发函涨价，新价7月1日生效。国产扬杰科技、新洁能等跟进。AI服务器/数据中心电源管理与高压信号链涨幅15%-25%，工业储能隔离10%-15%。中国银河认为8英寸BCD产能刚性紧缺、DrMOS供需趋紧，板块有望持续走强。关注捷捷微电、杰华特。
+  evidence_quote: 功率/模拟芯片涨价：德州仪器、英飞凌、意法半导体相继发函，新价7月1日生效；国产扬杰科技、新洁能等跟进。AI服务器/数据中心电源管理与高压信号链涨幅15%–25%，工业储能隔离10%–15%。中国银河认为8英寸BCD产能刚性紧缺、DrMOS供需趋紧，板块有望持续走强。关注捷捷微电、杰华特。
+  interpretation: UP引用中国银河研报。功率/模拟芯片涨价是半导体涨价从先进制程向成熟制程传导的具体体现。国际巨头（TI/英飞凌/ST）率先发函→国产跟进（扬杰科技300373创业板不可交易、新洁能605111主板可交易）。关注标的捷捷微电(300623创业板不可交易)、杰华特(688141科创板不可交易)，用户均不可直接交易，但可作为板块景气度的观察标的。涨价幅度明确（15-25% AI电源管理，10-15%工业储能），是基本面改善的量化证据。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260609-005-c"]
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 功率/模拟芯片涨价潮
+  related_stocks:
+  - code: '605111'
+    name: 新洁能
+    role: 功率芯片-主板可交易
+  tags:
+  - 功率芯片
+  - 模拟芯片
+  - 涨价
+  - TI
+  - 成熟制程传导
+
+- id: claim-20260624-006-o
+  source_path: sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md
+  source_date: '2026-06-24'
+  source_type: 专栏
+  extracted_at: '2026-06-25'
+  claim_type: sector-theme
+  subject: 人形机器人商业化加速：宇树R1降价+2030年150亿美元市场
+  timeframe: trend
+  statement: 宇树R1官方售价由3.99万元下调至2.99万元起并开放现货。摩根士丹利预计中国人形机器人市场2030年达150亿美元，行业进入"早期商业化"阶段。关注中控技术、凌云光（联合宇树推具身智能动捕方案）。
+  evidence_quote: 人形机器人：宇树R1官方售价由3.99万元下调至2.99万元起并开放现货。摩根士丹利预计中国人形机器人市场2030年达150亿美元、行业进入"早期商业化"阶段。关注中控技术（入股浙江人形机器人创新中心）、凌云光（联合宇树推具身智能动捕方案）。
+  interpretation: UP在复盘末尾简短提及人形机器人方向，核心信号是宇树R1降价25%（3.99→2.99万）+开放现货，标志人形机器人从"样品展示"进入"早期商业化"。摩根士丹利2030年150亿美元市场预测提供远期空间。提及标的中控技术(688777科创板不可交易)、凌云光(688400科创板不可交易)，用户均不可直接交易，但可作为板块景气度观测指标。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260610-006-j", "claim-20260608-004-h", "claim-20260607-004-o"]
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 人形机器人商业化加速
+  related_stocks: []
+  tags:
+  - 人形机器人
+  - 宇树R1
+  - 商业化
+  - 早期阶段
+  - 150亿美元市场

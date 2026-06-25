@@ -157,7 +157,14 @@
 - 新增 claims：`claim-20260623-003.yaml`（1条：sector-theme×1）
 - 核心观点：券商涨的基本是湖北券商和长鑫长存相关，非银炒作未脱离AI方向，不会有批量主升浪，资金很聪明功夫要下足
 
-## 2026-06-24 | qing-learning ingest | K线技术教学视频：两根K线吞没形态
+## 2026-06-24 | qing-learning ingest | 复盘专栏：科创独行，结构分化至极致
+
+- 处理 raw：`sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md`
+- 新增 claims：`claim-20260624-006.yaml`（15条：market-cycle×1，sector-theme×5，methodology×1，stock-view×5，macro×1，general×2）
+- 核心观点：A股科技逆势大涨独立性信号→方向锁定国产算力（缺芯主线）；半导体涨价从先进制程向成熟制程传导；四条产业链研报（mSAP/MLCC/水电/涤纶长丝）；强势股复盘（先进封装/检测/光通信）；"位置决定意义"操作框架
+---
+
+2026-06-24 | qing-learning ingest | K线技术教学视频：两根K线吞没形态
 
 - 处理 raw：`sources/raw/财经/两根K线吞没形态.md`（UP技术分析教学视频总结笔记）
 - 新增 claims：`claim-20260624-005.yaml`（9条：technical-knowledge×6， operation×2， risk×1）
