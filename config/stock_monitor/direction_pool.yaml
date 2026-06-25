@@ -446,11 +446,16 @@ directions:
           pumped: false
         - segment: 封测服务
           stocks:
+            - code: 600584.SH
+              name: 长电科技
             - code: 002156.SZ
               name: 通富微电
+            - code: 002185.SZ
+              name: 华天科技
             - code: 000021.SZ
               name: 深科技
           pumped: false
+          note: "UP6/24复盘长电3天2板+78亿临港封测厂。6/25早盘CoPoS替代CoWoS新叙事。华天科技为封测第三极，跟随长电扩散"
       downstream:
         - segment: 晶圆代工/IDM
           stocks: []

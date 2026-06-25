@@ -1794,3 +1794,42 @@ stocks:
     sector_diverged: true
     market_actionable: true
     no_consecutive_limit_up: true
+
+- code: 600584.SH
+  name: 长电科技
+  direction: equipment_packaging_catchup
+  chain_position: midstream
+  human_note:
+    date: '2026-06-25'
+    type: signal_confirmation
+    context: UP6/24复盘：封测龙头，3天2板涨停，78亿临港先进封测厂。6/25早盘CoPoS替代CoWoS直接受益。当前涨停中不追涨，等缩量分歧回踩
+  entry:
+    primary_zone:
+    - 95.0
+    - 100.0
+    method: 涨停回踩法（昨日涨停94.70～今日开盘100.00）
+    hard_stop: 90.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+  note: 6/25当前涨停中(104.17)，不开盘追。等缩量分歧回踩再考虑
+
+- code: 002185.SZ
+  name: 华天科技
+  direction: equipment_packaging_catchup
+  chain_position: midstream
+  human_note:
+    date: '2026-06-25'
+    type: direction_call
+    context: UP6/24复盘+6/25早盘：封测第三极，跟随长电+通富扩散。CoPoS受益，板块内跟涨品种
+  entry:
+    primary_zone:
+    - 19.5
+    - 21.0
+    method: 均线法（近期调整低位支撑）
+    hard_stop: 18.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
