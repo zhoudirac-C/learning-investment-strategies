@@ -157,6 +157,13 @@
 - 新增 claims：`claim-20260623-003.yaml`（1条：sector-theme×1）
 - 核心观点：券商涨的基本是湖北券商和长鑫长存相关，非银炒作未脱离AI方向，不会有批量主升浪，资金很聪明功夫要下足
 
+2026-06-25 | qing-learning ingest | 早盘：开盘缩量这张安全牌—半导体接棒—PCE之夜
+
+- 处理 raw：`sources/raw/财经/2026-06-25-早盘-开盘缩量这张安全牌-半导体接棒-PCE之夜.md`
+- 新增 claims：`claim-20260625-001.yaml`（11条：market-cycle×2, technical-signal×1, operation×1, macro×1, sector-theme×2, catalyst×3, stock-view×1）
+- 核心观点：开盘缩量安全牌（6月第4次）；KOSPI替代美股成为A股新参考系；上证日线高9对科技影响有限；科技修复力度是今日观察锚点；半导体可能接棒Rubin新主线；医药定位防御过渡；美光超预期+SK海力士IPO+先进封装CoPoS催化
+---
+
 ## 2026-06-24 | qing-learning ingest | 复盘专栏：科创独行，结构分化至极致
 
 - 处理 raw：`sources/original/bilibili/2026-06-24-2219-图片-一、大势研判：科创独行，结构分化至极致 今日指数低开高走，午.md`
