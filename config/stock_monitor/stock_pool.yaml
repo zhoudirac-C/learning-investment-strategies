@@ -1775,3 +1775,22 @@ stocks:
     sector_diverged: true
     market_actionable: true
     no_consecutive_limit_up: true
+
+- code: 603259.SH
+  name: 药明康德
+  direction: pharmaceutical_innovation
+  chain_position: midstream
+  human_note:
+    date: '2026-06-25'
+    type: direction_call
+    context: 6/25早盘：医药=防御过渡锚点，非逻辑反转。CXO龙头，缩量分歧布局而非追涨
+  entry:
+    primary_zone:
+    - 100.0
+    - 107.0
+    method: 均线法（MA20+跳空前支撑）
+    hard_stop: 95.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
