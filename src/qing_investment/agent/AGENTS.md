@@ -117,7 +117,7 @@ nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8
 | `market_analyst` | `graph/nodes.py` | ✅ | 板块数据可用性守卫、framework 显式加载、**推理模式匹配（Embedding召回+LLM重排序）**、动态分析框架片段注入、时效性自检 |
 | `stock_analyst` | `graph/nodes.py` | ✅ | 个股分析 JSON 字段、外部标的业务校验（DuckDuckGo） |
 | `synthesize` | `graph/nodes.py` | ❌ | 草稿拼接、【参考来源】注入、持仓计划注入 |
-| `style_writer` | `graph/nodes.py` | ✅ | UP 人格 prompt、口头禅、强制保留来源标注 |
+| `style_writer` | `graph/nodes.py` | ✅ | UP 人格 prompt、口吻风格化、强制保留来源标注 |
 | `reviewer` | `graph/nodes.py` | ✅ | 禁用词检测、claims 引用验证、citation 缺失检查（最多3次打回） |
 
 ### 4.2 修改节点时的 checklist
@@ -139,7 +139,7 @@ nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8
 | `market_analyst.txt` | 大盘/板块分析主 prompt（含 `{analysis_framework}` 占位符） | 低（方法论规则稳定） |
 | `market_analysis_framework.txt` | **11 项分析框架片段**（输出格式规范） | 低（仅当 framework 输出格式变化时同步更新） |
 | `stock_analyst.txt` | 个股地位/多空证据 + 外部校验指令 | 低 |
-| `style_writer.txt` | UP 口吻风格化 | 中（口头禅、语气调整） |
+| `style_writer.txt` | UP 口吻风格化 | 中（语气调整） |
 | `reviewer.txt` | 事实核查 + citation 检查 | 低 |
 | `trader_mindset.txt` | 交易心态/纪律提醒 | 低 |
 | `cron_opening.txt` | 盘前开盘确认 prompt | 中 |
@@ -415,7 +415,7 @@ parse_query → retrieve_knowledge → market_analyst → synthesize → style_w
 2. **`retrieve_knowledge`** — Qdrant 召回 claims(12条) + wiki(10条)，mem0 用户记忆(2条)，sector_ctx 板块上下文(3条)；检测 claim 时效性和冲突
 3. **`market_analyst`** — ✅ **核心分析节点**：加载推理模式匹配（ONNX Embedding 召回 + LLM rerank）、显式注入分析 framework 片段、生成结构化 `market_context`
 4. **`synthesize`** — 拼接草稿、注入【参考来源】、持仓计划
-5. **`style_writer`** — UP 口吻风格化（人格 prompt + 口头禅），强制保留来源标注
+5. **`style_writer`** — UP 口吻风格化（人格 prompt），强制保留来源标注
 6. **`reviewer`** — 事实核查、禁用词检测、citation 检查（最多 3 次打回）
 7. 返回 `TriggerResponse`
 
