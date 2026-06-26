@@ -1,10 +1,10 @@
-updated_at: '2026-06-25'
+updated_at: '2026-06-26'
 directions:
 
   # ── 已在池中，补充完整 ──────────────────────────────────
 
   - id: mlcc_super_cycle
-    name: MLCC被动元件超级周期（AI驱动结构性缺货）
+    name: MLCC被动元件超级周期（AI驱动结构性缺货，6/25电RAM逻辑确认）
     current_stage: diverging
     industry_chain:
       upstream:
@@ -18,6 +18,12 @@ directions:
             - code: 605376.SH
               name: 博迁新材
           pumped: true
+        - segment: 铝电解电容/薄膜电容/超级电容
+          stocks:
+            - code: 002484.SZ
+              name: 江海股份
+          pumped: true
+          note: "6/25晚间：江海股份发布涨价函覆盖铝电解、薄膜、超级电容三大品类；尼吉康全线调涨铝电解电容"
       midstream:
         - segment: MLCC制造
           stocks:
@@ -28,14 +34,16 @@ directions:
             - code: 603678.SH
               name: 火炬电子
           pumped: true
+          note: "6/25晚间：GB300 NVL72单柜MLCC约44万颗，VR200约60万颗，Rubin Ultra NVL576预计430万颗；高端MLCC价格飙升"
       downstream:
         - segment: 消费电子/汽车/AI服务器
           stocks: []
           pumped: false
     diffusion_path:
       - "MLCC → 被动元件整体 → PCB上游材料"
+      - "6/25新增：电容沿需求暴增→产能转向高端→中低端紧缩→价格反向传导，复制存储涨价路径"
     pre_condition:
-      market: "全A量能>3万亿+非破位状态"
+      market: "全A量能>3万亿+非破位状态（6/25双创创新高）"
       sector: "板块首次分歧（连续上涨后出现1-2日调整）"
       timing: "非连续涨停日（涨停家数<板块内30%）"
 
@@ -309,10 +317,16 @@ directions:
     note: "UP6/23早盘预案第四条明确将电力煤炭列为AI方向走弱时的防御承接方向。与绿电方向（green_power_ai_electric）共同构成防御组合。若一进二晋级率跌破15%、首板大幅减少=确认情绪退潮→防御切换信号。"
 
   - id: optical_communication
-    name: 光通信/MPO/CPO — 光多通道替代电高速
+    name: 光通信/MPO/CPO/测试仪器 — 光多通道替代电高速
     current_stage: early_direction
     industry_chain:
       upstream:
+        - segment: 光模块测试仪器（卖铲人）
+          stocks:
+            - code: 002980.SZ
+              name: 华盛昌
+          pumped: false
+          note: "6/25晚间：光模块向1.6T/3.2T升级，测试仪器成卡脖子环节，采样示波器市场2027年有望突破200亿元。华盛昌为主板测试仪器标的；普源精电/联讯仪器/鼎阳科技/优利德为科创板不可交易"
         - segment: 光芯片（DFB/EML/CW/硅光）
           stocks:
             - code: 002281.SZ
@@ -392,7 +406,7 @@ directions:
 
 
   - id: equipment_packaging_catchup
-    name: 设备/封测补涨（涨价主线扩散方向）
+    name: 设备/封测补涨+国产替代（涨价主线扩散方向）
     current_stage: early_direction
     industry_chain:
       upstream:
@@ -438,12 +452,19 @@ directions:
               name: 江苏神通
           pumped: false
           note: "奥普光电(光机所精密光学镜头/光栅尺,检测设备)、凤凰光学(精密光学镜片,光刻/检测设备)、江苏神通(高纯真空阀门,设备验证阶段)"
+        - segment: 电子特气（上游涨价信号）
+          stocks:
+            - code: 688146.SH
+              name: 中船特气
+          pumped: false
+          note: "❌科创板不可交易。6/25沪市半年报预约首家披露，上游涨价仍是重中之重"
       midstream:
         - segment: 半导体设备平台
           stocks:
             - code: 002371.SZ
               name: 北方华创
           pumped: false
+          note: "6/25晚间：国产替代关注晶圆代工、半导体设备及材料、先进封装三大方向；IBM亚1纳米芯片问世，海外设备订单排至2027年"
         - segment: 封测服务
           stocks:
             - code: 600584.SH
@@ -462,9 +483,10 @@ directions:
           pumped: false
     diffusion_path:
       - "涨价链扩散 → 设备/封测补涨 → 全A中阳线为前置条件"
+      - "6/25国产替代三大方向：晶圆代工 → 半导体设备及材料 → 先进封装"
     pre_condition:
-      market: "全A放量中阳线（核心前置条件）"
-      sector: "设备/封测板块尚未加速"
+      market: "全A量能>3万亿+非破位状态（6/25双创创新高，增量入场未结束）"
+      sector: "设备/封测板块尚未加速，国产替代主线明确"
       timing: "全A中阳线出现前不建仓"
 
   - id: chip_specialty
@@ -506,7 +528,7 @@ directions:
       timing: "全A中阳线出现前不建仓"
 
   - id: memory_nor
-    name: 存储芯片（NOR Flash/DRAM涨价周期）
+    name: 存储芯片（NOR Flash/DRAM涨价周期，6/25升级为结构性重估）
     current_stage: resuming
     industry_chain:
       upstream:
@@ -514,21 +536,32 @@ directions:
           stocks: []
           pumped: false
       midstream:
-        - segment: 存储芯片设计
+        - segment: 存储芯片设计（利基/车规）
           stocks:
             - code: 603986.SH
               name: 兆易创新
           pumped: true
+          note: "6/25晚间：利基型原厂业绩爆发，特色利基（普冉/聚辰/北京君正）开始补涨；车规存储构成涨价第二波接力"
+        - segment: 车规存储
+          stocks:
+            - code: 300223.SZ
+              name: 北京君正
+          pumped: true
+          note: "❌创业板不可交易。AI服务器持续挤占利基存储产能，车规存储前期涨幅小、启动晚，正构成涨价第二波"
       downstream:
-        - segment: 模组/终端
-          stocks: []
+        - segment: 存储模组
+          stocks:
+            - code: 002654.SZ
+              name: 万润科技
           pumped: false
+          note: "6/25晚间：模组逻辑从库存差价切换到供给格局重塑+涨价持续+长协锁定利润的结构性重估；万润科技为第二轮补涨候选"
     diffusion_path:
       - "存储涨价 → 芯片母题回流 → AI/数据中心需求驱动"
+      - "6/25升级路径：原厂 → 利基存储补涨 → 车规存储第二波 → 模组结构性重估 → 封测补涨"
     pre_condition:
-      market: "全A放量中阳线（唯一建仓前置条件）"
-      sector: "存储板块共振确认"
-      timing: "全A中阳线出现前不建仓"
+      market: "全A量能>3万亿+非破位状态（6/25双创创新高，增量入场远未结束）"
+      sector: "存储板块共振确认，美光FY26Q3业绩超预期落地"
+      timing: "非连续涨停日，等首次分歧"
 
   - id: copper_aluminum_shortage
     name: 铜铝供给缺口（美伊协议触发器）
@@ -576,7 +609,7 @@ directions:
       timing: "缩量回踩MA10-MA20"
 
   - id: green_power_ai_electric
-    name: 绿电（AI算力→电力需求长逻辑）
+    name: 绿电+储能（AI算力→电力需求长逻辑，十五五规划催化）
     current_stage: diverging
     industry_chain:
       upstream:
@@ -584,6 +617,14 @@ directions:
           stocks: []
           pumped: false
           note: "❓发电设备主板标的？东方电气(600875)等"
+        - segment: 储能PCS/电源
+          stocks:
+            - code: 300820.SZ
+              name: 英杰电气
+            - code: 001266.SZ
+              name: 宏英智能
+          pumped: false
+          note: "❌300820为创业板不可交易。6/25晚间：十五五规划提出2030新型储能装机达3亿千瓦，大力发展长时储能；AIDC数据中心配储需求上行。宏英智能为浸没式储能主板标的"
       midstream:
         - segment: 纯新能源运营（风光）
           stocks:
@@ -804,21 +845,35 @@ directions:
   # ── 2026-06-17 新增：科创板AI制度红利（视频claims）────
 
   - id: kcb_ai_policy
-    name: 科创板AI制度红利（第五套标准扩围）
+    name: 科创板AI制度红利+国产算力（昇腾950/智谱全栈适配）
     current_stage: early_direction
     industry_chain:
       upstream:
         - segment: AI大模型/算法
-          stocks: []
+          stocks:
+            - code: 000034.SZ
+              name: 神州数码
+          pumped: true
+          note: "6/25晚间：华为核心合作伙伴，6/23中国电信高性能服务器集采评审结果出炉，昇腾950有望三季度上市，智谱GLM-5.2实现全栈国产算力适配"
+        - segment: 国产AI芯片
+          stocks:
+            - code: 688256.SH
+              name: 寒武纪
           pumped: false
-          note: "科创板第五套标准扩围直接受益，但标的多为688科创板，用户不可交易"
+          note: "❌科创板不可交易。智谱GLM-5.2实现昇腾/平头哥/摩尔线程/寒武纪全栈适配"
       midstream:
         - segment: 国产算力/设备
           stocks:
             - code: 002371.SZ
               name: 北方华创
           pumped: false
-          note: "前道设备龙头，科创板扩围→设备需求，主板映射标的"
+          note: "前道设备龙头，科创板扩围+国产算力放量→设备需求，主板映射标的"
+        - segment: 高速连接器/液冷（昇腾950供应链）
+          stocks:
+            - code: 002025.SZ
+              name: 航天电器
+          pumped: false
+          note: "子公司苏州华旃进入华为昇腾950机柜供应链"
       downstream:
         - segment: AI应用/智能体
           stocks: []
@@ -826,16 +881,17 @@ directions:
     diffusion_path:
       - "科创板第五套标准扩围 → AI大模型企业上市 → 国产算力需求 → 设备/材料"
       - "港股AI回归A股 → 丰富产业链标的 → 资金集中"
+      - "6/25新增：昇腾950三季度上市 + 电信集采 + 智谱全栈国产适配 → 国产算力主线"
     pre_condition:
-      market: "政策确认+全A量能>2.5万亿"
-      sector: "科创板AI企业上市进展"
-      timing: "政策落地初期，长期布局"
-    note: "视频claims核心方向，用户只能交易主板，需找映射标的"
+      market: "政策确认+全A量能>3万亿（6/25已满足）"
+      sector: "科创板AI企业上市进展 / 昇腾950量产进展"
+      timing: "政策/产品落地初期，长期布局"
+    note: "视频claims核心方向，用户只能交易主板。6/25晚间新增催化：中国电信高性能服务器2026-2027集采、昇腾950三季度上市、智谱GLM-5.2全栈国产适配。"
 
   # ── 2026-06-17 新增：中报业绩驱动（存储A档+PMIC+晶合集成）────
 
   - id: mid_report_performance
-    name: 中报业绩驱动（存储A档+PMIC+晶合集成）
+    name: 中报业绩驱动（存储A档+PMIC+晶合集成，6/25美光业绩落地）
     current_stage: early_direction
     industry_chain:
       upstream:
@@ -844,13 +900,19 @@ directions:
             - code: 603986.SH
               name: 兆易创新
           pumped: true
-          note: "NOR Flash龙头+DRAM布局，长鑫深度绑定，22:16专栏核心标的"
+          note: "NOR Flash龙头+DRAM布局，长鑫深度绑定。6/25晚间：利基型原厂业绩爆发，特色利基补涨"
         - segment: 利基存储
           stocks:
             - code: 001309.SZ
               name: 德明利
           pumped: false
           note: "存储模组，利基存储涨价受益，需确认减持状态"
+        - segment: 车规存储
+          stocks:
+            - code: 300223.SZ
+              name: 北京君正
+          pumped: true
+          note: "❌创业板不可交易。6/25晚间：车规存储构成涨价第二波接力，北京君正一季度存储芯片收入同比+53.63%"
       midstream:
         - segment: PMIC电源管理
           stocks:
@@ -867,18 +929,19 @@ directions:
           note: "海力士产业链，HBM4产能关联"
     diffusion_path:
       - "中报业绩A档（存储/PCB覆铜板/光模块上游/MLCC高端/半导体设备）→ 7月初兑现"
-      - "长鑫上市 → 存储设计（兆易创新）→ 利基存储（德明利）→ PMIC（东阳光）"
+      - "长鑫上市 → 存储设计（兆易创新）→ 利基存储（德明利）→ 车规存储第二波 → PMIC（东阳光）"
+      - "6/25新增：美光FY26Q3营收+346%、净利+14倍，CEO表态供应短缺持续至2027年后"
     pre_condition:
-      market: "全A量能>3万亿+非破位状态"
-      sector: "存储板块已确认走强，非首次分歧"
-      timing: "中报披露前（7月初）布局窗口"
-    note: "22:16专栏科技切换核心方向，中报业绩驱动替代纯题材炒作 | 6/25早盘升级：半导体可能接棒Rubin成为新主线，三路径（功率半导体→先进封装CoPoS→飞腾国产链）并行推进。CoPoS（chip-on-probe-on-substrate）替代传统CoWoS成为先进封装新叙事"
+      market: "全A量能>3万亿+非破位状态（6/25双创创新高）"
+      sector: "存储板块已确认走强，美光业绩超预期落地"
+      timing: "中报披露前（7月初）布局窗口，等首次分歧"
+    note: "22:16专栏科技切换核心方向，中报业绩驱动替代纯题材炒作 | 6/25早盘升级：半导体可能接棒Rubin成为新主线。6/25晚间：美光业绩引爆存储，利基/车规/模组三波接力确认。"
 
   # ── 6/22 复盘新增方向 ──────────────────────────────────
 
   - id: small_metal_chemical
-    name: 小金属/化工/算力材料（AI上游材料扩散至传统行业，6支线）
-    current_stage: diverging  # 09:47预警确认赶顶剧情已出现→从first_pump下调为diverging；6/24验证：上游材料自身抗跌，企稳后仍是进攻首选
+    name: 小金属/化工/算力材料（AI上游材料扩散至传统行业，6/25新增钽）
+    current_stage: diverging  # 6/25晚间：钽是AI敞口最大、上涨斜率最陡的金属；上游材料自身抗跌，企稳后仍是进攻首选
     industry_chain:
       upstream:
         - segment: 培育钻石（工业金刚石）
@@ -925,6 +988,18 @@ directions:
               name: 金钼股份
           pumped: false
           note: "钼精矿龙头。钼靶材用于半导体显示面板溅射，UP6/23早盘点名算力材料6支线之一"
+        - segment: 钽（AI敞口最大、上涨斜率最陡的金属）
+          stocks:
+            - code: 000962.SZ
+              name: 东方钽业
+            - code: 603977.SH
+              name: 国泰集团
+            - code: 000510.SZ
+              name: 新金路
+            - code: 600397.SH
+              name: 江钨装备
+          pumped: false
+          note: "6/25晚间：钽下游钽电容/高温合金/半导体制造/钽化学品占比33%/19%/17%/14%，供给端刚果金/卢旺达/尼日利亚占全球84.1%，Rubaya矿区塌方停采，AI浪潮下钽价上涨斜率或远超铜钨锡"
       midstream:
         - segment: 化工/材料加工
           stocks: []
@@ -981,22 +1056,21 @@ directions:
     note: "UP6/24复盘引用中邮证券。头部企业协同减产'以量换价'策略兑现。霍尔木兹海峡复通作为协同极限压力测试，行业机制经受住考验。"
 
   - id: broker_finance
-    name: 券商/大金融（炒中报与补涨，结构性行情非批量主升浪）
-    current_stage: early_direction  # 6/23 11:28验证：涨湖北/长鑫相关，非银未脱离AI→不会有批量主升浪；6/24早盘确认共振逻辑已破
+    name: 券商/大金融（突破年线=全面行情确认信号）
+    current_stage: early_direction  # 6/25晚间：券商已在底部走出小趋势，若突破年线将带动超跌滞涨方向；结构向全面切换的关键观察点
     industry_chain:
       upstream: []
       midstream:
         - segment: 券商
           stocks: []
           pumped: false
-          note: "湖北券商、长鑫长存关联标的弹性更大。结构性行情，非批量涨停潮。UP6/24早盘验证：银之杰(300085)/长江证券(000783)连板后指数仍大跌，共振逻辑已破"
+          note: "6/25晚间：券商已在底部走出小趋势，突破年线是全面行情确认信号，将扩散至其他超跌滞涨品种。当前尚未突破，只跟踪不介入"
       downstream: []
     diffusion_path:
-      - "湖北券商+长鑫长存关联 → 非银金融未脱离AI → 结构性非批量主升浪"
-      - "6/22定性增量主攻金融但6/23修正为结构性行情，分歧买点需更谨慎"
-      - "6/24早盘确认：大金融共振逻辑已破，科技才是指数基本盘"
+      - "券商底部小趋势 → 突破年线 → 全面行情确认 → 超跌滞涨补涨"
+      - "6/22定性增量主攻金融但6/23修正为结构性行情，6/25重新定位为关键观察点"
     pre_condition:
-      market: "全A量能<3.74万亿+警惕停牌核查+美元指数稳定+美光财报落地"
-      sector: "大金融出现独立于AI的结构性行情信号（目前未观察到）"
-      timing: "非券商集体涨停日+证实为独立行情而非AI扩散"
-    note: "UP6/22复盘：券商暴涨=炒中报与补涨，增量主攻方向。但UP6/23 11:28修正：今天券商涨湖北和长鑫相关，非银未脱离AI，不会有批量主升浪。→下调为early_direction，只跟踪不介入。| UP6/24早盘验证：银之杰(300085)/长江证券(000783)连板后指数仍大跌，共振逻辑已破。在科技股是'指数基本盘'的前提未变前，大金融无法明哲保身。"
+      market: "全A量能>3万亿+双创创新高（6/25已满足）"
+      sector: "券商板块突破年线压制"
+      timing: "突破年线后右侧确认，不提前埋伏"
+    note: "UP6/22复盘：券商暴涨=炒中报与补涨。UP6/23修正：非银未脱离AI，不会有批量主升浪。UP6/25晚间：券商底部小趋势，突破年线是全面行情关键信号。→保持early_direction，突破年线后再升级。"

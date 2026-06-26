@@ -1,4 +1,4 @@
-updated_at: '2026-06-25'
+updated_at: '2026-06-26'
 stocks:
 - code: 000636.SZ
   name: 风华高科
@@ -1833,3 +1833,125 @@ stocks:
     sector_diverged: true
     market_actionable: true
     no_consecutive_limit_up: true
+
+# ── 2026-06-25 晚间复盘新增标的 ───────────────────────────────
+
+- code: 002484.SZ
+  name: 江海股份
+  direction: mlcc_super_cycle
+  chain_position: upstream
+  human_note:
+    date: '2026-06-25'
+    type: signal_confirmation
+    context: 6/25晚间复盘：江海股份发布涨价函覆盖铝电解、薄膜、超级电容三大品类；尼吉康全线调涨铝电解电容。AI服务器GPU功耗从H100约700W跃升至GB300约1400W，铝电解电容滤波压力加大。当前涨停（111.02），等首次分歧回踩
+  entry:
+    primary_zone:
+    - 103.25
+    - 108.80
+    method: 涨停回踩法（基于6/25收盘价111.02，区间取-2%至-7%）
+    hard_stop: 98.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+  note: 6/25涨停中，不开盘追。首次分歧缩量回踩primary_zone再评估
+
+- code: 000962.SZ
+  name: 东方钽业
+  direction: small_metal_chemical
+  chain_position: upstream
+  human_note:
+    date: '2026-06-25'
+    type: direction_call
+    context: 6/25晚间复盘：钽是AI敞口最大、上涨斜率最陡的金属。供给端刚果金/卢旺达/尼日利亚占全球84.1%，Rubaya矿区塌方停采。钽下游钽电容/高温合金/半导体制造/钽化学品占比33%/19%/17%/14%
+  entry:
+    primary_zone:
+    - 78.14
+    - 82.34
+    method: 分歧日回踩法（基于6/25收盘价84.02，区间取-2%至-7%）
+    hard_stop: 73.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+  note: 6/25涨停（84.02），不追。等首次分歧回踩
+
+- code: 002654.SZ
+  name: 万润科技
+  direction: memory_nor
+  chain_position: downstream
+  human_note:
+    date: '2026-06-25'
+    type: direction_call
+    context: 6/25晚间复盘：存储模组第二轮补涨候选。全资子公司深圳万润存储先进存储模组制造项目2025年12月投产；一季报存货/合同负债/预付款同步大增，构成备货-锁单-锁定上游闭环
+  entry:
+    primary_zone:
+    - 19.27
+    - 20.31
+    method: 板块共振法（基于6/25收盘价20.72，区间取-2%至-7%）
+    hard_stop: 18.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+  note: 存储链补涨情绪标的，位置偏低但弹性大，严格等分歧
+
+- code: 605366.SH
+  name: 宏柏新材
+  direction: small_metal_chemical
+  chain_position: upstream
+  human_note:
+    date: '2026-06-25'
+    type: direction_call
+    context: 6/25晚间复盘：高纯四氯化硅占光纤预制棒生产成本30%以上。2025年多晶硅产量同比降26%导致副产四氯化硅供给缩减，9N级提纯及认证周期18-24个月。价格从去年底2.5万/吨涨至今年一季度4.5万/吨（涨幅约80%）
+  entry:
+    primary_zone:
+    - 12.16
+    - 12.81
+    method: 分歧日回踩法（基于6/25收盘价13.07，区间取-2%至-7%）
+    hard_stop: 11.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+  note: 光纤预制棒核心原料涨价受益，注意多晶硅减产持续性
+
+- code: 002980.SZ
+  name: 华盛昌
+  direction: optical_communication
+  chain_position: upstream
+  human_note:
+    date: '2026-06-25'
+    type: direction_call
+    context: 6/25晚间复盘：光模块向1.6T/3.2T升级，测试仪器成卡脖子环节，采样示波器市场2027年有望突破200亿元、国产化率不足20%。华盛昌为主板测试仪器标的
+  entry:
+    primary_zone:
+    - 115.16
+    - 121.35
+    method: 分歧日回踩法（基于6/25收盘价123.83，区间取-2%至-7%）
+    hard_stop: 108.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+  note: 光模块测试仪器国产替代，市场容量大但验证周期长，只做分歧低吸
+
+- code: 001266.SZ
+  name: 宏英智能
+  direction: green_power_ai_electric
+  chain_position: upstream
+  human_note:
+    date: '2026-06-25'
+    type: direction_call
+    context: 6/25晚间复盘：十五五规划提出2030年新型储能装机达3亿千瓦，大力发展长时储能；AIDC数据中心配储需求上行。宏英智能为浸没式储能主板标的
+  entry:
+    primary_zone:
+    - 48.17
+    - 50.76
+    method: 分歧日回踩法（基于6/25收盘价51.80，区间取-2%至-7%）
+    hard_stop: 45.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+  note: 储能政策催化，但板块处于diverging阶段，等首次分歧确认
