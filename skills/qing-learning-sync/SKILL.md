@@ -14,43 +14,18 @@ description: |
     (ONNX+LLM 发现关系)                (MERGE 原子写入 Neo4j)               (向量重建，需独占锁)              (Agent+MCP)
 ```
 
-**前置：Qdrant 重建前必须停 Qing-Agent + MCP server**。Neo4j 迁移不需要停。
+**前置：Qdrant 重建前必须停 Qing-Agent + Hermes gateway + MCP server**。Neo4j 迁移不需要停。
 
-全流程命令：
+推荐直接跑封装好的脚本：
 
 ```bash
 cd ~/learning-investment-strategies
-
-# 0. 停 Qing-Agent + MCP server（释放 Qdrant .lock）
-kill $(pgrep -f "mcp_qdrant_server") 2>/dev/null
-kill $(pgrep -f "mcp_neo4j_server") 2>/dev/null
-kill $(pgrep -f "uvicorn.*qing_investment") 2>/dev/null
-# gunicorn 有 master watchdog，需多 kill 几次或检查是否已清
-for i in 1 2 3; do
-  if pgrep -f "gunicorn.*qing_investment" >/dev/null 2>&1; then
-    kill $(pgrep -f "gunicorn.*qing_investment") 2>/dev/null
-    sleep 1
-  fi
-done
-pgrep -f "gunicorn.*qing_investment" >/dev/null 2>&1 && kill -9 $(pgrep -f "gunicorn.*qing_investment") 2>/dev/null
-echo "Agent processes cleared"
-
-# ① 关系发现（ONNX+LLM，不涉及锁）
-PYTHONPATH=src .venv/bin/python src/qing_investment/agent/tools/discover_claim_relations.py --all-missing
-
-# ② Neo4j 同步（MERGE 是原子的，MVCC 安全）
-PYTHONPATH=src .venv/bin/python scripts/migrate_claims_to_neo4j.py
-
-# ③ Qdrant 重建（需要独占锁，Step 0 已释放）
-PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate
-
-# ④ 重启 Qing-Agent
-PYTHONPATH=src .venv/bin/python -m uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 --log-level info &
-
-# ⑤ 验证 + 重启 MCP
-sleep 3 && curl -s http://localhost:8000/health
-hermes restart   # MCP 自动接回
+./bin/run_sync_pipeline.sh
 ```
+
+脚本会依次完成：停进程 → discover → Neo4j → Qdrant → 重启 Qing-Agent → 重启 Hermes gateway → 验证 MCP 连接。
+
+如需手动执行，参考 `bin/run_sync_pipeline.sh` 内容。
 
 ## ~~Claims→Entry 桥接（2026-06-10 已废弃）~~
 
@@ -58,12 +33,13 @@ hermes restart   # MCP 自动接回
 
 ## 关键坑
 
-1. **Qdrant 重建需要独占锁 —— 必须同时停 Qing-Agent + MCP server（2026-06-10 修正）**
+1. **Qdrant 重建需要独占锁 —— 必须同时停 Qing-Agent + Hermes gateway + MCP server（2026-06-26 修正）**
    - Qdrant 本地模式通过 `.qdrant_data/.lock` 文件实现独占访问
-   - **两个进程同时持有该锁**：Qing-Agent（uvicorn）和 MCP Qdrant server（Hermes 子进程）
+   - **三个进程可能同时持有该锁**：Qing-Agent（uvicorn）、MCP Qdrant server（Hermes gateway 子进程）、Hermes gateway 本身
    - `delete_collection()` 需要独占写锁，任一进程持有锁都会导致失败
    - 脚本内置 30 秒等待 + 强制删除兜底，但强制删除活跃进程的锁可能损坏数据
-   - 正确做法：`kill $(pgrep -f "mcp_qdrant_server") && kill $(pgrep -f "uvicorn.*qing_investment")`
+   - 正确做法：先 `pkill -f "hermes_cli.main gateway"` 关 gateway（顺带关 MCP 子进程），再 `pkill -f "uvicorn.*qing_investment"` / `pkill -f "gunicorn.*qing_investment"` 关 Agent
+   - **避免在后台命令行里直接用 `pgrep -f "mcp_qdrant_server" | xargs kill`**：命令行文本本身会匹配 pgrep 模式，导致 bash 自杀。应把命令写到脚本文件里执行，或用 `pkill -f`
    - **Neo4j 迁移不需要停 Qing-Agent**：MERGE 是原子的，Neo4j 原生支持 MVCC 并发读写
 2. `PYTHONUNBUFFERED=1` — 否则 cron 捕获不到 stdout
 3. **仅改元数据字段**（timeframe/related_stocks/tags）→ discover 输出 0 relations 是预期的，可跳过 discover 直接 migrate
@@ -78,13 +54,12 @@ hermes restart   # MCP 自动接回
 6. **mtime 竞争条件**（2026-06-11）：git commit/push 更新已有 claim 文件的 mtime。若 mtime > last_sync 但 hash 未变，脚本仍会尝试重新 migrate。`migrate_claims_to_neo4j.py` 已修复 `CREATE`→`MERGE+SET`，重复 migrate 安全不报错。但首次 migrate 前删除旧节点的逻辑仍会执行（无害）。
 7. **同步后必须验证 Agent 在线**：`curl http://localhost:8000/health`
 
-8. **`hermes restart` 不重启 Qing-Agent（2026-06-10 发现）**：
-   - `hermes restart` 只重启 Hermes 进程和 MCP server，**不负责 Qing-Agent（独立 gunicorn 进程）**
-   - 同步时 Step 0 杀了 qing-agent → Qdrant 重建 → `hermes restart` **不会**把 qing-agent 带回来
-   - **正确做法**：Step 4 先手动重启 qing-agent（gunicorn），Step 5/6 再 `hermes restart`
-   - **反面案例**：Qdrant 重建完成后执行 `hermes restart`，以为一切正常，结果下一个 cron 又走了 fallback——因为 qing-agent 根本没被重启
-   - **2026-06-10 补充**：如果 Qing-Agent 被 systemd/supervisor 管理（auto-restart），kill 后它会自动重启。可通过 `sleep 3 && pgrep -f 'gunicorn.*qing_investment'` 确认。这种情况下不需要显式 `gunicorn &` 命令，但需验证自动重启是否成功加载了新 Qdrant 数据。
-   - **2026-06-12 补充**：当前实际部署用的是 **gunicorn**（而非裸 uvicorn）。用 `ps aux | grep -E "qing_investment|gunicorn.*8000" | grep -v grep` 查找进程。gunicorn 有 master watchdog 会 respawn worker 进程，SIGKILL 后可能自动重启。确认进程彻底停止后再重建 Qdrant：
+8. **MCP / Hermes gateway 重启必须用 `gateway run --replace`，`hermes restart` 已不可用（2026-06-26 修正）**：
+   - 当前 `hermes` CLI 没有 `restart` 子命令；MCP server 由 Hermes gateway 进程统管
+   - **正确做法**：同步时 Step 0 先杀掉 Qing-Agent **和** Hermes gateway（连带关闭其管理的 qdrant/neo4j MCP 子进程），Qdrant 重建完后再重启 Qing-Agent，最后用 `nohup <hermes-venv-python> -m hermes_cli.main gateway run --replace &` 拉起 gateway
+   - 这同时重启了 **Kimi Code CLI 侧**和 **Hermes Agent 侧**的 MCP 连接，因为二者共享同一个 gateway
+   - 重启后务必 `hermes mcp test qdrant` / `hermes mcp test neo4j` 验证工具已 discover
+   - 如果 Qing-Agent 被 systemd/supervisor 管理（auto-restart），kill 后它会自动重启。可通过 `sleep 3 && pgrep -f 'gunicorn.*qing_investment'` 确认。这种情况下不需要显式 `uvicorn &` 命令，但需验证自动重启是否成功加载了新 Qdrant 数据。
 
 9. **000636 类歧义警告排查**：`migrate_claims_to_neo4j.py` 的代码→名称映射从 `positions.yaml` + `watchlist.yaml` 动态构建，不会出错。歧义通常来自**其他脚本的独立映射表**（如 `backfill_claim_related_stocks.py` 的 supplemental 硬编码字典）。排查路径：
    - 先确认 YAML 源文件正确：`grep '000636' config/stock_monitor/watchlist.yaml`
@@ -108,7 +83,7 @@ hermes restart   # MCP 自动接回
    PYTHONPATH=src .venv/bin/python -c "
    from neo4j import GraphDatabase
    from qing_investment.agent.config import settings
-   d = GraphDatabase.driver(settings.NEO4J_URI, auth=(settings.NEO4J_USER, settings.NEO4J_PASSWORD))
+   d = GraphDatabase.driver(settings.neo4j_uri, auth=(settings.neo4j_user, settings.neo4j_password))
    with d.session() as s:
        r = s.run('MATCH (c:Claim) RETURN count(c) as cnt'); print(f'Claims: {r.single()[\"cnt\"]}')
        r = s.run('MATCH (s:Stock) RETURN count(s) as cnt'); print(f'Stocks: {r.single()[\"cnt\"]}')
@@ -116,7 +91,7 @@ hermes restart   # MCP 自动接回
    d.close()
    "
    ```
-9. **Qdrant 重建时 Vector dimension mismatch**：`ValueError: could not broadcast input array from shape (512,) into shape (1,)` 表示旧 collection 的 schema 与新模型不匹配。**必须用 `--force-recreate`** 删除旧 collection 重建。不要手动删 `.qdrant_data/` 目录——Qdrant local 模式有内部状态，直接用脚本的 `delete_collection()` 接口。
+12. **Qdrant 重建时 Vector dimension mismatch**：`ValueError: could not broadcast input array from shape (512,) into shape (1,)` 表示旧 collection 的 schema 与新模型不匹配。**必须用 `--force-recreate`** 删除旧 collection 重建。不要手动删 `.qdrant_data/` 目录——Qdrant local 模式有内部状态，直接用脚本的 `delete_collection()` 接口。
 
 ## 详细文档
 

@@ -48,6 +48,11 @@ bin/qdrant
 .qdrant-initialized
 
 config/stock_monitor/stock_sector_mapping.json
+
+# Sync pipeline runtime artifacts
+agent.log
+sync_pipeline_*.log
+*.bak*
 *.bak
 temp/claims/
 .env.tmp
