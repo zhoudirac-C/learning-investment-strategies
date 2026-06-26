@@ -4,7 +4,7 @@
 
 执行时间：建议 06:30（A股开盘前）
 功能：
-  1. 读取 watchlist.yaml + positions.yaml，提取全部股票代码
+  1. 读取 watchlist.yaml + positions.yaml + stock_pool.yaml，提取全部股票代码
   2. 批量拉取日K线（90根），写入 SQLite 本地缓存
   3. 盘中 poll/Agent 优先读本地，不再重复调用 API
 
@@ -61,7 +61,7 @@ def _load_yaml(path: Path) -> dict:
 
 
 def _extract_stock_codes() -> list[str]:
-    """从 watchlist.yaml 和 positions.yaml 提取股票代码，去重排序。"""
+    """从 watchlist.yaml、positions.yaml 和 stock_pool.yaml 提取股票代码，去重排序。"""
     codes: set[str] = set()
 
     # 1. watchlist
@@ -88,6 +88,13 @@ def _extract_stock_codes() -> list[str]:
     strategy_pack = _load_yaml(CONFIG_PATH / "strategy_pack.yaml")
     for ep in strategy_pack.get("entry_points", []):
         code = str(ep.get("code", "")).strip()
+        if code:
+            codes.add(code)
+
+    # 4. stock_pool（方向候选池）
+    stock_pool = _load_yaml(CONFIG_PATH / "stock_pool.yaml")
+    for stock in stock_pool.get("stocks", []):
+        code = str(stock.get("code", "")).strip()
         if code:
             codes.add(code)
 
@@ -123,7 +130,7 @@ def main() -> int:
     total = len(codes)
 
     if not codes:
-        print("[WARN] 未提取到任何股票代码，检查 watchlist.yaml/positions.yaml")
+        print("[WARN] 未提取到任何股票代码，检查 watchlist.yaml/positions.yaml/stock_pool.yaml")
         return 0
 
     print(f"[{now_cn.strftime('%H:%M')}] 预拉取 {total} 只标的日K线（{DAYS_TO_FETCH}日）...")
