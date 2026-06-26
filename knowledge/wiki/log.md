@@ -1,5 +1,19 @@
      1|# 操作日志
 
+## 2026-06-26 | qing-learning ingest | 6/26盘中动态：10:56抄底时机+12:05抄底逻辑与节奏
+
+- 处理 raw：
+  - `sources/original/bilibili/2026-06-26-1056-图片-今天等11点15之后抄底，昨天说到的被监管的，已经高潮过的不.md`（B站充电专属图片动态）
+  - `sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md`（B站充电专属图片动态）
+- 新增 claims：
+  - `claim-20260626-002.yaml`（3条：operation×1, risk×2）
+  - `claim-20260626-003.yaml`（13条：technical-signal×4, operation×5, market-cycle×2, methodology×1, sector-theme×1）
+- 核心观点：
+  - 10:56：抄底等到11:15之后；被监管/已高潮方向不要乱抄底
+  - 12:05：创业板5分钟顶部对应今日11:15-11:30承接窗口；上证4008有支撑但3907缺口未补前可能震荡甚至二次探底；早盘杀跌可试、下午杀跌不抄；修复不足降仓；今日以做T控制成本；抄底选中报业绩/超跌/指数ETF；商业航天等高低切品种等尾盘套利或回调
+- 更新 wiki：`knowledge/wiki/每日复盘/2026-06-26.md`
+- 更新索引：`knowledge/claims/index.md`
+
 ## 2026-06-26 | qing-learning ingest | 6/26早盘：上升趋势持股但谨慎追涨，AI轮动+涨价链梳理
 
 - 处理 raw：`sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md`（B站充电专属图片动态）

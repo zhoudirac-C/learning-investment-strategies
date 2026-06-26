@@ -1,0 +1,79 @@
+claims:
+- id: claim-20260626-002-a
+  source_path: sources/original/bilibili/2026-06-26-1056-图片-今天等11点15之后抄底，昨天说到的被监管的，已经高潮过的不.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T04:28:00Z'
+  claim_type: operation
+  subject: 盘中抄底时间窗口
+  timeframe: intraday
+  statement: 今日盘中抄底应等到11点15分之后
+  evidence_quote: 今天等11点15之后抄底
+  interpretation: UP在10:56提示，不要过早抄底，最佳承接时间窗口应等到11:15之后，避免早盘不确定性
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 盘中提示11点15分后再考虑抄底
+  related_stocks: []
+  tags:
+  - 抄底
+  - 时间窗口
+  - 11点15
+- id: claim-20260626-002-b
+  source_path: sources/original/bilibili/2026-06-26-1056-图片-今天等11点15之后抄底，昨天说到的被监管的，已经高潮过的不.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T04:28:00Z'
+  claim_type: risk
+  subject: 监管标的抄底风险
+  timeframe: intraday
+  statement: 被监管的方向或标的今日不应随意抄底
+  evidence_quote: 昨天说到的被监管的，已经高潮过的不要乱抄
+  interpretation: 监管因素会压制标的承接力和反弹空间，属于高风险情境，短线抄底容易被套
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 监管标的不要乱抄底
+  related_stocks: []
+  tags:
+  - 监管
+  - 风险
+  - 抄底
+- id: claim-20260626-002-c
+  source_path: sources/original/bilibili/2026-06-26-1056-图片-今天等11点15之后抄底，昨天说到的被监管的，已经高潮过的不.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T04:28:00Z'
+  claim_type: risk
+  subject: 高潮方向抄底风险
+  timeframe: short-term
+  statement: 已经高潮过的方向今日不应随意抄底
+  evidence_quote: 昨天说到的被监管的，已经高潮过的不要乱抄
+  interpretation: 高潮方向意味着短期资金拥挤、获利盘丰厚，回落时承接不确定，抄底风险大于机会
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高潮方向不要乱抄底
+  related_stocks: []
+  tags:
+  - 高潮
+  - 拥挤
+  - 抄底风险
