@@ -1,5 +1,14 @@
      1|# 操作日志
 
+## 2026-06-26 | qing-learning ingest | 6/26早盘：上升趋势持股但谨慎追涨，AI轮动+涨价链梳理
+
+- 处理 raw：`sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md`（B站充电专属图片动态）
+- 新增 claims：`claim-20260626-001.yaml`（25条：market-cycle×6, operation×3, sector-theme×8, catalyst×4, technical-signal×2, methodology×1, macro×1）
+- 核心观点：指数维持上升趋势但分化加剧、成交量低于3.5万亿则大概率轮动、谨慎追涨降低预期、AI主线注意存储/风华分歧与光模块承接、短线连板高度下降、非科技股持续性差、存储/PCB/HVDC/先进制程消息面梳理
+- 更新 wiki：`knowledge/wiki/每日复盘/2026-06-26.md`
+- 更新索引：`knowledge/claims/index.md`、`knowledge/wiki/index.md`
+- 更新门禁：`gate_validate_claims.py` NON_COMPANY 集扩展（"消费等非科技"/"效应集中在科技"/"后兑现压力有限" 假阳性）
+
 ## 2026-06-25 | qing-learning ingest | 6/25复盘：双创新高，科技独强，增量入场远未结束
 
 - 处理 raw：`sources/original/bilibili/2026-06-25-2249-图片-一、大势研判：双创新高，科技独强，增量入场远未结束 今日指数.md`（B站充电专属图片动态）

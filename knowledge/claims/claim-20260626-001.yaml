@@ -1,0 +1,765 @@
+claims:
+- id: claim-20260626-001-a
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: market-cycle
+  subject: A股指数趋势判断
+  timeframe: short-term
+  statement: A股指数仍处于上升趋势，整体适合持股
+  evidence_quote: '一、指数：上升趋势，适合持股，但谨慎追涨
+
+    指数仍处上升趋势，整体适合持股'
+  interpretation: UP对大势的定性为上升趋势未改，战略上仍以持股为主，不轻易离场
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 早盘判断指数维持上升趋势宜持股
+  related_stocks: []
+  tags:
+  - 早盘
+  - 指数趋势
+  - 持股策略
+- id: claim-20260626-001-b
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: market-cycle
+  subject: 市场分化与情绪
+  timeframe: intraday
+  statement: 短期市场内部剧烈分化，非科技主线板块亏钱效应较大并拖累整体市场情绪
+  evidence_quote: 但短期内部剧烈分化，除科技主线外其余板块亏钱效应较大，正在拖累整体市场情绪
+  interpretation: 指数强势但结构恶化，赚钱效应集中在科技主线，其余板块下跌会反噬市场情绪，需警惕分化加剧
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 市场分化非科技板块亏钱效应拖累情绪
+  related_stocks: []
+  tags:
+  - 市场分化
+  - 科技主线
+  - 亏钱效应
+- id: claim-20260626-001-c
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: market-cycle
+  subject: 成交量与轮动概率
+  timeframe: short-term
+  statement: 若成交量持续维持在3.5万亿以下，市场走轮动是大概率事件
+  evidence_quote: 个人判断，成交量若持续维持在3.5万亿以下，市场走轮动是大概率事件
+  interpretation: 量能是判断市场性质的关键变量，低于3.5万亿则难以支撑全面上涨，板块轮动将取代共振上行
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能不足3.5万亿时市场大概率轮动
+  related_stocks: []
+  tags:
+  - 成交量
+  - 板块轮动
+  - 量能阈值
+- id: claim-20260626-001-d
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: operation
+  subject: 追涨策略
+  timeframe: intraday
+  statement: 当前大环境压制下应谨慎追涨并适当降低预期
+  evidence_quote: 在大环境压制下，应谨慎追涨、适当降低预期
+  interpretation: 战术上不宜追高，盈利预期要压缩，以防守反击和持股待涨为主
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 早盘建议谨慎追涨降低预期
+  related_stocks: []
+  tags:
+  - 操作策略
+  - 谨慎追涨
+  - 降低预期
+- id: claim-20260626-001-e
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: market-cycle
+  subject: 周四市场承接力
+  timeframe: short-term
+  statement: 周四A股大幅放量后仍被资金承接，创业板指由涨2%回落至翻绿后再度拉起
+  evidence_quote: 开盘后虽不可避免地再度大幅放量，预估成交额一度逼近4万亿，但德明利、佰维存储等存储龙头并未像4月23日那样高开低走，且三要素中的大金融与市场情绪都没有拖后腿，早盘连银行股都在发力，跌停个股一直稳定在个位数（直到下午才有所增多），因此创业板指即便一度由涨2%回落至翻绿，之后仍被资金承接住
+  interpretation: 周四放出天量后分时V回，说明承接力超预期，龙头未坑人、情绪未崩，是强势特征
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 周四天量后创业板指被承接
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 存储龙头-深A主板可交易
+  - code: '688525'
+    name: 佰维存储
+    role: 存储龙头-科创板可交易
+  tags:
+  - 创业板指
+  - 市场承接
+  - 天量
+- id: claim-20260626-001-f
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: catalyst
+  subject: 美光业绩对日韩市场传导
+  timeframe: intraday
+  statement: 美光业绩超预期提振韩国KOSPI指数，A股开盘前已消化相关影响
+  evidence_quote: 受美光业绩超预期提振，韩国KOSPI指数直接高举高打，盘中唯一一次较明显的回落发生在08:30–45，也就是在A股开盘前就已被消化，相当于一次“开卷考”
+  interpretation: 外部利好对A股是明牌，开盘前已在日韩市场预演，A股开盘后兑现压力有限
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美光业绩提振KOSPI并提前消化
+  related_stocks:
+  - code: '688525'
+    name: 佰维存储
+    role: 存储龙头-科创板可交易
+  - code: '001309'
+    name: 德明利
+    role: 存储龙头-深A主板可交易
+  tags:
+  - 美光业绩
+  - KOSPI
+  - 外部传导
+- id: claim-20260626-001-g
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: macro
+  subject: 5月PCE与美联储加息预期
+  timeframe: short-term
+  statement: 5月PCE物价指数基本符合市场预期，交易员削减对美联储加息的押注
+  evidence_quote: 据公开信息，5月PCE物价指数基本符合市场预期，交易员削减对美联储加息的押注，这一结果应已充分反映在隔夜美股走势中，并会先传导至率先开盘的日韩股市
+  interpretation: 宏观数据落地无超预期紧缩风险，对风险资产偏正面，且已通过美股和日韩股市提前定价
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 5月PCE符合预期加息押注被削减
+  related_stocks: []
+  tags:
+  - PCE
+  - 美联储加息
+  - 宏观数据
+- id: claim-20260626-001-h
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: market-cycle
+  subject: 今日量能考验
+  timeframe: intraday
+  statement: 今日A股量能表现将是对市场承接力的一次大考
+  evidence_quote: 考虑到昨日A股又创下一个排得上号的量能，无论结果好坏都会是对市场承接力的一次大考
+  interpretation: 昨日天量之后今日能否继续维持或温和缩量，将验证资金是否愿意继续承接，是关键观察日
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日量能是市场承接力大考
+  related_stocks: []
+  tags:
+  - 量能考验
+  - 承接力
+  - 观察日
+- id: claim-20260626-001-i
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: methodology
+  subject: 盯盘三要素
+  timeframe: permanent
+  statement: 盯盘应重点关注量能、大金融与市场情绪三要素，同时留意场外变量
+  evidence_quote: 盯盘的方式方法依旧是“量能＋大金融＋市场情绪”三要素，同时留意场外变量，例如日韩股市表现，或是否会再度出现类似“融资保证金比例上调”一类的消息
+  interpretation: UP给出可操作的盯盘框架：量能定性质、大金融定方向、市场情绪定风险偏好，外加日韩股市和政策消息等外部变量
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 早盘给出量能大金融情绪三要素盯盘法
+  related_stocks: []
+  tags:
+  - 盯盘框架
+  - 量能
+  - 大金融
+  - 市场情绪
+- id: claim-20260626-001-j
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: sector-theme
+  subject: AI主线与轮动节奏
+  timeframe: short-term
+  statement: 板块上仍应聚焦AI主线，但需注意轮动节奏
+  evidence_quote: '二、板块：聚焦AI，注意轮动节奏
+
+    板块上仍聚焦AI，但需注意轮动节奏'
+  interpretation: AI仍是核心方向，但内部会轮动，不宜固守某一个细分，要跟随资金流动调整
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 早盘继续聚焦AI但注意轮动
+  related_stocks: []
+  tags:
+  - AI主线
+  - 板块轮动
+  - 主线策略
+- id: claim-20260626-001-k
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: sector-theme
+  subject: 存储与光模块轮动
+  timeframe: intraday
+  statement: 昨日存储高潮后预计今日存储与风华或现分歧，资金可能流向光模块等中报业绩较好的方向
+  evidence_quote: 个人判断，昨日存储高潮、风华受监管，预计今日这两个板块或现分歧，可留意资金是否流向光模块等中报业绩较好的方向
+  interpretation: 存储和风华短期高潮后容易分化，资金可能切向有业绩支撑的光模块，属于AI内部轮动预判
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储风华或分歧资金或流向光模块
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 存储龙头-深A主板可交易
+  - code: '688525'
+    name: 佰维存储
+    role: 存储龙头-科创板可交易
+  tags:
+  - 存储
+  - 光模块
+  - 中报业绩
+  - 板块分歧
+- id: claim-20260626-001-l
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: technical-signal
+  subject: 涨停与连板数据
+  timeframe: short-term
+  statement: 昨日连板晋级率创新低且均靠一字涨停晋级，剔除兴业科技(002674)后连板高度已连续三天下降
+  evidence_quote: 忧的一面在于昨日连板晋级率创了新低，且都靠一字涨停晋级，若剔除利好一字的兴业科技，连板高度已连续三天下降
+  interpretation: 短线接力情绪在降温，连板靠一字而非换手，真实赚钱效应在下降，情绪面存在隐患
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 连板晋级率创新低高度连续下降
+  related_stocks:
+  - code: '002674'
+    name: 兴业科技
+    role: 连板高标-深A主板可交易
+  tags:
+  - 连板晋级率
+  - 短线情绪
+  - 一字涨停
+- id: claim-20260626-001-m
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: sector-theme
+  subject: 英伟达Rubin炒作阶段
+  timeframe: short-term
+  statement: 围绕英伟达Rubin的炒作已持续约一个月，接近收尾阶段
+  evidence_quote: 围绕英伟达Rubin的炒作虽已持续约一个月、差不多接近收尾
+  interpretation: Rubin题材进入鱼尾行情，后续空间不大，资金可能转向新的AI细分或补涨
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 英伟达Rubin炒作接近收尾
+  related_stocks: []
+  tags:
+  - 英伟达
+  - Rubin
+  - 题材阶段
+- id: claim-20260626-001-n
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: market-cycle
+  subject: 切换还是补涨
+  timeframe: short-term
+  statement: 目前指数强势与涨停家数居高不下，难以断言是会直接切换还是再有一波补涨
+  evidence_quote: 但就目前指数的强势与居高不下的涨停家数而言，很难断言是会直接切换还是再有一波补涨
+  interpretation: 市场处于可切换可补涨的尴尬位置，需要结合指数和中船特气(688146)等高标走势进一步确认
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 当前难判断直接切换还是补涨
+  related_stocks:
+  - code: '688146'
+    name: 中船特气
+    role: 今日复牌高标-科创板可交易
+  tags:
+  - 切换
+  - 补涨
+  - 中船特气
+  - 高标
+- id: claim-20260626-001-o
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: sector-theme
+  subject: 存储板块定位
+  timeframe: trend
+  statement: 存储板块逻辑明牌，定位是机构重仓的趋势股而非短线股，走势以趋势为主
+  evidence_quote: 不过存储逻辑过于明牌，定位一直是机构重仓股而非短线股，走势以趋势为主
+  interpretation: 存储不宜用短线连板思维参与，应作为中线趋势配置，预期收益和回撤都要按趋势股来管理
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储定位为机构重仓趋势股
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 存储趋势标的-深A主板可交易
+  - code: '688525'
+    name: 佰维存储
+    role: 存储趋势标的-科创板可交易
+  tags:
+  - 存储
+  - 机构重仓
+  - 趋势股
+- id: claim-20260626-001-p
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: catalyst
+  subject: 国产存储产业链催化
+  timeframe: short-term
+  statement: 单凭美光业绩不足以撬动A股存储，若长鑫、长存IPO消息加速落地则可能真正撬动国产存储产业链
+  evidence_quote: 其昨日驱动主要来自美光业绩提振，但个人判断，光凭业绩可能还不够——A股这边并非直接受益，若后续长鑫、长存IPO的消息能加速落地，则有可能真正撬动起国产存储产业链
+  interpretation: 美光业绩是情绪催化剂，但真正能打开A股存储空间的国产替代叙事需要长鑫长存IPO等事件催化
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 长鑫长存IPO或撬动国产存储
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 国产存储标的-深A主板可交易
+  - code: '688525'
+    name: 佰维存储
+    role: 国产存储标的-科创板可交易
+  tags:
+  - 国产存储
+  - 长鑫
+  - 长存
+  - IPO催化
+- id: claim-20260626-001-q
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: catalyst
+  subject: MLCC涨价敏感度
+  timeframe: short-term
+  statement: MLCC与电容方向受江海股份(002484)旗下产品涨价催化，显示资金对涨价主题敏感
+  evidence_quote: 此外昨日异动的MLCC与电容方向，主要受江海股份旗下产品涨价催化，虽然是一则6月20日的涨价函，但也能看出近期资金对“涨价”二字的敏感度
+  interpretation: 涨价函即使不是新消息也能引发资金反应，说明市场对涨价题材的敏感度较高，可作为选股线索
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: MLCC电容受江海股份涨价催化
+  related_stocks:
+  - code: '002484'
+    name: 江海股份
+    role: MLCC涨价催化-深A主板可交易
+  tags:
+  - MLCC
+  - 电容
+  - 涨价
+  - 江海股份
+- id: claim-20260626-001-r
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: operation
+  subject: 非科技股套利时机
+  timeframe: intraday
+  statement: 非科技股方向持续性比前两天更差，套利最好等到日内指数确认回落后再看
+  evidence_quote: 非科技股方面，昨日资金一连拉了三个方向：华夏航空对应的机场航运、长江证券对应的大金融、酒鬼酒对应的消费……随着指数触底反弹，午盘前酒鬼酒先开板、午盘后长江证券也打开涨停，持续性比前两天更差。因此在“可以套利但时机很重要”之外，个人判断最好仍等到日内指数确认回落后再看也不迟
+  interpretation: 机场航运、大金融、消费等非科技轮动方向持续性变差，做套利必须等指数回落确认，不能提前埋伏
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 非科技股套利需等指数回落确认
+  related_stocks:
+  - code: '002928'
+    name: 华夏航空
+    role: 机场航运轮动-深A主板可交易
+  - code: '000783'
+    name: 长江证券
+    role: 大金融轮动-深A主板可交易
+  - code: '000799'
+    name: 酒鬼酒
+    role: 消费轮动-深A主板可交易
+  tags:
+  - 非科技股
+  - 轮动
+  - 套利时机
+- id: claim-20260626-001-s
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: catalyst
+  subject: 美光财报业绩
+  timeframe: short-term
+  statement: 美光(MU)2026财年第三季度经调营收414.6亿美元，同比增逾3倍，大幅超出市场预期
+  evidence_quote: 存储芯片：据6月24日美股盘后消息，美光科技发布2026财年第三季度财报，经调营收414.6亿美元，同比增逾3倍，大幅超出市场预期
+  interpretation: 美光业绩大超预期是存储板块的核心催化剂，验证存储周期上行强度
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美光Q3营收414.6亿美元同比增3倍超预期
+  related_stocks:
+  - code: '688525'
+    name: 佰维存储
+    role: 存储产业链-科创板可交易
+  - code: '001309'
+    name: 德明利
+    role: 存储产业链-深A主板可交易
+  - code: '600667'
+    name: 太极实业
+    role: 存储芯片产业链-沪A主板可交易
+  - code: '300650'
+    name: 太龙股份
+    role: 存储芯片产业链-创业板可交易
+  tags:
+  - 美光
+  - 财报
+  - 存储芯片
+- id: claim-20260626-001-t
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: sector-theme
+  subject: 存储芯片景气度
+  timeframe: trend
+  statement: HBM4加速放量叠加下一代存储节点量产在即，存储芯片产业景气度正从周期复苏迈向超级扩张
+  evidence_quote: HBM4加速放量叠加下一代存储节点量产在即，存储芯片产业景气度正从“周期复苏”迈向“超级扩张”
+  interpretation: 存储行业周期属性正在强化为超级周期，HBM和先进节点是核心驱动力，景气上行斜率可能超预期
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储芯片景气度迈向超级扩张
+  related_stocks:
+  - code: '688525'
+    name: 佰维存储
+    role: 存储产业链-科创板可交易
+  - code: '001309'
+    name: 德明利
+    role: 存储产业链-深A主板可交易
+  - code: '600667'
+    name: 太极实业
+    role: 存储芯片产业链-沪A主板可交易
+  - code: '300650'
+    name: 太龙股份
+    role: 存储芯片产业链-创业板可交易
+  tags:
+  - HBM4
+  - 存储节点
+  - 超级周期
+- id: claim-20260626-001-u
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: sector-theme
+  subject: PCB供需紧张
+  timeframe: trend
+  statement: PCB核心材料严重缺货，大厂订单排满，交期拉长至2到3个月并实行限购，PCB价格将同步上调
+  evidence_quote: 据猎板科技告知函，近期PCB核心材料严重缺货，建滔、生益、南亚等大厂订单排满，交期拉长至2–3个月并已实行限购……由于原材料价格已翻倍上涨，PCB价格亦将同步上调，紧张情况预估要到2027年下半年才会逐步缓解
+  interpretation: PCB产业链供需紧张是中期趋势，原材料涨价和交期延长支撑PCB提价，景气度至少持续到2027年下半年
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: PCB材料缺货交期拉长价格将上调
+  related_stocks:
+  - code: '600601'
+    name: 方正科技
+    role: PCB产业链-沪A主板可交易
+  - code: '002916'
+    name: 深南电路
+    role: PCB产业链-深A主板可交易
+  tags:
+  - PCB
+  - 材料缺货
+  - 交期
+  - 涨价
+- id: claim-20260626-001-v
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: sector-theme
+  subject: PCB价值量跃升
+  timeframe: trend
+  statement: 英伟达VR200的PCB成本相较GB300增长233%以上，高端材料与工艺升级将推动PCB价值量跃升
+  evidence_quote: 据摩根士丹利供应链调研，英伟达VR200的PCB成本相较GB300出现高达233%以上的增长，将总PCB耗用价值提升至约11.7万美元，而GB300仅为3.5万美元……硬件性能与架构升级将推动正交背板、CoWoP等新方案落地……相关材料升级（如M7、M8等高端材料）与工艺精进将全面推动PCB价值跃升
+  interpretation: AI服务器迭代带来PCB价值量数倍增长，是正交背板、高端材料和先进封装工艺的多重受益方向
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: VR200 PCB成本较GB300增233%推动价值跃升
+  related_stocks:
+  - code: '600601'
+    name: 方正科技
+    role: PCB产业链-沪A主板可交易
+  - code: '002916'
+    name: 深南电路
+    role: PCB产业链-深A主板可交易
+  tags:
+  - VR200
+  - GB300
+  - PCB价值量
+- id: claim-20260626-001-w
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: catalyst
+  subject: 英伟达800V HVDC方案
+  timeframe: trend
+  statement: 英伟达正打造800V HVDC Power Rack方案，目标2026年第三季完成备货，大规模采用预计落在2028年
+  evidence_quote: 供电架构：据《科创板日报》25日援引TrendForce集邦咨询研究，英伟达正积极打造自家800V HVDC Power Rack方案，目标于2026年第三季完成备货、供有需求的Vera
+    Rubin客户选用（非标准配备），预计将于2027下半年Rubin Ultra系列后逐步放大采用，大规模采用估落在2028年
+  interpretation: 800V HVDC是英伟达下一代供电架构的重要变化，2026Q3开始备货，2028年大规模放量，相关供应链进入导入期
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 英伟达800V HVDC方案2026Q3备货
+  related_stocks:
+  - code: '002851'
+    name: 麦格米特
+    role: HVDC供电-深A主板可交易
+  - code: '300286'
+    name: 安科瑞
+    role: HVDC供电-创业板可交易
+  tags:
+  - 英伟达
+  - 800V
+  - HVDC
+  - 供电架构
+- id: claim-20260626-001-x
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: sector-theme
+  subject: HVDC渗透率
+  timeframe: trend
+  statement: 800V高压直流供电架构成为必然趋势，2026至2030年HVDC渗透率预计从20%升至70%
+  evidence_quote: 随着算力需求增长，800V高压直流供电架构成为必然趋势，较传统54V低压直流在效率、成本等方面优势显著，预计2026–2030年HVDC渗透率将从20%升至70%
+  interpretation: HVDC是数据中心供电架构的长期升级方向，渗透率5年内从20%到70%意味着巨大增量空间
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 2026至2030年HVDC渗透率预计20%升至70%
+  related_stocks:
+  - code: '002851'
+    name: 麦格米特
+    role: HVDC供电-深A主板可交易
+  - code: '300286'
+    name: 安科瑞
+    role: HVDC供电-创业板可交易
+  tags:
+  - HVDC
+  - 渗透率
+  - 数据中心供电
+- id: claim-20260626-001-y
+  source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
+  source_date: '2026-06-26'
+  source_type: 动态
+  extracted_at: '2026-06-26T01:09:02Z'
+  claim_type: catalyst
+  subject: IBM 0.7纳米芯片技术
+  timeframe: trend
+  statement: IBM推出全球首个0.7纳米级芯片技术，标志半导体行业进入原子尺度时代，有望推动先进制程产业链发展
+  evidence_quote: 先进制程：据公开消息，IBM宣布推出全球首个0.7纳米级芯片技术，通过“纳米栈”三维晶体管架构，在指甲大小的芯片上集成近千亿个晶体管，标志半导体行业进入原子尺度时代，有望推动先进制程产业链发展并加速AI算力升级
+  interpretation: IBM技术突破是先进制程长期催化剂，强化半导体向原子尺度演进的叙事，利好设备、材料、晶圆代工产业链
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: IBM推出0.7纳米芯片技术推动先进制程
+  related_stocks:
+  - code: '688012'
+    name: 中微公司
+    role: 先进制程设备-科创板可交易
+  - code: '688347'
+    name: 华虹宏力
+    role: 先进制程晶圆-科创板可交易
+  tags:
+  - IBM
+  - 0.7纳米
+  - 先进制程
