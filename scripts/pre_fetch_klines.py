@@ -40,8 +40,13 @@ if str(SRC_PATH) not in sys.path:
     sys.path.insert(0, str(SRC_PATH))
 
 import yaml
-from qing_investment.kline_cache import init_db, save_klines, mark_cache_ready
-from qing_investment.agent.tools.stock_data import fetch_stock_kline
+from qing_investment.kline_cache import (
+    init_db,
+    save_klines,
+    save_financial_reports,
+    mark_cache_ready,
+)
+from qing_investment.agent.tools.stock_data import fetch_stock_kline, fetch_financial_reports
 
 # ── 常量 ──
 CN_TZ = timezone(timedelta(hours=8))
@@ -50,6 +55,8 @@ DELAY_BETWEEN_BATCH = 3.0  # 批次间隔 3 秒
 DELAY_BETWEEN_STOCK = 0.5  # 单只间隔 0.5 秒
 MAX_RETRIES = 3
 DAYS_TO_FETCH = 90
+FINANCIAL_YEARS = 2      # 财报预拉取：最近 2 年
+FINANCIAL_DELAY_BETWEEN_STOCK = 1.0  # 财报单只间隔（akshare 三大报表）
 
 
 # ── 配置读取 ──
@@ -191,6 +198,33 @@ def main() -> int:
                 f" (✅{success_count} ❌{fail_count} ⚠️{skip_count})"
             )
 
+    # === 财报数据预拉取（近2年三大报表）===
+    print(f"[{now_cn.strftime('%H:%M')}] 开始预拉取 {total} 只标的近 {FINANCIAL_YEARS} 年财报数据...")
+    fin_success = 0
+    fin_fail = 0
+    for idx, code in enumerate(codes, 1):
+        try:
+            reports = fetch_financial_reports(code, years=FINANCIAL_YEARS)
+            saved_any = False
+            for statement_type, records in reports.items():
+                if records:
+                    save_financial_reports(code, records, statement_type)
+                    saved_any = True
+            if saved_any:
+                fin_success += 1
+                print(f"  ✅ {code}: 财报已保存")
+            else:
+                fin_fail += 1
+                print(f"  ⚠️ {code}: 无财报数据")
+        except Exception as e:
+            fin_fail += 1
+            print(f"  ❌ {code}: 财报拉取失败 ({str(e)[:60]})")
+
+        if idx % 10 == 0 or idx == total:
+            print(f"  ... 财报进度 {idx}/{total} (✅{fin_success} ❌{fin_fail})")
+
+        time.sleep(FINANCIAL_DELAY_BETWEEN_STOCK)
+
     # === 标记完成 ===
     today = now_cn.strftime("%Y-%m-%d")
     mark_cache_ready(today)
@@ -202,6 +236,9 @@ def main() -> int:
         f"[{now_cn.strftime('%H:%M')}] 预拉取完成 [{status}]:"
         f" ✅{success_count} ❌{fail_count} ⚠️{skip_count} / 总计{total}"
         f" (失败率 {fail_rate:.1%})"
+    )
+    print(
+        f"[{now_cn.strftime('%H:%M')}] 财报预拉取: ✅{fin_success} ❌{fin_fail} / 总计{total}"
     )
 
     return 0 if fail_rate <= 0.2 else 1

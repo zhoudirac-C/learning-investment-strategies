@@ -81,6 +81,20 @@ def init_db(db_path: Path | None = None) -> None:
                 key TEXT PRIMARY KEY,
                 value TEXT
             );
+
+            CREATE TABLE IF NOT EXISTS financial_reports (
+                code TEXT NOT NULL,
+                statement_type TEXT NOT NULL,
+                report_date TEXT NOT NULL,
+                report_type TEXT,
+                notice_date TEXT,
+                raw_json TEXT NOT NULL,
+                updated_at TEXT,
+                PRIMARY KEY (code, statement_type, report_date)
+            );
+
+            CREATE INDEX IF NOT EXISTS idx_financial_reports_code_date
+                ON financial_reports(code, report_date);
             """
         )
         conn.commit()
@@ -129,6 +143,55 @@ def save_klines(
         conn.commit()
 
 
+def save_financial_reports(
+    code: str,
+    reports: list[dict[str, Any]],
+    statement_type: str,
+    db_path: Path | None = None,
+) -> None:
+    """保存单只股票某一类财报（利润表/资产负债表/现金流量表）。
+
+    Args:
+        code: 股票代码，如 "600519"
+        reports: 财报数据列表，每项为 dict，包含 report_date 等字段
+        statement_type: 报表类型，取值 "profit" / "balance" / "cash_flow"
+        db_path: 自定义数据库路径
+    """
+    import json
+
+    valid_types = {"profit", "balance", "cash_flow"}
+    if statement_type not in valid_types:
+        raise ValueError(f"statement_type 必须是 {valid_types} 之一")
+
+    with _get_conn(write=True, db_path=db_path) as conn:
+        conn.execute(
+            "DELETE FROM financial_reports WHERE code = ? AND statement_type = ?",
+            (code, statement_type),
+        )
+
+        if reports:
+            now = datetime.now(_CN_TZ).isoformat()
+            conn.executemany(
+                """INSERT INTO financial_reports
+                    (code, statement_type, report_date, report_type,
+                     notice_date, raw_json, updated_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                [
+                    (
+                        code,
+                        statement_type,
+                        str(d.get("REPORT_DATE", "")),
+                        str(d.get("REPORT_TYPE", "")),
+                        str(d.get("NOTICE_DATE", "")),
+                        json.dumps(d, ensure_ascii=False, default=str),
+                        now,
+                    )
+                    for d in reports
+                ],
+            )
+        conn.commit()
+
+
 # ── 读取 ──
 def get_klines(
     code: str,
@@ -165,6 +228,55 @@ def get_klines(
             # 字段名兼容性映射：trade_date → date（与 API 返回格式一致）
             if "trade_date" in d:
                 d["date"] = d.pop("trade_date")
+            result.append(d)
+        return result
+
+
+def get_financial_reports(
+    code: str,
+    statement_type: str | None = None,
+    years: int = 2,
+    db_path: Path | None = None,
+) -> list[dict[str, Any]]:
+    """读取某只股票最近 N 年的财报数据。
+
+    Args:
+        code: 股票代码
+        statement_type: 报表类型过滤，"profit" / "balance" / "cash_flow"，None 表示全部
+        years: 读取最近多少年（按报告期日期过滤）
+        db_path: 自定义数据库路径
+
+    Returns:
+        财报数据列表，按 report_date 降序排列。无数据时返回空列表。
+    """
+    import json
+
+    cutoff = (datetime.now(_CN_TZ) - timedelta(days=years * 365)).strftime("%Y-%m-%d")
+
+    params: list[Any] = [code, cutoff]
+    type_filter = ""
+    if statement_type:
+        type_filter = "AND statement_type = ?"
+        params.append(statement_type)
+
+    with _get_conn(write=False, db_path=db_path) as conn:
+        cursor = conn.execute(
+            f"""SELECT * FROM financial_reports
+                WHERE code = ? AND report_date >= ? {type_filter}
+                ORDER BY report_date DESC""",
+            tuple(params),
+        )
+        rows = cursor.fetchall()
+
+        result = []
+        for row in rows:
+            d = dict(row)
+            raw = d.pop("raw_json", "{}")
+            try:
+                parsed = json.loads(raw)
+            except json.JSONDecodeError:
+                parsed = {}
+            d["data"] = parsed
             result.append(d)
         return result
 

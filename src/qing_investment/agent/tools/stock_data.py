@@ -480,3 +480,68 @@ def format_intraday_for_prompt(minutes: list[dict], prev_close: float | None = N
         lines.append(f"          相对昨收: {pct:+.2f}%")
     
     return "\n".join(lines)
+
+
+# ── 财报数据 ──
+def fetch_financial_reports(
+    code: str,
+    years: int = 2,
+) -> dict[str, list[dict]]:
+    """拉取个股近 N 年财报数据（利润表、资产负债表、现金流量表）。
+
+    使用 akshare 的东方财富三大报表接口，返回报告期维度的原始数据。
+
+    Args:
+        code: 股票代码（6位纯数字，如 "600519"）
+        years: 读取最近多少年，默认 2 年
+
+    Returns:
+        {
+            "profit": [...],      # 利润表
+            "balance": [...],     # 资产负债表
+            "cash_flow": [...],   # 现金流量表
+        }
+    """
+    from datetime import datetime, timedelta
+
+    try:
+        import akshare as ak
+    except ImportError:
+        return {"profit": [], "balance": [], "cash_flow": []}
+
+    pure_code = _normalize_code(code)[0]
+    prefix = "SH" if pure_code.startswith("6") else "SZ"
+    symbol = f"{prefix}{pure_code}"
+
+    cutoff = (datetime.now() - timedelta(days=years * 365)).strftime("%Y-%m-%d")
+
+    result: dict[str, list[dict]] = {"profit": [], "balance": [], "cash_flow": []}
+
+    fetchers = {
+        "profit": ak.stock_profit_sheet_by_report_em,
+        "balance": ak.stock_balance_sheet_by_report_em,
+        "cash_flow": ak.stock_cash_flow_sheet_by_report_em,
+    }
+
+    for statement_type, fetcher in fetchers.items():
+        try:
+            df = fetcher(symbol=symbol)
+            if df is None or df.empty:
+                continue
+
+            # 统一 REPORT_DATE 为字符串，并过滤近 N 年
+            df["REPORT_DATE"] = df["REPORT_DATE"].astype(str).str[:10]
+            df = df[df["REPORT_DATE"] >= cutoff]
+
+            records = df.to_dict("records")
+            # 清洗 pandas 产生的 nan / NaT
+            for r in records:
+                for k, v in list(r.items()):
+                    if v != v:  # NaN
+                        r[k] = None
+            result[statement_type] = records
+        except Exception:
+            # 单类报表失败不影响其他类型
+            continue
+
+    return result
