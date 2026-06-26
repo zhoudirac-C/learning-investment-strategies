@@ -46,16 +46,33 @@ TIMEFRAMES = {
 FETCH_BARS = 5          # 每次拉最新5根
 RECOMPUTE_BARS = 35     # 重算最近35根的MACD（保证EMA稳定）
 DELAY = 1.0             # 请求间隔
+HTTP_TIMEOUT = 15       # 单次请求超时（秒）
+HTTP_MAX_RETRIES = 3    # HTTP 失败重试次数
 
 
 def _http_get(url: str) -> str:
     headers = {
+        "Accept": "*/*",
+        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
         "Referer": "https://quote.eastmoney.com/",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        ),
+        "Connection": "keep-alive",
     }
-    req = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        return resp.read().decode()
+    last_err: Exception | None = None
+    for attempt in range(HTTP_MAX_RETRIES):
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=HTTP_TIMEOUT) as resp:
+                return resp.read().decode()
+        except Exception as e:
+            last_err = e
+            wait = 2.0 * (attempt + 1)
+            print(f"    [WARN] 请求失败 ({attempt + 1}/{HTTP_MAX_RETRIES}): {str(e)[:80]}，{wait}s 后重试...")
+            time.sleep(wait)
+    raise last_err or ConnectionError(f"请求失败: {url}")
 
 
 def _ema(values: list[float], period: int) -> list[float | None]:
@@ -337,14 +354,14 @@ def synthesize_90min_klines(code: str, dry_run: bool = False) -> int:
 
 
 def is_trading_time() -> bool:
-    """判断当前是否在A股交易时段（含盘前15分钟缓冲）。"""
+    """判断当前是否在A股交易时段（含盘前15分钟缓冲与收盘后缓冲）。"""
     now = datetime.now(CN_TZ)
     # 周一至周五
     if now.weekday() >= 5:
         return False
     t = now.hour * 60 + now.minute
-    # 9:15 - 15:15
-    return 9 * 60 + 15 <= t <= 15 * 60 + 15
+    # 9:15 - 15:30，覆盖 cron */30 9-15 的 15:30 那次执行
+    return 9 * 60 + 15 <= t <= 15 * 60 + 30
 
 
 def main() -> int:
@@ -368,7 +385,14 @@ def main() -> int:
     for code in INDICES:
         for tf in TIMEFRAMES:
             time.sleep(DELAY)
-            r = update_one(code, tf, args.dry_run)
+            try:
+                r = update_one(code, tf, args.dry_run)
+            except Exception as e:
+                err_msg = str(e)[:80]
+                print(f"  ❌ {INDICES[code]['name']} {TIMEFRAMES[tf]['name']}: 异常 ({err_msg})")
+                results.append({"status": "error", "code": code, "tf": tf, "error": err_msg})
+                continue
+
             results.append(r)
 
             if r["status"] == "updated":
@@ -387,12 +411,17 @@ def main() -> int:
     errors = sum(1 for r in results if r["status"] not in ("updated", "up_to_date", "no_new_bars"))
 
     # ── 90分钟合成（从30分钟）──
-    # 只有30分钟数据被更新时才触发合成
-    if any(r["status"] == "updated" and r["tf"] == "30min" for r in results):
-        for code in INDICES:
+    # 任意指数/周期有更新时，重新合成该指数的90分钟线
+    updated_codes = {r["code"] for r in results if r.get("status") == "updated"}
+    for code in INDICES:
+        if code not in updated_codes:
+            continue
+        try:
             n = synthesize_90min_klines(code, args.dry_run)
             if n:
                 print(f"  🔧 {INDICES[code]['name']}: 90分钟合成 {n}根")
+        except Exception as e:
+            print(f"  ❌ {INDICES[code]['name']}: 90分钟合成失败 ({str(e)[:80]})")
 
     print(f"[完成] 新增 {total_new} 根K线, 更新 {updated} 组, 跳过 {skipped} 组, 错误 {errors}")
     return 0 if errors == 0 else 1
