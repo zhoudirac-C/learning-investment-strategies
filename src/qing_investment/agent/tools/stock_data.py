@@ -3,6 +3,7 @@ from __future__ import annotations
 """个股和指数实时数据获取（支持多数据源降级）。"""
 
 import json
+import os
 import urllib.request
 import urllib.error
 
@@ -503,11 +504,15 @@ def fetch_financial_reports(
         }
     """
     from datetime import datetime, timedelta
+    from concurrent.futures import ThreadPoolExecutor, as_completed
 
     try:
         import akshare as ak
     except ImportError:
         return {"profit": [], "balance": [], "cash_flow": []}
+
+    # 禁用 akshare 内部 tqdm 进度条，避免 cron 日志噪音
+    os.environ.setdefault("TQDM_DISABLE", "1")
 
     pure_code = _normalize_code(code)[0]
     prefix = "SH" if pure_code.startswith("6") else "SZ"
@@ -515,33 +520,38 @@ def fetch_financial_reports(
 
     cutoff = (datetime.now() - timedelta(days=years * 365)).strftime("%Y-%m-%d")
 
-    result: dict[str, list[dict]] = {"profit": [], "balance": [], "cash_flow": []}
-
     fetchers = {
         "profit": ak.stock_profit_sheet_by_report_em,
         "balance": ak.stock_balance_sheet_by_report_em,
         "cash_flow": ak.stock_cash_flow_sheet_by_report_em,
     }
 
-    for statement_type, fetcher in fetchers.items():
+    def _fetch_one(statement_type: str, fetcher) -> tuple[str, list[dict]]:
         try:
             df = fetcher(symbol=symbol)
             if df is None or df.empty:
-                continue
+                return statement_type, []
 
-            # 统一 REPORT_DATE 为字符串，并过滤近 N 年
             df["REPORT_DATE"] = df["REPORT_DATE"].astype(str).str[:10]
             df = df[df["REPORT_DATE"] >= cutoff]
 
             records = df.to_dict("records")
-            # 清洗 pandas 产生的 nan / NaT
             for r in records:
                 for k, v in list(r.items()):
                     if v != v:  # NaN
                         r[k] = None
-            result[statement_type] = records
+            return statement_type, records
         except Exception:
-            # 单类报表失败不影响其他类型
-            continue
+            return statement_type, []
+
+    result: dict[str, list[dict]] = {"profit": [], "balance": [], "cash_flow": []}
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        futures = {
+            executor.submit(_fetch_one, stmt, fn): stmt
+            for stmt, fn in fetchers.items()
+        }
+        for future in as_completed(futures):
+            stmt, records = future.result()
+            result[stmt] = records
 
     return result
