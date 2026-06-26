@@ -1338,8 +1338,9 @@ def market_analyst(state: AgentState) -> AgentState:
 
     # ── 生成神奇九转报告（Step 3 新增）──
     tf_order_local = ["daily", "120min", "90min", "60min", "30min"]
+    index_codes_local = ["sh000001", "sh000985", "sz399001", "sz399006", "sh000932"]
     td_reports = []
-    for code in ["sh000001", "sh000985", "sh000932"]:
+    for code in index_codes_local:
         for tf in tf_order_local:
             try:
                 r = compute_td_report(code, tf, bars=30)
@@ -1351,7 +1352,7 @@ def market_analyst(state: AgentState) -> AgentState:
 
     # ── 生成斐波那契时间分析报告（Step 3 新增）──
     fib_reports = []
-    for code in ["sh000001", "sh000985", "sh000932"]:
+    for code in index_codes_local:
         try:
             r = compute_fibonacci_time_report(code)
             if r:

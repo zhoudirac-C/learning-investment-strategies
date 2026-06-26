@@ -541,9 +541,10 @@ def format_multi_tf_macd_report(
     import sqlite3
 
     if codes is None:
-        codes = ["sh000985", "sh000001"]
+        codes = ["sh000001", "sh000985", "sz399001", "sz399006", "sh000932"]
     index_names = {
         "sh000001": "上证指数", "sh000985": "中证全指",
+        "sz399001": "深证成指", "sz399006": "创业板指",
         "sh000932": "中证2000",
     }
     tf_order = ["daily", "120min", "90min", "60min", "30min"]
