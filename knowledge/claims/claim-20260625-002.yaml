@@ -1,0 +1,127 @@
+claims:
+- id: claim-20260625-002-a
+  source_path: sources/original/bilibili/2026-06-25-0930-图片-之前也讲过上升趋势中的高9属于主级正向波，不过不用太过于担心.md
+  source_date: '2026-06-25'
+  source_type: 盘中动态
+  extracted_at: '2026-06-25'
+  claim_type: market-cycle
+  subject: 上升趋势中的高9属于主级正向波，不代表趋势反转
+  timeframe: short-term
+  statement: 6月25日09:30判断：上升趋势中出现的高9序列属于主级正向波信号，不代表趋势反转。化解高9需要时间或强度（大幅修复），但超大幅修复难度大。后续两种路径：继续杀老登（前期强势股补跌）或冲高回落。不建议一键清仓，谨防过山车行情。
+  evidence_quote: 之前也讲过上升趋势中的高9属于主级正向波，不过不用太过于担心，不代表趋势反转，想要化解通常需要时间或者强度，所以今天的修复力度必须要大，但是超大幅度的修复，难度又比较大，要么就继续杀老登，要么就冲高回落，也不用一键清仓，谨防过山车
+  interpretation: UP强调上升趋势中高9的看跌意义有限（属于主级正向波而非反转信号），核心逻辑是趋势的力量压制了序列信号。但当前节点需观察修复力度——修复不够则可能走杀老登或冲高回落路径。操作上建议持仓观望而非清仓，反映了对中期趋势仍有信心的判断。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 上升趋势高9信号解读
+  related_stocks: []
+  tags:
+  - TD9
+  - 高9
+  - 主级正向波
+  - 趋势分析
+  - 修复力度
+  - 杀老登
+
+- id: claim-20260625-002-b
+  source_path: sources/original/bilibili/2026-06-25-0930-图片-之前也讲过上升趋势中的高9属于主级正向波，不过不用太过于担心.md
+  source_date: '2026-06-25'
+  source_type: 盘中动态
+  extracted_at: '2026-06-25'
+  claim_type: operation
+  subject: 高9化解期的应对：不一键清仓，防过山车
+  timeframe: short-term
+  statement: 6月25日09:30操作建议：上升趋势高9出现后，不需要一键清仓，但需要谨防过山车行情（冲高回落再拉回）。修复力度是关键观察变量——力度大则化解，力度小则可能进入杀老登或冲高回落路径。
+  evidence_quote: 也不用一键清仓，谨防过山车，大A有时候还是太超前了
+  interpretation: 操作层面对应一个偏中性的应对框架：不恐慌离场（因趋势仍向上），但需防范盘中剧烈波动（过山车）。核心变量是修复力度，这决定了方向选择——强修复化解高9，弱修复触发调整。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高9化解期操作策略
+  related_stocks: []
+  tags:
+  - 操作纪律
+  - 过山车
+  - 高9
+  - 化解
+  - 轻仓
+
+- id: claim-20260625-003-a
+  source_path: sources/original/bilibili/2026-06-25-1130-图片-大盘似乎在选择一种最难的方式，既不杀老登，也不冲高回落，那么.md
+  source_date: '2026-06-25'
+  source_type: 收盘前动态
+  extracted_at: '2026-06-25'
+  claim_type: market-cycle
+  subject: 大盘选择最难路径（不杀老登不冲高回落），回流力度强，关注下午放量
+  timeframe: short-term
+  statement: 6月25日11:30判断：大盘选择了最难的方式——既不杀老登也没有冲高回落，而是直接大力修复。上午回流力度很强，下午能否持续放量是关键。若放量配合，修复有效性将得到确认。
+  evidence_quote: 大盘似乎在选择一种最难的方式，既不杀老登，也不冲高回落，那么就需要大力修复。这一波回流力度很强，那么今天就看一下下午放量怎么样
+  interpretation: UP上午的路径推演（杀老登或冲高回落）被市场实际走势证伪——市场选择了第三种路径：直接强回流修复。这实际上是偏强的信号，因为"最难的方式"意味着多方在不依赖老登补跌或冲高诱空的情况下，直接推动修复。下午放量是确认信号。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260625-002-a"]
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 市场路径选择与修复确认
+  related_stocks: []
+  tags:
+  - 回流
+  - 放量
+  - 修复
+  - 杀老登
+  - 路径选择
+
+- id: claim-20260625-003-b
+  source_path: sources/original/bilibili/2026-06-25-1130-图片-大盘似乎在选择一种最难的方式，既不杀老登，也不冲高回落，那么.md
+  source_date: '2026-06-25'
+  source_type: 收盘前动态
+  extracted_at: '2026-06-25'
+  claim_type: operation
+  subject: 做好配置可躺平两头吃，越要警惕风格切换
+  timeframe: short-term
+  statement: 6月25日11:30操作建议：做好配置可以躺平两头吃，既不用FOMO追涨也不担心踩踏。但越是这种强修复行情，越要警惕可能的风格切换——一旦出现切换必须听从信号，防止利润大幅回撤。
+  evidence_quote: 做好配置，你可以躺平两头吃，既不用FOMO，也不会担心踩踏。但同样越是这种时候，越要警惕可能的风格切换，一旦风格切换，我说了你得听，不要再让利润出现大幅回撤。
+  interpretation: 这是UP中期配置框架在当天的具体应用——"两头吃"指均衡配置不同风格/板块，使组合无论市场走哪种路径都能受益。但提示强修复行情容易让人放松警惕，风格切换可能在不经意间发生，届时必须果断应对（止盈/调仓），这是防止利润回撤的关键纪律。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-06-25
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 配置纪律与风格切换预警
+  related_stocks: []
+  tags:
+  - 配置
+  - 躺平
+  - 两头吃
+  - 风格切换
+  - 利润回撤
+  - FOMO
+  - 操作纪律
