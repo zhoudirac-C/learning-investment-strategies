@@ -21,7 +21,7 @@ from pathlib import Path
 
 QING_AGENT_URL = os.environ.get("QING_AGENT_URL", "http://localhost:8000/analyze/trigger")
 QING_AGENT_HEALTH_URL = os.environ.get("QING_AGENT_HEALTH_URL", "http://localhost:8000/health")
-QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "30"))
+QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "180"))
 QING_AGENT_MAX_RETRIES = int(os.environ.get("QING_AGENT_MAX_RETRIES", "2"))
 
 # Cron job wrapper timeout (seconds) — must be >= QING_AGENT_TIMEOUT + 20s margin

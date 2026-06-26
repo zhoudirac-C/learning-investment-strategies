@@ -919,10 +919,15 @@ def format_agent_json_context(data: dict) -> str:
         analysis_type = "market"
         stock_code = ""
 
-    # ── 精选 quote_snapshot：只保留持仓+买入信号候选的行情 ──
-    # 全量67只观察池的报价会浪费大量token，但Agent需要关键标的的实时价格。
+    # ── 精选 quote_snapshot：保留市场指数 + 持仓 + 买入信号候选 ──
+    # 全量70+只标的报价会浪费大量token，但Agent必须看到大盘/微盘指数才能做市场分析。
+    from qing_investment.monitor.fetchers import MARKET_INDEXES
+
+    market_secids: set[str] = set(MARKET_INDEXES.values())
+    market_codes: set[str] = {secid.split(".")[-1] for secid in market_secids}
+
     relevant_codes: set[str] = set()
-    
+
     # 1. 持仓标的
     positions_data = data.get("positions", {})
     if isinstance(positions_data, dict):
@@ -936,7 +941,7 @@ def format_agent_json_context(data: dict) -> str:
             code = str(pos.get("code", "") or pos.get("stock_code", ""))
             if code:
                 relevant_codes.add(code)
-    
+
     # 2. 买入信号候选标的
     for a in alerts:
         code = str(a.get("stock_code", "") if isinstance(a, dict) else getattr(a, "stock_code", ""))
@@ -946,23 +951,58 @@ def format_agent_json_context(data: dict) -> str:
         code = str(c.get("stock_code", ""))
         if code:
             relevant_codes.add(code)
-    
-    # 3. 过滤 quotes
+
+    # 3. 过滤 quotes：保留关键个股 + 所有市场指数（含微盘股代理中证2000）
     qs = data.get("quote_snapshot", {})
     all_quotes = qs.get("quotes", []) or []
-    filtered_quotes = [
-        q for q in all_quotes
-        if str(q.get("code", "") or q.get("secid", "")) in relevant_codes
-    ]
+
+    # 把持仓/候选代码统一转成6位纯数字，兼容 "002938.SZ" / "0.002938" / "002938"
+    import re as _re
+
+    def _pure_code(raw: str) -> str:
+        m = _re.search(r"(\d{6})", str(raw or ""))
+        return m.group(1) if m else ""
+
+    relevant_pure_codes: set[str] = {_pure_code(c) for c in relevant_codes if _pure_code(c)}
+
+    def _keep_quote(q: dict) -> bool:
+        code = str(q.get("code", "") or "")
+        secid = str(q.get("secid", "") or "")
+        pure = _pure_code(code or secid)
+        if pure and pure in relevant_pure_codes:
+            return True
+        if code in market_codes or secid in market_secids:
+            return True
+        return False
+
+    filtered_quotes = [q for q in all_quotes if _keep_quote(q)]
     kept_quote_snapshot = {
         "source": qs.get("source", ""),
         "quotes": filtered_quotes,
         "_filtered_from": len(all_quotes),
         "_kept_for_codes": sorted(relevant_codes),
+        "_kept_market_indexes": sorted(market_codes),
     }
     
     output = {k: v for k, v in data.items() if k != "quote_snapshot"}
     output["quote_snapshot"] = kept_quote_snapshot
+
+    # 精简 state：alert_decision_log / agent_analysis_log / emitted_alerts 会暴涨，
+    # Agent 只需要最近的信号计数、市场状态和最新快照，不需要完整历史。
+    raw_state = output.get("state")
+    if isinstance(raw_state, dict):
+        slim_state = {
+            "version": raw_state.get("version"),
+            "last_updated": raw_state.get("last_updated"),
+            "sector_signal_counts": raw_state.get("sector_signal_counts", {}),
+            "market_state": raw_state.get("market_state") or raw_state.get("last_market_state", {}),
+            "last_quote_snapshot": {
+                "source": (raw_state.get("last_quote_snapshot") or {}).get("source", ""),
+                "quotes_count": len((raw_state.get("last_quote_snapshot") or {}).get("quotes", [])),
+            },
+            "stale_zone_warnings": raw_state.get("stale_zone_warnings", []),
+        }
+        output["state"] = slim_state
 
     # 过滤 human_only 字段，减小 LLM token 浪费
     filtered_count = 0

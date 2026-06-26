@@ -1392,15 +1392,19 @@ def market_analyst(state: AgentState) -> AgentState:
 """
     content = _safe_llm_invoke(prompt)
     _t1 = time.time()
-    logger.info(f"market_analyst_llm: duration={_t1-_t0:.1f}s prompt_len={len(prompt)}")
+    logger.info(f"market_analyst_llm: duration={_t1-_t0:.1f}s prompt_len={len(prompt)} content_len={len(content) if content else 0}")
 
     # 成本追踪
     _ct = CostTracker()
     _ct.record_call(provider=(settings.llm_provider or "deepseek"))
     _cost_snapshot = _ct.snapshot()
 
+    # LLM 有时在 JSON 后追加 ```daily_state 代码块，导致 json.loads 失败。
+    # 先清洗掉代码块再解析 JSON，daily_state 仍单独提取。
+    import re as _re
+    cleaned_content = _re.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
     try:
-        result = json.loads(content) if content else {}
+        result = json.loads(cleaned_content) if cleaned_content else {}
     except json.JSONDecodeError:
         result = {}
 
@@ -1585,7 +1589,7 @@ def stock_analyst(state: AgentState) -> AgentState:
     prompt = f"""{prompt_template}
 
 上下文：
-{json.dumps(context, ensure_ascii=False, indent=2)}
+{json.dumps(context, ensure_ascii=False, indent=2, default=str)}
 
 请输出JSON：
 """
@@ -1596,8 +1600,11 @@ def stock_analyst(state: AgentState) -> AgentState:
     _sa_ct.record_call(provider=(settings.llm_provider or "deepseek"))
     _sa_cost = _sa_ct.snapshot()
 
+    # 清洗可能的 ```daily_state 代码块，避免 JSON 解析失败
+    import re as _re_sa
+    cleaned_content = _re_sa.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
     try:
-        result = json.loads(content) if content else {}
+        result = json.loads(cleaned_content) if cleaned_content else {}
     except json.JSONDecodeError:
         result = {}
 
@@ -1840,15 +1847,26 @@ def synthesize(state: AgentState) -> AgentState:
         sector_map = market.get("sector_map", {})
         sector_lines = []
         for layer, items in sector_map.items():
-            if items:
-                sector_lines.append(f"{layer}：")
-                for item in items:
-                    stocks = "、".join(item.get("key_stocks", []))
-                    sector_lines.append(f"  - {item.get('name', '')}（{item.get('status', '')}）→ {item.get('logic', '')}；标的：{stocks}")
+            if not items:
+                continue
+            sector_lines.append(f"{layer}：")
+            for item in items:
+                if isinstance(item, str):
+                    sector_lines.append(f"  - {item}")
+                    continue
+                if not isinstance(item, dict):
+                    continue
+                stocks = "、".join(item.get("key_stocks", []))
+                sector_lines.append(f"  - {item.get('name', '')}（{item.get('status', '')}）→ {item.get('logic', '')}；标的：{stocks}")
 
         themes = market.get("themes_in_focus", [])
         theme_lines = []
         for t in themes:
+            if isinstance(t, str):
+                theme_lines.append(f"【{t}】")
+                continue
+            if not isinstance(t, dict):
+                continue
             theme_lines.append(f"【{t.get('theme', '')}】")
             theme_lines.append(f"催化：{t.get('catalyst', '')}")
             theme_lines.append(f"风险：{t.get('risk', '')}")
@@ -1856,7 +1874,7 @@ def synthesize(state: AgentState) -> AgentState:
 
         idx = market.get("index_discipline", {})
         index_lines = []
-        if idx:
+        if isinstance(idx, dict) and idx:
             index_lines.append(f"支撑{idx.get('support', 'N/A')} / 压力{idx.get('resistance', 'N/A')}")
             index_lines.append(f"跌破→{idx.get('action_below', 'N/A')}；突破→{idx.get('action_above', 'N/A')}；中间→{idx.get('middle_zone', 'N/A')}")
 
@@ -1948,7 +1966,7 @@ def style_writer(state: AgentState) -> AgentState:
     content = _safe_llm_invoke(prompt)
     styled = content if content else f"[UP风格化] {draft}"
 
-    logger.info(f"style_writer: output_len={len(styled)} generated={bool(content)}")
+    logger.info(f"style_writer: output_len={len(styled)} generated={bool(content)} content_len={len(content) if content else 0}")
 
     # 成本追踪
     _sw_ct = CostTracker()
