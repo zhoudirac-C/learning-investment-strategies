@@ -65,6 +65,244 @@ src/qing_investment/agent/
 
 Qing-Agent 基于 **LangGraph** 构建有向图，共 **9 个节点 + 1 条条件边**。
 
+```plantuml
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam componentStyle rectangle
+skinparam linetype ortho
+skinparam defaultFontSize 13
+skinparam packageBorderColor #90A4AE
+skinparam packageFontColor #37474F
+skinparam rectangleBorderColor #546E7A
+skinparam rectangleFontColor #263238
+skinparam rectangleBackgroundColor #FFFFFF
+skinparam databaseBackgroundColor #FFFFFF
+skinparam folderBackgroundColor #FFFFFF
+skinparam noteBackgroundColor #FFFDE7
+skinparam noteBorderColor #FBC02D
+
+title Qing-Agent 架构图 v4 — 9 节点 LangGraph 工作流
+
+' ==================== 左侧：离线层 ====================
+package "基础设施" #ECEFF1 {
+    database "Neo4j\nclaims 图谱" as Neo4j
+    database "Qdrant\n向量检索" as Qdrant
+    database "Postgres\nmem0" as Postgres
+}
+
+package "知识沉淀" #ECEFF1 {
+    folder "sources/raw/财经" as Raw
+    folder "knowledge/claims" as Claims
+    folder "knowledge/wiki" as Wiki
+    folder "framework" as Framework
+    folder "framework/reasoning-patterns.yaml" as ReasonPat #FFF9C4
+    note right of ReasonPat
+      推理模式库
+      ONNX Embedding 召回 + LLM rerank
+    end note
+}
+
+package "索引脚本" #ECEFF1 {
+    [index_documents_to_qdrant] as IdxDoc #CFD8DC
+    [migrate_claims_to_neo4j] as MigNeo #CFD8DC
+    [index_claims_to_qdrant] as IdxClaims #CFD8DC
+    [freshness_check] as FreshCheck #CFD8DC
+}
+
+' ==================== 中间：主流程（从上至下）====================
+
+package "① 输入层" #E3F2FD {
+    [POST /chat] as Chat
+    [POST /analyze/trigger] as Trigger
+    [external_sector_boards] as ESB
+    [market_snapshot] as MarketSnap
+    [positions] as Positions
+    [watchlist] as Watchlist
+}
+
+package "② 解析层" #FFFFFF {
+    [parse_query] as Parse
+    note right of Parse
+      graph/nodes.py
+      提取 stock_code / analysis_type
+    end note
+}
+
+package "③ 检索层" #F3E5F5 {
+    [retrieve_knowledge] as Retrieve
+    note right of Retrieve
+      graph/nodes.py
+      + neo4j_client.py
+      + qdrant_client.py
+      + mem0_client.py
+      + context_builder.py
+    end note
+
+    [qing_knowledge] as QWiki
+    [qing_claims] as QClaims
+    [mem0] as Mem0
+    [sector_extractor] as SectorExt
+
+    [_apply_claim_freshness] as Freshness
+    note right of Freshness
+      ≤7天 [最新]
+      8-30天 [近期]
+      31-90天 [历史]
+      >90天 / superseded → 过滤
+    end note
+
+    [_detect_claim_conflicts] as Conflicts
+    note right of Conflicts
+      同一 subject 下
+      看多 vs 看空
+      → potential_conflicts
+    end note
+}
+
+package "④ 分析层" #E8F5E9 {
+    [market_analyst] as Market
+    [stock_analyst] as Stock
+    [devils_advocate] as DA
+
+    note right of Market
+      graph/nodes.py
+      Framework 显式加载
+      + 11项分析框架片段
+      + ONNX Embedding → LLM rerank
+      + 数据缺失降级
+      + 写入 daily_state
+    end note
+
+    note right of Stock
+      graph/nodes.py
+      个股地位 / 多空证据
+      触发 / 失效条件
+    end note
+
+    note right of DA
+      DevilsAdvocateAgent
+      强制 Kimi 模型反向质疑
+    end note
+}
+
+package "⑤ 生成层" #FFF8E1 {
+    [synthesize] as Synth
+    [style_writer] as Style
+    [citation_validator] as Citation
+    [reviewer] as Review
+
+    note left of Synth
+      graph/nodes.py
+      纯规则拼接
+      不调用 LLM
+    end note
+
+    note left of Style
+      graph/nodes.py
+      UP 口吻风格化
+      周期自适应语气
+    end note
+
+    note left of Citation
+      validators/
+      citation_validator.py
+      数字/事实声明
+      来源覆盖率 ≥60%
+    end note
+
+    note left of Review
+      graph/nodes.py
+      语义审查 + 禁用词
+      失败 → 打回 style_writer
+      最多 3 次
+    end note
+}
+
+package "⑥ 输出层" #FFF3E0 {
+    [UP 风格化复盘] as Output
+    note right of Output
+      ① 当日定调
+      ② 周期定位
+      ③ 主线识别
+      ④ 板块地图
+      ⑤ 题材落地
+      ⑥ 指数纪律
+      ⑦ 量能观察
+      ⑧ 情绪指标
+      ⑨ 明日推演
+      ⑩ 持仓计划
+      ⑪ 风险提示
+      + 参考来源 / 反向质疑
+      + cost_info
+    end note
+}
+
+' ==================== 连接线：主流程 ====================
+Chat ..> Parse : 独立流程\n(不走LangGraph)
+Trigger --> Parse
+
+Parse --> Retrieve
+
+Retrieve --> QWiki
+Retrieve --> QClaims
+Retrieve --> Mem0
+Retrieve --> SectorExt
+
+QClaims --> Freshness
+Freshness --> Conflicts
+
+Retrieve --> Market
+Retrieve --> Stock
+
+Market --> DA
+Stock --> DA
+
+DA --> Synth
+
+Synth --> Style
+Style --> Citation
+Citation --> Review
+Review --> Output : passed
+Review --> Style : failed (max 3)
+
+ESB --> Market
+MarketSnap --> Market
+Positions --> Market
+Watchlist --> Market
+
+' ==================== 连接线：离线层 ====================
+Raw --> IdxDoc
+Wiki --> IdxDoc
+Framework --> IdxDoc
+Claims --> MigNeo
+Claims --> IdxClaims
+Claims --> FreshCheck
+
+IdxDoc --> Qdrant
+MigNeo --> Neo4j
+IdxClaims --> Qdrant
+
+Qdrant --> QWiki
+Qdrant --> QClaims
+Neo4j --> Retrieve
+Postgres --> Mem0
+
+legend right
+    | 背景色 | 层级 |
+    |<#E3F2FD>| ① 输入层 |
+    |<#F3E5F5>| ③ 检索层 |
+    |<#E8F5E9>| ④ 分析层 |
+    |<#FFF8E1>| ⑤ 生成层 |
+    |<#FFF3E0>| ⑥ 输出层 |
+    |<#FFEBEE>| 审核/过滤 |
+    |<#ECEFF1>| 离线基础设施 |
+endlegend
+
+@enduml
+```
+
+**简化版数据流（/analyze/trigger）**：
+
 ```
 parse_query
     │
