@@ -1,5 +1,13 @@
      1|# 操作日志
 
+## 2026-06-26 | qing-learning ingest | 6/26盘中动态三：14:12尾盘风控+抗跌方向+配置心态
+
+- 处理 raw：`sources/original/bilibili/2026-06-26-1412-图片-尾盘如果跌破4034再减仓。 今天抗跌的部分，能和指数共振的.md`（B站充电专属图片动态）
+- 新增 claims：`claim-20260626-004.yaml`（4条：operation×2, sector-theme×1, methodology×1）
+- 核心观点：尾盘跌破4034再减仓；抗跌且与指数共振的方向较好；有业绩预期但未联动的标的可持有；做好配置保持心态
+- 更新 wiki：`knowledge/wiki/每日复盘/2026-06-26.md`
+- 更新索引：`knowledge/claims/index.md`
+
 ## 2026-06-26 | qing-learning ingest | 6/26盘中动态：10:56抄底时机+12:05抄底逻辑与节奏
 
 - 处理 raw：
