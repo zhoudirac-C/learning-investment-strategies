@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 # 默认配置
 _DEFAULT_CLI_PATH = "/home/ubuntu/.kimi-code/bin/kimi"
 _DEFAULT_CWD = "/home/ubuntu/learning-investment-strategies"
-_DEFAULT_TIMEOUT = 120
+_DEFAULT_TIMEOUT = 300
 
 
 class KimiCodeCLIResponse:
@@ -90,11 +90,11 @@ class KimiCodeCLIClient:
             len(raw), len(cleaned),
         )
 
-        # 清洗结果异常短时，把原始输出打到 debug 便于排查
-        if len(cleaned) < 10:
-            logger.debug(
-                "[KimiCodeCLIClient] suspiciously short output, raw=%r",
-                raw,
+        # 清洗结果异常短时，把原始输出打到 warning 便于排查
+        if len(cleaned) < 50:
+            logger.warning(
+                "[KimiCodeCLIClient] suspiciously short output: cleaned_len=%d raw_len=%d raw=%r",
+                len(cleaned), len(raw), raw[:2000],
             )
 
         if not cleaned:
@@ -289,7 +289,13 @@ class KimiCodeCLIClient:
                     continue
                 candidate = text[start:end]
                 try:
-                    json.loads(candidate)
+                    parsed = json.loads(candidate)
+                    # 忽略空对象/数组：markdown 中常出现占位符 {}，
+                    # 提取它们会覆盖真正的文本内容（如 style_writer 的 markdown）。
+                    if isinstance(parsed, dict) and not parsed:
+                        continue
+                    if isinstance(parsed, list) and not parsed:
+                        continue
                     return candidate
                 except json.JSONDecodeError:
                     continue

@@ -641,12 +641,17 @@ def _load_reasoning_patterns(state: AgentState) -> list[dict]:
     return matched
 
 
-def _safe_llm_invoke(prompt: str) -> str:
+def _safe_llm_invoke(prompt: str, min_length: int = 0) -> str:
     """安全调用 LLM，默认优先走本地 Kimi Code CLI，失败/超时后 fallback 到配置 provider。
 
     通过环境变量 KIMI_CODE_CLI_FIRST 控制是否优先本地：
     - unset / 1 / true：优先本地
     - 0 / false：直接走配置 provider
+
+    Args:
+        prompt: 发送给 LLM 的提示。
+        min_length: 本地 CLI 返回内容的最小可接受长度（字符数）。
+            若返回内容长度低于此值，视为失败并 fallback 到配置 provider。
     """
     import os
 
@@ -660,6 +665,10 @@ def _safe_llm_invoke(prompt: str) -> str:
                 "[_safe_llm_invoke] local Kimi Code CLI succeeded, content_len=%d",
                 len(content),
             )
+            if min_length > 0 and len(content) < min_length:
+                raise RuntimeError(
+                    f"local Kimi Code CLI returned too short output ({len(content)} chars, min={min_length})"
+                )
             return content
         except Exception as e:
             logger.warning(
@@ -1989,7 +1998,7 @@ def style_writer(state: AgentState) -> AgentState:
         f"has_vague_terms={has_vague_terms} review_round={len(review_notes)}"
     )
 
-    content = _safe_llm_invoke(prompt)
+    content = _safe_llm_invoke(prompt, min_length=150)
     styled = content if content else f"[UP风格化] {draft}"
 
     logger.info(f"style_writer: output_len={len(styled)} generated={bool(content)} content_len={len(content) if content else 0}")
@@ -2031,6 +2040,35 @@ def citation_validator(state: AgentState) -> AgentState:
                 "summary": "无输出内容，跳过引用校验",
             },
             "reasoning_steps": ["引用校验: 跳过（无输出）"],
+        }
+
+    # 硬检验：输出过短通常意味着生成失败，直接标记为不通过
+    _MIN_OUTPUT_LENGTH = 100
+    if len(output) < _MIN_OUTPUT_LENGTH:
+        logger.warning(
+            "[citation_validator] output too short (%d chars < %d), forcing invalid",
+            len(output), _MIN_OUTPUT_LENGTH,
+        )
+        _short_ct = CostTracker()
+        _short_ct.record_call(provider="rules")
+        return {
+            "citation_report": {
+                "valid": False,
+                "coverage": 0.0,
+                "total_claims": 0,
+                "cited_claims": 0,
+                "issues": [
+                    {
+                        "section": "全局",
+                        "claim_text": output,
+                        "issue_type": "output_too_short",
+                        "suggestion": f"输出过短（{len(output)} 字符），疑似生成失败，请重新生成",
+                    }
+                ],
+                "summary": f"输出过短（{len(output)} 字符），疑似生成失败",
+            },
+            "reasoning_steps": ["引用校验: 输出过短，生成失败"],
+            "cost_tracking": [_short_ct.snapshot()],
         }
 
     from qing_investment.agent.validators.citation_validator import CitationValidator
@@ -2125,6 +2163,11 @@ def reviewer(state: AgentState) -> AgentState:
 
     _t1 = time.time()
     passed = result.get("passed", False)
+    # 输出过短通常意味着生成失败（如 Kimi Code CLI 清洗后只剩几个字符），直接打回
+    if passed and len(output) < 100:
+        passed = False
+        review_notes.append(f"输出过短（{len(output)} 字符），疑似生成失败")
+        logger.warning("[reviewer] output too short (%d chars), forcing fail", len(output))
     logger.info(
         f"reviewer: passed={passed} retry={retry_count} "
         f"issues={len(raw_issues)} duration={_t1-_t0:.1f}s "
