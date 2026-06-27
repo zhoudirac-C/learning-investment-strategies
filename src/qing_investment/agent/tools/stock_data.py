@@ -122,7 +122,9 @@ def fetch_stock_quotes_eastmoney(codes: list[str]) -> list[dict]:
     
     quotes = []
     diff = data.get("data", {}).get("diff", {})
-    for _, q in diff.items():
+    # diff 可能是 dict（按 code 索引）或 list（有序列表），统一按 list 遍历
+    diff_items = diff.values() if isinstance(diff, dict) else diff
+    for q in diff_items:
         try:
             code = q.get("f12", "")
             name = q.get("f14", "")

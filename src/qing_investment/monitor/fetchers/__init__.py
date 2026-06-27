@@ -792,8 +792,57 @@ def fetch_quotes(targets: dict[str, str]) -> dict:
 
 
 def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
-    """别名，与 fetch_quotes 行为一致。"""
-    return fetch_quotes(targets)
+    """向后兼容的行情获取：东财优先，数据不完整/报错时降级腾讯、新浪。
+
+    与 DataFetcher.fetch() 的区别在于：当东财返回部分数据或出错时，会尝试
+    用腾讯补充，最后才是新浪。测试通过 monkeypatch stock_monitor 的函数来
+    验证降级行为，因此这里延迟导入 stock_monitor 的兼容层函数。
+    """
+    if not targets:
+        return {"source": "none", "quotes": [], "errors": [], "elapsed_ms": 0.0}
+
+    # 延迟导入避免循环依赖，并兼容测试 monkeypatch
+    from qing_investment import stock_monitor
+
+    # 尝试1: 东财（数据最全，但可能限流/部分失败）
+    em_result = stock_monitor.fetch_eastmoney_quotes(targets)
+    em_quotes = em_result.get("quotes", []) or []
+    em_errors = em_result.get("errors", []) or []
+    if len(em_quotes) >= len(targets) and not em_errors:
+        return em_result
+
+    # 尝试2: 腾讯（最稳定，用于补充/替换东财）
+    tencent_result = stock_monitor.fetch_tencent_quotes(targets)
+    tencent_quotes = tencent_result.get("quotes", []) or []
+    if tencent_quotes:
+        # 合并东财已有的数据（如果存在）
+        if em_quotes:
+            seen = {q.get("secid") or q.get("code"): q for q in tencent_quotes}
+            for q in em_quotes:
+                key = q.get("secid") or q.get("code")
+                if key and key not in seen:
+                    seen[key] = q
+                    tencent_quotes.append(q)
+        return {
+            "source": "tencent_gtimg",
+            "quotes": tencent_quotes,
+            "errors": [],
+            "elapsed_ms": tencent_result.get("elapsed_ms", 0.0),
+        }
+
+    # 尝试3: 新浪（fetchers 内部实现）
+    sina_fetcher = SinaFetcher()
+    sina_result = sina_fetcher.fetch(targets)
+    if sina_result.quotes_count > 0:
+        return {
+            "source": "sina_hq",
+            "quotes": sina_result.data.get("quotes", []),
+            "errors": [sina_result.error] if sina_result.error else [],
+            "elapsed_ms": sina_result.latency_ms,
+        }
+
+    # 兜底：返回东财（哪怕是部分数据）
+    return em_result
 
 
 # ──────────────────────────────────────────
