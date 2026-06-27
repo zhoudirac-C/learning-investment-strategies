@@ -1,8 +1,8 @@
 # Qing-Agent 技术设计文档
 
-> 版本: 2026-06-26 (v4)
+> 版本: 2026-06-27 (v4.1)
 > 对应 Commit: `88e0753` 及当前工作区
-> 最后更新：基于 `src/qing_investment/agent/` 真实代码重写；旧版 `v3` 已归档至 `docs/archived/qing-agent-technical-design-v3-20260612.md`
+> 最后更新：新增本地 Kimi Code CLI 优先调用与 reviewer 重试计数修复；旧版 `v3` 已归档至 `docs/archived/qing-agent-technical-design-v3-20260612.md`
 
 ---
 
@@ -46,8 +46,9 @@ src/qing_investment/agent/
 │   ├── trader_mindset.txt
 │   └── cron_*.txt           # 定时播报类 prompt
 └── tools/                   # 工具函数与客户端
-    ├── llm_client.py        # LLM/Embedding 客户端统一入口
-    ├── neo4j_client.py      # claims 图数据库
+    ├── llm_client.py            # LLM/Embedding 客户端统一入口
+    ├── kimi_code_cli_client.py  # 本地 Kimi Code CLI 调用封装
+    ├── neo4j_client.py          # claims 图数据库
     ├── qdrant_client.py     # 向量检索
     ├── mem0_client.py       # 长期记忆
     ├── claim_freshness.py   # claims 时效性过滤
@@ -415,14 +416,14 @@ class AgentState(TypedDict, total=False):
 
 ### 5.1 parse_query
 
-- **位置**：`graph/nodes.py:653`
+- **位置**：`graph/nodes.py:678`
 - **输入**：`query`
 - **输出**：`parsed_intent`
 - **逻辑**：调用 LLM 从 query 中提取 `stock_code`、`analysis_type`（stock/market/portfolio）、`urgency`、`focus`；解析失败时默认按 `analysis_type=stock` 继续。
 
 ### 5.2 retrieve_knowledge
 
-- **位置**：`graph/nodes.py:856`
+- **位置**：`graph/nodes.py:881`
 - **输入**：`query`、`parsed_intent`、`session_id`
 - **输出**：`claims`、`wiki_snippets`、`memories`、`sector_context`、`stock_contexts`、`direction_signals`、`potential_conflicts`
 - **数据源**：
@@ -439,7 +440,7 @@ class AgentState(TypedDict, total=False):
 
 ### 5.3 market_analyst
 
-- **位置**：`graph/nodes.py:1158`
+- **位置**：`graph/nodes.py:1183`
 - **输入**：`market_snapshot`、`external_sector_boards`、`claims`、`wiki_snippets`、`watchlist`、`positions`、`sector_context` 等
 - **输出**：`market_context`
 - **关键逻辑**：
@@ -455,49 +456,93 @@ class AgentState(TypedDict, total=False):
 
 ### 5.4 stock_analyst
 
-- **位置**：`graph/nodes.py:1534`
+- **位置**：`graph/nodes.py:1560`
 - **输入**：`parsed_intent`、`market_context`、`claims`、`wiki_snippets`
 - **输出**：`stock_analysis`
 - **逻辑**：个股地位判断（龙头/补涨/跟风）、多空证据、技术位置、触发/失效条件、风险点；非个股分析返回空。
 
 ### 5.5 devils_advocate
 
-- **位置**：`graph/nodes.py:1634`
+- **位置**：`graph/nodes.py:1660`
 - **输入**：`market_context`、`stock_analysis`、`claims_cited`
 - **输出**：`devils_advocate_findings`
 - **逻辑**：实例化 `DevilsAdvocateAgent`，强制使用 Kimi 模型家族对 market + stock 结论做反向质疑；无分析内容时跳过。
 
 ### 5.6 synthesize
 
-- **位置**：`graph/nodes.py:1804`
+- **位置**：`graph/nodes.py:1830`
 - **输入**：`market_context`、`stock_analysis`、`positions`、`devils_advocate_findings`
 - **输出**：`draft_analysis`
 - **逻辑**：纯规则拼接草稿（不调用 LLM），区分"有个股分析"和"纯市场分析"两种模板；注入持仓操作计划、反向质疑块、【参考来源】段落。
 
 ### 5.7 style_writer
 
-- **位置**：`graph/nodes.py:1939`
+- **位置**：`graph/nodes.py:1965`
 - **输入**：`draft_analysis`、`market_phase`、`few_shot_examples`、`review_notes`
 - **输出**：`styled_output`
 - **逻辑**：加载 `style_writer.txt`，按市场周期选择语气，将专业草稿改写为 UP 口吻；注入人格特征（犀利、不劝赌、非机构腔），**不再强制使用固定口头禅**。
 
 ### 5.8 citation_validator
 
-- **位置**：`graph/nodes.py:1984` / `validators/citation_validator.py`
+- **位置**：`graph/nodes.py:2010` / `validators/citation_validator.py`
 - **输入**：`styled_output`
 - **输出**：`citation_report`
 - **逻辑**：规则引擎提取数字/事实声明，检查附近是否有来源标注；覆盖率阈值 60%，生成问题列表。**非阻断**，仅供 reviewer 参考。
 
 ### 5.9 reviewer
 
-- **位置**：`graph/nodes.py:2049`
-- **输入**：`styled_output`、`claims`
-- **输出**：`review_passed`、`review_notes`、`final_output`
-- **逻辑**：LLM 审核禁用词、语义一致性、引用覆盖；不通过则返回修改意见，由 `review_router` 决定重试或强制结束。
+- **位置**：`graph/nodes.py:2075`
+- **输入**：`styled_output`、`claims`、`_retry_count`
+- **输出**：`review_passed`、`review_notes`、`final_output`、`_retry_count`
+- **逻辑**：
+  - LLM 审核禁用词、语义一致性、引用覆盖；解析失败或输出含禁用词时，使用规则兜底判定。
+  - 审核未通过时，将 `_retry_count` 递增 1 写回 `AgentState`；`review_router` 据此决定回退 `style_writer` 重试，或在 `_retry_count >= 3` 时强制放行，避免无限循环。
+  - 通过时 `_retry_count` 保持不变。
 
 ---
 
-## 6. 知识检索架构
+## 6. LLM 调用策略与本地降级
+
+Qing-Agent 的图节点通过 `tools/llm_client.py` 统一调用大模型。为降低对外部 API 的依赖并复用本地 Kimi Code CLI 能力，默认采用 **本地优先、失败降级** 策略。
+
+### 6.1 调用入口
+
+- **统一封装**：`graph/nodes.py` 中的 `_safe_llm_invoke(prompt)` 是图节点调用 LLM 的唯一入口。
+- **客户端工厂**：`tools/llm_client.py::get_llm_client(provider)` 根据 provider 名称返回对应客户端；新增 provider `kimi-code-cli` 对应本地 Kimi Code CLI。
+
+### 6.2 本地 Kimi Code CLI 客户端
+
+新增文件：`src/qing_investment/agent/tools/kimi_code_cli_client.py`
+
+- **调用方式**：子进程执行 `kimi -p "<prompt>" --output-format text`，通过 stdin/stdout 与 Kimi Code CLI 交互。
+- **输出清洗**：
+  - 优先从输出中提取 JSON 块；
+  - 非 JSON 输出时，提取所有 `• ` 开头的 bullet 块，并去除公共缩进，保留 markdown 长文本。
+- **超时控制**：默认 120 秒，可通过环境变量 `KIMI_CODE_CLI_TIMEOUT` 调整。
+
+### 6.3 降级策略
+
+`_safe_llm_invoke` 默认行为：
+
+1. 若环境变量 `KIMI_CODE_CLI_FIRST` 未显式关闭（默认 `1`），先调用本地 `kimi-code-cli`。
+2. 本地调用失败（CLI 不存在、异常、超时）时，记录 warning 并回退到 `settings.llm_provider`（当前默认 `deepseek`）。
+3. 若 `KIMI_CODE_CLI_FIRST=0`，直接走原 provider。
+
+| 环境变量 | 默认值 | 说明 |
+|---|---|---|
+| `KIMI_CODE_CLI_FIRST` | `1` | 是否优先使用本地 CLI |
+| `KIMI_CODE_CLI_TIMEOUT` | `120` | 本地 CLI 单次调用超时（秒） |
+| `KIMI_CODE_CLI_PATH` | `~/.kimi-code/bin/kimi` | CLI 可执行文件路径 |
+| `KIMI_CODE_CLI_CWD` | 项目根目录 | CLI 子进程工作目录 |
+
+### 6.4 注意事项
+
+- `devils_advocate` 节点按设计仍通过 `DevilsAdvocateAgent` 直接注入 Kimi API，未接入本地 CLI 降级；当前若 Kimi API 认证失败会返回空 findings。
+- 大 prompt（如 `market_analyst`，约 40k token）在本地 CLI 上可能超时，会自动 fallback 到 `deepseek`。
+
+---
+
+## 7. 知识检索架构
 
 ```
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
@@ -531,7 +576,7 @@ class AgentState(TypedDict, total=False):
 
 ---
 
-## 7. 幻觉防御层
+## 8. 幻觉防御层
 
 | 层级 | 实现 | 说明 |
 |---|---|---|
@@ -547,7 +592,7 @@ class AgentState(TypedDict, total=False):
 
 ---
 
-## 8. Prompt 体系
+## 9. Prompt 体系
 
 | Prompt 文件 | 用途 | 关键占位符 |
 |---|---|---|
@@ -561,22 +606,22 @@ class AgentState(TypedDict, total=False):
 
 ---
 
-## 9. 部署与调用
+## 10. 部署与调用
 
-### 9.1 启动
+### 10.1 启动
 
 ```bash
 cd src
 uvicorn qing_investment.agent.main:app --host 0.0.0.0 --port 8000
 ```
 
-### 9.2 健康检查
+### 10.2 健康检查
 
 ```bash
 curl http://localhost:8000/health
 ```
 
-### 9.3 /analyze/trigger 示例
+### 10.3 /analyze/trigger 示例
 
 ```bash
 curl -X POST http://localhost:8000/analyze/trigger \
@@ -592,14 +637,14 @@ curl -X POST http://localhost:8000/analyze/trigger \
   }'
 ```
 
-### 9.4 与 Bridge/Hermes 集成
+### 10.4 与 Bridge/Hermes 集成
 
 - Bridge cron 通过 `scripts/hermes_stock_monitor_agent.py` 调用 Qing-Agent。
 - 若 Qing-Agent 不可达，降级到 `stock_monitor.py --agent-context-on-trigger` 的纯文本 LLM 流程。
 
 ---
 
-## 10. 成本追踪
+## 11. 成本追踪
 
 每个 LLM 调用节点内部使用 `CostTracker` 记录：
 
@@ -611,10 +656,11 @@ curl -X POST http://localhost:8000/analyze/trigger \
 
 ---
 
-## 11. 变更日志
+## 12. 变更日志
 
 | 日期 | 变更 |
 |---|---|
+| 2026-06-27 | 新增本地 Kimi Code CLI 优先调用策略（`tools/kimi_code_cli_client.py`），失败/超时后 fallback 到原 API provider；修复 `reviewer` 未递增 `_retry_count` 导致的无限重试问题 |
 | 2026-06-26 | v4 重写：基于真实代码更新架构图、节点说明、知识检索与幻觉防御层；移除对 UP 固定口头禅的描述 |
 | 2026-06-12 | v3：新增指数多级别 K 线管线、日志系统、Watchlist P1-P4 优先级 |
 | 2026-06-11 | 全量文档同步：幻觉防御层、P3 K-line、poll 字段、买入信号 |

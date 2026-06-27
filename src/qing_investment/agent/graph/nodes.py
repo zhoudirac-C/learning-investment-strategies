@@ -642,11 +642,36 @@ def _load_reasoning_patterns(state: AgentState) -> list[dict]:
 
 
 def _safe_llm_invoke(prompt: str) -> str:
-    """安全调用 LLM，缺失 API key 时返回空字符串。"""
+    """安全调用 LLM，默认优先走本地 Kimi Code CLI，失败/超时后 fallback 到配置 provider。
+
+    通过环境变量 KIMI_CODE_CLI_FIRST 控制是否优先本地：
+    - unset / 1 / true：优先本地
+    - 0 / false：直接走配置 provider
+    """
+    import os
+
+    use_local_first = os.environ.get("KIMI_CODE_CLI_FIRST", "1").lower() not in ("0", "false", "no")
+
+    if use_local_first:
+        try:
+            local_llm = get_llm_client(provider="kimi-code-cli")
+            content = local_llm.invoke(prompt).content
+            logger.info(
+                "[_safe_llm_invoke] local Kimi Code CLI succeeded, content_len=%d",
+                len(content),
+            )
+            return content
+        except Exception as e:
+            logger.warning(
+                "[_safe_llm_invoke] local Kimi Code CLI failed: %s, falling back to %s",
+                e, settings.llm_provider,
+            )
+
     try:
         llm = get_llm_client()
         return llm.invoke(prompt).content
     except Exception as e:
+        logger.warning("[_safe_llm_invoke] provider %s failed: %s", settings.llm_provider, e)
         return f""
 
 
@@ -2119,4 +2144,5 @@ def reviewer(state: AgentState) -> AgentState:
             f"事实核查: {'通过' if result.get('passed') else '未通过'}"
         ],
         "cost_tracking": [_rv_cost],
+        "_retry_count": retry_count + 1 if not passed else retry_count,
     }

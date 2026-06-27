@@ -10,6 +10,9 @@ from langchain_openai import ChatOpenAI
 
 from qing_investment.agent.config import settings
 
+# 本地 Kimi Code CLI 调用（通过子进程 `kimi -p`）
+_KIMI_CODE_CLI_PROVIDER = "kimi-code-cli"
+
 # 预置常见大模型厂商配置（写死，用户只需配置 provider + api_key）
 LLM_PROVIDERS: dict[str, dict[str, Any]] = {
     "openai": {
@@ -78,18 +81,32 @@ def get_llm_client(provider: str | None = None) -> Any:
     """根据配置的 provider 返回对应的 LLM 客户端。
 
     Args:
-        provider: 目标 provider，如 'kimi', 'deepseek'。None 则使用 settings.llm_provider。
+        provider: 目标 provider，如 'kimi', 'deepseek', 'kimi-code-cli'。
+            None 则使用 settings.llm_provider。
 
     Returns:
         ChatOpenAI — 标准 OpenAI 协议 provider
         KimiCodingClient — Kimi Coding Plan（Anthropic 协议）
+        KimiCodeCLIClient — 本地 Kimi Code CLI（子进程）
     """
     target = (provider or settings.llm_provider).lower()
     logger.info("[get_llm_client] target=%s (requested=%s, default=%s)", target, provider, settings.llm_provider)
+
+    # 本地 Kimi Code CLI：不走 LLM_PROVIDERS，不需要 api_key/base_url
+    if target == _KIMI_CODE_CLI_PROVIDER:
+        from .kimi_code_cli_client import KimiCodeCLIClient
+
+        logger.info("[get_llm_client] using local Kimi Code CLI")
+        return KimiCodeCLIClient(
+            cli_path=None,  # 使用默认 /home/ubuntu/.kimi-code/bin/kimi
+            cwd=None,       # 使用默认 /home/ubuntu/learning-investment-strategies
+            timeout=int(os.environ.get("KIMI_CODE_CLI_TIMEOUT", "120")),
+        )
+
     if target not in LLM_PROVIDERS:
         raise ValueError(
             f"Unknown LLM provider: {target}. "
-            f"Supported: {', '.join(LLM_PROVIDERS.keys())}"
+            f"Supported: {', '.join(LLM_PROVIDERS.keys())}, {_KIMI_CODE_CLI_PROVIDER}"
         )
 
     config = LLM_PROVIDERS[target]
