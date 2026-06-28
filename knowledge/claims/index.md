@@ -153,6 +153,10 @@
 - [claim-2026-06-17-001.yaml](claim-2026-06-17-001.yaml)
 - [claim-20260612-003.yaml](claim-20260612-003.yaml)
 - [claim-20260621-001.yaml](claim-20260621-001.yaml)
+- [claim-20260621-002.yaml](claim-20260621-002.yaml) — 视频 26-06-21 技术分析-孕线（26 条 technical-knowledge）
+- [claim-20260621-003.yaml](claim-20260621-003.yaml) — 视频 26-06-21 技术分析-孕线（26 条 technical-knowledge）
+- [claim-20260621-004.yaml](claim-20260621-004.yaml) — 视频 26-06-21 技术分析-孕线（26 条 technical-knowledge）
+- [claim-20260621-005.yaml](claim-20260621-005.yaml) — 视频 26-06-21 技术分析-孕线（26 条 technical-knowledge）
 - [claim-20260622-003.yaml](claim-20260622-003.yaml)
 - [claim-20260622-004.yaml](claim-20260622-004.yaml)
 - [claim-20260623-001.yaml](claim-20260623-001.yaml)

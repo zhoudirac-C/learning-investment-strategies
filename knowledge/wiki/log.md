@@ -1,5 +1,20 @@
      1|# 操作日志
 
+## 2026-06-28 | qing-learning ingest | 视频 26-06-21 技术分析-孕线：104 条 claims + framework/wiki 更新
+
+- 处理 raw：`sources/raw/财经/视频：26-06-21：技术分析-孕线.md`（UP 技术分析教学视频）
+- 新增 claims：
+  - `claim-20260621-002.yaml`（26 条：technical-knowledge×26）
+  - `claim-20260621-003.yaml`（26 条：technical-knowledge×26）
+  - `claim-20260621-004.yaml`（26 条：technical-knowledge×26）
+  - `claim-20260621-005.yaml`（26 条：technical-knowledge×26）
+- 核心内容：孕线（母子线）定义与别名、看涨/看跌孕线形态要求、实体包裹判定标准、力量衰竭叙事、与吞没形态差异、不能直接交易原则、第三日大阳线/大阴线化解规则、后续确认信号体系、标准化四步实战流程、3-5 个交易日有效周期、分仓操作（减仓 20%-30% / 确认后减仓 80% 以上）、多根小 K 线孕线/缠论包含关系/大 K 线+孕线+吞没组合等高阶变体
+- 案例引用：东山精密(002384)、贵州茅台(600519)、半导体板块
+- 更新 framework：`framework/technical-analysis-framework.md` §二、孕线（母子线）形态
+- 更新 wiki：`knowledge/wiki/投资方法论/技术分析.md` — 新增「2026-06-21 更新：孕线（母子线）形态」
+- 更新索引：`knowledge/claims/index.md`
+- 引用 claim IDs：`claim-20260621-002-a` 至 `claim-20260621-005-z`
+
 ## 2026-06-26 | qing-learning ingest | 6/26盘中动态三：14:12尾盘风控+抗跌方向+配置心态
 
 - 处理 raw：`sources/original/bilibili/2026-06-26-1412-图片-尾盘如果跌破4034再减仓。 今天抗跌的部分，能和指数共振的.md`（B站充电专属图片动态）
