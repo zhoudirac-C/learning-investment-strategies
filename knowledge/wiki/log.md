@@ -1,5 +1,21 @@
      1|# 操作日志
 
+## 2026-06-28 | qing-learning ingest | 6/26 15:30 动态：缺口回补+新能源第二只脚+年度目标4500+存储切换
+
+- 处理 raw：`sources/original/bilibili/2026-06-26-1530-图片-今天的行情确实很恶心，不过也很正常，缺口不补掉涨上去反而担惊.md`（B站充电专属图片动态）
+- 新增 claims：`claim-20260626-005.yaml`（6 条：market-cycle×3, sector-theme×1, operation×2）
+- 核心观点：
+  - 大盘缺口不补涨上去反而担惊受怕，当前回踩补缺口是正常走势
+  - 新能源随大盘踩第二只脚没有问题
+  - 没减仓的不用太担心，当前位置向下空间有限
+  - 这个位置减仓是为了后面的进攻
+  - 今年大盘目标看到 4500 点，回调越低越兴奋
+  - 存储做完后计划切换到另一个方向布局
+- 更新 wiki：`knowledge/wiki/每日复盘/2026-06-26.md`
+- 更新索引：`knowledge/claims/index.md`
+- 更新门禁：`gate_validate_claims.py` NON_COMPANY 集扩展（"盘回调幅度有限" 假阳性）
+- 引用 claim IDs：`claim-20260626-005-a` 至 `claim-20260626-005-f`
+
 ## 2026-06-28 | qing-learning ingest | 视频 26-06-21 技术分析-孕线：104 条 claims + framework/wiki 更新
 
 - 处理 raw：`sources/raw/财经/视频：26-06-21：技术分析-孕线.md`（UP 技术分析教学视频）
