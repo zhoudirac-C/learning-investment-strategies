@@ -29,13 +29,62 @@ QING_AGENT_MAX_RETRIES = int(os.environ.get("QING_AGENT_MAX_RETRIES", "2"))
 CRON_WRAPPER_TIMEOUT = float(os.environ.get("CRON_WRAPPER_TIMEOUT", "680"))  # 600s POST + 60s health + 20s margin
 
 
-def _normalize_positions(positions_raw: dict | list) -> list:
-    """Normalize positions from config format (dict with accounts) to flat list for qing-agent API."""
+_STOCK_CODE_RE = re.compile(r"(\d{6})")
+
+
+def _pure_stock_code(code: object) -> str:
+    """从 '002008.SZ' / '0.002008' 中提取 6 位数字代码。"""
+    text = str(code or "").strip()
+    match = _STOCK_CODE_RE.search(text)
+    return match.group(1) if match else text
+
+
+def _build_quote_lookup(quote_snapshot: dict) -> dict[str, dict]:
+    """按 6 位纯代码索引行情快照。"""
+    lookup: dict[str, dict] = {}
+    for q in (quote_snapshot or {}).get("quotes", []) or []:
+        for key in (q.get("code"), q.get("secid")):
+            pure = _pure_stock_code(key)
+            if pure:
+                lookup[pure] = q
+    return lookup
+
+
+def _enrich_stock_with_quote(stock: dict, quote_lookup: dict[str, dict]) -> None:
+    """为单只股票字典注入 current_price / change_pct。"""
+    if not isinstance(stock, dict):
+        return
+    pure = _pure_stock_code(stock.get("code", ""))
+    if not pure:
+        return
+    q = quote_lookup.get(pure)
+    if not q:
+        return
+    latest = q.get("latest")
+    pct_change = q.get("pct_change")
+    # 保留原始字段的同时注入 agent 易识别的字段
+    if latest is not None:
+        stock["current_price"] = latest
+        stock["price"] = latest
+    if pct_change is not None:
+        stock["change_pct"] = pct_change
+        stock["pct_change"] = pct_change
+
+
+def _normalize_positions(positions_raw: dict | list, quote_lookup: dict[str, dict] | None = None) -> list:
+    """Normalize positions from config format (dict with accounts) to flat list for qing-agent API.
+
+    如果提供 quote_lookup，会给每个 position 注入 current_price / change_pct / price / pct_change，
+    避免 qing-agent 在生成持仓段落时出现“实时行情数据缺失”。
+    """
     if isinstance(positions_raw, list):
+        for pos in positions_raw:
+            _enrich_stock_with_quote(pos, quote_lookup or {})
         return positions_raw
     if not isinstance(positions_raw, dict):
         return []
     result = []
+    lookup = quote_lookup or {}
     # Handle dict format: {"accounts": [{"name": "...", "positions": [...]}]}
     accounts = positions_raw.get("accounts", [])
     for account in accounts:
@@ -44,23 +93,31 @@ def _normalize_positions(positions_raw: dict | list) -> list:
         for pos in account.get("positions", []):
             if isinstance(pos, dict):
                 pos["account"] = account.get("name", "")
+                _enrich_stock_with_quote(pos, lookup)
                 result.append(pos)
     # Also handle direct portfolio_stats or positions list at top level
     direct_positions = positions_raw.get("positions", [])
     if isinstance(direct_positions, list):
         for pos in direct_positions:
             if isinstance(pos, dict) and pos not in result:
+                _enrich_stock_with_quote(pos, lookup)
                 result.append(pos)
     return result
 
 
-def _normalize_watchlist(watchlist_raw: dict | list) -> list:
-    """Normalize watchlist from config format (dict with themes) to flat list for qing-agent API."""
+def _normalize_watchlist(watchlist_raw: dict | list, quote_lookup: dict[str, dict] | None = None) -> list:
+    """Normalize watchlist from config format (dict with themes) to flat list for qing-agent API.
+
+    如果提供 quote_lookup，会给每只股票注入 current_price / change_pct / price / pct_change。
+    """
     if isinstance(watchlist_raw, list):
+        for stock in watchlist_raw:
+            _enrich_stock_with_quote(stock, quote_lookup or {})
         return watchlist_raw
     if not isinstance(watchlist_raw, dict):
         return []
     result = []
+    lookup = quote_lookup or {}
     # Handle dict format: {"themes": [{"stocks": [...]}]} or {"stocks": [...]}
     themes = watchlist_raw.get("themes", [])
     for theme in themes:
@@ -69,12 +126,14 @@ def _normalize_watchlist(watchlist_raw: dict | list) -> list:
         for stock in theme.get("stocks", []):
             if isinstance(stock, dict):
                 stock["theme"] = theme.get("name", "")
+                _enrich_stock_with_quote(stock, lookup)
                 result.append(stock)
     # Also handle direct stocks list at top level
     direct_stocks = watchlist_raw.get("stocks", [])
     if isinstance(direct_stocks, list):
         for stock in direct_stocks:
             if isinstance(stock, dict) and stock not in result:
+                _enrich_stock_with_quote(stock, lookup)
                 result.append(stock)
     return result
 
@@ -242,6 +301,9 @@ def fetch_fallback_text_context(root: Path, data: dict | None = None) -> str:
 
 def _format_fallback_text(data: dict) -> str:
     """Format JSON context data into human-readable text for fallback output."""
+    # 先从 quote_snapshot 构建行情索引，注入到 positions / watchlist
+    quote_lookup = _build_quote_lookup(data.get("quote_snapshot", {}))
+
     lines = []
     trigger = data.get("trigger", {})
     lines.append(f"[Hermes股票监控分析 - {trigger.get('title', '定时分析')}]")
@@ -260,33 +322,99 @@ def _format_fallback_text(data: dict) -> str:
     lines.append("")
     
     positions = data.get("positions", [])
+    position_rows: list[dict] = []
     if isinstance(positions, dict):
-        accounts = positions.get("accounts", [])
-        total = sum(len(a.get("positions", [])) for a in accounts)
-        lines.append(f"持仓：{total} 只")
+        for account in positions.get("accounts", []):
+            if isinstance(account, dict):
+                for pos in account.get("positions", []) or []:
+                    if isinstance(pos, dict):
+                        pos = dict(pos)
+                        pos["account"] = account.get("name", "")
+                        _enrich_stock_with_quote(pos, quote_lookup)
+                        position_rows.append(pos)
     elif isinstance(positions, list):
-        lines.append(f"持仓：{len(positions)} 只")
+        position_rows = []
+        for p in positions:
+            if isinstance(p, dict):
+                p = dict(p)
+                _enrich_stock_with_quote(p, quote_lookup)
+                position_rows.append(p)
+
+    if position_rows:
+        lines.append(f"持仓：{len(position_rows)} 只")
+        for pos in position_rows:
+            name = pos.get("name", "")
+            code = pos.get("code", "")
+            price = pos.get("current_price") or pos.get("price", "")
+            change = pos.get("change_pct") if pos.get("change_pct") is not None else pos.get("pct_change", "")
+            cost = pos.get("cost", "")
+            shares = pos.get("shares", "")
+            parts = [f"  - {name}({code})"]
+            if price:
+                parts.append(f"现价 {price}")
+            if change != "":
+                parts.append(f"{change:+.2f}%")
+            if cost:
+                parts.append(f"成本 {cost}")
+            if shares:
+                parts.append(f"{shares} 股")
+            lines.append(" | ".join(parts))
     else:
         lines.append("持仓：未配置")
-    
+
     watchlist = data.get("watchlist", [])
-    if isinstance(watchlist, list):
-        lines.append(f"观察池：{len(watchlist)} 只")
+    watchlist_rows: list[dict] = []
+    if isinstance(watchlist, dict):
+        for theme in watchlist.get("themes", []):
+            if isinstance(theme, dict):
+                for stock in theme.get("stocks", []) or []:
+                    if isinstance(stock, dict):
+                        stock = dict(stock)
+                        stock["theme"] = theme.get("name", "")
+                        _enrich_stock_with_quote(stock, quote_lookup)
+                        watchlist_rows.append(stock)
+        for stock in watchlist.get("stocks", []) or []:
+            if isinstance(stock, dict) and stock not in watchlist_rows:
+                s = dict(stock)
+                _enrich_stock_with_quote(s, quote_lookup)
+                watchlist_rows.append(s)
+    elif isinstance(watchlist, list):
+        watchlist_rows = []
+        for s in watchlist:
+            if isinstance(s, dict):
+                s = dict(s)
+                _enrich_stock_with_quote(s, quote_lookup)
+                watchlist_rows.append(s)
+
+    if watchlist_rows:
+        lines.append(f"观察池：{len(watchlist_rows)} 只")
+        for stock in watchlist_rows[:10]:
+            name = stock.get("name", "")
+            code = stock.get("code", "")
+            price = stock.get("current_price") or stock.get("price", "")
+            change = stock.get("change_pct") if stock.get("change_pct") is not None else stock.get("pct_change", "")
+            parts = [f"  - {name}({code})"]
+            if price:
+                parts.append(f"现价 {price}")
+            if change != "":
+                parts.append(f"{change:+.2f}%")
+            lines.append(" | ".join(parts))
     else:
         lines.append("观察池：未配置")
     lines.append("")
-    
+
     snapshot = data.get("quote_snapshot", {})
     quotes = snapshot.get("quotes", [])
     if quotes:
         lines.append("行情快照：")
-        for q in quotes[:10]:  # Limit to first 10
+        for q in quotes[:15]:  # Limit to first 15
             name = q.get("name", "")
             code = q.get("code", "")
-            price = q.get("price", "")
-            change = q.get("change_pct", "")
+            # quote 字段来自行情 fetcher：latest / pct_change
+            price = q.get("latest") or q.get("price", "")
+            change = q.get("pct_change") if q.get("pct_change") is not None else q.get("change_pct", "")
             lines.append(f"  - {name}({code}): 最新价 {price} ({change}%)")
-    
+
     return "\n".join(lines)
 
 
@@ -331,6 +459,23 @@ def call_qing_agent(data: dict) -> dict | None:
     
     analysis_type = data.get("analysis_type", "market")
     stock_code = data.get("stock_code", "")
+
+    # 注入实时价格：构建 code->quote 索引，同时给 market_snapshot 增加兼容字段
+    quote_snapshot = data.get("quote_snapshot", {}) or {}
+    quote_lookup = _build_quote_lookup(quote_snapshot)
+    market_snapshot = dict(quote_snapshot)
+    enriched_quotes = []
+    for q in market_snapshot.get("quotes", []) or []:
+        enriched = dict(q)
+        latest = q.get("latest")
+        pct_change = q.get("pct_change")
+        if latest is not None:
+            enriched.setdefault("price", latest)
+        if pct_change is not None:
+            enriched.setdefault("change_pct", pct_change)
+        enriched_quotes.append(enriched)
+    market_snapshot["quotes"] = enriched_quotes
+
     payload = json.dumps({
         "query": f"{data.get('trigger', {}).get('title', '')}：{data.get('trigger', {}).get('reason', '')}",
         "session_id": f"hermes-{data.get('timestamp', 'now')}",
@@ -339,9 +484,9 @@ def call_qing_agent(data: dict) -> dict | None:
         "trigger": data.get("trigger", {}),
         "alerts": data.get("alerts", []),
         "buy_signal_candidates": data.get("buy_signal_candidates", []),
-        "market_snapshot": data.get("quote_snapshot", {}),
-        "positions": _normalize_positions(data.get("positions", {})),
-        "watchlist": _normalize_watchlist(data.get("watchlist", [])),
+        "market_snapshot": market_snapshot,
+        "positions": _normalize_positions(data.get("positions", {}), quote_lookup),
+        "watchlist": _normalize_watchlist(data.get("watchlist", []), quote_lookup),
         "sector_strengths": data.get("sector_strengths", []),
         "external_sector_boards": data.get("external_sector_boards", {}),
     }, ensure_ascii=False).encode("utf-8")
@@ -403,23 +548,34 @@ def call_qing_agent(data: dict) -> dict | None:
 # Only flag future years (2027+) and genuine hallucination templates.
 # "数据缺失/暂无数据" is legitimate status report when live quotes are unavailable.
 _HALLUCINATION_FUTURE_YEAR = re.compile(r"20(2[7-9]|[3-9]\d)年")
-_HALLUCINATION_PATTERNS = [
-    _HALLUCINATION_FUTURE_YEAR,                                   # future years only
-    re.compile(r"数据恢复是最关键"),                               # meta-hallucination
-    re.compile(r"这是\d{4}年\d{1,2}月\d{1,2}日(盘后)?复盘"),     # date hallucination
-]
+_HALLUCINATION_META = re.compile(r"数据恢复是最关键")
+# 日期复盘模板：只标记“未来日期”的复盘，当前/历史日期的复盘是正常表述
+_HALLUCINATION_DATE_REVIEW = re.compile(r"这是(20\d{2})年(\d{1,2})月(\d{1,2})日(盘后)?复盘")
 
 
 def _is_hallucinated(output: str) -> bool:
     """Only flags future years (2027+) or known hallucination templates.
-    Past years (2020-2025) are valid references."""
+    Past/current years (<=2026) are valid references."""
+    from datetime import datetime
+    current_year = datetime.now().year
+
     # Future year check — 2027+ is definitely hallucination
     if _HALLUCINATION_FUTURE_YEAR.search(output):
         return True
-    # Specific hallucination templates
-    for pat in _HALLUCINATION_PATTERNS[1:]:  # skip first, already checked
-        if pat.search(output):
-            return True
+
+    # Meta-hallucination
+    if _HALLUCINATION_META.search(output):
+        return True
+
+    # Date review template: only flag if the year is in the future
+    for m in _HALLUCINATION_DATE_REVIEW.finditer(output):
+        try:
+            year = int(m.group(1))
+            if year > current_year:
+                return True
+        except Exception:
+            pass
+
     return False
 
 

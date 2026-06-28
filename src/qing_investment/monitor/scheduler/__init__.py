@@ -1528,6 +1528,7 @@ def _build_yesterday_summary(
             continue  # 无有效行情，跳过
 
         entry: dict = {
+            "name": pos.get("name", ""),
             "close": close,
             "open": open_,
             "high": high,
@@ -1650,7 +1651,7 @@ def summarize_daily_review(state: dict, date_text: str) -> dict:
         if isinstance(value, dict) and str(value.get("time", "")).startswith(date_text)
     ]
 
-    return {
+    review = {
         "date": date_text,
         "emitted_alerts": [
             entry for entry in today_entries if entry.get("status") == "emitted"
@@ -1663,6 +1664,19 @@ def summarize_daily_review(state: dict, date_text: str) -> dict:
         "sector_signal_counts": state.get("sector_signal_counts", {}),
         "last_fetch_error": state.get("last_fetch_error", {}),
     }
+
+    # ── Phase 1.5: 合并 daily_review_summary.json 中的详细摘要 ──
+    # 包含 market/positions/dragon_tiger_board 等收盘后采集的结构化数据
+    summary = _load_yesterday_summary(config_dir=_DEFAULT_CONFIG_DIR, date_str=date_text)
+    if summary and isinstance(summary, dict):
+        # 保留 review 中的 alert 统计，将摘要数据作为 "summary" 字段并入
+        review["summary"] = summary
+        # 同时把关键字段提升到顶层，方便上层直接读取
+        for key in ("market", "positions", "dragon_tiger_board", "tomorrow_scenarios"):
+            if key in summary:
+                review[key] = summary[key]
+
+    return review
 
 
 

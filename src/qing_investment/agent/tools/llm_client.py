@@ -100,7 +100,7 @@ def get_llm_client(provider: str | None = None) -> Any:
         return KimiCodeCLIClient(
             cli_path=None,  # 使用默认 /home/ubuntu/.kimi-code/bin/kimi
             cwd=None,       # 使用默认 /home/ubuntu/learning-investment-strategies
-            timeout=int(os.environ.get("KIMI_CODE_CLI_TIMEOUT", "120")),
+            timeout=int(os.environ.get("KIMI_CODE_CLI_TIMEOUT", "300")),
         )
 
     if target not in LLM_PROVIDERS:
