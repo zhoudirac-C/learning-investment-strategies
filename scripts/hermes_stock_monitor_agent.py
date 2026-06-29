@@ -21,12 +21,12 @@ from pathlib import Path
 
 QING_AGENT_URL = os.environ.get("QING_AGENT_URL", "http://localhost:8000/analyze/trigger")
 QING_AGENT_HEALTH_URL = os.environ.get("QING_AGENT_HEALTH_URL", "http://localhost:8000/health")
-QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "180"))
+QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "900"))
 QING_AGENT_MAX_RETRIES = int(os.environ.get("QING_AGENT_MAX_RETRIES", "2"))
 
 # Cron job wrapper timeout (seconds) — must be >= QING_AGENT_TIMEOUT + 20s margin
 # to avoid the cron killing the script while it's still retrying.
-CRON_WRAPPER_TIMEOUT = float(os.environ.get("CRON_WRAPPER_TIMEOUT", "680"))  # 600s POST + 60s health + 20s margin
+CRON_WRAPPER_TIMEOUT = float(os.environ.get("CRON_WRAPPER_TIMEOUT", "980"))  # 900s POST + 60s health + 20s margin
 
 
 _STOCK_CODE_RE = re.compile(r"(\d{6})")

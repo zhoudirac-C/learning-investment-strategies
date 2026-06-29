@@ -8,6 +8,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 import time
@@ -55,7 +56,7 @@ class MarketAnalystAgent(Agent):
                 )
 
         try:
-            content = self._invoke_llm(prompt)
+            content = await self._invoke_llm(prompt)
             self._track_llm_call()
 
             parsed = self._parse_response(content)
@@ -66,12 +67,19 @@ class MarketAnalystAgent(Agent):
 
     # ── 内部方法 ──
 
-    def _invoke_llm(self, prompt: str) -> str:
-        """调用 LLM（使用 self.llm 或 fallback 到全局 get_llm_client）。"""
+    async def _invoke_llm(self, prompt: str) -> str:
+        """调用 LLM（使用 self.llm 或 fallback 到全局 get_llm_client）。
+
+        同步调用通过 asyncio.to_thread 放到线程池执行，并加 120s 硬超时，
+        避免在 async 事件循环中阻塞导致整个服务 hang 死。
+        """
         prompt_len = len(prompt)
         if self.llm is not None:
             logger.info("[MarketAnalystAgent] _invoke_llm: using injected llm, prompt_len=%d", prompt_len)
-            response = self.llm.chat([{"role": "user", "content": prompt}])
+            response = await asyncio.wait_for(
+                asyncio.to_thread(self.llm.chat, [{"role": "user", "content": prompt}]),
+                timeout=120.0,
+            )
             content = response.get("content", "")
             logger.info("[MarketAnalystAgent] _invoke_llm: response_len=%d", len(content))
             return content
@@ -80,7 +88,10 @@ class MarketAnalystAgent(Agent):
         from qing_investment.agent.tools.llm_client import get_llm_client
 
         llm = get_llm_client()
-        result = llm.invoke(prompt)
+        result = await asyncio.wait_for(
+            asyncio.to_thread(llm.invoke, prompt),
+            timeout=120.0,
+        )
         content = result.content if hasattr(result, "content") else str(result)
         logger.info("[MarketAnalystAgent] _invoke_llm: response_len=%d", len(content))
         return content

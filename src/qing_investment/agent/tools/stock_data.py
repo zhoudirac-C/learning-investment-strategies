@@ -216,13 +216,14 @@ def fetch_stock_kline_tencent(code: str, days: int = 90) -> list[dict]:
             date = k[0]
             open_p = float(k[1])
             close = float(k[2])
-            low = float(k[3])
-            high = float(k[4])
+            # 腾讯接口返回顺序为 [date, open, close, high, low, volume]
+            high = float(k[3])
+            low = float(k[4])
             volume = float(k[5])
-            
+
             pct_change = ((close / prev_close) - 1) * 100 if prev_close else 0
             prev_close = close
-            
+
             result.append({
                 "date": date,
                 "open": open_p,
@@ -235,7 +236,7 @@ def fetch_stock_kline_tencent(code: str, days: int = 90) -> list[dict]:
             })
         except (ValueError, IndexError):
             continue
-    
+
     return result[-days:] if len(result) > days else result
 
 
@@ -297,25 +298,29 @@ def fetch_stock_kline_eastmoney(code: str, days: int = 90) -> list[dict]:
     return result[-days:] if len(result) > days else result
 
 
-def fetch_stock_kline(code: str, days: int = 90) -> list[dict]:
+def fetch_stock_kline(code: str, days: int = 90, force_refresh: bool = False) -> list[dict]:
     """获取个股历史日K线。
 
     优先级：
     1. 查本地 SQLite 缓存（开盘前 pre_fetch 已预拉取）
     2. 本地 miss 或不足 → 调 API（腾讯优先，降级东财）
     3. API 返回后写入 SQLite 缓存（供下次使用）
+
+    Args:
+        force_refresh: True 时跳过本地缓存，强制从 API 拉取（pre_fetch 用）。
     """
     # 1. 优先查本地 SQLite
-    try:
-        from qing_investment.kline_cache import get_klines
-        local = get_klines(code, days=days)
-        # 本地数据足够（>=80% 请求天数）且非空，直接返回
-        if local and len(local) >= max(1, days * 0.8):
-            return local
-    except Exception:
-        pass  # 本地读取失败，继续调 API
+    if not force_refresh:
+        try:
+            from qing_investment.kline_cache import get_klines
+            local = get_klines(code, days=days)
+            # 本地数据足够（>=80% 请求天数）且非空，直接返回
+            if local and len(local) >= max(1, days * 0.8):
+                return local
+        except Exception:
+            pass  # 本地读取失败，继续调 API
 
-    # 2. 本地 miss → 调 API
+    # 2. 本地 miss 或强制刷新 → 调 API
     klines = fetch_stock_kline_tencent(code, days)
     if not klines:
         klines = fetch_stock_kline_eastmoney(code, days)

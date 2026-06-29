@@ -12,7 +12,7 @@ def review_router(state: AgentState) -> str:
         logger.info("review_router: passed → end")
         return "pass"
     retry_count = state.get("_retry_count", 0)
-    if retry_count >= 3:
+    if retry_count >= 2:
         logger.info(f"review_router: retry={retry_count} max reached → force pass")
         return "pass"
     logger.info(f"review_router: retry={retry_count} → back to style_writer")

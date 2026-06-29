@@ -2,7 +2,7 @@
 """
 开盘前 K线预拉取脚本。
 
-执行时间：建议 06:30（A股开盘前）
+执行时间：建议 06:30（A股开盘前）及 15:00-16:30（收盘后补数据）
 功能：
   1. 读取 watchlist.yaml + positions.yaml + stock_pool.yaml，提取全部股票代码
   2. 批量拉取日K线（90根），写入 SQLite 本地缓存
@@ -106,16 +106,18 @@ def main() -> int:
     # === 时区校验（云端关键）===
     now_cn = datetime.now(CN_TZ)
 
-    # 必须在 A 股开盘前执行（06:00-09:15 CST）
+    # 有效执行窗口：开盘前 06:00-09:15 或收盘后 15:00-16:30（CST）
     hour, minute = now_cn.hour, now_cn.minute
-    in_window = (6 <= hour < 9) or (hour == 9 and minute < 15)
+    pre_open_window = (6 <= hour < 9) or (hour == 9 and minute < 15)
+    post_close_window = (hour == 15) or (hour == 16 and minute <= 30)
+    in_window = pre_open_window or post_close_window
 
     if not in_window:
         # 手动执行时跳过时间检查（DEBUG模式）
         if os.environ.get("FORCE_KLINE_FETCH") != "1":
             print(
                 f"[SKIP] 当前时间 {now_cn.strftime('%H:%M')} 不是预拉取窗口"
-                f"（06:00-09:15 CST），跳过执行。"
+                f"（06:00-09:15 或 15:00-16:30 CST），跳过执行。"
             )
             return 0
 
@@ -152,7 +154,7 @@ def main() -> int:
             # 重试循环
             for attempt in range(1, MAX_RETRIES + 1):
                 try:
-                    klines = fetch_stock_kline(code, days=DAYS_TO_FETCH)
+                    klines = fetch_stock_kline(code, days=DAYS_TO_FETCH, force_refresh=True)
                     break
                 except Exception as e:
                     last_error = str(e)

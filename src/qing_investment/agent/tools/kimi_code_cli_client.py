@@ -22,7 +22,9 @@ logger = logging.getLogger(__name__)
 # 默认配置
 _DEFAULT_CLI_PATH = "/home/ubuntu/.kimi-code/bin/kimi"
 _DEFAULT_CWD = "/home/ubuntu/learning-investment-strategies"
-_DEFAULT_TIMEOUT = 300
+# 从 300s 降到 120s： Qing-Agent 完整流程有多个 LLM 调用节点，单节点不能占用过长时间，
+# 否则 hermes cron 客户端 900s timeout 仍会被打满导致 fallback。
+_DEFAULT_TIMEOUT = 120
 
 
 class KimiCodeCLIResponse:

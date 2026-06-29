@@ -8,6 +8,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 
@@ -30,7 +31,7 @@ class DevilsAdvocateAgent(Agent):
 
     def __init__(self, llm=None):
         super().__init__(llm=llm)
-        self._target_model = "zhipu"
+        self._target_model = "deepseek"
         self._last_used_provider: str | None = None  # 实际使用的 provider（可能 fallback）
         self._used_provider: str | None = None        # 供外部查询
 
@@ -68,7 +69,7 @@ class DevilsAdvocateAgent(Agent):
         try:
             prompt = self._build_prompt(market_analysis, stock_analysis, claims_cited)
             logger.info("[DevilsAdvocate] run: prompt_len=%d", len(prompt))
-            content = self._invoke_llm(prompt)
+            content = await self._invoke_llm(prompt)
             # 记录实际使用的 provider（可能 fallback 过）
             actual_provider = self._last_used_provider or self._target_model
             self._track_llm_call(provider=actual_provider)
@@ -121,11 +122,14 @@ class DevilsAdvocateAgent(Agent):
             f"## 引用 Claims\n{json.dumps(claims_cited, ensure_ascii=False)}"
         )
 
-    def _invoke_llm(self, prompt: str) -> str:
+    async def _invoke_llm(self, prompt: str) -> str:
         """调用 LLM。兼容 ChatOpenAI.invoke() 和 LLMProtocol.chat()。
 
         支持 fallback：如果 Kimi 失败（API key 无效或网络问题），
         自动降级到 DeepSeek 以确保 Devil's Advocate 仍能输出。
+
+        所有同步调用都通过 asyncio.to_thread 放到线程池执行，并加 60s 硬超时，
+        避免在 async 事件循环中阻塞导致整个服务 hang 死。
         """
         prompt_len = len(prompt)
 
@@ -133,10 +137,16 @@ class DevilsAdvocateAgent(Agent):
         if self.llm is not None:
             logger.info("[DevilsAdvocate] _invoke_llm: using injected llm, prompt_len=%d", prompt_len)
             if hasattr(self.llm, "chat") and callable(self.llm.chat):
-                response = self.llm.chat([{"role": "user", "content": prompt}])
+                response = await asyncio.wait_for(
+                    asyncio.to_thread(self.llm.chat, [{"role": "user", "content": prompt}]),
+                    timeout=60.0,
+                )
                 content = response.get("content", "")
             elif hasattr(self.llm, "invoke") and callable(self.llm.invoke):
-                result = self.llm.invoke(prompt)
+                result = await asyncio.wait_for(
+                    asyncio.to_thread(self.llm.invoke, prompt),
+                    timeout=60.0,
+                )
                 content = result.content if hasattr(result, "content") else str(result)
             else:
                 logger.error("[DevilsAdvocate] _invoke_llm: llm has no chat() or invoke()")
@@ -147,7 +157,7 @@ class DevilsAdvocateAgent(Agent):
         # ── 情况2：走配置的 provider（默认 Kimi），带 fallback ──
         from qing_investment.agent.tools.llm_client import get_llm_client
 
-        fallback_order = [self._target_model, "kimi-coding", "deepseek"]
+        fallback_order = [self._target_model, "kimi-coding", "zhipu"]
         last_error = None
 
         for idx, provider in enumerate(fallback_order):
@@ -157,7 +167,10 @@ class DevilsAdvocateAgent(Agent):
                     idx + 1, len(fallback_order), provider,
                 )
                 llm = get_llm_client(provider=provider)
-                result = llm.invoke(prompt)
+                result = await asyncio.wait_for(
+                    asyncio.to_thread(llm.invoke, prompt),
+                    timeout=60.0,
+                )
                 content = result.content if hasattr(result, "content") else str(result)
                 if content and len(content) > 20:
                     self._last_used_provider = provider  # 记录成功 provider

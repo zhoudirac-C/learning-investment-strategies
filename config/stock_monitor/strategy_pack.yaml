@@ -1,5 +1,6 @@
-updated_at: 2026-06-25T23:30
+updated_at: 2026-06-29T00:00
 source_claims:
+- knowledge/claims/claim-20260628-001.yaml
 - knowledge/claims/claim-20260625-003.yaml
 - knowledge/claims/claim-20260623-005.yaml
 - knowledge/claims/claim-20260622-001.yaml
@@ -58,14 +59,23 @@ source_claims:
 - knowledge/claims/claim-20260502-001.yaml
 - knowledge/claims/claim-20260501-001.yaml
 market_framework:
-  current_stage: |
-    双创创新高/科技独强/增量入场未结束 — 6/25上证横盘震荡，双创再度大涨并双双创出新高。
-    量能较昨日有所放大但午后略低于预期（上午预测3.8万亿，下午增量不足）。传统方向明显回落，唯科技股依旧独强。
-    增量资金入场大概率远未结束，放量节奏越来越紧凑、量能层级越来越高。结构性行情向全面行情切换仍可期待，关键观察点在券商能否突破年线。
-    小微盘日益边缘化，资金持续向科技集中。主线明确：科技业绩 + 国产替代。
-  core_question: 6/26能否延续强势？——①券商是否突破年线（全面行情确认信号） ②存储链能否从原厂向利基/模组/车规继续扩散 ③被动元件/MLCC分歧后是否企稳 ④华为昇腾950/智谱催化能否持续 ⑤微盘股是否继续边缘化 ⑥海外科技（美光盘后+18%/英伟达）映射强度
-  up_quote: "6/25 22:49复盘：上证横盘震荡，双创再度大涨、双双创出新高。量能较昨日有所放大，但午后略低于预期。传统方向明显回落，唯科技股依旧独强。增量资金的入场大概率远未结束。放量节奏越来越紧凑、量能层级越来越高，结构性行情转向全面行情仍可期待。结构向全面切换的关键观察点仍在券商能否突破年线、带动超跌滞涨方向。位置决定意义，右侧确认为先，不追高、等分化。"
+  current_stage: |-
+    全A破位后市场进入高难度结构市 — 6月26日全A指数破位，意味着接下来一段时间市场难度明显抬升。
+    6月15日至26日是一段相对完整的短线主升与分歧周期，主升已走完。
+    算力硬件（光通信、PCB、液冷、存储）短期退潮，需等待企稳信号而非急于抢反弹。
+    资金将向产业逻辑扎实且临近中报兑现的环节收敛：半导体硅片、半导体设备零部件、洁净室、碳化硅、AIDC供电/国产算力等。
+    操作上以右侧确认为先，不追涨，买阴要求更高。
+  core_question: 6月29日能否缩量企稳？——①全A是否止跌企稳 ②半导体上游（硅片/设备/零部件）是否抗跌 ③算力硬件（光通信/PCB/存储）是否出现企稳信号 ④AIDC供电/国产算力能否成为新主线 ⑤养殖等低相关方向是否有效对冲
+  up_quote: "6/28复盘：把这一周收束成一句话，主升已经走完，全A破位把市场带入一个难度更高、也更讲究结构的阶段。接下来不是比谁敢追，而是比谁能在正确的位置、用右侧确认的方式，押注产业逻辑最扎实、且临近中报兑现的那几条线。"
   key_assumptions:
+  - 【框架升级 6/28晚间】6/28复盘新增18条claims：6/15-6/26为完整短线主升与分歧周期；6/26全A破位后市场难度明显抬升；算力硬件短期退潮需等待企稳；资金将向中报高确定性方向收敛
+  - 【6/28半导体硅片涨价】HBM/3D NAND/晶圆厂扩产驱动12英寸硅片涨价，国产硅片需求刚性。西安奕材从出货量扩张向利润兑现切换
+  - 【6/28半导体设备零部件】晶圆厂扩产与零部件国产化共振，静电卡盘/氮化铝陶瓷加热器/碳化硅气体分配盘等核心件国产化率极低
+  - 【6/28洁净室需求上行】晶圆厂扩产前置环节，占总投资15%，境内洁净室有望步入数年需求上行期
+  - 【6/28碳化硅量价齐升】6英寸衬底价格大幅反弹，AI数据中心800V架构驱动SiC器件需求爆发
+  - 【6/28磷化铟与铟紧缺】磷化铟有效合规产能缺口近70%，精铟价格年内涨76%，国产衬底厂商原料保供优势明显
+  - 【6/28 AIDC供电与国产算力】白云电器切入800V HVDC配电；寒武纪/海光信息/摩尔线程Q1收入高增，中报高确定性方向
+  - 【6/28养殖对冲配置】生猪/白羽鸡/黄羽鸡处于产能去化右侧，与AI周期低相关，全A破位时作为组合对冲线索
   - 【框架升级 6/25晚间】6/25复盘专栏新增21条claims：双创创新高验证增量资金持续入场；科技业绩+国产替代双主线确认；存储链涨价逻辑升级为结构性重估；券商突破年线=全面行情确认信号
   - 【6/25存储链三波接力】美光FY26Q3业绩大超预期（营收+346%/净利+14倍/毛利率84.9%）→引爆存储板块。扩散路径：原厂 → 利基存储补涨（兆易创新/普冉/聚辰） → 车规存储第二波（北京君正） → 模组结构性重估（万润科技） → 封测补涨
   - 【6/25被动元件/电RAM】江海股份发布涨价函覆盖铝电解/薄膜/超级电容；GB300 NVL72单柜MLCC约44万颗，Rubin Ultra NVL576预计430万颗；电容复制存储涨价路径
@@ -105,56 +115,27 @@ market_framework:
   - 全A指数收阴且30分钟不能收回→防守
   - 减持93家标的集体低开低走→板块风险扩散，暂停科技方向建仓
   direction_priority:
-  - direction: 存储链结构性重估
+  - direction: 半导体硅片涨价
     intensity: 高
-    source: UP 6/25晚间+美光业绩超预期
-  - direction: MLCC被动元件/电RAM
+    source: UP 6/28晚间+硅片第二轮涨价
+  - direction: AIDC供电/国产算力
     intensity: 高
-    source: UP 6/25晚间+江海涨价函+GB300/Rubin用量激增
-  - direction: 光通信/MPO/CPO/测试仪器
+    source: UP 6/28晚间+中报高确定性
+  - direction: 半导体设备零部件
     intensity: 高
-    source: UP框架+6/25测试仪器新催化
-  - direction: CCL/覆铜板
-    intensity: 高
-    source: UP 6/21框架+满产满销涨价
-  - direction: 铟/磷化铟
-    intensity: 高
-    source: UP框架+供给刚性
-  - direction: 铜箔（HVLP4）
-    intensity: 高
-    source: UP框架+盘面验证
-  - direction: 华为昇腾/国产算力
+    source: UP 6/28晚间+扩产+国产化
+  - direction: 碳化硅量价齐升
     intensity: 中
-    source: UP 6/25晚间+昇腾950/智谱全栈适配
-  - direction: 钽金属
+    source: UP 6/28晚间+800V架构
+  - direction: 磷化铟/铟紧缺
     intensity: 中
-    source: UP 6/25晚间+非洲供给脆弱
-  - direction: 交换芯片国产替代
+    source: UP 6/28晚间+供给缺口
+  - direction: 洁净室需求上行
     intensity: 中
-    source: UP 6/25晚间+国产份额仅1.6%
-  - direction: 半导体设备/封测补涨
-    intensity: 中
-    source: UP 6/25晚间+国产替代+IBM亚1纳米
-  - direction: 商业航天
-    intensity: 中
-    source: UP框架+催化窗口
-  - direction: PCB制造（沪电股份/景旺电子/方正科技）
-    intensity: 中
-    source: Rubin PCB研报+Midplane从无到有增量
-    warning: ⚠️ 6/22 UP预警——PCB连续多日上涨后前高附近兑现压力同步上升，与MLCC同属需谨慎追涨的方向
-  - direction: 覆铜板材料（雅克）
-    intensity: 中
-    source: 持仓+涨价逻辑
-  - direction: 券商/大金融
-    intensity: 弱
-    source: UP 6/25晚间+年线突破观察
-    warning: 当前未突破年线，只跟踪不埋伏
-  - direction: CCL/覆铜板（生益科技/华正新材）
-    intensity: 高
-    source: UP 6/21框架—满产满销+涨价50%+订单到2027
-  - direction: 铟/磷化铟（锡业股份）
-    intensity: 高
-    source: UP 6/21框架—供给刚性×AI光互联需求爆发
+    source: UP 6/28晚间+扩产前置
+  - direction: 养殖对冲配置
+    intensity: 低
+    source: UP 6/28晚间+低相关对冲
 market_gate_rules:
   index_checks:
   - index: 全A指数
@@ -180,76 +161,36 @@ market_gate_rules:
     pass_2: 谨慎
     pass_1_or_0: 观望
 direction_priority:
-- direction: 🥇 存储链结构性重估（兆易创新603986/万润科技002654/德明利001309）
+- direction: 🥇 半导体硅片（立昂微605358/有研新材600206）
   intensity: 强 🏆
-  trigger: 美光FY26Q3业绩大超预期（营收+346%/净利+14倍/毛利率84.9%），CEO表态供应短缺持续至2027年后。扩散路径：原厂→利基补涨→车规第二波→模组重估→封测补涨
-  source_claim: claim-20260625-003-d/e/f/j
-  entry_range: 万润科技19.27~20.31 / 兆易创新等分歧回踩
-  chain_note: 模组逻辑从库存差价切换到供给格局重塑+涨价持续+长协锁定利润。万润科技为第二轮补涨候选，等首次分歧
-- direction: 🥇 MLCC被动元件/电RAM（风华高科000636/江海股份002484/博迁新材605376/火炬电子603678）
+  trigger: HBM/3D NAND/晶圆厂扩产驱动12英寸硅片涨价，海外龙头启动第二轮提价，国产硅片需求刚性
+  source_claim: claim-20260628-001-f
+  entry_range: 立昂微28.0~32.0 / 有研新材待确认
+  chain_note: UP点名西安奕材未上市，主板映射上游材料+硅片制造环节。等分歧缩量企稳
+- direction: 🥇 AIDC供电/国产算力（白云电器603861/北方华创002371）
   intensity: 强 🏆
-  trigger: 江海股份涨价函覆盖铝电解/薄膜/超级电容；GB300/Rubin Ultra MLCC用量激增；电容复制存储涨价路径
-  source_claim: claim-20260625-003-h/i
-  entry_range: 风华高科57.8~62.7 / 江海股份103.25~108.80 / 博迁新材176~191
-  warning: 6/25江海股份/风华高科多涨停，首次分歧缩量回踩再介入，不追一致
-- direction: 🥇 CCL/覆铜板（生益科技600183/华正新材603186）
-  intensity: 强 🏆
-  trigger: CCL方向满产满销卖方市场，涨价确定性存储同级。回踩介入，等分歧日缩量企稳
-  source_claim: claim-20260621-001-j
-  chain_note: CCL(上游涨价驱动) → PCB(下游需求拉动) — 两方向独立，CCL是涨价链第一档
-- direction: 🥇 铟/磷化铟（锡业股份000960）
-  intensity: 强 🏆
-  trigger: 铟价年内+60%供给刚性，磷化铟扩产撞铟天花板。关注锡业股份回踩，设条件单等放量确认
-  source_claim: claim-20260621-001-l
-  entry_range: 锡业股份38.1~39.0
-- direction: 🥇 铜箔（HVLP4代铜箔-诺德股份600110）
-  intensity: 强 🏆
-  trigger: 分歧日回踩12~13区间不破承接好→买入；若直接高开封板则放弃等第二天
-  entry_range: 12.0~13.0
-- direction: 🥇 光通信/MPO/CPO/测试仪器（东山精密002384/光迅科技002281/长飞光纤601869/华盛昌002980）
-  intensity: 强 🏆
-  trigger: 1.6T/3.2T升级，测试仪器成卡脖子环节，采样示波器2027年破200亿。光模块分歧回踩介入
-  source_claim: claim-20260625-003-m
-  entry_range: 东山精密210~228 / 长飞光纤412.4~463.5 / 华盛昌115.16~121.35
-- direction: 🥈 华为昇腾/国产算力（神州数码000034/航天电器002025/北方华创002371）
+  trigger: AIDC数据中心800V HVDC配电需求井喷，国产算力链Q1收入高增，中报业绩集中释放
+  source_claim: claim-20260628-001-k
+  entry_range: 白云电器9.5~10.5 / 北方华创分歧回踩
+  chain_note: 寒武纪/海光信息为科创板不可交易，主板仅映射配电/设备环节
+- direction: 🥈 半导体设备零部件（北方华创002371/汉钟精机002158/应流股份603308）
   intensity: 中 🏆
-  trigger: 昇腾950三季度上市+电信集采+智谱GLM-5.2全栈国产适配。等分歧不追一致
-  source_claim: claim-20260625-003-k
-  chain_note: 神州数码为华为核心合作伙伴；航天电器子公司进入昇腾950机柜供应链；北方华创为国产算力设备映射
-- direction: 🥈 钽金属（东方钽业000962/国泰集团603977/新金路000510）
-  intensity: 中
-  trigger: AI敞口最大、上涨斜率最陡的金属。非洲供给占84.1%，Rubaya矿区塌方停采
-  source_claim: claim-20260625-003-l
-  entry_range: 东方钽业78.14~82.34
-- direction: 🥈 交换芯片国产替代（盛科通信688702/万通发展600246/澜起科技688008）
-  intensity: 中
-  trigger: 2025年全球以太网交换机市场551亿美元，中国商用交换芯片国产份额仅1.6%。万通发展子公司数渡科技已实现PCIe 5.0交换芯片量产
-  source_claim: claim-20260625-003-n
-  chain_note: 盛科通信/澜起科技为科创板不可交易，主板仅万通发展可跟踪
-- direction: 🥈 半导体设备/封测补涨（北方华创002371/长电科技600584/通富微电002156/华天科技002185）
-  intensity: 中
-  trigger: 国产替代三大方向（晶圆代工/设备材料/先进封装）+IBM亚1纳米催化设备景气+CoPoS替代CoWoS
-  source_claim: claim-20260625-003-g/r
-- direction: 🥉 券商/大金融（年线突破观察）
+  trigger: 晶圆厂扩产与零部件国产化共振，核心零部件国产化率不足10%
+  source_claim: claim-20260628-001-g
+  entry_range: 等设备/零部件方向分歧企稳
+  chain_note: 设备零部件方向与equipment_packaging_catchup方向重叠，重点跟踪洁净室/真空系统/精密陶瓷
+- direction: 🥈 磷化铟/铟紧缺（锡业股份000960/云南锗业002428）
+  intensity: 中 🏆
+  trigger: 磷化铟有效合规产能缺口近70%，精铟价格年内涨76%，国产衬底厂商原料保供优势明显
+  source_claim: claim-20260628-001-j
+  entry_range: 锡业股份36.0~39.0 / 云南锗业待确认
+  chain_note: 锡业股份已加入small_metal_chemical方向，等分歧回踩不追涨
+- direction: 🥉 养殖对冲（牧原股份002714/圣农发展002299）
   intensity: 弱 ⚡️
-  trigger: 券商突破年线=全面行情确认信号，将带动超跌滞涨品种。当前未突破，只跟踪不埋伏
-  source_claim: claim-20260625-003-b
-- direction: 🥉 十五五储能（宏英智能001266）
-  intensity: 中
-  trigger: 2030年新型储能装机3亿千瓦目标，AIDC数据中心配储需求上行
-  source_claim: claim-20260625-003-s
-  entry_range: 宏英智能48.17~50.76
-- direction: 🥉 焦炭涨价（潞安环能601699）
-  intensity: 中
-  trigger: 回踩16.1~17.2区间，6/15煤炭走弱正好给上车机会
-  entry_range: 16.1~17.2
-- direction: 🥉 锂电中报高增（蔚蓝锂芯002245）
-  intensity: 谨慎关注
-  trigger: 等锂电板块确认后再跟踪，不急于今天
-- direction: PCB油墨/光刻胶/化学品
-  intensity: 中 ⚠️ 用户不可交易(非主板)
-- direction: 覆铜板材料（雅克科技002409/中化国际600500）
-  intensity: 中 — 上游材料（球硅/PPO）随CCL重估，可与CCL本体方向配合关注
+  trigger: 生猪产能调减指标明确，白羽鸡海外引种中断，与AI周期低相关
+  source_claim: claim-20260628-001-l
+  entry_range: 牧原股份42.0~46.0 / 圣农发展16.0~17.5
+  chain_note: 全A破位环境下的对冲线索，不是主攻方向，轻仓配置
 sector_rotation_rules:
 - id: price_increase_vs_low_recovery
   name: 涨价线 vs 低位修复轮动
@@ -501,128 +442,89 @@ key_levels:
     - 中证2000连续3日收于MA20下方→微盘破位确认，降仓至10%
     - 中证2000跳空低开且30分钟不补缺→防御模式
 operation_plan:
-  date: '2026-06-26'
+  date: '2026-06-29'
   type: daily_operation
   gold_rule: >-
-    6/25晚间复盘定调：双创再创新高，科技独强，增量入场远未结束。
-    主线明确——科技业绩 + 国产替代。存储链/被动元件/华为昇腾/上游金属次第发酵。
-    核心纪律：右侧确认为先，不追高，等分化。券商突破年线前不押注全面行情切换。
-    美光盘后+18%将为存储链提供映射，但A股相关标的已多处涨停或高位，只等首次分歧。
+    6/28晚间复盘定调：6/15-6/26短线主升周期走完，6/26全A破位后市场难度明显抬升。
+
+    算力硬件（光通信/PCB/液冷/存储）短期退潮，需等待企稳信号，不急于抢反弹。
+
+    资金将向产业逻辑扎实且临近中报兑现的环节收敛：半导体硅片、半导体设备零部件、AIDC供电/国产算力等。
+
+    核心纪律：右侧确认为先，不追涨，买阴要求更高。券商突破年线前不押注全面行情切换。
   step_by_step:
   - step: 开盘（09:25-09:40）
-    action: 观察竞价方向。若存储/MLCC/光通信大幅高开，不追，等盘中分歧。若券商高开突破年线，再评估全面行情信号
-    note: 6/25多方向涨停，开盘追高是最大风险
+    action: 观察竞价方向。若半导体上游（硅片/设备/零部件）高开不追，等盘中分歧。若算力硬件（光通信/PCB/存储）继续低开走弱，确认退潮延续
+    note: 全A破位后开盘追高是最大风险
   - step: 早盘确认（09:40-10:30）
-    action: 观察五个验证维度：①量能是否维持3万亿以上 ②存储链（模组/利基/车规）是否延续强势 ③被动元件/MLCC是否分歧后企稳 ④券商是否向上突破年线 ⑤微盘股/中证2000是否继续弱于全A
-    note: 量能第一，无放量无合力。美光盘后大涨可能已部分price-in，重点看承接而非高开幅度
+    action: 观察五个验证维度：①全A是否止跌企稳 ②半导体上游是否抗跌 ③算力硬件是否出现企稳信号 ④AIDC供电/国产算力是否成为资金新方向 ⑤养殖等低相关方向是否有效对冲
+    note: 缩量企稳第一，无企稳无合力
   - step: 方向确认（10:30-11:20）
-    action: 确认科技主线是否延续、券商年线是否突破、是否有新扩散方向（钽/交换芯片/储能）。若放量+承接好→按优先级评估分歧买点。若缩量震荡→持有不动
-    note: 6/26不是节后首日，但方向选择关键。券商不突破则仍按结构性行情处理
+    action: 确认中报高确定性方向是否延续、算力硬件是否企稳、是否有新扩散方向（碳化硅/洁净室/散热材料）。若放量+承接好→按优先级评估分歧买点。若缩量震荡→持有不动
+    note: 6/29是破位后第一个交易日，方向选择关键
   - step: 尾盘（14:52）
-    action: 验证今天是否形成明确的接续方向。存储链是否从涨停潮转入分化走强；券商年线得失；是否有补涨信号（上游金属/储能等）
+    action: 验证今天是否形成明确的企稳信号。半导体上游是否分化走强；算力硬件是否止跌；AIDC供电/国产算力是否获得资金认可
     note: 尾盘条件单是最佳介入窗口，前提是当日已确认分歧企稳
   buy_priority:
   - rank: 1
-    stock: 万润科技（002654）
-    direction: 🥇 存储模组补涨
-    reason: 6/25晚间复盘核心补涨候选。模组逻辑从库存差价升级到结构性重估，位置偏低、与长江存储有股权联系
-    entry: 19.27~20.31
-    stop_loss: 跌破18.0
-    mainboard: ✅
+    stock: 白云电器（603861）
+    direction: 🥇 AIDC供电/国产算力
+    reason: 6/28晚间复盘新增方向，切入800V HVDC配电赛道，中报高确定性
+    entry: 9.5~10.5
+    stop_loss: 跌破8.8
+    mainboard: true
   - rank: 1
-    stock: 江海股份（002484）
-    direction: 🥇 MLCC/被动元件
-    reason: 6/25晚间：发布涨价函覆盖铝电解/薄膜/超级电容；GB300/Rubin功耗升级提升电容需求。当前涨停，等首次分歧
-    entry: 103.25~108.80
-    stop_loss: 跌破98.0
-    mainboard: ✅
+    stock: 立昂微（605358）
+    direction: 🥇 半导体硅片
+    reason: 12英寸硅片涨价+国产替代，产能爬坡
+    entry: 28.0~32.0
+    stop_loss: 跌破25.0
+    mainboard: true
   - rank: 2
-    stock: 风华高科（000636）
-    direction: 🥇 MLCC超级周期
-    reason: MLCC情绪核心候选，6/25涨停，回踩MA10~MA20是标准低吸位
-    entry: 57.8~62.7
-    stop_loss: 跌破57
-    mainboard: ✅
-  - rank: 2
-    stock: 生益科技（600183）
-    direction: 🥇 CCL/覆铜板
-    reason: UP 6/21框架CCL满产满销涨价确定性排第一档。国内最大CCL厂商，直接受益CCL涨价+订单排到2027
-    entry: 等分歧日缩量企稳后确认介入区间
-    stop_loss: 待确认
-    mainboard: ✅
-  - rank: 3
     stock: 锡业股份（000960）
-    direction: 🥇 铟/磷化铟
-    reason: 铟价年内+60%，与锌矿伴生产量刚性，AI光互联需求爆发。全球铟资源第一
-    entry: 关注回踩，等放量确认
+    direction: 🥈 磷化铟/铟紧缺
+    reason: 全球铟资源第一，磷化铟扩产撞上铟天花板
+    entry: 36.0~39.0
+    stop_loss: 跌破33.0
+    mainboard: true
+  - rank: 2
+    stock: 有研新材（600206）
+    direction: 🥇 半导体硅片/靶材
+    reason: 半导体靶材+硅材料，原属光通信/小金属方向，硅片涨价逻辑下向上游材料延伸
+    entry: 等分歧缩量企稳后确认介入区间
     stop_loss: 待确认
-    mainboard: ✅
+    mainboard: true
   - rank: 3
-    stock: 诺德股份（600110）
-    direction: 🥇 铜箔（HVLP4代铜箔）
-    reason: 订单排至2027下半年，分歧日是最好上车机会
-    entry: 12.0~13.0（回踩不破可入）
-    stop_loss: 跌破11.5
-    mainboard: ✅
+    stock: 牧原股份（002714）
+    direction: 🥉 养殖对冲
+    reason: 生猪产能调减指标明确，与AI周期低相关
+    entry: 42.0~46.0
+    stop_loss: 跌破39.0
+    mainboard: true
   - rank: 3
-    stock: 东方钽业（000962）
-    direction: 🥈 钽金属
-    reason: 6/25晚间：AI敞口最大、上涨斜率最陡的金属。非洲供给占84.1%，Rubaya矿区塌方停采
-    entry: 78.14~82.34
-    stop_loss: 跌破73.5
-    mainboard: ✅
-  - rank: 4
-    stock: 华盛昌（002980）
-    direction: 🥇 光模块测试仪器
-    reason: 1.6T/3.2T升级，测试仪器成卡脖子环节，采样示波器2027年破200亿
-    entry: 115.16~121.35
-    stop_loss: 跌破108.0
-    mainboard: ✅
-  - rank: 4
-    stock: 东山精密（002384）
-    direction: 🥇 光通信/MPO
-    reason: 回踩5-8%是合理介入窗口
-    entry: 210~228
-    stop_loss: 跌破205
-    mainboard: ✅
-  - rank: 5
-    stock: 宏英智能（001266）
-    direction: 🥉 十五五储能
-    reason: 2030年新型储能装机3亿千瓦目标，AIDC数据中心配储需求上行
-    entry: 48.17~50.76
-    stop_loss: 跌破45.0
-    mainboard: ✅
-  - rank: 6
-    stock: 潞安环能（601699）
-    direction: 🥈 焦炭涨价
-    reason: 焦炭涨价右侧信号已现，6/15煤炭走弱正好给回踩上车机会
-    entry: 16.1~17.2
-    stop_loss: 跌破15.8
-    mainboard: ✅
-  - rank: 7
-    stock: 蔚蓝锂芯（002245）
-    direction: 🥉 锂电中报高增
-    reason: 亿纬锂能超预期传导，等板块确认再跟踪
-    entry: 等板块确认后再提示
-    stop_loss: N/A（尚未入场）
-    mainboard: ✅
+    stock: 圣农发展（002299）
+    direction: 🥉 养殖对冲
+    reason: 白羽鸡海外引种中断，父母代鸡苗高景气
+    entry: 16.0~17.5
+    stop_loss: 跌破14.8
+    mainboard: true
   position_plan:
-    scenario_A_放量延续+券商突破年线:
-      condition: 量能>3.5万亿，双创继续创新高，券商突破年线，科技主线延续
-      position: 40-60%
-      action: ETF加仓至5-10%，存储/MLCC/光通信核心标的若给分歧位分批建仓<3成；可适当配置超跌滞涨品种（券商带动方向）
-    scenario_B_放量但券商未突破:
-      condition: 量能>3万亿，科技主线延续，但券商未突破年线，结构性行情不变
-      position: 30-40%
-      action: 聚焦科技业绩+国产替代，只买存储/被动元件/光通信/算力配套的分歧买点，不碰超跌滞涨
-    scenario_C_缩量震荡/科技分化:
-      condition: 量能<3万亿，科技方向分化，无明确主线
-      position: 10-20%
-      action: ETF不动，不加仓，等待6/26尾盘/6/27确认
-    scenario_D_科技退潮+券商拖累:
-      condition: 科创50大跌/海外半导体负反馈，量能<2.5万亿，全A走弱
+    scenario_A_缩量企稳+半导体上游领涨:
+      condition: 全A缩量止跌，半导体上游（硅片/设备/零部件）抗跌领涨，算力硬件不再大跌
+      position: 20-30%
+      action: 聚焦半导体硅片/AIDC供电/国产算力分歧买点，轻仓试探新主线
+    scenario_B_继续探底+无明确主线:
+      condition: 全A继续走弱，算力硬件退潮延续，半导体上游分化
       position: 10%以内
-      action: 仅持ETF不动，遵循科创50高风险警示，不新开仓
+      action: 仅持有现有仓位，不开新仓，等待更明确企稳信号
+    scenario_C_算力硬件企稳+科技修复:
+      condition: 光通信/PCB/存储出现企稳信号，全A止跌
+      position: 20%
+      action: 等右侧确认后评估老主线反弹，不抢左侧
+    scenario_D_防御方向领涨:
+      condition: 养殖/煤炭/绿电等防御方向领涨，科技持续走弱
+      position: 10%
+      action: 仅轻仓配置养殖对冲，不加大进攻仓位
   etf_plan:
     etf: 159381
     open_up_2pct: T出30-50%仓位
