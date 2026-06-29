@@ -1,0 +1,887 @@
+claims:
+- id: claim-20260629-001-a
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: market-cycle
+  subject: 上证跌破关键支撑
+  timeframe: short-term
+  statement: 上周五上证重新跌破关键支撑，回到下跌趋势里，稳健者把仓位降下来做防守是合理的选择
+  evidence_quote: 先把今天的位置说清楚。上周五上证重新跌破关键支撑、回到下跌趋势里，稳健者把仓位降下来做防守是合理的选择。
+  interpretation: UP将当前市场位置定性为上证跌破关键支撑后的下跌趋势，对稳健型资金的建议是降低仓位做防守。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 上证跌破关键支撑后稳健者降仓防守
+  related_stocks: []
+  tags:
+  - 上证指数
+  - 跌破支撑
+  - 仓位管理
+  - 防守
+- id: claim-20260629-001-b
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: risk
+  subject: 外围走弱与费城半导体大跌
+  timeframe: intraday
+  statement: 上周五晚间外围集体走弱，费城半导体指数大跌5.29%，安森美、美光等海外芯片股重挫，将对今日开盘情绪形成直接压制
+  evidence_quote: 消息面上，上周五晚间外围集体走弱，费城半导体指数大跌5.29%，安森美、美光等海外芯片股重挫；
+  interpretation: UP提示隔夜外围市场走弱，尤其是费城半导体指数大跌5.29%，会对A股开盘情绪造成直接压力。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 隔夜外围走弱压制开盘情绪
+  related_stocks: []
+  tags:
+  - 费城半导体
+  - 外围市场
+  - 开盘情绪
+  - 风险
+- id: claim-20260629-001-c
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: market-cycle
+  subject: 上周五为情绪冰点
+  timeframe: short-term
+  statement: 从情绪周期看，上周五已是一个阶段性的冰点
+  evidence_quote: 从情绪周期看，上周五已是一个阶段性的冰点。
+  interpretation: UP将上周五定性为情绪周期的阶段性冰点，暗示后续存在情绪修复的基础。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 上周五为情绪周期阶段性冰点
+  related_stocks: []
+  tags:
+  - 情绪周期
+  - 冰点
+  - 阶段性
+- id: claim-20260629-001-d
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: market-cycle
+  subject: 低开具备修复基础
+  timeframe: intraday
+  statement: 若今天再度低开，反而具备情绪修复的基础，但能否接得住要看盘中量价；低开不可怕，接不住才可怕
+  evidence_quote: 开盘预判上，外盘的扰动通常只反映在开盘定价里，开盘之后市场会回归自身节奏——若今天再度低开，反而具备情绪修复的基础，但能否接得住，要看盘中量价；低开不可怕，接不住才可怕。
+  interpretation: UP认为外盘扰动主要影响开盘定价，若今天低开反而有情绪修复机会，但关键要看盘中量价能否承接。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日低开具备修复基础但需看承接
+  related_stocks: []
+  tags:
+  - 低开
+  - 情绪修复
+  - 量价承接
+- id: claim-20260629-001-e
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: methodology
+  subject: 指数三要素观察法
+  timeframe: permanent
+  statement: 判断指数可回到量能、大金融、情绪三要素上做判断，开盘前也可留意日韩股市走势
+  evidence_quote: 延续上周的观察方法，今天依然可以在上午和下午两个开盘前都先留意一下日韩股市的走势，再回到量能·大金融·情绪三要素上做判断。
+  interpretation: UP沿用并强调其指数判断框架：先看日韩股市情绪传导，再从量能、大金融、情绪三个维度判断A股。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 指数判断采用量能大金融情绪三要素
+  related_stocks: []
+  tags:
+  - 指数判断
+  - 方法论
+  - 量能
+  - 大金融
+  - 情绪
+- id: claim-20260629-001-f
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: market-cycle
+  subject: 高成交与月底结算
+  timeframe: short-term
+  statement: 上周五两市成交虽小幅缩量但仍有约3.55万亿，月底效应叠加机构半年净值结算是上周波动放大的本质原因
+  evidence_quote: 量能：上周五两市成交虽小幅缩量，但仍有约3.55万亿，这个体量谈不上安全牌。月底效应叠加机构半年净值结算，是上周波动放大的本质原因——日韩股市的传导只是表面诱因。
+  interpretation: UP认为约3.55万亿的成交体量并非安全信号，真正的波动来源是月底效应与机构半年净值结算，日韩股市只是表面诱因。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高成交叠加月底半年结算放大波动
+  related_stocks: []
+  tags:
+  - 成交量
+  - 月底效应
+  - 半年结算
+  - 波动
+- id: claim-20260629-001-g
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: market-cycle
+  subject: 大金融走弱拖累指数
+  timeframe: short-term
+  statement: 上周五银行、保险、券商三驾马车共同走弱，对指数构成实质拖累，是稳健者降低仓位的直接依据之一
+  evidence_quote: 大金融：上周五银行、保险、券商三驾马车共同走弱，对指数构成实质拖累，这是稳健者降低仓位的直接依据之一。
+  interpretation: UP把大金融三驾马车共同走弱作为指数实质性拖累的证据，也是建议稳健者降仓的直接理由之一。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大金融走弱是指数拖累与降仓依据
+  related_stocks: []
+  tags:
+  - 大金融
+  - 银行
+  - 保险
+  - 券商
+  - 降仓
+- id: claim-20260629-001-h
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: market-cycle
+  subject: 连板晋级率决定情绪修复
+  timeframe: short-term
+  statement: 后续短线情绪能否改善，取决于连板晋级率这块最短的木板何时回到正常水平
+  evidence_quote: 按木桶理论，后续短线情绪能否改善，取决于连板晋级率这块最短的木板何时回到正常水平。
+  interpretation: UP用木桶理论指出，当前短线情绪最短的板是连板晋级率，情绪能否修复取决于该指标何时回归正常。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 连板晋级率是短线情绪修复关键
+  related_stocks: []
+  tags:
+  - 连板晋级率
+  - 短线情绪
+  - 木桶理论
+- id: claim-20260629-001-i
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: market-cycle
+  subject: 情形A低开后修复占优
+  timeframe: intraday
+  statement: 若低开后量能稳住、大金融不再继续杀跌，则情绪有望随外盘冰点后的修复同步回暖，可重点观察科技主线的二次承接
+  evidence_quote: 落到今天的情景判断：情形A——若低开后量能能稳住、大金融不再继续杀跌，则情绪有望随外盘冰点后的修复同步回暖，可重点观察科技主线的二次承接；
+  interpretation: UP给出今日情景A：低开后量能稳住且大金融止跌，则情绪有望回暖，科技主线二次承接是观察重点。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形A低开后量能稳住则情绪回暖
+  related_stocks: []
+  tags:
+  - 情景A
+  - 低开修复
+  - 科技主线
+- id: claim-20260629-001-j
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: market-cycle
+  subject: 情形B低开后修复乏力
+  timeframe: intraday
+  statement: 若低开后量能继续放大、大金融仍弱，则修复力度有限，宜继续以防守为主、保留先手
+  evidence_quote: 情形B——若低开后量能继续放大、大金融仍弱，则修复力度有限，宜继续以防守为主、保留先手。
+  interpretation: UP给出今日情景B：若低开后量能放大且大金融仍弱，则修复力度有限，策略上继续防守、保留先手。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形B量能放大则继续防守
+  related_stocks: []
+  tags:
+  - 情景B
+  - 防守
+  - 保留先手
+- id: claim-20260629-001-k
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: market-cycle
+  subject: 月底效应尾声与韩股边际影响
+  timeframe: short-term
+  statement: 6月仅剩最后两个交易日，月底效应过去后部分压制因素会自然缓解；韩国股市对A股的边际影响大概率逐步减小
+  evidence_quote: 好在6月仅剩最后两个交易日，月底效应过去后，部分压制因素本身会自然缓解；而以韩国股市为参照，除6月初外极少出现连续大跌，作为情绪传导源，后续对A股的边际影响大概率逐步减小。
+  interpretation: UP认为时间窗口上月底效应即将过去，压制因素会自然缓解，且韩国股市作为情绪传导源对A股的边际影响大概率减弱。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 月底效应尾声韩股影响趋弱
+  related_stocks: []
+  tags:
+  - 月底效应
+  - 韩国股市
+  - 边际影响
+- id: claim-20260629-001-l
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: sector-theme
+  subject: 科技仍是当前主线
+  timeframe: short-term
+  statement: 科技仍是当下二次点火与叙事张力结合度最高的主线，但内部分化会非常剧烈，只有国产替代逻辑强、有业绩支撑的标的能走出独立行情
+  evidence_quote: 先说总判断。通过上周五的盘面可以看出，科技仍是当下二次点火＋叙事张力结合度最高的主线，但内部分化会非常剧烈，只有国产替代逻辑强、有业绩支撑的标的能走出独立行情，纯跟风股容易被情绪带崩。
+  interpretation: UP将科技定位为当前二次点火+叙事张力最高的主线，但强调内部分化剧烈，只有国产替代+业绩支撑的标的才能独立走强。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技仍是主线但内部分化剧烈
+  related_stocks: []
+  tags:
+  - 科技主线
+  - 二次点火
+  - 国产替代
+  - 业绩
+- id: claim-20260629-001-m
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: sector-theme
+  subject: 电子行业利润高增
+  timeframe: trend
+  statement: 据国家统计局，1—5月国内电子行业利润同比增长103.9%，对全部规模以上工业企业利润增长的贡献率达43.1%，是增速最高、贡献最大的板块
+  evidence_quote: 据国家统计局，1—5月国内电子行业利润同比增长103.9%，对全部规模以上工业企业利润增长的贡献率达43.1%，是增速最高、贡献最大的板块。
+  interpretation: UP引用统计局数据，认为电子行业利润高增且贡献率最高，AI算力需求爆发已落到业绩端，是科技板块中期核心支撑。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 电子行业1至5月利润同比增103.9%
+  related_stocks: []
+  tags:
+  - 电子行业
+  - 利润增长
+  - 业绩支撑
+- id: claim-20260629-001-n
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: sector-theme
+  subject: 存储链条供需收紧
+  timeframe: short-term
+  statement: 存储链条供需持续收紧，苹果申请采购长鑫存储芯片、三星与SK海力士拟大规模投资、华强北DDR5两天涨价约300元，涨价逻辑持续强化
+  evidence_quote: 存储链条供需收紧：据相关报道，苹果正向美方申请采购长鑫存储芯片，试图打破海外三巨头垄断，直接印证国产存储的替代价值；叠加三星、SK海力士拟推出合计超4万亿元人民币的大规模投资计划，华强北DDR5两天涨价约300元，现货价格与产业事件共振，涨价逻辑持续强化。
+  interpretation: UP梳理存储板块催化：苹果申请采购长鑫、海外巨头大规模投资、现货涨价，多重事件共振下存储涨价逻辑强化。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储供需收紧涨价逻辑强化
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 存储核心标的-深主板可交易
+  - code: '600667'
+    name: 太极实业
+    role: 存储封测-沪主板可交易
+  tags:
+  - 存储
+  - 长鑫存储
+  - DDR5涨价
+  - 国产替代
+- id: claim-20260629-001-o
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: operation
+  subject: 存储偏中线定位
+  timeframe: trend
+  statement: 存储更偏机构重仓的中线定位、而非短线品种
+  evidence_quote: 个人判断，存储更偏机构重仓的中线定位、而非短线品种，上周五德明利等核心标的获得良好承接、而太极实业未能连板，恰好印证了这一点。
+  interpretation: UP认为存储板块更适合中线配置而非短线博弈，并以德明利(001309)承接良好、太极实业(600667)未能连板作为佐证。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储板块偏中线定位非短线
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 存储核心标的-深主板可交易
+  - code: '600667'
+    name: 太极实业
+    role: 存储封测-沪主板可交易
+  tags:
+  - 存储
+  - 中线定位
+  - 机构重仓
+- id: claim-20260629-001-p
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: sector-theme
+  subject: 功率半导体涨价周期
+  timeframe: trend
+  statement: 受AI算力集群功耗激增与新能源需求放量驱动，功率半导体交期普遍拉长至30周以上，市场已从单边涨价演变为涨价与缺货并存
+  evidence_quote: 功率半导体进入涨价周期：据报道，受AI算力集群功耗激增、新能源需求放量驱动，功率半导体交期普遍拉长至30周以上，市场已从单边涨价演变为涨价＋缺货并存；
+  interpretation: UP判断功率半导体进入涨价+缺货周期，驱动力来自AI算力功耗和新能源需求，交期已拉长至30周以上。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 功率半导体进入涨价缺货周期
+  related_stocks:
+  - code: '300373'
+    name: 扬杰科技
+    role: 功率半导体-IDM-创业板不可交易
+  - code: '688711'
+    name: 宏微科技
+    role: 功率半导体-科创板不可交易
+  - code: '688396'
+    name: 华润微
+    role: 功率半导体-IDM-科创板不可交易
+  - code: '605111'
+    name: 新洁能
+    role: 功率半导体-沪主板可交易
+  - code: '300623'
+    name: 捷捷微电
+    role: 功率半导体-创业板不可交易
+  - code: '605358'
+    name: 立昂微
+    role: 功率半导体-沪主板可交易
+  tags:
+  - 功率半导体
+  - 涨价周期
+  - 缺货
+  - 交期
+- id: claim-20260629-001-q
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: sector-theme
+  subject: 高压MOS与IGBT涨价空间
+  timeframe: trend
+  statement: 高压MOS、IGBT下半年仍有明确涨价空间，业绩弹性的可预判性较强；碳化硅环节国内竞争仍激烈，涨价动作相对不明显
+  evidence_quote: 个人判断，高压MOS、IGBT下半年仍有明确涨价空间，业绩弹性的可预判性较强；碳化硅环节国内竞争仍激烈，涨价动作相对不明显。
+  interpretation: UP看好高压MOS和IGBT下半年的涨价空间，但认为碳化硅因国内竞争激烈而涨价不明显。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高压MOS与IGBT下半年仍有涨价空间
+  related_stocks:
+  - code: '600460'
+    name: 士兰微
+    role: 功率半导体-IDM-沪主板可交易
+  - code: '600703'
+    name: 三安光电
+    role: 化合物半导体-沪主板可交易
+  - code: '300373'
+    name: 扬杰科技
+    role: 功率半导体-创业板不可交易
+  - code: '688396'
+    name: 华润微
+    role: 功率半导体-科创板不可交易
+  tags:
+  - 高压MOS
+  - IGBT
+  - 碳化硅
+  - 涨价空间
+- id: claim-20260629-001-r
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: catalyst
+  subject: 上游材料短缺催化
+  timeframe: short-term
+  statement: 半导体制造必需的高纯度二氧化碳供应趋紧，三星、SK海力士相关库存已跌破1个月；叠加国内首个第四代半导体全产业链项目落地郑州，上游材料国产替代紧迫性提升
+  evidence_quote: 上游材料短缺催化：据报道，半导体制造必需的高纯度二氧化碳供应趋紧，三星、SK海力士相关库存已跌破1个月；叠加国内首个第四代半导体全产业链项目落地郑州，上游材料的国产替代紧迫性进一步提升。
+  interpretation: UP指出半导体上游材料出现短缺催化：高纯度二氧化碳库存告急、国内四代半导体项目落地，国产替代紧迫性提升。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体上游材料短缺催化
+  related_stocks: []
+  tags:
+  - 半导体材料
+  - 二氧化碳
+  - 第四代半导体
+  - 国产替代
+- id: claim-20260629-001-s
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: sector-theme
+  subject: 资金向国产替代与业绩集中
+  timeframe: short-term
+  statement: 板块内部分化会非常剧烈，资金大概率继续向国产替代逻辑强、有业绩支撑的方向集中
+  evidence_quote: 个人判断，板块内部分化会非常剧烈，资金大概率继续向「国产替代＋有业绩」的方向集中。
+  interpretation: UP认为在科技股内部分化加剧的背景下，资金会继续向国产替代+业绩支撑的方向集中。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 资金向国产替代加业绩方向集中
+  related_stocks: []
+  tags:
+  - 国产替代
+  - 业绩
+  - 资金集中
+  - 分化
+- id: claim-20260629-001-t
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: market-cycle
+  subject: 涨停家数与连板晋级率
+  timeframe: short-term
+  statement: 涨停家数从85家减少至60家，但考虑指数跌幅仍算相对健康；核心症结仍是连板晋级率太低且已由高位向低位扩散
+  evidence_quote: 数据层面与上周四类似、依旧喜忧参半：涨停家数从85家减少至60家，但考虑指数跌幅，仍算维持在相对健康的水平；跌停虽多，也是午后才放大的。核心症结仍是连板晋级率太低，且已由高位向低位扩散。
+  interpretation: UP认为涨停家数减少但仍健康，真正的核心问题是连板晋级率太低且扩散到低位，这是短线情绪的主要症结。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 连板晋级率低是短线核心症结
+  related_stocks: []
+  tags:
+  - 涨停家数
+  - 连板晋级率
+  - 短线情绪
+- id: claim-20260629-001-u
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: sector-theme
+  subject: 资金在材料之间游走
+  timeframe: short-term
+  statement: 上周短线已轮番炒作过氧化锆、金刚石、磷化铟、四氯化硅、半导体硅片、靶材、光刻胶等，资金尚未确立新的主攻方向，只能在各类材料之间游走
+  evidence_quote: 具体方向上，上周短线已轮番炒作过氧化锆、金刚石、磷化铟、四氯化硅、半导体硅片、靶材、光刻胶等，持续性普遍一般——可见在电子特气之后，资金尚未确立新的主攻方向，只能在各类「材料」之间游走。
+  interpretation: UP观察到资金在各类材料题材之间快速轮动，尚未形成新的明确主攻方向，但认可资金对材料关键词的关注。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 资金在材料题材之间游走
+  related_stocks: []
+  tags:
+  - 材料题材
+  - 轮动
+  - 资金游走
+- id: claim-20260629-001-v
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: sector-theme
+  subject: 半导体硅片涨价
+  timeframe: trend
+  statement: 随成熟制程需求回暖、AI应用扩张及成本推高，环球晶、合晶、台胜科近期相继释放涨价信号，6英寸已率先涨价，8英寸需求快速升温，12英寸进入新一轮价格协商
+  evidence_quote: 半导体硅片：据《科创板日报》，随成熟制程需求回暖、AI应用扩张，叠加能源、运费及原材料成本高企，环球晶、合晶、台胜科近期相继释放涨价信号，6英寸已率先涨价，8英寸需求快速升温，12英寸进入新一轮价格协商。
+  interpretation: UP引用科创板日报，认为半导体硅片进入涨价周期，6/8/12英寸需求依次升温，台系厂商已释放涨价信号。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体硅片进入涨价周期
+  related_stocks:
+  - code: '002129'
+    name: TCL中环
+    role: 半导体硅片-深主板可交易
+  - code: '688432'
+    name: 有研硅
+    role: 半导体硅片-科创板不可交易
+  tags:
+  - 半导体硅片
+  - 涨价
+  - 成熟制程
+  - AI应用
+- id: claim-20260629-001-w
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: catalyst
+  subject: 碳纤维产能投产
+  timeframe: short-term
+  statement: 中复神鹰(688295)连云港基地三条世界级高性能碳纤维产线集中投产，覆盖通用、高强、高模三大品类，补齐国内高端碳纤维规模化产能短板
+  evidence_quote: 碳纤维：据中国建材集团消息，中复神鹰连云港基地三条世界级高性能碳纤维产线集中投产，覆盖通用、高强、高模三大品类，补齐国内高端碳纤维规模化产能短板。
+  interpretation: UP将中复神鹰(688295)连云港基地投产视为碳纤维板块催化，认为其补齐了国内高端碳纤维规模化产能短板。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中复神鹰碳纤维产线投产
+  related_stocks:
+  - code: '688295'
+    name: 中复神鹰
+    role: 碳纤维龙头-科创板不可交易
+  tags:
+  - 碳纤维
+  - 中复神鹰
+  - 产能投产
+- id: claim-20260629-001-x
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: sector-theme
+  subject: 先进封装扩产
+  timeframe: trend
+  statement: 摩尔定律放缓使先进封装成为性能升级最优解，叠加算力需求增长、全球产能供不应求，海内外厂商进入抢份额窗口，国内OSAT扩产积极
+  evidence_quote: 先进封装扩产：据产业信息，摩尔定律放缓使先进封装成为性能升级最优解，叠加算力需求指数级增长、全球产能供不应求，海内外厂商进入抢份额窗口。
+  interpretation: UP认为先进封装因算力需求增长和产能紧张进入扩产周期，海内外厂商都在加码资本开支抢占份额。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 先进封装进入扩产周期
+  related_stocks:
+  - code: '600584'
+    name: 长电科技
+    role: 先进封装龙头-沪主板可交易
+  - code: '688362'
+    name: 甬矽电子
+    role: 先进封装-科创板不可交易
+  - code: '002185'
+    name: 华天科技
+    role: 先进封装-深主板可交易
+  - code: '002156'
+    name: 通富微电
+    role: 先进封装-深主板可交易
+  tags:
+  - 先进封装
+  - 扩产
+  - OSAT
+  - 算力需求
+- id: claim-20260629-001-y
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: catalyst
+  subject: 太空算力与光通信催化
+  timeframe: short-term
+  statement: 马斯克拟收购光模块公司Mesh，其激光通信技术源自星链卫星系统，SpaceX收购后将加速太空算力中心建设
+  evidence_quote: 光通信 / 太空算力：据报道，马斯克拟收购光模块公司Mesh，其激光通信技术源自星链卫星系统，SpaceX收购后将加速太空算力中心建设。
+  interpretation: UP将马斯克拟收购光模块公司Mesh视为光通信/太空算力催化，认为SpaceX会借此加速太空算力中心建设。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 马斯克拟收购Mesh催化太空算力
+  related_stocks:
+  - code: '002025'
+    name: 航天电器
+    role: 航天连接器-深主板可交易
+  - code: '300757'
+    name: 罗博特科
+    role: 光模块设备-创业板不可交易
+  tags:
+  - 太空算力
+  - 光通信
+  - 马斯克
+  - Mesh
+- id: claim-20260629-001-z
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: sector-theme
+  subject: 非科技股短期难流畅
+  timeframe: short-term
+  statement: 非科技板块虽已具备一定性价比和修复基础，但若自身叙事缺乏积极变化，短期难像科技股那样走得流畅
+  evidence_quote: 至于非科技股，上周表现不及预期：上周四盘中拉升的三个方向均低开低走，指数走弱后资金也只在绿电上做了试探。个人判断，非A板块虽已具备一定性价比和修复基础，但若自身叙事缺乏积极变化，短期难像科技股那样走得流畅。
+  interpretation: UP认为非科技板块虽有一定性价比，但缺乏积极叙事变化，短期走势不如科技股流畅。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 非科技股短期难流畅
+  related_stocks: []
+  tags:
+  - 非科技股
+  - 性价比
+  - 叙事
+- id: claim-20260629-001-aa
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: operation
+  subject: 周一保留先手
+  timeframe: intraday
+  statement: 周一总体思路是保留先手，根据修复力度再定去留
+  evidence_quote: 四、周一预案 总的思路是：保留先手，根据修复力度再定去留。
+  interpretation: UP给出周一操作预案的核心思路：不急着加仓，先保留先手，根据盘中修复力度决定后续去留。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 周一保留先手根据修复力度定去留
+  related_stocks: []
+  tags:
+  - 周一预案
+  - 保留先手
+  - 修复力度
+- id: claim-20260629-001-ab
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: operation
+  subject: 情形A参与科技品种
+  timeframe: intraday
+  statement: 若低开后量能稳住、大金融止跌、情绪回暖，则把注意力放在国产替代逻辑强、有中报业绩支撑的科技品种上，存储、功率半导体、半导体材料是首选观察方向
+  evidence_quote: 情形A（修复占优）：若低开后量能稳住、大金融止跌、情绪随外盘冰点后回暖，则把注意力放在国产替代逻辑强、有中报业绩支撑的科技品种上，存储、功率半导体、半导体材料是首选观察方向；
+  interpretation: UP在情形A下建议参与国产替代+中报业绩的科技品种，首选存储、功率半导体、半导体材料。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形A首选存储功率半导体半导体材料
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 存储核心标的-深主板可交易
+  - code: '600667'
+    name: 太极实业
+    role: 存储封测-沪主板可交易
+  - code: '600460'
+    name: 士兰微
+    role: 功率半导体-沪主板可交易
+  - code: '600703'
+    name: 三安光电
+    role: 化合物半导体-沪主板可交易
+  - code: '002129'
+    name: TCL中环
+    role: 半导体硅片-深主板可交易
+  - code: '688432'
+    name: 有研硅
+    role: 半导体硅片-科创板不可交易
+  tags:
+  - 情景A
+  - 国产替代
+  - 中报业绩
+  - 科技品种
+- id: claim-20260629-001-ac
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: operation
+  subject: 情形B继续防守
+  timeframe: intraday
+  statement: 若量能继续放大、大金融仍弱、午后跌停再度扩散，则继续以防守为主、控制仓位，等待连板晋级率回到正常水平再谈右侧介入
+  evidence_quote: 情形B（修复乏力）：若量能继续放大、大金融仍弱、午后跌停再度扩散，则继续以防守为主、控制仓位，等待连板晋级率回到正常水平、即等待最短那块木板修复，再谈右侧介入。
+  interpretation: UP在情形B下建议继续防守，等待连板晋级率恢复正常、出现右侧信号后再介入。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形B继续防守等待右侧信号
+  related_stocks: []
+  tags:
+  - 情景B
+  - 防守
+  - 右侧信号
+  - 连板晋级率
+- id: claim-20260629-001-ad
+  source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
+  source_date: '2026-06-29'
+  source_type: 早盘
+  extracted_at: '2026-06-29T12:20:15Z'
+  claim_type: methodology
+  subject: 右侧确认与位置决定意义
+  timeframe: permanent
+  statement: 核心仍是右侧确认：不见量价配合、不见情绪修复信号，就不必急于追高；位置决定意义，今天指数处在破位后的弱势位置，科技虽强也只取分化中走出独立逻辑的那一档
+  evidence_quote: 核心仍是右侧确认：不见量价配合、不见情绪修复信号，就不必急于追高；位置决定意义，今天指数处在破位后的弱势位置，科技虽强、也只取分化中走出独立逻辑的那一档。
+  interpretation: UP强调右侧确认原则：没有量价配合和情绪修复信号就不追高；当前指数位置弱势，即使科技强也只选独立逻辑最强的品种。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 右侧确认与位置决定意义
+  related_stocks: []
+  tags:
+  - 右侧确认
+  - 量价配合
+  - 位置决定意义
+  - 不追高
