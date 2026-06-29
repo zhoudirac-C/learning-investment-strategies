@@ -1,5 +1,20 @@
      1|# 操作日志
 
+## 2026-06-29 | qing-learning ingest | 6/29 10:33 盘中动态：配置心态与操作难度
+
+- 处理 raw：`sources/raw/财经/2026-06-29-1033-盘中-配置心态与操作难度.md`（B站充电专属图片动态）
+- 新增 claims：`claim-20260629-003.yaml`（5 条：operation×2, market-cycle×2, methodology×1）
+- 核心观点：
+  - 今天这种行情如果做了配置，收益不会过山车并且会很舒服
+  - 后面两周操作难度整体会很大
+  - 环境好时勇于出击，环境不好时不要被分时牵着鼻子走
+  - 周末复盘方向今天都动了也不要追高
+  - 指数风险不大，做好配置即可
+- 标记未处理：`sources/original/bilibili/2026-06-29-1115-...md` 已直接标记为 `unprocessed: false`（内容为行程通知，无 claim 价值）
+- 更新 wiki：在 `knowledge/wiki/每日复盘/2026-06-29.md` 追加盘中动态小节
+- 更新索引：`knowledge/claims/index.md`
+- 引用 claim IDs：`claim-20260629-003-a` 至 `claim-20260629-003-e`
+
 ## 2026-06-29 | qing-learning ingest | 6/29 09:46 盘中动态：指数收红与半导体设备零部件
 
 - 处理 raw：`sources/raw/财经/2026-06-29-0946-盘中-指数收红与半导体设备零部件.md`（B站充电专属图片动态）
