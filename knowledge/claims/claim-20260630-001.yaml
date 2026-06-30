@@ -1,0 +1,577 @@
+claims:
+- id: claim-20260630-001-a
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: market-cycle
+  subject: 市场情绪周期定位
+  timeframe: short-term
+  statement: 当前市场处在轮动震荡阶段，并非一个好的情绪节点，连板晋级不畅、做多动能分散、指数缺乏有效共振。
+  evidence_quote: 先给情绪周期定个位：当前处在轮动震荡阶段。昨天市场一波三折，半导体板块尾盘加速上涨，而其他AI方向普遍出现分歧回落——这种一枝独强、其余分歧的结构，本身就是轮动而非普涨的特征。个人判断，当前并非一个好的情绪节点：连板晋级不畅、做多动能分散，指数缺乏有效共振。
+  interpretation: UP用结构特征定义情绪周期：半导体独强而其他AI分歧回落，属于轮动而非普涨。当前情绪节点不支持追高，更适合买阴或等有效共振。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 当前处于轮动震荡阶段，非好的情绪节点
+  related_stocks: []
+  tags:
+  - 情绪周期
+  - 轮动震荡
+  - 共振
+  - 连板晋级
+- id: claim-20260630-001-b
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: operation
+  subject: 混沌格局操作策略
+  timeframe: intraday
+  statement: 对情绪弱、消息暖的混沌格局，更稳妥的做法是买阴或等市场有效共振走出情绪主升再动手，只有形成消息催化→资金共振→正反馈闭环的局部才值得日内博弈。
+  evidence_quote: 对这种情绪弱、消息暖的混沌格局，更稳妥的做法是买阴、或等市场有效共振走出情绪主升再动手，会更从容；只有当某个分支能形成消息催化→资金共振→正反馈的闭环时，才值得日内局部博弈。
+  interpretation: UP给出震荡市操作纪律：不追高、不勉强右侧，只在回调或共振确认后参与，局部博弈需看到闭环。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 混沌格局应买阴或等共振，不勉强右侧
+  related_stocks: []
+  tags:
+  - 操作策略
+  - 买阴
+  - 共振
+  - 正反馈闭环
+- id: claim-20260630-001-c
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: macro
+  subject: 美股AI硬科技映射
+  timeframe: intraday
+  statement: 昨晚美股AI硬科技以集体修复为主，对A股开盘有映射，但外盘只反映在开盘定价，开盘后A股仍回归自身节奏。
+  evidence_quote: 昨晚美股大涨，且对应的AI硬科技以集体修复为主，对A股有映射作用。需要提醒的是，外盘只反映在开盘定价，开盘后A股仍回归自身节奏——低开不可怕，接不住才可怕。
+  interpretation: UP提醒不要迷信隔夜美股映射，开盘定价后A股走自身逻辑，重点看开盘承接。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美股映射只影响开盘定价，A股回归自身节奏
+  related_stocks: []
+  tags:
+  - 美股映射
+  - 开盘定价
+  - A股节奏
+- id: claim-20260630-001-d
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: sector-theme
+  subject: 玻璃基板映射机会
+  timeframe: short-term
+  statement: 康宁因玻璃基板新技术获资本市场认可、股价创历史新高，国内玻璃基板方向此前涨幅偏弱，盘前出现产业新变化，今天关注能否借映射发酵。
+  evidence_quote: 玻璃基板：据报道，康宁因其玻璃基板新技术获资本市场认可，昨晚收出中阳线、创历史新高（具体以美股行情为准），对应国内的玻璃基板方向。这条线A股此前涨幅偏弱，盘前出现产业新变化，今天关注能否借映射发酵出来。
+  interpretation: UP把玻璃基板列为日内可跟踪的映射线，前提是此前涨幅低+产业新变化+资金发酵。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 玻璃基板借康宁映射关注发酵机会
+  related_stocks: []
+  tags:
+  - 玻璃基板
+  - 康宁
+  - 美股映射
+  - 发酵
+- id: claim-20260630-001-e
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: sector-theme
+  subject: 半导体设备谨慎追高
+  timeframe: short-term
+  statement: 国内半导体设备已连续两日逆势大涨，叠加盘后利好，映射的边际支撑效果会打折，对设备股仍以谨慎追高为宜。
+  evidence_quote: 半导体设备：美股半导体设备同步修复，但国内半导体设备已连续两日逆势大涨，映射的边际支撑效果会打折。个人判断，盘后又叠加利好的情况下，对已经连涨两日的设备股，仍以谨慎追高为宜。
+  interpretation: UP认为半导体设备位置已高，利好兑现后边际动能减弱，不宜追高。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体设备已连涨两日，谨慎追高
+  related_stocks: []
+  tags:
+  - 半导体设备
+  - 谨慎追高
+  - 边际支撑
+  - 利好兑现
+- id: claim-20260630-001-f
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: catalyst
+  subject: 韩国半导体投资加码
+  timeframe: short-term
+  statement: 韩国三大超级项目发布会上，三星集团宣布总投资约2655万亿韩元、半导体集群约2030万亿韩元，SK集团新增约1100万亿韩元，体量明显抬升，对国内半导体设备、材料、先进封装产业链情绪正向。
+  evidence_quote: 据界面新闻等6月29日报道，韩国三大超级项目发布会上，三星集团宣布总投资约2655万亿韩元（其中半导体集群约2030万亿韩元），SK集团宣布新增约1100万亿韩元，两大集团总盘子合计超3700万亿韩元——但这是含半导体、AI数据中心、电池、显示等多领域的集团总额，并非纯半导体capex；政府主导的四座存储晶圆厂部分为800万亿韩元，由三星与SK海力士各承建两座。相较上周市场预期，体量明显抬升，对国内半导体设备、材料、先进封装的产业链情绪是正向的。
+  interpretation: UP解析韩国投资事件：虽然总额包含多领域，但半导体集群体量和存储晶圆厂规模超预期，对国内半导体产业链情绪构成利好。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 韩国半导体投资加码利好国内半导体产业链情绪
+  related_stocks: []
+  tags:
+  - 韩国半导体
+  - 三星
+  - SK海力士
+  - 投资加码
+  - 产业链情绪
+- id: claim-20260630-001-g
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: catalyst
+  subject: 国产算力峰谷计费
+  timeframe: short-term
+  statement: DeepSeek首次正式官宣引入峰谷计费、高峰时段API价格翻倍，打破算力降价担忧，印证国产算力偏紧，对算力租赁与上游硬件叙事是利好。
+  evidence_quote: 据公告，DeepSeek首次正式官宣引入峰谷计费、高峰时段API价格翻倍。这一变相涨价打破了此前市场对算力降价、算力通缩的担忧，某种程度也印证当前国产算力偏紧。个人判断，算力价格端的拐点信号，对算力租赁与上游硬件的叙事是利好，但同样需看A股相关分支能否走出资金共振。
+  interpretation: UP将DeepSeek涨价视为算力价格端拐点信号，利好算力租赁和上游硬件，但需要A股资金共振确认。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: DeepSeek峰谷计费印证国产算力偏紧
+  related_stocks: []
+  tags:
+  - DeepSeek
+  - 算力
+  - 峰谷计费
+  - 价格拐点
+- id: claim-20260630-001-h
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: market-cycle
+  subject: 量能天花板判断
+  timeframe: short-term
+  statement: 若把4万亿视作短期天花板，从3.2万亿往上还有20%—25%的增量空间；若以3.5万亿起算，就只剩不到15%。
+  evidence_quote: 回看节奏：6月中旬那波反弹是在量能降至2.5万亿附近后才启动的，上周三、周四的反抽也得益于上半周量能从3.74万亿降到3.28万亿。倾向于认为，若把4万亿视作短期天花板，则从3.2万亿往上还有20%—25%的增量空间；但若以3.5万亿起算，就只剩不到15%。
+  interpretation: UP从量能空间角度给出指数上行潜力的定量判断：3.2万亿起点才有充足增量空间，3.5万亿以上空间收窄。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能从3.2万亿起仍有空间，3.5万亿起空间收窄
+  related_stocks: []
+  tags:
+  - 量能
+  - 天花板
+  - 增量空间
+  - 指数
+- id: claim-20260630-001-i
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: market-cycle
+  subject: 量能回落才是蓄力信号
+  timeframe: short-term
+  statement: 量能主动回落至3.2万亿一线甚至更低，指数才有重新蓄力的基础；若继续顶在3.5—4万亿高位，即便外盘给力也大概率是高位震荡换手。
+  evidence_quote: 情形A：量能主动回落至3.2万亿一线甚至更低，指数才有重新蓄力的基础；情形B：量能继续顶在3.5—4万亿高位，那即便外盘给力，指数也难有顺畅的向上空间，更可能是高位震荡换手。
+  interpretation: UP把量能是否回落作为今天第一观察点，认为缩量才是指数重新上行前提。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能回落至3.2万亿以下才是蓄力信号
+  related_stocks: []
+  tags:
+  - 量能
+  - 蓄力
+  - 高位震荡
+  - 观察点
+- id: claim-20260630-001-j
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: market-cycle
+  subject: 三大指数短期难直接向上
+  timeframe: short-term
+  statement: 三大指数都没能反包上周五阴线，短期很难直接向上，着眼点应放在量能何时降下来以及科创50新高能否成为结构分化契机。
+  evidence_quote: 昨天三大指数全线收红，创业板指探底回升，科创50大涨4.61%。但要注意一个结构细节：三大指数都没能反包上周五的阴线，唯一的例外是科创板指。个人判断，既然三大指数短期很难直接向上，着眼点就该放在量能何时降下来，以及科创50的新高能否成为契机。
+  interpretation: UP指出指数层面缺乏直接上攻条件，结构机会看科创50能否独立走强。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 三大指数短期难直接向上，关注科创50独立走强
+  related_stocks: []
+  tags:
+  - 三大指数
+  - 反包
+  - 科创50
+  - 结构分化
+- id: claim-20260630-001-k
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: market-cycle
+  subject: 科创50独立走强或引发一九行情
+  timeframe: short-term
+  statement: 若科创板指能独立走强，存在掀起新一轮一九行情的可能，但这是情形假设，需右侧确认，不见独立走强不轻易下注。
+  evidence_quote: 上一次创业板指与沪指的分化催生了「光」的行情，这次若科创板指能独立走强，存在掀起新一轮一九行情的可能——但这只是情形假设，需右侧确认，不见独立走强不轻易下注。
+  interpretation: UP提出科创50独立走强可能复制此前创业板分化催生主线的模式，但强调右侧确认。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科创50独立走强或引发新一轮一九行情
+  related_stocks: []
+  tags:
+  - 科创50
+  - 一九行情
+  - 右侧确认
+  - 结构契机
+- id: claim-20260630-001-l
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: sector-theme
+  subject: 科技修复预期
+  timeframe: short-term
+  statement: 科技方向上周五已是冰点、昨天又跌，今天本应延续修复，但修复力度不宜预期太高，大概率仍有月底基金调仓压制。
+  evidence_quote: 理论上，科技方向上周五已是冰点、昨天又跌，今天本应延续修复。但修复力度不宜预期太高，今天大概率仍有月底基金调仓的压制。
+  interpretation: UP对科技修复持保守态度：有修复需求但力度受限，月底调仓会压制。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技方向有修复需求但力度受限
+  related_stocks: []
+  tags:
+  - 科技修复
+  - 月底调仓
+  - 冰点
+  - 修复力度
+- id: claim-20260630-001-m
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: sector-theme
+  subject: 下月新主线或从光模块退存储进分化走出
+  timeframe: trend
+  statement: 中际旭创(300308)已五连阴、天孚通信(300394)连续两天跌超7%，而华虹公司(688347)五连阳、存储方向继续走强，下个月的新主线很可能从这次光模块退、存储进的分化里走出来。
+  evidence_quote: 内部分化：据盘面，中际旭创已五连阴、天孚通信连续两天跌超7%，这种表现很难不拖累其他AI硬件股；与之相对的是华虹宏力五连阳，上周五承接良好的存储方向继续走强。考虑到又逢月底，个人判断，下个月的新主线，很可能就从这次光模块退、存储进的分化里走出来。
+  interpretation: UP通过AI硬件内部结构性分化，推断下月主线可能从光模块向存储切换。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 下月新主线可能从光模块退存储进的分化中走出
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块龙头-创业板不可交易
+  - code: '300394'
+    name: 天孚通信
+    role: 光模块-创业板不可交易
+  - code: '688347'
+    name: 华虹公司
+    role: 晶圆代工-科创板不可交易
+  tags:
+  - 光模块
+  - 存储
+  - 中际旭创
+  - 天孚通信
+  - 华虹公司
+- id: claim-20260630-001-n
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: sector-theme
+  subject: 半导体材料暗线切换
+  timeframe: short-term
+  statement: 材料暗线炒作分支已从AI硬件上游切换到半导体上游，光刻胶、洁净室、电子特气等方向受韩国晶圆厂扩产时序催化。
+  evidence_quote: 材料暗线：材料这条暗线仍在科技股间游走，区别是炒作分支已从AI硬件上游切换到半导体上游——光刻胶、洁净室、电子特气等。结合韩国晶圆厂大扩产的时序（土建—洁净室—厂务设备—工艺设备），这条线在情绪上有外部催化。
+  interpretation: UP指出材料炒作主线切换，半导体上游材料因海外扩产时序获得情绪催化。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 材料暗线从AI硬件上游切换到半导体上游
+  related_stocks:
+  - code: '603324'
+    name: 盛剑科技
+    role: 洁净室及废气特气-主板可交易
+  - code: '300203'
+    name: 聚光科技
+    role: 废气特气-创业板不可交易
+  - code: '603690'
+    name: 至纯科技
+    role: 国产替代设备-主板可交易
+  - code: '600584'
+    name: 长电科技
+    role: 先进封装-主板可交易
+  - code: '300223'
+    name: 北京君正
+    role: 存储-创业板不可交易
+  - code: '688525'
+    name: 佰维存储
+    role: 存储-科创板不可交易
+  tags:
+  - 半导体材料
+  - 光刻胶
+  - 洁净室
+  - 电子特气
+  - 韩国扩产
+- id: claim-20260630-001-o
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: market-cycle
+  subject: 连板晋级率是试金石
+  timeframe: intraday
+  statement: 今天首要盯连板晋级率，尤其是8个二连板中6个与半导体相关；若能晋级3—4个以上说明资金愿意在科技方向接力，否则修复只是脉冲而非趋势。
+  evidence_quote: 因此今天首要盯连板晋级率，尤其是8个二连板中有6个与半导体相关，像有研硅等都是午后拉板、与昨天指数共振的。情形A：若这批半导体连板能晋级到3—4个以上，说明资金愿意在科技方向接力，修复就有持续性；情形B：若仍只有1—2个晋级，则是明确的偏弱信号，提示今天的修复更多是脉冲而非趋势。
+  interpretation: UP把连板晋级率作为判断科技修复持续性的日内关键指标。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 连板晋级率是科技修复持续性的试金石
+  related_stocks:
+  - code: '688432'
+    name: 有研硅
+    role: 半导体材料-科创板不可交易
+  tags:
+  - 连板晋级率
+  - 半导体
+  - 有研硅
+  - 修复持续性
+- id: claim-20260630-001-p
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: sector-theme
+  subject: 医药大消费领涨信号
+  timeframe: short-term
+  statement: 昨天医药和大消费领涨，午后这两个方向的领涨个股并没有因科技股反弹而回落，本身是积极信号；医保+商保双目录谈判进入实质阶段，医药板块进入长期布局价值区间。
+  evidence_quote: 非科技变化：昨天领涨的是医药和大消费，与上周四机场航运、白酒不同的是，昨天午后这两个方向的领涨个股并没有因科技股反弹而回落，本身是个积极信号。据国家医保局6月29日公示，557个药品通过医保目录初审、54个药品通过商保创新药目录初审，标志「医保+商保」双目录谈判进入实质阶段；据爱建证券观点，近期医药板块持续回调，股价走势与基本面、产业趋势背离，已进入长期布局的价值区间。
+  interpretation: UP认为医药大消费出现企稳信号，医保谈判进展构成政策催化，医药板块具备长期布局价值。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药大消费领涨未回落，医保谈判进入实质阶段
+  related_stocks:
+  - code: '002728'
+    name: 特一药业
+    role: 医药-主板可交易
+  - code: '300436'
+    name: 广生堂
+    role: 医药-创业板不可交易
+  - code: '002568'
+    name: 百润股份
+    role: 消费-主板可交易
+  tags:
+  - 医药
+  - 大消费
+  - 医保谈判
+  - 特一药业
+  - 广生堂
+- id: claim-20260630-001-q
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: sector-theme
+  subject: 太空光伏钙钛矿叙事
+  timeframe: industry
+  statement: 太空光伏被当作商业航天新分支，核心是钙钛矿在航天电源上的降本想象；恒星力量在北京开工建设全球首条钙钛矿太空光伏中试线，计划8月建成投产，年内向天宫空间站送样并搭载卫星验证。
+  evidence_quote: 近期市场把太空光伏单拎出来当作商业航天的新分支，核心是钙钛矿在航天电源上的降本想象。先把事实摆清楚：据财联社5月18日，恒星力量（北京）在北京未来科学城能源谷开工建设全球首条钙钛矿太空光伏中试线，总投资约1.5亿元，计划今年8月建成投产，定位是填补钙钛矿太空光伏「规模化验证」的空白；据相关报道，公司计划年内分两批向天宫空间站运送电池样品做在轨研究，并搭载至少5颗卫星做多场景验证。
+  interpretation: UP梳理太空光伏的产业事实：处于开工和在轨验证早期，不是已批量供货，长期看钙钛矿替代砷化镓有降本和功质比优势。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 太空光伏处于钙钛矿中试线阶段，年内做在轨验证
+  related_stocks:
+  - code: '603121'
+    name: 华培动力
+    role: 钙钛矿叠层关联-主板可交易
+  - code: '002865'
+    name: 钧达股份
+    role: 钙钛矿叠层参股-主板可交易
+  - code: '300118'
+    name: 东方日升
+    role: 钙钛矿叠层-创业板不可交易
+  - code: '300751'
+    name: 迈为股份
+    role: 设备-创业板不可交易
+  - code: '688726'
+    name: 拉普拉斯
+    role: 设备-科创板不可交易
+  - code: '300102'
+    name: 乾照光电
+    role: 传统砷化镓-创业板不可交易
+  tags:
+  - 太空光伏
+  - 钙钛矿
+  - 商业航天
+  - 在轨验证
+  - 恒星力量
+- id: claim-20260630-001-r
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: risk
+  subject: 太空光伏按右侧确认对待
+  timeframe: industry
+  statement: 太空光伏当前属于估值想象扩张，不是业绩兑现确认，需按右侧确认对待，等在轨验证、量产订单等硬催化出来再谈持续性。
+  evidence_quote: 落到板块层面：当前钙钛矿炒作主线仍在地面光伏与晶硅-钙钛矿叠层，太空光伏属于高附加值、高毛利的航天级应用，给板块新增了一条估值想象的支线。但请注意，这是「估值想象」的扩张，不是「业绩兑现」的确认——按右侧确认对待，等在轨验证、量产订单等硬催化出来再谈持续性。
+  interpretation: UP提示太空光伏是主题估值扩张，业绩兑现周期长，当前不宜按业绩线交易。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 太空光伏是估值想象而非业绩兑现，需右侧确认
+  related_stocks: []
+  tags:
+  - 太空光伏
+  - 估值想象
+  - 业绩兑现
+  - 右侧确认
+- id: claim-20260630-001-s
+  source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
+  source_date: '2026-06-30'
+  source_type: 早盘
+  extracted_at: '2026-06-30T12:26:07+08:00'
+  claim_type: operation
+  subject: 今日操作思路
+  timeframe: intraday
+  statement: 已关注方向盘前以持股为主，盘中再定去留；对半导体设备谨慎追高，买阴或等市场有效共振再动手，不见有效共振不勉强右侧。
+  evidence_quote: 已关注方向盘前以持股为主，盘中再定去留。混沌震荡市、个股分化，先把预期降下来。今天的判断顺序是：先看开盘量能（能否回落）→ 再看半导体二连板的晋级数（情绪接力）→
+    看玻璃基板、算力等盘前有产业新变化的弱势分支能否借映射发酵→ 最后看科创50能否独立走强（结构契机）。操作上，对已连涨两日的半导体设备谨慎追高；对当下并非好情绪节点的整体格局，买阴或等市场有效共振走出情绪主升再动手，会更从容；只有能形成正反馈闭环的局部新强，才考虑日内博弈。不见有效共振，不勉强右侧。
+  interpretation: UP给出今日操作框架：持股为主，观察量能、连板晋级、弱势分支发酵、科创50独立走强四个信号，确认共振后再加仓。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日持股为主，观察量能连板科创50信号
+  related_stocks: []
+  tags:
+  - 操作策略
+  - 持股为主
+  - 半导体设备
+  - 量能
+  - 连板晋级

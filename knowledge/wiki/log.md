@@ -1,5 +1,27 @@
      1|# 操作日志
 
+## 2026-06-30 | qing-learning ingest | 6/30 早盘+盘中动态：大震荡市与机器人预期差
+
+- 处理 raw：
+  - `sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md`（B站充电专属图片动态）
+  - `sources/raw/财经/2026-06-30-1157-动态-机器人预期差.md`（B站充电专属图片动态）
+- 新增 claims：
+  - `claim-20260630-001.yaml`（19 条：market-cycle×6, sector-theme×6, operation×3, catalyst×2, risk×2, macro×1）
+  - `claim-20260630-002.yaml`（6 条：sector-theme×4, methodology×1, risk×1）
+- 核心观点：
+  - 当前处在轮动震荡阶段，并非好的情绪节点，操作上宜买阴或等有效共振
+  - 美股 AI 硬科技映射只影响开盘定价，A股开盘后回归自身节奏
+  - 韩国半导体投资加码与 DeepSeek 峰谷计费构成盘前偏暖催化
+  - 量能回落至 3.2 万亿以下才是指数重新蓄力信号，科创50 独立走强或引发一九行情
+  - 下个月新主线可能从「光模块退、存储进」的分化中走出
+  - 太空光伏处于钙钛矿中试线阶段，当前属于估值想象而非业绩兑现
+  - 半导体设备逻辑确定但定价充分，机器人/物理AI 确定性弱但定价不充分，预期差更大
+- 未处理：`sources/original/bilibili/2026-06-30-0946-图片-动态-1219536941337280515.md` 为纯图片动态，无文字内容，无法提取 claim
+- 更新 wiki：新建 `knowledge/wiki/每日复盘/2026-06-30.md`
+- 更新索引：`knowledge/claims/index.md`、`knowledge/wiki/index.md`
+- 更新门禁：`gate_validate_claims.py` NON_COMPANY 集扩展（科技/率 通用词汇假阳性）
+- 引用 claim IDs：`claim-20260630-001-a` 至 `claim-20260630-001-s`、`claim-20260630-002-a` 至 `claim-20260630-002-f`
+
 ## 2026-06-30 | qing-learning ingest | 6/21 视频：宏观投资周复盘
 
 - 处理 raw：`sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md`（用户手动上传的宏观投资周复盘视频总结）
