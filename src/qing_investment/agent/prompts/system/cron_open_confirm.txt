@@ -25,20 +25,20 @@
 - 字数：200字以内
 - 格式：JSON
 {
-  "assumption_validation": "9:26假设基本成立，科技上游材料方向领涨验证",
+  "assumption_validation": "9:26假设基本成立，半导体上游方向领涨验证，但全A仍未确认企稳",
   "deviation": "无",
   "corrected_assumption": "",
   "position_branch_actions": [
-    {"code": "002409", "type": "weak_board", "action": "观察承接，若15分钟无量反弹则减仓"}
+    {"code": "002371", "type": "trend", "action": "强趋势持有，跌破20日线或放量长阴再减仓"}
   ],
-  "narrative": "开盘15分钟验证通过，烂板票有承接但量不足，继续观察"
+  "narrative": "开盘15分钟验证通过，半导体上游有承接但大盘未共振，继续观察不追高"
 }
 
 【⚠️ 强制要求：daily_state 输出】
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
 ```daily_state
-{"market_stage":{"phase":"等修复","detail":"..."},"direction_priority":[{"direction":"...","intensity":"🔥🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"09:45","summary":"一句话总结本节点观点"}]}
+{"market_stage":{"phase":"等修复","detail":"半导体上游领涨但大盘未共振，继续观察"},"direction_priority":[{"direction":"半导体上游","intensity":"🔥🔥🔥"},{"direction":"存储","intensity":"🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"09:45","summary":"半导体上游有承接但大盘未共振，继续观察不追高"}]}
 ```
 
 说明：

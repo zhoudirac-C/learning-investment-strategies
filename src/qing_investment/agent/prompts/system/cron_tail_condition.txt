@@ -19,15 +19,15 @@
 - 字数：300字以内（因新增预判）
 - 格式：JSON
 {
-  "tail_buy": "观察科技上游材料是否有尾盘低吸机会",
+  "tail_buy": "仅当半导体上游与大盘共振放量、全A守住下影线，才考虑尾盘轻仓跟随上游设备材料+存储末端",
   "tail_sell": "无",
   "overnight_stance": "轻仓过夜",
-  "tomorrow_preview": "明天大概率低开，等企稳信号",
+  "tomorrow_preview": "明天大概率震荡，若半导体继续逆势孤军则等回踩阴线买阴",
   "position_previews": [
-    {"code": "002409", "type": "weak_board", "tomorrow_expectation": "若竞价高开>2%则持有，低开<1%则竞价减半", "key_level": "成本线23.5"},
-    {"code": "000636", "type": "trend", "tomorrow_expectation": "趋势延续概率60%，连涨后可能分歧", "key_level": "MA5=32.1"}
+    {"code": "002371", "type": "trend", "tomorrow_expectation": "强趋势持有，跌破20日线或放量长阴再减仓", "key_level": "MA20"},
+    {"code": "603986", "type": "trend", "tomorrow_expectation": "存储龙头，首次大分歧可低吸，连续上涨不追", "key_level": "MA5"}
   ],
-  "narrative": "尾盘无操作，轻仓过夜等明天"
+  "narrative": "尾盘无共振则不追，轻仓过夜等明天"
 }
 
 【⚠️ 新增：tomorrow_scenarios 输出（明日剧本，供次日09:26使用）】
@@ -36,19 +36,19 @@
 {
   "tomorrow_scenarios": {
     "strong_repair": {
-      "probability": "30%",
-      "auction_signature": "全A高开>0.5%，竞价量放大，持仓股竞价符合预期",
-      "action_if_match": "持仓不动，观察加仓机会"
+      "probability": "25%",
+      "auction_signature": "全A高开>0.5%，竞价量放大，半导体上游与大盘共振",
+      "action_if_match": "持仓不动，跟踪半导体上游+存储末端右侧机会"
     },
     "weak_consolidation": {
       "probability": "50%",
-      "auction_signature": "全A平开±0.3%，竞价量正常，个股分化",
-      "action_if_match": "做T为主，不新增净仓"
+      "auction_signature": "全A平开±0.3%，竞价量正常，半导体上游相对抗跌但大盘未共振",
+      "action_if_match": "做T为主，不新增净仓，等回踩买阴"
     },
     "strong_divergence": {
-      "probability": "20%",
-      "auction_signature": "全A低开>0.5%，竞价量萎缩或放量下杀",
-      "action_if_match": "直接降仓，跌破risk_line执行风控"
+      "probability": "25%",
+      "auction_signature": "全A低开>0.5%，竞价量萎缩或放量下杀，半导体逆势孤军",
+      "action_if_match": "不追半导体，等大盘回踩阴线落地后买阴"
     }
   }
 }
@@ -59,7 +59,7 @@ probability 总和应为 100%。auction_signature 应尽量具体（含指数、
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
 ```daily_state
-{"market_stage":{"phase":"等修复","detail":"..."},"direction_priority":[{"direction":"...","intensity":"🔥🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"14:55","summary":"一句话总结本节点观点"}]}
+{"market_stage":{"phase":"等修复","detail":"尾盘无共振不追，轻仓过夜等明天"},"direction_priority":[{"direction":"半导体上游","intensity":"🔥🔥🔥"},{"direction":"存储","intensity":"🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"14:55","summary":"尾盘无共振不追，轻仓过夜等明天"}]}
 ```
 
 说明：

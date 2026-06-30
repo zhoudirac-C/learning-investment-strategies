@@ -20,21 +20,21 @@
 - 字数：300字以内
 - 格式：JSON
 {
-  "morning_validation": "上午判断基本正确，科技上游材料方向领涨",
-  "afternoon_assessment": "午后修复力度弱于上午预期",
+  "morning_validation": "上午判断基本正确，半导体上游方向领涨，但大盘未共振",
+  "afternoon_assessment": "午后修复力度弱于上午预期，算力硬件退潮延续",
   "tail_risk": "尾盘杀风险中等，关注14:30后走势",
   "position_adjustment": "持仓不动，不追涨",
   "opportunity_scan": [
-    {"stock": "昊华科技", "code": "600378", "signal": "回踩20日线企稳", "odds": "3:1"}
+    {"stock": "北方华创", "code": "002371", "signal": "半导体上游龙头分歧企稳", "odds": "2.5:1"}
   ],
-  "narrative": "午后修复力度弱，降低尾盘预期"
+  "narrative": "午后修复力度弱，半导体上游虽强但逆势，降低尾盘预期"
 }
 
 【⚠️ 强制要求：daily_state 输出】
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
 ```daily_state
-{"market_stage":{"phase":"等修复","detail":"..."},"direction_priority":[{"direction":"...","intensity":"🔥🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"14:00","summary":"一句话总结本节点观点"}]}
+{"market_stage":{"phase":"等修复","detail":"午后修复力度弱，半导体上游逆势，降低尾盘预期"},"direction_priority":[{"direction":"半导体上游","intensity":"🔥🔥🔥"},{"direction":"存储","intensity":"🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"14:00","summary":"午后修复力度弱，半导体上游逆势，降低尾盘预期"}]}
 ```
 
 说明：
