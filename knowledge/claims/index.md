@@ -157,6 +157,7 @@
 - [claim-20260621-003.yaml](claim-20260621-003.yaml) — 视频 26-06-21 技术分析-孕线（26 条 technical-knowledge）
 - [claim-20260621-004.yaml](claim-20260621-004.yaml) — 视频 26-06-21 技术分析-孕线（26 条 technical-knowledge）
 - [claim-20260621-005.yaml](claim-20260621-005.yaml) — 视频 26-06-21 技术分析-孕线（26 条 technical-knowledge）
+- [claim-20260621-006.yaml](claim-20260621-006.yaml) — 视频 26-06-21 宏观投资周复盘（20 条 macro×7, market-cycle×3, risk×3, sector-theme×1, operation×2, catalyst×2, methodology×2, stock-view×1）
 - [claim-20260622-003.yaml](claim-20260622-003.yaml)
 - [claim-20260622-004.yaml](claim-20260622-004.yaml)
 - [claim-20260623-001.yaml](claim-20260623-001.yaml)
