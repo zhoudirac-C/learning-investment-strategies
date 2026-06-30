@@ -68,7 +68,12 @@ from qing_investment.agent.models.schemas import (
     TriggerRequest,
     TriggerResponse,
 )
-from qing_investment.agent.tools.llm_client import get_embedding_model, get_llm_client
+from qing_investment.agent.tools.llm_client import (
+    format_provider_usage_summary,
+    get_embedding_model,
+    get_llm_client,
+    reset_provider_usage,
+)
 from qing_investment.agent.tools.mem0_client import Mem0ClientWrapper
 from qing_investment.agent.tools.neo4j_client import Neo4jClient
 from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
@@ -199,18 +204,28 @@ async def analyze_trigger(req: TriggerRequest):
     _req_t0 = time.time()
     _req_logger.info(f"analyze_trigger start: type={req.analysis_type} trigger={req.trigger.get('title','')}")
 
+    # 每个请求开始时重置 provider 使用轨迹
+    reset_provider_usage()
+
     result = await graph.ainvoke(state)
 
     _req_dur = time.time() - _req_t0
+    provider_summary = format_provider_usage_summary()
     _req_logger.info(
         f"analyze_trigger end: duration={_req_dur:.1f}s "
         f"passed={result.get('review_passed')} "
         f"output_len={len(result.get('final_output', ''))} "
-        f"claims_cited={len(result.get('claims_cited', []))}"
+        f"claims_cited={len(result.get('claims_cited', []))} "
+        f"provider_usage={provider_summary}"
     )
 
+    # 在最终输出顶部附加模型路由说明
+    final_output = result.get("final_output", "")
+    if final_output:
+        final_output = f"[{provider_summary}]\n\n{final_output}"
+
     return TriggerResponse(
-        final_output=result.get("final_output", ""),
+        final_output=final_output,
         claims_cited=result.get("claims_cited", []),
         data_sources=result.get("data_sources", []),
         confidence=result.get("confidence", "medium"),

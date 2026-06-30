@@ -1290,6 +1290,85 @@ def format_daily_review_context(review: dict) -> str:
             ]
         )
 
+    # ── Phase 1.5: 收盘特征摘要（market / positions / 龙虎榜）──
+    market = review.get("market") or (review.get("summary", {}).get("market") if isinstance(review.get("summary"), dict) else None) or {}
+    positions = review.get("positions") or (review.get("summary", {}).get("positions") if isinstance(review.get("summary"), dict) else None) or {}
+    dt_board = review.get("dragon_tiger_board") or (review.get("summary", {}).get("dragon_tiger_board") if isinstance(review.get("summary"), dict) else None) or {}
+    scenarios = review.get("tomorrow_scenarios") or (review.get("summary", {}).get("tomorrow_scenarios") if isinstance(review.get("summary"), dict) else None)
+
+    if market:
+        lines.extend(["", "市场状态："])
+        stage = market.get("stage", "")
+        stance = market.get("position_stance", "")
+        if stage:
+            lines.append(f"- 阶段：{stage}")
+        if stance:
+            lines.append(f"- 仓位建议：{stance}")
+        directions = market.get("direction_priority", [])
+        if directions:
+            dirs = [d.get("direction", "") for d in directions if isinstance(d, dict)]
+            lines.append(f"- 方向优先级：{ ' > '.join(dirs)}")
+        detail = market.get("stage_detail", "")
+        if detail:
+            # 综述可能很长，限制长度
+            summary_text = detail.split("\n")[0] if "\n" in detail else detail
+            lines.append(f"- 综述：{summary_text[:240]}")
+
+    if positions:
+        lines.extend(["", f"持仓复盘（{len(positions)}只）："])
+        for code, pos in sorted(positions.items()):
+            if not isinstance(pos, dict):
+                continue
+            name = pos.get("name", code)
+            close = pos.get("close")
+            change = pos.get("change_pct")
+            cost = pos.get("avg_cost")
+            unrealized = pos.get("unrealized_pct")
+            parts = [f"- {name}({code})"]
+            if close is not None:
+                parts.append(f"收{close}")
+            if change is not None:
+                parts.append(f"{change:+.2f}%")
+            if cost is not None:
+                parts.append(f"成本{cost}")
+            if unrealized is not None:
+                parts.append(f"浮盈{unrealized:+.2f}%")
+            lines.append(" ".join(parts))
+
+    if dt_board:
+        lines.extend(["", "龙虎榜："])
+        board_count = dt_board.get("board_count", 0)
+        lines.append(f"- 全市场上榜：{board_count}只")
+        watch_items = dt_board.get("watch_dt_items", [])
+        if watch_items:
+            lines.append("- 持仓/观察池命中：" + ", ".join(watch_items[:8]))
+        top5 = dt_board.get("dt_nettop5", [])
+        if top5:
+            top5_str = ", ".join(f"{item.get('name', item.get('code', ''))} {item.get('net_buy', '')}" for item in top5[:5])
+            lines.append(f"- 净买TOP5：{top5_str}")
+        sector_summary = dt_board.get("dt_sector_summary", {})
+        if sector_summary:
+            sector_strs = []
+            for sector_name, sector_data in list(sector_summary.items())[:5]:
+                if isinstance(sector_data, dict):
+                    stocks = ", ".join(sector_data.get("stocks", []))
+                    total = sector_data.get("total_net_str", "")
+                    sector_strs.append(f"{sector_name}({stocks} {total})")
+            if sector_strs:
+                lines.append("- 板块汇总：" + "；".join(sector_strs))
+
+    if scenarios:
+        lines.extend(["", "明日场景："])
+        if isinstance(scenarios, list):
+            for sc in scenarios:
+                if isinstance(sc, dict):
+                    name = sc.get("name", "")
+                    prob = sc.get("probability", "")
+                    desc = sc.get("description", "")
+                    lines.append(f"- {name}（概率{prob}）：{desc[:120]}")
+        else:
+            lines.append(f"- {scenarios}")
+
     entries = review.get("entries", [])
     if entries:
         lines.extend(["", "详细条目："])

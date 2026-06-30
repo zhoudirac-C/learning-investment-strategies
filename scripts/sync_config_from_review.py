@@ -299,6 +299,11 @@ def update_stock_pool(state: dict, dry_run: bool) -> list[str]:
 
     for stock in stocks:
         code = str(stock.get("code", ""))
+
+        # 不可交易观察标的不反写介入区间
+        if stock.get("tradable") is False:
+            continue
+
         pure = code.replace(".SZ", "").replace(".SH", "")
         opp = opp_map.get(pure) or opp_map.get(code)
         if not opp:

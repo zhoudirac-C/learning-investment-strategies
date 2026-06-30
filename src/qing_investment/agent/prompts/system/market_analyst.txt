@@ -121,6 +121,8 @@ confidence_indicators 是增强信号，如果当前数据符合，标注"高置
 - 禁止给出无条件买卖指令
 - 禁止默认输出"继续观察"——必须有明确的判断和理由
 
+{analysis_framework}
+
 输出格式：严格JSON
 {
   "market_summary": "当日定调的一句话总结（基于实时数据）",

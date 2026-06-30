@@ -19,7 +19,12 @@ from qing_investment.agent.tools.daily_state import (
     add_opportunity,
     add_intraday_narrative,
 )
-from qing_investment.agent.tools.llm_client import get_llm_client
+from qing_investment.agent.tools.llm_client import (
+    format_provider_usage_summary,
+    get_llm_client,
+    get_provider_usage_records,
+    record_provider_usage,
+)
 from qing_investment.agent.tools.mem0_client import Mem0ClientWrapper
 from qing_investment.agent.tools.neo4j_client import Neo4jClient
 from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
@@ -54,6 +59,93 @@ def _load_analysis_framework() -> str:
     if path.exists():
         return path.read_text(encoding="utf-8")
     return "[market_analysis_framework.txt not found]"
+
+
+# ── 技术面信号 → UP 历史操作建议检索 ──
+_TECH_SIGNAL_KEYWORDS: list[tuple[str, list[str]]] = [
+    ("高9", ["高9", "九转高9", "上升趋势高9", "高9化解"]),
+    ("低9", ["低9", "九转低9", "底部低9", "双低9"]),
+    ("顶背离", ["顶背离", "MACD顶背离", "顶部结构"]),
+    ("底背离", ["底背离", "MACD底背离", "底部结构"]),
+    ("顶部钝化", ["顶部钝化", "钝化高9"]),
+    ("底部钝化", ["底部钝化", "钝化低9"]),
+    ("斐波那契", ["斐波那契", "斐波那契时间窗口"]),
+    ("MACD", ["MACD", "MACD金叉", "MACD死叉"]),
+]
+
+
+def _extract_tech_signal_keywords(*reports: str) -> list[str]:
+    """从 MACD/九转/斐波那契报告文本中提取关键词，用于检索 UP 历史操作建议。"""
+    text = "\n".join(r or "" for r in reports)
+    keywords: list[str] = []
+    seen: set[str] = set()
+
+    # 九转序列：高8/高9/低8/低9 都算同类信号
+    if re.search(r"高[89]", text):
+        seen.add("高9")
+        keywords.append("高9")
+    if re.search(r"低[89]", text):
+        seen.add("低9")
+        keywords.append("低9")
+
+    # MACD：报告里用 DIF/DEA/柱 表示，额外检测常见表述
+    macd_markers = ["MACD", "DIF", "DEA", "macd_hist", "顶背离", "底背离", "顶部结构", "底部结构", "顶部钝化", "底部钝化"]
+    if any(m in text for m in macd_markers):
+        seen.add("MACD")
+        keywords.append("MACD")
+
+    # 背离/钝化单独补充，便于检索更细分的 claim
+    if "顶背离" in text or "顶部结构" in text or "顶部钝化" in text:
+        if "顶背离" not in seen:
+            seen.add("顶背离")
+            keywords.append("顶背离")
+    if "底背离" in text or "底部结构" in text or "底部钝化" in text:
+        if "底背离" not in seen:
+            seen.add("底背离")
+            keywords.append("底背离")
+
+    # 斐波那契
+    if "斐波那契" in text:
+        seen.add("斐波那契")
+        keywords.append("斐波那契")
+
+    return keywords
+
+
+def _retrieve_tech_signal_claims(keywords: list[str], limit_per_keyword: int = 5) -> list[dict]:
+    """根据技术面关键词检索 claims 中 UP 类似信号下的操作建议。
+
+    返回去重后的 claim 列表，按 source_date 倒序。
+    """
+    if not keywords:
+        return []
+    try:
+        from qing_investment.agent.tools.neo4j_client import Neo4jClient
+
+        neo4j = Neo4jClient()
+        seen: set[str] = set()
+        results: list[dict] = []
+        for kw in keywords:
+            batch = neo4j.get_claims_by_keyword(kw, limit=limit_per_keyword)
+            for c in batch:
+                cid = c.get("id")
+                if cid and cid not in seen:
+                    seen.add(cid)
+                    results.append(c)
+        # 按日期倒序，最新的建议优先
+        results.sort(key=lambda x: x.get("source_date", ""), reverse=True)
+        return results[:15]  # 总体上限
+    except Exception as e:
+        logger.warning("[_retrieve_tech_signal_claims] failed: %s", e)
+        return []
+
+
+def _format_tech_signal_claims(claims: list[dict]) -> str:
+    """把检索到的技术面相关 claims 格式化为 prompt 文本。"""
+    if not claims:
+        return "无"
+    lines = [f"  - [{c.get('source_date', '未知')}] {c.get('subject', '')}: {c.get('statement', '')}" for c in claims]
+    return "\n".join(lines[:10])
 
 
 def _load_few_shot_examples(query: str, max_examples: int = 3) -> list[str]:
@@ -658,12 +750,16 @@ def _safe_llm_invoke(prompt: str, min_length: int = 0) -> str:
     use_local_first = os.environ.get("KIMI_CODE_CLI_FIRST", "1").lower() not in ("0", "false", "no")
 
     if use_local_first:
+        logger.info("[_safe_llm_invoke] 优先尝试本地 Kimi Code CLI")
+        record_provider_usage("kimi-code-cli", "attempt", "local-first enabled")
         try:
             local_llm = get_llm_client(provider="kimi-code-cli")
             content = local_llm.invoke(prompt).content
+            record_provider_usage("kimi-code-cli", "success", f"content_len={len(content)}")
             logger.info(
-                "[_safe_llm_invoke] local Kimi Code CLI succeeded, content_len=%d",
+                "[_safe_llm_invoke] 本地 Kimi Code CLI 成功, content_len=%d, tracker=%s",
                 len(content),
+                format_provider_usage_summary(get_provider_usage_records()),
             )
             if min_length > 0 and len(content) < min_length:
                 raise RuntimeError(
@@ -671,16 +767,34 @@ def _safe_llm_invoke(prompt: str, min_length: int = 0) -> str:
                 )
             return content
         except Exception as e:
+            record_provider_usage("kimi-code-cli", "failed", str(e)[:120])
             logger.warning(
-                "[_safe_llm_invoke] local Kimi Code CLI failed: %s, falling back to %s",
+                "[_safe_llm_invoke] 本地 Kimi Code CLI 失败: %s, 将 fallback 到 %s",
                 e, settings.llm_provider,
             )
 
+    # fallback / 直接走配置 provider
+    logger.info("[_safe_llm_invoke] 调用配置 provider: %s", settings.llm_provider)
+    record_provider_usage(settings.llm_provider, "fallback" if use_local_first else "attempt")
     try:
         llm = get_llm_client()
-        return llm.invoke(prompt).content
+        content = llm.invoke(prompt).content
+        record_provider_usage(settings.llm_provider, "success", f"content_len={len(content)}")
+        logger.info(
+            "[_safe_llm_invoke] provider %s 成功, content_len=%d, tracker=%s",
+            settings.llm_provider,
+            len(content),
+            format_provider_usage_summary(get_provider_usage_records()),
+        )
+        return content
     except Exception as e:
-        logger.warning("[_safe_llm_invoke] provider %s failed: %s", settings.llm_provider, e)
+        record_provider_usage(settings.llm_provider, "failed", str(e)[:120])
+        logger.warning(
+            "[_safe_llm_invoke] provider %s 失败: %s, tracker=%s",
+            settings.llm_provider,
+            e,
+            format_provider_usage_summary(get_provider_usage_records()),
+        )
         return f""
 
 
@@ -1395,6 +1509,15 @@ def market_analyst(state: AgentState) -> AgentState:
             pass
     fib_report = "\n".join(fib_reports) if fib_reports else "[斐波那契数据暂不可用]"
 
+    # ── 根据当前技术面信号检索 UP 历史操作建议 ──
+    tech_signal_keywords = _extract_tech_signal_keywords(macd_report, td_report, fib_report)
+    tech_signal_claims = _retrieve_tech_signal_claims(tech_signal_keywords)
+    logger.info(
+        "[market_analyst] tech_signal_keywords=%s claims=%d",
+        tech_signal_keywords,
+        len(tech_signal_claims),
+    )
+
     context = {
         "claims": methodology_claims,
         "wiki_snippets": methodology_wiki,
@@ -1403,6 +1526,8 @@ def market_analyst(state: AgentState) -> AgentState:
         "macd_multi_tf_report": macd_report,
         "td_sequential_report": td_report,
         "fibonacci_time_report": fib_report,
+        "tech_signal_keywords": tech_signal_keywords,
+        "tech_signal_claims": _format_tech_signal_claims(tech_signal_claims),
         "market_snapshot": market_snapshot,
         "sector_strengths": state.get("sector_strengths", []),
         "external_sector_boards": esb,
@@ -1686,9 +1811,14 @@ def devils_advocate(state: AgentState) -> AgentState:
 
     try:
         from qing_investment.agent.agents.devils_advocate import DevilsAdvocateAgent
-        from qing_investment.agent.tools.llm_client import get_llm_client
+        from qing_investment.agent.tools.llm_client import (
+            get_llm_client,
+            record_provider_usage,
+        )
 
         # 强制用 Kimi（不同模型家族）
+        logger.info("[devils_advocate] 调用远端 kimi")
+        record_provider_usage("kimi", "attempt", "devils_advocate fixed provider")
         llm = get_llm_client(provider="kimi")
         agent = DevilsAdvocateAgent(llm=llm)
 
@@ -1698,12 +1828,14 @@ def devils_advocate(state: AgentState) -> AgentState:
             stock_analysis=_stock_analysis_summary(stock_analysis),
             claims_cited=claims_cited,
         ))
+        record_provider_usage("kimi", "success", f"findings={len(result.findings)}")
         logger.info(
             f"devils_advocate: findings={len(result.findings)} "
             f"errors={len(result.errors)} cost={result.cost_usd}"
         )
         return {"devils_advocate_findings": result.findings}
     except Exception as e:
+        record_provider_usage("kimi", "failed", str(e)[:120])
         logger.warning("devils_advocate failed: %s", e)
         return {"devils_advocate_findings": da_findings}
 

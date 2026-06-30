@@ -1,8 +1,8 @@
 # Qing-Agent 架构梳理文档
 
-> **版本**：v2026-06-26  
+> **版本**：v2026-06-30  
 > **对应仓库**：`learning-investment-strategies`  
-> **最后更新**：2026-06-26（整合 `docs/qing-agent-technical-design.md`、`docs/qing-agent-config-reconstruction.md`、`docs/design/architecture-optimization-plan.md`、`docs/config-data-contract.md` 与当前代码实现）  
+> **最后更新**：2026-06-30（新增 provider 路由可观测性、修复大盘技术面框架注入、新增技术面信号 → UP 历史操作建议检索）  
 > **目标读者**：后续维护 Qing-Agent 与监控层的开发者  
 
 ---
@@ -581,15 +581,15 @@ package "内部控制" #FFEBEE {
 
 | 节点 | 文件位置 | 是否调 LLM | 核心职责 |
 |------|---------|-----------|---------|
-| `parse_query` | `graph/nodes.py:653` | ✅ | 从 query 提取 `stock_code` / `analysis_type` / `urgency` |
-| `retrieve_knowledge` | `graph/nodes.py:856` | ❌ | Neo4j 图遍历 + Qdrant 向量检索 + mem0 + sector_context + context_builder |
-| `market_analyst` | `graph/nodes.py:1158` | ✅ | 大盘/板块分析，加载 framework + reasoning_patterns，输出 JSON |
-| `stock_analyst` | `graph/nodes.py:1534` | ✅ | 个股地位/多空证据，外部业务校验，买入确认模式 |
-| `devils_advocate` | `graph/nodes.py:1634` | ✅ | 强制用 Kimi 反向质疑主分析结论 |
-| `synthesize` | `graph/nodes.py:1804` | ❌ | 规则拼接 market + stock 分析，注入持仓计划、参考来源、反向质疑 |
-| `style_writer` | `graph/nodes.py:1939` | ✅ | 改写为 UP 口吻，周期自适应语气 |
-| `citation_validator` | `graph/nodes.py:1984` | ❌ | 纯规则校验数字 claim 是否有来源标注 |
-| `reviewer` | `graph/nodes.py:2049` | ✅ | 禁用词/claim 引用/风格合规检查，最多打回 3 次 |
+| `parse_query` | `graph/nodes.py:801` | ✅ | 从 query 提取 `stock_code` / `analysis_type` / `urgency` |
+| `retrieve_knowledge` | `graph/nodes.py:1004` | ❌ | Neo4j 图遍历 + Qdrant 向量检索 + mem0 + sector_context + context_builder |
+| `market_analyst` | `graph/nodes.py:1306` | ✅ | 大盘/板块分析，加载 framework + reasoning_patterns；生成 MACD/九转/斐波那契报告并检索 UP 同类历史操作建议；输出 JSON |
+| `stock_analyst` | `graph/nodes.py:1694` | ✅ | 个股地位/多空证据，外部业务校验，买入确认模式；门控参考 `market_context` 中的多级别技术面结论 |
+| `devils_advocate` | `graph/nodes.py:1794` | ✅ | 强制用 Kimi 反向质疑主分析结论；记录 provider 使用轨迹 |
+| `synthesize` | `graph/nodes.py:1971` | ❌ | 规则拼接 market + stock 分析，注入持仓计划、参考来源、反向质疑 |
+| `style_writer` | `graph/nodes.py:2106` | ✅ | 改写为 UP 口吻，周期自适应语气 |
+| `citation_validator` | `graph/nodes.py:2151` | ❌ | 纯规则校验数字 claim 是否有来源标注 |
+| `reviewer` | `graph/nodes.py:2245` | ✅ | 禁用词/claim 引用/风格合规检查，最多打回 3 次 |
 | `review_router` | `graph/edges.py:8` | ❌ | 根据 `review_passed` 和 `_retry_count` 路由 |
 
 ### 4.4 检索层详解
@@ -620,6 +620,18 @@ package "市场/板块查询" #F3E5F5 {
     [qing_knowledge] --> [wiki_snippets]
 }
 
+package "技术面信号 → 历史操作建议" #FFF3E0 {
+    [kline_cache.py] --> [format_multi_tf_macd_report]
+    [kline_cache.py] --> [compute_td_report]
+    [kline_cache.py] --> [compute_fibonacci_time_report]
+    [format_multi_tf_macd_report] --> [_extract_tech_signal_keywords]
+    [compute_td_report] --> [_extract_tech_signal_keywords]
+    [compute_fibonacci_time_report] --> [_extract_tech_signal_keywords]
+    [_extract_tech_signal_keywords] --> [_retrieve_tech_signal_claims]
+    [_retrieve_tech_signal_claims] --> [Neo4jClient] : get_claims_by_keyword
+    [Neo4jClient] --> [tech_signal_claims]
+}
+
 package "时效与矛盾" #E8F5E9 {
     [claims] --> [_apply_claim_freshness]
     [_apply_claim_freshness] --> [≤7天最新 / 8-30天近期 / 31-90天历史 / >90天过滤]
@@ -643,6 +655,7 @@ package "增强上下文" #FFF8E1 {
 [sector_context] --> [market_analyst]
 [stock_contexts] --> [market_analyst]
 [direction_signals] --> [market_analyst]
+[tech_signal_claims] --> [market_analyst]
 
 @enduml
 ```
@@ -662,6 +675,15 @@ package "增强上下文" #FFF8E1 {
 | `wiki/投资方法论` | +0.10 |
 | `wiki/市场分析` | +0.05 |
 | `sources/raw` | +0.00 |
+
+#### 技术面信号 → UP 历史操作建议检索
+
+`market_analyst` 在生成 MACD/九转/斐波那契报告后，会按当前信号反向检索 UP 历史 claim：
+
+1. **信号提取**：`_extract_tech_signal_keywords()` 从 `macd_multi_tf_report`、`td_sequential_report`、`fibonacci_time_report` 中识别 `高9`、`低9`、`MACD`、`顶背离`、`底背离`、`斐波那契` 等关键词
+2. **Claim 检索**：`_retrieve_tech_signal_claims()` 对每个关键词调用 `Neo4jClient.get_claims_by_keyword()`，去重后按 `source_date` 倒序取前 15 条
+3. **注入 prompt**：精简格式化为 `日期 subject: statement`，作为 `tech_signal_claims` 字段注入 `market_analyst` 的 prompt
+4. **使用规则**：LLM 需将历史应对作为参考（非当前判断依据），在 `phase_reasoning` 中注明与当前信号的一致/矛盾关系，并据此调整仓位态度
 
 ### 4.5 `/analyze/trigger` vs `/chat` 核心区别
 
@@ -691,6 +713,8 @@ title /analyze/trigger 数据流
 [retrieve_knowledge] --> [stock_analyst]
 [market_analyst] --> [devils_advocate]
 [stock_analyst] --> [devils_advocate]
+[market_analyst] --> [synthesize] : market_context + tech_signal_claims
+[stock_analyst] --> [synthesize] : stock_analysis
 [devils_advocate] --> [synthesize]
 [synthesize] --> [style_writer]
 [style_writer] --> [citation_validator]
@@ -840,15 +864,34 @@ title 指数多级别 K 线数据管线
 [compute_td_report] --> [market_analyst] : td_sequential_report
 [compute_fibonacci_time_report] --> [market_analyst] : fibonacci_time_report
 
+[market_analyst] --> [market_analysis_framework.txt] : 通过 {analysis_framework} 占位符注入
+[market_analysis_framework.txt] --> [market_analyst] : MACD/九转/斐波那契规则 + 三步共振法
+
 note right of [kline_cache.py]
   90分钟由3根30分钟K线合并
   东财不支持原生 klt=90
 end note
 
+note right of [market_analysis_framework.txt]
+  2026-06-30 修复：原框架文件已存在，
+  但 market_analyst.txt 缺少占位符导致未注入
+end note
+
 @enduml
 ```
 
-### 6.3 更新时序
+### 6.3 Prompt 注入机制
+
+`market_analysis_framework.txt` 包含 MACD/九转/斐波那契的完整判断规则：
+
+- **MACD 判断规则**：顶背离/底背离、金叉/死叉、多级别结构
+- **九转序列规则**：高9/低9、主级正向波/逆向波、与 MACD 方向匹配
+- **斐波那契规则**：8/13/21/34/55 交易日窗口、双窗口共振
+- **三步共振法**：找共振 → 下结论 → 定操作，要求结论融入 `market_summary`
+
+`market_analyst` 节点通过 `prompt_template.replace("{analysis_framework}", analysis_framework)` 将上述规则注入主 prompt。此前 `market_analyst.txt` 缺少 `{analysis_framework}` 占位符，导致框架规则未被 LLM 实际使用（2026-06-30 已修复）。
+
+### 6.4 更新时序
 
 | 时间 | 脚本 | 动作 |
 |------|------|------|
@@ -928,14 +971,14 @@ end note
 | `src/qing_investment/agent/main.py` | FastAPI app, `/chat`, `/analyze/trigger`, `/memory/add` | API 入口 |
 | `src/qing_investment/agent/graph/builder.py` | `build_graph()` | LangGraph 构建 |
 | `src/qing_investment/agent/graph/state.py` | `AgentState` | 状态定义 |
-| `src/qing_investment/agent/graph/nodes.py` | `parse_query`, `retrieve_knowledge`, `market_analyst`, `stock_analyst`, `devils_advocate`, `synthesize`, `style_writer`, `citation_validator`, `reviewer` | 节点实现 |
+| `src/qing_investment/agent/graph/nodes.py` | `parse_query`, `retrieve_knowledge`, `market_analyst`, `stock_analyst`, `devils_advocate`, `synthesize`, `style_writer`, `citation_validator`, `reviewer`；新增 `_safe_llm_invoke` provider 轨迹记录、`_extract_tech_signal_keywords`、`_retrieve_tech_signal_claims` | 节点实现 |
 | `src/qing_investment/agent/graph/edges.py` | `review_router` | 条件边 |
 | `src/qing_investment/agent/base.py` | `Agent`, `AgentOutput`, `LLMProtocol` | Agent 基类 |
 | `src/qing_investment/agent/agents/devils_advocate.py` | `DevilsAdvocateAgent` | 反向质疑 Agent |
 | `src/qing_investment/agent/tools/neo4j_client.py` | `Neo4jClient` | claims 图查询 |
 | `src/qing_investment/agent/tools/qdrant_client.py` | `QdrantClientWrapper` | 向量检索 |
 | `src/qing_investment/agent/tools/mem0_client.py` | `Mem0ClientWrapper` | 记忆层 |
-| `src/qing_investment/agent/tools/llm_client.py` | `get_llm_client`, `get_embedding_model` | LLM/embedding 客户端 |
+| `src/qing_investment/agent/tools/llm_client.py` | `get_llm_client`, `get_embedding_model`, `reset_provider_usage`, `record_provider_usage`, `format_provider_usage_summary` | LLM/embedding 客户端；按请求追踪 provider 使用轨迹（本地 Kimi Code CLI / 远端 API） |
 | `src/qing_investment/agent/tools/daily_state.py` | `load_daily_state`, `save_daily_state`, `update_market_stage` | 盘中状态 |
 | `src/qing_investment/agent/tools/context_builder.py` | `build_market_context` | 增强上下文 |
 | `src/qing_investment/agent/validators/citation_validator.py` | `CitationValidator` | 引用校验 |
@@ -949,7 +992,7 @@ end note
 | `src/qing_investment/agent/prompts/system/stock_analyst.txt` | 个股分析 prompt（含买入确认模式） |
 | `src/qing_investment/agent/prompts/system/style_writer.txt` | UP 风格化 prompt |
 | `src/qing_investment/agent/prompts/system/reviewer.txt` | 事实核查 prompt |
-| `src/qing_investment/agent/prompts/system/market_analysis_framework.txt` | 11 项分析框架片段 |
+| `src/qing_investment/agent/prompts/system/market_analysis_framework.txt` | 11 项分析框架片段；含 MACD/九转/斐波那契判断规则与 UP 历史操作建议使用规则；通过 `{analysis_framework}` 占位符动态注入 `market_analyst.txt` |
 | `src/qing_investment/agent/prompts/system/pattern_router.txt` | reasoning patterns rerank prompt |
 | `src/qing_investment/agent/prompts/system/trader_mindset.txt` | 交易者人格注入 |
 
@@ -991,6 +1034,27 @@ end note
 - `logs/qing-agent.log` 按天轮转，保留 30 天。
 - 关键节点（market_analyst、style_writer、reviewer 等）记录结构化日志。
 - 环境变量 `QING_AGENT_LOG_LEVEL=DEBUG` 开启模块级 DEBUG。
+
+### 9.7 Provider 路由可观测性（2026-06-30）
+
+- `llm_client.py` 新增 `contextvars` 隔离的 provider 使用轨迹跟踪：
+  - `reset_provider_usage()` / `record_provider_usage()` / `format_provider_usage_summary()`
+- `_safe_llm_invoke()` 与 `devils_advocate()` 每次调用本地 Kimi Code CLI 或远端 provider 时记录 attempt / success / failed / fallback。
+- `/analyze/trigger` 请求结束时把轨迹摘要写入日志，并拼接到 `final_output` 顶部（如 `[模型路由：最终走 远端 deepseek]`）。
+- `hermes_stock_monitor_agent.py` fallback 路径输出 `[模型路由：未调用 Qing-Agent，走本地规则 fallback]`。
+
+### 9.8 大盘技术面分析框架注入修复（2026-06-30）
+
+- `market_analysis_framework.txt` 已存在 MACD/九转/斐波那契判断规则，但 `market_analyst.txt` 此前缺少 `{analysis_framework}` 占位符，导致框架未实际进入 prompt。
+- 修复：在 `market_analyst.txt` 的 JSON 输出格式前插入 `{analysis_framework}`。
+- `market_analyst` 现在会按规则整合多级别 MACD、九转序列、斐波那契窗口，并把结论融入 `market_summary` / `phase_reasoning`。
+
+### 9.9 技术面信号 → UP 历史操作建议检索（2026-06-30）
+
+- `market_analyst` 生成 MACD/九转/斐波那契报告后，自动提取信号关键词（高9、低9、MACD、顶背离、底背离、斐波那契等）。
+- 通过 `Neo4jClient.get_claims_by_keyword()` 检索 UP 在同类信号下的历史 claim，去重后按日期倒序取前 15 条。
+- 检索结果以 `tech_signal_claims` 字段注入 `market_analyst` prompt，作为"UP 历史如何应对"的参考，要求 LLM 在 `phase_reasoning` 中注明一致/矛盾关系。
+- `stock_analyst` 买入确认模式的三层门控新增要求：必须参考 `market_context.phase_reasoning` 中的多级别技术面结论。
 
 ---
 

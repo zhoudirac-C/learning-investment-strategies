@@ -165,6 +165,13 @@ def main() -> int:
     for stock in pool["stocks"]:
         code = stock.get("code", "")
         name = stock.get("name", "")
+
+        # 标记为不可交易的观察标的，不参与介入区间计算
+        if stock.get("tradable") is False:
+            print(f"  👁️ {code} {name}: 观察标的（不可交易），跳过")
+            skipped += 1
+            continue
+
         entry = stock.setdefault("entry", {})
         method = entry.get("method", "")
 

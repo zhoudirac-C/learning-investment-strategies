@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import contextvars
 import logging
 import os
 from typing import Any
@@ -12,6 +13,83 @@ from qing_investment.agent.config import settings
 
 # 本地 Kimi Code CLI 调用（通过子进程 `kimi -p`）
 _KIMI_CODE_CLI_PROVIDER = "kimi-code-cli"
+
+# Provider 使用轨迹跟踪（按请求隔离，contextvars 保证 async 任务间不串号）
+_provider_usage_ctx: contextvars.ContextVar[list[dict] | None] = contextvars.ContextVar(
+    "provider_usage", default=None
+)
+
+
+def reset_provider_usage() -> list[dict]:
+    """开始新的请求前重置 tracker，返回当前请求的 tracker 列表。"""
+    tracker: list[dict] = []
+    _provider_usage_ctx.set(tracker)
+    return tracker
+
+
+def record_provider_usage(provider: str, status: str, note: str = "") -> None:
+    """记录一次 provider 调用事件（attempt / success / failed / fallback）。"""
+    tracker = _provider_usage_ctx.get()
+    if tracker is None:
+        # 未显式 reset 时自动初始化，保证单元测试 / 脚本直接调用也能记录
+        tracker = reset_provider_usage()
+    tracker.append(
+        {
+            "provider": provider,
+            "status": status,
+            "note": note,
+        }
+    )
+
+
+def get_provider_usage_records() -> list[dict]:
+    """返回当前请求的所有 provider 调用记录。"""
+    tracker = _provider_usage_ctx.get()
+    return list(tracker) if tracker else []
+
+
+def format_provider_usage_summary(records: list[dict] | None = None) -> str:
+    """把 provider 调用记录格式化为人类可读的文案。"""
+    records = records if records is not None else get_provider_usage_records()
+    if not records:
+        return "模型路由：未记录"
+
+    # 按 provider 聚合成简洁描述
+    seen: set[str] = set()
+    parts: list[str] = []
+    for r in records:
+        provider = r.get("provider", "unknown")
+        status = r.get("status", "")
+        note = r.get("note", "")
+        key = f"{provider}:{status}"
+        if key in seen:
+            continue
+        seen.add(key)
+        if provider == _KIMI_CODE_CLI_PROVIDER:
+            label = "本地 Kimi Code CLI"
+        else:
+            label = f"远端 {provider}"
+        if status == "success":
+            parts.append(f"{label} ✓")
+        elif status == "failed":
+            parts.append(f"{label} ✗{f'（{note}）' if note else ''}")
+        elif status == "fallback":
+            parts.append(f"{label}（fallback）")
+        elif status == "attempt":
+            parts.append(f"{label} …")
+
+    # 如果存在 fallback 成功，优先展示最终成功的 provider
+    success_providers = [r["provider"] for r in records if r.get("status") == "success"]
+    if success_providers:
+        final = success_providers[-1]
+        final_label = "本地 Kimi Code CLI" if final == _KIMI_CODE_CLI_PROVIDER else f"远端 {final}"
+        summary = f"模型路由：最终走 {final_label}"
+        if len(parts) > 1:
+            summary += " | 尝试: " + " → ".join(parts)
+        return summary
+
+    return "模型路由：" + " → ".join(parts)
+
 
 # 预置常见大模型厂商配置（写死，用户只需配置 provider + api_key）
 LLM_PROVIDERS: dict[str, dict[str, Any]] = {

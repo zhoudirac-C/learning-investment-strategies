@@ -14,7 +14,7 @@ description: |
     (ONNX+LLM 发现关系)                (MERGE 原子写入 Neo4j)               (向量重建，需独占锁)              (Agent+MCP)
 ```
 
-**前置：Qdrant 重建前必须停 Qing-Agent + Hermes gateway + MCP server**。Neo4j 迁移不需要停。
+**前置：Qdrant 重建前必须停 Qing-Agent + Hermes gateway + MCP server + Kimi Code CLI qdrant MCP**。Neo4j 迁移不需要停。
 
 推荐直接跑封装好的脚本：
 
@@ -25,6 +25,8 @@ cd ~/learning-investment-strategies
 
 脚本会依次完成：停进程 → discover → Neo4j → Qdrant → 重启 Qing-Agent → 重启 Hermes gateway → 验证 MCP 连接。
 
+> **注意**：`run_sync_pipeline.sh` 目前只负责 Hermes gateway 及其托管的 MCP server。Kimi Code CLI 侧独立的 qdrant/neo4j MCP（配置在 `~/.kimi-code/mcp.json`）需要额外处理，见下方「关键坑 1」和「关键坑 8」。
+
 如需手动执行，参考 `bin/run_sync_pipeline.sh` 内容。
 
 ## ~~Claims→Entry 桥接（2026-06-10 已废弃）~~
@@ -33,12 +35,16 @@ cd ~/learning-investment-strategies
 
 ## 关键坑
 
-1. **Qdrant 重建需要独占锁 —— 必须同时停 Qing-Agent + Hermes gateway + MCP server（2026-06-26 修正）**
+1. **Qdrant 重建需要独占锁 —— 必须同时停 Qing-Agent + Hermes gateway + MCP server + Kimi Code CLI qdrant MCP（2026-06-30 修正）**
    - Qdrant 本地模式通过 `.qdrant_data/.lock` 文件实现独占访问
-   - **三个进程可能同时持有该锁**：Qing-Agent（uvicorn）、MCP Qdrant server（Hermes gateway 子进程）、Hermes gateway 本身
+   - **多个进程可能同时持有该锁**：Qing-Agent（uvicorn）、MCP Qdrant server（Hermes gateway 子进程 / Kimi Code CLI 独立子进程）、Hermes gateway 本身
    - `delete_collection()` 需要独占写锁，任一进程持有锁都会导致失败
    - 脚本内置 30 秒等待 + 强制删除兜底，但强制删除活跃进程的锁可能损坏数据
-   - 正确做法：先 `pkill -f "hermes_cli.main gateway"` 关 gateway（顺带关 MCP 子进程），再 `pkill -f "uvicorn.*qing_investment"` / `pkill -f "gunicorn.*qing_investment"` 关 Agent
+   - 正确做法：
+     - 先 `pkill -f "hermes_cli.main gateway"` 关 gateway（顺带关其托管的 MCP 子进程）
+     - 再 `pkill -f "uvicorn.*qing_investment"` / `pkill -f "gunicorn.*qing_investment"` 关 Agent
+     - 再 `pkill -f "mcp_qdrant_server.py"` 关闭 Kimi Code CLI 侧独立的 qdrant MCP server
+     - 若当前 Kimi Code CLI 会话已加载 qdrant MCP，**必须重启 Kimi Code CLI 主进程**（或重新加载 MCP 配置）才能重新 spawn 新 MCP server；否则下一次调用 search_claims 仍会连向旧 collection 句柄
    - **避免在后台命令行里直接用 `pgrep -f "mcp_qdrant_server" | xargs kill`**：命令行文本本身会匹配 pgrep 模式，导致 bash 自杀。应把命令写到脚本文件里执行，或用 `pkill -f`
    - **Neo4j 迁移不需要停 Qing-Agent**：MERGE 是原子的，Neo4j 原生支持 MVCC 并发读写
 2. `PYTHONUNBUFFERED=1` — 否则 cron 捕获不到 stdout
@@ -54,11 +60,11 @@ cd ~/learning-investment-strategies
 6. **mtime 竞争条件**（2026-06-11）：git commit/push 更新已有 claim 文件的 mtime。若 mtime > last_sync 但 hash 未变，脚本仍会尝试重新 migrate。`migrate_claims_to_neo4j.py` 已修复 `CREATE`→`MERGE+SET`，重复 migrate 安全不报错。但首次 migrate 前删除旧节点的逻辑仍会执行（无害）。
 7. **同步后必须验证 Agent 在线**：`curl http://localhost:8000/health`
 
-8. **MCP / Hermes gateway 重启必须用 `gateway run --replace`，`hermes restart` 已不可用（2026-06-26 修正）**：
-   - 当前 `hermes` CLI 没有 `restart` 子命令；MCP server 由 Hermes gateway 进程统管
-   - **正确做法**：同步时 Step 0 先杀掉 Qing-Agent **和** Hermes gateway（连带关闭其管理的 qdrant/neo4j MCP 子进程），Qdrant 重建完后再重启 Qing-Agent，最后用 `nohup <hermes-venv-python> -m hermes_cli.main gateway run --replace &` 拉起 gateway
-   - 这同时重启了 **Kimi Code CLI 侧**和 **Hermes Agent 侧**的 MCP 连接，因为二者共享同一个 gateway
-   - 重启后务必 `hermes mcp test qdrant` / `hermes mcp test neo4j` 验证工具已 discover
+8. **MCP 重启分两边：Hermes gateway + Kimi Code CLI 独立 MCP（2026-06-30 修正）**：
+   - Hermes 侧：当前 `hermes` CLI 没有 `restart` 子命令；MCP server 由 Hermes gateway 进程统管。同步时 Step 0 先杀掉 Qing-Agent **和** Hermes gateway（连带关闭其管理的 qdrant/neo4j MCP 子进程），Qdrant 重建完后再重启 Qing-Agent，最后用 `nohup <hermes-venv-python> -m hermes_cli.main gateway run --replace &` 拉起 gateway
+   - Kimi Code CLI 侧：`~/.kimi-code/mcp.json` 独立配置了 `qdrant` 和 `neo4j-claims` 两个 MCP server（使用 `scripts/mcp_qdrant_server.py` / `scripts/mcp_neo4j_server.py`）。Qdrant 重建前必须 `pkill -f "mcp_qdrant_server.py"` 杀掉该进程，否则它可能持有旧 collection 句柄或 Qdrant 锁
+   - 杀掉 Kimi Code CLI 的 qdrant MCP 后，**需要重新加载 MCP 配置**（通常是重启 Kimi Code CLI 主进程或会话），新会话会重新 spawn MCP server 并指向重建后的 collection
+   - 验证两边：Hermes 侧用 `hermes mcp test qdrant` / `hermes mcp test neo4j`；Kimi Code CLI 侧在新会话中调用 `search_claims` / `search_knowledge` 等 MCP tool 应返回最新 claim 数据
    - 如果 Qing-Agent 被 systemd/supervisor 管理（auto-restart），kill 后它会自动重启。可通过 `sleep 3 && pgrep -f 'gunicorn.*qing_investment'` 确认。这种情况下不需要显式 `uvicorn &` 命令，但需验证自动重启是否成功加载了新 Qdrant 数据。
 
 9. **000636 类歧义警告排查**：`migrate_claims_to_neo4j.py` 的代码→名称映射从 `positions.yaml` + `watchlist.yaml` 动态构建，不会出错。歧义通常来自**其他脚本的独立映射表**（如 `backfill_claim_related_stocks.py` 的 supplemental 硬编码字典）。排查路径：

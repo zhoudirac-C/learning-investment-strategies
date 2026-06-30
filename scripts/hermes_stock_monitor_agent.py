@@ -639,6 +639,7 @@ def main():
         _remove_agent_trigger_dedupe(root, data)
         return 0
     print("[Qing-Agent ✗ FALLBACK]")
+    print("[模型路由：未调用 Qing-Agent，走本地规则 fallback]")
     print(fallback_text)
     return 0
 
