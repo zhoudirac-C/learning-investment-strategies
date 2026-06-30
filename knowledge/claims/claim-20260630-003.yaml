@@ -13,8 +13,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -39,8 +41,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260521-001-a", "claim-20260625-003-a"]
+  contradicts: ["claim-20260527-001-a"]
+  supplements: []
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -65,8 +69,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260524-013"]
+  contradicts: ["claim-20260602-002-c"]
+  supplements: []
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -91,8 +97,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260609-005-a", "claim-20260601-004-e"]
   contradicts: []
+  supplements: ["claim-20260622-001-h"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -117,8 +125,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260617-005-o"]
   contradicts: []
+  supplements: ["claim-20260623-004-b", "claim-20260630-001-s"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -145,6 +155,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260609-005-f"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -169,9 +181,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes:
-  - claim-20260630-001-e
+  supersedes: []
   contradicts: []
+  supplements: ["claim-20260624-006-d"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -199,6 +212,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260621-001-p", "claim-20260629-001-l", "claim-20260622-004-d"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -226,6 +241,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260629-004-m", "claim-20260629-004-k"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -250,8 +267,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260521-003-c"]
+  contradicts: ["claim-20260629-004-m", "claim-20260527-001-e"]
+  supplements: []
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -277,8 +296,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260629-004-q", "claim-20260629-004-r"]
+  contradicts: ["claim-20260617-001-e"]
+  supplements: []
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -306,6 +327,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260629-004-o", "claim-20260518-008", "claim-20260630-001-f"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -333,6 +356,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260629-001-r", "claim-20260629-004-q"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -360,6 +385,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -389,6 +416,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-01
   links:
     wiki_pages: []
     methodology_pages: []
@@ -419,6 +448,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260621-001-i"]
+  last_discovered: 2026-07-01
   links:
     wiki_pages: []
     methodology_pages: []
@@ -449,6 +480,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-01
   links:
     wiki_pages: []
     methodology_pages: []
@@ -474,7 +507,9 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260426-010", "claim-20260529-005-g"]
+  supplements: ["claim-20260617-039-m"]
+  last_discovered: 2026-07-01
   links:
     wiki_pages: []
     methodology_pages: []
@@ -501,6 +536,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-01
   links:
     wiki_pages: []
     methodology_pages: []
@@ -526,7 +563,9 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260604-003-c"]
+  supplements: []
+  last_discovered: 2026-07-01
   links:
     wiki_pages: []
     methodology_pages: []
@@ -554,6 +593,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260527-005-i", "claim-20260526-006", "claim-20260524-017"]
+  last_discovered: 2026-07-01
   links:
     wiki_pages: []
     methodology_pages: []
@@ -582,6 +623,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260603-004-d", "claim-20260622-003-g", "claim-20260622-004-h"]
+  last_discovered: 2026-07-01
   links:
     wiki_pages: []
     methodology_pages: []
@@ -609,6 +652,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260614-005-g", "claim-20260609-005-d"]
+  last_discovered: 2026-07-01
   links:
     wiki_pages: []
     methodology_pages: []
@@ -635,6 +680,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260622-003-q", "claim-20260615-021"]
+  last_discovered: 2026-07-01
   links:
     wiki_pages: []
     methodology_pages: []
@@ -661,6 +708,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-01
   links:
     wiki_pages: []
     methodology_pages: []
@@ -714,9 +763,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes:
-  - claim-20260630-001-d
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -742,8 +792,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -772,8 +824,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -799,8 +853,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -826,8 +882,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -853,8 +911,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -879,8 +939,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -909,8 +971,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -938,8 +1002,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -964,8 +1030,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -991,8 +1059,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -1018,8 +1088,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -1044,8 +1116,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -1073,8 +1147,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -1100,8 +1176,10 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -1126,8 +1204,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -1154,8 +1234,10 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
@@ -1181,8 +1263,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260602-003-b"]
   contradicts: []
+  supplements: ["claim-20260528-002-e"]
+  last_discovered: 2026-06-30
   links:
     wiki_pages: []
     methodology_pages: []
