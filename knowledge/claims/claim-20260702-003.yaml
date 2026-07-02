@@ -1,0 +1,214 @@
+claims:
+- id: claim-20260702-003-a
+  source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
+  source_date: '2026-07-02'
+  source_type: 盘中动态
+  extracted_at: '2026-07-02T13:34:21+08:00'
+  claim_type: market-cycle
+  subject: 早盘指数恐慌个股修复黄白线大幅背离
+  timeframe: intraday
+  statement: UP指出早盘呈现典型的「指数恐慌、个股修复」分化格局：沪指-0.9%、深成指-2.09%、创业板-3.47%，半日成交2.24万亿缩量1780亿；但全市场超3200只个股逆势上涨，黄白线大幅背离，说明资金并非系统性离场，只是针对海外AI映射的高位算力链做避险兑现。
+  evidence_quote: 早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间收盘沪指跌0.9%、深成指跌2.09%、创业板指跌3.47%，半日成交额2.24万亿元，较昨日同期缩量约1780亿元。情绪层面呈现典型的「指数恐慌、个股修复」分化格局：创业板权重赛道下挫带动早盘恐慌情绪快速升温...但全市场超3200只个股逆势上涨，黄白线大幅背离，说明资金并非系统性离场。
+  interpretation: UP对早盘分化的定性非常关键：指数跌但3200只个股涨=不是全面恐慌，是结构性避险。创业板跌3.47%但黄线（中小盘）远远强于白线（权重），说明杀的是机构重仓的高位AI算力票，而非全面抛售。缩量1780亿的量能也说明没有恐慌踩踏，而是有序的高切低。与早盘08:57情形B的判断吻合：低开不接→科技二次探底，但资金没离场只是换方向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20260702-002-f
+  related_stocks: []
+  tags:
+  - 指数分化
+  - 黄白线背离
+  - 3200只上涨
+  - 缩量
+  - 结构性避险
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 早盘指数恐慌个股修复分化
+- id: claim-20260702-003-b
+  source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
+  source_date: '2026-07-02'
+  source_type: 盘中动态
+  extracted_at: '2026-07-02T13:34:21+08:00'
+  claim_type: sector-theme
+  subject: 科技调整核心是全球Token调用增速回落基本面兑现
+  timeframe: short-term
+  statement: UP判断科技板块延续调整的表层原因是Meta出售过剩算力冲击，核心仍是全球AI Token调用增速持续回落的「基本面兑现」；国内大模型Token保持环比正增长，国产算力链相对抗跌已显现独立行情雏形。
+  evidence_quote: 科技板块延续调整，表面受Meta出售过剩算力的消息冲击，核心仍是全球AI Token调用增速持续回落的基本面兑现，海外算力链条调整更深；国内大模型Token调用保持环比正增长，国产算力链相对抗跌，已显现独立行情雏形。
+  interpretation: UP给出了科技调整的深层解释框架：①表面催化剂=Meta卖算力 ②深层原因=全球Token调用增速在回落（基本面兑现而非概念炒作）③海外链跌更深因为海外Token增速放缓更明显④但国内不一样——国内Token环比正增长，所以国产算力链相对抗跌⑤国产链已显现「独立行情雏形」=不再跟跌海外。这对持仓判断至关重要：国产链（如雅克科技(002409)/深科技(000021)）和海外链（光模块等）的走势已经脱钩。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  related_stocks:
+  - code: '002409'
+    name: 雅克科技
+    role: 半导体上游材料标的-主板可交易
+  - code: '000021'
+    name: 深科技
+    role: 封测服务标的-主板可交易
+  tags:
+  - Token增速
+  - Meta
+  - 国产算力
+  - 独立行情
+  - 海外链调整
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技调整核心是Token增速回落
+- id: claim-20260702-003-c
+  source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
+  source_date: '2026-07-02'
+  source_type: 盘中动态
+  extracted_at: '2026-07-02T13:34:21+08:00'
+  claim_type: sector-theme
+  subject: 半导体上游修复力度更强人形机器人逆势爆发
+  timeframe: intraday
+  statement: UP判断半导体上游修复力度更强，人形机器人板块逆势爆发成为短期资金共识最高的主线；资金从海外AI映射高位算力链迅速切换至国产算力、人形机器人等具备独立产业逻辑的方向。
+  evidence_quote: 半导体上游修复力度更强，人形机器人板块逆势爆发，成为短期资金共识最高的主线。...资金并非系统性离场，只是针对海外AI映射的高位算力链做避险兑现，同时快速切换至国产算力、人形机器人等具备独立产业逻辑的方向。
+  interpretation: UP给出了今日早盘资金流向的明确方向：①半导体上游修复力度最强=与7/2凌晨复盘「科技核心仍在半导体上游」一致，上午调整后上游率先反弹②人形机器人逆势爆发=新变量，UP首次将其列为「短期资金共识最高的主线」③资金从海外链→国产链+机器人的高切低路径清晰。这对判断下午的走向很重要：上游+机器人=资金主攻方向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20260702-001-c
+  - claim-20260702-002-e
+  related_stocks: []
+  tags:
+  - 半导体上游
+  - 人形机器人
+  - 独立逻辑
+  - 高切低
+  - 资金共识
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体上游修复机器人逆势爆发
+- id: claim-20260702-003-d
+  source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
+  source_date: '2026-07-02'
+  source_type: 盘中动态
+  extracted_at: '2026-07-02T13:34:21+08:00'
+  claim_type: sector-theme
+  subject: 非科技大金融医药仍可逢低跟踪
+  timeframe: short-term
+  statement: UP判断非科技方向主线零散，大金融、医药等趋势板块仍可逢低跟踪。
+  evidence_quote: 非科技方向主线零散，大金融、医药等趋势板块仍可逢低跟踪。
+  interpretation: UP维持早盘和凌晨的判断：非科技方向中金融和医药有趋势支撑，但当前阶段主线不够清晰（主线零散），适合逢低跟踪而非追高。这与此前「聚焦金融为主」的判断一致。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20260702-001-e
+  related_stocks: []
+  tags:
+  - 非科技
+  - 大金融
+  - 医药
+  - 逢低跟踪
+  - 零散主线
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 非科技大金融医药逢低跟踪
+- id: claim-20260702-003-e
+  source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
+  source_date: '2026-07-02'
+  source_type: 盘中动态
+  extracted_at: '2026-07-02T13:34:21+08:00'
+  claim_type: market-cycle
+  subject: 连续调整后恐慌集中释放下周Token数据窗口情绪有望企稳
+  timeframe: short-term
+  statement: UP判断当前科技板块连续调整后短期恐慌情绪已集中释放，叠加下周Token数据的预期窗口，情绪大概率在震荡中逐步企稳。
+  evidence_quote: 当前科技板块连续调整后短期恐慌情绪已集中释放，叠加下周Token数据的预期窗口，情绪大概率在震荡中逐步企稳；大波动下恐慌杀跌反而在酝酿买点。
+  interpretation: UP给出明确的后市判断：①恐慌情绪已集中释放（跌差不多了）②下周有Token数据窗口（催化剂）③情绪在震荡中逐步企稳（不是V反，是慢慢稳）④大波动下恐慌杀跌反而在酝酿买点（逆向思维，但前提是选好标的）。这不是抄底信号，是说恐慌已释放、不用再恐慌砍仓。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  related_stocks: []
+  tags:
+  - 恐慌释放
+  - Token数据
+  - 企稳预期
+  - 震荡
+  - 买点
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 恐慌集中释放下周Token窗口有望企稳
+- id: claim-20260702-003-f
+  source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
+  source_date: '2026-07-02'
+  source_type: 盘中动态
+  extracted_at: '2026-07-02T13:34:21+08:00'
+  claim_type: operation
+  subject: 大波动下恐慌杀跌酝酿买点可关注ETF平滑风险
+  timeframe: short-term
+  statement: UP建议当前大波动环境下恐慌杀跌反而在酝酿买点；选股难度较大时可优先关注板块ETF或宽基ETF，平滑个股分化与情绪波动风险。
+  evidence_quote: 大波动下恐慌杀跌反而在酝酿买点，选股难度较大时可优先关注板块ETF或宽基ETF，平滑个股分化与情绪波动风险。
+  interpretation: UP的操作建议分为两层：①对能选股的投资者：恐慌杀跌=酝酿买点，逆向分批布局②对选股困难的投资者：用ETF替代个股，平滑分化风险。这与UP一贯的「不赌、只做右侧」并不矛盾——这里说的「酝酿买点」不是叫大家直接抄底，而是说恐慌已释放、可以开始逐步关注、等右侧确认信号再动手。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  related_stocks: []
+  tags:
+  - ETF
+  - 恐慌杀跌
+  - 买点
+  - 宽基ETF
+  - 平滑风险
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 恐慌杀跌酝酿买点ETF平滑风险
+- id: claim-20260702-003-g
+  source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
+  source_date: '2026-07-02'
+  source_type: 盘中动态
+  extracted_at: '2026-07-02T13:34:21+08:00'
+  claim_type: market-cycle
+  subject: 场内结构性抱团情绪明确尚未到全面情绪冰点
+  timeframe: intraday
+  statement: UP判断场内结构性抱团情绪明确，尚未到全面情绪冰点——创业板大跌但超3200只个股上涨，说明资金仍在场内积极寻找避风港而非全面撤退。
+  evidence_quote: 场内结构性抱团情绪明确，尚未到全面情绪冰点。...全市场超3200只个股逆势上涨...说明资金并非系统性离场，只是针对海外AI映射的高位算力链做避险兑现。
+  interpretation: UP对情绪阶段的核心定性：不是冰点（冰点是普跌+缩量+无方向），而是「结构性抱团」——资金离开了一个方向（海外链AI算力），但迅速抱团了另一个方向（国产链+机器人+半导体上游）。这意味着大盘不会持续跌，结构性机会仍然丰富，只是需要选对方向。这个定性对下午操作很重要：不是止损离场，而是换仓方向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  related_stocks: []
+  tags:
+  - 结构性抱团
+  - 情绪冰点
+  - 避险兑现
+  - 高切低
+  - 避风港
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 结构性抱团非全面冰点
