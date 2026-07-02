@@ -1,4 +1,5 @@
-updated_at: '2026-06-30'
+updated_at: '2026-07-02'
+# ⚠️ 7/2 UP风险提示：67家公司发风险公告+融资余额逼近3.1万亿历史高点，高位波动加大，低位有基本面保护才相对安全
 directions:
 
   # ── 已在池中，补充完整 ──────────────────────────────────
@@ -229,7 +230,7 @@ directions:
       - code: 601678.SH
         name: 滨化股份
       pumped: false
-      note: "巨化股份(氟化工会龙头,AHF 40万吨+全闭环)、多氟多(30万吨AHF+G5电子级4万吨+自建WF6)、三美股份/永和股份/滨化股份(重要氟原料供应商)"
+      note: "巨化股份(氟化工会龙头,AHF 40万吨+全闭环)、多氟多(30万吨AHF+G5电子级4万吨+自建WF6)、三美股份(7/2UP更新:电子级氢氟酸G5级供需缺口70%,2万吨已投产+二期3万吨试产,通过三星/台积电认证)/永和股份/滨化股份(重要氟原料供应商)"
     midstream:
     - segment: 电子特气（WF6/NF3等）
       stocks:
@@ -1076,25 +1077,27 @@ directions:
     timing: "非纺织板块集体涨停日"
   note: "UP6/24复盘引用中邮证券。头部企业协同减产'以量换价'策略兑现。霍尔木兹海峡复通作为协同极限压力测试，行业机制经受住考验。"
 
+
 - id: broker_finance
-  name: 券商/大金融（突破年线=全面行情确认信号）
-  current_stage: early_direction    # 6/25晚间：券商已在底部走出小趋势，若突破年线将带动超跌滞涨方向；结构向全面切换的关键观察点
+  name: 大金融/券商（7/2UP确认共同走强非风格切换，聚焦金融为主）
+  current_stage: diverging    # 7/2 UP升级：非科技方向（大金融/医药）已走出趋势，增量资金→非科技→解套→回流科技形成闭环
   industry_chain:
     upstream: []
     midstream:
-    - segment: 券商
+    - segment: 券商/大金融
       stocks: []
       pumped: false
-      note: "6/25晚间：券商已在底部走出小趋势，突破年线是全面行情确认信号，将扩散至其他超跌滞涨品种。当前尚未突破，只跟踪不介入"
+      note: "7/2UP：大金融已走出趋势，并非风格切换而是与科技共同走强。走法为一天大涨后连续调整→再突然大涨的不连贯模式，聚焦金融为主。当前仍处增量资金入场初期"
     downstream: []
   diffusion_path:
-  - "券商底部小趋势 → 突破年线 → 全面行情确认 → 超跌滞涨补涨"
-  - "6/22定性增量主攻金融但6/23修正为结构性行情，6/25重新定位为关键观察点"
+  - "增量资金→非科技（金融/医药）→部分解套获利→回流科技→维持强势→全面行情"
+  - "大金融/医药走出趋势→扩散至其他非科技→与科技共同走强"
+  - "走法不连贯（一天大涨→调整→再大涨），需时间但赚钱效应正向反馈"
   pre_condition:
-    market: "全A量能>3万亿+双创创新高（6/25已满足）；全A破位后难度抬升，需缩量企稳+右侧确认，不追涨"
-    sector: "券商板块突破年线压制"
-    timing: "突破年线后右侧确认，不提前埋伏"
-  note: "UP6/22复盘：券商暴涨=炒中报与补涨。UP6/23修正：非银未脱离AI，不会有批量主升浪。UP6/25晚间：券商底部小趋势，突破年线是全面行情关键信号。→保持early_direction，突破年线后再升级。"
+    market: "全A量能>3万亿+非破位状态；融资余额3.1万亿高位波动加大，低位有基本面保护才相对安全"
+    sector: "大金融趋势延续，走法不连贯但赚钱效应正向反馈"
+    timing: "不连续大涨日，缩量调整时关注"
+  note: "7/2UP升级：大金融和医药已走出趋势，后市预期不是风格切换而是与科技共同走强。走法不连贯（一天大涨→调整→再大涨），需时间。既往：6/22定性增量主攻金融→6/23修正结构性→6/25定位关键观察→7/2升级为趋势已出。"
 - id: semiconductor_silicon_wafer
   name: 半导体硅片涨价（HBM/3D NAND/晶圆厂扩产驱动，6/28复盘新增）
   current_stage: early_direction
@@ -1127,54 +1130,45 @@ directions:
     timing: 非连续涨停日，右侧确认后介入
   note: 6/28复盘新增方向。UP点名西安奕材未上市，主板映射选择上游材料/硅片制造环节。
 - id: aidc_power_supply
-  name: AIDC供电与国产算力（中报高确定性方向，6/28复盘新增）
-  current_stage: early_direction
+  name: AIDC涨价与国产算力（字节系涨价5-10%,7/2UP强call）
+  current_stage: early_direction    # 7/2UP：字节系涨价验证需求超预期，催化剂为字节7月招标
   industry_chain:
     upstream:
+    - segment: AIDC运营/Token工厂
+      stocks:
+      - code: 002929.SZ
+        name: 润建股份
+      pumped: false
+      note: "7/2UP详细分析：润建Token工厂商业模式(类似零售,用多少结算多少),回本周期2年vs传统3年,收入利润高50-100%。计划2026年4个万卡集群+2027年再4个。已与火山引擎签订协议引入Seedance 2.0。弹性大,Token工厂签单体现则低估→反转"
     - segment: AIDC配电/HVDC
       stocks:
       - code: 603861.SH
         name: 白云电器
       pumped: false
-      note: 白云电器：特高压电容器龙头，变压器获北美高端市场认可，切入800V HVDC配电赛道，华为等战略合作
-    midstream:
-    - segment: 国产算力芯片映射
-      stocks:
-      - code: 002371.SZ
-        name: 北方华创
+      note: 白云电器：特高压电容器龙头，切入800V HVDC配电赛道
+    - segment: 液冷/柴发/电源（涨价向上游传导）
+      stocks: []
       pumped: false
-      note: 北方华创：国产算力放量→前道设备需求，主板映射标的
+      note: "7/2UP：AIDC涨价若从5-10%加强至30-50%,将向上游传导至液冷/柴发/电源涨价"
+    midstream:
+    - segment: AIDC服务商（字节系涨价受益，参考非主板标的）
+      stocks: []
+      pumped: false
+      note: "7/2UP提示非主板AIDC标的:润泽科技300442/奥飞数据300738/东方国信300166(均创业板),仅做产业链跟踪。东阳光600673为PMIC主业算电协同"
     downstream:
     - segment: 数据中心/云计算
       stocks: []
       pumped: false
-      note: AIDC数据中心配储与供电需求上行
+      note: AIDC涨价→需求超预期,字节7月招标为关键催化剂
   diffusion_path:
-  - AIDC供电需求井喷 → 800V HVDC配电 → 国产算力芯片放量
-  - 中报业绩集中披露 → 产业需求井喷+业绩释放方向资金收敛
+  - "字节系AIDC涨价5-10%→验证需求超预期→若需求加强30-50%→上传液冷/柴发/电源,下传服务器租赁"
+  - "润建Token工厂试点→字节火山引擎合作→万卡集群落地→收入&利润确认→由反弹走向反转"
+  - "中报高确定性：优先关注中报业绩优异+资源充沛+AIDC份额高的公司"
   pre_condition:
-    market: 全A破位后难度抬升，需缩量企稳+右侧确认
-    sector: AIDC/国产算力板块出现首次分歧或缩量企稳
-    timing: 非连续涨停日，右侧确认后介入
-  note: 6/28复盘新增方向。寒武纪/海光信息为科创板不可交易，主板仅映射设备/配电环节。
-- id: breeding_hedge
-  name: 养殖对冲配置（产能去化右侧，6/28复盘新增低相关线索）
-  current_stage: early_direction
-  industry_chain:
-    upstream:
-    - segment: 生猪养殖
-      stocks:
-      - code: 002714.SZ
-        name: 牧原股份
-      pumped: false
-      note: 牧原股份：生猪产能调减指标明确，自繁自养深亏8-9个月，产能去化右侧
-    midstream:
-    - segment: 白羽鸡/黄羽鸡
-      stocks:
-      - code: 002299.SZ
-        name: 圣农发展
-      pumped: false
-      note: 圣农发展：白羽鸡海外引种中断，父母代鸡苗高景气
+    market: "全A破位后难度抬升，需缩量企稳+右侧确认;融资余额3.1万亿高位波动加大,低位有基本面保护才相对安全"
+    sector: AIDC板块分歧后缩量企稳，字节7月招标开标
+    timing: 非连续涨停日，右侧确认后介入。润建跟踪十日线
+  note: "7/2UP强call：AIDC字节系涨价5-10%反映需求超预期,国内头部AIDC租赁价已回升至2020年最高水平。若需求加强有望30-50%涨幅。润建Token工厂签单体现则市值明显低估。非主板AIDC标的(润泽/奥飞/东方国信)仅做产业链参考。"
     downstream:
     - segment: 肉制品/消费
       stocks: []
