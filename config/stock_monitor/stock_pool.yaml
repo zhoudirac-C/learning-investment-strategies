@@ -3914,3 +3914,16 @@ stocks:
     sector_diverged: false
     market_actionable: false
     no_consecutive_limit_up: true
+- code: 600589.SH
+  name: 大位科技
+  priority: P2
+  direction: aidc_power_supply
+  chain_position: upstream
+  human_note:
+    date: '2026-07-02'
+    type: direction_call
+    context: "7/2早盘UP新增：算力租赁方向标的。主营机柜租赁、算力与云服务。Meta出售算力→算力租赁商业模式正名，与火山引擎、东方国信同为算力租赁受益方向。跟踪十日线"
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
