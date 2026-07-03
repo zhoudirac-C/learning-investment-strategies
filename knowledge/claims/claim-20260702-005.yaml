@@ -1,0 +1,342 @@
+claims:
+- id: claim-20260702-005-a
+  source_path: sources/raw/财经/2026-07-02-2329-复盘-双创重灾区科创50创年内最大跌幅-结构化调整与五路资金承接.md
+  source_date: '2026-07-02'
+  source_type: 复盘
+  extracted_at: '2026-07-03T08:08:56+08:00'
+  claim_type: market-cycle
+  subject: 7月2日调整是结构化调整非普跌，旧主线杀估值新方向借势立旗
+  timeframe: short-term
+  statement: UP判断今日市场不是普跌而是结构化调整：科创和算力硬件在高位高拥挤高涨幅后遭遇外力扰动集中兑现，承接资金流向的方向大多处于低位或产业催化起点。涨停仍多达156只(剔除ST近百只)，赚钱效应集中在指数之外。
+  evidence_quote: 这不是一次普跌，而是一次极为典型的结构化调整：旧主线在杀估值，新方向在借势立旗。科创与算力硬件是在高位、高拥挤、高涨幅之后遭遇了外力扰动的集中兑现，而承接资金流向的方向大多处于低位或产业催化的起点。
+  interpretation: UP定性：调整是结构化而非系统性风险，旧主线（算力硬件）在杀估值但资金没有离场，而是流向新方向；涨停156家说明赚钱效应仍然存在只是换了地方；外力扰动（Meta出售算力消息）是导火索，位置（高位高拥挤）决定了跌幅。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260609-005-a"]
+  contradicts: ["claim-20260531-002-a"]
+  supplements: ["claim-20260622-001-h"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 结构化调整
+  - 涨停156家
+  - 旧主线杀估值
+  - 新方向立旗
+  - 换座位
+  topic: 7月2日调整定性为结构化调整非普跌
+- id: claim-20260702-005-b
+  source_path: sources/raw/财经/2026-07-02-2329-复盘-双创重灾区科创50创年内最大跌幅-结构化调整与五路资金承接.md
+  source_date: '2026-07-02'
+  source_type: 复盘
+  extracted_at: '2026-07-03T08:08:56+08:00'
+  claim_type: market-cycle
+  subject: 调整直接导火索是Meta出售算力消息叠加Token增速放缓内生矛盾
+  timeframe: short-term
+  statement: UP拆解调整的双层原因：直接导火索是Meta出售算力消息点燃美股硬件链情绪坍塌向A股传导；更深层内生原因是Token调用量增速持续放缓，短期算力需求遇到瓶颈，叠加科创与算力硬件极高拥挤度需要消化估值。
+  evidence_quote: 直接导火索是外力扰动——Meta出售算力的消息点燃了美股硬件链的情绪坍塌并向A股传导；但更深层的原因带有内生性——Token调用量增速持续放缓，短期算力需求确实遇到瓶颈，叠加科创与算力硬件此前的极高拥挤度，估值需要一个消化的过程。
+  interpretation: UP给出了调整的归因框架：外层是Meta事件（情绪触发），内层是Token放缓+高拥挤（基本面问题）。外力给了下跌的理由，位置决定了下跌的幅度——说明下跌幅度主要由前期涨幅和拥挤度决定，Meta只是扳机。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: ["claim-20260526-032"]
+  supplements: ["claim-20260702-003-b", "claim-20260623-005-b"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - Meta
+  - Token增速放缓
+  - 高拥挤
+  - 估值消化
+  - 调整归因
+  topic: 调整导火索Meta消息叠加Token放缓内生矛盾
+- id: claim-20260702-005-c
+  source_path: sources/raw/财经/2026-07-02-2329-复盘-双创重灾区科创50创年内最大跌幅-结构化调整与五路资金承接.md
+  source_date: '2026-07-02'
+  source_type: 复盘
+  extracted_at: '2026-07-03T08:08:56+08:00'
+  claim_type: market-cycle
+  subject: 后市倾向情形A缩量企稳后进入平衡市，资金换座位而非离场
+  timeframe: short-term
+  statement: UP预判后市用条件化情景：情形A（更倾向）若明日科创50低开缩量企稳、算力硬件分时修复且承接方向机器人医药贵金属不缩容，则进入科技阵痛期+新方向孕育期并行的平衡市；情形B若放量继续下杀且承接方向同步回吐，则资金整体降仓需收缩仓位。目前缩量下跌+涨停仍多，更倾向情形A。
+  evidence_quote: 就目前缩量下跌、涨停家数仍多的盘面看，个人更倾向情形A——资金没有离场，只是在换座位。
+  interpretation: UP给出了后市的双情景框架并明确倾向情形A。判断依据：缩量下跌（量能3.45万亿缩量2095亿）说明非恐慌抛售；涨停156家说明赚钱效应未消失；资金没有离场只是结构性换仓。如果情形B兑现（放量+承接方向回吐）则需要全面防御。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260609-005-a"]
+  contradicts: []
+  supplements: ["claim-20260622-001-h", "claim-20260601-004-e"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 情形A
+  - 平衡市
+  - 缩量下跌
+  - 双情景
+  - 换座位
+  topic: 后市倾向情形A缩量企稳后进入平衡市
+- id: claim-20260702-005-d
+  source_path: sources/raw/财经/2026-07-02-2329-复盘-双创重灾区科创50创年内最大跌幅-结构化调整与五路资金承接.md
+  source_date: '2026-07-02'
+  source_type: 复盘
+  extracted_at: '2026-07-03T08:08:56+08:00'
+  claim_type: market-cycle
+  subject: 中报行情是科技阵痛期缓冲变量，阵痛不等于主线终结
+  timeframe: short-term
+  statement: UP指出中报行情是不可忽视的缓冲变量。7-8月中报密集披露期，硬科技中有业绩兑现的环节（锐捷网络(301165)、星网锐捷(002396)业绩预告超预期）会提供修复锚点。中报使科技阵痛期过渡更平缓，阵痛不等于主线终结。
+  evidence_quote: 中报会使科技股接下来的阵痛期过渡得更为平缓，阵痛不等于主线终结。
+  interpretation: UP强调中报窗口是科技股的重要支撑因素。核心逻辑：虽然短期调整，但有业绩验证的硬科技会获得修复。锐捷网络和星网锐捷双双超预期是第一个案例，后续会有更多业绩驱动的修复锚点。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260615-023", "claim-20260617-039-m", "claim-20260622-001-h"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '301165'
+    name: 锐捷网络
+    role: 业绩超预期-创业板不可交易
+  - code: '002396'
+    name: 星网锐捷
+    role: 业绩超预期-主板可交易
+  tags:
+  - 中报行情
+  - 业绩预告
+  - 锐捷网络
+  - 星网锐捷
+  - 阵痛缓冲
+  topic: 中报行情是科技阵痛期缓冲变量
+- id: claim-20260702-005-e
+  source_path: sources/raw/财经/2026-07-02-2329-复盘-双创重灾区科创50创年内最大跌幅-结构化调整与五路资金承接.md
+  source_date: '2026-07-02'
+  source_type: 复盘
+  extracted_at: '2026-07-03T08:08:56+08:00'
+  claim_type: sector-theme
+  subject: 国产算力是科技阵痛期确定性最高的避风港与反攻方向
+  timeframe: trend
+  statement: UP判断在算力整体退潮中国产算力产业链相对强势。上周北美Token调用量环比下滑26.22%而国内保持8.4%环比增长，国内算力紧缺远超海外。锐捷网络(301165)与星网锐捷(002396)业绩预告超预期验证兑现能力。下半年昇腾950超节点方案落地后，国产算力产业链是确定性最高的方向。
+  evidence_quote: 上周北美Token调用量环比下滑26.22%，而国内大模型调用量依旧保持8.4%的环比增长——国内算力紧缺的程度远超海外，这是国产链条与海外链条基本面分化的根源。
+  interpretation: UP给出了国产算力相对海外硬件的核心逻辑：Token增速分化——海外-26.22% vs 国内+8.4%，国产链基本面独立于海外链；业绩验证——锐捷/星网锐捷超预期提供了业绩锚点；产业催化——昇腾950超节点方案是下半年关键催化剂。确定性高的原因是基本面独立且有业绩验证。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260609-005-d"]
+  contradicts: []
+  supplements: ["claim-20260624-006-b", "claim-20260702-001-d"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '301165'
+    name: 锐捷网络
+    role: 国产算力-创业板不可交易
+  - code: '002396'
+    name: 星网锐捷
+    role: 国产算力-主板可交易
+  - code: '688702'
+    name: 盛科通信
+    role: 交换芯片龙头-科创板不可交易
+  tags:
+  - 国产算力
+  - Token增速分化
+  - 昇腾950
+  - 避风港
+  - 反攻方向
+  topic: 国产算力是阵痛期确定性最高的避风港
+- id: claim-20260702-005-f
+  source_path: sources/raw/财经/2026-07-02-2329-复盘-双创重灾区科创50创年内最大跌幅-结构化调整与五路资金承接.md
+  source_date: '2026-07-02'
+  source_type: 复盘
+  extracted_at: '2026-07-03T08:08:56+08:00'
+  claim_type: sector-theme
+  subject: Meta出售算力是个体商业模式问题不代表全行业过剩
+  timeframe: short-term
+  statement: UP判断Meta出售算力事件是情绪主导大于基本面。Meta不做云自有推理需求有限，其算力过剩是个体商业模式问题而非全行业过剩。GPU租赁价格上涨、甲骨文云利用率97.5%、xAI出租给Anthropic卖高价等旁证均显示行业需求强劲。CSP缩减CAPEX的担忧不宜过度交易。
+  evidence_quote: Meta的过剩是个体商业模式问题，完全不等于全行业过剩。GPU租赁价格上涨、甲骨文云GPU利用率97.5%而Meta自身仅65%；xAI的Colossus
+    1租给Anthropic卖出了年化约500亿美元/GW的高价。
+  interpretation: UP从三个维度论证Meta事件不等于行业问题：租赁价格仍在上涨（A100/H100/B200环比+6.3%/3.7%/2.7%）；利用率对比——甲骨文97.5%
+    vs Meta 65%，说明其他云厂商需求旺盛；定价能力——xAI出租给Anthropic的高价证明GPU仍是稀缺资源。结论是今天的下跌是情绪和拥挤度问题而非产业趋势证伪。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: ["claim-20260702-002-g"]
+  supplements: ["claim-20260702-004-q"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - Meta
+  - GPU租赁
+  - CSP
+  - CAPEX
+  - 情绪主导
+  topic: Meta出售算力是个体问题非全行业过剩
+- id: claim-20260702-005-g
+  source_path: sources/raw/财经/2026-07-02-2329-复盘-双创重灾区科创50创年内最大跌幅-结构化调整与五路资金承接.md
+  source_date: '2026-07-02'
+  source_type: 复盘
+  extracted_at: '2026-07-03T08:08:56+08:00'
+  claim_type: sector-theme
+  subject: 物理AI和具身智能落地将带动Token需求量级跃迁
+  timeframe: trend
+  statement: UP判断长期Token需求曲线被严重低估。小鹏第二代VLA车端模型推理Token消耗量约等于全国数字AI日调用量的80倍，20万辆日均消耗58.8万亿Tokens，而目前全球一周调用量仅46.7万亿Tokens。物理AI与具身智能落地后算力需求不是线性增长而是量级跃迁。Optimus量产是下半年最值得期待的产业事件。
+  evidence_quote: 小鹏第二代VLA车端模型的推理Token消耗量约等于全国数字AI Token日调用量的80倍，20万辆车的日均消耗约58.8万亿Tokens——而目前全球一周的调用量约46.7万亿Tokens。
+  interpretation: UP用数据论证长期Token需求的巨大空间：单车VLA模型消耗量=全国数字AI日调用量的80倍，20万辆VLA车的日消耗大于全球一周数字AI调用量。物理AI（车+机器人）一旦落地，算力需求将从线性增长变为量级跃迁。这是对短期Token增速放缓的有力反驳。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260623-005-b"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 物理AI
+  - Token
+  - 量级跃迁
+  - 小鹏VLA
+  - Optimus
+  topic: 物理AI和具身智能带动Token需求量级跃迁
+- id: claim-20260702-005-h
+  source_path: sources/raw/财经/2026-07-02-2329-复盘-双创重灾区科创50创年内最大跌幅-结构化调整与五路资金承接.md
+  source_date: '2026-07-02'
+  source_type: 复盘
+  extracted_at: '2026-07-03T08:08:56+08:00'
+  claim_type: sector-theme
+  subject: 宇树科技注册生效人形机器人成科技内部最顺畅换仓方向
+  timeframe: trend
+  statement: UP判断宇树科技IPO注册生效是重要催化。宇树为全球首家IPO前实现人形机器人规模化盈利企业，摩根士丹利将2026年中国出货量从2.8万台上调至5万台，预计2030年达44.6万台。宇树上市映射+Optimus量产预期使机器人成为科技内部最顺畅换仓去处。
+  evidence_quote: 摩根士丹利最新报告将2026年中国人形机器人出货量预测从2.8万台大幅上调至5万台，并预计2030年达44.6万台，对应2025-2030年复合增速约106%，行业重心正从技术演示转向真实商业价值创造。
+  interpretation: UP确认人形机器人是当前最强的科技内换仓方向。逻辑链：宇树注册生效（A股第一股）映射效应+Optimus量产预期（下半年）+大摩上调出货量预测。优先关注有业绩和订单实证的部件环节，追高仍需右侧量价确认。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260610-006-j"]
+  contradicts: []
+  supplements: ["claim-20260624-006-o", "claim-20260608-004-h"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '605488'
+    name: 福莱新材
+    role: 机器人概念2连板-主板可交易
+  - code: '002931'
+    name: 锋龙股份
+    role: 机器人概念3天2板-主板可交易
+  - code: '300508'
+    name: 维宏股份
+    role: 机器人灵巧手电机-创业板不可交易
+  - code: '300964'
+    name: 本川智能
+    role: 机器人合作智元-创业板不可交易
+  tags:
+  - 宇树科技
+  - 人形机器人
+  - Optimus
+  - 摩根士丹利
+  - 换仓方向
+  topic: 宇树注册生效人形机器人成科技内部最顺畅换仓方向
+- id: claim-20260702-005-i
+  source_path: sources/raw/财经/2026-07-02-2329-复盘-双创重灾区科创50创年内最大跌幅-结构化调整与五路资金承接.md
+  source_date: '2026-07-02'
+  source_type: 复盘
+  extracted_at: '2026-07-03T08:08:56+08:00'
+  claim_type: sector-theme
+  subject: 半导体设备零部件涨价逻辑未破坏调整是观察窗口
+  timeframe: trend
+  statement: UP判断全球半导体设备零部件正经历全链条涨价潮，ASML上调全年营收指引。零部件企业规模小固定成本占比高，涨价直接转化为利润。今日设备板块虽随情绪重挫但涨价+国产化逻辑未破坏，调整反而是观察筹码交换的窗口。
+  evidence_quote: 全球半导体设备零部件正经历一轮罕见的全链条涨价潮，产业链定价权正从芯片终端向设备与零部件环节结构性上移；零部件企业规模小、固定成本占比高，涨价直接转化为利润。
+  interpretation: UP指出了半导体设备零部件的独立逻辑：定价权上移——从芯片终端到设备到零部件；经营杠杆——小体量企业固定成本高，涨价弹性大；ASML上调指引是全球设备需求的验证。调整是观察窗口而非撤退信号。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260630-003-ai", "claim-20260625-003-g"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '002371'
+    name: 北方华创
+    role: 半导体设备龙头-主板可交易
+  - code: '603061'
+    name: 金海通
+    role: 半导体设备-主板可交易
+  - code: '003043'
+    name: 华亚智能
+    role: 光刻机精密结构件-主板可交易
+  - code: '300661'
+    name: 圣邦股份
+    role: 国产模拟芯片-创业板不可交易
+  tags:
+  - 半导体设备
+  - 零部件
+  - 涨价潮
+  - ASML
+  - 观察窗口
+  topic: 半导体设备零部件涨价逻辑未破坏
+- id: claim-20260702-005-j
+  source_path: sources/raw/财经/2026-07-02-2329-复盘-双创重灾区科创50创年内最大跌幅-结构化调整与五路资金承接.md
+  source_date: '2026-07-02'
+  source_type: 复盘
+  extracted_at: '2026-07-03T08:08:56+08:00'
+  claim_type: methodology
+  subject: 平衡市里资金多点分布，科技内部从硬件一枝独秀走向多线并行
+  timeframe: short-term
+  statement: UP判断市场接下来大概率进入平衡市：资金不会只专注科技，科技内部也会从算力硬件一枝独秀走向国产算力、机器人、AI应用的多点分布，场外有医药、贵金属等方向轮动补位。此刻最重要的是耐心等待新主流方向以量价形态完成自我证明。
+  evidence_quote: 市场接下来大概率会进入一个平衡市：资金不会只专注科技，科技内部也会从算力硬件一枝独秀走向国产算力、机器人、AI应用的多点分布，场外则有医药、贵金属等方向轮动补位。
+  interpretation: UP给出了后续市场的整体格局判断：科技内部扩散——从算力硬件独大到国产算力+机器人+AI应用多点开花；场外轮动——医药和贵金属作为补位方向；操作策略——耐心等待，让新主流方向用量价形态完成自我证明，不急于预测底部。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260609-005-a", "claim-20260622-001-d", "claim-20260624-006-b"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 平衡市
+  - 多点分布
+  - 科技内部扩散
+  - 场外轮动
+  - 等待确认
+  topic: 平衡市资金多点分布科技内部多线并行
