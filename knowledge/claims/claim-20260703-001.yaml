@@ -1,0 +1,336 @@
+claims:
+- id: claim-20260703-001-a
+  source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
+  source_date: '2026-07-03'
+  source_type: 早盘
+  extracted_at: '2026-07-03T09:19:20+08:00'
+  claim_type: market-cycle
+  subject: 震荡市框架不变：量能·大金融·情绪三要素拆解
+  timeframe: short-term
+  statement: UP判断当前依然是震荡市框架。非科技方向经历两轮大跌后风险已释放，各板块轮动做超跌反弹但难有持续性，大盘层面很难有大跌。科技方向是情绪性调整非基本面因素，仍理解为上升途中的调整。
+  evidence_quote: 目前依然是震荡市，用三要素——量能、大金融、情绪——逐一拆解。非科技方向在经历3.3和5.14两轮大跌之后，已经释放了大部分风险。科技方向从3.24上涨至今，本轮下跌属于情绪影响更多，并非基本面因素，仍理解为上升途中的调整。
+  interpretation: UP给出了当前市场的整体定性：震荡市。核心逻辑是两端拆解——非科技已经跌透了所以大盘没有大跌风险；科技只是情绪调整不是基本面反转所以不会持续下跌。这个框架决定了操作策略：不用恐慌减仓，但也不急于加仓，等待修复信号。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260531-002-a", "claim-20260518-018"]
+  contradicts: []
+  supplements: ["claim-20260615-023"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 震荡市
+  - 三要素
+  - 量能
+  - 大金融
+  - 情绪
+  topic: 震荡市框架不变非科技风险已释放科技情绪调整
+- id: claim-20260703-001-b
+  source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
+  source_date: '2026-07-03'
+  source_type: 早盘
+  extracted_at: '2026-07-03T09:19:20+08:00'
+  claim_type: methodology
+  subject: 科技调整复盘：放量滞涨→Meta消息→韩股低走三重叠加致开盘放量定调
+  timeframe: short-term
+  statement: UP复盘昨日科技暴跌的隐患周三就已埋下（放量+科技股滞涨），催化来自Meta出售算力消息，再叠加韩股低开低走，三重因素导致开盘即大幅放量低开。前三天开盘量能299/266/277亿元，昨天396亿元开盘就给全天定调。
+  evidence_quote: 隐患其实周三就已埋下（放量+科技股滞涨），催化来自Meta拟出售过剩AI算力的消息，再叠加韩股低开低走，三重因素导致昨天开盘即大幅放量低开。前三天开盘量能分别为299、266、277亿元，昨天则是396亿元。
+  interpretation: UP给出了科技暴跌的完整归因链：周三放量滞涨（预警信号）→Meta消息（催化剂）→韩股低走（放大器）→开盘放量396亿（定调）。核心洞察是开盘量能是全天定调的关键指标——396亿vs前三天均值的280亿，说明恐慌盘开盘即涌出，盘中无像样反弹也印证了这一点。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: ["claim-20260625-003-a"]
+  supplements: ["claim-20260601-004-a"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 科技暴跌
+  - 开盘量能
+  - 放量滞涨
+  - Meta
+  - 韩股
+  topic: 科技暴跌复盘三重因素导致开盘放量定调
+- id: claim-20260703-001-c
+  source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
+  source_date: '2026-07-03'
+  source_type: 早盘
+  extracted_at: '2026-07-03T09:19:20+08:00'
+  claim_type: market-cycle
+  subject: 今日关键变量是量能，缩量近10%为积极信号参考6月8日
+  timeframe: short-term
+  statement: UP判断今日核心变量是量能。沪指与创业板指仅两天追回近250点差距，上一次类似交汇在6月5日。今天走势可参考6月8日：当天因前夜美股AI概念普跌而低开，但较前一日缩量近10%。若今天也能控制住量能，说明市场分歧正在收敛，对今天和下周都是积极信号。
+  evidence_quote: 今天走势可参考6月8日：当天同样因前夜美股AI概念普跌而低开，但较前一日缩量近10%。若今天也能控制住量能，说明市场分歧正在收敛，无论对今天还是下周都是积极信号。
+  interpretation: UP用6月8日的行情做类比模板：同样是前夜美股AI跌→A股低开→缩量近10%→分歧收敛。如果今天量能从昨日的量收缩约10%（即从约3.45万亿缩到约3.1万亿），则可视为积极信号。缩量→分歧收敛→修复启动，这是核心逻辑链。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260623-001-a"]
+  contradicts: []
+  supplements: ["claim-20260212-001-a", "claim-20260624-001-f"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases:
+    - '2021-07-28'
+  related_stocks: []
+  tags:
+  - 量能
+  - 缩量
+  - 分歧收敛
+  - 6月8日参考
+  - 积极信号
+  topic: 今日关键变量量能缩量近10%为积极信号
+- id: claim-20260703-001-d
+  source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
+  source_date: '2026-07-03'
+  source_type: 早盘
+  extracted_at: '2026-07-03T09:19:20+08:00'
+  claim_type: market-cycle
+  subject: 情绪冰点已现进入反弹时间窗，参考2021年7月28日
+  timeframe: short-term
+  statement: UP判断昨日冰点之后今日再有低开预计就会开启修复。数据支撑：昨日下午1点半涨停仍近百家跌停仅12家，多数个股下跌意愿不强。连板高度来到4板，兴业科技(002674)与兴业股份(603928)逆势涨停印证个股下跌意愿不强。调整时间长的方向（5-8个交易日）会率先反弹。
+  evidence_quote: 昨天下午1点半左右，涨停家数仍多达近百家，跌停只有12家，直到尾盘才增至40家——多数个股的下跌意愿其实并不强烈。连板高度甚至来到久违的4板。
+  interpretation: UP从三个维度论证冰点已现：涨停家数（近100家）远大于跌停（12-40家），个股下跌意愿不强；连板高度到4板，情绪有活口；大部分科技股已调整5-8个交易日（从6.22/6.26开始）。具体的走势参考是2021年7月28日——当天下跌后开启修复。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260602-001-a"]
+  contradicts: []
+  supplements: ["claim-20260625-001-d", "claim-20260622-001-h"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases:
+    - '2021-07-28'
+  related_stocks:
+  - code: '002674'
+    name: 兴业科技
+    role: 情绪活口4连板-主板可交易
+  - code: '603928'
+    name: 兴业股份
+    role: 情绪活口4连板-主板可交易
+  tags:
+  - 情绪冰点
+  - 反弹时间窗
+  - 涨停百家
+  - 连板4板
+  - 2021年7月28日
+  topic: 情绪冰点已现进入反弹时间窗
+- id: claim-20260703-001-e
+  source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
+  source_date: '2026-07-03'
+  source_type: 早盘
+  extracted_at: '2026-07-03T09:19:20+08:00'
+  claim_type: methodology
+  subject: 双情景预案：情形A缩量跌停减少超跌翻红vs情形B放量下杀龙头补跌
+  timeframe: short-term
+  statement: UP给出今日双情景预案：情形A低开后量能收敛、跌停家数迅速减少、超跌科技率先翻红→确认修复启动，持股为主不急于减仓；情形B低开后继续放量下杀、强势龙头补跌加速→补跌周期未走完，防守为主等龙头跌透后的真正冰点再谈右侧。
+  evidence_quote: 情形A：低开后量能收敛、跌停家数迅速减少、超跌科技率先翻红——确认修复启动，盘前预案持股为主，不急于减仓。情形B：低开后继续放量下杀、强势龙头补跌加速——说明补跌周期尚未走完，则以防守为主，等待龙头跌透后的真正冰点再谈右侧。
+  interpretation: UP的双情景框架以量能和跌停家数作为核心观察指标。关键区别：情形A是修复启动（可持股），情形B是补跌未结束（需防守）。两个情景的分水岭在于低开后是否有承接。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260622-001-h"]
+  contradicts: []
+  supplements: ["claim-20260702-005-c", "claim-20260609-005-a"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 情形A
+  - 情形B
+  - 量能收敛
+  - 跌停减少
+  - 补跌周期
+  topic: 双情景预案情形A修复启动vs情形B补跌未结束
+- id: claim-20260703-001-f
+  source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
+  source_date: '2026-07-03'
+  source_type: 早盘
+  extracted_at: '2026-07-03T09:19:20+08:00'
+  claim_type: methodology
+  subject: 外盘只决定开盘定价开盘之后回归自身节奏低开不可怕接不住才可怕
+  timeframe: short-term
+  statement: UP强调外盘只决定开盘定价，开盘之后市场回归自身节奏。低开不可怕，接不住才可怕。今天真正要看的是低开之后有没有承接。开盘前可观察KOSPI是否延续低迷，直接影响A股开盘情绪定价。
+  evidence_quote: 外盘只决定开盘定价，开盘之后市场回归自身节奏——低开不可怕，接不住才可怕。今天真正要看的，是低开之后有没有承接。
+  interpretation: UP给出了处理外盘冲击的核心方法论：外盘影响仅限开盘15-30分钟的价格发现阶段，后续走势由A股自身供需决定。'接不住才可怕'意味着低开后如果有资金承接（缩量企稳或放量拉升），则短期冲击被消化；如果低开后放量继续下杀无承接，才是真正需要警惕的信号。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260702-002-b", "claim-20260629-001-d"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 外盘
+  - 开盘定价
+  - 低开
+  - 承接
+  - KOSPI
+  topic: 外盘只决定开盘定价关键看低开后是否有承接
+- id: claim-20260703-001-g
+  source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
+  source_date: '2026-07-03'
+  source_type: 早盘
+  extracted_at: '2026-07-03T09:19:20+08:00'
+  claim_type: sector-theme
+  subject: 大跌验证上游为王：氢氟酸·光刻胶·玻璃基板等上游原材料走强
+  timeframe: trend
+  statement: UP指出大跌才能看出谁游得好。氢氟酸方向强者恒强，光刻胶、玻璃基板有明显的资金承接意愿，共同特点是尽可能往上游原材料靠。位置决定意义：上游涨价逻辑是本轮科技调整中的避风港。
+  evidence_quote: 氢氟酸方向强者恒强，光刻胶、玻璃基板有明显的资金承接意愿，共同点是尽可能往上游原材料靠——哪怕光刻胶内部，也是越上游走势越强，反倒是南大光电(300346)、上海新阳(300236)这类中游环节稍逊一筹。
+  interpretation: UP再次确认'上游为王'的判断。核心逻辑：下跌中最抗跌的方向是上游原材料，因为它们有涨价逻辑支撑，不受下游需求短期波动影响。南大光电(300346)和上海新阳(300236)作为光刻胶中游表现逊于上游——越往上游越强。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20260614-015-e"]
+  supplements: ["claim-20260702-005-a", "claim-20260622-002-g"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '300346'
+    name: 南大光电
+    role: 光刻胶中游-创业板不可交易
+  - code: '300236'
+    name: 上海新阳
+    role: 光刻胶中游-创业板不可交易
+  tags:
+  - 上游为王
+  - 氢氟酸
+  - 光刻胶
+  - 玻璃基板
+  - 涨价避风港
+  topic: 大跌验证上游为王上游原材料是本轮避风港
+- id: claim-20260703-001-h
+  source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
+  source_date: '2026-07-03'
+  source_type: 早盘
+  extracted_at: '2026-07-03T09:19:20+08:00'
+  claim_type: sector-theme
+  subject: 锐捷网络业绩预告超预期验证国内AI基建基本面与美股过剩叙事对照
+  timeframe: trend
+  statement: UP指出锐捷网络(301165)预告2026半年度净利润6.00-7.50亿元同比增长32.71%-65.88%，Q2净利润环比增长288%-410%，核心驱动是数据中心交换机业务大幅增长。这是国内AI基建基本面仍在兑现的直接证据，与美股算力过剩叙事形成对照。
+  evidence_quote: 锐捷网络预告2026年半年度净利润6.00亿至7.50亿元，同比增长32.71%至65.88%，据此测算Q2净利润环比增长288%至410%，核心驱动是面向互联网客户的数据中心交换机业务大幅增长——这是国内AI基建基本面仍在兑现的直接证据。
+  interpretation: UP用锐捷网络的业绩数据再次论证国产算力基本面独立于海外：Q2净利润环比+288%-410%，增速惊人；业绩驱动是数据中心交换机，直接与国内AI基建挂钩；这个数据直接反驳'算力过剩'的叙事——国内的需求在爆发而非过剩。盛科通信(688702)和裕太微(688515)为产业链相关标的。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260625-003-d", "claim-20260622-003-p"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '301165'
+    name: 锐捷网络
+    role: 业绩超预期-创业板不可交易
+  - code: '688702'
+    name: 盛科通信
+    role: 交换芯片设计-科创板不可交易
+  - code: '688515'
+    name: 裕太微
+    role: 以太网交换芯片-科创板不可交易
+  tags:
+  - 锐捷网络
+  - 业绩超预期
+  - 国产算力
+  - 交换机
+  - 算力过剩叙事对照
+  topic: 锐捷网络业绩超预期验证国内AI基建在兑现
+- id: claim-20260703-001-i
+  source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
+  source_date: '2026-07-03'
+  source_type: 早盘
+  extracted_at: '2026-07-03T09:19:20+08:00'
+  claim_type: sector-theme
+  subject: 人形机器人两条催化叠加但产业催化密度不及AI无需入戏太深
+  timeframe: short-term
+  statement: UP指出人形机器人两条催化叠加：宇树科创板IPO注册生效仅104天创最快纪录，马斯克发布Optimus产线合照且产能目标上调至7万台。但若今日指数不及预期，机器人可能比医药更受资金欢迎；但无论宇树还是特斯拉本质都是旧闻，产业催化密度不及AI，无需入戏太深。
+  evidence_quote: 宇树正从硬件自研向大脑+身体全栈竞争转型。马斯克发布弗里蒙特工厂Optimus产线合照，Gen3弗里蒙特产线年化产能目标从5万台上调至约7万台。但无论宇树还是特斯拉本质都是旧闻，产业催化密度不及AI，无需入戏太深。
+  interpretation: UP对人形机器人的定位做了微调：短期有资金吸引力（若大盘继续弱，机器人优于医药），但中期催化密度不够。长盛轴承(300718)已签宇树订单，创世纪(300083)建立长期合作，雷赛智能(002979)和天娱数科(002354)也有关联。但本质是旧闻炒作，不宜入戏太深。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260624-006-o"]
+  contradicts: ["claim-20260609-001-b", "claim-20260702-005-h"]
+  supplements: []
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '300718'
+    name: 长盛轴承
+    role: 宇树合作-创业板不可交易
+  - code: '300083'
+    name: 创世纪
+    role: 宇树合作-创业板不可交易
+  - code: '002979'
+    name: 雷赛智能
+    role: 机器人概念-主板可交易
+  - code: '002354'
+    name: 天娱数科
+    role: 机器人概念-主板可交易
+  tags:
+  - 人形机器人
+  - 宇树
+  - Optimus
+  - 催化密度
+  - 旧闻炒作
+  topic: 人形机器人两条催化叠加但催化密度不及AI
+- id: claim-20260703-001-j
+  source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
+  source_date: '2026-07-03'
+  source_type: 早盘
+  extracted_at: '2026-07-03T09:19:20+08:00'
+  claim_type: methodology
+  subject: 盘前预案持股为主震荡市科技调整是情绪性问题位置决定意义
+  timeframe: short-term
+  statement: UP给出盘前预案：持股为主，盘中根据强弱做去留。震荡市框架下科技调整属情绪性而非基本面。位置决定意义——已调整5-8个交易日的方向优于昨天才开始补跌的强势龙头。右侧确认原则不变：修复要见到量价配合再谈加仓。
+  evidence_quote: 盘前预案：持股为主，盘中根据强弱情况做去留。震荡市框架下，科技调整属情绪性而非基本面性；位置决定意义——已经调整5-8个交易日的方向优于昨天才开始补跌的强势龙头。
+  interpretation: UP给出了今日的操作策略：不恐慌减仓——科技调整是情绪性的不是基本面恶化；区别对待——调整充分的（5-8天）优于刚开始补跌的（强势龙头）；右侧确认——等量价配合的修复信号才加仓。核心是'位置决定意义'，先跌的先反弹。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260622-001-h"]
+  contradicts: []
+  supplements: ["claim-20260609-005-a"]
+  last_discovered: 2026-07-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 持股为主
+  - 位置决定意义
+  - 右侧确认
+  - 量价配合
+  - 情绪调整
+  topic: 盘前预案持股为主位置决定意义等右侧确认
