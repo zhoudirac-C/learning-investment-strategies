@@ -3927,3 +3927,28 @@ stocks:
     sector_diverged: false
     market_actionable: false
     no_consecutive_limit_up: true
+- code: 002396.SZ
+  name: 星网锐捷
+  priority: P2
+  direction: kcb_ai_policy
+  chain_position: downstream
+  human_note:
+    date: '2026-07-03'
+    type: signal_confirmation
+    context: "7/2晚间业绩预告超预期，验证国产算力兑现能力。UP：北美Token-26.22% vs 国内+8.4%，国产链独立于海外"
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 605488.SH
+  name: 福莱新材
+  direction: robot_observation
+  chain_position: midstream
+  human_note:
+    date: '2026-07-03'
+    type: signal_confirmation
+    context: "7/2人形机器人概念2连板，UP定性机器人是科技内部最顺畅换仓方向。等分歧回踩"
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true

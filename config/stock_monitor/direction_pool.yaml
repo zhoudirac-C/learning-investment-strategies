@@ -1,4 +1,4 @@
-updated_at: '2026-07-02'
+updated_at: '2026-07-03'
 # ⚠️ 7/2 UP风险提示：67家公司发风险公告+融资余额逼近3.1万亿+量能3.68万亿逼近4万亿天花板（早盘补充：放量滞涨后仓位管理重于方向判断）
 directions:
 
@@ -843,18 +843,42 @@ directions:
   note: "底部特征成立但无独立行情，不适合提前埋伏。⏩ 已由 broker_finance（券商/大金融）取代。保留此条目作为历史参考。"
 
 - id: robot_observation
-  name: 机器人
-  current_stage: early_direction
+  name: 人形机器人（宇树IPO注册+大摩上调出货量，7/2UP强call换仓方向）
+  current_stage: first_pump
   industry_chain:
-    upstream: []
-    midstream: []
+    upstream:
+    - segment: 灵巧手关节电机/驱动器
+      stocks:
+      - code: 300508.SZ
+        name: 维宏股份
+      pumped: false
+      note: "子公司汉姆电子以灵巧手关节电机和驱动器为核心，适配方不同类型机器人。❌创业板不可交易"
+    - segment: 机器人本体结构件
+      stocks:
+      - code: 300964.SZ
+        name: 本川智能
+      pumped: false
+      note: "投资入股智元机器人旗下企业，拓展至商用清洁机器人/智能装备。❌创业板不可交易"
+    midstream:
+    - segment: 人形机器人整机/零部件
+      stocks:
+      - code: 605488.SH
+        name: 福莱新材
+        pumped: true
+        note: "7/2人形机器人概念2连板，主板可交易"
+      - code: 002931.SZ
+        name: 锋龙股份
+        pumped: true
+        note: "7/2人形机器人概念3天2板，主板可交易"
     downstream: []
-  diffusion_path: []
+  diffusion_path:
+  - "宇树IPO注册生效→A股人形机器人第一股映射→Optimus量产预期(下半年)→大摩上调出货量(2030年44.6万台)"
+  - "资金从算力硬件退潮→换仓至人形机器人（科技内部最顺畅方向）"
   pre_condition:
-    market: "观察名单而非配置名单；全A破位后难度抬升，需缩量企稳+右侧确认，不追涨"
-    sector: "等放量站稳60日线"
-    timing: "分歧大、未形成趋势"
-  note: "分歧大、未形成趋势，暂不设标的。"
+    market: "全A缩量企稳+非破位状态；调整期缩量+涨停家数维持50+为左侧观察条件"
+    sector: "板块首次分歧（连续上涨后1-2日调整），追高仍需右侧量价确认"
+    timing: "非连续涨停日（福莱新材/锋龙股份分歧日回踩）"
+  note: "7/2UP强call：宇树IPO注册生效（全球首家IPO前规模化盈利），大摩上调2026年出货量至5万台。UP定性'科技内部最顺畅换仓方向'，优先关注有业绩与订单实证的部件环节。维宏/本川为创业板仅做产业链参考。"
 
   # ── 2026-06-17 新增：科创板AI制度红利（视频claims）────
 
@@ -892,15 +916,22 @@ directions:
     - segment: AI应用/智能体
       stocks: []
       pumped: false
+    - segment: 国产算力业绩验证
+      stocks:
+      - code: 002396.SZ
+        name: 星网锐捷
+      pumped: false
+      note: "7/2晚间业绩预告超预期，验证国产算力兑现能力。UP：北美Token-26.22% vs 国内+8.4%，国产链基本面独立于海外。主板可交易"
   diffusion_path:
   - "科创板第五套标准扩围 → AI大模型企业上市 → 国产算力需求 → 设备/材料"
   - "港股AI回归A股 → 丰富产业链标的 → 资金集中"
   - "6/25新增：昇腾950三季度上市 + 电信集采 + 智谱全栈国产适配 → 国产算力主线"
+  - "7/2新增：北美Token-26.22% vs 国内+8.4%→国产链基本面独立于海外→锐捷/星网业绩超预期验证"
   pre_condition:
-    market: "政策确认+全A量能>3万亿（6/25已满足）；全A破位后难度抬升，需缩量企稳+右侧确认，不追涨"
-    sector: "科创板AI企业上市进展 / 昇腾950量产进展"
-    timing: "政策/产品落地初期，长期布局"
-  note: "视频claims核心方向，用户只能交易主板。6/25晚间新增催化：中国电信高性能服务器2026-2027集采、昇腾950三季度上市、智谱GLM-5.2全栈国产适配。"
+    market: "全A缩量企稳+非破位状态；调整期Token分化数据验证国产链独立性，缩量企稳后为优先布局方向"
+    sector: "科创板AI企业上市进展 / 昇腾950量产进展 / 国产算力中报验证"
+    timing: "政策/产品落地初期，长期布局；锐捷/星网业绩超预期提供业绩锚点"
+  note: "视频claims核心方向，用户只能交易主板。7/2新增关键证据：北美Token-26.22% vs 国内+8.4%环比增长，国产链基本面独立。锐捷网络(301165❌)与星网锐捷(002396✅)业绩预告双双超预期验证兑现能力。UP定性：国产算力是科技阵痛期确定性最高的避风港与反攻方向。"
 
   # ── 2026-06-17 新增：中报业绩驱动（存储A档+PMIC+晶合集成）────
 
@@ -1171,6 +1202,11 @@ directions:
     sector: AIDC板块分歧后缩量企稳，字节7月招标开标
     timing: 非连续涨停日，右侧确认后介入。润建跟踪十日线
   note: "7/2UP强call：AIDC字节系涨价5-10%反映需求超预期,国内头部AIDC租赁价已回升至2020年最高水平。若需求加强有望30-50%涨幅。润建Token工厂签单体现则市值明显低估。非主板AIDC标的(润泽/奥飞/东方国信)仅做产业链参考。"
+
+- id: pig_farming_hedge
+  name: 生猪养殖（产能去化→价格反弹，组合对冲线索）
+  current_stage: early_direction
+  industry_chain:
     downstream:
     - segment: 肉制品/消费
       stocks: []
