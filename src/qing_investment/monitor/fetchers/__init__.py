@@ -733,6 +733,11 @@ class ConcurrentDataFetcher:
         Returns:
             dict: {source: data, ...}
         """
+        import os
+
+        if os.environ.get("QING_AGENT_MOCK_QUOTES", "0").lower() not in ("0", "false", "no"):
+            return {"quotes": {"source": "mock", "quotes": [], "errors": [], "elapsed_ms": 0.0}}
+
         from concurrent.futures import ThreadPoolExecutor, as_completed
 
         results: dict[str, dict] = {}
@@ -797,9 +802,17 @@ def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
     与 DataFetcher.fetch() 的区别在于：当东财返回部分数据或出错时，会尝试
     用腾讯补充，最后才是新浪。测试通过 monkeypatch stock_monitor 的函数来
     验证降级行为，因此这里延迟导入 stock_monitor 的兼容层函数。
+
+    设置环境变量 QING_AGENT_MOCK_QUOTES=1 时，直接返回空 mock 数据，
+    避免任何真实网络请求（用于 CI/测试）。
     """
     if not targets:
         return {"source": "none", "quotes": [], "errors": [], "elapsed_ms": 0.0}
+
+    import os
+
+    if os.environ.get("QING_AGENT_MOCK_QUOTES", "0").lower() not in ("0", "false", "no"):
+        return {"source": "mock", "quotes": [], "errors": [], "elapsed_ms": 0.0}
 
     # 延迟导入避免循环依赖，并兼容测试 monkeypatch
     from qing_investment import stock_monitor

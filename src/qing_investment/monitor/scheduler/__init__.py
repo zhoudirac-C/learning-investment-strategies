@@ -26,6 +26,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 import time
 from dataclasses import dataclass, field
 from datetime import datetime, time as dt_time, timedelta
@@ -1778,8 +1779,10 @@ def run_tick(
     scheduled_agent_time = (agent_context_on_trigger or agent_json_context) and is_scheduled_agent_analysis_time(
         config, value
     )
+    _env_ignore_trading_time = os.environ.get("QING_AGENT_IGNORE_TRADING_TIME", "0").lower() not in ("0", "false", "no")
     if (
         not ignore_trading_time
+        and not _env_ignore_trading_time
         and not is_a_share_trading_time(value)
         and not scheduled_agent_time
     ):
