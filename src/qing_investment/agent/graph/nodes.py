@@ -47,7 +47,7 @@ def _load_prompt(name: str) -> str:
     content = path.read_text(encoding="utf-8")
     # 自动注入交易者人格（Phase 1 新增）
     mindset_path = _PROMPT_DIR / "trader_mindset.txt"
-    if mindset_path.exists() and name in ("market_analyst", "stock_analyst"):
+    if mindset_path.exists() and name in ("market_analyst", "stock_analyst", "market_summary", "stock_scanner"):
         mindset = mindset_path.read_text(encoding="utf-8")
         content = f"{mindset}\n\n---\n\n{content}"
     return content
@@ -194,7 +194,7 @@ def _persist_daily_state_from_market_context(
     daily_state_override: dict | None,
     source_tag: str,
 ) -> None:
-    """根据 market_analyst 输出更新 daily_state.json。
+    """根据 market_summary / stock_scanner 输出更新 daily_state.json。
 
     优先使用 LLM 显式输出的 ```daily_state 代码块；
     若不存在，则从 market_context 的规范化字段推导。
@@ -1187,7 +1187,7 @@ async def retrieve_knowledge(state: AgentState) -> AgentState:
 
         # Phase 6: 预计算 active reasoning patterns 用于 claims 排序
         # 注意：这里使用简化版匹配（基于 query 关键词），
-        # 而非 market_analyst 中的完整 Embedding+LLM rerank
+        # 而非 market_summary / stock_scanner 中的完整 Embedding+LLM rerank
         # 目的是在 retrieve_knowledge 阶段就给匹配到 pattern 的 claims 加分
         active_patterns = _load_reasoning_patterns(state)
 
@@ -1504,6 +1504,7 @@ def market_summary(state: AgentState) -> AgentState:
         return {
             "market_summary_context": result,
             "reasoning_steps": [f"市场总结: {result.get('market_phase', 'N/A')} (prompt truncated, fallback returned)"],
+            "cost_tracking": [{"llm_calls": 0, "total_cost_usd": "0"}],
         }
 
     content = _safe_llm_invoke(prompt)
@@ -1529,13 +1530,25 @@ def market_summary(state: AgentState) -> AgentState:
     if was_truncated:
         result["_truncated"] = True
 
-    # daily_state 提取留到 stock_scanner 合并写入
+    # 成本追踪
+    _ms_ct = CostTracker()
+    _ms_ct.record_call(provider=(settings.llm_provider or "deepseek"))
+    _ms_cost = _ms_ct.snapshot()
+
+    # 提取并持久化 daily_state；同时把 override 传给下游 stock_scanner 用于合并
+    daily_state_override = _extract_daily_state_block(content)
+    source_tag = f"market_summary:{analysis_type}"
+    _persist_daily_state_from_market_context(result, daily_state_override, source_tag)
+    if daily_state_override:
+        result["_daily_state_override"] = daily_state_override
+
     reasoning = f"市场总结: {result.get('market_phase', 'N/A')}"
     if was_truncated:
         reasoning += " (prompt truncated)"
     return {
         "market_summary_context": result,
         "reasoning_steps": [reasoning],
+        "cost_tracking": [_ms_cost],
     }
 
 
@@ -1736,6 +1749,7 @@ def stock_scanner(state: AgentState) -> AgentState:
     logger = logging.getLogger(__name__)
     _t0 = time.time()
     prompt_template = _load_prompt("stock_scanner")
+    analysis_type = (state.get("parsed_intent") or {}).get("analysis_type", "stock")
 
     market_summary_ctx = state.get("market_summary_context") or {}
     market_snapshot = dict(state.get("market_snapshot") or {})
@@ -1776,7 +1790,6 @@ def stock_scanner(state: AgentState) -> AgentState:
 
     context = {
         "market_summary_context": _render_market_summary_text(market_summary_ctx),
-        "market_summary_json": market_summary_ctx,
         "market_snapshot": market_snapshot,
         "positions": positions,
         "watchlist_summary": watchlist_summary,
@@ -1811,7 +1824,6 @@ def stock_scanner(state: AgentState) -> AgentState:
                 "watchlist_summary",
                 "reference_stocks",
                 "positions",
-                "market_summary_json",
                 "direction_signals",
             ],
         )
@@ -1845,6 +1857,7 @@ def stock_scanner(state: AgentState) -> AgentState:
         return {
             "market_context": full_market_context,
             "reasoning_steps": ["个股扫描: prompt过大，返回降级结果"],
+            "cost_tracking": [{"llm_calls": 0, "total_cost_usd": "0"}],
         }
 
     content = _safe_llm_invoke(prompt)
@@ -1888,246 +1901,32 @@ def stock_scanner(state: AgentState) -> AgentState:
     if was_truncated:
         full_market_context["_truncated"] = True
 
+    # 成本追踪
+    _ss_ct = CostTracker()
+    _ss_ct.record_call(provider=(settings.llm_provider or "deepseek"))
+    _ss_cost = _ss_ct.snapshot()
+
+    # 提取并持久化 daily_state；若上游 market_summary 也输出了 daily_state，则合并
+    # （市场阶段类字段以上游为准，机会类字段以本节点为准）
+    upstream_override = market_summary_ctx.get("_daily_state_override")
+    scanner_override = _extract_daily_state_block(content)
+    merged_override: dict | None = None
+    if upstream_override or scanner_override:
+        merged_override = dict(upstream_override or {})
+        for key, value in (scanner_override or {}).items():
+            if key == "active_opportunities":
+                merged_override[key] = (merged_override.get(key) or []) + value
+            else:
+                merged_override[key] = value
+    source_tag = f"stock_scanner:{analysis_type}"
+    _persist_daily_state_from_market_context(full_market_context, merged_override, source_tag)
+
     return {
         "market_context": full_market_context,
         "reasoning_steps": [
             f"个股扫描: opportunities={len(full_market_context.get('opportunity_scan', []))} positions={len(full_market_context.get('position_plans', []))}"
         ],
-    }
-
-
-def market_analyst(state: AgentState) -> AgentState:
-    logger = logging.getLogger(__name__)
-    _t0 = time.time()
-    prompt_template = _load_prompt("market_analyst")
-    esb = state.get("external_sector_boards", {})
-    analysis_type = (state.get("parsed_intent") or {}).get("analysis_type", "stock")
-
-    # ── Log input data stats ──
-    market_snapshot = dict(state.get("market_snapshot") or {})
-    quotes = market_snapshot.get("quotes", []) or []
-    claims = state.get("claims", []) or []
-    positions = state.get("positions", []) or []
-    watchlist = state.get("watchlist", []) or []
-    logger.info(
-        f"market_analyst_input: quotes={len(quotes)} claims={len(claims)} "
-        f"positions={len(positions)} watchlist={len(watchlist)} "
-        f"esb_available={esb.get('available')} "
-        f"analysis_type={analysis_type}"
-    )
-    has_realtime_data = (
-        esb.get("available") or
-        (market_snapshot.get("quotes") and len(market_snapshot.get("quotes", [])) > 0)
-    )
-
-    # 【修改】实时数据缺失时降级为知识库分析，而非直接拒绝
-    # 原因：cron job 在数据源限流时频繁失败，claims 知识库足以支撑基础分析
-    if analysis_type in ("market", "portfolio") and not has_realtime_data:
-        # 不 return 空结果，而是继续执行，让 LLM 基于 claims 知识库分析
-        # 在 prompt 中注入数据缺失说明，由 LLM 自行处理
-        state["_data_missing_note"] = (
-            "【注意】实时行情数据暂时无法获取（数据源限流或网络问题）。"
-            "本次分析将基于 UP 历史观点（claims）和策略框架进行，"
-            "缺少实时价格验证，分析结论的时效性可能受限。"
-        )
-        # 继续执行后续代码，不中断
-
-    # Truncate market_snapshot quotes to keep prompt size reasonable
-    all_quotes = market_snapshot.get("quotes", []) or []
-    if isinstance(all_quotes, list) and len(all_quotes) > 50:
-        # Keep indexes + position/watchlist stocks + top movers
-        codes_to_keep: set[str] = set()
-        for q in all_quotes:
-            label = q.get("label") or ""
-            name = q.get("name") or ""
-            # Keep indexes
-            if "指数" in label or "指数" in name or label in ("上证指数", "深证成指", "创业板指", "科创50"):
-                codes_to_keep.add(q.get("secid", ""))
-                codes_to_keep.add(q.get("code", ""))
-        # Keep positions and watchlist stocks
-        for p in state.get("positions", []) or []:
-            code = str(p.get("code", "")).replace(".SH", "").replace(".SZ", "")
-            if code:
-                codes_to_keep.add(code)
-        for w in state.get("watchlist", []) or []:
-            code = str(w.get("code", "")).replace(".SH", "").replace(".SZ", "")
-            if code:
-                codes_to_keep.add(code)
-        # Top 15 movers by abs(pct_change)
-        sorted_quotes = sorted(
-            [q for q in all_quotes if isinstance(q, dict)],
-            key=lambda x: abs(x.get("pct_change") or 0),
-            reverse=True,
-        )[:15]
-        for q in sorted_quotes:
-            codes_to_keep.add(q.get("secid", ""))
-            codes_to_keep.add(q.get("code", ""))
-        filtered = [q for q in all_quotes if (q.get("secid") in codes_to_keep or q.get("code") in codes_to_keep)]
-        market_snapshot["quotes"] = filtered
-        market_snapshot["_total_quotes"] = len(all_quotes)
-        market_snapshot["_filtered_quotes"] = len(filtered)
-
-    # 显式加载相关 framework 文件（Phase 1 新增）
-    framework_context = _load_framework_files(analysis_type)
-    print(
-        f"[market_analyst] framework_loaded={len(framework_context)}, "
-        f"files={[f['file'] for f in framework_context]}, "
-        f"analysis_type={analysis_type}"
-    )
-
-    # 加载匹配的推理模式（Phase 4 新增）
-    reasoning_patterns = _load_reasoning_patterns(state)
-    if reasoning_patterns:
-        print(
-            f"[market_analyst] reasoning_patterns={len(reasoning_patterns)}, "
-            f"patterns={[p['pattern_id'] for p in reasoning_patterns]}, "
-            f"match_themes={[p.get('match_themes') for p in reasoning_patterns]}"
-        )
-
-    # 动态加载分析框架片段（不改 framework/ 目录）
-    analysis_framework = _load_analysis_framework()
-    prompt_template_filled = prompt_template.replace("{analysis_framework}", analysis_framework)
-
-    # ── 【修改】过滤claims，只保留方法论相关 ──
-    raw_claims = state.get("claims", [])
-    methodology_claims = _filter_methodology_only(raw_claims)
-    print(
-        f"[market_analyst] claims_total={len(raw_claims)}, "
-        f"methodology_only={len(methodology_claims)}, "
-        f"filtered={len(raw_claims) - len(methodology_claims)}"
-    )
-
-    # ── 【修改】过滤wiki_snippets，只保留framework和方法论相关 ──
-    raw_wiki = state.get("wiki_snippets", [])
-    methodology_wiki = [
-        s for s in raw_wiki
-        if s.get("source", "").startswith("framework/") or "投资方法论" in s.get("source", "")
-    ]
-
-    # ── 构建watchlist摘要（按优先级分组，Phase 8.1 增强）──
-    watchlist_summary, reference_stocks = _build_watchlist_summary(
-        state.get("watchlist", []), positions, market_snapshot
-    )
-    _wl_with_entry = sum(1 for z in watchlist_summary if z["entry_info"])
-    _wl_with_lifecycle = sum(1 for z in watchlist_summary if z["lifecycle"] and z["lifecycle"] != "观察")
-    logger.info(
-        f"watchlist_summary: tradeable={len(watchlist_summary)} "
-        f"reference={len(reference_stocks)} "
-        f"with_entry_zone={_wl_with_entry} with_lifecycle={_wl_with_lifecycle}"
-    )
-
-    # ── 生成多级别MACD分析报告（Step 3 新增）──
-    try:
-        macd_report = format_multi_tf_macd_report(bars=10)
-    except Exception:
-        macd_report = "[MACD数据暂不可用]"
-
-    # ── 生成神奇九转报告（Step 3 新增）──
-    tf_order_local = ["daily", "120min", "90min", "60min", "30min"]
-    index_codes_local = ["sh000001", "sh000985", "sz399001", "sz399006", "sh000932"]
-    td_reports = []
-    for code in index_codes_local:
-        for tf in tf_order_local:
-            try:
-                r = compute_td_report(code, tf, bars=30)
-                if r:
-                    td_reports.append(f"[{code} {tf}]\n{r}")
-            except Exception:
-                pass
-    td_report = "\n".join(td_reports) if td_reports else "[九转序列数据暂不可用]"
-
-    # ── 生成斐波那契时间分析报告（Step 3 新增）──
-    fib_reports = []
-    for code in index_codes_local:
-        try:
-            r = compute_fibonacci_time_report(code)
-            if r:
-                fib_reports.append(f"[{code}]\n{r}")
-        except Exception:
-            pass
-    fib_report = "\n".join(fib_reports) if fib_reports else "[斐波那契数据暂不可用]"
-
-    # ── 根据当前技术面信号检索 UP 历史操作建议 ──
-    tech_signal_keywords = _extract_tech_signal_keywords(macd_report, td_report, fib_report)
-    tech_signal_claims = _retrieve_tech_signal_claims(tech_signal_keywords)
-    logger.info(
-        "[market_analyst] tech_signal_keywords=%s claims=%d",
-        tech_signal_keywords,
-        len(tech_signal_claims),
-    )
-
-    context = {
-        "claims": methodology_claims,
-        "wiki_snippets": methodology_wiki,
-        "framework_rules": framework_context,
-        "reasoning_patterns": reasoning_patterns,
-        "macd_multi_tf_report": macd_report,
-        "td_sequential_report": td_report,
-        "fibonacci_time_report": fib_report,
-        "tech_signal_keywords": tech_signal_keywords,
-        "tech_signal_claims": _format_tech_signal_claims(tech_signal_claims),
-        "market_snapshot": market_snapshot,
-        "sector_strengths": state.get("sector_strengths", []),
-        "external_sector_boards": esb,
-        "sector_context": state.get("sector_context", []),
-        "memories": state.get("memories", []),
-        "stock_contexts": state.get("stock_contexts", []),      # Phase 2 新增
-        "direction_signals": state.get("direction_signals", {}),  # Phase 2 新增
-        "watchlist_summary": watchlist_summary,  # Phase 8.1 增强：可交易主板标的摘要
-        "reference_stocks": reference_stocks,    # Phase 8.1 P4-锚点：非主板（情绪参考，不可操作）
-    }
-    prompt = f"""{prompt_template_filled}
-
-{state.get("_data_missing_note", "")}
-
-检索到的知识（已过滤，仅保留方法论内容）：
-{json.dumps(context, ensure_ascii=False, indent=2, default=str)}
-
-当前持仓：
-{json.dumps(state.get('positions', []), ensure_ascii=False, indent=2, default=str)}
-
-请输出JSON：
-"""
-    content = _safe_llm_invoke(prompt)
-    _t1 = time.time()
-    logger.info(f"market_analyst_llm: duration={_t1-_t0:.1f}s prompt_len={len(prompt)} content_len={len(content) if content else 0}")
-
-    # 成本追踪
-    _ct = CostTracker()
-    _ct.record_call(provider=(settings.llm_provider or "deepseek"))
-    _cost_snapshot = _ct.snapshot()
-
-    # LLM 有时在 JSON 后追加 ```daily_state 代码块，导致 json.loads 失败。
-    # 先清洗掉代码块再解析 JSON，daily_state 仍单独提取。
-    import re as _re
-    cleaned_content = _re.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
-    try:
-        result = json.loads(cleaned_content) if cleaned_content else {}
-    except json.JSONDecodeError:
-        result = {}
-
-    if not result:
-        result = {
-            "market_phase": "未配置",
-            "phase_reasoning": "LLM未返回结果或API未配置",
-            "main_themes": [],
-            "sector_strength": {},
-            "emotion_signals": {},
-            "opportunity_scan": [],  # Phase 1 新增
-            "position_plans": [],
-        }
-
-    # 【新增】提取并持久化 daily_state，保证观点上下文连续性
-    daily_state_override = _extract_daily_state_block(content)
-    source_tag = f"market_analyst:{analysis_type}"
-    _persist_daily_state_from_market_context(result, daily_state_override, source_tag)
-
-    return {
-        "market_context": result,
-        "reasoning_steps": [
-            f"市场周期: {result.get('market_phase', 'N/A')}"
-        ],
-        "cost_tracking": [_cost_snapshot],
+        "cost_tracking": [_ss_cost],
     }
 
 
@@ -2332,7 +2131,7 @@ def stock_analyst(state: AgentState) -> AgentState:
 def devils_advocate(state: AgentState) -> AgentState:
     """Devil's Advocate 节点 — 强制使用不同模型家族对分析结论进行反向质疑。
 
-    插入在 stock_analyst/market_analyst 之后、synthesize 之前。
+    插入在 stock_analyst / stock_scanner 之后、synthesize 之前。
     主分析失败不影响此节点正常执行。
     """
     logger = logging.getLogger(__name__)
