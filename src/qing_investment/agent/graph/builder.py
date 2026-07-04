@@ -9,11 +9,12 @@ from .edges import review_router
 from .nodes import (
     citation_validator,
     devils_advocate,
-    market_analyst,
+    market_summary,
     parse_query,
     retrieve_knowledge,
     reviewer,
     stock_analyst,
+    stock_scanner,
     style_writer,
     synthesize,
 )
@@ -21,13 +22,14 @@ from .state import AgentState
 
 
 def build_graph():
-    logger.info("[build_graph] starting with %d nodes", 9)
-    logger.info("[build_graph] topology: parse_query → retrieve_knowledge → market_analyst+stock_analyst → devils_advocate → synthesize → style_writer → citation_validator → reviewer → END")
+    logger.info("[build_graph] starting with %d nodes", 10)
+    logger.info("[build_graph] topology: parse_query → retrieve_knowledge → market_summary → stock_scanner + stock_analyst → devils_advocate → synthesize → style_writer → citation_validator → reviewer → END")
     builder = StateGraph(AgentState)
 
     builder.add_node("parse_query", parse_query)
     builder.add_node("retrieve_knowledge", retrieve_knowledge)
-    builder.add_node("market_analyst", market_analyst)
+    builder.add_node("market_summary", market_summary)
+    builder.add_node("stock_scanner", stock_scanner)
     builder.add_node("stock_analyst", stock_analyst)
     builder.add_node("devils_advocate", devils_advocate)
     builder.add_node("synthesize", synthesize)
@@ -37,10 +39,10 @@ def build_graph():
 
     builder.set_entry_point("parse_query")
     builder.add_edge("parse_query", "retrieve_knowledge")
-    builder.add_edge("retrieve_knowledge", "market_analyst")
+    builder.add_edge("retrieve_knowledge", "market_summary")
     builder.add_edge("retrieve_knowledge", "stock_analyst")
-    # market_analyst 和 stock_analyst 并行完成后 → devils_advocate
-    builder.add_edge("market_analyst", "devils_advocate")
+    builder.add_edge("market_summary", "stock_scanner")
+    builder.add_edge("stock_scanner", "devils_advocate")
     builder.add_edge("stock_analyst", "devils_advocate")
     # devil's advocate 完成后 → synthesize
     builder.add_edge("devils_advocate", "synthesize")
