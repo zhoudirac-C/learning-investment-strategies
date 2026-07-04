@@ -3,7 +3,10 @@ from pathlib import Path
 
 import pytest
 
-from qing_investment.agent.graph.nodes import market_summary
+from qing_investment.agent.graph.nodes import (
+    market_summary,
+    _slim_market_snapshot_for_summary,
+)
 from qing_investment.agent.graph.state import AgentState
 
 
@@ -149,3 +152,25 @@ def test_market_summary_no_truncation_for_small_state(monkeypatch):
 
     assert captured["prompt_bytes"] < 64000
     assert ctx.get("_truncated") is not True
+
+
+def test_slim_market_snapshot_keeps_index_quotes_for_various_secid_shapes():
+    """指数行情应兼容 ``000001.SH``、``000001`` 与 East Money 风格 ``1.000001`` 等 secid 形态。"""
+    quotes = [
+        {"secid": "000001.SH", "code": "000001", "label": "上证指数"},
+        {"secid": "000001", "code": "000001", "label": "上证指数"},
+        {"secid": "1.000001", "code": "1.000001", "label": "上证指数"},
+        {"secid": "0.399001", "code": "0.399001", "label": "深证成指"},
+        {"secid": "sh000001", "code": "sh000001", "label": "上证指数"},
+        {"secid": "600000", "code": "600000", "label": "浦发银行"},
+    ]
+    slim = _slim_market_snapshot_for_summary({"quotes": quotes})
+    kept_secids = {q.get("secid") for q in slim.get("quotes", [])}
+
+    assert "000001.SH" in kept_secids
+    assert "000001" in kept_secids
+    assert "1.000001" in kept_secids
+    assert "0.399001" in kept_secids
+    assert "sh000001" in kept_secids
+    assert "600000" not in kept_secids
+    assert slim.get("_slim_from") == len(quotes)

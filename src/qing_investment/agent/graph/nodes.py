@@ -1303,6 +1303,16 @@ def _filter_methodology_only(claims: list[dict]) -> list[dict]:
     return filtered
 
 
+def _pure_index_code(raw: str | None) -> str:
+    """从 secid/code 中提取纯指数代码，兼容 East Money 风格 ``1.000001`` 和 ``000001.SH``。"""
+    if not raw:
+        return ""
+    s = str(raw)
+    if "." in s:
+        s = s.split(".")[-1]
+    return s.lower().replace("sh", "").replace("sz", "").strip()
+
+
 def _slim_market_snapshot_for_summary(market_snapshot: dict) -> dict:
     """为 market_summary 保留指数+关键市场数据，去掉个股明细。"""
     if not market_snapshot:
@@ -1311,8 +1321,8 @@ def _slim_market_snapshot_for_summary(market_snapshot: dict) -> dict:
     market_indexes = {"000001", "399001", "399006", "000688", "000985", "000016", "000300", "000905", "000852", "399303"}
     slim_quotes = [
         q for q in quotes
-        if (q.get("secid") and q.get("secid").split(".")[0] in market_indexes)
-        or (q.get("code") and q.get("code").split(".")[0] in market_indexes)
+        if _pure_index_code(q.get("secid")) in market_indexes
+        or _pure_index_code(q.get("code")) in market_indexes
         or "指数" in (q.get("label") or "")
     ]
     return {
@@ -1435,6 +1445,20 @@ def market_summary(state: AgentState) -> AgentState:
         "memories": state.get("memories", []),
     }
 
+    fallback = {
+        "market_summary": "",
+        "market_phase": "未配置",
+        "phase_reasoning": "LLM未返回结果或API未配置",
+        "main_themes": [],
+        "sector_map": {},
+        "themes_in_focus": [],
+        "index_discipline": {},
+        "volume_note": "",
+        "emotion_signals": {},
+        "risk_notes": "",
+        "citations": [],
+    }
+
     context_json = json.dumps(context, ensure_ascii=False, indent=2, default=str)
     prompt = f"""{prompt_template_filled}
 
@@ -1473,6 +1497,20 @@ def market_summary(state: AgentState) -> AgentState:
             prompt_bytes, was_truncated,
         )
 
+    # Hard ceiling: never send an oversized prompt to the LLM.
+    if prompt_bytes > _MAX_MARKET_SUMMARY_PROMPT_BYTES:
+        logger.error(
+            "market_summary prompt still exceeds %d bytes (%d bytes) after truncation; returning fallback without LLM call",
+            _MAX_MARKET_SUMMARY_PROMPT_BYTES, prompt_bytes,
+        )
+        result = dict(fallback)
+        result["_truncated"] = True
+        result["_fallback_reason"] = "prompt_too_large"
+        return {
+            "market_summary_context": result,
+            "reasoning_steps": [f"市场总结: {result.get('market_phase', 'N/A')} (prompt truncated, fallback returned)"],
+        }
+
     content = _safe_llm_invoke(prompt)
     _t1 = time.time()
     logger.info(
@@ -1486,19 +1524,6 @@ def market_summary(state: AgentState) -> AgentState:
     except json.JSONDecodeError:
         result = {}
 
-    fallback = {
-        "market_summary": "",
-        "market_phase": "未配置",
-        "phase_reasoning": "LLM未返回结果或API未配置",
-        "main_themes": [],
-        "sector_map": {},
-        "themes_in_focus": [],
-        "index_discipline": {},
-        "volume_note": "",
-        "emotion_signals": {},
-        "risk_notes": "",
-        "citations": [],
-    }
     if not result:
         result = dict(fallback)
     else:
@@ -1679,6 +1704,28 @@ def _normalize_watchlist(watchlist):
     return []
 
 
+def _render_market_summary_text(ctx: dict) -> str:
+    """把 market_summary_context 渲染为一段简短的市场背景文字。"""
+    phase = ctx.get("market_phase") or "未配置"
+    reasoning = ctx.get("phase_reasoning") or ""
+    summary = ctx.get("market_summary") or ""
+    themes = ctx.get("main_themes") or []
+    focus = ctx.get("themes_in_focus") or []
+    risks = ctx.get("risk_notes") or ""
+    parts = [f"市场阶段：{phase}"]
+    if reasoning:
+        parts.append(f"阶段判断依据：{reasoning[:120]}")
+    if summary:
+        parts.append(f"盘面概述：{summary[:200]}")
+    if themes:
+        parts.append(f"主线/主题：{', '.join(str(t) for t in themes[:5])}")
+    if focus:
+        parts.append(f"当前重点：{', '.join(str(t) for t in focus[:5])}")
+    if risks:
+        parts.append(f"关键风险：{risks[:120]}")
+    return "；".join(parts)
+
+
 def stock_scanner(state: AgentState) -> AgentState:
     """个股扫描节点：基于市场背景扫描持仓和观察池。"""
     logger = logging.getLogger(__name__)
@@ -1719,7 +1766,8 @@ def stock_scanner(state: AgentState) -> AgentState:
     )
 
     context = {
-        "market_summary_context": market_summary_ctx,
+        "market_summary_context": _render_market_summary_text(market_summary_ctx),
+        "market_summary_json": market_summary_ctx,
         "market_snapshot": market_snapshot,
         "positions": positions,
         "watchlist_summary": watchlist_summary,
@@ -1754,7 +1802,7 @@ def stock_scanner(state: AgentState) -> AgentState:
                 "watchlist_summary",
                 "reference_stocks",
                 "positions",
-                "market_summary_context",
+                "market_summary_json",
                 "direction_signals",
             ],
         )
@@ -1772,6 +1820,23 @@ def stock_scanner(state: AgentState) -> AgentState:
             "stock_scanner prompt after truncation: %d bytes (truncated=%s)",
             prompt_bytes, was_truncated,
         )
+
+    # Hard ceiling: never send an oversized prompt to the LLM.
+    if prompt_bytes > _MAX_MARKET_SUMMARY_PROMPT_BYTES:
+        logger.error(
+            "stock_scanner prompt still exceeds %d bytes (%d bytes) after truncation; returning degraded context without LLM call",
+            _MAX_MARKET_SUMMARY_PROMPT_BYTES, prompt_bytes,
+        )
+        full_market_context = dict(market_summary_ctx)
+        full_market_context.setdefault("opportunity_scan", [])
+        full_market_context.setdefault("position_plans", [])
+        full_market_context["_truncated"] = True
+        full_market_context["_scan_failed"] = True
+        full_market_context["_fallback_reason"] = "prompt_too_large"
+        return {
+            "market_context": full_market_context,
+            "reasoning_steps": ["个股扫描: prompt过大，返回降级结果"],
+        }
 
     content = _safe_llm_invoke(prompt)
     _t1 = time.time()

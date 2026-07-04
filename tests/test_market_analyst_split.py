@@ -163,3 +163,59 @@ def test_stock_scanner_returns_degraded_context_on_bad_llm_output():
     # 保留 market_summary_context 中的所有键
     for key in state["market_summary_context"]:
         assert key in ctx
+
+
+def test_stock_scanner_truncation_regression(monkeypatch):
+    """超大 market_summary_context + watchlist 下，prompt 必须 < 64KB 且始终返回 market_context。"""
+    from qing_investment.agent.graph.nodes import stock_scanner
+
+    data = _load_sample()
+    state = _build_state(data)
+    big_block = "x" * 2000
+    state["market_summary_context"] = {
+        "market_summary": "test summary",
+        "market_phase": "回暖期",
+        "phase_reasoning": "test reasoning",
+        "main_themes": [f"主题 {i}" for i in range(100)],
+        "sector_map": {},
+        "themes_in_focus": [f"重点 {i}" for i in range(100)],
+        "index_discipline": {},
+        "volume_note": "",
+        "emotion_signals": {},
+        "risk_notes": "",
+        "citations": [],
+    }
+    state["watchlist"] = [
+        {
+            "code": f"{600000 + i:06d}",
+            "name": f"stock {i}",
+            "priority": "P1",
+            "watch_reason": big_block,
+        }
+        for i in range(100)
+    ]
+    state["stock_contexts"] = [
+        {"code": f"{600000 + i:06d}", "summary": big_block}
+        for i in range(100)
+    ]
+
+    captured = {}
+
+    def fake_invoke(prompt, min_length=0):
+        captured["prompt"] = prompt
+        captured["prompt_bytes"] = len(prompt.encode("utf-8"))
+        return json.dumps({"opportunity_scan": [], "position_plans": []})
+
+    monkeypatch.setattr(
+        "qing_investment.agent.graph.nodes._safe_llm_invoke", fake_invoke
+    )
+
+    result = stock_scanner(state)
+
+    assert "market_context" in result
+    assert captured["prompt_bytes"] < 64000, (
+        f"prompt size {captured['prompt_bytes']} exceeds 64000 bytes"
+    )
+    ctx = result["market_context"]
+    assert ctx.get("market_phase") == "回暖期"
+    assert ctx.get("_truncated") is True
