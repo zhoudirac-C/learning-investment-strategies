@@ -118,6 +118,7 @@ def test_stock_scanner_prompt_length():
         "phase_reasoning",
         "main_themes",
         "sector_map",
+        "sector_strength",
         "themes_in_focus",
         "index_discipline",
         "volume_note",
@@ -164,6 +165,8 @@ def test_stock_scanner_returns_degraded_context_on_bad_llm_output():
     # 保留 market_summary_context 中的所有键
     for key in state["market_summary_context"]:
         assert key in ctx
+    # sector_map / sector_strength 向后兼容
+    assert ctx.get("sector_strength") == ctx.get("sector_map")
 
 
 def test_stock_scanner_truncation_regression(monkeypatch):

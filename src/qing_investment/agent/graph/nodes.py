@@ -30,7 +30,6 @@ from qing_investment.agent.tools.neo4j_client import Neo4jClient
 from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
 from qing_investment.agent.tools.cost_tracker import CostTracker
 from qing_investment.agent.config import settings
-from qing_investment.kline_cache import format_multi_tf_macd_report, compute_td_report, compute_fibonacci_time_report
 from .state import AgentState
 
 logger = logging.getLogger(__name__)
@@ -47,7 +46,7 @@ def _load_prompt(name: str) -> str:
     content = path.read_text(encoding="utf-8")
     # 自动注入交易者人格（Phase 1 新增）
     mindset_path = _PROMPT_DIR / "trader_mindset.txt"
-    if mindset_path.exists() and name in ("market_analyst", "stock_analyst", "market_summary", "stock_scanner"):
+    if mindset_path.exists() and name in ("stock_analyst", "market_summary", "stock_scanner"):
         mindset = mindset_path.read_text(encoding="utf-8")
         content = f"{mindset}\n\n---\n\n{content}"
     return content
@@ -59,93 +58,6 @@ def _load_analysis_framework() -> str:
     if path.exists():
         return path.read_text(encoding="utf-8")
     return "[market_analysis_framework.txt not found]"
-
-
-# ── 技术面信号 → UP 历史操作建议检索 ──
-_TECH_SIGNAL_KEYWORDS: list[tuple[str, list[str]]] = [
-    ("高9", ["高9", "九转高9", "上升趋势高9", "高9化解"]),
-    ("低9", ["低9", "九转低9", "底部低9", "双低9"]),
-    ("顶背离", ["顶背离", "MACD顶背离", "顶部结构"]),
-    ("底背离", ["底背离", "MACD底背离", "底部结构"]),
-    ("顶部钝化", ["顶部钝化", "钝化高9"]),
-    ("底部钝化", ["底部钝化", "钝化低9"]),
-    ("斐波那契", ["斐波那契", "斐波那契时间窗口"]),
-    ("MACD", ["MACD", "MACD金叉", "MACD死叉"]),
-]
-
-
-def _extract_tech_signal_keywords(*reports: str) -> list[str]:
-    """从 MACD/九转/斐波那契报告文本中提取关键词，用于检索 UP 历史操作建议。"""
-    text = "\n".join(r or "" for r in reports)
-    keywords: list[str] = []
-    seen: set[str] = set()
-
-    # 九转序列：高8/高9/低8/低9 都算同类信号
-    if re.search(r"高[89]", text):
-        seen.add("高9")
-        keywords.append("高9")
-    if re.search(r"低[89]", text):
-        seen.add("低9")
-        keywords.append("低9")
-
-    # MACD：报告里用 DIF/DEA/柱 表示，额外检测常见表述
-    macd_markers = ["MACD", "DIF", "DEA", "macd_hist", "顶背离", "底背离", "顶部结构", "底部结构", "顶部钝化", "底部钝化"]
-    if any(m in text for m in macd_markers):
-        seen.add("MACD")
-        keywords.append("MACD")
-
-    # 背离/钝化单独补充，便于检索更细分的 claim
-    if "顶背离" in text or "顶部结构" in text or "顶部钝化" in text:
-        if "顶背离" not in seen:
-            seen.add("顶背离")
-            keywords.append("顶背离")
-    if "底背离" in text or "底部结构" in text or "底部钝化" in text:
-        if "底背离" not in seen:
-            seen.add("底背离")
-            keywords.append("底背离")
-
-    # 斐波那契
-    if "斐波那契" in text:
-        seen.add("斐波那契")
-        keywords.append("斐波那契")
-
-    return keywords
-
-
-def _retrieve_tech_signal_claims(keywords: list[str], limit_per_keyword: int = 5) -> list[dict]:
-    """根据技术面关键词检索 claims 中 UP 类似信号下的操作建议。
-
-    返回去重后的 claim 列表，按 source_date 倒序。
-    """
-    if not keywords:
-        return []
-    try:
-        from qing_investment.agent.tools.neo4j_client import Neo4jClient
-
-        neo4j = Neo4jClient()
-        seen: set[str] = set()
-        results: list[dict] = []
-        for kw in keywords:
-            batch = neo4j.get_claims_by_keyword(kw, limit=limit_per_keyword)
-            for c in batch:
-                cid = c.get("id")
-                if cid and cid not in seen:
-                    seen.add(cid)
-                    results.append(c)
-        # 按日期倒序，最新的建议优先
-        results.sort(key=lambda x: x.get("source_date", ""), reverse=True)
-        return results[:15]  # 总体上限
-    except Exception as e:
-        logger.warning("[_retrieve_tech_signal_claims] failed: %s", e)
-        return []
-
-
-def _format_tech_signal_claims(claims: list[dict]) -> str:
-    """把检索到的技术面相关 claims 格式化为 prompt 文本。"""
-    if not claims:
-        return "无"
-    lines = [f"  - [{c.get('source_date', '未知')}] {c.get('subject', '')}: {c.get('statement', '')}" for c in claims]
-    return "\n".join(lines[:10])
 
 
 def _load_few_shot_examples(query: str, max_examples: int = 3) -> list[str]:
@@ -1414,6 +1326,18 @@ def market_summary(state: AgentState) -> AgentState:
     reasoning_patterns = _load_reasoning_patterns(state)
     esb = state.get("external_sector_boards", {})
 
+    # 实时数据可用性守卫：market/portfolio 分析缺失实时数据时注入降级说明
+    has_realtime_data = bool(
+        esb.get("available") or market_snapshot.get("quotes")
+    )
+    _data_missing_note = ""
+    if analysis_type in ("market", "portfolio") and not has_realtime_data:
+        _data_missing_note = (
+            "【注意】实时行情数据暂时无法获取（数据源限流或网络问题）。"
+            "本次分析将基于 UP 历史观点（claims）和策略框架进行，"
+            "缺少实时价格验证，分析结论的时效性可能受限。"
+        )
+
     logger.info(
         "market_summary_input: quotes=%d claims=%d wiki=%d framework=%d patterns=%d esb_available=%s",
         len(market_snapshot.get("quotes", [])),
@@ -1457,7 +1381,7 @@ def market_summary(state: AgentState) -> AgentState:
     context_json = json.dumps(context, ensure_ascii=False, indent=2, default=str)
     prompt = f"""{prompt_template_filled}
 
-{state.get("_data_missing_note", "")}
+{_data_missing_note}
 
 检索到的知识：
 {context_json}
@@ -1479,7 +1403,7 @@ def market_summary(state: AgentState) -> AgentState:
         context_json = json.dumps(context, ensure_ascii=False, indent=2, default=str)
         prompt = f"""{prompt_template_filled}
 
-{state.get("_data_missing_note", "")}
+{_data_missing_note}
 
 检索到的知识：
 {context_json}
@@ -1501,10 +1425,12 @@ def market_summary(state: AgentState) -> AgentState:
         result = dict(fallback)
         result["_truncated"] = True
         result["_fallback_reason"] = "prompt_too_large"
+        _fallback_ct = CostTracker()
         return {
             "market_summary_context": result,
             "reasoning_steps": [f"市场总结: {result.get('market_phase', 'N/A')} (prompt truncated, fallback returned)"],
-            "cost_tracking": [{"llm_calls": 0, "total_cost_usd": "0"}],
+            "cost_tracking": [_fallback_ct.snapshot()],
+            **({"_data_missing_note": _data_missing_note} if _data_missing_note else {}),
         }
 
     content = _safe_llm_invoke(prompt)
@@ -1530,6 +1456,12 @@ def market_summary(state: AgentState) -> AgentState:
     if was_truncated:
         result["_truncated"] = True
 
+    # 保持旧版 market_analyst 的 sector_strength 键向后兼容
+    if "sector_map" in result and "sector_strength" not in result:
+        result["sector_strength"] = result["sector_map"]
+    elif "sector_strength" in result and "sector_map" not in result:
+        result["sector_map"] = result["sector_strength"]
+
     # 成本追踪
     _ms_ct = CostTracker()
     _ms_ct.record_call(provider=(settings.llm_provider or "deepseek"))
@@ -1549,6 +1481,7 @@ def market_summary(state: AgentState) -> AgentState:
         "market_summary_context": result,
         "reasoning_steps": [reasoning],
         "cost_tracking": [_ms_cost],
+        **({"_data_missing_note": _data_missing_note} if _data_missing_note else {}),
     }
 
 
@@ -1900,6 +1833,12 @@ def stock_scanner(state: AgentState) -> AgentState:
 
     if was_truncated:
         full_market_context["_truncated"] = True
+
+    # 保持 sector_map / sector_strength 向后兼容（alias）
+    if "sector_map" in full_market_context and "sector_strength" not in full_market_context:
+        full_market_context["sector_strength"] = full_market_context["sector_map"]
+    elif "sector_strength" in full_market_context and "sector_map" not in full_market_context:
+        full_market_context["sector_map"] = full_market_context["sector_strength"]
 
     # 成本追踪
     _ss_ct = CostTracker()
