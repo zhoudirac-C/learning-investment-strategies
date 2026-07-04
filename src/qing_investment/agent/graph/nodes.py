@@ -646,48 +646,57 @@ def _load_reasoning_patterns(state: AgentState) -> list[dict]:
 
 
 def _safe_llm_invoke(prompt: str, min_length: int = 0) -> str:
-    """安全调用 LLM，默认走配置 provider，可通过环境变量显式开启本地 Kimi Code CLI。
+    """安全调用 LLM，默认走配置 provider。
 
-    通过环境变量 KIMI_CODE_CLI_FIRST 控制是否优先本地：
-    - unset / 0 / false：直接走配置 provider（默认）
-    - 1 / true：优先本地
+    通过环境变量控制本地调用优先级：
+    - KIMI_CODE_ACP_FIRST=1 / true：优先本地 Kimi Code ACP（stdio JSON-RPC）
+    - KIMI_CODE_CLI_FIRST=1 / true：优先本地 Kimi Code CLI（kimi -p，受 argv 限制）
+    - 否则：直接走 settings.llm_provider
 
     Args:
         prompt: 发送给 LLM 的提示。
-        min_length: 本地 CLI 返回内容的最小可接受长度（字符数）。
+        min_length: 本地调用返回内容的最小可接受长度（字符数）。
             若返回内容长度低于此值，视为失败并 fallback 到配置 provider。
     """
     import os
 
-    use_local_first = os.environ.get("KIMI_CODE_CLI_FIRST", "0").lower() not in ("0", "false", "no")
+    acp_first = os.environ.get("KIMI_CODE_ACP_FIRST", "0").lower() not in ("0", "false", "no")
+    cli_first = os.environ.get("KIMI_CODE_CLI_FIRST", "0").lower() not in ("0", "false", "no")
 
-    if use_local_first:
-        logger.info("[_safe_llm_invoke] 优先尝试本地 Kimi Code CLI")
-        record_provider_usage("kimi-code-cli", "attempt", "local-first enabled")
+    local_providers = []
+    if acp_first:
+        local_providers.append("kimi-code-acp")
+    if cli_first:
+        local_providers.append("kimi-code-cli")
+
+    for local_provider in local_providers:
+        logger.info("[_safe_llm_invoke] 优先尝试 %s", local_provider)
+        record_provider_usage(local_provider, "attempt", "local-first enabled")
         try:
-            local_llm = get_llm_client(provider="kimi-code-cli")
+            local_llm = get_llm_client(provider=local_provider)
             content = local_llm.invoke(prompt).content
-            record_provider_usage("kimi-code-cli", "success", f"content_len={len(content)}")
+            record_provider_usage(local_provider, "success", f"content_len={len(content)}")
             logger.info(
-                "[_safe_llm_invoke] 本地 Kimi Code CLI 成功, content_len=%d, tracker=%s",
+                "[_safe_llm_invoke] %s 成功, content_len=%d, tracker=%s",
+                local_provider,
                 len(content),
                 format_provider_usage_summary(get_provider_usage_records()),
             )
             if min_length > 0 and len(content) < min_length:
                 raise RuntimeError(
-                    f"local Kimi Code CLI returned too short output ({len(content)} chars, min={min_length})"
+                    f"{local_provider} returned too short output ({len(content)} chars, min={min_length})"
                 )
             return content
         except Exception as e:
-            record_provider_usage("kimi-code-cli", "failed", str(e)[:120])
+            record_provider_usage(local_provider, "failed", str(e)[:120])
             logger.warning(
-                "[_safe_llm_invoke] 本地 Kimi Code CLI 失败: %s, 将 fallback 到 %s",
-                e, settings.llm_provider,
+                "[_safe_llm_invoke] %s 失败: %s, 将 fallback 到 %s",
+                local_provider, e, settings.llm_provider,
             )
 
     # fallback / 直接走配置 provider
     logger.info("[_safe_llm_invoke] 调用配置 provider: %s", settings.llm_provider)
-    record_provider_usage(settings.llm_provider, "fallback" if use_local_first else "attempt")
+    record_provider_usage(settings.llm_provider, "fallback" if local_providers else "attempt")
     try:
         llm = get_llm_client()
         content = llm.invoke(prompt).content
@@ -707,7 +716,7 @@ def _safe_llm_invoke(prompt: str, min_length: int = 0) -> str:
             e,
             format_provider_usage_summary(get_provider_usage_records()),
         )
-        return f""
+        return ""
 
 
 def parse_query(state: AgentState) -> AgentState:
