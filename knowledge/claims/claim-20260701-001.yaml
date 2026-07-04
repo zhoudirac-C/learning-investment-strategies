@@ -1,0 +1,155 @@
+claims:
+- id: claim-20260701-001-a
+  source_path: sources/raw/财经/2026-07-01-1350-动态-盘中4108满仓线+半导体设备零部件调整预期.md
+  source_date: '2026-07-01'
+  source_type: 动态
+  extracted_at: '2026-07-01T14:02:00+08:00'
+  claim_type: market-cycle
+  subject: 上证4108满仓线
+  timeframe: short-term
+  statement: UP盘中明确，上证指数若能收到4108，理论上可以满仓。
+  evidence_quote: 如果能收到4108，理论上可以满仓。
+  interpretation: UP给出盘中关键点位4108作为满仓信号。当前市场在UP出差途中自行走强，4108是重要心理和技术关口，站上=趋势确认可加满仓位。需收盘确认而非盘中突破。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-01
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 上证指数满仓线
+  related_stocks: []
+  tags:
+  - 上证指数
+  - 满仓信号
+  - 4108
+
+- id: claim-20260701-001-b
+  source_path: sources/raw/财经/2026-07-01-1350-动态-盘中4108满仓线+半导体设备零部件调整预期.md
+  source_date: '2026-07-01'
+  source_type: 动态
+  extracted_at: '2026-07-01T14:02:00+08:00'
+  claim_type: risk
+  subject: 券商集体看好发研报=板块过热信号
+  timeframe: short-term
+  statement: UP批评券商在半导体设备零部件大涨后集体发研报看好，认为在这种位置发研报是担心踏空的蠢货行为，是板块短期过热的反向指标。
+  evidence_quote: 半导体设备零部件因为涨的太好，被几个券商集体看好发了研报，这群蠢货在这种位置发，也是担心踏空。
+  interpretation: UP用极严厉措辞评价券商行为——券商集体发研报的时间点（大涨之后）本身就是板块短期过热的信号。但UP同时强调自己是在机构看好之前就进去了，所以利润垫够厚。理解这段需要区分：①板块方向没问题 ②短期位置已高 ③先手和追高的体验完全不同。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-01
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 券商集体看好的反向指标
+  related_stocks:
+  - code: '002371'
+    name: 北方华创
+    role: 半导体设备龙头上榜
+  - code: '603283'
+    name: 赛腾股份
+    role: HBM检测设备
+  tags:
+  - 券商研报
+  - 反向指标
+  - 半导体设备零部件
+  - 过热信号
+
+- id: claim-20260701-001-c
+  source_path: sources/raw/财经/2026-07-01-1350-动态-盘中4108满仓线+半导体设备零部件调整预期.md
+  source_date: '2026-07-01'
+  source_type: 动态
+  extracted_at: '2026-07-01T14:02:00+08:00'
+  claim_type: methodology
+  subject: 先手+利润垫=持股信心
+  timeframe: permanent
+  statement: UP强调在机构集体看好之前就已经进去，利润垫是最好的保险。核心方法论：先手布局、利润垫保护、不因短期波动而动摇。
+  evidence_quote: 我们是在机构集体看好之前就已经进去的，利润垫就是最好的保险。
+  interpretation: UP再次展示其核心交易方法论——①识别产业趋势，在机构集中覆盖前提前布局 ②利润垫而非止损是持股信心的核心来源 ③先手优势比追高安全得多。这是UP长期有效的操作方法。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-01
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 先手布局方法论
+  related_stocks: []
+  tags:
+  - 先手
+  - 利润垫
+  - 持股信心
+  - 方法论
+
+- id: claim-20260701-001-d
+  source_path: sources/raw/财经/2026-07-01-1350-动态-盘中4108满仓线+半导体设备零部件调整预期.md
+  source_date: '2026-07-01'
+  source_type: 动态
+  extracted_at: '2026-07-01T14:02:00+08:00'
+  claim_type: sector-theme
+  subject: 半导体设备零部件短期需调整
+  timeframe: short-term
+  statement: UP认为半导体设备零部件涨得过高，短期该调整调整，但不改方向中期判断。
+  evidence_quote: 涨的太高，该调整调整，我今天晚上下飞机之后再详细做梳理。
+  interpretation: UP明确承认半导体设备零部件短期涨幅已大、需要技术调整。但结合上下文（先手+利润垫+晚上继续梳理），这是正常的技术性回调预期而非方向转折。核心结论：方向没问题，节奏需要调整。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20260630-003-u
+  last_discovered: 2026-07-01
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体设备零部件调整预期
+  related_stocks: []
+  tags:
+  - 半导体设备
+  - 零部件
+  - 短期调整
+  - 趋势未变
+
+- id: claim-20260701-001-e
+  source_path: sources/raw/财经/2026-07-01-1350-动态-盘中4108满仓线+半导体设备零部件调整预期.md
+  source_date: '2026-07-01'
+  source_type: 动态
+  extracted_at: '2026-07-01T14:02:00+08:00'
+  claim_type: operation
+  subject: 配置躺赢策略
+  timeframe: short-term
+  statement: UP重申"做好配置躺赢"，即做好配置后持股不动，不因短期波动而频繁操作。
+  evidence_quote: 还是那句话，做好配置躺赢。
+  interpretation: UP持续输出其核心操作框架——通过合理配置覆盖多个方向（半导体上游、光互联、存储等），然后减少操作频率，用时间换空间。这和"盯盘操作"是不同的方法论，适合有底仓有利润垫的场景。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-01
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 配置躺赢策略
+  related_stocks: []
+  tags:
+  - 配置
+  - 躺赢
+  - 操作纪律

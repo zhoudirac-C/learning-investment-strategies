@@ -14,9 +14,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260610-006-a", "claim-20260629-001-b"]
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260607-003-a"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 美股
@@ -46,7 +47,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260629-001-d"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 低开
@@ -75,8 +77,9 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: []
-  supplements: []
+  contradicts: ["claim-20260626-001-e", "claim-20260625-003-a"]
+  supplements: ["claim-20260623-001-a"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 量能
@@ -104,10 +107,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260609-005-a"]
   contradicts: []
-  supplements:
-  - claim-20260702-001-l
+  supplements: ["claim-20260611-001-m", "claim-20260616-001-c"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 仓位管理
@@ -137,8 +140,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements:
-  - claim-20260702-001-d
+  supplements: ["claim-20260521-002-f", "claim-20260612-002-b", "claim-20260624-006-b"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 国产链
@@ -166,9 +169,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260629-001-ab"]
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260614-014-p"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 情景预案
@@ -198,7 +202,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260622-003-q", "claim-20260607-004-f", "claim-20260621-006-i"]
+  last_discovered: 2026-07-02
   related_stocks:
   - code: '600589'
     name: 大位科技
@@ -234,7 +239,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260622-003-q", "claim-20260420-006", "claim-20260518-009"]
+  last_discovered: 2026-07-02
   related_stocks:
   - code: '600589'
     name: 大位科技
@@ -270,8 +276,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements:
-  - claim-20260702-001-h
+  supplements: ["claim-20260625-003-g", "claim-20260604-004-b", "claim-20260622-002-c"]
+  last_discovered: 2026-07-02
   related_stocks:
   - code: '002407'
     name: 多氟多
@@ -307,7 +313,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260624-006-n", "claim-20260624-006-j", "claim-20260625-003-g"]
+  last_discovered: 2026-07-02
   related_stocks:
   - code: '603290'
     name: 斯达半导
@@ -355,8 +362,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements:
-  - claim-20260702-001-c
+  supplements: ["claim-20260630-003-ar", "claim-20260625-003-g"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 半导体抗跌
@@ -384,9 +391,10 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: []
+  supersedes: ["claim-20260602-001-d"]
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260601-004-b"]
+  last_discovered: 2026-07-02
   related_stocks:
   - code: '603533'
     name: 掌阅科技
@@ -421,8 +429,9 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260702-001-e"]
   supplements: []
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 非科技
@@ -452,7 +461,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260601-001-f"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 金龙指数

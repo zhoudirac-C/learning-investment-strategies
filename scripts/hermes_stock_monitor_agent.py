@@ -24,6 +24,53 @@ QING_AGENT_HEALTH_URL = os.environ.get("QING_AGENT_HEALTH_URL", "http://localhos
 QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "900"))
 QING_AGENT_MAX_RETRIES = int(os.environ.get("QING_AGENT_MAX_RETRIES", "2"))
 
+# 请求/响应详细日志：按天拆分，便于后续统一清理
+REQUEST_LOG_DIR = Path(os.environ.get("QING_AGENT_REQUEST_LOG_DIR", "")) or Path(
+    __file__
+).resolve().parents[1] / "logs"
+
+
+def _request_log_path() -> Path:
+    REQUEST_LOG_DIR.mkdir(parents=True, exist_ok=True)
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    return REQUEST_LOG_DIR / f"qing-agent-request.{today}.log"
+
+
+def _log_request_payload(
+    data: dict,
+    payload: bytes,
+    response: dict | None,
+    error: str | None = None,
+    elapsed_ms: float | None = None,
+) -> None:
+    """将本次定时任务调用 qing-agent 的完整入参与结果写入按天日志。"""
+    try:
+        log_path = _request_log_path()
+        record = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "trigger": data.get("trigger", {}),
+            "analysis_type": data.get("analysis_type", "market"),
+            "request_payload_size": len(payload),
+            "request_payload": json.loads(payload.decode("utf-8")),
+            "response_status": "success"
+            if response
+            else ("error" if error else "empty"),
+            "response_size": len(json.dumps(response, ensure_ascii=False))
+            if response
+            else 0,
+            "response_payload": response if response else None,
+            "error": error,
+            "elapsed_ms": elapsed_ms,
+        }
+        with open(log_path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    except Exception as e:
+        print(f"[request log] failed to write: {e}", file=sys.stderr)
+
+# 当 qing-agent 不可用时是否输出本地规则 fallback。设为 0/false/no 可关闭，避免大 context
+# 通过命令行传递时触发 "argument list too long" 或产生无意义的降级输出。
+QING_AGENT_FALLBACK_ENABLED = os.environ.get("QING_AGENT_FALLBACK_ENABLED", "1").lower() in ("1", "true", "yes", "on")
+
 # Cron job wrapper timeout (seconds) — must be >= QING_AGENT_TIMEOUT + 20s margin
 # to avoid the cron killing the script while it's still retrying.
 CRON_WRAPPER_TIMEOUT = float(os.environ.get("CRON_WRAPPER_TIMEOUT", "980"))  # 900s POST + 60s health + 20s margin
@@ -499,17 +546,25 @@ def call_qing_agent(data: dict) -> dict | None:
     )
 
     import socket
+    import time as _time
+
     # Set global socket timeout to prevent infinite blocking on hung server
     original_socket_timeout = socket.getdefaulttimeout()
     socket.setdefaulttimeout(QING_AGENT_TIMEOUT)
-    
+
+    t0 = _time.perf_counter()
+    response: dict | None = None
+    last_error: str | None = None
+
     try:
         for attempt in range(1, QING_AGENT_MAX_RETRIES + 1):
             try:
                 with urllib.request.urlopen(req, timeout=QING_AGENT_TIMEOUT) as resp:
-                    return json.loads(resp.read().decode("utf-8"))
+                    response = json.loads(resp.read().decode("utf-8"))
+                    return response
             except urllib.error.HTTPError as e:
                 body = e.read().decode("utf-8") if e.fp else ""
+                last_error = f"HTTP {e.code}: {body}"
                 if 500 <= e.code < 600:
                     print(f"[qing-agent HTTP {e.code} retry {attempt}/{QING_AGENT_MAX_RETRIES}] {body}", file=sys.stderr)
                     if attempt < QING_AGENT_MAX_RETRIES:
@@ -519,6 +574,7 @@ def call_qing_agent(data: dict) -> dict | None:
                 print(f"[qing-agent HTTP {e.code}] {body}", file=sys.stderr)
                 return None
             except urllib.error.URLError as e:
+                last_error = f"URLError: {e.reason}"
                 print(f"[qing-agent unreachable retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e.reason}", file=sys.stderr)
                 if attempt < QING_AGENT_MAX_RETRIES:
                     import time
@@ -526,6 +582,7 @@ def call_qing_agent(data: dict) -> dict | None:
                     continue
                 return None
             except (TimeoutError, socket.timeout) as e:
+                last_error = f"timeout: {e}"
                 print(f"[qing-agent timeout retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e}", file=sys.stderr)
                 if attempt < QING_AGENT_MAX_RETRIES:
                     import time
@@ -533,6 +590,7 @@ def call_qing_agent(data: dict) -> dict | None:
                     continue
                 return None
             except Exception as e:
+                last_error = f"error: {e}"
                 print(f"[qing-agent error retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e}", file=sys.stderr)
                 if attempt < QING_AGENT_MAX_RETRIES:
                     import time
@@ -542,6 +600,8 @@ def call_qing_agent(data: dict) -> dict | None:
         return None
     finally:
         socket.setdefaulttimeout(original_socket_timeout)
+        elapsed_ms = (_time.perf_counter() - t0) * 1000
+        _log_request_payload(data, payload, response, error=last_error, elapsed_ms=elapsed_ms)
 
 
 # ── 幻觉检测模式 ──
@@ -631,7 +691,13 @@ def main():
             print(f"\n[引用claims: {', '.join(response['claims_cited'])}]")
         return 0
 
-    # 4. Fallback: qing-agent unavailable or returned empty — print original text context
+    # 4. Fallback: qing-agent unavailable or returned empty
+    if not QING_AGENT_FALLBACK_ENABLED:
+        print("[Qing-Agent ✗ FALLBACK DISABLED] 本地规则输出已关闭，仅记录错误", file=sys.stderr)
+        # 清除 dedupe，让下一次调度可以重试
+        _remove_agent_trigger_dedupe(root, data)
+        return 0
+
     fallback_text = fetch_fallback_text_context(root, data)
     if not fallback_text:
         # Fallback also empty — this means the trigger was recorded in state but output failed.
