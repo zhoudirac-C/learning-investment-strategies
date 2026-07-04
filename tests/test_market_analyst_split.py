@@ -1,4 +1,5 @@
 import json
+import re
 import sys
 from pathlib import Path
 from unittest.mock import patch
@@ -219,3 +220,55 @@ def test_stock_scanner_truncation_regression(monkeypatch):
     ctx = result["market_context"]
     assert ctx.get("market_phase") == "回暖期"
     assert ctx.get("_truncated") is True
+
+
+def test_stock_scanner_keeps_secid_only_quote(monkeypatch):
+    """持仓个股行情若只有 East Money secid，也应被保留，不能误过滤。"""
+    from qing_investment.agent.graph.nodes import stock_scanner
+
+    data = _load_sample()
+    state = _build_state(data)
+    state["market_summary_context"] = {
+        "market_summary": "test summary",
+        "market_phase": "回暖期",
+        "phase_reasoning": "test reasoning",
+        "main_themes": ["新能源"],
+        "sector_map": {"新能源": ["002594"]},
+        "themes_in_focus": ["新能源"],
+        "index_discipline": {},
+        "volume_note": "",
+        "emotion_signals": {},
+        "risk_notes": "",
+        "citations": [],
+    }
+    state["positions"] = [{"code": "002594", "name": "比亚迪", "quantity": 100}]
+    state["market_snapshot"] = {
+        "quotes": [
+            {"code": "000001", "name": "上证指数", "label": "指数", "pct_change": 0.1},
+            {"secid": "0.002594", "name": "比亚迪", "pct_change": 1.2},
+        ]
+    }
+
+    captured = {}
+
+    def fake_invoke(prompt: str, min_length: int = 0) -> str:
+        captured["prompt"] = prompt
+        return json.dumps({"opportunity_scan": [], "position_plans": []})
+
+    monkeypatch.setattr(
+        "qing_investment.agent.graph.nodes._safe_llm_invoke", fake_invoke
+    )
+
+    result = stock_scanner(state)
+
+    assert "market_context" in result
+    assert captured.get("prompt")
+    match = re.search(
+        r"上下文：\s*\n(.*?)\n\s*请输出JSON：",
+        captured["prompt"],
+        re.DOTALL,
+    )
+    assert match, "could not find context JSON in prompt"
+    context = json.loads(match.group(1))
+    quotes = context["market_snapshot"]["quotes"]
+    assert any(q.get("secid") == "0.002594" for q in quotes)

@@ -1304,13 +1304,8 @@ def _filter_methodology_only(claims: list[dict]) -> list[dict]:
 
 
 def _pure_index_code(raw: str | None) -> str:
-    """从 secid/code 中提取纯指数代码，兼容 East Money 风格 ``1.000001`` 和 ``000001.SH``。"""
-    if not raw:
-        return ""
-    s = str(raw)
-    if "." in s:
-        s = s.split(".")[-1]
-    return s.lower().replace("sh", "").replace("sz", "").strip()
+    """从 secid/code 中提取纯指数代码，复用个股代码归一化逻辑。"""
+    return _pure_stock_code(raw)
 
 
 def _slim_market_snapshot_for_summary(market_snapshot: dict) -> dict:
@@ -1545,17 +1540,27 @@ def market_summary(state: AgentState) -> AgentState:
 
 
 def _pure_stock_code(code: str | None) -> str:
-    """去掉 .SH/.SZ 后缀，返回纯数字代码。"""
+    """Normalize a stock identifier to a pure numeric code.
+
+    Handles ``000001.SH`` / ``sh600000`` / ``SZ000001`` and East Money ``secid``
+    like ``0.002594`` / ``1.600000``. Returns an empty string if the input is
+    not parseable as a numeric code.
+    """
     if not code:
         return ""
-    return (
-        str(code)
-        .replace(".SH", "")
-        .replace(".SZ", "")
-        .replace(".sh", "")
-        .replace(".sz", "")
-        .strip()
-    )
+    s = str(code).strip()
+    # Strip exchange suffixes (case-insensitive).
+    for marker in (".SH", ".SZ", ".BJ"):
+        s = s.replace(marker, "").replace(marker.lower(), "")
+    # Strip exchange prefixes (case-insensitive).
+    s = s.lower()
+    for prefix in ("sh", "sz", "bj"):
+        s = s.replace(prefix, "")
+    # East Money secid: ``market.code`` -> keep the numeric code part.
+    if "." in s:
+        s = s.split(".")[-1]
+    s = s.strip()
+    return s if s.isdigit() else ""
 
 
 def _build_watchlist_summary(
@@ -1748,7 +1753,11 @@ def stock_scanner(state: AgentState) -> AgentState:
         code = _pure_stock_code(w.get("code"))
         if code:
             codes_to_keep.add(code)
-    filtered = [q for q in all_quotes if _pure_stock_code(q.get("code")) in codes_to_keep]
+    filtered = [
+        q for q in all_quotes
+        if (_pure_stock_code(q.get("code")) in codes_to_keep)
+        or (_pure_stock_code(q.get("secid")) in codes_to_keep)
+    ]
     market_snapshot["quotes"] = filtered
     market_snapshot["_filtered_from"] = len(all_quotes)
 
