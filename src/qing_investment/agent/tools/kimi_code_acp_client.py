@@ -7,6 +7,7 @@ import re
 import shutil
 import subprocess
 import threading
+import time
 from typing import Any
 
 logger = logging.getLogger(__name__)
@@ -110,15 +111,29 @@ class KimiCodeAcpClient:
         with self._lock:
             req_id = self._next_id
             self._next_id += 1
-        event = threading.Event()
-        result_container: dict[str, Any] = {}
-        self._pending[req_id] = {"event": event, "result": result_container}
-        req = {"jsonrpc": "2.0", "id": req_id, "method": method, "params": params or {}}
+            event = threading.Event()
+            result_container: dict[str, Any] = {}
+            self._pending[req_id] = {"event": event, "result": result_container}
+            req = {"jsonrpc": "2.0", "id": req_id, "method": method, "params": params or {}}
         line = json.dumps(req, ensure_ascii=False)
         logger.debug("[KimiCodeAcpClient] send request: %s", line)
         self._child.stdin.write(f"{line}\n")
         self._child.stdin.flush()
-        if not event.wait(timeout=self.timeout):
+        # Wait for the response, but abort immediately if the subprocess or
+        # reader thread dies so we don't hang for the full timeout.
+        deadline = time.monotonic() + self.timeout
+        while not event.is_set():
+            if self._child is None or self._child.poll() is not None:
+                self._pending.pop(req_id, None)
+                raise KimiCodeAcpError("ACP subprocess died while waiting for response")
+            if self._reader_thread is None or not self._reader_thread.is_alive():
+                self._pending.pop(req_id, None)
+                raise KimiCodeAcpError("ACP reader thread exited while waiting for response")
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                break
+            event.wait(min(0.1, remaining))
+        if not event.is_set():
             self._pending.pop(req_id, None)
             raise KimiCodeAcpError(f"ACP request timeout: {method}")
         if "error" in result_container:
@@ -149,10 +164,11 @@ class KimiCodeAcpClient:
             except json.JSONDecodeError:
                 logger.debug("[KimiCodeAcpClient] ignoring non-JSON line: %s", line[:200])
                 continue
-            if "id" in msg and "method" not in msg:
-                # Response
+            if "id" in msg and "method" not in msg and ("result" in msg or "error" in msg):
+                # JSON-RPC response
                 req_id = msg["id"]
-                pending = self._pending.pop(req_id, None)
+                with self._lock:
+                    pending = self._pending.pop(req_id, None)
                 if pending is not None:
                     if "error" in msg:
                         pending["result"]["error"] = msg["error"]
