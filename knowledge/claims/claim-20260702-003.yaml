@@ -15,8 +15,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-038-c"]
-  last_discovered: 2026-07-02
+  supplements:
+  - claim-20260702-002-f
   related_stocks: []
   tags:
   - 指数分化
@@ -44,9 +44,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260623-005-b"]
-  supplements: ["claim-20260702-001-d", "claim-20260602-003-c"]
-  last_discovered: 2026-07-02
+  contradicts: []
+  supplements: []
   related_stocks:
   - code: '002409'
     name: 雅克科技
@@ -81,8 +80,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-003-d", "claim-20260625-003-g"]
-  last_discovered: 2026-07-02
+  supplements:
+  - claim-20260702-001-c
+  - claim-20260702-002-e
   related_stocks: []
   tags:
   - 半导体上游
@@ -110,9 +110,9 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260702-002-m"]
-  supplements: ["claim-20260702-001-e", "claim-20260610-015-a"]
-  last_discovered: 2026-07-02
+  contradicts: []
+  supplements:
+  - claim-20260702-001-e
   related_stocks: []
   tags:
   - 非科技
@@ -139,10 +139,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260608-004-a", "claim-20260602-003-a"]
+  supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-038-c"]
-  last_discovered: 2026-07-02
+  supplements: []
   related_stocks: []
   tags:
   - 恐慌释放
@@ -171,8 +170,7 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-001-l", "claim-20260616-001-c"]
-  last_discovered: 2026-07-02
+  supplements: []
   related_stocks: []
   tags:
   - ETF
@@ -199,10 +197,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260609-001-a", "claim-20260622-001-h"]
+  supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-k"]
-  last_discovered: 2026-07-02
+  supplements: []
   related_stocks: []
   tags:
   - 结构性抱团
