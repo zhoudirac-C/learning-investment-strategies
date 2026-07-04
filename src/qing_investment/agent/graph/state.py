@@ -58,6 +58,8 @@ class AgentState(TypedDict, total=False):
 
     # 分析层
     market_context: dict
+    # 拆分 market_analyst 后的中间状态：精简市场背景，供 stock_scanner 使用
+    market_summary_context: dict | None
     stock_analysis: dict
     draft_analysis: str
 
