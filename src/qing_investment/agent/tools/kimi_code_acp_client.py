@@ -29,6 +29,27 @@ class KimiCodeAcpError(Exception):
         self.message = message
 
 
+class KimiCodeAcpResponse:
+    """LangChain-compatible response wrapper."""
+
+    def __init__(self, content: str):
+        self.content = content
+
+    def __repr__(self) -> str:
+        return f"KimiCodeAcpResponse(content_len={len(self.content)})"
+
+
+class _TurnState:
+    """Per-session turn state used while waiting for finish."""
+
+    def __init__(self, session_id: str):
+        self.session_id = session_id
+        self.event = threading.Event()
+        self.chunks: list[str] = []
+        self.error: str | None = None
+        self.finished = False
+
+
 class KimiCodeAcpClient:
     """Kimi Code ACP client over stdio (JSON-RPC 2.0).
 
@@ -55,6 +76,8 @@ class KimiCodeAcpClient:
         self._lock = threading.Lock()
         self._reader_thread: threading.Thread | None = None
         self._shutdown = False
+        self._initialized = False
+        self._turns: dict[str, _TurnState] = {}
 
     # ------------------------------------------------------------------
     # Process lifecycle
@@ -184,5 +207,123 @@ class KimiCodeAcpClient:
         logger.info("[KimiCodeAcpClient] stdout reader exited")
 
     def _handle_notification(self, msg: dict[str, Any]) -> None:
-        """Stub for notifications; Task 2 fills this in."""
-        logger.debug("[KimiCodeAcpClient] notification ignored: %s", msg.get("method"))
+        method = msg.get("method")
+        if method != "session/update":
+            logger.debug("[KimiCodeAcpClient] ignoring notification: %s", method)
+            return
+        params = msg.get("params") or {}
+        session_id = params.get("sessionId")
+        update = params.get("update") or {}
+        update_type = update.get("sessionUpdate")
+        if not session_id or not update_type:
+            return
+        turn = self._turns.get(session_id)
+        if turn is None:
+            logger.debug("[KimiCodeAcpClient] no turn for session %s", session_id)
+            return
+        if update_type == "agent_message_chunk":
+            text = (update.get("content") or {}).get("text") or ""
+            turn.chunks.append(text)
+        elif update_type == "finish":
+            turn.finished = True
+            turn.event.set()
+        elif update_type == "error":
+            turn.error = (update.get("message") or "ACP turn error").strip() or "ACP turn error"
+            turn.event.set()
+
+    # ------------------------------------------------------------------
+    # Public API
+    # ------------------------------------------------------------------
+    def invoke(self, prompt: str) -> KimiCodeAcpResponse:
+        """Create a fresh ACP session, send one prompt, return aggregated text."""
+        if self._child is None:
+            self.start()
+        assert self._child is not None
+
+        # 1. Initialize and authenticate if not already done
+        if not self._initialized:
+            self._send_request("initialize", {
+                "protocolVersion": 1,
+                "clientInfo": {"name": "qing-agent-acp-client", "version": "0.1.0"},
+                "clientCapabilities": {"fs": {"readTextFile": False, "writeTextFile": False}, "terminal": False},
+            })
+            self._send_request("authenticate", {"methodId": "login"})
+            self._initialized = True
+
+        # 2. Create a fresh session
+        session_result = self._send_request("session/new", {"cwd": self.cwd, "mcpServers": []})
+        session_id = session_result.get("sessionId") if isinstance(session_result, dict) else None
+        if not session_id:
+            raise KimiCodeAcpError(f"ACP session/new returned no sessionId: {session_result}")
+
+        # 3. Set permission mode to avoid interactive approval requests
+        if self.permission_mode != "manual":
+            self._send_request("session/set_config_option", {
+                "sessionId": session_id,
+                "configId": "mode",
+                "value": self.permission_mode,
+            })
+
+        # 4. Register turn state before submitting prompt
+        turn = _TurnState(session_id)
+        self._turns[session_id] = turn
+
+        try:
+            # 5. Submit prompt
+            self._send_request("session/prompt", {
+                "sessionId": session_id,
+                "prompt": [{"type": "text", "text": prompt}],
+            })
+
+            # 6. Wait for finish
+            if not turn.event.wait(timeout=self.timeout):
+                raise KimiCodeAcpError(f"ACP turn timeout after {self.timeout}s")
+            if turn.error:
+                raise KimiCodeAcpError(turn.error)
+
+            content = "".join(turn.chunks)
+            cleaned = self._clean_output(content)
+            return KimiCodeAcpResponse(content=cleaned)
+        finally:
+            # 7. Best-effort cleanup
+            self._turns.pop(session_id, None)
+            try:
+                self._send_notification("session/close", {"sessionId": session_id})
+            except Exception as e:
+                logger.debug("[KimiCodeAcpClient] session/close failed: %s", e)
+
+    def _clean_output(self, text: str) -> str:
+        """Conservative output cleaning (same strategy as CLI client).
+
+        1. Strip ANSI escape codes.
+        2. Try to extract the first valid JSON object/array.
+        3. Otherwise return stripped text.
+        """
+        text = re.sub(r"\x1b\[[0-9;]*[a-zA-Z]", "", text)
+        text = text.strip()
+        # Try whole text as JSON
+        for candidate in (text, text.strip("`").lstrip("json").strip()):
+            try:
+                json.loads(candidate)
+                return candidate
+            except json.JSONDecodeError:
+                pass
+        # Try longest valid JSON substring
+        for start_char, end_char in (("{", "}"), ("[", "]")):
+            start = text.find(start_char)
+            if start == -1:
+                continue
+            for end in range(len(text), start, -1):
+                if text[end - 1] != end_char:
+                    continue
+                candidate = text[start:end]
+                try:
+                    parsed = json.loads(candidate)
+                    if isinstance(parsed, dict) and not parsed:
+                        continue
+                    if isinstance(parsed, list) and not parsed:
+                        continue
+                    return candidate
+                except json.JSONDecodeError:
+                    continue
+        return text
