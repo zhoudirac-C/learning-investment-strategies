@@ -13,9 +13,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
-  contradicts: []
-  supplements: []
+  supersedes: ["claim-20260625-003-a"]
+  contradicts: ["claim-20260617-038-c"]
+  supplements: ["claim-20260607-004-c"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 增量资金
@@ -44,7 +45,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260621-001-e", "claim-20260602-001-f"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 监管降温
@@ -71,10 +73,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
-  contradicts: []
-  supplements:
-  - claim-20260701-001-d
+  supersedes: ["claim-20260612-009-i"]
+  contradicts: ["claim-20260604-004-b"]
+  supplements: ["claim-20260629-004-q"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 半导体上游
@@ -103,7 +105,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260609-005-d", "claim-20260526-032", "claim-20260610-013-a"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 国产算力
@@ -131,8 +134,9 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260617-038-c", "claim-20260607-004-c", "claim-20260531-002-a"]
   supplements: []
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 非科技
@@ -161,7 +165,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260609-005-c", "claim-20260625-003-g"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 先进封装
@@ -191,6 +196,7 @@ claims:
   supersedes: []
   contradicts: []
   supplements: []
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - AIDC
@@ -221,6 +227,7 @@ claims:
   supersedes: []
   contradicts: []
   supplements: []
+  last_discovered: 2026-07-02
   related_stocks:
   - code: '603379'
     name: 三美股份
@@ -252,7 +259,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260625-003-g"]
+  last_discovered: 2026-07-02
   related_stocks:
   - code: '688535'
     name: 华海诚科
@@ -285,6 +293,7 @@ claims:
   supersedes: []
   contradicts: []
   supplements: []
+  last_discovered: 2026-07-02
   related_stocks:
   - code: '300085'
     name: 银之杰
@@ -316,9 +325,9 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: []
-  supplements:
-  - claim-20260701-001-d
+  contradicts: ["claim-20260604-004-a"]
+  supplements: ["claim-20260625-003-g"]
+  last_discovered: 2026-07-02
   related_stocks:
   - code: '688797'
     name: 臻宝科技
@@ -360,9 +369,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260426-001"]
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260625-002-b", "claim-20260612-002-e"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 减仓
@@ -391,7 +401,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: []
+  supplements: ["claim-20260609-005-f", "claim-20260622-004-d"]
+  last_discovered: 2026-07-02
   related_stocks: []
   tags:
   - 不赌

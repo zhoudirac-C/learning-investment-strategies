@@ -24,6 +24,10 @@ QING_AGENT_HEALTH_URL = os.environ.get("QING_AGENT_HEALTH_URL", "http://localhos
 QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "900"))
 QING_AGENT_MAX_RETRIES = int(os.environ.get("QING_AGENT_MAX_RETRIES", "2"))
 
+# 当 qing-agent 不可用时是否输出本地规则 fallback。设为 0/false/no 可关闭，避免大 context
+# 通过命令行传递时触发 "argument list too long" 或产生无意义的降级输出。
+QING_AGENT_FALLBACK_ENABLED = os.environ.get("QING_AGENT_FALLBACK_ENABLED", "1").lower() in ("1", "true", "yes", "on")
+
 # Cron job wrapper timeout (seconds) — must be >= QING_AGENT_TIMEOUT + 20s margin
 # to avoid the cron killing the script while it's still retrying.
 CRON_WRAPPER_TIMEOUT = float(os.environ.get("CRON_WRAPPER_TIMEOUT", "980"))  # 900s POST + 60s health + 20s margin
@@ -631,7 +635,13 @@ def main():
             print(f"\n[引用claims: {', '.join(response['claims_cited'])}]")
         return 0
 
-    # 4. Fallback: qing-agent unavailable or returned empty — print original text context
+    # 4. Fallback: qing-agent unavailable or returned empty
+    if not QING_AGENT_FALLBACK_ENABLED:
+        print("[Qing-Agent ✗ FALLBACK DISABLED] 本地规则输出已关闭，仅记录错误", file=sys.stderr)
+        # 清除 dedupe，让下一次调度可以重试
+        _remove_agent_trigger_dedupe(root, data)
+        return 0
+
     fallback_text = fetch_fallback_text_context(root, data)
     if not fallback_text:
         # Fallback also empty — this means the trigger was recorded in state but output failed.

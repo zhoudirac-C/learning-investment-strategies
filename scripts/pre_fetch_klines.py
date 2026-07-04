@@ -169,7 +169,6 @@ def main() -> int:
             if klines:
                 save_klines(code, klines)
                 success_count += 1
-                print(f"  ✅ {code}: {len(klines)} 根K线")
             elif last_error:
                 fail_count += 1
                 # 写入空标记，避免后续反复拉取同一只失败票
@@ -184,14 +183,6 @@ def main() -> int:
         # 批次间延迟（防东财限流）
         if i + BATCH_SIZE < total:
             time.sleep(DELAY_BETWEEN_BATCH)
-
-        # 进度报告
-        if batch_num % 5 == 0 or batch_num == total_batches:
-            progress = min(i + BATCH_SIZE, total)
-            print(
-                f"  ... 进度 {progress}/{total}"
-                f" (✅{success_count} ❌{fail_count} ⚠️{skip_count})"
-            )
 
     # === 标记完成 ===
     today = now_cn.strftime("%Y-%m-%d")
