@@ -70,6 +70,8 @@ def format_provider_usage_summary(records: list[dict] | None = None) -> str:
         seen.add(key)
         if provider == _KIMI_CODE_CLI_PROVIDER:
             label = "本地 Kimi Code CLI"
+        elif provider == _KIMI_CODE_ACP_PROVIDER:
+            label = "本地 Kimi Code ACP"
         else:
             label = f"远端 {provider}"
         if status == "success":
@@ -85,7 +87,12 @@ def format_provider_usage_summary(records: list[dict] | None = None) -> str:
     success_providers = [r["provider"] for r in records if r.get("status") == "success"]
     if success_providers:
         final = success_providers[-1]
-        final_label = "本地 Kimi Code CLI" if final == _KIMI_CODE_CLI_PROVIDER else f"远端 {final}"
+        if final == _KIMI_CODE_CLI_PROVIDER:
+            final_label = "本地 Kimi Code CLI"
+        elif final == _KIMI_CODE_ACP_PROVIDER:
+            final_label = "本地 Kimi Code ACP"
+        else:
+            final_label = f"远端 {final}"
         summary = f"模型路由：最终走 {final_label}"
         if len(parts) > 1:
             summary += " | 尝试: " + " → ".join(parts)
@@ -162,7 +169,7 @@ def get_llm_client(provider: str | None = None) -> Any:
     """根据配置的 provider 返回对应的 LLM 客户端。
 
     Args:
-        provider: 目标 provider，如 'kimi', 'deepseek', 'kimi-code-cli'。
+        provider: 目标 provider，如 'kimi', 'deepseek', 'kimi-code-cli', 'kimi-code-acp'。
             None 则使用 settings.llm_provider。
 
     Returns:

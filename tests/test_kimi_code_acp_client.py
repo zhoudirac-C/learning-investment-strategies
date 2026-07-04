@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from qing_investment.agent.tools.kimi_code_acp_client import KimiCodeAcpClient
+from qing_investment.agent.tools.kimi_code_acp_client import KimiCodeAcpClient, KimiCodeAcpError
 
 
 @pytest.fixture
@@ -154,11 +154,32 @@ def test_invoke_raises_on_subprocess_timeout(fake_acp_factory_with_notifications
     notifications = []  # never finish
     script = fake_acp_factory_with_notifications(responses, notifications)
     client = KimiCodeAcpClient(command=script, cwd="/tmp", timeout=1)
-    with pytest.raises(Exception):
+    with pytest.raises(KimiCodeAcpError):
         client.invoke("prompt")
 
 
 def test_start_raises_when_command_missing():
     client = KimiCodeAcpClient(command="/nonexistent/kimi-acp", cwd="/tmp")
-    with pytest.raises(Exception):
+    with pytest.raises(KimiCodeAcpError):
         client.start()
+
+
+def test_send_request_raises_when_subprocess_crashes(tmp_path):
+    """If the ACP subprocess exits after receiving a request but before
+    responding, _send_request should raise KimiCodeAcpError promptly."""
+    script_path = tmp_path / "fake_acp_crash.py"
+    script_path.write_text(
+        "#!/usr/bin/env python3\n"
+        "import sys\n"
+        "for line in sys.stdin:\n"
+        "    if line.strip():\n"
+        "        sys.exit(0)\n"
+    )
+    script_path.chmod(0o755)
+    client = KimiCodeAcpClient(command=str(script_path), cwd="/tmp", timeout=5)
+    client.start()
+    try:
+        with pytest.raises(KimiCodeAcpError):
+            client._send_request("initialize", {"protocolVersion": 1})
+    finally:
+        client.stop()

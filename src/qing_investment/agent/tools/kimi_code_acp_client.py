@@ -4,6 +4,7 @@ import json
 import logging
 import os
 import re
+import shlex
 import shutil
 import subprocess
 import threading
@@ -67,7 +68,8 @@ class KimiCodeAcpClient:
     ):
         self.command = command or os.environ.get("KIMI_CODE_ACP_COMMAND") or f"{_DEFAULT_CLI_PATH} acp"
         self.cwd = cwd or os.environ.get("KIMI_CODE_ACP_CWD") or _DEFAULT_CWD
-        self.timeout = timeout or int(os.environ.get("KIMI_CODE_ACP_TIMEOUT", str(_DEFAULT_TIMEOUT)))
+        timeout_env = os.environ.get("KIMI_CODE_ACP_TIMEOUT", "").strip()
+        self.timeout = timeout or int(timeout_env if timeout_env else str(_DEFAULT_TIMEOUT))
         self.permission_mode = permission_mode or os.environ.get("KIMI_CODE_ACP_PERMISSION_MODE", "yolo")
 
         self._child: subprocess.Popen | None = None
@@ -86,7 +88,7 @@ class KimiCodeAcpClient:
         """Start the ACP subprocess and begin reading stdout."""
         if self._child is not None:
             return
-        cmd_parts = self.command.split()
+        cmd_parts = shlex.split(self.command)
         resolved = shutil.which(cmd_parts[0])
         if not resolved:
             raise KimiCodeAcpError(f"ACP command not found: {cmd_parts[0]}")
@@ -97,7 +99,7 @@ class KimiCodeAcpClient:
             cwd=self.cwd,
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
             text=True,
             bufsize=1,
             env={**os.environ, "TERM": "dumb"},

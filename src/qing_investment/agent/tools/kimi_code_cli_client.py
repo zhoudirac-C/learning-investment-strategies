@@ -66,6 +66,9 @@ class KimiCodeCLIClient:
 
     # ── 公开方法 ──
 
+    def stop(self) -> None:
+        """No-op: the CLI client creates a one-shot subprocess per invoke()."""
+
     def invoke(self, prompt: str, **kwargs: Any) -> KimiCodeCLIResponse:
         """发一条 prompt，返回清洗后的 text 响应。
 

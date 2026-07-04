@@ -672,8 +672,8 @@ def _safe_llm_invoke(prompt: str, min_length: int = 0) -> str:
     for local_provider in local_providers:
         logger.info("[_safe_llm_invoke] 优先尝试 %s", local_provider)
         record_provider_usage(local_provider, "attempt", "local-first enabled")
+        local_llm = get_llm_client(provider=local_provider)
         try:
-            local_llm = get_llm_client(provider=local_provider)
             content = local_llm.invoke(prompt).content
             record_provider_usage(local_provider, "success", f"content_len={len(content)}")
             logger.info(
@@ -693,6 +693,11 @@ def _safe_llm_invoke(prompt: str, min_length: int = 0) -> str:
                 "[_safe_llm_invoke] %s 失败: %s, 将 fallback 到 %s",
                 local_provider, e, settings.llm_provider,
             )
+        finally:
+            try:
+                local_llm.stop()
+            except Exception:
+                pass
 
     # fallback / 直接走配置 provider
     logger.info("[_safe_llm_invoke] 调用配置 provider: %s", settings.llm_provider)
