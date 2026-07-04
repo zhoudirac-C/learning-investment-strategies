@@ -1322,6 +1322,73 @@ def _slim_market_snapshot_for_summary(market_snapshot: dict) -> dict:
     }
 
 
+_MAX_MARKET_SUMMARY_PROMPT_BYTES = 64000
+
+
+def _truncate_context_for_prompt(
+    context: dict,
+    non_context_bytes: int,
+    max_bytes: int = _MAX_MARKET_SUMMARY_PROMPT_BYTES,
+) -> tuple[dict, bool]:
+    """迭代压缩/丢弃低优先级上下文字段，直到 prompt 低于 max_bytes。
+
+    策略：优先截断列表型字段（每次取前一半），必要时清空单个字段；
+    按字段当前序列化大小从大到小处理，直到总 prompt 字节数合规。
+    返回 (context, was_truncated)。
+    """
+    truncated = dict(context)
+    was_truncated = False
+    # 低优先级在前：优先截断/丢弃
+    truncatable_fields = [
+        "memories",
+        "wiki_snippets",
+        "claims",
+        "sector_context",
+        "reasoning_patterns",
+        "framework_rules",
+    ]
+
+    for _ in range(100):
+        context_json = json.dumps(truncated, ensure_ascii=False, indent=2, default=str)
+        total_bytes = non_context_bytes + len(context_json.encode("utf-8"))
+        if total_bytes <= max_bytes:
+            return truncated, was_truncated
+
+        was_truncated = True
+        sizes = []
+        for field in truncatable_fields:
+            value = truncated.get(field)
+            if value:
+                field_bytes = len(
+                    json.dumps(value, ensure_ascii=False, default=str).encode("utf-8")
+                )
+                sizes.append((field_bytes, field))
+
+        if not sizes:
+            return truncated, was_truncated
+
+        sizes.sort(reverse=True)
+        field = sizes[0][1]
+        value = truncated[field]
+
+        if isinstance(value, list):
+            if len(value) > 1:
+                truncated[field] = value[: max(1, len(value) // 2)]
+            else:
+                truncated[field] = []
+        elif isinstance(value, dict):
+            keys = list(value.keys())
+            if len(keys) > 1:
+                truncated[field] = {k: value[k] for k in keys[: max(1, len(keys) // 2)]}
+            else:
+                truncated[field] = {}
+        else:
+            # 其他类型无法继续截断，跳过防止死循环
+            break
+
+    return truncated, was_truncated
+
+
 def market_summary(state: AgentState) -> AgentState:
     """市场/板块分析节点：只输出精简市场背景，不处理个股。"""
     logger = logging.getLogger(__name__)
@@ -1366,15 +1433,44 @@ def market_summary(state: AgentState) -> AgentState:
         "memories": state.get("memories", []),
     }
 
+    context_json = json.dumps(context, ensure_ascii=False, indent=2, default=str)
     prompt = f"""{prompt_template_filled}
 
 {state.get("_data_missing_note", "")}
 
 检索到的知识：
-{json.dumps(context, ensure_ascii=False, indent=2, default=str)}
+{context_json}
 
 请输出JSON：
 """
+    prompt_bytes = len(prompt.encode("utf-8"))
+    was_truncated = False
+    if prompt_bytes > _MAX_MARKET_SUMMARY_PROMPT_BYTES:
+        logger.warning(
+            "market_summary prompt exceeds %d bytes (%d bytes), truncating context fields",
+            _MAX_MARKET_SUMMARY_PROMPT_BYTES, prompt_bytes,
+        )
+        non_context_bytes = prompt_bytes - len(context_json.encode("utf-8"))
+        context, was_truncated = _truncate_context_for_prompt(
+            context, non_context_bytes, _MAX_MARKET_SUMMARY_PROMPT_BYTES
+        )
+        context["_truncated"] = True
+        context_json = json.dumps(context, ensure_ascii=False, indent=2, default=str)
+        prompt = f"""{prompt_template_filled}
+
+{state.get("_data_missing_note", "")}
+
+检索到的知识：
+{context_json}
+
+请输出JSON：
+"""
+        prompt_bytes = len(prompt.encode("utf-8"))
+        logger.warning(
+            "market_summary prompt after truncation: %d bytes (truncated=%s)",
+            prompt_bytes, was_truncated,
+        )
+
     content = _safe_llm_invoke(prompt)
     _t1 = time.time()
     logger.info(
@@ -1382,32 +1478,42 @@ def market_summary(state: AgentState) -> AgentState:
         _t1 - _t0, len(prompt), len(content) if content else 0
     )
 
-    import re as _re
-    cleaned_content = _re.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
+    cleaned_content = re.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
     try:
         result = json.loads(cleaned_content) if cleaned_content else {}
     except json.JSONDecodeError:
         result = {}
 
+    fallback = {
+        "market_summary": "",
+        "market_phase": "未配置",
+        "phase_reasoning": "LLM未返回结果或API未配置",
+        "main_themes": [],
+        "sector_map": {},
+        "themes_in_focus": [],
+        "index_discipline": {},
+        "volume_note": "",
+        "emotion_signals": {},
+        "risk_notes": "",
+        "citations": [],
+    }
     if not result:
-        result = {
-            "market_summary": "",
-            "market_phase": "未配置",
-            "phase_reasoning": "LLM未返回结果或API未配置",
-            "main_themes": [],
-            "sector_map": {},
-            "themes_in_focus": [],
-            "index_discipline": {},
-            "volume_note": "",
-            "emotion_signals": {},
-            "risk_notes": "",
-            "citations": [],
-        }
+        result = dict(fallback)
+    else:
+        for key, value in fallback.items():
+            if key not in result:
+                result[key] = value
+
+    if was_truncated:
+        result["_truncated"] = True
 
     # daily_state 提取留到 stock_scanner 合并写入
+    reasoning = f"市场总结: {result.get('market_phase', 'N/A')}"
+    if was_truncated:
+        reasoning += " (prompt truncated)"
     return {
         "market_summary_context": result,
-        "reasoning_steps": [f"市场总结: {result.get('market_phase', 'N/A')}"],
+        "reasoning_steps": [reasoning],
     }
 
 
