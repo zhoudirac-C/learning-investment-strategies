@@ -141,3 +141,24 @@ def test_invoke_aggregates_text_and_returns_response(fake_acp_factory_with_notif
         assert resp.content == "hello world"
     finally:
         client.stop()
+
+
+def test_invoke_raises_on_subprocess_timeout(fake_acp_factory_with_notifications):
+    """If ACP never sends finish, invoke should raise KimiCodeAcpError."""
+    responses = [
+        {"jsonrpc": "2.0", "id": 1, "result": {"protocolVersion": 1}},
+        {"jsonrpc": "2.0", "id": 2, "result": {}},
+        {"jsonrpc": "2.0", "id": 3, "result": {"sessionId": "s_timeout"}},
+        {"jsonrpc": "2.0", "id": 4, "result": {"stopReason": "done"}},
+    ]
+    notifications = []  # never finish
+    script = fake_acp_factory_with_notifications(responses, notifications)
+    client = KimiCodeAcpClient(command=script, cwd="/tmp", timeout=1)
+    with pytest.raises(Exception):
+        client.invoke("prompt")
+
+
+def test_start_raises_when_command_missing():
+    client = KimiCodeAcpClient(command="/nonexistent/kimi-acp", cwd="/tmp")
+    with pytest.raises(Exception):
+        client.start()
