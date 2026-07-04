@@ -89,7 +89,7 @@ class KimiCodeAcpClient:
         if self._child is not None:
             return
         cmd_parts = shlex.split(self.command)
-        resolved = shutil.which(cmd_parts[0])
+        resolved = shutil.which(os.path.expanduser(cmd_parts[0]))
         if not resolved:
             raise KimiCodeAcpError(f"ACP command not found: {cmd_parts[0]}")
         cmd_parts[0] = resolved

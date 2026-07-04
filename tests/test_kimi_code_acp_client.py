@@ -1,4 +1,3 @@
-import json
 from pathlib import Path
 
 import pytest
@@ -154,8 +153,11 @@ def test_invoke_raises_on_subprocess_timeout(fake_acp_factory_with_notifications
     notifications = []  # never finish
     script = fake_acp_factory_with_notifications(responses, notifications)
     client = KimiCodeAcpClient(command=script, cwd="/tmp", timeout=1)
-    with pytest.raises(KimiCodeAcpError):
-        client.invoke("prompt")
+    try:
+        with pytest.raises(KimiCodeAcpError):
+            client.invoke("prompt")
+    finally:
+        client.stop()
 
 
 def test_start_raises_when_command_missing():
