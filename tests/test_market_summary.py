@@ -7,9 +7,12 @@ from qing_investment.agent.graph.nodes import market_summary
 from qing_investment.agent.graph.state import AgentState
 
 
+ROOT = Path(__file__).resolve().parents[1]
+
+
 @pytest.fixture
 def sample_state(tmp_path) -> AgentState:
-    fixture = Path("tmp/agent_context_sample.json")
+    fixture = ROOT / "tmp" / "agent_context_sample.json"
     if not fixture.exists():
         pytest.skip("tmp/agent_context_sample.json not found")
     data = json.loads(fixture.read_text(encoding="utf-8"))

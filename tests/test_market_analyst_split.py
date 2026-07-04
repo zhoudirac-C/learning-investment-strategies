@@ -85,10 +85,17 @@ def test_stock_scanner_prompt_length():
     data = _load_sample()
     state = _build_state(data)
     state["market_summary_context"] = {
+        "market_summary": "test summary",
         "market_phase": "回暖期",
+        "phase_reasoning": "test reasoning",
         "main_themes": ["半导体"],
         "sector_map": {},
+        "themes_in_focus": ["半导体"],
+        "index_discipline": {},
+        "volume_note": "",
+        "emotion_signals": {},
         "risk_notes": "",
+        "citations": [],
     }
     captured = {}
 
@@ -101,3 +108,58 @@ def test_stock_scanner_prompt_length():
 
     assert "market_context" in result
     assert captured["prompt_len"] < 64000, f"prompt too long: {captured['prompt_len']}"
+
+    # Backward compatibility: market_context must expose the original
+    # market_analyst output schema keys.
+    required_keys = {
+        "market_summary",
+        "market_phase",
+        "phase_reasoning",
+        "main_themes",
+        "sector_map",
+        "themes_in_focus",
+        "index_discipline",
+        "volume_note",
+        "emotion_signals",
+        "risk_notes",
+        "citations",
+        "opportunity_scan",
+        "position_plans",
+    }
+    assert required_keys.issubset(set(result["market_context"].keys()))
+
+
+
+def test_stock_scanner_returns_degraded_context_on_bad_llm_output():
+    """LLM 输出不可解析或为空时，仍返回结构化 fallback 并标记 _scan_failed。"""
+    from qing_investment.agent.graph.nodes import stock_scanner
+
+    data = _load_sample()
+    state = _build_state(data)
+    state["market_summary_context"] = {
+        "market_summary": "test summary",
+        "market_phase": "回暖期",
+        "phase_reasoning": "test reasoning",
+        "main_themes": ["半导体"],
+        "sector_map": {"半导体": ["000001"]},
+        "themes_in_focus": ["半导体"],
+        "index_discipline": {},
+        "volume_note": "",
+        "emotion_signals": {},
+        "risk_notes": "",
+        "citations": [],
+    }
+
+    with patch(
+        "qing_investment.agent.graph.nodes._safe_llm_invoke",
+        lambda prompt, min_length=0: "this is not { valid json",
+    ):
+        result = stock_scanner(state)
+
+    ctx = result["market_context"]
+    assert ctx.get("_scan_failed") is True
+    assert ctx.get("opportunity_scan") == []
+    assert ctx.get("position_plans") == []
+    # 保留 market_summary_context 中的所有键
+    for key in state["market_summary_context"]:
+        assert key in ctx

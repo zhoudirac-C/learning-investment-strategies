@@ -1550,7 +1550,12 @@ def _build_watchlist_summary(
     _PRIORITY_SORT = {"P1": 0, "P1-核心": 0, "P2": 1, "P2-重点": 1, "P3": 2, "P3-观察": 2}
 
     def _is_mainboard(code: str) -> bool:
-        """判断是否为可交易的主板标的（sh6xxxxx / sz0xxxxx，排除300创业板+688科创板）。"""
+        """判断是否为可交易标的（仅排除仅作参考的 300 创业板与 688 科创板）。
+
+        实现上不过度限制交易所前缀，因此北京所（8xx/4xx）、可转债代码等也会被保留；
+        这些非主板标的后续会在投资组合层面由交易规则过滤，此处只负责把 300/688
+        标为 reference_stocks。
+        """
         pure = _pure_stock_code(code)
         if not pure:
             return False
@@ -1776,12 +1781,25 @@ def stock_scanner(state: AgentState) -> AgentState:
     )
 
     cleaned_content = re.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
+    scan_failed = False
     try:
         scan_result = json.loads(cleaned_content) if cleaned_content else {}
     except json.JSONDecodeError:
+        logger.warning(
+            "stock_scanner failed to parse LLM output as JSON (content_len=%d): %s...",
+            len(cleaned_content) if cleaned_content else 0,
+            cleaned_content[:200] if cleaned_content else "",
+        )
         scan_result = {}
+        scan_failed = True
 
-    # 合并 market_summary 的输出
+    if not scan_result:
+        logger.warning(
+            "stock_scanner received empty scan_result; returning degraded market_context"
+        )
+        scan_failed = True
+
+    # 合并 market_summary 的输出；保留全部 market_summary_context 键并补齐个股相关键
     full_market_context = dict(market_summary_ctx)
     full_market_context.setdefault("opportunity_scan", scan_result.get("opportunity_scan", []))
     full_market_context.setdefault("position_plans", scan_result.get("position_plans", []))
@@ -1789,6 +1807,9 @@ def stock_scanner(state: AgentState) -> AgentState:
     if not scan_result:
         full_market_context["opportunity_scan"] = []
         full_market_context["position_plans"] = []
+
+    if scan_failed:
+        full_market_context["_scan_failed"] = True
 
     if was_truncated:
         full_market_context["_truncated"] = True

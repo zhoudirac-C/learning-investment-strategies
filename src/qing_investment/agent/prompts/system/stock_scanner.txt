@@ -4,7 +4,7 @@
 2. position_plans：每只持仓的具体操作计划
 
 【市场背景】
-{market_summary_context}
+以下上下文字段中的 `market_summary_context` 已包含当前市场总结，请直接使用该 JSON 对象。
 
 【输入数据说明】
 - positions: 当前持仓（含成本、现价、股数、止损/减仓条件）
