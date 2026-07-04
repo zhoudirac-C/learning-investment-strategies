@@ -646,11 +646,11 @@ def _load_reasoning_patterns(state: AgentState) -> list[dict]:
 
 
 def _safe_llm_invoke(prompt: str, min_length: int = 0) -> str:
-    """安全调用 LLM，默认优先走本地 Kimi Code CLI，失败/超时后 fallback 到配置 provider。
+    """安全调用 LLM，默认走配置 provider，可通过环境变量显式开启本地 Kimi Code CLI。
 
     通过环境变量 KIMI_CODE_CLI_FIRST 控制是否优先本地：
-    - unset / 1 / true：优先本地
-    - 0 / false：直接走配置 provider
+    - unset / 0 / false：直接走配置 provider（默认）
+    - 1 / true：优先本地
 
     Args:
         prompt: 发送给 LLM 的提示。
@@ -659,7 +659,7 @@ def _safe_llm_invoke(prompt: str, min_length: int = 0) -> str:
     """
     import os
 
-    use_local_first = os.environ.get("KIMI_CODE_CLI_FIRST", "1").lower() not in ("0", "false", "no")
+    use_local_first = os.environ.get("KIMI_CODE_CLI_FIRST", "0").lower() not in ("0", "false", "no")
 
     if use_local_first:
         logger.info("[_safe_llm_invoke] 优先尝试本地 Kimi Code CLI")
