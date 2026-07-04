@@ -1540,6 +1540,9 @@ def _build_watchlist_summary(
 ) -> tuple[list[dict], list[dict]]:
     """构建观察池摘要，区分可交易主板标的与仅作参考的非主板标的。
 
+    positions 和 market_snapshot 为保留参数，用于未来扩展（例如将持仓与观察池交叉校验），
+    当前仅保留以匹配调用签名。
+
     返回 (watchlist_summary, reference_stocks)。
     """
     watchlist_summary: list[dict] = []
@@ -1615,29 +1618,59 @@ def _normalize_positions(positions):
 
 
 def _normalize_watchlist(watchlist):
-    """兼容 watchlist 为 {themes: [{stocks: [...]}]} 或股票列表两种形态。"""
+    """Normalize watchlist from multiple shapes into a flat list of stock dicts.
+
+    Supported shapes:
+    - list of stock dicts (each has ``code``): returned as-is.
+    - dict with ``"themes"``: flatten ``theme["stocks"]`` and inherit ``theme`` name.
+    - dict with ``"stocks"``: return that list directly.
+    - list of themes or mixed themes/stocks: flatten theme stocks and keep standalone stocks.
+    - empty/unsupported inputs: return ``[]``.
+    """
+    if not watchlist:
+        return []
+
     if isinstance(watchlist, dict):
-        stocks: list[dict] = []
-        for theme in watchlist.get("themes", []) or []:
-            theme_name = theme.get("name", "")
-            for s in theme.get("stocks", []) or []:
-                item = dict(s)
-                if not item.get("theme"):
-                    item["theme"] = theme_name
-                stocks.append(item)
-        return stocks
-    if isinstance(watchlist, list):
-        if watchlist and "stocks" in watchlist[0]:
-            stocks = []
-            for theme in watchlist:
+        if "themes" in watchlist:
+            stocks: list[dict] = []
+            for theme in watchlist.get("themes") or []:
+                if not isinstance(theme, dict):
+                    continue
                 theme_name = theme.get("name", "")
-                for s in theme.get("stocks", []) or []:
+                for s in theme.get("stocks") or []:
+                    if not isinstance(s, dict):
+                        continue
                     item = dict(s)
                     if not item.get("theme"):
                         item["theme"] = theme_name
                     stocks.append(item)
             return stocks
-        return watchlist
+        if "stocks" in watchlist:
+            return list(watchlist.get("stocks") or [])
+        return []
+
+    if isinstance(watchlist, list):
+        # If every element already looks like a stock, keep the list unchanged.
+        if all(isinstance(w, dict) and "code" in w for w in watchlist):
+            return watchlist
+        # Otherwise treat it as a list of themes, a mixed list, or a malformed list.
+        stocks: list[dict] = []
+        for item in watchlist:
+            if not isinstance(item, dict):
+                continue
+            if "stocks" in item:
+                theme_name = item.get("name", "")
+                for s in item.get("stocks") or []:
+                    if not isinstance(s, dict):
+                        continue
+                    stock_item = dict(s)
+                    if not stock_item.get("theme"):
+                        stock_item["theme"] = theme_name
+                    stocks.append(stock_item)
+            elif "code" in item:
+                stocks.append(dict(item))
+        return stocks
+
     return []
 
 
@@ -1742,8 +1775,7 @@ def stock_scanner(state: AgentState) -> AgentState:
         _t1 - _t0, len(prompt), len(content) if content else 0
     )
 
-    import re as _re
-    cleaned_content = _re.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
+    cleaned_content = re.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
     try:
         scan_result = json.loads(cleaned_content) if cleaned_content else {}
     except json.JSONDecodeError:
