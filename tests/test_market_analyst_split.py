@@ -1,10 +1,17 @@
 import json
 import sys
 from pathlib import Path
+from unittest.mock import patch
 
 import pytest
 
-ROOT = Path("/home/ubuntu/learning-investment-strategies/.worktrees/feat-split-market-analyst")
+ROOT = Path(__file__).resolve().parents[1]
+
+# The agent config module triggers a Pydantic V2 deprecation warning that is
+# unrelated to the regression tests below; suppress it so the pytest run is clean.
+pytestmark = pytest.mark.filterwarnings(
+    "ignore::pydantic.warnings.PydanticDeprecatedSince20"
+)
 
 
 def _load_sample():
@@ -35,9 +42,19 @@ def _build_state(data: dict) -> dict:
     }
 
 
+@pytest.fixture(scope="session", autouse=True)
+def _add_src_to_path():
+    """Ensure the local `src` package is importable regardless of checkout path."""
+    src = str(ROOT / "src")
+    if src not in sys.path:
+        sys.path.insert(0, src)
+    yield
+    sys.path.remove(src)
+
+
 def test_graph_has_new_nodes():
-    sys.path.insert(0, str(ROOT / "src"))
     from qing_investment.agent.graph.builder import build_graph
+
     g = build_graph()
     assert "market_summary" in g.nodes
     assert "stock_scanner" in g.nodes
@@ -45,30 +62,26 @@ def test_graph_has_new_nodes():
 
 
 def test_market_summary_prompt_length():
-    sys.path.insert(0, str(ROOT / "src"))
     from qing_investment.agent.graph.nodes import market_summary
+
     data = _load_sample()
     state = _build_state(data)
-    # smoke: ensure function runs without LLM call by patching if needed
-    # For now just assert the prompt construction does not explode
-    import qing_investment.agent.graph.nodes as nodes
-    original_invoke = nodes._safe_llm_invoke
     captured = {}
+
     def fake_invoke(prompt, min_length=0):
         captured["prompt_len"] = len(prompt)
         return json.dumps({"market_phase": "回暖期", "main_themes": []})
-    nodes._safe_llm_invoke = fake_invoke
-    try:
+
+    with patch("qing_investment.agent.graph.nodes._safe_llm_invoke", fake_invoke):
         result = market_summary(state)
-        assert "market_summary_context" in result
-        assert captured["prompt_len"] < 64000, f"prompt too long: {captured['prompt_len']}"
-    finally:
-        nodes._safe_llm_invoke = original_invoke
+
+    assert "market_summary_context" in result
+    assert captured["prompt_len"] < 64000, f"prompt too long: {captured['prompt_len']}"
 
 
 def test_stock_scanner_prompt_length():
-    sys.path.insert(0, str(ROOT / "src"))
     from qing_investment.agent.graph.nodes import stock_scanner
+
     data = _load_sample()
     state = _build_state(data)
     state["market_summary_context"] = {
@@ -77,16 +90,14 @@ def test_stock_scanner_prompt_length():
         "sector_map": {},
         "risk_notes": "",
     }
-    import qing_investment.agent.graph.nodes as nodes
-    original_invoke = nodes._safe_llm_invoke
     captured = {}
+
     def fake_invoke(prompt, min_length=0):
         captured["prompt_len"] = len(prompt)
         return json.dumps({"opportunity_scan": [], "position_plans": []})
-    nodes._safe_llm_invoke = fake_invoke
-    try:
+
+    with patch("qing_investment.agent.graph.nodes._safe_llm_invoke", fake_invoke):
         result = stock_scanner(state)
-        assert "market_context" in result
-        assert captured["prompt_len"] < 64000, f"prompt too long: {captured['prompt_len']}"
-    finally:
-        nodes._safe_llm_invoke = original_invoke
+
+    assert "market_context" in result
+    assert captured["prompt_len"] < 64000, f"prompt too long: {captured['prompt_len']}"
