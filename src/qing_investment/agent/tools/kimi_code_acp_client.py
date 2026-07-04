@@ -123,6 +123,9 @@ class KimiCodeAcpClient:
                 logger.warning("[KimiCodeAcpClient] error stopping subprocess: %s", e)
         if self._reader_thread is not None:
             self._reader_thread.join(timeout=5)
+        # Reset so the next invoke() on this instance re-initializes the
+        # new subprocess instead of assuming the old handshake is still valid.
+        self._initialized = False
 
     # ------------------------------------------------------------------
     # JSON-RPC primitives
@@ -299,7 +302,7 @@ class KimiCodeAcpClient:
         2. Try to extract the first valid JSON object/array.
         3. Otherwise return stripped text.
         """
-        text = re.sub(r"\x1b\[[0-9;]*[a-zA-Z]", "", text)
+        text = _ANSI_ESCAPE_RE.sub("", text)
         text = text.strip()
         # Try whole text as JSON
         for candidate in (text, text.strip("`").lstrip("json").strip()):

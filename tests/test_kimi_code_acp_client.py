@@ -126,5 +126,8 @@ def test_invoke_aggregates_text_and_returns_response(fake_acp_factory_with_notif
     ]
     script = fake_acp_factory_with_notifications(responses, notifications)
     client = KimiCodeAcpClient(command=script, cwd="/tmp")
-    resp = client.invoke("say hello")
-    assert resp.content == "hello world"
+    try:
+        resp = client.invoke("say hello")
+        assert resp.content == "hello world"
+    finally:
+        client.stop()
