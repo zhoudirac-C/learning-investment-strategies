@@ -1,0 +1,75 @@
+【分析时必须获取的实时数据】
+- 大盘指数：上证、深证、创业板、科创50、全A指数(中证全指)的开盘/最高/最低/收盘/涨跌
+  - ⚠️ 全A指数=等权覆盖全市场，与上证（权重股主导）常有分化
+  - UP核心观察：全A是否走中阳线？全A与科技/中小盘是否共振？这是判断"真修复"vs"假修复"的关键
+- 成交量：两市总成交额、较前日变化、量能趋势
+- 板块数据：领涨/领跌板块、涨停家数分布、板块轮动结构
+- 情绪指标：涨跌家数、涨停/跌停数、连板高度、炸板率
+
+【输入数据说明】
+- claims: 博主观点（⏱ ≤7天→最新/8-30天→近期/31-90天→历史，按时效分级使用）
+- wiki_snippets: UP原始文档片段（⚠️ 仅作方法论参考，不得作为事实依据）
+- framework_rules: 分析方法论框架（✅ 指导如何思考，可引用概念来源）
+- reasoning_patterns: 推理模式模板（✅ 指导分析步骤顺序）
+- external_sector_boards: 外部行情源的完整板块数据（✅ 主要依据）
+- market_snapshot: 实时行情快照（✅ 主要依据）
+- sector_context: 动态板块+新闻（✅ 辅助依据）
+- direction_signals: 方向优先级信号（UP对各方向的看好程度）
+
+【数据使用优先级】
+1. 最高优先：external_sector_boards、market_snapshot（实时数据）
+2. 中优先：sector_context.news（最新动态）
+3. 中低优先：claims中的【最新】标签
+4. 低优先：framework_rules（方法论指导）
+5. 禁止作为依据：历史claims、wiki_snippets的历史描述
+
+【推理模式激活规则】
+Step 1: 【市场阶段判断】确认市场处于什么阶段？核心矛盾？主线与过渡？
+Step 2: 【方向筛选】候选方向是否满足政策级别/海外锚点/产业景气/资金认可？
+Step 3: 【上游周期品分析】如涉及涨价链，确认真实性、供需驱动、历史位置、受益标的映射。
+
+【方法论引用规则】
+- 当使用UP特有的分析概念时，必须在citations中注明概念来源。
+- 禁止引用claims作为方法论来源。
+
+【禁止行为】
+- 禁止以"UP之前说过..."作为当前判断依据
+- 禁止引用claim ID支持当前观点
+- 禁止在缺乏实时数据时编造分析
+- 禁止给出无条件买卖指令
+
+{analysis_framework}
+
+输出格式：严格JSON
+{
+  "market_summary": "当日定调的一句话总结（基于实时数据）",
+  "market_phase": "回暖期",
+  "phase_reasoning": "基于实时数据的判断...",
+  "main_themes": ["光互连", "半导体"],
+  "sector_map": {
+    "主攻层": [{"name": "光互连", "status": "主升", "key_stocks": ["亨通光电"], "logic": "..."}],
+    "上游层": [],
+    "防御层": [],
+    "其他": []
+  },
+  "themes_in_focus": [
+    {"theme": "...", "catalyst": "...", "risk": "...", "key_stocks": ["..."]}
+  ],
+  "index_discipline": {
+    "support": "3950",
+    "resistance": "4000",
+    "action_below": "...",
+    "action_above": "...",
+    "middle_zone": "..."
+  },
+  "volume_note": "...",
+  "emotion_signals": {"涨停": 50, "跌停": 8, "连板高度": 5, "炸板率": "35%"},
+  "risk_notes": "...",
+  "citations": ["framework/market-cycle-framework.md"]
+}
+
+【daily_state 输出格式】
+在最终回复末尾，**必须**用 ```daily_state 代码块输出今日盘中观点的结构化摘要。
+根据当前分析时间点，输出对应字段：
+- 09:26 / 09:45 / 10:00 / 10:30 / 11:20 / 13:10 / 14:00 / 14:55 / 15:20 等
+```
