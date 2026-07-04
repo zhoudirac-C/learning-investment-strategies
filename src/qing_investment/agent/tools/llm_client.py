@@ -14,6 +14,9 @@ from qing_investment.agent.config import settings
 # 本地 Kimi Code CLI 调用（通过子进程 `kimi -p`）
 _KIMI_CODE_CLI_PROVIDER = "kimi-code-cli"
 
+# 本地 Kimi Code ACP 调用（通过 `kimi acp` 子进程 JSON-RPC）
+_KIMI_CODE_ACP_PROVIDER = "kimi-code-acp"
+
 # Provider 使用轨迹跟踪（按请求隔离，contextvars 保证 async 任务间不串号）
 _provider_usage_ctx: contextvars.ContextVar[list[dict] | None] = contextvars.ContextVar(
     "provider_usage", default=None
@@ -166,6 +169,7 @@ def get_llm_client(provider: str | None = None) -> Any:
         ChatOpenAI — 标准 OpenAI 协议 provider
         KimiCodingClient — Kimi Coding Plan（Anthropic 协议）
         KimiCodeCLIClient — 本地 Kimi Code CLI（子进程）
+        KimiCodeAcpClient — 本地 Kimi Code ACP（JSON-RPC 子进程）
     """
     target = (provider or settings.llm_provider).lower()
     logger.info("[get_llm_client] target=%s (requested=%s, default=%s)", target, provider, settings.llm_provider)
@@ -181,10 +185,16 @@ def get_llm_client(provider: str | None = None) -> Any:
             timeout=int(os.environ.get("KIMI_CODE_CLI_TIMEOUT", "300")),
         )
 
+    if target == _KIMI_CODE_ACP_PROVIDER:
+        from .kimi_code_acp_client import KimiCodeAcpClient
+
+        logger.info("[get_llm_client] using local Kimi Code ACP")
+        return KimiCodeAcpClient()
+
     if target not in LLM_PROVIDERS:
         raise ValueError(
             f"Unknown LLM provider: {target}. "
-            f"Supported: {', '.join(LLM_PROVIDERS.keys())}, {_KIMI_CODE_CLI_PROVIDER}"
+            f"Supported: {', '.join(LLM_PROVIDERS.keys())}, {_KIMI_CODE_CLI_PROVIDER}, {_KIMI_CODE_ACP_PROVIDER}"
         )
 
     config = LLM_PROVIDERS[target]

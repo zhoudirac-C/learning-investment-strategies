@@ -93,6 +93,16 @@ def test_send_request_receives_response(fake_acp_factory):
         client.stop()
 
 
+def test_get_llm_client_returns_acp_client(monkeypatch):
+    """get_llm_client(provider='kimi-code-acp') returns a KimiCodeAcpClient."""
+    from qing_investment.agent.tools.llm_client import get_llm_client, _KIMI_CODE_ACP_PROVIDER
+    from qing_investment.agent.tools.kimi_code_acp_client import KimiCodeAcpClient
+
+    monkeypatch.setenv("KIMI_CODE_ACP_COMMAND", "echo")
+    client = get_llm_client(provider=_KIMI_CODE_ACP_PROVIDER)
+    assert isinstance(client, KimiCodeAcpClient)
+
+
 def test_invoke_aggregates_text_and_returns_response(fake_acp_factory_with_notifications):
     """Fake ACP returns two agent_message_chunk updates then finish."""
     responses = [
