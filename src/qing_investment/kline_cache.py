@@ -95,6 +95,31 @@ def init_db(db_path: Path | None = None) -> None:
 
             CREATE INDEX IF NOT EXISTS idx_financial_reports_code_date
                 ON financial_reports(code, report_date);
+
+            CREATE TABLE IF NOT EXISTS index_klines (
+                code       TEXT NOT NULL,
+                timeframe  TEXT NOT NULL,
+                bar_time   TEXT NOT NULL,
+                open       REAL,
+                high       REAL,
+                low        REAL,
+                close      REAL,
+                volume     REAL,
+                amount     REAL,
+                dif        REAL,
+                dea        REAL,
+                macd_hist  REAL,
+                updated_at TEXT,
+                PRIMARY KEY (code, timeframe, bar_time)
+            );
+
+            CREATE INDEX IF NOT EXISTS idx_index_klines_code_tf
+                ON index_klines(code, timeframe);
+
+            CREATE TABLE IF NOT EXISTS index_klines_meta (
+                key   TEXT PRIMARY KEY,
+                value TEXT
+            );
             """
         )
         conn.commit()

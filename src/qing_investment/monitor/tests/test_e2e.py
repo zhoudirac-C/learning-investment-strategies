@@ -649,9 +649,11 @@ class TestPipeline:
         now = datetime.now(_CN_TZ)
         assert isinstance(is_a_share_trading_time(now), bool)
 
-    def test_phase5_scheduler_with_concurrent(self, mock_config, mock_quote_snapshot):
-        """Phase 5: run_tick(use_concurrent_fetcher=True) 集成。"""
+    def test_phase5_scheduler_with_concurrent(self, mock_config, mock_quote_snapshot, monkeypatch):
+        """Phase 5: run_tick(use_concurrent_fetcher=True) 集成，行情完全 mock。"""
         from qing_investment.monitor.scheduler import run_tick
+        from qing_investment.monitor.fetchers import ConcurrentDataFetcher
+
         with tempfile.TemporaryDirectory() as tmpdir:
             state_file = Path(tmpdir) / "state.json"
             state_file.write_text("{}", encoding="utf-8")
@@ -665,8 +667,17 @@ class TestPipeline:
                 entry_points = mock_config.get("entry_points", [])
                 market_framework = mock_config.get("market_framework", {})
                 sector_groups = mock_config.get("sector_groups", [])
+                direction_pool = {"directions": []}
+                stock_pool = {"stocks": []}
 
             config = MockMonitorConfig()
+
+            # Mock 并发行情拉取：返回本地快照，绝不访问网络
+            def mock_fetch_all_sources(_self, _config, *, include_dragon_tiger=False, include_auction=False):
+                return {"quotes": mock_quote_snapshot}
+
+            monkeypatch.setattr(ConcurrentDataFetcher, "fetch_all_sources", mock_fetch_all_sources)
+
             now = datetime.now(_CN_TZ)
             result = run_tick(
                 config, now,
@@ -688,7 +699,7 @@ class TestLive:
     def test_live_fetch_quotes(self):
         from qing_investment.monitor.fetchers import fetch_quotes
         result = fetch_quotes({"平安银行": "0.000001", "贵州茅台": "1.600519"})
-        assert result["source"] in ("eastmoney", "tencent", "sina", "none")
+        assert result["source"] in ("eastmoney", "tencent", "tencent_gtimg", "sina", "none")
         assert "quotes" in result
 
     def test_live_concurrent_fetch(self):
