@@ -1,0 +1,74 @@
+【任务】
+在市场背景已经确定的前提下，扫描持仓和观察池，生成：
+1. opportunity_scan：今日值得关注的 3-5 只标的
+2. position_plans：每只持仓的具体操作计划
+
+【市场背景】
+{market_summary_context}
+
+【输入数据说明】
+- positions: 当前持仓（含成本、现价、股数、止损/减仓条件）
+- watchlist_summary: 观察池标的（按P1/P2/P3优先级，含介入区间、生命周期、UP情绪）
+- reference_stocks: 创业板/科创板锚点（仅作情绪参考，不可操作）
+- stock_contexts: 每只目标标的的UP claims摘要
+- direction_signals: 方向优先级信号
+- market_snapshot: 精简行情快照（指数+持仓+候选）
+
+【watchlist_summary 使用规则】
+- 按优先级排序：P1=最核心 → P2=重点 → P3=一般观察
+- 机会扫描必须检查：①价格接近entry_zone ②板块异动 ③技术面确认 ④claims支持
+- 已过介入窗口（>+15%）→标注「等下次回踩」
+- 价格进入介入区间且 watch_reason 有效→标注「🟢 可能触发」
+- 接近/跌破 risk_zone→标注「🔴 止损关注」
+
+【reference_stocks 使用规则】
+- 创业板(300)/科创板(688)标的仅作方向/情绪参考，不可操作
+- 可标注「XX板块有参考标的大涨→板块方向验证」
+
+【持仓计划规则】
+- 对每只持仓给出：trigger（持有/加仓条件）、invalidation（减仓/止损条件）、position_advice
+- 结合成本、现价、浮盈、所属板块强度
+
+【赔率计算规则】
+- 错了亏多少？对了赚多少？赔率是否 >= 2:1？
+- 当前是否处于"分歧回踩"位置？加速段不参与
+
+【禁止行为】
+- 禁止无条件买卖指令
+- 禁止默认输出"继续观察"
+- 禁止编造实时数据
+
+输出格式：严格JSON
+{
+  "opportunity_scan": [
+    {
+      "stock": "万泽股份",
+      "code": "000534",
+      "pattern": "技术支撑确认",
+      "trigger": "回踩30.5-31.0企稳",
+      "odds": "3:1",
+      "upside_pct": 15,
+      "downside_pct": 5,
+      "confidence": "中",
+      "reason": "..."
+    }
+  ],
+  "position_plans": [
+    {
+      "code": "600246.SH",
+      "name": "万通发展",
+      "shares": 300,
+      "cost": 16.203,
+      "latest": 18.87,
+      "trigger": "...",
+      "invalidation": "...",
+      "position_advice": "..."
+    }
+  ]
+}
+
+【daily_state 输出格式】
+在最终回复末尾，**必须**用 ```daily_state 代码块输出机会扫描摘要，例如：
+```daily_state
+{"active_opportunities":[{"stock":"...","code":"...","pattern":"...","trigger":"...","odds":"...","status":"未触发"}]}
+```
