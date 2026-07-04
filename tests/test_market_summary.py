@@ -97,6 +97,7 @@ def test_market_summary_returns_fallback_on_unparseable_response(
         "phase_reasoning",
         "main_themes",
         "sector_map",
+        "sector_strength",
         "themes_in_focus",
         "index_discipline",
         "volume_note",
@@ -120,6 +121,7 @@ def test_market_summary_merges_partial_response(sample_state, monkeypatch):
     assert ctx.get("market_phase") == "上升期"
     assert ctx.get("main_themes") == []
     assert ctx.get("sector_map") == {}
+    assert ctx.get("sector_strength") == {}
     assert ctx.get("citations") == []
 
 
