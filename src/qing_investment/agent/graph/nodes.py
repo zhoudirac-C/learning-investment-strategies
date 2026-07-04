@@ -1329,6 +1329,7 @@ def _truncate_context_for_prompt(
     context: dict,
     non_context_bytes: int,
     max_bytes: int = _MAX_MARKET_SUMMARY_PROMPT_BYTES,
+    truncatable_fields: list[str] | None = None,
 ) -> tuple[dict, bool]:
     """迭代压缩/丢弃低优先级上下文字段，直到 prompt 低于 max_bytes。
 
@@ -1339,14 +1340,15 @@ def _truncate_context_for_prompt(
     truncated = dict(context)
     was_truncated = False
     # 低优先级在前：优先截断/丢弃
-    truncatable_fields = [
-        "memories",
-        "wiki_snippets",
-        "claims",
-        "sector_context",
-        "reasoning_patterns",
-        "framework_rules",
-    ]
+    if truncatable_fields is None:
+        truncatable_fields = [
+            "memories",
+            "wiki_snippets",
+            "claims",
+            "sector_context",
+            "reasoning_patterns",
+            "framework_rules",
+        ]
 
     for _ in range(100):
         context_json = json.dumps(truncated, ensure_ascii=False, indent=2, default=str)
@@ -1517,6 +1519,256 @@ def market_summary(state: AgentState) -> AgentState:
     }
 
 
+def _pure_stock_code(code: str | None) -> str:
+    """去掉 .SH/.SZ 后缀，返回纯数字代码。"""
+    if not code:
+        return ""
+    return (
+        str(code)
+        .replace(".SH", "")
+        .replace(".SZ", "")
+        .replace(".sh", "")
+        .replace(".sz", "")
+        .strip()
+    )
+
+
+def _build_watchlist_summary(
+    watchlist_raw: list[dict],
+    positions: list[dict],
+    market_snapshot: dict,
+) -> tuple[list[dict], list[dict]]:
+    """构建观察池摘要，区分可交易主板标的与仅作参考的非主板标的。
+
+    返回 (watchlist_summary, reference_stocks)。
+    """
+    watchlist_summary: list[dict] = []
+    reference_stocks: list[dict] = []
+    _PRIORITY_SORT = {"P1": 0, "P1-核心": 0, "P2": 1, "P2-重点": 1, "P3": 2, "P3-观察": 2}
+
+    def _is_mainboard(code: str) -> bool:
+        """判断是否为可交易的主板标的（sh6xxxxx / sz0xxxxx，排除300创业板+688科创板）。"""
+        pure = _pure_stock_code(code)
+        if not pure:
+            return False
+        if pure.startswith("688"):
+            return False
+        if pure.startswith("300"):
+            return False
+        return True
+
+    for w_item in watchlist_raw or []:
+        entry_info_parts = []
+        price_range = w_item.get("entry_price_range") or ""
+        if price_range:
+            entry_info_parts.append(f"介入区间:{price_range}")
+        hs = w_item.get("entry_hard_stop") or ""
+        if hs:
+            entry_info_parts.append(f"止损:{hs}")
+        entry_info = " ".join(entry_info_parts)
+
+        lifecycle = w_item.get("lifecycle_stage") or "观察"
+        code = w_item.get("code", "")
+        priority = w_item.get("priority", "P3")
+        sort_key = _PRIORITY_SORT.get(priority, 99)
+
+        item = {
+            "code": code,
+            "name": w_item.get("name", ""),
+            "priority": priority,
+            "sort_key": sort_key,
+            "theme": w_item.get("theme", ""),
+            "segment": w_item.get("segment", ""),
+            "role": w_item.get("role", ""),
+            "lifecycle": lifecycle,
+            "entry_info": entry_info,
+            "latest": w_item.get("latest"),
+            "pct_change": w_item.get("pct_change"),
+            "watch_reason_short": (w_item.get("watch_reason") or "")[:80],
+            "reduce_zone": w_item.get("reduce_zone_desc", ""),
+            "risk_zone": w_item.get("risk_zone_desc", ""),
+            "up_sentiment": w_item.get("up_sentiment", ""),
+        }
+
+        if _is_mainboard(code):
+            watchlist_summary.append(item)
+        else:
+            item["priority"] = "P4-锚点"
+            item["sort_key"] = 3
+            reference_stocks.append(item)
+
+    watchlist_summary.sort(key=lambda x: x["sort_key"])
+    reference_stocks.sort(key=lambda x: x["sort_key"])
+    return watchlist_summary, reference_stocks
+
+
+def _normalize_positions(positions):
+    """兼容 positions 为 {accounts: [...]} 或列表两种形态。"""
+    if isinstance(positions, dict):
+        flat: list[dict] = []
+        for acc in positions.get("accounts", []) or []:
+            flat.extend(acc.get("positions", []) or [])
+        return flat
+    if isinstance(positions, list):
+        return positions
+    return []
+
+
+def _normalize_watchlist(watchlist):
+    """兼容 watchlist 为 {themes: [{stocks: [...]}]} 或股票列表两种形态。"""
+    if isinstance(watchlist, dict):
+        stocks: list[dict] = []
+        for theme in watchlist.get("themes", []) or []:
+            theme_name = theme.get("name", "")
+            for s in theme.get("stocks", []) or []:
+                item = dict(s)
+                if not item.get("theme"):
+                    item["theme"] = theme_name
+                stocks.append(item)
+        return stocks
+    if isinstance(watchlist, list):
+        if watchlist and "stocks" in watchlist[0]:
+            stocks = []
+            for theme in watchlist:
+                theme_name = theme.get("name", "")
+                for s in theme.get("stocks", []) or []:
+                    item = dict(s)
+                    if not item.get("theme"):
+                        item["theme"] = theme_name
+                    stocks.append(item)
+            return stocks
+        return watchlist
+    return []
+
+
+def stock_scanner(state: AgentState) -> AgentState:
+    """个股扫描节点：基于市场背景扫描持仓和观察池。"""
+    logger = logging.getLogger(__name__)
+    _t0 = time.time()
+    prompt_template = _load_prompt("stock_scanner")
+
+    market_summary_ctx = state.get("market_summary_context") or {}
+    market_snapshot = dict(state.get("market_snapshot") or {})
+    positions = _normalize_positions(state.get("positions") or [])
+    watchlist = _normalize_watchlist(state.get("watchlist") or [])
+
+    # 精简行情快照：保留指数 + 持仓 + 高优先级 watchlist
+    all_quotes = market_snapshot.get("quotes", []) or []
+    codes_to_keep: set[str] = set()
+    for p in positions:
+        code = _pure_stock_code(p.get("code"))
+        if code:
+            codes_to_keep.add(code)
+    for w in watchlist:
+        code = _pure_stock_code(w.get("code"))
+        if code:
+            codes_to_keep.add(code)
+    filtered = [q for q in all_quotes if _pure_stock_code(q.get("code")) in codes_to_keep]
+    market_snapshot["quotes"] = filtered
+    market_snapshot["_filtered_from"] = len(all_quotes)
+
+    watchlist_summary, reference_stocks = _build_watchlist_summary(
+        watchlist, positions, market_snapshot
+    )
+
+    logger.info(
+        "stock_scanner_input: market_summary_len=%d stock_contexts=%d watchlist_summary=%d reference=%d positions=%d",
+        len(json.dumps(market_summary_ctx, ensure_ascii=False, default=str)),
+        len(state.get("stock_contexts", [])),
+        len(watchlist_summary),
+        len(reference_stocks),
+        len(positions),
+    )
+
+    context = {
+        "market_summary_context": market_summary_ctx,
+        "market_snapshot": market_snapshot,
+        "positions": positions,
+        "watchlist_summary": watchlist_summary,
+        "reference_stocks": reference_stocks,
+        "stock_contexts": state.get("stock_contexts", []),
+        "direction_signals": state.get("direction_signals", {}),
+    }
+
+    context_json = json.dumps(context, ensure_ascii=False, indent=2, default=str)
+    prompt = f"""{prompt_template}
+
+上下文：
+{context_json}
+
+请输出JSON：
+"""
+    prompt_bytes = len(prompt.encode("utf-8"))
+    was_truncated = False
+    if prompt_bytes > _MAX_MARKET_SUMMARY_PROMPT_BYTES:
+        logger.warning(
+            "stock_scanner prompt exceeds %d bytes (%d bytes), truncating context fields",
+            _MAX_MARKET_SUMMARY_PROMPT_BYTES, prompt_bytes,
+        )
+        non_context_bytes = prompt_bytes - len(context_json.encode("utf-8"))
+        context, was_truncated = _truncate_context_for_prompt(
+            context,
+            non_context_bytes,
+            _MAX_MARKET_SUMMARY_PROMPT_BYTES,
+            truncatable_fields=[
+                "stock_contexts",
+                "market_snapshot",
+                "watchlist_summary",
+                "reference_stocks",
+                "positions",
+                "market_summary_context",
+                "direction_signals",
+            ],
+        )
+        context["_truncated"] = True
+        context_json = json.dumps(context, ensure_ascii=False, indent=2, default=str)
+        prompt = f"""{prompt_template}
+
+上下文：
+{context_json}
+
+请输出JSON：
+"""
+        prompt_bytes = len(prompt.encode("utf-8"))
+        logger.warning(
+            "stock_scanner prompt after truncation: %d bytes (truncated=%s)",
+            prompt_bytes, was_truncated,
+        )
+
+    content = _safe_llm_invoke(prompt)
+    _t1 = time.time()
+    logger.info(
+        "stock_scanner_llm: duration=%.1fs prompt_len=%d content_len=%d",
+        _t1 - _t0, len(prompt), len(content) if content else 0
+    )
+
+    import re as _re
+    cleaned_content = _re.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
+    try:
+        scan_result = json.loads(cleaned_content) if cleaned_content else {}
+    except json.JSONDecodeError:
+        scan_result = {}
+
+    # 合并 market_summary 的输出
+    full_market_context = dict(market_summary_ctx)
+    full_market_context.setdefault("opportunity_scan", scan_result.get("opportunity_scan", []))
+    full_market_context.setdefault("position_plans", scan_result.get("position_plans", []))
+
+    if not scan_result:
+        full_market_context["opportunity_scan"] = []
+        full_market_context["position_plans"] = []
+
+    if was_truncated:
+        full_market_context["_truncated"] = True
+
+    return {
+        "market_context": full_market_context,
+        "reasoning_steps": [
+            f"个股扫描: opportunities={len(full_market_context.get('opportunity_scan', []))} positions={len(full_market_context.get('position_plans', []))}"
+        ],
+    }
+
+
 def market_analyst(state: AgentState) -> AgentState:
     logger = logging.getLogger(__name__)
     _t0 = time.time()
@@ -1626,64 +1878,9 @@ def market_analyst(state: AgentState) -> AgentState:
     ]
 
     # ── 构建watchlist摘要（按优先级分组，Phase 8.1 增强）──
-    watchlist_summary = []
-    reference_stocks = []  # P4: 非主板（创业板/科创板），仅作情绪锚点
-    _PRIORITY_SORT = {"P1": 0, "P1-核心": 0, "P2": 1, "P2-重点": 1, "P3": 2, "P3-观察": 2}
-
-    def _is_mainboard(code: str) -> bool:
-        """判断是否为可交易的主板标的（sh6xxxxx / sz0xxxxx，排除300创业板+688科创板）。"""
-        pure = code.replace(".SH", "").replace(".SZ", "").strip()
-        if not pure:
-            return False
-        if pure.startswith("688"):
-            return False
-        if pure.startswith("300"):
-            return False
-        return True
-
-    for w_item in state.get("watchlist", []) or []:
-        entry_info_parts = []
-        price_range = w_item.get("entry_price_range") or ""
-        if price_range:
-            entry_info_parts.append(f"介入区间:{price_range}")
-        hs = w_item.get("entry_hard_stop") or ""
-        if hs:
-            entry_info_parts.append(f"止损:{hs}")
-        entry_info = " ".join(entry_info_parts)
-
-        lifecycle = w_item.get("lifecycle_stage") or "观察"
-        code = w_item.get("code", "")
-        priority = w_item.get("priority", "P3")
-        sort_key = _PRIORITY_SORT.get(priority, 99)
-
-        item = {
-            "code": code,
-            "name": w_item.get("name", ""),
-            "priority": priority,
-            "sort_key": sort_key,
-            "theme": w_item.get("theme", ""),
-            "segment": w_item.get("segment", ""),
-            "role": w_item.get("role", ""),
-            "lifecycle": lifecycle,
-            "entry_info": entry_info,
-            "latest": w_item.get("latest"),
-            "pct_change": w_item.get("pct_change"),
-            "watch_reason_short": (w_item.get("watch_reason") or "")[:80],
-            "reduce_zone": w_item.get("reduce_zone_desc", ""),
-            "risk_zone": w_item.get("risk_zone_desc", ""),
-            "up_sentiment": w_item.get("up_sentiment", ""),
-        }
-
-        if _is_mainboard(code):
-            watchlist_summary.append(item)
-        else:
-            # 非主板 → 自动归为P4，不入机会扫描
-            item["priority"] = "P4-锚点"
-            item["sort_key"] = 3
-            reference_stocks.append(item)
-
-    watchlist_summary.sort(key=lambda x: x["sort_key"])
-    reference_stocks.sort(key=lambda x: x["sort_key"])
+    watchlist_summary, reference_stocks = _build_watchlist_summary(
+        state.get("watchlist", []), positions, market_snapshot
+    )
     _wl_with_entry = sum(1 for z in watchlist_summary if z["entry_info"])
     _wl_with_lifecycle = sum(1 for z in watchlist_summary if z["lifecycle"] and z["lifecycle"] != "观察")
     logger.info(
