@@ -124,17 +124,20 @@ class KimiCodeAcpClient:
         deadline = time.monotonic() + self.timeout
         while not event.is_set():
             if self._child is None or self._child.poll() is not None:
-                self._pending.pop(req_id, None)
+                with self._lock:
+                    self._pending.pop(req_id, None)
                 raise KimiCodeAcpError("ACP subprocess died while waiting for response")
             if self._reader_thread is None or not self._reader_thread.is_alive():
-                self._pending.pop(req_id, None)
+                with self._lock:
+                    self._pending.pop(req_id, None)
                 raise KimiCodeAcpError("ACP reader thread exited while waiting for response")
             remaining = deadline - time.monotonic()
             if remaining <= 0:
                 break
             event.wait(min(0.1, remaining))
         if not event.is_set():
-            self._pending.pop(req_id, None)
+            with self._lock:
+                self._pending.pop(req_id, None)
             raise KimiCodeAcpError(f"ACP request timeout: {method}")
         if "error" in result_container:
             raise KimiCodeAcpError(f"ACP request failed: {result_container['error']}")

@@ -1,5 +1,4 @@
 import json
-import tempfile
 from pathlib import Path
 
 import pytest
@@ -8,7 +7,7 @@ from qing_investment.agent.tools.kimi_code_acp_client import KimiCodeAcpClient
 
 
 @pytest.fixture
-def fake_acp_factory():
+def fake_acp_factory(tmp_path):
     """Factory that creates a shell script mimicking an ACP server.
 
     Usage: fake_acp_factory([response_dict1, response_dict2, ...])
@@ -31,11 +30,10 @@ def fake_acp_factory():
         lines.append("        print(json.dumps(resp), flush=True)")
         lines.append("        idx = (idx + 1) % len(responses)")
         lines.append("sys.exit(0)")
-        with tempfile.NamedTemporaryFile("w", suffix=".py", delete=False) as f:
-            f.write("\n".join(lines))
-            path = f.name
-        Path(path).chmod(0o755)
-        return path
+        path = tmp_path / "fake_acp.py"
+        path.write_text("\n".join(lines))
+        path.chmod(0o755)
+        return str(path)
 
     return _make
 
