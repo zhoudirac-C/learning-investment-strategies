@@ -1303,6 +1303,114 @@ def _filter_methodology_only(claims: list[dict]) -> list[dict]:
     return filtered
 
 
+def _slim_market_snapshot_for_summary(market_snapshot: dict) -> dict:
+    """为 market_summary 保留指数+关键市场数据，去掉个股明细。"""
+    if not market_snapshot:
+        return {}
+    quotes = market_snapshot.get("quotes", []) or []
+    market_indexes = {"000001", "399001", "399006", "000688", "000985", "000016", "000300", "000905", "000852", "399303"}
+    slim_quotes = [
+        q for q in quotes
+        if (q.get("secid") and q.get("secid").split(".")[0] in market_indexes)
+        or (q.get("code") and q.get("code").split(".")[0] in market_indexes)
+        or "指数" in (q.get("label") or "")
+    ]
+    return {
+        **market_snapshot,
+        "quotes": slim_quotes,
+        "_slim_from": len(quotes),
+    }
+
+
+def market_summary(state: AgentState) -> AgentState:
+    """市场/板块分析节点：只输出精简市场背景，不处理个股。"""
+    logger = logging.getLogger(__name__)
+    _t0 = time.time()
+    prompt_template = _load_prompt("market_summary")
+    analysis_type = (state.get("parsed_intent") or {}).get("analysis_type", "stock")
+
+    market_snapshot = _slim_market_snapshot_for_summary(state.get("market_snapshot") or {})
+    claims = state.get("claims", []) or []
+    methodology_claims = _filter_methodology_only(claims)
+    wiki_snippets = [
+        s for s in (state.get("wiki_snippets", []) or [])
+        if s.get("source", "").startswith("framework/") or "投资方法论" in s.get("source", "")
+    ]
+    framework_context = _load_framework_files(analysis_type)
+    reasoning_patterns = _load_reasoning_patterns(state)
+    esb = state.get("external_sector_boards", {})
+
+    logger.info(
+        "market_summary_input: quotes=%d claims=%d wiki=%d framework=%d patterns=%d esb_available=%s",
+        len(market_snapshot.get("quotes", [])),
+        len(methodology_claims),
+        len(wiki_snippets),
+        len(framework_context),
+        len(reasoning_patterns),
+        esb.get("available"),
+    )
+
+    analysis_framework = _load_analysis_framework()
+    prompt_template_filled = prompt_template.replace("{analysis_framework}", analysis_framework)
+
+    context = {
+        "market_snapshot": market_snapshot,
+        "sector_strengths": state.get("sector_strengths", []),
+        "external_sector_boards": esb,
+        "sector_context": state.get("sector_context", []),
+        "claims": methodology_claims,
+        "wiki_snippets": wiki_snippets,
+        "framework_rules": framework_context,
+        "reasoning_patterns": reasoning_patterns,
+        "direction_signals": state.get("direction_signals", {}),
+        "memories": state.get("memories", []),
+    }
+
+    prompt = f"""{prompt_template_filled}
+
+{state.get("_data_missing_note", "")}
+
+检索到的知识：
+{json.dumps(context, ensure_ascii=False, indent=2, default=str)}
+
+请输出JSON：
+"""
+    content = _safe_llm_invoke(prompt)
+    _t1 = time.time()
+    logger.info(
+        "market_summary_llm: duration=%.1fs prompt_len=%d content_len=%d",
+        _t1 - _t0, len(prompt), len(content) if content else 0
+    )
+
+    import re as _re
+    cleaned_content = _re.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
+    try:
+        result = json.loads(cleaned_content) if cleaned_content else {}
+    except json.JSONDecodeError:
+        result = {}
+
+    if not result:
+        result = {
+            "market_summary": "",
+            "market_phase": "未配置",
+            "phase_reasoning": "LLM未返回结果或API未配置",
+            "main_themes": [],
+            "sector_map": {},
+            "themes_in_focus": [],
+            "index_discipline": {},
+            "volume_note": "",
+            "emotion_signals": {},
+            "risk_notes": "",
+            "citations": [],
+        }
+
+    # daily_state 提取留到 stock_scanner 合并写入
+    return {
+        "market_summary_context": result,
+        "reasoning_steps": [f"市场总结: {result.get('market_phase', 'N/A')}"],
+    }
+
+
 def market_analyst(state: AgentState) -> AgentState:
     logger = logging.getLogger(__name__)
     _t0 = time.time()
