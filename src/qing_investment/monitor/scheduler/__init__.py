@@ -1808,6 +1808,7 @@ def run_tick(
         "entry_points": _sp.get("entry_points", []) or getattr(config, "entry_points", []),
         "market_framework": _sp.get("market_framework", {}) or getattr(config, "market_framework", {}),
         "sector_groups": _sp.get("sector_groups", []) or getattr(config, "sector_groups", []),
+        "sector_rotation_rules": _sp.get("sector_rotation_rules", []) or getattr(config, "sector_rotation_rules", []),
         "direction_pool": getattr(config, "direction_pool", {}),
         "stock_pool": getattr(config, "stock_pool", {}),
     }

@@ -181,12 +181,13 @@ def test_trading_day_tick_uses_last_snapshot_when_quote_fetch_fails(tmp_path: Pa
 
 
 def test_env_mock_quotes_bypasses_network(tmp_path: Path, monkeypatch):
-    """设置 QING_AGENT_MOCK_QUOTES=1 后，不传 quote_fetcher 也不访问网络。"""
+    """设置 QING_AGENT_MOCK_QUOTES=1 后，不传 quote_fetcher 也不访问网络，
+    并返回包含大盘/指数/板块的 mock 数据驱动告警。"""
     monkeypatch.setenv("QING_AGENT_MOCK_QUOTES", "1")
     config_dir = make_config_dir(tmp_path)
     config = load_monitor_config(config_dir)
 
-    # 不传 quote_fetcher，默认会走真实行情；但 env 开关强制返回 mock 空数据
+    # 不传 quote_fetcher，默认会走真实行情；但 env 开关强制返回 mock 数据
     message = run_tick(
         config,
         datetime(2026, 5, 22, 10, 30, tzinfo=CN_TZ),
@@ -194,8 +195,10 @@ def test_env_mock_quotes_bypasses_network(tmp_path: Path, monkeypatch):
         ignore_trading_time=False,
     )
 
-    # mock 行情为空，没有告警
-    assert message == ""
+    # mock 数据包含深科技 37.1，命中持仓减仓区
+    assert "[Hermes股票监控提醒]" in message
+    assert "数据源：mock" in message
+    assert "深科技(000021.SZ)" in message
 
 
 def test_env_ignore_trading_time_allows_off_hours_tick(tmp_path: Path, monkeypatch):

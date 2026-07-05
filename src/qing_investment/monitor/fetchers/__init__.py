@@ -736,7 +736,7 @@ class ConcurrentDataFetcher:
         import os
 
         if os.environ.get("QING_AGENT_MOCK_QUOTES", "0").lower() not in ("0", "false", "no"):
-            return {"quotes": {"source": "mock", "quotes": [], "errors": [], "elapsed_ms": 0.0}}
+            return {"quotes": _mock_quote_snapshot()}
 
         from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -796,6 +796,28 @@ def fetch_quotes(targets: dict[str, str]) -> dict:
     }
 
 
+def _mock_quote_snapshot() -> dict:
+    """返回包含大盘/指数/板块样本的 mock 行情快照，用于 CI/测试。"""
+    return {
+        "source": "mock",
+        "elapsed_ms": 0.0,
+        "errors": [],
+        "quotes": [
+            # 大盘指数
+            {"code": "000001", "name": "上证指数", "label": "上证指数", "latest": 3370.0, "pct_change": 0.5, "amount": 2_000_000_000_000.0},
+            {"code": "000985", "name": "全A指数", "label": "全A指数", "latest": 4500.0, "pct_change": 0.8, "amount": 1_000_000_000_000.0},
+            {"code": "399001", "name": "深证成指", "label": "深证成指", "latest": 10800.0, "pct_change": 0.6, "amount": 1_500_000_000_000.0},
+            # 板块样本（国产算力）
+            {"code": "000021", "name": "深科技", "latest": 37.1, "pct_change": 2.1, "amount": 1_000_000_000.0},
+            {"code": "002185", "name": "华天科技", "latest": 12.5, "pct_change": 1.2, "amount": 800_000_000.0},
+            {"code": "002156", "name": "通富微电", "latest": 25.3, "pct_change": 1.8, "amount": 900_000_000.0},
+            # 板块样本（银行保险，防御）
+            {"code": "600036", "name": "招商银行", "latest": 34.2, "pct_change": 0.1, "amount": 600_000_000.0},
+            {"code": "601318", "name": "中国平安", "latest": 48.5, "pct_change": -0.2, "amount": 700_000_000.0},
+        ],
+    }
+
+
 def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
     """向后兼容的行情获取：东财优先，数据不完整/报错时降级腾讯、新浪。
 
@@ -803,8 +825,8 @@ def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
     用腾讯补充，最后才是新浪。测试通过 monkeypatch stock_monitor 的函数来
     验证降级行为，因此这里延迟导入 stock_monitor 的兼容层函数。
 
-    设置环境变量 QING_AGENT_MOCK_QUOTES=1 时，直接返回空 mock 数据，
-    避免任何真实网络请求（用于 CI/测试）。
+    设置环境变量 QING_AGENT_MOCK_QUOTES=1 时，直接返回 mock 行情快照，
+    包含大盘/指数/板块样本，避免任何真实网络请求（用于 CI/测试）。
     """
     if not targets:
         return {"source": "none", "quotes": [], "errors": [], "elapsed_ms": 0.0}
@@ -812,7 +834,7 @@ def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
     import os
 
     if os.environ.get("QING_AGENT_MOCK_QUOTES", "0").lower() not in ("0", "false", "no"):
-        return {"source": "mock", "quotes": [], "errors": [], "elapsed_ms": 0.0}
+        return _mock_quote_snapshot()
 
     # 延迟导入避免循环依赖，并兼容测试 monkeypatch
     from qing_investment import stock_monitor
