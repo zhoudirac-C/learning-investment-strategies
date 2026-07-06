@@ -199,7 +199,7 @@ async def analyze_trigger(req: TriggerRequest):
         },
     }
 
-    import logging, time
+    import logging, time, traceback
     _req_logger = logging.getLogger("qing_investment.agent.main")
     _req_t0 = time.time()
     _req_logger.info(f"analyze_trigger start: type={req.analysis_type} trigger={req.trigger.get('title','')}")
@@ -207,7 +207,15 @@ async def analyze_trigger(req: TriggerRequest):
     # 每个请求开始时重置 provider 使用轨迹
     reset_provider_usage()
 
-    result = await graph.ainvoke(state)
+    try:
+        result = await graph.ainvoke(state)
+    except Exception as e:
+        _req_dur = time.time() - _req_t0
+        _req_logger.error(
+            f"analyze_trigger error after {_req_dur:.1f}s: {type(e).__name__}: {e}",
+            exc_info=True,
+        )
+        raise
 
     _req_dur = time.time() - _req_t0
     provider_summary = format_provider_usage_summary()
