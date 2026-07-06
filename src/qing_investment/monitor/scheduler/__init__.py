@@ -1397,6 +1397,8 @@ def _load_yesterday_summary(
 
     # ── Fallback: 从 state.json 的 last_quote_snapshot 提取 ──
     try:
+        from qing_investment.monitor.context import _pure_stock_code, _to_float
+
         state_path = config_dir / "state.json"
         if state_path.exists():
             state = json.loads(state_path.read_text(encoding="utf-8"))
@@ -1421,10 +1423,10 @@ def _load_yesterday_summary(
                         "change_pct": _to_float(q.get("pct_change")),
                         "volume": _to_float(q.get("volume")),
                         "amount": q.get("amount", ""),
-                        **{k: None for k in SUMMARY_FIELDS_BOARD},
-                        **{k: None for k in SUMMARY_FIELDS_TECH},
-                        **{k: None for k in SUMMARY_FIELDS_DETAIL},
-                        **{k: None for k in SUMMARY_FIELDS_COST},
+                        **{k: None for k in _SUMMARY_FIELDS_BOARD},
+                        **{k: None for k in _SUMMARY_FIELDS_TECH},
+                        **{k: None for k in _SUMMARY_FIELDS_DETAIL},
+                        **{k: None for k in _SUMMARY_FIELDS_COST},
                     }
                 return summary
     except Exception as e:
@@ -2049,10 +2051,9 @@ def main(argv: list[str] | None = None) -> int:
         from qing_investment.stock_monitor import format_daily_review_context
         state_path = Path(args.state_file) if args.state_file else config.config_dir / "state.json"
         state = load_monitor_state(state_path)
-        print(format_daily_review_context(config, current, state))
 
         # ── Phase 1.4: 收盘复盘自动提取昨日特征摘要 ──
-        # 从 state.json 的 last_quote_snapshot 提取并保存
+        # 先构建并保存今日摘要，随后输出的 context 才能包含市场/持仓/龙虎榜
         qs = state.get("last_quote_snapshot", {})
         if qs and qs.get("quotes"):
             try:
@@ -2093,6 +2094,8 @@ def main(argv: list[str] | None = None) -> int:
                 logger.warning("龙虎榜总榜采集失败（不影响主流程）: %s", e)
         else:
             logger.warning("收盘复盘: last_quote_snapshot 无数据，skip 特征摘要保存")
+
+        print(format_daily_review_context(config, current, state))
         return 0
 
     if args.freshness_check:
