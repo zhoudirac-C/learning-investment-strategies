@@ -275,16 +275,21 @@ class KimiCodeAcpClient:
 
         try:
             # 5. Submit prompt
-            self._send_request("session/prompt", {
+            prompt_result = self._send_request("session/prompt", {
                 "sessionId": session_id,
                 "prompt": [{"type": "text", "text": prompt}],
             })
 
-            # 6. Wait for finish
-            if not turn.event.wait(timeout=self.timeout):
-                raise KimiCodeAcpError(f"ACP turn timeout after {self.timeout}s")
-            if turn.error:
-                raise KimiCodeAcpError(turn.error)
+            # 6. Wait for finish notification, unless the prompt response already
+            #    signals turn completion (e.g. {"stopReason": "end_turn"}).
+            completed_from_response = (
+                isinstance(prompt_result, dict) and prompt_result.get("stopReason") is not None
+            )
+            if not completed_from_response:
+                if not turn.event.wait(timeout=self.timeout):
+                    raise KimiCodeAcpError(f"ACP turn timeout after {self.timeout}s")
+                if turn.error:
+                    raise KimiCodeAcpError(turn.error)
 
             content = "".join(turn.chunks)
             cleaned = self._clean_output(content)

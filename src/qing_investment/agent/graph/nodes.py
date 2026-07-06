@@ -1461,7 +1461,7 @@ def market_summary(state: AgentState) -> AgentState:
     except json.JSONDecodeError:
         result = {}
 
-    if not result:
+    if not result or not isinstance(result, dict):
         result = dict(fallback)
     else:
         for key, value in fallback.items():
