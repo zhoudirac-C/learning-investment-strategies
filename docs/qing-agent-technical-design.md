@@ -505,40 +505,43 @@ class AgentState(TypedDict, total=False):
 
 Qing-Agent 的图节点通过 `tools/llm_client.py` 统一调用大模型。为降低对外部 API 的依赖并复用本地 Kimi Code CLI 能力，默认采用 **本地优先、失败降级** 策略。
 
+> **注意**：旧的 `kimi -p`（`kimi-code-cli` provider）已废弃，不再加入本地优先降级链路。当前仅保留 `kimi-code-acp`（`kimi acp`，stdio JSON-RPC）作为本地调用方式。
+
 ### 6.1 调用入口
 
 - **统一封装**：`graph/nodes.py` 中的 `_safe_llm_invoke(prompt)` 是图节点调用 LLM 的唯一入口。
-- **客户端工厂**：`tools/llm_client.py::get_llm_client(provider)` 根据 provider 名称返回对应客户端；新增 provider `kimi-code-cli` 对应本地 Kimi Code CLI。
+- **客户端工厂**：`tools/llm_client.py::get_llm_client(provider)` 根据 provider 名称返回对应客户端；新增 provider `kimi-code-acp` 对应本地 Kimi Code ACP。
 
-### 6.2 本地 Kimi Code CLI 客户端
+### 6.2 本地 Kimi Code ACP 客户端
 
-新增文件：`src/qing_investment/agent/tools/kimi_code_cli_client.py`
+新增文件：`src/qing_investment/agent/tools/kimi_code_acp_client.py`
 
-- **调用方式**：子进程执行 `kimi -p "<prompt>" --output-format text`，通过 stdin/stdout 与 Kimi Code CLI 交互。
+- **调用方式**：启动 `kimi acp` 子进程，通过 stdio JSON-RPC 与 Kimi Code CLI 交互。每次 `.invoke()` 都会新建一个 session，避免 `kimi -p` 的 argv 长度限制。
 - **输出清洗**：
   - 优先从输出中提取 JSON 块；
   - 非 JSON 输出时，提取所有 `• ` 开头的 bullet 块，并去除公共缩进，保留 markdown 长文本。
-- **超时控制**：默认 120 秒，可通过环境变量 `KIMI_CODE_CLI_TIMEOUT` 调整。
+- **超时控制**：默认 300 秒，可通过环境变量 `KIMI_CODE_ACP_TIMEOUT` 调整。
 
 ### 6.3 降级策略
 
 `_safe_llm_invoke` 默认行为：
 
-1. 若环境变量 `KIMI_CODE_CLI_FIRST` 未显式关闭（默认 `1`），先调用本地 `kimi-code-cli`。
-2. 本地调用失败（CLI 不存在、异常、超时）时，记录 warning 并回退到 `settings.llm_provider`（当前默认 `deepseek`）。
-3. 若 `KIMI_CODE_CLI_FIRST=0`，直接走原 provider。
+1. 若环境变量 `KIMI_CODE_ACP_FIRST` 未显式关闭（默认 `1`），先调用本地 `kimi-code-acp`。
+2. 本地调用失败（ACP 不存在、异常、超时）时，记录 warning 并回退到 `settings.llm_provider`（当前默认 `deepseek`）。
+3. 若 `KIMI_CODE_ACP_FIRST=0`，直接走原 provider。
 
 | 环境变量 | 默认值 | 说明 |
 |---|---|---|
-| `KIMI_CODE_CLI_FIRST` | `1` | 是否优先使用本地 CLI |
-| `KIMI_CODE_CLI_TIMEOUT` | `120` | 本地 CLI 单次调用超时（秒） |
-| `KIMI_CODE_CLI_PATH` | `~/.kimi-code/bin/kimi` | CLI 可执行文件路径 |
-| `KIMI_CODE_CLI_CWD` | 项目根目录 | CLI 子进程工作目录 |
+| `KIMI_CODE_ACP_FIRST` | `1` | 是否优先使用本地 ACP |
+| `KIMI_CODE_ACP_TIMEOUT` | `300` | 本地 ACP 单次调用超时（秒） |
+| `KIMI_CODE_ACP_COMMAND` | `~/.kimi-code/bin/kimi acp` | ACP 启动命令 |
+| `KIMI_CODE_ACP_CWD` | 项目根目录 | ACP 子进程工作目录 |
+| `KIMI_CODE_ACP_PERMISSION_MODE` | `yolo` | ACP 权限模式 |
 
 ### 6.4 注意事项
 
-- `devils_advocate` 节点按设计仍通过 `DevilsAdvocateAgent` 直接注入 Kimi API，未接入本地 CLI 降级；当前若 Kimi API 认证失败会返回空 findings。
-- 大 prompt（如 `market_analyst`，约 40k token）在本地 CLI 上可能超时，会自动 fallback 到 `deepseek`。
+- `devils_advocate` 节点按设计仍通过 `DevilsAdvocateAgent` 直接注入 Kimi API，未接入本地 ACP 降级；当前若 Kimi API 认证失败会返回空 findings。
+- 大 prompt（如 `market_analyst`，约 40k token）在本地 ACP 上可能超时，会自动 fallback 到 `deepseek`。
 
 ---
 

@@ -25,11 +25,12 @@ set -a
 source .env
 set +a
 
-# 默认所有 Qing-Agent LLM 调用优先走本地 Kimi Code CLI（kimi -p）。
+# 默认所有 Qing-Agent LLM 调用优先走本地 Kimi Code ACP（kimi acp）。
+# ACP 通过 stdio JSON-RPC 与 Kimi Code 通信，每次请求新建 session，避免 kimi -p 的 argv 长度限制。
 # 强制覆盖 .env 中的设置，确保切换生效；如需关闭可注释下面这行。
-export KIMI_CODE_CLI_FIRST=1
-# 大 context 下本地 CLI 可能耗时 5-10 分钟；给足单节点超时
-export KIMI_CODE_CLI_TIMEOUT=600
+export KIMI_CODE_ACP_FIRST=1
+# 大 context 下本地 ACP 可能耗时 5-10 分钟；给足单节点超时
+export KIMI_CODE_ACP_TIMEOUT=600
 
 nohup .venv/bin/python -m uvicorn qing_investment.agent.main:app \
     --host 127.0.0.1 --port 8000 \

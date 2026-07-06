@@ -11,8 +11,8 @@ from langchain_openai import ChatOpenAI
 
 from qing_investment.agent.config import settings
 
-# 本地 Kimi Code CLI 调用（通过子进程 `kimi -p`）
-_KIMI_CODE_CLI_PROVIDER = "kimi-code-cli"
+# [DEPRECATED] 本地 Kimi Code CLI 调用（通过子进程 `kimi -p`）已废弃，保留代码仅作历史参考。
+# _KIMI_CODE_CLI_PROVIDER = "kimi-code-cli"
 
 # 本地 Kimi Code ACP 调用（通过 `kimi acp` 子进程 JSON-RPC）
 _KIMI_CODE_ACP_PROVIDER = "kimi-code-acp"
@@ -68,8 +68,8 @@ def format_provider_usage_summary(records: list[dict] | None = None) -> str:
         if key in seen:
             continue
         seen.add(key)
-        if provider == _KIMI_CODE_CLI_PROVIDER:
-            label = "本地 Kimi Code CLI"
+        if provider == "kimi-code-cli":
+            label = "本地 Kimi Code CLI（已废弃）"
         elif provider == _KIMI_CODE_ACP_PROVIDER:
             label = "本地 Kimi Code ACP"
         else:
@@ -87,8 +87,8 @@ def format_provider_usage_summary(records: list[dict] | None = None) -> str:
     success_providers = [r["provider"] for r in records if r.get("status") == "success"]
     if success_providers:
         final = success_providers[-1]
-        if final == _KIMI_CODE_CLI_PROVIDER:
-            final_label = "本地 Kimi Code CLI"
+        if final == "kimi-code-cli":
+            final_label = "本地 Kimi Code CLI（已废弃）"
         elif final == _KIMI_CODE_ACP_PROVIDER:
             final_label = "本地 Kimi Code ACP"
         else:
@@ -181,16 +181,16 @@ def get_llm_client(provider: str | None = None) -> Any:
     target = (provider or settings.llm_provider).lower()
     logger.info("[get_llm_client] target=%s (requested=%s, default=%s)", target, provider, settings.llm_provider)
 
-    # 本地 Kimi Code CLI：不走 LLM_PROVIDERS，不需要 api_key/base_url
-    if target == _KIMI_CODE_CLI_PROVIDER:
-        from .kimi_code_cli_client import KimiCodeCLIClient
-
-        logger.info("[get_llm_client] using local Kimi Code CLI")
-        return KimiCodeCLIClient(
-            cli_path=None,  # 使用默认 /home/ubuntu/.kimi-code/bin/kimi
-            cwd=None,       # 使用默认 /home/ubuntu/learning-investment-strategies
-            timeout=int(os.environ.get("KIMI_CODE_CLI_TIMEOUT", "300")),
-        )
+    # [DEPRECATED] 本地 Kimi Code CLI（kimi -p）已废弃，不再支持直接调用。
+    # if target == _KIMI_CODE_CLI_PROVIDER:
+    #     from .kimi_code_cli_client import KimiCodeCLIClient
+    #
+    #     logger.info("[get_llm_client] using local Kimi Code CLI")
+    #     return KimiCodeCLIClient(
+    #         cli_path=None,  # 使用默认 /home/ubuntu/.kimi-code/bin/kimi
+    #         cwd=None,       # 使用默认 /home/ubuntu/learning-investment-strategies
+    #         timeout=int(os.environ.get("KIMI_CODE_CLI_TIMEOUT", "300")),
+    #     )
 
     if target == _KIMI_CODE_ACP_PROVIDER:
         from .kimi_code_acp_client import KimiCodeAcpClient
@@ -201,7 +201,7 @@ def get_llm_client(provider: str | None = None) -> Any:
     if target not in LLM_PROVIDERS:
         raise ValueError(
             f"Unknown LLM provider: {target}. "
-            f"Supported: {', '.join(LLM_PROVIDERS.keys())}, {_KIMI_CODE_CLI_PROVIDER}, {_KIMI_CODE_ACP_PROVIDER}"
+            f"Supported: {', '.join(LLM_PROVIDERS.keys())}, {_KIMI_CODE_ACP_PROVIDER}"
         )
 
     config = LLM_PROVIDERS[target]

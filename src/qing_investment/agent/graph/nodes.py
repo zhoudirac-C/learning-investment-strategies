@@ -650,7 +650,7 @@ def _safe_llm_invoke(prompt: str, min_length: int = 0) -> str:
 
     通过环境变量控制本地调用优先级：
     - KIMI_CODE_ACP_FIRST=1 / true：优先本地 Kimi Code ACP（stdio JSON-RPC）
-    - KIMI_CODE_CLI_FIRST=1 / true：优先本地 Kimi Code CLI（kimi -p，受 argv 限制）
+    - KIMI_CODE_CLI_FIRST=1 / true：[已废弃] 优先本地 Kimi Code CLI（kimi -p，受 argv 限制）
     - 否则：直接走 settings.llm_provider
 
     Args:
@@ -661,13 +661,14 @@ def _safe_llm_invoke(prompt: str, min_length: int = 0) -> str:
     import os
 
     acp_first = os.environ.get("KIMI_CODE_ACP_FIRST", "0").lower() not in ("0", "false", "no")
-    cli_first = os.environ.get("KIMI_CODE_CLI_FIRST", "0").lower() not in ("0", "false", "no")
+    # [DEPRECATED] kimi -p 方式已废弃，不再加入本地优先列表。
+    # cli_first = os.environ.get("KIMI_CODE_CLI_FIRST", "0").lower() not in ("0", "false", "no")
 
     local_providers = []
     if acp_first:
         local_providers.append("kimi-code-acp")
-    if cli_first:
-        local_providers.append("kimi-code-cli")
+    # if cli_first:
+    #     local_providers.append("kimi-code-cli")
 
     for local_provider in local_providers:
         logger.info("[_safe_llm_invoke] 优先尝试 %s", local_provider)
@@ -2341,6 +2342,11 @@ def synthesize(state: AgentState) -> AgentState:
         if opportunity_scan:
             opportunity_lines.append("【机会扫描】")
             for opp in opportunity_scan:
+                if isinstance(opp, str):
+                    opportunity_lines.append(f"  · {opp}")
+                    continue
+                if not isinstance(opp, dict):
+                    continue
                 opportunity_lines.append(
                     f"  · {opp.get('stock', 'N/A')}({opp.get('code', '')}): "
                     f"{opp.get('pattern', '')} | "
