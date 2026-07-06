@@ -3952,3 +3952,146 @@ stocks:
     sector_diverged: false
     market_actionable: false
     no_consecutive_limit_up: true
+- code: 601689.SH
+  name: 拓普集团
+  priority: P2
+  direction: robot_observation
+  chain_position: midstream
+  human_note:
+    date: '2026-07-06'
+    type: signal_confirmation
+    context: "7/5UP点名：特斯拉Optimus人形机器人执行器与关节模组核心Tier1，产品延伸至灵巧手电机/结构件/电子皮肤，分化日优先跟踪前排品种。周五板块高潮，等周一分化回踩"
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 002119.SZ
+  name: 康强电子
+  priority: P2
+  direction: equipment_packaging_catchup
+  chain_position: midstream
+  human_note:
+    date: '2026-07-06'
+    type: signal_confirmation
+    context: "7/5UP点名：引线框架/键合丝封装材料龙头，周期反转+高端化（蚀刻型切换）+韬定律先进封装催化，补跌反弹窗口跟踪标的"
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 603931.SH
+  name: 格林达
+  priority: P2
+  direction: equipment_packaging_catchup
+  chain_position: upstream
+  human_note:
+    date: '2026-07-06'
+    type: signal_confirmation
+    context: "7/5UP点名：玻璃薄化/TGV蚀刻液细分龙头，TMAH显影液为玻璃基板光刻刚需，TGV蚀刻液已批量送样。AI玻璃基板方向增量核心弹性标的"
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 688120.SH
+  name: 华海清科
+  priority: P3
+  direction: equipment_packaging_catchup
+  chain_position: midstream
+  human_note:
+    date: '2026-07-06'
+    type: signal_confirmation
+    context: "7/5UP点名：国产12英寸CMP设备绝对龙头，韬定律依赖晶圆级混合键合，CMP是前置刚需工艺。科创板不可交易，仅作产业链参考/观察"
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 688596.SH
+  name: 正帆科技
+  priority: P3
+  direction: memory_nor
+  chain_position: upstream
+  human_note:
+    date: '2026-07-06'
+    type: signal_confirmation
+    context: "7/5UP点名：长鑫存储长期合作伙伴与重要供应商，存储涨价+扩产受益。科创板不可交易，仅作产业链参考"
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 688123.SH
+  name: 聚辰股份
+  priority: P3
+  direction: memory_nor
+  chain_position: midstream
+  human_note:
+    date: '2026-07-06'
+    type: signal_confirmation
+    context: "7/5UP点名：SPD产品覆盖主要内存模组厂商，存储涨价周期受益。科创板不可交易，仅作产业链参考"
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 688661.SH
+  name: 和林微纳
+  priority: P3
+  direction: optical_communication
+  chain_position: upstream
+  human_note:
+    date: '2026-07-06'
+    type: signal_confirmation
+    context: "7/5UP点名：Rubin平台量产带动测试探针涨价，半导体FT探针/探针卡全面缺货。涨价持续性与Token调用数据交叉验证，可作为算力景气度辅助指标。科创板不可交易"
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 300683.SZ
+  name: 海特生物
+  priority: P3
+  direction: pharmaceutical_innovation
+  chain_position: midstream
+  human_note:
+    date: '2026-07-06'
+    type: signal_confirmation
+    context: "7/5UP点名：礼来口服减重药orforglipron核心高难度手性中间体供应商，已具备公斤级至百公斤级生产能力。节奏跟随礼来中国获批进程。创业板不可交易"
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 605305.SH
+  name: 中际联合
+  priority: P2
+  direction: shipbuilding_boom
+  chain_position: upstream
+  human_note:
+    date: '2026-07-06'
+    type: signal_confirmation
+    context: "7/5UP点名：业绩锚清晰、估值有安全边际的非科技配置型标的。海外订单拐点确认，26-27年PE约12/10倍，切入海外AIDC电力解决方案"
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 600150.SH
+  name: 中国船舶
+  priority: P2
+  direction: shipbuilding_boom
+  chain_position: midstream
+  human_note:
+    date: '2026-07-06'
+    type: direction_call
+    context: "7/5UP提及：2026上半年中国造船业新接订单占全球约80.9%，手持订单占73.3%，新造船价格指数历史高位。船舶总装龙头"
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 601989.SH
+  name: 中国重工
+  priority: P2
+  direction: shipbuilding_boom
+  chain_position: midstream
+  human_note:
+    date: '2026-07-06'
+    type: direction_call
+    context: "7/5UP提及：船舶总装龙头，造船业景气度高"
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
