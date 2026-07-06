@@ -1,5 +1,24 @@
      1|# 操作日志
 
+## 2026-07-05 | qing-learning ingest | 7/5 23:17 复盘专栏：冲高回落后的混沌期
+
+- 处理 raw：`sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md`（B站充电专属专栏）
+- 新增 claims：`claim-20260705-001.yaml`（42 条：market-cycle×8, sector-theme×10, operation×9, stock-view×8, catalyst×3, methodology×2, technical-signal×1, technical-knowledge×1）
+- 核心观点：
+  - 周五A股科技在美股大跌背景下独立修复，但午后回落、缩量反弹，仍处超跌反弹而非趋势反转阶段
+  - 市场处于混沌期，轮动快、操作难度大，全面行情节奏将慢于预期
+  - 半导体上游补跌是调整尾声标志，韬定律V2催化先进封装、混合键合设备与耗材
+  - 算力硬件反弹高度受限，下周二Token调用数据是关键验证点
+  - 人形机器人与物理AI承接AI主线溢出资金，周一大概率分化，关注前排晋级
+  - 医药、大金融已走出趋势，船舶行业订单和价格处于高位，业绩是当前资金最重视的方向
+  - 商业航天资金结构改善，7月两次可回收火箭试验将决定行情性质
+  - 海外存储龙头扩产确认涨价周期，2026-2028年为业绩兑现窗口
+  - 右侧确认前仓位纪律优先，不宜重仓押注单一方向
+- 更新门禁：`gate_validate_claims.py` NON_COMPANY 集扩展（科技/有限 通用词汇假阳性）
+- 更新 wiki：新建 `knowledge/wiki/每日复盘/2026-07-05.md`
+- 更新索引：`knowledge/claims/index.md`、`knowledge/wiki/index.md`
+- 引用 claim IDs：`claim-20260705-001-a` 至 `claim-20260705-001-ap`
+
 ## 2026-06-30 | qing-learning ingest | 6/30 22:40 复盘：有宽度没强度的修复日
 
 - 处理 raw：`sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md`（B站充电专属图片动态）
