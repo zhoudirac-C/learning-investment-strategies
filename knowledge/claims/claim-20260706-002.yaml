@@ -1,0 +1,302 @@
+claims:
+- id: claim-20260706-002-a
+  source_path: sources/original/bilibili/2026-07-06-1307-图片-早盘两市指数下探回升，量能较上一交易日小幅放大，但全市场超3.md
+  source_date: '2026-07-06'
+  source_type: 动态
+  extracted_at: '2026-07-06T13:35:18+08:00'
+  claim_type: market-cycle
+  subject: 早盘市场定性
+  timeframe: intraday
+  statement: 早盘两市指数下探回升，量能较上一交易日小幅放大，但全市场超3500只个股下跌，赚钱效应分化加剧，市场整体仍处于混沌博弈阶段。
+  evidence_quote: 早盘两市指数下探回升，量能较上一交易日小幅放大，但全市场超3500只个股下跌，赚钱效应分化加剧，市场整体仍处于混沌博弈阶段。
+  interpretation: 指数回升但个股跌多涨少，量能放大伴随分化，说明市场尚未形成一致方向，仍处于混沌期。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 早盘指数回升但个股分化加剧
+  related_stocks: []
+  tags:
+  - 早盘
+  - 分化
+  - 混沌博弈
+- id: claim-20260706-002-b
+  source_path: sources/original/bilibili/2026-07-06-1307-图片-早盘两市指数下探回升，量能较上一交易日小幅放大，但全市场超3.md
+  source_date: '2026-07-06'
+  source_type: 动态
+  extracted_at: '2026-07-06T13:35:18+08:00'
+  claim_type: catalyst
+  subject: OpenRouter国内Token调用数据
+  timeframe: intraday
+  statement: OpenRouter最新披露上周国内大模型周调用量达23.45万亿Token，环比增长15.01%，增速显著高于海外市场，数据发布时点与早盘科技拉升节奏高度契合。
+  evidence_quote: 科技股是带动盘面修复的核心力量，催化源于OpenRouter最新披露的AI大模型调用数据：上周国内大模型周调用量达23.45万亿Token，环比增长15.01%，增速显著高于海外市场，数据发布时点与盘面拉升节奏高度契合。
+  interpretation: 国内Token调用量高增成为早盘科技股修复的核心催化，验证国产算力需求端景气度。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国内Token调用量高增催化科技修复
+  related_stocks: []
+  tags:
+  - OpenRouter
+  - Token调用量
+  - 科技催化
+- id: claim-20260706-002-c
+  source_path: sources/original/bilibili/2026-07-06-1307-图片-早盘两市指数下探回升，量能较上一交易日小幅放大，但全市场超3.md
+  source_date: '2026-07-06'
+  source_type: 动态
+  extracted_at: '2026-07-06T13:35:18+08:00'
+  claim_type: sector-theme
+  subject: 国产算力产业链领涨
+  timeframe: intraday
+  statement: 国产算力产业链早盘表现最为强势，昇腾950产业链、自主可控RoCE交换机方向领涨。
+  evidence_quote: 国产算力产业链表现最为强势，昇腾950产业链、自主可控RoCE交换机方向领涨
+  interpretation: 国产算力成为科技修复主线，昇腾产业链与自主可控交换网络是资金主攻方向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 昇腾950与RoCE交换机方向领涨
+  related_stocks: []
+  tags:
+  - 国产算力
+  - 昇腾950
+  - RoCE交换机
+- id: claim-20260706-002-d
+  source_path: sources/original/bilibili/2026-07-06-1307-图片-早盘两市指数下探回升，量能较上一交易日小幅放大，但全市场超3.md
+  source_date: '2026-07-06'
+  source_type: 动态
+  extracted_at: '2026-07-06T13:35:18+08:00'
+  claim_type: sector-theme
+  subject: 半导体设备与先进封装异动
+  timeframe: intraday
+  statement: 半导体设备与先进封装方向受华为韬定律V2发布刺激出现异动。
+  evidence_quote: 半导体设备与先进封装受华为韬定律V2发布刺激异动
+  interpretation: 韬定律V2继续发酵，资金向半导体设备和先进封装等受益环节扩散。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 韬定律V2刺激半导体设备先进封装
+  related_stocks: []
+  tags:
+  - 半导体设备
+  - 先进封装
+  - 韬定律V2
+- id: claim-20260706-002-e
+  source_path: sources/original/bilibili/2026-07-06-1307-图片-早盘两市指数下探回升，量能较上一交易日小幅放大，但全市场超3.md
+  source_date: '2026-07-06'
+  source_type: 动态
+  extracted_at: '2026-07-06T13:35:18+08:00'
+  claim_type: sector-theme
+  subject: 算力内部分化
+  timeframe: intraday
+  statement: 算力内部出现分化，液冷赛道相对抗跌，光通信、PCB、MLCC等延续调整；核心龙头中际旭创(300308)盘中翻红，对板块情绪形成一定支撑。
+  evidence_quote: 算力内部同步出现分化，液冷赛道相对抗跌，光通信、PCB、MLCC等延续调整，核心龙头中际旭创(300308)盘中翻红，对板块情绪形成一定支撑。
+  interpretation: 算力板块并非普涨，液冷偏强而光通信/PCB/MLCC仍弱，中际旭创(300308)翻红是情绪锚点。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 算力内部分化液冷抗跌光通信PCB调整
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 光通信龙头-创业板不可交易-创业板不可交易
+  tags:
+  - 算力分化
+  - 液冷
+  - 光通信
+  - 中际旭创
+- id: claim-20260706-002-f
+  source_path: sources/original/bilibili/2026-07-06-1307-图片-早盘两市指数下探回升，量能较上一交易日小幅放大，但全市场超3.md
+  source_date: '2026-07-06'
+  source_type: 动态
+  extracted_at: '2026-07-06T13:35:18+08:00'
+  claim_type: sector-theme
+  subject: 人形机器人日内分化
+  timeframe: intraday
+  statement: 上周五强势的人形机器人方向日内正常分化，特斯拉Optimus年底启动大规模量产、产能上调的产业逻辑仍具备博弈价值，午后可关注雷赛智能(002979)等龙头能否回封带动板块修复。
+  evidence_quote: 题材轮动节奏加快，上周五强势的人形机器人日内正常分化，特斯拉Optimus年底启动大规模量产、产能上调的产业逻辑仍具备博弈价值，午后可关注雷赛智能(002979)等龙头能否回封带动板块修复；
+  interpretation: 机器人分化属于正常节奏，产业逻辑未被证伪，午后观察龙头回封信号判断修复力度。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 人形机器人分化后关注龙头回封
+  related_stocks:
+  - code: '002979'
+    name: 雷赛智能
+    role: 机器人零部件龙头-主板可交易
+  tags:
+  - 人形机器人
+  - 雷赛智能
+  - 特斯拉Optimus
+- id: claim-20260706-002-g
+  source_path: sources/original/bilibili/2026-07-06-1307-图片-早盘两市指数下探回升，量能较上一交易日小幅放大，但全市场超3.md
+  source_date: '2026-07-06'
+  source_type: 动态
+  extracted_at: '2026-07-06T13:35:18+08:00'
+  claim_type: sector-theme
+  subject: 医药与科技跷跷板
+  timeframe: short-term
+  statement: 医药板块早盘冲高后回落，与科技板块的跷跷板效应明显，后续两大方向预计仍将反复穿插轮动。
+  evidence_quote: 医药板块盘中冲高后回落，与科技板块的跷跷板效应明显，后续两大方向预计仍将反复穿插轮动。
+  interpretation: 医药和科技呈现资金跷跷板，短期难以同时走强，需观察轮动节奏而非单向押注。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药科技跷跷板将反复轮动
+  related_stocks: []
+  tags:
+  - 医药
+  - 科技
+  - 跷跷板
+- id: claim-20260706-002-h
+  source_path: sources/original/bilibili/2026-07-06-1307-图片-早盘两市指数下探回升，量能较上一交易日小幅放大，但全市场超3.md
+  source_date: '2026-07-06'
+  source_type: 动态
+  extracted_at: '2026-07-06T13:35:18+08:00'
+  claim_type: catalyst
+  subject: BBU电池短缺催化
+  timeframe: short-term
+  statement: 算力链条新增BBU电池短缺催化：AI数据中心需求爆发导致高功率圆柱电芯供需缺口显现，松下、三星产能承压，国内布局BBU电芯、备电单元的相关标的迎来产业价值重估机会。
+  evidence_quote: 算力链条新增BBU电池短缺催化，随着AI数据中心需求爆发，高功率圆柱电芯供需缺口显现，松下、三星产能承压，国内布局BBU电芯、备电单元的相关标的迎来产业价值重估机会。
+  interpretation: BBU电池短缺是算力产业链新增催化，国内电芯/备电单元厂商可能受益重估。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: BBU电池短缺催化算力产业链
+  related_stocks: []
+  tags:
+  - BBU电池
+  - 高功率电芯
+  - 算力催化
+- id: claim-20260706-002-i
+  source_path: sources/original/bilibili/2026-07-06-1307-图片-早盘两市指数下探回升，量能较上一交易日小幅放大，但全市场超3.md
+  source_date: '2026-07-06'
+  source_type: 动态
+  extracted_at: '2026-07-06T13:35:18+08:00'
+  claim_type: stock-view
+  subject: 拓维信息定位
+  timeframe: short-term
+  statement: 国产超节点产业加速推进，华为Atlas 950 SuperPoD将在WAIC 2026展出，拓维信息(002261)作为昇腾核心合作伙伴在手订单饱满，同时依托华为出海路径打开长期估值提升空间。
+  evidence_quote: 重点方向上，国产超节点产业加速推进，华为Atlas 950 SuperPoD将在WAIC 2026展出，拓维信息(002261)作为昇腾核心合作伙伴在手订单饱满，同时依托华为出海路径打开长期估值提升空间。
+  interpretation: 拓维信息(002261)是昇腾超节点核心合作方，订单饱满叠加出海预期，具备产业验证和估值提升双重逻辑。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 拓维信息(002261)受益昇腾超节点与出海
+  related_stocks:
+  - code: '002261'
+    name: 拓维信息
+    role: 昇腾核心合作伙伴-主板可交易
+  tags:
+  - 拓维信息
+  - 昇腾
+  - 超节点
+  - WAIC
+- id: claim-20260706-002-j
+  source_path: sources/original/bilibili/2026-07-06-1307-图片-早盘两市指数下探回升，量能较上一交易日小幅放大，但全市场超3.md
+  source_date: '2026-07-06'
+  source_type: 动态
+  extracted_at: '2026-07-06T13:35:18+08:00'
+  claim_type: operation
+  subject: 午后操作策略
+  timeframe: intraday
+  statement: 当前市场热点散乱且切换较快，盲目追高性价比不足，建议围绕算力主线的细分新增催化逢低布局，优先关注昇腾超节点等具备产业验证的方向；午后重点观察核心龙头的企稳力度与两市量能变化。
+  evidence_quote: 操作层面，当前市场热点散乱且切换较快，盲目追高性价比不足，建议围绕算力主线的细分新增催化逢低布局，优先关注昇腾超节点等具备产业验证的方向。午后重点观察核心龙头的企稳力度与两市量能变化，若科技主线情绪持续回暖，可适度把握分歧低吸机会；
+  interpretation: 午后不追高，围绕算力新增催化（昇腾超节点、BBU电池等）逢低布局，以龙头企稳和量能为观察锚点。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 午后围绕算力新增催化逢低布局
+  related_stocks:
+  - code: '002261'
+    name: 拓维信息
+    role: 昇腾超节点核心标的-主板可交易
+  tags:
+  - 午后策略
+  - 算力
+  - 低吸
+  - 昇腾超节点
+- id: claim-20260706-002-k
+  source_path: sources/original/bilibili/2026-07-06-1307-图片-早盘两市指数下探回升，量能较上一交易日小幅放大，但全市场超3.md
+  source_date: '2026-07-06'
+  source_type: 动态
+  extracted_at: '2026-07-06T13:35:18+08:00'
+  claim_type: operation
+  subject: 仓位与风险控制
+  timeframe: intraday
+  statement: 若科技主线情绪持续回暖可适度把握分歧低吸机会；同时留意医药等非科技方向的轮动承接节奏，控制整体仓位，规避高位纯题材标的的回调风险。
+  evidence_quote: 若科技主线情绪持续回暖，可适度把握分歧低吸机会；同时留意医药等非科技方向的轮动承接节奏，控制整体仓位，规避高位纯题材标的的回调风险。
+  interpretation: 低吸机会需等科技情绪确认回暖，同时保留对非科技轮动的观察，控制仓位并远离高位纯题材。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 控制仓位规避高位纯题材
+  related_stocks: []
+  tags:
+  - 仓位控制
+  - 高位题材
+  - 轮动
