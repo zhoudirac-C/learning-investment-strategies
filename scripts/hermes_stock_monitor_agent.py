@@ -21,7 +21,8 @@ from pathlib import Path
 
 QING_AGENT_URL = os.environ.get("QING_AGENT_URL", "http://localhost:8000/analyze/trigger")
 QING_AGENT_HEALTH_URL = os.environ.get("QING_AGENT_HEALTH_URL", "http://localhost:8000/health")
-QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "900"))
+# 切到本地 Kimi Code CLI 后 worst case 可能 10-15 分钟；默认超时给足
+QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "1200"))
 QING_AGENT_MAX_RETRIES = int(os.environ.get("QING_AGENT_MAX_RETRIES", "2"))
 
 # 请求/响应详细日志：按天拆分，便于后续统一清理
@@ -73,7 +74,7 @@ QING_AGENT_FALLBACK_ENABLED = os.environ.get("QING_AGENT_FALLBACK_ENABLED", "1")
 
 # Cron job wrapper timeout (seconds) — must be >= QING_AGENT_TIMEOUT + 20s margin
 # to avoid the cron killing the script while it's still retrying.
-CRON_WRAPPER_TIMEOUT = float(os.environ.get("CRON_WRAPPER_TIMEOUT", "980"))  # 900s POST + 60s health + 20s margin
+CRON_WRAPPER_TIMEOUT = float(os.environ.get("CRON_WRAPPER_TIMEOUT", "1300"))  # 1200s POST + 60s health + 40s margin
 
 
 _STOCK_CODE_RE = re.compile(r"(\d{6})")
