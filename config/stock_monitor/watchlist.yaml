@@ -148,45 +148,6 @@ themes:
       stage: paused
       entered_stage: '2026-06-12'
       paused_reason: 价格58.32远超原区间50-53，连板后分歧中，等深度回踩后再评估
-  - code: 002971.SZ
-    name: 和远气体
-    role: wf6_small_cap
-    segment: WF6（500吨小盘）
-    priority: P3-观察
-    watch_reason: UP点名500吨小盘WF6标的。小盘弹性大，但波动也大。仅作WF6方向扩散确认观察，不重仓。
-    confirm_with:
-    - 昊华科技
-    - 中船特气(688146-科创)
-    entry_zone:
-      description: 【区间更新6/24】现价71.64(-1.9%)。等缩量回踩介入区间企稳。全A中阳线+板块共振为前置条件。
-      current_ref: '2026-06-24 实时: 现价=71.64(-1.9%)'
-      price_range: '67.1 ~ 70.5'
-      method: 涨停回踩法(5-15%)，基于涨停价58.03。小盘+WF6方向弹性大，区间放宽
-      confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
-      hard_stop: 跌破45且30分钟不能收回
-      position_ratio: 不超过0.2成（P3-观察+涨停后波动大，严格控仓）
-    name: 东材科技
-    role: ccl_resin_core
-    segment: 电子树脂（PPO/PPE核心）— CCL上游非本体
-    priority: P2-重点
-    watch_reason: UP 6/21复盘点名CCL涨价链。东材科技为PPO/PPE等低损耗电子树脂核心标的，受益CCL满产满销+电子树脂国产化。注意：此为CCL上游材料，非CCL本体厂商。近5日+22.6%，现价74.83已大幅偏离MA20(58.61)约28%，需等深度回踩。
-    confirm_with:
-    - 圣泉集团
-    - 生益科技
-    entry_zone:
-      description: 【等回踩】现价74.83已远离MA20(58.61)约28%，暂不追高。等分歧日缩量回踩MA10~MA20区域企稳
-      price_range: 56.9 ~ 64.1
-      current_ref: 2026-06-18收盘=74.83
-      method: MA10~MA20区域，分歧日缩量企稳
-      confirm_signal: CCL板块整体回踩+缩量企稳+全A非破位
-      hard_stop: 49.7
-    lifecycle:
-      stage: observing
-      entered_stage: '2026-06-21'
-    up_mention_status:
-      last_mentioned_date: '2026-06-21'
-      mention_context: 6/21 复盘专栏CCL涨价链梳理，电子树脂方向受益
-      sentiment: 积极看好
 - id: electronic_gas_wf6
   name: 电子特气/六氟化钨（WF6）涨价主线
   up_positioning: 「涨价主线最干净」「第一梯队，严格控仓」—产能永久退出+涨价有财报兑现。但位置已贵、龙头严重异动，参与方式应是「右侧、轻仓、带止损」，二线标的（昊华/中巨芯）回踩不破趋势风险收益比优于龙头
@@ -375,6 +336,7 @@ themes:
       confirm_signal: 全A中阳线+板块共振为前置条件。缩量回踩至区间不破+板块联动确认
       hard_stop: 跌破10.5且30分钟不能收回
       position_ratio: 0.3成以下（隆基企稳后作为方向确认，不单独建仓）
+  - code: 002459.SZ
     name: 晶澳科技
     role: pv_follower
     segment: 光伏组件

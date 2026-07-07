@@ -1,11 +1,11 @@
 {
-  "calculated_at": "2026-07-03T08:05:14.749248",
+  "calculated_at": "2026-07-07T08:00:47.291875",
   "total_stocks": 62,
   "tier_summary": {
     "A": 0,
     "B": 0,
-    "C": 46,
-    "D": 16
+    "C": 43,
+    "D": 19
   },
   "top_20": [
     {
@@ -142,24 +142,6 @@
         "claim_freshness": 3.0,
         "up_mention_recency": 2.0,
         "priority_base": 10,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "🥇 CCL/覆铜板（独立方向，含上游树脂+CCL本体+M8/M9材料升级）",
-      "theme_id": "ccL_resin_upstream"
-    },
-    {
-      "code": "002971.SZ",
-      "name": "东材科技",
-      "hot_score": 4.45,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
-        "priority_base": 7,
         "technical_setup": 5.0,
         "sector_momentum": 6.0,
         "linked_claims_count": 2.0,
@@ -349,6 +331,24 @@
       "ranking_tier": "C",
       "theme": "PMIC电源管理（涨价+算电协同）",
       "theme_id": "pmic_power"
+    },
+    {
+      "code": "002971.SZ",
+      "name": "东材科技",
+      "hot_score": 4.15,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 2.0,
+        "priority_base": 7,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "🥇 CCL/覆铜板（独立方向，含上游树脂+CCL本体+M8/M9材料升级）",
+      "theme_id": "ccL_resin_upstream"
     },
     {
       "code": "002463.SZ",
@@ -515,24 +515,6 @@
       "theme_id": "ccL_resin_upstream"
     },
     {
-      "code": "002971.SZ",
-      "name": "东材科技",
-      "hot_score": 4.45,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
-        "priority_base": 7,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "🥇 CCL/覆铜板（独立方向，含上游树脂+CCL本体+M8/M9材料升级）",
-      "theme_id": "ccL_resin_upstream"
-    },
-    {
       "code": "601012.SH",
       "name": "隆基绿能",
       "hot_score": 4.45,
@@ -713,6 +695,24 @@
       "theme_id": "pmic_power"
     },
     {
+      "code": "002971.SZ",
+      "name": "东材科技",
+      "hot_score": 4.15,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 2.0,
+        "priority_base": 7,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "🥇 CCL/覆铜板（独立方向，含上游树脂+CCL本体+M8/M9材料升级）",
+      "theme_id": "ccL_resin_upstream"
+    },
+    {
       "code": "002463.SZ",
       "name": "沪电股份",
       "hot_score": 4.15,
@@ -783,60 +783,6 @@
       "ranking_tier": "C",
       "theme": "光通信/MPO/CPO — 光多通道替代电高速",
       "theme_id": "optical_communication"
-    },
-    {
-      "code": "600895.SH",
-      "name": "张江高科",
-      "hot_score": 4.15,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
-        "priority_base": 4,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "🇨🇳 EUV光刻机/国产光刻链（EUV争议情绪催化）",
-      "theme_id": "euv_lithography_chain"
-    },
-    {
-      "code": "002222.SZ",
-      "name": "福晶科技",
-      "hot_score": 4.15,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
-        "priority_base": 4,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "🇨🇳 EUV光刻机/国产光刻链（EUV争议情绪催化）",
-      "theme_id": "euv_lithography_chain"
-    },
-    {
-      "code": "000960.SZ",
-      "name": "锡业股份",
-      "hot_score": 4.15,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
-        "priority_base": 4,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "铟/磷化铟（供给刚性×AI光互联需求）",
-      "theme_id": "indium_phosphide_chain"
     },
     {
       "code": "002371.SZ",
@@ -1469,12 +1415,66 @@
       "theme_id": "coke_coal_upcycle"
     },
     {
-      "code": "603650.SH",
-      "name": "彤程新材",
+      "code": "600895.SH",
+      "name": "张江高科",
       "hot_score": 3.85,
       "breakdown": {
         "claim_freshness": 3.0,
-        "up_mention_recency": 4.0,
+        "up_mention_recency": 2.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "🇨🇳 EUV光刻机/国产光刻链（EUV争议情绪催化）",
+      "theme_id": "euv_lithography_chain"
+    },
+    {
+      "code": "002222.SZ",
+      "name": "福晶科技",
+      "hot_score": 3.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 2.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "🇨🇳 EUV光刻机/国产光刻链（EUV争议情绪催化）",
+      "theme_id": "euv_lithography_chain"
+    },
+    {
+      "code": "000960.SZ",
+      "name": "锡业股份",
+      "hot_score": 3.85,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 2.0,
+        "priority_base": 4,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "D",
+      "theme": "铟/磷化铟（供给刚性×AI光互联需求）",
+      "theme_id": "indium_phosphide_chain"
+    },
+    {
+      "code": "603650.SH",
+      "name": "彤程新材",
+      "hot_score": 3.55,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 2.0,
         "priority_base": 1,
         "technical_setup": 5.0,
         "sector_momentum": 6.0,
