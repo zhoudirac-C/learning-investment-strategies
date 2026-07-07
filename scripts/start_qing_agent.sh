@@ -31,6 +31,9 @@ set +a
 export KIMI_CODE_ACP_FIRST=1
 # 大 context 下本地 ACP 可能耗时 5-10 分钟；给足单节点超时
 export KIMI_CODE_ACP_TIMEOUT=600
+# 看盘定时任务 wrapper 与 qing-agent HTTP 客户端超时对齐
+# 大 context + reviewer 多轮 retry 实测可达 23 分钟，给足余量
+export QING_AGENT_TIMEOUT=1800
 
 nohup .venv/bin/python -m uvicorn qing_investment.agent.main:app \
     --host 127.0.0.1 --port 8000 \

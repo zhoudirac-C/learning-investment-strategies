@@ -82,6 +82,8 @@ def _extract_role_definition(statement: str) -> str | None:
         "核心", "跟风", "铲子", "容量票", "大票", "小票",
         "机构票", "游资票", "白马", "黑马", "弹性",
     }
+    if not isinstance(statement, str):
+        statement = str(statement)
     for kw in role_keywords:
         if kw in statement:
             # 提取包含关键词的短句
@@ -148,6 +150,8 @@ def _score_claim_relevance(
     claim_type = claim.get("claim_type", "")
 
     # 直接提到股票代码或名称
+    if not isinstance(stock_code, str):
+        stock_code = str(stock_code)
     pure_code = stock_code.replace("sh", "").replace("sz", "").replace(".", "")
     if pure_code in stmt or pure_code in subject:
         score += 10.0
@@ -379,7 +383,8 @@ def build_market_context(
             try:
                 # Phase 3: 构建动态语义 query
                 # 结合标的名称 + entry_points 触发条件 + 方向信息
-                query_parts = [name, code.replace(".SZ", "").replace(".SH", "")]
+                code_str = code if isinstance(code, str) else str(code)
+                query_parts = [name, code_str.replace(".SZ", "").replace(".SH", "")]
 
                 # 从 entry_points 找该标的的触发条件
                 ep_trigger = ""

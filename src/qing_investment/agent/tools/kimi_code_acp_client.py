@@ -9,6 +9,8 @@ import shutil
 import subprocess
 import threading
 import time
+from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any
 
 logger = logging.getLogger(__name__)
@@ -20,6 +22,24 @@ _DEFAULT_TIMEOUT = 300
 # ANSI escape sequences may appear in stdout even with TERM=dumb; strip them
 # before parsing JSON-RPC messages.
 _ANSI_ESCAPE_RE = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
+
+# 将 kimi acp 子进程的 stderr 写入独立日志，便于排查本地模型加载/推理慢的问题
+_ACP_STDERR_LOG_DIR = Path.home() / ".kimi-code-im-bot" / "logs"
+_ACP_STDERR_LOG_PATH = _ACP_STDERR_LOG_DIR / "kimi-acp-stderr.log"
+
+
+def _get_acp_stderr_log() -> Any:
+    """打开并轮转 ACP stderr 日志（保留最近 5 个备份）。"""
+    _ACP_STDERR_LOG_DIR.mkdir(parents=True, exist_ok=True)
+    if _ACP_STDERR_LOG_PATH.exists() and _ACP_STDERR_LOG_PATH.stat().st_size > 5 * 1024 * 1024:
+        # 超过 5MB 时轮转
+        for i in range(4, 0, -1):
+            old = _ACP_STDERR_LOG_PATH.with_suffix(f".log.{i}")
+            newer = _ACP_STDERR_LOG_PATH.with_suffix(f".log.{i + 1}")
+            if old.exists():
+                old.rename(newer)
+        _ACP_STDERR_LOG_PATH.rename(_ACP_STDERR_LOG_PATH.with_suffix(".log.1"))
+    return open(_ACP_STDERR_LOG_PATH, "a", encoding="utf-8", buffering=1)
 
 
 class KimiCodeAcpError(Exception):
@@ -49,6 +69,8 @@ class _TurnState:
         self.chunks: list[str] = []
         self.error: str | None = None
         self.finished = False
+        self.submit_time: float | None = None
+        self.first_chunk_time: float | None = None
 
 
 class KimiCodeAcpClient:
@@ -94,12 +116,14 @@ class KimiCodeAcpClient:
             raise KimiCodeAcpError(f"ACP command not found: {cmd_parts[0]}")
         cmd_parts[0] = resolved
         logger.info("[KimiCodeAcpClient] starting subprocess: %s", " ".join(cmd_parts))
+        t0 = time.monotonic()
+        self._stderr_log = _get_acp_stderr_log()
         self._child = subprocess.Popen(
             cmd_parts,
             cwd=self.cwd,
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
-            stderr=subprocess.DEVNULL,
+            stderr=self._stderr_log,
             text=True,
             bufsize=1,
             env={**os.environ, "TERM": "dumb"},
@@ -107,6 +131,7 @@ class KimiCodeAcpClient:
         self._shutdown = False
         self._reader_thread = threading.Thread(target=self._read_lines, daemon=True)
         self._reader_thread.start()
+        logger.info("[KimiCodeAcpClient] subprocess started pid=%d startup_ms=%.0f", self._child.pid, (time.monotonic() - t0) * 1000)
 
     def stop(self) -> None:
         """Stop the ACP subprocess."""
@@ -128,6 +153,12 @@ class KimiCodeAcpClient:
         # Reset so the next invoke() on this instance re-initializes the
         # new subprocess instead of assuming the old handshake is still valid.
         self._initialized = False
+        if hasattr(self, "_stderr_log") and self._stderr_log is not None:
+            try:
+                self._stderr_log.close()
+            except Exception:
+                pass
+            self._stderr_log = None
 
     # ------------------------------------------------------------------
     # JSON-RPC primitives
@@ -228,6 +259,10 @@ class KimiCodeAcpClient:
             return
         if update_type == "agent_message_chunk":
             text = (update.get("content") or {}).get("text") or ""
+            if not turn.chunks and turn.submit_time:
+                turn.first_chunk_time = time.monotonic()
+                logger.info("[KimiCodeAcpClient] first chunk latency ms=%.0f",
+                            (turn.first_chunk_time - turn.submit_time) * 1000)
             turn.chunks.append(text)
         elif update_type == "finish":
             turn.finished = True
@@ -241,12 +276,15 @@ class KimiCodeAcpClient:
     # ------------------------------------------------------------------
     def invoke(self, prompt: str) -> KimiCodeAcpResponse:
         """Create a fresh ACP session, send one prompt, return aggregated text."""
+        invoke_t0 = time.monotonic()
+        prompt_len = len(prompt)
         if self._child is None:
             self.start()
         assert self._child is not None
 
         # 1. Initialize and authenticate if not already done
         if not self._initialized:
+            init_t0 = time.monotonic()
             self._send_request("initialize", {
                 "protocolVersion": 1,
                 "clientInfo": {"name": "qing-agent-acp-client", "version": "0.1.0"},
@@ -254,31 +292,40 @@ class KimiCodeAcpClient:
             })
             self._send_request("authenticate", {"methodId": "login"})
             self._initialized = True
+            logger.info("[KimiCodeAcpClient] initialize+authenticate done ms=%.0f", (time.monotonic() - init_t0) * 1000)
 
         # 2. Create a fresh session
+        session_t0 = time.monotonic()
         session_result = self._send_request("session/new", {"cwd": self.cwd, "mcpServers": []})
         session_id = session_result.get("sessionId") if isinstance(session_result, dict) else None
         if not session_id:
             raise KimiCodeAcpError(f"ACP session/new returned no sessionId: {session_result}")
+        logger.info("[KimiCodeAcpClient] session/new done ms=%.0f", (time.monotonic() - session_t0) * 1000)
 
         # 3. Set permission mode to avoid interactive approval requests
         if self.permission_mode != "manual":
+            cfg_t0 = time.monotonic()
             self._send_request("session/set_config_option", {
                 "sessionId": session_id,
                 "configId": "mode",
                 "value": self.permission_mode,
             })
+            logger.info("[KimiCodeAcpClient] set_config_option done ms=%.0f", (time.monotonic() - cfg_t0) * 1000)
 
         # 4. Register turn state before submitting prompt
         turn = _TurnState(session_id)
         self._turns[session_id] = turn
+        turn.submit_time = time.monotonic()
 
         try:
             # 5. Submit prompt
+            prompt_t0 = time.monotonic()
             prompt_result = self._send_request("session/prompt", {
                 "sessionId": session_id,
                 "prompt": [{"type": "text", "text": prompt}],
             })
+            prompt_submit_ms = (time.monotonic() - prompt_t0) * 1000
+            logger.info("[KimiCodeAcpClient] prompt submitted ms=%.0f prompt_len=%d", prompt_submit_ms, prompt_len)
 
             # 6. Wait for finish notification, unless the prompt response already
             #    signals turn completion (e.g. {"stopReason": "end_turn"}).
@@ -286,13 +333,20 @@ class KimiCodeAcpClient:
                 isinstance(prompt_result, dict) and prompt_result.get("stopReason") is not None
             )
             if not completed_from_response:
+                wait_t0 = time.monotonic()
                 if not turn.event.wait(timeout=self.timeout):
                     raise KimiCodeAcpError(f"ACP turn timeout after {self.timeout}s")
                 if turn.error:
                     raise KimiCodeAcpError(turn.error)
+                logger.info("[KimiCodeAcpClient] turn finished ms=%.0f chunks=%d content_len=%d first_chunk_ms=%.0f total_ms=%.0f",
+                            (time.monotonic() - wait_t0) * 1000, len(turn.chunks), len("".join(turn.chunks)),
+                            (turn.first_chunk_time - turn.submit_time) * 1000 if turn.first_chunk_time else 0,
+                            (time.monotonic() - invoke_t0) * 1000)
 
             content = "".join(turn.chunks)
             cleaned = self._clean_output(content)
+            logger.info("[KimiCodeAcpClient] invoke done total_ms=%.0f prompt_len=%d content_len=%d",
+                        (time.monotonic() - invoke_t0) * 1000, prompt_len, len(cleaned))
             return KimiCodeAcpResponse(content=cleaned)
         finally:
             # 7. Best-effort cleanup

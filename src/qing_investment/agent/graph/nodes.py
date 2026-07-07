@@ -645,7 +645,11 @@ def _load_reasoning_patterns(state: AgentState) -> list[dict]:
     return matched
 
 
-def _safe_llm_invoke(prompt: str, min_length: int = 0) -> str:
+def _safe_llm_invoke(
+    prompt: str,
+    min_length: int = 0,
+    use_acp_first: bool | None = None,
+) -> str:
     """安全调用 LLM，默认走配置 provider。
 
     通过环境变量控制本地调用优先级：
@@ -657,10 +661,15 @@ def _safe_llm_invoke(prompt: str, min_length: int = 0) -> str:
         prompt: 发送给 LLM 的提示。
         min_length: 本地调用返回内容的最小可接受长度（字符数）。
             若返回内容长度低于此值，视为失败并 fallback 到配置 provider。
+        use_acp_first: 是否优先本地 ACP。None 时从环境变量读取；
+            False 时强制走配置 provider（用于 style_writer / reviewer 等 retry 节点，避免本地 ACP 拖慢）。
     """
     import os
 
-    acp_first = os.environ.get("KIMI_CODE_ACP_FIRST", "0").lower() not in ("0", "false", "no")
+    if use_acp_first is None:
+        acp_first = os.environ.get("KIMI_CODE_ACP_FIRST", "0").lower() not in ("0", "false", "no")
+    else:
+        acp_first = use_acp_first
     # [DEPRECATED] kimi -p 方式已废弃，不再加入本地优先列表。
     # cli_first = os.environ.get("KIMI_CODE_CLI_FIRST", "0").lower() not in ("0", "false", "no")
 
@@ -1368,6 +1377,9 @@ def market_summary(state: AgentState) -> AgentState:
 
     context = {
         "market_snapshot": market_snapshot,
+        "macd_multi_tf_report": market_snapshot.get("macd_multi_tf_report", ""),
+        "td_sequential_report": market_snapshot.get("td_sequential_report", ""),
+        "fibonacci_time_report": market_snapshot.get("fibonacci_time_report", ""),
         "sector_strengths": state.get("sector_strengths", []),
         "external_sector_boards": esb,
         "sector_context": state.get("sector_context", []),
@@ -2102,16 +2114,13 @@ def devils_advocate(state: AgentState) -> AgentState:
 
     try:
         from qing_investment.agent.agents.devils_advocate import DevilsAdvocateAgent
-        from qing_investment.agent.tools.llm_client import (
-            get_llm_client,
-            record_provider_usage,
-        )
+        from qing_investment.agent.tools.llm_client import record_provider_usage
 
-        # 强制用 Kimi（不同模型家族）
-        logger.info("[devils_advocate] 调用远端 kimi")
-        record_provider_usage("kimi", "attempt", "devils_advocate fixed provider")
-        llm = get_llm_client(provider="kimi")
-        agent = DevilsAdvocateAgent(llm=llm)
+        # Devil's Advocate 内部已配置优先走 deepseek（与主分析不同模型家族），
+        # 不注入固定 provider，让它使用自己的 fallback 链：deepseek → kimi-coding → zhipu。
+        logger.info("[devils_advocate] 调用远端 deepseek")
+        record_provider_usage("deepseek", "attempt", "devils_advocate fixed provider")
+        agent = DevilsAdvocateAgent()
 
         import asyncio
         result = asyncio.run(agent.run(
@@ -2119,14 +2128,16 @@ def devils_advocate(state: AgentState) -> AgentState:
             stock_analysis=_stock_analysis_summary(stock_analysis),
             claims_cited=claims_cited,
         ))
-        record_provider_usage("kimi", "success", f"findings={len(result.findings)}")
+        actual_provider = agent.used_provider or "deepseek"
+        record_provider_usage(actual_provider, "success", f"findings={len(result.findings)}")
         logger.info(
             f"devils_advocate: findings={len(result.findings)} "
-            f"errors={len(result.errors)} cost={result.cost_usd}"
+            f"errors={len(result.errors)} cost={result.cost_usd} "
+            f"provider={actual_provider}"
         )
         return {"devils_advocate_findings": result.findings}
     except Exception as e:
-        record_provider_usage("kimi", "failed", str(e)[:120])
+        record_provider_usage("deepseek", "failed", str(e)[:120])
         logger.warning("devils_advocate failed: %s", e)
         return {"devils_advocate_findings": da_findings}
 
@@ -2426,7 +2437,8 @@ def style_writer(state: AgentState) -> AgentState:
         f"has_vague_terms={has_vague_terms} review_round={len(review_notes)}"
     )
 
-    content = _safe_llm_invoke(prompt, min_length=150)
+    # style_writer 会被 reviewer 多次调用，优先走远端 deepseek 以避免本地 ACP 拖慢整体耗时
+    content = _safe_llm_invoke(prompt, min_length=150, use_acp_first=False)
     styled = content if content else f"[UP风格化] {draft}"
 
     logger.info(f"style_writer: output_len={len(styled)} generated={bool(content)} content_len={len(content) if content else 0}")
@@ -2556,7 +2568,8 @@ def reviewer(state: AgentState) -> AgentState:
 
 请输出JSON：
 """
-    content = _safe_llm_invoke(prompt)
+    # reviewer 每次 retry 都调 LLM，优先走远端 deepseek 以避免本地 ACP 拖慢整体耗时
+    content = _safe_llm_invoke(prompt, use_acp_first=False)
 
     # 成本追踪
     _rv_ct = CostTracker()

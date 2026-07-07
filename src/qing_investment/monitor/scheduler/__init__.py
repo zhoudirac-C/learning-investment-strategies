@@ -1901,6 +1901,13 @@ def run_tick(
         # 使用新模块的单 dict 方式构建 context 数据
         from zoneinfo import ZoneInfo
         cn_tz = ZoneInfo("Asia/Shanghai")
+
+        # 注入外部板块排行与大盘技术面信号
+        from qing_investment.monitor.context import (
+            _build_external_sector_boards,
+            _build_tech_signals_for_context,
+        )
+
         context_data = {
             "timestamp": value.astimezone(cn_tz).isoformat(),
             "trigger": {
@@ -1927,6 +1934,8 @@ def run_tick(
             "state": state,
             "market_state": state.get("last_market_state", {}),
             "sector_signal_counts": state.get("sector_signal_counts", {}),
+            "external_sector_boards": _build_external_sector_boards(),
+            "tech_signals": _build_tech_signals_for_context(quote_snapshot),
         }
 
         if agent_json_context:

@@ -364,11 +364,20 @@ async def chat(req: ChatRequest):
     market_snapshot: dict = {"quotes": []}
     external_sector_boards: dict = {"available": False}
 
-    # 1. 检测查询类型
+    # 1. 检测查询类型（同时尊重 trigger.analysis_type）
     query_lower = req.message.lower()
-    is_market_query = any(kw in query_lower for kw in ["大盘", "市场", "行情", "指数", "上证", "创业板", "科创"])
-    is_sector_query = any(kw in query_lower for kw in ["板块", "行业", "概念"])
-    is_stock_query = any(kw in query_lower for kw in ["股", "走势", "分析", "低点", "高点", "买入", "卖出", "抄底", "减仓", "加仓", "持仓", "套牢", "解套", "止损", "止盈", "目标价", "支撑", "压力"])
+    is_market_query = (
+        any(kw in query_lower for kw in ["大盘", "市场", "行情", "指数", "上证", "创业板", "科创"])
+        or getattr(req, "analysis_type", None) == "market"
+    )
+    is_sector_query = (
+        any(kw in query_lower for kw in ["板块", "行业", "概念"])
+        or getattr(req, "analysis_type", None) == "sector"
+    )
+    is_stock_query = (
+        any(kw in query_lower for kw in ["股", "走势", "分析", "低点", "高点", "买入", "卖出", "抄底", "减仓", "加仓", "持仓", "套牢", "解套", "止损", "止盈", "目标价", "支撑", "压力"])
+        or getattr(req, "analysis_type", None) == "stock"
+    )
     
     # 2. 如果没有提取到代码，从持仓配置中匹配股票名称
     if not fetched_stock_code:
@@ -382,7 +391,7 @@ async def chat(req: ChatRequest):
                 for pos in account.get("positions", []):
                     name = pos.get("name", "")
                     code = pos.get("code", "")
-                    if name and code and name in req.message:
+                    if name and code and isinstance(code, str) and name in req.message:
                         fetched_stock_code = code.replace(".SZ", "").replace(".SH", "").replace(".sz", "").replace(".sh", "")
                         break
                 if fetched_stock_code:
@@ -390,6 +399,52 @@ async def chat(req: ChatRequest):
         except Exception:
             pass
     
+    def _format_macd_multi_tf_report(tech_signals: dict) -> str:
+        """把 tech_signals 格式化成 prompt 里要的 macd_multi_tf_report。"""
+        lines = ["📊 多级别 MACD 快照", ""]
+        for code, sigs in tech_signals.items():
+            macd = sigs.get("macd", {})
+            tfs = macd.get("timeframes", {})
+            if not tfs:
+                continue
+            lines.append(f"【{code}】")
+            for tf in ["daily", "120min", "90min", "60min", "30min"]:
+                if tf not in tfs:
+                    continue
+                d = tfs[tf]
+                trend = d.get("hist_trend", "")
+                cross = d.get("dif_cross", "")
+                parts = [f"{tf}: close={d.get('close')} DIF={d.get('dif')} DEA={d.get('dea')} MACD={d.get('macd_hist')}"]
+                if trend:
+                    parts.append(f"柱趋势={trend}")
+                if cross:
+                    parts.append(f"交叉={cross}")
+                lines.append("  " + " | ".join(parts))
+            lines.append("")
+        return "\n".join(lines)
+
+    def _format_td_report(tech_signals: dict) -> str:
+        """格式化九转报告。"""
+        lines = ["🔄 神奇九转序列", ""]
+        for code, sigs in tech_signals.items():
+            td = sigs.get("td_daily", "")
+            if td:
+                lines.append(f"【{code} 日线】")
+                lines.append(td)
+                lines.append("")
+        return "\n".join(lines)
+
+    def _format_fibonacci_report(tech_signals: dict) -> str:
+        """格式化斐波那契时间窗口报告。"""
+        lines = ["⏰ 斐波那契时间窗口", ""]
+        for code, sigs in tech_signals.items():
+            fib = sigs.get("fibonacci", "")
+            if fib:
+                lines.append(f"【{code}】")
+                lines.append(fib)
+                lines.append("")
+        return "\n".join(lines)
+
     # 3. 获取指数/大盘数据（如果是市场相关查询 或 个股查询也需要大盘环境）
     if is_market_query or is_sector_query or is_stock_query or not fetched_stock_code:
         try:
@@ -399,7 +454,39 @@ async def chat(req: ChatRequest):
             market_snapshot["date"] = ""
         except Exception:
             pass
-    
+
+        # 3.1 计算大盘技术面信号（MACD / 九转 / 斐波那契），供 market_summary 使用
+        try:
+            from qing_investment.kline_cache import (
+                compute_fibonacci_time_report,
+                compute_td_report,
+                get_index_macd_snapshot,
+            )
+
+            # secid -> kline_cache 代码格式
+            _INDEX_KLINE_MAP = {
+                "1.000001": "sh000001",   # 上证指数
+                "0.399001": "sz399001",   # 深证成指
+                "0.399006": "sz399006",   # 创业板指
+                "1.000688": "sh000688",   # 科创50
+                "1.000985": "sh000985",   # 全A指数
+            }
+
+            tech_signals: dict[str, dict] = {}
+            for secid, kline_code in _INDEX_KLINE_MAP.items():
+                tech_signals[kline_code] = {
+                    "macd": get_index_macd_snapshot(kline_code),
+                    "td_daily": compute_td_report(kline_code, "daily"),
+                    "td_60min": compute_td_report(kline_code, "60min"),
+                    "fibonacci": compute_fibonacci_time_report(kline_code),
+                }
+            market_snapshot["tech_signals"] = tech_signals
+            market_snapshot["macd_multi_tf_report"] = _format_macd_multi_tf_report(tech_signals)
+            market_snapshot["td_sequential_report"] = _format_td_report(tech_signals)
+            market_snapshot["fibonacci_time_report"] = _format_fibonacci_report(tech_signals)
+        except Exception as e:
+            logger.warning("大盘技术面信号计算失败: %s", e)
+
     # 4. 获取板块数据（如果是板块相关查询）
     if is_sector_query or is_market_query:
         try:
@@ -446,7 +533,8 @@ async def chat(req: ChatRequest):
     # 保留所有 wiki（包括市场分析、投资方法论、每日复盘等）
     all_wiki = [
         s for s in wiki_snippets
-        if s.get("source", "").startswith(("knowledge/wiki/", "framework/"))
+        if isinstance(s.get("source", ""), str)
+        and s["source"].startswith(("knowledge/wiki/", "framework/"))
     ]
     
     # 保留所有 claims（不过滤，让 LLM 自己判断相关性）
@@ -463,7 +551,9 @@ async def chat(req: ChatRequest):
             
             for account in positions_data.get("accounts", []):
                 for pos in account.get("positions", []):
-                    code = pos.get("code", "").replace(".SZ", "").replace(".SH", "").replace(".sz", "").replace(".sh", "")
+                    code = pos.get("code", "")
+                    if isinstance(code, str):
+                        code = code.replace(".SZ", "").replace(".SH", "").replace(".sz", "").replace(".sh", "")
                     if code == fetched_stock_code and pos.get("shares", 0) > 0:
                         position_data = {
                             "account": account.get("name", ""),
@@ -530,8 +620,14 @@ async def chat(req: ChatRequest):
     if all_wiki:
         context_parts.append("\n【博主知识库】（Wiki专题分析、投资方法论、市场复盘等）")
         for s in all_wiki[:8]:  # 限制数量避免prompt过长
-            src = s["source"].replace("knowledge/wiki/", "[Wiki] ").replace("framework/", "[框架] ")
-            context_parts.append(f"- {src}: {s['text'][:300]}")
+            src_raw = s["source"]
+            if not isinstance(src_raw, str):
+                src_raw = str(src_raw)
+            src = src_raw.replace("knowledge/wiki/", "[Wiki] ").replace("framework/", "[框架] ")
+            text_raw = s.get("text", "")
+            if not isinstance(text_raw, str):
+                text_raw = str(text_raw)
+            context_parts.append(f"- {src}: {text_raw[:300]}")
 
     if all_claims:
         # 应用时效分级

@@ -1222,6 +1222,102 @@ def _build_sector_tiers(
     return result
 
 
+def _build_tech_signals_for_context(quote_snapshot: dict) -> dict:
+    """基于 kline_cache 构建大盘 MACD / 九转 / 斐波那契信号。
+
+    返回字典可直接作为 market_snapshot 的扩展字段。
+    """
+    try:
+        from qing_investment.kline_cache import (
+            compute_fibonacci_time_report,
+            compute_td_report,
+            get_index_macd_snapshot,
+        )
+
+        _INDEX_KLINE_MAP = {
+            "1.000001": "sh000001",   # 上证指数
+            "0.399001": "sz399001",   # 深证成指
+            "0.399006": "sz399006",   # 创业板指
+            "1.000688": "sh000688",   # 科创50
+            "1.000985": "sh000985",   # 全A指数
+        }
+
+        tech_signals: dict[str, dict] = {}
+        for secid, kline_code in _INDEX_KLINE_MAP.items():
+            try:
+                tech_signals[kline_code] = {
+                    "macd": get_index_macd_snapshot(kline_code),
+                    "td_daily": compute_td_report(kline_code, "daily"),
+                    "td_60min": compute_td_report(kline_code, "60min"),
+                    "fibonacci": compute_fibonacci_time_report(kline_code),
+                }
+            except Exception as e:
+                logger.warning("[tech_signals] %s failed: %s", kline_code, e)
+
+        def _format_macd(tech: dict) -> str:
+            lines = ["📊 多级别 MACD 快照", ""]
+            for code, sigs in tech.items():
+                macd = sigs.get("macd", {})
+                tfs = macd.get("timeframes", {})
+                if not tfs:
+                    continue
+                lines.append(f"【{code}】")
+                for tf in ["daily", "120min", "90min", "60min", "30min"]:
+                    if tf not in tfs:
+                        continue
+                    d = tfs[tf]
+                    parts = [f"{tf}: close={d.get('close')} DIF={d.get('dif')} DEA={d.get('dea')} MACD={d.get('macd_hist')}"]
+                    trend = d.get("hist_trend", "")
+                    cross = d.get("dif_cross", "")
+                    if trend:
+                        parts.append(f"柱趋势={trend}")
+                    if cross:
+                        parts.append(f"交叉={cross}")
+                    lines.append("  " + " | ".join(parts))
+                lines.append("")
+            return "\n".join(lines)
+
+        def _format_td(tech: dict) -> str:
+            lines = ["🔄 神奇九转序列", ""]
+            for code, sigs in tech.items():
+                td = sigs.get("td_daily", "")
+                if td:
+                    lines.append(f"【{code} 日线】")
+                    lines.append(td)
+                    lines.append("")
+            return "\n".join(lines)
+
+        def _format_fib(tech: dict) -> str:
+            lines = ["⏰ 斐波那契时间窗口", ""]
+            for code, sigs in tech.items():
+                fib = sigs.get("fibonacci", "")
+                if fib:
+                    lines.append(f"【{code}】")
+                    lines.append(fib)
+                    lines.append("")
+            return "\n".join(lines)
+
+        return {
+            "tech_signals": tech_signals,
+            "macd_multi_tf_report": _format_macd(tech_signals),
+            "td_sequential_report": _format_td(tech_signals),
+            "fibonacci_time_report": _format_fib(tech_signals),
+        }
+    except Exception as e:
+        logger.warning("[tech_signals] overall failed: %s", e)
+        return {}
+
+
+def _build_external_sector_boards() -> dict:
+    """拉取外部板块排行数据（含 20 分钟缓存 + 多源 fallback）。"""
+    try:
+        from qing_investment.agent.tools.sector_data import get_sector_strength_snapshot
+        return get_sector_strength_snapshot(top_n=15)
+    except Exception as e:
+        logger.warning("[external_sector_boards] failed: %s", e)
+        return {"available": False, "error": str(e)}
+
+
 def _agent_context_data(
     config: Any,
     quote_snapshot: dict,
@@ -1256,6 +1352,8 @@ def _agent_context_data(
         "quote_snapshot": quote_snapshot,
         "positions": position_rows(config),
         "watchlist": watchlist_stock_rows(config),
+        "external_sector_boards": _build_external_sector_boards(),
+        "tech_signals": _build_tech_signals_for_context(quote_snapshot),
     }
 
 

@@ -524,6 +524,14 @@ def call_qing_agent(data: dict) -> dict | None:
         enriched_quotes.append(enriched)
     market_snapshot["quotes"] = enriched_quotes
 
+    # 注入大盘技术面信号（MACD/九转/斐波那契）到 market_snapshot
+    tech_signals = data.get("tech_signals", {})
+    if isinstance(tech_signals, dict):
+        market_snapshot.update({
+            k: v for k, v in tech_signals.items()
+            if k in ("tech_signals", "macd_multi_tf_report", "td_sequential_report", "fibonacci_time_report")
+        })
+
     payload = json.dumps({
         "query": f"{data.get('trigger', {}).get('title', '')}：{data.get('trigger', {}).get('reason', '')}",
         "session_id": f"hermes-{data.get('timestamp', 'now')}",
