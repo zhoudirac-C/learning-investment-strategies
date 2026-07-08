@@ -703,6 +703,9 @@ def main():
     # 4. Fallback: qing-agent unavailable or returned empty
     if not QING_AGENT_FALLBACK_ENABLED:
         print("[Qing-Agent ✗ FALLBACK DISABLED] 本地规则输出已关闭，仅记录错误", file=sys.stderr)
+        # 向 Bridge stdout 输出简短提示，避免 cron 任务静默失败、用户收不到飞书通知
+        trigger_title = data.get("trigger", {}).get("title", "定时分析")
+        print(f"⚠️ {trigger_title} 分析服务异常，本次未生成报告，已自动清理重试标记。")
         # 清除 dedupe，让下一次调度可以重试
         _remove_agent_trigger_dedupe(root, data)
         return 0
