@@ -21,21 +21,21 @@
 - 字数：200字以内
 - 格式：JSON
 {
-  "morning_summary": "上午弱修复，量能不足，半导体上游相对抗跌",
+  "morning_summary": "上午缩量冰点/弱修复，半导体/国产算力相对抗跌",
   "afternoon_plan": {
-    "continue": "持有半导体上游趋势票不动，等尾盘确认",
-    "reverse": "若半导体上游与大盘放量共振，考虑右侧跟随"
+    "continue": "持有半导体/国产算力趋势票不动，等尾盘确认",
+    "reverse": "若半导体/国产算力与大盘放量共振，考虑右侧跟随"
   },
-  "scenario_foresight": "偏向weak_consolidation，午后若继续缩量则维持观望",
+  "scenario_foresight": "偏向weak_consolidation，缩量冰点午后若继续缩量则维持观望",
   "position_action": "持仓不动，不追高",
-  "narrative": "上午弱修复，半导体上游逆势，午后观望为主"
+  "narrative": "上午缩量冰点弱修复，半导体/国产算力逆势，午后观望为主"
 }
 
 【⚠️ 强制要求：daily_state 输出】
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
 ```daily_state
-{"market_stage":{"phase":"等修复","detail":"上午弱修复，半导体上游逆势，午后观望"},"direction_priority":[{"direction":"半导体上游","intensity":"🔥🔥🔥"},{"direction":"存储","intensity":"🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"11:20","summary":"上午弱修复，半导体上游逆势，午后观望为主"}]}
+{"market_stage":{"phase":"缩量冰点/等右侧确认","detail":"上午缩量冰点弱修复，半导体/国产算力逆势，午后观望"},"direction_priority":[{"direction":"半导体上游+存储","intensity":"🔥🔥🔥"},{"direction":"国产算力链","intensity":"🔥🔥"},{"direction":"半导体设备/封测","intensity":"🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"11:20","summary":"上午缩量冰点弱修复，半导体/国产算力逆势，午后观望为主"}]}
 ```
 
 说明：

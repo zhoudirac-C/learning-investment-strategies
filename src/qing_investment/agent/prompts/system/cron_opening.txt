@@ -21,21 +21,21 @@
 {
   "scenario_validation": {
     "closest_match": "weak_consolidation",
-    "deviation": "竞价低开幅度超预期，但半导体上游方向相对抗跌",
+    "deviation": "竞价低开幅度符合缩量冰点预期，半导体/国产算力方向相对抗跌",
     "score": "70%"
   },
-  "core_assumption": "全A破位后难度抬升，今日不追涨，等半导体上游与大盘共振或AI硬科技再回踩",
-  "direction_priority": ["半导体上游", "存储", "功率半导体"],
-  "position_action": "持仓不动，不追高，等回踩买阴",
+  "core_assumption": "7/8缩量冰点、抛压衰竭，今日不追涨，等半导体/国产算力与大盘共振的右侧确认",
+  "direction_priority": ["半导体上游+存储", "国产算力链", "半导体设备/封测"],
+  "position_action": "持仓不动，不追高，等科技带头反弹+量能确认",
   "risk_alert": "无",
-  "narrative": "竞价低开，剧本弱震荡匹配，半导体上游相对抗跌，判断今日等修复不追高"
+  "narrative": "竞价低开，缩量冰点剧本匹配，半导体/国产算力相对抗跌，判断今日等右侧确认不追涨"
 }
 
 【⚠️ 强制要求：daily_state 输出】
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
 ```daily_state
-{"market_stage":{"phase":"等修复","detail":"竞价低开，半导体上游抗跌，剧本弱震荡匹配，不追高"},"direction_priority":[{"direction":"半导体上游","intensity":"🔥🔥"},{"direction":"存储","intensity":"🔥🔥"},{"direction":"功率半导体","intensity":"🔥"}],"position_stance":"轻仓持有","intraday_narrative":[{"time":"09:26","summary":"竞价低开，半导体上游相对抗跌，判断今日等修复不追高"}]}
+{"market_stage":{"phase":"缩量冰点/等右侧确认","detail":"竞价低开，半导体/国产算力抗跌，缩量冰点剧本匹配，右侧确认前不追涨"},"direction_priority":[{"direction":"半导体上游+存储","intensity":"🔥🔥🔥"},{"direction":"国产算力链","intensity":"🔥🔥"},{"direction":"半导体设备/封测","intensity":"🔥🔥"}],"position_stance":"轻仓持有","intraday_narrative":[{"time":"09:26","summary":"竞价低开，半导体/国产算力相对抗跌，判断今日等右侧确认不追涨"}]}
 ```
 
 说明：

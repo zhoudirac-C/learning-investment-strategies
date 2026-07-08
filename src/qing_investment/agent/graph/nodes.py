@@ -667,7 +667,7 @@ def _safe_llm_invoke(
     import os
 
     if use_acp_first is None:
-        acp_first = os.environ.get("KIMI_CODE_ACP_FIRST", "0").lower() not in ("0", "false", "no")
+        acp_first = os.environ.get("KIMI_CODE_ACP_FIRST", "1").lower() not in ("0", "false", "no")
     else:
         acp_first = use_acp_first
     # [DEPRECATED] kimi -p 方式已废弃，不再加入本地优先列表。

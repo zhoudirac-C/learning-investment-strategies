@@ -1,14 +1,32 @@
 {
-  "calculated_at": "2026-07-07T08:00:47.291875",
-  "total_stocks": 62,
+  "calculated_at": "2026-07-08T08:01:05.178201",
+  "total_stocks": 63,
   "tier_summary": {
     "A": 0,
     "B": 0,
-    "C": 43,
+    "C": 44,
     "D": 19
   },
   "top_20": [
     {
+      "code": "002971.SZ",
+      "name": "和远气体",
+      "hot_score": 5.15,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 8.0,
+        "entry_zone_proximity": 6.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "电子特气/六氟化钨（WF6）涨价主线",
+      "theme_id": "electronic_gas_wf6"
+    },
+    {
       "code": "600378.SH",
       "name": "昊华科技",
       "hot_score": 5.05,
@@ -207,6 +225,24 @@
       "theme_id": "ccL_resin_upstream"
     },
     {
+      "code": "600732.SH",
+      "name": "爱旭股份",
+      "hot_score": 4.3,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "光伏低位修复",
+      "theme_id": "photovoltaic_low_recovery"
+    },
+    {
       "code": "600183.SH",
       "name": "生益科技",
       "hot_score": 4.3,
@@ -243,7 +279,7 @@
       "theme_id": "electronic_gas_wf6"
     },
     {
-      "code": "600732.SH",
+      "code": "002459.SZ",
       "name": "晶澳科技",
       "hot_score": 4.2,
       "breakdown": {
@@ -331,46 +367,28 @@
       "ranking_tier": "C",
       "theme": "PMIC电源管理（涨价+算电协同）",
       "theme_id": "pmic_power"
-    },
-    {
-      "code": "002971.SZ",
-      "name": "东材科技",
-      "hot_score": 4.15,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 2.0,
-        "priority_base": 7,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "🥇 CCL/覆铜板（独立方向，含上游树脂+CCL本体+M8/M9材料升级）",
-      "theme_id": "ccL_resin_upstream"
-    },
-    {
-      "code": "002463.SZ",
-      "name": "沪电股份",
-      "hot_score": 4.15,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 2.0,
-        "priority_base": 7,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "PCB制造（下游，受CCL供给约束+Rubin代际升级驱动）",
-      "theme_id": "pcb_ai_chain"
     }
   ],
   "all_scores": [
     {
+      "code": "002971.SZ",
+      "name": "和远气体",
+      "hot_score": 5.15,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 4,
+        "technical_setup": 9.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 8.0,
+        "entry_zone_proximity": 6.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "电子特气/六氟化钨（WF6）涨价主线",
+      "theme_id": "electronic_gas_wf6"
+    },
+    {
       "code": "600378.SH",
       "name": "昊华科技",
       "hot_score": 5.05,
@@ -569,6 +587,24 @@
       "theme_id": "ccL_resin_upstream"
     },
     {
+      "code": "600732.SH",
+      "name": "爱旭股份",
+      "hot_score": 4.3,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 7,
+        "technical_setup": 5.0,
+        "sector_momentum": 6.0,
+        "linked_claims_count": 2.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "光伏低位修复",
+      "theme_id": "photovoltaic_low_recovery"
+    },
+    {
       "code": "600183.SH",
       "name": "生益科技",
       "hot_score": 4.3,
@@ -605,7 +641,7 @@
       "theme_id": "electronic_gas_wf6"
     },
     {
-      "code": "600732.SH",
+      "code": "002459.SZ",
       "name": "晶澳科技",
       "hot_score": 4.2,
       "breakdown": {
@@ -693,24 +729,6 @@
       "ranking_tier": "C",
       "theme": "PMIC电源管理（涨价+算电协同）",
       "theme_id": "pmic_power"
-    },
-    {
-      "code": "002971.SZ",
-      "name": "东材科技",
-      "hot_score": 4.15,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 2.0,
-        "priority_base": 7,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "🥇 CCL/覆铜板（独立方向，含上游树脂+CCL本体+M8/M9材料升级）",
-      "theme_id": "ccL_resin_upstream"
     },
     {
       "code": "002463.SZ",

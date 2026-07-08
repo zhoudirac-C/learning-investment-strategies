@@ -25,17 +25,17 @@
   "discipline_check": "午后只看不买，适用",
   "risk_status": "无持仓触发风险线",
   "protection_line_check": "所有持仓高于保护线2%以上，安全",
-  "pullback_alert": "半导体上游方向若午后无量回落，警惕逆势消耗做多资金",
+  "pullback_alert": "半导体/国产算力方向若午后无量回落，警惕逆势消耗做多资金",
   "afternoon_action": "观望，不操作",
-  "tail_preview": "若14:30后半导体与大盘未共振，尾盘不追；若共振放量，可跟踪右侧",
-  "narrative": "午后风险窗口，维持观望纪律，不追高"
+  "tail_preview": "若14:30后半导体/国产算力与大盘未共振，尾盘不追；若共振放量，可跟踪右侧",
+  "narrative": "午后风险窗口，缩量冰点维持观望纪律，不追高"
 }
 
 【⚠️ 强制要求：daily_state 输出】
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
 ```daily_state
-{"market_stage":{"phase":"等修复","detail":"午后风险窗口，半导体上游逆势需警惕消耗"},"direction_priority":[{"direction":"半导体上游","intensity":"🔥🔥🔥"},{"direction":"存储","intensity":"🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"13:10","summary":"午后风险窗口，维持观望不追高"}]}
+{"market_stage":{"phase":"缩量冰点/等右侧确认","detail":"午后风险窗口，半导体/国产算力逆势需警惕消耗"},"direction_priority":[{"direction":"半导体上游+存储","intensity":"🔥🔥🔥"},{"direction":"国产算力链","intensity":"🔥🔥"},{"direction":"半导体设备/封测","intensity":"🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"13:10","summary":"午后风险窗口，缩量冰点维持观望不追高"}]}
 ```
 
 说明：

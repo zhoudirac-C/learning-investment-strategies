@@ -21,25 +21,27 @@
 - 格式：JSON
 {
   "day_review": {
-    "09:30_assumption": "早盘判断等修复，半导体上游方向领涨，算力硬件退潮",
+    "09:30_assumption": "早盘判断缩量冰点等修复，半导体/国产算力方向领涨，海外链观望",
     "14:00_validation": "...",
     "accuracy": "70%",
     "errors": ["误判了修复力度"]
   },
   "direction_priority": [
-    {"direction": "半导体上游", "intensity": "🔥🔥🔥", "reason": "设备/材料/洁净室产业逻辑扎实，临近中报兑现"},
-    {"direction": "存储", "intensity": "🔥🔥", "reason": "涨价逻辑升级为结构性重估，末端扩散中"},
-    {"direction": "功率半导体", "intensity": "🔥🔥", "reason": "高压MOS/IGBT涨价缺货，业绩弹性可预判"}
+    {"direction": "半导体上游+存储", "intensity": "🔥🔥🔥", "reason": "半导体由diverging修复为resuming，Q3存储涨价再强化"},
+    {"direction": "国产算力链", "intensity": "🔥🔥🔥", "reason": "业绩验证从明牌转向非明牌，交换机后看晶圆厂/封测/设备/芯片设计"},
+    {"direction": "半导体设备/封测", "intensity": "🔥🔥", "reason": "设备/封测resuming，华天科技是次日反弹风向标"}
   ],
   "active_opportunities": [
     {"stock": "北方华创", "code": "002371", "pattern": "龙头分歧低吸", "status": "未触发", "ratio": "2.5:1"},
-    {"stock": "兆易创新", "code": "603986", "pattern": "龙头分歧低吸", "status": "未触发", "ratio": "2:1"}
+    {"stock": "兆易创新", "code": "603986", "pattern": "龙头分歧低吸", "status": "未触发", "ratio": "2:1"},
+    {"stock": "华天科技", "code": "002185", "pattern": "技术支撑确认", "status": "未触发", "ratio": "3:1"}
   ],
-  "tomorrow_assumption": "明天大概率震荡，半导体若与大盘共振则跟踪右侧，否则等回踩买阴",
+  "tomorrow_assumption": "明天走势取决于隔夜外盘：正常则缩量冰点成反弹弹簧，动荡则延续弱势拉锯；半导体/国产算力若与大盘共振则跟踪右侧，否则等回踩买阴",
   "strategy_updates": [
-    {"entry_point": "002371", "status": "active", "note": "回踩区间待确认"}
+    {"entry_point": "002371", "status": "active", "note": "回踩区间待确认"},
+    {"entry_point": "002185", "status": "active", "note": "科技反弹风向标，次日承接质量决定持续性"}
   ],
-  "narrative": "全天弱势，半导体上游逆势，明日观察是否与大盘共振"
+  "narrative": "全天缩量冰点，半导体/国产算力逆势，明日观察外盘与共振情况"
 }
 
 【⚠️ 新增：tomorrow_scenarios 输出（明日剧本）】
@@ -49,17 +51,17 @@
   "tomorrow_scenarios": {
     "strong_repair": {
       "probability": "25%",
-      "auction_signature": "全A高开>0.5%，竞价量放大，半导体上游与大盘共振",
-      "action_if_match": "持仓不动，跟踪半导体上游+存储末端右侧机会"
+      "auction_signature": "全A高开>0.5%，竞价量放大，半导体/国产算力与大盘共振",
+      "action_if_match": "持仓不动，跟踪半导体上游+存储/国产算力链右侧机会"
     },
     "weak_consolidation": {
       "probability": "50%",
-      "auction_signature": "全A平开±0.3%，竞价量正常，半导体上游相对抗跌但大盘未共振",
+      "auction_signature": "全A平开±0.3%，竞价量正常，半导体/国产算力相对抗跌但大盘未共振",
       "action_if_match": "做T为主，不新增净仓，等回踩买阴"
     },
     "strong_divergence": {
       "probability": "25%",
-      "auction_signature": "全A低开>0.5%，竞价量萎缩或放量下杀，半导体逆势孤军",
+      "auction_signature": "全A低开>0.5%，竞价量萎缩或放量下杀，半导体/国产算力逆势孤军",
       "action_if_match": "不追半导体，等大盘回踩阴线落地后买阴"
     }
   }
@@ -71,7 +73,7 @@ probability 总和应为 100%。auction_signature 应尽量具体（含指数、
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
 ```daily_state
-{"market_stage":{"phase":"弱修复失败","detail":"全天弱势，半导体上游逆势，算力硬件退潮"},"direction_priority":[{"direction":"半导体上游","intensity":"🔥🔥🔥"},{"direction":"存储","intensity":"🔥🔥"},{"direction":"功率半导体","intensity":"🔥🔥"}],"position_stance":"轻仓持有","active_opportunities":[{"stock":"北方华创","code":"002371","pattern":"龙头分歧低吸","status":"未触发","ratio":"2.5:1"}],"intraday_narrative":[{"time":"15:20","summary":"全天弱势，半导体上游逆势，算力硬件退潮，明日观察共振或回踩"}]}
+{"market_stage":{"phase":"缩量冰点/等右侧确认","detail":"全天缩量冰点，半导体/国产算力逆势，海外链观望"},"direction_priority":[{"direction":"半导体上游+存储","intensity":"🔥🔥🔥"},{"direction":"国产算力链","intensity":"🔥🔥🔥"},{"direction":"半导体设备/封测","intensity":"🔥🔥"}],"position_stance":"轻仓持有","active_opportunities":[{"stock":"北方华创","code":"002371","pattern":"龙头分歧低吸","status":"未触发","ratio":"2.5:1"},{"stock":"华天科技","code":"002185","pattern":"技术支撑确认","status":"未触发","ratio":"3:1"}],"intraday_narrative":[{"time":"15:20","summary":"全天缩量冰点，半导体/国产算力逆势，明日观察外盘与共振或回踩"}]}
 ```
 
 说明：

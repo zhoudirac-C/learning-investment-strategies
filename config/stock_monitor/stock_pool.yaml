@@ -1,4 +1,4 @@
-updated_at: '2026-07-07'
+updated_at: '2026-07-08'
 stocks:
 - code: 000636.SZ
   name: 风华高科
@@ -2884,9 +2884,9 @@ stocks:
   direction: small_metal_chemical
   chain_position: upstream
   human_note:
-    date: '2026-06-24'
+    date: '2026-07-08'
     type: direction_call
-    context: UP6/24复盘：子公司苏州华旃进入华为昇腾950机柜供应链，Cable Tray+液冷Manifold核心供应商，多家券商视2026年为业绩反转之年
+    context: UP6/24复盘：子公司苏州华旃进入华为昇腾950机柜供应链，Cable Tray+液冷Manifold核心供应商，多家券商视2026年为业绩反转之年。7/8 00:23复盘再次确认昇腾950供应链带来的业绩反转预期
     kline_zone_updated_at: '2026-07-07'
     kline_zone_update_reason: stale_zone_recalc
     kline_zone_context: close=71.75, ma20=64.72, support_20=56.8, resistance_20=75.14
@@ -3193,9 +3193,9 @@ stocks:
   direction: equipment_packaging_catchup
   chain_position: midstream
   human_note:
-    date: '2026-06-25'
-    type: direction_call
-    context: UP6/24复盘+6/25早盘：封测第三极，跟随长电+通富扩散。CoPoS受益，板块内跟涨品种
+    date: '2026-07-08'
+    type: signal_confirmation
+    context: UP7/7 10cm涨停次日：7/8 00:23复盘将其列为科技反弹风向标，涨停后承接质量决定科技反弹持续性；半导体7/7最强方向中的封测核心。原6/25为封测第三极跟随扩散，现升级为核心风向标
     kline_zone_updated_at: '2026-07-07'
     kline_zone_update_reason: stale_zone_recalc
     kline_zone_context: close=21.92, ma20=18.95, support_20=16.01, resistance_20=23.86
@@ -4525,3 +4525,59 @@ stocks:
     - 13.23
     - 13.93
     hard_stop: 12.7
+- code: 600641.SH
+  name: 先导基电
+  direction: small_metal_chemical
+  chain_position: upstream
+  human_note:
+    date: '2026-07-08'
+    type: direction_call
+    context: 7/8 00:23复盘：控股股东先导科技集团掌握『铟废料回收→高纯铟提纯→磷化铟衬底量产』全链条能力，自产高纯铟构筑成本与供应稳定性护城河，拥有磷化铟24万片/年产能，有望在AI驱动的磷化铟超级周期中量价齐升
+    kline_zone_updated_at: '2026-07-07'
+    kline_zone_update_reason: new_stock_init
+    kline_zone_context: close=44.35, ma20=36.56, support_20=24.88, resistance_20=50.99
+  entry:
+    primary_zone:
+    - 41.69
+    - 43.91
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    hard_stop: 40.02
+    backup_zones:
+    - - 42.1
+      - 44.35
+    - - 36.56
+      - 38.5
+    - - 24.88
+      - 26.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 603893.SH
+  name: 瑞芯微
+  direction: chip_specialty
+  chain_position: midstream
+  human_note:
+    date: '2026-07-08'
+    type: direction_call
+    context: 7/8 00:23复盘：2026上半年净利润8.5亿-9.1亿元，Q2净利润预计环比增长58%-76%；SoC+协处理器双轨平台覆盖机器人、车载AI BOX、机器视觉等场景，处于端侧AI算力需求爆发核心位置
+    kline_zone_updated_at: '2026-07-07'
+    kline_zone_update_reason: new_stock_init
+    kline_zone_context: close=190.71, ma20=177.32, support_20=158.18, resistance_20=193.99
+  entry:
+    primary_zone:
+    - 179.27
+    - 188.8
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    hard_stop: 172.1
+    backup_zones:
+    - - 178.0
+      - 190.71
+    - - 177.32
+      - 186.0
+    - - 158.18
+      - 166.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true

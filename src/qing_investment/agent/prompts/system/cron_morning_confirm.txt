@@ -19,19 +19,19 @@
 - 字数：200字以内
 - 格式：JSON
 {
-  "morning_character": "弱修复",
-  "active_direction": "半导体上游方向相对抗跌，算力硬件继续退潮",
+  "morning_character": "缩量冰点/弱修复",
+  "active_direction": "半导体/国产算力相对抗跌，光互连先跌先企稳",
   "opportunity_patterns": ["龙头分歧低吸", "技术支撑确认"],
-  "audit_0945": "09:45半导体上游承接判断正确，但大盘未共振，维持观察",
-  "direction_priority": ["半导体上游", "存储", "功率半导体"],
-  "narrative": "早盘弱修复，半导体上游方向相对强，全A破位后等回踩不追高"
+  "audit_0945": "09:45半导体/国产算力有承接，但大盘未共振，维持观察",
+  "direction_priority": ["半导体上游+存储", "国产算力链", "半导体设备/封测"],
+  "narrative": "早盘缩量冰点弱修复，半导体/国产算力相对强，右侧确认前等回踩不追高"
 }
 
 【⚠️ 强制要求：daily_state 输出】
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
 ```daily_state
-{"market_stage":{"phase":"等修复","detail":"半导体上游相对强，算力硬件退潮，大盘未共振"},"direction_priority":[{"direction":"半导体上游","intensity":"🔥🔥🔥"},{"direction":"存储","intensity":"🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"10:00","summary":"早盘弱修复，半导体上游相对强，等回踩不追高"}]}
+{"market_stage":{"phase":"缩量冰点/等右侧确认","detail":"半导体/国产算力相对强，光互连先跌先企稳，大盘未共振"},"direction_priority":[{"direction":"半导体上游+存储","intensity":"🔥🔥🔥"},{"direction":"国产算力链","intensity":"🔥🔥"},{"direction":"半导体设备/封测","intensity":"🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"10:00","summary":"早盘缩量冰点弱修复，半导体/国产算力相对强，等右侧确认不追高"}]}
 ```
 
 说明：

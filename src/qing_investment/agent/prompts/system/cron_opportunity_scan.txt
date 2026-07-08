@@ -35,16 +35,16 @@
   "opportunities": [
     {"stock": "北方华创", "code": "002371", "pattern": "龙头分歧低吸", "trigger": "回踩5日线缩量企稳", "odds": "2.5:1"},
     {"stock": "兆易创新", "code": "603986", "pattern": "龙头分歧低吸", "trigger": "存储板块首次分歧", "odds": "2:1"},
-    {"stock": "士兰微", "code": "600460", "pattern": "技术支撑确认", "trigger": "回踩20日线企稳", "odds": "3:1"}
+    {"stock": "华天科技", "code": "002185", "pattern": "技术支撑确认", "trigger": "回踩18.7~19.7企稳", "odds": "3:1"}
   ],
-  "narrative": "10:30机会扫描完成，重点关注半导体上游龙头分歧低吸机会，不追高"
+  "narrative": "10:30机会扫描完成，重点关注半导体上游+国产算力链龙头分歧低吸机会，不追高"
 }
 
 【⚠️ 强制要求：daily_state 输出】
 分析完成后，必须在回复末尾输出以下代码块（不可省略！系统会自动解析此代码块记录观点连续性）：
 
 ```daily_state
-{"market_stage":{"phase":"等修复","detail":"半导体上游龙头首次分歧，关注低吸机会"},"direction_priority":[{"direction":"半导体上游","intensity":"🔥🔥🔥"},{"direction":"存储","intensity":"🔥🔥"},{"direction":"功率半导体","intensity":"🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"10:30","summary":"重点关注半导体上游龙头分歧低吸，不追高"}]}
+{"market_stage":{"phase":"缩量冰点/等右侧确认","detail":"半导体上游+国产算力链龙头首次分歧，关注低吸机会"},"direction_priority":[{"direction":"半导体上游+存储","intensity":"🔥🔥🔥"},{"direction":"国产算力链","intensity":"🔥🔥"},{"direction":"半导体设备/封测","intensity":"🔥🔥"}],"position_stance":"空仓等待","intraday_narrative":[{"time":"10:30","summary":"重点关注半导体上游+国产算力链龙头分歧低吸，不追高"}]}
 ```
 
 说明：
