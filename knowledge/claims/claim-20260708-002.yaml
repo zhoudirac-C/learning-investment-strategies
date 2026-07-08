@@ -1,0 +1,1874 @@
+claims:
+- id: claim-20260708-002-a
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: macro
+  subject: 美股指数
+  timeframe: intraday
+  statement: 北京时间7月8日凌晨美股收跌，道指、纳指、标普500均下跌。
+  evidence_quote: 北京时间7月8日凌晨美股收跌：道指跌0.25%报52924.56点，纳指跌1.16%报25818.69点，标普500跌0.45%报7503.76点。
+  interpretation: 海外市场开盘承压，为A股开盘提供偏负面的外部定价参考。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美股三大指数隔夜收跌。
+  related_stocks: []
+  tags:
+  - 美股指数
+  - 美股
+  - 标普500
+  - 开盘
+  - 定价
+- id: claim-20260708-002-b
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: market-cycle
+  subject: 美股结构
+  timeframe: intraday
+  statement: 隔夜美股呈现「指数稳、芯片弱」的结构特征。
+  evidence_quote: 结构上依旧是「指数稳、芯片弱」——费城半导体指数盘中一度跌超6%，美光收跌4.7%，存储与半导体设备是重灾区；但资金并未离场，而是转向医疗、金融与大型科技（礼来涨2%，摩根大通、微软上涨），指数层面低开杀跌后稳住了。
+  interpretation: 大盘指数跌幅有限但芯片板块领跌，显示资金在科技硬件内部避险。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美股指数稳、芯片弱。
+  related_stocks: []
+  tags:
+  - 美股结构
+  - 美股
+  - 芯片
+  - 大盘
+  - 科技
+- id: claim-20260708-002-c
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 半导体设备
+  timeframe: intraday
+  statement: 费城半导体指数盘中一度跌超6%，美光收跌4.7%，存储与半导体设备是重灾区。
+  evidence_quote: 费城半导体指数盘中一度跌超6%，美光收跌4.7%，存储与半导体设备是重灾区
+  interpretation: 海外半导体链出现剧烈抛售，存储和设备首当其冲。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 费城半导体指数及美光大跌。
+  related_stocks: []
+  tags:
+  - 半导体设备
+  - 半导体
+  - 存储
+  - sector-theme
+- id: claim-20260708-002-d
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 美股资金流向
+  timeframe: intraday
+  statement: 资金并未离场，而是从芯片转向医疗、金融与大型科技，美股指数低开杀跌后稳住了。
+  evidence_quote: 但资金并未离场，而是转向医疗、金融与大型科技（礼来涨2%，摩根大通、微软上涨），指数层面低开杀跌后稳住了。
+  interpretation: 资金在美股内部轮动至防御与大盘蓝筹，缓冲了指数跌幅。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美股资金轮动至医疗金融与大型科技。
+  related_stocks: []
+  tags:
+  - 美股资金流向
+  - 美股
+  - 芯片
+  - 大盘
+  - 科技
+- id: claim-20260708-002-e
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 半导体与云厂商
+  timeframe: short-term
+  statement: 摩根士丹利Wilson团队建议减持半导体、转进云厂商。
+  evidence_quote: 据媒体报道，摩根士丹利Wilson团队建议减持半导体、转进云厂商
+  interpretation: 海外主流投行看空半导体硬件、看多云计算，可能继续压制AI硬件估值。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大摩建议减持半导体转进云厂商。
+  related_stocks: []
+  tags:
+  - 半导体与云厂商
+  - 半导体
+  - AI
+  - sector-theme
+- id: claim-20260708-002-f
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 存储板块
+  timeframe: trend
+  statement: 摩根士丹利点名存储将是本轮调整的领跌主角。
+  evidence_quote: 并点名存储将是本轮调整的领跌主角
+  interpretation: 存储被视作半导体调整中抛压最大的细分方向。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储或成本轮调整领跌主角。
+  related_stocks: []
+  tags:
+  - 存储板块
+  - 半导体
+  - 存储
+  - 调整
+  - sector-theme
+- id: claim-20260708-002-g
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 存储价格
+  timeframe: short-term
+  statement: 近期「存储价格涨不动」的声音与摩根士丹利看空存储的观点相互印证。
+  evidence_quote: 这与近期「存储价格涨不动」的声音互为表里。
+  interpretation: 存储价格滞涨是机构看空存储板块的核心基本面依据。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储价格滞涨与看空观点呼应。
+  related_stocks: []
+  tags:
+  - 存储价格
+  - 存储
+  - sector-theme
+- id: claim-20260708-002-h
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: catalyst
+  subject: 谷歌PCB新能源利空传闻
+  timeframe: intraday
+  statement: 市场流传谷歌、PCB、新能源相关的利空小作文，目前待核实。
+  evidence_quote: 此外市场流传谷歌、PCB、新能源相关的利空小作文（据传闻，待核实）
+  interpretation: 若谣言被传播，可能短期放大相关板块的开盘抛压。
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 谷歌PCB新能源利空传闻待核实。
+  related_stocks: []
+  tags:
+  - 谷歌PCB新能源利空传闻
+  - 开盘
+  - PCB
+  - 新能源
+  - 谷歌
+- id: claim-20260708-002-i
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 海外AI硬件链
+  timeframe: short-term
+  statement: 叠加大摩观点，海外AI硬件链的压制暂未解除。
+  evidence_quote: 叠加大摩观点，海外AI硬件链的压制暂未解除。
+  interpretation: 海外AI硬件板块仍面临投行 downgrade 与情绪压制的双重压力。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 海外AI硬件链压制未解除。
+  related_stocks: []
+  tags:
+  - 海外AI硬件链
+  - AI
+  - 情绪
+  - sector-theme
+- id: claim-20260708-002-j
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: macro
+  subject: 中东局势与油价
+  timeframe: short-term
+  statement: 伊朗袭击霍尔木兹海峡附近卡塔尔LNG油轮、美国撤销伊朗石油销售豁免，布油涨3%报74.16美元。
+  evidence_quote: 地缘方面，伊朗在霍尔木兹海峡附近袭击一艘卡塔尔LNG油轮，布油涨3%报74.16美元，美国随后撤销伊朗石油销售豁免，油价盘后续涨。
+  interpretation: 中东冲突升级推升油价，可能抬升通胀预期并扰动全球风险偏好。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中东冲突推升油价。
+  related_stocks: []
+  tags:
+  - 中东局势与油价
+  - 石油
+  - 中东
+  - 伊朗
+  - 霍尔木兹
+- id: claim-20260708-002-k
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: risk
+  subject: 中东地缘风险
+  timeframe: short-term
+  statement: 中东扰动重新升温，需留意对整体风险偏好以及油气、油运方向的传导。
+  evidence_quote: 中东扰动重新升温，留意对整体风险偏好以及油气、油运方向的传导。
+  interpretation: 地缘风险可能压制风险资产，同时催化油气与油运主题。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中东扰动或影响风险偏好及油气油运。
+  related_stocks: []
+  tags:
+  - 中东地缘风险
+  - 油运
+  - 地缘
+  - 中东
+  - 风险
+- id: claim-20260708-002-l
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: macro
+  subject: 韩国KOSPI
+  timeframe: intraday
+  statement: 昨日KOSPI盘中一度跌超8%触发熔断、收跌近5%。
+  evidence_quote: 日韩方面，昨日KOSPI盘中一度跌超8%触发熔断、收跌近5%
+  interpretation: 韩国股市恐慌性下跌，对A股开盘情绪构成外部冲击。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: KOSPI触发熔断大跌。
+  related_stocks: []
+  tags:
+  - 韩国KOSPI
+  - KOSPI
+  - 韩国股市
+  - 情绪
+  - 开盘
+- id: claim-20260708-002-m
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: stock-view
+  subject: 三星电子
+  timeframe: short-term
+  statement: 三星电子单季利润大增18倍，反而遭遇「利好兑现」抛售。
+  evidence_quote: 三星单季利润大增18倍反遭「利好兑现」抛售
+  interpretation: 即便业绩大增，存储龙头仍被卖出，显示市场对高位利好麻木。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 三星业绩大增却遭利好兑现抛售。
+  related_stocks: []
+  tags:
+  - 三星电子
+  - 存储
+  - 业绩
+  - 龙头
+  - stock-view
+- id: claim-20260708-002-n
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: catalyst
+  subject: SK海力士
+  timeframe: short-term
+  statement: SK海力士美国上市获数倍超额认购，周四定价、周五挂牌。
+  evidence_quote: SK海力士美国上市获数倍超额认购，周四定价、周五挂牌
+  interpretation: SK海力士IPO进程是观察海外存储资金情绪的重要事件。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: SK海力士美股上市获超额认购。
+  related_stocks: []
+  tags:
+  - SK海力士
+  - 存储
+  - 情绪
+  - IPO
+  - 上市
+- id: claim-20260708-002-o
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: stock-view
+  subject: SK海力士
+  timeframe: short-term
+  statement: SK海力士美国上市是观察海外存储链情绪能否企稳的一个具体锚点。
+  evidence_quote: 这是观察海外存储链情绪能否企稳的一个具体锚点。
+  interpretation: 若SK海力士挂牌表现强劲，可能缓解海外存储悲观情绪。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: SK海力士上市作为存储情绪锚点。
+  related_stocks: []
+  tags:
+  - SK海力士
+  - 存储
+  - 情绪
+  - 上市
+  - stock-view
+- id: claim-20260708-002-p
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: methodology
+  subject: 开盘策略
+  timeframe: intraday
+  statement: 外盘传导只反映在开盘定价，开盘后回归自身节奏；低开不可怕，接不住才可怕。
+  evidence_quote: 老规矩：外盘传导只反映在开盘定价，开盘后回归自身节奏——低开不可怕，接不住才可怕。
+  interpretation: 开盘受外盘影响，关键看开盘后A股自身承接力。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 外盘影响仅限开盘定价。
+  related_stocks: []
+  tags:
+  - 开盘策略
+  - 开盘
+  - 定价
+  - methodology
+- id: claim-20260708-002-q
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: technical-signal
+  subject: A股成交额
+  timeframe: short-term
+  statement: 昨日两市成交2.58万亿，较月初3.66万亿缩量约30%，已接近上月11日2.55万亿地量。
+  evidence_quote: 量能：昨日两市成交2.58万亿，较月初的3.66万亿缩量约30%，距离上月11日2.55万亿的地量仅一步之遥，有点「一步到位」的既视感。
+  interpretation: 成交量快速萎缩至地量水平，显示抛压大幅减轻。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A股成交缩量至地量附近。
+  related_stocks: []
+  tags:
+  - A股成交额
+  - 成交额
+  - technical-signal
+- id: claim-20260708-002-r
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: technical-signal
+  subject: A股量能信号
+  timeframe: short-term
+  statement: 对比6月26日KOSPI熔断当天3.55万亿、沪指跌超2%，昨日开盘缩量再度证明是「安全牌」。
+  evidence_quote: 对比上一次KOSPI熔断（6月26日）当天的3.55万亿、沪指跌超2%，昨天开盘缩量再度证明了它是「安全牌」
+  interpretation: 地量开盘意味着空头筹码有限，市场更易企稳。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 缩量开盘是安全信号。
+  related_stocks: []
+  tags:
+  - A股量能信号
+  - KOSPI
+  - 量能
+  - 沪指
+  - 开盘
+- id: claim-20260708-002-s
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: market-cycle
+  subject: 筹码规模
+  timeframe: short-term
+  statement: 多出来的那万亿筹码，很大程度上决定了调整的幅度。
+  evidence_quote: 多出来的那万亿筹码，很大程度上决定了调整的幅度。
+  interpretation: 筹码释放量决定调整深度，缩量则调整空间有限。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 万亿筹码决定调整幅度。
+  related_stocks: []
+  tags:
+  - 筹码规模
+  - 调整
+  - market-cycle
+- id: claim-20260708-002-t
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: market-cycle
+  subject: A股风险阶段
+  timeframe: short-term
+  statement: 从量能维度看，风险最大的时刻很可能已经过去。
+  evidence_quote: 个人判断，从量能维度看，风险最大的时刻很可能已经过去。
+  interpretation: 缩量见地量暗示阶段底部临近，系统性风险下降。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能维度风险最大时刻或已过去。
+  related_stocks: []
+  tags:
+  - A股风险阶段
+  - 量能
+  - 底部
+  - 风险
+  - market-cycle
+- id: claim-20260708-002-u
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: technical-signal
+  subject: 上证指数
+  timeframe: short-term
+  statement: 沪指昨日失守4000点。
+  evidence_quote: 沪指昨日失守4000点
+  interpretation: 关键心理关口跌破，需关注后续能否收复。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 沪指跌破4000点。
+  related_stocks: []
+  tags:
+  - 上证指数
+  - 沪指
+  - technical-signal
+- id: claim-20260708-002-v
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: stock-view
+  subject: CPO权重股
+  timeframe: intraday
+  statement: 午后「易中天」新易盛（300502）、中际旭创（300308）、天孚通信（300394）稍一拉升就稳住了指数，证明基本盘价值。
+  evidence_quote: 但午后「易中天」（新易盛、中际旭创、天孚通信）稍一拉升就稳住了指数，证明了基本盘的价值。
+  interpretation: CPO核心权重对指数有决定性支撑作用，是基本盘所在。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: CPO三杰拉升稳住沪指。
+  related_stocks:
+  - code: '300502'
+    name: 新易盛
+    role: 新易盛-创业板不可交易
+  - code: '300308'
+    name: 中际旭创
+    role: 中际旭创-创业板不可交易
+  - code: '300394'
+    name: 天孚通信
+    role: 天孚通信-创业板不可交易
+  tags:
+  - CPO权重股
+  - CPO
+  - 支撑
+  - stock-view
+- id: claim-20260708-002-w
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: technical-signal
+  subject: 沪指4000点支撑
+  timeframe: intraday
+  statement: 今日继续观察权重能否在4000点附近构筑支撑。
+  evidence_quote: 今日继续观察权重能否在4000点附近构筑支撑
+  interpretation: 4000点附近的支撑确认是日内及短线关键。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 关注4000点附近权重支撑。
+  related_stocks: []
+  tags:
+  - 沪指4000点支撑
+  - 沪指
+  - 支撑
+  - technical-signal
+- id: claim-20260708-002-x
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: technical-signal
+  subject: 120分钟底部结构
+  timeframe: short-term
+  statement: 若指数继续缓跌，重点留意120分钟级别底部结构是否形成，这是短线右侧确认的第一个观察窗口。
+  evidence_quote: 若指数继续缓跌，重点留意120分钟级别底部结构是否形成——这是短线右侧确认的第一个观察窗口。
+  interpretation: 120分钟底背离或底部结构是右侧介入的技术信号。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 120分钟底部结构为右侧确认窗口。
+  related_stocks: []
+  tags:
+  - 120分钟底部结构
+  - 底部
+  - technical-signal
+- id: claim-20260708-002-y
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: market-cycle
+  subject: 市场情绪
+  timeframe: short-term
+  statement: 周一盘前提示情绪极端后，指数进一步回调但昨日跌停家数反而收窄。
+  evidence_quote: 周一盘前已提示情绪极端，按理说指数进一步回调、恐慌理应加剧，但昨日跌停家数反而收窄
+  interpretation: 恐慌未随指数下跌放大，暗示情绪已在修复。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 跌停收窄显示恐慌未加剧。
+  related_stocks: []
+  tags:
+  - 市场情绪
+  - 情绪
+  - market-cycle
+- id: claim-20260708-002-z
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: stock-view
+  subject: 连板高度
+  timeframe: short-term
+  statement: 此前诟病的连板高度出现突破，宜宾纸业（600793）已五连板。
+  evidence_quote: 此前诟病的连板高度也有突破（宜宾纸业不知不觉五连板）
+  interpretation: 短线接力情绪回暖，赚钱效应改善。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 宜宾纸业五连板突破连板高度。
+  related_stocks:
+  - code: '600793'
+    name: 宜宾纸业
+    role: 宜宾纸业-主板可交易
+  tags:
+  - 连板高度
+  - 情绪
+  - 连板
+  - stock-view
+- id: claim-20260708-002-aa
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: market-cycle
+  subject: 情绪拐点
+  timeframe: short-term
+  statement: 种种迹象指向情绪很可能处于拐点位置。
+  evidence_quote: 种种迹象指向情绪很可能处于拐点位置。
+  interpretation: 跌停收窄与连板高度突破共同指向情绪触底回升。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 市场情绪或处于拐点。
+  related_stocks: []
+  tags:
+  - 情绪拐点
+  - 情绪
+  - 连板
+  - market-cycle
+- id: claim-20260708-002-ab
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: methodology
+  subject: 首板家数统计
+  timeframe: short-term
+  statement: 据历史统计，首板家数跌破30家后的1-2个交易日内，市场基本都会迎来一轮强势反扑。
+  evidence_quote: 据历史统计，首板家数跌破30家后的1-2个交易日内，市场基本都会迎来一轮强势反扑
+  interpretation: 首板数量冰点往往是短线反弹的前置信号。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 首板冰点后的历史反弹规律。
+  related_stocks: []
+  tags:
+  - 首板家数统计
+  - 首板
+  - 反弹
+  - methodology
+- id: claim-20260708-002-ac
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: market-cycle
+  subject: 市场情绪周期
+  timeframe: short-term
+  statement: 市场情绪周期定位仍在调整阶段。
+  evidence_quote: 市场情绪周期定位仍在调整阶段。
+  interpretation: 尚未转入上升周期，仍需谨慎对待。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 市场情绪周期仍在调整阶段。
+  related_stocks: []
+  tags:
+  - 市场情绪周期
+  - 情绪
+  - 调整
+  - market-cycle
+- id: claim-20260708-002-ad
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: AI硬科技
+  timeframe: short-term
+  statement: 昨日AI硬科技顶着全A中阴线和韩国熔断两重压制，先后组织了半导体/封测、CPO的进攻，且围绕容量核心展开，开始有试错资金入场。
+  evidence_quote: 昨日AI硬科技顶着全A中阴线和韩国熔断两重内外压制，先后组织了半导体/封测、CPO的进攻，且围绕容量核心展开，开始有试错资金入场
+  interpretation: AI硬科技在利空下出现主动买盘，显示资金开始试探性抄底。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI硬科技出现试错资金入场。
+  related_stocks: []
+  tags:
+  - AI硬科技
+  - 半导体
+  - AI
+  - CPO
+  - 科技
+- id: claim-20260708-002-ae
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: methodology
+  subject: 调整末端判断
+  timeframe: short-term
+  statement: 通常一轮调整中试错强度不错时，意味着接近调整末端。
+  evidence_quote: 通常一轮调整中试错强度不错时，意味着接近调整末端。
+  interpretation: 调整末端常伴随强势股试盘与资金试探。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 试错强度暗示调整末端。
+  related_stocks: []
+  tags:
+  - 调整末端判断
+  - 调整
+  - methodology
+- id: claim-20260708-002-af
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: technical-signal
+  subject: 中阳线
+  timeframe: short-term
+  statement: 真正扭转低迷，需要一根中阳线的共振。
+  evidence_quote: 但真正扭转低迷，需要一根中阳线的共振。
+  interpretation: 趋势反转需要放量中阳确认，否则只是弱反弹。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中阳线共振为扭转低迷关键。
+  related_stocks: []
+  tags:
+  - 中阳线
+  - 反弹
+  - technical-signal
+- id: claim-20260708-002-ag
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 科技板块
+  timeframe: intraday
+  statement: 科技方向已地量调整2天，昨日情绪冰点，理论上今天会有修复。
+  evidence_quote: 科技方向已地量调整2天，昨日情绪冰点，理论上今天会有修复
+  interpretation: 地量加冰点提高日内反弹概率，但需盘面验证。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技板块日内或有修复。
+  related_stocks: []
+  tags:
+  - 科技板块
+  - 情绪
+  - 科技
+  - 反弹
+  - 调整
+- id: claim-20260708-002-ah
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: stock-view
+  subject: 浪潮信息
+  timeframe: intraday
+  statement: 盘前重点观察浪潮信息（000977）等国产AI业绩利好能否成为点火材料。
+  evidence_quote: 盘前重点观察浪潮信息等国产AI业绩利好能否成为点火材料。
+  interpretation: 浪潮信息(000977)业绩若超预期，可能带动国产AI硬件修复。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 浪潮信息业绩利好或成科技修复催化剂。
+  related_stocks:
+  - code: '000977'
+    name: 浪潮信息
+    role: 浪潮信息-主板可交易
+  tags:
+  - 浪潮信息
+  - AI
+  - 国产AI
+  - 业绩
+  - stock-view
+- id: claim-20260708-002-ai
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: operation
+  subject: 科技修复情形A
+  timeframe: intraday
+  statement: 若早盘科技板块低开后快速回稳、修复放量，且权重护住4000点，则中阳线共振的窗口打开，反弹可参与度上升。
+  evidence_quote: 情形A：若早盘科技板块低开后快速回稳、修复放量，且权重护住4000点，则中阳线共振的窗口打开，反弹可参与度上升
+  interpretation: 放量回稳并守住关键点位是短线加仓信号。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形A为放量回稳加仓信号。
+  related_stocks: []
+  tags:
+  - 科技修复情形A
+  - 中阳线
+  - 科技
+  - 反弹
+  - operation
+- id: claim-20260708-002-aj
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: operation
+  subject: 弱反弹策略
+  timeframe: intraday
+  statement: 修复无力的弱反弹不值得追。
+  evidence_quote: 但要先看修复力度，修复无力的弱反弹不值得追。
+  interpretation: 没有成交量配合的反弹持续性差，应避免追高。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 弱反弹不宜追高。
+  related_stocks: []
+  tags:
+  - 弱反弹策略
+  - 反弹
+  - operation
+- id: claim-20260708-002-ak
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: operation
+  subject: 科技修复情形B
+  timeframe: short-term
+  statement: 若谷歌、PCB、新能源的利空小作文继续发酵、海外压制未解除，则大概率延续缩量磨底，以时间换空间。
+  evidence_quote: 情形B：若谷歌、PCB、新能源的利空小作文继续发酵、海外压制未解除，则大概率延续缩量磨底，以时间换空间。
+  interpretation: 利空持续下市场将横盘筑底，需耐心。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形B为缩量磨底以时间换空间。
+  related_stocks: []
+  tags:
+  - 科技修复情形B
+  - 科技
+  - PCB
+  - 新能源
+  - 谷歌
+- id: claim-20260708-002-al
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: market-cycle
+  subject: 大盘周期
+  timeframe: short-term
+  statement: 大盘尚未进入上升周期，这本身就对科技股形成压制。
+  evidence_quote: 需要清醒的是，大盘尚未进入上升周期，这本身就对科技股形成压制。
+  interpretation: 在大盘未转势前，科技板块整体缺乏持续上行环境。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大盘未入上升周期压制科技股。
+  related_stocks: []
+  tags:
+  - 大盘周期
+  - 大盘
+  - 科技
+  - market-cycle
+- id: claim-20260708-002-am
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: operation
+  subject: 操作策略
+  timeframe: short-term
+  statement: 盘前预期不高，短期盘整磨底的概率较大，操作上不见量价确认不追。
+  evidence_quote: 个人判断，盘前预期不高，短期盘整磨底的概率较大，操作上不见量价确认不追。
+  interpretation: 当前以观望为主，等待放量确认后再参与。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 不见量价确认不追涨。
+  related_stocks: []
+  tags:
+  - 操作策略
+  - operation
+  - 市场
+- id: claim-20260708-002-an
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 科技结构切换
+  timeframe: short-term
+  statement: 昨日逆势走强的科技细分已从海外链过渡到国产链，从AI硬件过渡到半导体。
+  evidence_quote: 结构上，昨日逆势走强的科技细分已与此前大相径庭：从海外链过渡到国产链，从AI硬件过渡到半导体。
+  interpretation: 资金偏好从受海外影响的硬件转向国产自主可控方向。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技资金从海外链转向国产链。
+  related_stocks: []
+  tags:
+  - 科技结构切换
+  - 半导体
+  - AI
+  - 国产链
+  - 科技
+- id: claim-20260708-002-ao
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 半导体ETF资金流向
+  timeframe: short-term
+  statement: 过去半个多月半导体相关ETF几乎每日净流入，资金面印证国产链切换。
+  evidence_quote: 资金面亦有印证——过去半个多月半导体相关ETF几乎每日净流入（此前被同样看好的是通信ETF）
+  interpretation: 持续净流入显示资金在布局半导体国产替代方向。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体ETF持续净流入。
+  related_stocks: []
+  tags:
+  - 半导体ETF资金流向
+  - 半导体
+  - 国产链
+  - sector-theme
+- id: claim-20260708-002-ap
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 半导体硅片
+  timeframe: short-term
+  statement: 即便7月行情整体不及预期，半导体相关资金撤出过程中相关板块也会有反复，这是昨日半导体硅片走强的底层逻辑之一。
+  evidence_quote: 即便7月行情整体不及预期，这些资金撤出过程中相关板块也会有反复，这是昨日半导体硅片走强的底层逻辑之一。
+  interpretation: 资金进出导致半导体细分板块轮动反弹，硅片因此受益。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体硅片走强受资金反复驱动。
+  related_stocks: []
+  tags:
+  - 半导体硅片
+  - 半导体
+  - 反弹
+  - sector-theme
+- id: claim-20260708-002-aq
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 存储板块
+  timeframe: short-term
+  statement: 存储看空声音表面是看空价格，实质是对高位股信心的动摇。
+  evidence_quote: 至于甚嚣尘上的存储看空声音，表面是看空价格，实质是对高位股信心的动摇
+  interpretation: 存储板块抛压反映市场对高估值科技股信心的松动。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储看空实为高位信心动摇。
+  related_stocks: []
+  tags:
+  - 存储板块
+  - 存储
+  - 科技
+  - sector-theme
+- id: claim-20260708-002-ar
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: AI硬件链
+  timeframe: short-term
+  statement: 对AI方向持筹者而言，若存储板块出现企稳反弹迹象，信心会陆续传导到其他环节。
+  evidence_quote: 对AI方向持筹者而言，若存储板块出现企稳反弹迹象，信心会陆续传导到其他环节。
+  interpretation: 存储作为AI硬件链中情绪最弱环节，其企稳对其他环节有信号意义。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储企稳或传导信心至AI其他环节。
+  related_stocks: []
+  tags:
+  - AI硬件链
+  - 存储
+  - AI
+  - 情绪
+  - 反弹
+- id: claim-20260708-002-as
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: market-cycle
+  subject: 市场风格切换
+  timeframe: short-term
+  statement: 这两天市场已证明「一九」与「九一」无法直接切换。
+  evidence_quote: 非科技方向，这两天市场已证明「一九」与「九一」无法直接切换
+  interpretation: 市场风格在极端抱团与普涨之间不会瞬间转换，需过程。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 一九与九一风格无法直接切换。
+  related_stocks: []
+  tags:
+  - 市场风格切换
+  - market-cycle
+  - 市场
+- id: claim-20260708-002-at
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 机器人与轮动行情
+  timeframe: short-term
+  statement: 一旦指数反弹，大概率还会有类似上周五机器人那样短平快、快速一致的行情。
+  evidence_quote: 但一旦指数反弹，大概率还会有类似上周五机器人那样短平快、快速一致的行情。
+  interpretation: 指数反弹时主题性轮动往往迅速一致，适合短线参与。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 指数反弹或触发短平快主题轮动。
+  related_stocks: []
+  tags:
+  - 机器人与轮动行情
+  - 机器人
+  - 反弹
+  - sector-theme
+- id: claim-20260708-002-au
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 低位轮动板块
+  timeframe: short-term
+  statement: 有消息催化的低位板块值得留意，包括旅游、医药、固态电池等。
+  evidence_quote: 有消息催化的低位板块值得留意：旅游、医药、固态电池等。
+  interpretation: 低位且有催化剂的板块在反弹中更易成为短线资金出口。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 旅游医药固态电池等低位板块值得关注。
+  related_stocks: []
+  tags:
+  - 低位轮动板块
+  - 旅游
+  - 医药
+  - 固态电池
+  - 低位轮动
+- id: claim-20260708-002-av
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: catalyst
+  subject: 韬定律V2
+  timeframe: industry
+  statement: 华为半导体负责人何庭波于7月3日发布《面向多层级电子系统的时间缩微理论》（业内称「韬定律」）V2版本。
+  evidence_quote: 据中国科学院科技论文预发布平台ChinaXiv最新公示，华为半导体负责人何庭波于7月3日发布《面向多层级电子系统的时间缩微理论》（业内称「韬定律」）V2版本。
+  interpretation: 华为提出新的系统级设计理论，为国产算力链提供叙事催化。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 华为发布韬定律V2。
+  related_stocks: []
+  tags:
+  - 韬定律V2
+  - 半导体
+  - 算力
+  - 华为
+  - 韬定律
+- id: claim-20260708-002-aw
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 先进封装
+  timeframe: industry
+  statement: 据浙商证券(601878)，先进封装或是「韬定律」最直接受益方向之一。
+  evidence_quote: 据浙商证券，先进封装或是最直接受益方向之一
+  interpretation: 先进封装被机构视为华为新理论下的核心受益环节。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 先进封装或成韬定律直接受益方向。
+  related_stocks:
+  - code: '601878'
+    name: 浙商证券
+    role: 浙商证券-主板可交易
+  tags:
+  - 先进封装
+  - 封装
+  - 华为
+  - 韬定律
+  - sector-theme
+- id: claim-20260708-002-ax
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: technical-knowledge
+  subject: 先进封装战略地位
+  timeframe: industry
+  statement: 芯片性能提升不再单纯依赖先进制程后，先进封装在提升算力密度、降低功耗、优化系统性能中的战略地位进一步上升。
+  evidence_quote: 芯片性能提升不再单纯依赖先进制程后，先进封装在提升算力密度、降低功耗、优化系统性能中的战略地位进一步上升
+  interpretation: 后摩尔时代，先进封装成为算力升级的关键技术路径。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 先进封装战略地位上升。
+  related_stocks: []
+  tags:
+  - 先进封装战略地位
+  - 芯片
+  - 算力
+  - 封装
+  - 先进封装
+- id: claim-20260708-002-ay
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 国产算力产业链
+  timeframe: industry
+  statement: 国产算力产业链有望从「制程追赶」转向「系统优化＋封装升级＋光互联放量」的复合驱动阶段。
+  evidence_quote: 国产算力产业链有望从「制程追赶」转向「系统优化＋封装升级＋光互联放量」的复合驱动阶段。
+  interpretation: 国产算力升级路径将从单一制程突破转向系统级整合。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国产算力产业链转向复合驱动。
+  related_stocks: []
+  tags:
+  - 国产算力产业链
+  - 算力
+  - 封装
+  - sector-theme
+- id: claim-20260708-002-az
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: stock-view
+  subject: 浪潮信息
+  timeframe: short-term
+  statement: 昨日国产AI开始兑现业绩，浪潮信息（000977，国产服务器）单季度业绩大增。
+  evidence_quote: 产业佐证：昨日国产AI开始兑现业绩，浪潮信息（国产服务器）单季度业绩大增
+  interpretation: 国产AI服务器龙头业绩验证，强化国产算力叙事。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 浪潮信息单季业绩大增。
+  related_stocks:
+  - code: '000977'
+    name: 浪潮信息
+    role: 浪潮信息-主板可交易
+  tags:
+  - 浪潮信息
+  - AI
+  - 算力
+  - 国产AI
+  - 业绩
+- id: claim-20260708-002-ba
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 国产算力逻辑
+  timeframe: industry
+  statement: 从锐捷网络（301165）到浪潮信息（000977），国产超节点等算力逻辑不断被验证。
+  evidence_quote: 从锐捷网络到浪潮信息，国产超节点等算力逻辑不断被验证。
+  interpretation: 国产算力从网络设备到服务器环节的业绩与逻辑均在兑现。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国产超节点算力逻辑持续验证。
+  related_stocks:
+  - code: '000977'
+    name: 浪潮信息
+    role: 浪潮信息-主板可交易
+  - code: '301165'
+    name: 锐捷网络
+    role: 锐捷网络-创业板不可交易
+  tags:
+  - 国产算力逻辑
+  - 算力
+  - 业绩
+  - sector-theme
+- id: claim-20260708-002-bb
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: stock-view
+  subject: 华天科技
+  timeframe: short-term
+  statement: 先进封装板块内相关标的包括华天科技（002185）等封测环节。
+  evidence_quote: 板块内相关标的：华天科技等封测环节。
+  interpretation: 华天科技(002185)等封测企业被视为先进封装主题的可交易标的。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 华天科技为先进封装相关标的。
+  related_stocks:
+  - code: '002185'
+    name: 华天科技
+    role: 华天科技-主板可交易
+  tags:
+  - 华天科技
+  - 封装
+  - 先进封装
+  - 科技
+  - stock-view
+- id: claim-20260708-002-bc
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: catalyst
+  subject: 旅游强国规划
+  timeframe: industry
+  statement: 国务院批复《旅游强国建设「十五五」规划》。
+  evidence_quote: 旅游 · 国务院批复《旅游强国建设「十五五」规划》
+  interpretation: 政策面为旅游板块提供中期叙事催化。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国务院批复旅游强国十五五规划。
+  related_stocks: []
+  tags:
+  - 旅游强国规划
+  - 旅游
+  - catalyst
+- id: claim-20260708-002-bd
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 旅游规划目标
+  timeframe: industry
+  statement: 《规划》以推进文旅深度融合为主线，着力完善现代旅游业体系、培育旅游发展新动能、释放消费潜力。
+  evidence_quote: 据国务院批复，《规划》以推进文旅深度融合为主线，着力完善现代旅游业体系、培育旅游发展新动能、释放消费潜力。
+  interpretation: 政策导向利好文旅融合与旅游消费扩容。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 旅游强国规划目标。
+  related_stocks: []
+  tags:
+  - 旅游规划目标
+  - 旅游
+  - sector-theme
+- id: claim-20260708-002-be
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: macro
+  subject: 入境游数据
+  timeframe: trend
+  statement: 2025年全国入境外国游客3517万人次，同比增长30.5%。
+  evidence_quote: 数据显示，2025年全国入境外国游客3517万人次，同比增长30.5%。
+  interpretation: 入境游复苏为旅游消费提供基本面支撑。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 入境外国游客同比增长三成。
+  related_stocks: []
+  tags:
+  - 入境游数据
+  - 旅游
+  - 支撑
+  - macro
+- id: claim-20260708-002-bf
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 入境游市场增量
+  timeframe: industry
+  statement: 广发证券(000776)郭磊认为，世界主要国家入境消费占GDP比重在1%-3%之间，若有1.5个百分点提升，对应约2万亿元潜在市场增量。
+  evidence_quote: 据广发证券郭磊，世界主要国家入境消费占GDP比重在1%-3%之间，如有1.5个百分点的贡献提升，对应约2万亿元潜在市场增量。
+  interpretation: 入境消费提升空间巨大，旅游产业链存在主题性想象空间。
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 入境消费提升或带来约2万亿增量。
+  related_stocks:
+  - code: '000776'
+    name: 广发证券
+    role: 广发证券-主板可交易
+  tags:
+  - 入境游市场增量
+  - 旅游
+  - sector-theme
+- id: claim-20260708-002-bg
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 旅游板块
+  timeframe: short-term
+  statement: 旅游作为有政策催化的低位板块，符合上文「短平快」行情的候选特征。
+  evidence_quote: 作为有政策催化的低位板块，符合上文「短平快」行情的候选特征。
+  interpretation: 旅游板块兼具政策催化与低位优势，易成短线反弹目标。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 旅游板块符合短平快候选特征。
+  related_stocks: []
+  tags:
+  - 旅游板块
+  - 旅游
+  - 反弹
+  - sector-theme
+- id: claim-20260708-002-bh
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: stock-view
+  subject: 天府文旅
+  timeframe: short-term
+  statement: 天府文旅（000558）核心业务为冰雪旅游与影旅融合，依托西岭雪山景区开展索道、滑雪、酒店经营。
+  evidence_quote: 天府文旅：核心业务为冰雪旅游与影旅融合，依托西岭雪山景区开展索道、滑雪、酒店经营。
+  interpretation: 天府文旅(000558)直接受益冰雪旅游与影旅融合政策主题。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 天府文旅冰雪影旅业务。
+  related_stocks:
+  - code: '000558'
+    name: 天府文旅
+    role: 天府文旅-主板可交易
+  tags:
+  - 天府文旅
+  - 旅游
+  - stock-view
+- id: claim-20260708-002-bi
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: stock-view
+  subject: 探路者
+  timeframe: short-term
+  statement: 探路者（300005）核心业务为户外用品研发设计、运营和销售，覆盖国内户外生活主要领域。
+  evidence_quote: 探路者：核心业务为户外用品研发设计、运营和销售，覆盖国内户外生活主要领域。
+  interpretation: 探路者(300005)受益户外运动与旅游消费复苏。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 探路者户外用品业务。
+  related_stocks:
+  - code: '300005'
+    name: 探路者
+    role: 探路者-创业板不可交易
+  tags:
+  - 探路者
+  - 旅游
+  - stock-view
+- id: claim-20260708-002-bj
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: catalyst
+  subject: 恒瑞医药GLP-1
+  timeframe: industry
+  statement: 恒瑞医药（600276）口服小分子GLP-1受体激动剂HRS-7535在中国成人肥胖及超重人群III期临床（HARBOR-1）取得积极顶线数据。
+  evidence_quote: 据恒瑞医药7月7日公告，其口服小分子GLP-1受体激动剂HRS-7535在中国成人肥胖及超重人群III期临床（HARBOR-1）取得积极顶线数据
+  interpretation: 恒瑞减肥药III期成功，利好创新药及GLP-1产业链。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 恒瑞HRS-7535 III期临床积极。
+  related_stocks:
+  - code: '600276'
+    name: 恒瑞医药
+    role: 恒瑞医药-主板可交易
+  tags:
+  - 恒瑞医药GLP-1
+  - 医药
+  - 创新药
+  - GLP-1
+  - catalyst
+- id: claim-20260708-002-bk
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: catalyst
+  subject: 康恩贝
+  timeframe: industry
+  statement: 康恩贝（600572）子公司与美国生物制药公司签署西博帕多大中华区授权协议。
+  evidence_quote: 据康恩贝7月6日晚公告，子公司与美国生物制药公司签署西博帕多大中华区授权协议。
+  interpretation: 康恩贝(600572)通过BD授权拓展创新药管线，提供事件催化。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 康恩贝签署西博帕多授权协议。
+  related_stocks:
+  - code: '600572'
+    name: 康恩贝
+    role: 康恩贝-主板可交易
+  tags:
+  - 康恩贝
+  - 创新药
+  - catalyst
+- id: claim-20260708-002-bl
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 创新药产业链
+  timeframe: industry
+  statement: 中金公司(601995)医药团队认为，中国创新药BD、临床数据读出与制药供应链订单保持较好发展。
+  evidence_quote: 据中金公司医药团队，中国创新药BD、临床数据读出与制药供应链订单保持较好发展
+  interpretation: 创新药产业链景气度维持，基本面支撑较强。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 创新药BD与临床数据保持较好发展。
+  related_stocks:
+  - code: '601995'
+    name: 中金公司
+    role: 中金公司-主板可交易
+  tags:
+  - 创新药产业链
+  - 医药
+  - 创新药
+  - 支撑
+  - sector-theme
+- id: claim-20260708-002-bm
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: sector-theme
+  subject: 创新药产业链
+  timeframe: short-term
+  statement: 进入7月后中报业绩有望成为重要催化，创新药产业链有望延续一季度快速增长态势。
+  evidence_quote: 进入7月后中报业绩有望成为重要催化，创新药产业链有望延续一季度快速增长态势。
+  interpretation: 中报季业绩验证将决定创新药板块短期走势。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中报业绩或催化创新药产业链。
+  related_stocks: []
+  tags:
+  - 创新药产业链
+  - 创新药
+  - 业绩
+  - sector-theme
+- id: claim-20260708-002-bn
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: stock-view
+  subject: 万邦医药
+  timeframe: short-term
+  statement: 万邦医药（301520）为同时提供药学研究和临床研究服务的综合型CRO，6月助力合作客户获得18个批准文号。
+  evidence_quote: 万邦医药：同时提供药学研究和临床研究服务的综合型CRO，6月助力合作客户获得18个批准文号。
+  interpretation: 万邦医药(301520)作为CRO企业直接受益创新药研发活跃度提升。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 万邦医药CRO业务与获批文号。
+  related_stocks:
+  - code: '301520'
+    name: 万邦医药
+    role: 万邦医药-创业板不可交易
+  tags:
+  - 万邦医药
+  - 医药
+  - 创新药
+  - stock-view
+- id: claim-20260708-002-bo
+  source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
+  source_date: '2026-07-08'
+  source_type: 早盘
+  extracted_at: '2026-07-08T09:20:25+08:00'
+  claim_type: stock-view
+  subject: 石药景峰
+  timeframe: short-term
+  statement: 石药景峰（000908）聚焦中药创新药平台建设，推进1类新药交联玻璃酸钠注射液等项目，石药控股已成为公司控股股东。
+  evidence_quote: 石药景峰：聚焦中药创新药平台建设，推进1类新药交联玻璃酸钠注射液等项目，石药控股已成为公司控股股东。
+  interpretation: 石药景峰(000908)依托股东石药集团推进中药创新药，存在转型与重组预期。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 石药景峰中药创新药平台。
+  related_stocks:
+  - code: '000908'
+    name: 石药景峰
+    role: 石药景峰-主板可交易
+  tags:
+  - 石药景峰
+  - 创新药
+  - stock-view
