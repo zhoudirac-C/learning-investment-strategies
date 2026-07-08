@@ -4581,3 +4581,143 @@ stocks:
     sector_diverged: true
     market_actionable: false
     no_consecutive_limit_up: true
+- code: 000977.SZ
+  name: 浪潮信息
+  direction: kcb_ai_policy
+  chain_position: midstream
+  human_note:
+    date: '2026-07-08'
+    type: signal_confirmation
+    context: 7/8 22:19复盘：业绩超预期催化国产算力产业链，国产算力服务器龙头，早盘强势午后随大盘回落但核心标的回撤有限
+    kline_zone_updated_at: '2026-07-08'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    primary_zone:
+    - 73.48
+    - 77.39
+    hard_stop: 70.54
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 000938.SZ
+  name: 紫光股份
+  direction: kcb_ai_policy
+  chain_position: midstream
+  human_note:
+    date: '2026-07-08'
+    type: direction_call
+    context: 7/8 22:19复盘：国产算力服务器/交换机主板核心映射标的，昇腾950/RoCE交换机产业链受益
+    kline_zone_updated_at: '2026-07-08'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    primary_zone:
+    - 31.6
+    - 33.28
+    hard_stop: 30.34
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 603019.SH
+  name: 中科曙光
+  direction: kcb_ai_policy
+  chain_position: midstream
+  human_note:
+    date: '2026-07-08'
+    type: direction_call
+    context: 7/8 22:19复盘：国产算力服务器/整机主板核心映射，国产算力产业链硬件受益
+    kline_zone_updated_at: '2026-07-08'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    primary_zone:
+    - 92.26
+    - 97.17
+    hard_stop: 88.57
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 000063.SZ
+  name: 中兴通讯
+  direction: kcb_ai_policy
+  chain_position: downstream
+  human_note:
+    date: '2026-07-08'
+    type: catalyst
+    context: 7/8 22:19复盘：旗下努比亚全球首款AI智能体手机或亮相WAIC，此前已推出字节豆包合作AI原生手机M153
+    kline_zone_updated_at: '2026-07-08'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    primary_zone:
+    - 34.66
+    - 36.5
+    hard_stop: 33.27
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 000725.SZ
+  name: 京东方A
+  direction: kcb_ai_policy
+  chain_position: downstream
+  human_note:
+    date: '2026-07-08'
+    type: direction_call
+    context: 7/8 22:19复盘：LCD智能手机出货全球第一、柔性AMOLED全球第二/国内第一，AI手机趋势下面板龙头受益
+    kline_zone_updated_at: '2026-07-08'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    primary_zone:
+    - 7.17
+    - 7.55
+    hard_stop: 6.88
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 601101.SH
+  name: 昊华能源
+  direction: coke_coal_upcycle
+  chain_position: upstream
+  human_note:
+    date: '2026-07-08'
+    type: direction_call
+    context: 7/8 22:19复盘：依托煤矿+物流+贸易形成生产、发运、商贸一体化运营，动力煤供应电厂为主，煤炭防御/涨价业绩线
+    kline_zone_updated_at: '2026-07-08'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    primary_zone:
+    - 11.5
+    - 12.11
+    hard_stop: 11.04
+  pre_condition:
+    sector_diverged: true
+    market_actionable: true
+    no_consecutive_limit_up: true
+- code: 002812.SZ
+  name: 恩捷股份
+  direction: lithium_battery_separator_upcycle
+  chain_position: midstream
+  human_note:
+    date: '2026-07-08'
+    type: direction_call
+    context: 7/8 22:19复盘：隔膜龙头，大客户涨价带来盈利修复；锂电隔膜进入谈价关键期，下半年有望进入新一轮涨价周期
+    kline_zone_updated_at: '2026-07-08'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    primary_zone:
+    - 57.29
+    - 60.34
+    hard_stop: 55.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
