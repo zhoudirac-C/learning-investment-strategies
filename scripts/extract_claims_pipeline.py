@@ -427,6 +427,10 @@ def _auto_format_yaml(json_path: str, yaml_out_dir: str):
     with open(json_path) as f:
         enriched = json.load(f)
 
+    # 支持 {"claims": [...]} 或直接用列表两种格式
+    if isinstance(enriched, dict) and "claims" in enriched:
+        enriched = enriched["claims"]
+
     yaml_out = Path(yaml_out_dir)
     yaml_out.mkdir(parents=True, exist_ok=True)
 
