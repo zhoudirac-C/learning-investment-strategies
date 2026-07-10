@@ -1634,34 +1634,28 @@ stocks:
   direction: memory_nor
   chain_position: midstream
   human_note:
-    date: '2026-06-11'
-    type: direction_call
-    context: NOR Flash龙头+DRAM布局，存储涨价周期
-    kline_zone_updated_at: '2026-07-07'
+    date: '2026-07-10'
+    type: signal_confirmation
+    context: 7/10 00:51复盘：预计2026H1归母净利润69亿元、同比+1099%，Q2环比+272%；存储供给紧张下DRAM/NOR/SLC NAND量价齐升，为整条存储链中报行情提供锚。7/9涨停
+    kline_zone_updated_at: '2026-07-10'
     kline_zone_update_reason: stale_zone_recalc
-    kline_zone_context: close=840.0, ma20=577.97, support_20=448.11, resistance_20=846.66
+    kline_zone_context: close=663.49, pre_close=603.17, pct_chg=+10.00%, 涨停
   entry:
     primary_zone:
-    - 615.03
-    - 647.75
-    method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 590.43
+    - 620.0
+    - 650.0
+    method: 涨停回踩法（等首次分歧缩量回踩，不追高）
+    hard_stop: 595.0
     backup_zones:
-    - - 766.1
-      - 806.85
-    - - 789.6
-      - 831.6
-    - - 807.69
-      - 840.0
-    - - 772.8
-      - 814.8
-    - - 468
-      - 507
+    - - 603.17
+      - 630.0
+    - - 663.49
+      - 680.0
   pre_condition:
     sector_diverged: true
     market_actionable: false
     no_consecutive_limit_up: true
-  note: 高价+高PE(118x)，严格控仓
+  note: 7/9已涨停，短期不追高；等存储板块首次分歧缩量回踩再评估；高价+高PE，严格控仓
 - code: 600834.SH
   name: 申通地铁
   direction: chip_specialty
@@ -4606,21 +4600,28 @@ stocks:
   direction: kcb_ai_policy
   chain_position: midstream
   human_note:
-    date: '2026-07-08'
+    date: '2026-07-10'
     type: direction_call
-    context: 7/8 22:19复盘：国产算力服务器/交换机主板核心映射标的，昇腾950/RoCE交换机产业链受益
-    kline_zone_updated_at: '2026-07-08'
+    context: 7/10 00:51复盘：国产算力主线+NPO光互连双重受益；自研CPO/NPO光引擎，51.2T CPO硅光交换机2025年已批量交付；华为OPEN NPO项目核心供应商之一
+    kline_zone_updated_at: '2026-07-10'
     kline_zone_update_reason: stale_zone_recalc
+    kline_zone_context: close=35.68, pre_close=33.62, pct_chg=+6.13%
   entry:
     method: 收紧回踩法（MA/支撑/收盘价综合）
     primary_zone:
-    - 31.6
-    - 33.28
-    hard_stop: 30.34
+    - 33.5
+    - 35.0
+    hard_stop: 32.2
+    backup_zones:
+    - - 35.68
+      - 37.0
+    - - 33.0
+      - 34.5
   pre_condition:
     sector_diverged: true
     market_actionable: false
     no_consecutive_limit_up: true
+  note: 7/9大涨6.13%，不追涨；等国产算力/NPO方向首次分歧缩量回踩
 - code: 603019.SH
   name: 中科曙光
   direction: kcb_ai_policy
@@ -4721,3 +4722,57 @@ stocks:
     sector_diverged: true
     market_actionable: false
     no_consecutive_limit_up: true
+- code: 603137.SH
+  name: 恒尚节能
+  direction: memory_nor
+  chain_position: downstream
+  human_note:
+    date: '2026-07-10'
+    type: signal_confirmation
+    context: 7/10 00:51复盘：建筑跨界存储标的，收购金胜电子（国内最早量产SSD厂商之一）；昨日提前开板、今日快速缩量涨停，给出极强正反馈，是短线情绪端回暖的重要基础
+    kline_zone_updated_at: '2026-07-10'
+    kline_zone_update_reason: stale_zone_recalc
+    kline_zone_context: close=25.2, pre_close=22.91, pct_chg=+10.00%, 涨停
+  entry:
+    method: 涨停回踩法（情绪锚点，高波动，严格止损）
+    primary_zone:
+    - 23.0
+    - 24.5
+    hard_stop: 22.0
+    backup_zones:
+    - - 22.91
+      - 24.0
+    - - 25.2
+      - 26.5
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+  note: 短线情绪锚点，7/9缩量涨停，不追高；等存储板块分歧日回踩；高波动小票，严格控仓止损
+- code: 603991.SH
+  name: 领先股份
+  direction: leadframe_upcycle
+  chain_position: midstream
+  human_note:
+    date: '2026-07-10'
+    type: signal_confirmation
+    context: 7/10 00:51复盘：2025年重组置入全球引线框架龙头资产AAMI，已成为全球第二、国内第一的引线框架供应商；日月光先进封装报价上调+引线框架涨价双重驱动，7/9涨停
+    kline_zone_updated_at: '2026-07-10'
+    kline_zone_update_reason: stale_zone_recalc
+    kline_zone_context: close=167.06, pre_close=151.87, pct_chg=+10.00%, 涨停
+  entry:
+    method: 涨停回踩法（等首次分歧缩量回踩）
+    primary_zone:
+    - 155.0
+    - 165.0
+    hard_stop: 148.0
+    backup_zones:
+    - - 151.87
+      - 160.0
+    - - 167.06
+      - 175.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+  note: 7/9已涨停，不追高；等引线框架/先进封装方向首次分歧缩量回踩；高价小票，严格控仓
