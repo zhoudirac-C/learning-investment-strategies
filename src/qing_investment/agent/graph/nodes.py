@@ -1967,6 +1967,11 @@ def _fetch_stock_external_info(stock_code: str, stock_name: str) -> list[dict]:
         from qing_investment.agent.tools.web_search import search_web_simple
     except Exception:
         return []
+    # 防御性处理：stock_code 可能为列表或空
+    if isinstance(stock_code, list):
+        stock_code = next((c for c in stock_code if c), "")
+    if not stock_code or not isinstance(stock_code, str):
+        return []
     query = f"{stock_name} {stock_code.replace('.SH', '').replace('.SZ', '')} 主营业务 最新"
     try:
         results = search_web_simple(query, limit=3)
@@ -1997,6 +2002,10 @@ def _get_stock_sector_positioning(stock_code: str, up_position: str, up_source: 
 def stock_analyst(state: AgentState) -> AgentState:
     stock_code = state.get("parsed_intent", {}).get("stock_code")
     analysis_type = state.get("parsed_intent", {}).get("analysis_type", "stock")
+
+    # 兼容 LLM 把 stock_code 解析成列表的情况，取第一个有效元素
+    if isinstance(stock_code, list):
+        stock_code = next((c for c in stock_code if c), None)
 
     # Skip individual stock analysis for market-level or portfolio queries
     if analysis_type in ("market", "portfolio") or not stock_code:
