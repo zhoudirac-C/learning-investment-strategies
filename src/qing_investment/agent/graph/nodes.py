@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import copy
 import json
 import logging
 import re
@@ -13,6 +14,7 @@ import numpy as np
 from qing_investment.agent.tools.daily_state import (
     load_daily_state,
     save_daily_state,
+    archive_daily_state,
     update_market_stage,
     update_direction_priority,
     update_position_stance,
@@ -46,10 +48,20 @@ def _load_prompt(name: str) -> str:
     content = path.read_text(encoding="utf-8")
     # 自动注入交易者人格（Phase 1 新增）
     mindset_path = _PROMPT_DIR / "trader_mindset.txt"
-    if mindset_path.exists() and name in ("stock_analyst", "market_summary", "stock_scanner"):
+    if mindset_path.exists() and name in ("stock_analyst", "market_summary", "stock_scanner", "cron_closing"):
         mindset = mindset_path.read_text(encoding="utf-8")
         content = f"{mindset}\n\n---\n\n{content}"
     return content
+
+
+def _load_prompt_for_trigger(trigger_id: str | None, default_name: str) -> str:
+    """根据 trigger.id 选择对应 prompt；未匹配时回退到 default prompt。
+
+    Phase 1 新增：收盘复盘节点使用 cron_closing.txt，其他节点保持原有 prompt。
+    """
+    if trigger_id == "closing_review":
+        return _load_prompt("cron_closing")
+    return _load_prompt(default_name)
 
 
 def _load_analysis_framework() -> str:
@@ -99,6 +111,54 @@ def _extract_daily_state_block(content: str) -> dict | None:
 
 def _now_cn_str(fmt: str = "%H:%M") -> str:
     return datetime.now(_CN_TZ).strftime(fmt)
+
+
+def _build_daily_state_summary_for_closing(daily_state: dict) -> str:
+    """构建收盘复盘使用的 daily_state 摘要，包含历史变更记录。
+
+    输出格式面向 LLM，便于做预判 vs 实际对比。
+    """
+    lines: list[str] = []
+
+    stage = daily_state.get("market_stage", {})
+    if stage.get("phase") and stage["phase"] != "未判断":
+        lines.append(f"当前市场阶段：{stage['phase']} | {stage.get('detail', '')}")
+        lines.append(f"阶段最后更新：{stage.get('updated_by', '')} @ {stage.get('updated_at', '')}")
+
+    directions = daily_state.get("direction_priority", [])
+    if directions:
+        lines.append("当前方向优先级：")
+        for d in directions[:3]:
+            lines.append(f"  - {d.get('direction', '')} ({d.get('intensity', '')})")
+
+    stance = daily_state.get("position_stance", "")
+    if stance and stance != "未判断":
+        lines.append(f"当前持仓态度：{stance}")
+
+    opportunities = daily_state.get("active_opportunities", [])
+    if opportunities:
+        lines.append("当前活跃机会：")
+        for o in opportunities[:5]:
+            lines.append(f"  - {o.get('stock', '')}({o.get('code', '')}): {o.get('pattern', '')} | {o.get('status', '')}")
+
+    history = daily_state.get("history", [])
+    if history:
+        lines.append("今日关键判断演进：")
+        for h in history[-10:]:
+            stage_phase = (h.get("market_stage") or {}).get("phase", "")
+            dirs = [d.get("direction", "") for d in h.get("direction_priority", [])[:3]]
+            lines.append(
+                f"  [{h.get('source', '')}] {h.get('timestamp', '')[:16]} "
+                f"阶段={stage_phase} 方向={' > '.join(dirs)} 机会数={h.get('opportunity_count', 0)}"
+            )
+
+    narrative = daily_state.get("intraday_narrative", [])
+    if narrative:
+        lines.append("今日节点叙事：")
+        for n in narrative[-5:]:
+            lines.append(f"  - {n.get('time', '')}: {n.get('summary', '')}")
+
+    return "\n".join(lines) if lines else "今日尚未建立市场判断。"
 
 
 def _persist_daily_state_from_market_context(
@@ -233,13 +293,37 @@ def _persist_daily_state_from_market_context(
                 state, f"{now_time} 节点分析", str(market_summary)[:200]
             )
 
-        # 写入元数据
+        # 写入元数据与版本化记录（Phase 1）
         state.setdefault("_meta", {})
         state["_meta"]["last_persisted_by"] = source_tag
         state["_meta"]["last_persisted_at"] = now_iso
 
+        # 版本号与历史变更记录：只在 market_summary 节点递增，避免 stock_scanner 重复填充 history
+        is_market_summary_node = source_tag.startswith("market_summary:")
+        if is_market_summary_node:
+            current_version = state.get("version", 1)
+            state["version"] = current_version + 1
+
+            # 追加关键字段变更历史，便于收盘复盘做预判 vs 实际对比
+            state.setdefault("history", [])
+            state["history"].append({
+                "version": current_version,
+                "source": source_tag,
+                "timestamp": now_iso,
+                "market_stage": copy.deepcopy(state.get("market_stage", {})),
+                "direction_priority": copy.deepcopy(state.get("direction_priority", [])),
+                "position_stance": state.get("position_stance", ""),
+                "opportunity_count": len(state.get("active_opportunities", [])),
+                "narrative_count": len(state.get("intraday_narrative", [])),
+            })
+            # 保留最近 50 条历史记录，防止文件无限增长
+            if len(state["history"]) > 50:
+                state["history"] = state["history"][-50:]
+            logger.info("Persisted daily_state from %s (version=%d)", source_tag, state["version"])
+        else:
+            logger.info("Persisted daily_state from %s (version=%d)", source_tag, state.get("version", 1))
+
         save_daily_state(state)
-        logger.info("Persisted daily_state from %s", source_tag)
     except Exception as e:
         logger.warning("Failed to persist daily_state: %s", e)
 
@@ -1336,7 +1420,9 @@ def market_summary(state: AgentState) -> AgentState:
     """市场/板块分析节点：只输出精简市场背景，不处理个股。"""
     logger = logging.getLogger(__name__)
     _t0 = time.time()
-    prompt_template = _load_prompt("market_summary")
+    trigger_id = (state.get("trigger") or {}).get("id")
+    prompt_template = _load_prompt_for_trigger(trigger_id, "market_summary")
+    is_closing_review = trigger_id == "closing_review"
     analysis_type = (state.get("parsed_intent") or {}).get("analysis_type", "stock")
 
     market_snapshot = _slim_market_snapshot_for_summary(state.get("market_snapshot") or {})
@@ -1375,6 +1461,19 @@ def market_summary(state: AgentState) -> AgentState:
     analysis_framework = _load_analysis_framework()
     prompt_template_filled = prompt_template.replace("{analysis_framework}", analysis_framework)
 
+    # Phase 1: 收盘复盘节点加载当天 daily_state 摘要，注入到检索知识中
+    daily_state_summary = ""
+    if is_closing_review:
+        try:
+            ds = load_daily_state()
+            daily_state_summary = _build_daily_state_summary_for_closing(ds)
+            logger.info(
+                "market_summary closing_review: loaded daily_state summary with %d history entries, %d narrative entries",
+                len(ds.get("history", [])), len(ds.get("intraday_narrative", []))
+            )
+        except Exception as e:
+            logger.warning("market_summary closing_review: failed to load daily_state summary: %s", e)
+
     context = {
         "market_snapshot": market_snapshot,
         "macd_multi_tf_report": market_snapshot.get("macd_multi_tf_report", ""),
@@ -1389,6 +1488,7 @@ def market_summary(state: AgentState) -> AgentState:
         "reasoning_patterns": reasoning_patterns,
         "direction_signals": state.get("direction_signals", {}),
         "memories": state.get("memories", []),
+        "daily_state_summary": daily_state_summary,
     }
 
     fallback = {
@@ -1500,6 +1600,17 @@ def market_summary(state: AgentState) -> AgentState:
     _persist_daily_state_from_market_context(result, daily_state_override, source_tag)
     if daily_state_override:
         result["_daily_state_override"] = daily_state_override
+
+    # Phase 1: 收盘复盘节点执行后归档当日 daily_state
+    if trigger_id == "closing_review":
+        try:
+            archive_path = archive_daily_state()
+            if archive_path:
+                logger.info("market_summary closing_review: archived daily_state to %s", archive_path)
+            else:
+                logger.info("market_summary closing_review: no daily_state file to archive")
+        except Exception as e:
+            logger.warning("market_summary closing_review: failed to archive daily_state: %s", e)
 
     reasoning = f"市场总结: {result.get('market_phase', 'N/A')}"
     if was_truncated:

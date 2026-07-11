@@ -532,6 +532,10 @@ agent_analysis_schedule:
   time: '14:52'
   name: 尾盘条件单
   focus: 判断是否符合介入条件。科技主线分歧企稳+券商年线状态+微盘股是否继续弱于全A。不符合则不做任何操作。
+- id: closing_review
+  time: '17:00'
+  name: 收盘复盘
+  focus: 全天交易结束后的完整复盘。评估今日预判准确性、更新方向优先级与机会列表、输出明日假设与场景概率，并归档当日daily_state。
 key_levels:
   shanghai_index:
     full_position_trigger: 4088（UP 6/15 09:45 明确定价：收盘站上可满仓干，但需具备选股能力。6/21节前沪指冲高回落偏弱，当前未触发）
