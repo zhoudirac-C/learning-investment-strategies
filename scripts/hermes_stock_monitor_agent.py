@@ -27,6 +27,7 @@ from qing_investment.agent.tools.daily_state import (
     save_daily_state,
     update_market_stage,
 )
+from qing_investment.agent.tools.market_sentiment import fetch_market_sentiment
 
 QING_AGENT_URL = os.environ.get("QING_AGENT_URL", "http://localhost:8000/analyze/trigger")
 QING_AGENT_HEALTH_URL = os.environ.get("QING_AGENT_HEALTH_URL", "http://localhost:8000/health")
@@ -530,6 +531,13 @@ def _build_market_snapshot(data: dict) -> tuple[dict, dict[str, dict]]:
             k: v for k, v in tech_signals.items()
             if k in ("tech_signals", "macd_multi_tf_report", "td_sequential_report", "fibonacci_time_report")
         })
+
+    # Phase 9: 注入市场情绪数据
+    try:
+        sentiment = fetch_market_sentiment()
+        market_snapshot["sentiment"] = sentiment
+    except Exception as e:
+        market_snapshot["sentiment"] = {"errors": [str(e)]}
 
     return market_snapshot, quote_lookup
 

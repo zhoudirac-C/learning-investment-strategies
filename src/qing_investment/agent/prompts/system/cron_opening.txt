@@ -11,6 +11,10 @@
 请基于以上信息做剧本验证，不要再临时搜索外部信息。
 如果 pre_market_brief 为空或 available=false，标注“外部数据不可用，仅基于知识库分析”。
 
+【市场情绪】
+`market_snapshot.sentiment` 中已注入实时情绪数据（涨跌家数、涨停/跌停、连板高度、首板数、炸板率）。
+请结合情绪指标判断当前处于冰点/回暖/高潮/退潮哪个阶段。
+
 【任务】
 你刚看完集合竞价数据。注意上下文中有昨日复盘的「tomorrow_scenarios」（明日剧本），现在只需做剧本验证：
 1. 对比明日剧本（strong_repair / weak_consolidation / strong_divergence）与今日竞价实际表现，哪个情景匹配度最高？若有偏差说明差异。

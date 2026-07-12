@@ -6,7 +6,10 @@ from pydantic import BaseModel, Field
 class TriggerRequest(BaseModel):
     trigger: dict = Field(default_factory=dict, description="Hermes传入的触发信息")
     alerts: list[dict] = Field(default_factory=list, description="规则信号列表")
-    market_snapshot: dict = Field(default_factory=dict, description="行情快照")
+    market_snapshot: dict = Field(
+        default_factory=dict,
+        description="行情快照，可包含 sentiment 字段（涨跌家数、涨停/跌停、连板高度等）",
+    )
     positions: list[dict] = Field(default_factory=list, description="当前持仓")
     watchlist: list[dict] = Field(default_factory=list, description="观察池关键标的")
     sector_strengths: list[dict] = Field(default_factory=list, description="板块强弱数据")

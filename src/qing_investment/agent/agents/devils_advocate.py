@@ -1,7 +1,7 @@
 """Devil's Advocate — 反向质疑 Agent。
 
 对标 AlphaAnalyst 的 Devil's Advocate 模式：
-    - 强制使用与主分析不同家族的 LLM（默认 Kimi vs DeepSeek）
+    - 优先使用配置默认 provider，失败时跨模型 fallback
     - 输出结构化质疑点（target/concern/severity/confidence）
     - 不自行下结论，只找逻辑漏洞
 """
@@ -21,7 +21,7 @@ class DevilsAdvocateAgent(Agent):
     """对已有分析结论进行反向质疑。
 
     设计原则:
-        - 优先使用 deepseek 进行反向质疑，失败时 fallback 到 kimi-coding / zhipu
+        - 优先走配置默认 provider，失败时 fallback 到 deepseek / kimi-coding / zhipu
         - 输出结构化质疑点，不自行下结论
         - 记录每个质疑点的置信度
         - 主分析失败不影响 DA 正常执行
@@ -31,7 +31,8 @@ class DevilsAdvocateAgent(Agent):
 
     def __init__(self, llm=None):
         super().__init__(llm=llm)
-        self._target_model = "deepseek"
+        # None 表示走配置默认 provider；失败时 fallback 到 deepseek / kimi-coding / zhipu
+        self._target_model: str | None = None
         self._last_used_provider: str | None = None  # 实际使用的 provider（可能 fallback）
         self._used_provider: str | None = None        # 供外部查询
 
@@ -130,8 +131,8 @@ class DevilsAdvocateAgent(Agent):
     async def _invoke_llm(self, prompt: str) -> str:
         """调用 LLM。兼容 ChatOpenAI.invoke() 和 LLMProtocol.chat()。
 
-        支持 fallback：如果 Kimi 失败（API key 无效或网络问题），
-        自动降级到 DeepSeek 以确保 Devil's Advocate 仍能输出。
+        优先走配置默认 provider；失败时 fallback 到 deepseek / kimi-coding / zhipu，
+        避免某个模型 API key 缺失导致 Devil's Advocate 被跳过。
 
         所有同步调用都通过 asyncio.to_thread 放到线程池执行，并加 60s 硬超时，
         避免在 async 事件循环中阻塞导致整个服务 hang 死。
@@ -159,17 +160,23 @@ class DevilsAdvocateAgent(Agent):
             logger.info("[DevilsAdvocate] _invoke_llm: response_len=%d", len(content))
             return content
 
-        # ── 情况2：走配置的 provider（默认 Kimi），带 fallback ──
+        # ── 情况2：走配置默认 provider，带跨模型 fallback ──
         from qing_investment.agent.tools.llm_client import get_llm_client
 
-        fallback_order = [self._target_model, "kimi-coding", "zhipu"]
+        fallback_order: list[str | None]
+        if self._target_model is None:
+            # None 表示先尝试配置默认 provider，再 fallback 到其他模型
+            fallback_order = [None, "deepseek", "kimi-coding", "zhipu"]
+        else:
+            fallback_order = [self._target_model, "deepseek", "kimi-coding", "zhipu"]
         last_error = None
 
         for idx, provider in enumerate(fallback_order):
+            provider_label = provider if provider is not None else "default"
             try:
                 logger.info(
                     "[DevilsAdvocate] _invoke_llm: attempt %d/%d provider=%s",
-                    idx + 1, len(fallback_order), provider,
+                    idx + 1, len(fallback_order), provider_label,
                 )
                 llm = get_llm_client(provider=provider)
                 result = await asyncio.wait_for(
@@ -178,22 +185,22 @@ class DevilsAdvocateAgent(Agent):
                 )
                 content = result.content if hasattr(result, "content") else str(result)
                 if content and len(content) > 20:
-                    self._last_used_provider = provider  # 记录成功 provider
+                    self._last_used_provider = provider_label  # 记录成功 provider
                     logger.info(
                         "[DevilsAdvocate] _invoke_llm: success provider=%s response_len=%d",
-                        provider, len(content),
+                        provider_label, len(content),
                     )
                     return content
                 else:
                     logger.warning(
                         "[DevilsAdvocate] _invoke_llm: short/empty response from %s (len=%d), trying fallback",
-                        provider, len(content),
+                        provider_label, len(content),
                     )
-                    last_error = f"Empty/short response from {provider}"
+                    last_error = f"Empty/short response from {provider_label}"
             except Exception as e:
                 logger.warning(
                     "[DevilsAdvocate] _invoke_llm: failed provider=%s error=%s, trying fallback",
-                    provider, e,
+                    provider_label, e,
                 )
                 last_error = str(e)
 

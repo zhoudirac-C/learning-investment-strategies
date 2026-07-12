@@ -10,6 +10,7 @@ cp "$HERMES_REPO_ROOT/scripts/hermes_stock_monitor.py" "$HOME/.hermes/scripts/qi
 cp "$HERMES_REPO_ROOT/scripts/hermes_stock_monitor_agent.py" "$HOME/.hermes/scripts/qing_stock_monitor_agent.py"
 cp "$HERMES_REPO_ROOT/scripts/hermes_stock_monitor_analysis.py" "$HOME/.hermes/scripts/qing_stock_monitor_analysis.py"
 cp "$HERMES_REPO_ROOT/scripts/hermes_stock_monitor_daily_review.py" "$HOME/.hermes/scripts/qing_stock_monitor_daily_review.py"
+cp "$HERMES_REPO_ROOT/scripts/evaluate_agent_vs_up.py" "$HOME/.hermes/scripts/evaluate_agent_vs_up.py"
 
 chmod +x "$HOME/.hermes/scripts/qing_stock_monitor.py"
 chmod +x "$HOME/.hermes/scripts/qing_stock_monitor_agent.py"
@@ -76,3 +77,9 @@ hermes cron create "20 15 * * 1-5" "$DAILY_REVIEW_PROMPT" \
   --workdir "$HERMES_REPO_ROOT" \
   --script qing_stock_monitor_daily_review.py \
   --deliver "$HERMES_DELIVER_TARGET"
+
+hermes cron create "0 8 * * 1" \
+  --name "Agent-UP一致性周报" \
+  --workdir "$HERMES_REPO_ROOT" \
+  --script evaluate_agent_vs_up.py \
+  --no-agent
