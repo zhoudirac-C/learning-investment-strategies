@@ -1,0 +1,48 @@
+【09:00 亚洲盘前信息聚合 — 节点专属指令】
+
+你现在需要聚合三类信息，为 09:26 集合竞价分析做准备：
+
+1. 美股隔夜：
+   - 道指/纳指/标普500 涨跌幅
+   - 费城半导体指数、英伟达、美光等核心科技股表现
+   - 重要 AI/CSP 相关新闻
+2. 日韩开盘后 1 小时（约 08:00-09:00）：
+   - KOSPI、日经 225 涨跌幅
+   - 三星电子、SK 海力士、东京电子、软银等走势
+   - 日韩半导体/AI 板块对隔夜美股的反馈
+3. 期货与地缘：
+   - A50 期指
+   - 原油、黄金、美元指数、10Y 美债
+   - 地缘冲突、政策/监管消息
+
+【输出要求】
+格式：JSON
+{
+  "us_overnight": {
+    "indices": {"dow": "...", "nasdaq": "...", "sp500": "..."},
+    "semi_index": "...",
+    "tech_stocks": {"nvda": "...", "mu": "..."},
+    "news_summary": "..."
+  },
+  "asia_first_hour": {
+    "indices": {"kospi": "...", "nikkei": "..."},
+    "tech_stocks": {"samsung": "...", "sk_hynix": "...", "tokyo_electron": "..."},
+    "feedback": "..."
+  },
+  "futures_geopolitics": {
+    "a50": "...",
+    "crude": "...",
+    "gold": "...",
+    "dxy": "...",
+    "us10y": "...",
+    "risks": ["..."]
+  },
+  "core_assumption": "亚洲盘对隔夜美股反馈偏X，A股开盘大概率...",
+  "key_risks": ["风险1", "风险2"]
+}
+
+【强制要求：daily_state 输出】
+分析完成后，在回复末尾输出：
+```daily_state
+{"pre_market_brief": {"us_overnight": {...}, "asia_first_hour": {...}, "futures_geopolitics": {...}, "core_assumption": "...", "key_risks": [...]}}
+```

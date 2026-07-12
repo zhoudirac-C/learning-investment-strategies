@@ -22,6 +22,11 @@ from decimal import Decimal
 from pathlib import Path
 
 from qing_investment.agent.tools.watchlist_sharder import shard_watchlist, shard_to_context
+from qing_investment.agent.tools.daily_state import (
+    load_daily_state,
+    save_daily_state,
+    update_market_stage,
+)
 
 QING_AGENT_URL = os.environ.get("QING_AGENT_URL", "http://localhost:8000/analyze/trigger")
 QING_AGENT_HEALTH_URL = os.environ.get("QING_AGENT_HEALTH_URL", "http://localhost:8000/health")
@@ -529,7 +534,7 @@ def _build_market_snapshot(data: dict) -> tuple[dict, dict[str, dict]]:
     return market_snapshot, quote_lookup
 
 
-def _post_analyze_trigger(payload: dict) -> dict | None:
+def _post_analyze_trigger(payload: dict, timeout: float | None = None) -> dict | None:
     """发送单个 /analyze/trigger 请求，返回响应 JSON。
 
     包含重试与指数退避；不执行 health check（调用方应已确认服务可用）。
@@ -547,10 +552,11 @@ def _post_analyze_trigger(payload: dict) -> dict | None:
     t0 = _time.perf_counter()
     response: dict | None = None
     last_error: str | None = None
+    post_timeout = timeout if timeout is not None else QING_AGENT_TIMEOUT
 
     for attempt in range(1, QING_AGENT_MAX_RETRIES + 1):
         try:
-            with urllib.request.urlopen(req, timeout=QING_AGENT_TIMEOUT) as resp:
+            with urllib.request.urlopen(req, timeout=post_timeout) as resp:
                 response = json.loads(resp.read().decode("utf-8"))
                 return response
         except urllib.error.HTTPError as e:
@@ -687,7 +693,8 @@ def call_qing_agent(data: dict) -> dict | None:
             should_shard = False
 
     if not should_shard:
-        response = _post_analyze_trigger(base_payload)
+        post_timeout = 90.0 if trigger_id == "pre_market" else None
+        response = _post_analyze_trigger(base_payload, timeout=post_timeout)
         _log_request_payload(
             data,
             json.dumps(base_payload, ensure_ascii=False).encode("utf-8"),
@@ -695,6 +702,20 @@ def call_qing_agent(data: dict) -> dict | None:
             error=None,
             elapsed_ms=None,
         )
+        if trigger_id == "pre_market" and response is None:
+            # 09:00 节点超时/失败，写入降级状态，不阻塞 09:26
+            try:
+                ds = load_daily_state()
+                ds["pre_market_brief"] = {"available": False, "errors": ["pre_market 节点调用超时或失败"]}
+                ds = update_market_stage(
+                    ds,
+                    phase="数据不可用",
+                    detail="09:00 节点超时",
+                    updated_by="pre_market:timeout",
+                )
+                save_daily_state(ds)
+            except Exception as e:
+                print(f"[pre_market] failed to save degraded state: {e}", file=sys.stderr)
         return response
 
     print(

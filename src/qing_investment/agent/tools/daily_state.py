@@ -53,8 +53,12 @@ def load_daily_state(path: Path | None = None) -> dict:
 def save_daily_state(data: dict, path: Path | None = None) -> None:
     """保存 daily_state.json。"""
     state_path = path or DEFAULT_STATE_PATH
-    
+
     try:
+        # 清理过期失效机会
+        if isinstance(data.get("active_opportunities"), list):
+            data["active_opportunities"] = _cleanup_opportunities(data["active_opportunities"])
+
         state_path.parent.mkdir(parents=True, exist_ok=True)
         with open(state_path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
@@ -78,6 +82,62 @@ def _init_daily_state() -> dict:
         "intraday_narrative": [],
         "version": 1,
     }
+
+
+def normalize_code(code: str) -> str:
+    """统一股票代码格式为 6位数字.SZ/.SH。"""
+    if not code:
+        return ""
+    text = str(code).strip().upper()
+    # 去掉已有的 .SZ/.SH 后缀
+    if text.endswith(".SZ") or text.endswith(".SH"):
+        text = text[:-3]
+    # 去掉可能的前缀 sh/sz
+    text = text.replace("SH", "").replace("SZ", "")
+    # 保留最后 6 位数字
+    digits = "".join(c for c in text if c.isdigit())
+    if len(digits) >= 6:
+        digits = digits[-6:]
+    market = "SH" if digits.startswith("6") else "SZ"
+    return f"{digits}.{market}"
+
+
+def update_field(
+    state: dict,
+    source_tag: str,
+    key: str,
+    value: Any,
+) -> dict:
+    """字段级更新，并记录最后修改来源。
+
+    Args:
+        state: daily_state 字典
+        source_tag: 修改来源标识，如 "market_summary:open_auction"
+        key: 字段名
+        value: 字段值
+    """
+    state.setdefault("_field_sources", {})
+    state["_field_sources"][key] = source_tag
+    state[key] = value
+    return state
+
+
+def _cleanup_opportunities(opportunities: list[dict]) -> list[dict]:
+    """清理失效超过 3 天的机会。"""
+    cutoff = datetime.now() - timedelta(days=3)
+    kept: list[dict] = []
+    for opp in opportunities:
+        if opp.get("status") == "失效":
+            last_checked = opp.get("last_checked_at") or opp.get("updated_at")
+            if last_checked:
+                try:
+                    last_dt = datetime.fromisoformat(last_checked)
+                    if last_dt < cutoff:
+                        continue
+                except ValueError:
+                    pass
+        kept.append(opp)
+    return kept
 
 
 def update_market_stage(
@@ -136,34 +196,62 @@ def add_opportunity(
     downside: str,
     ratio: str,
     status: str = "未触发",
+    entry_zone: list | tuple | None = None,
+    stop_loss: float | str | None = None,
+    source_node: str = "unknown",
 ) -> dict:
-    """添加或更新活跃机会。"""
+    """添加或更新活跃机会。
+
+    统一 schema：
+    - code: 6位数字.SZ/.SH
+    - first_seen_at / last_checked_at: 首次发现/最后检查时间
+    - entry_zone: 介入区间 [low, high]
+    - stop_loss: 止损位
+    - source_node: 产生该机会的节点
+    """
     opportunities = state.get("active_opportunities", [])
-    
-    # 查找是否已存在
+    code = normalize_code(code)
+    now = datetime.now().isoformat()
+
+    # 查找是否已存在（统一 code 后比较）
     existing = None
     for i, opp in enumerate(opportunities):
-        if opp.get("code") == code:
+        if normalize_code(opp.get("code", "")) == code:
             existing = i
             break
-    
+
     new_opp = {
         "stock": stock,
         "code": code,
         "pattern": pattern,
         "trigger": trigger,
         "status": status,
-        "upside": upside,
-        "downside": downside,
-        "ratio": ratio,
-        "updated_at": datetime.now().isoformat(),
+        "upside": str(upside) if upside is not None else "",
+        "downside": str(downside) if downside is not None else "",
+        "ratio": str(ratio) if ratio is not None else "",
+        "entry_zone": list(entry_zone) if entry_zone else [],
+        "stop_loss": stop_loss,
+        "last_checked_at": now,
+        "source_node": source_node,
     }
-    
+
     if existing is not None:
+        old_opp = opportunities[existing]
+        new_opp["first_seen_at"] = old_opp.get("first_seen_at", now)
+        # 若新值未提供，保留旧值
+        if not new_opp["entry_zone"]:
+            new_opp["entry_zone"] = old_opp.get("entry_zone", [])
+        if new_opp["stop_loss"] is None:
+            new_opp["stop_loss"] = old_opp.get("stop_loss")
+        # 保留旧 opp 中的扩展字段
+        for k, v in old_opp.items():
+            if k not in new_opp:
+                new_opp[k] = v
         opportunities[existing] = new_opp
     else:
+        new_opp["first_seen_at"] = now
         opportunities.append(new_opp)
-    
+
     state["active_opportunities"] = opportunities
     return state
 
@@ -256,15 +344,15 @@ def sync_buy_candidates(
     now_iso = now.isoformat()
 
     opportunities = state.get("active_opportunities", [])
-    candidate_codes = {c["stock_code"] for c in candidates}
+    candidate_codes = {normalize_code(c["stock_code"]) for c in candidates}
 
     # 1. 更新已有机会的状态
     for opp in opportunities:
-        code = opp.get("code", "")
+        code = normalize_code(opp.get("code", ""))
         if code in candidate_codes:
             # 仍在候选列表中 → 更新信息
             for c in candidates:
-                if c["stock_code"] == code:
+                if normalize_code(c["stock_code"]) == code:
                     opp["status"] = "候选"
                     opp["price"] = c.get("price")
                     opp["price_bucket"] = _price_bucket(c.get("price", 0))
@@ -272,17 +360,19 @@ def sync_buy_candidates(
                     opp["stop_loss"] = c.get("stop_loss")
                     opp["matched_conditions"] = c.get("matched_conditions", [])
                     opp["updated_at"] = now_iso
+                    opp["last_checked_at"] = now_iso
                     break
         else:
             # 不在候选列表中 → 如果之前是候选，标记为失效
             if opp.get("status") == "候选":
                 opp["status"] = "失效"
                 opp["updated_at"] = now_iso
+                opp["last_checked_at"] = now_iso
 
     # 2. 添加新候选
-    existing_codes = {o.get("code", "") for o in opportunities}
+    existing_codes = {normalize_code(o.get("code", "")) for o in opportunities}
     for c in candidates:
-        code = c["stock_code"]
+        code = normalize_code(c["stock_code"])
         if code not in existing_codes:
             opportunities.append({
                 "stock": c.get("stock_name", ""),
@@ -299,7 +389,10 @@ def sync_buy_candidates(
                 "stop_loss": c.get("stop_loss"),
                 "matched_conditions": c.get("matched_conditions", []),
                 "updated_at": now_iso,
+                "first_seen_at": now_iso,
+                "last_checked_at": now_iso,
                 "last_agent_check": None,
+                "source_node": "buy_signal_candidate",
             })
 
     state["active_opportunities"] = opportunities

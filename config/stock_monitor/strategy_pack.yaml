@@ -500,6 +500,10 @@ intraday_schedule:
   - 弱修复/量能回落/等待确认阶段→不操作
   - 雅克科技止损检查
 agent_analysis_schedule:
+- id: pre_market
+  time: '09:00'
+  name: 亚洲盘前信息聚合
+  focus: 美股隔夜收盘、日韩开盘后1小时走势、A50/期货/地缘风险，写入pre_market_brief供09:26使用。
 - id: open_auction
   time: 09:26
   name: 集合竞价后

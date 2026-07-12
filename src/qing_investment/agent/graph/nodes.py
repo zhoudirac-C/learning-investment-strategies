@@ -20,6 +20,8 @@ from qing_investment.agent.tools.daily_state import (
     update_position_stance,
     add_opportunity,
     add_intraday_narrative,
+    update_field,
+    normalize_code,
 )
 from qing_investment.agent.tools.llm_client import (
     format_provider_usage_summary,
@@ -31,6 +33,7 @@ from qing_investment.agent.tools.mem0_client import Mem0ClientWrapper
 from qing_investment.agent.tools.neo4j_client import Neo4jClient
 from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
 from qing_investment.agent.tools.cost_tracker import CostTracker
+from qing_investment.agent.tools.external_market_fetcher import fetch_pre_market_brief
 from qing_investment.agent.config import settings
 from .state import AgentState
 
@@ -55,12 +58,16 @@ def _load_prompt(name: str) -> str:
 
 
 def _load_prompt_for_trigger(trigger_id: str | None, default_name: str) -> str:
-    """根据 trigger.id 选择对应 prompt；未匹配时回退到 default prompt。
-
-    Phase 1 新增：收盘复盘节点使用 cron_closing.txt，其他节点保持原有 prompt。
-    """
-    if trigger_id == "closing_review":
-        return _load_prompt("cron_closing")
+    """根据 trigger.id 选择对应 prompt；未匹配时回退到 default prompt。"""
+    prompt_map = {
+        "pre_market": "cron_pre_market",
+        "open_auction": "cron_opening",
+        "open_confirm": "cron_opening",
+        "morning_confirm": "cron_morning_confirm",
+        "closing_review": "cron_closing",
+    }
+    if trigger_id in prompt_map:
+        return _load_prompt(prompt_map[trigger_id])
     return _load_prompt(default_name)
 
 
@@ -161,10 +168,73 @@ def _build_daily_state_summary_for_closing(daily_state: dict) -> str:
     return "\n".join(lines) if lines else "今日尚未建立市场判断。"
 
 
+def _refresh_active_opportunity_statuses(
+    daily_state: dict,
+    positions: list[dict],
+    quotes: list[dict],
+) -> None:
+    """收盘复盘前根据收盘价自动刷新机会状态。
+
+    - 收盘价在 entry_zone 内 → "候选"
+    - 收盘价跌破 stop_loss → "失效"
+    - 已出现在持仓中 → "已触发"
+    """
+    opportunities = daily_state.get("active_opportunities", [])
+    if not opportunities:
+        return
+
+    quote_lookup: dict[str, dict] = {}
+    for q in quotes or []:
+        code = _pure_stock_code(q.get("code") or q.get("secid"))
+        if code:
+            quote_lookup[code] = q
+
+    position_codes = {_pure_stock_code(p.get("code", "")) for p in positions or []}
+
+    for opp in opportunities:
+        code = _pure_stock_code(opp.get("code", ""))
+        if not code:
+            continue
+        quote = quote_lookup.get(code)
+        if not quote:
+            continue
+
+        price = quote.get("latest") or quote.get("price")
+        if price is None:
+            continue
+        try:
+            price = float(price)
+        except (ValueError, TypeError):
+            continue
+
+        if code in position_codes:
+            opp["status"] = "已触发"
+            continue
+
+        stop_loss = opp.get("stop_loss")
+        if stop_loss is not None:
+            try:
+                if price < float(stop_loss):
+                    opp["status"] = "失效"
+                    continue
+            except (ValueError, TypeError):
+                pass
+
+        entry_zone = opp.get("entry_zone")
+        if entry_zone and len(entry_zone) >= 2:
+            try:
+                low, high = float(entry_zone[0]), float(entry_zone[1])
+                if low <= price <= high:
+                    opp["status"] = "候选"
+            except (ValueError, TypeError):
+                pass
+
+
 def _persist_daily_state_from_market_context(
     market_context: dict,
     daily_state_override: dict | None,
     source_tag: str,
+    trigger_id: str | None = None,
 ) -> None:
     """根据 market_summary / stock_scanner 输出更新 daily_state.json。
 
@@ -214,6 +284,9 @@ def _persist_daily_state_from_market_context(
                         downside=opp.get("downside", opp.get("downside_pct", "")),
                         ratio=opp.get("ratio", opp.get("odds", "")),
                         status=opp.get("status", "未触发"),
+                        entry_zone=opp.get("entry_zone"),
+                        stop_loss=opp.get("stop_loss"),
+                        source_node=source_tag,
                     )
             # intraday narrative keys (various node-specific fields)
             narrative_keys = {
@@ -280,18 +353,33 @@ def _persist_daily_state_from_market_context(
                         code=opp["code"],
                         pattern=opp.get("pattern", ""),
                         trigger=opp.get("trigger", ""),
-                        upside=opp.get("upside_pct", ""),
-                        downside=opp.get("downside_pct", ""),
-                        ratio=opp.get("odds", ""),
+                        upside=opp.get("upside", opp.get("upside_pct", "")),
+                        downside=opp.get("downside", opp.get("downside_pct", "")),
+                        ratio=opp.get("ratio", opp.get("odds", "")),
                         status=opp.get("status", "未触发"),
+                        entry_zone=opp.get("entry_zone"),
+                        stop_loss=opp.get("stop_loss"),
+                        source_node=f"{source_tag}:derived",
                     )
 
         # 4) 添加本节点综合叙事
         market_summary = market_context.get("market_summary", "")
         if market_summary:
+            label_map = {
+                "open_auction": "09:26 剧本验证",
+                "open_confirm": "09:45 假设验证",
+                "morning_confirm": "10:00 结论固化",
+            }
+            label = label_map.get(trigger_id, f"{now_time} 节点分析")
             state = add_intraday_narrative(
-                state, f"{now_time} 节点分析", str(market_summary)[:200]
+                state, label, str(market_summary)[:200]
             )
+
+        # Phase 1.4: 记录关键字段的最后更新来源
+        update_field(state, source_tag, "market_stage", state.get("market_stage", {}))
+        update_field(state, source_tag, "direction_priority", state.get("direction_priority", []))
+        update_field(state, source_tag, "position_stance", state.get("position_stance", "未判断"))
+        update_field(state, source_tag, "active_opportunities", state.get("active_opportunities", []))
 
         # 写入元数据与版本化记录（Phase 1）
         state.setdefault("_meta", {})
@@ -1475,6 +1563,60 @@ def market_summary(state: AgentState) -> AgentState:
         except Exception as e:
             logger.warning("market_summary closing_review: failed to load daily_state summary: %s", e)
 
+    # Phase 4/5: 早盘节点注入前置信息占位符
+    pre_market_brief = ""
+    core_assumption_0926 = ""
+    if trigger_id == "pre_market":
+        try:
+            pmb = asyncio.run(fetch_pre_market_brief())
+            pre_market_brief = json.dumps(pmb, ensure_ascii=False, indent=2, default=str)
+        except Exception as e:
+            logger.warning("market_summary pre_market: failed to fetch pre_market_brief: %s", e)
+            pre_market_brief = "外部数据不可用"
+    elif trigger_id == "open_auction":
+        try:
+            ds = load_daily_state()
+            pmb = ds.get("pre_market_brief")
+            if isinstance(pmb, dict) and pmb.get("available") is not False and pmb:
+                pre_market_brief = json.dumps(pmb, ensure_ascii=False, indent=2, default=str)
+            else:
+                pre_market_brief = "外部数据不可用，仅基于知识库分析"
+        except Exception as e:
+            logger.warning("market_summary open_auction: failed to load pre_market_brief: %s", e)
+            pre_market_brief = "外部数据不可用"
+    elif trigger_id == "morning_confirm":
+        try:
+            ds = load_daily_state()
+            core_assumption_0926 = ds.get("market_stage", {}).get("detail", "")
+            if not core_assumption_0926:
+                for n in reversed(ds.get("intraday_narrative", [])):
+                    if "09:26" in n.get("time", ""):
+                        core_assumption_0926 = n.get("summary", "")
+                        break
+        except Exception as e:
+            logger.warning("market_summary morning_confirm: failed to load 09:26 assumption: %s", e)
+
+    prompt_template_filled = prompt_template_filled.replace("{pre_market_brief}", pre_market_brief)
+    prompt_template_filled = prompt_template_filled.replace("{core_assumption_0926}", core_assumption_0926)
+
+    # Phase 6: 收盘复盘前自动刷新机会状态
+    refreshed_opportunities: list[dict] = []
+    if is_closing_review:
+        try:
+            ds = load_daily_state()
+            _refresh_active_opportunity_statuses(
+                ds,
+                state.get("positions", []),
+                market_snapshot.get("quotes", []),
+            )
+            refreshed_opportunities = ds.get("active_opportunities", [])
+            logger.info(
+                "market_summary closing_review: refreshed %d opportunities",
+                len(refreshed_opportunities),
+            )
+        except Exception as e:
+            logger.warning("market_summary closing_review: failed to refresh opportunities: %s", e)
+
     context = {
         "market_snapshot": market_snapshot,
         "macd_multi_tf_report": market_snapshot.get("macd_multi_tf_report", ""),
@@ -1490,6 +1632,8 @@ def market_summary(state: AgentState) -> AgentState:
         "direction_signals": state.get("direction_signals", {}),
         "memories": state.get("memories", []),
         "daily_state_summary": daily_state_summary,
+        "pre_market_brief": pre_market_brief if trigger_id == "pre_market" else "",
+        "active_opportunities": refreshed_opportunities,
     }
 
     fallback = {
@@ -1603,7 +1747,7 @@ def market_summary(state: AgentState) -> AgentState:
     shard = state.get("watchlist_shard")
     should_persist_market_stage = not shard or bool(shard.get("is_priority"))
     if should_persist_market_stage:
-        _persist_daily_state_from_market_context(result, daily_state_override, source_tag)
+        _persist_daily_state_from_market_context(result, daily_state_override, source_tag, trigger_id)
     else:
         logger.info("market_summary skipped daily_state persistence for non-priority shard %s", shard.get("name") if isinstance(shard, dict) else "unknown")
     if daily_state_override:
@@ -1829,6 +1973,7 @@ def stock_scanner(state: AgentState) -> AgentState:
     _t0 = time.time()
     prompt_template = _load_prompt("stock_scanner")
     analysis_type = (state.get("parsed_intent") or {}).get("analysis_type", "stock")
+    trigger_id = (state.get("trigger") or {}).get("id")
 
     market_summary_ctx = state.get("market_summary_context") or {}
     market_snapshot = dict(state.get("market_snapshot") or {})
@@ -2098,7 +2243,7 @@ def stock_scanner(state: AgentState) -> AgentState:
                 else:
                     merged_override[key] = value
         source_tag = f"stock_scanner:{analysis_type}"
-        _persist_daily_state_from_market_context(full_market_context, merged_override, source_tag)
+        _persist_daily_state_from_market_context(full_market_context, merged_override, source_tag, trigger_id)
     else:
         logger.debug("stock_scanner skipped daily_state persistence for bisected sub-shard")
 
