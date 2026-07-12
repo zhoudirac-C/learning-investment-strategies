@@ -100,9 +100,14 @@ _SECTOR_KEYWORDS: dict[str, list[str]] = {
 
 
 def _format_claim_line(c: dict) -> str:
-    """Format a single claim for display in the prompt context."""
-    parts = [f"- {c.get('id', 'N/A')} ({c.get('source_date','')})"]
-    if c.get('claim_type'):
+    """Format a single claim for display in the prompt context.
+
+    Claim ID is placed at the front so downstream LLMs can cite it directly.
+    """
+    claim_id = c.get("id", "N/A")
+    parts = [f"[{claim_id}]"]
+    parts.append(f" ({c.get('source_date','')})")
+    if c.get("claim_type"):
         parts.append(f" [{c.get('claim_type')}]")
     label = c.get("freshness_label", "")
     if label:
@@ -111,9 +116,9 @@ def _format_claim_line(c: dict) -> str:
     intensity_tag = {"high": "🔴", "medium": "🟡", "low": "⚪"}.get(intensity, "⚪")
     parts.append(f" [{intensity_tag}]")
     parts.append(f": {c.get('statement', '')[:200]}")
-    if c.get('superseded_by'):
+    if c.get("superseded_by"):
         parts.append(f" [已被 {', '.join(c['superseded_by'][:2])} 取代]")
-    if c.get('contradicts'):
+    if c.get("contradicts"):
         parts.append(f" [与 {', '.join(c['contradicts'][:2])} 矛盾]")
     return "".join(parts)
 

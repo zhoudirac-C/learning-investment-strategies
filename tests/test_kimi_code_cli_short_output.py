@@ -13,8 +13,8 @@ def _fake_response(content: str):
 
 
 def test_safe_llm_invoke_falls_back_on_short_local_output(monkeypatch):
-    """本地 Kimi Code CLI 返回过短内容时，应 fallback 到配置 provider。"""
-    monkeypatch.setenv("KIMI_CODE_CLI_FIRST", "1")
+    """本地 Kimi Code ACP 返回过短内容时，应 fallback 到配置 provider。"""
+    monkeypatch.setenv("KIMI_CODE_ACP_FIRST", "1")
     from qing_investment.agent.graph import nodes
 
     local = MagicMock()
@@ -23,7 +23,7 @@ def test_safe_llm_invoke_falls_back_on_short_local_output(monkeypatch):
     remote.invoke.return_value = _fake_response("fallback remote content")
 
     def fake_get_llm_client(provider=None):
-        if provider == "kimi-code-cli":
+        if provider == "kimi-code-acp":
             return local
         return remote
 
@@ -37,7 +37,7 @@ def test_safe_llm_invoke_falls_back_on_short_local_output(monkeypatch):
 
 def test_safe_llm_invoke_keeps_short_local_output_when_no_min_length(monkeypatch):
     """未设置 min_length 时，即使本地返回很短也不应 fallback。"""
-    monkeypatch.setenv("KIMI_CODE_CLI_FIRST", "1")
+    monkeypatch.setenv("KIMI_CODE_ACP_FIRST", "1")
     from qing_investment.agent.graph import nodes
 
     local = MagicMock()
@@ -46,7 +46,7 @@ def test_safe_llm_invoke_keeps_short_local_output_when_no_min_length(monkeypatch
     remote.invoke.return_value = _fake_response("fallback remote content")
 
     def fake_get_llm_client(provider=None):
-        if provider == "kimi-code-cli":
+        if provider == "kimi-code-acp":
             return local
         return remote
 
