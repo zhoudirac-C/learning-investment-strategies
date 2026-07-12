@@ -173,6 +173,7 @@ async def analyze_trigger(req: TriggerRequest):
         "market_snapshot": req.market_snapshot,
         "positions": req.positions,
         "watchlist": req.watchlist,
+        "watchlist_shard": req.watchlist_shard,
         "sector_strengths": req.sector_strengths,
         "external_sector_boards": req.external_sector_boards,
         "buy_signal_candidates": req.buy_signal_candidates,

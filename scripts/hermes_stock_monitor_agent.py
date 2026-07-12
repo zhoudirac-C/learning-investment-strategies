@@ -16,14 +16,22 @@ import subprocess
 import sys
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
+from decimal import Decimal
 from pathlib import Path
+
+from qing_investment.agent.tools.watchlist_sharder import shard_watchlist, shard_to_context
 
 QING_AGENT_URL = os.environ.get("QING_AGENT_URL", "http://localhost:8000/analyze/trigger")
 QING_AGENT_HEALTH_URL = os.environ.get("QING_AGENT_HEALTH_URL", "http://localhost:8000/health")
 # 切到本地 Kimi Code CLI 后 worst case 可能 10-15 分钟；默认超时给足
 QING_AGENT_TIMEOUT = float(os.environ.get("QING_AGENT_TIMEOUT", "1200"))
 QING_AGENT_MAX_RETRIES = int(os.environ.get("QING_AGENT_MAX_RETRIES", "2"))
+
+# Phase 2: watchlist 分片参数
+WATCHLIST_SHARD_SIZE = int(os.environ.get("WATCHLIST_SHARD_SIZE", "8"))
+SHARDABLE_TRIGGER_IDS = {"opportunity_scan", "morning_confirm"}
 
 # 请求/响应详细日志：按天拆分，便于后续统一清理
 REQUEST_LOG_DIR = Path(os.environ.get("QING_AGENT_REQUEST_LOG_DIR", "")) or Path(
@@ -494,21 +502,8 @@ def _wait_for_agent_health(health_url: str, max_wait_s: int = 60) -> bool:
     return False
 
 
-def call_qing_agent(data: dict) -> dict | None:
-    """POST the context dict to qing-agent and return the response JSON.
-    
-    Pre-flights with health check to avoid 300s POST wait during cold start.
-    Retries with exponential backoff on transient failures (URLError, timeout, HTTP 5xx).
-    """
-    # Health check: fail fast if agent is in cold start (<=60s wait)
-    if not _wait_for_agent_health(QING_AGENT_HEALTH_URL, max_wait_s=60):
-        print("[qing-agent] agent not ready (cold start?), falling back", file=sys.stderr)
-        return None
-    
-    analysis_type = data.get("analysis_type", "market")
-    stock_code = data.get("stock_code", "")
-
-    # 注入实时价格：构建 code->quote 索引，同时给 market_snapshot 增加兼容字段
+def _build_market_snapshot(data: dict) -> tuple[dict, dict[str, dict]]:
+    """从 data 构建注入实时价格与技术面信号的 market_snapshot，并返回 quote_lookup。"""
     quote_snapshot = data.get("quote_snapshot", {}) or {}
     quote_lookup = _build_quote_lookup(quote_snapshot)
     market_snapshot = dict(quote_snapshot)
@@ -524,7 +519,6 @@ def call_qing_agent(data: dict) -> dict | None:
         enriched_quotes.append(enriched)
     market_snapshot["quotes"] = enriched_quotes
 
-    # 注入大盘技术面信号（MACD/九转/斐波那契）到 market_snapshot
     tech_signals = data.get("tech_signals", {})
     if isinstance(tech_signals, dict):
         market_snapshot.update({
@@ -532,11 +526,140 @@ def call_qing_agent(data: dict) -> dict | None:
             if k in ("tech_signals", "macd_multi_tf_report", "td_sequential_report", "fibonacci_time_report")
         })
 
-    payload = json.dumps({
+    return market_snapshot, quote_lookup
+
+
+def _post_analyze_trigger(payload: dict) -> dict | None:
+    """发送单个 /analyze/trigger 请求，返回响应 JSON。
+
+    包含重试与指数退避；不执行 health check（调用方应已确认服务可用）。
+    """
+    body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    req = urllib.request.Request(
+        QING_AGENT_URL,
+        data=body,
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+
+    import time as _time
+
+    t0 = _time.perf_counter()
+    response: dict | None = None
+    last_error: str | None = None
+
+    for attempt in range(1, QING_AGENT_MAX_RETRIES + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=QING_AGENT_TIMEOUT) as resp:
+                response = json.loads(resp.read().decode("utf-8"))
+                return response
+        except urllib.error.HTTPError as e:
+            err_body = e.read().decode("utf-8") if e.fp else ""
+            last_error = f"HTTP {e.code}: {err_body}"
+            if 500 <= e.code < 600:
+                print(f"[qing-agent HTTP {e.code} retry {attempt}/{QING_AGENT_MAX_RETRIES}] {err_body}", file=sys.stderr)
+                if attempt < QING_AGENT_MAX_RETRIES:
+                    _time.sleep(2 ** attempt)
+                    continue
+            print(f"[qing-agent HTTP {e.code}] {err_body}", file=sys.stderr)
+            return None
+        except urllib.error.URLError as e:
+            last_error = f"URLError: {e.reason}"
+            print(f"[qing-agent unreachable retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e.reason}", file=sys.stderr)
+            if attempt < QING_AGENT_MAX_RETRIES:
+                _time.sleep(2 ** attempt)
+                continue
+            return None
+        except (TimeoutError, OSError) as e:
+            last_error = f"timeout: {e}"
+            print(f"[qing-agent timeout retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e}", file=sys.stderr)
+            if attempt < QING_AGENT_MAX_RETRIES:
+                _time.sleep(2 ** attempt)
+                continue
+            return None
+        except Exception as e:
+            last_error = f"error: {e}"
+            print(f"[qing-agent error retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e}", file=sys.stderr)
+            if attempt < QING_AGENT_MAX_RETRIES:
+                _time.sleep(2 ** attempt)
+                continue
+            return None
+
+    elapsed_ms = (_time.perf_counter() - t0) * 1000
+    _log_request_payload(payload, body, response, error=last_error, elapsed_ms=elapsed_ms)
+    return response
+
+
+def _aggregate_sharded_responses(responses: list[tuple[str, dict | None]]) -> dict | None:
+    """把多个 shard 的 Agent 响应聚合成一个 TriggerResponse 形状的字典。"""
+    successful = [(name, resp) for name, resp in responses if resp]
+    if not successful:
+        return None
+
+    output_parts = []
+    for name, resp in successful:
+        output_parts.append(f"=== 批次 {name} ===\n\n{resp.get('final_output', '')}")
+    final_output = "\n\n".join(output_parts)
+
+    claims_cited: list[str] = []
+    seen_claims: set[str] = set()
+    data_sources: list[str] = []
+    seen_sources: set[str] = set()
+    review_passed = True
+    reasoning_steps: list[str] = []
+    total_calls = 0
+    total_cost = Decimal("0")
+
+    for name, resp in successful:
+        for cid in resp.get("claims_cited", []):
+            if cid and cid not in seen_claims:
+                seen_claims.add(cid)
+                claims_cited.append(cid)
+        for src in resp.get("data_sources", []):
+            if src and src not in seen_sources:
+                seen_sources.add(src)
+                data_sources.append(src)
+        if not resp.get("review_passed", False):
+            review_passed = False
+        for step in resp.get("reasoning_steps", []) or []:
+            reasoning_steps.append(f"[{name}] {step}")
+        cost_info = resp.get("cost_info", {}) or {}
+        total_calls += int(cost_info.get("llm_calls", 0) or 0)
+        try:
+            total_cost += Decimal(str(cost_info.get("total_cost_usd", "0") or "0"))
+        except Exception:
+            pass
+
+    return {
+        "final_output": final_output,
+        "claims_cited": claims_cited,
+        "data_sources": data_sources,
+        "confidence": successful[0][1].get("confidence", "medium"),
+        "review_passed": review_passed,
+        "reasoning_steps": reasoning_steps,
+        "cost_info": {"llm_calls": total_calls, "total_cost_usd": str(total_cost)},
+    }
+
+
+def call_qing_agent(data: dict) -> dict | None:
+    """POST the context dict to qing-agent and return the response JSON.
+
+    对于 opportunity_scan / morning_confirm 等涉及全量 watchlist 的节点，
+    当 watchlist 超过 WATCHLIST_SHARD_SIZE 时自动拆分为多个 shard，
+    并发（最多 2 路）调用 /analyze/trigger 后聚合结果。
+    """
+    # Health check: fail fast if agent is in cold start (<=60s wait)
+    if not _wait_for_agent_health(QING_AGENT_HEALTH_URL, max_wait_s=60):
+        print("[qing-agent] agent not ready (cold start?), falling back", file=sys.stderr)
+        return None
+
+    market_snapshot, quote_lookup = _build_market_snapshot(data)
+
+    base_payload = {
         "query": f"{data.get('trigger', {}).get('title', '')}：{data.get('trigger', {}).get('reason', '')}",
         "session_id": f"hermes-{data.get('timestamp', 'now')}",
-        "stock_code": stock_code,
-        "analysis_type": analysis_type,
+        "stock_code": data.get("stock_code", ""),
+        "analysis_type": data.get("analysis_type", "market"),
         "trigger": data.get("trigger", {}),
         "alerts": data.get("alerts", []),
         "buy_signal_candidates": data.get("buy_signal_candidates", []),
@@ -545,72 +668,75 @@ def call_qing_agent(data: dict) -> dict | None:
         "watchlist": _normalize_watchlist(data.get("watchlist", []), quote_lookup),
         "sector_strengths": data.get("sector_strengths", []),
         "external_sector_boards": data.get("external_sector_boards", {}),
-    }, ensure_ascii=False).encode("utf-8")
+    }
 
-    req = urllib.request.Request(
-        QING_AGENT_URL,
-        data=payload,
-        headers={"Content-Type": "application/json"},
-        method="POST",
+    trigger_id = (data.get("trigger") or {}).get("id", "")
+    should_shard = (
+        base_payload["analysis_type"] == "market"
+        and trigger_id in SHARDABLE_TRIGGER_IDS
+        and len(base_payload["watchlist"]) > WATCHLIST_SHARD_SIZE
     )
 
-    import socket
-    import time as _time
+    if should_shard:
+        shards = shard_watchlist(
+            base_payload["watchlist"],
+            base_payload["positions"],
+            max_items=WATCHLIST_SHARD_SIZE,
+        )
+        if len(shards) <= 1:
+            should_shard = False
 
-    # Set global socket timeout to prevent infinite blocking on hung server
-    original_socket_timeout = socket.getdefaulttimeout()
-    socket.setdefaulttimeout(QING_AGENT_TIMEOUT)
+    if not should_shard:
+        response = _post_analyze_trigger(base_payload)
+        _log_request_payload(
+            data,
+            json.dumps(base_payload, ensure_ascii=False).encode("utf-8"),
+            response,
+            error=None,
+            elapsed_ms=None,
+        )
+        return response
 
-    t0 = _time.perf_counter()
-    response: dict | None = None
-    last_error: str | None = None
+    print(
+        f"[qing-agent shard] trigger={trigger_id} watchlist={len(base_payload['watchlist'])} "
+        f"shards={len(shards)} max_workers=2",
+        file=sys.stderr,
+    )
 
-    try:
-        for attempt in range(1, QING_AGENT_MAX_RETRIES + 1):
+    shard_payloads: list[tuple[str, dict]] = []
+    for shard in shards:
+        payload = dict(base_payload)
+        payload["watchlist_shard"] = shard_to_context(shard)
+        payload["session_id"] = f"{base_payload['session_id']}-{shard.name}"
+        shard_payloads.append((shard.name, payload))
+
+    responses: list[tuple[str, dict | None]] = []
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        futures = {
+            executor.submit(_post_analyze_trigger, payload): name
+            for name, payload in shard_payloads
+        }
+        for future in as_completed(futures):
+            name = futures[future]
             try:
-                with urllib.request.urlopen(req, timeout=QING_AGENT_TIMEOUT) as resp:
-                    response = json.loads(resp.read().decode("utf-8"))
-                    return response
-            except urllib.error.HTTPError as e:
-                body = e.read().decode("utf-8") if e.fp else ""
-                last_error = f"HTTP {e.code}: {body}"
-                if 500 <= e.code < 600:
-                    print(f"[qing-agent HTTP {e.code} retry {attempt}/{QING_AGENT_MAX_RETRIES}] {body}", file=sys.stderr)
-                    if attempt < QING_AGENT_MAX_RETRIES:
-                        import time
-                        time.sleep(2 ** attempt)  # 2, 4, 8s backoff
-                        continue
-                print(f"[qing-agent HTTP {e.code}] {body}", file=sys.stderr)
-                return None
-            except urllib.error.URLError as e:
-                last_error = f"URLError: {e.reason}"
-                print(f"[qing-agent unreachable retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e.reason}", file=sys.stderr)
-                if attempt < QING_AGENT_MAX_RETRIES:
-                    import time
-                    time.sleep(2 ** attempt)
-                    continue
-                return None
-            except (TimeoutError, socket.timeout) as e:
-                last_error = f"timeout: {e}"
-                print(f"[qing-agent timeout retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e}", file=sys.stderr)
-                if attempt < QING_AGENT_MAX_RETRIES:
-                    import time
-                    time.sleep(2 ** attempt)
-                    continue
-                return None
+                resp = future.result()
             except Exception as e:
-                last_error = f"error: {e}"
-                print(f"[qing-agent error retry {attempt}/{QING_AGENT_MAX_RETRIES}] {e}", file=sys.stderr)
-                if attempt < QING_AGENT_MAX_RETRIES:
-                    import time
-                    time.sleep(2 ** attempt)
-                    continue
-                return None
-        return None
-    finally:
-        socket.setdefaulttimeout(original_socket_timeout)
-        elapsed_ms = (_time.perf_counter() - t0) * 1000
-        _log_request_payload(data, payload, response, error=last_error, elapsed_ms=elapsed_ms)
+                print(f"[qing-agent shard {name}] error: {e}", file=sys.stderr)
+                resp = None
+            responses.append((name, resp))
+
+    # 按 shard 原始顺序排列，便于日志与最终输出稳定
+    responses.sort(key=lambda x: [s.name for s in shards].index(x[0]))
+
+    aggregated = _aggregate_sharded_responses(responses)
+    _log_request_payload(
+        data,
+        json.dumps({"shards": [name for name, _ in shard_payloads]}, ensure_ascii=False).encode("utf-8"),
+        aggregated,
+        error=None,
+        elapsed_ms=None,
+    )
+    return aggregated
 
 
 # ── 幻觉检测模式 ──

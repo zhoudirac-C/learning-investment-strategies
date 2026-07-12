@@ -53,6 +53,9 @@ class AgentState(TypedDict, total=False):
     stock_contexts: list[dict]  # 每只标的的 claims 摘要
     direction_signals: dict     # 方向优先级信号
 
+    # Phase 2 新增：watchlist 分片输入
+    watchlist_shard: dict | None  # 当前批次需要分析的标的子集
+
     # 【新增】数据降级标记
     _data_missing_note: str     # 实时数据缺失时的降级说明
 

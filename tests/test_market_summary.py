@@ -36,7 +36,7 @@ def sample_state(tmp_path) -> AgentState:
 
 
 def test_market_summary_prompt_guard(sample_state, monkeypatch):
-    """超大 state 下 prompt 必须被截断至 < 64KB，且返回结果含 _truncated 标记。"""
+    """超大 state 下 prompt 必须被截断至 < 128KB，且返回结果含 _truncated 标记。"""
     # 膨胀低优先级字段，确保原始 prompt 超过 64KB
     big_block = "x" * 2000
     sample_state["memories"] = [
@@ -69,8 +69,8 @@ def test_market_summary_prompt_guard(sample_state, monkeypatch):
 
     result = market_summary(sample_state)
 
-    assert captured["prompt_bytes"] < 64000, (
-        f"prompt size {captured['prompt_bytes']} exceeds 64000 bytes"
+    assert captured["prompt_bytes"] < 128000, (
+        f"prompt size {captured['prompt_bytes']} exceeds 128000 bytes"
     )
     ctx = result.get("market_summary_context", {})
     assert ctx.get("_truncated") is True
@@ -152,7 +152,7 @@ def test_market_summary_no_truncation_for_small_state(monkeypatch):
     result = market_summary(small_state)
     ctx = result.get("market_summary_context", {})
 
-    assert captured["prompt_bytes"] < 64000
+    assert captured["prompt_bytes"] < 128000
     assert ctx.get("_truncated") is not True
 
 

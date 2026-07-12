@@ -1347,7 +1347,8 @@ def _slim_market_snapshot_for_summary(market_snapshot: dict) -> dict:
     }
 
 
-_MAX_MARKET_SUMMARY_PROMPT_BYTES = 64000
+_MAX_MARKET_SUMMARY_PROMPT_BYTES = 128000
+_MAX_STOCK_SCANNER_PROMPT_BYTES = 64000
 
 
 def _truncate_context_for_prompt(
@@ -1597,7 +1598,14 @@ def market_summary(state: AgentState) -> AgentState:
     # 提取并持久化 daily_state；同时把 override 传给下游 stock_scanner 用于合并
     daily_state_override = _extract_daily_state_block(content)
     source_tag = f"market_summary:{analysis_type}"
-    _persist_daily_state_from_market_context(result, daily_state_override, source_tag)
+
+    # Phase 2: 分片请求时，只让 priority shard 持久化市场阶段/历史，避免 theme shard 重复写入 daily_state
+    shard = state.get("watchlist_shard")
+    should_persist_market_stage = not shard or bool(shard.get("is_priority"))
+    if should_persist_market_stage:
+        _persist_daily_state_from_market_context(result, daily_state_override, source_tag)
+    else:
+        logger.info("market_summary skipped daily_state persistence for non-priority shard %s", shard.get("name") if isinstance(shard, dict) else "unknown")
     if daily_state_override:
         result["_daily_state_override"] = daily_state_override
 
@@ -1850,10 +1858,64 @@ def stock_scanner(state: AgentState) -> AgentState:
         watchlist, positions, market_snapshot
     )
 
+    # ── Phase 2 新增：若存在 watchlist_shard，则只分析该分片内的标的 ──
+    shard = state.get("watchlist_shard")
+    shard_name = "全部标的"
+    shard_items_text = "（未分片，分析全部持仓与观察池）"
+    stock_contexts = state.get("stock_contexts", [])
+    if shard:
+        shard_items = shard.get("items", []) if isinstance(shard, dict) else []
+        shard_codes = {
+            _pure_stock_code(item.get("code", ""))
+            for item in shard_items
+            if _pure_stock_code(item.get("code", ""))
+        }
+        shard_name = shard.get("name", "未命名批次") if isinstance(shard, dict) else "未命名批次"
+        shard_items_text = "\n".join(
+            f"- {item.get('code', '')} {item.get('name', '')}"
+            for item in shard_items
+        ) or "（本批次无有效标的）"
+
+        watchlist_summary = [
+            w for w in watchlist_summary
+            if _pure_stock_code(w.get("code", "")) in shard_codes
+        ]
+        reference_stocks = [
+            r for r in reference_stocks
+            if _pure_stock_code(r.get("code", "")) in shard_codes
+        ]
+        positions = [
+            p for p in positions
+            if _pure_stock_code(p.get("code", "")) in shard_codes
+        ]
+        stock_contexts = [
+            s for s in stock_contexts
+            if _pure_stock_code(s.get("stock_code", "")) in shard_codes
+        ]
+
+        all_quotes = market_snapshot.get("quotes", []) or []
+        filtered_quotes = [
+            q for q in all_quotes
+            if _pure_stock_code(q.get("code")) in shard_codes
+            or _pure_stock_code(q.get("secid")) in shard_codes
+        ]
+        market_snapshot["quotes"] = filtered_quotes
+        market_snapshot["_filtered_from"] = len(all_quotes)
+
+        logger.info(
+            "stock_scanner_shard: name=%s codes=%s watchlist=%d reference=%d positions=%d contexts=%d",
+            shard_name,
+            sorted(shard_codes),
+            len(watchlist_summary),
+            len(reference_stocks),
+            len(positions),
+            len(stock_contexts),
+        )
+
     logger.info(
         "stock_scanner_input: market_summary_len=%d stock_contexts=%d watchlist_summary=%d reference=%d positions=%d",
         len(json.dumps(market_summary_ctx, ensure_ascii=False, default=str)),
-        len(state.get("stock_contexts", [])),
+        len(stock_contexts),
         len(watchlist_summary),
         len(reference_stocks),
         len(positions),
@@ -1865,12 +1927,16 @@ def stock_scanner(state: AgentState) -> AgentState:
         "positions": positions,
         "watchlist_summary": watchlist_summary,
         "reference_stocks": reference_stocks,
-        "stock_contexts": state.get("stock_contexts", []),
+        "stock_contexts": stock_contexts,
         "direction_signals": state.get("direction_signals", {}),
     }
 
+    prompt_template_filled = prompt_template.replace("{shard_name}", shard_name).replace(
+        "{shard_items}", shard_items_text
+    )
+
     context_json = json.dumps(context, ensure_ascii=False, indent=2, default=str)
-    prompt = f"""{prompt_template}
+    prompt = f"""{prompt_template_filled}
 
 上下文：
 {context_json}
@@ -1879,16 +1945,16 @@ def stock_scanner(state: AgentState) -> AgentState:
 """
     prompt_bytes = len(prompt.encode("utf-8"))
     was_truncated = False
-    if prompt_bytes > _MAX_MARKET_SUMMARY_PROMPT_BYTES:
+    if prompt_bytes > _MAX_STOCK_SCANNER_PROMPT_BYTES:
         logger.warning(
             "stock_scanner prompt exceeds %d bytes (%d bytes), truncating context fields",
-            _MAX_MARKET_SUMMARY_PROMPT_BYTES, prompt_bytes,
+            _MAX_STOCK_SCANNER_PROMPT_BYTES, prompt_bytes,
         )
         non_context_bytes = prompt_bytes - len(context_json.encode("utf-8"))
         context, was_truncated = _truncate_context_for_prompt(
             context,
             non_context_bytes,
-            _MAX_MARKET_SUMMARY_PROMPT_BYTES,
+            _MAX_STOCK_SCANNER_PROMPT_BYTES,
             truncatable_fields=[
                 "stock_contexts",
                 "market_snapshot",
@@ -1900,7 +1966,7 @@ def stock_scanner(state: AgentState) -> AgentState:
         )
         context["_truncated"] = True
         context_json = json.dumps(context, ensure_ascii=False, indent=2, default=str)
-        prompt = f"""{prompt_template}
+        prompt = f"""{prompt_template_filled}
 
 上下文：
 {context_json}
@@ -1913,11 +1979,45 @@ def stock_scanner(state: AgentState) -> AgentState:
             prompt_bytes, was_truncated,
         )
 
-    # Hard ceiling: never send an oversized prompt to the LLM.
-    if prompt_bytes > _MAX_MARKET_SUMMARY_PROMPT_BYTES:
+    # Phase 2: 分片 prompt 仍超过上限时，按 shard 继续二分，避免单条 prompt 过大
+    if prompt_bytes > _MAX_STOCK_SCANNER_PROMPT_BYTES:
+        shard_items = (shard or {}).get("items", []) if isinstance(shard, dict) else []
+        if shard and len(shard_items) > 1 and not state.get("_scanner_bisected"):
+            logger.warning(
+                "stock_scanner shard %s prompt still exceeds %d bytes (%d bytes), bisecting %d items",
+                shard.get("name"), _MAX_STOCK_SCANNER_PROMPT_BYTES, prompt_bytes, len(shard_items),
+            )
+            mid = len(shard_items) // 2
+            left_shard = {**shard, "items": shard_items[:mid]}
+            right_shard = {**shard, "items": shard_items[mid:]}
+            left_state = {**state, "watchlist_shard": left_shard, "_scanner_bisected": True, "_skip_scanner_persist": True}
+            right_state = {**state, "watchlist_shard": right_shard, "_scanner_bisected": True, "_skip_scanner_persist": True}
+            left_result = stock_scanner(left_state)
+            right_result = stock_scanner(right_state)
+            left_mc = left_result.get("market_context", {})
+            right_mc = right_result.get("market_context", {})
+            merged = dict(market_summary_ctx)
+            merged.setdefault("opportunity_scan", [])
+            merged["opportunity_scan"] = left_mc.get("opportunity_scan", []) + right_mc.get("opportunity_scan", [])
+            merged.setdefault("position_plans", [])
+            merged["position_plans"] = left_mc.get("position_plans", []) + right_mc.get("position_plans", [])
+            merged["_truncated"] = bool(left_mc.get("_truncated") or right_mc.get("_truncated") or was_truncated)
+            merged["_scan_failed"] = bool(left_mc.get("_scan_failed") or right_mc.get("_scan_failed"))
+            reasoning_steps = (
+                left_result.get("reasoning_steps", [])
+                + right_result.get("reasoning_steps", [])
+                + [f"个股扫描: shard {shard.get('name')} 二分后合并 opportunities={len(merged['opportunity_scan'])} positions={len(merged['position_plans'])}"]
+            )
+            cost_tracking = left_result.get("cost_tracking", []) + right_result.get("cost_tracking", [])
+            return {
+                "market_context": merged,
+                "reasoning_steps": reasoning_steps,
+                "cost_tracking": cost_tracking,
+            }
+
         logger.error(
             "stock_scanner prompt still exceeds %d bytes (%d bytes) after truncation; returning degraded context without LLM call",
-            _MAX_MARKET_SUMMARY_PROMPT_BYTES, prompt_bytes,
+            _MAX_STOCK_SCANNER_PROMPT_BYTES, prompt_bytes,
         )
         full_market_context = dict(market_summary_ctx)
         full_market_context.setdefault("opportunity_scan", [])
@@ -1985,18 +2085,22 @@ def stock_scanner(state: AgentState) -> AgentState:
 
     # 提取并持久化 daily_state；若上游 market_summary 也输出了 daily_state，则合并
     # （市场阶段类字段以上游为准，机会类字段以本节点为准）
-    upstream_override = market_summary_ctx.get("_daily_state_override")
-    scanner_override = _extract_daily_state_block(content)
-    merged_override: dict | None = None
-    if upstream_override or scanner_override:
-        merged_override = dict(upstream_override or {})
-        for key, value in (scanner_override or {}).items():
-            if key == "active_opportunities":
-                merged_override[key] = (merged_override.get(key) or []) + value
-            else:
-                merged_override[key] = value
-    source_tag = f"stock_scanner:{analysis_type}"
-    _persist_daily_state_from_market_context(full_market_context, merged_override, source_tag)
+    # Phase 2: 二分递归子调用跳过持久化，由顶层调用统一写入，避免重复机会
+    if not state.get("_skip_scanner_persist"):
+        upstream_override = market_summary_ctx.get("_daily_state_override")
+        scanner_override = _extract_daily_state_block(content)
+        merged_override: dict | None = None
+        if upstream_override or scanner_override:
+            merged_override = dict(upstream_override or {})
+            for key, value in (scanner_override or {}).items():
+                if key == "active_opportunities":
+                    merged_override[key] = (merged_override.get(key) or []) + value
+                else:
+                    merged_override[key] = value
+        source_tag = f"stock_scanner:{analysis_type}"
+        _persist_daily_state_from_market_context(full_market_context, merged_override, source_tag)
+    else:
+        logger.debug("stock_scanner skipped daily_state persistence for bisected sub-shard")
 
     return {
         "market_context": full_market_context,
