@@ -1,0 +1,610 @@
+claims:
+- id: claim-20260713-002-a
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: methodology
+  subject: 趋势操作框架
+  timeframe: permanent
+  statement: 操作框架由趋势状态决定：上升趋势无视节点；震荡趋势找止跌、做修复；下降趋势找超跌的止跌。
+  evidence_quote: 先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌、做修复；下降趋势，找超跌的止跌。今天这种极端调整之后，我们要回答的唯一问题是——现在处于哪一种趋势，对应做哪一种动作。
+  interpretation: 该框架将市场划分为三种趋势状态并规定对应动作，强调先判断趋势类型再决定交易动作，避免在震荡或下降阶段盲目持股或追涨。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 以趋势状态决定对应操作动作
+  related_stocks: []
+  tags:
+  - 趋势操作
+  - 操作框架
+  - 冰点反弹
+  - 趋势判断
+- id: claim-20260713-002-b
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: macro
+  subject: 韩股熔断
+  timeframe: short-term
+  statement: 7月13日KOSPI指数收报6806.93点，大跌8.95%，盘中触发年内第七次熔断；三星电子跌10.7%，SK海力士跌15.37%并创下历史最大单日跌幅。
+  evidence_quote: 据韩国交易所公告与新华社报道，KOSPI指数7月13日收报6806.93点，大跌8.95%，盘中触发年内第七次熔断，三星电子跌10.7%，SK海力士跌15.37%、创下历史最大单日跌幅——而就在上周四（7月10日）SK海力士美股ADR才刚刚高调上市。
+  interpretation: 韩股暴跌由半导体见顶担忧叠加中东局势升级共同引爆，成为亚太科技股集中抛售的外部导火索，并对A股开盘及情绪形成直接冲击。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 韩股触发年内第七次熔断并拖累亚太科技股
+  related_stocks: []
+  tags:
+  - 韩股熔断
+  - KOSPI
+  - 三星电子
+  - SK海力士
+- id: claim-20260713-002-c
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: market-cycle
+  subject: A股缩量普跌
+  timeframe: short-term
+  statement: A股今日单边走弱：沪指跌2.06%，深成指跌3.48%，创业板指跌3.1%；两市成交2.82万亿元，较上一交易日缩量约5700亿；全市场仅约799只个股收红，跌幅超9%的标的近600只。
+  evidence_quote: 据交易所数据，A股今日受此拖累单边走弱：沪指跌2.06%，深成指跌3.48%，创业板指跌3.1%；两市成交2.82万亿元，较上一交易日缩量约5700亿，全天不足3万亿。据盘面统计，全市场仅约799只个股收红，跌幅超9%的标的近600只，存储芯片（兆易创新(603986)、德明利(001309)、香农芯创(300475)跌停）、MLCC（风华高科(000636)跌停）、光纤光缆等前期强势方向集体重挫，局部恐慌情绪集中释放。
+  interpretation: 外围冲击下A股出现恐慌性普跌，前期强势方向集体重挫；缩量显示承接盘退潮，但也意味着抛压同步衰减，短期下跌动能已较为有限。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A股缩量普跌且恐慌情绪集中释放
+  related_stocks:
+  - code: '603986'
+    name: 兆易创新
+    role: 存储芯片-主板可交易
+  - code: '001309'
+    name: 德明利
+    role: 存储芯片-主板可交易
+  - code: '300475'
+    name: 香农芯创
+    role: 存储芯片-创业板不可交易
+  - code: '000636'
+    name: 风华高科
+    role: MLCC-主板可交易
+  tags:
+  - A股普跌
+  - 缩量
+  - 存储芯片
+  - MLCC
+- id: claim-20260713-002-d
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: market-cycle
+  subject: 调整性质判定
+  timeframe: short-term
+  statement: 本次调整属于外力扰动叠加筹码出清，而非内生逻辑走坏；市场有望进入夯实底部状态，操作上随时准备做冰点反弹。
+  evidence_quote: 性质判定上，这一次属于外力扰动叠加筹码出清，而非内生逻辑走坏：下跌由韩股熔断这一外部事件点火，杀的是拥挤度最高、获利盘最厚的方向。缩量普跌意味着承接盘在退、抛压也在衰减，短期下跌动能已较为有限，市场有望进入夯实底部的状态，操作上随时准备做冰点反弹。
+  interpretation: 下跌由外部事件点燃并冲击拥挤度与获利盘最厚的方向，杀跌动能衰减后更可能是底部夯实过程，应关注冰点反弹机会而非继续恐慌。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 本次调整为外力扰动与筹码出清而非内生逻辑走坏
+  related_stocks: []
+  tags:
+  - 调整性质
+  - 外力扰动
+  - 筹码出清
+  - 冰点反弹
+- id: claim-20260713-002-e
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: sector-theme
+  subject: AI Capex可持续性
+  timeframe: trend
+  statement: 本轮全球性调整的真正引线是对AI基础设施资本开支可持续性的广泛挑战，上游史诗级资本开支能否持续是当下市场最大的分歧。
+  evidence_quote: 把镜头拉远，本轮全球性调整并不单纯是韩国市场的杠杆问题、外资流出或本地机构调仓，而是对AI基础设施Capex逻辑的一次广泛挑战。我们一直强调关注水龙头，目前市场最大的分歧正在于：上游史诗级的资本开支，究竟能不能持续。
+  interpretation: 市场不再简单交易供需景气，而是在质疑云厂商巨额Capex的回报与持续性，这一分歧将决定AI硬件产业链的中期估值中枢与资金流向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI基础设施资本开支可持续性是市场核心分歧
+  related_stocks: []
+  tags:
+  - AI Capex
+  - 资本开支
+  - 云厂商
+  - 估值中枢
+- id: claim-20260713-002-f
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: sector-theme
+  subject: 云厂商Capex分层
+  timeframe: trend
+  statement: 市场按资本开支质量将云厂商分为三档：最差情况是甲骨文，资本开支已明显拖累融资与股票表现；支出临界点是亚马逊与Meta；自由现金流尚可的是微软与谷歌。
+  evidence_quote: 市场把云厂商分成了三档来预演——最差情况是甲骨文，资本开支已经明显拖累其融资与股票表现；支出临界点是亚马逊与Meta，Meta此前关于额外算力变现的表态被市场曲解为算力过剩，尽管公司已出面澄清，但市场本就需要一个导火索；自由现金流尚可的是微软与谷歌，作为深度绑定OpenAI与Gemini的两家，市场会深挖其AI云收入占比与增速，来预演明后两年Capex的可行性。
+  interpretation: 三档划分反映市场对不同云厂商AI投资可持续性的定价差异，自由现金流与资产负债表健康度是区分风险与稳健的关键标准。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 云厂商按资本开支质量被分为三档
+  related_stocks: []
+  tags:
+  - 云厂商
+  - Capex
+  - 资产负债表
+  - 自由现金流
+- id: claim-20260713-002-g
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: macro
+  subject: 科技巨头融资逻辑
+  timeframe: trend
+  statement: 科技巨头的资本开支资金来源正从自由现金流转向债权与股权融资，融资成本抬升与额度受限将直接牵动明年资本开支计划，这一反馈比原本预期的明年更早出现。
+  evidence_quote: 更值得警惕的是融资逻辑的切换：科技巨头的Capex资金来源正从自由现金流转向债权与股权融资，而信贷部门对债券交易已率先给出负反馈。信用利差走扩虽有多重成因，但走扩本身就意味着未来融资成本抬升、融资额度受限，直接牵动明年的Capex计划；同时科技研究员对债务分析有天生的厌恶，本能地认为这背离了科技股应有的资产负债表路线，进而批判该模式的可持续性。个这个问题比我们原本预期的（明年）更早开始反馈到市场。
+  interpretation: 融资结构变化是AI投资节奏的重要边际变量，信用利差走扩与信贷部门负反馈可能压缩未来资本开支空间，并改变市场对科技股资产负债表的评价标准。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技巨头资本开支融资逻辑切换牵动明年Capex
+  related_stocks: []
+  tags:
+  - 融资逻辑
+  - 信用利差
+  - Capex
+  - 科技股
+- id: claim-20260713-002-h
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: sector-theme
+  subject: 存储芯片叙事分歧
+  timeframe: short-term
+  statement: 最稀缺且利润率最高的存储芯片反而遭受最大程度的打压与抛售，基本面利好只有大幅超预期才获得正反馈，显示底层叙事出现分歧。
+  evidence_quote: 结果层面，最稀缺、利润率最高的存储芯片反而遭受最大程度的打压与抛售，这正是底层叙事出现分歧的典型特征——基本面利好只获得大幅超预期才有的正反馈。
+  interpretation: 存储板块从一致看涨转向分歧，股价对利好反应钝化、对利空反应放大，短期进入高波动与叙事验证阶段。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储芯片底层叙事出现分歧
+  related_stocks: []
+  tags:
+  - 存储芯片
+  - 叙事分歧
+  - 超预期
+  - 抛售
+- id: claim-20260713-002-i
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: sector-theme
+  subject: AI产业链待验证问题
+  timeframe: short-term
+  statement: 市场接下来期待AI产业链证明三件事：资本开支方能兑现利润且资产负债表不继续复杂化；HBM与DRAM、NAND长协价演绎并非核心矛盾；冲击不外溢到消费电子等其他半导体相关行业。
+  evidence_quote: 市场接下来期待三件事：其一，产业链尤其是Capex方能证明AI推进可以兑现利润，云厂商资产负债表不能越来越复杂；其二，HBM长协是护城河还是枷锁、DRAM/NAND长协价倒挂如何演绎，是关注点但个人判断并非核心矛盾；其三，冲击不要外溢到消费电子等其他半导体相关行业。总体而言，这些疑问短期内很难被证真或证伪——而眼下的回调，恰恰才是符合客观规律的发展路径。
+  interpretation: 这三个问题短期内难以证真证伪，决定了AI硬件板块在财报季前将以震荡消化为主，只有超预期业绩才能修复信心。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI产业链短期需验证三个核心问题
+  related_stocks: []
+  tags:
+  - AI产业链
+  - Capex
+  - HBM
+  - 消费电子
+- id: claim-20260713-002-j
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: macro
+  subject: 韩股外资卖出本质
+  timeframe: short-term
+  statement: 外资在韩国半导体的仓位多为被动配置随自然上涨变重，并非主动大举流入后的获利了结；所谓外资坚决卖出本质上是获利盘太厚。
+  evidence_quote: 韩国市场的资金结构也值得单独说一句：欧美在半导体高端产业的投资布局远远落后于亚洲，外资在韩国的仓位更多是被动配置随自然上涨而变重，并非主动大举流入后的获利了结——这轮半导体涨得太快，欧美资金参与有限，亚洲本地及区域资金占主导。所谓外资坚决卖出，本质就是获利盘太厚：即便如此，KOSPI年初至今涨幅依然可观，卖得坚决也就不难理解。
+  interpretation: 韩股抛压主要来自亚洲本地及区域资金的获利回吐，欧美资金参与有限，因此跌幅虽大但属于正常筹码出清，而非外资战略性撤离。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 韩股抛压本质是获利盘太厚而非外资战略撤离
+  related_stocks: []
+  tags:
+  - 韩股
+  - 外资
+  - 获利盘
+  - 资金结构
+- id: claim-20260713-002-k
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: operation
+  subject: 科技股短期策略
+  timeframe: short-term
+  statement: 科技股整体应放低短期预期，反弹亦是卖点；当前筹码松动，需等待下一个重要催化节点再开启新一轮行情。
+  evidence_quote: 科技股整体，这里要把预期放低——短期内，反弹亦是卖点。注意，这不是不看好科技大逻辑，而是短期筹码松动了。短期科技的强弱，与长逻辑无关，只与短线筹码有关：长线资金要么锁仓，对短线波动并不敏感；但短线资金对波动极其敏感，这个位置短线资金不敢长拿。更好的路径是：科技充分调整一大波，等待下一个重要催化节点，再开启新一轮——而当下这个阶段，科技显然讲不出新逻辑了。
+  interpretation: 短线资金对波动敏感、不敢长拿，科技方向短期缺乏新逻辑，反弹更适合降仓而非追涨；长线逻辑未坏，但需等待新催化。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技股短期反弹是卖点需等待新催化
+  related_stocks: []
+  tags:
+  - 科技股
+  - 反弹减仓
+  - 筹码松动
+  - 催化节点
+- id: claim-20260713-002-l
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: sector-theme
+  subject: 防御板块定位
+  timeframe: short-term
+  statement: 今日避险心理达到极致，银行、煤炭、石油逆势走强，医药兼具防御与进攻属性；但除医药外多数防御性品种只起过渡作用。
+  evidence_quote: 防御端，今日避险心理达到极致，银行、煤炭、石油逆势走强，医药也带有防御属性。但除医药外多数防御性品种只起过渡作用——市场核心仍是科技，目前没有别的方向能独立带动整体氛围转暖。
+  interpretation: 防御板块可缓冲波动，但难以独立带动整体氛围转暖；医药因政策催化兼具防御与进攻属性，更值得关注。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 防御板块仅医药兼具进攻属性其余为过渡
+  related_stocks: []
+  tags:
+  - 防御板块
+  - 医药
+  - 银行煤炭石油
+  - 过渡
+- id: claim-20260713-002-m
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: sector-theme
+  subject: 市场核心与轮动
+  timeframe: short-term
+  statement: 市场核心仍是科技，目前没有别的方向能独立带动整体氛围转暖；接下来若出现走强的非科技新板块，值得重视以承接科技沉寂。
+  evidence_quote: 但除医药外多数防御性品种只起过渡作用——市场核心仍是科技，目前没有别的方向能独立带动整体氛围转暖。因此接下来若出现走强的非科技新板块，都值得重视：需要一条轮动线来接替科技的沉寂。同时，赛道行情告一段落后，投机连板股的炒作生态大概率迎来复苏，可以开始留意。
+  interpretation: 在科技调整期间，需要一条轮动线接替科技，任何新走强的非科技方向都可能成为下一阶段主线候选；同时连板投机生态可能复苏。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技仍是核心需等待轮动线接替
+  related_stocks: []
+  tags:
+  - 科技核心
+  - 轮动线
+  - 连板生态
+  - 主线
+- id: claim-20260713-002-n
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: operation
+  subject: 明日情形应对
+  timeframe: short-term
+  statement: 明日两种情形：若外围企稳且绩优标的率先修复，可尝试参与冰点反弹，优先超跌且业绩已验证方向；若外围继续拖累且量能萎缩，则继续夯实底部、控制仓位、等待右侧确认。
+  evidence_quote: 据此给出明日的两种情形：情形A，若外围（尤其韩股）企稳、绩优标的率先修复，则冰点反弹可以尝试参与，优先选择超跌且业绩已验证的方向；情形B，若外围继续拖累、量能进一步萎缩，则继续夯实底部，控制仓位，等待量价的右侧确认，不做左侧英雄。
+  interpretation: 以韩股和量能表现为锚点，区分反弹可参与与继续观望两种路径，避免左侧盲目抄底，右侧确认后果断行动。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 明日根据外围与量能选择参与反弹或继续观望
+  related_stocks: []
+  tags:
+  - 明日策略
+  - 冰点反弹
+  - 右侧确认
+  - 仓位控制
+- id: claim-20260713-002-o
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: sector-theme
+  subject: 国产算力逻辑
+  timeframe: trend
+  statement: 国产算力建设的政策支持、下半年昇腾及国内大厂产业链放量、半导体扩产带动的国产替代进度均未发生变化，本轮调整是筹码波动而非产业逻辑破坏。
+  evidence_quote: 国产算力今天其实给出过亮点：早盘一度修复、甚至有机会走出独立行情，沐曦股份盘中一度创出新高，无奈市场环境太过恶劣最终被动回落。可以明确的是，国产算力建设的政策支持、下半年昇腾及国内大厂产业链的放量、半导体扩产带动的国产替代进度，三者都没有发生变化，相关公司的业绩验证仍在持续推进。这轮调整的本质是筹码层面的波动、情绪驱动的短期行为，而非产业逻辑被破坏。
+  interpretation: 国产算力基本面未变，当前调整由市场情绪驱动，后续仍可跟踪业绩验证与放量节奏，不宜因短期波动否定产业趋势。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国产算力产业逻辑未被破坏
+  related_stocks: []
+  tags:
+  - 国产算力
+  - 昇腾
+  - 国产替代
+  - 半导体扩产
+- id: claim-20260713-002-p
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: sector-theme
+  subject: 国产FPGA窗口
+  timeframe: trend
+  statement: 海外FPGA交期从8至12周拉长至40周以上，高端型号达52周，国产FPGA在国内市场份额持续提升，国产FPGA龙头迎来量价齐升窗口。
+  evidence_quote: 据产业链信息，随着全球半导体扩产，叠加端侧AI规模化落地、高端工业及车载电子升级三大需求共振，FPGA标准交期已从常规8—12周拉长至40周以上、高端型号最长52周；海外龙头将约80%的先进制程产能优先倾斜给AI专用芯片，持续压缩通用及工控领域供给。国产FPGA在国内市场占比已从2020年的不足5%提升至2025年的约15%，2026年有望突破20%，但整体仍有70%—80%依赖进口、高端国产化率仍低。
+  interpretation: 全球扩产、边缘AI与工控车载升级共振导致FPGA供给紧张，国产替代加速并打开成长空间，复旦微电(688385)、安路科技(688107)、紫光国微(002049)等龙头有望受益。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国产FPGA迎来量价齐升窗口
+  related_stocks:
+  - code: '688385'
+    name: 复旦微电
+    role: 国产FPGA-科创板不可交易
+  - code: '688107'
+    name: 安路科技
+    role: 国产FPGA-科创板不可交易
+  - code: '002049'
+    name: 紫光国微
+    role: 国产FPGA-主板可交易
+  tags:
+  - FPGA
+  - 国产替代
+  - 交期拉长
+  - 量价齐升
+- id: claim-20260713-002-q
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: stock-view
+  subject: 盛科通信
+  timeframe: trend
+  statement: 盛科通信(688702)作为国内以太网交换芯片市场唯一独立第三方商用芯片供应商，25.6T芯片已通过主要厂商认证、2026年有望规模化出货，51.2T芯片已回片，超节点架构将抬升高端交换芯片配套用量，成长天花板高于传统数通周期。
+  evidence_quote: 盛科通信(688702)作为国内以太网交换芯片市场唯一的独立第三方商用芯片供应商，正处于组网侧业绩向上游芯片侧传导的确定性窗口——其25.6T芯片已通过主要厂商认证、2026年有望规模化出货并占据20%以上份额，51.2T芯片已回片、2026年下半年高端芯片有望实现更大突破。产业层面，超节点是在单芯片性能受限的现实下，用极致的内部网络把成百上千张国产芯片「粘合」为一个整体、以系统级性能弥补单卡短板；据券商研报及昇腾CANN官方开发者文档，主流128卡超节点GPU与高端RoCE交换芯片配比稳定在4:1，高密度无阻塞方案可达1:1—2:1，远高于英伟达IB集群6.67:1的商用配比。整集群替换逻辑下，国内智算中心大规模切换超节点架构将持续抬升高端交换芯片的单机配套用量；公司不绑定自有整机厂，同步供给浪潮(000977)、锐捷、新华三全栈国产算力集群，叠加海外B生态管制带来的长期国产替代空间，个人判断其成长天花板显著高于传统数通周期赛道。
+  interpretation: 国产智算中心超节点建设带来高端交换芯片需求爆发，盛科通信(688702)具备不绑定整机厂、全栈供给优势，处于业绩向上游芯片传导的确定性窗口。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 盛科通信受益于国产超节点与交换芯片国产替代
+  related_stocks:
+  - code: '688702'
+    name: 盛科通信
+    role: 交换芯片-科创板不可交易
+  tags:
+  - 盛科通信
+  - 交换芯片
+  - 超节点
+  - 国产算力
+- id: claim-20260713-002-r
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: stock-view
+  subject: 中信重工转型
+  timeframe: trend
+  statement: 中信重工(601608)正从传统重型装备制造商向全流程解决方案与数字化运维服务商转型，数字化精益制造平台关键核心生产数据线上化率达100%，智能矿山与特种机器人业务提升价值重估空间。
+  evidence_quote: 据公司公开信息，公司正从传统重型装备制造商向「全流程解决方案与数字化运维服务商」转型，有望带来价值重估。公司已建成数字化精益制造平台，关键核心生产数据线上化率达100%，人工智能+高级排程使生产排程效率提升30%；产品端的矿山智能碎磨装备一体化成套技术可将矿石处理量提升15%，绿色智慧矿山全流程方案可降低单位电耗5%；自研中信微工业操作系统与中信智智能控制器实现核心装备操作系统自主可控。2026年6月，公司与汇川技术(300124)签订集团级生态战略协议，围绕矿山数字化平台、矿卡及特种机器人控制器国产化深化合作；其智能防爆机器人已获评国家制造业单项冠军产品，特种机器人迈入行业第一梯队。
+  interpretation: 数字化转型、与汇川技术(300124)战略合作及特种机器人国家单项冠军资质，可能推动公司估值体系从周期股向数字化解决方案服务商切换。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中信重工数字化转型带来价值重估
+  related_stocks:
+  - code: '601608'
+    name: 中信重工
+    role: 数字化运维-主板可交易
+  - code: '300124'
+    name: 汇川技术
+    role: 工控龙头-创业板不可交易
+  tags:
+  - 中信重工
+  - 数字化转型
+  - 特种机器人
+  - 汇川技术
+- id: claim-20260713-002-s
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: catalyst
+  subject: Meta数据中心追加投资
+  timeframe: short-term
+  statement: Meta宣布对路易斯安那州Hyperion数据中心追加400亿美元投资，园区算力容量扩展至5GW，总预期投入 reportedly 超过2500亿美元，是对算力过剩论的直接证伪。
+  evidence_quote: 据彭博社及Meta公司周一（7月13日）声明，Meta宣布对路易斯安那州Hyperion数据中心追加400亿美元投资，将该园区算力容量扩展至5GW，园区总预期投入据报道将超过2500亿美元；Entergy将新建多座天然气电厂并配套电网级储能为其供电。这是对算力过剩论最直接的证伪尝试——就在上周扎克伯格考虑外租算力的表态还曾引发AI硬件股抛售，本周即以最硬核的资本承诺回应；只要头部云厂商持续加码数据中心、服务器、芯片及电力配套，AI硬件产业链的需求支撑逻辑便不会动摇，存储、半导体设备板块有望在财报季迎来业绩兑现。
+  interpretation: 头部云厂商持续加码数据中心、服务器、芯片及电力配套，AI硬件产业链需求支撑逻辑短期难以动摇，利好存储与半导体设备板块业绩兑现预期。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: Meta追加数据中心投资证伪算力过剩论
+  related_stocks:
+  - code: '688629'
+    name: 华丰科技
+    role: 高速连接器-科创板不可交易
+  - code: '600673'
+    name: 东阳光
+    role: IDC收购-主板可交易
+  tags:
+  - Meta
+  - 数据中心
+  - 算力过剩
+  - 华丰科技
+- id: claim-20260713-002-t
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: sector-theme
+  subject: 创新药对外授权
+  timeframe: trend
+  statement: 截至6月30日我国创新药对外授权共81笔、交易总额约1100亿美元，已达2025全年的80%，中国在研新药数量约占全球30%。
+  evidence_quote: 据国家药监局，截至6月30日，我国创新药对外授权共81笔、交易总额约1100亿美元，已达2025全年的80%，覆盖肿瘤、代谢、免疫、神经等10个治疗领域；我国在研新药数量约占全球30%、位列第二。
+  interpretation: 创新药出海授权放量标志中国创新药进入全球注册与商业化兑现阶段，医药板块兼具防御与进攻属性，值得持续跟踪。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中国创新药对外授权额创历史新高
+  related_stocks:
+  - code: '002821'
+    name: 凯莱英
+    role: 创新药CDMO-主板可交易
+  - code: '000908'
+    name: 石药景峰
+    role: 中成药与创新药-主板可交易
+  tags:
+  - 创新药
+  - 对外授权
+  - CDMO
+  - 医药
+- id: claim-20260713-002-u
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
+  source_date: '2026-07-13'
+  source_type: 动态
+  extracted_at: '2026-07-13T23:17:14.374439+08:00'
+  claim_type: operation
+  subject: 明日量能观察
+  timeframe: intraday
+  statement: 明日盘面量能是第一观察变量，缩量企稳优于放量下杀，不见量价确认不动手，见了确认不犹豫。
+  evidence_quote: 明日盘面，量能是第一观察变量：缩量企稳优于放量下杀，冰点之处，正是分化的起点——不见量价确认不动手，见了确认不犹豫。
+  interpretation: 成交量是判断冰点反弹是否成立的核心信号，右侧确认前保持克制，确认后果断行动，避免左侧抄底风险。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 明日以量价确认作为出手依据
+  related_stocks: []
+  tags:
+  - 量能
+  - 量价确认
+  - 右侧交易
+  - 明日观察
