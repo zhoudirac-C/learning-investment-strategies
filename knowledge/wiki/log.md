@@ -1,5 +1,22 @@
 # 操作日志
 
+## 2026-07-14 | qing-learning ingest | 7/14 11:06 动态：减仓应对半导体高开与均衡配置
+
+- 处理 raw：
+  - `sources/original/bilibili/2026-07-14-1106-图片-担心卖掉之后会反弹，有担心没卖会继续跌，那你们减仓不就行了，.md`
+- 新增 claims：`claim-20260714-002.yaml`（11 条：operation×7, methodology×1, sector-theme×1, catalyst×1, market-cycle×1）
+- 核心观点：
+  - 担心卖出后反弹或没卖继续跌时，可用减仓替代一键清仓/加仓；具体节奏为涨 2% 减 20%、涨 5% 减 50%
+  - 做股票宜渐进式调仓，不必在极端情绪下做全仓切换
+  - 受 WAIC 预期影响半导体早盘高开，但大会 17 日才开、前几日上涨已透支预期，早盘未卖后续仍有机会
+  - 配置建议：科技 20%，高股息、保险、新能源、港股、创新药各 10%-20%；完成配置后耐心等待
+  - 若科创板块回调，月底可重新布局半导体国产替代方向
+- 修复问题：
+  - `gate_validate_claims.py` NON_COMPANY 集扩展（11:06 动态假阳性：续冲高空间有限、前配置建议科技）
+- 更新 wiki：新建 `knowledge/wiki/每日复盘/2026-07-14.md`，更新 `knowledge/wiki/投资方法论/仓位管理.md`
+- 更新索引：`knowledge/claims/index.md`、`knowledge/wiki/index.md`
+- 引用 claim IDs：`claim-20260714-002-a` 至 `claim-20260714-002-k`
+
 ## 2026-07-14 | qing-learning ingest | 7/14 09:04 专栏：周一市场震荡调整，创业板指、深成指均跌超 3%
 
 - 处理 raw：
