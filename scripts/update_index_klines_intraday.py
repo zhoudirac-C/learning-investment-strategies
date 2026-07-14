@@ -46,12 +46,21 @@ TIMEFRAMES = {
 FETCH_BARS = 5          # 每次拉最新5根
 RECOMPUTE_BARS = 35     # 重算最近35根的MACD（保证EMA稳定）
 DELAY = 1.0             # 请求间隔
-HTTP_TIMEOUT = 15       # 单次请求超时（秒）
+HTTP_TIMEOUT = 30       # 单次请求超时（秒），东财偶发连接重置，放宽等待
 HTTP_MAX_RETRIES = 3    # HTTP 失败重试次数
 
+# 腾讯财经接口 symbol 映射（日线兜底）
+_TENCENT_SYMBOLS = {
+    "sh000001": "sh000001",
+    "sh000985": "sh000985",
+    "sz399001": "sz399001",
+    "sz399006": "sz399006",
+    "sh000932": "sh000932",
+}
 
-def _http_get(url: str) -> str:
-    headers = {
+
+def _http_get(url: str, *, headers: dict | None = None, timeout: int = HTTP_TIMEOUT) -> str:
+    default_headers = {
         "Accept": "*/*",
         "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
         "Referer": "https://quote.eastmoney.com/",
@@ -61,11 +70,13 @@ def _http_get(url: str) -> str:
         ),
         "Connection": "keep-alive",
     }
+    if headers:
+        default_headers.update(headers)
     last_err: Exception | None = None
     for attempt in range(HTTP_MAX_RETRIES):
         try:
-            req = urllib.request.Request(url, headers=headers)
-            with urllib.request.urlopen(req, timeout=HTTP_TIMEOUT) as resp:
+            req = urllib.request.Request(url, headers=default_headers)
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
                 return resp.read().decode()
         except Exception as e:
             last_err = e
@@ -86,21 +97,8 @@ def _ema(values: list[float], period: int) -> list[float | None]:
     return result
 
 
-def fetch_latest_klines(code: str, klt: int, count: int = FETCH_BARS) -> list[dict]:
-    """拉取最新 N 根K线（升序）。"""
-    secid = INDICES[code]["secid"]
-    url = (
-        "https://push2his.eastmoney.com/api/qt/stock/kline/get"
-        f"?secid={secid}"
-        "&fields1=f1,f2,f3,f4,f5,f6"
-        "&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61"
-        f"&klt={klt}&fqt=1&end=20500101&lmt={count + 3}"
-    )
-    data = json.loads(_http_get(url))
-    raw = data.get("data", {}).get("klines", [])
-    if not raw:
-        return []
-
+def _parse_eastmoney_klines(raw: list[str]) -> list[dict]:
+    """解析东财 klines 列表为统一格式。"""
     result = []
     for row in raw:
         parts = row.split(",")
@@ -118,9 +116,86 @@ def fetch_latest_klines(code: str, klt: int, count: int = FETCH_BARS) -> list[di
             })
         except (ValueError, IndexError):
             continue
+    return result
+
+
+def fetch_latest_klines_from_tencent(code: str, count: int = FETCH_BARS) -> list[dict]:
+    """腾讯财经指数日 K 兜底（仅日线）。返回与东财统一格式。"""
+    tencent_symbol = _TENCENT_SYMBOLS.get(code)
+    if not tencent_symbol:
+        return []
+
+    url = (
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+        f"?param={tencent_symbol},day,,,{count + 3},qfq"
+    )
+    tencent_headers = {
+        "Referer": "https://finance.qq.com/",
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        ),
+    }
+    try:
+        text = _http_get(url, headers=tencent_headers)
+        payload = json.loads(text)
+        raw = payload.get("data", {}).get(tencent_symbol, {}).get("day", [])
+        if not raw:
+            return []
+    except Exception:
+        return []
+
+    result = []
+    for parts in raw:
+        if len(parts) < 6:
+            continue
+        try:
+            # 腾讯日线字段：日期, 开盘, 收盘, 最高, 最低, 成交量
+            result.append({
+                "bar_time": parts[0],
+                "open": float(parts[1]),
+                "close": float(parts[2]),
+                "high": float(parts[3]),
+                "low": float(parts[4]),
+                "volume": float(parts[5]),
+                "amount": 0.0,
+            })
+        except (ValueError, IndexError):
+            continue
 
     result.sort(key=lambda k: k["bar_time"])
     return result[-count:] if len(result) > count else result
+
+
+def fetch_latest_klines(code: str, klt: int, count: int = FETCH_BARS) -> list[dict]:
+    """拉取最新 N 根K线（升序）。东财失败且为日线时回退腾讯。"""
+    secid = INDICES[code]["secid"]
+    url = (
+        "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+        f"?secid={secid}"
+        "&fields1=f1,f2,f3,f4,f5,f6"
+        "&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61"
+        f"&klt={klt}&fqt=1&end=20500101&lmt={count + 3}"
+    )
+    try:
+        data = json.loads(_http_get(url))
+        raw = data.get("data", {}).get("klines", [])
+        result = _parse_eastmoney_klines(raw)
+        if result:
+            result.sort(key=lambda k: k["bar_time"])
+            return result[-count:] if len(result) > count else result
+    except Exception as e:
+        print(f"    [WARN] 东财 {INDICES[code]['name']} klt={klt} 失败: {str(e)[:80]}")
+
+    # 日线降级到腾讯；intraday 腾讯不支持指数，保持失败
+    if klt == 101:
+        print(f"    [INFO] 尝试腾讯日 K 兜底 {INDICES[code]['name']}...")
+        result = fetch_latest_klines_from_tencent(code, count)
+        if result:
+            print(f"    [INFO] 腾讯日 K 兜底成功 {INDICES[code]['name']}: {len(result)} 根")
+            return result
+
+    return []
 
 
 def compute_macd_range(klines: list[dict]) -> list[dict]:

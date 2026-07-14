@@ -37,16 +37,27 @@ def fetch_market_sentiment() -> dict[str, Any]:
     }
 
     # 1. 涨跌家数
-    try:
-        import akshare as ak
+    # 优先东财（字段全），失败则回退到新浪/通用 spot（已验证在东财连接重置时仍可用）
+    up_down_errors = []
+    for provider, fetch_fn in (
+        ("eastmoney", lambda: ak.stock_zh_a_spot_em()),
+        ("sina", lambda: ak.stock_zh_a_spot()),
+    ):
+        try:
+            import akshare as ak
 
-        df = ak.stock_zh_a_spot_em()
-        pct_col = "涨跌幅"
-        if pct_col in df.columns:
-            result["up_count"] = int((df[pct_col] > 0).sum())
-            result["down_count"] = int((df[pct_col] < 0).sum())
-    except Exception as e:
-        result["errors"].append(f"涨跌家数: {e}")
+            df = fetch_fn()
+            pct_col = "涨跌幅"
+            if pct_col in df.columns and not df.empty:
+                result["up_count"] = int((df[pct_col] > 0).sum())
+                result["down_count"] = int((df[pct_col] < 0).sum())
+                result["up_down_provider"] = provider
+                logger.info("[market_sentiment] 涨跌家数来自 %s: up=%s down=%s", provider, result["up_count"], result["down_count"])
+                break
+        except Exception as e:
+            up_down_errors.append(f"{provider}: {e}")
+    else:
+        result["errors"].append(f"涨跌家数: {'; '.join(up_down_errors)}")
 
     date_str = _today_cn_str()
 

@@ -1,4 +1,4 @@
-updated_at: '2026-07-08'
+updated_at: '2026-07-14T00:30'
 stocks:
 - code: 000636.SZ
   name: 风华高科
@@ -1655,7 +1655,7 @@ stocks:
     sector_diverged: true
     market_actionable: false
     no_consecutive_limit_up: true
-  note: 7/9已涨停，短期不追高；等存储板块首次分歧缩量回踩再评估；高价+高PE，严格控仓
+  note: 7/9已涨停，短期不追高；等存储板块首次分歧缩量回踩再评估；高价+高PE，严格控仓。7/13复盘：存储芯片叙事出现分歧，最稀缺且利润率最高的存储芯片反而遭最大打压，基本面利好需大幅超预期才获正反馈；但国产存储产能线/设备中长期逻辑未变
 - code: 600834.SH
   name: 申通地铁
   direction: chip_specialty
@@ -4443,22 +4443,6 @@ stocks:
     sector_diverged: true
     market_actionable: false
     no_consecutive_limit_up: true
-- code: 601989.SH
-  name: 中国重工
-  priority: P2
-  direction: shipbuilding_boom
-  chain_position: midstream
-  tradable: false
-  human_note:
-    date: '2026-07-06'
-    type: direction_call
-    context: 7/5UP提及：船舶总装龙头，造船业景气度高。当前K线数据缺失，暂不设介入区间，待数据补齐后重算
-  entry:
-    method: 不设介入区间
-  pre_condition:
-    sector_diverged: true
-    market_actionable: false
-    no_consecutive_limit_up: true
 - code: 002364.SZ
   name: 中恒电气
   priority: P2
@@ -4776,3 +4760,175 @@ stocks:
     market_actionable: false
     no_consecutive_limit_up: true
   note: 7/9已涨停，不追高；等引线框架/先进封装方向首次分歧缩量回踩；高价小票，严格控仓
+
+- code: 002851.SZ
+  name: 麦格米特
+  direction: cipb_power_substrate
+  chain_position: upstream
+  human_note:
+    date: '2026-07-13'
+    type: direction_call
+    context: 7/12复盘：CIPB功率基板客户/订单验证方，AI服务器电源新环节；同时是equipment_packaging_catchup方向半导体设备电源供应商
+    kline_zone_updated_at: '2026-07-13'
+    kline_zone_update_reason: new_stock_init
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    hard_stop: 0.0
+    backup_zones: []
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 002261.SZ
+  name: 拓维信息
+  direction: ai_applications_rotation
+  chain_position: downstream
+  human_note:
+    date: '2026-07-13'
+    type: signal_confirmation
+    context: 7/12复盘：AI应用高低切候选，硬件继续消化而应用软件走强时切换成立
+    kline_zone_updated_at: '2026-07-13'
+    kline_zone_update_reason: new_stock_init
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    hard_stop: 0.0
+    backup_zones: []
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 002230.SZ
+  name: 科大讯飞
+  direction: ai_applications_rotation
+  chain_position: downstream
+  human_note:
+    date: '2026-07-13'
+    type: direction_call
+    context: 7/12复盘：AI应用/语音龙头主板标的，AI应用高低切候选
+    kline_zone_updated_at: '2026-07-13'
+    kline_zone_update_reason: new_stock_init
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    hard_stop: 0.0
+    backup_zones: []
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 600118.SH
+  name: 中国卫星
+  direction: commercial_aerospace
+  chain_position: midstream
+  human_note:
+    date: '2026-07-13'
+    type: signal_confirmation
+    context: 7/13早盘：商业航天中军定海神针，周五13:00封板后全程零开板，封单8.60亿、封成比15.27；今日重点观察能否顶住获利盘、反包与封板结构质量
+    kline_zone_updated_at: '2026-07-13'
+    kline_zone_update_reason: new_stock_init
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: 涨停回踩法（等首次分歧缩量回踩）
+    hard_stop: 0.0
+    backup_zones: []
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+  note: 中军标的不在情绪高点追入；若中军放量炸板则回到一日游剧本，需严格观察封板质量。7/13复盘：商业航天板块位置低且具备产业拐点性变化，在非主升市场中兼具低位与产业拐点的稀缺方向；中军定海神针为中国卫星
+- code: 600343.SH
+  name: 航天动力
+  direction: commercial_aerospace
+  chain_position: midstream
+  human_note:
+    date: '2026-07-13'
+    type: direction_call
+    context: 7/13早盘：商业航天动力环节跟踪标的
+    kline_zone_updated_at: '2026-07-13'
+    kline_zone_update_reason: new_stock_init
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    hard_stop: 0.0
+    backup_zones: []
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 603698.SH
+  name: 航天工程
+  direction: commercial_aerospace
+  chain_position: midstream
+  human_note:
+    date: '2026-07-13'
+    type: direction_call
+    context: 7/13早盘：商业航天工程环节跟踪标的
+    kline_zone_updated_at: '2026-07-13'
+    kline_zone_update_reason: new_stock_init
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    hard_stop: 0.0
+    backup_zones: []
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+- code: 603538.SH
+  name: 美诺华
+  direction: pharmaceutical_innovation
+  chain_position: midstream
+  human_note:
+    date: '2026-07-13'
+    type: signal_confirmation
+    context: 7/13早盘：上周五CRO板块涨4.43%位列全市场前两位，美诺华封板；医药具备相对独立于科技波动的避风港属性
+    kline_zone_updated_at: '2026-07-13'
+    kline_zone_update_reason: new_stock_init
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    hard_stop: 0.0
+    backup_zones: []
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+  note: 医药防守方向，不追情绪高点，右侧确认后再关注
+- code: 002317.SZ
+  name: 众生药业
+  direction: pharmaceutical_innovation
+  chain_position: midstream
+  human_note:
+    date: '2026-07-13'
+    type: signal_confirmation
+    context: 7/13早盘：上周五减肥药涨4.35%位列全市场前两位，众生药业18次开板后合力封板，换手充分，显示资金仍有分歧
+    kline_zone_updated_at: '2026-07-13'
+    kline_zone_update_reason: new_stock_init
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: 收紧回踩法（MA/支撑/收盘价综合）
+    hard_stop: 0.0
+    backup_zones: []
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+  note: 医药防守方向，多次开板显示分歧，不追情绪高点
