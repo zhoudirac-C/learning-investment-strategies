@@ -1,4 +1,4 @@
-updated_at: '2026-07-14T00:30'
+updated_at: '2026-07-15'
 stocks:
 - code: 000636.SZ
   name: 风华高科
@@ -73,16 +73,18 @@ stocks:
     date: '2026-06-15'
     type: signal_confirmation
     context: MLCC方向涨停标的，风华辅助确认
-    kline_zone_updated_at: '2026-07-07'
+    kline_zone_updated_at: '2026-07-15'
     kline_zone_update_reason: stale_zone_recalc
     kline_zone_context: close=80.43, ma20=64.77, support_20=46.46, resistance_20=87.3
   entry:
     primary_zone:
-    - 72.31
-    - 76.16
+    - 52.65
+    - 55.45
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 69.42
+    hard_stop: 50.54
     backup_zones:
+    - - 72.31
+      - 76.16
     - - 78.02
       - 82.17
     - - 75.6
@@ -428,16 +430,18 @@ stocks:
     date: '2026-06-16'
     type: direction_call
     context: A股唯一纯萤石龙头，打通萤石→AHF全链条
-    kline_zone_updated_at: '2026-07-07'
+    kline_zone_updated_at: '2026-07-15'
     kline_zone_update_reason: stale_zone_recalc
     kline_zone_context: close=19.15, ma20=19.0, support_20=16.8, resistance_20=21.1
   entry:
     primary_zone:
-    - 19.03
-    - 20.04
+    - 15.2
+    - 16.01
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 18.18
+    hard_stop: 14.59
     backup_zones:
+    - - 19.03
+      - 20.04
     - - 18.94
       - 19.95
     - - 18.0
@@ -524,16 +528,18 @@ stocks:
     date: '2026-06-16'
     type: direction_call
     context: 30万吨AHF+G5电子级4万吨+自建3000吨WF6，氟原料+下游一体化
-    kline_zone_updated_at: '2026-07-07'
+    kline_zone_updated_at: '2026-07-15'
     kline_zone_update_reason: stale_zone_recalc
     kline_zone_context: close=45.66, ma20=38.16, support_20=31.56, resistance_20=45.96
   entry:
     primary_zone:
-    - 43.11
-    - 45.4
+    - 33.92
+    - 35.72
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 41.39
+    hard_stop: 32.56
     backup_zones:
+    - - 43.11
+      - 45.4
     - - 47.22
       - 49.73
     - - 42.92
@@ -2020,16 +2026,18 @@ stocks:
     date: '2026-06-16'
     type: direction_call
     context: 大唐核心平台，全国首个算电协同绿电直供项目
-    kline_zone_updated_at: '2026-07-07'
+    kline_zone_updated_at: '2026-07-15'
     kline_zone_update_reason: stale_zone_recalc
     kline_zone_context: close=7.04, ma20=8.17, support_20=6.91, resistance_20=9.92
   entry:
     primary_zone:
-    - 6.95
-    - 7.32
+    - 5.53
+    - 5.82
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 6.39
+    hard_stop: 5.31
     backup_zones:
+    - - 6.95
+      - 7.32
     - - 6.66
       - 7.01
     - - 6.62
@@ -2404,16 +2412,18 @@ stocks:
     date: '2026-06-10'
     type: direction_call
     context: 核聚变概念（AI电力逻辑注脚）
-    kline_zone_updated_at: '2026-07-07'
+    kline_zone_updated_at: '2026-07-15'
     kline_zone_update_reason: stale_zone_recalc
     kline_zone_context: close=31.42, ma20=32.83, support_20=24.67, resistance_20=41.4
   entry:
     primary_zone:
-    - 27.35
-    - 28.81
+    - 21.26
+    - 22.39
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 26.26
+    hard_stop: 20.41
     backup_zones:
+    - - 27.35
+      - 28.81
     - - 31.1
       - 32.75
     - - 29.53
@@ -2654,16 +2664,18 @@ stocks:
     date: '2026-06-17'
     type: direction_call
     context: 存储模组标的，利基存储涨价受益，22:16专栏提及。需确认减持状态
-    kline_zone_updated_at: '2026-07-07'
+    kline_zone_updated_at: '2026-07-15'
     kline_zone_update_reason: stale_zone_recalc
     kline_zone_context: close=970.0, ma20=702.92, support_20=568.18, resistance_20=980.0
   entry:
     primary_zone:
-    - 878.9
-    - 925.65
+    - 691.84
+    - 728.64
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 850.88
+    hard_stop: 664.17
     backup_zones:
+    - - 878.9
+      - 925.65
     - - 886.33
       - 933.47
     - - 911.8
@@ -2785,16 +2797,18 @@ stocks:
     date: '2026-06-23'
     type: direction_call
     context: UP6/23早盘点名钨方向，钨矿资源+军工装备，主板稀缺钨标的
-    kline_zone_updated_at: '2026-07-07'
+    kline_zone_updated_at: '2026-07-15'
     kline_zone_update_reason: stale_zone_recalc
     kline_zone_context: close=27.5, ma20=18.04, support_20=12.81, resistance_20=28.64
   entry:
     primary_zone:
-    - 21.7
-    - 22.86
+    - 17.16
+    - 18.08
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 20.83
+    hard_stop: 16.47
     backup_zones:
+    - - 21.7
+      - 22.86
     - - 25.6
       - 26.96
     - - 25.85
@@ -2817,16 +2831,18 @@ stocks:
     date: '2026-06-23'
     type: direction_call
     context: UP6/23早盘点名氧化锆方向，MLCC/半导体研磨介质关键材料，小金属涨价链内扩散
-    kline_zone_updated_at: '2026-07-07'
+    kline_zone_updated_at: '2026-07-15'
     kline_zone_update_reason: stale_zone_recalc
     kline_zone_context: close=20.06, ma20=16.06, support_20=12.5, resistance_20=23.06
   entry:
     primary_zone:
-    - 22.5
-    - 23.7
+    - 17.0
+    - 17.9
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 21.6
+    hard_stop: 16.32
     backup_zones:
+    - - 22.5
+      - 23.7
     - - 20.75
       - 21.85
     - - 18.86
@@ -3190,16 +3206,18 @@ stocks:
     date: '2026-07-08'
     type: signal_confirmation
     context: UP7/7 10cm涨停次日：7/8 00:23复盘将其列为科技反弹风向标，涨停后承接质量决定科技反弹持续性；半导体7/7最强方向中的封测核心。原6/25为封测第三极跟随扩散，现升级为核心风向标
-    kline_zone_updated_at: '2026-07-07'
+    kline_zone_updated_at: '2026-07-15'
     kline_zone_update_reason: stale_zone_recalc
     kline_zone_context: close=21.92, ma20=18.95, support_20=16.01, resistance_20=23.86
   entry:
     primary_zone:
-    - 18.74
-    - 19.74
+    - 24.14
+    - 25.42
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 17.99
+    hard_stop: 23.17
     backup_zones:
+    - - 18.74
+      - 19.74
     - - 20.97
       - 22.09
     - - 20.6
@@ -4089,7 +4107,7 @@ stocks:
     date: '2026-06-30'
     type: signal_confirmation
     context: 6/30晚间复盘：参股23.81%苏州芯测收购GSI公司，拥有存储芯片测试机业务，稳定供货海力士等龙头
-    kline_zone_updated_at: '2026-07-07'
+    kline_zone_updated_at: '2026-07-15'
     kline_zone_update_reason: stale_zone_recalc
   pre_condition:
     sector_diverged: true
@@ -4098,10 +4116,12 @@ stocks:
   entry:
     method: 分歧日回踩法
     primary_zone:
-    - 12.85
-    - 13.25
-    hard_stop: 11.84
+    - 10.27
+    - 10.59
+    hard_stop: 9.86
     backup_zones:
+    - - 12.85
+      - 13.25
     - - 12.33
       - 12.71
 - code: 603083.SH
@@ -4714,16 +4734,18 @@ stocks:
     date: '2026-07-10'
     type: signal_confirmation
     context: 7/10 00:51复盘：建筑跨界存储标的，收购金胜电子（国内最早量产SSD厂商之一）；昨日提前开板、今日快速缩量涨停，给出极强正反馈，是短线情绪端回暖的重要基础
-    kline_zone_updated_at: '2026-07-10'
-    kline_zone_update_reason: stale_zone_recalc
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: limit_up_recalc
     kline_zone_context: close=25.2, pre_close=22.91, pct_chg=+10.00%, 涨停
   entry:
     method: 涨停回踩法（情绪锚点，高波动，严格止损）
     primary_zone:
-    - 23.0
-    - 24.5
-    hard_stop: 22.0
+    - 30.1
+    - 31.72
+    hard_stop: 28.9
     backup_zones:
+    - - 23.0
+      - 24.5
     - - 22.91
       - 24.0
     - - 25.2
@@ -4760,7 +4782,6 @@ stocks:
     market_actionable: false
     no_consecutive_limit_up: true
   note: 7/9已涨停，不追高；等引线框架/先进封装方向首次分歧缩量回踩；高价小票，严格控仓
-
 - code: 002851.SZ
   name: 麦格米特
   direction: cipb_power_substrate
@@ -4769,15 +4790,17 @@ stocks:
     date: '2026-07-13'
     type: direction_call
     context: 7/12复盘：CIPB功率基板客户/订单验证方，AI服务器电源新环节；同时是equipment_packaging_catchup方向半导体设备电源供应商
-    kline_zone_updated_at: '2026-07-13'
-    kline_zone_update_reason: new_stock_init
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
   entry:
     primary_zone:
-    - 0.0
-    - 0.0
+    - 161.83
+    - 170.44
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 0.0
-    backup_zones: []
+    hard_stop: 155.36
+    backup_zones:
+    - - 0.0
+      - 0.0
   pre_condition:
     sector_diverged: true
     market_actionable: false
@@ -4790,15 +4813,17 @@ stocks:
     date: '2026-07-13'
     type: signal_confirmation
     context: 7/12复盘：AI应用高低切候选，硬件继续消化而应用软件走强时切换成立
-    kline_zone_updated_at: '2026-07-13'
-    kline_zone_update_reason: new_stock_init
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
   entry:
     primary_zone:
-    - 0.0
-    - 0.0
+    - 28.75
+    - 30.28
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 0.0
-    backup_zones: []
+    hard_stop: 27.6
+    backup_zones:
+    - - 0.0
+      - 0.0
   pre_condition:
     sector_diverged: true
     market_actionable: false
@@ -4811,15 +4836,17 @@ stocks:
     date: '2026-07-13'
     type: direction_call
     context: 7/12复盘：AI应用/语音龙头主板标的，AI应用高低切候选
-    kline_zone_updated_at: '2026-07-13'
-    kline_zone_update_reason: new_stock_init
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
   entry:
     primary_zone:
-    - 0.0
-    - 0.0
+    - 38.71
+    - 40.77
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 0.0
-    backup_zones: []
+    hard_stop: 37.16
+    backup_zones:
+    - - 0.0
+      - 0.0
   pre_condition:
     sector_diverged: true
     market_actionable: false
@@ -4832,15 +4859,17 @@ stocks:
     date: '2026-07-13'
     type: signal_confirmation
     context: 7/13早盘：商业航天中军定海神针，周五13:00封板后全程零开板，封单8.60亿、封成比15.27；今日重点观察能否顶住获利盘、反包与封板结构质量
-    kline_zone_updated_at: '2026-07-13'
-    kline_zone_update_reason: new_stock_init
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
   entry:
     primary_zone:
-    - 0.0
-    - 0.0
+    - 76.38
+    - 80.49
     method: 涨停回踩法（等首次分歧缩量回踩）
-    hard_stop: 0.0
-    backup_zones: []
+    hard_stop: 73.32
+    backup_zones:
+    - - 0.0
+      - 0.0
   pre_condition:
     sector_diverged: true
     market_actionable: false
@@ -4854,15 +4883,17 @@ stocks:
     date: '2026-07-13'
     type: direction_call
     context: 7/13早盘：商业航天动力环节跟踪标的
-    kline_zone_updated_at: '2026-07-13'
-    kline_zone_update_reason: new_stock_init
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
   entry:
     primary_zone:
-    - 0.0
-    - 0.0
+    - 21.11
+    - 22.24
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 0.0
-    backup_zones: []
+    hard_stop: 20.27
+    backup_zones:
+    - - 0.0
+      - 0.0
   pre_condition:
     sector_diverged: true
     market_actionable: false
@@ -4875,15 +4906,17 @@ stocks:
     date: '2026-07-13'
     type: direction_call
     context: 7/13早盘：商业航天工程环节跟踪标的
-    kline_zone_updated_at: '2026-07-13'
-    kline_zone_update_reason: new_stock_init
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
   entry:
     primary_zone:
-    - 0.0
-    - 0.0
+    - 33.57
+    - 35.35
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 0.0
-    backup_zones: []
+    hard_stop: 32.23
+    backup_zones:
+    - - 0.0
+      - 0.0
   pre_condition:
     sector_diverged: true
     market_actionable: false
@@ -4896,15 +4929,17 @@ stocks:
     date: '2026-07-13'
     type: signal_confirmation
     context: 7/13早盘：上周五CRO板块涨4.43%位列全市场前两位，美诺华封板；医药具备相对独立于科技波动的避风港属性
-    kline_zone_updated_at: '2026-07-13'
-    kline_zone_update_reason: new_stock_init
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
   entry:
     primary_zone:
-    - 0.0
-    - 0.0
+    - 33.32
+    - 35.1
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 0.0
-    backup_zones: []
+    hard_stop: 31.99
+    backup_zones:
+    - - 0.0
+      - 0.0
   pre_condition:
     sector_diverged: true
     market_actionable: false
@@ -4918,17 +4953,187 @@ stocks:
     date: '2026-07-13'
     type: signal_confirmation
     context: 7/13早盘：上周五减肥药涨4.35%位列全市场前两位，众生药业18次开板后合力封板，换手充分，显示资金仍有分歧
-    kline_zone_updated_at: '2026-07-13'
-    kline_zone_update_reason: new_stock_init
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
   entry:
     primary_zone:
-    - 0.0
-    - 0.0
+    - 29.28
+    - 30.84
     method: 收紧回踩法（MA/支撑/收盘价综合）
-    hard_stop: 0.0
-    backup_zones: []
+    hard_stop: 28.11
+    backup_zones:
+    - - 0.0
+      - 0.0
   pre_condition:
     sector_diverged: true
     market_actionable: false
     no_consecutive_limit_up: true
   note: 医药防守方向，多次开板显示分歧，不追情绪高点
+- code: 003018.SZ
+  name: 金富科技
+  direction: aidc_power_supply
+  chain_position: upstream
+  human_note:
+    date: '2026-07-14'
+    type: signal_confirmation
+    context: 7/14中报：Q2业绩增量几乎全部来自液冷业务并表，验证液冷从0到1突破；英伟达Rubin全面液冷+GB300/Rubin机柜2026年出货预期超16万柜
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    primary_zone:
+    - 64.15
+    - 66.13
+    method: 分歧日回踩法
+    hard_stop: 61.58
+    backup_zones:
+    - - 0.0
+      - 0.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+  note: 液冷从0到1验证标，右侧确认后等分歧回踩
+- code: 603256.SH
+  name: 宏和科技
+  direction: upstream_scarce_price_rise
+  chain_position: upstream
+  human_note:
+    date: '2026-07-14'
+    type: signal_confirmation
+    context: 7/14中报显著超预期；终端算力需求带动电子玻纤布涨价，聚焦稀缺的高端超薄/极薄特种玻纤产品
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    primary_zone:
+    - 199.87
+    - 206.05
+    method: 分歧日回踩法
+    hard_stop: 191.88
+    backup_zones:
+    - - 0.0
+      - 0.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+  note: 上游稀缺涨价（高端电子玻纤布）核心标，右侧确认后等分歧回踩
+- code: 605006.SH
+  name: 山东玻纤
+  direction: upstream_scarce_price_rise
+  chain_position: upstream
+  human_note:
+    date: '2026-07-14'
+    type: signal_confirmation
+    context: 7/14中报小幅超预期；玻纤纱量价齐升，小市值弹性充足
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    primary_zone:
+    - 16.04
+    - 16.54
+    method: 分歧日回踩法
+    hard_stop: 15.4
+    backup_zones:
+    - - 0.0
+      - 0.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+  note: 玻纤纱量价齐升小市值弹性标，右侧确认后等分歧回踩
+- code: 600522.SH
+  name: 中天科技
+  direction: optical_communication
+  chain_position: midstream
+  human_note:
+    date: '2026-07-14'
+    type: signal_confirmation
+    context: 7/14中报符合预期；光通信主业盈利修复，AI新基建优化光纤光缆供需格局
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    primary_zone:
+    - 41.56
+    - 42.85
+    method: 分歧日回踩法
+    hard_stop: 39.9
+    backup_zones:
+    - - 0.0
+      - 0.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+  note: 光通信稳健标，右侧确认后等分歧回踩
+- code: 002841.SZ
+  name: 视源股份
+  direction: kcb_ai_policy
+  chain_position: downstream
+  human_note:
+    date: '2026-07-14'
+    type: direction_call
+    context: 7/14 AI应用映射：深耕教育AI场景；谷歌Gemini扩展+DeepSeek降价有望拉动应用端需求
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    primary_zone:
+    - 50.05
+    - 51.6
+    method: 分歧日回踩法
+    hard_stop: 48.05
+    backup_zones:
+    - - 0.0
+      - 0.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+  note: AI应用端主板映射，情绪驱动为主，右侧确认后轻仓参与
+- code: 603127.SH
+  name: 昭衍新药
+  direction: pharmaceutical_innovation
+  chain_position: upstream
+  human_note:
+    date: '2026-07-14'
+    type: signal_confirmation
+    context: 7/14实验猴价格回暖映射；高自给率CRO龙头（约5万只），猴价上行受益、成本锁定
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    primary_zone:
+    - 44.64
+    - 46.02
+    method: 分歧日回踩法
+    hard_stop: 42.85
+    backup_zones:
+    - - 0.0
+      - 0.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+  note: 实验猴价格回暖+高自给率CRO龙头，作为医药防御补充
+- code: 603629.SH
+  name: 利通电子
+  direction: kcb_ai_policy
+  chain_position: midstream
+  human_note:
+    date: '2026-07-14'
+    type: signal_confirmation
+    context: 7/14中报大幅超预期；算力经销业务高速增长，但需留意非经常项与低基数贡献，主业成色待验证
+    kline_zone_updated_at: '2026-07-15'
+    kline_zone_update_reason: stale_zone_recalc
+  entry:
+    primary_zone:
+    - 109.61
+    - 113.0
+    method: 分歧日回踩法
+    hard_stop: 105.23
+    backup_zones:
+    - - 0.0
+      - 0.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+  note: 算力经销中报爆发标，主业成色待验证，右侧确认后轻仓参与
