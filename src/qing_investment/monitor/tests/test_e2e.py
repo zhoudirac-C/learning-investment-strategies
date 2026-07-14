@@ -731,6 +731,85 @@ class TestLive:
 
 
 # ═══════════════════════════════════════════════════════════════
+# T20260714-001: agent_any_time 触发器去重回归测试
+# ═══════════════════════════════════════════════════════════════
+
+class TestAgentAnyTimeTrigger:
+    """验证 find_any_agent_analysis_trigger 在去重场景下不会错误阻塞排程触发。"""
+
+    @staticmethod
+    def _alert(action, code, name):
+        from types import SimpleNamespace
+        return SimpleNamespace(
+            action=action,
+            stock_code=code,
+            stock_name=name,
+            trigger="mock_trigger",
+            summary="",
+            severity="info",
+        )
+
+    @staticmethod
+    def _config(schedule_rows):
+        from types import SimpleNamespace
+        return SimpleNamespace(
+            strategy_pack={"agent_analysis_schedule": schedule_rows}
+        )
+
+    def test_deduped_buy_candidates_fall_through_to_scheduled(self):
+        """买入信号候选已去重时，应继续检查排程触发而非返回 None。"""
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        from qing_investment.monitor.scheduler import find_any_agent_analysis_trigger
+
+        cn_tz = ZoneInfo("Asia/Shanghai")
+        value = datetime(2026, 7, 14, 14, 0, 38, tzinfo=cn_tz)
+        config = self._config([{"id": "mid_afternoon", "time": "14:00", "name": "午盘监控", "focus": "午后监控"}])
+        state = {"agent_analysis_history": {"buy_candidate:2026-07-14:002156.SZ,000021.SZ": {"time": "..."}}}
+        alerts = [
+            self._alert("机会候选", "002156.SZ", "通富微电"),
+            self._alert("机会候选", "000021.SZ", "深科技"),
+        ]
+        trigger = find_any_agent_analysis_trigger(config, state, value, alerts)
+        assert trigger is not None, "去重买入候选不应阻塞排程触发"
+        assert trigger.kind == "scheduled"
+        assert trigger.title == "午盘监控"
+
+    def test_fresh_buy_candidates_still_take_priority(self):
+        """未去重的买入信号候选仍应优先返回。"""
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        from qing_investment.monitor.scheduler import find_any_agent_analysis_trigger
+
+        cn_tz = ZoneInfo("Asia/Shanghai")
+        value = datetime(2026, 7, 14, 14, 0, 38, tzinfo=cn_tz)
+        config = self._config([{"id": "mid_afternoon", "time": "14:00", "name": "午盘监控", "focus": "午后监控"}])
+        state = {"agent_analysis_history": {}}
+        alerts = [
+            self._alert("机会候选", "002156.SZ", "通富微电"),
+            self._alert("机会候选", "000021.SZ", "深科技"),
+        ]
+        trigger = find_any_agent_analysis_trigger(config, state, value, alerts)
+        assert trigger is not None
+        assert trigger.kind == "buy_signal_candidate"
+
+    def test_non_buy_alerts_still_trigger_event(self):
+        """非买入类告警仍应产生事件触发器。"""
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        from qing_investment.monitor.scheduler import find_any_agent_analysis_trigger
+
+        cn_tz = ZoneInfo("Asia/Shanghai")
+        value = datetime(2026, 7, 14, 14, 0, 38, tzinfo=cn_tz)
+        config = self._config([{"id": "mid_afternoon", "time": "14:00", "name": "午盘监控", "focus": "午后监控"}])
+        state = {"agent_analysis_history": {}}
+        alerts = [self._alert("风控观察", "000001.SZ", "平安银行")]
+        trigger = find_any_agent_analysis_trigger(config, state, value, alerts)
+        assert trigger is not None
+        assert trigger.kind == "event"
+
+
+# ═══════════════════════════════════════════════════════════════
 # 直接运行入口
 # ═══════════════════════════════════════════════════════════════
 
@@ -747,6 +826,7 @@ if __name__ == "__main__":
         ("TestSlimmingDelegation", TestSlimmingDelegation),
         ("TestPerformanceAcceptance", TestPerformanceAcceptance),
         ("TestPipeline", TestPipeline),
+        ("TestAgentAnyTimeTrigger", TestAgentAnyTimeTrigger),
     ]
 
     passed = 0

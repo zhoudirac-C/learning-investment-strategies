@@ -576,12 +576,13 @@ def find_any_agent_analysis_trigger(
                 reason=f"{names}({codes}) 满足买入条件，需要深度确认",
                 dedupe_key=dedupe_key,
             )
-        return None
+        # 已去重的买入候选不再阻塞事件/排程触发，继续向下检查
 
-    # First check event-driven triggers (alerts)
-    if alerts:
-        actions = "、".join(dict.fromkeys(alert.action for alert in alerts))
-        fingerprints = ",".join(alert_fingerprint(alert) for alert in alerts)
+    # First check event-driven triggers (alerts), excluding buy candidates handled above
+    non_buy_alerts = [a for a in alerts if getattr(a, "action", "") != "机会候选"]
+    if non_buy_alerts:
+        actions = "、".join(dict.fromkeys(alert.action for alert in non_buy_alerts))
+        fingerprints = ",".join(alert_fingerprint(alert) for alert in non_buy_alerts)
         dedupe_key = (
             f"event:{value.astimezone(_CN_TZ).strftime('%Y-%m-%d')}:{fingerprints}"
         )
