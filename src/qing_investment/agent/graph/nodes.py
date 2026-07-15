@@ -2010,8 +2010,8 @@ def _render_market_summary_text(ctx: dict) -> str:
     return "；".join(parts)
 
 
-def stock_scanner(state: AgentState) -> AgentState:
-    """个股扫描节点：基于市场背景扫描持仓和观察池。"""
+def stock_scanner_shard(state: AgentState) -> AgentState:
+    """个股扫描节点（分片版）：基于市场背景扫描单个 watchlist shard。"""
     logger = logging.getLogger(__name__)
     _t0 = time.time()
     prompt_template = _load_prompt("stock_scanner")
@@ -2167,42 +2167,7 @@ def stock_scanner(state: AgentState) -> AgentState:
             prompt_bytes, was_truncated,
         )
 
-    # Phase 2: 分片 prompt 仍超过上限时，按 shard 继续二分，避免单条 prompt 过大
     if prompt_bytes > _MAX_STOCK_SCANNER_PROMPT_BYTES:
-        shard_items = (shard or {}).get("items", []) if isinstance(shard, dict) else []
-        if shard and len(shard_items) > 1 and not state.get("_scanner_bisected"):
-            logger.warning(
-                "stock_scanner shard %s prompt still exceeds %d bytes (%d bytes), bisecting %d items",
-                shard.get("name"), _MAX_STOCK_SCANNER_PROMPT_BYTES, prompt_bytes, len(shard_items),
-            )
-            mid = len(shard_items) // 2
-            left_shard = {**shard, "items": shard_items[:mid]}
-            right_shard = {**shard, "items": shard_items[mid:]}
-            left_state = {**state, "watchlist_shard": left_shard, "_scanner_bisected": True, "_skip_scanner_persist": True}
-            right_state = {**state, "watchlist_shard": right_shard, "_scanner_bisected": True, "_skip_scanner_persist": True}
-            left_result = stock_scanner(left_state)
-            right_result = stock_scanner(right_state)
-            left_mc = left_result.get("market_context", {})
-            right_mc = right_result.get("market_context", {})
-            merged = dict(market_summary_ctx)
-            merged.setdefault("opportunity_scan", [])
-            merged["opportunity_scan"] = left_mc.get("opportunity_scan", []) + right_mc.get("opportunity_scan", [])
-            merged.setdefault("position_plans", [])
-            merged["position_plans"] = left_mc.get("position_plans", []) + right_mc.get("position_plans", [])
-            merged["_truncated"] = bool(left_mc.get("_truncated") or right_mc.get("_truncated") or was_truncated)
-            merged["_scan_failed"] = bool(left_mc.get("_scan_failed") or right_mc.get("_scan_failed"))
-            reasoning_steps = (
-                left_result.get("reasoning_steps", [])
-                + right_result.get("reasoning_steps", [])
-                + [f"个股扫描: shard {shard.get('name')} 二分后合并 opportunities={len(merged['opportunity_scan'])} positions={len(merged['position_plans'])}"]
-            )
-            cost_tracking = left_result.get("cost_tracking", []) + right_result.get("cost_tracking", [])
-            return {
-                "market_context": merged,
-                "reasoning_steps": reasoning_steps,
-                "cost_tracking": cost_tracking,
-            }
-
         logger.error(
             "stock_scanner prompt still exceeds %d bytes (%d bytes) after truncation; returning degraded context without LLM call",
             _MAX_STOCK_SCANNER_PROMPT_BYTES, prompt_bytes,
@@ -2271,31 +2236,34 @@ def stock_scanner(state: AgentState) -> AgentState:
     _ss_ct.record_call(provider=(settings.llm_provider or "deepseek"))
     _ss_cost = _ss_ct.snapshot()
 
-    # 提取并持久化 daily_state；若上游 market_summary 也输出了 daily_state，则合并
-    # （市场阶段类字段以上游为准，机会类字段以本节点为准）
-    # Phase 2: 二分递归子调用跳过持久化，由顶层调用统一写入，避免重复机会
-    if not state.get("_skip_scanner_persist"):
-        upstream_override = market_summary_ctx.get("_daily_state_override")
-        scanner_override = _extract_daily_state_block(content)
-        merged_override: dict | None = None
-        if upstream_override or scanner_override:
-            merged_override = dict(upstream_override or {})
-            for key, value in (scanner_override or {}).items():
-                if key == "active_opportunities":
-                    merged_override[key] = (merged_override.get(key) or []) + value
-                else:
-                    merged_override[key] = value
-        source_tag = f"stock_scanner:{analysis_type}"
-        _persist_daily_state_from_market_context(full_market_context, merged_override, source_tag, trigger_id)
-    else:
-        logger.debug("stock_scanner skipped daily_state persistence for bisected sub-shard")
+    # 提取 daily_state 代码块，留给 merge_scanner_results 统一持久化
+    scanner_override = _extract_daily_state_block(content)
+    # 注意：不要在分片节点单独持久化，避免多个并行节点写 daily_state 冲突
+    # （market_stage 类字段以上游 market_summary 为准，机会类字段由 merge_scanner_results 合并）
 
     return {
-        "market_context": full_market_context,
-        "reasoning_steps": [
-            f"个股扫描: opportunities={len(full_market_context.get('opportunity_scan', []))} positions={len(full_market_context.get('position_plans', []))}"
+        "stock_scanner_results": [
+            {
+                "market_context": full_market_context,
+                "reasoning_steps": [
+                    f"个股扫描({shard_name}): opportunities={len(full_market_context.get('opportunity_scan', []))} positions={len(full_market_context.get('position_plans', []))}"
+                ],
+                "cost_tracking": [_ss_cost],
+            }
         ],
-        "cost_tracking": [_ss_cost],
+    }
+
+
+def stock_scanner(state: AgentState) -> AgentState:
+    """个股扫描节点：保持对旧图拓扑的兼容，调用分片版并展开结果。"""
+    shard_result = stock_scanner_shard(state)
+    results = shard_result.get("stock_scanner_results", [])
+    if results:
+        return results[0]
+    return {
+        "market_context": {},
+        "reasoning_steps": ["个股扫描: 无结果返回"],
+        "cost_tracking": [{"llm_calls": 0, "total_cost_usd": "0"}],
     }
 
 
