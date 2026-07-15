@@ -108,6 +108,10 @@ def shard_router(state: AgentState) -> list[Send]:
     if core_only is None:
         core_only = False
 
+    # shard_size <= 0 表示不分片：直接扫描全部 watchlist
+    if shard_size <= 0:
+        return [Send("stock_scanner_shard", {"watchlist_shard": {"name": "全部标的", "items": watchlist, "is_priority": False}})]
+
     shards = shard_watchlist(
         watchlist,
         positions,
@@ -2182,10 +2186,14 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
         full_market_context["_scan_failed"] = True
         full_market_context["_fallback_reason"] = "prompt_too_large"
         return {
-            "market_context": full_market_context,
-            "reasoning_steps": ["个股扫描: prompt过大，返回降级结果"],
-            "cost_tracking": [{"llm_calls": 0, "total_cost_usd": "0"}],
-            "daily_state_override": None,
+            "stock_scanner_results": [
+                {
+                    "market_context": full_market_context,
+                    "reasoning_steps": ["个股扫描: prompt过大，返回降级结果"],
+                    "cost_tracking": [{"llm_calls": 0, "total_cost_usd": "0"}],
+                    "daily_state_override": None,
+                }
+            ],
         }
 
     content = _safe_llm_invoke(prompt)
@@ -2298,6 +2306,17 @@ def merge_scanner_results(state: AgentState) -> AgentState:
         merged["_truncated"] = True
     if any_failed:
         merged["_scan_failed"] = True
+
+    # 透传降级原因（如 prompt 过大导致的 fallback）
+    fallback_reasons = [
+        mc.get("_fallback_reason")
+        for r in results
+        if isinstance(r, dict)
+        for mc in [r.get("market_context", {})]
+        if isinstance(mc, dict) and mc.get("_fallback_reason")
+    ]
+    if fallback_reasons:
+        merged["_fallback_reason"] = fallback_reasons[0]
 
     # 合并各分片的 daily_state 覆盖块
     merged_override: dict | None = None

@@ -68,3 +68,35 @@ def test_merge_daily_state_overrides_are_merged():
     assert override["market_stage"]["phase"] == "回暖期"
     assert override["position_stance"] == "积极"
     assert len(override["active_opportunities"]) == 2
+
+
+def test_merge_accepts_degraded_fallback_shape():
+    state = {
+        "stock_scanner_results": [
+            {
+                "market_context": {
+                    "market_phase": "磨底期",
+                    "opportunity_scan": [],
+                    "position_plans": [],
+                    "_truncated": True,
+                    "_scan_failed": True,
+                    "_fallback_reason": "prompt_too_large",
+                },
+                "reasoning_steps": ["个股扫描: prompt过大，返回降级结果"],
+                "cost_tracking": [{"llm_calls": 0, "total_cost_usd": "0"}],
+                "daily_state_override": None,
+            }
+        ],
+        "market_summary_context": {},
+        "trigger": {"id": "morning_confirm"},
+        "parsed_intent": {"analysis_type": "market"},
+    }
+    with patch("qing_investment.agent.graph.nodes._persist_daily_state_from_market_context") as mock_persist:
+        result = merge_scanner_results(state)
+
+    mc = result["market_context"]
+    assert mc.get("_truncated") is True
+    assert mc.get("_scan_failed") is True
+    assert mc.get("_fallback_reason") == "prompt_too_large"
+    assert result["stock_scanner_results"] == []
+    assert mock_persist.call_count == 1
