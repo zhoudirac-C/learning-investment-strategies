@@ -2182,6 +2182,7 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
             "market_context": full_market_context,
             "reasoning_steps": ["个股扫描: prompt过大，返回降级结果"],
             "cost_tracking": [{"llm_calls": 0, "total_cost_usd": "0"}],
+            "daily_state_override": None,
         }
 
     content = _safe_llm_invoke(prompt)
@@ -2249,8 +2250,82 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
                     f"个股扫描({shard_name}): opportunities={len(full_market_context.get('opportunity_scan', []))} positions={len(full_market_context.get('position_plans', []))}"
                 ],
                 "cost_tracking": [_ss_cost],
+                "daily_state_override": scanner_override,
             }
         ],
+    }
+
+
+def merge_scanner_results(state: AgentState) -> AgentState:
+    """合并多个 stock_scanner_shard 的输出，统一生成 market_context 并持久化 daily_state。"""
+    logger = logging.getLogger(__name__)
+    results = state.get("stock_scanner_results", []) or []
+    market_summary_ctx = state.get("market_summary_context") or {}
+    trigger_id = (state.get("trigger") or {}).get("id")
+    analysis_type = (state.get("parsed_intent") or {}).get("analysis_type", "stock")
+
+    merged = dict(market_summary_ctx)
+    merged.setdefault("opportunity_scan", [])
+    merged.setdefault("position_plans", [])
+
+    reasoning_steps: list[str] = []
+    total_cost: list[dict] = []
+    any_truncated = False
+    any_failed = False
+
+    daily_state_overrides: list[dict] = []
+
+    for idx, r in enumerate(results):
+        mc = r.get("market_context", {}) if isinstance(r, dict) else {}
+        reasoning_steps.extend(r.get("reasoning_steps", []) if isinstance(r, dict) else [])
+        total_cost.extend(r.get("cost_tracking", []) if isinstance(r, dict) else [])
+        any_truncated = any_truncated or bool(mc.get("_truncated"))
+        any_failed = any_failed or bool(mc.get("_scan_failed"))
+
+        override = r.get("daily_state_override") if isinstance(r, dict) else None
+        if override:
+            daily_state_overrides.append(override)
+
+        for opp in mc.get("opportunity_scan", []):
+            merged["opportunity_scan"].append(opp)
+        for plan in mc.get("position_plans", []):
+            merged["position_plans"].append(plan)
+
+    if any_truncated:
+        merged["_truncated"] = True
+    if any_failed:
+        merged["_scan_failed"] = True
+
+    # 合并各分片的 daily_state 覆盖块
+    merged_override: dict | None = None
+    if daily_state_overrides:
+        merged_override = {}
+        for override in daily_state_overrides:
+            for key, value in override.items():
+                if key == "active_opportunities" and isinstance(value, list):
+                    merged_override.setdefault(key, []).extend(value)
+                else:
+                    merged_override[key] = value
+
+    # 统一持久化 daily_state（一次触发只写一次）
+    source_tag = f"stock_scanner:{analysis_type}"
+    _persist_daily_state_from_market_context(merged, merged_override, source_tag, trigger_id)
+
+    logger.info(
+        "merge_scanner_results: shards=%d opportunities=%d position_plans=%d",
+        len(results),
+        len(merged.get("opportunity_scan", [])),
+        len(merged.get("position_plans", [])),
+    )
+
+    return {
+        "market_context": merged,
+        "reasoning_steps": [
+            f"个股扫描合并: {len(results)} 个分片, opportunities={len(merged.get('opportunity_scan', []))}, position_plans={len(merged.get('position_plans', []))}"
+        ] + reasoning_steps,
+        "cost_tracking": total_cost,
+        # 清空累加器，避免后续节点误用旧数据
+        "stock_scanner_results": [],
     }
 
 
