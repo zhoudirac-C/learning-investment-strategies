@@ -618,8 +618,6 @@ def call_qing_agent(data: dict) -> dict | None:
         "watchlist": _normalize_watchlist(data.get("watchlist", []), quote_lookup),
         "sector_strengths": data.get("sector_strengths", []),
         "external_sector_boards": data.get("external_sector_boards", {}),
-        "shard_size": int(os.environ.get("WATCHLIST_SHARD_SIZE", "8")),
-        "core_only": os.environ.get("WATCHLIST_CORE_ONLY", "0").lower() in ("1", "true", "yes", "on"),
     }
 
     trigger_id = (data.get("trigger") or {}).get("id", "")

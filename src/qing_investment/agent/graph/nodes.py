@@ -100,9 +100,8 @@ def shard_router(state: AgentState) -> list[Send]:
     if existing_shard:
         return [Send("stock_scanner_shard", {"watchlist_shard": existing_shard})]
 
-    shard_size = state.get("shard_size") or int(
-        os.environ.get("WATCHLIST_SHARD_SIZE", "8")
-    )
+    # analyze_trigger 已经解析好 shard_size / core_only，这里直接复用，避免再次读取环境变量覆盖请求值
+    shard_size = state.get("shard_size") or 8
     core_only = state.get("core_only", False)
 
     shards = shard_watchlist(
