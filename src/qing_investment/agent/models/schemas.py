@@ -16,6 +16,8 @@ class TriggerRequest(BaseModel):
     external_sector_boards: dict = Field(default_factory=dict, description="外部行情源板块数据（概念+行业）")
     buy_signal_candidates: list[dict] = Field(default_factory=list, description="买入信号候选列表（trigger.kind=buy_signal_candidate时填充）")
     watchlist_shard: dict | None = Field(default=None, description="当前批次分析的 watchlist 子集（分片请求时使用）")
+    shard_size: int = Field(default=8, description="watchlist 内部分片大小，0 表示不分片")
+    core_only: bool = Field(default=False, description="为 True 时只分析 priority shard（P1+持仓）")
     session_id: str = Field(default="default", description="会话ID")
     query: str = Field(default="", description="用户原始问题")
     analysis_type: str = Field(default="market", description="分析类型：market/stock/portfolio")
