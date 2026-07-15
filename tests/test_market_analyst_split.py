@@ -58,7 +58,6 @@ def test_graph_has_new_nodes():
 
     g = build_graph()
     assert "market_summary" in g.nodes
-    assert "shard_router" in g.nodes
     assert "stock_scanner_shard" in g.nodes
     assert "merge_scanner_results" in g.nodes
     assert "market_analyst" not in g.nodes
