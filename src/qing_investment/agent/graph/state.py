@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import operator
+
 from typing import Annotated, TypedDict
 
 from langgraph.graph.message import add_messages
@@ -55,6 +57,13 @@ class AgentState(TypedDict, total=False):
 
     # Phase 2 新增：watchlist 分片输入
     watchlist_shard: dict | None  # 当前批次需要分析的标的子集
+
+    # 【新增】内部分片并行控制
+    shard_size: int
+    core_only: bool
+
+    # 【新增】并行 stock_scanner 分片结果累加器
+    stock_scanner_results: Annotated[list[dict], operator.add]
 
     # 【新增】数据降级标记
     _data_missing_note: str     # 实时数据缺失时的降级说明
