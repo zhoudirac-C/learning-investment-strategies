@@ -180,6 +180,8 @@ async def analyze_trigger(req: TriggerRequest):
         "watchlist": req.watchlist,
         "watchlist_shard": req.watchlist_shard,
         "sector_strengths": req.sector_strengths,
+        "shard_size": req.shard_size if req.shard_size > 0 else 8,
+        "core_only": req.core_only,
         "external_sector_boards": req.external_sector_boards,
         "buy_signal_candidates": req.buy_signal_candidates,
         "sector_context": [],
