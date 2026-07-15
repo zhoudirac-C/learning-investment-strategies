@@ -5418,3 +5418,225 @@ stocks:
     market_actionable: false
     no_consecutive_limit_up: true
   note: 算力经销中报爆发标，主业成色待验证，右侧确认后轻仓参与
+
+  # ── 2026-07-15 22:06复盘新增：WAIC超节点方向标的 ──
+
+- code: 000063.SZ
+  name: 中兴通讯
+  direction: waic_supernode_catalyst
+  chain_position: upstream
+  human_note:
+    date: '2026-07-15'
+    type: signal_confirmation
+    context: 超节点交换芯片方向，51.2T在研，WAIC核心关注标
+    kline_zone_updated_at: null
+    kline_zone_update_reason: new_add
+    kline_zone_context: need_calc
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 002025.SZ
+  name: 航天电器
+  direction: waic_supernode_catalyst
+  chain_position: upstream
+  human_note:
+    date: '2026-07-15'
+    type: signal_confirmation
+    context: 华为系高速连接器方向，WAIC超节点背板连接核心标
+    kline_zone_updated_at: null
+    kline_zone_update_reason: new_add
+    kline_zone_context: need_calc
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 002897.SZ
+  name: 意华股份
+  direction: waic_supernode_catalyst
+  chain_position: upstream
+  human_note:
+    date: '2026-07-15'
+    type: signal_confirmation
+    context: 华为系高速连接器方向
+    kline_zone_updated_at: null
+    kline_zone_update_reason: new_add
+    kline_zone_context: need_calc
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 002837.SZ
+  name: 英维克
+  direction: waic_supernode_catalyst
+  chain_position: midstream
+  human_note:
+    date: '2026-07-15'
+    type: signal_confirmation
+    context: 液冷散热龙头，超节点液冷方案确定性最高增量环节
+    kline_zone_updated_at: null
+    kline_zone_update_reason: new_add
+    kline_zone_context: need_calc
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 600839.SH
+  name: 四川长虹
+  direction: waic_supernode_catalyst
+  chain_position: midstream
+  human_note:
+    date: '2026-07-15'
+    type: signal_confirmation
+    context: 华为昇腾生态代理方向，WAIC情绪弹性档
+    kline_zone_updated_at: null
+    kline_zone_update_reason: new_add
+    kline_zone_context: need_calc
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 000034.SZ
+  name: 神州数码
+  direction: waic_supernode_catalyst
+  chain_position: midstream
+  human_note:
+    date: '2026-07-15'
+    type: signal_confirmation
+    context: 华为昇腾生态代理方向，WAIC核心渠道标
+    kline_zone_updated_at: null
+    kline_zone_update_reason: new_add
+    kline_zone_context: need_calc
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 000062.SZ
+  name: 深圳华强
+  direction: waic_supernode_catalyst
+  chain_position: midstream
+  human_note:
+    date: '2026-07-15'
+    type: signal_confirmation
+    context: 华为昇腾生态代理方向
+    kline_zone_updated_at: null
+    kline_zone_update_reason: new_add
+    kline_zone_context: need_calc
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 000977.SZ
+  name: 浪潮信息
+  direction: waic_supernode_catalyst
+  chain_position: downstream
+  human_note:
+    date: '2026-07-15'
+    type: signal_confirmation
+    context: 整机ODM龙头，首波超节点招标主力，WAIC核心标
+    kline_zone_updated_at: null
+    kline_zone_update_reason: new_add
+    kline_zone_context: need_calc
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 000938.SZ
+  name: 紫光股份
+  direction: waic_supernode_catalyst
+  chain_position: downstream
+  human_note:
+    date: '2026-07-15'
+    type: signal_confirmation
+    context: 整机ODM方向，超节点服务器核心供应商
+    kline_zone_updated_at: null
+    kline_zone_update_reason: new_add
+    kline_zone_context: need_calc
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 603019.SH
+  name: 中科曙光
+  direction: waic_supernode_catalyst
+  chain_position: downstream
+  human_note:
+    date: '2026-07-15'
+    type: signal_confirmation
+    context: 整机ODM/国产算力服务器龙头，超节点方向核心标
+    kline_zone_updated_at: null
+    kline_zone_update_reason: new_add
+    kline_zone_context: need_calc
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true

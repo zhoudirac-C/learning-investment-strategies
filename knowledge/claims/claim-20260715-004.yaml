@@ -1,0 +1,63 @@
+claims:
+- id: claim-20260715-038-a
+  source_path: sources/original/bilibili/2026-07-15-1426-图片-保险是配置，不要去追，隔膜还可以。.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T19:25:00+08:00'
+  claim_type: methodology
+  subject: 保险板块定位
+  timeframe: short-term
+  statement: 保险板块属于配置型资产，不宜追高参与，应以配置思维分批低吸而非短线追逐。
+  evidence_quote: 保险是配置，不要去追
+  interpretation: 当前保险板块已启动一轮上涨，UP提醒应以配置思维对待而非短线追高，暗示保险更适合在回调时逐步建仓而非在拉升时追入。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260609-002-a", "claim-20260710-002-f"]
+  last_discovered: 2026-07-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 保险配置思维而非追高
+  related_stocks: []
+  tags:
+  - 保险
+  - 配置策略
+  - 操作纪律
+- id: claim-20260715-039-a
+  source_path: sources/original/bilibili/2026-07-15-1426-图片-保险是配置，不要去追，隔膜还可以。.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T19:25:00+08:00'
+  claim_type: sector-theme
+  subject: 电池隔膜板块
+  timeframe: short-term
+  statement: 电池隔膜环节供需格局仍可维持，板块龙头具有配置价值。
+  evidence_quote: 隔膜还可以
+  interpretation: 在锂电产业链整体承压背景下，UP认为隔膜环节相对"还可以"，意味着该环节供需格局优于其他锂电材料环节，龙头公司业绩韧性较强。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 隔膜环节相对较好
+  related_stocks:
+  - code: '002812'
+    name: 恩捷股份
+    role: 湿法隔膜龙头-主板可交易
+  - code: '002108'
+    name: 沧州明珠
+    role: 干法隔膜-主板可交易
+  tags:
+  - 隔膜
+  - 锂电池
+  - 恩捷股份

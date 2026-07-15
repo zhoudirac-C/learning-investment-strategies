@@ -1,0 +1,60 @@
+claims:
+- id: claim-20260715-042-a
+  source_path: sources/original/bilibili/2026-07-15-1548-图片-社融数据增加，经济数据拉跨，剧本已经开始了，来吧，告诉我会发.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T21:20:00+08:00'
+  claim_type: market-cycle
+  subject: 社融与经济剪刀差的市场演化路径
+  timeframe: short-term
+  statement: 社融数据增加但经济数据偏弱（二季度GDP 4.3%低于预期4.5%），验证了此前设定的情景框架正在按剧本演化——市场将从"数据公布前预设框架"阶段进入"按情景框架定价"阶段，剧本（情形二→情形三演化）已经启动。
+  evidence_quote: 社融数据增加，经济数据拉跨，剧本已经开始了，来吧，告诉我会发生什么事情，之前讲过的。
+  interpretation: 社融（宽信用）增加说明政策端在发力，但需求端（消费/地产/投资）仍然偏弱，经济结构剪刀差扩大。UP用"剧本"一词确认此前设定的情形二（工业/出口/科技强）向情形三（消费/地产弱→市场押注政策宽松→指数先跌后稳）的演化路径已经启动。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260715-032-a"]
+  contradicts: []
+  supplements: ["claim-20260715-041-a", "claim-20260715-031-a"]
+  last_discovered: 2026-07-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 社融数据验证情形二→情形三演化
+  related_stocks: []
+  tags:
+  - 社融
+  - 经济数据
+  - 情形二
+  - 情形三
+  - 宏观
+
+- id: claim-20260715-043-a
+  source_path: sources/original/bilibili/2026-07-15-1548-图片-社融数据增加，经济数据拉跨，剧本已经开始了，来吧，告诉我会发.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T21:20:00+08:00'
+  claim_type: methodology
+  subject: 数据公布后的市场定价阶段切换
+  timeframe: short-term
+  statement: 宏观数据公布后，市场将从"数据公布前预设框架"阶段切换至"按情景框架定价"阶段，不同类型的板块按对应的情景路径重新定价。
+  evidence_quote: 剧本已经开始了，之前讲过的。
+  interpretation: UP强调"之前讲过的"，意味着此前预设的三种情景框架（数据好→周期消费金融；总量一般但工业出口强→科技制造出海；消费地产弱→政策宽松）现在可以用于归类市场反应，数据已落地，框架可直接应用。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260715-041-a"]
+  last_discovered: 2026-07-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 从预设框架到按情景框架定价的切换
+  related_stocks: []
+  tags:
+  - 方法论
+  - 数据驱动
+  - 情景框架

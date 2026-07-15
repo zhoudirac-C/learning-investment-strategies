@@ -1,0 +1,324 @@
+claims:
+- id: claim-20260715-049-a
+  source_path: sources/original/bilibili/2026-07-15-2206-专栏-今天是一次典型的高低切换：资金从高位科技集体撤向低位的医药与.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T22:20:00+08:00'
+  claim_type: market-cycle
+  subject: 7月15日高低切换定性
+  timeframe: intraday
+  statement: 7月15日是一次典型的高低切换而非系统性撤退：资金从高位科技集体撤向低位医药与消费，科创50单边下挫4.25%与医药白酒批量涨停发生在同一天，指数层面温和但结构层面剧烈，属于内部资金腾挪。
+  evidence_quote: 今天是一次典型的高低切换：资金从高位科技集体撤向低位的医药与消费，科创50单边下挫与医药白酒批量涨停发生在同一天。指数层面的温和与结构层面的剧烈，是今天最需要记住的反差。
+  interpretation: UP强调这是"内部资金腾挪"而非系统性撤退，意味着科技主线尚未被否定，资金在板块间轮动而非离场。沪指仅跌0.29%、超3300只个股上涨说明整体市场风险偏好并未坍塌。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260702-005-a"]
+  contradicts: ["claim-20260527-006-f"]
+  supplements: ["claim-20260607-004-c"]
+  last_discovered: 2026-07-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月15日高低切换定性
+  related_stocks: []
+  tags:
+  - 高低切换
+  - 资金腾挪
+  - 7月15日
+
+- id: claim-20260715-050-a
+  source_path: sources/original/bilibili/2026-07-15-2206-专栏-今天是一次典型的高低切换：资金从高位科技集体撤向低位的医药与.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T22:20:00+08:00'
+  claim_type: market-cycle
+  subject: 科技回调性质为内生性回调
+  timeframe: short-term
+  statement: 科技板块7月15日的调整是内生性回调而非外部利空冲击：高位科技（存储、设备等涨价链）前期涨幅大、筹码拥挤、二季报预期部分兑现，叠加长鑫科技申购（7月16日申购、发行价8.66元/股、拟募资约300亿元）带来的资金腾挪与情绪扰动，不必因此对科技主线转向悲观。
+  evidence_quote: 个人判断，这次调整的性质更接近内生性回调：高位科技前期涨幅大、筹码拥挤、二季报预期部分兑现，叠加明日长鑫科技申购带来的资金腾挪与情绪扰动，资金顺势做了一次高低切。外力扰动的成分不重，因此不必因为科创的单边阴线就对科技主线转向悲观。
+  interpretation: UP明确将此次回调归因于内生因素（涨幅大+筹码拥挤+预期兑现+资金扰动）而非外部利空，暗示科技主线尚未结束，回调是阶段性消化而非趋势逆转。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260604-004-b"]
+  contradicts: ["claim-20260607-003-c"]
+  supplements: ["claim-20260617-038-c"]
+  last_discovered: 2026-07-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技回调性质为内生性
+  related_stocks:
+  - code: '688256'
+    name: 寒武纪
+    role: 国产GPU-不可交易-科创板
+  - code: '688041'
+    name: 海光信息
+    role: 国产GPU-不可交易-科创板
+  tags:
+  - 科技
+  - 内生性回调
+  - 筹码拥挤
+  - 长鑫申购
+
+- id: claim-20260715-051-a
+  source_path: sources/original/bilibili/2026-07-15-2206-专栏-今天是一次典型的高低切换：资金从高位科技集体撤向低位的医药与.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T22:20:00+08:00'
+  claim_type: methodology
+  subject: 量能框架判断科技反复窗口
+  timeframe: short-term
+  statement: 2.5万亿成交额是科技能否反复的关键分水岭：情形A若守住2.5万亿，科技大概率有反复机会，回调是时间与空间上的消化；情形B若缩至2.5万亿以下且低位方向继续吸金，调整周期拉长，短线风格向题材投机与连板倾斜。
+  evidence_quote: 量能是接下来最重要的观察变量。今日2.57万亿仍站在2.5万亿关口上方：情形A，若后续成交额守住2.5万亿，科技大概率还有反复的机会；情形B，若缩至2.5万亿以下且低位方向继续吸金，调整周期会拉长，短线风格将向题材投机与连板情绪倾斜。量在，科技的反复就在；量走，风格就换。
+  interpretation: UP提出量能框架作为判断科技后续走势的核心变量。2.5万亿不仅是数字关口，更是市场交易热情与资金供给的综合体现。守住则科技调整后仍有行情，跌破则风格切换。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260212-001-a", "claim-20260614-014-p", "claim-20260518-019"]
+  last_discovered: 2026-07-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能框架判断科技走向
+  related_stocks: []
+  tags:
+  - 量能
+  - 2.5万亿
+  - 情形A
+  - 情形B
+  - 方法论
+
+- id: claim-20260715-052-a
+  source_path: sources/original/bilibili/2026-07-15-2206-专栏-今天是一次典型的高低切换：资金从高位科技集体撤向低位的医药与.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T22:20:00+08:00'
+  claim_type: sector-theme
+  subject: 医药消费为科技调整期的资金蓄水池
+  timeframe: short-term
+  statement: 7月15日医药消费的批量涨停属于科技调整期的资金蓄水池，而非已经确认的独立主线。能否升级为独立主线，取决于明日前排（哈药股份、迪哲医药、凯莱英）的反馈：龙头不断则轮动延续、赚钱效应扩散；龙头一断则资金重新面临方向选择。
+  evidence_quote: 医药消费当前更像科技调整期的资金蓄水池，而非已经确认的独立主线。能否升级，明日看前排（哈药股份、迪哲医药、凯莱英）的反馈。
+  interpretation: UP对医药消费的定位是"蓄水池"而非"新主线"，意味着资金只是暂时避险，而非找到了新的中长期逻辑。这与21:14动态中"明天先不用冲消费和医药"的判断一致——蓄水池可能有暂时行情，但持续性需龙头发力验证。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: ["claim-20260630-001-p"]
+  supplements: []
+  last_discovered: 2026-07-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药消费为蓄水池非主线
+  related_stocks:
+  - code: '600664'
+    name: 哈药股份
+    role: 医药龙头-主板可交易
+  - code: '301201'
+    name: 迪哲医药
+    role: 创新药-不可交易-创业板
+  - code: '002821'
+    name: 凯莱英
+    role: CXO龙头-主板可交易
+  tags:
+  - 医药
+  - 消费
+  - 蓄水池
+  - 高低切
+
+- id: claim-20260715-053-a
+  source_path: sources/original/bilibili/2026-07-15-2206-专栏-今天是一次典型的高低切换：资金从高位科技集体撤向低位的医药与.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T22:20:00+08:00'
+  claim_type: catalyst
+  subject: 科技产业端利好仍在堆积
+  timeframe: short-term
+  statement: 科技板块盘面调整与产业端利好形成反差：超节点量产元年（阿里/腾讯/字节全年6400-7400柜，9月起批量发货）、国产交换芯片替代缺口明确（博通交期42-52周，仅满足六到七成需求）、国产GPU统一提价10-15%、存储涨价周期预计延续到2027年底。
+  evidence_quote: 与盘面形成反差的是，产业端的信息仍在向好方向堆积。超节点量产元年、国产交换芯片替代缺口明确、国产GPU提价10-15%、存储涨价周期预计延续到2027年底。
+  interpretation: UP用产业端利好证明"跌的是筹码不是逻辑"，强调科技的基本面叙事并未破坏，回调更多是交易结构问题。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260625-003-t", "claim-20260622-001-d", "claim-20260624-006-n"]
+  last_discovered: 2026-07-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技产业利好堆积
+  related_stocks: []
+  tags:
+  - 超节点
+  - 国产替代
+  - GPU涨价
+  - 存储涨价
+
+- id: claim-20260715-054-a
+  source_path: sources/original/bilibili/2026-07-15-2206-专栏-今天是一次典型的高低切换：资金从高位科技集体撤向低位的医药与.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T22:20:00+08:00'
+  claim_type: catalyst
+  subject: WAIC催化窗口7月17日至20日
+  timeframe: short-term
+  statement: 2026世界人工智能大会（WAIC）于7月17日至20日在上海举行，是超节点与国产算力链最近的事件锚。17日智算超节点论坛、20日华为展台昇腾950超节点真机首展+850E风冷超节点亮相，叠加月底四大云厂商资本开支披露，短期事件催化密集。
+  evidence_quote: 2026世界人工智能大会将于7月17日至20日在上海举行：17日有智算超节点与算力协同论坛，20日华为展台专场，昇腾950超节点真机全球首展，叠加月底四大云厂商资本开支披露，短期事件催化密集。
+  interpretation: UP将WAIC定位为超节点与国产算力链的事件锚，催化窗口从7月17日开盘持续到20日。若大会信息超预期且量能配合情形A，科技修复可能加速；若兑现即出尽则科技进入更完整箱体休整，等待8月订单与中报验证。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260712-027-aa", "claim-20260714-001-bd"]
+  last_discovered: 2026-07-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: WAIC催化窗口
+  related_stocks: []
+  tags:
+  - WAIC
+  - 超节点
+  - 昇腾950
+  - 催化
+
+- id: claim-20260715-055-a
+  source_path: sources/original/bilibili/2026-07-15-2206-专栏-今天是一次典型的高低切换：资金从高位科技集体撤向低位的医药与.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T22:20:00+08:00'
+  claim_type: operation
+  subject: 明日盘面三件事
+  timeframe: intraday
+  statement: 7月16日（周四）看三件事：一看医药消费前排（哈药股份、迪哲医药、凯莱英）能否续力，判断高低切换是否一日游；二看恒尚节能与连板情绪，判断热钱风格走向；三看长鑫申购落地后半导体的承接力度与量能水平，以WAIC开幕为界观察超节点方向的资金回流。
+  evidence_quote: 明日看三件事：一看医药消费前排能否续力；二看恒尚节能与连板情绪；三看长鑫申购落地后半导体的承接力度与量能水平，并以WAIC开幕为界观察超节点方向的资金回流。
+  interpretation: UP给出三个观察锚点，分别覆盖低位轮动的持续性、热钱投机风格、以及科技半导体自身的承接力度。这与此前21:14动态中"科技低开进场做WAIC，周五出"的操作框架吻合——科技明天若要反弹，就看这三个条件。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260708-016-a"]
+  contradicts: []
+  supplements: ["claim-20260614-014-p"]
+  last_discovered: 2026-07-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 明日盘面三件事
+  related_stocks:
+  - code: '600664'
+    name: 哈药股份
+    role: 医药情绪标尺-主板可交易
+  - code: '002821'
+    name: 凯莱英
+    role: CXO承接力标尺-主板可交易
+  - code: '605287'
+    name: 恒尚节能
+    role: 连板情绪标尺-主板可交易
+  tags:
+  - 盘面观察
+  - 7月16日
+  - 操作框架
+
+- id: claim-20260715-056-a
+  source_path: sources/original/bilibili/2026-07-15-2206-专栏-今天是一次典型的高低切换：资金从高位科技集体撤向低位的医药与.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T22:20:00+08:00'
+  claim_type: sector-theme
+  subject: WAIC超节点产业链个股清单
+  timeframe: short-term
+  statement: WAIC超节点产业链核心环节包括：交换芯片（盛科通信25.6T订单突破、中兴通讯51.2T在研）、华为系连接器（华丰科技、意华股份、航天电器、奕东电子）、液冷散热（英维克、申菱环境、高澜股份）、华为生态代理（神州数码、四川长虹、拓维信息）、光互联（光迅科技、仕佳光子、长飞光纤）、整机ODM（浪潮信息、华勤技术、紫光股份、中科曙光）、国产GPU（寒武纪、海光信息、天数智芯）、电源（杰华特）。
+  evidence_quote: UP详细列出超节点产业链各环节个股（交换芯片、连接器、液冷、代理集成、光互联、整机ODM、国产GPU、电源），属于产业跟踪清单而非买卖名单。逻辑锚：昇腾950真机首展与超节点全光互联是本届大会的硬件核心议题。
+  interpretation: UP强调此为"产业跟踪清单而非买卖名单"，WAIC是事件驱动短周期，操作纪律参照21:14动态"周五出来"。不同环节逻辑置信度不同：液冷散热确定性最高，代理集成弹性最大但情绪属性最强，物理AI与世界观叙事最远。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260708-004-e", "claim-20260603-004-h"]
+  last_discovered: 2026-07-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: WAIC超节点产业链清单
+  related_stocks:
+  - code: '600839'
+    name: 四川长虹
+    role: 华为昇腾渠道-主板可交易
+  - code: '000034'
+    name: 神州数码
+    role: 昇腾渠道-主板可交易
+  - code: '000977'
+    name: 浪潮信息
+    role: 整机ODM-主板可交易
+  - code: '600522'
+    name: 中天科技
+    role: 光互联-主板可交易
+  tags:
+  - WAIC
+  - 超节点
+  - 产业链
+  - 昇腾
+
+- id: claim-20260715-057-a
+  source_path: sources/original/bilibili/2026-07-15-2206-专栏-今天是一次典型的高低切换：资金从高位科技集体撤向低位的医药与.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T22:20:00+08:00'
+  claim_type: sector-theme
+  subject: 超跌反弹个股清单-半导体设备与晶圆厂
+  timeframe: short-term
+  statement: 电子板块二季报同环比加速、下半年基本面向好，设备板块自前高已回撤约22%，超跌后值得关注。方向包括：半导体设备（北方华创、中微公司、拓荆科技）、设备零部件（富创精密、新莱应材、江丰电子、正帆科技）、晶圆厂与涨价链（晶合集成、中芯国际、华虹宏力、燕东微）、存储与利基芯片（北京君正、普冉股份、聚辰股份）、封测（长电科技、通富微电、长川科技）。
+  evidence_quote: 电子板块二季报同环比加速、下半年基本面向好趋势未改，设备板块自前高已回撤约22%。UP按六条线整理超跌反弹清单。
+  interpretation: UP在此给出详细的超跌反弹标的清单，覆盖设备、晶圆厂、存储、封测、PCB/AI电源、消费电子六大方向。其中半导体设备与零部件是"基本面最硬的一档"，订单确定性强、回撤充分。长鑫链作为专项，申购落地后观察。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: ["claim-20260604-004-b"]
+  supplements: ["claim-20260625-003-g", "claim-20260708-004-e"]
+  last_discovered: 2026-07-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 超跌反弹六大方向
+  related_stocks:
+  - code: '002371'
+    name: 北方华创
+    role: 半导体设备龙头-主板可交易
+  - code: '688012'
+    name: 中微公司
+    role: 半导体设备-不可交易-科创板
+  - code: '002156'
+    name: 通富微电
+    role: 封测-主板可交易
+  - code: '600584'
+    name: 长电科技
+    role: 封测龙头-主板可交易
+  - code: '688981'
+    name: 中芯国际
+    role: 晶圆代工-不可交易-科创板
+  - code: '300661'
+    name: 圣邦股份
+    role: 模拟芯片-不可交易-创业板
+  tags:
+  - 超跌反弹
+  - 半导体设备
+  - 封测
+  - 晶圆厂
+  - 长鑫链

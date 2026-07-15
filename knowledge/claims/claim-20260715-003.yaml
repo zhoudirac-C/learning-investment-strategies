@@ -22,6 +22,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-15
   links:
     wiki_pages: []
     methodology_pages: []
@@ -51,6 +53,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260621-006-l"]
+  last_discovered: 2026-07-15
   links:
     wiki_pages: []
     methodology_pages: []
@@ -82,6 +86,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260621-006-o", "claim-20260715-032-a"]
+  last_discovered: 2026-07-15
   links:
     wiki_pages: []
     methodology_pages: []
@@ -111,6 +117,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260715-041-a", "claim-20260715-029-a", "claim-20260629-001-ab"]
+  last_discovered: 2026-07-15
   links:
     wiki_pages: []
     methodology_pages: []
@@ -140,6 +148,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260630-002-d"]
+  last_discovered: 2026-07-15
   links:
     wiki_pages: []
     methodology_pages: []
@@ -167,8 +177,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260714-003-h", "claim-20260714-003-f", "claim-20260714-003-g"]
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-15
   links:
     wiki_pages: []
     methodology_pages: []
@@ -197,6 +209,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260612-002-e", "claim-20260706-002-j"]
+  last_discovered: 2026-07-15
   links:
     wiki_pages: []
     methodology_pages: []
@@ -224,7 +238,9 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260630-001-j"]
+  supplements: []
+  last_discovered: 2026-07-15
   links:
     wiki_pages: []
     methodology_pages: []
@@ -251,8 +267,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260710-002-b"]
   contradicts: []
+  supplements: ["claim-20260714-001-af"]
+  last_discovered: 2026-07-15
   links:
     wiki_pages: []
     methodology_pages: []
