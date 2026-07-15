@@ -1,0 +1,93 @@
+claims:
+- id: claim-20260715-026-a
+  source_path: sources/original/bilibili/2026-07-15-1032-图片-彭博消息显示，特朗普政府出口管制官员在国会听证会上确认，仅有.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T11:51:26+08:00'
+  claim_type: catalyst
+  subject: 英伟达H200对华出口管制
+  timeframe: short-term
+  statement: 特朗普政府出口管制官员确认仅有少量英伟达H200芯片获批运往中国，新增获许可企业为中兴康讯（中兴通讯(000063)子公司）、服务器厂商Maginfra及金山软件旗下横琴云享智胜，新一代Blackwell系列仍维持全面禁运。
+  evidence_quote: 彭博消息显示，特朗普政府出口管制官员在国会听证会上确认，仅有少量英伟达H200芯片获批运往中国，美方官员反复强调出货规模微不足道，不会冲击自身技术安全底线。本次拿到采购许可的新增企业共三家，中兴康讯、服务器厂商Maginfra可采购英伟达H200，金山软件旗下横琴云享智胜则获准采购AMD对标级AI芯片，所有交易均需通过美国严格终端审查，新一代Blackwell系列芯片依旧维持全面禁运。
+  interpretation: 本次听证会对华AI芯片出口管制口径没有放松，Blackwell全面禁运维持，H200仅象征性放行少量，且新增获许可企业数量与规模均有限，对整体供给格局影响有限。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: H200少量放行Blackwell仍禁运
+  related_stocks:
+  - code: '000063'
+    name: 中兴通讯
+    role: 中兴康讯母公司-主板可交易
+  - code: '03888'
+    name: 金山软件
+    role: 横琴云享智胜母公司-港股可交易
+  tags:
+  - 英伟达H200
+  - 出口管制
+  - Blackwell
+  - 中兴通讯
+  - 金山软件
+- id: claim-20260715-027-a
+  source_path: sources/original/bilibili/2026-07-15-1032-图片-彭博消息显示，特朗普政府出口管制官员在国会听证会上确认，仅有.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T11:51:26+08:00'
+  claim_type: sector-theme
+  subject: 国产高端算力供给
+  timeframe: short-term
+  statement: H200少量放行只是商业利益与技术遏制间的折中，只能小幅缓解部分企业短期算力需求，无法改变国内高端算力供给不足的现状。
+  evidence_quote: 此次有限放行只是美国在商业利益与技术遏制间的折中操作，少量芯片只能小幅缓解部分企业短期算力需求，无法改变国内高端算力供给不足的现状。
+  interpretation: 短期情绪上可能被视为边际缓和，但供给缺口本质未改，国内AI算力仍受制于海外先进制程芯片管控，算力紧张格局延续。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: H200放行难解算力供给缺口
+  related_stocks: []
+  tags:
+  - 国产算力
+  - H200
+  - 供给缺口
+  - AI芯片
+- id: claim-20260715-028-a
+  source_path: sources/original/bilibili/2026-07-15-1032-图片-彭博消息显示，特朗普政府出口管制官员在国会听证会上确认，仅有.md
+  source_date: '2026-07-15'
+  source_type: 动态
+  extracted_at: '2026-07-15T11:51:26+08:00'
+  claim_type: sector-theme
+  subject: 本土AI芯片自主化
+  timeframe: trend
+  statement: 海外芯片采购成本与不确定性持续抬升，国内加速昇腾、寒武纪(688256)等本土AI芯片自主化建设仍是产业发展核心主线。
+  evidence_quote: 长期来看，严苛的数量、用途管控持续抬高海外芯片采购成本与不确定性，国内加速昇腾、寒武纪等本土AI芯片自主化建设，仍是产业发展核心主线。
+  interpretation: 美国管制越严，国产替代逻辑越强化，本土AI芯片产业链（设计、制造、封测、设备材料）的长期战略价值进一步凸显。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国产AI芯片自主化主线强化
+  related_stocks:
+  - code: '688256'
+    name: 寒武纪
+    role: AI芯片设计-科创板不可交易
+  tags:
+  - 国产替代
+  - AI芯片
+  - 昇腾
+  - 寒武纪
+  - 自主可控

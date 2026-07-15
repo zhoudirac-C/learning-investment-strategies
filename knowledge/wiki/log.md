@@ -1,5 +1,20 @@
 # 操作日志
 
+## 2026-07-15 | qing-learning ingest | 7/15 10:32 动态：英伟达H200有限放行与国产AI芯片主线
+
+- 处理 raw：
+  - `sources/original/bilibili/2026-07-15-1032-图片-彭博消息显示，特朗普政府出口管制官员在国会听证会上确认，仅有.md`
+- 新增 claims：`claim-20260715-002.yaml`（3 条：catalyst×1, sector-theme×2）
+- 核心观点：
+  - 特朗普政府出口管制官员确认，仅有少量英伟达H200芯片获批运往中国；新增获许可企业为中兴康讯（中兴通讯(000063)子公司）、服务器厂商Maginfra及金山软件(03888)旗下横琴云享智胜；新一代Blackwell系列仍维持全面禁运
+  - H200少量放行只是商业利益与技术遏制间的折中，只能小幅缓解部分企业短期算力需求，无法改变国内高端算力供给不足的现状
+  - 海外芯片采购成本与不确定性持续抬升，国内加速昇腾、寒武纪(688256)等本土AI芯片自主化建设仍是产业发展核心主线
+- 修复问题：
+  - `gate_validate_claims.py` NON_COMPANY 集扩展（10:32 动态假阳性：量与规模均有限、给格局影响有限）
+- 更新 wiki：新增 `knowledge/wiki/每日复盘/2026-07-15.md`
+- 更新索引：`knowledge/claims/index.md`、`knowledge/wiki/index.md`
+- 引用 claim IDs：`claim-20260715-026-a` 至 `claim-20260715-028-a`
+
 ## 2026-07-15 | qing-learning ingest | 7/15 09:03 早盘动态：CPI落地、油价美元与情景A/B
 
 - 处理 raw：
