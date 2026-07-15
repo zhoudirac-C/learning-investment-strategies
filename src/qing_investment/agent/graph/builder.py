@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+from langgraph.constants import Send
 from langgraph.graph import END, StateGraph
 
 logger = logging.getLogger(__name__)
@@ -10,11 +11,13 @@ from .nodes import (
     citation_validator,
     devils_advocate,
     market_summary,
+    merge_scanner_results,
     parse_query,
     retrieve_knowledge,
     reviewer,
+    shard_router,
     stock_analyst,
-    stock_scanner,
+    stock_scanner_shard,
     style_writer,
     synthesize,
 )
@@ -22,14 +25,18 @@ from .state import AgentState
 
 
 def build_graph():
-    logger.info("[build_graph] starting with %d nodes", 10)
-    logger.info("[build_graph] topology: parse_query → retrieve_knowledge → market_summary → stock_scanner + stock_analyst → devils_advocate → synthesize → style_writer → citation_validator → reviewer → END")
+    logger.info("[build_graph] starting with %d nodes", 12)
+    logger.info("[build_graph] topology: parse_query → retrieve_knowledge → (market_summary → shard_router → [stock_scanner_shard] → merge_scanner_results) + stock_analyst → devils_advocate → synthesize → style_writer → citation_validator → reviewer → END")
     builder = StateGraph(AgentState)
 
     builder.add_node("parse_query", parse_query)
     builder.add_node("retrieve_knowledge", retrieve_knowledge)
     builder.add_node("market_summary", market_summary)
-    builder.add_node("stock_scanner", stock_scanner)
+    # shard_router 作为无状态路由节点：节点本身不修改 state，
+    # 条件边负责把 market_summary 后的状态 fan-out 到并行 stock_scanner_shard。
+    builder.add_node("shard_router", lambda state: {})
+    builder.add_node("stock_scanner_shard", stock_scanner_shard)
+    builder.add_node("merge_scanner_results", merge_scanner_results)
     builder.add_node("stock_analyst", stock_analyst)
     builder.add_node("devils_advocate", devils_advocate)
     builder.add_node("synthesize", synthesize)
@@ -41,8 +48,17 @@ def build_graph():
     builder.add_edge("parse_query", "retrieve_knowledge")
     builder.add_edge("retrieve_knowledge", "market_summary")
     builder.add_edge("retrieve_knowledge", "stock_analyst")
-    builder.add_edge("market_summary", "stock_scanner")
-    builder.add_edge("stock_scanner", "devils_advocate")
+
+    # market_summary 后内部分片并行扫描
+    builder.add_edge("market_summary", "shard_router")
+    builder.add_conditional_edges(
+        "shard_router",
+        shard_router,
+        ["stock_scanner_shard"],
+    )
+    builder.add_edge("stock_scanner_shard", "merge_scanner_results")
+    builder.add_edge("merge_scanner_results", "devils_advocate")
+
     builder.add_edge("stock_analyst", "devils_advocate")
     # devil's advocate 完成后 → synthesize
     builder.add_edge("devils_advocate", "synthesize")

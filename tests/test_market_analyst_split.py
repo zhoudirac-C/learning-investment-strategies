@@ -58,7 +58,9 @@ def test_graph_has_new_nodes():
 
     g = build_graph()
     assert "market_summary" in g.nodes
-    assert "stock_scanner" in g.nodes
+    assert "shard_router" in g.nodes
+    assert "stock_scanner_shard" in g.nodes
+    assert "merge_scanner_results" in g.nodes
     assert "market_analyst" not in g.nodes
 
 
@@ -80,9 +82,17 @@ def test_market_summary_prompt_length():
     assert captured["prompt_len"] < 64000, f"prompt too long: {captured['prompt_len']}"
 
 
-def test_stock_scanner_prompt_length():
-    from qing_investment.agent.graph.nodes import stock_scanner
+def _run_stock_scanner_shard(state):
+    """调用分片版 scanner 并返回第一个分片结果（兼容旧测试的返回形状）。"""
+    from qing_investment.agent.graph.nodes import stock_scanner_shard
 
+    shard_result = stock_scanner_shard(state)
+    results = shard_result.get("stock_scanner_results", [])
+    assert results, "stock_scanner_shard returned no results"
+    return results[0]
+
+
+def test_stock_scanner_prompt_length():
     data = _load_sample()
     state = _build_state(data)
     state["market_summary_context"] = {
@@ -105,7 +115,7 @@ def test_stock_scanner_prompt_length():
         return json.dumps({"opportunity_scan": [], "position_plans": []})
 
     with patch("qing_investment.agent.graph.nodes._safe_llm_invoke", fake_invoke):
-        result = stock_scanner(state)
+        result = _run_stock_scanner_shard(state)
 
     assert "market_context" in result
     assert captured["prompt_len"] < 64000, f"prompt too long: {captured['prompt_len']}"
@@ -134,8 +144,6 @@ def test_stock_scanner_prompt_length():
 
 def test_stock_scanner_returns_degraded_context_on_bad_llm_output():
     """LLM 输出不可解析或为空时，仍返回结构化 fallback 并标记 _scan_failed。"""
-    from qing_investment.agent.graph.nodes import stock_scanner
-
     data = _load_sample()
     state = _build_state(data)
     state["market_summary_context"] = {
@@ -156,7 +164,7 @@ def test_stock_scanner_returns_degraded_context_on_bad_llm_output():
         "qing_investment.agent.graph.nodes._safe_llm_invoke",
         lambda prompt, min_length=0: "this is not { valid json",
     ):
-        result = stock_scanner(state)
+        result = _run_stock_scanner_shard(state)
 
     ctx = result["market_context"]
     assert ctx.get("_scan_failed") is True
@@ -171,8 +179,6 @@ def test_stock_scanner_returns_degraded_context_on_bad_llm_output():
 
 def test_stock_scanner_truncation_regression(monkeypatch):
     """超大 market_summary_context + watchlist 下，prompt 必须 < 64KB 且始终返回 market_context。"""
-    from qing_investment.agent.graph.nodes import stock_scanner
-
     data = _load_sample()
     state = _build_state(data)
     big_block = "x" * 2000
@@ -214,7 +220,7 @@ def test_stock_scanner_truncation_regression(monkeypatch):
         "qing_investment.agent.graph.nodes._safe_llm_invoke", fake_invoke
     )
 
-    result = stock_scanner(state)
+    result = _run_stock_scanner_shard(state)
 
     assert "market_context" in result
     assert captured["prompt_bytes"] < 64000, (
@@ -227,8 +233,6 @@ def test_stock_scanner_truncation_regression(monkeypatch):
 
 def test_stock_scanner_keeps_secid_only_quote(monkeypatch):
     """持仓个股行情若只有 East Money secid，也应被保留，不能误过滤。"""
-    from qing_investment.agent.graph.nodes import stock_scanner
-
     data = _load_sample()
     state = _build_state(data)
     state["market_summary_context"] = {
@@ -262,7 +266,7 @@ def test_stock_scanner_keeps_secid_only_quote(monkeypatch):
         "qing_investment.agent.graph.nodes._safe_llm_invoke", fake_invoke
     )
 
-    result = stock_scanner(state)
+    result = _run_stock_scanner_shard(state)
 
     assert "market_context" in result
     assert captured.get("prompt")

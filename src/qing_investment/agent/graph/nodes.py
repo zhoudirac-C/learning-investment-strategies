@@ -2329,19 +2329,6 @@ def merge_scanner_results(state: AgentState) -> AgentState:
     }
 
 
-def stock_scanner(state: AgentState) -> AgentState:
-    """个股扫描节点：保持对旧图拓扑的兼容，调用分片版并展开结果。"""
-    shard_result = stock_scanner_shard(state)
-    results = shard_result.get("stock_scanner_results", [])
-    if results:
-        return results[0]
-    return {
-        "market_context": {},
-        "reasoning_steps": ["个股扫描: 无结果返回"],
-        "cost_tracking": [{"llm_calls": 0, "total_cost_usd": "0"}],
-    }
-
-
 def _get_stock_name(stock_code: str, market_snapshot: dict, watchlist: list[dict]) -> str:
     """从行情快照或观察池中提取股票名称。"""
     for q in market_snapshot.get("quotes", []):
