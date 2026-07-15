@@ -116,6 +116,7 @@ def shard_watchlist(
     watchlist: dict | list | None,
     positions: dict | list | None,
     max_items: int = 8,
+    core_only: bool = False,
 ) -> list[WatchlistShard]:
     """把 watchlist 拆分为 priority shard + theme-based shards。
 
@@ -123,6 +124,7 @@ def shard_watchlist(
         watchlist: 观察池，支持 {themes: [...]} / {stocks: [...]} / list
         positions: 持仓，支持 {accounts: [{positions}]} / list
         max_items: 每个非优先 shard 最多包含多少只股票
+        core_only: 为 True 时仅保留 P1 标的与持仓股（核心池）
 
     Returns:
         WatchlistShard 列表。第一个 shard 是 priority（P1+持仓），
@@ -140,6 +142,14 @@ def shard_watchlist(
             continue
         seen.add(code)
         unique_items.append(item)
+
+    if core_only:
+        unique_items = [
+            item
+            for item in unique_items
+            if _pure_code(item.get("code", "")) in position_codes
+            or str(item.get("priority", "")).strip().startswith("P1")
+        ]
 
     priority_items: list[dict] = []
     other_items: list[dict] = []

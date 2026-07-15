@@ -4,9 +4,12 @@ import asyncio
 import copy
 import json
 import logging
+import os
 import re
 import time
 from datetime import datetime, timezone, timedelta
+
+from langgraph.constants import Send
 from pathlib import Path
 
 import numpy as np
@@ -77,6 +80,46 @@ def _load_analysis_framework() -> str:
     if path.exists():
         return path.read_text(encoding="utf-8")
     return "[market_analysis_framework.txt not found]"
+
+
+def shard_router(state: AgentState) -> list[Send]:
+    """根据 watchlist 生成分片，并 fan-out 到多个 stock_scanner_shard 节点。
+
+    当 shard_size <= 0 或 watchlist 很小时，返回单个 shard（复用现有逻辑，不走外部分片）。
+    """
+    from qing_investment.agent.tools.watchlist_sharder import (
+        shard_watchlist,
+        shard_to_context,
+    )
+
+    watchlist = _normalize_watchlist(state.get("watchlist"))
+    positions = _normalize_positions(state.get("positions"))
+
+    # 兼容旧的外部分片请求：如果调用方已经传了 watchlist_shard，直接用它
+    existing_shard = state.get("watchlist_shard")
+    if existing_shard:
+        return [Send("stock_scanner_shard", {"watchlist_shard": existing_shard})]
+
+    shard_size = state.get("shard_size") or int(
+        os.environ.get("WATCHLIST_SHARD_SIZE", "8")
+    )
+    core_only = state.get("core_only", False)
+
+    shards = shard_watchlist(
+        watchlist,
+        positions,
+        max_items=shard_size,
+        core_only=core_only,
+    )
+
+    if not shards:
+        # 没有可分析标的时仍跑一个空 shard，保证下游节点有 market_context
+        return [Send("stock_scanner_shard", {"watchlist_shard": None})]
+
+    return [
+        Send("stock_scanner_shard", {"watchlist_shard": shard_to_context(s)})
+        for s in shards
+    ]
 
 
 def _load_few_shot_examples(query: str, max_examples: int = 3) -> list[str]:
