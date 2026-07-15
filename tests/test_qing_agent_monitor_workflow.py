@@ -337,3 +337,88 @@ def test_qing_agent_full_workflow_from_monitor_context(monkeypatch, tmp_path):
 
     # 验证多个节点确实调用了 LLM
     assert len(fake_llm.calls) >= 5
+
+
+def test_qing_agent_internal_sharding(monkeypatch, tmp_path):
+    """验证 watchlist 超过 shard_size 时，graph 内部走分片并行扫描。"""
+    monkeypatch.setenv("QING_AGENT_MOCK_QUOTES", "1")
+    monkeypatch.setenv("QING_AGENT_IGNORE_TRADING_TIME", "1")
+    monkeypatch.setenv("KIMI_CODE_ACP_FIRST", "0")
+    monkeypatch.setenv("KIMI_CODE_CLI_FIRST", "0")
+
+    config = make_mock_monitor_config()
+    # 扩展观察池到 3 只，shard_size=1 强制分片
+    config.watchlist["themes"].append({
+        "id": "other",
+        "name": "其他",
+        "stocks": [
+            {"code": "000002.SZ", "name": "万科A", "watch_reason": "测试"},
+            {"code": "000063.SZ", "name": "中兴通讯", "watch_reason": "测试"},
+        ],
+    })
+
+    agent_json_text = run_tick(
+        config,
+        datetime(2026, 5, 22, 10, 30, tzinfo=CN_TZ),
+        emit_status=False,
+        ignore_trading_time=False,
+        agent_json_context=True,
+        state_path=tmp_path / "state.json",
+    )
+    assert agent_json_text
+    agent_json = json.loads(agent_json_text)
+
+    query = agent_json["trigger"]["title"] + "：" + agent_json["trigger"]["reason"]
+    state = _build_agent_state(agent_json, query)
+    state["shard_size"] = 1
+    state["core_only"] = False
+
+    async def fake_retrieve_knowledge(state_in: dict) -> dict:
+        return {
+            "claims": [],
+            "wiki_snippets": [],
+            "knowledge_graph": {},
+            "memories": [],
+            "few_shot_examples": [],
+        }
+
+    monkeypatch.setattr(
+        "qing_investment.agent.graph.nodes.retrieve_knowledge", fake_retrieve_knowledge
+    )
+    import qing_investment.agent.graph.builder as builder_module
+    monkeypatch.setattr(builder_module, "retrieve_knowledge", fake_retrieve_knowledge)
+
+    fake_llm = _FakeLangChainLLM()
+    monkeypatch.setattr(
+        "qing_investment.agent.tools.llm_client.get_llm_client",
+        lambda provider=None: fake_llm,
+    )
+    import qing_investment.agent.graph.nodes as nodes_module
+    monkeypatch.setattr(nodes_module, "get_llm_client", lambda provider=None: fake_llm)
+
+    import qing_investment.agent.agents.devils_advocate as da_module
+
+    class _FakeDevilsAdvocateResult:
+        findings = [{"target": "mock", "point": "mock finding"}]
+        errors = []
+        cost_usd = 0.0
+
+    class _FakeDevilsAdvocateAgent:
+        def __init__(self, llm=None):
+            pass
+
+        async def run(self, **kwargs):
+            return _FakeDevilsAdvocateResult()
+
+    monkeypatch.setattr(da_module, "DevilsAdvocateAgent", _FakeDevilsAdvocateAgent)
+
+    import asyncio
+    from qing_investment.agent.graph.builder import build_graph
+
+    graph = build_graph()
+    result = asyncio.run(graph.ainvoke(state))
+
+    assert result["final_output"]
+    assert result.get("review_passed") is True
+    # 至少调用了 market_summary + 多个 stock_scanner_shard + style + reviewer
+    assert len(fake_llm.calls) >= 5
