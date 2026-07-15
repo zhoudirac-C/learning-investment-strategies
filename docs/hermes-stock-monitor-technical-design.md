@@ -500,6 +500,7 @@ Current implementation status:
 
 `hermes_stock_monitor_agent.py` now wraps the Qing-Agent call:
 
+- 只调用一次 `/analyze/trigger`，将 `WATCHLIST_SHARD_SIZE` / `WATCHLIST_CORE_ONLY` 通过 `TriggerRequest.shard_size` / `TriggerRequest.core_only` 传入 Agent；具体的 watchlist 分片与并行扫描由 Qing-Agent LangGraph 内部完成。
 - If `final_output` contains `"2025"` (current year is 2026) → mark **HALLUCINATION**
 - Discard hallucinated output → fallback to local LLM with real-time data injected
 - Fallback output quality is lower (no reasoning pattern matching) but data is correct

@@ -1,8 +1,8 @@
 # Qing-Agent 技术设计文档
 
-> 版本: 2026-06-27 (v4.1)
-> 对应 Commit: `88e0753` 及当前工作区
-> 最后更新：新增本地 Kimi Code CLI 优先调用与 reviewer 重试计数修复；旧版 `v3` 已归档至 `docs/archived/qing-agent-technical-design-v3-20260612.md`
+> 版本: 2026-07-15 (v4.2)
+> 对应 Commit: `34f3126` 及当前工作区
+> 最后更新：watchlist 分片从外部 cron 移入 LangGraph 内部，新增 `shard_router`、`stock_scanner_shard`、`merge_scanner_results`；旧版 `v3` 已归档至 `docs/archived/qing-agent-technical-design-v3-20260612.md`
 
 ---
 
@@ -30,7 +30,7 @@ src/qing_investment/agent/
 │   ├── builder.py           # LangGraph 图构建
 │   ├── state.py             # AgentState TypedDict + reducer
 │   ├── edges.py             # review_router 条件边
-│   └── nodes.py             # 9 个图节点实现
+│   └── nodes.py             # 12 个图节点实现（含并行扫描分片节点）
 ├── agents/
 │   ├── market_analyst.py    # 独立 market_analyst Agent 实现（备用）
 │   ├── stock_analyst.py     # 独立 stock_analyst Agent 实现（备用）
@@ -64,7 +64,7 @@ src/qing_investment/agent/
 
 ### 3.1 LangGraph 工作流
 
-Qing-Agent 基于 **LangGraph** 构建有向图，共 **9 个节点 + 1 条条件边**。
+Qing-Agent 基于 **LangGraph** 构建有向图，共 **12 个节点 + 2 条条件边**（`shard_router` 在 `market_summary` 后 fan-out 到并行 `stock_scanner_shard`，`review_router` 在 `reviewer` 后决定是否放行或重试）。
 
 ```plantuml
 @startuml
@@ -82,7 +82,7 @@ skinparam folderBackgroundColor #FFFFFF
 skinparam noteBackgroundColor #FFFDE7
 skinparam noteBorderColor #FBC02D
 
-title Qing-Agent 架构图 v4 — 9 节点 LangGraph 工作流
+title Qing-Agent 架构图 v4.2 — 12 节点 LangGraph 工作流（含 watchlist 内部分片）
 
 ' ==================== 左侧：离线层 ====================
 package "基础设施" #ECEFF1 {
@@ -161,7 +161,10 @@ package "③ 检索层" #F3E5F5 {
 }
 
 package "④ 分析层" #E8F5E9 {
-    [market_analyst] as Market
+    [market_summary] as Market
+    [shard_router] as ShardRouter
+    [stock_scanner_shard] as ScannerShard
+    [merge_scanner_results] as MergeScanner
     [stock_analyst] as Stock
     [devils_advocate] as DA
 
@@ -171,7 +174,27 @@ package "④ 分析层" #E8F5E9 {
       + 11项分析框架片段
       + ONNX Embedding → LLM rerank
       + 数据缺失降级
-      + 写入 daily_state
+      + 输出 market_summary_context
+    end note
+
+    note right of ShardRouter
+      graph/nodes.py
+      按 theme / priority 拆分 watchlist
+      通过 Send fan-out 到 stock_scanner_shard
+    end note
+
+    note right of ScannerShard
+      graph/nodes.py
+      个股扫描（分片版）
+      每个 shard 只分析本批次标的
+      返回 stock_scanner_results
+    end note
+
+    note right of MergeScanner
+      graph/nodes.py
+      合并所有 shard 的
+      opportunity_scan / position_plans
+      统一写入 daily_state
     end note
 
     note right of Stock
@@ -255,7 +278,10 @@ Freshness --> Conflicts
 Retrieve --> Market
 Retrieve --> Stock
 
-Market --> DA
+Market --> ShardRouter
+ShardRouter --> ScannerShard : Send
+ScannerShard --> MergeScanner
+MergeScanner --> DA
 Stock --> DA
 
 DA --> Synth
@@ -308,13 +334,16 @@ endlegend
 parse_query
     │
     ▼
-retrieve_knowledge ─────┐
-    │                    │
-    ▼                    │
-market_analyst           │
-    │                    │
-    ▼                    │
-devils_advocate ◄────────┘
+retrieve_knowledge ───────────────────┐
+    │                                  │
+    ▼                                  │
+market_summary                        │
+    │                                  │
+    ▼                                  │
+shard_router ──Send──▶ [stock_scanner_shard] ──▶ merge_scanner_results
+    │                                  │
+    ▼                                  │
+devils_advocate ◄────────────────────┘
     │
     ▼
 synthesize
@@ -335,8 +364,10 @@ style_writer (最多 3 次 retry)
 ```
 
 **说明**：
-- `market_analyst` 与 `stock_analyst` 从 `retrieve_knowledge` 并行出发，二者完成后共同进入 `devils_advocate`。
-- `stock_analyst` 仅在 `analysis_type == "stock"` 时输出有效个股分析；市场/持仓复盘时该节点返回空，不阻塞后续流程。
+- `retrieve_knowledge` 与 `market_summary` 每个触发只执行一次。
+- `market_summary` 后由 `shard_router` 按 theme/priority 拆分 watchlist，通过 `Send` fan-out 到多个并行的 `stock_scanner_shard`。
+- `merge_scanner_results` 把所有 shard 的 `opportunity_scan` / `position_plans` 合并为单一 `market_context`，并统一持久化 `daily_state`。
+- `stock_analyst` 与 `merge_scanner_results` 完成后共同进入 `devils_advocate`；`stock_analyst` 仅在 `analysis_type == "stock"` 时输出有效个股分析。
 - `reviewer` 失败后回写 `review_notes` 到 `style_writer`，最多重试 3 次，超过强制放行。
 
 ### 3.2 两个入口的差异
@@ -344,11 +375,11 @@ style_writer (最多 3 次 retry)
 | 维度 | `POST /analyze/trigger` | `POST /chat` |
 |---|---|---|
 | 调用方 | Bridge/Hermes cron 任务 | 用户直接对话 |
-| 是否走 LangGraph | ✅ 走完整 9 节点图 | ❌ 独立检索→LLM 流程 |
+| 是否走 LangGraph | ✅ 走完整 12 节点图（含并行 stock_scanner_shard） | ❌ 独立检索→LLM 流程 |
 | 输入来源 | 结构化 `TriggerRequest`（market_snapshot、positions、watchlist、external_sector_boards 等） | 自然语言 query |
 | 记忆检索 | 不查 mem0 | 查 mem0 + Neo4j 图遍历 |
 | 实时数据 | 外部传入 `market_snapshot` / `external_sector_boards` | Agent 自行实时获取 |
-| 写入 daily_state | ✅ `market_analyst` 写入 | ❌ 不写入 |
+| 写入 daily_state | ✅ `market_summary` 写市场阶段，`merge_scanner_results` 写机会/持仓计划 | ❌ 不写入 |
 | 输出 | `TriggerResponse`（final_output、claims_cited、cost_info 等） | `ChatResponse`（reply） |
 | 降级路径 | Qing-Agent 离线 → 纯文本 LLM fallback | 无降级，直接报错 |
 
@@ -385,8 +416,16 @@ class AgentState(TypedDict, total=False):
     stock_contexts: list[dict]
     direction_signals: dict
 
+    # 分片控制（v4.2 新增）
+    watchlist_shard: dict | None   # 当前批次需要分析的标的子集
+    shard_size: int                # watchlist 内部分片大小，0 表示不分片
+    core_only: bool                # True 时只分析 priority shard（P1+持仓）
+    stock_scanner_results: Annotated[list[dict], operator.add]
+                                   # 并行 stock_scanner_shard 结果累加器
+
     # 分析层
-    market_context: dict           # market_analyst JSON 输出
+    market_context: dict           # 最终合并后的市场/个股分析上下文
+    market_summary_context: dict | None  # market_summary 输出的精简市场背景
     stock_analysis: dict           # stock_analyst JSON 输出
     devils_advocate_findings: list[dict]
     draft_analysis: str
@@ -402,10 +441,10 @@ class AgentState(TypedDict, total=False):
     data_sources: list[str]
     confidence: str
     review_passed: bool
-    reasoning_steps: list[str]
+    reasoning_steps: Annotated[list[str], _merge_reasoning]
 
     # 成本与内部控制
-    cost_tracking: list[dict]
+    cost_tracking: Annotated[list[dict], _merge_cost_tracking]
     _retry_count: int
     _data_missing_note: str
 ```
@@ -438,11 +477,11 @@ class AgentState(TypedDict, total=False):
   - `_apply_intensity_weight`：个股查询过滤 low intensity claims。
   - `_detect_claim_conflicts`：检测同一 subject 下方向相反的 claims。
 
-### 5.3 market_analyst
+### 5.3 market_summary
 
-- **位置**：`graph/nodes.py:1183`
+- **位置**：`graph/nodes.py`
 - **输入**：`market_snapshot`、`external_sector_boards`、`claims`、`wiki_snippets`、`watchlist`、`positions`、`sector_context` 等
-- **输出**：`market_context`
+- **输出**：`market_summary_context`
 - **关键逻辑**：
   1. **数据可用性守卫**：`market`/`portfolio` 分析且实时数据缺失时，注入 `_data_missing_note` 降级说明，不再拒绝分析。
   2. **行情截断**：`quotes > 50` 时只保留指数 + 持仓/观察池 + 涨跌幅 TOP15。
@@ -451,8 +490,44 @@ class AgentState(TypedDict, total=False):
   5. **推理模式匹配**：从 `framework/reasoning-patterns.yaml` 中匹配主题，ONNX Embedding 召回 Top 5 → LLM rerank Top 1-3。
   6. **Watchlist 优先级分组**：主板标的进入 `watchlist_summary`（可交易，P1-P3）；创业板/科创板（300/688）自动归为 P4-锚点，仅作情绪参考。
   7. **技术指标注入**：多级别 MACD、神奇九转、斐波那契时间分析报告。
-  8. **Daily State 持久化**：写入 `config/stock_monitor/daily_state.json`。
-  9. **强制 JSON 输出**，包含 `market_summary`、`market_phase`、`sector_map`、`index_discipline`、`position_plans`、`risk_notes` 等字段。
+  8. **强制 JSON 输出**，包含 `market_summary`、`market_phase`、`sector_map`、`index_discipline`、`risk_notes` 等字段。
+  9. **不再直接写入个股 daily_state**：个股相关的 `opportunity_scan` / `position_plans` 留给下游 `stock_scanner_shard` → `merge_scanner_results` 统一生成并持久化。
+
+### 5.3.1 shard_router
+
+- **位置**：`graph/nodes.py`
+- **输入**：`watchlist`、`positions`、`shard_size`、`core_only`、`watchlist_shard`
+- **输出**：`list[Send]`，每个 `Send("stock_scanner_shard", {"watchlist_shard": ...})`
+- **关键逻辑**：
+  1. 若调用方已传入 `watchlist_shard`，直接返回单个 Send（兼容旧外部分片请求）。
+  2. 否则调用 `watchlist_sharder.shard_watchlist(..., max_items=shard_size, core_only=core_only)` 生成分片。
+  3. 当 `shard_size <= 0` 或 watchlist 很小时，返回单个包含全部标的的 shard，不走外部分片。
+  4. 没有可分析标的时仍返回一个空 shard，保证下游节点有 `market_context`。
+
+### 5.3.2 stock_scanner_shard
+
+- **位置**：`graph/nodes.py`
+- **输入**：`market_summary_context`、`watchlist_shard`、`market_snapshot`、`positions`、`stock_contexts`
+- **输出**：`{"stock_scanner_results": [{"market_context": ..., "reasoning_steps": ..., "cost_tracking": ..., "daily_state_override": ...}]}`
+- **关键逻辑**：
+  1. 从 `state["watchlist_shard"]` 读取本批次标的，仅把这些 code 相关的 `watchlist_summary`、`reference_stocks`、`positions`、`stock_contexts`、`quotes` 传入 prompt。
+  2. prompt 模板中的 `{shard_name}` / `{shard_items}` 替换为当前批次信息。
+  3. LLM 返回 JSON，解析出 `opportunity_scan` / `position_plans`。
+  4. 返回结果使用 `Annotated[list[dict], operator.add]`，多个并行节点的结果会自动累加到 `stock_scanner_results`。
+  5. 提取 `daily_state` 代码块但不单独持久化，避免多并行节点写冲突。
+  6. 保留 prompt 超长截断保护：超过 `_MAX_STOCK_SCANNER_PROMPT_BYTES` 时先 truncate，仍超过则返回降级结果并标记 `_truncated` / `_scan_failed`。
+
+### 5.3.3 merge_scanner_results
+
+- **位置**：`graph/nodes.py`
+- **输入**：`stock_scanner_results`、`market_summary_context`、`trigger`、`parsed_intent`
+- **输出**：`{"market_context": merged, "reasoning_steps": [...], "cost_tracking": [...], "stock_scanner_results": []}`
+- **关键逻辑**：
+  1. 遍历所有 shard 结果，合并 `opportunity_scan` 与 `position_plans`。
+  2. 继承任意 shard 的 `_truncated` / `_scan_failed` 标记。
+  3. 汇总所有 shard 的 `reasoning_steps` 与 `cost_tracking`。
+  4. 调用 `_persist_daily_state_from_market_context` 统一写入 `daily_state`，source_tag 为 `stock_scanner:{analysis_type}`。
+  5. 返回后清空 `stock_scanner_results`，避免旧数据影响后续触发。
 
 ### 5.4 stock_analyst
 
@@ -463,8 +538,8 @@ class AgentState(TypedDict, total=False):
 
 ### 5.5 devils_advocate
 
-- **位置**：`graph/nodes.py:1660`
-- **输入**：`market_context`、`stock_analysis`、`claims_cited`
+- **位置**：`graph/nodes.py`
+- **输入**：`market_context`（由 `merge_scanner_results` 合并后的市场/个股上下文）、`stock_analysis`、`claims_cited`
 - **输出**：`devils_advocate_findings`
 - **逻辑**：实例化 `DevilsAdvocateAgent`，强制使用 Kimi 模型家族对 market + stock 结论做反向质疑；无分析内容时跳过。
 
@@ -541,7 +616,7 @@ Qing-Agent 的图节点通过 `tools/llm_client.py` 统一调用大模型。为�
 ### 6.4 注意事项
 
 - `devils_advocate` 节点按设计仍通过 `DevilsAdvocateAgent` 直接注入 Kimi API，未接入本地 ACP 降级；当前若 Kimi API 认证失败会返回空 findings。
-- 大 prompt（如 `market_analyst`，约 40k token）在本地 ACP 上可能超时，会自动 fallback 到 `deepseek`。
+- 大 prompt（如 `market_summary`，约 40k token）在本地 ACP 上可能超时，会自动 fallback 到 `deepseek`。
 
 ---
 
@@ -583,13 +658,13 @@ Qing-Agent 的图节点通过 `tools/llm_client.py` 统一调用大模型。为�
 
 | 层级 | 实现 | 说明 |
 |---|---|---|
-| 数据源可用性 | `market_analyst` 数据缺失降级 | 实时数据不可用时明确标注，基于知识库继续 |
+| 数据源可用性 | `market_summary` 数据缺失降级 | 实时数据不可用时明确标注，基于知识库继续 |
 | Claims 时效过滤 | `claim_freshness.py` | >90 天/superseded 过滤，31-90 天降权 |
 | 矛盾检测 | `_detect_claim_conflicts` | 同一 subject 下方向相反 claims 告警 |
 | 引用校验 | `citation_validator.py` | 数字/事实声明要求来源标注，覆盖率阈值 60% |
 | 输出审核 | `reviewer` | 禁用词检测、语义审查、引用复核 |
 | 反向质疑 | `DevilsAdvocateAgent` | 强制不同模型家族对结论挑错 |
-| 行情截断 | `market_analyst` | quotes 超 50 只时截断，减少 token 与幻觉 |
+| 行情截断 | `market_summary` | quotes 超 50 只时截断，减少 token 与幻觉 |
 
 > ** reviewer 局限性**：不做数值事实核查（价格、涨跌幅正确性由 Hermes 采集层保证），不交叉验证外部新闻真实性。
 
@@ -599,9 +674,10 @@ Qing-Agent 的图节点通过 `tools/llm_client.py` 统一调用大模型。为�
 
 | Prompt 文件 | 用途 | 关键占位符 |
 |---|---|---|
-| `market_analyst.txt` | 市场/板块分析 | `{market_snapshot}`、`{analysis_framework}`、`{watchlist_summary}`、`{reasoning_patterns}` |
+| `market_summary.txt` | 市场/板块分析 | `{market_snapshot}`、`{analysis_framework}`、`{watchlist_summary}`、`{reasoning_patterns}` |
+| `stock_scanner.txt` | 个股扫描（分片版） | `{market_summary_context}`、`{market_snapshot}`、`{positions}`、`{watchlist_summary}`、`{shard_name}`、`{shard_items}` |
 | `stock_analyst.txt` | 个股地位分析 | `{stock_code}`、`{claims}`、`{market_context}` |
-| `market_analysis_framework.txt` | 11 项分析框架片段 | 被替换进 `market_analyst.txt` |
+| `market_analysis_framework.txt` | 11 项分析框架片段 | 被替换进 `market_summary.txt` |
 | `style_writer.txt` | UP 口吻风格化 | `{draft}`、`{tone}`、`{examples}` |
 | `reviewer.txt` | 输出审核 | `{output}`、`{claims}` |
 | `trader_mindset.txt` | 交易员心态/纪律 | 独立使用 |

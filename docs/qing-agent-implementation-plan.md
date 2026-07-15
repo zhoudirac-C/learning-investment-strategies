@@ -142,7 +142,9 @@
 
 ---
 
-## Phase 2：拆分股票列表，分片请求（P0）
+## Phase 2：拆分股票列表，LangGraph 内部分片并行扫描（P0）
+
+> **状态**：已实现（2026-07-15）。watchlist 分片从外部 cron 移入 Qing-Agent LangGraph 内部，外部调用方只需 POST 一次 `/analyze/trigger`。
 
 ### Task 2.1：实现 watchlist 分组逻辑
 
@@ -150,132 +152,118 @@
 
 **依赖**：无。
 
-**修改文件**：`src/qing_investment/agent/tools/context_builder.py`（或新建 `src/qing_investment/agent/tools/watchlist_sharder.py`）
+**修改文件**：`src/qing_investment/agent/tools/watchlist_sharder.py`
 
 **具体改动**：
-1. 新建 `watchlist_sharder.py`，实现：
-   ```python
-   from dataclasses import dataclass
-   from typing import List, Dict
-
-   @dataclass
-   class WatchlistShard:
-       name: str
-       items: List[dict]
-       is_priority: bool
-
-   def shard_watchlist(watchlist: dict, positions: dict, max_items: int = 8) -> List[WatchlistShard]:
-       items = watchlist.get("items", [])
-       position_codes = {p.get("code") for p in positions.get("positions", [])}
-
-       priority_items = [i for i in items if i.get("priority", "").startswith("P1") or i.get("code") in position_codes]
-       other_items = [i for i in items if i not in priority_items]
-
-       shards = [WatchlistShard(name="priority", items=priority_items, is_priority=True)]
-
-       # 按 theme/direction 分组，每组不超过 max_items
-       groups: Dict[str, List[dict]] = {}
-       for item in other_items:
-           theme = item.get("theme", "uncategorized")
-           groups.setdefault(theme, []).append(item)
-
-       for theme, group_items in groups.items():
-           for idx in range(0, len(group_items), max_items):
-               shard_name = f"{theme}_{idx // max_items + 1}"
-               shards.append(WatchlistShard(name=shard_name, items=group_items[idx:idx+max_items], is_priority=False))
-
-       return shards
-   ```
-2. 在 `context_builder.py` 中暴露 `build_sharded_contexts()` 函数。
+1. 已实现 `WatchlistShard` dataclass 与 `shard_watchlist(watchlist, positions, max_items=8, core_only=False)`：
+   - 支持 `watchlist` 为 `{themes: [...]}`、`{stocks: [...]}` 或列表。
+   - 提取持仓代码时支持 `positions.accounts[].positions`、列表以及带 `.SH/.SZ/.BJ` 后缀的 code。
+   - 返回的 shards 中第一个是 `priority`（P1 + 持仓），后续按 `theme` 分组并继续切分，保证每个 shard `len(items) <= max_items`。
+2. 提供 `shard_to_context(shard)` 把 `WatchlistShard` 转成可传入 `AgentState` 的字典（只保留 `code/name/priority/theme`）。
 
 **验证步骤**：
-1. 写一个单元测试：
-   ```python
-   from qing_investment.agent.tools.watchlist_sharder import shard_watchlist
-
-   watchlist = {"items": [
-       {"code": "002409", "priority": "P1-核心", "theme": "mlcc"},
-       {"code": "000636", "priority": "P2-重点", "theme": "mlcc"},
-       {"code": "603678", "priority": "P2-重点", "theme": "mlcc"},
-       {"code": "601869", "priority": "P3-跟踪", "theme": "光通信"},
-   ]}
-   positions = {"positions": [{"code": "002409"}]}
-   shards = shard_watchlist(watchlist, positions, max_items=2)
-   assert shards[0].name == "priority"
-   assert len(shards[0].items) == 1
-   assert any(s.name.startswith("mlcc") and len(s.items) <= 2 for s in shards[1:])
-   ```
-2. 运行 `pytest` 确保测试通过。
+1. 运行 `pytest tests/test_watchlist_sharder.py -v`，确认 4 个用例通过。
 
 ---
 
-### Task 2.2：修改 market_summary / stock_scanner 支持分片输入
+### Task 2.2：在 AgentState / TriggerRequest 中暴露分片控制字段
 
-**目标**：让 stock_scanner 可以只分析一个 shard 的股票，而不是全部。
+**目标**：让 `/analyze/trigger` 请求可以控制分片大小与是否仅分析 priority shard。
 
-**依赖**：Task 2.1。
+**依赖**：无。
 
-**修改文件**：`src/qing_investment/agent/graph/nodes.py`、`src/qing_investment/agent/prompts/system/stock_scanner.txt`
+**修改文件**：
+- `src/qing_investment/agent/graph/state.py`
+- `src/qing_investment/agent/models/schemas.py`
+- `src/qing_investment/agent/main.py`
 
 **具体改动**：
-1. 在 `state` 中增加 `watchlist_shard: dict | None = None` 字段。
-2. 在 `stock_scanner` 节点，如果 `state["watchlist_shard"]` 存在，则只把该 shard 的股票上下文传入 prompt。
-3. 在 `stock_scanner.txt` prompt 顶部增加：
-   ```text
-   【本批次分析范围】
-   本批次只分析以下 {shard_name} 股票，不要分析其他标的：
-   {shard_items}
-   ```
-4. 输出格式仍为 JSON，但 `opportunities` 只包含本 shard 的标的。
+1. `AgentState` 新增：
+   - `shard_size: int`
+   - `core_only: bool`
+   - `stock_scanner_results: Annotated[list[dict], operator.add]`（并行节点结果累加器）
+2. `TriggerRequest` 新增：
+   - `shard_size: int = Field(default=8, ...)`，`0` 表示不分片。
+   - `core_only: bool = Field(default=False, ...)`，`True` 时只分析 priority shard。
+3. `analyze_trigger` 入口把 `shard_size` / `core_only` 写入初始 `AgentState`；`shard_size <= 0` 时回退为 `8`。
 
 **验证步骤**：
-1. 单元测试：构造一个只含 2 只股票的 shard，调用 stock_scanner，确认返回的 opportunities 数量 ≤ 2。
-2. 检查 prompt 长度是否随 shard 大小下降，优先 shard 不超过 64KB。
+1. `python -c "from qing_investment.agent.models.schemas import TriggerRequest; r=TriggerRequest(trigger={'id':'t'}); assert r.shard_size==8 and r.core_only is False"`
+2. `pytest tests/test_qing_agent_monitor_workflow.py -v`
 
 ---
 
-### Task 2.3：实现分片请求调度与聚合
+### Task 2.3：添加 `shard_router` 与并行扫描节点
 
-**目标**：在 monitor 调度层，当触发机会扫描节点时，自动拆分 watchlist 并串行/限并发调用 Agent，最后聚合结果。
+**目标**：`market_summary` 完成后，在 LangGraph 内部把 watchlist fan-out 到多个 `stock_scanner_shard` 节点。
 
-**依赖**：Task 2.2。
+**依赖**：Task 2.1、Task 2.2。
 
-**修改文件**：`src/qing_investment/monitor/scheduler/__init__.py`、调用 `/analyze/trigger` 的 wrapper
+**修改文件**：`src/qing_investment/agent/graph/nodes.py`、`src/qing_investment/agent/graph/builder.py`
 
 **具体改动**：
-1. 在 `find_agent_analysis_trigger` 或调用方增加逻辑：当 trigger ID 为 `opportunity_scan` 或 `morning_confirm` 且涉及股票分析时，执行分片。
-2. 实现 `run_sharded_stock_analysis(base_request, shards)`：
-   - 对每个 shard，复制 base_request 并设置 `watchlist_shard`。
-   - 串行或最多 2 并发调用 `/analyze/trigger`。
-   - 收集每个 shard 返回的 `opportunities`。
-3. 聚合后生成统一的市场摘要和机会列表，写入 `daily_state`。
-4. 只返回聚合后的结果给用户/通知系统。
+1. 新增 `shard_router(state) -> list[Send]`：
+   - 从 `state["watchlist"]` / `state["positions"]` 读取数据。
+   - 若调用方已传入 `state["watchlist_shard"]`，直接返回单个 Send（兼容旧外部分片请求）。
+   - 否则调用 `shard_watchlist(..., max_items=state["shard_size"], core_only=state["core_only"])`。
+   - 当 `shard_size <= 0` 或 watchlist 很小时，返回单个包含全部标的的 shard。
+2. 将原 `stock_scanner` 改名为 `stock_scanner_shard`：
+   - 保留原有 prompt 构造、LLM 调用、JSON 解析逻辑。
+   - 若 `state["watchlist_shard"]` 存在，则只把该 shard 的标的上下文传入 prompt。
+   - 返回形状改为 `{"stock_scanner_results": [{"market_context": ..., "reasoning_steps": ..., "cost_tracking": ..., "daily_state_override": ...}]}`，适配 `Annotated[list[dict], operator.add]`。
+   - 移除函数内部的 bisect 二分 fallback（graph 级 fan-out 已处理）。
+   - 移除函数内对 `_persist_daily_state_from_market_context` 的调用，改为在 `merge_scanner_results` 统一持久化。
+3. 在 `builder.py` 中：
+   - 注册 `stock_scanner_shard`、`merge_scanner_results`。
+   - `market_summary` 后接 `builder.add_conditional_edges("market_summary", shard_router, ["stock_scanner_shard"])`。
+   - `stock_scanner_shard` → `merge_scanner_results` → `devils_advocate`。
 
 **验证步骤**：
-1. 写一个集成测试，模拟 4 只股票的 watchlist，触发 opportunity_scan。
-2. 确认日志中出现了多次 `/analyze/trigger` 调用，每次分析的标的数 ≤ max_items。
-3. 确认最终 `daily_state.active_opportunities` 包含所有 shard 的结果，且无重复 code。
+1. `pytest tests/test_shard_router.py -v`
+2. `python -c "from qing_investment.agent.graph.builder import build_graph; g=build_graph(); print(list(g.nodes))"`，确认包含 `shard_router`、`stock_scanner_shard`、`merge_scanner_results`，无 `stock_scanner`。
 
 ---
 
-### Task 2.4：为分片请求增加 prompt 长度保护
+### Task 2.4：添加 `merge_scanner_results` 合并节点
 
-**目标**：确保即使单个 shard 意外过大，也不会超过 64KB。
+**目标**：把多个 `stock_scanner_shard` 的输出合并为单一 `market_context`，并只写一次 `daily_state`。
 
 **依赖**：Task 2.3。
 
 **修改文件**：`src/qing_investment/agent/graph/nodes.py`
 
 **具体改动**：
-1. 在 `stock_scanner` 节点构造 prompt 后，如果超过 60KB，按股票数量继续二分 shard，直到每个子 shard ≤ 60KB。
-2. 记录 warning：
-   ```python
-   logger.warning("stock_scanner prompt %d bytes, splitting shard %s", len(prompt), shard_name)
-   ```
+1. 新增 `merge_scanner_results(state) -> AgentState`：
+   - 读取 `state["stock_scanner_results"]`，把每个结果的 `market_context.opportunity_scan` / `position_plans` 追加到合并后的 `market_context`。
+   - 任意 shard 标记了 `_truncated` / `_scan_failed` 时，合并结果也继承该标记。
+   - 汇总所有 shard 的 `reasoning_steps` 与 `cost_tracking`。
+   - 调用 `_persist_daily_state_from_market_context(merged, None, source_tag, trigger_id)` 统一持久化。
+   - 返回 `{"market_context": merged, "reasoning_steps": [...], "cost_tracking": [...], "stock_scanner_results": []}`。
 
 **验证步骤**：
-1. 构造一个包含大量文本的超大 shard，确认节点自动拆分并返回合并结果。
-2. 检查日志中是否出现 warning。
+1. `pytest tests/test_merge_scanner_results.py -v`
+2. `pytest tests/test_qing_agent_monitor_workflow.py::test_qing_agent_internal_sharding -v`
+
+---
+
+### Task 2.5：简化外部 cron 脚本
+
+**目标**：`scripts/hermes_stock_monitor_agent.py` 不再做外部分片、聚合与多次 `/analyze/trigger` 调用。
+
+**依赖**：Task 2.2。
+
+**修改文件**：`scripts/hermes_stock_monitor_agent.py`
+
+**具体改动**：
+1. 删除 `watchlist_sharder` import、`SHARDABLE_TRIGGER_IDS`、`WATCHLIST_SHARD_SIZE`、`WATCHLIST_CORE_ONLY`、`_aggregate_sharded_responses`。
+2. `call_qing_agent` 构造 payload 时直接传入：
+   - `"shard_size": int(os.environ.get("WATCHLIST_SHARD_SIZE", "8"))`
+   - `"core_only": os.environ.get("WATCHLIST_CORE_ONLY", "0").lower() in ("1", "true", "yes", "on")`
+3. 仅调用一次 `_post_analyze_trigger(payload)`。
+
+**验证步骤**：
+1. `python -c "import sys; sys.path.insert(0,'src'); from scripts.hermes_stock_monitor_agent import call_qing_agent; print('import OK')"`
+2. 在 dry-run 或 mock quotes 环境下跑一次 cron，确认日志中只有单次 `/analyze/trigger` POST。
 
 ---
 

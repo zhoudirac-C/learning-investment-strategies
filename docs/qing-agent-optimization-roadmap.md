@@ -64,7 +64,7 @@ UP 的输出混合了：
 ### 2.2 当前运行链路
 
 1. `monitor/scheduler` 按时间生成 `AgentAnalysisTrigger`
-2. 通过 `/analyze/trigger` 调用 LangGraph：`parse_query → retrieve_knowledge → market_summary → stock_scanner + stock_analyst → devils_advocate → synthesize → style_writer → citation_validator → reviewer → END`
+2. 通过 `/analyze/trigger` 调用 LangGraph：`parse_query → retrieve_knowledge → market_summary → shard_router → [stock_scanner_shard] → merge_scanner_results + stock_analyst → devils_advocate → synthesize → style_writer → citation_validator → reviewer → END`
 3. 每个节点把 `daily_state` 写入 `config/stock_monitor/daily_state.json`
 4. 收盘后由 `scripts/sync_config_from_review.py` 把 `daily_state` 同步到 `direction_pool.yaml` / `stock_pool.yaml`
 
@@ -129,16 +129,18 @@ UP 的输出混合了：
 2. 将 `cron_closing.txt` 与 `tail_condition`（14:52）解耦：14:52 专注尾盘条件单，17:00 专注全天复盘。
 3. 收盘复盘必须读取当天所有 `intraday_narrative` 和 `active_opportunities`，生成"预判 vs 实际"对比表。
 
-### P0：拆分股票列表，分片请求（工程层）
+### P0：拆分股票列表，内部分片并行扫描（工程层）
+
+**状态**：已实现。watchlist 分片从外部 cron 移入 Qing-Agent LangGraph 内部。
 
 **问题**：market_summary/stock_scanner prompt 超过 64KB 被截断，关键上下文可能丢失。直接压缩上下文会损失 P1 核心股和持仓股的细节，不可取。
 
-**建议**：
-1. **P1 核心股 + 持仓股单独一次完整请求**：保留 watchlist 中 `priority: P1-核心` 的标的以及 `positions.yaml` 中的持仓股的完整上下文，不截断、不摘要。
-2. **其他股票按组拆分多次请求**：把剩余股票按行业/主题拆成多组（如存储组、MLCC组、光通信组、国产算力组），每组触发一次独立的 `/analyze/trigger` 请求。
-3. **聚合分片结果**：在 graph 外增加一个轻量级聚合节点，把各分片的分析结果合并成统一的市场摘要和机会列表，再写入 `daily_state`。
-4. **控制并发与调度**：分片请求在 09:26~09:45、10:00~10:30 等窗口内串行或限并发执行，避免同时占用过多 LLM 配额，并确保下一节点开始前全部完成。
-5. **保留 claims/framework 完整加载**：不再为了省长度而截断 claims 或 framework；分片后单次请求的上下文自然下降，无需额外压缩。
+**实现方案**：
+1. **统一入口**：外部 cron 仍只调用一次 `/analyze/trigger`，由 `TriggerRequest.shard_size` / `TriggerRequest.core_only` 控制分片行为；环境变量 `WATCHLIST_SHARD_SIZE`、`WATCHLIST_CORE_ONLY` 在 Agent 内部读取，向后兼容。
+2. **P1 核心股 + 持仓股优先分片**：`src/qing_investment/agent/tools/watchlist_sharder.py` 把 watchlist 拆分为 `priority` shard（P1 + 持仓）和按 theme 分组的普通 shards。
+3. **LangGraph 内并行扫描**：`market_summary` 后接入条件边 `shard_router`，通过 `langgraph.types.Send` fan-out 到多个 `stock_scanner_shard` 节点；每个 shard 只分析本批次标的，prompt 长度自然下降。
+4. **统一合并与持久化**：`merge_scanner_results` 节点把所有 shard 的 `opportunities` / `position_plans` 合并为单一 `market_context`，并只写一次 `daily_state`，避免多个并行节点冲突。
+5. **保留 claims/framework 完整加载**：`retrieve_knowledge` 与 `market_summary` 每个触发只执行一次，分片仅发生在个股扫描层，不截断知识库输入。
 
 ### P0：修复 citation / 参考来源机制（输出层）
 
@@ -240,7 +242,7 @@ UP 的输出混合了：
 
 ### 第二阶段（3-5 天）：提升输出质量
 
-4. 拆分股票列表分片请求：实现 P1/持仓股单独请求 + 其他股票按主题分组多次请求，单次请求不再超过 64KB。
+4. 拆分股票列表内部分片并行扫描：外部 cron 调用一次 `/analyze/trigger`，LangGraph 内部由 `shard_router` fan-out 到 `stock_scanner_shard`，`merge_scanner_results` 合并结果，单次 shard prompt 不再超过 64KB。
 5. 修复 citation 机制：在 style_writer prompt 中注入引用格式要求，简化 reviewer 规则。
 6. 为每个持仓/候选标的强制输出 upside/downside/ratio。
 
@@ -257,7 +259,7 @@ UP 的输出混合了：
 | 优化项 | 验收标准 |
 |--------|---------|
 | 收盘复盘闭环 | 每天 17:00 稳定触发，输出包含"观点演进回顾 + 预判准确性 + 方向优先级 + 机会更新 + 明日假设 + tomorrow_scenarios" |
-| 分片请求 | P1/持仓股单次请求完整无截断；其他分组单次 prompt 不超过 64KB；所有分片在下一节点前完成 |
+| 分片请求 | P1/持仓股单独成 priority shard；其他按 theme 分组后单次 prompt 不超过 64KB；`retrieve_knowledge`/`market_summary` 每触发只跑一次，个股扫描在 LangGraph 内并行完成 |
 | citation | style_writer 输出中至少 50% 的关键判断带有 `[claim-xxx]` 或明确数据来源 |
 | 早盘节点 | 09:26/09:45/10:00 三个节点输出不再重复，且 10:00 能引用 09:26 的假设 |
 | 机会管理 | daily_state 中同一标的只保留一条记录，状态随节点更新而非重复追加 |
