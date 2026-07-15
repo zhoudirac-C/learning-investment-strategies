@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import logging
-from langgraph.constants import Send
+from langgraph.types import Send
 from langgraph.graph import END, StateGraph
 
 logger = logging.getLogger(__name__)
@@ -25,16 +25,13 @@ from .state import AgentState
 
 
 def build_graph():
-    logger.info("[build_graph] starting with %d nodes", 12)
-    logger.info("[build_graph] topology: parse_query → retrieve_knowledge → (market_summary → shard_router → [stock_scanner_shard] → merge_scanner_results) + stock_analyst → devils_advocate → synthesize → style_writer → citation_validator → reviewer → END")
+    logger.info("[build_graph] starting with %d nodes", 11)
+    logger.info("[build_graph] topology: parse_query → retrieve_knowledge → (market_summary → [stock_scanner_shard] → merge_scanner_results) + stock_analyst → devils_advocate → synthesize → style_writer → citation_validator → reviewer → END")
     builder = StateGraph(AgentState)
 
     builder.add_node("parse_query", parse_query)
     builder.add_node("retrieve_knowledge", retrieve_knowledge)
     builder.add_node("market_summary", market_summary)
-    # shard_router 作为无状态路由节点：节点本身不修改 state，
-    # 条件边负责把 market_summary 后的状态 fan-out 到并行 stock_scanner_shard。
-    builder.add_node("shard_router", lambda state: {})
     builder.add_node("stock_scanner_shard", stock_scanner_shard)
     builder.add_node("merge_scanner_results", merge_scanner_results)
     builder.add_node("stock_analyst", stock_analyst)
@@ -50,9 +47,8 @@ def build_graph():
     builder.add_edge("retrieve_knowledge", "stock_analyst")
 
     # market_summary 后内部分片并行扫描
-    builder.add_edge("market_summary", "shard_router")
     builder.add_conditional_edges(
-        "shard_router",
+        "market_summary",
         shard_router,
         ["stock_scanner_shard"],
     )

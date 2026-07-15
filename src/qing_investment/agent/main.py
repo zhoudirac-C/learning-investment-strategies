@@ -170,6 +170,14 @@ async def health():
 
 @app.post("/analyze/trigger", response_model=TriggerResponse)
 async def analyze_trigger(req: TriggerRequest):
+    shard_size = req.shard_size
+    if shard_size is None:
+        shard_size = int(os.environ.get("WATCHLIST_SHARD_SIZE", "8"))
+
+    core_only = req.core_only
+    if core_only is None:
+        core_only = os.environ.get("WATCHLIST_CORE_ONLY", "0").lower() in ("1", "true", "yes", "on")
+
     state = {
         "query": req.query or f"{req.trigger.get('title', '')}：{req.trigger.get('reason', '')}",
         "session_id": req.session_id,
@@ -180,16 +188,8 @@ async def analyze_trigger(req: TriggerRequest):
         "watchlist": req.watchlist,
         "watchlist_shard": req.watchlist_shard,
         "sector_strengths": req.sector_strengths,
-        "shard_size": (
-            int(os.environ.get("WATCHLIST_SHARD_SIZE", "8"))
-            if req.shard_size == 8
-            else req.shard_size
-        ),
-        "core_only": (
-            os.environ.get("WATCHLIST_CORE_ONLY", "0").lower() in ("1", "true", "yes", "on")
-            if req.core_only is False
-            else req.core_only
-        ),
+        "shard_size": shard_size,
+        "core_only": core_only,
         "external_sector_boards": req.external_sector_boards,
         "buy_signal_candidates": req.buy_signal_candidates,
         "sector_context": [],

@@ -9,7 +9,7 @@ import re
 import time
 from datetime import datetime, timezone, timedelta
 
-from langgraph.constants import Send
+from langgraph.types import Send
 from pathlib import Path
 
 import numpy as np
@@ -101,8 +101,12 @@ def shard_router(state: AgentState) -> list[Send]:
         return [Send("stock_scanner_shard", {"watchlist_shard": existing_shard})]
 
     # analyze_trigger 已经解析好 shard_size / core_only，这里直接复用，避免再次读取环境变量覆盖请求值
-    shard_size = state.get("shard_size") or 8
-    core_only = state.get("core_only", False)
+    shard_size = state.get("shard_size")
+    if shard_size is None:
+        shard_size = int(os.environ.get("WATCHLIST_SHARD_SIZE", "8"))
+    core_only = state.get("core_only")
+    if core_only is None:
+        core_only = False
 
     shards = shard_watchlist(
         watchlist,
@@ -2134,7 +2138,7 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
     was_truncated = False
     if prompt_bytes > _MAX_STOCK_SCANNER_PROMPT_BYTES:
         logger.warning(
-            "stock_scanner prompt exceeds %d bytes (%d bytes), truncating context fields",
+            "stock_scanner_shard prompt exceeds %d bytes (%d bytes), truncating context fields",
             _MAX_STOCK_SCANNER_PROMPT_BYTES, prompt_bytes,
         )
         non_context_bytes = prompt_bytes - len(context_json.encode("utf-8"))
@@ -2162,13 +2166,13 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
 """
         prompt_bytes = len(prompt.encode("utf-8"))
         logger.warning(
-            "stock_scanner prompt after truncation: %d bytes (truncated=%s)",
+            "stock_scanner_shard prompt after truncation: %d bytes (truncated=%s)",
             prompt_bytes, was_truncated,
         )
 
     if prompt_bytes > _MAX_STOCK_SCANNER_PROMPT_BYTES:
         logger.error(
-            "stock_scanner prompt still exceeds %d bytes (%d bytes) after truncation; returning degraded context without LLM call",
+            "stock_scanner_shard prompt still exceeds %d bytes (%d bytes) after truncation; returning degraded context without LLM call",
             _MAX_STOCK_SCANNER_PROMPT_BYTES, prompt_bytes,
         )
         full_market_context = dict(market_summary_ctx)
@@ -2187,7 +2191,7 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
     content = _safe_llm_invoke(prompt)
     _t1 = time.time()
     logger.info(
-        "stock_scanner_llm: duration=%.1fs prompt_len=%d content_len=%d",
+        "stock_scanner_shard_llm: duration=%.1fs prompt_len=%d content_len=%d",
         _t1 - _t0, len(prompt), len(content) if content else 0
     )
 
@@ -2197,7 +2201,7 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
         scan_result = json.loads(cleaned_content) if cleaned_content else {}
     except json.JSONDecodeError:
         logger.warning(
-            "stock_scanner failed to parse LLM output as JSON (content_len=%d): %s...",
+            "stock_scanner_shard failed to parse LLM output as JSON (content_len=%d): %s...",
             len(cleaned_content) if cleaned_content else 0,
             cleaned_content[:200] if cleaned_content else "",
         )
@@ -2206,7 +2210,7 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
 
     if not scan_result:
         logger.warning(
-            "stock_scanner received empty scan_result; returning degraded market_context"
+            "stock_scanner_shard received empty scan_result; returning degraded market_context"
         )
         scan_failed = True
 
@@ -2323,7 +2327,8 @@ def merge_scanner_results(state: AgentState) -> AgentState:
             f"个股扫描合并: {len(results)} 个分片, opportunities={len(merged.get('opportunity_scan', []))}, position_plans={len(merged.get('position_plans', []))}"
         ] + reasoning_steps,
         "cost_tracking": total_cost,
-        # 清空累加器，避免后续节点误用旧数据
+        # 分片结果已合并到 market_context，不再返回累加器；
+        # 由于 state 使用 Annotated[list, operator.add]，返回 [] 即可让该字段保持为空。
         "stock_scanner_results": [],
     }
 
