@@ -1,0 +1,94 @@
+claims:
+- id: claim-20260717-004-a
+  source_path: sources/original/bilibili/2026-07-17-1315-图片-今天不要做加仓动作了，抄底失败就是失败，短线操作必须要遵守纪.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T13:25:00+08:00'
+  claim_type: operation
+  subject: 今天不做加仓，抄底失败须遵守纪律
+  timeframe: intraday
+  statement: 今天不要做加仓动作。抄底失败就是失败，短线操作必须遵守纪律。敦刻尔克的撤离是为了诺曼底的登陆。
+  evidence_quote: 今天不要做加仓动作了，抄底失败就是失败，短线操作必须要遵守纪律。敦刻尔克的撤离是为了诺曼底的登陆。
+  interpretation: UP强调纪律性止损的重要性，明确制止午后加仓行为。"敦刻尔克—诺曼底"的比喻说明今天的止损撤退是为未来的战略进攻做准备，切割短期错误仓位才能轻装上阵迎接下一波机会。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260717-003-c"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今天不做加仓动作，抄底失败纪律止损
+  related_stocks: []
+  tags:
+  - 操作纪律
+  - 不加仓
+  - 止损
+  - 敦刻尔克
+  - 诺曼底
+
+- id: claim-20260717-004-b
+  source_path: sources/original/bilibili/2026-07-17-1315-图片-今天不要做加仓动作了，抄底失败就是失败，短线操作必须要遵守纪.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T13:25:00+08:00'
+  claim_type: market-cycle
+  subject: 现阶段就是底部，未来几周大概率是磨底阶段
+  timeframe: short-term
+  statement: 现阶段就是底部。未来几周大概率都是磨底阶段，不能赌单边，依旧做好配置。配置打到年线出来一下。
+  evidence_quote: 唯一需要说明的就是，现阶段就是底部，只不过未来的几周大概率都是磨底阶段，磨底阶段不能赌单边，依旧做好配置。配置打到年线，出来一下。
+  interpretation: UP确认当前位置就是中长期底部区域，但未来数周将以磨底（震荡阴跌/反复）而非V型反转的形式完成筑底。磨底期的操作策略：①不做单边押注（不赌方向）②坚持配置思维③配置涨到年线（技术位）时减仓，等回调再回补。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260717-003-a", "claim-20260717-001-e"]
+  contradicts: []
+  supplements: ["claim-20260717-001-d", "claim-20260713-009-i"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 现阶段就是底部，未来几周磨底
+  related_stocks: []
+  tags:
+  - 底部确认
+  - 磨底阶段
+  - 配置思维
+  - 年线
+  - 不赌单边
+
+- id: claim-20260717-004-c
+  source_path: sources/original/bilibili/2026-07-17-1315-图片-今天不要做加仓动作了，抄底失败就是失败，短线操作必须要遵守纪.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T13:25:00+08:00'
+  claim_type: methodology
+  subject: 敦刻尔克撤离为了诺曼底登陆——战术撤退战略进攻
+  timeframe: medium-term
+  statement: 敦刻尔克的撤离是为了诺曼底的登陆。今天的止损撤退是为了未来的战略进攻做准备。磨底阶段做好配置，等待下一波行情。
+  evidence_quote: 敦刻尔克的撤离是为了诺曼底的登陆。
+  interpretation: 这是UP对整个市场操作的方法论总结：短期撤退（执行止损、守住现金）不代表看空未来，而是为更大级别的行情做准备。磨底期保存实力，等数据验证/催化明确后再重返战场。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260716-001-b"]
+  contradicts: []
+  supplements: ["claim-20260717-003-c", "claim-20260714-006-o"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 敦刻尔克—诺曼底：战术撤退为战略进攻
+  related_stocks: []
+  tags:
+  - 方法论
+  - 敦刻尔克
+  - 诺曼底
+  - 战术撤退
+  - 战略进攻
+  - 磨底期

@@ -1,0 +1,153 @@
+claims:
+# ==================== 14:08动态 ====================
+- id: claim-20260717-005-a
+  source_path: sources/original/bilibili/2026-07-17-1408-图片-配置不用动，科技尾盘至少减半仓，今天不能抄底。这一轮看不了反.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T14:30:00+08:00'
+  claim_type: operation
+  subject: 配置不用动，科技尾盘至少减半仓，今天不能抄底
+  timeframe: intraday
+  statement: 配置仓位不动。科技方向尾盘至少减半仓。今天不能抄底，这一轮看不了反转只能看反弹。没有抄底信号，不能随手交易。
+  evidence_quote: 配置不用动，科技尾盘至少减半仓，今天不能抄底。这一轮看不了反转，只能看反弹。没有抄底的信号，这种时候更不能随手交易。
+  interpretation: UP进一步细化操作指令：（1）配置仓位（医药消费等）不动，执行长期思维；（2）科技方向尾盘至少减一半，降低暴露；（3）当前无反转信号，只有反弹可能，不构成抄底条件；（4）警告"随手交易"的冲动。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260717-003-c"]
+  contradicts: []
+  supplements: ["claim-20260717-004-a"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 配置不动，科技减半，不抄底
+  related_stocks: []
+  tags:
+  - 配置不动
+  - 科技减仓
+  - 不抄底
+  - 只卖不买
+
+- id: claim-20260717-005-b
+  source_path: sources/original/bilibili/2026-07-17-1408-图片-配置不用动，科技尾盘至少减半仓，今天不能抄底。这一轮看不了反.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T14:30:00+08:00'
+  claim_type: market-cycle
+  subject: 这一轮看不了反转只能看反弹
+  timeframe: short-term
+  statement: 午后强度有所改善，但这一轮只能看反弹，看不了反转。下午强度可以了，多看一下。
+  evidence_quote: 这一轮看不了反转，只能看反弹。（置顶评论回应）这会儿强度有点可以了，多看一下。
+  interpretation: UP看到午后有一定的反弹强度（盘面改善），但强调这只是技术性反弹而非趋势反转。说明即使盘面走好，也不能改变中期磨底的判断。"多看一下"意味着可以观察但不急于行动。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260717-004-b"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 只能看反弹看不了反转
+  related_stocks: []
+  tags:
+  - 反弹非反转
+  - 午后强度
+  - 观察
+  - 磨底
+
+# ==================== 14:20动态 ====================
+- id: claim-20260717-005-c
+  source_path: sources/original/bilibili/2026-07-17-1420-图片-科技可以出掉，没问题，你们如果怕周一涨，可以出一半，剩下的周.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T14:30:00+08:00'
+  claim_type: operation
+  subject: 科技可以出掉，怕周一涨就出一半剩一半周一再出
+  timeframe: intraday
+  statement: 科技可以出掉没问题。如果怕周一涨，可以出一半，剩下的周一再出。今天有大量抄底资金，后面肯定要杀抄底资金，所以我们只卖不买，坚决不抄底。这一轮调整不会很快结束，筑底时间也不会短。
+  evidence_quote: 科技可以出掉，没问题，你们如果怕周一涨，可以出一半，剩下的周一再出，今天有大量的抄底资金，后面肯定要杀抄底资金，所以我们只卖不买，坚决不抄底。这一轮的调整不会很快结束，筑底也是时间也不会短。
+  interpretation: UP明确给出两个选项：①全部出清（符合纪律）②出一半留一半周一出（给担心卖飞的人缓冲）。最重要的逻辑是"杀抄底资金"——今天暴跌后有大量散户抄底，主力后续会先拉升让这批人坐不住，再反手杀跌。因此坚持只卖不买，不参与抄底。这里"只卖不买"策略延续到下周。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260717-003-c", "claim-20260717-005-a"]
+  contradicts: []
+  supplements: ["claim-20260717-004-a", "claim-20260717-004-c"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技出掉，杀抄底资金，只卖不买
+  related_stocks: []
+  tags:
+  - 科技清仓
+  - 杀抄底资金
+  - 只卖不买
+  - 调整不会很快结束
+  - 筑底时间长
+
+- id: claim-20260717-005-d
+  source_path: sources/original/bilibili/2026-07-17-1420-图片-科技可以出掉，没问题，你们如果怕周一涨，可以出一半，剩下的周.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T14:30:00+08:00'
+  claim_type: market-cycle
+  subject: 今天有大量抄底资金，后面肯定要杀抄底资金
+  timeframe: short-term
+  statement: 今天有大量抄底资金入场，后续主力必然要杀这批抄底资金（先拉后杀），因此只卖不买，坚决不抄底。
+  evidence_quote: 今天有大量的抄底资金，后面肯定要杀抄底资金，所以我们只卖不买，坚决不抄底。
+  interpretation: UP揭示了一个重要的市场博弈逻辑：暴跌日的抄底资金（散户/游资）会成为后续主力的对手盘，主力会先拉升制造"抄对底"的错觉让这批资金锁仓，然后反手杀跌。因此今天抄底买进去的人，后面大概率要被套。这也是为什么今天绝对不能买，只能卖。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260717-004-b", "claim-20260717-001-d"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大量抄底资金=后面要杀
+  related_stocks: []
+  tags:
+  - 杀抄底资金
+  - 主力博弈
+  - 只卖不买
+  - 筑底
+
+- id: claim-20260717-005-e
+  source_path: sources/original/bilibili/2026-07-17-1420-图片-科技可以出掉，没问题，你们如果怕周一涨，可以出一半，剩下的周.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T14:30:00+08:00'
+  claim_type: market-cycle
+  subject: 这一轮调整不会很快结束，筑底时间不会短
+  timeframe: medium-term
+  statement: 这一轮的调整不会很快结束，筑底时间也不会短。
+  evidence_quote: 这一轮的调整不会很快结束，筑底也是时间也不会短。
+  interpretation: UP强化中期判断：7/13起这轮调整周期不是短期事件，筑底过程需要数周甚至更长时间。这与之前"未来几周磨底"的判断一致，意味着短期内不应期待V型反转。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260612-002-e"]
+  contradicts: []
+  supplements: ["claim-20260717-004-b", "claim-20260716-002-a"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 调整不会很快结束，筑底时间长
+  related_stocks: []
+  tags:
+  - 调整周期
+  - 筑底时间长
+  - 磨底
+  - 中期判断

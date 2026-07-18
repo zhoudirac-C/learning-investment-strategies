@@ -1,0 +1,363 @@
+claims:
+- id: claim-20260716-001-a
+  source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T18:24:00'
+  claim_type: market-cycle
+  subject: 7月16日低开定性：科技硬件承压消费医药有支撑
+  timeframe: intraday
+  statement: 7月16日外盘结构分化：芯片股走低（闪迪跌逾6%、SK海力士ADR盘前回落），中国资产大涨（金龙指数+4%、阿里巴巴+8%），映射A股科技硬件承压低开，消费医药受中概映射支撑。
+  evidence_quote: 芯片股夜盘走低，闪迪跌逾6%，SK海力士ADR在前一交易日暴涨27%后盘前回落；与之相对的是中国资产大爆发，纳斯达克中国金龙指数大涨近4%，阿里巴巴涨近8%。
+  interpretation: 隔夜美股科技内部分化明显，AI应用和中概走强但存储硬件退坡，映射A股科技低开后资金可能选择消费医药作为避风港。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260715-055-a", "claim-20260614-015-e", "claim-20260604-004-h"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月16日盘中：隔夜外盘分化映射A股科技低开
+  related_stocks: []
+  tags:
+  - 隔夜外盘
+  - 科技低开
+  - 消费医药
+  - A股开盘
+- id: claim-20260716-001-b
+  source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T18:24:00'
+  claim_type: operation
+  subject: 科技低开是WAIC进场点位，快进快出不恋战
+  timeframe: intraday
+  statement: 韩国misu强平与信用融资去杠杆+长鑫申购冻结资金，科技低开恰恰是等WAIC(7/17-20)进场的点位。涨的越少越早离场，涨的多可多看两天，进得果断出得果断不恋战。
+  evidence_quote: 韩国市场的这轮暴跌本就在预判之内——misu强平与信用融资的去杠杆节奏是可以推演的——叠加长鑫申购冻结资金带来的短期扰动，科技股的低开恰恰是这波要等的进场点位。主要方向就是WAIC（7月17日—20日）。
+  interpretation: UP重申WAIC窗口期策略：低开进场、快进快出、周五前退出，延续7/15晚盘判断。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260715-046-a"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月16日盘中：科技低开为WAIC进场机会
+  related_stocks: []
+  tags:
+  - WAIC
+  - 低开进场
+  - 快进快出
+  - 短线操作
+- id: claim-20260716-001-c
+  source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T18:24:00'
+  claim_type: technical-signal
+  subject: 7月15日缩量跳水杀伤力有限半导体主动投降留弹药
+  timeframe: intraday
+  statement: 7月15日全天成交2.57万亿远小于上周五3.39万亿，突破1万亿时仅比前日多放约1500亿（上周五超4000亿）。半导体跌得快但缩量，主动投降理解为留弹药，后续修复难度小。
+  evidence_quote: 昨天突破1万亿时只比前一日多放约1500亿（上周五是超4000亿），全天2.57万亿的成交额也远小于上周五的3.39万亿，缩量跳水，杀伤力有限。其二是姿态：半导体板块昨天有点「主动投降」的意味，跌得快但缩量，若理解为留足弹药，后续修复的难度会小上不少。
+  interpretation: 量能信号是7/15与7/13的关键区别：缩量跳水意味着卖压已衰减不是恐慌性出货。半导体缩量下跌是技术性出清而非趋势恶化。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260715-049-a", "claim-20260708-004-u"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月16日盘中：7-15缩量跳水量价信号
+  related_stocks: []
+  tags:
+  - 缩量
+  - 半导体
+  - 主动投降
+  - 量价分析
+- id: claim-20260716-001-d
+  source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T18:24:00'
+  claim_type: technical-signal
+  subject: 7月15日情绪面涨停梯队健康但跌停家数未收敛
+  timeframe: intraday
+  statement: 7月15日首板家数和一进二晋级率可接受，连板晋级率提升，哈药股份(600664)秒板；但跌停家数未能减少，给反弹质量打上问号。
+  evidence_quote: 情绪面数据喜忧参半。喜的是涨停梯队：首板家数和一进二晋级率都在可接受范围，连板晋级率还有提升，高标哈药股份直接秒板。忧的是跌停家数没能进一步减少。
+  interpretation: 涨停梯队健康说明局部热钱活跃（哈药股份给出医药方向），但跌停家数未收敛说明风险偏好尚未全面回暖。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260623-001-c", "claim-20260629-001-t"]
+  contradicts: []
+  supplements: ["claim-20260610-006-c"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月16日盘中：7-15情绪面涨停与跌停分化
+  related_stocks:
+  - code: '600664'
+    name: 哈药股份
+    role: 医药高标情绪龙头-主板可交易
+  tags:
+  - 情绪面
+  - 涨停梯队
+  - 跌停家数
+  - 哈药股份
+- id: claim-20260716-001-e
+  source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T18:24:00'
+  claim_type: operation
+  subject: 7月16日双情景修复展开与再度承压
+  timeframe: intraday
+  statement: 情形A修复展开：韩国横盘或收阳+跌停收敛+易中天承接平稳→科技低开是黄金坑。情形B再度承压：韩国再大跌或人气股承接不力→科技缩量磨底资金往医药消费避险。核心盯三信号：跌停家数、半导体量能、指数重心。
+  evidence_quote: 情形A：韩国股市今天横盘或收阳、跌停家数收敛、「易中天」竞价与盘中承接平稳——则科技硬件的低开就是黄金坑。情形B：韩国再度大跌，或人气股竞价承接不力、盘中持续走弱——科技继续缩量磨底，资金往医药、大消费避险。
+  interpretation: 核心变量是韩股走向+人气股承接。易中天（新易盛/中际旭创/天孚通信）竞价承接是最直观的情绪指标。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260629-001-i"]
+  contradicts: []
+  supplements: ["claim-20260609-005-a", "claim-20260629-001-ab"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月16日盘中：双情景框架与三个共振信号
+  related_stocks:
+  - code: '300502'
+    name: 新易盛
+    role: 光模块龙头-创业板不可交易
+  tags:
+  - 双情景
+  - 韩股
+  - 易中天
+  - 共振信号
+- id: claim-20260716-001-f
+  source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T18:24:00'
+  claim_type: catalyst
+  subject: 易中天选择8月24日至25日公布半年报事件风险后移
+  timeframe: short-term
+  statement: 新易盛(300502)、中际旭创(300308)、天孚通信(300394)三家选择8月24日/25日直接公布半年报不单发业绩预告。二元事件风险后移：少了放量高开被兑现的剧本，也没有证伪风险。
+  evidence_quote: 三家选择在8月24日、8月25日直接公布半年报，即近期不再单发业绩预告。这相当于把二元事件风险整体后移——少了「趁热打铁放量高开」被兑现的剧本，也没有了德明利或三星电子式当场证伪的风险。
+  interpretation: 易中天不单独发业绩预告意味着短期缺少事件催化，资金只能用盘面走势投票。这对持有光模块方向的投资者是中性偏长线信号。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260715-023-a", "claim-20260617-039-m"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月16日盘中：易中天半年报披露安排
+  related_stocks:
+  - code: '300502'
+    name: 新易盛
+    role: 光模块-创业板不可交易
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块龙头-创业板不可交易
+  - code: '300394'
+    name: 天孚通信
+    role: 光模块-创业板不可交易
+  tags:
+  - 易中天
+  - 半年报
+  - 光模块
+  - 业绩披露
+- id: claim-20260716-001-g
+  source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T18:24:00'
+  claim_type: sector-theme
+  subject: WAIC端侧AI是7月16日低开进场的首选方向
+  timeframe: short-term
+  statement: 阿里千问集成Apple智能，网信办备案7款手机端侧AI。手机AI竞争进入系统级Agent阶段。WAIC将展示AI智能体手机/AgenticOS等。端侧AI是大会最可能走出独立行情的分支，低开进场首选方向。
+  evidence_quote: 个人判断，WAIC是本周科技情绪的锚，端侧AI是这次大会最可能走出独立行情的分支，也是低开进场的首选方向。
+  interpretation: 端侧AI催化来自阿里千问+Apple合作、网信办备案、WAIC展示三重叠加。瑞芯微(603893)主板可交易、翱捷科技(688220)科创板不可交易。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260609-005-e", "claim-20260610-042-a"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月16日盘中：WAIC端侧AI为低吸首选方向
+  related_stocks:
+  - code: '603893'
+    name: 瑞芯微
+    role: 端侧AI SoC标的-主板可交易
+  tags:
+  - WAIC
+  - 端侧AI
+  - 瑞芯微
+  - 手机AI
+  - 智能体
+- id: claim-20260716-001-h
+  source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T18:24:00'
+  claim_type: sector-theme
+  subject: 存储链调整是节奏问题非逻辑问题中报验证
+  timeframe: short-term
+  statement: 大普微半年度净利润12-13.5亿元(扭亏,营收同比+475-542%)，江丰电子(300666)半年度净利润4.8-5.6亿元(同比+90-122%)靶材已进入3nm。存储链调整是节奏问题非逻辑问题。
+  evidence_quote: 个人判断，存储链的调整是节奏问题而非逻辑问题，业绩预告季正在用真金白银验证这条产业链，低吸的底气来自这里。
+  interpretation: 存储链中报业绩持续超预期验证景气度。江丰电子(300666科创板不可交易)，大普微企业级SSD出货超4900PB。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月16日盘中：存储链中报验证景气
+  related_stocks:
+  - code: '300666'
+    name: 江丰电子
+    role: 半导体靶材-创业板不可交易
+  tags:
+  - 存储链
+  - 中报
+  - 半导体材料
+  - 大普微
+  - 江丰电子
+- id: claim-20260716-001-i
+  source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T18:24:00'
+  claim_type: sector-theme
+  subject: 医药消费低位估值修复只做龙头分歧转一致
+  timeframe: short-term
+  statement: 哈药股份(600664)秒板，九安医疗(002432)、昭衍新药(603127)被顶一字。医药走强逻辑：资金对反弹不确定+低位估值修复，消费扩散至电影/宠物经济。参与只做龙头分歧转一致，不接扩散端一致。
+  evidence_quote: 医药走强背后的逻辑，除了资金对反弹预期的不确定、医药板块自身定位的变化之外，更有低位板块集体估值修复的意味。参与这条线，只做龙头的分歧转一致，不接扩散端的一致。
+  interpretation: 医药消费上涨更多是资金避险+超跌修复属性而非逻辑反转，不能追高扩散端，只做龙头（哈药股份）分歧转一致。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260715-052-a", "claim-20260630-001-p", "claim-20260604-004-h"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月16日盘中：医药消费低位修复参与纪律
+  related_stocks:
+  - code: '600664'
+    name: 哈药股份
+    role: 医药龙头情绪标-主板可交易
+  - code: '002432'
+    name: 九安医疗
+    role: 医药情绪标-主板可交易
+  - code: '603127'
+    name: 昭衍新药
+    role: CRO标的-主板可交易
+  tags:
+  - 医药
+  - 消费
+  - 低位修复
+  - 哈药股份
+  - 分歧转一致
+- id: claim-20260716-001-j
+  source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T18:24:00'
+  claim_type: catalyst
+  subject: 暑期档电影票房催化线
+  timeframe: short-term
+  statement: 截至7/15《八仙！》点映及预售票房突破4000万。《功夫女足》预测上修至25亿+。中国电影(600977)为A股唯一进口片发行牌照企业。
+  evidence_quote: 截至7月15日15时46分，《八仙！》点映及预售总票房突破4000万元。暑期档票房占全年比例一般在23%—30%之间。
+  interpretation: 暑期档是影视传媒确定性催化窗口。中国电影(600977)主板可交易，光线传媒(300251)创业板不可交易。影视板块是事件驱动型机会非趋势行情。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月16日盘中：暑期档电影票房催化
+  related_stocks:
+  - code: '600977'
+    name: 中国电影
+    role: 进口片发行龙头-主板可交易
+  tags:
+  - 暑期档
+  - 电影
+  - 票房
+  - 中国电影
+- id: claim-20260716-001-k
+  source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T18:24:00'
+  claim_type: catalyst
+  subject: Vera Rubin已投产但属海外链与WAIC国产链分开定价
+  timeframe: short-term
+  statement: 黄仁勋表示Vera Rubin已投入生产，台积电Rubin及谷歌/亚马逊ASIC拉货Q2Q3环比增长有望加速。相关飞龙股份(002536)、麦格米特(002851)。但这是海外链逻辑，与WAIC国产链分开定价避免混线。
+  evidence_quote: 需要提醒的是，这是海外链逻辑，与WAIC牵引的国产链要分开定价，避免混线。
+  interpretation: UP明确区分海外链与国产链：Vera Rubin是海外链（NVDA供应链），WAIC是国产链（华为昇腾），两条线定价逻辑不同不能混为一谈。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月16日盘中：Vera Rubin海外链与WAIC国产链分开定价
+  related_stocks:
+  - code: '002536'
+    name: 飞龙股份
+    role: 海外算力链-主板可交易
+  - code: '002851'
+    name: 麦格米特
+    role: 海外算力链-主板可交易
+  tags:
+  - Vera Rubin
+  - 海外链
+  - 国产链
+  - 英伟达
+  - 算力

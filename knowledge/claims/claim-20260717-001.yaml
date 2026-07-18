@@ -1,0 +1,417 @@
+claims:
+# ==================== 一、隔夜与开盘预判 ====================
+
+- id: claim-20260717-001-a
+  source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T00:58:00+08:00'
+  claim_type: technical-signal
+  subject: 台积电业绩超预期股价跌，高位兑现特征
+  timeframe: intraday
+  statement: 台积电二季报营收402亿美元+33.7%，毛利率67.7%连续五季创新高，业绩超预期但股价跌近2%——典型高位兑现特征，是全球存储链调整的注脚。
+  evidence_quote: 台积电二季报营收402亿美元、同比增长33.7%，毛利率67.7%，连续五个季度创新高，业绩超预期，股价反而跌了近2%——好业绩换不来好脸色，这是典型的高位兑现特征，也是本轮全球存储链调整的注脚。
+  interpretation: 全球芯片龙头业绩超预期但股价跌，说明利好已经price in，市场在借利好出货，与全球存储链调整周期一致。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260716-002-a"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 台积电业绩超预期股价跌，高位兑现
+  related_stocks: []
+  tags:
+  - 台积电
+  - 高位兑现
+  - 存储链调整
+  - 全球半导体
+
+- id: claim-20260717-001-b
+  source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T00:58:00+08:00'
+  claim_type: market-cycle
+  subject: 韩股今日制宪节休市，A股获独立交易日
+  timeframe: intraday
+  statement: 韩股制宪节休市（18年来首次恢复公休日），A股今天获得不受韩股低开传导干扰的独立交易日。低开不可怕，接不住才可怕。
+  evidence_quote: 今天韩股制宪节休市，这是该节日时隔18年首次恢复为公休日，证券、衍生品与商品市场全线停摆。换言之，A股今天难得地获得了一个不受韩股低开传导干扰的独立交易日。低开不可怕，接不住才可怕——今天恰好没有韩股帮着定低开价。
+  interpretation: 此前韩股暴跌对A股科技方向的压制是系统性外盘传导，今日韩股休市意味着A股定价回归自身节奏，开盘点位由A股自身供需决定。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260716-002-a", "claim-20260715-055-a"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 韩股休市A股独立交易日
+  related_stocks: []
+  tags:
+  - 韩股休市
+  - 独立交易日
+  - 外盘传导
+  - A股定价
+
+- id: claim-20260717-001-c
+  source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T00:58:00+08:00'
+  claim_type: market-cycle
+  subject: 韩国收紧单股杠杆ETF监管，杠杆出清与指数磨底期重叠
+  timeframe: short-term
+  statement: 韩国金融当局7/16宣布收紧单股杠杆ETF监管（最低保证金从1000万→3000万韩元、仅认可现金、单次限购20股、禁止新品上市）。监管在下跌途中收杠杆，短期是压力放大器，中期是挤泡沫必要动作。杠杆出清期与指数磨底期重叠，参照2015年场外配资清理经验。韩国散户初始杠杆最高约2.5倍，近两日已加速回落。
+  evidence_quote: 韩国金融当局7月16日宣布收紧单一股票杠杆ETF监管：最低保证金由1000万韩元提高至3000万韩元且仅认可现金、单次限购20股、并禁止新的单一股票杠杆产品上市。个人判断，这与我们此前讨论的逆周期杠杆监管框架一脉相承——监管选择在下跌途中收杠杆，短期是压力放大器，中期是挤泡沫的必要动作，参照2015年场外配资清理的经验，杠杆出清期与指数磨底期往往是重叠的。此外，杠杆盘方面，韩国散户此类交易初始杠杆最高约2.5倍，近两个交易日已经历加速回落，不少投资者在下跌中被强制平仓，待核实的是出清进度，但方向上确实在释放。
+  interpretation: 韩国监管在下跌过程中收紧杠杆政策（逆周期调节），短期加剧卖压但中期是去泡沫的必要过程。出清进度待核实但方向确定。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260715-055-b"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 韩国单股杠杆ETF监管收紧
+  related_stocks: []
+  tags:
+  - 韩国监管
+  - 杠杆出清
+  - 磨底期
+  - 逆周期调节
+
+- id: claim-20260717-001-d
+  source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T00:58:00+08:00'
+  claim_type: technical-signal
+  subject: 三要素：量能三个月新低+大金融需止稳+情绪收敛
+  timeframe: intraday
+  statement: 三要素现状：①量能创4月16日以来三个月新低——位置更低盘子更轻，承接难度等比例下降；②大金融（券商）是昨日午盘加速下跌的明面推手，今日观察其能否止稳，是三个要素中最需修复的一环；③情绪面跌停家数一度不足20家、连板高度拓宽至5板、次新C托伦斯止跌（近腰斩）。综合看，市场对标周一→预期今日对标周二，反弹预期存在。
+  evidence_quote: 量能上，昨日进一步缩量，成交创4月16日以来约三个月新低——位置更低、盘子更轻，承接的难度等比例下降；大金融上，昨日午后加速下跌的明面推手是券商股，今天观察其能否止稳，这是三要素里最需要修复的一环；情绪上，昨日盘中跌停家数一度不足20家，尾盘跳水也相对收敛，连板高度反而拓宽至5板，前期领跌的次新股C托伦斯止跌（该股较上周五高点已近腰斩）。综合看，市场既然把昨天对标周一，自然也会把今天代入周二，反弹预期是存在的。
+  interpretation: 三要素均指向超跌反弹窗口：量能创地量（卖压衰竭）+跌停收敛（恐慌释放）+连板拓宽（情绪资金仍在）。7/16对标周一（7/13的冲高回落），7/17自然对标周二（7/14的探底回升）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260715-055-a"]
+  contradicts: []
+  supplements: ["claim-20260716-002-a", "claim-20260716-002-b"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 三要素：量能地量+券商需止稳+情绪收敛→反弹预期
+  related_stocks: []
+  tags:
+  - 量能
+  - 大金融
+  - 情绪
+  - 反弹预期
+  - 三要素
+
+# ==================== 二、今日重点：两种情形，一个共振信号 ====================
+
+- id: claim-20260717-001-e
+  source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T00:58:00+08:00'
+  claim_type: methodology
+  subject: 7/17 WAIC开幕日两种情形框架
+  timeframe: intraday
+  statement: 情形A（早盘承接良好+券商不拖累+存储人气股企稳→超跌反弹展开，60/90分钟底部结构同步构筑）；情形B（量能继续萎缩+大金融走弱→反弹夭折，指数继续磨底，维持观望等右侧确认）。WAIC开幕日+重要讲话日，主题面有护航预期，但只能当超跌反弹做，不上仓位赌趋势反转。
+  evidence_quote: 情形A：若早盘承接良好、券商不再拖累、存储链人气股企稳，则超跌反弹展开，60分钟与90分钟底部结构有望同步构筑。情形B：若量能继续萎缩且大金融再度走弱，则反弹夭折、指数继续磨底，操作上维持观望，等右侧确认，不做左侧摊平。另外一层背景是，今天是世界人工智能大会开幕日，也是重要讲话日，主题面有护航预期——但个人判断，这个位置只能当超跌反弹来做，不宜上仓位去赌趋势反转。
+  interpretation: 延续7/16晚盘的条件化框架，情形A偏乐观（需券商+存储双修复），情形B偏保守。WAIC开幕有主题面护航但仅限超跌反弹操作。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260716-002-b"]
+  contradicts: []
+  supplements: ["claim-20260713-009-i", "claim-20260716-002-a"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7/17 WAIC开幕日情形A vs 情形B
+  related_stocks: []
+  tags:
+  - WAIC开幕
+  - 情形A
+  - 情形B
+  - 超跌反弹
+  - 券商止稳
+
+- id: claim-20260717-001-f
+  source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T00:58:00+08:00'
+  claim_type: technical-signal
+  subject: 德明利是超跌反弹的核心锚点
+  timeframe: intraday
+  statement: 德明利何时开板与小级别底部结构能否同步构筑，是同一个问题的两面。市场主线是科技，科技的核心是存储，存储的核心是德明利。德明利开板+底部结构形成=右侧信号。从市场对其业绩的极端反应看，已有点最后一跌的味道。
+  evidence_quote: 这里的关键锚点仍是德明利——市场主线是科技，科技的核心是存储，存储的核心是德明利，个人判断，德明利何时开板与小级别底部结构能否形成，是同一个问题的两面，两者共振才算右侧信号。从这次市场对其业绩的极端反应看，已有点最后一跌的味道。
+  interpretation: UP将德明利定义为存储链情绪修复的观察核心。德明利作为存储方向高位连板股，其开板意味着最极端的恐慌抛售结束，与60/90分钟底部结构同步形成才构成右侧确认。极端反应≈最后一跌的判断偏左侧乐观。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260716-002-d", "claim-20260716-002-e"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 德明利是存储链修复核心锚点
+  related_stocks:
+  - 603528.SH
+  tags:
+  - 德明利
+  - 存储
+  - 右侧信号
+  - 底部结构
+
+# ==================== 三、题材与消息面 ====================
+
+- id: claim-20260717-001-g
+  source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外台积电二季报营收.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T00:58:00+08:00'
+  claim_type: sector-theme
+  subject: 端侧AI备案打开从0到1
+  timeframe: short-term
+  statement: 国家网信办7/15首次对7款手机端侧AI集中备案（苹果Apple智能/华为小艺/OPPO AndesGPT/vivo蓝心/小米澎湃AI/三星盖乐世AI/努比亚豆包）。AI原生App月活4.99亿，终端内置覆盖7.55亿。盘面已验证：7/16沪指跌1.85%背景下天音控股/美格智能涨停，传音+6.56%/瑞芯微+5.58%。SoC/结构件/光学/声学/软件算法受益。
+  evidence_quote: 据国家网信办7月15日公示，7款手机端侧生成式人工智能服务集中备案...这是国家层面首次对手机端侧AI进行集中备案公示。据市场精选材料援引QuestMobile数据，AI原生App月活已达4.99亿，终端厂商内置AI应用覆盖用户更达7.55亿。盘面验证已经给出：昨日沪指跌1.85%失守3900点、科创50跌逾4%的背景下，天音控股、美格智能涨停，传音控股涨6.56%、瑞芯微涨5.58%。
+  interpretation: 端侧AI备案是政策层面的系统性放开（从0到1），不是单一公司事件。天音/美格在科技暴跌日涨停，说明端侧AI已成为弱势中的结构性避风港。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260527-005-e", "claim-20260716-002-d"]
+  contradicts: []
+  supplements: ["claim-20260716-002-g"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 端侧AI备案从0到1，弱势避风港
+  related_stocks:
+  - 002045.SZ
+  - 002881.SZ
+  - 603160.SH
+  - 600829.SH
+  tags:
+  - 端侧AI
+  - 备案
+  - Apple Intelligence
+  - 避风港
+
+- id: claim-20260717-001-h
+  source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T00:58:00+08:00'
+  claim_type: methodology
+  subject: 3D打印链苹果中框传闻需冷处理
+  timeframe: short-term
+  statement: 市场流传端侧3D链调研纪要称苹果中框使用3D打印（新增600亿打印件+140亿设备市场），但数字远超此前卖方公开测算（中泰证券假设10%渗透率对应117亿设备），且铂力特（核心标的）2025年底被证监会立案调查尚无结论。个人判断：在获得公告或供应链实证前，只能按题材脉冲对待。跟踪变量：苹果秋季新机拆解+铂力特立案进展。
+  evidence_quote: 但有两点必须冷处理。第一，纪要中600亿打印件、140亿设备的数字，远超此前卖方公开测算的量级（据中泰证券2023年报告，假设iPhone中框10%渗透率对应新增设备空间约117亿元），跳跃过大，且「首批已签」无任何公告佐证。第二，铂力特于2025年12月31日因涉嫌信息披露违法违规被证监会立案，调查至今尚无结论。个人判断：在获得公司公告或苹果供应链实证之前，这条线只能按事件驱动的题材脉冲对待，不构成产业链层面的右侧确认。
+  interpretation: UP系统性地指出3D打印小作文的三大问题：①数字远超历史测算（600亿vs117亿）②核心标的被立案③无任何公告佐证。因此不能当产业链逻辑做，仅限题材脉冲。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 3D打印链苹果中框传闻需冷处理
+  related_stocks:
+  - 688190.SH
+  - 603112.SH
+  - 600203.SH
+  tags:
+  - 3D打印
+  - 苹果链
+  - 调研纪要
+  - 冷处理
+  - 小作文
+
+- id: claim-20260717-001-i
+  source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T00:58:00+08:00'
+  claim_type: sector-theme
+  subject: WAIC物理AI（具身智能）可能是最大预期差
+  timeframe: short-term
+  statement: WAIC 2026今日开幕（1100+企业/3000+成果/300+全球首发）。镇馆之宝智元远征A3 Ultra人形机器人入选，它石智航发布通用具身大模型AWE 3.5并1:1复刻汽车线束产线，傅利叶展出负载轮式双臂机器人GRW。市场焦点此前在云端大模型与算力芯片，具身智能集中展示可能构成超预期方向。谐波减速器/六维力传感器/空心杯电机面临量产大考。个人判断：用两个条件过滤——①超跌属性 ②会期出现订单/量产实证。
+  evidence_quote: 据大会官方信息，WAIC 2026今日至7月20日在上海举行，超1100家企业参展、3000余项成果、超300款全球首发产品。镇馆之宝揭晓：商用全尺寸人形机器人智元远征A3 Ultra入选，是十件镇馆之宝中唯一的具身智能机器人；它石智航将发布通用具身大模型AWE 3.5并把1:1复刻的汽车线束产线搬进现场，傅利叶展出16公斤负载的轮式双臂机器人GRW，中国具身智能机器人十强榜单也将在会期发布。谐波减速器、六维力传感器、空心杯电机等核心零部件面临「量产大考」。个人判断，会议题材历来有见光节奏，具身智能这条线同样要用两个条件过滤：一看是否兼具超跌属性，二看会期是否出现订单或量产级别的实证催化——只有叙事没有位置的，宁可错过。
+  interpretation: WAIC具身智能方向如果超预期，直接受益的是上游核心零部件（谐波减速器/传感器/电机），但UP强调"只有叙事没有位置宁可错过"——说明当前市场风格偏好低位，无超跌属性则题材独立逻辑不成立。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260716-002-c"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: WAIC物理AI具身智能可能是最大预期差
+  related_stocks:
+  - 300607.SZ
+  - 002747.SZ
+  - 002158.SZ
+  - 603662.SH
+  tags:
+  - WAIC
+  - 具身智能
+  - 人形机器人
+  - 预期差
+  - 超跌
+
+- id: claim-20260717-001-j
+  source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T00:58:00+08:00'
+  claim_type: sector-theme
+  subject: 医药从单日防御向资金系统性切换过渡
+  timeframe: short-term
+  statement: 医药连续第二日在科技暴跌中逆势走强：哈药股份五连板（短线情绪标杆）、片仔癀涨停（机构加仓品牌中药）、同仁堂+6.65%。政策面上国务院批复同意《十五五中医药发展规划》、基药目录纳入创新药。海外礼来拟38亿美元收购迷幻药研发公司。个人判断：哈药的连板是短线情绪标杆，片仔癀涨停更像机构长线动作，两条线共振说明低位板块修复不是一日游。从电影→片仔癀→中药规划→实验猴，题材选择不拘一格，共同必要条件=超跌。
+  evidence_quote: 医药板块连续第二日在科技暴跌中逆势走强，中药方向领涨，哈药股份五连板、片仔癀与珍宝岛涨停、同仁堂涨6.65%，医美、免疫治疗、AI医疗等细分亦有批量涨停。政策面上，国务院日前批复原则同意《「十五五」中医药发展规划》，叠加7月9日基药目录纳入创新药等政策。个人判断，这条线的性质正在从单日防御向资金系统性切换过渡：哈药的连板是短线情绪标杆，片仔癀的涨停则更像机构加仓品牌中药的长线动作，两条线共振，说明低位板块的估值修复不是一日游。
+  interpretation: UP从七月初就开始关注医药消费的高低切换逻辑，7/17进一步升级判断——从"单日防御"升级为"资金系统性切换"，核心标志是哈药连板（短线）+片仔癀涨停（机构长线）两条线同时共振。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260716-002-f", "claim-20260715-049-b"]
+  contradicts: []
+  supplements: ["claim-20260716-001-i", "claim-20260715-049-c"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药从防御向资金系统性切换过渡
+  related_stocks:
+  - 600664.SH
+  - 600436.SH
+  - 600085.SH
+  tags:
+  - 医药
+  - 中药
+  - 高低切换
+  - 估值修复
+  - 系统切换
+
+- id: claim-20260717-001-k
+  source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T00:58:00+08:00'
+  claim_type: methodology
+  subject: 题材选择不拘一格，超跌与低位是共同必要条件
+  timeframe: short-term
+  statement: 从电影到片仔癀到中药规划到实验猴到3D打印到具身智能——题材选择不拘一格降人才，越冷门的反而越有机会跑出来，共同的必要条件仍是超跌与低位。在缩量环境下，风险偏好决定了资金只会买位置，不会买故事。
+  evidence_quote: 往深一层看，从电影板块到片仔癀，再到中药十五五规划、实验猴、电影《八仙》——题材选择上继续不拘一格降人才，越冷门的反而越有机会跑出来，共同的必要条件仍是超跌与低位。
+  interpretation: UP总结当前市场资金偏好核心：在缩量+低风险偏好环境下，资金只认"超跌+低位"这个属性，题材本身是否为前沿不重要。这是7/16"位置决定意义"方法论在7/17的延续。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260716-002-e"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 题材选择不拘一格，超跌低位是必要条件
+  related_stocks: []
+  tags:
+  - 方法论
+  - 超跌
+  - 低位
+  - 风险偏好
+  - 位置决定意义
+
+- id: claim-20260717-001-l
+  source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T00:58:00+08:00'
+  claim_type: catalyst
+  subject: DeepSeek估值3510亿，国资入股+WAIC窗口
+  timeframe: short-term
+  statement: 开润股份7/16晚间公告推算DeepSeek本轮融资后估值约3510亿元且已启动第二轮融资；其关联公司近日新增国家人工智能产业投资基金为股东。阿里千问单日API调用量突破1.4万亿Token，快手可灵30亿美元融资估值180亿美元。国资入股DeepSeek叠加WAIC窗口与用量新高，大模型赛道进入新一轮资本密集期。
+  evidence_quote: 据财联社，开润股份7月16日晚间公告披露的投资进展显示，按公告数据推算DeepSeek本轮融资后估值已攀升至约3510亿元，且已启动第二轮融资；其关联公司近日新增国家人工智能产业投资基金等为股东。据市场精选材料，阿里千问大模型单日API调用量突破1.4万亿Token，快手可灵完成30亿美元融资、估值升至180亿美元。
+  interpretation: DeepSeek获国资直接入股是标志性事件，说明AI大模型的战略重要性上升至国家层面。WAIC窗口正式开幕可能带动更多大模型相关公司发布产品或融资消息。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260716-002-b"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: DeepSeek估值3510亿，国资入股
+  related_stocks:
+  - 300577.SZ
+  tags:
+  - DeepSeek
+  - 大模型
+  - 国资入股
+  - 融资
+  - WAIC
+
+- id: claim-20260717-001-m
+  source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T00:58:00+08:00'
+  claim_type: methodology
+  subject: 晚上视频分析会进一步展开WAIC与苹果端侧AI
+  timeframe: intraday
+  statement: UP表示今晚视频分析将就WAIC、端侧AI、3D打印、盘中应对、其他零散信息——逐一详细展开。
+  evidence_quote: 剩下还有盘中应对策略、其他零散信息，晚上视频分析再逐一详细展开——
+  interpretation: 早盘专栏仅为开盘前预判框架，更详细的产业链逻辑与操作策略将在晚上视频中展开，对早盘专栏不应过度解读。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 晚上视频将详细展开
+  related_stocks: []
+  tags:
+  - 视频预告
+  - 后续展开

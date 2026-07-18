@@ -1,0 +1,59 @@
+claims:
+- id: claim-20260716-003-a
+  source_path: sources/raw/财经/2026-07-16-1342-盘中-尾盘前安抚.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T18:28:00'
+  claim_type: operation
+  subject: 7月16日午后盘面弱但未到定论时刻
+  timeframe: intraday
+  statement: 7月16日午后盘面反弹偏弱，但问题不大没收盘前不能下定论，收阴线也正常。盯分时会被量化交易玩死，不如不看盘等晚上视频分析。
+  evidence_quote: 今天弹的确实弱，但问题不大，还没到尾盘，今天收跟阴线也很正常，盯分时会被量化玩死，不如去睡个午觉打几盘游戏，晚上视频我会讲的。
+  interpretation: UP在盘面偏弱时安抚情绪，指出量化主导行情下盯分时无意义，强调收盘前不做定论、等盘后复盘再分析。纪律上：盘中不因分时波动频繁切换判断。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月16日盘中：尾盘前安抚与量化交易应对
+  related_stocks: []
+  tags:
+  - 尾盘
+  - 盘面弱势
+  - 量化交易
+  - 复盘
+  - 心态管理
+- id: claim-20260716-003-b
+  source_path: sources/raw/财经/2026-07-16-1342-盘中-尾盘前安抚.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T18:28:00'
+  claim_type: operation
+  subject: 今天少赚点明天多赚点平滑心态
+  timeframe: intraday
+  statement: 今天少赚点，明天多赚点就行了。调整预期，不要因单日弱势影响操作节奏。
+  evidence_quote: 今天少赚点，明天多赚点就行了。
+  interpretation: UP在弱势日做出心态层面的引导：降低当日预期、平滑情绪，避免因单日表现影响第二天的操作判断。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260527-004-a"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月16日盘中：弱势日心态调整
+  related_stocks: []
+  tags:
+  - 心态
+  - 预期调整
+  - 操作纪律

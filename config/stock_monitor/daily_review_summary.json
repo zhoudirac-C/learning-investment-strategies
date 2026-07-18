@@ -7197,5 +7197,689 @@
       },
       "fetched_at": "2026-07-15T17:00:18.077677+08:00"
     }
+  },
+  "2026-07-16": {
+    "date": "2026-07-16",
+    "built_at": "2026-07-16T17:00:37.907962+08:00",
+    "market": {
+      "stage": "回暖期（弱修复/冰点后修复初期）",
+      "stage_detail": "六步检查：①全A趋势：全A从6/22高点6624跌至6021（约-9%），日线DIF -73.8/DEA -10.6绿柱放大，趋势下跌未改，无中阳线。②多级别结构：上证/全A日线绿柱放大，但60分钟红柱放大（DIF已上穿DEA）、创业板120分钟金叉——小级别反弹已启动；九转上全A日线今日低9、深成指日线今日低9，双指数同日低9；斐波那契上深成指距6/8低点22天（贴近21窗口）、全A距6/22高",
+      "direction_priority": [
+        {
+          "direction": "WAIC超节点链（事件窗口7/16-7/17）",
+          "intensity": "",
+          "source": "market_summary:market:derived"
+        },
+        {
+          "direction": "影视传媒/暑期文娱（高低切轮动）",
+          "intensity": "",
+          "source": "market_summary:market:derived"
+        },
+        {
+          "direction": "AI终端/品牌消费电子（局部强势）",
+          "intensity": "",
+          "source": "market_summary:market:derived"
+        }
+      ],
+      "position_stance": "未判断",
+      "key_levels": {
+        "shanghai_index": {
+          "full_position_trigger": "4088（UP 6/15 09:45 明确定价：收盘站上可满仓干，但需具备选股能力。6/21节前沪指冲高回落偏弱，当前未触发）",
+          "valid_repair": "量价确认+科技高低切（已替代4033固定点位，6/9后UP不再使用4033作为修复标准）",
+          "weak_repair": "4000（心理关口，缩量站回无效，需放量+科技主动承接）",
+          "trend_defense": "3950（月线支撑，收盘跌破→筑底失败信号）",
+          "framework_evolution": "6/3: 4033/4130纪律线引入。6/5: 4033修正为科技清仓线。6/9: 生命线下调至4000。\n6/11早盘: 地量信号+情景A/B框架替代二元点位判断。4033已连续12天被跌破。\n6/11晚间: 全A趋势下跌23个交易日→历史级别尾部。午后回升提前消耗修复动能。\n6/21: K型分化确立。双创创新高vs沪指偏弱。涨价链排序取代单一方向判断。\n"
+        },
+        "star_board_50": {
+          "warning": "PE约225倍/PB约9.43倍，历史最高估值区间。短期仍偏强但无安全垫，看作需随时减仓的高Beta位置而非加仓位置。对海外半导体板块大跌高度敏感。",
+          "source_claim": "claim-20260621-001-e"
+        },
+        "nasdaq": {
+          "watch": "费城半导体指数是否稳住震荡区间"
+        },
+        "oil": {
+          "escalation_threshold": "90美元",
+          "relief_threshold": "80美元"
+        },
+        "dollar_index": {
+          "escalation_threshold": 101,
+          "description": "美元指数站上101+10Y美债同步站上4.5%=主流资金确认风险升级+加息预期抬头→压制科技股与有色估值。这是今晚最该盯的数据而非盘中传闻。",
+          "source_claim": "claim-20260622-001-b"
+        },
+        "us10y_treasury": {
+          "escalation_threshold": "4.5%",
+          "description": "10年期美债收益率同步站上4.5%+美元101→风险升级信号",
+          "source_claim": "claim-20260622-001-b"
+        },
+        "csi2000": {
+          "index_code": "sh000932",
+          "name": "中证2000（微盘股代理指数）",
+          "description": "UP 6/15复盘将微盘股列为第一隐忧和验证维度。中证2000是A股最小的2000只股票的集合，最适合作为微盘股走势的代理指数。",
+          "break_condition": {
+            "level": "🔴 第一隐忧",
+            "description": "收盘持续在20日均线下方运行 = 破位确认",
+            "trigger": "close_below_MA20",
+            "risk_chain": "微盘股破位→拖累全A→拖累AI科技→修复证伪"
+          },
+          "broad_verify": {
+            "level": "✅ 线索① 尾盘补涨（验证广度）",
+            "description": "中证2000收阳且跑赢全A（涨幅>中证全指）= 微盘股补涨确认，意味着\"所有板块同向往上\"条件成立",
+            "trigger": "zz2000_gain > all_share_gain AND zz2000_close_positive"
+          },
+          "monitor_frequency": "每日，关注尾盘（14:52）最终收盘确认",
+          "invalidation_conditions": [
+            "中证2000连续3日收于MA20下方→微盘破位确认，降仓至10%",
+            "中证2000跳空低开且30分钟不补缺→防御模式"
+          ]
+        }
+      }
+    },
+    "positions": {
+      "002409": {
+        "name": "雅克科技",
+        "close": 156.0,
+        "open": 167.44,
+        "high": 169.65,
+        "low": 154.17,
+        "change_pct": -8.93,
+        "volume": 329345.0,
+        "amount": "532018",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 9.92,
+        "volume_ratio": 0.94,
+        "vs_ma5": -1.7,
+        "vs_ma10": 6.8,
+        "near5d_return": 25.6,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": "in",
+        "entry_zone_range": "152-165",
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 170.461,
+        "unrealized_pct": -8.48,
+        "cost_protection_line": 170.46
+      },
+      "000021": {
+        "name": "深科技",
+        "close": 43.34,
+        "open": 45.44,
+        "high": 46.96,
+        "low": 42.71,
+        "change_pct": -8.29,
+        "volume": 1769956.0,
+        "amount": "790173",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 9.81,
+        "volume_ratio": 1.01,
+        "vs_ma5": -5.6,
+        "vs_ma10": 2.1,
+        "near5d_return": 23.3,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 49.312,
+        "unrealized_pct": -12.11,
+        "cost_protection_line": 49.31
+      },
+      "603283": {
+        "name": "赛腾股份",
+        "close": 52.06,
+        "open": 56.0,
+        "high": 57.5,
+        "low": 51.71,
+        "change_pct": -9.38,
+        "volume": 287571.0,
+        "amount": "155908",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 11.12,
+        "volume_ratio": 0.95,
+        "vs_ma5": -30.3,
+        "vs_ma10": -24.2,
+        "near5d_return": 24.0,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 79.853,
+        "unrealized_pct": -34.81,
+        "cost_protection_line": 79.85
+      },
+      "603650": {
+        "name": "彤程新材",
+        "close": 69.98,
+        "open": 71.51,
+        "high": 74.58,
+        "low": 69.55,
+        "change_pct": -6.0,
+        "volume": 211322.0,
+        "amount": "152084",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 7.19,
+        "volume_ratio": null,
+        "vs_ma5": null,
+        "vs_ma10": null,
+        "near5d_return": null,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 86.628,
+        "unrealized_pct": -19.22,
+        "cost_protection_line": 86.63
+      },
+      "600487": {
+        "name": "亨通光电",
+        "close": 64.85,
+        "open": 68.5,
+        "high": 69.82,
+        "low": 63.95,
+        "change_pct": -8.73,
+        "volume": 2056427.0,
+        "amount": "1370354",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 9.05,
+        "volume_ratio": 1.02,
+        "vs_ma5": -43.9,
+        "vs_ma10": -40.6,
+        "near5d_return": 10.7,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 90.899,
+        "unrealized_pct": -28.66,
+        "cost_protection_line": 90.9
+      },
+      "600498": {
+        "name": "烽火通信",
+        "close": 44.0,
+        "open": 46.15,
+        "high": 47.63,
+        "low": 43.51,
+        "change_pct": -7.49,
+        "volume": 790331.0,
+        "amount": "357399",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 9.36,
+        "volume_ratio": null,
+        "vs_ma5": null,
+        "vs_ma10": null,
+        "near5d_return": null,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 58.053,
+        "unrealized_pct": -24.21,
+        "cost_protection_line": 58.05
+      },
+      "603063": {
+        "name": "禾望电气",
+        "close": 35.25,
+        "open": 37.26,
+        "high": 37.56,
+        "low": 34.9,
+        "change_pct": -3.71,
+        "volume": 215721.0,
+        "amount": "77929",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 7.55,
+        "volume_ratio": null,
+        "vs_ma5": null,
+        "vs_ma10": null,
+        "near5d_return": null,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 66.875,
+        "unrealized_pct": -47.29,
+        "cost_protection_line": 66.88
+      }
+    },
+    "tomorrow_scenarios": null,
+    "dragon_tiger_board": {
+      "board_count": 102,
+      "watch_dt_items": [
+        "中材科技(002080) 净买-8511万",
+        "澜起科技(688008) 净买+13.23亿"
+      ],
+      "dt_nettop5": [
+        {
+          "code": "688008",
+          "name": "澜起科技",
+          "net_buy": "+13.23亿"
+        },
+        {
+          "code": "002739",
+          "name": "儒意电影",
+          "net_buy": "+3.82亿"
+        },
+        {
+          "code": "600584",
+          "name": "长电科技",
+          "net_buy": "+3.62亿"
+        },
+        {
+          "code": "603459",
+          "name": "红板科技",
+          "net_buy": "+2.23亿"
+        },
+        {
+          "code": "603459",
+          "name": "红板科技",
+          "net_buy": "+2.23亿"
+        }
+      ],
+      "dt_sector_summary": {
+        "pcb_ai_chain": {
+          "stocks": [
+            "002080"
+          ],
+          "total_net_str": "-8511万"
+        },
+        "chip_specialty": {
+          "stocks": [
+            "688008"
+          ],
+          "total_net_str": "+13.23亿"
+        }
+      },
+      "fetched_at": "2026-07-16T17:00:37.933625+08:00"
+    }
+  },
+  "2026-07-17": {
+    "date": "2026-07-17",
+    "built_at": "2026-07-17T17:00:20.017645+08:00",
+    "market": {
+      "stage": "未判断",
+      "stage_detail": "",
+      "direction_priority": [],
+      "position_stance": "未判断",
+      "key_levels": {
+        "shanghai_index": {
+          "full_position_trigger": "4088（UP 6/15 09:45 明确定价：收盘站上可满仓干，但需具备选股能力。6/21节前沪指冲高回落偏弱，当前未触发）",
+          "valid_repair": "量价确认+科技高低切（已替代4033固定点位，6/9后UP不再使用4033作为修复标准）",
+          "weak_repair": "4000（心理关口，缩量站回无效，需放量+科技主动承接）",
+          "trend_defense": "3950（月线支撑，收盘跌破→筑底失败信号）",
+          "framework_evolution": "6/3: 4033/4130纪律线引入。6/5: 4033修正为科技清仓线。6/9: 生命线下调至4000。\n6/11早盘: 地量信号+情景A/B框架替代二元点位判断。4033已连续12天被跌破。\n6/11晚间: 全A趋势下跌23个交易日→历史级别尾部。午后回升提前消耗修复动能。\n6/21: K型分化确立。双创创新高vs沪指偏弱。涨价链排序取代单一方向判断。\n"
+        },
+        "star_board_50": {
+          "warning": "PE约225倍/PB约9.43倍，历史最高估值区间。短期仍偏强但无安全垫，看作需随时减仓的高Beta位置而非加仓位置。对海外半导体板块大跌高度敏感。",
+          "source_claim": "claim-20260621-001-e"
+        },
+        "nasdaq": {
+          "watch": "费城半导体指数是否稳住震荡区间"
+        },
+        "oil": {
+          "escalation_threshold": "90美元",
+          "relief_threshold": "80美元"
+        },
+        "dollar_index": {
+          "escalation_threshold": 101,
+          "description": "美元指数站上101+10Y美债同步站上4.5%=主流资金确认风险升级+加息预期抬头→压制科技股与有色估值。这是今晚最该盯的数据而非盘中传闻。",
+          "source_claim": "claim-20260622-001-b"
+        },
+        "us10y_treasury": {
+          "escalation_threshold": "4.5%",
+          "description": "10年期美债收益率同步站上4.5%+美元101→风险升级信号",
+          "source_claim": "claim-20260622-001-b"
+        },
+        "csi2000": {
+          "index_code": "sh000932",
+          "name": "中证2000（微盘股代理指数）",
+          "description": "UP 6/15复盘将微盘股列为第一隐忧和验证维度。中证2000是A股最小的2000只股票的集合，最适合作为微盘股走势的代理指数。",
+          "break_condition": {
+            "level": "🔴 第一隐忧",
+            "description": "收盘持续在20日均线下方运行 = 破位确认",
+            "trigger": "close_below_MA20",
+            "risk_chain": "微盘股破位→拖累全A→拖累AI科技→修复证伪"
+          },
+          "broad_verify": {
+            "level": "✅ 线索① 尾盘补涨（验证广度）",
+            "description": "中证2000收阳且跑赢全A（涨幅>中证全指）= 微盘股补涨确认，意味着\"所有板块同向往上\"条件成立",
+            "trigger": "zz2000_gain > all_share_gain AND zz2000_close_positive"
+          },
+          "monitor_frequency": "每日，关注尾盘（14:52）最终收盘确认",
+          "invalidation_conditions": [
+            "中证2000连续3日收于MA20下方→微盘破位确认，降仓至10%",
+            "中证2000跳空低开且30分钟不补缺→防御模式"
+          ]
+        }
+      }
+    },
+    "positions": {
+      "002409": {
+        "name": "雅克科技",
+        "close": 145.0,
+        "open": 158.24,
+        "high": 160.77,
+        "low": 144.0,
+        "change_pct": -7.05,
+        "volume": 366828.0,
+        "amount": "559410",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 11.57,
+        "volume_ratio": 1.04,
+        "vs_ma5": -8.6,
+        "vs_ma10": -0.7,
+        "near5d_return": 25.6,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": "below",
+        "entry_zone_range": "152-165",
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 310.516,
+        "unrealized_pct": -53.3,
+        "cost_protection_line": 310.52
+      },
+      "002897": {
+        "name": "意华股份",
+        "close": 62.69,
+        "open": 68.76,
+        "high": 69.35,
+        "low": 62.69,
+        "change_pct": -10.01,
+        "volume": 113729.0,
+        "amount": "73373",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 10.62,
+        "volume_ratio": null,
+        "vs_ma5": null,
+        "vs_ma10": null,
+        "near5d_return": null,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 68.506,
+        "unrealized_pct": -8.49,
+        "cost_protection_line": 68.51
+      },
+      "000034": {
+        "name": "神州数码",
+        "close": 24.61,
+        "open": 26.21,
+        "high": 27.16,
+        "low": 24.39,
+        "change_pct": -8.61,
+        "volume": 626843.0,
+        "amount": "161185",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 11.26,
+        "volume_ratio": null,
+        "vs_ma5": null,
+        "vs_ma10": null,
+        "near5d_return": null,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 35.094,
+        "unrealized_pct": -29.87,
+        "cost_protection_line": 35.09
+      },
+      "600487": {
+        "name": "亨通光电",
+        "close": 58.39,
+        "open": 64.08,
+        "high": 65.2,
+        "low": 58.37,
+        "change_pct": -9.96,
+        "volume": 2065262.0,
+        "amount": "1257451",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 11.7,
+        "volume_ratio": 1.03,
+        "vs_ma5": -49.5,
+        "vs_ma10": -46.5,
+        "near5d_return": 10.7,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 135.408,
+        "unrealized_pct": -56.88,
+        "cost_protection_line": 135.41
+      },
+      "603063": {
+        "name": "禾望电气",
+        "close": 32.25,
+        "open": 35.48,
+        "high": 35.48,
+        "low": 31.73,
+        "change_pct": -8.51,
+        "volume": 253490.0,
+        "amount": "84362",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 11.63,
+        "volume_ratio": null,
+        "vs_ma5": null,
+        "vs_ma10": null,
+        "near5d_return": null,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 66.875,
+        "unrealized_pct": -51.78,
+        "cost_protection_line": 66.88
+      },
+      "002812": {
+        "name": "恩捷股份",
+        "close": 50.16,
+        "open": 51.19,
+        "high": 52.37,
+        "low": 49.65,
+        "change_pct": -2.28,
+        "volume": 237203.0,
+        "amount": "120660",
+        "is_limit_up": false,
+        "consecutive_limit_ups": null,
+        "weak_board": null,
+        "board_open_count": null,
+        "first_board_time": null,
+        "board_seal_ratio": null,
+        "board_quality": null,
+        "turnover_rate": null,
+        "amplitude": 5.42,
+        "volume_ratio": null,
+        "vs_ma5": null,
+        "vs_ma10": null,
+        "near5d_return": null,
+        "intraday_pattern": null,
+        "sector_avg_change": null,
+        "dragon_tiger_net": null,
+        "entry_zone_distance": null,
+        "entry_zone_range": null,
+        "dt_seat_type": null,
+        "dt_top_buy_behavior": null,
+        "dt_is_pure_hot_money": null,
+        "avg_cost": 55.171,
+        "unrealized_pct": -9.08,
+        "cost_protection_line": 55.17
+      }
+    },
+    "tomorrow_scenarios": null,
+    "dragon_tiger_board": {
+      "board_count": 71,
+      "watch_dt_items": [
+        "太极实业(600667) 净买+4.80亿",
+        "长光华芯(688048) 净买+4009万"
+      ],
+      "dt_nettop5": [
+        {
+          "code": "600667",
+          "name": "太极实业",
+          "net_buy": "+4.80亿"
+        },
+        {
+          "code": "603118",
+          "name": "共进股份",
+          "net_buy": "+4.18亿"
+        },
+        {
+          "code": "002396",
+          "name": "星网锐捷",
+          "net_buy": "+2.71亿"
+        },
+        {
+          "code": "600353",
+          "name": "旭光电子",
+          "net_buy": "+1.90亿"
+        },
+        {
+          "code": "600664",
+          "name": "哈药股份",
+          "net_buy": "+1.69亿"
+        }
+      ],
+      "dt_sector_summary": {
+        "sk_hynix_adr_mapping": {
+          "stocks": [
+            "600667"
+          ],
+          "total_net_str": "+4.80亿"
+        },
+        "ocs_optical_switching": {
+          "stocks": [
+            "688048"
+          ],
+          "total_net_str": "+4009万"
+        }
+      },
+      "fetched_at": "2026-07-17T17:00:20.030250+08:00"
+    }
   }
 }

@@ -1,4 +1,4 @@
-updated_at: '2026-07-15'
+updated_at: '2026-07-16'
 stocks:
 - code: 000636.SZ
   name: 风华高科
@@ -5630,6 +5630,141 @@ stocks:
     kline_zone_updated_at: null
     kline_zone_update_reason: new_add
     kline_zone_context: need_calc
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+# ── 2026-07-16 22:34复盘新增标的 ─────────────────────────
+
+- code: 002045.SZ
+  name: 国光电器
+  direction: edge_ai_endpoint
+  chain_position: upstream
+  human_note:
+    date: '2026-07-16'
+    type: direction_call
+    context: UP 7/16复盘新增。端侧AI声学龙头，Meta VR声学模组>70%，苹果/华为/谷歌Nest供应链，AI眼镜量产计划
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 002881.SZ
+  name: 美格智能
+  direction: edge_ai_endpoint
+  chain_position: midstream
+  human_note:
+    date: '2026-07-16'
+    type: signal_confirmation
+    context: UP 7/16复盘新增。7/16封死涨停，端侧AI低位标的。涨停后不可追，需等首次分歧
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: true
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 002254.SZ
+  name: 泰和新材
+  direction: aramid_ai_fiber
+  chain_position: midstream
+  human_note:
+    date: '2026-07-16'
+    type: direction_call
+    context: UP 7/16复盘新增(天风研报)。对位芳纶龙头，光纤增强占下游40-50%，数据中心光纤CAGR 43%
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 601058.SH
+  name: 赛轮轮胎
+  direction: tire_offshore_transfer
+  chain_position: midstream
+  human_note:
+    date: '2026-07-16'
+    type: direction_call
+    context: UP 7/16复盘新增(中泰研报)。海外基地领先，欧洲反倾销后受益订单转移，板块9倍PE
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 002984.SZ
+  name: 森麒麟
+  direction: tire_offshore_transfer
+  chain_position: midstream
+  human_note:
+    date: '2026-07-16'
+    type: direction_call
+    context: UP 7/16复盘新增(中泰研报)。海外产能充足，反倾销影响较小，板块9倍PE
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 600882.SH
+  name: 妙可蓝多
+  direction: cheese_domestic_sub
+  chain_position: midstream
+  human_note:
+    date: '2026-07-16'
+    type: direction_call
+    context: UP 7/16复盘新增(兴业研报)。奶酪龙头CR5 71.2%，国产替代+原奶成本低位+反补贴税
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 600887.SH
+  name: 伊利股份
+  direction: cheese_domestic_sub
+  chain_position: upstream
+  human_note:
+    date: '2026-07-16'
+    type: direction_call
+    context: UP 7/16复盘新增(兴业研报)。国产原奶~3元/kg历史低位，上游成本红利
   entry:
     primary_zone:
     - 0.0

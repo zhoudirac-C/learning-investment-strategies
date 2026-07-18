@@ -1,0 +1,92 @@
+claims:
+- id: claim-20260717-003-a
+  source_path: sources/original/bilibili/2026-07-17-1141-图片-截至1130，上证指数60分钟与90分钟级别的底部钝化已经消.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T11:50:00+08:00'
+  claim_type: technical-signal
+  subject: 上证60/90分钟底部钝化消失，小级别底部结构宣告失败
+  timeframe: intraday
+  statement: 截至11:30，上证60分钟与90分钟底部钝化已消失。若午后无足够力度拉升，日线隔峰钝化大概率也会消失。早盘提示的小级别底部结构预备宣告失败。
+  evidence_quote: 截至11:30，上证指数60分钟与90分钟级别的底部钝化已经消失，如果午后没有足够力度的拉升，日线隔峰钝化大概率也会跟着消失。这意味着早盘提示的小级别底部结构，本轮预备宣告失败。
+  interpretation: 早盘（08:58情形A）预期的60/90分钟底部结构未能形成。钝化消失是技术性信号，意味着短期背离条件不存在了，反弹预期落空。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260717-001-e"]
+  contradicts: []
+  supplements: ["claim-20260716-002-b", "claim-20260717-001-d"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 60/90分钟底部钝化消失，情形A失败
+  related_stocks: []
+  tags:
+  - 技术面
+  - 底部钝化消失
+  - 情形A失效
+  - 结构失败
+
+- id: claim-20260717-003-b
+  source_path: sources/original/bilibili/2026-07-17-1141-图片-截至1130，上证指数60分钟与90分钟级别的底部钝化已经消.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T11:50:00+08:00'
+  claim_type: technical-signal
+  subject: 钝化消失≠底部证伪，需新下探重建背离条件
+  timeframe: intraday
+  statement: 钝化消失不等于底部证伪，而是结构预备重来，大概率靠一次新的下探去重新建立背离条件。这与此前"最后一跌"判断是自洽的：德明利未开板、结构未做完、抛压未出清，三件事指向同一结论。
+  evidence_quote: 需要说明的是，钝化消失不等于底部证伪，而是结构预备重来，大概率要靠一次新的下探去重新建立背离条件。这与此前"最后一跌"的判断是自洽的：德明利未开板、结构未做完、抛压未出清，三件事指向同一个结论。
+  interpretation: UP强调钝化消失不等于趋势崩盘，而是反弹所需的技术条件不足。三个条件（德明利开板/底部结构/抛压出清）一个都没满足，所以"最后一跌"的逻辑没变，只是需要更长时间和更低的位置来重新积累反弹动能。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260717-001-f"]
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 钝化消失≠证伪，三个条件均未满足
+  related_stocks:
+  - 603528.SH
+  tags:
+  - 钝化消失
+  - 最后一跌
+  - 德明利
+  - 背离重建
+
+- id: claim-20260717-003-c
+  source_path: sources/original/bilibili/2026-07-17-1141-图片-截至1130，上证指数60分钟与90分钟级别的底部钝化已经消.md
+  source_date: '2026-07-17'
+  source_type: 动态
+  extracted_at: '2026-07-17T11:50:00+08:00'
+  claim_type: operation
+  subject: 午后拉不起来科技认错割肉离场，抄底失败
+  timeframe: intraday
+  statement: 下午如果拉不起来，科技认错，割肉离场，抄底失败。配置方向短期能做的不多，耐心等待就好。
+  evidence_quote: 梦想选手今天不能睡觉或者打游戏了，认真看盘，下午如果拉不起来，科技认错，割肉离场，抄底失败。配置方向短期能做的不多，耐心等待就好。
+  interpretation: UP给出明确的午后操作指令：科技方向若午后无法拉升，应当承认错误（认错）并割肉离场，此前以"最后一跌"逻辑抄底科技的方向需要止损。配置上短期无好的方向，等待为主。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260716-001-b", "claim-20260715-048-a"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 午后拉不起科技认错割肉，抄底失败
+  related_stocks: []
+  tags:
+  - 操作指令
+  - 认错
+  - 割肉
+  - 抄底失败
+  - 科技

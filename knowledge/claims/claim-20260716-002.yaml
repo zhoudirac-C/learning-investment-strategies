@@ -1,0 +1,411 @@
+claims:
+- id: claim-20260716-002-a
+  source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T23:05:00+08:00'
+  claim_type: market-cycle
+  subject: A股
+  timeframe: short-term
+  statement: 7月16日缩量回落是情绪性内生回调，而非趋势层面的破坏；明日WAIC开幕，缩量普跌后理应有所回暖。
+  evidence_quote: 量能较昨日继续萎缩，但午后反而有所回升。这更接近缩量环境下的情绪性内生回调，而非趋势层面的破坏。明日的核心变量是世界人工智能大会。缩量普跌之后叠加重量级产业事件，正常节奏下明日理应有所回暖。
+  interpretation: 量能午后回升说明杀跌盘在低位被承接，非流动性坍塌式出逃；WAIC（7/17-7/20）是次日核心变量。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260601-004-a", "claim-20260529-002-a"]
+  contradicts: []
+  supplements: ["claim-20260713-009-i"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7/16缩量回落定性+WAIC前夜博弈窗口
+  related_stocks: []
+  tags:
+  - A股
+  - 缩量
+  - 情绪回调
+  - WAIC
+  - 博弈窗口
+
+- id: claim-20260716-002-b
+  source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T23:05:00+08:00'
+  claim_type: methodology
+  subject: WAIC博弈条件化框架
+  timeframe: intraday
+  statement: WAIC次日博弈框架：情形A（开盘承接有力+算力或端侧率先放量修复→回落为情绪出清，指数重回缩量轮动原节奏）；情形B（低开无承接+量能进一步萎缩→风险偏好仍收缩，磨底期拉长，右侧确认为前提）。
+  evidence_quote: 情形A，若明日开盘承接有力、算力或端侧方向率先放量修复，则今日的回落可确认为简单的情绪出清，指数重回缩量轮动的原有节奏。情形B，若低开后无承接、量能进一步萎缩，则说明存量资金的风险偏好仍在收缩，磨底期拉长，操作上继续以右侧确认为前提，不见量价配合不追。
+  interpretation: UP给出两个条件化情形来判定WAIC次日市场方向，情形A偏乐观（情绪出清完成），情形B偏谨慎（继续磨底）。核心观察变量：开盘承接力+量能+算力/端侧方向修复情况。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260702-005-c"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: WAIC博弈条件化观察框架（情形A vs 情形B）
+  related_stocks: []
+  tags:
+  - WAIC
+  - 条件化框架
+  - 博弈
+  - 方法论
+
+- id: claim-20260716-002-c
+  source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T23:05:00+08:00'
+  claim_type: sector-theme
+  subject: 国产算力
+  timeframe: short-term
+  statement: 国产算力产业链7/16盘中相对强势，盛科通信关联交易大增锁定业绩超预期方向，该线性质是业绩驱动而非纯题材轮动，回落只改变节奏不改变逻辑，WAIC期间仍是主攻方向候选。
+  evidence_quote: 科技股整体延续走弱，但国产算力产业链盘中相对强势。催化是盛科通信昨晚公告关联交易金额大增——据公告口径，这基本锁定了业绩超预期的方向...个人判断，这条线的性质是业绩驱动而非纯题材轮动，回落只改变节奏、不改变逻辑，WAIC期间仍是主攻方向的候选。
+  interpretation: 盛科通信公告为业绩驱动力，国产算力的逻辑链是业绩驱动而非题材轮动，因此回落被视为节奏调整而非方向性破坏。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260609-005-d"]
+  contradicts: []
+  supplements: ["claim-20260702-005-e", "claim-20260702-001-d"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国产算力业绩驱动非纯题材轮动
+  related_stocks: ["盛科通信"]
+  tags:
+  - 国产算力
+  - 盛科通信
+  - 业绩驱动
+  - WAIC
+  - 交换机
+
+- id: claim-20260716-002-d
+  source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T23:05:00+08:00'
+  claim_type: sector-theme
+  subject: 端侧AI
+  timeframe: short-term
+  statement: 7月15日国家网信办最新一批端侧AI备案落地（苹果Apple Intelligence、华为小艺等7款获批），苹果国行版AI正式开放前最后障碍清除，苹果股价创历史新高；端侧方向异动明显，但资金共识在"低位"而非方向——瑞芯微/翱捷科技冲高回落（位置偏高），美格智能封死涨停（相对低位）。
+  evidence_quote: 据国家网信办7月15日发布的新一批手机端侧生成式人工智能服务备案名单，苹果Apple智能、华为小艺大模型、OPPO AndesGPT、努比亚豆包手机大模型等7款产品获批——苹果国行版Apple Intelligence等待近两年后，正式开放前的最后障碍已清除，隔夜苹果股价创历史新高。受此刺激，今日端侧方向异动明显...瑞芯微一度涨停、翱捷科技盘中创历史新高，但可能因为位置相对偏高，最终双双回落；相对低位的美格智能则封死涨停。
+  interpretation: 端侧AI催化明确，但市场对高位的分歧说明当前缩量环境下"位置>方向"——低位是唯一被一致买账的属性。这组对照验证了"位置决定意义"的当前市场风格。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260602-001-d"]
+  contradicts: []
+  supplements: ["claim-20260716-001-g"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 端侧AI备案落地 资金共识在低位而非方向
+  related_stocks: ["瑞芯微", "翱捷科技", "美格智能", "国光电器"]
+  tags:
+  - 端侧AI
+  - 苹果
+  - Apple Intelligence
+  - 备案落地
+  - 位置决定意义
+  - 低位逻辑
+
+- id: claim-20260716-002-e
+  source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T23:05:00+08:00'
+  claim_type: methodology
+  subject: 缩量环境下位置决定意义
+  timeframe: medium-term
+  statement: 在缩量环境下，低位是唯一被一致买账的属性——即便低位本身并不等于估值便宜。"位置决定意义"在缩量市场中被演绎到了极致。
+  evidence_quote: 这组对照说明资金当前的共识不在方向，而在位置——低位是唯一被一致买账的属性，即便低位本身并不等于估值便宜。位置决定意义，在缩量环境下被演绎到了极致。
+  interpretation: 缩量环境下的核心选股审美是"低位"而非"方向正确"或"估值便宜"。高位品种即便逻辑正确也难封板，低位品种逻辑弱化也能封死涨停。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260610-016-a"]
+  contradicts: []
+  supplements: ["claim-20260624-006-c", "claim-20260629-001-ad"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 缩量环境下位置决定意义方法论
+  related_stocks: []
+  tags:
+  - 缩量
+  - 位置决定意义
+  - 方法论
+  - 选股审美
+
+- id: claim-20260716-002-f
+  source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T23:05:00+08:00'
+  claim_type: sector-theme
+  subject: 医药消费
+  timeframe: intraday
+  statement: 医药与消费连续走强数日后进入分歧临界点——短期热度偏高+正触及上方较重筹码压力位，明日分歧可能加大。
+  evidence_quote: 非科技方向上，医药、消费延续强势，其中医药尾盘出现一定程度分歧。个人判断，明日分歧可能有所加大：一方面已连续走强数日、短期热度偏高，另一方面正触及上方较重的筹码压力位，位置与情绪两个约束同时收紧。
+  interpretation: 医药消费的强势接近短期瓶颈，两个约束（位置+情绪）同时收紧，分歧加大的概率较高。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260715-020-a"]
+  contradicts: ["claim-20260630-001-p"]
+  supplements: []
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药消费进入分歧临界点
+  related_stocks: []
+  tags:
+  - 医药
+  - 消费
+  - 分歧
+  - 筹码压力
+  - 短期热度
+
+- id: claim-20260716-002-g
+  source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T23:05:00+08:00'
+  claim_type: operation
+  subject: 国光电器
+  timeframe: medium-term
+  statement: 国光电器是端侧AI备案落地的直接受益标的——国内声学龙头，Meta VR声学模组主力供应商（市占率>70%），切入苹果/华为/谷歌Nest供应链，战略聚焦AI音箱/AI眼镜/AI耳机/ARVR，AI眼镜已有量产计划，处于AI硬件赛道从战略投入期向业绩兑现期切换的拐点，属产业逻辑清晰、需等待量价确认的跟踪型标的。
+  evidence_quote: 公司为国内声学龙头，据公开资料，其作为Meta VR声学模组主力供应商市占率超70%，同时为苹果、华为提供智能音箱及声学组件，并已切入谷歌Nest与Pixel供应链；产品端战略聚焦AI音箱、AI眼镜、AI耳机与ARVR设备，其中AI眼镜已有量产计划。当AI从云端下沉至耳机、音箱、眼镜等端侧设备，声学交互将成为最核心的入口之一。个人判断，公司正处于AI硬件赛道从战略投入期向业绩兑现期切换的关键拐点，属于产业逻辑清晰、需等待量价确认的跟踪型标的。
+  interpretation: 国光电器是端侧AI+声学交互的核心标的，产业逻辑清晰但需等待量价配合确认。注意该股代码需确认是否为主板标的。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260602-003-c"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国光电器——端侧AI声学龙头拐点
+  related_stocks: ["国光电器"]
+  tags:
+  - 国光电器
+  - 端侧AI
+  - 声学
+  - Meta VR
+  - AI眼镜
+  - 跟踪型标的
+
+- id: claim-20260716-002-h
+  source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T23:05:00+08:00'
+  claim_type: operation
+  subject: 领先股份（引线框架龙头）
+  timeframe: medium-term
+  statement: 日月光7月1日再度上调先进封装报价（最高涨幅>20%，2026年内累计30%-50%），引线框架作为封装第二大品类，在铜价上行、需求复苏、供应收紧三重驱动下国内厂商涨报价。公司通过2025年重大资产重组置入全球引线框架龙头AAMI，已成为全球第二、国内第一的引线框架供应商，是A股该环节纯度最高标的，处于龙头三度提价+跟随涨价的行业景气向上周期，业绩与估值双修复窗口打开。
+  evidence_quote: 据公开信息，日月光于7月1日宣布再度上调先进封装报价、最高涨幅超20%，2026年内面向AI芯片的高端封装品类累计涨幅已达30%至50%；引线框架作为封装材料第二大品类，在铜价上行、需求复苏与供应收紧三重驱动下，国内厂商年初以来陆续调涨报价。公司通过2025年重大资产重组置入全球引线框架龙头资产AAMI，已成为全球第二、国内第一的引线框架供应商，是A股该环节纯度最高的标的。个人判断，其所处的是龙头三度提价、跟随涨价的行业景气向上周期，业绩与估值双修复的窗口正在打开。
+  interpretation: 引线框架处于封装涨价周期的受益环节，领先股份通过重组成为该环节A股最纯标的，受益于日月光三度提价的行业景气传导。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260709-004-l"]
+  contradicts: []
+  supplements: ["claim-20260625-003-g", "claim-20260622-003-f"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 领先股份——引线框架龙头受益封装涨价周期
+  related_stocks: ["领先股份", "日月光"]
+  tags:
+  - 领先股份
+  - 引线框架
+  - 封装
+  - 涨价周期
+  - AAMI
+  - 业绩估值双修复
+
+- id: claim-20260716-002-i
+  source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T23:05:00+08:00'
+  claim_type: operation
+  subject: 香江控股
+  timeframe: intraday
+  statement: 香江控股全资子公司与中国移动宁夏公司签订5年约7.96亿元IDC业务协议，完成跨界IDC从0到1突破，7/16下午逆势回封打辨识度，股性良好，属"时点意义大于逻辑意义"的类型，确认与否只看次日盘面。
+  evidence_quote: 据公司公告，全资子公司香江云瀚与中国移动宁夏公司签订为期5年、总金额约7.96亿元的互联网数据中心业务协议，完成跨界IDC的从0到1突破，从传统地产开发向算力基础设施运营迈出实质一步。盘面上，今日下午逆势回封、打出辨识度，本身股性良好，明日关注弱转强的可能——这类标的的时点意义大于逻辑意义，确认与否只看次日盘面。
+  interpretation: 香江控股跨界IDC的从0到1突破具有事件驱动意义，但持续性是关键——"时点意义大于逻辑意义"，仅看次日盘面确认。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 香江控股跨界IDC从0到1突破
+  related_stocks: ["香江控股"]
+  tags:
+  - 香江控股
+  - IDC
+  - 跨界
+  - 中国移动
+  - 弱转强
+  - 时点意义
+
+- id: claim-20260716-002-j
+  source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T23:05:00+08:00'
+  claim_type: sector-theme
+  subject: 四条研报线索共性框架
+  timeframe: medium-term
+  statement: 四条研报线索（机器人数采、芳纶AI光纤、轮胎海外产能转移、奶酪国产替代）的共性是落在"供需缺口+国产替代+成本红利"框架内，与当前市场偏好低位+业绩确定性的资金审美吻合，可纳入中期跟踪池等待右侧确认信号。
+  evidence_quote: 以上四条研报线索的共性，是均落在「供需缺口 + 国产替代 + 成本红利」的框架内，与当前市场偏好低位、偏好业绩确定性的资金审美吻合，可纳入中期跟踪池，等待各自的右侧确认信号。
+  interpretation: 四条研报线索（机器人数据采集、芳纶、轮胎、奶酪）均符合"供需缺口+国产替代+成本红利"的选股框架，与当前缩量市场中偏好低位和确定性资金的审美一致。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260629-001-ab"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 四条研报线索共性——供需缺口+国产替代+成本红利
+  related_stocks: ["奥比中光", "华依科技", "芯动联科", "海天瑞声", "天奇股份", "亿嘉和", "泰和新材", "中化国际", "民士达", "中策橡胶", "赛轮轮胎", "森麒麟", "妙可蓝多", "伊利股份"]
+  tags:
+  - 研报
+  - 供需缺口
+  - 国产替代
+  - 成本红利
+  - 机器人
+  - 芳纶
+  - 轮胎
+  - 奶酪
+  - 中期跟踪
+
+- id: claim-20260716-002-k
+  source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T23:05:00+08:00'
+  claim_type: methodology
+  subject: 缩量市持仓逻辑拷问原则
+  timeframe: medium-term
+  statement: 缩量市中每一次回落都是对持仓逻辑的拷问：靠情绪上来的会随情绪下去，靠业绩上来的只会被时间推着走。
+  evidence_quote: 缩量市中的每一次回落，都是对持仓逻辑的一次拷问：靠情绪上来的会随情绪下去，靠业绩上来的只会被时间推着走。
+  interpretation: 缩量回落是检验持仓逻辑纯度的试金石——只有业绩驱动的逻辑才能穿越调整，情绪驱动的持仓将随情绪退潮回归原点。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260611-006-a"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 缩量市持仓逻辑拷问——业绩>情绪
+  related_stocks: []
+  tags:
+  - 缩量
+  - 持仓逻辑
+  - 业绩驱动
+  - 情绪驱动
+  - 方法论
+
+- id: claim-20260716-002-l
+  source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T23:05:00+08:00'
+  claim_type: sector-theme
+  subject: 芳纶AI光纤
+  timeframe: medium-term
+  statement: 芳纶迎来AI时代新增量：光纤增强占对位芳纶下游40%-50%，全球数据中心光纤需求至2028年CAGR 43%；芳纶纸凭轻量化、低介电切入PCB高端市场。我国产能占全球36%且存供需缺口，标的泰和新材、中化国际、民士达——算力硬件上游又一延伸分支。
+  evidence_quote: 据天风证券7月16日研报，芳纶迎来AI时代新增量：光纤增强占对位芳纶下游应用的40%-50%，全球数据中心光纤需求至2028年CAGR高达43%；芳纶纸凭轻量化、低介电切入PCB高端市场。我国产能占全球36%且存供需缺口，标的泰和新材、中化国际、民士达——这条线可视作算力硬件上游的又一延伸分支。
+  interpretation: 芳纶作为算力硬件上游材料，受益于数据中心光纤需求爆发和PCB高端化，是AI扩散的又一延伸分支。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260608-004-f"]
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 芳纶AI光纤——算力硬件上游延伸分支
+  related_stocks: ["泰和新材", "中化国际", "民士达"]
+  tags:
+  - 芳纶
+  - 光纤
+  - 算力硬件
+  - AI
+  - 供需缺口
+  - 天风证券
+
+- id: claim-20260716-002-m
+  source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
+  source_date: '2026-07-16'
+  source_type: 动态
+  extracted_at: '2026-07-16T23:05:00+08:00'
+  claim_type: sector-theme
+  subject: 轮胎——欧洲反倾销+海外产能转移
+  timeframe: medium-term
+  statement: 欧洲反倾销终裁落地后中国轮胎对欧面临24.4%-45.3%关税壁垒，出口通道实质被堵死，拥有海外产能的头部胎企（中策橡胶、赛轮轮胎、森麒麟）将承接欧洲市场转移出的3000-5000万条订单缺口且延续至2028年，板块当前仅9倍PE处于历史估值中枢底部。
+  evidence_quote: 据中泰证券7月15日轮胎跟踪，欧洲反倾销终裁落地后中国轮胎对欧出口面临24.4%-45.3%关税壁垒，出口通道实质被堵死，拥有海外产能的头部胎企将承接欧洲市场转移出的3000-5000万条订单缺口且延续至2028年，板块当前仅9倍PE、处于历史估值中枢底部；另据申万宏源同日中策橡胶首次覆盖，其泰国基地2025年归母净利10.14亿元、占公司整体的24.5%。
+  interpretation: 反倾销加速轮胎产业出海逻辑，拥有海外产能的企业受益于订单转移，板块估值处于历史低位。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-16
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 轮胎——反倾销加速出海逻辑
+  related_stocks: ["中策橡胶", "赛轮轮胎", "森麒麟"]
+  tags:
+  - 轮胎
+  - 反倾销
+  - 海外产能
+  - 订单转移
+  - 低估值
+  - 中泰证券
