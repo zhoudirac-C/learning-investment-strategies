@@ -1,0 +1,88 @@
+claims:
+- id: claim-20070202-001-a
+  source_path: sources/chanlun/lesson_027.md
+  source_date: '2007-02-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 趋势背驰的中枢位置
+  topic: 趋势背驰至少发生在第二个中枢之后，日线以上级别占九成以上
+  statement: 趋势一定有至少两个同级别中枢。对于背驰来说，肯定不会发生在第一个中枢之后，肯定至少是第二个中枢之后；第二个中枢后就产生背驰的情况占了绝大多数，特别在日线以上的级别几乎达到90%以上，因此日线以上级别出现第二个中枢就要密切注意背驰的出现。小级别如1分钟中该比例稍小但也占大多数。四五个中枢以后才出现背驰的都相当罕见。
+  evidence_quote: 趋势，一定有至少两个同级别中枢，对于背驰来说，肯定不会发生在第一个中枢之后，肯定是至少是第二个中枢之后……特别在日线以上的级别，这种就几乎达到90%以上，因此，如果一个日线以上级别的第二个中枢，就要密切注意背驰的出现。
+  interpretation: 给出背驰监控的启动条件：第一个中枢之后不必警惕背驰，第二个中枢形成后进入背驰警戒区。90%是作者的经验统计而非逻辑定理，级别越小可靠性越下降，延伸趋势的极端情况理论上可在第100个中枢后才背驰。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 背驰
+  - 中枢
+  - 趋势
+  - 级别
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070202-001-b
+  source_path: sources/chanlun/lesson_027.md
+  source_date: '2007-02-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 盘整背驰的技术意义
+  topic: 第一个中枢的背驰只是盘整背驰，二三类买点多由其构成，大级别盘整背驰对应历史性底部
+  statement: 如果在第一个中枢就出现背驰，那不是真正意义上的背驰，只能算盘整背驰，其技术含义是一个企图脱离中枢的运动因力度不够被阻止而回到中枢里。小级别的盘整背驰意义不大且必须结合位置，高位风险更大；但多数第二、三类买点其实都由盘整背驰构成，而第一类买点多数由趋势的背驰构成。盘整背驰最有用的是用在大级别上，特别是至少周线级别以上，所发现的往往就是历史性的大底部，构成一种类似第一类买点的买点，因为超大级别里绝大多数股票其实是一个盘整。补充定义：某级别的某类型走势如果构成背驰或盘整背驰，就把这段走势类型称为该级别的背驰段。
+  evidence_quote: 如果在第一个中枢就出现背驰，那不会是真正意义上的背驰，只能算是盘整背驰……因为多数的第二、三类买点，其实都是由盘整背驰构成的，而第一类买点，多数由趋势的背驰构成……盘整背驰最有用的，就是用在大级别上，特别是至少周线级别以上的，这种盘整背驰所发现的，往往就是历史性的大底部。
+  interpretation: 盘整背驰比较的是两个走势类型之间的力度，两个盘整也可以比较。判断可配合MACD：回抽0轴的黄白线再次下跌不创新低，或柱子面积明显小于前一段，两者满足其一即是背弛信号。万科季线图1993至2005年三段走势构成历史大底是文中所用案例。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 盘整背驰
+  - 买点
+  - 背驰段
+  - 大级别底部
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070202-001-c
+  source_path: sources/chanlun/lesson_027.md
+  source_date: '2007-02-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 区间套精确定位转折点
+  topic: 大级别转折点可通过不同级别背驰段逐级收缩范围而确定
+  statement: 缠中说禅精确大转折点寻找程序定理：某大级别的转折点，可以通过不同级别背驰段的逐级收缩范围而确定。即先找到大级别的背驰段，然后在次级别图里找出相应背驰段在次级别里的背驰段，将该过程反复进行下去直到最低级别，相应的转折点就在该级别背驰段确定的范围内；如果最低级别可以达到每笔成交，理论上大级别转折点可以精确到笔的背驰上，甚至就是唯一的一笔。该思路与数学分析里的区间套定理同构，但因级别不是无限可分的，达不到数学上唯一一点的精度。
+  evidence_quote: 某大级别的转折点，可以通过不同级别背驰段的逐级收缩范围而确定。换言之，某大级别的转折点，先找到其背驰段，然后在次级别图里，找出相应背驰段在次级别里的背驰段，将该过程反复进行下去，直到最低级别，相应的转折点就在该级别背驰段确定的范围内。
+  interpretation: 大资金在大级别背驰段里越跌越买即可，小资金则从月线周线日线一路往下找最精确的背驰点。作者自述1分钟的背驰段一般就是以分钟计算的事情，对大级别转折点已经足够精确，追求精确到笔实际意义不大。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 区间套
+  - 背驰段
+  - 转折点
+  - 精确定位
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

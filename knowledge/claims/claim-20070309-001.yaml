@@ -1,0 +1,517 @@
+claims:
+- id: claim-20070309-001-a
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 中枢与走势类型的循环定义问题
+  timeframe: permanent
+  statement: 中枢与走势类型相互依存、互为定义前提：没有走势类型中枢无法定义，没有中枢走势无法分出类型，若理论仅有这两个概念则循环定义不可避免；必须引入级别概念，严格的递归式定义才得以展开。
+  evidence_quote: 这两方面相互依存，如果没有走势类型，中枢也无法定义；而没有中枢，走势也无法分出类型。如果理论就此打住，那么一个循环定义就不可避免。要解决该循环，级别的概念是不可缺少的。有了级别，一个严格的递归式定义才可以展开。
+  interpretation: 这是缠论理论地基的说明：级别不是人为划分的便利工具，而是让中枢与走势类型两大基础概念摆脱循环定义、实现严格递归定义的逻辑枢纽。理解这一点才能明白为什么级别在缠论中处于第一性位置。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论级别理论的逻辑基础
+  related_stocks: []
+  tags:
+  - 缠论
+  - 级别
+  - 中枢
+  - 走势类型
+  - 递归定义
+- id: claim-20070309-001-b
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 最低级别中枢的定义
+  timeframe: permanent
+  statement: 最严格意义下，每笔交易是最低级别的，连续三笔相同价位的交易构成最低级别的中枢；市场交易如同物理世界一样并非想当然地无限连续，存在类似量子的最小分析单位。
+  evidence_quote: 所谓的最低级别，就如量子力学的量子概念，物理世界不是想当然地无限连续的，而市场的交易同样如此。最严格去定义，每笔的交易是最低级别的，连续三笔相同价位的交易，就构成最低级别的中枢。
+  interpretation: 缠论把理论原点锚定在逐笔成交上，用三笔同价位交易定义最小中枢，类比量子概念强调市场存在不可再分的最小结构单位。这是整个递归定义体系的起点。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论最低级别中枢定义
+  related_stocks: []
+  tags:
+  - 缠论
+  - 最低级别
+  - 中枢定义
+  - 逐笔交易
+- id: claim-20070309-001-c
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 最低级别走势类型的完全分类
+  timeframe: permanent
+  statement: 有一个最低级别中枢的走势是最低级别的盘整走势类型；有两个最低级别中枢的走势是最低级别的趋势走势类型，第二个中枢比第一个高即为上涨走势类型，反之为下跌走势类型。
+  evidence_quote: 有一个最低级别中枢的走势，就是最低级别的盘整走势类型；有两个最低级别中枢的走势，就是最低级别的趋势走势类型，如果第二个中枢比第一个高，那就是上涨走势类型，反之就是下跌走势类型。
+  interpretation: 盘整与趋势的区分被严格量化到中枢个数上：一个中枢为盘整、两个以上为趋势，趋势方向由前后中枢的高低关系判定。这套分类不依赖任何主观感觉，是纯结构化的。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论走势类型完全分类
+  related_stocks: []
+  tags:
+  - 缠论
+  - 走势类型
+  - 盘整
+  - 趋势
+  - 完全分类
+- id: claim-20070309-001-d
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 趋势延续与结束的判别标准
+  timeframe: permanent
+  statement: 依次存在N（N>2）个中枢时，只要保持第N个中枢高于第N-1个的状态就是上涨走势类型的延续，保持第N个低于第N-1个就是下跌的延续；上涨结束当且仅当第N个中枢不再高于、即等于或低于第N-1个中枢，下跌结束与此相反。
+  evidence_quote: 假设依次存在着N（N>2）个中枢，只要依次保持着第N 个中枢比N-1 个高的状态，那么就是上涨走势类型的延续；依次保持着第N 个中枢比N-1
+    个低的状态，就是下跌走势类型的延续。显然，根据上面的定义，在最低级别的上涨里，只要也只有出现依次第N 个中枢不再高于、即等于或低于第N-1 个的状态，才可说这最低级别的上涨结束。
+  interpretation: 趋势的延续与终结有充要判别条件：看新生中枢相对前中枢的位置关系。这使趋势结束从经验判断变成严格命题——上涨只有当中枢不再上移时才被宣告结束，此前任何回调都只是延续中的波动。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论趋势延续与结束判别
+  related_stocks: []
+  tags:
+  - 缠论
+  - 趋势延续
+  - 趋势结束
+  - 中枢判别
+- id: claim-20070309-001-e
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 高级别中枢的形成机制
+  timeframe: permanent
+  statement: 三个连续的最低级别走势类型所分别经过的价格区间有交集，即发生重叠关系，就形成高一级别的缠中说禅中枢；依照最低级别上的分类方法，高级别上同样可以把走势完全分类，该过程可逐级上推，从而不涉及循环定义地严格定义各级别的中枢与走势类型。
+  evidence_quote: 三个连续的最低级别走势类型之间，如果发生重叠关系，也就是三个最低级别走势类型所分别经过的价格区间有交集，那么就形成了高一级别的缠中说禅中枢。有了该中枢定义，依照在最低级别上的分类方法，同样在高级别上可以把走势进行完全的分类，而这个过程可以逐级上推，然后就可以严格定义各级别的中枢与走势类型而不涉及任何循环定义的问题。
+  interpretation: 这是递归定义的关键一环：次级别三段走势的价格区间重叠生成高级别中枢，同一套分类规则在每一级别上复用。级别由此不是主观周期选择，而是由走势结构自底向上生长出来的客观层级。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论中枢级别递归生长机制
+  related_stocks: []
+  tags:
+  - 缠论
+  - 中枢
+  - 级别递归
+  - 区间重叠
+- id: claim-20070309-001-f
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 实用级别划分的近似性质
+  timeframe: permanent
+  statement: 严格按定义操作须从最低级别逐级确认，太麻烦也没多大意义，因此才有1、5、15、30、60分钟及日、周、月、季、年的级别分类；三个连续1分钟走势类型的重叠构成5分钟中枢、三个连续5分钟走势类型的重叠构成15或30分钟中枢这类说法不大严格，但在实际操作上不会产生任何原则性的问题。
+  evidence_quote: 但如果按严格定义操作，必须从最低级别开始逐步确认其级别，太麻烦也没多大意义，所以才有了后面1、5、15、30、60 分钟，日、周、月、季、年的级别分类。在这种情况下，就可以不大严格地说，三个连续1
+    分钟走势类型的重叠构成5 分钟的中枢，三个连续5 分钟走势类型的重叠构成15 或30 分钟的中枢等话。在实际操作上，这种不大严格的说法不会产生任何原则性的问题，而且很方便，所以就用了，对此，必须再次明确。
+  interpretation: 常用的K线周期级别只是严格递归定义的工程近似，作者明确承认其不严格性但保证其无害性。实操中用1分钟、5分钟等周期图近似代替逐级递推是缠论允许的，但使用者须知这是近似而非定义本身。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论级别划分的实用近似
+  related_stocks: []
+  tags:
+  - 缠论
+  - 级别划分
+  - 周期近似
+  - 实操便利
+- id: claim-20070309-001-g
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 固定级别内走势类型的严格划分
+  timeframe: permanent
+  statement: 站在任意固定级别里，走势类型可以被严格划分：一个5分钟走势类型无论如何延续也不可能包含一个30分钟中枢，要形成30分钟中枢只能是3个以上5分钟走势类型的连接；走势类型与走势类型的连接这两个概念不可能有任何含糊的地方。
+  evidence_quote: 显然，站在任意一个固定级别里，走势类型是可以被严格划分的。例如，说一个5 分钟的走势类型，显然不可能包含一个30 分钟的中枢，因为按定义，一个单独的5
+    分钟走势类型无论如何延续，也不可能出现一个30 分钟的中枢。要形成一个30 分钟的中枢，显然只能是3 个以上5 分钟走势类型的连接才可能。走势类型与走势类型的连接，这两个概念不可能有任何含糊的地方。
+  interpretation: 走势类型的级别归属是排他的：本级别走势类型内部不可能长出高级别中枢，高级别中枢只能由多个本级别走势类型连接而成。这把级别混杂的糊涂账从定义上彻底排除。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论走势类型级别严格性
+  related_stocks: []
+  tags:
+  - 缠论
+  - 走势类型
+  - 级别严格性
+  - 中枢
+- id: claim-20070309-001-h
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 走势类型与本级别中枢的包含关系
+  timeframe: permanent
+  statement: 一个5分钟走势类型必须包含、也最多只包含5分钟级别的中枢；中枢个数是1个还是5个都不影响它是5分钟走势类型，只决定它被分类为5分钟级别的盘整类型还是趋势类型。
+  evidence_quote: 5 分钟走势类型，必须包含也最多包含5 分钟级别中枢，至于是1 个还是5 个，都不影响是5 分钟走势类型，只不过可被分类成是5
+    分钟级别的盘整类型还是趋势类型而已。
+  interpretation: 走势类型的级别由其所含中枢的级别决定，与中枢数量无关；中枢数量只用于区分盘整与趋势。这澄清了级别归属与类型分类是两个独立维度，不能混为一谈。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论走势类型与中枢包含关系
+  related_stocks: []
+  tags:
+  - 缠论
+  - 走势类型
+  - 中枢数量
+  - 盘整趋势分类
+- id: claim-20070309-001-i
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 缠中说禅走势分解定理二
+  timeframe: permanent
+  statement: 缠中说禅走势分解定理二：任何级别的任何走势类型，都至少由三段以上次级别走势类型构成；高级别走势类型不一定直接由次级别走势类型连接而成，但通过拆散重分，必然可以分解为若干次级别走势类型的连接。
+  evidence_quote: 但我们还可以通过拆散重分，使得一个高级别的走势类型必然就是由几个次级别的走势类型连接而成，由于中枢里至少有三段次级别走势类型，所以就有了“缠中说禅走势分解定理二”：任何级别的任何走势类型，都至少由三段以上次级别走势类型构成。
+  interpretation: 定理二给出走势分解的最小结构保证：任何走势类型至少含三段次级别走势，这源于中枢至少由三段次级别走势构成。它保证了向次级别分解的操作永远可行，是背驰判断和区间套定位的理论前提。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠中说禅走势分解定理二
+  related_stocks: []
+  tags:
+  - 缠论
+  - 走势分解定理二
+  - 次级别
+  - 三段分解
+- id: claim-20070309-001-j
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 走势类型连接运算的结合律
+  timeframe: permanent
+  statement: 走势类型连接这种运算符合结合律，可以通过重新分组完成走势的拆散重分；但连接运算不符合交换律，走势的连接顺序不可调换，这是该运算的特别之处。
+  evidence_quote: 学过一点抽象代数的都容易理解上面的话，用抽象的话说，就是走势类型连接这种运算是符合结合律的。但走势类型的连接运算不符合交换率，这就是该运算的特别之处。
+  interpretation: 结合律保证了走势分解方式可以灵活重组而不改变走势本身，交换律不成立则提醒时间顺序是走势的本质属性，前后段不可颠倒。这是走势分解合法性的代数基础。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论走势连接运算性质
+  related_stocks: []
+  tags:
+  - 缠论
+  - 结合律
+  - 走势连接
+  - 抽象代数
+- id: claim-20070309-001-k
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 缠中说禅走势分解定理一
+  timeframe: permanent
+  statement: 缠中说禅走势分解定理一：任何级别的任何走势，都可以分解成同级别盘整、下跌与上涨三种走势类型的连接；这意味着按某种级别去操作，就等于永远只处理三种同一级别的走势类型及其连接。
+  evidence_quote: 只要明白了走势类型连接运算的结合性，那就不难同时明白“缠中说禅走势分解定理一”：任何级别的任何走势，都可以分解成同级别“盘整”、
+    “下跌”与“上涨”三种走势类型的连接。
+  interpretation: 定理一把看似无穷复杂的市场走势归约为三种基本类型的连接，操作问题由此被简化为在固定级别上识别与衔接盘整、上涨、下跌三种状态，是缠论可操作性的总纲。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠中说禅走势分解定理一
+  related_stocks: []
+  tags:
+  - 缠论
+  - 走势分解定理一
+  - 盘整上涨下跌
+  - 走势连接
+- id: claim-20070309-001-l
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 走势客观性与级别主观性
+  timeframe: permanent
+  statement: 走势是客观的，而用什么级别去分析这走势却是主观的；确定自己操作的级别，就是确定自己究竟是按什么级别来分析、操作，这是每个操作者必须先回答的第一性问题。
+  evidence_quote: 注意，走势是客观的，而用什么级别去分析这走势却是主观的。……确定自己操作的级别，就是确定自己究竟是按什么级别来分析、操作。
+  interpretation: 走势不因观察者而变，级别则是观察者的主动选择。操作的确定性不来自预测走势，而来自先固定自己的操作级别，级别不定则一切买卖点判断都失去参照系。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论操作级别的第一性
+  related_stocks: []
+  tags:
+  - 缠论
+  - 走势客观性
+  - 级别主观性
+  - 操作级别
+- id: claim-20070309-001-m
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 操作级别决定买卖点的有无
+  timeframe: permanent
+  statement: 同一段走势在不同操作级别下买卖点完全不同：5分钟级别上下上三段意味着5分钟级别上有2个底背驰、2个顶背驰，按买点买、卖点卖原则就有2次完整操作；而按30分钟级别看这里没有买卖点，所以就无须操作。
+  evidence_quote: 例如，5 分钟级别上下上三段，意味着在5 分钟级别上有2 个底背驰、2 个顶背驰，按买点买、卖点卖的原则，就有2 次的完整操作；而按30
+    分钟级别看，这里就没有买卖点，所以就无须操作。
+  interpretation: 买卖点不是走势的绝对属性，而是相对操作级别而言的。级别越小操作机会越多，级别越大越省心，不存在脱离级别的所谓错过的买卖点。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论买卖点的级别相对性
+  related_stocks: []
+  tags:
+  - 缠论
+  - 操作级别
+  - 买卖点
+  - 背驰
+- id: claim-20070309-001-n
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 操作级别的效率与现实约束
+  timeframe: permanent
+  statement: 纯理论上操作级别越低相应效率越高，但实际操作级别不可能随意低，按什么级别分析操作与资金等具体条件相关；T+1制度下按1分钟以下级别操作面临不能顺利兑现的风险，系统的操作要把所有可能情况考虑其中，因此完全按1分钟以下级别操作是不可能的，除非T+0。
+  evidence_quote: 从纯理论的角度，操作级别越低，相应的效率越高，但实际操作级别是不可能随意低的，而究竟按什么级别来分析、操作，和你的资金等具体条件相关。例如，T+1
+    的情况下，按1 分钟以下级别的操作，就面临着不能顺利兑现的风险，而系统的操作，要把所有可能的情况都考虑其中，因此完全按1 分钟以下级别的操作是不可能的，除非是T+0。
+  interpretation: 级别选择是效率与可实现性的权衡：理论最优不等于现实可行，交易制度（T+1）和资金规模构成硬约束。系统设计必须考虑最坏情况，不能按理想流动性假设选择级别。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论操作级别选择约束
+  related_stocks: []
+  tags:
+  - 缠论
+  - 操作级别
+  - T+1
+  - 效率约束
+- id: claim-20070309-001-o
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 过小级别操作的成本约束
+  timeframe: permanent
+  statement: 级别越小平均的买卖点间波幅越小，太小的级别不足以让交易成本、交易误差等相对买卖点间波幅足够小，这样的操作从长期角度看没有意义；交易误差包括看见买点到实际操作完成的时间差造成的价位差别，对特小级别要求的精确度不可能长期达到。
+  evidence_quote: 此外，级别越小，平均的买卖点间波幅也越小，因此，那些太小的级别，不足以让交易成本、交易误差等相对买卖点间波幅足够小，这样的操作，从长期的角度看，是没有意义的。所谓的交易误差，可以包括很多，例如你看见买点到你实际操作完成，必然有一个时间差，因此也就有了价位上的差别，这对于大级别无所谓，但对特小级别，那就需要特别精确，而这是不可能长期达到的。
+  interpretation: 级别下限由成本结构决定：买卖点间波幅必须显著大于交易成本与执行误差之和，否则操作期望值被摩擦成本吞掉。执行时间差是不可消除的误差源，级别选择必须给它留出足够裕度。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论级别下限与交易成本
+  related_stocks: []
+  tags:
+  - 缠论
+  - 交易成本
+  - 交易误差
+  - 级别下限
+- id: claim-20070309-001-p
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 操作级别的买卖点纪律
+  timeframe: permanent
+  statement: 定好操作级别后，一旦该级别出现买卖点就必须进入或退出，在自己的操作级别上不参与任何调整或下跌走势类型；作者2001年后四年不看股票，就是因为其操作级别上出现卖点所以全部退出，等有相应买点再说。
+  evidence_quote: 也就是说，一旦该级别出现买卖点，你必须进入或退出。也就是说，在你的操作级别上，你是不参与任何调整或下跌走势类型的。有人曾问本ID
+    为什么2001 年后四年都不看股票，那很简单，就因为在本ID 的操作级别上出现卖点，所以就全部退出，等有相应买点再说。
+  interpretation: 纪律的内核是级别锚定后的机械执行：卖点出现后的调整与下跌不属于自己级别的机会，离场等待是操作的一部分而非踏空。四年不看股票的例子说明大级别卖点对应的空仓期可以极长，耐心本身就是纪律。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20260623-004-c"]
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论买卖点操作纪律
+  related_stocks: []
+  tags:
+  - 缠论
+  - 买卖点纪律
+  - 空仓
+  - 操作级别
+- id: claim-20070309-001-q
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 次级别部分操作与成本管理
+  timeframe: permanent
+  statement: 定好操作级别后应该安排次级别以下的部分操作：进入操作级别的次级别盘整或下跌（可忍受的最大级别非上涨走势）时当然要操作一下来降低成本，操作级别很大时其次级别的次级别也可用来部分操作，使整个操作具有立体性从而更降低风险；降低成本是唯一能降低风险的活动，只有当成本为0时才算真正脱离风险。
+  evidence_quote: 制定了相应级别，是否按照次级别以下进行部分操作，那是操作风格问题，而实际上是应该安排这种操作的，特别当进入一个你的操作级别的次级别盘整或下跌，这是你可以忍受的最大级别非上涨走势，当然要操作一下来降低自己的成本。如果你的操作级别很大，那么其次级别的次级别，也可以用来部分操作的。这样，整个操作就有一定的立体性，从而更降低其风险，也就是能进行把成本降低这唯一能降低风险的活动，只有当成本为0
+    时，才算真正脱离风险。
+  interpretation: 主级别定方向、次级别做差价的多层次立体操作是缠论风险管理的核心手法：风险不靠预测规避，而靠持续摊低成本消解，成本归零即立于不败之地。这是把风险控制转化为可执行操作的独特思想。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠论立体操作与零成本风险观
+  related_stocks: []
+  tags:
+  - 缠论
+  - 次级别操作
+  - 降低成本
+  - 风险管理
+- id: claim-20070309-001-r
+  source_path: sources/chanlun/lesson_035.md
+  source_date: '2007-03-09'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 缠中说禅买卖点级别定理
+  timeframe: permanent
+  statement: 缠中说禅买卖点级别定理：大级别的买卖点必然是次级别以下某一级别的买卖点，但不一定就是次级别的买卖点；这就是为什么有时候一个1分钟的背驰就会引发大级别下跌的原因，而在最规范的走势中，大级别的买卖点刚好是下面所有级别的买卖点。
+  evidence_quote: 根据“缠中说禅走势分解定理”，很容易就证明“缠中说禅买卖点级别定理”：大级别的买卖点必然是次级别以下某一级别的买卖点。……但注意，大级别的买卖点不一定就是次级别的买卖点……这也是为什么有时候，有时候一个1
+    分钟的背驰就会引发大级别下跌的原因。在最规范的走势中，该大级别的买卖点刚好是下面所有级别的买卖点。
+  interpretation: 该定理是区间套方法的理论依据：抓大级别买卖点可以逐级向下在更小级别精确定位。同时它解释了小级别背驰撬动大级别转折的现象，并指出各级别买卖点共振只出现在最规范的走势中，实操不能默认共振成立。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 缠中说禅买卖点级别定理
+  related_stocks: []
+  tags:
+  - 缠论
+  - 买卖点级别定理
+  - 区间套
+  - 背驰

@@ -1,0 +1,84 @@
+claims:
+- id: claim-20070702-002-a
+  source_path: sources/chanlun/lesson_064.md
+  source_date: '2007-07-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 线段必须被线段破坏
+  topic: 单纯一笔不能破坏线段，线段被线段破坏才算真破坏
+  statement: 线段必须要被破坏才算结束，但线段必须要被线段破坏才算是真破坏，单纯的一笔是不能破坏线段的，这就避免了一些特偶然因素对走势的干扰。
+  evidence_quote: 线段必须要被破坏才算结束，但必须要强调的是，线段必须要被线段破坏才算是真破坏，单纯的一笔是不能破坏线段的，这就避免了一些特偶然因数对走势的干扰。
+  interpretation: 这是线段破坏的总原则，过滤单笔毛刺以保证线段级别结构的稳定性。67课用特征序列将其精确化，作者自述67课就是把这条充要条件精确化，以后线段划分都以精确定义为基础。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 线段
+  - 线段破坏
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070702-002-b
+  source_path: sources/chanlun/lesson_064.md
+  source_date: '2007-07-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 缺口的线段处理规则
+  topic: 顺向缺口包含在原笔中，突发逆向缺口当成一段
+  statement: 缺口在线段划分中分两种处理：顺着原走势方向的缺口（如低开后顺着昨天的笔下来），没有破坏原来那笔，就包含在原来的一笔里，和一般走势没什么区别；突然性的、逆着走势来的缺口，必然要当成一段，而不能只当成一笔或一笔里的一部分。对缺口没有三笔的疑问，可以这样理解：就像0等于0加0加0，缺口可以看成是三个缺口的迭加，这样就有三笔以上了。
+  evidence_quote: 缺口如果包含在一笔中的，像今天早上低开的缺口，没有破坏昨天那笔，是顺着昨天那笔下来的，所以这种缺口和一般的走势没什么区别，缺口还是包含在昨天的一笔里。但有些突然性的逆着走势来的缺口，就像530 那个，就必然要当成一段，而不能光当成一笔或一笔里的了。有人可能说，缺口没有三笔？那你可以这样去看，就像0=0+0+0，缺口可以看成是三个缺口的迭加，这样就有三笔以上了。
+  interpretation: 530指2007年5月30日印花税调整引发的跳空暴跌，作历史案例。规则要点是按缺口相对走势的方向与力度区分处理，而非缺口本身机械成段。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 缺口
+  - 线段
+  - 笔
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: medium
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070702-002-c
+  source_path: sources/chanlun/lesson_064.md
+  source_date: '2007-07-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 精度预设一致性原则
+  topic: 精度是人为预设，一旦预设就必须一路保持统一
+  statement: 线段划分中用的精度是人为预设的前提，没有什么必然性：可以直接取整，可以严格到小数点后两位，也可以把相差0.5点之内的看成一样。没有什么精度是十全十美的，唯一必须遵守的，就是精度一旦预设，就一定要一路保持，关键是要统一，不要变来变去。不同软件对精细的图会有数值上的细微差别，预设统一精度就是消解这种差别的办法。
+  evidence_quote: 这没有什么必然性，只是预设的前提，你可以采取严格到小数后两位的精确度，但其实不同软件，对1 分钟这么精细的图，都会有数值上的细微差别，所以，所谓的精确，往往不一定就是……所有预设精度，唯一必须遵守的，就是精度一旦预设，就一定要一路保持。注意，没有什么精度是十全十美的……所以这些细节，其实问题都不大，关键是要统一，不要变来变去。
+  interpretation: 几何化体系对输入数据噪声的处理方案：标准可任意但必须一致。这一原则可推广到所有需要阈值的交易规则，阈值取值不如阈值稳定重要。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 精度
+  - 线段划分
+  - 规则一致性
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: medium
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

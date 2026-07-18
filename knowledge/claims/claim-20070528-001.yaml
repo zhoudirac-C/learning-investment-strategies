@@ -1,0 +1,87 @@
+claims:
+- id: claim-20070528-001-a
+  source_path: sources/chanlun/lesson_055.md
+  source_date: '2007-05-28'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 买卖结构的不对等性
+  topic: 钱换筹码与筹码换钱不同构，买卖策略因此不对等
+  statement: 买和卖是不对等的，相应的策略也不一样，因为买卖的前后状态不同构：买是钱换筹码，卖是筹码换钱；钱与时间无关，只要还是钱就是不变的，而筹码今天的价值与明天的不同，筹码数量不变没有意义，最终算的还是钱。由于时间的不可逆转，钱换筹码与筹码换钱这两个结构不是同构的。这道理十分简单，却是操作逻辑的基础，最基础的往往最简单。
+  evidence_quote: 买和卖，是不对等的，相应的策略也是不一样的，为什么？因为买卖的前后状态是不同构的。在市场里，买是钱换筹码，卖是筹码换钱，钱是与时间无关的，1 元，今天是，明天还是，只要还是钱，就是不变的。而筹码不是……而由于时间的不可逆转，因此（钱-筹码）与（筹码-钱）这两个结构，就不是同构的。
+  interpretation: 这是缠论为买之前戏卖之高潮的策略不对称性给出的结构性解释：持币无时间风险，持筹承担时间风险，所以买入过程可以复杂反复，卖出必须果断。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 买卖不对等
+  - 筹码
+  - 操作逻辑
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: medium
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070528-001-b
+  source_path: sources/chanlun/lesson_055.md
+  source_date: '2007-05-28'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 大级别建仓的前戏模式
+  topic: 大级别买入必然反复，底部区域借中枢延伸扩展降低成本，脱离底部时成本应在区域之下
+  statement: 一个大级别的买的过程即建仓过程必然是反复的，买中有卖，不断灵活地根据当下走势调整建仓的成本与数量；底部区域可以进行最复杂的中枢延伸与扩展，唯一目的是取得足够的、成本不断降低的筹码，这同时兼备改造股票股性的任务，也是能顺利退出的底线。一个好的买入，当股票脱离底部区域时成本应该早在该区域之下；在大级别中枢上移中只会减少成本，只有最愚蠢的拉抬才会增加成本。一个出色的卖，是在大级别高潮的后继乏力、背驰中退出。底部不一定是在平衡水平线上的中枢震荡，还可以是斜率很小、充满激烈震荡的通道式上升。
+  evidence_quote: 对于一个大级别的买的过程，或者说一个大的建仓过程，买必然是反复的，买中有卖，不断灵活地根据当下的走势去调整建仓的成本与数量，底部区域可以进行最复杂的中枢延伸与扩展，唯一的目的只有一个，取得足够的、成本不断降低的筹码……当脱离底部区域时，其成本应该早在该区域之下。而在大级别中枢上移中，只会减少成本，只有最愚蠢的拉抬，才会增加其成本……一个出色的卖，就是在那大级别高潮的后继乏力、背驰中退出。
+  interpretation: 建仓方法本质上与第49课中枢震荡降低成本的模式一致，只是放在大资金语境，并补充了底部形态的多样性。成本在底部区域之下是前戏合格的验收标准。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 建仓
+  - 底部
+  - 降低成本
+  - 中枢震荡
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260324-001-a"]
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070528-001-c
+  source_path: sources/chanlun/lesson_055.md
+  source_date: '2007-05-28'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 散户大级别介入的买点选择
+  topic: 较大级别介入不必在第一类买点，散户可等第二类甚至第三类买点，大资金至少从第二类买点介入
+  statement: 一般散户在较大级别的介入中，例如日线以上的介入，不一定都要在第一类买点介入，因为其后的前戏过程不一定是一般散户可以忍受的，可以在第二类买点出现后才考虑介入，或者更干脆等第三类买点出现再介入。但资金有一定规模、需要一定数量筹码，或者要为以后储备经验的，一个至少从第二类买点开始利用部分前戏的介入是必须的，其中要如大资金一样利用前戏的震荡降低成本、增加筹码，最重要的好处是熟悉其股性。
+  evidence_quote: 对于一般的散户投资者，在一些较大级别的介入中，例如日线以上的介入中，并不一定都要在第一类买点介入，因为，其后的前戏过程，并不一定是一般的散户可以忍受的，一般地，可以在第二类买点出现后才考虑介入，或者更干脆的，是第三类买点出现再介入。但如果资金有一定规模，需要一定数量的筹码……一个至少从第二类买点开始利用部分前戏的介入是必须的。
+  interpretation: 买点选择因资金规模与承受力分层：第一类买点后的磨底有成本优势但心理难度大，第三类买点介入最干脆但成本最高。股性涉及频率、幅度、形态复杂度，是同一模式展开出千差万别图形的原因。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 买点选择
+  - 第一类买点
+  - 散户
+  - 股性
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

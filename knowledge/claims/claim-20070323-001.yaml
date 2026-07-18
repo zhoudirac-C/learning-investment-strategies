@@ -1,0 +1,58 @@
+claims:
+- id: claim-20070323-001-a
+  source_path: sources/chanlun/lesson_039.md
+  source_date: '2007-03-23'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 操作韵律与错则停手
+  topic: 向上段先买后卖与向下段先卖后买是最大韵律，一步错就停止操作
+  statement: 机械化操作程式内含基本韵律，最大的是向上段先买后卖与向下段先卖后买，这个韵律错了操作就一团糟；每向上向下段中各小段间的操作也有韵律，只要其中一步错了舞步就乱，此时唯一正确的选择是停止操作，先把心态、韵律调节好才继续。至于对错的标准：只要赚钱卖出就无所谓错误，只要卖了能低价位回补就无所谓错误；卖了还涨、回补还跌只是技术精确度问题，靠按机械要求反复训练形成韵律来解决。
+  evidence_quote: 其中最大的就是向上段先买后卖与向下段先卖后买的韵律，如果这个韵律都错了，那操作就一团糟……显然，只要其中一步错了，这舞步就乱了。这时候，唯一正确的选择就是停止操作，先把心态、韵律调节好了才继续……对于任何操作来说，只要赚钱卖出，是无所谓错误的……只要卖了能低价位回补，就无所谓错误。
+  interpretation: 这条给出操作错误的两种性质：韵律错误是结构性错误必须停手重来，精度错误是技术问题靠训练改善。它把"卖飞"去罪化，与第41课"节奏比精度更重要"互为表里。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 操作韵律
+  - 交易纪律
+  - 同级别分解
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070323-001-b
+  source_path: sources/chanlun/lesson_039.md
+  source_date: '2007-03-23'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 同级别分解的盘整背驰机械化操作
+  topic: Ai与Ai+2比较力度，盘整背驰决定买卖点，图形分两类区别应对
+  statement: 在同级别分解基础上围绕中枢的更精确机械化操作：把 a+A 中 A 分解为 m 段同级别走势类型 A=A1+A2+…+Am（奇数段与原方向相反、偶数段相同），并把 a 定义为 A0，则 Ai 与 Ai+2 之间可不断比较力度，用盘整背驰的方法决定买卖点：只要盘整背驰，就在 i+2 为偶数时卖出、为奇数时买入；若没有盘整背驰，当 i 为偶且 Ai+3 不跌破 Ai 高点则继续持有，直到 Ai+k+3 跌破 Ai+k 高点后在不创新高或盘整顶背驰的 Ai+k+4 卖出（k 为偶数），i 为奇数时反向处理。该方法把图形基本分为两类——一类是 i 为偶时 Ai+3 不跌破 Ai 高点或 i 为奇时 Ai+3 不升破 Ai 低点，一类是 Ai 与 Ai+2 之间盘整背驰——对两类采取不同操作策略，构成机械操作方法；中枢从30分钟扩展到日线周线都不影响该操作。
+  evidence_quote: 把a定义为A0，则Ai与Ai+2之间就可以不断地比较力度，用盘整背驰的方法决定买卖点……只要盘整背驰，就在i+2 为偶数时卖出，为奇数时买入……以上的方法，最大的特点是，就是在同级别分解的基础上将图形基本分为两类，一类是“当i为偶Ai+3不跌破Ai高点”或“i为奇数Ai+3不升破Ai低点”；一类是“Ai与Ai+2之间盘整背驰”。对这两种情况采取不同的操作策略，构成了一种机械的操作方法。
+  interpretation: 这是第38课机械程式在中枢震荡阶段的细化版，用奇偶段的编号把盘整背驰判断程序化。作者自评这段表述最精确但也最难，需对照画图理解；实际操作中下一个 Ai+2 是当下产生的，不影响前面各段的同级别唯一性分解。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 同级别分解
+  - 盘整背驰
+  - 机械化操作
+  - 中枢震荡
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: medium
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

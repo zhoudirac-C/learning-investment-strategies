@@ -1,0 +1,87 @@
+claims:
+- id: claim-20070630-001-a
+  source_path: sources/chanlun/lesson_062.md
+  source_date: '2007-06-30'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 顶分型与底分型定义
+  topic: 相邻三K线中第二根高点双最高为顶分型，低点双最低为底分型
+  statement: 不分阳线阴线，只看K线高低点：第二根K线高点是相邻三根K线高点中最高的、低点也是相邻三根K线低点中最高的，叫顶分型；第二根K线低点是相邻三根K线低点中最低的、高点也是相邻三根K线高点中最低的，叫底分型。顶分型的最高点叫该分型的顶，底分型的最低点叫该分型的底，以后说顶和底就分别指顶分型的顶和底分型的底。该定义适合任何周期的K线图。
+  evidence_quote: 像图1 这种，第二K 线高点是相邻三K 线高点中最高的，而低点也是相邻三K 线低点中最高的，本ID给一个定义叫顶分型；图2 这种叫底分型，第二K 线低点是相邻三K 线低点中最低的，而高点也是相邻三K 线高点中最低的……顶分型的最高点叫该分型的顶，底分型的最低点叫该分型的底……也就是说，当我们以后说顶和底时，就分别是说顶分型的顶和底分型的底。
+  interpretation: 分型是缠论形态学的最小原子，笔、线段、中枢都由它递归构成。注意定义的双条件：顶分型要求第二根K线高点最高且低点也最高，缺一条都不成立。识别分型前须先完成K线包含关系处理。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 分型
+  - 顶分型
+  - 底分型
+  - K线
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070630-001-b
+  source_path: sources/chanlun/lesson_062.md
+  source_date: '2007-06-30'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: K线包含关系合并规则
+  topic: 相邻K线有包含关系须合并，向上取高高向下取低低
+  statement: 相邻两K线可以出现包含关系，即一根K线的高低点全在另一根K线的范围里，此时必须合并处理：在向上时，把两K线的最高点当高点、两K线低点中的较高者当低点，合并成一根新K线；在向下时，把两K线的最低点当低点、两K线高点中的较低者当高点，合并成一根新K线。经过这样的处理，所有K线图都可以处理成没有包含关系的图形，分型等后续识别都在处理后的图形上进行。
+  evidence_quote: 相邻两K 线可以出现如图6 这种包含关系，也就是一K 线的高低点全在另一K 线的范围里，这种情况下，可以这样处理，在向上时，把两K 线的最高点当高点，而两K 线低点中的较高者当成低点，这样就把两K 线合并成一新的K 线；反之，当向下时，把两K 线的最低点当低点，而两K 线高点中的较低者当成高点，这样就把两K 线合并成一新的K 线。经过这样的处理，所有K 线图都可以处理成没有包含关系的图形。
+  interpretation: 包含关系处理是分型识别的前置工序。高低点均含影线，比常见孕线、吞没的实体口径更严格。向上取两高与较高低、向下取两低与较低高的规则在65课被进一步数学化并补充顺序合并原则。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - K线包含
+  - 合并规则
+  - 分型
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070630-001-c
+  source_path: sources/chanlun/lesson_062.md
+  source_date: '2007-06-30'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 笔的定义与结合律
+  topic: 相邻顶底构成一笔，顶底之间至少隔一根K线，线段至少三笔
+  statement: 两个相邻的顶和底之间构成一笔，顶和底之间的其他波动都可以忽略不算，但一定是相邻的顶和底，隔了几个就不是一笔。结合律必须遵守：顶和底共用一根K线违反结合律，不算一笔；光是顶和底、中间没有其他K线，一般也不算一笔；实际分析中要求顶和底之间至少有一根K线，这是成笔的最基本要求。上升的一笔一定是底分型加上升K线加顶分型，下降的一笔是顶分型加下降K线加底分型，中间K线可以无数根，只要一直保持定义。线段至少由三笔组成。
+  evidence_quote: 两个相邻的顶和底之间构成一笔，所谓笔，就是顶和底之间的其他波动，都可以忽略不算，但注意，一定是相邻的顶和底，隔了几个就不是了。而所谓的线段，就是至少由三笔组成……顶和底之间必须共用一个K 线，这就违反结合律了，所以这不算一笔……在实际分析中，都必须要求顶和底之间都至少有一K 线当成一笔的最基本要求……上升的一笔，由结合律，就一定是底分型+上升K 线+顶分型；下降的一笔，就是顶分型+下降K 线+底分型。
+  interpretation: 笔把分型连接成可运算的结构，结合律（不共用K线、至少一根间隔K线）是排除划分歧义的关键约束。中间的上升或下降K线数量不限，是笔的弹性所在。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 笔
+  - 结合律
+  - 分型
+  - 线段
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

@@ -1,0 +1,87 @@
+claims:
+- id: claim-20070716-001-a
+  source_path: sources/chanlun/lesson_065.md
+  source_date: '2007-07-16'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: K线包含的顺序处理
+  topic: 包含关系不具传递性，多根连续包含必须按顺序逐根合并
+  statement: 用[di,gi]记号第i根K线的最低、最高构成的区间：向上时，顺次n个包含关系的K线组等价于[maxdi,maxgi]区间对应的K线；向下时，等价于[mindi,mingi]区间对应的K线。包含关系不符合传递律：第1、2根K线是包含关系，第2、3根也是包含关系，并不意味着第1、3根就有包含关系。因此处理中还要遵守顺序原则：先用第1、2根K线的包含关系确认新的K线，再用新K线去和第三根比，有包含关系就继续按法则结合成新K线，没有就按正常K线处理。向上向下也可几何定义：设第n根与第n+1根有包含关系而第n根与第n-1根没有，若gn大于等于gn-1则称第n-1、n、n+1根向上，若dn小于等于dn-1则称向下。
+  evidence_quote: 当向上时，顺次n 个包含关系的K 线组，等价于[maxdi,maxgi]的区间对应的K 线……向下时，顺次n 个包含关系的K 线组，等价于[mindi,mingi]的区间对应的K 线……结合律是有关本ID 这理论中最基础的，在K 线的包含关系中，当然也需要遵守，而包含关系，不符合传递律……因此在K 线包含关系的分析中，还要遵守顺序原则，就是先用第1、2 根K 线的包含关系确认新的K 线，然后用新的K 线去和第三根比，如果有包含关系，继续用包含关系的法则结合成新的K 线，如果没有，就按正常K 线去处理。
+  interpretation: 62课合并规则的数学化版本，消除多根连续包含时的歧义：顺序合并是唯一能保证结果一致的处理次序。向上向下的几何定义使包含方向的判断摆脱看图感觉，整个分型识别由此可按统一标准得到唯一答案。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - K线包含
+  - 顺序原则
+  - 传递律
+  - 分型
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070716-001-b
+  source_path: sources/chanlun/lesson_065.md
+  source_date: '2007-07-16'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 线段被笔破坏与线段分解定理
+  topic: 前三笔须有重叠才成线段，线段破坏的充要条件是被另一线段破坏
+  statement: 从向上笔开始的线段，其分型构成序列d1g1d2g2直到dngn（di为第i个底、gi为第i个顶），若找到i和j（j大于等于i+2）使得dj小于等于gi，则称向上线段被笔破坏；向下线段反之（gj大于等于di）。线段最基本的前提：前三笔必须有重叠部分，并不是连续三笔就一定构成线段。缠中说禅线段分解定理：线段被破坏，当且仅当至少被有重叠部分的连续三笔的其中一笔破坏；只要构成有重叠部分的前三笔，就必然形成一线段，换言之，线段破坏的充要条件就是被另一个线段破坏。
+  evidence_quote: 如果找到i 和j，j>=i+2，使得dj<=gi，那么称向上线段被笔破坏……线段有一个最基本的前提，就是线段的前三笔，必须有重叠的部分，这个前提在前面可能没有特别强调，这里必须特别强调一次。线段至少有三笔，但并不是连续的三笔就一定构成线段，这三笔必须有重叠的部分……缠中说禅线段分解定理：线段被破坏，当且仅当至少被有重叠部分的连续三笔的其中一笔破坏。而只要构成有重叠部分的前三笔，那么必然会形成一线段，换言之，线段破坏的充要条件，就是被另一个线段破坏。
+  interpretation: 缠论第一个以作者命名的定理，是线段划分的严格判据：笔破坏是预警，线段破坏才是确认。67课再用特征序列给出可操作化的精确划分标准。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 线段
+  - 线段破坏
+  - 线段分解定理
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070716-001-c
+  source_path: sources/chanlun/lesson_065.md
+  source_date: '2007-07-16'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 缠论的当下性与客观唯一性
+  topic: K线走出来才有唯一答案，当下分析与事后分析结果相同
+  statement: 分型、笔、线段的定义是唯一的、有统一答案的：可以在当下或任何时候明确无误地给出唯一答案，这答案与时间无关、与人无关，是客观的、不可更改的，唯一的要求就是被分析的K线已经走出来。当下那些K线还没走出来，具体的分型就找不出来，相应的笔、线段、最低级别中枢、高级别走势类型就不可能划分出来，无从分析；而一旦当下的K线走出来，就可以当下按客观标准唯一地找出相应的分型结构，当下的分析和事后的分析结果完全一样。当下性，其实就是缠论的客观性。
+  evidence_quote: 这种定义是唯一的，有统一答案的……是可以在当下或任何时候明确无误地给出唯一答案的，这答案与时间无关，与人无关，是客观的，不可更改的，唯一的要求就是被分析的K 线已经走出来……如果当下那些K 线还没走出来，那么具体的分型就找不出来，相应的笔、线段、最低级别中枢、高级别走势类型等就不可能划分出来，这样就无从分析了。而一旦当下的K 线走出来，就可以当下按客观标准唯一地找出相应的分型结构，当下的分析和事后的分析，是一样的，分析的结果也是一样的，没有任何的不同。因此，当下性，其实就是本ID 的客观性。
+  interpretation: 缠论认识论核心：分析对象必须是已完成的走势，未完成的只有边界条件、没有答案，这把分析与预测严格分开。大级别图上一时找不到分型只是显微镜倍数问题，换小级别图即可分辨，与操作级别无关。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 当下性
+  - 客观性
+  - 分型
+  - 方法论
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

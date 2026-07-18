@@ -1,0 +1,88 @@
+claims:
+- id: claim-20070614-001-a
+  source_path: sources/chanlun/lesson_059.md
+  source_date: '2007-06-14'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 线段的方向与延伸规则
+  topic: 线段看形态不看幅度，前后相邻两线段不可能同向，线段不存在直线走平
+  statement: 是否线段关键看走出来的形态，和幅度没关系：如果任何低点比前一个高点都高，即使这情况无限延续下去也依然只是一线段。前后两线段之间不可能是同向的，同是向上或向下不可能构成两个前后相邻的线段。由于线段都至少呈现上下上或下上下，所以线段不存在一条直线走平的可能，一字涨停无论如何延续还是低于线段的级别，是最小级别的。线段划分涉及事先确认的精度，关键是统一按同一精度标准去看，按哪种精度没有实质影响。
+  evidence_quote: 是否线段，关键看走出来的形态，如果任何低点比前一个高点都高，那么即使这情况无限延续下去，也依然只是一线段，这和幅度没关系。还有，前后两线段间，不可能是同向的，同是向上或向下不可能构成两个前后相邻的线段……一字涨停，无论如何延续，还是低于线段的级别，是最小级别的。
+  interpretation: 三条规则合起来是线段划分的一阶逻辑：同向不分段、反向才分段、直线不算段。边界情形按统一精度处理，避免同一图上标准摇摆。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 线段
+  - 线段划分
+  - 方向
+  - 一字涨停
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070614-001-b
+  source_path: sources/chanlun/lesson_059.md
+  source_date: '2007-06-14'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 线段结束的确认方法
+  topic: 趋势中用背驰确认线段结束，其他情况用盘整背驰，突发性事件看第二类买卖点
+  statement: 把握线段结束的方法与大级别走势段一样：在趋势中用背驰来确认，其他情况用盘整背驰来确认；如果有突发性事件，就要看第二类的买卖点，其道理是一样的，只是所用到的级别特别小而已。线段中途出现反抽高于前低等情况时不能确定该线段已经完成，还要看后面走势，未完成时不预测其完成。
+  evidence_quote: 由此可以知道如何去把握线段的结束：一般来说，线段的结束与大级别的走势段是一样的，在趋势中用背驰来确认，其他情况用盘整背驰来确认，如果有突发性事件，就要看第二类的买卖点，其道理是一样的，只是所用到的级别特别小而已。
+  interpretation: 线段级别的结束确认复用整套背驰体系，形成级别无关的统一方法论。未完成的线段不预测其完成，与第60课市场自身没完成时不预期的原则一致。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 线段结束
+  - 背驰
+  - 盘整背驰
+  - 第二类买卖点
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070614-001-c
+  source_path: sources/chanlun/lesson_059.md
+  source_date: '2007-06-14'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 中枢震荡的先卖后买节奏
+  topic: 中枢震荡中安全做法是先卖后买形成节奏，力度可能形成第三类卖点时停止回补
+  statement: 中枢震荡中安全的做法是先卖后买、形成节奏：从低位上来的筹码，当发现单边走势结束、进入较大级别震荡时，标志就是出现顶背驰或盘整背驰，这要求减磅；然后等震荡下来出现底背驰或盘整背驰再回补，这样差价才出来、成本才下降。先买后卖的唯一可能是单边时仓位不高，这其实是节奏先错了的表现。一旦震荡的力度大于前面、有可能形成第三类卖点时，一定要停止回补，等待第三类卖点引发的下跌出现买点时再介入；心里先假设一个可能的跌幅、觉得肯定跌不深是大毛病，一定要养成只看图形操作的习惯。
+  evidence_quote: 注意，在中枢震荡中，安全的作法应该是先卖后买、形成节奏……其标志就是出现顶背驰或盘整背驰，这就要求减磅，然后等震荡下来，出现底背驰或盘整背驰再回补，这样差价才出来，成本才下降……一旦震荡的力度大于前面有可能形成第三类卖点时，就一定要停止回补，等待第三类卖点引发的下跌出现买点时再介入，很多人经常出问题，就是心里先假设一个可能的跌幅，觉得肯定跌不深，这都是大毛病。一定要养成只看图形操作的习惯。
+  interpretation: 节奏错位的根源在仓位结构：单边满仓者进入震荡只能先卖。停止回补的触发条件是力度比较而非价格猜测，政策、心理、消息都只是分力，走势是合力的结果。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 中枢震荡
+  - 先卖后买
+  - 节奏
+  - 第三类卖点
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

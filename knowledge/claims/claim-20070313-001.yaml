@@ -1,0 +1,475 @@
+claims:
+- id: claim-20070313-001-a
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 走势类型连接的结合律
+  timeframe: permanent
+  statement: 走势类型的连接符合结合律，即A+B+C=（A+B）+C=A+（B+C），且A、B、C的走势类型级别可以不同；站在多义性的角度，根据该结合律，任何一段走势都可以有很多不同的释义。
+  evidence_quote: 上堂课提到走势类型连接运算的结合性，也就是走势类型的连接符合结合律，即A+B+C=（A+B）+C=A+（B+C），A、B、C 的走势类型级别可以不同。因此，站在多义性的角度，根据该结合律，就不难知道，任何一段走势，都可以有很多不同的释义。
+  interpretation: 结合律是缠论走势分解多义性的数学基础：连接运算与分组方式无关且允许级别混搭，意味着同一段走势存在多个同等合法的分解视角，这是后续重新组合、当下判断等全部应用的逻辑前提。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 走势类型连接符合结合律，任何走势都有多种分解释义
+  related_stocks: []
+  tags:
+  - 缠论
+  - 结合律
+  - 走势类型
+  - 多义性
+- id: claim-20070313-001-b
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 多义性与含糊性的区别
+  timeframe: permanent
+  statement: 多义性不是含糊性：一个含糊的理论，其分类、概念呈现的含糊性只证明该理论基础的含糊；而多义性是站在严格、精确的理论基础上，用同一理论的不同视角对同一现象进行分析。
+  evidence_quote: 必须注意，多义性不是含糊性，一个含糊的理论，其分类、概念等呈现的含糊性，只是证明该理论基础的含糊。而多义性，是站在一个严格、精确的理论基础上，用同一理论的不同视角对同一现象进行分析。
+  interpretation: 这是对缠论理论品质的自我辩护：多种分解并存不意味着理论不严格，恰恰相反，多义性以概念的严格定义为前提，不同视角的结论各自确定且都符合理论，与模棱两可的含糊有本质区别。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 多义性是严格理论下的多视角分析，不是理论含糊
+  related_stocks: []
+  tags:
+  - 缠论
+  - 多义性
+  - 含糊性
+  - 理论基础
+- id: claim-20070313-001-c
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 走势的级别分解
+  timeframe: permanent
+  statement: 级别是走势释义最简单的角度：任何一段走势都可以根据不同的级别进行分解（如1分钟、5分钟、30分钟、日线等），且这些分解都符合理论。
+  evidence_quote: 一个最简单的释义角度，就是级别，任何一段走势，都可以根据不同的级别进行分解
+  interpretation: 同一段K线在不同级别显微镜下呈现不同的走势结构，每种级别分解都是合法视角；操作者选定级别就是选定观察与操作的坐标系，不存在唯一正确的级别，只有与操作匹配与否的级别。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 任何走势都可按不同级别分解，都是合法视角
+  related_stocks: []
+  tags:
+  - 缠论
+  - 级别
+  - 走势分解
+- id: claim-20070313-001-d
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 操作级别的理论等价
+  timeframe: permanent
+  statement: 根据某级别进行操作，站在纯理论的角度，无非等价于选择该走势各级别分解等式列中的某个子式进行操作。
+  evidence_quote: 而根据某级别进行操作，站在纯理论的角度，无非等价于选择该等式列中某个子式子进行操作，这在上一课中已经有具体说明。
+  interpretation: 这条把“选级别操作”抽象为“在分解等式列中选子式”，说明级别选择不是主观偏好问题而是分解结构问题；选定子式后，买卖点的级别与意义就完全由该子式决定。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 按某级别操作等价于选择分解等式列中的子式
+  related_stocks: []
+  tags:
+  - 缠论
+  - 操作级别
+  - 走势分解
+- id: claim-20070313-001-e
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 走势必完美与当下判断
+  timeframe: permanent
+  statement: 当下判断的基础在于采取的分解方式：在小级别分解中完成的走势，在大级别分解中不一定完成；根据走势必须完美的原则，未完成的走势必完成，因此在不同的分解角度，可以在当下看到不同级别的未完成走势根据走势必完美原则产生的运动。
+  evidence_quote: 当下判断，其基础在于采取的分解方式。例如，一个按5分钟分解的操作角度与一个按30 分钟分解的操作角度，在同一时间看到的走势意义是不同的。更重要的是，在5
+    分钟分解中完成的走势，在30 分钟却不一定完成。例如A+B，A、B 都是5 分钟的走势类型，那么A+B走势，对于30 分钟的分解就是未完成的。根据走势必须完美的原则，未完成的走势必完成
+  interpretation: 这是把“走势必完美”原理转化为可操作判断的关键：同一段走势在小级别已结束、在大级别尚未结束，未结束的大级别走势必然继续生长，操作者可通过切换分解角度提前看到大级别尚未释放的运动空间。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 小级别完成的走势大级别未必完成，未完成走势必完成
+  related_stocks: []
+  tags:
+  - 缠论
+  - 走势必完美
+  - 当下判断
+  - 级别
+- id: claim-20070313-001-f
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 走势的重新组合应用
+  timeframe: permanent
+  statement: 任何走势在结合律上都可以重新组合，使得走势显示明显的规律性：可以把不同级别混杂的走势按某级别重新分解，再按中枢的定义重新组合，把杂乱走势整理为标准的同级别走势段加一段未完成走势，使分析变得明晰。
+  evidence_quote: 任何的走势，在结合律上，都可以重新组合，使得走势显示明显的规律性。
+  interpretation: 看走势发晕的根源是不懂结合性；重新组合是主动加工图形的技术——通过统一级别口径、按中枢重新定义分段边界，把级别交错延伸的混乱走势转换成干净的标准结构，从而看清中枢与买卖点。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 用结合律重新组合走势，使杂乱走势显出规律性
+  related_stocks: []
+  tags:
+  - 缠论
+  - 重新组合
+  - 结合律
+  - 中枢
+- id: claim-20070313-001-g
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 最佳组合的当下性
+  timeframe: permanent
+  statement: 根据结合律的最佳组合是根据市场当下的走势随时变化的，而所有的变化都符合理论要求且不会影响实际操作，是对实际操作起着更有力的帮助。
+  evidence_quote: 而这种根据结合律的最佳组合，是根据市场当下的走势随时变化的，而所有的变化，都符合理论要求且不会影响实际操作，是对实际操作起着更有力的帮助。
+  interpretation: 最优分解不是一次性选定就一劳永逸的，走势每生长一段都可能出现更清晰的组合方式；随着走势发展动态调整组合是合规且必要的，这让分析始终服务于当下操作而非固守最初的划分。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 最佳组合随市场当下走势随时变化且不影响操作
+  related_stocks: []
+  tags:
+  - 缠论
+  - 重新组合
+  - 当下
+- id: claim-20070313-001-h
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 重新组合的非预测性
+  timeframe: permanent
+  statement: 走势的重新组合不涉及任何预测性，它只是对已经走出来的走势按结合律进行的重新划分，选择哪种组合的标准是是否有利于当下的判断与操作。
+  evidence_quote: 注意，这种重新组合，不涉及任何预测性
+  interpretation: 重新组合是对历史走势的再加工而非对未来的猜测，这是它与预测的根本区别；也因此组合可以随时调整而不违背纪律，只要新的组合更有利于揭示买卖点和判断结构就应当采用。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 重新组合只是对已有走势的再加工，不涉及预测
+  related_stocks: []
+  tags:
+  - 缠论
+  - 重新组合
+  - 不预测
+- id: claim-20070313-001-i
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 组合意义的全面把握
+  timeframe: permanent
+  statement: 任何组合的反映都是有意义的，不同组合揭示的走势意义不同（例如某种组合能揭示第三类买点的意义，另一种组合则把它局限在小级别走势范围内）；对这些组合意义的全面把握，就是一个工夫上的长进。
+  evidence_quote: 之所以这样，是因为对走势的理解不够深刻，看不到不同组合反映的意义。而任何组合的反映都是有意义的，对这些组合意义的全面把握，就是一个工夫上的长进了。
+  interpretation: 组合没有对错只有揭示面的差异：一种组合可能凸显第三类买点从而敢于介入，另一种组合可能让人恐慌地等待背驰。熟练地在多种组合间对照阅读，是从会画图到会用图的功夫进阶。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 每种组合都揭示不同意义，全面把握是功夫长进
+  related_stocks: []
+  tags:
+  - 缠论
+  - 组合意义
+  - 第三类买卖点
+- id: claim-20070313-001-j
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 组合的避繁就简原则
+  timeframe: permanent
+  statement: 组合的一个要点在于尽量避繁就简：因为中枢扩展比较复杂，如果有组合使得不出现扩展，当然就采取该种组合更有意义。
+  evidence_quote: 此外，组合的一个要点在于，尽量避繁就简，因为中枢扩展比较复杂，如果有组合使得不出现扩展，当然就采取该种组合更有意义。
+  interpretation: 在多个合法组合中做选择时的实用准则：中枢扩展意味着结构复杂化、判断难度加大，能避开扩展解读的组合让图形更简洁、信号更明确，应优先采用，这是技术分析服务于操作效率的体现。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 组合应避繁就简，优先采用不引发中枢扩展的组合
+  related_stocks: []
+  tags:
+  - 缠论
+  - 避繁就简
+  - 中枢扩展
+  - 重新组合
+- id: claim-20070313-001-k
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 中枢扩展定义的适用条件
+  timeframe: permanent
+  statement: 中枢扩展的定义是在两个中枢都完全走出来的情况下定义的；而实际操作中往往第二个中枢还没有走完、还在继续延伸中，所以除非出现明确的、符合理论定义的破坏，就可以根据有利于判断、操作的原则，对走势进行当下的组合。
+  evidence_quote: 中枢扩展的定义是在两个中枢都完全走出来的情况下定义的，而实际操作中，往往第二个中枢还没有走完，还在继续延伸中，所以，除非出现明确的、符合理论定义的破坏，就可以根据有利于判断、操作的原则，对走势进行当下的组合。
+  interpretation: 这条划清了严格定义与当下操作的边界：中枢扩展是事后确认的概念，不能套用到未完成的走势上；在第二中枢生长过程中，操作者有自由度按最有利的组合处理，只有出现符合定义的明确破坏才必须改判。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 中枢扩展需两中枢完全走出才成立，未完成时可按有利原则组合
+  related_stocks: []
+  tags:
+  - 缠论
+  - 中枢扩展
+  - 当下组合
+- id: claim-20070313-001-l
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 组合判断的一致性要求
+  timeframe: permanent
+  statement: 当下采取什么组合，就要按该种组合的具体图形意义来判断、操作：组合一旦选定，中枢位置、第三类买点的标准等都由该组合决定，不能在不同组合的意义之间随意跳跃。
+  evidence_quote: 但必须强调的是，当下采取什么组合，就要按该种组合的具体图形意义来判断、操作
+  interpretation: 组合自由不等于判断随意：选择组合是分析层面的自由，但一旦选定，操作信号必须以该组合的结构为准（例如中枢区间变了，第三类买点的判定位置就跟着变），否则就是自相矛盾的操作。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 选定组合后必须按该组合的图形意义判断与操作
+  related_stocks: []
+  tags:
+  - 缠论
+  - 组合一致性
+  - 第三类买卖点
+  - 中枢
+- id: claim-20070313-001-m
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 中枢震荡的级别包容性
+  timeframe: permanent
+  statement: 围绕中枢的震荡不一定都是次级别的，可以是比中枢小任意级别的走势，甚至是一个跳空缺口（例如今天一字涨停、明天一字跌停地来回跳动）。
+  evidence_quote: 围绕中枢的震荡，不一定都是次级别的，例如，一个日线中枢，围绕他的震荡，完全可以是30 分钟以下的任意级别，甚至是一个跳空缺口
+  interpretation: 这纠正了一个常见误解：中枢震荡段不必整齐划一地都是次级别走势，缺口、一字板等极小级别波动同样是合法震荡；明白这一点，面对剧烈跳动的走势就不会因级别混乱而看晕。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 中枢震荡可为任意小级别甚至跳空缺口
+  related_stocks: []
+  tags:
+  - 缠论
+  - 中枢震荡
+  - 级别
+  - 跳空缺口
+- id: claim-20070313-001-n
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 中枢震荡的分解归宿
+  timeframe: permanent
+  statement: 任何围绕日线级别的震荡，最终都必然可以分解为若干已完成的30分钟走势类型加一段未完成的30分钟走势类型，该未完成段只要还围绕日线中枢震荡，最终一定会完成30分钟的走势类型；且已完成段数必须小于9，否则就变成周线中枢，整个分解要升级到按日线进行。
+  evidence_quote: 任何围绕日线级别的震荡，最终都必然可以按如下方式进行分解：A30-1+A30-2+A30-3+…+A30-m30+a，a是未完成的30
+    分钟走势类型，至少a依然围绕日线中枢继续震荡，那a一定最终会完成30 分钟的走势类型。显然，这里，m30<9，否则就会变成周的中枢了
+  interpretation: 这是中枢震荡的结构性归宿定理：无论震荡怎么跳，只要不脱离大级别中枢，小级别走势必然一段段完成并被计数，而段数到9意味着中枢级别升格——这为判断震荡何时升级、何时临近方向选择提供了量化边界。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 中枢震荡必可分解为已完成段加未完成段，段数过9中枢升级
+  related_stocks: []
+  tags:
+  - 缠论
+  - 中枢震荡
+  - 走势分解
+  - 中枢升级
+- id: claim-20070313-001-o
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 次级别第三类买卖点的先行性
+  timeframe: permanent
+  statement: 由于走势都是从小级别不断积累而来，中枢震荡中次级别段的第三类买卖点肯定在时间上早于真正大级别的第三类买卖点出现；它对该次级别段绝对安全，但对大级别却不一定，因为其后完成的次级别走势可以重新回到大级别中枢里继续震荡。
+  evidence_quote: 由于走势都是从未完成到完成，都是从小级别不断积累而来，因此，对于真正的日线第三类买卖点来说，这A30-m30的第三类买卖点，肯定在时间上要早出现，对于A30-m30，这绝对安全，但对日线却不一定，因为这A30-m30的第三类买卖点后完成的30
+    分钟走势，可以用一个30 分钟走势又重新回到日线中枢里继续中枢震荡。
+  interpretation: 先行性带来机会也带来风险不对等：小级别三买是大级别三买的必要先声，按小级别口径它成立且安全，但用大级别口径衡量它可能只是中枢震荡的一部分，因此级别口径决定了同一个买卖点的安全等级。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 次级别三买早于大级别三买出现，对本段安全对大级别未必
+  related_stocks: []
+  tags:
+  - 缠论
+  - 第三类买卖点
+  - 次级别
+  - 中枢震荡
+- id: claim-20070313-001-p
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 次级别第三类买卖点的参与价值
+  timeframe: permanent
+  statement: 中枢震荡中次级别段的第三类买卖点即使不符合操作级别也有参与价值：如果其后真的出现大级别第三类买卖点，往往在大级别次级别的第二个中枢附近就形成，根本回不到该次级别三买的位置；因此一旦出现至少要引起充分重视，完全可以适量参与，一旦其后出现趋势走势就要严重注意。
+  evidence_quote: 因此，这样的买卖点，即使不符合你的操作级别，例如，如果你是日线级别操作的，但一旦这样的A30-m30的第三类买卖出现，至少要引起你充分的重视，完全可以适量参与了，一旦其后出现趋势走势，就要严重注意了。
+  interpretation: 这条给出跨级别操作的纪律：大级别操作者不必死等大级别三买，小级别三买是可以适量参与的先行信号，因为趋势一旦展开价格往往不再回头；参与后若小级别生长为趋势，就要提升到最高警觉级别对待。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 不符合操作级别的次级别三买也应重视并可适量参与
+  related_stocks: []
+  tags:
+  - 缠论
+  - 第三类买卖点
+  - 操作级别
+  - 参与纪律
+- id: claim-20070313-001-q
+  source_path: sources/chanlun/lesson_036.md
+  source_date: '2007-03-13'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 不预测原则与组合功夫
+  timeframe: permanent
+  statement: 不应该对走势进行任何的预测，但所有已走出来的走势都可以根据级别与结合律等随意组合，无论任何组合都必然符合理论；能否找到最合适的组合以适应操作、并根据不同组合对走势进行综合分析，与经验、理论把握和图形熟悉度有关，必须在当下的走势中不断磨练才能真正掌握。
+  evidence_quote: 不应该对走势进行任何的预测，但所有已走出来的走势，却可以根据级别与结合律等随意组合，无论任何组合，在该组合下，都必然符合本ID
+    的理论
+  interpretation: 这是本课的总纲：缠论的操作体系以“不预测、只分解”为根基，理论保证任何组合都不违规，但选出最有利于操作的组合是经验功夫而非理论自动给出，只能靠持续地在当下走势中练习获得。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  topic: 不预测只分解，任何组合都合理论，选出最佳组合靠功夫
+  related_stocks: []
+  tags:
+  - 缠论
+  - 不预测
+  - 结合律
+  - 功夫

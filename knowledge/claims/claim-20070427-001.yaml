@@ -1,0 +1,59 @@
+claims:
+- id: claim-20070427-001-a
+  source_path: sources/chanlun/lesson_050.md
+  source_date: '2007-04-27'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: MACD辅助判断的使用顺序
+  topic: 先根据中枢与走势分析选定要比较力度的走势段，再选择看几分钟的MACD
+  statement: MACD的计算方法决定了不同周期的MACD之间没有实质区别，只是计算周期不同带来的稍微灵敏与迟钝的区别。正确的使用顺序是：先根据中枢与走势运动的分析，选出需要比较力度的走势段，然后才选择看几分钟的MACD更适宜辅助判断——同样的两段走势，在哪个周期上柱子面积与黄白线变化更清楚标准就用哪个。MACD只是力度比较的辅助，不能反过来先看指标再找走势，这个顺序原则不能因为级别与周期的经验对应关系而改变。
+  evidence_quote: 必须明白一个道理，就是MACD 的计算方法决定了，1 分钟和30 分钟MACD 之间并没有实质的区别，只是计算的周期不同而已……问题的关键是，MACD 只是力度比较的辅助，因此，是先定好比较哪两段走势，然后才去选择看是1 分钟的还是30 分钟的更适宜辅助判断……但这不能因此而改变先根据中枢与走势运动的分析，然后选出需要比较力度的走势段，最后才用MACD 辅助判断的顺序原则。
+  interpretation: 这澄清了背驰判断中技术指标从属于走势结构的地位：走势分解是主，指标是辅。虽然某级别走势变化经常对应同周期MACD，但这只是经验相关而非顺序依据，先指标后走势是本末倒置。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - MACD
+  - 背驰
+  - 力度比较
+  - 辅助判断
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070427-001-b
+  source_path: sources/chanlun/lesson_050.md
+  source_date: '2007-04-27'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 理论落地的学习路径
+  topic: 先把理论从逻辑上彻底搞清，再静态分析历史图形，再当下模拟操作并记录总结，最后真实买卖
+  statement: 应用理论开始实际操作前，要先看懂所有曾有的走势、能用理论对已有走势进行分析，达不到这一点当下去操作一定乱；这一步达到后先不用真正买卖，进行当下模拟操作，每次操作都记录下来，然后不断根据后面的走势来总结，发现自己对理论当下理解上的问题并不断修正；当模拟操作有足够把握后才开始真正的买卖操作。理论必须先从道理逻辑上彻底搞清楚以从根子上解开疑惑，否则永远有心理阴影、无法无疑地去操作。看到买卖点但买了还跌、卖了还涨，只是操作精确度问题而非理论问题；习惯性多头经常买早卖晚，习惯性空头买晚卖早，这种习惯力量的改变只能靠长期实践。
+  evidence_quote: 一般来说，应用理论开始实际操作前，要先看懂所有曾有的走势，能用理论对已有的走势进行分析，如果这都达不到，那当下去操作一定乱……可以先不用真正买卖，可以进行一定的模拟，市场一周5 天开着，当下去模拟操作，每次的操作都记录下来，然后不断根据后面的走势来总结……例如对于习惯性多头来说，经常就是买早卖晚；而习惯性空头，就是买晚卖早。
+  interpretation: 给出从学到用的训练闭环：理论无疑、静态复盘、动态模拟、实盘四阶段。一开始就真实买卖的人，无论成败都会迷失在输赢上而忽略操作本身的问题，心态平稳、不整天计算少挣多少是前提。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 学习路径
+  - 模拟操作
+  - 操作心理
+  - 习惯力量
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

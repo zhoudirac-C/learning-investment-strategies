@@ -1,0 +1,88 @@
+claims:
+- id: claim-20070530-001-a
+  source_path: sources/chanlun/lesson_056.md
+  source_date: '2007-05-30'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 突发消息下的可操作卖点
+  topic: 突发消息使第一类卖点无法实际操作时，第二类或第三类卖点是唯一被理论保证的卖点
+  statement: 第二类卖点除了在小级别转大级别上比第一类卖点优越，在特殊的突发情况下就是最佳卖点。当走势进入背驰段但因尾盘高收等原因无法用区间套定理确认背驰时，盘后的突发消息会使背驰被立刻确认，此时第一类卖点已经在实际操作中不可能存在，唯一可以进行操作的只能是第二或第三类卖点，这在开盘前就可以确定：一旦大幅度低开，现实的、能被理论完全保证的卖点就是第二类或第三类卖点。
+  evidence_quote: 第二类卖点除了在小级别转大级别上比第一类卖点优越，在一些特殊的突发情况下，就是最佳的卖点……而晚上的突发消息，使得这个背驰被立刻确认，这时候，第一类卖点已经不可能在实际操作中存在，那么，唯一可以进行操作的，只能是第二或第三类卖点。这，在开盘前就可以有一个确定，也就是说，一旦大幅度低开，现实的、能被理论完全保证的卖点就是第二类或第三类卖点。
+  interpretation: 这是2007年530印花税事件复盘的规则化：事前不能确认的背驰被突发低开确认后，操作锚点从第一类卖点平移到第二、三类。大盘走势是平均走势，特别弱的股票可能直接是第三类卖点，大盘的第二类卖点不意味着个股也是第二类。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 第二类卖点
+  - 突发消息
+  - 背驰
+  - 区间套
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070530-001-b
+  source_path: sources/chanlun/lesson_056.md
+  source_date: '2007-05-30'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 第二类卖点的当下确认方法
+  topic: 看向上段的内部结构，内部背驰且未创新高或盘整顶背驰就一定是第二类卖点
+  statement: 当下确认第二类卖点的方法与区间套定理一样：看该向上段的内部结构，一旦内部出现背驰而当时位置没创新高，或与前面走势产生盘整顶背驰，那么就一定是第二类卖点，可以用理论完全明确地确认，没有含糊的地方。辅助判断可以用成交量，或比较MACD柱子与前后柱子绝对值的大小。
+  evidence_quote: 具体的方法和区间套定理是一样的，就是看A 段的内部结构，一旦内部出现背驰而当时位置没创新高或与前面走势产生盘整顶背驰，那么就一定是第二类卖点……这可以成交量，或从第一个红箭头所指的MACD 绿柱子与后面红柱子绝对值大小比较辅助判断。因此，这个第二类卖点，可以用理论完全明确地确认，一点含糊的地方都不会有。
+  interpretation: 把第二类卖点从形态描述变成可当下执行的检查清单：不创新高加内部背驰。判断的严格性来自内部结构而非对后市的预测。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 第二类卖点
+  - 区间套
+  - 内部结构
+  - 盘整顶背驰
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070530-001-c
+  source_path: sources/chanlun/lesson_056.md
+  source_date: '2007-05-30'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 力度比较的级别规则
+  topic: 1分钟以下级别力度只比较MACD柱子面积，1分钟级别还要考虑黄白线回抽0轴
+  statement: 用MACD比较力度的规则与级别有关：1分钟以下级别的力度对比只需要比较柱子面积，如果是1分钟级别，就要同时考虑黄白线回抽0轴的情况。当下段与前面走势段比较力度，后者力度不大过前者就构成盘整背驰，其后的反弹一定回到前段起点位置之上。一个大的盘整背驰段的内部结构，完全可以不必有该级别的背驰，完全可以是小级别转大级别。
+  evidence_quote: 注意，这里是1 分钟以下级别的力度对比，只需要比较柱子面积，如果是1 分钟级别的，就要同时考虑黄白线回抽0 轴的情况……由此就知道，B 段构成了盘整背驰，也就是后面的反弹一定回到第一个绿箭头位置之上……一个大的盘整背驰段的内部结构，完全可以不必有该级别的背驰，完全可以小级别转大级别。
+  interpretation: 这是MACD辅助判断的精度细则：级别越低观察变量越少。同时给出盘整背驰的操作保证即反弹回到起点之上，并澄清背驰段内部可以靠小转大完成转折。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - MACD
+  - 力度比较
+  - 盘整背驰
+  - 级别
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

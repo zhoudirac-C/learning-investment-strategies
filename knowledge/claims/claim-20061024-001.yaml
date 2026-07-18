@@ -1,0 +1,58 @@
+claims:
+- id: claim-20061024-001-a
+  source_path: sources/chanlun/lesson_006.md
+  source_date: '2006-10-24'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 提款机时机原则
+  topic: 市场是提款机，时机到了才提款，时机不到就搁着
+  statement: 股票市场如同提款机：时机到了就去提款，时机不到就让它搁在那里。必须耐心等待市场的骚动，市场不骚动就不能搞。操作含义：不交易是默认状态，出手只发生在市场给出合格机会时；没有机会时强行频繁操作，只会被市场反噬。
+  evidence_quote: 对于本ID 来说，这股票市场就如同提款机，时机到了，就去提款，时机不到，就让他搁在那……必须耐心等待他的骚动，他不骚动，是不能搞的。
+  interpretation: 空仓等待被定义为主动选择而非错过。与第8课"市场能进入可投资的视界，首先要显示其萌动，否则一边凉快去"是同一条原则的两种表述，构成缠论择时体系的总开关。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 择时
+  - 空仓等待
+  - 提款机隐喻
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260518-014", "claim-20260623-004-c"]
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20061024-001-b
+  source_path: sources/chanlun/lesson_006.md
+  source_date: '2006-10-24'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 安全底线原则
+  topic: 不是什么机会都要搞，前提要安全到像去银行提款
+  statement: 不是什么机会都要搞，首先的前提要安全，要像去银行提款一样安全，只有又安全又有爆发力的机会才值得投机。原文给出的可量化示例：对既有认购又有认沽的权证，企业除非行情特别不好，否则不会掏真金白银让认沽兑现，因此认沽与认购行权价之间的差价就是认购权证最安全的底线，在该底线附近买入等同于提款。投机不是瞎搞，是要清清楚楚地搞。
+  evidence_quote: 这市场也是一样的，不是什么机会、G 点都要搞的，首先的前提要安全，要像去银行提款一样安全……对既有认购又有认沽的认购权证来说，认沽和认购的行权价之间的差价，就是认购权证最安全的底线……投机不是瞎搞，是要清清楚楚地搞。
+  interpretation: 安全底线=由规则或利益结构保证的下跌保护，而非主观判断的低点；找底线先于找机会，先确认跌不破的底再谈弹性。权证案例中的五粮液、包钢只是2006年的历史示例，不构成标的建议。这一思路与第9课的基本面甄别程序（对参与者行为的了解）一脉相承。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 安全底线
+  - 权证
+  - 风险控制
+  - 投机纪律
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260623-004-a"]
+  last_discovered: 2026-07-18
+  intensity: medium
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

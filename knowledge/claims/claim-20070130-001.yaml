@@ -1,0 +1,86 @@
+claims:
+- id: claim-20070130-001-a
+  source_path: sources/chanlun/lesson_026.md
+  source_date: '2007-01-30'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 技术分析的风险控制前提
+  topic: 一切风险都反映为价格波动，唯一不可控的是交易被突然停止
+  statement: 站在纯技术的角度，一切风险最终都反映为价格波动的风险，不用考虑市盈率之类的东西。缠论成立的一个最重要前提，是被理论分析的交易品种必须在可预见的时间内能继续交易；技术上唯一不能控制的是交易被突然停止或交易不算数，这是技术上的最大死穴。只要交易延续、交易算数，理论就没有任何盲点。应用结论：对那些要停止交易的品种最好别用任何理论；停牌之类不影响理论对风险的控制。
+  evidence_quote: 站在纯技术的角度，一切风险都必然体现在价格的走势上，所有的风险，归根结底，最终都反映为价格波动的风险……唯一不能控制的就是，不知道交易什么时候被突然停止，这种事情是技术上的最大死穴……所以，在应用本ID 的理论时，唯一需要提防的风险就是交易能否延续以及是否算数。
+  interpretation: 327国债事件是作者亲历的交易不算数案例，其最后一天在319平仓不是看图，而是对该类信用风险采取坚决不信任的纪律性退出。该前提划清了技术分析的适用边界：品种筛选时先排除有退市、停止交易风险的标的，再谈买卖点。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 风险控制
+  - 交易前提
+  - 理论边界
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070130-001-b
+  source_path: sources/chanlun/lesson_026.md
+  source_date: '2007-01-30'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 交易资金的期限要求
+  topic: 交易的钱必须是无限期的，有限期的钱等于自动设置停止交易时限
+  statement: 任何交易的前提是先有钱，一旦钱是有限期的，就等于自动设置了一个停止交易的时限，这样的交易是所有失败交易中最常见的一种，以前很多人死在透支上就是这种情况。任何交易的钱最好是无限期的，如果真有什么限期，也是足够长的，这是投资中极为关键的一点。有限期的钱唯一可能的补救是把操作级别降到足够低，把限期风险尽量控制，但这只是没有办法的办法，最好别出现。
+  evidence_quote: 一旦钱是有限期的，那么等于自动设置了一个停止交易的时限，这样的交易，是所有失败交易中最常见的一种，以前很多人死在透支上，其实就是这种情况。任何交易的钱，最好是无限期的，如果真有什么限期，也是足够长的，这是投资中极为关键的一点。
+  interpretation: 与第31课资金必须长期无压力互相印证，是缠论资金管理的第一层纪律。杠杆、借贷、配资的共同缺陷不在利息成本而在期限：到期强制平仓使操作级别被外部时钟接管，技术信号随之失效。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 资金管理
+  - 资金期限
+  - 透支风险
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070130-001-c
+  source_path: sources/chanlun/lesson_026.md
+  source_date: '2007-01-30'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 成本变负的交易目标
+  topic: 高手把任何凭证成本变成负价格，买卖点之间唯一要控制的是量
+  statement: 以0以上的任何价格进行的任何交易都必然包含风险，交易唯一可能毫无风险的方式是拥有一个负价格的凭证；真正的高手、永远不败的高手，就是有本事在相应时期内把任何凭证变成负价格的人。操作方法：只要有卖点就要卖出，只要有买点就要买入，唯一需要控制的是量；级别的意义其实只有一个，基本只和买卖量有关，级别越大可用更大的量参与买卖。对任何成本为正的股票永远不信任，仓位一开始就买够，卖点时变少、买点时回复原来数量，但绝对不加仓。
+  evidence_quote: 唯一的可能，就是你拥有一个负价格的凭证。什么是真正的高手、永远不败的高手？就是有本事在相应的时期内把任何的凭证变成负价格的人……只要有卖点，就要卖出，只要有买点就要买入，唯一需要控制的，就是量……级别的意义，其实只有一个，基本只和买卖量有关……但绝对不加仓，一开始就买够。
+  interpretation: 本课给出缠论资金哲学的总纲，第31课成本为0的程序是其具体化。作者自陈1分钟卖点也参与，只卖5万股跌回来买回，重点不在单次差价而在总体成本持续降低。某认购权证成本负2.8元是文中2006至2007年历史案例。小资金可全仓进出游走于不同凭证，大资金只在月线最低周线买点位置进入。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 成本管理
+  - 买卖点
+  - 级别
+  - 仓位控制
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

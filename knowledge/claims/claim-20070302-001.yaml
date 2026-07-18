@@ -1,0 +1,516 @@
+claims:
+- id: claim-20070302-001-a
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 中枢延伸造成的走势多义性
+  topic: 中枢延伸使同一段走势在不同级别口径下产生同样合法的级别解释
+  timeframe: permanent
+  statement: 走势并非总是标准的a+A+b+B+c，所有走势的多义性都与中枢有关。第一种多义性来自中枢延伸：例如5分钟级别中枢不断延伸、出现9段以上的1分钟次级别走势时，站在30分钟级别中枢角度，3个5分钟级别走势重合即形成30分钟中枢，而9段以上的1分钟次级别走势每3段构成一个5分钟中枢，这样也可以解释成这是一个30分钟的中枢。
+  evidence_quote: 市场总有其复杂的地方，使得市场的走势呈现一种多义性……而所有走势的多义性，都与中枢有关。例如，5 分钟级别的中枢不断延伸，出现9
+    段以上的1 分钟次级别走势。站在30 分钟级别的中枢角度，3 个5 分钟级别的走势重合就形成了，而9 段以上的1 分钟次级别走势，每3 段构成一个5 分钟的中枢，这样也就可以解释成这是一个30
+    分钟的中枢。
+  interpretation: 多义性不是走势本身含糊，而是中枢延伸使同一段走势在不同级别口径下得到同样符合理论的不同解释；观察级别选得不同，中枢的归属与级别判定就不同，分析时必须意识到自己所站的级别口径。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 多义性
+  - 中枢
+  - 中枢延伸
+  - 级别
+- id: claim-20070302-001-b
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 中枢延伸段数的限制规则
+  topic: 中枢延伸以5段为限，出现第6段延伸即构成更大级别中枢
+  timeframe: permanent
+  statement: 对中枢延伸的数量进行限制就可以消除延伸造成的多义性：一般来说中枢的延伸不能超过5段，一旦出现6段的延伸，加上形成中枢本身那3段，共9段就构成更大级别的中枢。
+  evidence_quote: 这种情况，只要对中枢延伸的数量进行限制，就可以消除多义性，一般来说，中枢的延伸不能超过5 段，也就是一旦出现6 段的延伸，加上形成中枢本身那三段，就构成更大级别的中枢了。
+  interpretation: 这是一条可机械执行的计数规则：延伸5段为限，第6段出现即触发级别升级（3段本中枢加6段延伸共9段，每3段构成一个本级别中枢，3个本级别中枢重合形成更大级别中枢），使中枢归属唯一确定，避免同一走势被无限期解释为原级别中枢的延伸。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 中枢延伸
+  - 级别升级
+  - 中枢
+- id: claim-20070302-001-c
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 级别图是真实走势的简略模本
+  topic: 不同级别的图是对真实走势不同精度的模本，严格级别由每笔成交按中枢定义递归确认
+  timeframe: permanent
+  statement: 第二种多义性是因为模本的简略造成的：不同级别的图其实就是对真实走势不同精度的一种模本，例如年线图没有分笔图的精确度高，很多重要细节不可能在大级别图里看到。从最严格的意义上说，走势的级别可以从每笔成交构成的最低级别图形不断按照中枢延伸、扩展等的定义精确地确认出来，这是最精确的，不涉及什么5分钟、30分钟、日线等。
+  evidence_quote: 另外一种多义性，是因为模本的简略造成的。不同级别的图，其实就是对真实走势不同精度的一种模本，例如，一个年线图当然没有1 个分笔图的精确度高，很多重要的细节都不可能在大级别的图里看到。而所谓走势的级别，从最严格的意义上说，可以从每笔成交构成的最低级别图形不断按照中枢延伸、扩展等的定义精确地确认出来，这是最精确的，不涉及什么5
+    分钟、30 分钟、日线等。
+  interpretation: 分钟线、日线等常用级别并非理论本体，只是行情软件给定的取样精度；级别的本质是中枢按定义递归生成的产物，图表级别只是它的近似模本，大级别图必然丢失次级别细节。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 级别
+  - 模本
+  - 中枢
+- id: claim-20070302-001-d
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 级别序列的选取原则
+  topic: 级别序列可按等比数列自定义但没有必要，图的精确没有太大实质意义
+  timeframe: permanent
+  statement: 1分钟、5分钟、30分钟、日线、周线、月线、季线、年线的级别安排只是一个简略的方式，完全可以按照某个等比数列自定义级别序列，例如去掉30分钟换成15分钟和60分钟也可以，但没必要，因为图的精确并没有太大的实质意义，真实的走势并不需要如此精确的观察。
+  evidence_quote: 用1 分钟、5 分钟、30 分钟、日线、周线、月线、季线、年线等的级别安排，只是一个简略的方式……你完全可以按照某个等比数列来弄一个级别序列。不过，可以是可以，但没必要。因为，图的精确并没有太大的实质意义，真实的走势并不需要如此精确的观察。
+  interpretation: 级别序列是工具而非教条，选取原则是够用即可；过度追求取样精度是舍本逐末，分析的重心应放在中枢结构上，而不是图表刻度本身。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 级别序列
+  - 走势图
+- id: claim-20070302-001-e
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 市场直觉的形成与多义性的消融
+  topic: 充分直观的阅读者眼里多义性不存在，直觉出现前多义性分析依然必要
+  timeframe: permanent
+  statement: 把分笔图或1分钟图不断缩小，走势从细部到全体逐步呈现，会对走势级别的不断扩张形成直观感觉，这对形成市场感觉有帮助；当有了这种清晰的市场直觉才算到门口，在一名能充分直观的阅读者眼里多义性是不存在的，而当这种最明锐的直觉还没出现时，对走势多义性的分析依然必要，必须继续做逻辑分析。
+  evidence_quote: 当你把分笔图或1 分钟图不断缩小，这样，看到的走势越来越多，而这种从细部到全体的逐步呈现，会对走势级别的不断扩张有一个很直观的感觉，这种感觉，对你以后形成一种市场感觉是有点帮助的……在一名能充分直观的阅读者眼里，多义性是不存在的，而当这种最明锐的直觉还没出现时，对走势多义性的分析依然必要，因此也必须继续。
+  interpretation: 技术分析的进阶路径是从逻辑分析内化为市场直觉：直觉未形成前必须老老实实地做中枢与级别的逻辑分析，直觉形成后才能当下直接领悟走势、暂时放下概念工具。这是一种能力分层的自我认知纪律，不能以追求直觉为借口跳过逻辑训练。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 市场直觉
+  - 交易心理
+  - 多义性
+- id: claim-20070302-001-f
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 多种合理释义是多角度分析工具
+  topic: 符合理论内在逻辑的多种合理释义不是负担而是多角度分析工具
+  timeframe: permanent
+  statement: 第三种多义性有实质意义：走势分析中存在多种合理释义，这些释义都符合理论内在的逻辑，因此这种多义性反而不是负担，而是可以用多角度对走势进行分析。例如对a+A+b+B+c，a完全可以看成是围绕中枢A的一个波动，c也可以看成是针对B的一个波动，这样整个走势就简化为两个中枢与连接两者的一个走势。
+  evidence_quote: 还有一种有实质意义的多义性，也就是走势分析中的多种合理释义，这些释义都符合理论内在的逻辑，因此，这种多义性反而不是负担，而是可以用多角度对走势进行一个分析。例如，对a+A+b+B+c，a
+    完全可以有另一种释义，就是把a 看成是围绕A 这个中枢的一个波动……同样c 也可以看成是针对B 的一个波动，这样整个走势其实就简化为两个中枢与连接两者的一个走势。
+  interpretation: 理论自洽的多种解释是分析资源而非缺陷：同一走势的不同合法释义可以交叉验证、互为补充，把首尾段重新归并为中枢的波动还能大幅简化结构，便于把握走势骨架。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 多义性
+  - 走势分析
+  - 中枢
+- id: claim-20070302-001-g
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 趋势中连接段的非必然性
+  topic: a与c并非必然存在，b可以是跳空缺口，走势可简化为两个孤零零的中枢
+  timeframe: permanent
+  statement: 在最极端的情况下，a+A+b+B+c的走势系列类型里，a和c并不是必然存在的，而b完全可以是一个跳空缺口，这样整个走势就可以简化为两个孤零零的中枢。
+  evidence_quote: 在最极端的情况下，在a+A+b+B+c 的走势系列类型里，a 和c 并不是必然存在的，而b 完全可以是一个跳空缺口，这样，整个走势就可以简化为两个孤零零的中枢。
+  interpretation: 趋势形态的构成要素有伸缩空间：连接段可以弱到只是一个缺口，首尾段可以缺失。分析时不能机械等待教科书式的完整五段结构，中枢才是走势的必要构件，连接段的有无与强弱不影响走势划分。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 趋势
+  - 中枢
+  - 跳空缺口
+- id: claim-20070302-001-h
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 中枢合力与当下买卖力的关系
+  topic: 任何走势图就是级别大小不同的中枢，已有走势的合力与当下交易的合力构成市场研究的另一角度
+  timeframe: permanent
+  statement: 把多义性看法推广到所有走势：任何走势图其实就是一些级别大小不同的中枢，把中枢看成不同的星球，当下位置之上的中枢产生向上的力、当下位置之下的产生向下的力，所有这些力的合力构成一个总的力量；而市场当下买卖也构成一个合力，买的是向上的力、卖的是向下的力。研究已有走势构成的当下的力与当下交易产生的力这两种力之间的关系，就构成市场研究的另一个角度。
+  evidence_quote: 把这种看法推广到所有的走势中，那么任何的走势图，其实就是一些级别大小不同的中枢，把这些看成不同的星球，在当下位置上的星球对当下位置产生向上的力，当下位置下的产生向下的力，而这些所有力的合力构成一个总的力量……研究这两种力之间的关系，就构成了市场研究的另一个角度，也就是另一种释义的过程。
+  interpretation: 这是把中枢结构动力学化的分析视角：历史走势留下的中枢布局形成一股现成的合力，当下资金买卖形成另一股合力，二者关系决定后续走向，是比形态划分更高阶的市场研究框架。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 中枢
+  - 合力
+  - 市场研究
+- id: claim-20070302-001-i
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 背驰的中枢角度释义
+  topic: 背驰是离开力度弱于前次离开，中枢对离开有相同回拉作用故必然拉回中枢
+  timeframe: permanent
+  statement: 站在中枢B的角度可对背驰给出另一种释义：对a+A+b+B+c，背驰的大概意思是c段力度比b小；不妨假设b+B+c是一个向上的过程，则b可看成向下离开中枢B、c可看成向上离开中枢B，顶背驰就是最后这个中枢向上离开比向下离开要弱。中枢的特性是对无论向上或向下离开都有相同的回拉作用，既然向下离开都能拉回中枢，更弱的向上离开当然也能拉回中枢：对b+B+c向上的走势构成顶背驰，对b+B+c向下的走势构成底背驰。
+  evidence_quote: 对a+A+b+B+c，背驰的大概意思就是c 段的力度比b 的小了。那么，站在B 这个中枢的角度，不妨先假设b+B+c 是一个向上的过程，那么b
+    可以看成是向下离开中枢B，而c 可以看成是向上离开中枢B。所谓顶背驰，就是最后这个中枢，向上离开比向下离开要弱，而中枢有这样的特性，就是对无论向上或向下离开的，都有相同的回拉作用，既然向上离开比向下离开要弱，而向下离开都能拉回中枢，那向上的离开当然也能拉回中枢里，对于b+B+c
+    向上的走势，这就构成顶背驰，而对于b+B+c 向下的走势，就构成底背驰。
+  interpretation: 背驰的动力学本质是离开力度衰减叠加中枢回拉力恒定：背驰后重回中枢不是经验规律，而是中枢回拉机制的结构性推论，这把背驰判断从指标比较升级为对走势结构的推理。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 背驰
+  - 中枢
+  - 顶背驰
+  - 底背驰
+- id: claim-20070302-001-j
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 盘整背驰与趋势背驰的本质同一性
+  topic: 盘整背驰与背驰本质一样，只是力度、级别与中枢位置不同
+  timeframe: permanent
+  statement: 站在中枢的角度，盘整背驰与背驰本质上是一样的，只是力度、级别以及发生的中枢位置不同而已。
+  evidence_quote: 其实，站在中枢的角度，盘整背驰与背驰，本质上是一样的，只是力度、级别以及发生的中枢位置不同而已。
+  interpretation: 两者共享离开力度弱于前次离开加中枢回拉的同一机制，区别只在参数；这意味着盘整背驰可用与趋势背驰相同的分析方法处理，但其后续走势含义因级别和中枢位置不同而不同，不可混淆操作级别。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 盘整背驰
+  - 背驰
+  - 中枢
+- id: claim-20070302-001-k
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 中枢级别错位时的反向运行
+  topic: B级别大于A时走势不必然沿原方向继续，可从B直接反转
+  timeframe: permanent
+  statement: 对a+A+b+B其中B级别大于A的情况，B之后并不必然接着原方向继续，而是可以进行反方向的运行：例如a+A+b+B是向下的，a+A+b其实可看成对B的一个向上离开的回拉；对中枢来说并没要求所有离开必须按上下上下的次序，一次向上离开后再一次向上离开完全被允许，站在这个角度从B直接反转向上就是很自然的。
+  evidence_quote: 同样，站在纯中枢的角度，a+A+b+B，其中B 级别大于A 的这种情况就很简单了，这时候，并不必然地B 后面就接着原方向继续，而是可以进行反方向的运行。例如，a+A+b+B
+    是向下的，而a+A+b 其实可以看成是对B 一个向上离开的回拉，而对中枢来说，并没要求所有的离开都必须按照上下上下的次序，一次向上的离开后再一次向上的离开，完全是被允许的，那站在这个角度，从B
+    直接反转向上，就是很自然的。
+  interpretation: 当后一个中枢级别大于前一个时，方向决定权转移到更大级别中枢，原趋势方向失效，反转是结构允许的常态而非例外；这纠正了后中枢必沿原方向离开的思维定势。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 中枢
+  - 级别
+  - 走势反转
+- id: claim-20070302-001-l
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 反转成败的力度比较判定
+  topic: 比较a+A+b与反转段c的力度，c弱则反转不成功并重回中枢
+  timeframe: permanent
+  statement: 判断B之后的反转是否成功，把后续反转写成c，只需比较a+A+b与c这两段的力度，因为中枢B对这两段的回拉力度是一样的；如果c比a+A+b弱，反转不成功，也就意味着一定要重新回到中枢里，在最强的情况下也至少有一次回拉去确认能否构成一个第三类买点。
+  evidence_quote: 那么，这个反转是否成功，不妨把这个后续的反转写成c，那么也只要比较一下a+A+b 与c 这两段的力度就可以，因为中枢B 对这两段的回拉力度是一样的，如果c
+    比a+A+b 弱，那当然反转不成功，也就意味着一定要重新回到中枢里，在最强的情况下也至少有一次回拉去确认能否构成一个第三类买点。
+  interpretation: 中枢回拉力恒定，使方向相反的两段走势可用同一标尺比较力度：c弱于a+A+b即宣告反转失败、必然重回中枢，这给反向操作提供了明确的证伪条件，以及重回中枢后等待回拉确认第三类买点的应对路径。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 走势反转
+  - 力度比较
+  - 第三类买点
+- id: claim-20070302-001-m
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 两类力度比较的MACD判别差异
+  topic: 背驰比较的黄白线与柱子面积在0轴同侧，反转比较分处异侧且黄白线至少穿越一次0轴
+  timeframe: permanent
+  statement: 用MACD辅助判别时，背驰比较的黄白线和柱子面积都在0轴的一个方向上，例如都在上面或都在下面；而a+A+b与c的比较分别在0轴的不同方向上，因此不存在黄白线回拉的问题，但有一点是肯定的，黄白线至少要穿越一次0轴。
+  evidence_quote: 如果用MACD 来辅助判别，背驰比较的黄白线和柱子面积都在0 轴的一个方向上，例如都在上面或下面，而a+A+b 与c 就分别在不同的方向上，由于这，也不存在黄白线回拉的问题，但有一点是肯定的，就是黄白线至少要穿越一次0
+    轴。
+  interpretation: 同为力度比较，同向的背驰比较与异向的反转比较在MACD上呈现不同形态；黄白线至少穿越一次0轴是异向反转力度比较成立的必要条件，可作为快速筛选与验证信号。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - MACD
+  - 背驰
+  - 力度比较
+- id: claim-20070302-001-n
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 力度分析的当下性
+  topic: 反转力度以能否回到前段起跌点为直观判据，分析是当下的不需要预测
+  timeframe: permanent
+  statement: 反转段c要成功，在相同级别内至少要表现出不比b小的力度，最直观的位置判据是必须能重新回到b的起跌点，如同向天上抛球，力度大却抛不高就不能算力度大；c能否回到b的起跌点可以分析c内部的小级别，如果c出现顶背驰时还达不到该位置就自然达不到，这种分析都是当下的，不需要预测什么。
+  evidence_quote: 这个c 要反转成功，在相同级别内至少要表现出比b 的力度不能小，这可以从MACD 来辅助分析，也可以从一个最直观的位置来分析，就是必须能重新回来b
+    的起跌点，这就如同向天上抛球，力度大的如果还抛不高，那怎么能算力度大？至于c 能不能回到b 的起跌点，那可以分析c 内部的小级别，如果c 出现顶背驰时还达不到该位置，那自然达不到了，所以这种分析都是当下的，不需要预测什么。
+  interpretation: 前段起跌点是力度的天然标尺，配合小级别背驰可以在走势行进中当下判定反转成败，而不是事后确认或事前预测，这是不预测只应对的操作纪律在力度分析上的具体化。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 力度分析
+  - 当下
+  - 操作纪律
+- id: claim-20070302-001-o
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 精确分析使均线辅助失效
+  topic: 均线只是看不懂精确分析时的辅助办法，精确分析下均线没有意义
+  timeframe: permanent
+  statement: 看5日线之类的均线只是怕大家看不懂的辅助办法，有了中枢与力度比较这种精确分析，所有的均线其实都没什么意义了。
+  evidence_quote: 至于还让大家看5 日线，只是怕大家看不懂的一个辅助办法，有了这么精确分析，所有的均线其实都没什么意义了。
+  interpretation: 均线是精度不足时的替代性工具；中枢与力度分析在严格性上覆盖了均线的功能，掌握精确方法后不应再依赖均线作决策依据，均线至多作为入门过渡的辅助。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 均线
+  - 精确分析
+- id: claim-20070302-001-p
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 围绕中枢的操作原则
+  topic: 底背驰介入、顶背驰力度定去留、回抽不进中枢为第三类买卖点
+  timeframe: permanent
+  statement: 围绕中枢的操作原则：每次向下离开中枢只要出现底背驰就可以介入，然后看相应回拉出现顶背驰的位置能否超越前面一个向上离开的顶背驰高点，不行一定要走，行也可以走；但次级别回抽一旦不重新回到中枢里，就意味着第三类买点出现，一定要买回来；如果从底背驰开始的次级别回拉不能重新回到中枢里，就意味着第三类卖点出现，必须走，然后等待下面形成新的中枢再重复类似过程。
+  evidence_quote: 每次向下离开中枢只要出现底背驰，那就可以介入了，然后看相应回拉出现顶背驰的位置是否能超越前面一个向上离开的顶背驰高点，不行一定要走，行也可以走，但次级别回抽一旦不重新回到中枢里，就意味着第三类买点出现了，就一定要买回来。而如果从底背驰开始的次级别回拉不能重新回到中枢里，那就意味着第三类卖点出现，必须走，然后等待下面去形成新的中枢来重复类似过程。
+  interpretation: 这是一套完整闭环的中枢震荡操作纪律：底背驰买入，回拉顶背驰力度决定卖出，回抽不破中枢构成第三类买点须回补，回拉不进中枢构成第三类卖点须离场，随后等新中枢重复流程，把背驰判断与第三类买卖点串联为可执行规则。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 操作纪律
+  - 底背驰
+  - 顶背驰
+  - 第三类买卖点
+- id: claim-20070302-001-q
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 指数分析不能机械套用于个股
+  topic: 指数分析针对指数本身，个股只要指数不单边下跌就可能独立活跃
+  timeframe: permanent
+  statement: 这些精确分析都是针对指数的，而个股的情况必须具体分析，很多个股只要指数不单边下跌就会活跃、不爱搭理指数，所以不能完全按指数来弄。
+  evidence_quote: 不过，这些分析都是针对指数的，而个股的情况必须具体分析，很多个股，只要指数不单边下跌，就会活跃，不爱搭理指数，所以不能完全按指数来弄。
+  interpretation: 指数对个股操作的意义主要是是否单边下跌这一底线环境条件，而非精确的节奏指引；个股必须叠加自身的中枢结构分析，不能把指数的分析结论机械移植到个股。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260526-011"]
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 指数
+  - 个股
+  - 操作纪律
+- id: claim-20070302-001-r
+  source_path: sources/chanlun/lesson_033.md
+  source_date: '2007-03-02'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  claim_type: technical-knowledge
+  subject: 期货与股票在力度分析上的差异
+  topic: 期货可随时开仓与股票凭证数量稳定不同，力度分析有很多不同
+  timeframe: permanent
+  statement: 对于指数，最大的利益在期货里，但期货有很大的特殊性：期货可以随时开仓，和股票交易凭证数量的基本稳定不同，所以在力度分析等方面有很多不同的地方。
+  evidence_quote: 其实。对于指数，最大的利益在期货里。不过，期货的情况有很大的特殊性，因为期货是可以随时开仓的，和股票交易凭证数量的基本稳定不同，所以在力度分析等方面有很多不同的地方，这在以后再说了。
+  interpretation: 力度分析暗含筹码供给基本稳定的前提；期货的开仓机制破坏了这一前提，因此股票市场上成立的力度分析结论不能直接移植到期货，需另行建立适用于期货的力度分析。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  related_stocks: []
+  tags:
+  - 缠论
+  - 期货
+  - 力度分析

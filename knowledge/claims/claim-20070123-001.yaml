@@ -1,0 +1,88 @@
+claims:
+- id: claim-20070123-001-a
+  source_path: sources/chanlun/lesson_025.md
+  source_date: '2007-01-23'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: MACD乖离极限判断
+  topic: 急促走势中MACD柱子两三次冲击乖离极限不能突破即引发回调
+  statement: 在1分钟级别的急促上升中，走势变动太快以至于背驰来不及在图上表现，此时可用MACD柱子伸长的高度作为替代判断，柱子的伸长大致就是走势和均线的乖离度。方法：先敏感地发现该股MACD伸长的一般高度作为标杆，一旦触及这个乖离的极限，特别是两次或三次上冲该极限而不能突破，就意味着强暴的走势要歇歇了，会引发因乖离而产生的回调。注意该判断的前提是1分钟的急促上升，其他情况下必须配合黄白线的走势来用。
+  evidence_quote: 不难发现，MACD 的柱子伸长，和乖离有关，大致就是走势和均线的偏离度……一般来说，一旦触及这个乖离的极限，特别是两次或三次上冲该极限，就会引发因为乖离而产生的回调。这种回调因为变动太快，在1 分钟上都不能表现其背驰，所以必须用单纯的MACD 柱子伸长来判断。注意，这种判断的前提是1 分钟的急促上升，其他情况下，必须配合黄白线的走势来用。
+  interpretation: 这是背驰在次次级别失效时的替代判据，把MACD从趋势指标临时用作乖离测量器。600779从16.5元上冲19元的1分钟走势是文中2007年案例，17.5元时的柱子高度是标杆，18.5元与19元两次冲击不能突破即确认。连续一字涨停时MACD会出现正弦波动，同样不能用背弛看，要改用1分钟中枢是否不断上移来判断。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - MACD
+  - 乖离
+  - 超短卖点
+  - 背驰替代
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: medium
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070123-001-b
+  source_path: sources/chanlun/lesson_025.md
+  source_date: '2007-01-23'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 背驰回跌力度的级别判断
+  topic: 背驰引发的回跌力度取决于所在级别与位置，不能一看背驰就抛
+  statement: 对背驰的回跌力度必须多级别综合考察：如果日线上还在上涨中段刚开始，MACD刚创新高、红柱子伸长力度强劲，此时5分钟背驰的下跌力度必然不大，只能打点短差甚至可以不管；而在日线走势的最后阶段特别是上涨延伸阶段，一个1分钟的背驰足以引发暴跌。规律上，趋势中产生的背驰一定至少回跌到B段中，可以预先知道至少的跌幅；盘整背驰出来并不一定都要大幅下跌，否则就不会有第三类买点构成的情况。绝对不能一看背驰就抛等跌50%。
+  evidence_quote: 对背驰的回跌力度，和级别很有关系……而在日线走势的最后阶段，特别是上涨的延伸阶段，一个1 分钟的背驰足以引发暴跌，所以这一点必须多级别地综合来考察，绝对不能一看背驰就抛等跌50%，世界上哪里有这样的事情……注意，盘整背驰出来，并不一定都要大幅下跌，否则怎么会有第三类买点构成的情况。而趋势中产生的背驰，一定至少回跌到B 段中，这就可以预先知道至少的跌幅。
+  interpretation: 给出背驰操作的剂量原则：背驰本身不是卖出的充分条件，所处位置（中段还是末段）与级别决定回跌量级。趋势背驰的至少回跌目标位是B段，可事先量化；盘整背驰则可能只是中枢震荡的一部分，其后还可能转化为第三类买点。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 背驰
+  - 级别
+  - 回跌力度
+  - 多级别联立
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070123-001-c
+  source_path: sources/chanlun/lesson_025.md
+  source_date: '2007-01-23'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 两中枢上涨的MACD形态
+  topic: 标准两个中枢的上涨在MACD上有可对照的完整形态演化
+  statement: 一个标准的两个中枢的上涨，在MACD上表现出的形态：第一段，黄白线从0轴下面上穿上来，在0轴上方停留的同时形成第一个中枢与第二类买点；其后突破该中枢，黄白线快速拉起，这往往是最有力度的一段，所谓指标钝化经常出现在这一段，一般在一个次级别背驰中结束；然后进入第二个中枢的形成过程，黄白线逐步回到0轴附近；最后继续突破第二个中枢，黄白线与柱子重复前面的过程，但这次黄白线不能创新高，或柱子面积、伸长高度不能突破新高，即出现背驰，结束整个两个中枢的上涨。
+  evidence_quote: 一般来说，一个标准的两个中枢的上涨，在MACD 上会表现出这样的形态，就是第一段，MACD 的黄白线从0 轴下面上穿上来，在0 轴上方停留的同时，形成相应的第一个中枢，同时形成第二类买点……然后进入第二个中枢的形成过程中，同时MACD 的黄白线会逐步回到0 轴附近，最后，开始继续突破第二个中枢……但这次，黄白线不能创新高，或者柱子的面积或者伸长的高度能不能突破新高，出现背驰，这就结束了这一个两个中枢的上涨过程。
+  interpretation: 把抽象的两中枢趋势翻译成MACD可观察清单：0轴上穿、0轴附近回拉、二次拉升不创新高。注意MACD在0轴附近盘整与回抽0轴形成的中枢至少是该级别中枢，也可以构成更大级别中枢。000572的日线周线双重第二类买点是文中2006至2007年历史案例。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - MACD
+  - 中枢
+  - 背驰
+  - 0轴
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

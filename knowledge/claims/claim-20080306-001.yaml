@@ -1,0 +1,58 @@
+claims:
+- id: claim-20080306-001-a
+  source_path: sources/chanlun/lesson_102.md
+  source_date: '2008-03-06'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 区间套方法的理论依据
+  topic: 区间套是走势必完美的重要应用，使买卖点精确定位成为可能
+  statement: 走势必完美对应的是一种最特殊、最强有力的唯一分解：市场走势有着类似自然数记数法（幂级数唯一分解）的整体结构。正因为缠论的递归函数是有级别的、级别依次升大，才有区间套方法的应用：如果市场走势没有这种整体结构，区间套就不会存在，也就没有操作意义；有了区间套，买卖点的精确定位才有可能，这是操作中最牛的一种方式。级别在缠论中极端关键，搞不明白级别，根本就不明白缠论。
+  evidence_quote: 正因为本ID 的理论揭示了看似毫无规律的市场走势有如此完美的整体规律，所以才有了其后一系列的操作可能……如果市场走势没有本ID 所揭示的整体结构，那么区间套是不会存在，也就是没有操作意义的。因此，区间套的方法，就是走势必完美的一个重要的应用。有了区间套，买卖点的精确定位才有可能，也就是说走势必完美的存在导致了买卖点可以精确定位
+  interpretation: 区间套不是独立技巧而是唯一分解结构的推论，买卖点的精确定位由此获得理论保证。这回答了区间套为什么有效：有效性来自走势的级别化整体结构，而非经验统计。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 区间套
+  - 买卖点
+  - 走势必完美
+  - 级别
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20080306-001-b
+  source_path: sources/chanlun/lesson_102.md
+  source_date: '2008-03-06'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 操作级别的选择与级别递进
+  topic: 高级别改变必先从低级别开始，一般用1、5、30分钟三级别分解即可
+  statement: 级别存在的必然结论：任何高级别的改变都必须先从低级别开始，绝对不可能出现5分钟从下跌转折为上涨而1分钟还在下跌段中。从1分钟一直到年对应8个级别（名字可随意取，只是这样符合习惯），任何走势都可以唯一地表示为a1A1+a5A5+a30A30的形式；但一般操作没必要分解到年、季、月级别，1、5、30分钟三个级别的分解就足以应付所有的走势，大点的资金可以考虑加上日级别。完全分类是级别性的、有明确点位界限的，缠论因此完全是数量化、精确化的，里面不存在任何含糊的地方。
+  evidence_quote: 级别的存在，一个必然的结论就是，任何高级别的改变都必须先从低级别开始。例如，绝对不可能出现5 分钟从下跌转折为上涨，而1 分钟还在下跌段中……一般来说，1、5、30 分钟三个级别的分解，就足以应付所有的走势。当然，对于大点的资金，可以考虑加上日级别的……完全分类是级别性的，是有明确点位界限的。
+  interpretation: 高级别必从低级别先变给出多级别联立的推演次序，是第100课三层次完全分类推演的理论基础。三级别分解够用的结论，把理论落到可执行的日常分析工作量上。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 级别
+  - 完全分类
+  - 操作级别
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

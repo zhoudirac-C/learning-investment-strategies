@@ -1,0 +1,59 @@
+claims:
+- id: claim-20070316-001-a
+  source_path: sources/chanlun/lesson_037.md
+  source_date: '2007-03-16'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 趋势背驰的成立条件
+  topic: a+A+b+B+c 要有背驰须先是趋势，且c为次级别并创新高或新低
+  statement: 对典型形式 a+A+b+B+c 谈背驰有三条前提：一、没有趋势就没有背驰，A、B 必须是同级别的中枢，否则整个形式只能看成较大中枢的震荡，最多算盘整背驰；二、c 必然是次级别的，至少包含对 B 的一个第三类买卖点，否则应看成 B 中枢的小级别波动，用盘整背驰处理；三、若是上涨 c 一定要创出新高，下跌 c 一定要创出新低，否则即便 c 包含第三类买卖点，也按围绕 B 的次级别震荡用盘整背驰判断。多义性只是多角度观察，不是含糊性，不能因为有了把 b、c 当成 B 的次级波动这一个角度，就忘了 a+A+b+B+c 是趋势且 A、B 级别相同的角度。
+  evidence_quote: 没有趋势，没有背驰，不是任何a+A+b+B+c 形式的都有背驰的。当说a+A+b+B+c 中有背驰时，首先要a+A+b+B+c 是一个趋势。而一个趋势，就意味着A、B 是同级别的中枢，否则，就只能看成是其中较大中枢的一个震荡……c 必然是次级别的，也就是说，c 至少包含对B 的一个第三类买卖点，否则，就可以看成是B 中枢的小级别波动，完全可以用盘整背驰来处理……如果a+A+b+B+c 是上涨，c 一定要创出新高；a+A+b+B+c 是下跌，c 一定要创出新低。
+  interpretation: 这是把趋势背驰与盘整背驰区分开的判定清单，三条都满足才谈趋势背驰，否则一律降格为盘整背驰处理。两者对应的买卖点级别与后续力度完全不同，混用会把中枢震荡的卖点误判为趋势反转点。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 背驰
+  - 趋势
+  - 盘整背驰
+  - 第三类买卖点
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070316-001-b
+  source_path: sources/chanlun/lesson_037.md
+  source_date: '2007-03-16'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 背驰段内部结构与区间套定位
+  topic: c 至少含两个次级别中枢构成次级别趋势，可递归套用同一形式精确定位背驰
+  statement: 对 a+A+b+B+c 中背驰段 c 的内部分析：由于 c 包含 B 的第三类买卖点，c 至少包含两个次级别中枢（否则满足不了次级别离开后次级别回拉不重回中枢的条件），这两个中枢构成次级别趋势的关系，是最标准最常见的情况，此时可继续套用 a+A+b+B+c 的形式进行次级别分析，形成类似区间套的状态，对其后的背驰更精确地定位。连接段 b 有可能小于次级别，力度最大的是连续缺口，但 b 在级别上不能大于 c；若 b 是次级别而 c 出现连续缺口，c 是背驰的可能性很小，就算是，出现最弱走势的可能性极大。
+  evidence_quote: 由于c 包含B 的第三类买卖点，则c 至少包含两个次级别中枢，否则满足不了次级别离开后次级别回拉不重回中枢的条件。这两个中枢构成次级别趋势的关系，是最标准最常见的情况，这种情况下，就可以继续套用a+A+b+B+c 的形式进行次级别分析确定c 中内部结构里次级别趋势的背驰问题，形成类似区间套的状态，这样对其后的背驰就可以更精确地进行定位了……而b 是有可能小于次级别的，力度最大的就是连续的缺口，也就是说，b 在级别上是不能大于c 的。
+  interpretation: 区间套是缠论定位背驰精确位置的标准技术：大级别确认背驰段后递归到次级别，用同一形式逐层缩小背驰点范围。b 与 c 的级别不等式则是识别假趋势的快速过滤条件。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 背驰
+  - 区间套
+  - 次级别
+  - 中枢
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

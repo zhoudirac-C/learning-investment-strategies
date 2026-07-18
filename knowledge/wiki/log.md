@@ -951,3 +951,15 @@
 - 更新 wiki：`knowledge/wiki/每日复盘/2026-07-09.md` 创建
 - 更新索引：`knowledge/claims/index.md`、`knowledge/wiki/每日复盘/index.md`
 - 引用 claim IDs：`claim-20260709-001-a` 至 `claim-20260709-012-e`
+---
+
+## 2026-07-18 | qing-learning ingest | 缠论108课 technical-knowledge claims 批量提取
+
+- 处理 raw：`sources/chanlun/lesson_001.md` ~ `lesson_108.md`（缠中说禅"教你炒股票"108课，2006-06~2008-08 新浪博客，已先完成页眉页脚清洗）
+- 新增 claims：108 个文件共 337 条（`claim-20060607-001-a` 至 `claim-20080829-001-a`），全部 `claim_type: technical-knowledge`、`timeframe: permanent`、`source_type: 专栏`、`related_stocks: []`
+- 提取口径：课中 2006-2008 年大盘点评只提炼方法论内核，具体点位与短期预测不入 claim；定量事实与定性判断拆分为独立 claim；金句逐字入 evidence_quote
+- 结构覆盖：总纲公理（走势终完美/完全分类/三个客观支点）、形态学（分型/笔/线段/特征序列）、中枢与走势类型（递归定义/中枢三定理/中阴阶段）、级别体系、多义性与结合律（同级别分解机械化程式）、动力学（背驰三定理/MACD辅助/区间套）、三类买卖点（完备性定理/防护退出）、资金管理（乘法原则/成本变负/利润最大两定理）、纪律心法（能搞分类/看和干/远离聪明）、市场观（合力分力/庄家批判/板块强弱指标）
+- 下游同步：discover --all-missing 处理 337 条新增 40 条关系；Neo4j 迁移完成（全库 2812 Claim 节点）；Qdrant `qing_claims` --force-recreate 重建（2812 向量）
+- 更新 wiki：`knowledge/wiki/投资方法论/缠论.md` 创建（十节定理导航页，引用 223 个关键 claim id 全部校验存在）
+- 更新索引：`knowledge/claims/index.md`、`knowledge/wiki/index.md`（scripts/build_indexes.py 重建）
+- 引用 claim IDs：`claim-20060607-001-a` 至 `claim-20080829-001-a`（108 课共 337 条，按 source_path lesson_001~108 全覆盖无缺号）

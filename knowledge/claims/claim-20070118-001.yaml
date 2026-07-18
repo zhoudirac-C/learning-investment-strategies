@@ -1,0 +1,86 @@
+claims:
+- id: claim-20070118-001-a
+  source_path: sources/chanlun/lesson_024.md
+  source_date: '2007-01-18'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: MACD判断背驰的标准方法
+  topic: 同向趋势两段比较MACD柱子面积，C段面积小于A段构成标准背驰
+  statement: 用MACD判断背驰的前提结构：两段同向趋势A、C之间有一个盘整或反向趋势B连接，A段之前一定是和B同级别或更大级别的一个中枢，B是这个大趋势的另一个中枢，B的中枢级别比A、C里的中枢级别都要大，B一般会把MACD的黄白线（DIFF和DEA）回拉到0轴附近。标准背驰的判定：C段的走势类型完成时对应的MACD柱子面积（向上看红柱子，向下看绿柱子）比A段对应的面积小。实用技巧：看柱子面积不需要全出来，一般柱子伸长的力度变慢时，把已经出现的面积乘2就可以当成该段的面积，所以在上涨或下跌的最后阶段判断就出来了，一般都可以抛到最高价位和买在最低价位附近。光用MACD辅助判断，只要能分清楚A、B、C三段，准确率应该在90%以上；配合上中枢则是100%绝对的。
+  evidence_quote: 用MACD 判断背驰的前提是，A、B、C 段在一个大的趋势里，其中A 之前已经有一个中枢，而B 是这个大趋势的另一个中枢，这个中枢一般会把MACD 的黄白线（也就是DIFF 和DEA）回拉到0 轴附近。而C 段的走势类型完成时对应的MACD 柱子面积（向上的看红柱子，向下看绿柱子）比A 段对应的面积要小，这时候就构成标准的背弛。
+  interpretation: 这是MACD辅助背驰判断的完整操作版：先验结构（A前中枢加B中枢拉回0轴）再比面积。面积乘2的估算技巧把背驰判断从确认后移到当下。作者明示其为不绝对精确但方便的替代方案，精确判断仍要从中枢本身出发。课中601628人寿5分钟图为2007年历史案例。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - MACD
+  - 背驰
+  - 黄白线
+  - 柱子面积
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070118-001-b
+  source_path: sources/chanlun/lesson_024.md
+  source_date: '2007-01-18'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 缠中说禅背驰买卖点定理
+  topic: 任一背驰必然制造某级别买卖点，任何逆转必然包含某级别的背驰
+  statement: 缠中说禅背驰-买卖点定理：任一背驰都必然制造某级别的买卖点，任一级别的买卖点都必然源自某级别走势的背驰。推论：出现背驰后必然有逆转，这是没任何商量余地的；逆转的幅度就是重新出现新的次级别买卖点为止；逆转并不意味着永远反向，例如日线上向上的背驰制造卖点，回跌后在5分钟或30分钟出现向下的背驰制造买点，然后又可以重新上涨甚至创新高。背驰同样有级别问题：一个1分钟级别的背驰，在绝大多数情况下不会制造一个周线级别的大顶，除非日线上同时也出现背驰。背驰后其回跌一定至少重新回到B段的中枢里。
+  evidence_quote: 缠中说禅背驰-买卖点定理：任一背驰都必然制造某级别的买卖点，任一级别的买卖点都必然源自某级别走势的背驰……但出现背弛后必然有逆转，这是没任何商量余地的。有人要问，究竟逆转多少？那很简单，就是重新出现新的次级别买卖点为止。
+  interpretation: 该定理把背驰与买卖点锁成等价关系，逆转幅度由次级别新买卖点的出现来界定，而非固定百分比。级别匹配是防误用的关键：小级别背驰不制造大级别顶底。回跌至少回B段中枢是标准背驰的最低保证。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 背驰
+  - 买卖点定理
+  - 级别
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20070118-001-c
+  source_path: sources/chanlun/lesson_024.md
+  source_date: '2007-01-18'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 盘整背驰判断
+  topic: 盘整中C段面积小于A段必回跌，上破中枢后背驰先出来再分两种情况处理
+  statement: 盘整中利用类似背驰的判断方法也有很好效果，称为盘整背驰判断。以盘整中往上的情况为例（往下反之亦然）：如果C段不破中枢，一旦出现MACD柱子的C段面积小于A段面积，其后必定有回跌。比较复杂的是C段上破中枢但MACD柱子面积小于A段的情况，原则是先出来，其后分两种：如果回跌不重新跌回中枢，就在次级别的第一类买点回补，刚好构成该级别的第三类买点；反之（回跌跌回中枢）就继续该盘整。盘整背驰一般在盘整中弄短差时用到；无论背驰与盘整背驰，只要满足相应标准，其技术上都是绝对的，问题不在技术准确性而在操作者判断的准确性。
+  evidence_quote: 如果C 段不破中枢，一旦出现MACD 柱子的C 段面积小于A 段面积，其后必定有回跌。比较复杂的是如果C 段上破中枢，但MACD 柱子的面积小于A 段的，这时候的原则是先出来，其后有两种情况，如果回跌不重新跌回，就在次级别的第一类买点回补，刚好这反而构成该级别的第三类买点，反之就继续该盘整。
+  interpretation: 盘整背驰是标准背驰向盘整场景的推广，处理流程是决策树：先离场，再按回跌是否重返中枢分别回补或观望，其中不重返中枢的情形恰好衔接第三类买点。课中万科15分钟图与上海大盘5分钟图为2006-2007年历史案例。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 盘整背驰
+  - MACD
+  - 第三类买点
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

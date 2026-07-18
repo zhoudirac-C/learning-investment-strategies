@@ -1,0 +1,85 @@
+claims:
+- id: claim-20061226-001-a
+  source_path: sources/chanlun/lesson_018.md
+  source_date: '2006-12-26'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 走势中枢的区间计算
+  topic: 中枢区间取前三个次级别走势类型高点最低值与低点最高值之间
+  statement: 缠中说禅走势中枢的具体计算以前三个连续次级别走势类型的重叠为准：次级别的连续三个走势类型A、B、C，分别的高、低点是a1/a2、b1/b2、c1/c2，则中枢的区间就是（max(a2,b2,c2)，min(a1,b1,c1)），实际用目测就可以。注意次级别的前三个走势类型都必须是完成的才构成该级别的中枢，完成的走势类型在次级别图上很明显，用不着再看更下面级别的图。另外，趋势中的缠中说禅走势中枢之间必须绝对不存在重叠。
+  evidence_quote: 具体的计算以前三个连续次级别的重叠为准，严格的公式可以这样表示：次级别的连续三个走势类型A、B、C，分别的高、低点是a1\\a2,b1\\b2,c1\\c2。则，中枢的区间就是（max（a2,b2,c2），min（a1,b1,c1））而实际上用目测就可以，不用这么复杂。
+  interpretation: 给出中枢区间的严格数学表达式，使中枢从图形直觉变为可计算对象：a1、b1、c1为三个次级别走势的高点，a2、b2、c2为低点，区间下沿取三个低点的最大值，上沿取三个高点的最小值，即三段的重叠部分。趋势中前后中枢绝对不重叠是趋势成立的硬条件。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 走势中枢
+  - 中枢区间
+  - 定义
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20061226-001-b
+  source_path: sources/chanlun/lesson_018.md
+  source_date: '2006-12-26'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 走势类型的延伸
+  topic: 趋势延伸是同向中枢不断产生，判别延伸是否结束看是否产生新的中枢
+  statement: 走势类型延伸的实质：对于趋势，延伸就在于同级别的同向缠中说禅走势中枢不断产生；对于盘整，延伸就在于不能产生新的缠中说禅走势中枢。盘整在三个重叠的连续次级别走势类型后随时结束都是完美的，但也可以不断延伸下去；趋势形成两个依次同向的中枢后随时可以结束而完美，也可以不断延伸形成更多中枢。走势类型延伸是否结束的判断关键就在于是否产生新的缠中说禅走势中枢；趋势与盘整的判别关键也在于是否产生新的中枢。很多人抓不住牛股、经常在第一个中枢时被震下马，最主要就是对此没有明确认识；逃顶抄底难归根结底就是走势类型的延伸闹的。
+  evidence_quote: 对于趋势来说，其“延伸”就在于同级别的同向“缠中说禅走势中枢”不断产生；而对于盘整来说，其“延伸”就在于不能产生新的“缠中说禅走势中枢”……“走势类型延伸”是否结束的判断关键就在于是否产生新的“缠中说禅走势中枢”。
+  interpretation: 延伸概念解释了为什么满足完成条件的走势可以不结束：完美是充分的而非即时的。操作含义直接：持股中不见新中枢反向产生就不必下马，这是对治过早落袋与盲目抄底同一根源的理论解释。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 走势延伸
+  - 走势中枢
+  - 持股纪律
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20061226-001-c
+  source_path: sources/chanlun/lesson_018.md
+  source_date: '2006-12-26'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 走势中枢三定理
+  topic: 连接中枢的必然是次级别以下走势，中枢破坏当且仅当回抽不回到中枢内
+  statement: 缠中说禅走势中枢定理一：在趋势中，连接两个同级别缠中说禅走势中枢的必然是次级别以下级别的走势类型；相连走势类型的级别越低表示力度越大，这是缺口有较强技术含义的理论依据。定理二：在盘整中，无论离开还是返回中枢的走势类型必然是次级别以下的。定理三：某级别中枢的破坏，当且仅当一个次级别走势离开该中枢后，其后的次级别回抽走势不重新回到该中枢内；定理三中两个次级别走势的组合只有趋势+盘整、趋势+反趋势、盘整+反趋势三种，站在实用角度最用力的破坏是趋势+盘整，其后上涨往往比较有力，特别当这种突破在底部区间。维持中枢的充分必要条件是任何离开该中枢的走势类型以次级别以下走势类型返回。
+  evidence_quote: “缠中说禅走势中枢定理一”：在趋势中，连接两个同级别“缠中说禅走势中枢”的必然是次级别以下级别的走势类型……“缠中说禅走势中枢定理二”：在盘整中，无论是离开还是返回“缠中说禅走势中枢”的走势类型必然是次级别以下的……某级别“缠中说禅缠中说禅走势中枢”的破坏，当且仅当一个次级别走势离开该“缠中说禅走势中枢”后，其后的次级别回抽走势不重新回到该“缠中说禅走势中枢”内。
+  interpretation: 三条定理覆盖中枢的维持与破坏：定理一解释了跳空缺口的力度含义，定理三给出的离开加回抽不返正是第20课第三类买卖点的严格原型。最用力的破坏组合趋势+盘整提示底部区间此类突破后的上涨倾向。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 走势中枢
+  - 中枢破坏
+  - 第三类买卖点
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent

@@ -1,0 +1,58 @@
+claims:
+- id: claim-20071227-001-a
+  source_path: sources/chanlun/lesson_092.md
+  source_date: '2007-12-27'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: 震荡中轴监视器
+  topic: 中枢区间中点为震荡中轴Z，各次级震荡区间中点Zn在Z上偏强在Z下偏弱
+  statement: 中枢震荡最终一定以某级别的第三类买卖点结束，如何监控这震荡逐步走强还是走弱是有操作价值的问题。一个中枢确立后，中枢区间的一半位置称为震荡中轴Z，每一个次级震荡区间的一半位置依次用Zn表示，最标准的状态是Zn刚好就是Z，但很特殊。Zn在Z之上，证明这个震荡是偏强的，反之偏弱。震荡的中枢区间是[A，B]，A、Z、B三条直线刚好等距，Zn的波动连成曲线，构成一个监视中枢震荡的技术指标。Zn的数量不会超过9个数据，超过了次级别就要升级了。
+  evidence_quote: 一个中枢确立后，中枢区间的一半位置，称为震荡中轴Z。而每一个次级震荡区间的一半位置，依次用Zn 表示……显然，Zn 在Z 之上，证明这个震荡是偏强的，反之偏弱。震荡的中枢区间是[A，B]，那么，A、Z、B 这三条直线刚好是等距的，Zn 的波动连成曲线，构成一个监视中枢震荡的技术指标。
+  interpretation: 这是中枢震荡的量化监视工具：用中点位置把强弱感觉变成可比较的读数。Zn的变动相对平滑，因此可以大致预计其下一个区间，当下震荡的低点或高点可据此大致算出下一个震荡的高低点。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 中枢震荡
+  - 震荡中轴
+  - 强弱监视
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
+- id: claim-20071227-001-b
+  source_path: sources/chanlun/lesson_092.md
+  source_date: '2007-12-27'
+  source_type: 专栏
+  extracted_at: '2026-07-18'
+  subject: Zn超越的变盘信号
+  topic: Zn最终必超越A或B，超越是变盘提醒，未构成三买卖则多为中枢震荡级别扩展
+  statement: 最终Zn肯定要超越A或B，否则就永远不会出现第三类买卖点，这显然不可能；但反过来，Zn超越A或B并不意味着一定要出现第三类买卖点，这种超越可以是多次的，只有最后一次才构成第三类买卖点。一般一旦有类似的超越，就是一个很大的提醒，这震荡面临变盘了；如果这超越没有构成第三类买卖点，一般都将构成中枢震荡级别的扩展，这没有百分百的绝对性，但概率极高。另外，那些Zn缓慢提高但又没力量突破B的，要小心其中蕴藏的突然变盘风险，一般这种走势都会构成所谓的上升楔型之类的诱多图形，反着同样存在下降楔型的诱空。
+  evidence_quote: 最终，Zn 肯定要超越A 或B……反过来，Zn 超越A 或B 并不意味着一定要出现第三类买卖点的，也就是，这种超越可以是多次的，只有最后一次才构成第三类买卖点……如果这超越没有构成第三类买卖点，那么一般都将构成中枢震荡级别的扩展，这没有100% 的绝对性，但概率是极为高的……那些Zn 缓慢提高，但又没力量突破B 的，要小心其中蕴藏的突然变盘风险，一般这种走势，都会构成所谓的上升楔型之类的诱多图形。
+  interpretation: 操作含义：Zn在Z之下甚至A之下时介入风险很大，手脚不够麻利可能完不成震荡操作；次级别走势类型与Zn配合看变盘，再结合布林通道的时间把握，对震荡变盘的预见性极高。
+  confidence: high
+  status: active
+  claim_type: technical-knowledge
+  related_stocks: []
+  tags:
+  - 缠论
+  - 中枢震荡
+  - 变盘
+  - 第三类买卖点
+  - 诱多
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-07-18
+  intensity: high
+  links:
+    wiki_pages:
+    - 投资方法论/缠论
+  timeframe: permanent
