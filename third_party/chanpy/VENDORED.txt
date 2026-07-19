@@ -1,0 +1,14 @@
+source=https://github.com/Vespa314/chan.py
+commit=429d6ed3043e27c93a003ba2b10e70a05575e1f5
+date=2026-07-18
+
+# 依赖版本附注（.venv，Python 3.11.15）
+czsc==0.10.12
+pyyaml==6.0.2
+# chan.py Script/requirements.txt 依赖实际安装版本：
+baostock==0.9.3        (requirements: >=0.8.8)
+ipython==9.15.0        (requirements: >=8.5.0)
+matplotlib==3.11.1     (requirements: >=3.5.3)
+numpy==2.3.5           (requirements: >=1.23.3；沿用 .venv 原有，未升降级)
+pandas==3.0.3          (requirements: >=1.4.2；沿用 .venv 原有，未升降级)
+requests==2.34.2       (requirements: >=2.22.0；沿用 .venv 原有，未升降级)
