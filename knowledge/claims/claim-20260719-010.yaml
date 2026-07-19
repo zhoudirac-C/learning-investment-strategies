@@ -1,0 +1,32 @@
+claims:
+- id: claim-20260719-010
+  source_path: sources/original/bilibili/2026-07-19-2252-专栏-周五指数全天单边回落，券商银行一度拉升，上证指数纹丝不动，尾.md
+  source_date: '2026-07-19'
+  source_type: 专栏
+  extracted_at: '2026-07-19T23:53:00+08:00'
+  claim_type: sector-theme
+  subject: ABF载板与PCB涨价
+  timeframe: trend
+  statement: AI推动ABF载板量价齐升，2026年二季度以来价格涨5%-10%、部分现货涨超30%；PCB中游龙头超预期业绩预告释放信号：上游物料涨价焦虑过度解读，行业压力二季度已缓解，三季度供需格局改善后业绩有望集中释放。
+  evidence_quote: AI推动ABF载板量价齐升，2026年二季度以来价格上涨约5%-10%、部分现货涨幅超30%，国产突破关注兴森科技(002436)、深南电路(002916)。叠加周末多家PCB中游龙头密集披露的超预期业绩预告，释放关键信号：上游物料涨价、供需紧缺的焦虑存在过度解读，行业压力已于二季度逐步缓解，三季度供需格局改善后产业链业绩有望集中释放。
+  interpretation: ABF载板是AI芯片封装核心材料，国产突破关注兴森科技(002436)、深南电路(002916)，PCB行业压力二季度已缓解，三季度业绩释放预期值得跟踪。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: {}
+  topic: ABF载板涨价+PCB业绩验证，三季度释放预期
+  related_stocks:
+  - code: '002436'
+    name: 兴森科技
+    role: ABF载板国产突破-主板可交易
+  - code: 002916
+    name: 深南电路
+    role: ABF载板国产突破-主板可交易
+  tags:
+  - ABF载板
+  - PCB
+  - 涨价
+  - 三季度业绩释放
+  - 国产突破

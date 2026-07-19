@@ -16,3 +16,5 @@ Task 8 (B4 金标): complete (5 条金标 GOLD-001~005: 2 真实日线(baostock)
 Task 9 (B5 对表+校准报告): complete (Step 1 全量运行 31 用例(chanpy 0 PASS/31 FAIL, czsc 7 PASS/24 FAIL, 0 ERROR); Step 2/3 评审填齐 93 处占位符+M2/M3 重估节; ADR-001~008 全部 resolved by 主控/待 UP 确认; 0 用例错误; P-B/P-C/P-I 等模式均经 /tmp 探针实证; 162 tests 复跑全绿; 详见 task-9-report.md)
   - 遗留: BI-002/003 expect 翻转待 UP 拍板(推荐翻转 bi:[(1,5)]); 全部 ADR 待 UP 确认; UP 评审门(Step 4)待过; GOLD-001/002 的 czsc PASS 系空断言产物需在 M2 重验
 Note2: 2026-07-19 用户显式授权 git commit+push（覆盖计划"禁 git"全局约束，一次性指令），M1 全部产出已推 origin/master；.superpowers/sdd/ 原有自忽略约定（sdd/.gitignore=*），为使用户本地可拉取核对评审材料，主控以 git add -f 强制纳入跟踪——如 UP 不同意可 git rm --cached 回退。
+M2 (plan: docs/superpowers/plans/2026-07-19-chanlun-quant-m2-calibration-fix.md): started 2026-07-19
+  - M2-0: done (BI-002/003 expect 翻转 bi:[(1,5,down/up,False)], UP 拍板; ADR-001 状态 resolved; 162 tests 绿)

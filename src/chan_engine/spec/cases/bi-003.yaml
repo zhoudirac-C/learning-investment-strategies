@@ -7,8 +7,9 @@
 #   顶@5：中间 K 线（bar5）区间 [11.4,10.7]，合并高 = 11.4（两种口径相同）。
 #   口径 A：11.4 < 12.3 → 顶在底范围内 → 不成笔；
 #   口径 B：11.4 > 11.0 → 有一部分高于 → 成笔。
-# expect 按 ADR-001 暂定默认 A 写：不成笔，bi 为空；两分型均未被反向笔确认 → sure: false。
-# 若 ADR-001 仲裁改判 B，expect 翻转为 bi: [{start_idx: 1, end_idx: 5, dir: up, sure: false}]。
+# expect 按 ADR-001 仲裁结论 B 写（2026-07-19 UP 评审门拍板，由口径 A 的 bi: [] 翻转）：
+#   成笔 (1,5,up)；两分型均未被反向笔确认 → sure: false。
+#   （chanpy 在 strict 下仍 bi=[]，待 M2 配置 bi_fx_check=loss 后通过。）
 #
 # 修复说明（评审 C-1，2026-07-19）：原版把"抬高合并高"放在右肩 bar2（高 12.0），
 #   几何上不可实现——右肩按分型定义必高于底中间 K 线，若再高于反弹顶，则它与
@@ -35,4 +36,5 @@ expect:
   fx:
     - {idx: 1, type: down, sure: false}
     - {idx: 5, type: up, sure: false}
-  bi: []
+  bi:
+    - {start_idx: 1, end_idx: 5, dir: up, sure: false}
