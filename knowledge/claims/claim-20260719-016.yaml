@@ -13,8 +13,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260610-037-a", "claim-20260609-001-c"]
+  contradicts: ["claim-20260526-023"]
+  supplements: []
+  last_discovered: 2026-07-20
   links: {}
   topic: 右侧确认前无任何个股左侧买点，急跌不抄底
   related_stocks: []

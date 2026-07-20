@@ -13,8 +13,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260623-005-a"]
+  contradicts: ["claim-20260703-001-d", "claim-20260708-001-a"]
+  supplements: []
+  last_discovered: 2026-07-20
   links: {}
   topic: 7月19日周五暴跌与情绪冰点确认
   related_stocks: []

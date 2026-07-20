@@ -13,8 +13,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260609-001-c", "claim-20260714-004-d"]
+  contradicts: ["claim-20260708-002-x"]
+  supplements: []
+  last_discovered: 2026-07-20
   links: {}
   topic: 各周期底部结构消失，不抢跑等趋势修复
   related_stocks: []

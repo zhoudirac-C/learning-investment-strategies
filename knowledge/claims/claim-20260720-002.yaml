@@ -13,8 +13,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260703-001-e"]
+  contradicts: ["claim-20260702-005-c", "claim-20260609-001-c"]
+  supplements: []
+  last_discovered: 2026-07-20
   links: {}
   topic: 科技股转下跌趋势，提防多杀多，等缩量止跌
   related_stocks: []

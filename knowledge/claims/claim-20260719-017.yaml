@@ -13,8 +13,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260622-001-h"]
+  contradicts: ["claim-20260527-005-a"]
+  supplements: ["claim-20260612-002-e"]
+  last_discovered: 2026-07-20
   links: {}
   topic: 下周计划两种情形应对，核心看周一承接与科技表现
   related_stocks: []
