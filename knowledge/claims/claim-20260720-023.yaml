@@ -1,0 +1,37 @@
+claims:
+- id: claim-20260720-023
+  source_path: sources/original/bilibili/2026-07-20-2201-图片-A股科技板块近期的较大幅度调整，表面看是市场整体承压，实际更.md
+  source_date: '2026-07-20'
+  source_type: 动态
+  extracted_at: '2026-07-20T22:21:00+08:00'
+  claim_type: sector-theme
+  subject: 国产算力放量瓶颈在晶圆代工产能
+  timeframe: trend
+  statement: 国产算力放量的最终瓶颈在先进逻辑制程的晶圆产能——昇腾、鲲鹏、寒武纪等国产AI芯片最终都要落到晶圆厂产能上。中芯国际（科创板）被视为最有能力以N+3等先进制程支持昇腾950规模化量产的企业。晶圆代工是本轮国产算力中高壁垒、高确定性的卖铲人环节。
+  evidence_quote: 据华泰证券，国产算力放量的最终瓶颈在先进逻辑制程的晶圆产能——昇腾、鲲鹏、寒武纪等国产AI芯片最终都要落到晶圆厂产能上。中芯国际被视为最有能力以N+3等先进制程支持昇腾950规模化量产的企业。个人判断，晶圆代工是本轮国产算力中高壁垒、高确定性的'卖铲人'环节。
+  interpretation: UP明确国产算力最核心的产能瓶颈——晶圆代工先进制程，定性为高壁垒高确定性的卖铲人环节。中芯国际(688981)、华虹(688347)、晶合集成(688249)均为科创板不可交易标的，但逻辑本身可作为产业景气度跟踪指标。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国产算力放量瓶颈在晶圆代工先进制程产能
+  tags:
+  - 晶圆代工
+  - 国产算力
+  - 先进制程
+  - 产能瓶颈
+  related_stocks:
+  - code: '688981'
+    name: 中芯国际
+    role: 晶圆代工龙头-科创板不可交易
+  - code: '688347'
+    name: 华虹
+    role: 晶圆代工-科创板不可交易
+  - code: '688249'
+    name: 晶合集成
+    role: 晶圆代工-科创板不可交易
