@@ -458,8 +458,8 @@ class TestConcurrentDataFetcher:
         assert cf._max_workers == 3
         assert cf._timeout == 5
 
-    def test_fetch_all_sources_with_mock_config(self):
-        """验证 fetch_all_sources 能收集目标并返回正确结构。"""
+    def test_fetch_all_sources_with_mock_config(self, monkeypatch):
+        """验证 fetch_all_sources 能收集目标并返回正确结构（行情 mock，不访问网络）。"""
         from qing_investment.monitor.fetchers import ConcurrentDataFetcher
         cf = ConcurrentDataFetcher(max_workers=2, timeout=5)
 
@@ -469,6 +469,16 @@ class TestConcurrentDataFetcher:
             watchlist = {"items": []}
             strategy_pack = {"index_rules": {}, "sector_rotation": {}}
             positions_path = Path("/tmp/positions.yaml")
+
+        # Mock 行情拉取：返回本地快照，绝不访问网络
+        # （避免 TDX/东财 真实请求在测试环境超时；仍走线程池编排以验证返回结构）
+        canned = {
+            "source": "mock",
+            "quotes": [{"code": "000001", "latest": 10.0, "source": "mock"}],
+            "errors": [],
+            "elapsed_ms": 1.0,
+        }
+        monkeypatch.setattr(cf, "fetch_quotes", lambda _config: canned)
 
         result = cf.fetch_all_sources(MockMonitorConfig())
         assert "quotes" in result
@@ -699,7 +709,7 @@ class TestLive:
     def test_live_fetch_quotes(self):
         from qing_investment.monitor.fetchers import fetch_quotes
         result = fetch_quotes({"平安银行": "0.000001", "贵州茅台": "1.600519"})
-        assert result["source"] in ("eastmoney", "tencent", "tencent_gtimg", "sina", "none")
+        assert result["source"] in ("tdx", "eastmoney", "tencent", "tencent_gtimg", "sina", "none")
         assert "quotes" in result
 
     def test_live_concurrent_fetch(self):

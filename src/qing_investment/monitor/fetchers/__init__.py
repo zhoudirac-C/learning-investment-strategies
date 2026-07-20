@@ -4,18 +4,19 @@
 行情拉取逻辑拆分为独立的 Fetcher 模块。
 
 架构设计:
-    ┌─────────────────────────────────────────┐
-    │           DataFetcher (统一入口)         │
-    │    ┌─────────┐ ┌─────────┐ ┌─────────┐ │
-    │    │ Eastmoney│ │ Tencent │ │  Sina   │ │
-    │    │Fetcher  │ │Fetcher │ │Fetcher │ │
-    │    │(pri=0)  │ │(pri=1) │ │(pri=2) │ │
-    │    └────┬────┘ └────┬────┘ └────┬────┘ │
-    │         └────────────┴───────────┘      │
-    │              降级链: 东财→腾讯→新浪      │
-    └─────────────────────────────────────────┘
+    ┌──────────────────────────────────────────────────┐
+    │              DataFetcher (统一入口)                │
+    │  ┌──────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐   │
+    │  │ TDX  │ │ Eastmoney│ │ Tencent │ │  Sina   │   │
+    │  │Fetch │ │Fetcher  │ │Fetcher │ │Fetcher │   │
+    │  │(pri-1)│ │(pri=0) │ │(pri=1) │ │(pri=2) │   │
+    │  └──┬───┘ └────┬────┘ └────┬────┘ └────┬────┘   │
+    │     └──────────┴───────────┴───────────┘        │
+    │        降级链: TDX → 东财 → 腾讯 → 新浪          │
+    └──────────────────────────────────────────────────┘
 
 降级策略:
+    0. TDX (priority=-1): 通达信 TDX 协议直连，规避东财 IP 限流；首选
     1. 东财 (priority=0): 数据最全，但限流严格
     2. 腾讯 (priority=1): 最稳定，对服务器IP友好
     3. 新浪 (priority=2): 备用，覆盖大部分A股
@@ -560,6 +561,106 @@ class SinaFetcher(BaseFetcher):
 
 
 # ──────────────────────────────────────────
+# 通达信 TDX Fetcher (priority=-1, 直连协议最稳)
+# ──────────────────────────────────────────
+
+class TdxFetcher(BaseFetcher):
+    """通达信 TDX 协议行情获取器。
+
+    直连通达信行情服务器（TDX 协议，非 HTTP），规避东财 IP 限流导致的静默失败。
+    能力路由 + 加权负载均衡 + 故障转移熔断由 tdx_market.TdxClient 负责。
+
+    与 fetch_quotes_with_fallback 的 TDX 分支行为一致：targets 是 {label: secid}，
+    secid 格式 "market.code"（1=沪, 0=深）→ 转 "sh"/"sz"+code 喂 TdxMarket。
+    返回 quote 字段为东财 shape 的超集（兼容 previous_close/prev_close、latest/price）。
+    """
+
+    name = "tdx"
+    priority = -1  # 最高优先级（数字越小越优先）；东财=0/腾讯=1/新浪=2
+    timeout = 10.0
+
+    def is_available(self) -> bool:
+        """TDX 依赖 pytdx；导入失败则跳过本 Fetcher（降级到东财）。"""
+        try:
+            from qing_investment.tdx_market import TdxMarket  # noqa: F401
+            return True
+        except Exception:
+            return False
+
+    def fetch(self, targets: dict[str, str]) -> FetcherOutput:
+        if not targets:
+            return FetcherOutput(source="tdx", error="empty targets")
+
+        try:
+            from qing_investment.tdx_market import TdxMarket
+        except Exception as exc:
+            return FetcherOutput(source="tdx", error=f"tdx_market import failed: {exc}")
+
+        # targets 是 {label: secid}，secid "market.code"（1=沪, 0=深）
+        tdx_codes: list[str] = []
+        label_map: dict[str, str] = {}  # secid "m.code" -> label
+        for label, secid in targets.items():
+            s = str(secid).strip()
+            if "." in s:
+                mkt, code = s.split(".", 1)
+                tdx_codes.append(("sh" if mkt == "1" else "sz") + code)
+            else:
+                tdx_codes.append(s)
+            label_map[s] = label
+
+        started = time_module.perf_counter()
+        try:
+            tdx_quotes = TdxMarket().get_quotes(tdx_codes)
+        except Exception as exc:
+            latency = round((time_module.perf_counter() - started) * 1000, 1)
+            return FetcherOutput(
+                source="tdx",
+                error=f"tdx get_quotes failed: {exc}",
+                latency_ms=latency,
+                quotes_count=0,
+            )
+
+        quotes: list[dict] = []
+        for q in tdx_quotes or []:
+            code = str(q.get("code", ""))
+            qmarket = q.get("market")
+            # 用 (market, code) 构造 secid 反查 label，避免同 code 不同 market 冲突
+            secid = f"{qmarket}.{code}" if qmarket is not None else code
+            latest = q.get("price")
+            prev = q.get("prev_close")
+            quotes.append(
+                {
+                    "secid": secid,
+                    "label": label_map.get(secid) or label_map.get(code) or q.get("name") or code,
+                    "code": code,
+                    "market": qmarket,
+                    "name": q.get("name"),
+                    "latest": latest,
+                    "price": latest,
+                    "previous_close": prev,
+                    "prev_close": prev,
+                    "open": q.get("open"),
+                    "high": q.get("high"),
+                    "low": q.get("low"),
+                    "volume": q.get("volume"),
+                    "amount": q.get("amount"),
+                    "pct_change": q.get("pct_change"),
+                    "change": q.get("change"),
+                    "source": "tdx",
+                }
+            )
+
+        latency = round((time_module.perf_counter() - started) * 1000, 1)
+        return FetcherOutput(
+            source="tdx",
+            data={"quotes": quotes, "errors": []},
+            latency_ms=latency,
+            error=None if quotes else "tdx returned empty",
+            quotes_count=len(quotes),
+        )
+
+
+# ──────────────────────────────────────────
 # 统一入口: DataFetcher
 # ──────────────────────────────────────────
 
@@ -572,7 +673,7 @@ class DataFetcher:
     Usage:
         fetcher = DataFetcher()
         result = fetcher.fetch({"平安银行": "0.000001", "贵州茅台": "1.600519"})
-        # result: FetcherOutput with source="eastmoney" or "tencent" or "sina"
+        # result: FetcherOutput with source="tdx" or "eastmoney" or "tencent" or "sina"
     """
 
     def __init__(self):
@@ -580,7 +681,12 @@ class DataFetcher:
         self._register_defaults()
 
     def _register_defaults(self) -> None:
-        """注册默认的 Fetcher 集合。"""
+        """注册默认的 Fetcher 集合。
+
+        降级链: TDX(直连协议,最稳) → 东财(数据最全,限流严) → 腾讯(稳定) → 新浪(备用)
+        priority 数值越小越优先；register() 内部按 priority 排序。
+        """
+        self.register(TdxFetcher())  # priority=-1，直连通达信，规避东财 IP 限流
         self.register(EastmoneyFetcher())
         self.register(TencentFetcher())
         self.register(SinaFetcher())
