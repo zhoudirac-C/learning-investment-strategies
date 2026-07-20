@@ -160,16 +160,26 @@ def fetch_stock_quotes_eastmoney(codes: list[str]) -> list[dict]:
 
 
 def fetch_stock_quotes(codes: list[str]) -> list[dict]:
-    """获取个股/指数实时行情（腾讯优先，失败降级东方财富）。"""
+    """获取个股/指数实时行情（TDX 优先，降级腾讯→东方财富）。"""
+    # TDX 优先：直连通达信服务器，规避 HTTP 限流
+    try:
+        from qing_investment.tdx_market import TdxMarket
+        tdx_quotes = TdxMarket().get_quotes(codes)
+        if tdx_quotes:
+            return tdx_quotes
+    except Exception:
+        pass
+
+    # 降级1: 腾讯
     quotes = fetch_stock_quotes_tencent(codes)
     if len(quotes) >= len(codes):
         return quotes
-    
-    # 腾讯失败，尝试东方财富
+
+    # 降级2: 东方财富
     em_quotes = fetch_stock_quotes_eastmoney(codes)
     if em_quotes:
         return em_quotes
-    
+
     return quotes
 
 
@@ -320,8 +330,15 @@ def fetch_stock_kline(code: str, days: int = 90, force_refresh: bool = False) ->
         except Exception:
             pass  # 本地读取失败，继续调 API
 
-    # 2. 本地 miss 或强制刷新 → 调 API
-    klines = fetch_stock_kline_tencent(code, days)
+    # 2. 本地 miss 或强制刷新 → 调 API（TDX 优先，腾讯→东财降级）
+    klines = []
+    try:
+        from qing_investment.tdx_market import TdxMarket
+        klines = TdxMarket().get_kline(code, category="daily", count=min(days, 800))
+    except Exception:
+        klines = []
+    if not klines:
+        klines = fetch_stock_kline_tencent(code, days)
     if not klines:
         klines = fetch_stock_kline_eastmoney(code, days)
 

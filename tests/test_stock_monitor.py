@@ -518,6 +518,9 @@ def test_fetch_quotes_with_fallback_uses_tencent_when_eastmoney_partial_errors(
     monkeypatch.setattr(
         "qing_investment.stock_monitor.fetch_tencent_quotes", fake_tencent
     )
+    # TDX 优先接入后，mock TdxMarket 返回空以测试东财→腾讯降级链
+    from qing_investment.tdx_market import TdxMarket
+    monkeypatch.setattr(TdxMarket, "get_quotes", lambda self, codes: [])
 
     snapshot = fetch_quotes_with_fallback(targets)
 

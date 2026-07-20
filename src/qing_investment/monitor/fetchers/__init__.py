@@ -836,6 +836,45 @@ def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
     if os.environ.get("QING_AGENT_MOCK_QUOTES", "0").lower() not in ("0", "false", "no"):
         return _mock_quote_snapshot()
 
+    # TDX 优先：直连通达信服务器，规避东财 IP 限流导致的静默失败
+    try:
+        from qing_investment.tdx_market import TdxMarket
+        # targets 是 {label: secid}，secid 格式 "market.code"（1=沪, 0=深）
+        tdx_codes = []
+        label_map: dict[str, str] = {}
+        for label, secid in targets.items():
+            s = str(secid).strip()
+            if "." in s:
+                mkt, code = s.split(".", 1)
+                tdx_codes.append(("sh" if mkt == "1" else "sz") + code)
+                label_map[code] = label
+            else:
+                tdx_codes.append(s)
+                label_map[s] = label
+        tdx_quotes = TdxMarket().get_quotes(tdx_codes)
+        if tdx_quotes:
+            mapped = []
+            for q in tdx_quotes:
+                code = str(q.get("code", ""))
+                mapped.append({
+                    "code": code,
+                    "name": q.get("name"),
+                    "label": label_map.get(code) or q.get("name") or code,
+                    "latest": q.get("price"),
+                    "price": q.get("price"),
+                    "prev_close": q.get("prev_close"),
+                    "open": q.get("open"),
+                    "high": q.get("high"),
+                    "low": q.get("low"),
+                    "volume": q.get("volume"),
+                    "amount": q.get("amount"),
+                    "pct_change": q.get("pct_change"),
+                    "source": "tdx",
+                })
+            return {"source": "tdx", "quotes": mapped, "errors": [], "elapsed_ms": 0.0}
+    except Exception:
+        pass
+
     # 延迟导入避免循环依赖，并兼容测试 monkeypatch
     from qing_investment import stock_monitor
 

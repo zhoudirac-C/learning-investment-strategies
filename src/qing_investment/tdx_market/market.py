@@ -57,41 +57,63 @@ _QUOTE_BATCH = 80
 def resolve_symbol(code: str) -> tuple[int, str, bool]:
     """把股票/指数代码解析为 (market, pure_code, is_index)。
 
-    规则：
-    - 6 开头 → 上交所 (market=1)
-    - 0/3 开头 → 深交所 (market=0)
-    - 8/4/920 开头 → 北交所（通达信协议走 market=1）
-    - 999/399/880 开头或已知指数代码 → 指数，999/880→沪(1)，399→深(0)
+    优先用 sh/sz/bj 前缀或 .sh/.sz/.bj/.ss 后缀确定市场；无前缀时按代码
+    数字推断。注意 000001 在沪市为上证指数、在深市为平安银行，由前缀决定。
     """
     if not code:
         raise TdxSymbolError(f"空代码: {code!r}")
     c = code.strip().lower()
-    # 去掉常见后缀
-    for suffix in (".sh", ".sz", ".bj", ".ss"):
-        if c.endswith(suffix):
-            c = c[: -len(suffix)]
+    market_hint: int | None = None
+    # 前缀 sh/sz/bj
+    if c.startswith("sh"):
+        market_hint = MARKET_SH
+        c = c[2:]
+    elif c.startswith("sz"):
+        market_hint = MARKET_SZ
+        c = c[2:]
+    elif c.startswith("bj"):
+        market_hint = MARKET_SH  # 北交所走 market=1
+        c = c[2:]
+    # 后缀
+    for suf, m in ((".sh", MARKET_SH), (".ss", MARKET_SH), (".sz", MARKET_SZ), (".bj", MARKET_SH)):
+        if c.endswith(suf):
+            if market_hint is None:
+                market_hint = m
+            c = c[: -len(suf)]
             break
-    c = c.lstrip("shszbj")  # 去掉前缀 sh/sz/bj
     if not c.isdigit() or len(c) != 6:
         raise TdxSymbolError(f"无法识别的代码: {code!r}")
 
-    # 指数/板块指数
+    # 指数/板块指数判断
+    is_index = False
     if c.startswith("399"):
-        return MARKET_SZ, c, True
-    if c.startswith(("999", "880")):
-        return MARKET_SH, c, True
-    # 已知的沪市指数代码（沪深300=000300 归沪、上证50=000016 归沪 等）
-    if c in ("000300", "000016", "000905", "000852"):
-        return MARKET_SH, c, True
+        is_index = True
+        if market_hint is None:
+            market_hint = MARKET_SZ
+    elif c.startswith(("999", "880")):
+        is_index = True
+        if market_hint is None:
+            market_hint = MARKET_SH
+    elif c in ("000300", "000016", "000905", "000852"):
+        is_index = True
+        if market_hint is None:
+            market_hint = MARKET_SH
+    elif market_hint == MARKET_SH and c == "000001":
+        # 000001 在沪市为上证指数，在深市为平安银行
+        is_index = True
 
-    # 个股
-    if c.startswith("6"):
-        return MARKET_SH, c, False
-    if c.startswith(("0", "3")):
-        return MARKET_SZ, c, False
-    if c.startswith(("8", "4", "92")):
-        return MARKET_SH, c, False  # 北交所走 market=1
-    raise TdxSymbolError(f"无法识别的代码: {code!r}")
+    # 个股 market 推断（无 hint 时）
+    if market_hint is None:
+        if c.startswith("6"):
+            market_hint = MARKET_SH
+        elif c.startswith(("0", "3")):
+            market_hint = MARKET_SZ
+        elif c.startswith(("8", "4", "92")):
+            market_hint = MARKET_SH  # 北交所
+        else:
+            raise TdxSymbolError(f"无法识别的代码: {code!r}")
+
+    return market_hint, c, is_index
 
 
 def _f(value: Any) -> float | None:
