@@ -206,6 +206,7 @@ class TdxMarket:
         ]
         return {
             "code": code,
+            "market": market,
             "name": item.get("name"),
             "price": price,
             "prev_close": prev_close,

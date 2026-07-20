@@ -841,25 +841,28 @@ def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
         from qing_investment.tdx_market import TdxMarket
         # targets 是 {label: secid}，secid 格式 "market.code"（1=沪, 0=深）
         tdx_codes = []
-        label_map: dict[str, str] = {}
+        label_map: dict[str, str] = {}  # secid "m.code" -> label
         for label, secid in targets.items():
             s = str(secid).strip()
             if "." in s:
                 mkt, code = s.split(".", 1)
                 tdx_codes.append(("sh" if mkt == "1" else "sz") + code)
-                label_map[code] = label
             else:
                 tdx_codes.append(s)
-                label_map[s] = label
+            label_map[s] = label
         tdx_quotes = TdxMarket().get_quotes(tdx_codes)
         if tdx_quotes:
             mapped = []
             for q in tdx_quotes:
                 code = str(q.get("code", ""))
+                qmarket = q.get("market")
+                # 用 (market, code) 构造 secid 反查 label，避免同 code 不同 market 冲突
+                secid = f"{qmarket}.{code}" if qmarket is not None else code
                 mapped.append({
                     "code": code,
+                    "market": qmarket,
                     "name": q.get("name"),
-                    "label": label_map.get(code) or q.get("name") or code,
+                    "label": label_map.get(secid) or label_map.get(code) or q.get("name") or code,
                     "latest": q.get("price"),
                     "price": q.get("price"),
                     "prev_close": q.get("prev_close"),
