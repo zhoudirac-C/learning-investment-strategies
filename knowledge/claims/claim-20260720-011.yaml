@@ -1,0 +1,32 @@
+claims:
+- id: claim-20260720-011
+  source_path: sources/original/bilibili/2026-07-20-0858-图片-盘前要点 一、指数：各周期底部结构消失，短期只需跟踪上升趋势.md
+  source_date: '2026-07-20'
+  source_type: 动态
+  extracted_at: '2026-07-20T09:17:00+08:00'
+  claim_type: sector-theme
+  subject: 昇腾950超节点亮相WAIC
+  timeframe: trend
+  statement: 昇腾950超节点（Atlas 950 SuperPoD）在WAIC首次亮相：1024卡1EFLOPS FP8算力、256TB统一内存，卡间通信效率成系统级算力关键瓶颈，华为UnifiedBus+英伟达NVLink/NVSwitch对标。
+  evidence_quote: 昇腾950超节点（Atlas 950 SuperPoD）真机首次公开亮相：基于灵衢互联协议和超节点架构，实现业界最大1024卡规模，提供1
+    EFLOPS FP8、2 EFLOPS FP4算力，拥有256TB全局统一内存编址空间。东北证券李玖认为，随着大模型参数规模持续扩大，卡间通信效率在系统级算力协同层面成为更重要的关注点，超节点已成为行业的确定性演进方向。相关公司：浪潮信息（元脑SD200超节点AI服务器、元脑HC1000超扩展AI服务器）、华勤技术（超节点业务2026年二季度量产发货）。
+  interpretation: WAIC昇腾950超节点亮相是国产算力产业链的重要催化。浪潮信息(000977)和华勤技术(603296)均为主板可交易标的。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: {}
+  topic: 昇腾950超节点WAIC亮相，国产算力超节点方向确立
+  related_stocks:
+  - code: 000977
+    name: 浪潮信息
+    role: 超节点AI服务器-主板可交易
+  - code: '603296'
+    name: 华勤技术
+    role: 超节点量产-主板可交易
+  tags:
+  - 昇腾950
+  - 超节点
+  - WAIC
+  - 国产算力

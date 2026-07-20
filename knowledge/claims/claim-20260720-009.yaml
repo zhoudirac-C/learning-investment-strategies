@@ -1,0 +1,31 @@
+claims:
+- id: claim-20260720-009
+  source_path: sources/original/bilibili/2026-07-20-0858-图片-盘前要点 一、指数：各周期底部结构消失，短期只需跟踪上升趋势.md
+  source_date: '2026-07-20'
+  source_type: 动态
+  extracted_at: '2026-07-20T09:17:00+08:00'
+  claim_type: stock-view
+  subject: DeepSeek估值3510亿-启动第二轮融资
+  timeframe: trend
+  statement: DeepSeek最新估值约3510亿元（根据开润股份(300577)公告推算），已启动第二轮融资，年底是否冲刺科创板尚未确定；国产大模型头部梯队具备极强的资本虹吸能力。
+  evidence_quote: 据财联社，开润股份(300577)投资进展公告意外披露深度求索最新估值——按公告数据推算，本轮融资后约3510亿元；接近DeepSeek人士确认公司已启动第二轮融资，年底是否冲刺科创板尚未确定。东北证券李玖认为，这标志国产大模型头部梯队具备极强的资本虹吸能力，加速向通用人工智能终局冲刺。相关公司：九安医疗(002432)、开润股份(300577)等。
+  interpretation: DeepSeek 3510亿估值是重要的产业信号，国产大模型头部梯队资本虹吸能力强化。九安医疗(002432)通过拾象基金间接布局DeepSeek，是主板可交易的相关标的。开润股份(300577)为创业板不可交易。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: {}
+  topic: DeepSeek估值3510亿启动第二轮融资，国产大模型头部梯队强势
+  related_stocks:
+  - code: '002432'
+    name: 九安医疗
+    role: DeepSeek间接投资-主板可交易
+  - code: '300577'
+    name: 开润股份
+    role: DeepSeek投资公告披露方-创业板不可交易
+  tags:
+  - DeepSeek
+  - 3510亿估值
+  - 第二轮融资
+  - 国产大模型
