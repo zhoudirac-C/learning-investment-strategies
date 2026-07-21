@@ -29,6 +29,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import re
 import subprocess
 import time as time_module
@@ -37,6 +38,8 @@ import urllib.request
 from abc import ABC, abstractmethod
 from collections.abc import Callable
 from typing import Any
+
+logger = logging.getLogger(__name__)
 
 from pydantic import BaseModel, Field
 
@@ -982,6 +985,7 @@ def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
                 })
             return {"source": "tdx", "quotes": mapped, "errors": [], "elapsed_ms": 0.0}
     except Exception:
+        logger.warning("fetch_quotes_with_fallback: TDX path failed, falling back", exc_info=True)
         pass
 
     # 延迟导入避免循环依赖，并兼容测试 monkeypatch
