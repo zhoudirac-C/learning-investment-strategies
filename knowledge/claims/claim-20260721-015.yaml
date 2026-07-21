@@ -13,8 +13,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260623-001-a", "claim-20260706-002-a"]
   contradicts: []
+  supplements: ["claim-20260625-003-a"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 探底回升
@@ -40,8 +42,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260720-015", "claim-20260719-002"]
   contradicts: []
+  supplements: ["claim-20260607-003-j"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 政策底
@@ -67,8 +71,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260716-001-e"]
+  contradicts: ["claim-20260604-004-b"]
+  supplements: ["claim-20260715-050-a"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 周一托底
@@ -94,8 +100,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260705-038-a"]
   contradicts: []
+  supplements: ["claim-20260709-004-o"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 反弹转转折
@@ -122,8 +130,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260625-001-d"]
+  contradicts: ["claim-20260707-013-a"]
+  supplements: ["claim-20260705-038-a"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 科技反弹
@@ -151,8 +161,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260713-002-o"]
   contradicts: []
+  supplements: ["claim-20260714-005-q", "claim-20260720-023"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 国产超节点
@@ -180,7 +192,9 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260713-002-e"]
+  supplements: ["claim-20260706-003-k"]
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '300285'
     name: 国瓷材料
@@ -213,8 +227,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260615-003"]
   contradicts: []
+  supplements: ["claim-20260609-005-f"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 反弹vs反转
@@ -242,6 +258,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '600664'
     name: 哈药股份
@@ -274,6 +292,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260719-019", "claim-20260717-001-l", "claim-20260617-010-s"]
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '002432'
     name: 九安医疗
@@ -306,6 +326,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '603118'
     name: 共进股份
@@ -337,6 +359,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '301583'
     name: 托伦斯
@@ -369,8 +393,10 @@ claims:
   confidence: low
   status: case-only
   intensity: low
-  supersedes: []
+  supersedes: ["claim-20260609-005-d"]
   contradicts: []
+  supplements: ["claim-20260702-005-e", "claim-20260706-011"]
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '301165'
     name: 锐捷网络
@@ -404,6 +430,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260708-002-bl", "claim-20260604-007-e", "claim-20260717-001-j"]
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '603259'
     name: 药明康德
