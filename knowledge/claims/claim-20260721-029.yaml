@@ -15,6 +15,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260621-006-i", "claim-20260713-002-i"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - AI验货期
@@ -41,8 +43,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260604-004-b"]
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 美联储
@@ -68,8 +72,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260426-002"]
   contradicts: []
+  supplements: ["claim-20260621-006-j", "claim-20260622-001-b"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 油价
@@ -98,6 +104,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260617-041-s"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 韩国市场
@@ -123,8 +131,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260617-027-c"]
   contradicts: []
+  supplements: ["claim-20260621-006-n", "claim-20260617-037-c"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - K型分化
@@ -153,6 +163,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 宽货币
@@ -181,6 +193,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260530-001-j", "claim-20260621-006-l"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 必选消费
@@ -208,7 +222,9 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260702-005-f"]
+  supplements: ["claim-20260621-006-i", "claim-20260702-002-g"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - AI产能出清
@@ -237,6 +253,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260621-006-i", "claim-20260713-002-f", "claim-20260523-017"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - AI验货
@@ -265,6 +283,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260702-005-a", "claim-20260518-012"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - AI调整
@@ -293,6 +313,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260702-005-g", "claim-20260623-005-b"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - TOKEN
@@ -320,6 +342,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260621-006-q"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - AI财报
@@ -346,8 +370,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260624-001-f"]
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '301583'
     name: 托伦斯
@@ -382,6 +408,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 企业扩产
@@ -409,6 +437,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
+  supplements: ["qing-2026-06-08-methodology-ai-obsolete-nonusers-001"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - AI
