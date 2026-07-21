@@ -5775,3 +5775,42 @@ stocks:
     sector_diverged: false
     market_actionable: false
     no_consecutive_limit_up: true
+
+# ── 2026-07-21 2237复盘 + 2228视频新增 ──────────────────────────
+- code: 002432.SZ
+  name: 九安医疗
+  direction: ai_equity_investment
+  chain_position: investment_holding
+  human_note:
+    date: '2026-07-21'
+    type: direction_call
+    context: UP明确梳理AI投资版图——月之暗面(累计3000万美元)+DeepSeek(7.5亿元拾象基金)+阶跃星辰(1.03亿元)+沐曦股份(1亿元浮盈6倍)+智元机器人。Kimi K3综合性能全球第一梯队，被投企业上市推进中，股权收益持续攀升。主板可交易AI科创参与路径。
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 603118.SH
+  name: 共进股份
+  direction: switch_odm
+  chain_position: midstream
+  human_note:
+    date: '2026-07-21'
+    type: direction_call
+    context: UP点名ODM/JDM交换机弹性标的——国产超节点量产驱动交换机需求结构性跃升(华泰测算2028年3414亿CAGR 194%)，800G交换机已有供货记录。基本面确定性不如头部但位置低市值小，盘面主动性强有带动性。主板可交易。
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
