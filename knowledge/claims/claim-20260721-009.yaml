@@ -1,0 +1,40 @@
+claims:
+- id: claim-20260721-009
+  source_path: sources/original/bilibili/2026-07-21-0857-图片-周一尾盘那根拉升，把沪指、创业板指、科创50一并从水下拽回红.md
+  source_date: '2026-07-21'
+  source_type: 动态
+  extracted_at: '2026-07-21T09:04:00+08:00'
+  claim_type: sector-theme
+  subject: 非V型反弹下国产链交换机比纯半导体占优
+  timeframe: short-term
+  statement: 若后续不是V型反弹，国产链交换机（共进股份(603118)、锐捷网络(301165)、盛科通信(688702)、菲菱科思(301191)）大概率比纯半导体更占优。半导体依赖指数反弹高度，而国产链交换机回落幅度尚可。
+  evidence_quote: 个人倾向于认为，若后续不是V型反弹，国产链交换机大概率比纯半导体更占优。国产链交换机概念里，除共进股份走势偏极端外，锐捷网络、盛科通信、菲菱科思等回落幅度尚可。
+  interpretation: UP在科技内部做了结构性比较：非V型场景下国产链交换机（共进股份603118沪市主板可交易）优于纯半导体。锐捷网络(301165)创业板、盛科通信(688702)科创板、菲菱科思(301191)创业板均为不可交易标的。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 非V型反弹下国产链交换机比纯半导体更占优
+  tags:
+  - 国产链
+  - 交换机
+  - 半导体
+  - 共进股份
+  related_stocks:
+  - code: '603118'
+    name: 共进股份
+    role: 国产交换机-沪市主板可交易
+  - code: '301165'
+    name: 锐捷网络
+    role: 国产交换机-创业板不可交易
+  - code: '688702'
+    name: 盛科通信
+    role: 国产交换机-科创板不可交易
+  - code: '301191'
+    name: 菲菱科思
+    role: 国产交换机-创业板不可交易

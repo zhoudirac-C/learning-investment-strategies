@@ -1,0 +1,39 @@
+claims:
+- id: claim-20260721-014
+  source_path: sources/original/bilibili/2026-07-21-0857-图片-周一尾盘那根拉升，把沪指、创业板指、科创50一并从水下拽回红.md
+  source_date: '2026-07-21'
+  source_type: 动态
+  extracted_at: '2026-07-21T09:04:00+08:00'
+  claim_type: operation
+  subject: 今日情景推演-A承接住B接不住
+  timeframe: intraday
+  statement: 情形A承接住：指数不破昨天尾盘低点、电力继续吸筹、德明利(001309)等跌停龙出现止跌，可期待应用或国产链择一配合指数反包。情形B接不住：早盘若放量下杀、先锋票（九安医疗(002432)/共进股份(603118)）封板转弱，则维持老登防御为主、科技等右侧的低频姿态，不与跌停龙抢反弹。右侧确认：不见量价共振不追。
+  evidence_quote: 情形A · 承接住：指数不破昨天尾盘低点、电力继续吸筹、德明利等跌停龙出现止跌，则可期待应用/国产链择一配合指数反包，情绪地板抬升。情形B
+    · 接不住：早盘若再度放量下杀、先锋票（九安、共进类）封板转弱，则维持'老登防御为主、科技等右侧'的低频姿态，不与跌停龙抢反弹。
+  interpretation: UP给出明确的日内情景推演框架：A情景条件（不破尾盘低点+电力吸筹+跌停龙止跌）→做多应用/国产链反包；B情景条件（放量下杀+先锋封板转弱）→防御为主、科技等右侧。核心纪律：不见量价共振不追。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易规则
+    cases: []
+  topic: 今日情景推演-科技等右侧确认
+  tags:
+  - 情景推演
+  - 承接
+  - 防御
+  - 右侧确认
+  related_stocks:
+  - code: 001309
+    name: 德明利
+    role: 跌停观察标-深市主板可交易
+  - code: '002432'
+    name: 九安医疗
+    role: Kimi概念先锋-深市主板可交易
+  - code: '603118'
+    name: 共进股份
+    role: 国产交换机先锋-沪市主板可交易

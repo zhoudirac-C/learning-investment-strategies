@@ -981,3 +981,21 @@
 - 更新 wiki：`knowledge/wiki/投资方法论/缠论.md` 创建（十节定理导航页，引用 223 个关键 claim id 全部校验存在）
 - 更新索引：`knowledge/claims/index.md`、`knowledge/wiki/index.md`（scripts/build_indexes.py 重建）
 - 引用 claim IDs：`claim-20060607-001-a` 至 `claim-20080829-001-a`（108 课共 337 条，按 source_path lesson_001~108 全覆盖无缺号）
+
+## 2026-07-21 | qing-learning ingest | 7/21 08:57 早盘动态：尾盘承接定方向+科技情绪温度计+跌停龙观察
+
+- 处理 raw：
+  - `sources/original/bilibili/2026-07-21-0857-图片-周一尾盘那根拉升，把沪指、创业板指、科创50一并从水下拽回红.md`
+- 新增 claims：`claim-20260721-001` 至 `claim-20260721-014`（14 条：market-cycle×2, sector-theme×5, technical-signal×4, catalyst×2, operation×1）
+- 核心观点：
+  - 尾盘拉升体面不等于见底，今天看承接；A股回调利好后高开低走是常态
+  - 电力为科技对立面反指，转顺指才可高看；量价上是最扎实的防御主线
+  - 四个温度计：九安医疗(002432)/共进股份(603118)开板=科技情绪读数；德明利(001309)止跌比开板更值得盯；易中天振幅收敛等中际旭创中报
+  - 不看涨停看跌停：航天工程(603698)6连/合肥城建(002208)5连/德明利等4连，止跌是情绪地板信号
+  - 非V型反弹下国产链交换机(共进股份)比纯半导体更占优
+  - 百亿增持回购潮托底资金明牌；存储周期AI驱动但需指数企稳
+  - 今日情景A承接住vs情景B接不住，右侧确认不见量价共振不追
+- 修复问题：
+  - `gate_validate_claims.py` NON_COMPANY 集扩展（08:57 早盘假阳性：量直接反映科技、封板质量是科技、开板作为科技、昨天早盘的科技、的止跌作为科技）
+- 更新索引：`knowledge/claims/index.md`
+- 引用 claim IDs：`claim-20260721-001` 至 `claim-20260721-014`

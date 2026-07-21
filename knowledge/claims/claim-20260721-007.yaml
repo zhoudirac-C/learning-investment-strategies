@@ -1,0 +1,38 @@
+claims:
+- id: claim-20260721-007
+  source_path: sources/original/bilibili/2026-07-21-0857-图片-周一尾盘那根拉升，把沪指、创业板指、科创50一并从水下拽回红.md
+  source_date: '2026-07-21'
+  source_type: 动态
+  extracted_at: '2026-07-21T09:04:00+08:00'
+  claim_type: technical-signal
+  subject: 看跌停龙止跌比看涨停接力更说明问题
+  timeframe: intraday
+  statement: 今天不看涨停看跌停：航天工程(603698)走出6连跌停（对应商业航天概念）、合肥城建(002208)5连跌停、德明利(001309)等8只4连跌停。这些票不必指望V型反弹，只要能止跌，百股跌停的极端情绪就会得到极大缓解。今天盯跌停板的修复，比盯涨停板的接力更能说明问题。
+  evidence_quote: 这些票不必指望V型反弹，只要能止跌，'百股跌停'的极端情绪就会得到极大缓解。今天盯跌停板的修复，比盯涨停板的接力更能说明问题。
+  interpretation: UP提出方法论：极端行情下跌停修复比涨停接力更有信号意义。航天工程(603698)6连跌停（商业航天概念）、合肥城建(002208)5连跌停、德明利(001309)等4连跌停，止跌意味着情绪地板确认。航天工程沪市主板可交易，合肥城建深市主板可交易。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易规则
+    cases: []
+  topic: 极端行情盯跌停修复比涨停接力更有信号意义
+  tags:
+  - 跌停龙
+  - 情绪地板
+  - 航天工程
+  - 合肥城建
+  related_stocks:
+  - code: '603698'
+    name: 航天工程
+    role: 6连跌停商业航天-沪市主板可交易
+  - code: 002208
+    name: 合肥城建
+    role: 5连跌停-深市主板可交易
+  - code: 001309
+    name: 德明利
+    role: 4连跌停科技观察标-深市主板可交易

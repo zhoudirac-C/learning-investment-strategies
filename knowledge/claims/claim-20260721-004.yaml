@@ -1,0 +1,34 @@
+claims:
+- id: claim-20260721-004
+  source_path: sources/original/bilibili/2026-07-21-0857-图片-周一尾盘那根拉升，把沪指、创业板指、科创50一并从水下拽回红.md
+  source_date: '2026-07-21'
+  source_type: 动态
+  extracted_at: '2026-07-21T09:04:00+08:00'
+  claim_type: technical-signal
+  subject: 九安医疗共进股份双开板-科技情绪直接读数
+  timeframe: intraday
+  statement: 九安医疗(002432)、共进股份(603118)先后开板，二者对应Kimi概念与国产交换机，都是上周五延续至昨天早盘的科技反弹先锋。两个票打开涨停恰好对应了指数的两轮回调，封板质量是科技情绪的直接读数。
+  evidence_quote: 其二 · 两个开板对应两轮回调：据昨日盘中，九安医疗、共进股份先后开板，二者对应Kimi概念与国产交换机，都是上周五延续至昨天早盘的科技反弹先锋；从走势看，这两个票打开涨停恰好对应了指数的两轮回调。这类先锋票的封板质量，是科技情绪的直接读数。
+  interpretation: UP将九安医疗(002432)和共进股份(603118)开板作为科技情绪读数指标。二者封板质量直接反映科技方向的市场情绪。九安医疗深市主板可交易，共进股份沪市主板可交易。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 九安医疗共进股份开板是科技情绪直接读数
+  tags:
+  - 九安医疗
+  - 共进股份
+  - 科技情绪
+  - 封板质量
+  related_stocks:
+  - code: '002432'
+    name: 九安医疗
+    role: Kimi概念龙头-深市主板可交易
+  - code: '603118'
+    name: 共进股份
+    role: 国产交换机先锋-沪市主板可交易
