@@ -5814,3 +5814,100 @@ stocks:
     sector_diverged: false
     market_actionable: false
     no_consecutive_limit_up: true
+
+# ── 2026-07-22 2217复盘新增 ──────────────────────────
+
+- code: 002156.SZ
+  name: 通富微电
+  direction: advanced_packaging
+  chain_position: midstream
+  human_note:
+    date: '2026-07-22'
+    type: direction_call
+    context: UP点名方法论标杆——调整中抗跌领涨率先创新高的票(与华虹宏力/盛科通信同列)。扩建先进封装产能配套代工需求，国产算力技术变革推动的高景气与高需求链条。主板可交易。
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 000063.SZ
+  name: 中兴通讯
+  direction: switching_chip
+  chain_position: upstream
+  human_note:
+    date: '2026-07-22'
+    type: direction_call
+    context: UP点名超节点方向里还没怎么涨的大票——51.2T交换芯片已导入阿里平头哥与腾讯昆仑芯体系，自研ARM CPU已进入大厂。含AI量被低估，价值在于大票补涨估值修复弹性。主板可交易。
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 000977.SZ
+  name: 浪潮信息
+  direction: server_integration
+  chain_position: midstream
+  human_note:
+    date: '2026-07-22'
+    type: direction_call
+    context: UP点名服务器整机映射标的一一超微电脑600亿美元新订单+积压订单新高验证景气外溢。2025Q4全球第三份额4.1%。戴尔联想业绩确认AI服务器高景气从单点向全栈扩散。主板可交易。
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 603407.SH
+  name: 长裕集团
+  direction: zirconia_price_hike
+  chain_position: upstream
+  human_note:
+    date: '2026-07-22'
+    type: direction_call
+    context: UP点名氧化锆涨价独立线索——拥有7.5万吨/年氧氯化锆产能全球第一市占率约30%，纳米复合氧化锆覆盖光通讯/结构件/齿科生物陶瓷等高景气领域。龙头提价打破价格僵局，全行业价格中枢有望上移，成本与规模优势对应显著利润弹性。主板可交易。
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 002824.SZ
+  name: 和胜股份
+  direction: aluminum_alloy
+  chain_position: downstream
+  human_note:
+    date: '2026-07-22'
+    type: direction_call
+    context: UP点名铝方向铝合金加工端标的。LME铝库存减少1500吨/铜锌镍同步去化，中信认为市场对电解铝超产及印尼产能放量担忧已过度体现，2026-2027上半年铝价仍可期。主板可交易。
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
