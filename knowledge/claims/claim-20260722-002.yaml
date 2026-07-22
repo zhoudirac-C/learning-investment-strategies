@@ -1,0 +1,117 @@
+claims:
+- id: claim-20260722-013
+  source_path: sources/original/bilibili/2026-07-22-0957-图片-做好配置就行了，梦想选手应该也都感受到了，游资在未来两周会搞.md
+  source_date: '2026-07-22'
+  source_type: 动态
+  extracted_at: '2026-07-22T14:20:00+08:00'
+  claim_type: operation
+  subject: 游资未来两周会搞动静-政策托底与无明确主线导致资金抱团
+  timeframe: short-term
+  statement: 游资在未来两周会搞点动静。既有政策托底又没明确主线，资金会自然走向抱团。做好配置就行了。
+  evidence_quote: 做好配置就行了，梦想选手应该也都感受到了，游资在未来两周会搞点动静，这种时候既有政策托底，又没明确主线，资金会自然走向抱团。
+  interpretation: UP判断未来两周（7月政治局会议前后）游资活跃度将提升，炒作方向会体现在抱团品种上。核心条件是政策托底（国家队增持+流动性宽松）和主线不明确（科技反弹但未确认反转）并存，这种环境利于游资操作而非机构趋势投资。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  related_stocks: []
+  tags:
+  - 游资
+  - 政策托底
+  - 资金抱团
+  - 未来两周
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月22日0957动态：游资未来两周活跃+政策托底+资金抱团
+- id: claim-20260722-014
+  source_path: sources/original/bilibili/2026-07-22-1357-图片-下午的回落，直接触发是韩国市场持续走弱，A股跟随；但内因还是.md
+  source_date: '2026-07-22'
+  source_type: 动态
+  extracted_at: '2026-07-22T14:20:00+08:00'
+  claim_type: market-cycle
+  subject: 下午回落内因是情绪过热-韩国只是触发由头
+  timeframe: intraday
+  statement: 下午的回落直接触发是韩国市场持续走弱A股跟随，但内因还是昨天的情绪太高潮了（创业板涨超7%/科创50涨10.73%/超百股涨停）。外围只是给了一个由头，真正的压力来自内部过热本身，这样的强度本就不具备连续性，今天回落属于情绪的正常消化。
+  evidence_quote: 下午的回落，直接触发是韩国市场持续走弱，A股跟随；但内因还是昨天的情绪太高潮了。昨天创业板指涨超7%、科创50涨10.73%、超百股涨停，这样的强度本就不具备连续性，今天出现回落属于情绪的正常消化。
+  interpretation: UP对下午回落的定性：外部触发（韩国走弱）不等于根本原因。根本原因是昨天情绪过热（创业板+7%/科创50+10.73%/百股涨停）不可持续。7/22回落是情绪正常消化而非趋势反转。这与早盘（claim-20260722-006）中"连续两日放量后注意情绪过热，第三天能承接否"的判断完全一致。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  related_stocks: []
+  tags:
+  - 情绪过热
+  - 回落定性
+  - 韩国触发
+  - 正常消化
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月22日1357动态：下午回落内因是昨天情绪过热非趋势反转
+- id: claim-20260722-015
+  source_path: sources/original/bilibili/2026-07-22-1357-图片-下午的回落，直接触发是韩国市场持续走弱，A股跟随；但内因还是.md
+  source_date: '2026-07-22'
+  source_type: 动态
+  extracted_at: '2026-07-22T14:20:00+08:00'
+  claim_type: operation
+  subject: 高潮次日去弱留强-只做最强势不选跟风
+  timeframe: intraday
+  statement: 高潮次日的原则只有一条：去弱留强，要做只能做最强势的，不能再选跟风的。超节点（紫光股份(000938)）是全市场唯一趋势主升，即便盘中补量回落也仍是留的对象；半导体作为有地位的修复方向可以观察；AI海外链这类跟风分支在高潮次日的回落中就是要去掉的部分。扩散和补涨性价比最低，越往边缘回撤幅度越难控制。
+  evidence_quote: 高潮次日的原则只有一条：去弱留强，要做只能做最强势的，不能再选跟风的。超节点是全市场唯一的趋势主升，紫光股份这类核心品种即便盘中补量回落也仍是留的对象；半导体作为有地位的修复方向可以观察；而AI海外链这类跟风分支，在高潮次日的回落中就是要去掉的部分。这个位置扩散和补涨的性价比最低，越往边缘去，回撤的幅度越难控制。
+  interpretation: UP给出了高潮次日（7/22）的操作方法论——去弱留强，并将可操作方向分为三个梯度：超节点（紫光股份(000938)）=核心品种留/可接力；半导体=有地位的方向可观察；AI海外链=跟风分支应去掉。"扩散补涨性价比最低"是对散户追后排行为的明确警告。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  related_stocks:
+  - code: '000938'
+    name: 紫光股份
+    role: 超节点核心品种-主板可交易
+  tags:
+  - 去弱留强
+  - 超节点
+  - 紫光股份
+  - AI海外链
+  - 高潮次日
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月22日1357动态：高潮次日去弱留强——超节点核心/半导体观察/AI海外去掉
+- id: claim-20260722-016
+  source_path: sources/original/bilibili/2026-07-22-1357-图片-下午的回落，直接触发是韩国市场持续走弱，A股跟随；但内因还是.md
+  source_date: '2026-07-22'
+  source_type: 动态
+  extracted_at: '2026-07-22T14:20:00+08:00'
+  claim_type: operation
+  subject: 超节点主升后必有分歧-二次入场节点在大盘二次回踩时
+  timeframe: short-term
+  statement: 超节点走完主升之后必有分歧，第二个安全入场节点大概率是超节点分歧、大盘二次回踩的时候。今天下午的回落还不构成那个节点，更像是主升途中的量能消化。在分歧真正出现之前，这里只有接力模式，认准最核心的品种，不做扩散。
+  evidence_quote: 配合上午的判断，节奏没有变：超节点走完主升之后必有分歧，第二个安全入场节点大概率是超节点分歧、大盘二次回踩的时候。今天下午的回落还不构成那个节点，更像是主升途中的量能消化。在分歧真正出现之前，这里只有接力模式，认准最核心的品种，不做扩散。
+  interpretation: UP给出了超节点方向的入场节奏判断：当前处于主升途中（7/22回落是量能消化而非真正分歧），第二个安全入场节点要等超节点出现真正分歧+大盘二次回踩同时出现。在此之前只有接力模式（只做最核心品种紫光股份(000938)），不扩散不补涨。这是对"等分歧再买"方法论的具象化。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  related_stocks:
+  - code: '000938'
+    name: 紫光股份
+    role: 超节点核心品种-主板可交易
+  tags:
+  - 超节点
+  - 紫光股份
+  - 分歧买入
+  - 二次回踩
+  - 接力模式
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月22日1357动态：超节点二次入场节点在大盘二次回踩时
