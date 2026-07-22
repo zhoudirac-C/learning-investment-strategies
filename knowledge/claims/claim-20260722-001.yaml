@@ -13,8 +13,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260703-001-j"]
   contradicts: []
+  supplements: ["claim-20260623-001-a", "claim-20260531-002-a"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 趋势突破
@@ -42,6 +44,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260703-001-j"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 点位量化
@@ -69,6 +73,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260716-001-e"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 韩国市场
@@ -94,8 +100,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260703-001-j", "claim-20260622-001-h", "claim-20260608-001-i"]
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 心理兜底
@@ -121,8 +129,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260601-001-e"]
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 跌停家数
@@ -150,6 +160,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260721-014", "claim-20260622-001-h"]
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '002432'
     name: 九安医疗
@@ -182,8 +194,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260604-004-b"]
   contradicts: []
+  supplements: ["claim-20260625-003-g", "claim-20260625-001-f"]
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '301583'
     name: 托伦斯
@@ -216,8 +230,10 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260607-003-d"]
+  contradicts: ["claim-20260721-010"]
+  supplements: []
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '002432'
     name: 九安医疗
@@ -251,7 +267,9 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260608-001-f", "claim-20260612-012-l"]
+  supplements: ["claim-20260625-001-g"]
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '001258'
     name: 立新能源
@@ -290,8 +308,10 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: []
+  supersedes: ["claim-20260721-014", "claim-20260721-007"]
   contradicts: []
+  supplements: ["claim-20260703-001-d"]
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '001309'
     name: 德明利
@@ -329,6 +349,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260623-001-j", "claim-20260625-003-r"]
+  last_discovered: 2026-07-22
   related_stocks: []
   tags:
   - 半导体设备
@@ -357,6 +379,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260721-028", "claim-20260720-019", "claim-20260717-001-j"]
+  last_discovered: 2026-07-22
   related_stocks:
   - code: '688621'
     name: 阳光诺和
