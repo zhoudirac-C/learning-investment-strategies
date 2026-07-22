@@ -1,15 +1,17 @@
-"""Task 5: czsc 适配器测试。
+"""Task 5: czsc 适配器测试（M2-2 起含首分型补偿 + zs 重算 + 位置约定覆盖）。
 
 用 builders 造一段确定走势（先盘后升，经验证 czsc 0.10.12 在其上产出 4 笔），
 断言：
 - FX/BI 表归一输出（数量、方向、端点 0 基下标、sure、source）；
-- ZS 表存在且归一字段齐全；
+- ZS 表存在且归一字段齐全（M2-2：按 chanpy normal 模式重算，start_idx=反向笔a起点）；
 - Segment/BSPoint 两表为空且 NormalizedChart.na_fields 标记 {"seg", "bsp"}；
 - 配置快照记录影响口径的参数（版本、min_bi_len、max_bi_num、backend）。
 
-注意：czsc 0.10.12 的 ``CZSC.fx_list`` 按 ``bi.fxs[1:]`` 拼接，会丢掉第一笔的
-起始分型（本用例中 idx=5 的顶分型）——这是 czsc 的原生行为，适配器如实搬运，
-作为对表时的口径差异暴露，不在适配器内补偿。
+M2-2 改造覆盖：
+- 首分型补偿：``bi_list[0].fx_a`` 补一条 FX（不再丢第一笔起始分型）；
+- fx 从 bi 端点推导（不再用 ``c.fx_list``，规避 BI-004 多余分型问题）；
+- zs 重算：弃用 ``get_zs_seq``，按 chanpy normal 模式（反向笔 + in_range 延伸）；
+- 位置约定：fx/bi 表末位 sure=False、其余 True（与 chanpy 适配器同口径）。
 """
 
 from __future__ import annotations
@@ -36,8 +38,10 @@ EXPECTED_BI = [
     (17, 23, Direction.UP),
 ]
 
-# czsc fx_list 不含第一笔的起始分型（顶@idx5），见模块 docstring。
+# M2-2：首分型补偿后 fx 表 = 首笔起点 + 每笔终点（5 个）。
+# 位置约定：末位（bi4 终点 idx=23）sure=False，其余 True。
 EXPECTED_FX = [
+    (5, Direction.UP),
     (9, Direction.DOWN),
     (13, Direction.UP),
     (17, Direction.DOWN),
@@ -59,6 +63,9 @@ def test_adapter_name_and_snapshot():
     for key in ("czsc_version", "backend", "min_bi_len", "max_bi_num", "freq"):
         assert key in snap, f"config_snapshot 缺少 {key}"
     assert snap["czsc_version"] == "0.10.12"
+    # M2-2 标记：zs 重算口径 + fx 来源
+    assert snap["zs_recompute"] == "chanpy_normal_mode"
+    assert snap["fx_source"] == "bi_endpoints"
 
 
 def test_run_returns_normalized_chart(chart: NormalizedChart):
@@ -67,28 +74,36 @@ def test_run_returns_normalized_chart(chart: NormalizedChart):
 
 def test_bi_table(chart: NormalizedChart):
     assert len(chart.bi) == len(EXPECTED_BI)
-    for bi, (s, e, d) in zip(chart.bi, EXPECTED_BI):
+    # M2-2 位置约定：末位（bi4 未确认）sure=False，其余 True
+    expected_sure = [True, True, True, False]
+    for bi, (s, e, d), sure in zip(chart.bi, EXPECTED_BI, expected_sure):
         assert (bi.start_idx, bi.end_idx, bi.dir) == (s, e, d)
-        assert bi.sure is True
+        assert bi.sure is sure
         assert bi.source == "czsc"
 
 
 def test_fx_table(chart: NormalizedChart):
     assert len(chart.fx) == len(EXPECTED_FX)
-    for fx, (i, d) in zip(chart.fx, EXPECTED_FX):
+    # M2-2 位置约定：末位（bi4 终点分型）sure=False，其余 True
+    expected_sure = [True, True, True, True, False]
+    for fx, (i, d), sure in zip(chart.fx, EXPECTED_FX, expected_sure):
         assert (fx.idx, fx.type) == (i, d)
-        assert fx.sure is True
+        assert fx.sure is sure
         assert fx.source == "czsc"
 
 
 def test_zs_table_exists_and_normalized(chart: NormalizedChart):
     assert isinstance(chart.zs, list)
-    # 该输入下 4 笔重叠形成一个中枢（czsc get_zs_seq 实证输出）
+    # M2-2：按 chanpy normal 模式重算。
+    # 引导笔 bi0=5→9 down（seg_dir=DOWN），反向笔=up笔=bi1(9→13)/bi3(17→23)。
+    # bi1 [9.5, 14.5] 与 bi3 [9.5, 16.5] 严格重叠 → 构造中枢
+    #   zd=max(9.5, 9.5)=9.5, zg=min(14.5, 16.5)=14.5
+    #   start=bi1.start_idx=9, end=bi3.end_idx=23
     assert len(chart.zs) == 1
     zs = chart.zs[0]
     assert zs.zd == pytest.approx(9.5)
     assert zs.zg == pytest.approx(14.5)
-    assert (zs.start_idx, zs.end_idx) == (5, 23)
+    assert (zs.start_idx, zs.end_idx) == (9, 23)
     assert zs.level == 1
     assert zs.sure is True
     assert zs.source == "czsc"

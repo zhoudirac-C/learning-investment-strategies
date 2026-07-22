@@ -251,3 +251,56 @@ ticks/bars → 分型 → 笔 → 线段(L0 走势类型)
 - chan.py 作者声明："本人没读完原著……可能实现的是我理解的缠论"（quick_guide 写在前面）
 - 未来函数结构性：缠论工具作者"缠中狩猎"——"缠论指标本身就是实现了一套未来函数"
 - 可复现业绩：零公开记录；广发 2012 分型通道胜率约 20%（趋势化用法，非缠论体系）
+
+---
+
+## 附录 C：M2 归一约定（sure/level，2026-07-21 成文）
+
+> 依据：M2-1~M2-4 校准实践 + expect 语料（BI-004/BI-005/ZS-001 等）。
+> 两适配器（chanpy/czsc）统一遵守，diff 比对以本约定为准。
+
+### C.1 sure 归一约定
+
+**语义**：`sure` 对应缠论"右侧确认"——元素未被反向结构确认时为 `False`。
+
+**fx/bi/seg 表（位置约定）**：
+- 末位 `sure=False`、其余 `True`
+- 空表与单元素表（单元素即末位）→ 全 `False`
+- 依据：BI-005（2 笔 3 分型 → fx=[T,T,F]、bi=[T,F]）、BI-004（1 笔 2 分型 → fx=[T,F]、bi=[F]）、BI-002/003（1 笔 2 分型 → fx=[T,F]、bi=[F]，M2-4 对齐位置约定）
+
+**zs/bsp 表（形成即确认）**：
+- `sure=True`（恒 True）
+- 依据：ZS-001（中枢三段重叠确立即 sure=True）、BSP-001（一买形成即 sure=True）
+
+### C.2 level 归一约定
+
+- **单级别输入**（当前校准门全部用例）：fx/bi/zs/bsp `level=1`
+- **九段升级**（ZS-003）：连续 9 段重叠 → `level=2`，zd/zg = 3 个子中枢（bi1-3/bi4-6/bi7-9）的重合区间
+  - chanpy：受 seg 切分限制未实现跨 seg 九段升级，M2-3 P-K 已知偏差
+  - czsc：`_recompute_zs` 暂不实现，M2-3 P-K 已知偏差
+- **中枢嵌套/区间套**（BC-002）：大级别 `level=2`（笔按线段分组）、次级别 `level=1`
+  - czsc 不产出线段，无法构造 `level=2`，M2-3 P-K 已知偏差
+
+### C.3 fx 表构造口径
+
+- **chanpy**：有笔时取笔端点（=课77 步骤二/三消解后的幸存分型）；无笔时直取全部 CKLine.fx 标记（孤立分型）。idx 取极值所在原始 klu。
+- **czsc**：从 `bi_list` 端点推导（fx[0]=bi_list[0].fx_a 首分型补偿，fx[1..n]=bi_list[i].fx_b 每笔终点）；无笔时取 czsc `fx_list` 孤立分型。
+
+### C.4 zs 表构造口径
+
+- **chanpy**：`zs_algo=normal` 模式，在 seg 内部对反向笔构造（连续 2 反向笔重叠确立），seg 切分限制延伸范围。
+- **czsc**：`_recompute_zs` 按 chanpy normal 模式口径重算（引导笔定向 + 反向笔配对 + 严格重叠延伸），末位笔（sure=False）不参与延伸；无 seg 算法，BSP-002/004 等"已确认反向笔 in_range 但 expect 不延伸"的用例为已知偏差。
+
+### C.5 已知偏差清单（M2-5 登记，待 M2-6/M3 处理）
+
+| 用例 | 实现 | 偏差 | 根因 | 归属 |
+|------|------|------|------|------|
+| GOLD-001/002 | chanpy | bsp 缺 | 真实日线笔太少（1-3 笔）无 zs 无 bsp | P-H 专项 |
+| GOLD-003/005 | chanpy | 误一买不报三买 | 走势方向判断与 expect 不同 | P-H 专项 |
+| BI-004 | czsc | fx 多余 + bi 缺 | czsc 不成笔（bi_list 空），库行为差异 | P-J 专项 |
+| ZS-003 | 两实现 | 无九段升级 | chanpy seg 限制 / czsc 未实现 | P-K 专项 |
+| BC-002 | 两实现 | 无 level=2 | czsc 无线段 / chanpy zs level 未升级 | P-K 专项 |
+| BSP-003/004 | chanpy | bsp 缺 | bsp 配置/算法未检出三买 | P-K 专项 |
+| SEG-004/005 | chanpy | seg 拆段过细 | seg 算法特征序列分型口径差异 | P-F 专项 |
+| BSP-002/004 | czsc | zs 延伸过度 | czsc 无 seg 算法限制延伸 | 已知局限 |
+| BSP-003/GOLD-005 | czsc | zs 构造差异 | czsc 无 seg，zs 构造口径偏差 | P-K/P-H |

@@ -102,6 +102,22 @@ def _config_snapshot(conf: CChanConfig) -> dict:
     return snapshot
 
 
+def _apply_positional_sure(table: list) -> None:
+    """按位置约定就地写 sure 字段（规则源自全部 expect 语料，见模块 docstring）。
+
+    - fx/bi/seg 表：末位 sure=False、其余 True；空表与单元素表（单元素即末位）→ 全 False
+    - zs/bsp 表：形成即 sure=True（恒 True，本函数不处理这两类）
+
+    本函数仅作用于 fx/bi/seg；调用方在循环内把每个元素的 sure 占位为 True，
+    循环结束后调本函数把末位翻为 False，与归一约定对齐。
+    """
+    n = len(table)
+    if n == 0:
+        return
+    for i, elem in enumerate(table):
+        elem.sure = i < n - 1  # 末位 False，其余 True
+
+
 def _bar_to_klu(bar: Bar, pos: int) -> CKLine_Unit:
     """Bar → chan.py CKLine_Unit；时间按投喂位置合成（见模块 docstring）。"""
     day = _BASE_DATE + timedelta(days=pos)
@@ -123,9 +139,15 @@ class ChanPyAdapter:
     name = SOURCE
 
     def __init__(self, config_overrides: dict | None = None):
-        # 默认配置：trigger_step=True（逐帧投喂前提）+ bi_fx_check=loss（ADR-001 口径 B）；
+        # 默认配置：trigger_step=True（逐帧投喂前提）+ bi_fx_check=loss（ADR-001 口径 B）
+        # + bsp3_follow_1=False（M2-3：三买独立检出，不依赖一买先出现；
+        #   GOLD-003/005 课文实例中三买出现前无一买，默认 True 会漏报）
         # overrides 仅供后续偏差实验
-        self._conf_dict = {"trigger_step": True, "bi_fx_check": "loss"}
+        self._conf_dict = {
+            "trigger_step": True,
+            "bi_fx_check": "loss",
+            "bsp3_follow_1": False,
+        }
         if config_overrides:
             self._conf_dict.update(config_overrides)
         # CChanConfig 会消费（del）传入 dict 的键，必须每次给新副本
@@ -212,7 +234,14 @@ class ChanPyAdapter:
                 )
             )
 
+        # BSP 表（M2-3：基于末位笔的 bsp 不入表——末位笔 sure=False 未确认，
+        # 其衍生 bsp 也未确认，与 expect "只列确认 bsp" 口径对齐）。
+        # bsp.bi.idx 是产出该 bsp 的笔在 bi_list 中的 idx，与 chart.bi 索引一致。
         for bsp in kl.bs_point_lst.getSortedBspList():
+            bi_idx = bsp.bi.idx
+            # 跳过基于未确认笔（末位笔）的 bsp：chart.bi[bi_idx].sure=False
+            if bi_idx < len(chart.bi) and not chart.bi[bi_idx].sure:
+                continue
             chart.bsp.append(
                 BSPoint(
                     idx=bsp.klu.idx,

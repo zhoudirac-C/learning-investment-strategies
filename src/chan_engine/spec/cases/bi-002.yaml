@@ -8,7 +8,9 @@
 #   口径 A：底中间低 10.5 > 顶合并低 10.4 → 底在顶范围内 → 不成笔；
 #   口径 B：底中间低 10.5 < 顶中间低 11.0 → 有一部分低于 → 成笔。
 # expect 按 ADR-001 仲裁结论 B 写（2026-07-19 UP 评审门拍板，由口径 A 的 bi: [] 翻转）：
-#   成笔 (1,5,down)；两分型均未被反向笔确认 → sure: false。
+#   成笔 (1,5,down)；两分型均未被反向笔确认 → bi.sure: false。
+#   fx.sure 按 M2-1 位置约定（末位 False、其余 True，与 BI-004/BI-005 同口径）：
+#   fx 表 2 元素 → [True, False]（首位=非末位 True，末位 False）。
 #   （chanpy 在 strict 下仍 bi=[]，待 M2 配置 bi_fx_check=loss 后通过。）
 #
 # 修复说明（评审 C-1，2026-07-19）：原设计"两口径一致不成笔"（顶中间 11.6 <
@@ -36,7 +38,7 @@ bars:
   - [11.3, 11.7, 11.0, 11.5]
 expect:
   fx:
-    - {idx: 1, type: up, sure: false}
+    - {idx: 1, type: up, sure: true}
     - {idx: 5, type: down, sure: false}
   bi:
     - {start_idx: 1, end_idx: 5, dir: down, sure: false}

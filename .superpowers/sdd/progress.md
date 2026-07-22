@@ -18,3 +18,10 @@ Task 9 (B5 对表+校准报告): complete (Step 1 全量运行 31 用例(chanpy 
 Note2: 2026-07-19 用户显式授权 git commit+push（覆盖计划"禁 git"全局约束，一次性指令），M1 全部产出已推 origin/master；.superpowers/sdd/ 原有自忽略约定（sdd/.gitignore=*），为使用户本地可拉取核对评审材料，主控以 git add -f 强制纳入跟踪——如 UP 不同意可 git rm --cached 回退。
 M2 (plan: docs/superpowers/plans/2026-07-19-chanlun-quant-m2-calibration-fix.md): started 2026-07-19
   - M2-0: done (BI-002/003 expect 翻转 bi:[(1,5,down/up,False)], UP 拍板; ADR-001 状态 resolved; 162 tests 绿)
+  - M2-1: done (adapter_chanpy.py 修复 _apply_positional_sure 缺失; chanpy 10/10 测试绿)
+  - M2-2: done (czsc 安装+适配器改造: 首分型补偿+zs 重算+位置约定; czsc +12 PASS)
+  - M2-3: done (bsp3_follow_1=False+bsp 过滤修 GOLD-003/005 +2; czsc zs 末位不延伸修 BC-001/BSP-001/GOLD-004 +3; czsc 九段升级修 ZS-003 +1; seg_conf/zs_conf 实验无解→降级)
+  - M2-4: done (BI-002/003 expect fx sure 对齐位置约定 +4; sure/level 约定成文 附录 C)
+  - M2-5: done (P-J/P-H/P-K/P-F 专项排查+PATCHES.md 登记; 14 降级项根因明确)
+  - M2-6: done (重生成 chanlun-calibration-report.md M2 版; 48/62 PASS=77%; 168 tests 绿)
+  - 最终: chanpy 23/31 PASS, czsc 25/31 PASS, 总计 48/62=77%; 14 降级项清单见报告+PATCHES.md

@@ -1,8 +1,26 @@
-"""czsc 适配器（M1 对照实现，Task 5）。
+"""czsc 适配器（M2-2 改造版：首分型补偿 + zs 重算 + 位置约定）。
 
 把 czsc 0.10.12 的分型/笔/中枢识别结果搬运归一到 ``NormalizedChart``。
-适配器只做搬运归一，不含任何缠论判断逻辑；czsc 不产出线段与买卖点，
+适配器只做搬运与归一，不含任何缠论判断逻辑；czsc 不产出线段与买卖点，
 对应两张表置空并在 ``na_fields`` 标记 ``{"seg", "bsp"}``。
+
+M2-2 改造（替换 M1 的 ``get_zs_seq`` / ``c.fx_list`` 直取口径）
+----------------------------------------------------------------
+1. **首分型补偿 + fx 从 bi 端点推导**：czsc ``CZSC.fx_list`` 按
+   ``bi.fxs[1:]`` 拼接，丢第一笔起始分型；且 czsc 不消解"被取代的候选分型"
+   （BI-004 多余 idx=5/idx=6）。M2-2 直接从 ``bi_list`` 推导 fx 表——
+   ``fx[0] = bi_list[0].fx_a``（首分型补偿，有笔从它出发即 sure=True），
+   ``fx[1..n] = bi_list[i].fx_b``（每笔终点分型）。集合 = 首笔起点 + 每笔终点，
+   与 chanpy fx 表口径一致（幸存分型 = 笔端点）。
+2. **zs 重算（弃用 ``get_zs_seq``）**：czsc ``get_zs_seq`` 把所有重叠笔算入
+   中枢（start=第一笔起点、end=最后一笔终点），与课文/expect 口径不符。M2-2
+   按 chanpy normal 模式口径重算：引导笔 ``bi0`` 决定走势方向（``seg_dir``），
+   **反向笔**参与 zs 构造——连续 2 个反向笔重叠即确立中枢（``start=反向笔a.start_idx``、
+   ``end=反向笔b.end_idx``、``zd=max(low)``、``zg=min(high)``），后续反向笔
+   ``in_range``（笔 [low,high] 与中枢 [zd,zg] 严格重叠，不含边界）则延展 ``end``；
+   反向笔不在 ``in_range`` → 当前中枢结束，开始下一个中枢。
+   九段升级（level=2）暂不实现，归 M2-3 P-K 范围。
+3. **位置约定**（M2-1 同 chanpy 适配器）：fx/bi 表末位 sure=False、其余 True。
 
 索引映射依据
 ------------
@@ -16,19 +34,6 @@
 北京时间转成 UTC 存储，输出 dt 整体偏移 -8 小时。本适配器一律使用
 tz-aware（UTC）datetime 投喂，此时输出 dt 与输入逐值相等（tz 被丢弃），
 映射字典无需任何时区修正。
-
-sure 口径
----------
-czsc 没有显式的"右侧确认"标记，归一规则：
-- Bi：出现在 ``CZSC.finished_bis`` 中（按 (fx_a.dt, fx_b.dt) 匹配）为 sure=True；
-- FX：出现在任一 finished bi 的 ``fxs`` 中（按 dt 匹配）为 sure=True，
-  仅存在于未完成笔（ubi）中的分型 sure=False。
-
-已知口径差异（如实搬运，留给对表报告，不在此补偿）
---------------------------------------------------
-1. ``CZSC.fx_list`` 按 ``bi.fxs[1:]`` 拼接，不包含第一笔的起始分型。
-2. ``get_zs_seq`` 滚动分组中 ``len(bis) < 3`` 或 ``is_valid=False`` 的组
-   不满足缠论中枢定义（至少三段重叠），归一时剔除。
 """
 
 from __future__ import annotations
@@ -50,7 +55,6 @@ import czsc
 from czsc import CZSC, Freq, RawBar
 from czsc import envs as czsc_envs
 from czsc.core import check_rs_czsc
-from czsc.utils.sig import get_zs_seq
 
 SOURCE = "czsc"
 
@@ -83,6 +87,164 @@ def _bi_direction(direction_value: str) -> Direction:
     if direction_value == _DIR_UP:
         return Direction.UP
     return Direction.DOWN
+
+
+def _apply_positional_sure(table: list) -> None:
+    """按位置约定就地写 sure 字段（与 chanpy 适配器同口径）。
+
+    - fx/bi/seg 表：末位 sure=False、其余 True；空表与单元素表（单元素即末位）→ 全 False
+    - zs/bsp 表：形成即 sure=True（恒 True，本函数不处理这两类）
+
+    本函数仅作用于 fx/bi；调用方在循环内把每个元素的 sure 占位为 True，
+    循环结束后调本函数把末位翻为 False，与归一约定对齐。
+    """
+    n = len(table)
+    if n == 0:
+        return
+    for i, elem in enumerate(table):
+        elem.sure = i < n - 1  # 末位 False，其余 True
+
+
+def _bi_low_high(bi: Bi, bars: List[Bar]) -> tuple[float, float]:
+    """笔的极值（与 chanpy ``CBi._low()/_high()`` 同口径）。
+
+    上升笔：low=起点 K 线 low，high=终点 K 线 high；
+    下降笔：low=终点 K 线 low，high=起点 K 线 high。
+
+    ``bi.start_idx``/``bi.end_idx`` 已是分型极值所在原始 K 线的 0 基下标
+    （czsc ``fx_a.dt``/``fx_b.dt`` 取合并 K 线极值 klu 的 dt），故直接取该
+    K 线的 h/l，无需扫描笔内全部 K 线。
+    """
+    if bi.dir is Direction.UP:
+        return float(bars[bi.start_idx].l), float(bars[bi.end_idx].h)
+    return float(bars[bi.end_idx].l), float(bars[bi.start_idx].h)
+
+
+def _has_overlap_strict(low1: float, high1: float, low2: float, high2: float) -> bool:
+    """严格重叠（不含边界），对齐 chanpy ``has_overlap(equal=False)``。"""
+    return high2 > low1 and high1 > low2
+
+
+def _recompute_zs(bi_table: list[Bi], bars: List[Bar]) -> list[ZhongShu]:
+    """从归一 bi 表按课文/chanpy normal 模式口径重算中枢（M2-2）。
+
+    算法（源自 expect ZS-001/002/004 + chanpy ``CZSList`` normal 模式）：
+    - 引导笔 ``bi_table[0]`` 决定走势方向 ``seg_dir``，**反向笔**参与 zs 构造
+    - 连续 2 个反向笔重叠即确立中枢：
+      ``start=反向笔a.start_idx``、``end=反向笔b.end_idx``、
+      ``zd=max(a.low, b.low)``、``zg=min(a.high, b.high)``（严格 ``zg > zd``）
+    - 中枢确立后，后续**已确认**（``sure=True``）反向笔若 ``in_range``（笔 [low,high]
+      与中枢 [zd,zg] 严格重叠）则延展 ``end`` 到该笔 ``end_idx``；
+      **末位笔（``sure=False``）不参与延伸**——对齐 chanpy "seg 末段未确认不延伸"
+      行为（chanpy zs 受 seg 切分限制，seg1 恒未确认，zs 只在确认的 seg0 内延伸）
+    - 反向笔不在 ``in_range`` → 当前中枢结束，该笔入 free_lst 等待与下一反向笔配对
+    - **九段升级**（M2-3 PATCHES 实现）：中枢延伸 ≥9 段时升级为 level=2，
+      zd/zg 改为 3 个子中枢（bi[1:4]/bi[4:7]/bi[7:10]）的重合区间
+      ``max(sub_zs.zd) / min(sub_zs.zg)``
+
+    已知局限：BSP-002/BSP-004 等"已确认反向笔 in_range 但 expect 不延伸"的用例
+    需要 chanpy seg 切分算法（特征序列分型）限制 zs 延伸范围，czsc 适配器不产出
+    seg，无法完全对齐——归 M2-5 已知偏差登记。
+
+    :return: 重算后的中枢列表（按出现顺序）；空表当 ``len(bi_table) < 3``。
+    """
+    n = len(bi_table)
+    if n < 3:  # 至少引导笔 + 2 反向笔
+        return []
+
+    seg_dir = bi_table[0].dir  # 引导游方向（= 中枢所在 seg 方向）
+    zs_list: list[ZhongShu] = []
+    free_lst: list[Bi] = []  # 等待配对的反向笔队列
+
+    for bi in bi_table[1:]:  # 跳过引导笔
+        if bi.dir is seg_dir:
+            continue  # 同向笔跳过（chanpy ``add_zs_from_bi_range`` 第 65 行）
+
+        # 反向笔
+        if not free_lst and zs_list:
+            # free_lst 空 + 已有中枢 → 尝试延伸最后一个中枢
+            # M2-3: 末位笔（sure=False）不参与延伸（对齐 chanpy seg 末段不延伸）
+            low, high = _bi_low_high(bi, bars)
+            last_zs = zs_list[-1]
+            if bi.sure and _has_overlap_strict(last_zs.zd, last_zs.zg, low, high):
+                last_zs.end_idx = bi.end_idx
+                # 不更新 zd/zg（chanpy ``try_add_to_end`` 只调 ``update_zs_end``）
+                continue
+            # 不延伸 → 当前中枢结束，该笔入 free_lst
+
+        free_lst.append(bi)
+        if len(free_lst) >= 2:
+            bi_a, bi_b = free_lst[-2], free_lst[-1]
+            low_a, high_a = _bi_low_high(bi_a, bars)
+            low_b, high_b = _bi_low_high(bi_b, bars)
+            zd = max(low_a, low_b)
+            zg = min(high_a, high_b)
+            if zg > zd:  # 严格重叠
+                zs_list.append(
+                    ZhongShu(
+                        zd=zd,
+                        zg=zg,
+                        start_idx=bi_a.start_idx,
+                        end_idx=bi_b.end_idx,
+                        level=1,
+                        sure=True,
+                        source=SOURCE,
+                    )
+                )
+                free_lst = []  # 中枢构造成功，清空 free_lst
+
+    # 九段升级后处理（M2-3 PATCHES）：中枢延伸 ≥9 段 → level=2
+    _apply_nine_bi_upgrade(zs_list, bi_table, bars)
+    return zs_list
+
+
+def _apply_nine_bi_upgrade(
+    zs_list: list[ZhongShu], bi_table: list[Bi], bars: List[Bar]
+) -> None:
+    """九段升级（课33）：中枢内连续 9 段重叠 → 更大级别中枢 level=2。
+
+    规则（源自 ZS-003 expect）：
+    - 中枢范围内的笔数 ≥9 时触发
+    - 将 9 段分为 3 组子中枢（每组 3 笔），计算每组的 zd/zg
+    - level=2 中枢的 zd/zg = 3 个子中枢的重合区间（max(sub_zd)/min(sub_zg)）
+    - start_idx/end_idx 不变，level 升为 2
+
+    就地修改 zs_list 中的元素。
+    """
+    for zs in zs_list:
+        if zs.level != 1:
+            continue
+        # 收集中枢范围内的所有笔（start_idx 到 end_idx）
+        in_range_bis = [
+            bi for bi in bi_table if bi.start_idx >= zs.start_idx and bi.end_idx <= zs.end_idx
+        ]
+        if len(in_range_bis) < 9:
+            continue
+        # 取前 9 笔，分 3 组（每组 3 笔）
+        nine_bis = in_range_bis[:9]
+        sub_zs_ranges = []
+        for i in range(0, 9, 3):
+            group = nine_bis[i : i + 3]
+            lows = []
+            highs = []
+            for bi in group:
+                low, high = _bi_low_high(bi, bars)
+                lows.append(low)
+                highs.append(high)
+            sub_zd = max(lows)
+            sub_zg = min(highs)
+            if sub_zg <= sub_zd:  # 子中枢不成立
+                break
+            sub_zs_ranges.append((sub_zd, sub_zg))
+        if len(sub_zs_ranges) != 3:
+            continue
+        # 3 个子中枢的重合区间
+        level2_zd = max(r[0] for r in sub_zs_ranges)
+        level2_zg = min(r[1] for r in sub_zs_ranges)
+        if level2_zg > level2_zd:
+            zs.zd = level2_zd
+            zs.zg = level2_zg
+            zs.level = 2
 
 
 class CzscAdapter:
@@ -149,6 +311,9 @@ class CzscAdapter:
             else czsc_envs.get_max_bi_num(),
             "freq": Freq.D.value,
             "dt_base": BASE_DT.isoformat(),
+            # M2-2 标记：zs 重算口径
+            "zs_recompute": "chanpy_normal_mode",
+            "fx_source": "bi_endpoints",
         }
 
     def run(self, bars: List[Bar]) -> NormalizedChart:
@@ -159,49 +324,57 @@ class CzscAdapter:
             kwargs = {} if self.max_bi_num is None else {"max_bi_num": self.max_bi_num}
             c = CZSC(raw_bars, **kwargs)
 
-        finished_keys = {
-            (self._dt_key(bi.fx_a.dt), self._dt_key(bi.fx_b.dt))
-            for bi in c.finished_bis
-        }
-        confirmed_fx_dts = {
-            self._dt_key(fx.dt) for bi in c.finished_bis for fx in bi.fxs
-        }
-
-        fx_table = [
-            FX(
-                idx=dt_to_idx[self._dt_key(fx.dt)],
-                type=_fx_direction(fx.mark.value),
-                sure=self._dt_key(fx.dt) in confirmed_fx_dts,
-                source=SOURCE,
-            )
-            for fx in c.fx_list
-        ]
-
-        bi_table = [
+        # czsc 笔表（全部视为 finished，含最后一笔）。
+        # 归一 fx/bi 表从 bi_list 推导（M2-2：首分型补偿 + 位置约定）
+        bi_table: list[Bi] = [
             Bi(
                 start_idx=dt_to_idx[self._dt_key(bi.fx_a.dt)],
                 end_idx=dt_to_idx[self._dt_key(bi.fx_b.dt)],
                 dir=_bi_direction(bi.direction.value),
-                sure=(self._dt_key(bi.fx_a.dt), self._dt_key(bi.fx_b.dt))
-                in finished_keys,
+                sure=True,  # 位置约定在循环后统一应用
                 source=SOURCE,
             )
             for bi in c.bi_list
         ]
+        _apply_positional_sure(bi_table)
 
-        zs_table = [
-            ZhongShu(
-                zd=zs.zd,
-                zg=zs.zg,
-                start_idx=dt_to_idx[self._dt_key(zs.bis[0].fx_a.dt)],
-                end_idx=dt_to_idx[self._dt_key(zs.bis[-1].fx_b.dt)],
-                level=1,
-                sure=True,
-                source=SOURCE,
+        # fx 表：从 bi 端点推导（首分型补偿 + 每笔终点）
+        # fx[0] = bi_list[0].fx_a（首分型）；fx[1..n] = bi_list[i].fx_b
+        fx_table: list[FX] = []
+        if c.bi_list:
+            first_bi = c.bi_list[0]
+            fx_table.append(
+                FX(
+                    idx=dt_to_idx[self._dt_key(first_bi.fx_a.dt)],
+                    type=_fx_direction(first_bi.fx_a.mark.value),
+                    sure=True,  # 位置约定在循环后统一应用
+                    source=SOURCE,
+                )
             )
-            for zs in get_zs_seq(c.bi_list)
-            if len(zs.bis) >= 3 and zs.is_valid
-        ]
+            for bi in c.bi_list:
+                fx_table.append(
+                    FX(
+                        idx=dt_to_idx[self._dt_key(bi.fx_b.dt)],
+                        type=_fx_direction(bi.fx_b.mark.value),
+                        sure=True,  # 位置约定在循环后统一应用
+                        source=SOURCE,
+                    )
+                )
+        else:
+            # 无笔时 czsc fx_list 可能含孤立分型（未成笔候选），保留搬运
+            for fx in c.fx_list:
+                fx_table.append(
+                    FX(
+                        idx=dt_to_idx[self._dt_key(fx.dt)],
+                        type=_fx_direction(fx.mark.value),
+                        sure=False,  # 孤立分型未确认
+                        source=SOURCE,
+                    )
+                )
+        _apply_positional_sure(fx_table)
+
+        # zs 表：从归一 bi 表按课文口径重算（M2-2，弃用 get_zs_seq）
+        zs_table = _recompute_zs(bi_table, bars)
 
         return NormalizedChart(
             fx=fx_table,
