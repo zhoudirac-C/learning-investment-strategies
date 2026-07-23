@@ -1114,3 +1114,20 @@
   - AI安全需求抬升
 - 更新索引：`knowledge/claims/index.md`
 - 引用 claim IDs：`claim-20260723-001` 至 `claim-20260723-012`
+
+## 2026-07-23 | qing-learning ingest | 7/23 全动态 claim提取——6动态5入库25条
+
+- 处理 raw：
+  - `sources/original/bilibili/2026-07-23-0957-图片-国家队做T+谷歌云5140亿`
+  - `sources/original/bilibili/2026-07-23-1122-图片-行情不V+长鑫上市预告`
+  - `sources/original/bilibili/2026-07-23-1331-图片-华虹半导体20日线+下半年难度`
+  - `sources/original/bilibili/2026-07-23-2151-图片-晚间复盘：黄白分离/电力高潮/科技磨底`
+- 新增 claims：25条
+  - `claim-20260723-002`（3条）：华虹半导体20日线/下半年难度/技术情绪分化
+  - `claim-20260723-003`（16条）：风格切换确认/情形AB/电力分歧/WoodMac/原油两面性/科技底部/CAPEX担忧/涨价链动摇/AI智能体/MLCC/宝光股份/中电电机/恒尚节能/明日四看
+  - `claim-20260723-004`（4条）：国家队做T/谷歌云5140亿三层优先级/CAPEX拆解/三合一
+  - `claim-20260723-005`（2条）：行情不V确认/长鑫上市预告
+- 修复问题：
+  - `gate_validate_claims.py` NON_COMPANY 集扩展（2151复盘假阳性）
+- 更新索引：`knowledge/claims/index.md` + `knowledge/wiki/index.md`
+- 引用 claim IDs：`claim-20260723-002` 至 `claim-20260723-005`、`claim-20260723-025` 至 `claim-20260723-049`
