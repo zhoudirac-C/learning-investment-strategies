@@ -1,0 +1,376 @@
+claims:
+- id: claim-20260724-001
+  source_path: sources/original/bilibili/2026-07-24-0858-图片-周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨.md
+  source_date: '2026-07-24'
+  source_type: 动态
+  extracted_at: '2026-07-24T09:15:00+08:00'
+  claim_type: market-cycle
+  subject: 缩量普涨4200家上涨-做减法-非放量高举高打
+  timeframe: intraday
+  statement: 周四三大指数震荡小幅收红，超4200只个股上涨、逾百股涨停，两市成交额大幅缩量4580亿。普涨与缩量并存，不是传统印象里的放量高举高打，今天更适合做减法而非加码。
+  evidence_quote: 周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨停，两市成交额却大幅缩量4580亿。普涨与缩量并存，这不是传统印象里的放量高举高打，也正因如此，今天更适合做减法。
+  interpretation: UP定性当日行情为缩量普涨——虽4200+上涨但成交大幅萎缩，不是资金主动进攻的放量突破行情。策略上'做减法'意味着减仓而非加仓，对于已持仓可持有，但不宜新增买入。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 缩量普涨
+  - 做减法
+  - 4200上涨
+  - 非放量
+  topic: 7月24日早盘：缩量普涨4200家涨——更适合做减法
+- id: claim-20260724-002
+  source_path: sources/original/bilibili/2026-07-24-0858-图片-周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨.md
+  source_date: '2026-07-24'
+  source_type: 动态
+  extracted_at: '2026-07-24T09:15:00+08:00'
+  claim_type: market-cycle
+  subject: 半导体调整定性-内生性出清非外力扰动-节奏问题非方向问题
+  timeframe: short-term
+  statement: 当日日韩指数均为上涨，A股自身的德明利(001309)也曾翻红，找不到外部借口。半导体（华虹宏力、九安医疗(002432)）的调整更接近内生性出清，而非外力扰动。出清是节奏问题，外力才是方向问题。科技后续继续出清大概率不会像前几天那么激烈，指数最差以横盘和小幅震荡为主。
+  evidence_quote: 值得注意的是，当日日韩指数均为上涨，A股自身的德明利也曾翻红，找不到外部的借口。个人判断，半导体的调整更接近内生性出清，而非外力扰动，这一区分决定了后续不必过度悲观：出清是节奏问题，外力才是方向问题。
+  interpretation: UP为半导体调整找到准确定性：不是外部利空导致（日韩涨、德明利翻红排除外因），而是场内资金主动调整（内生性出清）。这个定性决定了对策——节奏可控，不必恐慌。后续出清烈度会下降。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 主板可交易-调整验证锚点
+  - code: '002432'
+    name: 九安医疗
+    role: 主板可交易-AI投资版图
+  tags:
+  - 半导体
+  - 内生性出清
+  - 节奏问题
+  - 不悲观
+  topic: 7月24日早盘：半导体调整定性为内生性出清非外力——不悲观
+- id: claim-20260724-003
+  source_path: sources/original/bilibili/2026-07-24-0858-图片-周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨.md
+  source_date: '2026-07-24'
+  source_type: 动态
+  extracted_at: '2026-07-24T09:15:00+08:00'
+  claim_type: operation
+  subject: 趋势突破点位3990和4045-暂时无底部信号
+  timeframe: short-term
+  statement: 今日趋势突破点位分别为3990和4045。在此之前，指数层面暂时没有可确认的底部信号。3990与4045两个突破点位未有效突破前，不轻易加仓。
+  evidence_quote: 今日趋势突破点位分别为3990和4045。在此之前，指数层面暂时没有可确认的底部信号。指数层面：3990与4045两个突破点位未有效突破前，不轻易加仓。
+  interpretation: UP给出明确的指数操作框架：3990和4045是趋势突破的关键点位，在有效站上之前，指数层面没有底部信号，因此仓位不应激进。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260723-003
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - '3990'
+  - '4045'
+  - 趋势突破
+  - 不加仓
+  - 无底部信号
+  topic: 7月24日早盘：趋势突破点3990/4045——未突破前不加仓
+- id: claim-20260724-004
+  source_path: sources/original/bilibili/2026-07-24-0858-图片-周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨.md
+  source_date: '2026-07-24'
+  source_type: 动态
+  extracted_at: '2026-07-24T09:15:00+08:00'
+  claim_type: market-cycle
+  subject: 2.5万亿以下安全区间-跌停2家亏钱效应减弱-富贵病比喻
+  timeframe: short-term
+  statement: 跌停家数由前一日8家进一步减少至2家，市场亏钱效应已明显减弱。2.5万亿及以下是现阶段的安全区间。市场得的是一种富贵病——放量反而容易加重病灶。
+  evidence_quote: 跌停家数由前一日的8家进一步减少至2家，市场亏钱效应已明显减弱。个人倾向于认为，2.5万亿及以下大概是现阶段的安全区间。市场眼下得的更像是一种富贵病，一旦太补，反而容易加重病灶。
+  interpretation: UP给出量能安全区间的量化标准：成交额2.5万亿及以下是安全区间。跌停从8家→2家验证亏钱效应减弱。'富贵病'比喻——量能太大（>3万亿）反而导致跌停增多亏钱扩散。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 2.5万亿
+  - 安全区间
+  - 跌停2家
+  - 亏钱效应
+  - 富贵病
+  topic: 7月24日早盘：2.5万亿以下安全区间——缩量反而健康
+- id: claim-20260724-005
+  source_path: sources/original/bilibili/2026-07-24-0858-图片-周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨.md
+  source_date: '2026-07-24'
+  source_type: 动态
+  extracted_at: '2026-07-24T09:15:00+08:00'
+  claim_type: operation
+  subject: 情形A量能低于2.5万亿横盘时间换空间-情形B量能超3万亿警惕亏钱重来
+  timeframe: short-term
+  statement: 情形A（概率更高）：量能维持在2.5万亿以下、跌停家数继续压缩，指数以横盘和小幅震荡为主用时间换空间。超跌传统方向主动性资金介入，赚钱效应从指数转向个股。情形B（需警惕）：量能重新放大至3万亿以上而指数不涨，则需警惕跌停家数回升亏钱效应重来。
+  evidence_quote: 情形A：量能维持在2.5万亿以下、跌停家数继续压缩，指数以横盘和小幅震荡为主，用时间换空间；超跌传统方向有主动性资金持续介入，赚钱效应从指数转向个股。情形B：量能重新放大至3万亿以上而指数不涨，则需警惕跌停家数回升、亏钱效应重来。
+  interpretation: UP更新了7/23的情形AB框架，这次用具体的量能区间量化：<2.5万亿安全区（情形A），>3万亿警惕区（情形B）。缩量健康，放量危险。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260723-030
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 情形A
+  - 情形B
+  - 2.5万亿
+  - 3万亿
+  - 量能
+  topic: 7月24日早盘：情形A缩量健康(2.5万亿以下)vs情形B放量危险(3万亿以上)
+- id: claim-20260724-006
+  source_path: sources/original/bilibili/2026-07-24-0858-图片-周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨.md
+  source_date: '2026-07-24'
+  source_type: 动态
+  extracted_at: '2026-07-24T09:15:00+08:00'
+  claim_type: market-cycle
+  subject: 超跌传统方向主动性强-防御性挪位非进攻性切换
+  timeframe: short-term
+  statement: 超跌传统方向（电网设备、锂矿、有色）展现很好的主动性，不是被动补涨而是主动进攻。越来越多资金意识到这些超跌板块虽弹性不如AI但更稳健。这不是进攻性切换，而是防御性挪位。
+  evidence_quote: 超跌方向：周四早盘，除立新能源继续高举高打外，电网设备、锂矿、有色金属等概念股都展现出了很好的主动性，不是被动补涨，而是主动进攻。个人判断，这不是一次进攻性的切换，而是一次防御性的挪位。
+  interpretation: UP分析超跌方向走强定性：防御性挪位（资金暂时躲避到低估值/低位板块）而非风格切换（资金彻底转向传统）。可观察但不宜重仓追入。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '001258'
+    name: 立新能源
+    role: 主板可交易-情绪观察标杆
+  tags:
+  - 超跌
+  - 电网设备
+  - 锂矿
+  - 有色
+  - 防御性挪位
+  topic: 7月24日早盘：超跌方向主动走强——防御性挪位非风格切换
+- id: claim-20260724-007
+  source_path: sources/original/bilibili/2026-07-24-0858-图片-周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨.md
+  source_date: '2026-07-24'
+  source_type: 动态
+  extracted_at: '2026-07-24T09:15:00+08:00'
+  claim_type: risk
+  subject: 科技磨底还需1至2周-华虹九安主动调整非被动杀跌
+  timeframe: short-term
+  statement: 华虹宏力(688347)作为半导体中军放量低开低走，资金主动调整非被动杀跌。九安医疗(002432)全场唯一跌停，同样是资金主动回避。科技股下跌速度已放缓，但预计还需1至2周磨底。策略：寻找率先调整/涨幅有限的科技细分，保留beta避开出清压力。
+  evidence_quote: 华虹宏力：作为半导体中军，直接放量低开低走，属于资金主动寻求调整，而非被动杀跌。科技股的下跌速度已经开始放缓，但做多情绪不浓，预计还需1至2周时间磨底。
+  interpretation: UP更新科技磨底时间1-2周。华虹宏力(688347)和九安医疗(002432)的主动调整说明资金有序撤离非恐慌。策略是筛选可能率先企稳的科技细分。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260723-034
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '002432'
+    name: 九安医疗
+    role: 主板可交易-AI投资版图-情绪锚
+  - code: '688347'
+    name: 华虹公司
+    role: 科创板不可交易-半导体中军
+  tags:
+  - 科技磨底
+  - 1至2周
+  - 华虹宏力
+  - 九安医疗
+  - 主动调整
+  topic: 7月24日早盘：科技磨底还需1-2周——华虹九安均为主动调整非被动杀跌
+- id: claim-20260724-008
+  source_path: sources/original/bilibili/2026-07-24-0858-图片-周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨.md
+  source_date: '2026-07-24'
+  source_type: 动态
+  extracted_at: '2026-07-24T09:15:00+08:00'
+  claim_type: catalyst
+  subject: 电力设备AI电力-北美电气化缺口-杰瑞股份长缆科技
+  timeframe: industry
+  statement: 北美科技巨头资本开支上修与电力设备龙头订单落地推动AI电力产业链供需结构重估。北美供给释放慢于需求，缺口延续。国内供应商：杰瑞股份(002353)、长缆科技(002879)。兼具超跌属性与AI产业逻辑。
+  evidence_quote: 北美科技巨头资本开支指引上修与国内外电力设备龙头订单的持续落地，正在推动市场重新审视AI电力产业链的供需结构。国内核心供应商的产业卡位价值因此凸显。板块内上市公司包括杰瑞股份、长缆科技。
+  interpretation: UP引用长江证券观点。AI电力产业链兼具防御（超跌）和进攻（AI逻辑），是当前两类资金的交集。杰瑞股份(002353)和长缆科技(002879)均为主板可交易。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '002353'
+    name: 杰瑞股份
+    role: 主板可交易-燃气轮机AI电力
+  - code: '002879'
+    name: 长缆科技
+    role: 主板可交易-电力设备
+  tags:
+  - AI电力
+  - 北美缺口
+  - 杰瑞股份
+  - 长缆科技
+  - 超跌AI交集
+  topic: 7月24日早盘：AI电力产业链——北美电气化缺口，杰瑞/长缆受益
+- id: claim-20260724-009
+  source_path: sources/original/bilibili/2026-07-24-0858-图片-周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨.md
+  source_date: '2026-07-24'
+  source_type: 动态
+  extracted_at: '2026-07-24T09:15:00+08:00'
+  claim_type: catalyst
+  subject: 北京Token经济政策-消耗增长1000倍-AWS谷歌涨价-网宿铜牛
+  timeframe: industry
+  statement: 北京印发《加快智能体引领发展的若干措施》鼓励Token经济。日均Token调用量超140万亿（较2024年初1000亿增1000多倍）。AWS、谷歌云宣布涨价最高100%。产业链：上游算力成本涨→中游结构性调价→下游Agent推高消耗。相关：网宿科技(300017)、铜牛信息(300889)。
+  evidence_quote: 北京市发展改革委等部门联合印发《北京市关于加快智能体引领发展的若干措施》，鼓励发展Token经济。数据显示到今年3月我国日均Token调用量已超过140万亿。AWS、谷歌云同步宣布涨价，最高涨幅达100%。网宿科技主营业务包括MSP服务、边缘计算、安全、算力云等。铜牛信息为北京市国资委旗下唯一IDC和云服务上市公司。
+  interpretation: UP转载北京Token经济政策+云计算涨价趋势。网宿科技(300017)和铜牛信息(300889)均为创业板不可交易。UP未给操作建议。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '300017'
+    name: 网宿科技
+    role: 创业板不可交易-算力云
+  - code: '300889'
+    name: 铜牛信息
+    role: 创业板不可交易-IDC云服务
+  tags:
+  - Token经济
+  - 北京政策
+  - 云计算涨价
+  - 网宿科技
+  - 铜牛信息
+  topic: 7月24日早盘：北京Token经济政策+云计算涨价——算力云服务受益
+- id: claim-20260724-010
+  source_path: sources/original/bilibili/2026-07-24-0858-图片-周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨.md
+  source_date: '2026-07-24'
+  source_type: 动态
+  extracted_at: '2026-07-24T09:15:00+08:00'
+  claim_type: catalyst
+  subject: 脑机接口技术突破-首次跨地域千人同步采集-新里程博拓生物
+  timeframe: industry
+  statement: 我国科研团队首次实现跨地域上千人同步脑电信号采集。2026年是半侵入式产品商业化元年和侵入式产品量产化元年。新里程(002219)与北大成立脑机接口联合实验室。博拓生物(688767)通过产业投资卡位脑机接口。
+  evidence_quote: 我国科研团队发布一款新型脑电信号采集装置，在全球范围内首次实现跨地域上千人同步脑电信号采集。新里程：携手北京大学成立脑机接口联合实验室。博拓生物：通过产业投资前瞻卡位脑机接口产业。
+  interpretation: UP转载脑机接口技术突破新闻。新里程(002219)主板可交易，博拓生物(688767)科创板不可交易。UP未给操作建议，属信息分享。
+  confidence: low
+  status: case-only
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '002219'
+    name: 新里程
+    role: 主板可交易-脑机接口
+  - code: '688767'
+    name: 博拓生物
+    role: 科创板不可交易-脑机接口
+  tags:
+  - 脑机接口
+  - 千人同步
+  - 新里程
+  - 博拓生物
+  - 商业化元年
+  topic: 7月24日早盘：脑机接口技术突破——新里程/博拓生物
+- id: claim-20260724-011
+  source_path: sources/original/bilibili/2026-07-24-0858-图片-周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨.md
+  source_date: '2026-07-24'
+  source_type: 动态
+  extracted_at: '2026-07-24T09:15:00+08:00'
+  claim_type: catalyst
+  subject: 军工十五五规划预期-洛马涨10%-睿创微纳中天火箭
+  timeframe: industry
+  statement: 洛克希德·马丁上涨10.54%，五角大楼加紧补充武器库存。机构看好下半年十五五规划落实带来订单和业绩修复，军工出海投资机会。A股相关：睿创微纳(688002)、中天火箭(003009)。
+  evidence_quote: 洛克希德·马丁上涨10.54%，五角大楼加紧补充武器库存，美两大军工巨头上调业绩指引；机构看好下半年十五五规划逐步落实可能带来的订单和业绩修复。
+  interpretation: UP转载军工线索。睿创微纳(688002)科创不可交易，中天火箭(003009)深主板可交易。UP未给操作建议，属信息分享。
+  confidence: low
+  status: case-only
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '688002'
+    name: 睿创微纳
+    role: 科创板不可交易-红外军工
+  - code: '003009'
+    name: 中天火箭
+    role: 主板可交易-军工
+  tags:
+  - 军工
+  - 十五五
+  - 洛马
+  - 睿创微纳
+  - 中天火箭
+  topic: 7月24日早盘：军工十五五规划+洛马大涨——睿创微纳/中天火箭
+- id: claim-20260724-012
+  source_path: sources/original/bilibili/2026-07-24-0858-图片-周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨.md
+  source_date: '2026-07-24'
+  source_type: 动态
+  extracted_at: '2026-07-24T09:15:00+08:00'
+  claim_type: operation
+  subject: 今日操作-积累备选池多看少动-右侧确认-仓位大于选股
+  timeframe: intraday
+  statement: 短期核心是积累备选池多看少动。3990/4045突破前不加仓。超跌传统方向观察电网设备/锂矿/有色接力质量不追买。科技筛选率先调整/涨幅有限的细分建名单不急于动手。仓位意义大于选股意义。
+  evidence_quote: 短期能做的不多，核心是积累备选池，多看少动，等接力情绪回归再来寻找机会。在指数没有给出底部信号之前，仓位的意义大于选股的意义。
+  interpretation: UP今日完整操作框架：守而非攻。三条线都不适合动手——指数等突破，超跌观察不追，科技建列表。核心方法论：仓位>选股，趋势不明朗时控制总仓位比选股更重要。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 多看少动
+  - 右侧确认
+  - 仓位大于选股
+  - 备选池
+  topic: 7月24日早盘：操作框架——积累备选池多看少动，仓位大于选股

@@ -5911,3 +5911,79 @@ stocks:
     sector_diverged: false
     market_actionable: false
     no_consecutive_limit_up: true
+
+- code: 002353.SZ
+  name: 杰瑞股份
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-07-24'
+    type: direction_call
+    context: AI电力产业链——燃气轮机方向，北美电气化缺口受益。7/24早盘UP转载长江证券观点。兼具超跌属性与AI产业逻辑，新旧资金少有交集。主板可交易。
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 002879.SZ
+  name: 长缆科技
+  direction: green_power_ai_electric
+  chain_position: midstream
+  human_note:
+    date: '2026-07-24'
+    type: direction_call
+    context: AI电力产业链——电力设备方向，北美电气化缺口受益。7/24早盘UP转载长江证券观点。主板可交易。
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 002219.SZ
+  name: 新里程
+  direction: brain_computer_interface
+  chain_position: downstream
+  human_note:
+    date: '2026-07-24'
+    type: info_share
+    context: 脑机接口——与北京大学成立联合实验室，聚焦脑机+外骨骼/手指关节/认知闭环神经调控三大方向。7/24早盘UP信息分享。主板可交易。尚未建立方向。
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
+
+- code: 003009.SZ
+  name: 中天火箭
+  direction: military
+  chain_position: midstream
+  human_note:
+    date: '2026-07-24'
+    type: info_share
+    context: 军工——十五五规划预期+洛马上涨10.54%。7/24早盘UP信息分享。主板可交易。尚未建立方向。
+  entry:
+    primary_zone:
+    - 0.0
+    - 0.0
+    method: need_calc
+    hard_stop: 0.0
+  pre_condition:
+    sector_diverged: false
+    market_actionable: false
+    no_consecutive_limit_up: true
