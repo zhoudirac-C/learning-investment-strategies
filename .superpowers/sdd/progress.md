@@ -25,3 +25,11 @@ M2 (plan: docs/superpowers/plans/2026-07-19-chanlun-quant-m2-calibration-fix.md)
   - M2-5: done (P-J/P-H/P-K/P-F 专项排查+PATCHES.md 登记; 14 降级项根因明确)
   - M2-6: done (重生成 chanlun-calibration-report.md M2 版; 48/62 PASS=77%; 168 tests 绿)
   - 最终: chanpy 23/31 PASS, czsc 25/31 PASS, 总计 48/62=77%; 14 降级项清单见报告+PATCHES.md
+M3 递归层 (plan: docs/superpowers/plans/2026-07-29-chanlun-quant-m3-level-recursion.md): started 2026-07-29
+  - 架构结论: 递归层**不能依赖适配器 seg 表**(侦察发现 chanpy 对 BC-002 把 9 笔并成 1 段 seg=[[0,8,down]]、czsc 无 seg), 须自建 L0 走势类型; 复用附录 C.4 中枢构造口径(ZD=max(三笔低点)/ZG=min(三笔高点))
+  - M3-0: done (写实施计划, 覆盖设计文档第六节全部要点 + 6 降级项)
+  - M3-1: done (core/segments.py + core/model.py — L0 走势类型分组: 贪婪最小 3 笔段 + 沿段方向扩展(创极值则吸收); BC-002→A2/B2/C2 三段, SEG-001→两段; 7/7 测试通过)
+  - M3-2: done (core/levels.py — LevelTree 递归合成 level-2 中枢 + 通用 3×L_N→L_{N+1}; BC-002 level-2 zs(23.9/26.2,16→31)+level-1 zs(22.9/24.4,31→46); TDD 纠出 bar36 低点手算误读(实际 22.9 非 23.06), expect 正确无需改; 11/11 通过)
+  - M3-3: done (core/backchi.py — 面积代理 Σ|Δc| 背驰 + 多级买卖点; BC-002 level-2 进入A2(10.84)vs离开C2(6.04)背驰, 一买 idx=46 level=1+2 双条; 4/4 通过)
+  - 测试结果: 全量 183 passed (168+15), 无回归
+  - 未完成(下次继续): M3-4 engine 集成(core/engine.py)+接入校准矩阵重验 6 降级项(BC-002×2/BSP-003×2/GOLD-001/002, 需先解决"递归层不破坏 ZS-001 等单级别用例"的集成方式) / M3-5 增量生长+批量增量一致性 / M3-6 收官报告+ADR+progress
