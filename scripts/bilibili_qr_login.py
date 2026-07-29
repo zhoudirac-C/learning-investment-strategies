@@ -158,6 +158,15 @@ def main() -> int:
             sessdata = extract_sessdata(cookies)
             dedeuserid = extract_dedeuserid(cookies)
 
+            # 新API: SESSDATA 可能在 URL 参数中（cookie_info 为空时）
+            if not sessdata:
+                login_url = data.get("url", "")
+                if login_url and "SESSDATA=" in login_url:
+                    import urllib.parse
+                    parsed = urllib.parse.urlparse(login_url)
+                    params = urllib.parse.parse_qs(parsed.query)
+                    sessdata = params.get("SESSDATA", [None])[0]
+
             if not sessdata:
                 print("ERROR: 登录成功但未获取到SESSDATA", file=sys.stderr)
                 return 1
