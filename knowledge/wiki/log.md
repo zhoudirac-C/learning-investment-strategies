@@ -1178,3 +1178,21 @@
   - `gate_validate_claims.py` NON_COMPANY 集扩展（0901早盘假阳性）
 - 更新索引：`knowledge/claims/index.md`
 - 引用 claim IDs：`claim-20260729-001` 至 `claim-20260729-014`
+
+
+## 2026-07-29 | qing-learning claim | 7/29 1008+1425盘中动态提取——放量推仓/避险三件套/长鑫解套/半导体设备ETF
+
+- 处理 raw：
+  - `sources/original/bilibili/2026-07-29-1008-图片-今天已经杀出量了...`
+  - `sources/original/bilibili/2026-07-29-1425-图片-长鑫1400亿资金基本都解套了...`
+- 新增 claims：6条
+  - `claim-20260729-015`（1条）：放量后不过于悲观，按计划推仓位
+  - `claim-20260729-016`（1条）：避险三件套框架（老妖/次新/可转债）
+  - `claim-20260729-017`（1条）：托伦斯(301583)避险与情绪双重属性
+  - `claim-20260729-018`（1条）：长鑫解套释放资金活水，缺主线控制仓位
+  - `claim-20260729-019`（1条）：稳健做半导体设备ETF
+  - `claim-20260729-020`（1条）：小作文不确定风险提示
+- 修复问题：
+  - `gate_validate_claims.py` NON_COMPANY 集扩展（1425盘中假阳性）
+- 更新索引：`knowledge/claims/index.md` + wiki每日复盘
+- 引用 claim IDs：`claim-20260729-015` 至 `claim-20260729-020`

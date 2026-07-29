@@ -1,0 +1,85 @@
+claims:
+- id: claim-20260729-018
+  source_path: sources/original/bilibili/2026-07-29-1425-图片-长鑫1400亿资金基本都解套了，现在就缺一个主线，其他都差不.md
+  source_date: '2026-07-29'
+  source_type: 盘中
+  extracted_at: '2026-07-29T21:12:00+08:00'
+  claim_type: market-cycle
+  subject: 长鑫解套缺主线控制仓位
+  timeframe: short-term
+  statement: C长鑫(688825)上市时吸收的约1400亿资金基本都解套了，市场现在就缺一个主线。在明确主线出来之前，仓位还是得控制住。
+  evidence_quote: 长鑫1400亿资金基本都解套了，现在就缺一个主线，其他都差不多了。在明确主线出来之前，仓位还是得控制住，后面要做主线，具体是哪个方向不知道，等出来了再说。
+  interpretation: UP在14:25给出了一个重要判断：长鑫(688825)上市后吸走的1400亿资金基本已解套释放（说明新股冲击已经消化），当前市场万事俱备只欠主线。但UP明确表示不知道主线是哪个方向，且强调主线出来前控制仓位。这是一个'条件已具备但信号未确认'的等待状态，核心纪律是'等出来再说'而非提前布局。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '688825'
+    name: C长鑫
+    role: 解套释放资金活水-科创板不可交易
+  tags:
+  - 长鑫解套
+  - 缺主线
+  - 控制仓位
+  - 资金活水
+  - 等信号
+  topic: 长鑫解套释放资金活水，但缺主线仍需控制仓位等确认
+- id: claim-20260729-019
+  source_path: sources/original/bilibili/2026-07-29-1425-图片-长鑫1400亿资金基本都解套了，现在就缺一个主线，其他都差不.md
+  source_date: '2026-07-29'
+  source_type: 盘中
+  extracted_at: '2026-07-29T21:12:00+08:00'
+  claim_type: operation
+  subject: 稳健做半导体设备ETF
+  timeframe: short-term
+  statement: 在主线明确出来之前，稳健的投资者做半导体设备ETF即可。
+  evidence_quote: 稳健的做半导体设备ETF就可以了。
+  interpretation: UP给出了主线不明朗阶段的具体操作方案：半导体设备ETF。这是一个折中方案——既参与科技方向（UP反复强调带队只能是科技），又通过ETF避免了个股选择风险。半导体设备是UP近期持续关注的方向（光刻机/设备零部件），ETF方式降低了主线未确认时的试错成本。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 半导体设备ETF
+  - 稳健操作
+  - 主线未明
+  - 折中方案
+  topic: 主线未明确前稳健做半导体设备ETF
+- id: claim-20260729-020
+  source_path: sources/original/bilibili/2026-07-29-1425-图片-长鑫1400亿资金基本都解套了，现在就缺一个主线，其他都差不.md
+  source_date: '2026-07-29'
+  source_type: 盘中
+  extracted_at: '2026-07-29T21:12:00+08:00'
+  claim_type: risk
+  subject: 小作文不确定风险提示
+  timeframe: intraday
+  statement: 与该动态相关的市场消息为小作文，未经证实，真假不明。
+  evidence_quote: 小作文，不知道真假
+  interpretation: UP在置顶评论中明确标注了动态中提到或关联的市场消息是不确定的小作文。这属于重要风险提示——动态中的判断是基于市场公开信息而非内部消息。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 小作文
+  - 未经证实
+  - 风险提示
+  topic: 关联消息为小作文，未经证实

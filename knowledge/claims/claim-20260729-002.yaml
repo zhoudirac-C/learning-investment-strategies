@@ -1,0 +1,94 @@
+claims:
+- id: claim-20260729-015
+  source_path: sources/original/bilibili/2026-07-29-1008-图片-今天已经杀出量了，那么整体就不过于悲观了，后面会看的好一点。.md
+  source_date: '2026-07-29'
+  source_type: 盘中
+  extracted_at: '2026-07-29T21:10:00+08:00'
+  claim_type: market-cycle
+  subject: 放量后不过于悲观
+  timeframe: intraday
+  statement: 7月29日上午已经杀出量了，整体不过于悲观，后面会看的好一点。按原定计划慢慢推仓位就好。
+  evidence_quote: 今天已经杀出量了，那么整体就不过于悲观了，后面会看的好一点。还是按照原定计划慢慢推仓位就好。
+  interpretation: UP在10:08盘中发出信号：上午放量（较昨日2.03万亿放大），基于放量=抛压释放的判断框架，结论是不悲观、按计划推仓位。与早盘'缩量见底'判断连贯——早盘认为缩量是抛压衰竭信号，盘中放量则确认卖盘已出，可以执行加仓计划。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 放量确认
+  - 推仓位
+  - 盘中信号
+  - 抛压释放
+  - 原定计划
+  topic: 上午放量确认抛压释放，不过于悲观按计划推仓位
+- id: claim-20260729-016
+  source_path: sources/original/bilibili/2026-07-29-1008-图片-今天已经杀出量了，那么整体就不过于悲观了，后面会看的好一点。.md
+  source_date: '2026-07-29'
+  source_type: 盘中
+  extracted_at: '2026-07-29T21:10:00+08:00'
+  claim_type: methodology
+  subject: 避险三件套框架
+  timeframe: permanent
+  statement: 避险行情三件套：老妖股、次新股、可转债。上周行情体现在利通电子(603629)等老妖股，本周体现为次新股。可转债每天也都有行情。
+  evidence_quote: 问托伦斯的人比较多，可以给大家说一个概念，一般我们熊市的时候用的比较多。避险三件套，老妖，次新和可转债。所以上周是利通电子那些票，这周是次新。可转债因为很多，所以每天也都有行情。
+  interpretation: UP提出了一套熊市/市场弱势时的避险选股框架，将避险品种分为三类：老妖股（前期辨识度高的活跃股，如利通电子(603629)）、次新股（如托伦斯(301583)）、可转债。该框架可用于识别市场处于避险模式时的资金流向方向——当资金涌入这三类品种时，说明市场风险偏好低。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '603629'
+    name: 利通电子
+    role: 老妖股代表-上海主板可交易
+  - code: '301583'
+    name: 托伦斯
+    role: 次新避险标的-创业板不可交易
+  tags:
+  - 避险三件套
+  - 老妖
+  - 次新
+  - 可转债
+  - 避险模式
+  topic: 避险三件套框架：老妖/次新/可转债，判断市场避险模式的工具
+- id: claim-20260729-017
+  source_path: sources/original/bilibili/2026-07-29-1008-图片-今天已经杀出量了，那么整体就不过于悲观了，后面会看的好一点。.md
+  source_date: '2026-07-29'
+  source_type: 盘中
+  extracted_at: '2026-07-29T21:10:00+08:00'
+  claim_type: stock-view
+  subject: 托伦斯避险与情绪双重属性
+  timeframe: short-term
+  statement: 托伦斯(301583)不能简单当作情绪标的，它有一定的避险属性（次新属性）。如果风险解除、大盘企稳，次新不一定会继续表现。
+  evidence_quote: 所以不能简单的把托伦斯当作情绪标的，他有一定的避险属性，如果风险解除，大盘企稳，次新不一定会继续表现了。
+  interpretation: UP对托伦斯(301583)的定位做了明确区分：它既是情绪标的（跟随市场情绪波动），也有避险属性（次新股在市场弱势时被资金选择）。关键判断是：当大盘企稳、风险解除后，次新股的避险逻辑会消退，不一定继续强势。这意味着不能因托伦斯在反弹中走弱就判断情绪不行——可能只是其避险属性在消退。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '301583'
+    name: 托伦斯
+    role: 次新情绪避险双重属性-创业板不可交易
+  tags:
+  - 托伦斯
+  - 次新
+  - 情绪标的
+  - 避险属性
+  - 大盘企稳消退
+  topic: 托伦斯兼具情绪标的与避险属性，大盘企稳后次新不一定继续表现
