@@ -19,11 +19,14 @@
 | [market-breadth-framework.md](market-breadth-framework.md) | 市场广度分析框架（多级别顶底+全A+微盘+情绪） | A |
 | [technical-analysis-framework.md](technical-analysis-framework.md) | 技术分析可执行框架（K线/指标/量价/纪律） | B |
 | [trading-rules.md](trading-rules.md) | 交易规则手册（接力方法论、尾盘套利法等操作纪律） | A/B |
+| [volume-quality-assessment.md](volume-quality-assessment.md) | 量能质量判断框架（三步判断法） | A |
+| [ai-business-model-falsification.md](ai-business-model-falsification.md) | AI商业模式证伪条件框架（控制变量法） | A |
 
 ## 更新记录
 
 | 日期 | 更新内容 |
 |------|----------|
+| 2026-07-29 | 方法论复盘新增4个框架：量能质量判断、AI商业模式证伪条件、避险三件套模式识别、国产链vs海外链分野选股框架 |
 | 2026-07-09 | 根据 `reports/methodology-review-20260708.md` 更新：补充右侧确认量化条件、外盘开盘定价与承接纪律、均线缺口减仓、不追情绪一致、事件催化右侧应对、上游扩散风险识别、外力扰动与内生量能、位置决定意义、7 月跟踪三维度、科技主线高低切、分散配置、业绩筛选纪律、预期差评估、资金结构切换信号、非科技方向重个股轻板块。 |
 
 ## 辅助文件
