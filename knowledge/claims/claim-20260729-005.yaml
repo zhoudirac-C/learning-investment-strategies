@@ -1,0 +1,550 @@
+claims:
+- id: claim-20260729-005
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: market-cycle
+  subject: A股当前磨底阶段判断
+  timeframe: short-term
+  statement: A股当前利空基本出尽，上证已无明显下行风险，但后续数周大概率处于磨底阶段，8月将正式进入上市公司业绩披露期。
+  evidence_quote: 当前A股利空基本全部出尽，8月将进入上市公司业绩披露期，光模块等赛道标的业绩表现不差，市场整体已经腰斩，国家队已经出手，后续进一步下跌将触发平准基金入场...上证已无明显下行风险，但后续数周将进入磨底阶段。
+  interpretation: UP判断A股处于政策底已现但市场底尚未完全确认的阶段。利空出尽+国家队出手+腰斩幅度构成下行风险有限的判断基础，但磨底需要时间，8月业绩披露期是关键观察窗口。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/大盘分析方法论
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 磨底
+  - 上证指数
+  - 利空出尽
+  - 业绩披露期
+  - 政策底
+  topic: A股磨底阶段判断与时间框架
+- id: claim-20260729-006
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: macro
+  subject: 美联储政策不确定性影响
+  timeframe: short-term
+  statement: 美联储本次维持利率不变，结果比市场预期温和，但既不明确加息也不撤销降息预期，这种模糊状态大幅提升市场不确定性，对全球资本市场形成持续扰动。
+  evidence_quote: 美联储本次会议宣布维持利率保持不变，此前市场一度计入30%到40%的加息概率，最终按兵不动的结果比市场预期更为温和...当前美联储既不明确加息也不撤销降息预期，这种模糊状态大幅提升了市场的不确定性，对全球资本市场形成持续扰动。
+  interpretation: 美联储的模糊态度意味着后续数据（非农、CPI、PCE）将成为核心变量。若8月数据超预期仍可能重启加息，全球风险资产将持续承压。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 宏观/美联储政策
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 美联储
+  - 利率决议
+  - 宏观不确定性
+  - CPI
+  - PCE
+  topic: 美联储维持利率不变但政策模糊加剧市场不确定性
+- id: claim-20260729-007
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: sector-theme
+  subject: AI产业基本面未恶化
+  timeframe: trend
+  statement: 微软财报后股价上涨直接证明AI产业本身没有问题，本轮美股科技板块的下跌完全是宏观资金层面的扰动，并非AI赛道基本面恶化。
+  evidence_quote: 微软的上涨直接证明AI产业本身没有问题，本轮美股科技板块的下跌完全是宏观资金层面的扰动，并非AI赛道基本面恶化。
+  interpretation: AI产业的核心逻辑（算力需求、大模型应用落地）并未被证伪。微软的正面财报验证了产业趋势，美股科技下跌主要是流动性/利率预期导致的资金行为。这对A股AI/光模块等映射标的也是积极信号——产业基本面未变，只是估值跟随宏观波动。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/AI产业链
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - AI
+  - 微软
+  - Meta
+  - 光模块
+  - 科技反弹
+  topic: 微软财报验证AI产业基本面未恶化，美股科技下跌是宏观扰动
+- id: claim-20260729-008
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: methodology
+  subject: 抄底必须分批缓慢加仓
+  timeframe: permanent
+  statement: 抄底绝对不能过快满仓，要分批缓慢加仓，逃顶可以快速清仓但抄底是反过来的节奏。
+  evidence_quote: 抄底你可以逃顶的时候逃快一点，但你抄底一定不能超快了。逃顶可以快速清仓，但抄底绝对不能过快满仓，要分批缓慢加仓，周二首次加仓10%，后续逐步加到30%左右的科技仓位。
+  interpretation: 这是UP反复强调的核心操作纪律。逃顶和抄底是完全不同的节奏——逃顶可以快速果断清仓，但抄底必须缓慢分批。具体量化：首次加仓10%左右，后续逐步加到目标仓位，不能一次性打满。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/抄底节奏控制
+    cases: []
+  related_stocks: []
+  tags:
+  - 抄底
+  - 分批加仓
+  - 节奏控制
+  - 仓位管理
+  - 逃顶
+  topic: 抄底必须分批缓慢加仓的操作纪律
+- id: claim-20260729-009
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: methodology
+  subject: 分散配置需覆盖不相关赛道
+  timeframe: permanent
+  statement: 配置需要覆盖高股息、保险、新能源、港股创新药等多个完全不相关的赛道，单一赛道仓位最高不要超过30%。看似分散买多只但全属同一赛道的伪配置无法对冲风险。
+  evidence_quote: 很多投资者看似买了多只不同标的，实际全部属于AI、半导体同一赛道，相当于把所有篮子都放在同一个推车上，完全没有起到分散风险的作用。配置需要覆盖高股息、保险、新能源、港股创新药等多个完全不相关的赛道，单一赛道仓位最高不要超过30%。
+  interpretation: UP用篮子放在同一个推车的比喻区分了真分散和伪分散。真正的分散配置必须跨多个不相关赛道（高股息、保险、新能源、港股创新药），且单一赛道仓位上限30%。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/仓位管理与分散配置
+    cases: []
+  related_stocks: []
+  tags:
+  - 分散配置
+  - 伪分散
+  - 单一赛道
+  - 跨赛道
+  - 仓位上限
+  topic: 跨赛道分散配置的方法与伪分散误区
+- id: claim-20260729-010
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: methodology
+  subject: 短线剐蹭交易的危害与规避
+  timeframe: permanent
+  statement: 单笔1-2个点的无意义小额剐蹭交易，单月累计亏损可达10%-15%，大幅侵蚀收益。减少剐蹭的核心是交易聚焦，不要过度分仓，放弃低确定性机会，只参与高盈亏比的核心行情。
+  evidence_quote: 单笔1-2个点的无意义小额亏损，单月累计下来总亏损可以达到10%-15%，大幅侵蚀整体收益，是短线选手收益不达预期的核心原因。交易必须聚焦，不要过度分仓，放弃所有低确定性的无效机会，只参与高盈亏比的核心行情。
+  interpretation: 剐蹭交易是短线选手收益不达预期的隐性原因。单笔亏损虽小但累计杀伤力大。解决方法是做减法——聚焦核心标的，减少出手次数，只参与高确定性+高盈亏比的交易机会。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/剐蹭交易规避
+    cases: []
+  related_stocks: []
+  tags:
+  - 剐蹭交易
+  - 短线
+  - 盈亏比
+  - 聚焦
+  - 无效交易
+  topic: 短线剐蹭交易的危害与减少方法
+- id: claim-20260729-011
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: methodology
+  subject: 新手个股仓位上限20%
+  timeframe: permanent
+  statement: 新手仅能拿出不超过20%的仓位操作个股，剩余80%以上资金全部买入ETF或做好分散配置，避免能力不匹配高仓位带来大额亏损。
+  evidence_quote: 新手仅能拿出不超过20%的仓位操作个股，剩余80%以上资金全部买入ETF或者做好分散配置，避免能力不匹配高仓位带来大额亏损。
+  interpretation: 这是UP对新手投资者的硬性仓位限制。核心逻辑是能力与仓位必须匹配——新手不具备个股深度研究能力和波动承受力，应以ETF和分散配置为主，个股仓位不超过20%。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/仓位管理
+    cases: []
+  related_stocks: []
+  tags:
+  - 新手
+  - 仓位管理
+  - ETF
+  - 个股
+  - 风险控制
+  topic: 新手投资者个股仓位上限20%的规则
+- id: claim-20260729-012
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: methodology
+  subject: 右侧交易者应空仓等信号
+  timeframe: permanent
+  statement: 选择做右侧交易的投资者应当直接空仓等待明确的右侧信号出现，不要在信号未明确时盲目分批建仓，避免节奏混乱。
+  evidence_quote: 选择做右侧交易的投资者，应当直接空仓等待明确的右侧信号出现，不要在信号未明确时盲目分批建仓，避免节奏混乱。
+  interpretation: UP严格区分左侧和右侧交易策略。右侧交易者不应在磨底阶段分批买入——那是左侧的做法。右侧的核心是等待明确的拐点信号出现再一次性入场。两边都想做往往两边都做不好。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/左侧与右侧交易
+    cases: []
+  related_stocks: []
+  tags:
+  - 右侧交易
+  - 空仓
+  - 等待信号
+  - 分批建仓
+  - 左侧交易
+  topic: 右侧交易者应空仓等待明确信号而非分批建仓
+- id: claim-20260729-013
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: methodology
+  subject: 短线选手单日回撤控制5%
+  timeframe: permanent
+  statement: 合格的短线梦想选手单日极端回撤必须控制在5个点以内，超过这个数值说明当日对盈亏比的把控出现明显失误。
+  evidence_quote: 合格的短线梦想选手单日极端回撤必须控制在5个点以内，超过这个数值就说明当日对盈亏比的把控出现明显失误，需要及时优化。
+  interpretation: 这是UP对短线交易者的硬性风控纪律。单日回撤超过5%意味着当日交易节奏失控，说明盈亏比把控出了问题，需要立即停下来复盘而非加仓赌回去。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/短线风控规则
+    cases: []
+  related_stocks: []
+  tags:
+  - 短线
+  - 回撤控制
+  - 风控纪律
+  - 盈亏比
+  - 止损
+  topic: 短线选手单日极端回撤不超过5%的风控纪律
+- id: claim-20260729-014
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: market-cycle
+  subject: 7月亏损高度集中在5个交易日
+  timeframe: short-term
+  statement: 7月超过80%的亏损集中在10号、13号、16号、17号、20号这5个交易日，合计亏损幅度可达20%-30%。只要在13号主动清仓科技股就能规避后续绝大多数下跌。
+  evidence_quote: 7月10号、13号、16号、17号、20号这5个交易日贡献了当月绝大多数亏损，合计亏损幅度可达20%-30%...只要在13号主动减仓清掉科技股，就能规避后续绝大多数亏损，说明大部分散户的大额亏损并非来自不可控的系统性黑天鹅，而是自身没有执行提前制定的风控规则。
+  interpretation: UP用数据说明：7月大额亏损高度集中且可规避。5天贡献80%亏损，核心是13号没有执行减仓止损。这验证了风控纪律（而非择时能力）是区分盈利和亏损投资者的关键因素。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 复盘/2026年7月交易复盘
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 7月复盘
+  - 亏损集中
+  - 减仓时机
+  - 风控
+  - 科技股
+  topic: 7月大额亏损集中在5个交易日且可通过减仓规避
+- id: claim-20260729-015
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: methodology
+  subject: 两个账户管理策略
+  timeframe: permanent
+  statement: 可以开设两个独立证券账号，大账号全部做稳健配置吃股息，小账号用小仓位尝试短线强趋势交易，兼顾稳健和进攻性。
+  evidence_quote: 可以开设两个独立证券账号，大账号全部做稳健配置吃股息，小账号用小仓位尝试短线强趋势交易，兼顾稳健和进攻性。
+  interpretation: UP推荐的双账户策略解决了稳健与进攻难以兼顾的矛盾。大账户专注股息/配置（防御），小账户专注强趋势交易（进攻）。两个账户互不干扰，避免风格混搭导致的操作混乱。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/仓位管理
+    cases: []
+  related_stocks: []
+  tags:
+  - 双账户
+  - 分散配置
+  - 稳健
+  - 短线进攻
+  - 股息
+  topic: 双账户管理策略兼顾稳健配置与短线进攻
+- id: claim-20260729-016
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: methodology
+  subject: 打板龙头战法生存空间极小
+  timeframe: permanent
+  statement: 当前短线交易环境难度比10年前大得多，打板、龙头战法等传统模式当前生存空间极小，只有强趋势模式具备持续盈利的可能性。
+  evidence_quote: 当前的短线交易环境难度比10年前大得多，打板、龙头战法等传统模式当前的生存空间极小，只有强趋势模式具备持续盈利的可能性。
+  interpretation: UP明确判断传统短线模式（打板、龙头战法）当前已失效，唯一有效的短线模式是强趋势交易。这与UP一贯强调的聚焦主线和趋势跟踪一致。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/短线模式演变
+    cases: []
+  related_stocks: []
+  tags:
+  - 打板
+  - 龙头战法
+  - 强趋势
+  - 短线模式
+  - 生存空间
+  topic: 打板龙头战法已失效，仅强趋势模式具备持续盈利可能
+- id: claim-20260729-017
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: market-cycle
+  subject: 公募已撤退无增量资金
+  timeframe: short-term
+  statement: 公募等大资金在前期大阴线阶段就已经完成撤退，当前市场没有新增增量资金，被套的高位科技标的短期很难有资金主动解套。
+  evidence_quote: 公募等大资金在前期大阴线阶段就已经完成撤退，当前市场没有新增增量资金，被套的高位科技标的短期很难有资金主动解套。
+  interpretation: UP从资金面角度指出：大资金已撤退，市场缺乏增量资金，高位科技标的不具备短期内被解套的资金基础。这强化了磨底需要时间的判断——等待新资金入场需要时间。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/资金面分析
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 资金面
+  - 公募撤退
+  - 增量资金
+  - 科技解套
+  - 磨底
+  topic: 大资金已撤退无增量资金，高位科技短期难以解套
+- id: claim-20260729-018
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: operation
+  subject: 深套投资者应耐心等待反弹
+  timeframe: short-term
+  statement: 已经满仓深套30%-40%的投资者无需盲目割肉，耐心等待后续反弹行情，不要在低位再割肉交出廉价筹码。
+  evidence_quote: 已经满仓深套30%-40%的投资者无需盲目割肉，耐心等待后续反弹行情，不要在低位再割肉交出廉价筹码。
+  interpretation: 在磨底阶段，深套投资者不应在低位割肉。UP的意思是：已经跌到这个位置，割肉的意义不大，等反弹再找机会调整更合理。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/深套应对策略
+    cases: []
+  related_stocks: []
+  tags:
+  - 深套
+  - 割肉
+  - 等待反弹
+  - 磨底
+  - 筹码
+  topic: 满仓深套30%-40%投资者应耐心等待反弹而非低位割肉
+- id: claim-20260729-019
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: methodology
+  subject: 高波动是A股常态非极端行情
+  timeframe: permanent
+  statement: A股一年约250个交易日中100天上涨150天下跌，高波动是市场常态，躺平不动应对高波动最终只会亏损。高波动本身是强趋势行情的必要条件。
+  evidence_quote: A股一年约有250个交易日，其中100天上涨、150天下跌，高波动是市场的常态，并非特殊时期的极端行情。躺平不动应对高波动最终只会亏损。高波动本身是强趋势行情的必要条件。
+  interpretation: UP用数据（100涨/150跌）量化了A股的高波动特性，核心观点是：高波动不是问题，躺平才是。做强趋势必须接受高波动，因为高波动是强趋势的伴生条件。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/A股高波动特性理解
+    cases: []
+  related_stocks: []
+  tags:
+  - 高波动
+  - A股常态
+  - 强趋势
+  - 躺平
+  - 趋势交易
+  topic: A股高波动是常态而非极端行情，躺平应对高波动必然亏损
+- id: claim-20260729-020
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: methodology
+  subject: 次新可转债仅在极端行情操作
+  timeframe: permanent
+  statement: 次新、可转债这类标的仅在行情极端好或者极端差的时候可以操作，平稳磨底阶段参与属于无效交易，只会增加剐蹭亏损。
+  evidence_quote: 次新、可转债这类标的仅在行情极端好或者极端差的时候可以操作，平稳磨底阶段参与这类标的属于无效交易，只会增加剐蹭亏损。
+  interpretation: UP指出了特殊标的的操作窗口条件。次新和可转债是极端工具——要么在极端牛市（高波动+高情绪）要么在极端熊市（恐慌+高波动）时才有参与价值。磨底阶段的横盘行情中，这些标的没有效率，属于无效交易。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/特殊标的操作条件
+    cases: []
+  related_stocks: []
+  tags:
+  - 次新
+  - 可转债
+  - 极端行情
+  - 磨底
+  - 无效交易
+  topic: 次新和可转债仅在极端行情可操作，磨底阶段属无效交易
+- id: claim-20260729-021
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: risk
+  subject: 年轻人不要加杠杆赌股市
+  timeframe: permanent
+  statement: 尚未经历社会足够磨练、情绪控制能力不足的年轻投资者，一旦加杠杆赌输，后半辈子都可能背负债务，不要把全部人生投入股市博弈。
+  evidence_quote: 尚未经历社会足够磨练、情绪控制能力不足的年轻投资者，一旦加杠杆赌输，后半辈子都可能背负债务，不要把全部人生投入股市博弈。
+  interpretation: UP给出明确的风险警示：年轻投资者缺乏社会历练和情绪控制能力，加杠杆炒股的风险极高。A股所有成功的短线选手几乎都亏光过本金（徐翔也亏光过两轮），当前环境比10年前更残酷。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 年轻人
+  - 杠杆
+  - 风险警示
+  - 短线
+  - 亏损
+  topic: 年轻投资者不要加杠杆赌股市的风险警示
+- id: claim-20260729-022
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: operation
+  subject: 中证红利下半年仍有行情
+  timeframe: short-term
+  statement: 中证红利这类高股息标的下半年仍有行情，稳健配置投资者后续应逐步把科技仓位加回来，平滑整体账户波动。
+  evidence_quote: 继续坚持均衡配置思路，中证红利这类高股息标的下半年仍有行情，后续逐步把科技仓位加回来，平滑整体账户波动。
+  interpretation: UP认为高股息（中证红利）在下半年仍然有配置价值，同时建议稳健投资者逐步加回科技仓位。这说明UP对科技的中期方向并不悲观——磨底结束后的反弹中科技仍是主线。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 中证红利
+  - 高股息
+  - 科技仓位
+  - 配置
+  - 下半年
+  topic: 中证红利下半年仍有行情，科技仓位可逐步加回
+- id: claim-20260729-023
+  source_path: sources/raw/财经/2026-07-29-UP-视频-科技该反弹了.md
+  source_date: '2026-07-29'
+  source_type: 视频
+  extracted_at: '2026-07-30T22:36:00+08:00'
+  claim_type: methodology
+  subject: 回本周期理性认知一年
+  timeframe: permanent
+  statement: 亏损40%的投资者想要回本需要翻倍收益，没必要强行要求一个月完成翻倍，把回本周期拉长到一年，难度会大幅降低。不要幻想靠单一股票十几倍涨幅回本。
+  evidence_quote: 亏损40%的投资者想要回本需要翻倍收益，没必要强行要求自己一个月完成翻倍，把回本周期拉长到一年，难度会大幅降低。不要幻想靠单一股票长期持有十几倍的涨幅回本，这种情况在现实中几乎不可能发生。
+  interpretation: UP纠正了两个常见错误认知：1）回本需要时间——40%亏损需要翻倍才能回本，拉长到一年节奏就从容了；2）不要幻想单票十几倍回本——这种极小概率事件不应作为交易依据。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/回本周期管理
+    cases: []
+  related_stocks: []
+  tags:
+  - 回本
+  - 预期管理
+  - 翻倍
+  - 亏损
+  - 交易心态
+  topic: 亏损回本需要理性预期，回本周期拉长到一年而非一个月
