@@ -1221,3 +1221,23 @@
 - 修复问题：`gate_validate_claims.py` NON_COMPANY 集扩展（2205复盘假阳性）
 - 更新索引：`knowledge/claims/index.md` + wiki每日复盘
 - 引用 claim IDs：`claim-20260729-021` 至 `claim-20260729-036`
+
+## 2026-07-30 | qing-learning claim | 7/30 0902早盘提取——鹰派缺口/收入验证叙事/三情形框架/AI应用端侧
+
+- 处理 raw：
+  - `sources/original/bilibili/2026-07-30-0902-图片-隔夜的主变量不在财报里...`
+- 新增 claims：11条
+  - `claim-20260730-001`（1条）：鹰派缺口非AI证伪——3票反对+中东
+  - `claim-20260730-002`（1条）：市场奖励收入验证惩罚纯投入——微软涨Meta跌
+  - `claim-20260730-003`（1条）：宽度修复+量能不掉=接得住
+  - `claim-20260730-004`（1条）：大金融择时托底增持底验证
+  - `claim-20260730-005`（1条）：外围传导看走势不看数字（方法论，permanent）
+  - `claim-20260730-006`（1条）：三情形框架（supersedes 29-004）
+  - `claim-20260730-007`（1条）：食品饮料独立催化的超跌反弹
+  - `claim-20260730-008`（1条）：AI应用端侧收入验证受益方向
+  - `claim-20260730-009`（1条）：化妆品政策减负催化
+  - `claim-20260730-010`（1条）：三大见底信号已过→加仓标准
+  - `claim-20260730-011`（1条）：今日跟踪三变量（supersedes 29-036）
+- 修复：`gate_validate_claims.py` NON_COMPANY 集扩展（0902早盘假阳性）
+- 更新索引：`knowledge/claims/index.md` + wiki每日复盘
+- 引用 claim IDs：`claim-20260730-001` 至 `claim-20260730-011`

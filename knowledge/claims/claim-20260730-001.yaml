@@ -1,0 +1,344 @@
+claims:
+- id: claim-20260730-001
+  source_path: sources/original/bilibili/2026-07-30-0902-图片-隔夜的主变量不在财报里，而在美联储与中东。美股三大指数在议息.md
+  source_date: '2026-07-30'
+  source_type: 早盘
+  extracted_at: '2026-07-30T09:12:00+08:00'
+  claim_type: market-cycle
+  subject: 鹰派缺口非财报缺口3票反对是核心变量
+  timeframe: intraday
+  statement: 隔夜美股杀跌主因是美联储决议出现3张加息反对票（2016年以来首次）+伊朗向驻中东美军发射导弹的地缘升温叠加，而非财报问题。这不是AI叙事崩塌，而是利率与地缘的重新定价。
+  evidence_quote: 据美联储7月29日决议，表决结果9票赞成、3票反对，这是2016年以来首次在同一次决议中出现三张同向反对票。同时据报道，伊朗向驻中东美军基地发射多枚导弹。两件事叠加，才是昨夜美股在决议后跌幅扩大的原因。个人判断，昨夜的杀跌主要是利率与地缘的重新定价，尚不构成对AI商业模式的证伪。
+  interpretation: UP给出了一个关键的因果归因：市场习惯性将下跌归因于财报或AI叙事，但昨夜的实际驱动力是利率端的鹰派信号（3票反对前所未有）加上中东地缘风险。这直接检验了昨日设定的AI证伪条件——'宏观不干净'，所以不能将下跌归因于AI商业模式。这是对claim-20260729-027的实际应用。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260729-027
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - FOMC
+  - 3票反对加息
+  - 鹰派缺口
+  - 中东地缘
+  - 非AI证伪
+  topic: 美联储3票反对加息+中东导弹才是美股杀跌主因，非AI证伪
+- id: claim-20260730-002
+  source_path: sources/original/bilibili/2026-07-30-0902-图片-隔夜的主变量不在财报里，而在美联储与中东。美股三大指数在议息.md
+  source_date: '2026-07-30'
+  source_type: 早盘
+  extracted_at: '2026-07-30T09:12:00+08:00'
+  claim_type: macro
+  subject: 市场奖励收入验证惩罚纯投入叙事
+  timeframe: short-term
+  statement: 微软以云收入兑现（Azure破千亿+Copilot付费3000万席位+盘后涨8%）上涨，Meta以纯资本开支叙事（营收超预期但盘后仍跌7%）下跌。市场此刻奖励的是收入端可验证，惩罚的是只有投入端。
+  evidence_quote: 微软2026财年第四季度调整后每股收益4.74美元超预期，Azure全年营收首度突破1000亿美元，Copilot付费席位突破3000万个，盘后涨幅超8%。同一时段，Meta营业收入608.01亿美元同比增长28%略高于预期，但股价盘后仍跌超7%。微软以'云收入兑现'上涨、Meta以'资本开支叙事'下跌，说明市场此刻奖励的是收入端可验证，惩罚的是只有投入端。
+  interpretation: UP从微软vsMeta的盘后走势中提炼出当前市场的定价偏好：收入端有验证的公司被奖赏（微软Azure/Copilot），只有资本投入没有收入兑现的公司被惩罚（Meta）。这是FOMC+财报窗口期的核心市场偏好信号，决定了A股科技内部的方向选择——应聚焦'收入验证'而非'投入叙事'。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 微软Azure千亿
+  - Copilot
+  - Meta投入叙事
+  - 收入验证
+  - 市场偏好
+  topic: 微软涨Meta跌→市场奖励收入可验证，惩罚只有投入叙事
+- id: claim-20260730-003
+  source_path: sources/original/bilibili/2026-07-30-0902-图片-隔夜的主变量不在财报里，而在美联储与中东。美股三大指数在议息.md
+  source_date: '2026-07-30'
+  source_type: 早盘
+  extracted_at: '2026-07-30T09:12:00+08:00'
+  claim_type: market-cycle
+  subject: 宽度已修复今日量能不掉即可
+  timeframe: intraday
+  statement: 昨日是短期内第三次超过4000只个股上涨，宽度已说明本轮调整更偏外力扰动而非内生回调。今日观察点很简单：低开后半小时承接量能+全天不低于昨日量能，就足以支撑接得住的判断。
+  evidence_quote: 昨日市场探底回升、三大指数集体收涨，且是短期内第三次超过4000只个股上涨。这个宽度本身说明本轮调整的性质更偏外力扰动而非内生性回调。今日的观察点因此很简单：低开之后半小时的承接量能，以及全天量能能否不低于昨日。在宽度已经修复的前提下，量能不掉就足以支撑'接得住'的判断。
+  interpretation: UP将4000+个股普涨3次作为判断调整性质的关键证据——跟随外围下跌的板块在减少，属于外力扰动型调整而非内生回调。操作框架简化：宽度已恢复→今日只需量能不掉即可。这是一个'条件逐步满足'的信号积累过程。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 宽度修复
+  - 4000+上涨
+  - 外力扰动
+  - 半小时间承接
+  - 量能不掉
+  topic: 宽度修复（3次4000+上涨），今日仅需量能不掉即可接得住
+- id: claim-20260730-004
+  source_path: sources/original/bilibili/2026-07-30-0902-图片-隔夜的主变量不在财报里，而在美联储与中东。美股三大指数在议息.md
+  source_date: '2026-07-30'
+  source_type: 早盘
+  extracted_at: '2026-07-30T09:12:00+08:00'
+  claim_type: market-cycle
+  subject: 大金融择时托底增持底验证
+  timeframe: short-term
+  statement: 大金融托底是择时的：周二只在开盘和尾盘小幅出手，周三等韩国触底反弹后才顺势进场。增持底能否成立，看今日低开后大金融是否再次托底。可将7月17日、20日视为本轮增持底，昨日算二次探底。
+  evidence_quote: 大资金在周二只在开盘和尾盘前小幅出手，并未在阻力最大的时候强行扭转；周三午后待韩国触底反弹后才顺势进场。'增持底'能否成立，要看今日低开后大金融是否再次承担托底职能。若7月17、20日可归为这波调整的增持底、昨日算作二次探底，那么这一条就是最省事的验证口径。
+  interpretation: UP对大金融（国家队/大资金）的行为模式做了详细拆解：不是无差别托底，而是择时、顺势、借力。给出了增持底的验证方法——今日低开后大金融是否再次挺身而出。同时给出了一个方便的验证框架：7/17和7/20是增持底，昨日是二次探底，今天只要大金融再托一次就确认。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 大金融托底
+  - 择时出手
+  - 增持底
+  - 二次探底
+  - 韩国借力
+  topic: 大金融择时托底+增持底框架：7/17底→昨日二次探底→今日验证
+- id: claim-20260730-005
+  source_path: sources/original/bilibili/2026-07-30-0902-图片-隔夜的主变量不在财报里，而在美联储与中东。美股三大指数在议息.md
+  source_date: '2026-07-30'
+  source_type: 早盘
+  extracted_at: '2026-07-30T09:12:00+08:00'
+  claim_type: methodology
+  subject: 外围传导看走势不看数字
+  timeframe: permanent
+  statement: 外围传导要看走势方向而不是看涨跌幅数字。昨日KOSPI盘前涨3%后在A股开盘前翻绿并熔断跌12%，但午后自低点回升约7%——从A股情绪角度看，更接近'自低点涨7%'而非'收盘跌6%'。
+  evidence_quote: 昨天KOSPI盘前一度涨超3%，但在A股开盘前已经翻绿；中午熔断后盘中跌超12%，下午开盘前又回升了不少——从A股情绪的角度看，昨日午后的韩国市场更接近'自低点涨7%'而不是'跌6%'，这也就不难理解A股为何走成探底回升。
+  interpretation: UP提出了一个重要的外盘解读方法论：锚定涨跌方向而非收盘数字。KOSPI昨天-6%看起来很差，但从A股实际交易情绪看，韩国盘中从-12%回升到-6%（即涨7%），情绪实际是'大幅反弹'。这是一个处理外盘信号的实用方法论，可以避免被收盘数字误导。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 外盘解读
+  - KOSPI
+  - 看走势方向
+  - 收盘数字陷阱
+  - 方法论
+  topic: 外围传导方法论：看走势方向不看涨跌幅数字
+- id: claim-20260730-006
+  source_path: sources/original/bilibili/2026-07-30-0902-图片-隔夜的主变量不在财报里，而在美联储与中东。美股三大指数在议息.md
+  source_date: '2026-07-30'
+  source_type: 早盘
+  extracted_at: '2026-07-30T09:12:00+08:00'
+  claim_type: operation
+  subject: 今日三种情形框架各自落点不同
+  timeframe: intraday
+  statement: 情形A：三星细分数据偏强+KOSPI反弹→低开高走，弹性在双创（尤其科创板），但等结构确认再推仓位。情形B：三星复制海力士+鹰派+中东→二次探底加速，底仓做T，等钝化与结构同时到位。情形C：外围企稳内部换手→指数横盘科技分化，重心在板块内部选股。
+  evidence_quote: 情形A：三星完整财报的部门数据与后续指引偏强，KOSPI在连续两日熔断后延续触底反弹。但需要提醒自己的是，在指数出现趋势突破、或科创50与创业板的60/90分钟底部结构明确形成之前，仅凭外围一次反弹就把仓位一次性推上去，不符合右侧确认的纪律。情形B：三星复制海力士剧本，叠加鹰派缺口与中东风险，存储链再杀一轮。底仓不动、以做T对冲波动，等钝化与结构同时到位。情形C：外盘不再拖累，但资金选择继续做超跌的非科技方向，重心要放在板块内部。
+  interpretation: UP延续了多日来的双/三情景框架，今日扩展到三种情形。核心变量是三星财报（今日最大不确定性）和大金融托底意愿。三种情形共享一个原则：底仓在手，不接受第一次反弹价格。情形A等结构、情形B做T等钝化、情形C重心在板块内选股。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260729-004
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 三情景框架
+  - 三星财报
+  - 双创结构
+  - 底仓做T
+  - 等钝化
+  topic: 今日三情形框架：A三星强B三星弱C外围稳内部换，底仓在手不等第一波反弹
+- id: claim-20260730-007
+  source_path: sources/original/bilibili/2026-07-30-0902-图片-隔夜的主变量不在财报里，而在美联储与中东。美股三大指数在议息.md
+  source_date: '2026-07-30'
+  source_type: 早盘
+  extracted_at: '2026-07-30T09:12:00+08:00'
+  claim_type: sector-theme
+  subject: 食品饮料有独立催化非单纯反指
+  timeframe: short-term
+  statement: 食品饮料板块有独立催化（可口可乐超预期上调全年指引+机构低配接近底部），并非此前白酒/零售那种单纯反指式反弹。超跌+机构低配是资金能拉得顺畅的原因。反面教材是光刻机——缺的正是超跌这一层。
+  evidence_quote: 据可口可乐第二季度财报，可比每股收益0.97美元超预期，公司将全年可比每股收益增速指引上调。据中信建投观点，板块持仓持续下降、资金面已接近底部。个人判断，这一次与此前白酒、零售那种单纯'反指'式反弹的区别，就在于它有独立催化。反面教材是半导体里的光刻机方向，缺的正是超跌这一层。
+  interpretation: UP对食品饮料的定性做了关键区分：有独立催化（可口可乐业绩+机构低配）vs 纯反指反弹。这提升了食品饮料在当前阶段的逻辑质量——不是等科技企稳后资金回流就会结束的短期行为，而是有基本面和配置面的支撑。同时用光刻机作为反面案例说明：缺乏超跌基础的板块反弹不可持续。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '605179'
+    name: 一鸣食品
+    role: 食品饮料连板-上海主板可交易
+  - code: '300997'
+    name: 欢乐家
+    role: 食品饮料-创业板不可交易
+  tags:
+  - 食品饮料
+  - 独立催化
+  - 超跌反弹
+  - 机构低配
+  - 可口可乐
+  topic: 食品饮料有独立催化（可口可乐+机构低配），超跌+催化双重支撑
+- id: claim-20260730-008
+  source_path: sources/original/bilibili/2026-07-30-0902-图片-隔夜的主变量不在财报里，而在美联储与中东。美股三大指数在议息.md
+  source_date: '2026-07-30'
+  source_type: 早盘
+  extracted_at: '2026-07-30T09:12:00+08:00'
+  claim_type: sector-theme
+  subject: AI应用端侧是收入验证叙事受益方向
+  timeframe: short-term
+  statement: 科技内部今天该找的不是弹性最大的，而是能被收入验证的或涨幅远不如AI硬件的。端侧AI和AI应用都满足这两个条件。月之暗面Kimi估值350亿美元→500亿美元，浪潮软件(600756)政务大模型第一、金山办公(688111)WPS
+    AI。
+  evidence_quote: 微软Azure破千亿、Copilot付费席位破3000万。月之暗面Kimi估值达350亿美元，正同步寻求新一轮融资投前估值约500亿美元。浪潮软件：在中国政务大模型及应用、AI+政务服务领域市场份额第一。金山办公：已发布基于大语言模型的智能办公助手WPS
+    AI。
+  interpretation: UP明确给出了今日科技内部选股的两条标准：收入可验证+前期涨幅不大。这直接排除了前期涨幅大的AI硬件方向（光模块/存储/HBM），指向端侧AI和AI应用。相关标的包括浪潮软件(600756)、金山办公(688111)、恒玄科技(688608)、瑞芯微(603893)、用友网络(600588)、美利云(000815)。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '600756'
+    name: 浪潮软件
+    role: 政务AI大模型第一-上海主板可交易
+  - code: '688111'
+    name: 金山办公
+    role: WPS AI办公-科创板不可交易
+  - code: '688608'
+    name: 恒玄科技
+    role: 端侧AI-科创板不可交易
+  - code: '603893'
+    name: 瑞芯微
+    role: 端侧AI芯片-上海主板可交易
+  - code: '600588'
+    name: 用友网络
+    role: AI应用企业服务-上海主板可交易
+  - code: '000815'
+    name: 美利云
+    role: AI应用-深圳主板可交易
+  tags:
+  - AI应用
+  - 收入验证
+  - 端侧AI
+  - 浪潮软件
+  - Kimi估值飙升
+  topic: AI应用+端侧AI是收入验证叙事受益方向，选前者而非弹性最大的硬件
+- id: claim-20260730-009
+  source_path: sources/original/bilibili/2026-07-30-0902-图片-隔夜的主变量不在财报里，而在美联储与中东。美股三大指数在议息.md
+  source_date: '2026-07-30'
+  source_type: 早盘
+  extracted_at: '2026-07-30T09:12:00+08:00'
+  claim_type: sector-theme
+  subject: 化妆品政策减负催化
+  timeframe: short-term
+  statement: 国家药监局7月29日公告即日实施：配方近似的化妆品可共用安全性和功效评价资料，口红、香水等品类研发成本将大幅下降。化妆品零售1-6月同比增长6.3%跑赢社零。水羊股份(300740)为科技型美妆企业，拉芳家化(603630)拓展化妆品矩阵。
+  evidence_quote: 据国家药监局7月29日公告并即日实施，配方体系近似的化妆品在注册备案时可共用评价资料。1至6月限额以上化妆品类零售额合计2445亿元、同比增长6.3%，增速跑赢社零整体。水羊股份：为中国领先的科技型美妆企业。拉芳家化：核心业务为洗护品牌，并已拓展化妆品业务矩阵。
+  interpretation: UP将化妆品纳入今日关注方向，催化逻辑是政策减负（降低研发成本）+基本面支撑（增速跑赢社零）。属于独立催化+位置合理的非科技方向，与食品饮料的逻辑同类。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '300740'
+    name: 水羊股份
+    role: 科技型美妆-创业板不可交易
+  - code: '603630'
+    name: 拉芳家化
+    role: 洗护+化妆品矩阵-上海主板可交易
+  tags:
+  - 化妆品
+  - 政策减负
+  - 配方共用
+  - 研发降本
+  - 社零跑赢
+  topic: 化妆品政策减负催化：配方共用评估降研发成本、零售增速跑赢社零
+- id: claim-20260730-010
+  source_path: sources/original/bilibili/2026-07-30-0902-图片-隔夜的主变量不在财报里，而在美联储与中东。美股三大指数在议息.md
+  source_date: '2026-07-30'
+  source_type: 早盘
+  extracted_at: '2026-07-30T09:12:00+08:00'
+  claim_type: operation
+  subject: 三大见底信号已演绎完毕操作纪律更新
+  timeframe: intraday
+  statement: 三大见底信号（强势股补跌、多杀多、流动性见底）已陆续演绎完毕，海外财报大部分落地，今日三星电子是存储链最后一块拼图。上证距底部钝化约20个点，科创50与创业板60/90分钟底部结构尚未确认——这两项之一落地前仓位不做跳跃式抬升。加仓标准：要么有独立催化，要么在超跌位置。
+  evidence_quote: 此前提到的三大见底信号——强势股补跌、多杀多、流动性见底，已陆续演绎完毕。上证若继续下探，距离形成底部钝化约20个点，而科创50与创业板的60/90分钟底部结构尚未确认，在这两项之一落地之前，仓位不做跳跃式抬升。落到具体纪律：要么有独立催化，要么处在超跌位置，两者都不具备的科技股今天不该进入加仓名单。
+  interpretation: UP更新了见底进程表：三大信号已过→条件逐步成熟→等最后确认。今日核心观察是三星财报（存储链最后一笔）和上证能否形成底部钝化（差20点）。操作纪律收紧而非放宽——所有条件满足前不做跳跃式加仓。同时给出新选股标准：要么有独立催化，要么在超跌位置，两者都不具备不加仓。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 三大见底信号
+  - 三星最后一拼图
+  - 底部钝化差20点
+  - 独立催化或超跌
+  - 不做跳跃加仓
+  topic: 三大见底信号已过，等上证钝化或双创底部结构→加仓标准：独立催化或超跌位置
+- id: claim-20260730-011
+  source_path: sources/original/bilibili/2026-07-30-0902-图片-隔夜的主变量不在财报里，而在美联储与中东。美股三大指数在议息.md
+  source_date: '2026-07-30'
+  source_type: 早盘
+  extracted_at: '2026-07-30T09:12:00+08:00'
+  claim_type: operation
+  subject: 今日跟踪三变量框架
+  timeframe: intraday
+  statement: 今日需要盯三个变量：一、三星完整财报DS部门细分与三季度价格谈判口径；二、低开后大金融是否再次托底；三、美国今日公布通胀数据影响9月加息定价。
+  evidence_quote: 今日需要盯的三个跟踪变量：一是三星完整财报的DS部门细分与三季度价格谈判口径；二是低开后大金融是否再次承担托底职能；三是美国将在今日（当地时间周四）公布最新通胀数据，这将直接影响9月加息定价。
+  interpretation: UP给出了简化的今日跟踪框架，从7/29的五项缩减为三项：三星财报（个股级但影响全局）、大金融托底（政策级）、美国通胀数据（宏观级）。优先级：三星
+    > 大金融 > 美国通胀。三星是今日最大的不确定性来源。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes:
+  - claim-20260729-036
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 三星财报
+  - 大金融托底
+  - 美国通胀9月加息
+  - 跟踪变量
+  topic: 今日跟踪三变量：三星财报>大金融托底>美国通胀数据
