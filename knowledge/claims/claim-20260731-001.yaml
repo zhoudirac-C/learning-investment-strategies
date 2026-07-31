@@ -1,0 +1,583 @@
+claims:
+- id: claim-20260731-001
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: sector-theme
+  subject: 微软财报解开AI估值绳索但非产业端
+  timeframe: trend
+  statement: 微软第四财季营收900.1亿美元同比增长18%，Azure同比增长43%创2022年初以来最高增速，资本开支维持1900亿美元指引未上修，并释放新财年正向自由现金流信号。压制全球AI链一个月之久的估值绳索被解开大半，但压制解除的是估值端而非产业端——产业端从来没有坏过。
+  evidence_quote: 隔夜微软以一份云加速＋资本开支不再上修＋自由现金流转正的财报，把压制全球AI链一个月之久的估值绳索解开了大半。但需要说清楚：压制解除的是估值端，不是产业端——产业端从来没有坏过。微软预计2026自然年资本支出为1900亿美元，与此前预期一致，微软由此成为第一家未上调资本开支指引的美股科技巨头。
+  interpretation: UP明确了本轮AI修复的定性：微软财报的关键不是增速多高，而是资本开支不再上修+自由现金流转正，直接拆掉了市场过去一个月最担心的估值叙事（资本开支无限扩张吞噬自由现金流）。同时强调产业基本面从未恶化，是估值修复而非逻辑修复。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/AI产业链
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 微软
+  - Azure
+  - 资本开支
+  - 自由现金流
+  - AI估值修复
+  topic: 微软财报解除AI估值压制但产业端从未坏过
+- id: claim-20260731-002
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: methodology
+  subject: 市值增量纪录与涨幅纪录口径区分
+  timeframe: permanent
+  statement: 微软单日市值增加约4500亿美元创美股史上最大单日市值增量纪录，但涨幅15.5%只是十八年以来最大而非历史纪录。两者混用会放大情绪，也会让人误判这轮修复的性质。
+  evidence_quote: 这里有一处口径需要厘清：创下历史纪录的是单日市值增量，而不是单日涨幅——涨幅口径只是十八年以来最大。两者混用会放大情绪，也会让人误判这轮修复的性质。
+  interpretation: UP展示了一个信息处理的严谨性案例：同一事件存在两个口径（市值增量纪录vs涨幅纪录），混用会导致情绪误判。这体现了UP在解读信息时的口径区分习惯，是信息验证的方法论示范。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/信息验证方法
+    cases: []
+  related_stocks: []
+  tags:
+  - 口径区分
+  - 市值增量
+  - 涨幅纪录
+  - 信息验证
+  - 情绪管理
+  topic: 市值增量纪录与涨幅纪录的口径区分避免情绪误判
+- id: claim-20260731-003
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: market-cycle
+  subject: 费城半导体终结五连跌存储大涨
+  timeframe: short-term
+  statement: 费城半导体指数涨超8%为2025年4月以来最大单日涨幅，终结日线五连跌；光通信、存储板块集体大涨，铠侠ADR涨近32%、闪迪涨约26%、美光涨超18%、SK海力士涨超17%，外围对A股科技的压制解除大半。
+  evidence_quote: 据格隆汇，费城半导体指数涨超8%，为2025年4月以来最大单日涨幅，终结日线五连跌；光通信、存储板块集体大涨，铠侠ADR涨近32%，闪迪涨约26%，美光科技涨超18%，SK海力士涨超17%。
+  interpretation: 微软财报直接催化海外半导体整体反弹，存储与光通信是最大受益方向。但UP同时提示外围解除得不均匀：受益的是云资本开支直接承接方（算力硬件、存储、光互联），受压的是消费电子与苹果链。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/AI产业链
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 费城半导体
+  - 存储
+  - 光通信
+  - 五连跌终结
+  - 微软催化
+  topic: 费城半导体暴涨终结五连跌，存储光通信领涨
+- id: claim-20260731-004
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: sector-theme
+  subject: 外围并非一边倒Meta苹果反向信息
+  timeframe: short-term
+  statement: 外围并非一边倒：Meta二季度自由现金流同比暴跌91%股价跌近8%，凸显AI布局财务压力；苹果盘后跌6%，因服务业务营收不及预期及芯片短缺担忧，而非单季销量问题。消费电子与苹果链是受压方向。
+  evidence_quote: 有两条反向信息必须与上面的涨幅并排摆着看。其一，Meta二季度自由现金流同比暴跌91%，凸显大规模AI布局带来的财务压力，股价大跌近8%。其二，苹果盘后公布财报，高毛利的服务业务营收307.4亿美元不及312.2亿美元的预期，市场担忧芯片短缺冲击后续营收，盘后股价下跌6%。
+  interpretation: UP强调不能只看微软的正面，Meta自由现金流暴跌与苹果服务业务不及预期说明AI利好传导并不均匀。消费电子/苹果链与算力硬件/存储是这轮修复的分化两端。苹果下跌归因是服务业务+芯片短缺而非销量，性质不同。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/AI产业链
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - Meta
+  - 苹果
+  - 自由现金流
+  - 消费电子
+  - 分化
+  topic: Meta自由现金流暴跌与苹果盘后下跌是反向信息
+- id: claim-20260731-005
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: methodology
+  subject: 高开普涨要警惕情绪定价非产业定价
+  timeframe: permanent
+  statement: 今日开盘若出现科技一片红的普涨式高开，反而要警惕，因为那是情绪定价而非产业定价。外盘传导只反映在开盘的那一下，开盘之后市场回归自身节奏。低开不可怕接不住才可怕；高开不可喜，冲高之后能不能横住才是关键。
+  evidence_quote: 今天开盘若出现科技一片红的普涨式高开，反而要警惕，因为那是情绪定价而非产业定价。外盘传导只反映在开盘的那一下，开盘之后市场回归自身节奏。低开不可怕，接不住才可怕；同理，高开不可喜，冲高之后能不能横住才是关键。
+  interpretation: UP延续一贯的外盘传导方法论：外围只影响开盘定价，盘中走势由A股自身资金与结构决定。普涨高开是情绪溢价，风险在于冲高回落；真正的确认要看高开后能否横住。这是对7/30早盘'外围传导看走势不看数字'的延伸。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/外盘传导分析
+    cases: []
+  related_stocks: []
+  tags:
+  - 高开警惕
+  - 情绪定价
+  - 外盘传导
+  - 冲高回落
+  - 开盘定价
+  topic: 普涨式高开是情绪定价，冲高后能否横住才是关键
+- id: claim-20260731-006
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: market-cycle
+  subject: 7月30日量能未失控是杠杆出清非恐慌
+  timeframe: intraday
+  statement: 7月30日两市成交约2.34万亿，在双创盘中一度跌近7%的极端跌幅下量能并未极致放大，说明抛压不是全面性恐慌出逃，而是结构性、集中在双创的杠杆出清。量能没有失控是今天可以往乐观一侧想的第一个理由。
+  evidence_quote: 两市合计约2.34万亿。在双创盘中一度跌近7%的极端跌幅下，量能并没有出现极致放大，这说明抛压不是全面性的恐慌出逃，而是结构性的、集中在双创的杠杆出清。量能没有失控，是今天可以往乐观一侧想的第一个理由。
+  interpretation: UP用量价关系判断抛压性质：极端跌幅+未放大量能=结构性杠杆出清而非全面恐慌。这个判断支撑了'做空力量释放进入尾声'的结论。下跌性质（杠杆出清vs基本面恶化）决定了后续是修复还是继续跌。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/大盘分析方法论
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 量能
+  - 杠杆出清
+  - 恐慌出逃
+  - 双创
+  - 2.34万亿
+  topic: 7月30日量能未失控说明抛压是结构性杠杆出清
+- id: claim-20260731-007
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: market-cycle
+  subject: 百合花四连跌停接近极限推演情绪回暖
+  timeframe: intraday
+  statement: 7月30日百合花(603823)四连跌停，而7月以来连续跌停的极限是五连（航天工程、合肥城建、宿迁连盛、晶华新材皆是如此）。理论上百合花只剩最后一跌，顺着这条线推演，现在大概率离市场情绪回暖不远了。
+  evidence_quote: 昨天百合花是四连跌停，而7月以来即便在最极端的17日与20日，连续跌停的极限也就是五连——航天工程、合肥城建、宿迁连盛、晶华新材皆是如此。换言之，理论上百合花也只剩最后一跌。顺着这条线推演，现在大概率离市场情绪回暖不远了。
+  interpretation: UP用连板跌停的极限经验值作为情绪底部的旁证：四连跌停距离历史极值五连只差一跌，意味着最恐慌的抛压接近耗尽。这是典型的情绪面量化方法——用极端数据的极限位置推断情绪拐点。标注为辅助观察，不作为交易依据。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/市场情绪识别
+    cases: []
+  related_stocks:
+  - code: '603823'
+    name: 百合花
+    role: 情绪面观察标的-主板可交易
+  tags:
+  - 百合花
+  - 四连跌停
+  - 情绪回暖
+  - 跌停极限
+  - 情绪指标
+  topic: 百合花四连跌停接近五连极限，情绪回暖临近
+- id: claim-20260731-008
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: market-cycle
+  subject: 做空力量释放进入尾声双创底部钝化
+  timeframe: short-term
+  statement: 双创60、90、120分钟底部钝化正在出现，做空力量的释放已经进入尾声。向下看90与120分钟能否形成底部结构，向上看3943点能否突破。
+  evidence_quote: 位置层面，关注的坐标没有变化：向下主要看90分钟与120分钟能否形成底部结构，向上看3943点能否突破。结合双创60、90、120分钟底部钝化正在出现这一事实，个人判断，做空力量的释放已经进入尾声。
+  interpretation: UP给出明确的周期判断：底部钝化出现=做空力量尾声。技术坐标双锚：向下看90/120分钟底部结构形成（回踩不破前低+量能配合），向上看3943突破。这是磨底阶段的精确位置框架。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/大盘分析方法论
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 底部钝化
+  - 底部结构
+  - '3943'
+  - 做空尾声
+  - 双创
+  topic: 双创底部钝化出现做空力量释放进入尾声
+- id: claim-20260731-009
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: operation
+  subject: 7月31日三种情形应对框架
+  timeframe: intraday
+  statement: 7月31日三种情形：情形A高开横住+双创90/120分钟底部结构形成→超跌反弹窗口成立，由防守转进攻，第一次回踩是介入位；情形B高开回落双创再跌但上证不创新低→最后一跌延续，继续做空性价比很低，越跌越往买方想；情形C上证跟随创新低→全部推演前提不成立，仓位必须回撤。
+  evidence_quote: 情形A：高开之后能横住，权重不失守，双创90与120分钟形成明确底部结构并有量能确认。这种情况下超跌反弹的窗口成立，短期策略可由防守转为进攻。情形B：高开冲高回落，量能跟不上，双创再度杀跌但上证依然不创新低。这属于最后一跌的延续，越跌越要往买方想。情形C：上证跟随双创创新低。这是唯一需要真正警惕的情形，仓位安排必须同步回撤。
+  interpretation: UP给出三种情形的完整应对框架，核心分界是上证是否创新低（情形A/B vs C）。A是右侧确认转进攻，B是等待但做空性价比已低，C是唯一需要减仓的情形。这是7/30三情形框架的延续，但这次明确加入了仓位响应。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 复盘/2026年7月31日
+    methodology_pages:
+    - 交易方法论/情景推演框架
+    cases: []
+  related_stocks: []
+  tags:
+  - 三情形
+  - 上证不创新低
+  - 防守转进攻
+  - 仓位回撤
+  - 情景推演
+  topic: 7月31日三情形框架以上证是否创新低为分界
+- id: claim-20260731-010
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: methodology
+  subject: 韩国KOSPI镜像读法看走势不看数字
+  timeframe: permanent
+  statement: 7月30日A股走势最像周三的韩国KOSPI：早盘加速下跌是部分资金逼近清盘线后的恐慌性卖出，午后探底回升由存储股带领。连去杠杆更剧烈的KOSPI都已开始止跌，叠加A股大资金适时出手，月底这一轮出清应该差不多了。读外围传导要看走势不看数字——一根从恐慌低点拉回来的K线，对情绪的意义等同于上涨。
+  evidence_quote: 昨天A股看似和韩国股市脱钩了，但如果要给昨天找一个模板，最相似的反倒是周三的韩国KOSPI指数。两者早盘的加速下跌，本质都是部分资金逼近清盘线之后的恐慌性卖出...如果上述类比成立，那么连去杠杆更为剧烈的KOSPI都已经开始止跌，叠加A股这边总会适时出手的大资金，月底这一轮出清应该差不多了。读外围传导要看走势不看数字。
+  interpretation: UP用韩国镜像类比判断A股出清进度：KOSPI去杠杆更剧烈且已止跌→A股出清也接近尾声。核心方法论重申：外围传导看走势形态（恐慌低点拉回）而非涨跌数字。德明利涨停被资金认可为止跌信号是内盘证据。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/外盘传导分析
+    cases: []
+  related_stocks: []
+  tags:
+  - KOSPI镜像
+  - 外围传导
+  - 走势不看数字
+  - 清盘线
+  - 出清尾声
+  topic: KOSPI镜像类比判断A股出清接近尾声
+- id: claim-20260731-011
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: sector-theme
+  subject: 科技反弹是止跌不是反转
+  timeframe: short-term
+  statement: 最近的行情确认科技股出清大概率还没结束，科技反弹是让科技止跌而不是反转。即使昨晚美股暴涨也最好不要有过高预期，后续科技内部分化会持续。除最后下跌的光模块与晶圆代工外，其余分支已进入跌不动或被动跟随的错杀状态，错杀部分短期大概率以急速上涨方式快速修复。
+  evidence_quote: 要把话说到位：科技的反弹，是让科技止跌，而不是反转。即使昨晚美股暴涨，也最好不要有过高预期。内部结构上，除最后下跌的光模块与晶圆代工外，其余分支已经进入跌不动、或被动跟随的错杀状态。错杀的部分短期大概率会以急速上涨的方式快速修复。
+  interpretation: UP对科技反弹的定性非常克制：止跌≠反转。这决定了操作方向——反弹后是减仓而不是加仓（除非确认反转）。同时给出科技内部结构：光模块与晶圆代工还在最后下跌，其余已进入错杀状态，错杀修复弹性大。这是对7/30'普涨反弹变局部反弹'判断的延续。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/科技产业链
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 止跌非反转
+  - 科技出清
+  - 错杀修复
+  - 光模块
+  - 晶圆代工
+  topic: 科技反弹是止跌不是反转，错杀修复先行
+- id: claim-20260731-012
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: sector-theme
+  subject: 存储线双身份优势与回购催化
+  timeframe: short-term
+  statement: 存储是昨晚外围最顺、昨天午后内盘带队回升的方向，双身份重叠构成最大优势。海外美光、西部数据、铠侠、SK海力士集体大涨，存储供应偏紧态势有望延续。国内兆易创新(603986)披露最高20亿元注销式回购预案+董事长增持计划，是本地催化。佰维存储(688525)、兆易创新(603986)是A股存储模组与利基存储代表标的。
+  evidence_quote: 这是昨晚外围最顺、昨天午后又是内盘带队回升的方向，两个身份重叠，构成它今天最大的优势。据中国证券报，7月29日晚间存储芯片龙头兆易创新披露最高20亿元注销式回购预案，董事长亦公布配套增持计划。佰维存储、兆易创新：为A股存储模组与利基存储的代表标的。
+  interpretation: UP给存储方向最高定位：内外盘双重身份重叠（外围最顺+内盘领涨），叠加兆易创新(603986)注销式回购+增持的本地催化。回购用于注销是比增持更强的信号（直接减少股本）。存储是今日两条操作腿之一。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/存储产业链
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '603986'
+    name: 兆易创新
+    role: 存储龙头-注销式回购催化-主板可交易
+  - code: '688525'
+    name: 佰维存储
+    role: 存储模组标的-科创板不可交易
+  tags:
+  - 存储
+  - 兆易创新
+  - 佰维存储
+  - 回购
+  - 双身份
+  topic: 存储双身份优势叠加兆易创新回购催化
+- id: claim-20260731-013
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: sector-theme
+  subject: 光模块CPO是错配位修复弹性大
+  timeframe: short-term
+  statement: CPO与端侧AI是昨天A股跌幅居前的方向，构成典型的'外围最强、内盘最弱'错配位。欧盟计划提供100亿欧元资助建立7个人工智能巨型工厂。错配位的修复弹性最大，但也最容易高开低走，参与它等于同时押注方向与节奏，比押注存储难一档。永鼎股份(600105)提供高速光互联解决方案，长飞光纤(601869)子公司博创科技整合长芯盛。
+  evidence_quote: 需要提醒的是，CPO与端侧AI恰恰是昨天A股跌幅居前的方向，构成典型的'外围最强、内盘最弱'错配位。错配位的修复弹性最大，但也最容易高开低走，参与它等于同时押注方向与节奏，比押注存储难一档。据银河证券观点，高速光模块有望持续受益于AI资本开支扩张，CPO技术成熟后产业链价值量向光芯片、光引擎和先进封装延伸。
+  interpretation: UP对光模块/CPO的定位是'弹性最大但最难参与'：外围强内盘弱的错配意味着修复空间大，但高开低走风险同样大，押注它等于同时赌方向和节奏。对比存储（内外盘共振）更难一档。欧盟AI巨型工厂计划是海外需求侧催化。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/AI产业链
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '600105'
+    name: 永鼎股份
+    role: 高速光互联解决方案-主板可交易
+  - code: '601869'
+    name: 长飞光纤
+    role: 光纤光缆龙头+博创科技整合-主板可交易
+  tags:
+  - CPO
+  - 光模块
+  - 错配位
+  - 永鼎股份
+  - 长飞光纤
+  topic: 光模块CPO错配位修复弹性大但参与难度高一档
+- id: claim-20260731-014
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: operation
+  subject: 消费电子苹果链今日回避
+  timeframe: intraday
+  statement: 苹果盘后跌超6%是今天唯一明确的反向信息，原因指向服务业务与芯片短缺预期而非单季销量。消费电子与苹果链方向今日倾向于回避而非参与，至少不应在开盘阶段用它来表达对科技回暖的看法。
+  evidence_quote: 苹果盘后跌超6%是今天唯一明确的反向信息，且原因指向服务业务与芯片短缺预期，而非单季销量。个人判断，该方向今日倾向于回避而非参与，至少不应在开盘阶段用它来表达对科技回暖的看法。
+  interpretation: UP明确回避消费电子/苹果链：外围苹果盘后大跌是反向压制，且A股该方向此前涨幅大、不满足超跌条件。这体现了'要么有催化要么超跌'的选股纪律——苹果链两者都不占。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/选股纪律
+    cases: []
+  related_stocks: []
+  tags:
+  - 苹果链
+  - 回避
+  - 服务业务
+  - 芯片短缺
+  - 消费电子
+  topic: 苹果链今日回避，服务业务与芯片短缺是反向压制
+- id: claim-20260731-015
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: sector-theme
+  subject: AI视频生成商业化关键节点
+  timeframe: trend
+  statement: 字节跳动视频生成大模型Seedance2.5即将上线，即梦已上线预热页面。多模态大模型已从降本增效工具进入商业化兑现关键节点，视频生成能力正成为模型厂商MaaS收入增长的重要抓手。建议关注模型方与版权内容方两条主线：上海电影(601595)与即梦AI开启AI+影视战略合作，引力传媒(603598)已在营销业务中大量应用即梦。
+  evidence_quote: 字节跳动旗下视频生成大模型Seedance2.5即将正式上线...多模态大模型已从降本增效工具进入商业化兑现关键节点，视频生成能力正成为模型厂商MaaS收入增长的重要抓手。上海电影：与即梦AI开启AI+影视战略合作。引力传媒：已在营销业务中大量应用包括即梦在内的外部AI工具。
+  interpretation: UP跟踪AI应用商业化落地：Seedance2.5是字节视频生成新版本，产业链映射是模型方（MaaS收入）+版权内容方（AI视频对高质量内容资产需求）。上海电影(601595)、引力传媒(603598)是A股映射标的。注：该条仍是媒体报道而非公司公告，不宜按已落地事件对待。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/AI产业链
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '601595'
+    name: 上海电影
+    role: AI+影视合作-主板可交易
+  - code: '603598'
+    name: 引力传媒
+    role: AI营销应用-主板可交易
+  tags:
+  - Seedance2.5
+  - 视频生成
+  - 即梦
+  - 上海电影
+  - 引力传媒
+  topic: Seedance2.5上线推动AI视频生成商业化兑现
+- id: claim-20260731-016
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: sector-theme
+  subject: AI教育卡位科技非科技切换缝隙
+  timeframe: trend
+  statement: AI教育同时具备非科技属性与AI催化，正好卡在科技与非科技切换的缝隙里，是少数在两种情形下都不至于两头挨打的方向。新东方预计2027财年净营收64.5-66.8亿美元同比增长14-18%，教育行业有望迎来政策边际改善、供给出清、需求释放的三维共振，投资逻辑从政策驱动转向业绩驱动。传智教育(003032)、学大教育(000526)为板块主要标的。
+  evidence_quote: 这条线今天的位置比较特殊：它同时具备非科技属性与AI催化，正好卡在科技与非科技切换的缝隙里，是少数在两种情形下都不至于两头挨打的方向。据国联民生证券观点，教育行业有望迎来政策边际改善、行业供给出清、行业需求释放的三维共振，行业投资逻辑已经从政策驱动转向业绩驱动。
+  interpretation: UP把AI教育定位为攻守兼备的过渡方向：非科技属性（防御）+AI催化（进攻）双重属性，在科技/非科技切换期两头不挨打。新东方强劲指引提供基本面锚。这是8月主线候选窗口的预演。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '003032'
+    name: 传智教育
+    role: 教育+具身智能培训-主板可交易
+  - code: '000526'
+    name: 学大教育
+    role: 教育板块标的-主板可交易
+  tags:
+  - AI教育
+  - 新东方
+  - 三维共振
+  - 传智教育
+  - 学大教育
+  topic: AI教育双属性卡位科技非科技切换缝隙
+- id: claim-20260731-017
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: operation
+  subject: 今日确认顺序三顺位
+  timeframe: intraday
+  statement: 今日确认顺序：第一顺位上证是否创新低（全部推演的前提，跌破直接切情形C）；第二顺位双创90与120分钟能否形成底部结构（回踩不破前低+量能配合，不见量价确认不追）；第三顺位存储与德明利的持续性（止跌信号能否延续到第二天，一日游则说明只是外盘映射）。辅助观察百合花最后一跌作为情绪旁证。
+  evidence_quote: 第一顺位·上证是否创新低：这是全部推演的前提。不破前低，后面两条才有意义；一旦跌破，直接切回情形C的处置。第二顺位·双创90与120分钟结构：看的是能否走出底部结构而非单纯的反抽。第三顺位·存储与德明利的持续性：昨天资金已经认可德明利涨停这个止跌信号，今天要看的是该信号能否延续到第二天。
+  interpretation: UP给出可执行的盘中确认序列：上证前提→双创结构→存储/德明利信号，顺序严格递进。德明利(001309)涨停的第二天延续性是内外盘传导是否被接住的关键验证。百合花跌停打开作为情绪旁证但不算交易依据。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 复盘/2026年7月31日
+    methodology_pages:
+    - 交易方法论/盘中确认顺序
+    cases: []
+  related_stocks:
+  - code: 001309
+    name: 德明利
+    role: 存储止跌信号标的-主板可交易
+  tags:
+  - 确认顺序
+  - 上证前提
+  - 底部结构
+  - 德明利
+  - 量价确认
+  topic: 今日确认顺序上证前提到双创结构到存储持续性
+- id: claim-20260731-018
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: operation
+  subject: 仓位适度放大至七成参与超跌反弹
+  timeframe: intraday
+  statement: 随着双创底部钝化出现，做空力量释放进入尾声，短期策略由防守转为进攻。个人预案倾向于将仓位适度放大至七成左右参与超跌反弹，前提是上证不创新低。若权重失守、上证跟随双创破位，仓位安排必须同步回撤。结构上两条腿：外围最顺的存储+错杀最深的超跌科技分支。
+  evidence_quote: 综合以上：随着双创60、90、120分钟底部钝化的出现，做空力量的释放进入尾声，短期策略由防守转为进攻。个人预案层面，倾向于将仓位适度放大至七成左右，参与超跌反弹。但这个预案是有前提的，前提就是上证不创新低。
+  interpretation: UP给出具体的仓位预案：由防守转进攻，仓位放大至七成，方向是存储+超跌科技两条腿。前提严格绑定上证不创新低，破位则同步回撤。这是磨底阶段右侧确认前的进攻性布局，与'不见量价确认不追'的纪律在情形A确认后衔接。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/仓位管理
+    cases: []
+  related_stocks: []
+  tags:
+  - 七成仓位
+  - 防守转进攻
+  - 超跌反弹
+  - 上证前提
+  - 存储
+  topic: 仓位放大至七成参与超跌反弹前提是上证不创新低
+- id: claim-20260731-019
+  source_path: sources/raw/财经/2026-07-31-早盘专栏-微软财报解开AI估值绳索.md
+  source_date: '2026-07-31'
+  source_type: 早盘
+  extracted_at: '2026-07-31T12:25:00+08:00'
+  claim_type: operation
+  subject: 止跌仓位与反转仓位加减逻辑区分
+  timeframe: permanent
+  statement: 这是一次给科技止跌的仓位，不是给科技反转的仓位。两者的差别不在买点，而在反弹之后是加还是减——若只是止跌，急速修复之后应当减；若确认反转，回踩之后才可以加。今天不必急于给出答案，把上证不创新低这个前提盯住。
+  evidence_quote: 最后重申一次分寸：这是一次给科技止跌的仓位，不是给科技反转的仓位。两者的差别不在买点，而在反弹之后是加还是减——若只是止跌，急速修复之后应当减；若确认反转，回踩之后才可以加。
+  interpretation: UP给出止跌仓与反转仓的区分方法论：买点相同，但卖出逻辑完全不同——止跌仓在急速修复后减仓，反转仓在回踩后加仓。这个框架解决了'反弹后如何处理'的问题，避免把止跌反弹误当反转持有。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/仓位管理
+    cases: []
+  related_stocks: []
+  tags:
+  - 止跌仓
+  - 反转仓
+  - 加减逻辑
+  - 急速修复减仓
+  - 回踩加仓
+  topic: 止跌仓位修复后减仓，反转仓位回踩后加仓
