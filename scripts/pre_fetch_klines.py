@@ -101,10 +101,30 @@ def _extract_stock_codes() -> list[str]:
     return sorted(codes)
 
 
+def _watchlist_codes() -> set[str]:
+    """提取 watchlist 的核心股票代码"""
+    watchlist = _load_yaml(CONFIG_PATH / "watchlist.yaml")
+    codes: set[str] = set()
+    for theme in watchlist.get("themes", []):
+        for stock in theme.get("stocks", []):
+            code = str(stock.get("code", "")).strip()
+            if code:
+                codes.add(code)
+    return codes
+
+
 # ── 核心逻辑 ──
 def main() -> int:
     # === 时区校验（云端关键）===
     now_cn = datetime.now(CN_TZ)
+    today_str = now_cn.strftime("%Y-%m-%d")
+
+    # === 缓存就绪检查：今天已预拉取过则跳过 ===
+    if not os.environ.get("FORCE_KLINE_FETCH"):
+        from qing_investment.kline_cache import is_cache_ready
+        if is_cache_ready(today_str):
+            print(f"[SKIP] {today_str} K线预拉取已完成，跳过（如需强制重跑设 FORCE_KLINE_FETCH=1）")
+            return 0
 
     # 有效执行窗口：开盘前 06:00-09:15 或收盘后 15:00-16:30（CST）
     hour, minute = now_cn.hour, now_cn.minute
@@ -136,6 +156,13 @@ def main() -> int:
         return 0
 
     print(f"[{now_cn.strftime('%H:%M')}] 预拉取 {total} 只标的日K线（{DAYS_TO_FETCH}日）...")
+
+    # ── 数量级警告 ──
+    if total > 100 and pre_open_window:
+        print(f"  ↪ 标的数 {total} 较多，仅拉取 watchlist 核心标的（约63只），其余按需触达")
+        codes = [c for c in codes if c in _watchlist_codes()]
+        total = len(codes)
+        print(f"  ↪ 调整后: {total} 只")
 
     # === 分批拉取 ===
     success_count = 0
