@@ -673,6 +673,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260310-001-a", "claim-20260709-004-a"]
+  last_discovered: 2026-07-31
   links:
     wiki_pages:
     - 市场分析/大盘分析方法论
@@ -701,7 +703,9 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260717-005-c"]
+  supplements: []
+  last_discovered: 2026-07-31
   links:
     wiki_pages:
     - 交易方法论/仓位管理
@@ -731,6 +735,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260608-003-a", "claim-20070621-001-c", "claim-20260623-004-a"]
+  last_discovered: 2026-07-31
   links:
     wiki_pages:
     - 交易方法论/仓位管理
@@ -760,6 +766,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260730-008"]
+  last_discovered: 2026-07-31
   links:
     wiki_pages:
     - 市场分析/软件AI产业链
@@ -792,6 +800,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-07-31
   links:
     wiki_pages:
     - 市场分析/软件AI产业链

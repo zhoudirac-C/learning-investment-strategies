@@ -45,8 +45,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260721-029"]
-  last_discovered: 2026-07-30
+  supplements: ["claim-20260623-004-a", "claim-20260518-014", "claim-20260426-006"]
+  last_discovered: 2026-07-31
   links:
     wiki_pages: []
     methodology_pages: []
@@ -74,9 +74,9 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260608-001-b"]
-  supplements: ["claim-20260703-001-c", "claim-20260713-009-i"]
-  last_discovered: 2026-07-30
+  contradicts: []
+  supplements: ["claim-20070531-001-a", "claim-20260713-015-o"]
+  last_discovered: 2026-07-31
   links:
     wiki_pages: []
     methodology_pages: []
@@ -105,7 +105,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260728-015", "claim-20260610-023-a", "claim-20260719-003"]
+  supplements:
+  - claim-20260728-015
+  - claim-20260610-023-a
+  - claim-20260719-003
   last_discovered: 2026-07-30
   links:
     wiki_pages: []
@@ -163,7 +166,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260729-004", "claim-20260728-015", "claim-20260702-002-f"]
+  supersedes:
+  - claim-20260729-004
+  - claim-20260728-015
+  - claim-20260702-002-f
   contradicts: []
   supplements: []
   last_discovered: 2026-07-30
@@ -193,8 +199,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260610-040-a"]
-  contradicts: ["claim-20260719-015", "claim-20260531-002-a"]
+  supersedes:
+  - claim-20260610-040-a
+  contradicts:
+  - claim-20260719-015
+  - claim-20260531-002-a
   supplements: []
   last_discovered: 2026-07-30
   links:
@@ -231,9 +240,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260616-005-g"]
+  supersedes:
+  - claim-20260616-005-g
   contradicts: []
-  supplements: ["claim-20260729-008"]
+  supplements:
+  - claim-20260729-008
   last_discovered: 2026-07-30
   links:
     wiki_pages: []
@@ -255,7 +266,7 @@ claims:
   - code: '600588'
     name: 用友网络
     role: AI应用企业服务-上海主板可交易
-  - code: '000815'
+  - code: 000815
     name: 美利云
     role: AI应用-深圳主板可交易
   tags:
@@ -315,9 +326,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260622-001-h", "claim-20260609-001-a"]
+  supersedes:
+  - claim-20260622-001-h
+  - claim-20260609-001-a
   contradicts: []
-  supplements: ["claim-20260719-005"]
+  supplements:
+  - claim-20260719-005
   last_discovered: 2026-07-30
   links:
     wiki_pages: []
@@ -341,12 +355,13 @@ claims:
   timeframe: intraday
   statement: 今日需要盯三个变量：一、三星完整财报DS部门细分与三季度价格谈判口径；二、低开后大金融是否再次托底；三、美国今日公布通胀数据影响9月加息定价。
   evidence_quote: 今日需要盯的三个跟踪变量：一是三星完整财报的DS部门细分与三季度价格谈判口径；二是低开后大金融是否再次承担托底职能；三是美国将在今日（当地时间周四）公布最新通胀数据，这将直接影响9月加息定价。
-  interpretation: UP给出了简化的今日跟踪框架，从7/29的五项缩减为三项：三星财报（个股级但影响全局）、大金融托底（政策级）、美国通胀数据（宏观级）。优先级：三星
-    > 大金融 > 美国通胀。三星是今日最大的不确定性来源。
+  interpretation: UP给出了简化的今日跟踪框架，从7/29的五项缩减为三项：三星财报（个股级但影响全局）、大金融托底（政策级）、美国通胀数据（宏观级）。优先级：三星 > 大金融 > 美国通胀。三星是今日最大的不确定性来源。
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260729-036", "claim-20260624-001-c"]
+  supersedes:
+  - claim-20260729-036
+  - claim-20260624-001-c
   contradicts: []
   supplements: []
   last_discovered: 2026-07-30
@@ -361,3 +376,65 @@ claims:
   - 美国通胀9月加息
   - 跟踪变量
   topic: 今日跟踪三变量：三星财报>大金融托底>美国通胀数据
+- id: claim-20260730-002
+  source_path: sources/raw/财经/2026-07-30-盘中动态-捡便宜筹码与仓位纪律.md
+  source_date: '2026-07-30'
+  source_type: 盘中动态
+  extracted_at: '2026-07-31T13:07:00+08:00'
+  claim_type: methodology
+  subject: 跌了才买的下手左侧买入逆人性纪律
+  timeframe: permanent
+  statement: 消费讲了很久了，跌的时候才买的下手，涨了怎么买？不被套能一直买吗？投资要买在别人不想要的时候，追涨是韭菜行为。就这两天了，意思是消费方向的机会就在当下低位窗口。
+  evidence_quote: 捡便宜的筹码不香吗？消费都讲了多久了，现在想起来去做消费，上点心，好好学习一下，能不能不要这么韭菜啊。对于很多人来讲，跌了才买的下手啊，涨了怎么买？不被套能一直买嘛？就这两天了。
+  interpretation: UP批评追涨行为，强调左侧买入纪律：好机会在下跌时出现，等涨起来再追就是韭菜。'就这两天了'表明他认为消费方向的低位买入窗口即将关闭，是时间敏感的提醒。这是对'低位赔率配置'方法论的重申，情绪化语气反映了对粉丝追涨行为的不满。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260623-004-a", "claim-20260518-014", "claim-20260426-006"]
+  last_discovered: 2026-07-31
+  links:
+    wiki_pages:
+    - 交易方法论/左侧交易
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 左侧买入
+  - 消费低位
+  - 逆人性
+  - 追涨警示
+  - 低位窗口
+  topic: 跌了才买的下手，追涨是韭菜行为
+- id: claim-20260730-003
+  source_path: sources/raw/财经/2026-07-30-盘中动态-捡便宜筹码与仓位纪律.md
+  source_date: '2026-07-30'
+  source_type: 盘中动态
+  extracted_at: '2026-07-31T13:07:00+08:00'
+  claim_type: methodology
+  subject: 一键满仓是仓位管理错误
+  timeframe: permanent
+  statement: 仓位提前已经打满的人，要琢磨一下哪里出问题，为什么要那么着急一键满仓。仓位管理应分批布局而非一次性打满，提前满仓说明入场时机和仓位规划都有问题。
+  evidence_quote: 至于仓位提前已经打满的，那你得琢磨一下哪里出问题，为什么要那么着急一键满仓。
+  interpretation: UP指出提前满仓是仓位管理缺陷：在磨底期应该分批建仓留有余地，一键满仓意味着既没有择时也没有仓位规划。这与'分批加仓原则'（如每次回调加仓、仓位上限管理）一脉相承，是仓位纪律的负面案例警示。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20070531-001-a", "claim-20260713-015-o"]
+  last_discovered: 2026-07-31
+  links:
+    wiki_pages:
+    - 交易方法论/仓位管理
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 仓位管理
+  - 一键满仓
+  - 分批建仓
+  - 满仓警示
+  - 磨底期
+  topic: 一键满仓是仓位管理错误应分批布局
