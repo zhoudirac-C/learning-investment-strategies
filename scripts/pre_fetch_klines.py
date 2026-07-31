@@ -164,6 +164,25 @@ def main() -> int:
         total = len(codes)
         print(f"  ↪ 调整后: {total} 只")
 
+    # ── TDX 连通性探测 ──
+    # TDX 服务器在电信/联通机房，腾讯云环境常连不上
+    # 提前测一次，连不上则跳过 TDX 直接走腾讯 API（每只省 ~15s 超时等待）
+    _tdx_available = True
+    try:
+        from qing_investment.tdx_market import TdxClient, TdxMarket
+        # 创建一个短超时客户端（3s 而非默认 15s），快速失败
+        probe_client = TdxClient(connect_timeout=3.0, max_attempts=2)
+        probe_mkt = TdxMarket(client=probe_client)
+        probe_result = probe_mkt.get_kline("600519", category="daily", count=5)
+        if not probe_result:
+            print("  ⚠️ TDX 探测：连上但无数据 → 标记不可用")
+            _tdx_available = False
+        else:
+            print(f"  ✅ TDX 探测成功（{probe_result[-1].get('date','?')} 数据）")
+    except Exception as e:
+        print(f"  ⚠️ TDX 不可用（{e!r}）→ 跳过 TDX 直接走腾讯 API")
+        _tdx_available = False
+
     # === 分批拉取 ===
     success_count = 0
     fail_count = 0
@@ -181,7 +200,17 @@ def main() -> int:
             # 重试循环
             for attempt in range(1, MAX_RETRIES + 1):
                 try:
-                    klines = fetch_stock_kline(code, days=DAYS_TO_FETCH, force_refresh=True)
+                    if _tdx_available:
+                        klines = fetch_stock_kline(code, days=DAYS_TO_FETCH, force_refresh=True)
+                    else:
+                        # TDX 不可用，跳过 TDX 直接走腾讯 → 东财降级
+                        from qing_investment.agent.tools.stock_data import (
+                            fetch_stock_kline_tencent,
+                            fetch_stock_kline_eastmoney,
+                        )
+                        klines = fetch_stock_kline_tencent(code, days=DAYS_TO_FETCH)
+                        if not klines:
+                            klines = fetch_stock_kline_eastmoney(code, days=DAYS_TO_FETCH)
                     break
                 except Exception as e:
                     last_error = str(e)
