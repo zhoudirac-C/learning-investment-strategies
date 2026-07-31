@@ -13,9 +13,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260723-035"]
+  supersedes:
+  - claim-20260723-035
   contradicts: []
-  supplements: ["claim-20260723-002", "claim-20260624-001-e"]
+  supplements:
+  - claim-20260723-002
+  - claim-20260624-001-e
   last_discovered: 2026-07-31
   links:
     wiki_pages:
@@ -75,8 +78,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260715-007-a"]
-  contradicts: ["claim-20260702-002-a", "claim-20260714-001-k"]
+  supersedes:
+  - claim-20260715-007-a
+  contradicts:
+  - claim-20260702-002-a
+  - claim-20260714-001-k
   supplements: []
   last_discovered: 2026-07-31
   links:
@@ -108,7 +114,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-005-f", "claim-20260602-003-c"]
+  supplements:
+  - claim-20260702-005-f
+  - claim-20260602-003-c
   last_discovered: 2026-07-31
   links:
     wiki_pages:
@@ -139,7 +147,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260703-001-f", "claim-20260622-001-h", "claim-20260708-002-p"]
+  supplements:
+  - claim-20260703-001-f
+  - claim-20260622-001-h
+  - claim-20260708-002-p
   last_discovered: 2026-07-31
   links:
     wiki_pages: []
@@ -170,7 +181,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-003", "claim-20260721-016"]
+  supplements:
+  - claim-20260729-003
+  - claim-20260721-016
   last_discovered: 2026-07-31
   links:
     wiki_pages:
@@ -200,8 +213,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260721-007"]
-  supplements: ["claim-20260721-012"]
+  contradicts:
+  - claim-20260721-007
+  supplements:
+  - claim-20260721-012
   last_discovered: 2026-07-31
   links:
     wiki_pages: []
@@ -235,7 +250,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-002-c", "claim-20260202-001-a", "claim-20260212-001-a"]
+  supplements:
+  - claim-20260624-002-c
+  - claim-20260202-001-a
+  - claim-20260212-001-a
   last_discovered: 2026-07-31
   links:
     wiki_pages:
@@ -264,7 +282,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260729-004", "claim-20260730-006", "claim-20260728-015"]
+  supersedes:
+  - claim-20260729-004
+  - claim-20260730-006
+  - claim-20260728-015
   contradicts: []
   supplements: []
   last_discovered: 2026-07-31
@@ -296,9 +317,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260730-005"]
+  supersedes:
+  - claim-20260730-005
   contradicts: []
-  supplements: ["claim-20260625-001-b"]
+  supplements:
+  - claim-20260625-001-b
   last_discovered: 2026-07-31
   links:
     wiki_pages: []
@@ -328,8 +351,11 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260707-007-a", "claim-20260722-004"]
-  supplements: ["claim-20260622-001-h"]
+  contradicts:
+  - claim-20260707-007-a
+  - claim-20260722-004
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-07-31
   links:
     wiki_pages:
@@ -360,7 +386,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-047-v", "claim-20260728-011", "claim-20260625-003-t"]
+  supplements:
+  - claim-20260617-047-v
+  - claim-20260728-011
+  - claim-20260625-003-t
   last_discovered: 2026-07-31
   links:
     wiki_pages:
@@ -397,7 +426,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-042-a"]
+  supplements:
+  - claim-20260610-042-a
   last_discovered: 2026-07-31
   links:
     wiki_pages:
@@ -434,7 +464,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-001"]
+  supplements:
+  - claim-20260729-001
   last_discovered: 2026-07-31
   links:
     wiki_pages: []
@@ -465,7 +496,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-e", "claim-20260607-003-d"]
+  supplements:
+  - claim-20260609-005-e
+  - claim-20260607-003-d
   last_discovered: 2026-07-31
   links:
     wiki_pages:
@@ -538,7 +571,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260326-001-a", "claim-20260614-014-p", "claim-20260324-001-a"]
+  supplements:
+  - claim-20260326-001-a
+  - claim-20260614-014-p
+  - claim-20260324-001-a
   last_discovered: 2026-07-31
   links:
     wiki_pages:
@@ -571,9 +607,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260608-001-a"]
+  supersedes:
+  - claim-20260608-001-a
   contradicts: []
-  supplements: ["claim-20260703-001-j"]
+  supplements:
+  - claim-20260703-001-j
   last_discovered: 2026-07-31
   links:
     wiki_pages: []
@@ -619,3 +657,154 @@ claims:
   - 急速修复减仓
   - 回踩加仓
   topic: 止跌仓位修复后减仓，反转仓位回踩后加仓
+- id: claim-20260731-020
+  source_path: sources/raw/财经/2026-07-31-盘中三条动态-科创结构加仓-留余地-观察池.md
+  source_date: '2026-07-31'
+  source_type: 盘中动态
+  extracted_at: '2026-07-31T13:10:00+08:00'
+  claim_type: market-cycle
+  subject: 科创底部结构形成反弹6-8交易日
+  timeframe: short-term
+  statement: 科创60/90分钟底部结构若今天形成，理论反弹时间是6-8个交易日，今天是第一天。这期间不一定每天都是红的，这是一段趋势而非单日行情。
+  evidence_quote: 科创60.90分钟底部结构今天形成的话，理论反弹时间是6-8个交易日，今天是第一天。需要注意，这期间不一定每天都是红的，这是一段趋势。
+  interpretation: UP给出科创底部结构形成后的反弹持续时间框架：6-8个交易日，并提示反弹是趋势过程而非连续红盘，中间会有调整日。这为'反弹窗口'提供了量化时间锚，是7/31早盘'双创90/120分钟底部结构'判断的盘中确认推进——60/90分钟结构先行形成。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/大盘分析方法论
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 科创50
+  - 底部结构
+  - 反弹窗口
+  - 6-8交易日
+  - 趋势反弹
+  topic: 科创底部结构形成后理论反弹6-8个交易日
+- id: claim-20260731-021
+  source_path: sources/raw/财经/2026-07-31-盘中三条动态-科创结构加仓-留余地-观察池.md
+  source_date: '2026-07-31'
+  source_type: 盘中动态
+  extracted_at: '2026-07-31T13:10:00+08:00'
+  claim_type: operation
+  subject: 今天找机会加仓留资金防周一低开
+  timeframe: intraday
+  statement: 今天可以找机会加仓，有些国产方向之前有机会但时机不对，这一次应该都会有表现。但需给自己留一部分资金，以防周一低开，可以再加一笔。
+  evidence_quote: 今天可以找机会加仓，有些国产我认为还可以做前段时间有机会，但是时机不对的，这一次应该都会有表现。给自己留一部分资金，以防周一低开，可以再加一笔。
+  interpretation: UP给出具体的加仓操作指引：今天（底部结构形成日）是加仓时机，但仓位要留有余地应对周一可能的低开——即分批建仓而非一次打满。'有些国产'指国产算力/国产替代方向，之前没上车的机会这次反弹都会有表现。这是7/31早盘'仓位放大至七成'预案的盘中执行细化。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 交易方法论/仓位管理
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 加仓时机
+  - 留资金
+  - 周一低开
+  - 国产算力
+  - 分批建仓
+  topic: 底部结构日加仓但要留资金防周一低开
+- id: claim-20260731-022
+  source_path: sources/raw/财经/2026-07-31-盘中三条动态-科创结构加仓-留余地-观察池.md
+  source_date: '2026-07-31'
+  source_type: 盘中动态
+  extracted_at: '2026-07-31T13:10:00+08:00'
+  claim_type: methodology
+  subject: A股不要赌不要上头凡事留余地
+  timeframe: permanent
+  statement: 在A股不要赌、不要上头，因为市场就是要割你的，做交易凡事都要给自己留点余地。机构砸盘是这两天大跌的原因，但应对方式是纪律而非情绪。
+  evidence_quote: 在A股，干嘛都不要去赌，不要上头，因为就是要割你的，做交易凡事都要给自己留点余地。大家好好学，我会把你们培养出人形量化，专门卖给这群傻逼机构。
+  interpretation: UP情绪化吐槽机构砸盘，但核心纪律不变：不赌、不上头、凡事留余地。后半句'培养人形量化'是UP的自我定位——用量化纪律对抗机构行为。这条动态的价值在于情绪释放中重申了'留余地'仓位纪律，与'仓位提前打满要反思'一脉相承。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 交易方法论/仓位管理
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 留余地
+  - 不赌
+  - 不上头
+  - 量化纪律
+  - 机构行为
+  topic: A股不赌不上头凡事留余地是核心纪律
+- id: claim-20260731-023
+  source_path: sources/raw/财经/2026-07-31-盘中三条动态-科创结构加仓-留余地-观察池.md
+  source_date: '2026-07-31'
+  source_type: 盘中动态
+  extracted_at: '2026-07-31T13:10:00+08:00'
+  claim_type: stock-view
+  subject: 浪潮软件政务AI Tier1标的
+  timeframe: short-term
+  statement: 浪潮软件(600756)是观察池Tier1标的（软件-政务AI），节点8月业绩披露期，技术核实7/30收盘15.67元、MA10+7.1%/MA20+11.4%连涨中。触发条件：软件板块≥2只涨停+浪潮率先突破；盘中信号9:30-10:00板块联动；仓位上限核心15-20%。
+  evidence_quote: 浪潮软件600756，行业：软件-政务AI，节点：8月业绩披露期，技术核实：7/30收盘15.67，MA10+7.1%/MA20+11.4%，连涨。触发条件：软件≥2只涨停+浪潮率先突破。盘中信号：9:30-10:00板块联动。仓位上限：核心15-20%。
+  interpretation: 这是UP观察池截图（OCR识别），浪潮软件因政务AI方向+8月业绩披露节点+站上均线技术形态被列为Tier1。触发条件是板块联动（≥2只涨停）而非个股独立信号，仓位上限15-20%。注意：观察池为盘后22:00生成，图中'青哥点名'指UP本人此前已关注该方向。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/软件AI产业链
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '600756'
+    name: 浪潮软件
+    role: 政务AI-Tier1观察池-主板可交易
+  tags:
+  - 浪潮软件
+  - 政务AI
+  - 观察池
+  - Tier1
+  - 8月业绩披露
+  topic: 浪潮软件政务AI观察池Tier1
+- id: claim-20260731-024
+  source_path: sources/raw/财经/2026-07-31-盘中三条动态-科创结构加仓-留余地-观察池.md
+  source_date: '2026-07-31'
+  source_type: 盘中动态
+  extracted_at: '2026-07-31T13:10:00+08:00'
+  claim_type: stock-view
+  subject: 久其软件报表软件Tier2联动标的
+  timeframe: short-term
+  statement: 久其软件(002279)是观察池Tier2标的（软件-报表），技术核实7/30收盘6.80元、MA10+12.0%连涨中。触发条件：浪潮软件涨停+久其跟涨>5%；盘中信号9:30-10:00跟随浪潮；仓位上限核心15%。
+  evidence_quote: 久其软件002279，行业：软件-报表，节点：8月业绩披露期，技术核实：7/30收盘6.80，MA10+12.0%，连涨。触发条件：浪潮涨停+久其跟涨>5%。盘中信号：9:30-10:00跟随浪潮。仓位上限：核心15%。
+  interpretation: 久其软件是浪潮软件的联动标的（Tier2），触发条件绑定浪潮涨停+自身跟涨>5%，属于板块共振确认后的跟随买点。与浪潮软件构成'龙头-跟随'的联动观察组合，同一8月业绩披露节点逻辑。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/软件AI产业链
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: 002279
+    name: 久其软件
+    role: 报表软件-Tier2联动标的-主板可交易
+  tags:
+  - 久其软件
+  - 报表软件
+  - Tier2
+  - 联动标的
+  - 浪潮软件联动
+  topic: 久其软件报表软件观察池Tier2联动标的
