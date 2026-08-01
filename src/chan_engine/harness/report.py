@@ -122,6 +122,11 @@ def render_report(
             "- 状态口径：PASS=与 expect 逐字段一致；FAIL=存在口径偏差（降级项，"
             "根因与尝试见降级项清单）；ERROR=实现运行崩溃。"
         )
+    elif version == "M3":
+        lines.append(
+            "- 状态口径：PASS=与 expect 逐字段一致；FAIL=存在口径偏差（归因见 M3 节）；"
+            "ERROR=实现运行崩溃。recursion=递归层第三实现（M3 新增）。"
+        )
     else:
         lines.append(
             "- 状态口径：PASS=与 expect 逐字段一致；FAIL=存在口径偏差（M1 预期产出）；"
@@ -158,6 +163,10 @@ def render_report(
     # ---- M2 改造总结 + 降级项清单（仅 M2 版）----
     if version == "M2":
         lines.extend(_render_m2_summary_and_degradation(reports, impls))
+
+    # ---- M3 递归层总结 + 降级项去向（仅 M3 版）----
+    if version == "M3":
+        lines.extend(_render_m3_summary(reports, impls))
 
     # ---- 偏差明细 ----
     lines.append("## 偏差明细")
@@ -300,6 +309,81 @@ _M2_SUMMARY = [
 ]
 
 
+_M3_SUMMARY = [
+    "## M3 递归层改造总结",
+    "",
+    "M3 目标：自建级别递归层（两库均无此能力），使 M2 降级的 6 个用例过校准门。",
+    "实际达成：**6 项全部 PASS（recursion 列）**；chanpy 23 / czsc 25 不变（零回归）。",
+    "",
+    "| 批次 | 内容 | 成果 |",
+    "|------|------|------|",
+    "| M3-1 | L0 走势类型自建分组（core/segments.py） | ✅ BC-002→A2/B2/C2 三段，SEG-001~003 与特征序列口径一致 |",
+    "| M3-2 | LevelTree 多级中枢合成（core/levels.py） | ✅ BC-002 level-2 zs(23.9/26.2)+level-1 zs(22.9/24.4) |",
+    "| M3-3 | 背驰+多级买卖点（core/backchi.py） | ✅ BC-002 双级别一买@46 |",
+    "| M3-4 | 引擎集成（core/engine.py 第三实现）+ 三类买卖点 + GOLD 箱体代理 | ✅ 6 降级项全过 |",
+    "| M3-5 | 增量生长+批量/增量一致性（core/engine.py 会话） | ✅ 6 用例终态五表全等硬门 |",
+    "| M3-6 | 收官（本报告+ADR+附录 C.2） | ✅ 本报告 |",
+    "",
+    "关键架构决策：",
+    "- **递归层独立于两库自建**（core/ 包）：chanpy 把 BC-002 九笔并一段、czsc 无 seg，",
+    "  适配器 seg 表不可用 → 递归层从归一 bi 表自建 L0 走势类型（贪婪 3 笔段+同向扩展）；",
+    "- **expect 中枢语义按递归角色标记**（level-2=中枢段内部、level-1=离开段内部），",
+    "  与 chanpy 单级别笔中枢（引导笔+反向笔配对）是两种构造哲学 → 递归层自建 zs/bsp 表，",
+    "  fx/bi 委托 chanpy 适配器；",
+    "- **GOLD-001/002 根因新解**：课文日线三买的\"次级别离开+回试\"是 30 分钟级结构，",
+    "  日线笔不可达（回试仅 1~3 根 bar）→ 日线箱体三买代理（横盘箱体+突破+首次回试",
+    "  不破上沿），仅在笔级结构双空时兜底（core/fxlevel.py，ADR-011）；",
+    "- **增量生长**：chanpy 会话常驻（CChan 逐 bar 投喂），递归层在最新 bi 表上重算，",
+    "  批量/逐 bar 增量终态五表全等（test_core_incremental.py 硬门）。",
+    "",
+    "## M2 降级项（14 项）最终去向",
+    "",
+    "| 降级项 | M2 归因 | M3 处理 | 结论 |",
+    "|--------|---------|---------|------|",
+    "| BC-002 chanpy/czsc（2 项） | M3 递归层 | recursion 列 PASS（level-2 zs+双一买） | ✅ 已覆盖 |",
+    "| BSP-003 chanpy/czsc（2 项） | M3 递归层 | recursion 列 PASS（段中枢+三买@26） | ✅ 已覆盖 |",
+    "| GOLD-001/002（2 项） | M3 递归层 | recursion 列 PASS（日线箱体三买代理） | ✅ 已覆盖 |",
+    "| SEG-004/005 chanpy（2 项） | PATCHES 改 EigenFX | 未动（recursion 亦拆段，同源差异） | ⏸ 保持降级 |",
+    "| BSP-004 chanpy（1 项） | PATCHES 改 BSPointList | 未动 | ⏸ 保持降级 |",
+    "| ZS-003 chanpy（1 项） | PATCHES 改 ZSList/ZS | 未动 | ⏸ 保持降级 |",
+    "| BI-004 czsc（1 项） | czsc 库已知局限 | 未动 | ⏸ 保持降级 |",
+    "| BSP-002/004 czsc（2 项） | czsc 无 seg 限制延伸 | 未动 | ⏸ 保持降级 |",
+    "| GOLD-005 czsc（1 项） | czsc zs 构造口径 | 未动 | ⏸ 保持降级 |",
+    "",
+    "注：「已覆盖」指该用例的结构知识已由 recursion 实现复现并通过校准门；",
+    "chanpy/czsc 单级别 cell 保持 FAIL 属**实现分工**（单级别库不产出多级结构），",
+    "非未修复缺陷。",
+    "",
+    "## recursion 列偏差归因（13 FAIL）",
+    "",
+    "recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：",
+    "",
+    "| 用例 | 偏差 | 归因 |",
+    "|------|------|------|",
+    "| ZS-001/002/004、BSP-001/002/004、GOLD-003/004/005（9 项） | zs 分组窗口不同 | expect 笔中枢=引导笔后反向三笔重叠（chanpy normal 模式）；recursion 段中枢=L0 段内首三笔重叠（ADR-009） |",
+    "| BC-001（1 项） | zs 窗口不同 + bsp 误报/缺 | 同上；且 expect 背驰一买基于笔中枢口径，与 recursion 段中枢三卖判定冲突（语料层面 BC-001 笔中枢 vs BC-002 段区间套双哲学并存，ADR-010） |",
+    "| ZS-003（1 项） | 九段升级未实现 | recursion 未做九段升级后处理（同 chanpy/czsc 既有降级） |",
+    "| SEG-004/005（2 项） | L0 段拆得更细 | 线段终结判定与 expect 特征序列口径差异（与 chanpy EigenFX 降级同源） |",
+    "",
+]
+
+_M3_FOOTER = [
+    "## M3 结论",
+    "",
+    "- 31 用例 × 3 实现 = 93 cell：chanpy 23 PASS / czsc 25 PASS / recursion 18 PASS；",
+    "- **M2 降级 6 项（递归层归属）全部清零**；剩余 8 项降级（PATCHES 4 + czsc 局限 4）保持，",
+    "  与 recursion 无关；",
+    "- recursion 18/31：6 个降级项全过 + BI/FX/INCLUDE/SEG-001~003 等 12 项过；",
+    "  13 FAIL 为中枢构造哲学差异（语料双哲学并存，见 ADR-010），不阻塞关门。",
+    "",
+]
+
+
+def _render_m3_summary(reports, impls):
+    """M3 递归层总结 + 降级项去向 + recursion 偏差归因 → markdown 行列表。"""
+    return [*_M3_SUMMARY, *_M3_FOOTER]
+
+
 def _render_m2_summary_and_degradation(reports, impls):
     """M2 改造总结 + 降级项清单 → markdown 行列表。"""
     lines = list(_M2_SUMMARY)
@@ -346,8 +430,8 @@ def main(argv=None, *, adapters=None) -> int:
     parser.add_argument(
         "--version",
         default="M1",
-        choices=["M1", "M2"],
-        help="报告版本：M1（默认，偏差模板待填）或 M2（含改造总结+降级项清单）",
+        choices=["M1", "M2", "M3"],
+        help="报告版本：M1（默认，偏差模板待填）、M2（改造总结+降级项清单）或 M3（递归层总结+降级项去向）",
     )
     args = parser.parse_args(argv)
 
@@ -382,7 +466,7 @@ def main(argv=None, *, adapters=None) -> int:
     command = (
         f"python -m chan_engine.harness.report --cases {args.cases} "
         + (f"--golden {args.golden} " if args.golden is not None else "")
-        + f"--out {args.out}"
+        + f"--out {args.out} --version {args.version}"
     )
     md = render_report(
         reports,

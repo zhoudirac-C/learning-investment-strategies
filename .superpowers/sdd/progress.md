@@ -32,4 +32,10 @@ M3 递归层 (plan: docs/superpowers/plans/2026-07-29-chanlun-quant-m3-level-rec
   - M3-2: done (core/levels.py — LevelTree 递归合成 level-2 中枢 + 通用 3×L_N→L_{N+1}; BC-002 level-2 zs(23.9/26.2,16→31)+level-1 zs(22.9/24.4,31→46); TDD 纠出 bar36 低点手算误读(实际 22.9 非 23.06), expect 正确无需改; 11/11 通过)
   - M3-3: done (core/backchi.py — 面积代理 Σ|Δc| 背驰 + 多级买卖点; BC-002 level-2 进入A2(10.84)vs离开C2(6.04)背驰, 一买 idx=46 level=1+2 双条; 4/4 通过)
   - 测试结果: 全量 183 passed (168+15), 无回归
-  - 未完成(下次继续): M3-4 engine 集成(core/engine.py)+接入校准矩阵重验 6 降级项(BC-002×2/BSP-003×2/GOLD-001/002, 需先解决"递归层不破坏 ZS-001 等单级别用例"的集成方式) / M3-5 增量生长+批量增量一致性 / M3-6 收官报告+ADR+progress
+  - M3-4: done 2026-08-01 (core/engine.py RecursionEngine 第三实现接入校准矩阵; levels.py 抽 find_trend_patterns+synthesize_standalone_zs; backchi.py 加 detect_third_type_bsp 笔级三类买卖点; fxlevel.py 日线箱体三买代理)
+  - 验收: BC-002/BSP-003/GOLD-001/GOLD-002 recursion 列全部 PASS（M2 降级 6 项清零）; chanpy 23/czsc 25 不变零回归; recursion 18/31（13 FAIL=中枢构造哲学差异, ADR-010 归因）
+  - GOLD-001/002 根因新解: 课文日线三买的次级别是 30 分钟结构, 日线笔/分型均不可达 → 箱体代理(横盘≥15bar+收盘破箱顶+首次回试不破→三买落回试最低低点bar), 仅笔级双空时兜底（ADR-011）
+  - M3-5: done 2026-08-01 (ChanPySession/RecursionSession 增量会话; 6 用例批量 vs 逐bar增量终态五表全等硬门; is_sure 透传+增量生长测试)
+  - M3-6: done 2026-08-01 (重生成 chanlun-calibration-report.md M3 版 --version M3; ADR-009 L0分组/ADR-010 双哲学/ADR-011 箱体代理; 附录 C.2 level≥2 语义+C.5 刷新; task-m3-report.md)
+  - 最终: chanpy 23 + czsc 25 + recursion 18（93 cell）; M2 降级 14 项: 6 项 recursion 覆盖✅, 8 项保持⏸(PATCHES 4 + czsc 局限 4); 198 测试全绿
+  - 待 UP: ADR-009~011 待 UP 确认; M3 评审门待过

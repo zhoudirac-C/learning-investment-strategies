@@ -278,8 +278,10 @@ ticks/bars → 分型 → 笔 → 线段(L0 走势类型)
 - **九段升级**（ZS-003）：连续 9 段重叠 → `level=2`，zd/zg = 3 个子中枢（bi1-3/bi4-6/bi7-9）的重合区间
   - chanpy：受 seg 切分限制未实现跨 seg 九段升级，M2-3 P-K 已知偏差
   - czsc：`_recompute_zs` 暂不实现，M2-3 P-K 已知偏差
-- **中枢嵌套/区间套**（BC-002）：大级别 `level=2`（笔按线段分组）、次级别 `level=1`
-  - czsc 不产出线段，无法构造 `level=2`，M2-3 P-K 已知偏差
+- **中枢嵌套/区间套**（BC-002，M3 递归层已实现）：`level` 标记中枢在递归中扮演的**角色**——
+  - `level=2`：L0 三件套（进入段+中枢段+离开段）中**中枢段**的内部三笔重叠（BC-002：B2=bi3-5 → [23.9, 26.2]）；
+  - `level=1`：**离开段**的内部三笔重叠（区间套次级别，BC-002：C2=bi6-8 → [22.9, 24.4]）；未被三件套消费的独立已确认段内部重叠亦为 `level=1`（BSP-003：bi0-2 → [11.4, 14.0]）；
+  - 由 `src/chan_engine/core/`（M3 递归层第三实现）产出；chanpy/czsc 单级别实现不产出 `level≥2`（实现分工，见 ADR-010）。
 
 ### C.3 fx 表构造口径
 
@@ -291,16 +293,19 @@ ticks/bars → 分型 → 笔 → 线段(L0 走势类型)
 - **chanpy**：`zs_algo=normal` 模式，在 seg 内部对反向笔构造（连续 2 反向笔重叠确立），seg 切分限制延伸范围。
 - **czsc**：`_recompute_zs` 按 chanpy normal 模式口径重算（引导笔定向 + 反向笔配对 + 严格重叠延伸），末位笔（sure=False）不参与延伸；无 seg 算法，BSP-002/004 等"已确认反向笔 in_range 但 expect 不延伸"的用例为已知偏差。
 
-### C.5 已知偏差清单（M2-5 登记，待 M2-6/M3 处理）
+### C.5 已知偏差清单（M3 收官刷新，2026-08-01）
 
-| 用例 | 实现 | 偏差 | 根因 | 归属 |
+| 用例 | 实现 | 偏差 | 根因 | 状态（M3） |
 |------|------|------|------|------|
-| GOLD-001/002 | chanpy | bsp 缺 | 真实日线笔太少（1-3 笔）无 zs 无 bsp | P-H 专项 |
-| GOLD-003/005 | chanpy | 误一买不报三买 | 走势方向判断与 expect 不同 | P-H 专项 |
-| BI-004 | czsc | fx 多余 + bi 缺 | czsc 不成笔（bi_list 空），库行为差异 | P-J 专项 |
-| ZS-003 | 两实现 | 无九段升级 | chanpy seg 限制 / czsc 未实现 | P-K 专项 |
-| BC-002 | 两实现 | 无 level=2 | czsc 无线段 / chanpy zs level 未升级 | P-K 专项 |
-| BSP-003/004 | chanpy | bsp 缺 | bsp 配置/算法未检出三买 | P-K 专项 |
-| SEG-004/005 | chanpy | seg 拆段过细 | seg 算法特征序列分型口径差异 | P-F 专项 |
-| BSP-002/004 | czsc | zs 延伸过度 | czsc 无 seg 算法限制延伸 | 已知局限 |
-| BSP-003/GOLD-005 | czsc | zs 构造差异 | czsc 无 seg，zs 构造口径偏差 | P-K/P-H |
+| GOLD-001/002 | chanpy | bsp 缺 | 真实日线笔太少（1-3 笔）无 zs 无 bsp | ✅ recursion 箱体代理覆盖（ADR-011） |
+| GOLD-003/005 | chanpy | 误一买不报三买 | 走势方向判断与 expect 不同 | ⏸ 保持（PATCHES P-H） |
+| BI-004 | czsc | fx 多余 + bi 缺 | czsc 不成笔（bi_list 空），库行为差异 | ⏸ 保持（P-J） |
+| ZS-003 | 两实现 | 无九段升级 | chanpy seg 限制 / czsc 未实现 | ⏸ 保持（PATCHES P-K；recursion 亦未做） |
+| BC-002 | 两实现 | 无 level=2 | 单级别库不产出多级结构 | ✅ recursion 覆盖（level-2 zs+双一买） |
+| BSP-003 | 两实现 | bsp 缺 | 单级别库走势类型判定缺 | ✅ recursion 覆盖（段中枢+三买@26） |
+| BSP-004 | chanpy | 三买缺（二三类重合） | chanpy 三买判定不覆盖 | ⏸ 保持（PATCHES P-K） |
+| SEG-004/005 | chanpy | seg 拆段过细 | seg 算法特征序列分型口径差异 | ⏸ 保持（PATCHES P-F；recursion 同源差异） |
+| BSP-002/004 | czsc | zs 延伸过度 | czsc 无 seg 算法限制延伸 | ⏸ 保持（已知局限） |
+| GOLD-005 | czsc | zs 构造差异 | czsc 无 seg，zs 构造口径偏差 | ⏸ 保持（P-K/P-H） |
+
+**recursion 列偏差**（13 FAIL，哲学差异非缺陷，归因见 ADR-010）：ZS-001/002/003/004、BC-001、BSP-001/002/004、GOLD-003/004/005（zs 分组窗口）、SEG-004/005（L0 段拆分）。
