@@ -406,7 +406,10 @@ def main(argv=None, *, adapters=None) -> int:
 
 
 def _default_adapters():
-    """懒加载真实适配器（chanpy 需要 third_party/chanpy 在 sys.path）。"""
+    """懒加载真实适配器（chanpy 需要 third_party/chanpy 在 sys.path）。
+
+    M3 起含第三实现 recursion（递归层引擎，内部委托 chanpy 出 fx/bi）。
+    """
 
     chanpy_cls = _load_adapter(
         "chan_engine.harness.adapter_chanpy", "ChanPyAdapter", _CHANPY_HINT
@@ -414,8 +417,15 @@ def _default_adapters():
     czsc_cls = _load_adapter(
         "chan_engine.harness.adapter_czsc", "CzscAdapter", _CZSC_HINT
     )
+    recursion_cls = _load_adapter(
+        "chan_engine.core.engine", "RecursionEngine", _CHANPY_HINT
+    )
     adapters = []
-    for cls, hint in ((chanpy_cls, _CHANPY_HINT), (czsc_cls, _CZSC_HINT)):
+    for cls, hint in (
+        (chanpy_cls, _CHANPY_HINT),
+        (czsc_cls, _CZSC_HINT),
+        (recursion_cls, _CHANPY_HINT),
+    ):
         try:
             adapters.append(cls())
         except Exception as e:

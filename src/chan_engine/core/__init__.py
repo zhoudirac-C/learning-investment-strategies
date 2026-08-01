@@ -7,18 +7,25 @@
 - ``model``    ：L0 走势类型（SegType）等数据容器；
 - ``segments`` ：bi 表 → L0 走势类型分组；
 - ``levels``   ：L0 → 多级中枢合成（LevelTree）；
-- ``backchi``  ：背驰判断 + 多级买卖点；
-- ``engine``   ：顶层递归入口，供适配器/校准门调用。
+- ``backchi``  ：背驰判断 + 多级买卖点（含三类）；
+- ``engine``   ：顶层递归入口（RecursionEngine），供校准门调用。
 """
 
-from chan_engine.core.backchi import detect_backchi_bsp
-from chan_engine.core.levels import synthesize_level_zs
+from chan_engine.core.backchi import detect_backchi_bsp, detect_third_type_bsp
+from chan_engine.core.levels import (
+    find_trend_patterns,
+    synthesize_level_zs,
+    synthesize_standalone_zs,
+)
 from chan_engine.core.model import SegType
 from chan_engine.core.segments import build_l0_segments
 
 __all__ = [
     "SegType",
     "build_l0_segments",
+    "find_trend_patterns",
     "synthesize_level_zs",
+    "synthesize_standalone_zs",
     "detect_backchi_bsp",
+    "detect_third_type_bsp",
 ]

@@ -59,30 +59,62 @@ def _segment_zhongshu(
     )
 
 
-def synthesize_level_zs(
-    segments: list[SegType], bi_list: list[Bi], bars: list[Bar]
-) -> list[ZhongShu]:
-    """扫描 L0 段序列，识别 进入+中枢+离开 三件套，合成多级中枢。
+def find_trend_patterns(segments: list[SegType]) -> list[tuple[int, int, int]]:
+    """扫描 L0 段序列，识别 进入+中枢+离开 三件套（方向模式 X,~X,X）。
 
-    方向模式 X,~X,X（如 下-上-下）触发一个 L_{N+1} 走势类型：
-    - 中枢段（中间段）内部中枢 → level+1；
-    - 离开段（末段）内部中枢 → level；
-    然后跳过这三段继续扫描（BC-002：A2+B2+C2 一锤子买卖）。
+    返回三件套的起始索引三元组列表（(i, i+1, i+2)）。命中后跳过这三段
+    继续扫描（BC-002：A2+B2+C2 一锤子买卖）。供 zs 合成与 bsp 检测共用。
     """
-    zs_out: list[ZhongShu] = []
+    patterns: list[tuple[int, int, int]] = []
     i = 0
     while i + 2 < len(segments):
         s0, s1, s2 = segments[i], segments[i + 1], segments[i + 2]
         if s0.dir is s2.dir and s1.dir is not s0.dir:
-            core = _segment_zhongshu(s1, bi_list, bars)
-            if core is not None:
-                core.level = 2  # 中枢段 → level-2
-                zs_out.append(core)
-            leave = _segment_zhongshu(s2, bi_list, bars)
-            if leave is not None:
-                leave.level = 1  # 离开段 → level-1
-                zs_out.append(leave)
+            patterns.append((i, i + 1, i + 2))
             i += 3
         else:
             i += 1
+    return patterns
+
+
+def synthesize_level_zs(
+    segments: list[SegType], bi_list: list[Bi], bars: list[Bar]
+) -> list[ZhongShu]:
+    """对三件套合成多级中枢。
+
+    - 中枢段（中间段）内部中枢 → level+1；
+    - 离开段（末段）内部中枢 → level。
+    """
+    zs_out: list[ZhongShu] = []
+    for _, i1, i2 in find_trend_patterns(segments):
+        core = _segment_zhongshu(segments[i1], bi_list, bars)
+        if core is not None:
+            core.level = 2  # 中枢段 → level-2
+            zs_out.append(core)
+        leave = _segment_zhongshu(segments[i2], bi_list, bars)
+        if leave is not None:
+            leave.level = 1  # 离开段 → level-1
+            zs_out.append(leave)
+    return zs_out
+
+
+def synthesize_standalone_zs(
+    segments: list[SegType], bi_list: list[Bi], bars: list[Bar]
+) -> list[ZhongShu]:
+    """未被三件套消费的**已确认**段：内部三笔重叠 → level-1 中枢。
+
+    BSP-003 锚：仅 2 段（无三件套），首段 bi0-2 全 sure 且重叠
+    → 发射 (11.4, 14.0, 1→16, level=1)；次段含未确认笔 bi5 → 抑制
+    （结构未定型，不出中枢）。三件套内的进入段/中枢段/离开段由
+    ``synthesize_level_zs`` 按角色处理，此处跳过。
+    """
+    consumed = {i for triple in find_trend_patterns(segments) for i in triple}
+    zs_out: list[ZhongShu] = []
+    for k, seg in enumerate(segments):
+        if k in consumed or not seg.sure:
+            continue
+        z = _segment_zhongshu(seg, bi_list, bars)
+        if z is not None:
+            z.level = 1
+            zs_out.append(z)
     return zs_out
