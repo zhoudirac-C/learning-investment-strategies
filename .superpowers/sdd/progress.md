@@ -38,4 +38,5 @@ M3 递归层 (plan: docs/superpowers/plans/2026-07-29-chanlun-quant-m3-level-rec
   - M3-5: done 2026-08-01 (ChanPySession/RecursionSession 增量会话; 6 用例批量 vs 逐bar增量终态五表全等硬门; is_sure 透传+增量生长测试)
   - M3-6: done 2026-08-01 (重生成 chanlun-calibration-report.md M3 版 --version M3; ADR-009 L0分组/ADR-010 双哲学/ADR-011 箱体代理; 附录 C.2 level≥2 语义+C.5 刷新; task-m3-report.md)
   - 最终: chanpy 23 + czsc 25 + recursion 18（93 cell）; M2 降级 14 项: 6 项 recursion 覆盖✅, 8 项保持⏸(PATCHES 4 + czsc 局限 4); 198 测试全绿
+  - 推送: 3 笔提交已推 origin/master（72b68c5 M3-4 / 737a31d M3-5 / dee39ca M3-6），工作区干净
   - 待 UP: ADR-009~011 待 UP 确认; M3 评审门待过
