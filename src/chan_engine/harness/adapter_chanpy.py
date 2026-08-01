@@ -133,6 +133,27 @@ def _bar_to_klu(bar: Bar, pos: int) -> CKLine_Unit:
     )
 
 
+class ChanPySession:
+    """chan.py 增量会话：CChan 实例常驻，逐 bar 投喂逐 bar 可取图（M3-5）。
+
+    与 ``ChanPyAdapter.run`` 同码路径（trigger_load 逐帧投喂），因此
+    逐 bar 增量终态与一次性批量终态结构上一致（一致性测试为硬门）。
+    """
+
+    def __init__(self, conf_dict: dict):
+        self._conf = CChanConfig(dict(conf_dict))
+        self._chan = CChan(code="synthetic", lv_list=[_KL_TYPE], config=self._conf)
+        self._pos = 0
+
+    def push(self, bar: Bar) -> None:
+        self._chan.trigger_load({_KL_TYPE: [_bar_to_klu(bar, self._pos)]})
+        self._pos += 1
+
+    def chart(self, adapter: "ChanPyAdapter") -> NormalizedChart:
+        """抽取当前状态的归一五表（复用适配器归一逻辑）。"""
+        return adapter._extract(self._chan)
+
+
 class ChanPyAdapter:
     """chan.py（third_party/chanpy vendor）→ NormalizedChart。"""
 
@@ -154,11 +175,14 @@ class ChanPyAdapter:
         self.config_snapshot = _config_snapshot(CChanConfig(dict(self._conf_dict)))
 
     def run(self, bars: list[Bar]) -> NormalizedChart:
-        conf = CChanConfig(dict(self._conf_dict))
-        chan = CChan(code="synthetic", lv_list=[_KL_TYPE], config=conf)
-        for pos, bar in enumerate(bars):
-            chan.trigger_load({_KL_TYPE: [_bar_to_klu(bar, pos)]})
-        return self._extract(chan)
+        session = self.new_session()
+        for bar in bars:
+            session.push(bar)
+        return session.chart(self)
+
+    def new_session(self) -> ChanPySession:
+        """开增量会话（M3-5）：逐 bar push，随时 chart 取当前归一图。"""
+        return ChanPySession(self._conf_dict)
 
     @staticmethod
     def _dir(is_up: bool) -> Direction:

@@ -52,7 +52,29 @@ class RecursionEngine:
         }
 
     def run(self, bars: list[Bar]) -> NormalizedChart:
+        """批量入口：整段 K 线一次性分解。"""
         base = self._base.run(bars)
+        return self._compose(base, bars)
+
+    def run_incremental(self, bars: list[Bar]) -> NormalizedChart:
+        """增量入口（M3-5）：逐 bar 投喂，返回终态图。
+
+        新 bar 只触发 chanpy 会话的最低层增量更新（CChan 常驻），递归层
+        在当前 bi 表上重算并向上层传播；终态与 ``run`` 批量结果一致
+        （``tests/chan_engine/test_core_incremental.py`` 为硬门）。
+        """
+        session = self.new_session()
+        chart = NormalizedChart()
+        for bar in bars:
+            chart = session.push(bar)
+        return chart
+
+    def new_session(self) -> "RecursionSession":
+        """开增量会话：逐 bar push，每次返回当前归一图。"""
+        return RecursionSession(self)
+
+    def _compose(self, base: NormalizedChart, bars: list[Bar]) -> NormalizedChart:
+        """单级别归一图（chanpy）→ 递归层增强 → 归一五表。"""
         chart = NormalizedChart()
         chart.fx = [dataclasses.replace(f, source=SOURCE) for f in base.fx]
         chart.bi = [dataclasses.replace(b, source=SOURCE) for b in base.bi]
@@ -85,3 +107,19 @@ class RecursionEngine:
         # diff 同主键 (idx,bstype,dir) 组内按列表顺序配对）
         chart.bsp = sorted(bsp, key=lambda b: (b.idx, b.bstype, -b.level))
         return chart
+
+
+class RecursionSession:
+    """递归层增量会话（M3-5）：新 bar → chanpy 最低层增量 → 递归层向上重算。"""
+
+    def __init__(self, engine: RecursionEngine):
+        self._engine = engine
+        self._session = engine._base.new_session()
+        self._bars: list[Bar] = []
+
+    def push(self, bar: Bar) -> NormalizedChart:
+        """投喂一根 bar，返回当前状态的完整归一图（含 is_sure 透传）。"""
+        self._bars.append(bar)
+        self._session.push(bar)
+        base = self._session.chart(self._engine._base)
+        return self._engine._compose(base, self._bars)
