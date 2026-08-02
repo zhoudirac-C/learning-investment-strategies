@@ -4,6 +4,12 @@
 > 已知偏差结论登记在 `docs/design/chanlun-quant-engine.md` 附录 C.5。
 > 以下补丁条目在 M2-3~M2-5 排查后如需改源码时补充。
 
+> M4 补丁前提（2026-08-02 UP 决策立 M4）：任何 chanpy 源码改动须满足——
+> (1) 该项评估报告（docs/design/chanlun-m4-patch-assessment.md）建议为 A 且 UP 逐项批准；
+> (2) 改动前在下表登记"原行为/改后行为/claim id/用例 id"四列；
+> (3) 改动后全量回归：198+ 测试全绿且 chanpy 23 PASS 不降、czsc 25 PASS 不降、recursion 18 PASS 不降；
+> (4) 补丁以最小 diff 实现，禁止顺手重构 vendor 代码。
+
 | 文件 | 函数 | 原行为 | 改后行为 | claim id | 用例 id |
 |------|------|--------|----------|----------|---------|
 
