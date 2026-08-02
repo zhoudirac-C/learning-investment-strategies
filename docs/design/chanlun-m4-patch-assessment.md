@@ -21,7 +21,7 @@
 - **建议**：**C（永久降级，登记附录 C.5）**。判据对照：
   - 两个分叉点（`collect_first_seg`:55-66 / `collect_left_as_seg`:121-129 / `try_add_new_seg` split_first:132-138）均为全库共享的默认行为路径，非可旁路的边角分支；
   - 唯一已知配置通道 `left_seg_method`（枚举仅 ALL/PEAK，SegConfig.py:6-13）全局切换已实测净 -2 → 满足判据"需改动默认行为且任一 PASS 翻转"；
-  - 形式上可新增配置项（新 LEFT_SEG_METHOD 成员 + split_first 开关，默认关）走 A，但"仅 SEG-004/005 类语料开"需 harness per-case 配置通道，且 SEG-005 仍需 chanpy 源码补丁，复杂度与收益（2 个单级别 seg cell，expect 仅比 fx/bi/seg 三表、无 zs/bsp 牵连）不匹配；
+  - 形式上可走 A（新增配置项默认关）——评审指正：harness 侧**已有** per-case 配置通道 `ChanPyAdapter.__init__(config_overrides)`（adapter_chanpy.py:162-173），A 的实际门槛低于原论证字面所述；维持 C 的真正依据是收益/成本与门控脆弱性：①新增"默认关"配置仍需改 vendor 源码（新 LEFT_SEG_METHOD 成员 + split_first 开关，SEG-005 另需源码补丁），违反最小 diff 原则，且 M2-5 已实证该路径相关参数组合（`left_seg_method=all`）净 -2；②收益仅 chanpy +2 PASS（2 个单级别 seg cell，expect 仅比 fx/bi/seg 三表、无 zs/bsp 牵连），而配置项触碰 seg 上游共享路径、影响全量 23 个 PASS 用例，门控脆弱需逐一复跑；③演进方向由 ADR-009 recursion L0 承担；
   - B（适配器补偿）亦否：改写 seg 表会与 chanpy 内部 zs/bsp 口径脱节，且 reason 模式门控脆弱（seg-001..003 同样走兜底路径，易误伤 PASS）；
   - 替代路径由 ADR-009 recursion L0 演进承担（当前 recursion 列对此二用例同源 FAIL，属已知待演进项）。
 - **UP 决策**：待填
