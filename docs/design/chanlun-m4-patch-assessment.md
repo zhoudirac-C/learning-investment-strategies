@@ -49,9 +49,20 @@
 
 ## 3. ZS-003 × chanpy（跨 seg 九段升级，P-K）
 - **根因复核**：（M2-5 结论）ZS-003 的 chanpy zs 受 seg 切分限制（end=17，不够 9 段）；`ZS.combine` 拒绝 one_bi_zs（ZS.py:116）和跨 seg（ZS.py:118）；`one_bi_zs=T` 实验回归 BSP-002/GOLD-003/005（-3）。czsc 适配器已有参照实现 `_apply_nine_bi_upgrade()`。
-- **探针实证**：待填
-- **爆炸半径**：待填
-- **建议**：待填
+- **探针实证**：（M4-3，探针 `/tmp/m4_probe_zs9.py` + 延伸演算探针 `/tmp/m4_probe_zs9_ext.py`，只读未改源码）
+  - 输出对照：expect zs = `{zd:16.5 zg:17.0 start:5 end:41 level:2 sure:true}`；chanpy 归一 zs 仅 1 个 `{zd:16.0 zg:17.0 start:5 end:17 level:1}`；seg 3 段（bi0..4 up / bi5..7 down / bi8..10 up），bi 共 11 笔。chanpy zs end=17 止步于 seg1（bi5..7 down）内，跨 seg 到 seg2（bi8..10 up）的合并被 `ZS.combine`:118 seg 一致性检查（`begin_bi.seg_idx != zs2.begin_bi.seg_idx → False`）拒绝。
+  - 关键发现 1（纯移植不可行）：chanpy 中枢内笔数仅 **3**（bi1..bi3），远低于 9 → 直接移植 czsc `_apply_nine_bi_upgrade()`（只做"范围内笔数≥9 → 升级"，不含延伸）在 chanpy 上**零触发**，修不了 ZS-003。B 必须是复合形式：**跨 seg 延伸试探 + 九段升级**（延伸作为升级判定的内部步骤，不单独落改）。
+  - 关键发现 2（复合 B 可行，信息充分）：模拟跨 seg 延伸（自 zs.end 起逐笔与 [zd,zg]=[16.0,17.0] 判重叠，末位 sure=False 笔 bi10 不延伸，对齐 M2-3 czsc 口径）：end 17→41，中枢内笔数 3→9（bi1..bi9）。9 笔分 3 组子中枢演算：组1（bi1..3）→ [16.0,17.0]；组2（bi4..6）→ [16.5,18.0]；组3（bi7..9）→ [16.2,17.8]；重合区间 zd=max(16.0,16.5,16.2)=16.5、zg=min(17.0,18.0,17.8)=17.0 → **与 expect 逐字段一致**（zd=16.5 zg=17.0 end=41 level=2）。延伸与升级所需全部信息（归一 bi 表 start/end/dir/sure + bars 极值）适配器齐备，无需 chanpy seg 内部状态 → 不触发 brief 的"A 兜底条件"。
+  - A 路径评估（对照）：`combine` 被 `ZSList.try_combine`（ZSList.py:157-161）while 循环全库共享调用；:118 seg 检查无配置旁路（CZSConfig 仅 `need_combine/zs_combine_mode/one_bi_zs/zs_algo` 四项，无跨 seg 开关）；`do_combine` 还会把 zd/zg 改为子中枢并集（min/max），直接破坏 bsp-002/004 expect zs `zd:18.3 zg:20.2` 口径；且归一化 zs `level=1` 恒写死（adapter_chanpy.py:255），即便 combine 合并成功也无 level=2 输出通道，A 需叠加 vendor 侧级别推导新逻辑。M2-5 已实测同区域实验 `one_bi_zs=T` 净 -3（BSP-002/GOLD-003/005 翻转）。
+- **爆炸半径**：
+  - 全量用例扫描"chanpy zs 内笔数≥9"（统计命令：逐用例 `ChanPyAdapter().run` 后数 `bi.start_idx>=z.start_idx and bi.end_idx<=z.end_idx` 的笔数）：结果 **0 个**——chanpy zs 全部受 seg 限制，无一达 9 笔（含 ZS-003 本身仅 3 笔）。与 brief 预期"仅 ZS-003"的偏差本身即证据：偏差在 chanpy 不延伸中枢，而非用例语料。
+  - 复合 B 的延伸试探触发集合（跨 seg 可延伸 ≥1 笔的用例，末位 sure=False 不延伸）：**4 个**——bsp-002（end 21→36，6 笔）、bsp-004（21→31，5 笔）、seg-005（33→45，6 笔）、zs-003（17→41，9 笔）。
+  - 门控必要性实证：bsp-002/bsp-004 expect zs 均为 `{zd:18.3 zg:20.2 start:6 end:21 level:1}`——若裸跨 seg 延伸落改 end_idx，bsp-002（chanpy PASS）zs cell 立即翻转。因此延伸必须只作升级判定的内部试探，**唯一落改门控 = 延伸后笔数≥9 且 3 子中枢重合区间成立**；该门控下触发集合 = **仅 ZS-003**（其余 3 用例延伸后 6/5/6 笔均 <9），半径实证 = 1，对其余 22 个 chanpy PASS 输出逐字节不变。
+- **建议**：**B（适配器层补偿，复合形式）**。判据对照：
+  - 纯移植 `_apply_nine_bi_upgrade()` 零触发不可行，但复合 B（同一后处理函数内完成"跨 seg 延伸试探 → ≥9 笔门控 → 3 子中枢重合 → 落改 zd/zg/end_idx/level=2"）信息充分、不动 vendor，与 czsc ZS-003 +1 PASS 零回归先例（M2-3）同类；
+  - A（改 vendor）否：:118 为全库共享默认路径且无配置旁路，`do_combine` 并集口径破坏既有 expect zs，另需新增级别推导通道（归一化 level 恒 1 无 level=2 输出口径），违反最小 diff，同区域实验已实证净回归（`one_bi_zs=T` -3）；
+  - C（永久降级）否：非不可修复项，九段升级为课33 明确形态，补偿收益 chanpy +1 PASS、半径实证 = 1，无挂账理由；
+  - 实施验收门（供后续里程碑）：198 全绿 + ZS-003 chanpy 列 FAIL→PASS + bsp-002/bsp-004/seg-005 三用例输出逐字节不变。
 - **UP 决策**：待填
 
 ## 4. BI-004 × czsc（min_bi_len + 课77步骤二，P-J）
