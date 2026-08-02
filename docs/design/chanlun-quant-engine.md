@@ -308,4 +308,11 @@ ticks/bars → 分型 → 笔 → 线段(L0 走势类型)
 | BSP-002/004 | czsc | zs 延伸过度 | czsc 无 seg 算法限制延伸 | ⏸ 保持（已知局限） |
 | GOLD-005 | czsc | zs 构造差异 | czsc 无 seg，zs 构造口径偏差 | ⏸ 保持（P-K/P-H） |
 
+**M4 评估登记（2026-08-02）**——以下 6 项经 M4 补丁评估定为永久降级（建议 C；另 2 项 BSP-004/ZS-003 × chanpy 建议 B 适配器补偿，待 UP 拍板后另立实施里程碑，不动本附录）：
+
+- **SEG-004/005 × chanpy**：经 M4 评估（chanlun-m4-patch-assessment.md 第 1 节）定为永久降级，理由：分叉点在 SegListComm 首段/兜底全库共享默认路径，唯一配置通道 `left_seg_method=all` 实测净 -2，收益仅 +2 PASS 而触碰 seg 上游全部 23 个 PASS 用例，演进由 ADR-009 recursion L0 承担。
+- **BI-004 × czsc**：经 M4 评估（chanlun-m4-patch-assessment.md 第 4 节）定为永久降级，理由：补偿点在 czsc 成笔内核（rust 后端不可改，python 后端补课77步骤二=重写核心成笔），半径 25 全量，且该形态已由 chanpy/recursion 两列覆盖。
+- **BSP-002/004 × czsc**：经 M4 评估（chanlun-m4-patch-assessment.md 第 5 节）定为永久降级，理由：对齐 expect 需在延伸门控引入 seg 约束即适配器自建线段，与 recursion 层（ADR-009）职责重叠；绕开 seg 的启发式门控属语料拟合作弊。
+- **GOLD-005 × czsc**：经 M4 评估（chanlun-m4-patch-assessment.md 第 6 节）定为永久降级，理由：修正需走势类型判定上游信息，`_recompute_zs` 单级别口径无表达通道；语料专属配置违反校准门公平性。
+
 **recursion 列偏差**（13 FAIL，哲学差异非缺陷，归因见 ADR-010）：ZS-001/002/003/004、BC-001、BSP-001/002/004、GOLD-003/004/005（zs 分组窗口）、SEG-004/005（L0 段拆分）。

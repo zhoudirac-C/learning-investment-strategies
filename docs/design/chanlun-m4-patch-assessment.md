@@ -38,7 +38,7 @@
   - 补偿可行性：判定信息**不在**归一表之外——chanpy 内存对象 `bsp.type` 适配器可直接枚举，无需 seg 内部状态、无需重算 → B 类（适配器层补偿）成立。先例：M2-3 末位笔 bsp 过滤（adapter_chanpy.py:261-268）同为 B 类。补偿形态：提取循环（:264-278）按 `bsp.type` 每个 distinct `main_type()` 出一条 `BSPoint`（保持 idx/dir/level/sure 口径不变）。
 - **爆炸半径**：
   - expect 含 bsp 的 chanpy PASS 用例共 **6 个**（逐一列示，括号内为 chanpy 内部 bsp type 全列表，均单类型）：BC-001（@46 T1）、BSP-001（@26 T1）、BSP-002（@26 T1 + @36 T2）、GOLD-003（@25 T3A）、GOLD-004（@37 T1）、GOLD-005（@29 T3A）。校正 brief 口径：BSP-003 的 chanpy 列为 FAIL（属另一降级项、已由 recursion 列覆盖，见 `chanlun-calibration-report.md:22,84`），不计入 PASS 半径。
-  - 半径实证：全语料 32 用例扫描，多类型合并 bsp **仅 1 个实例**（BSP-004 bi6 = T2+T3B）；6 个 PASS 用例的内部 bsp 全部单类型 → "每个 distinct main_type 出一条"的补偿对全部 PASS 用例输出逐字节不变，**实证半径 = 0**。
+  - 半径实证：全语料 31 用例（26 spec + 5 golden）扫描，多类型合并 bsp **仅 1 个实例**（BSP-004 bi6 = T2+T3B）；6 个 PASS 用例的内部 bsp 全部单类型 → "每个 distinct main_type 出一条"的补偿对全部 PASS 用例输出逐字节不变，**实证半径 = 0**。
   - 理论半径：仅"同一笔多类型"形态受影响，该形态此前适配器只出首类型记录，补偿为纯增量（追加记录），不删改既有记录。
 - **建议**：**B（适配器层补偿）**。判据对照：
   - 漏报点不在 vendor 源码：chanpy 三买判定路径（`treat_bsp3_before`）完整命中且多类型信息保留于 `bsp.type`，改源码（A）无收益、违反最小 diff；
@@ -57,7 +57,7 @@
 - **爆炸半径**：
   - 全量用例扫描"chanpy zs 内笔数≥9"（统计命令：逐用例 `ChanPyAdapter().run` 后数 `bi.start_idx>=z.start_idx and bi.end_idx<=z.end_idx` 的笔数）：结果 **0 个**——chanpy zs 全部受 seg 限制，无一达 9 笔（含 ZS-003 本身仅 3 笔）。与 brief 预期"仅 ZS-003"的偏差本身即证据：偏差在 chanpy 不延伸中枢，而非用例语料。
   - 复合 B 的延伸试探触发集合（跨 seg 可延伸 ≥1 笔的用例，末位 sure=False 不延伸）：**4 个**——bsp-002（end 21→36，6 笔）、bsp-004（21→31，5 笔）、seg-005（33→45，6 笔）、zs-003（17→41，9 笔）。
-  - 门控必要性实证：bsp-002/bsp-004 expect zs 均为 `{zd:18.3 zg:20.2 start:6 end:21 level:1}`——若裸跨 seg 延伸落改 end_idx，bsp-002（chanpy PASS）zs cell 立即翻转。因此延伸必须只作升级判定的内部试探，**唯一落改门控 = 延伸后笔数≥9 且 3 子中枢重合区间成立**；该门控下触发集合 = **仅 ZS-003**（其余 3 用例延伸后 6/5/6 笔均 <9），半径实证 = 1，对其余 22 个 chanpy PASS 输出逐字节不变。
+  - 门控必要性实证：bsp-002/bsp-004 expect zs 均为 `{zd:18.3 zg:20.2 start:6 end:21 level:1}`——若裸跨 seg 延伸落改 end_idx，bsp-002（chanpy PASS）zs cell 立即翻转。因此延伸必须只作升级判定的内部试探，**唯一落改门控 = 延伸后笔数≥9 且 3 子中枢重合区间成立**；该门控下触发集合 = **仅 ZS-003**（其余 3 用例延伸后 6/5/6 笔均 <9），半径实证 = 1，对其余 23 个 chanpy PASS 输出逐字节不变。
 - **建议**：**B（适配器层补偿，复合形式）**。判据对照：
   - 纯移植 `_apply_nine_bi_upgrade()` 零触发不可行，但复合 B（同一后处理函数内完成"跨 seg 延伸试探 → ≥9 笔门控 → 3 子中枢重合 → 落改 zd/zg/end_idx/level=2"）信息充分、不动 vendor，与 czsc ZS-003 +1 PASS 零回归先例（M2-3）同类；
   - A（改 vendor）否：:118 为全库共享默认路径且无配置旁路，`do_combine` 并集口径破坏既有 expect zs，另需新增级别推导通道（归一化 level 恒 1 无 level=2 输出口径），违反最小 diff，同区域实验已实证净回归（`one_bi_zs=T` -3）；
@@ -107,4 +107,29 @@
 - **UP 决策**：待填
 
 ## 7. 汇总与 UP 决策门
-- 待填（8 项建议汇总表 + 基线复跑结果）
+
+### 7.1 八项建议汇总表
+
+| 降级项 | 建议 | 爆炸半径 | 预期收益 | UP 决策 |
+|--------|------|----------|----------|---------|
+| SEG-004/005 × chanpy | C | 全量 23 PASS（seg 上游） | chanpy +2 PASS | 待填 |
+| BSP-004 × chanpy | B（adapter_chanpy.py:264-278 按 distinct main_type 逐条出记录） | 实证 0（全语料多类型 bsp 仅 1 例） | chanpy +1 PASS | 待填 |
+| ZS-003 × chanpy | B（复合：跨 seg 延伸试探+九段升级，门控=延伸后≥9 笔且 3 子中枢重合） | 触发集 {bsp-002,bsp-004,seg-005,zs-003}，门控下仅 zs-003 落改 | chanpy +1 PASS | 待填 |
+| BI-004 × czsc | C | 25 全量（成笔内核） | czsc +1 PASS | 待填 |
+| BSP-002/004 × czsc | C | 8（_recompute_zs 路径）[^radius8] | czsc +2 PASS | 待填 |
+| GOLD-005 × czsc | C | 8（同上）[^radius8] | czsc +1 PASS | 待填 |
+
+[^radius8]: 半径=8 为校准门可见口径——SEG-001..005 五个 czsc PASS 用例 czsc zs 实际非空但无 zs expect，改 `_recompute_zs` 可能静默改变其输出。
+
+总账：**B × 2 / C × 6 / D × 0**。8 项全部落地的理论收益：chanpy +4 PASS（SEG-004/005 + BSP-004 + ZS-003，FAIL 8 中其余 4 个为 BSP-003 等其他已知项）、czsc +4 PASS（BI-004 + BSP-002/004 + GOLD-005，FAIL 6 中其余 2 个为其他已知项）。
+
+### 7.2 基线复跑（2026-08-02）
+
+- 全量校准矩阵：`chanpy: PASS 23 / FAIL 8 / ERROR 0`；`czsc: PASS 25 / FAIL 6 / ERROR 0`；`recursion: PASS 18 / FAIL 13 / ERROR 0`（与 M3 基线一致，评估全程只读未破基线）。
+- 单测：`198 passed`。
+
+### 7.3 UP 决策门
+
+- 请 UP 对汇总表逐项拍板（A/B/C 之外亦可推翻重议）；本报告不含 A 项。
+- B 项（BSP-004 × chanpy、ZS-003 × chanpy）批准后另立补丁实施里程碑（新 plan），验收门分别见第 2、3 节"实施验收门"。
+- C 项（6 项）批准后登记附录 C.5 即收官，无任何代码改动。

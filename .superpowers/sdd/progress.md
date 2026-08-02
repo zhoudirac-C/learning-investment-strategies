@@ -40,3 +40,14 @@ M3 递归层 (plan: docs/superpowers/plans/2026-07-29-chanlun-quant-m3-level-rec
   - 最终: chanpy 23 + czsc 25 + recursion 18（93 cell）; M2 降级 14 项: 6 项 recursion 覆盖✅, 8 项保持⏸(PATCHES 4 + czsc 局限 4); 198 测试全绿
   - 推送: 3 笔提交已推 origin/master（72b68c5 M3-4 / 737a31d M3-5 / dee39ca M3-6），工作区干净
   - UP 已决 2026-08-02: ADR-009~011 三条全部采纳（adr.md 状态已改 resolved）; M3 评审门通过; 8 项保持降级另立 M4 专项评估（PATCHES 4 需改 chanpy 源码，评估爆炸半径与 vendor 策略）
+M4 补丁评估 (plan: docs/superpowers/plans/2026-08-02-chanlun-quant-m4-patch-assessment.md): started 2026-08-02
+  - M4-0: complete (commit e842d32, review clean; Minor x2: 政策段插入位置空行后/报告未注 push 授权来源)
+  - M4-1: complete (commits 6a3784c..4b6ac6e, review Approved; I-1 修复闭环; 结论: 建议 C 永久降级, 分叉点实为 SegListComm:55-66/:121-129/:132-138 非 EigenFX; Minor x3 记录)
+  - M4-2: complete (commit 978160a, review Approved; 结论: 建议 B 适配器补偿——漏报点在 adapter_chanpy.py:272 只取 bsp.type[0], chanpy 内部已算出 T2+T3B; 半径实证=0; Minor x2: 语料计数 32→31 待 M4-5 更正 / push 授权已确认)
+  - M4-3: complete (commit 50feebc, review Approved; 结论: 建议 B 复合形态——跨seg延伸试探+九段升级单函数, 门控=延伸后≥9笔且3子中枢重合; brief "仅ZS-003≥9笔"被证伪(实测0); Minor x2: /tmp探针工件脱节(不修) / "22个PASS"→23笔误待 M4-5 更正)
+  - M4-4: complete (commit 6c9d9df, review Approved; 结论: BI-004→C(半径25全量) / BSP-002/004→C(自建seg与ADR-009重叠,半径8) / GOLD-005→C(语料专属if=作弊,半径8); D 三项不推荐但登记; Minor x3: SEG-001..005 静默输出口径待汇总节注明 / D 论证详略不均 / 探针逐字不可验证)
+  - M4-5: done 2026-08-02 (第 7 节汇总表 Bx2/Cx6/Dx0 + 基线复跑 + 附录 C.5 登记 6 项永久降级 + 笔误修正 32→31 / 22→23)
+M4 补丁评估 (plan: docs/superpowers/plans/2026-08-02-chanlun-quant-m4-patch-assessment.md): done 2026-08-02
+  - 8 项评估结论见 docs/design/chanlun-m4-patch-assessment.md 第 7 节汇总表
+  - 基线复跑: 198 测试全绿; chanpy 23 / czsc 25 / recursion 18 不变
+  - 待 UP: 汇总表逐项拍板（无 A 项；B 项批准后另立补丁实施里程碑）
