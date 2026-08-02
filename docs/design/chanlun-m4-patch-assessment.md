@@ -24,7 +24,7 @@
   - 形式上可走 A（新增配置项默认关）——评审指正：harness 侧**已有** per-case 配置通道 `ChanPyAdapter.__init__(config_overrides)`（adapter_chanpy.py:162-173），A 的实际门槛低于原论证字面所述；维持 C 的真正依据是收益/成本与门控脆弱性：①新增"默认关"配置仍需改 vendor 源码（新 LEFT_SEG_METHOD 成员 + split_first 开关，SEG-005 另需源码补丁），违反最小 diff 原则，且 M2-5 已实证该路径相关参数组合（`left_seg_method=all`）净 -2；②收益仅 chanpy +2 PASS（2 个单级别 seg cell，expect 仅比 fx/bi/seg 三表、无 zs/bsp 牵连），而配置项触碰 seg 上游共享路径、影响全量 23 个 PASS 用例，门控脆弱需逐一复跑；③演进方向由 ADR-009 recursion L0 承担；
   - B（适配器补偿）亦否：改写 seg 表会与 chanpy 内部 zs/bsp 口径脱节，且 reason 模式门控脆弱（seg-001..003 同样走兜底路径，易误伤 PASS）；
   - 替代路径由 ADR-009 recursion L0 演进承担（当前 recursion 列对此二用例同源 FAIL，属已知待演进项）。
-- **UP 决策**：待填
+- **UP 决策**：C 采纳——永久降级（2026-08-02 UP 确认），已登记附录 C.5
 
 ## 2. BSP-004 × chanpy（三买"二三类重合"缺失，P-K）
 - **根因复核**：（M2-3 结论）BSP-004 expect 三买@36 与二买@36 重合（课21）；chanpy `cal_seg_bs3point` 不覆盖该场景；`strict_bsp3`/`bsp3_peak`/`bsp3a_max_zs_cnt` 实验均无效。
@@ -45,7 +45,7 @@
   - 补偿点明确且与先例同类：改 `adapter_chanpy.py:264-278` 提取循环，按 `bsp.type` 逐 distinct main_type 出记录，同 M2-3 末位笔过滤属 B 类，不动 `third_party/chanpy/`；
   - 半径实证 = 0（全语料仅 BSP-004 一例多类型；6 个 bsp-PASS 用例输出不变），实施验收门：198 全绿 + BSP-004 chanpy 列 FAIL→PASS；
   - C（永久降级）否：非不可修复项，且"二三类重合"是课21 明确形态（claim-20070109-001-b），成本一行提取口径、收益 chanpy +1 PASS，无挂账理由。
-- **UP 决策**：待填
+- **UP 决策**：B 采纳——批准实施（2026-08-02 UP 确认），另立 M5 实施里程碑
 
 ## 3. ZS-003 × chanpy（跨 seg 九段升级，P-K）
 - **根因复核**：（M2-5 结论）ZS-003 的 chanpy zs 受 seg 切分限制（end=17，不够 9 段）；`ZS.combine` 拒绝 one_bi_zs（ZS.py:116）和跨 seg（ZS.py:118）；`one_bi_zs=T` 实验回归 BSP-002/GOLD-003/005（-3）。czsc 适配器已有参照实现 `_apply_nine_bi_upgrade()`。
@@ -63,7 +63,7 @@
   - A（改 vendor）否：:118 为全库共享默认路径且无配置旁路，`do_combine` 并集口径破坏既有 expect zs，另需新增级别推导通道（归一化 level 恒 1 无 level=2 输出口径），违反最小 diff，同区域实验已实证净回归（`one_bi_zs=T` -3）；
   - C（永久降级）否：非不可修复项，九段升级为课33 明确形态，补偿收益 chanpy +1 PASS、半径实证 = 1，无挂账理由；
   - 实施验收门（供后续里程碑）：198 全绿 + ZS-003 chanpy 列 FAIL→PASS + bsp-002/bsp-004/seg-005 三用例输出逐字节不变。
-- **UP 决策**：待填
+- **UP 决策**：B 采纳——批准实施（2026-08-02 UP 确认），另立 M5 实施里程碑
 
 ## 4. BI-004 × czsc（min_bi_len + 课77步骤二，P-J）
 - **根因复核**：（M2-5 结论）czsc 0.10.12 rust 后端内置 min_bi_len=6（忽略环境变量）→ BI-004 bi_list 空；切 python 后端 min_bi_len=4 出 3 笔，但因无课77步骤二"同性质相邻分型保留更极值者"消解，与 expect 1 笔 (1,9,u) 不一致。
@@ -77,7 +77,7 @@
   - 半径 = 25 全量，远非零；
   - 收益仅 czsc +1 PASS（bi 单 cell），课77步骤二形态已由 chanpy/recursion 两列覆盖；
   - D（pin 版本+fork）评估：fork czsc python 后端补步骤二消解技术上可行（python `check_bi` 每次调用读 `envs.get_min_bi_len()`，有注入通道），但成本=长期维护整库 fork，收益 +1 cell，不成比例——**不推荐**；若 UP 另有考虑需单独拍板。
-- **UP 决策**：待填
+- **UP 决策**：C 采纳——永久降级（2026-08-02 UP 确认），已登记附录 C.5
 
 ## 5. BSP-002/004 × czsc（无 seg 限制 zs 延伸）
 - **根因复核**：czsc 不产出线段，中枢延伸缺 seg 约束口径，BSP-002/004 的 expect bsp 依赖延伸后中枢。
@@ -91,7 +91,7 @@
   - 半径 = 8 非零（ZS-003 直接依赖当前延伸口径），不满足"补偿可严格限定形态且半径=0"的例外条件；
   - chanpy 列 BSP-002 已 PASS、BSP-004 已由 M4-2 建议 B 补偿；"seg 限制延伸"属 seg 上游知识，czsc 架构性无 seg；
   - D（pin 版本+fork）否：无 seg 是 czsc 架构性缺失，fork 补 seg=重写库核心，不成立。
-- **UP 决策**：待填
+- **UP 决策**：C 采纳——永久降级（2026-08-02 UP 确认），已登记附录 C.5
 
 ## 6. GOLD-005 × czsc（zs 构造口径，P-K）
 - **根因复核**：（M2-3 结论）GOLD-005 expect 中枢从 bi2 开始（跳过 bi0 引导笔+bi1 离开笔）；czsc 适配器 `_recompute_zs`"反向笔配对"无法复现，涉及走势类型判定。
@@ -104,7 +104,7 @@
   - 半径 = 8 非零，不满足例外条件；
   - GOLD-005 chanpy 列已 PASS，recursion 列 FAIL 属 ADR-010 语料双哲学并存已知项，czsc 列边际价值=对表完整性；
   - D（pin 版本+fork）否：同第 5 节，fork 无法解决"无走势类型判定"的架构性缺失。
-- **UP 决策**：待填
+- **UP 决策**：C 采纳——永久降级（2026-08-02 UP 确认），已登记附录 C.5
 
 ## 7. 汇总与 UP 决策门
 
@@ -112,12 +112,12 @@
 
 | 降级项 | 建议 | 爆炸半径 | 预期收益 | UP 决策 |
 |--------|------|----------|----------|---------|
-| SEG-004/005 × chanpy | C | 全量 23 PASS（seg 上游） | chanpy +2 PASS | 待填 |
-| BSP-004 × chanpy | B（adapter_chanpy.py:264-278 按 distinct main_type 逐条出记录） | 实证 0（全语料多类型 bsp 仅 1 例） | chanpy +1 PASS | 待填 |
-| ZS-003 × chanpy | B（复合：跨 seg 延伸试探+九段升级，门控=延伸后≥9 笔且 3 子中枢重合） | 触发集 {bsp-002,bsp-004,seg-005,zs-003}，门控下仅 zs-003 落改 | chanpy +1 PASS | 待填 |
-| BI-004 × czsc | C | 25 全量（成笔内核） | czsc +1 PASS | 待填 |
-| BSP-002/004 × czsc | C | 8（_recompute_zs 路径）[^radius8] | czsc +2 PASS | 待填 |
-| GOLD-005 × czsc | C | 8（同上）[^radius8] | czsc +1 PASS | 待填 |
+| SEG-004/005 × chanpy | C | 全量 23 PASS（seg 上游） | chanpy +2 PASS | C 采纳（永久降级） |
+| BSP-004 × chanpy | B（adapter_chanpy.py:264-278 按 distinct main_type 逐条出记录） | 实证 0（全语料多类型 bsp 仅 1 例） | chanpy +1 PASS | B 采纳（批准实施，另立 M5） |
+| ZS-003 × chanpy | B（复合：跨 seg 延伸试探+九段升级，门控=延伸后≥9 笔且 3 子中枢重合） | 触发集 {bsp-002,bsp-004,seg-005,zs-003}，门控下仅 zs-003 落改 | chanpy +1 PASS | B 采纳（批准实施，另立 M5） |
+| BI-004 × czsc | C | 25 全量（成笔内核） | czsc +1 PASS | C 采纳（永久降级） |
+| BSP-002/004 × czsc | C | 8（_recompute_zs 路径）[^radius8] | czsc +2 PASS | C 采纳（永久降级） |
+| GOLD-005 × czsc | C | 8（同上）[^radius8] | czsc +1 PASS | C 采纳（永久降级） |
 
 [^radius8]: 半径=8 为校准门可见口径——SEG-001..005 五个 czsc PASS 用例 czsc zs 实际非空但无 zs expect，改 `_recompute_zs` 可能静默改变其输出。
 
@@ -128,8 +128,8 @@
 - 全量校准矩阵：`chanpy: PASS 23 / FAIL 8 / ERROR 0`；`czsc: PASS 25 / FAIL 6 / ERROR 0`；`recursion: PASS 18 / FAIL 13 / ERROR 0`（与 M3 基线一致，评估全程只读未破基线）。
 - 单测：`198 passed`。
 
-### 7.3 UP 决策门
+### 7.3 UP 决策（2026-08-02 已决）
 
-- 请 UP 对汇总表逐项拍板（A/B/C 之外亦可推翻重议）；本报告不含 A 项。
-- B 项（BSP-004 × chanpy、ZS-003 × chanpy）批准后另立补丁实施里程碑（新 plan），验收门分别见第 2、3 节"实施验收门"。
-- C 项（6 项）批准后登记附录 C.5 即收官，无任何代码改动。
+- UP 对汇总表逐项拍板：**8 项全部按建议采纳**（B×2 批准实施 / C×6 确认永久降级），无推翻重议。
+- B 项（BSP-004 × chanpy、ZS-003 × chanpy）：另立 M5 补丁实施里程碑（新 plan），验收门分别见第 2、3 节"实施验收门"；M4-2 评审提示一并带入——补偿实现时注意同 main_type 去重（T1/T1P 理论可同挂一笔）。
+- C 项（6 项）：已登记附录 C.5（2026-08-02 登记块 + 原表状态行统一为"永久降级（M4）"），无任何代码改动，M4 就此收官。

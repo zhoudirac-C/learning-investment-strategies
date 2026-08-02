@@ -50,4 +50,6 @@ M4 补丁评估 (plan: docs/superpowers/plans/2026-08-02-chanlun-quant-m4-patch-
 M4 补丁评估 (plan: docs/superpowers/plans/2026-08-02-chanlun-quant-m4-patch-assessment.md): done 2026-08-02
   - 8 项评估结论见 docs/design/chanlun-m4-patch-assessment.md 第 7 节汇总表
   - 基线复跑: 198 测试全绿; chanpy 23 / czsc 25 / recursion 18 不变
-  - 待 UP: 汇总表逐项拍板（无 A 项；B 项批准后另立补丁实施里程碑）
+  - UP 已决 2026-08-02: 汇总表 8 项全部按建议采纳——B×2（BSP-004/ZS-003 × chanpy）批准实施另立 M5；C×6 确认永久降级（附录 C.5 状态行已统一 ⛔，报告 UP 决策列全部落账）
+  - M4-5: complete (commit 91484fd, review Approved; 汇总表 B×2/C×6/D×0; 附录C.5 登记 6 项 C; 2 处笔误修正)
+  - M4 终审: ready for UP 决策门 (review-m4-full.diff 7 commits; Minor 14 条 triage: 5 已关闭/7 不修/2 留后续[T1/T1P去重提示入B实施brief; C.5双轨待UP拍板后统一])
