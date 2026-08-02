@@ -67,23 +67,43 @@
 
 ## 4. BI-004 × czsc（min_bi_len + 课77步骤二，P-J）
 - **根因复核**：（M2-5 结论）czsc 0.10.12 rust 后端内置 min_bi_len=6（忽略环境变量）→ BI-004 bi_list 空；切 python 后端 min_bi_len=4 出 3 笔，但因无课77步骤二"同性质相邻分型保留更极值者"消解，与 expect 1 笔 (1,9,u) 不一致。
-- **探针实证**：待填
-- **爆炸半径**：待填
-- **建议**：待填
+- **探针实证**：（M4-4，探针 `/tmp/m4_probe_czsc.py` + 后端对照探针，只读未改源码）
+  - 输出对照：expect bi = 1 笔 `(1,9,up)`；czsc 默认 rust 后端 **bi 表为空**，fx 表 4 条孤立分型 `(1,D)(5,U)(6,D)(9,U)`——fx 多 idx=5/6 两条（无笔时 czsc 候选分型搬运分支 adapter_czsc.py:363-373）、bi 缺 1 条，与校准报告 FAIL 明细（`chanlun-calibration-report.md:152-161`）逐项一致。
+  - 后端对照实证：适配器既有通道 `CzscAdapter(min_bi_len=4)` 切 python 后端 → 出 3 笔 `(1,5)up/(5,6)down/(6,9)up`，fx 同为 4 条；课77步骤二"同性质相邻分型保留更极值者"应消解 idx=5 顶/idx=6 底、合并为 1 笔 `(1,9)up`——czsc rust/python 两后端均不实现该消解，实证根因复核 P-J 归因（min_bi_len 之外另有步骤二缺失，单改 min_bi_len 修不好）。
+  - 补偿可行性：偏差位于**分型/笔构造层**（czsc 成笔内核）。rust 后端为编译扩展（rs_czsc 内置 min_bi_len=6、忽略环境变量，0.10.12 实证，adapter_czsc.py:64-68），不可改；python 后端 fork 可改，但补步骤二消解=重写 czsc 核心成笔逻辑。适配器层自建成笔=在适配器内重写分型消解+成笔算法，与 recursion 层职责重叠（ADR-010：recursion 列 BI-004 已 PASS，fx/bi 复用 chanpy 适配器）。czsc 列该项边际价值=单级别库对表完整性（chanpy/recursion 两列已 PASS 该形态）。
+- **爆炸半径**：czsc 全部 25 个 PASS 用例的 fx/bi 表均出自 czsc 成笔内核；任何形式的成笔层补偿（fork 改内核 / 适配器自建成笔替换输出）半径 = **25 全量**，需逐一复跑。
+- **建议**：**C（永久降级，登记附录 C.5）**。判据对照：
+  - 补偿点在 vendor 成笔内核，B（适配器补偿）不成立——适配器自建=重写 czsc 核心成笔且与 recursion 层（ADR-010）职责重叠；
+  - 半径 = 25 全量，远非零；
+  - 收益仅 czsc +1 PASS（bi 单 cell），课77步骤二形态已由 chanpy/recursion 两列覆盖；
+  - D（pin 版本+fork）评估：fork czsc python 后端补步骤二消解技术上可行（python `check_bi` 每次调用读 `envs.get_min_bi_len()`，有注入通道），但成本=长期维护整库 fork，收益 +1 cell，不成比例——**不推荐**；若 UP 另有考虑需单独拍板。
 - **UP 决策**：待填
 
 ## 5. BSP-002/004 × czsc（无 seg 限制 zs 延伸）
 - **根因复核**：czsc 不产出线段，中枢延伸缺 seg 约束口径，BSP-002/004 的 expect bsp 依赖延伸后中枢。
-- **探针实证**：待填
-- **爆炸半径**：待填
-- **建议**：待填
+- **探针实证**：（M4-4，探针 `/tmp/m4_probe_czsc.py`，只读未改源码）
+  - 输出对照（两用例 bi 表均与 expect 逐字段一致，差异纯在 zs 层）：expect zs = `{zd:18.3 zg:20.2 start:6 end:21 level:1}`；czsc zs = `{18.3, 20.2, 6, 31}`——中枢确立正确（反向笔 bi1(6,11)/bi3(16,21) 配对），但已确认反向笔 bi5(26,31) in_range 被 `_recompute_zs` 延伸分支（adapter_czsc.py:164-172）延展 end 21→31；expect 的 end=21 依赖 chanpy seg 切分限制（zs 只在已确认 seg0 内延伸）。czsc 无 seg，`_recompute_zs` 已知局限注释（adapter_czsc.py:145-147）已登记该偏差；末位笔 bi7(36,41) sure=False 不延伸（M2-3 修正）已生效，缺口恰在"已确认但跨 seg"的 bi5。
+  - bsp 维度：czsc bsp 置空属 `na_fields` 契约（不产出买卖点），校准门跳过 bsp 比较，两用例 FAIL 仅 zs cell——修好延伸即两项转 PASS。
+  - 补偿可行性：对齐 expect 需在延伸门控引入 seg 约束（"仅已确认 seg 内的反向笔延伸"），即适配器**自建线段**（特征序列分型）——与 recursion 层 L0 走势类型职责重叠（ADR-009，`core/segments.py` 已自建一份），等于在第三处实现线段算法；绕开 seg 的启发式（"延伸最多 N 笔/幅度阈值"）均属语料拟合，违反校准门公平性，不可接受。
+- **爆炸半径**：`_recompute_zs` 是 czsc zs 输出的唯一通道。czsc 25 个 PASS 中 expect 含 zs 表（走 `_recompute_zs` 且被校准门检验）共 **8 个**：BC-001 / BSP-001 / ZS-001 / ZS-002 / ZS-003 / ZS-004 / GOLD-003 / GOLD-004（探针 `/tmp/m4_probe_czsc_radius.py` 实证；其余 17 个 PASS 无 zs expect）。其中 ZS-003 PASS 直接依赖当前延伸口径（延伸至 ≥9 笔才触发 `_apply_nine_bi_upgrade` 九段升级），任何延伸门控修改半径 = 8，非零。
+- **建议**：**C（永久降级，登记附录 C.5）**。判据对照：
+  - B（适配器补偿）否：补偿=适配器自建 seg，与 recursion 层（ADR-009）职责重叠，成本≈第三份线段实现，违反最小 diff；无 seg 的启发式门控=语料拟合作弊；
+  - 半径 = 8 非零（ZS-003 直接依赖当前延伸口径），不满足"补偿可严格限定形态且半径=0"的例外条件；
+  - chanpy 列 BSP-002 已 PASS、BSP-004 已由 M4-2 建议 B 补偿；"seg 限制延伸"属 seg 上游知识，czsc 架构性无 seg；
+  - D（pin 版本+fork）否：无 seg 是 czsc 架构性缺失，fork 补 seg=重写库核心，不成立。
 - **UP 决策**：待填
 
 ## 6. GOLD-005 × czsc（zs 构造口径，P-K）
 - **根因复核**：（M2-3 结论）GOLD-005 expect 中枢从 bi2 开始（跳过 bi0 引导笔+bi1 离开笔）；czsc 适配器 `_recompute_zs`"反向笔配对"无法复现，涉及走势类型判定。
-- **探针实证**：待填
-- **爆炸半径**：待填
-- **建议**：待填
+- **探针实证**：（M4-4，探针 `/tmp/m4_probe_czsc.py`，只读未改源码）
+  - 输出对照（bi 表与 expect 逐字段一致，差异纯在 zs 构造口径）：expect zs = `{zd:7.55 zg:7.85 start:9 end:21 level:1}`（课文口径：bi0 引导笔+bi1 离开笔跳过，中枢由 bi2(9,13) 起的反向笔构成，P-K）；czsc zs = `{7.5, 7.85, 5, 25}`——`_recompute_zs` 以 bi0(1,5) 为引导笔、bi1(5,9) 作为首个反向笔参与配对（adapter_czsc.py:155-194），start=5、zd 取 bi1 低点 7.5（vs expect 7.55），bi5(21,25) in_range 延伸 end 至 25（vs expect 21）。
+  - 补偿可行性：修正要求"判定 bi1 为离开段笔并跳过"=**走势类型判定**（课文例依赖走势类型的段结构先验），`_recompute_zs` 的"引导笔+反向笔配对"单级别口径无表达通道；"按用例配置起始笔"=语料专属 if，违反校准门公平性（作弊），不可接受；一般化的"跳过离开笔"规则需 seg/走势类型上游信息，回到与 BSP-002/004 同一堵墙（自建 seg 与 recursion 层职责重叠）。
+- **爆炸半径**：与第 5 节同通道——`_recompute_zs` 唯一通道，**8 个** zs-PASS 用例（BC-001 / BSP-001 / ZS-001..004 / GOLD-003/004）全部走同一"引导笔+反向笔配对"起点逻辑；尤其 ZS-001/002/004 的 expect zs `start=5`（引导笔后第一反向笔起点）正是当前口径产物，改起点判定直接翻转，半径 = 8 非零。
+- **建议**：**C（永久降级，登记附录 C.5）**。判据对照：
+  - B（适配器补偿）否：补偿依赖走势类型判定上游信息，`_recompute_zs` 无法表达；语料专属配置=作弊，排除；
+  - 半径 = 8 非零，不满足例外条件；
+  - GOLD-005 chanpy 列已 PASS，recursion 列 FAIL 属 ADR-010 语料双哲学并存已知项，czsc 列边际价值=对表完整性；
+  - D（pin 版本+fork）否：同第 5 节，fork 无法解决"无走势类型判定"的架构性缺失。
 - **UP 决策**：待填
 
 ## 7. 汇总与 UP 决策门
