@@ -39,4 +39,4 @@ M3 递归层 (plan: docs/superpowers/plans/2026-07-29-chanlun-quant-m3-level-rec
   - M3-6: done 2026-08-01 (重生成 chanlun-calibration-report.md M3 版 --version M3; ADR-009 L0分组/ADR-010 双哲学/ADR-011 箱体代理; 附录 C.2 level≥2 语义+C.5 刷新; task-m3-report.md)
   - 最终: chanpy 23 + czsc 25 + recursion 18（93 cell）; M2 降级 14 项: 6 项 recursion 覆盖✅, 8 项保持⏸(PATCHES 4 + czsc 局限 4); 198 测试全绿
   - 推送: 3 笔提交已推 origin/master（72b68c5 M3-4 / 737a31d M3-5 / dee39ca M3-6），工作区干净
-  - 待 UP: ADR-009~011 待 UP 确认; M3 评审门待过
+  - UP 已决 2026-08-02: ADR-009~011 三条全部采纳（adr.md 状态已改 resolved）; M3 评审门通过; 8 项保持降级另立 M4 专项评估（PATCHES 4 需改 chanpy 源码，评估爆炸半径与 vendor 策略）

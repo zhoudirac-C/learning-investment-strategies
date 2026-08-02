@@ -53,8 +53,8 @@ M3 目标：自建级别递归层（两库均无此能力），按课 35/84 递�
 - 198 测试全绿（M2 收官 168 → M3 +30）；
 - 批量/增量一致性硬门：6 用例（BC-001/002、BSP-003、SEG-001、GOLD-001/002）一次性批量 vs 逐 bar 增量终态五表全等；is_sure 透传（末位笔 False→True）；增量生长（level-2 中枢须待 idx31 到位后出现）。
 
-## 7. 待 UP 事项
+## 7. UP 决策（2026-08-02 已决）
 
-- ADR-009（L0 分组规则）/ ADR-010（双哲学并存）/ ADR-011（箱体代理）待 UP 确认；
-- M3 评审门待过；
-- 保持降级 8 项（PATCHES 4 + czsc 局限 4）是否继续攻：PATCHES 项需改 chanpy 源码（EigenFX/BSPointList/ZSList），建议另立 M4 专项评估。
+- ADR-009（L0 分组规则）/ ADR-010（双哲学并存）/ ADR-011（箱体代理）：**三条全部采纳**，adr.md 状态已更新为 resolved；
+- M3 评审门：**通过**（198 测试全绿 + M2 降级 6 项清零；recursion 列 13 FAIL 按 ADR-010 归因归档为构造哲学差异）；
+- 保持降级 8 项（PATCHES 4 + czsc 局限 4）：**另立 M4 专项评估**——PATCHES 项需改 chanpy 源码（EigenFX/BSPointList/ZSList），M4 评估爆炸半径与 vendor 策略后决定是否动手。
