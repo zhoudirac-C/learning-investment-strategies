@@ -28,9 +28,23 @@
 
 ## 2. BSP-004 × chanpy（三买"二三类重合"缺失，P-K）
 - **根因复核**：（M2-3 结论）BSP-004 expect 三买@36 与二买@36 重合（课21）；chanpy `cal_seg_bs3point` 不覆盖该场景；`strict_bsp3`/`bsp3_peak`/`bsp3a_max_zs_cnt` 实验均无效。
-- **探针实证**：待填
-- **爆炸半径**：待填
-- **建议**：待填
+- **探针实证**：（M4-2，探针 `/tmp/m4_probe_bsp3.py` + 追踪探针 `/tmp/m4_probe_bsp3_trace.py`，运行时 monkeypatch 未改源码）
+  - 输出对照：expect bsp = 一买@26 + 二买@36 + 三买@36（同 idx 两条记录表达二三类重合，课21 / claim-20070109-001-b）；chanpy 归一表仅一买@26 + 二买@36，缺三买@36。zs 表一致（zd=18.3 zg=20.2 start=6 end=21），bar36 回试低点 20.30 > ZG 20.20，"回抽不触及中枢"成立。
+  - 漏报机制定位（追踪实证，结论：既非"三买须晚于二买"时序约束，也非 chanpy 侧信息丢失——三买判定路径**完整命中**，丢失发生在适配器提取层）：
+    - chanpy 内部 `bs_point_lst` 实际含 `bsp @klu36 bi6 types=['BSP_TYPE.T2', 'BSP_TYPE.T3B']`——三买**已算出**，与二买合并于同一 `CBS_Point`。
+    - 命中路径：`treat_bsp3_before`（BSPointList.py:368-399）——seg0（bi0..bi4 down，sure=True）的 `cmp_zs=(18.3, 20.2)`（`get_final_multi_bi_zs`，:379），候选笔 bi6（31→36 down）`low=20.30`；`bsp3_back2zs`（:419-420）判 `20.30 < zs.high=20.2` 为 False（未回中枢）→ `add_bs(T3B)`（:399）。
+    - 合并而非去重：`cal()` 顺序为一买→二买→三买（:103-105），二买先入 store；三买 `add_bs` 走 `exist_bsp` 分支（:133-138）`add_another_bsp_prop` 把 T3B 并入 bi6 既有 T2 记录——**信息保留在 `bsp.type` 列表中**。
+    - 真正丢失点：**适配器** `adapter_chanpy.py:272` `bstype=int(bsp.type[0].main_type())` 只取首类型，T3B 被丢弃。
+  - 补偿可行性：判定信息**不在**归一表之外——chanpy 内存对象 `bsp.type` 适配器可直接枚举，无需 seg 内部状态、无需重算 → B 类（适配器层补偿）成立。先例：M2-3 末位笔 bsp 过滤（adapter_chanpy.py:261-268）同为 B 类。补偿形态：提取循环（:264-278）按 `bsp.type` 每个 distinct `main_type()` 出一条 `BSPoint`（保持 idx/dir/level/sure 口径不变）。
+- **爆炸半径**：
+  - expect 含 bsp 的 chanpy PASS 用例共 **6 个**（逐一列示，括号内为 chanpy 内部 bsp type 全列表，均单类型）：BC-001（@46 T1）、BSP-001（@26 T1）、BSP-002（@26 T1 + @36 T2）、GOLD-003（@25 T3A）、GOLD-004（@37 T1）、GOLD-005（@29 T3A）。校正 brief 口径：BSP-003 的 chanpy 列为 FAIL（属另一降级项、已由 recursion 列覆盖，见 `chanlun-calibration-report.md:22,84`），不计入 PASS 半径。
+  - 半径实证：全语料 32 用例扫描，多类型合并 bsp **仅 1 个实例**（BSP-004 bi6 = T2+T3B）；6 个 PASS 用例的内部 bsp 全部单类型 → "每个 distinct main_type 出一条"的补偿对全部 PASS 用例输出逐字节不变，**实证半径 = 0**。
+  - 理论半径：仅"同一笔多类型"形态受影响，该形态此前适配器只出首类型记录，补偿为纯增量（追加记录），不删改既有记录。
+- **建议**：**B（适配器层补偿）**。判据对照：
+  - 漏报点不在 vendor 源码：chanpy 三买判定路径（`treat_bsp3_before`）完整命中且多类型信息保留于 `bsp.type`，改源码（A）无收益、违反最小 diff；
+  - 补偿点明确且与先例同类：改 `adapter_chanpy.py:264-278` 提取循环，按 `bsp.type` 逐 distinct main_type 出记录，同 M2-3 末位笔过滤属 B 类，不动 `third_party/chanpy/`；
+  - 半径实证 = 0（全语料仅 BSP-004 一例多类型；6 个 bsp-PASS 用例输出不变），实施验收门：198 全绿 + BSP-004 chanpy 列 FAIL→PASS；
+  - C（永久降级）否：非不可修复项，且"二三类重合"是课21 明确形态（claim-20070109-001-b），成本一行提取口径、收益 chanpy +1 PASS，无挂账理由。
 - **UP 决策**：待填
 
 ## 3. ZS-003 × chanpy（跨 seg 九段升级，P-K）
