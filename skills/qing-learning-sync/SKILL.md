@@ -99,6 +99,14 @@ cd ~/learning-investment-strategies
    ```
 12. **Qdrant 重建时 Vector dimension mismatch**：`ValueError: could not broadcast input array from shape (512,) into shape (1,)` 表示旧 collection 的 schema 与新模型不匹配。**必须用 `--force-recreate`** 删除旧 collection 重建。不要手动删 `.qdrant_data/` 目录——Qdrant local 模式有内部状态，直接用脚本的 `delete_collection()` 接口。
 
+13. **Qdrant 服务端模式被 run_sync_pipeline.sh Step 0 误杀（2026-08-03 实测）**：
+   - 症状：同步管线跑完后 `curl localhost:6333/collections` 无响应，`ps aux | grep bin/qdrant` 为空——Qdrant 服务端进程没了，只有 MCP client 进程残存
+   - 根因：Step 0 的 `pkill -f "mcp_qdrant_server.py"` 模式匹配会波及 `./bin/qdrant` 服务端进程（或 pkill 风暴连带）
+   - 修复：Qdrant 仅服务端模式（port 6333, RocksDB），重启即可：`cd ~/learning-investment-strategies && ./bin/qdrant > /tmp/qdrant.log 2>&1 &`，然后 `curl localhost:6333/collections` 验证
+   - **gateway 重启连带效应**：`hermes gateway restart`（或 pkill gateway）会连带杀掉作为其子进程的 Qing-Agent（uvicorn）——重启 gateway 后必须重新拉起 Agent：`PYTHONPATH=src .venv/bin/python -m uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 --log-level info &`，再 `curl localhost:8000/health` 验证
+   - **MCP server 被杀后 gateway 句柄失效**：kill 旧 MCP server 后，当前会话的 MCP 调用会报 `ClosedResourceError`，必须重启整个 gateway（`nohup <hermes-venv-python> -m hermes_cli.main gateway run --replace &`）才能重新 spawn MCP server
+   - **顺序建议**：同步管线跑完后按「Qdrant 服务端 → Qing-Agent → gateway」顺序逐一验证恢复，别假设脚本都处理好了
+
 ## 详细文档
 
 详见 `docs/neo4j-relation-pipeline.md`
