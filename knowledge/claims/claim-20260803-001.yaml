@@ -13,9 +13,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260703-001-a"]
+  supersedes:
+  - claim-20260703-001-a
   contradicts: []
-  supplements: ["claim-20260730-014", "claim-20260531-002-a"]
+  supplements:
+  - claim-20260730-014
+  - claim-20260531-002-a
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -42,7 +45,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260730-019"]
+  supersedes:
+  - claim-20260730-019
   contradicts: []
   supplements: []
   last_discovered: 2026-08-03
@@ -72,9 +76,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260515-010"]
+  supersedes:
+  - claim-20260515-010
   contradicts: []
-  supplements: ["claim-20260107-001-a", "claim-20260715-051-a"]
+  supplements:
+  - claim-20260107-001-a
+  - claim-20260715-051-a
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -104,7 +111,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-012"]
+  supplements:
+  - claim-20260515-012
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -132,9 +140,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260515-011", "claim-20260122-001-b"]
+  supersedes:
+  - claim-20260515-011
+  - claim-20260122-001-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -162,9 +173,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260731-018"]
+  supersedes:
+  - claim-20260731-018
   contradicts: []
-  supplements: ["claim-20260731-009"]
+  supplements:
+  - claim-20260731-009
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -194,7 +207,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260720-015"]
+  supplements:
+  - claim-20260720-015
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -224,7 +238,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260802-023", "claim-20260616-005-g"]
+  supplements:
+  - claim-20260802-023
+  - claim-20260616-005-g
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -269,7 +285,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260721-014"]
+  supplements:
+  - claim-20260721-014
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -277,7 +294,7 @@ claims:
     cases: []
   topic: 硬件端企稳由闪迪/西部数据财报决定，观察上影线反包
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储-开盘涨停尾盘收绿-深主板可交易
   - code: '603986'
@@ -305,7 +322,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h"]
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -316,7 +334,7 @@ claims:
   - code: '605179'
     name: 一鸣食品
     role: 非科技超跌-连板信号-沪主板可交易
-  - code: '000428'
+  - code: 000428
     name: 华天酒店
     role: 非科技超跌-反包信号-深主板可交易
   tags:
@@ -341,7 +359,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260802-015"]
+  supplements:
+  - claim-20260802-015
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -377,7 +396,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-001-f", "claim-20260607-003-d", "claim-20260706-002-f"]
+  supplements:
+  - claim-20260608-001-f
+  - claim-20260607-003-d
+  - claim-20260706-002-f
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -385,10 +407,10 @@ claims:
     cases: []
   topic: 宇树8/10申购牵引机器人情绪，电网设备看SST产业化
   related_stocks:
-  - code: '002896'
+  - code: 002896
     name: 中大力德
     role: 机器人-涨停-深主板可交易
-  - code: '002931'
+  - code: 002931
     name: 锋龙股份
     role: 机器人-涨停-深主板可交易
   - code: '600580'
@@ -397,7 +419,7 @@ claims:
   - code: '688322'
     name: 奥比中光
     role: 机器人-涨停-科创板不可交易
-  - code: '002922'
+  - code: 002922
     name: 伊戈尔
     role: 电网设备-SST产业化-深主板可交易
   - code: '603861'
@@ -423,9 +445,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260731-009"]
+  supersedes:
+  - claim-20260731-009
   contradicts: []
-  supplements: ["claim-20260622-001-h"]
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -453,9 +477,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260621-006-p"]
+  supersedes:
+  - claim-20260621-006-p
   contradicts: []
-  supplements: ["claim-20260721-030", "claim-20260730-011"]
+  supplements:
+  - claim-20260721-030
+  - claim-20260730-011
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -485,7 +512,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-001-e"]
+  supplements:
+  - claim-20260608-001-e
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -498,3 +526,320 @@ claims:
   - 资金重新选中
   - 分化压力
   - 4700只上涨
+- id: claim-20260803-016
+  source_path: sources/original/bilibili/2026-08-03-0957-图片-开太低可以做T， 尾盘把加仓的那部分T出去就好了，不用过于悲.md
+  source_date: '2026-08-03'
+  source_type: 盘中
+  extracted_at: '2026-08-03T23:30:00+08:00'
+  claim_type: operation
+  subject: 低开做T：尾盘T出加仓部分
+  timeframe: intraday
+  statement: 开盘跌太低可以做T，尾盘把加仓的那部分T出去即可，不必过于悲观；这确认了早盘情形A预案中已关注波段方向以做T为主的执行。
+  evidence_quote: 开太低可以做T， 尾盘把加仓的那部分T出去就好了，不用过于悲观，今天做T还行吧。
+  interpretation: UP在9:57盘中对低开给出操作指引：低开不是卖出信号而是做T机会，加仓部分尾盘T出（保留底仓、摊薄成本）。这是对早盘情形A预案（波段方向做T为主）的盘中确认，同时传递不悲观的情绪基调。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 低开做T尾盘T出加仓部分，不悲观
+  related_stocks: []
+  tags:
+  - 低开做T
+  - 尾盘T出
+  - 加仓
+  - 不悲观
+  - 做T
+- id: claim-20260803-017
+  source_path: sources/original/bilibili/2026-08-03-1304-图片-今日亚洲市场风险偏好再次降温。尽管国际油价开盘大跌约6%，能.md
+  source_date: '2026-08-03'
+  source_type: 盘中
+  extracted_at: '2026-08-03T23:30:00+08:00'
+  claim_type: market-cycle
+  subject: 韩股下跌非二次崩盘
+  timeframe: intraday
+  statement: KOSPI盘中跌5.5%、三星电子和SK海力士均跌约9%，但价格结构上不能简单定义为二次崩盘：以上周四收盘价计算KOSPI仍累计上涨约11.5%，三星/SK海力士仍分别高出约15%和18%，当前价格整体仍处于周五巨阳线内部，周一的下跌更接近强反弹后的第一次集中回踩。
+  evidence_quote: 从价格结构看，目前仍不能简单定义为“二次崩盘”。以上周四收盘价计算，KOSPI仍累计上涨约11.5%；三星电子和SK海力士在经历周五大涨、周一回落后，也仍分别高出约15%和18%。当前价格整体仍处于周五巨阳线内部，周一的下跌更接近强反弹后的第一次集中回踩。
+  interpretation: UP用价格结构判断韩股急跌性质：KOSPI盘中跌5.5%、三星/SK海力士跌约9%看似二次崩盘，但对照上周四基准仍累计上涨（KOSPI+11.5%、三星+15%、SK海力士+18%），价格位于周五巨阳线内部，因此定性为强反弹后的第一次集中回踩而非二次崩盘。这是区分恐慌级别的重要参照。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 韩股跌5.5%非二次崩盘，是巨阳线内第一次集中回踩
+  related_stocks: []
+  tags:
+  - KOSPI
+  - 三星电子
+  - SK海力士
+  - 二次崩盘
+  - 集中回踩
+- id: claim-20260803-018
+  source_path: sources/original/bilibili/2026-08-03-1304-图片-今日亚洲市场风险偏好再次降温。尽管国际油价开盘大跌约6%，能.md
+  source_date: '2026-08-03'
+  source_type: 盘中
+  extracted_at: '2026-08-03T23:30:00+08:00'
+  claim_type: market-cycle
+  subject: 韩国外资行为接近空头回补非中期配置
+  timeframe: short-term
+  statement: 周一开盘外资净卖出超1万亿韩元；外资连续几个交易日的资金行为（上周暴跌期间抛售、周五回购、周一再卖）更接近空头回补、指数交易和快速降低风险，尚未形成稳定的中期配置方向。
+  evidence_quote: 真正值得警惕的是资金性质。周一开盘后，外资迅速净卖出超过1万亿韩元。上周暴跌期间，外资大规模抛售三星电子和SK海力士；周五又成为指数创纪录反弹的主要买方；到了本周一，再次转为主要卖方。连续几个交易日的资金行为更接近空头回补、指数交易和快速降低风险，尚未形成稳定的中期配置方向。
+  interpretation: UP从资金性质维度警示：外资周一净卖出超1万亿韩元，叠加上周暴跌抛售、周五回购、周一再卖的反复行为，指向空头回补与指数交易而非中期配置。资金性质决定了反弹的持续性存疑——反弹由回补驱动而非配置驱动。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 韩国外资行为=空头回补/指数交易，未形成中期配置
+  related_stocks: []
+  tags:
+  - 外资
+  - 空头回补
+  - 指数交易
+  - 净卖出
+  - 资金性质
+- id: claim-20260803-019
+  source_path: sources/original/bilibili/2026-08-03-1304-图片-今日亚洲市场风险偏好再次降温。尽管国际油价开盘大跌约6%，能.md
+  source_date: '2026-08-03'
+  source_type: 盘中
+  extracted_at: '2026-08-03T23:30:00+08:00'
+  claim_type: market-cycle
+  subject: 韩股进入寻底阶段但底部确认未完成
+  timeframe: short-term
+  statement: 韩国市场已进入寻底阶段但底部确认仍未完成：周五是第一次强反弹、周一是第一次回踩；真正有效的底部需要市场在反弹后再次遭遇抛售时仍能守住前低区域；未来两天重点观察外资卖盘是否继续扩大，以及三星电子、SK海力士能否守住上周低点。
+  evidence_quote: 因此，韩国市场当前已经进入寻底阶段，但底部确认仍未完成。周五是第一次强反弹，周一是第一次回踩。真正有效的底部，需要市场在反弹后再次遭遇抛售时，仍能守住前低区域。未来两天需要重点观察外资卖盘是否继续扩大，以及三星电子、SK海力士能否守住上周低点。
+  interpretation: UP给出韩股底部确认的完整框架：寻底≠筑底完成；强反弹+回踩只是寻底的第一步，有效底部需经受二次抛售考验并守住前低。观察变量明确：外资卖盘是否扩大、三星/SK海力士能否守上周低点。这一框架同样适用于A股科技底的确认逻辑。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 韩股寻底中底部未确认：需二次抛售守前低+外资卖盘观察
+  related_stocks: []
+  tags:
+  - 寻底阶段
+  - 底部确认
+  - 前低区域
+  - 外资卖盘
+  - 守低点
+- id: claim-20260803-020
+  source_path: sources/original/bilibili/2026-08-03-1304-图片-今日亚洲市场风险偏好再次降温。尽管国际油价开盘大跌约6%，能.md
+  source_date: '2026-08-03'
+  source_type: 盘中
+  extracted_at: '2026-08-03T23:30:00+08:00'
+  claim_type: sector-theme
+  subject: A股上午轮动混沌：低位方向强度递减
+  timeframe: intraday
+  statement: A股上午呈现混沌轮动格局：早盘资金先后尝试风电、光伏、可控核聚变和机器人等低位方向，可控核聚变相对较强但持续时间主要集中在开盘前半小时，整体强度仍弱于上周五的AI应用；AI应用前排个股尚有冲高，但随着轮动逐级扩散，后续分支强度明显递减。
+  evidence_quote: A股上午同样呈现较为混沌的轮动格局。早盘资金先后尝试风电、光伏、可控核聚变和机器人等低位方向，其中可控核聚变相对较强，但持续时间主要集中在开盘前半小时，整体强度仍弱于上周五的AI应用。AI应用前排个股尚有冲高，但随着轮动逐级扩散，后续分支的强度明显递减。
+  interpretation: UP记录A股上午的轮动特征：低位方向（风电/光伏/可控核聚变/机器人）轮动但强度不足，可控核聚变最强也仅维持半小时；轮动扩散伴随强度递减，说明是存量资金试探而非增量进攻。与上周五AI应用的强度形成对比。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A股上午低位方向混沌轮动，强度递减弱于AI应用
+  related_stocks: []
+  tags:
+  - 轮动格局
+  - 可控核聚变
+  - 风电
+  - 光伏
+  - 强度递减
+- id: claim-20260803-021
+  source_path: sources/original/bilibili/2026-08-03-1304-图片-今日亚洲市场风险偏好再次降温。尽管国际油价开盘大跌约6%，能.md
+  source_date: '2026-08-03'
+  source_type: 盘中
+  extracted_at: '2026-08-03T23:30:00+08:00'
+  claim_type: sector-theme
+  subject: AI应用仍属超跌反弹，中期核心在AI硬件
+  timeframe: short-term
+  statement: AI应用本质上仍属于超跌反弹，市场中期核心仍在AI硬件；上午存储、半导体等分支持续承压并创出阶段新低，临近午间中际旭创(300308)、天孚通信(300394)等CPO核心以及长鑫科技(688825)回升，才形成一定止血作用；AI硬科技整体修复强度一般，资金更多在不同低位分支间轮动，尚未出现明确主线聚焦和板块共振。
+  evidence_quote: 科技方向的修复力度同样有限。AI应用本质上仍属于超跌反弹，市场中期核心仍在AI硬件。上午存储、半导体等分支持续承压并创出阶段新低，临近午间，中际旭创、天孚通信等CPO核心，以及次新方向的长鑫科技出现回升，才对科技板块形成一定止血作用。不过，AI硬科技整体修复强度一般，资金更多是在不同低位分支之间轮动，尚未出现明确的主线聚焦和板块共振。
+  interpretation: UP明确科技修复的定位：AI应用=超跌反弹（短期），AI硬件=中期核心；上午存储/半导体创阶段新低后靠CPO核心（中际旭创(300308)、天孚通信(300394)）和长鑫科技(688825)回升止血，但整体修复强度不足、无主线聚焦。这延续早盘判断——硬件企稳待财报验证，短期不抱高预期。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI应用仍属超跌反弹，中期核心在AI硬件，CPO止血
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: CPO核心-临近午间回升-创业板不可交易
+  - code: '300394'
+    name: 天孚通信
+    role: CPO核心-临近午间回升-创业板不可交易
+  - code: '688825'
+    name: 长鑫科技
+    role: 次新-回升止血-科创板不可交易
+  tags:
+  - AI应用
+  - 超跌反弹
+  - AI硬件
+  - CPO
+  - 主线聚焦
+- id: claim-20260803-022
+  source_path: sources/original/bilibili/2026-08-03-1304-图片-今日亚洲市场风险偏好再次降温。尽管国际油价开盘大跌约6%，能.md
+  source_date: '2026-08-03'
+  source_type: 盘中
+  extracted_at: '2026-08-03T23:30:00+08:00'
+  claim_type: operation
+  subject: 下跌趋势中普通轮动参与价值低
+  timeframe: short-term
+  statement: 当前市场仍处于下跌趋势阶段，普通轮动的参与价值较低；利好落地高开低走、外围连续反弹两日而A股依然没有有力度的进攻修复，只有情绪或价格达到极值时，博弈的性价比才会明显提高。
+  evidence_quote: 从指数环境看，上周五利好落地后，大盘高开低走；外围市场随后连续反弹两日，今日A股依然没有出现有力度的进攻修复。当前市场仍处于下跌趋势阶段，普通轮动的参与价值较低，只有情绪或价格达到极值时，博弈的性价比才会明显提高。
+  interpretation: UP对A股指数环境定性：处于下跌趋势阶段（利好落地高开低走+外围反弹两日A股无进攻），因此普通轮动参与价值低。操作含义：不参与普通轮动，只在情绪或价格极值处出手，提高博弈性价比。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 下跌趋势中普通轮动价值低，极值处才出手
+  related_stocks: []
+  tags:
+  - 下跌趋势
+  - 普通轮动
+  - 极值博弈
+  - 高开低走
+  - 进攻修复
+- id: claim-20260803-023
+  source_path: sources/original/bilibili/2026-08-03-1304-图片-今日亚洲市场风险偏好再次降温。尽管国际油价开盘大跌约6%，能.md
+  source_date: '2026-08-03'
+  source_type: 盘中
+  extracted_at: '2026-08-03T23:30:00+08:00'
+  claim_type: operation
+  subject: 两类机会：共振修复与恐慌买阴
+  timeframe: short-term
+  statement: 后续重点关注两类机会：第一，核心板块开盘即表现强势并带动指数共振修复、形成阶段企稳预期时，领涨分支和核心超跌品种具备博弈价值；第二，指数和板块再次出现集中恐慌杀跌但跌停数量保持可控、核心品种没有过早封死跌停，说明情绪释放可能较为前置，可以观察恐慌买阴的机会。
+  evidence_quote: 后续重点关注两类机会。第一，核心板块开盘即表现出强势姿态，并带动指数共振修复，形成阶段企稳预期，此时领涨分支和核心超跌品种具备博弈价值。第二，指数和板块再次出现集中恐慌杀跌，但跌停数量保持可控、核心品种没有过早封死跌停，说明情绪释放可能较为前置，可以观察恐慌买阴的机会。
+  interpretation: UP给出下跌趋势中的两类出手机会：①多头共振（核心板块开盘强势+指数共振修复→领涨分支/核心超跌品种）；②恐慌买阴（集中杀跌但跌停可控+核心品种未过早封死→情绪释放前置）。这是等待框架下的具体触发条件，比普通轮动有更高的胜率基础。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 两类机会：板块共振修复博弈 / 恐慌杀跌买阴
+  related_stocks: []
+  tags:
+  - 共振修复
+  - 恐慌买阴
+  - 跌停可控
+  - 阶段企稳
+  - 博弈价值
+- id: claim-20260803-024
+  source_path: sources/original/bilibili/2026-08-03-1304-图片-今日亚洲市场风险偏好再次降温。尽管国际油价开盘大跌约6%，能.md
+  source_date: '2026-08-03'
+  source_type: 盘中
+  extracted_at: '2026-08-03T23:30:00+08:00'
+  claim_type: operation
+  subject: 等待是交易的一部分，不亏就是赢
+  timeframe: short-term
+  statement: 类似今日这种跌幅不足、进攻不强、方向模糊的状态上下皆有可能、交易难度较高，更合适的选择是等待——等待市场再次出现恐慌极值，或等待多头板块以更明确的联动和持续性证明修复诚意；下跌趋势中最难控制的是盘中焦躁、局部拉升诱惑和急于抄底挽回回撤的冲动，在缺乏明确胜率的阶段保持克制，不亏就是赢。
+  evidence_quote: 类似今日这种跌幅不足、进攻不强、方向模糊的状态，上下皆有可能，交易难度较高。此时更合适的选择仍是等待，等待市场再次出现恐慌极值，或者等待多头板块以更明确的联动和持续性证明修复诚意。等待本身就是交易的一部分。下跌趋势中，最难控制的往往不是买卖动作，而是盘中焦躁、局部拉升诱惑，以及大幅调整后急于抄底和挽回回撤的冲动。在缺乏明确胜率的阶段，保持克制，不亏就是赢。
+  interpretation: UP将等待上升为交易纪律：方向模糊时（跌幅不足/进攻不强）不赌方向，等待恐慌极值或多头联动证明；并点明下跌趋势中最难控制的是情绪（焦躁、拉升诱惑、急于抄底回本），克制=不亏=赢。这是对散户最有操作价值的心理纪律。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 方向模糊期等待为主，克制焦躁不亏就是赢
+  related_stocks: []
+  tags:
+  - 等待
+  - 克制
+  - 不亏就是赢
+  - 抄底冲动
+  - 交易纪律
+- id: claim-20260803-025
+  source_path: sources/original/bilibili/2026-08-03-1418-图片-半导体ETF今天跌幅较大是因为晶圆代工，这一部分在今天开始大.md
+  source_date: '2026-08-03'
+  source_type: 盘中
+  extracted_at: '2026-08-03T23:30:00+08:00'
+  claim_type: sector-theme
+  subject: 晶圆代工大幅补跌是最后补跌板块
+  timeframe: intraday
+  statement: 半导体ETF今天跌幅较大是因为晶圆代工，这一部分在今天开始大幅补跌，算是最后一个跌的板块了。
+  evidence_quote: 半导体ETF今天跌幅较大是因为晶圆代工，这一部分在今天开始大幅补跌，算是最后一个跌的板块了。
+  interpretation: UP解释半导体ETF大跌归因：跌幅来自晶圆代工环节今日开始大幅补跌。补跌序列逻辑——晶圆代工是最后一个下跌的板块，意味着科技板块内部的补跌接近完成，为底部判断提供结构依据。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体ETF跌幅来自晶圆代工补跌，最后下跌板块
+  related_stocks: []
+  tags:
+  - 半导体ETF
+  - 晶圆代工
+  - 补跌
+  - 最后板块
+  - 归因
+- id: claim-20260803-026
+  source_path: sources/original/bilibili/2026-08-03-1418-图片-半导体ETF今天跌幅较大是因为晶圆代工，这一部分在今天开始大.md
+  source_date: '2026-08-03'
+  source_type: 盘中
+  extracted_at: '2026-08-03T23:30:00+08:00'
+  claim_type: market-cycle
+  subject: 底部明确：抗住不要卖
+  timeframe: intraday
+  statement: 晶圆代工补跌完成后，这里可以明确就是底部，操作上抗住不要卖。
+  evidence_quote: 这里可以明确就是底部，抗住不要卖！
+  interpretation: UP在14:18给出明确的底部判断与操作指令：晶圆代工作为最后补跌板块完成补跌，底部明确，抗住不卖。这是当日盘中从早盘震荡筑底到午后明确底部的强化信号，对持仓者具有直接操作含义。注意这是盘中强判断，与早盘止跌≠反转的框架衔接（底部结构已现+最后补跌完成）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 晶圆代工最后补跌完成，底部明确抗住不卖
+  related_stocks: []
+  tags:
+  - 底部明确
+  - 抗住不卖
+  - 最后补跌
+  - 持仓
+  - 底部判断
