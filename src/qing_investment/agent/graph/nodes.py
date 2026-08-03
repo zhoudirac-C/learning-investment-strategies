@@ -889,7 +889,9 @@ def _safe_llm_invoke(
     import os
 
     if use_acp_first is None:
-        acp_first = os.environ.get("KIMI_CODE_ACP_FIRST", "1").lower() not in ("0", "false", "no")
+        # 默认不优先本地 ACP（2026-08-03 起：监控链路全面走远端 deepseek，
+        # 避免每次 LLM 调用都 spawn `kimi acp` 子进程产生僵尸/反复重启）。
+        acp_first = os.environ.get("KIMI_CODE_ACP_FIRST", "0").lower() not in ("0", "false", "no")
     else:
         acp_first = use_acp_first
     # [DEPRECATED] kimi -p 方式已废弃，不再加入本地优先列表。
