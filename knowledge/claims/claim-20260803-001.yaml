@@ -542,7 +542,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260605-001-i", "claim-20260729-004", "claim-20260714-001-p"]
+  supplements:
+  - claim-20260605-001-i
+  - claim-20260729-004
+  - claim-20260714-001-p
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -570,9 +573,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260715-008-a"]
+  supersedes:
+  - claim-20260715-008-a
   contradicts: []
-  supplements: ["claim-20260729-001"]
+  supplements:
+  - claim-20260729-001
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -630,7 +635,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260731-010"]
+  supersedes:
+  - claim-20260731-010
   contradicts: []
   supplements: []
   last_discovered: 2026-08-03
@@ -691,8 +697,11 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260610-042-a"]
-  supplements: ["claim-20260609-003-a", "claim-20260602-003-c"]
+  contradicts:
+  - claim-20260610-042-a
+  supplements:
+  - claim-20260609-003-a
+  - claim-20260602-003-c
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -729,9 +738,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260601-004-e"]
+  supersedes:
+  - claim-20260601-004-e
   contradicts: []
-  supplements: ["claim-20260622-001-h"]
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -761,7 +772,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-001-l"]
+  supplements:
+  - claim-20260611-001-l
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -790,7 +802,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260731-018"]
+  contradicts:
+  - claim-20260731-018
   supplements: []
   last_discovered: 2026-08-03
   links:
@@ -821,7 +834,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260714-005-p", "claim-20260702-002-k"]
+  supplements:
+  - claim-20260714-005-p
+  - claim-20260702-002-k
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -849,9 +864,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260527-004-a"]
+  supersedes:
+  - claim-20260527-004-a
   contradicts: []
-  supplements: ["claim-20260624-002-c"]
+  supplements:
+  - claim-20260624-002-c
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -865,3 +882,534 @@ claims:
   - 最后补跌
   - 持仓
   - 底部判断
+- id: claim-20260803-027
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: market-cycle
+  subject: 缩量弱势K线定性：磨底期风格再平衡
+  timeframe: short-term
+  statement: 今天是一根缩量的弱势K线，指数弱、个股修复、量能萎缩三者同时出现，本质上是磨底期的风格再平衡，而不是新一轮下跌的起点。
+  evidence_quote: 今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个股修复、量能萎缩三者同时出现，本质上是磨底期的风格再平衡，而不是新一轮下跌的起点。
+  interpretation: UP对8/3盘面给出总定性：缩量弱势K线但内部结构不弱（个股修复），三者并存=磨底期的风格再平衡（资金从科技权重向低位题材腾挪），排除新一轮下跌。这与早盘八月震荡筑底、午后底部明确的判断一脉相承，是当日收盘总结定调。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 缩量弱势K线=磨底期风格再平衡，非新下跌起点
+  related_stocks: []
+  tags:
+  - 缩量K线
+  - 风格再平衡
+  - 磨底期
+  - 个股修复
+  - 非新下跌
+- id: claim-20260803-028
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: market-cycle
+  subject: 量能萎缩比点位更重要：存量成交限制多板块走强
+  timeframe: short-term
+  statement: 量能相较上一交易日大幅萎缩，这一点比点位本身更重要——存量水平的成交额无法支撑多板块同步走强，场内资金只能在板块之间腾挪，场外资金观望情绪浓厚，近期龙虎榜上活跃资金的身影也明显减少。
+  evidence_quote: 量能相较上一交易日大幅萎缩，这一点比点位本身更重要——存量水平的成交额无法支撑多板块同步走强，场内资金只能在板块之间腾挪，场外资金观望情绪浓厚，近期龙虎榜上活跃资金的身影也明显减少。
+  interpretation: UP强调量能是当前市场的主要矛盾：存量成交意味着板块只能轮动不能同涨，龙虎榜活跃资金减少说明短线情绪资金退场。量能状态决定市场运行性质，比指数点位更有信息量。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能萎缩比点位更重要，存量成交无法支撑多板块走强
+  related_stocks: []
+  tags:
+  - 量能萎缩
+  - 存量成交
+  - 龙虎榜
+  - 多板块走强
+  - 资金腾挪
+- id: claim-20260803-029
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: market-cycle
+  subject: 分歧在节奏不在方向：低位承接是关键
+  timeframe: short-term
+  statement: 当前位置的分歧不在方向而在节奏：缩量下的普跌不可怕，可怕的是缩量之后连低位承接都消失。今天低位题材尚能接得住，说明流动性并未进一步恶化，磨底的结构还在。
+  evidence_quote: 个人判断，当前位置的分歧不在方向而在节奏：缩量下的普跌不可怕，可怕的是缩量之后连低位承接都消失。今天低位题材尚能接得住，说明流动性并未进一步恶化，磨底的结构还在。
+  interpretation: UP给出磨底期的核心观察变量：不是方向（已明确磨底）而是节奏——关键是缩量后低位是否还有承接。今日低位题材接得住=流动性未恶化，磨底结构完好。这是区分磨底延续与破位下跌的判别标准。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 磨底期分歧在节奏：低位承接消失才可怕，今日承接尚在
+  related_stocks: []
+  tags:
+  - 低位承接
+  - 节奏分歧
+  - 流动性
+  - 磨底结构
+  - 缩量普跌
+- id: claim-20260803-030
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: market-cycle
+  subject: 科技硬件调整性质：内生回调非基本面证伪
+  timeframe: short-term
+  statement: 科技硬件这一轮更接近内生性回调叠加轮动踩踏，而非基本面证伪：连续快速下跌后空头动能已有消耗，但出清尚未完全结束；按三信号检验（强势股补跌、多杀多、流动性见底）目前主要卡在第一条——市场担心强势股补跌，所以追涨动能持续偏弱。
+  evidence_quote: 从调整性质上区分，科技硬件这一轮更接近内生性回调叠加轮动踩踏，而非基本面证伪：连续快速下跌之后空头动能已有消耗，但出清尚未完全结束。按此前的三信号检验——强势股补跌、多杀多、流动性见底——目前主要卡在第一条上：市场担心强势股补跌，所以追涨动能持续偏弱。
+  interpretation: UP用三信号框架定位科技硬件出清进度：调整性质为内生性回调+轮动踩踏（非基本面证伪），空头动能消耗但出清未完；三信号（强势股补跌/多杀多/流动性见底）当前卡在第一条——强势股补跌担忧抑制追涨。这为判断硬件调整尾声提供了进度坐标。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技硬件=内生回调+轮动踩踏，三信号卡在强势股补跌
+  related_stocks: []
+  tags:
+  - 内生回调
+  - 轮动踩踏
+  - 三信号
+  - 强势股补跌
+  - 出清
+- id: claim-20260803-031
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: sector-theme
+  subject: AI应用与智能体：阿里Qwen3.8发布，A股映射坎坷
+  timeframe: short-term
+  statement: 8月3日阿里巴巴发布新一代基座大模型Qwen3.8并推出企业级Agent产品千问办公开启公测（已初步打通钉钉），受此提振阿里港股大涨；AI应用与智能体是今天科技内部相对活跃的方向，但存量博弈环境下A股映射走得较为坎坷，市场认可度依然较高。
+  evidence_quote: AI 应用与智能体：盘中一度有所回流，是今天科技内部相对活跃的方向。据公开消息，8 月 3 日阿里巴巴发布新一代基座大模型 Qwen3.8，并同步推出企业级 Agent 产品「千问办公」开启公测，个人与企业用户均可通过官网体验，目前已初步打通钉钉；受此提振，阿里巴巴港股当日大涨。存量博弈环境下 A股映射走得较为坎坷，但市场认可度依然较高。
+  interpretation: UP记录AI应用方向的催化：阿里Qwen3.8+千问办公Agent公测（打通钉钉）推动阿里港股大涨，A股AI应用盘中回流但映射坎坷——存量博弈下港股强于A股映射。方向认可度高但短期难有持续性的板块共振。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 阿里Qwen3.8+千问办公公测，A股AI应用映射坎坷认可度高
+  related_stocks: []
+  tags:
+  - 阿里Qwen3.8
+  - 千问办公
+  - AI应用
+  - 智能体
+  - A股映射
+- id: claim-20260803-032
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: sector-theme
+  subject: AI硬件问题在筹码心理：强者恒强重现才改善
+  timeframe: short-term
+  statement: 科技当前最大的问题不在产业逻辑而在筹码心理——市场普遍担心强势股补跌因此不敢追涨；什么时候看到强者恒强的现象重新出现，科技股整体氛围才会真正改善。连英伟达自身都在主动推进以太网架构，国内自主算力集群走全栈国产RoCE路线的确定性反而更高、长期国产替代空间进一步打开，在此背景下交换机及芯片依然出现补跌，正说明当前是情绪与筹码在定价，而非基本面在定价。
+  evidence_quote: 个人判断，科技当前最大的问题不在产业逻辑而在筹码心理——市场普遍担心强势股补跌，因此不敢追涨。什么时候看到强者恒强的现象重新出现，科技股整体氛围才会真正改善。最值得玩味的是，连英伟达自身都在主动推进以太网架构，这意味着国内自主算力集群坚定走全栈国产 RoCE 路线的确定性反而更高，长期国产替代空间进一步打开——在这种产业方向明确的背景下，交换机及芯片依然出现补跌，正说明当前是情绪与筹码在定价，而非基本面在定价。
+  interpretation: UP拆解科技硬件承压的根因：筹码心理（怕强势股补跌）而非产业逻辑；强者恒强重现是氛围改善的观察信号。同时点出产业逻辑反而在强化——英伟达推以太网架构→国产全栈RoCE路线确定性更高，交换机芯片补跌=情绪定价非基本面定价，这构成科技调整尾声的反向证据。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI硬件问题在筹码心理非产业逻辑，强者恒强重现才改善
+  related_stocks: []
+  tags:
+  - 筹码心理
+  - 强者恒强
+  - RoCE
+  - 国产算力
+  - 情绪定价
+- id: claim-20260803-033
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: sector-theme
+  subject: 核电全天强势：量化放大，明天看接力质量
+  timeframe: short-term
+  statement: 核电全天强势是今天盘面最突出的亮点：国常会核准四项目共8台机组（2026年度首次、十五五期间首批），总投资超1700亿，消息面催化较多、量化资金蜂拥而上、多股封板；在轮动为主的环境下，明天需要回避前排晋级、后排普遍回落的局面——这类由消息驱动、量化放大的板块，第二天的接力质量往往决定它是主线还是一日游。
+  evidence_quote: 核电：全天强势，是今天盘面最突出的亮点。据新闻联播报道，7 月 31 日国务院常务会议决定核准浙江金七门二期、广东太平岭三期、辽宁庄河一期、山东莱阳一期四个项目共 8 台机组，为 2026 年度首次核电核准，也是「十五五」期间首批；据媒体估算总投资超过 1700 亿元。消息面催化较多，量化资金蜂拥而上，多股封板。个人判断，在轮动为主的大环境下，明天需要回避前排晋级、后排普遍回落的局面——这类由消息驱动、量化放大的板块，第二天的接力质量往往决定它是主线还是一日游。
+  interpretation: UP复盘核电板块：催化明确（国常会核准8台机组，2026年度首次）但资金结构是量化放大+消息驱动，多股封板。操作层面明确警示：明天回避前排晋级后排回落的局面，接力质量决定主线还是一日游。这是对早盘核电看好的风险补充——方向对但节奏要防高位分歧。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 核电全天强势但量化放大，明天看接力质量防一日游
+  related_stocks: []
+  tags:
+  - 核电
+  - 国常会核准
+  - 量化资金
+  - 接力质量
+  - 一日游
+- id: claim-20260803-034
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: sector-theme
+  subject: 光伏午后异动：价格合规指导推动超跌反弹
+  timeframe: short-term
+  statement: 光伏午后受消息刺激集体异动，多晶硅相关标的领涨、通威股份(600438)涨停：市场监管总局在江苏盐城对光伏行业开展价格合规指导，推动企业从拼价格向拼质量转变；核心还是长期超跌属性提供了空间。
+  evidence_quote: 光伏：午后同样受消息刺激集体异动，多晶硅相关标的领涨，通威股份涨停。据财联社报道，市场监管总局在江苏盐城对光伏行业开展价格合规指导，推动企业从「拼价格」向「拼质量」转变。核心还是长期超跌属性提供了空间。
+  interpretation: UP记录光伏异动逻辑：政策消息（价格合规指导，拼价格→拼质量）触发+长期超跌属性提供空间，多晶硅领涨、通威股份(600438)涨停。光伏的走法被用作推演低位埋伏思路的案例。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光伏价格合规指导触发异动，超跌属性提供空间
+  related_stocks:
+  - code: '600438'
+    name: 通威股份
+    role: 光伏-涨停-沪主板可交易
+  tags:
+  - 光伏
+  - 价格合规指导
+  - 通威股份
+  - 超跌属性
+  - 多晶硅
+- id: claim-20260803-035
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: methodology
+  subject: 埋伏低位未反弹方向：轮动期的有限有效手段
+  timeframe: short-term
+  statement: 在轮动主导、量能不足的阶段，埋伏低位尚未反弹的方向（如环保、轻工机械）是当前少数有效手段之一；但这类方向基本很难成为主流——它们提供的是轮动收益而不是趋势收益，持续性普遍偏弱。
+  evidence_quote: 从光伏的走法可以推演出一条阶段性有效的思路：在轮动主导、量能不足的阶段，埋伏低位尚未反弹的方向是当前少数有效手段之一。比如环保、轻工机械等方向。但需要清醒的是，这类方向基本上都很难成为主流——它们提供的是轮动收益，而不是趋势收益，持续性普遍偏弱。
+  interpretation: UP提炼轮动期的操作方法论：量能不足+轮动主导阶段，埋伏低位未反弹方向（环保/轻工机械）是少数有效手段，但要清醒认知其性质——轮动收益非趋势收益，持续性弱。这是对光伏案例的推演，明确适用范围与收益天花板。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 轮动期埋伏低位未反弹方向，轮动收益非趋势收益
+  related_stocks: []
+  tags:
+  - 低位埋伏
+  - 轮动收益
+  - 环保
+  - 轻工机械
+  - 量能不足
+- id: claim-20260803-036
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: sector-theme
+  subject: 电网十五五规划：两网5万亿投资
+  timeframe: trend
+  statement: 发改委、能源局印发《新型电力系统建设十五五规划》：2030年初步建成新型电力系统，非化石能源发电量占比达50%，28亿千瓦以上新能源高水平消纳，建成支撑超1.1亿辆电动汽车出行的充电网络；据东莞证券研报，十五五期间两大电网合计规划投资约5万亿元（较十四五大幅增长），特高压骨干网架、配网智能化与虚拟电厂全链条受益；产业链记录：汉缆股份(002498)（高压及超高压电缆）、太阳电缆(002300)（交联电缆/海底电缆）。
+  evidence_quote: 电网：据新华社 8 月 3 日报道，国家发展改革委、国家能源局印发《新型电力系统建设「十五五」规划》，提出到 2030 年初步建成新型电力系统，非化石能源发电量占比达到 50%，实现 28 亿千瓦以上新能源高水平消纳，建成可支撑超过 1.1 亿辆电动汽车出行的充电基础设施网络……据东莞证券研报观点，「十五五」期间两大电网合计规划投资约 5 万亿元，较「十四五」大幅增长，特高压骨干网架、配网智能化与虚拟电厂全链条受益。相关标的记录：汉缆股份（高压及超高压电缆，110kV—500kV 交联电缆与 110kV—220kV 电缆附件）、太阳电缆（500kV 及以下交联聚乙烯绝缘电缆、海底电缆及海底光电复合电缆等）。
+  interpretation: UP记录电网十五五规划政策与投资规模：非化石能源占比50%、28亿千瓦消纳、1.1亿辆EV充电网络，两网5万亿投资（较十四五大幅增长），特高压/配网智能化/虚拟电厂受益。汉缆股份(002498)、太阳电缆(002300)为产业链跟踪记录（非推荐）。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 新型电力系统十五五规划：两网5万亿投资，特高压/配网智能化受益
+  related_stocks:
+  - code: 002498
+    name: 汉缆股份
+    role: 电网-高压超高压电缆-深主板可交易
+  - code: '002300'
+    name: 太阳电缆
+    role: 电网-交联/海底电缆-深主板可交易
+  tags:
+  - 电网
+  - 十五五规划
+  - 5万亿投资
+  - 特高压
+  - 虚拟电厂
+- id: claim-20260803-037
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: sector-theme
+  subject: 创新药：药明康德上调全年指引给出基本面锚
+  timeframe: short-term
+  statement: 药明康德(603259)8月3日晚发布半年报并全面上调2026全年业绩指引：整体收入由513-530亿上调至585-605亿、持续经营业务收入同比增速由18%-22%上调至35%-39%（上半年营收288.97亿、同比+38.93%）；这类超预期指引对板块的意义在于给出基本面锚，但在缩量环境下能否转化为板块级行情仍取决于明天的承接。产业链记录：普洛药业(000739)（小分子CDMO）、药易购(300937)（医药+AI）。
+  evidence_quote: 创新药：据公司公告，药明康德 8 月 3 日晚发布半年报并全面上调 2026 年全年业绩指引：整体收入由 513 亿—530 亿元上调至 585 亿—605 亿元，持续经营业务收入同比增速由 18%—22%上调至 35%—39%……据其半年报，上半年营收 288.97 亿元、同比增长 38.93%。相关标的记录：普洛药业（小分子 CDMO 战略）、药易购（医药＋人工智能方向）。个人判断，这类超预期指引对板块的意义在于给出了基本面锚，但在缩量环境下，能否转化为板块级行情仍取决于明天的承接。
+  interpretation: UP记录创新药基本面催化：药明康德(603259)半年报+全面上调全年指引（收入585-605亿/+35-39%），给出板块基本面锚；但明确缩量环境下能否板块级行情取决于明天承接——基本面锚≠短期行情。普洛药业(000739)、药易购(300937)为产业链跟踪记录。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 药明康德上调全年指引给出基本面锚，行情取决于承接
+  related_stocks:
+  - code: '603259'
+    name: 药明康德
+    role: 创新药-上调全年指引-沪主板可交易
+  - code: 000739
+    name: 普洛药业
+    role: 小分子CDMO-深主板可交易
+  - code: '300937'
+    name: 药易购
+    role: 医药+AI-创业板不可交易
+  tags:
+  - 药明康德
+  - 上调指引
+  - 创新药
+  - 基本面锚
+  - CDMO
+- id: claim-20260803-038
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: stock-view
+  subject: 天孚通信：英伟达Lite方案推高光器件价值量
+  timeframe: trend
+  statement: 据市场流传方案拆解，英伟达精简版Lite算力集群方案内存成本占比下降约12个百分点、互联成本占比提升约10个百分点（Scale-up由4%提升至12%、Scale-out由14%提升至16%），并将机柜内GPU互联从私有NVLink切换为标准RoCE以太网路线（待官方确认）；若成立则直接推高单GPU对应高速光模块及上游核心光器件配套价值量。天孚通信(300394)作为全球高端光器件龙头（800G/1.6T高速光引擎、FAU全品类覆盖），原本主要覆盖机柜间互联，将新增机柜内Scale-up互联的增量需求。
+  evidence_quote: 天孚通信：据市场流传的方案拆解，英伟达推出精简版 Lite 算力集群方案，成本结构出现显著变化——内存成本占比下降约 12 个百分点，互联成本占比提升约 10 个百分点（Scale-up 由 4%提升至12%，Scale-out 由 14%提升至 16%），并将机柜内 GPU 互联从私有 NVLink 架构切换为标准 RoCE以太网路线（该拆解数据源自公开流传材料，待官方口径进一步确认）。若成立，则直接推高单 GPU 对应的高速光模块及上游核心光器件配套价值量。公司作为全球高端光器件龙头，已实现 800G/1.6T 高速光引擎、光纤阵列单元（FAU）等全品类覆盖……原本主要覆盖机柜间互联的产品矩阵，将新增机柜内 Scale-up 互联的增量需求。
+  interpretation: UP给出天孚通信(300394)的产业逻辑：英伟达Lite方案若成立（NVLink→标准RoCE、互联成本占比提升），单GPU光模块/光器件价值量提升，且天孚将新增机柜内Scale-up互联增量需求（原仅覆盖机柜间）。注意数据源自公开流传材料、待官方确认，属产业链跟踪而非确定性催化。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 天孚通信：英伟达Lite方案RoCE化推高光器件价值量
+  related_stocks:
+  - code: '300394'
+    name: 天孚通信
+    role: 光器件龙头-英伟达Lite受益-创业板不可交易
+  tags:
+  - 天孚通信
+  - 英伟达Lite
+  - RoCE
+  - 光器件
+  - Scale-up
+- id: claim-20260803-039
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: stock-view
+  subject: 泛微网络：OA是B端Agent天然入口
+  timeframe: trend
+  statement: OA是B端AI Agent最天然的落地入口——承载企业最核心的流程、知识与协作数据；泛微网络(603039)积累约8.5万家企业客户，依托Xiaoe.AI的大模型+小模型+智能体架构与WorkBot智能体生成平台，2026年5月发布300多个可落地AI应用场景（覆盖市场、销售、合同、采购等十六大核心业务），并与华为、腾讯生态合作；公司正从协同管理软件龙头向企业智能体经济的核心枢纽演化，AI Agent重构B端软件是其第二成长曲线的观察主线。
+  evidence_quote: 泛微网络：OA 是 B 端 AI Agent 最天然的落地入口——承载着企业最核心的流程、知识与协作数据。据公司口径，公司积累约 8.5 万家企业客户，依托 Xiaoe.AI 的「大模型＋小模型＋智能体」架构与WorkBot 智能体生成平台，2026 年 5 月发布 300 多个可落地 AI 应用场景，覆盖市场、销售、合同、采购、人事、财务等十六大核心业务，开箱即用，并与华为、腾讯生态合作。个人判断，公司正从协同管理软件龙头向企业智能体经济的核心枢纽演化，AI Agent 重构 B 端软件是其第二成长曲线的观察主线。
+  interpretation: UP给出泛微网络(603039)的第二成长曲线逻辑：OA作为B端Agent天然入口（流程/知识/协作数据），8.5万客户+300+AI应用场景+华为腾讯生态，从协同软件龙头向企业智能体经济枢纽演化。属产业链跟踪+观察主线定性。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 泛微网络：OA=B端Agent天然入口，企业智能体经济核心枢纽
+  related_stocks:
+  - code: '603039'
+    name: 泛微网络
+    role: OA龙头-AI Agent-沪主板可交易
+  tags:
+  - 泛微网络
+  - OA
+  - B端Agent
+  - 智能体经济
+  - 第二成长曲线
+- id: claim-20260803-040
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: stock-view
+  subject: 福莱新材：触觉有望成下一个丝杠级方向
+  timeframe: trend
+  statement: 人形机器人无论是训练还是最终的全AI控制，触觉都是不可或缺的一环；更广泛的适用性与算法壁垒决定了触觉板块的利润空间，有望成为下一个丝杠级别的方向。福莱新材(605488)2024年开发高性能柔性传感器材料，2025年2月/5月/11月相继推出三代柔性触觉传感器产品（第三代搭载触觉智能TPU可在指尖完成边缘计算），柔性传感器中试产线搭建完成具备批量供货能力，已与国内外数十家客户合作、北美市场实现小批量订单。
+  evidence_quote: 福莱新材：人形机器人无论是训练还是最终的全 AI 控制，触觉都是不可或缺的一环；更广泛的适用性与算法壁垒决定了触觉板块的利润空间，有望成为下一个丝杠级别的方向。据公司信息，2024 年公司成功开发高性能柔性传感器材料……2025 年 2 月、5 月、11 月相继推出三代柔性触觉传感器产品，其中第三代搭载触觉智能 TPU（Tactile Processing Unit），可在指尖完成边缘计算而非集中回传「大脑」处理。目前柔性传感器中试产线搭建完成，具备批量供货能力，已与国内外数十家客户合作，北美市场实现小批量订单。
+  interpretation: UP给出福莱新材(605488)的触觉传感器逻辑：人形机器人触觉是不可或缺环节，适用性+算法壁垒→利润空间大，有望成为下一个丝杠级方向；公司三代产品迭代（第三代TPU边缘计算）、中试产线具备批量供货能力、北美小批量订单。属产业链跟踪记录。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 福莱新材：人形机器人触觉传感器，下一个丝杠级方向
+  related_stocks:
+  - code: '605488'
+    name: 福莱新材
+    role: 柔性触觉传感器-沪主板可交易
+  tags:
+  - 福莱新材
+  - 柔性触觉
+  - 人形机器人
+  - 丝杠级
+  - TPU
+- id: claim-20260803-041
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: operation
+  subject: 明日观察：科技回流但回流≠反转
+  timeframe: intraday
+  statement: 短期来看科技板块明天应该会有回流——最近强一天弱一天的特征比较明显，创业板指也呈现一阳一阴交替；但回流不等于反转，需要用量价确认，而非用情绪预判。
+  evidence_quote: 短期来看，科技板块明天应该会有回流——最近强一天弱一天的特征比较明显，创业板指也呈现一阳一阴交替。但回流不等于反转，需要用量价确认，而非用情绪预判。
+  interpretation: UP给出明日科技方向的预期：基于强一天弱一天、创业板一阳一阴的节奏特征，明天应有回流；但明确回流≠反转，须量价确认而非情绪预判。这是明日观察的基调——预期回流但不用情绪交易。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 明日科技应有回流但回流≠反转，量价确认非情绪预判
+  related_stocks: []
+  tags:
+  - 科技回流
+  - 量价确认
+  - 一阳一阴
+  - 回流非反转
+  - 节奏
+- id: claim-20260803-042
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: operation
+  subject: 情形A：量能回升与强者恒强，硬件调整进入尾声
+  timeframe: intraday
+  statement: 情形A：量能温和回升、科技出现强者恒强、前排龙头不补跌、二板晋级家数不锐减→这轮硬件调整基本可以确认进入尾声，右侧确认的窗口开始打开；此时低位补涨方向的性价比反而下降，重心应回到科技主线。
+  evidence_quote: 情形 A：量能温和回升，科技出现强者恒强，前排龙头不补跌、二板晋级家数不锐减。那么这轮硬件调整基本可以确认进入尾声，右侧确认的窗口开始打开。此时低位补涨方向的性价比反而下降，重心应回到科技主线。
+  interpretation: UP给出明日情形A的确认条件与操作含义：量能回升+强者恒强+前排不补跌+二板晋级不锐减→硬件调整进入尾声、右侧窗口打开，操作上从低位补涨切回科技主线。条件可量化验证。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形A：量能回升与强者恒强=硬件调整尾声，重心回科技主线
+  related_stocks: []
+  tags:
+  - 情形A
+  - 强者恒强
+  - 量能回升
+  - 右侧确认
+  - 硬件尾声
+- id: claim-20260803-043
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: operation
+  subject: 情形B：量能萎缩与核电分歧，回流一日游则控频率
+  timeframe: intraday
+  statement: 情形B：量能继续萎缩、核电等前排在高位放量分歧且后排普遍回落、科技回流一日游→当前仍属轮动博弈阶段，低位防御与题材接力仍是短期主线但持续性普遍偏弱；此时更应控制参与频率，等待强势股补跌与多杀多这两个信号真正出现，而不是在缩量中反复试错。
+  evidence_quote: 情形 B：量能继续萎缩，核电等前排在高位放量分歧、后排普遍回落，同时科技回流一日游。那么当前仍属轮动博弈阶段，低位防御与题材接力仍是短期主线，但持续性普遍偏弱，此时更应控制参与频率，等待强势股补跌与多杀多这两个信号真正出现，而不是在缩量中反复试错。
+  interpretation: UP给出情形B的应对：量能萎缩+核电分歧+科技回流一日游→维持轮动博弈定性，操作上控制参与频率，等待三信号中的强势股补跌与多杀多真正出现，不在缩量中反复试错。与情形A互为镜像的完整预案。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形B：量能萎缩与核电分歧及回流一日游，控频率等补跌信号
+  related_stocks: []
+  tags:
+  - 情形B
+  - 量能萎缩
+  - 核电分歧
+  - 控频率
+  - 补跌信号
+- id: claim-20260803-044
+  source_path: sources/original/bilibili/2026-08-03-2213-图片-今天是一根缩量的弱势 K 线，但盘面内部并不安静。指数弱、个.md
+  source_date: '2026-08-03'
+  source_type: 复盘
+  extracted_at: '2026-08-04T00:10:00+08:00'
+  claim_type: operation
+  subject: 磨底期纪律：不见量价确认不追
+  timeframe: short-term
+  statement: 当前市场处于磨底期的风格再平衡阶段：科技硬件调整尚未完全结束但连续快速下跌后空头动能已有消耗；低位防御与题材轮动是短期主线但持续性普遍偏弱；不见量价确认不追，是这个阶段最朴素也最有效的纪律。
+  evidence_quote: 整体来看，当前市场处于磨底期的风格再平衡阶段：科技硬件的调整尚未完全结束，但连续快速下跌后空头动能已有消耗；低位防御与题材轮动是短期主线，但持续性普遍偏弱。不见量价确认不追，是这个阶段最朴素也最有效的纪律。
+  interpretation: UP给出磨底期的操作总纲：风格再平衡阶段，科技硬件调整未完全结束但空头动能消耗，低位轮动是短期主线但持续性弱；核心纪律=不见量价确认不追。与早盘不追高、盘中等待纪律构成当日完整的操作框架。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 磨底期纪律：不见量价确认不追
+  related_stocks: []
+  tags:
+  - 量价确认
+  - 不追
+  - 磨底期
+  - 操作纪律
+  - 风格再平衡
