@@ -45,7 +45,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-004-a", "claim-20260518-014", "claim-20260426-006"]
+  supplements:
+  - claim-20260623-004-a
+  - claim-20260518-014
+  - claim-20260426-006
   last_discovered: 2026-07-31
   links:
     wiki_pages: []
@@ -75,7 +78,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20070531-001-a", "claim-20260713-015-o"]
+  supplements:
+  - claim-20070531-001-a
+  - claim-20260713-015-o
   last_discovered: 2026-07-31
   links:
     wiki_pages: []
@@ -376,7 +381,7 @@ claims:
   - 美国通胀9月加息
   - 跟踪变量
   topic: 今日跟踪三变量：三星财报>大金融托底>美国通胀数据
-- id: claim-20260730-002
+- id: claim-20260730-012
   source_path: sources/raw/财经/2026-07-30-盘中动态-捡便宜筹码与仓位纪律.md
   source_date: '2026-07-30'
   source_type: 盘中动态
@@ -392,7 +397,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-004-a", "claim-20260518-014", "claim-20260426-006"]
+  supplements:
+  - claim-20260623-004-a
+  - claim-20260518-014
+  - claim-20260426-006
   last_discovered: 2026-07-31
   links:
     wiki_pages:
@@ -407,7 +415,7 @@ claims:
   - 追涨警示
   - 低位窗口
   topic: 跌了才买的下手，追涨是韭菜行为
-- id: claim-20260730-003
+- id: claim-20260730-013
   source_path: sources/raw/财经/2026-07-30-盘中动态-捡便宜筹码与仓位纪律.md
   source_date: '2026-07-30'
   source_type: 盘中动态
@@ -423,7 +431,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20070531-001-a", "claim-20260713-015-o"]
+  supplements:
+  - claim-20070531-001-a
+  - claim-20260713-015-o
   last_discovered: 2026-07-31
   links:
     wiki_pages:
