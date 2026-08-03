@@ -7,7 +7,8 @@ class Settings(BaseSettings):
     """qing-agent 全局配置，支持多厂商 LLM 切换。"""
 
     # === LLM 通用配置 ===
-    llm_provider: str = "kimi"
+    # 默认 deepseek（2026-08-03 起：监控链路全面走远端 deepseek，不走本地 kimi）
+    llm_provider: str = "deepseek"
     llm_model: str | None = None
     llm_base_url: str | None = None
 
