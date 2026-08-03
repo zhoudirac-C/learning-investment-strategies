@@ -448,3 +448,346 @@ claims:
   - 满仓警示
   - 磨底期
   topic: 一键满仓是仓位管理错误应分批布局
+- id: claim-20260730-014
+  source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
+  source_date: '2026-07-30'
+  source_type: 复盘
+  extracted_at: '2026-08-03T10:12:00+08:00'
+  claim_type: market-cycle
+  subject: 7月30日情绪释放最充分一天
+  timeframe: intraday
+  statement: 7月30日是本轮调整以来情绪释放最充分的一天：早盘单边走弱，午后三分钟止跌回升，创业板指从跌6%附近拉回到跌1%出头，尾盘回落反而是好事——若拉起后不回落，明日反弹空间会被提前透支。跌停及跌幅超9%个股超300家，亏钱效应集中在科技成长方向，指数与情绪端持续背离。
+  evidence_quote: 今日是本轮调整以来情绪释放最充分的一天：早盘指数单边走弱，午后仅用三分钟便完成止跌回升，大盘一度接近翻红，创业板指从大跌6%附近拉回到跌1%出头，尾盘双双有所回落。尾盘的回落反而是好事——若下午拉起后不回落，明天反弹的空间就被提前透支了。
+  interpretation: UP对7/30盘面定性：情绪释放最充分日。核心洞察是'尾盘回落反而是好事'——反弹空间不被透支。跌停超300家+指数权重托底的背离结构，说明指数风险有限但个股出清未完成。这是7/31'做空力量释放进入尾声'判断的前置证据。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 复盘/2026年7月30日
+    methodology_pages: []
+    cases: []
+  topic: 7月30日情绪释放最充分，尾盘回落留足反弹空间
+  related_stocks: []
+  tags:
+  - 情绪释放
+  - 止跌回升
+  - 尾盘回落
+  - 跌停300家
+  - 权重托底
+- id: claim-20260730-015
+  source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
+  source_date: '2026-07-30'
+  source_type: 复盘
+  extracted_at: '2026-08-03T10:12:00+08:00'
+  claim_type: market-cycle
+  subject: 7月31日反弹非一日游目标3900
+  timeframe: short-term
+  statement: 7月31日（周五、7月收官日）大盘将延续止跌反弹，且这次反弹应该不是一日游，有望延续至8月上旬，第一目标位在3900点附近，强阻力在3950点附近。依据有三：昨日尾盘护盘动作、今日上午部分个股抗跌止跌信号、今晚美股科技大反弹传导。但目前还谈不上反攻主升浪，短线先按技术性反弹对待。
+  evidence_quote: 明天（周五、7月收官日）大盘将延续止跌反弹，且这次反弹应该不是一日游，有望延续至8月上旬，第一目标位在3900点附近，强阻力在3950点附近。但需要强调，目前还谈不上反攻主升浪的乐观阶段，短线先按技术性反弹对待。
+  interpretation: UP提前给出7/31反弹的量化目标框架：3900第一目标/3950强阻力，并明确反弹性质是技术性而非主升浪。三条依据涵盖护盘（资金）、个股止跌（结构）、外盘（情绪）。这与7/31早盘'向上看3943点'的判断一致（3950强阻力附近）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 复盘/2026年7月31日
+    methodology_pages: []
+    cases: []
+  topic: 7月31日反弹非一日游目标3900强阻3950
+  related_stocks: []
+  tags:
+  - 止跌反弹
+  - 3900目标
+  - 3950强阻
+  - 非一日游
+  - 技术性反弹
+- id: claim-20260730-016
+  source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
+  source_date: '2026-07-30'
+  source_type: 复盘
+  extracted_at: '2026-08-03T10:12:00+08:00'
+  claim_type: sector-theme
+  subject: 科技调整进入杀叙事阶段
+  timeframe: trend
+  statement: 这轮科技调整的性质是估值杀完之后进入杀叙事的阶段，属于调整后期。但要就此反转难度偏大——A股科技走独立行情几乎不可能，核心在于对AI产业没有主导权，反弹的节奏与高度主要寄希望于海外映射。全球半导体链波动同步（韩国股市与SK海力士节奏呼应A股科技），A股并非孤立下跌。
+  evidence_quote: 个人判断，这轮科技调整的性质是估值杀完之后进入杀叙事的阶段，属于调整后期；但要就此反转难度偏大——A股科技走独立行情几乎不可能，核心在于对AI产业没有主导权，反弹的节奏与高度，主要还是要寄希望于海外映射。
+  interpretation: UP给出科技调整的三阶段框架：估值杀→杀叙事（当前）→调整后期。核心约束是'A股对AI产业没有主导权'，所以反弹高度依赖海外映射而非独立逻辑。这解释了为什么微软财报（海外）能成为7/31反弹的核心催化剂。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/科技产业链
+    methodology_pages: []
+    cases: []
+  topic: 科技调整进入杀叙事阶段，反弹寄希望于海外映射
+  related_stocks: []
+  tags:
+  - 杀叙事
+  - 调整后期
+  - 海外映射
+  - AI主导权
+  - 半导体同步
+- id: claim-20260730-017
+  source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
+  source_date: '2026-07-30'
+  source_type: 复盘
+  extracted_at: '2026-08-03T10:12:00+08:00'
+  claim_type: sector-theme
+  subject: 存储芯片率先点火向CPO PCB扩散
+  timeframe: short-term
+  statement: 反弹必须看科技，科技先看存储芯片——当前业绩确定性最好的方向。午后德明利(001309)率先涨停激活做多情绪，随后长鑫科技(688825)、中际旭创(300308)、风华高科(000636)等快速走强。若明日普反展开，行情将由存储向CPO与PCB板块扩散。但需留意德明利(001309)反馈——若率先涨停的旗手都无法带来溢价，资金对抄底只会更谨慎。
+  evidence_quote: 反弹必须看科技，科技先看存储芯片——这是当前业绩确定性最好的方向，今日已开始表现。盘面上，科技股早盘一度进入多杀多，午后德明利率先涨停，进一步激活了资金的做多情绪，随后长鑫科技、中际旭创、风华高科等快速走强。若明日普反展开，行情将由存储向CPO与PCB板块扩散。
+  interpretation: UP确立存储为反弹主攻方向（业绩确定性最好），扩散路径为存储→CPO→PCB。德明利(001309)涨停是旗手信号，其次日溢价是反弹成色的试金石。这为7/31早盘'存储双身份+德明利(001309)第三顺位'提供了完整的推理链条。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/存储产业链
+    methodology_pages: []
+    cases: []
+  topic: 存储芯片率先点火，扩散路径存储→CPO→PCB
+  related_stocks:
+  - code: 001309
+    name: 德明利
+    role: 存储旗手-率先涨停-主板可交易
+  - code: '688525'
+    name: 佰维存储
+    role: 存储模组-科创板不可交易
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块龙头-创业板不可交易
+  - code: '000636'
+    name: 风华高科
+    role: MLCC/被动元件-主板可交易
+  tags:
+  - 存储芯片
+  - 德明利
+  - CPO扩散
+  - PCB扩散
+  - 旗手溢价
+- id: claim-20260730-018
+  source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
+  source_date: '2026-07-30'
+  source_type: 复盘
+  extracted_at: '2026-08-03T10:12:00+08:00'
+  claim_type: sector-theme
+  subject: 高股息防御难成中期主线
+  timeframe: trend
+  statement: 石油、银行、保险等高股息防御性板块收出光头阳线，但防御性板块的走强更多是避险心理的体现，要走成中期主线难度很大——医药就是最好的例子，避险资金推起来的方向缺乏产业逻辑的持续加持。
+  evidence_quote: 石油、银行、保险等高股息防御性板块甚至收出光头阳线。个人判断，防御性板块的走强更多是避险心理的体现，要走成中期主线难度很大——医药就是最好的例子，避险资金推起来的方向，缺乏产业逻辑的持续加持。
+  interpretation: UP否定高股息防御成为中期主线的可能，类比医药（避险资金推动、无产业逻辑加持后回落）。这为'反弹主攻科技'提供了反面论证——防御是短期避险选择，不是中期主线。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/防御板块
+    methodology_pages: []
+    cases: []
+  topic: 高股息防御是避险心理难成中期主线
+  related_stocks: []
+  tags:
+  - 高股息
+  - 防御板块
+  - 避险心理
+  - 光头阳线
+  - 医药类比
+- id: claim-20260730-019
+  source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
+  source_date: '2026-07-30'
+  source_type: 复盘
+  extracted_at: '2026-08-03T10:12:00+08:00'
+  claim_type: operation
+  subject: 7月31日两情形推演
+  timeframe: intraday
+  statement: 情形A：今晚美股科技股尤其半导体如期大反弹，明日大概率普反格局，存储带头、CPO与PCB跟进扩散，观察德明利(001309)旗手能否给溢价决定反弹能否延续到8月上旬波段。情形B：若外盘反弹不及预期或德明利(001309)未兑现溢价，则本轮反弹降格为超跌技术性修复，抄底资金更谨慎，高股息防御相对占优，操作上控制仓位、等待右侧量价确认。
+  evidence_quote: 情形A：今晚美股科技股尤其半导体如期大反弹，明日大概率是普反格局，存储芯片带头、CPO与PCB跟进扩散，此时观察德明利等旗手能否给出溢价。情形B：若外盘反弹不及预期，或德明利明日未能兑现溢价，则本轮反弹降格为超跌技术性修复，操作上以控制仓位、等待右侧量价确认为主。
+  interpretation: UP给出7/31两情形框架，分界变量是外盘反弹与德明利(001309)溢价两个信号。情形A看反弹升级为波段，情形B降格为技术修复+防御占优。这是7/30早盘三情形框架的延续，也是7/31早盘三情形框架的前身——德明利(001309)溢价始终是核心分界。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 复盘/2026年7月31日
+    methodology_pages:
+    - 交易方法论/情景推演框架
+    cases: []
+  topic: 7月31日两情形以德明利溢价为分界
+  related_stocks: []
+  tags:
+  - 普反格局
+  - 德明利溢价
+  - 超跌修复
+  - 右侧确认
+  - 情形推演
+- id: claim-20260730-020
+  source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
+  source_date: '2026-07-30'
+  source_type: 复盘
+  extracted_at: '2026-08-03T10:12:00+08:00'
+  claim_type: stock-view
+  subject: 税友股份MCP与财税Agent兑现方向
+  timeframe: trend
+  statement: MCP协议7月28日发布新版规范（面世以来第五版），核心从有状态转向无状态，使Agent流量首次可计量、可网关化、可变现。税务工作流因环节清晰规则明确被评价为MCP+多Agent协同最佳实践领域。税友股份(603171)自研'犀友'财税大模型已深度整合MCP协议，去年AI
+    SaaS产品订阅收入占比已达19.9%，有望成为AI应用中率先兑现业绩的方向之一。
+  evidence_quote: 据MCP官方博客，MCP协议于7月28日发布新版规范，核心从有状态转向无状态，使Agent流量首次可计量、可网关化、可变现。公司自研的财税垂直领域大模型「犀友」人工智能平台已深度整合MCP协议。据公司披露，去年AI
+    SaaS产品订阅收入占比已达19.9%，个人判断其有望成为AI应用中率先兑现业绩的方向之一。
+  interpretation: UP跟踪MCP协议升级（无状态化→Agent流量可计量可变现）的产业影响，落地标的是税友股份(603171)——财税垂直场景+犀友大模型+MCP整合+AI SaaS收入占比19.9%。这是'AI应用商业化兑现'叙事的具体标的，与7/31早盘'AI视频生成商业化'同属AI应用主线。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/AI产业链
+    methodology_pages: []
+    cases: []
+  topic: 税友股份MCP无状态化与财税Agent率先兑现业绩
+  related_stocks:
+  - code: '603171'
+    name: 税友股份
+    role: 财税AI Agent-MCP整合-主板可交易
+  tags:
+  - MCP协议
+  - 税友股份
+  - 财税Agent
+  - 无状态化
+  - AI SaaS
+- id: claim-20260730-021
+  source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
+  source_date: '2026-07-30'
+  source_type: 复盘
+  extracted_at: '2026-08-03T10:12:00+08:00'
+  claim_type: stock-view
+  subject: 恒尚节能建筑跨界存储标的
+  timeframe: short-term
+  statement: 恒尚节能(603137)收购的金胜电子是国家级专精特新小巨人企业，国内最早量产SSD的厂商之一，产品远销110多个国家和地区，多个电商平台存储类目跻身前三。公司企业级存储体量尚小，但已将其定位为战略发展方向。今天是科技情绪标的集体补跌的一天，恒尚节能(603137)逆势走强，值得高看一线。
+  evidence_quote: 据公开资料，公司收购的金胜电子是国内最早量产SSD的厂商之一，目前已形成从固件算法研发、硬件设计到智能制造、全球销售、自动化测试设备自研的完整能力，产品远销全球110多个国家和地区。从盘面角度，今天是科技情绪标的集体补跌的一天，恒尚节能逆势走强，值得高看一线。
+  interpretation: UP挖掘存储扩散方向的非主流标的：建筑企业跨界存储（金胜电子SSD），辨识度高。逆势走强是盘面加分项。这是存储主线的边缘扩散标的，与德明利(001309)、佰维存储(688525)形成梯队。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 市场分析/存储产业链
+    methodology_pages: []
+    cases: []
+  topic: 恒尚节能建筑跨界存储逆势走强
+  related_stocks:
+  - code: '603137'
+    name: 恒尚节能
+    role: 建筑跨界存储-金胜电子SSD-主板可交易
+  tags:
+  - 恒尚节能
+  - 金胜电子
+  - SSD
+  - 建筑跨界
+  - 逆势走强
+- id: claim-20260730-022
+  source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
+  source_date: '2026-07-30'
+  source_type: 复盘
+  extracted_at: '2026-08-03T10:12:00+08:00'
+  claim_type: stock-view
+  subject: 返利科技壳价值重估事件跟踪
+  timeframe: trend
+  statement: 返利科技(600228)传统导购业务陷入持续亏损，基本面倒逼转型。繁枫智能以5.5亿元受让16%股权入主，新实控人旗下拥有国家级专精特新小巨人繁枫真空等资产，股权转让已获上交所合规性审核通过，过户手续办理中。市场正以'壳价值重估+新资产注入预期'逻辑重新定价，此类标的波动大，仅作产业与事件跟踪记录。
+  evidence_quote: 在此背景下，繁枫智能以5.5亿元受让16%股权入主，新实控人旗下拥有国家级专精特新「小巨人」繁枫真空等资产；当前股权转让已获上交所合规性审核通过，过户手续正在办理中。个人判断，市场正在以「壳价值重估+新资产注入预期」的逻辑对其重新定价。
+  interpretation: UP以事件跟踪视角记录返利科技(600228)的控制权变更：壳价值重估+资产注入预期。明确标注'仅作产业与事件跟踪记录'而非交易推荐，体现UP对高波动壳标的的谨慎态度。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 返利科技壳价值重估与繁枫智能资产注入预期
+  related_stocks:
+  - code: '600228'
+    name: 返利科技
+    role: 壳价值重估-繁枫智能入主-主板可交易
+  tags:
+  - 返利科技
+  - 壳价值
+  - 繁枫智能
+  - 资产注入
+  - 控制权变更
+- id: claim-20260730-023
+  source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
+  source_date: '2026-07-30'
+  source_type: 复盘
+  extracted_at: '2026-08-03T10:12:00+08:00'
+  claim_type: operation
+  subject: 提前推仓位的意义与冷静纪律
+  timeframe: permanent
+  statement: 之前让大家提前推仓位的目的：行情一旦启动会非常迅猛，提前进场能保证在仓位上去的时候吃到反弹，又能防止抄到半山腰后没有筹码。但仍要保持冷静：这是磨底周期内的技术性反弹，不是反攻主升浪的号角，右侧量价确认之前不追高、不重仓。
+  evidence_quote: 之前让大家提前推仓位目的也就是这样，行情一旦启动，会非常迅猛，提前进场能够保证自己在仓位上去的时候吃到反弹，又能防止抄到半山腰后没有筹码。但仍要保持冷静：这是磨底周期内的技术性反弹，不是反攻主升浪的号角，右侧量价确认之前，不追高、不重仓。
+  interpretation: UP完整阐述提前建仓的逻辑：行情启动迅猛+防止半山腰没筹码。同时明确冷却纪律：技术性反弹≠主升浪，右侧确认前不追高不重仓。这是'左侧布局+右侧确认'框架的完整表达，与7/31早盘'止跌仓vs反转仓'逻辑完全一致。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages:
+    - 交易方法论/仓位管理
+    cases: []
+  topic: 提前推仓位吃到反弹，但右侧确认前不追高不重仓
+  related_stocks: []
+  tags:
+  - 提前建仓
+  - 吃到反弹
+  - 不追高
+  - 不重仓
+  - 右侧确认
+- id: claim-20260730-024
+  source_path: sources/raw/财经/2026-07-30-复盘-情绪释放最充分的一天.md
+  source_date: '2026-07-30'
+  source_type: 复盘
+  extracted_at: '2026-08-03T10:12:00+08:00'
+  claim_type: operation
+  subject: 7月31日盯三件事
+  timeframe: intraday
+  statement: 7月31日（周五兼7月收官日）重点盯三件事：量能能否有效放大、德明利(001309)等存储旗手的溢价反馈、CPO与PCB的扩散力度。
+  evidence_quote: 明日周五兼7月收官，重点盯三件事：量能能否有效放大、德明利等存储旗手的溢价反馈、CPO与PCB的扩散力度。
+  interpretation: UP给出7/31盘中监控的三件事：量能（反弹成色）、德明利(001309)溢价（旗手反馈）、CPO/PCB扩散（主攻方向延伸）。这三件事是情形A/B判定的操作性抓手。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages:
+    - 复盘/2026年7月31日
+    methodology_pages:
+    - 交易方法论/盘中确认顺序
+    cases: []
+  topic: 7月31日盯量能德明利溢价CPO扩散三件事
+  related_stocks: []
+  tags:
+  - 量能放大
+  - 德明利溢价
+  - CPO扩散
+  - PCB扩散
+  - 7月收官
