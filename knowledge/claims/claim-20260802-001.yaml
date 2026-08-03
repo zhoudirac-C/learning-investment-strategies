@@ -1,0 +1,958 @@
+claims:
+- id: claim-20260802-001
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: market-cycle
+  subject: 7月31日修复阳线性质
+  timeframe: short-term
+  statement: 7月31日阳线是由外力驱动、日内自我修正的修复阳线而非反转，因为放回整月坐标（上证7月累计下跌6.4%、深证成指下跌16.21%、创业板指下跌23%创逾十年最大单月跌幅）后性质完全不同
+  evidence_quote: 这是一根由外力驱动、日内自我修正的修复阳线，涨幅由开盘价给出，分歧由午后走势给出。
+  interpretation: 判断阳线性质不能只看当日涨跌，要看其所处的整月坐标。7月累计大跌背景下，单日普涨的意义是情绪修复而非趋势确立。涨幅大部分由竞价给出（1341家收盘价低于开盘价、封板率仅46.92%），说明是外力（外盘）给的定价而非市场内生买出来的。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7/31修复阳线的性质判定：情绪修复而非趋势确立
+  related_stocks: []
+  tags:
+  - 7月收官日
+  - 修复阳线
+  - 情绪修复
+- id: claim-20260802-002
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: market-cycle
+  subject: 双创高开回落定性
+  timeframe: intraday
+  statement: 7月31日双创高开大幅回吐，回落是相对于开盘位置的回落而非相对于前日收盘的下跌，这一区别决定了后续定性是情绪退潮还是分歧确认
+  evidence_quote: 回落是相对于开盘位置的回落，不是相对于前一日收盘的下跌——这个区别决定了后面把它归为情绪退潮还是分歧确认。
+  interpretation: 创业板指从高开5.15%收敛至收涨3.06%，仍是大涨收盘。解读盘面要区分回落的参照系：相对于开盘回落说明只是买盘不足以维持竞价定价，而非卖压主导的下跌。这一区分影响后续是看多情绪修复还是看分歧扩大。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 双创高开回落参照系：开盘位vs前收盘
+  related_stocks: []
+  tags:
+  - 双创
+  - 高开回落
+  - 分歧确认
+- id: claim-20260802-003
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: market-cycle
+  subject: 7月杀科技买红利格局
+  timeframe: trend
+  statement: 整个7月是杀科技买红利的月份，7月31日是这一格局的第一次反向（银行、食品饮料、非银、石油石化下跌，传媒、计算机、通信、机械领涨），一天反向不构成风格切换但说明前期单向定价出现裂缝
+  evidence_quote: 整个7月是杀科技、买红利的一个月，而当日恰好是这一格局的第一次反向……一天的反向不构成风格切换，但它至少说明前期的单向定价出现了裂缝。
+  interpretation: 7月申万31个一级行业21个上涨，涨幅前三为石油石化21.02%、煤炭17.16%、食品饮料13.48%；下跌前三为电子23.82%、建材20.71%、机械设备15.07%。7/31首次出现防御板块跌、科技涨的反向，是风格极化的松动信号，但需连续确认才能认定切换。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月杀科技买红利格局及7/31首次反向信号
+  related_stocks: []
+  tags:
+  - 风格切换
+  - 杀科技买红利
+  - 单向定价
+- id: claim-20260802-004
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: methodology
+  subject: 外盘传导机制
+  timeframe: permanent
+  statement: 外盘传导的机制是外盘只负责给A股一个开盘价，开盘之后市场回到自己的节奏，当日创业板高开5.15%收涨3.06%是标准注脚
+  evidence_quote: 这是一次典型的外盘传导：外盘只负责给A股一个开盘价，开盘之后市场就回到自己的节奏——当日高开5.15%、收涨3.06%的创业板指正是这句话的标准注脚。
+  interpretation: 7/30美股纳指涨约680点、微软收涨15.5%创18年最大单日涨幅、Meta跌超8%，外盘内部本就分化。判断外盘影响时，只看外盘涨跌会给A股高开定价，但日内走势取决于A股自身资金与结构，且外盘分化会传导至A股内部（AI应用与AI硬件之间同样出现分化）。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 外盘传导机制：只定开盘价，日内回归自身节奏
+  related_stocks: []
+  tags:
+  - 外盘传导
+  - 纳指
+  - 开盘定价
+- id: claim-20260802-005
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: market-cycle
+  subject: 恐慌阶段与趋势加仓的距离
+  timeframe: short-term
+  statement: 最恐慌的阶段确实过去了，但不恐慌与可趋势加仓之间还隔着量能与结构两道验证
+  evidence_quote: 个人倾向于认为，最恐慌的阶段确实过去了，但不恐慌与可趋势加仓之间还隔着量能与结构两道验证。
+  interpretation: 一个月蒸发12万亿市值后（截至7/31 A股总市值约106.63万亿，较6月末蒸发约12.4万亿），一次无跌停、近4700只个股上涨的普涨，其意义是情绪修复而非趋势确立。给出明确的验证顺序：先看量能能否维持，再看结构是否收敛到主线，两者通过前不追高。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 恐慌过去不等于可趋势加仓：量能与结构两道验证
+  related_stocks: []
+  tags:
+  - 恐慌阶段
+  - 趋势加仓
+  - 量能验证
+- id: claim-20260802-006
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: sector-theme
+  subject: Seedance链AI视频短剧
+  timeframe: short-term
+  statement: AI视频与短剧（Seedance 2.5链）7月31日的动作是正式上线并接入即梦AI、豆包专业版，应视为影视级视频生成进入规模化交付阶段的确认而非新模型横空出世
+  evidence_quote: 把它当作7月31日横空出世的新模型会高估事件的边际增量；把它当作影视级视频生成进入规模化交付阶段的确认，更贴近事实。
+  interpretation: Seedance 2.5早在6月23日火山引擎FORCE大会即已发布、7月初面向企业商用，7/31是正式上线。判断事件催化强度要追溯模型的真实发布时间线，避免高估边际增量。标的需按绑定强度分档：第一档德才股份(605287)、风语筑(603466)、引力传媒(603598)（火山引擎生态明确绑定）；第二档中文在线(300364)、欢瑞世纪(000892)、捷成股份(300182)（红果短剧内容合作，与模型关系间接）；第三档视觉中国(000681)（仅洽谈）。掌阅科技(603533)以字节持股与版权内容广告云服务合作为绑定。第三档表述强度最弱，洽谈与落地在财报上的差别是全部。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: Seedance链AI视频短剧：规模化交付确认+三档绑定强度
+  related_stocks:
+  - code: '605287'
+    name: 德才股份
+    role: Seedance链第一档-火山引擎绑定-沪主板可交易
+  - code: '603466'
+    name: 风语筑
+    role: Seedance链第一档-即梦AI独家AIGC-沪主板可交易
+  - code: '603598'
+    name: 引力传媒
+    role: Seedance链第一档-AI工具应用-沪主板可交易
+  - code: '300364'
+    name: 中文在线
+    role: Seedance链第二档-红果短剧内容合作-创业板不可交易
+  - code: '000892'
+    name: 欢瑞世纪
+    role: Seedance链第二档-红果短剧内容合作-深主板可交易
+  - code: '300182'
+    name: 捷成股份
+    role: Seedance链第二档-红果内容供应-创业板不可交易
+  - code: '000681'
+    name: 视觉中国
+    role: Seedance链第三档-仅洽谈-深主板可交易
+  - code: '603533'
+    name: 掌阅科技
+    role: Seedance链-字节持股绑定-沪主板可交易
+  tags:
+  - Seedance
+  - AI视频
+  - 短剧
+  - 即梦AI
+  - 火山引擎
+- id: claim-20260802-007
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: sector-theme
+  subject: 企业级Agent四大天王
+  timeframe: short-term
+  statement: 企业级Agent（腾讯WorkBuddy链）四大天王为博思软件(300525)、普联软件(300996)、泛微网络(603039)、华宇软件(300271)，需分档看：股权绑定档是博思软件(300525)、泛微网络(603039)及经明略科技间接关联的普联软件(300996)，生态接入档是华宇软件(300271)、值得买(300785)、视声智能(920976)、老百姓(603883)、英派斯(002899)，第三档仅宣讲案例（富临运业(002357)）基本面为空
+  evidence_quote: 市场流传的四大天王是博思软件、普联软件、泛微网络、华宇软件……使用方不等于供应方，讲解场景不构成收入关联，这一档在基本面上其实是空的。
+  interpretation: 分档逻辑：股权绑定档（腾讯股东身份）最强；生态接入档（MCP接入、Skills上线、合作启动）次之；仅作为用户或宣讲案例的档位（富临运业(002357)为腾讯云一站式服务日重点讲解WorkBuddy的场景）在基本面上是空的。WorkBuddy月访问量2097万登顶、17家产品合计6062万月访问量的数据口径与统计机构待核实。即便数据成立，从访问量登顶到A股伙伴产生可确认收入之间还隔着接入、分成、结算三道商业化链条，股权关系不等于收入关系。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: WorkBuddy链四大天王分档：股权绑定/生态接入/宣讲案例
+  related_stocks:
+  - code: '300525'
+    name: 博思软件
+    role: WorkBuddy股权绑定-腾讯二股东-创业板不可交易
+  - code: '300996'
+    name: 普联软件
+    role: WorkBuddy股权绑定-明略科技间接-创业板不可交易
+  - code: '603039'
+    name: 泛微网络
+    role: WorkBuddy股权绑定-腾讯持股5%-沪主板可交易
+  - code: '300271'
+    name: 华宇软件
+    role: WorkBuddy生态接入-MCP接入-创业板不可交易
+  - code: '300785'
+    name: 值得买
+    role: WorkBuddy生态接入-Skills上线-创业板不可交易
+  - code: '920976'
+    name: 视声智能
+    role: WorkBuddy生态接入-KNX合作-北交所不可交易
+  - code: '603883'
+    name: 老百姓
+    role: WorkBuddy生态接入-腾讯健康-沪主板可交易
+  - code: '002899'
+    name: 英派斯
+    role: WorkBuddy生态接入-AI眼镜-深主板可交易
+  - code: '002357'
+    name: 富临运业
+    role: WorkBuddy第三档-仅宣讲案例-深主板可交易
+  tags:
+  - 企业级Agent
+  - WorkBuddy
+  - 腾讯生态
+  - 四大天王
+- id: claim-20260802-008
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: sector-theme
+  subject: MCP协议无状态化
+  timeframe: short-term
+  statement: MCP新规范（版本号2026-07-28）于7月28日发布，核心变动是从双向有状态协议改写为请求回应式无状态架构，真正利好能承接生产级Agent部署的基础设施与工程能力方（云、CDN、边缘计算与有真实客户的软件商），该线是题材而非主线
+  evidence_quote: 协议无状态化真正利好的是能够承接生产级Agent部署的基础设施与工程能力方——也就是云、CDN、边缘计算与有真实企业客户的软件商……这条线本质上是协议层利好经由映射层定价，弹性大但基本面锚弱，属于典型的题材而非主线。
+  interpretation: MCP自2024年11月问世以来的第五个规格版本、幅度最大一次：无状态架构使服务器无需维持会话、可直接部署在Serverless与边缘计算环境，引入版本化扩展框架与OAuth
+    2.1/OIDC身份认证。市场梳理的概念股（中科金财(002657)、恒锋信息(300605)、浪潮软件(600756)、东方材料(603110)、彩讯股份(300634)、鼎捷数智(300378)、合合信息(688615)、汉得信息(300170)、深信服(300454)、网宿科技(300017)等）中，网宿科技(300017)、深信服(300454)这类业务形态与协议变化关系更实。注意时间应更正为7月28日而非月末。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: MCP协议无状态化：利好基础设施方，题材非主线
+  related_stocks:
+  - code: '002657'
+    name: 中科金财
+    role: MCP概念-深主板可交易
+  - code: '300605'
+    name: 恒锋信息
+    role: MCP概念-创业板不可交易
+  - code: '600756'
+    name: 浪潮软件
+    role: MCP概念-沪主板可交易
+  - code: '603110'
+    name: 东方材料
+    role: MCP概念-沪主板可交易
+  - code: '300634'
+    name: 彩讯股份
+    role: MCP概念-创业板不可交易
+  - code: '300378'
+    name: 鼎捷数智
+    role: MCP概念-创业板不可交易
+  - code: '688615'
+    name: 合合信息
+    role: MCP概念-科创板不可交易
+  - code: '300170'
+    name: 汉得信息
+    role: MCP概念-创业板不可交易
+  - code: '300454'
+    name: 深信服
+    role: MCP概念-真实业务关联更实-创业板不可交易
+  - code: '300017'
+    name: 网宿科技
+    role: MCP概念-真实业务关联更实-创业板不可交易
+  tags:
+  - MCP协议
+  - 无状态化
+  - Serverless
+  - 题材非主线
+- id: claim-20260802-009
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: sector-theme
+  subject: AI营销与软件层
+  timeframe: short-term
+  statement: AI营销与AI软件层是当日自由市值最大的一组（昆仑万维(300418)、蓝色光标(300058)、利欧股份(002131)、易点天下(301171)、天娱数科(002354)等），软件端是这轮AI应用行情里唯一有财报证据的一层，市场从买宏大叙事转向买兑现证据
+  evidence_quote: 软件端则是这轮AI应用行情里唯一有财报证据的一层……市场对大模型替代软件的担忧在这轮财报季被部分证伪，AI开始被验证为能抬升合同价值与订阅收入的增量，而非替代项。
+  interpretation: 财报证据：Snowflake FY27Q1营收13.9亿美元同比+33%、RPO 92亿美元+38%、与亚马逊签五年60亿美元基础设施协议；Salesforce
+    Agentforce ARR 12亿美元+205%，AI及数据相关ARR合计34亿美元+200%+；金蝶国际预计2026H1营收36.08-36.39亿元+13%-14%、归母净利4000-6000万（去年同期亏9800万）。以上为卖方口径转述未逐项独立核实。8月AI主线要成立，最终须由国内对应标的（金山办公(688111)、合合信息(688615)、鼎捷数智(300378)、中控技术(688777)、万兴科技(300624)、汉得信息(300170)、税友股份(603171)、港股金蝶国际）用中报接棒，而非靠概念清单轮动。昆仑万维(300418)催化SkyReels-A3实际发布于2025年8月11日距今近一年，真正可跟踪变量是SkyReels短剧平台商业化进展与AI短剧内容分发数据。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI软件层是唯一有财报证据层，8月主线需中报接棒
+  related_stocks:
+  - code: '300418'
+    name: 昆仑万维
+    role: AI营销-SkyReels短剧平台-创业板不可交易
+  - code: '300058'
+    name: 蓝色光标
+    role: AI营销-鲁班平台-创业板不可交易
+  - code: '002131'
+    name: 利欧股份
+    role: AI营销-AIGC产品-深主板可交易
+  - code: '301171'
+    name: 易点天下
+    role: AI营销-视觉大模型-创业板不可交易
+  - code: '002354'
+    name: 天娱数科
+    role: AI营销-元宇宙营销-深主板可交易
+  - code: '300063'
+    name: 天龙集团
+    role: AI营销-创业板不可交易
+  - code: '300766'
+    name: 每日互动
+    role: AI营销-创业板不可交易
+  - code: '688111'
+    name: 金山办公
+    role: AI软件-财报证据层-科创板不可交易
+  - code: '688777'
+    name: 中控技术
+    role: AI软件-财报证据层-科创板不可交易
+  - code: '300624'
+    name: 万兴科技
+    role: AI软件-财报证据层-创业板不可交易
+  - code: '300170'
+    name: 汉得信息
+    role: AI软件-财报证据层-创业板不可交易
+  - code: '603171'
+    name: 税友股份
+    role: AI软件-财报证据层-沪主板可交易
+  - code: '300378'
+    name: 鼎捷数智
+    role: AI软件-财报证据层-创业板不可交易
+  - code: '688615'
+    name: 合合信息
+    role: AI软件-财报证据层-科创板不可交易
+  tags:
+  - AI营销
+  - AI软件
+  - 买兑现证据
+  - 中报接棒
+  - SkyReels
+- id: claim-20260802-010
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: sector-theme
+  subject: 芯片设计中报预告
+  timeframe: short-term
+  statement: 芯片设计公司中报预告集中落地（富瀚微(300613)、瑞芯微(603893)、星宸科技(301536)），共同背景是全球存储芯片价格大幅上涨叠加PCB、阻容等上游元器件供应紧张形成成本推动与需求拉动双重涨价，这一层业绩确定性最高但估值弹性最低
+  evidence_quote: 三家的共同背景是全球存储芯片价格大幅上涨，叠加PCB、阻容等上游元器件供应紧张，设计企业顺势上调产品售价，形成成本推动与需求拉动的双重涨价。
+  interpretation: 富瀚微(300613)预计H1营收14-15亿同比+103.48%-118.01%、归母净利2.7-3.5亿+1072.72%-1420.19%；瑞芯微(603893)7/7预告H1营收28.70-29.10亿+40.28%-42.24%、归母净利8.50-9.10亿+60.03%-71.33%；星宸科技(301536)7/18预告H1营收约26.2亿。市场会给涨价传导型业绩周期性折价，因为涨价能持续多久没有答案。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 芯片设计中报：涨价驱动业绩确定性高估值弹性低
+  related_stocks:
+  - code: '300613'
+    name: 富瀚微
+    role: 芯片设计-涨价驱动-创业板不可交易
+  - code: '603893'
+    name: 瑞芯微
+    role: 芯片设计-涨价驱动-沪主板可交易
+  - code: '301536'
+    name: 星宸科技
+    role: 芯片设计-涨价驱动-创业板不可交易
+  tags:
+  - 芯片设计
+  - 中报预告
+  - 存储涨价
+  - 双重涨价
+- id: claim-20260802-011
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: methodology
+  subject: 读涨价型业绩预告顺序
+  timeframe: permanent
+  statement: 读涨价传导型业绩预告的正确顺序是：先确认涨价贡献了多少，再确认新品与新场景能不能在涨价见顶前接上
+  evidence_quote: 读这类预告的正确顺序是：先确认涨价贡献了多少，再确认新品与新场景能不能在涨价见顶前接上。
+  interpretation: 涨价驱动业绩的可持续性存疑，市场会给周期性折价。分析涨价型业绩要拆解量价贡献：先量化涨价对利润弹性的贡献比例，再看公司是否有新品/新场景能在涨价周期见顶前接力，两层确认后才能判断业绩的质地而非弹性。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 涨价型业绩预告阅读顺序：先涨价贡献后新品接力
+  related_stocks: []
+  tags:
+  - 业绩预告
+  - 涨价传导
+  - 周期性折价
+  - 阅读顺序
+- id: claim-20260802-012
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: sector-theme
+  subject: 硬件端中间地带
+  timeframe: short-term
+  statement: 硬件端目前处在补跌尚未完全出清、修复尚未获得确认的中间地带，短期难以承担主线角色，右侧信号是下周科技硬件结束同涨同跌、出现分支间的强弱分化
+  evidence_quote: 硬件端目前处在补跌尚未完全出清、修复尚未获得确认的中间地带，短期难以承担主线角色。可跟踪的相对强势分支是国产超节点与端侧AI两条线能否走出独立节奏。
+  interpretation: 7/31存储芯片板块大幅高开，兆易创新(603986)、德明利(001309)、太极实业(600667)竞价一字涨停随后相继炸板，德明利(001309)早盘炸板后持续回落尾盘翻绿；CPO板块反弹罗博特科(300757)涨超16%，盛景微(603375)涨停。情绪龙头炸板后深幅回落是分歧最直接的读数。7月跌幅超50%个股中AI产业链扎堆（德明利(001309)、普冉股份(688766)、兆易创新(603986)、佰维存储(688525)、江波龙(301308)、香农芯创(300475)、长光华芯(688048)、长飞光纤(601869)、亨通光电(600487)、国科微(300672)、烽火通信(600498)、太辰光(300570)、立昂微(605358)、仕佳光子(688313)等），跌幅超40%中百元股67只，高价股是杀跌重灾区。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 硬件端补跌未出清、修复未确认，右侧信号待分支分化
+  related_stocks:
+  - code: '603986'
+    name: 兆易创新
+    role: 存储-竞价涨停后炸板-沪主板可交易
+  - code: '001309'
+    name: 德明利
+    role: 情绪龙头-炸板尾盘翻绿-深主板可交易
+  - code: '600667'
+    name: 太极实业
+    role: 存储-竞价涨停后炸板-沪主板可交易
+  - code: '300757'
+    name: 罗博特科
+    role: CPO-涨超16%-创业板不可交易
+  - code: '603375'
+    name: 盛景微
+    role: 半导体-涨停-沪主板可交易
+  - code: '688766'
+    name: 普冉股份
+    role: 7月跌超50%-科创板不可交易
+  - code: '688525'
+    name: 佰维存储
+    role: 7月跌超50%-科创板不可交易
+  - code: '301308'
+    name: 江波龙
+    role: 7月跌超50%-创业板不可交易
+  - code: '300475'
+    name: 香农芯创
+    role: 7月跌超50%-创业板不可交易
+  - code: '688048'
+    name: 长光华芯
+    role: 7月跌超50%-科创板不可交易
+  - code: '601869'
+    name: 长飞光纤
+    role: 7月跌超50%-沪主板可交易
+  - code: '600487'
+    name: 亨通光电
+    role: 7月跌超50%-沪主板可交易
+  - code: '300672'
+    name: 国科微
+    role: 7月跌超50%-创业板不可交易
+  - code: '600498'
+    name: 烽火通信
+    role: 7月跌超50%-沪主板可交易
+  - code: '300570'
+    name: 太辰光
+    role: 7月跌超50%-创业板不可交易
+  - code: '605358'
+    name: 立昂微
+    role: 7月跌超50%-沪主板可交易
+  - code: '688313'
+    name: 仕佳光子
+    role: 7月跌超50%-科创板不可交易
+  tags:
+  - 存储芯片
+  - 硬件端
+  - 补跌未出清
+  - 炸板
+  - CPO
+- id: claim-20260802-013
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: sector-theme
+  subject: 算力租赁租金上修
+  timeframe: short-term
+  statement: 算力租赁方向行云科技(300209)连续三次签署补充协议上修租金、下游大厂与模型厂商愿意为算力涨价兜底，若租金上修属实则算力供需仍紧，与AI上游资本开支逻辑反转的看空叙事构成对冲，是反向验证变量
+  evidence_quote: 若租金上修属实，其意义在于算力供需仍紧，这与AI上游资本开支逻辑反转的看空叙事恰好构成对冲，值得作为一个反向验证变量持续跟踪。
+  interpretation: 行云科技(300209)三次上修租金，并提示利通电子(603629)等具备交付能力的服务商。租金是算力供需最直接的定价信号：租金持续上修说明需求端仍愿为算力买单，直接反驳资本开支逻辑反转论。作为多空对赌的验证变量，比观点本身更值得跟踪。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 算力租金上修：供需仍紧，对冲资本开支反转看空
+  related_stocks:
+  - code: '300209'
+    name: 行云科技
+    role: 算力租赁-租金上修-创业板不可交易
+  - code: '603629'
+    name: 利通电子
+    role: 算力租赁-交付能力-沪主板可交易
+  tags:
+  - 算力租赁
+  - 租金上修
+  - 供需仍紧
+  - 反向验证
+- id: claim-20260802-014
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: sector-theme
+  subject: 机器人修复事件驱动
+  timeframe: short-term
+  statement: 这轮机器人修复带有明显的事件驱动属性，板块自2026年2月以来已跌破年线、回调幅度约四到五成，超跌叠加低仓位是加分项，但三大阵营划分中多数标的属于预期映射而非订单映射
+  evidence_quote: 机器人板块自2026年2月以来已跌破年线、回调幅度约四到五成，超跌属性叠加低仓位确实是加分项，但三大阵营的划分中多数标的属于预期映射而非订单映射。
+  interpretation: 三大阵营：国产链（长盛轴承(300718)、晋拓股份(603211)）、特斯拉链（斯菱智驱(301550)、新泉股份(603179)、福赛科技(301529)、北特科技(603009)、浙江荣泰(603119)、鸣志电器(603728)）、波士顿动力链（福赛科技(301529)、凯迪股份(605288)、泛亚微透(688386)）。7/30晚宇树科技(688836)科创板IPO公告（拟发4044.6434万股占10%、询价8/5、申购8/10、中信证券保荐、拟募资42.02亿且85%投研发）驱动情绪。当日永茂泰(605208)涨停、奥比中光(688322)触及20cm、绿的谐波(688017)昊志机电(300503)涨超10%。更值得跟踪的变量是数据采集规模——大规模数采是具身模型走向成熟的必经之路，订单最终体现在真实零部件出货上。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 机器人修复事件驱动：超跌加分但多数预期映射
+  related_stocks:
+  - code: '688836'
+    name: 宇树科技
+    role: 机器人IPO-情绪锚-科创板不可交易
+  - code: '300718'
+    name: 长盛轴承
+    role: 机器人国产链-创业板不可交易
+  - code: '603211'
+    name: 晋拓股份
+    role: 机器人国产链-沪主板可交易
+  - code: '301550'
+    name: 斯菱智驱
+    role: 机器人特斯拉链-创业板不可交易
+  - code: '603179'
+    name: 新泉股份
+    role: 机器人特斯拉链-沪主板可交易
+  - code: '301529'
+    name: 福赛科技
+    role: 机器人特斯拉链/波士顿动力链-创业板不可交易
+  - code: '603009'
+    name: 北特科技
+    role: 机器人特斯拉链-沪主板可交易
+  - code: '603119'
+    name: 浙江荣泰
+    role: 机器人特斯拉链-沪主板可交易
+  - code: '603728'
+    name: 鸣志电器
+    role: 机器人特斯拉链-沪主板可交易
+  - code: '605288'
+    name: 凯迪股份
+    role: 机器人波士顿动力链-沪主板可交易
+  - code: '688386'
+    name: 泛亚微透
+    role: 机器人波士顿动力链-科创板不可交易
+  - code: '605208'
+    name: 永茂泰
+    role: 机器人-当日涨停-沪主板可交易
+  - code: '688322'
+    name: 奥比中光
+    role: 机器人-20cm涨停-科创板不可交易
+  - code: '688017'
+    name: 绿的谐波
+    role: 机器人-涨超10%-科创板不可交易
+  - code: '300503'
+    name: 昊志机电
+    role: 机器人-涨超10%-创业板不可交易
+  tags:
+  - 机器人
+  - 宇树IPO
+  - 事件驱动
+  - 预期映射
+  - 数采规模
+- id: claim-20260802-015
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: sector-theme
+  subject: 核电核准常态化
+  timeframe: industry
+  statement: 7月31日国常会核准8台新机组（总投资超1700亿），连续四年每年核准10台及以上后本次8台更接近常态化审批节奏的确认而非增量超预期，核电设备与工程建设订单释放具备确定性但适合按年度节奏跟踪的中长期线索
+  evidence_quote: 这更接近常态化审批节奏的确认，而非增量超预期。个人判断，核电设备与工程建设环节的订单释放具备确定性，但这是一条适合按年度节奏跟踪的中长期线索，把它当作短线主线来做，与其催化强度并不匹配。
+  interpretation: 核准机组：浙江金七门二期（3、4号）、广东太平岭三期（5、6号）、辽宁庄河一期（1、2号）、山东莱阳一期（1、2号），共8台，金七门二期与太平岭三期被确定为华龙一号2.0版示范项目。中国核电(601985)7/31晚公告确认庄河1、2号与金七门3、4号获核准。设备端提示融发核电(002366)（核岛主管道、核后处理装备、核一级容器锻件、核一级泵阀支承铸件）与保变电气(600550)（30余年核电变压器供货历史）。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 核电8台核准：常态化确认，中长期线索非短线主线
+  related_stocks:
+  - code: '002366'
+    name: 融发核电
+    role: 核电设备-核岛主管道-深主板可交易
+  - code: '600550'
+    name: 保变电气
+    role: 核电设备-变压器30年-沪主板可交易
+  - code: '601985'
+    name: 中国核电
+    role: 核电运营-核准确认-沪主板可交易
+  tags:
+  - 核电
+  - 国常会核准
+  - 华龙一号
+  - 常态化审批
+- id: claim-20260802-016
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: market-cycle
+  subject: 科技与非科技跷跷板
+  timeframe: short-term
+  statement: 非科技方向低开走强、科技与非科技呈跷跷板，本质是总量能不足下的存量腾挪，只要跷跷板存在就说明尚未出现增量资金入场
+  evidence_quote: 非科技方向低开走强、科技与非科技呈跷跷板，本质是总量能不足下的存量腾挪；只要跷跷板存在，就说明尚未出现增量资金入场。
+  interpretation: 7/31当日银行多数调整（农业银行(601288)、交通银行(601328)跌超2%）、保险领跌（中国平安(601318)跌幅居前）、食品饮料石油石化走弱，材料提到早盘逆势走强的一鸣食品(605179)与华天酒店(000428)未独立核实。跷跷板是存量博弈的指示器：增量资金入场时科技与非科技应同涨，跷跷板说明资金在板块间腾挪而非新钱进场，此判断比单一板块涨幅更能说明资金状态。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 跷跷板=存量腾挪，无增量资金入场
+  related_stocks:
+  - code: '601288'
+    name: 农业银行
+    role: 防御-跌超2%-沪主板可交易
+  - code: '601328'
+    name: 交通银行
+    role: 防御-跌超2%-沪主板可交易
+  - code: '601318'
+    name: 中国平安
+    role: 防御-保险领跌-沪主板可交易
+  - code: '605179'
+    name: 一鸣食品
+    role: 防御-早盘逆势-沪主板可交易
+  - code: '000428'
+    name: 华天酒店
+    role: 防御-早盘逆势-深主板可交易
+  tags:
+  - 跷跷板
+  - 存量博弈
+  - 增量资金
+  - 防御板块
+- id: claim-20260802-017
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: stock-view
+  subject: 普联软件股权变更
+  timeframe: short-term
+  statement: 普联软件(300996)经明略昭辉受让19.07%股权成为控股股东，腾讯企业级AI首家A股控股平台的说法在股权穿透层面成立、在并表与协同层面尚待验证，属于预期先行型标的，右侧确认应等待央国企ERP与司库场景中具体产品口径与订单落地
+  evidence_quote: 腾讯企业级AI首家A股控股平台这一说法在股权穿透层面成立、在并表与协同层面尚待验证，属于典型的预期先行型标的，右侧确认应等待央国企ERP与司库场景中具体产品口径与订单的落地。
+  interpretation: 7/29晚公告：实控人蔺国强、王虎及一致行动人共16名股东以11.38元/股向北京明略昭辉转让7547.39万股（占总股本19.07%）、总对价8.59亿，交易完成后明略昭辉成控股股东、实控人变更为吴明辉，董事会9席中明略昭辉有权提名7名。7/30、31连续两个20cm涨停，月内涨幅70.98%。两处被忽略事实：一是普联软件(300996)为明略科技战略参股公司并不纳入合并报表；二是明略科技2025年归母亏损64.15亿元，且同日将全球发售募资中4.5亿未动用款项从技术研发用途重新分配至战略性投资与并购。同一笔交易在港股与A股呈现完全相反的定价方向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 普联软件：股权穿透成立但并表协同待验证，预期先行
+  related_stocks:
+  - code: '300996'
+    name: 普联软件
+    role: WorkBuddy股权绑定-明略昭辉控股-创业板不可交易
+  tags:
+  - 普联软件
+  - 明略科技
+  - 股权转让
+  - 预期先行
+- id: claim-20260802-018
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: stock-view
+  subject: 富瀚微业绩归因
+  timeframe: short-term
+  statement: 富瀚微(300613)中报预告亮眼（归母净利同比+1072.72%至1420.19%），但把预告完全归因于端侧AI结构性需求爆发会系统性高估可持续性，瑞芯微(603893)、星宸科技(301536)同期预告同样亮眼说明是行业性景气而非个体突破
+  evidence_quote: 把这份预告完全归因于端侧AI的结构性需求爆发，会系统性高估其可持续性——瑞芯微、星宸科技同期预告同样亮眼，本身就说明这是行业性景气而非个体突破。
+  interpretation: 富瀚微(300613)7/31晚预告：H1营收14-15亿同比+103.48%-118.01%、归母净利2.7-3.5亿+1072.72%-1420.19%、扣非净利2.66-3.46亿+1640.93%-2164.52%，二季度营收与归母净利双双创单季历史新高，当日收56.23元涨3.75%。公司归因：全球电子业原材料涨价+产品调价、智能视频智能物联智能出行三大板块量价齐升、AI-ISP新品市场反馈积极并已向机器人等新领域客户拓展（材料中写作AHSP芯片，公司口径为AI-ISP，转述需更正）。2025年以超20%全球份额位居出货量第一、力争3至5年内年度营收突破40亿元为材料转述待核实。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 富瀚微：行业性景气非个体突破，勿高估可持续性
+  related_stocks:
+  - code: '300613'
+    name: 富瀚微
+    role: 芯片设计-中报预增-创业板不可交易
+  - code: '603893'
+    name: 瑞芯微
+    role: 对照-同行业景气-沪主板可交易
+  - code: '301536'
+    name: 星宸科技
+    role: 对照-同行业景气-创业板不可交易
+  tags:
+  - 富瀚微
+  - AI-ISP
+  - 行业性景气
+  - 量价齐升
+- id: claim-20260802-019
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: stock-view
+  subject: 宇树科技业绩回落
+  timeframe: short-term
+  statement: 宇树科技(688836)2026年一季度营收增速由332.64%回落至68.49%、归母净利同比下滑47.69%，增速回落与利润下滑是市场在事件驱动行情中最容易略过的数据，其上市对机器人板块的意义主要在情绪锚与估值锚
+  evidence_quote: 增速回落与利润下滑这两项，是市场在事件驱动行情中最容易略过的数据。个人判断，宇树上市对机器人板块的意义主要在情绪锚与估值锚，产业层面的兑现仍需看下半年国产机器人IPO节奏与实际量产数据。
+  interpretation: 据招股材料，2023至2025年营收分别为1.59亿、3.92亿、17.08亿元，2024年扭亏、2025年归母净利2.78亿（增长主要来自2025年初春晚演出带来的品牌关注度提升）；2026Q1营收4.23亿同比增速68.49%，归母净利5001.38万同比下滑47.69%。IPO拟发行4044.6434万股占10%、询价8/5、申购8/10、缴款截止8/12、中信证券保荐、拟募资42.02亿且85%投向研发。事件驱动行情中市场只看到IPO催化的情绪面，忽略基本面增速回落。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 宇树科技：增速利润双降被略过，上市是情绪锚估值锚
+  related_stocks:
+  - code: '688836'
+    name: 宇树科技
+    role: 机器人IPO-业绩增速回落-科创板不可交易
+  tags:
+  - 宇树科技
+  - IPO
+  - 增速回落
+  - 情绪锚
+- id: claim-20260802-020
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: stock-view
+  subject: 传智教育兑现周期
+  timeframe: short-term
+  statement: 传智教育(003032)AI具身智能课程叙事完整但兑现周期长，首期班10月开班意味着收入确认最早在四季度，更适合作为机器人主题的弹性配角而非主攻方向
+  evidence_quote: 教育类标的的特点是叙事完整但兑现周期长——首期班10月开班意味着收入确认最早也在四季度，这类标的更适合作为机器人主题的弹性配角而非主攻方向。
+  interpretation: 逻辑链：AI行业新发职位需求增长带来人才结构性错配催生培训需求，叠加职业教育专业目录增补人形机器人工程技术、具身智能计算技术方向；公司推出覆盖AI开发与AI应用两大赛道的课程体系并发布子品牌，正式发布AI具身智能机器人开发新学科，对接智元、宇树等厂商本体二次开发方案，硬件端2024年自研低成本具身智能机器人GenkiArm。兑现节奏判断：10月开班到收入确认有明确时间差，事件驱动行情中这类标的是高弹性配角。公司层面数据均来自材料转述待核实。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 传智教育：叙事完整兑现周期长，弹性配角
+  related_stocks:
+  - code: '003032'
+    name: 传智教育
+    role: 机器人培训-兑现周期长-深主板可交易
+  tags:
+  - 传智教育
+  - 具身智能
+  - AI培训
+  - 兑现周期
+- id: claim-20260802-021
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: catalyst
+  subject: 月之暗面F轮融资
+  timeframe: short-term
+  statement: 月之暗面7月29日确认完成F轮融资超35亿美元、投后估值350亿美元，G轮（Pre-IPO轮）提前启动投前估值升至500亿美元，此前7月16日发布Kimi
+    K3以2.8万亿总参数刷新全球开源模型规模上限并支持百万token上下文
+  evidence_quote: 月之暗面已于7月29日确认完成F轮融资，金额超35亿美元，投后估值350亿美元；因超目标金额三倍多提前关闭，原定8月开始的G轮（Pre-IPO轮）已提前启动，投前估值升至500亿美元。
+  interpretation: 7/19晚因算力紧缺暂停C端新用户订阅。材料另提及智谱GLM5.3预计8月发布、MiniMax M系列预计9月发布，属预期口径暂记为待核实。融资节奏加速（F轮超募3倍提前关闭+Pre-IPO提前启动）反映一级市场对AI大模型头部资产的定价持续上行。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 月之暗面F轮35亿美元，G轮Pre-IPO提前启动
+  related_stocks: []
+  tags:
+  - 月之暗面
+  - Kimi
+  - F轮融资
+  - Pre-IPO
+- id: claim-20260802-022
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: methodology
+  subject: 卖方四大看空逻辑检验
+  timeframe: short-term
+  statement: 卖方AI上游四大看空逻辑（资本开支逻辑反转、科技巨头发债信用风险、Token Budgeting压制高端需求、卖铲人逻辑松动）中目前只有Token
+    Budgeting一条有直接证据（OpenAI走量档降价、旗舰档不降价），其余三条更接近推演，把买兑现证据的转向等同于上游见顶下游启动是把叙事替换当成产业转折
+  evidence_quote: 市场风格确实在从买宏大叙事转向买兑现证据，但把这一转向直接等同于上游见顶、下游启动，是把叙事替换当成了产业转折。
+  interpretation: 四条看空逻辑逐条检验：资本开支逻辑反转（无直接证据）、科技巨头发债信用风险（无直接证据）、Token Budgeting压制高端需求（有直接证据：OpenAI走量档降价、旗舰档不降价）、卖铲人逻辑松动（无直接证据）。分析空头叙事要区分已证事实与推演，不能因为风格转向就断言产业趋势反转。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 卖方四大看空逻辑仅Token Budgeting有直接证据
+  related_stocks: []
+  tags:
+  - 卖铲人
+  - TokenBudgeting
+  - 资本开支
+  - 看空逻辑
+- id: claim-20260802-023
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: operation
+  subject: 8月首周两种情形
+  timeframe: short-term
+  statement: 8月首周给出两种情形：情形A量能维持2.3万亿以上、AI应用高标不炸板或顺利晋级、封板率回升至60%以上且分化收敛至企业级Agent主线则分歧转一致成立可按右侧确认跟踪，硬件端同步走强为加分项；情形B量能回落至2万亿下方、高位股大面积炸板、AI应用内部继续无序轮动不收敛且非科技与防御重新走强则定性反弹非反转、回到震荡磨底，此时等待而非追高
+  evidence_quote: 情形A：量能维持在2.3万亿元以上，AI应用方向的高标个股不炸板或顺利晋级，封板率回升至60%以上，且分化的结果是围绕企业级Agent这一条主线收敛……情形B：量能回落至2万亿元下方，高位股延续大面积炸板，AI应用内部继续无序轮动而不收敛，非科技与防御方向重新走强，则本轮仍应定性为反弹而非反转。
+  interpretation: 8月首周关键不在于判断AI是不是主线，而在于确认AI哪一层是主线。情形A的量化条件：量能2.3万亿+、封板率60%+、主线收敛至企业级Agent；情形B的量化条件：量能2万亿-、炸板延续、无序轮动+防御走强。两情形给出明确的右侧确认与左侧规避的动作指引。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 8月首周情形A/B：量能封板率主线收敛决定分歧走向
+  related_stocks: []
+  tags:
+  - 情形A
+  - 情形B
+  - 分歧转一致
+  - 右侧确认
+- id: claim-20260802-024
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: operation
+  subject: 四个共同跟踪变量
+  timeframe: short-term
+  statement: 无论走向哪种情形，四个共同变量值得逐日记录：一是封板率与炸板率变化（情绪温度最直接读数），二是德明利(001309)一类情绪龙头能否止跌企稳（龙头不修复则空间难打开），三是科技与非科技是否仍呈跷跷板（存在即存量博弈），四是AI应用分化是否收敛到单一主线（散而无核的题材扩散通常是行情末段而非起点）
+  evidence_quote: 无论走向哪一种情形，有四个共同变量值得逐日记录：一是封板率与炸板率的变化，这是情绪温度最直接的读数；二是德明利一类情绪龙头能否止跌企稳，龙头不修复则空间难打开；三是科技与非科技是否仍呈跷跷板……四是AI应用的分化是否收敛到单一主线，散而无核的题材扩散通常是行情末段而非起点。
+  interpretation: 四项变量构成情绪温度计：封板率炸板率（日内情绪）、情绪龙头（空间锚）、跷跷板（增量资金）、主线收敛度（行情阶段）。在这四项确认之前，先不要急着给这轮修复定性——即任何结论前先看这四个读数。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 四个共同跟踪变量：封板率/情绪龙头/跷跷板/主线收敛
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 情绪龙头-止跌企稳观察-深主板可交易
+  tags:
+  - 封板率
+  - 情绪龙头
+  - 主线收敛
+  - 逐日记录
+- id: claim-20260802-025
+  source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
+  source_date: '2026-08-02'
+  source_type: 复盘
+  extracted_at: '2026-08-03T20:35:00+08:00'
+  claim_type: risk
+  subject: 八月风险清单
+  timeframe: short-term
+  statement: 当前主要风险：模型迭代与降价节奏不及预期、AI应用端token消耗与商业化兑现慢于叙事、存储及上游元器件涨价周期见顶导致业绩弹性回落、企业级Agent生态收入分成与结算机制落地慢于预期、机器人量产与产业链国产化进度不及预期、核电及新股发行节奏变化、外盘波动通过风险偏好渠道传导
+  evidence_quote: 模型迭代与降价节奏不及预期；AI应用端的token消耗与商业化兑现慢于叙事；存储及上游元器件涨价周期见顶导致业绩弹性回落；企业级Agent生态的收入分成与结算机制落地慢于预期；机器人量产与产业链国产化进度不及预期；核电及新股发行节奏变化；外盘波动通过风险偏好渠道传导。
+  interpretation: 七类风险对应七大主线逻辑的失效条件：AI应用（模型降价）、软件层（token消耗兑现）、芯片（涨价周期）、Agent（分成结算）、机器人（量产国产化）、核电（审批节奏）、宏观（外盘传导）。每条都是对应观点证伪的触发点，跟踪时与情形A/B变量配合使用。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 七大风险：对应各主线逻辑的失效条件
+  related_stocks: []
+  tags:
+  - 风险清单
+  - token消耗
+  - 涨价周期
+  - 外盘传导
