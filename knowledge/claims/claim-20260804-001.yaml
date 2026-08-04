@@ -1,0 +1,674 @@
+claims:
+- id: claim-20260804-001
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: market-cycle
+  subject: 隔夜美股大涨在科技板块失真
+  timeframe: intraday
+  statement: 8月3日美股高开高收但真正要看的是费城半导体：费半盘中一度跌约3%、尾盘低开高走全天仅收涨1.05%，因此昨晚美股大涨的描述用在科技板块上是失真的——涨的是应用与云，芯片是被救回来的；这个差别直接决定今天开盘A股科技板块的预期定价。
+  evidence_quote: 但真正要看的那一笔在费半。据公开行情，费城半导体指数盘中一度跌约 3%，尾盘低开高走、全天收涨 1.05%。所以「昨晚美股大涨」这个描述用在科技板块上是失真的——涨的是应用与云，芯片是被救回来的。
+  interpretation: UP拆解隔夜外盘的真实结构：道指+1.32%/纳指+2.13%/标普+1.48%看似普涨，但费半盘中跌3%才拉回（收涨1.05%），说明芯片是被救回来的而非主动走强。这一分辨直接影响A股科技今日开盘定价——不能把外盘大涨简单映射为科技强。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 费半盘中跌3%才拉回，隔夜美股大涨用在科技板块失真
+  related_stocks: []
+  tags:
+  - 费城半导体
+  - 隔夜外盘
+  - 失真
+  - 七巨头
+  - 开盘定价
+- id: claim-20260804-002
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: market-cycle
+  subject: 存储修复只沿NAND一条支线
+  timeframe: short-term
+  statement: 存储隔夜修复只沿铠侠-闪迪-NAND/模组这一条线而非整个存储链条同步：铠侠ADR涨约14%、闪迪反弹超6%、美光仅涨0.79%，而SK海力士跌0.70%、西部数据与希捷均跌逾3%；映射到A股同样挂着存储二字，今天开盘的含金量不一样——NAND模组方向的止跌确定性高于HBM、先进封装与DRAM相关方向。
+  evidence_quote: 个人判断：这一轮修复是「铠侠—闪迪—NAND / 模组」这一条线，而非整个存储链条同步。DRAM 与 HBM 的代表（SK 海力士、美光）、HDD
+    的代表（西数、希捷）都没跟上。映射到 A 股，同样挂着「存储」两个字，今天开盘的含金量并不一样：NAND 模组方向的止跌确定性，要高于 HBM、先进封装与
+    DRAM 相关方向。
+  interpretation: UP对存储修复给出精细的结构判断：隔夜正反馈（铠侠ADR+14%）只沿NAND/模组支线传导，DRAM/HBM（SK海力士/美光）与HDD（西数/希捷）掉队。A股映射含金量分层：NAND模组止跌确定性最高，HBM/先进封装/DRAM次之。这是当日开盘预期定价的核心依据。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储修复只沿NAND/模组支线，A股含金量NAND>HBM/DRAM
+  related_stocks: []
+  tags:
+  - 存储修复
+  - NAND模组
+  - DRAM
+  - HBM
+  - 支线分化
+- id: claim-20260804-003
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: sector-theme
+  subject: 光通信是隔夜更干净的线
+  timeframe: intraday
+  statement: 隔夜光通信涨幅结构比存储整齐得多且没有先跌3%再拉回的过程：Lumentum涨9.24%、Coherent涨逾9%、康宁涨6.07%、Credo涨逾5%；今天A股开盘后最值得优先验证的不是存储，而是光模块方向能否接得住这份外溢。
+  evidence_quote: 另一条昨日盘前材料里没有覆盖、但隔夜信号更干净的线是光通信。据公开行情，Lumentum 涨 9.24%，Coherent 涨逾
+    9%，康宁涨 6.07%，Credo 涨逾 5%。这一组的涨幅结构比存储整齐得多，且没有「先跌 3% 再拉回」的过程。倾向于认为，今天 A 股开盘后最值得优先验证的不是存储，而是光模块方向能否接得住这份外溢。
+  interpretation: UP指出光通信是隔夜最干净的信号：涨幅整齐（Lumentum/Coherent/康宁/Credo全线上涨）且无先跌后拉过程，强度优于存储。操作含义：今日优先验证光模块承接而非存储——把最干净的信号放在最前面看。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光通信隔夜涨幅整齐无回调，今日优先验证光模块承接
+  related_stocks: []
+  tags:
+  - 光通信
+  - Lumentum
+  - Coherent
+  - 外溢
+  - 优先验证
+- id: claim-20260804-004
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: macro
+  subject: 油价大跌：石油石化压制，中下游边际利好
+  timeframe: short-term
+  statement: 特朗普宣布取消原定针对伊朗的打击行动+OPEC+决定自2026年9月起每日产量配额上调18.8万桶，国际油价大跌（WTI跌逾5%、布伦特跌逾4%）：对石油石化是压制项，对航空、交运及化工中下游是成本端边际利好，但油价单日大跌本身不足以支撑这些方向走出独立行情。
+  evidence_quote: 其余外围变量：据公开报道，美国总统特朗普宣布取消原定针对伊朗的打击行动，国际油价大跌，NYMEX WTI 原油跌逾 5%、ICE
+    布伦特原油跌逾 4%；叠加 OPEC+ 决定自 2026 年 9 月起每日石油产量配额上调 18.8 万桶。个人判断，这对石油石化是压制项，对航空、交运及化工中下游是成本端的边际利好，但油价单日大跌本身不足以支撑这些方向走出独立行情。
+  interpretation: UP分析油价大跌的结构性影响：利空石油石化（压制项）、利好航空/交运/化工中下游（成本端边际利好），但明确单日油价波动不足以支撑独立行情——只做成本端参考，不做方向级判断。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 油价大跌因对伊打击取消+OPEC增产，压制油服利好中下游
+  related_stocks: []
+  tags:
+  - 油价大跌
+  - 特朗普
+  - OPEC+
+  - 石油石化
+  - 中下游利好
+- id: claim-20260804-005
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: risk
+  subject: 本周三个硬时点：非农与SpaceX财报及闪迪西数财报
+  timeframe: short-term
+  statement: 本周日历上有三个硬时点：其一，周五美国7月非农（FactSet预期新增8.75万人、前值5.7万，失业率或从4.2%升至4.3%）；其二，SpaceX周二首次以上市公司身份发布财报，商业航天今日盘中可能提前反应；其三，闪迪与西部数据财报预计北京时间8月6日凌晨前后发布（待核实）——若属实则周三收盘前存储方向仓位管理需预留变量，不宜在财报前把仓位打满。
+  evidence_quote: 本周日历上有三个硬时点。其一，据新浪财经援引 FactSet 一致预期，美国 7 月非农预计新增 8.75 万人（前值 5.7
+    万），失业率或从 4.2% 升至 4.3%，周五公布。其二，据公开报道，SpaceX 将于本周二首次以上市公司身份发布财报，商业航天方向今日盘中可能提前反应。其三，据雪球等公开日程信息，闪迪与西部数据财报预计在北京时间
+    8 月 6 日凌晨前后发布——此项待核实，但若属实，则周三收盘前存储方向的仓位管理需要预留这个变量，不宜在财报前把仓位打满。
+  interpretation: UP列出本周三个时点风险：周五非农（失业率上行预期）、周二SpaceX财报（商业航天提前反应）、闪迪/西数8/6凌晨财报（存储仓位需预留变量，财报前不打满仓）。这是本周操作的时间约束框架。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 本周三硬时点：周五非农与SpaceX周二财报及闪迪西数8/6财报
+  related_stocks: []
+  tags:
+  - 非农
+  - SpaceX财报
+  - 闪迪财报
+  - 硬时点
+  - 仓位管理
+- id: claim-20260804-006
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: market-cycle
+  subject: 量能2万亿：历史首次跌至2万亿的位置
+  timeframe: short-term
+  statement: 昨日沪深两市成交2万亿元（缩量5446亿），一步到位缩到2万亿，位置上对应去年10月中旬与今年2月中旬那两次量能首次跌至2万亿；理论上距离一波量价齐升的反弹不远了，但两轮历史样本里首次到2万亿之后都还有一段在这一带的反复，直接从此起爆的概率并不高于先去1.8至1.9万亿再磨一次的概率——把快到了当成就是今天，是这个位置最容易犯的错。
+  evidence_quote: 按此前归纳的量能路径：峰值近 4 万亿先降至 2.5 至 2.6 万亿区间，再回升至 3 万亿以上，跌破 2.5 万亿后进一步缩至
+    2 万亿，在此反复一段时间，最后才落到 1.5 至 1.6 万亿的地量——分别对应去年 11 月底和今年 4 月初。昨天是一步到位缩到 2 万亿，位置上对应去年
+    10 月中旬与今年 2 月中旬那两次「量能首次跌至 2 万亿」。个人判断，理论上距离一波量价齐升的反弹不远了；但两轮历史样本里，「首次到 2 万亿」之后都还有一段在这一带的反复……把「快到了」当成「就是今天」，是这个位置最容易犯的错。
+  interpretation: UP用历史量能路径定位当前：昨日2万亿=历史两次首次跌至2万亿的位置（去年10月中/今年2月中）。判断：距反弹不远但首次到2万亿后通常还有反复，不排除先去1.8-1.9万亿再磨。核心警示：快到了≠就是今天，防止左侧抢跑。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能2万亿=历史首次跌至2万亿位置，距反弹近但还有反复
+  related_stocks: []
+  tags:
+  - 量能2万亿
+  - 历史样本
+  - 快到了
+  - 量价齐升
+  - 反复磨底
+- id: claim-20260804-007
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: market-cycle
+  subject: 黄白线分化=缩量磨底非恐慌出清
+  timeframe: short-term
+  statement: 昨日黄白线分化明显、指数收跌而全市场超4000只个股上涨：拖累项在权重端（大金融与大市值科技为主）、承接项在中小盘，这是典型的缩量磨底结构而非恐慌出清结构——恐慌盘的特征是放量、跌停家数扩张、黄白线同向下杀，昨天三条都不成立。
+  evidence_quote: 昨日黄白线分化明显，指数收跌而全市场超 4000 只个股上涨。这个组合说明拖累项在权重端（大金融与大市值科技为主），承接项在中小盘。个人判断，这是典型的缩量磨底结构，而不是恐慌出清结构——恐慌盘的特征是放量、跌停家数扩张、黄白线同向下杀，昨天三条都不成立。
+  interpretation: UP用三特征判别结构性质：恐慌出清=放量+跌停扩张+黄白线同向下杀，昨日三条均不成立，且4000只个股上涨说明承接在中小盘，因此是缩量磨底而非恐慌出清。这为当前位置提供了结构健康度的客观证据。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 黄白线分化+4000只上涨=缩量磨底非恐慌出清
+  related_stocks: []
+  tags:
+  - 黄白线分化
+  - 缩量磨底
+  - 恐慌出清
+  - 4000只上涨
+  - 结构判别
+- id: claim-20260804-008
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: market-cycle
+  subject: 结构健康不等于指数自己走出来
+  timeframe: short-term
+  statement: 缩量磨底期指数方向由权重决定、赚钱效应由中小盘决定，两者可以长期背离：上证从上周二至今在3750至3850之间小幅震荡，创业板指昨天与上周二的收盘价其实相差有限；震荡筑底的判断到目前为止没有被证伪，性价比区域的定位也没有变化。
+  evidence_quote: 但结构健康不等于指数能自己走出来。缩量磨底期，指数的方向由权重决定，赚钱效应由中小盘决定，两者可以长期背离。上证从上周二至今在
+    3750 至 3850 之间小幅震荡，创业板指看着波动大，昨天与上周二的收盘价其实相差有限。震荡筑底的判断到目前为止没有被证伪，性价比区域的定位也没有变化。
+  interpretation: UP强调磨底期的指数与赚钱效应分离机制：权重决定指数方向、中小盘决定赚钱效应，可长期背离。上证3750-3850窄幅震荡验证筑底判断未被证伪——但结构健康不保证指数上行，这是对磨底性质的精确限定。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 磨底期权重定指数方向、中小盘定赚钱效应，可长期背离
+  related_stocks: []
+  tags:
+  - 权重定方向
+  - 中小盘定赚钱效应
+  - 震荡筑底
+  - 3750-3850
+  - 结构健康
+- id: claim-20260804-009
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: market-cycle
+  subject: 昨日接力数据：承接在线但首板下滑
+  timeframe: intraday
+  statement: 昨日二板家数13个对应一进二晋级率14.77%，首板家数由88家减少至58家（降幅远好于7月下旬），跌停数量控制在个位数，高标传智教育(003032)缩量一字晋级至6板、次高标一鸣食品(605179)尾盘上板；13个二板与88个首板按15%晋级率口径基本吻合，承接在线。但瑕疵在首板家数下滑——意味着新增资金仍在观望，昨天的接力靠的是存量高标的稳定性而不是增量入场，一旦高标出现分歧，缺乏首板梯队会让情绪的下滑速度快于上行速度。
+  evidence_quote: 据昨日盘面数据，二板家数 13 个，对应一进二晋级率 14.77%；首板家数由 88 家减少至 58 家，降幅远好于 7 月下旬；跌停数量控制在个位数；高标传智教育缩量一字晋级至
+    6 板，次高标一鸣食品尾盘上板。按「首板家数 × 约 15% 晋级率」的推演口径，13 个二板与 88 个首板基本吻合，承接是在线的。唯一的瑕疵在首板家数下滑。个人判断，这意味着新增资金仍在观望，昨天的接力靠的是存量高标的稳定性而不是增量入场；一旦高标出现分歧，缺乏首板梯队会让情绪的下滑速度快于上行速度。
+  interpretation: UP量化昨日情绪结构：二板13个/晋级率14.77%、首板88→58家、跌停个位数、传智教育(003032)6板、一鸣食品(605179)尾盘上板，按15%晋级率口径吻合=承接在线；但首板下滑暴露隐患——接力靠存量高标而非增量，高标分歧时情绪下坠快。首板家数列为今日跟踪项。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 昨日二板13个承接在线，但首板88→58家下滑=存量高标撑场
+  related_stocks: []
+  tags:
+  - 二板13个
+  - 晋级率
+  - 首板下滑
+  - 传智教育6板
+  - 承接在线
+- id: claim-20260804-010
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: operation
+  subject: 情形A：正反馈落地确认量能低点
+  timeframe: intraday
+  statement: 情形A正反馈落地：存储方向高开后能守住分时均价（重点看德明利(001309)、江波龙(301308)这类NAND与模组标的），光模块跟随隔夜光通信走强且不是一小时行情，量能从2万亿回升——则可以确认昨天的缩量就是这一轮的量能低点，科技止跌即指数止跌；操作原则仍是多找低点而非追高，按科技的反弹是让科技止跌的框架，止跌来自有承接而不是无抛压，要在大资金对轰的攻守易势过程中建仓，而不是等它走完。
+  evidence_quote: 情形 A · 正反馈落地：存储方向高开后能守住分时均价（重点看德明利、江波龙这类 NAND 与模组标的），光模块跟随隔夜光通信走强并且不是一小时行情，量能从
+    2 万亿回升。则可以确认昨天的缩量就是这一轮的量能低点，科技止跌即指数止跌。此种情形下的操作原则仍是「多找低点」而非追高——按「科技的反弹是让科技止跌，而不是反弹」的框架，止跌来自有承接而不是无抛压，跌停股龙虎榜上的大资金对轰就是攻守易势的过程，要在这个过程中建仓，而不是等它走完。
+  interpretation: UP给出情形A的三条件：存储守分时均价（德明利(001309)/江波龙(301308)NAND模组）+光模块非一小时行情+量能回升。确认后操作多找低点不追高，建仓时机选在攻守易势过程中而非完成后。这是对科技反弹框架（让科技止跌而非反弹）的盘中应用。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形A：存储守均价+光模块接住+量能回升=量能低点，多找低点不追高
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 存储NAND模组-观察标的-深主板可交易
+  - code: '301308'
+    name: 江波龙
+    role: 存储NAND模组-观察标的-创业板不可交易
+  tags:
+  - 情形A
+  - 正反馈落地
+  - 分时均价
+  - 多找低点
+  - 量能低点
+- id: claim-20260804-011
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: operation
+  subject: 情形B：高开低走则做T等待
+  timeframe: intraday
+  statement: 情形B高开低走：存储冲高回落、光模块只反弹半小时到一小时、量能不升反降至1.9万亿以下——则说明外盘正反馈没有转化成场内承接，2万亿不是终点，参考去年11月底与今年4月初的1.5至1.6万亿地量，磨底时间要往后拉；此种情形下不必急于抄科技，做T为主或持股等待，等右侧确认。
+  evidence_quote: 情形 B · 高开低走：存储冲高回落，光模块只反弹半小时到一小时，量能不升反降至 1.9 万亿以下。则说明外盘的正反馈没有转化成场内承接，2
+    万亿不是终点；参考去年 11 月底与今年 4 月初的 1.5 至 1.6 万亿地量，磨底时间要往后拉。此种情形下不必急于抄科技，做 T 为主或持股等待，等右侧确认。
+  interpretation: UP给出情形B的三条件：存储冲高回落+光模块反弹仅半小时到一小时+量能降至1.9万亿以下。对应操作：不急于抄科技、做T或持股等待右侧确认，磨底时间按1.5-1.6万亿地量样本拉长。与情形A构成完整双预案。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形B：存储冲高回落+光模块半小时行情+量能1.9万亿以下则做T等待
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 存储-冲高回落观察-深主板可交易
+  - code: '301308'
+    name: 江波龙
+    role: 存储-冲高回落观察-创业板不可交易
+  tags:
+  - 情形B
+  - 高开低走
+  - 1.9万亿
+  - 做T等待
+  - 右侧确认
+- id: claim-20260804-012
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: operation
+  subject: 开盘观察顺序与反向信号
+  timeframe: intraday
+  statement: 开盘观察顺序建议：光模块→NAND模组→指数量能，把最干净的信号放在最前面看而不是先盯着最纠结的存储；反向信号：如果今天电力、医药、大消费这类传统超跌板块反而强于科技，那不是好消息，而是情形B的早期征兆——它们靠指数回调才支愣起来，在隔夜科技全线走强的背景下还能跑赢，只能说明资金不敢碰科技。
+  evidence_quote: 开盘观察顺序建议是：光模块 → NAND 模组 → 指数量能。把最干净的信号放在最前面看，而不是先盯着最纠结的存储。另外提示一个反向信号：如果今天电力、医药、大消费这类传统超跌板块反而强于科技，那不是好消息，而是情形
+    B 的早期征兆——它们本就靠「指数回调」才支愣起来，在隔夜科技全线走强的背景下还能跑赢，只能说明资金不敢碰科技。
+  interpretation: UP给出今日观察框架：验证顺序光模块→NAND模组→指数量能（干净信号优先）；并给出反向信号——传统超跌板块（电力/医药/大消费）强于科技=资金不敢碰科技=情形B征兆。这一反向信号是当日最容易被误读的盘面特征。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 观察顺序：光模块→NAND模组→量能；超跌板块反强=情形B征兆
+  related_stocks: []
+  tags:
+  - 观察顺序
+  - 光模块优先
+  - 反向信号
+  - 超跌板块
+  - 情形B征兆
+- id: claim-20260804-013
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: sector-theme
+  subject: 核电：事件催化与超跌组合，持续性不宜高估
+  timeframe: short-term
+  statement: 核电与上周的食品饮料、半导体光刻机、脑机接口同属事件催化+超跌板块的组合，资金拉升顺畅是结构使然；国常会核准四个项目共8台新机组（总投资超1700亿），板块内相关标的包括利柏特(605167)、瑞迪智驱(301596)、中国核建(601611)；中国核建(601611)这种体量的标的上板后几无分歧，恰恰是这类题材第一天的典型特征，持续性不宜高估。
+  evidence_quote: 个人判断，这与上周的食品饮料（可口可乐）、半导体（光刻机）、脑机接口同属「事件催化＋超跌板块」的组合，资金拉升顺畅是结构使然；中国核建这种体量的标的上板后几无分歧，恰恰是这类题材第一天的典型特征，持续性不宜高估。
+  interpretation: UP将核电归入事件催化+超跌板块范式（同上周食品饮料/光刻机/脑机接口），并给出持续性判断依据：中国核建(601611)等大体量标的上板无分歧=题材第一天典型特征，持续性不宜高估。这与8/3复盘对核电接力质量的警示一致。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 核电=事件催化与超跌组合，大票无分歧上板=第一天特征持续不宜高估
+  related_stocks:
+  - code: '605167'
+    name: 利柏特
+    role: 核电-产业链-沪主板可交易
+  - code: '301596'
+    name: 瑞迪智驱
+    role: 核电-产业链-创业板不可交易
+  - code: '601611'
+    name: 中国核建
+    role: 核电-大体量标的上板-沪主板可交易
+  tags:
+  - 核电
+  - 事件催化
+  - 超跌板块
+  - 中国核建
+  - 持续性
+- id: claim-20260804-014
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: sector-theme
+  subject: AI办公：三家整合指向AI成为办公基础能力
+  timeframe: short-term
+  statement: 8月3日阿里千问办公开启公测（Qoder、Work、悟空、MuleRun三款Agent产品合并为统一产品体系）、7月30日字节跳动将飞书产品团队并入豆包销售线划归火山引擎、同日腾讯WorkBuddy上线人机双写协同编辑能力——三家整合手法各异但指向一致：让AI从独立功能变成办公App的基础能力；AI叙事正从投入切换到兑现；相关标的：金山办公(688111)（WPS
+    AI锚定AIGC内容创作/Copilot智慧助手/Insight知识洞察）、金桥信息(603918)（金桥e享VaaS远程通讯及云协作平台）。
+  evidence_quote: 据公开信息，8 月 3 日阿里巴巴千问办公开启公测，Qoder、Work、悟空、MuleRun 三款 Agent 产品合并为统一产品体系；7
+    月 30 日字节跳动将飞书产品团队并入豆包、销售线划归火山引擎；同日腾讯 WorkBuddy 上线「人机双写」协同编辑能力。三家整合手法各异但指向一致：让
+    AI 从独立功能变成办公 App 的基础能力。华源证券文化传媒团队认为，AI 应用产品的落地和执行仍是产业发展与市场交易的核心，AI 叙事正从投入切换到兑现。
+  interpretation: UP记录AI办公产业整合动态：阿里（千问办公公测+Agent产品合并）、字节（飞书并入豆包）、腾讯（WorkBuddy人机双写）三家同日/近期动作，共同指向AI内化为办公基础能力；叙事从投入切换到兑现。金山办公(688111)、金桥信息(603918)为产业链跟踪标的。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 阿里/字节/腾讯同日整合AI办公，AI从独立功能变办公基础能力
+  related_stocks:
+  - code: '688111'
+    name: 金山办公
+    role: AI办公-WPS AI-科创板不可交易
+  - code: '603918'
+    name: 金桥信息
+    role: AI办公-VaaS云协作-沪主板可交易
+  tags:
+  - AI办公
+  - 千问办公
+  - 飞书豆包
+  - WorkBuddy
+  - 基础能力
+- id: claim-20260804-015
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: sector-theme
+  subject: A应用：分歧属预期内，看点在下一次分歧转一致
+  timeframe: intraday
+  statement: A应用上周五已经迎来一个情绪高点，昨天的分歧属预期内；预期外的是传智教育(003032)缩量一字把高度拓展到6板，场内与场外资金像有共识一般；接下来的看点不是高标还能走多远，而是下一次分歧转一致时哪个细分方向脱颖而出。
+  evidence_quote: 个人判断，A 应用上周五已经迎来一个情绪高点，昨天的分歧属预期内；预期外的是传智教育缩量一字把高度拓展到 6 板，场内与场外资金像有共识一般。接下来的看点不是高标还能走多远，而是下一次分歧转一致时，哪个细分方向脱颖而出。
+  interpretation: UP对A应用板块的节奏判断：上周五情绪高点→昨日分歧属预期内（与8/3早盘防情绪高点一致）；超预期的是传智教育(003032)缩量一字6板显示资金共识强。关注重心从高标高度转向下一次分歧转一致的细分方向选择。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A应用分歧属预期内，传智教育6板超预期，看下次分歧转一致
+  related_stocks:
+  - code: '003032'
+    name: 传智教育
+    role: A应用-缩量一字6板-深主板可交易
+  - code: '605179'
+    name: 一鸣食品
+    role: A应用-次高标尾盘上板-沪主板可交易
+  tags:
+  - A应用
+  - 情绪高点
+  - 传智教育
+  - 分歧转一致
+  - 细分方向
+- id: claim-20260804-016
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: sector-theme
+  subject: 光模块：先验证再参与，非提前埋伏
+  timeframe: short-term
+  statement: 隔夜光模块（Lumentum、Coherent、康宁、Credo）强度明显高于存储且形态干净，A股对应方向可跟踪中际旭创(300308)、新易盛(300502)、天孚通信(300394)；但这条线目前只是外盘映射尚无国内催化，属于先验证再参与而非提前埋伏的性质——不见量价确认不追。
+  evidence_quote: 光模块 · 隔夜新增线索：隔夜 Lumentum、Coherent、康宁、Credo 一组的强度明显高于存储，且形态干净。A 股对应方向可跟踪中际旭创、新易盛、天孚通信。个人判断，这条线目前只是外盘映射，尚无国内催化，属于「先验证再参与」而非「提前埋伏」的性质——不见量价确认不追。
+  interpretation: UP给光模块方向定性：隔夜强度最高但A股无国内催化，属性=外盘映射，操作上先验证再参与、不见量价确认不追，排除提前埋伏。跟踪标的：中际旭创(300308)、新易盛(300502)、天孚通信(300394)。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光模块=外盘映射无国内催化，先验证再参与不埋伏
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块-外盘映射跟踪-创业板不可交易
+  - code: '300502'
+    name: 新易盛
+    role: 光模块-外盘映射跟踪-创业板不可交易
+  - code: '300394'
+    name: 天孚通信
+    role: 光模块-外盘映射跟踪-创业板不可交易
+  tags:
+  - 光模块
+  - 外盘映射
+  - 先验证再参与
+  - 量价确认
+  - 中际旭创
+- id: claim-20260804-017
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: sector-theme
+  subject: 存储需求侧硬证据：行云科技154亿长协
+  timeframe: short-term
+  statement: 行云科技(300209)在机构调研中表示在手算力、存储类3至5年期长期框架订单规模超154亿元——这是需求侧的硬证据，可作为存储景气度未被证伪的旁证，但它解决不了当下的筹码问题，说到底还是要看资金什么时候出清完。
+  evidence_quote: 据公开信息，行云科技在机构调研中表示，在手算力、存储类 3 至 5 年期长期框架订单规模超 154 亿元——这是需求侧的硬证据，可作为存储景气度未被证伪的旁证，但它解决不了当下的筹码问题。说到底还是要看资金什么时候出清完。
+  interpretation: UP记录存储需求侧证据：行云科技(300209)154亿长协订单证明景气度未被证伪，但明确其不解决筹码问题——需求是慢变量，筹码出清是快变量，短期定价由筹码决定。这与8/3复盘筹码心理判断一致。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 行云科技154亿存储长协=景气度旁证，不解决筹码问题
+  related_stocks:
+  - code: '300209'
+    name: 行云科技
+    role: 存储需求-154亿长协-深主板可交易
+  tags:
+  - 行云科技
+  - 长协订单
+  - 需求侧证据
+  - 筹码问题
+  - 景气度
+- id: claim-20260804-018
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: sector-theme
+  subject: 量子科技：会议型催化弱于政策批复型
+  timeframe: short-term
+  statement: 第五届CCF量子计算大会暨大湾区量子科学论坛8月3日在深圳开幕（姚期智与薛其坤共同担任大会主席，近千家机构约2400人）；相关标的：铜牛信息(300895)（与国科量子战略合作推进量子通信市场化）、天融信(002212)（投资安徽问天量子，量子密码应用落地VPN/堡垒机）；会议型催化的爆发力弱于政策批复型，更适合列入观察名单而非首选方向。
+  evidence_quote: 量子科技：据公开报道，为期三天的第五届 CCF 量子计算大会暨大湾区量子科学论坛于 8 月 3 日在深圳开幕，由姚期智与薛其坤共同担任大会主席，汇聚近千家机构约
+    2400 人。相关标的：铜牛信息（与国科量子签订战略合作协议，推进量子通信技术市场化）、天融信（投资安徽问天量子，已将量子密码通信、认证、签名、密钥生成等成果应用于
+    VPN、堡垒机等产品）。个人判断，会议型催化的爆发力弱于政策批复型，更适合列入观察名单而非首选方向。
+  interpretation: UP记录量子科技会议催化（CCF量子计算大会），并给出催化强度分层方法论：会议型催化爆发力弱于政策批复型（如核电核准），量子方向只入观察名单非首选。铜牛信息(300895)、天融信(002212)为产业链跟踪标的。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量子科技=会议型催化弱于政策批复型，观察名单非首选
+  related_stocks:
+  - code: '300895'
+    name: 铜牛信息
+    role: 量子-国科量子合作-创业板不可交易
+  - code: '002212'
+    name: 天融信
+    role: 量子-问天量子投资-深主板可交易
+  tags:
+  - 量子科技
+  - CCF大会
+  - 会议型催化
+  - 观察名单
+  - 天融信
+- id: claim-20260804-019
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: sector-theme
+  subject: 海外映射：AI中下游成反弹主力
+  timeframe: short-term
+  statement: 亚马逊涨4.58%市值首破3万亿美元，云厂商财报验证AI回报兑现，AI中下游（云、AI办公、多模态应用）成为反弹主力，A股相关公司包括卓易信息(688258)、云赛智联(600602)；Snap盘后涨8%二季度业绩全面超预期且广告业务复苏迹象增强，A股相关公司包括蓝色光标(300058)、三人行(605168)；Palantir周一收盘后公布财报、SpaceX周二首次以上市公司身份发布财报，商业航天方向可同步跟踪。
+  evidence_quote: 海外映射：亚马逊涨 4.58%、市值首破 3 万亿美元，云厂商财报验证 AI 回报兑现，AI 中下游（云、AI 办公、多模态应用）成为反弹主力，A
+    股相关公司包括卓易信息、云赛智联；Snap 盘后涨 8%，二季度业绩全面超预期且广告业务复苏迹象增强，A 股相关公司包括蓝色光标、三人行。另据公开报道，Palantir
+    于周一收盘后公布财报，SpaceX 于周二首次以上市公司身份发布财报，商业航天方向可同步跟踪。
+  interpretation: UP梳理隔夜海外映射：云厂商财报（亚马逊市值破3万亿）验证AI回报兑现→AI中下游是反弹主力（卓易信息(688258)/云赛智联(600602)），Snap超预期→广告复苏（蓝色光标(300058)/三人行(605168)），Palantir/SpaceX财报→商业航天跟踪。为A股对应方向提供映射依据。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 海外映射：AI中下游反弹主力，Snap广告复苏，商业航天跟财报
+  related_stocks:
+  - code: '688258'
+    name: 卓易信息
+    role: 海外映射-云-科创板不可交易
+  - code: '600602'
+    name: 云赛智联
+    role: 海外映射-云-沪主板可交易
+  - code: '300058'
+    name: 蓝色光标
+    role: 海外映射-广告-创业板不可交易
+  - code: '605168'
+    name: 三人行
+    role: 海外映射-广告-沪主板可交易
+  tags:
+  - 海外映射
+  - 亚马逊
+  - Snap
+  - AI中下游
+  - 商业航天
+- id: claim-20260804-020
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: operation
+  subject: 五个盘中验证变量
+  timeframe: intraday
+  statement: 今日盘中需逐项验证五个变量：其一，光模块方向能否把隔夜外盘强度接过来且不是一小时行情；其二，NAND模组方向（德明利(001309)、江波龙(301308)）能否守住分时均价；其三，量能能否从2万亿回升还是继续下探至1.9万亿以下；其四，首板家数能否止住下滑、二板与晋级率能否维持昨天水平；其五，传统超跌板块（电力、医药、大消费）与科技的相对强弱——若前者反强警惕情形B。
+  evidence_quote: 需要在今日盘中逐项验证的变量有五个：其一，光模块方向能否把隔夜的外盘强度接过来，且不是一小时行情；其二，NAND 模组方向（德明利、江波龙）能否守住分时均价；其三，量能能否从
+    2 万亿回升，还是继续下探至 1.9 万亿以下；其四，首板家数能否止住下滑，二板与晋级率能否维持在昨天的水平；其五，传统超跌板块（电力、医药、大消费）与科技的相对强弱——若前者反强，警惕情形
+    B。
+  interpretation: UP整合今日五个盘中验证变量：光模块承接/存储守均价/量能方向/首板止跌/超跌板块相对强弱，覆盖双情形A/B的判别条件。这是当日盘面跟踪的操作清单。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 五个盘中验证变量：光模块/NAND均价/量能/首板/超跌强弱
+  related_stocks: []
+  tags:
+  - 五个验证变量
+  - 光模块
+  - NAND均价
+  - 首板
+  - 相对强弱
+- id: claim-20260804-021
+  source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
+  source_date: '2026-08-04'
+  source_type: 早盘
+  extracted_at: '2026-08-04T09:35:00+08:00'
+  claim_type: risk
+  subject: 最需提防：把部分修复读成全面修复
+  timeframe: short-term
+  statement: 除周五非农与本周存储财报的时点风险外，最需要提防的是把外盘的部分修复读成全面修复：隔夜费半是从盘中跌3%拉回来的，这个拉回来的性质是抢反弹还是趋势反转，一天的行情给不出答案；指数仍在磨底期，位置上已进入性价比较高的区域，但位置便宜与时点成熟是两回事——多点耐心，等结构性的分化自己长出来。
+  evidence_quote: 风险方面，除周五非农与本周存储财报的时点风险外，最需要提防的是把外盘的部分修复读成全面修复。隔夜费半是从盘中跌 3% 拉回来的，这个「拉回来」的性质是抢反弹还是趋势反转，一天的行情给不出答案。指数仍在磨底期，位置上已进入性价比较高的区域，但位置便宜与时点成熟是两回事——多点耐心，等结构性的分化自己长出来。
+  interpretation: UP提示核心风险：把外盘部分修复读成全面修复；费半盘中跌3%拉回的性质（抢反弹vs趋势反转）单日无法确认。位置便宜≠时点成熟，磨底期多点耐心等分化。这是对当日乐观情绪的风险约束。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 最需提防部分修复读成全面修复，位置便宜≠时点成熟
+  related_stocks: []
+  tags:
+  - 部分修复
+  - 全面修复
+  - 位置便宜
+  - 时点成熟
+  - 耐心
