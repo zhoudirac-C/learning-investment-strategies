@@ -1,0 +1,541 @@
+claims:
+- id: claim-20260806-001
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: market-cycle
+  subject: 周三量能2.66万亿与2万亿地量之辩
+  timeframe: intraday
+  statement: 周三（8/5）两市成交额2.66万亿元，较上一交易日放量4460亿元；UP指出整数位（2万亿）看似牢不可破恰恰最具迷惑性，参考去年10月中旬与今年2月中旬两次缩量过程，若2万亿最终被击穿，这两天涌入的增量资金后续可能反过来成为砸盘主力。
+  evidence_quote: 周三两市成交额2.66万亿元，较上一交易日放量4460亿元。放在周二2万亿的对比之下，市场很自然会把2万亿认定为本轮的地量位置。个人判断，整数位看似牢不可破，恰恰也最具迷惑性。……若2万亿最终仍会被击穿，那么这两天涌入的增量资金，后续很可能反过来成为砸盘主力。
+  interpretation: UP对'2万亿=地量'提出怀疑：整数位迷惑性（类比3000点保卫战），2万亿若破则增量资金反成抛压。量能位置判断从'2.5万亿健康'转为'2万亿是否真地量存疑'，是8/6的核心宏观变量。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 2.66万亿放量但2万亿地量之辩，整数位迷惑性
+  related_stocks: []
+  tags:
+  - 量能2.66万亿
+  - 地量之辩
+  - 整数位迷惑性
+  - 增量资金
+- id: claim-20260806-002
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: market-cycle
+  subject: 增量资金集中于科技高位品种
+  timeframe: intraday
+  statement: 周三中际旭创(300308)单日成交额超675亿元，刷新597.7亿元纪录，较周二497.9亿元放量177.1亿元（增幅约35%）；增量的大头仍来自科技股而非全市场均匀扩散。量能扩张与筹码集中是同一件事的两面：增量越集中于少数高位品种，一旦滞涨，全市场承接力越脆弱。
+  evidence_quote: 中际旭创单日成交额超675亿元，不仅刷新此前597.7亿元的纪录，较周二的497.9亿元亦放量177.1亿元，增幅接近35%。可见增量的大头仍然来自科技股，而非全市场的均匀扩散。个人判断，这意味着量能扩张与筹码集中是同一件事的两面：增量越集中于少数高位品种，一旦这些品种滞涨，全市场的承接力就越脆弱。
+  interpretation: UP用中际旭创(300308)成交数据揭示结构性隐忧：放量集中在单一高位权重股，量能扩张与筹码集中一体两面，高位滞涨→全市场承接脆弱。这是对'量能健康'叙事的警示补充。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中际旭创675亿成交，增量集中高位科技股
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块龙头-创业板不可交易
+  tags:
+  - 中际旭创
+  - 675亿成交
+  - 筹码集中
+  - 增量资金
+- id: claim-20260806-003
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: market-cycle
+  subject: 情绪高涨与接力面收窄并存
+  timeframe: intraday
+  statement: 周三二板家数27个为3月3日以来新高，一进二晋级率由18.97%提升至22.88%；但首板家数由118家减至70家，跌停仅1家。按首板×约15%晋级率推演，70家首板对应今日二板健康区间约10家上下，较昨日27家明显收缩——情绪高涨与接力面变窄同时发生，高度在抬升、宽度在收敛。
+  evidence_quote: 周三二板家数27个，为3月3日以来新高，对应一进二晋级率由18.97%提升至22.88%；首板家数则由118家减少至70家，跌停仅1家。按以往首板家数×约15%晋级率的推演口径，70家首板对应今日二板的健康区间约在10家上下……高度在抬升，宽度在收敛。
+  interpretation: UP量化情绪结构性矛盾：二板新高（高度升）但首板锐减（宽度缩），用15%晋级率推演明日二板仅10家——接力面收窄预示情绪可能见顶回落。与昨日'四跟踪变量'口径衔接。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 二板27家新高但首板腰斩，高度抬升宽度收敛
+  related_stocks: []
+  tags:
+  - 二板27家
+  - 首板锐减
+  - 晋级率
+  - 情绪高度宽度
+- id: claim-20260806-004
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: risk
+  subject: 传智教育筹码松动为高低切伏笔
+  timeframe: intraday
+  statement: 高标传智教育(003032)出现筹码松动，虽可用八连板高度解释，但该股风格一贯快速一致，且昨天还是指数上涨背景，午后分歧仍显反常，为之后资金的高低切埋下伏笔。
+  evidence_quote: 与二板数量新高相对应的，是高标传智教育出现筹码松动。这固然可以用八连板的高度来解释，但该股一路以来的风格都是快速一致，尤其考虑到昨天还是指数上涨的背景，午后的分歧仍显反常，这也为之后资金的高低切埋下了伏笔。
+  interpretation: UP捕捉情绪见顶信号：传智教育(003032)（003032）在指数上涨日午后开板分歧=反常，预示资金高低切。将'传智教育(003032)开盘表现'列为今日三个观察窗口之一。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 传智教育筹码松动，资金高低切伏笔
+  related_stocks:
+  - code: '003032'
+    name: 传智教育
+    role: 连板高标-主板可交易
+  tags:
+  - 传智教育
+  - 筹码松动
+  - 高低切
+  - 八连板
+- id: claim-20260806-005
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: sector-theme
+  subject: 反制成为当日最强叙事
+  timeframe: short-term
+  statement: 周三（8/5）商务部等公布五项反制措施（针对FCC涉华措施与美将40余家中国实体列入清单）：无人机出口管制（商务部公告2026年第34号）、打印复印设备国家安全调查（公告33号，中国首例对外贸易国家安全调查）、暂停CCC获证后工厂跟踪检查、将Compliance
+    Testing LLC与应用DNA科学公司等6家美实体列入反制清单。这组措施意义在覆盖面——给'反制'叙事提供可持续外扩的题材边界。
+  evidence_quote: 针对美国联邦通信委员会近期密集出台的涉华措施，以及美国土安全部7月31日将四十余家中国实体列入相关清单的做法，中方当日公布五项反制措施……这组措施对市场的意义不在单项力度，而在覆盖面——无人机、认证检测、办公设备、生物技术同时被点到，等于给「反制」这条叙事提供了可以持续外扩的题材边界。
+  interpretation: UP确立8/5最强叙事=反制（五项措施覆盖无人机/办公设备/认证检测/生物技术），题材边界可外扩；在没有新增产业催化的窗口，资金选择叙事最完整的方向——这是昨日高低切的落点。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 五项反制措施覆盖无人机办公设备生物技术，最强叙事
+  related_stocks: []
+  tags:
+  - 反制措施
+  - 无人机出口管制
+  - 国家安全调查
+  - CCC认证
+- id: claim-20260806-006
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: sector-theme
+  subject: 磷化铟双叙事合流易走高度
+  timeframe: trend
+  statement: 磷化铟衬底公司AXT周二晚涨超13%、上周五涨28.74%、三天累计涨超85%（二季度营收4760万美元+164%，与Lumentum签延续至2031年底产能预留协议、8700万美元保证金锁优先供货权）；叠加2026年2月4日中方已对铟实施出口管制，磷化铟同时挂在跟风美股与资源反制两条叙事上，比其他新题材更容易走出高度。
+  evidence_quote: 磷化铟衬底公司AXT于周二晚间上涨超13%，上周五上涨28.74%，三天累计涨幅超85%……据2026年2月4日商务部、海关总署联合公告，中方已对钨、碲、铋、钼、铟相关物项实施出口管制。这意味着磷化铟同时挂在跟风美股与资源反制两条叙事上，这是它比其他新题材更容易走出高度的原因。
+  interpretation: UP给出磷化铟脱颖而出的核心逻辑：美股映射（AXT三天+85%）×资源反制（铟出口管制）双叙事合流，题材弹性大于单一逻辑方向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 磷化铟双叙事合流：美股映射×铟出口管制
+  related_stocks:
+  - code: '002428'
+    name: 云南锗业
+    role: 磷化铟标的-主板可交易
+  tags:
+  - 磷化铟
+  - AXT
+  - 铟出口管制
+  - 双叙事
+- id: claim-20260806-007
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: sector-theme
+  subject: AI硬件见底不等于反弹
+  timeframe: short-term
+  statement: 新易盛(300502)、中际旭创(300308)、天孚通信(300394)核心品种扛住抛压，8月科技股见底可能性进一步增强；但科技股既要面对内部出清还要面对外部产业政策风险，二者相辅相成——外部风险让内部资金出清更坚决。见底不等于能立刻反弹，止跌来自有承接而非无抛压。
+  evidence_quote: 积极的一面是新易盛、中际旭创、天孚通信这一组核心品种扛住了抛压，因此8月科技股见底的可能性进一步增强。但科技股不仅要面对来自内部的出清，还要面对外部产业政策上的风险……所以见底也不意味着能立刻反弹，止跌来自有承接，而不是来自无抛压。
+  interpretation: UP修正'见底'定义：光模块三巨头扛压→8月见底概率增，但内外双出清下止跌需承接验证，不因无抛压而反弹。这是对8/5'科技反弹'的谨慎限定。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光模块扛压8月科技见底概率增，但见底不等于反弹
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块龙头-创业板不可交易
+  - code: '300502'
+    name: 新易盛
+    role: 光模块-创业板不可交易
+  - code: '300394'
+    name: 天孚通信
+    role: 光模块-创业板不可交易
+  tags:
+  - 光模块
+  - 见底
+  - 内外出清
+  - 承接
+- id: claim-20260806-008
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: sector-theme
+  subject: AI应用跷跷板未兑现但资金介入深
+  timeframe: short-term
+  statement: 此前预期AI应用能与硬件互为跷跷板，实际资金更倾向于反制方向（解释传智教育(003032)下午开板）；但普联软件(300996)、米奥会展(300795)等核心股走势不弱，资金介入较深。后续AI应用方向仍会反复，关键看有无针对细分方向的新催化，而非整体性beta修复。
+  evidence_quote: 此前预期AI应用能与硬件互为跷跷板，实际资金似乎更倾向于反制方向，这也能解释为何传智教育下午会开板。不过像普联软件、米奥会展等核心股的走势并不弱，说明资金介入比较深。个人判断，后续这一方向还是会不断反复，关键仍要看有没有针对某个细分方向的新催化出现
+  interpretation: UP修正AI应用判断：跷跷板（应用vs硬件）未兑现，资金流向反制；但核心股资金介入深→方向仍反复，需细分催化而非整体beta。与8/5'AI
+    Agent主线'衔接但降级为反复震荡。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI应用跷跷板未兑现但资金介入深，需细分催化
+  related_stocks:
+  - code: '300996'
+    name: 普联软件
+    role: AI应用-创业板不可交易
+  - code: '300795'
+    name: 米奥会展
+    role: AI应用-创业板不可交易
+  tags:
+  - AI应用
+  - 跷跷板
+  - 传智教育
+  - 细分催化
+- id: claim-20260806-009
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: catalyst
+  subject: 美国禁钨废料出口利好中国钨链
+  timeframe: short-term
+  statement: 美国将于本月下旬起禁止出口钨废料和回收电池材料（黑粉），相关物项强制在美国本土销售，企业可申请豁免，禁令执行期一年；美国自2015年以来未再进行商业钨矿开采，全球钨供应仍由中国主导，钨废料成为美国国内为数不多的钨来源之一。
+  evidence_quote: 美国将于本月下旬起禁止出口钨废料和回收电池材料（俗称黑粉），相关物项被强制要求在美国本土销售，企业仍可申请豁免，禁令执行期为一年……美国自2015年以来未再进行商业钨矿开采，全球钨供应仍由中国主导，钨废料因此成为其国内为数不多的钨来源之一。
+  interpretation: UP记录钨供给端新催化：美国禁钨废料出口（自身无商业钨矿），强化中国钨供应链主导地位——与8/5反制叙事下的钨/硬质合金方向呼应。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美国禁钨废料出口，钨供应链中国主导强化
+  related_stocks: []
+  tags:
+  - 钨废料
+  - 美国禁令
+  - 钨供应链
+  - 反制
+- id: claim-20260806-010
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: operation
+  subject: 今日两种情形与三个观察窗口
+  timeframe: intraday
+  statement: 今日（8/6）按两种情形应对：情形A承接成立（开盘成交额斜率不低于昨日同期、全天2.4万亿以上、高位品种不集体炸板）→高低切在板块内部完成、反制方向承接接力、AI硬件震荡消化、2万亿地量假设可暂时搁置；情形B承接失败（成交额回落2.2万亿下方、中际旭创(300308)等放量高位股冲高回落、传智教育(003032)低开或再开板）→增量资金转砸盘、先杀高标再杀补涨、2万亿地量命题重新计价。三个观察窗口：早盘半小时量能斜率、传智教育(003032)开盘表现、大金融是否护盘。
+  evidence_quote: 情形A（承接成立）：开盘后成交额斜率不低于昨日同期，全天维持在2.4万亿以上，且高位品种没有出现集体炸板……情形B（承接失败）：成交额快速回落至2.2万亿下方，同时中际旭创等放量高位股冲高回落，传智教育低开或再度开板……三个具体的观察窗口：一是早盘半小时的量能斜率，二是传智教育的开盘表现，三是大金融是否出手护盘。
+  interpretation: UP给出8/6操作框架：情形A（2.4万亿+承接）vs情形B（2.2万亿+炸板），量能阈值从昨日的2.3-2.6万亿调整为2.4万亿上/2.2万亿下；三观察窗口（量能斜率/传智教育(003032)/大金融）为盘中判据。取代8/5的明日框架。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260805-059
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 8/6双情形：承接成立2.4万亿vs失败2.2万亿，三观察窗口
+  related_stocks: []
+  tags:
+  - 情形A
+  - 情形B
+  - 2.4万亿
+  - 观察窗口
+  - 大金融
+- id: claim-20260806-011
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: stock-view
+  subject: 中钨高新钨主业高增
+  timeframe: trend
+  statement: 中钨高新(000657)预计2026年上半年归母净利润19.70亿至21.70亿元，同比增长261%—298%，主因钨精矿均价同比上涨、PCB微钻及高端刀具订单增长。
+  evidence_quote: 中钨高新（000657）：据公司业绩预告，预计2026年上半年归母净利润19.70亿元至21.70亿元，同比增长261%—298%，主因钨精矿均价同比上涨、PCB微钻及高端刀具订单增长。
+  interpretation: UP记录中钨高新(000657)（000657）业绩高增261-298%：钨精矿涨价+PCB微钻/高端刀具需求，钨链业绩验证标的。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中钨高新半年净利+261-298%，钨精矿涨价驱动
+  related_stocks:
+  - code: '000657'
+    name: 中钨高新
+    role: 钨龙头-主板可交易
+  tags:
+  - 中钨高新
+  - 业绩预告
+  - 钨精矿
+  - PCB微钻
+- id: claim-20260806-012
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: stock-view
+  subject: 江钨装备注入钨制品资产
+  timeframe: trend
+  statement: 江钨装备(600397)收购江西江钨硬质合金、赣州华茂钨材料、九江有色金属冶炼各100%股权，注入钨制品及钨深加工领域资产。
+  evidence_quote: 江钨装备（600397）：据公司信息，收购江西江钨硬质合金、赣州华茂钨材料、九江有色金属冶炼各100%股权，注入钨制品及钨深加工领域资产。
+  interpretation: UP记录江钨装备(600397)（600397）资产注入：钨制品/深加工资产整合，钨链标的扩容。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 江钨装备收购三公司100%股权，注入钨制品资产
+  related_stocks:
+  - code: '600397'
+    name: 江钨装备
+    role: 钨制品-主板可交易
+  tags:
+  - 江钨装备
+  - 资产注入
+  - 钨制品
+- id: claim-20260806-013
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: stock-view
+  subject: 云南锗业磷化铟大单
+  timeframe: trend
+  statement: 云南锗业(002428)控股子公司签订磷化铟晶片重大合同，总金额5.7008亿至8.5512亿元（含税）。
+  evidence_quote: 云南锗业（002428）：据公司公告，控股子公司签订磷化铟晶片重大合同，总金额为5.7008亿元至8.5512亿元（含税）。
+  interpretation: UP记录云南锗业(002428)（002428）磷化铟晶片大单（5.7-8.55亿）：磷化铟反制主线下的业绩落地标的。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 云南锗业磷化铟晶片合同5.7-8.55亿元
+  related_stocks:
+  - code: '002428'
+    name: 云南锗业
+    role: 磷化铟-主板可交易
+  tags:
+  - 云南锗业
+  - 磷化铟晶片
+  - 大单
+- id: claim-20260806-014
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: stock-view
+  subject: 宿迁联盛设立磷化铟衬底项目
+  timeframe: trend
+  statement: 宿迁联盛(603065)拟与相关方共同设立江苏光铟科技，投资建设磷化铟衬底项目。
+  evidence_quote: 宿迁联盛（603065）：据公司公告，拟与相关方共同设立江苏光铟科技，投资建设磷化铟衬底项目。
+  interpretation: UP记录宿迁联盛(603065)（603065）磷化铟衬底项目布局：磷化铟反制主线新增标的。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 宿迁联盛设江苏光铟科技建设磷化铟衬底项目
+  related_stocks:
+  - code: '603065'
+    name: 宿迁联盛
+    role: 磷化铟衬底-主板可交易
+  tags:
+  - 宿迁联盛
+  - 磷化铟衬底
+  - 江苏光铟
+- id: claim-20260806-015
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: stock-view
+  subject: 海川智能收购磷化铟晶片产能
+  timeframe: trend
+  statement: 海川智能(300720)拟收购集溢半导体部分股权，后者全资子公司具备磷化铟晶片相关产能。
+  evidence_quote: 海川智能（300720）：据公司公告，拟收购集溢半导体部分股权，后者全资子公司具备磷化铟晶片相关产能。
+  interpretation: UP记录海川智能(300720)（300720）收购磷化铟晶片产能：磷化铟反制主线标的扩容。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 海川智能收购集溢半导体股权获磷化铟产能
+  related_stocks:
+  - code: '300720'
+    name: 海川智能
+    role: 磷化铟-创业板不可交易
+  tags:
+  - 海川智能
+  - 集溢半导体
+  - 磷化铟产能
+- id: claim-20260806-016
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: sector-theme
+  subject: 无人机反制与无人智能方向
+  timeframe: trend
+  statement: 无人机出口管制叠加产业催化：中无人机(688297)为国内唯一无人机上市平台（翼龙系列）；美国2027财年国防预算'无人机优势'投入预计超740亿美元；「十五五」规划推进无人智能作战力量建设。宝武镁业(002182)生产无人机前舱框架（年订单约6000多万元）。
+  evidence_quote: 据「十五五」规划纲要，推进新域新质作战力量规模化、实战化、体系化发展，加快无人智能作战力量及反制能力建设；据华泰证券航空航天团队观点，美国2027财年国防预算中「无人机优势」相关投入预计超740亿美元……宝武镁业（002182）：国内规模领先的镁合金生产商，据公司信息生产无人机前舱框架，相关年订单额约6000多万元。
+  interpretation: UP梳理无人机反制方向：政策（出口管制+十五五）+产业（美740亿美元预算）双驱动，标的含中无人机(688297)/海格通信(002465)/宝武镁业(002182)/兴民智通(002355)/星源卓镁(301398)。反制叙事下弹性方向。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 无人机出口管制+美740亿预算，无人智能方向
+  related_stocks:
+  - code: '688297'
+    name: 中无人机
+    role: 无人机龙头-科创板不可交易
+  - code: '002465'
+    name: 海格通信
+    role: 无人机-主板可交易
+  - code: '002182'
+    name: 宝武镁业
+    role: 镁合金-主板可交易
+  tags:
+  - 无人机
+  - 出口管制
+  - 十五五
+  - 反制
+- id: claim-20260806-017
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: sector-theme
+  subject: 贵金属受益金价反弹
+  timeframe: short-term
+  statement: 贵金属板块普涨，受益国际金价大幅反弹；地缘风险缓解与油价回落降低通胀压力，提升市场对货币宽松的押注；中长期驱动仍在AI相关需求增长、供应受限与关税政策扰动三方面。
+  evidence_quote: 贵金属：据盘面，贵金属板块普涨，受益于国际金价大幅反弹；地缘风险缓解与油价回落降低通胀压力，进一步提升市场对货币宽松的押注，中长期驱动仍在AI相关需求增长、供应受限与关税政策扰动三方面。
+  interpretation: UP记录贵金属方向：短期宽松押注+中长期AI需求/供给受限/关税三驱动，与8/5'黄金4110确认位'衔接。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 贵金属普涨，宽松押注+AI需求供给三驱动
+  related_stocks: []
+  tags:
+  - 贵金属
+  - 金价反弹
+  - 宽松押注
+  - AI需求
+- id: claim-20260806-018
+  source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
+  source_date: '2026-08-06'
+  source_type: 动态
+  extracted_at: '2026-08-06T09:40:00+08:00'
+  claim_type: catalyst
+  subject: Shopify AI映射电商方向
+  timeframe: short-term
+  statement: Shopify二季度业绩整体超预期，AI工具帮助商家提升效率与获取客户，AI助手Sidekick用户活跃度同比明显增长；A股相关映射包括返利科技(600228)、吉宏股份(002803)等。
+  evidence_quote: Shopify：据公司二季度业绩，整体超预期，公司表示AI工具正在帮助商家提升效率与获取客户，AI助手Sidekick用户活跃度同比明显增长。A股相关映射包括返利科技、吉宏股份等。
+  interpretation: UP记录电商AI映射：Shopify超预期+Sidekick活跃度增长→A股返利科技(600228)/吉宏股份(002803)，AI应用细分方向的海外验证。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: Shopify AI超预期，电商AI映射返利科技吉宏股份
+  related_stocks:
+  - code: '600228'
+    name: 返利科技
+    role: 电商AI映射-主板可交易
+  - code: '002803'
+    name: 吉宏股份
+    role: 电商AI映射-主板可交易
+  tags:
+  - Shopify
+  - 电商AI
+  - Sidekick
+  - 返利科技
