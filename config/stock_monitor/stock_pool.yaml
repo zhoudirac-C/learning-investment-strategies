@@ -1,4 +1,4 @@
-updated_at: '2026-07-16'
+updated_at: '2026-08-07'
 stocks:
 - code: 000636.SZ
   name: 风华高科
@@ -4480,25 +4480,27 @@ stocks:
   direction: robot_observation
   chain_position: midstream
   human_note:
-    date: '2026-07-03'
+    date: '2026-08-03'
     type: signal_confirmation
-    context: 7/2人形机器人概念2连板，UP定性机器人是科技内部最顺畅换仓方向。等分歧回踩
-    kline_zone_updated_at: '2026-07-15'
+    context: 8/3UP点名：柔性触觉传感器（2024开发材料，2025三代产品+TPU边缘计算），中试产线批量供货+北美小批量订单，触觉有望成下一个丝杠级方向。7/2人形机器人概念2连板
+    kline_zone_updated_at: '2026-08-07'
     kline_zone_update_reason: stale_zone_recalc
+    kline_zone_context: close=28.19, ma20=25.49, support_20=21.25, resistance_20=29.60
   pre_condition:
     sector_diverged: false
     market_actionable: false
     no_consecutive_limit_up: true
   entry:
+    method: 回撤法+均线支撑（大涨后等回撤10-15%）
     primary_zone:
-    - 25.85
-    - 27.23
-    hard_stop: 24.82
+    - 25.0
+    - 26.5
+    hard_stop: 24.5
     backup_zones:
-    - - 30.7
-      - 32.33
-    - - 32.79
-      - 34.53
+    - - 26.6
+      - 27.5
+    - - 28.0
+      - 29.2
 - code: 601689.SH
   name: 拓普集团
   priority: P2
@@ -4508,19 +4510,20 @@ stocks:
     date: '2026-07-06'
     type: signal_confirmation
     context: 7/5UP点名：特斯拉Optimus人形机器人执行器与关节模组核心Tier1，产品延伸至灵巧手电机/结构件/电子皮肤，分化日优先跟踪前排品种。周五板块高潮，等周一分化回踩
-    kline_zone_updated_at: '2026-07-15'
+    kline_zone_updated_at: '2026-08-07'
     kline_zone_update_reason: stale_zone_recalc
+    kline_zone_context: close=49.77, ma20=49.69, support_20=44.00, resistance_20=50.51
   entry:
-    method: 分歧日回踩法
+    method: 回踩法（MA10支撑+前低确认）
     primary_zone:
-    - 52.73
-    - 54.36
-    hard_stop: 50.62
+    - 46.0
+    - 48.5
+    hard_stop: 43.8
     backup_zones:
-    - - 58.75
-      - 60.57
-    - - 60.56
-      - 62.43
+    - - 48.5
+      - 50.0
+    - - 44.0
+      - 45.5
   pre_condition:
     sector_diverged: true
     market_actionable: false
@@ -4764,20 +4767,22 @@ stocks:
     date: '2026-07-06'
     type: signal_confirmation
     context: 7/6复盘：超强台风巴威或于周末在华东沿海登陆，城市排水管网修复与升级需求将拉动大口径混凝土管及塑料管材订单弹性。公司产品线覆盖PCCP/BCCP/PVC/PE/TPEP五大类，PCCP行业CR2>40%，大口径生产高壁垒。事件驱动型，低持续性，观察即可不宜重仓
-    kline_zone_updated_at: '2026-07-15'
+    kline_zone_updated_at: '2026-08-07'
     kline_zone_update_reason: stale_zone_recalc
+    kline_zone_context: close=10.86, ma20=10.97, support_20=9.38, resistance_20=11.31
   pre_condition:
     sector_diverged: false
     market_actionable: false
     no_consecutive_limit_up: true
   entry:
+    method: 低点法+均线支撑（均线缠绕，回踩MA10带）
     primary_zone:
-    - 11.99
-    - 12.63
-    hard_stop: 11.51
+    - 10.0
+    - 10.6
+    hard_stop: 9.5
     backup_zones:
-    - - 13.23
-      - 13.93
+    - - 10.8
+      - 11.2
 - code: 600641.SH
   name: 先导基电
   direction: small_metal_chemical
