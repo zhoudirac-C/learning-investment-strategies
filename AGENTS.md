@@ -8,15 +8,15 @@ alerting task, use the local project framework before giving conclusions.
 
 1. **Superpowers 强制**: 所有对该项目的代码/文档改动，必须先加载对应的 superpower skill。Hermes 会自动从 `skills/` 目录加载。
 
-2. Read `skills/qing-stock-analysis/SKILL.md`.
+2. Read `src/qing_investment/ARCHITECTURE.md`（Qing-Agent 个股分析体系总架构；
+   原 `skills/qing-stock-analysis/` 已删除，能力并入该目录与 `methodology/`）。
 
 3. Follow these references when relevant:
    - `framework/stock-analysis-playbook.md`
-   - `skills/qing-stock-analysis/references/data-source-strategy.md`
-   - `skills/qing-stock-analysis/references/glmv-stock-analyst-workflow.md`
-   - `skills/qing-stock-analysis/references/f10-financial-analysis.md`
-   - `skills/qing-stock-analysis/references/qing-stock-framework.md`
-   - `skills/qing-stock-analysis/references/report-contract.md`
+   - `framework/output-contracts.md`（个股分析报告等输出契约）
+   - `methodology/f10-fundamental-analysis.md`
+   - `methodology/decision-flow.md`
+   - `third_party/GLM-skills/skills/glmv-stock-analyst/SKILL.md`（GLM 分析师 vendor 流程）
 3. Use local knowledge before generic market reasoning:
    - `knowledge/claims`
    - `knowledge/wiki`
@@ -24,8 +24,9 @@ alerting task, use the local project framework before giving conclusions.
    - `sources/raw/财经`
    - `docs/标的深度研究`
    - `framework/reasoning-patterns.yaml` — 推理模式库（按 UP 的推理步骤分析）
-4. For real-time market data, follow
-   `skills/qing-stock-analysis/references/data-source-strategy.md`.
+4. For real-time market data, follow the fetcher fallback chain in
+   `src/qing_investment/monitor/fetchers/`（东财 → 新浪 → 缓存 → 明确报错），
+   背景文档见 `skills/qing-stock-monitor-update.deprecated/references/data-source-fallback-chain.md`。
 5. Distinguish evidence, interpretation, and inference.
 6. Do not provide unconditional buy/sell commands. Always include trigger
    conditions, invalidation conditions, and data timestamp.
