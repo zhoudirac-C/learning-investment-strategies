@@ -1,0 +1,612 @@
+claims:
+- id: claim-20260807-001
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: market-cycle
+  subject: 双创反弹质量优于7月，2连阳低开翻红无恐慌
+  timeframe: intraday
+  statement: 同样暴力反弹之后，双创在7月21日后是2连阴，这一次是2连阳，低开后能迅速翻红，盘中回调也没有7月那种恐慌感——市场正在恢复理性，反弹质量优于7月同阶段。
+  evidence_quote: 周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样是暴力反弹之后，双创在7月21日后是2连阴，这一次是2连阳，低开后都能迅速翻红，盘中回调也没有7月那种恐慌感。
+  interpretation: UP用双创走势对比（7月21日2连阴 vs 本次2连阳）作为市场恢复理性的证据：反弹质量的核心判据是低开后的承接力与盘中回调的恐慌程度。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 双创反弹质量优于7月，市场恢复理性
+  related_stocks: []
+  tags:
+  - 双创
+  - 反弹质量
+  - 市场情绪
+  - 低开翻红
+- id: claim-20260807-002
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: sector-theme
+  subject: 存储明牌利空按利空出尽消化：盘前跌超一成收盘收窄
+  timeframe: short-term
+  statement: 闪迪、西部数据的明牌利空（业绩指引低于预期）隔夜按利空出尽消化：闪迪盘前跌超11%收盘收窄至6.81%、西部数据盘前跌超16%收盘收窄至13%，更像是有承接的消化而非踩踏，利空出尽的成分大于利空升级。
+  evidence_quote: 闪迪一度跌超11%、西部数据一度跌超16%，到收盘分别收窄至6.81%和13%。盘前跌超一成、收盘收窄到个位数，这更像是有承接的消化，而不是踩踏。
+  interpretation: UP用盘前跌幅与收盘跌幅的收窄幅度判断存储利空性质：承接存在=利空出尽。核心测试逻辑来自本周一提到的'明牌利空用来测试市场反应'。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储明牌利空按利空出尽消化
+  related_stocks: []
+  tags:
+  - 存储
+  - 闪迪
+  - 西部数据
+  - 利空出尽
+- id: claim-20260807-003
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: market-cycle
+  subject: 美股杀存储不杀硬件链：半导体整体收涨
+  timeframe: intraday
+  statement: 隔夜美股资金杀的是存储环节的预期差而非整条AI硬件链的定价基础：存储链暴跌（西部数据-13%、闪迪-6.81%、SK海力士-5%、美光-1%）的同时半导体整体多数收涨（ARM+4.41%、高通+1.82%、阿斯麦+1.56%、AMD+1.50%、台积电+0.98%、博通+0.55%）。
+  evidence_quote: 存储链是明牌兑现：西部数据暴跌13%，闪迪跌6.81%，SK海力士跌近5%，美光跌超1%……同一晚，半导体整体反而多数收涨：ARM涨4.41%，高通涨1.82%，阿斯麦涨1.56%。
+  interpretation: 存储杀跌与半导体整体收涨并存，说明这是环节内部的预期差再定价，不是AI硬件链的系统性风险——为A股存储链冲击定性为'情绪冲击而非逻辑破坏'提供外盘依据。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美股杀存储不杀硬件链，非系统性风险
+  related_stocks: []
+  tags:
+  - 存储
+  - 半导体
+  - 美股
+  - 预期差
+- id: claim-20260807-004
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: risk
+  subject: 美股AI应用软件集体杀估值，是今日新增变量
+  timeframe: short-term
+  statement: 美股AI应用软件股集体重挫（Datadog、AppLovin跌超19%，EPAM跌超15%，Axon跌超14%），AppLovin因季度营收低于预期、Datadog因预计三季度营收增速放缓——而本周A股主攻线恰是AI应用，今日真正观察点不在存储而在AI应用能否扛住美股同类的杀估值。
+  evidence_quote: 但真正的新变量在另一边。据行情数据，美股AI应用软件股集体重挫，Datadog、AppLovin跌超19%，EPAM跌超15%，Axon跌超14%……本周A股的主攻线恰恰是AI应用，所以今天真正的观察点不在存储，而在AI应用能不能扛住美股同类的杀估值。
+  interpretation: AI应用是本轮的'因'、硬件与半导体是'果'——美股AI应用杀估值若传导至A股，则因果链动摇，果的估值支撑也要重算。这是今日三情形中情形C的触发源。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美股AI应用杀估值是今日新增变量
+  related_stocks: []
+  tags:
+  - AI应用
+  - 美股
+  - 杀估值
+  - Datadog
+- id: claim-20260807-005
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: methodology
+  subject: 高位恰好超预期等于不及预期，是估值层面问题
+  timeframe: permanent
+  statement: 在半年涨幅数倍的位置上，恰好超预期等于不及预期——这是估值层面的问题，不是需求层面的问题（闪迪数据中心收入同比增1298%并未被证伪），因此对A股的映射倾向于情绪冲击而非逻辑破坏。
+  evidence_quote: 个人判断，这两份财报共同说明的是同一件事：在半年涨幅数倍的位置上，恰好超预期等于不及预期。这是估值层面的问题，不是需求层面的问题——数据中心收入同比十三倍的增速并没有被证伪。
+  interpretation: 方法论规则：高位股财报'恰好超预期'会被市场当作'不及预期'抛售，但需区分抛售原因是估值（price paid太高）还是需求（基本面证伪）——前者是情绪冲击，后者才是逻辑破坏。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高位恰好超预期等于不及预期，估值问题非需求问题
+  related_stocks: []
+  tags:
+  - 财报
+  - 估值
+  - 超预期
+  - 情绪冲击
+- id: claim-20260807-006
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: market-cycle
+  subject: 量能2.5万亿是放量确认，冲上3万亿警惕过热
+  timeframe: short-term
+  statement: 本轮反弹量能路径是从缩量启动走向温和放量：2.5万亿是放量确认线，短期冲上3万亿以上反而要警惕过热与分歧；若低开后成交额掉到2.3万亿以下说明承接是被动的。
+  evidence_quote: 个人判断，本轮反弹的量能路径应当是从缩量启动走向温和放量，2.5万亿是放量确认，短期冲上3万亿以上反而要警惕过热与分歧……如果低开之后成交额掉到2.3万亿以下，说明承接是被动的，而不是主动的。
+  interpretation: 量能三档位框架：2.5万亿=健康放量确认、3万亿+=过热风险、2.3万亿以下=被动承接。周四成交25288亿缩量1309亿，落在确认线上沿属健康。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能2.5万亿确认线，3万亿警惕过热
+  related_stocks: []
+  tags:
+  - 量能
+  - 2.5万亿
+  - 过热
+  - 反弹路径
+- id: claim-20260807-007
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: market-cycle
+  subject: 大金融未出面印证结构行情而非全面行情
+  timeframe: short-term
+  statement: 周四证券、保险、制药、互联网跌幅居前，大金融没有出面，印证当前是结构行情而非全面行情——指数稳定来自权重轮动与传统板块托举，而非增量资金系统性入场。
+  evidence_quote: 大金融没有出面，这也印证了当前是结构行情而非全面行情——指数的稳定来自权重轮动与传统板块的托举，而非增量资金的系统性入场。
+  interpretation: 大金融是否出面是判断'全面行情vs结构行情'的观察指标：大金融不动=存量轮动，大金融+科技同涨=增量入场。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大金融未出面，结构行情非全面行情
+  related_stocks: []
+  tags:
+  - 大金融
+  - 结构行情
+  - 权重轮动
+- id: claim-20260807-008
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: market-cycle
+  subject: 接力数据收敛：晋级率降至12.86%但跌停仅1家属换手非负反馈
+  timeframe: intraday
+  statement: 周四接力数据收敛：二板9家、一进二晋级率由22.88%降至12.86%、首板由70家减至57家、传智教育(003032)断板，但跌停仅一家——高度与宽度同时收敛说明是资金换手而非负反馈。
+  evidence_quote: 接力数据是昨天盘前提到的隐忧在盘中的兑现：二板家数9个，一进二晋级率由22.88%降至12.86%，首板家数由70家减少至57家，高标传智教育断板……但跌停仅一家，说明这是资金换手而不是负反馈。
+  interpretation: 接力收敛的定性判据：跌停家数极少=换手（健康），跌停扩散=负反馈（危险）。高度与宽度同收敛但无跌停，属内生性调整。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 接力收敛但跌停仅1家，换手非负反馈
+  related_stocks:
+  - code: '003032'
+    name: 传智教育
+    role: 深主板可交易
+  tags:
+  - 接力
+  - 晋级率
+  - 首板
+  - 传智教育
+- id: claim-20260807-009
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: methodology
+  subject: 断板性质区分：外力扰动vs内生换龙
+  timeframe: permanent
+  statement: 高标断板要区分性质：停牌或监管威胁类外力扰动会打断整条连板梯队并形成全市场负反馈；资金主动换龙的内生性断板不杀场内情绪，梯队与溢价可同时保持——传智教育(003032)低开属筹码松动后的自然结果。
+  evidence_quote: 停牌或监管威胁那一类的外力扰动会打断整条连板梯队并形成全市场负反馈；而资金主动换龙的内生性断板不杀场内情绪，梯队与溢价可以同时保持。
+  interpretation: 方法论规则：断板定性分两类——外力扰动（监管/停牌）→系统性负反馈；内生换龙（资金主动）→情绪不杀。传智教育(003032)断板因周三27个二板晋级9个、低位连板都想取而代之，属内生。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 断板性质区分：外力扰动vs内生换龙
+  related_stocks:
+  - code: '003032'
+    name: 传智教育
+    role: 深主板可交易
+  tags:
+  - 断板
+  - 连板梯队
+  - 换龙
+  - 传智教育
+- id: claim-20260807-010
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: operation
+  subject: 今日三情形框架，利空出尽与结构切换与防守
+  timeframe: intraday
+  statement: 今日按三情形应对：情形A利空出尽确认（存储低开快速翻红、德明利(001309)/中际旭创(300308)完成第三次考验、磷化铟与电子化学品继续承接、成交守住2.5万亿）→按右侧确认思路对待；情形B结构切换（存储与光模块补跌但磷化铟/电子化学品/煤炭有色/油气接得住、量能不破2.3万亿）→主攻从海外链换国产链与上游资源；情形C需要防守（AI应用跟随美股杀估值大幅调整、核心股放量下跌、量能跌破2.3万亿、跌停家数明显增加）→不下跌途中接，等新量价确认。
+  evidence_quote: 情形A（利空出尽确认）：存储链低开后快速翻红……情形B（结构切换）：存储与光模块跟随美股补跌，但磷化铟、电子化学品、煤炭有色、油气等方向接得住……情形C（需要防守）：AI应用方向跟随美股Datadog、AppLovin的杀估值逻辑大幅调整。
+  interpretation: 三情形覆盖今日所有可能路径，A/B之间为倾向（隔夜存储日内修复+半导体收涨削弱系统性风险），C的触发条件必须写清楚因为AI应用是'因'。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日三情形框架：利空出尽/结构切换/防守
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 深主板可交易
+  - code: '300308'
+    name: 中际旭创
+    role: 创业板不可交易
+  tags:
+  - 三情形
+  - 利空出尽
+  - 结构切换
+  - 防守
+- id: claim-20260807-011
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: sector-theme
+  subject: FDE是AI应用衍生叙事，飞天诚信涨停属数字货币概念
+  timeframe: short-term
+  statement: FDE（前向部署工程师）是AI应用的衍生叙事（上海徐汇推FDE人才培养计划，国联民生证券指其打通传统软件服务、AI项目落地、产品化沉淀价值链条），可因AI应用走势强继续参与或在FDE被吹起后第一时间介入；但飞天诚信(300386)周四涨停归因于数字货币概念，与FDE叙事应分开看。
+  evidence_quote: 昨天严格意义上没有新题材，FDE更多是AI应用的衍生……需要提示的是，飞天诚信周四的涨停据盘面归因于数字货币概念，与FDE叙事应当分开看。
+  interpretation: FDE定性：逻辑后置的AI应用衍生题材，两种参与方式无优劣。个股归因要精确——飞天诚信(300386)涨停是数字货币不是FDE，避免错误归因。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: FDE是AI应用衍生叙事，飞天诚信涨停属数字货币
+  related_stocks:
+  - code: '300386'
+    name: 飞天诚信
+    role: 创业板不可交易
+  tags:
+  - FDE
+  - AI应用
+  - 飞天诚信
+  - 数字货币
+- id: claim-20260807-012
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: sector-theme
+  subject: AI安全：逻辑转向AI放大安全需求，三层标的
+  timeframe: short-term
+  statement: 网络安全逻辑从「AI颠覆安全」转向「AI放大安全需求」（派拓被网络安全审查+Meta模型入侵事件+浙商证券观点），标的分三层：企业侧深信服(300454)、绿盟科技(300369)、网宿科技(300017)；行业侧安恒信息(688023)、启明星辰(002439)、亚信安全(688225)；政务侧奇安信(688561)、天融信(002212)——消息驱动分支，情绪弹性大但订单验证周期长，位置比逻辑更重要。
+  evidence_quote: 浙商证券指出，AI大模型能力持续迭代，正推动网络安全行业逻辑从「AI颠覆安全」转向「AI放大安全需求」……方向上大致分三层：企业侧的深信服、绿盟科技、网宿科技；行业侧的安恒信息、启明星辰、亚信安全；政务侧的奇安信、天融信。
+  interpretation: AI安全是审查事件+国产替代叙事双催化，但订单验证周期长，属典型消息驱动分支——参与纪律是位置优先而非逻辑优先。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI安全逻辑转向AI放大安全需求
+  related_stocks:
+  - code: '300454'
+    name: 深信服
+    role: 创业板不可交易
+  - code: '300369'
+    name: 绿盟科技
+    role: 创业板不可交易
+  - code: '300017'
+    name: 网宿科技
+    role: 创业板不可交易
+  - code: '688023'
+    name: 安恒信息
+    role: 科创板不可交易
+  - code: '002439'
+    name: 启明星辰
+    role: 深主板可交易
+  - code: '688225'
+    name: 亚信安全
+    role: 科创板不可交易
+  - code: '688561'
+    name: 奇安信
+    role: 科创板不可交易
+  - code: '002212'
+    name: 天融信
+    role: 深主板可交易
+  tags:
+  - AI安全
+  - 网络安全
+  - 国产替代
+  - 深信服
+- id: claim-20260807-013
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: sector-theme
+  subject: 存储与光模块第三次考验：德明利中际旭创三连阳
+  timeframe: short-term
+  statement: 存储与光模块面临第三次考验（前两次：铠侠业绩不及预期、光模块禁令都平稳渡过，德明利(001309)、中际旭创(300308)均走出三连阳）；存储仍是科技行情最敏感的牵引变量，牵一发而动全身——存储稳住则光模块等面的调整可控，存储放量破位则面的问题同步放大。
+  evidence_quote: 前两次——铠侠业绩不及预期、光模块禁令——都平稳渡过，德明利、中际旭创均走出三连阳。今天是闪迪、西部数据这一次。个人判断，存储仍是这轮科技行情最敏感的牵引变量，牵一发而动全身。
+  interpretation: 第三次考验命题：前两次利空均被承接，今天是闪迪/西数。延续'存储是点、光模块是面'框架，存储稳则面可控。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储光模块第三次考验，存储是牵引变量
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 深主板可交易
+  - code: '300308'
+    name: 中际旭创
+    role: 创业板不可交易
+  tags:
+  - 存储
+  - 光模块
+  - 牵引变量
+  - 第三次考验
+- id: claim-20260807-014
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: sector-theme
+  subject: 磷化铟订单落地可验证，对标稀土扩散
+  timeframe: short-term
+  statement: 磷化铟是本轮管制题材里少见的可验证分支：云南锗业(002428)控股子公司签订5.7-8.55亿元磷化铟晶片供货协议（占2025年营收53%-80%）、半年报预增148%-261%、8/6涨停2连板且龙虎榜营业部净买入7.17亿——配合大资金连续买入，短期是市场关注度最高方向，逻辑上可对标此前的稀土，由核心品种向电子化学品等其他上游原材料扩散。
+  evidence_quote: 个人判断，磷化铟的订单已经落到合同金额和业绩预告上，这是本轮管制题材里少见的可验证分支。配合大资金席位的连续买入，倾向于认为它会是短期市场关注度最高的方向，逻辑上可以对标此前的稀土——由核心品种向电子化学品等其他上游原材料扩散。
+  interpretation: 磷化铟区别于纯主题：合同金额+业绩预告可验证（呼应'行业缺货与公司产能是两个独立命题'方法论），且扩散路径对标稀土。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 磷化铟订单落地可验证，对标稀土扩散
+  related_stocks:
+  - code: '002428'
+    name: 云南锗业
+    role: 深主板可交易
+  tags:
+  - 磷化铟
+  - 云南锗业
+  - 订单
+  - 稀土对标
+- id: claim-20260807-015
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: sector-theme
+  subject: 日本先进封装设备管制：国产验证窗口被动打开
+  timeframe: trend
+  statement: 日本第三轮对华半导体设备出口管制8/1生效，首次将Chiplet/3D堆叠/CoWoS/TSV等先进封装全链条后道设备纳入管制（约20大类，逐案许可审批3-6个月）——与设备零部件逻辑一致，管制越严国产验证窗口越被动打开；但国产替代是渐进而长期过程，既不必接受「一夜突破」也不接受「打破垄断」的看空框架。
+  evidence_quote: 这条线与设备零部件的逻辑一致——零部件是设备扩产的约束条件，管制越严，国产验证的时间窗口越被动打开。同时要提醒，国产替代是渐进而长期的过程，既不必接受「一夜突破」的自媒体叙事，也不必接受「打破垄断」的看空框架。
+  interpretation: 日本管制先进封装后道设备（固晶机/减薄研磨/激光切割/TSV/混合键合等），国产验证窗口被动打开。UP同时给出辩证框架：不迷信一夜突破、不采纳看空框架。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 日本先进封装设备管制，国产验证窗口打开
+  related_stocks: []
+  tags:
+  - 半导体设备
+  - 日本管制
+  - 先进封装
+  - 国产替代
+- id: claim-20260807-016
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: sector-theme
+  subject: 刚果铜钴禁出口：题材属性强于基本面属性
+  timeframe: short-term
+  statement: 刚果（金）禁止铜精矿与钴精矿出口（6/29签署部长令，符合条件项目可获一年豁免；LME铜一度涨1.8%至14369.5美元/吨），但2026Q1刚果铜精矿出口仅53926吨（阴极铜占主流696725吨）、紫金矿业(601899)科卢韦齐/卡莫阿产品均不属禁止品类——消息题材属性明显强于基本面属性，当作情绪催化对待，参与需更严格位置纪律。
+  evidence_quote: 这条消息的题材属性明显强于基本面属性。个人倾向于把它当作情绪催化来对待，参与需要更严格的位置纪律，冲高后的分歧概率不低。
+  interpretation: 铜钴禁出口：表面利多（LME铜涨）vs 实际影响小（禁的是铜精矿，出口主力是阴极铜）——题材>基本面，位置纪律优先。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 刚果铜钴禁出口题材属性强于基本面
+  related_stocks:
+  - code: '601899'
+    name: 紫金矿业
+    role: 沪主板可交易
+  tags:
+  - 铜钴
+  - 刚果金
+  - 禁出口
+  - 题材属性
+- id: claim-20260807-017
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: sector-theme
+  subject: 传统板块拉煤炭农业是新题材尝试，非反指避险
+  timeframe: short-term
+  statement: 周四资金拉煤炭（近10股涨停：昊华能源(601101)、潞安环能(601699)、淮北矿业(600985)、平煤股份(601666)）、农业并给出厄尔尼诺新叙事，但传统板块内部有分化（哈药股份(600664)、立新能源(001258)老龙头奔跌停，立新能源(001258)跌超9%）——说明资金是在尝试新题材而非因不看好市场做反指，与7月底电力、医药有本质区别；配合油价收涨超4%，油气方向具备情绪外溢条件。
+  evidence_quote: 这个分化恰恰说明资金是在尝试新题材，而不是因为不看好市场才去做反指题材，这和7月底的电力、医药有本质区别。
+  interpretation: 反指题材vs新题材的区分：老龙头（哈药/立新能源(001258)）跌停而新面孔（煤炭/农业）涨停=新题材尝试；若老龙头也涨才是避险反指。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 煤炭农业是新题材尝试，非反指避险
+  related_stocks:
+  - code: '601101'
+    name: 昊华能源
+    role: 沪主板可交易
+  - code: '601699'
+    name: 潞安环能
+    role: 沪主板可交易
+  - code: '600985'
+    name: 淮北矿业
+    role: 沪主板可交易
+  - code: '601666'
+    name: 平煤股份
+    role: 沪主板可交易
+  - code: '600664'
+    name: 哈药股份
+    role: 沪主板可交易
+  - code: '001258'
+    name: 立新能源
+    role: 深主板可交易
+  tags:
+  - 煤炭
+  - 农业
+  - 厄尔尼诺
+  - 新题材
+- id: claim-20260807-018
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: catalyst
+  subject: DeepSeek上调API定价：算力成本重定价
+  timeframe: short-term
+  statement: DeepSeek计划近期整体上调API服务定价（涨幅较大，具体方案待正式通知）——推理侧定价上行意味着算力成本在被重新定价，对算力租赁、Token分成模式及AI应用成本端都有影响，映射价值高于关注度，应放入「AI应用是因、硬件是果」框架跟踪。
+  evidence_quote: 这条的映射价值高于它的关注度——推理侧定价上行意味着算力成本在被重新定价，对算力租赁、Token分成模式以及AI应用的成本端都有影响。
+  interpretation: DeepSeek调价是算力成本重定价信号：利好算力租赁/Token分成的定价逻辑，需跟踪对AI应用成本端的传导。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: DeepSeek上调API定价，算力成本重定价
+  related_stocks: []
+  tags:
+  - DeepSeek
+  - API定价
+  - 算力成本
+  - Token
+- id: claim-20260807-019
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: market-cycle
+  subject: 今日三观察变量，存储承接与AI应用与接力数据
+  timeframe: intraday
+  statement: 今天要盯三个变量：一是存储链开盘承接（低开后能否翻红、能否放量，决定反弹是完成第三次考验还是退潮）；二是AI应用核心股对美股同类杀估值的免疫程度（今日唯一新增变量，三情形分水岭）；三是接力数据（二板守住8-9家、首板止跌、传智教育(003032)反包或横盘）——三者同时恶化才真正下调预期，只坏其一属内生性回调。
+  evidence_quote: 第一，存储链的开盘承接。……第二，AI应用核心股对美股同类杀估值的免疫程度。这是今天唯一的新增变量，也是三种情形的分水岭。第三，接力数据。……三者同时恶化，才需要真正下调预期；只坏其一，仍属于内生性回调的范畴。
+  interpretation: 三观察变量框架：存储承接（点）、AI应用免疫（因）、接力数据（情绪）——三坏才降预期，呼应'三证伪变量三坏才降仓'纪律的日度化应用。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日三观察变量：存储/AI应用/接力
+  related_stocks:
+  - code: '003032'
+    name: 传智教育
+    role: 深主板可交易
+  tags:
+  - 三变量
+  - 存储承接
+  - AI应用
+  - 接力数据
+- id: claim-20260807-020
+  source_path: sources/original/bilibili/2026-08-07-0854-专栏-周三的文章说市场开始恢复理性，周四的盘面继续给了正反馈：同样.md
+  source_date: '2026-08-07'
+  source_type: 专栏
+  extracted_at: '2026-08-07T09:19:00+08:00'
+  claim_type: macro
+  subject: 隔夜宏观：油价收涨超4%，初请失业金低于预期
+  timeframe: intraday
+  statement: 隔夜宏观：受伊朗霍尔木兹海峡相关法案草案消息影响WTI与布伦特原油收涨超4%；美国初请失业金19.9万人低于预期20.2万、二季度非农劳动生产率初值环比升1.4%高于预期；SpaceX盘中下跌后收涨6.1%；纳斯达克中国金龙指数涨0.27%。
+  evidence_quote: 受伊朗方面霍尔木兹海峡相关法案草案消息影响，WTI与布伦特原油均收涨超4%；美国截至8月1日当周初请失业金19.9万人，低于预期的20.2万人。
+  interpretation: 油价重回上行（霍尔木兹法案草案催化）需警惕与此前'油价跌破80证伪宏观风险'框架的联动——油价若重回80+美债4.70%则外部环境证伪链反转。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 隔夜油价收涨超4%，霍尔木兹法案草案催化
+  related_stocks: []
+  tags:
+  - 油价
+  - 霍尔木兹
+  - 宏观
+  - 初请失业金
