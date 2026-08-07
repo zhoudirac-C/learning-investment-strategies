@@ -13,8 +13,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260802-001"]
   contradicts: []
+  supplements: []
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -40,8 +42,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260803-002"]
   contradicts: []
+  supplements: []
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -67,8 +71,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260731-003", "claim-20260702-002-a"]
+  contradicts: ["claim-20260715-007-a"]
+  supplements: []
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -95,7 +101,9 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260804-019", "claim-20260702-002-l"]
+  supplements: ["claim-20260803-031"]
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -123,6 +131,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260721-013", "claim-20260611-005-a"]
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -148,8 +158,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260805-046", "claim-20260515-010"]
   contradicts: []
+  supplements: ["claim-20260616-002-c"]
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -176,7 +188,9 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260702-001-e"]
+  supplements: ["claim-20260624-001-h", "claim-20260805-012"]
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -201,8 +215,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260804-009", "claim-20260806-003"]
   contradicts: []
+  supplements: ["claim-20260716-001-d"]
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -233,6 +249,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260806-022"]
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -261,8 +279,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260806-010", "claim-20260805-038", "claim-20260805-003"]
   contradicts: []
+  supplements: []
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -296,6 +316,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260730-008", "claim-20260721-010"]
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -326,6 +348,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260709-009-c", "claim-20260806-050", "claim-20260723-012"]
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -375,8 +399,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260805-003"]
   contradicts: []
+  supplements: ["claim-20260804-016"]
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -410,6 +436,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260806-038", "claim-20260804-035", "claim-20260806-006"]
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -440,6 +468,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -467,6 +497,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260615-022"]
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -497,6 +529,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -540,8 +574,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260630-001-g"]
   contradicts: []
+  supplements: ["claim-20260806-029", "claim-20260806-031"]
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -569,6 +605,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -598,7 +636,9 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260804-034"]
+  supplements: ["claim-20260805-006"]
+  last_discovered: 2026-08-07
   links:
     wiki_pages: []
     methodology_pages: []
@@ -610,3 +650,247 @@ claims:
   - 霍尔木兹
   - 宏观
   - 初请失业金
+- id: claim-20260807-021
+  source_path: sources/original/bilibili/2026-08-07-0948-图片-动态-1233638693361680392.md
+  source_date: '2026-08-07'
+  source_type: 动态
+  extracted_at: '2026-08-07T11:51:00+08:00'
+  claim_type: methodology
+  subject: 软件炒的是美股映射与题材概念，不是基本面业绩
+  timeframe: permanent
+  statement: A股软件炒的是美股映射与题材概念，不是基本面业绩——真有业绩支撑，早就不会跌回924行情之前的位置；软件板块竞争格局与盈利模式差、多数传统软件套壳AI、大模型吞噬担忧、业绩仍在下滑、估值反而比硬件贵，属于事件驱动的波段机会而非业绩景气的趋势机会。
+  evidence_quote: 软件炒的是美股映射与题材概念，不是基本面业绩。真有业绩支撑，早就不会跌回924行情之前的位置……属于事件驱动的波段机会，不是业绩景气的趋势机会
+  interpretation: UP对A股软件板块的核心定性：无基本面支撑，靠美股映射+题材概念驱动，是波段机会而非趋势机会。五条论据：竞争格局差、套壳AI、大模型吞噬、业绩下滑、估值贵。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A股软件炒的是映射与题材，非基本面
+  related_stocks: []
+  tags:
+  - 软件
+  - 美股映射
+  - 题材概念
+  - 无基本面
+- id: claim-20260807-022
+  source_path: sources/original/bilibili/2026-08-07-0948-图片-动态-1233638693361680392.md
+  source_date: '2026-08-07'
+  source_type: 动态
+  extracted_at: '2026-08-07T11:51:00+08:00'
+  claim_type: methodology
+  subject: 中报唯三增长与股价不同步，业绩好不等于股价涨
+  timeframe: permanent
+  statement: 中报已披露业绩里唯三有增长的（迈富时(港股02556)H、迅策(港股03317)H、金山办公(688111)）业绩增长与股价表现并不同步——业绩好不等于股价涨，别什么都跟业绩扯；软件板块要找的是低位预期差、业务能跟上行业催化、得到短线与量化资金青睐的标的，赚的是行业贝塔的超额，公司阿尔法基本没有。
+  evidence_quote: 中报已披露业绩里，唯三有增长的三家：迈富时(H)、迅策(H)、金山办公。业绩增长与股价表现并不同步……赚的是行业贝塔的超额，公司阿尔法基本没有
+  interpretation: 反证法：软件板块业绩增长的三家（均为H股或金山办公(688111)）股价并不涨，证明业绩不是软件股的定价因子；选股标准是低位预期差+行业催化+资金审美，跟着大众审美走而非跟着财报走。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 软件业绩好不等于股价涨，选股跟资金审美
+  related_stocks:
+  - code: '688111'
+    name: 金山办公
+    role: 科创板不可交易
+  tags:
+  - 软件
+  - 中报
+  - 金山办公
+  - 资金审美
+- id: claim-20260807-023
+  source_path: sources/original/bilibili/2026-08-07-0948-图片-动态-1233638693361680392.md
+  source_date: '2026-08-07'
+  source_type: 动态
+  extracted_at: '2026-08-07T11:51:00+08:00'
+  claim_type: sector-theme
+  subject: 本轮催化是AI应用开始起量，A股仍是映射
+  timeframe: short-term
+  statement: 本轮软件催化是AI应用开始起量：腾讯WorkBuddy全面接入混元Hy3（办公任务解决率72%→90%、耗时缩短34%、跨平台去重MAU
+    2000万+，登顶国内PC端AI原生Agent第一，限免Hy3两周上线第3日排队率超50%算力满载）；微软云业务增速超预期盘前一度涨15%——但需求端变化是真的，兑现在腾讯与微软报表上，A股仍是映射。
+  evidence_quote: 本轮催化：AI应用开始起量。腾讯WorkBuddy全面接入混元Hy3……需求端的变化是真的，但兑现在腾讯与微软的报表上，A股仍是映射。
+  interpretation: AI应用起量的真实催化（腾讯WorkBuddy数据、微软云超预期），但A股软件标的只是映射，不直接兑现业绩——印证'软件无基本面'判断，参与靠情绪与题材。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI应用起量是真催化，A股软件只是映射
+  related_stocks: []
+  tags:
+  - AI应用
+  - 腾讯
+  - WorkBuddy
+  - 混元Hy3
+  - 映射
+- id: claim-20260807-024
+  source_path: sources/original/bilibili/2026-08-07-0948-图片-动态-1233638693361680392.md
+  source_date: '2026-08-07'
+  source_type: 动态
+  extracted_at: '2026-08-07T11:51:00+08:00'
+  claim_type: sector-theme
+  subject: WorkBuddy产业链：AI办公与应用方向标的
+  timeframe: short-term
+  statement: 腾讯WorkBuddy产业链：AI生态首批共创伙伴泛微网络(603039)、恒生电子(600570)、普联软件(300996)（金融数据MCP已入驻、腾讯系入股明略科技(非A股)入主）；AI办公与应用方向金山办公(688111)、福昕软件(688095)、税友股份(603171)、金桥信息(603918)、石基信息(002153)。
+  evidence_quote: WorkBuddy产业链：泛微网络、恒生电子、普联软件（AI生态首批共创伙伴，金融数据MCP已入驻，腾讯系明略科技入主）；AI办公与应用：金山办公、福昕软件、税友股份、金桥信息、石基信息
+  interpretation: UP列出腾讯WorkBuddy映射的两层标的：共创伙伴（泛微/恒生/普联）与AI办公应用（金山/福昕/税友/金桥/石基）——均属软件映射炒作标的池。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: WorkBuddy产业链与AI办公应用标的
+  related_stocks:
+  - code: '688111'
+    name: 金山办公
+    role: 科创板不可交易
+  - code: '603039'
+    name: 泛微网络
+    role: 沪主板可交易
+  - code: '600570'
+    name: 恒生电子
+    role: 沪主板可交易
+  - code: '300996'
+    name: 普联软件
+    role: 创业板不可交易
+  - code: '688095'
+    name: 福昕软件
+    role: 科创板不可交易
+  - code: '603171'
+    name: 税友股份
+    role: 沪主板可交易
+  - code: '603918'
+    name: 金桥信息
+    role: 沪主板可交易
+  - code: '002153'
+    name: 石基信息
+    role: 深主板可交易
+  tags:
+  - WorkBuddy
+  - AI办公
+  - 泛微网络
+  - 普联软件
+- id: claim-20260807-025
+  source_path: sources/original/bilibili/2026-08-07-0948-图片-动态-1233638693361680392.md
+  source_date: '2026-08-07'
+  source_type: 动态
+  extracted_at: '2026-08-07T11:51:00+08:00'
+  claim_type: methodology
+  subject: 最大公约数是给AI应用卖铲子，AI基础设施软件先出业绩
+  timeframe: trend
+  statement: 软件板块的最大公约数是给AI应用卖铲子（AI Infra·AI基础设施软件）：美股AI应用里也是基础设施软件先出业绩；FDE（前线部署工程师）解决大模型到企业生产场景最后一公里，本质仍是卖铲子的基础设施环节；标的包括博睿数据(688229)（监测工具）、卓易信息(688258)（编程服务）、星环科技(688031)（向量数据库）、海量数据(603138)（原生数据库）、深信服(300454)（云服务）、网宿科技(300017)（边缘计算）、绿盟科技(300369)（网安配置）、索辰科技(688507)（物理AI）。
+  evidence_quote: 最大公约数：给AI应用卖铲子。AI Infra·AI基础设施软件——美股AI应用里，也是基础设施软件先出的业绩……FDE：解决大模型到企业生产场景最后一公里的岗位，本质仍是卖铲子的基础设施环节
+  interpretation: 软件参与策略的核心方法论：不选应用本身（无业绩），选给应用卖铲子的基础设施软件（先出业绩）——监测/编程/向量库/数据库/云服务/边缘计算/网安/物理AI八类工具。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 软件最大公约数是卖铲子，基础设施软件先出业绩
+  related_stocks:
+  - code: '688229'
+    name: 博睿数据
+    role: 科创板不可交易
+  - code: '688258'
+    name: 卓易信息
+    role: 科创板不可交易
+  - code: '688031'
+    name: 星环科技
+    role: 科创板不可交易
+  - code: '603138'
+    name: 海量数据
+    role: 沪主板可交易
+  - code: '300454'
+    name: 深信服
+    role: 创业板不可交易
+  - code: '300017'
+    name: 网宿科技
+    role: 创业板不可交易
+  - code: '300369'
+    name: 绿盟科技
+    role: 创业板不可交易
+  - code: '688507'
+    name: 索辰科技
+    role: 科创板不可交易
+  tags:
+  - 卖铲子
+  - AI基础设施
+  - FDE
+  - 向量数据库
+- id: claim-20260807-026
+  source_path: sources/original/bilibili/2026-08-07-0948-图片-动态-1233638693361680392.md
+  source_date: '2026-08-07'
+  source_type: 动态
+  extracted_at: '2026-08-07T11:51:00+08:00'
+  claim_type: operation
+  subject: 7月30日提示算力租赁而非AI应用，机构审美可映射
+  timeframe: short-term
+  statement: 栏目记录：7月30日前后微软云超预期、软件股反弹阶段，本栏目提示的方向是算力租赁而非AI应用——机构审美的景气趋势可映射（算力租赁），纯概念映射的低位反弹（AI应用）持续性更弱、难度更高。
+  evidence_quote: 栏目记录·7月30日前后：微软云超预期、软件股反弹阶段，本栏目提示的方向是算力租赁，而非AI应用。机构审美·景气趋势可映射（算力租赁）；纯概念映射·低位反弹（AI应用，持续性更弱，难度更高）
+  interpretation: 回溯验证：7/30 软件反弹时 UP 提示的是算力租赁而非 AI 应用，事后看算力租赁（景气可映射）优于 AI 应用（概念映射）——机构审美
+    vs 纯概念的优先级框架。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 算力租赁优于AI应用，机构审美可映射
+  related_stocks: []
+  tags:
+  - 算力租赁
+  - AI应用
+  - 机构审美
+  - 映射
+- id: claim-20260807-027
+  source_path: sources/original/bilibili/2026-08-07-1136-图片-90分钟高9加15分钟顶。 不要fomo，不要追高，也不要一.md
+  source_date: '2026-08-07'
+  source_type: 动态
+  extracted_at: '2026-08-07T11:53:00+08:00'
+  claim_type: technical-signal
+  subject: 90分钟高9加15分钟顶，不追高不一键清仓
+  timeframe: intraday
+  statement: 大盘90分钟序列出现高9、15分钟级别形成顶部结构——不要fomo、不要追高、也不要一键清仓，保持良好的仓位；有加仓机会就加，没有就等，整体趋势向上，买点要控制好。
+  evidence_quote: 90分钟高9加15分钟顶。 不要fomo，不要追高，也不要一键清仓，保持良好的仓位。有加仓的机会就加，没有就等，整体的趋势是向上的，买点要控制好。
+  interpretation: UP盘中技术信号+仓位纪律：90分钟高9与15分钟顶叠加=短线调整信号，但趋势向上——应对是控买点不追高、不因顶信号恐慌清仓、回调有承接则加仓。与8/7早盘'三观察变量'框架衔接。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 90分钟高9加15分钟顶，控买点不追高
+  related_stocks: []
+  tags:
+  - 90分钟高9
+  - 15分钟顶
+  - 不追高
+  - 仓位管理
+  - 趋势向上
