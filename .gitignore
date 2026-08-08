@@ -10,6 +10,7 @@ logs/*
 # 例外：M0 验收与回测报告属策展产物，纳入版本管理（仓库已有 logs/intensity_backfill_report.txt 先例）
 !logs/m0-acceptance.md
 !logs/backtest_buy_signals_*.md
+!logs/m1-*.md
 .DS_Store
 
 config/stock_monitor/positions.yaml
