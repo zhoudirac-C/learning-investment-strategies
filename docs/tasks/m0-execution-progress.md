@@ -20,8 +20,9 @@
   - `12681b4` docs: 方案 v2.1 + M0 实施计划（基线）
   - `5bb249a` feat: T1 包骨架 + 冒烟测试（2 passed）
   - `896d737` feat: T2 chain.yaml 校验器（9 passed）
+  - `9e2f0e5` feat: T3 知识库读写层（8 passed）
 - **工作区**：干净（`git status --short` 无输出）
-- **进度**：T1–T3 ✅ 完成；T4–T15 未开始；最终 code review 未做
+- **进度**：T1–T4 ✅ 完成；T5–T15 未开始；最终 code review 未做
 
 ## 三、执行约束（用户明确指令，必须遵守）
 
@@ -37,9 +38,9 @@
 |---|---|---|---|
 | T1 | 包骨架+冒烟测试 | ✅ 5bb249a | 2 passed |
 | T2 | chain.yaml 校验器（`industry_chain/schema.py`） | ✅ 896d737 | 9 passed |
-| T3 | 知识库读写层（`industry_chain/store.py`） | ✅ | 8 passed |
-| T4 | 深度研究 md 解析器（`industry_chain/migrate.py`） | ⬜ 下一个 | 10 passed + commit |
-| T5 | 迁移 CLI + 3 篇迁移入 `knowledge/industry-chains/` | ⬜ | dry-run mappings>0 → 正式迁移 → 人工抽查 3 标的 |
+| T3 | 知识库读写层（`industry_chain/store.py`） | ✅ 9e2f0e5 | 8 passed |
+| T4 | 深度研究 md 解析器（`industry_chain/migrate.py`） | ✅ | 12 passed |
+| T5 | 迁移 CLI + 3 篇迁移入 `knowledge/industry-chains/` | ⬜ 下一个 | dry-run mappings>0 → 正式迁移 → 人工抽查 3 标的 |
 | T6 | 来源中立模式校验器（`distill/pattern_schema.py`） | ⬜ | 10 passed + commit |
 | T7 | 备份 + upstream_cycle 改写 | ⬜ | patterns[0] 过校验 + commit |
 | T8 | mainline/rotation/macro 三框架改写 | ⬜ | patterns[1-3] 过校验 + commit |
