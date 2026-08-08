@@ -74,8 +74,9 @@ logs/                               # Task 15：回测报告与验收（logs/ �
 - Create: `src/investment_engine/industry_chain/__init__.py`
 - Create: `src/investment_engine/distill/__init__.py`
 - Create: `src/investment_engine/backtest/__init__.py`
-- Create: `tests/investment_engine/__init__.py`（空文件，保证 pytest 包发现稳定）
 - Test: `tests/investment_engine/test_smoke.py`
+
+注意：**不要**在 `tests/investment_engine/` 下放 `__init__.py`——pytest prepend 模式会把它注册为 `investment_engine` 包，遮蔽 `src/investment_engine`（与仓库 tests 平铺无 __init__ 惯例一致，参照 `tests/chan_engine/`）。
 
 - [ ] **Step 1: 写冒烟测试**
 
