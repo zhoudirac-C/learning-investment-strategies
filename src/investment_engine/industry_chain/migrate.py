@@ -13,7 +13,7 @@ SUBSECTION_RE = re.compile(r"^###\s+\d+(?:\.\d+)?\s+(.+?)\s*$")
 ROW_RE = re.compile(r"^\|(.+)\|\s*$")
 BOLD_RE = re.compile(r"\*\*([^*]+)\*\*")
 THESIS_RE = re.compile(r"一句话核心逻辑[*\s：:]*(.+?)\s*$")
-SKIP_WORDS = ("总结", "风险", "操作手册", "催化")
+SKIP_WORDS = ("总结", "风险", "操作手册", "博主", "视角")
 
 
 def elasticity_from_stars(text: str) -> str:

@@ -21,8 +21,9 @@
   - `5bb249a` feat: T1 包骨架 + 冒烟测试（2 passed）
   - `896d737` feat: T2 chain.yaml 校验器（9 passed）
   - `9e2f0e5` feat: T3 知识库读写层（8 passed）
+  - `a7085e3` feat: T4 深度研究 md 解析器（12 passed）
 - **工作区**：干净（`git status --short` 无输出）
-- **进度**：T1–T4 ✅ 完成；T5–T15 未开始；最终 code review 未做
+- **进度**：T1–T5 ✅ 完成；T6–T15 未开始；最终 code review 未做
 
 ## 三、执行约束（用户明确指令，必须遵守）
 
@@ -39,9 +40,9 @@
 | T1 | 包骨架+冒烟测试 | ✅ 5bb249a | 2 passed |
 | T2 | chain.yaml 校验器（`industry_chain/schema.py`） | ✅ 896d737 | 9 passed |
 | T3 | 知识库读写层（`industry_chain/store.py`） | ✅ 9e2f0e5 | 8 passed |
-| T4 | 深度研究 md 解析器（`industry_chain/migrate.py`） | ✅ | 12 passed |
-| T5 | 迁移 CLI + 3 篇迁移入 `knowledge/industry-chains/` | ⬜ 下一个 | dry-run mappings>0 → 正式迁移 → 人工抽查 3 标的 |
-| T6 | 来源中立模式校验器（`distill/pattern_schema.py`） | ⬜ | 10 passed + commit |
+| T4 | 深度研究 md 解析器（`industry_chain/migrate.py`） | ✅ a7085e3 | 12 passed |
+| T5 | 迁移 CLI + 3 篇迁移入 `knowledge/industry-chains/` | ✅ | 43/51/35 mappings，抽查兆易创新/北方华创/雅克科技与原文一致 |
+| T6 | 来源中立模式校验器（`distill/pattern_schema.py`） | ⬜ 下一个 | 10 passed + commit |
 | T7 | 备份 + upstream_cycle 改写 | ⬜ | patterns[0] 过校验 + commit |
 | T8 | mainline/rotation/macro 三框架改写 | ⬜ | patterns[1-3] 过校验 + commit |
 | T9 | sentiment/technical/earnings 三框架改写 | ⬜ | patterns[4-6] 过校验 + commit |
@@ -52,6 +53,8 @@
 | T14 | 回测 CLI `scripts/backtest_buy_signals.py` | ⬜ | 合成数据 e2e 跑通 + commit |
 | T15 | 真实数据回测 + validation 回填 + `logs/m0-acceptance.md` | ⬜ | 验收报告 + 全量回归绿 |
 | — | 最终自查（对照计划"自查记录"节） | ⬜ | 全部测试绿 |
+
+**T5 执行备注**：SKIP_WORDS 去掉 `催化`（误杀方向一赛道一标题"IPO催化弹性最大"），新增 `博主`/`视角`（跳过方法论映射与Token经济学视角噪声章节）；改动随 T5 commit。
 
 **执行方式**：每个任务严格按 TDD——先写测试（计划里有完整代码）→ 跑确认失败 → 写实现（计划里有完整代码）→ 跑确认通过 → 按计划 message commit。T7–T10 是 YAML 内容改写（无代码测试），按计划的映射规则表改写、跑校验命令、commit。
 
