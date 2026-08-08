@@ -1,6 +1,8 @@
-updated_at: '2026-06-06'
-version: 2.1-optimized-descriptions
+updated_at: '2026-08-08'
+version: 3.0-source-neutral
 merge_note: 将116个单raw模式聚合为10个通用推理框架，并优化description以支持语义匹配
+distill_note: v3.0 来源中立改写（v2.1 引擎⓪）——trigger/steps/falsification 不含 UP 指称，
+  validation 区块随回测与盲测回填；UP 锚定版备份见 reasoning-patterns-v2.1-up-anchored.yaml。
 patterns:
 - pattern_id: upstream_cycle
   name: 上游涨价周期分析框架
@@ -1998,6 +2000,11 @@ patterns:
 - pattern_id: ai_industry_chain
   name: AI产业链传导分析框架
   description: 当用户询问AI技术突破、新产品发布、大模型迭代、算力需求爆发对产业链各环节（算力芯片、PCB、光通信、液冷、电源、数据中心、应用等）的传导机会与标的映射时使用。区别于一般上游周期分析，核心关注技术事件驱动的产业链受益顺序。典型查询：AI产业链机会、Rubin影响、算力扩散到哪里、大模型利好谁、AI应用能不能买。该框架识别技术突破、拆解产业链影响路径、验证需求真实性、映射投资标的。
+  trigger:
+  - AI领域重大技术/产品事件（大模型迭代、硬件架构升级、监管政策变化）
+  - 算力需求侧爆发信号（云厂商Capex上调、订单/出货数据跳升）
+  - 产业链某环节涨价或缺货（BOM拆解显示价值量迁移）
+  - 板块内按产业链环节顺序轮动上涨
   source_raw:
   - sources/raw/财经/午盘补发：26-05-25：保持思考.md
   - sources/raw/财经/周复盘：26-04-14：是反弹不是反转，市场为什么对中东冲突麻木了.md
@@ -2031,53 +2038,61 @@ patterns:
   - 电力设备
   - 科技资产跨境并购
   - 自动驾驶
-  reasoning_chain:
+  data_requirements:
+  - name: AI 产业链结构与标的映射
+    channel: knowledge/industry-chains
+  - name: 技术事件与产品发布
+    channel: 技术白皮书 / 产品发布会 / 政策文件 / 供应链消息
+  - name: BOM 与价值量数据
+    channel: 研报（BOM拆解/价值量对比/技术规格变化/供应商报价）
+  - name: 业绩与订单验证
+    channel: 季度财报 / 订单与出货数据 / 机构调研纪要
+  - name: 供应链地位证据
+    channel: 公司公告 / 供应链调研 / 机构报告
+  - name: 盘面联动数据
+    channel: 行情数据（板块涨幅排名/龙头涨停与联动）
+  steps:
   - step: 1
     name: 识别技术/产品突破
     question: AI领域出现了什么关键突破或产品升级？
-    UP_logic: 关注大模型发布（如DeepSeek V4）、硬件架构升级（如Rubin）、政策变化（如H200引进）等催化事件。
-    evidence_sources:
-    - 技术白皮书
-    - 产品发布会
-    - 政策文件
-    - 供应链消息
+    action: 登记催化事件并定性——大模型发布、硬件架构升级、政策变化等；核对信息来源属于一手发布还是二手传闻
+    data:
+    - 技术事件与产品发布
   - step: 2
     name: 拆解产业链影响路径
     question: 该突破对产业链哪些环节产生直接影响？
-    UP_logic: 从算力→芯片→设备→材料逐层传导。价值量增幅最大的环节优先级最高。区分"量增""价增""新品"三类驱动。
-    evidence_sources:
-    - BOM拆解
-    - 价值量对比
-    - 技术规格变化
-    - 供应商报价
+    action: 按算力→芯片→设备→材料逐层拆解传导路径；对照产业链知识库查各环节价值量增幅，最大者优先级最高；区分量增/价增/新品三类驱动
+    data:
+    - AI 产业链结构与标的映射
+    - BOM 与价值量数据
   - step: 3
     name: 验证需求真实性
     question: 产业链需求是否真实兑现？还是停留在预期阶段？
-    UP_logic: 通过年报/一季报业绩、订单数据、出货数据验证。业绩超预期=需求真实；只有概念无业绩=纯炒作。
-    evidence_sources:
-    - 季度财报
-    - 订单数据
-    - 出货数据
-    - 机构调研纪要
+    action: 用季度财报、订单数据、出货数据验证：业绩超预期判定需求真实；只有概念无业绩按纯炒作处理
+    data:
+    - 业绩与订单验证
   - step: 4
     name: 映射投资标的
     question: A股中哪些公司最受益？受益顺序如何？
-    UP_logic: 按"确定性优先"原则：已进入供应链的>有技术储备的>纯概念映射的。结合盘面验证（龙头是否涨停、是否联动）。
-    evidence_sources:
-    - 公司公告
-    - 供应链调研
-    - 机构报告
-    - 板块涨幅排名
-  risk_factors:
-  - 大盘系统性风险
-  - 宏观政策重大转向
-  - 产业逻辑被证伪
-  - 情绪退潮导致板块联动失效
-  confidence_indicators:
-  - 多个独立数据源交叉验证
-  - 板块内多只个股联动
-  - 机构研报密集覆盖
-  - 成交量持续放大
+    action: 按确定性优先排序——已进入供应链的（知识库 cert_status/order_evidence 有证据）> 有技术储备的 > 纯概念映射的；结合盘面验证（龙头是否涨停、环节是否联动）
+    data:
+    - AI 产业链结构与标的映射
+    - 供应链地位证据
+    - 盘面联动数据
+  falsification:
+  - 财报/订单证伪需求（预期落空、业绩不及预期）
+  - 技术路线变更使原受益环节价值量缩水
+  - 大盘系统性破位下行或宏观政策重大转向
+  - 板块情绪退潮：核心标的放量滞涨、联动失效
+  validation:
+    historical_hit_rate: pending-m1
+    applicable_regime: null
+    known_failures: []
+    confidence_indicators:
+    - 多个独立数据源交叉验证
+    - 板块内多只个股联动
+    - 机构研报密集覆盖
+    - 成交量持续放大
   examples:
   - pattern_id: ppi_cpi_scissors_analysis
     name: PPI-CPI剪刀差传导分析
@@ -2144,6 +2159,11 @@ patterns:
 - pattern_id: operation_strategy
   name: 操作策略与仓位管理框架
   description: 当用户直接询问操作建议、仓位管理、买卖纪律、风险控制、具体交易计划、止盈止损、加仓减仓时使用。典型查询：今天怎么操作、几成仓合适、要不要减仓、怎么止盈止损、持仓怎么调。该框架评估市场环境、确定仓位水平、选择操作工具、执行风控，给出可落地的操作策略而非方向判断。
+  trigger:
+  - 持仓或拟建仓标的需要确定仓位/止损/止盈的具体数值
+  - 市场阶段切换（主升/震荡/调整/恐慌）需要调整总仓位
+  - 组合月回撤接近 10% 等熔断条件被触发
+  - 个股无法直接买入，需要替代工具（ETF/可转债）执行
   source_raw:
   - sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
   - sources/raw/财经/复盘：26-04-01：三指收涨科创50涨超3%，智立方奥瑞德富临广联.md
@@ -2167,53 +2187,57 @@ patterns:
   - 题材炒作
   - 高位放量杀跌后的市场定性
   - 高风险投资策略
-  reasoning_chain:
+  data_requirements:
+  - name: 市场阶段与情绪数据
+    channel: 行情数据（大盘技术位/成交量/情绪指标/主线强度）
+  - name: 当前持仓与回撤
+    channel: config/stock_monitor/positions.yaml（本地私有，不进 git）
+  - name: 止损位与波动数据
+    channel: 行情数据（支撑位/历史波动率）/ K线缓存
+  - name: 替代工具数据
+    channel: 行情数据（ETF持仓与流动性/可转债价格）
+  steps:
   - step: 1
     name: 评估市场环境
     question: 当前市场适合什么操作策略？
-    UP_logic: 主升期：重仓持股。震荡期：高抛低吸做T。调整期：轻仓或空仓。恐慌期：左侧试错或观望。
-    evidence_sources:
-    - 大盘技术位
-    - 成交量
-    - 情绪指标
-    - 主线强度
+    action: 按市场阶段定基调：主升期重仓持股、震荡期高抛低吸做T、调整期轻仓或空仓、恐慌期左侧试错或观望
+    data:
+    - 市场阶段与情绪数据
   - step: 2
     name: 确定仓位水平
     question: 当前应该几成仓？
-    UP_logic: 空仓可上5成，满仓应降仓留空间。单标的不超过2成，总仓位根据市场阶段动态调整。
-    evidence_sources:
-    - 当前仓位
-    - 风险承受能力
-    - 市场阶段
-    - 机会数量
+    action: 按公式计算单标的仓位——仓位% = 单笔风险上限% ÷ 止损幅度%；再套三层上限（个股 ≤10%、单主题 ≤20%、路径B合计 ≤30%）取最小值，重算实际风险确认 ≤2%；组合月回撤 ≥10% 触发强制减半
+    data:
+    - 当前持仓与回撤
+    - 止损位与波动数据
+    - 市场阶段与情绪数据
   - step: 3
     name: 选择操作工具
     question: 用什么工具执行策略？
-    UP_logic: 个股为主，ETF为辅，可转债套利。无法买个股时通过ETF持仓反推个股，或做可转债。
-    evidence_sources:
-    - 个股权限
-    - ETF持仓
-    - 可转债价格
-    - 工具流动性
+    action: 个股为主、ETF为辅、可转债套利；无法买个股时通过ETF持仓反推成分股，或做可转债
+    data:
+    - 替代工具数据
   - step: 4
     name: 执行与风控
     question: 如何执行买卖并控制风险？
-    UP_logic: 不追高，等分歧回踩。跌破关键位3日不收回止损。单笔亏损控制在5%以内。获利20%考虑减仓。
-    evidence_sources:
-    - 支撑位
-    - 止损位
-    - 盈亏比
-    - 历史成功率
-  risk_factors:
-  - 大盘系统性风险
-  - 宏观政策重大转向
-  - 产业逻辑被证伪
-  - 情绪退潮导致板块联动失效
-  confidence_indicators:
-  - 多个独立数据源交叉验证
-  - 板块内多只个股联动
-  - 机构研报密集覆盖
-  - 成交量持续放大
+    action: 不追高、等分歧回踩；跌破关键位3日不收回止损；单笔亏损控制在5%以内；获利20%考虑减仓；每条建议必须同时给出仓位/止损/单笔风险三个数值，缺一打回
+    data:
+    - 止损位与波动数据
+    - 当前持仓与回撤
+  falsification:
+  - 市场阶段判断错误（策略基调与实际走势持续背离）
+  - 关键支撑位跌破且3日不收回（单笔策略证伪，执行止损）
+  - 组合月回撤 ≥10%（触发熔断，强制减半）
+  - 大盘系统性破位下行或宏观政策重大转向
+  validation:
+    historical_hit_rate: pending-m1
+    applicable_regime: null
+    known_failures: []
+    confidence_indicators:
+    - 多个独立数据源交叉验证
+    - 板块内多只个股联动
+    - 机构研报密集覆盖
+    - 成交量持续放大
   examples:
   - pattern_id: leverage_low_freq_heavy_position
     name: 杠杆资金低频重仓策略
@@ -2265,6 +2289,11 @@ patterns:
 - pattern_id: others
   name: 其他独立分析框架
   description: 当用户询问无法归入上述九大框架的独立分析场景时使用，包括行业估值比较（PE/PB体系）、板块拥挤度分析、外盘联动风险、新股上市影响、特殊政策解读、非周期非AI的独立事件分析等。该框架先识别特殊信号、分析影响与机会、制定应对方案，作为通用补充分析路径。
+  trigger:
+  - 出现极端盘面信号（连续跌停、无量涨停、天地板等）
+  - 行业估值比较（PE/PB体系）或板块拥挤度极端分化
+  - 外盘联动风险事件（美股大跌、海外政策突变）
+  - 新股上市、特殊政策等非周期非AI的独立事件
   source_raw:
   - sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
   - sources/raw/财经/复盘：26-03-16：4050三次长下影强支撑，存储领涨，明日中阳预期，OFC三大MSA.md
@@ -2279,44 +2308,54 @@ patterns:
   - 美股风险预警
   - 行业比较分析
   - 资源涨价
-  reasoning_chain:
+  data_requirements:
+  - name: 极端行情信号
+    channel: 行情数据（涨跌停/成交量异常/估值分位数）
+  - name: 供应链与产业消息
+    channel: 新闻 / 供应链消息
+  - name: 历史类似案例
+    channel: knowledge/cases（案例库）/ 历史行情
+  - name: 情绪与资金数据
+    channel: 行情数据（市场情绪指标/资金流向）
+  - name: 个人持仓与风险预算
+    channel: config/stock_monitor/positions.yaml（本地私有，不进 git）
+  steps:
   - step: 1
     name: 识别特殊信号
     question: 是否出现极端或特殊的market signal？
-    UP_logic: 关注极端信号（如连续跌停、无量涨停、天地板）和特殊结构（如供应链瓶颈、估值极端分化）。
-    evidence_sources:
-    - 涨跌停数据
-    - 成交量异常
-    - 估值分位数
-    - 供应链消息
+    action: 筛查极端信号（连续跌停、无量涨停、天地板）与特殊结构（供应链瓶颈、估值极端分化）
+    data:
+    - 极端行情信号
+    - 供应链与产业消息
   - step: 2
     name: 分析影响与机会
     question: 该信号带来什么风险或机会？
-    UP_logic: 极端信号通常意味着转折点。风险信号需规避，机会信号需验证后参与。
-    evidence_sources:
+    action: 极端信号按转折点候选对待：风险信号先规避，机会信号对照历史类似案例验证后再参与
+    data:
     - 历史类似案例
-    - 市场情绪
-    - 资金流向
-    - 催化事件
+    - 情绪与资金数据
   - step: 3
     name: 制定应对方案
     question: 如何应对或利用该信号？
-    UP_logic: 风险信号：减仓或空仓。机会信号：小仓位试错，确认后加仓。
-    evidence_sources:
-    - 个人仓位
-    - 风险承受能力
-    - 市场阶段
-    - 信号持续性
-  risk_factors:
-  - 大盘系统性风险
-  - 宏观政策重大转向
-  - 产业逻辑被证伪
-  - 情绪退潮导致板块联动失效
-  confidence_indicators:
-  - 多个独立数据源交叉验证
-  - 板块内多只个股联动
-  - 机构研报密集覆盖
-  - 成交量持续放大
+    action: 风险信号对应减仓或空仓；机会信号小仓位试错、确认后加仓，仓位按 operation_strategy 框架的公式与上限执行
+    data:
+    - 个人持仓与风险预算
+    - 情绪与资金数据
+  falsification:
+  - 极端信号后无转折、沿原方向延续（信号证伪）
+  - 历史案例对照失效（结构条件不同）
+  - 大盘系统性破位下行或宏观政策重大转向
+  - 板块情绪退潮：核心标的放量滞涨、联动失效
+  validation:
+    historical_hit_rate: pending-m1
+    applicable_regime: null
+    known_failures:
+    - 极端信号的解读部分依赖信息层与主观经验，无法完全客观化，待能力边界标注
+    confidence_indicators:
+    - 多个独立数据源交叉验证
+    - 板块内多只个股联动
+    - 机构研报密集覆盖
+    - 成交量持续放大
   examples:
   - pattern_id: extreme_signal_risk_evasion
     name: 极端信号叠加风险规避
