@@ -62,8 +62,10 @@
 | T12 | 历史区间数据访问（`backtest/history.py`） | ✅ a674938 | 8 passed（含引擎行为测试） |
 | T13 | 命中率统计（`backtest/hit_rate.py`） | ✅ 250d327 | 5 passed |
 | T14 | 回测 CLI `scripts/backtest_buy_signals.py` | ✅ 3c3adfc | 合成数据 e2e 跑通（signals=0 合法，stats 含 5/10/20） |
-| T15 | 真实数据回测 + validation 回填 + `logs/m0-acceptance.md` | ✅ 1f243f5 | 缓存为空如实记录（n=0）；分支 501 passed/4 failed 全是基线已存在失败 |
+| T15 | 真实数据回测 + validation 回填 + `logs/m0-acceptance.md` | ✅ 1f243f5 + 修复commit | 当日缓存为空如实记录；晚间回填缓存后修复 4 个链路 bug，真实回测 1507 信号、5日命中率 51.8%（n=1403），validation 已回填 |
 | — | 最终自查（对照计划"自查记录"节） | ✅ | tests/investment_engine 54 passed；全仓无回归（失败集⊆基线） |
+
+**T15 后续（2026-08-08 晚）**：用户确认拉取 K 线（FORCE_KLINE_FETCH=1，217/217 成功）；回填后发现并修复 4 个 bug（缓存带后缀代码、quote code/secid 契约、alert 裸码提取、前向区间缺失），真实回测跑出命中率并回填 technical_timing/operation_strategy 的 validation，验收报告修订为 ✅。详见 logs/m0-acceptance.md。
 
 **T5 执行备注**：SKIP_WORDS 去掉 `催化`（误杀方向一赛道一标题"IPO催化弹性最大"），新增 `博主`/`视角`（跳过方法论映射与Token经济学视角噪声章节）；改动随 T5 commit。
 

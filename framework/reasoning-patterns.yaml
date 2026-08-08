@@ -1776,7 +1776,8 @@ patterns:
   - 大盘系统性破位下行或宏观政策重大转向
   - 板块情绪退潮：核心标的放量滞涨、联动失效
   validation:
-    historical_hit_rate: pending-m1
+    historical_hit_rate: 0.5182
+    hit_rate_note: 买入信号引擎离线回测实测（logs/backtest_buy_signals_20260808.md）——5日前向命中率51.8%（n=1403）、10日53.4%（n=1279）、20日47.9%（n=1070），窗口2026-04-27~2026-08-07，标的池212只；引擎内部缩量/MA20条件读取缓存最新窗口而非信号日（qing_investment未改），结果为近似
     applicable_regime: null
     known_failures: []
     confidence_indicators:
@@ -2230,7 +2231,8 @@ patterns:
   - 组合月回撤 ≥10%（触发熔断，强制减半）
   - 大盘系统性破位下行或宏观政策重大转向
   validation:
-    historical_hit_rate: pending-m1
+    historical_hit_rate: 0.5182
+    hit_rate_note: 买入信号引擎离线回测实测（logs/backtest_buy_signals_20260808.md）——5日前向命中率51.8%（n=1403）、10日53.4%（n=1279）、20日47.9%（n=1070），窗口2026-04-27~2026-08-07，标的池212只；引擎内部缩量/MA20条件读取缓存最新窗口而非信号日（qing_investment未改），结果为近似
     applicable_regime: null
     known_failures: []
     confidence_indicators:

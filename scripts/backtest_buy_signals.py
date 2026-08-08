@@ -82,12 +82,12 @@ def run_backtest(
             continue
         alerts = engine.evaluate(config, build_quote_snapshot(quotes))
         for alert in alerts:
-            bare = alert.stock_code.split(".")[-1]
-            klines = kline_map.get(bare)
+            # alert.stock_code 来自配置（'002371.SZ' 或裸码 '002371'），取首段为裸码
+            bare = alert.stock_code.split(".")[0]
+            # 前向收益需要信号日之后的数据：kline_map 只到当日，须另取前向区间
+            klines = get_klines_range(bare, day, end, db_path)
             if not klines:
-                # 信号票的前向收益需要完整区间，单独取
-                full = get_klines_range(bare, day, end, db_path)
-                klines = (kline_map.get(bare) or []) + full
+                klines = kline_map.get(bare) or []
             records.append({
                 "code": alert.stock_code,
                 "name": alert.stock_name,

@@ -1,9 +1,11 @@
 """按日期区间的历史数据访问（kline_cache 只支持"最近 N 日"，这里补区间查询）。
 
 读路径纯 SQLite，无网络，可完全离线回放。
-quote 字段契约对齐 monitor/tests/test_e2e.py 的 mock_quote_snapshot：
-{"code": "1.600519"(secid), "name", "latest", "open", "high", "low",
- "volume", "amount", "pct_change", "turnover_rate"}。
+quote 字段契约对齐生产 fetcher（monitor/fetchers/__init__.py，东财/腾讯）：
+{"code": "600519"(裸码), "secid": "1.600519", "name", "latest", "open", "high",
+ "low", "volume", "amount", "pct_change", "turnover_rate"}。
+（monitor/tests/test_e2e.py 的 mock 把 secid 塞进 code 且无 secid 字段，
+会导致 _quote_for_stock 匹配失败——以生产 fetcher 为准。）
 """
 from __future__ import annotations
 
@@ -26,14 +28,18 @@ def _connect(db_path: Path | None) -> sqlite3.Connection:
 def get_klines_range(
     code: str, start: str, end: str, db_path: Path | None = None
 ) -> list[dict]:
-    """按日期区间取日 K（含首尾），date 升序。code 用缓存里的裸码（'002371'）。"""
+    """按日期区间取日 K（含首尾），date 升序。
+
+    code 传裸码（'002371'）或带后缀（'002371.SZ'）均可；缓存里两种格式
+    并存（pre_fetch 写 '000636.SZ'，早期写入为裸码），查询同时兼容。
+    """
     bare = code.split(".")[0]
     sql = (
         f"SELECT {_KLINE_COLS} FROM stocks_kline "
-        "WHERE code = ? AND trade_date BETWEEN ? AND ? ORDER BY trade_date"
+        "WHERE (code = ? OR code LIKE ?) AND trade_date BETWEEN ? AND ? ORDER BY trade_date"
     )
     with _connect(db_path) as conn:
-        rows = conn.execute(sql, (bare, start, end)).fetchall()
+        rows = conn.execute(sql, (bare, f"{bare}.%", start, end)).fetchall()
     return [dict(r) for r in rows]
 
 
@@ -45,10 +51,21 @@ def list_trading_days(start: str, end: str, db_path: Path | None = None) -> list
 
 
 def coverage(db_path: Path | None = None) -> dict[str, tuple[str, str]]:
-    """各标的缓存日期范围 {code: (min_date, max_date)}。"""
+    """各标的缓存日期范围 {bare_code: (min_date, max_date)}。
+
+    键统一为裸码（'002371'）；缓存里 '002371' 与 '002371.SZ' 并存时合并取首尾。
+    """
     sql = "SELECT code, MIN(trade_date), MAX(trade_date) FROM stocks_kline GROUP BY code"
+    cov: dict[str, tuple[str, str]] = {}
     with _connect(db_path) as conn:
-        return {r[0]: (r[1], r[2]) for r in conn.execute(sql).fetchall()}
+        for code, lo, hi in conn.execute(sql).fetchall():
+            bare = str(code).split(".")[0]
+            if bare in cov:
+                old_lo, old_hi = cov[bare]
+                cov[bare] = (min(old_lo, lo), max(old_hi, hi))
+            else:
+                cov[bare] = (lo, hi)
+    return cov
 
 
 def _secid(code: str) -> str:
@@ -59,9 +76,15 @@ def _secid(code: str) -> str:
 
 
 def quote_from_kline(code: str, name: str, kline: dict) -> dict:
-    """由单日 K 线重建规则引擎可消费的 quote 条目。"""
+    """由单日 K 线重建规则引擎可消费的 quote 条目。
+
+    契约对齐生产 fetcher（monitor/fetchers/__init__.py）：code=裸 6 位代码，
+    secid='市场.代码'。引擎 _quote_for_stock 靠 code 精确/标准化匹配 + secid 回退，
+    只给 secid 形式的 code 会匹配不上 stock_pool 的 '000636.SZ'。
+    """
     return {
-        "code": _secid(code),
+        "code": code.split(".")[0],
+        "secid": _secid(code),
         "name": name,
         "latest": kline["close"],
         "open": kline["open"],
