@@ -22,8 +22,9 @@
   - `896d737` feat: T2 chain.yaml 校验器（9 passed）
   - `9e2f0e5` feat: T3 知识库读写层（8 passed）
   - `a7085e3` feat: T4 深度研究 md 解析器（12 passed）
+  - `5b462d6` feat: T5 迁移 3 篇深度研究入产业链知识库
 - **工作区**：干净（`git status --short` 无输出）
-- **进度**：T1–T5 ✅ 完成；T6–T15 未开始；最终 code review 未做
+- **进度**：T1–T6 ✅ 完成；T7–T15 未开始；最终 code review 未做
 
 ## 三、执行约束（用户明确指令，必须遵守）
 
@@ -41,9 +42,9 @@
 | T2 | chain.yaml 校验器（`industry_chain/schema.py`） | ✅ 896d737 | 9 passed |
 | T3 | 知识库读写层（`industry_chain/store.py`） | ✅ 9e2f0e5 | 8 passed |
 | T4 | 深度研究 md 解析器（`industry_chain/migrate.py`） | ✅ a7085e3 | 12 passed |
-| T5 | 迁移 CLI + 3 篇迁移入 `knowledge/industry-chains/` | ✅ | 43/51/35 mappings，抽查兆易创新/北方华创/雅克科技与原文一致 |
-| T6 | 来源中立模式校验器（`distill/pattern_schema.py`） | ⬜ 下一个 | 10 passed + commit |
-| T7 | 备份 + upstream_cycle 改写 | ⬜ | patterns[0] 过校验 + commit |
+| T5 | 迁移 CLI + 3 篇迁移入 `knowledge/industry-chains/` | ✅ 5b462d6 | 43/51/35 mappings，抽查兆易创新/北方华创/雅克科技与原文一致 |
+| T6 | 来源中立模式校验器（`distill/pattern_schema.py`） | ✅ | 10 passed |
+| T7 | 备份 + upstream_cycle 改写 | ⬜ 下一个 | patterns[0] 过校验 + commit |
 | T8 | mainline/rotation/macro 三框架改写 | ⬜ | patterns[1-3] 过校验 + commit |
 | T9 | sentiment/technical/earnings 三框架改写 | ⬜ | patterns[4-6] 过校验 + commit |
 | T10 | ai_industry/operation/others 改写 + 全量校验 + version 3.0 | ⬜ | 10 框架全过校验 |
