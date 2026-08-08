@@ -92,3 +92,22 @@ class TestRunReplay:
         stats = run_replay(["2026-06-01", "2026-06-02"], config_dir="x", out_path=out)
         assert stats["skipped"] == 1 and stats["done"] == 1
         assert len(calls) == 1  # 只跑了新的一天
+
+    def test_error_days_are_retried(self, tmp_path, monkeypatch):
+        """error 行不算完成，重跑时必须重试。"""
+        out = tmp_path / "results.jsonl"
+        out.write_text(
+            json.dumps({"date": "2026-06-01", "ok": False, "error": "boom"}) + "\n",
+            encoding="utf-8",
+        )
+        monkeypatch.setattr(
+            "investment_engine.blindtest.replay.pack_to_prompt", lambda pack: pack
+        )
+        monkeypatch.setattr(
+            "investment_engine.blindtest.replay.build_daily_pack", lambda day, **kw: "PACK"
+        )
+        monkeypatch.setattr(
+            "investment_engine.blindtest.replay.call_deepseek", lambda m, **kw: GOOD_JSON
+        )
+        stats = run_replay(["2026-06-01"], config_dir="x", out_path=out)
+        assert stats == {"done": 1, "skipped": 0, "error": 0}

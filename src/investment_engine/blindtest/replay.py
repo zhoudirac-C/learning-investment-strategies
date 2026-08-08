@@ -36,7 +36,8 @@ def build_messages(pack_text: str) -> list[dict]:
 def _default_client():
     from openai import OpenAI
 
-    key = os.environ.get("DEEPSEEK_API_KEY")
+    # 兼容仓库 .env 的小写命名（qing_investment Settings 用 deepseek_api_key）
+    key = os.environ.get("DEEPSEEK_API_KEY") or os.environ.get("deepseek_api_key")
     if not key:
         raise RuntimeError("缺少 DEEPSEEK_API_KEY 环境变量")
     return OpenAI(api_key=key, base_url=_BASE_URL)
@@ -93,14 +94,17 @@ def parse_result(raw: str) -> dict:
 
 
 def _done_dates(out_path: Path) -> set[str]:
+    """断点续跑：只把成功（ok=True）的日期视为已完成；error 日期会重跑。"""
     if not out_path.exists():
         return set()
     done = set()
     for line in out_path.read_text(encoding="utf-8").splitlines():
         try:
-            done.add(json.loads(line)["date"])
-        except (json.JSONDecodeError, KeyError):
+            row = json.loads(line)
+        except json.JSONDecodeError:
             continue
+        if row.get("ok"):
+            done.add(row["date"])
     return done
 
 
