@@ -28,8 +28,9 @@
   - `7cf1c6b` refactor: T8 mainline/rotation/macro 三框架改写（patterns[1-3] 过校验）
   - `c66220e` refactor: T9 sentiment/technical/earnings 三框架改写（patterns[4-6] 过校验）
   - `329bea9` refactor: T10 ai_industry/operation/others 改写（10 框架全过校验，version 3.0）
+  - `9c59264` docs: T11 UP 术语词典（10 术语核对无冲突）
 - **工作区**：干净（`git status --short` 无输出）
-- **进度**：T1–T11 ✅ 完成；T12–T15 未开始；最终 code review 未做
+- **进度**：T1–T12 ✅ 完成；T13–T15 未开始；最终 code review 未做
 
 ## 三、执行约束（用户明确指令，必须遵守）
 
@@ -53,9 +54,9 @@
 | T8 | mainline/rotation/macro 三框架改写 | ✅ 7cf1c6b | patterns[1-3] 过校验 |
 | T9 | sentiment/technical/earnings 三框架改写 | ✅ c66220e | patterns[4-6] 过校验 |
 | T10 | ai_industry/operation/others 改写 + 全量校验 + version 3.0 | ✅ 329bea9 | 10 框架全过校验，version 3.0-source-neutral |
-| T11 | UP 术语词典 `framework/up-glossary.md` | ✅ | 10 术语与 market-cycle/sector-diffusion 原文用法核对无冲突 |
-| T12 | 历史区间数据访问（`backtest/history.py`） | ⬜ 下一个 | 9 passed + commit |
-| T13 | 命中率统计（`backtest/hit_rate.py`） | ⬜ | 5 passed + commit |
+| T11 | UP 术语词典 `framework/up-glossary.md` | ✅ 9c59264 | 10 术语与 market-cycle/sector-diffusion 原文用法核对无冲突 |
+| T12 | 历史区间数据访问（`backtest/history.py`） | ✅ | 8 passed（含引擎行为测试） |
+| T13 | 命中率统计（`backtest/hit_rate.py`） | ⬜ 下一个 | 5 passed + commit |
 | T14 | 回测 CLI `scripts/backtest_buy_signals.py` | ⬜ | 合成数据 e2e 跑通 + commit |
 | T15 | 真实数据回测 + validation 回填 + `logs/m0-acceptance.md` | ⬜ | 验收报告 + 全量回归绿 |
 | — | 最终自查（对照计划"自查记录"节） | ⬜ | 全部测试绿 |
