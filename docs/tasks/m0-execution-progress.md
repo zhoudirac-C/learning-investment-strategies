@@ -31,8 +31,9 @@
   - `9c59264` docs: T11 UP 术语词典（10 术语核对无冲突）
   - `a674938` feat: T12 历史区间数据访问（8 passed）
   - `250d327` feat: T13 命中率统计（5 passed）
+  - `3c3adfc` feat: T14 回测 CLI（合成数据 e2e 跑通）
 - **工作区**：干净（`git status --short` 无输出）
-- **进度**：T1–T14 ✅ 完成；T15 未开始；最终 code review 未做
+- **进度**：T1–T15 ✅ 全部完成；最终自查 ✅（M0 收官）
 
 ## 三、执行约束（用户明确指令，必须遵守）
 
@@ -59,9 +60,9 @@
 | T11 | UP 术语词典 `framework/up-glossary.md` | ✅ 9c59264 | 10 术语与 market-cycle/sector-diffusion 原文用法核对无冲突 |
 | T12 | 历史区间数据访问（`backtest/history.py`） | ✅ a674938 | 8 passed（含引擎行为测试） |
 | T13 | 命中率统计（`backtest/hit_rate.py`） | ✅ 250d327 | 5 passed |
-| T14 | 回测 CLI `scripts/backtest_buy_signals.py` | ✅ | 合成数据 e2e 跑通（signals=0 合法，stats 含 5/10/20） |
-| T15 | 真实数据回测 + validation 回填 + `logs/m0-acceptance.md` | ⬜ 下一个 | 验收报告 + 全量回归绿 |
-| — | 最终自查（对照计划"自查记录"节） | ⬜ | 全部测试绿 |
+| T14 | 回测 CLI `scripts/backtest_buy_signals.py` | ✅ 3c3adfc | 合成数据 e2e 跑通（signals=0 合法，stats 含 5/10/20） |
+| T15 | 真实数据回测 + validation 回填 + `logs/m0-acceptance.md` | ✅ | 缓存为空如实记录（n=0）；分支 501 passed/4 failed 全是基线已存在失败 |
+| — | 最终自查（对照计划"自查记录"节） | ✅ | tests/investment_engine 54 passed；全仓无回归（失败集⊆基线） |
 
 **T5 执行备注**：SKIP_WORDS 去掉 `催化`（误杀方向一赛道一标题"IPO催化弹性最大"），新增 `博主`/`视角`（跳过方法论映射与Token经济学视角噪声章节）；改动随 T5 commit。
 
