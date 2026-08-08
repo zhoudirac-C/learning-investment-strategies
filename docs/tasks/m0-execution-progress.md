@@ -19,8 +19,9 @@
 - **已完成 commit**：
   - `12681b4` docs: 方案 v2.1 + M0 实施计划（基线）
   - `5bb249a` feat: T1 包骨架 + 冒烟测试（2 passed）
+  - `e1d985c` feat: T2 chain.yaml 校验器（9 passed）
 - **工作区**：干净（`git status --short` 无输出）
-- **进度**：T1 ✅ 完成；T2–T15 未开始；最终 code review 未做
+- **进度**：T1–T2 ✅ 完成；T3–T15 未开始；最终 code review 未做
 
 ## 三、执行约束（用户明确指令，必须遵守）
 
@@ -35,8 +36,8 @@
 | # | 任务 | 状态 | 完成判据（详见计划文件对应 Task） |
 |---|---|---|---|
 | T1 | 包骨架+冒烟测试 | ✅ 5bb249a | 2 passed |
-| T2 | chain.yaml 校验器（`industry_chain/schema.py`） | ⬜ 下一个 | 9 passed + commit |
-| T3 | 知识库读写层（`industry_chain/store.py`） | ⬜ | 8 passed + commit |
+| T2 | chain.yaml 校验器（`industry_chain/schema.py`） | ✅ e1d985c | 9 passed |
+| T3 | 知识库读写层（`industry_chain/store.py`） | ⬜ 下一个 | 8 passed + commit |
 | T4 | 深度研究 md 解析器（`industry_chain/migrate.py`） | ⬜ | 10 passed + commit |
 | T5 | 迁移 CLI + 3 篇迁移入 `knowledge/industry-chains/` | ⬜ | dry-run mappings>0 → 正式迁移 → 人工抽查 3 标的 |
 | T6 | 来源中立模式校验器（`distill/pattern_schema.py`） | ⬜ | 10 passed + commit |
