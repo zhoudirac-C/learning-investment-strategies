@@ -75,6 +75,18 @@ def test_apply_skips_pattern_with_real_rate(tmp_path):
     assert doc["patterns"][1]["validation"]["historical_hit_rate"] == 0.5182
 
 
+def test_apply_preserves_untouched_null_scalars(tmp_path):
+    """未触碰模式的 "applicable_regime: null" 不得被归一成空值键（diff 纯净）。"""
+    import re
+    patterns_path, proposal_path = _write(tmp_path, [_change("sector_rotation", 0.62)])
+    apply_proposal(proposal_path, patterns_path=patterns_path)
+    text = patterns_path.read_text(encoding="utf-8")
+    assert "applicable_regime: null" in text  # technical_timing 块保持显式 null
+    # 无裸空值键残留（行尾结束且下一行不是更深的缩进块）
+    assert not re.search(r"^(\s+)applicable_regime:[ \t]*$(?!\n\1[ \t])",
+                         text, flags=re.MULTILINE)
+
+
 def test_apply_rejects_unknown_pattern(tmp_path):
     patterns_path, proposal_path = _write(tmp_path, [_change("no_such", 0.5)])
     with pytest.raises(ValueError, match="no_such"):
@@ -102,3 +114,17 @@ def test_dry_run_does_not_write(tmp_path):
     report = apply_proposal(proposal_path, patterns_path=patterns_path, dry_run=True)
     assert report["applied"] == ["sector_rotation"]
     assert patterns_path.read_text(encoding="utf-8") == PATTERNS_YAML
+
+
+def test_apply_preserves_untouched_long_lines(tmp_path):
+    """ruamel 默认 width=80 会折叠长标量产生大面积无关 diff，必须禁止（回归）。"""
+    long_line = "  description: " + "很长的描述" * 60  # > 80 列
+    patterns_path = tmp_path / "patterns.yaml"
+    patterns_path.write_text(PATTERNS_YAML.replace("  description: d", long_line, 1),
+                             encoding="utf-8")
+    proposal_path = tmp_path / "proposal.yaml"
+    proposal_path.write_text(yaml.safe_dump(
+        {"proposal_id": "t2", "changes": [_change("sector_rotation", 0.62)]},
+        allow_unicode=True), encoding="utf-8")
+    apply_proposal(proposal_path, patterns_path=patterns_path)
+    assert long_line in patterns_path.read_text(encoding="utf-8")

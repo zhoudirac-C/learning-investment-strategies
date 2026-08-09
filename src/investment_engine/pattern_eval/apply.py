@@ -1,6 +1,8 @@
 """提案执行器：结构 fail-fast → 当前值守卫（幂等）→ 应用 → 整文件再校验（ruamel 保格式）。"""
 from __future__ import annotations
 
+import io
+import re
 from pathlib import Path
 
 import yaml
@@ -37,6 +39,7 @@ def apply_proposal(proposal_path, *, patterns_path, dry_run: bool = False) -> di
     proposal = yaml.safe_load(Path(proposal_path).read_text(encoding="utf-8"))
     patterns_file = Path(patterns_path)
     rt = YAML()  # round-trip 模式，保留未触碰部分的原始格式
+    rt.width = 4096  # 禁止折叠长行，避免无关 diff
     doc = rt.load(patterns_file.read_text(encoding="utf-8"))
     validate_patterns_file(doc)  # 应用前整文件校验
 
@@ -69,6 +72,13 @@ def apply_proposal(proposal_path, *, patterns_path, dry_run: bool = False) -> di
 
     if not dry_run and report["applied"]:
         validate_patterns_file(doc)  # 应用后整文件校验，失败不落盘
-        with patterns_file.open("w", encoding="utf-8") as f:
-            rt.dump(doc, f)
+        buf = io.StringIO()
+        rt.dump(doc, buf)
+        # ruamel dump 会把未触碰的 "applicable_regime: null" 归一成空值键，
+        # 还原为显式 null，保证 diff 只含被修改的块（语义等价，纯格式还原）；
+        # 负向前瞻排除已写入嵌套映射的被修改块
+        text = re.sub(r"^(\s+)applicable_regime:[ \t]*$(?!\n\1[ \t])",
+                      r"\1applicable_regime: null", buf.getvalue(),
+                      flags=re.MULTILINE)
+        patterns_file.write_text(text, encoding="utf-8")
     return report
