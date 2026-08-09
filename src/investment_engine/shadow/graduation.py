@@ -92,3 +92,57 @@ def judge(stats: dict, *, weeks: int, covered_weeks: int) -> str:
     stage_ok = (stats["stage"]["rate"] or 0) >= STAGE_LINE
     dir_ok = (stats["direction"]["rate"] or 0) >= DIRECTION_LINE
     return VERDICT_GRADUATED if (stage_ok and dir_ok) else VERDICT_NOT_YET
+
+
+def _fmt(m: dict) -> str:
+    return "n=0" if m["n"] == 0 else f"{m['rate']:.1%}（n={m['n']}）"
+
+
+def render_report(*, run_date: date, weeks: int, window_start: date,
+                  stats: dict, weekly: list[dict], verdict: str,
+                  skipped: int) -> str:
+    lines = [
+        f"# 毕业判定报告（{run_date}）",
+        "",
+        f"- 窗口: 最近 {weeks} 个自然周（{window_start} 起），覆盖 {len(weekly)} 周",
+        f"- 阶段一致率: {_fmt(stats['stage'])}（毕业线 {STAGE_LINE:.0%}）",
+        f"- 方向 5 日超额命中率: {_fmt(stats['direction'])}（毕业线 {DIRECTION_LINE:.0%}）",
+        f"- **verdict: {verdict}**",
+        "",
+        "## 分周明细",
+        "",
+        "| 周起始 | 阶段一致率 | 方向超额 |",
+        "|---|---|---|",
+    ]
+    for w in weekly:
+        lines.append(
+            f"| {w['week_start']} | {_fmt(w['stage'])} | {_fmt(w['direction'])} |")
+    lines += [
+        "",
+        "## 说明",
+        "",
+        f"- {CRITERION3_NOTE}",
+        "- 口径: 影子双轨每日盲判数据（非 M1 历史回放）；跨日聚合分子分母，非日均值。",
+        f"- 解析跳过 {skipped} 条（坏 JSON 或缺 date）。",
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def run(pred_dir=PRED_DIR, *, weeks: int = DEFAULT_WEEKS,
+        out_dir=Path("logs"), today: date | None = None) -> Path:
+    """组合入口：读 → 窗口 → 聚合 → 判定 → 写 logs/graduation-<run_date>.md。"""
+    run_date = today or date.today()
+    records, skipped = load_records(pred_dir)
+    win = window_records(records, weeks=weeks, today=run_date)
+    stats = aggregate(win)
+    weekly = weekly_breakdown(win)
+    verdict = judge(stats, weeks=weeks, covered_weeks=len(weekly))
+    window_start = _monday(run_date) - timedelta(weeks=weeks - 1)
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / f"graduation-{run_date.isoformat()}.md"
+    path.write_text(render_report(run_date=run_date, weeks=weeks,
+                                  window_start=window_start, stats=stats,
+                                  weekly=weekly, verdict=verdict,
+                                  skipped=skipped), encoding="utf-8")
+    return path
