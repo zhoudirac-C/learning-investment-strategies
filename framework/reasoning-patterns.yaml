@@ -1,8 +1,7 @@
 updated_at: '2026-08-08'
 version: 3.0-source-neutral
 merge_note: 将116个单raw模式聚合为10个通用推理框架，并优化description以支持语义匹配
-distill_note: v3.0 来源中立改写（v2.1 引擎⓪）——trigger/steps/falsification 不含 UP 指称，
-  validation 区块随回测与盲测回填；UP 锚定版备份见 reasoning-patterns-v2.1-up-anchored.yaml。
+distill_note: v3.0 来源中立改写（v2.1 引擎⓪）——trigger/steps/falsification 不含 UP 指称， validation 区块随回测与盲测回填；UP 锚定版备份见 reasoning-patterns-v2.1-up-anchored.yaml。
 patterns:
 - pattern_id: upstream_cycle
   name: 上游涨价周期分析框架
@@ -136,8 +135,11 @@ patterns:
   - 大盘系统性破位下行或宏观流动性/产业政策重大转向
   - 板块核心标的放量滞涨、联动失效（情绪退潮）
   validation:
-    historical_hit_rate: pending-m1
-    applicable_regime: null
+    historical_hit_rate: 0.5667
+    applicable_regime:
+      主升: 1.0
+      震荡: 1.0
+      调整: 0.3333
     known_failures: []
     confidence_indicators:
     - 多个独立数据源交叉验证
@@ -544,8 +546,11 @@ patterns:
   - 主线产业逻辑被证伪（景气数据反转、核心公司业绩暴雷）
   - 板块情绪退潮：核心标的放量滞涨、板块联动失效
   validation:
-    historical_hit_rate: pending-m1
-    applicable_regime: null
+    historical_hit_rate: 0.6562
+    applicable_regime:
+      主升: 0.6
+      震荡: 0.6667
+      调整: 0.6667
     known_failures: []
     confidence_indicators:
     - 多个独立数据源交叉验证
@@ -1002,8 +1007,12 @@ patterns:
   - 大盘系统性破位下行或宏观政策重大转向
   - 板块情绪退潮：核心标的放量滞涨、联动失效
   validation:
-    historical_hit_rate: pending-m1
-    applicable_regime: null
+    historical_hit_rate: 0.6188
+    applicable_regime:
+      主升: 0.4545
+      震荡: 0.5714
+      调整: 0.8333
+      恐慌: 0.6667
     known_failures: []
     confidence_indicators:
     - 多个独立数据源交叉验证
@@ -1581,8 +1590,11 @@ patterns:
   - 大盘系统性破位下行或宏观政策重大转向
   - 板块情绪退潮：核心标的放量滞涨、联动失效
   validation:
-    historical_hit_rate: pending-m1
-    applicable_regime: null
+    historical_hit_rate: 0.6429
+    applicable_regime:
+      震荡: 0.0
+      调整: 1.0
+      恐慌: 0.6667
     known_failures: []
     confidence_indicators:
     - 多个独立数据源交叉验证
@@ -2086,8 +2098,10 @@ patterns:
   - 大盘系统性破位下行或宏观政策重大转向
   - 板块情绪退潮：核心标的放量滞涨、联动失效
   validation:
-    historical_hit_rate: pending-m1
-    applicable_regime: null
+    historical_hit_rate: 0.3333
+    applicable_regime:
+      震荡: 1.0
+      调整: 0.0
     known_failures: []
     confidence_indicators:
     - 多个独立数据源交叉验证

@@ -1,0 +1,193 @@
+proposal_id: 20260809-pattern-validation-m1
+source: m1-blindtest
+generated_at: '2026-08-09T09:23:18'
+evidence:
+  window:
+    start: '2026-04-27'
+    end: '2026-08-07'
+    scored_days: 71
+  attribution: 使用归因（同日多模式共用，未隔离单模式贡献）；分母只含成功解析出该模式的日子，与 M1 总体口径（含无效日）不同
+  metrics:
+    upstream_cycle:
+      days_used: 13
+      stage:
+        rate: 0.8461538461538461
+        n: 13
+      direction:
+        rate: 0.5666666666666667
+        n: 30
+      stock:
+        rate: 0.6
+        n: 60
+      regime:
+        主升:
+          rate: 1.0
+          n: 1
+        震荡:
+          rate: 1.0
+          n: 9
+        调整:
+          rate: 0.3333333333333333
+          n: 3
+      primary_metric: direction
+      bucket: 待观察
+    mainline_identification:
+      days_used: 34
+      stage:
+        rate: 0.6470588235294118
+        n: 34
+      direction:
+        rate: 0.65625
+        n: 96
+      stock:
+        rate: 0.5833333333333334
+        n: 192
+      regime:
+        主升:
+          rate: 0.6
+          n: 10
+        震荡:
+          rate: 0.6666666666666666
+          n: 18
+        调整:
+          rate: 0.6666666666666666
+          n: 6
+      primary_metric: direction
+      bucket: 达标
+    sector_rotation:
+      days_used: 66
+      stage:
+        rate: 0.6515151515151515
+        n: 66
+      direction:
+        rate: 0.61875
+        n: 160
+      stock:
+        rate: 0.575
+        n: 320
+      regime:
+        主升:
+          rate: 0.45454545454545453
+          n: 11
+        震荡:
+          rate: 0.5714285714285714
+          n: 28
+        调整:
+          rate: 0.8333333333333334
+          n: 24
+        恐慌:
+          rate: 0.6666666666666666
+          n: 3
+      primary_metric: direction
+      bucket: 达标
+    macro_transmission:
+      bucket: unused
+      note: m1 未使用
+    sentiment_cycle:
+      days_used: 14
+      stage:
+        rate: 0.6428571428571429
+        n: 14
+      direction:
+        rate: 0.5
+        n: 32
+      stock:
+        rate: 0.4375
+        n: 64
+      regime:
+        震荡:
+          rate: 0.0
+          n: 4
+        调整:
+          rate: 1.0
+          n: 7
+        恐慌:
+          rate: 0.6666666666666666
+          n: 3
+      primary_metric: stage
+      bucket: 待观察
+    technical_timing:
+      days_used: 12
+      stage:
+        rate: 0.75
+        n: 12
+      direction:
+        rate: 0.6
+        n: 25
+      stock:
+        rate: 0.58
+        n: 50
+      regime:
+        调整:
+          rate: 0.875
+          n: 8
+        震荡:
+          rate: 0.5
+          n: 4
+      primary_metric: stock
+      bucket: 达标
+    earnings_analysis:
+      bucket: unused
+      note: m1 未使用
+    ai_industry_chain:
+      days_used: 2
+      stage:
+        rate: 0.5
+        n: 2
+      direction:
+        rate: 0.16666666666666666
+        n: 6
+      stock:
+        rate: 0.3333333333333333
+        n: 12
+      regime:
+        震荡:
+          rate: 1.0
+          n: 1
+        调整:
+          rate: 0.0
+          n: 1
+      primary_metric: stock
+      bucket: 待观察
+    operation_strategy:
+      bucket: unused
+      note: m1 未使用
+    others:
+      bucket: unused
+      note: m1 未使用
+changes:
+- pattern_id: ai_industry_chain
+  set:
+    validation.historical_hit_rate: 0.3333
+    validation.applicable_regime:
+      震荡: 1.0
+      调整: 0.0
+- pattern_id: mainline_identification
+  set:
+    validation.historical_hit_rate: 0.6562
+    validation.applicable_regime:
+      主升: 0.6
+      震荡: 0.6667
+      调整: 0.6667
+- pattern_id: sector_rotation
+  set:
+    validation.historical_hit_rate: 0.6188
+    validation.applicable_regime:
+      主升: 0.4545
+      震荡: 0.5714
+      调整: 0.8333
+      恐慌: 0.6667
+- pattern_id: sentiment_cycle
+  set:
+    validation.historical_hit_rate: 0.6429
+    validation.applicable_regime:
+      震荡: 0.0
+      调整: 1.0
+      恐慌: 0.6667
+- pattern_id: upstream_cycle
+  set:
+    validation.historical_hit_rate: 0.5667
+    validation.applicable_regime:
+      主升: 1.0
+      震荡: 1.0
+      调整: 0.3333
