@@ -21,7 +21,7 @@
 
 - **K 线缓存** `infra/data/kline_cache.db`：217 只个股 + 2 指数，覆盖 2026-04-27 起，靠每日 cron 续拉保持连续
 - **盲测基线** `evals/blindtest/results.jsonl`：71 天（2026-04-27~08-07）历史回放，一次性产物
-- **影子数据** `evals/shadow/predictions/`：每日新增，毕业判定的数据源（当前 1 天）
+- **影子数据** `evals/shadow/predictions/`：每日新增，毕业判定的数据源（当前 2 天）
 - **推理模式库** `framework/reasoning-patterns.yaml`：validation 区块回填状态见上表 M3 前置
 
 ## 日常使用说明
@@ -31,11 +31,13 @@
 ```
 35 15 * * 1-5  pre_fetch_klines   # K 线续拉
 40 15 * * 1-5  shadow_daily       # 影子双轨日更（需 .env 里 deepseek_api_key）
+45 15 * * 1-5  kpl_daily_fetch    # KPL 情绪+资讯（需 .env 里 kpl_user_id/kpl_token/kpl_device_id）
 ```
 
-- 日志：`log/pre_fetch_klines.log`、`log/shadow_daily.log`
+- 日志：`log/pre_fetch_klines.log`、`log/shadow_daily.log`、`log/kpl_daily_fetch.log`
 - 运行态报告：`logs/shadow-status.md`（每日刷新，已入 git）
-- **这两条是本机测试用，云部署后必须注销**——注销命令与义务见 `docs/tasks/kline-daily-fetch-ops.md`
+- **这三条是本机测试用，云部署后必须注销**——注销命令与义务见 `docs/tasks/kline-daily-fetch-ops.md`
+- 小白向总览（架构/用法/数据源）：`docs/current-system-guide.md`
 
 ### 按需手动
 
@@ -80,5 +82,6 @@ PYTHONPATH=third_party/chanpy .venv/bin/pytest tests/ -q   # 全仓（当前 601
 
 ## 当前分支与推送状态
 
-- 全部工作在本地 `master`（领先 origin 48+ commit，**未 push**）
-- 云部署前需补：`.env`（deepseek_api_key）、hermes wrapper 架构、注销本机 cron
+- 全部工作在 `master`，**已与 origin 同步**（2026-08-10 推送）
+- 云部署前需补：`.env`（deepseek_api_key + kpl_user_id/kpl_token/kpl_device_id）、hermes wrapper 架构、注销本机 cron
+- 2026-08-10  cron EPERM 事故（疑 MDM 收回 ~/Documents 读权限）已通过「完全磁盘访问授权 /usr/sbin/cron」修复，排查顺序见 ops 文档
