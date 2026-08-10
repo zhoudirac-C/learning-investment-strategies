@@ -51,9 +51,10 @@ qing-learning 采用**双轨制**架构（市场认知层 vs 操作工具层）�
 
 ```
 qing-learning-review（只读）
-  → 输出：review 报告 + durable rule 候选列表
+  → 输出：review 报告 + durable rule 候选列表（按 A 操作纪律 / B 推理模式 分流标注）
   → 用户确认哪些规则写入 framework
-  → Agent 执行写入（patch trading-rules.md / market-cycle-framework.md / stock-analysis-playbook.md）
+  → A 类（操作纪律）：Agent 执行写入（patch trading-rules.md / market-cycle-framework.md / stock-analysis-playbook.md）
+  → B 类（推理模式）：生成 framework/proposals/ 提名提案（模板见 review skill Step 5），市场验证 + 人审后才入 reasoning-patterns.yaml
   → git add + git commit
 ```
 
@@ -65,6 +66,7 @@ qing-learning-review（只读）
 | 市场广度分析（多级别顶底+全A+微盘+情绪） | `framework/market-breadth-framework.md` |
 | 大盘分析方法论（完整 wiki） | `knowledge/wiki/投资方法论/大盘分析方法论.md` |
 | 个股分析 playbook | `framework/stock-analysis-playbook.md` |
+| 推理模式（分析/推导步骤） | ❌ 不直接写文件——生成 `framework/proposals/` 提名提案，市场验证 + 人审后入 `framework/reasoning-patterns.yaml` |
 
 **写入规范**：
 1. 先读取目标文件的完整内容（`read_file`，不用 offset/limit）
@@ -76,6 +78,7 @@ qing-learning-review（只读）
 **禁止**：
 - review skill 直接修改 framework 文件（违反只读职责）
 - 未确认就 commit（用户可能想先检查 diff）
+- 推理模式类规则直接写 framework/*.md 或 reasoning-patterns.yaml（必须走提案制，v2.1 对齐）
 - 用 offset/limit 读文件后 patch（warning 提示 partial view）
 
 ## 禁止事项
