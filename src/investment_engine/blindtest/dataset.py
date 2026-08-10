@@ -21,6 +21,10 @@ _STOCK_ZONE_DAYS = 20
 
 _REPO = Path(__file__).resolve().parents[3]
 
+KPL_ROOT = _REPO / "infra" / "data" / "kpl"
+_NEWS_TITLE_CAP = 60
+_LHB_ITEM_CAP = 20
+
 
 class LeakageError(ValueError):
     """数据包含未来信息或来源指称，禁止送入盲测 prompt。"""
@@ -102,7 +106,62 @@ def _load_glossary() -> str:
     return "\n".join(lines)
 
 
-def build_daily_pack(day: str, *, config_dir: Path, db_path=None) -> dict:
+def _load_emotion(day: str, kpl_root: Path) -> dict | None:
+    """KPL 情绪快照精选块；当日文件缺失返回 None。"""
+    path = kpl_root / "emotion" / f"{day}.json"
+    if not path.exists():
+        return None
+    d = json.loads(path.read_text(encoding="utf-8"))
+    out: dict = {}
+    if d.get("daban"):
+        out["daban"] = d["daban"]
+    if d.get("lianban"):
+        out["lianban"] = d["lianban"]
+    fengkou = [f["StockName"] for f in (d.get("fengkou") or [])
+               if isinstance(f, dict) and f.get("StockName")]
+    if fengkou:
+        out["fengkou_stocks"] = fengkou
+    bankuai = [[b[0], b[1]] for b in (d.get("bankuai") or [])
+               if isinstance(b, (list, tuple)) and len(b) >= 2]
+    if bankuai:
+        out["bankuai"] = bankuai
+    return out or None
+
+
+def _load_news_titles(day: str, kpl_root: Path) -> dict | None:
+    """当日资讯标题列表（不含全文），封顶 _NEWS_TITLE_CAP 条。"""
+    path = kpl_root / "news" / day / "index.json"
+    if not path.exists():
+        return None
+    items = json.loads(path.read_text(encoding="utf-8"))
+    titles = []
+    for it in items[:_NEWS_TITLE_CAP]:
+        stocks = []
+        for s in (it.get("stocks") or [])[:5]:
+            if isinstance(s, dict):
+                stocks.append(str(s.get("StockID") or s.get("Code") or s))
+            else:
+                stocks.append(str(s))
+        titles.append({"t": str(it.get("title", "")), "stocks": stocks})
+    out: dict = {"items": titles}
+    if len(items) > _NEWS_TITLE_CAP:
+        out["truncated"] = f"{_NEWS_TITLE_CAP}/{len(items)}"
+    return out
+
+
+def _load_lhb(day: str, kpl_root: Path) -> dict | None:
+    """龙虎榜摘要：披露日 + 上榜明细（封顶 _LHB_ITEM_CAP 条，字段透传）。"""
+    path = kpl_root / "lhb" / f"{day}.json"
+    if not path.exists():
+        return None
+    d = json.loads(path.read_text(encoding="utf-8"))
+    return {"disclosure_day": d.get("disclosure_day", ""),
+            "count": len(d.get("list") or []),
+            "items": (d.get("list") or [])[:_LHB_ITEM_CAP],
+            "note": d.get("note", "")}
+
+
+def build_daily_pack(day: str, *, config_dir: Path, db_path=None, kpl_root=None) -> dict:
     """组装某日数据包（只含截至当日的数据）。"""
     index = {}
     for code in INDEX_CODES:
@@ -128,7 +187,7 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None) -> dict:
             "turnover": last.get("turnover"), "pos20": _pos20(bars),
         })
 
-    return {
+    pack = {
         "date": day,
         "index": index,
         "stocks": stocks,
@@ -137,6 +196,17 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None) -> dict:
         "glossary": _load_glossary(),
         "patterns": _load_patterns_index(),
     }
+    root = Path(kpl_root) if kpl_root else KPL_ROOT
+    blocks = {"emotion": _load_emotion(day, root),
+              "news_titles": _load_news_titles(day, root),
+              "lhb": _load_lhb(day, root)}
+    missing = [f"kpl_{k}" for k, v in blocks.items() if v is None]
+    for k, v in blocks.items():
+        if v is not None:
+            pack[k] = v
+    if missing:
+        pack["missing"] = missing
+    return pack
 
 
 def pack_to_prompt(pack: dict) -> str:

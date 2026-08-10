@@ -1,4 +1,5 @@
 """每日数据包构建与防泄漏测试。"""
+import json
 import tempfile
 from pathlib import Path
 
@@ -78,3 +79,47 @@ class TestBuildDailyPack:
         pack = build_daily_pack("2026-06-15", config_dir=Path("config/stock_monitor"), db_path=self.db)
         text = pack_to_prompt(pack)
         assert_no_leakage(text, "2026-06-15")  # 自身产出必须过自家断言
+
+
+class TestKplBlocks:
+    def setup_method(self):
+        self.db = Path(tempfile.gettempdir()) / f"test_ds3_{id(self)}.db"
+        init_db(db_path=self.db)
+        save_klines("IDX000300", _klines("IDX000300", [4000.0 + i for i in range(30)]),
+                    db_path=self.db)
+        self.kpl = Path(tempfile.mkdtemp())
+        (self.kpl / "emotion").mkdir(parents=True)
+        (self.kpl / "news" / "2026-06-30").mkdir(parents=True)
+        (self.kpl / "lhb").mkdir(parents=True)
+        (self.kpl / "emotion" / "2026-06-30.json").write_text(json.dumps({
+            "daban": {"tZhangTing": 99, "tFengBan": 87.6},
+            "lianban": [["600664", "哈药股份", 9.94, 0, "2连板", "医药", "创新药;2"]],
+            "fengkou": [{"StockID": "002655", "StockName": "共达电声"}],
+            "bankuai": [["医药", "1.61", 801045]],
+        }, ensure_ascii=False), encoding="utf-8")
+        (self.kpl / "news" / "2026-06-30" / "index.json").write_text(json.dumps([
+            {"id": 1, "title": "测试资讯", "stocks": [{"StockID": "600664"}], "fetched": True},
+        ], ensure_ascii=False), encoding="utf-8")
+        (self.kpl / "lhb" / "2026-06-30.json").write_text(json.dumps({
+            "disclosure_day": "2026-06-30", "list": [{"StockID": "600664"}], "note": "",
+        }, ensure_ascii=False), encoding="utf-8")
+
+    def teardown_method(self):
+        self.db.unlink(missing_ok=True)
+
+    def test_blocks_present(self):
+        pack = build_daily_pack("2026-06-30", config_dir=Path("config/stock_monitor"),
+                                db_path=self.db, kpl_root=self.kpl)
+        assert pack["emotion"]["daban"]["tZhangTing"] == 99
+        assert pack["emotion"]["bankuai"] == [["医药", "1.61"]]
+        assert pack["emotion"]["fengkou_stocks"] == ["共达电声"]
+        assert pack["news_titles"]["items"][0]["stocks"] == ["600664"]
+        assert pack["lhb"]["count"] == 1
+        assert "missing" not in pack
+        pack_to_prompt(pack)  # 过防泄漏断言
+
+    def test_missing_blocks_annotated(self):
+        pack = build_daily_pack("2026-06-29", config_dir=Path("config/stock_monitor"),
+                                db_path=self.db, kpl_root=self.kpl)
+        assert pack["missing"] == ["kpl_emotion", "kpl_news_titles", "kpl_lhb"]
+        assert "emotion" not in pack
