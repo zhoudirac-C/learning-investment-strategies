@@ -17,6 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from investment_engine.shadow.daily import run
 from investment_engine.shadow.predict import has_fresh_data
+from investment_engine.shadow.status import write_status
 from qing_investment.kline_cache import init_db, save_klines
 from scripts.fetch_index_klines import INDEXES, fetch_index_tencent
 
@@ -52,6 +53,7 @@ def main(argv: list[str] | None = None) -> int:
 
     summary = run(args.date, config_dir=Path(args.config_dir), db_path=db)
     print("[daily]", summary)
+    print("[status]", write_status())
     return 0
 
 
