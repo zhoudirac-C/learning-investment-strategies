@@ -18,7 +18,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
 from qing_investment.kline_cache import init_db, save_klines
 
-INDEXES = {"IDX000300": "sh000300", "IDX000001": "sh000001"}  # 沪深300 / 上证指数
+INDEXES = {"IDX000300": "sh000300", "IDX000001": "sh000001",
+           "IDX399006": "sz399006", "IDX399001": "sz399001",
+           "IDX000852": "sh000852"}  # 沪深300 / 上证 / 创业板指 / 深成指 / 中证1000
 DAYS = 120
 
 

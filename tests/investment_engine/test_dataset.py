@@ -7,7 +7,8 @@ import pytest
 
 from qing_investment.kline_cache import init_db, save_klines
 from investment_engine.blindtest.dataset import (
-    LeakageError, assert_no_leakage, build_daily_pack, pack_to_prompt, trading_days,
+    INDEX_CODES, LeakageError, assert_no_leakage, build_daily_pack, pack_to_prompt,
+    trading_days,
 )
 
 
@@ -123,3 +124,8 @@ class TestKplBlocks:
                                 db_path=self.db, kpl_root=self.kpl)
         assert pack["missing"] == ["kpl_emotion", "kpl_news_titles", "kpl_lhb"]
         assert "emotion" not in pack
+
+
+def test_index_codes_expanded():
+    assert set(INDEX_CODES) == {"IDX000300", "IDX000001", "IDX399006",
+                                "IDX399001", "IDX000852"}

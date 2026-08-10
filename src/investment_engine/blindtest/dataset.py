@@ -15,7 +15,7 @@ from investment_engine.backtest.history import get_klines_range, list_trading_da
 
 FORBIDDEN_RE = re.compile(r"UP|青枫浦|博主")
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
-INDEX_CODES = ("IDX000300", "IDX000001")
+INDEX_CODES = ("IDX000300", "IDX000001", "IDX399006", "IDX399001", "IDX000852")
 _INDEX_LOOKBACK = 60
 _STOCK_ZONE_DAYS = 20
 
