@@ -41,3 +41,11 @@ crontab -l | grep -v 'pre_fetch_klines\|shadow_daily\|kpl_daily_fetch' | crontab
   `docs/design/kpl-api-inventory.md`。实盘验证结论：`Index.GetInfo` 必须带 H5 请求头
   （Origin/Referer/X-Requested-With），否则收盘后降级为空信息流；付费专栏条目
   （6 位 ID）全文 errcode=1130 无权限，逐篇跳过。
+- 2026-08-10：**cron 读权限事件**。当日 15:35 pre_fetch 正常，15:40 起 cron 读仓库
+  任意文件均 EPERM（错误进 `/var/mail/$USER`，不落 log）。探针定位：封锁范围精确
+  =`~/Documents`（家目录根、/tmp 正常），cron 与 launchd 用户代理同被拦，交互 shell
+  不受影响；无系统弹窗。本机为公司 MDM（AirWatch）管理，疑 MDM 静默推送隐私策略。
+  修复：系统设置 → 隐私与安全性 → 完全磁盘访问权限 → 添加 `/usr/sbin/cron` 并打开
+  （当日 18:21 探针验证读权限与 `source .env` 链恢复）。当日 shadow/KPL 数据已手动补跑。
+  **再发排查顺序**：`/var/mail/$USER` 看 cron 邮件 → 探针复测 → 检查 FDA 列表里
+  cron 开关是否被 MDM 收回。
