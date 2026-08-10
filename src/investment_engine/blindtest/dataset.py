@@ -22,6 +22,7 @@ _STOCK_ZONE_DAYS = 20
 _REPO = Path(__file__).resolve().parents[3]
 
 KPL_ROOT = _REPO / "infra" / "data" / "kpl"
+EM_ROOT = _REPO / "infra" / "data" / "eastmoney"
 _NEWS_TITLE_CAP = 60
 _LHB_ITEM_CAP = 20
 
@@ -149,8 +150,30 @@ def _load_news_titles(day: str, kpl_root: Path) -> dict | None:
     return out
 
 
-def _load_lhb(day: str, kpl_root: Path) -> dict | None:
-    """龙虎榜摘要：披露日 + 上榜明细（封顶 _LHB_ITEM_CAP 条，字段透传）。"""
+def _cap_em_item(it: dict) -> dict:
+    """东财条目封顶：每股买卖席位各取前 5（字段已是精简形态，其余透传）。"""
+    out = dict(it)
+    out["buy_seats"] = (it.get("buy_seats") or [])[:5]
+    out["sell_seats"] = (it.get("sell_seats") or [])[:5]
+    return out
+
+
+def _load_lhb(day: str, kpl_root: Path, em_root: Path | None = None) -> dict | None:
+    """龙虎榜摘要：东财日榜（含席位）优先，缺失回退 KPL GetDay 落盘。
+
+    东财条目按 |net_amt| 降序封顶 _LHB_ITEM_CAP 条；kpl 块 entry_count/list 透传。
+    """
+    if em_root is not None:
+        em_path = em_root / "lhb" / f"{day}.json"
+        if em_path.exists():
+            d = json.loads(em_path.read_text(encoding="utf-8"))
+            items = sorted(d.get("items") or [],
+                           key=lambda x: abs(x.get("net_amt") or 0), reverse=True)
+            return {"source": "eastmoney",
+                    "disclosure_day": d.get("trade_date", day),
+                    "count": d.get("stock_count", len(items)),
+                    "items": [_cap_em_item(it) for it in items[:_LHB_ITEM_CAP]],
+                    "note": d.get("note", "")}
     path = kpl_root / "lhb" / f"{day}.json"
     if not path.exists():
         return None
@@ -163,13 +186,15 @@ def _load_lhb(day: str, kpl_root: Path) -> dict | None:
     count = d.get("entry_count")
     if count is None:
         count = len(items)
-    return {"disclosure_day": d.get("disclosure_day", ""),
+    return {"source": "kpl",
+            "disclosure_day": d.get("disclosure_day", ""),
             "count": count,
             "items": items[:_LHB_ITEM_CAP],
             "note": d.get("note", "")}
 
 
-def build_daily_pack(day: str, *, config_dir: Path, db_path=None, kpl_root=None) -> dict:
+def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
+                     kpl_root=None, em_root=None) -> dict:
     """组装某日数据包（只含截至当日的数据）。"""
     index = {}
     for code in INDEX_CODES:
@@ -205,9 +230,10 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None, kpl_root=None)
         "patterns": _load_patterns_index(),
     }
     root = Path(kpl_root) if kpl_root else KPL_ROOT
+    em = Path(em_root) if em_root else EM_ROOT
     blocks = {"emotion": _load_emotion(day, root),
               "news_titles": _load_news_titles(day, root),
-              "lhb": _load_lhb(day, root)}
+              "lhb": _load_lhb(day, root, em)}
     missing = [f"kpl_{k}" for k, v in blocks.items() if v is None]
     for k, v in blocks.items():
         if v is not None:

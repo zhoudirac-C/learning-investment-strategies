@@ -106,24 +106,51 @@ class TestKplBlocks:
             "list": {"2": [{"StockID": "600664"}], "3": []},
             "entry_count": 1, "note": "",
         }, ensure_ascii=False), encoding="utf-8")
+        self.em = Path(tempfile.mkdtemp())
+        (self.em / "lhb").mkdir(parents=True)
+
+    def _write_em_lhb(self, day: str = "2026-06-30"):
+        seats = [{"name": f"席位{i}", "buy": i, "sell": 0, "net": i} for i in range(7)]
+        (self.em / "lhb" / f"{day}.json").write_text(json.dumps({
+            "source": "eastmoney", "trade_date": day, "stock_count": 2,
+            "items": [
+                {"code": "600664", "name": "哈药股份", "net_amt": -100.0,
+                 "buy_seats": seats, "sell_seats": seats},
+                {"code": "000636", "name": "风华高科", "net_amt": 500.0,
+                 "buy_seats": seats[:1], "sell_seats": []},
+            ], "note": "",
+        }, ensure_ascii=False), encoding="utf-8")
 
     def teardown_method(self):
         self.db.unlink(missing_ok=True)
 
     def test_blocks_present(self):
         pack = build_daily_pack("2026-06-30", config_dir=Path("config/stock_monitor"),
-                                db_path=self.db, kpl_root=self.kpl)
+                                db_path=self.db, kpl_root=self.kpl, em_root=self.em)
         assert pack["emotion"]["daban"]["tZhangTing"] == 99
         assert pack["emotion"]["bankuai"] == [["医药", "1.61"]]
         assert pack["emotion"]["fengkou_stocks"] == ["共达电声"]
         assert pack["news_titles"]["items"][0]["stocks"] == ["600664"]
+        assert pack["lhb"]["source"] == "kpl"  # 东财缺失时回退 KPL
         assert pack["lhb"]["count"] == 1
         assert "missing" not in pack
         pack_to_prompt(pack)  # 过防泄漏断言
 
+    def test_eastmoney_lhb_preferred(self):
+        self._write_em_lhb()
+        pack = build_daily_pack("2026-06-30", config_dir=Path("config/stock_monitor"),
+                                db_path=self.db, kpl_root=self.kpl, em_root=self.em)
+        lhb = pack["lhb"]
+        assert lhb["source"] == "eastmoney" and lhb["count"] == 2
+        # 按 |net_amt| 降序：风华高科(500) 在哈药股份(-100) 前
+        assert [i["code"] for i in lhb["items"]] == ["000636", "600664"]
+        # 席位封顶 5
+        assert len(lhb["items"][1]["buy_seats"]) == 5
+        pack_to_prompt(pack)  # 过防泄漏断言
+
     def test_missing_blocks_annotated(self):
         pack = build_daily_pack("2026-06-29", config_dir=Path("config/stock_monitor"),
-                                db_path=self.db, kpl_root=self.kpl)
+                                db_path=self.db, kpl_root=self.kpl, em_root=self.em)
         assert pack["missing"] == ["kpl_emotion", "kpl_news_titles", "kpl_lhb"]
         assert "emotion" not in pack
 
