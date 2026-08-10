@@ -1,7 +1,7 @@
 ---
 date: 2026-08-10
 type: pattern-patch
-status: open
+status: done（2026-08-11 实施，见下方执行记录）
 source: evals/shadow/attributions/2026-08-10.json
 ---
 
