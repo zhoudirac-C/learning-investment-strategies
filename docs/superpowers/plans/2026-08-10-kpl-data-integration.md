@@ -34,7 +34,7 @@
 - Create: `src/investment_engine/kpl/client.py`
 - Test: `tests/investment_engine/test_kpl_client.py`
 
-- [ ] **Step 1: 写失败测试**
+- [x] **Step 1: 写失败测试**
 
 创建 `tests/investment_engine/test_kpl_client.py`：
 
@@ -120,7 +120,7 @@ class TestPost:
                 client.post("apphwhq", "Index", "GetInfo")
 ```
 
-- [ ] **Step 2: 跑测试确认失败**
+- [x] **Step 2: 跑测试确认失败**
 
 ```bash
 .venv/bin/pytest tests/investment_engine/test_kpl_client.py -v
@@ -128,7 +128,7 @@ class TestPost:
 
 预期：collection 阶段 `ModuleNotFoundError: No module named 'investment_engine.kpl'`。
 
-- [ ] **Step 3: 实现包骨架与 client**
+- [x] **Step 3: 实现包骨架与 client**
 
 创建 `src/investment_engine/kpl/__init__.py`：
 
@@ -233,7 +233,7 @@ class KplClient:
         return payload
 ```
 
-- [ ] **Step 4: 跑测试确认通过**
+- [x] **Step 4: 跑测试确认通过**
 
 ```bash
 .venv/bin/pytest tests/investment_engine/test_kpl_client.py -v
@@ -241,7 +241,7 @@ class KplClient:
 
 预期：5 passed。
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/investment_engine/kpl/ tests/investment_engine/test_kpl_client.py
@@ -256,7 +256,7 @@ git commit -m "feat(kpl): HTTP 客户端——单入口 form POST + env 鉴权 +
 - Create: `src/investment_engine/kpl/emotion.py`
 - Test: `tests/investment_engine/test_kpl_emotion.py`
 
-- [ ] **Step 1: 写失败测试**
+- [x] **Step 1: 写失败测试**
 
 创建 `tests/investment_engine/test_kpl_emotion.py`（样本为 2026-08-10 盘中实样裁剪）：
 
@@ -322,7 +322,7 @@ def test_save_snapshot(tmp_path):
     assert loaded == data  # 完整往返；ensure_ascii=False 中文不转义
 ```
 
-- [ ] **Step 2: 跑测试确认失败**
+- [x] **Step 2: 跑测试确认失败**
 
 ```bash
 .venv/bin/pytest tests/investment_engine/test_kpl_emotion.py -v
@@ -330,7 +330,7 @@ def test_save_snapshot(tmp_path):
 
 预期：`ModuleNotFoundError: No module named 'investment_engine.kpl.emotion'`（Task 1 已建包，报的是 emotion 模块缺失）。
 
-- [ ] **Step 3: 实现 emotion.py**
+- [x] **Step 3: 实现 emotion.py**
 
 创建 `src/investment_engine/kpl/emotion.py`：
 
@@ -385,7 +385,7 @@ def save_snapshot(data: dict, out_root: Path, day: str) -> Path:
     return path
 ```
 
-- [ ] **Step 4: 跑测试确认通过**
+- [x] **Step 4: 跑测试确认通过**
 
 ```bash
 .venv/bin/pytest tests/investment_engine/test_kpl_emotion.py -v
@@ -393,7 +393,7 @@ def save_snapshot(data: dict, out_root: Path, day: str) -> Path:
 
 预期：2 passed。
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/investment_engine/kpl/emotion.py tests/investment_engine/test_kpl_emotion.py
@@ -408,7 +408,7 @@ git commit -m "feat(kpl): 情绪快照拉取与落盘——六块原样保留，
 - Create: `src/investment_engine/kpl/news.py`
 - Test: `tests/investment_engine/test_kpl_news.py`
 
-- [ ] **Step 1: 写失败测试**
+- [x] **Step 1: 写失败测试**
 
 创建 `tests/investment_engine/test_kpl_news.py`：
 
@@ -508,7 +508,7 @@ def test_save_news_layout(tmp_path):
     assert "新股亮点" in md and "<strong>" not in md
 ```
 
-- [ ] **Step 2: 跑测试确认失败**
+- [x] **Step 2: 跑测试确认失败**
 
 ```bash
 .venv/bin/pytest tests/investment_engine/test_kpl_news.py -v
@@ -516,7 +516,7 @@ def test_save_news_layout(tmp_path):
 
 预期：`ModuleNotFoundError: No module named 'investment_engine.kpl.news'`。
 
-- [ ] **Step 3: 实现 news.py**
+- [x] **Step 3: 实现 news.py**
 
 创建 `src/investment_engine/kpl/news.py`：
 
@@ -629,7 +629,7 @@ def save_news(articles: list[dict], out_root: Path, day: str) -> Path:
     return out_dir
 ```
 
-- [ ] **Step 4: 跑测试确认通过**
+- [x] **Step 4: 跑测试确认通过**
 
 ```bash
 .venv/bin/pytest tests/investment_engine/test_kpl_news.py -v
@@ -637,7 +637,7 @@ def save_news(articles: list[dict], out_root: Path, day: str) -> Path:
 
 预期：4 passed。
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/investment_engine/kpl/news.py tests/investment_engine/test_kpl_news.py
@@ -652,7 +652,7 @@ git commit -m "feat(kpl): 资讯流——列表按日过滤 + 全文 HTML 转纯
 - Create: `scripts/kpl_daily_fetch.py`
 - Test: `tests/investment_engine/test_kpl_daily_fetch.py`
 
-- [ ] **Step 1: 写失败测试**
+- [x] **Step 1: 写失败测试**
 
 创建 `tests/investment_engine/test_kpl_daily_fetch.py`：
 
@@ -709,7 +709,7 @@ def test_auth_error_exit_code(tmp_path, monkeypatch, capsys, fake_layers):
     assert "登录已过期" in capsys.readouterr().err
 ```
 
-- [ ] **Step 2: 跑测试确认失败**
+- [x] **Step 2: 跑测试确认失败**
 
 ```bash
 .venv/bin/pytest tests/investment_engine/test_kpl_daily_fetch.py -v
@@ -717,7 +717,7 @@ def test_auth_error_exit_code(tmp_path, monkeypatch, capsys, fake_layers):
 
 预期：`ModuleNotFoundError: No module named 'scripts.kpl_daily_fetch'`。
 
-- [ ] **Step 3: 实现入口脚本**
+- [x] **Step 3: 实现入口脚本**
 
 创建 `scripts/kpl_daily_fetch.py`：
 
@@ -793,7 +793,7 @@ if __name__ == "__main__":
     sys.exit(main())
 ```
 
-- [ ] **Step 4: 跑测试确认通过**
+- [x] **Step 4: 跑测试确认通过**
 
 ```bash
 .venv/bin/pytest tests/investment_engine/test_kpl_daily_fetch.py -v
@@ -807,7 +807,7 @@ if __name__ == "__main__":
 
 预期：全部 passed（KPL 新增 14 个 + 既有全绿）。
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/kpl_daily_fetch.py tests/investment_engine/test_kpl_daily_fetch.py
@@ -822,7 +822,7 @@ git commit -m "feat(kpl): 每日拉取入口——幂等 + 退出码分级 + 摘
 - Modify: `.env`（追加三个 key；gitignored，不进 commit）
 - Create（临时，不入库）: `temp/kpl_capture/inject_env.py`
 
-- [ ] **Step 1: 写提取脚本（token 不进对话、不进 git）**
+- [x] **Step 1: 写提取脚本（token 不进对话、不进 git）**
 
 创建 `temp/kpl_capture/inject_env.py`：
 
@@ -886,7 +886,7 @@ python3 -c "import mitmproxy" 2>/dev/null && python3 temp/kpl_capture/inject_env
 若输出 `NEED_FALLBACK`，用 mitmdump 脚本方式提取（参照 temp/kpl_capture/ 里现有脚本模式），
 提取值通过 `read -s` 等方式写入 .env，全程不在终端回显完整 token。
 
-- [ ] **Step 2: 真实拉取（今天 2026-08-10 已收盘，数据为当日终态）**
+- [x] **Step 2: 真实拉取（今天 2026-08-10 已收盘，数据为当日终态）**
 
 ```bash
 set -a && source .env && set +a && .venv/bin/python scripts/kpl_daily_fetch.py
@@ -899,7 +899,7 @@ set -a && source .env && set +a && .venv/bin/python scripts/kpl_daily_fetch.py
 [kpl] 资讯 → infra/data/kpl/news/2026-08-10  共 M 篇
 ```
 
-- [ ] **Step 3: 人工核对落盘内容**
+- [x] **Step 3: 人工核对落盘内容**
 
 ```bash
 .venv/bin/python -c "
@@ -915,7 +915,7 @@ head -12 "$(ls infra/data/kpl/news/2026-08-10/*.md | head -1)"
 预期：情绪 JSON 六块齐全（erban 盘中后可能非空）；md 文件 frontmatter + 可读正文。
 与 App 对照：涨停数/封板率与 App 首页「打板情绪」一致。
 
-- [ ] **Step 4: 本任务无 commit**
+- [x] **Step 4: 本任务无 commit**
 
 `.env` 与 `infra/data/` 均 gitignored；`temp/kpl_capture/` 整体 gitignored。确认无泄漏：
 
@@ -931,7 +931,7 @@ git status --short | grep -E '\.env|kpl_capture|infra/data' && echo "泄漏!" ||
 - Modify: `docs/tasks/kline-daily-fetch-ops.md`
 - Modify: 本机 crontab（非仓库文件）
 
-- [ ] **Step 1: 挂 crontab（15:45，接在 15:35 pre_fetch / 15:40 shadow 之后）**
+- [x] **Step 1: 挂 crontab（15:45，接在 15:35 pre_fetch / 15:40 shadow 之后）**
 
 ```bash
 crontab -l > /tmp/kpl_cron_backup.txt && cat /tmp/kpl_cron_backup.txt  # 先备份现样
@@ -941,7 +941,7 @@ crontab -l | grep kpl_daily_fetch
 
 预期：最后一行输出新挂载的 kpl_daily_fetch 任务。
 
-- [ ] **Step 2: 更新 ops 文档**
+- [x] **Step 2: 更新 ops 文档**
 
 修改 `docs/tasks/kline-daily-fetch-ops.md`：
 
@@ -971,7 +971,7 @@ crontab -l | grep -v 'pre_fetch_klines\|shadow_daily\|kpl_daily_fetch' | crontab
   `docs/design/kpl-api-inventory.md`。
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add docs/tasks/kline-daily-fetch-ops.md
@@ -986,12 +986,12 @@ git commit -m "docs(ops): KPL 每日拉取入 cron 登记与注销义务"
 - Modify: `docs/superpowers/specs/2026-08-10-kpl-data-integration-design.md`（测试路径对齐）
 - Modify: 本计划文件（勾掉已完成的 checkbox）
 
-- [ ] **Step 1: spec 测试路径修正**
+- [x] **Step 1: spec 测试路径修正**
 
 把 spec 中「架构」树的三个测试文件路径与「测试」节的三处文件名从
 `tests/test_kpl_*.py` 改为 `tests/investment_engine/test_kpl_*.py`，pytest 命令同步改。
 
-- [ ] **Step 2: 全量测试**
+- [x] **Step 2: 全量测试**
 
 ```bash
 .venv/bin/pytest tests/investment_engine/ -q
@@ -999,7 +999,7 @@ git commit -m "docs(ops): KPL 每日拉取入 cron 登记与注销义务"
 
 预期：全绿（含 KPL 新增 14 个用例）。
 
-- [ ] **Step 3: 勾掉本计划已完成项并 commit**
+- [x] **Step 3: 勾掉本计划已完成项并 commit**
 
 ```bash
 git add docs/superpowers/specs/2026-08-10-kpl-data-integration-design.md docs/superpowers/plans/2026-08-10-kpl-data-integration.md
@@ -1019,3 +1019,27 @@ git commit -m "docs(kpl): 实施计划勾选完成 + spec 测试路径对齐仓�
   `main(argv)` 在测试与实现中签名一致；异常层级 `KplAuthError(KplError)` 一致。
 - **已知限制如实标注**：资讯单页可能漏（news.py docstring）；鉴权失败特征未实测
   （client.py docstring）；st=2 语义未完全摸清（按计划观察）。
+
+---
+
+## 执行记录（2026-08-10 当日完成）
+
+| Task | Commit | 结果 |
+|---|---|---|
+| T1 client | 0aa4838 | 6 用例过 |
+| T2 emotion | 951838b | 2 用例过 |
+| T3 news | f02f3f0 | 4 用例过 |
+| T4 入口 | 2e81855 | 2 用例过，全量 167 过 |
+| T5 实盘验收 | 586a7a5 | 修复两处实盘问题后验收通过（见下） |
+| T6 cron+ops | aa7d939 | 15:45 已挂，备份 /tmp/kpl_cron_backup.txt |
+| T7 收尾 | 本提交 | 全量 168 过（含 KPL 15 用例） |
+
+**T5 实盘暴露并修复的两处计划外问题**（均已并入代码与文档）：
+
+1. `Index.GetInfo` **必须带 H5 请求头**（Origin/Referer/X-Requested-With），
+   否则收盘后降级为空首页信息流 `{List, list}`——抓包期未暴露（App 始终带该头）。
+2. 资讯列表混入**付费专栏条目**（6 位 ID），全文 `errcode=1130` 无权限；
+   `fetch_day_news` 改为逐篇容错，skipped 记入 index.json（`fetched=false`）。
+
+**验收**：2026-08-10 收盘后真实拉取——情绪六块齐全（涨停 99 / 封板率 87.61 /
+连板 3）；资讯 1 篇可读全文 + 5 篇付费跳过留痕。token 累计 ≥30h 有效。

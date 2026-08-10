@@ -55,9 +55,9 @@ src/investment_engine/kpl/
 ├── emotion.py   # Index.GetInfo 情绪快照：拉取→解析→落盘
 └── news.py      # 资讯：列表→全文→落盘
 scripts/kpl_daily_fetch.py        # thin 入口
-tests/test_kpl_client.py          # mock transport，不碰真实网络
-tests/test_kpl_emotion.py         # 内嵌抓包实样裁剪样本
-tests/test_kpl_news.py
+tests/investment_engine/test_kpl_client.py          # mock transport，不碰真实网络
+tests/investment_engine/test_kpl_emotion.py         # 内嵌抓包实样裁剪样本
+tests/investment_engine/test_kpl_news.py
 infra/data/kpl/                   # 落盘根目录（随 infra/data/ 已 gitignore）
 ```
 
@@ -70,8 +70,9 @@ infra/data/kpl/                   # 落盘根目录（随 infra/data/ 已 gitign
   `KPL_DEVICE_ID`/`kpl_device_id`（双写大小写惯例）；缺任一项抛 `KplError` 指明缺哪个。
 - `post(subdomain, c, a, params) -> dict`：拼通用 URL，body 注入
   `UserID/Token/DeviceID` 与业务参数，form 编码 POST，返回解析后 JSON。
-- 请求头：实现时从抓包文件（`temp/kpl_capture/kpl-flows-20260810*.mitm`）提取真实
-  UA/headers 作为常量，并在源码注释标注出处。
+- 请求头：UA 提取自抓包实样；**H5 头（Origin/Referer/X-Requested-With）必须携带**——
+  2026-08-10 实盘验证：不带时 `Index.GetInfo` 收盘后降级为空首页信息流
+  `{List, list}`，带上即返回情绪数据块。
 - 错误分级：网络超时/5xx → 退避重试（默认 2 次）；响应含业务错误 → `KplError`。
   **鉴权失败的响应特征未实测过**（抓包期间 token 一直有效）：实现按响应 JSON 的
   通用错误字段（如错误码非 0、msg 含登录/过期关键词）尽力判定为 `KplAuthError`，
@@ -159,7 +160,7 @@ crontab 新增（接在现有两条之后）：
   落盘 JSON 结构。
 - `test_kpl_news.py`：内嵌列表/全文实样，验证当日过滤、HTML 转纯文本、
   frontmatter 字段。
-- 运行：`.venv/bin/pytest tests/test_kpl_client.py tests/test_kpl_emotion.py tests/test_kpl_news.py`
+- 运行：`.venv/bin/pytest tests/investment_engine/test_kpl_client.py tests/investment_engine/test_kpl_emotion.py tests/investment_engine/test_kpl_news.py`
 
 ## 风险与合规（已向用户复述并确认）
 

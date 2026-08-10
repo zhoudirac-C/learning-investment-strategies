@@ -16,6 +16,22 @@
 - **子域即服务划分**：applhb=主服务，apphwhq=行情/情绪，apparticle=资讯，apphis=历史，
   apppage=内嵌 H5，appicon=头像，applog=埋点，apphotfix=热更新
 
+## 接入实测补充（2026-08-10 收盘后实盘验证）
+
+- **H5 请求头必须携带**：`Origin/Referer: https://apppage.longhuvip.com(/)+
+  X-Requested-With: com.aiyu.kaipanla`。不带时 `Index.GetInfo` 在收盘后降级返回
+  空首页信息流 `{List, list, errcode}`（盘中是否正常未对照）；带上即正常返回情绪数据块。
+  `Day` 等额外参数无此效果。已实现于 `investment_engine/kpl/client.py` 的 `H5_HEADERS`。
+- **付费专栏条目全文不可得**：资讯列表 `MsgTop.List` 混有两类条目——普通资讯
+  （5 位 ID，ForumsMsgJX.GetInfo 可读）与付费专栏/券商研报转载（6 位 ID 978xxx，
+  带 `AID/Account/SpecType` 字段），后者全文返回 `errcode=1130`（msg 为空，
+  本账号无权限）。`kpl/news.py` 逐篇容错跳过并记入 index.json（`fetched=false`）。
+- 列表响应除 `MsgTop` 外还有 `TCop`（题材关键词流，CID/Kword/Stocks/Title）与
+  `AiTop`（AI 推送，含 PushUrl），本期未接入，留作后续候选。
+- 收盘后 16:50 实测：情绪六块（DaBanList/PHBList/ErBanList/FKYDSixList/BaceFaceList/
+  CWeatherVaneList）齐全，ErBanList 收盘后为空数组属正常。
+- token 第二日（2026-08-10 16:50）仍有效，累计 ≥30h。
+
 ## 已验证接口（按系统价值排序）
 
 ### 1. 市场情绪/打板大盘/连板梯队/盘口异动 —— 补 M1「涨停池/情绪无缓存」缺口
