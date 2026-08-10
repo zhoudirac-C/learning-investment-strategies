@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""KPL 每日拉取入口（cron 工作日 15:45 调用）：情绪快照 + 当日资讯全文。
+"""KPL 每日拉取入口（cron 工作日 17:45 调用）：情绪快照 + 当日资讯全文 + 龙虎榜。
 
 幂等：当日目标文件已存在则跳过对应部分，--force 覆盖重拉。
 退出码：0 成功；1 拉取失败；2 配置缺失；3 鉴权失败（token 疑似失效，需重抓）。
@@ -15,7 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
-from investment_engine.kpl import emotion, news
+from investment_engine.kpl import emotion, lhb, news
 from investment_engine.kpl.client import KplAuthError, KplClient, KplError
 
 
@@ -25,6 +25,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--out-root", default="infra/data/kpl")
     parser.add_argument("--skip-emotion", action="store_true")
     parser.add_argument("--skip-news", action="store_true")
+    parser.add_argument("--skip-lhb", action="store_true")
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args(argv)
 
@@ -59,6 +60,16 @@ def main(argv: list[str] | None = None) -> int:
                 if skipped:
                     msg += f"（跳过 {len(skipped)} 篇付费/异常）"
                 print(msg)
+        if not args.skip_lhb:
+            target = out_root / "lhb" / f"{args.date}.json"
+            if target.exists() and not args.force:
+                print(f"[kpl] 龙虎榜已存在，跳过: {target}")
+            else:
+                data = lhb.fetch_lhb(client)
+                path = lhb.save_lhb(data, out_root, args.date)
+                tail = f"（{data['note']}）" if data["note"] else ""
+                print(f"[kpl] 龙虎榜 → {path}  披露日={data['disclosure_day']}"
+                      f" 上榜={len(data['list'])} 条{tail}")
     except KplAuthError as e:
         print(f"[kpl] {e}", file=sys.stderr)
         return 3

@@ -26,6 +26,13 @@ def fake_layers(monkeypatch):
                         lambda client, day: ([{"ID": 1, "Title": "t", "CreateTime": 1,
                                                "MsgType": 5, "Stock": [], "imgList": [],
                                                "Content": "<p>x</p>"}], []))
+    monkeypatch.setattr(kpl_daily_fetch.lhb, "fetch_lhb",
+                        lambda client: {"date": "2026-08-10",
+                                        "fetched_at": "2026-08-10T17:45:02",
+                                        "disclosure_day": "2026-08-10",
+                                        "prev_disclosure_day": "2026-08-07",
+                                        "tlist": [], "list": [{"StockID": "600664"}],
+                                        "note": ""})
 
 
 def test_run_success_and_idempotent(tmp_path, capsys, fake_layers):
@@ -48,3 +55,14 @@ def test_auth_error_exit_code(tmp_path, monkeypatch, capsys, fake_layers):
     rc = kpl_daily_fetch.main(["--date", "2026-08-10", "--out-root", str(tmp_path)])
     assert rc == 3
     assert "登录已过期" in capsys.readouterr().err
+
+
+def test_lhb_written_and_skip_flag(tmp_path, capsys, fake_layers):
+    argv = ["--date", "2026-08-10", "--out-root", str(tmp_path)]
+    assert kpl_daily_fetch.main(argv) == 0
+    lhb_file = tmp_path / "lhb" / "2026-08-10.json"
+    assert lhb_file.exists()
+    assert json.loads(lhb_file.read_text())["list"][0]["StockID"] == "600664"
+    argv2 = ["--date", "2026-08-11", "--out-root", str(tmp_path), "--skip-lhb"]
+    assert kpl_daily_fetch.main(argv2) == 0
+    assert not (tmp_path / "lhb" / "2026-08-11.json").exists()
