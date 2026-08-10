@@ -23,9 +23,9 @@ def fake_layers(monkeypatch):
                                         "erban": [], "fengkou": [], "bankuai": [],
                                         "fengxiang": {}})
     monkeypatch.setattr(kpl_daily_fetch.news, "fetch_day_news",
-                        lambda client, day: [{"ID": 1, "Title": "t", "CreateTime": 1,
-                                              "MsgType": 5, "Stock": [], "imgList": [],
-                                              "Content": "<p>x</p>"}])
+                        lambda client, day: ([{"ID": 1, "Title": "t", "CreateTime": 1,
+                                               "MsgType": 5, "Stock": [], "imgList": [],
+                                               "Content": "<p>x</p>"}], []))
 
 
 def test_run_success_and_idempotent(tmp_path, capsys, fake_layers):

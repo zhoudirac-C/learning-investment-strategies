@@ -21,6 +21,14 @@ USER_AGENT = ("Mozilla/5.0 (Linux; Android 16; 23116PN5BC Build/BP2A.250605.031.
               "AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/150.0.7871.181 "
               "Mobile Safari/537.36;kaipanla 6.2.20.5")
 
+# H5 容器请求头（2026-08-10 实盘验证：Index.GetInfo 收盘后不带这组头会降级成
+# 空的首页信息流响应 {List, list}，带上才返回情绪数据块）
+H5_HEADERS = {
+    "Origin": "https://apppage.longhuvip.com",
+    "Referer": "https://apppage.longhuvip.com/",
+    "X-Requested-With": "com.aiyu.kaipanla",
+}
+
 # 鉴权失败 msg 关键词（未实测，尽力判定；无法归类时统一 KplError）
 AUTH_HINTS = ("登录", "登陆", "过期", "token", "Token")
 
@@ -66,7 +74,8 @@ class KplClient:
             data=urllib.parse.urlencode(body).encode("utf-8"),
             headers={"User-Agent": USER_AGENT,
                      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                     "Accept": "application/json"},
+                     "Accept": "application/json",
+                     **H5_HEADERS},
             method="POST")
         payload: dict | None = None
         last_err: Exception | None = None

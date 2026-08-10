@@ -53,9 +53,12 @@ def main(argv: list[str] | None = None) -> int:
             if target.exists() and not args.force:
                 print(f"[kpl] 资讯已存在，跳过: {target.parent}")
             else:
-                articles = news.fetch_day_news(client, day)
-                out_dir = news.save_news(articles, out_root, args.date)
-                print(f"[kpl] 资讯 → {out_dir}  共 {len(articles)} 篇")
+                articles, skipped = news.fetch_day_news(client, day)
+                out_dir = news.save_news(articles, out_root, args.date, skipped=skipped)
+                msg = f"[kpl] 资讯 → {out_dir}  共 {len(articles)} 篇"
+                if skipped:
+                    msg += f"（跳过 {len(skipped)} 篇付费/异常）"
+                print(msg)
     except KplAuthError as e:
         print(f"[kpl] {e}", file=sys.stderr)
         return 3

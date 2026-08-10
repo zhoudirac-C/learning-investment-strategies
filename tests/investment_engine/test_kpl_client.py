@@ -56,6 +56,9 @@ class TestPost:
         assert body["UserID"] == ["u"] and body["Token"] == ["t"]
         assert body["DeviceID"] == ["d"] and body["View"] == ["3"]
         assert "kaipanla" in req.get_header("User-agent")
+        # H5 头必须带（收盘后 GetInfo 无此头会降级为空信息流）
+        assert req.get_header("Referer") == "https://apppage.longhuvip.com/"
+        assert req.get_header("X-requested-with") == "com.aiyu.kaipanla"
 
     def test_business_error(self):
         client = KplClient("u", "t", "d", retries=0)

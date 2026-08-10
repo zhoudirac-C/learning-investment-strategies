@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from datetime import date, datetime
 
+from investment_engine.kpl.client import KplError
 from investment_engine.kpl.news import (
     fetch_day_news,
     fetch_list,
@@ -68,10 +69,31 @@ def test_fetch_day_news_pulls_full_text_per_item():
     full = {"42": {"ID": 42, "Title": "t", "Content": "<p>a</p>"},
             "43": {"ID": 43, "Title": "t2", "Content": "<p>b</p>"}}
     client = _FakeClient(_list_payload(items), full)
-    articles = fetch_day_news(client, DAY, pause=0)
+    articles, skipped = fetch_day_news(client, DAY, pause=0)
     assert [a["ID"] for a in articles] == [42, 43]
+    assert skipped == []
     # 列表 1 次 + 全文 2 次
     assert [c[2] for c in client.calls].count("GetInfo") == 2
+
+
+def test_fetch_day_news_skips_failed_items():
+    """单篇业务错误（如 1130 付费无权限）跳过继续；鉴权错误照常致命。"""
+
+    class _FlakyClient(_FakeClient):
+        def post(self, subdomain, c, a, params=None):
+            if a == "GetInfo" and params["MsgID"] == "978808":
+                raise KplError("业务错误 errcode=1130")
+            return super().post(subdomain, c, a, params)
+
+    items = [{"ID": "42", "Title": "t", "CreateTime": _ts(DAY, 9)},
+             {"ID": "978808", "Title": "付费研报", "CreateTime": _ts(DAY, 10)}]
+    full = {"42": {"ID": 42, "Title": "t", "Content": "<p>a</p>"}}
+    articles, skipped = fetch_day_news(_FlakyClient(_list_payload(items), full),
+                                       DAY, pause=0)
+    assert [a["ID"] for a in articles] == [42]
+    assert len(skipped) == 1
+    assert skipped[0]["item"]["ID"] == "978808"
+    assert "1130" in skipped[0]["error"]
 
 
 def test_save_news_layout(tmp_path):
@@ -81,11 +103,23 @@ def test_save_news_layout(tmp_path):
         "imgList": ["https://appcdn.longhuvip.com/x.jpg", ""],
         "Content": "<p><strong>新股亮点</strong></p><p>正文</p>",
     }]
-    out_dir = save_news(articles, tmp_path, "2026-08-10")
+    skipped = [{"item": {"ID": "978808", "Title": "付费研报",
+                         "CreateTime": "1786320000", "MsgType": None,
+                         "Stock": ["600519"],
+                         "imgList": {"List": ["https://appcdn.longhuvip.com/y.jpg"]}},
+                "error": "业务错误 errcode=1130"}]
+    out_dir = save_news(articles, tmp_path, "2026-08-10", skipped=skipped)
     assert out_dir == tmp_path / "news" / "2026-08-10"
     index = json.loads((out_dir / "index.json").read_text())
     assert index[0]["id"] == 42174
+    assert index[0]["fetched"] is True
     assert index[0]["img_list"] == ["https://appcdn.longhuvip.com/x.jpg"]  # 空串被过滤
+    # skipped 条目进 index 但不生成 md
+    assert index[1]["id"] == "978808"
+    assert index[1]["fetched"] is False
+    assert "1130" in index[1]["error"]
+    assert index[1]["img_list"] == ["https://appcdn.longhuvip.com/y.jpg"]
+    assert not (out_dir / "978808.md").exists()
     md = (out_dir / "42174.md").read_text()
     assert md.startswith("---\n")
     assert 'title: "新股分析：宇树科技、绿控传动"' in md
