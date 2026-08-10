@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-10",
+  "triggers": ["up-comparison-manual"],
+  "types": ["数据缺", "步骤缺"],
+  "analysis": "三方对照（UP 复盘 vs AI 盲判 vs 市场，人工归因）：AI 阶段判断'震荡'与市场定性一致（stage_hit=true），结果层面无错可归；但与 UP 当日复盘（sources/original/bilibili/2026-08-10-2213 专栏）对比暴露两类结构性不足。【数据缺×2】①打板情绪与市场广度未接入盲判数据包：UP 分析地基（涨停99家/连板12家/封板率87.6%/上涨4068家/成交2.52万亿）在 KPL 情绪快照中逐字段核对一致（infra/data/kpl/emotion/2026-08-10.json），但 build_daily_pack 只含指数K线+stock_pool快照+静态配置；cron 时序 shadow(15:40) 先于 KPL 拉取(15:45)，当日数据时序上也吃不到。②事件类信息（停牌核查、题材催化、资讯标题）无通道进包。【步骤缺×1】输出契约仅 stage/directions/used_patterns 三字段，UP 复盘的核心结构——节奏判断（分歧被推迟→明后天剧烈分歧）、A/B 情景树（区分关键在承接）、明日验证变量清单、方向操作定性（进攻/波段/右侧确认）——在契约层没有载体，模型无从输出。方向质量备注：AI 选电力（防御稳健）与当日'情绪抱团+医药进攻'结构脱节（UP 早盘已定调防守转进攻），方向 5 日结算未到期，此评推理质量非结果对错。【信息差】UP 使用晚间信息（爱丽家居二次停牌、票房数据、AAOI 电话会），AI 15:40 盲判物理不可得，按总计划标注边界、不强求。",
+  "proposal_refs": [
+    "framework/proposals/2026-08-10-data-channel-kpl-emotion-news-into-pack.md",
+    "framework/proposals/2026-08-10-data-channel-lhb-dragon-tiger.md",
+    "framework/proposals/2026-08-10-pattern-patch-shadow-contract-v2.md"
+  ]
+}
