@@ -15,6 +15,11 @@
   40 15 * * 1-5 cd /Users/cong.zhou/Documents/quantitative/learning-investment-strategies && set -a && source .env && set +a && .venv/bin/python scripts/shadow_daily.py >> log/shadow_daily.log 2>&1
   ```
   工作日 15:40（pre_fetch 之后 5 分钟）跑影子双轨日更：产出当日预测（`evals/shadow/predictions/`）、到期结算、归因与 `logs/shadow-status.md`。需要 DeepSeek API key，故显式 `source .env`。
+- **本机 crontab 另有 KPL 每日拉取任务**（2026-08-10 随 KPL 接入挂接）：
+  ```
+  45 15 * * 1-5 cd /Users/cong.zhou/Documents/quantitative/learning-investment-strategies && set -a && source .env && set +a && .venv/bin/python scripts/kpl_daily_fetch.py >> log/kpl_daily_fetch.log 2>&1
+  ```
+  工作日 15:45（shadow 之后 5 分钟）拉 KPL 情绪快照（`Index.GetInfo` 全量 View）+ 当日资讯全文，落盘 `infra/data/kpl/`（gitignored）。依赖 `.env` 的 `kpl_user_id/kpl_token/kpl_device_id`；token 失效时脚本退出码 3、日志有重抓指引（`docs/design/kpl-api-inventory.md`）。
 - **本机无其他调度**：无 hermes wrapper（`~/.hermes/scripts/` 不存在）、无 launchd 任务、`log/agent.pid` 是死进程号。AGENTS.md 描述的 hermes cron 架构是云端形态。
 
 ## 注销义务（用户明确要求）
@@ -22,7 +27,7 @@
 这条 cron 是**本机测试用**临时措施，正式运行态在云端部署。云部署完成（或用户通知测试结束）后必须注销：
 
 ```bash
-crontab -l | grep -v 'pre_fetch_klines\|shadow_daily' | crontab -
+crontab -l | grep -v 'pre_fetch_klines\|shadow_daily\|kpl_daily_fetch' | crontab -
 ```
 
 注销前确认云端已有等效调度（云端 cron 设 `HERMES_REPO_ROOT` 并走 `~/.hermes/scripts/` wrapper 架构）。
@@ -31,3 +36,8 @@ crontab -l | grep -v 'pre_fetch_klines\|shadow_daily' | crontab -
 
 - 2026-08-08：`.venv` 安装了 `pytdx 1.72`，TDX 链路验证可用（此前 pre_fetch 因缺 pytdx 走腾讯 API 降级）。pytdx 未写入 pyproject 依赖——pre_fetch 对其缺失有优雅降级，属可选增强；云端若要启用 TDX 需 `pip install pytdx`。
 - 指数不在 `pre_fetch_klines.py` 的提取范围（它只拉个股 yaml 里的代码）；指数续拉用 `scripts/fetch_index_klines.py`，**该脚本未入 cron**——M2/M3 若需要指数连续数据，应把指数拉取并入每日任务或云端调度。
+- 2026-08-10：新增 KPL 每日拉取（15:45）。设计与接口见
+  `docs/superpowers/specs/2026-08-10-kpl-data-integration-design.md`、
+  `docs/design/kpl-api-inventory.md`。实盘验证结论：`Index.GetInfo` 必须带 H5 请求头
+  （Origin/Referer/X-Requested-With），否则收盘后降级为空信息流；付费专栏条目
+  （6 位 ID）全文 errcode=1130 无权限，逐篇跳过。
