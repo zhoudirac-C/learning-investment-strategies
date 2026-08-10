@@ -127,7 +127,20 @@ def render_report(result: dict) -> str:
         lines += ["", "## 数据缺口（如实标注）", ""]
         for code, n in sorted(result["skipped_no_data"].items()):
             lines.append(f"- {code}: {n} 个交易日无缓存数据")
-    lines += ["", "> 数据时间戳: K线缓存 infra/data/kline_cache.db；本报告不构成投资建议。"]
+    lines += [
+        "",
+        "## 定性说明（必读）",
+        "",
+        "- 本报告回测的是**执行层规则**（stock_pool 介入区间 + 量价条件），"
+        "不是 UP 观点本身，也不是推理模式；结果**不能作为方法论有效的证据**"
+        "（方法论验证以 M1 盲测 / 影子双轨为准）。",
+        "- 回测未加载 MarketGate（大盘窗口）/ SectorGate（板块阶段）两道前置门控，"
+        "信号比生产环境宽松。",
+        "- stock_pool 为当前快照，套用到历史日期存在前视偏差（方向不定）。",
+        "- 「近3日缩量 / MA20上方」读缓存最新窗口，对历史信号日为冻结常量。",
+        "",
+        "> 数据时间戳: K线缓存 infra/data/kline_cache.db；本报告不构成投资建议。",
+    ]
     return "\n".join(lines)
 
 
