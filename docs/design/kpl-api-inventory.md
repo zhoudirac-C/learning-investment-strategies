@@ -1,7 +1,9 @@
-# 开盘啦（KPL）私有 API 接口清单（抓包自 Android App 6.2.20.5，2026-08-09）
+# 开盘啦（KPL）私有 API 接口清单（抓包自 Android App 6.2.20.5）
 
 > 来源：mitmproxy 抓取本人账号流量整理，仅限个人研究用途，遵守 App 用户协议风险自负。
 > 抓包原始文件在 `temp/kpl_capture/`（已 gitignore，含 token，勿外泄）。
+> 场次：2026-08-09（周日，家庭 Wi-Fi 拓扑）、2026-08-10 上午盘中（USB+热点拓扑，见文末）、
+> 2026-08-10 下午盘中（Reqable VPN 模式，见「第二条通道」节）。
 
 ## 通用协议
 
@@ -9,27 +11,31 @@
 - **编码**：`application/x-www-form-urlencoded`，业务参数在 body
 - **鉴权**：每个请求 body 必带 `UserID` / `Token`（32 位 hex，登录态）/ `DeviceID`（UUID）
   - token 存 `.env` 的 `kpl_token`（待接入时添加）；失效需重新抓包登录流程
-- **业务寻址**：`c=<控制器>&a=<动作>`，响应均为明文 JSON
+  - 有效期观察：2026-08-09 抓取的 token 在 08-10 全天正常使用，**至少 24h+**，上限待观察
+- **业务寻址**：`c=<控制器>&a=<动作>`，响应均为明文 JSON（中文为 `\uXXXX` 转义）
 - **子域即服务划分**：applhb=主服务，apphwhq=行情/情绪，apparticle=资讯，apphis=历史，
-  apppage=内嵌 H5，applog=埋点，apphotfix=热更新
+  apppage=内嵌 H5，appicon=头像，applog=埋点，apphotfix=热更新
 
 ## 已验证接口（按系统价值排序）
 
-### 1. 市场情绪/打板大盘 —— 补 M1「涨停池/情绪无缓存」缺口
+### 1. 市场情绪/打板大盘/连板梯队/盘口异动 —— 补 M1「涨停池/情绪无缓存」缺口
 
 ```
-c=Index&a=GetInfo    子域: apphwhq    参数: View=2,3,4,5,7,8,9,10,11
+c=Index&a=GetInfo    子域: apphwhq    参数: View=<逗号分隔的数据块 ID>
 ```
 
-响应关键字段（2026-08-07 实样）：
-
-- `DaBanList`：`tZhangTing`=涨停 74、`lZhangTing`=昨涨停 79、`tFengBan`=封板 74、
-  `lFengBan`=封板率 79.798、`tDieTing`=跌停 4、`SZJS`=上涨家数 2856、`XDJS`=下跌家数 2536、
-  `PPJS`=炸板 143、`ZHQD`=综合强度 63、`ZRZTJ`=昨日涨停今收益 1.258、`ZRLBJ`=昨连板今收益 2.257、
-  `szln`/`qscln` 及 `_zrcs` 系列=两市量能与昨日对比
-- `BaceFaceList`：板块涨幅榜 `[[名称, 涨幅, 板块代码], ...]`（代码为 801xxx 系）
-- `CWeatherVaneList`：`SZ`/`XD` 涨/跌风向标个股 `[代码, 名称, 涨跌幅, 板块标签]`
-- `FKYDSixList`：波动最大的六只个股
+- **View 是数据块选择器**。观察到的组合：`4,5,11` / `1,7,8,9,10,11` / `2,7,9,10` / `3` /
+  全量 `2,3,4,5,7,8,9,10,11`；页面↔View 映射未逐一对应，接入时直接拉全量。
+  2026-08-10 盘中 25 次实时刷新验证结构稳定。
+- 响应关键字段（2026-08-07 / 08-10 实样）：
+  - `DaBanList`：`tZhangTing`=涨停、`lZhangTing`=昨涨停、`tFengBan`=封板率、
+    `tDieTing`=跌停、`SZJS`=上涨家数、`XDJS`=下跌家数、`PPJS`=炸板、`ZHQD`=综合强度、
+    `ZRZTJ`=昨日涨停今收益、`ZRLBJ`=昨连板今收益、`szln`/`qscln` 及 `_zrcs` 系列=两市量能对比
+  - `PHBList`：**连板梯队** `[[代码, 名称, 涨幅, ?, "N连板", 板块, "板块;天数"], ...]`
+  - `ErBanList`：二板池（同构，盘中为空则午后/尾盘才出）
+  - `BaceFaceList`：板块涨幅榜 `[[名称, 涨幅, 板块代码801xxx], ...]`
+  - `CWeatherVaneList`：涨/跌风向标个股 `[代码, 名称, 涨跌幅, 板块标签]`
+  - `FKYDSixList`：风口异动六股 `[代码, 名称, 涨幅]`（"异动"关键词命中块）
 
 ### 2. 资讯流 + 全文 —— 产业新闻→产业链推导原料
 
@@ -64,39 +70,133 @@ c=Business&a=GetBusinessChart    参数: BusinessID & Date & StockID & Index & s
 
 关联页面：`apppage/w47/web/DepkDetails.html?DID=<席位ID>&sid=<股票>&logid=...`
 
-### 5. 板块复盘
+### 5. 游资榜（2026-08-10 盘中捕获）
 
 ```
-c=ForumsMsgJX&a=GetBkFuPan   （H5 plateReplay.js 中发现）
+c=UserBusiness&a=GetDay   子域: applhb   参数: 无业务参数
 ```
 
-### 6. 首页/布局/其他
+- `TList`：分类 `[顶级游资/一线游资/知名游资/机构/庄股]`
+- `List`：按分类 ID 分组的当日龙虎榜席位明细（非披露日为空）
+- `Day`/`NDay`：数据对应的披露日/上一披露日。周一盘中返回的是上周五（2026-08-07），
+  符合龙虎榜 T 日收盘后披露的规则
+
+### 6. 板块复盘
+
+```
+c=ForumsMsgJX&a=GetBkFuPan   （H5 plateReplay.js 中发现，未实测）
+```
+
+### 7. 首页/布局/其他
 
 ```
 c=SysAppVersion&a=GetLaYout   功能宫格布局（含模块 ID 与 H5 外链）
-c=Index&a=NewGetList          首页信息流（轮播/广告含研报标题）
+c=Index&a=NewGetList          首页信息流（轮播/广告，闭市 List 为空，无行情价值）
 c=StockL2History&a=GetStockTrend  子域: apphis  参数: Day & StockID（历史分时）
-c=StockSHGT&a=GetInterviewsByDateJGToStockkLine  （沪深港通/机构调研相关，JS 中发现）
-c=BusinessGroup&a=GetBusinessGroupChart          （席位分组曲线，JS 中发现）
+c=StockSHGT&a=GetInterviewsByDateJGToStockkLine  （沪深港通/机构调研相关，JS 中发现，未实测）
+c=BusinessGroup&a=GetBusinessGroupChart          （席位分组曲线，JS 中发现，未实测）
 ```
 
-## 未捕获（周日收盘不产生请求，需盘中补抓）
+## 第二条通道：直连 + 证书固定（2026-08-10 下午 Reqable VPN 实测）
 
-- **题材库**（布局 id=22，原生模块）：积分解锁内容已下载本地，打开不走网络；
-  更新/解锁时刻的接口需盘中或重新解锁时抓
-- **异动提醒**（id=23）：盘中实时推送类，周日无流量
-- **连板梯队实时刷新**：同上，当前只有 DaBanList 的日级汇总
-- 机构增仓（H5：`apppage/w47/insPosInc/incPlate.html`）未点
+KPL 包名 `com.aiyu.kaipanla`，官网 `kaipanla.com`（121.37.x，华为云）。
+除 longhuvip 系 HTTP API 外，App 还有一组**显式绕过系统代理**（OkHttp NO_PROXY）
+且**证书固定**（拒绝用户 CA）的直连通道：
 
-## 盘中补抓操作（交易日 9:30-15:00）
+| 端点 | 形态 | 备注 |
+|---|---|---|
+| `socket.kaipan.com:8080` | HTTPS/TLS socket | 板块/题材实时数据主通道 |
+| `hwsockapp.longhuvip.com:17000` | TLS socket | 行情推送 |
+| `hwany.longhuvip.com` :443 / :2443 | HTTPS/HTTP | 直连 API |
+| `appuser.longhuvip.com` | HTTPS | 用户服务（偶见） |
+| 裸 IP 直连 | 113.45.x.x:443、121.14.193.71 等 | 与上面同族（applhb 解析到 113.45.200.207） |
+
+实测结论：
+
+- HTTP 代理模式（mitmproxy）下这些通道**完全不可见**（App 绕过代理直连）；
+- VPN 模式（Reqable）下 MITM 被**证书固定**拒绝（CONNECT Aborted、重试风暴）；
+- 即使把这两个 socket 域名配成 SSL 绕行（透传），板块/题材详情页在 VPN 下**仍报错**
+  （疑 VPN 环境检测或自定义 socket 协议）——**用户级抓包对该通道无解**。
+- 因此以下功能的数据**不可得**（除非 root+Frida/重打包，封号风险，不推荐）：
+  - **板块/题材详情页**（强度/排名/主力净额、股票池、机构纪要、要闻、小标签页签）
+  - **题材库**（早盘"零流量"误判为本地渲染，实为走直连通道）
+  - **异动提醒**（另有 MiPush 系统推送通道）
+- 注意：**开着 Reqable/mitmproxy 时上述页面不可用**；日常用 App 前确认抓包已停。
+- 可用的异动/板块替代数据：`Index.GetInfo` 的 `FKYDSixList`（风口异动）、
+  `PHBList`（连板梯队）、`BaceFaceList`（板块涨幅榜）；板块要闻/机构纪要建议改用公开源。
+
+### Reqable VPN 抓包操作摘要（已配置好，可复用）
+
+1. 手机装 Reqable（小米商店/官网），装其 CA 证书（流程同 mitmproxy CA）。
+2. 启动抓包（右下角纸飞机）→ 允许 VPN 连接请求。
+3. **关键**：⋮ 菜单 → SSL 代理 → 已建好规则集 `kpl-api-only`（拦截模式，
+   仅 `app*.longhuvip.com`）——只解密 API 层，其余透传，App 大部分功能正常
+   （板块/题材详情页除外，见上）。已验证 apphwhq API 返回 200 明文。
+4. 导出：历史记录 → 导出 HAR。
+5. 误判修正：下午抓到的 10jqka/thsi.cn 流量来自**同花顺 App**
+   （`com.hexin.plat.android`，后台活跃），与 KPL 无关。
+
+## 受限网络抓包拓扑（公司网拦截场景，2026-08-10 验证）
+
+公司网关行为：放行 API 域名（apphwhq/applhb/apparticle/CDN），
+**RST 拦截 `apppage.longhuvip.com`**（H5 容器），apphotfix 被劫持到认证页（503）。
+手机直连需过网页认证，且手机自身流量走蜂窝、无法设代理 → 普通 Wi-Fi 代理拓扑失效。
+
+USB + adb 拓扑（手机流量经 USB 隧道进电脑，电脑出口走手机蜂窝）：
 
 ```bash
-# 1. 起代理（本仓库根目录）
+# 0. 一次性准备（已做）：brew install --cask android-platform-tools
+#    手机：开发者模式 → USB 调试 → USB 调试（安全设置）（需小米账号/SIM）
+# 1. 手机：关 Wi-Fi（纯蜂窝）、开个人热点、插数据线
+# 2. 电脑：Wi-Fi 切到手机热点（出口=蜂窝，绕开公司网关）
+# 3. 起代理 + 隧道 + 全局代理
 mitmdump -p 8080 --set confdir=temp/kpl_capture/mitmconf \
   -w temp/kpl_capture/kpl-flows-<date>.mitm -q
-# 2. 手机 Wi-Fi 代理指向 192.168.8.9:8080（证书已装过，不用重装）
-# 3. 正常用 App：题材库/异动提醒/连板/打板逐个点+滑
-# 4. 盘点：mitmdump -nr <flows> -s temp/kpl_capture/inventory2.py --set flow_detail=0 -q
+adb reverse tcp:8080 tcp:8080
+adb shell settings put global http_proxy 127.0.0.1:8080
+# 4. 手机操作 App（链路：App → 127.0.0.1:8080 → adb/USB → mitmdump → 热点蜂窝 → 外网）
+# 5. 收尾还原
+adb shell settings put global http_proxy :0
+adb reverse --remove-all && adb disconnect
+# 手机关热点、拔线；电脑 Wi-Fi 切回原网络
 ```
 
-注意：`mitmdump -w` 会**截断同名文件**，重起代理务必换新文件名或改用 `+w` 追加。
+注意：
+- `mitmdump -w` 会**截断同名文件**，重起代理务必换新文件名（mitmdump 12 无追加模式）。
+- 开/关「USB 网络共享」会让 adb 瞬断，重跑 `adb devices` 确认即可。
+- macOS 原生不支持安卓 USB 网络共享（RNDIS），所以出口走热点而非 USB 共享。
+- 手机「USB 调试（安全设置）」用后建议关回。
+- adb 远程操控技巧（已验证可用）：`adb shell screencap`+`adb pull` 截图、
+  `input tap/swipe/text` 点击输入、`am force-stop`+`monkey` 重启 App、
+  `netstat -tne` 按 uid 查 App 直连连接。
+
+## 受限网络抓包拓扑（公司网拦截场景，2026-08-10 验证）
+
+公司网关行为：放行 API 域名（apphwhq/applhb/apparticle/CDN），
+**RST 拦截 `apppage.longhuvip.com`**（H5 容器），apphotfix 被劫持到认证页（503）。
+手机直连需过网页认证，且手机自身流量走蜂窝、无法设代理 → 普通 Wi-Fi 代理拓扑失效。
+
+USB + adb 拓扑（手机流量经 USB 隧道进电脑，电脑出口走手机蜂窝）：
+
+```bash
+# 0. 一次性准备（已做）：brew install --cask android-platform-tools
+#    手机：开发者模式 → USB 调试 → USB 调试（安全设置）（需小米账号/SIM）
+# 1. 手机：关 Wi-Fi（纯蜂窝）、开个人热点、插数据线
+# 2. 电脑：Wi-Fi 切到手机热点（出口=蜂窝，绕开公司网关）
+# 3. 起代理 + 隧道 + 全局代理
+mitmdump -p 8080 --set confdir=temp/kpl_capture/mitmconf \
+  -w temp/kpl_capture/kpl-flows-<date>.mitm -q
+adb reverse tcp:8080 tcp:8080
+adb shell settings put global http_proxy 127.0.0.1:8080
+# 4. 手机操作 App（链路：App → 127.0.0.1:8080 → adb/USB → mitmdump → 热点蜂窝 → 外网）
+# 5. 收尾还原
+adb shell settings put global http_proxy :0
+adb reverse --remove-all && adb disconnect
+# 手机关热点、拔线；电脑 Wi-Fi 切回原网络
+```
+
+注意：
+- `mitmdump -w` 会**截断同名文件**，重起代理务必换新文件名或改用 `+w` 追加。
+- 开/关「USB 网络共享」会让 adb 瞬断，重跑 `adb devices` 确认即可。
+- macOS 原生不支持安卓 USB 网络共享（RNDIS），所以出口走热点而非 USB 共享。
+- 手机「USB 调试（安全设置）」用后建议关回。
