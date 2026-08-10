@@ -49,7 +49,7 @@ grep "source_date:" knowledge/claims/claim-*.yaml | sort
 | cycle-shift | 市场阶段变化导致观点变化 | 标记为 cycle-shift，更新 status |
 | logic-broken | 个股或板块逻辑被证伪 | 标记 contradicts，旧 claim 更新 status |
 | risk-repriced | 宏观/流动性/风险偏好改变 | 标记 risk-repriced |
-| agent-up-conflict | Qing-Agent 分析 vs UP 观点矛盾 | 检查知识库是否完整→补 claims→重新分析；若仍矛盾→UP 优先 |
+| agent-up-conflict | Agent 分析 vs UP 观点矛盾 | 检查知识库是否完整→补 claims→重新分析；若仍矛盾→**市场数据优先**（一级信息>二级>三级，价格/量能证据>任何观点——总计划 v2.1 第十一节），UP 观点仅作对照标签；无法裁决时标 true-conflict 高亮提醒用户 |
 | true-conflict | 暂无清晰解释，需人工 review | 标记 true-conflict，高亮提醒用户 |
 
 ### Step 5: Durable Rule 筛选

@@ -16,6 +16,8 @@
 3. 写入 strategy_pack 时标注来源 claim ID
 
 > 已写入 Agent memory。三类矛盾：信息不对称→补 claims；方法论差异→UP 优先；真正矛盾→标记 true-conflict。
+>
+> **2026-08-10 修订（v2.1 对齐）**："UP 优先/以 UP 为准"废止。Agent 与 UP 矛盾时按总计划 v2.1 第十一节**市场数据优先**（一级信息>二级>三级，价格/量能证据>任何观点），UP 观点仅作对照标签；无法裁决时标 true-conflict 提醒用户。
 
 ---
 
