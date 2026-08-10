@@ -12,14 +12,14 @@
 - **建立背景**：M0 验收时发现 `infra/data/kline_cache.db` 是空库（v2.1 文档假设的"现成积累"不成立），当日 FORCE 回填 217 只（覆盖 2026-04-27 起）；M1 又补拉了指数（`IDX000300`/`IDX000001`，`scripts/fetch_index_klines.py`）。缓存连续性靠每日续拉维持。
 - **本机 crontab 另有 M2 影子双轨任务**（2026-08-08 随 M2-T7 挂接）：
   ```
-  40 15 * * 1-5 cd /Users/cong.zhou/Documents/quantitative/learning-investment-strategies && set -a && source .env && set +a && .venv/bin/python scripts/shadow_daily.py >> log/shadow_daily.log 2>&1
+  5 18 * * 1-5 cd /Users/cong.zhou/Documents/quantitative/learning-investment-strategies && set -a && source .env && set +a && .venv/bin/python scripts/shadow_daily.py >> log/shadow_daily.log 2>&1
   ```
-  工作日 15:40（pre_fetch 之后 5 分钟）跑影子双轨日更：产出当日预测（`evals/shadow/predictions/`）、到期结算、归因与 `logs/shadow-status.md`。需要 DeepSeek API key，故显式 `source .env`。
+  工作日 18:05（KPL 之后 20 分钟）跑影子双轨日更：产出当日预测（`evals/shadow/predictions/`）、到期结算、归因与 `logs/shadow-status.md`。需要 DeepSeek API key，故显式 `source .env`。
 - **本机 crontab 另有 KPL 每日拉取任务**（2026-08-10 随 KPL 接入挂接）：
   ```
-  45 15 * * 1-5 cd /Users/cong.zhou/Documents/quantitative/learning-investment-strategies && set -a && source .env && set +a && .venv/bin/python scripts/kpl_daily_fetch.py >> log/kpl_daily_fetch.log 2>&1
+  45 17 * * 1-5 cd /Users/cong.zhou/Documents/quantitative/learning-investment-strategies && set -a && source .env && set +a && .venv/bin/python scripts/kpl_daily_fetch.py >> log/kpl_daily_fetch.log 2>&1
   ```
-  工作日 15:45（shadow 之后 5 分钟）拉 KPL 情绪快照（`Index.GetInfo` 全量 View）+ 当日资讯全文，落盘 `infra/data/kpl/`（gitignored）。依赖 `.env` 的 `kpl_user_id/kpl_token/kpl_device_id`；token 失效时脚本退出码 3、日志有重抓指引（`docs/design/kpl-api-inventory.md`）。
+  工作日 17:45 拉 KPL 情绪快照（`Index.GetInfo` 全量 View）+ 当日资讯全文 + 龙虎榜游资榜（`UserBusiness.GetDay`），落盘 `infra/data/kpl/`（gitignored）。依赖 `.env` 的 `kpl_user_id/kpl_token/kpl_device_id`；token 失效时脚本退出码 3、日志有重抓指引（`docs/design/kpl-api-inventory.md`）。龙虎榜 T 日收盘后披露，披露未出时 List 为空属正常（落盘 note 标注）。
 - **本机无其他调度**：无 hermes wrapper（`~/.hermes/scripts/` 不存在）、无 launchd 任务、`log/agent.pid` 是死进程号。AGENTS.md 描述的 hermes cron 架构是云端形态。
 
 ## 注销义务（用户明确要求）
@@ -49,3 +49,9 @@ crontab -l | grep -v 'pre_fetch_klines\|shadow_daily\|kpl_daily_fetch' | crontab
   （当日 18:21 探针验证读权限与 `source .env` 链恢复）。当日 shadow/KPL 数据已手动补跑。
   **再发排查顺序**：`/var/mail/$USER` 看 cron 邮件 → 探针复测 → 检查 FDA 列表里
   cron 开关是否被 MDM 收回。
+- 2026-08-11：**复盘时序推后 18 点档**（用户裁决，配合龙虎榜等收盘后披露数据）：
+  KPL 15:45→17:45（脚本内 emotion→news→lhb 顺序，lhb 最接近披露窗口）、
+  shadow 15:40→18:05。shadow 盲判数据包自此接入 KPL 情绪/资讯标题/龙虎榜三块
+  （spec `docs/superpowers/specs/2026-08-10-shadow-pack-contract-v2.md`）；
+  指数扩容（创业板指/深成指/中证1000）由 `fetch_index_klines.py` 回填，
+  每日由 `shadow_daily.py` 自补续拉。旧 crontab 备份 `/tmp/crontab.bak.20260811`。

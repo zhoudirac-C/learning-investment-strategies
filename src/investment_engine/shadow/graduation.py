@@ -98,9 +98,18 @@ def _fmt(m: dict) -> str:
     return "n=0" if m["n"] == 0 else f"{m['rate']:.1%}（n={m['n']}）"
 
 
+def version_spans(records: list[dict]) -> str:
+    """prompt_version 分布（老记录无字段计 v1）。"""
+    spans: dict[str, list[str]] = {}
+    for r in records:
+        spans.setdefault(r.get("prompt_version") or "v1", []).append(r["date"])
+    return "；".join(f"{ver}: {min(ds)}~{max(ds)}（{len(ds)} 条）"
+                     for ver, ds in sorted(spans.items()))
+
+
 def render_report(*, run_date: date, weeks: int, window_start: date,
                   stats: dict, weekly: list[dict], verdict: str,
-                  skipped: int) -> str:
+                  skipped: int, version_note: str) -> str:
     lines = [
         f"# 毕业判定报告（{run_date}）",
         "",
@@ -123,6 +132,7 @@ def render_report(*, run_date: date, weeks: int, window_start: date,
         "",
         f"- {CRITERION3_NOTE}",
         "- 口径: 影子双轨每日盲判数据（非 M1 历史回放）；跨日聚合分子分母，非日均值。",
+        f"- prompt 版本: {version_note}（v2=2026-08-11 契约升级；混窗期统计不自动切分，人读分段）",
         f"- 解析跳过 {skipped} 条（坏 JSON 或缺 date）。",
     ]
     return "\n".join(lines) + "\n"
@@ -144,5 +154,7 @@ def run(pred_dir=PRED_DIR, *, weeks: int = DEFAULT_WEEKS,
     path.write_text(render_report(run_date=run_date, weeks=weeks,
                                   window_start=window_start, stats=stats,
                                   weekly=weekly, verdict=verdict,
-                                  skipped=skipped), encoding="utf-8")
+                                  skipped=skipped,
+                                  version_note=version_spans(records)),
+                    encoding="utf-8")
     return path

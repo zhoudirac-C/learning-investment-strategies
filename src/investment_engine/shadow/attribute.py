@@ -16,7 +16,7 @@ _TYPE_TO_PROPOSAL = {"数据缺": "data-channel", "步骤缺": "pattern-patch",
                      "概念误用": "glossary-patch", "信息差": "capability-boundary"}
 
 # 盲判数据包当前结构性缺失的通道（M1 spec 已如实标注）
-KNOWN_DATA_GAPS = ["板块资金流", "涨停池/炸板率", "涨跌家数", "分时数据", "公告/新闻流"]
+KNOWN_DATA_GAPS = ["板块资金流", "分时数据", "公告流"]
 
 ATTR_PROMPT = """你是方法论复盘归因员。AI 在没有参考任何人物言论的情况下独立做出了市场判断，事后证明判错了。
 请做差异归因，严格输出 JSON：

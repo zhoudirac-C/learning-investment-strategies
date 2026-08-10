@@ -37,7 +37,7 @@ AI 每个交易日收盘后独立判断市场阶段和方向（不看任何 UP �
 
 ```
                         ┌─────────── 每天自动（本机 crontab）───────────┐
-                        │ 15:35 拉K线 → 15:40 影子盲判 → 15:45 拉KPL   │
+                        │ 15:35 拉K线 → 17:45 拉KPL → 18:05 影子盲判  │
                         └──────────────┬────────────────────────────────┘
                                        ▼
 ┌───────────────────────────── 数 据 源 ─────────────────────────────┐
@@ -78,15 +78,18 @@ AI 每个交易日收盘后独立判断市场阶段和方向（不看任何 UP �
 | 时刻 | 任务 | 日志 |
 |---|---|---|
 | 15:35 | 续拉 217 只个股 + 指数的日 K 线 | `log/pre_fetch_klines.log` |
-| 15:40 | 影子双轨：AI 盲判当日市场 → 到期结算 → 归因 → 刷新报告 | `log/shadow_daily.log` |
-| 15:45 | KPL：拉打板情绪快照 + 当日资讯全文 | `log/kpl_daily_fetch.log` |
+| 17:45 | KPL：拉打板情绪快照 + 当日资讯全文 + 龙虎榜 | `log/kpl_daily_fetch.log` |
+| 18:05 | 影子双轨：AI 盲判当日市场（数据包含 KPL 情绪/资讯标题/龙虎榜）→ 到期结算 → 归因 → 刷新报告 | `log/shadow_daily.log` |
 
 ### 收盘后想看结果（按这个顺序）
 
 1. **`logs/shadow-status.md`** —— 总览：记录了几天、每天判对没有、有没有缺归因。
 2. **`evals/shadow/predictions/<今天>.json`** —— 今天的盲判档案：
    - `result.market_stage` / `stage_reason`：AI 判的市场阶段和理由；
-   - `result.directions[]`：看好的 1-3 个方向（含标的代码和理由）；
+   - `result.scenarios[]` / `watch_next[]` / `invalidation[]`：情景分支、明日验证变量、
+     失效条件（v2 契约新增，v1 老记录无此字段）；
+   - `result.directions[]`：看好的 1-3 个方向（含标的代码、理由、`posture` 操作定性）；
+   - `prompt_version`：`v1`/`v2`（2026-08-11 起 v2）；
    - `raw`：DeepSeek 返回的原文（未加工）；
    - `stage_hit`：阶段判对没有（次日真值出来后回填）；
    - `status`：`pending_maturity`=等 5 个交易日结算方向超额；`scored`=已结算。
@@ -94,6 +97,8 @@ AI 每个交易日收盘后独立判断市场阶段和方向（不看任何 UP �
    连板梯队、风口异动、板块榜（字段含义见 `docs/design/kpl-api-inventory.md` 第 1 节）。
 4. **`infra/data/kpl/news/<今天>/`** —— 当日资讯：`index.json` 是目录，
    每篇一个 `.md`（frontmatter 带标题/时间/关联股票，正文纯文本）。
+5. **`infra/data/kpl/lhb/<今天>.json`** —— 龙虎榜游资榜：披露日、分类席位、
+   当日上榜明细（披露未出时 list 为空、note 有标注，属正常）。
 
 注意：`infra/data/` 不进 git（数据文件太大），换机器看不到；想看历史趋势以
 `evals/` 和 `logs/` 下的 git 记录为准。

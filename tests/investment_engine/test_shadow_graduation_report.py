@@ -46,3 +46,10 @@ def test_cli_smoke(tmp_path, capsys):
     out = capsys.readouterr().out
     assert "insufficient_data" in out
     assert (tmp_path / "logs").glob("graduation-*.md")
+
+
+def test_report_has_version_note(tmp_path):
+    pred_dir = _seed(tmp_path)
+    out = run(pred_dir, weeks=8, out_dir=tmp_path / "logs", today=TODAY)
+    text = out.read_text(encoding="utf-8")
+    assert "prompt 版本" in text and "v1" in text

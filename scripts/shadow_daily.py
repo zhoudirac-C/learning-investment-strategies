@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""M2 影子双轨每日入口（cron 15:40 调用）。
+"""M2 影子双轨每日入口（cron 18:05 调用）。
 
 自含：补当日指数 K → 等 K 线就绪（3 次 × 2 分钟）→ daily.run(当日)。
 节假日/无新数据自然退出 0。手动补跑: python scripts/shadow_daily.py --date 2026-08-07
