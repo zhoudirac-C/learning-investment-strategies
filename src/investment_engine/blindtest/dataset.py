@@ -155,9 +155,17 @@ def _load_lhb(day: str, kpl_root: Path) -> dict | None:
     if not path.exists():
         return None
     d = json.loads(path.read_text(encoding="utf-8"))
+    raw = d.get("list") or {}
+    if isinstance(raw, dict):  # 真实形态：{分类ID: [明细...]}
+        items = [it for entries in raw.values() for it in entries]
+    else:  # 兼容早期扁平数组落盘
+        items = list(raw)
+    count = d.get("entry_count")
+    if count is None:
+        count = len(items)
     return {"disclosure_day": d.get("disclosure_day", ""),
-            "count": len(d.get("list") or []),
-            "items": (d.get("list") or [])[:_LHB_ITEM_CAP],
+            "count": count,
+            "items": items[:_LHB_ITEM_CAP],
             "note": d.get("note", "")}
 
 

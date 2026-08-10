@@ -69,7 +69,7 @@ def main(argv: list[str] | None = None) -> int:
                 path = lhb.save_lhb(data, out_root, args.date)
                 tail = f"（{data['note']}）" if data["note"] else ""
                 print(f"[kpl] 龙虎榜 → {path}  披露日={data['disclosure_day']}"
-                      f" 上榜={len(data['list'])} 条{tail}")
+                      f" 上榜={data['entry_count']} 条{tail}")
     except KplAuthError as e:
         print(f"[kpl] {e}", file=sys.stderr)
         return 3

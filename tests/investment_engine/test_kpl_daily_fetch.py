@@ -32,7 +32,7 @@ def fake_layers(monkeypatch):
                                         "disclosure_day": "2026-08-10",
                                         "prev_disclosure_day": "2026-08-07",
                                         "tlist": [], "list": [{"StockID": "600664"}],
-                                        "note": ""})
+                                        "entry_count": 1, "note": ""})
 
 
 def test_run_success_and_idempotent(tmp_path, capsys, fake_layers):

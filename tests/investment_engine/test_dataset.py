@@ -102,7 +102,9 @@ class TestKplBlocks:
             {"id": 1, "title": "测试资讯", "stocks": [{"StockID": "600664"}], "fetched": True},
         ], ensure_ascii=False), encoding="utf-8")
         (self.kpl / "lhb" / "2026-06-30.json").write_text(json.dumps({
-            "disclosure_day": "2026-06-30", "list": [{"StockID": "600664"}], "note": "",
+            "disclosure_day": "2026-06-30",
+            "list": {"2": [{"StockID": "600664"}], "3": []},
+            "entry_count": 1, "note": "",
         }, ensure_ascii=False), encoding="utf-8")
 
     def teardown_method(self):

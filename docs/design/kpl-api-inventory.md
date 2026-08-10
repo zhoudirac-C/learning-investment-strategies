@@ -86,16 +86,21 @@ c=Business&a=GetBusinessChart    参数: BusinessID & Date & StockID & Index & s
 
 关联页面：`apppage/w47/web/DepkDetails.html?DID=<席位ID>&sid=<股票>&logid=...`
 
-### 5. 游资榜（2026-08-10 盘中捕获）
+### 5. 游资榜（2026-08-10 盘中捕获；2026-08-11 实测修正）
 
 ```
-c=UserBusiness&a=GetDay   子域: applhb   参数: 无业务参数
+c=UserBusiness&a=GetDay   子域: applhb   参数: Day=YYYY-MM-DD（可选，回溯历史披露日）
 ```
 
-- `TList`：分类 `[顶级游资/一线游资/知名游资/机构/庄股]`
-- `List`：按分类 ID 分组的当日龙虎榜席位明细（非披露日为空）
-- `Day`/`NDay`：数据对应的披露日/上一披露日。周一盘中返回的是上周五（2026-08-07），
-  符合龙虎榜 T 日收盘后披露的规则
+- `TList`：分类 `[顶级游资(ID=3)/一线游资(2)/知名游资(4)/机构(5)/庄股(1)]`
+- `List`：**dict，按分类 ID 分组**（键 `"1"`..`"6"`，值为席位明细数组）——不是扁平数组
+- `Day`/`NDay`：数据对应的披露日/上一披露日，`Day` 入参可回溯（实测 2026-08-07/10 均返回对应日）
+- **实测：本账号 `List` 各类恒为空**——2026-08-10 抓包样本（Day=2026-08-07）与
+  2026-08-11 三次实测（含 Day 回溯）一致。疑席位明细走 App 直连通道（见下节）或需额外权益。
+  落盘按 `entry_count=0` + note 标注，不当作异常
+- 个股席位明细替代端点（实测可用）：`c=Stock&a=GetNewOneStockInfo`，参数 `StockID`（+`Type=0`），
+  返回 `List[].BuyList/SellList`（营业部名称、买卖金额、PX 排名）、`OnTimeList`（历史上榜日）、
+  `BuyIn`（净买入）。日榜股票清单端点在代理通道未观察到（疑走直连通道）
 
 ### 6. 板块复盘
 
