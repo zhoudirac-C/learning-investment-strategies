@@ -5,7 +5,7 @@ from types import SimpleNamespace
 import pytest
 
 from investment_engine.blindtest.replay import (
-    SYSTEM_PROMPT, build_messages, parse_result, run_replay,
+    PROMPT_VERSION, SYSTEM_PROMPT, build_messages, parse_result, run_replay,
 )
 
 
@@ -111,3 +111,38 @@ class TestRunReplay:
         )
         stats = run_replay(["2026-06-01"], config_dir="x", out_path=out)
         assert stats == {"done": 1, "skipped": 0, "error": 0}
+
+
+GOOD_JSON_V2 = json.dumps({
+    "market_stage": "震荡",
+    "stage_reason": "缩量整理，封板率87.6%",
+    "scenarios": [{"name": "A", "condition": "低开有承接", "conclusion": "反弹延续", "key": "承接"}],
+    "watch_next": ["二板家数能否达13家"],
+    "invalidation": ["情绪龙头集体断板"],
+    "directions": [{"direction_id": "mlcc_super_cycle", "reason": "涨价",
+                    "posture": "右侧确认", "stocks": ["002371"]}],
+    "used_patterns": ["upstream_cycle"],
+}, ensure_ascii=False)
+
+
+class TestParseResultV2:
+    def test_v2_fields(self):
+        r = parse_result(GOOD_JSON_V2)
+        assert r["scenarios"][0]["key"] == "承接"
+        assert r["watch_next"] == ["二板家数能否达13家"]
+        assert r["invalidation"] == ["情绪龙头集体断板"]
+        assert r["directions"][0]["posture"] == "右侧确认"
+
+    def test_v1_backward_compat(self):
+        r = parse_result(GOOD_JSON)
+        assert r["scenarios"] == [] and r["watch_next"] == [] and r["invalidation"] == []
+        assert r["directions"][0]["posture"] == ""
+
+    def test_invalid_posture_dropped(self):
+        bad = json.loads(GOOD_JSON_V2)
+        bad["directions"][0]["posture"] = "梭哈"
+        r = parse_result(json.dumps(bad, ensure_ascii=False))
+        assert r["directions"][0]["posture"] == ""
+
+    def test_prompt_version_constant(self):
+        assert PROMPT_VERSION == "v2"
