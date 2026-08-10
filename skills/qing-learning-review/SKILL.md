@@ -54,13 +54,54 @@ grep "source_date:" knowledge/claims/claim-*.yaml | sort
 
 ### Step 5: Durable Rule 筛选
 
-进 framework 条件（满足其一）：
+**候选分流（v2.1 对齐，2026-08-10 起）**：durable rule 候选先分两类，去向不同——
+
+| 类型 | 例子 | 去向 |
+|------|------|------|
+| A. 操作纪律类 | 买卖条件、仓位、风控线（如"赚20%砍半仓"） | 原 Review→Write 管道（见 qing-learning 总入口），写 `framework/trading-rules.md` 等 |
+| B. 推理模式类 | 可复用的分析/推导步骤（如"涨价链五步拆解"） | **禁止直接写 framework 文档或 `framework/reasoning-patterns.yaml`**；生成模式提名提案 `framework/proposals/YYYYMMDD-<name>.yaml`，经市场验证 + 人审后才入库 |
+
+**推理模式提名门槛**（三条同时满足，否则留在 wiki/claims 层继续观察）：
+
+1. 提名复盘窗口 **≥4 周**（drift/矛盾复盘仍默认 7 天，两者解耦——模式提名需单独拉长窗口汇总）；
+2. 同一逻辑在 **≥2 种市场阶段**（主升/震荡/调整/恐慌）对应的复盘内容中出现（防单 regime 过拟合）；
+3. 提案附证据：每次出现的日期 + 当日市场阶段 + 原文摘录（source path + quote）。
+
+**提名提案模板**（不用 `scripts/apply_pattern_proposal.py` 应用——该脚本只接受 validation 回填；人审通过后手工入库 `framework/reasoning-patterns.yaml`）：
+
+```yaml
+proposal_id: YYYYMMDD-pattern-nomination-<slug>
+source: up-review
+generated_at: '<ISO timestamp>'
+status: pending-review   # pending-review → approved → applied | rejected
+evidence:
+  window: {start: 'YYYY-MM-DD', end: 'YYYY-MM-DD'}
+  occurrences:
+    - date: 'YYYY-MM-DD'
+      regime: 震荡        # 主升/震荡/调整/恐慌
+      source: sources/raw/财经/<file>.md
+      quote: "<原文摘录>"
+candidate_pattern:
+  pattern_id: <snake_case>
+  name: <名称>
+  description: <何时使用、解决什么问题>
+  trigger: [<客观数据特征，不含"UP说">]
+  data_requirements: [<每步所需数据及获取通道>]
+  steps: [<推理步骤>]
+  falsification: [<证伪条件>]
+  validation:
+    historical_hit_rate: null   # 入库前必须经回测/盲测回填
+    applicable_regime: null
+    known_failures: []
+```
+
+进 framework 条件（A 类操作纪律，满足其一）：
 1. **明确规则**：有具体数字、条件、阈值（如"赚20%砍半仓"）
 2. **多次重复**：同一方法论在不同日期出现 2 次以上
 3. **解释旧冲突**：能解释之前矛盾的新规则
 4. **改变操作纪律**：直接影响买卖/仓位/风控的决策规则
 5. **例外条款**：**首次出现但直接影响当前持仓决策的操作纪律**，即使只出现1次也应进入 framework。例如：UP 说"能做T做T，反弹之后减仓，等黄金坑再补"——这是针对当前持仓的具体操作框架，不应等"出现2次"再采纳。判断标准：该规则是否直接回答了"现在怎么办"的问题？是→首次即入。
-6. **方法论框架对比**：将本次 review 窗口内的 methodology claims（claim_type=methodology, timeframe=permanent）与 `framework/market-breadth-framework.md` 和 `knowledge/wiki/投资方法论/大盘分析方法论.md` 交叉对比。标记状态：已收录 / 新方法论（建议追加）/ 矛盾（需人工裁决）。矛盾归入 contradiction 分类处理。若发现新方法论，在报告中标注"建议运行更新方法论"。
+6. **方法论框架对比**：将本次 review 窗口内的 methodology claims（claim_type=methodology, timeframe=permanent）与 `framework/reasoning-patterns.yaml`、`framework/market-breadth-framework.md` 和 `knowledge/wiki/投资方法论/大盘分析方法论.md` 交叉对比。标记状态：已收录 / 新方法论 / 矛盾（需人工裁决）。矛盾归入 contradiction 分类处理。**新方法论属推理模式类——按上方提名门槛生成 proposals 提案，不再直接追加进 framework 文档。**
 
 ### Step 6: 一致性检查
 
@@ -90,6 +131,7 @@ git add reports/methodology-review-YYYYMMDD.md
 - **周期调整 vs 逻辑证伪**：当博主说某方向"调整一段时间""规避"时，要区分是 cycle-shift（阶段性调整，后期可能回归）还是 logic-broken（逻辑证伪，永久失效）。前者不标记 claims 过期，后者才标记 superseded。半导体从"接棒主线"到"规避"属于 cycle-shift，claims 保持 active。
 - **双轨制对 Review 的影响**：轨道B（技术课程）的 claims 不参与 drift 分析。详见 `qing-learning` 总入口 skill 的跨 Skill 兼容性说明。
 - **Review 后的 Framework 写入**：本 skill 是只读分析，但用户 workflow 通常要求 review 后将 durable rules 写入 framework。写入操作不属于本 skill 职责——详见 `qing-learning` 总入口 skill 的「Review→Write 工作流」章节。本 skill 的输出（报告 + durable rule 候选列表）是下游写入操作的输入。
+- **推理模式类不走 framework 文档**：UP 复盘提炼出的分析/推导步骤是模式提名，必须走 `framework/proposals/` 提案制（门槛见 Step 5），经市场验证 + 人审后才入 `reasoning-patterns.yaml`。直接写入 = 绕过 validation，回 v2.0 老路。
 
 ## Skill 职责边界
 
