@@ -16,7 +16,7 @@ import subprocess
 import sys
 import urllib.error
 import urllib.request
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from qing_investment.agent.tools.daily_state import (
@@ -532,7 +532,40 @@ def _build_market_snapshot(data: dict) -> tuple[dict, dict[str, dict]]:
     except Exception as e:
         market_snapshot["sentiment"] = {"errors": [str(e)]}
 
+    # 隔夜外盘映射股（盘前 08:20 由 scripts/overnight_us_fetch.py 落盘；缺失则不注入）
+    overnight = _load_overnight_us()
+    if overnight:
+        market_snapshot["overnight_us"] = overnight
+
     return market_snapshot, quote_lookup
+
+
+_OVERNIGHT_US_DIR = Path("infra/data/overnight_us")
+
+
+def _load_overnight_us(day: str | None = None) -> dict | None:
+    """读当日外盘映射落盘，压缩为 LLM 友好形态；文件缺失/损坏返回 None。"""
+    day = day or date.today().isoformat()
+    path = _OVERNIGHT_US_DIR / f"{day}.json"
+    if not path.exists():
+        return None
+    try:
+        d = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    themes = []
+    for t in d.get("themes") or []:
+        movers = []
+        for s in t.get("stocks") or []:
+            if "error" in s or s.get("pct_change") is None:
+                continue
+            note = f"（{s['earnings_note']}）" if s.get("earnings_note") else ""
+            movers.append(f"{s.get('name') or s['symbol']}{s['pct_change']:+.1f}%{note}")
+        if movers:
+            themes.append({"theme": t.get("name") or t.get("id"), "movers": movers})
+    if not themes:
+        return None
+    return {"data_note": "昨夜美股收盘涨跌幅", "themes": themes}
 
 
 def _post_analyze_trigger(payload: dict, timeout: float | None = None) -> dict | None:

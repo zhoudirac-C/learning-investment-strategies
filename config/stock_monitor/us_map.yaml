@@ -1,0 +1,32 @@
+# 隔夜外盘映射清单（2026-08-11 起）
+# 用途：overnight_us_fetch 盘前拉取这些美股映射股的隔夜涨跌，
+#       供早盘分析做"外盘→A股映射"推理（如光模块定价权在海外）。
+# 维护：映射股选自 UP 历史复盘/早盘中实际使用的外盘参照；earnings_note 手工维护。
+themes:
+  - id: optical_module
+    name: 光模块/CPO（定价权在海外，以点带面看中际旭创映射）
+    symbols:
+      - {symbol: COHR, name: Coherent, earnings_note: "美东8/12盘后财报（2026-08-11 UP早盘记录）"}
+      - {symbol: LITE, name: Lumentum, earnings_note: "美东8/11盘后财报（2026-08-11 UP早盘记录）"}
+      # Fabrinet(FNVR) 东财美股无覆盖（2026-08-11 三前缀实测均无数据），如需补充用 AAOI/CIEN
+  - id: ai_compute
+    name: 算力/AI芯片
+    symbols:
+      - {symbol: NVDA, name: 英伟达, earnings_note: ""}
+      - {symbol: AMD, name: AMD, earnings_note: ""}
+      - {symbol: AVGO, name: 博通, earnings_note: ""}
+      - {symbol: MRVL, name: Marvell, earnings_note: ""}
+  - id: memory
+    name: 存储（UP 用 SK海力士ADR映射；东财无韩股，用美光代理）
+    symbols:
+      - {symbol: MU, name: 美光, earnings_note: ""}
+  - id: pharma_glp1
+    name: 医药/GLP-1
+    symbols:
+      - {symbol: LLY, name: 礼来, earnings_note: ""}
+      - {symbol: NVO, name: 诺和诺德, earnings_note: ""}
+  - id: cybersecurity
+    name: 网络安全（AI放大安全需求叙事）
+    symbols:
+      - {symbol: PANW, name: Palo Alto Networks, earnings_note: ""}
+      - {symbol: CRWD, name: CrowdStrike, earnings_note: ""}
