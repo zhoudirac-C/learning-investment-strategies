@@ -542,7 +542,89 @@ def _build_market_snapshot(data: dict) -> tuple[dict, dict[str, dict]]:
     if limit_pool:
         market_snapshot["limit_pool_yesterday"] = limit_pool
 
+    # 集合竞价摘要（仅 09:25-09:40 触发时拉取：竞价额 top + 竞价涨停名单——UP"一字定方向"）
+    auction = _fetch_auction_digest()
+    if auction:
+        market_snapshot["auction_digest"] = auction
+
+    # 昨日盘后公告/资讯警示（KPL 资讯关键词过滤：停牌/复牌/核查/立案/处罚等）
+    alerts = _load_post_close_alerts()
+    if alerts:
+        market_snapshot["post_close_alerts"] = alerts
+
     return market_snapshot, quote_lookup
+
+
+_AUCTION_URL = "https://push2.eastmoney.com/api/qt/clist/get"
+
+
+def _fetch_auction_digest(now: datetime | None = None) -> dict | None:
+    """集合竞价摘要：仅 09:25-09:40 窗口拉取；其余时间返回 None。
+
+    一次请求全市场按成交额排序：竞价涨停（涨幅≈涨停=一字/准一字）+ 竞价额 top。
+    """
+    now = now or datetime.now()
+    # 仅 09:25-09:40 窗口有意义（集合竞价 print 已出、连续竞价初期）
+    if not (now.hour == 9 and 25 <= now.minute <= 40):
+        return None
+    params = {
+        "pn": 1, "pz": 60, "po": 1, "np": 1,
+        "fltt": 2, "invt": 2, "fid": "f6",  # 按成交额降序
+        "fs": "m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23",  # 沪深A股
+        "fields": "f2,f3,f6,f12,f14",
+    }
+    url = _AUCTION_URL + "?" + urllib.parse.urlencode(params)
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    try:
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            payload = json.loads(resp.read().decode("utf-8"))
+    except Exception:
+        return None
+    rows = ((payload.get("data") or {}).get("diff")) or []
+    sealed, top_amount = [], []
+    for r in rows:
+        name, pct, amt = r.get("f14"), r.get("f3"), r.get("f6")
+        code = r.get("f12") or ""
+        if pct is None or amt is None:
+            continue
+        top_amount.append(f"{name}{pct:+.1f}%/额{amt / 1e8:.1f}亿")
+        limit = 19.8 if code.startswith(("30", "68")) else 9.8
+        if pct >= limit:
+            sealed.append(f"{name}{pct:+.1f}%/额{amt / 1e8:.1f}亿")
+    return {"data_note": "集合竞价快照（09:25 成交 print，UP'一字定方向'输入）",
+            "auction_sealed": sealed,
+            "top_amount": top_amount[:20]}
+
+
+_KPL_NEWS_DIR = Path("infra/data/kpl/news")
+_ALERT_KEYWORDS = ("停牌", "复牌", "核查", "立案", "处罚", "警示函", "退市", "风险提示")
+
+
+def _load_post_close_alerts(before_day: str | None = None) -> dict | None:
+    """昨日盘后公告/资讯警示：从最近一日 KPL 资讯 index.json 过滤监管关键词。"""
+    before_day = before_day or date.today().isoformat()
+    if not _KPL_NEWS_DIR.exists():
+        return None
+    days = sorted(d for d in _KPL_NEWS_DIR.iterdir()
+                  if d.is_dir() and d.name < before_day
+                  and (d / "index.json").exists())
+    if not days:
+        return None
+    latest = days[-1]
+    try:
+        articles = json.loads((latest / "index.json").read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    hits = []
+    for a in articles or []:
+        title = a.get("title") or a.get("Title") or ""
+        if any(k in title for k in _ALERT_KEYWORDS):
+            stocks = [s.get("StockID") for s in (a.get("stocks") or a.get("Stock") or [])
+                      if s.get("StockID")]
+            hits.append({"title": title, "stocks": stocks})
+    if not hits:
+        return None
+    return {"news_date": latest.name, "items": hits[:15]}
 
 
 _LIMIT_POOL_DIR = Path("infra/data/limit_pool")
