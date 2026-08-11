@@ -91,7 +91,8 @@ def run_attribution(day: str, *, trigger: str, pred: dict, score_info: dict,
         score_info=json.dumps(score_info, ensure_ascii=False),
         gaps="、".join(KNOWN_DATA_GAPS),
     )
-    raw = call_deepseek([{"role": "user", "content": prompt}], model=model, client=client)
+    raw = call_deepseek([{"role": "user", "content": prompt}], model=model, client=client,
+                        tag="shadow_attribute")
     attr = parse_attribution(raw)
 
     path = Path(attr_dir) / f"{day}.json"

@@ -39,7 +39,8 @@ def run_predict(day: str, *, config_dir, db_path=None, pred_dir: Path = PRED_DIR
     try:
         pack = build_daily_pack(day, config_dir=Path(config_dir), db_path=db_path)
         text = pack_to_prompt(pack)  # 内含防泄漏断言
-        raw = call_deepseek(build_messages(text), model=model, client=client)
+        raw = call_deepseek(build_messages(text), model=model, client=client,
+                            tag="shadow_predict")
         result = parse_result(raw)
         rec = {"date": day, "result": result, "raw": raw,
                "prompt_version": PROMPT_VERSION,

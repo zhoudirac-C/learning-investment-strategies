@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import os
 import time
+from datetime import datetime
 from pathlib import Path
 
 from investment_engine.blindtest.dataset import build_daily_pack, pack_to_prompt
@@ -18,6 +19,25 @@ _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
 PROMPT_VERSION = "v2"
+
+_LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
+
+
+def _int_or_none(v) -> int | None:
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def _log_llm_call(entry: dict) -> None:
+    """LLM 调用台账（log/llm_calls.jsonl）。尽力而为，永不阻断主流程。"""
+    try:
+        _LLM_CALL_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with _LLM_CALL_LOG.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except Exception:  # noqa: BLE001 - 台账失败不影响调用
+        pass
 
 SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。基于给定的当日客观数据，独立完成市场复盘判断。
 要求：
@@ -54,18 +74,38 @@ def _default_client():
 
 
 def call_deepseek(messages: list[dict], *, model: str = DEFAULT_MODEL,
-                  max_retries: int = 3, client=None) -> str:
+                  max_retries: int = 3, client=None, tag: str | None = None) -> str:
     client = client or _default_client()
     last_err: Exception | None = None
+    prompt_chars = sum(len(str(m.get("content", ""))) for m in messages)
     for attempt in range(1, max_retries + 1):
+        t0 = time.monotonic()
         try:
             resp = client.chat.completions.create(
                 model=model, messages=messages, temperature=0,
                 response_format={"type": "json_object"},
             )
-            return resp.choices[0].message.content
+            content = resp.choices[0].message.content
+            usage = getattr(resp, "usage", None)
+            _log_llm_call({
+                "ts": datetime.now().isoformat(timespec="seconds"),
+                "event": "ok", "tag": tag, "model": model, "attempt": attempt,
+                "latency_s": round(time.monotonic() - t0, 2),
+                "prompt_chars": prompt_chars,
+                "prompt_tokens": _int_or_none(getattr(usage, "prompt_tokens", None)),
+                "completion_tokens": _int_or_none(getattr(usage, "completion_tokens", None)),
+                "reply_chars": len(content or ""),
+            })
+            return content
         except Exception as e:  # noqa: BLE001 - 重试后如实记录
             last_err = e
+            _log_llm_call({
+                "ts": datetime.now().isoformat(timespec="seconds"),
+                "event": "error", "tag": tag, "model": model, "attempt": attempt,
+                "latency_s": round(time.monotonic() - t0, 2),
+                "prompt_chars": prompt_chars,
+                "error": str(e)[:200],
+            })
             if attempt < max_retries:
                 time.sleep(2 ** attempt)
     raise RuntimeError(f"DeepSeek 调用失败（{max_retries} 次）: {last_err}")
@@ -147,7 +187,8 @@ def run_replay(days: list[str], *, config_dir, out_path: Path, db_path=None,
             try:
                 pack = build_daily_pack(day, config_dir=Path(config_dir), db_path=db_path)
                 text = pack_to_prompt(pack)  # 内含防泄漏断言
-                raw = call_deepseek(build_messages(text), model=model, client=client)
+                raw = call_deepseek(build_messages(text), model=model, client=client,
+                                    tag="blindtest_replay")
                 result = parse_result(raw)
                 fh.write(json.dumps(
                     {"date": day, "ok": True, "result": result, "raw": raw,
