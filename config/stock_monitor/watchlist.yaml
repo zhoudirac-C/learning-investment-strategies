@@ -1,4 +1,4 @@
-updated_at: '2026-07-21'
+updated_at: '2026-08-11'
 source_claims:
 - knowledge/claims/claim-20260623-005.yaml
 - knowledge/claims/claim-20260623-004.yaml
@@ -667,6 +667,36 @@ themes:
     lifecycle:
       stage: watching
       entered_stage: '2026-06-11'
+  - code: 588780.SH
+    name: 科创芯片设计ETF国联安
+    role: holding_etf
+    segment: 科创芯片设计（科创板芯片设计公司一篮子）
+    priority: 持仓-大同证券
+    watch_reason: 用户持仓（2000份 @1.003，2026-08-11 登记）。芯片设计超跌反弹分支，UP 8/11 早盘提示科技看抗跌领涨分支，ETF 作为板块贝塔跟踪。今日量能3万亿/光模块财报为关键变量。
+    linked_claims:
+    - claim_id: claim-20260811-027
+      relevance: theme
+      claim_type: operation
+  - code: 588170.SH
+    name: 科创半导体ETF华夏
+    role: holding_etf
+    segment: 科创板半导体（设备+材料+设计综合）
+    priority: 持仓-大同证券
+    watch_reason: 用户持仓（56300份 @1.006，2026-08-11 登记，可用50300）。昨日+1.93%抗跌领涨，UP 框架下半导体设备确定性最强（SK海力士54万亿韩元扩产兑现在设备订单预期）。
+    linked_claims:
+    - claim_id: claim-20260810-016
+      relevance: theme
+      claim_type: catalyst
+  - code: 159516.SZ
+    name: 半导体设备ETF国泰
+    role: holding_etf
+    segment: 半导体设备（北方华创/中微等设备龙头）
+    priority: 持仓-大同证券
+    watch_reason: 用户持仓（84900份 @0.734，2026-08-11 登记）。昨日+1.59%，UP 判断「半导体设备订单高增确定性最强，剩下的只是算估值」——设备是科技里基本面最硬的分支，回调属第二次分歧跟随非逻辑破坏。
+    linked_claims:
+    - claim_id: claim-20260810-017
+      relevance: theme
+      claim_type: stock-view
 - id: chip_specialty
   name: 芯片特种/FPGA（国产替代核心）
   up_positioning: UP 6/11复盘：「等到最后指数要反转的时候，资金大概率会重新回到芯片等核心主线方向上——这是本轮行情的「母题」，回调不改地位。」全A中阳线=唯一建仓前置条件。当前仅观察。
