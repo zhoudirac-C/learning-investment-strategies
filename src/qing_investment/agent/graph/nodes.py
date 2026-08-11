@@ -1557,6 +1557,86 @@ def _truncate_context_for_prompt(
     return truncated, was_truncated
 
 
+def _build_degraded_digest(market_snapshot: dict, esb: dict) -> dict:
+    """market_summary LLM 失败时的规则拼装降级摘要（纯原始数据，无 LLM 加工）。
+
+    只读 market_snapshot.quotes / market_snapshot.sentiment / external_sector_boards，
+    产出盘面概述文本 + 结构化情绪信号，供下游合成保底使用——不编造任何判断。
+    """
+    snapshot = market_snapshot or {}
+    quotes = snapshot.get("quotes") or []
+    sentiment = snapshot.get("sentiment") or {}
+    if not isinstance(sentiment, dict):
+        sentiment = {}
+    parts: list[str] = ["【未加工原始数据】"]
+
+    def _pct(q: dict) -> float | None:
+        try:
+            return float(q.get("pct_change"))
+        except (TypeError, ValueError):
+            return None
+
+    index_keywords = ("上证指数", "深证成指", "创业板指", "科创50", "中证全指", "全A")
+    idx_parts = []
+    for q in quotes:
+        label = q.get("label") or q.get("name") or ""
+        pct = _pct(q)
+        if pct is not None and any(k in label for k in index_keywords):
+            idx_parts.append(f"{label}{pct:+.2f}%")
+    if idx_parts:
+        parts.append("指数：" + " ".join(idx_parts[:6]))
+
+    # 量能：沪深成交额合计（quotes 的 amount 单位为万元）
+    def _amount_of(keyword: str) -> float | None:
+        for q in quotes:
+            label = q.get("label") or q.get("name") or ""
+            if keyword in label:
+                try:
+                    return float(q.get("amount") or 0)
+                except (TypeError, ValueError):
+                    return None
+        return None
+
+    sh_amt, sz_amt = _amount_of("上证指数"), _amount_of("深证成指")
+    if sh_amt is not None and sz_amt is not None and (sh_amt + sz_amt) > 0:
+        parts.append(f"量能：沪深合计约{(sh_amt + sz_amt) / 10000.0:.0f}亿（截至快照时间）")
+
+    if sentiment:
+        emo: list[str] = []
+        if sentiment.get("limit_up_count") is not None:
+            emo.append(f"涨停{sentiment['limit_up_count']}")
+        if sentiment.get("limit_down_count") is not None:
+            emo.append(f"跌停{sentiment['limit_down_count']}")
+        if sentiment.get("consecutive_height") is not None:
+            emo.append(f"连板高度{sentiment['consecutive_height']}板")
+        if sentiment.get("broken_board_rate") is not None:
+            try:
+                emo.append(f"炸板率{float(sentiment['broken_board_rate']) * 100:.1f}%")
+            except (TypeError, ValueError):
+                pass
+        if sentiment.get("up_count") is not None and sentiment.get("down_count") is not None:
+            emo.append(f"涨{sentiment['up_count']}/跌{sentiment['down_count']}家")
+        if emo:
+            parts.append("情绪：" + " ".join(emo))
+
+    boards = esb or {}
+    for key, board_label in (("concept", "概念"), ("industry", "行业")):
+        leaders = ((boards.get(key) or {}).get("leaders") or [])[:5]
+        tops = []
+        for b in leaders:
+            name = b.get("name")
+            try:
+                pct = float(b.get("pct_change") or 0)
+            except (TypeError, ValueError):
+                continue
+            if name:
+                tops.append(f"{name}{pct:+.1f}%")
+        if tops:
+            parts.append(f"板块榜（{board_label}，按涨幅）：" + " ".join(tops))
+
+    return {"summary_text": "；".join(parts), "emotion_signals": sentiment}
+
+
 def market_summary(state: AgentState) -> AgentState:
     """市场/板块分析节点：只输出精简市场背景，不处理个股。"""
     logger = logging.getLogger(__name__)
@@ -1670,6 +1750,7 @@ def market_summary(state: AgentState) -> AgentState:
             logger.warning("market_summary closing_review: failed to refresh opportunities: %s", e)
 
     context = {
+        "today": _now_cn_str("%Y-%m-%d") + " 周" + "一二三四五六日"[datetime.now(_CN_TZ).weekday()],
         "market_snapshot": market_snapshot,
         "macd_multi_tf_report": market_snapshot.get("macd_multi_tf_report", ""),
         "td_sequential_report": market_snapshot.get("td_sequential_report", ""),
@@ -1749,15 +1830,22 @@ def market_summary(state: AgentState) -> AgentState:
         result = dict(fallback)
         result["_truncated"] = True
         result["_fallback_reason"] = "prompt_too_large"
+        degraded = _build_degraded_digest(market_snapshot, esb)
+        result["market_summary"] = degraded["summary_text"]
+        result["emotion_signals"] = degraded["emotion_signals"]
         _fallback_ct = CostTracker()
         return {
             "market_summary_context": result,
-            "reasoning_steps": [f"市场总结: {result.get('market_phase', 'N/A')} (prompt truncated, fallback returned)"],
+            "reasoning_steps": [f"市场总结: {result.get('market_phase', 'N/A')} (fallback: prompt_too_large)"],
             "cost_tracking": [_fallback_ct.snapshot()],
             **({"_data_missing_note": _data_missing_note} if _data_missing_note else {}),
         }
 
     content = _safe_llm_invoke(prompt)
+    if not content:
+        # 空返回（超时/限流等瞬时失败）重试一次
+        logger.warning("market_summary_llm: empty content, retrying once")
+        content = _safe_llm_invoke(prompt)
     _t1 = time.time()
     logger.info(
         "market_summary_llm: duration=%.1fs prompt_len=%d content_len=%d",
@@ -1765,13 +1853,25 @@ def market_summary(state: AgentState) -> AgentState:
     )
 
     cleaned_content = re.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
+    _json_parse_failed = False
     try:
         result = json.loads(cleaned_content) if cleaned_content else {}
     except json.JSONDecodeError:
         result = {}
+        _json_parse_failed = True
 
     if not result or not isinstance(result, dict):
+        # fallback：区分真实失败原因 + 规则拼装原始数据降级摘要（不编造判断）
+        _fb_reason = "json_parse_error" if (content and _json_parse_failed) else "llm_empty"
         result = dict(fallback)
+        result["_fallback_reason"] = _fb_reason
+        degraded = _build_degraded_digest(market_snapshot, esb)
+        result["market_summary"] = degraded["summary_text"]
+        result["emotion_signals"] = degraded["emotion_signals"]
+        result["phase_reasoning"] = (
+            f"market_summary LLM 子节点失败（{_fb_reason}）；"
+            "盘面概述为系统按规则拼装的原始数据，未经 LLM 加工"
+        )
     else:
         for key, value in fallback.items():
             if key not in result:
@@ -1817,7 +1917,9 @@ def market_summary(state: AgentState) -> AgentState:
             logger.warning("market_summary closing_review: failed to archive daily_state: %s", e)
 
     reasoning = f"市场总结: {result.get('market_phase', 'N/A')}"
-    if was_truncated:
+    if result.get("_fallback_reason"):
+        reasoning += f" (fallback: {result['_fallback_reason']})"
+    elif was_truncated:
         reasoning += " (prompt truncated)"
     return {
         "market_summary_context": result,
@@ -2009,7 +2111,7 @@ def _render_market_summary_text(ctx: dict) -> str:
     if reasoning:
         parts.append(f"阶段判断依据：{reasoning[:120]}")
     if summary:
-        parts.append(f"盘面概述：{summary[:200]}")
+        parts.append(f"盘面概述：{summary[:500]}")
     if themes:
         parts.append(f"主线/主题：{', '.join(str(t) for t in themes[:5])}")
     if focus:
@@ -2895,6 +2997,7 @@ def style_writer(state: AgentState) -> AgentState:
         examples=examples or "[暂无示例]",
         tone=tone,
         revision_hint=revision_hint,
+        today=_now_cn_str("%Y-%m-%d") + " 周" + "一二三四五六日"[datetime.now(_CN_TZ).weekday()],
     )
 
     # Log input summary before LLM call
@@ -3026,6 +3129,8 @@ def reviewer(state: AgentState) -> AgentState:
     retry_count = state.get("_retry_count", 0)
 
     prompt = f"""{prompt_template}
+
+今日日期：{_now_cn_str("%Y-%m-%d") + " 周" + "一二三四五六日"[datetime.now(_CN_TZ).weekday()]}
 
 待审核输出：
 {output}
