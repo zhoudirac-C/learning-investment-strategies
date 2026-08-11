@@ -1,0 +1,901 @@
+claims:
+- id: claim-20260811-001
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: market-cycle
+  subject: 昨日盘面打脸卖方一致预期，量能位置决定反弹周期
+  timeframe: short-term
+  statement: 昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中际旭创（300308）与量能这两条线：指数看似缩量收红，但开盘前半小时的预估成交额已经打到3万亿，意味着剩下三个半小时反而缩了近5000亿——资金并没有分析师那么乐观；今天的重点不在方向，而在量能的位置：3万亿以下待得越久，这波反弹的周期就拉得越长。
+  evidence_quote: 指数看似缩量收红，但开盘前半小时的预估成交额已经打到3万亿，意味着剩下的三个半小时反而缩了近5000亿——资金并没有分析师那么乐观。今天的重点不在方向，而在量能的位置：3万亿以下待得越久，这波反弹的周期就拉得越长。
+  interpretation: UP揭示昨日量价背离：总量缩量但开盘半小时冲3万亿后大幅收缩，资金实际不如卖方乐观；今日核心变量是量能位置而非方向，3万亿以下维持越久反弹周期越长。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 昨日量价背离：资金不如卖方乐观，量能位置定反弹周期
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 量价背离始作俑者-创业板不可交易
+  tags:
+  - 量价背离
+  - 卖方预期
+  - 3万亿
+  - 反弹周期
+  - 缩量
+- id: claim-20260811-002
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: macro
+  subject: 隔夜Coherent与Lumentum大跌，财报前获利了结
+  timeframe: intraday
+  statement: 隔夜Coherent与Lumentum分别下跌约12%与7%，市场归因于此前AI光学需求驱动的多周上涨后的获利了结，以及财报披露前的观望情绪；按公开披露安排，Lumentum于美东8月11日盘后、Coherent于8月12日盘后发布财报（时点以公司公告为准）。
+  evidence_quote: 隔夜Coherent与Lumentum分别下跌约12%与7%，市场将其归因于此前AI光学需求驱动的多周上涨后的获利了结，以及财报披露前的观望情绪；按公开披露安排，Lumentum于美东8月11日盘后、Coherent于8月12日盘后发布财报。
+  interpretation: UP记录隔夜外盘光模块双雄下跌：获利了结+财报前观望，Lumentum/Coherent财报时点为8/11、8/12盘后，构成今日光模块承压的外部背景。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 隔夜光模块双雄大跌，财报前获利了结
+  related_stocks: []
+  tags:
+  - Coherent
+  - Lumentum
+  - 光模块
+  - 获利了结
+  - 财报
+- id: claim-20260811-003
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: methodology
+  subject: 外盘只定价开盘，光模块定价权不在A股侧
+  timeframe: intraday
+  statement: 外盘的影响只反映在开盘那一下的定价上，开盘之后市场会回到自己的节奏——低开不可怕，接不住才可怕；更关键的是，光模块的定价权目前不在A股这一侧：财报未出、FCC口径未定，海外龙头自己都在杀估值，此时指望国内光模块独立走强并不现实。
+  evidence_quote: 外盘的影响只反映在开盘那一下的定价上，开盘之后市场会回到自己的节奏——低开不可怕，接不住才可怕。更关键的是，光模块的定价权目前不在A股这一侧：财报未出、FCC口径未定，海外龙头自己都在杀估值，此时指望国内光模块独立走强并不现实。
+  interpretation: UP重申外盘传导边界（只定价开盘），并给出光模块独立行情的否定判断：定价权在海外侧（财报+FCC未定+海外杀估值），A股光模块难独立走强。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 外盘只定价开盘，光模块定价权不在A股
+  related_stocks: []
+  tags:
+  - 外盘定价
+  - 开盘
+  - 光模块
+  - 定价权
+  - FCC
+- id: claim-20260811-004
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: methodology
+  subject: 以点带面：中际旭创是点，点不稳面上修复只是超跌反抽
+  timeframe: short-term
+  statement: 按以点带面的读法，中际旭创（300308）是点，光模块与CPO是面，点不稳，面上的修复就只能是超跌反抽而非趋势反转。
+  evidence_quote: 按以点带面的读法，中际旭创是点，光模块与CPO是面，点不稳，面上的修复就只能是超跌反抽而非趋势反转。
+  interpretation: UP应用点面分析框架：以中际旭创为锚判断光模块板块性质，龙头不稳则板块修复定性为超跌反抽而非趋势反转。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 以点带面：中际旭创不稳，光模块修复只是反抽
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 点面框架之点-创业板不可交易
+  tags:
+  - 以点带面
+  - 中际旭创
+  - 超跌反抽
+  - 趋势反转
+  - 光模块
+- id: claim-20260811-005
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: market-cycle
+  subject: 量能三档：3万亿第一道坎，3.5万亿风险区
+  timeframe: trend
+  statement: 昨日的量能结构比总量更值得看：开盘半小时预估3万亿之后随即迎来密集抛压，说明3万亿是这一轮反弹的第一道压力位；结合此前几次的数据，一旦逼近3.5万亿，风险将呈倍数增长；量能在3万亿以下维持得越久，反弹的时间跨度反而越长——这与此前反复强调的从缩量启动走向温和放量才是健康形态是同一件事。
+  evidence_quote: 开盘半小时预估3万亿之后随即迎来一波密集抛压，说明3万亿是这一轮反弹的第一道压力位；结合此前几次的数据，一旦逼近3.5万亿，风险将呈倍数增长。反过来说，量能在3万亿以下维持得越久，反弹的时间跨度反而越长。
+  interpretation: UP确立量能三档框架：3万亿为第一道压力位、3.5万亿为风险区（风险倍数增长）、3万亿以下维持越久反弹越健康，与缩量启动到温和放量的健康形态一致。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能三档：3万亿压力位、3.5万亿风险区
+  related_stocks: []
+  tags:
+  - 量能三档
+  - 3万亿压力位
+  - 3.5万亿风险区
+  - 温和放量
+  - 健康形态
+- id: claim-20260811-006
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: market-cycle
+  subject: 高低切结构：指数靠非科技卡位撑住，赚钱效应分散
+  timeframe: intraday
+  statement: 昨日沪指震荡拉升、创业板指盘中一度跌超2.5%尾盘收窄；大消费开盘走强、影视领涨，有色金属、电网设备、军工盘中震荡拉升，医药反复活跃，而CPO走势偏弱——典型的高低切结构：指数不是靠科技拉起来的，而是靠非科技方向的卡位补位撑住的；只要科技不再单边失血，这种结构本身对指数是友好的，但它同时意味着赚钱效应分散、单一主线的持续性会被削弱。
+  evidence_quote: 这是一个典型的高低切结构：指数不是靠科技拉起来的，而是靠非科技方向的卡位补位撑住的。个人判断，只要科技不再单边失血，这种结构本身对指数是友好的，但它同时意味着赚钱效应分散、单一主线的持续性会被削弱。
+  interpretation: UP识别昨日指数结构：非科技卡位补位撑住指数（高低切），对指数友好但赚钱效应分散，单一主线持续性削弱；前提是科技不再单边失血。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高低切结构：非科技卡位撑指数，赚钱效应分散
+  related_stocks: []
+  tags:
+  - 高低切
+  - 非科技卡位
+  - 赚钱效应分散
+  - 单一主线
+  - 指数结构
+- id: claim-20260811-007
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: operation
+  subject: 今日两种情形AB，倾向B但以非科技轮流卡位兑现
+  timeframe: intraday
+  statement: 今日两种情形：情形A，以中际旭创（300308）为代表的科技股延续跌势，理论上等量能重新缩至2万亿附近后会再度企稳，届时需观察缩量过程中有没有强势股补跌与多杀多——没有这两样，2万亿整数关口本身并不牢固；情形B，科技股止跌企稳，以昨日仍有4000余只个股上涨的宽度来看，这波反弹大概率还能延续，高度完全取决于量能的推进速度。个人倾向于情形B概率略高于A，但B的兑现方式更可能是科技不涨也不跌、非科技轮流卡位，而不是科技带头再上一个台阶。
+  evidence_quote: 情形A：以中际旭创为代表的科技股延续跌势。理论上等量能重新缩至2万亿附近后会再度企稳……情形B：科技股止跌企稳。以昨日仍有4000余只个股上涨的宽度来看，这波反弹大概率还能延续……个人倾向于认为，情形B出现的概率略高于情形A，但B的兑现方式更可能是科技不涨也不跌、非科技轮流卡位。
+  interpretation: UP给出今日两情形预案：A（科技续跌→缩至2万亿企稳，警惕强势股补跌与多杀多）与B（科技止跌→反弹延续）；倾向B略高但B的形态是非科技轮流卡位而非科技领涨。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日A/B情形：倾向B但以非科技轮流卡位兑现
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 情形A/B锚定标的-创业板不可交易
+  tags:
+  - 情形A
+  - 情形B
+  - 2万亿
+  - 宽度
+  - 轮流卡位
+- id: claim-20260811-008
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: market-cycle
+  subject: 炸板次日反包说明承接意愿恢复
+  timeframe: intraday
+  statement: 与前一日不同的是，不仅多个高标成功晋级，前一日炸板的爱丽家居（603221）、风范股份（601700）、高争民爆（002827）还都反包涨停——炸板次日能反包，说明资金的承接意愿在恢复，而不只是情绪的惯性。
+  evidence_quote: 与前一日不同的是，不仅多个高标成功晋级，前一日炸板的爱丽家居、风范股份、高争民爆还都反包涨停——炸板次日能反包，说明资金的承接意愿在恢复，而不只是情绪的惯性。
+  interpretation: UP以炸板反包作为情绪修复信号：爱丽家居/风范股份/高争民爆反包涨停，说明承接意愿真实恢复而非情绪惯性，情绪端数据回暖。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 炸板次日反包：承接意愿恢复的信号
+  related_stocks:
+  - code: '603221'
+    name: 爱丽家居
+    role: 炸板反包-主板可交易
+  - code: '601700'
+    name: 风范股份
+    role: 炸板反包-主板可交易
+  - code: '002827'
+    name: 高争民爆
+    role: 炸板反包-主板可交易
+  tags:
+  - 炸板反包
+  - 承接意愿
+  - 情绪修复
+  - 高标晋级
+- id: claim-20260811-009
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: methodology
+  subject: 停牌分性质：单只停牌难扭转情绪，盯开盘半小时高位股承接
+  timeframe: intraday
+  statement: 盘后爱丽家居（603221）的二进宫让资金风声鹤唳，需要区分断板性质：随着上周指数企稳市场已回归理性，单只个股停牌可能造成日内波动——尤其是在开盘阶段对高位股形成压制——但很难直接扭转市场情绪，除非出现此前那种批量停牌；爱丽家居上次复牌后是涨停的，某种程度上说明现阶段的停牌并没有想象中可怕；今天真正要盯的不是停牌本身，而是开盘半小时高位股的分歧能否被承接住。
+  evidence_quote: 单只个股停牌可能造成日内波动——尤其是在开盘阶段对高位股形成压制——但很难直接扭转市场情绪，除非出现此前那种批量停牌；另一方面，爱丽家居上次复牌后是涨停的，某种程度上说明现阶段的停牌并没有想象中可怕。个人判断，今天真正要盯的不是停牌本身，而是开盘半小时高位股的分歧能否被承接住。
+  interpretation: UP给出停牌影响判断框架：单只停牌只造成开盘阶段日内波动、难扭转情绪（除非批量停牌）；爱丽家居二进宫的影响观察点是开盘半小时高位股分歧承接。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 停牌分性质：单只难扭转情绪，盯开盘半小时承接
+  related_stocks:
+  - code: '603221'
+    name: 爱丽家居
+    role: 二进宫停牌标的-主板可交易
+  tags:
+  - 停牌性质
+  - 二进宫
+  - 高位股
+  - 开盘半小时
+  - 承接
+- id: claim-20260811-010
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: sector-theme
+  subject: 影视是最强新题材，但预期已打满最需提防
+  timeframe: intraday
+  statement: 影视院线是昨日最强的新题材：8月10日北京文化（000802）开盘一字涨停，儒意电影（002739）午后快速封板、收盘封单仍超12万手（盘中最高封单达88.1万手），华智数媒涨超9%、幸福蓝海（300528）涨超7%，中国电影（600977）、金逸影视（002905）、博纳影业（001330）等跟涨；催化来自《欢迎来龙餐馆》——截至8月10日下午点映及预售总票房已超1.3亿元，淘票票开分9.8创近三年点映评分纪录。但这是今天最需要提防的一个方向。
+  evidence_quote: 北京文化开盘即一字涨停，儒意电影（002739）午后快速封板、收盘封单仍超12万手、盘中最高封单达88.1万手，华智数媒涨超9%、幸福蓝海涨超7%，中国电影、金逸影视、博纳影业等跟涨。催化来自《欢迎来龙餐馆》……淘票票开分9.8，创近三年点映评分纪录。这个题材今天要另当别论。
+  interpretation: UP记录影视板块昨日强势（北京文化一字、儒意电影封单12万手）与催化（《欢迎来龙餐馆》点映破1.3亿、评分创纪录），但明确提示这是今日最需提防的方向——预期已打满。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 影视最强新题材：北京文化一字、儒意封板，但最需提防
+  related_stocks:
+  - code: '000802'
+    name: 北京文化
+    role: 影视-一字涨停-主板可交易
+  - code: '002739'
+    name: 儒意电影
+    role: 影视-午后封板-主板可交易
+  - code: '300528'
+    name: 幸福蓝海
+    role: 影视-涨超7%-创业板不可交易
+  - code: '600977'
+    name: 中国电影
+    role: 影视-跟涨-主板可交易
+  - code: '002905'
+    name: 金逸影视
+    role: 影视-跟涨-主板可交易
+  - code: '001330'
+    name: 博纳影业
+    role: 影视-跟涨-主板可交易
+  tags:
+  - 影视
+  - 北京文化
+  - 儒意电影
+  - 欢迎来龙餐馆
+  - 预期打满
+- id: claim-20260811-011
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: methodology
+  subject: 预期前置兑现：位置决定意义，事件当天只剩兑现
+  timeframe: intraday
+  statement: 《欢迎来龙餐馆》不同于《功夫女足》上映前的遇冷——那是预期差留在了上映之后修复，《欢迎来龙餐馆》在上映前就已经把预期打满了：口碑解禁、开分9.8、点映逆跌破亿、主演路演造势，能想到的正面变量几乎全部前置兑现；位置决定意义——预期在事件前打满，事件当天就只剩兑现，很难再有新的预期差；除非出现超越同为北京文化（000802）参与发行的《流浪地球》量级、或刷新影史纪录这种级别的数据，否则今天最好避免重蹈昨日医药板块的覆辙。
+  evidence_quote: 不同于《功夫女足》上映前的遇冷——那是预期差留在了上映之后修复，《欢迎来龙餐馆》在上映前就已经把预期打满了……预期在事件前打满，事件当天就只剩兑现，很难再有新的预期差。除非出现超越同为北京文化参与发行的《流浪地球》量级、或刷新影史纪录这种级别的数据，否则今天最好避免重蹈昨日医药板块的覆辙。
+  interpretation: UP给出事件驱动的位置框架：预期前置打满（口碑/评分/点映/路演全部兑现）→事件当天只剩兑现无预期差；对比《功夫女足》预期差后置修复，判断影视今日不宜追。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 预期前置兑现：事件当天只剩兑现，影视今日不宜追
+  related_stocks:
+  - code: '000802'
+    name: 北京文化
+    role: 《欢迎来龙餐馆》发行方-主板可交易
+  tags:
+  - 预期前置
+  - 事件驱动
+  - 兑现
+  - 位置决定意义
+  - 预期差
+- id: claim-20260811-012
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: stock-view
+  subject: 北京文化中报预亏收窄，《年会不能停2》票房不及预期
+  timeframe: short-term
+  statement: 北京文化（000802）：据公司7月10日业绩预告，预计2026年上半年归母净利润亏损4500万元至3300万元，上年同期亏损2.33亿元，亏损同比收窄；公司同时是《年会不能停！2》联合出品方之一，据媒体统计该片截至8月10日票房约1.44亿元，明显低于市场预期。
+  evidence_quote: 北京文化（000802）：据公司7月10日业绩预告，预计2026年上半年归母净利润亏损4500万元至3300万元，上年同期亏损2.33亿元，亏损同比收窄；公司同时是《年会不能停！2》联合出品方之一，而据媒体统计，该片截至8月10日票房约1.44亿元，明显低于市场预期。
+  interpretation: UP记录北京文化基本面：中报预亏4500万-3300万（同比收窄），但《年会不能停！2》票房1.44亿明显低于预期，业绩端无承接。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 北京文化中报预亏收窄，但《年会2》票房不及预期
+  related_stocks:
+  - code: '000802'
+    name: 北京文化
+    role: 中报预亏收窄标的-主板可交易
+  tags:
+  - 北京文化
+  - 业绩预告
+  - 亏损收窄
+  - 年会不能停2
+- id: claim-20260811-013
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: stock-view
+  subject: 儒意电影中报由盈转亏，影视纯事件驱动无业绩承接
+  timeframe: short-term
+  statement: 儒意电影（002739）：据公司7月披露的半年度业绩预告，预计2026年上半年归母净利润亏损1.2亿元至1.8亿元，上年同期盈利5.36亿元，由盈转亏。列出北京文化与儒意电影两家业绩，是想说明这一轮影视行情是纯粹的事件驱动、没有业绩承接，因此适用缺业绩承接的事件驱动方向纪律：急跌不接飞刀。
+  evidence_quote: 儒意电影（002739）：据公司7月披露的半年度业绩预告，预计2026年上半年归母净利润亏损1.2亿元至1.8亿元，上年同期盈利5.36亿元，由盈转亏……是想说明这一轮影视行情是纯粹的事件驱动，没有业绩承接，因此适用缺业绩承接的事件驱动方向，急跌不接飞刀这条纪律。
+  interpretation: UP以北京文化+儒意电影双亏业绩论证影视行情的纯事件驱动属性：无业绩承接→适用急跌不接飞刀纪律，为板块操作定调。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 儒意电影由盈转亏：影视纯事件驱动，急跌不接飞刀
+  related_stocks:
+  - code: '002739'
+    name: 儒意电影
+    role: 中报由盈转亏-主板可交易
+  - code: '000802'
+    name: 北京文化
+    role: 中报预亏-主板可交易
+  tags:
+  - 儒意电影
+  - 由盈转亏
+  - 事件驱动
+  - 无业绩承接
+  - 急跌不接飞刀
+- id: claim-20260811-014
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: methodology
+  subject: 人气股分歧修复三段式：分歧-缩量-再放量
+  timeframe: short-term
+  statement: 医药与AI4S昨天注定是分歧的一天，关键在于今天能不能修复：板块虽然创出新高，但如果今天资金不认可，新高本身就没有意义；人气股的分歧修复通常不是一天完成的，而是分歧—缩量—再放量的三段式（可参考此前AI应用的路径）。
+  evidence_quote: 板块虽然创出新高，但如果今天资金不认可，新高本身就没有意义。具体走势上，或许可以参考此前AI应用的路径——二者的共同点在于人气都非常高，人气股的分歧修复通常不是一天完成的，而是分歧—缩量—再放量的三段式。
+  interpretation: UP给出人气板块分歧修复的节奏框架：新高无资金认可则无意义；修复路径为分歧—缩量—再放量三段式，非一天完成，医药今日关键看能否修复。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 人气股分歧修复三段式：分歧-缩量-再放量
+  related_stocks: []
+  tags:
+  - 分歧修复
+  - 三段式
+  - 缩量
+  - 再放量
+  - AI应用
+- id: claim-20260811-015
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: catalyst
+  subject: 美国创世纪计划GS1：AI4S开放权重基础模型
+  timeframe: trend
+  statement: 据公开报道，美国能源部联合企业、国家实验室与学术机构推进的「创世纪计划」（Genesis Mission）推出面向科学研究的开放权重基础模型Genesis-Science-1（GS1），目前处于数据收集阶段；该计划由美国白宫于2025年11月启动，执行上属AI4S范畴，规划中要求能源部整合超算与独特数据资产以生成科学基础模型。
+  evidence_quote: 美国能源部联合企业、国家实验室与学术机构推进的「创世纪计划」（Genesis Mission）推出面向科学研究的开放权重基础模型Genesis-Science-1（GS1），目前处于数据收集阶段；该计划由美国白宫于2025年11月启动，执行上属AI4S范畴。
+  interpretation: UP记录AI4S海外催化：美国创世纪计划推出开放权重科学基础模型GS1（数据收集阶段），白宫2025年11月启动，属AI4S范畴，为医药AI4S方向提供外部叙事催化。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美国创世纪计划GS1：AI4S科学基础模型催化
+  related_stocks: []
+  tags:
+  - AI4S
+  - 创世纪计划
+  - GS1
+  - 开放权重
+  - 科学基础模型
+- id: claim-20260811-016
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: sector-theme
+  subject: 长江证券AI4S七环节框架：北美加速需求拐点已至
+  timeframe: trend
+  statement: 长江证券认为AI4S属多痛点、高价值、高容量赛道，北美明显加速布局、行业需求拐点已至，将AI4S类比为给药物研发装上加速器，看好创新药全产业链机会，具体列出DNA/蛋白合成、药物发现CRO、模式动物、安全性评价、CDMO、平台型玩家与基础工具（测序仪）七个环节。
+  evidence_quote: 长江证券认为AI4S属多痛点、高价值、高容量赛道，北美明显加速布局、行业需求拐点已至，并将AI4S类比为给药物研发装上加速器，看好创新药全产业链机会，具体列出DNA/蛋白合成、药物发现CRO、模式动物、安全性评价、CDMO、平台型玩家与基础工具（测序仪）七个环节。
+  interpretation: UP记录长江证券AI4S卖方框架：七环节全景（合成/发现CRO/模式动物/安评/CDMO/平台/测序仪），北美加速+需求拐点，但这是卖方观点需与UP个人落点区分。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 长江证券AI4S七环节：北美加速、需求拐点已至
+  related_stocks: []
+  tags:
+  - AI4S
+  - 长江证券
+  - 七环节
+  - 需求拐点
+  - 创新药
+- id: claim-20260811-017
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: methodology
+  subject: 医药持续性排序：业绩兑现确定性优先于叙事
+  timeframe: trend
+  statement: 医药这一轮的支撑主要来自低仓位与半年报业绩催化，AI4S是叙事加成而非业绩来源，所以判断持续性时应以业绩兑现的确定性排序，而不是以叙事的性感程度排序。
+  evidence_quote: 个人落点与之有区别：医药这一轮的支撑主要来自低仓位与半年报业绩催化，AI4S是叙事加成而非业绩来源，所以判断持续性时应以业绩兑现的确定性排序，而不是以叙事的性感程度排序。
+  interpretation: UP给出与卖方（长江证券）不同的医药判断框架：持续性按业绩兑现确定性排序而非叙事性感度，AI4S只是叙事加成非业绩来源，医药支撑仍是低仓位+半年报。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药持续性：业绩确定性排序优先于叙事性感度
+  related_stocks: []
+  tags:
+  - 医药
+  - 业绩确定性
+  - 叙事
+  - AI4S
+  - 低仓位
+- id: claim-20260811-018
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: catalyst
+  subject: 煤炭十五五规划：87%产能集中，2030年消费达峰
+  timeframe: trend
+  statement: 据国家发展改革委、国家能源局8月10日印发的《煤炭工业发展「十五五」规划》：到2030年全国大型现代化煤矿产能比重提升至87%、智能化煤矿产能比例提升至75%，山西、蒙西、蒙东、陕北、新疆五大基地产量占全国比重超80%，建成1亿吨/年以上煤炭产能储备，实现煤炭消费达峰；配套《煤层气开发利用方案》提出2030年煤层气产量260亿立方米、瓦斯利用量65亿立方米；作为对照，「十四五」期间煤炭产量48.5亿吨、煤矿数量减少至4000处左右、大型煤矿产能占比85%、智能化产能占比超65%。
+  evidence_quote: 《煤炭工业发展「十五五」规划》：到2030年全国大型现代化煤矿产能比重提升至87%，智能化煤矿产能比例提升至75%……实现煤炭消费达峰；配套发布的《煤层气（煤矿瓦斯）开发利用方案》提出2030年煤层气产量260亿立方米、瓦斯利用量65亿立方米。
+  interpretation: UP记录煤炭十五五规划核心数字：2030年大型煤矿87%/智能化75%、五大基地80%+、消费达峰、产能储备1亿吨+；对比十四五（85%/65%）显示产能向大型矿井集中、中小产能出清方向。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 煤炭十五五规划：87%集中度、2030消费达峰
+  related_stocks: []
+  tags:
+  - 煤炭
+  - 十五五规划
+  - 87%
+  - 消费达峰
+  - 产能集中
+- id: claim-20260811-019
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: sector-theme
+  subject: 煤炭板块涨超2%市值破2万亿，政策催化落地
+  timeframe: intraday
+  statement: 据证券时报报道，8月10日煤炭板块整体涨幅超过2%，平煤股份（601666）、晋控煤业（601001）涨超4%，陕西煤业（601225）、新集能源（601918）、兰花科创（600123）等涨超3.5%；截至当日收盘，A股煤炭板块总市值超2万亿元，较6月底增长超2900亿元。
+  evidence_quote: 据证券时报报道，8月10日煤炭板块整体涨幅超过2%，平煤股份、晋控煤业涨超4%，陕西煤业、新集能源、兰花科创等涨超3.5%；截至当日收盘，A股煤炭板块总市值超2万亿元，较6月底增长超2900亿元。
+  interpretation: UP记录煤炭板块盘面数据：板块涨超2%、市值破2万亿（较6月底+2900亿），平煤/晋控领涨，配合十五五规划落地构成事件催化。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 煤炭板块涨超2%市值2万亿，政策催化落地
+  related_stocks:
+  - code: '601666'
+    name: 平煤股份
+    role: 煤炭-涨超4%-主板可交易
+  - code: '601001'
+    name: 晋控煤业
+    role: 煤炭-涨超4%-主板可交易
+  - code: '601225'
+    name: 陕西煤业
+    role: 煤炭-涨超3.5%-主板可交易
+  - code: '601918'
+    name: 新集能源
+    role: 煤炭-涨超3.5%-主板可交易
+  - code: '600123'
+    name: 兰花科创
+    role: 煤炭-涨超3.5%-主板可交易
+  tags:
+  - 煤炭
+  - 平煤股份
+  - 市值2万亿
+  - 政策催化
+  - 板块涨幅
+- id: claim-20260811-020
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: sector-theme
+  subject: 煤炭定位：防御补充层非主攻，受益在龙头长期分红
+  timeframe: trend
+  statement: 信达证券认为煤炭供给瓶颈约束有望持续至十五五，开发布局西移、资源费与吨煤投资抬升背景下，国内刚性成本与进口煤成本抬升均支撑煤价中枢维持高位，强调高业绩、高现金、高分红属性与央国企资产注入、一二级市场估值倒挂等增量。个人判断，煤炭符合「事件催化＋位置够低」这一条，可以不拘一格，但它的定位是防御补充层而不是主攻方向；从87%与75%两个数字看，规划的实质是产能向大型现代化矿井集中、中小产能加速出清，受益的确定性更多体现在龙头的长期分红能力上，而不是短线弹性。
+  evidence_quote: 个人判断，煤炭符合「事件催化＋位置够低」这一条，可以不拘一格，但它的定位是防御补充层而不是主攻方向；从87%与75%这两个数字看，规划的实质是产能向大型现代化矿井集中、中小产能加速出清，受益的确定性更多体现在龙头的长期分红能力上，而不是短线弹性。
+  interpretation: UP定性煤炭：事件催化+位置够低可关注，但属防御补充层非主攻方向；规划实质是产能集中+中小出清，确定性在龙头长期分红而非短线弹性，与信达证券高分红观点呼应但定位更保守。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 煤炭是防御补充层：受益在龙头长期分红非短线弹性
+  related_stocks:
+  - code: '601101'
+    name: 昊华能源
+    role: 西北动力煤低长协弹性标的-主板可交易
+  - code: '600403'
+    name: 大有能源
+    role: 原煤开采标的-主板可交易
+  tags:
+  - 煤炭
+  - 防御补充层
+  - 长期分红
+  - 信达证券
+  - 事件催化
+- id: claim-20260811-021
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: sector-theme
+  subject: 有色电力军工卡位但持续性一般，自下而上参与
+  timeframe: short-term
+  statement: 有色、电力、军工三个方向昨日均有盘中拉升的卡位表现，个人判断持续性与强度都属一般，更可能是资金在科技失血期的临时避风港；这类方向的正确参与方式是自下而上——板块不给贝塔，但会有独立个股走出来，所以观察重点应放在有独立催化、且昨日已经用一字或准一字表过态的品种上，而不是买板块指数。
+  evidence_quote: 个人判断持续性与强度都属一般，更可能是资金在科技失血期的临时避风港。这类方向的正确参与方式是自下而上——板块不给贝塔，但会有独立个股走出来，所以观察重点应放在有独立催化、且昨日已经用一字或准一字表过态的品种上，而不是买板块指数。
+  interpretation: UP定性有色/电力/军工：卡位型表现持续性一般（科技失血期避风港），参与方式自下而上选独立催化+一字表态个股，不买板块指数。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 有色电力军工：卡位持续性一般，自下而上选个股
+  related_stocks: []
+  tags:
+  - 有色
+  - 电力
+  - 军工
+  - 卡位
+  - 自下而上
+- id: claim-20260811-022
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: catalyst
+  subject: 隔夜映射：网安Palo Alto涨5.82%，礼来GLP-1获批
+  timeframe: intraday
+  statement: 隔夜Palo Alto Networks上涨5.82%，拉斯维加斯「黑帽大会」之后网络安全板块受到更多重视；礼来上涨3.90%，英国批准其Foundayo用于减肥及2型糖尿病，此前礼来与诺和诺德分别上调全年业绩指引；相关A股映射方向为网络安全（飞天诚信（300386）等）与GLP-1产业链（甘李药业（603087）、蓝晓科技（300487）等）。
+  evidence_quote: Palo Alto Networks上涨5.82%，拉斯维加斯「黑帽大会」之后网络安全板块受到更多重视；礼来上涨3.90%，英国批准其Foundayo用于减肥及2型糖尿病……相关A股映射方向为网络安全（飞天诚信等）与GLP-1产业链（甘李药业、蓝晓科技等）。
+  interpretation: UP记录隔夜外盘两个映射方向：网安（黑帽大会后Palo Alto+5.82%）与GLP-1（英国批准礼来减肥药），A股映射标的为飞天诚信/甘李药业/蓝晓科技。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 隔夜映射：网安与GLP-1两个方向
+  related_stocks:
+  - code: '300386'
+    name: 飞天诚信
+    role: 网安映射-创业板不可交易
+  - code: '603087'
+    name: 甘李药业
+    role: GLP-1映射-主板可交易
+  - code: '300487'
+    name: 蓝晓科技
+    role: GLP-1映射-创业板不可交易
+  tags:
+  - 网络安全
+  - Palo Alto
+  - GLP-1
+  - 礼来
+  - 黑帽大会
+- id: claim-20260811-023
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: methodology
+  subject: 网安叙事从AI颠覆切向AI放大需求，映射型波段处理
+  timeframe: short-term
+  statement: 网络安全的叙事正在从AI颠覆安全切向AI放大安全需求，这是逻辑改善而非业绩改善，在A股仍属映射型题材，按事件驱动做波段的框架处理即可。
+  evidence_quote: 网络安全的叙事正在从AI颠覆安全切向AI放大安全需求，这是逻辑改善而非业绩改善，在A股仍属映射型题材，按事件驱动做波段的框架处理即可。
+  interpretation: UP定性网络安全方向：叙事逻辑改善（AI放大安全需求）但非业绩改善，A股映射型题材→按事件驱动波段框架处理。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 网安是映射型题材：逻辑改善非业绩改善，波段处理
+  related_stocks: []
+  tags:
+  - 网络安全
+  - AI放大需求
+  - 映射型题材
+  - 逻辑改善
+  - 波段
+- id: claim-20260811-024
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: methodology
+  subject: 新题材筛选模型：超跌事件催化一字定方向
+  timeframe: intraday
+  statement: 昨日盘中涌现出不少新题材，套用超跌＋事件催化的模型，再叠加一字定方向这一条，在早盘集合竞价结束后就能筛出电影与有色两个方向；如果把京泉华（002885）这个准一字板也算进去，几乎就囊括了昨日所有的领涨方向；三者之中，电影的位置更低、催化更明确，所以受关注度自然高于其他两个。
+  evidence_quote: 套用超跌＋事件催化的模型，再叠加一字定方向这一条，其实在早盘集合竞价结束后就能筛出电影与有色两个方向；如果把京泉华这个准一字板也算进去，几乎就囊括了昨日所有的领涨方向。
+  interpretation: UP给出新题材筛选模型：超跌+事件催化+一字定方向，集合竞价结束即可筛出方向（昨日为电影/有色/京泉华准一字），其中电影位置最低催化最明确。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 新题材筛选：超跌+事件催化+一字定方向
+  related_stocks:
+  - code: '002885'
+    name: 京泉华
+    role: 准一字板示例-主板可交易
+  - code: '000802'
+    name: 北京文化
+    role: 电影方向一字板-主板可交易
+  tags:
+  - 超跌
+  - 事件催化
+  - 一字定方向
+  - 集合竞价
+  - 新题材筛选
+- id: claim-20260811-025
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: methodology
+  subject: 筛选模型筛的是今天资金去哪，第二天看分歧承接
+  timeframe: intraday
+  statement: 这套筛选方法今天依然有效，但要注意它筛出来的是今天资金会去哪里，不是这个方向能走多远；位置与催化决定的是第一天，能不能有第二天，取决于分歧当日有没有被承接住。
+  evidence_quote: 它筛出来的是今天资金会去哪里，不是这个方向能走多远。位置与催化决定的是第一天，能不能有第二天，取决于分歧当日有没有被承接住。
+  interpretation: UP界定筛选模型的能力边界：只回答第一天资金去向，第二天延续性取决于分歧承接，避免把筛选结果等同于方向持续性的误用。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 筛选模型只定第一天，第二天看分歧承接
+  related_stocks: []
+  tags:
+  - 筛选模型
+  - 第一天
+  - 分歧承接
+  - 持续性
+  - 能力边界
+- id: claim-20260811-026
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: operation
+  subject: 反弹期适合持股，量能3万亿以下正常3.5万亿警惕
+  timeframe: intraday
+  statement: 第一，指数处在反弹过程中，适合持股，不适合频繁调仓；量能在3万亿以下运行都属正常区间，只有逼近3.5万亿时才需要真正提高警惕。
+  evidence_quote: 指数处在反弹过程中，适合持股，不适合频繁调仓。量能在3万亿以下运行都属正常区间，只有逼近3.5万亿时才需要真正提高警惕。
+  interpretation: UP给出操作基调：反弹期持股不频繁调仓；量能3万亿以下正常、逼近3.5万亿才警惕，与量能三档框架一致。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 反弹期持股，量能3万亿以下正常
+  related_stocks: []
+  tags:
+  - 持股
+  - 3万亿
+  - 3.5万亿
+  - 反弹期
+  - 不频繁调仓
+- id: claim-20260811-027
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: operation
+  subject: 科技第二次分歧看抗跌领涨，不抄跌得最多的
+  timeframe: intraday
+  statement: 第二，科技方向昨日算是第二次分歧，且相较上周五分歧有所加大，叠加隔夜外盘光模块继续下跌，预计今天光模块仍有承压；科技内部继续留意抗跌领涨的分支，而不是抄跌得最多的那一支；按此前反复验证过的经验，前一日尾盘被抢筹的强势分支次日往往难以维持，反而是当日分歧充分、没有被抢筹的分支，次日的回流预期更强。
+  evidence_quote: 科技方向昨日算是第二次分歧，且相较上周五分歧有所加大，叠加隔夜外盘光模块继续下跌，预计今天光模块仍有承压。科技内部继续留意抗跌领涨的分支，而不是抄跌得最多的那一支。前一日尾盘被抢筹的强势分支次日往往难以维持，反而是当日分歧充分、没有被抢筹的分支，次日的回流预期更强。
+  interpretation: UP给出科技操作纪律：今日光模块仍承压；选抗跌领涨分支而非跌幅最大；尾盘被抢筹的强势分支次日难维持，分歧充分未抢筹者回流预期更强。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技第二次分歧：看抗跌领涨不抄跌得最多的
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 科技分歧锚定-创业板不可交易
+  tags:
+  - 科技分歧
+  - 抗跌领涨
+  - 抢筹
+  - 回流预期
+  - 光模块承压
+- id: claim-20260811-028
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: operation
+  subject: 非科技卡位以个股为主板块为辅
+  timeframe: intraday
+  statement: 第三，非科技方向以医药、有色、电力等卡位表现为主，判断持续性与强度一般，参与方式以个股为主、板块为辅。
+  evidence_quote: 非科技方向以医药、有色、电力等卡位表现为主，判断持续性与强度一般，参与方式以个股为主、板块为辅。
+  interpretation: UP给出非科技参与方式：医药/有色/电力卡位持续性一般，个股为主板块为辅，与自下而上的参与框架一致。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 非科技卡位：个股为主板块为辅
+  related_stocks: []
+  tags:
+  - 非科技
+  - 卡位
+  - 个股为主
+  - 板块为辅
+  - 医药
+- id: claim-20260811-029
+  source_path: sources/original/bilibili/2026-08-11-0906-图片-昨日的盘面把上周末卖方的一致预期打了个措手不及，始作俑者是中.md
+  source_date: '2026-08-11'
+  source_type: 动态
+  extracted_at: '2026-08-11T09:52:00+08:00'
+  claim_type: operation
+  subject: 中线做T短线不预设，不见量价确认不追
+  timeframe: intraday
+  statement: 第四，已关注的中线方向可以继续做T；短线品种不预设，盘中根据抗跌领涨的实际情况再决定是否参与，不见量价确认不追，这一条在分歧期比在主升期更重要。
+  evidence_quote: 已关注的中线方向可以继续做T；短线品种不预设，盘中根据抗跌领涨的实际情况再决定是否参与，不见量价确认不追，这一条在分歧期比在主升期更重要。
+  interpretation: UP给出今日操作纪律：中线做T、短线不预设看抗跌领涨、不见量价确认不追——分歧期该纪律权重高于主升期。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中线做T短线不预设，分歧期量价确认更重
+  related_stocks: []
+  tags:
+  - 做T
+  - 量价确认
+  - 分歧期
+  - 短线
+  - 抗跌领涨
