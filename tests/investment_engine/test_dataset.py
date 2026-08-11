@@ -108,6 +108,16 @@ class TestKplBlocks:
         }, ensure_ascii=False), encoding="utf-8")
         self.em = Path(tempfile.mkdtemp())
         (self.em / "lhb").mkdir(parents=True)
+        self.lp = Path(tempfile.mkdtemp())
+        (self.lp / "20260630.json").write_text(json.dumps({
+            "date": "2026-06-30", "zt_count": 3, "zb_count": 1, "max_lbc": 3,
+            "ladder": {"3板": ["秦安股份"], "2板": ["哈药股份"]},
+            "auction_sealed": ["蓝盾光电"],
+            "compare": {"promotion_rate": 0.2, "fanbao": ["高争民爆"]},
+            "zt_items": [{"code": "603758", "name": "秦安股份", "lbc": 3, "fund": 1e8},
+                         {"code": "002826", "name": "首板股", "lbc": 1, "fund": 5e7}],
+            "zb_items": [{"code": "600000", "name": "炸板股"}],
+        }, ensure_ascii=False), encoding="utf-8")
 
     def _write_em_lhb(self, day: str = "2026-06-30"):
         seats = [{"name": f"席位{i}", "buy": i, "sell": 0, "net": i} for i in range(7)]
@@ -126,20 +136,28 @@ class TestKplBlocks:
 
     def test_blocks_present(self):
         pack = build_daily_pack("2026-06-30", config_dir=Path("config/stock_monitor"),
-                                db_path=self.db, kpl_root=self.kpl, em_root=self.em)
+                                db_path=self.db, kpl_root=self.kpl, em_root=self.em,
+                                lp_root=self.lp)
         assert pack["emotion"]["daban"]["tZhangTing"] == 99
         assert pack["emotion"]["bankuai"] == [["医药", "1.61"]]
         assert pack["emotion"]["fengkou_stocks"] == ["共达电声"]
         assert pack["news_titles"]["items"][0]["stocks"] == ["600664"]
         assert pack["lhb"]["source"] == "kpl"  # 东财缺失时回退 KPL
         assert pack["lhb"]["count"] == 1
+        # 涨停梯队块
+        lp = pack["limit_pool"]
+        assert lp["max_lbc"] == 3 and lp["ladder"] == {"3板": ["秦安股份"], "2板": ["哈药股份"]}
+        assert lp["auction_sealed"] == ["蓝盾光电"]
+        assert lp["compare"]["promotion_rate"] == 0.2
+        assert lp["zt_items"][0]["name"] == "秦安股份"  # 按封单额降序
         assert "missing" not in pack
         pack_to_prompt(pack)  # 过防泄漏断言
 
     def test_eastmoney_lhb_preferred(self):
         self._write_em_lhb()
         pack = build_daily_pack("2026-06-30", config_dir=Path("config/stock_monitor"),
-                                db_path=self.db, kpl_root=self.kpl, em_root=self.em)
+                                db_path=self.db, kpl_root=self.kpl, em_root=self.em,
+                                lp_root=self.lp)
         lhb = pack["lhb"]
         assert lhb["source"] == "eastmoney" and lhb["count"] == 2
         # 按 |net_amt| 降序：风华高科(500) 在哈药股份(-100) 前
@@ -150,8 +168,9 @@ class TestKplBlocks:
 
     def test_missing_blocks_annotated(self):
         pack = build_daily_pack("2026-06-29", config_dir=Path("config/stock_monitor"),
-                                db_path=self.db, kpl_root=self.kpl, em_root=self.em)
-        assert pack["missing"] == ["kpl_emotion", "kpl_news_titles", "kpl_lhb"]
+                                db_path=self.db, kpl_root=self.kpl, em_root=self.em,
+                                lp_root=self.lp)
+        assert pack["missing"] == ["kpl_emotion", "kpl_news_titles", "kpl_lhb", "limit_pool"]
         assert "emotion" not in pack
 
 

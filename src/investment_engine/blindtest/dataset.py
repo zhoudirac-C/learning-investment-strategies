@@ -23,8 +23,10 @@ _REPO = Path(__file__).resolve().parents[3]
 
 KPL_ROOT = _REPO / "infra" / "data" / "kpl"
 EM_ROOT = _REPO / "infra" / "data" / "eastmoney"
+LP_ROOT = _REPO / "infra" / "data" / "limit_pool"
 _NEWS_TITLE_CAP = 60
 _LHB_ITEM_CAP = 20
+_LP_ITEM_CAP = 20
 
 
 class LeakageError(ValueError):
@@ -193,8 +195,25 @@ def _load_lhb(day: str, kpl_root: Path, em_root: Path | None = None) -> dict | N
             "note": d.get("note", "")}
 
 
+def _load_limit_pool(day: str, lp_root: Path) -> dict | None:
+    """涨停梯队摘要：梯队/晋级率/反包/竞价一字 + 涨停明细（按封单额封顶 _LP_ITEM_CAP 条）。"""
+    path = lp_root / f"{day.replace('-', '')}.json"
+    if not path.exists():
+        return None
+    d = json.loads(path.read_text(encoding="utf-8"))
+    items = sorted(d.get("zt_items") or [],
+                   key=lambda x: x.get("fund") or 0, reverse=True)
+    return {"date": d.get("date", day),
+            "zt_count": d.get("zt_count"), "zb_count": d.get("zb_count"),
+            "max_lbc": d.get("max_lbc"), "ladder": d.get("ladder") or {},
+            "auction_sealed": d.get("auction_sealed") or [],
+            "compare": d.get("compare") or {},
+            "zt_items": items[:_LP_ITEM_CAP],
+            "zb_items": (d.get("zb_items") or [])[:_LP_ITEM_CAP]}
+
+
 def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
-                     kpl_root=None, em_root=None) -> dict:
+                     kpl_root=None, em_root=None, lp_root=None) -> dict:
     """组装某日数据包（只含截至当日的数据）。"""
     index = {}
     for code in INDEX_CODES:
@@ -231,10 +250,16 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
     }
     root = Path(kpl_root) if kpl_root else KPL_ROOT
     em = Path(em_root) if em_root else EM_ROOT
+    lp = Path(lp_root) if lp_root else LP_ROOT
     blocks = {"emotion": _load_emotion(day, root),
               "news_titles": _load_news_titles(day, root),
               "lhb": _load_lhb(day, root, em)}
     missing = [f"kpl_{k}" for k, v in blocks.items() if v is None]
+    limit_pool = _load_limit_pool(day, lp)
+    if limit_pool is None:
+        missing.append("limit_pool")
+    else:
+        blocks["limit_pool"] = limit_pool
     for k, v in blocks.items():
         if v is not None:
             pack[k] = v

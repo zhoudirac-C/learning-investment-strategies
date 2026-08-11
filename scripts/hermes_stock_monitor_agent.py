@@ -537,7 +537,45 @@ def _build_market_snapshot(data: dict) -> tuple[dict, dict[str, dict]]:
     if overnight:
         market_snapshot["overnight_us"] = overnight
 
+    # 昨日涨停梯队（15:37 由 scripts/limit_pool_fetch.py 落盘；供早盘看晋级率/反包/一字）
+    limit_pool = _load_limit_pool_latest()
+    if limit_pool:
+        market_snapshot["limit_pool_yesterday"] = limit_pool
+
     return market_snapshot, quote_lookup
+
+
+_LIMIT_POOL_DIR = Path("infra/data/limit_pool")
+
+
+def _load_limit_pool_latest(before_day: str | None = None) -> dict | None:
+    """读最近一个交易日的涨停梯队落盘，压缩为 LLM 友好形态；无落盘返回 None。"""
+    before_day = before_day or date.today().isoformat()
+    if not _LIMIT_POOL_DIR.exists():
+        return None
+    candidates = sorted(p for p in _LIMIT_POOL_DIR.glob("*.json")
+                        if p.stem.replace("-", "") < before_day.replace("-", ""))
+    if not candidates:
+        return None
+    try:
+        d = json.loads(candidates[-1].read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    cmp_ = d.get("compare") or {}
+    out = {"date": d.get("date"), "zt_count": d.get("zt_count"),
+           "zb_count": d.get("zb_count"), "max_lbc": d.get("max_lbc"),
+           "ladder": d.get("ladder") or {},
+           "auction_sealed": d.get("auction_sealed") or []}
+    if cmp_.get("promotion_rate") is not None:
+        out["promotion_rate"] = cmp_["promotion_rate"]
+        out["fanbao"] = cmp_.get("fanbao") or []
+    # 连板个股明细（含封单额/炸板次数），首板不注入以控制体量
+    out["lianban_items"] = [
+        {"name": it.get("name"), "lbc": it.get("lbc"), "hybk": it.get("hybk"),
+         "fund": it.get("fund"), "zbc": it.get("zbc")}
+        for it in (d.get("zt_items") or []) if (it.get("lbc") or 0) >= 2
+    ]
+    return out
 
 
 _OVERNIGHT_US_DIR = Path("infra/data/overnight_us")
