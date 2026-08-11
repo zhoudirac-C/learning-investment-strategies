@@ -42,7 +42,7 @@ def _log_llm_call(entry: dict) -> None:
 SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。基于给定的当日客观数据，独立完成市场复盘判断。
 要求：
 1. 每个判断必须声明所用的数据项；不得引用任何人物的言论或观点。
-2. 可参考给定的推理框架索引（patterns）与术语词典组织推理，在 used_patterns 中登记实际用到的框架 id。
+2. core_patterns 为全量判据框架（含推理步骤与证伪条件）：判定市场阶段（sentiment_cycle）与方向主线（mainline_identification）时必须逐条对照其步骤，并在 stage_reason / directions 的 reason 中体现对照结果；patterns 仅为扩展框架索引。实际用到的框架 id 登记在 used_patterns。
 3. 严格输出 JSON（不要输出其他文字）：
 {"market_stage": "主升|震荡|调整|恐慌（四选一）",
  "stage_reason": "一句话依据（必须引用当日量能/情绪数据）",

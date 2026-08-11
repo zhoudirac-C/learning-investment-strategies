@@ -52,7 +52,8 @@ class TestRunPredict:
 
     def _run(self, monkeypatch, day="2026-08-07", **kw):
         monkeypatch.setattr(
-            "investment_engine.shadow.predict.build_daily_pack", lambda d, **k: "PACK")
+            "investment_engine.shadow.predict.build_daily_pack",
+            lambda d, **k: {"stocks": []})
         monkeypatch.setattr(
             "investment_engine.shadow.predict.pack_to_prompt", lambda p: p)
         monkeypatch.setattr(

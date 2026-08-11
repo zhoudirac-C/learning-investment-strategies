@@ -81,6 +81,15 @@ class TestBuildDailyPack:
         text = pack_to_prompt(pack)
         assert_no_leakage(text, "2026-06-15")  # 自身产出必须过自家断言
 
+    def test_core_patterns_injected(self):
+        pack = build_daily_pack("2026-06-15", config_dir=Path("config/stock_monitor"), db_path=self.db)
+        core = {p["pattern_id"] for p in pack["core_patterns"]}
+        assert {"sentiment_cycle", "mainline_identification"} <= core
+        for p in pack["core_patterns"]:
+            assert p["steps"] and p["falsification"]
+            assert "source_raw" not in p  # 来源字段不得入包
+        pack_to_prompt(pack)  # 正文注入后仍须过防泄漏断言
+
 
 class TestKplBlocks:
     def setup_method(self):

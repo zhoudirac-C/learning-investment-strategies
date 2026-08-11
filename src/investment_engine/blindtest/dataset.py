@@ -58,10 +58,15 @@ def _pos20(klines: list[dict]) -> float | None:
 
 
 def _compact_bars(klines: list[dict], n: int) -> list[dict]:
-    return [
-        {"d": k["date"], "c": k["close"], "pct": k.get("pct_change"), "vol": k.get("volume")}
-        for k in klines[-n:]
-    ]
+    # 腾讯指数 K 线无成交额字段，volume 单位为手；键名带单位防 LLM 误读为成交额
+    out = []
+    for k in klines[-n:]:
+        vol = k.get("volume")
+        out.append({
+            "d": k["date"], "c": k["close"], "pct": k.get("pct_change"),
+            "vol万手": round(vol / 1e4, 1) if isinstance(vol, (int, float)) else None,
+        })
+    return out
 
 
 def _load_directions(config_dir: Path) -> list[dict]:
@@ -212,6 +217,32 @@ def _load_limit_pool(day: str, lp_root: Path) -> dict | None:
             "zb_items": (d.get("zb_items") or [])[:_LP_ITEM_CAP]}
 
 
+_CORE_PATTERN_IDS = ("sentiment_cycle", "mainline_identification")
+
+
+def _load_core_patterns() -> list[dict]:
+    """每篇复盘必用的核心模式正文：判据步骤 + 证伪条件。
+
+    防泄漏：只取 steps(name/action)/falsification，不取 source_raw 等来源字段；
+    出厂前由 pack_to_prompt 的 assert_no_leakage 终检。
+    """
+    raw = yaml.safe_load((_REPO / "framework" / "reasoning-patterns.yaml").read_text(encoding="utf-8"))
+    by_id = {p["pattern_id"]: p for p in raw.get("patterns", [])}
+    out = []
+    for pid in _CORE_PATTERN_IDS:
+        p = by_id.get(pid)
+        if not p:
+            continue
+        out.append({
+            "pattern_id": pid,
+            "name": p.get("name", ""),
+            "steps": [{"name": s.get("name", ""), "action": s.get("action", "")}
+                      for s in (p.get("steps") or [])],
+            "falsification": [str(f) for f in (p.get("falsification") or [])],
+        })
+    return out
+
+
 def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
                      kpl_root=None, em_root=None, lp_root=None) -> dict:
     """组装某日数据包（只含截至当日的数据）。"""
@@ -247,6 +278,7 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
         "chains": _load_chains(),
         "glossary": _load_glossary(),
         "patterns": _load_patterns_index(),
+        "core_patterns": _load_core_patterns(),
     }
     root = Path(kpl_root) if kpl_root else KPL_ROOT
     em = Path(em_root) if em_root else EM_ROOT

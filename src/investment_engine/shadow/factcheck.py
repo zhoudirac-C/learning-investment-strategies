@@ -1,0 +1,49 @@
+"""影子预测硬事实校验：输出中的涨停/连板声明必须能在当日涨停池中找到。
+
+只校验机器可判的硬事实（涨停/封板/N 连板），性质判断不干预。
+命中错误记入 prediction 的 fact_errors 字段，供归因与毕业统计。
+已知盲区：否定句（"未涨停"）靠前字符窗口粗筛，极端表述可能漏判。
+"""
+from __future__ import annotations
+
+import json
+import re
+from pathlib import Path
+
+from investment_engine.blindtest.dataset import LP_ROOT
+
+# 股名后 10 字内出现 涨停/封板/N连板 即视为硬事实声明
+_CLAIM_TMPL = r"{name}[^。；;，,]{{0,10}}?(涨停|封板|(\d+)连板)"
+_NEGATION_RE = re.compile(r"[未不没无]")
+
+
+def _load_zt_map(day: str, lp_root: Path | None = None) -> dict[str, int]:
+    """当日涨停池 name → 连板数；文件缺失返回空（调用方据此跳过校验）。"""
+    root = Path(lp_root) if lp_root else LP_ROOT
+    path = root / f"{day.replace('-', '')}.json"
+    if not path.exists():
+        return {}
+    d = json.loads(path.read_text(encoding="utf-8"))
+    return {str(it["name"]): int(it.get("lbc") or 1)
+            for it in (d.get("zt_items") or []) if it.get("name")}
+
+
+def check_prediction(result: dict, day: str, *, extra_names=(), lp_root=None) -> list[str]:
+    """返回硬事实错误描述列表（空=通过）。无当日涨停池数据时返回 []。"""
+    zt = _load_zt_map(day, lp_root)
+    if not zt:
+        return []
+    text = json.dumps(result or {}, ensure_ascii=False)
+    names = set(zt) | {str(n) for n in extra_names if n}
+    errors: list[str] = []
+    for name in sorted(names, key=len, reverse=True):  # 长名优先，防子串误配
+        for m in re.finditer(_CLAIM_TMPL.format(name=re.escape(name)), text):
+            claim = m.group(0)
+            if _NEGATION_RE.search(claim):  # "未涨停/不涨停"类否定声明跳过
+                continue
+            n_lbc = m.group(2)
+            if name not in zt:
+                errors.append(f"{claim}：当日涨停池无 {name}")
+            elif n_lbc and int(n_lbc) != zt[name]:
+                errors.append(f"{claim}：当日 {name} 实际为 {zt[name]} 连板")
+    return errors

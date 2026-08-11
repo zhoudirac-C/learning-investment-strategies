@@ -42,9 +42,14 @@ def run_predict(day: str, *, config_dir, db_path=None, pred_dir: Path = PRED_DIR
         raw = call_deepseek(build_messages(text), model=model, client=client,
                             tag="shadow_predict")
         result = parse_result(raw)
+        from investment_engine.shadow.factcheck import check_prediction
+        fact_errors = check_prediction(
+            result, day, extra_names=[s.get("name") for s in pack.get("stocks", [])])
         rec = {"date": day, "result": result, "raw": raw,
                "prompt_version": PROMPT_VERSION,
                "stage_hit": None, "due_scores": None, "status": "pending_maturity"}
+        if fact_errors:
+            rec["fact_errors"] = fact_errors
     except Exception as e:  # noqa: BLE001 - 失败留 error 记录，次日重跑
         rec = {"date": day, "status": "error", "error": str(e)[:200]}
 
