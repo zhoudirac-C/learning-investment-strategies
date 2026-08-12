@@ -146,15 +146,36 @@ KPL 包名 `com.aiyu.kaipanla`，官网 `kaipanla.com`（121.37.x，华为云）
 - 可用的异动/板块替代数据：`Index.GetInfo` 的 `FKYDSixList`（风口异动）、
   `PHBList`（连板梯队）、`BaceFaceList`（板块涨幅榜）；板块要闻/机构纪要建议改用公开源。
 
-### 待办：异动提醒接口再抓包（2026-08-12 登记，当晚执行）
+### 已完成：异动提醒接口抓包验证（2026-08-12 22:59 执行，结论-不可得）
 
-用户确认 KPL App 内**有**异动提醒功能（盘中异动/严重异动提醒）。2026-08-12 白天排查结论：
-代理通道（longhuvip 系 HTTP API）无异动名单接口，`FKYDSixList` 仅 [代码,名称,涨幅] 无阈值字段；
-疑走 `socket.kaipan.com:8080` 直连或 MiPush 推送。**晚间行动**：用 Reqable `kpl-api-only`
-规则集（仅解密 app*.longhuvip.com）在盘中/复盘时操作 App 异动页签重抓，目标字段：
-异动类型、触发阈值、涉及个股代码。若仍走直连 socket 则放弃（不 root/Frida），
+晚间 mitmproxy 实测（代理 192.168.8.9:8888，手机同 WiFi，allow-hosts 限 KPL 全系域名）：
+用户在 App 内触发"异动提醒"后，抓包文件定格于 22:59:46，仅 5 个 POST、4 个已知 `c=&a=`
+（`SysAppVersion.GetLaYout` / `Index.GetInfo` / `Index.NewGetList` / `IndexPlate.GetIndexList`），
+**请求体与响应均无"异动/严重异常/监管"字样，无异动专用接口命中**。
+
+根因（实时连接日志）：
+- `applhb/apphwhq/apparticle/applog/appcdn/apphis.longhuvip.com` 大量
+  `Client TLS handshake failed. The client does not trust the proxy's certificate`——
+  KPL 原生 OkHttp 通道不信任用户级 CA（Android 7+ network_security_config 仅信任系统 CA），
+  原生 API 调用全被 TLS 阻断，**无法解密**。仅 H5 容器（apppage WebView）发起的 XHR
+  能被解密（因 WebView 信任用户 CA）。
+- `sdk-open-phone.getui.com` 活跃 = **个推推送 SDK**，异动提醒的"提醒"走第三方推送通道下发，
+  非 KPL HTTP API。
+- `getsockip.longhuvip.com / getsockip.kaipanla.com / hwany.longhuvip.com:2443` 仅 CONNECT
+  透传 = 直连 socket 通道 IP 发现，不可解密。
+
+**最终结论**：异动提醒数据经原生通道（TLS 阻断）+ 个推推送下发，用户级 HTTP 代理无解。
+要解密须 root 装系统 CA 或 Frida SSL unpinning（封号风险，不推荐）。
 regulatory_distance 维持本地计算方案（已实现于 `investment_engine/limit_pool.py`，
-口径 `knowledge/wiki/市场分析/A股严重异常波动规则.md`）。抓包结果回填本节。
+口径 `knowledge/wiki/市场分析/A股严重异常波动规则.md`）。本次抓包文件存
+`temp/kpl_capture/kpl-flows-20260812-yidong.mitm`。
+
+**第二轮复测**（23:07，App 彻底退出重启后重试，文件 `kpl-flows-20260812-yidong-r2.mitm`）：
+结果与第一轮完全一致——仅 4 个已知 `c=&a=`，无异动接口，无异动字样。原生通道
+TLS 失败域名扩至 `applhb/apphwhq/apphis/apparticle/applog/appcdn/getsockip` 全系；
+推送通道实锤为 `sdk-open-phone.getui.com` + `b-gtc.gepush.com`（个推 getui 极光，
+异动提醒服务端经此下发，客户端无对应 HTTP 拉取）。**两轮实测坐实：异动走推送、
+无 HTTP API，本地计算方案收尾。**
 
 ### Reqable VPN 抓包操作摘要（已配置好，可复用）
 
