@@ -24,9 +24,14 @@ _REPO = Path(__file__).resolve().parents[3]
 KPL_ROOT = _REPO / "infra" / "data" / "kpl"
 EM_ROOT = _REPO / "infra" / "data" / "eastmoney"
 LP_ROOT = _REPO / "infra" / "data" / "limit_pool"
+IC_ROOT = _REPO / "infra" / "data" / "intraday_changes"
 _NEWS_TITLE_CAP = 60
 _LHB_ITEM_CAP = 20
 _LP_ITEM_CAP = 20
+_IC_HIGHLIGHT_CAP = 30
+# 盘中异动 highlights 优先抽取的类型（最具操作意义）
+_IC_KEY_TYPES = ("封涨停板", "打开涨停板", "大笔买入", "火箭发射",
+                 "快速反弹", "60日新高")
 
 
 class LeakageError(ValueError):
@@ -219,6 +224,40 @@ def _load_limit_pool(day: str, lp_root: Path) -> dict | None:
             "zb_items": (d.get("zb_items") or [])[:_LP_ITEM_CAP]}
 
 
+def _load_intraday_changes(day: str, ic_root: Path) -> dict | None:
+    """盘中异动摘要：22 类计数 + 关键类型 highlights（compact，控 prompt 体积）。
+
+    全量明细在 infra/data/intraday_changes/<date>.json，这里只送计数与少量高亮。
+    """
+    path = ic_root / f"{day.replace('-', '')}.json"
+    if not path.exists():
+        return None
+    d = json.loads(path.read_text(encoding="utf-8"))
+    counts = d.get("counts") or {}
+    types_data = d.get("types") or {}
+    highlights: list[dict] = []
+    for t in _IC_KEY_TYPES:
+        items = types_data.get(t)
+        if not isinstance(items, list):
+            continue
+        for it in items[:8]:
+            highlights.append({
+                "type": t, "time": it.get("time", ""),
+                "code": it.get("code", ""), "name": it.get("name", ""),
+                "pct": _ic_parse_pct(it.get("info", "")),
+            })
+        if len(highlights) >= _IC_HIGHLIGHT_CAP:
+            break
+    return {"date": d.get("date", day),
+            "counts": counts, "total": d.get("total"),
+            "highlights": highlights[:_IC_HIGHLIGHT_CAP]}
+
+
+def _ic_parse_pct(info: str) -> str:
+    parts = info.split(",")
+    return parts[-1].strip() if parts else ""
+
+
 _CORE_PATTERN_IDS = ("sentiment_cycle", "mainline_identification")
 
 
@@ -246,7 +285,8 @@ def _load_core_patterns() -> list[dict]:
 
 
 def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
-                     kpl_root=None, em_root=None, lp_root=None) -> dict:
+                     kpl_root=None, em_root=None, lp_root=None,
+                     ic_root=None) -> dict:
     """组装某日数据包（只含截至当日的数据）。"""
     index = {}
     for code in INDEX_CODES:
@@ -285,6 +325,7 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
     root = Path(kpl_root) if kpl_root else KPL_ROOT
     em = Path(em_root) if em_root else EM_ROOT
     lp = Path(lp_root) if lp_root else LP_ROOT
+    ic = Path(ic_root) if ic_root else IC_ROOT
     blocks = {"emotion": _load_emotion(day, root),
               "news_titles": _load_news_titles(day, root),
               "lhb": _load_lhb(day, root, em)}
@@ -294,6 +335,11 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
         missing.append("limit_pool")
     else:
         blocks["limit_pool"] = limit_pool
+    intraday_changes = _load_intraday_changes(day, ic)
+    if intraday_changes is None:
+        missing.append("intraday_changes")
+    else:
+        blocks["intraday_changes"] = intraday_changes
     for k, v in blocks.items():
         if v is not None:
             pack[k] = v
