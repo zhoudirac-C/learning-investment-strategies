@@ -1,10 +1,10 @@
 {
-  "calculated_at": "2026-08-11T08:00:44.088415",
-  "total_stocks": 63,
+  "calculated_at": "2026-08-12T08:00:58.736182",
+  "total_stocks": 66,
   "tier_summary": {
     "A": 0,
     "B": 0,
-    "C": 44,
+    "C": 47,
     "D": 19
   },
   "top_20": [
@@ -315,58 +315,58 @@
       "theme_id": "ocs_optical_switching"
     },
     {
-      "code": "001309.SZ",
-      "name": "德明利",
+      "code": "588780.SH",
+      "name": "科创芯片设计ETF国联安",
       "hot_score": 4.2,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
-        "priority_base": 7,
+        "priority_base": 5.0,
         "technical_setup": 5.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0,
-        "entry_zone_proximity": 5.0,
-        "position_status": 5.0
-      },
-      "ranking_tier": "C",
-      "theme": "存储芯片（NOR Flash/DRAM涨价周期）",
-      "theme_id": "memory_nor"
-    },
-    {
-      "code": "300570.SZ",
-      "name": "太辰光",
-      "hot_score": 4.2,
-      "breakdown": {
-        "claim_freshness": 3.0,
-        "up_mention_recency": 3.0,
-        "priority_base": 4,
-        "technical_setup": 5.0,
-        "sector_momentum": 6.0,
         "linked_claims_count": 4.0,
         "entry_zone_proximity": 5.0,
         "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "MPO光连接器（光互联Scale-up放量下的无源弹性环节）",
-      "theme_id": "mpo_optical_connector"
+      "theme": "设备/封测补涨（涨价主线扩散方向）",
+      "theme_id": "equipment_packaging_catchup"
     },
     {
-      "code": "600673.SH",
-      "name": "东阳光",
+      "code": "588170.SH",
+      "name": "科创半导体ETF华夏",
       "hot_score": 4.2,
       "breakdown": {
         "claim_freshness": 3.0,
         "up_mention_recency": 3.0,
-        "priority_base": 7,
+        "priority_base": 5.0,
         "technical_setup": 5.0,
         "sector_momentum": 5.0,
-        "linked_claims_count": 2.0,
+        "linked_claims_count": 4.0,
         "entry_zone_proximity": 5.0,
         "position_status": 5.0
       },
       "ranking_tier": "C",
-      "theme": "PMIC电源管理（涨价+算电协同）",
-      "theme_id": "pmic_power"
+      "theme": "设备/封测补涨（涨价主线扩散方向）",
+      "theme_id": "equipment_packaging_catchup"
+    },
+    {
+      "code": "159516.SZ",
+      "name": "半导体设备ETF国泰",
+      "hot_score": 4.2,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 4.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "设备/封测补涨（涨价主线扩散方向）",
+      "theme_id": "equipment_packaging_catchup"
     }
   ],
   "all_scores": [
@@ -675,6 +675,60 @@
       "ranking_tier": "C",
       "theme": "OCS光交换（AI算力互联新技术路径）",
       "theme_id": "ocs_optical_switching"
+    },
+    {
+      "code": "588780.SH",
+      "name": "科创芯片设计ETF国联安",
+      "hot_score": 4.2,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 4.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "设备/封测补涨（涨价主线扩散方向）",
+      "theme_id": "equipment_packaging_catchup"
+    },
+    {
+      "code": "588170.SH",
+      "name": "科创半导体ETF华夏",
+      "hot_score": 4.2,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 4.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "设备/封测补涨（涨价主线扩散方向）",
+      "theme_id": "equipment_packaging_catchup"
+    },
+    {
+      "code": "159516.SZ",
+      "name": "半导体设备ETF国泰",
+      "hot_score": 4.2,
+      "breakdown": {
+        "claim_freshness": 3.0,
+        "up_mention_recency": 3.0,
+        "priority_base": 5.0,
+        "technical_setup": 5.0,
+        "sector_momentum": 5.0,
+        "linked_claims_count": 4.0,
+        "entry_zone_proximity": 5.0,
+        "position_status": 5.0
+      },
+      "ranking_tier": "C",
+      "theme": "设备/封测补涨（涨价主线扩散方向）",
+      "theme_id": "equipment_packaging_catchup"
     },
     {
       "code": "001309.SZ",
