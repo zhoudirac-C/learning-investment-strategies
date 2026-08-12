@@ -4,6 +4,9 @@
 - 收盘后（cron 15:37）落盘当日涨停/炸板池，供 18:05 盲判包与次日早盘使用
 - 跨日衍生：晋级率（今连板÷昨首板，口径见 framework/up-glossary.md）、
   反包名单（昨日炸板 ∩ 今日涨停）——UP"承接意愿恢复"判断的原始数据
+- P1 特征（2026-08-12 起）：first_board_width（首板宽度：家数+日环比+20日分位）、
+  regulatory_distance（龙头监管距离：最高板龙头 10/30 日偏离值距严重异动阈值的空间，
+  口径见 knowledge/wiki/市场分析/A股严重异常波动规则.md）
 
 接口实测（2026-08-11）：push2ex.eastmoney.com/getTopicZTPool|getTopicZBPool，
 date=YYYYMMDD 支持历史；关键字段 c=代码 n=名称 p=价格(×1000) zdp=涨幅
@@ -17,6 +20,7 @@ import json
 import time
 import urllib.parse
 import urllib.request
+from datetime import datetime, timedelta
 from pathlib import Path
 
 API_BASE = "https://push2ex.eastmoney.com"
@@ -96,6 +100,120 @@ def _ladder(items: list[dict]) -> dict:
     return dict(sorted(out.items(), key=lambda kv: -int(kv[0][:-1])))
 
 
+# ---------- P1 特征（2026-08-12 起） ----------
+
+# 板块 → 偏离值基准指数（口径：wiki/市场分析/A股严重异常波动规则.md）
+# 注：缓存无上证A指/深证A指/科创板综指，用 IDX000001/IDX399001/IDX399006 近似
+_BOARD_INDEX = {"60": "IDX000001", "68": "IDX000001",
+                "00": "IDX399001", "30": "IDX399006"}
+
+
+def _first_board_width(zt: list[dict], out_root: Path | None, day: str) -> dict:
+    """首板宽度：首板家数 + 日环比 + 20 日分位（历史取自本地落盘序列）。
+
+    分位定义：历史窗口内 首板家数 ≤ 今日值 的占比。样本不足 20 日时如实标注。
+    """
+    cur = sum(1 for it in zt if (it.get("lbc") or 0) == 1)
+    out: dict = {"count": cur}
+    hist: list[tuple[str, int]] = []
+    if out_root:
+        for p in sorted(Path(out_root).glob("*.json")):
+            if not p.stem.isdigit() or p.stem >= day:
+                continue
+            try:
+                d = json.loads(p.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            items = d.get("zt_items") or []
+            hist.append((p.stem,
+                         sum(1 for it in items if (it.get("lbc") or 0) == 1)))
+    hist = hist[-20:]
+    if not hist:
+        out.update({"dod_delta": None, "pctile_20d": None, "sample_days": 0,
+                    "note": "无历史落盘，日环比/20日分位未计算"})
+        return out
+    prev_day, prev_cnt = hist[-1]
+    window = [c for _, c in hist]
+    out.update({
+        "prev_date": prev_day, "dod_delta": cur - prev_cnt,
+        "pctile_20d": round(sum(1 for c in window if c <= cur) / len(window), 4),
+        "sample_days": len(window),
+    })
+    if len(window) < 20:
+        out["note"] = f"历史样本仅 {len(window)} 日（<20），分位仅供参考"
+    return out
+
+
+def _daily_pcts(bars: list[dict]) -> dict[str, float]:
+    """由收盘价序列算日涨幅 {trade_date: pct%}（不依赖 pct_change 字段）。"""
+    out: dict[str, float] = {}
+    prev_close: float | None = None
+    for b in bars:
+        d = b.get("trade_date") or b.get("date")
+        c = b.get("close")
+        if prev_close and c:
+            out[d] = (c / prev_close - 1) * 100.0
+        if c:
+            prev_close = c
+    return out
+
+
+def _regulatory_distance(zt: list[dict], day: str) -> dict | None:
+    """龙头监管距离：最高板龙头的偏离值距严重异动阈值的空间（百分点）。
+
+    口径（wiki/市场分析/A股严重异常波动规则.md）：偏离值=个股日涨幅−基准指数日涨幅；
+    严重异动线 10 日累计 +100%、30 日累计 +200%。距离=阈值−当前累计，越小越危险。
+    未扣除异常波动公告后的清零重置，为保守上限估计。
+    """
+    if not zt:
+        return None
+    leader = max(zt, key=lambda it: (it.get("lbc") or 0, it.get("fund") or 0))
+    code = leader.get("code", "")
+    base = {"leader_code": code, "leader_name": leader.get("name", ""),
+            "leader_lbc": leader.get("lbc")}
+    if code.startswith(("4", "8")):
+        return {**base, "note": "北交所标的，偏离值口径不适用，未计算"}
+    idx_code = _BOARD_INDEX.get(code[:2])
+    if not idx_code:
+        return {**base, "note": f"无法识别板块（代码 {code}），未计算"}
+    try:
+        from investment_engine.backtest.history import get_klines_range
+    except Exception as e:
+        return {**base, "note": f"K线缓存接口不可用: {e}"}
+    end = f"{day[:4]}-{day[4:6]}-{day[6:]}"
+    start = (datetime.strptime(day, "%Y%m%d") - timedelta(days=75)).strftime("%Y-%m-%d")
+    stock_bars = get_klines_range(code, start, end)
+    if len(stock_bars) < 11:
+        # 龙头通常不在监控池、缓存未覆盖 → 按需拉取（tdx→腾讯→东财，回写缓存）
+        try:
+            from qing_investment.agent.tools.stock_data import fetch_stock_kline
+            fetched = fetch_stock_kline(code, days=45)
+            fetched = [b for b in fetched
+                       if (b.get("date") or "") <= end]
+            if len(fetched) > len(stock_bars):
+                stock_bars = fetched
+        except Exception:
+            pass
+    stock_pct = _daily_pcts(stock_bars)
+    idx_pct = _daily_pcts(get_klines_range(idx_code, start, end))
+    common = sorted(d for d in stock_pct if d in idx_pct)
+    if len(common) < 10:
+        return {**base, "index_proxy": idx_code,
+                "note": f"K线缓存公共交易日不足（{len(common)}<10），未计算"}
+    devs = [stock_pct[d] - idx_pct[d] for d in common]
+    dev10 = sum(devs[-10:])
+    out = {**base, "index_proxy": idx_code,
+           "dev_10d": round(dev10, 2), "dist_10d": round(100.0 - dev10, 2),
+           "threshold_10d": 100.0}
+    if len(devs) >= 30:
+        dev30 = sum(devs[-30:])
+        out.update({"dev_30d": round(dev30, 2),
+                    "dist_30d": round(200.0 - dev30, 2), "threshold_30d": 200.0})
+    out["note"] = ("未扣除异常波动公告清零重置，为保守上限；"
+                   "指数为近似代理（缓存无上证A指/深证A指/科创板综指）")
+    return out
+
+
 def build_limit_pool(day: str, out_root: Path | None = None,
                      *, prev_day: str | None = None) -> dict:
     """组装当日梯队数据。day 格式 YYYYMMDD。
@@ -137,6 +255,13 @@ def build_limit_pool(day: str, out_root: Path | None = None,
     else:
         compare = {"note": "未提供前日落盘，晋级率/反包未计算"}
     data["compare"] = compare
+
+    # P1 特征：首板宽度 + 龙头监管距离（失败不阻断落盘，如实标注）
+    data["first_board_width"] = _first_board_width(zt, out_root, day)
+    try:
+        data["regulatory_distance"] = _regulatory_distance(zt, day)
+    except Exception as e:
+        data["regulatory_distance"] = {"note": f"计算失败: {e}"}
     return data
 
 

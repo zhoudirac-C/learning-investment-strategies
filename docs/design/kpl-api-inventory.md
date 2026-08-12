@@ -146,6 +146,16 @@ KPL 包名 `com.aiyu.kaipanla`，官网 `kaipanla.com`（121.37.x，华为云）
 - 可用的异动/板块替代数据：`Index.GetInfo` 的 `FKYDSixList`（风口异动）、
   `PHBList`（连板梯队）、`BaceFaceList`（板块涨幅榜）；板块要闻/机构纪要建议改用公开源。
 
+### 待办：异动提醒接口再抓包（2026-08-12 登记，当晚执行）
+
+用户确认 KPL App 内**有**异动提醒功能（盘中异动/严重异动提醒）。2026-08-12 白天排查结论：
+代理通道（longhuvip 系 HTTP API）无异动名单接口，`FKYDSixList` 仅 [代码,名称,涨幅] 无阈值字段；
+疑走 `socket.kaipan.com:8080` 直连或 MiPush 推送。**晚间行动**：用 Reqable `kpl-api-only`
+规则集（仅解密 app*.longhuvip.com）在盘中/复盘时操作 App 异动页签重抓，目标字段：
+异动类型、触发阈值、涉及个股代码。若仍走直连 socket 则放弃（不 root/Frida），
+regulatory_distance 维持本地计算方案（已实现于 `investment_engine/limit_pool.py`，
+口径 `knowledge/wiki/市场分析/A股严重异常波动规则.md`）。抓包结果回填本节。
+
 ### Reqable VPN 抓包操作摘要（已配置好，可复用）
 
 1. 手机装 Reqable（小米商店/官网），装其 CA 证书（流程同 mitmproxy CA）。

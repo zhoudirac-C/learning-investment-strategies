@@ -16,6 +16,11 @@ themes:
       - {symbol: AMD, name: AMD, earnings_note: ""}
       - {symbol: AVGO, name: 博通, earnings_note: ""}
       - {symbol: MRVL, name: Marvell, earnings_note: ""}
+  - id: compute_rental
+    name: 算力租赁（CoreWeave 财报最直接映射；合规限制+国产产能未释放下国内高端算力近乎唯一来源）
+    symbols:
+      - {symbol: CRWV, name: CoreWeave, earnings_note: "美东8/11盘后财报超预期：Q2营收25.8亿美元+112%、积压订单1040亿+246%、上调全年指引（2026-08-12 UP早盘记录）"}
+      - {symbol: NBIS, name: Nebius, earnings_note: ""}
   - id: memory
     name: 存储（UP 用 SK海力士ADR映射；东财无韩股，用美光代理）
     symbols:

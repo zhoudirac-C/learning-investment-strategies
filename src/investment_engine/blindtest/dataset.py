@@ -213,6 +213,8 @@ def _load_limit_pool(day: str, lp_root: Path) -> dict | None:
             "max_lbc": d.get("max_lbc"), "ladder": d.get("ladder") or {},
             "auction_sealed": d.get("auction_sealed") or [],
             "compare": d.get("compare") or {},
+            "first_board_width": d.get("first_board_width"),
+            "regulatory_distance": d.get("regulatory_distance"),
             "zt_items": items[:_LP_ITEM_CAP],
             "zb_items": (d.get("zb_items") or [])[:_LP_ITEM_CAP]}
 
