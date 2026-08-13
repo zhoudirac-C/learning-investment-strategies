@@ -448,3 +448,71 @@ class TdxMarket:
             d["source"] = "tdx"
             out.append(d)
         return out
+
+    def get_block_members(self, blockfile: str = "block_gn.dat") -> dict[str, list[str]]:
+        """正确解析板块文件，返回 {板块名: [成分股裸码, ...]}。
+
+        绕过 pytdx 的 get_and_parse_block_info 下载 bug：后者每次
+        get_block_info(blockfile, start, size) 传的是「总大小」而非剩余
+        chunk 大小，且服务器单次返回上限 ~60000 字节，导致拼接错位——
+        表现为 block_gn.dat 前 21 个板块名正常、之后板块名被成分股代码
+        污染（2026-08-13 实测定位）。
+
+        正确做法：按 60000 字节分块、传剩余字节数，手动按通达信 block
+        格式解析（header 384 + num(2) + 每板块 name(9) + sc(2)+bt(2) +
+        codes(7*sc)，每板块 stride 固定 2800）。
+        """
+        raw = self.client.execute(
+            HostCapability.CapSector880,
+            lambda api: _download_block_raw(api, blockfile),
+            retry_empty=True,
+        )
+        if not raw:
+            return {}
+        return _parse_block_members(raw)
+
+
+def _download_block_raw(api, blockfile: str, chunk: int = 60000) -> bytes:
+    """正确分块下载板块文件原始字节（修复 pytdx 拼接 bug）。"""
+    import struct as _struct
+
+    meta = api.get_block_info_meta(blockfile)
+    size = meta["size"]
+    content = bytearray()
+    start = 0
+    while start < size:
+        ask = min(chunk, size - start)
+        piece = api.get_block_info(blockfile, start, ask)
+        if not piece:
+            break
+        content.extend(piece)
+        start += len(piece)
+        if len(piece) < ask:
+            break
+    return bytes(content)
+
+
+def _parse_block_members(data: bytes) -> dict[str, list[str]]:
+    """按通达信 block 文件格式解析 板块名 → 成分股裸码列表。"""
+    import struct as _struct
+
+    pos = 384
+    (num,) = _struct.unpack("<H", data[pos:pos + 2])
+    pos += 2
+    out: dict[str, list[str]] = {}
+    for _ in range(num):
+        name = data[pos:pos + 9].decode("gbk", "ignore").rstrip("\x00")
+        pos += 9
+        (stock_count, _bt) = _struct.unpack("<HH", data[pos:pos + 4])
+        pos += 4
+        block_begin = pos
+        codes: list[str] = []
+        for _ in range(stock_count):
+            c = data[pos:pos + 7].decode("utf-8", "ignore").rstrip("\x00")
+            pos += 7
+            if c and c.isdigit() and len(c) == 6:
+                codes.append(c)
+        if name:
+            out[name] = codes
+        pos = block_begin + 2800
+    return out
