@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from qing_investment.kline_cache import init_db, save_klines
+from qing_investment.kline_cache import init_db, save_index_klines, save_klines
 from investment_engine.blindtest.dataset import (
     INDEX_CODES, LeakageError, assert_no_leakage, build_daily_pack, pack_to_prompt,
     trading_days,
@@ -54,7 +54,7 @@ class TestBuildDailyPack:
         self.db = Path(tempfile.gettempdir()) / f"test_ds2_{id(self)}.db"
         init_db(db_path=self.db)
         save_klines("002371.SZ", _klines("002371.SZ", [10.0 + i * 0.1 for i in range(30)]), db_path=self.db)
-        save_klines("IDX000300", _klines("IDX000300", [4000.0 + i for i in range(30)]), db_path=self.db)
+        save_index_klines("sh000300", _klines("IDX000300", [4000.0 + i for i in range(30)]), db_path=self.db)
 
     def teardown_method(self):
         self.db.unlink(missing_ok=True)
@@ -95,8 +95,8 @@ class TestKplBlocks:
     def setup_method(self):
         self.db = Path(tempfile.gettempdir()) / f"test_ds3_{id(self)}.db"
         init_db(db_path=self.db)
-        save_klines("IDX000300", _klines("IDX000300", [4000.0 + i for i in range(30)]),
-                    db_path=self.db)
+        save_index_klines("sh000300", _klines("IDX000300", [4000.0 + i for i in range(30)]),
+                          db_path=self.db)
         self.kpl = Path(tempfile.mkdtemp())
         (self.kpl / "emotion").mkdir(parents=True)
         (self.kpl / "news" / "2026-06-30").mkdir(parents=True)

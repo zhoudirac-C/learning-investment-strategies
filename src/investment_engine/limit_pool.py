@@ -177,7 +177,7 @@ def _regulatory_distance(zt: list[dict], day: str) -> dict | None:
     if not idx_code:
         return {**base, "note": f"无法识别板块（代码 {code}），未计算"}
     try:
-        from investment_engine.backtest.history import get_klines_range
+        from investment_engine.backtest.history import get_index_daily, get_klines_range
     except Exception as e:
         return {**base, "note": f"K线缓存接口不可用: {e}"}
     end = f"{day[:4]}-{day[4:6]}-{day[6:]}"
@@ -195,7 +195,7 @@ def _regulatory_distance(zt: list[dict], day: str) -> dict | None:
         except Exception:
             pass
     stock_pct = _daily_pcts(stock_bars)
-    idx_pct = _daily_pcts(get_klines_range(idx_code, start, end))
+    idx_pct = _daily_pcts(get_index_daily(idx_code, start, end))
     common = sorted(d for d in stock_pct if d in idx_pct)
     if len(common) < 10:
         return {**base, "index_proxy": idx_code,

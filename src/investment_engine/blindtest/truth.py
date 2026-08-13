@@ -54,7 +54,7 @@ def label_series(klines: list[dict]) -> list[dict]:
 
 def load_truth(db_path=None, index_code: str = "IDX000300") -> dict[str, str]:
     """从缓存读指数日 K，返回 {date: label}。"""
-    from investment_engine.backtest.history import get_klines_range
+    from investment_engine.backtest.history import get_index_daily
 
-    klines = get_klines_range(index_code, "2000-01-01", "2999-12-31", db_path=db_path)
+    klines = get_index_daily(index_code, "2000-01-01", "2999-12-31", db_path=db_path)
     return {r["date"]: r["label"] for r in label_series(klines)}

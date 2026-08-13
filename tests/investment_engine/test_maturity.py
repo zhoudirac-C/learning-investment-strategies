@@ -3,7 +3,7 @@ import json
 import tempfile
 from pathlib import Path
 
-from qing_investment.kline_cache import init_db, save_klines
+from qing_investment.kline_cache import init_db, save_index_klines, save_klines
 from investment_engine.shadow.maturity import due_predictions, run_maturity
 
 
@@ -28,7 +28,7 @@ class TestMaturity:
     def setup_method(self):
         self.db = Path(tempfile.gettempdir()) / f"test_mat_{id(self)}.db"
         init_db(db_path=self.db)
-        save_klines("IDX000300", _klines("IDX000300", [4000.0] * 12), db_path=self.db)
+        save_index_klines("sh000300", _klines("IDX000300", [4000.0] * 12), db_path=self.db)
         save_klines("002371", _klines("002371", [10.0, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11]), db_path=self.db)
         self.pred_dir = Path(tempfile.mkdtemp(prefix="mat_"))
 

@@ -4,7 +4,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from investment_engine.backtest.history import get_klines_range
+from investment_engine.backtest.history import get_index_daily, get_klines_range
 from investment_engine.backtest.hit_rate import forward_return
 
 BENCH_CODE = "IDX000300"
@@ -47,7 +47,12 @@ def stage_accuracy(results: list[dict], truth: dict[str, str]) -> dict:
 
 
 def _forward(db_path, code: str, day: str, horizon: int) -> float | None:
-    klines = get_klines_range(code, day, "2999-12-31", db_path=db_path)
+    # 指数（IDX 别名）读 index_klines 表，个股读 stocks_kline 表
+    from investment_engine.backtest.history import INDEX_ALIAS_TO_CODE
+    if code in INDEX_ALIAS_TO_CODE:
+        klines = get_index_daily(code, day, "2999-12-31", db_path=db_path)
+    else:
+        klines = get_klines_range(code, day, "2999-12-31", db_path=db_path)
     return forward_return(klines, day, horizon)
 
 

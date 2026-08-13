@@ -3,7 +3,7 @@ import json
 import tempfile
 from pathlib import Path
 
-from qing_investment.kline_cache import init_db, save_klines
+from qing_investment.kline_cache import init_db, save_index_klines, save_klines
 from investment_engine.blindtest.score import (
     direction_scores, load_results, stage_accuracy, stock_scores,
 )
@@ -52,7 +52,7 @@ class TestDirectionAndStockScores:
         self.db = Path(tempfile.gettempdir()) / f"test_score_{id(self)}.db"
         init_db(db_path=self.db)
         # 指数：平稳；个股 a 涨、个股 b 跌
-        save_klines("IDX000300", _klines("IDX000300", [4000.0] * 12), db_path=self.db)
+        save_index_klines("sh000300", _klines("IDX000300", [4000.0] * 12), db_path=self.db)
         save_klines("002371", _klines("002371", [10.0, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11]), db_path=self.db)
         save_klines("300054", _klines("300054", [10.0, 10, 10, 10, 10, 9, 9, 9, 9, 9, 9, 9]), db_path=self.db)
 

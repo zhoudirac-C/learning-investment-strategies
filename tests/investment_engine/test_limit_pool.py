@@ -40,6 +40,7 @@ def fake_http(monkeypatch):
     # 保持测试密闭：监管距离特征不触真实 K 线缓存、不触网
     import investment_engine.backtest.history as hist
     monkeypatch.setattr(hist, "get_klines_range", lambda *a, **k: [])
+    monkeypatch.setattr(hist, "get_index_daily", lambda *a, **k: [])
     import qing_investment.agent.tools.stock_data as sd
     monkeypatch.setattr(sd, "fetch_stock_kline", lambda *a, **k: [])
 
@@ -106,13 +107,14 @@ def _fake_bars(code, start, end, **kw):
     closes = [100.0 * (1.05 ** i) for i in range(31)]
     idx_closes = [1000.0 * (1.01 ** i) for i in range(31)]
     series = closes if code == "600721" else idx_closes
-    return [{"trade_date": f"2026-07-{i + 1:02d}", "close": c}
+    return [{"date": f"2026-07-{i + 1:02d}", "close": c}
             for i, c in enumerate(series)]
 
 
 def test_regulatory_distance_fabricated(fake_http, monkeypatch):
     import investment_engine.backtest.history as hist
     monkeypatch.setattr(hist, "get_klines_range", _fake_bars)
+    monkeypatch.setattr(hist, "get_index_daily", _fake_bars)
     data = lp.build_limit_pool(DAY, None)
     rd = data["regulatory_distance"]
     assert rd["leader_code"] == "600721" and rd["leader_lbc"] == 5

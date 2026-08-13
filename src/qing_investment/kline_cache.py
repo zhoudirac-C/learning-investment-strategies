@@ -439,6 +439,47 @@ def get_cache_stats(db_path: Path | None = None) -> dict[str, Any]:
 
 # ── 指数多级别K线读取 ──
 
+def save_index_klines(
+    code: str,
+    klines: list[dict[str, Any]],
+    timeframe: str = "daily",
+    db_path: Path | None = None,
+) -> None:
+    """保存指数 K 线到 index_klines 表（覆盖写该 code×timeframe 的历史）。
+
+    klines 每项含 bar_time（或 date）、open/high/low/close/volume（amount 可选）。
+    供盲判/评分测试夹具与回填共用；MACD 字段写 NULL（盲判不依赖）。
+    """
+    with _get_conn(write=True, db_path=db_path) as conn:
+        conn.execute(
+            "DELETE FROM index_klines WHERE code = ? AND timeframe = ?",
+            (code, timeframe),
+        )
+        if klines:
+            now = datetime.now(_CN_TZ).isoformat()
+            conn.executemany(
+                """INSERT OR REPLACE INTO index_klines
+                    (code, timeframe, bar_time, open, high, low, close, volume, amount,
+                     dif, dea, macd_hist, updated_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL, NULL, ?)""",
+                [
+                    (
+                        code, timeframe,
+                        str(d.get("bar_time", d.get("date", ""))),
+                        float(d.get("open", 0)) if d.get("open") is not None else None,
+                        float(d.get("high", 0)) if d.get("high") is not None else None,
+                        float(d.get("low", 0)) if d.get("low") is not None else None,
+                        float(d.get("close", 0)) if d.get("close") is not None else None,
+                        float(d.get("volume", 0)) if d.get("volume") is not None else None,
+                        float(d.get("amount", 0)) if d.get("amount") is not None else None,
+                        now,
+                    )
+                    for d in klines
+                ],
+            )
+        conn.commit()
+
+
 def get_index_klines(
     code: str,
     timeframe: str = "daily",

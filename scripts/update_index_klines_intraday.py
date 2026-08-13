@@ -30,6 +30,8 @@ CN_TZ = timezone(timedelta(hours=8))
 
 INDICES = {
     "sh000001": {"secid": "1.000001", "name": "上证指数"},
+    "sh000300": {"secid": "1.000300", "name": "沪深300"},
+    "sh000852": {"secid": "1.000852", "name": "中证1000"},
     "sh000985": {"secid": "1.000985", "name": "中证全指"},
     "sz399001": {"secid": "0.399001", "name": "深证成指"},
     "sz399006": {"secid": "0.399006", "name": "创业板指"},
@@ -52,6 +54,8 @@ HTTP_MAX_RETRIES = 3    # HTTP 失败重试次数
 # 腾讯财经接口 symbol 映射（日线兜底）
 _TENCENT_SYMBOLS = {
     "sh000001": "sh000001",
+    "sh000300": "sh000300",
+    "sh000852": "sh000852",
     "sh000985": "sh000985",
     "sz399001": "sz399001",
     "sz399006": "sz399006",
@@ -258,7 +262,7 @@ def update_one(code: str, timeframe: str, dry_run: bool = False) -> dict:
         (code, timeframe)
     ).fetchone()["latest"]
 
-    if db_latest and db_latest >= newest_bar:
+    if db_latest and db_latest > newest_bar:
         conn.close()
         return {"status": "up_to_date", "code": code, "tf": timeframe, "db_latest": db_latest}
 
@@ -270,26 +274,37 @@ def update_one(code: str, timeframe: str, dry_run: bool = False) -> dict:
 
     existing_bars = [dict(r) for r in existing]
     existing_times = {r["bar_time"] for r in existing_bars}
+    # 同 bar_time 的旧 close（用于 daily 收盘价覆盖早盘快照的判断）
+    existing_close = {r["bar_time"]: r["close"] for r in existing_bars}
 
-    # 找出新bar
+    # 找出新bar；daily 级别同 bar_time 但 close 变化 → 视为待覆盖更新
     new_bars = [k for k in latest if k["bar_time"] not in existing_times]
+    override_bars = [
+        k for k in latest
+        if k["bar_time"] in existing_times
+        and k["bar_time"] == newest_bar
+        and k["bar_time"] in existing_close
+        and abs((existing_close[k["bar_time"]] or 0) - (k["close"] or 0)) > 1e-6
+    ]
 
-    if not new_bars:
+    if not new_bars and not override_bars:
         conn.close()
-        return {"status": "no_new_bars", "code": code, "tf": timeframe}
+        return {"status": "up_to_date", "code": code, "tf": timeframe, "db_latest": db_latest}
 
-    # 4. 取最近 RECOMPUTE_BARS 根用于重算MACD
-    all_bars = existing_bars + new_bars
+    # 4. 取最近 RECOMPUTE_BARS 根用于重算MACD（覆盖 bar 先移除旧值再并入新值）
+    replace_times = {k["bar_time"] for k in override_bars}
+    base_bars = [b for b in existing_bars if b["bar_time"] not in replace_times]
+    all_bars = base_bars + new_bars + override_bars
     all_bars.sort(key=lambda k: k["bar_time"])
     compute_window = all_bars[-RECOMPUTE_BARS:] if len(all_bars) > RECOMPUTE_BARS else all_bars
     compute_window = compute_macd_range(compute_window)
 
-    # 5. 写入新bar（含重算的MACD）
+    # 5. 写入新bar/覆盖bar（含重算的MACD）
     if not dry_run:
         now = datetime.now(CN_TZ).isoformat()
-        # 只写入新bar（compute_window的后半部分）
-        new_bar_times = {k["bar_time"] for k in new_bars}
-        bars_to_write = [k for k in compute_window if k["bar_time"] in new_bar_times]
+        # 只写入新bar + 覆盖bar（compute_window的后半部分）
+        write_times = {k["bar_time"] for k in new_bars + override_bars}
+        bars_to_write = [k for k in compute_window if k["bar_time"] in write_times]
 
         conn.executemany(
             """INSERT OR REPLACE INTO index_klines

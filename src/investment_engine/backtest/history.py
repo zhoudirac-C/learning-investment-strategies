@@ -18,11 +18,48 @@ _KLINE_COLS = (
     "trade_date AS date, open, high, low, close, volume, turnover, amplitude, pct_change"
 )
 
+# 盲判/评分用的指数 IDX 别名 → index_klines 表的实际 code（2026-08-13 起指数统一读 index_klines）
+INDEX_ALIAS_TO_CODE = {
+    "IDX000300": "sh000300",  # 沪深300
+    "IDX000001": "sh000001",  # 上证
+    "IDX399006": "sz399006",  # 创业板指
+    "IDX399001": "sz399001",  # 深证成指
+    "IDX000852": "sh000852",  # 中证1000
+}
+
 
 def _connect(db_path: Path | None) -> sqlite3.Connection:
     conn = sqlite3.connect(str(db_path or _DEFAULT_DB))
     conn.row_factory = sqlite3.Row
     return conn
+
+
+def get_index_daily(
+    code: str, start: str, end: str, db_path: Path | None = None
+) -> list[dict]:
+    """按日期区间取指数日 K（从 index_klines 表 daily 级别）。
+
+    指数统一读 index_klines 表（2026-08-13 起），code 接受 IDX 别名
+    （如 'IDX000300'）或实际代码（'sh000300'），内部映射后查表。
+    返回与 get_klines_range 兼容的字段：date/open/high/low/close/volume/pct_change。
+    pct_change 由 close 序列补算（index_klines 表不存该字段）。
+    """
+    actual = INDEX_ALIAS_TO_CODE.get(code, code)
+    sql = (
+        "SELECT bar_time AS date, open, high, low, close, volume "
+        "FROM index_klines WHERE code = ? AND timeframe = 'daily' "
+        "AND bar_time BETWEEN ? AND ? ORDER BY bar_time"
+    )
+    with _connect(db_path) as conn:
+        rows = conn.execute(sql, (actual, start, end)).fetchall()
+    bars = [dict(r) for r in rows]
+    prev: float | None = None
+    for b in bars:
+        close = b.get("close")
+        b["pct_change"] = (close / prev - 1.0) * 100 if (prev and close) else None
+        prev = close
+    return bars
+
 
 
 def get_klines_range(

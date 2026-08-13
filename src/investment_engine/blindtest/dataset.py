@@ -11,7 +11,7 @@ from pathlib import Path
 
 import yaml
 
-from investment_engine.backtest.history import get_klines_range, list_trading_days
+from investment_engine.backtest.history import get_index_daily, get_klines_range, list_trading_days
 
 FORBIDDEN_RE = re.compile(r"UP|青枫浦|博主")
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
@@ -290,7 +290,7 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
     """组装某日数据包（只含截至当日的数据）。"""
     index = {}
     for code in INDEX_CODES:
-        bars = get_klines_range(code, "2000-01-01", day, db_path=db_path)
+        bars = get_index_daily(code, "2000-01-01", day, db_path=db_path)
         index[code] = _compact_bars(bars, _INDEX_LOOKBACK)
 
     from qing_investment.monitor.context import load_monitor_config
