@@ -161,8 +161,11 @@ def _load_emotion(day: str, kpl_root: Path) -> dict | None:
     """KPL 情绪快照精选块；当日文件缺失返回 None。
 
     产出带中文语义键的情绪结构（供 LLM 直接理解），关键补充：
-    - 两市成交额（亿元）：源自 daban.q_zrtj（单位万元），这是腾讯指数
-      K 线不提供的量能口径（UP 全程用「两市成交额」判断量能）。
+    - 两市成交额（亿元）：源自 daban.qscln（当日成交额，单位万元），
+      这是腾讯指数 K 线不提供的量能口径（UP 全程用「两市成交额」判断量能）。
+    - 昨日两市成交额（亿元）：daban.q_zrtj（zr=昨日），供环比放量判断。
+      （2026-08-13 实测：q_zrtj 是「昨日」、qscln 才是「当日」，早先误用
+      q_zrtj 当当日成交额，导致盲判拿到的是 T-1 成交额。）
     """
     path = kpl_root / "emotion" / f"{day}.json"
     if not path.exists():
@@ -183,7 +186,8 @@ def _load_emotion(day: str, kpl_root: Path) -> dict | None:
             "炸板家数": daban.get("PPJS"),
             "昨日涨停今收益_pct": daban.get("ZRZTJ"),
             "昨日连板今收益_pct": daban.get("ZRLBJ"),
-            "两市成交额_亿": yi(daban.get("q_zrtj")),
+            "两市成交额_亿": yi(daban.get("qscln") or daban.get("q_zrtj")),
+            "昨日两市成交额_亿": yi(daban.get("q_zrtj")),
             "沪市成交额_亿": yi(daban.get("s_zrtj")),
         }
     if d.get("lianban"):

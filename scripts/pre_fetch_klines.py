@@ -119,18 +119,21 @@ def main() -> int:
     now_cn = datetime.now(CN_TZ)
     today_str = now_cn.strftime("%Y-%m-%d")
 
-    # === 缓存就绪检查：今天已预拉取过则跳过 ===
-    if not os.environ.get("FORCE_KLINE_FETCH"):
-        from qing_investment.kline_cache import is_cache_ready
-        if is_cache_ready(today_str):
-            print(f"[SKIP] {today_str} K线预拉取已完成，跳过（如需强制重跑设 FORCE_KLINE_FETCH=1）")
-            return 0
-
     # 有效执行窗口：开盘前 06:00-09:15 或收盘后 15:00-16:30（CST）
     hour, minute = now_cn.hour, now_cn.minute
     pre_open_window = (6 <= hour < 9) or (hour == 9 and minute < 15)
     post_close_window = (hour == 15) or (hour == 16 and minute <= 30)
     in_window = pre_open_window or post_close_window
+
+    # === 缓存就绪检查：今天已预拉取过则跳过 ===
+    # 注意：收盘后窗口必须强制补拉（覆盖当日收盘价），早盘 ready 标记不能拦收盘后补拉。
+    # 2026-08-13 实测：早盘 08:30 mark ready 后，15:35 收盘补拉被 is_cache_ready 跳过，
+    # 导致 stock_pool 个股 K 线停在 T-1，盲判 build_daily_pack 的 stocks/directions 全空。
+    if not os.environ.get("FORCE_KLINE_FETCH") and not post_close_window:
+        from qing_investment.kline_cache import is_cache_ready
+        if is_cache_ready(today_str):
+            print(f"[SKIP] {today_str} K线预拉取已完成，跳过（如需强制重跑设 FORCE_KLINE_FETCH=1）")
+            return 0
 
     if not in_window:
         # 手动执行时跳过时间检查（DEBUG模式）
