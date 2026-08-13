@@ -28,7 +28,9 @@ from qing_investment.kline_cache import save_klines, init_db  # noqa: E402
 from qing_investment.tdx_market import TdxMarket  # noqa: E402
 
 DAYS = 90  # 每只拉 90 根日 K（覆盖评分 horizon=5 的需求）
-DELAY = 0.2  # 单只间隔（TDX 单连接复用，实测 ~2s/只，这里不加长延迟）
+DELAY = 0.2  # 单只间隔
+MAX_RETRIES = 3  # 单只重试次数（救回 TDX 间歇性失败）
+RETRY_DELAY = 0.8  # 重试间隔基数（指数退避：0.8s, 1.6s）
 
 
 def _load_target_codes(sector_json: Path, db_path: Path, only_codes=None) -> list[str]:
@@ -83,17 +85,25 @@ def main() -> int:
     ok = fail = 0
     t0 = time.time()
     for i, code in enumerate(codes):
-        try:
-            klines = mkt.get_kline(code, category="daily", count=DAYS)
-            if klines:
-                save_klines(code, klines, db_path=db_path)
-                ok += 1
-            else:
-                fail += 1
-        except Exception as e:  # noqa: BLE001
+        # 单只重试：TDX 对高频请求有间歇性失败（同一只首次空、重试即成功），
+        # 3 次重试可救回大部分；只剩确定性失败（停牌/退市）落空。
+        klines = None
+        for attempt in range(MAX_RETRIES):
+            try:
+                klines = mkt.get_kline(code, category="daily", count=DAYS)
+                if klines:
+                    break
+            except Exception as e:  # noqa: BLE001
+                last_err = str(e)
+                if attempt < MAX_RETRIES - 1:
+                    time.sleep(RETRY_DELAY * (attempt + 1))
+        if klines:
+            save_klines(code, klines, db_path=db_path)
+            ok += 1
+        else:
             fail += 1
             if fail <= 5:
-                print(f"  ❌ {code}: {str(e)[:60]}")
+                print(f"  ❌ {code}: 重试{MAX_RETRIES}次仍空（可能停牌/退市）")
         if (i + 1) % 50 == 0:
             el = time.time() - t0
             print(f"  [{i+1}/{len(codes)}] 成功{ok} 失败{fail} 耗时{el:.0f}s")
