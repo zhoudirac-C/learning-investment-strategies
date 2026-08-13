@@ -1,4 +1,4 @@
-"""overnight_us.py 单元测试（monkeypatch _get_json，不触网）。"""
+"""overnight_us.py 单元测试（monkeypatch _get_tencent_raw，不触网）。"""
 
 from __future__ import annotations
 
@@ -9,45 +9,46 @@ import pytest
 from investment_engine import overnight_us as us
 
 
-def _row(symbol: str, name: str, price_x1000: int, pct_x100: int,
-         prev_x1000: int = 0, market: int = 105):
-    return {"f12": symbol, "f13": market, "f14": name,
-            "f2": price_x1000, "f3": pct_x100, "f18": prev_x1000}
+def _line(symbol: str, name: str, price: str, pct: str, prev: str = "0") -> str:
+    """构造腾讯 v_usXXX="..." 行（字段用 ~ 分隔，涨跌幅在 [32]）。"""
+    fields = ["200", name, f"{symbol}.OQ", price, prev, "0"]  # 0-5
+    fields += ["0"] * 26  # 6-31
+    fields += [pct]  # 32 涨跌幅
+    fields += ["0", "0", "USD"]  # 33-35
+    return f'v_us{symbol}="{"~".join(fields)}";'
 
 
 @pytest.fixture
 def fake_http(monkeypatch):
     calls = []
 
-    def _fake(params, timeout=10.0, retries=2):
-        calls.append(params)
-        # 批量响应：COHR 在 106（NYSE），LITE 在 105（NASDAQ），XXXX 无数据
-        return {"rc": 0, "data": {"total": 2, "diff": [
-            _row("COHR", "Coherent Corp", 1890000, -1205, market=106),
-            _row("LITE", "Lumentum Holdings Inc", 813510, -861),
-        ]}}
+    def _fake(symbols, timeout=10.0, retries=2):
+        calls.append(symbols)
+        return "\n".join([
+            _line("COHR", "Coherent Corp", "189.00", "-12.05", "215.00"),
+            _line("LITE", "Lumentum Holdings Inc", "81.35", "-8.61", "89.00"),
+            # XXXX 无返回行（腾讯对无效代码不返回行）
+        ])
 
-    monkeypatch.setattr(us, "_get_json", _fake)
+    monkeypatch.setattr(us, "_get_tencent_raw", _fake)
     return calls
 
 
 def test_fetch_quotes_single_batch_request(fake_http):
     quotes = us.fetch_quotes(["COHR", "LITE", "XXXX"])
     assert len(fake_http) == 1  # 一次批量请求
-    secids = fake_http[0]["secids"].split(",")
-    assert len(secids) == 9  # 3 符号 × 3 前缀变体
-    assert quotes["COHR"]["secid"] == "106.COHR"
-    assert quotes["COHR"]["price"] == 1890.0
+    assert fake_http[0] == ["COHR", "LITE", "XXXX"]
+    assert quotes["COHR"]["secid"] == "usCOHR"
+    assert quotes["COHR"]["price"] == 189.0
     assert quotes["COHR"]["pct_change"] == -12.05
     assert quotes["LITE"]["name"] == "Lumentum Holdings Inc"
     assert "XXXX" not in quotes
 
 
 def test_fetch_quotes_skips_suspended(monkeypatch):
-    monkeypatch.setattr(us, "_get_json", lambda params, timeout=10.0, retries=2:
-                        {"rc": 0, "data": {"total": 1, "diff": [
-                            {"f12": "HALT", "f13": 105, "f14": "停牌股",
-                             "f2": "-", "f3": "-", "f18": "-"}]}})
+    monkeypatch.setattr(
+        us, "_get_tencent_raw",
+        lambda symbols, timeout=10.0, retries=2: _line("HALT", "停牌股", "-", "-", "-"))
     assert us.fetch_quotes(["HALT"]) == {}
 
 
