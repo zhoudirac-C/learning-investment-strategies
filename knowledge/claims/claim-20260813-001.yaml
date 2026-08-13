@@ -1,0 +1,555 @@
+claims:
+- id: claim-20260813-001
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: market-cycle
+  subject: 隔夜美股指数弱结构强，AI算力链被业绩点着
+  timeframe: intraday
+  statement: 隔夜美股是典型的"指数弱、结构强"：道指跌0.04%报53770.27点连续第三日下跌，纳指涨0.54%报26588.48点，标普500涨0.26%报7748.5点；但涨的是被财报直接点名的AI算力链——Nebius涨超34%、CoreWeave涨超19%、SK海力士涨超9%、希捷涨超7%、美光涨近5%、Lumentum涨超13%、Coherent涨超8%、费城半导体指数涨近2.5%，跌的是要为资本开支买单的云厂自己（Meta跌超3%、微软跌超2%、亚马逊跌近2%）。
+  evidence_quote: 据隔夜收盘，道指跌0.04%报53770.27点（连续第三日下跌），纳指涨0.54%报26588.48点，标普500涨0.26%报7748.5点。……费城半导体指数涨近2.5%，SK海力士涨超9%、希捷涨超7%、闪迪涨超5%、美光涨近5%……AI云服务方面Nebius涨超34%、CoreWeave涨超19%……个人判断，这是一个典型的"指数弱、结构强"的夜晚：宽度并不好，涨的是被财报直接点名的那条链——算力租赁、存储、半导体设备、光通信；跌的是要为资本开支买单的云厂自己。
+  interpretation: UP定调隔夜是"指数弱、结构强"：指数涨跌不一，但AI算力链（算力租赁/存储/半导体设备/光通信）被财报直接点着普涨，云厂因要付资本开支而跌，宽度并不好。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 隔夜美股指数弱结构强，AI算力链被业绩点着
+  related_stocks: []
+  tags:
+  - 隔夜美股
+  - AI算力链
+  - 指数弱结构强
+  - 算力租赁
+  - 存储
+- id: claim-20260813-002
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: market-cycle
+  subject: 隔夜对A股是结构性映射而非系统性转向
+  timeframe: intraday
+  statement: 隔夜美股对A股而言是一次结构性的映射，而不是一次系统性的转向；这个结构与国内高度同构，传导到A股只反映在开盘定价的那一下，开盘之后市场仍会回到自己的节奏——低开不可怕接不住才可怕，高开不可喜接不住才是问题。
+  evidence_quote: 对A股而言，这是一次结构性的映射，而不是一次系统性的转向。……这个结构与国内的情形高度同构。传导到A股，只反映在开盘定价的那一下，开盘之后市场仍会回到自己的节奏——低开不可怕，接不住才可怕；同样，高开不可喜，接不住才是问题。
+  interpretation: UP判断隔夜美股对A股是结构性映射（不是系统性转向），只影响开盘定价，开盘后A股回归自身节奏，核心是看能否接住。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 隔夜外盘对A股是结构性映射，只影响开盘定价
+  related_stocks: []
+  tags:
+  - 结构性映射
+  - 隔夜外盘
+  - 开盘定价
+  - 系统性转向
+- id: claim-20260813-003
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: methodology
+  subject: 业绩兑现期价格里price in多少比业绩本身重要
+  timeframe: permanent
+  statement: Coherent盘后业绩指引全面超预期，股价却跌超5%，这是业绩兑现期最好的提醒：进入业绩兑现期之后，价格里已经price in了多少，比业绩本身更重要。
+  evidence_quote: 盘后Coherent业绩指引全面超预期，股价却跌超5%。……Coherent盘后超预期却不涨反跌，是这个阶段最好的提醒：进入业绩兑现期之后，价格里已经price
+    in了多少，比业绩本身更重要。
+  interpretation: UP提炼方法论：业绩兑现期，市场已price in的程度比业绩本身更重要，超预期反而可能成为利好兑现的卖点。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 业绩兑现期 price in 比业绩本身重要
+  related_stocks: []
+  tags:
+  - 业绩兑现期
+  - price in
+  - Coherent
+  - 方法论
+- id: claim-20260813-004
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: operation
+  subject: 今日半日成交能否站上1.45万亿
+  timeframe: intraday
+  statement: 今天最重要的观察项不是涨跌，而是上午11时30分的半日成交能否站上1.45万亿：站上，昨夜的海外映射才有承接；站不上，映射就只是一次高开。
+  evidence_quote: 今天最重要的观察项不是涨跌，而是上午11时30分的半日成交能否站上1.45万亿。站上，昨夜的海外映射才有承接；站不上，映射就只是一次高开。
+  interpretation: UP给出今日可证伪的观察阈值：半日成交1.45万亿是承接隔夜海外映射的分水岭。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日观察阈值：半日成交站上1.45万亿
+  related_stocks: []
+  tags:
+  - 量能
+  - 半日成交
+  - 1.45万亿
+  - 观察阈值
+- id: claim-20260813-005
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: market-cycle
+  subject: 大金融缺席指数难突破，横盘用时间换空间
+  timeframe: short-term
+  statement: 昨日领涨的房地产属于超跌与低位置带来的资金腾挪，银行、券商并未出现明显异动；在缺少大金融托底的情况下，指数很难走出方向性突破，更可能维持"横盘用时间换空间"的路线，若今日硬科技高开而大金融继续缺席，指数的涨跌幅参考意义有限，重点仍应放在结构。
+  evidence_quote: 昨日领涨的房地产属于超跌与低位置带来的资金腾挪，银行、券商并未出现明显异动。个人判断，在缺少大金融托底的情况下，指数很难走出方向性突破，更可能维持"横盘用时间换空间"的路线。若今日硬科技高开而大金融继续缺席，指数的涨跌幅参考意义有限，重点仍应放在结构。
+  interpretation: UP判断：缺大金融托底，指数难方向性突破，维持横盘用时间换空间；大金融缺席时指数涨跌幅参考意义有限，重点看结构。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大金融缺席，指数横盘用时间换空间
+  related_stocks: []
+  tags:
+  - 大金融
+  - 横盘
+  - 时间换空间
+  - 指数
+- id: claim-20260813-006
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: market-cycle
+  subject: 情绪轮动型健康而非主升型健康
+  timeframe: short-term
+  statement: 昨日涨停92家、跌停0家、炸板率约11.5%、上涨4128家下跌1280家，跌停被完全消灭、宽度指标几乎无可指摘，但高度受限、方向分散，这是典型的"轮动型健康"而非"主升型健康"。
+  evidence_quote: 据盘后数据，昨日涨停92家、跌停0家、炸板率约11.5%，上涨4128家、下跌1280家；……跌停被完全消灭，宽度指标几乎无可指摘，但高度受限、方向分散，这是典型的"轮动型健康"，而非"主升型健康"。
+  interpretation: UP定调昨日情绪是"轮动型健康"：宽度极好（跌停0家）但高度受限、无主线，是轮动而非主升。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情绪轮动型健康而非主升型健康
+  related_stocks: []
+  tags:
+  - 情绪
+  - 轮动型健康
+  - 涨停家数
+  - 炸板率
+- id: claim-20260813-007
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: methodology
+  subject: 首板家数乘15%晋级率推演今日二板家数
+  timeframe: permanent
+  statement: 沿用首板家数乘以约15%经验晋级率的推演，75家首板对应今日二板家数落在11家上下才算接力顺畅；若明显低于这个数，就说明昨天的普涨只是缩量下的情绪修复，而不是新一轮启动。
+  evidence_quote: 沿用首板家数乘以约15%经验晋级率的推演，75家首板对应今日二板家数落在11家上下才算接力顺畅；若明显低于这个数，就说明昨天的普涨只是缩量下的情绪修复，而不是新一轮启动。
+  interpretation: UP复用首板家数×15%晋级率的经验推演：75家首板对应今日约11家二板才算接力顺畅，明显低于则说明昨日普涨只是缩量情绪修复。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 首板家数乘15%晋级率推演二板家数
+  related_stocks: []
+  tags:
+  - 晋级率
+  - 首板家数
+  - 二板
+  - 情绪修复
+- id: claim-20260813-008
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: market-cycle
+  subject: 创业板指8月4日以来横盘仅6个交易日时间没走够
+  timeframe: short-term
+  statement: 寒武纪(688256)的两次启动都走"小幅放量—横盘—再放量突破"，去年横了11个交易日、今年横了16个，而本轮创业板指自8月4日算起只有6个交易日，时间还没有走够；但指数比个股更看重突破的契机，昨晚温和的CPI就是一个候选契机。
+  evidence_quote: 关于横盘时长，接着上一期的比喻：把沪指与创业板指看作茅台与科技股，寒武纪的两次启动都走"小幅放量—横盘—再放量突破"，去年横了11个交易日，今年横了16个，而本轮创业板指自8月4日算起只有6个交易日。个人判断，时间还没有走够；但指数比个股更看重突破的契机，昨晚温和的CPI就是一个候选契机。
+  interpretation: UP用寒武纪两次启动的横盘时长（11天/16天）类比，判断创业板指8/4以来仅横6个交易日时间没走够，但温和CPI是突破候选契机。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 创业板指横盘仅6个交易日，时间未走够
+  related_stocks:
+  - code: '688256'
+    name: 寒武纪
+    role: 科创板-横盘节奏参照
+  tags:
+  - 创业板指
+  - 横盘时长
+  - 寒武纪
+  - 突破契机
+  - CPI
+- id: claim-20260813-009
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: operation
+  subject: 今日两种情形预案
+  timeframe: intraday
+  statement: 情形A——量能同步放大、半日成交站上1.45万亿：隔夜映射有效，存储、光模块、算力租赁这条海外链牵引硬科技，创业板指有机会把8月4日以来的横盘走成突破，应对是跟随已右侧确认的分支而非补昨天没涨的方向；情形B——高开缩量、半日仍在1.3万亿附近：大概率重演昨日路径，硬科技冲高回落，资金切向低价低成交的地产消费医药，此时高开对映射方向是卖点而非买点，尤其是隔夜涨幅最大的分支。
+  evidence_quote: 情形A——量能同步放大，半日成交站上1.45万亿：隔夜映射有效，存储、光模块、算力租赁这条海外链牵引硬科技，创业板指有机会把8月4日以来的横盘走成突破。此时的应对是跟随已经完成右侧确认的分支，而不是回头去补昨天没涨的方向。情形B——高开缩量，半日仍在1.3万亿附近：大概率重演昨天的路径，硬科技冲高回落，资金再度切向低价、低成交的地产、消费与医药。此时高开对映射方向而言是卖点而非买点，尤其是隔夜涨幅最大的那几个分支。
+  interpretation: UP给出今日两种情形预案：情形A放量站上1.45万亿则海外链牵引突破，情形B高开缩量则重演昨日冲高回落路径。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日两种情形预案：放量突破或高开缩量回落
+  related_stocks: []
+  tags:
+  - 情形预案
+  - 放量突破
+  - 高开缩量
+  - 海外链
+- id: claim-20260813-010
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: catalyst
+  subject: 腾讯资本开支176%增长，算力租赁升级为内外共振
+  timeframe: short-term
+  statement: 据腾讯控股中期业绩，2026年二季度资本开支527.84亿元、同比增长176%、环比增长65%，上半年累计847.20亿元、同比增长82%，主要投向数据中心、服务器等AI基础设施，并表示下半年随着更多国产GPU投入使用将在腾讯云部署更多算力；叠加CoreWeave、Nebius海外业绩，算力租赁从"海外映射"升级为"内外共振"。
+  evidence_quote: 据腾讯控股中期业绩，2026年二季度资本开支527.84亿元，同比增长176%、环比增长65%，上半年累计847.20亿元、同比增长82%，主要投向数据中心、服务器等AI基础设施；……公司表示大幅增加了算力采购，并称下半年随着更多国产GPU投入使用，将在腾讯云部署更多算力。
+  interpretation: 腾讯Q2资本开支+176%是算力租赁"内外共振"的国内侧核心证据，叠加海外CoreWeave/Nebius业绩，算租从海外映射升级为内外共振。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260812-012
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 腾讯资本开支+176%，算力租赁内外共振
+  related_stocks: []
+  tags:
+  - 腾讯
+  - 资本开支
+  - 算力租赁
+  - 内外共振
+  - 国产GPU
+- id: claim-20260813-011
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: operation
+  subject: 算力租赁简单在产业位置不在买点
+  timeframe: short-term
+  statement: 算力租赁目前是A股为数不多的"简单题"，但简单在产业位置、不在买点：昨天城地香江(603887)、鸿博股份(002229)已2连板，云赛智联(600602)、湖北广电(000665)涨停，隔夜海外又给了一根大阳，今天开盘的价格里已经包含了腾讯资本开支与海外财报这两重利好，追高的性价比明显下降。
+  evidence_quote: 个人判断，算力租赁目前是A股为数不多的"简单题"，但简单在产业位置，不在买点。……今天开盘的价格里已经包含了腾讯资本开支与海外财报这两重利好，追高的性价比明显下降。
+  interpretation: UP提示算力租赁产业位置简单但买点不简单：两重利好已price in，追高性价比下降，需把产业判断与当日操作分开。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 算力租赁简单在产业位置不在买点
+  related_stocks:
+  - code: '603887'
+    name: 城地香江
+    role: 算力租赁-2连板
+  - code: '002229'
+    name: 鸿博股份
+    role: 算力租赁-2连板
+  - code: '600602'
+    name: 云赛智联
+    role: 算力租赁-涨停
+  - code: '000665'
+    name: 湖北广电
+    role: 算力租赁-涨停
+  tags:
+  - 算力租赁
+  - 买点
+  - price in
+  - 追高
+- id: claim-20260813-012
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: sector-theme
+  subject: 模型与算租映射标的清单
+  timeframe: short-term
+  statement: 模型与算租映射为：杭州DS模型对应利通电子(603629)，北京Kimi模型对应行云科技(300209)，北京ZP模型对应宏景科技(301396)，北京ZJ云对应润建股份(002929)与赛意信息(300687)，杭州AL云对应协创数据(300857)与宏景科技(301396)；板块内近期活跃的还有城地香江(603887)、鸿博股份(002229)、云赛智联(600602)、湖北广电(000665)、美利云(000815)、威士顿(301315)等。
+  evidence_quote: 材料整理的模型与算租映射为——杭州DS模型对应利通电子，北京Kimi模型对应行云科技，北京ZP模型对应宏景科技，北京ZJ云对应润建股份与赛意信息，杭州AL云对应协创数据与宏景科技；板块内近期活跃的还有城地香江、鸿博股份、云赛智联、湖北广电、美利云、威士顿等。
+  interpretation: UP梳理的模型厂商与算力租赁公司的映射清单（产业链跟踪记录），核心变量是能否拿到卡与业绩能否兑现。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 模型与算租映射标的清单
+  related_stocks:
+  - code: '603629'
+    name: 利通电子
+    role: 杭州DS模型映射
+  - code: '300209'
+    name: 行云科技
+    role: 北京Kimi模型映射
+  - code: '301396'
+    name: 宏景科技
+    role: 北京ZP模型映射
+  - code: '002929'
+    name: 润建股份
+    role: 北京ZJ云映射
+  - code: '300687'
+    name: 赛意信息
+    role: 北京ZJ云映射
+  - code: '300857'
+    name: 协创数据
+    role: 杭州AL云映射
+  - code: '000815'
+    name: 美利云
+    role: 板块内活跃
+  - code: '301315'
+    name: 威士顿
+    role: 板块内活跃
+  tags:
+  - 算力租赁
+  - 模型映射
+  - 算租标的
+  - 产业链跟踪
+- id: claim-20260813-013
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: sector-theme
+  subject: AI应用与AI硬件今日强弱互换
+  timeframe: intraday
+  statement: 昨日盘面上AI应用强于算力租赁与硬件（传智教育(003032)13天9板、风语筑(603466)涨停），而隔夜海外强的恰恰是硬件与算租，今天大概率出现一次强弱互换的尝试；但A股AI应用有海外叙事、缺实际经营改善，属于事件驱动型的低位反弹只能做波段，这一轮真正有业绩兑现的是海外链的硬件与算租。
+  evidence_quote: 昨日盘面上AI应用强于算力租赁与硬件，传智教育13天9板、风语筑涨停；而隔夜海外强的恰恰是硬件与算租。今天大概率出现一次强弱互换的尝试。……A股AI应用有海外叙事、缺实际经营改善，属于事件驱动型的低位反弹，只能做波段；这一轮真正有业绩兑现的是海外链的硬件与算租。
+  interpretation: UP判断今日AI应用与硬件大概率强弱互换；定性：AI应用是事件驱动低位反弹只能做波段，真正有业绩的是海外链硬件与算租。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI应用与AI硬件今日强弱互换
+  related_stocks:
+  - code: '003032'
+    name: 传智教育
+    role: AI应用-13天9板
+  - code: '603466'
+    name: 风语筑
+    role: AI应用-涨停
+  tags:
+  - AI应用
+  - AI硬件
+  - 强弱互换
+  - 事件驱动
+- id: claim-20260813-014
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: sector-theme
+  subject: 存储是牵一发动全身的点
+  timeframe: short-term
+  statement: 按"以点带面"的读法，存储是本轮海内外共振的导火索与关键的点，光模块、CPO等属于面；今天存储与半导体设备能否承接住隔夜涨幅，比算力租赁涨停家数更能说明这轮反弹的质地——存储稳住，面上的调整就可控；存储不稳，涨停家数再多也只是轮动。
+  evidence_quote: 按"以点带面"的读法，存储是本轮海内外共振的导火索与关键的"点"，光模块、CPO等属于"面"。今天存储与半导体设备能否承接住隔夜涨幅，比算力租赁涨停家数更能说明这轮反弹的质地——存储稳住，面上的调整就可控；存储不稳，涨停家数再多也只是轮动。
+  interpretation: UP用"以点带面"定位存储为本轮海内外共振的导火索与关键点，存储承接情况是反弹质地的试金石。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储是牵一发动全身的点，承接是反弹质地试金石
+  related_stocks: []
+  tags:
+  - 存储
+  - 以点带面
+  - 海内外共振
+  - 光模块
+  - CPO
+- id: claim-20260813-015
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: sector-theme
+  subject: 地产是低价低成交的新题材
+  timeframe: short-term
+  statement: 昨日房地产以10只涨停居涨停家数首位，城建发展(600266)、新城控股(601155)涨停，这不是基本面转向，而是缩量环境下资金的必然选择：超跌板块加一字定方向，再加低价、低成交的特征（涨停个股全天成交额多在5亿元以下）；只要量能不回来这个模式就会被反复使用，直到它开始产生亏钱效应，它的持续性取决于量能而不取决于地产本身。
+  evidence_quote: 这不是基本面转向，而是缩量环境下资金的必然选择：在2万亿量能附近，资金只能做便宜且不耗弹药的方向。因此只要量能不回来，这个模式就会被反复使用，直到它开始产生亏钱效应；它的持续性取决于量能，而不取决于地产本身。
+  interpretation: UP定性地产是缩量环境下的低价低成交"新题材"，持续性取决于量能而非地产基本面。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 地产是低价低成交新题材，持续性取决于量能
+  related_stocks:
+  - code: '600266'
+    name: 城建发展
+    role: 房地产-涨停
+  - code: '601155'
+    name: 新城控股
+    role: 房地产-涨停
+  tags:
+  - 房地产
+  - 低价低成交
+  - 缩量
+  - 资金腾挪
+- id: claim-20260813-016
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: operation
+  subject: 百花医药七连板触及严重异动成情绪风向标
+  timeframe: intraday
+  statement: 百花医药(600721)已录得7连板并触及严重异动，昨日盘后固定价格交易环节出现大量卖单，风险已提前部分释放；今日该股的承接情况是题材端最值得盯的单一变量——若能被接住说明资金对高度仍有诉求，若直接断板并形成负反馈，则属监管与异动类外力扰动，容易打断整条连板梯队，而非资金主动换龙的内生性断板。
+  evidence_quote: 百花医药已录得7连板并触及严重异动，昨日盘后固定价格交易环节出现大量卖单，风险已提前部分释放。今日该股的承接情况是题材端最值得盯的单一变量：若能被接住，说明资金对高度仍有诉求，对整体题材利大于弊；若直接断板并形成负反馈，则按断板性质的二分法，这属于监管与异动类的外力扰动，容易打断整条连板梯队，而不是资金主动换龙的内生性断板。
+  interpretation: UP把百花医药7连板触及严重异动后的承接情况列为今日情绪风向标单一变量，并用断板性质二分法（外力扰动vs内生换龙）判断影响。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 百花医药七连板严重异动成情绪风向标
+  related_stocks:
+  - code: '600721'
+    name: 百花医药
+    role: 医药高标-7连板严重异动
+  - code: '600664'
+    name: 哈药股份
+    role: 医药-前期异动股参照
+  tags:
+  - 医药
+  - 连板
+  - 严重异动
+  - 情绪风向标
+  - 断板
+- id: claim-20260813-017
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: catalyst
+  subject: 机器人宇树上市窗口临近零部件预期先行兑现回落
+  timeframe: short-term
+  statement: 宇树科技(688836)发行价150.80元、对应发行市盈率约219倍、发行总市值约610亿元、网上中签率约0.0181%，缴款已于8月12日截止，上市时点临近；这类高关注度新股在上市当日会阶段性抽走板块内短线资金，机器人零部件方向在其上市前后更可能走"预期先行、兑现回落"的节奏，参与需要更严格的时点管理。
+  evidence_quote: 据发行公告，公司发行价150.80元/股，对应发行市盈率约219倍、发行总市值约610亿元，网上中签率约0.0181%，缴款已于8月12日截止，上市时点临近。这类高关注度新股在上市当日会阶段性抽走板块内的短线资金，机器人零部件方向在其上市前后更可能走"预期先行、兑现回落"的节奏，参与需要更严格的时点管理。
+  interpretation: UP提示宇树上市临近对机器人零部件方向的时点影响：上市当日抽走短线资金，零部件走预期先行兑现回落，需严格时点管理。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 宇树上市临近，机器人零部件预期先行兑现回落
+  related_stocks:
+  - code: '688836'
+    name: 宇树科技
+    role: 人形机器人-新股上市临近
+  tags:
+  - 机器人
+  - 宇树科技
+  - 新股上市
+  - 预期先行
+  - 兑现回落
+- id: claim-20260813-018
+  source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
+  source_date: '2026-08-13'
+  source_type: 动态
+  extracted_at: '2026-08-13T09:25:00+08:00'
+  claim_type: risk
+  subject: AI扩散重构框架纳入跨境远程算力租赁管制
+  timeframe: trend
+  statement: 据《彭博社》2026年8月7日报道，美国商务部工业与安全局正在系统梳理AI企业获取先进芯片的渠道，重点关注受限芯片经第三国流入与相关企业通过海外数据中心远程使用先进GPU两类情形，并拟在2026年推出"AI扩散重构框架"，首次把跨境远程算力租赁纳入出口管制视野；这类消息对算力租赁板块是情绪上的利空、稀缺性上的利好，但节奏上要防"先杀估值、再讲逻辑"。
+  evidence_quote: 美国商务部工业与安全局正在系统梳理AI企业获取先进芯片的渠道，重点关注受限芯片经第三国流入与相关企业通过海外数据中心远程使用先进GPU两类情形，并拟在2026年推出"AI扩散重构框架"，首次把跨境远程算力租赁纳入出口管制视野。……这类消息对算力租赁板块是情绪上的利空、稀缺性上的利好……节奏上要防"先杀估值、再讲逻辑"。
+  interpretation: UP提示中期政策风险：美国拟把跨境远程算力租赁纳入出口管制，对算租是情绪利空、稀缺性利好，需防先杀估值再讲逻辑。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI扩散管制框架，跨境远程算力租赁纳入出口管制
+  related_stocks: []
+  tags:
+  - 出口管制
+  - 算力租赁
+  - AI扩散框架
+  - 政策风险
