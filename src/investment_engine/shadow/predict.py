@@ -24,6 +24,43 @@ def has_fresh_data(day: str, db_path=None) -> bool:
     return bool(days) and days[-1] == day
 
 
+def _load_prior_summary(day: str, pred_dir: Path = PRED_DIR, db_path=None) -> dict | None:
+    """读前一交易日的复盘盲判摘要，作为连续状态注入 prompt（P0-3）。
+
+    只提取非泄漏字段（盲判结果本身无来源指称），并显式带 date 标注日期，
+    避免 LLM 把昨日 stage_reason 里的「今日」误解成当日。
+    """
+    from investment_engine.backtest.history import list_trading_days
+
+    days = list_trading_days("2000-01-01", day, db_path)
+    prev = [d for d in days if d < day]
+    if not prev:
+        return None
+    prev_day = prev[-1]
+    path = prediction_path(prev_day, pred_dir)
+    if not path.exists():
+        return None
+    try:
+        rec = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None
+    result = rec.get("result") or {}
+    if not result:
+        return None
+    return {
+        "date": prev_day,
+        "market_stage": result.get("market_stage", ""),
+        "nature": result.get("nature", ""),
+        "stage_reason": result.get("stage_reason", ""),
+        "watch_next": list(result.get("watch_next") or [])[:5],
+        "directions": [
+            {"direction_id": d.get("direction_id", ""), "posture": d.get("posture", "")}
+            for d in (result.get("directions") or [])
+            if d.get("direction_id")
+        ],
+    }
+
+
 def run_predict(day: str, *, config_dir, db_path=None, pred_dir: Path = PRED_DIR,
                 model: str = DEFAULT_MODEL, client=None) -> dict:
     """对某日盲判。已完成日跳过（幂等）；error 日重跑覆盖。"""
@@ -38,6 +75,10 @@ def run_predict(day: str, *, config_dir, db_path=None, pred_dir: Path = PRED_DIR
 
     try:
         pack = build_daily_pack(day, config_dir=Path(config_dir), db_path=db_path)
+        # P0-3 连续状态：注入前一交易日复盘盲判摘要
+        prior = _load_prior_summary(day, pred_dir=pred_dir, db_path=db_path)
+        if prior:
+            pack["prior_day"] = prior
         text = pack_to_prompt(pack)  # 内含防泄漏断言
         raw = call_deepseek(build_messages(text), model=model, client=client,
                             tag="shadow_predict")

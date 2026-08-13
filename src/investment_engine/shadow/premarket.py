@@ -27,15 +27,18 @@ PREMARKET_SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析
 2. core_patterns 为全量判据框架（含推理步骤与证伪条件）：预判今日市场阶段（sentiment_cycle）与方向主线（mainline_identification）时必须逐条对照其步骤，并在 stage_reason / directions 的 reason 中体现对照结果；patterns 仅为扩展框架索引。实际用到的框架 id 登记在 used_patterns。
 3. 严格输出 JSON（不要输出其他文字）：
 {"market_stage": "主升|震荡|调整|恐慌（四选一，预判今日收盘最可能的阶段）",
+ "nature": "放量攻击|缩量企稳|主动降速|内生瓦解|外力扰动|方向转折（六选一，预判今日最可能的量价性质）",
  "stage_reason": "一句话依据（必须引用昨日量能/情绪数据或隔夜外盘）",
  "scenarios": [{"name": "情形A", "condition": "触发条件", "conclusion": "应对结论", "key": "区分关键变量"}],
  "watch_next": ["今日可观察、可证伪的验证变量"],
  "invalidation": ["本判断的失效条件"],
  "directions": [{"direction_id": "从给定方向池选择，1-3个", "reason": "一句话依据",
                 "posture": "趋势|波段|右侧确认|回避（四选一）",
+                "trend": "加强|退潮|新增|维持（四选一，标注相对昨日该方向的连续性）",
                 "stocks": ["该方向下给定股票池中的代码，每方向1-2个"]}],
  "used_patterns": ["pattern_id"]}
-4. 没有把握的方向可以不选，宁缺毋滥。scenarios 给 1-2 个互斥情形即可。"""
+4. 没有把握的方向可以不选，宁缺毋滥。scenarios 给 1-2 个互斥情形即可。
+5. 若 user 内容含 prior_day（上一交易日复盘盲判摘要），必须体现连续判断：预判今日时对照昨日判断，标注昨日方向今日预期加强/退潮，不得把单日当作孤立快照。"""
 
 
 def premarket_path(day: str, pred_dir: Path = PRED_DIR) -> Path:
@@ -118,6 +121,11 @@ def run_predict_premarket(day: str, *, config_dir, db_path=None,
             return {"date": day, "status": "no_data",
                     "error": "无前一交易日数据"}
         pack = build_daily_pack(prev_day, config_dir=Path(config_dir), db_path=db_path)
+        # P0-3 连续状态：注入前一交易日复盘盲判摘要（predictions/{prev_day}.json）
+        from investment_engine.shadow.predict import _load_prior_summary
+        prior = _load_prior_summary(day, pred_dir=pred_dir, db_path=db_path)
+        if prior:
+            pack["prior_day"] = prior
         overnight = _load_overnight(day, overnight_root)
         text = _pack_to_premarket_prompt(pack, day, overnight)
         raw = call_deepseek(

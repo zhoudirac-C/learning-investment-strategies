@@ -15,10 +15,14 @@ _BASE_URL = "https://api.deepseek.com"
 _MAX_DIRECTIONS = 3
 _MAX_STOCKS_PER_DIR = 2
 _POSTURES = ("趋势", "波段", "右侧确认", "回避")
+# 性质定性（P1-1）：定性今日量价性质，区别于阶段二分（market_stage）
+_NATURES = ("放量攻击", "缩量企稳", "主动降速", "内生瓦解", "外力扰动", "方向转折")
+# 方向连续性（P0-3）：相对昨日该方向的加强/退潮/新增/维持
+_TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v2"
+PROMPT_VERSION = "v3"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -45,15 +49,18 @@ SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。�
 2. core_patterns 为全量判据框架（含推理步骤与证伪条件）：判定市场阶段（sentiment_cycle）与方向主线（mainline_identification）时必须逐条对照其步骤，并在 stage_reason / directions 的 reason 中体现对照结果；patterns 仅为扩展框架索引。实际用到的框架 id 登记在 used_patterns。
 3. 严格输出 JSON（不要输出其他文字）：
 {"market_stage": "主升|震荡|调整|恐慌（四选一）",
+ "nature": "放量攻击|缩量企稳|主动降速|内生瓦解|外力扰动|方向转折（六选一，定性今日量价性质：放量攻击=放量上涨进攻；缩量企稳=缩量止跌；主动降速=放量阴线但主动换手消化浮盈、非方向转折；内生瓦解=高位抱团断板情绪内部瓦解；外力扰动=消息面/外部利空；方向转折=趋势反转）",
  "stage_reason": "一句话依据（必须引用当日量能/情绪数据）",
  "scenarios": [{"name": "情形A", "condition": "触发条件", "conclusion": "应对结论", "key": "区分关键变量"}],
  "watch_next": ["下一交易日可观察、可证伪的验证变量"],
  "invalidation": ["本判断的失效条件"],
  "directions": [{"direction_id": "从给定方向池选择，1-3个", "reason": "一句话依据",
                 "posture": "趋势|波段|右侧确认|回避（四选一）",
+                "trend": "加强|退潮|新增|维持（四选一，标注相对昨日该方向的连续性）",
                 "stocks": ["该方向下给定股票池中的代码，每方向1-2个"]}],
  "used_patterns": ["pattern_id"]}
-4. 没有把握的方向可以不选，宁缺毋滥。scenarios 给 1-2 个互斥情形即可。"""
+4. 没有把握的方向可以不选，宁缺毋滥。scenarios 给 1-2 个互斥情形即可。
+5. 若 user 内容含 prior_day（上一交易日盲判摘要），必须体现连续判断：在 stage_reason 中对照昨日判断说明今日是否兑现/证伪昨日 watch_next，并在 directions 的 trend 字段标注方向加强/退潮；不得把单日当作孤立快照。"""
 
 
 def build_messages(pack_text: str) -> list[dict]:
@@ -126,15 +133,20 @@ def parse_result(raw: str) -> dict:
     stage = data.get("market_stage")
     if stage not in STAGES:
         raise ValueError(f"market_stage 非法: {stage!r}")
+    nature = str(data.get("nature", ""))
+    if nature not in _NATURES:
+        nature = ""  # nature 非评分字段，非法值清空（不阻断）
     directions = []
     for d in (data.get("directions") or [])[:_MAX_DIRECTIONS]:
         if not isinstance(d, dict) or not d.get("direction_id"):
             continue
         posture = str(d.get("posture", ""))
+        trend = str(d.get("trend", ""))
         directions.append({
             "direction_id": str(d["direction_id"]),
             "reason": str(d.get("reason", "")),
             "posture": posture if posture in _POSTURES else "",
+            "trend": trend if trend in _TRENDS else "",
             "stocks": [str(s).split(".")[0] for s in (d.get("stocks") or [])[:_MAX_STOCKS_PER_DIR]],
         })
     scenarios = []
@@ -149,6 +161,7 @@ def parse_result(raw: str) -> dict:
         })
     return {
         "market_stage": stage,
+        "nature": nature,
         "stage_reason": str(data.get("stage_reason", "")),
         "scenarios": scenarios,
         "watch_next": [str(w) for w in (data.get("watch_next") or [])[:_MAX_LIST]],

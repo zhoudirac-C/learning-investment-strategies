@@ -10,7 +10,7 @@
 | 2026-08-11 | 对 | pending_maturity | - | ✅ |
 | 2026-08-12 | 对 | pending_maturity | - | ✅ |
 | 2026-08-13 | 对 | pending_maturity | 有 | ✅ |
-| 2026-08-13 | 错 | pending_maturity | 有 | ✅ |
+| 2026-08-13 | 对 | pending_maturity | 有 | ✅ |
 
 ## 待处理提案（open 置顶）
 
