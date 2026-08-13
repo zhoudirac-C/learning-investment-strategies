@@ -115,4 +115,10 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    import os
+    # 显式 os._exit 强制退出：pytdx 的 heartbeat/连接线程是非 daemon，
+    # 会让进程在 main() return 后卡住不退（实测：脚本已打印"完成"但
+    # 进程挂 10+ 分钟，导致 watcher 脚本无限等待）。数据已 commit 落库，
+    # 直接 _exit 安全。
+    code = main()
+    os._exit(code)
