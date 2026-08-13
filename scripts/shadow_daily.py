@@ -1,8 +1,9 @@
 #!/usr/bin/env python
-"""M2 影子双轨每日入口（cron 18:05 调用）。
+"""M2 影子双轨复盘盲判入口（cron 工作日 22:00 调用）。
 
-自含：补当日指数 K → 等 K 线就绪（3 次 × 2 分钟）→ daily.run(当日)。
-节假日/无新数据自然退出 0。手动补跑: python scripts/shadow_daily.py --date 2026-08-07
+自含：补当日指数 daily 收盘价（index_klines 表）→ 等个股 K 线就绪
+（3 次 × 2 分钟）→ daily.run(当日)。
+节假日/无新数据自然退出 0。手动补跑: python scripts/shadow_daily.py --date 2026-08-12
 """
 from __future__ import annotations
 
@@ -18,19 +19,26 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from investment_engine.shadow.daily import run
 from investment_engine.shadow.predict import has_fresh_data
 from investment_engine.shadow.status import write_status
-from qing_investment.kline_cache import init_db, save_klines
-from scripts.fetch_index_klines import INDEXES, fetch_index_tencent
+from qing_investment.kline_cache import init_db
 
 
 def ensure_indexes(db_path=None) -> None:
-    for alias, full_code in INDEXES.items():
-        kl = fetch_index_tencent(full_code)
-        if kl:
-            save_klines(alias, kl, db_path=db_path)
+    """补齐当日指数 daily 收盘价到 index_klines 表（东财→腾讯兜底）。
+
+    盲判指数统一读 index_klines 表（2026-08-13 起），故此处不再写
+    stocks_kline 的 IDX 别名，改调 update_index_klines_intraday 的 daily 更新。
+    """
+    from scripts.update_index_klines_intraday import INDICES, update_one
+
+    for code in INDICES:
+        try:
+            update_one(code, "daily")
+        except Exception as e:  # noqa: BLE001 - 单指数失败不阻断
+            print(f"[warn] 指数 {code} daily 补齐失败: {str(e)[:80]}")
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="影子双轨每日任务")
+    parser = argparse.ArgumentParser(description="影子双轨复盘盲判任务")
     parser.add_argument("--date", default=date.today().isoformat())
     parser.add_argument("--config-dir", default="config/stock_monitor")
     parser.add_argument("--db", default="infra/data/kline_cache.db")

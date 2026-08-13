@@ -41,6 +41,18 @@ def run(day: str, *, config_dir, db_path=None,
             rec["stage_hit"] = rec["result"].get("market_stage") == label
             rec_path.write_text(json.dumps(rec, ensure_ascii=False, indent=2), encoding="utf-8")
 
+    # 回填当日早盘盲判（-pre）的 stage_hit（同一份真值，收盘后才有）
+    from investment_engine.shadow.premarket import premarket_path
+    pre_path = premarket_path(day, pred_dir)
+    if pre_path.exists():
+        pre = json.loads(pre_path.read_text(encoding="utf-8"))
+        if pre.get("status") == "pending_maturity" and pre.get("stage_hit") is None:
+            truth = load_truth(db_path=db_path)
+            label = truth.get(day)
+            if label is not None:
+                pre["stage_hit"] = pre["result"].get("market_stage") == label
+                pre_path.write_text(json.dumps(pre, ensure_ascii=False, indent=2), encoding="utf-8")
+
     # 到期回填 + 到期日的 direction_miss 归因
     mat = run_maturity(day, config_dir=config_dir, db_path=db_path, pred_dir=pred_dir)
     attributed = []
