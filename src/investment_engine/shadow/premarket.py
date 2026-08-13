@@ -75,15 +75,19 @@ def _pack_to_premarket_prompt(pack: dict, target_day: str, overnight: dict | Non
         if k not in ("glossary", "missing")
     }
     if overnight is not None:
-        # 精简隔夜外盘：只保留主题 + 关键映射股涨跌，去掉非必要字段
+        # 精简隔夜外盘：只保留主题 + 关键映射股涨跌，去掉非必要字段；
+        # earnings_note 可能含来源指称（如"UP早盘记录"），打码防泄漏
+        from investment_engine.blindtest.dataset import FORBIDDEN_RE
+
         body["overnight_us"] = {
             "date": overnight.get("date"),
             "themes": [
-                {"name": t.get("name", ""),
+                {"name": FORBIDDEN_RE.sub("██", t.get("name", "")),
                  "stocks": [
                      {"symbol": s.get("symbol"), "name": s.get("name"),
                       "pct_change": s.get("pct_change"),
-                      "earnings_note": s.get("earnings_note", "")}
+                      "earnings_note": FORBIDDEN_RE.sub(
+                          "██", s.get("earnings_note", ""))}
                      for s in t.get("stocks", []) if "error" not in s
                  ]}
                 for t in overnight.get("themes", [])

@@ -69,12 +69,15 @@ class TestBuildDailyPack:
     def test_pack_stock_entry_fields(self):
         pack = build_daily_pack("2026-06-15", config_dir=Path("config/stock_monitor"), db_path=self.db)
         s = next(x for x in pack["stocks"] if x["code"] == "002371")
-        assert set(s) == {"code", "name", "direction", "close", "pct", "turnover", "pos20"}
+        # TDX 板块归属（sectors 多板块 + direction 取首个），均为静态字段
+        assert set(s) == {"code", "name", "direction", "sectors", "close", "pct", "turnover", "pos20"}
 
     def test_direction_pool_has_no_time_varying_fields(self):
         pack = build_daily_pack("2026-06-15", config_dir=Path("config/stock_monitor"), db_path=self.db)
         for d in pack["directions"]:
-            assert set(d) == {"id", "name"}  # current_stage 等时变字段不得进入
+            # 只允许静态字段：id/name/member_count/local_count（current_stage 等时变字段不得进入）
+            assert set(d) <= {"id", "name", "member_count", "local_count"}
+            assert "current_stage" not in d and "stage" not in d
 
     def test_prompt_passes_leakage_assertion(self):
         pack = build_daily_pack("2026-06-15", config_dir=Path("config/stock_monitor"), db_path=self.db)
@@ -156,7 +159,8 @@ class TestKplBlocks:
         pack = build_daily_pack("2026-06-30", config_dir=Path("config/stock_monitor"),
                                 db_path=self.db, kpl_root=self.kpl, em_root=self.em,
                                 lp_root=self.lp, ic_root=self.ic)
-        assert pack["emotion"]["daban"]["tZhangTing"] == 99
+        assert pack["emotion"]["daban"]["今日涨停"] == 99
+        assert pack["emotion"]["daban"]["封板率_pct"] == 87.6
         assert pack["emotion"]["bankuai"] == [["医药", "1.61"]]
         assert pack["emotion"]["fengkou_stocks"] == ["共达电声"]
         assert pack["news_titles"]["items"][0]["stocks"] == ["600664"]

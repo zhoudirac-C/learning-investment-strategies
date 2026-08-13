@@ -21,6 +21,9 @@ _STOCK_ZONE_DAYS = 20
 
 _REPO = Path(__file__).resolve().parents[3]
 
+# 噪音板块：成分标签而非投资方向，方向识别时排除
+_SECTOR_NOISE = ("通达信88", "ST板块", "次新股", "含H股", "含B股", "含GDR", "含可转债")
+
 KPL_ROOT = _REPO / "infra" / "data" / "kpl"
 EM_ROOT = _REPO / "infra" / "data" / "eastmoney"
 LP_ROOT = _REPO / "infra" / "data" / "limit_pool"
@@ -63,13 +66,15 @@ def _pos20(klines: list[dict]) -> float | None:
 
 
 def _compact_bars(klines: list[dict], n: int) -> list[dict]:
-    # 腾讯指数 K 线无成交额字段，volume 单位为手；键名带单位防 LLM 误读为成交额
+    # 腾讯指数 K 线只有成交量（手），无成交额；键名必须写「成交量」，否则 LLM
+    # 会把 volume 误读成「成交额」（2026-08-13 盲判实测出现过该误读）。
+    # 真正的两市成交额由 KPL 情绪块的 emotion.daban.两市成交额_亿 提供。
     out = []
     for k in klines[-n:]:
         vol = k.get("volume")
         out.append({
             "d": k["date"], "c": k["close"], "pct": k.get("pct_change"),
-            "vol万手": round(vol / 1e4, 1) if isinstance(vol, (int, float)) else None,
+            "成交量万手": round(vol / 1e4, 1) if isinstance(vol, (int, float)) else None,
         })
     return out
 
@@ -82,6 +87,39 @@ def _load_directions(config_dir: Path) -> list[dict]:
         for d in raw.get("directions", []) or []
         if d.get("id")
     ]
+
+
+def _load_sector_members() -> dict[str, list[str]]:
+    """读 TDX 概念板块成分股（{板块名: [裸码,...]}）。
+
+    数据源 config/stock_monitor/sector_members.json（由
+    scripts/fetch_tdx_sector_members.py 从通达信 block_gn.dat 落盘，
+    269 个概念板块 / 41054 条成分股映射）。
+    """
+    path = _REPO / "config" / "stock_monitor" / "sector_members.json"
+    if not path.exists():
+        return {}
+    d = json.loads(path.read_text(encoding="utf-8"))
+    return {k: list(v) for k, v in (d.get("concept") or {}).items()}
+
+
+def _sector_directions(sector_members: dict[str, list[str]],
+                       active_codes: set[str]) -> list[dict]:
+    """由 TDX 板块成分股反推「当日有行情的板块」作为方向池。
+
+    只保留 active_codes（本地有 K 线且当日有数据的股票）中 ≥1 只成分股的
+    板块，按成分股数降序，避免方向池里出现无行情的空板块。
+    """
+    rows = []
+    for name, codes in sector_members.items():
+        if name in _SECTOR_NOISE:
+            continue
+        hit = sorted(c for c in codes if c in active_codes)
+        if hit:
+            rows.append({"id": name, "name": name, "member_count": len(codes),
+                         "local_count": len(hit)})
+    rows.sort(key=lambda r: (-r["local_count"], -r["member_count"]))
+    return rows
 
 
 def _load_chains() -> list[dict]:
@@ -120,14 +158,34 @@ def _load_glossary() -> str:
 
 
 def _load_emotion(day: str, kpl_root: Path) -> dict | None:
-    """KPL 情绪快照精选块；当日文件缺失返回 None。"""
+    """KPL 情绪快照精选块；当日文件缺失返回 None。
+
+    产出带中文语义键的情绪结构（供 LLM 直接理解），关键补充：
+    - 两市成交额（亿元）：源自 daban.q_zrtj（单位万元），这是腾讯指数
+      K 线不提供的量能口径（UP 全程用「两市成交额」判断量能）。
+    """
     path = kpl_root / "emotion" / f"{day}.json"
     if not path.exists():
         return None
     d = json.loads(path.read_text(encoding="utf-8"))
     out: dict = {}
-    if d.get("daban"):
-        out["daban"] = d["daban"]
+    daban = d.get("daban") or {}
+    if daban:
+        yi = lambda w: round(w / 10000, 1) if isinstance(w, (int, float)) else None  # noqa: E731
+        out["daban"] = {
+            "昨日涨停": daban.get("lZhangTing"),
+            "今日涨停": daban.get("tZhangTing"),
+            "封板率_pct": daban.get("tFengBan"),
+            "昨日封板率_pct": daban.get("lFengBan"),
+            "跌停": daban.get("tDieTing"),
+            "上涨家数": daban.get("SZJS"),
+            "下跌家数": daban.get("XDJS"),
+            "炸板家数": daban.get("PPJS"),
+            "昨日涨停今收益_pct": daban.get("ZRZTJ"),
+            "昨日连板今收益_pct": daban.get("ZRLBJ"),
+            "两市成交额_亿": yi(daban.get("q_zrtj")),
+            "沪市成交额_亿": yi(daban.get("s_zrtj")),
+        }
     if d.get("lianban"):
         out["lianban"] = d["lianban"]
     fengkou = [f["StockName"] for f in (d.get("fengkou") or [])
@@ -296,7 +354,15 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
     from qing_investment.monitor.context import load_monitor_config
 
     cfg = load_monitor_config(config_dir)
+    sector_members = _load_sector_members()
+    # 反向索引：股票裸码 → 所属 TDX 板块列表
+    code_to_sectors: dict[str, list[str]] = {}
+    for sname, codes in sector_members.items():
+        for c in codes:
+            code_to_sectors.setdefault(c, []).append(sname)
+
     stocks = []
+    active_codes: set[str] = set()
     for s in (cfg.stock_pool or {}).get("stocks", []):
         code = s.get("code")
         if not code:
@@ -305,18 +371,27 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
         if not bars or bars[-1]["date"] != day:
             continue
         last = bars[-1]
+        bare = code.split(".")[0]
+        active_codes.add(bare)
+        sectors = [b for b in code_to_sectors.get(bare, []) if b not in _SECTOR_NOISE]
         stocks.append({
-            "code": code.split(".")[0], "name": s.get("name", ""),
-            "direction": s.get("direction", ""),
+            "code": bare, "name": s.get("name", ""),
+            # TDX 板块归属（多板块，已滤噪音）；无板块归属时回退本地 stock_pool direction
+            "sectors": sectors,
+            "direction": sectors[0] if sectors else s.get("direction", ""),
             "close": last["close"], "pct": last.get("pct_change"),
             "turnover": last.get("turnover"), "pos20": _pos20(bars),
         })
+
+    # 方向池：TDX 概念板块（当日有行情的），回退本地 direction_pool
+    directions = _sector_directions(sector_members, active_codes) if sector_members \
+        else _load_directions(config_dir)
 
     pack = {
         "date": day,
         "index": index,
         "stocks": stocks,
-        "directions": _load_directions(config_dir),
+        "directions": directions,
         "chains": _load_chains(),
         "glossary": _load_glossary(),
         "patterns": _load_patterns_index(),

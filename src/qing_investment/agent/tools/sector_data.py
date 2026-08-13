@@ -384,6 +384,84 @@ def fetch_ths_change_boards(
 
 
 # ---------------------------------------------------------------------------
+# TDX provider（板块成分股聚合涨幅，替代东财/新浪板块榜）
+# ---------------------------------------------------------------------------
+
+_TDX_SECTOR_NOISE = ("通达信88", "ST板块", "次新股", "含H股", "含B股", "含GDR", "含可转债")
+
+
+def _load_tdx_sector_members() -> dict[str, list[str]]:
+    """读落盘的 TDX 概念板块成分股 {板块名: [裸码,...]}。"""
+    path = Path(__file__).resolve().parents[4] / "config" / "stock_monitor" / "sector_members.json"
+    if not path.exists():
+        return {}
+    try:
+        d = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    return {k: list(v) for k, v in (d.get("concept") or {}).items()}
+
+
+def fetch_tdx_boards(
+    board_type: Literal["concept", "industry"] = "concept",
+    top_n: int = 30,
+    *,
+    retries: int = 3,
+    timeout: int = 15,
+) -> list[SectorBoardItem]:
+    """TDX 板块涨幅排行：用成分股实时行情聚合出板块平均涨跌幅。
+
+    数据源：通达信 block_gn.dat 概念板块成分股（已落盘 sector_members.json）
+    + TdxMarket.get_quotes 批量拉成分股实时行情。
+
+    对比东财/新浪板块榜：TDX 有「板块 → 成分股」映射，涨幅由成分股实时
+    行情聚合而来，不受东财 push2 反爬（腾讯云 IP 段 TCP 断连）影响。
+    """
+    import urllib.error as _urllib_error
+
+    from qing_investment.tdx_market import TdxMarket
+
+    sector_members = _load_tdx_sector_members()
+    if not sector_members:
+        raise _urllib_error.URLError("TDX sector_members.json 未落盘")
+
+    # 去重全部成分股，批量拉实时行情（一次 get_quotes 即可，无需逐板块拉）
+    all_codes = sorted({c for v in sector_members.values() for c in v})
+    mkt = TdxMarket()
+    quotes = mkt.get_quotes(all_codes)
+    qmap = {q["code"]: q.get("pct_change") for q in quotes if q.get("code")}
+
+    results: list[SectorBoardItem] = []
+    for name, codes in sector_members.items():
+        if name in _TDX_SECTOR_NOISE:
+            continue
+        pcts = []
+        for c in codes:
+            v = qmap.get(c)
+            if v is not None:
+                pcts.append(v)
+        if not pcts:
+            continue
+        avg = sum(pcts) / len(pcts)
+        results.append(
+            SectorBoardItem(
+                code="",  # TDX 板块无板块代码（板块名即标识）
+                name=name,
+                pct_change=round(avg, 4),
+                latest=None,
+                amount=None,
+                rank=0,
+                board_type=board_type,
+            )
+        )
+
+    results.sort(key=lambda x: x.pct_change or 0, reverse=True)
+    if not results:
+        raise _urllib_error.URLError("TDX returned no board items")
+    return results[:top_n]
+
+
+# ---------------------------------------------------------------------------
 # Unified fetch with cascading fallback
 # ---------------------------------------------------------------------------
 
@@ -441,6 +519,7 @@ def _fetch_with_fallback(
     providers: list[tuple[str, callable]] = [
         ("eastmoney", fetch_eastmoney_boards),
         ("sina", fetch_sina_boards),
+        ("tdx", fetch_tdx_boards),
         ("ths_change", fetch_ths_change_boards),
     ]
     last_exception: Exception | None = None

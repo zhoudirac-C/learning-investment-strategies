@@ -57,6 +57,22 @@ def _forward(db_path, code: str, day: str, horizon: int) -> float | None:
 
 
 def _direction_members(config_dir, direction_id: str) -> list[str]:
+    """方向 → 成分股代码列表。
+
+    优先查 TDX 概念板块成分股（config/stock_monitor/sector_members.json），
+    回退本地 stock_pool 的 direction 字段。direction_id 既可能是 TDX 板块名
+    （如"算力租赁"），也可能是本地 direction_pool 的 id（如"mlcc_super_cycle"）。
+    """
+    # 1) TDX 板块成分股
+    try:
+        from investment_engine.blindtest.dataset import _load_sector_members
+        members = _load_sector_members().get(direction_id)
+        if members:
+            return [c for c in members if c]
+    except Exception:  # noqa: BLE001 - 无落盘 JSON 时回退
+        pass
+
+    # 2) 本地 stock_pool
     from qing_investment.monitor.context import load_monitor_config
 
     cfg = load_monitor_config(Path(config_dir))
