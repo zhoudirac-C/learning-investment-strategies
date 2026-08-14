@@ -451,13 +451,19 @@ def _load_intraday_amount(day: str) -> dict | None:
             "尾盘实际全天_亿": round(close_actual, 0), "形态": shape}
 
 
-def _compute_cycle_state(day: str, db_path=None) -> dict | None:
-    """代码确定性计算 cycle_state（反弹天数），不依赖 LLM 从 structure 里自己找。
+_CYCLE_INDEXES = (
+    ("科创50", "sh000688", "90min"),
+    ("创业板指", "sz399006", "90min"),
+    ("上证指数", "sh000001", "90min"),
+)
 
-    优先科创50（sh000688）90min 底部结构（对应 UP 的科创 6-8 天），
-    次选创业板指 90min / 上证 90min / 上证 60min。
-    返回 {rebound_day, bottom_level, bottom_date, theoretical_window}。
-    交易日计数用 daily bar（bottom_date 当天计第 1 天）。
+
+def _compute_cycle_states(day: str, db_path=None) -> dict:
+    """代码确定性算多指数的 cycle_state 候选，供大模型综合判断。
+
+    每个指数优先 90min 底部结构（recent_bottom），无则回退 60min。
+    返回 {指数名: {rebound_day, bottom_level, bottom_date, theoretical_window}}，
+    无结构的指数不出现。交易日计数用 daily bar（bottom_date 当天计第 1 天）。
     """
     import sqlite3
 
@@ -465,52 +471,48 @@ def _compute_cycle_state(day: str, db_path=None) -> dict | None:
 
     db = Path(db_path) if db_path else _REPO / "infra" / "data" / "kline_cache.db"
     if not db.exists():
-        return None
+        return {}
     conn = sqlite3.connect(str(db))
     conn.row_factory = sqlite3.Row
-    candidates = (
-        ("sh000688", "90min"),
-        ("sz399006", "90min"),
-        ("sh000001", "90min"),
-        ("sh000001", "60min"),
-    )
-    chosen = None
-    for code, tf in candidates:
-        upper = day if tf == "daily" else f"{day} 23:59:59"
-        rows = conn.execute(
-            "SELECT bar_time, close, low, high FROM index_klines "
-            "WHERE code=? AND timeframe=? AND bar_time <= ? ORDER BY bar_time",
-            (code, tf, upper),
-        ).fetchall()
-        if len(rows) < 30:
+    out: dict = {}
+    for name, code, tf in _CYCLE_INDEXES:
+        rb = None
+        tf_used = tf
+        for t in (tf, "60min"):
+            upper = day if t == "daily" else f"{day} 23:59:59"
+            rows = conn.execute(
+                "SELECT bar_time, close, low, high FROM index_klines "
+                "WHERE code=? AND timeframe=? AND bar_time <= ? ORDER BY bar_time",
+                (code, t, upper),
+            ).fetchall()
+            if len(rows) < 30:
+                continue
+            klines = [dict(r) for r in rows]
+            rb = detect_structure(klines, window=4, timeframe=t).get("recent_bottom")
+            if rb and rb.get("time"):
+                tf_used = t
+                break
+        if not rb or not rb.get("time"):
             continue
-        klines = [dict(r) for r in rows]
-        rb = detect_structure(klines, window=4, timeframe=tf).get("recent_bottom")
-        if rb and rb.get("time"):
-            chosen = (tf, rb)
-            break
-    if not chosen:
-        conn.close()
-        return None
-    tf, rb = chosen
-    bottom_date = str(rb["time"])[:10]
-    td = rb.get("theoretical_days")
-    if td and td != (None, None) and td[0] is not None:
-        window = f"{td[0]}天" if td[0] == td[1] else f"{td[0]}-{td[1]}天"
-    else:
-        window = ""
-    daily_cnt = conn.execute(
-        "SELECT COUNT(*) FROM index_klines WHERE code='sh000001' AND timeframe='daily' "
-        "AND bar_time >= ? AND bar_time <= ?",
-        (bottom_date, day),
-    ).fetchone()[0]
+        bottom_date = str(rb["time"])[:10]
+        td = rb.get("theoretical_days")
+        if td and td != (None, None) and td[0] is not None:
+            window = f"{td[0]}天" if td[0] == td[1] else f"{td[0]}-{td[1]}天"
+        else:
+            window = ""
+        daily_cnt = conn.execute(
+            "SELECT COUNT(*) FROM index_klines WHERE code='sh000001' AND timeframe='daily' "
+            "AND bar_time >= ? AND bar_time <= ?",
+            (bottom_date, day),
+        ).fetchone()[0]
+        out[name] = {
+            "rebound_day": daily_cnt,
+            "bottom_level": tf_used,
+            "bottom_date": bottom_date,
+            "theoretical_window": window,
+        }
     conn.close()
-    return {
-        "rebound_day": daily_cnt,
-        "bottom_level": tf,
-        "bottom_date": bottom_date,
-        "theoretical_window": window,
-    }
+    return out
 
 
 _CORE_PATTERN_IDS = ("sentiment_cycle", "mainline_identification", "position_by_cycle")
@@ -591,7 +593,7 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
         "directions": directions,
         "structure": _load_structure(day, db_path),
         "intraday_amount": _load_intraday_amount(day),
-        "cycle_state": _compute_cycle_state(day, db_path),
+        "cycle_state": _compute_cycle_states(day, db_path),
         "chains": _load_chains(),
         "glossary": _load_glossary(),
         "patterns": _load_patterns_index(),
