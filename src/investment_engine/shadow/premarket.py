@@ -24,7 +24,7 @@ OVERNIGHT_ROOT = Path("infra/data/overnight_us")
 PREMARKET_SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。基于给定的昨日收盘客观数据与隔夜外盘，独立完成【今日盘前预测】。
 要求：
 1. 每个判断必须声明所用的数据项；不得引用任何人物的言论或观点。
-2. core_patterns 为全量判据框架（含推理步骤与证伪条件）：预判今日市场阶段（sentiment_cycle）与方向主线（mainline_identification）时必须逐条对照其步骤，并在 stage_reason / directions 的 reason 中体现对照结果；patterns 仅为扩展框架索引。实际用到的框架 id 登记在 used_patterns。
+2. core_patterns 为全量判据框架（含推理步骤与证伪条件）：预判今日市场阶段（sentiment_cycle）、方向主线（mainline_identification）与操作建议（position_by_cycle）时必须逐条对照其步骤，并在 stage_reason / directions 的 reason / operation 中体现对照结果；patterns 仅为扩展框架索引。实际用到的框架 id 登记在 used_patterns。
 3. 严格输出 JSON（不要输出其他文字）：
 {"market_stage": "主升|震荡|调整|恐慌（四选一，预判今日收盘最可能的阶段）",
  "nature": "放量攻击|缩量企稳|主动降速|内生瓦解|外力扰动|方向转折（六选一，预判今日最可能的量价性质）",
@@ -36,9 +36,14 @@ PREMARKET_SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析
                 "posture": "趋势|波段|右侧确认|回避（四选一）",
                 "trend": "加强|退潮|新增|维持（四选一，标注相对昨日该方向的连续性）",
                 "stocks": ["该方向下给定股票池中的代码，每方向1-2个"]}],
- "used_patterns": ["pattern_id"]}
+ "used_patterns": ["pattern_id"],
+ "operation": {"position": "周期位置（反弹初期|反弹中段|反弹超预期|高位兑现|趋势下跌|磨底期|震荡调整，七选一）",
+                "action": "该位置对应的操作动作（仓位/买卖节奏/克制），由 position 推导，不由看多看空决定",
+                "basis": "定位该 position 的证据（引用量能/情绪/反弹天数/连续性）"}}
 4. 没有把握的方向可以不选，宁缺毋滥。scenarios 给 1-2 个互斥情形即可。
-5. 若 user 内容含 prior_day（上一交易日复盘盲判摘要），必须体现连续判断：预判今日时对照昨日判断，标注昨日方向今日预期加强/退潮，不得把单日当作孤立快照。"""
+5. 若 user 内容含 prior_day（上一交易日复盘盲判摘要），必须体现连续判断：预判今日时对照昨日判断，标注昨日方向今日预期加强/退潮，不得把单日当作孤立快照。
+6. 数据单位约定：成交额以「亿」计（数据键名如「两市成交额_亿」），成交量以「万手」计（键名「成交量万手」），两者不可混用；watch_next/scenarios 里的量能阈值必须写「成交额(亿)」或「成交量(万手)」，禁止出现「成交额突破X万手」这类跨单位表述。
+7. operation 必须用 position_by_cycle 推导：先定位周期位置(position)，再按「状态→动作」映射匹配 action，并用三条元规则（仓位纪律高于判断/确定性决定力度/特定状态最优动作是克制）校验；禁止脱离状态写「逢低关注/降低仓位」这类无状态依赖的套话。"""
 
 
 def premarket_path(day: str, pred_dir: Path = PRED_DIR) -> Path:

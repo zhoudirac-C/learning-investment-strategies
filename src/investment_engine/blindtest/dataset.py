@@ -157,6 +157,24 @@ def _load_glossary() -> str:
     return "\n".join(lines)
 
 
+def _semanticize_lianban(rows: list) -> list[dict]:
+    """连板梯队/二板池裸数组 → 带字段名的结构（供 LLM 直接理解）。
+
+    KPL PHBList/ErBanList 结构：[[代码, 名称, 涨幅, 连板数, "N连板", 板块, "板块;天数"], ...]。
+    连板股断板后标签会变成「昨N连板」、连板数归 0（兑现日特征），原样透传，不做归一。
+    """
+    out = []
+    for r in rows:
+        if not isinstance(r, (list, tuple)) or len(r) < 5:
+            continue
+        out.append({
+            "code": str(r[0]), "name": str(r[1]), "pct": r[2],
+            "连板数": r[3], "标签": str(r[4]),
+            "板块": str(r[5]) if len(r) > 5 else "",
+        })
+    return out
+
+
 def _load_emotion(day: str, kpl_root: Path) -> dict | None:
     """KPL 情绪快照精选块；当日文件缺失返回 None。
 
@@ -190,8 +208,12 @@ def _load_emotion(day: str, kpl_root: Path) -> dict | None:
             "昨日两市成交额_亿": yi(daban.get("q_zrtj")),
             "沪市成交额_亿": yi(daban.get("s_zrtj")),
         }
-    if d.get("lianban"):
-        out["lianban"] = d["lianban"]
+    lianban = d.get("lianban") or []
+    if lianban:
+        out["连板梯队"] = _semanticize_lianban(lianban)
+    erban = d.get("erban") or []
+    if erban:
+        out["二板池"] = _semanticize_lianban(erban)
     fengkou = [f["StockName"] for f in (d.get("fengkou") or [])
                if isinstance(f, dict) and f.get("StockName")]
     if fengkou:
@@ -320,7 +342,7 @@ def _ic_parse_pct(info: str) -> str:
     return parts[-1].strip() if parts else ""
 
 
-_CORE_PATTERN_IDS = ("sentiment_cycle", "mainline_identification")
+_CORE_PATTERN_IDS = ("sentiment_cycle", "mainline_identification", "position_by_cycle")
 
 
 def _load_core_patterns() -> list[dict]:
