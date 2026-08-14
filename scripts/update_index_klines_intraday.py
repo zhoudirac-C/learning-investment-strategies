@@ -173,8 +173,63 @@ def fetch_latest_klines_from_tencent(code: str, count: int = FETCH_BARS) -> list
     return result[-count:] if len(result) > count else result
 
 
+def fetch_latest_klines_from_tdx(code: str, klt: int, count: int = FETCH_BARS) -> list[dict]:
+    """TDX 拉指数分钟线兜底（东财反爬断连时）。120min 由 60min 按 bar 时点合成。"""
+    try:
+        from qing_investment.tdx_market import TdxMarket
+    except Exception as e:
+        print(f"    [WARN] TDX 导入失败: {str(e)[:60]}")
+        return []
+
+    if klt not in (30, 60, 120):
+        return []  # daily 走腾讯兜底，其余不支持
+
+    mkt = TdxMarket()
+    tdx_cat = "30min" if klt == 30 else "60min"
+    need = count * 2 + 2 if klt == 120 else count + 2
+    try:
+        rows = mkt.get_kline(code, tdx_cat, count=need)
+    except Exception as e:
+        print(f"    [WARN] TDX 拉取失败 {INDICES[code]['name']} klt={klt}: {str(e)[:60]}")
+        return []
+    if not rows:
+        return []
+
+    bars = [{
+        "bar_time": str(r.get("datetime") or r.get("date") or ""),
+        "open": r.get("open"),
+        "close": r.get("close"),
+        "high": r.get("high"),
+        "low": r.get("low"),
+        "volume": r.get("volume"),
+        "amount": r.get("amount"),
+    } for r in rows]
+    bars.sort(key=lambda k: k["bar_time"])
+
+    if klt == 120:
+        # 60min → 120min：10:30+11:30 → 11:30，14:00+15:00 → 15:00（按 bar 时点对齐，避免错位）
+        merged = []
+        for i in range(len(bars) - 1):
+            b1, b2 = bars[i], bars[i + 1]
+            hm1 = b1["bar_time"][11:16] if len(b1["bar_time"]) >= 16 else ""
+            hm2 = b2["bar_time"][11:16] if len(b2["bar_time"]) >= 16 else ""
+            if (hm1, hm2) in (("10:30", "11:30"), ("14:00", "15:00")):
+                merged.append({
+                    "bar_time": b2["bar_time"],
+                    "open": b1["open"],
+                    "high": max((b1["high"] or 0), (b2["high"] or 0)),
+                    "low": min((b1["low"] or 0), (b2["low"] or 0)),
+                    "close": b2["close"],
+                    "volume": (b1["volume"] or 0) + (b2["volume"] or 0),
+                    "amount": (b1["amount"] or 0) + (b2["amount"] or 0),
+                })
+        bars = merged
+
+    return bars[-count:] if len(bars) > count else bars
+
+
 def fetch_latest_klines(code: str, klt: int, count: int = FETCH_BARS) -> list[dict]:
-    """拉取最新 N 根K线（升序）。东财失败且为日线时回退腾讯。"""
+    """拉取最新 N 根K线（升序）。东财失败：日线回退腾讯，分钟线回退 TDX。"""
     secid = INDICES[code]["secid"]
     url = (
         "https://push2his.eastmoney.com/api/qt/stock/kline/get"
@@ -193,12 +248,18 @@ def fetch_latest_klines(code: str, klt: int, count: int = FETCH_BARS) -> list[di
     except Exception as e:
         print(f"    [WARN] 东财 {INDICES[code]['name']} klt={klt} 失败: {str(e)[:80]}")
 
-    # 日线降级到腾讯；intraday 腾讯不支持指数，保持失败
+    # 日线降级到腾讯；分钟线降级到 TDX
     if klt == 101:
         print(f"    [INFO] 尝试腾讯日 K 兜底 {INDICES[code]['name']}...")
         result = fetch_latest_klines_from_tencent(code, count)
         if result:
             print(f"    [INFO] 腾讯日 K 兜底成功 {INDICES[code]['name']}: {len(result)} 根")
+            return result
+    else:
+        print(f"    [INFO] 尝试 TDX 分钟线兜底 {INDICES[code]['name']} klt={klt}...")
+        result = fetch_latest_klines_from_tdx(code, klt, count)
+        if result:
+            print(f"    [INFO] TDX 分钟线兜底成功 {INDICES[code]['name']}: {len(result)} 根")
             return result
 
     return []
