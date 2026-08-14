@@ -94,7 +94,7 @@ def resolve_symbol(code: str) -> tuple[int, str, bool]:
         is_index = True
         if market_hint is None:
             market_hint = MARKET_SH
-    elif c in ("000300", "000016", "000905", "000852"):
+    elif c in ("000300", "000016", "000905", "000852", "000688", "000985", "000932"):
         is_index = True
         if market_hint is None:
             market_hint = MARKET_SH
