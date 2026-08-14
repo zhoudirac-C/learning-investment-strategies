@@ -65,7 +65,9 @@ config/stock_monitor/stock_sector_mapping.json
 # Sync pipeline runtime artifacts
 agent.log
 sync_pipeline_*.log
+qing-agent-request.*.log
 *.bak*
 *.bak
 temp/claims/
+temp/*.py
 .env.tmp
