@@ -355,6 +355,7 @@ def _load_structure(day: str, db_path=None) -> dict:
     分别用 day 与 day+' 23:59:59' 处理，避免字符串比较漏掉当日盘中数据。
     """
     import sqlite3
+    from datetime import datetime, timedelta
 
     from investment_engine.structure import detect_structure
 
@@ -363,6 +364,8 @@ def _load_structure(day: str, db_path=None) -> dict:
         return {}
     conn = sqlite3.connect(str(db))
     conn.row_factory = sqlite3.Row
+    # recent 结构只保留最近 60 天内形成的（过滤太早的历史结构，如 3 月前的底部）
+    cutoff = (datetime.strptime(day, "%Y-%m-%d") - timedelta(days=60)).strftime("%Y-%m-%d")
     out: dict = {}
     for tf in _STRUCTURE_TFS:
         upper = day if tf == "daily" else f"{day} 23:59:59"
@@ -380,14 +383,59 @@ def _load_structure(day: str, db_path=None) -> dict:
             keep["bottom"] = res["bottom"]
         if res.get("top"):
             keep["top"] = res["top"]
-        if res.get("recent_bottom"):
-            keep["recent_bottom"] = res["recent_bottom"]
-        if res.get("recent_top"):
-            keep["recent_top"] = res["recent_top"]
+        rb = res.get("recent_bottom")
+        if rb and str(rb.get("time", ""))[:10] >= cutoff:
+            keep["recent_bottom"] = rb
+        rt = res.get("recent_top")
+        if rt and str(rt.get("time", ""))[:10] >= cutoff:
+            keep["recent_top"] = rt
         if keep:
             out[tf] = keep
     conn.close()
     return out
+
+
+def _load_intraday_amount(day: str) -> dict | None:
+    """用 TDX 拉上证+深证 60min 成交额，构建盘中量能形态（放量/缩量判断）。
+
+    对齐 UP「开盘近3万亿→尾盘2.5万亿=全天缩量」口径：预估全天 = 累计 × (240/已交易分钟)。
+    返回 None（TDX 拉取失败/当日数据不足）或：
+    {date, 分时[{时点,累计_亿,预估全天_亿}], 开盘预估全天_亿, 尾盘实际全天_亿, 形态}。
+    """
+    try:
+        from qing_investment.tdx_market import TdxMarket
+        mkt = TdxMarket()
+        sh = mkt.get_kline("sh000001", "60min", count=16)
+        sz = mkt.get_kline("sz399001", "60min", count=16)
+    except Exception:
+        return None
+    if not sh or not sz:
+        return None
+    sh_day = [r for r in sh if str(r.get("datetime", ""))[:10] == day]
+    sz_day = [r for r in sz if str(r.get("datetime", ""))[:10] == day]
+    if len(sh_day) < 4 or len(sz_day) < 4:
+        return None
+    minute_map = {"10:30": 60, "11:30": 120, "14:00": 180, "15:00": 240}
+    rows = []
+    cum = 0.0
+    for i in range(4):
+        sh_amt = sh_day[i].get("amount") or 0
+        sz_amt = sz_day[i].get("amount") or 0
+        cum += (sh_amt + sz_amt) / 1e8
+        hm = str(sh_day[i].get("datetime", ""))[11:16]
+        minutes = minute_map.get(hm, 60 * (i + 1))
+        est = cum * (240.0 / minutes)
+        rows.append({"时点": hm, "累计_亿": round(cum, 0), "预估全天_亿": round(est, 0)})
+    open_est = rows[0]["预估全天_亿"]
+    close_actual = rows[-1]["累计_亿"]
+    if open_est > close_actual * 1.2:
+        shape = "冲量滑落（全天缩量）"
+    elif close_actual > open_est * 1.1:
+        shape = "逐级放大（健康放量）"
+    else:
+        shape = "平量"
+    return {"date": day, "分时": rows, "开盘预估全天_亿": open_est,
+            "尾盘实际全天_亿": round(close_actual, 0), "形态": shape}
 
 
 _CORE_PATTERN_IDS = ("sentiment_cycle", "mainline_identification", "position_by_cycle")
@@ -467,6 +515,7 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
         "stocks": stocks,
         "directions": directions,
         "structure": _load_structure(day, db_path),
+        "intraday_amount": _load_intraday_amount(day),
         "chains": _load_chains(),
         "glossary": _load_glossary(),
         "patterns": _load_patterns_index(),

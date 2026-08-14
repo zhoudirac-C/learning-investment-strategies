@@ -71,7 +71,8 @@ SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。�
 5. 若 user 内容含 prior_day（上一交易日盲判摘要），必须体现连续判断：在 stage_reason 中对照昨日判断说明今日是否兑现/证伪昨日 watch_next，并在 directions 的 trend 字段标注方向加强/退潮；不得把单日当作孤立快照。
 6. 数据单位约定：成交额以「亿」计（数据键名如「两市成交额_亿」），成交量以「万手」计（键名「成交量万手」），两者不可混用；watch_next/scenarios 里的量能阈值必须写「成交额(亿)」或「成交量(万手)」，禁止出现「成交额突破X万手」这类跨单位表述。
 7. operation 必须用 position_by_cycle 推导：先定位周期位置(position)，再按「状态→动作」映射匹配 action，并用三条元规则（仓位纪律高于判断/确定性决定力度/特定状态最优动作是克制）校验；禁止脱离状态写「逢低关注/降低仓位」这类无状态依赖的套话。
-8. cycle_state 追踪反弹/调整的连续天数（不要每天孤立判断）：若 user 数据含 structure（上证多级别顶底结构），结合 prior_day 的 cycle_state——①找 structure 中 state=formed/divergence 的 bottom 结构，其 time 即反弹起点、级别对应 theoretical_days 即理论窗口；②rebound_day = 起点到今日的交易日数（prior_day 已有 rebound_day 则 +1）；③无 bottom 结构时 rebound_day 填 null，note 说明处于调整/无明确周期；若 structure 与 prior_day 均无周期信息，输出空对象 {}。"""
+8. cycle_state 追踪反弹/调整的连续天数（不要每天孤立判断）：若 user 数据含 structure，用其中的 recent_bottom（最近一次底部结构形成，含 time=形成日 + theoretical_days=理论窗口）定位反弹起点——①bottom_date = recent_bottom.time 的日期部分（YYYY-MM-DD），bottom_level 取该结构所在级别（structure 的 key），theoretical_window 取 theoretical_days（如 [6,8] 记作 "6-8天"）；②rebound_day = 从 bottom_date 到今日的交易日数；若 prior_day 的 cycle_state.bottom_date 与 recent_bottom.time 日期一致，则 rebound_day 在 prior_day 的 rebound_day 基础上 +1；③若 structure 里没有任何 recent_bottom，输出空对象 {}，note 说明处于调整/无明确周期。
+9. 量能性质定性（放量/缩量）必须用「盘中形态」，禁止用收盘环比：若 user 数据含 intraday_amount，stage_reason 必须引用其「形态」字段（如"冲量滑落（全天缩量）"）与「开盘预估全天_亿 → 尾盘实际全天_亿」；即便「两市成交额_亿」环比昨日是放量，只要盘中形态是冲量滑落，就定性为「全天缩量」（对应 UP 的「看似放量实则全天缩量」）。禁止写「成交额 X 亿较前日 Y 亿放量/缩量 Z%」这类纯环比结论。"""
 
 
 def build_messages(pack_text: str) -> list[dict]:
