@@ -36,6 +36,40 @@
   },
   "raw": "{\n  \"market_stage\": \"震荡\",\n  \"stage_reason\": \"沪深300与上证指数近5日连续反弹但未突破前高，成交量未显著放大，市场处于震荡修复阶段。\",\n  \"directions\": [\n    {\n      \"direction_id\": \"pcb_ai_chain\",\n      \"reason\": \"PCB板块多股涨停或大涨，如景旺电子、生益科技、华正新材等，且板块内多只个股pos20较高，显示强势。\",\n      \"stocks\": [\"603228\", \"600183\"]\n    },\n    {\n      \"direction_id\": \"copper_foil_hvlp4\",\n      \"reason\": \"铜箔方向多股大涨，如诺德股份涨停、铜陵有色、江西铜业等涨幅居前，且pos20较高，显示板块联动。\",\n      \"stocks\": [\"600110\", \"000630\"]\n    },\n    {\n      \"direction_id\": \"optical_communication\",\n      \"reason\": \"光通信方向多股涨停或大涨，如光迅科技、有研新材、云南锗业等，且板块内多只个股涨幅显著。\",\n      \"stocks\": [\"002281\", \"600206\"]\n    }\n  ],\n  \"used_patterns\": [\"upstream_cycle\", \"sector_rotation\"]\n}",
   "stage_hit": true,
-  "due_scores": null,
-  "status": "pending_maturity"
+  "due_scores": {
+    "directions": {
+      "samples": 3,
+      "hits": 2,
+      "hit_rate": 0.6666666666666666
+    },
+    "stocks": {
+      "samples": 4,
+      "hits": 3,
+      "hit_rate": 0.75
+    },
+    "direction_details": [
+      {
+        "date": "2026-08-07",
+        "direction_id": "pcb_ai_chain",
+        "dir_ret": 0.03439499521244121,
+        "bench_ret": -0.006083792742052174,
+        "hit": true
+      },
+      {
+        "date": "2026-08-07",
+        "direction_id": "copper_foil_hvlp4",
+        "dir_ret": -0.031848845285104344,
+        "bench_ret": -0.006083792742052174,
+        "hit": false
+      },
+      {
+        "date": "2026-08-07",
+        "direction_id": "optical_communication",
+        "dir_ret": 0.02550604434030841,
+        "bench_ret": -0.006083792742052174,
+        "hit": true
+      }
+    ]
+  },
+  "status": "scored"
 }

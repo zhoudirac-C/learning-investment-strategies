@@ -58,6 +58,9 @@ def _load_prior_summary(day: str, pred_dir: Path = PRED_DIR, db_path=None) -> di
             for d in (result.get("directions") or [])
             if d.get("direction_id")
         ],
+        # 连续状态：周期定位（反弹第几天）+ 昨日操作位置，供今日接力判断
+        "cycle_state": result.get("cycle_state") or {},
+        "operation": result.get("operation") or {},
     }
 
 

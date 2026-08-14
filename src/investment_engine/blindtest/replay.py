@@ -22,7 +22,7 @@ _TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v4"
+PROMPT_VERSION = "v5"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -61,11 +61,17 @@ SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。�
  "used_patterns": ["pattern_id"],
  "operation": {"position": "周期位置（反弹初期|反弹中段|反弹超预期|高位兑现|趋势下跌|磨底期|震荡调整，七选一）",
                 "action": "该位置对应的操作动作（仓位/买卖节奏/克制），由 position 推导，不由看多看空决定",
-                "basis": "定位该 position 的证据（引用量能/情绪/反弹天数/连续性）"}}
+                "basis": "定位该 position 的证据（引用量能/情绪/反弹天数/连续性）"},
+ "cycle_state": {"rebound_day": "反弹第几天（整数或 null，从底部结构形成日算起）",
+                "bottom_level": "底部结构级别（30/60/90/120min/daily 或空）",
+                "bottom_date": "底部结构形成日（YYYY-MM-DD 或空）",
+                "theoretical_window": "理论反弹窗口（如 '6-8天' 或空）",
+                "note": "周期状态备注（是否接近窗口末期/结构证伪/上级别压制）"}}
 4. 没有把握的方向可以不选，宁缺毋滥。scenarios 给 1-2 个互斥情形即可。
 5. 若 user 内容含 prior_day（上一交易日盲判摘要），必须体现连续判断：在 stage_reason 中对照昨日判断说明今日是否兑现/证伪昨日 watch_next，并在 directions 的 trend 字段标注方向加强/退潮；不得把单日当作孤立快照。
 6. 数据单位约定：成交额以「亿」计（数据键名如「两市成交额_亿」），成交量以「万手」计（键名「成交量万手」），两者不可混用；watch_next/scenarios 里的量能阈值必须写「成交额(亿)」或「成交量(万手)」，禁止出现「成交额突破X万手」这类跨单位表述。
-7. operation 必须用 position_by_cycle 推导：先定位周期位置(position)，再按「状态→动作」映射匹配 action，并用三条元规则（仓位纪律高于判断/确定性决定力度/特定状态最优动作是克制）校验；禁止脱离状态写「逢低关注/降低仓位」这类无状态依赖的套话。"""
+7. operation 必须用 position_by_cycle 推导：先定位周期位置(position)，再按「状态→动作」映射匹配 action，并用三条元规则（仓位纪律高于判断/确定性决定力度/特定状态最优动作是克制）校验；禁止脱离状态写「逢低关注/降低仓位」这类无状态依赖的套话。
+8. cycle_state 追踪反弹/调整的连续天数（不要每天孤立判断）：若 user 数据含 structure（上证多级别顶底结构），结合 prior_day 的 cycle_state——①找 structure 中 state=formed/divergence 的 bottom 结构，其 time 即反弹起点、级别对应 theoretical_days 即理论窗口；②rebound_day = 起点到今日的交易日数（prior_day 已有 rebound_day 则 +1）；③无 bottom 结构时 rebound_day 填 null，note 说明处于调整/无明确周期；若 structure 与 prior_day 均无周期信息，输出空对象 {}。"""
 
 
 def build_messages(pack_text: str) -> list[dict]:
@@ -172,6 +178,16 @@ def parse_result(raw: str) -> dict:
         "action": str(op.get("action", "")),
         "basis": str(op.get("basis", "")),
     }
+    cs = data.get("cycle_state")
+    if not isinstance(cs, dict):
+        cs = {}
+    cycle_state = {
+        "rebound_day": cs.get("rebound_day"),
+        "bottom_level": str(cs.get("bottom_level", "")),
+        "bottom_date": str(cs.get("bottom_date", "")),
+        "theoretical_window": str(cs.get("theoretical_window", "")),
+        "note": str(cs.get("note", "")),
+    }
     return {
         "market_stage": stage,
         "nature": nature,
@@ -182,6 +198,7 @@ def parse_result(raw: str) -> dict:
         "directions": directions,
         "used_patterns": [str(p) for p in (data.get("used_patterns") or [])],
         "operation": operation,
+        "cycle_state": cycle_state,
     }
 
 

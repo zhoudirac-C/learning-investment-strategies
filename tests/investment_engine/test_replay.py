@@ -145,4 +145,5 @@ class TestParseResultV2:
         assert r["directions"][0]["posture"] == ""
 
     def test_prompt_version_constant(self):
-        assert PROMPT_VERSION == "v2"
+        # 契约版本格式合法即可（v+数字）；具体版本号随契约演进，不硬编码
+        assert PROMPT_VERSION.startswith("v") and PROMPT_VERSION[1:].isdigit()

@@ -342,6 +342,50 @@ def _ic_parse_pct(info: str) -> str:
     return parts[-1].strip() if parts else ""
 
 
+_STRUCTURE_TFS = ("daily", "120min", "90min", "60min", "30min")
+
+
+def _load_structure(day: str, db_path=None) -> dict:
+    """上证指数（sh000001）多级别顶底结构识别（截至 day）。
+
+    读 index_klines 表各级别 K 线，自算 MACD 后调 detect_structure，只保留
+    有结构（bottom/top 非 None）的级别。供盲判定位「反弹第几天 / 顶部调整」。
+
+    注意：分钟级 bar_time 带时间（'2026-08-14 15:00'），daily 不带；查询上限
+    分别用 day 与 day+' 23:59:59' 处理，避免字符串比较漏掉当日盘中数据。
+    """
+    import sqlite3
+
+    from investment_engine.structure import detect_structure
+
+    db = Path(db_path) if db_path else _REPO / "infra" / "data" / "kline_cache.db"
+    if not db.exists():
+        return {}
+    conn = sqlite3.connect(str(db))
+    conn.row_factory = sqlite3.Row
+    out: dict = {}
+    for tf in _STRUCTURE_TFS:
+        upper = day if tf == "daily" else f"{day} 23:59:59"
+        rows = conn.execute(
+            "SELECT bar_time, close, low, high FROM index_klines "
+            "WHERE code='sh000001' AND timeframe=? AND bar_time <= ? ORDER BY bar_time",
+            (tf, upper),
+        ).fetchall()
+        if len(rows) < 30:  # MACD 需要足够历史
+            continue
+        klines = [dict(r) for r in rows]
+        res = detect_structure(klines, window=4, timeframe=tf)
+        keep = {}
+        if res.get("bottom"):
+            keep["bottom"] = res["bottom"]
+        if res.get("top"):
+            keep["top"] = res["top"]
+        if keep:
+            out[tf] = keep
+    conn.close()
+    return out
+
+
 _CORE_PATTERN_IDS = ("sentiment_cycle", "mainline_identification", "position_by_cycle")
 
 
@@ -418,6 +462,7 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
         "index": index,
         "stocks": stocks,
         "directions": directions,
+        "structure": _load_structure(day, db_path),
         "chains": _load_chains(),
         "glossary": _load_glossary(),
         "patterns": _load_patterns_index(),
