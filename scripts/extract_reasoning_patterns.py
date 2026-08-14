@@ -45,8 +45,8 @@ PRIORITY_KEYWORDS = [
     "产业链", "拆解", "BOM", "深度",
 ]
 
-# 通用框架列表（用于LLM判断归入）
-FRAMEWORKS = [
+# 兜底框架列表（yaml 读取失败时用；正常从 reasoning-patterns.yaml 动态读）
+_FALLBACK_FRAMEWORKS = [
     {"id": "upstream_cycle", "name": "上游涨价周期分析框架", "desc": "用于上游周期品（MLCC、PCB、存储、有色、化工等）涨价逻辑、周期位置判断"},
     {"id": "mainline_identification", "name": "市场主线识别与切换判断框架", "desc": "用于判断市场主线、板块强度、主线切换"},
     {"id": "sector_rotation", "name": "板块轮动与扩散分析框架", "desc": "用于分析板块轮动、补涨、高低切、题材持续性"},
@@ -59,6 +59,28 @@ FRAMEWORKS = [
     {"id": "others", "name": "其他独立分析框架", "desc": "用于无法归入上述框架的独立场景"},
 ]
 
+
+def load_frameworks() -> list[dict]:
+    """从 reasoning-patterns.yaml 动态读框架列表（新框架自动识别，不再定死）。
+
+    框架会演进（如 position_by_cycle 是 08-14 提案制新增的第 11 个框架）；
+    这里保证批量提取永远对齐 yaml 当前结构。读取失败时用兜底列表。
+    """
+    try:
+        if PATTERNS_FILE.exists():
+            data = yaml.safe_load(PATTERNS_FILE.read_text(encoding="utf-8")) or {}
+            fws = [{"id": p["pattern_id"], "name": p.get("name", ""), "desc": p.get("description", "")}
+                   for p in data.get("patterns", []) if p.get("pattern_id")]
+            if fws:
+                # 保证 others 兜底存在
+                ids = {f["id"] for f in fws}
+                if "others" not in ids:
+                    fws.append({"id": "others", "name": "其他独立分析框架", "desc": "无法归入现有框架的独立场景"})
+                return fws
+    except Exception as e:
+        print(f"[warn] 读取框架列表失败，用兜底: {str(e)[:60]}")
+    return _FALLBACK_FRAMEWORKS
+
 # LLM 提取 prompt（Phase 6：增加 matched_framework 字段）
 EXTRACTION_PROMPT = """你是投资分析专家。以下是一位A股博主（青枫浦上Q）的分析文章。
 请从这篇文章中提取**可复用的推理模式**（即：博主如何从A推到B的思维步骤，而非结论观点）。
@@ -68,19 +90,9 @@ EXTRACTION_PROMPT = """你是投资分析专家。以下是一位A股博主（�
 - 推理步骤是否涉及板块/产业/个股的分析逻辑
 - 这些推理步骤是否可复用于同类主题
 
-提取完成后，必须判断该推理模式应该**归入哪个现有通用框架**。
+提取完成后，必须判断该推理模式应该**归入哪个现有通用框架**（框架列表由 reasoning-patterns.yaml 动态提供，会随框架演进更新）：
 
-现有10个通用框架：
-- upstream_cycle: 上游涨价周期分析框架 — 用于上游周期品（MLCC、PCB、存储、有色、化工等）涨价逻辑、周期位置判断
-- mainline_identification: 市场主线识别与切换判断框架 — 用于判断市场主线、板块强度、主线切换
-- sector_rotation: 板块轮动与扩散分析框架 — 用于分析板块轮动、补涨、高低切、题材持续性
-- macro_transmission: 宏观传导链分析框架 — 用于分析宏观事件、海外映射、政策变化对A股影响
-- sentiment_cycle: 市场情绪周期分析框架 — 用于判断市场情绪周期阶段、冰点/高潮、仓位策略
-- technical_timing: 技术择时分析框架 — 用于技术面买卖点、支撑压力、K线形态、波浪结构
-- earnings_analysis: 个股业绩拆解与定性分析框架 — 用于个股财报、业绩分析、估值判断
-- ai_industry_chain: AI产业链传导分析框架 — 用于AI技术突破/新产品对产业链各环节的传导
-- operation_strategy: 操作策略与仓位管理框架 — 用于具体操作建议、仓位、风控、止盈止损
-- others: 其他独立分析框架 — 用于无法归入上述框架的独立场景
+{framework_list}
 
 如果**没有**清晰的推理模式，返回：{"has_pattern": false, "reason": "原因"}
 
@@ -117,6 +129,13 @@ EXTRACTION_PROMPT = """你是投资分析专家。以下是一位A股博主（�
 ---
 {content}
 ---"""
+
+
+def build_extraction_prompt(frameworks: list[dict]) -> str:
+    """动态拼 EXTRACTION_PROMPT 的框架列表（对齐 yaml 当前框架结构）。"""
+    fw_list = "\n".join(f"- {f['id']}: {f.get('name', '')} — {f.get('desc', '')}"
+                        for f in frameworks)
+    return EXTRACTION_PROMPT.replace("{framework_list}", fw_list)
 
 
 def load_state() -> dict:
@@ -192,8 +211,8 @@ def scan_candidates(state: dict, incremental: bool = False) -> list[Path]:
     return files
 
 
-def extract_pattern_from_file(filepath: Path, llm_client) -> dict | None:
-    """对单个文件提取推理模式（Phase 6 版）。"""
+def extract_pattern_from_file(filepath: Path, llm_client, frameworks: list[dict] | None = None) -> dict | None:
+    """对单个文件提取推理模式（Phase 6 版）。frameworks 为动态框架列表（None 时自动加载）。"""
     try:
         content = filepath.read_text(encoding="utf-8")
     except Exception as e:
@@ -210,7 +229,7 @@ def extract_pattern_from_file(filepath: Path, llm_client) -> dict | None:
         print(f"  [skip] {filepath.name}: no analysis indicators in first 500 chars")
         return None
 
-    prompt = EXTRACTION_PROMPT.replace("{content}", content)
+    prompt = build_extraction_prompt(frameworks or load_frameworks()).replace("{content}", content)
 
     try:
         response = llm_client.invoke(prompt).content
@@ -250,10 +269,12 @@ def extract_pattern_from_file(filepath: Path, llm_client) -> dict | None:
         return None
 
     # 验证 matched_framework 是否合法
-    valid_framework_ids = {fw["id"] for fw in FRAMEWORKS}
+    fw_list = frameworks or load_frameworks()
+    valid_framework_ids = {fw["id"] for fw in fw_list}
     matched_fw = result.get("matched_framework", "").strip()
     if matched_fw not in valid_framework_ids:
-        print(f"  [warn] {filepath.name}: invalid matched_framework '{matched_fw}', using 'others'")
+        print(f"  [warn] {filepath.name}: matched_framework '{matched_fw}' 不在现有框架，"
+              f"归入 others —— ⚠️ 可能是「新框架」信号，review 时应走提案制新增/改造框架")
         result["matched_framework"] = "others"
 
     # 添加 source_raw 和 source_date
@@ -330,9 +351,10 @@ def main():
 
     state = load_state()
     existing_patterns, yaml_data = load_existing_patterns()
+    frameworks = load_frameworks()
 
     print(f"=== 推理模式批量抽取（Phase 6: 框架归类）===")
-    print(f"已有框架: {len(existing_patterns)} 个")
+    print(f"已有框架: {len(existing_patterns)} 个（从 yaml 动态读取）")
     print(f"已处理文件: {len(state['processed_files'])} 个")
 
     # 单篇模式
@@ -347,7 +369,7 @@ def main():
 
         print(f"\n处理: {single_path.name}")
         llm = get_llm_client()
-        result = extract_pattern_from_file(single_path, llm)
+        result = extract_pattern_from_file(single_path, llm, frameworks)
         if result:
             print(f"\n--- 发现推理模式 ---")
             print(json.dumps(result, ensure_ascii=False, indent=2))
@@ -384,7 +406,7 @@ def main():
 
     for i, filepath in enumerate(to_process, 1):
         print(f"\n[{i}/{len(to_process)}] {filepath.name}")
-        result = extract_pattern_from_file(filepath, llm)
+        result = extract_pattern_from_file(filepath, llm, frameworks)
 
         # 标记已处理
         state["processed_files"].append(filepath.name)
