@@ -343,13 +343,18 @@ def _ic_parse_pct(info: str) -> str:
 
 
 _STRUCTURE_TFS = ("daily", "120min", "90min", "60min", "30min")
+_STRUCTURE_INDEXES = (("sh000001", "上证指数"), ("sz399006", "创业板指"))
 
 
 def _load_structure(day: str, db_path=None) -> dict:
-    """上证指数（sh000001）多级别顶底结构识别（截至 day）。
+    """多指数（上证大盘 + 创业板指/科技主线）多级别顶底结构识别（截至 day）。
 
     读 index_klines 表各级别 K 线，自算 MACD 后调 detect_structure，只保留
-    有结构（bottom/top 非 None）的级别。供盲判定位「反弹第几天 / 顶部调整」。
+    有结构（bottom/top/recent_* 非 None）的级别。供盲判定位「反弹第几天 / 顶部调整」。
+
+    输出 {指数名: {级别: 结构}}。关键：UP 的「6-8天反弹」是科技类指数（科创/
+    创业板）的 90 分钟底部结构，上证大盘同期只有低级别结构——故需多指数，
+    创业板指作为科创的本地近似（本地无 sh000688 分钟数据）。
 
     注意：分钟级 bar_time 带时间（'2026-08-14 15:00'），daily 不带；查询上限
     分别用 day 与 day+' 23:59:59' 处理，避免字符串比较漏掉当日盘中数据。
@@ -367,30 +372,34 @@ def _load_structure(day: str, db_path=None) -> dict:
     # recent 结构只保留最近 60 天内形成的（过滤太早的历史结构，如 3 月前的底部）
     cutoff = (datetime.strptime(day, "%Y-%m-%d") - timedelta(days=60)).strftime("%Y-%m-%d")
     out: dict = {}
-    for tf in _STRUCTURE_TFS:
-        upper = day if tf == "daily" else f"{day} 23:59:59"
-        rows = conn.execute(
-            "SELECT bar_time, close, low, high FROM index_klines "
-            "WHERE code='sh000001' AND timeframe=? AND bar_time <= ? ORDER BY bar_time",
-            (tf, upper),
-        ).fetchall()
-        if len(rows) < 30:  # MACD 需要足够历史
-            continue
-        klines = [dict(r) for r in rows]
-        res = detect_structure(klines, window=4, timeframe=tf)
-        keep = {}
-        if res.get("bottom"):
-            keep["bottom"] = res["bottom"]
-        if res.get("top"):
-            keep["top"] = res["top"]
-        rb = res.get("recent_bottom")
-        if rb and str(rb.get("time", ""))[:10] >= cutoff:
-            keep["recent_bottom"] = rb
-        rt = res.get("recent_top")
-        if rt and str(rt.get("time", ""))[:10] >= cutoff:
-            keep["recent_top"] = rt
-        if keep:
-            out[tf] = keep
+    for code, name in _STRUCTURE_INDEXES:
+        per_idx: dict = {}
+        for tf in _STRUCTURE_TFS:
+            upper = day if tf == "daily" else f"{day} 23:59:59"
+            rows = conn.execute(
+                "SELECT bar_time, close, low, high FROM index_klines "
+                "WHERE code=? AND timeframe=? AND bar_time <= ? ORDER BY bar_time",
+                (code, tf, upper),
+            ).fetchall()
+            if len(rows) < 30:  # MACD 需要足够历史
+                continue
+            klines = [dict(r) for r in rows]
+            res = detect_structure(klines, window=4, timeframe=tf)
+            keep = {}
+            if res.get("bottom"):
+                keep["bottom"] = res["bottom"]
+            if res.get("top"):
+                keep["top"] = res["top"]
+            rb = res.get("recent_bottom")
+            if rb and str(rb.get("time", ""))[:10] >= cutoff:
+                keep["recent_bottom"] = rb
+            rt = res.get("recent_top")
+            if rt and str(rt.get("time", ""))[:10] >= cutoff:
+                keep["recent_top"] = rt
+            if keep:
+                per_idx[tf] = keep
+        if per_idx:
+            out[name] = per_idx
     conn.close()
     return out
 
