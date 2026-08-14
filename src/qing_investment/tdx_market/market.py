@@ -250,6 +250,7 @@ class TdxMarket:
                 if is_index
                 else api.get_security_bars(cat, market, pure, start, count)
             ),
+            retry_empty=True,
         )
         if not raw:
             return []

@@ -380,6 +380,10 @@ def _load_structure(day: str, db_path=None) -> dict:
             keep["bottom"] = res["bottom"]
         if res.get("top"):
             keep["top"] = res["top"]
+        if res.get("recent_bottom"):
+            keep["recent_bottom"] = res["recent_bottom"]
+        if res.get("recent_top"):
+            keep["recent_top"] = res["recent_top"]
         if keep:
             out[tf] = keep
     conn.close()

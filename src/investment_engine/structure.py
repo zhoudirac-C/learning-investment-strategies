@@ -89,6 +89,32 @@ def _find_cross(klines: list[dict], after_idx: int, direction: str) -> dict | No
     return None
 
 
+def _find_recent_formed(
+    klines: list[dict], pivots: list[dict], kind: str, days: tuple | None,
+) -> dict | None:
+    """找最近一次「结构形成」事件（背离 + 随后金叉/死叉确认），而非当前状态。
+
+    用途：即使当前已不在背离状态（如反弹已走了一段），也能定位最近一次
+    底部/顶部结构形成的时间 —— 这是「反弹第几天」的起点锚。
+    """
+    pts = [p for p in pivots if p["type"] == kind]
+    cross_dir = "golden" if kind == "bottom" else "dead"
+    formed: dict | None = None
+    for i in range(len(pts) - 1):
+        p1, p2 = pts[i], pts[i + 1]
+        if kind == "bottom":
+            diverged = p2["price"] < p1["price"] and p2["dif"] > p1["dif"]
+        else:
+            diverged = p2["price"] > p1["price"] and p2["dif"] < p1["dif"]
+        if not diverged:
+            continue
+        cross = _find_cross(klines, p2["idx"], cross_dir)
+        if cross:
+            formed = {"time": cross["time"],
+                      "theoretical_days": days if days != (None, None) else None}
+    return formed
+
+
 # 级别 → 理论天数映射（反弹/调整窗口）。来源：UP claims + framework 对照表。
 # 值：(min_days, max_days)；None 表示该方向无明确天数锚点。
 LEVEL_DAYS: dict[str, dict[str, tuple[int | None, int | None]]] = {
@@ -159,6 +185,11 @@ def detect_structure(
         result["bottom"] = _assess(bottoms[-2], bottoms[-1], "bottom")
     if len(tops) >= 2:
         result["top"] = _assess(tops[-2], tops[-1], "top")
+    # 最近结构形成历史（反弹/调整的起点锚，即使当前已不在背离状态）
+    result["recent_bottom"] = _find_recent_formed(
+        klines, pivots, "bottom", days.get("bottom", (None, None)))
+    result["recent_top"] = _find_recent_formed(
+        klines, pivots, "top", days.get("top", (None, None)))
     return result
 
 
