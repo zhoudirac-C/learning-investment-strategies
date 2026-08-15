@@ -377,7 +377,7 @@ UP 对产业链的解读（如"存储是下一阶段弹性所在"）降级为**�
 
 **方案**：
 - **主力源：akshare 东财研报/公告接口**（`stock_research_report_em` 等）——akshare 已是项目依赖、接口从未启用、公开源无封号风险。~~先 spike 验证当前版本可用性~~（spike 已通过）。**管线 v1 已落地（2026-08-15）**：`src/investment_engine/research_feed.py` + `scripts/fetch_research_reports.py`，研报走 report/list 原始 API（qType 个股/行业/策略全量，元数据含 PDF 直链），公告走 akshare 公告大全；落盘 `infra/data/research/{reports,notices}/<日>.json`（gitignored），幂等日更，PDF 按需下载（`download_pdf`）；
-- **KPL 本地初调**：资讯已逐日全量落盘（`infra/data/kpl/news/<day>/`），在其上加本地关键词过滤层（"产业链"等 + 方向池关键词），命中条目全文已在本地（含公众号转载长文，H5 链路），产出每日初调摘要；付费专栏条目留标题/摘要/关联股票作线索；
+- **KPL 本地初调**：资讯已逐日全量落盘（`infra/data/kpl/news/<day>/`），在其上加本地关键词过滤层（"产业链"等 + 方向池关键词），命中条目全文已在本地（含公众号转载长文，H5 链路），产出每日初调摘要；付费专栏条目留标题/摘要/关联股票作线索。**初调层 v1 已落地（2026-08-15）**：`kpl/digest.py` + `scripts/kpl_news_digest.py`（产业词基表 + 股票池个股名过滤标题，分组"全文可读/仅标题线索"，落盘 `infra/data/kpl/digest/<day>.md`，cron 17:55）；
 - **人工投递通道**：用户自做调研报告放 `sources/research/incoming/` 同构目录，与采集层走同一解析（`industry_chain/migrate.py` 的 `parse_research_md`），回写产业链库并刷新 `last_verified`；
 - 由此引擎①"至少 1 条一级 + 1 条二级信息"硬约束在知识层真正可执行。
 

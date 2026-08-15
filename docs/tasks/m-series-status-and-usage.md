@@ -34,12 +34,9 @@
 35 15 * * 1-5  pre_fetch_klines   # K 线续拉
 40 15 * * 1-5  shadow_daily       # 影子双轨日更（需 .env 里 deepseek_api_key）
 45 15 * * 1-5  kpl_daily_fetch    # KPL 情绪+资讯（需 .env 里 kpl_user_id/kpl_token/kpl_device_id）
+55 17 * * 1-5  kpl_news_digest    # KPL 资讯初调摘要（产业词+股票池过滤，公开无凭证）
+10 18 * * 1-5  fetch_research_reports  # 东财研报/公告日更（公开源，无需凭证）
 ```
-
-**待挂载：东财研报/公告日更**（建议 `10 18 * * 1-5`，KPL 之后错开）。wrapper 照
-`qing_kpl_daily_fetch.py` 模式新建 `~/.hermes/scripts/qing_fetch_research_reports.py`，
-委托 `scripts/fetch_research_reports.py`（无需凭证，公开源），jobs.json 条目仿照
-kpl 条目（`no_agent: true`）。手动：`python scripts/fetch_research_reports.py [--date|--start/--end]`。
 
 - 日志：`log/pre_fetch_klines.log`、`log/shadow_daily.log`、`log/kpl_daily_fetch.log`
 - 运行态报告：`logs/shadow-status.md`（每日刷新，已入 git）
