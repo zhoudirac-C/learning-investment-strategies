@@ -43,6 +43,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--config-dir", default="config/stock_monitor")
     parser.add_argument("--db", default="infra/data/kline_cache.db")
     parser.add_argument("--wait-retries", type=int, default=3)
+    parser.add_argument("--force", action="store_true",
+                        help="强制重跑当日盲判（数据修复场景）；会作废该日旧归因并 retract 其 open 提案")
     args = parser.parse_args(argv)
 
     db = Path(args.db)
@@ -59,7 +61,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"[skip] {args.date} 无新数据（节假日或拉取失败），退出")
         return 0
 
-    summary = run(args.date, config_dir=Path(args.config_dir), db_path=db)
+    summary = run(args.date, config_dir=Path(args.config_dir), db_path=db,
+                  force=args.force)
     print("[daily]", summary)
     print("[status]", write_status())
     return 0

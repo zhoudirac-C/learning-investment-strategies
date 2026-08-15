@@ -84,7 +84,10 @@ def _write_proposals(day: str, attr: dict, proposal_dir: Path) -> list[str]:
 def run_attribution(day: str, *, trigger: str, pred: dict, score_info: dict,
                     attr_dir: Path = ATTR_DIR, proposal_dir: Path = PROPOSAL_DIR,
                     model: str = DEFAULT_MODEL, client=None) -> dict:
-    """对判错日跑归因。同日消息合并 triggers；提案每次重新生成引用。"""
+    """对判错日跑归因。同日消息合并 triggers；提案每次重新生成引用。
+
+    旧归因已被预测重跑作废（superseded）时不合并其 triggers，按新记录重新开始。
+    """
     prompt = ATTR_PROMPT.format(
         trigger=trigger,
         ai_result=json.dumps(pred.get("result", {}), ensure_ascii=False),
@@ -100,12 +103,51 @@ def run_attribution(day: str, *, trigger: str, pred: dict, score_info: dict,
     if path.exists():
         try:
             old = json.loads(path.read_text(encoding="utf-8"))
-            triggers = list(dict.fromkeys(old.get("triggers", []) + [trigger]))
+            if not old.get("superseded"):
+                triggers = list(dict.fromkeys(old.get("triggers", []) + [trigger]))
         except json.JSONDecodeError:
             pass
     refs = _write_proposals(day, attr, proposal_dir)
     rec = {"date": day, "triggers": triggers, "types": attr["types"],
            "analysis": attr["analysis"], "proposal_refs": refs}
     path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(rec, ensure_ascii=False, indent=2), encoding="utf-8")
+    return rec
+
+
+def supersede_attribution(day: str, *, attr_dir: Path = ATTR_DIR,
+                          proposal_dir: Path = PROPOSAL_DIR,
+                          reason: str = "prediction_rerun") -> dict | None:
+    """预测重跑覆盖时作废旧归因：归因标 superseded，其 open 提案改 retracted。
+
+    返回作废后的归因记录；无归因或已作废返回 None。幂等。
+    """
+    path = Path(attr_dir) / f"{day}.json"
+    if not path.exists():
+        return None
+    try:
+        rec = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None
+    if rec.get("superseded"):
+        return None
+    rec["superseded"] = True
+    rec["superseded_reason"] = reason
+    retracted = []
+    for ref in rec.get("proposal_refs") or []:
+        p = Path(ref)
+        if not p.exists():
+            p = Path(proposal_dir) / p.name
+        if not p.exists():
+            continue
+        text = p.read_text(encoding="utf-8")
+        if not re.search(r"status:\s*open\b", text):
+            continue  # 已 applied/rejected/retracted 的不动
+        text = re.sub(r"status:\s*open\b", "status: retracted", text, count=1)
+        text += (f"\n> retracted {day}：归因记录已被预测重跑作废（{reason}），"
+                 "本提案证据基础失效；如议题仍成立请人工重开。\n")
+        p.write_text(text, encoding="utf-8")
+        retracted.append(p.name)
+    rec["retracted_proposals"] = retracted
     path.write_text(json.dumps(rec, ensure_ascii=False, indent=2), encoding="utf-8")
     return rec

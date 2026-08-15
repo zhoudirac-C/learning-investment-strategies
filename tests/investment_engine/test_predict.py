@@ -79,3 +79,27 @@ class TestRunPredict:
         path.write_text(json.dumps({"date": "2026-08-07", "status": "error"}), encoding="utf-8")
         r = self._run(monkeypatch)
         assert r["status"] == "pending_maturity"  # error 日被重跑覆盖
+
+    def test_force_rerun_supersedes_attribution(self, monkeypatch):
+        attr_dir = Path(tempfile.mkdtemp(prefix="attr_"))
+        prop_dir = Path(tempfile.mkdtemp(prefix="prop_"))
+        try:
+            self._run(monkeypatch)
+            r_skip = self._run(monkeypatch)
+            assert r_skip["status"] == "skipped"
+            # 伪造该日归因 + open 提案
+            prop = prop_dir / "2026-08-07-data-channel-x.md"
+            prop.write_text("---\nstatus: open\n---\n", encoding="utf-8")
+            (attr_dir / "2026-08-07.json").write_text(json.dumps({
+                "date": "2026-08-07", "triggers": ["stage_miss"],
+                "proposal_refs": [str(prop)]}), encoding="utf-8")
+            r = self._run(monkeypatch, force=True,
+                          attr_dir=attr_dir, proposal_dir=prop_dir)
+            assert r["status"] == "pending_maturity"  # force 覆盖重跑
+            old_attr = json.loads((attr_dir / "2026-08-07.json").read_text(encoding="utf-8"))
+            assert old_attr["superseded"] is True
+            assert "status: retracted" in prop.read_text(encoding="utf-8")
+        finally:
+            import shutil
+            shutil.rmtree(attr_dir, ignore_errors=True)
+            shutil.rmtree(prop_dir, ignore_errors=True)

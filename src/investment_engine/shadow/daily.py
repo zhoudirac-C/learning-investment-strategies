@@ -22,12 +22,13 @@ def _direction_missed(rec: dict) -> bool:
 def run(day: str, *, config_dir, db_path=None,
         pred_dir: Path = PRED_DIR, attr_dir: Path = ATTR_DIR,
         proposal_dir: Path = PROPOSAL_DIR, model: str = "deepseek-chat",
-        client=None) -> dict:
+        client=None, force: bool = False) -> dict:
     if not has_fresh_data(day, db_path=db_path):
         return {"date": day, "status": "no_data"}
 
     pred = run_predict(day, config_dir=config_dir, db_path=db_path,
-                       pred_dir=pred_dir, model=model, client=client)
+                       pred_dir=pred_dir, model=model, client=client, force=force,
+                       attr_dir=attr_dir, proposal_dir=proposal_dir)
     if pred.get("status") == "error":
         return {"date": day, "status": "predict_error", "error": pred.get("error")}
 

@@ -65,8 +65,13 @@ def _load_prior_summary(day: str, pred_dir: Path = PRED_DIR, db_path=None) -> di
 
 
 def run_predict(day: str, *, config_dir, db_path=None, pred_dir: Path = PRED_DIR,
-                model: str = DEFAULT_MODEL, client=None) -> dict:
-    """对某日盲判。已完成日跳过（幂等）；error 日重跑覆盖。"""
+                model: str = DEFAULT_MODEL, client=None, force: bool = False,
+                attr_dir=None, proposal_dir=None) -> dict:
+    """对某日盲判。已完成日跳过（幂等）；error 日重跑覆盖。
+
+    force=True 时强制重跑已完成日（数据修复场景）：覆盖前作废旧归因
+    （supersede_attribution），新记录重置为 pending_maturity 重新走评分/结算。
+    """
     path = prediction_path(day, pred_dir)
     if path.exists():
         try:
@@ -74,7 +79,16 @@ def run_predict(day: str, *, config_dir, db_path=None, pred_dir: Path = PRED_DIR
         except json.JSONDecodeError:
             old = {}
         if old.get("status") not in (None, "error"):
-            return {"status": "skipped", "date": day}
+            if not force:
+                return {"status": "skipped", "date": day}
+            from investment_engine.shadow.attribute import supersede_attribution
+            kw = {}
+            if attr_dir is not None:
+                kw["attr_dir"] = attr_dir
+            if proposal_dir is not None:
+                kw["proposal_dir"] = proposal_dir
+            supersede_attribution(day, reason=f"prediction_rerun:{day}", **kw)
+            path.unlink()
 
     try:
         pack = build_daily_pack(day, config_dir=Path(config_dir), db_path=db_path)

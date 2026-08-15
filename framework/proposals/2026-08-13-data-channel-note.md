@@ -1,7 +1,7 @@
 ---
 date: 2026-08-13
 type: data-channel
-status: open
+status: retracted
 source: evals/shadow/attributions/2026-08-13.json
 ---
 
@@ -14,3 +14,5 @@ AI 判断市场处于调整阶段，但真值为震荡。错因在于：1. 数�
 ## 处置建议
 
 接入板块资金流数据源和分时数据，用于更精确地判断资金流向和市场情绪。
+
+> retracted 2026-08-13：归因记录已被预测重跑作废（prediction_rerun:2026-08-13（v3 重跑后 stage 判对，旧归因证据基础失效）），本提案证据基础失效；如议题仍成立请人工重开。

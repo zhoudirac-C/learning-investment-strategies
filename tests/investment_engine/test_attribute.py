@@ -84,3 +84,68 @@ class TestRunAttribution:
 
     def test_known_gaps_listed(self):
         assert "板块资金流" in KNOWN_DATA_GAPS
+
+
+class TestSupersedeAttribution:
+    def setup_method(self):
+        self.attr_dir = Path(tempfile.mkdtemp(prefix="attr_"))
+        self.prop_dir = Path(tempfile.mkdtemp(prefix="prop_"))
+
+    def teardown_method(self):
+        import shutil
+        shutil.rmtree(self.attr_dir, ignore_errors=True)
+        shutil.rmtree(self.prop_dir, ignore_errors=True)
+
+    def _seed(self, day="2026-08-07", prop_status="status: open"):
+        prop = self.prop_dir / f"{day}-data-channel-x.md"
+        prop.write_text(f"---\ndate: {day}\ntype: data-channel\n{prop_status}\n---\n\n# t\n",
+                        encoding="utf-8")
+        rec = {"date": day, "triggers": ["stage_miss"], "types": ["数据缺"],
+               "analysis": "a", "proposal_refs": [str(prop)]}
+        (self.attr_dir / f"{day}.json").write_text(
+            json.dumps(rec, ensure_ascii=False), encoding="utf-8")
+        return prop
+
+    def test_supersede_retracts_open_proposal(self):
+        from investment_engine.shadow.attribute import supersede_attribution
+        prop = self._seed()
+        rec = supersede_attribution("2026-08-07", attr_dir=self.attr_dir,
+                                    proposal_dir=self.prop_dir)
+        assert rec["superseded"] is True
+        assert rec["retracted_proposals"] == [prop.name]
+        text = prop.read_text(encoding="utf-8")
+        assert "status: retracted" in text and "status: open" not in text
+
+    def test_supersede_keeps_applied_proposal(self):
+        from investment_engine.shadow.attribute import supersede_attribution
+        prop = self._seed(prop_status="status: applied")
+        rec = supersede_attribution("2026-08-07", attr_dir=self.attr_dir,
+                                    proposal_dir=self.prop_dir)
+        assert rec["retracted_proposals"] == []
+        assert "status: applied" in prop.read_text(encoding="utf-8")
+
+    def test_supersede_idempotent_and_missing(self):
+        from investment_engine.shadow.attribute import supersede_attribution
+        self._seed()
+        supersede_attribution("2026-08-07", attr_dir=self.attr_dir,
+                              proposal_dir=self.prop_dir)
+        assert supersede_attribution("2026-08-07", attr_dir=self.attr_dir,
+                                     proposal_dir=self.prop_dir) is None
+        assert supersede_attribution("2099-01-01", attr_dir=self.attr_dir,
+                                     proposal_dir=self.prop_dir) is None
+
+    def test_new_attribution_ignores_superseded_triggers(self, monkeypatch):
+        from investment_engine.shadow.attribute import supersede_attribution
+        monkeypatch.setattr(
+            "investment_engine.shadow.attribute.call_deepseek",
+            lambda m, **kw: ATTR_JSON)
+        self._seed()
+        supersede_attribution("2026-08-07", attr_dir=self.attr_dir,
+                              proposal_dir=self.prop_dir)
+        pred = {"date": "2026-08-07",
+                "result": {"market_stage": "震荡", "directions": [], "used_patterns": []},
+                "stage_hit": False}
+        rec = run_attribution("2026-08-07", trigger="direction_miss", pred=pred,
+                              score_info={}, attr_dir=self.attr_dir,
+                              proposal_dir=self.prop_dir)
+        assert rec["triggers"] == ["direction_miss"]  # 不合并 superseded 旧 trigger

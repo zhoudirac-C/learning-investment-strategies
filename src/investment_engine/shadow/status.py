@@ -53,7 +53,7 @@ def render_status(stats: dict) -> str:
         f"# 影子双轨完整性报告（{date.today():%Y-%m-%d}）",
         "",
         f"- 记录日数: {stats['days_total']}，完整: {stats['days_complete']}",
-        f"- 提案: open {stats['proposals']['open']} / applied {stats['proposals'].get('applied', 0)} / rejected {stats['proposals'].get('rejected', 0)}",
+        f"- 提案: open {stats['proposals']['open']} / applied {stats['proposals'].get('applied', 0)} / rejected {stats['proposals'].get('rejected', 0)} / retracted {stats['proposals'].get('retracted', 0)}",
         "",
         "| 日期 | 阶段判定 | 状态 | 归因 | 完整 |",
         "|---|---|---|---|---|",
