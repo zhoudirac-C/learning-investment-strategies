@@ -75,7 +75,7 @@ PYTHONPATH=third_party/chanpy .venv/bin/pytest tests/ -q   # 全仓（当前 601
 
 | 时点 | 触发条件 | 动作 |
 |---|---|---|
-| 每周五收盘后 | — | 跑 `graduation_check.py` 看毕业进度 |
+| 每周五收盘后 | — | 跑 `graduation_check.py` 看毕业进度 + `score_qing_review_vs_market.py --report` 刷新 qing 对比臂（logs/qing-vs-shadow-*.md） |
 | 2026-09 初 | 影子满 ~4 周 | 启动主计划 M3 剩余项（claims 分桶、`evaluate_vs_market.py`、UP 命中率画像、研报管线扩容） |
 | 2026-10 初 | 影子满 8 周 | 毕业判分首次有效判决；`graduated` 才进入 M4 |
 | 毕业后 | verdict=graduated | M4 prompt 改造（拆 UP 实时锚定），evals 全绿才可合入 |
