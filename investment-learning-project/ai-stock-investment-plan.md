@@ -408,13 +408,13 @@ UP 对产业链的解读（如"存储是下一阶段弹性所在"）降级为**�
 | 事项 | 来源 | 动作 |
 |---|---|---|
 | 涨停池/情绪历史回填 | M1 spec 数据缺口 | **已实测：东财涨停池历史仅保留约 1 个月（边界 2026-07-27），无法回填至 04-27**；已回填 07-27→08-12 共 13 天，改为子窗口 A/B 对照（`scripts/blindtest_lp_ab.py`，同窗口同 prompt 仅 limit_pool 有无两臂）看命中率变化 |
-| 东财 LHB 历史回填 | eastmoney-lhb spec 范围外项 | `--date` 逐日补拉 |
-| 研报管线 | 主计划 M3（实际不依赖影子数据） | **v1 已落地（2026-08-15）**：`research_feed.py` + `fetch_research_reports.py`，回填 04-27 起；日更 cron 待挂（wrapper 见 m-series 文档） |
-| `knowledge/cases/` 案例库扩容（仅 2 篇） | M0 验收遗留 | 从 550 篇 raw + 影子归因提炼，基准率检索可用 |
-| 中证2000/微盘股指数入包 | contract-v2 spec D7 可选项 | 指数自补机制已通，直接加 |
-| qing 对比臂评分 | 本稿 16.3 | 新建评分脚本 |
-| 产业链保鲜巡检器 | M5 提前（status 文档原话"可随时提前补"） | 写巡检器：`last_verified` 超阈值字段自动标"待核实" |
-| KPL 资讯分页、LHB 披露边界补记 | kpl plan 注、contract-v2 风险节 | 小项，顺手做 |
+| 东财 LHB 历史回填 | eastmoney-lhb spec 范围外项 | **已完成（2026-08-16）**：回填 2026-04-27 起全量（`--date` 逐日），并挂载日更 cron 17:50（此前从未挂载，spec 假设有误） |
+| 研报管线 | 主计划 M3（实际不依赖影子数据） | **v1 已落地（2026-08-15）**：`research_feed.py` + `fetch_research_reports.py`，回填 04-27 起；日更 cron 18:10 已挂 |
+| `knowledge/cases/` 案例库扩容（仅 2 篇） | M0 验收遗留 | **已完成（2026-08-16）**：2 → 11 篇（sector 5 / stock 2 / methodology 4），后续走势全部经 K 线缓存核实 |
+| 中证2000/微盘股指数入包 | contract-v2 spec D7 可选项 | **已完成（2026-08-16）**：中证2000（缓存本有日线）+ 微盘股（通达信 880823，TDX 通道，回填 150 根日线）；入 `INDEX_CODES`/`INDEX_ALIAS_TO_CODE`，update_index cron 自动续更 |
+| qing 对比臂评分 | 本稿 16.3 | **已完成（2026-08-15）**：`qing_review.py` + `score_qing_review_vs_market.py`，纳入周五例行 |
+| 产业链保鲜巡检器 | M5 提前（status 文档原话"可随时提前补"） | **已完成（2026-08-16）**：`industry_chain/freshness.py` + `industry_chain_freshness_check.py`，产物 `logs/industry-chain-freshness.md`（只出报告不回写，环节/标的空日期继承链级）；首跑：3 条链链级龄期恰处 90 天临界点 |
+| KPL 资讯分页、LHB 披露边界补记 | kpl plan 注、contract-v2 风险节 | **已补记（2026-08-16）**：分页实测不可得（12 个参数全被忽略，记录见 kpl-api-inventory）；LHB 披露边界待下周实盘观察（cron 首次挂载） |
 | KPL 搜索/文章接口抓包 | v2.2 §16.4 | **已完成（2026-08-15）**：搜索不可得（证书固定），H5 链路全文可读绕开 1130；记录见 kpl-api-inventory.md |
 
 **等数据（影子满 ~4 周，约 09 月初）**：claims 分桶、市场结果回写置信度、`evaluate_vs_market.py`（代码基建可先行，画像等数据）、UP 命中率画像、3 个 pending-m1 未使用模式样本（n≥20 出桶）、9 份模式提名提案窗口验证（最早批次 09-08 后）、连续 4 周归因记录（M2 验收口径，进行中 6/20）。

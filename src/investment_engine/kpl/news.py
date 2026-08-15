@@ -1,7 +1,9 @@
 """资讯流：IndexPlate.GetIndexList 列表（按日过滤）+ ForumsMsgJX.GetInfo 全文 + 落盘。
 
-已知限制：列表只拉单页（观察到的 st=2 组合一页覆盖多日，日常够用）；
-若某日资讯超过一页可能漏，后续对照 App 再补分页。
+已知限制：列表为"最新窗口"单页——分页/游标参数 2026-08-16 实测全部无效
+（Page/LastID/MinID 等均被忽略，翻页疑走原生证书固定通道），某日资讯超过
+窗口大小可能漏收（实测日产量 ≈ 窗口大小，风险低；如需保障可每日两拉）。
+实测记录见 docs/design/kpl-api-inventory.md「资讯列表分页实测」节。
 付费专栏条目（6 位 ID、带 AID/SpecType，多为券商研报转载）全文返回
 errcode=1130 无权限，逐篇跳过并记入 index.json（fetched=false）。
 """

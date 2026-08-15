@@ -27,6 +27,21 @@ KPL 拉取（本机 17:45）在云端未挂 cron——缺 `kpl_user_id/kpl_token
 - 修复了 `index_klines` daily 收盘价覆盖 bug（早盘快照永远覆盖不了收盘价），
   细节见 skill `qing-shadow-dual-track/references/index-klines-daily-override-bug.md`。
 
+## 2026-08-16 增补：LHB/初调/研报 cron 与披露边界
+
+- **新挂 3 条 cron**（jobs.json 已登记，wrapper 在 `~/.hermes/scripts/`）：
+  `50 17 * * 1-5` 东财龙虎榜（qing_eastmoney_lhb_fetch.py）、
+  `55 17 * * 1-5` KPL 资讯初调摘要（qing_kpl_news_digest.py）、
+  `10 18 * * 1-5` 东财研报/公告（qing_fetch_research_reports.py）。
+- **修正上文**：KPL 凭据（kpl_user_id/kpl_token/kpl_device_id）已配置进 `.env`，
+  17:45 拉取 cron 在挂（此前"云端未挂"已过时）。
+- **东财 LHB 披露边界**：历史任意日可回溯（2026-08-16 实测回填 2026-04-27 起全量）。
+  实盘披露时点**从未实测**——contract-v2 spec 假设的"17:50 cron 首周观察"实际从未挂载，
+  本次为首次挂载；17:50 可能早于当日完整披露。下周首个实盘周观察后补记实际边界；
+  若 17:50 拿到空/不全，22:00 影子盲判前需补拉一次。
+- **KPL 资讯分页**：实测不可得（分页/游标参数全被忽略），见
+  `docs/design/kpl-api-inventory.md`「资讯列表分页实测」节；日产量≈窗口大小，维持单拉。
+
 ## 注销义务（用户明确要求）
 
 本机 Mac crontab 是测试用临时措施。云部署完成（已确认等效调度）后注销：
