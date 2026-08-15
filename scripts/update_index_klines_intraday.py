@@ -37,6 +37,8 @@ INDICES = {
     "sz399006": {"secid": "0.399006", "name": "创业板指"},
     "sh000688": {"secid": "1.000688", "name": "科创50"},
     "sh000932": {"secid": "1.000932", "name": "中证2000"},
+    # 微盘股指数（通达信 880823，市值最小 400 只等权）：东财/腾讯无此指数，TDX 直连
+    "880823": {"secid": "", "name": "微盘股指数", "tdx_only": True},
 }
 
 TIMEFRAMES = {
@@ -174,18 +176,21 @@ def fetch_latest_klines_from_tencent(code: str, count: int = FETCH_BARS) -> list
 
 
 def fetch_latest_klines_from_tdx(code: str, klt: int, count: int = FETCH_BARS) -> list[dict]:
-    """TDX 拉指数分钟线兜底（东财反爬断连时）。120min 由 60min 按 bar 时点合成。"""
+    """TDX 拉指数K线兜底（东财反爬断连时）。120min 由 60min 按 bar 时点合成。
+
+    klt=101（日线）也支持——微盘股指数（880823）等 TDX 独有指数的唯一通道。
+    """
     try:
         from qing_investment.tdx_market import TdxMarket
     except Exception as e:
         print(f"    [WARN] TDX 导入失败: {str(e)[:60]}")
         return []
 
-    if klt not in (30, 60, 120):
-        return []  # daily 走腾讯兜底，其余不支持
+    if klt not in (30, 60, 101, 120):
+        return []  # 其余级别不支持
 
     mkt = TdxMarket()
-    tdx_cat = "30min" if klt == 30 else "60min"
+    tdx_cat = {30: "30min", 60: "60min", 101: "daily"}.get(klt, "60min")
     need = count * 2 + 2 if klt == 120 else count + 2
     try:
         rows = mkt.get_kline(code, tdx_cat, count=need)
@@ -195,8 +200,10 @@ def fetch_latest_klines_from_tdx(code: str, klt: int, count: int = FETCH_BARS) -
     if not rows:
         return []
 
+    # 日线 bar_time 统一用纯日期（与东财/腾讯落库格式一致，BETWEEN 字符串比较才不漏当日）
     bars = [{
-        "bar_time": str(r.get("datetime") or r.get("date") or ""),
+        "bar_time": str((r.get("date") if klt == 101 else None)
+                        or r.get("datetime") or r.get("date") or ""),
         "open": r.get("open"),
         "close": r.get("close"),
         "high": r.get("high"),
@@ -229,7 +236,12 @@ def fetch_latest_klines_from_tdx(code: str, klt: int, count: int = FETCH_BARS) -
 
 
 def fetch_latest_klines(code: str, klt: int, count: int = FETCH_BARS) -> list[dict]:
-    """拉取最新 N 根K线（升序）。东财失败：日线回退腾讯，分钟线回退 TDX。"""
+    """拉取最新 N 根K线（升序）。东财失败：日线回退腾讯，分钟线回退 TDX。
+
+    tdx_only 指数（如 880823 微盘股）跳过东财/腾讯，直接走 TDX。
+    """
+    if INDICES[code].get("tdx_only"):
+        return fetch_latest_klines_from_tdx(code, klt, count)
     secid = INDICES[code]["secid"]
     url = (
         "https://push2his.eastmoney.com/api/qt/stock/kline/get"

@@ -15,7 +15,8 @@ from investment_engine.backtest.history import get_index_daily, get_klines_range
 
 FORBIDDEN_RE = re.compile(r"UP|青枫浦|博主")
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
-INDEX_CODES = ("IDX000300", "IDX000001", "IDX399006", "IDX399001", "IDX000852")
+INDEX_CODES = ("IDX000300", "IDX000001", "IDX399006", "IDX399001", "IDX000852",
+               "IDX000932", "IDX880823")  # 中证2000/微盘股（2026-08-16 入包，contract-v2 D7 可选项）
 _INDEX_LOOKBACK = 60
 _STOCK_ZONE_DAYS = 20
 

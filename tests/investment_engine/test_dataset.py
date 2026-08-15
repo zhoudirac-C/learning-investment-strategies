@@ -201,4 +201,5 @@ class TestKplBlocks:
 
 def test_index_codes_expanded():
     assert set(INDEX_CODES) == {"IDX000300", "IDX000001", "IDX399006",
-                                "IDX399001", "IDX000852"}
+                                "IDX399001", "IDX000852",
+                                "IDX000932", "IDX880823"}  # 中证2000/微盘股（D7 可选项）
