@@ -20,6 +20,7 @@
 ## 数据资产现状
 
 - **K 线缓存** `infra/data/kline_cache.db`：217 只个股 + 2 指数，覆盖 2026-04-27 起，靠每日 cron 续拉保持连续
+- **涨停梯队** `infra/data/limit_pool/`：2026-07-27 起（东财涨停池历史仅保留约 1 个月，更早无法回填，2026-08-15 实测），cron 15:37 日更续接
 - **盲测基线** `evals/blindtest/results.jsonl`：71 天（2026-04-27~08-07）历史回放，一次性产物
 - **影子数据** `evals/shadow/predictions/`：每日新增，毕业判定的数据源（当前 2 天）
 - **推理模式库** `framework/reasoning-patterns.yaml`：validation 区块回填状态见上表 M3 前置
