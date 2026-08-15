@@ -316,3 +316,22 @@ adb reverse --remove-all && adb disconnect
 - 开/关「USB 网络共享」会让 adb 瞬断，重跑 `adb devices` 确认即可。
 - macOS 原生不支持安卓 USB 网络共享（RNDIS），所以出口走热点而非 USB 共享。
 - 手机「USB 调试（安全设置）」用后建议关回。
+
+## 附：无线 adb 拓扑（无数据线场景，2026-08-15 验证）
+
+手机与电脑同网（或手机开热点、电脑连热点，可绕开路由器 AP 隔离）：
+
+```bash
+# 1. 手机：开发者选项 → 无线调试（开）→「使用配对码配对设备」→ 弹窗保持开着
+#    注意：弹窗端口 ≠ 主界面端口，配对用弹窗的，连接用主界面的
+# 2. 电脑：
+adb pair <手机IP>:<弹窗端口> <6位配对码>
+adb connect <手机IP>:<主界面端口>
+# 3. 可用能力：screencap/pull/push/dumpsys
+#    ❌ input tap/swipe/text 不可用（HyperOS 无线 adb 无「安全设置」开关，INJECT_EVENTS 拒绝）
+#    → App 操作只能人工，电脑侧用 screencap 观察
+# 4. 收尾：adb disconnect <手机IP>:<端口>
+```
+
+配对码和弹窗端口都是一次性的，弹窗关闭即失效；配对成功后主界面端口在无线调试
+保持开启期间有效（手机重启或关开无线调试后会变）。
