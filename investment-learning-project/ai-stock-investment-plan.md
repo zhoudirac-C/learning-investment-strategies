@@ -376,7 +376,7 @@ UP 对产业链的解读（如"存储是下一阶段弹性所在"）降级为**�
 **调查结论（实测）**：KPL **已封装端点中没有**服务端关键词搜索接口，资讯只有"按日时间流列表→逐篇全文"，且最像研报的付费专栏（券商研报转载）全文 1130 无权限、只能拿标题/摘要；TDX（pytdx 直连）是纯行情协议，**无资讯/研报能力**，排除。**App 内搜索接口已于 2026-08-15 晚抓包实测为不可得**（证书固定原生通道/直连 socket，见 `docs/design/kpl-api-inventory.md`「搜索/文章接口抓包」节），KPL 搜索接入放弃；但同次抓包发现 **H5 `PContent2.html` 链路可读公众号转载长文全文**（绕开 1130），产业链深度文主要载体可落盘。**akshare spike（2026-08-15 实测通过）**：`stock_research_report_em` 个股研报列表可用（机构/评级/日期/盈利预测，**PDF 直链可下载**，002916/600183 等最新报告覆盖到 2026 年）；`stock_notice_report` 日更公告可用（顺带补上 KNOWN_DATA_GAPS 的"公告流"）。**底层东财 API 检索能力实测（akshare 未封装层）**：`reportapi.eastmoney.com/report/list` 支持 `code=*` 全量列表 + qType（个股/行业/策略）+ **industryCode 行业过滤（实测 459=元件精确命中）** + 日期/机构/评级过滤；自由关键词参数无效（keyWord/keyword/searchKey 均忽略）。**东财站搜索 API**（`search-api-web.eastmoney.com`，需 Referer 头）支持自由关键词搜索新闻/文章（实测"PCB产业链"命中上证报/每经/证券日报当日文章）——资讯级搜索通道成立。当前可行方案三层：
 
 **方案**：
-- **主力源：akshare 东财研报/公告接口**（`stock_research_report_em` 等）——akshare 已是项目依赖、接口从未启用、公开源无封号风险。先 spike 验证当前版本可用性，落成 `scripts/fetch_research_reports.py` 日更 cron，落盘 `sources/research/incoming/`（含 frontmatter：来源/日期/标的/行业/摘要）；
+- **主力源：akshare 东财研报/公告接口**（`stock_research_report_em` 等）——akshare 已是项目依赖、接口从未启用、公开源无封号风险。~~先 spike 验证当前版本可用性~~（spike 已通过）。**管线 v1 已落地（2026-08-15）**：`src/investment_engine/research_feed.py` + `scripts/fetch_research_reports.py`，研报走 report/list 原始 API（qType 个股/行业/策略全量，元数据含 PDF 直链），公告走 akshare 公告大全；落盘 `infra/data/research/{reports,notices}/<日>.json`（gitignored），幂等日更，PDF 按需下载（`download_pdf`）；
 - **KPL 本地初调**：资讯已逐日全量落盘（`infra/data/kpl/news/<day>/`），在其上加本地关键词过滤层（"产业链"等 + 方向池关键词），命中条目全文已在本地（含公众号转载长文，H5 链路），产出每日初调摘要；付费专栏条目留标题/摘要/关联股票作线索；
 - **人工投递通道**：用户自做调研报告放 `sources/research/incoming/` 同构目录，与采集层走同一解析（`industry_chain/migrate.py` 的 `parse_research_md`），回写产业链库并刷新 `last_verified`；
 - 由此引擎①"至少 1 条一级 + 1 条二级信息"硬约束在知识层真正可执行。
@@ -409,7 +409,7 @@ UP 对产业链的解读（如"存储是下一阶段弹性所在"）降级为**�
 |---|---|---|
 | 涨停池/情绪历史回填 | M1 spec 数据缺口 | **已实测：东财涨停池历史仅保留约 1 个月（边界 2026-07-27），无法回填至 04-27**；已回填 07-27→08-12 共 13 天，改为子窗口 A/B 对照（`scripts/blindtest_lp_ab.py`，同窗口同 prompt 仅 limit_pool 有无两臂）看命中率变化 |
 | 东财 LHB 历史回填 | eastmoney-lhb spec 范围外项 | `--date` 逐日补拉 |
-| 研报管线 | 主计划 M3（实际不依赖影子数据） | 按 16.4 执行 |
+| 研报管线 | 主计划 M3（实际不依赖影子数据） | **v1 已落地（2026-08-15）**：`research_feed.py` + `fetch_research_reports.py`，回填 04-27 起；日更 cron 待挂（wrapper 见 m-series 文档） |
 | `knowledge/cases/` 案例库扩容（仅 2 篇） | M0 验收遗留 | 从 550 篇 raw + 影子归因提炼，基准率检索可用 |
 | 中证2000/微盘股指数入包 | contract-v2 spec D7 可选项 | 指数自补机制已通，直接加 |
 | qing 对比臂评分 | 本稿 16.3 | 新建评分脚本 |

@@ -21,6 +21,7 @@
 
 - **K 线缓存** `infra/data/kline_cache.db`：217 只个股 + 2 指数，覆盖 2026-04-27 起，靠每日 cron 续拉保持连续
 - **涨停梯队** `infra/data/limit_pool/`：2026-07-27 起（东财涨停池历史仅保留约 1 个月，更早无法回填，2026-08-15 实测），cron 15:37 日更续接
+- **研报/公告** `infra/data/research/{reports,notices}/`：东财公开源（report/list + 公告大全），2026-08-15 管线 v1 落地并回填 2026-04-27 起；研报元数据含 PDF 直链（`download_pdf` 按需下载）
 - **盲测基线** `evals/blindtest/results.jsonl`：71 天（2026-04-27~08-07）历史回放，一次性产物
 - **影子数据** `evals/shadow/predictions/`：每日新增，毕业判定的数据源（当前 2 天）
 - **推理模式库** `framework/reasoning-patterns.yaml`：validation 区块回填状态见上表 M3 前置
@@ -34,6 +35,11 @@
 40 15 * * 1-5  shadow_daily       # 影子双轨日更（需 .env 里 deepseek_api_key）
 45 15 * * 1-5  kpl_daily_fetch    # KPL 情绪+资讯（需 .env 里 kpl_user_id/kpl_token/kpl_device_id）
 ```
+
+**待挂载：东财研报/公告日更**（建议 `10 18 * * 1-5`，KPL 之后错开）。wrapper 照
+`qing_kpl_daily_fetch.py` 模式新建 `~/.hermes/scripts/qing_fetch_research_reports.py`，
+委托 `scripts/fetch_research_reports.py`（无需凭证，公开源），jobs.json 条目仿照
+kpl 条目（`no_agent: true`）。手动：`python scripts/fetch_research_reports.py [--date|--start/--end]`。
 
 - 日志：`log/pre_fetch_klines.log`、`log/shadow_daily.log`、`log/kpl_daily_fetch.log`
 - 运行态报告：`logs/shadow-status.md`（每日刷新，已入 git）
