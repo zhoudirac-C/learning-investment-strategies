@@ -11,7 +11,8 @@
 - **编码**：`application/x-www-form-urlencoded`，业务参数在 body
 - **鉴权**：每个请求 body 必带 `UserID` / `Token`（32 位 hex，登录态）/ `DeviceID`（UUID）
   - token 存 `.env` 的 `kpl_token`（待接入时添加）；失效需重新抓包登录流程
-  - 有效期观察：2026-08-09 抓取的 token 在 08-10 全天正常使用，**至少 24h+**，上限待观察
+  - 有效期观察：2026-08-09 抓取的 token 在 08-10 全天正常使用；**08-15 晚间实测仍全部
+    errcode=0，存活 ≥6 天**（上限仍未测到）
 - **业务寻址**：`c=<控制器>&a=<动作>`，响应均为明文 JSON（中文为 `\uXXXX` 转义）
 - **子域即服务划分**：applhb=主服务，apphwhq=行情/情绪，apparticle=资讯，apphis=历史，
   apppage=内嵌 H5，appicon=头像，applog=埋点，apphotfix=热更新
@@ -187,6 +188,69 @@ TLS 失败域名扩至 `applhb/apphwhq/apphis/apparticle/applog/appcdn/getsockip
 4. 导出：历史记录 → 导出 HAR。
 5. 误判修正：下午抓到的 10jqka/thsi.cn 流量来自**同花顺 App**
    （`com.hexin.plat.android`，后台活跃），与 KPL 无关。
+
+## 搜索/文章接口抓包（2026-08-15 晚，结论：原生通道不可得，H5 通道可利用）
+
+> 拓扑：无线 adb（配对调试，无需数据线；Xiaomi 14 Pro / HyperOS）+ Reqable VPN
+> （`kpl-api-only` 规则集，仅拦截 `app*.longhuvip.com`）。注意 HyperOS 无线 adb
+> **不支持 input 注入**（无「无线调试（安全设置）」开关，`input tap` 报
+> INJECT_EVENTS 拒绝），只能 screencap/pull，App 操作需手动。
+> 抓包文件：`temp/kpl_capture/kpl-search-20260815.har`（21:00–21:11 窗口，含 token，勿外泄）。
+
+### 搜索接口：不可得（决定性实验）
+
+- 开抓包执行搜索后导出的 HAR 中**没有任何搜索请求**——两轮实测（20:45「pcb 产业链」、
+  复测「PCB」）均如此。
+- 首页搜索栏是原生 `SearchActivity`（综合/龙虎榜/基金/营业部 4 tab，面向股票/席位/基金，
+  非文章搜索）；推荐页右上角 🔍（文章搜索）与文章列表同属 apparticle 原生通道。
+- 开拦截后搜索不可用且无 HTTP 记录 → 搜索走**证书固定原生通道**或**直连 socket 通道**
+  （HAR 中 `hwany.longhuvip.com`、`hwsockapp.longhuvip.com:17000` CONNECT 200 透传活跃，
+  与板块/题材详情同源）。用户级抓包无解，按纪律收尾，不硬刚。
+- **结论：v2.2 §16.4 研报管线维持 akshare 东财主力源 + 人工投递；KPL 搜索接入放弃。**
+
+### 文章列表/推荐 feed：证书固定实锤（与 08-10 记录的矛盾修正）
+
+- 开拦截后推荐/关注/文章 tab 全部「请求服务器失败」；Reqable 中 `apparticle/applhb/
+  apphwhq` 的 CONNECT 全部「连接已断开」0B = 客户端在 TLS 握手期中止（证书固定拒绝用户 CA）。
+- **修正 08-10「apphwhq API 返回 200 明文」的记录**：今晚 apphwhq 4 个 CONNECT 全部
+  aborted。推测历次抓到的 API 明文样本均来自 **WebView XHR**（WebView 信任用户 CA），
+  原生 OkHttp 通道从未可解密。与 08-12 mitmproxy 观测一致。
+- 注意：这只影响"本机抓包"；云端生产抓取是直连服务端、无客户端证书校验，
+  已接入端点（`Index.GetInfo`/`IndexPlate.GetIndexList`/`ForumsMsgJX.GetInfo`）不受影响。
+
+### H5/WebView 通道：文章全文可读，绕开 1130（本次最大收获）
+
+```
+GET  appdata/appres.longhuvip.com/w47/community/PContent2.html?AID=<MsgID>&channel=1&kaipanhong=0&refreshKey=...
+     （文章正文 H5 页，<title>文章-正文</title>，抓包下正常加载）
+POST c=ForumsMsgJX&a=GetInfo   子域: apparticle   参数: MsgID=<见下> & Tag=1（H5 页内 XHR，WebView 信任用户 CA 故可解密）
+```
+
+- **公众号转载文章（长 MsgID）全文可读**：MsgID 形如 `base64==<数字>_<n>;2;1`
+  （如 `MzI3ODAyODI0Ng==2649581136_3;2;1`），响应 `Msg` 含
+  `ID(6-7位)/AID/TopicID/Title/CreateTime/Content` 完整全文。实测命中：
+  「中信建投：PCB…」「供应告急！PCB…」「PCB 龙头股…」「降息 50%！英伟达…」等
+  （ID 279419/431569/1000099/1001805/1004027/1004161，AID=184/865/102/180/78）。
+- **1130 边界修正**：此前记"带 AID 的 6 位 ID 全文 1130"——今晚样本表明该限制仅针对
+  **978xxx 付费专栏 ID**；公众号转载长 ID（同样带 AID）经 H5 链路全文可读。
+  978xxx 在 H5 链路下是否仍 1130 今晚未覆盖，接入时验证。
+- 伴生接口（H5 链路同现）：`c=ForumsMsgJX&a=AddReadCount`（长 ID 返回 errcode=1020
+  参数出错，数字 ID 正常）、`c=ArtXT&a=ReaderCount` 与 `c=WeChatArticleReader&a=ReaderCount`
+  （`appres/tj/index.php`）、`c=DataStatistics&a=CalUserClick/CalUserPage`（applog 埋点）、
+  `c=System&a=AdGetKHD`（applhb 广告位，Type=3,9）。
+- **新子域**：`appdata.longhuvip.com`（H5 页/文章图/wechat 图床/xuetang 学堂图）、
+  `appres.longhuvip.com`（同构资源 + `/tj/` 统计）。至此子域划分补全为：
+  applhb=主服务，apphwhq=行情/情绪，apparticle=资讯，apphis=历史，apppage=内嵌 H5，
+  **appdata/appres=H5 文章页与静态资源**，appicon=头像，applog=埋点，apphotfix=热更新。
+- token：08-09 抓取的 token 今晚（08-15 21:00）全部 errcode=0，**存活 ≥6 天**。
+
+### 对云端管线的落点
+
+- KPL 侧资讯能力维持现状：按日列表 `IndexPlate.GetIndexList` → 逐篇 `ForumsMsgJX.GetInfo`
+  （云端直连不受客户端证书固定影响）；
+- H5 `PContent2.html?AID=` 链路提供"知道 MsgID 就能取全文"的备用通道，公众号转载长文
+  （产业链深度文的主要载体之一）可经此落盘；
+- 搜索发现能力缺失 → 选题/关键词发现交给 akshare 东财研报源与人工投递（§16.4 三层不变）。
 
 ## 受限网络抓包拓扑（公司网拦截场景，2026-08-10 验证）
 
