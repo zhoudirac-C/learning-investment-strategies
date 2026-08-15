@@ -103,6 +103,30 @@ candidate_pattern:
 5. **例外条款**：**首次出现但直接影响当前持仓决策的操作纪律**，即使只出现1次也应进入 framework。例如：UP 说"能做T做T，反弹之后减仓，等黄金坑再补"——这是针对当前持仓的具体操作框架，不应等"出现2次"再采纳。判断标准：该规则是否直接回答了"现在怎么办"的问题？是→首次即入。
 6. **方法论框架对比**：将本次 review 窗口内的 methodology claims（claim_type=methodology, timeframe=permanent）与 `framework/reasoning-patterns.yaml`、`framework/market-breadth-framework.md` 和 `knowledge/wiki/投资方法论/大盘分析方法论.md` 交叉对比。标记状态：已收录 / 新方法论 / 矛盾（需人工裁决）。矛盾归入 contradiction 分类处理。**新方法论属推理模式类——按上方提名门槛生成 proposals 提案，不再直接追加进 framework 文档。**
 
+### Step 5.5: 批量提取推理模式（更新框架 examples）
+
+review 窗口内若有新入库的 UP raw 文件（复盘/视频/产业链深度），运行批量提取，把推理链归入现有框架：
+
+```bash
+# 1. 预览：看哪些新文件会被处理（不提取不落盘）
+.venv/bin/python scripts/extract_reasoning_patterns.py --incremental --dry-run
+
+# 2. 确认后执行（LLM 提取 + 合并进 reasoning-patterns.yaml）
+.venv/bin/python scripts/extract_reasoning_patterns.py --incremental
+```
+
+- 作用：把新 raw 文件的推理链**合并进 `framework/reasoning-patterns.yaml` 现有框架的
+  examples**（追加 example + 合并 themes/source_raw），是「更新框架」的批量路径。
+- **框架不是定死的（2026-08-15 修正）**：脚本已改为**从 yaml 动态读框架列表**
+  （`load_frameworks()`），新框架自动识别（现在 11 个，position_by_cycle 就是提案制新增的先例）；
+  LLM 只能归入现有框架，**归不进去（落 others）就是「框架改造」信号**——打印 ⚠️ 提示，
+  review 时应走提案制新增/改造框架。
+- 与 Step 5 提案制的关系（两条路径互补，别混淆）：
+  - **批量提取（本步）**＝内容填充：归入现有框架的 examples（不动框架结构、不新增框架）
+  - **提案制（Step 5）**＝框架演进：新推理模式（现有框架装不下）→ `framework/proposals/` 提案 → 人审后入库
+- 安全：`--incremental` 用 `.reasoning_extraction_state.json` 跳过已处理文件；合并是追加不覆盖；
+  LLM 密集（每文件一次调用），按需运行、不挂 cron；窗口内无新 raw 文件则跳过本步。
+
 ### Step 6: 一致性检查
 
 新 claims 与前期框架的冲突检查。
@@ -132,11 +156,15 @@ git add reports/methodology-review-YYYYMMDD.md
 - **双轨制对 Review 的影响**：轨道B（技术课程）的 claims 不参与 drift 分析。详见 `qing-learning` 总入口 skill 的跨 Skill 兼容性说明。
 - **Review 后的 Framework 写入**：本 skill 是只读分析，但用户 workflow 通常要求 review 后将 durable rules 写入 framework。写入操作不属于本 skill 职责——详见 `qing-learning` 总入口 skill 的「Review→Write 工作流」章节。本 skill 的输出（报告 + durable rule 候选列表）是下游写入操作的输入。
 - **推理模式类不走 framework 文档**：UP 复盘提炼出的分析/推导步骤是模式提名，必须走 `framework/proposals/` 提案制（门槛见 Step 5），经市场验证 + 人审后才入 `reasoning-patterns.yaml`。直接写入 = 绕过 validation，回 v2.0 老路。
+  ⚠️ **例外（2026-08-15 用户拍板）**：`extract_reasoning_patterns.py --incremental`（Step 5.5）允许直接合并进 yaml——它只把新 raw 文件的推理链**追加为现有 10 框架的 examples**（不改框架结构、不新增框架），与提案制互补；新模式（现有框架装不下）仍走提案制。
 
 ## Skill 职责边界
 
 本 skill 是**只读分析**：读 claims → 统计 → 漂移分析 → 矛盾识别 → 生成报告。
 **不写 config、不给操作建议、不定义架构**。详见 `references/skill-scope-boundary.md`。
+⚠️ **边界补充（2026-08-15 用户拍板）**：review 流程含 Step 5.5 批量提取推理模式——
+那是「更新框架 examples」的 review 产出动作（用户明确「qing review 是更新框架的 skill」），
+运行 `extract_reasoning_patterns.py --incremental` 属本 skill 职责；除此之外仍不写 framework。
 
 ## 历史合并记录
 
