@@ -373,11 +373,11 @@ UP 对产业链的解读（如"存储是下一阶段弹性所在"）降级为**�
 
 ### 16.4 修订四：研报管线定案——akshare 公开源为主，KPL 本地初调，人工投递兜底
 
-**调查结论（实测）**：KPL **已封装端点中没有**服务端关键词搜索接口，资讯只有"按日时间流列表→逐篇全文"，且最像研报的付费专栏（券商研报转载）全文 1130 无权限、只能拿标题/摘要；TDX（pytdx 直连）是纯行情协议，**无资讯/研报能力**，排除。**App 内搜索接口已于 2026-08-15 晚抓包实测为不可得**（证书固定原生通道/直连 socket，见 `docs/design/kpl-api-inventory.md`「搜索/文章接口抓包」节），KPL 搜索接入放弃；但同次抓包发现 **H5 `PContent2.html` 链路可读公众号转载长文全文**（绕开 1130），产业链深度文主要载体可落盘。**akshare spike（2026-08-15 实测通过）**：`stock_research_report_em` 个股研报列表可用（机构/评级/日期/盈利预测，**PDF 直链可下载**，002916/600183 等最新报告覆盖到 2026 年）；`stock_notice_report` 日更公告可用（顺带补上 KNOWN_DATA_GAPS 的"公告流"）。当前可行方案三层：
+**调查结论（实测）**：KPL **已封装端点中没有**服务端关键词搜索接口，资讯只有"按日时间流列表→逐篇全文"，且最像研报的付费专栏（券商研报转载）全文 1130 无权限、只能拿标题/摘要；TDX（pytdx 直连）是纯行情协议，**无资讯/研报能力**，排除。**App 内搜索接口已于 2026-08-15 晚抓包实测为不可得**（证书固定原生通道/直连 socket，见 `docs/design/kpl-api-inventory.md`「搜索/文章接口抓包」节），KPL 搜索接入放弃；但同次抓包发现 **H5 `PContent2.html` 链路可读公众号转载长文全文**（绕开 1130），产业链深度文主要载体可落盘。**akshare spike（2026-08-15 实测通过）**：`stock_research_report_em` 个股研报列表可用（机构/评级/日期/盈利预测，**PDF 直链可下载**，002916/600183 等最新报告覆盖到 2026 年）；`stock_notice_report` 日更公告可用（顺带补上 KNOWN_DATA_GAPS 的"公告流"）。**底层东财 API 检索能力实测（akshare 未封装层）**：`reportapi.eastmoney.com/report/list` 支持 `code=*` 全量列表 + qType（个股/行业/策略）+ **industryCode 行业过滤（实测 459=元件精确命中）** + 日期/机构/评级过滤；自由关键词参数无效（keyWord/keyword/searchKey 均忽略）。**东财站搜索 API**（`search-api-web.eastmoney.com`，需 Referer 头）支持自由关键词搜索新闻/文章（实测"PCB产业链"命中上证报/每经/证券日报当日文章）——资讯级搜索通道成立。当前可行方案三层：
 
 **方案**：
 - **主力源：akshare 东财研报/公告接口**（`stock_research_report_em` 等）——akshare 已是项目依赖、接口从未启用、公开源无封号风险。先 spike 验证当前版本可用性，落成 `scripts/fetch_research_reports.py` 日更 cron，落盘 `sources/research/incoming/`（含 frontmatter：来源/日期/标的/行业/摘要）；
-- **KPL 本地初调**：资讯已逐日全量落盘（`infra/data/kpl/news/<day>/`），在其上加本地关键词过滤层（"产业链"等 + 方向池关键词），命中条目全文已在本地，产出每日初调摘要；付费专栏条目留标题/摘要/关联股票作线索；
+- **KPL 本地初调**：资讯已逐日全量落盘（`infra/data/kpl/news/<day>/`），在其上加本地关键词过滤层（"产业链"等 + 方向池关键词），命中条目全文已在本地（含公众号转载长文，H5 链路），产出每日初调摘要；付费专栏条目留标题/摘要/关联股票作线索；
 - **人工投递通道**：用户自做调研报告放 `sources/research/incoming/` 同构目录，与采集层走同一解析（`industry_chain/migrate.py` 的 `parse_research_md`），回写产业链库并刷新 `last_verified`；
 - 由此引擎①"至少 1 条一级 + 1 条二级信息"硬约束在知识层真正可执行。
 
