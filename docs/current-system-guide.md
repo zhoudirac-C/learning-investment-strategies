@@ -26,7 +26,7 @@ AI 每个交易日收盘后独立判断市场阶段和方向（不看任何 UP �
 | M2 影子双轨 | 每个交易日 AI 盲判 → 到期结算 → 判错归因 | ✅ 运行中 | 每日记录 `evals/shadow/predictions/`；完整性报告 `logs/shadow-status.md` |
 | M3 前置 | 模式命中率回填（提案制：机器生成→人审→应用） | ✅ | `framework/proposals/` |
 | M4 预备 | 毕业判分器（8 周窗口聚合） | ✅ | `logs/graduation-2026-08-09.md`（当前 verdict=insufficient_data，正常——数据不够） |
-| M3 主体 | claims 分桶、evaluate_vs_market、研报管线扩容 | ⏳ 2026-09 初 | 等影子数据攒 ~4 周 |
+| M3 主体 | claims 分桶、evaluate_vs_market、研报管线扩容 | 分桶+eval 基建 ✅（2026-08-16）；回写置信度/UP 画像 ⏳ 2026-09 初 | `scripts/evaluate_vs_market.py`（logs/claims-vs-market-*.md）；回写机制等影子数据攒 ~4 周 |
 | M4 本体 | 毕业后拆 prompt 里的 UP 实时锚定 | ⏳ 等毕业判决 | 连续 8 周达标才动 |
 | M5 | 季度校准常态化 | ⏳ 毕业后 | — |
 

@@ -13,7 +13,7 @@
 | M2 影子双轨 | ✅ 完成 | 每日盲判→到期结算→归因→状态报告全链路；2026-08-07 首日 e2e 真实跑通；cron 已挂 |
 | M3 前置（patterns 回填） | ✅ 完成 | 5 个模式写入 M1 实测命中率 + 分环境段明细；technical_timing/operation_strategy 保持 M0 回测值 0.5182；3 个未使用模式保持 pending-m1；提案制机制（生成→人审→应用）落地（`framework/proposals/20260809-pattern-validation-m1.yaml`） |
 | M4 预备（毕业判分器） | ✅ 完成 | 8 周窗口聚合判定可用；首期报告 verdict=insufficient_data（`logs/graduation-2026-08-09.md`） |
-| M3 剩余（claims 分桶/evaluate_vs_market/UP 画像/研报管线） | ⏳ 等影子 ~4 周数据 | 预计 2026-09 初启动 |
+| M3 剩余 | 分桶+eval 基建 ✅（2026-08-16）：`claim_buckets.py` + `evaluate_vs_market.py`，存量 3719 张归位（up 3699 / research 20，命中率列待回写出数）；回写置信度/UP 画像 ⏳ 等影子 ~4 周数据 | 研报管线 ✅；回写机制预计 2026-09 初 |
 | M4 本体（prompt 拆锚定） | ⏳ 等毕业判决 | 连续 8 周达标后才允许动 `src/qing_investment/agent/prompts/` |
 | M5 校准常态化 | ⏳ 毕业后 | 季度分桶校准 + 产业链保鲜巡检（巡检器未写，可随时提前补） |
 
@@ -61,7 +61,7 @@
 ### 测试与回归
 
 ```bash
-.venv/bin/pytest tests/investment_engine -q          # 引擎测试（当前 153 passed）
+.venv/bin/pytest tests/investment_engine -q          # 引擎测试（当前 275 passed）
 PYTHONPATH=third_party/chanpy .venv/bin/pytest tests/ -q   # 全仓（当前 601 passed + 3 个已存在环境型失败）
 ```
 
@@ -78,8 +78,8 @@ PYTHONPATH=third_party/chanpy .venv/bin/pytest tests/ -q   # 全仓（当前 601
 
 | 时点 | 触发条件 | 动作 |
 |---|---|---|
-| 每周五收盘后 | — | 跑 `graduation_check.py` 看毕业进度 + `score_qing_review_vs_market.py --report` 刷新 qing 对比臂（logs/qing-vs-shadow-*.md）+ `industry_chain_freshness_check.py` 产业链保鲜巡检（logs/industry-chain-freshness.md） |
-| 2026-09 初 | 影子满 ~4 周 | 启动主计划 M3 剩余项（claims 分桶、`evaluate_vs_market.py`、UP 命中率画像、研报管线扩容） |
+| 每周五收盘后 | — | 跑 `graduation_check.py` 看毕业进度 + `score_qing_review_vs_market.py --report` 刷新 qing 对比臂（logs/qing-vs-shadow-*.md）+ `industry_chain_freshness_check.py` 产业链保鲜巡检（logs/industry-chain-freshness.md）+ `evaluate_vs_market.py --report` 分桶巡检（logs/claims-vs-market-*.md，other 桶 >0 即需评审映射表） |
+| 2026-09 初 | 影子满 ~4 周 | 启动主计划 M3 剩余项（市场结果回写置信度、UP 命中率画像；分桶与 evaluate_vs_market 基建已于 2026-08-16 提前落地，研报管线 ✅） |
 | 2026-10 初 | 影子满 8 周 | 毕业判分首次有效判决；`graduated` 才进入 M4 |
 | 毕业后 | verdict=graduated | M4 prompt 改造（拆 UP 实时锚定），evals 全绿才可合入 |
 | M4 后 | — | M5 校准常态化（季度校准 + 保鲜巡检） |
