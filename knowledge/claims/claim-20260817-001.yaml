@@ -1,0 +1,886 @@
+claims:
+- id: claim-20260817-001
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: market-cycle
+  subject: 指数处于可上可下中枢且CPO定方向
+  timeframe: intraday
+  statement: 指数反弹至可上可下的中枢位置，8月17日指数能否上行取决于CPO方向能否扛住并接稳外盘光通信的强度。
+  evidence_quote: 上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可下的中枢位置。今天最关键的一句话是：指数能不能上，取决于CPO能不能扛。
+  interpretation: UP把当日指数方向的决定权单一锚定在CPO上，这是一个可证伪的盘中观察条件：CPO放量承接则指数偏强，CPO冲高回落则推演顺延。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260816-005"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 8/17指数方向取决于CPO能否扛住
+  related_stocks: []
+  tags:
+  - CPO
+  - 指数中枢
+  - 盘中观察
+  - 方向锚定
+- id: claim-20260817-002
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: macro
+  subject: 外盘光存储强与大科技弱的结构性传导
+  timeframe: short-term
+  statement: 上周五（8月14日）美股指数中性但结构鲜明：存储板块走强（闪迪涨超7%、周累涨35.38%，希捷、西部数据、美光普涨），光通信走高（AAOI涨超15%、Lumentum、康宁跟涨），而半导体设备（应用材料跌超5%）与大科技（博通跌近6%）走弱；这对A股是结构性传导而非方向性传导。
+  evidence_quote: 外盘给出的是一份指数中性、结构鲜明的答卷——光＋存储强、设备与大科技弱，这对A股是结构性传导而非方向性传导。
+  interpretation: 外盘不决定A股方向，只决定结构偏好：光模块与存储链获得情绪加持，设备与大科技映射承压。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260731-003"]
+  contradicts: ["claim-20260807-003"]
+  supplements: []
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 外盘结构：光+存储强、设备与大科技弱，结构性传导
+  related_stocks: []
+  tags:
+  - 外盘
+  - 存储
+  - 光通信
+  - 结构性传导
+- id: claim-20260817-003
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: methodology
+  subject: 外盘只反映在开盘定价
+  timeframe: permanent
+  statement: 外盘只反映在开盘定价上，开盘之后市场就回到自己的节奏里；低开不可怕，接不住才可怕，真正需要盯的不是竞价高低，而是强势方向能否把外盘的强度接稳。
+  evidence_quote: 按老规矩，外盘只反映在开盘定价上，开盘之后市场就回到自己的节奏里，低开不可怕，接不住才可怕。真正需要盯的不是竞价高低，而是CPO方向能否把外盘的强度接稳。
+  interpretation: UP反复强调的盘中分析纪律：外盘信息在竞价阶段一次性定价完毕，之后应以承接力度而非开盘价判断强弱。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260703-001-f"]
+  contradicts: []
+  supplements: ["claim-20260814-004", "claim-20260810-004"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 方法论：外盘只影响开盘定价，盯承接而非竞价
+  related_stocks: []
+  tags:
+  - 外盘定价
+  - 开盘
+  - 承接
+  - 方法论
+- id: claim-20260817-004
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: market-cycle
+  subject: 周五指数站稳周四跳水后的恐慌
+  timeframe: short-term
+  statement: 8月14日指数没能走出理想的开盘小幅缩量、盘中慢慢放量形态，但至少稳住了周四尾盘跳水造成的恐慌情绪；能站稳本身已是较为理想的结果，不必苛求形态完美。
+  evidence_quote: 指数没能走成理想中的开盘小幅缩量、盘中慢慢放量，但至少稳住了周四尾盘跳水造成的恐慌情绪。个人判断：能站稳，本身已经是较为理想的结果，不必苛求形态完美。
+  interpretation: 对量能形态的容忍度判断：恐慌企稳优先于形态完美，为中枢震荡定性提供依据。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260729-003"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 周五量能：稳住恐慌已是较理想结果
+  related_stocks: []
+  tags:
+  - 量能
+  - 恐慌企稳
+  - 形态容忍度
+- id: claim-20260817-005
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: market-cycle
+  subject: 融资余额换手率与拥挤度回落
+  timeframe: trend
+  statement: 两市融资余额已从此前高点显著回落至今年三、四月份水平且近期企稳迹象明显，市场整体换手率降至924行情以来相对低位；开源证券数据显示前5%个股成交额集中度48.9%、较上月49.8%回落0.9个百分点，拥挤度拐点或已出现，预计将降至40%-42%附近，中期调整或到位。
+  evidence_quote: 两市融资余额已从此前高点显著回落至今年三、四月份水平，近期企稳迹象明显；市场整体换手率降至924行情以来的相对低位。据开源证券策略团队，前5%个股成交额集中度目前为48.9%，较上月的49.8%回落0.9个百分点，拥挤度拐点或已出现，预计本次将降至40%—42%附近，中期调整或到位。
+  interpretation: 三组筹码指标同向回落，定量支持“中期调整或到位”的判断，是UP判断市场进入磨底而非崩盘的核心数据基础。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260623-001-a"]
+  contradicts: []
+  supplements: ["claim-20260812-029"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 筹码三指标回落：拥挤度拐点或已出现
+  related_stocks: []
+  tags:
+  - 融资余额
+  - 换手率
+  - 拥挤度
+  - 成交额集中度
+- id: claim-20260817-006
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: market-cycle
+  subject: 消化筹码靠时间而非暴跌
+  timeframe: trend
+  statement: 6-7月资金集中流入累积了成交拥挤，而拥挤度是短期市场的核心锚点；消化筹码需要的是时间而非暴跌，当下市场更像磨而不是崩。
+  evidence_quote: 由于海外科技龙头较早进入调整、A股科技在其后仍加速上涨，6—7月资金集中流入进一步累积了成交拥挤，而拥挤度正是短期市场的核心锚点。因此消化筹码需要的是时间而非暴跌，这也解释了为什么当下更像磨而不是崩。
+  interpretation: 独立的市场结构定性判断：调整形式是时间换空间的磨，不是空间换时间的崩，直接决定持仓策略上应以持股轮动为主。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260531-002-a", "claim-20260813-027"]
+  contradicts: []
+  supplements: ["claim-20260614-002-b"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 定性：当下是磨不是崩，消化筹码靠时间
+  related_stocks: []
+  tags:
+  - 拥挤度
+  - 磨底
+  - 筹码消化
+  - 市场结构
+- id: claim-20260817-007
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: macro
+  subject: 7月社融与货币数据
+  timeframe: trend
+  statement: 央行8月14日发布数据：7月末社融存量463.27万亿元、同比增长7.4%，M2余额355.51万亿元、同比增长7.7%（较上月回落0.3个百分点），M1余额115.46万亿元、同比增长4%，M1与M2剪刀差进一步收窄；前七个月社融增量累计22.25万亿元，比上年同期少1.74万亿元。
+  evidence_quote: 据央行8月14日发布的7月金融统计数据，7月末社会融资规模存量463.27万亿元、同比增长7.4%，M2余额355.51万亿元、同比增长7.7%，M1余额115.46万亿元、同比增长4%；M2增速较上月末回落0.3个百分点，M1与M2「剪刀差」进一步收窄……前七个月社会融资规模增量累计22.25万亿元，比上年同期少1.74万亿元。
+  interpretation: 宏观流动性底色的定量记录，作为大金融板块与指数托底判断的数据输入。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 7月金融数据：社融增7.4%、M1M2剪刀差收窄
+  related_stocks: []
+  tags:
+  - 社融
+  - M2
+  - M1M2剪刀差
+  - 央行
+- id: claim-20260817-008
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: macro
+  subject: 社融数据对指数是托底项
+  timeframe: short-term
+  statement: 7月金融数据总量不刺激、结构不恶化，对指数是托底项而非发动机；大金融大概率不构成负担，但也不必指望它主动出击。
+  evidence_quote: 这是一份总量不刺激、结构不恶化的数据，对指数是托底项而非发动机。大金融今天大概率不构成负担，但也不必指望它主动出击。
+  interpretation: 对宏观数据的定性：中性偏稳，意味着指数上行驱动必须来自产业方向（如CPO）而非金融权重。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 定性：金融数据是托底项而非发动机
+  related_stocks: []
+  tags:
+  - 社融
+  - 大金融
+  - 托底
+  - 宏观定性
+- id: claim-20260817-009
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: market-cycle
+  subject: 涨停结构与高位股跌停事实
+  timeframe: intraday
+  statement: 上周五（8月14日）二板家数仅5家、一进二晋级率13.16%，首板家数由38家大幅增至51家；核心矛盾在于跌停家数来到两位数，且大部分是高位股。
+  evidence_quote: 上周五二板家数虽只有5家，一进二晋级率仍有13.16%；首板家数由38家大幅增至51家。核心矛盾在于跌停家数来到两位数，且大部分是高位股。
+  interpretation: 情绪数据的定量记录：首板扩容显示赚钱效应尚在，但高位股跌停扩散是需要持续跟踪的风险信号。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260806-003", "claim-20260716-001-d", "claim-20260814-010"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情绪数据：首板38增至51家、跌停达两位数
+  related_stocks: []
+  tags:
+  - 涨停
+  - 首板
+  - 晋级率
+  - 跌停
+- id: claim-20260817-010
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: market-cycle
+  subject: 中位股跌停对情绪影响有限
+  timeframe: short-term
+  statement: 上周五跌停的所谓高位股其实只是中位股，百花医药(600721)、传智教育(003032)等真正有辨识度的高位股仍旧坚挺；在中位股出现连续跌停、或标杆高位股松动（含爱丽家居(603221)复牌定价）之前，对市场情绪的影响比较有限。
+  evidence_quote: 这批所谓高位股其实只是中位股，真正有辨识度的高位股仍旧坚挺。因此在这些个股（包括之后要复牌的爱丽家居）调整之前，或者上周五那批中位股不出现连续跌停之前，对市场情绪的影响还是比较有限的。标杆高位股：百花医药、传智教育当前仍属坚挺一档，是判断情绪是否转向的观察锚点。
+  interpretation: UP区分中位股与真高位股的杀伤层级，给出情绪转向的两个可观察触发条件：中位股连续跌停、标杆高位股松动。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260811-009", "claim-20260816-014", "claim-20260608-001-e"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情绪判断：中位股跌停影响有限，盯百花医药传智教育
+  related_stocks:
+  - code: '600721'
+    name: 百花医药
+    role: 标杆高位股-情绪观察锚点-主板可交易
+  - code: '003032'
+    name: 传智教育
+    role: 标杆高位股-情绪观察锚点-主板可交易
+  - code: '603221'
+    name: 爱丽家居
+    role: 待复牌个股-复牌定价观察-主板可交易
+  tags:
+  - 高位股
+  - 中位股
+  - 情绪锚点
+  - 跌停
+- id: claim-20260817-011
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: catalyst
+  subject: 中际旭创受让中石科技股份
+  timeframe: industry
+  statement: 中际旭创(300308)公告拟以现金协议受让中石科技(300684)3137.25万股无限售流通股（占总股本10.47%）；中石科技(300684)主营高性能导热材料与EMI屏蔽材料，应用于数据中心与算力中心等场景，800G、1.6T光模块放量推高功耗密度，散热需求呈显著增量，预计产生较强协同效应；板块内公司还有天洋新材(603330)。
+  evidence_quote: 据财联社8月13日，中际旭创公告与中石科技控股股东签署股份转让协议，拟以现金方式协议受让中石科技3137.25万股无限售条件流通股，占其总股本的10.47%……随着800G、1.6T等高端光模块产品持续放量、功耗密度提升，散热需求呈现显著增量，预计与公司业务产生较强协同效应。板块内公司：中石科技、天洋新材。
+  interpretation: 光模块龙头中际旭创(300308)横向入股散热材料商中石科技(300684)，是CPO产业链向散热环节延伸的产业信号，强化光模块景气外溢逻辑。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260814-026", "claim-20260816-009"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中际旭创入股中石科技10.47%，布局散热协同
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块龙头-创业板不可交易
+  - code: '300684'
+    name: 中石科技
+    role: 导热散热材料-创业板不可交易
+  - code: '603330'
+    name: 天洋新材
+    role: 板块内公司-主板可交易
+  tags:
+  - CPO
+  - 光模块
+  - 散热
+  - 股权转让
+- id: claim-20260817-012
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: sector-theme
+  subject: AAOI大涨印证800G与NPO趋势
+  timeframe: industry
+  statement: AAOI单日大涨15.53%，得益于800G光收发器快速普及带动数据中心业务收入大幅增长；NPO相比传统可插拔方案在带宽密度和功耗方面显著改进，又可依托成熟的可插拔光收发器生态；A股相关公司包括智立方(301312)、汇绿生态(001267)。
+  evidence_quote: 海外侧的印证是AAOI单日大涨15.53%——得益于800G光收发器的快速普及，公司数据中心业务收入大幅增长；相比传统可插拔方案，NPO在带宽密度和功耗方面提供显著改进，同时又可依靠成熟的可插拔光收发器生态系统。A股相关公司包括智立方、汇绿生态。
+  interpretation: 海外光通信标的的强势是A股CPO板块的映射催化，NPO是光互联技术演进的新方向关键词。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260622-003-g"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AAOI大涨15.53%，800G普及与NPO方案获印证
+  related_stocks:
+  - code: '301312'
+    name: 智立方
+    role: NPO映射标的-创业板不可交易
+  - code: '001267'
+    name: 汇绿生态
+    role: NPO映射标的-主板可交易
+  tags:
+  - AAOI
+  - 800G
+  - NPO
+  - 光通信
+- id: claim-20260817-013
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: sector-theme
+  subject: CPO是唯一能给指数搭梯子的方向
+  timeframe: short-term
+  statement: 正是CPO概念全线爆发带动了易中天（中际旭创(300308)、天孚通信(300394)、新易盛(300502)），并连带创业板指一并走强；CPO这条线是目前唯一具备给指数搭梯子能力的方向。
+  evidence_quote: 个人判断：正是CPO概念全线爆发带动了易中天，并连带创业板指一并走强。这条线是目前唯一具备给指数搭梯子能力的方向。
+  interpretation: UP对当前市场主线地位的最高强度定性：指数的向上突破能力单一绑定CPO，其他科技方向只具备轮动属性。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["qing-2026-06-08-sector-zhongji-ai-transport-pillar-001", "claim-20260805-049"]
+  supplements: []
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 主线定性：CPO唯一具备给指数搭梯子能力
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: CPO核心-创业板不可交易
+  - code: '300394'
+    name: 天孚通信
+    role: CPO核心-创业板不可交易
+  - code: '300502'
+    name: 新易盛
+    role: CPO核心-创业板不可交易
+  tags:
+  - CPO
+  - 易中天
+  - 创业板指
+  - 主线
+- id: claim-20260817-014
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: catalyst
+  subject: 盛科通信获大额交换芯片合同
+  timeframe: industry
+  statement: 盛科通信(688702)公告与关联方中电港(001287)签订以太网交换芯片产品销售合同，金额超过最近一个会计年度经审计营收的50%且超过1亿元；合同履行期超一年、收入分期确认，对2026年当期业绩影响相对有限，但若顺利履行将对后续年度业绩形成正向影响。
+  evidence_quote: 据财联社8月16日，盛科通信公告与关联方深圳中电港技术股份有限公司签订产品销售合同，标的为以太网交换芯片，合同金额超过公司最近一个会计年度经审计营收的50%且超过1亿元；该合同履行期限超过一年，收入分期确认，不会在2026年当期一次性确认，对公司2026年度经营业绩影响相对有限。
+  interpretation: 国产交换芯片放量的实质订单信号，但需注意盛科通信(688702)收入递延确认，当期业绩弹性有限，属中期逻辑验证。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260625-003-n", "claim-20260713-002-q", "claim-20260805-058"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 盛科通信签超亿元交换芯片合同，收入分期确认
+  related_stocks:
+  - code: '688702'
+    name: 盛科通信
+    role: 交换芯片龙头-科创板不可交易
+  - code: '001287'
+    name: 中电港
+    role: 合同关联方-主板可交易
+  tags:
+  - 交换芯片
+  - 盛科通信
+  - 大额合同
+  - 国产化
+- id: claim-20260817-015
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: sector-theme
+  subject: 交换机需求与交换芯片国产化加速
+  timeframe: industry
+  statement: 中国银河证券认为AI算力集群前后端组网均拉动大量交换机需求，1.6T端口交换机有望2027年开始放量，将倒逼交换芯片国产化加速；锐捷网络(301165)已形成400G/800G数据中心交换产品布局并推出128端口800G盒式交换机，盛科通信(688702)今年有望推出下一代高端交换芯片、进一步缩小与博通的差距。
+  evidence_quote: 中国银河证券表示，AI时代算力集群的前后端网络组网均拉动大量交换机需求，1.6T端口交换机有望在2027年开始放量，将倒逼产业链「卡脖子」环节——交换芯片国产化加速……锐捷网络……推出的128端口800G盒式交换机可用于建设高密度AI算力网络。盛科通信……今年有望推出下一代高端交换芯片产品，进一步缩小与博通的差距。
+  interpretation: 机构视角下交换机产业链的量价节奏：2027年1.6T放量是中期锚点，国产交换芯片是卡脖子环节的受益方向。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260706-015", "claim-20260810-044", "claim-20260809-020"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 交换机链：1.6T于2027年放量，交换芯片国产化加速
+  related_stocks:
+  - code: '301165'
+    name: 锐捷网络
+    role: 高端交换机龙头-创业板不可交易
+  - code: '688702'
+    name: 盛科通信
+    role: 交换芯片龙头-科创板不可交易
+  tags:
+  - 交换机
+  - 1.6T
+  - 交换芯片
+  - 国产化
+- id: claim-20260817-016
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: catalyst
+  subject: 英伟达拟投SB Energy与AIDC电力散热
+  timeframe: industry
+  statement: 英伟达正与软银旗下数据中心开发商SB Energy洽谈最高30亿美元投资，后者俄亥俄州数据中心项目规划10吉瓦、开发成本预计高达5000亿美元、OpenAI为重要使用方；国海证券电新团队认为AI瓶颈正从芯片供给转向电力与散热，Rubin
+    Ultra单机柜功率或超1MW，HVDC或是下一代智算中心标准化供配电方案，SST商业拐点已至。
+  evidence_quote: 据公开报道，英伟达正与软银集团旗下数据中心开发商SB Energy洽谈，计划投资最高30亿美元……规划规模达10吉瓦，整体开发成本预计高达5000亿美元，OpenAI将成为该项目的重要使用方……国海证券电新团队认为，AI瓶颈正从芯片供给转向电力与散热，GPU算力与功耗同步高速增长，Rubin
+    Ultra单机柜功率或将超1MW；HVDC或是下一代智算中心标准化供配电方案，SST商业拐点已至。
+  interpretation: AIDC电力与散热方向的海外大额催化叠加券商产业判断，为A股AIDC电源链提供中期逻辑支撑。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260809-017"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 英伟达拟投30亿美元数据中心，AI瓶颈转向电力散热
+  related_stocks: []
+  tags:
+  - 英伟达
+  - AIDC
+  - HVDC
+  - 电力散热
+- id: claim-20260817-017
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: stock-view
+  subject: AIDC电源标的中恒电气与麦格米特
+  timeframe: industry
+  statement: 中恒电气(002364)是AIDC柜外电源行业龙头，HVDC、巴拿马电源产品技术领先、行业市占率较高；麦格米特(002851)持续加大AI数据中心电源研发，服务器电源等核心项目已逐步度过验证期并进入实质性交付阶段。
+  evidence_quote: 中恒电气：据公司信息，是AIDC柜外电源行业龙头，HVDC、巴拿马电源产品技术领先，行业市占率较高。麦格米特：据公司信息，持续加大在AI数据中心电源等高壁垒领域的研发布局，服务器电源等核心项目已逐步度过验证期并进入实质性交付阶段。
+  interpretation: AIDC电力链的两个A股核心标的定位记录：中恒电气(002364)对应HVDC供配电，麦格米特(002851)对应服务器电源交付兑现。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260707-024-a"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AIDC电源标的：中恒电气HVDC龙头、麦格米特进入交付期
+  related_stocks:
+  - code: '002364'
+    name: 中恒电气
+    role: AIDC柜外电源龙头-主板可交易
+  - code: '002851'
+    name: 麦格米特
+    role: 服务器电源交付期-主板可交易
+  tags:
+  - AIDC
+  - HVDC
+  - 中恒电气
+  - 麦格米特
+- id: claim-20260817-018
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: sector-theme
+  subject: AIDC电力与传统电力分开定价
+  timeframe: trend
+  statement: AIDC电力方向与电力板块大幅调整并不矛盾：传统电力是宏观定价，AIDC电力是产业链定价，两者需要分开看；AIDC电力的右侧确认标志是能否走出独立于电力板块的量价。
+  evidence_quote: 个人判断：这条线与电力大幅调整并不矛盾——传统电力是宏观定价，AIDC电力是产业链定价，两者需要分开看。后者的右侧确认标志，是能否走出独立于电力板块的量价。
+  interpretation: UP给出的板块内部分层判断框架：同名不同命，区分定价逻辑，并以独立量价作为右侧确认的可观察条件。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260610-034-a"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 判断框架：AIDC电力产业链定价，独立于传统电力
+  related_stocks: []
+  tags:
+  - AIDC电力
+  - 定价逻辑
+  - 右侧确认
+  - 量价独立
+- id: claim-20260817-019
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: catalyst
+  subject: 阿里云灵骏超节点上线与国产算力链表现
+  timeframe: industry
+  statement: 阿里云灵骏真武M890超节点实例正式上线、首批在乌兰察布开售，为国内首个成功运行超2万亿参数大模型的超节点形态算力；上周五国产算力链已有表现，利通电子(603629)、宏景科技(301396)实现对周四的反包，共进股份(603118)走出连板。
+  evidence_quote: 据公开报道，阿里云灵骏真武M890超节点实例正式上线，首批已在乌兰察布地区开售，为国内首个成功运行超2万亿参数大模型的超节点形态算力。上周五国产链已有表现，利通电子、宏景科技实现了对周四的反包，共进股份走出连板。
+  interpretation: 国产算力链的周末新增产业催化，盘面已有资金提前反应，属于CPO之外的轮动候选方向。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260609-005-d", "claim-20260721-027", "claim-20260716-002-c"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 阿里云超节点上线，国产算力链已有盘面反应
+  related_stocks:
+  - code: '603629'
+    name: 利通电子
+    role: 国产算力链-反包标的-主板可交易
+  - code: '301396'
+    name: 宏景科技
+    role: 国产算力链-反包标的-创业板不可交易
+  - code: '603118'
+    name: 共进股份
+    role: 国产算力链-连板标的-主板可交易
+  tags:
+  - 阿里云
+  - 超节点
+  - 国产算力
+  - 反包
+- id: claim-20260817-020
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: catalyst
+  subject: 2026版基药目录首次纳入创新药
+  timeframe: industry
+  statement: 《国家基本药物目录（2026版）》将于9月1日起实施，共收录794种药品、较2018年版新增116种，并首次将创新药纳入遴选范围。
+  evidence_quote: 据公开报道，《国家基本药物目录（2026版）》将于9月1日起实施，共收录794种药品，较2018年版新增116种，首次将创新药纳入遴选范围。
+  interpretation: 医药板块的政策性新变量：创新药首次进入基药遴选，为医药行情提供产业层面的支撑。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260714-001-as", "claim-20260713-023-w", "claim-20260713-002-t"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 基药目录9月1日实施，首次纳入创新药
+  related_stocks: []
+  tags:
+  - 基药目录
+  - 创新药
+  - 医药政策
+- id: claim-20260817-021
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: sector-theme
+  subject: 基药目录落地强化医药攻守属性
+  timeframe: trend
+  statement: 医药分歧加大、最近一波强度不如上一波的观察依然成立，但基药目录落地是新变量；考虑到医药进可攻退可守的属性，指数若继续震荡，反倒会让医药继续身处舒适区。
+  evidence_quote: 个人判断：这给「排除掉所有错误答案后，剩下的自然就是正确答案」提供了产业层面的支撑。医药分歧加大、最近一波强度不如上一波，这个观察依然成立，但目录落地是新变量。考虑到医药进可攻退可守的属性，指数若继续震荡，反倒会让医药继续身处舒适区。
+  interpretation: UP对医药的策略定性：不指望进攻强度，但震荡市中攻守兼备，是值得抬高权重的轮动承接方向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260809-016"]
+  contradicts: []
+  supplements: ["claim-20260814-016", "claim-20260810-013"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药：目录落地是新变量，震荡市身处舒适区
+  related_stocks: []
+  tags:
+  - 医药
+  - 攻守兼备
+  - 轮动
+  - 震荡市
+- id: claim-20260817-022
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: stock-view
+  subject: 茅台中报与消费板块压力
+  timeframe: short-term
+  statement: 贵州茅台(600519)中报显示上半年营收907.03亿元、同比增长1.47%，归母净利润445.17亿元、同比下降1.95%；截至二季度末中央汇金、证金均退出其十大股东名单；这与黄金白酒食品等消费未呈现板块效应、局部走强个股跟随上证步入调整的判断一致，8月17日开盘可能有额外压力。
+  evidence_quote: 据公开报道，贵州茅台中报显示上半年营收907.03亿元、同比增长1.47%，归母净利润445.17亿元、同比下降1.95%；截至二季度末，中央汇金、证金公司均退出其十大股东名单。这与黄金白酒食品等消费未呈现板块效应、局部走强个股跟随上证指数节奏步入调整的判断方向一致，且今日开盘可能有额外压力。
+  interpretation: 消费方向的周末利空：龙头贵州茅台(600519)业绩负增长叠加国家队退出十大股东，验证消费无板块效应的判断。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 茅台中报净利降1.95%，汇金证金退出十大股东
+  related_stocks:
+  - code: '600519'
+    name: 贵州茅台
+    role: 白酒龙头-中报利空-主板可交易
+  tags:
+  - 贵州茅台
+  - 中报
+  - 白酒
+  - 消费利空
+- id: claim-20260817-023
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: catalyst
+  subject: 小麦涨价与霍尔木兹地缘变量
+  timeframe: short-term
+  statement: 美国小麦上涨5.47%，黑海局势紧张和区域性干旱推升全球小麦价格，大宗商品涨价已有传导，A股相关公司包括金健米业(600127)、神农种业(300189)；另据公开报道伊朗称已与阿曼就霍尔木兹海峡通行方案达成协议，若属实，地缘溢价方向可能与上周相反，农产品与油气链的定价基础需要重看。
+  evidence_quote: 美国小麦上涨5.47%，黑海局势紧张和区域性干旱引发全球小麦价格上涨，大宗商品涨价已有传导。A股相关公司包括金健米业、神农种业……另需注意，据公开报道，周末伊朗方面称已与阿曼就霍尔木兹海峡通行方案达成协议——若属实，地缘溢价方向可能与上周相反，农产品与油气链的定价基础需要重看。
+  interpretation: 农业链的双重变量：天气与黑海推升粮价，但霍尔木兹通行协议若落地将反转地缘溢价，两个方向需对冲观察。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260804-034", "claim-20260804-004"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 小麦涨5.47%传导农业链，霍尔木兹协议或反转地缘溢价
+  related_stocks:
+  - code: '600127'
+    name: 金健米业
+    role: 农业链映射-主板可交易
+  - code: '300189'
+    name: 神农种业
+    role: 种业映射-创业板不可交易
+  tags:
+  - 小麦
+  - 农业
+  - 霍尔木兹
+  - 地缘溢价
+- id: claim-20260817-024
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: catalyst
+  subject: 无人机关税与两地定价分歧
+  timeframe: short-term
+  statement: 美方上周宣布对无人机及组件分档加征关税，出口业务占比高的A股标的短期承压，但同期美股无人机概念股逆势走强，两地定价存在分歧。
+  evidence_quote: 其一，无人机链。据公开报道，美方上周宣布对无人机及组件分档加征关税，出口业务占比高的标的短期承压，但同期美股无人机概念股逆势走强，两地定价存在分歧。
+  interpretation: 关税利空与美股映射走势背离，说明市场对无人机链的定价存在分歧，属于备案观察变量而非明确方向。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美国对无人机加征关税，A股美股定价分歧
+  related_stocks: []
+  tags:
+  - 无人机
+  - 关税
+  - 定价分歧
+- id: claim-20260817-025
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: market-cycle
+  subject: 8月末题材溢价让位于业绩兑现
+  timeframe: short-term
+  statement: 截至8月14日全市场仅300余家公司披露半年报、披露率接近6%，剩余五千余家须在此后半个月内集中交卷，8月末的题材溢价将系统性让位于业绩兑现。
+  evidence_quote: 其二，业绩期。据公开数据，截至8月14日全市场仅300余家公司披露半年报、披露率接近6%，剩余五千余家须在此后半个月内集中交卷，8月末的题材溢价将系统性让位于业绩兑现。
+  interpretation: 日历型市场规律判断：中报密集披露期压制题材炒作、利好有业绩支撑的方向，是8月下旬风格切换的核心约束。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260702-004-k"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 业绩期：披露率仅6%，8月末题材溢价让位业绩
+  related_stocks: []
+  tags:
+  - 中报
+  - 业绩期
+  - 题材溢价
+  - 风格切换
+- id: claim-20260817-026
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: catalyst
+  subject: 8月机器人产业日历
+  timeframe: short-term
+  statement: 8月19日至23日世界机器人大会在北京举行，8月22日起举办第二届世界人形机器人运动会，构成机器人板块的日历型催化。
+  evidence_quote: 其三，机器人日历。8月19日至23日世界机器人大会在北京举行，8月22日起第二届世界人形机器人运动会举办。
+  interpretation: 机器人方向的事件日历备案，大会期间可能有主题性脉冲行情。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260608-004-h", "claim-20260518-022"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 机器人日历：8/19-23世界机器人大会
+  related_stocks: []
+  tags:
+  - 机器人
+  - 世界机器人大会
+  - 日历催化
+- id: claim-20260817-027
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: operation
+  subject: 8月17日三情形条件化应对预案
+  timeframe: intraday
+  statement: 情形A偏强：平开或小幅低开后CPO、交换芯片承接住外盘光通信强度、量能温和放大、跌停收敛至个位数，则已关注方向延续持股或做T，情绪确认好转后再适当增加短线品种（注意是确认之后而非预期之中）；情形B偏弱：低开且CPO冲高回落、中位股连续跌停或百花医药(600721)、传智教育(003032)松动，则不宜增加短线品种，医药防御属性放大；情形C震荡（概率最高）：指数不选方向、成交继续收缩，医药与部分国产链轮动填补，电力需先看到量价止跌才谈右侧确认。
+  evidence_quote: 情形A（偏强）：平开或小幅低开后，CPO、交换芯片方向承接住外盘光通信的强度，量能温和放大，跌停家数收敛至个位数。此时指数自然水涨船高……情形B（偏弱）：低开且CPO冲高回落，上周五那批中位股出现连续跌停，或百花医药、传智教育等标杆高位股松动……情形C（震荡）：指数不选方向、成交继续收缩。这是概率最高的一种，医药与部分国产链承担轮动填补的角色；电力在大幅调整之后需要先看到量价止跌，才谈得上右侧确认，现在讨论抄底为时尚早。
+  interpretation: UP的标准条件化预案模板：每种情形给出触发条件与对应操作，强调加仓动作必须发生在情绪确认之后，电力抄底为时尚早。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260814-036", "claim-20260803-013", "claim-20260812-024"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 8/17预案：A偏强持股做T、B偏弱不加仓、C震荡医药轮动
+  related_stocks:
+  - code: '600721'
+    name: 百花医药
+    role: 标杆高位股-情绪观察锚点-主板可交易
+  - code: '003032'
+    name: 传智教育
+    role: 标杆高位股-情绪观察锚点-主板可交易
+  tags:
+  - 条件化预案
+  - 三情形
+  - 操作纪律
+  - 做T
+- id: claim-20260817-028
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  source_date: '2026-08-17'
+  source_type: 动态
+  extracted_at: '2026-08-17T20:10:00'
+  claim_type: market-cycle
+  subject: CPO成败决定科技调整节奏
+  timeframe: short-term
+  statement: CPO这条线扛住，其余科技方向的1浪2调整就有时间从容走完；这条线塌了，前面所有关于拥挤度回落、筹码结构健康的推演都要往后顺延一段时间。
+  evidence_quote: 个人判断：CPO这条线扛住，其余科技方向的1浪2调整就有时间从容走完；这条线塌了，前面所有关于拥挤度回落、筹码结构健康的推演都要往后顺延一段时间。
+  interpretation: 全文总结性判断：CPO是当前市场结构的承重墙，其成败决定整个科技线调整推演的时间表。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260713-016-p", "claim-20260615-004"]
+  last_discovered: 2026-08-17
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 总判断：CPO是承重墙，塌则推演顺延
+  related_stocks: []
+  tags:
+  - CPO
+  - 1浪2
+  - 调整节奏
+  - 承重墙
