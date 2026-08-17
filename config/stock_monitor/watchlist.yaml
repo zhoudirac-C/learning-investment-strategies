@@ -1667,6 +1667,94 @@ themes:
       last_mentioned_date: '2026-06-21'
       mention_context: 6/21复盘专栏涨价确定性排序—铟/磷化铟第二档
       sentiment: 积极看好
+- id: holding_etf_datong
+  name: 持仓ETF-大同（半导体/AI 方向组合）
+  up_positioning: 「按 UP 逻辑配置的持仓组合」— 8/16 周复盘：国产超节点与交换机是反弹转反转的关键（8/16-013），光模块延续强势但注意兑现时差；8/14 半导体分板块排序：晶圆制造壁垒最深（8/14-032）。组合覆盖：国产芯片+交换芯片（588780）、AI算力+紫光（515980）、晶圆制造（588200）、设备/半导体（159516/588170）。
+  note: 2026-08-17 大同证券持仓截图登记（OCR+市值公式验证）。设备方向保留底仓作为中报验证期权，主线在国产算力/芯片/晶圆制造。
+  source_docs:
+  - knowledge/claims/claim-20260816-001.yaml
+  - knowledge/claims/claim-20260814-001.yaml
+  market_checks:
+  - 紫光股份(000938)/华勤技术(603296)是否跟涨（交换机证伪条件，8/16-013）
+  - 两市量能能否从2万亿回2.5万亿以上（变盘前置条件，8/16）
+  - 盛科通信(688702)能否创新高（7月订单转合同后跟随新高）
+  - 半导体设备中报验证（北方华创/中微/拓荆）——159516/588170 保留仓的去留依据
+  stocks:
+  - code: 159516.SZ
+    name: 半导体设备ETF国泰
+    role: holding_etf
+    segment: 半导体设备整机（北方华创13.3/中微15.1/拓荆6.4）
+    priority: 持仓-大同证券
+    watch_reason: 2026-08-17 持仓 35,900股@0.723（截图登记）。UP 6/30 判定设备整机相对平庸，本仓为中报验证期权，观察设备业绩兑现后去留。
+    lifecycle:
+      stage: holding
+      entered_stage: '2026-08-17'
+    linked_claims:
+    - claim_id: claim-20260630-002-b
+      relevance: theme
+      claim_type: sector-theme
+    - claim_id: claim-20260812-022
+      relevance: theme
+      claim_type: sector-theme
+  - code: 588170.SH
+    name: 科创半导体ETF华夏
+    role: holding_etf
+    segment: 科创半导体设备+材料（华海清科10.6/中微10.1/富创精密4.7）
+    priority: 持仓-大同证券
+    watch_reason: 2026-08-17 持仓 35,600股@0.993（截图登记）。含富创精密4.7%（UP 8/12 零部件弹性>整机），设备链折中表达，观察中报验证。
+    lifecycle:
+      stage: holding
+      entered_stage: '2026-08-17'
+    linked_claims:
+    - claim_id: claim-20260812-022
+      relevance: theme
+      claim_type: sector-theme
+  - code: 588780.SH
+    name: 科创芯片设计ETF国联安
+    role: holding_etf
+    segment: 国产算力芯片+交换芯片（海光9.9/寒武纪8.8/盛科2.8/澜起9.6/佰维10.8）
+    priority: 持仓-大同证券
+    watch_reason: 2026-08-17 持仓 36,000股@1.023（截图登记）。唯一含盛科（交换芯片）的ETF——UP 8/16 点名盛科7月订单转合同、有望跟随新高；国产算力芯片主线核心载体。
+    lifecycle:
+      stage: holding
+      entered_stage: '2026-08-17'
+    linked_claims:
+    - claim_id: claim-20260816-013
+      relevance: theme
+      claim_type: sector-theme
+    - claim_id: claim-20260809-020
+      relevance: theme
+      claim_type: stock-view
+  - code: 515980.SH
+    name: 人工智能ETF华富
+    role: holding_etf
+    segment: AI全链（寒武纪10.4/新易盛9.6/旭创9.0/海光7.1/协创7.1/紫光3.0）
+    priority: 持仓-大同证券
+    watch_reason: 2026-08-17 持仓 30,000股@1.086（截图登记）。唯一含紫光股份3.0%的AI ETF——紫光是 UP 8/16 交换机证伪条件的核心观察变量；协创数据7.1%在 UP 8/13 算租映射清单。
+    lifecycle:
+      stage: holding
+      entered_stage: '2026-08-17'
+    linked_claims:
+    - claim_id: claim-20260816-013
+      relevance: theme
+      claim_type: sector-theme
+    - claim_id: claim-20260813-028
+      relevance: theme
+      claim_type: sector-theme
+  - code: 588200.SH
+    name: 科创芯片ETF嘉实
+    role: holding_etf
+    segment: 科创芯片全谱（中芯国际7.6/华虹3.2=晶圆制造10.8%）
+    priority: 持仓-大同证券
+    watch_reason: 2026-08-17 持仓 10,000股@1.227（截图登记）。晶圆制造10.8%=UP 8/14 分板块排序第一（壁垒最深/久期最优），33亿流动性压舱。
+    lifecycle:
+      stage: holding
+      entered_stage: '2026-08-17'
+    linked_claims:
+    - claim_id: claim-20260814-032
+      relevance: theme
+      claim_type: sector-theme
+
 avoid_and_reduce:
   avoid:
   - 存储芯片（M头+颈线+量价顶背离，反弹减仓）→ 6/17更新：memory_nor已升级为resuming，中报业绩驱动，但需核实减持
