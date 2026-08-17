@@ -7,6 +7,7 @@
 - [methodology-cases/2026-05-14-15-高位强分歧承接.md](methodology-cases/2026-05-14-15-高位强分歧承接.md)
 - [methodology-cases/2026-08-10-影子盲判数据缺与步骤缺.md](methodology-cases/2026-08-10-影子盲判数据缺与步骤缺.md)
 - [methodology-cases/2026-08-13-阶段误判与归因可撤销.md](methodology-cases/2026-08-13-阶段误判与归因可撤销.md)
+- [methodology-cases/2026-08-17-情景硬阈值与承重墙锚定.md](methodology-cases/2026-08-17-情景硬阈值与承重墙锚定.md)
 - [sector-cases/2026-01至2026-04-商业航天主线两轮节奏.md](sector-cases/2026-01至2026-04-商业航天主线两轮节奏.md)
 - [sector-cases/2026-01至2026-08-存储涨价链趋势主升与出清.md](sector-cases/2026-01至2026-08-存储涨价链趋势主升与出清.md)
 - [sector-cases/2026-04-07-化工涨停潮多逻辑共振.md](sector-cases/2026-04-07-化工涨停潮多逻辑共振.md)
