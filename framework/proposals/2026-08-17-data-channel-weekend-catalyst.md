@@ -1,7 +1,8 @@
 ---
 date: 2026-08-17
 type: data-channel
-status: proposed
+status: merged
+merged_into: framework/proposals/2026-08-17-fix-blind-shadow-merged.md（修复项 C2）
 source: evals/shadow/attributions/2026-08-17.json
 ---
 

@@ -15,8 +15,12 @@ PROPOSAL_TYPES = ("data-channel", "pattern-patch", "glossary-patch", "capability
 _TYPE_TO_PROPOSAL = {"数据缺": "data-channel", "步骤缺": "pattern-patch",
                      "概念误用": "glossary-patch", "信息差": "capability-boundary"}
 
-# 盲判数据包当前结构性缺失的通道（M1 spec 已如实标注）
-KNOWN_DATA_GAPS = ["板块资金流", "分时数据", "公告流"]
+# 盲判数据包当前结构性缺失的通道（M1 spec 已如实标注）。
+# 2026-08-17 起置空：板块资金流（fund_flow 块）、分时数据（intraday_amount 读盘）、
+# 公告流（research 块）三通道已落地入包；数据块按日缺失时由 pack["missing"] 如实标注，
+# 不再属于结构性缺口。历史归因记录仍可能引用旧标签（板块资金流/分时数据/公告流），
+# 属当时事实，勿回溯改写。
+KNOWN_DATA_GAPS: list[str] = []
 
 ATTR_PROMPT = """你是方法论复盘归因员。AI 在没有参考任何人物言论的情况下独立做出了市场判断，事后证明判错了。
 请做差异归因，严格输出 JSON：
@@ -92,7 +96,7 @@ def run_attribution(day: str, *, trigger: str, pred: dict, score_info: dict,
         trigger=trigger,
         ai_result=json.dumps(pred.get("result", {}), ensure_ascii=False),
         score_info=json.dumps(score_info, ensure_ascii=False),
-        gaps="、".join(KNOWN_DATA_GAPS),
+        gaps="、".join(KNOWN_DATA_GAPS) or "无",
     )
     raw = call_deepseek([{"role": "user", "content": prompt}], model=model, client=client,
                         tag="shadow_attribute")

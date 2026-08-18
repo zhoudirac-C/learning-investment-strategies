@@ -29,10 +29,17 @@ KPL_ROOT = _REPO / "infra" / "data" / "kpl"
 EM_ROOT = _REPO / "infra" / "data" / "eastmoney"
 LP_ROOT = _REPO / "infra" / "data" / "limit_pool"
 IC_ROOT = _REPO / "infra" / "data" / "intraday_changes"
+FF_ROOT = _REPO / "infra" / "data" / "fund_flow"
+RESEARCH_ROOT = _REPO / "infra" / "data" / "research"
+IA_ROOT = _REPO / "infra" / "data" / "intraday_amount"
 _NEWS_TITLE_CAP = 60
 _LHB_ITEM_CAP = 20
 _LP_ITEM_CAP = 20
 _IC_HIGHLIGHT_CAP = 30
+_RESEARCH_ITEM_CAP = 30  # notices/reports 各封顶（C6）
+_CATALYST_CAP = 60  # catalysts_since_prev_day 总量封顶（C2）
+_FF_INSTANT_TOP = 10  # 即时窗口净流入/流出各 top10（C1/C4）
+_FF_MULTI_TOP = 5  # 3/5/10日窗口净流入各 top5（持续性佐证）
 # 盘中异动 highlights 优先抽取的类型（最具操作意义）
 _IC_KEY_TYPES = ("封涨停板", "打开涨停板", "大笔买入", "火箭发射",
                  "快速反弹", "60日新高")
@@ -226,21 +233,25 @@ def _load_emotion(day: str, kpl_root: Path) -> dict | None:
     return out or None
 
 
+def _news_stocks(it: dict) -> list[str]:
+    """KPL 资讯条目的关联股票代码提取（_load_news_titles 与 catalysts 共用）。"""
+    stocks = []
+    for s in (it.get("stocks") or [])[:5]:
+        if isinstance(s, dict):
+            stocks.append(str(s.get("StockID") or s.get("Code") or s))
+        else:
+            stocks.append(str(s))
+    return stocks
+
+
 def _load_news_titles(day: str, kpl_root: Path) -> dict | None:
     """当日资讯标题列表（不含全文），封顶 _NEWS_TITLE_CAP 条。"""
     path = kpl_root / "news" / day / "index.json"
     if not path.exists():
         return None
     items = json.loads(path.read_text(encoding="utf-8"))
-    titles = []
-    for it in items[:_NEWS_TITLE_CAP]:
-        stocks = []
-        for s in (it.get("stocks") or [])[:5]:
-            if isinstance(s, dict):
-                stocks.append(str(s.get("StockID") or s.get("Code") or s))
-            else:
-                stocks.append(str(s))
-        titles.append({"t": str(it.get("title", "")), "stocks": stocks})
+    titles = [{"t": str(it.get("title", "")), "stocks": _news_stocks(it)}
+              for it in items[:_NEWS_TITLE_CAP]]
     out: dict = {"items": titles}
     if len(items) > _NEWS_TITLE_CAP:
         out["truncated"] = f"{_NEWS_TITLE_CAP}/{len(items)}"
@@ -255,10 +266,37 @@ def _cap_em_item(it: dict) -> dict:
     return out
 
 
+def _summarize_jgmmtj(rows: list) -> dict | None:
+    """机构买卖席位汇总（C3）：净买入/净卖出 top5 + 家数统计。
+
+    jgmmtj 为 None（拉取失败）或空列表时返回 None，不影响 lhb 块其余部分。
+    """
+    if not isinstance(rows, list) or not rows:
+        return None
+    valid = [r for r in rows if isinstance(r.get("机构买入净额"), (int, float))]
+    if not valid:
+        return None
+
+    def _row(r: dict) -> dict:
+        ratio = r.get("机构净买额占总成交额比")
+        return {"代码": r.get("代码"), "名称": r.get("名称"),
+                "机构买入净额_亿": round(r["机构买入净额"] / 1e8, 2),
+                "买方机构数": r.get("买方机构数"), "卖方机构数": r.get("卖方机构数"),
+                "机构净买额占总成交额比": round(ratio, 2) if isinstance(ratio, (int, float)) else ratio}
+
+    desc = sorted(valid, key=lambda r: r["机构买入净额"], reverse=True)
+    asc = sorted(valid, key=lambda r: r["机构买入净额"])
+    return {"净买入top5": [_row(r) for r in desc[:5]],
+            "净卖出top5": [_row(r) for r in asc[:5]],
+            "净买入家数": sum(1 for r in valid if r["机构买入净额"] > 0),
+            "净卖出家数": sum(1 for r in valid if r["机构买入净额"] < 0)}
+
+
 def _load_lhb(day: str, kpl_root: Path, em_root: Path | None = None) -> dict | None:
     """龙虎榜摘要：东财日榜（含席位）优先，缺失回退 KPL GetDay 落盘。
 
     东财条目按 |net_amt| 降序封顶 _LHB_ITEM_CAP 条；kpl 块 entry_count/list 透传。
+    东财 payload 含 jgmmtj（机构买卖统计）时附加机构席位汇总（C3）。
     """
     if em_root is not None:
         em_path = em_root / "lhb" / f"{day}.json"
@@ -266,11 +304,15 @@ def _load_lhb(day: str, kpl_root: Path, em_root: Path | None = None) -> dict | N
             d = json.loads(em_path.read_text(encoding="utf-8"))
             items = sorted(d.get("items") or [],
                            key=lambda x: abs(x.get("net_amt") or 0), reverse=True)
-            return {"source": "eastmoney",
-                    "disclosure_day": d.get("trade_date", day),
-                    "count": d.get("stock_count", len(items)),
-                    "items": [_cap_em_item(it) for it in items[:_LHB_ITEM_CAP]],
-                    "note": d.get("note", "")}
+            out = {"source": "eastmoney",
+                   "disclosure_day": d.get("trade_date", day),
+                   "count": d.get("stock_count", len(items)),
+                   "items": [_cap_em_item(it) for it in items[:_LHB_ITEM_CAP]],
+                   "note": d.get("note", "")}
+            jg = _summarize_jgmmtj(d.get("jgmmtj"))
+            if jg is not None:
+                out["jgmmtj"] = jg
+            return out
     path = kpl_root / "lhb" / f"{day}.json"
     if not path.exists():
         return None
@@ -291,22 +333,31 @@ def _load_lhb(day: str, kpl_root: Path, em_root: Path | None = None) -> dict | N
 
 
 def _load_limit_pool(day: str, lp_root: Path) -> dict | None:
-    """涨停梯队摘要：梯队/晋级率/反包/竞价一字 + 涨停明细（按封单额封顶 _LP_ITEM_CAP 条）。"""
+    """涨停梯队摘要：梯队/晋级率/反包/竞价一字 + 涨停明细（按封单额封顶 _LP_ITEM_CAP 条）。
+
+    payload 含 broken_boards（昨日连板今日断板名单，C5）时全量带进包（量小）；
+    broken_boards 为 None（拉取失败）时不进包，note 如实透传。
+    """
     path = lp_root / f"{day.replace('-', '')}.json"
     if not path.exists():
         return None
     d = json.loads(path.read_text(encoding="utf-8"))
     items = sorted(d.get("zt_items") or [],
                    key=lambda x: x.get("fund") or 0, reverse=True)
-    return {"date": d.get("date", day),
-            "zt_count": d.get("zt_count"), "zb_count": d.get("zb_count"),
-            "max_lbc": d.get("max_lbc"), "ladder": d.get("ladder") or {},
-            "auction_sealed": d.get("auction_sealed") or [],
-            "compare": d.get("compare") or {},
-            "first_board_width": d.get("first_board_width"),
-            "regulatory_distance": d.get("regulatory_distance"),
-            "zt_items": items[:_LP_ITEM_CAP],
-            "zb_items": (d.get("zb_items") or [])[:_LP_ITEM_CAP]}
+    out = {"date": d.get("date", day),
+           "zt_count": d.get("zt_count"), "zb_count": d.get("zb_count"),
+           "max_lbc": d.get("max_lbc"), "ladder": d.get("ladder") or {},
+           "auction_sealed": d.get("auction_sealed") or [],
+           "compare": d.get("compare") or {},
+           "first_board_width": d.get("first_board_width"),
+           "regulatory_distance": d.get("regulatory_distance"),
+           "zt_items": items[:_LP_ITEM_CAP],
+           "zb_items": (d.get("zb_items") or [])[:_LP_ITEM_CAP]}
+    if d.get("broken_boards") is not None:
+        out["broken_boards"] = d["broken_boards"]
+    if d.get("broken_boards_note"):
+        out["broken_boards_note"] = d["broken_boards_note"]
+    return out
 
 
 def _load_intraday_changes(day: str, ic_root: Path) -> dict | None:
@@ -409,47 +460,176 @@ def _load_structure(day: str, db_path=None) -> dict:
     return out
 
 
-def _load_intraday_amount(day: str) -> dict | None:
-    """用 TDX 拉上证+深证 60min 成交额，构建盘中量能形态（放量/缩量判断）。
+def _load_intraday_amount(day: str, ia_root: Path | None = None) -> dict | None:
+    """盘中量能形态（放量/缩量判断）：优先读 cron 落盘，无文件回退实时计算。
 
-    对齐 UP「开盘近3万亿→尾盘2.5万亿=全天缩量」口径：预估全天 = 累计 × (240/已交易分钟)。
-    返回 None（TDX 拉取失败/当日数据不足）或：
-    {date, 分时[{时点,累计_亿,预估全天_亿}], 开盘预估全天_亿, 尾盘实际全天_亿, 形态}。
+    落盘文件（infra/data/intraday_amount/{yyyymmdd}.json，15:35 cron 由
+    intraday_amount 模块写入）使历史回放可用；无文件时回退 TDX 实时拉取
+    （行为与接线前一致，仅当日盘中/盘后有效）。实时拉取得到的实际交易日
+    与 day 不一致时视同缺失（防历史回放串入最新数据）。
+    返回 None 或 {date, 分时[{时点,累计_亿,预估全天_亿}], 开盘预估全天_亿, 尾盘实际全天_亿, 形态}。
     """
-    try:
-        from qing_investment.tdx_market import TdxMarket
-        mkt = TdxMarket()
-        sh = mkt.get_kline("sh000001", "60min", count=16)
-        sz = mkt.get_kline("sz399001", "60min", count=16)
-    except Exception:
+    from investment_engine import intraday_amount
+
+    data = intraday_amount.load_intraday_amount(
+        day, data_dir=Path(ia_root) if ia_root else IA_ROOT)
+    if data is not None:
+        return data
+    data = intraday_amount.compute_intraday_amount()
+    if data and data.get("date") == day:
+        return data
+    return None
+
+
+def _load_research(day: str, research_root: Path) -> dict | None:
+    """当日公告 + 研报标题摘要（C6），各封顶 _RESEARCH_ITEM_CAP 条。
+
+    两个文件均缺失返回 None（调用方登记 missing）；单文件缺失只带现有部分。
+    标题为自由文本，逐条过 assert_no_leakage（含来源指称/未来日期即拒绝）。
+    只取标题与关联股票字段，不带 url/date 等冗余字段（控 prompt 体积）。
+    """
+    npath = research_root / "notices" / f"{day}.json"
+    rpath = research_root / "reports" / f"{day}.json"
+    if not npath.exists() and not rpath.exists():
         return None
-    if not sh or not sz:
+    out: dict = {}
+    if npath.exists():
+        items = json.loads(npath.read_text(encoding="utf-8"))
+        rows = []
+        for n in items[:_RESEARCH_ITEM_CAP]:
+            title = str(n.get("title", ""))
+            assert_no_leakage(title, day)
+            rows.append({"code": n.get("code"), "name": n.get("name"),
+                         "title": title, "type": n.get("type")})
+        out["notices"] = rows
+        if len(items) > _RESEARCH_ITEM_CAP:
+            out["notices_truncated"] = f"{_RESEARCH_ITEM_CAP}/{len(items)}"
+    if rpath.exists():
+        items = json.loads(rpath.read_text(encoding="utf-8"))
+        rows = []
+        for r in items[:_RESEARCH_ITEM_CAP]:
+            title = str(r.get("title", ""))
+            assert_no_leakage(title, day)
+            rows.append({"title": title, "org": r.get("org"),
+                         "qtype_name": r.get("qtype_name"),
+                         "industry_name": r.get("industry_name"),
+                         "stock_code": r.get("stock_code"),
+                         "stock_name": r.get("stock_name"),
+                         "rating": r.get("rating")})
+        out["reports"] = rows
+        if len(items) > _RESEARCH_ITEM_CAP:
+            out["reports_truncated"] = f"{_RESEARCH_ITEM_CAP}/{len(items)}"
+    return out or None
+
+
+def _read_json_list(path: Path) -> list:
+    if not path.exists():
+        return []
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return data if isinstance(data, list) else []
+
+
+def _load_catalysts(day: str, target_day: str, research_root: Path,
+                    kpl_root: Path) -> list[dict]:
+    """(day, target_day] 区间催化扫描（C2 周末/节假日催化通道）。
+
+    逐日合并公告/研报/KPL 资讯标题（周末由 research_feed 覆盖），每条注明
+    来源日期与来源类型，总量封顶 _CATALYST_CAP。封顶优先保留离 target_day
+    最近的日期（盘前视角越近越相关），展示顺序恢复为时间正序。标题逐条过
+    assert_no_leakage（边界 = target_day：盘前预测视角下区间内容当日可得）。
+    无数据返回空列表（不算 missing——周末无催化是正常情形，不是数据缺口）。
+    """
+    from datetime import date, timedelta
+
+    start = date.fromisoformat(day) + timedelta(days=1)
+    end = date.fromisoformat(target_day)
+    out: list[dict] = []
+    cur = end
+    while cur >= start:
+        d = cur.isoformat()
+        for n in _read_json_list(research_root / "notices" / f"{d}.json"):
+            title = str(n.get("title", ""))
+            assert_no_leakage(title, target_day)
+            out.append({"date": d, "source": "公告", "code": n.get("code"),
+                        "name": n.get("name"), "title": title})
+        for r in _read_json_list(research_root / "reports" / f"{d}.json"):
+            title = str(r.get("title", ""))
+            assert_no_leakage(title, target_day)
+            out.append({"date": d, "source": "研报", "org": r.get("org"),
+                        "stock_code": r.get("stock_code"),
+                        "stock_name": r.get("stock_name"), "title": title})
+        for it in _read_json_list(kpl_root / "news" / d / "index.json"):
+            title = str(it.get("title", ""))
+            assert_no_leakage(title, target_day)
+            out.append({"date": d, "source": "资讯", "title": title,
+                        "stocks": _news_stocks(it)})
+        cur -= timedelta(days=1)
+    return out[:_CATALYST_CAP][::-1]
+
+
+def _ff_top(rows: list, n: int, *, reverse: bool) -> list[dict]:
+    """资金流窗口净额排序取 topN（净额单位亿元，akshare 原值）。"""
+    valid = [r for r in rows if isinstance(r.get("净额"), (int, float))]
+    valid.sort(key=lambda r: r["净额"], reverse=reverse)
+    return valid[:n]
+
+
+def _ff_instant_row(r: dict) -> dict:
+    return {"行业": r.get("行业"), "净额": r.get("净额"),
+            "行业-涨跌幅": r.get("行业-涨跌幅"), "领涨股": r.get("领涨股")}
+
+
+def _ff_multi_row(r: dict) -> dict:
+    return {"行业": r.get("行业"), "净额": r.get("净额"),
+            "阶段涨跌幅": r.get("阶段涨跌幅")}
+
+
+def _load_fund_flow(day: str, ff_root: Path) -> dict | None:
+    """板块资金流摘要（C1/C4）：行业/概念即时 top10 双向 + 行业多日窗口 top5。
+
+    回答「换手方向 + 持续性」（A3 量能源头判断）：即时窗口给当日板块间资金
+    迁移方向，3/5/10日窗口给净流入持续性佐证。文件缺失或全部窗口拉取失败
+    返回 None（调用方登记 missing）；部分窗口失败照常出包并记 errors_note。
+    fetched_at 可能晚于回放日，不进包。
+    """
+    path = ff_root / f"{day.replace('-', '')}.json"
+    if not path.exists():
         return None
-    sh_day = [r for r in sh if str(r.get("datetime", ""))[:10] == day]
-    sz_day = [r for r in sz if str(r.get("datetime", ""))[:10] == day]
-    if len(sh_day) < 4 or len(sz_day) < 4:
+    d = json.loads(path.read_text(encoding="utf-8"))
+    industry = d.get("industry") or {}
+    concept = d.get("concept") or {}
+    usable = any(isinstance(v, list) and v
+                 for v in list(industry.values()) + list(concept.values()))
+    if not usable:
         return None
-    minute_map = {"10:30": 60, "11:30": 120, "14:00": 180, "15:00": 240}
-    rows = []
-    cum = 0.0
-    for i in range(4):
-        sh_amt = sh_day[i].get("amount") or 0
-        sz_amt = sz_day[i].get("amount") or 0
-        cum += (sh_amt + sz_amt) / 1e8
-        hm = str(sh_day[i].get("datetime", ""))[11:16]
-        minutes = minute_map.get(hm, 60 * (i + 1))
-        est = cum * (240.0 / minutes)
-        rows.append({"时点": hm, "累计_亿": round(cum, 0), "预估全天_亿": round(est, 0)})
-    open_est = rows[0]["预估全天_亿"]
-    close_actual = rows[-1]["累计_亿"]
-    if open_est > close_actual * 1.2:
-        shape = "冲量滑落（全天缩量）"
-    elif close_actual > open_est * 1.1:
-        shape = "逐级放大（健康放量）"
-    else:
-        shape = "平量"
-    return {"date": day, "分时": rows, "开盘预估全天_亿": open_est,
-            "尾盘实际全天_亿": round(close_actual, 0), "形态": shape}
+    out: dict = {"date": d.get("date", day)}
+    ind_now = industry.get("即时") or []
+    if ind_now:
+        out["行业即时"] = {
+            "净流入top10": [_ff_instant_row(r)
+                            for r in _ff_top(ind_now, _FF_INSTANT_TOP, reverse=True)],
+            "净流出top10": [_ff_instant_row(r)
+                            for r in _ff_top(ind_now, _FF_INSTANT_TOP, reverse=False)],
+        }
+    con_now = concept.get("即时") or []
+    if con_now:
+        out["概念即时"] = {
+            "净流入top10": [_ff_instant_row(r)
+                            for r in _ff_top(con_now, _FF_INSTANT_TOP, reverse=True)],
+            "净流出top10": [_ff_instant_row(r)
+                            for r in _ff_top(con_now, _FF_INSTANT_TOP, reverse=False)],
+        }
+    multi = {}
+    for w in ("3日排行", "5日排行", "10日排行"):
+        rows = industry.get(w) or []
+        if rows:
+            multi[w] = {"净流入top5": [_ff_multi_row(r)
+                                       for r in _ff_top(rows, _FF_MULTI_TOP, reverse=True)]}
+    if multi:
+        out["行业多日"] = multi
+    if d.get("errors"):
+        out["errors_note"] = f"{len(d['errors'])} 个窗口拉取失败"
+    return out
 
 
 _CYCLE_INDEXES = (
@@ -544,8 +724,14 @@ def _load_core_patterns() -> list[dict]:
 
 def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
                      kpl_root=None, em_root=None, lp_root=None,
-                     ic_root=None) -> dict:
-    """组装某日数据包（只含截至当日的数据）。"""
+                     ic_root=None, research_root=None, ff_root=None,
+                     ia_root=None, target_day: str | None = None) -> dict:
+    """组装某日数据包（只含截至当日的数据）。
+
+    target_day（盘前预测目标日）提供时，额外扫描 (day, target_day] 区间的
+    公告/研报/KPL 资讯合成 catalysts_since_prev_day（C2）；默认 None 不扫
+    （盘后复盘/历史回放路径无此块，防泄漏边界保持 = day）。
+    """
     index = {}
     for code in INDEX_CODES:
         bars = get_index_daily(code, "2000-01-01", day, db_path=db_path)
@@ -593,7 +779,7 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
         "stocks": stocks,
         "directions": directions,
         "structure": _load_structure(day, db_path),
-        "intraday_amount": _load_intraday_amount(day),
+        "intraday_amount": _load_intraday_amount(day, ia_root),
         "cycle_state": _compute_cycle_states(day, db_path),
         "chains": _load_chains(),
         "glossary": _load_glossary(),
@@ -604,6 +790,8 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
     em = Path(em_root) if em_root else EM_ROOT
     lp = Path(lp_root) if lp_root else LP_ROOT
     ic = Path(ic_root) if ic_root else IC_ROOT
+    research = Path(research_root) if research_root else RESEARCH_ROOT
+    ff = Path(ff_root) if ff_root else FF_ROOT
     blocks = {"emotion": _load_emotion(day, root),
               "news_titles": _load_news_titles(day, root),
               "lhb": _load_lhb(day, root, em)}
@@ -618,9 +806,22 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
         missing.append("intraday_changes")
     else:
         blocks["intraday_changes"] = intraday_changes
+    research_block = _load_research(day, research)
+    if research_block is None:
+        missing.append("research")
+    else:
+        blocks["research"] = research_block
+    fund_flow = _load_fund_flow(day, ff)
+    if fund_flow is None:
+        missing.append("fund_flow")
+    else:
+        blocks["fund_flow"] = fund_flow
     for k, v in blocks.items():
         if v is not None:
             pack[k] = v
+    if target_day is not None:
+        pack["catalysts_since_prev_day"] = _load_catalysts(
+            day, target_day, research, root)
     if missing:
         pack["missing"] = missing
     return pack

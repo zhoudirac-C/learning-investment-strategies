@@ -53,6 +53,11 @@ def fake_http(monkeypatch):
         raise AssertionError(f"未预期 reportName: {rn}")
 
     monkeypatch.setattr(em, "_get_json", _fake)
+    # 保持测试密闭：机构席位汇总不触真实 akshare（默认空表，需数据时用 fake_jgmmtj 覆盖）
+    import akshare as ak
+    import pandas as pd
+    monkeypatch.setattr(ak, "stock_lhb_jgmmtj_em",
+                        lambda start_date, end_date: pd.DataFrame())
     return calls
 
 
@@ -92,6 +97,10 @@ def test_fetch_lhb_seat_error_tolerated(monkeypatch):
         return BUY_PAYLOAD
 
     monkeypatch.setattr(em, "_get_json", _fake)
+    import akshare as ak
+    import pandas as pd
+    monkeypatch.setattr(ak, "stock_lhb_jgmmtj_em",
+                        lambda start_date, end_date: pd.DataFrame())
     data = em.fetch_lhb(DAY, sleep=0)
     assert data["stock_count"] == 2
     err_item = next(i for i in data["items"] if i["code"] == "000636")
@@ -104,6 +113,10 @@ def test_fetch_lhb_seat_error_tolerated(monkeypatch):
 def test_fetch_lhb_empty_day_note(monkeypatch):
     monkeypatch.setattr(em, "_get_json",
                         lambda params, timeout=10.0, retries=2: EMPTY_PAYLOAD)
+    import akshare as ak
+    import pandas as pd
+    monkeypatch.setattr(ak, "stock_lhb_jgmmtj_em",
+                        lambda start_date, end_date: pd.DataFrame())
     data = em.fetch_lhb("2026-08-09", sleep=0)  # 周日
     assert data["stock_count"] == 0 and data["items"] == []
     assert "非交易日或披露未出" in data["note"]
@@ -115,3 +128,70 @@ def test_save_lhb_roundtrip(tmp_path, fake_http):
     assert path.name == "2026-08-10.json"
     assert saved["stock_count"] == 2
     assert saved["items"][0]["buy_seats"][0]["net"] == 218964053.25
+
+
+# ---------- C3 机构席位汇总（jgmmtj，2026-08-17 起） ----------
+
+
+def _jgmmtj_df():
+    import datetime as dt
+
+    import pandas as pd
+    return pd.DataFrame([
+        {"序号": 1, "代码": "000636", "名称": "风华高科", "买方机构数": 2,
+         "卖方机构数": 1, "机构买入总额": 1.2e8, "机构卖出总额": 3e7,
+         "机构买入净额": 9e7, "机构净买额占总成交额比": 3.21,
+         "上榜日期": dt.date(2026, 8, 10)},
+        {"序号": 2, "代码": "600664", "名称": "哈药股份", "买方机构数": 0,
+         "卖方机构数": 2, "机构买入总额": float("nan"), "机构卖出总额": 5e7,
+         "机构买入净额": -5e7, "机构净买额占总成交额比": float("nan"),
+         "上榜日期": dt.date(2026, 8, 10)},
+    ])
+
+
+@pytest.fixture
+def fake_jgmmtj(monkeypatch):
+    import akshare as ak
+    monkeypatch.setattr(ak, "stock_lhb_jgmmtj_em",
+                        lambda start_date, end_date: _jgmmtj_df())
+
+
+def test_fetch_jgmmtj_parses(fake_jgmmtj):
+    rows = em.fetch_jgmmtj(DAY)
+    assert len(rows) == 2 and rows[0]["代码"] == "000636"
+    assert rows[0]["机构买入净额"] == 9e7
+    # NaN → None；date → ISO 字符串（json 可序列化）
+    assert rows[1]["机构买入总额"] is None
+    assert rows[1]["机构净买额占总成交额比"] is None
+    assert rows[0]["上榜日期"] == "2026-08-10"
+    json.dumps(rows)  # 不抛异常
+
+
+def test_fetch_lhb_includes_jgmmtj(fake_http, fake_jgmmtj):
+    data = em.fetch_lhb(DAY, sleep=0)
+    assert isinstance(data["jgmmtj"], list) and len(data["jgmmtj"]) == 2
+    assert data["jgmmtj"][0]["名称"] == "风华高科"
+    assert data["note"] == ""
+
+
+def test_fetch_lhb_jgmmtj_failure_tolerated(fake_http, monkeypatch):
+    import akshare as ak
+
+    def _boom(start_date, end_date):
+        raise RuntimeError("akshare 被限流")
+
+    monkeypatch.setattr(ak, "stock_lhb_jgmmtj_em", _boom)
+    data = em.fetch_lhb(DAY, sleep=0)
+    # 主流程不受影响，jgmmtj 置 None 并记 errors
+    assert data["jgmmtj"] is None
+    assert data["stock_count"] == 2
+    assert "机构席位汇总" in data["note"] and "限流" in data["note"]
+
+
+def test_save_lhb_idempotent_overwrite(tmp_path, fake_http, fake_jgmmtj):
+    data = em.fetch_lhb(DAY, sleep=0)
+    p1 = em.save_lhb(data, tmp_path, DAY)
+    p2 = em.save_lhb(data, tmp_path, DAY)  # 重复保存覆盖同一路径
+    assert p1 == p2
+    saved = json.loads(p2.read_text(encoding="utf-8"))
+    assert len(saved["jgmmtj"]) == 2

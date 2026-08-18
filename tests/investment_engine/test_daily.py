@@ -6,6 +6,25 @@ from pathlib import Path
 from investment_engine.shadow.daily import run
 
 
+class TestDailyPromptVersion:
+    def test_prompt_version_is_v6(self):
+        """P0 prompt 纪律批次：盘后 prompt 版本号 v5→v6。"""
+        from investment_engine.blindtest import replay
+        assert replay.PROMPT_VERSION == "v6"
+
+    def test_daily_prompt_contains_discipline_rules(self):
+        """v6 新增纪律规则关键词须出现在盘后 prompt（B1/B2/A2-A5/C5引用/C8降级）。"""
+        from investment_engine.blindtest import replay
+        text = replay.SYSTEM_PROMPT
+        assert "±30%" in text  # B1 证据-结论一致性硬约束
+        assert "数据缺失，信息差风险" in text  # B2(c)/C8 降级标注
+        assert "冲量滑落" in text and "分时" in text  # A2 形态禁判
+        assert "量从哪来" in text  # A3 量能源头
+        assert "反弹修复段" in text and "补缺回踩" in text  # A4 位置决定意义
+        assert "守住前日量级" in text and "24000 亿以上算放量" in text  # A5 相对口径
+        assert "promotion_rate" in text and "晋级率" in text  # C5 梯队引用/A8 折算
+
+
 class TestDailyRun:
     def setup_method(self):
         self.root = Path(tempfile.mkdtemp(prefix="daily_"))

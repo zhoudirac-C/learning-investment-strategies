@@ -7,6 +7,8 @@
 - P1 特征（2026-08-12 起）：first_board_width（首板宽度：家数+日环比+20日分位）、
   regulatory_distance（龙头监管距离：最高板龙头 10/30 日偏离值距严重异动阈值的空间，
   口径见 knowledge/wiki/市场分析/A股严重异常波动规则.md）
+- C5 断板推导（2026-08-17 起）：broken_boards（昨日连板今日未封板名单 + 状态分类），
+  由 add_broken_boards 在落盘前就地填充；akshare previous_em 失败置 None 并记 note
 
 接口实测（2026-08-11）：push2ex.eastmoney.com/getTopicZTPool|getTopicZBPool，
 date=YYYYMMDD 支持历史；关键字段 c=代码 n=名称 p=价格(×1000) zdp=涨幅
@@ -17,6 +19,7 @@ zttj={days,ct}=N天M板。
 from __future__ import annotations
 
 import json
+import math
 import time
 import urllib.parse
 import urllib.request
@@ -212,6 +215,103 @@ def _regulatory_distance(zt: list[dict], day: str) -> dict | None:
     out["note"] = ("未扣除异常波动公告清零重置，为保守上限；"
                    "指数为近似代理（缓存无上证A指/深证A指/科创板综指）")
     return out
+
+
+# ---------- C5 断板推导（2026-08-17 起） ----------
+
+BROKEN_DROP_THRESHOLD = -5.0  # 大面断板：今日涨跌幅 <= -5%
+
+
+def fetch_previous_em(day: str) -> list[dict]:
+    """昨日涨停股今日表现（akshare stock_zt_pool_previous_em）。day 格式 YYYYMMDD。
+
+    返回 list[dict] 原始行（含 代码/名称/涨跌幅/最新价/成交额 等）；
+    调用失败抛异常，由 add_broken_boards 容错。
+    """
+    import akshare as ak
+    return ak.stock_zt_pool_previous_em(date=day).to_dict("records")
+
+
+def compute_broken_boards(prev_payload: dict, cur_payload: dict,
+                          previous_em_rows: list[dict] | None) -> list[dict]:
+    """断板推导：昨日连板股（zt_items 中 lbc>=2）今日不在涨停池 = 断板。
+
+    输入：昨/今两天 limit_pool 落盘 dict + stock_zt_pool_previous_em 原始行
+    （None 表示 akshare 调用失败，降级处理）。
+    输出 list of {"code","name","prev_lbc","chg_today"(可空),"status"}，status：
+    - 代码在今日 zb_items → "冲板未封"（优先于涨跌幅判断，冲板是主信号）
+    - previous_em 有该代码且 涨跌幅 <= BROKEN_DROP_THRESHOLD → "大面断板"
+    - previous_em 有该代码 → "温和断板"
+    - previous_em 无该代码（或调用失败）→ "无数据"
+    局限：无现成「断板原因」数据，本推导只覆盖价格行为维度；监管特停/停牌等
+    外力断板在 previous_em 中通常无行 → 归 "无数据"，需人工或新闻佐证。
+    """
+    cur_zt = {it.get("code") for it in cur_payload.get("zt_items") or []}
+    cur_zb = {it.get("code") for it in cur_payload.get("zb_items") or []}
+    perf = {str(r.get("代码", "")): r for r in previous_em_rows or []}
+    out: list[dict] = []
+    for it in prev_payload.get("zt_items") or []:
+        lbc = it.get("lbc") or 0
+        if lbc < 2:
+            continue
+        code = it.get("code", "")
+        if code in cur_zt:
+            continue
+        row = perf.get(code)
+        chg: float | None = None
+        if row is not None:
+            v = row.get("涨跌幅")
+            if v is not None and not (isinstance(v, float) and math.isnan(v)):
+                chg = float(v)
+        if code in cur_zb:
+            status = "冲板未封"
+        elif row is None:
+            status = "无数据"
+        elif chg is not None and chg <= BROKEN_DROP_THRESHOLD:
+            status = "大面断板"
+        else:
+            status = "温和断板"
+        out.append({"code": code, "name": it.get("name", ""),
+                    "prev_lbc": lbc, "chg_today": chg, "status": status})
+    return out
+
+
+def _find_prev_file(out_root: Path, day: str) -> Path | None:
+    """往落盘目录找最近一个早于 day 的 YYYYMMDD.json。"""
+    candidates = (p for p in Path(out_root).glob("*.json")
+                  if p.stem.isdigit() and p.stem < day)
+    return max(candidates, key=lambda p: p.stem, default=None)
+
+
+def add_broken_boards(data: dict, out_root: Path | None, day: str,
+                      *, prev_day: str | None = None) -> None:
+    """就地写入 data["broken_boards"]；缺省/失败时置 None 并写 broken_boards_note。
+
+    prev_day 缺省时自动找最近一个早于 day 的落盘文件；akshare 失败不阻断主流程。
+    """
+    data.pop("broken_boards_note", None)
+    data["broken_boards"] = None
+    prev_path: Path | None = None
+    if out_root is not None:
+        if prev_day:
+            p = Path(out_root) / f"{prev_day}.json"
+            prev_path = p if p.exists() else None
+        else:
+            prev_path = _find_prev_file(Path(out_root), day)
+    if prev_path is None:
+        data["broken_boards_note"] = "无前一日落盘，断板推导未计算"
+        return
+    try:
+        prev = json.loads(prev_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        data["broken_boards_note"] = f"前一日落盘({prev_path.stem})读取失败: {e}"
+        return
+    try:
+        rows = fetch_previous_em(day)
+    except Exception as e:
+        data["broken_boards_note"] = f"昨日涨停今日表现(previous_em)拉取失败: {e}"
+        return
+    data["broken_boards"] = compute_broken_boards(prev, data, rows)
 
 
 def build_limit_pool(day: str, out_root: Path | None = None,

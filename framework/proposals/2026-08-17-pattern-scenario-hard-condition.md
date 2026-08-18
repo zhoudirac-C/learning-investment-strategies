@@ -1,7 +1,8 @@
 ---
 date: 2026-08-17
 type: pattern-nomination
-status: proposed（待窗口验证：需积累 ≥4 周跨 regime 命中记录后转正）
+status: merged（窗口验证轨道保留：仍需积累 ≥4 周跨 regime 命中记录后转正）
+merged_into: framework/proposals/2026-08-17-fix-blind-shadow-merged.md（修复项 A1）
 source: evals/shadow/attributions/2026-08-17.json（盲判过程审计）+ knowledge/cases/methodology-cases/2026-08-17-情景硬阈值与承重墙锚定.md + knowledge/claims/claim-20260817-001
 ---
 

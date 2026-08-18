@@ -3,6 +3,8 @@ import json
 import tempfile
 from pathlib import Path
 
+import pytest
+
 from qing_investment.kline_cache import init_db, save_index_klines, save_klines
 from investment_engine.shadow import premarket as pm
 
@@ -56,6 +58,23 @@ class TestPremarketPrompt:
         assert "overnight_us" not in text
 
 
+class TestPremarketPromptVersion:
+    def test_prompt_version_is_v6(self):
+        """P0 prompt 纪律批次：版本号 v5→v6。"""
+        assert pm.PROMPT_VERSION == "v6"
+
+    def test_premarket_prompt_contains_discipline_rules(self):
+        """v6 新增纪律规则关键词须出现在盘前 prompt（B1/B2/A2-A5/C5引用/C8降级）。"""
+        text = pm.PREMARKET_SYSTEM_PROMPT
+        assert "±30%" in text  # B1 证据-结论一致性硬约束
+        assert "数据缺失，信息差风险" in text  # B2(c)/C8 降级标注
+        assert "冲量滑落" in text and "scenarios" in text  # A2 形态禁判
+        assert "量从哪来" in text  # A3 量能源头
+        assert "反弹修复段" in text and "补缺回踩" in text  # A4 位置决定意义
+        assert "守住前日量级" in text and "24000 亿以上算放量" in text  # A5 相对口径
+        assert "promotion_rate" in text and "晋级率" in text  # C5 梯队引用/A8 折算
+
+
 class TestRunPredictPremarket:
     def test_no_prev_day_returns_no_data(self):
         db = Path(tempfile.gettempdir()) / f"test_pre3_{id(self)}.db"
@@ -76,3 +95,82 @@ class TestRunPredictPremarket:
         rec = pm.run_predict_premarket("2026-06-16", config_dir="config/stock_monitor",
                                        db_path=db, pred_dir=pred_dir)
         assert rec["status"] == "skipped"
+
+
+class TestPremarketDataBlocks:
+    """批次 P1/P2 接线：missing 进正文 + target_day 传递 + catalysts 可见。"""
+
+    def _db(self, name: str) -> Path:
+        db = Path(tempfile.gettempdir()) / f"{name}_{id(self)}.db"
+        init_db(db_path=db)
+        save_index_klines("sh000300", _klines("IDX000300", [4000.0 + i for i in range(30)]),
+                          db_path=db)
+        # list_trading_days 以个股 K 线为准，run_predict_premarket 找前一交易日需要
+        save_klines("002371.SZ", _klines("002371.SZ", [10.0 + i * 0.1 for i in range(30)]),
+                    db_path=db)
+        return db
+
+    def _empty_roots(self) -> dict:
+        roots = {}
+        for key, sub in (("kpl_root", None), ("em_root", "lhb"), ("lp_root", None),
+                         ("ic_root", None), ("research_root", None),
+                         ("ff_root", None), ("ia_root", None)):
+            root = Path(tempfile.mkdtemp())
+            if key == "kpl_root":
+                for d in ("emotion", "news", "lhb"):
+                    (root / d).mkdir(parents=True)
+            elif key == "research_root":
+                for d in ("notices", "reports"):
+                    (root / d).mkdir(parents=True)
+            elif sub:
+                (root / sub).mkdir(parents=True)
+            roots[key] = root
+        return roots
+
+    def test_missing_block_in_prompt_body(self):
+        """v6 规则 11(c) 依赖 missing 块：盘前 prompt 正文必须带数据缺失清单。"""
+        db = self._db("test_pre_missing")
+        roots = self._empty_roots()
+        pack = pm.build_daily_pack("2026-06-15", config_dir=Path("config/stock_monitor"),
+                                   db_path=db, **roots)
+        assert pack.get("missing")  # 空数据根下必有缺失块
+        text = pm._pack_to_premarket_prompt(pack, "2026-06-16", None)
+        assert '"missing"' in text
+        assert "kpl_emotion" in text
+        db.unlink(missing_ok=True)
+
+    def test_catalysts_in_prompt(self):
+        """target_day 触发 catalysts 扫描：(prev_day, target_day] 区间催化进盘前正文。"""
+        db = self._db("test_pre_cat")
+        roots = self._empty_roots()
+        (roots["research_root"] / "notices" / "2026-06-16.json").write_text(
+            json.dumps([{"code": "600664", "name": "哈药股份",
+                         "title": "哈药股份:签订重大合同公告",
+                         "type": "临时公告", "date": "2026-06-16", "url": ""}],
+                       ensure_ascii=False), encoding="utf-8")
+        pack = pm.build_daily_pack("2026-06-15", config_dir=Path("config/stock_monitor"),
+                                   db_path=db, target_day="2026-06-16", **roots)
+        assert pack["catalysts_since_prev_day"][0]["title"] == "哈药股份:签订重大合同公告"
+        text = pm._pack_to_premarket_prompt(pack, "2026-06-16", None)
+        assert "catalysts_since_prev_day" in text
+        assert "哈药股份:签订重大合同公告" in text
+        db.unlink(missing_ok=True)
+
+    def test_run_predict_premarket_passes_target_day(self, monkeypatch, tmp_path):
+        """盘前建包调用点必须把预测目标日传给 build_daily_pack。"""
+        db = self._db("test_pre_td")
+        captured = {}
+
+        def _fake_build(day, **kw):
+            captured.update(kw)
+            return {"date": day, "glossary": ""}
+
+        monkeypatch.setattr(pm, "build_daily_pack", _fake_build)
+        monkeypatch.setattr(pm, "call_deepseek", lambda *a, **kw: "{}")
+        monkeypatch.setattr(pm, "parse_result", lambda raw: {})
+        rec = pm.run_predict_premarket(
+            "2026-06-16", config_dir="config/stock_monitor", db_path=db,
+            pred_dir=Path(tmp_path), overnight_root=Path(tmp_path) / "ovn")
+        assert captured.get("target_day") == "2026-06-16"
+        assert rec["date"] == "2026-06-16"
+        db.unlink(missing_ok=True)

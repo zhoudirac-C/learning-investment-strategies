@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""涨停梯队拉取入口（cron 工作日 15:37 调用）：涨停池+炸板池+晋级率/反包。
+"""涨停梯队拉取入口（cron 工作日 15:37 调用）：涨停池+炸板池+晋级率/反包+断板推导。
 
 幂等：当日目标文件已存在则跳过，--force 覆盖重拉。
 退出码：0 成功；1 拉取失败。
@@ -54,13 +54,18 @@ def main(argv: list[str] | None = None) -> int:
     except limit_pool.LimitPoolError as e:
         print(f"[limit] 拉取失败: {e}", file=sys.stderr)
         return 1
+    # C5 断板推导：有前一日落盘则填充 broken_boards（akshare 失败不阻断）
+    limit_pool.add_broken_boards(data, out_root, args.date, prev_day=prev)
     path = limit_pool.save_limit_pool(data, out_root, args.date)
     cmp_ = data["compare"]
     tail = ""
     if cmp_.get("promotion_rate") is not None:
         tail = f"  晋级率={cmp_['promotion_rate']:.0%} 反包={len(cmp_['fanbao'])}只"
+    bb = data.get("broken_boards")
+    bb_txt = (f" 断板={len(bb)}只" if bb is not None
+              else f" 断板=NA({data.get('broken_boards_note', '')})")
     print(f"[limit] 涨停梯队 → {path}  涨停={data['zt_count']} 炸板={data['zb_count']}"
-          f" 高度={data['max_lbc']}板 竞价一字={len(data['auction_sealed'])}只{tail}")
+          f" 高度={data['max_lbc']}板 竞价一字={len(data['auction_sealed'])}只{tail}{bb_txt}")
     return 0
 
 

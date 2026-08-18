@@ -83,7 +83,9 @@ class TestRunAttribution:
         assert rec["triggers"] == ["stage_miss", "direction_miss"]
 
     def test_known_gaps_listed(self):
-        assert "板块资金流" in KNOWN_DATA_GAPS
+        # 板块资金流(fund_flow)/分时数据(intraday_amount)/公告流(research)
+        # 三通道已于 2026-08-17 落地入包，已知缺口列表置空
+        assert KNOWN_DATA_GAPS == []
 
 
 class TestSupersedeAttribution:

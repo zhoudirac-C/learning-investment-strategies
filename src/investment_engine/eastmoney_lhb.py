@@ -6,16 +6,19 @@ docs/design/kpl-api-inventory.md §5），龙虎榜数据源改用东财公开�
 
 - 日榜清单：RPT_DAILYBILLBOARD_DETAILS（上榜原因/买卖净额/换手率）
 - 逐股席位：RPT_BILLBOARD_DAILYDETAILSBUY / ...SELL（营业部名称/买卖金额，各取前 5）
+- 机构席位汇总（C3，2026-08-17 起）：akshare stock_lhb_jgmmtj_em，买方/卖方机构数、
+  机构净买额及占成交比，落盘 "jgmmtj" 键；akshare 失败置 None 并在 note 记 errors
 - 披露节奏：T 日 17:00-18:00 出齐；清单为空属"非交易日或披露未出"，note 标注不报错
 """
 
 from __future__ import annotations
 
 import json
+import math
 import time
 import urllib.parse
 import urllib.request
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 
 API_URL = "https://datacenter-web.eastmoney.com/api/data/v1/get"
@@ -93,6 +96,30 @@ def fetch_seats(day: str, code: str, *, sleep: float = REQUEST_INTERVAL) -> dict
     return out
 
 
+def _jsonable(v):
+    """akshare DataFrame 单元格 → JSON 可序列化值（NaN→None，日期→ISO 字符串）。"""
+    if hasattr(v, "item") and not isinstance(v, (date, datetime)):
+        v = v.item()  # numpy 标量 → python 原生
+    if isinstance(v, float) and math.isnan(v):
+        return None
+    if isinstance(v, (datetime, date)):
+        return v.isoformat()
+    return v
+
+
+def fetch_jgmmtj(day: str) -> list[dict]:
+    """机构席位汇总（akshare stock_lhb_jgmmtj_em，东财机构买卖统计口径）。
+
+    day 格式 YYYY-MM-DD。返回 list[dict]，字段含 代码/名称/买方机构数/卖方机构数/
+    机构买入总额/机构卖出总额/机构买入净额/机构净买额占总成交额比 等；
+    当日无机构席位数据返回空 list。调用失败抛异常，由 fetch_lhb 容错。
+    """
+    import akshare as ak
+    d = day.replace("-", "")
+    df = ak.stock_lhb_jgmmtj_em(start_date=d, end_date=d)
+    return [{k: _jsonable(v) for k, v in r.items()} for r in df.to_dict("records")]
+
+
 def _list_item(r: dict) -> dict:
     return {"code": r.get("SECURITY_CODE", ""),
             "name": r.get("SECURITY_NAME_ABBR", ""),
@@ -106,9 +133,10 @@ def _list_item(r: dict) -> dict:
 
 
 def fetch_lhb(day: str, *, sleep: float = REQUEST_INTERVAL) -> dict:
-    """组装当日龙虎榜 {source, trade_date, fetched_at, stock_count, items, note}。
+    """组装当日龙虎榜 {source, trade_date, fetched_at, stock_count, items, jgmmtj, note}。
 
     单股席位失败不阻断：该股记 seat_error 并继续；整体清单失败抛 EastmoneyError。
+    jgmmtj（akshare 机构席位汇总）失败不阻断：置 None 并在 note 记 errors。
     """
     rows = fetch_daily_list(day)
     items: list[dict] = []
@@ -133,11 +161,20 @@ def fetch_lhb(day: str, *, sleep: float = REQUEST_INTERVAL) -> dict:
         notes.append(f"返回数据交易日({str(rows[0].get('TRADE_DATE', ''))[:10]})与目标日({day})不符")
     if seat_errors:
         notes.append(f"{len(seat_errors)} 只个股席位拉取失败: {','.join(seat_errors)}")
+
+    # C3 机构席位汇总（akshare，与逐股席位互补的汇总口径）；失败不拖死主流程
+    try:
+        jgmmtj = fetch_jgmmtj(day)
+    except Exception as e:
+        jgmmtj = None
+        notes.append(f"机构席位汇总(jgmmtj)拉取失败: {e}")
+
     return {"source": "eastmoney",
             "trade_date": day,
             "fetched_at": datetime.now().isoformat(timespec="seconds"),
             "stock_count": len(items),
             "items": items,
+            "jgmmtj": jgmmtj,
             "note": "；".join(notes)}
 
 

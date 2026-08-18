@@ -130,3 +130,91 @@ def test_regulatory_distance_kline_missing(fake_http, tmp_path):
     data = lp.build_limit_pool(DAY, tmp_path)
     rd = data["regulatory_distance"]
     assert rd["leader_code"] == "600721" and "不足" in rd["note"]
+
+
+# ---------- C5 断板推导（broken_boards，2026-08-17 起） ----------
+
+PREV_PAYLOAD = {"date": "2026-08-14", "zt_items": [
+    {"code": "A", "name": "冲板股", "lbc": 3},
+    {"code": "B", "name": "大面股", "lbc": 2},
+    {"code": "C", "name": "温和股", "lbc": 2},
+    {"code": "D", "name": "无数据股", "lbc": 4},
+    {"code": "E", "name": "晋级股", "lbc": 2},   # 今日仍在涨停池 → 非断板
+    {"code": "F", "name": "首板股", "lbc": 1},   # lbc<2 不参与断板推导
+]}
+CUR_PAYLOAD = {"date": "2026-08-17",
+               "zt_items": [{"code": "E", "name": "晋级股", "lbc": 3}],
+               "zb_items": [{"code": "A", "name": "冲板股"}]}
+PREV_EM_ROWS = [{"代码": "B", "名称": "大面股", "涨跌幅": -7.5, "最新价": 6.6},
+                {"代码": "C", "名称": "温和股", "涨跌幅": -1.2, "最新价": 10.1}]
+
+
+def test_compute_broken_boards_four_statuses():
+    out = lp.compute_broken_boards(PREV_PAYLOAD, CUR_PAYLOAD, PREV_EM_ROWS)
+    by_code = {r["code"]: r for r in out}
+    assert set(by_code) == {"A", "B", "C", "D"}  # 晋级股/首板股不出现
+    assert by_code["A"]["status"] == "冲板未封" and by_code["A"]["prev_lbc"] == 3
+    assert by_code["B"]["status"] == "大面断板" and by_code["B"]["chg_today"] == -7.5
+    assert by_code["C"]["status"] == "温和断板" and by_code["C"]["chg_today"] == -1.2
+    assert by_code["D"]["status"] == "无数据" and by_code["D"]["chg_today"] is None
+    assert all(set(r) == {"code", "name", "prev_lbc", "chg_today", "status"}
+               for r in out)
+
+
+def test_compute_broken_boards_zb_priority_over_perf():
+    # 同时在炸板池且大跌：冲板未封优先（价格行为以冲板信号为主）
+    cur = {"zt_items": [], "zb_items": [{"code": "B"}]}
+    out = lp.compute_broken_boards(PREV_PAYLOAD, cur, PREV_EM_ROWS)
+    assert next(r for r in out if r["code"] == "B")["status"] == "冲板未封"
+
+
+def test_compute_broken_boards_previous_em_none_degrades():
+    out = lp.compute_broken_boards(PREV_PAYLOAD, CUR_PAYLOAD, None)
+    by_code = {r["code"]: r for r in out}
+    assert by_code["A"]["status"] == "冲板未封"  # zb_items 仍可识别
+    assert by_code["B"]["status"] == "无数据"
+    assert by_code["C"]["status"] == "无数据"
+    assert all(r["chg_today"] is None for r in out)
+
+
+def test_add_broken_boards_writes_key(tmp_path, monkeypatch):
+    (tmp_path / "20260814.json").write_text(
+        json.dumps(PREV_PAYLOAD, ensure_ascii=False), encoding="utf-8")
+    monkeypatch.setattr(lp, "fetch_previous_em", lambda day: PREV_EM_ROWS)
+    data = dict(CUR_PAYLOAD)
+    lp.add_broken_boards(data, tmp_path, "20260817")  # prev_day 缺省自动找最近文件
+    assert "broken_boards_note" not in data
+    by_code = {r["code"]: r for r in data["broken_boards"]}
+    assert by_code["B"]["status"] == "大面断板"
+    assert by_code["A"]["status"] == "冲板未封"
+
+
+def test_add_broken_boards_explicit_prev_day(tmp_path, monkeypatch):
+    (tmp_path / "20260813.json").write_text(
+        json.dumps(PREV_PAYLOAD, ensure_ascii=False), encoding="utf-8")
+    monkeypatch.setattr(lp, "fetch_previous_em", lambda day: [])
+    data = dict(CUR_PAYLOAD)
+    lp.add_broken_boards(data, tmp_path, "20260817", prev_day="20260813")
+    assert {r["status"] for r in data["broken_boards"]} == {"冲板未封", "无数据"}
+
+
+def test_add_broken_boards_akshare_failure_annotated(tmp_path, monkeypatch):
+    (tmp_path / "20260814.json").write_text(
+        json.dumps(PREV_PAYLOAD, ensure_ascii=False), encoding="utf-8")
+
+    def _boom(day):
+        raise RuntimeError("被限流")
+
+    monkeypatch.setattr(lp, "fetch_previous_em", _boom)
+    data = dict(CUR_PAYLOAD)
+    lp.add_broken_boards(data, tmp_path, "20260817")
+    assert data["broken_boards"] is None
+    assert "限流" in data["broken_boards_note"]
+
+
+def test_add_broken_boards_no_prev_file_annotated(tmp_path, monkeypatch):
+    monkeypatch.setattr(lp, "fetch_previous_em", lambda day: PREV_EM_ROWS)
+    data = dict(CUR_PAYLOAD)
+    lp.add_broken_boards(data, tmp_path, "20260817")
+    assert data["broken_boards"] is None
+    assert "前一日落盘" in data["broken_boards_note"]
