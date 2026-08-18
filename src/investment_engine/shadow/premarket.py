@@ -15,7 +15,7 @@ from pathlib import Path
 from investment_engine.backtest.history import list_trading_days
 from investment_engine.blindtest.dataset import build_daily_pack
 from investment_engine.blindtest.replay import (
-    DEFAULT_MODEL, PROMPT_VERSION, call_deepseek, parse_result,
+    DEFAULT_MODEL, PROMPT_VERSION, call_deepseek, parse_result, run_with_validation,
 )
 
 PRED_DIR = Path("evals/shadow/predictions")
@@ -57,7 +57,8 @@ PREMARKET_SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析
 13. 判放量性质必须回答「量从哪来」：区分存量调仓（板块间换手）与增量入场——换手放量的持续性弱于增量入场，不得直接定性为增量进攻；若 user 数据含 fund_flow/lhb 块，必须引用其数据佐证量能源头，无该数据则按规则 11(c) 降级表述。
 14. 中阳/大阳定性前先定位置：先判定当前处于反弹修复段还是趋势加速段，再给出量价性质预判；反弹修复段的右侧确认点放在补缺回踩之后的量价配合，不得仅凭单日量价齐升直接预判主升/趋势加速。
 15. 量能分档一律用相对表述（守住前日量级/温和放大/越过确认位），禁止自拍绝对阈值（如「24000 亿以上算放量」这类自定义数字）；绝对刻度只许引用方法论框架分档（2.5 万亿=放量确认位、3 万亿以上=警惕过热）。
-16. 连板梯队分析不得只用涨停家数/封板率汇总值：若 user 数据的 limit_pool 块含 ladder（分层名单）、compare.promotion_rate（晋级率）、first_board_width、regulatory_distance，必须引用这些字段给出梯队判断；并按「昨日首板家数 × 约 15% 晋级率」折算今日二板健康区间，写入 watch_next 作为跟踪变量。"""
+16. 连板梯队分析不得只用涨停家数/封板率汇总值：若 user 数据的 limit_pool 块含 ladder（分层名单）、compare.promotion_rate（晋级率）、first_board_width、regulatory_distance，必须引用这些字段给出梯队判断；并按「昨日首板家数 × 约 15% 晋级率」折算今日二板健康区间，写入 watch_next 作为跟踪变量。
+17. 顶部结构信号必须引用：若 user 数据的 structure 块含任一指数 60min 及以上级别 top 且 state 为 forming/divergence（顶部钝化中），stage_reason 或 watch_next 必须引用该信号（指数+级别+状态），并给出确认/消失的观察条件；无该数据不强制。"""
 
 
 def premarket_path(day: str, pred_dir: Path = PRED_DIR) -> Path:
@@ -147,14 +148,15 @@ def run_predict_premarket(day: str, *, config_dir, db_path=None,
             pack["prior_day"] = prior
         overnight = _load_overnight(day, overnight_root)
         text = _pack_to_premarket_prompt(pack, day, overnight)
-        raw = call_deepseek(
-            [{"role": "system", "content": PREMARKET_SYSTEM_PROMPT},
-             {"role": "user", "content": text}],
-            model=model, client=client, tag="shadow_premarket")
-        result = parse_result(raw)
+        messages = [{"role": "system", "content": PREMARKET_SYSTEM_PROMPT},
+                    {"role": "user", "content": text}]
+        raw, result, validation = run_with_validation(
+            messages, pack, model=model, client=client, tag="shadow_premarket",
+            call_fn=call_deepseek)
         rec = {"date": day, "result": result, "raw": raw,
                "prompt_version": PROMPT_VERSION,
                "stage_hit": None, "due_scores": None, "status": "pending_maturity",
+               "validation": validation,
                "meta": {"prev_day": prev_day,
                         "overnight_date": (overnight or {}).get("date")}}
     except Exception as e:  # noqa: BLE001 - 失败留 error 记录，次日重跑

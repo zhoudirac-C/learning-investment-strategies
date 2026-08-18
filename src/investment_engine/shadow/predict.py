@@ -7,6 +7,7 @@ from pathlib import Path
 from investment_engine.blindtest.dataset import build_daily_pack, pack_to_prompt
 from investment_engine.blindtest.replay import (
     DEFAULT_MODEL, PROMPT_VERSION, build_messages, call_deepseek, parse_result,
+    run_with_validation,
 )
 
 PRED_DIR = Path("evals/shadow/predictions")
@@ -97,15 +98,16 @@ def run_predict(day: str, *, config_dir, db_path=None, pred_dir: Path = PRED_DIR
         if prior:
             pack["prior_day"] = prior
         text = pack_to_prompt(pack)  # 内含防泄漏断言
-        raw = call_deepseek(build_messages(text), model=model, client=client,
-                            tag="shadow_predict")
-        result = parse_result(raw)
+        raw, result, validation = run_with_validation(
+            build_messages(text), pack, model=model, client=client,
+            tag="shadow_predict", call_fn=call_deepseek)
         from investment_engine.shadow.factcheck import check_prediction
         fact_errors = check_prediction(
             result, day, extra_names=[s.get("name") for s in pack.get("stocks", [])])
         rec = {"date": day, "result": result, "raw": raw,
                "prompt_version": PROMPT_VERSION,
-               "stage_hit": None, "due_scores": None, "status": "pending_maturity"}
+               "stage_hit": None, "due_scores": None, "status": "pending_maturity",
+               "validation": validation}
         if fact_errors:
             rec["fact_errors"] = fact_errors
     except Exception as e:  # noqa: BLE001 - 失败留 error 记录，次日重跑

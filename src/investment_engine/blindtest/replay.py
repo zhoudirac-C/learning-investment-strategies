@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import time
 from datetime import datetime
 from pathlib import Path
@@ -22,7 +23,7 @@ _TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v6"
+PROMPT_VERSION = "v7"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -79,7 +80,8 @@ SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。�
 13. 判放量性质必须回答「量从哪来」：区分存量调仓（板块间换手）与增量入场——换手放量的持续性弱于增量入场，不得直接定性为增量进攻；若 user 数据含 fund_flow/lhb 块，必须引用其数据佐证量能源头，无该数据则按规则 11(c) 降级表述。
 14. 中阳/大阳定性前先定位置：先判定当日处于反弹修复段还是趋势加速段，再给出量价性质结论；反弹修复段的右侧确认点放在补缺回踩之后的量价配合，不得仅凭当日量价齐升直接判主升/趋势加速。
 15. 量能分档一律用相对表述（守住前日量级/温和放大/越过确认位），禁止自拍绝对阈值（如「24000 亿以上算放量」这类自定义数字）；绝对刻度只许引用方法论框架分档（2.5 万亿=放量确认位、3 万亿以上=警惕过热）。
-16. 连板梯队分析不得只用涨停家数/封板率汇总值：若 user 数据的 limit_pool 块含 ladder（分层名单）、compare.promotion_rate（晋级率）、first_board_width、regulatory_distance，必须引用这些字段给出梯队判断；并按「首板家数 × 约 15% 晋级率」折算次日二板健康区间，写入 watch_next 作为跟踪变量。"""
+16. 连板梯队分析不得只用涨停家数/封板率汇总值：若 user 数据的 limit_pool 块含 ladder（分层名单）、compare.promotion_rate（晋级率）、first_board_width、regulatory_distance，必须引用这些字段给出梯队判断；并按「首板家数 × 约 15% 晋级率」折算次日二板健康区间，写入 watch_next 作为跟踪变量。
+17. 顶部结构信号必须引用：若 user 数据的 structure 块含任一指数 60min 及以上级别 top 且 state 为 forming/divergence（顶部钝化中），stage_reason 或 watch_next 必须引用该信号（指数+级别+状态），并给出确认/消失的观察条件；无该数据不强制。"""
 
 
 def build_messages(pack_text: str) -> list[dict]:
@@ -208,6 +210,167 @@ def parse_result(raw: str) -> dict:
         "operation": operation,
         "cycle_state": cycle_state,
     }
+
+
+# ---------------------------------------------------------------------------
+# 输出确定性校验层（proposal: 2026-08-18-fix-deterministic-output-validation）
+# 规则遵守不依赖模型自觉：违规则打回重写一次，仍违规则标 failed 如实落盘。
+# ---------------------------------------------------------------------------
+
+# 规则15 白名单：方法论框架量能分档（数值 → 同句必需关键词）
+_FRAMEWORK_BANDS = {25000: ("确认位",), 30000: ("过热", "警惕")}
+_RELATIVE_ANCHORS = ("前日量级", "昨日量级", "前一交易日", "昨日成交", "前日成交")
+_AMOUNT_RE = re.compile(r"成交额[\(（]?亿?[\)）]?[^\d]{0,15}?(\d{4,5})\s*亿")
+
+_LADDER_HINTS = ("梯队", "连板", "首板", "晋级", "二板", "断板", "高度", "宽度", "抱团")
+_STRUCTURE_HINTS = ("钝化", "顶部结构", "背离", "MACD", "绿柱", "高9", "DIF")
+_REDUCE_RE = re.compile(r"降仓|减仓|获利了结|兑现|清仓|卖出")
+
+
+def _result_text(result: dict) -> str:
+    """拼接输出全部文本字段，供引用类校验检索。"""
+    parts = [result.get("stage_reason")]
+    for s in result.get("scenarios") or []:
+        parts += [s.get("condition"), s.get("conclusion"), s.get("key")]
+    parts += list(result.get("watch_next") or [])
+    parts += list(result.get("invalidation") or [])
+    for d in result.get("directions") or []:
+        parts.append(d.get("reason"))
+    op = result.get("operation") or {}
+    parts += [op.get("action"), op.get("basis")]
+    parts.append((result.get("cycle_state") or {}).get("note"))
+    return " ".join(str(p or "") for p in parts)
+
+
+def _iter_top_signals(structure) -> list[tuple[str, str, str]]:
+    """structure 块中的顶部 forming/divergence 信号 → (指数, 级别, 状态)。"""
+    out = []
+    if not isinstance(structure, dict):
+        return out
+    for idx, levels in structure.items():
+        if not isinstance(levels, dict):
+            continue
+        for level, lv in levels.items():
+            if not isinstance(lv, dict):
+                continue
+            top = lv.get("top")
+            if isinstance(top, dict) and top.get("state") in ("forming", "divergence"):
+                out.append((str(idx), str(level), str(top.get("state"))))
+    return out
+
+
+def validate_result(result: dict, pack: dict | None = None) -> list[str]:
+    """确定性校验：返回违规说明列表，空列表 = 通过。不调 LLM。
+
+    三类校验（对应 prompt v7 规则）：
+    - 规则15：scenarios/watch_next/invalidation 禁止自拍绝对成交额阈值；
+    - 规则11a + 10/12：结论-证据一致性（主升 vs 降仓类动作；冲量滑落 vs 放量结论）；
+    - 规则13/16/17：pack 在场数据（ladder/jgmmtj/顶部结构信号）必须引用。
+    """
+    if not isinstance(result, dict):
+        return ["输出结构非法"]
+    violations: list[str] = []
+
+    # 规则15：绝对成交额阈值（相对口径锚点 / 框架分档 + 关键词除外）
+    fields = [("scenarios.condition", str(s.get("condition") or ""))
+              for s in result.get("scenarios") or [] if isinstance(s, dict)]
+    fields += [("watch_next", str(w or "")) for w in result.get("watch_next") or []]
+    fields += [("invalidation", str(w or "")) for w in result.get("invalidation") or []]
+    for src, text in fields:
+        if any(a in text for a in _RELATIVE_ANCHORS):
+            continue
+        m = _AMOUNT_RE.search(text)
+        if m:
+            num = int(m.group(1))
+            keys = _FRAMEWORK_BANDS.get(num)
+            if keys and any(k in text for k in keys):
+                continue
+            violations.append(
+                f"规则15: {src} 含自拍绝对成交额阈值「{num}亿」"
+                "（量能只写方向/相对口径，或引用 2.5万亿确认位 / 3万亿过热 分档）")
+
+    # 规则11a：market_stage 与 operation.action 不得矛盾
+    stage = result.get("market_stage")
+    action = str((result.get("operation") or {}).get("action") or "")
+    if stage == "主升" and _REDUCE_RE.search(action):
+        violations.append(
+            f"规则11: market_stage=主升 与 operation.action「{action[:20]}」自相矛盾")
+
+    # 规则10/12：盘中形态冲量滑落时禁止放量类结论
+    shape = str(((pack or {}).get("intraday_amount") or {}).get("形态") or "")
+    if "冲量滑落" in shape and (result.get("nature") == "放量攻击" or stage == "主升"):
+        violations.append(
+            "规则10/12: intraday 形态为冲量滑落，禁止 nature=放量攻击 / market_stage=主升")
+
+    # 规则13/16/17：在场数据必须引用（pack 缺块则跳过对应校验）
+    if pack:
+        text_all = _result_text(result)
+        ladder = (pack.get("limit_pool") or {}).get("ladder")
+        has_ladder = (isinstance(ladder, dict) and any(ladder.values())) or \
+                     (isinstance(ladder, list) and bool(ladder))
+        if has_ladder and not any(h in text_all for h in _LADDER_HINTS):
+            violations.append(
+                "规则16: pack 含 limit_pool.ladder 梯队数据，输出未引用梯队结构字段")
+        jg = (pack.get("lhb") or {}).get("jgmmtj") or {}
+        names = []
+        if isinstance(jg, dict):
+            for key in ("净买入top5", "净卖出top5"):
+                for row in jg.get(key) or []:
+                    if isinstance(row, dict) and row.get("名称"):
+                        names.append(str(row["名称"]))
+        if names and "机构" not in text_all and not any(n in text_all for n in names):
+            violations.append("规则13: pack 含 lhb.jgmmtj 机构席位数据，输出未引用")
+        tops = _iter_top_signals(pack.get("structure"))
+        if tops and not any(h in text_all for h in _STRUCTURE_HINTS):
+            idx, level, state = tops[0]
+            violations.append(
+                f"规则17: pack 含 {idx} {level} 顶部{state}信号，输出未引用")
+
+    return violations
+
+
+def _violation_note(violations: list[str]) -> str:
+    items = "\n".join(f"- {v}" for v in violations)
+    return ("上一版输出违反以下硬性规则：\n" + items +
+            "\n请只修正违规部分（量能改相对口径 / 补充引用在场数据字段 / 消除结论矛盾），"
+            "严格按原 JSON 契约重新输出完整结果。")
+
+
+def run_with_validation(messages: list[dict], pack: dict | None = None, *,
+                        model: str = DEFAULT_MODEL, client=None,
+                        tag: str | None = None, call_fn=None) -> tuple[str, dict, dict]:
+    """调 LLM + 确定性校验：违规则带说明重试一次；仍违规则标 failed 如实返回。
+
+    返回 (raw, result, validation)；validation = {status, violations, retried}。
+    call_fn 可注入（默认 call_deepseek），便于调用方使用本模块已打补丁的引用。
+    """
+    call = call_fn or call_deepseek
+    raw = call(messages, model=model, client=client, tag=tag)
+    result = parse_result(raw)
+    violations = validate_result(result, pack)
+    retried = False
+    if violations:
+        retried = True
+        retry_msgs = list(messages) + [
+            {"role": "assistant", "content": raw},
+            {"role": "user", "content": _violation_note(violations)},
+        ]
+        retry_tag = f"{tag}_retry" if tag else None
+        raw2 = call(retry_msgs, model=model, client=client, tag=retry_tag)
+        try:
+            result2 = parse_result(raw2)
+        except ValueError:
+            result2 = None
+        if result2 is not None:
+            v2 = validate_result(result2, pack)
+            if not v2:
+                return raw2, result2, {"status": "passed", "violations": [],
+                                       "retried": True}
+            raw, result, violations = raw2, result2, v2
+    validation = ({"status": "failed", "violations": violations, "retried": retried}
+                  if violations else
+                  {"status": "passed", "violations": [], "retried": retried})
+    return raw, result, validation
 
 
 def _done_dates(out_path: Path) -> set[str]:

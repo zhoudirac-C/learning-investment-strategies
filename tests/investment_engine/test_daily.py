@@ -7,10 +7,10 @@ from investment_engine.shadow.daily import run
 
 
 class TestDailyPromptVersion:
-    def test_prompt_version_is_v6(self):
-        """P0 prompt 纪律批次：盘后 prompt 版本号 v5→v6。"""
+    def test_prompt_version_is_v7(self):
+        """输出校验层批次：盘后 prompt 版本号 v6→v7（新增规则17 顶部结构引用）。"""
         from investment_engine.blindtest import replay
-        assert replay.PROMPT_VERSION == "v6"
+        assert replay.PROMPT_VERSION == "v7"
 
     def test_daily_prompt_contains_discipline_rules(self):
         """v6 新增纪律规则关键词须出现在盘后 prompt（B1/B2/A2-A5/C5引用/C8降级）。"""
@@ -23,6 +23,7 @@ class TestDailyPromptVersion:
         assert "反弹修复段" in text and "补缺回踩" in text  # A4 位置决定意义
         assert "守住前日量级" in text and "24000 亿以上算放量" in text  # A5 相对口径
         assert "promotion_rate" in text and "晋级率" in text  # C5 梯队引用/A8 折算
+        assert "forming/divergence" in text  # v7 规则17 顶部结构信号引用
 
 
 class TestDailyRun:

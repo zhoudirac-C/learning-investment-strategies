@@ -1,0 +1,24 @@
+{
+  "date": "2026-08-18",
+  "triggers": [
+    "process_audit"
+  ],
+  "types": [
+    "规则未遵守",
+    "步骤缺",
+    "数据缺"
+  ],
+  "analysis": "盘后盲判（v6，rules 1-16 已于当日 08:28 全量合入）vs qing 复盘（17点落盘）vs UP 复盘（22:32 专栏）三方对照（人工归因）。结果层方向一致：盲判判『震荡/主动降速、情绪退潮』与 UP『修复成色存疑、情绪高度宽度背离』同向，且命中两条已学规则——晋级率折算（首板61×15%≈9家入 watch_next，规则16）与盘前 -pre 量能相对口径（守住前日量级，规则15）。过程层暴露五类缺口。1. 规则未遵守·绝对阈值回潮：盘后盲判情形A/B 挂『成交额维持24000亿以上/萎缩至22000亿以下、创业板指3740/3700』——直接违反规则15（禁止自拍绝对阈值，24000亿正是该规则的反例原文），同日盘前(-pre)遵守、盘后违反，同一 prompt 下执行不稳定；UP 同日原话『我一向不信任整数量能位的牢固性…明天真正要看的不是收盘涨跌，而是量能、银行的强弱和高位股的分歧程度』。2. 规则未遵守·数据在包内但未引用：limit_pool.ladder（4板神奇制药/3板4家/2板13家）、emotion 连板负反馈（金螳螂、天洋新材昨4连板断板）、first_board_width（61家、dod-30）、lhb.jgmmtj（机构净买卖 top5，瑞丰高材/誉衡药业/金禄电子与 UP 引用完全同源）全部在数据包内（missing=None），输出却只用了涨停家数/封板率汇总值——规则13（量从哪来须引 lhb）与规则16（须引 ladder/promotion_rate 等字段）均未执行。3. 步骤缺·三个 UP 核心推理无对应步骤：(a) 拉升资金性质定性——UP『下午拉升由银行完成=避险资金抬指数=诱多嫌疑』，规则13只问量从哪来（换手vs增量），没问拉升由谁完成（防御vs进攻）；(b) 指数-情绪背离识别——UP『指数探底回升但超3200只下跌=背离，回踩被防御品种掩盖』，盲判 stage_reason 引了涨跌家数（2121 vs 3292）却未上升为背离判断，数据被引用、推理步骤缺失；(c) 高度宽度背离——UP『高度还在（一鸣7天6板）、宽度收敛（首板91→61、昨日4板全负反馈）=短线情绪最典型顶部特征』，盲判无梯队结构推理。4. 框架缺·两尺度仓位未建立：UP『短线仓位按情绪端管理、波段仓位按结构管理，不用一个尺度的信号指挥另一个尺度的仓位』『上升趋势中卖出要慢，触发器=60min MACD转绿，前提量能不失守承接不消失』；盲判单尺度输出直接由情绪退潮推出『获利了结、降仓位』，偏左侧，与 UP『不追涨不做T保留先手』存在操作层温差。structure 块已含科创50 60min 顶部钝化（08-18 10:30，与 UP 早盘09:27预警同源），输出未引用该触发器。5. 数据缺（仅两处真实缺口）：(a) 板块分时强度/指数贡献度——fund_flow 只有全天累计，无法定位『午后拉升由银行/防御完成』这一分时结构；(b) structure 只有 top/bottom 两态，无『钝化中/高9形成中』中间态，UP『60min顶部钝化若形成对应调整3天』的中间态表达缺失。qing 复盘臂对照：stage 判『回暖期』与 UP 温差最大，但其 stage_detail 自含『创业板高9+13天窗口回调压力、防御/农业领涨而非科技』——观察与 UP 同向、标签脱节；方向优先级把农业放第一，UP 明确『农业=过渡性题材/防守出口，进攻切防御是警惕信号不是新方向信号』，qing 把警惕信号读成机会方向；且当日 qing 数据中断（market_snapshot.quotes/watchlist/stock_contexts 全空、claims_cited=0、reviewer 三轮打回后 force pass），输出处于半盲+无锚定状态。",
+  "proposal_refs": [
+    "framework/proposals/2026-08-17-fix-blind-shadow-merged.md",
+    "framework/proposals/2026-08-18-fix-deterministic-output-validation.md",
+    "framework/proposals/2026-08-18-pattern-lift-fund-nature.md",
+    "framework/proposals/2026-08-18-pattern-index-sentiment-divergence.md",
+    "framework/proposals/2026-08-18-pattern-height-width-divergence.md",
+    "framework/proposals/2026-08-18-pattern-two-scale-position.md",
+    "framework/proposals/2026-08-18-pattern-rebound-sustainability-triad.md",
+    "framework/proposals/2026-08-18-data-channel-intraday-sector-strength.md",
+    "framework/proposals/2026-08-18-data-channel-structure-pending-lifecycle.md"
+  ],
+  "note": "与 8-17 归因的『规则未遵守』属同一类型再现（绝对阈值），说明合入 prompt 的规则缺少机械校验兜底——已提名 fix-deterministic-output-validation（输出后确定性校验，不依赖模型自觉）。5 个 B 类模式提名均标注待窗口验证（证据目前集中震荡 regime），2 个数据通道提案待人审。stage 结果待 maturity 回填后另评。"
+}
