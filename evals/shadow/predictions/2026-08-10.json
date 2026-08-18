@@ -28,6 +28,33 @@
   },
   "raw": "{\n  \"market_stage\": \"震荡\",\n  \"stage_reason\": \"沪深300指数近20日波动区间4529-4943，当前4702处于中位，成交量未显著放大，市场无明确趋势方向。\",\n  \"directions\": [\n    {\n      \"direction_id\": \"green_power_ai_electric\",\n      \"reason\": \"AI算力电力需求长逻辑，防御属性强，近期市场震荡中表现稳健。\",\n      \"stocks\": [\"600406\", \"600089\"]\n    },\n    {\n      \"direction_id\": \"pcb_ai_chain\",\n      \"reason\": \"AI硬件链景气持续，PCB板块受益于算力需求，近期有资金关注。\",\n      \"stocks\": [\"002463\", \"300476\"]\n    }\n  ],\n  \"used_patterns\": [\"technical_timing\", \"mainline_identification\"]\n}",
   "stage_hit": true,
-  "due_scores": null,
-  "status": "pending_maturity"
+  "due_scores": {
+    "directions": {
+      "samples": 2,
+      "hits": 1,
+      "hit_rate": 0.5
+    },
+    "stocks": {
+      "samples": 1,
+      "hits": 1,
+      "hit_rate": 1.0
+    },
+    "direction_details": [
+      {
+        "date": "2026-08-10",
+        "direction_id": "green_power_ai_electric",
+        "dir_ret": 0.0022445893305398533,
+        "bench_ret": 0.008311321517135095,
+        "hit": false
+      },
+      {
+        "date": "2026-08-10",
+        "direction_id": "pcb_ai_chain",
+        "dir_ret": 0.05960104646066999,
+        "bench_ret": 0.008311321517135095,
+        "hit": true
+      }
+    ]
+  },
+  "status": "scored"
 }
