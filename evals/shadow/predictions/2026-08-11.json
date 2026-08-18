@@ -55,6 +55,33 @@
   "raw": "{\n  \"market_stage\": \"震荡\",\n  \"stage_reason\": \"沪深300缩量下跌0.81%，成交额209.7亿较前日213.1亿继续萎缩，涨停58家但连板高度仅6板，情绪处于冰点后修复初期，指数在低位区间反复震荡。\",\n  \"scenarios\": [\n    {\n      \"name\": \"情形A\",\n      \"condition\": \"若下一交易日成交额放大且涨停家数回升至80家以上，连板高度突破6板，则市场进入修复反弹阶段。\",\n      \"conclusion\": \"可适度参与主线方向反弹，关注低位补涨机会。\",\n      \"key\": \"量能是否有效放大\"\n    },\n    {\n      \"name\": \"情形B\",\n      \"condition\": \"若成交额继续萎缩且指数跌破前低，则市场可能进入调整或恐慌阶段。\",\n      \"conclusion\": \"保持谨慎，控制仓位，等待情绪冰点后的右侧信号。\",\n      \"key\": \"指数是否跌破关键支撑\"\n    }\n  ],\n  \"watch_next\": [\n    \"下一交易日沪深300成交额是否放大至250亿以上\",\n    \"涨停家数是否回升至80家以上\",\n    \"连板高度是否突破6板\",\n    \"炸板率是否下降至30%以下\"\n  ],\n  \"invalidation\": [\n    \"若沪深300指数跌破4600点且成交额放大，则震荡判断失效，可能进入调整或恐慌。\",\n    \"若涨停家数持续低于50家且连板高度降至3板以下，则情绪进一步恶化。\"\n  ],\n  \"directions\": [\n    {\n      \"direction_id\": \"pharmaceutical_innovation\",\n      \"reason\": \"医药板块涨停家数居前，百花医药6连板，哈药股份3连板，板块效应明显，且创新药方向有AI制药催化。\",\n      \"posture\": \"趋势\",\n      \"stocks\": [\"600721\", \"600664\"]\n    },\n    {\n      \"direction_id\": \"mlcc_super_cycle\",\n      \"reason\": \"风华高科涨停且封板资金大，MLCC涨价逻辑持续，板块内洁美科技涨停，方向有资金关注。\",\n      \"posture\": \"波段\",\n      \"stocks\": [\"000636\", \"002859\"]\n    }\n  ],\n  \"used_patterns\": [\"sentiment_cycle\", \"mainline_identification\"]\n}",
   "prompt_version": "v2",
   "stage_hit": true,
-  "due_scores": null,
-  "status": "pending_maturity"
+  "due_scores": {
+    "directions": {
+      "samples": 2,
+      "hits": 0,
+      "hit_rate": 0.0
+    },
+    "stocks": {
+      "samples": 1,
+      "hits": 0,
+      "hit_rate": 0.0
+    },
+    "direction_details": [
+      {
+        "date": "2026-08-11",
+        "direction_id": "pharmaceutical_innovation",
+        "dir_ret": 0.011934015877393131,
+        "bench_ret": 0.0132981973888191,
+        "hit": false
+      },
+      {
+        "date": "2026-08-11",
+        "direction_id": "mlcc_super_cycle",
+        "dir_ret": 0.0005827249375334742,
+        "bench_ret": 0.0132981973888191,
+        "hit": false
+      }
+    ]
+  },
+  "status": "scored"
 }
