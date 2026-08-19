@@ -1,0 +1,137 @@
+claims:
+- id: claim-20260819-025
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-19-0959-图片-整个跌幅在开盘后也没有进一步扩大，美债昨天也有修复，早盘也说.md
+  source_date: '2026-08-19'
+  source_type: 图片动态
+  extracted_at: '2026-08-19T12:12:00'
+  claim_type: market-cycle
+  subject: 开盘跌幅未扩大美债修复今晚数据更重要
+  timeframe: intraday
+  statement: 整个跌幅在开盘后也没有进一步扩大，美债昨天也有修复，早盘也说过了，今晚的数据会更为重要一些。这两天的调整都是预期内的事情。
+  evidence_quote: 整个跌幅在开盘后也没有进一步扩大，美债昨天也有修复……这两天的调整都是预期内的事情。
+  interpretation: 盘中定性：早盘低开后跌幅未扩大=承接存在；美债收益率隔夜修复（守住4.70%）缓解宏观压力；核心变量仍是今晚美债拍卖+纪要。两日调整为预期内而非超预期。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 开盘跌幅未扩大，今晚数据是核心变量
+  related_stocks: []
+  tags:
+  - 跌幅未扩大
+  - 美债修复
+  - 今晚数据
+  - 预期内调整
+- id: claim-20260819-026
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-19-0959-图片-整个跌幅在开盘后也没有进一步扩大，美债昨天也有修复，早盘也说.md
+  source_date: '2026-08-19'
+  source_type: 图片动态
+  extracted_at: '2026-08-19T12:12:00'
+  claim_type: methodology
+  subject: 科技滞后大盘顶部结构有三天交易时间
+  timeframe: short-term
+  statement: 昨天复盘也讲过，科技跟大盘是滞后的，即使出现顶部结构，我们也有三天的交易时间可以去操作。
+  evidence_quote: 科技跟大盘是滞后的，即使出现顶部结构，我们也有三天的交易时间可以去操作。
+  interpretation: 操作缓冲逻辑：科技滞后大盘两个浪型（claim-048），因此即使大盘出现顶部结构，科技端也有三天时间从容应对——不急于开盘恐慌操作。这是'结构滞后=时间缓冲'的操作方法论。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技滞后大盘，顶部结构有三天缓冲
+  related_stocks: []
+  tags:
+  - 科技滞后
+  - 三天交易时间
+  - 顶部结构
+  - 时间缓冲
+- id: claim-20260819-027
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-19-0959-图片-整个跌幅在开盘后也没有进一步扩大，美债昨天也有修复，早盘也说.md
+  source_date: '2026-08-19'
+  source_type: 图片动态
+  extracted_at: '2026-08-19T12:12:00'
+  claim_type: operation
+  subject: 卡位题材不建议做等10点半再定去留
+  timeframe: intraday
+  statement: 卡位题材我不建议去做，这个根据你们自己水平来。等10点半，如果顶部结构形成，再定去留，不要一键清仓，因为科技仓位本身也没打满，我认为当前位置没什么担心，但是抄底也不着急抄。
+  evidence_quote: 等10点半，如果顶部结构形成，再定去留，不要一键清仓……当前位置没什么担心，但是抄底也不着急抄。
+  interpretation: 操作口径：①卡位题材（追涨卡位）不建议做②10:30 看顶部结构是否形成再定去留③不一键清仓（仓位未打满+有利润垫）④当前不担心但也不急着抄底。四个约束形成'静观其变'的中间状态。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 等10:30定去留，不一键清仓不急抄底
+  related_stocks: []
+  tags:
+  - 卡位题材
+  - 10点半
+  - 一键清仓
+  - 不着急抄底
+- id: claim-20260819-028
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-19-0959-图片-整个跌幅在开盘后也没有进一步扩大，美债昨天也有修复，早盘也说.md
+  source_date: '2026-08-19'
+  source_type: 图片动态
+  extracted_at: '2026-08-19T12:12:00'
+  claim_type: operation
+  subject: 置顶评论当前位置可抄一波
+  timeframe: intraday
+  statement: UP置顶评论：这个地方可以抄一波了。
+  evidence_quote: 这个地方可以抄一波了
+  interpretation: 置顶评论信号：09:59 时点 UP 认为当前位置（大盘低开后企稳）具备短线抄底价值。与正文'不着急抄'形成张力——置顶评论是更积极的信号，正文是正式表述。综合解读：分批试探性抄底而非满仓，且要设失败退出条件（呼应
+    12:03 动态'抄底失败则T出'）。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 置顶评论：当前位置可抄一波
+  related_stocks: []
+  tags:
+  - 置顶评论
+  - 抄底
+  - 短线信号
+  - 分批试探
+- id: claim-20260819-029
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-19-0959-图片-整个跌幅在开盘后也没有进一步扩大，美债昨天也有修复，早盘也说.md
+  source_date: '2026-08-19'
+  source_type: 图片动态
+  extracted_at: '2026-08-19T12:12:00'
+  claim_type: market-cycle
+  subject: 两日调整为预期内不构成趋势改变
+  timeframe: short-term
+  statement: 这两天的调整都是预期内的事情……科技仓位本身也没打满，我认为当前位置没什么担心。
+  evidence_quote: 这两天的调整都是预期内的事情……当前位置没什么担心。
+  interpretation: 调整定性：两日（8/18-8/19）调整为预期内（早盘/复盘已预警），不构成趋势改变；仓位未打满（5成）使风险可控。为后续'上仓位'判断（12:03动态）铺垫。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 两日调整为预期内，趋势未变
+  related_stocks: []
+  tags:
+  - 预期内
+  - 趋势未变
+  - 仓位未打满
+  - 风险可控
