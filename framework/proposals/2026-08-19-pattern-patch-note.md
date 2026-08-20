@@ -2,6 +2,9 @@
 date: 2026-08-19
 type: pattern-patch
 status: open
+note: 2026-08-21 主轨「驱动力归因前置」已在 prompt 层试点（v9 规则24 + 机械化校验，
+见 framework/proposals/2026-08-21-pattern-patch-blind-up-comparison.md 实施记录）；
+reasoning-patterns.yaml 入库仍待人审 + 窗口验证。
 source: evals/shadow/attributions/2026-08-19.json
 ---
 

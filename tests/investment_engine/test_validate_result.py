@@ -279,6 +279,44 @@ class TestCurrentStepAnchor:
         assert any("规则15" in x for x in v), v
 
 
+class TestExternalAttribution:
+    """规则24（v9）：外力/内生归因前置——pack 含外盘数据时输出必须引用外部链条。
+
+    提案：framework/proposals/2026-08-19-pattern-patch-note.md（主轨，open）+
+    2026-08-21-pattern-patch-blind-up-comparison.md（试点落地）。
+    回归样本：2026-08-20 复盘盲判 pack 已含 global_macro/overnight_us，
+    输出对外盘零引用（"数据在场≠数据被用"）。
+    """
+
+    PACK_GM = {"global_macro": {"美股三指数": {"道指": {"pct": 0.22}},
+                                "美债收益率": {"10Y": {"yield": 4.653}}}}
+    PACK_OVN = {"overnight_us": {"themes": [{"name": "算力", "stocks": [
+        {"symbol": "NVDA", "pct_change": -0.99}]}]}}
+
+    def test_external_data_present_but_unreferenced(self):
+        v = validate_result(_result(), pack=self.PACK_GM)
+        assert any("规则24" in x for x in v), v
+
+    def test_overnight_only_also_triggers(self):
+        v = validate_result(_result(), pack=self.PACK_OVN)
+        assert any("规则24" in x for x in v), v
+
+    def test_external_check_conclusion_passes(self):
+        # 判非外力扰动也须注明外部链条检验结论
+        r = _result(stage_reason="隔夜美股翻红、10Y 收益率回落 5bp，外部链条平稳，"
+                                 "今日缩量企稳属内部存量博弈")
+        assert validate_result(r, pack=self.PACK_GM) == []
+
+    def test_reference_in_scenarios_counts(self):
+        r = _result(scenarios=[{"name": "情形A", "condition": "今夜美股费半止跌",
+                                "conclusion": "修复延续", "key": "外盘"}])
+        assert not any("规则24" in x for x in validate_result(r, pack=self.PACK_GM))
+
+    def test_no_external_blocks_skipped(self):
+        assert validate_result(_result(), pack={}) == []
+        assert validate_result(_result(), pack={"global_macro": {}}) == []
+
+
 class TestRunWithValidation:
     def test_compliant_single_call(self):
         client = _mock_client([GOOD_JSON])

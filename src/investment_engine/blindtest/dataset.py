@@ -238,32 +238,38 @@ def _load_emotion(day: str, kpl_root: Path) -> dict | None:
 _VOLUME_SERIES_MAX = 60  # 量能序列回溯上限（交易日）
 
 
-def _load_volume_series(day: str, kpl_root: Path) -> dict | None:
-    """两市成交额近期序列（亿元）：kpl/emotion 本地文件回溯，最多 60 个交易日。
+def _load_volume_series(day: str, kpl_root: Path,
+                        vh_path: Path | None = None) -> dict | None:
+    """两市成交额近期序列（亿元），最多 60 个交易日，双源合并：
 
-    本地 KPL 情绪自 2026-08-12 起逐日落盘，覆盖率随 cron 累积增长；
-    峰值/谷值/均值均为「可用窗口」口径并如实标注，非全周期。
-    供「量能台阶锚定」（v9 规则20；提案 2026-08-21 模式三）定位当前台阶。
-    无有效文件返回 None（登记 missing）；只用文件名日期 ≤ day 的文件（防泄漏）。
+    - 长历史：infra/data/volume_history.json（TDX 上证+深证成指日K amount 合计，
+      cron 回灌；与 KPL 口径实测逐位一致）；
+    - 近期覆盖：kpl/emotion 本地文件（当日/最新值以此为准，日期冲突时覆盖）。
+    峰值/谷值/均值均为「可用窗口」口径并如实标注。两源皆空返回 None（登记 missing）；
+    只取日期 ≤ day 的点（防泄漏）；fetched_at 等元数据不进包。
     """
+    by_date: dict[str, dict] = {}
+    from investment_engine.volume_history import load_volume_history
+    vh = load_volume_history(vh_path) if vh_path else load_volume_history()
+    for p in (vh or {}).get("points") or []:
+        if isinstance(p.get("成交额_亿"), (int, float)) and p.get("date", "") <= day:
+            by_date[p["date"]] = {"date": p["date"], "成交额_亿": p["成交额_亿"]}
     em_dir = kpl_root / "emotion"
-    if not em_dir.exists():
+    if em_dir.exists():
+        for p in sorted(em_dir.glob("*.json")):
+            d = p.stem
+            if d > day:
+                continue
+            try:
+                daban = (json.loads(p.read_text(encoding="utf-8")).get("daban") or {})
+            except json.JSONDecodeError:
+                continue
+            qscln = daban.get("qscln")
+            if isinstance(qscln, (int, float)) and qscln:
+                by_date[d] = {"date": d, "成交额_亿": round(qscln / 10000, 1)}
+    if not by_date:
         return None
-    points = []
-    for p in sorted(em_dir.glob("*.json")):
-        d = p.stem
-        if d > day:
-            continue
-        try:
-            daban = (json.loads(p.read_text(encoding="utf-8")).get("daban") or {})
-        except json.JSONDecodeError:
-            continue
-        qscln = daban.get("qscln")
-        if isinstance(qscln, (int, float)) and qscln:
-            points.append({"date": d, "成交额_亿": round(qscln / 10000, 1)})
-    if not points:
-        return None
-    points = points[-_VOLUME_SERIES_MAX:]
+    points = [by_date[d] for d in sorted(by_date)][-_VOLUME_SERIES_MAX:]
     vals = [p["成交额_亿"] for p in points]
     return {
         "points": points,
@@ -271,7 +277,7 @@ def _load_volume_series(day: str, kpl_root: Path) -> dict | None:
         "peak": max(points, key=lambda p: p["成交额_亿"]),
         "trough": min(points, key=lambda p: p["成交额_亿"]),
         "coverage": f"{len(points)}/{_VOLUME_SERIES_MAX}",
-        "note": "本地 KPL 情绪序列回溯（随 cron 逐日累积变长），峰值/谷值/均值为可用窗口口径，非全周期",
+        "note": "长历史=TDX 两指数合计（与 KPL 口径一致）、近期=KPL 情绪；峰值/谷值/均值为可用窗口口径，非全周期",
     }
 
 
@@ -801,7 +807,7 @@ def _load_core_patterns() -> list[dict]:
 def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
                      kpl_root=None, em_root=None, lp_root=None,
                      ic_root=None, research_root=None, ff_root=None,
-                     ia_root=None, si_root=None, gm_root=None,
+                     ia_root=None, si_root=None, gm_root=None, vh_path=None,
                      target_day: str | None = None) -> dict:
     """组装某日数据包（只含截至当日的数据）。
 
@@ -872,7 +878,7 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
     blocks = {"emotion": _load_emotion(day, root),
               "news_titles": _load_news_titles(day, root),
               "lhb": _load_lhb(day, root, em),
-              "volume_series": _load_volume_series(day, root)}
+              "volume_series": _load_volume_series(day, root, vh_path=vh_path)}
     missing = [f"kpl_{k}" for k, v in blocks.items() if v is None]
     limit_pool = _load_limit_pool(day, lp)
     if limit_pool is None:

@@ -87,7 +87,8 @@ SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。�
 20.（规则15扩展）量能台阶锚定：写量能阈值前先定位当前量能所处台阶；优先引用当日/前日成交额量级的「守住/跌破」线或方法论分档（2.5万亿确认位/3万亿过热）；量能下台阶阶段，禁止把修复确认线挂在上一台阶（如「回升至X亿确认修复」）。
 21. 弱市防御方向禁止顺延：directions 候选含前一交易日弱市中逆势净流入的防御方向（银行/煤炭/石油石化/农业等避险品种）时，禁止直接标「维持」——先答「次日修复概率」，修复情形下防御方向默认退潮（标「退潮」或不选）；并须回溯昨日所选方向的当日表现、在 trend 字段标注（规则5闭环）。
 22. watch_next 首条为个股级验证节点：连板梯队有独苗（唯一高位活口）/断板换龙承接标的/控异动个股，或 lhb 机构席位 top 个股与该股当日情绪事件方向矛盾（如大额净买入+控异动失败）时，watch_next 第一条须点名标的并给出确认/证伪条件；不得只写汇总指标。
-23. 方向判断必须做催化溯源：directions 所选方向（及 stage_reason 归因的当日领涨/领跌方向）若当日涨幅/净流入居前，必须先在 user 数据的 news_titles / research 块中检索对应催化并引用条目标题；检索不到显性催化时必须注明「无显性催化，按纯资金/轮动对待」并降低置信度（posture 不高于「波段」）。禁止只用「涨幅居前+资金流入」的描述性理由。"""
+23. 方向判断必须做催化溯源：directions 所选方向（及 stage_reason 归因的当日领涨/领跌方向）若当日涨幅/净流入居前，必须先在 user 数据的 news_titles / research 块中检索对应催化并引用条目标题；检索不到显性催化时必须注明「无显性催化，按纯资金/轮动对待」并降低置信度（posture 不高于「波段」）。禁止只用「涨幅居前+资金流入」的描述性理由。
+24. 外力/内生归因前置：判 market_stage/nature 前先答「本轮驱动来自内部还是外部」。若 user 数据含 global_macro/overnight_us 且外部链条成立（隔夜美股半导体/存储链大跌、亚太股指同步重挫、美债收益率异常变动等），nature 优先判「外力扰动」，不得仅凭内部情绪指标判「内生瓦解」；判「外力扰动」时 stage_reason 必须引用外盘数据，scenarios/invalidation 至少一条含外部变量锚（如今夜美股收盘位置、关键利率点位）。无论最终定性如何，stage_reason 必须注明外部链条检验结论（成立/不成立/平稳）。"""
 
 
 def build_messages(pack_text: str) -> list[dict]:
@@ -234,6 +235,11 @@ _AMOUNT_RE = re.compile(r"成交额[\(（]?亿?[\)）]?[^\d]{0,15}?(\d{4,5})\s*�
 _THREE_SIGNAL_HINTS = ("补跌", "多杀多", "流动性")
 _THREE_SIGNAL_NAMED = ("三信号", "见底判据", "见底清单")
 
+# 规则24：外部链条引用词（外力/内生归因前置）
+_EXTERNAL_HINTS = ("外盘", "美股", "隔夜", "美债", "费半", "费城", "纳指", "道指",
+                   "标普", "SOX", "KOSPI", "日经", "恒生", "美元指数", "收益率",
+                   "存储链", "亚太", "外部")
+
 _LADDER_HINTS = ("梯队", "连板", "首板", "晋级", "二板", "断板", "高度", "宽度", "抱团")
 _STRUCTURE_HINTS = ("钝化", "顶部结构", "背离", "MACD", "绿柱", "高9", "DIF")
 _REDUCE_RE = re.compile(r"降仓|减仓|获利了结|兑现|清仓|卖出")
@@ -295,7 +301,8 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
       （当前台阶锚定——守住/跌破 pack 当日或前日成交额量级 ±7%——豁免）；
     - 规则11a + 10/12：结论-证据一致性（主升 vs 降仓类动作；冲量滑落 vs 放量结论）；
     - 规则13/16/17：pack 在场数据（ladder/jgmmtj/顶部结构信号）必须引用；
-    - 规则18：情绪极端日判「调整/内生瓦解」必须引用三信号见底清单。
+    - 规则18：情绪极端日判「调整/内生瓦解」必须引用三信号见底清单；
+    - 规则24：pack 含外盘数据（global_macro/overnight_us）时必须引用外部链条。
     """
     if not isinstance(result, dict):
         return ["输出结构非法"]
@@ -377,6 +384,15 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
                 violations.append(
                     "规则18: 情绪极端日判「调整/内生瓦解」，stage_reason 未逐条检验"
                     "三信号见底清单（强势股补跌/多杀多/流动性见底）")
+
+        # 规则24：外力/内生归因前置——外盘数据在场时必须引用外部链条
+        # （无论最终定性；判非外力也须注明外部检验结论）
+        has_external = bool(pack.get("global_macro")) or \
+            bool((pack.get("overnight_us") or {}).get("themes"))
+        if has_external and not any(h in text_all for h in _EXTERNAL_HINTS):
+            violations.append(
+                "规则24: pack 含外盘数据（global_macro/overnight_us），输出未引用"
+                "外部链条——外力/内生归因前置：须注明外部检验结论（成立/不成立/平稳）")
 
     return violations
 

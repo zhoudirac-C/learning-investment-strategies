@@ -36,6 +36,7 @@ class TestDailyPromptVersion:
         assert "防御方向默认退潮" in text  # 规则21 弱市防御禁止顺延
         assert "个股级验证节点" in text  # 规则22 watch_next 首条
         assert "催化溯源" in text and "无显性催化" in text  # 规则23 方向催化溯源
+        assert "外力/内生归因前置" in text and "外部链条检验结论" in text  # 规则24
 
 
 class TestDailyRun:

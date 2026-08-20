@@ -171,6 +171,7 @@ class TestKplBlocks:
                          "marker": "真强势"}],
         }, ensure_ascii=False), encoding="utf-8")
         self.gm = Path(tempfile.mkdtemp())
+        self.vh = Path(tempfile.mkdtemp()) / "no_vh.json"  # 隔离真实 volume_history.json
         (self.gm / "20260630.json").write_text(json.dumps({
             "date": "2026-06-30", "fetched_at": "2026-06-30T16:35:00",
             "美股三指数": {"纳指": {"symbol": "^IXIC", "session": "2026-06-29",
@@ -186,7 +187,7 @@ class TestKplBlocks:
                                 lp_root=self.lp, ic_root=self.ic,
                                 research_root=self.research, ff_root=self.ff,
                                 ia_root=self.ia, si_root=self.si,
-                                gm_root=self.gm, **kw)
+                                gm_root=self.gm, vh_path=self.vh, **kw)
 
     def _write_em_lhb(self, day: str = "2026-06-30"):
         seats = [{"name": f"席位{i}", "buy": i, "sell": 0, "net": i} for i in range(7)]
@@ -271,7 +272,8 @@ class TestVolumeSeries:
     def test_series_built_ordered_and_converted(self):
         self._write("2026-08-19", 251104252)   # 万元 → 25110.4 亿
         self._write("2026-08-20", 207936324)   # → 20793.6 亿
-        vs = _load_volume_series("2026-08-20", self.kpl)
+        vs = _load_volume_series("2026-08-20", self.kpl,
+                                 vh_path=self.kpl / "no_vh.json")
         assert [p["date"] for p in vs["points"]] == ["2026-08-19", "2026-08-20"]
         assert vs["points"][1]["成交额_亿"] == 20793.6
         assert vs["peak"] == {"date": "2026-08-19", "成交额_亿": 25110.4}
@@ -283,14 +285,17 @@ class TestVolumeSeries:
         self._write("2026-08-20", 207936324)
         self._write("2026-08-21", 999999999)   # 未来日期：防泄漏排除
         self._write("2026-08-18", None)        # 无 qscln 字段：跳过
-        vs = _load_volume_series("2026-08-20", self.kpl)
+        vs = _load_volume_series("2026-08-20", self.kpl,
+                                 vh_path=self.kpl / "no_vh.json")
         assert [p["date"] for p in vs["points"]] == ["2026-08-20"]
 
     def test_no_valid_files_returns_none(self):
         self._write("2026-08-20", None)
-        assert _load_volume_series("2026-08-20", self.kpl) is None
+        assert _load_volume_series("2026-08-20", self.kpl,
+                                   vh_path=self.kpl / "no_vh.json") is None
         empty = Path(tempfile.mkdtemp())
-        assert _load_volume_series("2026-08-20", empty) is None
+        assert _load_volume_series("2026-08-20", empty,
+                                   vh_path=empty / "no_vh.json") is None
 
 
 def test_index_codes_expanded():
@@ -329,7 +334,8 @@ class TestP2DataBlocks:
                                 db_path=self.db, kpl_root=self.kpl, em_root=self.em,
                                 lp_root=self.lp, ic_root=self.ic,
                                 research_root=self.research, ff_root=self.ff,
-                                ia_root=self.ia, **kw)
+                                ia_root=self.ia,
+                                vh_path=Path(tempfile.mkdtemp()) / "no_vh.json", **kw)
 
     def _write_notices(self, day: str, items: list[dict]):
         (self.research / "notices" / f"{day}.json").write_text(
