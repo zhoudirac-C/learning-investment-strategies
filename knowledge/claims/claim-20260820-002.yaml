@@ -1,0 +1,83 @@
+claims:
+- id: claim-20260820-028
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-0954-图片-不用多想，这两天肯定是要减仓的，无非就是今天减还是明天减，我.md
+  source_date: '2026-08-20'
+  source_type: 图片动态
+  extracted_at: '2026-08-20T12:27:00'
+  claim_type: operation
+  subject: 这两天肯定减仓每天减一些
+  timeframe: intraday
+  statement: 不用多想，这两天肯定是要减仓的，无非就是今天减还是明天减，我认为你们可以每天减一些。反正就是这两天把科技相关的仓位降一降，我今天会出视频跟大家详细说的。
+  evidence_quote: 这两天肯定是要减仓的，无非就是今天减还是明天减，我认为你们可以每天减一些……这两天把科技相关的仓位降一降。
+  interpretation: 明确减仓指令（09:54）：这两天（8/20-8/21）肯定减仓，策略=每天减一些（分批而非一次性）；方向=科技相关仓位。与8/19
+    14:11'仓位压2-3成'、早盘027'仓位>选股'完全一致——执行窗口=今明两天分批降科技仓位。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今明两天分批减科技仓位
+  related_stocks: []
+  tags:
+  - 减仓
+  - 分批
+  - 科技仓位
+  - 今明两天
+- id: claim-20260820-029
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-0954-图片-不用多想，这两天肯定是要减仓的，无非就是今天减还是明天减，我.md
+  source_date: '2026-08-20'
+  source_type: 图片动态
+  extracted_at: '2026-08-20T12:27:00'
+  claim_type: operation
+  subject: 今晚初请失业金费城联储数据若差美债又上
+  timeframe: intraday
+  statement: 今晚美国那边还有数据，公布初请失业金和费城联储制造业指数，如果数据不好美债收益率又会上去。
+  evidence_quote: 今晚美国那边还有数据，公布初请失业金和费城联储制造业指数，如果数据不好美债收益率又会上去。
+  interpretation: 今晚变量：美国初请失业金+费城联储制造业指数——数据不好→美债收益率回升→科技估值再受压。这是今天减仓的理由之一：把仓位交给今晚数据前的确定性（与8/19复盘'今晚数据更重要'逻辑链一致）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今晚初请+费城联储，数据差则美债再上
+  related_stocks: []
+  tags:
+  - 初请失业金
+  - 费城联储
+  - 美债
+  - 今晚数据
+- id: claim-20260820-030
+  source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-0954-图片-不用多想，这两天肯定是要减仓的，无非就是今天减还是明天减，我.md
+  source_date: '2026-08-20'
+  source_type: 图片动态
+  extracted_at: '2026-08-20T12:27:00'
+  claim_type: operation
+  subject: 大涨大减小涨小减执行原则
+  timeframe: intraday
+  statement: 大涨大减，小涨小减吧。
+  evidence_quote: 大涨大减，小涨小减吧。
+  interpretation: 减仓执行原则（09:54）：按反弹幅度弹性减仓——反弹大涨则大幅减，小涨则小幅减；今天若有修复反弹（8/19冰点后80%修复概率），按反弹力度对应减仓幅度。与'每天减一些'构成完整的分批减仓纪律。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大涨大减小涨小减
+  related_stocks: []
+  tags:
+  - 大涨大减
+  - 小涨小减
+  - 执行原则
+  - 弹性减仓
