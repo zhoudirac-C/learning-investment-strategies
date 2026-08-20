@@ -187,6 +187,98 @@ GOOD_JSON = json.dumps({
 MESSAGES = [{"role": "system", "content": "s"}, {"role": "user", "content": "u"}]
 
 
+class TestThreeSignalCheck:
+    """规则18（v9）：情绪极端日判「调整/内生瓦解」必须先过三信号见底清单。
+
+    提案：framework/proposals/2026-08-21-pattern-patch-blind-up-comparison.md
+    回归样本：2026-08-20 早盘盲判真实 miss——跌停 118/上涨 449 极端日直接判
+    「调整/内生瓦解」（真值=震荡），未做强势股补跌/多杀多/流动性见底检验。
+    """
+
+    EXTREME = {"emotion": {"daban": {"跌停": 118, "上涨家数": 449}}}
+
+    def test_extreme_day_adjust_without_checklist_flagged(self):
+        # 8-20-pre 真实 miss 形态：极端日只引内部情绪指标判内生瓦解
+        r = _result(market_stage="调整", nature="内生瓦解",
+                    stage_reason="上涨家数仅449家、跌停118家，涨停36家萎缩，"
+                                 "连板高度降至3板，晋级率11.48%，属内生瓦解")
+        v = validate_result(r, pack=self.EXTREME)
+        assert any("规则18" in x for x in v), v
+
+    def test_extreme_day_nature_collapse_also_flagged(self):
+        r = _result(market_stage="震荡", nature="内生瓦解",
+                    stage_reason="情绪退潮，梯队瓦解")
+        v = validate_result(r, pack=self.EXTREME)
+        assert any("规则18" in x for x in v), v
+
+    def test_checklist_cited_passes(self):
+        r = _result(market_stage="调整", nature="内生瓦解",
+                    stage_reason="强势股补跌与多杀多已现，但放量下跌说明流动性未见底，"
+                                 "按内生瓦解处理")
+        assert not any("规则18" in x for x in validate_result(r, pack=self.EXTREME))
+
+    def test_named_checklist_passes(self):
+        r = _result(market_stage="调整",
+                    stage_reason="按三信号见底清单逐条检验后判定仍在出清中")
+        assert not any("规则18" in x for x in validate_result(r, pack=self.EXTREME))
+
+    def test_extreme_day_neutral_verdict_skipped(self):
+        r = _result(market_stage="震荡", nature="缩量企稳")
+        assert validate_result(r, pack=self.EXTREME) == []
+
+    def test_non_extreme_day_skipped(self):
+        pack = {"emotion": {"daban": {"跌停": 10, "上涨家数": 3000}}}
+        r = _result(market_stage="调整", stage_reason="指数破位下行")
+        assert validate_result(r, pack=pack) == []
+
+    def test_no_emotion_block_skipped(self):
+        r = _result(market_stage="调整", stage_reason="缩量下行")
+        assert validate_result(r, pack={}) == []
+
+
+class TestCurrentStepAnchor:
+    """规则15 v9 扩展：当前台阶锚定——守住/跌破当日（或前日）成交额量级合法。
+
+    回归样本：2026-08-20 复盘盲判 watch_next「回升至24000亿以上」——量能下台阶
+    阶段把确认线挂在上一台阶（当日 20793.6 亿），属自拍阈值；UP 式表述
+    「守住 2 万亿台阶」合法。
+    """
+
+    PACK = {"emotion": {"daban": {"两市成交额_亿": 20793.6,
+                                  "昨日两市成交额_亿": 25110.0}}}
+
+    def test_hold_current_step_passes(self):
+        r = _result(watch_next=["两市成交额(亿)能否守住20000亿关口"])
+        assert validate_result(r, pack=self.PACK) == []
+
+    def test_shrink_to_current_step_passes(self):
+        # 8-20 复盘真实合规表述：萎缩至当前台阶下方（20000 ≈ 当日 20793.6）
+        r = _result(scenarios=[{"name": "情形B",
+                                "condition": "下一交易日成交额(亿)继续萎缩至20000以下，或涨停家数回落至50家以下",
+                                "conclusion": "反弹乏力", "key": "情绪能否持续"}])
+        assert validate_result(r, pack=self.PACK) == []
+
+    def test_rebound_to_upper_step_still_flagged(self):
+        # 8-20 复盘真实输出（无「亿」后缀逃逸形态）：回升至上台阶且无守住/跌破语境
+        r = _result(
+            scenarios=[{"name": "情形A",
+                        "condition": "下一交易日两市成交额(亿)回升至24000以上，且涨停家数维持70家以上",
+                        "conclusion": "情绪修复确认", "key": "量能是否配合"}],
+            watch_next=["两市成交额(亿)能否回升至24000以上"])
+        v = validate_result(r, pack=self.PACK)
+        assert sum("规则15" in x and "24000" in x for x in v) == 2, v
+
+    def test_break_far_below_step_flagged(self):
+        r = _result(invalidation=["若成交额(亿)跌破17000亿则判断失效"])
+        v = validate_result(r, pack=self.PACK)
+        assert any("规则15" in x for x in v), v
+
+    def test_anchor_without_pack_amounts_falls_back(self):
+        r = _result(watch_next=["两市成交额(亿)能否守住20000亿关口"])
+        v = validate_result(r, pack={})
+        assert any("规则15" in x for x in v), v
+
+
 class TestRunWithValidation:
     def test_compliant_single_call(self):
         client = _mock_client([GOOD_JSON])

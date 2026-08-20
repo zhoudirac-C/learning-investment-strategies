@@ -23,7 +23,7 @@ _TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v8"
+PROMPT_VERSION = "v9"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -81,7 +81,12 @@ SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。�
 14. 中阳/大阳定性前先定位置：先判定当日处于反弹修复段还是趋势加速段，再给出量价性质结论；反弹修复段的右侧确认点放在补缺回踩之后的量价配合，不得仅凭当日量价齐升直接判主升/趋势加速。
 15. 量能分档一律用相对表述（守住前日量级/温和放大/越过确认位），禁止自拍绝对阈值（如「24000 亿以上算放量」这类自定义数字）；绝对刻度只许引用方法论框架分档（2.5 万亿=放量确认位、3 万亿以上=警惕过热）。
 16. 连板梯队分析不得只用涨停家数/封板率汇总值：若 user 数据的 limit_pool 块含 ladder（分层名单）、compare.promotion_rate（晋级率）、first_board_width、regulatory_distance，必须引用这些字段给出梯队判断；并按「首板家数 × 约 15% 晋级率」折算次日二板健康区间，写入 watch_next 作为跟踪变量。
-17. 顶部结构信号必须引用：若 user 数据的 structure 块含任一指数 60min 及以上级别 top 且 state 为 forming/divergence（顶部钝化中）或 invalidated（钝化消失），stage_reason 或 watch_next 必须引用该信号（指数+级别+状态），并给出确认/消失的观察条件；含 td9 计数≥5 的级别同理；无该数据不强制。"""
+17. 顶部结构信号必须引用：若 user 数据的 structure 块含任一指数 60min 及以上级别 top 且 state 为 forming/divergence（顶部钝化中）或 invalidated（钝化消失），stage_reason 或 watch_next 必须引用该信号（指数+级别+状态），并给出确认/消失的观察条件；含 td9 计数≥5 的级别同理；无该数据不强制。
+18. 情绪极端日反向检验（三信号见底清单）：判 market_stage=「调整」或 nature=「内生瓦解」前，若当日情绪呈极端值（跌停≥80家，或上涨家数≤1000家），stage_reason 必须先逐条回答三信号见底清单——①强势股是否补跌（核心连板高标同步跌停/风险提示）；②是否多杀多（跌停家数盘中反超涨停并飙升）；③流动性是否见底（缩量=抛压衰竭为见底，放量下跌=未见底）。仅缺「流动性见底」时禁止判「调整/内生瓦解」，基准情形按「接近极限但未出清、横向震荡磨窗口」构造 scenarios（很难比前一日更差，但也不直接反转）。无情绪极端值时不强制。
+19. 普涨弱指数日的宽度/强度两步定性：上涨家数显著多于下跌家数（约2倍以上）但指数收跌或冲高回落时，禁止直接定性「情绪修复」——stage_reason 必须先分解「谁在涨（超跌/低位补涨）谁在压（权重/前期高位品种）」，再判定宽度修复或强度修复；缩量宽度修复按反抽处理（不构成调整结束信号，反而消耗调整时间），scenarios 确认线挂「守住当前量能台阶」而非「回升至上台阶」。「缩量企稳」只证明卖方衰竭、不证明买盘回来，选该 nature 时不得在 stage_reason 写增量入场类结论。
+20.（规则15扩展）量能台阶锚定：写量能阈值前先定位当前量能所处台阶；优先引用当日/前日成交额量级的「守住/跌破」线或方法论分档（2.5万亿确认位/3万亿过热）；量能下台阶阶段，禁止把修复确认线挂在上一台阶（如「回升至X亿确认修复」）。
+21. 弱市防御方向禁止顺延：directions 候选含前一交易日弱市中逆势净流入的防御方向（银行/煤炭/石油石化/农业等避险品种）时，禁止直接标「维持」——先答「次日修复概率」，修复情形下防御方向默认退潮（标「退潮」或不选）；并须回溯昨日所选方向的当日表现、在 trend 字段标注（规则5闭环）。
+22. watch_next 首条为个股级验证节点：连板梯队有独苗（唯一高位活口）/断板换龙承接标的/控异动个股，或 lhb 机构席位 top 个股与该股当日情绪事件方向矛盾（如大额净买入+控异动失败）时，watch_next 第一条须点名标的并给出确认/证伪条件；不得只写汇总指标。"""
 
 
 def build_messages(pack_text: str) -> list[dict]:
@@ -220,7 +225,13 @@ def parse_result(raw: str) -> dict:
 # 规则15 白名单：方法论框架量能分档（数值 → 同句必需关键词）
 _FRAMEWORK_BANDS = {25000: ("确认位",), 30000: ("过热", "警惕")}
 _RELATIVE_ANCHORS = ("前日量级", "昨日量级", "前一交易日", "昨日成交", "前日成交")
-_AMOUNT_RE = re.compile(r"成交额[\(（]?亿?[\)）]?[^\d]{0,15}?(\d{4,5})\s*亿")
+# v9 规则20：当前台阶锚定语境词（数值 ≈ pack 当日/前日成交额 ±7% 时豁免自拍阈值）
+_STEP_HOLD_WORDS = ("守住", "站稳", "跌破", "失守", "萎缩", "缩量至", "缩至")
+_AMOUNT_RE = re.compile(r"成交额[\(（]?亿?[\)）]?[^\d]{0,15}?(\d{4,5})\s*亿?")
+
+# 规则18：三信号见底清单引用词
+_THREE_SIGNAL_HINTS = ("补跌", "多杀多", "流动性")
+_THREE_SIGNAL_NAMED = ("三信号", "见底判据", "见底清单")
 
 _LADDER_HINTS = ("梯队", "连板", "首板", "晋级", "二板", "断板", "高度", "宽度", "抱团")
 _STRUCTURE_HINTS = ("钝化", "顶部结构", "背离", "MACD", "绿柱", "高9", "DIF")
@@ -278,16 +289,24 @@ def _shift_days(day: str, delta: int) -> str:
 def validate_result(result: dict, pack: dict | None = None) -> list[str]:
     """确定性校验：返回违规说明列表，空列表 = 通过。不调 LLM。
 
-    三类校验（对应 prompt v8 规则）：
-    - 规则15：scenarios/watch_next/invalidation 禁止自拍绝对成交额阈值；
+    四类校验（对应 prompt v9 规则）：
+    - 规则15/20：scenarios/watch_next/invalidation 禁止自拍绝对成交额阈值
+      （当前台阶锚定——守住/跌破 pack 当日或前日成交额量级 ±7%——豁免）；
     - 规则11a + 10/12：结论-证据一致性（主升 vs 降仓类动作；冲量滑落 vs 放量结论）；
-    - 规则13/16/17：pack 在场数据（ladder/jgmmtj/顶部结构信号）必须引用。
+    - 规则13/16/17：pack 在场数据（ladder/jgmmtj/顶部结构信号）必须引用；
+    - 规则18：情绪极端日判「调整/内生瓦解」必须引用三信号见底清单。
     """
     if not isinstance(result, dict):
         return ["输出结构非法"]
     violations: list[str] = []
 
-    # 规则15：绝对成交额阈值（相对口径锚点 / 框架分档 + 关键词除外）
+    # 规则15：绝对成交额阈值（相对口径锚点 / 框架分档 + 关键词 / 当前台阶锚定豁免）
+    daban = ((pack or {}).get("emotion") or {}).get("daban") or {}
+    step_anchors: list[float] = []
+    for _k in ("两市成交额_亿", "昨日两市成交额_亿"):
+        _v = daban.get(_k)
+        if isinstance(_v, (int, float)) and _v:
+            step_anchors.append(float(_v))
     fields = [("scenarios.condition", str(s.get("condition") or ""))
               for s in result.get("scenarios") or [] if isinstance(s, dict)]
     fields += [("watch_next", str(w or "")) for w in result.get("watch_next") or []]
@@ -301,6 +320,9 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
             keys = _FRAMEWORK_BANDS.get(num)
             if keys and any(k in text for k in keys):
                 continue
+            if step_anchors and any(w in text for w in _STEP_HOLD_WORDS) and \
+                    any(abs(num - a) / a <= 0.07 for a in step_anchors):
+                continue  # 守住/跌破当前量能台阶（pack 锚点 ±7%）为规则20 合法表述
             violations.append(
                 f"规则15: {src} 含自拍绝对成交额阈值「{num}亿」"
                 "（量能只写方向/相对口径，或引用 2.5万亿确认位 / 3万亿过热 分档）")
@@ -341,6 +363,19 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
             idx, level, state = tops[0]
             violations.append(
                 f"规则17: pack 含 {idx} {level} 顶部{state}信号，输出未引用")
+
+        # 规则18：情绪极端日判「调整/内生瓦解」必须先过三信号见底清单
+        die, up = daban.get("跌停"), daban.get("上涨家数")
+        extreme = (isinstance(die, (int, float)) and die >= 80) or \
+                  (isinstance(up, (int, float)) and up <= 1000)
+        if extreme and (stage == "调整" or result.get("nature") == "内生瓦解"):
+            sr = str(result.get("stage_reason") or "")
+            named = any(k in sr for k in _THREE_SIGNAL_NAMED)
+            hits = sum(1 for h in _THREE_SIGNAL_HINTS if h in sr)
+            if not named and hits < 2:
+                violations.append(
+                    "规则18: 情绪极端日判「调整/内生瓦解」，stage_reason 未逐条检验"
+                    "三信号见底清单（强势股补跌/多杀多/流动性见底）")
 
     return violations
 

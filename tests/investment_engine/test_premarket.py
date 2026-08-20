@@ -59,9 +59,9 @@ class TestPremarketPrompt:
 
 
 class TestPremarketPromptVersion:
-    def test_prompt_version_is_v8(self):
-        """fix 提案 2026-08-20：版本号 v7→v8（规则9 形态/环比并列 + 规则10 阈值重定）。"""
-        assert pm.PROMPT_VERSION == "v8"
+    def test_prompt_version_is_v9(self):
+        """pattern-patch 提案 2026-08-21：版本号 v8→v9（规则18-22 UP 推理思路试点）。"""
+        assert pm.PROMPT_VERSION == "v9"
 
     def test_premarket_prompt_contains_discipline_rules(self):
         """v6 新增纪律规则关键词须出现在盘前 prompt（B1/B2/A2-A5/C5引用/C8降级）。"""
@@ -75,6 +75,15 @@ class TestPremarketPromptVersion:
         assert "守住前日量级" in text and "24000 亿以上算放量" in text  # A5 相对口径
         assert "promotion_rate" in text and "晋级率" in text  # C5 梯队引用/A8 折算
         assert "forming/divergence" in text  # v7 规则17 顶部结构信号引用
+
+    def test_premarket_prompt_contains_v9_up_patterns(self):
+        """v9 规则18-22（2026-08-21 三方对比提案）关键词须在盘前 prompt。"""
+        text = pm.PREMARKET_SYSTEM_PROMPT
+        assert "三信号见底清单" in text and "强势股" in text and "多杀多" in text  # 规则18
+        assert "宽度修复" in text and "谁在涨" in text  # 规则19 宽度/强度两步
+        assert "下台阶" in text  # 规则20 量能台阶锚定
+        assert "防御方向默认退潮" in text  # 规则21 弱市防御禁止顺延
+        assert "个股级验证节点" in text  # 规则22 watch_next 首条
 
 
 class TestRunPredictPremarket:
