@@ -89,6 +89,34 @@ def _find_cross(klines: list[dict], after_idx: int, direction: str) -> dict | No
     return None
 
 
+def _invalidated(klines: list[dict], pivots: list[dict], kind: str) -> dict | None:
+    """检测「钝化消失」（invalidated）：更早一对未确认背离被新极值抹除。
+
+    语义（UP 2026-08-18 盘中：「若下午涨速转快，60分钟顶部钝化则会自然消失」）：
+    - p1→p2 曾背离（价新高 + DIF 更低），但 p2 之后未出现死叉/金叉确认；
+    - p3 价再创极值且 DIF 不再更低（涨速转快、动能追上）→ 原钝化消失。
+    注意：p2→p3 之间若有交叉，背离已确认（formed），不算消失；
+    p3 之后的交叉是新一轮结构，与本判断无关。
+    """
+    pts = [p for p in pivots if p["type"] == kind]
+    if len(pts) < 3:
+        return None
+    p1, p2, p3 = pts[-3], pts[-2], pts[-1]
+    if kind == "top":
+        diverged = p2["price"] > p1["price"] and p2["dif"] < p1["dif"]
+        erased = p3["price"] > p2["price"] and p3["dif"] >= p2["dif"]
+        cross_dir = "dead"
+    else:
+        diverged = p2["price"] < p1["price"] and p2["dif"] > p1["dif"]
+        erased = p3["price"] < p2["price"] and p3["dif"] <= p2["dif"]
+        cross_dir = "golden"
+    if not diverged or not erased:
+        return None
+    if _find_cross(klines[p2["idx"]:p3["idx"] + 1], 0, cross_dir):
+        return None
+    return {"state": "invalidated", "time": p3["time"], "theoretical_days": None}
+
+
 def _find_recent_formed(
     klines: list[dict], pivots: list[dict], kind: str, days: tuple | None,
 ) -> dict | None:
@@ -119,11 +147,32 @@ def _find_recent_formed(
 # 值：(min_days, max_days)；None 表示该方向无明确天数锚点。
 LEVEL_DAYS: dict[str, dict[str, tuple[int | None, int | None]]] = {
     "30min":  {"bottom": (3, 3),   "top": (None, None)},   # 30min底=3天反弹
-    "60min":  {"bottom": (2, 2),   "top": (None, None)},   # 60min底=2天（单级别）
+    "60min":  {"bottom": (2, 2),   "top": (3, 3)},          # 60min底=2天（单级别）；60min顶=3天调整（UP 2026-08-18 早盘：「60分钟顶部钝化如果形成对应调整时间是3天」）
     "90min":  {"bottom": (6, 8),   "top": (8, 8)},          # 90min顶=8天调整；60/90共振=6-8天
     "120min": {"bottom": (12, 12), "top": (4, 6)},          # 120min底=12天；双顶=4-6天
     "daily":  {"bottom": (None, None), "top": (None, None)},
 }
+
+
+def td_sequential(closes: list[float]) -> dict:
+    """神奇九转（TD 序列）计数：当前连续上涨/下跌结构计数。
+
+    上涨结构：close[i] > close[i-4] 连续计数，中断归零，达 9 即「高9」；
+    下跌结构：close[i] < close[i-4] 连续计数，中断归零，达 9 即「低9」。
+    （UP 2026-08-18 盘中：「若下午继续走弱，60分钟高9就不成立」——计数被
+    反向K线打断则不成立，与本实现的中断归零一致。）
+
+    返回 {"direction": "up"|"down"|None, "count": int, "completed": bool}。
+    """
+    up = down = 0
+    for i in range(4, len(closes)):
+        up = up + 1 if closes[i] > closes[i - 4] else 0
+        down = down + 1 if closes[i] < closes[i - 4] else 0
+    if up:
+        return {"direction": "up", "count": up, "completed": up >= 9}
+    if down:
+        return {"direction": "down", "count": down, "completed": down >= 9}
+    return {"direction": None, "count": 0, "completed": False}
 
 
 def detect_structure(
@@ -141,11 +190,12 @@ def detect_structure(
 
     Returns:
         {
-          "bottom": {"state": "formed|divergence|none", "time": str,
+          "bottom": {"state": "formed|divergence|invalidated", "time": str,
                      "theoretical_days": (min,max)|None} | None,
           "top":    {...} | None,
+          "td9":    {"direction": "up|down|None", "count": int, "completed": bool},
         }
-        某方向无结构时对应键为 None。
+        某方向无结构时对应键为 None；invalidated = 未确认背离被新极值抹除（钝化消失）。
     """
     closes = [k["close"] for k in klines]
     dif, dea, _hist = compute_macd(closes)
@@ -185,11 +235,17 @@ def detect_structure(
         result["bottom"] = _assess(bottoms[-2], bottoms[-1], "bottom")
     if len(tops) >= 2:
         result["top"] = _assess(tops[-2], tops[-1], "top")
+    # 生命周期补充：最新一对不背离时，检查更早的未确认背离是否已被抹除（钝化消失）
+    if result["bottom"] is None:
+        result["bottom"] = _invalidated(klines, pivots, "bottom")
+    if result["top"] is None:
+        result["top"] = _invalidated(klines, pivots, "top")
     # 最近结构形成历史（反弹/调整的起点锚，即使当前已不在背离状态）
     result["recent_bottom"] = _find_recent_formed(
         klines, pivots, "bottom", days.get("bottom", (None, None)))
     result["recent_top"] = _find_recent_formed(
         klines, pivots, "top", days.get("top", (None, None)))
+    result["td9"] = td_sequential(closes)
     return result
 
 

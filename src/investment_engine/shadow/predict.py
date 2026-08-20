@@ -67,7 +67,7 @@ def _load_prior_summary(day: str, pred_dir: Path = PRED_DIR, db_path=None) -> di
 
 def run_predict(day: str, *, config_dir, db_path=None, pred_dir: Path = PRED_DIR,
                 model: str = DEFAULT_MODEL, client=None, force: bool = False,
-                attr_dir=None, proposal_dir=None) -> dict:
+                attr_dir=None, proposal_dir=None, overnight_root=None) -> dict:
     """对某日盲判。已完成日跳过（幂等）；error 日重跑覆盖。
 
     force=True 时强制重跑已完成日（数据修复场景）：覆盖前作废旧归因
@@ -97,6 +97,12 @@ def run_predict(day: str, *, config_dir, db_path=None, pred_dir: Path = PRED_DIR
         prior = _load_prior_summary(day, pred_dir=pred_dir, db_path=db_path)
         if prior:
             pack["prior_day"] = prior
+        # 2026-08-20 复盘路径补注入隔夜外盘（与盘前同一精简结构，防泄漏同规）：
+        # 复盘要答「外力/内生」题，隔夜美股映射个股必须可见
+        from investment_engine.shadow.premarket import _load_overnight, slim_overnight
+        overnight = _load_overnight(day, overnight_root)
+        if overnight:
+            pack["overnight_us"] = slim_overnight(overnight)
         text = pack_to_prompt(pack)  # 内含防泄漏断言
         raw, result, validation = run_with_validation(
             build_messages(text), pack, model=model, client=client,

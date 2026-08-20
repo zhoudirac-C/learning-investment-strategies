@@ -30,8 +30,10 @@ EM_ROOT = _REPO / "infra" / "data" / "eastmoney"
 LP_ROOT = _REPO / "infra" / "data" / "limit_pool"
 IC_ROOT = _REPO / "infra" / "data" / "intraday_changes"
 FF_ROOT = _REPO / "infra" / "data" / "fund_flow"
+SI_ROOT = _REPO / "infra" / "data" / "sector_intraday"
 RESEARCH_ROOT = _REPO / "infra" / "data" / "research"
 IA_ROOT = _REPO / "infra" / "data" / "intraday_amount"
+GM_ROOT = _REPO / "infra" / "data" / "global_macro"
 _NEWS_TITLE_CAP = 60
 _LHB_ITEM_CAP = 20
 _LP_ITEM_CAP = 20
@@ -452,6 +454,9 @@ def _load_structure(day: str, db_path=None) -> dict:
             rt = res.get("recent_top")
             if rt and str(rt.get("time", ""))[:10] >= cutoff:
                 keep["recent_top"] = rt
+            td9 = res.get("td9")
+            if td9 and (td9.get("count") or 0) >= 5:  # 计数≥5才值得提示（九转中段）
+                keep["td9"] = td9
             if keep:
                 per_idx[tf] = keep
         if per_idx:
@@ -467,7 +472,8 @@ def _load_intraday_amount(day: str, ia_root: Path | None = None) -> dict | None:
     intraday_amount 模块写入）使历史回放可用；无文件时回退 TDX 实时拉取
     （行为与接线前一致，仅当日盘中/盘后有效）。实时拉取得到的实际交易日
     与 day 不一致时视同缺失（防历史回放串入最新数据）。
-    返回 None 或 {date, 分时[{时点,累计_亿,预估全天_亿}], 开盘预估全天_亿, 尾盘实际全天_亿, 形态}。
+    返回 None 或 {date, 分时[{时点,累计_亿,预估全天_亿}], 开盘预估全天_亿, 尾盘实际全天_亿,
+    形态, 环比前日_pct, 占比中位数, 校准残差_pct}（后三者为 2026-08-20 校准新增）。
     """
     from investment_engine import intraday_amount
 
@@ -479,6 +485,20 @@ def _load_intraday_amount(day: str, ia_root: Path | None = None) -> dict | None:
     if data and data.get("date") == day:
         return data
     return None
+
+
+def _load_global_macro(day: str, gm_root: Path) -> dict | None:
+    """全球宏观快照（美债/美元/美股/亚太收盘，global_macro 模块 cron 落盘）。
+
+    回答「外力/内生」归因的外部链条位置（提案 2026-08-20-data-channel-global-macro）。
+    文件缺失返回 None（调用方登记 missing）；fetched_at 可能晚于回放日，不进包。
+    """
+    from investment_engine.global_macro import load_global_macro
+
+    d = load_global_macro(day, root=gm_root)
+    if not d:
+        return None
+    return {k: v for k, v in d.items() if k != "fetched_at"}
 
 
 def _load_research(day: str, research_root: Path) -> dict | None:
@@ -582,6 +602,22 @@ def _ff_instant_row(r: dict) -> dict:
 def _ff_multi_row(r: dict) -> dict:
     return {"行业": r.get("行业"), "净额": r.get("净额"),
             "阶段涨跌幅": r.get("阶段涨跌幅")}
+
+
+def _load_sector_intraday(day: str, si_root: Path) -> dict | None:
+    """板块分时强度：防御/进攻阵营全日/上午/下午涨跌幅 + 拉升定性。
+
+    回答「拉升发生在哪个时段、由哪类板块完成」（UP 8-18：下午拉升由银行完成
+    = 避险资金抬指数，诱多嫌疑）。文件缺失/空板块返回 None（登记 missing）。
+    """
+    from investment_engine.sector_intraday import load_sector_intraday
+
+    d = load_sector_intraday(day, root=si_root)
+    if not d or not d.get("sectors"):
+        return None
+    return {"date": d.get("date", day),
+            "pm_lead_camp": d.get("pm_lead_camp"),
+            "sectors": d["sectors"]}
 
 
 def _load_fund_flow(day: str, ff_root: Path) -> dict | None:
@@ -725,7 +761,8 @@ def _load_core_patterns() -> list[dict]:
 def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
                      kpl_root=None, em_root=None, lp_root=None,
                      ic_root=None, research_root=None, ff_root=None,
-                     ia_root=None, target_day: str | None = None) -> dict:
+                     ia_root=None, si_root=None, gm_root=None,
+                     target_day: str | None = None) -> dict:
     """组装某日数据包（只含截至当日的数据）。
 
     target_day（盘前预测目标日）提供时，额外扫描 (day, target_day] 区间的
@@ -816,6 +853,18 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
         missing.append("fund_flow")
     else:
         blocks["fund_flow"] = fund_flow
+    si = Path(si_root) if si_root else SI_ROOT
+    sector_intraday = _load_sector_intraday(day, si)
+    if sector_intraday is None:
+        missing.append("sector_intraday")
+    else:
+        blocks["sector_intraday"] = sector_intraday
+    gm = Path(gm_root) if gm_root else GM_ROOT
+    global_macro = _load_global_macro(day, gm)
+    if global_macro is None:
+        missing.append("global_macro")
+    else:
+        blocks["global_macro"] = global_macro
     for k, v in blocks.items():
         if v is not None:
             pack[k] = v

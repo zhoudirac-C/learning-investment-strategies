@@ -10,9 +10,11 @@
 |------|------|------|------|
 | 6-8 点（`0,30 6-8 * * 1-5`） | 个股日K预拉取 | `qing_pre_fetch_klines.py` | watchlist+positions+stock_pool 全标的 90 根日K，写 `stocks_kline` |
 | 08:20（`20 8 * * 1-5`） | 隔夜外盘映射 | `qing_overnight_us_fetch.py` | 美股映射股涨跌，落盘 `infra/data/overnight_us/` |
+| 09:10（`10 9 * * 1-5`） | 全球宏观快照（盘前） | `qing_global_macro_fetch.py` | 隔夜美股/美债/美元收盘 + 亚太昨收，落盘 `infra/data/global_macro/`，供 9:28 早盘盲判 |
 | 9-15 点（`*/30 9-15 * * 1-5`） | 指数K线盘中增量 | `update_index_klines_intraday.sh` | 7 指数多级别K线，写 `index_klines`（收盘后那次覆盖成收盘价） |
 | 9:28（`28 9 * * 1-5`） | 影子双轨早盘盲判 | `qing_shadow_premarket.py` | 预测当日（T-1 收盘 + 隔夜外盘） |
 | 15:35（`35 15 * * 1-5`） | 个股日K收盘后补拉 | `qing_pre_fetch_klines.py` | 补当日收盘日K（早盘那次只拉到前一日） |
+| 16:35（`35 16 * * 1-5`） | 全球宏观快照刷新（盘后） | `qing_global_macro_refresh.py` | `--force` 重拉补亚太当日收盘，供 22:00 复盘盲判归因 |
 | 22:00（`0 22 * * 1-5`） | 影子双轨复盘盲判 | `qing_shadow_daily.py` | 判当日 + 到期结算 + 归因 |
 
 KPL 拉取（本机 17:45）在云端未挂 cron——缺 `kpl_user_id/kpl_token/kpl_device_id` 凭据，

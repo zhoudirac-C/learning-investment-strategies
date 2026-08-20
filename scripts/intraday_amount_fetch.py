@@ -29,12 +29,12 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args(argv)
 
-    data = intraday_amount.compute_intraday_amount()
+    data = intraday_amount.compute_intraday_amount(day=args.date)
     if data is None:
         print("[intraday-amount] TDX 不可达或当日 60min K 线不足，未落盘",
               file=sys.stderr)
         return 1
-    day = args.date or data["date"]
+    day = data["date"]
     out_root = Path(args.out_root)
     target = out_root / f"{day.replace('-', '')}.json"
     if target.exists() and not args.force:

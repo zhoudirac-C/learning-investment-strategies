@@ -23,7 +23,7 @@ _TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v7"
+PROMPT_VERSION = "v8"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -73,15 +73,15 @@ SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。�
 6. 数据单位约定：成交额以「亿」计（数据键名如「两市成交额_亿」），成交量以「万手」计（键名「成交量万手」），两者不可混用；watch_next/scenarios 里的量能阈值必须写「成交额(亿)」或「成交量(万手)」，禁止出现「成交额突破X万手」这类跨单位表述。
 7. operation 必须用 position_by_cycle 推导：先定位周期位置(position)——position 的第一决定变量是周期位置（结合 cycle_state 的 rebound_day），情绪好坏是次要变量：若 cycle_state 的 rebound_day ≥ 8 且超过 theoretical_window 上限，position 优先判「反弹超预期」（叠加放量兑现/涨停萎缩则判「高位兑现」），不得因涨停家数减少、情绪退潮就归入「震荡调整」（「震荡调整」仅适用于无明确反弹周期的情况）；再按「状态→动作」映射匹配 action，并用三条元规则（仓位纪律高于判断/确定性决定力度/特定状态最优动作是克制）校验；禁止脱离状态写「逢低关注/降低仓位」这类无状态依赖的套话。
 8. cycle_state 综合多指数反弹周期（不要自己算）：若 user 数据含 cycle_state（代码算好的多指数反弹周期，如 {科创50:{rebound_day,bottom_date,theoretical_window}, 创业板指:{...}, 上证指数:{...}}），综合各指数判断——科技主线（科创50/创业板指）优先，各指数 bottom_date 一致则周期确认、分歧则按科技主线锚定并在 note 说明；输出 cycle_state 字段取综合值，note 写指数间一致或分歧；无该数据输出空对象 {}。
-9. 量能性质定性（放量/缩量）必须用「盘中形态」，禁止用收盘环比：若 user 数据含 intraday_amount，stage_reason 必须引用其「形态」字段（如"冲量滑落（全天缩量）"）与「开盘预估全天_亿 → 尾盘实际全天_亿」；即便「两市成交额_亿」环比昨日是放量，只要盘中形态是冲量滑落，就定性为「全天缩量」（对应 UP 的「看似放量实则全天缩量」）。禁止写「成交额 X 亿较前日 Y 亿放量/缩量 Z%」这类纯环比结论。
-10. 证据-结论一致性硬约束：若 user 数据含 intraday_amount，先比对「开盘预估全天_亿」与「尾盘实际全天_亿」——两者偏差超过 ±30% 时，nature 与 market_stage 禁止输出「放量攻击」「主升」类结论；更一般地，stage_reason 引用的每条证据不得与 market_stage/nature 结论冲突，发现冲突时必须改写结论对齐证据，不得忽视证据维持原结论。
+9. 量能性质定性（放量/缩量）须并列引用盘中形态与环比口径：若 user 数据含 intraday_amount，stage_reason 必须引用其「形态」字段（如"冲量滑落（全天缩量）"）与「环比前日_pct」；两者冲突时（如形态=冲量滑落但环比放量）不得单一口径强制定性，须在 stage_reason 写明冲突并给出双向解读（如：冲量滑落=追涨意愿不足；环比放量=下跌有承接）。「开盘预估全天_亿 → 尾盘实际全天_亿」为历史同时段占比校准后的同口径对照，可并列引用。禁止写只有环比、不对照盘中形态的结论。
+10. 证据-结论一致性硬约束：若 user 数据含 intraday_amount，先比对「开盘预估全天_亿」与「尾盘实际全天_亿」——两者偏差超过 ±15% 时（校准后正常偏差约 ±3%，±15% 对应盘中分布显著异常），nature 与 market_stage 禁止输出「放量攻击」「主升」类结论；更一般地，stage_reason 引用的每条证据不得与 market_stage/nature 结论冲突，发现冲突时必须改写结论对齐证据，不得忽视证据维持原结论。
 11. 输出前必须逐项自检并修正：(a) operation.position 与 market_stage 不得互相矛盾（反例：market_stage 判「主升」同时 position 写「获利了结降仓位」——二者必改其一）；(b) 规则 7 的周期窗口判定（cycle_state.rebound_day ≥ theoretical_window 上限 → position 优先判「反弹超预期」）必须已执行，未执行则重做 position 定位；(c) 若 user 数据含 missing 块（数据缺失清单），缺失维度对应的判断必须降低置信度，并在 stage_reason 标注「数据缺失，信息差风险」。
 12. intraday_amount 块「形态」字段为「冲量滑落」时，nature 禁止判「放量攻击」；必须结合分时量能（intraday_amount 的「分时」曲线）确认放量真实性后才能输出放量类结论。
 13. 判放量性质必须回答「量从哪来」：区分存量调仓（板块间换手）与增量入场——换手放量的持续性弱于增量入场，不得直接定性为增量进攻；若 user 数据含 fund_flow/lhb 块，必须引用其数据佐证量能源头，无该数据则按规则 11(c) 降级表述。
 14. 中阳/大阳定性前先定位置：先判定当日处于反弹修复段还是趋势加速段，再给出量价性质结论；反弹修复段的右侧确认点放在补缺回踩之后的量价配合，不得仅凭当日量价齐升直接判主升/趋势加速。
 15. 量能分档一律用相对表述（守住前日量级/温和放大/越过确认位），禁止自拍绝对阈值（如「24000 亿以上算放量」这类自定义数字）；绝对刻度只许引用方法论框架分档（2.5 万亿=放量确认位、3 万亿以上=警惕过热）。
 16. 连板梯队分析不得只用涨停家数/封板率汇总值：若 user 数据的 limit_pool 块含 ladder（分层名单）、compare.promotion_rate（晋级率）、first_board_width、regulatory_distance，必须引用这些字段给出梯队判断；并按「首板家数 × 约 15% 晋级率」折算次日二板健康区间，写入 watch_next 作为跟踪变量。
-17. 顶部结构信号必须引用：若 user 数据的 structure 块含任一指数 60min 及以上级别 top 且 state 为 forming/divergence（顶部钝化中），stage_reason 或 watch_next 必须引用该信号（指数+级别+状态），并给出确认/消失的观察条件；无该数据不强制。"""
+17. 顶部结构信号必须引用：若 user 数据的 structure 块含任一指数 60min 及以上级别 top 且 state 为 forming/divergence（顶部钝化中）或 invalidated（钝化消失），stage_reason 或 watch_next 必须引用该信号（指数+级别+状态），并给出确认/消失的观察条件；含 td9 计数≥5 的级别同理；无该数据不强制。"""
 
 
 def build_messages(pack_text: str) -> list[dict]:
@@ -242,8 +242,13 @@ def _result_text(result: dict) -> str:
     return " ".join(str(p or "") for p in parts)
 
 
-def _iter_top_signals(structure) -> list[tuple[str, str, str]]:
-    """structure 块中的顶部 forming/divergence 信号 → (指数, 级别, 状态)。"""
+def _iter_top_signals(structure, ref_date: str | None = None) -> list[tuple[str, str, str]]:
+    """structure 块中的顶部 forming/divergence/invalidated 信号 → (指数, 级别, 状态)。
+
+    ref_date 提供时只保留近 10 个自然日内的信号：低级别信号快速轮换，
+    但 daily 级 invalidated 可能滞留数月（2026-08-18 实测创业板指 daily
+    残留 2026-06-25 invalidated），不设时效会让规则17 每天强制引用陈旧信号。
+    """
     out = []
     if not isinstance(structure, dict):
         return out
@@ -254,15 +259,26 @@ def _iter_top_signals(structure) -> list[tuple[str, str, str]]:
             if not isinstance(lv, dict):
                 continue
             top = lv.get("top")
-            if isinstance(top, dict) and top.get("state") in ("forming", "divergence"):
-                out.append((str(idx), str(level), str(top.get("state"))))
+            if not isinstance(top, dict) or \
+                    top.get("state") not in ("forming", "divergence", "invalidated"):
+                continue
+            if ref_date:
+                t = str(top.get("time") or "")[:10]
+                if t and t < _shift_days(ref_date, -10):
+                    continue  # 陈旧信号，不强制引用（数据仍留在包内供模型参考）
+            out.append((str(idx), str(level), str(top.get("state"))))
     return out
+
+
+def _shift_days(day: str, delta: int) -> str:
+    from datetime import datetime, timedelta
+    return (datetime.strptime(day, "%Y-%m-%d") + timedelta(days=delta)).strftime("%Y-%m-%d")
 
 
 def validate_result(result: dict, pack: dict | None = None) -> list[str]:
     """确定性校验：返回违规说明列表，空列表 = 通过。不调 LLM。
 
-    三类校验（对应 prompt v7 规则）：
+    三类校验（对应 prompt v8 规则）：
     - 规则15：scenarios/watch_next/invalidation 禁止自拍绝对成交额阈值；
     - 规则11a + 10/12：结论-证据一致性（主升 vs 降仓类动作；冲量滑落 vs 放量结论）；
     - 规则13/16/17：pack 在场数据（ladder/jgmmtj/顶部结构信号）必须引用。
@@ -320,7 +336,7 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
                         names.append(str(row["名称"]))
         if names and "机构" not in text_all and not any(n in text_all for n in names):
             violations.append("规则13: pack 含 lhb.jgmmtj 机构席位数据，输出未引用")
-        tops = _iter_top_signals(pack.get("structure"))
+        tops = _iter_top_signals(pack.get("structure"), ref_date=pack.get("date"))
         if tops and not any(h in text_all for h in _STRUCTURE_HINTS):
             idx, level, state = tops[0]
             violations.append(

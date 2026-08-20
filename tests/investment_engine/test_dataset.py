@@ -163,13 +163,30 @@ class TestKplBlocks:
             "errors": [],
         }, ensure_ascii=False), encoding="utf-8")
         self.ia = Path(tempfile.mkdtemp())
+        self.si = Path(tempfile.mkdtemp())
+        (self.si / "20260630.json").write_text(json.dumps({
+            "date": "2026-06-30", "pm_lead_camp": "防御",
+            "sectors": [{"code": "880471", "name": "银行", "camp": "防御",
+                         "day_pct": 1.0, "am_pct": 0.5, "pm_pct": 0.5,
+                         "marker": "真强势"}],
+        }, ensure_ascii=False), encoding="utf-8")
+        self.gm = Path(tempfile.mkdtemp())
+        (self.gm / "20260630.json").write_text(json.dumps({
+            "date": "2026-06-30", "fetched_at": "2026-06-30T16:35:00",
+            "美股三指数": {"纳指": {"symbol": "^IXIC", "session": "2026-06-29",
+                                  "close": 26000.0, "pct": 0.15}},
+            "美债收益率": {"10Y": {"symbol": "^TNX", "session": "2026-06-29",
+                                 "yield": 4.65, "chg_bp": -5.3}},
+            "errors": [], "note": "n",
+        }, ensure_ascii=False), encoding="utf-8")
 
     def _build(self, day: str, **kw):
         return build_daily_pack(day, config_dir=Path("config/stock_monitor"),
                                 db_path=self.db, kpl_root=self.kpl, em_root=self.em,
                                 lp_root=self.lp, ic_root=self.ic,
                                 research_root=self.research, ff_root=self.ff,
-                                ia_root=self.ia, **kw)
+                                ia_root=self.ia, si_root=self.si,
+                                gm_root=self.gm, **kw)
 
     def _write_em_lhb(self, day: str = "2026-06-30"):
         seats = [{"name": f"席位{i}", "buy": i, "sell": 0, "net": i} for i in range(7)]
@@ -203,6 +220,13 @@ class TestKplBlocks:
         assert lp["zt_items"][0]["name"] == "秦安股份"  # 按封单额降序
         # 盘中异动块
         assert pack["intraday_changes"]["counts"]["封涨停板"] == 2
+        # 板块分时强度块
+        assert pack["sector_intraday"]["pm_lead_camp"] == "防御"
+        assert pack["sector_intraday"]["sectors"][0]["marker"] == "真强势"
+        # 全球宏观块（fetched_at 可能晚于回放日，不进包）
+        assert pack["global_macro"]["美债收益率"]["10Y"]["yield"] == 4.65
+        assert pack["global_macro"]["美股三指数"]["纳指"]["pct"] == 0.15
+        assert "fetched_at" not in pack["global_macro"]
         assert "missing" not in pack
         pack_to_prompt(pack)  # 过防泄漏断言
 
@@ -221,7 +245,8 @@ class TestKplBlocks:
         pack = self._build("2026-06-29")
         assert pack["missing"] == ["kpl_emotion", "kpl_news_titles", "kpl_lhb",
                                    "limit_pool", "intraday_changes",
-                                   "research", "fund_flow"]
+                                   "research", "fund_flow", "sector_intraday",
+                                   "global_macro"]
         assert "emotion" not in pack
 
 

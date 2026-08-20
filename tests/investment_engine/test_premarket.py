@@ -59,14 +59,15 @@ class TestPremarketPrompt:
 
 
 class TestPremarketPromptVersion:
-    def test_prompt_version_is_v7(self):
-        """输出校验层批次：版本号 v6→v7（新增规则17 顶部结构引用）。"""
-        assert pm.PROMPT_VERSION == "v7"
+    def test_prompt_version_is_v8(self):
+        """fix 提案 2026-08-20：版本号 v7→v8（规则9 形态/环比并列 + 规则10 阈值重定）。"""
+        assert pm.PROMPT_VERSION == "v8"
 
     def test_premarket_prompt_contains_discipline_rules(self):
         """v6 新增纪律规则关键词须出现在盘前 prompt（B1/B2/A2-A5/C5引用/C8降级）。"""
         text = pm.PREMARKET_SYSTEM_PROMPT
-        assert "±30%" in text  # B1 证据-结论一致性硬约束
+        assert "±15%" in text  # B1 证据-结论一致性硬约束（v8 校准后重定）
+        assert "环比前日_pct" in text and "并列" in text  # v8 规则9 形态/环比并列口径
         assert "数据缺失，信息差风险" in text  # B2(c)/C8 降级标注
         assert "冲量滑落" in text and "scenarios" in text  # A2 形态禁判
         assert "量从哪来" in text  # A3 量能源头

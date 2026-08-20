@@ -73,6 +73,45 @@ class TestRunPredict:
         r2 = self._run(monkeypatch)
         assert r2["status"] == "skipped"
 
+    def test_overnight_injected_in_replay(self, monkeypatch, tmp_path):
+        """2026-08-20 复盘路径补注入 overnight_us（与盘前同一精简结构）。"""
+        captured = {}
+        monkeypatch.setattr(
+            "investment_engine.shadow.predict.build_daily_pack",
+            lambda d, **k: {"stocks": []})
+        monkeypatch.setattr(
+            "investment_engine.shadow.predict.pack_to_prompt",
+            lambda p: captured.update(p) or p)
+        monkeypatch.setattr(
+            "investment_engine.shadow.predict.call_deepseek",
+            lambda m, **k: GOOD_JSON)
+        (tmp_path / "2026-08-07.json").write_text(json.dumps({
+            "date": "2026-08-07",
+            "themes": [{"id": "ai", "name": "AI算力",
+                        "stocks": [{"symbol": "NVDA", "name": "英伟达",
+                                    "pct_change": 4.35, "earnings_note": ""}]}],
+        }, ensure_ascii=False), encoding="utf-8")
+        r = run_predict("2026-08-07", config_dir="x", pred_dir=self.pred_dir,
+                        overnight_root=tmp_path)
+        assert r["status"] == "pending_maturity"
+        assert captured["overnight_us"]["themes"][0]["stocks"][0]["symbol"] == "NVDA"
+
+    def test_overnight_absent_not_injected(self, monkeypatch, tmp_path):
+        captured = {}
+        monkeypatch.setattr(
+            "investment_engine.shadow.predict.build_daily_pack",
+            lambda d, **k: {"stocks": []})
+        monkeypatch.setattr(
+            "investment_engine.shadow.predict.pack_to_prompt",
+            lambda p: captured.update(p) or p)
+        monkeypatch.setattr(
+            "investment_engine.shadow.predict.call_deepseek",
+            lambda m, **k: GOOD_JSON)
+        r = run_predict("2026-08-07", config_dir="x", pred_dir=self.pred_dir,
+                        overnight_root=tmp_path)  # 空目录 → 无文件
+        assert r["status"] == "pending_maturity"
+        assert "overnight_us" not in captured
+
     def test_error_status_retried(self, monkeypatch):
         # 先制造 error 记录
         path = prediction_path("2026-08-07", pred_dir=self.pred_dir)

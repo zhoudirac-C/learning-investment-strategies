@@ -1,7 +1,7 @@
 ---
 date: 2026-08-18
 type: data-channel
-status: proposed
+status: implemented（2026-08-19，见下方实施记录）
 source: evals/shadow/attributions/2026-08-18.json
 ---
 
@@ -32,3 +32,20 @@ UP 2026-08-18 早盘：「今天有可能会出现60分钟级别的顶部钝化�
    stage_reason 或 watch_next 必须引用（并入盲判 prompt 规则，与修复项
    `2026-08-18-fix-deterministic-output-validation.md` 的引用校验联动）。
    **✅ 已实施（2026-08-19）**：prompt v7 规则17（盘后/盘前双路）+ 校验层规则17 引用检查。
+
+## 实施记录（2026-08-19）
+
+- **生命周期状态机**：`structure.py` 新增 `_invalidated`——p1→p2 背离未被交叉确认、
+  p3 价创极值且 DIF 不更低（涨速转快、动能追上）→ `state=invalidated`（钝化消失），
+  顶/底对称实现。词汇对齐：代码态 formed/divergence/invalidated =
+  提案态 confirmed/forming/invalidated；divergence（钝化中）→ formed（确认）原有；
+- **顶部调整窗口**：`LEVEL_DAYS["60min"]["top"] = (3,3)`（UP 8-18 早盘原话校准）；
+  30min/daily 顶部无 UP 锚点，不臆造，保持 None；
+- **高9（TD 序列）**：`td_sequential` 落地（close[i] vs close[i-4] 连续计数、中断归零、
+  ≥9 完成），逐级别挂 `td9` 字段；dataset 对计数 ≥5 的级别透传入包。高9 数据源即
+  结构识别在用的 TDX 60min K线，无需新通道；变体按标准九转实现，与 UP「继续走弱
+  则高9不成立」的中断语义一致；
+- **校验层联动**：规则17 覆盖 invalidated + 近 10 自然日时效窗口（创业板指 daily
+  残留 2026-06-25 invalidated 实测：无时效会每日强制引用陈旧信号）；
+- 测试：`test_structure.py` +5（TD9 四例 + invalidated 合成序列/对照 + 60min 顶部
+  窗口 + td9 挂接），`test_validate_result.py` +3（时效窗口），全绿。

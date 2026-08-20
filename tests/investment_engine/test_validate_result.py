@@ -214,3 +214,25 @@ class TestRunWithValidation:
         assert any("规则15" in x for x in validation["violations"])
         # 违规输出仍如实落盘，不掩盖
         assert result["scenarios"][0]["condition"].find("24000") >= 0
+
+
+class TestStructureSignalRecency:
+    """规则17 时效窗口：陈旧信号不强制引用（数据仍留在包内）。"""
+
+    def test_stale_invalidated_not_flagged(self):
+        # 8-18 实测：创业板指 daily 残留 2026-06-25 invalidated → 不强制引用
+        pack = {"date": "2026-08-18",
+                "structure": {"创业板指": {"daily": {"top": {"state": "invalidated",
+                                                             "time": "2026-06-25"}}}}}
+        assert not any("规则17" in x for x in validate_result(_result(), pack=pack))
+
+    def test_fresh_invalidated_flagged(self):
+        pack = {"date": "2026-08-18",
+                "structure": {"上证指数": {"60min": {"top": {"state": "invalidated",
+                                                            "time": "2026-08-15 14:00"}}}}}
+        assert any("规则17" in x for x in validate_result(_result(), pack=pack))
+
+    def test_no_date_means_no_filter(self):
+        pack = {"structure": {"上证指数": {"60min": {"top": {"state": "divergence",
+                                                            "time": "2026-06-25"}}}}}
+        assert any("规则17" in x for x in validate_result(_result(), pack=pack))
