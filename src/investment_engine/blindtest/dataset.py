@@ -235,6 +235,46 @@ def _load_emotion(day: str, kpl_root: Path) -> dict | None:
     return out or None
 
 
+_VOLUME_SERIES_MAX = 60  # 量能序列回溯上限（交易日）
+
+
+def _load_volume_series(day: str, kpl_root: Path) -> dict | None:
+    """两市成交额近期序列（亿元）：kpl/emotion 本地文件回溯，最多 60 个交易日。
+
+    本地 KPL 情绪自 2026-08-12 起逐日落盘，覆盖率随 cron 累积增长；
+    峰值/谷值/均值均为「可用窗口」口径并如实标注，非全周期。
+    供「量能台阶锚定」（v9 规则20；提案 2026-08-21 模式三）定位当前台阶。
+    无有效文件返回 None（登记 missing）；只用文件名日期 ≤ day 的文件（防泄漏）。
+    """
+    em_dir = kpl_root / "emotion"
+    if not em_dir.exists():
+        return None
+    points = []
+    for p in sorted(em_dir.glob("*.json")):
+        d = p.stem
+        if d > day:
+            continue
+        try:
+            daban = (json.loads(p.read_text(encoding="utf-8")).get("daban") or {})
+        except json.JSONDecodeError:
+            continue
+        qscln = daban.get("qscln")
+        if isinstance(qscln, (int, float)) and qscln:
+            points.append({"date": d, "成交额_亿": round(qscln / 10000, 1)})
+    if not points:
+        return None
+    points = points[-_VOLUME_SERIES_MAX:]
+    vals = [p["成交额_亿"] for p in points]
+    return {
+        "points": points,
+        "mean_亿": round(sum(vals) / len(vals), 1),
+        "peak": max(points, key=lambda p: p["成交额_亿"]),
+        "trough": min(points, key=lambda p: p["成交额_亿"]),
+        "coverage": f"{len(points)}/{_VOLUME_SERIES_MAX}",
+        "note": "本地 KPL 情绪序列回溯（随 cron 逐日累积变长），峰值/谷值/均值为可用窗口口径，非全周期",
+    }
+
+
 def _news_stocks(it: dict) -> list[str]:
     """KPL 资讯条目的关联股票代码提取（_load_news_titles 与 catalysts 共用）。"""
     stocks = []
@@ -831,7 +871,8 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
     ff = Path(ff_root) if ff_root else FF_ROOT
     blocks = {"emotion": _load_emotion(day, root),
               "news_titles": _load_news_titles(day, root),
-              "lhb": _load_lhb(day, root, em)}
+              "lhb": _load_lhb(day, root, em),
+              "volume_series": _load_volume_series(day, root)}
     missing = [f"kpl_{k}" for k, v in blocks.items() if v is None]
     limit_pool = _load_limit_pool(day, lp)
     if limit_pool is None:

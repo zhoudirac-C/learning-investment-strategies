@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import json
+import os
 import time
 import urllib.parse
 import urllib.request
@@ -25,6 +26,17 @@ import yaml
 API_URL = "https://qt.gtimg.cn/q="
 USER_AGENT = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
               "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36")
+
+# 隔夜异动扫描（2026-08-21）：Yahoo 预定义榜单，经 sakura 代理（mihomo mixed）。
+# Yahoo 边缘按 UA 分桶限流——短 UA（对齐 global_macro 模块实测），勿改回浏览器全长 UA。
+YAHOO_SCREENER = "https://query1.finance.yahoo.com/v1/finance/screener/predefined/saved"
+_YAHOO_UA = "Mozilla/5.0"
+DEFAULT_PROXY = os.environ.get("OVERNIGHT_US_PROXY",
+                               os.environ.get("GLOBAL_MACRO_PROXY",
+                                              "http://127.0.0.1:7890"))
+_MOVERS_MIN_MCAP = 2e9     # 市值下限 20 亿美元（滤小盘噪音）
+_MOVERS_MIN_ABS_PCT = 8.0  # 异动阈值 |涨跌幅| ≥ 8%
+_MOVERS_TOP_N = 5
 
 CONFIG_PATH = Path(__file__).resolve().parents[2] / "config" / "stock_monitor" / "us_map.yaml"
 
@@ -110,8 +122,79 @@ def load_config(config_path: Path | None = None) -> dict:
     return yaml.safe_load(path.read_text(encoding="utf-8"))
 
 
+def _screener_fetch(side: str, *, proxy: str | None, timeout: float = 15.0,
+                    retries: int = 2) -> list[dict]:
+    """Yahoo 预定义榜单原始 quotes（side=day_gainers/day_losers），经代理。"""
+    url = f"{YAHOO_SCREENER}?scrIds={side}&count=25"
+    handler = urllib.request.ProxyHandler(
+        {"http": proxy, "https": proxy} if proxy else {})
+    opener = urllib.request.build_opener(handler)
+    req = urllib.request.Request(url, headers={"User-Agent": _YAHOO_UA})
+    payload: bytes | None = None
+    last_err: Exception | None = None
+    for attempt in range(retries + 1):
+        try:
+            with opener.open(req, timeout=timeout) as resp:
+                payload = resp.read()
+            break
+        except Exception as e:  # noqa: BLE001 - 如实重试后报错
+            last_err = e
+            if attempt < retries:
+                time.sleep(1.0 * (attempt + 1))
+    if payload is None:
+        raise OvernightUsError(f"screener {side} 重试{retries}次后仍失败: {last_err}")
+    result = (json.loads(payload.decode("utf-8")).get("finance") or {}).get("result") or []
+    if not result:
+        raise OvernightUsError(f"screener {side}: 空 result")
+    return result[0].get("quotes") or []
+
+
+def _filter_movers(quotes: list[dict], side: str) -> list[dict]:
+    """榜单过滤：市值 ≥20 亿美元且涨/跌幅 ≥8%，按幅度取 top5。
+
+    side=gainers 取涨幅榜（pct ≥ +8% 降序），losers 取跌幅榜（pct ≤ -8% 升序）。
+    """
+    out = []
+    for q in quotes or []:
+        pct = q.get("regularMarketChangePercent")
+        mcap = q.get("marketCap")
+        if not isinstance(pct, (int, float)) or not isinstance(mcap, (int, float)):
+            continue
+        if mcap < _MOVERS_MIN_MCAP:
+            continue
+        if side == "gainers" and pct < _MOVERS_MIN_ABS_PCT:
+            continue
+        if side == "losers" and pct > -_MOVERS_MIN_ABS_PCT:
+            continue
+        out.append({"symbol": q.get("symbol"),
+                    "name": q.get("shortName") or q.get("longName") or "",
+                    "pct_change": round(float(pct), 2),
+                    "price": q.get("regularMarketPrice"),
+                    "mcap_亿美元": round(mcap / 1e8, 1)})
+    out.sort(key=lambda m: -m["pct_change"] if side == "gainers" else m["pct_change"])
+    return out[:_MOVERS_TOP_N]
+
+
+def fetch_movers(*, fetch_fn=None, proxy: str | None = DEFAULT_PROXY) -> dict:
+    """隔夜美股异动扫描：gainers/losers 双侧榜单（过滤口径见 note）。
+
+    补 us_map.yaml 主题表覆盖不了的表外大异动（如 2026-08-19 MRNA +177%）。
+    fetch_fn 可注入（side -> quotes，测试免网络）；失败抛 OvernightUsError。
+    """
+    fetch = fetch_fn or (lambda side, **kw: _screener_fetch(side, proxy=proxy, **kw))
+    return {
+        "gainers": _filter_movers(fetch("day_gainers"), "gainers"),
+        "losers": _filter_movers(fetch("day_losers"), "losers"),
+        "note": "异动口径：|涨跌幅|≥8% 且市值≥20亿美元（Yahoo 榜单，经代理）",
+    }
+
+
 def fetch_overnight(config_path: Path | None = None) -> dict:
-    """按 us_map.yaml 拉全部映射股（一次批量请求），缺失个股记 error 不阻断。"""
+    """按 us_map.yaml 拉全部映射股（一次批量请求），缺失个股记 error 不阻断。
+
+    附 movers 异动扫描（best-effort）：代理故障等失败时 movers=None 并记
+    movers_error，不影响主题映射与既有消费方。
+    """
     cfg = load_config(config_path)
     all_symbols = [s["symbol"] for t in cfg.get("themes") or []
                    for s in t.get("symbols") or []]
@@ -131,12 +214,18 @@ def fetch_overnight(config_path: Path | None = None) -> dict:
                                "earnings_note": s.get("earnings_note", "")})
         themes.append({"id": theme.get("id", ""), "name": theme.get("name", ""),
                        "stocks": stocks})
-    return {"date": datetime.now().strftime("%Y-%m-%d"),
-            "fetched_at": datetime.now().isoformat(timespec="seconds"),
-            "themes": themes,
-            "errors": errors,
-            "note": "涨跌幅为昨夜美股收盘数据" if not errors else
-                    f"{len(errors)} 只无数据: {','.join(errors)}"}
+    out = {"date": datetime.now().strftime("%Y-%m-%d"),
+           "fetched_at": datetime.now().isoformat(timespec="seconds"),
+           "themes": themes,
+           "errors": errors,
+           "note": "涨跌幅为昨夜美股收盘数据" if not errors else
+                   f"{len(errors)} 只无数据: {','.join(errors)}"}
+    try:
+        out["movers"] = fetch_movers()
+    except Exception as e:  # noqa: BLE001 - 异动扫描失败不阻断主题映射
+        out["movers"] = None
+        out["movers_error"] = str(e)[:150]
+    return out
 
 
 def save_overnight(data: dict, out_root: Path, day: str) -> Path:

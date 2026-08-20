@@ -216,16 +216,24 @@ emotion 断板名单（已有）。无新通道。
 
 以下三条在 08-20 三方对比中确认，属数据通道而非推理模式，附记于此、可单独立项：
 
-1. **盘前隔夜宏观窗口**：`2026-08-20-data-channel-global-macro.md` 已实施盘后落盘
-   （16:37），但盘前盲判（9:28）运行时当日文件不存在，08-20 盲判 pack 中
-   global_macro 登记 missing——UP 早盘判断的第一依据（财政部回购→30Y 回落 9bp、
-   美股翻红 vs 费半 -2.12% 分化）盘前不可达。需增盘前拉取窗口（隔夜 session）。
-2. **overnight_us 主题表外大异动**：现 6 主题 14 只均为 AI 链映射股，MRNA +177%
-   （08-20 全场最大催化）不在表内；pharma_glp1 主题仅 LLY/NVO。需扩主题或加
-   "隔夜美股 ±10% 异动扫描"。
-3. **复盘路径催化通道未接**：`predict.py:95` 调 `build_daily_pack(day)` 未传
-   `target_day`，`catalysts_since_prev_day` 不生成——KPL 资讯 42398（默沙东莫德纳，
-   17:30 落盘）在盘上而复盘 pack 不可见。一行参数改动。
+1. **盘前隔夜宏观窗口**（**2026-08-21 已实施**）：`2026-08-20-data-channel-global-macro.md`
+   的盘后落盘之外，盘前侧原有两处错位——①cron 侧实际已挂 09:10 `qing_global_macro_fetch`
+   （盘前拉隔夜）+ 16:35 `qing_global_macro_refresh`（盘后补亚太当日）；②接线侧盘前 pack
+   的 global_macro 块是 prev_day 落盘（对「隔夜」晚一天）。已修 ②：`premarket.
+   run_predict_premarket` 在场时以今晨 `global_macro/{day}.json` 覆盖（as-of 规则保证只含
+   今晨前已收盘 session），缺失沿用 prev_day 块降级。08-20 盲判缺的「财政部回购→30Y 回落、
+   美股翻红 vs 费半分化」自此盘前可达。
+2. **overnight_us 主题表外大异动**（**2026-08-21 已实施**）：双管齐下——①us_map.yaml 新增
+   `pharma_vaccine_mrna` 主题（MRNA/MRK/BNTX/XBI，腾讯通道实测全覆盖）；②`overnight_us.
+   fetch_movers` 异动扫描（Yahoo 预定义榜单 day_gainers/day_losers 经 sakura 代理，
+   |涨跌幅|≥8% 且市值≥20亿美元，双侧各 top5），接入 `fetch_overnight`（best-effort，
+   失败记 movers_error 不阻断）与 `slim_overnight` 透传（盘前/复盘两路 prompt 均可见）。
+   实测 08-21 凌晨：losers 榜含 MRNA -24.7%（前日 +177% 的回吐），回归场景成立。
+3. ~~复盘路径催化通道未接~~（**2026-08-21 勘误**：此前判断有误）。复盘 pack 经
+   `news_titles` 块（`dataset.py:833`，当日 KPL 资讯标题）本就携带催化——
+   08-20 复盘 pack 实测含「默沙东莫德纳疫苗临床突破」条目，模型未引用。
+   真实缺口是 prompt 无「方向催化溯源」约束（「涨幅居前+资金流入」的描述性理由
+   不受限），已在 v9 规则23 修复（本提案同批试点）。
 
 ## 窗口验证计划
 
@@ -244,7 +252,8 @@ emotion 断板名单（已有）。无新通道。
 - **prompt v8→v9**（`src/investment_engine/blindtest/replay.py`、`src/investment_engine/shadow/premarket.py`
   两套同步）：追加规则 18（三信号见底清单反向检验）、19（普涨弱指数宽度/强度两步定性）、
   20（规则15 扩展：量能台阶锚定）、21（弱市防御方向禁止顺延 + 规则5 回溯闭环）、
-  22（watch_next 首条个股级验证节点）。
+  22（watch_next 首条个股级验证节点）、23（方向催化溯源——news_titles/research/overnight_us/
+  catalysts 中检索引用，无显性催化须注明并降级置信度）。
 - **确定性校验**（`replay.validate_result`）：
   - 规则18 机械化：pack `emotion.daban` 跌停≥80 或上涨家数≤1000 且判「调整/内生瓦解」时，
     stage_reason 须引用三信号（点名清单或关键词 ≥2/3），否则违规重试；
@@ -259,8 +268,15 @@ emotion 断板名单（已有）。无新通道。
 - **验收**（真实样本回放，不调 LLM）：08-20-pre 触发规则18（原输出被判调整/内生瓦解
   且无清单检验）+ 规则13 已知未修复；08-20 复盘触发规则15「24000亿」×2（情形A 与
   watch_next），情形B「萎缩至20000以下」正确豁免。
-- **未做（留后续）**：成交额 20/60 日序列数据块（模式三完整版依赖）、盘前隔夜宏观窗口、
-  overnight_us 异动扩容、`predict.py` 复盘路径 catalysts 接线——见上节「配套数据缺口」。
+- **未做（留后续）**：成交额 20/60 日序列的长历史段（本地 KPL 情绪自 08-12 起累积，
+  当前 ~7 个交易日，随 cron 自然变长；60 日全周期需外部历史量能通道，列入调研）。
+- **同日追加实施（2026-08-21 晚）**：
+  - 规则23（方向催化溯源）入两套 prompt——勘误后替代原「复盘接 catalysts」方案；
+  - `volume_series` 块入包（`dataset._load_volume_series`，kpl/emotion 回溯，
+    ≤当日防泄漏，缺失登记 kpl_volume_series）——模式三数据基础（窗口口径如实标注）；
+  - 盘前宏观口径修正与 movers 异动扫描（见「配套数据缺口」1/2 实施记录）；
+  - 代理运维记录：mihomo「香港-中转 01」节点失效，经 9090 控制口切「香港-中转 02」
+    后 Yahoo 全通——对齐 global-macro 提案「接口失败先切节点」教训。
 - **观察指标**：后续每日 shadow 记录的 validation.violations 分布（规则18/15 触发率）、
   stage_hit、归因触发率；若规则18 重试 churn 明显（模型反复写不进清单）再调宽关键词。
 

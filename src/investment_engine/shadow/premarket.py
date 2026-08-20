@@ -63,7 +63,8 @@ PREMARKET_SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析
 19. 普涨弱指数日的宽度/强度两步定性：若昨日上涨家数显著多于下跌家数（约2倍以上）但指数收跌或冲高回落，禁止把昨日直接顺延定性为「情绪修复」——stage_reason 必须先分解「谁在涨（超跌/低位补涨）谁在压（权重/前期高位品种）」，再判定宽度修复或强度修复；昨日为缩量宽度修复时按反抽处理（消耗调整时间），今日确认线挂「守住当前量能台阶」。「缩量企稳」只证明卖方衰竭、不证明买盘回来，预判依据不得写增量入场类结论。
 20.（规则15扩展）量能台阶锚定：写今日量能阈值前先定位当前量能所处台阶；优先引用昨日成交额量级的「守住/跌破」线或方法论分档（2.5万亿确认位/3万亿过热）；量能下台阶阶段，禁止把修复确认线挂在上一台阶（如「回升至X亿确认修复」）。
 21. 弱市防御方向禁止顺延：directions 候选含昨日弱市（指数大跌/情绪极端）中逆势净流入的防御方向（银行/煤炭/石油石化/农业等避险品种）时，禁止直接标「维持」顺延——先答「今日修复概率」，修复情形下防御方向默认退潮（标「退潮」或不选）。
-22. watch_next 首条为个股级验证节点：昨日连板梯队有独苗（唯一高位活口）/断板换龙承接标的/控异动个股，或 lhb 机构席位 top 个股与该股情绪事件方向矛盾（如大额净买入+控异动失败）时，watch_next 第一条须点名标的并给出今日确认/证伪条件；不得只写汇总指标。"""
+22. watch_next 首条为个股级验证节点：昨日连板梯队有独苗（唯一高位活口）/断板换龙承接标的/控异动个股，或 lhb 机构席位 top 个股与该股情绪事件方向矛盾（如大额净买入+控异动失败）时，watch_next 第一条须点名标的并给出今日确认/证伪条件；不得只写汇总指标。
+23. 方向选择必须做催化溯源：directions 所选方向必须先回答「有无隔夜/盘前催化」——有则在 reason 中引用 overnight_us 映射股表现或 catalysts_since_prev_day 条目标题；无显性催化时注明「无显性催化」并按轮动/资金性质降低置信度（posture 不高于「波段」）。禁止只用「昨日涨幅/净流入居前」的描述性理由。"""
 
 
 def premarket_path(day: str, pred_dir: Path = PRED_DIR) -> Path:
@@ -94,10 +95,11 @@ def slim_overnight(overnight: dict) -> dict:
 
     earnings_note 可能含来源指称（如"UP早盘记录"），打码防泄漏。
     盘前（_pack_to_premarket_prompt）与复盘（shadow/predict.py）两路共用。
+    movers（异动扫描，2026-08-21 新增）原样透传（字段已精简）。
     """
     from investment_engine.blindtest.dataset import FORBIDDEN_RE
 
-    return {
+    out = {
         "date": overnight.get("date"),
         "themes": [
             {"name": FORBIDDEN_RE.sub("██", t.get("name", "")),
@@ -111,6 +113,9 @@ def slim_overnight(overnight: dict) -> dict:
             for t in overnight.get("themes", [])
         ],
     }
+    if overnight.get("movers"):
+        out["movers"] = overnight["movers"]
+    return out
 
 
 def _pack_to_premarket_prompt(pack: dict, target_day: str, overnight: dict | None) -> str:
@@ -159,6 +164,20 @@ def run_predict_premarket(day: str, *, config_dir, db_path=None,
         if prior:
             pack["prior_day"] = prior
         overnight = _load_overnight(day, overnight_root)
+        # 2026-08-21 盘前宏观口径修正（提案 2026-08-21 配套缺口 1）：pack 内
+        # global_macro 为 prev_day 落盘（美股 session prev_day-1，对「隔夜」问题晚
+        # 一天）；09:10 cron 今晨拉取的 {day}.json（美股 session day-1 + 亚太
+        # day-1）才是隔夜全貌——在场则覆盖（块内 date 标明口径，fetched_at 不进包），
+        # 缺失沿用 prev_day 块降级。as-of 规则保证只含今晨前已收盘的 session。
+        from investment_engine.global_macro import load_global_macro
+        gm_today = load_global_macro(day)
+        if gm_today:
+            pack["global_macro"] = {k: v for k, v in gm_today.items()
+                                    if k != "fetched_at"}
+            if "global_macro" in (pack.get("missing") or []):
+                pack["missing"].remove("global_macro")
+                if not pack["missing"]:
+                    pack.pop("missing")
         text = _pack_to_premarket_prompt(pack, day, overnight)
         messages = [{"role": "system", "content": PREMARKET_SYSTEM_PROMPT},
                     {"role": "user", "content": text}]

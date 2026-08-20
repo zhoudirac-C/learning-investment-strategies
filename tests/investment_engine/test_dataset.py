@@ -8,7 +8,7 @@ import pytest
 from qing_investment.kline_cache import init_db, save_index_klines, save_klines
 from investment_engine.blindtest.dataset import (
     INDEX_CODES, LeakageError, assert_no_leakage, build_daily_pack, pack_to_prompt,
-    trading_days,
+    trading_days, _load_volume_series,
 )
 
 
@@ -105,7 +105,7 @@ class TestKplBlocks:
         (self.kpl / "news" / "2026-06-30").mkdir(parents=True)
         (self.kpl / "lhb").mkdir(parents=True)
         (self.kpl / "emotion" / "2026-06-30.json").write_text(json.dumps({
-            "daban": {"tZhangTing": 99, "tFengBan": 87.6},
+            "daban": {"tZhangTing": 99, "tFengBan": 87.6, "qscln": 207936324},
             "lianban": [["600664", "哈药股份", 9.94, 0, "2连板", "医药", "创新药;2"]],
             "fengkou": [{"StockID": "002655", "StockName": "共达电声"}],
             "bankuai": [["医药", "1.61", 801045]],
@@ -210,6 +210,9 @@ class TestKplBlocks:
         assert pack["emotion"]["bankuai"] == [["医药", "1.61"]]
         assert pack["emotion"]["fengkou_stocks"] == ["共达电声"]
         assert pack["news_titles"]["items"][0]["stocks"] == ["600664"]
+        assert pack["volume_series"]["points"] == [{"date": "2026-06-30",
+                                                    "成交额_亿": 20793.6}]
+        assert pack["volume_series"]["coverage"] == "1/60"
         assert pack["lhb"]["source"] == "kpl"  # 东财缺失时回退 KPL
         assert pack["lhb"]["count"] == 1
         # 涨停梯队块
@@ -244,10 +247,50 @@ class TestKplBlocks:
     def test_missing_blocks_annotated(self):
         pack = self._build("2026-06-29")
         assert pack["missing"] == ["kpl_emotion", "kpl_news_titles", "kpl_lhb",
-                                   "limit_pool", "intraday_changes",
+                                   "kpl_volume_series", "limit_pool", "intraday_changes",
                                    "research", "fund_flow", "sector_intraday",
                                    "global_macro"]
         assert "emotion" not in pack
+
+
+class TestVolumeSeries:
+    """volume_series 块（v9 模式三配套）：kpl/emotion 本地文件回溯两市成交额序列。
+
+    提案：framework/proposals/2026-08-21-pattern-patch-blind-up-comparison.md
+    """
+
+    def setup_method(self):
+        self.kpl = Path(tempfile.mkdtemp())
+        (self.kpl / "emotion").mkdir(parents=True)
+
+    def _write(self, day: str, qscln_wan):
+        d = {"daban": {} if qscln_wan is None else {"qscln": qscln_wan}}
+        (self.kpl / "emotion" / f"{day}.json").write_text(
+            json.dumps(d), encoding="utf-8")
+
+    def test_series_built_ordered_and_converted(self):
+        self._write("2026-08-19", 251104252)   # 万元 → 25110.4 亿
+        self._write("2026-08-20", 207936324)   # → 20793.6 亿
+        vs = _load_volume_series("2026-08-20", self.kpl)
+        assert [p["date"] for p in vs["points"]] == ["2026-08-19", "2026-08-20"]
+        assert vs["points"][1]["成交额_亿"] == 20793.6
+        assert vs["peak"] == {"date": "2026-08-19", "成交额_亿": 25110.4}
+        assert vs["trough"]["成交额_亿"] == 20793.6
+        assert vs["mean_亿"] == round((25110.4 + 20793.6) / 2, 1)
+        assert vs["coverage"] == "2/60"
+
+    def test_future_and_invalid_files_excluded(self):
+        self._write("2026-08-20", 207936324)
+        self._write("2026-08-21", 999999999)   # 未来日期：防泄漏排除
+        self._write("2026-08-18", None)        # 无 qscln 字段：跳过
+        vs = _load_volume_series("2026-08-20", self.kpl)
+        assert [p["date"] for p in vs["points"]] == ["2026-08-20"]
+
+    def test_no_valid_files_returns_none(self):
+        self._write("2026-08-20", None)
+        assert _load_volume_series("2026-08-20", self.kpl) is None
+        empty = Path(tempfile.mkdtemp())
+        assert _load_volume_series("2026-08-20", empty) is None
 
 
 def test_index_codes_expanded():

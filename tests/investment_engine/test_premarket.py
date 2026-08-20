@@ -84,6 +84,7 @@ class TestPremarketPromptVersion:
         assert "下台阶" in text  # 规则20 量能台阶锚定
         assert "防御方向默认退潮" in text  # 规则21 弱市防御禁止顺延
         assert "个股级验证节点" in text  # 规则22 watch_next 首条
+        assert "催化溯源" in text and "无显性催化" in text  # 规则23 方向催化溯源
 
 
 class TestRunPredictPremarket:
@@ -185,3 +186,39 @@ class TestPremarketDataBlocks:
         assert captured.get("target_day") == "2026-06-16"
         assert rec["date"] == "2026-06-16"
         db.unlink(missing_ok=True)
+
+    def _run_with_pack(self, monkeypatch, tmp_path, pack, gm):
+        db = self._db("test_pre_gm")
+        captured = {}
+        monkeypatch.setattr(pm, "build_daily_pack", lambda day, **kw: dict(pack))
+        monkeypatch.setattr(pm, "_pack_to_premarket_prompt",
+                            lambda p, target, ovn: captured.update(p) or "text")
+        monkeypatch.setattr(pm, "call_deepseek", lambda *a, **kw: "{}")
+        monkeypatch.setattr(pm, "parse_result", lambda raw: {})
+        monkeypatch.setattr("investment_engine.global_macro.load_global_macro",
+                            lambda day, **kw: gm)
+        rec = pm.run_predict_premarket(
+            "2026-06-16", config_dir="config/stock_monitor", db_path=db,
+            pred_dir=Path(tmp_path), overnight_root=Path(tmp_path) / "ovn")
+        db.unlink(missing_ok=True)
+        return rec, captured
+
+    def test_overnight_macro_overrides_stale_block(self, monkeypatch, tmp_path):
+        """2026-08-21 盘前宏观口径修正：今晨 {day}.json（隔夜全貌）覆盖 pack 内
+        prev_day 宏观块（对「隔夜」问题晚一天），fetched_at 不进包。"""
+        pack = {"date": "2026-06-15", "glossary": "",
+                "global_macro": {"date": "2026-06-13", "美债收益率": {"10Y": {"yield": 4.70}}},
+                "missing": ["global_macro"]}
+        gm = {"date": "2026-06-16", "fetched_at": "2026-06-16T09:10:00",
+              "美债收益率": {"10Y": {"yield": 4.65}}}
+        _, captured = self._run_with_pack(monkeypatch, tmp_path, pack, gm)
+        assert captured["global_macro"] == {"date": "2026-06-16",
+                                            "美债收益率": {"10Y": {"yield": 4.65}}}
+        assert "global_macro" not in captured.get("missing", [])  # 数据已在场，摘掉缺失登记
+
+    def test_overnight_macro_absent_keeps_prev_block(self, monkeypatch, tmp_path):
+        """今晨文件缺失（如代理故障）时沿用 prev_day 块降级，missing 登记不动。"""
+        pack = {"date": "2026-06-15", "glossary": "",
+                "global_macro": {"date": "2026-06-13", "美债收益率": {"10Y": {"yield": 4.70}}}}
+        _, captured = self._run_with_pack(monkeypatch, tmp_path, pack, None)
+        assert captured["global_macro"]["date"] == "2026-06-13"

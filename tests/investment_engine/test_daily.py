@@ -35,6 +35,7 @@ class TestDailyPromptVersion:
         assert "下台阶" in text  # 规则20 量能台阶锚定
         assert "防御方向默认退潮" in text  # 规则21 弱市防御禁止顺延
         assert "个股级验证节点" in text  # 规则22 watch_next 首条
+        assert "催化溯源" in text and "无显性催化" in text  # 规则23 方向催化溯源
 
 
 class TestDailyRun:
