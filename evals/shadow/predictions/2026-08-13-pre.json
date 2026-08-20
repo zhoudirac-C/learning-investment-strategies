@@ -65,8 +65,20 @@
   "raw": "{\n  \"market_stage\": \"震荡\",\n  \"stage_reason\": \"昨日两市成交额21524亿较前日缩量，涨停家数54家较前日92家大幅减少，封板率71%低于前日88%，但指数收涨且无跌停，情绪处于退潮后的修复初期，预判今日震荡。\",\n  \"scenarios\": [\n    {\n      \"name\": \"情形A\",\n      \"condition\": \"今日成交额维持2万亿以上，涨停家数回升至70家以上，封板率回升至80%以上，且光模块/CPO、算力等方向高开高走。\",\n      \"conclusion\": \"情绪修复延续，可积极参与主线方向，仓位可适度提升。\",\n      \"key\": \"量能与涨停家数是否同步回升\"\n    },\n    {\n      \"name\": \"情形B\",\n      \"condition\": \"今日成交额萎缩至2万亿以下，涨停家数继续低于50家，封板率低于70%，或指数冲高回落。\",\n      \"conclusion\": \"情绪修复失败，市场可能进入调整，应降低仓位，观望为主。\",\n      \"key\": \"量能与涨停家数是否继续走弱\"\n    }\n  ],\n  \"watch_next\": [\n    \"今日两市成交额是否突破2.1万亿\",\n    \"涨停家数是否回升至70家以上\",\n    \"封板率是否回升至80%以上\",\n    \"光模块/CPO方向（中际旭创、新易盛等）是否高开高走\",\n    \"昨日涨停股今日溢价情况（昨日涨停今收益是否为正）\"\n  ],\n  \"invalidation\": [\n    \"若今日指数放量下跌超过1%，且跌停家数超过10家，则震荡判断失效，市场进入调整或恐慌。\",\n    \"若光模块/CPO方向高开低走，且算力板块集体走弱，则主线修复逻辑证伪。\"\n  ],\n  \"directions\": [\n    {\n      \"direction_id\": \"CPO概念\",\n      \"reason\": \"隔夜美股光模块龙头Coherent涨8.24%、Lumentum涨13.63%，映射A股光模块/CPO方向，且昨日板块内中际旭创涨3.84%、新易盛等表现强势。\",\n      \"posture\": \"右侧确认\",\n      \"stocks\": [\"300308\", \"688498\"]\n    },\n    {\n      \"direction_id\": \"算力租赁\",\n      \"reason\": \"隔夜CoreWeave财报超预期大涨19.28%，Nebius涨34.14%，映射国内算力租赁方向，且昨日板块内多股涨停。\",\n      \"posture\": \"右侧确认\",\n      \"stocks\": [\"000977\", \"603019\"]\n    },\n    {\n      \"direction_id\": \"存储芯片\",\n      \"reason\": \"隔夜美光科技涨4.92%，存储涨价周期持续，昨日板块内太极实业涨停、德明利涨1.64%，且长鑫产业链催化。\",\n      \"posture\": \"趋势\",\n      \"stocks\": [\"600667\", \"002409\"]\n    }\n  ],\n  \"used_patterns\": [\"sentiment_cycle\", \"mainline_identification\"]\n}",
   "prompt_version": "v2",
   "stage_hit": true,
-  "due_scores": null,
-  "status": "pending_maturity",
+  "due_scores": {
+    "directions": {
+      "samples": 0,
+      "hits": 0,
+      "hit_rate": null
+    },
+    "stocks": {
+      "samples": 0,
+      "hits": 0,
+      "hit_rate": null
+    },
+    "direction_details": []
+  },
+  "status": "scored",
   "meta": {
     "prev_day": "2026-08-12",
     "overnight_date": "2026-08-13"
