@@ -64,6 +64,40 @@
   "raw": "{\n  \"market_stage\": \"震荡\",\n  \"stage_reason\": \"沪深300涨0.58%但成交额18493.9万手为近20日最低，创业板指涨1.49%但成交额18343.9万手亦为近期低位，量能萎缩下指数窄幅波动，情绪处于修复期但缺乏增量资金。\",\n  \"scenarios\": [\n    {\n      \"name\": \"情形A：缩量震荡后向上突破\",\n      \"condition\": \"下一交易日成交额显著放大（沪深300成交额>25000万手）且指数收阳，创业板指继续领涨，PCB/光通信等主线板块出现涨停潮。\",\n      \"conclusion\": \"确认修复期延续，可加仓主线方向，重点配置PCB AI链和光通信。\",\n      \"key\": \"量能是否有效放大\"\n    },\n    {\n      \"name\": \"情形B：缩量后向下调整\",\n      \"condition\": \"成交额继续萎缩（沪深300成交额<18000万手）且指数收阴，创业板指跌破3500点，主线板块核心标的放量下跌。\",\n      \"conclusion\": \"情绪修复失败，市场可能进入调整期，应降低仓位，回避高位题材股。\",\n      \"key\": \"指数是否跌破关键支撑\"\n    }\n  ],\n  \"watch_next\": [\n    \"沪深300成交额是否突破25000万手\",\n    \"创业板指能否站稳3600点\",\n    \"PCB板块（如景旺电子、生益科技）能否延续涨停潮\",\n    \"光通信板块（如中际旭创、源杰科技）是否继续放量上涨\"\n  ],\n  \"invalidation\": [\n    \"若沪深300成交额连续两日低于18000万手且指数下跌，则震荡判断失效，转为调整\",\n    \"若创业板指跌破3300点，则情绪修复证伪，市场进入恐慌\"\n  ],\n  \"directions\": [\n    {\n      \"direction_id\": \"pcb_ai_chain\",\n      \"reason\": \"PCB板块今日多股涨停（景旺电子+10%、生益科技+5.86%），且板块内多只个股pos20>0.9，资金认可度高，符合主线识别框架中的资金认可度维度。\",\n      \"posture\": \"趋势\",\n      \"stocks\": [\"603228\", \"600183\"]\n    },\n    {\n      \"direction_id\": \"optical_communication\",\n      \"reason\": \"光通信板块今日多股大涨（永鼎股份+10%、云南锗业+5.68%），且中际旭创、源杰科技等核心标的涨幅居前，板块联动性强，符合主线持续性验证。\",\n      \"posture\": \"趋势\",\n      \"stocks\": [\"300308\", \"688498\"]\n    },\n    {\n      \"direction_id\": \"memory_nor\",\n      \"reason\": \"存储板块今日多股大涨（正帆科技+7.67%、聚辰股份+8.85%），且兆易创新、普冉股份等核心标的上涨，板块内赚钱效应扩散，符合主线扩散特征。\",\n      \"posture\": \"波段\",\n      \"stocks\": [\"688596\", \"688123\"]\n    }\n  ],\n  \"used_patterns\": [\"sentiment_cycle\", \"mainline_identification\"]\n}",
   "prompt_version": "v2",
   "stage_hit": true,
-  "due_scores": null,
-  "status": "pending_maturity"
+  "due_scores": {
+    "directions": {
+      "samples": 3,
+      "hits": 1,
+      "hit_rate": 0.3333333333333333
+    },
+    "stocks": {
+      "samples": 6,
+      "hits": 2,
+      "hit_rate": 0.3333333333333333
+    },
+    "direction_details": [
+      {
+        "date": "2026-08-12",
+        "direction_id": "pcb_ai_chain",
+        "dir_ret": -0.0650345022294497,
+        "bench_ret": -0.021791034594493275,
+        "hit": false
+      },
+      {
+        "date": "2026-08-12",
+        "direction_id": "optical_communication",
+        "dir_ret": 0.004918305285482918,
+        "bench_ret": -0.021791034594493275,
+        "hit": true
+      },
+      {
+        "date": "2026-08-12",
+        "direction_id": "memory_nor",
+        "dir_ret": -0.04223786384999059,
+        "bench_ret": -0.021791034594493275,
+        "hit": false
+      }
+    ]
+  },
+  "status": "scored"
 }
