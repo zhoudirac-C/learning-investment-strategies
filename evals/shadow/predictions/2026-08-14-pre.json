@@ -71,8 +71,35 @@
   "raw": "{\n  \"market_stage\": \"震荡\",\n  \"nature\": \"主动降速\",\n  \"stage_reason\": \"昨日盘中形态为冲量滑落（全天缩量），尾盘实际全天成交额25509亿，涨停家数59家较前日92家减少、封板率62.1%较前日88.5%下降，情绪退潮但指数跌幅有限，属主动降速消化分歧。\",\n  \"scenarios\": [\n    {\n      \"name\": \"情形A\",\n      \"condition\": \"今日成交额(亿)维持25000亿以上且涨停家数回升至70家以上，封板率回升至70%以上\",\n      \"conclusion\": \"情绪修复，主线（5G/CPO）延续，可持股或低吸\",\n      \"key\": \"涨停家数与封板率\"\n    },\n    {\n      \"name\": \"情形B\",\n      \"condition\": \"今日成交额(亿)萎缩至23000亿以下或涨停家数继续低于50家，封板率低于60%\",\n      \"conclusion\": \"情绪继续退潮，降低仓位，观望为主\",\n      \"key\": \"成交额与涨停家数\"\n    }\n  ],\n  \"watch_next\": [\n    \"今日涨停家数能否回升至70家以上\",\n    \"今日封板率能否回升至70%以上\",\n    \"今日成交额(亿)能否维持25000亿以上\",\n    \"创业板指能否站稳3600点\"\n  ],\n  \"invalidation\": [\n    \"指数放量下跌超2%且跌停家数超20家\",\n    \"涨停家数持续低于50家且封板率低于50%\"\n  ],\n  \"directions\": [\n    {\n      \"direction_id\": \"5G概念\",\n      \"reason\": \"昨日5G概念内多股涨停（如移远通信、共进股份），且隔夜美股光模块/CPO回调但算力芯片平稳，5G作为主线核心方向仍有资金关注。\",\n      \"posture\": \"趋势\",\n      \"trend\": \"维持\",\n      \"stocks\": [\"603236\", \"603118\"]\n    },\n    {\n      \"direction_id\": \"CPO概念\",\n      \"reason\": \"隔夜美股光模块/CPO（COHR、LITE）大跌，但国内CPO方向昨日仍有源杰科技涨5%，且产业链逻辑未破坏，短期或受外盘扰动但趋势未破。\",\n      \"posture\": \"波段\",\n      \"trend\": \"退潮\",\n      \"stocks\": [\"688498\", \"300308\"]\n    }\n  ],\n  \"used_patterns\": [\"sentiment_cycle\", \"mainline_identification\", \"position_by_cycle\"],\n  \"operation\": {\n    \"position\": \"反弹超预期\",\n    \"action\": \"获利了结、降低仓位，不追高，等待分歧后的低吸机会\",\n    \"basis\": \"cycle_state.rebound_day=10已超过theoretical_window上限6-8天，且昨日涨停家数萎缩、封板率下降，放量兑现特征明显\"\n  },\n  \"cycle_state\": {\n    \"rebound_day\": 10,\n    \"bottom_level\": \"90min\",\n    \"bottom_date\": \"2026-07-31\",\n    \"theoretical_window\": \"6-8天\",\n    \"note\": \"rebound_day已超theoretical_window上限，反弹接近尾声，需警惕兑现风险\"\n  }\n}",
   "prompt_version": "v5",
   "stage_hit": null,
-  "due_scores": null,
-  "status": "pending_maturity",
+  "due_scores": {
+    "directions": {
+      "samples": 2,
+      "hits": 0,
+      "hit_rate": 0.0
+    },
+    "stocks": {
+      "samples": 3,
+      "hits": 3,
+      "hit_rate": 1.0
+    },
+    "direction_details": [
+      {
+        "date": "2026-08-14",
+        "direction_id": "5G概念",
+        "dir_ret": -0.023826570971222788,
+        "bench_ret": -0.010068840175915472,
+        "hit": false
+      },
+      {
+        "date": "2026-08-14",
+        "direction_id": "CPO概念",
+        "dir_ret": -0.013903656788394997,
+        "bench_ret": -0.010068840175915472,
+        "hit": false
+      }
+    ]
+  },
+  "status": "scored",
   "meta": {
     "prev_day": "2026-08-13",
     "overnight_date": "2026-08-14"

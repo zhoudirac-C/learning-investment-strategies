@@ -1,0 +1,14 @@
+{
+  "date": "2026-08-14",
+  "triggers": [
+    "direction_miss"
+  ],
+  "types": [
+    "步骤缺"
+  ],
+  "analysis": "AI判断市场为震荡且主动降速，但实际5G和CPO方向均跑输基准，方向判断错误。AI依赖的推理步骤中，对情绪退潮的解读过于乐观，未充分验证主线方向的持续性。具体而言，AI在判断5G和CPO方向时，仅基于昨日涨停和隔夜外盘，未考虑当日开盘后的实际走势确认，且未设置方向失效的明确条件。此外，AI的cycle_state中rebound_day已超理论窗口，但未将此信号转化为对方向的直接否定，导致方向判断失误。",
+  "proposal_refs": [
+    "framework/proposals/2026-08-14-pattern-patch-note.md",
+    "framework/proposals/2026-08-14-pattern-patch-note.md"
+  ]
+}
