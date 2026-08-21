@@ -366,3 +366,35 @@ class TestStructureSignalRecency:
         pack = {"structure": {"上证指数": {"60min": {"top": {"state": "divergence",
                                                             "time": "2026-06-25"}}}}}
         assert any("规则17" in x for x in validate_result(_result(), pack=pack))
+
+
+class TestMacroThreeConditions:
+    """规则25：宏观三条件校验——global_macro 含美债数据时必须做宏观压制检验。
+
+    背景：2026-08-21 盲判 vs UP 早盘对比。UP 用「美联储不动/油价<80/10Y<4.70%
+    三条前置条件全部失效」给下跌定性质（宏观而非 AI 证伪）；盲判只报外盘涨跌
+    数字、无框架校验，美债 4.70%/布油 93 未进结论。
+    """
+
+    def test_us10y_in_pack_requires_macro_check(self):
+        pack = {"global_macro": {"美债收益率": {"10Y": {"yield": 4.696, "chg_bp": 4.3}}}}
+        r = _result(stage_reason="隔夜美股下跌，预判震荡")
+        v = validate_result(r, pack=pack)
+        assert any("规则25" in x for x in v), v
+
+    def test_macro_check_pass(self):
+        pack = {"global_macro": {"美债收益率": {"10Y": {"yield": 4.696, "chg_bp": 4.3}}}}
+        r = _result(stage_reason="宏观三条件检验：十年期美债4.70%回升，油价93超80美元线，"
+                                 "美联储不动——三条前置条件均不成立，压制定性为宏观扰动而非AI证伪")
+        assert not any("规则25" in x for x in validate_result(r, pack=pack))
+
+    def test_no_macro_data_no_check(self):
+        # 无 global_macro 或无美债字段 → 不强制
+        assert not any("规则25" in x
+                       for x in validate_result(_result(), pack={"global_macro": {}}))
+        assert not any("规则25" in x for x in validate_result(_result(), pack={}))
+
+    def test_non_yield_macro_only_not_flagged(self):
+        # global_macro 只有股指、无收益率字段 → 三条件校验无从谈起，不强制
+        pack = {"global_macro": {"美股三指数": {"纳指": {"pct": -1.0}}}}
+        assert not any("规则25" in x for x in validate_result(_result(), pack=pack))

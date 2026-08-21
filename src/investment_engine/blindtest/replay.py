@@ -23,7 +23,7 @@ _TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v9"
+PROMPT_VERSION = "v10"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -88,7 +88,9 @@ SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。�
 21. 弱市防御方向禁止顺延：directions 候选含前一交易日弱市中逆势净流入的防御方向（银行/煤炭/石油石化/农业等避险品种）时，禁止直接标「维持」——先答「次日修复概率」，修复情形下防御方向默认退潮（标「退潮」或不选）；并须回溯昨日所选方向的当日表现、在 trend 字段标注（规则5闭环）。
 22. watch_next 首条为个股级验证节点：连板梯队有独苗（唯一高位活口）/断板换龙承接标的/控异动个股，或 lhb 机构席位 top 个股与该股当日情绪事件方向矛盾（如大额净买入+控异动失败）时，watch_next 第一条须点名标的并给出确认/证伪条件；不得只写汇总指标。
 23. 方向判断必须做催化溯源：directions 所选方向（及 stage_reason 归因的当日领涨/领跌方向）若当日涨幅/净流入居前，必须先在 user 数据的 news_titles / research 块中检索对应催化并引用条目标题；检索不到显性催化时必须注明「无显性催化，按纯资金/轮动对待」并降低置信度（posture 不高于「波段」）。禁止只用「涨幅居前+资金流入」的描述性理由。
-24. 外力/内生归因前置：判 market_stage/nature 前先答「本轮驱动来自内部还是外部」。若 user 数据含 global_macro/overnight_us 且外部链条成立（隔夜美股半导体/存储链大跌、亚太股指同步重挫、美债收益率异常变动等），nature 优先判「外力扰动」，不得仅凭内部情绪指标判「内生瓦解」；判「外力扰动」时 stage_reason 必须引用外盘数据，scenarios/invalidation 至少一条含外部变量锚（如今夜美股收盘位置、关键利率点位）。无论最终定性如何，stage_reason 必须注明外部链条检验结论（成立/不成立/平稳）。"""
+24. 外力/内生归因前置：判 market_stage/nature 前先答「本轮驱动来自内部还是外部」。若 user 数据含 global_macro/overnight_us 且外部链条成立（隔夜美股半导体/存储链大跌、亚太股指同步重挫、美债收益率异常变动等），nature 优先判「外力扰动」，不得仅凭内部情绪指标判「内生瓦解」；判「外力扰动」时 stage_reason 必须引用外盘数据，scenarios/invalidation 至少一条含外部变量锚（如今夜美股收盘位置、关键利率点位）。无论最终定性如何，stage_reason 必须注明外部链条检验结论（成立/不成立/平稳）。
+25. 宏观三条件校验（宏观压制 vs AI证伪定性）：若 user 数据的 global_macro 块含美债收益率字段，stage_reason 必须做「宏观三条件」检验并给出定性质结论——三条前置条件：①美联储动向（不动=条件成立）②油价是否低于80美元 ③十年期美债收益率是否低于4.70%。三条均不成立时，本轮压制优先定性为「宏观扰动」而非「AI商业模式证伪」，科技主线的中期逻辑不被外盘下跌证伪；部分成立时写明哪条失效及对应含义。禁止只罗列外盘涨跌数字而不给宏观/AI归因结论。
+23b. 催化兑现覆盖：directions 做催化溯源（规则23）时，若 overnight_us 中该方向的隔夜映射股出现大幅回落（利好兑现），隔夜反向数据优先于前日催化——reason 必须同时引用两者并解释矛盾（如「前日+X%催化 vs 隔夜-Y%兑现回落」），禁止只引用前日利好而忽略隔夜反向信号；此时 posture 不高于「波段」或直接不选该方向。"""
 
 
 def build_messages(pack_text: str) -> list[dict]:
@@ -240,6 +242,9 @@ _EXTERNAL_HINTS = ("外盘", "美股", "隔夜", "美债", "费半", "费城", "
                    "标普", "SOX", "KOSPI", "日经", "恒生", "美元指数", "收益率",
                    "存储链", "亚太", "外部")
 
+# 规则25：宏观三条件校验引用词（宏观压制 vs AI证伪定性）
+_MACRO_CHECK_HINTS = ("宏观三条件", "三条件", "美联储", "油价", "4.70", "4.7%", "十年期", "10Y")
+
 _LADDER_HINTS = ("梯队", "连板", "首板", "晋级", "二板", "断板", "高度", "宽度", "抱团")
 _STRUCTURE_HINTS = ("钝化", "顶部结构", "背离", "MACD", "绿柱", "高9", "DIF")
 _REDUCE_RE = re.compile(r"降仓|减仓|获利了结|兑现|清仓|卖出")
@@ -384,6 +389,14 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
                 violations.append(
                     "规则18: 情绪极端日判「调整/内生瓦解」，stage_reason 未逐条检验"
                     "三信号见底清单（强势股补跌/多杀多/流动性见底）")
+
+        # 规则25：宏观三条件校验——global_macro 含美债收益率时必须做宏观/AI归因
+        gm = pack.get("global_macro") or {}
+        has_yield = isinstance(gm.get("美债收益率"), dict) and bool(gm["美债收益率"])
+        if has_yield and not any(h in text_all for h in _MACRO_CHECK_HINTS):
+            violations.append(
+                "规则25: pack 含 global_macro 美债收益率数据，stage_reason 未做宏观三条件"
+                "检验（美联储/油价80美元/十年期4.70%）——须给出宏观压制 vs AI证伪的定性质结论")
 
         # 规则24：外力/内生归因前置——外盘数据在场时必须引用外部链条
         # （无论最终定性；判非外力也须注明外部检验结论）

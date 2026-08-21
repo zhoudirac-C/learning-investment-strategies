@@ -7,10 +7,10 @@ from investment_engine.shadow.daily import run
 
 
 class TestDailyPromptVersion:
-    def test_prompt_version_is_v9(self):
-        """pattern-patch 提案 2026-08-21：版本号 v8→v9（规则18-22 UP 推理思路试点）。"""
+    def test_prompt_version_is_v10(self):
+        """pattern-patch 2026-08-21：版本号 v9→v10（规则25 宏观三条件 + 规则23b 催化兑现覆盖）。"""
         from investment_engine.blindtest import replay
-        assert replay.PROMPT_VERSION == "v9"
+        assert replay.PROMPT_VERSION == "v10"
 
     def test_daily_prompt_contains_discipline_rules(self):
         """v6/v8 纪律规则关键词须出现在盘后 prompt（B1/B2/A2-A5/C5引用/C8降级/规则9并列）。"""
