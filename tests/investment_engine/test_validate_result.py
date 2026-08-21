@@ -398,3 +398,37 @@ class TestMacroThreeConditions:
         # global_macro 只有股指、无收益率字段 → 三条件校验无从谈起，不强制
         pack = {"global_macro": {"美股三指数": {"纳指": {"pct": -1.0}}}}
         assert not any("规则25" in x for x in validate_result(_result(), pack=pack))
+
+
+class TestIndexLevelSanity:
+    """规则26：指数点位须落在 pack 当日收盘价合理区间内。
+
+    背景：2026-08-21 复盘盲判 invalidation 出现「跌破前低4588.7」——
+    上证当日实际 3905 点附近，4588 为幻觉数字。机械校验：输出中出现的
+    「上证指数/大盘」语境的千位级点位，若偏离 pack 任一主要指数当日
+    收盘价 ±10% 以上且无法对齐任何指数近期价位，判为违规。
+    """
+
+    PACK = {"index": {
+        "IDX000001": [{"d": "2026-08-21", "c": 3905.2}],
+        "IDX399006": [{"d": "2026-08-21", "c": 3495.6}],
+    }}
+
+    def test_hallucinated_level_flagged(self):
+        r = _result(invalidation=["上证指数跌破前低4588.7且放量，则震荡判断失效"])
+        v = validate_result(r, pack=self.PACK)
+        assert any("规则26" in x for x in v), v
+
+    def test_realistic_level_pass(self):
+        # 3850 距上证 3905 约 -1.4%，在容差内
+        r = _result(invalidation=["上证指数跌破3850平台支撑则判断失效"])
+        assert not any("规则26" in x for x in validate_result(r, pack=self.PACK))
+
+    def test_level_near_other_index_pass(self):
+        # 创业板指 3495 附近的点位也应合法（多指数对齐）
+        r = _result(watch_next=["创业板指能否守住3480不破位"])
+        assert not any("规则26" in x for x in validate_result(r, pack=self.PACK))
+
+    def test_no_index_data_no_check(self):
+        r = _result(invalidation=["上证指数跌破4588.7则失效"])
+        assert not any("规则26" in x for x in validate_result(r, pack={}))

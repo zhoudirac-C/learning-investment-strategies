@@ -61,7 +61,7 @@ class TestPremarketPrompt:
 class TestPremarketPromptVersion:
     def test_prompt_version_is_v10(self):
         """pattern-patch 2026-08-21：版本号 v9→v10（规则25 宏观三条件 + 规则23b 催化兑现覆盖）。"""
-        assert pm.PROMPT_VERSION == "v10"
+        assert pm.PROMPT_VERSION == "v10.1"
 
     def test_premarket_prompt_contains_discipline_rules(self):
         """v6 新增纪律规则关键词须出现在盘前 prompt（B1/B2/A2-A5/C5引用/C8降级）。"""

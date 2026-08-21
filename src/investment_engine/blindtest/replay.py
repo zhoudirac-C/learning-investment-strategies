@@ -23,7 +23,7 @@ _TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v10"
+PROMPT_VERSION = "v10.1"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -397,6 +397,33 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
             violations.append(
                 "规则25: pack 含 global_macro 美债收益率数据，stage_reason 未做宏观三条件"
                 "检验（美联储/油价80美元/十年期4.70%）——须给出宏观压制 vs AI证伪的定性质结论")
+
+        # 规则26：指数点位须落在 pack 主要指数当日收盘价 ±10% 内
+        # （2026-08-21 实测幻觉：「跌破前低4588.7」vs 上证实际 3883-3905）
+        index_pack = (pack or {}).get("index")
+        if isinstance(index_pack, dict) and index_pack:
+            closes = []
+            for _code, bars in index_pack.items():
+                if isinstance(bars, list) and bars and \
+                        isinstance(bars[-1], dict) and bars[-1].get("c"):
+                    try:
+                        closes.append(float(bars[-1]["c"]))
+                    except (TypeError, ValueError):
+                        continue
+            if closes:
+                # 只扫千位级点位（1000-99999），排除量能语境（亿/万/家/%）
+                for src, txt in fields:
+                    if any(w in txt for w in ("亿", "万手", "家", "%")):
+                        continue
+                    for m in re.finditer(r"\d{4,5}(?:\.\d+)?", txt):
+                        num = float(m.group())
+                        if num < 1000:
+                            continue
+                        if not any(abs(num - c) / c <= 0.10 for c in closes):
+                            violations.append(
+                                f"规则26: {src} 指数点位「{num}」偏离 pack 全部主要指数"
+                                f"当日收盘价（{', '.join(f'{c:.0f}' for c in closes)}）±10%"
+                                "以上，疑似幻觉数字——指数点位须引用 pack 内真实价位")
 
         # 规则24：外力/内生归因前置——外盘数据在场时必须引用外部链条
         # （无论最终定性；判非外力也须注明外部检验结论）

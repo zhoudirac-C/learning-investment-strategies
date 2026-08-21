@@ -16,6 +16,16 @@ from investment_engine.blindtest.dataset import LP_ROOT
 _CLAIM_TMPL = r"{name}[^。；;，,]{{0,10}}?(涨停|封板|(\d+)连板)"
 _NEGATION_RE = re.compile(r"[未不没无]")
 
+# 反向提取：任意「X涨停/X封板/X连板」声明（X 为 2-6 个非标点汉字，疑似股名）
+_ANY_CLAIM_RE = re.compile(r"([\u4e00-\u9fa5]{2,6})(涨停|封板|(\d+)连板)")
+# 连接词/量能语境：X 含这些词时视为句法语段而非股名
+_CONNECT_WORDS = (
+    "上方", "下方", "昨日", "今日", "前日", "且", "或", "但", "若", "则",
+    "家数", "家", "潮", "批量", "集体", "率", "梯队", "竞价", "开盘", "尾盘",
+    "盘中", "午盘", "首板", "二板", "三板", "高度", "情绪", "修复", "扩散",
+    "确认位", "量级", "回升", "回落", "维持", "转强", "走弱", "停家数",
+)
+
 
 def _load_zt_map(day: str, lp_root: Path | None = None) -> dict[str, int]:
     """当日涨停池 name → 连板数；文件缺失返回空（调用方据此跳过校验）。"""
@@ -46,4 +56,23 @@ def check_prediction(result: dict, day: str, *, extra_names=(), lp_root=None) ->
                 errors.append(f"{claim}：当日涨停池无 {name}")
             elif n_lbc and int(n_lbc) != zt[name]:
                 errors.append(f"{claim}：当日 {name} 实际为 {zt[name]} 连板")
+
+    # 反向提取：输出中任意「X涨停/X封板/X连板」，X 不在涨停池且不在 extra_names
+    # → 疑似幻觉个股声明（2026-08-21 江海股份案例：旧逻辑只扫已知名单漏检）
+    known = names  # 涨停池 ∪ extra_names
+    seen: set[str] = set()
+    for m in _ANY_CLAIM_RE.finditer(text):
+        word, verb, n_lbc = m.group(1), m.group(2), m.group(3)
+        claim = m.group(0)
+        if _NEGATION_RE.search(word) or _NEGATION_RE.search(
+                text[max(0, m.start() - 2):m.start()]):
+            continue
+        # 语境词过滤：X 含连接/量能语境词（如「上方且涨停」「但昨日涨停」）非个股声明
+        if any(w in word for w in _CONNECT_WORDS):
+            continue
+        if word in known or word in seen:
+            continue
+        seen.add(word)
+        errors.append(f"{claim}：当日涨停池无 {word}") if not n_lbc else \
+            errors.append(f"{claim}：当日涨停池无 {word}")
     return errors
