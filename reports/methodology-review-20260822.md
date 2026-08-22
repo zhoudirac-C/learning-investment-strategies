@@ -161,3 +161,31 @@ timing-pricing 等），本期真新增需提名的为表中 ⚠️ 项。
    定价依据二分、估值叙事纪律（补）——按提案模板落盘 `framework/proposals/`。
 4. **status 生命周期**：确认约定后决定是否为 192 个被超越/矛盾旧 claim 回填 status。
 5. **09-08 起**：08-11 批次 6 个 proposed 提案满 4 周，启动转正评估（需跨 ≥2 regime 证据汇总）。
+
+---
+
+## 执行情况（2026-08-22 当日闭环）
+
+报告落盘后用户拍板执行，结果如下：
+
+1. ✅ **扫描器已修**：`extract_reasoning_patterns.py` 改为双目录扫描（`sources/raw/财经/` +
+   `sources/original/bilibili/`），新增 `--since YYYY-MM-DD` 窗口过滤。修复中连带发现第二个 bug：
+   bilibili 文件的 frontmatter（~440B 来源头）使前置过滤器（首 500 字找分析关键词）误杀——
+   首轮 46 个候选 45 个被误 skip，已加 `strip_source_headers()` 剥离 frontmatter+引用块并放宽到 800 字。
+   误标的 44 条 state 记录已清除并重跑（详见 `logs/reasoning_extraction_20260822*.log`）。
+2. ✅ **status 生命周期已回填**：新脚本 `scripts/backfill_claim_status.py`（保守规则：supersedes 边 →
+   旧 claim status=superseded；contradicts 不自动翻转，175 条列入报告供人工）。已执行：
+   **201 文件 / 658 条回填为 superseded**，diff 纯 status 行，gate 校验 0 个 status 错误。
+   ⚠️ 更正本报告一致性检查第 1 条的猜测：status 未执行**不是目录原因**——是自动化从未写过 status
+   （schema 设计了 5 态但无写入方），与目录无关。
+3. ✅ **A 类 6 条已写入** `framework/trading-rules.md`（5 个新章节：接飞刀+买阴不买阳、量能档位+
+   整数量能位合并为一章、离场标准后移、周末持仓成本、大涨大减小涨小减），目录与更新记录已同步，
+   `framework/README.md` 更新记录已补行。
+4. ✅ **B 类 5 份提名提案已落盘** `framework/proposals/`：packaged-vs-positional-pricing（打包定价）、
+   yin-line-volume-nature（阴线量能二分）、volume-direction-patch（量能方向修正）、
+   global-selloff-nth-leg（第N棒）、pricing-basis-duality（定价依据二分）。估值叙事纪律等 3 个偏弱信号
+   按门槛留 claims 层继续观察。
+5. ✅ **skill 文档兼容目录**：qing-learning-review（Step 5.5 双目录+--since、Step 6 status 回填指针、
+   提案模板 source 路径泛化、报告模板失效引用修正、自动化脚本节标注"尚未实现"）+
+   qing-learning 三个 references（orphan-repair / field-audit / image-to-raw 双目录化）。
+6. ⏳ **5 份新提案与存量 17 份 proposed 一并等窗口**：最早评估线仍为 09-08（08-11 批次）。

@@ -77,7 +77,7 @@ for i, y1 in enumerate([0, h//3, 2*h//3]):
    - "顶部结构第N天" → 与已有raw对比（昨天第15天→今天第16天）
    - "调整第N天" → 同上
    - "昨天创业板指冲高近4%" → 昨天发生过的事
-2. **与已有raw对比**：检查 `sources/raw/财经/` 中最近日期的内容
+2. **与已有raw对比**：检查 `sources/raw/财经/` 与 `sources/original/bilibili/` 中最近日期的内容
 3. **系统当前日期**：作为fallback
 4. **标注要求**：推断出的日期必须在frontmatter中标注，并在正文中说明推断依据
 

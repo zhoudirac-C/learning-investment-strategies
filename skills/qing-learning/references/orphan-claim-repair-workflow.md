@@ -25,7 +25,7 @@ MATCH (c:Claim) WHERE NOT (c)-[]-() RETURN count(c);
 
 ### Step 1: 扫描 raw 文档找 source_path
 
-用 Python 扫描 `sources/raw/财经/` 目录，按以下优先级匹配：
+用 Python 扫描 `sources/raw/财经/` 与 `sources/original/bilibili/` 两个目录（UP raw 两个落点），按以下优先级匹配：
 
 ```python
 import glob, yaml
@@ -35,7 +35,7 @@ from pathlib import Path
 orphan_dates = {'2026-06-07', '2026-06-04', '2026-06-05'}
 orphan_keywords = ['长黑线', '上吊线', '流星线', '尾盘低吸', '人民币强势']
 
-for fp in sorted(glob.glob('sources/raw/财经/*.md')):
+for fp in sorted(glob.glob('sources/raw/财经/*.md')) + sorted(glob.glob('sources/original/bilibili/*.md')):
     name = Path(fp).name
     # 按日期匹配
     date_in_name = any(d.replace('-', '') in name for d in orphan_dates)
@@ -58,7 +58,7 @@ grep -n "id: claim-YYYYMMDD-XXX-[a-z]" knowledge/claims/claim-YYYYMMDD-XXX.yaml
 然后用 `patch` 工具在 claim 的 `supersedes:` 或 `contradicts:` 后面插入：
 
 ```yaml
-  source_path: sources/raw/财经/匹配到的文件名.md
+  source_path: <匹配到的 raw 文件路径>  # sources/raw/财经/ 或 sources/original/bilibili/
 ```
 
 对 technical-knowledge 类 claim 同时加 wiki 关联：

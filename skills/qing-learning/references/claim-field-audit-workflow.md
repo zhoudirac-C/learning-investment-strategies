@@ -88,7 +88,7 @@ text = re.sub(r'"([\u4e00-\u9fff][^"]{0,50}[\u4e00-\u9fff])"', r'「\1」', text
 
 | 级别 | 缺失字段 | 修复方法 |
 |------|---------|---------|
-| P0 | `source_path`/`source_date`/`source_type`/`extracted_at` | 扫描 `sources/raw/` 匹配源文档 |
+| P0 | `source_path`/`source_date`/`source_type`/`extracted_at` | 扫描 `sources/raw/` 与 `sources/original/` 匹配源文档 |
 | P0 | `subject` | 从 `statement` 提取主题或 `topic` |
 | P1 | `statement`（仅有 `text`） | 复制 `text` → `statement` |
 | P1 | `links` | 新建 `{wiki_pages:[], methodology_pages:[]}` |

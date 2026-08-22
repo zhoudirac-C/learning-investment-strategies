@@ -79,7 +79,7 @@ evidence:
   occurrences:
     - date: 'YYYY-MM-DD'
       regime: 震荡        # 主升/震荡/调整/恐慌
-      source: sources/raw/财经/<file>.md
+      source: <sources/raw/财经/ 或 sources/original/bilibili/ 下的 raw 文件路径>
       quote: "<原文摘录>"
 candidate_pattern:
   pattern_id: <snake_case>
@@ -105,7 +105,7 @@ candidate_pattern:
 
 ### Step 5.5: 批量提取推理模式（更新框架 examples）
 
-review 窗口内若有新入库的 UP raw 文件（复盘/视频/产业链深度），运行批量提取，把推理链归入现有框架：
+review 窗口内若有新入库的 UP raw 文件（复盘/视频/专栏/产业链深度），运行批量提取，把推理链归入现有框架：
 
 ```bash
 # 1. 预览：看哪些新文件会被处理（不提取不落盘）
@@ -113,7 +113,13 @@ review 窗口内若有新入库的 UP raw 文件（复盘/视频/产业链深度
 
 # 2. 确认后执行（LLM 提取 + 合并进 reasoning-patterns.yaml）
 .venv/bin/python scripts/extract_reasoning_patterns.py --incremental
+
+# 3. 窗口提取（推荐）：只处理复盘窗口内的新文件，避免历史 backlog 干扰
+.venv/bin/python scripts/extract_reasoning_patterns.py --incremental --since $(date -d '14 days ago' +%F)
 ```
+
+- 扫描范围（2026-08-22 起）：`sources/raw/财经/`（整理稿）**+ `sources/original/bilibili/`**（B站原始抓取，
+  8 月起新内容直接落这里）。`--since` 按文件名 YYYY-MM-DD 前缀过滤，无日期前缀的文件在设置时被跳过。
 
 - 作用：把新 raw 文件的推理链**合并进 `framework/reasoning-patterns.yaml` 现有框架的
   examples**（追加 example + 合并 themes/source_raw），是「更新框架」的批量路径。
@@ -131,9 +137,13 @@ review 窗口内若有新入库的 UP raw 文件（复盘/视频/产业链深度
 
 新 claims 与前期框架的冲突检查。
 
+- **status 生命周期**：被 supersedes 的旧 claim 应落 `status: superseded`。机械回填已脚本化：
+  `.venv/bin/python scripts/backfill_claim_status.py --dry-run` 预览后执行
+  （contradicts 方向需人工裁决，脚本只列清单不自动翻转）。
+
 ### Step 7: 生成报告
 
-输出格式见 `references/review-report-template.md`，保存到 `reports/methodology-review-YYYYMMDD.md`
+输出格式参照最新一期复盘报告（`reports/methodology-review-*.md`，如 20260822 期），保存到 `reports/methodology-review-YYYYMMDD.md`
 
 ### Step 8: 提交
 
@@ -172,20 +182,9 @@ git add reports/methodology-review-YYYYMMDD.md
 
 ## 自动化复盘脚本
 
-对于周期性复盘（如"review 过去14天"），可使用自动化脚本替代手工分析：
-
-```bash
-cd ~/learning-investment-strategies
-python3 scripts/methodology_review.py --days 14 --output reports/methodology-review-$(date +%Y%m%d).md
-```
-
-脚本功能：
-- 读取指定窗口内所有 claims
-- 自动生成统计、主题漂移、矛盾分类、Durable Rule 候选
-- 输出结构化报告（Markdown 格式）
-- 自动 git add 报告文件
-
-详见 `references/automated-review-script.md`。
+⚠️ `scripts/methodology_review.py` **尚未实现**（references 里标注"待实现"），不要按上方命令调用。
+周期性复盘目前按 9 步流程手工执行；`references/automated-review-script.md` 记录了手工流程的
+脚本化参考（含 claims 读取/统计的代码片段与坑点），未来实现脚本时以它为基础。
 
 ## 输出要求
 
