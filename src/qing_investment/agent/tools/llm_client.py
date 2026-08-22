@@ -128,6 +128,11 @@ LLM_PROVIDERS: dict[str, dict[str, Any]] = {
         "default_model": "deepseek-v4-flash",
         "api_key_env": "DEEPSEEK_API_KEY",
     },
+    "openrouter": {
+        "base_url": "https://openrouter.ai/api/v1",
+        "default_model": "stealth/ox-alpha",
+        "api_key_env": "OPENROUTER_API_KEY",
+    },
     "zhipu": {
         "base_url": "https://open.bigmodel.cn/api/paas/v4",
         "default_model": "glm-4.7-flash",
