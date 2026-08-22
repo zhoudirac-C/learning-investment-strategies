@@ -1,5 +1,6 @@
 """DeepSeek 回放测试（mock client，不触网）。"""
 import json
+import re
 from types import SimpleNamespace
 
 import pytest
@@ -145,5 +146,5 @@ class TestParseResultV2:
         assert r["directions"][0]["posture"] == ""
 
     def test_prompt_version_constant(self):
-        # 契约版本格式合法即可（v+数字）；具体版本号随契约演进，不硬编码
-        assert PROMPT_VERSION.startswith("v") and PROMPT_VERSION[1:].isdigit()
+        # 契约版本格式合法即可（v+数字，允许 minor 如 v10.1）；具体版本号随契约演进，不硬编码
+        assert re.fullmatch(r"v\d+(\.\d+)?", PROMPT_VERSION)
