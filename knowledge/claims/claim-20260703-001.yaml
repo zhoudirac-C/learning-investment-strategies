@@ -11,7 +11,7 @@ claims:
   evidence_quote: 目前依然是震荡市，用三要素——量能、大金融、情绪——逐一拆解。非科技方向在经历3.3和5.14两轮大跌之后，已经释放了大部分风险。科技方向从3.24上涨至今，本轮下跌属于情绪影响更多，并非基本面因素，仍理解为上升途中的调整。
   interpretation: UP给出了当前市场的整体定性：震荡市。核心逻辑是两端拆解——非科技已经跌透了所以大盘没有大跌风险；科技只是情绪调整不是基本面反转所以不会持续下跌。这个框架决定了操作策略：不用恐慌减仓，但也不急于加仓，等待修复信号。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260531-002-a", "claim-20260518-018"]
   contradicts: []
@@ -71,7 +71,7 @@ claims:
   evidence_quote: 今天走势可参考6月8日：当天同样因前夜美股AI概念普跌而低开，但较前一日缩量近10%。若今天也能控制住量能，说明市场分歧正在收敛，无论对今天还是下周都是积极信号。
   interpretation: UP用6月8日的行情做类比模板：同样是前夜美股AI跌→A股低开→缩量近10%→分歧收敛。如果今天量能从昨日的量收缩约10%（即从约3.45万亿缩到约3.1万亿），则可视为积极信号。缩量→分歧收敛→修复启动，这是核心逻辑链。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260623-001-a"]
   contradicts: []
@@ -102,7 +102,7 @@ claims:
   evidence_quote: 昨天下午1点半左右，涨停家数仍多达近百家，跌停只有12家，直到尾盘才增至40家——多数个股的下跌意愿其实并不强烈。连板高度甚至来到久违的4板。
   interpretation: UP从三个维度论证冰点已现：涨停家数（近100家）远大于跌停（12-40家），个股下跌意愿不强；连板高度到4板，情绪有活口；大部分科技股已调整5-8个交易日（从6.22/6.26开始）。具体的走势参考是2021年7月28日——当天下跌后开启修复。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260602-001-a"]
   contradicts: []
@@ -139,7 +139,7 @@ claims:
   evidence_quote: 情形A：低开后量能收敛、跌停家数迅速减少、超跌科技率先翻红——确认修复启动，盘前预案持股为主，不急于减仓。情形B：低开后继续放量下杀、强势龙头补跌加速——说明补跌周期尚未走完，则以防守为主，等待龙头跌透后的真正冰点再谈右侧。
   interpretation: UP的双情景框架以量能和跌停家数作为核心观察指标。关键区别：情形A是修复启动（可持股），情形B是补跌未结束（需防守）。两个情景的分水岭在于低开后是否有承接。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260622-001-h"]
   contradicts: []
@@ -169,7 +169,7 @@ claims:
   evidence_quote: 外盘只决定开盘定价，开盘之后市场回归自身节奏——低开不可怕，接不住才可怕。今天真正要看的，是低开之后有没有承接。
   interpretation: UP给出了处理外盘冲击的核心方法论：外盘影响仅限开盘15-30分钟的价格发现阶段，后续走势由A股自身供需决定。'接不住才可怕'意味着低开后如果有资金承接（缩量企稳或放量拉升），则短期冲击被消化；如果低开后放量继续下杀无承接，才是真正需要警惕的信号。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -274,7 +274,7 @@ claims:
   evidence_quote: 宇树正从硬件自研向大脑+身体全栈竞争转型。马斯克发布弗里蒙特工厂Optimus产线合照，Gen3弗里蒙特产线年化产能目标从5万台上调至约7万台。但无论宇树还是特斯拉本质都是旧闻，产业催化密度不及AI，无需入戏太深。
   interpretation: UP对人形机器人的定位做了微调：短期有资金吸引力（若大盘继续弱，机器人优于医药），但中期催化密度不够。长盛轴承(300718)已签宇树订单，创世纪(300083)建立长期合作，雷赛智能(002979)和天娱数科(002354)也有关联。但本质是旧闻炒作，不宜入戏太深。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260624-006-o"]
   contradicts: ["claim-20260609-001-b", "claim-20260702-005-h"]
@@ -316,7 +316,7 @@ claims:
   evidence_quote: 盘前预案：持股为主，盘中根据强弱情况做去留。震荡市框架下，科技调整属情绪性而非基本面性；位置决定意义——已经调整5-8个交易日的方向优于昨天才开始补跌的强势龙头。
   interpretation: UP给出了今日的操作策略：不恐慌减仓——科技调整是情绪性的不是基本面恶化；区别对待——调整充分的（5-8天）优于刚开始补跌的（强势龙头）；右侧确认——等量价配合的修复信号才加仓。核心是'位置决定意义'，先跌的先反弹。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260622-001-h"]
   contradicts: []

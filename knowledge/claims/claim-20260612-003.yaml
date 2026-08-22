@@ -37,7 +37,7 @@ claims:
   evidence_quote: 如果美股当日出现横盘或者个股回撤，且量能萎缩，说明主力不敢赌周末签字仪式，下周A股大概率会出现探底行情。
   interpretation: UP给出了具体的观察指标：美股走势+量能组合决定A股传导方向。横盘/回撤+缩量=主力谨慎=下周A股探底。这是对美伊协议窗口期的短线判断。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -63,7 +63,7 @@ claims:
   evidence_quote: 当前原油价格已经降到90美元以下，如果原油持续下跌，对全球风险资产是利好消息。
   interpretation: 原油作为通胀的重要输入变量，跌破90美元后若继续下行，将缓解通胀压力，间接利好全球风险资产定价。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: ["claim-20260406-002"]
@@ -88,7 +88,7 @@ claims:
   evidence_quote: 本次会议是鲍威尔的首秀，属于地狱开局，利率维持不变基本已经百分百确定，核心关注点是点阵图的走向。3月份点阵图有不少官员预计未来降息，本次6月份版本可能出现不降息阵营扩大，甚至出现加息预期。
   interpretation: UP将本次美联储会议定性为鲍威尔首秀加地狱开局。核心看点不是利率本身（已锁定不变），而是点阵图中官员对降息或加息的态度变化。从降息预期转向加息讨论是重大风险信号。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -513,7 +513,7 @@ claims:
   evidence_quote: 当前已经回补了前期向下缺口，又出现了新的向上缺口，A股历史上缺口大概率都会回补，如果美股下周波动加大，A股仍然会表现不好。
   interpretation: UP基于A股历史规律判断：缺口大概率回补。当前已回补前期向下缺口但出现了新的向上缺口，如果美股加大波动，A股可能回补新缺口。这是对短期指数走势偏谨慎的判断。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -721,7 +721,7 @@ claims:
   evidence_quote: 如果美联储会议表现不佳，黄金会跌到35003800区间；当前合理区间是39004300区间；未来美联储启动降息周期后，黄金可以涨到5000点以上，最高可以看到5000-6000点，当前时间未到，不建议重仓。
   interpretation: UP给出了黄金三个阶段的点位预判：（1）短期不利情景：3500-3800（美联储鹰派）；（2）当前合理区间：3900-4300；（3）中长期（降息周期启动后）：5000-6000。核心判断是黄金长期看多但当前时机未到，不建议重仓。最迟7月会有明确结果。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -748,7 +748,7 @@ claims:
   evidence_quote: 风电等新能源板块需要观察宁德时代止跌企稳，如果国家队维持上证指数和全A等权的稳定，新能源就可以参与，当前国家队护盘水平较高。
   interpretation: UP给出了新能源板块的参与条件：宁德时代(300750)止跌企稳（龙头锚）加国家队维持指数稳定（大盘环境）。当前国家队护盘水平较高是积极信号，但宁德时代(300750)尚未确认企稳前不宜参与。宁德时代为创业板不可交易。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -881,7 +881,7 @@ claims:
   evidence_quote: 港股没有变化，仍然适合做左侧布局。
   interpretation: UP重申港股策略：左侧布局。港股整体估值仍处于低位，适合分批建仓布局，但需要注意左侧交易的风险（需要等待催化剂）。
   confidence: medium
-  status: active
+  status: superseded
   intensity: low
   supersedes: []
   contradicts: []

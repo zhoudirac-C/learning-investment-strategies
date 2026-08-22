@@ -11,7 +11,7 @@ claims:
   evidence_quote: 北京时间7月8日凌晨美股收跌：道指跌0.25%报52924.56点，纳指跌1.16%报25818.69点，标普500跌0.45%报7503.76点。
   interpretation: 海外市场开盘承压，为A股开盘提供偏负面的外部定价参考。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260610-006-a"]
   contradicts: []
@@ -71,7 +71,7 @@ claims:
   evidence_quote: 费城半导体指数盘中一度跌超6%，美光收跌4.7%，存储与半导体设备是重灾区
   interpretation: 海外半导体链出现剧烈抛售，存储和设备首当其冲。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260629-001-b", "claim-20260702-002-a"]
   contradicts: []
@@ -336,7 +336,7 @@ claims:
   evidence_quote: 日韩方面，昨日KOSPI盘中一度跌超8%触发熔断、收跌近5%
   interpretation: 韩国股市恐慌性下跌，对A股开盘情绪构成外部冲击。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -366,7 +366,7 @@ claims:
   evidence_quote: 三星单季利润大增18倍反遭「利好兑现」抛售
   interpretation: 即便业绩大增，存储龙头仍被卖出，显示市场对高位利好麻木。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: ["claim-20260706-020"]
@@ -396,7 +396,7 @@ claims:
   evidence_quote: SK海力士美国上市获数倍超额认购，周四定价、周五挂牌
   interpretation: SK海力士IPO进程是观察海外存储资金情绪的重要事件。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -426,7 +426,7 @@ claims:
   evidence_quote: 这是观察海外存储链情绪能否企稳的一个具体锚点。
   interpretation: 若SK海力士挂牌表现强劲，可能缓解海外存储悲观情绪。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -456,7 +456,7 @@ claims:
   evidence_quote: 老规矩：外盘传导只反映在开盘定价，开盘后回归自身节奏——低开不可怕，接不住才可怕。
   interpretation: 开盘受外盘影响，关键看开盘后A股自身承接力。
   confidence: medium
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260703-001-f", "claim-20260629-001-d"]
   contradicts: []
@@ -696,7 +696,7 @@ claims:
   evidence_quote: 若指数继续缓跌，重点留意120分钟级别底部结构是否形成——这是短线右侧确认的第一个观察窗口。
   interpretation: 120分钟底背离或底部结构是右侧介入的技术信号。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -752,7 +752,7 @@ claims:
   evidence_quote: 此前诟病的连板高度也有突破（宜宾纸业不知不觉五连板）
   interpretation: 短线接力情绪回暖，赚钱效应改善。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: ["claim-20260626-001-l"]
@@ -957,7 +957,7 @@ claims:
   evidence_quote: 科技方向已地量调整2天，昨日情绪冰点，理论上今天会有修复
   interpretation: 地量加冰点提高日内反弹概率，但需盘面验证。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260630-001-l"]
   contradicts: []

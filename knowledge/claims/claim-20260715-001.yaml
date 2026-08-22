@@ -40,7 +40,7 @@ claims:
   evidence_quote: 6月CPI环比下降0.4%，为2020年4月以来最大单月降幅，也是六年来首次环比转负；同比3.5%，明显低于预期的3.8%与前值4.2%。核心CPI环比持平、同比2.6%，同样全面低于预期...数据公布后，交易员大幅削减近期加息押注，7月加息概率骤降，加息预期整体后移。
   interpretation: CPI数据让近期加息概率骤降，全球市场获得一夜喘息，但黄金冲高回落、美元尾盘收复等迹象说明资金并未把数据理解为万事大吉。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260610-035-a", "claim-20260626-001-g"]
   contradicts: []
@@ -218,7 +218,7 @@ claims:
   evidence_quote: 费城半导体指数涨超2%，英伟达涨超4%；SK海力士ADR大涨约27%、收盘较韩股普通股溢价约51%，美光涨近5%、闪迪涨超5%。另据市场消息，SK海力士正加速为英伟达量产HBM4。
   interpretation: 美元资金对存储/HBM叙事的定价热度高于韩国本地市场，存储链情绪受AI算力需求提振，但HBM4量产消息尚待公司层面确认。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: ["claim-20260714-001-k", "claim-20260702-002-a"]
@@ -260,7 +260,7 @@ claims:
   evidence_quote: KOSPI周二盘中一度跌超5%、下探6448点，尾盘拉起收涨0.73%报6856点...本轮距高点最大回撤约31%、为1980年以来第七大级别...而本轮仅走到第17个交易日...止跌是一个反复的过程，至少需要一段横盘或连续阳线来确认；韩股情绪脱敏之时，也差不多是A股科技对外围脱敏之时。
   interpretation: 韩国市场虽现深V，但历史同级别下跌从峰值到谷底均耗时至少242个交易日，当前时间远未走完；A股科技对外围脱敏需等待韩股情绪真正企稳。
   confidence: medium
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -318,7 +318,7 @@ claims:
   evidence_quote: 周二三大指数集体收涨，创业板指探底回升涨超3%，全市场超4200只个股上涨，成交额约2.7万亿。即便抛开午后反弹不谈，昨天早盘A股相对外盘已经算止跌——振幅明显收窄，这是开盘缩量带来的好处。
   interpretation: 缩量背景下抛压减轻，承接难度自然变小，反弹基础来自情绪与筹码结构改善。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260608-001-e", "claim-20260706-002-a"]
   contradicts: ["claim-20260713-002-c"]
@@ -750,7 +750,7 @@ claims:
   evidence_quote: 黄金今天最重要的两个位置：4000是防线，4100是确认位——守住4000说明多头没输，站稳4100才算重新夺回主动权；若油价继续向80推进、通胀担忧回潮，黄金反而容易再度冲高回落。
   interpretation: 黄金短期关键看4000支撑与4100突破，油价上行可能压制其反弹。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260614-011-m"]
   contradicts: []
@@ -779,7 +779,7 @@ claims:
   evidence_quote: 昨天虽是科技股主场，医药表现却毫不逊色，且不再是此前的逆指数定位——下午指数反弹后仍在跟涨。要么是资金对反弹预期不确定的防御延续，要么是医药定位正在改变...但对绝大多数非科技股而言，「一日游」仍是最合适的定位。
   interpretation: 医药若持续跟涨可能从防御属性转向共振属性，但需警惕非科技股一日游风险。
   confidence: low
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: ["claim-20260625-001-g"]
@@ -867,7 +867,7 @@ claims:
   evidence_quote: 随着半年报业绩预告强制披露截止日临近，易中天三家可能在同一天公告。结合此前一季报，二季度高增基本无虞，关键看市场反馈——以易中天目前的体量，无论高举高打还是高开低走，都很容易主导指数走向。
   interpretation: CPO龙头业绩预期高，公告后的市场反应将成为指数重要变量。
   confidence: medium
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []

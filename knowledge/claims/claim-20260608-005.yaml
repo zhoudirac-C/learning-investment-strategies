@@ -41,7 +41,7 @@ claims:
   evidence_quote: 如果美股今晚开盘缺乏有强力买盘支撑，那么他是会触发量化基金的。因为上周五追进了很多的看涨期权...如果今天晚上一开始就是没有强力的买盘支撑的话，这一部分会直接形成抛压，然后就会形成一个连锁反应。
   interpretation: 该 claim 将6月8日晚美股开盘定义为关键节点，给出了双向推演路径。核心风险机制：看涨期权→缺乏买盘→抛压→量化基金→连锁反应。关键变量：特朗普口头救市能否止跌。这一定性判断可用于判定后续A股周二是否反弹、周三是否抢跑。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260528-005-c"]
   contradicts: []
@@ -215,7 +215,7 @@ claims:
   evidence_quote: 整个6月份我们能够看见外面外围有一系列的事情...美股这还有的砸...大概率是这个月是要去搞电风扇行情的，每一个安全系数比较高安全垫比较厚...基本上都能轮到。如果没有涨到你这个地方，你就先拿着就好了，等涨完了你把它出掉不就行了吗？
   interpretation: 该 claim 定义了6月的操作总纲：(1) 电风扇 = 轮动快、不做单一方向押注；(2) 选股标准 = 安全垫厚（向下空间小）；(3) 操作纪律 = 拿着等轮到、轮到就出。对已有持仓的建议是不要追涨杀跌换方向，等轮动。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -273,7 +273,7 @@ claims:
   evidence_quote: 沃什本来他是鹰派，但是现在是被特朗普推上去的...他一上台不可能表现出鸽派，如果一旦表现出鸽派那么美联储的整个地位就会受到影响...美联储的地位受到影响那直接这件事情就直接GG了，全球风险资产就没有锚点了。所以它既不能表现的过于鹰派也不能表现得过于鸽派...按兵不动。
   interpretation: 该 claim 对下周三沃什上台后的美联储政策路径做了概率判断。核心逻辑：沃什处于特朗普压力与美联储独立性之间的两难困境→按兵不动是最优解。推论：(1) 短期不会降息；(2) 也不会加息；(3) 政策信号模糊会增加市场波动（一波三折）。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -303,7 +303,7 @@ claims:
   evidence_quote: 根据美联的首席策略师分析，已经有46家的通胀率超过其通胀目标或者目标区间的终点...欧洲那些地方通胀非常夸张，基本上都有可能会进行加息...美国在这种时候你是不太可能非得要去干降息这个事情。
   interpretation: 该 claim 将美联储的降息困境放在全球通胀背景下理解：(1) 全球性通胀压力意味着各国央行难以同步宽松；(2) 欧洲可能加息→美元相对走弱压力减小→美国更没必要急于降息；(3) 这强化了"按兵不动"判断。对A股的意义：外部流动性短期不会改善，需要靠内部结构性行情。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -390,7 +390,7 @@ claims:
   evidence_quote: 现在又不是熊市...上证指数它下面你看的不是那么的深了，它下面没有什么太大空间了...你现在这个节点已经没有割的意义了，你已经吃了这么多回撤...这种东西你跌下来你是敢加仓的。
   interpretation: 该 claim 是仓位管理的核心依据——不割肉的前提：(1) 不是熊市转势；(2) 上证下方空间有限；(3) 持仓个股财报没问题。三者同时成立才适用"不割+等轮动"策略。如果持仓个股业绩出问题则不适用。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -419,7 +419,7 @@ claims:
   evidence_quote: 等我们7月份结束，7月份我们这边不是还有个会吗？等那个会开完我们确定我们这边的一个大方向之后，我们再去把那些已经调整过很长时间的硬科技，我们再去接回来...6月底集中的那些中报预期的研报就出来了，这个时候有业绩的品种它就能够被卖方重新提及。
   interpretation: 该 claim 给出了中线操作节奏表：(1) 6月防守（电风扇轮动，拿安全垫厚的等涨了出）；(2) 6月底中报预期催化（有业绩的品种会被卖方重新覆盖）；(3) 7月底会议后接回硬科技。核心原则：不在不确定期重仓进攻，等政策和业绩双重确认后再入场。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260607-003-c"]
   contradicts: []

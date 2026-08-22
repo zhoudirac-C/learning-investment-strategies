@@ -14,7 +14,7 @@ claims:
     '
   interpretation: 当前节点风险收益比不佳，应先降仓避险，而非硬扛等待反弹
   confidence: high
-  status: active
+  status: superseded
   supersedes:
   - claim-20260525-019
   - claim-20260426-001
@@ -168,7 +168,7 @@ claims:
     '
   interpretation: A股自身不具备独立发动进攻的条件，需要等待多个条件共振
   confidence: high
-  status: active
+  status: superseded
   supersedes: []
   contradicts: []
   supplements: ["claim-20260622-001-h", "claim-20260605-001-i"]

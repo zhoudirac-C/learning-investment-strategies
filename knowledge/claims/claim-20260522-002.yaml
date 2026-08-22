@@ -13,7 +13,7 @@ claims:
       "昨天的下杀不是大盘见顶信号，而是一次假摔。趋势股不会在大盘真正见顶的时候继续创出新高。"
     interpretation: 这是对早盘主文“判断是假摔还是调整第一根大阴线”的日内上修，核心证据从指数分时转向趋势核心仍能新高或强承接
     confidence: high
-    status: active
+    status: superseded
     supersedes: ["claim-20260520-001-a"]
     contradicts: []
     last_discovered: 2026-06-08
@@ -74,7 +74,7 @@ claims:
       "修复不一定立刻发生，但只要大风险没有出现，就可以继续等待。操作上以持股待涨为主。"
     interpretation: 该操作要求与此前先买后卖做T并不冲突；对于趋势仍在的核心仓，重点是避免在假摔后的分歧低点被情绪带走
     confidence: high
-    status: active
+    status: superseded
     supersedes: []
     contradicts: []
     supplements: ["claim-20260526-020", "claim-20260622-001-h"]
@@ -106,7 +106,7 @@ claims:
       "这会没修复等下午修复，下午没修复等下周修复。整体没有出现大的系统性风险时，策略上继续持股待涨。"
     interpretation: 这是一条情绪纪律：当大周期风险未被证实且趋势核心未破时，不用盘中即时修复来否定原先的假摔判断
     confidence: medium
-    status: active
+    status: superseded
     supersedes: ["claim-20260518-006"]
     contradicts: []
     last_discovered: 2026-06-08

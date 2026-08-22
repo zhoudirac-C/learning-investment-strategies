@@ -40,7 +40,7 @@ claims:
   evidence_quote: 消息面上，上周五晚间外围集体走弱，费城半导体指数大跌5.29%，安森美、美光等海外芯片股重挫；
   interpretation: UP提示隔夜外围市场走弱，尤其是费城半导体指数大跌5.29%，会对A股开盘情绪造成直接压力。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260608-001-d", "claim-20260610-006-a"]
   contradicts: []
@@ -97,7 +97,7 @@ claims:
   evidence_quote: 开盘预判上，外盘的扰动通常只反映在开盘定价里，开盘之后市场会回归自身节奏——若今天再度低开，反而具备情绪修复的基础，但能否接得住，要看盘中量价；低开不可怕，接不住才可怕。
   interpretation: UP认为外盘扰动主要影响开盘定价，若今天低开反而有情绪修复机会，但关键要看盘中量价能否承接。
   confidence: medium
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260608-001-b"]
   contradicts: []
@@ -155,7 +155,7 @@ claims:
   evidence_quote: 量能：上周五两市成交虽小幅缩量，但仍有约3.55万亿，这个体量谈不上安全牌。月底效应叠加机构半年净值结算，是上周波动放大的本质原因——日韩股市的传导只是表面诱因。
   interpretation: UP认为约3.55万亿的成交体量并非安全信号，真正的波动来源是月底效应与机构半年净值结算，日韩股市只是表面诱因。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -242,7 +242,7 @@ claims:
   evidence_quote: 落到今天的情景判断：情形A——若低开后量能能稳住、大金融不再继续杀跌，则情绪有望随外盘冰点后的修复同步回暖，可重点观察科技主线的二次承接；
   interpretation: UP给出今日情景A：低开后量能稳住且大金融止跌，则情绪有望回暖，科技主线二次承接是观察重点。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -270,7 +270,7 @@ claims:
   evidence_quote: 情形B——若低开后量能继续放大、大金融仍弱，则修复力度有限，宜继续以防守为主、保留先手。
   interpretation: UP给出今日情景B：若低开后量能放大且大金融仍弱，则修复力度有限，策略上继续防守、保留先手。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -598,7 +598,7 @@ claims:
   evidence_quote: 数据层面与上周四类似、依旧喜忧参半：涨停家数从85家减少至60家，但考虑指数跌幅，仍算维持在相对健康的水平；跌停虽多，也是午后才放大的。核心症结仍是连板晋级率太低，且已由高位向低位扩散。
   interpretation: UP认为涨停家数减少但仍健康，真正的核心问题是连板晋级率太低且扩散到低位，这是短线情绪的主要症结。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260626-001-l", "claim-20260610-006-c"]
   contradicts: []
@@ -852,7 +852,7 @@ claims:
   evidence_quote: 情形A（修复占优）：若低开后量能稳住、大金融止跌、情绪随外盘冰点后回暖，则把注意力放在国产替代逻辑强、有中报业绩支撑的科技品种上，存储、功率半导体、半导体材料是首选观察方向；
   interpretation: UP在情形A下建议参与国产替代+中报业绩的科技品种，首选存储、功率半导体、半导体材料。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260608-001-b"]
   contradicts: ["claim-20260531-001-f", "claim-20260602-001-a"]
@@ -899,7 +899,7 @@ claims:
   evidence_quote: 情形B（修复乏力）：若量能继续放大、大金融仍弱、午后跌停再度扩散，则继续以防守为主、控制仓位，等待连板晋级率回到正常水平、即等待最短那块木板修复，再谈右侧介入。
   interpretation: UP在情形B下建议继续防守，等待连板晋级率恢复正常、出现右侧信号后再介入。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260608-001-b"]
   contradicts: ["claim-20260531-001-f", "claim-20260602-001-a"]
@@ -928,7 +928,7 @@ claims:
   evidence_quote: 核心仍是右侧确认：不见量价配合、不见情绪修复信号，就不必急于追高；位置决定意义，今天指数处在破位后的弱势位置，科技虽强、也只取分化中走出独立逻辑的那一档。
   interpretation: UP强调右侧确认原则：没有量价配合和情绪修复信号就不追高；当前指数位置弱势，即使科技强也只选独立逻辑最强的品种。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260608-001-b"]
   contradicts: ["claim-20260531-001-f", "claim-20260602-001-a"]

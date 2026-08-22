@@ -42,7 +42,7 @@ claims:
   evidence_quote: 情形A，若明日开盘承接有力、算力或端侧方向率先放量修复，则今日的回落可确认为简单的情绪出清，指数重回缩量轮动的原有节奏。情形B，若低开后无承接、量能进一步萎缩，则说明存量资金的风险偏好仍在收缩，磨底期拉长，操作上继续以右侧确认为前提，不见量价配合不追。
   interpretation: UP给出两个条件化情形来判定WAIC次日市场方向，情形A偏乐观（情绪出清完成），情形B偏谨慎（继续磨底）。核心观察变量：开盘承接力+量能+算力/端侧方向修复情况。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -103,7 +103,7 @@ claims:
   evidence_quote: 据国家网信办7月15日发布的新一批手机端侧生成式人工智能服务备案名单，苹果Apple智能、华为小艺大模型、OPPO AndesGPT、努比亚豆包手机大模型等7款产品获批——苹果国行版Apple Intelligence等待近两年后，正式开放前的最后障碍已清除，隔夜苹果股价创历史新高。受此刺激，今日端侧方向异动明显...瑞芯微一度涨停、翱捷科技盘中创历史新高，但可能因为位置相对偏高，最终双双回落；相对低位的美格智能则封死涨停。
   interpretation: 端侧AI催化明确，但市场对高位的分歧说明当前缩量环境下"位置>方向"——低位是唯一被一致买账的属性。这组对照验证了"位置决定意义"的当前市场风格。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260602-001-d"]
   contradicts: []
@@ -165,7 +165,7 @@ claims:
   evidence_quote: 非科技方向上，医药、消费延续强势，其中医药尾盘出现一定程度分歧。个人判断，明日分歧可能有所加大：一方面已连续走强数日、短期热度偏高，另一方面正触及上方较重的筹码压力位，位置与情绪两个约束同时收紧。
   interpretation: 医药消费的强势接近短期瓶颈，两个约束（位置+情绪）同时收紧，分歧加大的概率较高。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260715-020-a"]
   contradicts: ["claim-20260630-001-p"]

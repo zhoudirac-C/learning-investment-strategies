@@ -12,7 +12,7 @@ claims:
     2.59%……费城半导体指数大涨超 6%……此前用来区分「宏观风险」与「AI 商业模式风险」的证伪条件里，油价站稳 80 美元下方是其中一条，昨夜这条被满足了。在美联储按兵、油价回落、长端利率未失控的组合下，科技股若还跌，问题才在商业模式；而昨夜科技股大涨，说明当下的矛盾并不在宏观层面。
   interpretation: UP用证伪框架确认宏观风险出清：油价跌破80美元是宏观风险与AI商业模式风险的分界条件，已被满足。美股创新高+费半大涨6%说明矛盾不在宏观，若后续科技股下跌则归因商业模式。这为A股科技反弹提供外部环境支撑。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: ["claim-20260610-006-a"]
@@ -74,7 +74,7 @@ claims:
     B：光模块低开低走，并带崩通信、PCB、CPO 整条链条，同时存储也跟随走弱。此时说明昨日 2.21 万亿的放量是情绪高点而非新一轮起点，需要把整体预期下调一档，不再以「反弹中继」的框架应对。
   interpretation: UP给出今日开盘的二元判据：看光模块分时是否创新低+存储是否跟跌。A=估值冲击可继续修复，B=情绪高点需降预期。这是今日早盘最重要的操作分叉。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260729-004", "claim-20260804-011"]
   contradicts: []
@@ -165,7 +165,7 @@ claims:
     10 年期美债收益率重新向 4.70% 靠近——那会说明市场昨天把协议交易得太早。
   interpretation: UP给出油价的观察锚：80美元是分水岭，配合10年美债4.70%构成证伪组合。油价<80+美债不失控=宏观风险继续出清，反之则昨日定价作废。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -286,7 +286,7 @@ claims:
     A 股的高开视为需要检验的开盘定价，而非趋势的延续。
   interpretation: UP将外部环境浓缩为三个可验证的位置（原油80、美债4.60%、标普新高），是今日看盘表顶部的锚。三条件同时成立=外部供血延续，任一失守=高开需检验。这是可量化的外部环境监控框架。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -317,7 +317,7 @@ claims:
     2.5 万亿后进一步缩至 2 万亿，反复一段时间才有量价齐升。以「首次跌至 2 万亿」作为前置观察点，昨日得到了验证。所以今日的判据不是能不能继续放量，而是缩量缩在什么位置。
   interpretation: UP用量能路径模型确认昨日2.21万亿的位置含义：缩至2万亿是前置观察点而非终点，今日看缩量位置——2.1万亿上方健康、2.4万亿以上回落则危险。这是量能维度的量化监控标准。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260212-001-a"]
   contradicts: []
@@ -376,7 +376,7 @@ claims:
     15% 的同时首板腰斩，即便指数收红，也应视作接力链条断裂，短线难度显著抬升。
   interpretation: UP给出可量化的情绪监控标准：二板17-18家+首板不锐减=情绪稳；晋级率<15%+首板腰斩=接力断裂。并记录8月4日的分时形态（开盘缩量盘中放量）作为市场恢复理性的证据。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260723-005", "claim-20260804-009"]
   contradicts: []
@@ -442,7 +442,7 @@ claims:
     A 股科技股的一次考验，若走势能强于 7 月 22 日，后续预期可以再抬一档。
   interpretation: UP给出今日的核心结构关系：存储是锚点、光模块是外延。存储不塌=调整可控，存储塌=全面降预期。并将今日走势与7月22日、铠侠财报后的美股低开高走做对标。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -725,7 +725,7 @@ claims:
     A 股的云计算，尤其是正在不断落地的 Token 分成模式。
   interpretation: UP给出本轮云计算行情的核心映射框架：美股涨的是云厂（AWS/谷歌/微软），A股映射的不是「云计算」题材而是算力租赁——因为国内大厂无卡，算租是唯一获取高端算力的通道。Token分成模式是算租商业模式的升级点。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: ["claim-20260609-005-d"]
@@ -1036,7 +1036,7 @@ claims:
   evidence_quote: 这种「哪边都不敢空」的形态通常持续性不强，后续关键仍在于有没有针对某一细分方向的新催化。
   interpretation: UP记录AI应用的盘面特征：硬件高开时应用未按跷跷板走弱而是两头下注，判断这种形态持续性不强，需新催化驱动细分方向。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -1203,7 +1203,7 @@ claims:
   evidence_quote: 一句话概括：指数看存储能不能守住那个「点」，结构看算力租赁能不能接住棒，情绪看一进二能不能过 17 家……贯穿始终的两条纪律不变：位置决定意义——同一条消息落在高位和低位，性质完全不同；右侧确认——不见量价确认不追，利空日尤其如此。
   interpretation: UP给出今日完整操作框架：三维度判据（存储点/算租棒/情绪17家）+三情形应对+两条纪律（位置决定意义、右侧确认）。这是早盘动态的操作核心。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260804-010", "claim-20260803-013", "claim-20260729-004"]
   contradicts: []
@@ -1233,7 +1233,7 @@ claims:
   evidence_quote: 本周待跟踪的外部变量：其一，今晚 ADP 就业报告与 ISM 服务业 PMI，以及周五的美国非农就业数据……其四，FCC 光模块措施的正式口径与公布时点。
   interpretation: UP给出本周外部变量的跟踪清单：ADP/ISM/非农、霍尔木兹协议、SpaceX解禁（20%/9.115亿股/千亿级）、FCC口径。并把三个位置（原油80/美债4.60/标普新高）作为看盘表顶部锚。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []

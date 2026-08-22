@@ -40,7 +40,7 @@ claims:
   evidence_quote: 个人判断，明日走势取决于隔夜外盘：情形A，若海外市场能稍微正常一点、科技链止住剧烈波动，则A股反弹力度有望明显增强，缩量冰点反而构成反弹的弹簧；情形B，若外盘继续动荡，则大概率延续弱势拉锯，但只要不放量创新低，性质仍属外力扰动下的内生修复，不必过度悲观。
   interpretation: UP将隔夜外盘列为明日A股反弹力度的关键变量，区分两种情形，核心判断是只要不放量创新低，调整性质仍偏内生修复。
   confidence: medium
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -98,7 +98,7 @@ claims:
   evidence_quote: 今天的盘面结构非常清晰：科技仍是市场唯一核心，其余方向均缺乏资金共识。随着业绩的逐步披露，科技相对前几日已经算是止跌企稳——科创50虽然冲高回落，但最终仍维持红盘（收涨0.28%），在指数普跌的背景下这本身就是态度。
   interpretation: UP通过科创50逆势收红确认科技板块已率先止跌，是当前市场唯一有共识的主线。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260702-005-a", "claim-20260623-004-b"]
   contradicts: []
@@ -293,7 +293,7 @@ claims:
   evidence_quote: 而海外链的业绩预期都打得比较满，弹性有限，更重要的是7月底四大CSP厂商的财报，届时将更新资本开支指引，那才是海外链定价的锚。
   interpretation: UP认为海外算力链当前缺乏预期差，7月底云厂商资本开支指引是下一个关键催化。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -498,7 +498,7 @@ claims:
   evidence_quote: 一看隔夜外盘能否恢复正常，这决定反弹的力度层级；二看华天科技涨停后的承接反馈，这是科技带头反弹的风向标；三看量能——缩量冰点之后，能否温和放量决定反弹是一日游还是修复的起点；四看人形机器人与医药是否出现资金回流迹象。
   interpretation: UP给出明日盘前观察清单，涵盖宏观外盘、板块风向标、量能和跟随方向。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -530,7 +530,7 @@ claims:
   evidence_quote: 美股虽然跌的多，但是在努力反弹，不用太过担心。
   interpretation: UP在置顶评论中安抚情绪，认为美股跌幅虽大但已有反弹动作，不必过度悲观。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260414-002"]
   contradicts: []

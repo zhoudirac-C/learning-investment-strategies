@@ -128,7 +128,7 @@ claims:
   evidence_quote: 按本轮反弹的量能框架，2.5万亿是放量确认位、3万亿以上才需要警惕情绪过热，目前处在健康区间，但已走到这个区间的上半段。个人判断，今天若在高开的同时把成交推向3万亿的节奏，那不是加分项而是减分项——增量越集中，全市场的承接力越脆弱。
   interpretation: UP给出量能三档框架：2.5万亿确认位/当前2.66万亿健康/3万亿过热；量能过快放大是脆弱而非强势，这是判断今天高开质量的关键量化锚。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260805-046", "claim-20260807-006"]
   contradicts: []
@@ -186,7 +186,7 @@ claims:
   evidence_quote: 这一批断板不是停牌或监管威胁那种外力扰动，而是资金主动换龙的内生性断板，前者会打断整条梯队并形成全市场负反馈，后者不杀场内情绪。当前的5个高标是从上周三27个二板里筛出来的，资金急于打造一条新主线，本质是高低切而非退潮。
   interpretation: UP用断板性质二分法解读情绪下滑：指标走弱但性质是内生换龙（不杀情绪），高标从27个二板筛出5个说明资金在打造新主线，定性为高低切非退潮。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -603,7 +603,7 @@ claims:
   evidence_quote: 这既是机器人与具身智能方向的情绪扰动源，也是当日的一笔资金分流，量能观察时要把这块考虑进去。
   interpretation: 宇树科技(688836)申购对今日市场的双重影响：机器人/具身智能情绪扰动源+资金分流（约61亿募资冻结），观察量能时要扣除这部分影响。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -751,7 +751,7 @@ claims:
   evidence_quote: 中期看，这轮反弹大概率并未结束，爆量才是真正的信号。按此前的量能框架，2.5万亿是放量确认线，短期冲上3万亿以上则要警惕情绪过热；今天2.52万亿是从上一交易日回落到这条线附近，属于确认线上的缩量整理，还谈不上爆量，也谈不上退潮。
   interpretation: UP用量能框架给反弹定性：2.5万亿为放量确认线、3万亿为过热警戒线，当前2.52万亿属确认线上的缩量整理，中期反弹未结束、但需等待爆量信号验证。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260807-006", "claim-20260805-046"]
   contradicts: []
@@ -810,7 +810,7 @@ claims:
   evidence_quote: 情形A，低开或高开回落后有承接，医药与情绪龙头不崩、科技分支出现回流，则分歧一日游，反弹延续。情形B，情绪龙头集体断板、首板家数锐减、科技无回流，则分歧升级为退潮的开始……区分这两种情形的关键不在指数点位，而在承接。
   interpretation: UP给出下一交易日的情景化应对：A/B两种情形分别对应反弹延续与退潮开始，判别核心是承接强度（医药与情绪龙头是否崩、科技是否回流），而非指数点位。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260805-059", "claim-20260803-013", "claim-20260806-052"]
   contradicts: []
@@ -965,7 +965,7 @@ claims:
   evidence_quote: 这属于外力扰动型断板，而非资金主动换龙的内生性断板，前者会打断整条梯队并形成全市场负反馈，后者不杀场内情绪。不过这一次的传导范围应该有限：对于已经绕过异动、不在监管风险敞口里的个股来说，大概率只影响开盘一小时，而不改变全天节奏。
   interpretation: UP给出断板类型学：外力扰动型（监管停牌）打断梯队形成全市场负反馈，内生性换龙不杀情绪；同时给出本次扰动范围判断——只影响开盘一小时，不改变全天节奏。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -998,7 +998,7 @@ claims:
   evidence_quote: CPO与光模块方向今日走势较弱，光迅科技盘中一度触及跌停，中际旭创、新易盛跌超5%……半导体上游的材料、设备零部件等相对强势，下午大光跌幅也有所收敛，全天并没有出现明显的亏钱效应。这个区别很重要：科技今天是被拖累，不是被抛弃。
   interpretation: UP区分科技下跌性质：无亏钱效应+上游材料设备强势+跌幅收敛→科技是被拖累而非被抛弃，因此明日承压后大概率回流。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: ["claim-20260806-007"]
@@ -1103,7 +1103,7 @@ claims:
   evidence_quote: 据盘面，医药是今天最强的非科技方向，医疗服务盘中一度放量飙升逾6%、创两年多来新高；百花医药5连板，哈三联5天3板，海正药业2连板。虽然冲高回落，但创出了阶段新高，这一点比涨幅本身更重要……医药在这轮里承担的不是防御角色，而是非科技方向里偏进攻的那一个——低仓位加半年报业绩催化，持续性可能比单纯的避险品种更好。
   interpretation: UP定性医药：非科技中最强方向且偏进攻属性（创新高+低仓位+半年报催化），持续性优于纯避险品种；百花医药、哈三联、海正药业为情绪代表。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260809-016"]
   contradicts: ["claim-20260715-020-a", "claim-20260604-004-h"]
@@ -1142,7 +1142,7 @@ claims:
   evidence_quote: 另一条给了午后指数直接推力的是影视：据盘面，北京文化开盘一字涨停，儒意电影(002739)午后13时09分封板，幸福蓝海、中国电影、博纳影业等跟涨。这条线的催化在第三节展开。
   interpretation: UP记录影视为午后指数推力的另一来源：北京文化一字板领涨，儒意电影午后封板，催化来自《欢迎来龙餐馆》的点映数据。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -1346,7 +1346,7 @@ claims:
   evidence_quote: 据灯塔与猫眼数据，点映首日票房3921万元，次日逆跌至6263万元、单日涨幅近60%并登顶单日冠军；淘票票开分9.8分、猫眼9.7分，创近三年点映评分纪录；截至8月10日15时，点映及预售总票房1.28亿元。今日北京文化开盘即一字涨停，联合出品方儒意电影午后封板。
   interpretation: UP记录北京文化的催化事件：点映票房逆跌60%+评分创三年纪录构成强催化，今日一字涨停；但事件驱动的兑现变量是排片率与公映后票房曲线。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -1382,7 +1382,7 @@ claims:
   evidence_quote: 个人判断，这是典型的事件驱动：口碑是催化，但真正的兑现变量是排片率与公映后的票房曲线，而不是评分。据公开数据，该片点映期间排片占比约16%、单日票房占比约13%，存在“高口碑、低转化”的倒挂。已经一字板意味着次日的定价难度显著上升，追与不追的分界不在题材本身，而在明日开盘后能否消化掉一字板堆积的获利盘。
   interpretation: UP给出影视事件驱动分析方法：催化是口碑、兑现变量是排片率与票房曲线（高口碑低转化是风险点）；一字板后的追与不追取决于获利盘消化能力而非题材本身。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -1483,7 +1483,7 @@ claims:
   evidence_quote: 量能：2.5万亿这条放量确认线能否守住，是否出现爆量……情绪：首板家数是否锐减、二板家数能否顶上13家一线；爱丽家居事件对开盘一小时的扰动是否被消化。科技：几个大光能否止跌，交换机与交换芯片的头部公司距离新高的位置有无收窄，AI智能体与软件应用能否回流。非科技：医药冲高回落后能否二次上攻、消费能否接力。
   interpretation: UP给出次日四线观察清单：量能守2.5万亿、情绪看首板/二板13家/爱丽扰动、科技看大光止跌+交换机新高+AI回流、非科技看医药二次上攻+消费接力，为次日盘中决策的检查项。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260804-020", "claim-20260804-010"]
   contradicts: []

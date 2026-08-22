@@ -11,7 +11,7 @@ claims:
   evidence_quote: 周四三大指数缩量震荡小幅收红，超4200只个股上涨、逾百股涨停，两市成交额却大幅缩量4580亿。普涨与缩量并存，这不是传统印象里的放量高举高打，也正因如此，今天更适合做减法。
   interpretation: UP定性当日行情为缩量普涨——虽4200+上涨但成交大幅萎缩，不是资金主动进攻的放量突破行情。策略上'做减法'意味着减仓而非加仓，对于已持仓可持有，但不宜新增买入。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260608-001-e"]
   contradicts: ["claim-20260625-001-a"]
@@ -135,7 +135,7 @@ claims:
   evidence_quote: 情形A：量能维持在2.5万亿以下、跌停家数继续压缩，指数以横盘和小幅震荡为主，用时间换空间；超跌传统方向有主动性资金持续介入，赚钱效应从指数转向个股。情形B：量能重新放大至3万亿以上而指数不涨，则需警惕跌停家数回升、亏钱效应重来。
   interpretation: UP更新了7/23的情形AB框架，这次用具体的量能区间量化：<2.5万亿安全区（情形A），>3万亿警惕区（情形B）。缩量健康，放量危险。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260602-001-b", "claim-20260212-001-a"]
   contradicts: []

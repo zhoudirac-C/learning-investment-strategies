@@ -11,7 +11,7 @@ claims:
   evidence_quote: 早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间收盘沪指跌0.9%、深成指跌2.09%、创业板指跌3.47%，半日成交额2.24万亿元，较昨日同期缩量约1780亿元。情绪层面呈现典型的「指数恐慌、个股修复」分化格局：创业板权重赛道下挫带动早盘恐慌情绪快速升温...但全市场超3200只个股逆势上涨，黄白线大幅背离，说明资金并非系统性离场。
   interpretation: UP对早盘分化的定性非常关键：指数跌但3200只个股涨=不是全面恐慌，是结构性避险。创业板跌3.47%但黄线（中小盘）远远强于白线（权重），说明杀的是机构重仓的高位AI算力票，而非全面抛售。缩量1780亿的量能也说明没有恐慌踩踏，而是有序的高切低。与早盘08:57情形B的判断吻合：低开不接→科技二次探底，但资金没离场只是换方向。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -107,7 +107,7 @@ claims:
   evidence_quote: 非科技方向主线零散，大金融、医药等趋势板块仍可逢低跟踪。
   interpretation: UP维持早盘和凌晨的判断：非科技方向中金融和医药有趋势支撑，但当前阶段主线不够清晰（主线零散），适合逢低跟踪而非追高。这与此前「聚焦金融为主」的判断一致。
   confidence: medium
-  status: active
+  status: superseded
   intensity: low
   supersedes: []
   contradicts: ["claim-20260702-002-m"]
