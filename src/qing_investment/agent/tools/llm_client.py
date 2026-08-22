@@ -170,12 +170,14 @@ LLM_PROVIDERS: dict[str, dict[str, Any]] = {
 _embedding_model = None
 
 
-def get_llm_client(provider: str | None = None) -> Any:
+def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -> Any:
     """根据配置的 provider 返回对应的 LLM 客户端。
 
     Args:
         provider: 目标 provider，如 'kimi', 'deepseek', 'kimi-code-cli', 'kimi-code-acp'。
             None 则使用 settings.llm_provider。
+        max_tokens: 覆盖默认的 4096 输出上限（长输出任务如批量提取建议 16384）；
+            仅对标准 OpenAI 协议 provider 生效。
 
     Returns:
         ChatOpenAI — 标准 OpenAI 协议 provider
@@ -245,7 +247,7 @@ def get_llm_client(provider: str | None = None) -> Any:
         api_key=api_key,
         base_url=base_url,
         temperature=0.3,
-        max_tokens=4096,
+        max_tokens=max_tokens or 4096,
         request_timeout=120,  # 防止 API hang 死
     )
 

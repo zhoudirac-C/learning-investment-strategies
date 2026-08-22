@@ -19,6 +19,9 @@
 
     # 增量提取（只处理新文件）
     .venv/bin/python scripts/extract_reasoning_patterns.py --incremental
+
+    # 窗口提取：只处理 2026-08-08 以来的新文件（覆盖 sources/raw/财经/ 与 sources/original/bilibili/）
+    .venv/bin/python scripts/extract_reasoning_patterns.py --incremental --since 2026-08-08
 """
 from __future__ import annotations
 
@@ -35,9 +38,23 @@ import yaml
 
 # 项目根目录
 REPO_ROOT = Path(__file__).resolve().parents[1]
-RAW_DIR = REPO_ROOT / "sources" / "raw" / "财经"
+# 扫描目录：UP raw 有两个落点——整理稿在 sources/raw/财经/，
+# B站原始抓取在 sources/original/bilibili/（2026-08 起新内容直接落这里）。
+RAW_DIRS = [
+    REPO_ROOT / "sources" / "raw" / "财经",
+    REPO_ROOT / "sources" / "original" / "bilibili",
+]
 PATTERNS_FILE = REPO_ROOT / "framework" / "reasoning-patterns.yaml"
 STATE_FILE = REPO_ROOT / ".reasoning_extraction_state.json"
+
+# 文件名日期前缀（用于 --since 过滤；两个目录的主流命名都是 YYYY-MM-DD 开头）
+_DATE_PREFIX_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})")
+
+
+def _file_date(fname: str) -> str | None:
+    """提取文件名日期前缀（YYYY-MM-DD），没有则返回 None。"""
+    m = _DATE_PREFIX_RE.match(fname)
+    return m.group(1) if m else None
 
 # 候选文件筛选关键词
 PRIORITY_KEYWORDS = [
@@ -165,16 +182,28 @@ def get_llm_client():
     """获取 LLM 客户端。"""
     sys.path.insert(0, str(REPO_ROOT / "src"))
     from qing_investment.agent.tools.llm_client import get_llm_client as _get
-    return _get()
+    # max_tokens 提到 16384：stealth 模型的隐藏推理会烧掉默认 4096 上限，
+    # finish_reason=length 时 content 为空（2026-08-22 R2 批量失败的根因）
+    return _get(max_tokens=16384)
 
 
-def scan_candidates(state: dict, incremental: bool = False) -> list[Path]:
-    """扫描候选文件，返回待处理的文件路径列表（按优先级排序）。"""
-    if not RAW_DIR.exists():
-        print(f"[scan] Raw directory not found: {RAW_DIR}")
-        return []
+def scan_candidates(state: dict, incremental: bool = False,
+                    since: str | None = None,
+                    raw_dirs: list[Path] | None = None) -> list[Path]:
+    """扫描候选文件，返回待处理的文件路径列表（按优先级排序）。
 
-    all_files = sorted(RAW_DIR.glob("*.md"))
+    since: 只保留文件名日期前缀 >= since 的文件（YYYY-MM-DD）；
+           设置时无日期前缀的文件一并跳过（无法证明在窗口内）。
+    raw_dirs: 扫描目录，默认 RAW_DIRS（测试可注入临时目录）。
+    """
+    dirs = raw_dirs if raw_dirs is not None else RAW_DIRS
+    all_files: list[Path] = []
+    for d in dirs:
+        if not d.exists():
+            print(f"[scan] Raw directory not found: {d}")
+            continue
+        all_files.extend(sorted(d.glob("*.md")))
+
     processed = set(state.get("processed_files", []))
 
     # 筛选候选文件
@@ -183,9 +212,15 @@ def scan_candidates(state: dict, incremental: bool = False) -> list[Path]:
         fname = f.name
         fstat = f.stat()
 
-        # 跳过已处理的
+        # 跳过已处理的（按 basename 匹配，与 state 文件历史格式兼容）
         if incremental and fname in processed:
             continue
+
+        # --since 日期窗口过滤
+        if since:
+            fdate = _file_date(fname)
+            if fdate is None or fdate < since:
+                continue
 
         # 跳过太小的文件（大概率是动态转发，没有推理链）
         if fstat.st_size < 500:
@@ -206,27 +241,51 @@ def scan_candidates(state: dict, incremental: bool = False) -> list[Path]:
     candidates.sort(key=lambda x: x[0], reverse=True)
 
     files = [f for _, f in candidates]
-    print(f"[scan] Total raw files: {len(all_files)}, "
+    print(f"[scan] Total raw files: {len(all_files)} (dirs: {len(dirs)}), "
           f"candidates: {len(files)}, already processed: {len(processed)}")
     return files
 
 
-def extract_pattern_from_file(filepath: Path, llm_client, frameworks: list[dict] | None = None) -> dict | None:
-    """对单个文件提取推理模式（Phase 6 版）。frameworks 为动态框架列表（None 时自动加载）。"""
+def strip_source_headers(content: str) -> str:
+    """剥离 raw 文件的来源头：YAML frontmatter（---...---）与 B站来源引用块（> 开头行）。
+
+    bilibili 抓取格式含 ~330B frontmatter + ~110B 来源引用，会把正文挤出
+    前置过滤的前 500 字窗口（2026-08-22 复盘发现：45/46 被误 skip）。
+    无 frontmatter 或未闭合时原样返回（保守不截断）。
+    """
+    if content.startswith("---"):
+        end = content.find("\n---", 3)
+        if end != -1:
+            content = content[end + 4:]
+    lines = [l for l in content.splitlines() if not l.startswith(">")]
+    return "\n".join(lines).strip()
+
+
+def extract_pattern_from_file(filepath: Path, llm_client, frameworks: list[dict] | None = None) -> dict | None | bool:
+    """对单个文件提取推理模式（Phase 6 版）。frameworks 为动态框架列表（None 时自动加载）。
+
+    返回三分态：
+      dict  —— 成功提取到模式
+      None  —— 明确无需处理（前置过滤跳过 / 模型判定无模式 / 内容校验不过），可标记已处理
+      False —— 瞬时失败（LLM 调用异常 / 响应 JSON 解析失败），不应标记已处理，下轮重试
+    """
     try:
         content = filepath.read_text(encoding="utf-8")
     except Exception as e:
         print(f"[extract] Failed to read {filepath.name}: {e}")
         return None
 
+    # 剥离来源头后再截断/过滤
+    content = strip_source_headers(content)
+
     # 截断到 8000 字符
     content = content[:8000]
 
-    # 跳过纯动态/简讯类
-    first_500 = content[:500]
+    # 跳过纯动态/简讯类（剥离后来源头后正文即开头，窗口放宽到 800 字）
+    first_800 = content[:800]
     analysis_indicators = ["因为", "所以", "判断", "逻辑", "周期", "主线", "板块", "策略"]
-    if not any(w in first_500 for w in analysis_indicators):
-        print(f"  [skip] {filepath.name}: no analysis indicators in first 500 chars")
+    if not any(w in first_800 for w in analysis_indicators):
+        print(f"  [skip] {filepath.name}: no analysis indicators in first 800 chars")
         return None
 
     prompt = build_extraction_prompt(frameworks or load_frameworks()).replace("{content}", content)
@@ -235,7 +294,7 @@ def extract_pattern_from_file(filepath: Path, llm_client, frameworks: list[dict]
         response = llm_client.invoke(prompt).content
     except Exception as e:
         print(f"  [error] LLM call failed for {filepath.name}: {e}")
-        return None
+        return False
 
     # 提取 JSON
     try:
@@ -247,10 +306,10 @@ def extract_pattern_from_file(filepath: Path, llm_client, frameworks: list[dict]
                 result = json.loads(match.group(1))
             except json.JSONDecodeError:
                 print(f"  [warn] {filepath.name}: JSON parse failed in code block")
-                return None
+                return False
         else:
             print(f"  [warn] {filepath.name}: no JSON found in response")
-            return None
+            return False
 
     if not result.get("has_pattern"):
         print(f"  [skip] {filepath.name}: {result.get('reason', 'no pattern detected')}")
@@ -277,8 +336,12 @@ def extract_pattern_from_file(filepath: Path, llm_client, frameworks: list[dict]
               f"归入 others —— ⚠️ 可能是「新框架」信号，review 时应走提案制新增/改造框架")
         result["matched_framework"] = "others"
 
-    # 添加 source_raw 和 source_date
-    result["source_raw"] = [str(filepath.relative_to(REPO_ROOT))]
+    # 添加 source_raw 和 source_date（文件在仓库外时用绝对路径兜底，便于单测/临时文件）
+    try:
+        rel_path = str(filepath.relative_to(REPO_ROOT))
+    except ValueError:
+        rel_path = str(filepath)
+    result["source_raw"] = [rel_path]
     date_match = re.search(r'(?:20)?(\d{2}-\d{2}-\d{2})', filepath.name)
     result["source_date"] = date_match.group(0) if date_match else "unknown"
 
@@ -347,6 +410,8 @@ def main():
     parser.add_argument("--single", type=str, help="处理单篇文件（文件名或路径）")
     parser.add_argument("--max", type=int, default=20, help="最多处理的文件数（默认20）")
     parser.add_argument("--incremental", action="store_true", help="增量模式（跳过已处理）")
+    parser.add_argument("--since", type=str, metavar="YYYY-MM-DD",
+                        help="只处理文件名日期前缀 >= 该日期的文件（无日期前缀的一并跳过）")
     args = parser.parse_args()
 
     state = load_state()
@@ -359,9 +424,15 @@ def main():
 
     # 单篇模式
     if args.single:
-        single_path = RAW_DIR / args.single
-        if not single_path.exists():
-            matches = list(RAW_DIR.glob(f"*{args.single}*"))
+        single_path = None
+        matches: list[Path] = []
+        for d in RAW_DIRS:
+            candidate = d / args.single
+            if candidate.exists():
+                single_path = candidate
+                break
+            matches.extend(d.glob(f"*{args.single}*"))
+        if single_path is None:
             if not matches:
                 print(f"[error] File not found: {args.single}")
                 return 1
@@ -386,12 +457,12 @@ def main():
         return 0
 
     # 扫描候选文件
-    candidates = scan_candidates(state, incremental=args.incremental)
+    candidates = scan_candidates(state, incremental=args.incremental, since=args.since)
 
     if args.dry_run:
         print(f"\n=== 预览模式（--dry-run）===")
         for i, f in enumerate(candidates[:args.max], 1):
-            print(f"  {i:3d}. {f.name} ({f.stat().st_size}B)")
+            print(f"  {i:3d}. [{f.parent.name}] {f.name} ({f.stat().st_size}B)")
         print(f"\n共 {min(len(candidates), args.max)} 个候选文件（总数 {len(candidates)}）")
         return 0
 
@@ -408,8 +479,9 @@ def main():
         print(f"\n[{i}/{len(to_process)}] {filepath.name}")
         result = extract_pattern_from_file(filepath, llm, frameworks)
 
-        # 标记已处理
-        state["processed_files"].append(filepath.name)
+        # 标记已处理：skip/success 才标记；瞬时失败（False）不标记，下轮增量会重试
+        if result is not False:
+            state["processed_files"].append(filepath.name)
         processed_count += 1
 
         if result:
