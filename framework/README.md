@@ -4,7 +4,7 @@
 
 **Agent 集成**：Qing-Agent 的 `market_analyst` 节点会根据 `analysis_type` 从本目录**显式加载**对应的 playbook 文件（如 `market` 分析加载 `market-cycle-framework.md` + `sector-diffusion-framework.md` + `trading-rules.md`），截断到 4000 字符注入 LLM prompt。修改本目录文件会直接影响 Agent 输出的方法论依据。
 
-**Prompt 同步纪律**：若修改的 playbook 涉及大盘分析的输出格式规范（如 11 项分析框架、周期判断标准、板块映射模板），需同步检查 `prompts/system/market_analysis_framework.txt`——该文件控制 Agent 的 JSON 输出结构，是输出格式的单一来源。
+**Prompt 同步纪律**：若修改的 playbook 涉及大盘分析的输出格式规范（如 11 项分析框架、周期判断标准、板块映射模板），需同步检查 `src/qing_investment/agent/prompts/system/market_analysis_framework.txt`——该文件控制 Agent 的 JSON 输出结构，是输出格式的单一来源。
 
 ## Playbook 索引
 
@@ -26,6 +26,7 @@
 
 | 日期 | 更新内容 |
 |------|----------|
+| 2026-08-22 | 泛化改造：market-cycle / market-breadth / trading-rules 中写死"科技"主线的判据改为"当前主线 + 当期实例"写法（具体板块名移至实例说明，数值阈值与历史案例不动）；已同步 `src/qing_investment/agent/prompts/system/market_analysis_framework.txt` 板块结构地图模板 |
 | 2026-07-29 | 方法论复盘新增4个框架：量能质量判断、AI商业模式证伪条件、避险三件套模式识别、国产链vs海外链分野选股框架 |
 | 2026-07-09 | 根据 `reports/methodology-review-20260708.md` 更新：补充右侧确认量化条件、外盘开盘定价与承接纪律、均线缺口减仓、不追情绪一致、事件催化右侧应对、上游扩散风险识别、外力扰动与内生量能、位置决定意义、7 月跟踪三维度、科技主线高低切、分散配置、业绩筛选纪律、预期差评估、资金结构切换信号、非科技方向重个股轻板块。 |
 
