@@ -1,0 +1,501 @@
+claims:
+- id: claim-20260824-001-a
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: market-cycle
+  subject: 上周A股情绪自然收敛而非趋势破坏
+  timeframe: short-term
+  statement: 上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日跌不动，成交额萎缩至不足1.9万亿元，情绪端处在明显的退潮位置；本周初仍有惯性下探，但这一段的性质是情绪自然收敛，不是趋势破坏。
+  evidence_quote: 上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日跌不动，成交额萎缩至不足1.9万亿元。情绪端处在明显的退潮位置，外盘也还没有走出新的负反馈。本周初仍有惯性下探，但这一段的性质是情绪自然收敛，不是趋势破坏。
+  interpretation: UP对上周调整的定性：退潮但非趋势破坏，本周初惯性下探属情绪收敛的正常节奏。这是当前市场环境判断的基调claim。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 上周A股调整性质定性
+  tags:
+  - 大盘环境
+  - 退潮
+  - 情绪收敛
+  - 缩量
+  related_stocks: []
+- id: claim-20260824-001-b
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: market-cycle
+  subject: 量能周期经验路径与当前位置
+  timeframe: short-term
+  statement: 按量能周期经验路径，峰值后的收缩通常要走完跌破2.5万亿、缩至2万亿、反复一段时间才见1.5至1.6万亿地量；目前1.9万亿已进入路径后半程，但离真正的地量仍有距离，本周初大概率仍是缩量格局，指数难以靠自身量能强行走出反转。
+  evidence_quote: 从量能周期的经验路径看，峰值之后的收缩通常要走完跌破2.5万亿、缩至2万亿、反复一段时间才见1.5至1.6万亿地量这条路。目前1.9万亿的位置已进入路径后半程，但离真正的地量仍有距离。
+  interpretation: 定量事实：量能收缩路径的经验刻度（2.5万亿→2万亿→1.5-1.6万亿地量），当前1.9万亿处于后半程未到地量。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能收缩路径刻度
+  tags:
+  - 量能周期
+  - 地量
+  - 2.5万亿
+  - 收缩路径
+  related_stocks: []
+- id: claim-20260824-001-c
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: methodology
+  subject: 止跌不等于反转的操作区分
+  timeframe: permanent
+  statement: 现在能期待的是止跌，不是反转，两者在操作上完全不是一回事——指数难以靠自身量能强行走出反转时，不应把止跌信号当作反转信号操作。
+  evidence_quote: 这决定了本周初大概率仍是缩量格局，指数难以靠自身量能强行走出反转。现在能期待的是止跌，不是反转，两者在操作上完全不是一回事。
+  interpretation: 方法论：止跌与反转是两类不同的操作对象，混用会导致过早加仓。对应仓位管理上止跌只支持减仓暂停或超跌修复交易，不支持趋势仓重建。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 止跌与反转的操作区分
+  tags:
+  - 方法论
+  - 止跌
+  - 反转
+  - 操作纪律
+  related_stocks: []
+- id: claim-20260824-001-d
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: market-cycle
+  subject: 本周初情形A条件框架
+  timeframe: short-term
+  statement: 情形A：周一低开之后量能不再进一步萎缩、权重继续托底、跌停家数明显收敛，那么这一探可视作阶段性情绪与指数的双重低点，节奏类似今年3月底到4月初那一段，短期调整充分之后市场后续仍具备重新走强的基础。
+  evidence_quote: 情形A：周一低开之后量能不再进一步萎缩、权重继续托底、跌停家数明显收敛，那么这一探可以视作阶段性情绪与指数的双重低点，节奏上类似今年3月底到4月初那一段——短期调整充分之后，市场后续仍具备重新走强的基础。
+  interpretation: 条件分支A的三个确认变量：量能不再萎缩、权重托底延续、跌停家数收敛。三者同时满足才确认双重低点。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 周一低点确认条件（情形A）
+  tags:
+  - 情形A
+  - 低点确认
+  - 跌停家数
+  - 权重托底
+  related_stocks: []
+- id: claim-20260824-001-e
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: market-cycle
+  subject: 本周初情形B条件框架
+  timeframe: short-term
+  statement: 情形B：若量能继续萎缩、首板家数锐减且高标继续断板，那么修复窗口就要顺延到本周下半段外部变量落地之后，中间的任何反弹都只能按超跌修复来处理。
+  evidence_quote: 情形B：若量能继续萎缩、首板家数锐减且高标继续断板，那么修复窗口就要顺延到本周下半段外部变量落地之后，中间的任何反弹都只能按超跌修复来处理。
+  interpretation: 条件分支B：修复顺延到英伟达财报等外部变量落地后；期间反弹定性为超跌修复，不是趋势机会。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 修复窗口顺延条件（情形B）
+  tags:
+  - 情形B
+  - 修复窗口
+  - 超跌反弹
+  related_stocks: []
+- id: claim-20260824-001-f
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: risk
+  subject: 高标受限约束下反弹形态被限定为轮动补涨
+  timeframe: short-term
+  statement: 高标打不开空间，反弹的形态就被限定了：即便出现反弹，大概率仍是普涨式的轮动补涨，之前没反弹过的方向补一补、已经反弹过的表现平庸，很难形成持续吸引资金的主线。
+  evidence_quote: 还有一个必须先说清楚的约束——高标打不开空间，反弹的形态就被限定了。在这个前提下，即便出现反弹，大概率仍是普涨式的轮动补涨：之前没反弹过的方向补一补，之前已经反弹过的方向表现平庸，很难形成一条能持续吸引资金的主线。
+  interpretation: 风险判断：反弹质量受高标空间限制，追已反弹方向收益平庸；低位补涨方向才是反弹中的相对占优选择。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 反弹形态约束判断
+  tags:
+  - 高标空间
+  - 轮动补涨
+  - 反弹形态
+  related_stocks: []
+- id: claim-20260824-001-g
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: sector-theme
+  subject: 英伟达服务器涨价是上游议价权转移的确认
+  timeframe: industry
+  statement: 据彭博社报道，因内存芯片成本飙升，搭载英伟达AI芯片的服务器价格将上涨、很多情况下涨幅超过15%，适用于明年初出货的Vera Rubin与Grace
+    Blackwell机型；这不是单纯的科技利好，而是上游议价权转移的确认书——三星、SK海力士、美光在AI需求激增下拿到了罕见的定价权。
+  evidence_quote: 这不是一条单纯的科技利好，它同时是上游议价权转移的确认书。涨价的根因，是三星、SK海力士、美光在AI基础设施需求激增下拿到了罕见的定价权，连行业最强势的英伟达都无法自行消化成本。
+  interpretation: 产业逻辑：涨价映射分两头——最直接受益是有定价权的存储与内存环节，其次是单机价值量抬升的高速互联、液冷与连接器；对下游云厂与算力租赁则首先是成本，需警惕硬件太贵压制资本开支增速。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 英伟达服务器涨价的上游映射
+  tags:
+  - 英伟达
+  - 服务器涨价
+  - 存储定价权
+  - 上游议价权
+  related_stocks: []
+- id: claim-20260824-001-h
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: stock-view
+  subject: 光模块CPO分支存在位置性补涨可能但不构成买入理由
+  timeframe: short-term
+  statement: 科技内部当前还留有补涨空间的主要是光模块：NPO涨幅偏大（天孚通信(300394)、仕佳光子(688313)、长芯博创等已接近翻倍），反而CPO这一支涨幅不大，位置上存在补涨可能；但这是位置提供的可能性，不构成买入理由，补涨要不要参与仍以量价的右侧确认为准，不见承接不追。
+  evidence_quote: 近期细分里NPO涨幅偏大，天孚通信、仕佳光子、长芯博创等已接近翻倍，反而CPO这一支涨幅不大，位置上存在补涨的可能。但这是位置提供的可能性，不构成买入理由——补涨要不要参与仍以量价的右侧确认为准，不见承接不追。
+  interpretation: 方向过滤器而非买入信号：CPO相对NPO存在位置差，参与前提是量价右侧确认。注意相关标的含创业板/科创板，主板用户应以ETF表达。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光模块CPO补涨可能性
+  tags:
+  - 光模块
+  - CPO
+  - NPO
+  - 补涨
+  related_stocks:
+  - code: '300394'
+    name: 天孚通信
+    role: NPO涨幅参照-创业板不可交易
+  - code: '688313'
+    name: 仕佳光子
+    role: NPO涨幅参照-科创板不可交易
+- id: claim-20260824-001-i
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: catalyst
+  subject: 英伟达财报前科技强势应按抢跑降权
+  timeframe: intraday
+  statement: 英伟达将于美东时间8月26日公布财季业绩（北京时间8月27日凌晨）；在这份财报落地之前，科技方向的任何强势都应当按节点前的抢跑降权处理。
+  evidence_quote: 英伟达将于美东时间8月26日公布财季业绩，对应北京时间8月27日凌晨。在这份财报落地之前，科技方向的任何强势都应当按节点前的抢跑降权处理。
+  interpretation: 事件节点纪律：8/27凌晨英伟达财报是本周科技方向第一个关键节点，节点前强势不可作为右侧确认依据。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 英伟达财报节点纪律
+  tags:
+  - 英伟达财报
+  - 节点纪律
+  - 抢跑降权
+  related_stocks: []
+- id: claim-20260824-001-j
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: sector-theme
+  subject: 黄金是少数有赚钱效应的出口但避险上涨很少长成中期主线
+  timeframe: short-term
+  statement: 8月21日国际现货黄金盘中突破4600美元每盎司创近三个月新高、8月以来累计涨幅超13%，驱动来自美国数据走弱、美财政部扩大长债回购压低长端收益率、全球央行持续购金；上周五资金明显从科技转向有色，黄金成为盘面上少数具备赚钱效应的方向。但这一轮避险配置的持续性要看美债与美元能否延续上周的方向，单纯由风险偏好收缩推动的防御性上涨历史上很少直接长成中期主线。
+  evidence_quote: 个人判断，这一轮避险配置的持续性要看美债与美元能否延续上周的方向；单纯由风险偏好收缩推动的防御性上涨，历史上很少直接长成中期主线。
+  interpretation: 黄金方向定性：短期有赚钱效应，中期主线资格存疑，持续性绑定美债收益率与美元方向两个验证变量。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 黄金方向持续性判断
+  tags:
+  - 黄金
+  - 避险
+  - 美债美元
+  - 有色
+  related_stocks: []
+- id: claim-20260824-001-k
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: sector-theme
+  subject: 医药有惯性修复但清晰度只到第一天
+  timeframe: short-term
+  statement: 医药上周四大涨、周五分化，个人倾向于认为周一医药可能有惯性跟随的修复，但再往后的路径并不清晰；板块内更该盯的是情绪载体神奇制药(600613)的反馈，它的走势对整个板块溢价的影响比指数更直接。
+  evidence_quote: 个人倾向于认为，周一医药可能有一个惯性跟随的修复，但再往后的路径并不清晰。板块内更该盯的是情绪载体神奇制药的反馈——它的走势对整个板块溢价的影响，比指数更直接。
+  interpretation: 医药方向仅给一天确定性，跟踪锚点是神奇制药的情绪反馈而非指数。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药惯性修复判断
+  tags:
+  - 医药
+  - 惯性修复
+  - 神奇制药
+  related_stocks:
+  - code: '600613'
+    name: 神奇制药
+    role: 医药情绪载体-主板可交易
+- id: claim-20260824-001-l
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: operation
+  subject: 深中华A为黄金核心情绪载体及回撤风险提示
+  timeframe: short-term
+  statement: 深中华A(000017) 8月20日直线封板、8月21日再度涨停，作为黄金概念核心情绪载体，黄金业务纯度超过99%、小市值高弹性，是资金博弈金价上涨逻辑最直接的载体之一；但情绪载体的溢价与金价波动同向放大，金价一旦转入震荡，它的回撤幅度通常大于板块本身。
+  evidence_quote: 深中华A：据盘面，8月20日直线封板、8月21日再度涨停。作为黄金概念的核心情绪载体，其黄金业务纯度超过99%、小市值高弹性，是资金博弈金价上涨逻辑最直接的载体之一。跟踪要点在于，情绪载体的溢价与金价波动同向放大，金价一旦转入震荡，它的回撤幅度通常大于板块本身。
+  interpretation: 标的观察项：情绪载体属性决定其弹性双向放大，持有者需绑定金价走势设置退出条件。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 深中华A情绪载体定位
+  tags:
+  - 深中华A
+  - 黄金概念
+  - 情绪载体
+  related_stocks:
+  - code: '000017'
+    name: 深中华A
+    role: 黄金核心情绪载体-主板可交易
+- id: claim-20260824-001-m
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: operation
+  subject: 电连技术NPO Socket是从无到有的增量线索以送样转订单为准
+  timeframe: trend
+  statement: 据卖方材料，花旗预测CPO与NPO合计出货量将从2026年的40万只增至2028年的5600万只；天风证券指出电连技术(300679) NPO
+    Socket业务正配合大客户积极研发并已送样多家NPO公司。这是一条从无到有的转型线索，符合只参与增量、不参与份额由高转低的原则，但兑现节奏要以送样转订单为准。
+  evidence_quote: 天风证券指出，公司NPO Socket业务正配合大客户积极研发并已送样多家NPO公司。以上为卖方结论；个人判断的落点是，这是一条从无到有的转型线索，符合只参与增量、不参与份额由高转低的原则，但兑现节奏要以送样转订单为准。
+  interpretation: 标的观察项：增量逻辑清晰但兑现锚点是送样转订单；创业板标的，主板用户需以ETF表达该暴露。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 电连技术NPO Socket增量线索
+  tags:
+  - 电连技术
+  - NPO Socket
+  - 增量逻辑
+  related_stocks:
+  - code: '300679'
+    name: 电连技术
+    role: NPO Socket增量标的-创业板不可交易
+- id: claim-20260824-001-n
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: catalyst
+  subject: 飞龙股份液冷泵订单披露标志液冷链进入收入转化阶段
+  timeframe: trend
+  statement: 飞龙股份(002536) 半年报首次明确披露液冷泵在手订单规模：U、S、M平台（覆盖200W至10kW）终端客户订单超5万台，L平台（10kW以上）大功率液冷泵订单近万台，客户覆盖主要CDU厂商；液冷泵是CDU等核心组件出货量的前瞻指标，订单兑现意味着这条链已从叙事阶段进入收入转化阶段。
+  evidence_quote: 液冷泵是CDU等核心组件出货量的前瞻指标，订单兑现意味着这条链已从叙事阶段进入收入转化阶段。
+  interpretation: 液冷产业链阶段判定：从叙事期进入收入转化期的实证信号，液冷方向景气度获得订单级证据。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 飞龙股份液冷泵订单验证
+  tags:
+  - 飞龙股份
+  - 液冷泵
+  - CDU
+  - 收入转化
+  related_stocks:
+  - code: '002536'
+    name: 飞龙股份
+    role: 液冷泵订单验证-主板可交易
+- id: claim-20260824-001-o
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: risk
+  subject: 增量资金集中于高位科技股使全市场承接力脆弱
+  timeframe: short-term
+  statement: 中际旭创(300308) 2026年上半年营收417.78亿元同比增长182.49%、净利润136.51亿元同比增长241.7%，8月21日主力资金净流入35.95亿元居两市首位；但要记一笔风险：增量资金越集中于少数高位科技股，全市场的承接力就越脆弱。
+  evidence_quote: 这里同时要记一笔风险：增量资金越集中于少数高位科技股，全市场的承接力就越脆弱。
+  interpretation: 风险判断：科技抱团的资金集中度本身就是系统性脆弱源，高位科技股一旦负反馈会放大全市场波动。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技抱团集中度风险
+  tags:
+  - 中际旭创
+  - 抱团集中度
+  - 承接力风险
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块业绩龙头-创业板不可交易
+- id: claim-20260824-001-p
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: catalyst
+  subject: 长江存储IPO受理指向国内存储扩产景气记录线索
+  timeframe: industry
+  statement: 据上交所8月21日晚间信息，长江存储控股科创板IPO申请已获受理，拟公开发行不低于19.8亿股且不超过24.3亿股，募资330亿元用于产线建设升级与技术研发；结合英伟达因内存成本上涨这条线索，国内存储扩产与设备、材料环节的景气变化值得持续记录。
+  evidence_quote: 结合英伟达因内存成本上涨这条线索，国内存储扩产与设备、材料环节的景气变化值得持续记录。
+  interpretation: 存储国产化线索：IPO募资330亿扩产与海外内存涨价共振，国内存储设备、材料环节景气度值得跟踪。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 长存控股IPO与存储扩产线索
+  tags:
+  - 长江存储
+  - IPO
+  - 存储扩产
+  - 国产设备材料
+  related_stocks: []
+- id: claim-20260824-001-q
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: risk
+  subject: 中报密集披露与监管收紧双重压制投机范围收窄
+  timeframe: short-term
+  statement: 8月最后一周进入中报集体披露阶段，业绩证伪压力会压制题材投机的空间，这一点在仓位安排上应当先于任何题材判断；叠加监管口径对投机范围的收缩，后续可参与的范围只会更窄，投机热度还会进一步减退。
+  evidence_quote: 其三，8月最后一周进入中报集体披露阶段，业绩证伪压力会压制题材投机的空间，这一点在仓位安排上应当先于任何题材判断。
+  interpretation: 仓位纪律：中报周仓位安排优先级高于题材判断；投机端参与范围收窄，题材仓位应主动降低。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中报周仓位优先纪律
+  tags:
+  - 中报披露
+  - 监管收紧
+  - 仓位纪律
+  related_stocks: []
+- id: claim-20260824-001-r
+  source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T01:35:00+08:00'
+  claim_type: macro
+  subject: 杰克逊霍尔年会沃什讲话影响延后至下周一体现
+  timeframe: short-term
+  statement: 8月27日至29日杰克逊霍尔全球央行年会召开，美联储主席沃什定于美东时间8月28日上午10点发表讲话，对应北京时间8月28日晚间，落在A股周五收盘之后，其影响要到下周一开盘才体现。
+  evidence_quote: 美联储主席沃什定于美东时间8月28日上午10点发表讲话，对应北京时间8月28日晚间，落在A股周五收盘之后，其影响要到下周一开盘才体现。
+  interpretation: 事件日历：沃什讲话的风险敞口跨周末累积，下周一直接作用于开盘，周末不宜重仓押注方向。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 沃什讲话时点影响
+  tags:
+  - 杰克逊霍尔
+  - 沃什讲话
+  - 事件日历
+  related_stocks: []
