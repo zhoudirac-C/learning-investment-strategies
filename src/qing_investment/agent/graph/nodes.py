@@ -95,10 +95,33 @@ def shard_router(state: AgentState) -> list[Send]:
     watchlist = _normalize_watchlist(state.get("watchlist"))
     positions = _normalize_positions(state.get("positions"))
 
+    # 2026-08-24 修复：LangGraph 的 Send(arg) 会**替换**节点输入 state（不与全局 state 合并），
+    # 旧代码只传 {"watchlist_shard": ...}，导致 stock_scanner_shard 拿到的
+    # market_snapshot/positions/watchlist/market_summary_context 全部为空，
+    # LLM 按"禁止编造"纪律拒答 → 所有 shard 输入全空。
+    # 现将 shard 节点依赖的字段显式打包进每个 Send payload。
+    _shard_ctx_keys = (
+        "parsed_intent",
+        "market_summary_context",
+        "market_snapshot",
+        "positions",
+        "watchlist",
+        "stock_contexts",
+        "direction_signals",
+        "trigger",
+        "shard_size",
+        "core_only",
+    )
+
+    def _make_send(shard_payload: dict) -> Send:
+        ctx = {k: state.get(k) for k in _shard_ctx_keys}
+        ctx.update(shard_payload)
+        return Send("stock_scanner_shard", ctx)
+
     # 兼容旧的外部分片请求：如果调用方已经传了 watchlist_shard，直接用它
     existing_shard = state.get("watchlist_shard")
     if existing_shard:
-        return [Send("stock_scanner_shard", {"watchlist_shard": existing_shard})]
+        return [_make_send({"watchlist_shard": existing_shard})]
 
     # analyze_trigger 已经解析好 shard_size / core_only，这里直接复用，避免再次读取环境变量覆盖请求值
     shard_size = state.get("shard_size")
@@ -110,7 +133,7 @@ def shard_router(state: AgentState) -> list[Send]:
 
     # shard_size <= 0 表示不分片：直接扫描全部 watchlist
     if shard_size <= 0:
-        return [Send("stock_scanner_shard", {"watchlist_shard": {"name": "全部标的", "items": watchlist, "is_priority": False}})]
+        return [_make_send({"watchlist_shard": {"name": "全部标的", "items": watchlist, "is_priority": False}})]
 
     shards = shard_watchlist(
         watchlist,
@@ -121,10 +144,10 @@ def shard_router(state: AgentState) -> list[Send]:
 
     if not shards:
         # 没有可分析标的时仍跑一个空 shard，保证下游节点有 market_context
-        return [Send("stock_scanner_shard", {"watchlist_shard": None})]
+        return [_make_send({"watchlist_shard": None})]
 
     return [
-        Send("stock_scanner_shard", {"watchlist_shard": shard_to_context(s)})
+        _make_send({"watchlist_shard": shard_to_context(s)})
         for s in shards
     ]
 
@@ -2161,7 +2184,8 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
     shard = state.get("watchlist_shard")
     shard_name = "全部标的"
     shard_items_text = "（未分片，分析全部持仓与观察池）"
-    stock_contexts = state.get("stock_contexts", [])
+    # Send payload 可能不含这些 key（LangGraph 返回 None 而非缺省值），防御性 or []
+    stock_contexts = state.get("stock_contexts") or []
     if shard:
         shard_items = shard.get("items", []) if isinstance(shard, dict) else []
         shard_codes = {
@@ -2227,7 +2251,7 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
         "watchlist_summary": watchlist_summary,
         "reference_stocks": reference_stocks,
         "stock_contexts": stock_contexts,
-        "direction_signals": state.get("direction_signals", {}),
+        "direction_signals": state.get("direction_signals") or {},
     }
 
     prompt_template_filled = prompt_template.replace("{shard_name}", shard_name).replace(
