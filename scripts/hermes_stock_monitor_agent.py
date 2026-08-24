@@ -769,6 +769,10 @@ def call_qing_agent(data: dict) -> dict | None:
         "market_snapshot": market_snapshot,
         "positions": _normalize_positions(data.get("positions", {}), quote_lookup),
         "watchlist": _normalize_watchlist(data.get("watchlist", []), quote_lookup),
+        # 2026-08-24: 显式传 core_only，只扫 P1+持仓（原依赖 agent 进程环境变量
+        # WATCHLIST_CORE_ONLY，但 uvicorn 进程没有该变量导致 73 只全量进 22 个 shard，
+        # 单轮 analyze 1600s 击穿 cron 900s 超时）
+        "core_only": os.environ.get("WATCHLIST_CORE_ONLY", "0").lower() in ("1", "true", "yes", "on"),
         "sector_strengths": data.get("sector_strengths", []),
         "external_sector_boards": data.get("external_sector_boards", {}),
     }
