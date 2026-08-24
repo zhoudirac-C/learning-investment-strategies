@@ -1,0 +1,522 @@
+claims:
+- id: claim-20260824-002-a
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: macro
+  subject: 美债长端收益率未随股指企稳而回落
+  timeframe: short-term
+  statement: 美股三大指数上周五集体反弹，但长端收益率继续上行，10年期美债收益率涨逾3bp报4.734%，30年期涨逾3bp报5.273%；财政部扩大长债回购的利好被收益率再度走高抹掉大半，股指企稳不等于收益率企稳，外围风险只能记为暂停不能记为解除。
+  evidence_quote: 长端收益率周五继续上行，10年期美债收益率涨逾3个基点报4.734%，30年期同样涨逾3个基点报5.273%。也就是说，美国财政部扩大长债回购的利好，在周五被收益率的再度走高抹掉了大半——股指是企稳了，收益率没有。这波回调的源头本就来自长端美债，源头没有解除，外围这条线目前只能记为暂停，不能记为解除。
+  interpretation: UP对外围风险的定性：回调源头是长端美债收益率，股指反弹不代表源头解除。4.734%仍在警戒区上方，外围这条线维持暂停状态而非解除。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美债收益率与外围风险评估
+  related_stocks: []
+  tags:
+  - 美债收益率
+  - 10年期
+  - 外围风险
+  - 股指企稳
+- id: claim-20260824-002-b
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: risk
+  subject: 财政部救市叙事政治背书不牢固
+  timeframe: short-term
+  statement: 贝森特表示将进一步扩大长期国债回购力度（单次可能超40亿美元），同时特朗普表示本周并未指示财长干预债券市场，两条信息拼在一起说明财政部救市叙事的政治背书并不牢固，把它当作收益率见顶的依据是危险的。
+  evidence_quote: 这两条信息拼在一起，说明财政部救市这条叙事的政治背书并不牢固，把它当作收益率见顶的依据是危险的。
+  interpretation: 提示不要把财政部回购政策当作美债收益率见顶的锚。收益率见顶判断需等8月28日沃什杰克逊霍尔演讲的利率路径口径。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 财政部救市叙事可靠性
+  related_stocks: []
+  tags:
+  - 财政部回购
+  - 贝森特
+  - 政治背书
+  - 风险提示
+- id: claim-20260824-002-c
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: catalyst
+  subject: 8月28日沃什杰克逊霍尔首秀是本周核心定价事件
+  timeframe: short-term
+  statement: 美联储7月会议纪要显示支持加息的官员数量增加，主席沃什将于8月28日在杰克逊霍尔发表其首次主席演讲；在利率路径口径明确之前，任何关于外围风险解除的推断都缺少落脚点。
+  evidence_quote: 美联储主席沃什将于8月28日在杰克逊霍尔经济政策研讨会发表其首次主席演讲。本周真正的定价事件在周五这场演讲——在利率路径口径明确之前，任何关于外围风险解除的推断都缺少落脚点。
+  interpretation: 给出明确的时间锚：8月28日杰克逊霍尔演讲是本周最重要的外部变量，在此之前不宜提前定价外围风险解除。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 杰克逊霍尔演讲时间锚
+  related_stocks: []
+  tags:
+  - 杰克逊霍尔
+  - 沃什
+  - 美联储
+  - 定价事件
+- id: claim-20260824-002-d
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: sector-theme
+  subject: 存储方向前提重新推回待验证状态
+  timeframe: intraday
+  statement: 隔夜美股存储芯片疲弱（西部数据跌超2%，美光、闪迪同步下行），上周五存储企稳叠加量能见底的反弹前提被重新推回待验证状态；今天A股开盘存储能否守住上周五低点是比指数点位更值得盯的变量。
+  evidence_quote: 但隔夜存储又走弱，等于把这个前提重新推回待验证状态。外盘传导只反映在开盘定价，开盘之后市场回归自身节奏——低开不可怕，接不住才可怕。今天开盘存储方向能否守住上周五的低点，是比指数点位更值得盯的变量。
+  interpretation: 今日盘面观察点：存储方向守住上周五低点与否决定反弹逻辑是否延续。低开不可怕、接不住才可怕。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储方向待验证
+  related_stocks: []
+  tags:
+  - 存储芯片
+  - 西部数据
+  - 美光
+  - 低点守卫
+- id: claim-20260824-002-e
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: market-cycle
+  subject: 量能跌破2万亿走完路径倒数第二步
+  timeframe: short-term
+  statement: 沪深两市上周五成交额约18792.64亿元，较前日缩量约2001亿元正式跌破2万亿关口；复盘2024年9-11月与2026年1-4月两轮行情，量能路径为峰值近4万亿先降至2.5-2.6万亿再回升3万亿以上，然后破2.5万亿进一步缩至2万亿，最后到1.5-1.6万亿地量，市场两周多已走完倒数第二步，但从2万亿到地量中间大概率还要间隔不少时间，且地量往往出现在大家都没有预期的时候。
+  evidence_quote: 市场用两周多的时间，已经成功走完了倒数第二步。但从跌破2万亿到真正见到地量，中间大概率还要间隔不少时间。……地量往往恰恰出现在大家都没有预期的时候。能做的只有边等边试错，好处是至少知道地量的大致范围。
+  interpretation: 定量刻度：当前18793亿处于经验路径倒数第二步，距1.5-1.6万亿地量仍有时间距离。操作含义：边等边试错，不预期冰点。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes:
+  - claim-20260824-001-b
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能路径推进到倒数第二步
+  related_stocks: []
+  tags:
+  - 量能路径
+  - 2万亿
+  - 地量
+  - 缩量
+- id: claim-20260824-002-f
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: technical-signal
+  subject: 开盘量能先行指标给正面信号
+  timeframe: intraday
+  statement: 上周五开盘成交额159.5亿元较前日204.8亿减少近23%、远小于周三的284亿元，低开但资金早盘形成先不砸的共识，开盘量能这个先行指标给正面信号；反之今天若开盘出现大幅放量则要谨慎。
+  evidence_quote: 周五开盘成交额为159.5亿元，相比前一交易日的204.8亿元减少近23%，更远小于周三的284亿元。虽然是低开，但资金至少在早盘形成了先不砸的共识……反过来，今天若开盘出现大幅放量，谨慎点总没错。
+  interpretation: 可操作的盘中信号：开盘大幅放量=谨慎，温和缩量=正面。这是当日情形A/B判定的第一道分叉。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 开盘量能先行指标
+  related_stocks: []
+  tags:
+  - 开盘量能
+  - 先行指标
+  - 缩量
+- id: claim-20260824-002-g
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: macro
+  subject: 油价上行链路压制高估值成长修复空间
+  timeframe: short-term
+  statement: 特朗普威胁对伊朗实施史上最严厉经济行动后WTI原油收涨2.9%报86.83美元/桶、布伦特涨2.4%报93.78美元/桶创近一个月新高；油价上行是通胀预期抬升、长端收益率下不来的直接原因之一，只要油价维持这一位置，收益率回落就是反弹而非反转，对应A股高估值成长方向的估值修复空间受限。
+  evidence_quote: 油价上行是通胀预期抬升、长端收益率下不来的直接原因之一，这条链路今天仍然通着。只要油价维持在这一位置，收益率的回落就是反弹而非反转，对应到A股，就是高估值成长方向的估值修复空间受限。
+  interpretation: 油价→通胀→长端收益率→成长股估值约束的传导链仍然有效。高估值成长修复空间受油价位置制约。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 油价与成长估值约束链路
+  related_stocks: []
+  tags:
+  - 油价
+  - WTI
+  - 通胀预期
+  - 成长估值
+- id: claim-20260824-002-h
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: technical-signal
+  subject: 首板锐减与指数收涨背离情绪拐点未确认
+  timeframe: short-term
+  statement: 上周五二板家数10个对应一进二晋级率13.51%，首板家数由74家锐减至43家，跌停由11家增至13家；指数在涨参与面在收敛的组合下短线情绪拐点不能算已出现，首板家数与跌停家数仍是当前最重要的两个先行指标，是否迎来拐点还得再观察一个交易日。
+  evidence_quote: 首板家数的锐减与指数收涨是背离的——指数在涨、参与面在收敛，这种组合下短线情绪拐点不能算已经出现。是否迎来拐点还得再观察一个交易日，并且首板家数与跌停家数依然是当前最重要的两个先行指标。
+  interpretation: 情绪监测指标更新：首板家数（43）+跌停家数（13）。拐点判定需两指标同向修复，单日不能确认。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 首板与跌停家数先行指标
+  related_stocks: []
+  tags:
+  - 首板家数
+  - 跌停家数
+  - 情绪拐点
+  - 晋级率
+- id: claim-20260824-002-i
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: sector-theme
+  subject: 医药分歧测试失败定性为弹性方向非主线
+  timeframe: short-term
+  statement: Moderna回落后医药资金没有接住：化学制药跌4.33%、医疗服务跌3.75%、生物制品跌3.63%，主力净流出76.50亿元居首，康泰生物(300601)、华兰疫苗等多股跌逾9%，哈三联、哈药股份(600664)跌停；医药仍是为美股映射打工、定价权不在自己手里，今天更倾向把医药当作弹性方向而非主线对待，先看能否守住上周五调整低点，守不住则上一轮反弹只是事件驱动的一次性脉冲。
+  evidence_quote: 这次测试失败的原因，恰恰印证了此前的担心——医药目前仍在为美股映射打工，涨跌的定价权不在自己手里。……今天更倾向于把医药当作弹性方向而非主线来对待，先看它能否守住上周五的调整低点；守不住，就说明上一轮反弹只是事件驱动的一次性脉冲。
+  interpretation: 医药方向降级：分歧测试未通过，从潜在主线降级为弹性方向。失效条件：守住上周五低点则保留弹性属性。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药分歧测试失败
+  related_stocks:
+  - code: '300601'
+    name: 康泰生物
+    role: 疫苗-mRNA布局-创业板不可直接交易
+  - code: '301207'
+    name: 华兰疫苗
+    role: 疫苗-创业板不可直接交易
+  - code: '002900'
+    name: 哈三联
+    role: 跌停-主板
+  - code: '600664'
+    name: 哈药股份
+    role: 跌停-主板
+  tags:
+  - 医药
+  - 分歧测试
+  - 美股映射
+  - 弹性方向
+- id: claim-20260824-002-j
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: catalyst
+  subject: mRNA平台经V940进入肿瘤更大治疗市场
+  timeframe: industry
+  statement: Moderna与默沙东的V940疗法首次在关键期层面证明mRNA平台能够进入肿瘤这一更大更长期的治疗市场，改变过去将mRNA仅视为新冠疫苗故事的定位；名古屋大学与富士胶片合作开发的新型LNP首次高效递送Cap-cirRNA入动物体内活性提升10倍且炎症极低。
+  evidence_quote: 过去市场主要将mRNA视为新冠疫苗需求回落后的疫苗故事，而Moderna与默沙东的V940疗法首次在关键期层面证明mRNA平台能够进入肿瘤这一更大、更长期的治疗市场。
+  interpretation: 产业层面前瞻记录：mRNA平台价值重估的产业证据。康泰生物(300601)设mRNA及新型佐剂研发团队聚焦RSV、带状疱疹疫苗，百克生物布局mRNA新技术路线。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: mRNA肿瘤治疗平台进展
+  related_stocks:
+  - code: '300601'
+    name: 康泰生物
+    role: mRNA研发团队-创业板不可直接交易
+  - code: '688276'
+    name: 百克生物
+    role: mRNA管线-科创板不可直接交易
+  tags:
+  - mRNA
+  - V940
+  - 肿瘤疫苗
+  - LNP
+- id: claim-20260824-002-k
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: sector-theme
+  subject: 科技陷入无限轮动资金不足以同时抬起两个分支
+  timeframe: short-term
+  statement: 科技上周三的大跌后周四周五弱修复且明显缩量，问题一是量能不支持，二是内部竞争加剧：液冷服务器走强无可避免对CPO/NPO产生分流（盘中太辰光大幅跳水），过几天PCB或覆铜板也可能反过来分流液冷，长此以往，科技容易陷入无限轮动——不是没有资金而是资金总量不足以同时抬起两个分支。
+  evidence_quote: 但这条消息的量级不太够，更关键的是液冷的走强无可避免会对前两天的CPO/NPO产生分流，盘中太辰光就出现过大幅跳水。说不定过几天又会有其他细分方向反过来分流液冷，比如PCB或覆铜板方向……科技就很容易陷入无限轮动的状态——不是没有资金，而是资金总量不足以同时抬起两个分支。
+  interpretation: 科技内部结构判断：缩量环境下细分方向互为分流源，追日内领涨分支易被次日轮动反杀。科技整体按弱修复对待，唯一例外仍是光通信等有独立催化的方向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技内部轮动与分流
+  related_stocks:
+  - code: '300570'
+    name: 太辰光
+    role: CPO-创业板不可直接交易
+  tags:
+  - 科技内部分流
+  - 液冷
+  - CPO
+  - 无限轮动
+- id: claim-20260824-002-l
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: catalyst
+  subject: AI服务器涨价超15%强化硬件量价逻辑但对云厂资本开支是压力
+  timeframe: industry
+  statement: 多家英伟达最大客户被告知因内存芯片成本飙升，搭载英伟达AI芯片的服务器价格将上涨、很多情况涨幅超15%；产业形态有望从GPU扩张为主转为包含AI服务器、液冷散热、先进封装、高速互连、电源和存储器等基础设施的全面升级（相关标的博杰股份(002975)、华勤技术(603296)），对硬件是量价逻辑强化但对下游云厂资本开支效率是压力，属于双刃。
+  evidence_quote: 多家英伟达最大客户已被告知，由于内存芯片成本飙升，搭载英伟达人工智能芯片的服务器价格将会上涨，很多情况下涨幅将超过15%。……这条信息对硬件是量价逻辑的强化，但对下游云厂的资本开支效率是压力，属于双刃。
+  interpretation: 算力硬件产业链增量信息：服务器涨价利好硬件制造环节（双刃属性已标注），跟踪国产算力链时区分硬件受益方与云厂承压方。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI服务器涨价双刃效应
+  related_stocks:
+  - code: '002975'
+    name: 博杰股份
+    role: AI服务器标的-主板
+  - code: '603296'
+    name: 华勤技术
+    role: 服务器ODM-主板
+  tags:
+  - AI服务器
+  - 涨价
+  - 英伟达
+  - 液冷散热
+- id: claim-20260824-002-m
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: catalyst
+  subject: NAND用钼替钨的材料工艺升级
+  timeframe: industry
+  statement: 据SemiAnalysis，NAND制造正从钨转向钼：3D NAND超过约300层时钨字线遇瓶颈，钼能降低电阻更好填充高纵横比结构单元，兼具高熔点高温强度高热导率与低热膨胀系数；相关标的金钼股份(601958)、盛龙股份(001257)。
+  evidence_quote: 据SemiAnalysis，NAND制造正从钨转向钼，3D NAND当层数超过约300层时，连接每个存储单元的钨字线遇到瓶颈，钼能降低电阻、更好填充高纵横比结构单元，且兼具高熔点、高温强度、高热导率与低热膨胀系数。相关标的：金钼股份、盛龙股份。
+  interpretation: 存储上游材料工艺变化的前瞻记录：NAND层数竞争带动钼替代钨趋势，利好钼标的。属技术知识型跟踪线索。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: NAND钼替钨工艺趋势
+  related_stocks:
+  - code: '601958'
+    name: 金钼股份
+    role: 钼标的-主板
+  - code: '001257'
+    name: 盛龙股份
+    role: 钼标的-主板
+  tags:
+  - NAND
+  - 钼替钨
+  - 存储材料
+- id: claim-20260824-002-n
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: catalyst
+  subject: 国产CSP资本开支扩张趋势确立传导至算力全链条
+  timeframe: industry
+  statement: 2026绿色算力大会呼和浩特、乌兰察布两地与火山引擎、寒武纪(688256)等集中签约13个项目总投资1361亿元；全国日均词元调用量从2024年初约1000亿激增至约140万亿，中银国际认为国产CSP资本开支扩张趋势确立，CSP资本开支领先于服务器出货与数据中心建设，上调有望依次传导至算力芯片、服务器、交换机、网络互连等环节。
+  evidence_quote: 中国信通院副院长敖立发布《绿色算力发展研究报告（2026年）》，指出全国一体化算力网加速成形，截至2026年3月我国日均词元调用量已从2024年初约1000亿激增至约140万亿。中银国际苏凌瑶认为，国产CSP资本开支扩张趋势确立，CSP资本开支通常领先于服务器出货与数据中心建设，其上调有望依次传导至算力芯片、服务器、交换机、网络互连等环节。
+  interpretation: 国产算力的中期需求侧证据：词元调用量三年增千倍+绿算会签约1361亿。传导顺序：算力芯片→服务器→交换机→网络互连。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国产CSP资本开支扩张
+  related_stocks:
+  - code: '688256'
+    name: 寒武纪
+    role: 算力芯片-科创板不可直接交易
+  tags:
+  - 绿色算力
+  - 词元调用
+  - 资本开支
+  - 国产CSP
+- id: claim-20260824-002-o
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: sector-theme
+  subject: 光模块FCC限制利空确定性从高降到中但不构成做多理由
+  timeframe: trend
+  statement: ITI敦促FCC勿将外国光模块列入限制清单并要求对机器人与光伏逆变器条目提供更多信息，FCC对逆变器条目大幅修订给出豁免通道；个人判断此类限制短期交易情绪、中期看规则口径、长期比拼产品良率与交付，中长线大概率雷声大雨点小（2020年以来同类叙事下中国厂商份额不降反增），但行业协会游说不等于监管结论，FCC正式口径落地前只是把利空确定性从高降到中，不构成新的做多理由。
+  evidence_quote: 这类限制属于短期交易情绪、中期观察规则口径、长期比拼产品良率与交付，中长线大概率雷声大雨点小。……行业协会的游说不等于监管结论，在FCC正式口径落地之前，这只是把利空的确定性从高降到中，不构成新的做多理由。
+  interpretation: 光通信外部风险边际缓和但严格限定用途：可用于持有逻辑减仓理由减弱，不可用于加仓理由。逆变器条目修订利好阳光电源、德业股份(605117)等出口链。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: FCC光模块限制边际缓和
+  related_stocks: []
+  tags:
+  - FCC
+  - 光模块
+  - 逆变器
+  - 利空缓和
+- id: claim-20260824-002-p
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: sector-theme
+  subject: 资源股反弹进入加速段但性质是避险与再通胀交易
+  timeframe: short-term
+  statement: 贵金属板块涨4.64%、能源金属涨4.60%、工业金属涨2.42%，现货黄金升破4550美元报4564美元/盎司，金价已从3900上方反弹至4600附近，锂矿稀土同步走强；资源股强势与长端收益率高位是同一件事的两面，它是避险与再通胀交易不是市场转强的证明，一般这种反弹中后期的加速上涨才更能反映到股市上，除明面上的医药和科技板块外同样可以对资源股留个心眼但要认清其性质。
+  evidence_quote: 资源股的强势与长端收益率的高位是同一件事的两面，它是避险与再通胀交易，不是市场转强的证明。
+  interpretation: 资源股定性：与美债收益率同源的避险/再通胀交易，可作为分散观察方向但不是转强信号。加速段特征意味着追高风险大。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 资源股加速段性质界定
+  related_stocks: []
+  tags:
+  - 资源股
+  - 贵金属
+  - 黄金
+  - 避险交易
+- id: claim-20260824-002-q
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: operation
+  subject: 今日两种情形两套动作的条件化预案
+  timeframe: intraday
+  statement: 情形A·开盘温和缩量或平开且存储不破位，若首板家数从43家回升、跌停不再扩大，则上周五量能见底有效，指数按震荡修复对待，优先观察资源股持续性与算力硬件板块效应，但不改变调整过程定性，反弹参与控制仓位与时间成本；情形B·开盘大幅放量或存储跟随美股走弱，则上周五阳线重定性为缩量反抽、短线情绪拐点证伪、地量落点后移，不做左侧不接飞刀，等关键均线支撑与放量确认再谈参与。
+  evidence_quote: 情形A · 开盘温和缩量或平开，存储不破位：若同时首板家数从43家回升、跌停家数不再扩大，说明上周五的量能见底是有效的，指数可以按震荡修复对待。……情形B
+    · 开盘大幅放量，或存储跟随美股走弱：那么上周五那根阳线就要重新定性为缩量反抽，短线情绪拐点证伪，地量的落点会进一步后移。这种情况下不做左侧、不接飞刀，等关键均线支撑与放量确认再谈参与。
+  interpretation: 当日操作预案：以开盘量能+存储是否破位为首道分叉，以首板/跌停家数确认。右侧确认代价是少赚，左侧试错代价是本金——混沌期宁可少赚。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日条件化操作预案
+  related_stocks: []
+  tags:
+  - 操作预案
+  - 情形A
+  - 情形B
+  - 右侧确认
+- id: claim-20260824-002-r
+  source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
+  source_date: '2026-08-24'
+  source_type: 专栏
+  extracted_at: '2026-08-24T09:10:00+08:00'
+  claim_type: market-cycle
+  subject: 五大跟踪变量三个转向前仍按调整未完成对待
+  timeframe: short-term
+  statement: 本周跟踪变量清单：一、量能能否重回2万亿及跌破后的反复持续多久；二、首板家数与跌停家数能否同向修复；三、存储方向中美股与A股正负反馈是否切换；四、长端美债收益率能否有效回落至4.6%下方及油价是否继续上行；五、8月28日沃什杰克逊霍尔首次主席演讲口径。五个变量至少三个转向之前，仍按调整未完成对待。
+  evidence_quote: 在这五个变量至少有三个转向之前，仍按调整未完成对待。
+  interpretation: UP给出的可量化环境判定规则：5变量≥3转向才改判。当前全部未转向，市场定性=调整未完成，反弹均为参与性质的修复仓。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 五变量调整期判定框架
+  related_stocks: []
+  tags:
+  - 跟踪变量
+  - 调整未完成
+  - 判定框架
