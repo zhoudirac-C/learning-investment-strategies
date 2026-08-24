@@ -23,7 +23,7 @@ _TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v10.1"
+PROMPT_VERSION = "v11"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -90,7 +90,8 @@ SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。�
 23. 方向判断必须做催化溯源：directions 所选方向（及 stage_reason 归因的当日领涨/领跌方向）若当日涨幅/净流入居前，必须先在 user 数据的 news_titles / research 块中检索对应催化并引用条目标题；检索不到显性催化时必须注明「无显性催化，按纯资金/轮动对待」并降低置信度（posture 不高于「波段」）。禁止只用「涨幅居前+资金流入」的描述性理由。
 24. 外力/内生归因前置：判 market_stage/nature 前先答「本轮驱动来自内部还是外部」。若 user 数据含 global_macro/overnight_us 且外部链条成立（隔夜美股半导体/存储链大跌、亚太股指同步重挫、美债收益率异常变动等），nature 优先判「外力扰动」，不得仅凭内部情绪指标判「内生瓦解」；判「外力扰动」时 stage_reason 必须引用外盘数据，scenarios/invalidation 至少一条含外部变量锚（如今夜美股收盘位置、关键利率点位）。无论最终定性如何，stage_reason 必须注明外部链条检验结论（成立/不成立/平稳）。
 25. 宏观三条件校验（宏观压制 vs AI证伪定性）：若 user 数据的 global_macro 块含美债收益率字段，stage_reason 必须做「宏观三条件」检验并给出定性质结论——三条前置条件：①美联储动向（不动=条件成立）②油价是否低于80美元 ③十年期美债收益率是否低于4.70%。三条均不成立时，本轮压制优先定性为「宏观扰动」而非「AI商业模式证伪」，科技主线的中期逻辑不被外盘下跌证伪；部分成立时写明哪条失效及对应含义。禁止只罗列外盘涨跌数字而不给宏观/AI归因结论。
-23b. 催化兑现覆盖：directions 做催化溯源（规则23）时，若 overnight_us 中该方向的隔夜映射股出现大幅回落（利好兑现），隔夜反向数据优先于前日催化——reason 必须同时引用两者并解释矛盾（如「前日+X%催化 vs 隔夜-Y%兑现回落」），禁止只引用前日利好而忽略隔夜反向信号；此时 posture 不高于「波段」或直接不选该方向。"""
+23b. 催化兑现覆盖：directions 做催化溯源（规则23）时，若 overnight_us 中该方向的隔夜映射股出现大幅回落（利好兑现），隔夜反向数据优先于前日催化——reason 必须同时引用两者并解释矛盾（如「前日+X%催化 vs 隔夜-Y%兑现回落」），禁止只引用前日利好而忽略隔夜反向信号；此时 posture 不高于「波段」或直接不选该方向。
+27. 方向同簇限选：directions 选出的多条方向不得属于同一相关簇（簇=共享同一核心催化、同涨同跌的方向群，非字面行业分类）。参考分簇——C1 AI硬件链：pcb_ai_chain、ccL_resin_upstream、copper_foil_hvlp4、tungsten_pcb_drill、cipb_power_substrate、mlcc_super_cycle、aramid_ai_fiber、optical_communication、switch_800g_domestic、computing_network_super_node、waic_supernode_catalyst、memory_nor、chip_specialty、semiconductor_silicon_wafer、electronic_gas_wf6、leadframe_upcycle、equipment_packaging_catchup、sk_hynix_adr、edge_ai_endpoint、aidc_power_supply；C2 能源电力：green_power_ai_electric、photovoltaic_low_recovery、lithium_battery_separator_upcycle；C3 大宗周期：coke_coal_upcycle、copper_aluminum_shortage、small_metal_chemical、upstream_scarce_price_rise、polyester_filament_refill、tire_offshore_transfer；C4 医药：pharmaceutical_innovation、ai4s_pharma；C5 金融：securities_bottom、broker_finance；C6 消费农业：pig_farming_hedge、cheese_domestic_sub；C7 主题事件/其他：commercial_aerospace、robot_observation、shipbuilding_boom、typhoon_drainage、film_industry_event、mid_report_performance、kcb_ai_policy、ai_applications_rotation、ai_equity_investment、cybersecurity_mapping。自由文本方向名按语义归簇（如「5G概念」「存储芯片」均属 C1）。两条候选同簇时保留 reason 证据更强的一条，第二条从其它簇选当日证据最强者；若其它簇无合格候选，允许只输出 1 条并在 reason 注明「同簇限选，无其它簇合格候选」。每条 direction 的 reason 中用一句话写明簇归属判断（如「同属C1 AI硬件簇，取证据更强者」）。"""
 
 
 def build_messages(pack_text: str) -> list[dict]:
@@ -249,6 +250,55 @@ _LADDER_HINTS = ("梯队", "连板", "首板", "晋级", "二板", "断板", "�
 _STRUCTURE_HINTS = ("钝化", "顶部结构", "背离", "MACD", "绿柱", "高9", "DIF")
 _REDUCE_RE = re.compile(r"降仓|减仓|获利了结|兑现|清仓|卖出")
 
+# 规则27：方向同簇限选——池内 direction_id → 簇（proposal:
+# 2026-08-24-pattern-direction-cluster-limit；与 SYSTEM_PROMPT 规则27 分簇保持一致）
+_DIRECTION_CLUSTERS = {
+    "C1": ("pcb_ai_chain", "ccL_resin_upstream", "copper_foil_hvlp4",
+           "tungsten_pcb_drill", "cipb_power_substrate", "mlcc_super_cycle",
+           "aramid_ai_fiber", "optical_communication", "switch_800g_domestic",
+           "computing_network_super_node", "waic_supernode_catalyst",
+           "memory_nor", "chip_specialty", "semiconductor_silicon_wafer",
+           "electronic_gas_wf6", "leadframe_upcycle", "equipment_packaging_catchup",
+           "sk_hynix_adr", "edge_ai_endpoint", "aidc_power_supply"),
+    "C2": ("green_power_ai_electric", "photovoltaic_low_recovery",
+           "lithium_battery_separator_upcycle"),
+    "C3": ("coke_coal_upcycle", "copper_aluminum_shortage", "small_metal_chemical",
+           "upstream_scarce_price_rise", "polyester_filament_refill",
+           "tire_offshore_transfer"),
+    "C4": ("pharmaceutical_innovation", "ai4s_pharma"),
+    "C5": ("securities_bottom", "broker_finance"),
+    "C6": ("pig_farming_hedge", "cheese_domestic_sub"),
+    "C7": ("commercial_aerospace", "robot_observation", "shipbuilding_boom",
+           "typhoon_drainage", "film_industry_event", "mid_report_performance",
+           "kcb_ai_policy", "ai_applications_rotation", "ai_equity_investment",
+           "cybersecurity_mapping"),
+}
+_DIRECTION_CLUSTER_OF = {d: c for c, ids in _DIRECTION_CLUSTERS.items() for d in ids}
+# 自由文本方向名归簇别名（只收高精度关键词；长词优先，避免「铜箔」被「铜」截胡）
+_DIRECTION_CLUSTER_ALIASES = {
+    "C1": ("存储", "芯片", "半导体", "PCB", "覆铜板", "铜箔", "光通信", "光模块",
+           "CPO", "算力", "MLCC", "被动元件", "5G", "服务器", "液冷"),
+    "C2": ("绿电", "电力", "光伏", "锂电"),
+    "C3": ("焦炭", "煤", "铜", "铝", "小金属", "化工", "涤纶", "轮胎"),
+    "C4": ("创新药", "医药", "疫苗"),
+    "C5": ("证券", "券商", "银行"),
+    "C6": ("猪", "养殖", "奶酪", "食品"),
+}
+_ALIAS_KEYS = sorted(
+    ((k, c) for c, ks in _DIRECTION_CLUSTER_ALIASES.items() for k in ks),
+    key=lambda x: -len(x[0]))
+
+
+def _direction_cluster(direction_id: str) -> str | None:
+    """direction_id → 簇编号；池内 id 精确匹配，自由文本按别名归簇，无法归类返回 None。"""
+    if direction_id in _DIRECTION_CLUSTER_OF:
+        return _DIRECTION_CLUSTER_OF[direction_id]
+    low = direction_id.lower()
+    for k, c in _ALIAS_KEYS:
+        if k.lower() in low:
+            return c
+    return None
+
 
 def _result_text(result: dict) -> str:
     """拼接输出全部文本字段，供引用类校验检索。"""
@@ -307,7 +357,8 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
     - 规则11a + 10/12：结论-证据一致性（主升 vs 降仓类动作；冲量滑落 vs 放量结论）；
     - 规则13/16/17：pack 在场数据（ladder/jgmmtj/顶部结构信号）必须引用；
     - 规则18：情绪极端日判「调整/内生瓦解」必须引用三信号见底清单；
-    - 规则24：pack 含外盘数据（global_macro/overnight_us）时必须引用外部链条。
+    - 规则24：pack 含外盘数据（global_macro/overnight_us）时必须引用外部链条；
+    - 规则27：directions 同簇多选（池内 id 精确归簇，自由文本按别名归簇）。
     """
     if not isinstance(result, dict):
         return ["输出结构非法"]
@@ -346,6 +397,21 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
     if stage == "主升" and _REDUCE_RE.search(action):
         violations.append(
             f"规则11: market_stage=主升 与 operation.action「{action[:20]}」自相矛盾")
+
+    # 规则27：方向同簇限选——同簇双选即违规（合规出口只有「只输出1条并注明」）
+    cluster_hits: dict[str, list[str]] = {}
+    for d in result.get("directions") or []:
+        if not isinstance(d, dict):
+            continue
+        c = _direction_cluster(str(d.get("direction_id") or ""))
+        if c:
+            cluster_hits.setdefault(c, []).append(str(d.get("direction_id")))
+    for c, ids in cluster_hits.items():
+        if len(ids) > 1:
+            violations.append(
+                f"规则27: directions 同簇多选（{c}：{'、'.join(ids)}）——"
+                "同簇限选：保留证据更强者，另一条从其它簇递补；"
+                "其它簇无合格候选时应只输出 1 条并注明")
 
     # 规则10/12：盘中形态冲量滑落时禁止放量类结论
     shape = str(((pack or {}).get("intraday_amount") or {}).get("形态") or "")

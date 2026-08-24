@@ -59,9 +59,9 @@ class TestPremarketPrompt:
 
 
 class TestPremarketPromptVersion:
-    def test_prompt_version_is_v10(self):
-        """pattern-patch 2026-08-21：版本号 v9→v10（规则25 宏观三条件 + 规则23b 催化兑现覆盖）。"""
-        assert pm.PROMPT_VERSION == "v10.1"
+    def test_prompt_version_is_v11(self):
+        """pattern-patch 2026-08-24：版本号 v10.1→v11（规则27 方向同簇限选）。"""
+        assert pm.PROMPT_VERSION == "v11"
 
     def test_premarket_prompt_contains_discipline_rules(self):
         """v6 新增纪律规则关键词须出现在盘前 prompt（B1/B2/A2-A5/C5引用/C8降级）。"""
@@ -86,6 +86,12 @@ class TestPremarketPromptVersion:
         assert "个股级验证节点" in text  # 规则22 watch_next 首条
         assert "催化溯源" in text and "无显性催化" in text  # 规则23 方向催化溯源
         assert "外力/内生归因前置" in text and "外部链条检验结论" in text  # 规则24
+
+    def test_premarket_prompt_contains_v11_cluster_limit(self):
+        """v11 规则27 关键词须在盘前 prompt（与盘后共用 validate_result，规则须对称）。"""
+        text = pm.PREMARKET_SYSTEM_PROMPT
+        assert "同簇限选" in text and "C1 AI硬件链" in text
+        assert "无其它簇合格候选" in text
 
 
 class TestRunPredictPremarket:

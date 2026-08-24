@@ -432,3 +432,67 @@ class TestIndexLevelSanity:
     def test_no_index_data_no_check(self):
         r = _result(invalidation=["上证指数跌破4588.7则失效"])
         assert not any("规则26" in x for x in validate_result(r, pack={}))
+
+
+class TestDirectionClusterLimit:
+    """规则27（v11）：方向同簇限选——directions 不得同簇多选。
+
+    提案：framework/proposals/2026-08-24-pattern-direction-cluster-limit.md
+    回归样本：2026-08-12（pcb/光通信/存储同选 C1，簇内回调 3 样本 2 miss）、
+    2026-08-14（5G概念/存储芯片同选 C1，全 miss）。
+    """
+
+    def test_same_cluster_pool_ids_flagged(self):
+        # 08-12 真实违规样本：pcb_ai_chain + optical_communication + memory_nor 同属 C1
+        r = _result(directions=[
+            {"direction_id": "pcb_ai_chain", "reason": "", "stocks": []},
+            {"direction_id": "optical_communication", "reason": "", "stocks": []},
+            {"direction_id": "memory_nor", "reason": "", "stocks": []},
+        ])
+        v = validate_result(r, pack={})
+        assert any("规则27" in x and "C1" in x for x in v), v
+
+    def test_same_cluster_freetext_flagged(self):
+        # 08-14 真实违规样本：自由文本「5G概念」「存储芯片」按语义归簇 C1
+        r = _result(directions=[
+            {"direction_id": "5G概念", "reason": "", "stocks": []},
+            {"direction_id": "存储芯片", "reason": "", "stocks": []},
+        ])
+        v = validate_result(r, pack={})
+        assert any("规则27" in x for x in v), v
+
+    def test_cross_cluster_pass(self):
+        r = _result(directions=[
+            {"direction_id": "pcb_ai_chain", "reason": "", "stocks": []},
+            {"direction_id": "green_power_ai_electric", "reason": "", "stocks": []},
+        ])
+        assert not any("规则27" in x for x in validate_result(r, pack={}))
+
+    def test_single_direction_pass(self):
+        # 合规出口：其它簇无合格候选时只输出 1 条
+        r = _result(directions=[
+            {"direction_id": "pcb_ai_chain", "reason": "同簇限选，无其它簇合格候选",
+             "stocks": []},
+        ])
+        assert validate_result(r, pack={}) == []
+
+    def test_unclassifiable_direction_skipped(self):
+        # 无法归簇的自由文本不参与校验（宁漏不误拦）
+        r = _result(directions=[
+            {"direction_id": "某全新题材", "reason": "", "stocks": []},
+            {"direction_id": "另一个新题材", "reason": "", "stocks": []},
+        ])
+        assert not any("规则27" in x for x in validate_result(r, pack={}))
+
+    def test_alias_priority_longer_keyword_first(self):
+        # 「铜箔」须归 C1 而非被 C3 的「铜」截胡
+        r = _result(directions=[
+            {"direction_id": "铜箔概念", "reason": "", "stocks": []},
+            {"direction_id": "煤炭", "reason": "", "stocks": []},
+        ])
+        assert not any("规则27" in x for x in validate_result(r, pack={}))
+        r2 = _result(directions=[
+            {"direction_id": "铜箔概念", "reason": "", "stocks": []},
+            {"direction_id": "pcb_ai_chain", "reason": "", "stocks": []},
+        ])
+        assert any("规则27" in x for x in validate_result(r2, pack={}))

@@ -7,10 +7,10 @@ from investment_engine.shadow.daily import run
 
 
 class TestDailyPromptVersion:
-    def test_prompt_version_is_v10(self):
-        """pattern-patch 2026-08-21：版本号 v9→v10（规则25 宏观三条件 + 规则23b 催化兑现覆盖）。"""
+    def test_prompt_version_is_v11(self):
+        """pattern-patch 2026-08-24：版本号 v10.1→v11（规则27 方向同簇限选）。"""
         from investment_engine.blindtest import replay
-        assert replay.PROMPT_VERSION == "v10.1"
+        assert replay.PROMPT_VERSION == "v11"
 
     def test_daily_prompt_contains_discipline_rules(self):
         """v6/v8 纪律规则关键词须出现在盘后 prompt（B1/B2/A2-A5/C5引用/C8降级/规则9并列）。"""
@@ -37,6 +37,14 @@ class TestDailyPromptVersion:
         assert "个股级验证节点" in text  # 规则22 watch_next 首条
         assert "催化溯源" in text and "无显性催化" in text  # 规则23 方向催化溯源
         assert "外力/内生归因前置" in text and "外部链条检验结论" in text  # 规则24
+
+    def test_daily_prompt_contains_v11_cluster_limit(self):
+        """v11 规则27（2026-08-24 方向同簇限选提案）关键词须在盘后 prompt。"""
+        from investment_engine.blindtest import replay
+        text = replay.SYSTEM_PROMPT
+        assert "同簇限选" in text and "相关簇" in text  # 规则27 核心约束
+        assert "C1 AI硬件链" in text and "C7 主题事件" in text  # 分簇表在场
+        assert "无其它簇合格候选" in text  # 合规出口
 
 
 class TestDailyRun:
