@@ -217,7 +217,13 @@ def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -
         or os.environ.get(config["api_key_env"])
     )
     base_url = settings.llm_base_url or config["base_url"]
-    model = settings.llm_model or config["default_model"]
+    # 2026-08-24 修复：LLM_MODEL 是主 provider 的模型名（如 stealth/ox-alpha），
+    # 不能透传给 fallback provider——deepseek 收到会报 400 invalid model name。
+    # 仅当目标就是主 provider 时才用 settings.llm_model，否则用该 provider 默认模型。
+    if target == (settings.llm_provider or "").lower():
+        model = settings.llm_model or config["default_model"]
+    else:
+        model = config["default_model"]
     logger.info("[get_llm_client] target=%s model=%s base_url=%s has_key=%s", target, model, base_url, bool(api_key))
 
     if not api_key:
