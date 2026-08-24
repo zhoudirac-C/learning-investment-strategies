@@ -1,0 +1,743 @@
+claims:
+- id: claim-20260824-003-a
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: market-cycle
+  subject: 退潮后半段冰点比反弹更值得等
+  timeframe: short-term
+  statement: 8月24日收盘情绪割裂仍在，但退潮已经走到了后半段，短线视角接下来更值得等的不是反弹而是情绪冰点。
+  evidence_quote: 情绪的割裂仍在，可退潮已经走到了后半段，接下来更值得等的是冰点。
+  interpretation: UP对退潮进度的阶段判断：前半段已走完，进入后半段后冰点（而非反弹）是下一个高性价比观察点。与周复盘'退潮未破坏趋势'衔接，更新退潮进度。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 退潮后半段与冰点等待
+  related_stocks: []
+  tags:
+  - 退潮
+  - 情绪冰点
+  - 短线节奏
+- id: claim-20260824-003-b
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: market-cycle
+  subject: 明日触冰点反弹后二次冰点企稳时点
+  timeframe: short-term
+  statement: 若无意外明天大概率触及情绪冰点，市场随之迎来一段短线冰点反弹；反弹之后情绪端大概率二次回踩形成二次冰点，届时指数调整到位、市场才有望正式企稳，时点预计在下半周到9月初。
+  evidence_quote: 若没有意外，明天大概率会触及情绪冰点，市场也将随之迎来一段短线的冰点反弹时间。真正需要留意的是反弹之后：情绪端大概率还会二次回踩形成二次冰点，届时指数调整到位，市场才有望正式企稳，时点预计在下半周到9月初。
+  interpretation: UP给出明确的节奏推演：冰点(明天)→冰点反弹→二次冰点→企稳(下半周到9月初)。这是当前最核心的短期路径判断，直接指导后续操作节奏。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 冰点反弹与二次冰点节奏推演
+  related_stocks: []
+  tags:
+  - 冰点反弹
+  - 二次冰点
+  - 企稳时点
+  - 节奏推演
+- id: claim-20260824-003-c
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: market-cycle
+  subject: 本轮调整定性内生性回调
+  timeframe: short-term
+  statement: 本轮调整倾向于定性为内生性回调而非外力扰动：科技端利空基本都已摆在台面上，指数走弱更多是退潮周期与消化过程的自然结果，而非突发消息或资金踩踏；这决定后续不必过度悲观，但修复需要时间，不能指望一根反弹阳线解决问题。
+  evidence_quote: 从调整的性质上看，倾向于把这一轮归为内生性回调而非外力扰动——科技端的利空日前基本都已摆在台面上，指数走弱更多是退潮周期与消化过程的自然结果，而不是突发消息或资金踩踏。这决定了后续不必过度悲观，但也决定了修复需要时间，不能指望一根反弹阳线解决问题。
+  interpretation: 调整性质定性的关键claim：内生性回调（非外力扰动）意味着不必过度悲观但修复偏慢，为'冰点反弹只做反弹'提供依据。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 调整性质内生性定性
+  related_stocks: []
+  tags:
+  - 调整性质
+  - 内生性回调
+  - 科技利空
+- id: claim-20260824-003-d
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: operation
+  subject: 明日两种情形应对框架
+  timeframe: short-term
+  statement: 明日应对分两种情形：情形A，低开或平开后缩量下探、跌停家数放大后收敛、情绪如期触及冰点，则冰点反弹窗口打开，但这段只做反弹不做反转，反弹中优先观察科技能否止跌（止跌来自有承接，而不是没有抛压）；情形B，资金抢跑、高开冲高，冰点被推迟，则情绪割裂延续，二次冰点位置与企稳时点相应后移。
+  evidence_quote: 情形A，低开或平开后缩量下探，跌停家数放大后收敛，情绪如期触及冰点，则冰点反弹的窗口打开，但这段只做反弹不做反转，反弹中优先观察科技能否止跌——止跌来自有承接，而不是没有抛压；情形B，明天被资金抢跑、高开冲高，冰点被推迟，则情绪割裂延续，二次冰点的位置相应后移，企稳时点也要往后修正。
+  interpretation: UP给出明日的双情形应对框架：A=冰点如期落地做反弹（只做反弹不做反转），B=高开抢跑则推迟修正。'止跌来自有承接而非没有抛压'是关键判据。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 明日冰点双情形应对
+  related_stocks: []
+  tags:
+  - 应对框架
+  - 冰点反弹
+  - 科技承接
+  - 操作预案
+- id: claim-20260824-003-e
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: sector-theme
+  subject: 今日格局科技主攻缺位防御顶上
+  timeframe: short-term
+  statement: 8月24日资金明显聚焦防御性品种，农林牧渔、黄金以及以银行、煤炭为首的高股息方向涨幅居前；按科技主攻、上游涨价、防御补充三层拆解，今天是主攻缺位、防御顶上的典型退潮期防御格局。
+  evidence_quote: 资金明显聚焦防御性品种，农林牧渔、黄金以及以银行、煤炭为首的高股息方向涨幅居前。按科技主攻、上游涨价、防御补充三层来拆，今天是主攻缺位、防御顶上的典型格局。
+  interpretation: 当日板块格局定性：三层框架（科技主攻/上游涨价/防御补充）下，主攻缺位、防御顶上，是退潮期的典型结构。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 当日防御格局定性
+  related_stocks: []
+  tags:
+  - 防御格局
+  - 高股息
+  - 黄金
+  - 农林牧渔
+- id: claim-20260824-003-f
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: sector-theme
+  subject: 防御方向属性分层
+  timeframe: trend
+  statement: 防御方向内部属性分层：高股息是近两年典型防御方向、属性清晰；农业偏题材、更适合短线资金做过渡；黄金及有色则有一定基本面支撑。
+  evidence_quote: 高股息是近两年典型的防御性方向，属性清晰；农业偏题材，更适合短线资金做过渡；黄金及有色则有一定的基本面支撑。
+  interpretation: 防御方向的属性分层框架：高股息(属性清晰)/农业(题材过渡)/黄金有色(基本面支撑)，用于区分不同防御品种的参与方式与持续性。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 防御方向属性分层
+  related_stocks: []
+  tags:
+  - 防御属性
+  - 高股息
+  - 农业题材
+  - 有色
+- id: claim-20260824-003-g
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: sector-theme
+  subject: 防御属性切换有色持续性
+  timeframe: trend
+  statement: 防御板块的属性会切换：涨多了会从防御转为进攻，就像之前的电力和近期的医药一样；从持续性上看有色可能更胜一筹，但该板块历来受多重因素干扰、走得不太连贯，节奏上不宜按一条直线线性外推。
+  evidence_quote: 个人判断，后两者的关键在于属性会切换——涨多了会从防御转为进攻，就像之前的电力和近期的医药一样，从持续性上说有色可能更胜一筹。但这个板块历来受多重因素干扰、走得不太连贯，节奏上仍需要注意，不宜按一条直线去线性外推。
+  interpretation: 防御→进攻属性切换框架（先例：电力、医药），并给出有色在持续性上相对占优的判断，同时提示有色走势不连贯不宜线性外推。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 防御转进攻属性切换
+  related_stocks: []
+  tags:
+  - 防御转进攻
+  - 属性切换
+  - 有色
+  - 持续性
+- id: claim-20260824-003-h
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: sector-theme
+  subject: 科技回落是弱势主因
+  timeframe: short-term
+  statement: 科技股全天持续回落是市场走弱的主要原因，好在利空基本已经明牌，剩下的是耐心等待市场去消化。
+  evidence_quote: 科技股全天持续回落是市场走弱的主要原因。好在利空基本已经明牌，剩下的是耐心等待市场去消化。
+  interpretation: 弱势主因归因：科技持续回落主导指数走弱；利空明牌意味着下行驱动已充分暴露，等待消化而非恐慌离场。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技回落主导弱势
+  related_stocks: []
+  tags:
+  - 科技回落
+  - 利空明牌
+  - 弱势主因
+- id: claim-20260824-003-i
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: macro
+  subject: 巨头逆势加码AI与资本担忧背离
+  timeframe: trend
+  statement: 即便资本对A股的担忧在产业端不可能没有考量，海内外的科技巨头仍在持续加码AI，这一背离值得反复思考。
+  evidence_quote: 这里有一个值得反复想的问题：资本对A股的担忧，产业端不可能没有考量，但即便如此，海内外的巨头们为何仍在持续加码A？
+  interpretation: UP抛出的宏观思考题：二级市场担忧与产业端加码AI的背离。与当晚视频主题'腾讯阿里上调资本开支'呼应，属观察性claim而非明确判断。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 资本担忧与巨头加码AI背离
+  related_stocks: []
+  tags:
+  - 资本开支
+  - AI加码
+  - 巨头
+  - 背离
+- id: claim-20260824-003-j
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: sector-theme
+  subject: 医药分歧与零星异动无合力
+  timeframe: short-term
+  statement: 医药同样分歧严重，仅少数情绪标的维持相对韧性；锂电、智能驾驶等有零星异动，但都没有形成板块级别的合力，在整体弱势环境下持续性极差，这类零星异动更适合记录而不适合参与。
+  evidence_quote: 医药同样分歧严重，仅少数情绪标的维持相对韧性；锂电、智能驾驶等有零星异动，但都没有形成板块级别的合力，在整体弱势环境下持续性极差。这类零星异动更适合记录而不适合参与。
+  interpretation: 弱势环境下的参与纪律：零星异动（锂电/智驾）无板块合力、持续性差，只记录不参与；医药仅少数情绪标的有韧性。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 零星异动记录不参与
+  related_stocks: []
+  tags:
+  - 医药分歧
+  - 零星异动
+  - 参与纪律
+- id: claim-20260824-003-k
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: stock-view
+  subject: 中关村mRNA连板龙头穿越
+  timeframe: short-term
+  statement: 中关村(000931)作为mRNA方向连板龙头被资金博弈穿越：mRNA自上周四爆发以来已历经分歧与分歧加剧两个阶段，明天有回流预期；潜在竞争者不多，神奇制药(600613)走得相对独立，汉森制药(002412)更多借力身位优势；中关村今日涨停质量比汉森制药差一些，逻辑类似8月20日的金健米业(600127)，需要板块回流配合否则回落风险较大；比金健米业强的地方在于中关村与汉森制药存在竞争关系，市场预期不会太一致。
+  evidence_quote: 中关村：据盘面节奏，mRNA方向自上周四爆发以来，已经历过分歧与分歧加剧两个阶段，正常来说明天有回流预期，所以今天资金去博弈的是连板龙头的穿越。市场上潜在竞争者并不多，神奇制药走得相对独立，汉森制药更多是借力了身位优势，焦点因此落在中关村上——即便今天的涨停质量要比汉森制药差一些。个人判断，中关村的逻辑有点类似8月20日的金健米业，需要板块回流去配合，否则回落风险比较大；比金健米业强的地方在于，中关村和汉森制药之间存在竞争关系，市场预期不会太一致。
+  interpretation: 中关村(000931)穿越逻辑拆解：mRNA分歧到分歧加剧后明天回流预期下的连板穿越博弈；类比金健米业(600127)（需板块配合否则回落风险大），优势在竞争关系带来的预期不一致。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中关村mRNA穿越博弈
+  related_stocks:
+  - code: '000931'
+    name: 中关村
+    role: 深主板-可交易
+  - code: '600613'
+    name: 神奇制药
+    role: 沪主板-可交易
+  - code: '002412'
+    name: 汉森制药
+    role: 深主板-可交易
+  - code: '600127'
+    name: 金健米业
+    role: 沪主板-可交易
+  tags:
+  - 中关村
+  - mRNA
+  - 连板穿越
+  - 金健米业
+- id: claim-20260824-003-l
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: stock-view
+  subject: 蓝盾光电重组收购岚创科技
+  timeframe: industry
+  statement: 蓝盾光电(300862)8月7日披露重组预案，拟以发行股份及支付现金方式收购苏州岚创科技控股权并募集配套资金；岚创科技是国内少数在超窄带薄膜滤光片(TFF)领域实现商业化量产的设备厂商，产品覆盖磁控溅射、高速离子束溅射与原子层沉积设备，其镀膜设备直接服务光通信领域光学滤光片制备，处于光通信产业链上游卖铲人位置；实控人袁永刚2025年6月已通过东山精密(002384)以不超过59.35亿元现金收购索尔思光电100%股权并于10月并表，完成镀膜设备(上游)与光模块(中游)产业链卡位；作为预期差品种有望对标五洲医疗(301234)。
+  evidence_quote: 蓝盾光电：据公司8月7日晚披露的重组预案，拟以发行股份及支付现金方式收购苏州岚创科技控股权并募集配套资金。岚创科技是国内少数在超窄带薄膜滤光片（TFF）领域实现商业化量产的设备厂商，产品覆盖磁控溅射、高速离子束溅射与原子层沉积设备，其镀膜设备直接服务于光通信领域的光学滤光片制备，处于光通信产业链上游的'卖铲人'位置。据公开报道，公司实控人袁永刚2025年6月已通过东山精密以不超过59.35亿元现金收购索尔思光电100%股权，并于同年10月并表，这意味着其在光通信上游的镀膜设备与中游的光模块之间完成了产业链卡位。个人判断，作为预期差品种有望对标五洲医疗。
+  interpretation: 蓝盾光电(300862)重组逻辑：收购岚创科技获得TFF镀膜设备(光通信上游卖铲人)，叠加实控人索尔思光电(光模块中游)卡位，构成上下游协同预期差，UP对标五洲医疗(301234)。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 蓝盾光电TFF产业链卡位
+  related_stocks:
+  - code: '300862'
+    name: 蓝盾光电
+    role: 创业板-不可交易
+  - code: '301234'
+    name: 五洲医疗
+    role: 创业板-不可交易
+  - code: '002384'
+    name: 东山精密
+    role: 深主板-可交易
+  tags:
+  - 蓝盾光电
+  - 重组
+  - TFF
+  - 光通信
+  - 索尔思
+- id: claim-20260824-003-m
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: risk
+  subject: 蓝盾光电并购交易不确定性
+  timeframe: short-term
+  statement: 蓝盾光电(300862)并购存在三条约束：标的财务数据尚未经审计，评估值、交易价格与业绩补偿条款均未落定，交易还需董事会、股东会审议及交易所审核与证监会注册；并购预期与并购落地是两件事，交易本身的不确定性不应被行情热度覆盖掉。
+  evidence_quote: 但要同步记住三条约束：标的财务数据尚未经审计，评估值、交易价格与业绩补偿条款均未落定，交易还需董事会、股东会审议及交易所审核与证监会注册。并购预期与并购落地是两件事，交易本身的不确定性不应被行情热度覆盖掉。
+  interpretation: 对蓝盾光电(300862)重组标的的风险提示：三条硬约束（未审计/未定价/多层审批）决定预期与落地分离，行情热度不能覆盖交易不确定性。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 蓝盾光电交易不确定性
+  related_stocks:
+  - code: '300862'
+    name: 蓝盾光电
+    role: 创业板-不可交易
+  tags:
+  - 蓝盾光电
+  - 并购不确定性
+  - 风险约束
+- id: claim-20260824-003-n
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: stock-view
+  subject: 楚天龙数字货币旗帜
+  timeframe: short-term
+  statement: 楚天龙(003040)是数字货币板块情绪凝聚的旗帜，也是市场在弱势中为数不多找出来的题材突破口；美债回购这一宏观流动性信号点燃全球加密资产，比特币单周大涨之后A股数字货币板块联动，资金在板块内寻找低位、小市值、高辨识度的情绪载体。
+  evidence_quote: 楚天龙：据市场信息，美债回购这一宏观流动性信号点燃了全球加密资产，在比特币单周大涨之后，A股数字货币板块随之联动，资金在板块内寻找'低位、小市值、高辨识度'的情绪载体。个人判断，短期来看这是跟风黄金的一条支线，但考虑到黄金概念受多重因素干扰、历来走得并不流畅，远不及期货顺，数字货币对短线热钱来说可能是一个更好的载体；楚天龙是数字货币板块情绪凝聚的旗帜，也是市场在弱势中为数不多找出来的题材突破口。
+  interpretation: 楚天龙(003040)定性：数字货币板块旗帜、弱势中的题材突破口；触发链条=美债回购→加密资产→比特币大涨→A股数字货币联动。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 楚天龙数字货币旗帜
+  related_stocks:
+  - code: '003040'
+    name: 楚天龙
+    role: 深主板-可交易
+  tags:
+  - 楚天龙
+  - 数字货币
+  - 加密资产
+  - 题材突破口
+- id: claim-20260824-003-o
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: sector-theme
+  subject: 数字货币是更好短线载体
+  timeframe: short-term
+  statement: 数字货币短期是跟风黄金的一条支线，但黄金概念受多重因素干扰、历来走得并不流畅、远不及期货顺，数字货币对短线热钱来说可能是更好的情绪载体。
+  evidence_quote: 个人判断，短期来看这是跟风黄金的一条支线，但考虑到黄金概念受多重因素干扰、历来走得并不流畅，远不及期货顺，数字货币对短线热钱来说可能是一个更好的载体；
+  interpretation: 载体比较判断：数字货币(短线) vs 黄金(不流畅)——同样的流动性逻辑，数字货币作为短线情绪载体更优。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 数字货币优于黄金短线载体
+  related_stocks: []
+  tags:
+  - 数字货币
+  - 黄金
+  - 短线载体
+- id: claim-20260824-003-p
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: catalyst
+  subject: 柔性显示政策与苹果折叠屏催化
+  timeframe: short-term
+  statement: 上海《十五五规划》支持Micro LED、硅基OLED、柔性显示等技术发展，大力发展AI手机、AI电脑、AI服务器等新型智能终端；苹果首款折叠屏iPhone（iPhone
+    Ultra）预计9月秋季发布会亮相，郭明錤首年出货预期800万至1000万台；折叠屏是柔性显示技术商业化的重要里程碑，巨头入场有望带动上下游材料、面板、零部件企业需求共振；统联精密(688210)提供铰链MIM精密零部件，科森科技(603626)为苹果、华为等客户提供消费电子精密结构件。
+  evidence_quote: 上海市人民政府印发《上海市加快推进新型工业化构建现代化产业体系'十五五'规划》，提出全面打造新型智能终端，大力发展AI手机、AI电脑、AI服务器、AI新终端等产品，支持Micro
+    LED、硅基OLED、柔性显示等技术发展。另一头是终端催化。据多方供应链与媒体报道，苹果首款折叠屏iPhone预计于今年9月的秋季发布会亮相，市场普遍以'iPhone
+    Ultra'称之，采用书本式内折设计，郭明錤此前给出的首年出货预期在800万至1000万台区间。机构观点认为，折叠手机不只是硬件形态的改变，更是柔性显示技术商业化的重要里程碑，巨头入场有望带动上下游材料、面板、零部件企业的需求共振。公司方面，据公开资料，统联精密专注精密零部件研发与制造，在折叠屏方向主要提供铰链的MIM精密零部件，已与苹果、亚马逊、荣耀及其EMS厂商建立合作；科森科技以精密压铸、锻压、冲压、CNC、激光切割焊接、MIM、精密注塑等工艺为基础，为苹果、华为等客户提供消费电子精密金属与塑胶结构件的研发制造及部分组装服务。
+  interpretation: 柔性屏/折叠屏事件双催化：上海十五五政策 + 苹果iPhone Ultra 9月发布(出货预期800-1000万台)；标的统联精密(688210)、科森科技(603626)。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 折叠屏政策与苹果催化
+  related_stocks:
+  - code: '688210'
+    name: 统联精密
+    role: 科创板-不可交易
+  - code: '603626'
+    name: 科森科技
+    role: 沪主板-可交易
+  tags:
+  - 折叠屏
+  - 柔性显示
+  - iPhoneUltra
+  - 统联精密
+- id: claim-20260824-003-q
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: sector-theme
+  subject: 柔性屏方向可跟踪不宜透支
+  timeframe: short-term
+  statement: 柔性屏/折叠屏这条线的看点在于政策与终端两头同时给到，但兑现节奏要跟着发布会与后续实际出货走，属于可跟踪、不宜提前透支的方向。
+  evidence_quote: 个人判断，这条线的看点在于政策与终端两头同时给到，但兑现节奏要跟着发布会与后续实际出货走，属于可跟踪、不宜提前透支的方向。
+  interpretation: UP对折叠屏方向的参与纪律：双催化但兑现节奏未定，可跟踪不提前透支。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 折叠屏可跟踪不透支
+  related_stocks: []
+  tags:
+  - 折叠屏
+  - 可跟踪
+  - 不透支
+- id: claim-20260824-003-r
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: catalyst
+  subject: 中秋国庆预订升温长线出行弹性
+  timeframe: short-term
+  statement: 同程旅行8月24日数据显示中秋国庆关键词搜索热度月环比增长116%，假期旅行产品提前30天以上预订热度较去年同期涨超20%；1200公里以上国内长航线机票预订热度持续领跑，新疆、西藏、云南为长线热门目的地；中秋与国庆相隔仅3天，已有消费者通过'请3休13'拼出长假期，有望助力长线出行与跨境游需求释放；相关公司：南京商旅(600250)（秦淮河水上游览线20年特许经营权、唯一水上观光运营企业），西藏旅游(600749)（雅鲁藏布大峡谷、巴松措景区）。
+  evidence_quote: 同程旅行8月24日发布的数据显示，平台上'中秋''国庆'等关键词搜索热度月环比增长116%，中秋、国庆假期旅行产品提前30天以上的预订热度较去年同期涨超20%。从流向看，1200公里以上国内长航线机票预订热度持续领跑，新疆、西藏、云南均是长线热门目的地。据中银证券观点，今年中秋与国庆假期相隔仅3天，已有部分消费者通过'请3休13'拼出长假期，更长的假期时间有望助力长线出行与跨境游需求释放。公司方面，据公开资料，南京商旅控股股东南京文旅集团系南京市通过市属国资战略性重组整合打造的文体旅融合发展主平台，子公司秦淮风光拥有夫子庙—秦淮风光带内秦淮河水上游览线20年特许经营权，是该区域唯一从事水上观光游览的运营企业；西藏旅游是西藏本土第一家上市企业，拥有雅鲁藏布大峡谷景区、巴松措景区等旅游资源。
+  interpretation: 中秋国庆出行数据催化：搜索热度+116%、提前预订+20%，长线出行(1200公里+)是主要弹性；标的南京商旅(600250)、西藏旅游(600749)。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中秋国庆出行催化
+  related_stocks:
+  - code: '600250'
+    name: 南京商旅
+    role: 沪主板-可交易
+  - code: '600749'
+    name: 西藏旅游
+    role: 沪主板-可交易
+  tags:
+  - 中秋国庆
+  - 出行链
+  - 长线旅游
+  - 南京商旅
+- id: claim-20260824-003-s
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: sector-theme
+  subject: 假期主题预期先行数据验证
+  timeframe: short-term
+  statement: 假期主题偏事件驱动，节奏上通常是'预期先行、数据验证'，在当前弱势环境里更适合作为短线过渡而非趋势配置。
+  evidence_quote: 个人判断，这类假期主题偏事件驱动，节奏上通常是'预期先行、数据验证'，在当前弱势环境里更适合作为短线过渡而非趋势配置。
+  interpretation: 假期主题的节奏框架：预期先行、数据验证；弱势环境定位=短线过渡非趋势配置。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 假期主题预期先行
+  related_stocks: []
+  tags:
+  - 假期主题
+  - 预期先行
+  - 短线过渡
+- id: claim-20260824-003-t
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: catalyst
+  subject: 中航西飞定增看点产能
+  timeframe: industry
+  statement: 中航西飞(000768)正在筹划向特定对象发行A股股票，募资用于军民用飞机研制及产能提升、售后服务、国际转包产能提升等，发行数量不超过发行前总股本30%；公司承担C919机翼、中机身等约50%核心部件研制，ARJ21核心部段供应占比超60%，是国内唯一承担运-20、轰-6系列及多款特种飞机研制交付的核心企业；定增看点不在题材标签而在产能二字，融资落地本身是订单能见度的侧面确认；火箭配套业务收入占比很小，商业航天与低空经济属远期布局而非当期业绩变量，不宜按主题线性映射。
+  evidence_quote: 中航西飞（000768）：据公司公告，正在筹划向特定对象发行A股股票，募集资金拟用于军民用飞机研制及产能提升、售后服务、国际转包产能提升、空天复材及金属结构件生产能力提升等项目，发行数量不超过发行前总股本的30%。据东海证券4月1日研报，公司承担C919机翼、中机身等约50%核心部件研制，ARJ21核心部段供应占比超60%，并是国内唯一承担运-20、轰-6系列及多款特种飞机研制交付的核心企业。个人判断，这份定增的看点不在题材标签，而在'产能'二字——军机交付节奏与C919产能爬坡都需要前置的产线投入，融资落地本身就是订单能见度的一种侧面确认。但需要提醒的是，公司已明确火箭配套占比很小，商业航天与低空经济属于远期布局而非当期业绩变量，不宜按主题去线性映射。
+  interpretation: 中航西飞(000768)定增解读：看点在产能(订单能见度侧面确认)而非题材；同时提示商业航天/低空经济是远期布局，火箭配套占比小，不宜主题化线性映射。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中航西飞定增产能逻辑
+  related_stocks:
+  - code: '000768'
+    name: 中航西飞
+    role: 深主板-可交易
+  tags:
+  - 中航西飞
+  - 定增
+  - C919
+  - 产能
+- id: claim-20260824-003-u
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: catalyst
+  subject: 同星科技可转债算力温控
+  timeframe: industry
+  statement: 同星科技(301252)拟向不特定对象发行可转债，募集资金总额不超过6.5亿元，投向算力中心温控产品建设项目、具身智能温控系统及精密部件产业化项目及补充流动资金；公司轻商制冷翅片式换热器领域国内市占率居前，数据中心液冷已形成微通道换热器、板式换热器、管路件及干冷塔的产品矩阵，处于液冷换热模组试点导入阶段，与世图兹等长期合作；一季度收购的无锡同为已进入国内多家人形机器人企业及供应链名录并实现批量出货。
+  evidence_quote: 同星科技（301252）：据公司公告，拟向不特定对象发行可转换公司债券，募集资金总额不超过6.5亿元，投向算力中心温控产品建设项目、具身智能温控系统及精密部件产业化项目及补充流动资金，尚需股东会审议、深交所审核并经证监会同意注册。据公司公开口径，其在轻商制冷翅片式换热器领域国内市占率居前，主要产品为换热器、制冷系统管组件、汽车空调管路与制冷单元模块；数据中心液冷方面已形成覆盖微通道换热器、板式换热器、管路件及干冷塔的产品矩阵，处于零部件规模化量产推进、液冷换热模组试点导入的阶段，与世图兹等有长期合作；一季度收购的无锡同为已进入国内多家人形机器人企业及供应链名录并实现批量出货。
+  interpretation: 同星科技(301252)可转债6.5亿投向：算力中心温控+具身智能温控；液冷产品矩阵处于试点导入阶段，人形机器人供应链已批量出货。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 同星科技温控可转债
+  related_stocks:
+  - code: '301252'
+    name: 同星科技
+    role: 创业板-不可交易
+  tags:
+  - 同星科技
+  - 可转债
+  - 算力温控
+  - 液冷
+- id: claim-20260824-003-v
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: catalyst
+  subject: 远东股份收购液冷散热
+  timeframe: industry
+  statement: 远东股份(600869)子公司远东电气拟以2.16亿元收购惠州市富的旺旺实业发展有限公司80%股权，标的主营液冷散热核心部件及相关热管理产品，收购旨在打通供电—互联—散热的基础设施闭环；转让方承诺标的2026至2028年净利润分别不低于2500万元、3000万元、3500万元；公司铜箔业务超薄、高抗拉、高延伸等新产品上半年营收同比增长680.09%，已实现G.657.A1/A2系列光纤规模化量产，自研保偏光纤、布局空芯光纤，今年将形成年产800吨光棒及配套产销规模。
+  evidence_quote: 远东股份（600869）：据公司公告，子公司远东电气拟以2.16亿元收购惠州市富的旺旺实业发展有限公司80%股权，标的主营液冷散热核心部件及相关热管理产品，收购旨在打通供电—互联—散热的基础设施闭环；转让方承诺标的公司2026至2028年净利润分别不低于2500万元、3000万元、3500万元。据公司公开信息，其铜箔业务超薄、高抗拉、高延伸等新产品上半年营收同比增长680.09%，并已实现G.657.A1/A2系列光纤规模化量产，自研保偏光纤、布局空芯光纤，今年将形成年产800吨光棒及配套产销规模。
+  interpretation: 远东股份(600869)双主线：2.16亿收购液冷散热(供电-互联-散热闭环，含业绩承诺)；铜箔新产品+680%、光纤/光棒扩产。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 远东股份液冷与光纤
+  related_stocks:
+  - code: '600869'
+    name: 远东股份
+    role: 沪主板-可交易
+  tags:
+  - 远东股份
+  - 液冷散热
+  - 光纤
+  - 铜箔
+- id: claim-20260824-003-w
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: operation
+  subject: 明日冰点验证情绪指标
+  timeframe: short-term
+  statement: 明日验证'最后一跌'位置看三个情绪指标的直接读数：跌停家数、连续跌停天数的极值、以及首板与二板家数的配合，以判断情绪是否如期见冰点。
+  evidence_quote: 情绪指标是否如期见冰点——跌停家数、连续跌停天数的极值、以及首板与二板家数的配合，是判断'最后一跌'位置的直接读数。
+  interpretation: 冰点验证的可操作指标清单：跌停家数+连续跌停天数极值+首板二板家数配合，用于明日确认情绪冰点是否落地。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 冰点验证指标清单
+  related_stocks: []
+  tags:
+  - 情绪指标
+  - 冰点验证
+  - 跌停家数
+- id: claim-20260824-003-x
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: operation
+  subject: 尾盘回流次日负反馈验证
+  timeframe: short-term
+  statement: 明日重点验证今天尾盘回流科技是否形成次日负反馈：若形成，说明冰点是今天已被提前透支；若不形成，冰点才是明天真正落地。
+  evidence_quote: 其二，尾盘回流科技是否形成次日负反馈，这决定冰点是今天已被提前透支还是明天才真正落地。
+  interpretation: 尾盘回流科技的次日验证：负反馈=冰点被提前透支，无负反馈=冰点明天落地。承接'被提前消耗的买盘往往次日形成负反馈'的经验应用。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 尾盘回流负反馈验证
+  related_stocks: []
+  tags:
+  - 尾盘回流
+  - 负反馈
+  - 冰点验证
+- id: claim-20260824-003-y
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: operation
+  subject: 防御端接力顺序观察
+  timeframe: short-term
+  statement: 明日观察防御端接力顺序：如果有色开始由防御切向进攻，说明资金还愿意在场内做多；若连高股息都开始滞涨，则要警惕情绪冰点被推后。
+  evidence_quote: 防御端的接力顺序——如果有色开始由防御切向进攻，说明资金还愿意在场内做多，若连高股息都开始滞涨，则要警惕情绪冰点被推后。
+  interpretation: 防御端作为场内做多意愿的温度计：有色防御→进攻切换=资金在场内，高股息滞涨=冰点推后预警。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 防御端接力观察
+  related_stocks: []
+  tags:
+  - 防御接力
+  - 有色
+  - 高股息
+- id: claim-20260824-003-z
+  source_path: sources/original/bilibili/2026-08-24-2224-图片-今天是一根看上去很难受、但位置上并不坏的调整K线。情绪的割裂.md
+  source_date: '2026-08-24'
+  source_type: 复盘
+  extracted_at: '2026-08-24T23:10:00+08:00'
+  claim_type: operation
+  subject: 量价确认纪律冰点反弹只做反弹
+  timeframe: permanent
+  statement: 操作纪律：不见量价确认不追；冰点反弹只做反弹不做反转；二次冰点之后才谈企稳。
+  evidence_quote: 落点仍是那句老话：不见量价确认不追，冰点反弹只做反弹，二次冰点之后才谈企稳。
+  interpretation: UP的核心操作纪律重申：量价确认为追入前提，冰点反弹仅作反弹处理，企稳需等二次冰点之后。长期有效纪律。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量价确认与冰点反弹纪律
+  related_stocks: []
+  tags:
+  - 量价确认
+  - 操作纪律
+  - 冰点反弹
