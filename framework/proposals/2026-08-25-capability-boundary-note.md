@@ -1,7 +1,7 @@
 ---
 date: 2026-08-25
 type: capability-boundary
-status: open
+status: retracted
 source: evals/shadow/attributions/2026-08-25.json
 ---
 
@@ -14,3 +14,5 @@ AI判断为震荡/缩量企稳，真值为调整。错因核心在于：1）步�
 ## 处置建议
 
 当前推理框架基于日线收盘数据，无法覆盖盘中动态变化，建议标注'日线级判断存在滞后性'，并在invalidation中增加盘中触发条件（如指数跌破关键均线、涨停家数盘中骤降），或引入盘中数据通道。
+
+> retracted 2026-08-25：归因记录已被预测重跑作废（prediction_rerun:2026-08-25），本提案证据基础失效；如议题仍成立请人工重开。

@@ -14,12 +14,13 @@ from investment_engine.blindtest.truth import STAGES
 DEFAULT_MODEL = os.environ.get("SHADOW_LLM_MODEL", "deepseek-v4-flash")
 _BASE_URL = os.environ.get("SHADOW_LLM_BASE_URL", "https://token.sensenova.cn/v1")
 # sensenova deepseek-v4-flash 是推理模型：默认输出上限 8192 会被 reasoning 吃满
-# （盲判长 prompt 72K tokens 实测 content 变空）。两招并用：
-#  1) max_tokens 放大到 _MAX_OUTPUT_TOKENS
-#  2) 默认关闭 thinking（推理步骤已在 SYSTEM_PROMPT 规则内显式化，无需自由推理；
-#     SHADOW_LLM_THINKING=on 可恢复推理，用于切回非推理模型或需要思考的场景）
+# （盲判长 prompt 72K tokens 实测 content 变空）。
+#  关闭 thinking（默认）: max_tokens 16384 即可, 延迟 ~15s
+#  开启 thinking（SHADOW_LLM_THINKING=on）: reasoning 消耗大, max_tokens 须更大
 _MAX_OUTPUT_TOKENS = int(os.environ.get("SHADOW_LLM_MAX_TOKENS", "16384"))
 _THINKING_DISABLED = os.environ.get("SHADOW_LLM_THINKING", "off").lower() != "on"
+# 推理模式专属预算：reasoning 动辄数千 tokens，需要远高于非推理的 16384
+_MAX_OUTPUT_TOKENS_THINKING = int(os.environ.get("SHADOW_LLM_THINKING_MAX_TOKENS", "32768"))
 _MAX_DIRECTIONS = 3
 _MAX_STOCKS_PER_DIR = 2
 _POSTURES = ("趋势", "波段", "右侧确认", "回避")
@@ -131,7 +132,8 @@ def call_deepseek(messages: list[dict], *, model: str = DEFAULT_MODEL,
         kwargs: dict = dict(
             model=model, messages=messages, temperature=0,
             response_format={"type": "json_object"},
-            max_tokens=_MAX_OUTPUT_TOKENS,
+            # 推理模式 reasoning 吃 token，预算自动加大；非推理模式用基础预算
+            max_tokens=_MAX_OUTPUT_TOKENS_THINKING if not _THINKING_DISABLED else _MAX_OUTPUT_TOKENS,
         )
         if _THINKING_DISABLED:
             kwargs["extra_body"] = {"thinking": {"type": "disabled"}}

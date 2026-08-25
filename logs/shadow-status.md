@@ -1,7 +1,7 @@
 # 影子双轨完整性报告（2026-08-25）
 
 - 记录日数: 22，完整: 20
-- 提案: open 7 / applied 0 / rejected 0 / retracted 2
+- 提案: open 6 / applied 0 / rejected 0 / retracted 3
 
 | 日期 | 阶段判定 | 状态 | 归因 | 完整 |
 |---|---|---|---|---|
@@ -34,6 +34,5 @@
 - 2026-08-12-pattern-patch-note.md
 - 2026-08-14-pattern-patch-note.md
 - 2026-08-19-pattern-patch-note.md
-- 2026-08-25-capability-boundary-note.md
 - 2026-08-25-glossary-patch-note.md
 - 2026-08-25-pattern-patch-note.md
