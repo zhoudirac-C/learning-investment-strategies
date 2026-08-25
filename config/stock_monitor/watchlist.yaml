@@ -1755,6 +1755,48 @@ themes:
       relevance: theme
       claim_type: sector-theme
 
+- id: holding_etf_huabao
+  name: 持仓ETF/个股-华宝（资源+医药+试探单）
+  up_positioning: 「按 UP 逻辑配置的持仓组合」— 8/24 复盘：资源股走强是全球定价结果，持续性不取决于A股量能（8/25-010）；黄金一致性过强不追一字、只回踩右侧确认（8/25-011）；煤炭安监限产供给收缩9-10月旺季缺口扩大（8/25-014）。组合覆盖：有色（512400）、黄金股（517520）、创新药过渡仓（159992）、隔膜试探单（002812）。
+  note: 2026-08-25 华宝证券持仓截图登记（OCR+盈亏公式验证）。资源类占该账户市值约96%，为防御/全球定价暴露；创新药=回踩期过渡方向（指数回暖能否修复是验证点）。
+  source_docs:
+  - knowledge/claims/claim-20260825-001.yaml
+  market_checks:
+  - 国际金价方向（黄金线外生催化，8/25-011：回踩且金价未走坏才做右侧确认）
+  - 有色防御→进攻属性切换信号（8/24 复盘框架：类比电力/医药先例）
+  - 医药在指数回暖后能否修复（8/25-012：修复不了则降预期）
+  - 煤炭9-10月冬储旺季供需缺口兑现（8/25-014，独立催化参考）
+  stocks:
+  - code: 512400.SH
+    name: 有色金属ETF南方
+    role: holding_etf
+    segment: 有色金属全谱（铜铝铅锌+小金属，全球定价暴露）
+    priority: 持仓-华宝证券
+    watch_reason: 2026-08-25 持仓 30,000股@1.9254（截图登记，现价1.883 浮亏2.2%）。UP 8/25：资源股走强是全球定价结果，持续性不取决于A股量能；有色持续性可能胜于农业。
+    lifecycle:
+      stage: holding
+      entered_stage: '2026-08-25'
+    linked_claims:
+    - claim_id: claim-20260825-010
+      relevance: theme
+      claim_type: sector-theme
+  - code: 517520.SH
+    name: 黄金股ETF永赢
+    role: holding_etf
+    segment: 黄金矿企股（山东黄金/中金黄金/赤峰黄金等金矿股篮子）
+    priority: 持仓-华宝证券
+    watch_reason: 2026-08-25 持仓 25,000股@2.2517（截图登记，现价2.193 浮亏2.6%）。UP 8/25 风险提示：黄金线一致性过强（深中华A一字板）、依赖国际金价外生催化——不追一字，回踩且金价未走坏才做右侧确认；本仓执行该纪律的持有端。
+    lifecycle:
+      stage: holding
+      entered_stage: '2026-08-25'
+    linked_claims:
+    - claim_id: claim-20260825-011
+      relevance: risk
+      claim_type: risk
+    - claim_id: claim-20260825-010
+      relevance: theme
+      claim_type: sector-theme
+
 avoid_and_reduce:
   avoid:
   - 存储芯片（M头+颈线+量价顶背离，反弹减仓）→ 6/17更新：memory_nor已升级为resuming，中报业绩驱动，但需核实减持
