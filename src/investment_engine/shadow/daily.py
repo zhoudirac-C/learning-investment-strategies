@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from investment_engine.blindtest.replay import DEFAULT_MODEL  # noqa: F401 - run() 默认模型统一走 replay.py
 from investment_engine.blindtest.truth import load_truth
 from investment_engine.shadow.attribute import ATTR_DIR, PROPOSAL_DIR, run_attribution
 from investment_engine.shadow.maturity import run_maturity
@@ -21,7 +22,7 @@ def _direction_missed(rec: dict) -> bool:
 
 def run(day: str, *, config_dir, db_path=None,
         pred_dir: Path = PRED_DIR, attr_dir: Path = ATTR_DIR,
-        proposal_dir: Path = PROPOSAL_DIR, model: str = "deepseek-chat",
+        proposal_dir: Path = PROPOSAL_DIR, model: str = DEFAULT_MODEL,
         client=None, force: bool = False) -> dict:
     if not has_fresh_data(day, db_path=db_path):
         return {"date": day, "status": "no_data"}

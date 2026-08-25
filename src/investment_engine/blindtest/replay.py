@@ -11,8 +11,15 @@ from pathlib import Path
 from investment_engine.blindtest.dataset import build_daily_pack, pack_to_prompt
 from investment_engine.blindtest.truth import STAGES
 
-DEFAULT_MODEL = "deepseek-chat"
-_BASE_URL = "https://api.deepseek.com"
+DEFAULT_MODEL = os.environ.get("SHADOW_LLM_MODEL", "deepseek-v4-flash")
+_BASE_URL = os.environ.get("SHADOW_LLM_BASE_URL", "https://token.sensenova.cn/v1")
+# sensenova deepseek-v4-flash 是推理模型：默认输出上限 8192 会被 reasoning 吃满
+# （盲判长 prompt 72K tokens 实测 content 变空）。两招并用：
+#  1) max_tokens 放大到 _MAX_OUTPUT_TOKENS
+#  2) 默认关闭 thinking（推理步骤已在 SYSTEM_PROMPT 规则内显式化，无需自由推理；
+#     SHADOW_LLM_THINKING=on 可恢复推理，用于切回非推理模型或需要思考的场景）
+_MAX_OUTPUT_TOKENS = int(os.environ.get("SHADOW_LLM_MAX_TOKENS", "16384"))
+_THINKING_DISABLED = os.environ.get("SHADOW_LLM_THINKING", "off").lower() != "on"
 _MAX_DIRECTIONS = 3
 _MAX_STOCKS_PER_DIR = 2
 _POSTURES = ("趋势", "波段", "右侧确认", "回避")
@@ -104,10 +111,13 @@ def build_messages(pack_text: str) -> list[dict]:
 def _default_client():
     from openai import OpenAI
 
+    # 优先 SENSENOVA（2026-08-25 起主通道，DeepSeek 官方自费余额耗尽 → 402）；
     # 兼容仓库 .env 的小写命名（qing_investment Settings 用 deepseek_api_key）
-    key = os.environ.get("DEEPSEEK_API_KEY") or os.environ.get("deepseek_api_key")
+    key = (os.environ.get("SENSENOVA_API_KEY")
+           or os.environ.get("DEEPSEEK_API_KEY")
+           or os.environ.get("deepseek_api_key"))
     if not key:
-        raise RuntimeError("缺少 DEEPSEEK_API_KEY 环境变量")
+        raise RuntimeError("缺少 SENSENOVA_API_KEY / DEEPSEEK_API_KEY 环境变量")
     return OpenAI(api_key=key, base_url=_BASE_URL)
 
 
@@ -116,13 +126,21 @@ def call_deepseek(messages: list[dict], *, model: str = DEFAULT_MODEL,
     client = client or _default_client()
     last_err: Exception | None = None
     prompt_chars = sum(len(str(m.get("content", ""))) for m in messages)
+
+    def _create():
+        kwargs: dict = dict(
+            model=model, messages=messages, temperature=0,
+            response_format={"type": "json_object"},
+            max_tokens=_MAX_OUTPUT_TOKENS,
+        )
+        if _THINKING_DISABLED:
+            kwargs["extra_body"] = {"thinking": {"type": "disabled"}}
+        return client.chat.completions.create(**kwargs)
+
     for attempt in range(1, max_retries + 1):
         t0 = time.monotonic()
         try:
-            resp = client.chat.completions.create(
-                model=model, messages=messages, temperature=0,
-                response_format={"type": "json_object"},
-            )
+            resp = _create()
             content = resp.choices[0].message.content
             usage = getattr(resp, "usage", None)
             _log_llm_call({

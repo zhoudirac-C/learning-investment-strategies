@@ -75,6 +75,33 @@
   "raw": "{\n  \"market_stage\": \"震荡\",\n  \"nature\": \"主动降速\",\n  \"stage_reason\": \"今日盘中形态为冲量滑落（全天缩量），开盘预估全天47660亿，尾盘实际24008亿，偏差超30%，两市成交额24007.7亿较昨日23874.6亿微增，但涨停家数79家较昨日106家减少，封板率77.45%较昨日89.83%下降，上涨家数2121家少于下跌3292家，创业板指跌0.93%，科创50跌0.92%，上证指数跌0.32%，昨日watch_next中涨停家数维持80家以上未兑现，创业板指站稳3740点未兑现，市场情绪退潮，属主动降速消化浮盈。\",\n  \"scenarios\": [\n    {\n      \"name\": \"情形A\",\n      \"condition\": \"下一交易日两市成交额(亿)维持24000亿以上且涨停家数回升至80家以上，创业板指收复3740点\",\n      \"conclusion\": \"主动降速后修复延续，可维持现有仓位，关注科技主线回踩后的右侧确认\",\n      \"key\": \"量能能否维持\"\n    },\n    {\n      \"name\": \"情形B\",\n      \"condition\": \"下一交易日两市成交额(亿)萎缩至22000亿以下或涨停家数继续减少至60家以下，创业板指跌破3700点\",\n      \"conclusion\": \"反弹周期结束，进入震荡调整，降低仓位，控制操作频率\",\n      \"key\": \"情绪是否继续退潮\"\n    }\n  ],\n  \"watch_next\": [\n    \"两市成交额(亿)能否维持24000亿以上\",\n    \"涨停家数能否回升至80家以上\",\n    \"创业板指能否站稳3740点\",\n    \"首板家数61家，按约15%晋级率折算次日二板健康区间约9家，跟踪实际二板家数\"\n  ],\n  \"invalidation\": [\n    \"若下一交易日两市成交额(亿)显著放大且涨停家数回升，则主动降速判断失效\",\n    \"若创业板指跌破前低或科创50跌破底部结构，则反弹周期证伪\"\n  ],\n  \"directions\": [\n    {\n      \"direction_id\": \"5G概念\",\n      \"reason\": \"今日半导体、消费电子、元件等行业资金净流入居前，5G概念相关个股如航天电器涨停，但板块内部分化，需观察持续性\",\n      \"posture\": \"波段\",\n      \"trend\": \"退潮\",\n      \"stocks\": [\"002025\", \"600330\"]\n    },\n    {\n      \"direction_id\": \"存储芯片\",\n      \"reason\": \"存储芯片概念资金净流入305.39亿，行业涨幅4.67%，但今日涨停家数减少，情绪退潮，需等待回踩确认\",\n      \"posture\": \"波段\",\n      \"trend\": \"退潮\",\n      \"stocks\": [\"688498\", \"301308\"]\n    }\n  ],\n  \"used_patterns\": [\"sentiment_cycle\", \"mainline_identification\", \"position_by_cycle\", \"volume_surge_fade\", \"volume_source_qualify\", \"position_context_qualify\", \"promotion_rate_benchmark\"],\n  \"operation\": {\n    \"position\": \"反弹超预期\",\n    \"action\": \"获利了结、降仓位、不急着表态\",\n    \"basis\": \"科创50反弹第11天超过理论窗口6-8天，创业板指反弹第13天超过窗口，上证指数反弹第2天，指数间分歧；今日盘中形态冲量滑落，涨停家数减少，封板率下降，情绪退潮，属反弹超预期后的兑现窗口\"\n  },\n  \"cycle_state\": {\n    \"rebound_day\": 11,\n    \"bottom_level\": \"90min\",\n    \"bottom_date\": \"2026-08-04\",\n    \"theoretical_window\": \"6-8天\",\n    \"note\": \"科创50与创业板指反弹周期一致，均超过理论窗口，上证指数反弹第2天，指数间分歧，科技主线周期已超预期\"\n  }\n}",
   "prompt_version": "v6",
   "stage_hit": true,
-  "due_scores": null,
-  "status": "pending_maturity"
+  "due_scores": {
+    "directions": {
+      "samples": 2,
+      "hits": 0,
+      "hit_rate": 0.0
+    },
+    "stocks": {
+      "samples": 4,
+      "hits": 0,
+      "hit_rate": 0.0
+    },
+    "direction_details": [
+      {
+        "date": "2026-08-18",
+        "direction_id": "5G概念",
+        "dir_ret": -0.08789296640184964,
+        "bench_ret": -0.036772532116187584,
+        "hit": false
+      },
+      {
+        "date": "2026-08-18",
+        "direction_id": "存储芯片",
+        "dir_ret": -0.09873959432221606,
+        "bench_ret": -0.036772532116187584,
+        "hit": false
+      }
+    ]
+  },
+  "status": "scored"
 }

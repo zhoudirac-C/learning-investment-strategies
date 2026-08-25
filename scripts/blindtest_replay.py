@@ -2,9 +2,9 @@
 """M1 盲测回放 CLI：--run 推理 / --score 评分 / --report 报告 / --up-baseline 对照。
 
 用法:
-  DEEPSEEK_API_KEY=... python scripts/blindtest_replay.py --run [--days N]
+  python scripts/blindtest_replay.py --run [--days N]   # 模型/通道走 replay.py（默认 sensenova deepseek-v4-flash）
   python scripts/blindtest_replay.py --score --report
-  DEEPSEEK_API_KEY=... python scripts/blindtest_replay.py --up-baseline [--up-days 10]
+  python scripts/blindtest_replay.py --up-baseline [--up-days 10]
 """
 from __future__ import annotations
 
@@ -14,6 +14,8 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+
+from investment_engine.blindtest.replay import DEFAULT_MODEL
 
 DEFAULT_OUT = Path("evals/blindtest/results.jsonl")
 
@@ -26,7 +28,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--up-baseline", action="store_true")
     parser.add_argument("--days", type=int, default=None, help="只跑前 N 个交易日（dry-run 用）")
     parser.add_argument("--up-days", type=int, default=10)
-    parser.add_argument("--model", default="deepseek-chat")
+    parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--start", default="2026-04-27")
     parser.add_argument("--end", default="2026-08-07")
     parser.add_argument("--config-dir", default="config/stock_monitor")
