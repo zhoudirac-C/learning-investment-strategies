@@ -1,0 +1,786 @@
+claims:
+- id: claim-20260825-001-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: market-cycle
+  subject: 指数情绪背离收敛
+  timeframe: short-term
+  statement: 昨日双创指数跌超3%但跌停家数反而收敛、二板晋级率正常，指数弱情绪不弱的背离已连续两个交易日，今天（8/25）大概率收敛到一致方向。
+  evidence_quote: 昨日双创指数均跌超3%，全市场近4000只个股下跌，但跌停家数反而由13家减少至11家，二板家数与晋级率也基本正常。指数弱、情绪不弱，这种背离已经连续两个交易日，今天大概率要收敛到一个一致的方向上去。
+  interpretation: 背离是短期现象，连续两天背离后必然收敛，方向未定，这是'今天不做方向性重仓'的底层原因。收敛方向由开盘半小时量能与存储承接决定，对应情形A/B/C三种应对。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 指数与短线情绪背离两日后今天收敛，方向未定前不做重仓
+  related_stocks: []
+  tags:
+  - 情绪背离
+  - 指数
+  - 短线情绪
+- id: claim-20260825-002-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: market-cycle
+  subject: 算力硬件全球降杠杆
+  timeframe: short-term
+  statement: 昨日A股算力硬件大面积走弱不是孤立事件，而是全球AI硬件在英伟达财报（北京时间8/27周四早间）前集体降杠杆的一部分。
+  evidence_quote: 换句话说，昨天A股算力硬件的大面积走弱并不是孤立事件，而是全球AI硬件在英伟达财报前集体降杠杆的一部分。
+  interpretation: 把A股算力走弱放在全球框架下理解：美股费半上周累计跌约5%、英伟达单日跌2.91%，与A股算力硬件走弱同源，均是对英伟达财报这一裁决点的预防性降杠杆，而非A股独有基本面恶化。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A股算力走弱是全球AI硬件在英伟达财报前集体降杠杆的一部分
+  related_stocks: []
+  tags:
+  - 算力硬件
+  - 英伟达财报
+  - 全球共振
+- id: claim-20260825-003-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: market-cycle
+  subject: 隔夜开盘定价
+  timeframe: intraday
+  statement: 隔夜给A股开盘定价的是两股相反力：利率缓和与金价新高偏正面、费半与英伟达续跌偏负面，合起来是中性偏震荡开盘，不构成方向指引；外盘只影响开盘，开盘后回归自身节奏。
+  evidence_quote: 个人判断，隔夜给A股开盘定价的是两股相反的力：利率缓和与金价新高偏正面，费半与英伟达续跌偏负面，合起来大概率是一个中性偏震荡的开盘环境，本身不构成方向指引。外盘只影响开盘那一下，开盘之后回归自身节奏——低开不可怕，接不住才可怕。
+  interpretation: 美财政部或动用约1万亿美元一般账户资金为国债回购提供资金，10年期美债收益率回落至4.69%附近，压制高位算力资产的外部变量隔夜缓和；但费半与英伟达续跌构成负面对冲，故开盘中性，重点看低开后能否被接住。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 隔夜利率缓和与费半续跌对冲，开盘中性偏震荡不构成方向指引
+  related_stocks: []
+  tags:
+  - 美债利率
+  - 金价
+  - 开盘定价
+- id: claim-20260825-004-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: catalyst
+  subject: 英伟达财报等待期
+  timeframe: short-term
+  statement: 英伟达财报落在北京时间8/27周四早间，周三之前算力硬件线处于无人重仓表态的等待期，等待期会压制成交、让反弹量能显得偏轻，不能据此判定资金已离场。
+  evidence_quote: 还有一条时序纪律要重申：英伟达财报落在北京时间周四早间，本周三之前，算力硬件这条线基本处在谁也不愿意重仓表态的等待期。这个等待期本身会压制成交，也会让任何一次反弹的量能显得偏轻，不要据此就判定资金已经离场。
+  interpretation: 财报是AI硬件方向本周最直接的裁决点，市场关注AI芯片需求、数据中心收入与AI基础设施订单能否支撑当前估值；财报前缩量是正常现象而非资金撤离信号，这是对'量能偏轻=离场'误判的预防性纠偏。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 英伟达财报前算力线处于等待期，量能偏轻不代表资金离场
+  related_stocks: []
+  tags:
+  - 英伟达财报
+  - 算力硬件
+  - 等待期
+  - 量能
+- id: claim-20260825-005-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: market-cycle
+  subject: 惯性下跌动能衰减
+  timeframe: short-term
+  statement: 昨日（8/24）跌幅与量能均小于8月19日那一次下跌，动能衰减，昨天很可能只是惯性下跌而非趋势下跌，个股下跌意愿没有指数表现得夸张。
+  evidence_quote: 补充一个观察：昨日跌幅与量能均小于8月19日那一次。同样是下跌，动能在衰减，这是判断'惯性下跌'与'趋势下跌'的分水岭之一。……个人判断：昨天很可能只是惯性下跌，个股的下跌意愿并没有指数表现得那么夸张。
+  interpretation: 下跌动能的衰减（跌幅+量能双缩）是区分惯性下跌与趋势下跌的关键指标；结合跌停家数收敛、二板晋级正常，判断下跌更多是情绪性惯性而非趋势性出清。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 昨日跌幅量能均小于8/19，动能衰减判断为惯性下跌
+  related_stocks: []
+  tags:
+  - 惯性下跌
+  - 动能衰减
+  - 量价
+- id: claim-20260825-006-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: methodology
+  subject: 存储量能先决条件
+  timeframe: short-term
+  statement: 存储是本轮海内外共振的那个'点'、光模块等属于'面'，点不稳则面上的任何反弹只能定义为修复而非反转；'存储+量能'两个先决条件昨日（8/24）一个都没满足。
+  evidence_quote: 此前反复强调的'存储＋量能'两个先决条件，昨天一个都没满足——无论是德明利还是整个存储板块，都是一开盘就低开低走。存储是本轮海内外共振的那个'点'，光模块等属于'面'；点不稳，面上的任何反弹都只能定义为修复而非反转。
+  interpretation: 判断反弹性质的框架：点（存储）决定面（光模块等）的反弹是修复还是反转。存储低开低走+量能未配合→昨日任何反弹都只是修复。今日开盘需重点验证存储承接与量能。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储是海内外共振的点，点不稳则面上反弹只是修复而非反转
+  related_stocks:
+  - code: '001309'
+    name: 德明利
+    role: 存储代表-主板可交易
+  tags:
+  - 存储
+  - 先决条件
+  - 量能
+  - 修复vs反转
+- id: claim-20260825-007-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: market-cycle
+  subject: 利率冲击后产业定价
+  timeframe: trend
+  statement: 美债利率短期快速上行历史上冲击的都是前期涨幅大、估值高、交易拥挤的资产（2018大金融/2021茅指数/2022宁组合），但冲击过后市场回归产业趋势定价：有产业趋势验证的行业仍创新高（宁组合），盈利走弱则下行（茅指数）。
+  evidence_quote: 美债利率短期的快速上行，历史上冲击的都是前期涨幅大、估值高、交易拥挤的资产——2018年的大金融、2021年的茅指数、2022年的宁组合，都是这个路径。但冲击过后，市场会回归产业趋势定价：有产业趋势验证的行业依然创出新高，比如宁组合；反观盈利走弱的茅指数则进入下行通道。
+  interpretation: 把本轮AI算力调整放在历史利率冲击框架下：当前被压制的高位算力资产是否企稳，取决于资金将其定义为有产业趋势验证的'宁组合'还是盈利证伪后的'茅指数'，答案由本周三英伟达财报与国内厂商中报兑现共同给出。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 利率冲击后市场回归产业趋势定价，AI线是宁组合还是茅指数待财报验证
+  related_stocks: []
+  tags:
+  - 美债利率
+  - 拥挤交易
+  - 产业趋势定价
+  - 宁组合
+  - 茅指数
+- id: claim-20260825-008-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: market-cycle
+  subject: 大金融维护盘面
+  timeframe: short-term
+  statement: 昨日（8/24）大金融积极维护盘面，是双创跌超3%背景下全A未出现踩踏、跌停家数反而收敛的直接原因，在'大金融/量能/存储'三要素中是目前唯一明确偏正面的项。
+  evidence_quote: 昨日大金融仍旧在积极维护盘面。这是双创跌超3%的背景下，全A没有出现踩踏、跌停家数反而收敛的直接原因。三要素里，这一项目前是唯一明确偏正面的。
+  interpretation: 大金融的护盘行为解释了指数与情绪背离的成因：指数跌但情绪未崩，靠的是大金融托底。三要素（大金融/量能/存储）中仅此一项正面，其余两项未满足，故反弹只能定义为修复。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大金融护盘是全A无踩踏直接原因，三要素中唯一正面项
+  related_stocks: []
+  tags:
+  - 大金融
+  - 护盘
+  - 三要素
+  - 跌停家数
+- id: claim-20260825-009-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: methodology
+  subject: 接力强度量化判据
+  timeframe: intraday
+  statement: 接力强度量化判据：36家首板对应次日健康二板家数应在5家以上，昨日（8/24）6家二板达标、一进二晋级率13.95%贴近15%经验中枢，仅看接力数据完全看不出是双创跌超3%的市场。
+  evidence_quote: 按此前使用的接力强度量化判据，36家首板对应次日健康的二板家数应在5家以上，昨日6家二板是达标的；晋级率13.95%也贴近约15%的经验中枢。仅看这组数据，完全看不出这是一个双创跌超3%、且热门算力硬件大面积走弱的市场。
+  interpretation: 量化情绪温度的方法：首板家数→健康二板家数映射（36家首板→二板≥5家），晋级率贴近15%中枢。昨日接力数据健康→短线情绪实际不弱，与指数背离，佐证'惯性下跌'判断。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 36家首板对应健康二板≥5家，昨日6家二板晋级率13.95%贴近中枢
+  related_stocks: []
+  tags:
+  - 接力强度
+  - 二板家数
+  - 晋级率
+  - 情绪温度
+- id: claim-20260825-010-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: 资源股全球定价
+  timeframe: short-term
+  statement: 昨日（8/24）黄金概念走强在外盘得到印证，资源股的强不是A股独有的避险行为而是全球定价的结果，持续性不取决于A股量能；黄金及有色有基本面支撑，持续性可能胜于农业。
+  evidence_quote: 而昨天A股黄金概念的再度走强，在外盘同样得到了印证。也就是说，资源股的强不是A股独有的避险行为，而是全球定价的结果，这反过来意味着它的持续性不取决于A股的量能。……黄金及有色则有一定的基本面支撑。个人判断，后两者的关键在于属性会切换——涨多了会从防御转为进攻，就像之前的电力和近期的医药一样，从持续性上说有色可能更胜一筹。
+  interpretation: 判断资源股强弱的标准：是否是全球定价的结果。黄金走强有隔夜国际金价上涨的正向验证，是外生定价而非A股资金行为，故其持续性不由A股量能决定；有色相比农业持续性更优（基本面支撑+防御转进攻属性切换）。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 资源股走强是全球定价结果，持续性不取决于A股量能
+  related_stocks: []
+  tags:
+  - 黄金
+  - 有色
+  - 全球定价
+  - 防御转进攻
+- id: claim-20260825-011-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: risk
+  subject: 黄金一致性风险
+  timeframe: short-term
+  statement: 黄金概念昨日（8/24）太过一致：深中华A(000017)直接一字涨停（白银有色1月中下旬上涨过程都没出现一字板），且依赖国际金价存在外生性问题，一致性越强越要防止在情绪高点接最后一棒；应对是不追一字与高开大幅溢价，只在回踩且国际金价未走坏时做右侧确认。
+  evidence_quote: 但问题是太过一致了。昨日深中华A直接一字涨停，要知道1月中下旬白银有色上涨的过程中都没出现过一字板的情况。并且和医药股一样，这条线存在依赖外围市场（国际金价）的外生性问题——催化不在自己手里，一致性越强，越要防止在情绪高点接最后一棒。应对：不追一字与高开大幅溢价，只在回踩且国际金价未走坏时做右侧确认。
+  interpretation: 一字板出现=情绪一致性到达极致的信号（类比历史白银有色上涨中无一字板）；外生催化（国际金价）不在自己手里意味着A股资金无法主导节奏。操作纪律：不追一字/高溢价，回踩+金价未走坏才做右侧确认。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 黄金线一致性过强+依赖外盘，不追一字只做回踩右侧确认
+  related_stocks:
+  - code: '000017'
+    name: 深中华A
+    role: 黄金概念情绪载体-主板可交易
+  tags:
+  - 黄金
+  - 一字板
+  - 一致性
+  - 右侧确认
+- id: claim-20260825-012-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: 医药过渡与验证条件
+  timeframe: short-term
+  statement: 回踩期过渡方向偏医药与防御性板块、医药持续性可能更好（低仓位+半年报业绩催化），但医药股自上周五起内部分化严重（中关村000931昨日在指数反弹时炸板）；若指数回暖后医药仍无法修复则需降低预期，此判断今天指数若回暖即可低成本验证。
+  evidence_quote: 补充此前的判断：回踩期的过渡方向偏医药与防御性板块，且医药的持续性可能更好，理由是低仓位加半年报业绩催化。这个判断是否还成立，今天指数若回暖就能验证——这是一个成本很低的观察。……昨日医药股既有涨停也有跌停。其实从上周五开始，板块内部的分化就相当严重，所以比较难分清到底是自身弱还是跟随指数，尤其中关村还是在下午指数反弹时炸的板。落点很明确：如果之后医药股在指数回暖后仍无法修复，那可能就要降低点预期了。
+  interpretation: 医药作为回踩期过渡方向的逻辑（低仓位+中报催化）需要验证条件：指数回暖后医药能否修复。中关村在指数反弹时炸板是分化信号，若回暖后仍不修复则逻辑证伪、降低预期。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药是回踩期过渡方向，指数回暖能否修复是验证条件
+  related_stocks:
+  - code: '000931'
+    name: 中关村
+    role: mRNA连板龙头-主板可交易
+  tags:
+  - 医药
+  - 回踩期
+  - 中报催化
+  - 修复验证
+- id: claim-20260825-013-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: 科技股紧盯指数
+  timeframe: short-term
+  statement: 科技股操作比较纯粹：紧盯指数即可，有新炒新；但本周三英伟达财报之前，科技线上方压力来自尚未落地的外部裁决点，不宜在此之前把仓位做满。
+  evidence_quote: 因此科技股就相对比较纯粹了，紧盯指数即可，然后有新炒新。但本周三之前，这条线的上方压力来自一个尚未落地的外部裁决点，不宜在此之前把仓位做满。
+  interpretation: 科技股（尤其算力硬件）与指数高度同步，盘中以指数为锚；但财报裁决点未落地前上方有压力，仓位管理上保留余地，这与'硬科技仓位保留调整余地'的操作纪律一致。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技股紧盯指数有新炒新，财报前不宜仓位做满
+  related_stocks: []
+  tags:
+  - 科技股
+  - 紧盯指数
+  - 有新炒新
+  - 仓位管理
+- id: claim-20260825-014-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: 煤炭供给端逻辑
+  timeframe: trend
+  statement: 煤炭有独立的供给端逻辑（安监限产）：6/7月原煤同比减量均值3899万吨、表内外合计年化减产约2.6亿吨，9-10月冬储与非电采购旺季供需缺口扩大、若叠加库存去化至低位煤价高点或超预期，是'有独立催化'而非'反指式防御轮动'，这解释了昨日（8/24）煤炭逆势活跃。
+  evidence_quote: 结论是：表外供给出清叠加表内复产进度缓慢，预计在9至10月冬储与非电采购旺季，煤炭供需缺口会进一步扩大，若叠加库存去化至低位，煤价高点有望超越市场预期。这解释了昨天煤炭为什么能在弱势中逆势活跃——它有自己的供给端逻辑，不完全依附于指数情绪，属于典型的'有独立催化'而非'反指式防御轮动'。
+  interpretation: 煤炭上涨的驱动是安监限产带来的供给收缩（表内减产年化约1.97亿吨+表外退出0.6亿吨），旺季缺口扩大→煤价超预期。这是供给逻辑而非防御资金轮动，故可独立于指数情绪跟踪。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 煤炭安监限产供给收缩，9-10月旺季缺口扩大煤价或超预期
+  related_stocks:
+  - code: '600188'
+    name: 兖矿能源
+    role: 煤炭弹性标的-主板可交易
+  - code: '601225'
+    name: 陕西煤业
+    role: 煤炭龙头稳健-主板可交易
+  - code: '601088'
+    name: 中国神华
+    role: 煤炭龙头稳健-主板可交易
+  tags:
+  - 煤炭
+  - 安监限产
+  - 供给收缩
+  - 冬储旺季
+- id: claim-20260825-015-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: 航运厄尔尼诺运力收缩
+  timeframe: short-term
+  statement: 航运板块核心催化是厄尔尼诺导致巴拿马运河通行效率下降带来的有效运力收缩（降水减少→水位下降→通行受限→运力损耗），属供给侧收缩逻辑，兑现窗口偏中期，短线更适合作为指数震荡期过渡方向而非主攻方向；标的包括中谷物流(603565)、锦江航运(601083)。
+  evidence_quote: 航运板块的核心催化并非农产品需求普涨，而是巴拿马运河通行效率下降所带来的有效运力收缩，传导链条为'降水减少—水位下降—通行受限—运力损耗'。……个人判断，这条逻辑的优点在于它是供给侧收缩而非需求侧扩张，但兑现窗口偏中期，短线更适合作为指数震荡期的过渡方向而非主攻方向。
+  interpretation: 厄尔尼诺已于2026年8月确认、持续至2027年初春概率97%，历史上强厄尔尼诺冬季达峰。若强度符合预期，巴拿马运河有效运力下降或成为继地缘扰动后的新催化。供给收缩逻辑优于需求扩张，但兑现偏中期。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 航运靠厄尔尼诺→巴拿马运河运力收缩的供给侧逻辑，中期兑现
+  related_stocks:
+  - code: '603565'
+    name: 中谷物流
+    role: 航运标的-主板可交易
+  - code: '601083'
+    name: 锦江航运
+    role: 航运标的-主板可交易
+  tags:
+  - 航运
+  - 厄尔尼诺
+  - 巴拿马运河
+  - 运力收缩
+- id: claim-20260825-016-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: AI办公映射型题材
+  timeframe: short-term
+  statement: 字节跳动豆包体系整合TRAE/扣子团队、最快本周推出'豆包工作'AI办公产品，但A股相关标的（泛微网络603039、蜂助手301382等）属映射型题材：需求端变化真实但兑现在字节报表而非A股报表，是事件驱动波段机会而非趋势机会，用业绩景气度打法做中长线大概率坐过山车。
+  evidence_quote: 个人判断，这仍属于典型的映射型题材：需求端的变化是真实的，但兑现在字节的报表上，而不是A股这几家的报表上。按此前对A股软件板块的定性，它属于事件驱动型的波段机会而非趋势性机会，用业绩景气度那套打法做中长线，大概率坐过山车。
+  interpretation: 区分映射型题材与真景气的方法：需求兑现落在谁家报表。豆包商业化（专业版年费约6000元）利好字节自身，A股AI办公标的只是映射，按事件驱动波段参与而非趋势配置。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI办公是映射型题材，兑现在字节报表而非A股，波段非趋势
+  related_stocks:
+  - code: '603039'
+    name: 泛微网络
+    role: AI办公映射标的-主板可交易
+  - code: '301382'
+    name: 蜂助手
+    role: AI云手机标的-创业板不可交易
+  tags:
+  - AI办公
+  - 豆包
+  - 映射型题材
+  - 事件驱动
+- id: claim-20260825-017-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: 国产GPU定价权转移
+  timeframe: short-term
+  statement: 燧原科技(688801)IPO在即（9/2申购、募资60亿），国产GPU四小龙（摩尔线程/沐曦/燧原/壁仞）齐聚资本市场，意义不止影子股炒作——国产算力定价权正从一级市场向二级市场转移；但9/2申购意味着抽血效应与情绪催化下周同时出现，本周更多是预热而非兑现。
+  evidence_quote: 个人判断，这条线的意义不止于影子股炒作。四小龙集齐资本市场，意味着国产算力的定价权正从一级市场向二级市场转移；但要注意节奏——9月2日申购意味着抽血效应与情绪催化会在下周同时出现，本周更多是预热而非兑现。
+  interpretation: 国产GPU四小龙齐聚是产业标志性事件（定价权从一级转二级），但时点纪律：申购日（9/2）是抽血与催化的交汇点，本周属预热期，不宜按兑现预期交易。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国产GPU四小龙齐聚，定价权转二级市场但9/2申购前只是预热
+  related_stocks:
+  - code: '688801'
+    name: 燧原科技
+    role: 国产GPU-科创板不可交易
+  - code: '300657'
+    name: 弘信电子
+    role: 燧原合作-创业板不可交易
+  - code: '300911'
+    name: 亿田智能
+    role: 燧原合作-创业板不可交易
+  tags:
+  - 国产GPU
+  - 燧原科技
+  - 定价权
+  - IPO
+- id: claim-20260825-018-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: 量子科技事件驱动
+  timeframe: short-term
+  statement: 美国财政部成立量子安全准备工作组推动后量子密码转型，A股量子安全方向（天融信002212、格尔软件603232等）属缺业绩承接的事件驱动方向，按既有纪律：急跌不接飞刀，等关键均线支撑再谈参与。
+  evidence_quote: 个人判断，这属于缺业绩承接的事件驱动方向，按既有纪律：急跌不接飞刀，等关键均线支撑再谈参与。
+  interpretation: 量子安全是政策催化的事件驱动方向，缺业绩承接意味着不能按景气逻辑做，操作纪律是急跌不接飞刀、等均线支撑。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量子科技缺业绩承接，急跌不接飞刀等均线支撑
+  related_stocks:
+  - code: '002212'
+    name: 天融信
+    role: 量子安全标的-主板可交易
+  - code: '603232'
+    name: 格尔软件
+    role: 量子安全标的-主板可交易
+  tags:
+  - 量子科技
+  - 后量子密码
+  - 事件驱动
+  - 急跌不接飞刀
+- id: claim-20260825-019-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: PCB设备资本开支跳升
+  timeframe: trend
+  statement: AI PCB设备线：全球主流PCB板厂2026年扩产规划1012亿元 vs 2025年资本开支仅225亿元，AI PCB设备2025-2027年需求158/295/670亿元，设备订单高增确定性较强、剩下的主要是算估值；225亿到1012亿是已公布规划，证伪成本低，跟踪各家板厂实际招标与到货节奏即可。
+  evidence_quote: 个人判断，这条线与此前反复强调的半导体设备零部件逻辑同构：设备订单高增的确定性较强，剩下的主要是算估值。225亿到1012亿的资本开支跳升是已公布的规划而非预期，这类数据的证伪成本很低——跟踪各家板厂的实际招标与到货节奏即可。
+  interpretation: PCB设备逻辑=确定性订单+估值消化。钻孔/电镀/曝光/检测四大环节价值量占比约80%，国产厂商（芯碁微装688630曝光全球第一、大族数控301200钻孔、东威科技(688700)电镀）把握扩产+国产替代双窗口；跟踪实际招标到货验证。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: PCB设备225亿到1012亿资本开支跳升是已公布规划，跟踪招标到货
+  related_stocks:
+  - code: '688630'
+    name: 芯碁微装
+    role: PCB曝光设备全球第一-科创板不可交易
+  - code: '301200'
+    name: 大族数控
+    role: PCB钻孔设备-创业板不可交易
+  - code: '688700'
+    name: 东威科技
+    role: PCB电镀设备-科创板不可交易
+  tags:
+  - PCB设备
+  - 资本开支
+  - 扩产
+  - 国产替代
+- id: claim-20260825-020-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: 变压器海外链买阴不买阳
+  timeframe: trend
+  statement: 变压器海外链是目前海外链里订单证据最硬的一条：北美变电站交付周期超160周、2026年1-7月中国变压器出口约330亿元同比+30%以上且对美10MVA以上大容量出口逐月近翻倍增长，属供给刚性造成的确定性而非景气预期；按既有纪律'买阴不买阳'——确定性决定敢在阴线上接，但不等于任何位置都能买，更不在阳线上追；相关标的思源电气(002028)、金盘科技(688676)等。
+  evidence_quote: 个人判断，这是目前海外链里订单证据最硬的一条：160周的交期与逐月近翻倍的对美出口，属于供给刚性造成的确定性，而非景气度预期。按既有纪律，确定性较高的海外链'买阴不买阳'——确定性决定敢不敢在阴线上接，但不等于任何位置都能买，更不是在阳线上追。
+  interpretation: 变压器海外链的确定性来自供给刚性（160周交期+对美出口翻倍），区别于景气预期。操作纪律：买阴不买阳，阴线+关键均线附近考虑，阳线不追。北美链（思源电气合同负债38.3亿+29%、金盘科技在手订单107亿+42%）与中东链（特锐德/特变电工/伊戈尔/白云电器）分类跟踪。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 变压器海外链订单证据最硬，按买阴不买阳纪律操作
+  related_stocks:
+  - code: '002028'
+    name: 思源电气
+    role: 变压器北美链-主板可交易
+  - code: '688676'
+    name: 金盘科技
+    role: 变压器北美链-科创板不可交易
+  - code: '600089'
+    name: 特变电工
+    role: 变压器中东链-主板可交易
+  - code: '603861'
+    name: 白云电器
+    role: 变压器中东链-主板可交易
+  tags:
+  - 变压器
+  - 海外链
+  - 买阴不买阳
+  - 供给刚性
+- id: claim-20260825-021-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: 液冷订单产能同动
+  timeframe: short-term
+  statement: 液冷线订单与产能同时在动，与昨日（8/24）盘面定价不一致：飞龙股份(002536)大功率液冷泵订单近万台、华阳集团(002906)液冷CAGE列入在研方向、金洲管道(002443)闪麟时代布局AI服务器液冷整套方案；液冷CAGE是'两倍做多光模块'——渗透率从零到一叠加单口价值量跃升、格局显著优于光模块本体，华阳列入在研本身是格局未固化信号，需跟踪现有供应商认证与份额变化。
+  evidence_quote: 个人判断，液冷这条线上，订单与产能是同时在动的，这与昨天盘面给出的定价并不一致。尤其是液冷CAGE环节，此前定性为'两倍做多光模块'——渗透率从零到一叠加单口价值量跃升，且格局显著优于光模块本体；华阳把它列入在研方向，本身就是竞争格局尚未固化的信号，需要同步跟踪现有供应商的认证与份额变化。
+  interpretation: 液冷（尤其CAGE环节）产业基本面与盘面定价背离：订单/产能/扩产同时推进（飞龙股份近万台订单、金洲管道3万平厂房+闪麟51%控股、华阳集团定点未量产订单超20亿），盘面未定价→预期差来源。CAGE逻辑=零到一渗透+单口价值量+格局优。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 液冷订单产能同动与盘面定价背离，CAGE是两倍做多光模块
+  related_stocks:
+  - code: '002536'
+    name: 飞龙股份
+    role: 液冷泵订单-主板可交易
+  - code: '002906'
+    name: 华阳集团
+    role: 液冷CAGE布局-主板可交易
+  - code: '002443'
+    name: 金洲管道
+    role: 液冷整套方案-主板可交易
+  tags:
+  - 液冷
+  - CAGE
+  - 两倍做多光模块
+  - 订单产能
+- id: claim-20260825-022-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: 半导体材料渐进替代
+  timeframe: trend
+  statement: 半导体材料（湿电子化学品等）与此前对晶圆制造环节的定性一致：壁垒最深、无新玩家、周期持续性最久；国产替代是渐进且长期的过程，既不接受'一夜突破'叙事也不接受'打破垄断'式看空框架，跟踪验证进度而不是跟踪口号；相关标的安集科技(688019)、鼎龙股份(300054)等。
+  evidence_quote: 个人判断，这与此前对晶圆制造环节的定性一致：壁垒最深、无新玩家、周期持续性最久。但要坚持既有立场——国产替代是渐进且长期的过程，既不接受自媒体式的'一夜突破'叙事，也不接受'打破垄断'式的看空框架，跟踪验证进度而不是跟踪口号。
+  interpretation: 半导体材料的投资框架：壁垒+格局+周期持续性（晶圆刻蚀次数20→160次、3D NAND 500+层单位消耗达32层3倍，用量单价双升；日欧企业合计57%份额+去日化避险→国产验证提量）。立场：渐进替代，两头拒绝极端叙事。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体材料壁垒最深周期最长，国产替代渐进跟踪验证进度
+  related_stocks:
+  - code: '688019'
+    name: 安集科技
+    role: CMP抛光液-科创板不可交易
+  - code: '300054'
+    name: 鼎龙股份
+    role: 半导体材料平台-创业板不可交易
+  tags:
+  - 半导体材料
+  - 湿电子化学品
+  - 国产替代
+  - 渐进
+- id: claim-20260825-023-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: stock-view
+  subject: 景旺电子光模块PCB
+  timeframe: short-term
+  statement: 景旺电子(603228)：2026H1营收86.11亿+21.37%、归母净利6.02亿-7.38%（汇兑损失1.23亿拖累），Q2归母净利3.69亿+13.61%环比+58.55%，800G/1.6T光模块PCB已批量交付、Q2
+    800G及以上光模块收入环比增近1500%——从零到一的产能爬坡兑现而非渗透率线性提升；算力硬件盘面走弱但产业订单量产信息密集兑现，位置决定意义：情绪低位订单信息是价值锚而非兑现利好。
+  evidence_quote: 这一节要单独强调。昨日算力硬件在盘面上大面积走弱，但产业侧的订单与量产信息仍在密集兑现，两者方向相反。位置决定意义——同样一条订单信息，在情绪高点是兑现利好，在情绪低位则是价值锚。现在显然属于后者。……关键数据在结构上：800G、1.6T光模块PCB已批量交付，2026年二季度800G及以上速率光模块收入环比增长近1500%。近1500%的环比增速，说明这不是渗透率的线性提升，而是从零到一的产能爬坡兑现。
+  interpretation: 景旺电子是'盘面弱、产业强'背离的典型样本：Q2业绩环比显著改善（AI驱动利润回升），800G+收入环比1500%是从零到一爬坡。方法论要点：同样信息在不同情绪位置的定价意义不同——低位是价值锚、高位是兑现利好。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 景旺电子Q2 800G光模块PCB收入环比+1500%，情绪低位订单是价值锚
+  related_stocks:
+  - code: '603228'
+    name: 景旺电子
+    role: 光模块PCB-主板可交易
+  tags:
+  - 景旺电子
+  - 光模块PCB
+  - 800G
+  - 业绩兑现
+- id: claim-20260825-024-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: operation
+  subject: 两类方向两套打法
+  timeframe: intraday
+  statement: 操作重心区分两类：有订单验证的海外链（变压器、液冷、PCB设备）按'买阴不买阳'，只在阴线与关键均线附近考虑；只有映射叙事的方向（AI办公、量子科技）急跌不接飞刀，等支撑再谈参与；两类今天不该用同一套打法。
+  evidence_quote: 第三，操作重心区分两类：有订单验证的海外链（变压器、液冷、PCB设备）按'买阴不买阳'，只在阴线与关键均线附近考虑；只有映射叙事的方向（AI办公、量子科技）急跌不接飞刀，等支撑再谈参与。这两类今天不该用同一套打法。
+  interpretation: 操作框架的分类学：订单验证型（海外链）用'买阴不买阳'纪律，映射叙事型用'急跌不接飞刀'纪律。两类方向驱动因子不同（订单 vs
+    叙事），打法必须区分。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 订单验证型买阴不买阳，映射叙事型急跌不接飞刀，两套打法
+  related_stocks: []
+  tags:
+  - 买阴不买阳
+  - 急跌不接飞刀
+  - 两类打法
+  - 操作纪律
+- id: claim-20260825-025-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: operation
+  subject: 硬科技仓位保留余地
+  timeframe: short-term
+  statement: 本周三英伟达财报与周五沃什讲话之前，硬科技（算力硬件）仓位应保留调整余地——持仓的成本不是价格，而是事件落地那一刻还能不能自由选择。
+  evidence_quote: 第四，本周三英伟达财报与周五沃什讲话之前，硬科技这条线的仓位应保留调整余地——持仓的成本不是价格，是事件落地那一刻还能不能自由选择。
+  interpretation: 事件落地前的仓位纪律：保留调整余地=保留选择权。成本的定义从价格重构为'事件后的自由选择权'，这是对'财报前不重仓'的哲学化表述。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 财报与讲话前硬科技保留仓位余地，成本是事件后的选择权
+  related_stocks: []
+  tags:
+  - 硬科技
+  - 仓位管理
+  - 事件落地
+  - 选择权
+- id: claim-20260825-026-a
+  source_path: sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+  source_date: '2026-08-25'
+  source_type: 专栏
+  extracted_at: '2026-08-25T09:15:00+08:00'
+  claim_type: macro
+  subject: 隔夜宏观消息面
+  timeframe: short-term
+  statement: 隔夜宏观三件事：PCE通胀数据与Q2 GDP修正值周三公布检验通胀路径、美联储主席沃什周五杰克逊霍尔首秀（距9月FOMC约19天）提供利率路径线索、特朗普宣布2027年1月1日起对加拿大汽车/钢铁关税升至50%（对A股间接影响、通过全球风险偏好传导）。
+  evidence_quote: PCE通胀数据：据媒体报道于美股周三公布，同期还有二季度GDP修正值，共同检验通胀路径。……杰克逊霍尔：美联储主席沃什将于周五发表讲话……近期长端美债收益率波动剧烈，市场希望从中获取利率路径与政策沟通框架的线索。……关税扰动：特朗普宣布自2027年1月1日起，将对加拿大汽车、卡车及汽车零部件和钢铁的关税提高至50%。该项对A股为间接影响，主要通过全球风险偏好传导。
+  interpretation: 本周海外事件密集：周三PCE+GDP修正、周四早间英伟达财报、周五沃什杰克逊霍尔讲话。关税针对加拿大，对A股仅风险偏好间接传导。美债收益率波动（隔夜10Y回落至4.69%）是影响A股高位算力资产的核心外部变量。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: PCE周三、沃什周五杰克逊霍尔首秀、加拿大关税50%间接影响A股
+  related_stocks: []
+  tags:
+  - PCE
+  - 杰克逊霍尔
+  - 关税
+  - 宏观事件
