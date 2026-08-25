@@ -1462,6 +1462,56 @@ def record_alert_decision_log(
 
 
 
+def _load_kpl_emotion(date_str: str) -> dict | None:
+    """加载 KPL 情绪快照（infra/data/kpl/emotion/<date>.json，工作日 17:45 cron 拉取）。
+
+    提取收盘复盘关心的字段：涨跌家数、涨停/跌停、封板率、连板高度、概念板块。
+    文件缺失/解析失败返回 None（不影响主流程）。
+
+    字段口径（开盘啦 daban）：SZJS=上涨家数、XDJS=下跌家数、PPJS=平盘家数、
+    tZhangTing/tDieTing=今日涨停/跌停、lZhangTing/lDieTing=昨日涨停/跌停、tFengBan=封板率%。
+    """
+    try:
+        path = repo_root() / "infra" / "data" / "kpl" / "emotion" / f"{date_str}.json"
+        if not path.exists():
+            return None
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        daban = raw.get("daban") or {}
+        lianban = raw.get("lianban") or []
+        bankuai = raw.get("bankuai") or []
+
+        # 连板高度：取梯队标签中最大的 N连板（如 "5连板"）
+        lianban_height = None
+        best = 0
+        for item in lianban:
+            if isinstance(item, (list, tuple)) and len(item) > 4 and isinstance(item[4], str):
+                tag = item[4]
+                if tag.endswith("连板") and tag[:-2].isdigit() and int(tag[:-2]) > best:
+                    best = int(tag[:-2])
+                    lianban_height = tag
+
+        return {
+            "fetched_at": raw.get("fetched_at"),
+            "up_count": daban.get("SZJS"),
+            "down_count": daban.get("XDJS"),
+            "flat_count": daban.get("PPJS"),
+            "limit_up": daban.get("tZhangTing"),
+            "limit_down": daban.get("tDieTing"),
+            "prev_limit_up": daban.get("lZhangTing"),
+            "prev_limit_down": daban.get("lDieTing"),
+            "fengban_rate": daban.get("tFengBan"),
+            "lianban_height": lianban_height,
+            "concept_boards": [
+                {"name": b[0], "pct": b[1]}
+                for b in bankuai[:8]
+                if isinstance(b, (list, tuple)) and len(b) >= 2
+            ],
+        }
+    except Exception as e:
+        logger.warning("KPL 情绪快照加载失败（不影响主流程）: %s", e)
+        return None
+
+
 def _build_yesterday_summary(
     config: "MonitorConfig",
     quote_snapshot: dict,
@@ -1630,6 +1680,7 @@ def _build_yesterday_summary(
         "built_at": datetime.now(tz=_CN_TZ).isoformat(),
         "market": market_info,
         "positions": positions_summary,
+        "kpl_emotion": _load_kpl_emotion(date_str),
         "tomorrow_scenarios": None,  # 由收盘复盘 LLM 填充
     }
 
@@ -1676,7 +1727,7 @@ def summarize_daily_review(state: dict, date_text: str) -> dict:
         # 保留 review 中的 alert 统计，将摘要数据作为 "summary" 字段并入
         review["summary"] = summary
         # 同时把关键字段提升到顶层，方便上层直接读取
-        for key in ("market", "positions", "dragon_tiger_board", "tomorrow_scenarios"):
+        for key in ("market", "positions", "dragon_tiger_board", "tomorrow_scenarios", "kpl_emotion"):
             if key in summary:
                 review[key] = summary[key]
 

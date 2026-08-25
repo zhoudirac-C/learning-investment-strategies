@@ -158,6 +158,11 @@ LLM_PROVIDERS: dict[str, dict[str, Any]] = {
         "default_model": "llama-3.3-70b-versatile",
         "api_key_env": "GROQ_API_KEY",
     },
+    "sensenova": {
+        "base_url": "https://token.sensenova.cn/v1",
+        "default_model": "sensenova-6.8-flash-lite",
+        "api_key_env": "SENSENOVA_API_KEY",
+    },
     "together": {
         "base_url": "https://api.together.xyz/v1",
         "default_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",

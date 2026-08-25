@@ -22,6 +22,8 @@ class Settings(BaseSettings):
     baichuan_api_key: str | None = None
     siliconflow_api_key: str | None = None
     groq_api_key: str | None = None
+    sensenova_api_key: str | None = None
+    openrouter_api_key: str | None = None
     together_api_key: str | None = None
 
     # === 存储层配置 ===

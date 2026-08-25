@@ -1412,6 +1412,30 @@ def format_daily_review_context(review: dict) -> str:
             summary_text = detail.split("\n")[0] if "\n" in detail else detail
             lines.append(f"- 综述：{summary_text[:240]}")
 
+    # ── KPL 情绪快照：涨跌家数 / 涨停跌停 / 封板率 / 概念板块（17:45 cron 拉取）──
+    kpl = review.get("kpl_emotion") or (review.get("summary", {}).get("kpl_emotion") if isinstance(review.get("summary"), dict) else None) or {}
+    if kpl:
+        lines.extend(["", "市场广度（KPL情绪快照）："])
+        up, down, flat = kpl.get("up_count"), kpl.get("down_count"), kpl.get("flat_count")
+        if up is not None and down is not None:
+            ratio = round(up / down, 2) if down else None
+            ratio_str = f"（涨:跌={ratio}）" if ratio is not None else ""
+            lines.append(f"- 涨跌家数：涨{up} / 跌{down} / 平{flat}{ratio_str}")
+        if kpl.get("limit_up") is not None:
+            lines.append(
+                f"- 涨停{kpl.get('limit_up')} / 跌停{kpl.get('limit_down')}"
+                f"（昨日 涨停{kpl.get('prev_limit_up')} / 跌停{kpl.get('prev_limit_down')}）"
+                f"，封板率{kpl.get('fengban_rate')}%"
+            )
+        if kpl.get("lianban_height"):
+            lines.append(f"- 连板高度：{kpl['lianban_height']}")
+        boards = kpl.get("concept_boards") or []
+        if boards:
+            lines.append(
+                "- 概念板块涨幅（KPL）："
+                + "，".join(f"{b.get('name')} {b.get('pct')}" for b in boards[:8])
+            )
+
     if positions:
         lines.extend(["", f"持仓复盘（{len(positions)}只）："])
         for code, pos in sorted(positions.items()):

@@ -50,6 +50,10 @@ DELAY_BETWEEN_BATCH = 3.0  # 批次间隔 3 秒
 DELAY_BETWEEN_STOCK = 0.5  # 单只间隔 0.5 秒
 MAX_RETRIES = 3
 DAYS_TO_FETCH = 90
+TDX_SLOW_THRESHOLD_SEC = 8.0   # TDX 单笔耗时超过此值视为"慢"，计入熔断计数
+TDX_BREAKER_STREAK = 3         # 连续慢/失败 N 只 → 熔断 TDX，后续转腾讯/东财通道
+# 全局时限：cron no_agent 超时 900s，留 120s buffer。到点后剩余标的走腾讯快速通道。
+DEADLINE_SEC = int(os.environ.get("KLINE_FETCH_DEADLINE_SEC", "780"))
 
 
 # ── 配置读取 ──
@@ -190,6 +194,9 @@ def main() -> int:
     success_count = 0
     fail_count = 0
     skip_count = 0
+    start_ts = time.monotonic()
+    tdx_bad_streak = 0   # TDX 连续慢/失败计数（熔断用）
+    deadline_hit = False
 
     for i in range(0, total, BATCH_SIZE):
         batch = codes[i : i + BATCH_SIZE]
@@ -200,11 +207,44 @@ def main() -> int:
             klines = None
             last_error = ""
 
+            # ── 全局时限：到点后剩余标的走腾讯快速通道（单次尝试、短延迟、不重试）──
+            if not deadline_hit and time.monotonic() - start_ts > DEADLINE_SEC:
+                deadline_hit = True
+                print(f"  ⏱️ 已达全局时限 {DEADLINE_SEC}s，剩余标的转腾讯快速通道（不重试）")
+
+            if deadline_hit:
+                try:
+                    from qing_investment.agent.tools.stock_data import (
+                        fetch_stock_kline_tencent,
+                    )
+                    klines = fetch_stock_kline_tencent(code, days=DAYS_TO_FETCH)
+                except Exception as e:
+                    last_error = str(e)
+                    print(f"  ❌ {code}: 快速通道失败 ({last_error[:60]})")
+                if klines:
+                    save_klines(code, klines)
+                    success_count += 1
+                else:
+                    fail_count += 1
+                    save_klines(code, [])
+                time.sleep(0.2)
+                continue
+
             # 重试循环
             for attempt in range(1, MAX_RETRIES + 1):
                 try:
                     if _tdx_available:
+                        t_call = time.monotonic()
                         klines = fetch_stock_kline(code, days=DAYS_TO_FETCH, force_refresh=True)
+                        call_cost = time.monotonic() - t_call
+                        if call_cost > TDX_SLOW_THRESHOLD_SEC:
+                            tdx_bad_streak += 1
+                            print(f"  🐌 {code}: TDX 耗时 {call_cost:.1f}s（连续慢/失败 {tdx_bad_streak}）")
+                        else:
+                            tdx_bad_streak = 0
+                        if tdx_bad_streak >= TDX_BREAKER_STREAK:
+                            _tdx_available = False
+                            print("  🔌 TDX 连续慢/失败 → 熔断，后续标的转腾讯/东财通道")
                     else:
                         # TDX 不可用，跳过 TDX 直接走腾讯 → 东财降级
                         from qing_investment.agent.tools.stock_data import (
@@ -217,6 +257,23 @@ def main() -> int:
                     break
                 except Exception as e:
                     last_error = str(e)
+                    if _tdx_available:
+                        # TDX 异常计入熔断；达到阈值后当前票立即改走腾讯，不再重试 TDX
+                        tdx_bad_streak += 1
+                        if tdx_bad_streak >= TDX_BREAKER_STREAK:
+                            _tdx_available = False
+                            print(f"  🔌 TDX 连续慢/失败 → 熔断，{code} 及后续标的转腾讯/东财通道")
+                            try:
+                                from qing_investment.agent.tools.stock_data import (
+                                    fetch_stock_kline_tencent,
+                                    fetch_stock_kline_eastmoney,
+                                )
+                                klines = fetch_stock_kline_tencent(code, days=DAYS_TO_FETCH)
+                                if not klines:
+                                    klines = fetch_stock_kline_eastmoney(code, days=DAYS_TO_FETCH)
+                            except Exception as e2:
+                                last_error = str(e2)
+                            break
                     if attempt < MAX_RETRIES:
                         sleep_sec = 5 * attempt  # 5s, 10s
                         print(f"  ⚠️ {code}: 第{attempt}次失败，{sleep_sec}s后重试...")
