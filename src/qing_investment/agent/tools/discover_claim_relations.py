@@ -143,7 +143,7 @@ def judge_relation(claim_a: dict, claim_b: dict, llm) -> dict:
     )
     import time as _time
     last_error = None
-    for attempt in range(3):
+    for attempt in range(5):
         try:
             resp = llm.invoke(prompt).content or ""
             # Extract JSON from response
@@ -155,9 +155,9 @@ def judge_relation(claim_a: dict, claim_b: dict, llm) -> dict:
             return json.loads(resp)
         except (json.JSONDecodeError, Exception) as e:
             last_error = e
-            if attempt < 2:
-                _time.sleep(2 ** attempt)  # 1s, 2s, 4s backoff
-    return {"relation": "none", "reason": f"LLM error after 3 retries: {last_error}"}
+            if attempt < 4:
+                _time.sleep(2 ** attempt)  # 1s, 2s, 4s, 8s backoff
+    return {"relation": "none", "reason": f"LLM error after 5 retries: {last_error}"}
 
 
 def process_claim(
