@@ -21,6 +21,8 @@ _MAX_OUTPUT_TOKENS = int(os.environ.get("SHADOW_LLM_MAX_TOKENS", "16384"))
 _THINKING_DISABLED = os.environ.get("SHADOW_LLM_THINKING", "off").lower() != "on"
 # 推理模式专属预算：reasoning 动辄数千 tokens，需要远高于非推理的 16384
 _MAX_OUTPUT_TOKENS_THINKING = int(os.environ.get("SHADOW_LLM_THINKING_MAX_TOKENS", "32768"))
+# 单次 LLM 调用超时：thinking on 时盲判长 prompt 实测 208s，归因 31s，留足余量
+_LLM_TIMEOUT = int(os.environ.get("SHADOW_LLM_TIMEOUT", "600"))
 _MAX_DIRECTIONS = 3
 _MAX_STOCKS_PER_DIR = 2
 _POSTURES = ("趋势", "波段", "右侧确认", "回避")
@@ -137,7 +139,7 @@ def call_deepseek(messages: list[dict], *, model: str = DEFAULT_MODEL,
         )
         if _THINKING_DISABLED:
             kwargs["extra_body"] = {"thinking": {"type": "disabled"}}
-        return client.chat.completions.create(**kwargs)
+        return client.chat.completions.create(**kwargs, timeout=_LLM_TIMEOUT)
 
     for attempt in range(1, max_retries + 1):
         t0 = time.monotonic()
