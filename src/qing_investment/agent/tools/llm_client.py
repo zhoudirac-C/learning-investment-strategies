@@ -175,6 +175,70 @@ LLM_PROVIDERS: dict[str, dict[str, Any]] = {
 _embedding_model = None
 
 
+
+# Fallback 链：主 provider 失败时自动切换（2026-08-27 新增）
+# 仅 sensenova 生态内切换（用户无 openrouter 充值）
+SENSENOVA_FALLBACK_MODELS = [
+    "deepseek-v4-flash",
+    "sensenova-6.8-flash-lite",
+    "sensenova-u1-fast",
+    "glm-5.2",
+]
+
+
+def get_llm_client_with_fallback(
+    provider: str | None = None,
+    max_tokens: int | None = None,
+    fallback_models: list[str] | None = None,
+) -> Any:
+    """带 fallback 的 LLM 客户端：主模型失败时按链切换。
+
+    触发条件：ChatOpenAI invoke 时若主模型连续失败（429/5xx/超时），
+    自动尝试 fallback_models 中的下一个模型。
+    所有 fallback 均在同 provider（sensenova）内切换，避免跨 provider 的 base_url 问题。
+    """
+    base_client = get_llm_client(provider=provider, max_tokens=max_tokens)
+    chain = fallback_models or SENSENOVA_FALLBACK_MODELS
+    primary_model = getattr(base_client, "model_name", None) or "unknown"
+
+    # 构建 fallback client 列表（同 provider，不同 model）
+    clients = [base_client]
+    for m in chain:
+        if m != primary_model:
+            cfg = LLM_PROVIDERS["sensenova"]
+            clients.append(ChatOpenAI(
+                model=m,
+                api_key=getattr(settings, "sensenova_api_key", None) or os.environ.get("SENSENOVA_API_KEY"),
+                base_url=cfg["base_url"],
+                temperature=0.3,
+                max_tokens=max_tokens or 4096,
+                request_timeout=120,
+            ))
+    return FallbackChatOpenAI(clients)
+
+
+class FallbackChatOpenAI:
+    """包装多个 ChatOpenAI，invoke 失败时自动切换到下一个。"""
+
+    def __init__(self, clients: list):
+        self.clients = clients
+        self.model_name = getattr(clients[0], "model_name", "unknown")
+
+    def invoke(self, prompt: str, **kwargs) -> Any:
+        last_error = None
+        for idx, client in enumerate(self.clients):
+            model = getattr(client, "model_name", f"client_{idx}")
+            try:
+                resp = client.invoke(prompt, **kwargs)
+                if idx > 0:
+                    logger.info("[FallbackChatOpenAI] fallback to model=%s succeeded", model)
+                return resp
+            except Exception as e:
+                last_error = e
+                logger.warning("[FallbackChatOpenAI] model=%s failed: %s", model, e)
+        raise RuntimeError(f"All fallback models failed. Last error: {last_error}")
+
+
 def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -> Any:
     """根据配置的 provider 返回对应的 LLM 客户端。
 

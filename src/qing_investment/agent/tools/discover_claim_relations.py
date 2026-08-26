@@ -40,7 +40,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 import numpy as np
 from qing_investment.agent.tools.neo4j_client import Neo4jClient
-from qing_investment.agent.tools.llm_client import get_embedding_model, get_llm_client
+from qing_investment.agent.tools.llm_client import get_embedding_model, get_llm_client, get_llm_client_with_fallback
 from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
 
 COLLECTION = "qing_claims"
@@ -157,7 +157,7 @@ def judge_relation(claim_a: dict, claim_b: dict, llm) -> dict:
             last_error = e
             if attempt < 4:
                 _time.sleep(2 ** attempt)  # 1s, 2s, 4s, 8s backoff
-    return {"relation": "none", "reason": f"LLM error after 5 retries: {last_error}"}
+    return {"relation": "error", "reason": f"LLM error after 5 retries: {last_error}"}
 
 
 def process_claim(
@@ -333,7 +333,7 @@ def main():
     qdrant = QdrantClientWrapper()
     neo4j = Neo4jClient()
     emb_model = get_embedding_model()
-    llm = get_llm_client()
+    llm = get_llm_client_with_fallback()
 
     # Collect claims to process
     to_process: list[tuple[Path, dict]] = []
