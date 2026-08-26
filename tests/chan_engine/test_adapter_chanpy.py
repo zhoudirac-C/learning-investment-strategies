@@ -311,3 +311,29 @@ class TestMultiMainTypeBsp:
         assert _distinct_main_types([BSP_TYPE.T2, BSP_TYPE.T3B]) == [2, 3]
         assert _distinct_main_types([BSP_TYPE.T1, BSP_TYPE.T1P]) == [1]
         assert _distinct_main_types([BSP_TYPE.T3A]) == [3]
+
+
+class TestNineBiUpgradeCrossSeg:
+    """M5-2：跨 seg 延伸试探 + 九段升级（课33，claim-20070302-001-b）。
+
+    依据：M4 评估 §3——chanpy zs 受 seg 切分限制（ZS-003 止步 end=17、
+    仅 3 笔），纯移植 czsc _apply_nine_bi_upgrade 零触发；补偿为复合形态，
+    唯一落改门控=延伸后范围内笔数≥9 且 3 子中枢重合区间成立。
+    """
+
+    def test_zs003_upgrades_to_level2(self):
+        case = load_case(_CASES_DIR / "zs-003.yaml")
+        chart = make_adapter().run(case.bars)
+        assert [(z.zd, z.zg, z.start_idx, z.end_idx, z.level, z.sure) for z in chart.zs] == [
+            (16.5, 17.0, 5, 41, 2, True),
+        ]
+
+    def test_extension_probe_gate_keeps_other_cases_unchanged(self):
+        """延伸试探触发集内门控不通过的用例：zs 表逐字段不变（bsp-002/bsp-004
+        的 expect zs 即基线值，M4 §2 实证 bsp-004 zs 表一致）。"""
+        for cid in ("bsp-002", "bsp-004"):
+            case = load_case(_CASES_DIR / f"{cid}.yaml")
+            chart = make_adapter().run(case.bars)
+            assert [(z.zd, z.zg, z.start_idx, z.end_idx, z.level, z.sure) for z in chart.zs] == [
+                (18.3, 20.2, 6, 21, 1, True),
+            ], f"{cid} zs 表被门控外落改"

@@ -26,6 +26,8 @@
   多类型合并场景如二买+三买 T2+T3B 各出一条，课21 二三类重合；同 main_type
   去重）；dir = 操作方向（ADR-006）——
   买点（is_buy）→ up，卖点 → down；level 恒 1（单级别输入）。
+- ZS：chanpy normal 模式直取（seg 内构造）；M5-2 起叠加「跨 seg 延伸试探 +
+  九段升级」后处理（门控=延伸后范围内笔数≥9 且 3 子中枢重合，课33）。
 """
 
 from __future__ import annotations
@@ -136,6 +138,90 @@ def _distinct_main_types(bsp_type_list) -> list[int]:
     return seen
 
 
+def _bi_low_high(bi: Bi, bars: list[Bar]) -> tuple[float, float]:
+    """笔的极值（与 czsc 适配器 _bi_low_high 同口径；两适配器刻意各自持有
+    小辅助函数保持独立，先例：_apply_positional_sure 双份持有）。
+
+    上升笔：low=起点 K 线 low，high=终点 K 线 high；下降笔反之。
+    """
+    if bi.dir is Direction.UP:
+        return float(bars[bi.start_idx].l), float(bars[bi.end_idx].h)
+    return float(bars[bi.end_idx].l), float(bars[bi.start_idx].h)
+
+
+def _has_overlap_strict(low1: float, high1: float, low2: float, high2: float) -> bool:
+    """严格重叠（不含边界），对齐 chanpy has_overlap(equal=False)。"""
+    return high2 > low1 and high1 > low2
+
+
+def _apply_nine_bi_upgrade_with_extension(
+    zs_list: list[ZhongShu], bi_table: list[Bi], bars: list[Bar]
+) -> None:
+    """跨 seg 延伸试探 + 九段升级（课33，claim-20070302-001-b；M5-2，
+    M4 评估 §3 UP 批准的复合 B 补偿）。
+
+    chanpy 中枢受 seg 切分限制不跨 seg 延伸（ZS.combine :118），九段升级
+    在单 seg 内永不触发（全语料实测 zs 内笔数最多 3）。补偿口径（与 M4-3
+    探针演算一致）：
+
+    1. **延伸试探**：自 zs.end_idx 起按 bi_table 顺序逐笔与 [zd,zg] 判严格
+       重叠，重叠则试探性延展 end；遇未确认笔（sure=False，位置约定下即
+       末位笔）或首笔不重叠即停（对齐 M2-3 czsc 延伸口径）。
+    2. **门控（唯一落改条件）**：试探后范围内笔数 ≥9，且前 9 笔分 3 组
+       （每组 3 笔）子中枢各自成立（sub_zg > sub_zd），且 3 子中枢重合区间
+       成立（max(sub_zd) < min(sub_zg)）。
+    3. **落改**：zd/zg = 重合区间，end_idx = 试探终点，level = 2；门控不
+       通过则 zs 逐字段不变——延伸只是升级判定的内部试探，不单独落改
+       （bsp-002/bsp-004/seg-005 触发试探但门控不通过，输出逐字节不变，
+       M4 §3 半径实证）。
+    """
+    for zs in zs_list:
+        if zs.level != 1:
+            continue
+        # 1. 延伸试探（不落改）
+        probe_end = zs.end_idx
+        for bi in bi_table:
+            if bi.end_idx <= zs.end_idx:
+                continue  # 已在范围内的笔跳过（归一笔表首尾相接）
+            if not bi.sure:
+                break  # 末位未确认笔不延伸（对齐 M2-3 czsc 口径）
+            low, high = _bi_low_high(bi, bars)
+            if not _has_overlap_strict(zs.zd, zs.zg, low, high):
+                break  # 首笔不重叠即停（延伸连续语义）
+            probe_end = bi.end_idx
+        # 2. 门控：范围内笔数 ≥9 且 3 子中枢重合
+        in_range = [
+            bi
+            for bi in bi_table
+            if bi.start_idx >= zs.start_idx and bi.end_idx <= probe_end
+        ]
+        if len(in_range) < 9:
+            continue
+        nine_bis = in_range[:9]
+        sub_ranges: list[tuple[float, float]] = []
+        for i in range(0, 9, 3):
+            lows, highs = [], []
+            for bi in nine_bis[i : i + 3]:
+                low, high = _bi_low_high(bi, bars)
+                lows.append(low)
+                highs.append(high)
+            sub_zd, sub_zg = max(lows), min(highs)
+            if sub_zg <= sub_zd:
+                break  # 子中枢不成立
+            sub_ranges.append((sub_zd, sub_zg))
+        if len(sub_ranges) != 3:
+            continue
+        level2_zd = max(r[0] for r in sub_ranges)
+        level2_zg = min(r[1] for r in sub_ranges)
+        if level2_zg <= level2_zd:
+            continue
+        # 3. 落改
+        zs.zd = level2_zd
+        zs.zg = level2_zg
+        zs.end_idx = probe_end
+        zs.level = 2
+
+
 def _bar_to_klu(bar: Bar, pos: int) -> CKLine_Unit:
     """Bar → chan.py CKLine_Unit；时间按投喂位置合成（见模块 docstring）。"""
     day = _BASE_DATE + timedelta(days=pos)
@@ -162,14 +248,16 @@ class ChanPySession:
         self._conf = CChanConfig(dict(conf_dict))
         self._chan = CChan(code="synthetic", lv_list=[_KL_TYPE], config=self._conf)
         self._pos = 0
+        self._bars: list[Bar] = []  # 记录投喂 bars，供九段升级后处理取笔极值（M5-2）
 
     def push(self, bar: Bar) -> None:
         self._chan.trigger_load({_KL_TYPE: [_bar_to_klu(bar, self._pos)]})
         self._pos += 1
+        self._bars.append(bar)
 
     def chart(self, adapter: "ChanPyAdapter") -> NormalizedChart:
         """抽取当前状态的归一五表（复用适配器归一逻辑）。"""
-        return adapter._extract(self._chan)
+        return adapter._extract(self._chan, self._bars)
 
 
 class ChanPyAdapter:
@@ -206,7 +294,7 @@ class ChanPyAdapter:
     def _dir(is_up: bool) -> Direction:
         return Direction.UP if is_up else Direction.DOWN
 
-    def _extract(self, chan: CChan) -> NormalizedChart:
+    def _extract(self, chan: CChan, bars: list[Bar]) -> NormalizedChart:
         kl = chan[0]  # 单级别：唯一 CKLine_List
         chart = NormalizedChart()
 
@@ -270,11 +358,12 @@ class ChanPyAdapter:
                     zg=float(zs.high),
                     start_idx=zs.begin.idx,
                     end_idx=zs.end.idx,
-                    level=1,  # 单级别输入，中枢级别恒为 1
+                    level=1,  # 单级别恒 1；九段升级后处理（下方）可升 2
                     sure=True,  # 中枢形成即确认
                     source=SOURCE,
                 )
             )
+        _apply_nine_bi_upgrade_with_extension(chart.zs, chart.bi, bars)
 
         # BSP 表（M2-3：基于末位笔的 bsp 不入表——末位笔 sure=False 未确认，
         # 其衍生 bsp 也未确认，与 expect "只列确认 bsp" 口径对齐）。
