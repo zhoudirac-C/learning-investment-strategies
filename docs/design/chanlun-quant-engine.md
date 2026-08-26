@@ -290,7 +290,7 @@ ticks/bars → 分型 → 笔 → 线段(L0 走势类型)
 
 ### C.4 zs 表构造口径
 
-- **chanpy**：`zs_algo=normal` 模式，在 seg 内部对反向笔构造（连续 2 反向笔重叠确立），seg 切分限制延伸范围。
+- **chanpy**：`zs_algo=normal` 模式，在 seg 内部对反向笔构造（连续 2 反向笔重叠确立），seg 切分限制延伸范围。M5-2 起叠加「跨 seg 延伸试探 + 九段升级」后处理（adapter_chanpy.py，门控=延伸后范围内笔数≥9 且 3 子中枢重合，门控不过则逐字段不变）。
 - **czsc**：`_recompute_zs` 按 chanpy normal 模式口径重算（引导笔定向 + 反向笔配对 + 严格重叠延伸），末位笔（sure=False）不参与延伸；无 seg 算法，BSP-002/004 等"已确认反向笔 in_range 但 expect 不延伸"的用例为已知偏差。
 
 ### C.5 已知偏差清单（M3 收官刷新 2026-08-01；M4 决策刷新 2026-08-02）
@@ -300,15 +300,15 @@ ticks/bars → 分型 → 笔 → 线段(L0 走势类型)
 | GOLD-001/002 | chanpy | bsp 缺 | 真实日线笔太少（1-3 笔）无 zs 无 bsp | ✅ recursion 箱体代理覆盖（ADR-011） |
 | GOLD-003/005 | chanpy | 误一买不报三买 | 走势方向判断与 expect 不同 | ⏸ 保持（PATCHES P-H） |
 | BI-004 | czsc | fx 多余 + bi 缺 | czsc 不成笔（bi_list 空），库行为差异 | ⛔ 永久降级（M4，UP 2026-08-02 确认） |
-| ZS-003 | 两实现 | 无九段升级 | chanpy seg 限制 / czsc 未实现 | 🔧 B 采纳（M4：chanpy 适配器补偿另立 M5；czsc 已修；recursion 未做） |
+| ZS-003 | 两实现 | 无九段升级 | chanpy seg 限制 / czsc 未实现 | ✅ chanpy M5-2 已补偿（2026-08-26）；czsc 已修；recursion 未做（ADR-010） |
 | BC-002 | 两实现 | 无 level=2 | 单级别库不产出多级结构 | ✅ recursion 覆盖（level-2 zs+双一买） |
 | BSP-003 | 两实现 | bsp 缺 | 单级别库走势类型判定缺 | ✅ recursion 覆盖（段中枢+三买@26） |
-| BSP-004 | chanpy | 三买缺（二三类重合） | 适配器只取 bsp.type[0]，chanpy 内部已算出 T2+T3B | 🔧 B 采纳（M4，另立 M5 实施） |
+| BSP-004 | chanpy | 三买缺（二三类重合） | 适配器只取 bsp.type[0]，chanpy 内部已算出 T2+T3B | ✅ M5-1 已补偿（2026-08-26） |
 | SEG-004/005 | chanpy | seg 拆段过细 | SegListComm 首段/兜底启发式口径差异 | ⛔ 永久降级（M4，UP 2026-08-02 确认） |
 | BSP-002/004 | czsc | zs 延伸过度 | czsc 无 seg 算法限制延伸 | ⛔ 永久降级（M4，UP 2026-08-02 确认） |
 | GOLD-005 | czsc | zs 构造差异 | czsc 无 seg，zs 构造口径偏差 | ⛔ 永久降级（M4，UP 2026-08-02 确认） |
 
-**M4 评估登记（2026-08-02，UP 已逐项拍板采纳）**——以下 6 项经 M4 补丁评估定为永久降级（建议 C；另 2 项 BSP-004/ZS-003 × chanpy 建议 B 适配器补偿，UP 已批准实施，另立 M5 里程碑，不动本附录）：
+**M4 评估登记（2026-08-02，UP 已逐项拍板采纳）**——以下 6 项经 M4 补丁评估定为永久降级（建议 C；另 2 项 BSP-004/ZS-003 × chanpy 建议 B 适配器补偿，UP 已批准并于 M5 实施完毕（plan：docs/superpowers/plans/2026-08-26-chanlun-quant-m5-adapter-compensation.md），上表两行已翻 ✅）：
 
 - **SEG-004/005 × chanpy**：经 M4 评估（chanlun-m4-patch-assessment.md 第 1 节）定为永久降级，理由：分叉点在 SegListComm 首段/兜底全库共享默认路径，唯一配置通道 `left_seg_method=all` 实测净 -2，收益仅 +2 PASS 而触碰 seg 上游全部 23 个 PASS 用例，演进由 ADR-009 recursion L0 承担。
 - **BI-004 × czsc**：经 M4 评估（chanlun-m4-patch-assessment.md 第 4 节）定为永久降级，理由：补偿点在 czsc 成笔内核（rust 后端不可改，python 后端补课77步骤二=重写核心成笔），半径 25 全量，且该形态已由 chanpy/recursion 两列覆盖。

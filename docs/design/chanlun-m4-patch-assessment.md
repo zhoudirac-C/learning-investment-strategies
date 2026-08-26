@@ -45,7 +45,7 @@
   - 补偿点明确且与先例同类：改 `adapter_chanpy.py:264-278` 提取循环，按 `bsp.type` 逐 distinct main_type 出记录，同 M2-3 末位笔过滤属 B 类，不动 `third_party/chanpy/`；
   - 半径实证 = 0（全语料仅 BSP-004 一例多类型；6 个 bsp-PASS 用例输出不变），实施验收门：198 全绿 + BSP-004 chanpy 列 FAIL→PASS；
   - C（永久降级）否：非不可修复项，且"二三类重合"是课21 明确形态（claim-20070109-001-b），成本一行提取口径、收益 chanpy +1 PASS，无挂账理由。
-- **UP 决策**：B 采纳——批准实施（2026-08-02 UP 确认），另立 M5 实施里程碑
+- **UP 决策**：B 采纳——批准实施（2026-08-02 UP 确认），另立 M5 实施里程碑；M5 已实施完毕（plan：docs/superpowers/plans/2026-08-26-chanlun-quant-m5-adapter-compensation.md）
 
 ## 3. ZS-003 × chanpy（跨 seg 九段升级，P-K）
 - **根因复核**：（M2-5 结论）ZS-003 的 chanpy zs 受 seg 切分限制（end=17，不够 9 段）；`ZS.combine` 拒绝 one_bi_zs（ZS.py:116）和跨 seg（ZS.py:118）；`one_bi_zs=T` 实验回归 BSP-002/GOLD-003/005（-3）。czsc 适配器已有参照实现 `_apply_nine_bi_upgrade()`。
@@ -63,7 +63,7 @@
   - A（改 vendor）否：:118 为全库共享默认路径且无配置旁路，`do_combine` 并集口径破坏既有 expect zs，另需新增级别推导通道（归一化 level 恒 1 无 level=2 输出口径），违反最小 diff，同区域实验已实证净回归（`one_bi_zs=T` -3）；
   - C（永久降级）否：非不可修复项，九段升级为课33 明确形态，补偿收益 chanpy +1 PASS、半径实证 = 1，无挂账理由；
   - 实施验收门（供后续里程碑）：198 全绿 + ZS-003 chanpy 列 FAIL→PASS + bsp-002/bsp-004/seg-005 三用例输出逐字节不变。
-- **UP 决策**：B 采纳——批准实施（2026-08-02 UP 确认），另立 M5 实施里程碑
+- **UP 决策**：B 采纳——批准实施（2026-08-02 UP 确认），另立 M5 实施里程碑；M5 已实施完毕（plan：docs/superpowers/plans/2026-08-26-chanlun-quant-m5-adapter-compensation.md）
 
 ## 4. BI-004 × czsc（min_bi_len + 课77步骤二，P-J）
 - **根因复核**：（M2-5 结论）czsc 0.10.12 rust 后端内置 min_bi_len=6（忽略环境变量）→ BI-004 bi_list 空；切 python 后端 min_bi_len=4 出 3 笔，但因无课77步骤二"同性质相邻分型保留更极值者"消解，与 expect 1 笔 (1,9,u) 不一致。
