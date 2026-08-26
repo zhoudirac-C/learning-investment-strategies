@@ -9,9 +9,14 @@ fx 从 CKLine.fx 标记直取（孤立分型入表、合并 K 线 idx 取极值 
 bsp dir=操作方向（买点=UP）、默认配置 bi_fx_check=loss 进快照。
 """
 
+from pathlib import Path
+
+from Common.CEnum import BSP_TYPE
+
 from chan_engine.harness.adapter import ChartAdapter
-from chan_engine.harness.adapter_chanpy import ChanPyAdapter
+from chan_engine.harness.adapter_chanpy import ChanPyAdapter, _distinct_main_types
 from chan_engine.spec.builders import bars_from_ohlc
+from chan_engine.spec.case_io import load_case
 from chan_engine.spec.model import Direction
 
 # 13 根 K 线：bar2 顶(h=4.6) → bar6 底(l=0.4) → bar10 顶(h=4.6)，尾部 2 根不足以成第 3 笔。
@@ -280,3 +285,29 @@ class TestChanPyAdapterNormalization:
         assert [(z.zd, z.zg, z.start_idx, z.end_idx, z.level, z.sure) for z in chart.zs] == [
             (18.3, 20.2, 6, 21, 1, True),
         ]
+
+
+_CASES_DIR = Path(__file__).resolve().parents[2] / "src" / "chan_engine" / "spec" / "cases"
+
+
+class TestMultiMainTypeBsp:
+    """M5-1：同笔多类型买卖点按 distinct main_type 逐条出记录（课21 二三类重合）。
+
+    依据：M4 评估 §2——chanpy 内部已算出 bsp@klu36 types=[T2, T3B]，
+    旧提取口径 bsp.type[0] 丢弃 T3B。
+    """
+
+    def test_bsp004_second_and_third_buy_coincide(self):
+        case = load_case(_CASES_DIR / "bsp-004.yaml")
+        chart = make_adapter().run(case.bars)
+        assert [(b.idx, b.bstype, b.dir, b.level, b.sure) for b in chart.bsp] == [
+            (26, 1, Direction.UP, 1, True),
+            (36, 2, Direction.UP, 1, True),
+            (36, 3, Direction.UP, 1, True),
+        ]
+
+    def test_distinct_main_types_dedup(self):
+        """同 main_type 去重（T1/T1P 理论可同挂一笔，M4-2 评审提示）；保持原顺序。"""
+        assert _distinct_main_types([BSP_TYPE.T2, BSP_TYPE.T3B]) == [2, 3]
+        assert _distinct_main_types([BSP_TYPE.T1, BSP_TYPE.T1P]) == [1]
+        assert _distinct_main_types([BSP_TYPE.T3A]) == [3]

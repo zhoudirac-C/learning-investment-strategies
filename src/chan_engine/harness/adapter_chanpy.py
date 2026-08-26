@@ -22,7 +22,9 @@
 - sure 位置约定（替换 bi/zs/seg/bsp.is_sure 派生，对齐引擎"右侧确认"语义）：
   fx/bi/seg 表末位 sure=False、其余 True（单元素即末位 → False）；
   zs/bsp 表形成即 sure=True（恒 True）。
-- BSP：bstype 取 type[0].main_type()（1/2/3）；dir = 操作方向（ADR-006）——
+- BSP：bstype 按 ``bsp.type`` 逐 distinct ``main_type()`` 出一条（M5-1：同笔
+  多类型合并场景如二买+三买 T2+T3B 各出一条，课21 二三类重合；同 main_type
+  去重）；dir = 操作方向（ADR-006）——
   买点（is_buy）→ up，卖点 → down；level 恒 1（单级别输入）。
 """
 
@@ -116,6 +118,22 @@ def _apply_positional_sure(table: list) -> None:
         return
     for i, elem in enumerate(table):
         elem.sure = i < n - 1  # 末位 False，其余 True
+
+
+def _distinct_main_types(bsp_type_list) -> list[int]:
+    """``bsp.type``（BSP_TYPE 列表）→ distinct main_type int 列表，保持原顺序。
+
+    chanpy 把同笔多个买卖点合并进同一 CBS_Point（如二买+三买重合 T2+T3B，
+    课21 / claim-20070109-001-b），多类型信息保留在 type 列表中；归一表按
+    每个 distinct main_type 出一条 BSPoint（M5-1，M4 评估 §2 UP 批准的
+    B 类补偿）。同 main_type 去重（T1/T1P 理论可同挂一笔，M4-2 评审提示）。
+    """
+    seen: list[int] = []
+    for t in bsp_type_list:
+        mt = int(t.main_type())
+        if mt not in seen:
+            seen.append(mt)
+    return seen
 
 
 def _bar_to_klu(bar: Bar, pos: int) -> CKLine_Unit:
@@ -266,16 +284,17 @@ class ChanPyAdapter:
             # 跳过基于未确认笔（末位笔）的 bsp：chart.bi[bi_idx].sure=False
             if bi_idx < len(chart.bi) and not chart.bi[bi_idx].sure:
                 continue
-            chart.bsp.append(
-                BSPoint(
-                    idx=bsp.klu.idx,
-                    bstype=int(bsp.type[0].main_type()),
-                    dir=Direction.UP if bsp.is_buy else Direction.DOWN,  # 操作方向（ADR-006）
-                    level=1,
-                    sure=True,  # 买卖点形成即确认
-                    source=SOURCE,
+            for bstype in _distinct_main_types(bsp.type):
+                chart.bsp.append(
+                    BSPoint(
+                        idx=bsp.klu.idx,
+                        bstype=bstype,
+                        dir=Direction.UP if bsp.is_buy else Direction.DOWN,  # 操作方向（ADR-006）
+                        level=1,
+                        sure=True,  # 买卖点形成即确认
+                        source=SOURCE,
+                    )
                 )
-            )
 
         return chart
 
