@@ -55,10 +55,15 @@ def _load_target_codes(sector_json: Path, db_path: Path, only_codes=None) -> lis
 
     todo = []
     skipped = 0
+    # 断点续拉阈值：动态取「最近 N 个自然日内有数据」即视为最新。
+    # 2026-08-27 修复：原先硬编码 "2026-08-01"（注释写最近10天但实现非动态），
+    # 8 月过后 4582 只 8-13 停更的代码被永久误判为已最新 → 板块评分静默失明。
+    from datetime import date, timedelta
+    fresh_threshold = (date.today() - timedelta(days=10)).isoformat()
     for c in codes:
         md = existing.get(c)
-        # 有数据且最新日期在最近 10 天内 → 跳过
-        if md and md >= "2026-08-01":
+        # 最新交易日在最近 10 天内 → 跳过
+        if md and md >= fresh_threshold:
             skipped += 1
             continue
         todo.append(c)
@@ -66,20 +71,30 @@ def _load_target_codes(sector_json: Path, db_path: Path, only_codes=None) -> lis
     return todo
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0, help="本次最多拉取只数（0=全部）")
     ap.add_argument("--only", nargs="*", default=None, help="只拉指定代码（空格分隔）")
-    args = ap.parse_args()
+    ap.add_argument("--sector-json", type=Path, default=None,
+                    help="覆盖 sector_members.json 路径（测试用）")
+    ap.add_argument("--db", type=Path, default=None,
+                    help="覆盖 kline_cache.db 路径（测试用）")
+    args = ap.parse_args(argv)
 
     repo = Path(__file__).resolve().parent.parent
-    sector_json = repo / "config" / "stock_monitor" / "sector_members.json"
-    db_path = repo / "infra" / "data" / "kline_cache.db"
+    sector_json = args.sector_json or (repo / "config" / "stock_monitor" / "sector_members.json")
+    db_path = args.db or (repo / "infra" / "data" / "kline_cache.db")
 
     init_db(db_path=db_path)
     codes = _load_target_codes(sector_json, db_path, args.only)
     if args.limit:
         codes = codes[: args.limit]
+
+    # 2026-08-27 修复：0 待拉 = 幂等无事可做，返回 0（原先 ok=0 → 返回 1，
+    # cron/watcher 把「全部已最新」误判为失败）
+    if not codes:
+        print("[tdx-klines] 无待拉代码（全部已最新），无事可做")
+        return 0
 
     mkt = TdxMarket()
     ok = fail = 0
@@ -116,9 +131,14 @@ def main() -> int:
 
 if __name__ == "__main__":
     import os
+    import sys
     # 显式 os._exit 强制退出：pytdx 的 heartbeat/连接线程是非 daemon，
     # 会让进程在 main() return 后卡住不退（实测：脚本已打印"完成"但
     # 进程挂 10+ 分钟，导致 watcher 脚本无限等待）。数据已 commit 落库，
     # 直接 _exit 安全。
+    # 2026-08-27 修复：_exit 前必须 flush（os._exit 不清缓冲，管道/cron
+    # 场景下 stdout 全空 → 静默失败假象）。
     code = main()
+    sys.stdout.flush()
+    sys.stderr.flush()
     os._exit(code)
