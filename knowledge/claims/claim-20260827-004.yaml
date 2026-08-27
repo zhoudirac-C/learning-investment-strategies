@@ -1,0 +1,151 @@
+claims:
+- id: claim-20260827-049-x
+  source_path: sources/raw/财经/2026-08-27-盘中-种业高标逻辑与仓位纪律.md
+  source_date: '2026-08-27'
+  source_type: 动态
+  extracted_at: '2026-08-28T01:35:00+08:00'
+  claim_type: market-cycle
+  subject: 缩量调整期资金做高标抱团卡位题材
+  timeframe: permanent
+  statement: 每当行情缩量调整时，一般都会出现大高度的抱团票：因为缩量趋势大票做不了，但资金永不眠就会有人做这种方向，所以无论是医药、种业、金属都会出现这样的标的；而随着行情越来越好转，这类卡位题材的高标会渐渐走弱，能做就做，做不了不用强求。
+  evidence_quote: 每当行情进行缩量调整的时候，一半都会出现这种大高度的抱团票，因为缩量，趋势大票做不了，但是资金永不眠就会有人出来做这种方向，所以无论是医药，种业，金属，都会出现这样的标的。……但是只要随着行情越来越好转，这一类的卡位题材的高标都会渐渐走弱，这些品种能做就做，做不了不用强求。
+  interpretation: 缩量环境与高标抱团的因果机制：趋势票需要量能燃料，缩量下资金只能在无套牢盘的卡位题材上做高度。反向推论——卡位高标走弱反而是行情好转的信号（资金回流趋势票），这是一个可观察的
+    Environment 指标。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 缩量调整期必有高标抱团，行情好转则卡位高标走弱
+  related_stocks: []
+  tags:
+  - 缩量调整
+  - 高标抱团
+  - 卡位题材
+  - 资金永不眠
+  - 方法论
+- id: claim-20260827-050-x
+  source_path: sources/raw/财经/2026-08-27-盘中-种业高标逻辑与仓位纪律.md
+  source_date: '2026-08-27'
+  source_type: 动态
+  extracted_at: '2026-08-28T01:35:00+08:00'
+  claim_type: stock-view
+  subject: 金健米业带头转强二波走势
+  timeframe: short-term
+  statement: 周二中午讲过金健米业(600127)带头转强，因此会出现二波的走势；种业板块内部以轮动为主：登海种业(002041)换成万向德农(600371)，低位连板股一茬茬地换，细分方向从农产品过渡到化肥。
+  evidence_quote: 因此我在周二中午的时候跟大家讲过金健米业带头转强，因此会出现二波的走势。……农业持续性还是不错的，许多个股都是三连阳，但内部仍以轮动为主：从登海种业换成万向德农，低位连板股一茬茬地换，细分方向也由农产品过渡到了化肥。个人判断，与其被动地跟随轮动，不如聚焦在个别股性活跃的个股上。
+  interpretation: 农业板块的操作策略是盯股性活跃个股而非被动跟轮动；金健米业作为高标辨识度标的，其二波走势是种业抱团逻辑的具体载体。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 金健米业二波走势，农业内部轮动聚焦股性活跃个股
+  related_stocks:
+  - code: '600127'
+    name: 金健米业
+    role: 种业高标-主板可交易
+  - code: '002041'
+    name: 登海种业
+    role: 种业轮动标的-主板可交易
+  - code: '600371'
+    name: 万向德农
+    role: 种业轮动标的-主板可交易
+  tags:
+  - 金健米业
+  - 种业
+  - 二波
+  - 轮动
+  - 农业
+- id: claim-20260827-051-x
+  source_path: sources/raw/财经/2026-08-27-盘中-种业高标逻辑与仓位纪律.md
+  source_date: '2026-08-27'
+  source_type: 动态
+  extracted_at: '2026-08-28T01:35:00+08:00'
+  claim_type: operation
+  subject: 每天一成加仓当前三四成合理
+  timeframe: short-term
+  statement: 从周一的视频开始每天一成一成加仓，按照七月底抄底的节奏来做；从位置上讲周一已经差不多了，再跌一下更好，会出现日线级别的大周期；从上周三开始调整的6-8个交易日已经符合，因此现在仓位3-4成是合理的；如果还没建仓，今天观察上证指数能否尾盘站稳3932，站稳则明天开始加仓3成左右；目前还不具备满仓条件。
+  evidence_quote: 其次就是仓位问题，从周一的视频开始，我让大家每天一成一成的加仓，还是按照七月底抄底的节奏来做，因为从位置上来讲，周一已经差不多了，再跌一下更好，会出现日线级别的大周期，但因为距离调整时间和调整周期都很近，从上周三开始调整的6-8个交易日也已经符合，因此现在的仓位3-4成是合理的，如果你还没有建仓，那么今天观察上证指数能否尾盘站稳3932，如果站稳，明天开始加仓，依旧是3成左右。目前还不不具备满仓的条件。
+  interpretation: 加仓节奏量化：每天一成、当前位置 3-4 成、站稳 3932 后未建仓者加至 3 成——节奏锚定调整周期计数（6-8 交易日）与关键点位双重验证，与「仓位不该是感觉，应该是从纠错点位倒推出来的结果」一致。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 每天一成加仓节奏，当前3-4成合理，站稳3932再加3成
+  related_stocks: []
+  tags:
+  - 仓位纪律
+  - 加仓节奏
+  - '3932'
+  - 调整周期
+  - 抄底
+- id: claim-20260827-052-x
+  source_path: sources/raw/财经/2026-08-27-盘中-种业高标逻辑与仓位纪律.md
+  source_date: '2026-08-27'
+  source_type: 动态
+  extracted_at: '2026-08-28T01:35:00+08:00'
+  claim_type: technical-signal
+  subject: 5分钟顶部结构若该弱反强则可参与性增加
+  timeframe: intraday
+  statement: 置顶评论：这里大概率会形成5分钟顶部结构，理论上对应的调整时间是2个小时；可以观察下市场是否会反应，如果该弱反强，则意味着市场的可参与性在增加。
+  evidence_quote: 这里大概率会形成5分钟顶部结构，理论上对应的调整时间是2个小时。可以观察下市场是否会反应，如果该弱反强，则意味着市场的可参与性在增加
+  interpretation: 结构信号的反向用法：5分钟顶结构本应压制 2 小时，但若市场「该弱反强」（结构失效），恰恰说明买方力量强到无视小级别压力——结构失效本身变成做多信号。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 5分钟顶结构对应2小时调整，该弱反强则可参与性增加
+  related_stocks: []
+  tags:
+  - 5分钟顶
+  - 该弱反强
+  - 结构失效
+  - 可参与性
+  - 缠论
+- id: claim-20260827-053-x
+  source_path: sources/raw/财经/2026-08-27-盘中-种业高标逻辑与仓位纪律.md
+  source_date: '2026-08-27'
+  source_type: 动态
+  extracted_at: '2026-08-28T01:35:00+08:00'
+  claim_type: market-cycle
+  subject: 连板板块与产业概念板块脱钩
+  timeframe: permanent
+  statement: 如果后续市场接力情绪继续好转，同样也会利好连板方向，连板方向后面就会脱离板块独立走强，基本上所有连板都属于连板板块，跟之前的产业概念板块就没什么关系了。
+  evidence_quote: 如果后续市场接力情绪继续好转，同样也会利好连板方向，连板方向后面就会脱离板块独立走强，基本上所有连板都属于连板板块，跟之前的产业概念板块就没什么关系了，这一点大家要明白。
+  interpretation: 情绪周期视角的板块分类学：情绪好转后「连板」本身成为一个独立板块，个股归属从产业逻辑切换为情绪逻辑——这决定了选股时的归属判断标准（做情绪看连板梯队，做产业看基本面映射）。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 连板方向脱离产业概念独立成板块，情绪逻辑取代产业逻辑
+  related_stocks: []
+  tags:
+  - 连板
+  - 情绪周期
+  - 板块脱钩
+  - 接力情绪
+  - 方法论

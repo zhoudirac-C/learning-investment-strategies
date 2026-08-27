@@ -1,0 +1,58 @@
+claims:
+- id: claim-20260827-043-x
+  source_path: sources/raw/财经/2026-08-27-早盘-特朗普行政令禁止美国电网外国设备.md
+  source_date: '2026-08-27'
+  source_type: 动态
+  extracted_at: '2026-08-28T01:25:00+08:00'
+  claim_type: catalyst
+  subject: 特朗普行政令禁止美国电网使用部分外国设备
+  timeframe: trend
+  statement: 特朗普签署行政令，禁止美国电网使用部分外国设备，一定会影响到电力系统设备，此前说过的相关标的按「君子不立危墙之下」先出掉；同时这件事反过来刺激自主可控。
+  evidence_quote: 特朗普签署行政令，禁止美国电网使用部分外国设备。这个事情一定会影响到电力系统设备，因为之前说过相关的标的，君子不立危墙之下，不管如何先出掉。同样这件事情会反过来刺激自主可控，因为国产算力在后续的行情基本上没的跑了，重点关注国产算力，节奏还是按照我们的预期进行，仓位慢点上。
+  interpretation: 事件驱动的双向映射：对美出口电力设备链是明确利空（先出避险），反过来强化国产算力的自主可控逻辑。UP 给出的是方向性结论而非标的清单，重点是「危墙之下先出掉」的风险处理纪律。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美国电网设备行政令：电力设备出口链利空先出，反向强化国产算力自主可控
+  related_stocks: []
+  tags:
+  - 特朗普
+  - 行政令
+  - 电网设备
+  - 自主可控
+  - 国产算力
+- id: claim-20260827-044-x
+  source_path: sources/raw/财经/2026-08-27-早盘-特朗普行政令禁止美国电网外国设备.md
+  source_date: '2026-08-27'
+  source_type: 动态
+  extracted_at: '2026-08-28T01:25:00+08:00'
+  claim_type: operation
+  subject: 国产算力越跌越买但仓位慢点上
+  timeframe: short-term
+  statement: 国产算力方向明确、越跌越买是可以的，但仓位慢点上；长期看好不代表短期走势顺畅，今天高开低走也会很常见，韩股已在高开低走。
+  evidence_quote: 因为我们的调整时间和量能也差不多到这个位置了，虽然没有办法看到完全的反转，但是越跌越买是可以的，方向明确国产算力。早盘也说过了，再明确提示一下，昨天美国的PCE数据高于预期，英伟达在公布业绩之后是大跌的，拉回是因为电话会议，给市场说的高增长能持续到2028，因此长期看好不代表短期走势会很顺畅，今天高开低走也会很常见，目前韩股已经在高开低走了。
+  interpretation: 方向判断（国产算力）与节奏控制（仓位慢点、越跌越买）分离——这是 UP 操作纪律的典型结构：方向可以坚定，但入场节奏受制于短期情绪（PCE
+    超预期、英伟达盘后反转的脆弱性、韩股走势）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国产算力方向明确越跌越买，但短期高开低走风险下仓位慢上
+  related_stocks: []
+  tags:
+  - 国产算力
+  - 越跌越买
+  - 仓位管理
+  - 高开低走
+  - 操作纪律
