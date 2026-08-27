@@ -13,8 +13,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260605-002-a"]
+  contradicts: ["claim-20260826-022-a"]
+  supplements: []
+  last_discovered: 2026-08-28
   links:
     wiki_pages: []
     methodology_pages: []
