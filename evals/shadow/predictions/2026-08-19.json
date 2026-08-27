@@ -76,8 +76,66 @@
   "raw": "{\n  \"market_stage\": \"调整\",\n  \"nature\": \"内生瓦解\",\n  \"stage_reason\": \"今日盘中形态为冲量滑落（全天缩量），开盘预估全天48501亿，尾盘实际25110亿，偏差超30%，两市成交额25110.4亿，但上涨家数449家远少于下跌5069家，涨停36家较昨日79家大幅减少，跌停118家，昨日涨停今收益-2.479%，连板高度降至3板，晋级率11.48%，首板家数29家较昨日61家减少32家，半导体、通信设备等进攻板块午后转弱，资金大幅净流出，高位抱团瓦解，属内生瓦解。\",\n  \"scenarios\": [\n    {\n      \"name\": \"情形A\",\n      \"condition\": \"次日两市成交额(亿)维持当前量级且涨停家数回升至50家以上，半导体/通信设备板块止跌企稳\",\n      \"conclusion\": \"调整后存在修复可能，但需右侧确认，不急于抄底\",\n      \"key\": \"量能是否持续\"\n    },\n    {\n      \"name\": \"情形B\",\n      \"condition\": \"次日两市成交额(亿)明显萎缩，或涨停家数继续萎缩至30家以下，跌停家数维持高位\",\n      \"conclusion\": \"调整延续，防御为主，等待情绪冰点信号\",\n      \"key\": \"情绪是否继续退潮\"\n    }\n  ],\n  \"watch_next\": [\n    \"两市成交额(亿)能否维持当前量级\",\n    \"涨停家数能否回升至50家以上\",\n    \"半导体/通信设备板块能否止跌企稳\",\n    \"首板家数29家，按约15%晋级率折算次日二板健康区间约4家，跟踪实际二板家数\",\n    \"上证指数60min顶部结构已形成，观察是否确认调整延续\"\n  ],\n  \"invalidation\": [\n    \"若次日两市成交额(亿)重新放大至2.5万亿确认位以上且涨停家数回升至80家以上，则调整判断失效\",\n    \"若半导体/通信设备板块放量反包，则内生瓦解判断失效\"\n  ],\n  \"directions\": [\n    {\n      \"direction_id\": \"银行\",\n      \"reason\": \"资金净流入43.97亿，板块涨幅1.46%，防御属性凸显\",\n      \"posture\": \"趋势\",\n      \"trend\": \"新增\",\n      \"stocks\": [\"600036\", \"601398\"]\n    },\n    {\n      \"direction_id\": \"煤炭\",\n      \"reason\": \"资金净流入2.39亿，板块涨幅1.52%，防御属性凸显\",\n      \"posture\": \"趋势\",\n      \"trend\": \"新增\",\n      \"stocks\": [\"601088\", \"600188\"]\n    }\n  ],\n  \"used_patterns\": [\"sentiment_cycle\", \"mainline_identification\", \"position_by_cycle\", \"volume_surge_fade\", \"volume_source_qualify\", \"board_break_nature\", \"promotion_rate_benchmark\"],\n  \"operation\": {\n    \"position\": \"高位兑现\",\n    \"action\": \"获利了结、降仓位、不急着表态\",\n    \"basis\": \"科创50反弹第12天超过理论窗口6-8天，创业板指反弹第14天超过窗口，上证指数反弹第3天，指数间分歧；今日盘中形态冲量滑落，涨停家数大幅减少，跌停家数118家，情绪退潮，属反弹超预期后的兑现窗口\"\n  },\n  \"cycle_state\": {\n    \"rebound_day\": 12,\n    \"bottom_level\": \"90min\",\n    \"bottom_date\": \"2026-08-04\",\n    \"theoretical_window\": \"6-8天\",\n    \"note\": \"科创50与创业板指反弹周期一致，均超过理论窗口，上证指数反弹第3天，指数间分歧，科技主线周期已超预期\"\n  }\n}",
   "prompt_version": "v7",
   "stage_hit": false,
-  "due_scores": null,
-  "status": "pending_maturity",
+  "due_scores": {
+    "directions": {
+      "samples": 2,
+      "hits": 2,
+      "hit_rate": 1.0
+    },
+    "stocks": {
+      "samples": 4,
+      "hits": 3,
+      "hit_rate": 0.75
+    },
+    "direction_details": [
+      {
+        "date": "2026-08-19",
+        "direction_id": "银行",
+        "dir_ret": 0.01599371254543669,
+        "bench_ret": 0.0004554666899121429,
+        "hit": true
+      },
+      {
+        "date": "2026-08-19",
+        "direction_id": "煤炭",
+        "dir_ret": 0.003366412394392837,
+        "bench_ret": 0.0004554666899121429,
+        "hit": true
+      }
+    ],
+    "_rescore_note": "2026-08-27 手工重评：中文名方向(银行/煤炭/医药/通信设备)无成员映射致原评分 samples=0；成分取盲判自选 stocks，口径与 direction_scores 一致（5日相对沪深300超额）",
+    "stock_details": [
+      {
+        "date": "2026-08-19",
+        "code": "600036",
+        "ret": 0.016602809706258048,
+        "bench_ret": 0.0004554666899121429,
+        "hit": true
+      },
+      {
+        "date": "2026-08-19",
+        "code": "601398",
+        "ret": 0.01538461538461533,
+        "bench_ret": 0.0004554666899121429,
+        "hit": true
+      },
+      {
+        "date": "2026-08-19",
+        "code": "601088",
+        "ret": 0.015907136715391124,
+        "bench_ret": 0.0004554666899121429,
+        "hit": true
+      },
+      {
+        "date": "2026-08-19",
+        "code": "600188",
+        "ret": -0.00917431192660545,
+        "bench_ret": 0.0004554666899121429,
+        "hit": false
+      }
+    ]
+  },
+  "status": "scored",
   "validation": {
     "status": "failed",
     "violations": [

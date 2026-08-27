@@ -46,6 +46,7 @@ def run(day: str, *, config_dir, db_path=None,
     # 回填当日早盘盲判（-pre）的 stage_hit（同一份真值，收盘后才有）
     from investment_engine.shadow.premarket import premarket_path
     pre_path = premarket_path(day, pred_dir)
+    pre = None
     if pre_path.exists():
         pre = json.loads(pre_path.read_text(encoding="utf-8"))
         if pre.get("status") == "pending_maturity" and pre.get("stage_hit") is None:
@@ -58,6 +59,15 @@ def run(day: str, *, config_dir, db_path=None,
     # 到期回填 + 到期日的 direction_miss 归因
     mat = run_maturity(day, config_dir=config_dir, db_path=db_path, pred_dir=pred_dir)
     attributed = []
+
+    # 早盘判错同样归因（2026-08-27 补缺口：8-20/8-24 早盘 stage_miss 漏归因）
+    if pre is not None and pre.get("stage_hit") is False:
+        run_attribution(day, trigger="stage_miss_premarket", pred=pre,
+                        score_info={"truth": load_truth(db_path=db_path).get(day),
+                                    "track": "premarket"},
+                        attr_dir=attr_dir, proposal_dir=proposal_dir,
+                        model=model, client=client)
+        attributed.append(day)
 
     if rec.get("stage_hit") is False:
         run_attribution(day, trigger="stage_miss", pred=rec,
