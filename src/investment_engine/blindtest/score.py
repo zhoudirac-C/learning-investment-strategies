@@ -62,6 +62,11 @@ def _direction_members(config_dir, direction_id: str) -> list[str]:
     优先查 TDX 概念板块成分股（config/stock_monitor/sector_members.json），
     回退本地 stock_pool 的 direction 字段。direction_id 既可能是 TDX 板块名
     （如"算力租赁"），也可能是本地 direction_pool 的 id（如"mlcc_super_cycle"）。
+
+    第三级回退（2026-08-27）：盲判 LLM 偶尔输出中文名方向（"银行""煤炭"，
+    8-19/8-20 实测）不在前两级集合内 → 成员空 → 评分 samples=0 静默失明。
+    经 industry_alias.yaml 同义词映射到证监会行业名，再从
+    stock_sector_mapping.json（每日 cron 刷新）反查行业成分股。
     """
     # 1) TDX 板块成分股
     try:
@@ -76,10 +81,59 @@ def _direction_members(config_dir, direction_id: str) -> list[str]:
     from qing_investment.monitor.context import load_monitor_config
 
     cfg = load_monitor_config(Path(config_dir))
-    return [
+    pool_hits = [
         s["code"] for s in (cfg.stock_pool or {}).get("stocks", [])
         if s.get("direction") == direction_id and s.get("code")
     ]
+    if pool_hits:
+        return pool_hits
+
+    # 3) 行业同义词回退（中文名方向）
+    return _industry_alias_members(config_dir, direction_id)
+
+
+def _industry_alias_members(config_dir, direction_id: str) -> list[str]:
+    """中文名方向 → industry_alias.yaml → stock_sector_mapping.json 反查。
+
+    匹配规则：alias value 是证监会行业名（精确）；行业名不在缓存时按
+    direction_id 做行业名子串匹配兜底。找不到返回空列表，不编造成分。
+    """
+    import json
+    import yaml
+
+    alias_path = Path(config_dir) / "industry_alias.yaml"
+    if not alias_path.exists():
+        return []
+    try:
+        alias = yaml.safe_load(alias_path.read_text(encoding="utf-8")) or {}
+    except Exception:  # noqa: BLE001 - 映射表损坏时静默跳过该级回退
+        return []
+    if direction_id not in alias:
+        return []
+
+    mapping_path = Path(config_dir) / "stock_sector_mapping.json"
+    if not mapping_path.exists():
+        return []
+    try:
+        mapping = (json.loads(mapping_path.read_text(encoding="utf-8"))
+                   .get("mapping") or {})
+    except Exception:  # noqa: BLE001
+        return []
+
+    target = alias[direction_id]
+    codes = sorted(
+        code for code, boards in mapping.items()
+        if any(b.get("board_type") == "industry" and b.get("name") == target
+               for b in (boards or []))
+    )
+    if codes:
+        return codes
+    # 精确行业名未命中（缓存快照的行业名集合变化）→ 行业名含 direction_id 的兜底
+    return sorted(
+        code for code, boards in mapping.items()
+        if any(b.get("board_type") == "industry" and direction_id in (b.get("name") or "")
+               for b in (boards or []))
+    )
 
 
 def direction_scores(results: list[dict], *, config_dir, db_path=None,
