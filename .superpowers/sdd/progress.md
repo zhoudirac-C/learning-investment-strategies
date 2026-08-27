@@ -60,3 +60,12 @@ M5 适配器补偿 (plan: docs/superpowers/plans/2026-08-26-chanlun-quant-m5-ada
   - 收官矩阵: chanpy 25 / czsc 25 / recursion 18（chanpy 剩余 6 FAIL 全部有归属：BC-002/BSP-003 recursion 覆盖、SEG-004/005 永久降级、GOLD-001/002 recursion 箱体代理）；单测 202 passed
   - 验收门: bsp-002/bsp-004/seg-005 及其余 chanpy PASS 用例快照逐字节不变（diff 仅 BSP-004/ZS-003 两处预期差异）
   - 正式校准报告未重生成（report.py --version 仅 M1/M2/M3，M5 版本段扩展另立项待 UP 拍板）
+
+M6 策略特征层与回测 (设计: docs/design/chanlun-m6-strategy-backtest.md): started 2026-08-27
+  - 立项: 即设计文档 §九「M4（另立项）策略特征层/回测」；M4/M5 编号已被占用，顺延为 M6，§九 表格已同步
+  - M6-1 数据接入: done 2026-08-27（未提交）
+    - spike 实证: akshare 个股历史接口(stock_zh_a_hist)本机 ConnectionError 不可达；akshare 指数(stock_zh_index_daily 新浪源) ✅ 8712 行全历史；baostock 个股+指数 ✅ 全历史
+    - 落地: src/chan_engine/data/{__init__,fetch,store}.py + scripts/fetch_chan_bars.py；降级链 akshare→baostock→DataFetchError；chan_bars.db 独立库存（避开 kline_cache 覆盖写语义）；前复权统一口径；volume 归一到股（akshare×100）
+    - 实测: sh000001 8712 行(akshare) + 600519 6065 行(baostock 自动降级) 落库；load_bars 直供 ChanPyAdapter 跑通
+    - 验收: 21 新单测全绿(不触网)；全量 223 passed；校准矩阵 25/25/18 零回归
+  - M6-2/3/4（特征层/回测引擎/样本外报告）: 待立项 plan
