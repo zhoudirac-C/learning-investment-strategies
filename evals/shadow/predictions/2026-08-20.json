@@ -74,8 +74,8 @@
   "due_scores": {
     "directions": {
       "samples": 2,
-      "hits": 2,
-      "hit_rate": 1.0
+      "hits": 1,
+      "hit_rate": 0.5
     },
     "stocks": {
       "samples": 3,
@@ -86,19 +86,23 @@
       {
         "date": "2026-08-20",
         "direction_id": "医药",
-        "dir_ret": 0.23521784849970473,
+        "dir_ret": 0.007410391358472166,
         "bench_ret": 0.00817157476457453,
-        "hit": true
+        "hit": false,
+        "members_used": 92,
+        "members_total": 100
       },
       {
         "date": "2026-08-20",
         "direction_id": "通信设备",
-        "dir_ret": 0.22677737415672028,
+        "dir_ret": 0.0671433155717372,
         "bench_ret": 0.00817157476457453,
-        "hit": true
+        "hit": true,
+        "members_used": 93,
+        "members_total": 100
       }
     ],
-    "_rescore_note": "2026-08-27 手工重评：中文名方向(银行/煤炭/医药/通信设备)无成员映射致原评分 samples=0；成分取盲判自选 stocks，口径与 direction_scores 一致（5日相对沪深300超额）",
+    "_rescore_note": "2026-08-27 板块级重评：industry_alias 三级回退解析中文名方向成完整行业成分（银行44/煤炭25/医药100/通信设备100），替换此前手工小样本(n=1~2)",
     "stock_details": [
       {
         "date": "2026-08-20",

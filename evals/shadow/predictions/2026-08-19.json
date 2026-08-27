@@ -91,19 +91,23 @@
       {
         "date": "2026-08-19",
         "direction_id": "银行",
-        "dir_ret": 0.01599371254543669,
+        "dir_ret": 0.02100187181933382,
         "bench_ret": 0.0004554666899121429,
-        "hit": true
+        "hit": true,
+        "members_used": 28,
+        "members_total": 44
       },
       {
         "date": "2026-08-19",
         "direction_id": "煤炭",
-        "dir_ret": 0.003366412394392837,
+        "dir_ret": 0.04254855978758691,
         "bench_ret": 0.0004554666899121429,
-        "hit": true
+        "hit": true,
+        "members_used": 22,
+        "members_total": 25
       }
     ],
-    "_rescore_note": "2026-08-27 手工重评：中文名方向(银行/煤炭/医药/通信设备)无成员映射致原评分 samples=0；成分取盲判自选 stocks，口径与 direction_scores 一致（5日相对沪深300超额）",
+    "_rescore_note": "2026-08-27 板块级重评：industry_alias 三级回退解析中文名方向成完整行业成分（银行44/煤炭25/医药100/通信设备100），替换此前手工小样本(n=1~2)",
     "stock_details": [
       {
         "date": "2026-08-19",
