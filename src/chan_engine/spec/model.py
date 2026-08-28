@@ -21,6 +21,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:  # 避免 spec ← core 运行期反向依赖（M7-3 走势类型状态机）
+    from chan_engine.core.trend import TrendState
 
 
 class Direction(Enum):
@@ -89,7 +93,12 @@ class ZhongShu:
 
 @dataclass
 class BSPoint:
-    """买卖点。``bstype`` 只取 1/2/3（一/二/三类）。"""
+    """买卖点。``bstype`` 只取 1/2/3（一/二/三类）。
+
+    ``backchi_type``（M7-3 G3）：背驰前提校验标注，仅 bstype=1 时有值
+    （"trend_div" 趋势背驰 / "consolidation_div" 盘整背驰），其余留空。
+    不参与校准 diff（``_TABLE_FIELDS`` 显式字段表外）。
+    """
 
     idx: int
     bstype: int
@@ -97,6 +106,7 @@ class BSPoint:
     level: int = 1
     sure: bool = True
     source: str = ""
+    backchi_type: str = ""
 
     def __post_init__(self) -> None:
         if self.bstype not in (1, 2, 3):
@@ -121,3 +131,6 @@ class NormalizedChart:
     zs: list[ZhongShu] = field(default_factory=list)
     bsp: list[BSPoint] = field(default_factory=list)
     na_fields: set[str] = field(default_factory=set)
+    # M7-3 走势类型状态机输出（新增字段，不参与 diff/校准比对）：
+    # 最高 level 同级别中枢的 analyze_trend 结果（仓位性质的结构化根据）。
+    trend: "TrendState | None" = None

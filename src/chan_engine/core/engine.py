@@ -11,8 +11,13 @@
 - **zs 表**：三件套 中枢段→level-2、离开段→level-1（core.levels）；
   未被三件套消费的已确认段，内部三笔重叠 → level-1 中枢
   （BSP-003 锚：bi0-2 重叠 (11.4, 14.0, 1→16)）；
-- **bsp 表**：背驰一买/一卖（core.backchi，多级区间套）+ 三类买卖点
-  （离开中枢 + 第一次回试不破 ZG/ZD，课 20/21）。
+  M7-3 G6：九段升级后处理（core.levels.apply_nine_bi_upgrade，课 33）；
+- **bsp 表**：背驰一买/一卖（core.backchi，MACD 柱面积主口径——M7-3 G7
+  v1.3 改判，Σ|Δc| 留校准对照；多级区间套；G3 背驰前提校验标注
+  backchi_type）+ 二买/二卖（M7-3 G4，反向笔代理）+ 三类买卖点
+  （离开中枢 + 第一次回试不破 ZG/ZD，课 20/21）；
+- **trend 字段**（M7-3 G1/G2）：走势类型状态机（core.trend），
+  最高 level 同级别中枢视角，不参与校准 diff。
 
 与设计文档 §6 的关系：递归层独立于两库自建，不触碰 chanpy/czsc 适配器的
 既有输出（第三列，不回归 M2 成果）。
@@ -22,10 +27,19 @@ from __future__ import annotations
 
 import dataclasses
 
-from chan_engine.core.backchi import detect_backchi_bsp, detect_third_type_bsp
+from chan_engine.core.backchi import (
+    detect_backchi_bsp,
+    detect_second_type_bsp,
+    detect_third_type_bsp,
+)
 from chan_engine.core.fxlevel import detect_box_third_buy
-from chan_engine.core.levels import synthesize_level_zs, synthesize_standalone_zs
+from chan_engine.core.levels import (
+    apply_nine_bi_upgrade,
+    synthesize_level_zs,
+    synthesize_standalone_zs,
+)
 from chan_engine.core.segments import build_l0_segments
+from chan_engine.core.trend import analyze_trend
 from chan_engine.spec.model import Bar, NormalizedChart, Segment
 
 SOURCE = "recursion"
@@ -94,11 +108,21 @@ class RecursionEngine:
         zs = synthesize_level_zs(segments, chart.bi, bars) + synthesize_standalone_zs(
             segments, chart.bi, bars
         )
-        chart.zs = sorted(zs, key=lambda z: z.start_idx)
+        # M7-3 G6：九段升级（课 33）——命中时吞并 span 内段合成中枢
+        chart.zs = sorted(apply_nine_bi_upgrade(zs, chart.bi, bars),
+                          key=lambda z: z.start_idx)
 
-        bsp = detect_backchi_bsp(segments, chart.bi, bars) + detect_third_type_bsp(
-            chart.zs, chart.bi, bars
-        )
+        # M7-3 G1/G2：走势类型状态机（最高 level 同级别中枢视角，暂定口径）
+        if chart.zs:
+            top_level = max(z.level for z in chart.zs)
+            chart.trend = analyze_trend([z for z in chart.zs if z.level == top_level])
+        else:
+            chart.trend = analyze_trend([])
+
+        bsp = detect_backchi_bsp(segments, chart.bi, bars, zs_list=chart.zs)
+        # M7-3 G4：二买/二卖由背驰一买/一卖派生（反向笔代理，M7-4 真次级别确认替换）
+        bsp += detect_second_type_bsp(bsp, chart.bi, bars)
+        bsp += detect_third_type_bsp(chart.zs, chart.bi, bars)
         # GOLD 兜底：笔级结构过粗（zs/bsp 双空）→ 日线箱体三买代理
         # （GOLD-001/002：课文日线三买的次级别为 30 分钟结构，日线笔不可达）
         if not chart.zs and not bsp:

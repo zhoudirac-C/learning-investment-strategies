@@ -1,6 +1,6 @@
 # 缠论口径校准报告（M3）
 
-- 生成时间：2026-08-01T17:05:12
+- 生成时间：2026-08-28T23:48:28
 - 生成命令：`python -m chan_engine.harness.report --cases src/chan_engine/spec/cases --golden src/chan_engine/spec/golden --out docs/design/chanlun-calibration-report.md --version M3`
 - 用例目录：`src/chan_engine/spec/cases`；金标目录：`src/chan_engine/spec/golden`
 - float 容差：0.0（索引/方向/sure/level 永远严格）
@@ -20,7 +20,7 @@
 | BSP-001 | case | PASS | PASS | FAIL |
 | BSP-002 | case | PASS | FAIL | FAIL |
 | BSP-003 | case | FAIL | FAIL | PASS |
-| BSP-004 | case | FAIL | FAIL | FAIL |
+| BSP-004 | case | PASS | FAIL | FAIL |
 | FX-001 | case | PASS | PASS | PASS |
 | FX-002 | case | PASS | PASS | PASS |
 | FX-003 | case | PASS | PASS | PASS |
@@ -34,7 +34,7 @@
 | SEG-005 | case | FAIL | PASS | FAIL |
 | ZS-001 | case | PASS | PASS | FAIL |
 | ZS-002 | case | PASS | PASS | FAIL |
-| ZS-003 | case | FAIL | PASS | FAIL |
+| ZS-003 | case | PASS | PASS | PASS |
 | ZS-004 | case | PASS | PASS | FAIL |
 | GOLD-001 | golden | FAIL | PASS | PASS |
 | GOLD-002 | golden | FAIL | PASS | PASS |
@@ -46,9 +46,9 @@
 
 | 实现 | PASS | FAIL | ERROR | 合计 |
 | --- | --- | --- | --- | --- |
-| chanpy | 23 | 8 | 0 | 31 |
+| chanpy | 25 | 6 | 0 | 31 |
 | czsc | 25 | 6 | 0 | 31 |
-| recursion | 18 | 13 | 0 | 31 |
+| recursion | 19 | 12 | 0 | 31 |
 
 ## M3 递归层改造总结
 
@@ -94,7 +94,7 @@ M3 目标：自建级别递归层（两库均无此能力），使 M2 降级的 
 chanpy/czsc 单级别 cell 保持 FAIL 属**实现分工**（单级别库不产出多级结构），
 非未修复缺陷。
 
-## recursion 列偏差归因（13 FAIL）
+## recursion 列偏差归因（12 FAIL）
 
 recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 
@@ -102,8 +102,12 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 |------|------|------|
 | ZS-001/002/004、BSP-001/002/004、GOLD-003/004/005（9 项） | zs 分组窗口不同 | expect 笔中枢=引导笔后反向三笔重叠（chanpy normal 模式）；recursion 段中枢=L0 段内首三笔重叠（ADR-009） |
 | BC-001（1 项） | zs 窗口不同 + bsp 误报/缺 | 同上；且 expect 背驰一买基于笔中枢口径，与 recursion 段中枢三卖判定冲突（语料层面 BC-001 笔中枢 vs BC-002 段区间套双哲学并存，ADR-010） |
-| ZS-003（1 项） | 九段升级未实现 | recursion 未做九段升级后处理（同 chanpy/czsc 既有降级） |
 | SEG-004/005（2 项） | L0 段拆得更细 | 线段终结判定与 expect 特征序列口径差异（与 chanpy EigenFX 降级同源） |
+
+M7-3 解决项（2026-08-28）：ZS-003 recursion 九段升级已入 core/levels.py
+（课 33 笔级播种 + 3 子中枢重合门控），recursion 列 FAIL→PASS；
+M7-3 另将背驰主口径切换为 MACD 柱面积（v1.3 改判，Σ|Δc| 留校准对照），
+矩阵三列结论不受影响。
 
 ## M3 结论
 
@@ -124,8 +128,8 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 
 **bsp 表**
 
-- 缺（expect 有，实现无）：`(idx=46, bstype=1, dir=up, level=1, sure=True)`
-- 多（expect 无，实现有）：`(idx=31, bstype=3, dir=down, level=1, sure=True)`
+- 缺（expect 有，实现无）：`(idx=46, bstype=1, dir=up, level=1, sure=True, backchi_type=)`
+- 多（expect 无，实现有）：`(idx=31, bstype=3, dir=down, level=1, sure=True, backchi_type=)`
 
 ### BC-002 × chanpy — FAIL
 
@@ -137,7 +141,7 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 
 **bsp 表**
 
-- 缺（expect 有，实现无）：`(idx=46, bstype=1, dir=up, level=1, sure=True)`
+- 缺（expect 有，实现无）：`(idx=46, bstype=1, dir=up, level=1, sure=True, backchi_type=)`
 - 主键 `(idx=46, bstype=1, dir=up)` 字段 `level`：期望 `2`，实际 `1`
 
 ### BC-002 × czsc — FAIL
@@ -169,7 +173,7 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 
 **bsp 表**
 
-- 缺（expect 有，实现无）：`(idx=26, bstype=1, dir=up, level=1, sure=True)`
+- 缺（expect 有，实现无）：`(idx=26, bstype=1, dir=up, level=1, sure=True, backchi_type=)`
 
 ### BSP-002 × czsc — FAIL
 
@@ -187,8 +191,8 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 
 **bsp 表**
 
-- 缺（expect 有，实现无）：`(idx=26, bstype=1, dir=up, level=1, sure=True)`
-- 缺（expect 有，实现无）：`(idx=36, bstype=2, dir=up, level=1, sure=True)`
+- 缺（expect 有，实现无）：`(idx=26, bstype=1, dir=up, level=1, sure=True, backchi_type=)`
+- 缺（expect 有，实现无）：`(idx=36, bstype=2, dir=up, level=1, sure=True, backchi_type=)`
 
 ### BSP-003 × chanpy — FAIL
 
@@ -198,7 +202,7 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 
 **bsp 表**
 
-- 缺（expect 有，实现无）：`(idx=26, bstype=3, dir=up, level=1, sure=True)`
+- 缺（expect 有，实现无）：`(idx=26, bstype=3, dir=up, level=1, sure=True, backchi_type=)`
 
 ### BSP-003 × czsc — FAIL
 
@@ -206,12 +210,6 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 
 - 缺（expect 有，实现无）：`(zd=11.4, zg=14.0, start_idx=1, end_idx=16, level=1, sure=True)`
 - 多（expect 无，实现有）：`(zd=11.4, zg=14.3, start_idx=6, end_idx=21, level=1, sure=True)`
-
-### BSP-004 × chanpy — FAIL
-
-**bsp 表**
-
-- 缺（expect 有，实现无）：`(idx=36, bstype=3, dir=up, level=1, sure=True)`
 
 ### BSP-004 × czsc — FAIL
 
@@ -229,9 +227,9 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 
 **bsp 表**
 
-- 缺（expect 有，实现无）：`(idx=26, bstype=1, dir=up, level=1, sure=True)`
-- 缺（expect 有，实现无）：`(idx=36, bstype=2, dir=up, level=1, sure=True)`
-- 缺（expect 有，实现无）：`(idx=36, bstype=3, dir=up, level=1, sure=True)`
+- 缺（expect 有，实现无）：`(idx=26, bstype=1, dir=up, level=1, sure=True, backchi_type=)`
+- 缺（expect 有，实现无）：`(idx=36, bstype=2, dir=up, level=1, sure=True, backchi_type=)`
+- 缺（expect 有，实现无）：`(idx=36, bstype=3, dir=up, level=1, sure=True, backchi_type=)`
 
 ### SEG-004 × chanpy — FAIL
 
@@ -280,21 +278,6 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 - 多（expect 无，实现有）：`(zd=16.0, zg=18.0, start_idx=1, end_idx=13, level=1, sure=True)`
 - 多（expect 无，实现有）：`(zd=17.2, zg=18.5, start_idx=13, end_idx=25, level=1, sure=True)`
 
-### ZS-003 × chanpy — FAIL
-
-**zs 表**
-
-- 缺（expect 有，实现无）：`(zd=16.5, zg=17.0, start_idx=5, end_idx=41, level=2, sure=True)`
-- 多（expect 无，实现有）：`(zd=16.0, zg=17.0, start_idx=5, end_idx=17, level=1, sure=True)`
-
-### ZS-003 × recursion — FAIL
-
-**zs 表**
-
-- 缺（expect 有，实现无）：`(zd=16.5, zg=17.0, start_idx=5, end_idx=41, level=2, sure=True)`
-- 多（expect 无，实现有）：`(zd=16.5, zg=18.0, start_idx=21, end_idx=33, level=2, sure=True)`
-- 多（expect 无，实现有）：`(zd=16.2, zg=17.8, start_idx=33, end_idx=45, level=1, sure=True)`
-
 ### ZS-004 × recursion — FAIL
 
 **zs 表**
@@ -306,13 +289,13 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 
 **bsp 表**
 
-- 缺（expect 有，实现无）：`(idx=34, bstype=3, dir=up, level=1, sure=True)`
+- 缺（expect 有，实现无）：`(idx=34, bstype=3, dir=up, level=1, sure=True, backchi_type=)`
 
 ### GOLD-002 × chanpy — FAIL
 
 **bsp 表**
 
-- 缺（expect 有，实现无）：`(idx=21, bstype=3, dir=up, level=1, sure=True)`
+- 缺（expect 有，实现无）：`(idx=21, bstype=3, dir=up, level=1, sure=True, backchi_type=)`
 
 ### GOLD-003 × recursion — FAIL
 
@@ -322,8 +305,8 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 
 **bsp 表**
 
-- 缺（expect 有，实现无）：`(idx=25, bstype=3, dir=up, level=1, sure=True)`
-- 多（expect 无，实现有）：`(idx=30, bstype=3, dir=up, level=1, sure=True)`
+- 缺（expect 有，实现无）：`(idx=25, bstype=3, dir=up, level=1, sure=True, backchi_type=)`
+- 多（expect 无，实现有）：`(idx=30, bstype=3, dir=up, level=1, sure=True, backchi_type=)`
 
 ### GOLD-004 × recursion — FAIL
 
@@ -334,8 +317,8 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 
 **bsp 表**
 
-- 缺（expect 有，实现无）：`(idx=37, bstype=1, dir=down, level=1, sure=True)`
-- 多（expect 无，实现有）：`(idx=25, bstype=3, dir=up, level=1, sure=True)`
+- 缺（expect 有，实现无）：`(idx=37, bstype=1, dir=down, level=1, sure=True, backchi_type=)`
+- 多（expect 无，实现有）：`(idx=25, bstype=3, dir=up, level=1, sure=True, backchi_type=)`
 
 ### GOLD-005 × czsc — FAIL
 
@@ -353,7 +336,7 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 
 **bsp 表**
 
-- 缺（expect 有，实现无）：`(idx=29, bstype=3, dir=up, level=1, sure=True)`
+- 缺（expect 有，实现无）：`(idx=29, bstype=3, dir=up, level=1, sure=True, backchi_type=)`
 
 ## 口径偏差清单（模板）
 
@@ -422,7 +405,7 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 ### 偏差 7：BSP-004
 
 - 规则源 claim：claim-20070109-001-b
-- chan.py 行为：FAIL — bsp 表：缺 1 条
+- chan.py 行为：PASS（与 expect 一致）
 - czsc 行为：FAIL — zs 表：缺 1 条、多 1 条
 - recursion 行为：FAIL — zs 表：缺 1 条、多 1 条；bsp 表：缺 3 条
 - 原文依据：【待 Task 9 人工填写】
@@ -469,17 +452,7 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 - 仲裁结论：【待 Task 9 人工填写】
 - M2 改造点：【待 Task 9 人工填写】
 
-### 偏差 12：ZS-003
-
-- 规则源 claim：claim-20070302-001-b
-- chan.py 行为：FAIL — zs 表：缺 1 条、多 1 条
-- czsc 行为：PASS（与 expect 一致）
-- recursion 行为：FAIL — zs 表：缺 1 条、多 2 条
-- 原文依据：【待 Task 9 人工填写】
-- 仲裁结论：【待 Task 9 人工填写】
-- M2 改造点：【待 Task 9 人工填写】
-
-### 偏差 13：ZS-004
+### 偏差 12：ZS-004
 
 - 规则源 claim：claim-20061226-001-c
 - chan.py 行为：PASS（与 expect 一致）
@@ -489,7 +462,7 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 - 仲裁结论：【待 Task 9 人工填写】
 - M2 改造点：【待 Task 9 人工填写】
 
-### 偏差 14：GOLD-001
+### 偏差 13：GOLD-001
 
 - 规则源 claim：claim-20070105-001-b
 - chan.py 行为：FAIL — bsp 表：缺 1 条
@@ -499,7 +472,7 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 - 仲裁结论：【待 Task 9 人工填写】
 - M2 改造点：【待 Task 9 人工填写】
 
-### 偏差 15：GOLD-002
+### 偏差 14：GOLD-002
 
 - 规则源 claim：claim-20070105-001-b
 - chan.py 行为：FAIL — bsp 表：缺 1 条
@@ -509,7 +482,7 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 - 仲裁结论：【待 Task 9 人工填写】
 - M2 改造点：【待 Task 9 人工填写】
 
-### 偏差 16：GOLD-003
+### 偏差 15：GOLD-003
 
 - 规则源 claim：claim-20070105-001-b, claim-20070313-001-f
 - chan.py 行为：PASS（与 expect 一致）
@@ -519,7 +492,7 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 - 仲裁结论：【待 Task 9 人工填写】
 - M2 改造点：【待 Task 9 人工填写】
 
-### 偏差 17：GOLD-004
+### 偏差 16：GOLD-004
 
 - 规则源 claim：claim-20070118-001-a, claim-20070118-001-b
 - chan.py 行为：PASS（与 expect 一致）
@@ -529,7 +502,7 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 - 仲裁结论：【待 Task 9 人工填写】
 - M2 改造点：【待 Task 9 人工填写】
 
-### 偏差 18：GOLD-005
+### 偏差 17：GOLD-005
 
 - 规则源 claim：claim-20070118-001-c, claim-20070105-001-b
 - chan.py 行为：PASS（与 expect 一致）
