@@ -123,6 +123,8 @@ Skill 接入层（M7-5）
 
 skill 已实证的坑直接继承：腾讯分钟线不可用（mkline 301/fqkline param error）必须新浪；TDX 分钟线有盘中实时 bar 完整 datetime；新浪 datalen=260 窗口上限。
 
+> M7-1 落地口径（2026-08-28 评审后同步）：链末级"stale 缓存"由 **minute_bars 库内既有快照**承载——双源皆挂时调用方复读库即可，数据层不另设缓存文件；stale-age 提示归 M7-5 报告层。详见 `docs/tasks/chanlun-m7-1-minute-data-layer.md`。
+
 ### 4.2 存储（chan_bars.db 扩表）
 
 ```sql
