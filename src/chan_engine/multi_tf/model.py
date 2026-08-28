@@ -12,7 +12,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 from chan_engine.data.fetch import VALID_MINUTE_TF
-from chan_engine.spec.model import NormalizedChart
+from chan_engine.spec.model import BSPoint, NormalizedChart, ZhongShu
 
 
 def tf_label(tf: int) -> str:
@@ -55,9 +55,37 @@ class BiSlice:
 
 
 @dataclass
+class SubLevelConfirmation:
+    """日线一笔在某次级别上的区间套确认（M7-4，§5.2 骨架 + §7.1 四输出）。
+
+    - ``zs_in_bi``/``bsp_in_bi``：窗口归属的次级别中枢/买卖点（精确定位）；
+    - ``backchi``：窗口内存在与日线笔**反向**的 bstype=1（次级别背驰确认信号）；
+    - ``backchi_metric``：双口径证据 ``{"area_proxy": {enter,leave},
+      "macd_area": {enter,leave}}``（MACD 主口径已下结论，此处为对照证据）；
+    - ``coverage``/``note``：次级别数据不足显式传播（禁止静默降级）；
+    - ``small_to_large``：小转大候选（课 43——次级别背驰 + 大级别同位置无背驰；
+      仅标注，升级须人工与大级别背驰同时确认，防级别错配镜像纪律）；
+    - ``second_buy_confirmed``：日线二买候选的次级别一买确认（买点定律
+      claim-20061205-001-a）；无关联二买时为 None。
+    """
+
+    bi_ref: tuple[int, int]       # 日线笔 (start_idx, end_idx)
+    tf: str                       # '60m' / '30m'
+    zs_in_bi: list[ZhongShu] = field(default_factory=list)
+    bsp_in_bi: list[BSPoint] = field(default_factory=list)
+    backchi: bool = False
+    backchi_metric: dict = field(default_factory=dict)
+    coverage: bool = True
+    note: str = ""
+    small_to_large: bool = False
+    second_buy_confirmed: bool | None = None
+
+
+@dataclass
 class MultiTimeframeChart:
-    """多周期容器（§5.2 最小形态；confirmations 待 M7-4 增补）。"""
+    """多周期容器（§5.2；M7-2 建 slices，M7-4 填 sub 图与 confirmations）。"""
 
     daily: NormalizedChart
     sub: dict[str, NormalizedChart] = field(default_factory=dict)  # {'60m':…,'30m':…}
     slices: list[BiSlice] = field(default_factory=list)            # 日线笔 × 次级别
+    confirmations: list[SubLevelConfirmation] = field(default_factory=list)

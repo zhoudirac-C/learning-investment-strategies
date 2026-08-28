@@ -13,15 +13,19 @@ from chan_engine.multi_tf.aligner import (
 from chan_engine.multi_tf.model import (
     BiSlice,
     MultiTimeframeChart,
+    SubLevelConfirmation,
     tf_label,
     tf_minutes,
 )
+from chan_engine.multi_tf.nested import analyze_nested
 
 __all__ = [
     "AlignmentError",
     "BiSlice",
     "MultiTimeframeChart",
+    "SubLevelConfirmation",
     "TFAligner",
+    "analyze_nested",
     "build_multi_tf_chart",
     "tf_label",
     "tf_minutes",
