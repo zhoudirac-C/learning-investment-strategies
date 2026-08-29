@@ -1,6 +1,6 @@
-# 影子双轨完整性报告（2026-08-27）
+# 影子双轨完整性报告（2026-08-28）
 
-- 记录日数: 26，完整: 26
+- 记录日数: 28，完整: 28
 - 提案: open 10 / applied 0 / rejected 0 / retracted 3
 
 | 日期 | 阶段判定 | 状态 | 归因 | 完整 |
@@ -21,8 +21,8 @@
 | 2026-08-19 | 错 | scored | 有 | ✅ |
 | 2026-08-20 | 错 | scored | 有 | ✅ |
 | 2026-08-20 | 对 | scored | 有 | ✅ |
-| 2026-08-21 | 对 | pending_maturity | - | ✅ |
-| 2026-08-21 | 对 | pending_maturity | - | ✅ |
+| 2026-08-21 | 对 | scored | - | ✅ |
+| 2026-08-21 | 对 | scored | - | ✅ |
 | 2026-08-24 | 错 | pending_maturity | 有 | ✅ |
 | 2026-08-24 | 对 | pending_maturity | 有 | ✅ |
 | 2026-08-25 | 对 | pending_maturity | 有 | ✅ |
@@ -31,6 +31,8 @@
 | 2026-08-26 | 对 | pending_maturity | - | ✅ |
 | 2026-08-27 | 对 | pending_maturity | - | ✅ |
 | 2026-08-27 | 对 | pending_maturity | - | ✅ |
+| 2026-08-28 | 对 | pending_maturity | - | ✅ |
+| 2026-08-28 | 对 | pending_maturity | - | ✅ |
 
 ## 待处理提案（open 置顶）
 
