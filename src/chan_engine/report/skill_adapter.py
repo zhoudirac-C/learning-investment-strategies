@@ -163,9 +163,9 @@ def build_report(
         "position_nature": "日线",
     }
 
-    # ── 小转大候选提示（课 43：仅标注，须人工确认） ──
+    # ── 小转大候选提示（课 43 + L44 两步走，G10 必要条件检查） ──
     report["small_to_large_alerts"] = [
-        {"bi_ref": c.bi_ref, "tf": c.tf}
+        {"bi_ref": c.bi_ref, "tf": c.tf, "premise": c.s2l_premise}
         for c in mtc.confirmations if c.small_to_large
     ]
 
@@ -190,13 +190,21 @@ def _zs_position(zd: float, zg: float, close: float) -> str:
 
 
 def build_decomp(chart: NormalizedChart, level: str, last_close: float) -> dict:
-    """G8 同级别分解视角（--decomp）：当前中枢 + 上一段/当前段 + 位置。
+    """G8 同级别分解视角（--decomp）：当前中枢 + 上一段/当前段 + 位置 + 段序列重排。
 
     机械化"只做上涨+盘整段、回避下跌段"视角（L38/39）：当前段 dir/sure
     直接可操作（下跌段回避，上涨/盘整段参与）。
+    ``segment_sequence``（G8 补全，2026-08-29）：全段序列逐段重排 +
+    参与/回避标签——上涨段=参与、下跌段=回避、未确认段加"(待确认)"后缀；
+    这就是同级别分解的操作化输出（把走势按段重排，机械化只做可参与段）。
     """
     z = chart.zs[-1] if chart.zs else None
     segs = chart.seg
+
+    def _action(s_dir: Direction, sure: bool) -> str:
+        base = "参与" if s_dir is Direction.UP else "回避"
+        return base if sure else f"{base}(待确认)"
+
     return {
         "level": level,
         "current_zs": {"zd": z.zd, "zg": z.zg} if z is not None else None,
@@ -205,6 +213,10 @@ def build_decomp(chart: NormalizedChart, level: str, last_close: float) -> dict:
         "current_segment": ({"dir": segs[-1].dir.value, "sure": segs[-1].sure}
                             if segs else None),
         "position": _zs_position(z.zd, z.zg, last_close) if z is not None else "无中枢",
+        "segment_sequence": [
+            {"dir": s.dir.value, "sure": s.sure, "action": _action(s.dir, s.sure)}
+            for s in segs
+        ],
     }
 
 

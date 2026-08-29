@@ -51,6 +51,27 @@ class TestBuildDecomp:
         assert d["current_zs"] is None and d["position"] == "无中枢"
         assert d["current_segment"] is None
 
+    # ── G8 段序列重排视角（L38/39 机械化"只做上涨+盘整段"补全，2026-08-29） ──
+
+    def test_segment_sequence_with_action_labels(self):
+        """段序列重排：每段标参与/回避（上涨=参与, 下跌=回避, 盘整=观望）。"""
+        chart = NormalizedChart(seg=[
+            seg(0, 2, "up"),      # 上涨 → 参与
+            seg(3, 5, "down"),     # 下跌 → 回避
+            seg(6, 8, "up", sure=False),  # 未确认上涨 → 参与(待确认)
+        ])
+        d = build_decomp(chart, "60m", last_close=10.0)
+        seq = d["segment_sequence"]
+        assert len(seq) == 3
+        assert seq[0] == {"dir": "up", "sure": True, "action": "参与"}
+        assert seq[1] == {"dir": "down", "sure": True, "action": "回避"}
+        assert seq[2] == {"dir": "up", "sure": False, "action": "参与(待确认)"}
+
+    def test_segment_sequence_empty_chart(self):
+        """空图 → 段序列为空列表。"""
+        d = build_decomp(NormalizedChart(), "60m", last_close=1.0)
+        assert d["segment_sequence"] == []
+
 
 class TestClassifyStatePlan:
     """分类状态→预案（G9）：位置 × 状态 → 可操作预案。"""

@@ -149,6 +149,45 @@ class TestBackchiAndSmallToLarge:
         mtc, _ = run_nested(daily, charts60=NormalizedChart())
         assert mtc.confirmations[0].small_to_large is False
 
+    # ── G10 小转大必要条件检查（L44 两步走第一步，2026-08-29） ──
+    # 次级别背驰 + 最后次级别中枢出三类买卖点 → 必要条件满足
+    # 次级别背驰 + 最后中枢无三类买卖点 → 必要条件不满足（正常震荡，不传导）
+
+    def test_s2l_premise_met_with_three_sell(self):
+        """小转大必要条件满足：次级别一卖 + 窗口内中枢之后有三卖。"""
+        daily = NormalizedChart(bi=[bi(0, 2)])  # 日线无 bsp
+        chart60 = NormalizedChart(
+            zs=[zs(1.0, 1.1, 2, 6)],
+            bsp=[bsp(3, 1, "down"),     # 一卖（背驰确认）
+                 bsp(7, 3, "down")],    # 三卖（中枢之后）
+        )
+        mtc, _ = run_nested(daily, charts60=chart60)
+        c = mtc.confirmations[0]
+        assert c.small_to_large is True
+        assert "必要条件满足" in c.s2l_premise
+
+    def test_s2l_premise_not_met_no_three_bsp(self):
+        """小转大必要条件不满足：次级别背驰但最后中枢无三类买卖点。"""
+        daily = NormalizedChart(bi=[bi(0, 2)])
+        chart60 = NormalizedChart(
+            zs=[zs(1.0, 1.1, 2, 6)],
+            bsp=[bsp(3, 1, "down")],   # 只有一卖，无三卖
+        )
+        mtc, _ = run_nested(daily, charts60=chart60)
+        c = mtc.confirmations[0]
+        # small_to_large 仍为 True（候选），但 premise 标注必要条件不满足
+        assert c.small_to_large is True
+        assert "必要条件不满足" in c.s2l_premise
+
+    def test_s2l_premise_empty_when_no_candidate(self):
+        """无小转大候选时 premise 为空。"""
+        daily = NormalizedChart(bi=[bi(0, 2)], bsp=[bsp(2, 1, "down")])
+        chart60 = NormalizedChart(bsp=[bsp(3, 1, "down")])
+        mtc, _ = run_nested(daily, charts60=chart60)
+        c = mtc.confirmations[0]
+        assert c.small_to_large is False
+        assert c.s2l_premise == ""
+
 
 class TestSecondBuyConfirmation:
     """二买=次级别一买确认（买点定律 claim-20061205-001-a）。日线 bi1(2,4) 为回调笔，

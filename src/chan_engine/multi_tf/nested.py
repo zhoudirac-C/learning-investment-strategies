@@ -88,12 +88,37 @@ def _confirm(
     backchi = bool(backchi_bsp)
     metric = _dual_metric(sub_chart, bars, backchi_bsp[-1].idx) if backchi else {}
 
-    # 小转大候选（课 43）：次级别背驰 + 日线同位置无背驰买卖点 → 仅标注
+    # 小转大候选（课 43 + L44 两步走，2026-08-29 G10 补全）：
+    # 第 0 步：次级别背驰 + 日线同位置无背驰买卖点 → 候选（原有逻辑）
+    # 第 1 步（G10 新增）：必要条件检查——次级别最后一个中枢之后
+    #   是否出现三类买卖点（bstype=3）；出 → 必要条件满足（大级别转折候选）；
+    #   不出 → 必要条件不满足（正常震荡，小级别背驰不传导）
     daily_div = any(
         b.bstype == 1 and b.idx == bi.end_idx and b.dir is not bi.dir
         for b in daily.bsp
     )
     small_to_large = backchi and not daily_div
+    s2l_premise = ""
+    if small_to_large:
+        # 查窗口内最后一个中枢（zs_in 已按 start_idx 排序，取最后一个）
+        last_zs = zs_in[-1] if zs_in else None
+        if last_zs is not None:
+            has_third = any(
+                b.bstype == 3 and b.idx >= last_zs.end_idx and b.dir is not bi.dir
+                for b in bsp_in
+            )
+            if has_third:
+                s2l_premise = (
+                    "必要条件满足：最后次级别中枢出现三类买卖点"
+                    f"（中枢[{last_zs.zd},{last_zs.zg}] 之后有 bstype=3）"
+                )
+            else:
+                s2l_premise = (
+                    "必要条件不满足：最后次级别中枢未出现三类买卖点"
+                    f"（中枢[{last_zs.zd},{last_zs.zg}] 之后无 bstype=3，正常震荡不传导）"
+                )
+        else:
+            s2l_premise = "必要条件未校验（窗口内无次级别中枢，无法检查三类买卖点）"
 
     # 二买=次级别一买确认（买点定律）：日线二买/二卖候选落在本笔末端 →
     # 查窗口末段（最后 1 个交易日）是否存在同向次级别一买/一卖
@@ -119,6 +144,7 @@ def _confirm(
         coverage=s.coverage,
         note=s.note,
         small_to_large=small_to_large,
+        s2l_premise=s2l_premise,
         second_buy_confirmed=second,
     )
 

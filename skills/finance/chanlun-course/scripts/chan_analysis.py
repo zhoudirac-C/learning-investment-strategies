@@ -317,9 +317,18 @@ def render_console(r: dict) -> None:
         zs_txt = f"[{d['current_zs']['zd']}, {d['current_zs']['zg']}]" if d["current_zs"] else "无"
         print(f"同级别分解[{lv}]: 当前中枢 {zs_txt}，当前段 {cur.get('dir')}"
               f"（{'已确认' if cur.get('sure') else '未确认'}），位置 {d['position']}")
+        seq = d.get("segment_sequence") or []
+        if seq:
+            acts = " → ".join(
+                f"{s['dir']}{'*' if not s['sure'] else ''}={s['action']}" for s in seq)
+            print(f"  └ 段序列: {acts}（上涨=参与 下跌=回避 *为未确认段）")
     if r["small_to_large_alerts"]:
-        print("小转大候选（须人工与大级别背驰确认）: "
-              + ", ".join(f"{a['tf']} 笔{a['bi_ref']}" for a in r["small_to_large_alerts"]))
+            print("小转大候选（须人工与大级别背驰确认）: ")
+            for a in r["small_to_large_alerts"]:
+                print(f"  {a['tf']} 笔{a['bi_ref']}")
+                prem = a.get("premise")
+                if prem:
+                    print(f"    └ {prem}")
     print(f"窗口声明: {WINDOW_NOTE}")
 
 

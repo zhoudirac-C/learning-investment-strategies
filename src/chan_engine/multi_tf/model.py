@@ -78,6 +78,7 @@ class SubLevelConfirmation:
     coverage: bool = True
     note: str = ""
     small_to_large: bool = False
+    s2l_premise: str = ""  # G10 小转大必要条件检查结论（L44）
     second_buy_confirmed: bool | None = None
 
 
