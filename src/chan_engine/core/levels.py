@@ -10,8 +10,8 @@
 - 进入段的内部中枢不发射（历史段，非当前区间套分析对象）。
 
 段内中枢 = 连续三笔重叠区间（课 17：``ZD=max(三笔低点)``、``ZG=min(三笔高点)``，
-严格 ``ZG > ZD``）。当前 L0 段均为最小 3 笔段（M3-1），更长段的内部多中枢
-构造留待 M3-5 泛化。
+严格 ``ZG > ZD``）；M7-6 起支持段内延伸（首三笔成种子，后续已确认笔严格重叠
+则延展 end，``_segment_zhongshu``）。
 
 与设计文档 §6.2 的差异（登记 ADR）：设计文档写"3×L0 重叠 → L1 中枢"，
 BC-002 expect 实证为"中枢段内部三笔重叠"。以 expect 语料为准。
@@ -41,13 +41,17 @@ def _segment_zhongshu(
 ) -> ZhongShu | None:
     """段内三笔重叠中枢（课 17）；段 <3 笔或无重叠返回 None。
 
+    M7-6 泛化（解除"最小 3 笔段"限制，§9.2-3，对齐 chanpy try_add_to_end 与
+    czsc M2-3 口径）：种子=段内首三笔重叠 [zd,zg]；后续**已确认**笔与 [zd,zg]
+    严格重叠则延伸 end（zd/zg 不随延伸更新）；首根不重叠/未确认笔即停止。
+
     返回 ZhongShu 的 level 由调用方按角色标注（中枢段→L+1，离开段→L），
     本函数只算区间与端点，level 置 1 占位。
     """
     span = bi_list[seg.start_bi : seg.end_bi + 1]
     if len(span) < 3:
         return None
-    triple = span[:3]  # 最小 3 笔段即全部三笔
+    triple = span[:3]  # 种子 = 首三笔
     lows: list[float] = []
     highs: list[float] = []
     for bi in triple:
@@ -58,11 +62,17 @@ def _segment_zhongshu(
     zg = min(highs)
     if zg <= zd:
         return None
+    end_idx = triple[-1].end_idx
+    for bi in span[3:]:
+        lo, hi = _bi_high_low(bi, bars)
+        if not bi.sure or not _has_overlap_strict(zd, zg, lo, hi):
+            break
+        end_idx = bi.end_idx
     return ZhongShu(
         zd=zd,
         zg=zg,
         start_idx=triple[0].start_idx,
-        end_idx=triple[-1].end_idx,
+        end_idx=end_idx,
         level=1,
         sure=True,
         source=SOURCE,

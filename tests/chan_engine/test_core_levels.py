@@ -81,3 +81,51 @@ def test_no_triple_no_zs():
     # SEG-001 仅 2 段（up+down），不足三段 → 无 level-2
     zs = synthesize_level_zs(segs, bi_list, case.bars)
     assert [z for z in zs if z.level >= 2] == []
+
+
+class TestSegmentZhongshuExtension:
+    """M7-6 T3：段内中枢泛化——解除"最小 3 笔段"限制。
+
+    口径（chanpy try_add_to_end / czsc M2-3）：种子=段内首三笔重叠 [zd,zg]，
+    后续**已确认**笔与 [zd,zg] 严格重叠则延伸 end（zd/zg 不变）；
+    首根不重叠/未确认笔即停止延伸。
+    """
+
+    def _bars(self, pivots):
+        from chan_engine.spec.builders import bars_from_ohlc
+        return bars_from_ohlc([(p, p, p, p) for p in pivots])
+
+    def _run(self, pivots, seg_end=4, bi3_sure=True):
+        from chan_engine.core.levels import _segment_zhongshu
+        from chan_engine.core.model import SegType
+        bars = self._bars(pivots)
+        bis = [
+            Bi(0, 2, Direction.UP),
+            Bi(2, 4, Direction.DOWN),
+            Bi(4, 6, Direction.UP),
+            Bi(6, 8, Direction.DOWN, sure=bi3_sure),
+            Bi(8, 10, Direction.UP),
+        ]
+        seg = SegType(0, seg_end, Direction.UP, high=15.0, low=10.0, source="test")
+        return _segment_zhongshu(seg, bis, bars)
+
+    def test_extension_through_overlapping_bi(self):
+        """bi3[12.5,15]/bi4[12.5,14.5] 均严格重叠种子 [12,14] → end 延伸至 bi4。"""
+        z = self._run([10, 10, 14, 14, 12, 12, 15, 15, 12.5, 12.5, 14.5, 14.5])
+        assert z is not None
+        assert (z.zd, z.zg) == (12.0, 14.0)  # zd/zg 不随延伸更新
+        assert (z.start_idx, z.end_idx) == (0, 10)
+
+    def test_extension_stops_at_non_overlapping_bi(self):
+        """bi3[14.2,15] 低点 14.2 ≥ zg=14 不重叠 → 延伸停止，end 留在种子末笔。"""
+        z = self._run([10, 10, 14, 14, 12, 12, 15, 15, 14.2, 14.2, 14.8, 14.8])
+        assert z is not None
+        assert (z.zd, z.zg) == (12.0, 14.0)
+        assert (z.start_idx, z.end_idx) == (0, 6)
+
+    def test_extension_skips_unsure_bi(self):
+        """末位未确认笔不延伸（czsc M2-3 口径）：bi3 sure=False → end 留在种子。"""
+        z = self._run([10, 10, 14, 14, 12, 12, 15, 15, 12.5, 12.5, 14.5, 14.5],
+                      bi3_sure=False)
+        assert z is not None
+        assert (z.start_idx, z.end_idx) == (0, 6)

@@ -1,6 +1,6 @@
 # 缠论口径校准报告（M3）
 
-- 生成时间：2026-08-28T23:48:28
+- 生成时间：2026-08-29T08:48:56
 - 生成命令：`python -m chan_engine.harness.report --cases src/chan_engine/spec/cases --golden src/chan_engine/spec/golden --out docs/design/chanlun-calibration-report.md --version M3`
 - 用例目录：`src/chan_engine/spec/cases`；金标目录：`src/chan_engine/spec/golden`
 - float 容差：0.0（索引/方向/sure/level 永远严格）
@@ -30,8 +30,8 @@
 | SEG-001 | case | PASS | PASS | PASS |
 | SEG-002 | case | PASS | PASS | PASS |
 | SEG-003 | case | PASS | PASS | PASS |
-| SEG-004 | case | FAIL | PASS | FAIL |
-| SEG-005 | case | FAIL | PASS | FAIL |
+| SEG-004 | case | FAIL | PASS | PASS |
+| SEG-005 | case | FAIL | PASS | PASS |
 | ZS-001 | case | PASS | PASS | FAIL |
 | ZS-002 | case | PASS | PASS | FAIL |
 | ZS-003 | case | PASS | PASS | PASS |
@@ -48,7 +48,7 @@
 | --- | --- | --- | --- | --- |
 | chanpy | 25 | 6 | 0 | 31 |
 | czsc | 25 | 6 | 0 | 31 |
-| recursion | 19 | 12 | 0 | 31 |
+| recursion | 21 | 10 | 0 | 31 |
 
 ## M3 递归层改造总结
 
@@ -83,7 +83,7 @@ M3 目标：自建级别递归层（两库均无此能力），使 M2 降级的 
 | BC-002 chanpy/czsc（2 项） | M3 递归层 | recursion 列 PASS（level-2 zs+双一买） | ✅ 已覆盖 |
 | BSP-003 chanpy/czsc（2 项） | M3 递归层 | recursion 列 PASS（段中枢+三买@26） | ✅ 已覆盖 |
 | GOLD-001/002（2 项） | M3 递归层 | recursion 列 PASS（日线箱体三买代理） | ✅ 已覆盖 |
-| SEG-004/005 chanpy（2 项） | PATCHES 改 EigenFX | 未动（recursion 亦拆段，同源差异） | ⏸ 保持降级 |
+| SEG-004/005 chanpy（2 项） | PATCHES 改 EigenFX | recursion 列 M7-6 特征序列 seg 表已 PASS（双轨制，ADR-012 方案 C）；chanpy cell 未动 | ⏸ chanpy 保持降级 |
 | BSP-004 chanpy（1 项） | PATCHES 改 BSPointList | 未动 | ⏸ 保持降级 |
 | ZS-003 chanpy（1 项） | PATCHES 改 ZSList/ZS | 未动 | ⏸ 保持降级 |
 | BI-004 czsc（1 项） | czsc 库已知局限 | 未动 | ⏸ 保持降级 |
@@ -94,7 +94,7 @@ M3 目标：自建级别递归层（两库均无此能力），使 M2 降级的 
 chanpy/czsc 单级别 cell 保持 FAIL 属**实现分工**（单级别库不产出多级结构），
 非未修复缺陷。
 
-## recursion 列偏差归因（12 FAIL）
+## recursion 列偏差归因（10 FAIL）
 
 recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 
@@ -102,20 +102,24 @@ recursion 的 FAIL 全部为**中枢构造哲学差异**，非算法缺陷：
 |------|------|------|
 | ZS-001/002/004、BSP-001/002/004、GOLD-003/004/005（9 项） | zs 分组窗口不同 | expect 笔中枢=引导笔后反向三笔重叠（chanpy normal 模式）；recursion 段中枢=L0 段内首三笔重叠（ADR-009） |
 | BC-001（1 项） | zs 窗口不同 + bsp 误报/缺 | 同上；且 expect 背驰一买基于笔中枢口径，与 recursion 段中枢三卖判定冲突（语料层面 BC-001 笔中枢 vs BC-002 段区间套双哲学并存，ADR-010） |
-| SEG-004/005（2 项） | L0 段拆得更细 | 线段终结判定与 expect 特征序列口径差异（与 chanpy EigenFX 降级同源） |
 
 M7-3 解决项（2026-08-28）：ZS-003 recursion 九段升级已入 core/levels.py
 （课 33 笔级播种 + 3 子中枢重合门控），recursion 列 FAIL→PASS；
 M7-3 另将背驰主口径切换为 MACD 柱面积（v1.3 改判，Σ|Δc| 留校准对照），
 矩阵三列结论不受影响。
 
+M7-6 解决项（2026-08-29）：SEG-004/005 recursion 列 FAIL→PASS——对外 seg 表
+切换为特征序列严格口径（core/segments_fx.py，课 67/71/78 两情况+缺口+古怪延续，
+ADR-012 方案 C 双轨制；递归层内部走势单元保留 greedy-3bi），校准矩阵其余 cell 不变。
+
 ## M3 结论
 
-- 31 用例 × 3 实现 = 93 cell：chanpy 23 PASS / czsc 25 PASS / recursion 18 PASS；
+- 31 用例 × 3 实现 = 93 cell：chanpy 25 PASS / czsc 25 PASS / recursion 21 PASS；
 - **M2 降级 6 项（递归层归属）全部清零**；剩余 8 项降级（PATCHES 4 + czsc 局限 4）保持，
   与 recursion 无关；
-- recursion 18/31：6 个降级项全过 + BI/FX/INCLUDE/SEG-001~003 等 12 项过；
-  13 FAIL 为中枢构造哲学差异（语料双哲学并存，见 ADR-010），不阻塞关门。
+- recursion 21/31：6 个降级项全过 + BI/FX/INCLUDE/SEG-001~005 等 15 项过；
+  10 FAIL 为中枢构造哲学差异（语料双哲学并存，见 ADR-010），不阻塞关门。
+  （M7-6：seg 表切特征序列口径后 SEG-004/005 转入 PASS，见 ADR-012。）
 
 ## 偏差明细
 
@@ -124,12 +128,12 @@ M7-3 另将背驰主口径切换为 MACD 柱面积（v1.3 改判，Σ|Δc| 留�
 **zs 表**
 
 - 缺（expect 有，实现无）：`(zd=26.3, zg=29.3, start_idx=6, end_idx=21, level=1, sure=True)`
-- 多（expect 无，实现有）：`(zd=26.3, zg=29.6, start_idx=1, end_idx=16, level=1, sure=True)`
+- 多（expect 无，实现有）：`(zd=26.3, zg=29.6, start_idx=1, end_idx=26, level=1, sure=True)`
 
 **bsp 表**
 
 - 缺（expect 有，实现无）：`(idx=46, bstype=1, dir=up, level=1, sure=True, backchi_type=)`
-- 多（expect 无，实现有）：`(idx=31, bstype=3, dir=down, level=1, sure=True, backchi_type=)`
+- 多（expect 无，实现有）：`(idx=41, bstype=3, dir=down, level=1, sure=True, backchi_type=)`
 
 ### BC-002 × chanpy — FAIL
 
@@ -169,7 +173,7 @@ M7-3 另将背驰主口径切换为 MACD 柱面积（v1.3 改判，Σ|Δc| 留�
 **zs 表**
 
 - 缺（expect 有，实现无）：`(zd=18.3, zg=20.2, start_idx=6, end_idx=21, level=1, sure=True)`
-- 多（expect 无，实现有）：`(zd=18.3, zg=20.6, start_idx=1, end_idx=16, level=1, sure=True)`
+- 多（expect 无，实现有）：`(zd=18.3, zg=20.6, start_idx=1, end_idx=26, level=1, sure=True)`
 
 **bsp 表**
 
@@ -187,7 +191,7 @@ M7-3 另将背驰主口径切换为 MACD 柱面积（v1.3 改判，Σ|Δc| 留�
 **zs 表**
 
 - 缺（expect 有，实现无）：`(zd=18.3, zg=20.2, start_idx=6, end_idx=21, level=1, sure=True)`
-- 多（expect 无，实现有）：`(zd=18.3, zg=20.6, start_idx=1, end_idx=16, level=1, sure=True)`
+- 多（expect 无，实现有）：`(zd=18.3, zg=20.6, start_idx=1, end_idx=26, level=1, sure=True)`
 
 **bsp 表**
 
@@ -223,7 +227,7 @@ M7-3 另将背驰主口径切换为 MACD 柱面积（v1.3 改判，Σ|Δc| 留�
 **zs 表**
 
 - 缺（expect 有，实现无）：`(zd=18.3, zg=20.2, start_idx=6, end_idx=21, level=1, sure=True)`
-- 多（expect 无，实现有）：`(zd=18.3, zg=20.6, start_idx=1, end_idx=16, level=1, sure=True)`
+- 多（expect 无，实现有）：`(zd=18.3, zg=20.6, start_idx=1, end_idx=26, level=1, sure=True)`
 
 **bsp 表**
 
@@ -239,13 +243,6 @@ M7-3 另将背驰主口径切换为 MACD 柱面积（v1.3 改判，Σ|Δc| 留�
 - 多（expect 无，实现有）：`(start_bi=0, end_bi=0, dir=up, sure=True)`
 - 多（expect 无，实现有）：`(start_bi=1, end_bi=3, dir=down, sure=False)`
 
-### SEG-004 × recursion — FAIL
-
-**seg 表**
-
-- 缺（expect 有，实现无）：`(start_bi=0, end_bi=4, dir=up, sure=False)`
-- 多（expect 无，实现有）：`(start_bi=0, end_bi=2, dir=up, sure=True)`
-
 ### SEG-005 × chanpy — FAIL
 
 **seg 表**
@@ -254,15 +251,6 @@ M7-3 另将背驰主口径切换为 MACD 柱面积（v1.3 改判，Σ|Δc| 留�
 - 多（expect 无，实现有）：`(start_bi=0, end_bi=0, dir=down, sure=True)`
 - 多（expect 无，实现有）：`(start_bi=1, end_bi=3, dir=up, sure=True)`
 - 多（expect 无，实现有）：`(start_bi=4, end_bi=8, dir=down, sure=True)`
-
-### SEG-005 × recursion — FAIL
-
-**seg 表**
-
-- 缺（expect 有，实现无）：`(start_bi=0, end_bi=8, dir=down, sure=True)`
-- 多（expect 无，实现有）：`(start_bi=0, end_bi=2, dir=down, sure=True)`
-- 多（expect 无，实现有）：`(start_bi=3, end_bi=5, dir=up, sure=True)`
-- 多（expect 无，实现有）：`(start_bi=6, end_bi=8, dir=down, sure=True)`
 
 ### ZS-001 × recursion — FAIL
 
@@ -313,12 +301,12 @@ M7-3 另将背驰主口径切换为 MACD 柱面积（v1.3 改判，Σ|Δc| 留�
 **zs 表**
 
 - 缺（expect 有，实现无）：`(zd=38.6, zg=39.5, start_idx=5, end_idx=17, level=1, sure=True)`
-- 多（expect 无，实现有）：`(zd=38.5, zg=39.5, start_idx=1, end_idx=13, level=1, sure=True)`
+- 多（expect 无，实现有）：`(zd=38.5, zg=39.5, start_idx=1, end_idx=21, level=1, sure=True)`
 
 **bsp 表**
 
 - 缺（expect 有，实现无）：`(idx=37, bstype=1, dir=down, level=1, sure=True, backchi_type=)`
-- 多（expect 无，实现有）：`(idx=25, bstype=3, dir=up, level=1, sure=True, backchi_type=)`
+- 多（expect 无，实现有）：`(idx=33, bstype=3, dir=up, level=1, sure=True, backchi_type=)`
 
 ### GOLD-005 × czsc — FAIL
 
@@ -417,7 +405,7 @@ M7-3 另将背驰主口径切换为 MACD 柱面积（v1.3 改判，Σ|Δc| 留�
 - 规则源 claim：claim-20070702-002-a
 - chan.py 行为：FAIL — seg 表：缺 1 条、多 2 条
 - czsc 行为：PASS（与 expect 一致）
-- recursion 行为：FAIL — seg 表：缺 1 条、多 1 条
+- recursion 行为：PASS（与 expect 一致）
 - 原文依据：【待 Task 9 人工填写】
 - 仲裁结论：【待 Task 9 人工填写】
 - M2 改造点：【待 Task 9 人工填写】
@@ -427,7 +415,7 @@ M7-3 另将背驰主口径切换为 MACD 柱面积（v1.3 改判，Σ|Δc| 留�
 - 规则源 claim：claim-20070906-001-c
 - chan.py 行为：FAIL — seg 表：缺 1 条、多 3 条
 - czsc 行为：PASS（与 expect 一致）
-- recursion 行为：FAIL — seg 表：缺 1 条、多 3 条
+- recursion 行为：PASS（与 expect 一致）
 - 原文依据：【待 Task 9 人工填写】
 - 仲裁结论：【待 Task 9 人工填写】
 - M2 改造点：【待 Task 9 人工填写】

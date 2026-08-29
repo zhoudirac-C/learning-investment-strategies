@@ -5,7 +5,8 @@
 
 子模块：
 - ``model``    ：L0 走势类型（SegType）等数据容器；
-- ``segments`` ：bi 表 → L0 走势类型分组；
+- ``segments`` ：bi 表 → L0 走势类型分组（greedy-3bi 递归构造物，内部消费）；
+- ``segments_fx``：特征序列线段（课 67/71/78，M7-6 对外 seg 表口径，双轨制）；
 - ``levels``   ：L0 → 多级中枢合成（LevelTree）+ 九段升级（M7-3 G6，课 33）；
 - ``backchi``  ：背驰判断 + 多级买卖点（一/二/三类；MACD 柱面积主口径 +
   Σ|Δc| 对照——M7-3 G7；背驰前提校验 backchi_type——M7-3 G3）；
@@ -30,6 +31,7 @@ from chan_engine.core.levels import (
 from chan_engine.core.macd import calc_macd
 from chan_engine.core.model import SegType
 from chan_engine.core.segments import build_l0_segments
+from chan_engine.core.segments_fx import build_fx_segments
 from chan_engine.core.trend import TrendState, analyze_trend
 
 __all__ = [
@@ -37,6 +39,7 @@ __all__ = [
     "TrendState",
     "analyze_trend",
     "apply_nine_bi_upgrade",
+    "build_fx_segments",
     "build_l0_segments",
     "calc_macd",
     "classify_backchi_type",

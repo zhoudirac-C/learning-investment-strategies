@@ -6,8 +6,10 @@
 集成口径（以 6 个 M3 降级用例为验收锚）：
 - **fx/bi 表**：委托 chanpy 适配器（其构造已在 M2 与 expect 语料对齐），
   仅把 source 改写为 recursion；
-- **seg 表**：递归层自建 L0 走势类型（core.segments，不依赖适配器 seg——
-  chanpy 对 BC-002 九笔并一段、czsc 无 seg）；
+- **seg 表**：M7-6 双轨制（ADR-012 方案 C）——对外 seg 表 = 特征序列严格口径
+  （core.segments_fx，课 67/71/78 两情况+缺口，消除 SEG-004/005 偏差）；
+  递归层内部走势单元保留 greedy-3bi（core.segments，课 35/84 f1(a0) 递归构造物，
+  下游 zs/bsp/trend 继续消费它——chanpy 对 BC-002 九笔并一段、czsc 无 seg）;
 - **zs 表**：三件套 中枢段→level-2、离开段→level-1（core.levels）；
   未被三件套消费的已确认段，内部三笔重叠 → level-1 中枢
   （BSP-003 锚：bi0-2 重叠 (11.4, 14.0, 1→16)）；
@@ -18,6 +20,11 @@
   （离开中枢 + 第一次回试不破 ZG/ZD，课 20/21）；
 - **trend 字段**（M7-3 G1/G2）：走势类型状态机（core.trend），
   最高 level 同级别中枢视角，不参与校准 diff。
+
+M7-7 注记：B-2（fx 段 + 段内笔级重释，core/intra.py）全量合成语料验证通过，
+但真数据 golden（512400 区间套）实证：长 fx 段的多中枢相位边界锚定的是
+greedy 相位分解，段内重释当前规则复现不了（见 docs/tasks/chanlun-m7-7-b2-recursion-fx.md
+结论段）——故引擎内部单元维持 greedy-3bi，双轨制为最终架构而非过渡态。
 
 与设计文档 §6 的关系：递归层独立于两库自建，不触碰 chanpy/czsc 适配器的
 既有输出（第三列，不回归 M2 成果）。
@@ -39,6 +46,7 @@ from chan_engine.core.levels import (
     synthesize_standalone_zs,
 )
 from chan_engine.core.segments import build_l0_segments
+from chan_engine.core.segments_fx import build_fx_segments
 from chan_engine.core.trend import analyze_trend
 from chan_engine.spec.model import Bar, NormalizedChart, Segment
 
@@ -61,6 +69,7 @@ class RecursionEngine:
         self.config_snapshot = {
             "bi_fx_source": self._base.name,
             "l0_rule": "greedy-3bi + directional-extension（创极值则吸收）",
+            "seg_rule": "特征序列两情况+缺口（课 67/71/78，M7-6 双轨：seg 表口径）",
             "zs_rule": "三件套(中枢段→L2, 离开段→L1) + 独立已确认段→L1",
             "bsp_rule": "背驰(面积Σ|Δc|, 多级) + 三类(离开+第一次回试不破界)",
         }
@@ -93,7 +102,9 @@ class RecursionEngine:
         chart.fx = [dataclasses.replace(f, source=SOURCE) for f in base.fx]
         chart.bi = [dataclasses.replace(b, source=SOURCE) for b in base.bi]
 
+        # 递归层内部走势单元（greedy-3bi，课 35/84 f1(a0)）——zs/bsp/trend 消费
         segments = build_l0_segments(chart.bi, bars)
+        # M7-6 双轨制：对外 seg 表 = 特征序列严格口径（core.segments_fx）
         chart.seg = [
             Segment(
                 start_bi=s.start_bi,
@@ -102,7 +113,7 @@ class RecursionEngine:
                 sure=s.sure,
                 source=SOURCE,
             )
-            for s in segments
+            for s in build_fx_segments(chart.bi, bars)
         ]
 
         zs = synthesize_level_zs(segments, chart.bi, bars) + synthesize_standalone_zs(
