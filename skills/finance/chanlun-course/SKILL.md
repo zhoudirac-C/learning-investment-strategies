@@ -1,13 +1,29 @@
 ---
-name: chanlun-structure-analysis
+name: chanlun-course
 description: |
-  缠论结构分析（分型→笔→中枢→背驰→三类买卖点）。判断指数/ETF 的买入时机与仓位性质：
-  日线定"反弹仓 vs 反转仓"，60min 定入场时机。输出防守线/反转确认位/目标位/失效条件。
-  触发词：缠论、中枢、背驰、一二三类买点、现在适合买入吗、什么时候建仓、笔结构。
+  缠论完整课程 + 结构分析（分型→笔→线段→中枢→背驰→三类买卖点）。本仓库版本为**通用资产版**——
+  与 Hermes 运行时副本（本地 skill `chanlun-structure-analysis`）互为镜像，两边修改需同步（见文首备注）。
+  适用：判断指数/ETF 买入时机与仓位性质；日线定"反弹仓 vs 反转仓"，60min 定入场时机。
   配套脚本 scripts/chan_analysis.py（数据拉取+全管线，直接可跑）。
 ---
 
 # 缠论结构分析
+
+> ## ⚠️ 与 Hermes 运行时副本的对应关系（重要）
+>
+> - **本仓库（`skills/finance/chanlun-course/`） = 通用资产版**：是缠论方法论与脚本的**内容本体**，
+>   可迁移到任何环境独立使用（不依赖 Hermes）。
+> - **Hermes 运行时副本**：`~/.hermes/skills/finance/chanlun-structure-analysis/`
+>   （skill 名 `chanlun-structure-analysis`）。Hermes 实际加载的是**本地运行时副本**；
+>   仓库版通过 `config.yaml` 的 `skills.external_dirs` 以**只读**方式被 Hermes 发现（Hermes 不会自动修改
+>   外部目录里的 skill——`skill_utils.py` 明确 external_dirs 为 externally-owned/read-only，仅用户显式指令才改）。
+> - **同步规则（2026-08-29 用户拍板）**：以后修改方法论/脚本时**两边同步**——
+>   Hermes 运行时是主工作副本，改动内容应同步回仓库资产版；反之从仓库迁移内容到运行时也可。
+>   同步时保持本备注和 frontmatter name 一致（仓库 `chanlun-course` ↔ 运行时 `chanlun-structure-analysis`）。
+> - **污染隔离（用户明确要求）**：Hermes 的**运行时经验**（单次盘面结论、临时数据快照、本机调试记录、
+>   时效性 Pitfalls 等）**不要写回仓库资产版**——仓库只收通用方法论与可复现脚本，保证资产版干净可迁移。
+> - 历史：2026-08-29 由 `chanlun-structure-analysis` 改名而来（消除本地/repo 双份同名导致的 skill_view 歧义）；
+>   一次性审计产物 `completeness-audit-2026-08-29.md` 仅保留在运行时副本，不入仓库。
 
 ## 核心框架（先看这个）
 
@@ -79,7 +95,7 @@ MACD 用 core.macd——与旧口径逐位一致）；数据源函数仍复用 c
 
 ## 脚本位置与周期（chan_analysis.py）
 
-- **脚本在 skill 目录** `~/.hermes/skills/finance/chanlun-structure-analysis/scripts/chan_analysis.py`，**不在项目 `scripts/`**（项目里只有 `src/chan_engine/`，是另一套缠论量化引擎）。找脚本先在 skill 目录，勿在项目里 `find` 扑空。
+- **脚本在本 skill 目录的 `scripts/` 下**（`scripts/chan_analysis.py` + `scripts/chan_plot.py`），**不在项目 `scripts/`**（项目里只有 `src/chan_engine/`，是另一套缠论量化引擎）。找脚本先在 skill 目录，勿在项目里 `find` 扑空。本仓库版直接 `cd skills/finance/chanlun-course && python3 scripts/chan_analysis.py ...` 即可用；Hermes 运行时副本位于 `~/.hermes/skills/finance/chanlun-structure-analysis/scripts/`（见文首对应关系备注）。
 - **M7-5 起为薄壳 CLI**（2026-08-29）：多周期引擎在 `learning-investment-strategies/src/chan_engine/`（数据层/对齐层/区间套层/报告层），CLI 只做取数→引擎→翻译。分钟线（60m/30m，新浪→TDX 降级链，260 根滑动窗口）走 chan_bars.db（每次运行刷新，盘中 bar 带 complete 标记、读取默认剔除）——`--fresh` 兼容保留但实为 no-op。
 - **缓存会过期（旧 /tmp/klines 路径，仅 boll7 等未迁移脚本用）**：批量旧流程的 `/tmp/klines` 缓存在早盘/隔日可能拿到旧 bar；chan_analysis.py 控制台输出的"数据基准"行是新管线的基准日，以它为准。
 - **持仓口径先核实**：positions.yaml 的 `updated_at` 可能落后于实际交易（用户可能刚清仓/加仓，如本次 517520 用户已清仓仍留在文件里）。分析"持仓ETF"前先跟用户确认当前真实持仓，别默认 positions.yaml 就是现状。

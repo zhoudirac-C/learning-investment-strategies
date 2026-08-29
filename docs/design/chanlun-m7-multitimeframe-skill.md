@@ -6,7 +6,7 @@
 >
 > **v1.3 改判**（2026-08-28，仲裁 ④ 推翻）：背驰主口径改为 **MACD 柱面积**（与 UP/skill 口径一致），Σ|Δc| 降为校准对照口径——校准门 synthetic 断言不动，两口径测试层隔离（详见 §7.2）。
 >
-> **定位**：完整方案 B——把 chan_engine 从"单周期输入"升级为**多周期级别引擎**（日线笔内部用真 60m/30m 次级别分解做区间套确认），并以**接入 `chanlun-structure-analysis` skill、替换其 `chan_analysis.py` 算法管线**为最终交付目标。
+> **定位**：完整方案 B——把 chan_engine 从"单周期输入"升级为**多周期级别引擎**（日线笔内部用真 60m/30m 次级别分解做区间套确认），并以**接入 `chanlun-course` skill（仓库资产版，Hermes 运行时副本名 `chanlun-structure-analysis`，2026-08-29 改名）、替换其 `chan_analysis.py` 算法管线**为最终交付目标。
 >
 > **v1.1 增补**（2026-08-28 review）：对 chan_engine 全部 core 代码与课程档案（P1–P4 已授 + P5/P6 预习）做理论覆盖 Gap 分析，**10 项理论缺口纳入 M7 范围**（§十），里程碑从 4 个扩展为 6 个（M7-3 改为引擎理论补全，新增 M7-6 线段口径升级）。
 >
@@ -41,7 +41,7 @@
 
 ### 1.3 与 skill 的关系
 
-`skills/finance/chanlun-structure-analysis/scripts/chan_analysis.py`（413 行）现状：
+`skills/finance/chanlun-course/scripts/chan_analysis.py`（413 行）现状：
 
 - **保留**：数据源经验（腾讯日线/新浪分钟/TDX 降级链、缓存 TTL、UA 坑）、CLI 接口（`--30m/--60m/--scale N/--fresh`）、输出惯例（防守线/反转确认位/仓位性质/失效条件）。
 - **替换**：`merge_inclusion → find_fractals → find_bi → identify_zhongshu → detect_backtension → classify_buy_points` 简化算法管线 → 换成 `RecursionEngine`（claims 校准口径）+ 多级别对齐层。
@@ -107,7 +107,7 @@ Skill 接入层（M7-5）
 - `src/chan_engine/core/` — trend.py（M7-3 走势类型状态机）、backchi.py 扩展（前提校验/二类买卖点）、levels.py 扩展（九段升级）
 - `src/chan_engine/data/` — 扩展 fetch/store 支持 minute（M7-1）
 - `src/chan_engine/report/` — skill_adapter.py（M7-5）
-- `skills/finance/chanlun-structure-analysis/scripts/chan_analysis.py` — 改薄壳（M7-5）
+- `skills/finance/chanlun-course/scripts/chan_analysis.py` — 改薄壳（M7-5）
 - `tests/chan_engine/test_multi_tf_*.py`、`test_trend_*.py` 等 — 各层单测
 
 ---
@@ -332,7 +332,7 @@ P3 讲义明确："用户 skill 映射'60min 定入场时机'本质=同级别分
 
 ## 十、理论覆盖 Gap 分析（v1.1 增补，2026-08-28 代码 × 课程对照）
 
-对照源：课程档案 P1–P4 讲义（`docs/learning/chanlun-course-notes.md`）、claim 证据映射（`skills/finance/chanlun-structure-analysis/references/chanlun-claims-evidence.md`）、chan_engine core 全部源码。
+对照源：课程档案 P1–P4 讲义（`docs/learning/chanlun-course-notes.md`）、claim 证据映射（`skills/finance/chanlun-course/references/chanlun-claims-evidence.md`）、chan_engine core 全部源码。
 
 ### 10.1 已实现（无缺口，M1–M5 资产）
 

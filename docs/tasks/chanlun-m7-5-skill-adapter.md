@@ -18,7 +18,7 @@
 ## 范围
 
 1. `src/chan_engine/report/skill_adapter.py`（新）：MultiTimeframeChart → skill 输出惯例
-2. `skills/finance/chanlun-structure-analysis/scripts/chan_analysis.py`：薄壳 CLI
+2. `skills/finance/chanlun-course/scripts/chan_analysis.py`：薄壳 CLI
    （算法管线替换为 chan_engine 多周期管线；数据源函数保留原签名供 boll7）
 3. `chan_plot.py`：移植到引擎输出（笔/中枢/买卖点从 NormalizedChart 读，MACD 用 core.macd）
 4. `SKILL.md`：管线描述、数据源段更新（新口径=chan_engine 数据层）
