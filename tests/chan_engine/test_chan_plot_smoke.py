@@ -12,7 +12,7 @@ from pathlib import Path
 import pytest
 
 PLOT = (Path(__file__).resolve().parents[2]
-        / "skills/finance/chanlun-structure-analysis/scripts/chan_plot.py")
+        / "skills/finance/chanlun-course/scripts/chan_plot.py")
 FIXTURE = Path(__file__).parent / "fixtures" / "mt512400_20260828.json"
 
 matplotlib = pytest.importorskip("matplotlib")

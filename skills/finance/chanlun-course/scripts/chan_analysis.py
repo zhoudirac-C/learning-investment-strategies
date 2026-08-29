@@ -302,6 +302,10 @@ def render_console(r: dict) -> None:
     if r["backchi"]:
         print("背驰类型: " + " | ".join(
             f"[{lv}] {b['backchi_type']}（{b['ref']}）" for lv, b in r["backchi"].items()))
+        for lv, b in r["backchi"].items():
+            prem = b.get("premise")
+            if prem:
+                print(f"  └ {lv} 背驰前提: {prem}")
     if r["invalidation"]:
         print("失效条件:")
         for line in r["invalidation"]:

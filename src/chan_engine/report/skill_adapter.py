@@ -35,6 +35,20 @@ def _latest(items, pred):
     return hit[-1] if hit else None
 
 
+def _premise_note(backchi_type: str) -> str:
+    """背驰前提结论（G3 显式化，L15/L24 '没有趋势没有背驰'）。
+
+    trend_div → 当前中枢之前存在同级别同向不重叠中枢（趋势成立，前提满足）；
+    consolidation_div → 无同级别前中枢（仅中枢内力度减弱，趋势前提不满足，
+    报告必须标注防误报为反转信号）；空 → 该信号未走 G3 校验。
+    """
+    return {
+        "trend_div": "前提满足：存在同级别同向不重叠前中枢（趋势成立）",
+        "consolidation_div": "前提不满足：无同级别前中枢（仅盘整背驰，趋势前提缺失）",
+        "未标注": "前提未校验（无 G3 标注）",
+    }.get(backchi_type, f"前提未校验（backchi_type={backchi_type}）")
+
+
 def build_report(
     mtc: MultiTimeframeChart,
     code: str,
@@ -105,19 +119,28 @@ def build_report(
     report["entry_points"] = entry_points
 
     # ── 背驰类型：各级别最近背驰信号逐级别标注（级别归属纪律，不跨级取唯一） ──
+    # 前提字段（M7-3 G3 结论显式化）：backchi_type=trend_div → 存在同级别同向
+    # 不重叠前中枢（趋势前提满足）；consolidation_div → 仅盘整背驰（趋势前提
+    # 不满足，防误报为反转）。报告必须带前提标注，强制检查"没有趋势没有背驰"。
     backchi: dict = {}
     d_div = _latest(daily.bsp, lambda b: b.bstype == 1)
     if d_div is not None:
-        backchi["日线"] = {"backchi_type": d_div.backchi_type or "未标注",
-                           "ref": f"{bsp_name(d_div)}@{daily_dates[d_div.idx]}"}
+        backchi["日线"] = {
+            "backchi_type": d_div.backchi_type or "未标注",
+            "ref": f"{bsp_name(d_div)}@{daily_dates[d_div.idx]}",
+            "premise": _premise_note(d_div.backchi_type),
+        }
     for tf in sorted(sub_bars):
         chart = mtc.sub.get(tf)
         if chart is None:
             continue
         b = _latest(chart.bsp, lambda x: x.bstype == 1)
         if b is not None:
-            backchi[tf] = {"backchi_type": b.backchi_type or "未标注",
-                           "ref": f"{bsp_name(b)}@{sub_stamps[tf][b.idx]}"}
+            backchi[tf] = {
+                "backchi_type": b.backchi_type or "未标注",
+                "ref": f"{bsp_name(b)}@{sub_stamps[tf][b.idx]}",
+                "premise": _premise_note(b.backchi_type),
+            }
     report["backchi"] = backchi
 
     # ── 失效条件 ──

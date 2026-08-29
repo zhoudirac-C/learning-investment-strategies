@@ -14,7 +14,7 @@ from pathlib import Path
 import pytest
 
 SCRIPT = (Path(__file__).resolve().parents[2]
-          / "skills/finance/chanlun-structure-analysis/scripts/chan_analysis.py")
+          / "skills/finance/chanlun-course/scripts/chan_analysis.py")
 FIXTURE = Path(__file__).parent / "fixtures" / "mt512400_20260828.json"
 
 

@@ -1,7 +1,7 @@
 """M7-5 Skill 接入层：report adapter 输出惯例测试（synthetic，不触网）。
 
 口径依据：docs/design/chanlun-m7-multitimeframe-skill.md §8.2/§8.3 +
-skills/finance/chanlun-structure-analysis/SKILL.md 输出惯例。
+skills/finance/chanlun-course/SKILL.md 输出惯例。
 """
 from __future__ import annotations
 
