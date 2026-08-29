@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""缠论结构图绘制：K线 + 笔 + 中枢 + 背驰 + 买卖点 + MACD
+"""缠论结构图绘制：K线 + 笔 + 中枢 + 买卖点 + MACD
 
 用法:
   python3 chan_plot.py sh512400                      # 日线
@@ -7,39 +7,53 @@
   python3 chan_plot.py --30m sh512400 -o /tmp/x.png  # 30分钟，指定输出
   python3 chan_plot.py --scale 15 sh512400 --fresh   # 任意分钟 + 强制重拉
 
-依赖: 同目录 chan_analysis.py 的底层算法（import 复用，保证结构口径一致）
+结构口径（2026-08-29 M7-5 移植）：RecursionEngine（claims 校准口径）输出——
+  笔=归一 bi 表端点（原始 K 线索引，无合并映射）、中枢=zs 表（zd/zg + bar 区间）、
+  买卖点=bsp 表（一二三类，含 backchi_type 标注）；MACD=chan_engine.core.macd
+  （与旧 chan_analysis.calc_macd 逐位一致）。
+依赖: 同目录 chan_analysis.py 的数据源函数（fetch_tencent_daily/fetch_sina）与路径设置。
 输出: PNG（默认 /tmp/{code}[_{N}m].png）
 """
 import os, sys, argparse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import chan_analysis as ca
+import chan_analysis as ca  # 模块级已设置 src / third_party/chanpy 路径
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
-from datetime import datetime
+
+from chan_engine.core.engine import RecursionEngine
+from chan_engine.core.macd import calc_macd
+from chan_engine.report.skill_adapter import bsp_name
+from chan_engine.spec.model import Bar, Direction
 
 plt.rcParams['font.sans-serif'] = ['WenQuanYi Zen Hei', 'Noto Sans CJK SC', 'SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 
 
-def x_of(klines, dt):
-    """按日期字符串定位K线索引（分钟数据 date 形如 '2026-08-27 11:30:00'）"""
-    key = dt[:16]
-    for i, k in enumerate(klines):
-        if k["date"].startswith(key):
-            return i
-    return None
+def _bi_points(chart, bars):
+    """笔折线端点：[(bar_idx, price)]（端点即分型极值：上笔终点高/下笔终点低）。"""
+    pts = []
+    for b in chart.bi:
+        if b.dir is Direction.UP:
+            pts.append((b.start_idx, bars[b.start_idx].l))
+            pts.append((b.end_idx, bars[b.end_idx].h))
+        else:
+            pts.append((b.start_idx, bars[b.start_idx].h))
+            pts.append((b.end_idx, bars[b.end_idx].l))
+    # 相邻笔共享端点，去重保序
+    dedup = [pts[0]] if pts else []
+    for p in pts[1:]:
+        if p[0] != dedup[-1][0]:
+            dedup.append(p)
+    return dedup
 
 
 def plot(klines, label, out):
-    merged = ca.merge_inclusion(klines)
-    fracs = ca.find_fractals(merged)
-    bi = ca.find_bi(fracs)
-    dif, dea, hist = ca.calc_macd(klines)
-    zs = ca.identify_zhongshu(bi)
-    bt = ca.detect_backtension(bi, merged, hist)
-    pts = ca.classify_buy_points(bi, zs, bt)
+    bars = [Bar(ts=i, o=k["open"], h=k["high"], l=k["low"], c=k["close"],
+                vol=k.get("vol", 0) or 0) for i, k in enumerate(klines)]
+    chart = RecursionEngine().run(bars)
+    dif, dea, hist = calc_macd([k["close"] for k in klines])
 
     closes = [k["close"] for k in klines]
     n = len(klines)
@@ -56,55 +70,49 @@ def plot(klines, label, out):
                                 max(abs(k["close"] - k["open"]), 1e-9),
                                 facecolor=color, edgecolor=color, zorder=2))
 
-    # ---- 笔连线：bi.idx 是合并K线索引，映射到原始K线位置 ----
-    def orig_x(m):
-        return merged[m]["idx"][0]
-    bx = [orig_x(b["idx"]) for b in bi]
-    by = [b["price"] for b in bi]
-    ax1.plot(bx, by, color="#1d3557", linewidth=1.2, zorder=3, marker="o", markersize=3)
+    # ---- 笔连线（引擎 bi 表，原始 K 线索引）----
+    pts = _bi_points(chart, bars)
+    if pts:
+        ax1.plot([p[0] for p in pts], [p[1] for p in pts], color="#1d3557",
+                 linewidth=1.2, zorder=3, marker="o", markersize=3)
 
-    # ---- 中枢矩形（ZD=上沿底, ZG=下沿顶）----
-    for z in zs:
-        zx0 = orig_x(bi[z["start"]]["idx"])
-        zx1 = orig_x(bi[z["end"]]["idx"])
-        ax1.add_patch(Rectangle((zx0, z["zd"]), max(zx1 - zx0, 1), max(z["zg"] - z["zd"], 1e-6),
-                                facecolor="orange", alpha=0.16, edgecolor="darkorange",
+    # ---- 中枢矩形（[ZD, ZG]，level 越深颜色越深）----
+    for z in chart.zs:
+        alpha = 0.16 if z.level <= 1 else 0.24
+        ax1.add_patch(Rectangle((z.start_idx, z.zd), max(z.end_idx - z.start_idx, 1),
+                                max(z.zg - z.zd, 1e-6),
+                                facecolor="orange", alpha=alpha, edgecolor="darkorange",
                                 linewidth=1.0, zorder=2))
 
-    # ---- 买卖点标注 ----
-    sym = {"一买": "v", "二买": "^", "三买": "D"}
-    for p in pts:
-        key = p["kind"][:2]
-        x = x_of(klines, p["date"])
-        if x is None:
-            continue
-        ax1.scatter([x], [p["price"]], marker=sym.get(key, "o"), s=95, color="magenta", zorder=5)
-        off = -13 if key == "一买" else 10
-        ax1.annotate(p["kind"].split("(")[0], (x, p["price"]), textcoords="offset points",
-                     xytext=(0, off), fontsize=8, color="magenta", zorder=6)
-
-    # ---- 背驰点 ----
-    for b in bt:
-        x = x_of(klines, b["date"])
-        if x is None:
-            continue
-        ax1.scatter([x], [b["price"]], marker="x", s=75, color="brown", zorder=5)
-        ax1.annotate("背驰", (x, b["price"]), textcoords="offset points",
-                     xytext=(7, 7), fontsize=7, color="brown", zorder=6)
+    # ---- 买卖点标注（一二三类；一买/一卖附背驰类型）----
+    sym = {1: "v", 2: "^", 3: "D"}
+    for b in chart.bsp:
+        price = bars[b.idx].l if b.dir is Direction.UP else bars[b.idx].h
+        color = "magenta" if b.dir is Direction.UP else "darkgreen"
+        marker = sym.get(b.bstype, "o")
+        ax1.scatter([b.idx], [price], marker=marker, s=95,
+                    color=color, zorder=5,
+                    alpha=1.0 if b.sure else 0.4)
+        name = bsp_name(b)
+        if b.bstype == 1 and b.backchi_type:
+            name += f"({'趋势' if b.backchi_type == 'trend_div' else '盘整'}背驰)"
+        off = -13 if b.dir is Direction.UP else 10
+        ax1.annotate(name, (b.idx, price), textcoords="offset points",
+                     xytext=(0, off), fontsize=8, color=color, zorder=6)
 
     # ---- 最近中枢 ZG/ZD 标注 ----
-    if zs:
-        z = zs[-1]
-        ax1.text(2, z["zg"] + 0.001 * (z["zg"] or 1), f"ZG {z['zg']:.3f}", fontsize=8, color="darkorange")
-        ax1.text(2, z["zd"] - 0.001 * (z["zd"] or 1), f"ZD {z['zd']:.3f}", fontsize=8, color="darkorange")
+    if chart.zs:
+        z = chart.zs[-1]
+        ax1.text(2, z.zg + 0.001 * (z.zg or 1), f"ZG {z.zg:.3f}", fontsize=8, color="darkorange")
+        ax1.text(2, z.zd - 0.001 * (z.zd or 1), f"ZD {z.zd:.3f}", fontsize=8, color="darkorange")
 
     ax1.set_ylabel("价格"); ax1.grid(alpha=0.3); ax1.set_title(f"{label} 结构", fontsize=10)
 
     # ---- 副图 MACD ----
-    ax2.bar(range(n), [h if h is not None else 0 for h in hist],
-            color=["#e63946" if (h or 0) >= 0 else "#2a9d8f" for h in hist], width=0.6)
-    ax2.plot(range(n), [d if d is not None else 0 for d in dif], color="#1d3557", linewidth=0.8, label="DIF")
-    ax2.plot(range(n), [d if d is not None else 0 for d in dea], color="#f4a261", linewidth=0.8, label="DEA")
+    ax2.bar(range(n), hist,
+            color=["#e63946" if h >= 0 else "#2a9d8f" for h in hist], width=0.6)
+    ax2.plot(range(n), dif, color="#1d3557", linewidth=0.8, label="DIF")
+    ax2.plot(range(n), dea, color="#f4a261", linewidth=0.8, label="DEA")
     ax2.axhline(0, color="gray", linewidth=0.5)
     ax2.set_ylabel("MACD"); ax2.grid(alpha=0.3); ax2.legend(loc="upper left", fontsize=8)
 
@@ -116,7 +124,7 @@ def plot(klines, label, out):
 
     plt.tight_layout()
     plt.savefig(out, dpi=130)
-    print(f"saved {out}  ({n} bars, 中枢={len(zs)}, 买点={len(pts)})")
+    print(f"saved {out}  ({n} bars, 中枢={len(chart.zs)}, 买点={len(chart.bsp)})")
 
 
 def main():

@@ -20,16 +20,30 @@ description: |
 
 ## 算法管线（scripts/chan_analysis.py 已实现）
 
-7 步：K线包含处理 → 分型 → 笔 → MACD → 中枢 → 背驰 → 买卖点分类。
+**2026-08-29 M7-5 切换（仲裁⑥直接替换，无 legacy）**：算法管线已由手写简化版
+（包含→分型→笔→中枢→背驰）替换为 **chan_engine 多周期级别引擎**
+（`src/chan_engine/`，claims 校准口径 + claims 校准门），数据走 chan_engine 数据层
+（chan_bars.db，60m/30m 滑动窗口快照）。多周期分工：日线定仓位性质（60m 信号永不改变）、
+60m 主判断、30m 辅助精细入场；输出含防守线/反转确认位/仓位性质/失效条件/入场点/
+背驰类型（强制标注 trend_div/consolidation_div）+ 级别三问 + 分类状态→预案。
+**切换后首两周人工加密复核**（新旧口径差异在报告显式列出，无旧输出可对照）。
 
-关键参数（勿随意改，改后结构结果漂移）：
-- 包含处理：按趋势方向合并，向上取高高、向下取低低
-- 分型：合并K线上，顶=high最高且low最高，底对称
-- 笔：顶底交替，异型分型 idx 间隔 ≥3（合并后，≈原始 5 根）
-- MACD：EMA12/26/9，首值用首根K线 close 做种子（一致性比较够用）
-- 中枢：连续 3 笔重叠，ZD=max(低点)、ZG=min(高点)，[ZD,ZG]；相邻重叠中枢合并
-- 背驰：同向笔（隔一笔）MACD 柱面积（|hist| 求和）对比，a2 < a1×0.9 且价格延伸 → 背驰
-- 买卖点：一买=底背驰、二买=一买后回调底 > 一买低点、三买=突破 ZG 后回调底 > ZG
+旧简化算法的结构性缺陷（切换理由，设计 §1.3 实证）：窄震荡产出"线状伪中枢"、
+新笔/旧笔口径未仲裁、无线段无级别无 is_sure。
+
+新 CLI 用法：
+- `python3 chan_analysis.py sh512400`（默认多周期：日线+60m+30m）
+- `--60m/--30m`（次级别子集）、`--day`（仅日线）、`--decomp`（同级别分解视角）
+- `--fresh`（兼容保留；chan_bars.db 每次运行即刷新，实为 no-op）
+- 输出：控制台摘要 + `/tmp/chan_results.json`（list 形态保持）
+
+绘图：`chan_plot.py` 已同步移植到引擎输出（笔/中枢/买卖点从 NormalizedChart 读，
+MACD 用 core.macd——与旧口径逐位一致）；数据源函数仍复用 chan_analysis.py。
+
+关键参数纪律（引擎口径，勿随意改）：见
+`learning-investment-strategies/docs/design/chanlun-m7-multitimeframe-skill.md`
+（M7 设计文档：新笔/九段/MACD 主口径仲裁记录）与
+`docs/design/chanlun-calibration-report.md`（校准矩阵）。
 
 ## 数据源（腾讯+新浪，坑都踩过）
 
@@ -66,9 +80,8 @@ description: |
 ## 脚本位置与周期（chan_analysis.py）
 
 - **脚本在 skill 目录** `~/.hermes/skills/finance/chanlun-structure-analysis/scripts/chan_analysis.py`，**不在项目 `scripts/`**（项目里只有 `src/chan_engine/`，是另一套缠论量化引擎）。找脚本先在 skill 目录，勿在项目里 `find` 扑空。
-- 原生只支持**日线（腾讯）+ 60min（新浪 scale=60）**。要 30min 需把 `fetch_sina` 的 `scale=60` 参数改为 30，或直接用已参数化的 `--30m`/`--scale N`
-- **数据源降级链（2026-08-27 加入）**：新浪/腾讯 → TDX（懒加载 `TdxMarket`，`resolve_symbol` 补前缀；日线周期名是 `daily/day` 不是 `1day`）→ 过期 stale 缓存（带 age 警告）。TDX 数据缓存为腾讯格式保证下游解析统一；分钟线 date 字段兼容新浪 `day` 与 TDX `datetime` 两种键。三层均已实测（模拟上游故障）化（`scale=30` 走同一新浪接口），再复用 `run_chan(klines, label)` / `summarize(r)` 即可，无需改核心。
-- **缓存会过期**：脚本优先读 `/tmp/klines/{code}_60m.json`，早盘/隔日可能拿到旧 bar（如 8/27 拉到 `最新: 8/26 14:00`）。跑分析前先核对 `summarize` 输出的 `最新: <datetime>` 是否含当前盘中 bar；不对就 `rm -f /tmp/klines/{code}_60m.json` 重拉，并用 `qt.gtimg.cn/q=` 实时行情交叉验证基准日。
+- **M7-5 起为薄壳 CLI**（2026-08-29）：多周期引擎在 `learning-investment-strategies/src/chan_engine/`（数据层/对齐层/区间套层/报告层），CLI 只做取数→引擎→翻译。分钟线（60m/30m，新浪→TDX 降级链，260 根滑动窗口）走 chan_bars.db（每次运行刷新，盘中 bar 带 complete 标记、读取默认剔除）——`--fresh` 兼容保留但实为 no-op。
+- **缓存会过期（旧 /tmp/klines 路径，仅 boll7 等未迁移脚本用）**：批量旧流程的 `/tmp/klines` 缓存在早盘/隔日可能拿到旧 bar；chan_analysis.py 控制台输出的"数据基准"行是新管线的基准日，以它为准。
 - **持仓口径先核实**：positions.yaml 的 `updated_at` 可能落后于实际交易（用户可能刚清仓/加仓，如本次 517520 用户已清仓仍留在文件里）。分析"持仓ETF"前先跟用户确认当前真实持仓，别默认 positions.yaml 就是现状。
 
 ## Pitfalls（都踩过）
@@ -144,7 +157,7 @@ for code, name in codes.items():
 
 ## 参考文件
 
-- `scripts/chan_analysis.py`：完整可运行脚本。周期参数化已支持：`--30m`/`--60m`/`--scale N`（任意分钟）/`--day`（默认），数据源腾讯日线 + 新浪分钟线；`--fresh` 强制重拉；分钟线缓存 TTL=300s、日线 TTL=8h（规避盘中用到旧 bar）。**2026-08-27 修复腾讯日线 `param error` 坑：URL 必须是 `day,,,{n}`（两个空字段），`day,,{n}` 会返回 param error**
-- `scripts/chan_plot.py`：缠论结构图绘制（K线 + 笔 + 中枢矩形 + 买卖点 + 背驰 + MACD 副图）。用法 `python3 chan_plot.py --30m sh512400 -o /tmp/x.png`，依赖同目录 chan_analysis.py 的算法（口径一致）。缺 matplotlib 用项目 `.venv/bin/python` 跑
+- `scripts/chan_analysis.py`：多周期级别引擎薄壳 CLI（M7-5 起；`--30m/--60m/--day/--scale N/--decomp/--fresh`；引擎=chan_engine 校准口径，数据=chan_bars.db）。**2026-08-27 修复腾讯日线 `param error` 坑：URL 必须是 `day,,,{n}`（两个空字段），`day,,{n}` 会返回 param error**——该坑记录仍适用于 boll7 的旧拉取路径
+- `scripts/chan_plot.py`：缠论结构图绘制（M7-5 起读引擎输出：K线 + 笔 + 中枢矩形 + 买卖点 + MACD 副图）。用法 `python3 chan_plot.py --30m sh512400 -o /tmp/x.png`。缺 matplotlib 用项目 `.venv/bin/python` 跑
 - `references/chanlun-claims-evidence.md`：缠论概念 → claim ID 证据映射（完备性/买点定律/背驰定理/级别定理）
 - 知识库原文：项目 `sources/chanlun/lesson_*.md`（缠中说禅 2006-2008 专栏）
