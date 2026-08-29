@@ -9,7 +9,7 @@
 - `chan_plot.py`（154 行）import 旧算法函数（merge_inclusion/find_fractals/find_bi/
   calc_macd/identify_zhongshu/detect_backtension/classify_buy_points）——薄壳替换必须同步移植，
   否则绘图断链。
-- `boll7.py`（bollinger-7track）import `fetch_sina/fetch_tencent_daily/_parse_cli`
+- `boll7.py`（bollinger-7track-core）import `fetch_sina/fetch_tencent_daily/_parse_cli`
   ——数据函数与 CLI 解析器须在 chan_analysis.py 保留原签名。
 - skill 输出惯例（SKILL.md §输出惯例）：防守线=最近底背驰低点；反转确认位=前高突破回踩；
   仓位性质=反弹仓/反转仓（仅日线可定）；失效条件=破防守线/破更大级别前低；

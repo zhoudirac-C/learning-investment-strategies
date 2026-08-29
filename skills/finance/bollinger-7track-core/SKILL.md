@@ -1,13 +1,35 @@
 ---
-name: bollinger-7track
+name: bollinger-7track-core
 description: |
   七轨布林线（UP 青枫浦上Q 版 BOLL，±3倍DEV 七层轨道）：计算七轨数值 + 信号判定 +
   实战打法定位。用于强势股回调介入位判断、震荡股上下轨波段、强弱状态识别。
+  本仓库版本为**通用资产版**——与 Hermes 运行时副本（本地 skill `bollinger-7track`）
+  互为镜像，两边修改需同步（见文首备注）。
   触发词：七轨布林、布林线、二轨接、上轨兑现、布林中轨、强势股回调。
   配套脚本 scripts/boll7.py（复用 chan_analysis.py 数据源降级链：新浪/腾讯 → TDX → stale）。
 ---
 
 # 七轨布林线
+
+> ## ⚠️ 与 Hermes 运行时副本的对应关系（重要）
+>
+> - **本仓库（`skills/finance/bollinger-7track-core/`） = 通用资产版**：是七轨布林方法论与
+>   脚本的**内容本体**，可迁移到任何环境独立使用（不依赖 Hermes）。
+> - **Hermes 运行时副本**：`~/.hermes/skills/finance/bollinger-7track/`
+>   （skill 名 `bollinger-7track`）。Hermes 实际加载的是**本地运行时副本**；仓库版通过
+>   `config.yaml` 的 `skills.external_dirs` 以**只读**方式被 Hermes 发现（Hermes 不会自动修改
+>   外部目录里的 skill——`skill_utils.py` 明确 external_dirs 为 externally-owned/read-only，
+>   仅用户显式指令才改）。
+> - **同步规则（2026-08-29 用户拍板）**：以后修改方法论/脚本时**两边同步**——Hermes 运行时
+>   是主工作副本，改动内容应同步回仓库资产版；反之从仓库迁移内容到运行时也可。
+>   同步时保持本备注和 frontmatter name 一致（仓库 `bollinger-7track-core` ↔
+>   运行时 `bollinger-7track`）。
+> - **污染隔离（用户明确要求）**：Hermes 的**运行时经验**（单次盘面结论、临时数据快照、
+>   本机调试记录、时效性 Pitfalls 等）**不要写回仓库资产版**——仓库只收通用方法论与可复现脚本，
+>   保证资产版干净可迁移。
+> - 历史：2026-08-29 由 `bollinger-7track` 改名而来（消除本地/repo 双份同名导致的 skill_view
+>   歧义，与 chanlun-course 同批次解耦；解耦案例见 hermes-troubleshooting/references/
+>   skill-dual-instance-decouple-2026-08.md）。
 
 ## 核心框架（先看这个）
 
