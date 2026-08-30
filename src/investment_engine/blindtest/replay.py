@@ -33,7 +33,7 @@ _TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v11"
+PROMPT_VERSION = "v13"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -79,7 +79,7 @@ SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。�
                 "theoretical_window": "理论反弹窗口（如 '6-8天' 或空）",
                 "note": "周期状态备注（是否接近窗口末期/结构证伪/上级别压制）"}}
 4. 没有把握的方向可以不选，宁缺毋滥。scenarios 给 1-2 个互斥情形即可。
-5. 若 user 内容含 prior_day（上一交易日盲判摘要），必须体现连续判断：在 stage_reason 中对照昨日判断说明今日是否兑现/证伪昨日 watch_next，并在 directions 的 trend 字段标注方向加强/退潮；不得把单日当作孤立快照。
+5. 若 user 内容含 prior_day（上一交易日盲判摘要），必须体现连续判断：在 stage_reason 中对照昨日判断说明今日是否兑现/证伪昨日 watch_next，并在 directions 的 trend 字段标注方向加强/退潮；不得把单日当作孤立快照。若 user 内容含 premarket_today（当日盘前预判），收盘结论与盘前预判的 market_stage 不一致时，stage_reason 必须写明推翻理由（当日哪项数据证伪了盘前预判）；一致时注明「盘前预判兑现」。
 6. 数据单位约定：成交额以「亿」计（数据键名如「两市成交额_亿」），成交量以「万手」计（键名「成交量万手」），两者不可混用；watch_next/scenarios 里的量能阈值必须写「成交额(亿)」或「成交量(万手)」，禁止出现「成交额突破X万手」这类跨单位表述。
 7. operation 必须用 position_by_cycle 推导：先定位周期位置(position)——position 的第一决定变量是周期位置（结合 cycle_state 的 rebound_day），情绪好坏是次要变量：若 cycle_state 的 rebound_day ≥ 8 且超过 theoretical_window 上限，position 优先判「反弹超预期」（叠加放量兑现/涨停萎缩则判「高位兑现」），不得因涨停家数减少、情绪退潮就归入「震荡调整」（「震荡调整」仅适用于无明确反弹周期的情况）；再按「状态→动作」映射匹配 action，并用三条元规则（仓位纪律高于判断/确定性决定力度/特定状态最优动作是克制）校验；禁止脱离状态写「逢低关注/降低仓位」这类无状态依赖的套话。
 8. cycle_state 综合多指数反弹周期（不要自己算）：若 user 数据含 cycle_state（代码算好的多指数反弹周期，如 {科创50:{rebound_day,bottom_date,theoretical_window}, 创业板指:{...}, 上证指数:{...}}），综合各指数判断——科技主线（科创50/创业板指）优先，各指数 bottom_date 一致则周期确认、分歧则按科技主线锚定并在 note 说明；输出 cycle_state 字段取综合值，note 写指数间一致或分歧；无该数据输出空对象 {}。
@@ -101,7 +101,9 @@ SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。�
 24. 外力/内生归因前置：判 market_stage/nature 前先答「本轮驱动来自内部还是外部」。若 user 数据含 global_macro/overnight_us 且外部链条成立（隔夜美股半导体/存储链大跌、亚太股指同步重挫、美债收益率异常变动等），nature 优先判「外力扰动」，不得仅凭内部情绪指标判「内生瓦解」；判「外力扰动」时 stage_reason 必须引用外盘数据，scenarios/invalidation 至少一条含外部变量锚（如今夜美股收盘位置、关键利率点位）。无论最终定性如何，stage_reason 必须注明外部链条检验结论（成立/不成立/平稳）。
 25. 宏观三条件校验（宏观压制 vs AI证伪定性）：若 user 数据的 global_macro 块含美债收益率字段，stage_reason 必须做「宏观三条件」检验并给出定性质结论——三条前置条件：①美联储动向（不动=条件成立）②油价是否低于80美元 ③十年期美债收益率是否低于4.70%。三条均不成立时，本轮压制优先定性为「宏观扰动」而非「AI商业模式证伪」，科技主线的中期逻辑不被外盘下跌证伪；部分成立时写明哪条失效及对应含义。禁止只罗列外盘涨跌数字而不给宏观/AI归因结论。
 23b. 催化兑现覆盖：directions 做催化溯源（规则23）时，若 overnight_us 中该方向的隔夜映射股出现大幅回落（利好兑现），隔夜反向数据优先于前日催化——reason 必须同时引用两者并解释矛盾（如「前日+X%催化 vs 隔夜-Y%兑现回落」），禁止只引用前日利好而忽略隔夜反向信号；此时 posture 不高于「波段」或直接不选该方向。
-27. 方向同簇限选：directions 选出的多条方向不得属于同一相关簇（簇=共享同一核心催化、同涨同跌的方向群，非字面行业分类）。参考分簇——C1 AI硬件链：pcb_ai_chain、ccL_resin_upstream、copper_foil_hvlp4、tungsten_pcb_drill、cipb_power_substrate、mlcc_super_cycle、aramid_ai_fiber、optical_communication、switch_800g_domestic、computing_network_super_node、waic_supernode_catalyst、memory_nor、chip_specialty、semiconductor_silicon_wafer、electronic_gas_wf6、leadframe_upcycle、equipment_packaging_catchup、sk_hynix_adr、edge_ai_endpoint、aidc_power_supply；C2 能源电力：green_power_ai_electric、photovoltaic_low_recovery、lithium_battery_separator_upcycle；C3 大宗周期：coke_coal_upcycle、copper_aluminum_shortage、small_metal_chemical、upstream_scarce_price_rise、polyester_filament_refill、tire_offshore_transfer；C4 医药：pharmaceutical_innovation、ai4s_pharma；C5 金融：securities_bottom、broker_finance；C6 消费农业：pig_farming_hedge、cheese_domestic_sub；C7 主题事件/其他：commercial_aerospace、robot_observation、shipbuilding_boom、typhoon_drainage、film_industry_event、mid_report_performance、kcb_ai_policy、ai_applications_rotation、ai_equity_investment、cybersecurity_mapping。自由文本方向名按语义归簇（如「5G概念」「存储芯片」均属 C1）。两条候选同簇时保留 reason 证据更强的一条，第二条从其它簇选当日证据最强者；若其它簇无合格候选，允许只输出 1 条并在 reason 注明「同簇限选，无其它簇合格候选」。每条 direction 的 reason 中用一句话写明簇归属判断（如「同属C1 AI硬件簇，取证据更强者」）。"""
+27. 方向同簇限选：directions 选出的多条方向不得属于同一相关簇（簇=共享同一核心催化、同涨同跌的方向群，非字面行业分类）。参考分簇——C1 AI硬件链：pcb_ai_chain、ccL_resin_upstream、copper_foil_hvlp4、tungsten_pcb_drill、cipb_power_substrate、mlcc_super_cycle、aramid_ai_fiber、optical_communication、switch_800g_domestic、computing_network_super_node、waic_supernode_catalyst、memory_nor、chip_specialty、semiconductor_silicon_wafer、electronic_gas_wf6、leadframe_upcycle、equipment_packaging_catchup、sk_hynix_adr、edge_ai_endpoint、aidc_power_supply；C2 能源电力：green_power_ai_electric、photovoltaic_low_recovery、lithium_battery_separator_upcycle；C3 大宗周期：coke_coal_upcycle、copper_aluminum_shortage、small_metal_chemical、upstream_scarce_price_rise、polyester_filament_refill、tire_offshore_transfer；C4 医药：pharmaceutical_innovation、ai4s_pharma；C5 金融：securities_bottom、broker_finance；C6 消费农业：pig_farming_hedge、cheese_domestic_sub；C7 主题事件/其他：commercial_aerospace、robot_observation、shipbuilding_boom、typhoon_drainage、film_industry_event、mid_report_performance、kcb_ai_policy、ai_applications_rotation、ai_equity_investment、cybersecurity_mapping。自由文本方向名按语义归簇（如「5G概念」「存储芯片」均属 C1）。两条候选同簇时保留 reason 证据更强的一条，第二条从其它簇选当日证据最强者；若其它簇无合格候选，允许只输出 1 条并在 reason 注明「同簇限选，无其它簇合格候选」。每条 direction 的 reason 中用一句话写明簇归属判断（如「同属C1 AI硬件簇，取证据更强者」）。
+28. 价格结构前置否决（宽度指标无权单独定「企稳」）：判 nature=「缩量企稳」或 market_stage=「震荡」前，必须先以 index 块收盘价序列做价格结构校验——(a) 破位校验：上证指数/创业板指收盘跌破 5 日均线或近期波段低点（收盘价口径）且当日仍收跌时，无论涨跌家数/涨停家数等宽度指标多强，nature 禁止选「缩量企稳」——破位收跌日的宽度修复只按反抽处理（消耗调整时间，不构成企稳），market_stage 优先判「调整」；若指数破位但当日收涨（修复尝试中），仍判「震荡」须在 stage_reason 写明破位事实与收复条件（收回 5 日均线/波段低点上方）。(b) 顶部结构结论级压制：structure 块含任一指数 60min 及以上顶部 forming/divergence 信号时，market_stage 禁止判「主升」，且 stage_reason 必须说明该顶部结构对结论的压制（规则17 只要求引用，本条要求影响结论）；顶部结构叠加破位或 cycle_state.rebound_day 达到/超过 theoretical_window 上限时，market_stage 优先判「调整」，禁止把顶部结构只写进 watch_next/cycle_state.note 而维持原结论。
+29. 方向必须带失效条件：directions 每条须在 reason 末尾给出可证伪的失效条件，用相对口径（如「跌破5日均线」「板块龙头断板」「连续两日跑输大盘」「失守板块支撑」「板块与大盘背离放大」），禁止只给看多理由不带失效条件；posture=「趋势」的方向失效条件须最严（核心指数破位或方向龙头断板即降级波段/回避）。"""
 
 
 def build_messages(pack_text: str) -> list[dict]:
@@ -370,6 +372,27 @@ def _shift_days(day: str, delta: int) -> str:
     return (datetime.strptime(day, "%Y-%m-%d") + timedelta(days=delta)).strftime("%Y-%m-%d")
 
 
+# 规则28：价格结构前置否决——核心指数（上证指数/创业板指，收盘价口径）
+_RULE28_CORE_INDEX = ("IDX000001", "IDX399006")
+
+
+def _index_broken(bars) -> bool:
+    """收盘跌破 5 日均线或近 10 根收盘波段低点（index 块为 _compact_bars 收盘价口径）。"""
+    closes = [float(b["c"]) for b in bars
+              if isinstance(b, dict) and isinstance(b.get("c"), (int, float))]
+    if len(closes) < 11:
+        return False
+    c = closes[-1]
+    return c < sum(closes[-5:]) / 5 or c < min(closes[-11:-1])
+
+
+def _index_down(bars) -> bool:
+    """当日收跌（收盘价口径）。"""
+    closes = [float(b["c"]) for b in bars
+              if isinstance(b, dict) and isinstance(b.get("c"), (int, float))]
+    return len(closes) >= 2 and closes[-1] < closes[-2]
+
+
 def validate_result(result: dict, pack: dict | None = None) -> list[str]:
     """确定性校验：返回违规说明列表，空列表 = 通过。不调 LLM。
 
@@ -521,6 +544,33 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
             violations.append(
                 "规则24: pack 含外盘数据（global_macro/overnight_us），输出未引用"
                 "外部链条——外力/内生归因前置：须注明外部检验结论（成立/不成立/平稳）")
+
+        # 规则28：价格结构前置否决——双核心指数破位且创业板指当日收跌时，
+        # nature 禁止「缩量企稳」（破位收跌日的宽度修复只按反抽处理）。
+        # 2026-08-30 合并裁决（proposals 08-24/08-25-pattern-patch-note）：
+        # 对 28 条影子记录回测，「双破位+收跌」条件 2 抓 0 误伤；「任一破位」或
+        # 「双破位」单独条件在 08-19~08-21 磨底期有 4 例假阳（判对反被拦），
+        # 故机械层只拦最高置信情形，单破位/收涨情形由 prompt 条文引导。
+        index28 = pack.get("index") or {}
+        core28 = [index28.get(c) for c in _RULE28_CORE_INDEX]
+        if all(isinstance(b, list) and b for b in core28) and \
+                all(_index_broken(b) for b in core28) and \
+                _index_down(core28[1]) and result.get("nature") == "缩量企稳":
+            violations.append(
+                "规则28: 上证指数/创业板指双破位（收盘跌破5日均线或近期波段低点）"
+                "且创业板指当日收跌，nature 禁止「缩量企稳」——破位收跌日的宽度修复"
+                "只按反抽处理，market_stage 优先判「调整」")
+
+    # 规则5b（v13）：双轨互证——pack 含 premarket_today（当日盘前预判）且收盘
+    # market_stage 与盘前不一致时，stage_reason 必须写明推翻理由（含「盘前」字样）。
+    # 2026-08-30 周归因：08-24/08-25 两单错判均为一轨对一轨错，收盘轨无推翻说明义务。
+    pm_today = (pack or {}).get("premarket_today")
+    pm_stage = pm_today.get("market_stage") if isinstance(pm_today, dict) else None
+    if pm_stage and stage and pm_stage != stage and \
+            "盘前" not in str(result.get("stage_reason") or ""):
+        violations.append(
+            f"规则5b: 收盘判「{stage}」与当日盘前预判「{pm_stage}」不一致，"
+            "stage_reason 未写明推翻盘前预判的理由（双轨互证）")
 
     return violations
 

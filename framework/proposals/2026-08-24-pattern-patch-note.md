@@ -1,7 +1,8 @@
 ---
 date: 2026-08-24
 type: pattern-patch
-status: open
+status: merged
+merged_into: framework/proposals/2026-08-30-pattern-price-structure-veto-merged.md
 source: evals/shadow/attributions/2026-08-24.json
 ---
 
@@ -14,3 +15,5 @@ AI判断为震荡缩量企稳，但实际走出调整。错因：1) 步骤缺：
 ## 处置建议
 
 在预判流程中增加'顶部结构形成且未失效时，优先判定为调整或偏弱震荡，而非震荡企稳'，将顶部结构权重提升至与量能并列。
+
+> merged 2026-08-30：与 2026-08-25-pattern-patch-note 同根（宽度压过价格结构），合并裁决回写为 SYSTEM_PROMPT 规则28 + validate_result 机械校验（prompt v12），详见 framework/proposals/2026-08-30-pattern-price-structure-veto-merged.md。

@@ -272,6 +272,68 @@ market_gate_rules:
     condition: less_than
     threshold: 3000000000000
     note: 量能三档（8/11早盘更新）：3万亿=第一道坎（压力位，逼近需警惕），3.5万亿=风险区（逼近则风险倍数增长），3万亿以下=健康区间（缩量启动走向温和放量才是健康形态，待得越久反弹周期越长）
+  stock_volume_checks:
+  # P0 持仓级量能确认（2026-08-30 新增）
+  # 数据源：chan_bars.db 日线+60m分钟线 vol 字段
+  # 计算逻辑：vol / MA5_vol，阈值 放量≥1.2 / 缩量≤0.8
+  # 消费方：qing_position_dual_analysis.py compute_volume_profile() → latest.json volume_profile
+  #         qing-dual-engine-report skill 第7步解读
+  - level: leave
+    metric: volume_ratio
+    condition: greater_equal
+    threshold: 1.2
+    label: 放量离开
+    action: 真突破（回测79%判别准确率,全年n=103），可跟；止损=回破中枢上沿
+  - level: leave
+    metric: volume_ratio
+    condition: greater_equal
+    threshold: 1.5
+    label: 放量强确认
+    action: 强确认（回测85%；向下破位时100%真破位）——放量杀跌立即执行风控不等反弹
+  - level: leave
+    metric: volume_ratio
+    condition: less_equal
+    threshold: 0.8
+    label: 缩量离开(无确认)
+    action: 无资金确认→中性观望（回测证伪"假突破"假设：缩量跌破3日后69%仍有效,不作反向信号）
+  - level: retest
+    metric: volume_ratio
+    condition: less_equal
+    threshold: 0.8
+    label: 缩量回试
+    action: 卖压不足→回试有效，可加仓；止损=破中枢上沿
+  - level: retest
+    metric: volume_ratio
+    condition: greater_equal
+    threshold: 1.2
+    label: 放量回试
+    action: 抛压大→谨慎，等二次确认
+  - level: backchi
+    metric: volume_trend
+    condition: decreasing
+    threshold: 0.9
+    label: 量能配合背驰
+    action: 强背驰→反转概率高；配合 trend_div = 最强卖出/买入信号
+  - level: backchi
+    metric: volume_trend
+    condition: increasing
+    threshold: 1.1
+    label: 量能不配合背驰
+    action: 弱背驰→可能还有一冲；不作为反转确认依据
+  # 关键组合规则（2026-08-30 回测修正版，详见 proposals/2026-08-30-methodology-three-layer-upgrade.md §2.6）
+  combo_rules:
+  - combo: 放量离开(≥1.2) + trend_div背驰 + 量能递减
+    signal: 顶背驰+资金撤离双重确认
+    priority: 最高兑现优先级
+    example: 待首个放量样本验证（8/28 512400为缩量离开,按修正规则降级为中性）
+  - combo: 缩量回试 + 底背驰 + 量能递减
+    signal: 底背驰被量能确认
+    priority: 回试企稳可加仓
+    example: 159992创新药 08-28 close0.862 retest0.79 背驰递减
+  - combo: 放量杀跌(≥1.5)破位
+    signal: 真破位极可靠（回测100%,n=6）
+    priority: 立即执行风控,不等反弹
+    note: A股下跌动量强于上涨,向下破位对量能更敏感
   defense_day_checks:
   - type: bank_insurance_leading
     action: defense_day

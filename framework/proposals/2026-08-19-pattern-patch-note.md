@@ -1,7 +1,7 @@
 ---
 date: 2026-08-19
 type: pattern-patch
-status: open
+status: applied
 note: 2026-08-21 主轨「驱动力归因前置」已在 prompt 层试点（v9 规则24 + 机械化校验，
 见 framework/proposals/2026-08-21-pattern-patch-blind-up-comparison.md 实施记录）；
 reasoning-patterns.yaml 入库仍待人审 + 窗口验证。
@@ -91,3 +91,5 @@ source: evals/shadow/attributions/2026-08-19.json
 - `infra/data/intraday_amount/2026081{7,8,9}.json`：3/3 天「冲量滑落」，
   预估/实际偏差约 2 倍，与实际量能逐日放大矛盾
 - 机械真值特征（IDX000300，2026-08-19）：r20=-2.73%、pos20=0.42，险守震荡
+
+> applied 2026-08-30（关单裁决）：三条处置全部落地——①prompt 层 v9 规则24/25（外力/内生归因前置 + 宏观三条件）+ 机械化校验；②global_macro 数据通道 + 复盘路径补注入 overnight_us；③intraday_amount 按同时段占比校准（规则9 修订为形态/环比并列）。窗口验证：v9 后 08-25-pre 正确判「调整/外力扰动」（引用隔夜费半 -2.7%），同类误用未再出现。yaml 入库 2026-08-30 完成：sentiment_cycle 新增 step 1「驱动力归因前置（外力/内生）」（framework/reasoning-patterns.yaml），原 step 1-4 顺延为 2-5。

@@ -18,7 +18,11 @@ logs/*
 !logs/chan-fx-shadow-*.md
 !logs/chan-b2-shadow-*.md
 !logs/industry-chain-freshness.md
+!logs/shadow-weekly-*.md
 .DS_Store
+
+# 缠论引擎 K 线缓存（自动生成二进制，同 infra/data/ 口径）
+chan_bars.db
 
 config/stock_monitor/positions.yaml
 config/stock_monitor/state.json

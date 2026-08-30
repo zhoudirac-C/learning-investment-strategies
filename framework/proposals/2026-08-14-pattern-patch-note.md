@@ -1,7 +1,8 @@
 ---
 date: 2026-08-14
 type: pattern-patch
-status: open
+status: merged
+merged_into: framework/proposals/2026-08-30-direction-invalidation-merged.md
 source: evals/shadow/attributions/2026-08-14.json
 ---
 
@@ -14,3 +15,5 @@ AI判断市场为震荡且主动降速，但实际5G和CPO方向均跑输基准�
 ## 处置建议
 
 为每个方向设置明确的失效条件，如跌破关键支撑位或连续两日跑输基准，一旦触发则立即切换方向判断。
+
+> merged 2026-08-30：与 08-11/12/14 三份方向层提案合并裁决，回写为 SYSTEM_PROMPT 规则29「方向必须带失效条件」（prompt v13，盘前/盘后双轨同步），详见 framework/proposals/2026-08-30-direction-invalidation-merged.md。

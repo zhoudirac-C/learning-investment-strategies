@@ -7,10 +7,11 @@ from investment_engine.shadow.daily import run
 
 
 class TestDailyPromptVersion:
-    def test_prompt_version_is_v11(self):
-        """pattern-patch 2026-08-24：版本号 v10.1→v11（规则27 方向同簇限选）。"""
+    def test_prompt_version_is_v13(self):
+        """pattern-patch 合并裁决 2026-08-30：版本号 v12→v13（规则29 方向失效条件 +
+        规则5扩展 双轨互证）。"""
         from investment_engine.blindtest import replay
-        assert replay.PROMPT_VERSION == "v11"
+        assert replay.PROMPT_VERSION == "v13"
 
     def test_daily_prompt_contains_discipline_rules(self):
         """v6/v8 纪律规则关键词须出现在盘后 prompt（B1/B2/A2-A5/C5引用/C8降级/规则9并列）。"""
@@ -45,6 +46,22 @@ class TestDailyPromptVersion:
         assert "同簇限选" in text and "相关簇" in text  # 规则27 核心约束
         assert "C1 AI硬件链" in text and "C7 主题事件" in text  # 分簇表在场
         assert "无其它簇合格候选" in text  # 合规出口
+
+    def test_daily_prompt_contains_v12_price_structure_veto(self):
+        """v12 规则28（2026-08-30 合并裁决：价格结构前置否决）关键词须在盘后 prompt。"""
+        from investment_engine.blindtest import replay
+        text = replay.SYSTEM_PROMPT
+        assert "价格结构前置否决" in text and "无权单独定" in text  # 规则28 核心约束
+        assert "跌破 5 日均线或近期波段低点" in text  # (a) 破位校验
+        assert "只按反抽处理" in text  # 破位收跌日宽度修复定性
+        assert "禁止判「主升」" in text  # (b) 顶部结构结论级压制
+
+    def test_daily_prompt_contains_v13_rules(self):
+        """v13 规则29（方向失效条件）+ 规则5扩展（双轨互证）关键词须在盘后 prompt。"""
+        from investment_engine.blindtest import replay
+        text = replay.SYSTEM_PROMPT
+        assert "方向必须带失效条件" in text and "连续两日跑输大盘" in text  # 规则29
+        assert "premarket_today" in text and "盘前预判兑现" in text  # 规则5扩展 双轨互证
 
 
 class TestDailyRun:

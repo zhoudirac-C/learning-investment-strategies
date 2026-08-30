@@ -99,10 +99,28 @@ def run_predict(day: str, *, config_dir, db_path=None, pred_dir: Path = PRED_DIR
             pack["prior_day"] = prior
         # 2026-08-20 复盘路径补注入隔夜外盘（与盘前同一精简结构，防泄漏同规）：
         # 复盘要答「外力/内生」题，隔夜美股映射个股必须可见
-        from investment_engine.shadow.premarket import _load_overnight, slim_overnight
+        from investment_engine.shadow.premarket import (
+            _load_overnight, premarket_path, slim_overnight)
         overnight = _load_overnight(day, overnight_root)
         if overnight:
             pack["overnight_us"] = slim_overnight(overnight)
+        # 双轨互证（v13 规则5扩展/规则5b）：注入当日盘前预判摘要，收盘结论与
+        # 盘前 market_stage 不一致时须在 stage_reason 写明推翻理由（机械校验）
+        pm_path = premarket_path(day, pred_dir)
+        if pm_path.exists():
+            try:
+                pm_rec = json.loads(pm_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                pm_rec = {}
+            pm_result = pm_rec.get("result") or {}
+            if pm_rec.get("status") not in (None, "error") and \
+                    pm_result.get("market_stage"):
+                pack["premarket_today"] = {
+                    "date": day,
+                    "market_stage": pm_result.get("market_stage", ""),
+                    "nature": pm_result.get("nature", ""),
+                    "stage_reason": pm_result.get("stage_reason", ""),
+                }
         text = pack_to_prompt(pack)  # 内含防泄漏断言
         raw, result, validation = run_with_validation(
             build_messages(text), pack, model=model, client=client,

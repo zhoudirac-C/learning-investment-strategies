@@ -59,9 +59,9 @@ class TestPremarketPrompt:
 
 
 class TestPremarketPromptVersion:
-    def test_prompt_version_is_v11(self):
-        """pattern-patch 2026-08-24：版本号 v10.1→v11（规则27 方向同簇限选）。"""
-        assert pm.PROMPT_VERSION == "v11"
+    def test_prompt_version_is_v13(self):
+        """pattern-patch 合并裁决 2026-08-30：版本号 v12→v13（规则29 方向失效条件）。"""
+        assert pm.PROMPT_VERSION == "v13"
 
     def test_premarket_prompt_contains_discipline_rules(self):
         """v6 新增纪律规则关键词须出现在盘前 prompt（B1/B2/A2-A5/C5引用/C8降级）。"""
@@ -92,6 +92,19 @@ class TestPremarketPromptVersion:
         text = pm.PREMARKET_SYSTEM_PROMPT
         assert "同簇限选" in text and "C1 AI硬件链" in text
         assert "无其它簇合格候选" in text
+
+    def test_premarket_prompt_contains_v12_price_structure_veto(self):
+        """v12 规则28 关键词须在盘前 prompt（与盘后共用 validate_result，规则须对称）。"""
+        text = pm.PREMARKET_SYSTEM_PROMPT
+        assert "价格结构前置否决" in text and "无权单独定" in text
+        assert "跌破 5 日均线或近期波段低点" in text
+        assert "只按反抽处理" in text
+        assert "禁止预判「主升」" in text  # 盘前口径：预判
+
+    def test_premarket_prompt_contains_v13_direction_invalidation(self):
+        """v13 规则29（方向失效条件）关键词须在盘前 prompt。"""
+        text = pm.PREMARKET_SYSTEM_PROMPT
+        assert "方向必须带失效条件" in text and "连续两日跑输大盘" in text
 
 
 class TestRunPredictPremarket:

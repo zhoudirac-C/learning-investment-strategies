@@ -1,7 +1,8 @@
 ---
 date: 2026-08-25
 type: glossary-patch
-status: open
+status: merged
+merged_into: framework/proposals/2026-08-30-glossary-terms-merged.md
 source: evals/shadow/attributions/2026-08-25.json
 ---
 
@@ -14,3 +15,5 @@ AI判定为“震荡/缩量企稳”，但真值为“调整”。其依据是�
 ## 处置建议
 
 在术语词典中明确：缩量企稳需同时满足指数收阳或十字星、量能较前高显著萎缩（如创阶段地量或缩量超50%）、跌停家数极少；若指数仍下跌且量能仅小幅收缩，禁止使用“企稳”，应记为“缩量反抽”。
+
+> merged 2026-08-30：与 2026-08-24-glossary-patch-note 同根，合并回写 up-glossary.md「缩量企稳/缩量反抽（下跌中继）」词条，详见 framework/proposals/2026-08-30-glossary-terms-merged.md；行为约束部分已由规则28（prompt v12）覆盖。

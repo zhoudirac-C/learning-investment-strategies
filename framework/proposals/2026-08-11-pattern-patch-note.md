@@ -1,7 +1,8 @@
 ---
 date: 2026-08-11
 type: pattern-patch
-status: open
+status: merged
+merged_into: framework/proposals/2026-08-30-direction-invalidation-merged.md
 source: evals/shadow/attributions/2026-08-11.json
 ---
 
@@ -14,3 +15,5 @@ AI判断市场处于震荡阶段，但实际方向判断错误。在推理过程
 ## 处置建议
 
 在识别主线方向时，需验证板块内涨停个股的连板高度和封板资金，并观察板块指数是否与大盘同步，若板块独立于大盘走强，需谨慎对待。
+
+> merged 2026-08-30：与 08-11/12/14 三份方向层提案合并裁决，回写为 SYSTEM_PROMPT 规则29「方向必须带失效条件」（prompt v13，盘前/盘后双轨同步），详见 framework/proposals/2026-08-30-direction-invalidation-merged.md。

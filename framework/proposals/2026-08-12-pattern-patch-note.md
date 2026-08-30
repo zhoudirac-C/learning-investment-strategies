@@ -1,7 +1,8 @@
 ---
 date: 2026-08-12
 type: pattern-patch
-status: open
+status: merged
+merged_into: framework/proposals/2026-08-30-direction-invalidation-merged.md
 source: evals/shadow/attributions/2026-08-12.json
 ---
 
@@ -14,3 +15,5 @@ AI判断市场处于震荡修复期，但实际次日市场下跌，且AI推荐�
 ## 处置建议
 
 在震荡判断中，若成交额持续萎缩且指数处于关键压力位，应预警流动性风险，并考虑降低仓位或回避高位题材股。
+
+> merged 2026-08-30：与 08-11/12/14 三份方向层提案合并裁决，回写为 SYSTEM_PROMPT 规则29「方向必须带失效条件」（prompt v13，盘前/盘后双轨同步），详见 framework/proposals/2026-08-30-direction-invalidation-merged.md。

@@ -1,7 +1,8 @@
 ---
 date: 2026-08-24
 type: glossary-patch
-status: open
+status: merged
+merged_into: framework/proposals/2026-08-30-glossary-terms-merged.md
 source: evals/shadow/attributions/2026-08-24.json
 ---
 
@@ -14,3 +15,5 @@ AI判断为震荡缩量企稳，但实际走出调整。错因：1) 步骤缺：
 ## 处置建议
 
 在术语词典中补充：当反弹周期超理论窗口+顶部结构形成+涨停家数持续回落时，缩量应判定为'下跌中继'而非'企稳'，需引入量价配合标准（如缩量后次日是否放量回升）。
+
+> merged 2026-08-30：与 2026-08-25-glossary-patch-note 同根，合并回写 up-glossary.md「缩量企稳/缩量反抽（下跌中继）」词条，详见 framework/proposals/2026-08-30-glossary-terms-merged.md；行为约束部分已由规则28（prompt v12）覆盖。

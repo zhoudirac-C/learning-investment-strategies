@@ -1,7 +1,7 @@
 ---
 date: 2026-08-20
 type: pattern-patch
-status: open
+status: rejected
 source: evals/shadow/attributions/2026-08-20.json
 ---
 
@@ -14,3 +14,5 @@ AI将市场判断为“调整”且性质为“内生瓦解”，但事后真值
 ## 处置建议
 
 在推理框架中新增“震荡市”判定子模块，引入日内波动率、板块轮动速度、涨跌家数比在中位数附近波动等指标，当情绪数据极端但指数未破位时优先判定为震荡而非调整。
+
+> rejected 2026-08-30：根因已被 v9 规则18/19/24 覆盖（v9 后同类误用消失），增量指标（日内波动率/板块轮动速度）无数据通道，详见 framework/proposals/2026-08-30-reverse-miss-adjudication.md（裁决二）。如过度悲观类错判重现请重新立项。

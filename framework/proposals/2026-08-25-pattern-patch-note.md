@@ -1,7 +1,8 @@
 ---
 date: 2026-08-25
 type: pattern-patch
-status: open
+status: merged
+merged_into: framework/proposals/2026-08-30-pattern-price-structure-veto-merged.md
 source: evals/shadow/attributions/2026-08-25.json
 ---
 
@@ -14,3 +15,5 @@ AI判定为“震荡/缩量企稳”，但真值为“调整”。其依据是�
 ## 处置建议
 
 增加强制校验：当基于涨跌家数、涨停数量等宽度指标判定“震荡/企稳”前，必须先检查上证指数、创业板指、科创50是否收盘跌破5日均线或近期波段低点；若任一核心指数跌破，则无论宽度如何，优先判定为“调整”。
+
+> merged 2026-08-30：与 2026-08-24-pattern-patch-note 同根（宽度压过价格结构），合并裁决回写为 SYSTEM_PROMPT 规则28 + validate_result 机械校验（prompt v12），详见 framework/proposals/2026-08-30-pattern-price-structure-veto-merged.md。注：机械校验采纳的是「双破位+收跌」口径而非本提案的「任一破位」——回测显示任一破位在磨底期有 4 例假阳，见合并文档回测证据节。

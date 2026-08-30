@@ -1,7 +1,8 @@
 ---
 date: 2026-08-20
 type: glossary-patch
-status: open
+status: merged
+merged_into: framework/proposals/2026-08-30-reverse-miss-adjudication.md
 source: evals/shadow/attributions/2026-08-20.json
 ---
 
@@ -14,3 +15,5 @@ AI将市场判断为“调整”且性质为“内生瓦解”，但事后真值
 ## 处置建议
 
 在术语词典中限定“内生瓦解”仅适用于连续多日资金净流出且指数破位下行，单日情绪指标恶化但指数未破关键支撑时不得使用，改用“情绪退潮”或“短期分歧”。
+
+> merged 2026-08-30：采纳，回写 up-glossary.md「内生瓦解」（限用条件）与新增「情绪退潮」词条，详见 framework/proposals/2026-08-30-reverse-miss-adjudication.md（裁决一）。

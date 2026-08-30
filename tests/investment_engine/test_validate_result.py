@@ -496,3 +496,103 @@ class TestDirectionClusterLimit:
             {"direction_id": "pcb_ai_chain", "reason": "", "stocks": []},
         ])
         assert any("规则27" in x for x in validate_result(r2, pack={}))
+
+
+def _bars(closes):
+    """收盘价序列 → pack index 块 compact bars（收盘价口径，同 _compact_bars）。"""
+    return [{"d": f"2026-08-{i + 1:02d}", "c": c} for i, c in enumerate(closes)]
+
+
+class TestPriceStructureVeto:
+    """规则28（v12）：价格结构前置否决——双核心指数破位且收跌日禁止「缩量企稳」。
+
+    合并裁决：framework/proposals/2026-08-30-pattern-price-structure-veto-merged.md
+    （merged_from: 2026-08-24 / 2026-08-25 两份 pattern-patch）。
+    回归样本：08-24-pre / 08-25 两单真实判错（调整日判震荡/缩量企稳）；
+    假阳防护样本：08-20/08-21 磨底期（双破位但收涨，判震荡/缩量企稳是对的）。
+    """
+
+    # 上证指数/创业板指双破位（收盘 < MA5 且 < 近10根收盘低点）且当日收跌
+    PACK_BROKEN_DOWN = {
+        "index": {
+            "IDX000001": _bars([4000, 3980, 3960, 3940, 3920, 3910,
+                                3905, 3900, 3895, 3890, 3885, 3882]),
+            "IDX399006": _bars([3600, 3580, 3560, 3540, 3520, 3510,
+                                3500, 3490, 3480, 3470, 3460, 3432]),
+        },
+    }
+
+    def test_broken_down_day_steady_nature_flagged(self):
+        # 08-24-pre / 08-25 真实判错形态：双破位收跌日判「缩量企稳」
+        r = _result(market_stage="震荡", nature="缩量企稳",
+                    stage_reason="上涨家数修复，缩量企稳")
+        v = validate_result(r, pack=self.PACK_BROKEN_DOWN)
+        assert any("规则28" in x for x in v), v
+
+    def test_broken_down_day_other_nature_passes(self):
+        # 机械层只拦「缩量企稳」；其他 nature 的 stage 判断由 prompt 条文引导
+        r = _result(market_stage="调整", nature="内生瓦解",
+                    stage_reason="双指数破位下行")
+        assert not any("规则28" in x for x in validate_result(r, pack=self.PACK_BROKEN_DOWN))
+
+    def test_broken_but_up_day_passes(self):
+        # 08-20/08-21 磨底期假阳防护：双破位但创业板指当日收涨，企稳判断允许
+        pack = {"index": {
+            "IDX000001": _bars([4000, 3980, 3960, 3940, 3920, 3910,
+                                3905, 3900, 3895, 3890, 3885, 3895]),
+            "IDX399006": _bars([3600, 3580, 3560, 3540, 3520, 3510,
+                                3500, 3490, 3480, 3470, 3432, 3460]),
+        }}
+        r = _result(market_stage="震荡", nature="缩量企稳")
+        assert not any("规则28" in x for x in validate_result(r, pack=pack))
+
+    def test_single_index_broken_passes(self):
+        # 08-26/08-28 形态：上证健康、仅创业板破位收跌——机械层不拦（宁漏不误拦）
+        pack = {"index": {
+            "IDX000001": _bars([3800, 3820, 3840, 3860, 3880, 3890,
+                                3895, 3900, 3905, 3908, 3910, 3913]),
+            "IDX399006": _bars([3600, 3580, 3560, 3540, 3520, 3510,
+                                3500, 3490, 3480, 3470, 3460, 3432]),
+        }}
+        r = _result(market_stage="震荡", nature="缩量企稳")
+        assert not any("规则28" in x for x in validate_result(r, pack=pack))
+
+    def test_no_index_block_skipped(self):
+        r = _result(nature="缩量企稳")
+        assert validate_result(r, pack={}) == []
+
+    def test_insufficient_bars_skipped(self):
+        pack = {"index": {"IDX000001": _bars([100, 99, 98, 97, 96]),
+                          "IDX399006": _bars([100, 99, 98, 97, 96])}}
+        r = _result(nature="缩量企稳")
+        assert not any("规则28" in x for x in validate_result(r, pack=pack))
+
+
+class TestDualTrackCrossCheck:
+    """规则5b（v13）：双轨互证——收盘与当日盘前预判不一致时必须写明推翻理由。
+
+    来源：2026-08-30 周归因（08-24/08-25 两单错判均为一轨对一轨错，
+    收盘轨无推翻说明义务）。
+    """
+
+    PM_PRE = {"premarket_today": {"date": "2026-08-25", "market_stage": "调整",
+                                  "nature": "外力扰动", "stage_reason": "……"}}
+
+    def test_divergence_without_override_reason_flagged(self):
+        # 08-25 真实错判形态：盘前判调整、收盘改判震荡且未提盘前
+        r = _result(market_stage="震荡", stage_reason="宽度修复，缩量企稳")
+        v = validate_result(r, pack=self.PM_PRE)
+        assert any("规则5b" in x for x in v), v
+
+    def test_divergence_with_override_reason_passes(self):
+        r = _result(market_stage="震荡",
+                    stage_reason="盘前预判调整，但今日涨停65家宽度修复证伪盘前预判")
+        assert not any("规则5b" in x for x in validate_result(r, pack=self.PM_PRE))
+
+    def test_consistent_with_premarket_skipped(self):
+        r = _result(market_stage="调整", stage_reason="指数破位下行")
+        assert not any("规则5b" in x for x in validate_result(r, pack=self.PM_PRE))
+
+    def test_no_premarket_block_skipped(self):
+        r = _result(market_stage="震荡", stage_reason="量能温和")
+        assert not any("规则5b" in x for x in validate_result(r, pack={}))
