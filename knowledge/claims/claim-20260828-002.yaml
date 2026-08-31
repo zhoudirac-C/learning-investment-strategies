@@ -13,8 +13,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260708-002-x", "claim-20260804-008"]
   contradicts: []
+  supplements: ["claim-20260625-002-a"]
+  last_discovered: 2026-08-31
   links:
     wiki_pages: []
     methodology_pages: []
@@ -41,8 +43,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260827-051-x"]
   contradicts: []
+  supplements: ["claim-20260827-054-x", "claim-20260819-031"]
+  last_discovered: 2026-08-31
   links:
     wiki_pages: []
     methodology_pages: []
@@ -71,6 +75,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["qing-2026-06-08-methodology-correct-vs-profitable-001", "claim-20061124-001-b"]
+  last_discovered: 2026-08-31
   links:
     wiki_pages: []
     methodology_pages: []
@@ -99,6 +105,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-08-31
   links:
     wiki_pages: []
     methodology_pages: []
@@ -125,8 +133,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260813-027"]
   contradicts: []
+  supplements: []
+  last_discovered: 2026-08-31
   links:
     wiki_pages: []
     methodology_pages: []
