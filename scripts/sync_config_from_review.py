@@ -238,7 +238,10 @@ def sync_from_daily_state_file(dry_run: bool) -> list[str]:
     logger.info("强制模式: 从 daily_state.json 读取")
     all_changes = []
     all_changes.extend(update_strategy_pack(state, dry_run))
-    all_changes.extend(update_positions(state, dry_run))
+    # 2026-08-31 用户决定: 废弃 17:10 收盘复盘自动修改 positions.yaml 的逻辑
+    # (positions.yaml 的 zones 只接受用户确认后的手动同步, 不再被 daily_state 自动改写)
+    # all_changes.extend(update_positions(state, dry_run))
+    logger.info("positions.yaml 同步已禁用 (用户决定 2026-08-31), 跳过 update_positions")
     # watchlist 需要 entry_zone_updates 这个字段在 daily_state.json 里
     if state.get("entry_zone_updates"):
         all_changes.extend(update_watchlist(state, dry_run))
@@ -499,7 +502,10 @@ def sync(dry_run: bool = False, force: bool = False) -> int:
     # 5. 更新各文件
     all_changes = []
     all_changes.extend(update_strategy_pack(state, dry_run))
-    all_changes.extend(update_positions(state, dry_run))
+    # 2026-08-31 用户决定: 废弃 17:10 收盘复盘自动修改 positions.yaml 的逻辑
+    # (positions.yaml 的 zones 只接受用户确认后的手动同步, 不再被 daily_state 自动改写)
+    # all_changes.extend(update_positions(state, dry_run))
+    logger.info("positions.yaml 同步已禁用 (用户决定 2026-08-31), 跳过 update_positions")
     all_changes.extend(update_watchlist(state, dry_run))
     all_changes.extend(update_stock_pool(state, dry_run))
     all_changes.extend(update_direction_candidates(state, dry_run))
