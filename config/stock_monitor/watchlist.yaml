@@ -1810,3 +1810,13 @@ avoid_and_reduce:
   - 石油（地缘支撑减弱，反弹撤）
   - 黄金（美元/实际利率压制，等反弹）
   - 大基金减持标的（22:37动态：计划内回收，减半等反弹减仓）
+
+pending_listings:
+- id: pending_etf_chuangye_suanli
+  name: 创业板算力基础设施ETF（10家集体上报）
+  status: 上报待获批
+  tracking_index: '970083'
+  reported_date: '2026-08-07'
+  source_claim: claim-20260830-034-a
+  watch_reason: UP 8/30 复盘提及（8/7 由易方达/华夏/南方/广发/富国/国泰/嘉实/天弘/鹏华/大成集体上报），跟踪创业板算力基础设施指数970083共50只成分股，覆盖计算/网络/存储/运维环节，硬件占比高于既有创业板AI指数。获批/上市时点以监管公告为准。
+  action_required: 监控证监会获批公告，获批后补交易代码转入正式监控（fetcher 需代码才能拉行情）
