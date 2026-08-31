@@ -1,0 +1,63 @@
+chain_id: photovoltaic
+name: 光伏产业链
+thesis: 反内卷预期 + 超跌反弹（非景气反转）→ 组件价格低位企稳→ 中游组件（隆基/爱旭/晶澳）估值修复 → 上游硅料出清中注意：当前是反弹逻辑，不是景气反转，需区分
+last_verified: '2026-08-30'
+segments:
+- id: seg-si
+  name: 上游硅料
+  materials:
+  - 硅料
+  - 硅片
+  value_share: ~35%
+  barrier: 硅料产能
+  trend: 出清
+- id: seg-mod
+  name: 中游组件
+  materials:
+  - 电池片
+  - 组件
+  value_share: ~45%
+  barrier: 组件价格
+  trend: 低位
+- id: seg-station
+  name: 下游电站
+  materials:
+  - 电站
+  - 分布式
+  value_share: ~20%
+  barrier: 装机量
+  trend: 稳定
+mappings:
+- code: '601012'
+  name: 隆基绿能
+  segment: seg-mod
+  relation: 组件龙头
+  elasticity: core
+- code: '600732'
+  name: 爱旭股份
+  segment: seg-mod
+  relation: 电池片（ABC）
+  elasticity: elastic
+- code: 002459
+  name: 晶澳科技
+  segment: seg-mod
+  relation: 组件二线
+  elasticity: elastic
+current_stage: 阶段0-观察
+stage_confidence: 中
+stage_evidence: 组件价格低位企稳但未回升；反内卷政策预期强但落地待验证；超跌反弹已部分兑现
+timing:
+  current_recommendation: 暂不介入，观察
+  next_trigger: 组件价格企稳回升或反内卷政策落地
+  risk: 反弹后继续探底
+tracking_metrics:
+- metric: 组件价格
+  current: 低位
+  signal_direction: 企稳回升=确认
+  source: 研报/渠道
+falsification:
+- 组件价格再创新低
+- 反内卷政策落空
+- 大盘系统性破位下行
+- 光伏板块核心标的（隆基）反弹后持续缩量
+chain_relations: []

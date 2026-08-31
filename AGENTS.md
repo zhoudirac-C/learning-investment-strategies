@@ -64,12 +64,19 @@ directory). These are thin wrappers that delegate to the project's scripts:
 ~/.hermes/scripts/qing_stock_monitor_agent.py  →  project/scripts/hermes_stock_monitor_agent.py
 ~/.hermes/scripts/qing_stock_monitor_daily_review.py → project/scripts/hermes_stock_monitor_daily_review.py
 ~/.hermes/scripts/qing_stock_monitor_poll.py   →  project/scripts/qing_stock_monitor_poll.py
+~/.hermes/scripts/qing_chain_tracker.py        →  project/scripts/chain_tracker.py（M0-Chain 跟踪 tick）
+~/.hermes/scripts/qing_chain_discovery.py      →  project/scripts/chain_discovery.py（M0-Chain 发现 tick）
 ```
 
 **Rule**: The `qing_` prefix files in `~/.hermes/scripts/` are STABLE entrypoints.
 Never rename them. The `hermes_` files in the project can evolve freely. When
 updating scripts, only modify the `hermes_` project versions — the wrappers
 auto-delegate.
+
+**LLM 配置**：chain_tracker/chain_discovery 的 LLM 走 Hermes 全局模型配置
+（`resolve_runtime_provider()`，跟随 `~/.hermes/config.yaml` 的 model.default，
+不写死）；`.env` 的 sensenova/ZHIPU key 仅作兜底通道。全局换模型后这两个任务
+无需任何改动。
 
 ## Knowledge Maintenance
 

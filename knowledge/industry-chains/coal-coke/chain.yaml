@@ -1,0 +1,62 @@
+chain_id: coal-coke
+name: 煤炭/焦炭产业链
+thesis: 焦炭连续提涨（第六轮已落地）+ 迎峰度夏保供 + 安监限产→ 上游煤矿供给收缩 → 中游焦炭涨价 → 煤炭PPI转正→ 下游钢铁/电力需求刚性 →
+  戴维斯双击预期
+last_verified: '2026-08-30'
+segments:
+- id: seg-mine
+  name: 上游煤矿
+  materials:
+  - 煤矿
+  value_share: ~40%
+  barrier: 安监限产
+  trend: 供给收缩
+- id: seg-coke
+  name: 中游焦炭
+  materials:
+  - 洗煤
+  - 焦炭
+  value_share: ~40%
+  barrier: 焦化产能
+  trend: 涨价
+- id: seg-steel
+  name: 下游钢铁
+  materials:
+  - 钢铁
+  - 电力
+  value_share: ~20%
+  barrier: 钢铁需求
+  trend: 稳定
+mappings:
+- code: '601699'
+  name: 潞安环能
+  segment: seg-coke
+  relation: 焦炭龙头，连续提涨受益
+  elasticity: core
+- code: '601001'
+  name: 晋控煤业
+  segment: seg-mine
+  relation: 煤炭龙头，安监限产受益
+  elasticity: core
+current_stage: 阶段2-加速期
+stage_confidence: 中
+stage_evidence: 焦炭第六轮提涨已落地；第七轮提上日程；煤炭PPI转正
+timing:
+  current_recommendation: 焦炭龙头（潞安环能），不追高
+  next_trigger: 第七轮提涨落地=加强
+  risk: 钢铁需求走弱→焦炭提涨受阻
+tracking_metrics:
+- metric: 焦炭提涨轮次
+  current: 第六轮已落地
+  signal_direction: 第七轮=加强
+  source: 新闻/研报
+- metric: 煤炭PPI
+  current: 转正
+  signal_direction: 持续为正=确认
+  source: 统计局
+falsification:
+- 焦炭提涨受阻或钢厂联合抵制连续2轮
+- 煤炭PPI转负
+- 大盘系统性破位下行
+- 煤炭板块核心标的（潞安/晋控）放量滞涨、联动失效
+chain_relations: []

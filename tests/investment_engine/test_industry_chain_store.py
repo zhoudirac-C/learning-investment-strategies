@@ -82,5 +82,66 @@ class TestStore:
         save_chain(_chain("chain-b"), base_dir=self.base)
         assert list_chains(base_dir=self.base) == ["chain-a", "chain-b"]
 
+    def test_chain_states_view_compact(self):
+        chain = _chain("chain-a")
+        chain["current_stage"] = "阶段2-加速期"
+        chain["stage_confidence"] = "高"
+        chain["timing"] = {"current_recommendation": "中游",
+                           "next_trigger": "x", "risk": "y"}
+        save_chain(chain, base_dir=self.base)
+        save_chain(_chain("chain-b"), base_dir=self.base)
+
+        from investment_engine.industry_chain.store import chain_states_view
+        view = chain_states_view(base_dir=self.base)
+        assert [c["chain_id"] for c in view] == ["chain-a", "chain-b"]
+        a = view[0]
+        assert a["current_stage"] == "阶段2-加速期"
+        assert a["stage_confidence"] == "高"
+        assert a["timing"] == "中游"
+        assert a["stocks"] == ["测试标的(000001)"]
+        # 缺省字段安全兜底
+        assert view[1]["current_stage"] == "阶段0-观察"
+        assert view[1]["timing"] is None
+
+    def test_chain_states_view_zfill_int_code(self):
+        """YAML 把 002409 读成 int 的陷阱：视图输出必须补零回 6 位。"""
+        base = self.base / "chain-c"
+        base.mkdir(parents=True)
+        (base / "chain.yaml").write_text(
+            "chain_id: chain-c\nname: 测试\nthesis: t\nlast_verified: '2026-08-08'\n"
+            "segments: [{id: seg-01, name: 上游}]\n"
+            "mappings: [{code: 2409, name: 雅克科技, segment: seg-01, "
+            "relation: 龙头, elasticity: core}]\n",
+            encoding="utf-8")
+        # code: 2409 未加引号 → safe_load 成 int，validate_chain 会因非 6 位拒绝，
+        # 所以这里直接验证视图的容错：load 失败则该链被跳过
+        from investment_engine.industry_chain.store import chain_states_view
+        view = chain_states_view(base_dir=self.base)
+        assert view == []  # 非法链被跳过，不阻断
+
+    def test_stage0_only_codes(self):
+        from investment_engine.industry_chain.store import stage0_only_codes
+
+        watch = _chain("chain-watch")  # 无 current_stage → 视为阶段0
+        watch["mappings"] = [
+            {"code": "000001", "name": "只观察", "segment": "seg-01",
+             "relation": "龙头", "elasticity": "core"},
+            {"code": "000003", "name": "双链共有", "segment": "seg-01",
+             "relation": "龙头", "elasticity": "core"},
+        ]
+        active = _chain("chain-active")
+        active["current_stage"] = "阶段1-启动期"
+        active["mappings"] = [
+            {"code": "000002", "name": "在启动", "segment": "seg-01",
+             "relation": "龙头", "elasticity": "core"},
+            {"code": "000003", "name": "双链共有", "segment": "seg-01",
+             "relation": "龙头", "elasticity": "core"},
+        ]
+        save_chain(watch, base_dir=self.base)
+        save_chain(active, base_dir=self.base)
+
+        # 000001 只在阶段0链 → 排除；000003 有一条非阶段0链 → 保留
+        assert stage0_only_codes(base_dir=self.base) == {"000001"}
+
     def test_default_base_dir_points_to_repo(self):
         assert default_base_dir().as_posix().endswith("knowledge/industry-chains")

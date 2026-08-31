@@ -1957,6 +1957,7 @@ def run_tick(
         # 注入外部板块排行与大盘技术面信号
         from qing_investment.monitor.context import (
             _build_external_sector_boards,
+            _build_industry_chain_states,
             _build_tech_signals_for_context,
         )
 
@@ -1988,6 +1989,7 @@ def run_tick(
             "sector_signal_counts": state.get("sector_signal_counts", {}),
             "external_sector_boards": _build_external_sector_boards(),
             "tech_signals": _build_tech_signals_for_context(quote_snapshot),
+            "industry_chain_states": _build_industry_chain_states(),
         }
 
         if agent_json_context:

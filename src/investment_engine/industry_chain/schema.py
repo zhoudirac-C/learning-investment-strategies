@@ -13,6 +13,25 @@ REQUIRED_CHAIN_FIELDS = ("chain_id", "name", "thesis", "segments", "mappings", "
 REQUIRED_SEGMENT_FIELDS = ("id", "name")
 REQUIRED_MAPPING_FIELDS = ("code", "name", "segment", "relation", "elasticity")
 
+# M0-Chain 扩展字段（可选，用于持续跟踪管线）
+OPTIONAL_CHAIN_FIELDS = (
+    "current_stage",        # 阶段0观察/阶段1启动期/阶段2加速期/阶段3分歧期/阶段4见顶期
+    "stage_confidence",     # 高/中/低
+    "stage_evidence",        # 阶段判断依据文本
+    "timing",                # 时机判断 dict: current_recommendation/next_trigger/risk
+    "tracking_metrics",    # 跟踪指标 list: [{metric, current, signal_direction, source}]
+    "falsification",         # 证伪条件 list: [str]
+    "chain_relations",      # 跨链传导 list: [{target, relation, note}]
+    "daily_checks",          # 每日检查 list: [{check, source, frequency, signal}]
+    "history",                # 历史记录 list: [{date, stage, action, result}]
+)
+
+STAGE_LEVELS = (
+    "阶段0-观察", "阶段1-启动期", "阶段2-加速期",
+    "阶段3-分歧期", "阶段4-见顶期",
+)
+CONFIDENCE_LEVELS = ("高", "中", "低")
+
 _SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 _CODE_RE = re.compile(r"^\d{6}$")
 _DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -80,6 +99,15 @@ def validate_chain(data: dict) -> dict:
         if elasticity is not None and elasticity not in ELASTICITY_LEVELS:
             errors.append(f"mappings[{i}]: elasticity 必须 ∈ {ELASTICITY_LEVELS}，得到 {elasticity!r}")
         _check_date(m.get("last_verified"), f"mappings[{i}].last_verified", errors)
+
+    # --- M0-Chain 扩展字段校验（可选字段，存在则校验取值） ---
+    stage = data.get("current_stage")
+    if stage is not None and stage not in STAGE_LEVELS:
+        errors.append(f"current_stage 必须 ∈ {STAGE_LEVELS}，得到 {stage!r}")
+
+    conf = data.get("stage_confidence")
+    if conf is not None and conf not in CONFIDENCE_LEVELS:
+        errors.append(f"stage_confidence 必须 ∈ {CONFIDENCE_LEVELS}，得到 {conf!r}")
 
     if errors:
         raise ChainSchemaError("; ".join(errors))

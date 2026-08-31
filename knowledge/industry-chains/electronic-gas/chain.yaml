@@ -1,0 +1,69 @@
+chain_id: electronic-gas
+name: 电子特气产业链
+thesis: 日本关东电化/中央硝子7/1永久停产WF6 + 中国钨出口管制→ WF6供给永久收缩 → 6N价格200-250万/吨→ 中游合成（昊华/三孚/和远）涨价受益
+  → 下游半导体制造需求刚性
+last_verified: '2026-08-30'
+segments:
+- id: seg-ore
+  name: 上游原料
+  materials:
+  - 钨矿(出口管制)
+  value_share: ~15%
+  barrier: 出口管制
+  trend: 供给收缩
+- id: seg-synth
+  name: 中游合成
+  materials:
+  - WF6(六氟化钨)
+  - 特种气体
+  value_share: ~60%
+  barrier: 日本永久停产
+  trend: 涨价
+- id: seg-fab
+  name: 下游应用
+  materials:
+  - 半导体制造(沉积/刻蚀)
+  value_share: ~25%
+  barrier: 先进制程
+  trend: 需求增长
+mappings:
+- code: '600378'
+  name: 昊华科技
+  segment: seg-synth
+  relation: WF6合成龙头，产能最大
+  elasticity: core
+- code: '603938'
+  name: 三孚股份
+  segment: seg-synth
+  relation: WF6合成二线
+  elasticity: elastic
+- code: 002971
+  name: 和远气体
+  segment: seg-synth
+  relation: WF6合成二线
+  elasticity: elastic
+current_stage: 阶段2-加速期
+stage_confidence: 高
+stage_evidence: WF6 6N价格200-250万/吨；日本7/1已永久停产；中国钨出口管制持续
+timing:
+  current_recommendation: 中游合成（昊华科技），涨价确定性高；不追高
+  next_trigger: WF6价格突破300万/吨→全面加强
+  risk: 钨出口管制放松
+tracking_metrics:
+- metric: WF6 6N价格
+  current: 200-250万/吨
+  signal_direction: 上涨=确认
+  source: 生意社/渠道
+- metric: 日本停产执行
+  current: 7/1已停产
+  signal_direction: 持续=确认
+  source: 新闻/公告
+falsification:
+- WF6价格连续2周回落
+- 日本复产或中国钨出口管制放松
+- 大盘系统性破位下行
+- 电子特气板块核心标的（昊华）放量滞涨、联动失效
+chain_relations:
+- target: ai-pcb-ccl
+  relation: 上游共享
+  note: 钨矿既是WF6原料也是PCB钻针原料

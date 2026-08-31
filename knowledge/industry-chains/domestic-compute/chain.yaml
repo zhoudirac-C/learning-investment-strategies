@@ -615,3 +615,37 @@ mappings:
   elasticity: elastic
   elasticity_reason: null
   last_verified: '2026-05-18'
+current_stage: 阶段2-加速期
+stage_confidence: 高
+stage_evidence: 2026-08-28 跟踪更新：多家龙头业绩符合预期，算力业务加速放量，验证产业链闭环逻辑。
+timing:
+  current_recommendation: 右侧确认，逢低介入
+  next_trigger: 昇腾950大规模出货→产业链业绩兑现
+  risk: 国产算力生态适配不及预期
+tracking_metrics:
+- metric: 昇腾出货量
+  current: 2026年计划160万颗
+  signal_direction: 超预期=加强
+  source: 研报/公告
+- metric: 国产算力份额
+  current: 有望反超英伟达
+  signal_direction: 兑现=加强
+  source: 研报
+- metric: Token工厂模式
+  current: 头部运营商净利率10-15%→30%+
+  signal_direction: 验证=加强
+  source: 研报
+falsification:
+- 昇腾出货量大幅低于预期
+- 国产算力生态适配停滞
+- 大盘系统性破位下行
+- 国产算力板块核心标的放量滞涨
+chain_relations:
+- target: ai-server
+  relation: 上游供给
+  note: 国产算力芯片是AI服务器产业链的上游
+history:
+- date: '2026-08-28'
+  stage: 阶段2-加速期
+  action: 关注算力服务及服务器整机龙头，布局上游材料
+  result: 待验证

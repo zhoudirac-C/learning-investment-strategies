@@ -1,0 +1,115 @@
+chain_id: ai-server
+name: AI服务器/超节点产业链
+thesis: 超节点架构升级（NVLink/UALink/灵衢UB）→ 整柜功耗跃迁（百千瓦级）→ 液冷从可选到必选 → 国产算力放量（2026年有望反超英伟达）→
+  上游半导体设备需求 → 中游晶圆/封测满产 → 下游CSP资本开支高增
+last_verified: '2026-08-30'
+segments:
+- id: seg-equip
+  name: 上游设备
+  materials:
+  - 半导体设备
+  value_share: ~15%
+  barrier: 先进制程设备
+  trend: 国产替代
+- id: seg-fab
+  name: 中游制造
+  materials:
+  - 晶圆代工
+  - 封装测试
+  value_share: ~25%
+  barrier: CoWoS产能
+  trend: 满产
+- id: seg-machine
+  name: 中游整机
+  materials:
+  - AI服务器整机
+  - 超节点
+  value_share: ~35%
+  barrier: 整柜交付能力
+  trend: 高增长
+- id: seg-cool
+  name: 中游散热
+  materials:
+  - 液冷
+  - 供电(HVDC)
+  value_share: ~15%
+  barrier: 液冷渗透率
+  trend: 加速
+- id: seg-dc
+  name: 下游应用
+  materials:
+  - AI数据中心
+  value_share: ~10%
+  barrier: CSP资本开支
+  trend: 高增长
+mappings:
+- code: '002371'
+  name: 北方华创
+  segment: seg-equip
+  relation: 半导体设备龙头，先进制程设备国产替代
+  elasticity: core
+- code: '002156'
+  name: 通富微电
+  segment: seg-fab
+  relation: 封装测试，CoWoS配套
+  elasticity: core
+- code: '000021'
+  name: 深科技
+  segment: seg-fab
+  relation: 封装测试（沛顿）
+  elasticity: elastic
+- code: '601138'
+  name: 工业富联
+  segment: seg-machine
+  relation: AI服务器整机龙头，整柜交付
+  elasticity: core
+current_stage: 阶段2-加速期
+stage_confidence: 高
+stage_evidence: 2026-08-28 跟踪更新：液冷订单高增，业绩兑现，建议加仓。
+timing:
+  current_recommendation: 等超节点出货信号加仓
+  next_trigger: 超节点出货超预期→加仓
+  risk: 国产算力生态适配不及预期
+tracking_metrics:
+- metric: 超节点出货量
+  current: NVL72/灵衢UB放量
+  signal_direction: 超预期=加强
+  source: 研报/公告
+- metric: 液冷渗透率
+  current: 从可选到必选
+  signal_direction: 加速=加强
+  source: 研报
+- metric: CSP资本开支
+  current: 阿里/百度高增
+  signal_direction: 持续高增=确认
+  source: 财报/研报
+- metric: 国产算力份额
+  current: 2026年有望反超英伟达
+  signal_direction: 兑现=加强
+  source: 研报
+falsification:
+- 超节点出货量大幅低于预期
+- CSP资本开支缩减
+- 大盘系统性破位下行
+- AI服务器板块核心标的（工业富联/北方华创）放量滞涨、联动失效
+chain_relations:
+- target: ai-pcb-ccl
+  relation: 下游需求
+  note: AI服务器代际升级驱动PCB/CCL需求
+- target: ai-optical
+  relation: 下游需求
+  note: AI服务器Scale-up互联驱动光模块需求
+- target: ai-storage
+  relation: 下游需求
+  note: AI服务器HBM需求驱动存储涨价
+- target: ai-power
+  relation: 二级传导
+  note: AI算力→电力需求→AIDC供电
+- target: mlcc-passive
+  relation: 下游需求
+  note: AI服务器MLCC用量是传统的4-7倍
+history:
+- date: '2026-08-28'
+  stage: 阶段2-加速期
+  action: 加仓
+  result: 待验证

@@ -1,0 +1,48 @@
+chain_id: robotics
+name: 机器人产业链
+thesis: Optimus量产进展 + 物理AI概念扩散→ 上游零部件（减速器/伺服/传感器）→ 中游本体制造 → 下游工业/服务应用注意：量产节奏是关键变量，题材属性强
+last_verified: '2026-08-30'
+segments:
+- id: seg-parts
+  name: 上游零部件
+  materials:
+  - 减速器
+  - 伺服电机
+  - 传感器
+  value_share: ~45%
+  barrier: 精密减速器
+  trend: 发展
+- id: seg-body
+  name: 中游本体
+  materials:
+  - 本体制造
+  value_share: ~35%
+  barrier: 量产成本
+  trend: 发展
+- id: seg-app
+  name: 下游应用
+  materials:
+  - 工业
+  - 服务应用
+  value_share: ~20%
+  barrier: 场景验证
+  trend: 增长
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: Optimus量产进行中但节奏反复；题材属性强业绩支撑弱；标的映射待补充
+timing:
+  current_recommendation: 暂不介入，观察；标的映射待补充
+  next_trigger: Optimus量产爬坡确认（月产量数据）
+  risk: 量产推迟，题材退潮
+tracking_metrics:
+- metric: Optimus量产
+  current: 进行中
+  signal_direction: 量产爬坡确认=加强
+  source: 特斯拉财报/新闻
+falsification:
+- Optimus量产大幅推迟
+- 机器人板块题材持续退潮
+- 大盘系统性破位下行
+- 板块无核心标的联动（映射缺失）
+chain_relations: []

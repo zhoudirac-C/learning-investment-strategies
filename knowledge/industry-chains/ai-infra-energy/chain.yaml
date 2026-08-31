@@ -447,3 +447,37 @@ mappings:
   elasticity: elastic
   elasticity_reason: null
   last_verified: '2026-05-18'
+current_stage: 阶段1-启动期
+stage_confidence: 高
+stage_evidence: 2026-08-28 跟踪更新：多份研报确认AIDC放量，产业链逻辑验证，建议从观察转为启动期介入。
+timing:
+  current_recommendation: 右侧确认，可介入
+  next_trigger: AIDC装机量持续高增→电力设备订单放量
+  risk: 电力改革政策推进放缓
+tracking_metrics:
+- metric: AIDC装机量
+  current: 高增
+  signal_direction: 持续高增=确认
+  source: 研报
+- metric: 燃气轮机订单
+  current: 国产链出海提速
+  signal_direction: 大单=加强
+  source: 公告/研报
+- metric: 算电协同政策
+  current: 推进中
+  signal_direction: 落地=加强
+  source: 政策文件
+falsification:
+- AIDC装机量增速放缓
+- 燃气轮机国产化停滞
+- 大盘系统性破位下行
+- 电力设备板块核心标的放量滞涨
+chain_relations:
+- target: ai-server
+  relation: 下游需求
+  note: AI服务器→AIDC→电力需求
+history:
+- date: '2026-08-28'
+  stage: 阶段1-启动期
+  action: 介入
+  result: 待验证

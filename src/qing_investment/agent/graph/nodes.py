@@ -82,6 +82,23 @@ def _load_analysis_framework() -> str:
     return "[market_analysis_framework.txt not found]"
 
 
+def _load_industry_chain_states() -> dict:
+    """M0-Chain 产业链状态视图（19 链 compact 版，注入 market_summary context）。
+
+    让 LLM 分析板块异动时能回答"这板块属于哪条链、链在几阶段、建议做哪个环节"。
+    知识库不可用时返回 available=False，不阻断分析（数据诚实原则）。
+    """
+    try:
+        from investment_engine.industry_chain.store import (
+            CHAIN_STATES_NOTE, chain_states_view,
+        )
+        return {"available": True, "note": CHAIN_STATES_NOTE,
+                "chains": chain_states_view()}
+    except Exception as e:
+        logger.warning("industry_chain_states load failed: %s", e)
+        return {"available": False, "error": str(e)}
+
+
 def shard_router(state: AgentState) -> list[Send]:
     """根据 watchlist 生成分片，并 fan-out 到多个 stock_scanner_shard 节点。
 
@@ -1790,6 +1807,7 @@ def market_summary(state: AgentState) -> AgentState:
         "daily_state_summary": daily_state_summary,
         "pre_market_brief": pre_market_brief if trigger_id == "pre_market" else "",
         "active_opportunities": refreshed_opportunities,
+        "industry_chain_states": _load_industry_chain_states(),
     }
 
     fallback = {

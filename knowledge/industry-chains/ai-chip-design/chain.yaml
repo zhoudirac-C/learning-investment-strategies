@@ -1,0 +1,73 @@
+chain_id: ai-chip-design
+name: AI芯片设计产业链
+thesis: FPGA/特种芯片/AI推理芯片国产替代推进 → 中游设计（紫光国微/澜起/海光）放量→ 下游军工/通信/AI推理需求增长。驱动因素：国产替代政策
+  + AI推理需求
+last_verified: '2026-08-30'
+segments:
+- id: seg-eda
+  name: 上游EDA/IP
+  materials:
+  - EDA工具
+  - IP核
+  value_share: ~15%
+  barrier: 先进制程EDA被Synopsys/Cadence垄断
+  trend: 国产替代
+- id: seg-design
+  name: 中游设计
+  materials:
+  - FPGA
+  - AI推理芯片
+  - 特种芯片
+  value_share: ~60%
+  barrier: 先进制程受限
+  trend: 放量
+- id: seg-app
+  name: 下游应用
+  materials:
+  - 军工
+  - 通信
+  - AI推理
+  value_share: ~25%
+  barrier: 生态适配
+  trend: 增长
+mappings:
+- code: 002049
+  name: 紫光国微
+  segment: seg-design
+  relation: FPGA/特种芯片龙头
+  elasticity: core
+- code: '688008'
+  name: 澜起科技
+  segment: seg-design
+  relation: 内存接口芯片+AI推理
+  elasticity: core
+- code: '688041'
+  name: 海光信息
+  segment: seg-design
+  relation: 国产CPU/DCU，AI推理
+  elasticity: core
+current_stage: 阶段0-观察
+stage_confidence: 中
+stage_evidence: FPGA国产化率提升中但无爆发信号；AI推理芯片放量但占比小；等国产化加速或AI推理超预期信号
+timing:
+  current_recommendation: 暂不介入，观察
+  next_trigger: FPGA国产化率突破或AI推理芯片出货超预期
+  risk: 先进制程受限导致产品代差拉大
+tracking_metrics:
+- metric: FPGA国产化率
+  current: 提升中
+  signal_direction: 加速=加强
+  source: 研报
+- metric: AI推理芯片出货
+  current: 海光/澜起放量
+  signal_direction: 超预期=加强
+  source: 财报/研报
+falsification:
+- FPGA国产化率停滞2个季度
+- AI推理芯片出货持续低于预期
+- 大盘系统性破位下行
+- 板块核心标的（紫光国微/海光）放量滞涨、联动失效
+chain_relations:
+- target: ai-server
+  relation: 上游供给
+  note: AI推理芯片是AI服务器产业链上游

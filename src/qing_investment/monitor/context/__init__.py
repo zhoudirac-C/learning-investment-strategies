@@ -1066,6 +1066,14 @@ def format_agent_json_context(data: dict) -> str:
                     for a in alts
                 ]
                 break
+        # M0-Chain 知识库 fallback：direction_pool 无配置或其他环节全已涨时补
+        if not candidate.get("chain_alternatives"):
+            kb_alts = scanner.find_alternatives_from_kb(code)
+            if kb_alts:
+                candidate["chain_alternatives"] = [
+                    {"code": a.code, "name": a.name, "chain_position": a.chain_position, "reason": a.reason}
+                    for a in kb_alts
+                ]
 
     return json.dumps(output, ensure_ascii=False, indent=2, default=str)
 
@@ -1318,6 +1326,23 @@ def _build_external_sector_boards() -> dict:
         return {"available": False, "error": str(e)}
 
 
+def _build_industry_chain_states() -> dict:
+    """M0-Chain 产业链状态视图（19 链 compact 版，注入 LLM context）。
+
+    让 LLM 分析板块异动时能回答"这板块属于哪条链、链在几阶段、建议做哪个环节"。
+    知识库不可用时返回 available=False，不阻断监控（数据诚实原则）。
+    """
+    try:
+        from investment_engine.industry_chain.store import (
+            CHAIN_STATES_NOTE, chain_states_view,
+        )
+        return {"available": True, "note": CHAIN_STATES_NOTE,
+                "chains": chain_states_view()}
+    except Exception as e:
+        logger.warning("[industry_chain_states] failed: %s", e)
+        return {"available": False, "error": str(e)}
+
+
 def _agent_context_data(
     config: Any,
     quote_snapshot: dict,
@@ -1354,6 +1379,7 @@ def _agent_context_data(
         "watchlist": watchlist_stock_rows(config),
         "external_sector_boards": _build_external_sector_boards(),
         "tech_signals": _build_tech_signals_for_context(quote_snapshot),
+        "industry_chain_states": _build_industry_chain_states(),
     }
 
 

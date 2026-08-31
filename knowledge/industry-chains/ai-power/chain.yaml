@@ -1,0 +1,79 @@
+chain_id: ai-power
+name: AI电力/AIDC产业链
+thesis: AI算力爆发 → AIDC电力需求激增（单机柜功耗百千瓦级）→ 电力设备（变压器/HVDC）需求增长 + 绿电运营商价值重估→ 算电协同政策推进。二级传导链：ai-server
+  → ai-power
+last_verified: '2026-08-30'
+segments:
+- id: seg-equip
+  name: 上游设备
+  materials:
+  - 变压器
+  - 开关
+  - HVDC
+  value_share: ~40%
+  barrier: 大功率器件
+  trend: 需求增长
+- id: seg-op
+  name: 中游运营
+  materials:
+  - 绿电运营商
+  - AIDC运营商
+  value_share: ~35%
+  barrier: 电力指标
+  trend: 增长
+- id: seg-dc
+  name: 下游应用
+  materials:
+  - 数据中心
+  - AIDC
+  value_share: ~25%
+  barrier: 能耗指标
+  trend: 高增长
+mappings:
+- code: '603011'
+  name: 合锻智能
+  segment: seg-op
+  relation: 绿电/AIDC相关
+  elasticity: elastic
+- code: '600673'
+  name: 东阳光
+  segment: seg-equip
+  relation: PMIC电源管理+HVDC
+  elasticity: core
+current_stage: 阶段1-启动期
+stage_confidence: 高
+stage_evidence: 2026-08-28 跟踪更新：多家龙头研报确认AIDC订单高增，产业链逻辑从观察转向启动期。
+timing:
+  current_recommendation: 右侧确认
+  next_trigger: AIDC装机量持续高增→电力设备订单放量
+  risk: 电力改革政策推进放缓
+tracking_metrics:
+- metric: AIDC装机量
+  current: 高增
+  signal_direction: 持续高增=确认
+  source: 研报
+- metric: 绿电交易量
+  current: 增长中
+  signal_direction: 加速=加强
+  source: 研报
+- metric: 算电协同政策
+  current: 推进中
+  signal_direction: 落地=加强
+  source: 政策文件
+falsification:
+- AIDC装机量增速放缓2个季度
+- 算电协同政策停滞
+- 大盘系统性破位下行
+- 电力设备板块核心标的放量滞涨、联动失效
+chain_relations:
+- target: ai-server
+  relation: 上游需求来源
+  note: AI服务器→AIDC→电力需求（二级传导）
+- target: ai-infra-energy
+  relation: 同主题
+  note: 燃气轮机/核电是AIDC自建电方向
+history:
+- date: '2026-08-28'
+  stage: 阶段1-启动期
+  action: 可介入
+  result: 待验证

@@ -527,3 +527,37 @@ mappings:
   elasticity: concept
   elasticity_reason: null
   last_verified: '2026-05-18'
+current_stage: 阶段2-加速期
+stage_confidence: 高
+stage_evidence: 2026-08-28 跟踪更新：鼎龙与华天研报确认材料与封测环节放量，产业链逻辑加强。
+timing:
+  current_recommendation: 可介入（右侧确认）
+  next_trigger: 长江存储IPO过会→产业链估值重估
+  risk: IPO推迟或DRAM价格回落
+tracking_metrics:
+- metric: DRAM现货价
+  current: 上涨中
+  signal_direction: 持续上涨=确认
+  source: 研报/期货
+- metric: 长江存储IPO进度
+  current: 科创板已受理
+  signal_direction: 过会=加强
+  source: 公告
+- metric: HBM产能
+  current: SK海力士超2/3订单
+  signal_direction: 扩产=加强
+  source: 研报
+falsification:
+- DRAM现货价连续2周回落
+- 长江存储IPO撤回或无限期推迟
+- 大盘系统性破位下行
+- 存储板块核心标的放量滞涨、联动失效
+chain_relations:
+- target: ai-server
+  relation: 下游需求
+  note: AI服务器HBM需求驱动存储涨价
+history:
+- date: '2026-08-28'
+  stage: 阶段2-加速期
+  action: 关注材料与封测环节
+  result: 待验证

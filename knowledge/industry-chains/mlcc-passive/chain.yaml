@@ -1,0 +1,78 @@
+chain_id: mlcc-passive
+name: 被动元件产业链
+thesis: AI驱动MLCC结构性缺货（AI料产能占用是普通料4-7倍）→ VR200单机60万颗(vs传统1800-2500颗) → 缺货延至2027→ 上游陶瓷粉体涨价
+  → 中游MLCC满产 → 下游消费电子规格也缺
+last_verified: '2026-08-30'
+segments:
+- id: seg-powder
+  name: 上游材料
+  materials:
+  - 陶瓷粉体
+  - 镍浆
+  - 铜浆
+  value_share: ~25%
+  barrier: 高端粉体
+  trend: 涨价
+- id: seg-mlcc
+  name: 中游制造
+  materials:
+  - MLCC
+  - 电阻
+  - 电感
+  value_share: ~50%
+  barrier: AI料产能
+  trend: 满产
+- id: seg-app
+  name: 下游应用
+  materials:
+  - 手机
+  - 汽车电子
+  - AI服务器
+  value_share: ~25%
+  barrier: VR200单机60万颗
+  trend: 高增长
+mappings:
+- code: '000636'
+  name: 风华高科
+  segment: seg-mlcc
+  relation: MLCC国内龙头
+  elasticity: core
+- code: '605376'
+  name: 博迁新材
+  segment: seg-powder
+  relation: 高端陶瓷粉体，MLCC上游
+  elasticity: core
+- code: '603678'
+  name: 火炬电子
+  segment: seg-mlcc
+  relation: MLCC/陶瓷电容
+  elasticity: elastic
+current_stage: 阶段2-加速期
+stage_confidence: 中
+stage_evidence: 国巨B/B值>1.3；高容交期拉长；缺货延至2027；MLCC涨价函持续
+timing:
+  current_recommendation: 上游粉体（博迁）+中游MLCC（风华），不追高
+  next_trigger: 消费电子规格缺货扩散→全面涨价
+  risk: AI需求增速放缓
+tracking_metrics:
+- metric: 国巨B/B值
+  current: '>1.3'
+  signal_direction: 维持=确认
+  source: 研报
+- metric: MLCC涨价函
+  current: 持续
+  signal_direction: 继续=确认
+  source: 公告/渠道
+- metric: 高容交期
+  current: 拉长中
+  signal_direction: 继续拉长=加强
+  source: 研报/渠道
+falsification:
+- 国巨B/B值跌破1.0持续2周
+- MLCC涨价函撤回或渠道价格回落
+- 大盘系统性破位下行
+- MLCC板块核心标的（风华/博迁）放量滞涨、联动失效
+chain_relations:
+- target: ai-server
+  relation: 下游需求来源
+  note: AI服务器MLCC用量是传统的4-7倍

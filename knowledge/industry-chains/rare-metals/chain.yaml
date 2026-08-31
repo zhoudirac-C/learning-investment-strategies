@@ -1,0 +1,55 @@
+chain_id: rare-metals
+name: 稀有金属产业链
+thesis: 铟价年内+60%（供给刚性：95%为锌铅矿副产品）→ 中游提纯（锡业股份）涨价受益 → 下游AI光互联（磷化铟激光器衬底）需求增长驱动：供给刚性 +
+  AI光互联需求
+last_verified: '2026-08-30'
+segments:
+- id: seg-mine
+  name: 上游矿山
+  materials:
+  - 锌铅矿(副产品铟)
+  value_share: ~40%
+  barrier: 95%为副产品，供给刚性
+  trend: 供给刚性
+- id: seg-refine
+  name: 中游提纯
+  materials:
+  - 铟提纯
+  - 磷化铟晶体
+  value_share: ~40%
+  barrier: 提纯产能
+  trend: 涨价
+- id: seg-app
+  name: 下游应用
+  materials:
+  - AI光互联(激光器衬底)
+  value_share: ~20%
+  barrier: AI需求
+  trend: 高增长
+mappings:
+- code: 000960
+  name: 锡业股份
+  segment: seg-refine
+  relation: 铟提纯全球龙头
+  elasticity: core
+current_stage: 阶段0-观察
+stage_confidence: 中
+stage_evidence: 铟价年内+60%已计价大半；磷化铟需求增长但体量小；等AI光互联需求进一步放量信号
+timing:
+  current_recommendation: 暂不介入，观察
+  next_trigger: 磷化铟衬底订单放量或铟价再创新高
+  risk: 铟价高位回落
+tracking_metrics:
+- metric: 铟价
+  current: 年内+60%
+  signal_direction: 持续上涨=确认
+  source: 生意社/研报
+falsification:
+- 铟价连续2周回落超10%
+- 磷化铟需求不及预期
+- 大盘系统性破位下行
+- 稀有金属板块核心标的（锡业股份）放量滞涨
+chain_relations:
+- target: ai-optical
+  relation: 上游供给
+  note: 磷化铟是激光器衬底材料

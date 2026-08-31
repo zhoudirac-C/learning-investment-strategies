@@ -1,0 +1,65 @@
+chain_id: semiconductor-equipment
+name: 半导体设备/EUV产业链
+thesis: EUV光刻机国产替代争议强化主题 → 上游光学（镜头/激光器）+ 光刻胶→ 中游光刻机整机（上海微电子非上市，映射张江高科）注意：当前是消息驱动，非业绩驱动，波动大
+last_verified: '2026-08-30'
+segments:
+- id: seg-optics
+  name: 上游光学
+  materials:
+  - 光学镜头
+  - 激光器
+  - 光刻胶
+  value_share: ~40%
+  barrier: 高端光学
+  trend: 国产替代
+- id: seg-litho
+  name: 中游整机
+  materials:
+  - 光刻机(ASML/上海微电子)
+  value_share: ~35%
+  barrier: EUV禁运
+  trend: 突破中
+- id: seg-fab
+  name: 下游制造
+  materials:
+  - 晶圆制造
+  value_share: ~25%
+  barrier: 先进制程
+  trend: 需求
+mappings:
+- code: '600895'
+  name: 张江高科
+  segment: seg-litho
+  relation: 上海微电子关联方（映射）
+  elasticity: concept
+- code: '002222'
+  name: 福晶科技
+  segment: seg-optics
+  relation: 光学晶体
+  elasticity: elastic
+- code: '603650'
+  name: 彤程新材
+  segment: seg-optics
+  relation: 光刻胶
+  elasticity: elastic
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: EUV国产化进展争议中，无实质突破；消息驱动特征明显，波动大；等实质性突破信号
+timing:
+  current_recommendation: 暂不介入，观察
+  next_trigger: EUV国产化实质性突破（官方确认）
+  risk: 消息退潮后大幅回撤
+tracking_metrics:
+- metric: EUV国产化进展
+  current: 争议中
+  signal_direction: 官方确认突破=加强
+  source: 新闻/公告
+falsification:
+- EUV国产化进展证伪
+- 光刻胶/光学订单持续不及预期
+- 大盘系统性破位下行
+- 板块核心标的（张江高科）消息退潮后持续阴跌
+chain_relations:
+- target: ai-chip-design
+  relation: 上游供给
+  note: 光刻机是芯片制造核心设备

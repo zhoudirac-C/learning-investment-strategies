@@ -1,0 +1,100 @@
+chain_id: ai-storage
+name: 存储芯片产业链
+thesis: 存储涨价周期启动 + AI服务器HBM需求爆发 + 长江存储科创板IPO→ 上游设计（DRAM/NOR）涨价 → 中游晶圆代工满产→ 中游封测（HBM配套）放量
+  → 下游AI服务器/手机/PC需求确认
+last_verified: '2026-08-30'
+segments:
+- id: seg-design
+  name: 上游设计
+  materials:
+  - DRAM/NAND主控
+  - NOR Flash
+  value_share: ~35%
+  barrier: 先进制程产能
+  trend: 涨价
+- id: seg-fab
+  name: 中游制造
+  materials:
+  - 晶圆代工
+  - 存储模组
+  value_share: ~30%
+  barrier: 晶圆产能
+  trend: 满产
+- id: seg-pkg
+  name: 中游封测
+  materials:
+  - 存储封测
+  - HBM配套
+  value_share: ~20%
+  barrier: 封测产能
+  trend: 放量
+- id: seg-app
+  name: 下游应用
+  materials:
+  - AI服务器(HBM)
+  - 手机/PC
+  value_share: ~15%
+  barrier: HBM供给
+  trend: 高增长
+mappings:
+- code: '603986'
+  name: 兆易创新
+  segment: seg-design
+  relation: DRAM/NOR设计龙头
+  elasticity: core
+- code: 001309
+  name: 德明利
+  segment: seg-fab
+  relation: 存储模组
+  elasticity: elastic
+- code: '688766'
+  name: 普冉股份
+  segment: seg-design
+  relation: NOR Flash小容量
+  elasticity: elastic
+- code: '600667'
+  name: 太极实业
+  segment: seg-pkg
+  relation: 存储封测（海太半导体）
+  elasticity: core
+- code: '000021'
+  name: 深科技
+  segment: seg-pkg
+  relation: 存储封测（沛顿科技）
+  elasticity: core
+current_stage: 阶段2-加速期
+stage_confidence: 高
+stage_evidence: DRAM现货价持续上涨；HBM SK海力士超2/3订单；长江存储科创板已受理
+timing:
+  current_recommendation: 上游设计（兆易）+中游封测（太极/深科技），不追高
+  next_trigger: 长江存储IPO过会→估值重估
+  risk: DRAM价格见顶回落
+tracking_metrics:
+- metric: DRAM现货价
+  current: 上涨中
+  signal_direction: 持续上涨=确认
+  source: 研报/期货
+- metric: 长江存储IPO进度
+  current: 科创板已受理
+  signal_direction: 过会=加强
+  source: 公告
+- metric: HBM产能
+  current: SK海力士超2/3订单
+  signal_direction: 扩产=加强
+  source: 研报
+- metric: 存储模组出货量
+  current: 放量中
+  signal_direction: 持续放量=确认
+  source: 研报
+falsification:
+- DRAM现货价连续2周回落
+- 长江存储IPO撤回或无限期推迟
+- 大盘系统性破位下行
+- 存储板块核心标的（兆易/太极）放量滞涨、联动失效
+chain_relations:
+- target: ai-server
+  relation: 下游需求来源
+  note: AI服务器HBM需求驱动存储涨价
+- target: domestic-compute
+  relation: 上游供给
+  note: 长江存储扩产受益国产存储链

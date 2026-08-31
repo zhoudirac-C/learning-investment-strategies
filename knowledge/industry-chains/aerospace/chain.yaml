@@ -1,0 +1,50 @@
+chain_id: aerospace
+name: 商业航天产业链
+scope_note: 可回收火箭/卫星组网
+thesis: 可回收火箭首飞窗口临近 + 卫星星座组网加速→ 上游材料（发动机/碳纤维）→ 中游火箭总装/卫星制造 → 下游卫星运营/应用驱动：可回收技术突破 +
+  星座组网需求
+last_verified: '2026-08-30'
+segments:
+- id: seg-material
+  name: 上游材料
+  materials:
+  - 火箭发动机
+  - 碳纤维材料
+  value_share: ~35%
+  barrier: 发动机技术
+  trend: 突破
+- id: seg-make
+  name: 中游制造
+  materials:
+  - 火箭总装
+  - 卫星制造
+  value_share: ~45%
+  barrier: 可回收技术
+  trend: 发展
+- id: seg-op
+  name: 下游运营
+  materials:
+  - 卫星运营
+  - 应用
+  value_share: ~20%
+  barrier: 星座组网
+  trend: 增长
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 可回收火箭待首飞；星座组网计划推进中但节奏待验证；标的映射待补充
+timing:
+  current_recommendation: 暂不介入，观察；标的映射待补充
+  next_trigger: 可回收火箭首飞成功
+  risk: 首飞失败或推迟
+tracking_metrics:
+- metric: 可回收火箭首飞
+  current: 待发射
+  signal_direction: 成功=加强
+  source: 新闻
+falsification:
+- 可回收火箭首飞失败或多次推迟
+- 星座组网进度大幅低于预期
+- 大盘系统性破位下行
+- 板块无核心标的联动（映射缺失）
+chain_relations: []

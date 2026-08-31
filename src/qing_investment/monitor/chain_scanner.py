@@ -78,3 +78,65 @@ class ChainAwareScanner:
                             )
                         )
         return alternatives
+
+    def find_alternatives_from_kb(
+        self,
+        pumped_stock: str,
+        *,
+        base_dir=None,
+    ) -> list[ChainAlternative]:
+        """M0-Chain 知识库 fallback（2026-08-31 接线）。
+
+        direction_pool 无 industry_chain 配置或其他环节全部已涨时，从
+        knowledge/industry-chains 找同链其他环节标的。阶段0-观察链不推荐
+        （观察态不构成机会）。知识库不可用返回 []。
+        """
+        code6 = str(pumped_stock).split(".")[0]
+        try:
+            from investment_engine.industry_chain.store import (
+                list_chains, load_chain,
+            )
+        except Exception:  # noqa: BLE001 - 非 Hermes 环境无 knowledge 库
+            return []
+
+        alternatives: list[ChainAlternative] = []
+        for cid in list_chains(base_dir=base_dir):
+            try:
+                chain = load_chain(cid, base_dir=base_dir)
+            except Exception:  # noqa: BLE001 - 单链损坏跳过
+                continue
+            stage = chain.get("current_stage") or "阶段0-观察"
+            if stage == "阶段0-观察":
+                continue
+            mappings = chain.get("mappings") or []
+            pumped_seg = None
+            for m in mappings:
+                if str(m.get("code") or "").zfill(6) == code6:
+                    pumped_seg = m.get("segment")
+                    break
+            if pumped_seg is None:
+                continue
+            seg_names = {s.get("id"): s.get("name")
+                         for s in chain.get("segments") or []}
+            for m in mappings:
+                if m.get("segment") == pumped_seg:
+                    continue
+                c6 = str(m.get("code") or "").zfill(6)
+                name = str(m.get("name") or "")
+                if len(c6) != 6 or not name:
+                    continue
+                code_full = c6 + (".SH" if c6.startswith(("6", "9")) else ".SZ")
+                seg_name = seg_names.get(m.get("segment")) or str(m.get("segment"))
+                alternatives.append(
+                    ChainAlternative(
+                        code=code_full,
+                        name=name,
+                        chain_position=str(m.get("segment") or ""),
+                        segment=seg_name,
+                        reason=(
+                            f"{pumped_stock} 所在环节已涨，推荐同链"
+                            f"（{chain.get('name')}，{stage}）{seg_name}的标的"
+                        ),
+                    )
+                )
+        return alternatives

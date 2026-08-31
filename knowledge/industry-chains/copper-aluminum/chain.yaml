@@ -1,0 +1,62 @@
+chain_id: copper-aluminum
+name: 铜铝产业链
+thesis: 铜供给缺口10万吨/年 + 铝344万吨产能关停 → 供给紧张→ 中游冶炼（紫金矿业）量价齐升 → 下游电力/建筑/新能源需求刚性驱动：供给缺口 +
+  美伊协议催化
+last_verified: '2026-08-30'
+segments:
+- id: seg-mine
+  name: 上游矿山
+  materials:
+  - 铜矿
+  - 铝土矿
+  value_share: ~45%
+  barrier: 品位下降
+  trend: 供给紧张
+- id: seg-smelt
+  name: 中游冶炼
+  materials:
+  - 铜冶炼
+  - 铝冶炼
+  value_share: ~35%
+  barrier: 冶炼产能
+  trend: 满产
+- id: seg-app
+  name: 下游应用
+  materials:
+  - 电力
+  - 建筑
+  - 新能源
+  value_share: ~20%
+  barrier: 需求
+  trend: 增长
+mappings:
+- code: '601899'
+  name: 紫金矿业
+  segment: seg-smelt
+  relation: 铜金矿业龙头，量价齐升
+  elasticity: core
+current_stage: 阶段0-观察
+stage_confidence: 中
+stage_evidence: 铜价高位但未突破前高；铝产能关停344万吨已计价；等铜价突破或供给缺口扩大信号
+timing:
+  current_recommendation: 暂不介入，观察
+  next_trigger: 铜价突破前高→启动
+  risk: 全球需求走弱压制铜价
+tracking_metrics:
+- metric: 铜价
+  current: 高位
+  signal_direction: 突破前高=加强
+  source: 期货行情
+- metric: 铝产能关停
+  current: 344万吨
+  signal_direction: 扩大=加强
+  source: 新闻/研报
+falsification:
+- 铜价跌破60日均线持续2周
+- 铝产能复产超预期
+- 大盘系统性破位下行
+- 有色板块核心标的（紫金）放量滞涨、联动失效
+chain_relations:
+- target: electronic-gas
+  relation: 上游共享
+  note: 钨矿同属有色金属供给收缩逻辑

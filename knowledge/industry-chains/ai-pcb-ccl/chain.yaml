@@ -1,0 +1,99 @@
+chain_id: ai-pcb-ccl
+name: AI PCB/CCL 产业链
+thesis: AI服务器代际升级（GB200→Rubin→Rubin Ultra）→ PCB层数/材料等级提升→ CCL从M7向M8/M9升级 → 上游材料（铜箔/玻璃布/树脂/硅微粉）涨价→
+  中游CCL满产满销，订单排至2027 → 下游PCB价值量跃迁（单柜+233%）
+last_verified: '2026-08-30'
+segments:
+- id: seg-upstream
+  name: 上游材料
+  materials:
+  - 铜箔(HVLP4)
+  - 玻璃布(Q-Glass)
+  - 树脂
+  - 硅微粉
+  - 球形硅
+  value_share: ~30%
+  barrier: M6+高端缺货，扩产周期长
+  trend: 涨价
+- id: seg-midstream
+  name: 中游CCL
+  materials:
+  - 覆铜板(CCL)
+  value_share: ~25%
+  barrier: 满产满销，订单排至2027
+  trend: 满产
+- id: seg-downstream
+  name: 下游PCB
+  materials:
+  - HDI
+  - 高多层板
+  - Midplane
+  value_share: ~45%
+  barrier: 认证周期+mSAP工艺
+  trend: 价值量跃迁
+mappings:
+- code: 002409
+  name: 雅克科技
+  segment: seg-upstream
+  relation: 球形硅微粉/前驱体，上游材料供应商
+  elasticity: core
+- code: '600183'
+  name: 生益科技
+  segment: seg-midstream
+  relation: CCL龙头，满产满销，订单排至2027
+  elasticity: core
+- code: '002463'
+  name: 沪电股份
+  segment: seg-downstream
+  relation: 高多层板龙头，Rubin Midplane受益
+  elasticity: core
+- code: '603228'
+  name: 景旺电子
+  segment: seg-downstream
+  relation: PCB制造，业绩待兑现
+  elasticity: elastic
+- code: 000960
+  name: 中钨高新
+  segment: seg-upstream
+  relation: PCB钻针龙头，钨原料+Rubin放量双驱动
+  elasticity: elastic
+current_stage: 阶段2-加速期
+stage_confidence: 高
+stage_evidence: FR8价格260-270元/张（持续上涨）；建滔/生益满产满销，订单排至2027；Rubin认证中，业绩待兑现
+timing:
+  current_recommendation: 中游CCL（生益科技），确定性最高；不追高，等分歧回踩
+  next_trigger: Rubin认证通过→转向下游PCB（沪电/景旺）
+  risk: 上游涨价见顶→上游材料商毛利率回落
+tracking_metrics:
+- metric: FR8价格
+  current: 260-270元/张
+  signal_direction: 突破300=加强/跌破200=削弱
+  source: 生意社/百川
+- metric: M8/M9认证进度
+  current: M8认证中
+  signal_direction: 认证通过=加强
+  source: 研报/公告
+- metric: 高端产能利用率
+  current: 满产满销
+  signal_direction: 满产=确认
+  source: 研报/产业新闻
+- metric: Rubin Midplane认证
+  current: 认证中
+  signal_direction: 通过=加强
+  source: 研报/公告
+- metric: 玻璃布Q-Glass供给
+  current: 日本Nittobo主导
+  signal_direction: 大陆切入=加强
+  source: 研报
+falsification:
+- FR8价格连续2周回落或CCL厂商撤回涨价函
+- 下游PCB厂砍单、渠道库存从低位快速回补
+- 大盘系统性破位下行或宏观流动性/产业政策重大转向
+- 板块核心标的（生益/沪电）放量滞涨、联动失效
+chain_relations:
+- target: ai-server
+  relation: 下游需求来源
+  note: AI服务器代际升级驱动PCB/CCL需求
+- target: electronic-gas
+  relation: 上游共享
+  note: 钨矿既是钻针原料也是WF6原料

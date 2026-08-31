@@ -1,0 +1,108 @@
+chain_id: ai-optical
+name: AI光互联产业链
+thesis: AI算力Scale-up互联需求爆发 → 光多通道替代电高速→ 800G/1.6T光模块放量 → LPO/CPO/OCS三路线2026H2商业化窗口→
+  上游光芯片（EML/CW激光器）需求爆发 → 中游光器件集成化→ 下游CSP资本开支高增确认需求
+last_verified: '2026-08-30'
+segments:
+- id: seg-chip
+  name: 上游光芯片
+  materials:
+  - EML激光器
+  - CW激光器
+  - 探测器(PD)
+  value_share: ~20%
+  barrier: EML高端产能紧缺
+  trend: 需求爆发
+- id: seg-device
+  name: 中游光器件
+  materials:
+  - TOSA/ROSA
+  - FA-MT/MT插芯
+  - 硅光
+  value_share: ~25%
+  barrier: FA-MT认证极严
+  trend: 集成化
+- id: seg-module
+  name: 中游光模块
+  materials:
+  - 可插拔(800G/1.6T)
+  - LPO
+  - CPO
+  - OCS
+  value_share: ~35%
+  barrier: CPO良率
+  trend: 技术迭代
+- id: seg-app
+  name: 下游应用
+  materials:
+  - AI数据中心Scale-up互联
+  value_share: ~20%
+  barrier: CSP资本开支
+  trend: 高增长
+mappings:
+- code: 002281
+  name: 光迅科技
+  segment: seg-module
+  relation: 光模块二线龙头
+  elasticity: elastic
+- code: '300308'
+  name: 中际旭创
+  segment: seg-module
+  relation: 光模块绝对龙头，800G/1.6T放量
+  elasticity: core
+- code: 002384
+  name: 东山精密
+  segment: seg-device
+  relation: 光器件/光模块PCB
+  elasticity: elastic
+- code: '601869'
+  name: 长飞光纤
+  segment: seg-device
+  relation: 光纤光缆
+  elasticity: elastic
+- code: 002179
+  name: 中航光电
+  segment: seg-device
+  relation: MPO连接器，Scale-up无源弹性环节
+  elasticity: core
+current_stage: 阶段2-加速期
+stage_confidence: 高
+stage_evidence: 2026-08-28 跟踪更新：数据中心与芯片订单增长及液冷放量，确认AI基建需求，产业链逻辑加强。
+timing:
+  current_recommendation: 可介入（右侧确认）
+  next_trigger: CPO量产→CPO产业链加仓
+  risk: CPO商业化推迟，技术路线不确定性
+tracking_metrics:
+- metric: 800G/1.6T出货量
+  current: 800G 2025年1800-1990万只
+  signal_direction: 超预期=加强
+  source: LightCounting/研报
+- metric: CPO量产进度
+  current: Meta/博通验证中
+  signal_direction: 量产=加强
+  source: 研报/公告
+- metric: OCS商用部署
+  current: 谷歌第八代TPU采用
+  signal_direction: 规模化=加强
+  source: 研报
+- metric: 光芯片国产化率
+  current: 25G以下60%
+  signal_direction: 提升=加强
+  source: 研报
+falsification:
+- 800G/1.6T出货量低于预期连续2个季度
+- CSP资本开支缩减，AI基建投资放缓
+- 大盘系统性破位下行
+- 光模块板块核心标的（中际旭创）放量滞涨、联动失效
+chain_relations:
+- target: ai-server
+  relation: 下游需求来源
+  note: AI服务器Scale-up互联驱动光模块需求
+- target: rare-metals
+  relation: 上游共享
+  note: 磷化铟是激光器衬底材料
+history:
+- date: '2026-08-28'
+  stage: 阶段2-加速期
+  action: 持有/加仓
+  result: 待验证

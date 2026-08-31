@@ -220,6 +220,9 @@ def main():
     ap.add_argument("--theme", help="只排序指定方向（theme id）")
     ap.add_argument("--top", type=int, default=None, help="只输出前N名")
     ap.add_argument("--json", action="store_true", help="输出JSON格式")
+    ap.add_argument("--no-chain-filter", action="store_true",
+                    help="不按产业链阶段过滤（默认排除只属于阶段0-观察链的标的，"
+                         "M0-Chain §4.2）")
     args = ap.parse_args()
 
     # 读 watchlist
@@ -244,6 +247,22 @@ def main():
         if s["code"] not in seen:
             seen.add(s["code"])
             unique.append(s)
+
+    # 产业链阶段过滤（M0-Chain §4.2）：排除只属于阶段0-观察链的标的
+    if not args.no_chain_filter:
+        try:
+            from investment_engine.industry_chain.store import stage0_only_codes
+            excluded_codes = stage0_only_codes()
+        except Exception as e:
+            print(f"[chain-filter] 产业链知识库读取失败，跳过过滤: {e}")
+            excluded_codes = set()
+        excluded = [s for s in unique
+                    if s["code"].split(".")[0] in excluded_codes]
+        if excluded:
+            unique = [s for s in unique
+                      if s["code"].split(".")[0] not in excluded_codes]
+            print(f"产业链阶段过滤: 排除 {len(excluded)} 只阶段0链标的 "
+                  f"（{', '.join(s['name'] for s in excluded)}）")
 
     print(f"方向池标的: {len(unique)} 只" + (f" (theme={args.theme})" if args.theme else ""))
     print(f"数据时间: {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")

@@ -1,0 +1,47 @@
+chain_id: pharma
+name: 医药/创新药产业链
+thesis: license-out强劲（81笔/1100亿美元）+ 超跌反弹→ 上游CXO订单回暖 → 中游创新药研发管线价值重估 → 下游商业化（医保谈判）注意：license-out是真实的产业趋势，但股价已部分反映
+last_verified: '2026-08-30'
+segments:
+- id: seg-cxo
+  name: 上游CXO
+  materials:
+  - CXO
+  - 原料药
+  value_share: ~30%
+  barrier: 研发周期
+  trend: 稳定
+- id: seg-rd
+  name: 中游研发
+  materials:
+  - 创新药研发
+  value_share: ~50%
+  barrier: 临床成功率
+  trend: 发展
+- id: seg-comm
+  name: 下游商业化
+  materials:
+  - 医院
+  - 药店
+  value_share: ~20%
+  barrier: 医保谈判
+  trend: 增长
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: license-out持续但股价已部分反映；超跌反弹逻辑；标的映射待补充
+timing:
+  current_recommendation: 暂不介入，观察；标的映射待补充
+  next_trigger: license-out大单或医保谈判利好
+  risk: 反弹后继续阴跌
+tracking_metrics:
+- metric: license-out交易
+  current: 81笔/1100亿美元
+  signal_direction: 持续=确认
+  source: 研报
+falsification:
+- license-out交易额连续2季度下滑
+- 医保谈判大幅降价超预期
+- 大盘系统性破位下行
+- 板块无核心标的联动（映射缺失）
+chain_relations: []

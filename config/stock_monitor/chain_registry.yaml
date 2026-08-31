@@ -1,0 +1,790 @@
+version: '1.0'
+updated_at: '2026-08-30'
+description: 产业链持续跟踪注册表——16条独立产业链，AI算力拆分为6条子链单独跟踪
+note: 从UP方向池26个主题聚类而来，AI算力按上游材料/驱动因素拆分为独立子链
+chains:
+- chain_id: ai-pcb-ccl
+  name: AI PCB/CCL 产业链
+  scope: AI服务器PCB及上游覆铜板材料
+  status: active
+  current_signal: confirmed
+  driver: NVIDIA Rubin代际升级（M7→M8→M9）+ 单机柜PCB价值量+233%
+  segments:
+  - name: 上游材料
+    items:
+    - 铜箔(HVLP4)
+    - 玻璃布(Q-Glass)
+    - 树脂
+    - 硅微粉
+    - 球形硅
+    bottleneck: M6+高端缺货，扩产周期长
+    trend: 涨价
+  - name: 中游CCL
+    items:
+    - 覆铜板(建滔/生益/南亚)
+    bottleneck: 满产满销，订单排至2027
+    trend: 满产
+  - name: 下游PCB
+    items:
+    - HDI
+    - 高多层板
+    - Midplane
+    bottleneck: 认证周期+mSAP工艺
+    trend: 价值量跃迁
+  tracking_metrics:
+  - metric: FR8价格
+    current: 260-270元/张
+    signal_direction: 上涨=确认
+  - metric: M8/M9认证进度
+    current: M8认证中
+    signal_direction: 认证通过=加强
+  - metric: 高端产能利用率
+    current: 满产满销
+    signal_direction: 满产=确认
+  - metric: Rubin Midplane认证
+    current: 认证中
+    signal_direction: 通过=加强
+  - metric: 玻璃布Q-Glass供给
+    current: 日本Nittobo主导
+    signal_direction: 大陆切入=加强
+  stocks:
+  - code: 002409.SZ
+    name: 雅克科技
+    role: 上游材料(球硅/前驱体)
+    segment: 上游材料
+  - code: 600183.SH
+    name: 生益科技
+    role: 中游CCL龙头
+    segment: 中游CCL
+  - code: 002463.SZ
+    name: 沪电股份
+    role: 下游PCB(高多层板)
+    segment: 下游PCB
+  - code: 603228.SH
+    name: 景旺电子
+    role: 下游PCB
+    segment: 下游PCB
+  - code: 002938.SZ
+    name: 鹏鼎控股
+    role: 下游PCB
+    segment: 下游PCB
+  - code: 000960.SZ
+    name: 中钨高新
+    role: PCB钻针(钨原料)
+    segment: 上游材料
+  up_themes:
+  - 1
+  - 4
+  - 16
+  existing_chain_yaml: null
+- chain_id: ai-optical
+  name: AI光互联产业链
+  scope: 光模块/光器件/OCS/CPO — 光替代电
+  status: active
+  current_signal: confirmed
+  driver: 光多通道替代电高速 + CPO/NPO/OCS三路线2026H2商业化窗口
+  segments:
+  - name: 上游光芯片
+    items:
+    - EML激光器
+    - CW激光器
+    - 探测器(PD)
+    bottleneck: EML高端产能
+    trend: 需求爆发
+  - name: 中游光器件
+    items:
+    - TOSA/ROSA
+    - FA-MT/MT插芯
+    - 硅光
+    bottleneck: FA-MT认证
+    trend: 集成化
+  - name: 中游光模块
+    items:
+    - 可插拔(800G/1.6T)
+    - LPO
+    - CPO
+    - OCS
+    bottleneck: CPO良率
+    trend: 技术迭代
+  - name: 下游应用
+    items:
+    - AI数据中心Scale-up互联
+    bottleneck: CSP资本开支
+    trend: 高增长
+  tracking_metrics:
+  - metric: 800G/1.6T出货量
+    current: 800G 2025年1800-1990万只
+    signal_direction: 超预期=加强
+  - metric: CPO量产进度
+    current: Meta/博通验证中
+    signal_direction: 量产=加强
+  - metric: OCS商用部署
+    current: 谷歌第八代TPU采用
+    signal_direction: 规模化=加强
+  - metric: 光芯片国产化率
+    current: 25G以下60%
+    signal_direction: 提升=加强
+  stocks:
+  - code: 002281.SZ
+    name: 光迅科技
+    role: 光模块
+    segment: 中游光模块
+  - code: 300308.SZ
+    name: 中际旭创
+    role: 光模块龙头
+    segment: 中游光模块
+  - code: 002384.SZ
+    name: 东山精密
+    role: 光器件
+    segment: 中游光器件
+  - code: 601869.SH
+    name: 长飞光纤
+    role: 光纤
+    segment: 中游光器件
+  - code: 002179.SZ
+    name: 中航光电
+    role: MPO连接器
+    segment: 中游光器件
+  - code: 000070.SZ
+    name: 特发信息
+    role: MPO
+    segment: 中游光器件
+  - code: 603220.SH
+    name: 中贝通信
+    role: MPO
+    segment: 中游光器件
+  up_themes:
+  - 12
+  - 18
+  - 20
+  existing_chain_yaml: null
+- chain_id: ai-storage
+  name: 存储芯片产业链
+  scope: DRAM/NAND/NOR Flash 涨价周期
+  status: active
+  current_signal: confirmed
+  driver: 存储涨价周期 + AI服务器HBM需求 + 长江存储IPO
+  segments:
+  - name: 上游设计
+    items:
+    - DRAM/NAND主控(兆易/普冉)
+    bottleneck: 先进制程产能
+    trend: 涨价
+  - name: 中游制造
+    items:
+    - 晶圆代工(中芯/华虹)
+    - 存储模组(德明利)
+    bottleneck: 晶圆产能
+    trend: 满产
+  - name: 中游封测
+    items:
+    - 存储封测(太极实业/深科技)
+    bottleneck: 封测产能
+    trend: 放量
+  - name: 下游应用
+    items:
+    - AI服务器(HBM)
+    - 手机/PC
+    bottleneck: HBM供给
+    trend: 高增长
+  tracking_metrics:
+  - metric: DRAM现货价
+    current: 上涨中
+    signal_direction: 持续上涨=确认
+  - metric: 长江存储IPO进度
+    current: 科创板已受理
+    signal_direction: 过会=加强
+  - metric: HBM产能
+    current: SK海力士超2/3订单
+    signal_direction: 扩产=加强
+  - metric: 存储模组出货量
+    current: 放量中
+    signal_direction: 持续放量=确认
+  stocks:
+  - code: 603986.SH
+    name: 兆易创新
+    role: 存储设计
+    segment: 上游设计
+  - code: 001309.SZ
+    name: 德明利
+    role: 存储模组
+    segment: 中游制造
+  - code: 688766.SH
+    name: 普冉股份
+    role: NOR Flash
+    segment: 上游设计
+  - code: 600667.SH
+    name: 太极实业
+    role: 存储封测
+    segment: 中游封测
+  up_themes:
+  - 15
+  - 7
+  existing_chain_yaml: knowledge/industry-chains/changxin-dram/
+- chain_id: ai-server
+  name: AI服务器/超节点产业链
+  scope: 服务器整机/超节点/液冷/供电
+  status: active
+  current_signal: confirmed
+  driver: 超节点架构升级（NVLink/UALink）+ 整柜功耗跃迁 + 国产算力放量
+  segments:
+  - name: 上游设备
+    items:
+    - 半导体设备(北方华创)
+    bottleneck: 先进制程设备
+    trend: 国产替代
+  - name: 中游制造
+    items:
+    - 晶圆代工(中芯)
+    - 封装测试(通富/深科技)
+    bottleneck: CoWoS产能
+    trend: 满产
+  - name: 中游整机
+    items:
+    - AI服务器整机(浪潮/工业富联/华勤)
+    - 超节点
+    bottleneck: 整柜交付能力
+    trend: 高增长
+  - name: 中游散热
+    items:
+    - 液冷(英维克/申菱)
+    - 供电(HVDC)
+    bottleneck: 液冷渗透率
+    trend: 加速
+  - name: 下游应用
+    items:
+    - AI数据中心(字节/阿里/腾讯)
+    bottleneck: CSP资本开支
+    trend: 高增长
+  tracking_metrics:
+  - metric: 超节点出货量
+    current: NVL72/灵衢UB放量
+    signal_direction: 超预期=加强
+  - metric: 液冷渗透率
+    current: 从可选到必选
+    signal_direction: 加速=加强
+  - metric: CSP资本开支
+    current: 阿里/百度高增
+    signal_direction: 持续高增=确认
+  - metric: 国产算力份额
+    current: 2026年有望反超英伟达
+    signal_direction: 兑现=加强
+  stocks:
+  - code: 002371.SZ
+    name: 北方华创
+    role: 半导体设备
+    segment: 上游设备
+  - code: 002156.SZ
+    name: 通富微电
+    role: 封装测试
+    segment: 中游制造
+  - code: 000021.SZ
+    name: 深科技
+    role: 封装测试
+    segment: 中游制造
+  - code: 601138.SH
+    name: 工业富联
+    role: AI服务器整机
+    segment: 中游整机
+  up_themes:
+  - 13
+  - 25
+  existing_chain_yaml: null
+- chain_id: ai-chip-design
+  name: AI芯片设计产业链
+  scope: FPGA/特种芯片/AI推理芯片国产替代
+  status: watch
+  current_signal: neutral
+  driver: 国产替代 + AI推理需求
+  segments:
+  - name: 上游EDA/IP
+    items:
+    - EDA工具
+    - IP核
+    bottleneck: 先进制程EDA
+    trend: 国产替代
+  - name: 中游设计
+    items:
+    - FPGA(紫光国微)
+    - AI推理(海光/澜起)
+    bottleneck: 先进制程
+    trend: 放量
+  - name: 下游应用
+    items:
+    - 军工
+    - 通信
+    - AI推理
+    bottleneck: 生态适配
+    trend: 增长
+  tracking_metrics:
+  - metric: FPGA国产化率
+    current: 提升中
+    signal_direction: 加速=加强
+  - metric: AI推理芯片出货
+    current: 海光/澜起放量
+    signal_direction: 超预期=加强
+  stocks:
+  - code: 002049.SZ
+    name: 紫光国微
+    role: FPGA
+    segment: 中游设计
+  - code: 688008.SH
+    name: 澜起科技
+    role: AI推理芯片
+    segment: 中游设计
+  - code: 688041.SH
+    name: 海光信息
+    role: AI推理芯片
+    segment: 中游设计
+  up_themes:
+  - 14
+  existing_chain_yaml: null
+- chain_id: ai-power
+  name: AI电力/AIDC产业链
+  scope: AI算力→电力需求→AIDC供电/散热
+  status: watch
+  current_signal: neutral
+  driver: AI算力→电力需求长逻辑 + 算电协同政策
+  segments:
+  - name: 上游设备
+    items:
+    - 变压器
+    - 开关
+    - HVDC
+    bottleneck: 大功率器件
+    trend: 需求增长
+  - name: 中游运营
+    items:
+    - 绿电运营商
+    - AIDC运营商
+    bottleneck: 电力指标
+    trend: 增长
+  - name: 下游应用
+    items:
+    - 数据中心
+    - AIDC
+    bottleneck: 能耗指标
+    trend: 高增长
+  tracking_metrics:
+  - metric: AIDC装机量
+    current: 高增
+    signal_direction: 持续高增=确认
+  - metric: 绿电交易量
+    current: 增长中
+    signal_direction: 加速=加强
+  - metric: 算电协同政策
+    current: 推进中
+    signal_direction: 落地=加强
+  stocks:
+  - code: 603011.SH
+    name: 合锻智能
+    role: 绿电/AIDC
+    segment: 中游运营
+  - code: 600673.SH
+    name: 东阳光
+    role: PMIC电源管理
+    segment: 上游设备
+  up_themes:
+  - 5
+  - 22
+  existing_chain_yaml: knowledge/industry-chains/ai-infra-energy/
+- chain_id: mlcc-passive
+  name: 被动元件产业链
+  scope: MLCC/电阻/电感 — AI驱动结构性缺货
+  status: active
+  current_signal: confirmed
+  driver: AI驱动结构性缺货（产能占用4-7倍）+ 缺货延至2027
+  segments:
+  - name: 上游材料
+    items:
+    - 陶瓷粉体(博迁新材)
+    - 镍浆
+    - 铜浆
+    bottleneck: 高端粉体
+    trend: 涨价
+  - name: 中游制造
+    items:
+    - MLCC(风华/国巨/华新科/禾伸堂)
+    bottleneck: AI料产能
+    trend: 满产
+  - name: 下游应用
+    items:
+    - 手机
+    - 汽车电子
+    - AI服务器
+    bottleneck: VR200单机60万颗
+    trend: 高增长
+  tracking_metrics:
+  - metric: 国巨B/B值
+    current: '>1.3'
+    signal_direction: 维持=确认
+  - metric: MLCC涨价函
+    current: 持续
+    signal_direction: 继续=确认
+  - metric: 高容交期
+    current: 拉长中
+    signal_direction: 继续拉长=加强
+  stocks:
+  - code: 000636.SZ
+    name: 风华高科
+    role: MLCC制造
+    segment: 中游制造
+  - code: 605376.SH
+    name: 博迁新材
+    role: 陶瓷粉体
+    segment: 上游材料
+  - code: 603678.SH
+    name: 火炬电子
+    role: MLCC制造
+    segment: 中游制造
+  up_themes:
+  - 6
+  - 19
+  existing_chain_yaml: null
+- chain_id: electronic-gas
+  name: 电子特气产业链
+  scope: WF6/特种气体 — 产能永久退出+涨价
+  status: active
+  current_signal: confirmed
+  driver: 日本关东电化/中央硝子永久停产 + 中国钨出口管制
+  segments:
+  - name: 上游原料
+    items:
+    - 钨矿(出口管制)
+    bottleneck: 出口管制
+    trend: 供给收缩
+  - name: 中游合成
+    items:
+    - WF6(昊华/三孚/和远)
+    bottleneck: 日本永久停产
+    trend: 涨价
+  - name: 下游应用
+    items:
+    - 半导体制造(沉积/刻蚀)
+    bottleneck: 先进制程
+    trend: 需求增长
+  tracking_metrics:
+  - metric: WF6 6N价格
+    current: 200-250万/吨
+    signal_direction: 上涨=确认
+  - metric: 日本停产执行
+    current: 7/1已停产
+    signal_direction: 持续=确认
+  stocks:
+  - code: 600378.SH
+    name: 昊华科技
+    role: WF6合成
+    segment: 中游合成
+  - code: 603938.SH
+    name: 三孚股份
+    role: WF6合成
+    segment: 中游合成
+  - code: 002971.SZ
+    name: 和远气体
+    role: WF6合成
+    segment: 中游合成
+  up_themes:
+  - 2
+  existing_chain_yaml: null
+- chain_id: copper-aluminum
+  name: 铜铝产业链
+  scope: 铜铝供给缺口
+  status: watch
+  current_signal: neutral
+  driver: 铜缺口10万吨/年 + 铝344万吨关停 + 美伊协议催化
+  segments:
+  - name: 上游矿山
+    items:
+    - 铜矿
+    - 铝土矿
+    bottleneck: 品位下降
+    trend: 供给紧张
+  - name: 中游冶炼
+    items:
+    - 冶炼(紫金矿业)
+    bottleneck: 冶炼产能
+    trend: 满产
+  - name: 下游应用
+    items:
+    - 电力
+    - 建筑
+    - 新能源
+    bottleneck: 需求
+    trend: 增长
+  tracking_metrics:
+  - metric: 铜价
+    current: 高位
+    signal_direction: 突破=加强
+  - metric: 铝产能关停
+    current: 344万吨
+    signal_direction: 扩大=加强
+  stocks:
+  - code: 601899.SH
+    name: 紫金矿业
+    role: 铜铝冶炼
+    segment: 中游冶炼
+  up_themes:
+  - 21
+  existing_chain_yaml: null
+- chain_id: rare-metals
+  name: 稀有金属产业链
+  scope: 铟/磷化铟 — 供给刚性
+  status: watch
+  current_signal: confirmed
+  driver: 铟价年内+60%，供给刚性
+  segments:
+  - name: 上游矿山
+    items:
+    - 锌铅矿(副产品铟)
+    bottleneck: 95%为副产品
+    trend: 供给刚性
+  - name: 中游提纯
+    items:
+    - 铟提纯(锡业股份)
+    - 磷化铟晶体
+    bottleneck: 提纯产能
+    trend: 涨价
+  - name: 下游应用
+    items:
+    - AI光互联(激光器衬底)
+    bottleneck: AI需求
+    trend: 高增长
+  tracking_metrics:
+  - metric: 铟价
+    current: 年内+60%
+    signal_direction: 持续上涨=确认
+  stocks:
+  - code: 000960.SZ
+    name: 锡业股份
+    role: 铟提纯
+    segment: 中游提纯
+  up_themes:
+  - 24
+  existing_chain_yaml: null
+- chain_id: coal-coke
+  name: 煤炭/焦炭产业链
+  scope: 焦炭连续提涨 — 戴维斯双击
+  status: active
+  current_signal: confirmed
+  driver: 焦炭连续提涨 + 迎峰度夏保供
+  segments:
+  - name: 上游煤矿
+    items:
+    - 煤矿
+    bottleneck: 安监限产
+    trend: 供给收缩
+  - name: 中游焦炭
+    items:
+    - 洗煤/焦炭(潞安/晋控)
+    bottleneck: 焦化产能
+    trend: 涨价
+  - name: 下游钢铁
+    items:
+    - 钢铁
+    - 电力
+    bottleneck: 钢铁需求
+    trend: 稳定
+  tracking_metrics:
+  - metric: 焦炭提涨轮次
+    current: 第六轮已落地
+    signal_direction: 第七轮=加强
+  - metric: 煤炭PPI
+    current: 转正
+    signal_direction: 持续为正=确认
+  stocks:
+  - code: 601699.SH
+    name: 潞安环能
+    role: 焦炭
+    segment: 中游焦炭
+  - code: 601001.SH
+    name: 晋控煤业
+    role: 煤炭
+    segment: 上游煤矿
+  up_themes:
+  - 17
+  existing_chain_yaml: null
+- chain_id: photovoltaic
+  name: 光伏产业链
+  scope: 光伏低位修复
+  status: watch
+  current_signal: neutral
+  driver: 反内卷预期 + 超跌反弹（非景气反转）
+  segments:
+  - name: 上游硅料
+    items:
+    - 硅料
+    - 硅片
+    bottleneck: 硅料产能
+    trend: 出清
+  - name: 中游组件
+    items:
+    - 电池片/组件(隆基/爱旭/晶澳)
+    bottleneck: 组件价格
+    trend: 低位
+  - name: 下游电站
+    items:
+    - 电站
+    - 分布式
+    bottleneck: 装机量
+    trend: 稳定
+  tracking_metrics:
+  - metric: 组件价格
+    current: 低位
+    signal_direction: 企稳=确认
+  stocks:
+  - code: 601012.SH
+    name: 隆基绿能
+    role: 组件
+    segment: 中游组件
+  - code: 600732.SH
+    name: 爱旭股份
+    role: 电池片
+    segment: 中游组件
+  - code: 002459.SZ
+    name: 晶澳科技
+    role: 组件
+    segment: 中游组件
+  up_themes:
+  - 3
+  existing_chain_yaml: null
+- chain_id: semiconductor-equipment
+  name: 半导体设备/EUV产业链
+  scope: EUV光刻机国产替代
+  status: watch
+  current_signal: neutral
+  driver: EUV争议强化国产替代（消息驱动）
+  segments:
+  - name: 上游光学
+    items:
+    - 光学镜头
+    - 激光器
+    bottleneck: 高端光学
+    trend: 国产替代
+  - name: 中游整机
+    items:
+    - 光刻机(ASML/上海微电子)
+    bottleneck: EUV禁运
+    trend: 突破中
+  - name: 下游制造
+    items:
+    - 晶圆制造
+    bottleneck: 先进制程
+    trend: 需求
+  tracking_metrics:
+  - metric: EUV国产化进展
+    current: 争议中
+    signal_direction: 突破=加强
+  stocks:
+  - code: 600895.SH
+    name: 张江高科
+    role: 光刻机相关
+    segment: 中游整机
+  - code: 002222.SZ
+    name: 福晶科技
+    role: 光学晶体
+    segment: 上游光学
+  - code: 603650.SH
+    name: 彤程新材
+    role: 光刻胶
+    segment: 上游光学
+  up_themes:
+  - 23
+  existing_chain_yaml: null
+- chain_id: aerospace
+  name: 商业航天产业链
+  scope: 可回收火箭/卫星组网
+  status: watch
+  current_signal: neutral
+  driver: 可回收火箭首飞窗口 + 星座组网
+  segments:
+  - name: 上游材料
+    items:
+    - 火箭发动机
+    - 碳纤维材料
+    bottleneck: 发动机
+    trend: 突破
+  - name: 中游制造
+    items:
+    - 火箭总装
+    - 卫星制造
+    bottleneck: 可回收技术
+    trend: 发展
+  - name: 下游运营
+    items:
+    - 卫星运营
+    - 应用
+    bottleneck: 星座组网
+    trend: 增长
+  tracking_metrics:
+  - metric: 可回收火箭首飞
+    current: 待发射
+    signal_direction: 成功=加强
+  stocks: []
+  up_themes:
+  - 8
+  existing_chain_yaml: null
+- chain_id: pharma
+  name: 医药/创新药产业链
+  scope: 创新药/CXO
+  status: watch
+  current_signal: neutral
+  driver: license-out 强劲 + 超跌反弹
+  segments:
+  - name: 上游CXO
+    items:
+    - CXO
+    - 原料药
+    bottleneck: 研发周期
+    trend: 稳定
+  - name: 中游研发
+    items:
+    - 创新药研发
+    bottleneck: 临床成功率
+    trend: 发展
+  - name: 下游商业化
+    items:
+    - 医院
+    - 药店
+    bottleneck: 医保谈判
+    trend: 增长
+  tracking_metrics:
+  - metric: license-out交易
+    current: 81笔/1100亿美元
+    signal_direction: 持续=确认
+  stocks: []
+  up_themes:
+  - 9
+  existing_chain_yaml: null
+- chain_id: robotics
+  name: 机器人产业链
+  scope: 人形机器人/物理AI
+  status: watch
+  current_signal: neutral
+  driver: Optimus 量产进展 + 物理AI
+  segments:
+  - name: 上游零部件
+    items:
+    - 减速器
+    - 伺服电机
+    - 传感器
+    bottleneck: 精密减速器
+    trend: 发展
+  - name: 中游本体
+    items:
+    - 本体制造
+    bottleneck: 量产成本
+    trend: 发展
+  - name: 下游应用
+    items:
+    - 工业
+    - 服务应用
+    bottleneck: 场景验证
+    trend: 增长
+  tracking_metrics:
+  - metric: Optimus量产
+    current: 进行中
+    signal_direction: 量产=加强
+  stocks: []
+  up_themes:
+  - 11
+  existing_chain_yaml: null
