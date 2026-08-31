@@ -1,5 +1,7 @@
 # Post-Review Config 同步工作流
 
+> ⚠️ **2026-08-31 变更**：positions.yaml 同步已废弃（commit 35b21cd，用户决定）。sync 脚本两处 update_positions 调用已注释禁用，positions.yaml 的 zones 只接受用户确认后的手动同步。恢复：取消 scripts/sync_config_from_review.py 约243/507行的注释。
+
 ## 概述
 
 17:00 收盘复盘 cron 的输出被 `sync_config_from_review.py` 自动解析，写回 5 个配置文件。无需手动更新。
