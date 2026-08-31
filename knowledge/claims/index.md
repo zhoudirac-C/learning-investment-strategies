@@ -503,3 +503,4 @@
 - [claim-20260831-002.yaml](claim-20260831-002.yaml)
 - [claim-20260831-003.yaml](claim-20260831-003.yaml)
 - [claim-20260831-004.yaml](claim-20260831-004.yaml)
+- [claim-20260831-005.yaml](claim-20260831-005.yaml)
