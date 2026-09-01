@@ -1,0 +1,85 @@
+claims:
+- id: claim-20260901-037-a
+  source_path: sources/original/bilibili/2026-09-01-1250-图片-JPM今天发了个东西，是说互连取代内存成为关键瓶颈，光引擎、.md
+  source_date: '2026-09-01'
+  source_type: 动态
+  extracted_at: '2026-09-01T12:57:00'
+  claim_type: catalyst
+  subject: JPM报告互连取代内存成关键瓶颈光环节前移存储后移
+  timeframe: short-term
+  statement: JPM今天发了个东西，是说互连取代内存成为关键瓶颈，光引擎、光芯片、FAU/光纤阵列、CPO封装会往前挪，存储的边际弹性往后挪。
+  evidence_quote: 互连取代内存成为关键瓶颈，光引擎、光芯片、FAU/光纤阵列、CPO封装会往前挪，存储的边际弹性往后挪。
+  interpretation: 算力链边际排序重估：瓶颈从内存(HBM/存储)切到互连(光)，光模块/CPO从面升为增量C位，存储从先行者降为跟随；直接修正此前'存储是点光模块是面'的边际排序——注意这是边际弹性排序变化，不是存储逻辑终结。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: JPM互连取代内存光前移存储后移
+  related_stocks: []
+  tags:
+  - JPM报告
+  - 互连瓶颈
+  - 光引擎
+  - CPO封装
+  - 存储后移
+- id: claim-20260901-038-a
+  source_path: sources/original/bilibili/2026-09-01-1250-图片-JPM今天发了个东西，是说互连取代内存成为关键瓶颈，光引擎、.md
+  source_date: '2026-09-01'
+  source_type: 动态
+  extracted_at: '2026-09-01T12:57:00'
+  claim_type: operation
+  subject: 中午可抄低位二线光和封测
+  timeframe: intraday
+  statement: 中午抄的话，就抄今天低位的二线光和封测。
+  evidence_quote: 中午抄的话，就抄今天低位的二线光和封测。
+  interpretation: JPM报告的A股落点：二线光模块(补涨逻辑，一线新易盛/中际旭创已高位)与封测(CPO封装前移受益)。抄低位=遵循位置决定意义，不追已涨的一线。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中午抄低位二线光和封测
+  related_stocks: []
+  tags:
+  - 二线光模块
+  - 封测
+  - 低位补涨
+  - CPO封装
+  - 抄底
+- id: claim-20260901-039-a
+  source_path: sources/original/bilibili/2026-09-01-1250-图片-JPM今天发了个东西，是说互连取代内存成为关键瓶颈，光引擎、.md
+  source_date: '2026-09-01'
+  source_type: 动态
+  extracted_at: '2026-09-01T12:57:00'
+  claim_type: operation
+  subject: 120分钟高9可化解下午大涨即化解冲高回落T出
+  timeframe: intraday
+  statement: 有一部分资金刚好也在11:20开始抢跑，所以你们如果想参与也可以，因为120分钟虽然出现了高9和钝化，但是可以化解，顶部结构没有出现，只要下午大涨就行，如果下午冲高回落，把中午加的仓位再T出去。
+  evidence_quote: 120分钟虽然出现了高9和钝化，但是可以化解，顶部结构没有出现，只要下午大涨就行，如果下午冲高回落，把中午加的仓位再T出去。
+  interpretation: 高9不是死刑判决而是可化解信号：化解条件=下午大涨；对冲动作=冲高回落则中午加的仓位T出去。给中午抄底发了操作许可，同时内置了退出开关——抄底与T出配对，盈亏比封闭。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高9可化解下午大涨化解冲高回落T出
+  related_stocks: []
+  tags:
+  - 高9化解
+  - 做T
+  - 冲高回落
+  - 抢跑
+  - 操作许可
