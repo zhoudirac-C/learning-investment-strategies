@@ -1,0 +1,54 @@
+claims:
+- id: claim-20260901-040-a
+  source_path: sources/original/bilibili/2026-09-01-1413-图片-今天可以，大盘继续回落了，国家队也一直在护盘，你们中午没做光.md
+  source_date: '2026-09-01'
+  source_type: 动态
+  extracted_at: '2026-09-01T14:26:00'
+  claim_type: market-cycle
+  subject: 大盘继续回落但国家队持续护盘今天可以
+  timeframe: intraday
+  statement: 今天可以，大盘继续回落了，国家队也一直在护盘。
+  evidence_quote: 今天可以，大盘继续回落了，国家队也一直在护盘。
+  interpretation: 国家队护盘=盘面隐性托底持续有效；大盘回落但定性为'可以'即回调可参与，不是恐慌信号。与10:42动态'国家队控盘能力尚可'一脉相承——全天护盘基调未变。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大盘回落国家队护盘今天可以
+  related_stocks: []
+  tags:
+  - 国家队护盘
+  - 大盘回落
+  - 回调可参与
+- id: claim-20260901-041-a
+  source_path: sources/original/bilibili/2026-09-01-1413-图片-今天可以，大盘继续回落了，国家队也一直在护盘，你们中午没做光.md
+  source_date: '2026-09-01'
+  source_type: 动态
+  extracted_at: '2026-09-01T14:26:00'
+  claim_type: operation
+  subject: 中午没做光的等2:30后找机会把早上卖掉的国产算力和科创加回来
+  timeframe: intraday
+  statement: 你们中午没做光的，等后面几十分钟找机会把早上卖掉的国产算力和科创加回来。可以多等一下，等到两点半之后。
+  evidence_quote: 你们中午没做光的，等后面几十分钟找机会把早上卖掉的国产算力和科创加回来。可以多等一下，等到两点半之后。
+  interpretation: 操作指令三要素：方向=国产算力+科创回补；时机=2:30之后等企稳；前提=早上卖掉的加回来（有底仓做T的人）。对用户（刚建仓没有卖过）来说=2:30后直接加国产算力+科创方向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 2:30后把早上卖掉的国产算力和科创加回来
+  related_stocks: []
+  tags:
+  - 国产算力
+  - 科创回补
+  - 2:30之后
+  - 等企稳
