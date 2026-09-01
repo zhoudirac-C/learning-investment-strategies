@@ -135,7 +135,7 @@ LLM_PROVIDERS: dict[str, dict[str, Any]] = {
     },
     "zhipu": {
         "base_url": "https://open.bigmodel.cn/api/paas/v4",
-        "default_model": "glm-4.7-flash",
+        "default_model": "glm-5.3-flash",
         "api_key_env": "ZHIPU_API_KEY",
     },
     "qwen": {
@@ -160,7 +160,7 @@ LLM_PROVIDERS: dict[str, dict[str, Any]] = {
     },
     "sensenova": {
         "base_url": "https://token.sensenova.cn/v1",
-        "default_model": "sensenova-6.8-flash-lite",
+        "default_model": "glm-5.2",
         "api_key_env": "SENSENOVA_API_KEY",
     },
     "together": {
@@ -177,12 +177,13 @@ _embedding_model = None
 
 
 # Fallback 链：主 provider 失败时自动切换（2026-08-27 新增）
-# 仅 sensenova 生态内切换（用户无 openrouter 充值）
+# 2026-09-01：支持 "provider:model" 跨 provider 条目（sensenova 平台配额耗尽，
+# 主通道切 zhipu 直连 glm-5.3-flash，sensenova 模型降为末位兜底）
 SENSENOVA_FALLBACK_MODELS = [
-    "deepseek-v4-flash",
-    "sensenova-6.8-flash-lite",
-    "sensenova-u1-fast",
-    "glm-5.2",
+    "sensenova:glm-5.2",
+    "sensenova:deepseek-v4-flash",
+    "sensenova:sensenova-6.8-flash-lite",
+    "sensenova:sensenova-u1-fast",
 ]
 
 
@@ -195,25 +196,35 @@ def get_llm_client_with_fallback(
 
     触发条件：ChatOpenAI invoke 时若主模型连续失败（429/5xx/超时），
     自动尝试 fallback_models 中的下一个模型。
-    所有 fallback 均在同 provider（sensenova）内切换，避免跨 provider 的 base_url 问题。
+    2026-09-01：fallback 链支持跨 provider——链条目形如 "provider:model"，
+    无前缀则沿用主 provider（向后兼容旧的纯模型名条目）。
     """
     base_client = get_llm_client(provider=provider, max_tokens=max_tokens)
     chain = fallback_models or SENSENOVA_FALLBACK_MODELS
     primary_model = getattr(base_client, "model_name", None) or "unknown"
 
-    # 构建 fallback client 列表（同 provider，不同 model）
+    # 构建 fallback client 列表（支持跨 provider："provider:model"，无前缀沿用主 provider）
     clients = [base_client]
     for m in chain:
-        if m != primary_model:
-            cfg = LLM_PROVIDERS["sensenova"]
-            clients.append(ChatOpenAI(
-                model=m,
-                api_key=getattr(settings, "sensenova_api_key", None) or os.environ.get("SENSENOVA_API_KEY"),
-                base_url=cfg["base_url"],
-                temperature=0.3,
-                max_tokens=max_tokens or 4096,
-                request_timeout=120,
-            ))
+        if ":" in m and not m.startswith("http"):
+            fb_provider, fb_model = m.split(":", 1)
+        else:
+            fb_provider, fb_model = (provider or settings.llm_provider or "sensenova").lower(), m
+        if fb_provider == (provider or settings.llm_provider or "").lower() and fb_model == primary_model:
+            continue
+        fb_cfg = LLM_PROVIDERS[fb_provider]
+        fb_api_key = (
+            getattr(settings, fb_cfg["api_key_env"].lower(), None)
+            or os.environ.get(fb_cfg["api_key_env"])
+        )
+        clients.append(ChatOpenAI(
+            model=fb_model,
+            api_key=fb_api_key,
+            base_url=fb_cfg["base_url"],
+            temperature=0.3,
+            max_tokens=max_tokens or 4096,
+            request_timeout=120,
+        ))
     return FallbackChatOpenAI(clients)
 
 
