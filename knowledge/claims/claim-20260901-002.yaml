@@ -1,0 +1,88 @@
+claims:
+- id: claim-20260901-029-a
+  source_path: sources/original/bilibili/2026-09-01-0910-图片-上证指数120分钟周期来到高8，要提防大级别高点风险。
+    如果.md
+  source_date: '2026-09-01'
+  source_type: 动态
+  extracted_at: '2026-09-01T09:25:00'
+  claim_type: technical-signal
+  subject: 上证指数120分钟高8提防大级别高点
+  timeframe: intraday
+  statement: 上证指数120分钟周期来到高8，要提防大级别高点风险。如果今天上午收阳线，11点半收盘站上3990.3，就会打出120分钟高9，形成顶部钝化；要是盘中冲过这个点位但收盘没能守住，高9就不会直接生效，按震荡看待。
+  evidence_quote: 上证指数120分钟周期来到高8，要提防大级别高点风险。如果今天上午收阳线，11点半收盘站上3990.3，就会打出120分钟高9，形成顶部钝化；要是盘中冲过这个点位，但收盘没能守住，高9就不会直接生效，按震荡看待。
+  interpretation: 120分钟高8→高9的条件锁定在11:30收盘价3990.3：站上则高9生效形成顶部钝化，冲过未守住则不生效按震荡；给出精确触发价。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 上证120分钟高8高9条件3990.3
+  related_stocks: []
+  tags:
+  - 上证指数
+  - 120分钟
+  - 高9
+  - 顶部钝化
+  - '3990.3'
+- id: claim-20260901-030-a
+  source_path: sources/original/bilibili/2026-09-01-0910-图片-上证指数120分钟周期来到高8，要提防大级别高点风险。
+    如果.md
+  source_date: '2026-09-01'
+  source_type: 动态
+  extracted_at: '2026-09-01T09:25:00'
+  claim_type: methodology
+  subject: 三条件同时满足才降仓单一条件只是震荡
+  timeframe: permanent
+  statement: 3990.3、4000整数关口、潜在高9高点三者位置重合，要同时满足技术高9、冲关过不去、成交量被动放大，才要降仓位，只占一条就只是普通震荡。
+  evidence_quote: 要同时满足技术高9、冲关过不去、成交量被动放大，才要降仓位，只占一条就只是普通震荡。
+  interpretation: 顶部降仓的三条件共振原则：技术高9+关口冲不过+量能被动放大缺一不可；单一信号不动作，避免狼来了式误减仓。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高9与关口量能三条件共振才降仓
+  related_stocks: []
+  tags:
+  - 降仓条件
+  - 三条件共振
+  - 4000关口
+  - 量能被动放大
+  - 震荡
+- id: claim-20260901-031-a
+  source_path: sources/original/bilibili/2026-09-01-0910-图片-上证指数120分钟周期来到高8，要提防大级别高点风险。
+    如果.md
+  source_date: '2026-09-01'
+  source_type: 动态
+  extracted_at: '2026-09-01T09:25:00'
+  claim_type: operation
+  subject: 顶部钝化分步执行小周期试探大周期拍板
+  timeframe: intraday
+  statement: 操作上按小周期到大周期分步执行不猜顶等信号确认再动。第一，15、30分钟先出顶部钝化可以先做T减一部分，就算错了下午还有机会接回来，损失只是小幅价差；第二，如果下午90、120分钟同时出现钝化加高9共振，属于大级别风险信号，尾盘只接回一部分整体降仓位；第三，如果高9消失只剩钝化，代表只是上涨动能变弱不算见顶，尾盘全部接回，等待真正的顶部结构成型再减仓。
+  evidence_quote: 不提前预判顶，信号没出来就不操作，小周期先试探，大周期来拍板，坚持右侧确认，不见结构不减仓、不见结构不追高。
+  interpretation: 顶部处理三步法：15/30m钝化=T减仓（可回补）；90/120m钝化+高9共振=大级别风险尾盘降仓；高9消失只余钝化=动能减弱尾盘接回；小周期试探大周期拍板的执行框架。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 顶部钝化分步操作小周期试探大周期拍板
+  related_stocks: []
+  tags:
+  - 顶部钝化
+  - 做T
+  - 高9共振
+  - 右侧确认
+  - 分步执行

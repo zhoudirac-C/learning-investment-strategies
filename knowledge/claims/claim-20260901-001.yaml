@@ -1,0 +1,826 @@
+claims:
+- id: claim-20260901-001-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: macro
+  subject: 外围三高压制下亚洲市场弱但不一起跌
+  timeframe: short-term
+  statement: 个人判断今天的亚洲市场是弱但不会一起跌。日韩这类对全球利率和科技估值更敏感的市场应当相对谨慎，因为真正压制亚洲风险资产的是美债收益率高、油价高、加息预期高三件事同时存在，三者叠加对高估值科技资产尤其不友好，因为它同时抬高贴现率、抬高成本端并封住宽松预期的想象空间。
+  evidence_quote: 今天亚洲市场是弱，但不会一起跌。日本、韩国这类对全球利率和科技估值更敏感的市场应当相对谨慎，因为真正压制亚洲风险资产的已经不是某一个人的表态，而是美债收益率高、油价高、加息预期高这三件事同时存在。
+  interpretation: 外围压制从单一事件（沃什表态）升级为三重变量叠加的系统性压制，日韩比A股更敏感，A股因PMI结构支撑相对抗跌是后续判断的前提。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 外围三高压制，亚洲市场弱而不齐跌
+  related_stocks: []
+  tags:
+  - 美债收益率
+  - 油价
+  - 加息预期
+  - 亚洲市场
+  - 高估值科技
+- id: claim-20260901-002-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: macro
+  subject: 沃什表态把宽松预期估值支撑腿暂时抽掉
+  timeframe: short-term
+  statement: 沃什重申2%通胀目标是坚定且固定的、当前金融条件并不紧缩、利率仍是实现政策目标的主要工具，市场随后一度将9月加息概率定价至接近五成。这段表态的意义不在于是否真的加息，而在于它把宽松预期这条估值支撑腿暂时抽掉了，在靴子落地前资金不会在单一方向上下注，但会先降低对高估值资产的容忍度。
+  evidence_quote: 这段表态的意义不在于是否真的加息，而在于它把宽松预期这条估值支撑腿暂时抽掉了，在靴子落地前，资金不会在单一方向上下注，但会先降低对高估值资产的容忍度。
+  interpretation: 加息概率五成是过程不是终点；真正的边际变化是估值支撑逻辑被抽掉，高估值科技资产容忍度系统性下降。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts:
+  - claim-20260610-006-a
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 沃什表态抽掉宽松预期估值支撑腿
+  related_stocks: []
+  tags:
+  - 沃什
+  - 2%通胀目标
+  - 加息概率
+  - 宽松预期
+  - 估值支撑
+- id: claim-20260901-003-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: macro
+  subject: PMI结构生产外需修复内需弱，A股走分化不共振
+  timeframe: short-term
+  statement: 8月官方制造业PMI为49.8%较上月49.2%回升0.6个百分点好于预期，生产指数50.4%、新订单50.6%、新出口订单50.16%均回到荣枯线上方；但非制造业商务活动指数49.0%与上月持平低于预期，非制造业新订单降至44.1%，综合PMI产出指数49.5%。结构是生产端与外需修复、内需仍弱，足以支撑A股不跟随外围系统性下杀，但不足以支撑全面上攻，外围偏弱之下A股内部大概率走分化而不是共振。
+  evidence_quote: 这份数据的结构是生产端与外需在修复、内需仍然弱。它足以支撑A股不跟随外围一起系统性下杀，但不足以支撑一轮由基本面驱动的全面上攻，因此外围偏弱之下，A股内部大概率继续走分化而不是共振。
+  interpretation: PMI好于预期剪掉系统性下杀情景，但内需弱决定上攻无基础；分化市对应结构性机会，指数级别行情缺基本面驱动。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: PMI生产修复内需弱，A股分化非共振
+  related_stocks: []
+  tags:
+  - PMI
+  - 生产指数
+  - 新出口订单
+  - 内需
+  - 分化市
+- id: claim-20260901-004-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: macro
+  subject: PMI价格分项与电子布提价同线索印证上游涨价
+  timeframe: short-term
+  statement: 8月制造业投入成本通胀加速升至三个月最高56.6，出厂价格在上月下跌后回升至50.4。这个价格分项与电子布提价属于同一条线索，对上游涨价方向是有印证意义的。
+  evidence_quote: 这个价格分项与下文提到的电子布提价属于同一条线索，对上游涨价方向是有印证意义的，值得单独记一笔。
+  interpretation: PMI价格分项=上游涨价的宏观印证，与电子布/电子纱提价构成宏观到中观的证据链，强化上游涨价方向的确定性。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: PMI价格分项印证上游涨价线索
+  related_stocks: []
+  tags:
+  - PMI
+  - 投入成本
+  - 出厂价格
+  - 上游涨价
+  - 电子布
+- id: claim-20260901-005-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: macro
+  subject: 10年期美债4.77%是全球资产主定价变量
+  timeframe: short-term
+  statement: 9月1日10年期美债收益率已升至4.77%，为2025年1月以来首次重新来到这一带。今天全球资产的主定价变量是美债，不是股指本身，股指只是被动接受这个价格的结果。
+  evidence_quote: 今天全球资产的主定价变量是美债，不是股指本身，股指只是被动接受这个价格的结果。
+  interpretation: 美债收益率回到2025年1月高位是系统性定价锚，外围一切资产价格都要以美债为因变量来读。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 10年期美债4.77%是主定价变量
+  related_stocks: []
+  tags:
+  - 10年期美债
+  - 4.77%
+  - 主定价变量
+  - 全球资产
+- id: claim-20260901-006-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: macro
+  subject: 美债观察阈值4.80与5.30决定警报升级
+  timeframe: short-term
+  statement: 给两个具体观察阈值：若今日10年期进一步升至4.80%、30年期升至5.30%，全球市场的警报将再次升级，届时需要防范的不只是估值压缩，还有跨资产的被动去杠杆；反之若收益率在4.70%-4.75%这一带止住，昨天积累的压力就有机会先行释放一部分。
+  evidence_quote: 若今日10年期进一步升至4.80%、30年期升至5.30%，全球市场的警报将再次升级，届时需要防范的不只是估值压缩，还有跨资产的被动去杠杆。
+  interpretation: 10Y 4.80%与30Y 5.30%是升级为去杠杆情景的触发阈值，4.70-4.75是压力释放区；给区间让监控可量化执行。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美债10Y 4.80与30Y 5.30警报阈值
+  related_stocks: []
+  tags:
+  - 10年期4.80
+  - 30年期5.30
+  - 跨资产去杠杆
+  - 阈值监控
+- id: claim-20260901-007-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: methodology
+  subject: 美债对A股传导路径只影响开盘与贝塔
+  timeframe: permanent
+  statement: 美债利率上行首先杀全球高久期科技资产的估值，进而通过日韩、纳指、港股三个跳板影响A股科技方向的开盘定价与情绪，但它并不直接改变国内产业订单。这决定了美债对A股的影响更多体现在开盘那一下和板块贝塔上，而不是全天节奏——低开不可怕，接不住才可怕。
+  evidence_quote: 美债利率上行首先杀的是全球高久期科技资产的估值，进而通过日韩、纳指、港股三个跳板影响A股科技方向的开盘定价与情绪，但它并不直接改变国内产业订单。
+  interpretation: 外盘传导链具体化为三跳板（日韩/纳指/港股），且明确边界：只动开盘定价与情绪贝塔，不动产业逻辑；是外盘只定价开盘原则的进一步细化。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美债传导三跳板只影响开盘与贝塔
+  related_stocks: []
+  tags:
+  - 美债传导
+  - 三跳板
+  - 开盘定价
+  - 板块贝塔
+  - 低开不可怕
+- id: claim-20260901-008-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: macro
+  subject: 布伦特90美元是战场91美元是确认线
+  timeframe: short-term
+  statement: 8月31日布伦特原油盘中一度报90.31美元每桶涨约2.29%，本轮上冲与霍尔木兹海峡方向地缘冲突再度升级有关。90美元是战场，91美元是确认线。油价决定的不是能源股，而是美债会不会重新交易通胀，所以它是这一轮的总开关。
+  evidence_quote: 90美元是战场，91美元是确认线。油价决定的不是能源股，而是美债会不会重新交易通胀，所以它是这一轮的总开关。
+  interpretation: 油价不是板块逻辑而是宏观总开关：破91美元触发美债重新交易通胀，进而传导全球估值；90/91双阈值可量化监控。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 布伦特90战场91确认线是总开关
+  related_stocks: []
+  tags:
+  - 布伦特原油
+  - 90美元
+  - 91确认线
+  - 地缘冲突
+  - 通胀交易
+- id: claim-20260901-009-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: macro
+  subject: 情形A油价破91引发全球科技第二波估值压缩
+  timeframe: short-term
+  statement: 情形A：布伦特有效突破91美元并向92-94美元延伸，个人判断美债市场会立刻重新交易通胀，10年期上破4.80%的概率显著抬升，届时全球科技资产会迎来第二波估值压缩，A股的AI硬件、半导体等高贝塔方向要相应降低预期。
+  evidence_quote: 美债市场会立刻重新交易通胀，10年期上破4.80%的概率显著抬升，届时全球科技资产会迎来第二波估值压缩，A股的AI硬件、半导体等高贝塔方向要相应降低预期。
+  interpretation: 油价91是触发链起点：油价→美债通胀交易→10Y 4.80%→全球科技第二波估值压缩→A股高贝塔降预期；链式推演可直接用于情景预案。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 油价破91对应全球科技第二波估值压缩
+  related_stocks: []
+  tags:
+  - 油价破91
+  - 估值压缩
+  - AI硬件
+  - 半导体
+  - 情形A
+- id: claim-20260901-010-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: macro
+  subject: 情形B油价回落89以下打开修复窗口
+  timeframe: short-term
+  statement: 情形B：油价重新回落到89美元甚至更低，那么昨天全球资产承受的压力会明显缓解，美债的边际压力同步减轻，风险偏好有修复窗口。个人判断这种情形下A股科技方向的资金回流会比昨天更顺畅，题材的持续性也会更好。
+  evidence_quote: 这种情形下A股科技方向的资金回流会比昨天更顺畅，题材的持续性也会更好。
+  interpretation: 油价<89对应外围压力缓解，A股科技资金回流与题材持续性改善；与情形A构成两条对立预案的分支。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 油价回89以下对应修复窗口
+  related_stocks: []
+  tags:
+  - 油价回落
+  - 89美元
+  - 风险偏好修复
+  - 资金回流
+  - 情形B
+- id: claim-20260901-011-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: market-cycle
+  subject: 黄金4416支撑与4501阻力
+  timeframe: short-term
+  statement: 位置上4416一线附近具备一定支撑，上方阻力位于4501附近。一旦有效跌破4416，将打开新一轮下行空间。逻辑上这与美债实际利率抬升是一致的：名义利率上行而通胀预期尚未同步走高时，无息资产首当其冲。
+  evidence_quote: 4416一线附近具备一定支撑，上方阻力位于4501附近。一旦有效跌破4416，将打开新一轮下行空间。
+  interpretation: 黄金价格的关键位：4416是多空分界，跌破打开下行空间，与美债实际利率抬升逻辑自洽；给出明确可监控的支撑阻力。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 黄金4416支撑4501阻力
+  related_stocks: []
+  tags:
+  - 黄金
+  - 4416支撑
+  - 4501阻力
+  - 美债实际利率
+  - 无息资产
+- id: claim-20260901-012-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: operation
+  subject: 美债见顶前黄金概念不适合做防御首选
+  timeframe: short-term
+  statement: 昨天黄金概念跌幅居前并不是孤立现象，而是外围定价的直接映射。个人判断在美债收益率见顶信号出现之前，黄金概念不适合作为这一轮的防御首选；真正的防御位置目前更可能在低位、低仓位、且有自身产业催化的方向上。
+  evidence_quote: 在美债收益率见顶信号出现之前，黄金概念不适合作为这一轮的防御首选；真正的防御位置目前更可能在低位、低仓位、且有自身产业催化的方向上。
+  interpretation: 防御方向重排：黄金因美债压制被排除，防御应选低位+低仓位+自有产业催化的方向（对应电子布/上游涨价等有提价支撑的低位方向）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美债见顶前黄金不防御首选
+  related_stocks: []
+  tags:
+  - 黄金概念
+  - 防御首选
+  - 美债见顶
+  - 低位低仓位
+  - 产业催化
+- id: claim-20260901-013-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: macro
+  subject: 今晚数据三情形加息交易与滞胀组合
+  timeframe: short-term
+  statement: 今晚美国将公布JOLTS职位空缺、ISM制造业PMI以及ISM制造业物价支付指数，一致预期ISM约55.3、物价支付约72、JOLTS约739万。情形一ISM强物价支付高是最直接的加息交易组合，纳指承压重于道指，明天A股开盘偏向低开科技承压；情形二ISM弱物价支付仍高是滞胀组合，对风险资产最不友好，股债双杀概率上升且没有弱数据等于降息的安慰剂；情形三ISM尚可物价支付回落才是真修复，美债才有喘息空间，全球科技反弹才具备延续性。
+  evidence_quote: 情形二·ISM弱、物价支付仍高：这是最难处理的滞胀组合。个人判断，这种情形对风险资产最不友好——增长预期下修的同时通胀预期不降，股债双杀的概率上升，且没有「弱数据等于降息」的安慰剂。
+  interpretation: 三情形以物价支付指数为核心分类变量：物价高=加息/滞胀皆利空，物价回落=真修复；今晚数据决定全球科技反弹的延续性。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日晚间美国数据三情形推演
+  related_stocks: []
+  tags:
+  - JOLTS
+  - ISM制造业
+  - 物价支付
+  - 加息交易
+  - 滞胀
+- id: claim-20260901-014-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: methodology
+  subject: 晚间美国数据是次日开盘定价输入非今日变量
+  timeframe: permanent
+  statement: 晚间公布的美国数据是A股下一个交易日开盘的定价输入，而不是今天盘中的变量。今天仍应按照A股自身的量能与接力节奏操作，收盘前再根据隔夜风险敞口调整仓位，不要把仓位提前交给一个尚未公布的数字。
+  evidence_quote: 晚间公布的美国数据是A股下一个交易日开盘的定价输入，而不是今天盘中的变量。今天仍应按照A股自身的量能与接力节奏操作。
+  interpretation: 时序纪律重申：外部数据只影响次日开盘定价，当日操作以A股自身量能接力为准；收盘前评估隔夜敞口是为了次日，不是当日。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 晚间数据是次日开盘定价输入
+  related_stocks: []
+  tags:
+  - 时序纪律
+  - 次日开盘定价
+  - 隔夜敞口
+  - 量能接力
+- id: claim-20260901-015-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: market-cycle
+  subject: 沪指逼近4000本身是制造量能的变量
+  timeframe: short-term
+  statement: 昨天沪指收盘再度逼近4000点关口，个人判断这个位置本身就是一个会主动制造量能的变量——之后如果出现试探行为，不管最终有没有成功站上4000点，都可能刺激到场内或者场外资金。
+  evidence_quote: 这个位置本身就是一个会主动制造量能的变量——之后如果出现试探行为，不管最终有没有成功站上4000点，都可能刺激到场内或者场外资金。
+  interpretation: 4000整数关口被定义为量能触发器而非单纯压力位：试探行为本身激活资金，不管结果；这解释了为何关口附近波动加大。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 4000关口是制造量能的变量
+  related_stocks: []
+  tags:
+  - 4000点
+  - 量能触发器
+  - 试探行为
+  - 沪指
+- id: claim-20260901-016-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: methodology
+  subject: 攻而不克把犹豫筹码变卖盘主动回撤变观望
+  timeframe: permanent
+  statement: 两个可以直接对照的样本：8月17日至18日连续两日上攻无果之后19日旋即放量大跌；反观8月11日的主动回撤市场反倒稳住了。其中的差别在于被动的攻而不克会把犹豫的筹码变成卖盘，而主动的回撤会把犹豫的筹码变成观望。
+  evidence_quote: 被动的攻而不克会把犹豫的筹码变成卖盘，而主动的回撤会把犹豫的筹码变成观望。
+  interpretation: 关口的攻击性质决定筹码行为：被动攻坚失败=多杀多，主动回撤=筹码锁定；这是处理4000点试探的标准对照框架。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 攻而不克与主动回撤的筹码行为差异
+  related_stocks: []
+  tags:
+  - 攻而不克
+  - 主动回撤
+  - 筹码行为
+  - 8月19日
+  - 8月11日
+- id: claim-20260901-017-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: market-cycle
+  subject: 4000点情形A右侧确认跟随情形B降进攻性
+  timeframe: short-term
+  statement: 情形A：温和放量并站上4000点且大金融同步配合，这种情形下上方空间才算真正打开，可以按右侧确认的方式跟随而不必抢在关口之前。情形B：放量冲高回落或连续两日攻而不克，届时应参考8月19日的处理方式，先降低仓位的进攻性，等待量能重新回到2万亿附近的稳态区间再谈参与。
+  evidence_quote: 情形A：温和放量并站上4000点，且大金融同步配合。个人判断，这种情形下上方空间才算真正打开，可以按右侧确认的方式跟随。情形B：放量冲高回落，或连续两日攻而不克。个人判断，届时应参考8月19日的处理方式，先降低仓位的进攻性。
+  interpretation: 4000点的攻防预案：温和放量+大金融配合=右侧跟随；放量冲高回落或两日攻而不克=降进攻性；量能稳态2万亿是重新参与的锚。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 4000点攻防两情形预案
+  related_stocks: []
+  tags:
+  - 4000点
+  - 右侧确认
+  - 2万亿稳态
+  - 降进攻性
+  - 大金融配合
+- id: claim-20260901-018-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: market-cycle
+  subject: 大金融是突破4000点必要条件
+  timeframe: short-term
+  statement: 大金融昨天有超预期表现并且已经从券商扩散至银行。如果指数想突破上方4000点的压制，大金融是不可或缺的一环——它既是权重上的抬轿者，也是市场对流动性预期的直接读数。今天需要重点观察的是扩散能否延续，还是仅仅停留在昨天的一日游。
+  evidence_quote: 如果指数想突破上方4000点的压制，大金融是不可或缺的一环——它既是权重上的抬轿者，也是市场对流动性预期的直接读数。
+  interpretation: 大金融扩散（券商→银行）是4000点突破的必要条件，扩散延续性即今日验证点；大金融被定义为流动性预期读数而非单纯权重。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大金融是4000点突破必要条件
+  related_stocks: []
+  tags:
+  - 大金融
+  - 券商扩散银行
+  - 4000点
+  - 流动性预期
+  - 一日游验证
+- id: claim-20260901-019-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: market-cycle
+  subject: 午盘前后半小时是观察资金意图锚点
+  timeframe: short-term
+  statement: 午盘前后半小时的指数方向选择很关键。昨天尤为明显的信号是午后以中文在线(300364)为代表的AI视频概念直线拉开——作为一个科技方向的新题材，它直观反映出资金经过一个中午的思考和情绪酝酿最终决定的是上攻而不是防御。今天仍应把11:00至11:30与13:00至13:30这两个窗口作为观察资金真实意图的锚点。
+  evidence_quote: 今天仍应把11:00至11:30与13:00至13:30这两个窗口作为观察资金真实意图的锚点。
+  interpretation: 午盘前后半小时窗口是资金真实意图的观测点，中文在线(300364)午后拉升=资金午间决策上攻的实例；给出具体时间窗口便于盘中执行。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 午盘前后半小时是资金意图锚点
+  related_stocks:
+  - code: '300364'
+    name: 中文在线
+    role: AI视频概念午后拉升样本-创业板不可交易
+  tags:
+  - 午盘窗口
+  - 资金意图
+  - 中文在线
+  - AI视频
+  - 11:00至13:30
+- id: claim-20260901-020-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: market-cycle
+  subject: 接力面未收敛但需防跌停连续扩散
+  timeframe: short-term
+  statement: 昨日二板家数10个对应一进二晋级率15.63%，首板家数由64家增至68家，高标除深中华A(000017)外基本系数晋级，但跌停个股大幅增至11家。按一贯判据68个首板对应约15%晋级率应有10家上下二板，实际数据基本吻合且首板不减反增说明接力面没有收敛。唯一需要留意的是跌停家数增多，虽然多数为资源和医药股不排除风格切换所致，但要避免连续跌停出现——一旦局部亏钱效应加剧后续会传导至整个市场，参考7月中旬德明利(001309)和合肥城建(002208)连续跌停时亏钱效应迅速从存储扩散至整个科技板块。
+  evidence_quote: 要避免的是连续跌停的情况出现——一旦局部区域的亏钱效应加剧，后续无可避免会传导开来并影响整个市场。
+  interpretation: 接力指标全面健康（晋级率吻合、首板增）但跌停增多是唯一裂缝；监控口径从跌停家数转为是否出现第二个跌停（连续跌停才是扩散信号）。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 接力面健康但防跌停连续扩散
+  related_stocks:
+  - code: '000017'
+    name: 深中华A
+    role: 高标晋级样本-深主板可交易
+  - code: '001309'
+    name: 德明利
+    role: 7月连续跌停扩散样本-深主板可交易
+  - code: '002208'
+    name: 合肥城建
+    role: 7月连续跌停扩散样本-深主板可交易
+  tags:
+  - 晋级率15.63%
+  - 首板68家
+  - 跌停11家
+  - 连续跌停
+  - 亏钱效应
+- id: claim-20260901-021-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: operation
+  subject: 金健米业强度不及神奇制药逆势板块降温
+  timeframe: short-term
+  statement: 盘前侧重点在于博弈已相当充分预期差不多，以及横向对比金健米业(600127)和8月27日神奇制药(600613)的强度把握逆势板块强弱。最后走势与推演基本一致：一边是指数低开高走，另一边金健米业(600127)的强度也远不及之前的神奇制药(600613)，整体热度下降明显。
+  evidence_quote: 金健米业的强度也远不及之前的神奇制药，整体热度下降明显。
+  interpretation: 金健米业(600127)vs神奇制药(600613)对照法得到验证：强度不及=逆势板块热度回落；逆势板块降温与指数走强同现，验证其温度计属性。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 金健米业弱于神奇制药逆势降温
+  related_stocks:
+  - code: '600127'
+    name: 金健米业
+    role: 逆势板块强度对照样本-沪主板可交易
+  - code: '600613'
+    name: 神奇制药
+    role: 逆势板块强度基准-沪主板可交易
+  tags:
+  - 金健米业
+  - 神奇制药
+  - 逆势板块
+  - 温度计
+  - 强度对照
+- id: claim-20260901-022-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: sector-theme
+  subject: 地产只作指数强弱验证指标不作主攻
+  timeframe: short-term
+  statement: 今天如果指数配合地产股存在一定的反包预期，一方面是这个方向比较新，另一方面是回落较多。但也正因为是地产股，所以预期很难给太高。个人判断地产更适合作为指数强弱的验证指标，而不是主攻方向。
+  evidence_quote: 地产更适合作为指数强弱的验证指标，而不是主攻方向。
+  interpretation: 地产反包有条件（指数配合）但定位降级：从事件驱动博弈降为指数验证指标；不给高预期是因为地产基本面仍左侧。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 地产只作指数验证指标
+  related_stocks: []
+  tags:
+  - 地产
+  - 反包预期
+  - 指数验证指标
+  - 主攻方向
+- id: claim-20260901-023-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: sector-theme
+  subject: AI长剧后西游记是逻辑后置新叙事
+  timeframe: short-term
+  statement: 8月31日芒果超媒(300413)出品的《后西游记》上线并登陆湖南卫视黄金档，是国内首部上星AI剧。AI视频属于典型的逻辑后置的新叙事——资金先介入叙事随后被命名，优点是新、位置低、有真实的内容侧催化，缺点是商业模式兑现仍在早期，需求端验证周期长于炒作周期，因此更适合按事件驱动的波段来做而不是按趋势来做。今天AI长剧方向若能展现出指向性，会让资金有集中发力的方向可做持续性；若不及预期则继续围绕新消息轮动炒作，只能做当日博弈。相关公司包括芒果超媒(300413)、欢瑞世纪(000892)等。
+  evidence_quote: AI视频属于典型的逻辑后置的新叙事——资金先介入，叙事随后被命名。它的优点是新、位置低、有真实的内容侧催化；缺点是商业模式的兑现仍在早期，需求端的验证周期长于炒作周期。
+  interpretation: AI长剧定性为逻辑后置新叙事：按事件驱动波段处理而非趋势；指向性出现=可做持续性，否则回到轮动博弈；两类操作难度完全不同。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI长剧是逻辑后置新叙事按波段做
+  related_stocks:
+  - code: '300413'
+    name: 芒果超媒
+    role: 后西游记出品方AI长剧核心-创业板不可交易
+  - code: '000892'
+    name: 欢瑞世纪
+    role: AI影视板块相关-深主板可交易
+  tags:
+  - 后西游记
+  - AI长剧
+  - 逻辑后置
+  - 事件驱动波段
+  - 芒果超媒
+- id: claim-20260901-024-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: catalyst
+  subject: AI应用服务商培育专项行动利好集成交付企业
+  timeframe: short-term
+  statement: 工信部开展人工智能应用服务商培育专项行动，到2026年底全国服务商资源池内数量突破2000家，到2027年底不少于3000家。这条线索的本质落在给AI应用卖铲子的基础设施环节而不是应用本身：政策给的是交付能力与合规资质门槛，谁能进资源池、谁具备集成交付能力才是后续订单分配依据；纯粹套壳AI功能的传统软件短期蹭情绪、中期会被大模型能力下沉侵蚀。相关公司包括易点天下(301171)（AIGC出海营销全流程解决方案）与泛微网络(603039)（腾讯战略投资，企业微信战略合作伙伴，AI产品矩阵）。
+  evidence_quote: 这条线索的本质仍然落在给AI应用卖铲子的基础设施环节，而不是应用本身。政策给的是交付能力与合规资质的门槛，谁能进资源池、谁具备集成交付能力，才是后续订单的分配依据。
+  interpretation: AI应用政策催化落到卖铲层：集成交付能力是订单分配依据，套壳软件中期被侵蚀；易点天下(301171)/泛微网络(603039)为受益标的但确定性靠集成交付资质。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI应用培育行动利好卖铲层
+  related_stocks:
+  - code: '301171'
+    name: 易点天下
+    role: AIGC出海营销全流程-创业板不可交易
+  - code: '603039'
+    name: 泛微网络
+    role: 腾讯战略投资AI办公-沪主板可交易
+  tags:
+  - AI应用服务商
+  - 资源池
+  - 集成交付
+  - 易点天下
+  - 泛微网络
+- id: claim-20260901-025-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: sector-theme
+  subject: 中国巨石电子布涨价15至20供不应求
+  timeframe: short-term
+  statement: 中国巨石(600176)正式上调9月份电子布价格，其中厚布涨价15%、薄布上涨20%；8月31日主流厂商电子布均价均在10元每米以上，平均价最高值为13.25元每米。当前电子布延续供不应求格局，中高端产品D、E系列细纱及布供不应求，产品结构调整缩减传统电子纱及电子布供应量，供需格局持续优化；预计2026年全年电子布企业业绩弹性凸显。相关公司国际复材(301526)（玻纤龙三，低介电布技术壁垒较高，受益AI服务器高频PCB需求）与山东玻纤(605006)（高模纱线产能12万吨，30万吨高性能玻纤项目二期预计2026年底投产）。
+  evidence_quote: 公司已正式上调9月份电子布价格，其中厚布涨价15%、薄布上涨20%。据卓创资讯数据，8月31日主流厂商电子布均价均在10元/米以上，平均价最高值为13.25元/米。
+  interpretation: 电子布提价15-20%是涨价链的硬证据，供需格局持续优化且业绩弹性2026全年兑现；国际复材(301526)/山东玻纤(605006)为受益标的，可与PMI价格分项互相印证。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 电子布涨价15至20供需优化
+  related_stocks:
+  - code: '600176'
+    name: 中国巨石
+    role: 电子布涨价核心-沪主板可交易
+  - code: '301526'
+    name: 国际复材
+    role: 玻纤龙三低介电布-创业板不可交易
+  - code: '605006'
+    name: 山东玻纤
+    role: 高模纱线扩产-沪主板可交易
+  tags:
+  - 中国巨石
+  - 电子布涨价
+  - 厚布15%
+  - 薄布20%
+  - 供不应求
+- id: claim-20260901-026-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: methodology
+  subject: 有提价与报表兑现的上游涨幅方向防御属性优
+  timeframe: permanent
+  statement: 在美债与油价压制估值的窗口里，有真实提价、有报表兑现路径的上游涨价方向防御属性优于纯题材。它与8月PMI投入价格分项升至三个月最高是同一条线索的两个侧面。需要跟踪的变量是提价能否被下游接受、以及订单是否同步放量，价格涨而量不增的涨价行情通常持续性有限。
+  evidence_quote: 有真实提价、有报表兑现路径的上游涨价方向，防御属性优于纯题材。需要跟踪的变量是提价能否被下游接受、以及订单是否同步放量，价格涨而量不增的涨价行情通常持续性有限。
+  interpretation: 逆风窗口的防御选择框架：真实提价+报表兑现>纯题材；持续性判据为下游接受度与订单放量，价涨量不增=证伪信号。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 上游涨价方向防御属性优于纯题材
+  related_stocks: []
+  tags:
+  - 上游涨价
+  - 报表兑现
+  - 防御属性
+  - 价涨量不增
+  - 订单放量
+- id: claim-20260901-027-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: catalyst
+  subject: 特斯拉CyberCab映射事件窗口做情绪
+  timeframe: short-term
+  statement: 特斯拉隔夜上涨5.51%，除了在更多市场推出平价版Model 3之外本周晚些时候的CyberCab活动也被视为催化因素，该活动完全依赖特斯拉FSD系统驾驶。A股相关公司包括浙江世宝(002703)、华阳国际(002949)等。这一类映射的特征是催化明确、时点明确但兑现路径最长，更适合在事件窗口前后做情绪而不是作为这一轮的主线仓位；真正需要跟踪的是CyberCab活动的实际内容以及国内智驾政策与订单是否出现同步变化。
+  evidence_quote: 这一类映射的特征是催化明确、时点明确，但兑现路径最长。它更适合在事件窗口前后做情绪，而不是作为这一轮的主线仓位。
+  interpretation: 特斯拉映射定位为事件窗口情绪票：催化时点明确但兑现远，不适合主线仓位；浙江世宝(002703)/华阳国际(002949)为映射标的。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 特斯拉CyberCab事件窗口做情绪
+  related_stocks:
+  - code: '002703'
+    name: 浙江世宝
+    role: 特斯拉映射智驾转向-深主板可交易
+  - code: '002949'
+    name: 华阳国际
+    role: 特斯拉映射相关-深主板可交易
+  tags:
+  - 特斯拉
+  - CyberCab
+  - FSD
+  - 事件窗口
+  - 浙江世宝
+- id: claim-20260901-028-a
+  source_path: sources/original/bilibili/2026-09-01-0859-专栏-今天是九月的第一个交易日，也是这一轮外围压力的第一次正式测试.md
+  source_date: '2026-09-01'
+  source_type: 复盘
+  extracted_at: '2026-09-01T09:20:00'
+  claim_type: methodology
+  subject: 不见量价确认不追与买阴不买阳两纪律
+  timeframe: permanent
+  statement: 两条纪律重申：第一不见量价确认不追，尤其是在4000点这种整数关口附近，右侧确认的成本远低于左侧猜顶猜底的代价；第二缺业绩承接的事件驱动方向急跌时不接飞刀，等关键均线支撑再谈参与，确定性较高的产业趋势方向则买阴不买阳，确定性决定敢不敢在阴线上接但不等于任何位置都能买。
+  evidence_quote: 不见量价确认不追，尤其是在4000点这种整数关口附近，右侧确认的成本远低于左侧猜顶猜底的代价。缺业绩承接的事件驱动方向急跌时不接飞刀，等关键均线支撑再谈参与。
+  interpretation: 两纪律的适用边界明确：整数关口只做右侧确认；事件驱动急跌不接飞刀（无业绩承接），产业趋势买阴不买阳（有确定性），确定性决定阴线承接资格。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量价确认与买阴不买阳两纪律
+  related_stocks: []
+  tags:
+  - 右侧确认
+  - 不接飞刀
+  - 买阴不买阳
+  - 4000点
+  - 量价
