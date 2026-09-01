@@ -9,6 +9,14 @@
 - wiki 新增 `knowledge/wiki/每日复盘/2026-09-01.md`（早盘复盘页面）；claims/index.md + wiki/index.md 已更新
 - 后续待办：discover 关系挖掘（新 claims 无 last_discovered）
 
+## 2026-09-01 | qing-learning ingest | 9/1 盘中动态提取：国家队控盘卡位+赌局纪律+高9失效预案（003）
+
+- 处理 raw：`sources/original/bilibili/2026-09-01-1042-图片-…（10:42 盘中）` 1篇
+- claim-20260901-003.yaml（5 条）：market-cycle×1（国家队控盘资金砸科技拉农业卡位），operation×2（非银金融卡位考虑/高9失效预案上午走弱下午不出钝化则回补），methodology×2（利润垫=上桌资格上桌要认输/模式交易价值容易赚时赚容易亏时少亏）
+- Gate2 假阳性 2 处追加 NON_COMPANY（时先砸高位科技/一些资金砸科技）
+- 与 claim-002（0910 高8动态）的操作预案形成闭环：0910给分步执行框架 → 1042给失效后的回补预案
+- 后续待办：discover 关系挖掘（新增 claims 无 last_discovered）
+
 ## 2026-08-28 | qing-learning ingest | 8/27 全天6篇动态提取：英伟达FY2028久期拉长+行政令双向映射+3932出手计划（001-006）
 
 - 处理 raw：`sources/original/bilibili/2026-08-27-*.md` 6篇（0846早盘专栏/0852行政令/1035行政令解析/1109种业仓位/1439加仓指令/2236晚盘复盘），全部已标 processed
