@@ -1,0 +1,535 @@
+claims:
+- id: claim-20260902-004-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: market-cycle
+  subject: 指数缩量阴线属于最后一踩
+  timeframe: short-term
+  statement: 9月2日三大指数集体低开、弱势震荡、跌幅逐步扩大、午后企稳未收回，全线收跌，仅北证50逆市走独立行情；量能较前一交易日明显萎缩。按栏目判断标准，缩量阴线属内生性回调而非外力扰动，是指数端本应出现的最后一踩，也是情绪周期由旧转新的切换节点。
+  evidence_quote: 据盘面，量能较前一交易日明显萎缩。缩量伴随指数调整，说明场外资金观望情绪浓厚、入场承接意愿不足，场内以存量腾挪为主——这不是恐慌性的多杀多，而是没人愿意在这个位置抬价。按本栏目一直沿用的判断标准，缩量阴线属于内生性回调，而非外力扰动，后续不必过度悲观。
+  interpretation: UP把今天定性为'最后一踩'的三个并列信号：①缩量（无恐慌多杀多）②内生性回调（非外力扰动）③北证50独立行情（资金未离场、只挪位置）。结论是后续不必过度悲观；这是
+    UP 的判断框架而非事实，需右侧确认。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 缩量阴线定性为内生性回调与最后一踩
+  related_stocks: []
+  tags:
+  - 缩量阴线
+  - 内生性回调
+  - 最后一踩
+  - 情绪切换
+  - market-cycle
+- id: claim-20260902-005-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: market-cycle
+  subject: 北证50逆市走独立行情表明存量高低切
+  timeframe: short-term
+  statement: 主板缩量调整的同时，北证50走出独立行情；小市值高弹性方向逆势活跃，是存量资金高低切换的典型形态——资金没有离场，只是在挪位置。
+  evidence_quote: 北证50的独立行情要放在同一个框架里读：主板缩量调整、小市值高弹性方向逆势活跃，本身就是存量资金高低切换的典型形态，说明资金没有离场，只是在挪位置。
+  interpretation: UP 把'北证50独立'作为'资金未离场'的同步证据，与缩量阴线互相印证。这一条和上一条（最后一踩）联合支撑'防御不必过度悲观'的方向结论。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 北证50独立行情解读为存量资金高低切
+  related_stocks: []
+  tags:
+  - 北证50
+  - 存量博弈
+  - 高低切换
+  - 小市值高弹性
+- id: claim-20260902-006-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: technical-signal
+  subject: 创业板指等待双底右侧确认
+  timeframe: short-term
+  statement: 创业板指仍在等待双底的确认；双底不需要预测、需要等待。右侧确认标准是：第二个低点不破前低、且出现量价配合的反弹；之前的任何低开都只是给耐心一个更好的价格。
+  evidence_quote: 结构上，创业板指仍在等待双底的确认。双底不需要预测，需要等待——右侧确认的标准很简单：第二个低点不破前低、且有量价配合的反弹出现，之前的任何低开都只是给耐心一个更好的价格。
+  interpretation: UP 在今天指数收跌、且 0920 盘中给的 KC50 区间下沿（1600-1606）仍未跌破前提下，把双底确认定义为可证伪的右侧信号（不破前低
+    + 量价反弹），避免在低点预判反转。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 创业板指双底等待右侧确认
+  related_stocks: []
+  tags:
+  - 创业板指
+  - 双底
+  - 右侧确认
+  - 量价配合
+- id: claim-20260902-007-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: market-cycle
+  subject: 本轮情绪周期进入尾部释放阶段
+  timeframe: short-term
+  statement: 短线情绪同步走弱：前期高位强势股多数调整、连板家数大幅减少。但本轮情绪周期已进入尾部释放阶段，高位风险逐步出清、低位品种开始轮动补涨；后面几天真正需要盯的不是跌停家数，而是市场风格是否切换——低位补涨能否形成新的接力面，决定新周期的起点。
+  evidence_quote: 据盘面，短线情绪同步走弱，前期高位强势股多数调整，连板家数大幅减少。……但整体来看，本轮情绪周期已进入尾部释放阶段，高位风险逐步出清，低位品种开始轮动补涨。个人判断，后面几天真正需要盯的不是跌停家数，而是市场风格是否切换——低位补涨能否形成新的接力面，决定的是新周期的起点在哪。
+  interpretation: UP 把'跌停家数'这一常见指标降权，转而把'低位补涨能否形成新接力面'作为新周期起点的更核心信号——这是关注点切换而非简单结论切换。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情绪周期进入尾部释放阶段与观察点切换
+  related_stocks: []
+  tags:
+  - 情绪周期
+  - 高位出清
+  - 低位补涨
+  - 新周期起点
+- id: claim-20260902-008-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: operation
+  subject: 一鸣食品开板前接力赔率差
+  timeframe: intraday
+  statement: 短线上在一鸣食品(605179)开板之前尽量以防守为主——龙头未开板意味着高位出清没有完成，此时接力的赔率并不好。
+  evidence_quote: 短线上在一鸣食品开板之前尽量以防守为主——龙头未开板意味着高位出清没有完成，此时接力的赔率并不好。
+  interpretation: UP 给出明确的短线纪律触发器：一鸣食品作为本轮龙头股，开板动作=高位出清完成的信号；未开板=接力赔率差。等待龙头开板比预判补涨的赔率更高。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 一鸣食品未开板期间的接力纪律
+  related_stocks:
+  - code: '605179'
+    name: 一鸣食品
+    role: 本轮龙头股-开板节奏决定高位出清
+  tags:
+  - 一鸣食品
+  - 龙头股
+  - 接力纪律
+  - 高位出清
+- id: claim-20260902-009-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: sector-theme
+  subject: 粮食种业进入主升后阶段性分歧
+  timeframe: short-term
+  statement: 昨天最强的粮食、种业今天大幅走弱，板块内多只个股跌停或大跌超9%；中期供给收紧逻辑没有被打破，只是短期进入阶段性调整、波动加大——这是主升过后正常的分歧。
+  evidence_quote: 昨天最强的粮食、种业今天大幅走弱，板块内多只个股跌停或大跌超9%——中期供给收紧的逻辑并没有被打破，只是短期进入阶段性调整、波动加大，这是主升过后正常的分歧。
+  interpretation: UP 区分'逻辑破灭 vs 主升后分歧'：粮食种业的中期供给收紧逻辑未变，短期走弱是节奏问题而非方向问题。这与今天 1003 盘中动态里'连板瞬间退潮'的情绪观察一致。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 粮食种业主升后分歧与逻辑未破
+  related_stocks: []
+  tags:
+  - 粮食
+  - 种业
+  - 主升后分歧
+  - 供给收紧
+- id: claim-20260902-010-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: sector-theme
+  subject: 军工补涨性质明显持续性可能偏弱
+  timeframe: short-term
+  statement: 军工今日涨幅居前，但补涨性质比较明显，持续性可能会稍微差一些。
+  evidence_quote: 军工今日涨幅居前，但补涨性质比较明显，持续性可能会稍微差一些。
+  interpretation: UP 把军工定位为'防御性品种轮动的最后一个补涨'，对持续性持保留——这是对今天军工涨幅的'克制解读'，避免追高情绪升温。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 军工补涨性质与持续性谨慎
+  related_stocks: []
+  tags:
+  - 军工
+  - 补涨
+  - 持续性谨慎
+- id: claim-20260902-011-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: market-cycle
+  subject: 防御钟摆摆到尽头高股息承压是变盘信号
+  timeframe: short-term
+  statement: 防御性品种已轮番经历医药、消费、有色、种业表现，现在轮到军工补涨，而贯穿全程的银行等高股息方向正面临压力位，煤炭已先跌一步。防御方向轮到最后一个补涨、同时领头的高股息碰到压力位——这本身就是变盘信号，防御的钟摆已经摆到了尽头。
+  evidence_quote: 防御方向轮到最后一个补涨、同时领头的高股息碰到压力位，这本身就是变盘信号——防御的钟摆已经摆到了尽头。
+  interpretation: UP 把'防御钟摆摆到尽头 + 高股息承压'作为变盘的方向性信号——这是把今天复盘与'最后一踩'判断串联起来的关键链条。从防御高位切向科技主攻的拐点信号。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 防御钟摆尽头与高股息承压的变盘意义
+  related_stocks:
+  - code: '601398'
+    name: 工商银行
+    role: 银行/高股息代表-压力位承压
+  - code: '601225'
+    name: 陕西煤业
+    role: 煤炭代表-今天先跌一步
+  tags:
+  - 防御钟摆
+  - 高股息承压
+  - 煤炭
+  - 银行
+  - 变盘信号
+- id: claim-20260902-012-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: sector-theme
+  subject: 液冷充当科技先锋并外溢至金刚石
+  timeframe: short-term
+  statement: 科技股依然承压，但盘中已开始逐步企稳回暖；液冷近期持续充当'先锋'作用，有望率先完成突破，今天甚至带动了金刚石分支走强——先锋方向能够外溢，本身就是资金愿意在科技内部做扩散的信号。
+  evidence_quote: 据盘面，科技股依然承压，但盘中已开始逐步企稳回暖。液冷近期持续充当「先锋」的作用，有望率先完成突破，今天甚至带动了金刚石分支走强——先锋方向能够外溢，本身就是资金愿意在科技内部做扩散的信号。
+  interpretation: UP 把'液冷外溢至金刚石'作为科技内部资金扩散的'先行指标'，这是今天复盘中观察新周期启动的关键微观证据。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 液冷先锋外溢作为科技内部扩散信号
+  related_stocks: []
+  tags:
+  - 液冷
+  - 金刚石
+  - 科技先锋
+  - 资金扩散
+- id: claim-20260902-013-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: sector-theme
+  subject: 科技止跌回升是市场重启上行的关键
+  timeframe: short-term
+  statement: 目前市场除了科技之外没有任何一个方向能够带动指数走强，昨天大金融已证明这一点。科技止跌回升是市场重启上行的关键信号；止跌的标准是有承接、而不是没抛压——这一点仍以存储与液冷两个最敏感的分支为观察点。
+  evidence_quote: 目前市场除了科技之外没有任何一个方向能够带动指数走强，昨天大金融已经证明了这一点。个人判断，科技的止跌回升是市场重启上行的关键信号，而止跌的标准是有承接、而不是没抛压——这一点仍以存储与液冷两个最敏感的分支为观察点。
+  interpretation: UP 把科技从'高弹性板块'升级为'重启上行的关键信号'，并把止跌标准从'无抛压'修订为'有承接'——是判断标准的修正而非简单多空表态。观察点锁定存储+液冷两个最敏感分支。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技止跌回升是市场重启关键与存储液冷观察点
+  related_stocks: []
+  tags:
+  - 存储
+  - 液冷
+  - 科技止跌
+  - 承接信号
+- id: claim-20260902-014-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: stock-view
+  subject: 集泰股份硅油定位为浸没式液冷追赶者
+  timeframe: short-term
+  statement: 集泰股份(002909) 在浸没式液冷冷却液环节定位为氟化液的主要追赶者：硅油因无毒无害、绝缘、成本及高导热/绝缘/化学稳定性等优势，被列为四大主流冷却液之一。公司已申请'烷基改性硅油单相浸没式冷却液'与'硅基离子复合冷却液'两项专利，均瞄准大型数据中心机柜浸没式液冷场景。
+  evidence_quote: 浸没式液冷技术中氟化液、硅油、合成油、再生变压器油为四大主流冷却液，硅油因无毒无害、绝缘、成本以及高导热性、高绝缘性和长期化学稳定性等优势，被定位为氟化液的主要追赶者。……两项均瞄准大型数据中心机柜的浸没式液冷场景，可延伸至中小型数据中心散热及储能领域。目前公司正推进液冷硅油产品从实验室到商业化应用前的验证阶段，现有产线已具备批量生产条件。
+  interpretation: UP 把集泰股份(002909)定位为'逻辑先于业绩的映射标的'——专利布局完整但商业化前验证阶段，参与节奏应跟随液冷板块整体的量价确认，而非单看专利消息。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 集泰股份硅油在浸没式液冷中的追赶者定位
+  related_stocks:
+  - code: '002909'
+    name: 集泰股份
+    role: 浸没式液冷硅油追赶者-逻辑先于业绩
+  tags:
+  - 集泰股份
+  - 硅油
+  - 浸没式液冷
+  - 专利布局
+- id: claim-20260902-015-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: stock-view
+  subject: 长飞光纤保偏光纤为CPO纯增量
+  timeframe: short-term
+  statement: 长飞光纤(601869) 在 CPO 架构下作为保偏光纤龙头被定位为'从无到有的纯增量环节'：单台CPO交换机保偏光纤用量达144根；据公司总裁在世界人工智能大会表述，未来1-2年保偏光纤需求将增长10倍乃至20倍；公司是国内唯一实现保偏光纤正式量产认证的企业，支持
+    NPO/CPO/可插拔光模块三大封装架构，英伟达(NVDA)/Marvell(MRVL) 采用其方案。
+  evidence_quote: 据方正证券基于英伟达Quantum-X CPO交换机设计方案的拆解分析，CPO架构下光引擎与交换芯片距离压缩至毫米级，传统单模光纤无法满足偏振态稳定性要求，保偏光纤凭借偏振保持能力成为CPO硅光时代的连接介质，单台CPO交换机保偏光纤用量达144根；……长飞光纤是国内保偏光纤龙头，总裁庄丹在2026世界人工智能大会上表示，受新一代高性能CPU与硅光光组件拉动，未来1-2年保偏光纤需求将增长10倍乃至20倍；公司是国内唯一实现保偏光纤正式量产认证的企业。
+  interpretation: UP 明确把光模块本体（偏制造/壁垒差/估值高/兑现不确定）与保偏光纤（增量/接近独供）分开评级——这正是 UP 一贯的'光通信链里愿意参与的少数类型'。时点上仍归入CPO板块的贝塔，不脱离板块单独定价。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 长飞光纤保偏光纤为CPO纯增量环节
+  related_stocks:
+  - code: '601869'
+    name: 长飞光纤
+    role: 保偏光纤龙头-CPO纯增量环节
+  tags:
+  - 长飞光纤
+  - 保偏光纤
+  - CPO
+  - 硅光
+  - 纯增量
+- id: claim-20260902-016-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: stock-view
+  subject: 小方制药脱发1.1类中药国内首个
+  timeframe: short-term
+  statement: 小方制药(603207) 与上海市皮肤病医院合作开发的1.1类中药'复方侧柏酊'源自医院多年临床应用的特色院内制剂，具有凉血行气、生发乌发的功效，对雄激素性脱发和斑秃均有疗效，有望成为国内首个脱发类中药制剂；目前项目正常推进，正联合博济医药开展相关研究。
+  evidence_quote: 国内脱发人群已超2.5亿，2026年中国毛发医疗服务市场预计达296.8亿元、防脱护发产品市场约191亿元，整体头发健康管理市场规模约800亿元。……与上海市皮肤病医院合作开发的1.1类中药「复方侧柏酊」源自医院多年临床应用的特色院内制剂，具有凉血行气、生发乌发的功效，对雄激素性脱发和斑秃均有疗效，有望成为国内首个脱发类中药制剂，目前项目正常推进，正联合博济医药开展相关研究。
+  interpretation: UP 把这条归入'防御补充里的医药与中药政策催化方向'，逻辑是消费属性强/患者基数大/中药治疗脱发的市场空白。但明确指出 1.1类中药研究到获批周期长，属中期跟踪项，不与今天情绪切换混为一谈。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 小方制药脱发1.1类中药与市场空白
+  related_stocks:
+  - code: '603207'
+    name: 小方制药
+    role: 脱发1.1类中药-中期跟踪项
+  tags:
+  - 小方制药
+  - 脱发
+  - 1.1类中药
+  - 复方侧柏酊
+- id: claim-20260902-017-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: macro
+  subject: 戴尔财报验证AI服务器需求加速
+  timeframe: short-term
+  statement: 9月2日戴尔科技盘前逆势上涨超8%；FY2027Q2营收约470亿美元同比增长58%创历史新高，非GAAP每股收益同比增长203%远超预期；其中AI优化服务器营收164亿美元同比增长约100%，AI服务器积压订单高达950亿美元。据美银证券研究报告，2026年全球服务器市场规模预计7560亿美元同比增长75%，其中AI服务器4957亿美元同比增长104%。
+  evidence_quote: 据媒体报道，9月2日戴尔科技盘前逆势上涨超8%。据公司财报，截至7月31日的2027财年第二季度营收约470亿美元，同比增长58%，创历史新高……AI优化服务器营收164亿美元，同比增长约100%，AI服务器积压订单高达950亿美元。据美银证券研究报告，2026年全球服务器市场规模预计达7560亿美元，同比增长75%，其中AI服务器市场规模预计达4957亿美元，同比增长104%。
+  interpretation: UP 强调'海外链的需求端仍在加速而非放缓，这是A股科技止跌最重要的外部条件之一'；但同时明确'需求真实不等于A股映射标的可以脱离量价确认'，重申海外链买阴不买阳的纪律。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 戴尔财报验证AI服务器需求加速
+  related_stocks:
+  - code: DELL
+    name: 戴尔科技
+    role: AI服务器财报验证-海外链
+  tags:
+  - 戴尔
+  - AI服务器
+  - 950亿积压订单
+  - 海外链加速
+- id: claim-20260902-018-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: sector-theme
+  subject: 浪潮信息国内液冷服务器连续多年第一
+  timeframe: short-term
+  statement: 浪潮信息(000977) 已构建涵盖全液冷冷板服务器、全液冷机柜、兆瓦级冷量分配单元、液冷智算算力仓、兆瓦级两相液冷整机柜等产品体系，连续多年位居中国液冷服务器市场第一；协创数据(300857)
+    已建立覆盖设备回收/无损拆解/故障检测/维修升级/整机装配与老化测试的技术体系，并持续推进高端AI服务器及核心部件再制造技术。
+  evidence_quote: 据公开信息，浪潮信息已构建涵盖全液冷冷板服务器、全液冷机柜、兆瓦级冷量分配单元、液冷智算算力仓、兆瓦级两相液冷整机柜等在内的产品体系，连续多年位居中国液冷服务器市场第一；协创数据已建立覆盖设备回收、无损拆解、故障检测、维修升级、整机装配与老化测试的技术和质量管理体系，并持续推进高端AI服务器及核心部件再制造技术。
+  interpretation: UP 把浪潮信息(000977)作为'国内液冷服务器'的格局确认标的，协创数据(300857)作为'AI服务器再制造'的工艺标的——这是对今天液冷主线下游延伸的产业跟踪补充。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 浪潮信息与协创数据在液冷/AI服务器的产业定位
+  related_stocks:
+  - code: '000977'
+    name: 浪潮信息
+    role: 中国液冷服务器市场第一
+  - code: '300857'
+    name: 协创数据
+    role: AI服务器再制造工艺标的-创业板不可交易
+  tags:
+  - 浪潮信息
+  - 协创数据
+  - 液冷服务器
+  - AI服务器再制造
+- id: claim-20260902-019-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: sector-theme
+  subject: 人形机器人十年叙事叠加2026出货量上修
+  timeframe: short-term
+  statement: 9月1日马斯克在G20相关会议上以视频方式发言，预估未来10年内全球人形机器人数量将超过10亿台，每台机器人产出至少是人类工作者的5倍；据摩根士丹利近期研报，2026年中国人形机器人出货量预测上调至5万台，较此前2.8万台近乎倍增。据中信建投，Figure
+    03进入宝马工厂，2026年有望成为人形机器人垂类应用大年。
+  evidence_quote: 据媒体报道，9月1日马斯克在美国北卡罗来纳州举行的G20相关会议上以视频方式发言，预估未来10年内全球人形机器人数量将超过10亿台，每台机器人的产出至少是人类工作者的5倍，其总生产力将高于全球人类生产力总和。据摩根士丹利近期研报，2026年中国人形机器人出货量预测上调至5万台，较此前2.8万台近乎倍增。
+  interpretation: UP 把马斯克的'十年级别'预测定位为叙事高度，短线定价真正跟踪的是'出货量上修'与'工业场景落地'两条可证伪的变量；并强调人形机器人是'AI应用是因、AI硬件是果'传导链的物理AI端。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 人形机器人十年叙事与2026出货量上修
+  related_stocks: []
+  tags:
+  - 人形机器人
+  - 马斯克
+  - 摩根士丹利
+  - 出货量上修
+  - 中信建投
+- id: claim-20260902-020-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: stock-view
+  subject: 铂力特与嘉立创在人形机器人零部件的工艺定位
+  timeframe: short-term
+  statement: 铂力特(688333) 与华力创科学合作，运用金属3D打印技术共同开发全球最小六维力传感器 Photon Finger、第二代光基多维力传感器
+    Photon Finger Max 及灵巧手精细力觉解决方案系列产品；嘉立创(001232) 作为智元机器人供应链A链的组成部分，从 EDA 设计/PCB
+    与 PCBA 交付到机械零部件智造提供多环节支持，逐际动力人形机器人采用其加速控制模块。
+  evidence_quote: 据公开信息，铂力特与华力创科学合作，运用金属3D打印技术共同开发了全球最小六维力传感器Photon Finger、第二代光基多维力传感器Photon
+    Finger Max及灵巧手精细力觉解决方案系列产品……嘉立创作为智元机器人供应链A链的组成部分，从EDA设计、PCB与PCBA交付到机械零部件智造提供多环节支持，逐际动力人形机器人采用嘉立创加速控制模块，从设计到制造、版本迭代测试实现一到两周闭环。
+  interpretation: UP 把铂力特定位为'人形机器人轻量化与复杂结构件规模化制造'的工艺支撑，嘉立创(001232)定位为'设计到制造快速闭环'的供应链支撑——是今天人形机器人叙事下可对标的产业链节点。注意：铂力特(688333)
+    与嘉立创(001232) 都是科创板/创业板，用户约束无法交易这两只个股。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 铂力特与嘉立创在人形机器人零部件工艺定位
+  related_stocks:
+  - code: '688333'
+    name: 铂力特
+    role: 金属3D打印-六维力传感器-科创板不可交易
+  - code: '001232'
+    name: 嘉立创
+    role: PCB与智造供应链-智元A链-主板可交易
+  tags:
+  - 铂力特
+  - 嘉立创
+  - 金属3D打印
+  - 六维力传感器
+  - PCB
+- id: claim-20260902-021-a
+  source_path: sources/raw/财经/2026-09-02-2204-复盘-今天这根阴线缩量阴线最后一踩.md
+  source_date: '2026-09-02'
+  source_type: 复盘
+  extracted_at: '2026-09-02T22:50:00'
+  claim_type: operation
+  subject: 明日盘面观察的三种应对节奏
+  timeframe: short-term
+  statement: 操作节奏上，龙头未开板、量能未回升之前以防守为主；若明日出现缩量横住+低位补涨扩散+科技先锋分支继续走强的组合，再考虑顺着新周期方向逐步参与；若放量下杀，则继续等待、不预测底部。
+  evidence_quote: 操作节奏上，在龙头未开板、量能未回升之前以防守为主；若明日出现缩量横住、低位补涨扩散、科技先锋分支继续走强的组合，再考虑顺着新周期的方向逐步参与；若放量下杀，则继续等待，不预测底部。
+  interpretation: UP 给出明确的三档应对：①防守等触发器（龙头开板+量能回升） ②左侧观察信号组合（缩量横住+低位补涨扩散+科技先锋走强）= 顺着新周期逐步参与
+    ③放量下杀= 继续等待不抄底。三种情形都给了可证伪的边界。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 明日操作节奏的三档应对
+  related_stocks: []
+  tags:
+  - 操作节奏
+  - 防守
+  - 右侧确认
+  - 放量下杀
+  - 三档应对
