@@ -21,11 +21,13 @@
 | [trading-rules.md](trading-rules.md) | 交易规则手册（接力方法论、尾盘套利法等操作纪律） | A/B |
 | [volume-quality-assessment.md](volume-quality-assessment.md) | 量能质量判断框架（三步判断法） | A |
 | [ai-business-model-falsification.md](ai-business-model-falsification.md) | AI商业模式证伪条件框架（控制变量法） | A |
+| [up-signal-credibility.md](up-signal-credibility.md) | UP 信号可信度档案（加减仓观点回测分层，Agent 消费规则） | A |
 
 ## 更新记录
 
 | 日期 | 更新内容 |
 |------|----------|
+| 2026-09-02 | 新增 `up-signal-credibility.md`（UP 加减仓信号回测分层：科技加仓5日命中64%/盈亏比1.88、减仓10日躲过67%、下跌初期左侧降权、非主战场方向降权）；完整报告见 `reports/claim-signal-backtest-20260902.md` |
 | 2026-08-22 | 泛化改造：market-cycle / market-breadth / trading-rules 中写死"科技"主线的判据改为"当前主线 + 当期实例"写法（具体板块名移至实例说明，数值阈值与历史案例不动）；已同步 `src/qing_investment/agent/prompts/system/market_analysis_framework.txt` 板块结构地图模板 |
 | 2026-08-22 | 复盘写入（methodology-review-20260822）：trading-rules 新增 5 章——急跌不接飞刀与买阴不买阳、量能档位与整数量能位、离场标准后移（右侧慢离场）、周末持仓成本、减仓节奏大涨大减；B 类新信号走提案制落 `proposals/` ×5 |
 | 2026-07-29 | 方法论复盘新增4个框架：量能质量判断、AI商业模式证伪条件、避险三件套模式识别、国产链vs海外链分野选股框架 |
