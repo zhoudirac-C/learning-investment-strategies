@@ -1,0 +1,91 @@
+claims:
+- id: claim-20260902-016-a
+  source_path: sources/original/bilibili/2026-09-02-1003-图片-连板瞬间退潮，所以不要光看见吃肉，还得看见挨打。
+    煤炭两天高.md
+  source_date: '2026-09-02'
+  source_type: 盘中动态
+  extracted_at: '2026-09-02T10:28:00+08:00'
+  claim_type: market-cycle
+  subject: 连板瞬间退潮与市场上下两难定调
+  timeframe: short-term
+  statement: 连板梯队瞬间退潮，提示不要光看见吃肉还得看见挨打；煤炭两天高开低走；整个市场跌不下去也拉不起来，处于上下两难的震荡状态
+  evidence_quote: 连板瞬间退潮，所以不要光看见吃肉，还得看见挨打。煤炭两天高开低走……整个市场跌不下去，也拉不起来，以至于今天抄底都没有多少能抄的
+  interpretation: 情绪面（连板退潮）与指数面（上下两难）同时确认市场进入弱平衡：短线打板盈亏比恶化，指数层面既无恐慌盘也无进攻盘，操作上从追逐转向等待回踩
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 连板退潮与市场上下两难
+  related_stocks: []
+  tags:
+  - 连板退潮
+  - 煤炭
+  - 高开低走
+  - 震荡
+- id: claim-20260902-017-a
+  source_path: sources/original/bilibili/2026-09-02-1003-图片-连板瞬间退潮，所以不要光看见吃肉，还得看见挨打。
+    煤炭两天高.md
+  source_date: '2026-09-02'
+  source_type: 盘中动态
+  extracted_at: '2026-09-02T10:28:00+08:00'
+  claim_type: methodology
+  subject: 震荡市大跌大买纪律与液冷做T
+  timeframe: short-term
+  statement: 市场跌不下去也拉不起来时，抄底没有多少能抄的，操作纪律是大跌大买、小跌小买；液冷在最近的进攻里主动性都很强，已站上趋势，可按整个周期做T，趋势结束才出来；涨起来别追、等回调
+  evidence_quote: 大跌大买，小跌小买就行了……液冷已经站上趋势了，所以点位不好判断，就按照整个周期去做，什么时候趋势结束，什么时候出来就行了。涨起来了别去追，等回调。
+  interpretation: 震荡市操作三段论：仓位动作由跌幅大小触发（非线性预测）；液冷分支做T不猜点位、以趋势终结为唯一退出信号；介入方式只接受回调不接受追高
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20260825-035-a
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 震荡市大跌大买纪律与液冷做T
+  related_stocks: []
+  tags:
+  - 大跌大买
+  - 做T
+  - 液冷
+  - 趋势跟踪
+  - 回调介入
+- id: claim-20260902-018-a
+  source_path: sources/original/bilibili/2026-09-02-1003-图片-连板瞬间退潮，所以不要光看见吃肉，还得看见挨打。
+    煤炭两天高.md
+  source_date: '2026-09-02'
+  source_type: 盘中动态
+  extracted_at: '2026-09-02T10:28:00+08:00'
+  claim_type: sector-theme
+  subject: 现阶段高股息避险无必要且石油不参与
+  timeframe: short-term
+  statement: 现阶段做高股息避险没什么必要，石油更不用参与——近年来凡是做石油的后果都很惨；煤炭两天高开低走印证高位板块兑现压力
+  evidence_quote: 现阶段高股息避险也没什么必要，石油更是不用参与，这边年来但凡是做石油的，后果都很惨。
+  interpretation: 对防御线的明确否定：市场上下两难但并未恶化到需要切高股息避险的程度；石油线基于历史盈亏记录直接排除，与7月30日'防御板块难成中期主线'判断一脉相承
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20260730-018
+  - claim-20260610-031-a
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高股息避险无必要与石油排除
+  related_stocks: []
+  tags:
+  - 高股息
+  - 石油
+  - 避险
+  - 煤炭
