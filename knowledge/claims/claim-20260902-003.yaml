@@ -14,8 +14,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260826-027-a", "claim-20260811-042"]
   contradicts: []
+  supplements: ["claim-20260818-044"]
+  last_discovered: 2026-09-02
   links:
     wiki_pages: []
     methodology_pages: []
@@ -44,8 +46,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements:
-  - claim-20260825-035-a
+  supplements: ["claim-20260526-023", "claim-20070614-001-c", "claim-20070621-001-c"]
+  last_discovered: 2026-09-02
   links:
     wiki_pages: []
     methodology_pages: []
@@ -75,9 +77,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements:
-  - claim-20260730-018
-  - claim-20260610-031-a
+  supplements: ["claim-20260730-018"]
+  last_discovered: 2026-09-02
   links:
     wiki_pages: []
     methodology_pages: []
