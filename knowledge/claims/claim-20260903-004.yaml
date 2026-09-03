@@ -1,0 +1,403 @@
+claims:
+- id: claim-20260903-023-a
+  source_path: sources/original/bilibili/2026-09-03-2210-专栏-今天是一根典型的“地量地价”修复K线。指数高开低走后宽幅震荡.md
+  source_date: '2026-09-03'
+  source_type: 复盘
+  extracted_at: '2026-09-03T22:30:00'
+  claim_type: market-cycle
+  subject: 两市成交创近阶段地量且指数下探回升
+  timeframe: intraday
+  statement: 今天两市成交较前一交易日明显萎缩，创下近阶段成交地量；缩量并未伴随指数深跌，反而走出下探回升走势——属于教科书式的'地量地价'修复信号。
+  evidence_quote: 两市成交较前一交易日明显萎缩，创下近阶段成交地量。缩量并未伴随指数深跌，反而走出下探回升走势。这属于教科书式的“地量地价”修复信号
+  interpretation: UP 把'地量+下探回升'组合定义为教科书式修复信号——增量资金未大规模进场，但存量资金已完成再平衡（高位品种风险集中出清与低位科技承接同步发生），为后续反弹奠定结构基础。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260825-033-a"]
+  contradicts: ["claim-20260122-001-a", "claim-20260818-039"]
+  supplements: []
+  last_discovered: 2026-09-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日地量地价修复信号
+  related_stocks: []
+  tags:
+  - 地量地价
+  - 修复信号
+  - 再平衡
+  - 存量资金
+- id: claim-20260903-024-a
+  source_path: sources/original/bilibili/2026-09-03-2210-专栏-今天是一根典型的“地量地价”修复K线。指数高开低走后宽幅震荡.md
+  source_date: '2026-09-03'
+  source_type: 复盘
+  extracted_at: '2026-09-03T22:30:00'
+  claim_type: market-cycle
+  subject: 本次调整定性为内生性回调非外力扰动
+  timeframe: short-term
+  statement: 这次调整的性质是内生性回调（高位风险出清与攻守轮动），并非外力扰动；半导体午后的被动跟跌更多是韩国关税情绪的联动，不是国内基本面出了问题。
+  evidence_quote: 指数层面是内生性回调（高位风险出清与攻守轮动），并非外力扰动；半导体午后的被动跟跌更多是韩国关税情绪的联动，不是国内基本面出了问题。
+  interpretation: UP 把本次回调性质明确为'内生性'——把外部事件（韩国半导体关税）的影响限定为情绪联动而非基本面冲击，从而区分本次调整与外力扰动型下跌的应对策略差异。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260901-043-a", "claim-20260824-003-c", "claim-20260706-003-b"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 调整性质定性：内生性回调
+  related_stocks: []
+  tags:
+  - 内生性回调
+  - 攻守轮动
+  - 韩国关税
+  - 半导体联动
+- id: claim-20260903-025-a
+  source_path: sources/original/bilibili/2026-09-03-2210-专栏-今天是一根典型的“地量地价”修复K线。指数高开低走后宽幅震荡.md
+  source_date: '2026-09-03'
+  source_type: 复盘
+  extracted_at: '2026-09-03T22:30:00'
+  claim_type: methodology
+  subject: 确认底部与确认走强是两件事
+  timeframe: permanent
+  statement: 地量确认的'底部区间'与'确认走强'是两件事——后者必须见到量能放大。
+  evidence_quote: 内生性回调的底部区间已经由地量确认，但“确认底部”与“确认走强”是两件事——后者必须见到量能放大。
+  interpretation: UP 把'底部确认'与'走强确认'显式拆分为两个不同强度的判断——地量只解决前者，后者必须量能配合。这是把'地量见底'这一常见误读精确化的方法论。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260324-001-a", "claim-20260624-002-c", "claim-20260806-020"]
+  last_discovered: 2026-09-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 底部确认与走强确认分离
+  related_stocks: []
+  tags:
+  - 底部确认
+  - 走强确认
+  - 量能配合
+  - 方法论
+- id: claim-20260903-026-a
+  source_path: sources/original/bilibili/2026-09-03-2210-专栏-今天是一根典型的“地量地价”修复K线。指数高开低走后宽幅震荡.md
+  source_date: '2026-09-03'
+  source_type: 复盘
+  extracted_at: '2026-09-03T22:30:00'
+  claim_type: market-cycle
+  subject: 明天大概率迎来短线情绪冰点
+  timeframe: intraday
+  statement: 受高位风险集中出清拖累，今天整体偏弱；明天大概率迎来短线情绪的冰点，标志性观察点是一鸣食品(605179)是否开板。
+  evidence_quote: 短线情绪方面，受高位风险集中出清拖累，今天整体偏弱。明天大概率迎来短线情绪的冰点，标志性观察点是一鸣食品(605179)是否开板
+  interpretation: UP 把'一鸣食品(605179)是否开板'作为明天短线情绪冰点的标志性观察点——高位标开板兑现=最后一跌完成=新周期酝酿起点。这是用单一龙头股行为作为情绪周期相位锚的具体应用。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: ["claim-20260703-001-d", "claim-20260824-003-b"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 明天情绪冰点与一鸣食品锚点
+  related_stocks:
+  - code: '605179'
+    name: 一鸣食品
+    role: 高位标的-情绪冰点锚点-沪A主板可交易
+  tags:
+  - 情绪冰点
+  - 一鸣食品
+  - 高位标的
+  - 新周期酝酿
+  - 9月4日展望
+- id: claim-20260903-027-a
+  source_path: sources/original/bilibili/2026-09-03-2210-专栏-今天是一根典型的“地量地价”修复K线。指数高开低走后宽幅震荡.md
+  source_date: '2026-09-03'
+  source_type: 复盘
+  extracted_at: '2026-09-03T22:30:00'
+  claim_type: methodology
+  subject: 冰点之后重点观察风格切换而非抢筹
+  timeframe: intraday
+  statement: 冰点之后，重点不是急于抢筹，而是观察风格是否发生变化——继续由科技主攻，还是重新切回低位补涨。
+  evidence_quote: 冰点之后，重点不是急于抢筹，而是观察风格是否发生变化——继续由科技主攻，还是重新切回低位补涨。
+  interpretation: UP 把'冰点后行为'明确为'观察风格切换'而非'抢筹'——冰点是情绪周期相位转换点，下一个周期的主线（科技主攻 vs 低位补涨）必须待切换信号确认。这是把抢筹冲动与观察纪律显式分离的方法论。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260604-004-c", "claim-20260426-004", "claim-20260803-042"]
+  last_discovered: 2026-09-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 冰点后观察风格切换而非抢筹
+  related_stocks: []
+  tags:
+  - 冰点
+  - 风格切换
+  - 科技主攻
+  - 低位补涨
+  - 观察纪律
+- id: claim-20260903-028-a
+  source_path: sources/original/bilibili/2026-09-03-2210-专栏-今天是一根典型的“地量地价”修复K线。指数高开低走后宽幅震荡.md
+  source_date: '2026-09-03'
+  source_type: 复盘
+  extracted_at: '2026-09-03T22:30:00'
+  claim_type: market-cycle
+  subject: 情形A地量基础上温和回升且科技扩散面打开
+  timeframe: short-term
+  statement: 情形A：量能在地量基础上温和回升，科技扩散面打开（液冷之外的光通信、PCB、存储、设备同步放量），则今天的下探回升升级为反弹起点，指数有望向上修复整理区间。
+  evidence_quote: 情形A：量能在地量基础上温和回升，科技扩散面打开（液冷之外的光通信、PCB、存储、设备同步放量），则今天的下探回升升级为反弹起点
+  interpretation: UP 给出反弹行情启动的双条件——量能温和回升+科技扩散面打开（液冷独强不够），二者同时满足才把今天的下探回升升级为反弹起点。这是把'科技强度'细化为'扩散面而非单一赛道'的具体化判断。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260803-042", "claim-20260629-001-ab", "claim-20260713-009-i"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形A：量能配合+扩散面启动反弹
+  related_stocks: []
+  tags:
+  - 情形A
+  - 科技扩散
+  - 光通信
+  - PCB
+  - 存储
+  - 半导体设备
+  - 反弹起点
+- id: claim-20260903-029-a
+  source_path: sources/original/bilibili/2026-09-03-2210-专栏-今天是一根典型的“地量地价”修复K线。指数高开低走后宽幅震荡.md
+  source_date: '2026-09-03'
+  source_type: 复盘
+  extracted_at: '2026-09-03T22:30:00'
+  claim_type: market-cycle
+  subject: 情形B液冷独强量能继续萎缩则为窄幅震荡
+  timeframe: short-term
+  statement: 情形B：量能继续萎缩、科技仅液冷一线独强，则指数维持底部区间的窄幅震荡，反弹高度有限，需要更多时间消化。
+  evidence_quote: 情形B：量能继续萎缩、科技仅液冷一线独强，则指数维持底部区间的窄幅震荡，反弹高度有限，需要更多时间消化。
+  interpretation: UP 把'液冷独强+量能萎缩'明确定义为反弹失败的窄幅震荡情形——明确否定单一赛道强势=行情延续的误读，并把'更多时间消化'作为对应该情形的耐心要求。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260531-002-a", "claim-20260903-013-a"]
+  last_discovered: 2026-09-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形B：液冷独强+量能萎缩=窄幅震荡
+  related_stocks: []
+  tags:
+  - 情形B
+  - 液冷独强
+  - 窄幅震荡
+  - 量能萎缩
+- id: claim-20260903-030-a
+  source_path: sources/original/bilibili/2026-09-03-2210-专栏-今天是一根典型的“地量地价”修复K线。指数高开低走后宽幅震荡.md
+  source_date: '2026-09-03'
+  source_type: 复盘
+  extracted_at: '2026-09-03T22:30:00'
+  claim_type: operation
+  subject: 不见量价配合不加仓作为右侧确认标准
+  timeframe: permanent
+  statement: 两种情形之下，右侧确认的标准不变：不见量价配合不加仓。
+  evidence_quote: 两种情形之下，右侧确认的标准不变：不见量价配合不加仓。
+  interpretation: UP 把'量价配合'显式定为右侧加仓的统一门槛——无论行情走情形A还是情形B，加仓触发条件一致。这是把'情形化推演'与'操作纪律'分离的纪律优先原则。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260729-035"]
+  contradicts: []
+  supplements: ["claim-20260901-028-a", "claim-20260610-037-a"]
+  last_discovered: 2026-09-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 操作纪律：不见量价配合不加仓
+  related_stocks: []
+  tags:
+  - 量价配合
+  - 右侧确认
+  - 加仓纪律
+- id: claim-20260903-031-a
+  source_path: sources/original/bilibili/2026-09-03-2210-专栏-今天是一根典型的“地量地价”修复K线。指数高开低走后宽幅震荡.md
+  source_date: '2026-09-03'
+  source_type: 复盘
+  extracted_at: '2026-09-03T22:30:00'
+  claim_type: market-cycle
+  subject: 攻守转换从红利防御转向进攻性科技
+  timeframe: intraday
+  statement: 今天攻守转换：防御性品种在昨天军工等边缘品种补涨后进入尾声，今天以银行为首的红利股午后加速回落；资金开始转向科技等进攻性品种——防御端边缘品种的补涨往往是防御行情进入尾声的信号。
+  evidence_quote: 今天的核心变化是攻守转换。防御性品种在昨天出现军工等边缘品种的轮动补涨后开始进入尾声，今天以银行为首的红利股在午后加速回落；资金开始转向科技等进攻性品种。
+  interpretation: UP 把'防御端边缘品种补涨+红利股午后回落'组合明确定义为防御尾声+攻守转换的同步信号——这是把'补涨=主力题材已涨过'的隐含逻辑显化为可观察的同步现象。尾盘飞龙股份(002536)、黄河旋风(600172)炸板是短期攻守拉锯但方向不变。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260824-003-e"]
+  contradicts: ["claim-20260818-058"]
+  supplements: ["claim-20260827-061-x"]
+  last_discovered: 2026-09-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 攻守转换：红利防御尾声转向科技进攻
+  related_stocks:
+  - code: '002536'
+    name: 飞龙股份
+    role: 辨识度个股-尾盘炸板-深A主板可交易
+  - code: '600172'
+    name: 黄河旋风
+    role: 辨识度个股-尾盘炸板-沪A主板可交易
+  tags:
+  - 攻守转换
+  - 红利回落
+  - 边缘补涨
+  - 炸板
+  - 飞龙股份
+  - 黄河旋风
+  - 防御尾声
+- id: claim-20260903-032-a
+  source_path: sources/original/bilibili/2026-09-03-2210-专栏-今天是一根典型的“地量地价”修复K线。指数高开低走后宽幅震荡.md
+  source_date: '2026-09-03'
+  source_type: 复盘
+  extracted_at: '2026-09-03T22:30:00'
+  claim_type: sector-theme
+  subject: 液冷成为本轮科技修复核心突破口
+  timeframe: short-term
+  statement: 液冷散热板块全天领涨两市，板块内多只个股涨停，成为本轮科技修复的核心突破口；从产业层面看，下一代高功率算力集群对液冷的需求已从'可选项'变为'必选项'，行业订单加速落地，业绩确定性显著高于其他科技细分。
+  evidence_quote: 液冷散热板块全天领涨两市，板块内多只个股涨停，成为本轮科技修复的核心突破口。从产业层面看，下一代高功率算力集群对液冷的需求已从“可选项”变为“必选项”
+  interpretation: UP 把液冷定位为'本轮科技修复的核心突破口'——背后是产业逻辑（高功率算力对液冷从可选项变必选项）而非纯情绪催化；这是9/2
+    晚间'液冷=科技止跌观察点'判断在9/3 走势上的兑现确认。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260826-008-a"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 液冷成为科技修复核心突破口
+  related_stocks: []
+  tags:
+  - 液冷
+  - 高功率算力
+  - 科技修复核心
+  - 必选项
+- id: claim-20260903-033-a
+  source_path: sources/original/bilibili/2026-09-03-2210-专栏-今天是一根典型的“地量地价”修复K线。指数高开低走后宽幅震荡.md
+  source_date: '2026-09-03'
+  source_type: 复盘
+  extracted_at: '2026-09-03T22:30:00'
+  claim_type: sector-theme
+  subject: 液冷板块扩散至上下游形成板块效应
+  timeframe: short-term
+  statement: 液冷板块行情沿产业链快速扩散，从液冷板延伸至冷却液、屏蔽泵、金刚石散热材料等上下游细分，形成完整的板块效应。
+  evidence_quote: 行情沿产业链快速扩散，从液冷板延伸至冷却液、屏蔽泵、金刚石散热材料等上下游细分，形成完整的板块效应。
+  interpretation: UP 把液冷板块的扩散结构具象化——从'液冷板'这一中游环节向'冷却液/屏蔽泵/金刚石散热材料'等上下游同步延伸，形成产业链级的板块效应，而非孤立的中游标的行情。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260816-010", "claim-20260624-001-g", "claim-20260630-003-an"]
+  last_discovered: 2026-09-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 液冷板块产业链扩散形成板块效应
+  related_stocks: []
+  tags:
+  - 液冷板
+  - 冷却液
+  - 屏蔽泵
+  - 金刚石散热
+  - 板块效应
+  - 产业链扩散
+- id: claim-20260903-034-a
+  source_path: sources/original/bilibili/2026-09-03-2210-专栏-今天是一根典型的“地量地价”修复K线。指数高开低走后宽幅震荡.md
+  source_date: '2026-09-03'
+  source_type: 复盘
+  extracted_at: '2026-09-03T22:30:00'
+  claim_type: sector-theme
+  subject: 科技扩散效应是判断修复级别的第二变量
+  timeframe: short-term
+  statement: 受液冷带动，光通信、PCB、存储、半导体设备等算力硬件细分同步回暖，但受制于量能，整体强度一般；若后续只有液冷单一赛道强势，行情高度有限——科技板块的扩散效应是判断这轮修复级别的第二个核心变量。
+  evidence_quote: 若后续只有液冷单一赛道强势，行情高度有限；科技板块的扩散效应是判断这轮修复级别的第二个核心变量。
+  interpretation: UP 把'科技扩散面'明确为继量能之后的第二个修复级别判断变量——单一赛道（液冷独强）= 行情高度有限；多赛道（液冷+光通信/PCB/存储/设备）同步回暖=
+    行情高度可期。这是把'科技内部跷跷板/扩散'具体化为修复级别尺度的判断工具。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260803-042", "claim-20260629-001-ab", "claim-20260816-008"]
+  last_discovered: 2026-09-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技扩散效应为修复级别第二变量
+  related_stocks: []
+  tags:
+  - 科技扩散
+  - 光通信
+  - PCB
+  - 存储
+  - 半导体设备
+  - 修复级别
+- id: claim-20260903-035-a
+  source_path: sources/original/bilibili/2026-09-03-2210-专栏-今天是一根典型的“地量地价”修复K线。指数高开低走后宽幅震荡.md
+  source_date: '2026-09-03'
+  source_type: 复盘
+  extracted_at: '2026-09-03T22:30:00'
+  claim_type: methodology
+  subject: 低位事件驱动机会需量价配合再参与
+  timeframe: short-term
+  statement: 事件驱动型机会（AI编程、AI应用、传媒影视、无人驾驶、人形机器人）今天零星活跃，但这些方向暂时属于低位事件驱动的波段性机会，缺乏承接量能时不宜追高，等待催化与量能同时出现再谈参与。
+  evidence_quote: 这些方向暂时属于低位事件驱动的波段性机会，缺乏承接量能时不宜追高，等待催化与量能同时出现再谈参与。
+  interpretation: UP 把'低位事件驱动机会'的参与门槛精确化为'催化+量能同时出现'——单一事件催化不够，必须量价配合才算进入。这是把'看到事件就追'的常见冲动转化为'双条件同时成立'的纪律门槛。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260811-046", "claim-20260614-002-b"]
+  last_discovered: 2026-09-03
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 低位事件驱动机会需量价配合
+  related_stocks: []
+  tags:
+  - AI编程
+  - AI应用
+  - 传媒影视
+  - 无人驾驶
+  - 人形机器人
+  - 事件驱动
+  - 催化+量能
