@@ -207,3 +207,72 @@ class TestTick(TickCase):
         assert summary2["llm_errors"] == 0
         assert ProcessedItemsDB(self.dir / "processed_items.db").get(
             "AP001")["llm_verdict"] == "confirmed"
+
+
+def _evolving(messages, **kw):
+    """unchanged + 附带 add_node 演化提案（两条链共用同一 fake）。"""
+    return json.dumps({
+        "step1_verification": {"verified": True, "confidence": "中"},
+        "step5_recommendation": {"stage_change": "unchanged",
+                                 "new_stage": "阶段2-加速期", "timing": "", "action": ""},
+        "verdict": "strengthening", "summary": "有结构性增量",
+        "logic_update": {"change_type": "add_node", "summary": "新增玻璃布供给节点",
+                         "detail": {"metric": {"metric": "玻璃布Q-Glass供给",
+                                               "current": "Nittobo主导",
+                                               "signal_direction": "大陆切入=加强"}},
+                         "rationale": "深度报告给出国产切入证据", "confidence": "中"},
+    }, ensure_ascii=False)
+
+
+class TestEvolutionProposals(TickCase):
+    def _pending(self) -> list:
+        path = self.tracking / "evolution_pending.json"
+        return json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+
+    def test_logic_update_lands_pending_report_audit(self):
+        summary = run_tick(call_fn=_evolving, **self.kw)
+        assert summary["changes"] == []          # 阶段不变
+        assert len(summary["evolution_proposals"]) == 2  # 两条链各一条提案
+        pending = self._pending()
+        assert {p["chain_id"] for p in pending} == {"test-chain-a", "copper-aluminum"}
+        pa = next(p for p in pending if p["chain_id"] == "test-chain-a")
+        assert pa["proposal_id"] == "test-chain-a:add_node:玻璃布Q-Glass供给"
+        assert pa["source_info_ids"] == ["AP001"]
+        assert [e["info_id"] for e in pa["evidence"]] == ["AP001"]
+        # 无阶段变化但有演化提案 → 日报写演化附节
+        report = (self.tracking / f"daily_report_{DATE}.md").read_text(encoding="utf-8")
+        assert "演化提案" in report
+        assert "test-chain-a:add_node:玻璃布Q-Glass供给" in report
+        # 日产出审计
+        audit = json.loads(
+            (self.tracking / f"evolution_{DATE}.json").read_text(encoding="utf-8"))
+        assert len(audit) == 2
+        # tick 日志带 evolution 字段
+        tick = json.loads(
+            (self.tracking / "ticks.jsonl").read_text(encoding="utf-8").strip())
+        assert set(tick["evolution"]) == {p["proposal_id"] for p in pending}
+
+    def test_second_run_no_duplicate(self):
+        run_tick(call_fn=_evolving, **self.kw)
+        summary2 = run_tick(call_fn=_evolving, **self.kw)
+        assert summary2["new_items"] == 0      # 去重 DB 拦截
+        assert summary2["evolution_proposals"] == []
+        assert len(self._pending()) == 2       # 不重复占位
+
+    def test_irrelevant_drops_logic_update(self):
+        def call_fn(messages, **kw):
+            out = json.loads(_evolving(messages))
+            out["verdict"] = "irrelevant"
+            return json.dumps(out, ensure_ascii=False)
+
+        summary = run_tick(call_fn=call_fn, **self.kw)
+        assert summary["evolution_proposals"] == []
+        assert self._pending() == []
+        assert not (self.tracking / f"daily_report_{DATE}.md").exists()
+
+    def test_dry_run_preview_no_writes(self):
+        summary = run_tick(dry_run=True, call_fn=_evolving, **self.kw)
+        assert len(summary["evolution_proposals"]) == 2  # 预览可见
+        assert self._pending() == []                      # 但不落账
+        assert not (self.tracking / f"evolution_{DATE}.json").exists()
+        assert not (self.tracking / f"daily_report_{DATE}.md").exists()

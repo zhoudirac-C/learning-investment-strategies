@@ -43,6 +43,11 @@ mappings:
   segment: seg-mod
   relation: 组件二线
   elasticity: elastic
+- code: '600438'
+  name: 通威股份
+  segment: seg-si
+  relation: 硅料龙头，直接受益于去库与价格修复
+  elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 中
 stage_evidence: 组件价格低位企稳但未回升；反内卷政策预期强但落地待验证；超跌反弹已部分兑现
@@ -55,9 +60,17 @@ tracking_metrics:
   current: 低位
   signal_direction: 企稳回升=确认
   source: 研报/渠道
+- metric: 硅料库存/现金流
+  current: 去库明显、现金流转正
+  signal_direction: 好转
 falsification:
 - 组件价格再创新低
 - 反内卷政策落空
 - 大盘系统性破位下行
 - 光伏板块核心标的（隆基）反弹后持续缩量
 chain_relations: []
+history:
+- date: '2026-09-02'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增上游硅料龙头通威股份及硅料去库跟踪指标。
+  result: 待验证

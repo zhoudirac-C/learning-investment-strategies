@@ -65,6 +65,11 @@ mappings:
   segment: seg-device
   relation: MPO连接器，Scale-up无源弹性环节
   elasticity: core
+- code: '300757'
+  name: 罗博特科
+  segment: seg-module
+  relation: CPO/光电子封装测试设备（ficonTEC），服务中游CPO量产的设备环节，为'CPO量产→加仓'触发下的先导标的
+  elasticity: concept
 current_stage: 阶段2-加速期
 stage_confidence: 高
 stage_evidence: 2026-08-28 跟踪更新：数据中心与芯片订单增长及液冷放量，确认AI基建需求，产业链逻辑加强。
@@ -89,6 +94,12 @@ tracking_metrics:
   current: 25G以下60%
   signal_direction: 提升=加强
   source: 研报
+- metric: CPO封装/测试设备订单与交付进度
+  current: 华鑫点评罗博特科：CPO产业化加速落地，OCS与可插拔多线发力
+  signal_direction: 设备订单放量→CPO量产前导=加强
+- metric: NPO/2.4T新品量产进度
+  current: 蓄势待发（预研/推进中）
+  signal_direction: 送样或量产落地=加强
 falsification:
 - 800G/1.6T出货量低于预期连续2个季度
 - CSP资本开支缩减，AI基建投资放缓
@@ -105,4 +116,12 @@ history:
 - date: '2026-08-28'
   stage: 阶段2-加速期
   action: 持有/加仓
+  result: 待验证
+- date: '2026-09-02'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增跟踪节点：CPO封装设备订单（罗博特科/ficonTEC），量产前导指标
+  result: 待验证
+- date: '2026-09-02'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增NPO/2.4T下一代产品跟踪节点
   result: 待验证

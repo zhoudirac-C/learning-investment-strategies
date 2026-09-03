@@ -1,0 +1,31 @@
+chain_id: polyester-fiber
+name: 涤纶长丝产业链
+thesis: 涤纶长丝是纺织行业基础原料。随着供需关系改善，行业盈利能力修复，中游长丝企业迎来业绩拐点。
+last_verified: '2026-09-02'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 原油
+  - PTA
+  - MEG
+- id: midstream
+  name: 中游
+  materials:
+  - PTA
+  - MEG
+- id: downstream
+  name: 下游
+  materials:
+  - 涤纶长丝
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-08-28，LLM 初判 阶段1-启动期（二季度盈利大幅改善，涤纶长丝供需边际向好），积累证据
+  9 条
+timing:
+  current_recommendation: 做中游长丝
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

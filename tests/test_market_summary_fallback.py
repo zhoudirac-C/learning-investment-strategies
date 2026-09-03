@@ -108,6 +108,16 @@ class TestMarketSummaryFallback:
         assert result["market_phase"] == "回暖期"
         assert "_fallback_reason" not in result
 
+    def test_missing_phase_reasoning_not_filled_with_sentinel(self, monkeypatch, patched):
+        """LLM 成功但省略 phase_reasoning 时，不得用 fallback 哨兵串填充——
+        该字段会持久化进 daily_state.market_stage.detail（2026-08-31 曾因此
+        把 "LLM未返回结果或API未配置" 当作真实推理写入）。"""
+        monkeypatch.setattr(nodes, "_safe_llm_invoke",
+                            lambda prompt, **kw: '{"market_phase": "震荡", "main_themes": []}')
+        result = nodes.market_summary(_state())["market_summary_context"]
+        assert result["market_phase"] == "震荡"
+        assert result["phase_reasoning"] == ""
+
     def test_prompt_too_large_path(self, monkeypatch, patched):
         monkeypatch.setattr(nodes, "_MAX_MARKET_SUMMARY_PROMPT_BYTES", 1)
         out = nodes.market_summary(_state())

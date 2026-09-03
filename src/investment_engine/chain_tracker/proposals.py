@@ -66,11 +66,16 @@ def upsert_pending(new_proposals: list[dict], *, path: Path | str | None = None,
 
 
 def append_daily_audit(tracking_dir: Path | str, date: str,
-                       proposals: list[dict], *, tick_label: str) -> Path | None:
-    """日产出审计：proposals_<date>.json，同日内多次 tick 合并；空则静默。"""
+                       proposals: list[dict], *, tick_label: str,
+                       prefix: str = "proposals") -> Path | None:
+    """日产出审计：<prefix>_<date>.json，同日内多次 tick 合并；空则静默。
+
+    prefix 默认 proposals（发现引擎）；演化提案传 "evolution"
+    （evolution.append_evolution_audit）。
+    """
     if not proposals:
         return None
-    path = Path(tracking_dir) / f"proposals_{date}.json"
+    path = Path(tracking_dir) / f"{prefix}_{date}.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     existing = []
     if path.exists():

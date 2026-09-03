@@ -1,0 +1,29 @@
+chain_id: outdoor-apparel
+name: 户外运动服饰产业链
+thesis: 户外参与人群扩容驱动服饰装备需求高增，防水透气等功能性面料技术升级提升附加值，上游面料—中游代工—下游品牌全链条受益，国产品牌份额持续提升。
+last_verified: '2026-09-02'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 锦纶/氨纶等功能性纤维
+  - 防水透气膜
+  - 羽绒及面料
+- id: midstream
+  name: 中游
+  materials:
+  - OEM/ODM代工
+- id: downstream
+  name: 下游
+  materials: []
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-08-31，LLM 初判 阶段1-启动期（万联证券《户外运动服饰行业深度报告：户外运动服饰赛道景气上行，关注国产优质品牌崛起》），积累证据
+  8 条
+timing:
+  current_recommendation: 关注品牌端景气兑现与高附加值功能性面料供应商；代工端观察订单与产能利用率持续性
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

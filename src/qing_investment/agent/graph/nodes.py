@@ -1813,7 +1813,9 @@ def market_summary(state: AgentState) -> AgentState:
     fallback = {
         "market_summary": "",
         "market_phase": "未配置",
-        "phase_reasoning": "LLM未返回结果或API未配置",
+        # 空串而非哨兵文案：LLM 成功但省略该字段时会从此 dict 补齐，
+        # 并持久化进 daily_state.market_stage.detail（哨兵串会伪装成真实推理）
+        "phase_reasoning": "",
         "main_themes": [],
         "sector_map": {},
         "themes_in_focus": [],

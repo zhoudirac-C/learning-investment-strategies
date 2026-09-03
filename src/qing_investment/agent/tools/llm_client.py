@@ -168,7 +168,71 @@ LLM_PROVIDERS: dict[str, dict[str, Any]] = {
         "default_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
         "api_key_env": "TOGETHER_API_KEY",
     },
+    # 2026-09-03：discover 改用 Hermes 全局模型（跟随 ~/.hermes/config.yaml 的
+    # model.default，与 cron 调度器、chain_tracker 走同一个 resolve_runtime_provider）。
+    # base_url/api_key/default_model 留空——运行时由 _resolve_hermes_global() 注入；
+    # 解析失败（非 Hermes 环境/Hermes 配置缺失）→ 降级到 .env 主通道。
+    "hermes_global": {
+        "base_url": None,
+        "default_model": None,
+        "api_key_env": None,
+        "_dynamic": True,
+    },
 }
+
+
+# Hermes 全局解析缓存（进程内只解析一次，配置漂移由下次 tick 感知——与 chain_tracker 同语义）
+_HERMES_GLOBAL_CACHE: dict | None = None
+_HERMES_GLOBAL_TRIED: bool = False
+
+
+def _resolve_hermes_global() -> dict | None:
+    """解析 Hermes 全局模型配置，返回 {api_key, base_url, model, source}。
+
+    实现移植自 src/investment_engine/chain_tracker/analysis._hermes_global()，
+    与 cron 调度器、chain_tracker 走同一个 resolve_runtime_provider()。
+    非 Hermes 环境或解析失败 → 返回 None（调用方降级到 .env 主通道）。
+
+    Returns:
+        {"api_key": str, "base_url": str, "model": str, "source": str} 或 None
+    """
+    global _HERMES_GLOBAL_CACHE, _HERMES_GLOBAL_TRIED
+    if _HERMES_GLOBAL_TRIED:
+        return _HERMES_GLOBAL_CACHE
+    _HERMES_GLOBAL_TRIED = True
+
+    import sys
+    from pathlib import Path
+
+    agent_pkg = Path.home() / ".hermes" / "hermes-agent"
+    if not agent_pkg.is_dir():
+        logger.info("[hermes_global] agent package not found at %s — skipping", agent_pkg)
+        return None
+    # 末尾 append 而非 insert(0)：避免与任何已加载的 hermes_cli 同名包冲突
+    if str(agent_pkg) not in sys.path:
+        sys.path.append(str(agent_pkg))
+    try:
+        from hermes_cli.config import load_config
+        from hermes_cli.runtime_provider import resolve_runtime_provider
+
+        runtime = resolve_runtime_provider()
+        model = (load_config().get("model") or {}).get("default")
+    except Exception as e:  # noqa: BLE001 - Hermes 不可用不算错误
+        logger.info("[hermes_global] resolve failed (%s) — will fallback to .env", e)
+        return None
+    if not runtime.get("api_key") or not runtime.get("base_url") or not model:
+        logger.info("[hermes_global] incomplete config (api_key=%s, base_url=%s, model=%s) — fallback",
+                    bool(runtime.get("api_key")), bool(runtime.get("base_url")), bool(model))
+        return None
+    _HERMES_GLOBAL_CACHE = {
+        "api_key": runtime["api_key"],
+        "base_url": runtime["base_url"],
+        "model": str(model),
+        "source": runtime.get("source"),
+    }
+    logger.info("[hermes_global] resolved model=%s source=%s base_url=%s",
+                _HERMES_GLOBAL_CACHE["model"], _HERMES_GLOBAL_CACHE["source"], _HERMES_GLOBAL_CACHE["base_url"])
+    return _HERMES_GLOBAL_CACHE
 
 
 # Embedding 客户端（本地 BGE，单例，lazy import）
@@ -290,6 +354,34 @@ def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -
             f"Unknown LLM provider: {target}. "
             f"Supported: {', '.join(LLM_PROVIDERS.keys())}, {_KIMI_CODE_ACP_PROVIDER}"
         )
+
+    # 2026-09-03：hermes_global provider——优先解析 Hermes 全局模型配置，
+    # 解析失败（非 Hermes 环境/配置不完整）→ 透明降级到 .env 主通道。
+    if target == "hermes_global":
+        g = _resolve_hermes_global()
+        if g:
+            logger.info("[get_llm_client] using hermes_global model=%s base_url=%s",
+                        g["model"], g["base_url"])
+            return ChatOpenAI(
+                model=g["model"],
+                api_key=g["api_key"],
+                base_url=g["base_url"],
+                temperature=0.3,
+                max_tokens=max_tokens or 4096,
+                request_timeout=120,
+            )
+        # 降级到 .env 主通道
+        fallback_target = (settings.llm_provider or "").lower()
+        if fallback_target and fallback_target != "hermes_global" and fallback_target in LLM_PROVIDERS:
+            logger.warning("[get_llm_client] hermes_global unavailable, falling back to .env provider=%s",
+                           fallback_target)
+            target = fallback_target
+        else:
+            raise RuntimeError(
+                "hermes_global: 无法解析 ~/.hermes/config.yaml 的全局模型配置，"
+                "且 .env 中未配置可降级的 provider。"
+                "请检查 ~/.hermes/hermes-agent 是否存在、或在 .env 设置 LLM_PROVIDER=zhipu 等。"
+            )
 
     config = LLM_PROVIDERS[target]
     api_key = (

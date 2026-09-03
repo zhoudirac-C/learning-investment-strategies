@@ -353,6 +353,16 @@ Step 5 - 判断持续性并给出操作建议：
 
 **输出**：`infra/data/chain_tracking/daily_report_<date>.md`
 
+**Step 6 逻辑演化提案（2026-08-31 补）**：跟踪不只更新阶段——LLM 在同一次调用
+里顺带判断新信息是否给产业链【逻辑结构本身】带来结构性增量（环节细化
+refine_segment / 新增节点 add_node / 重心转移 focus_shift / thesis 修正
+update_thesis / 证伪更新 update_falsification / 跨链传导 add_relation）。
+有增量 → 落 `evolution_pending.json` 提案池（同 identity 命中只累积证据），
+人工 `python scripts/chain_tracker.py evolution confirm <proposal_id>` 才应用到
+chain.yaml（schema 强校验兜底）。阶段更新保持自动（走一格护栏），结构变化走
+人工确认——对齐决策 4 的防幻觉哲学。设计与实现细节见
+`docs/superpowers/specs/2026-08-31-chain-logic-evolution-design.md`。
+
 ---
 
 ## 四、与现有系统的对接

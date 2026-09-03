@@ -40,6 +40,16 @@ mappings:
   segment: seg-equip
   relation: PMIC电源管理+HVDC
   elasticity: core
+- code: '300870'
+  name: 欧陆通
+  segment: seg-equip
+  relation: 数据中心电源供应商，营收高增受益AI算力浪潮
+  elasticity: concept
+- code: '002600'
+  name: 领益智造
+  segment: seg-equip
+  relation: AIDC电源+AI散热，消费电子平台切入AIDC电源，2026H1加速放量
+  elasticity: concept
 current_stage: 阶段1-启动期
 stage_confidence: 高
 stage_evidence: 2026-08-28 跟踪更新：多家龙头研报确认AIDC订单高增，产业链逻辑从观察转向启动期。
@@ -76,4 +86,12 @@ history:
 - date: '2026-08-28'
   stage: 阶段1-启动期
   action: 可介入
+  result: 待验证
+- date: '2026-09-02'
+  stage: 阶段1-启动期
+  action: 演化:add_node 新增欧陆通为上游设备环节标的
+  result: 待验证
+- date: '2026-09-02'
+  stage: 阶段1-启动期
+  action: 演化:add_node 领益智造切入AIDC电源并加速放量，新增seg-equip跟踪标的
   result: 待验证

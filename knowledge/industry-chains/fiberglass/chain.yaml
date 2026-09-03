@@ -1,0 +1,39 @@
+chain_id: fiberglass
+name: 玻纤/电子布产业链
+thesis: AI服务器高速CCL拉动低介电电子纱/电子布需求爆发、高端产品供不应求；传统粗纱供给收缩、风电与汽车需求支撑，供需再平衡驱动玻纤价格企稳回升，龙头盈利与估值双升，行业由建材逻辑切换至AI新材料逻辑。
+last_verified: '2026-09-02'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 叶蜡石
+  - 石英砂/高纯石英
+  - 高岭土
+  - 天然气/电力
+  - 铂铑合金（漏板）
+- id: midstream
+  name: 中游
+  materials:
+  - 玻纤粗纱/细纱
+  - 电子级玻纤纱
+  - 电子布
+  - 低介电（Low-Dk）玻纤布
+  - 热塑短切纱
+- id: downstream
+  name: 下游
+  materials:
+  - 覆铜板/高速PCB
+  - 风电叶片
+  - 汽车轻量化部件
+  - 低空经济机体结构
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-09-01，LLM 初判 阶段2-加速期（建材行业策略报告：传统建材供需承压，AI浪潮驱动玻纤行业价值重估（华龙证券）），积累证据
+  6 条
+timing:
+  current_recommendation: 优先低介电电子布/电子纱及高端电子布环节（宏和科技、国际复材、中材科技），关注粗纱龙头盈利修复（中国巨石、长海股份）；纯建筑建材用玻纤弹性有限，回避。
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

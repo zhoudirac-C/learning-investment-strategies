@@ -1,0 +1,33 @@
+chain_id: lithium-battery
+name: 锂电产业链
+thesis: 下游整车与储能需求旺盛带动电芯排产上行，中游材料产能利用率提升、部分环节供需趋紧，量增逻辑向价格与盈利弹性传导，产业链业绩高增有望延续。
+last_verified: '2026-09-02'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 碳酸锂/锂盐
+  - 磷源/铁源
+  - 铜箔/铝箔
+- id: midstream
+  name: 中游
+  materials:
+  - 正极材料
+  - 负极材料
+  - 隔膜
+  - 电解液
+  - 精密结构件
+- id: downstream
+  name: 下游
+  materials: []
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-08-31，LLM 初判 阶段2-加速期（国信证券《锂电产业链双周报（2026年8月第2期）：锂电产业链持续产销两旺，业绩维持高速增长趋势》），积累证据
+  18 条
+timing:
+  current_recommendation: 关注排产与单位盈利改善的中游材料环节（电解液、结构件、铁锂正极）及龙头电芯；上游锂资源观察涨价持续性
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

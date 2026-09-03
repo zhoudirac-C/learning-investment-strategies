@@ -71,6 +71,19 @@ class TestBuildMessages:
         # 2026-08-31 回放校准：阶段变更硬约束必须在 prompt 里
         assert "直接命中本链关键节点" in user
 
+    def test_prompt_contains_step6_and_structure(self):
+        """Step 6 演化判断：环节结构/标的映射入 prompt，输出含 logic_update 说明。"""
+        user = build_tracking_messages(_chain(), _items())[1]["content"]
+        assert "Step 6" in user
+        assert "logic_update" in user
+        # 环节结构与标的映射（LLM 需引用 segment_id、避免重复提议已有节点）
+        assert "环节结构" in user
+        assert "seg-mid" in user          # segment id
+        assert "中游CCL" in user          # segment 名
+        assert "600183" in user           # 已有标的（防重复 add_node）
+        # 结构性增量 vs 阶段变化的区分硬约束
+        assert "结构性增量" in user
+
     def test_prompt_truncates_long_batch(self):
         items = _items() * 100  # 200 条
         msgs = build_tracking_messages(_chain(), items, max_items=30)
@@ -107,6 +120,18 @@ class TestParseAnalysis:
     def test_non_json_raises(self):
         with pytest.raises(ValueError):
             parse_analysis("这不是JSON")
+
+    def test_logic_update_passes_through(self):
+        """logic_update 原样透传（语义校验在 evolution.parse_logic_update）。"""
+        lu = {"change_type": "add_node", "summary": "新增节点",
+              "detail": {"metric": {"metric": "玻璃布Q-Glass供给"}},
+              "rationale": "深度报告", "confidence": "中"}
+        result = parse_analysis(json.dumps(
+            _good_result(logic_update=lu), ensure_ascii=False))
+        assert result["logic_update"] == lu
+        # 缺失时不多事（保持缺失/原样）
+        result2 = parse_analysis(json.dumps(_good_result(), ensure_ascii=False))
+        assert "logic_update" not in result2
 
     def test_verdict_values(self):
         assert set(VERDICTS) == {"confirmed", "strengthening", "weakening",

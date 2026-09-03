@@ -1,0 +1,37 @@
+chain_id: cgt-cell-gene-therapy
+name: 细胞与基因治疗（CGT）产业链
+thesis: 上游培养基、试剂耗材与设备国产替代加速；中游病毒载体与CGT CDMO产能稀缺、订单饱满；下游CAR-T、基因疗法获批放量，全链条需求扩容、格局重塑。
+last_verified: '2026-09-02'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 细胞培养基
+  - 生物试剂耗材
+  - 一次性生物反应器/制药设备
+  - 质粒与载体原料
+- id: midstream
+  name: 中游
+  materials:
+  - 病毒载体（AAV/LV）
+  - 质粒
+  - 基因合成
+  - 模式动物
+- id: downstream
+  name: 下游
+  materials:
+  - CAR-T细胞治疗药物
+  - 基因治疗药物
+  - 干细胞治疗
+  - 细胞冷链储运服务
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-09-02，LLM 初判 阶段0-观察（东吴证券策略深度报告：十大未来产业系列之八——细胞与基因技术），积累证据
+  3 条
+timing:
+  current_recommendation: 观察为主：优先跟踪中游CGT CDMO/病毒载体在手订单与上游培养基国产化率提升；下游疗法临床与审批风险大，暂不追高
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

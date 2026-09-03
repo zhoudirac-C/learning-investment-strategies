@@ -1,0 +1,32 @@
+chain_id: ptfe-fluorochemical
+name: PTFE/氟化工产业链
+thesis: 水泥行业环保与工艺升级带动高端氟材料渗透率提升，PTFE方案重要性升级有望引发产业链新一轮格局更新。传导路径：萤石/氢氟酸→PTFE树脂→覆膜滤料/膜材→水泥窑烟气治理，量价与份额逻辑兼具。
+last_verified: '2026-09-02'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 萤石
+  - 氢氟酸
+  - R22/氯仿
+- id: midstream
+  name: 中游
+  materials:
+  - PTFE树脂（悬浮/分散）
+  - 氟聚合物
+- id: downstream
+  name: 下游
+  materials:
+  - PTFE覆膜滤料/滤袋
+  - PTFE膜材
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-08-31，LLM 初判 阶段0-观察（国金证券《非金属建材行业研究：PTFE方案重要性升级，有望促进产业链新一轮格局更新》），积累证据
+  9 条
+timing:
+  current_recommendation: 以观察为主：跟踪水泥超低排放改造节奏与PTFE订单/价格验证，优先关注中游PTFE树脂龙头与上游萤石资源，暂不追高下游环保标的
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

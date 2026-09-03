@@ -32,6 +32,8 @@ segments:
   materials:
   - 液冷
   - 供电(HVDC)
+  - 液冷屏蔽泵
+  - 热泵配套
   value_share: ~15%
   barrier: 液冷渗透率
   trend: 加速
@@ -63,11 +65,21 @@ mappings:
   segment: seg-machine
   relation: AI服务器整机龙头，整柜交付
   elasticity: core
-current_stage: 阶段2-加速期
+- code: '300870'
+  name: 欧陆通
+  segment: seg-cool
+  relation: 数据中心电源龙头，受益AI算力浪潮
+  elasticity: concept
+- code: 002969
+  name: 祥鑫科技
+  segment: seg-cool
+  relation: 液冷冷板/散热结构件，由汽车零部件跨界切入AI服务器液冷，打造第二增长曲线
+  elasticity: concept
+current_stage: 阶段3-分歧期
 stage_confidence: 高
-stage_evidence: 2026-08-28 跟踪更新：液冷订单高增，业绩兑现，建议加仓。
+stage_evidence: 2026-09-01 跟踪更新：液冷互连与资本开支提速，确认产业链加速逻辑。
 timing:
-  current_recommendation: 等超节点出货信号加仓
+  current_recommendation: 不追高，等分歧回踩
   next_trigger: 超节点出货超预期→加仓
   risk: 国产算力生态适配不及预期
 tracking_metrics:
@@ -87,6 +99,9 @@ tracking_metrics:
   current: 2026年有望反超英伟达
   signal_direction: 兑现=加强
   source: 研报
+- metric: 数据中心电源/液冷订单
+  current: 营收高增/放量在即
+  signal_direction: 加强
 falsification:
 - 超节点出货量大幅低于预期
 - CSP资本开支缩减
@@ -112,4 +127,20 @@ history:
 - date: '2026-08-28'
   stage: 阶段2-加速期
   action: 加仓
+  result: 待验证
+- date: '2026-09-01'
+  stage: 阶段3-分歧期
+  action: 持有/观察
+  result: 待验证
+- date: '2026-09-02'
+  stage: 阶段3-分歧期
+  action: 演化:add_node 新增HVDC电源与液冷标的，细化中游散热供电环节。
+  result: 待验证
+- date: '2026-09-02'
+  stage: 阶段3-分歧期
+  action: 演化:add_node 液冷环节（seg-cool）新增跨界标的祥鑫科技
+  result: 待验证
+- date: '2026-09-02'
+  stage: 阶段3-分歧期
+  action: 演化:refine_segment 液冷环节细化出屏蔽泵细分卡位
   result: 待验证

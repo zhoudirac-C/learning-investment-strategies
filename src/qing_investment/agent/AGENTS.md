@@ -127,6 +127,7 @@ nohup .venv/bin/uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8
 - [ ] 修改 prompt 后，用 `.venv/bin/python` 直接测试单个节点（见下方调试方法）
 - [ ] 运行 `pytest tests/test_stock_monitor.py` 确保 Hermes 集成未破坏
 - [ ] 修改后重启 uvicorn（Python 模块缓存需要重启）
+- [ ] 新增跑 LangGraph 的测试时，**禁止写入生产 `daily_state.json`**——`tests/conftest.py` 的 autouse fixture 已把 `DEFAULT_STATE_PATH` 重定向到 tmp_path（2026-08-31 测试污染事故后新增）；不要用 `monkeypatch.delattr` 或手动改回该变量
 
 ---
 

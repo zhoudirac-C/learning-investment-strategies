@@ -547,6 +547,9 @@ tracking_metrics:
   current: SK海力士超2/3订单
   signal_direction: 扩产=加强
   source: 研报
+- metric: 全球存储资本开支（海外原厂）
+  current: 结构性偏紧
+  signal_direction: 持续偏紧=加强（供需缺口延长国产替代窗口）；海外原厂大幅扩产=削弱
 falsification:
 - DRAM现货价连续2周回落
 - 长江存储IPO撤回或无限期推迟
@@ -556,8 +559,19 @@ chain_relations:
 - target: ai-server
   relation: 下游需求
   note: AI服务器HBM需求驱动存储涨价
+- target: AI算力产业链
+  relation: 英伟达NVHBM重构内存架构→HBM/先进封装需求提升→存储封测与载板材料需求外溢
+  note: ABF载板交期拉长佐证先进封装供给紧张，长鑫链封测环节（汇成、深科技、通富）有望承接外溢需求
 history:
 - date: '2026-08-28'
   stage: 阶段2-加速期
   action: 关注材料与封测环节
+  result: 待验证
+- date: '2026-09-02'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增供给侧节点：全球资本开支偏紧支撑国产替代窗口
+  result: 待验证
+- date: '2026-09-02'
+  stage: 阶段2-加速期
+  action: 演化:add_relation NVHBM架构将AI算力需求传导至存储封测环节
   result: 待验证

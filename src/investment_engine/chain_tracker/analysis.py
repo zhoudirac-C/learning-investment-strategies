@@ -4,6 +4,12 @@ Prompt 按 docs/tasks/m0-chain-industry-tracking.md §3.4 的 UP 5 步推理框�
 确认真实性 → 供需结构 → 周期位置 → 受益标的 → 持续性/操作建议，
 外加证伪条件检查与 verdict 归类（写入 processed_items.llm_verdict）。
 
+Step 6（2026-08-31 演化能力）：顺带判断新信息是否给产业链【逻辑结构本身】
+带来结构性增量（环节细化/新增节点/重心转移/thesis修正/证伪更新/跨链传导），
+可选输出 logic_update 字段（默认 null）；语义校验与落账在
+chain_tracker.evolution（提案制，人工 confirm 才应用，不自动改 chain.yaml）。
+设计见 docs/superpowers/specs/2026-08-31-chain-logic-evolution-design.md。
+
 LLM 通道优先级（2026-08-31 用户决策：跟随 Hermes 全局配置，不写死）：
 1. CHAIN_TRACKER_LLM=glm 逃生口（配额故障时直走 GLM 省重试开销）
 2. Hermes 全局模型配置——与 cron 调度器同一个 resolve_runtime_provider()
@@ -32,6 +38,12 @@ _USER_TMPL = """以下是产业链"{chain_name}"的当前状态和新信息。
 关键节点：{key_nodes}
 时机建议：{timing}
 证伪条件：{falsification}
+
+【环节结构】（segment_id | 环节名 | 材料/产品）
+{segments_text}
+
+【标的映射】（已有标的，避免重复提议）
+{mappings_text}
 
 【新信息】（{n_items} 条）
 {items_text}
@@ -74,6 +86,20 @@ Step 5 - 判断持续性并给出操作建议：
 阶段枚举（new_stage 必须取其中之一）：
 阶段0-观察 / 阶段1-启动期 / 阶段2-加速期 / 阶段3-分歧期 / 阶段4-见顶期
 
+Step 6 - 产业链逻辑演化判断（可选，多数批次应输出 null）：
+  这批信息是否给产业链【逻辑结构本身】带来结构性增量？（区别于 Step 5 的阶段变化）
+  - refine_segment：某环节进一步细化/新增材料。detail: {{"segment_id": "上面环节结构的 id（新环节可自定 slug）", "segment_name": "新环节名（仅新环节必填）", "add_materials": [...]}}
+  - add_node：出现本链未跟踪的新关键节点/新标的。detail: {{"metric": {{"metric": "...", "current": "...", "signal_direction": "..."}}, "stock": {{"code": "6位代码", "name": "...", "segment": "segment_id", "relation": "..."}}}}（metric/stock 至少其一）
+  - focus_shift：受益重心在环节间结构性迁移（如上游→中游）。detail: {{"from_segment": "...", "to_segment": "...", "recommendation": "...", "next_trigger": "...", "risk": "..."}}
+  - update_thesis：传导路径/产业逻辑本身被新证据修正。detail: {{"new_thesis": "..."}}
+  - update_falsification：证伪条件需要新增。detail: {{"add": [...]}}
+  - add_relation：发现与其他产业链的传导关系。detail: {{"target": "chain_id", "relation": "...", "note": "..."}}
+  硬约束：
+  - 只影响阶段/价格/进度判断的信息 → null（那是 Step 5 的输出）
+  - 上述当前状态/环节结构/标的映射已包含的内容（重复已知逻辑）→ null
+  - 单家公司孤立事件、无产业链结构含义 → null
+  - 每批最多输出 1 条，取最重要的；没有结构性增量就输出 null
+
 输出 JSON：
 {{
   "step1_verification": {{"verified": true/false, "sources": [...], "confidence": "高/中/低"}},
@@ -82,10 +108,11 @@ Step 5 - 判断持续性并给出操作建议：
   "step4_beneficiaries": [{{"code": "...", "name": "...", "logic": "高端承接/上游供货/弹性最大"}}],
   "step5_recommendation": {{"stage_change": "unchanged|forward|backward", "new_stage": "...", "timing": "...", "action": "..."}},
   "verdict": "confirmed|strengthening|weakening|falsified|irrelevant",
-  "summary": "一句话结论（≤60字）"
+  "summary": "一句话结论（≤60字）",
+  "logic_update": null 或 {{"change_type": "refine_segment|add_node|focus_shift|update_thesis|update_falsification|add_relation", "summary": "一句话（≤40字）", "detail": {{...按 change_type...}}, "rationale": "哪条信息推出（≤60字）", "confidence": "高/中/低"}}
 }}
 
-若这批信息与本产业链无关，verdict=irrelevant，stage_change=unchanged，其余字段从简。
+若这批信息与本产业链无关，verdict=irrelevant，stage_change=unchanged，logic_update=null，其余字段从简。
 """
 
 
@@ -103,6 +130,27 @@ def _fmt_timing(chain: dict) -> str:
         return (f"当前建议={t.get('current_recommendation')}；"
                 f"下一触发={t.get('next_trigger')}；风险={t.get('risk')}")
     return str(t)
+
+
+def _fmt_segments(chain: dict) -> str:
+    """环节结构一行一条：segment_id | 环节名 | 材料/产品（供 Step 6 引用 id）。"""
+    lines = []
+    for seg in chain.get("segments") or []:
+        if not isinstance(seg, dict):
+            continue
+        mats = "/".join(str(m) for m in seg.get("materials") or [])
+        lines.append(f"- {seg.get('id')} | {seg.get('name')} | {mats or '-'}")
+    return "\n".join(lines) or "（无）"
+
+
+def _fmt_mappings(chain: dict) -> str:
+    lines = []
+    for m in chain.get("mappings") or []:
+        if not isinstance(m, dict):
+            continue
+        lines.append(f"- {m.get('code')} {m.get('name')}"
+                     f"（{m.get('segment') or '-'}，{m.get('relation') or '-'}）")
+    return "\n".join(lines) or "（无）"
 
 
 def format_items(items: list[dict], max_items: int) -> str:
@@ -135,6 +183,8 @@ def build_tracking_messages(chain: dict, items: list[dict],
         key_nodes=_fmt_key_nodes(chain),
         timing=_fmt_timing(chain),
         falsification="\n".join(f"- {f}" for f in falsification) or "（无）",
+        segments_text=_fmt_segments(chain),
+        mappings_text=_fmt_mappings(chain),
         n_items=len(items),
         items_text=format_items(items, max_items),
     )

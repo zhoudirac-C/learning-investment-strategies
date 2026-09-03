@@ -1,0 +1,34 @@
+chain_id: agriculture
+name: 农产品产业链
+thesis: 天气减产预期推动糖、粮油、谷物等农产品价格上行，种植收益改善向上游种业、化肥、农药传导；下游养殖与食品加工短期成本承压，但具备顺价与库存受益弹性
+last_verified: '2026-09-02'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 种子
+  - 化肥（磷肥/钾肥/氮肥）
+  - 农药
+- id: midstream
+  name: 中游
+  materials:
+  - 谷物
+  - 糖
+  - 油脂油料
+- id: downstream
+  name: 下游
+  materials:
+  - 饲料
+  - 生猪/禽肉
+  - 食品加工品
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-09-01，LLM 初判 阶段0-观察（国信证券《农产品专题：本轮厄尔尼诺强度有概率创历史新高，或催化新一轮农产品上涨周期》），积累证据
+  14 条
+timing:
+  current_recommendation: 观察为主：跟踪厄尔尼诺实际强度与糖、粮油价格走势；若涨价兑现，优先关注种业、制糖等直接受益环节，养殖端待成本传导后看价格弹性
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

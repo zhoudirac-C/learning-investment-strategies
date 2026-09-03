@@ -35,6 +35,11 @@ mappings:
   segment: seg-smelt
   relation: 铜金矿业龙头，量价齐升
   elasticity: core
+- code: '000630'
+  name: 铜陵有色
+  segment: seg-smelt
+  relation: 米拉多铜矿权益+铜冶炼龙头，高铜价直接增厚现有矿山冶炼盈利，二期延期限制其量增弹性
+  elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 中
 stage_evidence: 铜价高位但未突破前高；铝产能关停344万吨已计价；等铜价突破或供给缺口扩大信号
@@ -51,6 +56,9 @@ tracking_metrics:
   current: 344万吨
   signal_direction: 扩大=加强
   source: 新闻/研报
+- metric: 米拉多二期投产进度
+  current: 继续延期
+  signal_direction: 延期=矿端供给缺口维持=加强；投产放量=供给增量释放=削弱
 falsification:
 - 铜价跌破60日均线持续2周
 - 铝产能复产超预期
@@ -60,3 +68,8 @@ chain_relations:
 - target: electronic-gas
   relation: 上游共享
   note: 钨矿同属有色金属供给收缩逻辑
+history:
+- date: '2026-09-02'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增铜矿扩建供给节点与标的铜陵有色
+  result: 待验证

@@ -86,6 +86,12 @@ tracking_metrics:
   current: 放量中
   signal_direction: 持续放量=确认
   source: 研报
+- metric: 长鑫存储扩产/国产DRAM份额
+  current: 扩产推进中，研报提示国产替代窗口期已至
+  signal_direction: 扩产加速/份额提升=加强；扩产不及预期=削弱
+- metric: ABF载板交期
+  current: 拉长
+  signal_direction: 交期进一步拉长=加强（封测材料紧缺度上升）；交期回归=警惕需求见顶
 falsification:
 - DRAM现货价连续2周回落
 - 长江存储IPO撤回或无限期推迟
@@ -98,3 +104,12 @@ chain_relations:
 - target: domestic-compute
   relation: 上游供给
   note: 长江存储扩产受益国产存储链
+history:
+- date: '2026-09-02'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增长鑫存储扩产为国产DRAM关键跟踪节点
+  result: 待验证
+- date: '2026-09-02'
+  stage: 阶段2-加速期
+  action: 演化:add_node NVHBM重构内存架构+载板紧缺，封测环节新增ABF载板交期跟踪节点
+  result: 待验证

@@ -1,7 +1,7 @@
-# 影子双轨完整性报告（2026-08-30）
+# 影子双轨完整性报告（2026-09-03）
 
-- 记录日数: 28，完整: 28
-- 提案: open 0 / applied 6 / rejected 1 / retracted 3
+- 记录日数: 36，完整: 36
+- 提案: open 5 / applied 6 / rejected 1 / retracted 3
 
 | 日期 | 阶段判定 | 状态 | 归因 | 完整 |
 |---|---|---|---|---|
@@ -23,13 +23,29 @@
 | 2026-08-20 | 对 | scored | 有 | ✅ |
 | 2026-08-21 | 对 | scored | - | ✅ |
 | 2026-08-21 | 对 | scored | - | ✅ |
-| 2026-08-24 | 错 | pending_maturity | 有 | ✅ |
-| 2026-08-24 | 对 | pending_maturity | 有 | ✅ |
-| 2026-08-25 | 对 | pending_maturity | 有 | ✅ |
-| 2026-08-25 | 错 | pending_maturity | 有 | ✅ |
-| 2026-08-26 | 对 | pending_maturity | - | ✅ |
-| 2026-08-26 | 对 | pending_maturity | - | ✅ |
-| 2026-08-27 | 对 | pending_maturity | - | ✅ |
-| 2026-08-27 | 对 | pending_maturity | - | ✅ |
+| 2026-08-24 | 错 | scored | 有 | ✅ |
+| 2026-08-24 | 对 | scored | 有 | ✅ |
+| 2026-08-25 | 对 | scored | 有 | ✅ |
+| 2026-08-25 | 错 | scored | 有 | ✅ |
+| 2026-08-26 | 对 | scored | 有 | ✅ |
+| 2026-08-26 | 对 | scored | 有 | ✅ |
+| 2026-08-27 | 对 | scored | 有 | ✅ |
+| 2026-08-27 | 对 | scored | 有 | ✅ |
 | 2026-08-28 | 对 | pending_maturity | - | ✅ |
 | 2026-08-28 | 对 | pending_maturity | - | ✅ |
+| 2026-08-31 | - | pending_maturity | - | ✅ |
+| 2026-08-31 | - | error | - | ✅ |
+| 2026-09-01 | - | pending_maturity | - | ✅ |
+| 2026-09-01 | - | error | - | ✅ |
+| 2026-09-02 | - | pending_maturity | - | ✅ |
+| 2026-09-02 | - | error | - | ✅ |
+| 2026-09-03 | - | error | - | ✅ |
+| 2026-09-03 | 对 | pending_maturity | - | ✅ |
+
+## 待处理提案（open 置顶）
+
+- 2026-08-26-data-channel-note.md
+- 2026-08-26-pattern-patch-note.md
+- 2026-08-27-data-channel-note.md
+- 2026-08-27-pattern-patch-note.md
+- 2026-08-30-industry-chain-research-pipeline.md

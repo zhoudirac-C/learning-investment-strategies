@@ -18,6 +18,9 @@ from pathlib import Path
 
 from investment_engine.chain_tracker.analysis import analyze_chain
 from investment_engine.chain_tracker.dedup import ProcessedItemsDB, default_db_path
+from investment_engine.chain_tracker.evolution import (
+    append_evolution_audit, build_proposal, upsert_pending,
+)
 from investment_engine.chain_tracker.futures import (
     DEFAULT_THRESHOLD_PCT, detect_anomalies, fetch_quotes,
 )
@@ -120,6 +123,7 @@ def run_tick(*, date: str | None = None, now: datetime | None = None,
     summary: dict = {"date": date, "tick": window, "fetched": len(items),
                      "new_items": 0, "matched_pairs": 0, "chains_analyzed": [],
                      "llm_calls": 0, "llm_errors": 0, "changes": [],
+                     "evolution_proposals": [],
                      "processed_ids": [], "report_path": None, "db_cleaned": 0}
 
     with ProcessedItemsDB(db_path or default_db_path()) as db:
@@ -190,12 +194,28 @@ def run_tick(*, date: str | None = None, now: datetime | None = None,
                     if not dry_run:
                         store.save_chain(chain, base_dir=base_dir)
 
+                # 逻辑演化提案（Step 6）：结构性增量落 pending，人工 confirm 后
+                # 才应用——不自动改 chain.yaml（区别于阶段更新的自动回写）。
+                # 同 identity 再命中只合并证据，不重复占位（候选池语义）。
+                proposal = build_proposal(cid, result, items=chain_items, date=date)
+                if proposal is not None:
+                    proposal["chain_name"] = chain.get("name")
+                    summary["evolution_proposals"].append(proposal)
+                    if not dry_run:
+                        added = upsert_pending(
+                            [proposal],
+                            path=tracking_dir / "evolution_pending.json", now=now)
+                        if added:
+                            append_evolution_audit(tracking_dir, date, added,
+                                                   tick_label=window)
+
         if not dry_run:
             summary["db_cleaned"] = db.cleanup(now=now)
 
-    if summary["changes"] and not dry_run:
+    if not dry_run and (summary["changes"] or summary["evolution_proposals"]):
         out = append_daily_report(tracking_dir / f"daily_report_{date}.md",
-                                  summary["changes"], tick_label=window)
+                                  summary["changes"], tick_label=window,
+                                  evolution=summary["evolution_proposals"])
         summary["report_path"] = str(out) if out else None
 
     if not dry_run:
@@ -206,5 +226,6 @@ def run_tick(*, date: str | None = None, now: datetime | None = None,
             "llm_calls": summary["llm_calls"],
             "llm_errors": summary["llm_errors"],
             "changed_chains": [c["chain_id"] for c in summary["changes"]],
+            "evolution": [p["proposal_id"] for p in summary["evolution_proposals"]],
         })
     return summary

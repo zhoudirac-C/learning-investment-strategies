@@ -1,4 +1,4 @@
-updated_at: '2026-08-22'
+updated_at: '2026-09-01'
 version: 3.0-source-neutral
 merge_note: 将116个单raw模式聚合为10个通用推理框架，并优化description以支持语义匹配
 distill_note: v3.0 来源中立改写（v2.1 引擎⓪）——trigger/steps/falsification 不含 UP 指称， validation
@@ -15,6 +15,7 @@ patterns:
   source_raw:
   - sources/original/bilibili/2026-08-11-2156-图片-今日指数冲高回落，午后多头动能进一步减弱，量能相较上一交易日.md
   - sources/raw/财经/2026-05-25-早盘-指数反弹与AI硬件国产算力.md
+  - sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
   - sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
   - sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
   - sources/raw/财经/周复盘：26-01-11：A股暴涨之下如何守住繁华.md
@@ -44,9 +45,12 @@ patterns:
   - PVA
   - REITs模式
   - Rubin BOM
+  - 上游周期品
   - 上游周期品利润弹性
   - 上游材料受益标的筛选
+  - 供给收缩
   - 供给收缩型周期品
+  - 供需缺口
   - 先进封装材料
   - 光通信
   - 光通信上游
@@ -62,6 +66,7 @@ patterns:
   - 存储
   - 存储芯片
   - 存储芯片涨价
+  - 安监限产
   - 数据中心
   - 有机硅
   - 有色金属
@@ -70,6 +75,7 @@ patterns:
   - 涨价题材
   - 涨价题材交易
   - 液冷
+  - 煤炭
   - 电子元器件周期
   - 电子元器件涨价
   - 电子周期品
@@ -518,6 +524,63 @@ patterns:
     - 三重独立驱动因素叠加共振，非单一事件性涨价
     - 中间体占染料成本20%-30%，价格弹性对利润传导充分
     merge_suggestion: 完整覆盖涨价验证、供需拆解、驱动共振、标的映射、兑现条件五步
+  - pattern_id: coal_supply_gap_20260825
+    name: 煤炭安监供给缺口验证
+    source_raw:
+    - sources/raw/财经/2026-08-25-0904-早盘-双创跌超3%情绪不弱背离两日-英伟达财报前算力等待期.md
+    key_themes:
+    - 煤炭
+    - 上游周期品
+    - 供给收缩
+    - 安监限产
+    - 供需缺口
+    reasoning_chain:
+    - step: 1
+      name: 识别政策催化
+      question: 什么事件触发了供给收缩逻辑？
+      UP_logic: 特大煤矿事故后安监强度提升，修改判定标准、山西新规，安监影响渐兑现至产量端。
+      evidence_sources:
+      - 应急管理部修改《煤矿重大事故隐患判定标准》
+      - 山西省《统筹煤炭行业发展和安全新规十七条》
+    - step: 2
+      name: 测算产量减量
+      question: 供给端实际收缩多少？
+      UP_logic: 统计局口径6/7月同比减量均值3899万吨，年化减产4.7亿吨；表内+表外合计年化减产2.6亿吨。
+      evidence_sources:
+      - 统计局产量数据
+      - 周度高频数据
+      - 券商测算
+    - step: 3
+      name: 推演供需缺口
+      question: 减产对供需平衡和价格的影响？
+      UP_logic: 9-10月冬储与非电采购旺季，供需缺口扩大，若库存去化至低位，煤价高点有望超预期。
+      evidence_sources:
+      - 季节性需求数据
+      - 库存数据
+    - step: 4
+      name: 定性板块行为
+      question: 煤炭逆势活跃是由什么驱动？
+      UP_logic: 有自己的供给端逻辑，不完全依附于指数情绪，属于'有独立催化'而非'反指式防御轮动'。
+      evidence_sources:
+      - 盘面表现
+      - 供给逻辑
+    - step: 5
+      name: 映射受益标的
+      question: 哪些标的最受益？
+      UP_logic: 按弹性与量增、补涨动力煤、焦煤、龙头稳健四类分类，筛选对应标的。
+      evidence_sources:
+      - 券商研报分类
+    risk_factors:
+    - 安监限产执行不及预期，产量恢复
+    - 表外供给退出不及预期
+    - 下游需求旺季不旺，库存去化缓慢
+    - 煤价上涨幅度低于预期
+    confidence_indicators:
+    - 原煤产量连续明显同比下降
+    - 港口/电厂库存持续下降
+    - 现货煤价企稳回升
+    - 安监政策进一步收紧
+    merge_suggestion: 从政策安监→产量减量→缺口→煤价→标的，是典型上游周期品供给逻辑
   merged_from:
   - upstream_price_cycle_qualify
   - upstream_beneficiary_screening

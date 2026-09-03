@@ -38,6 +38,11 @@ mappings:
   segment: seg-mine
   relation: 煤炭龙头，安监限产受益
   elasticity: core
+- code: '601225'
+  name: 陕西煤业
+  segment: seg-mine
+  relation: 上游煤矿龙头，量价齐升、业绩改善直接受益
+  elasticity: concept
 current_stage: 阶段2-加速期
 stage_confidence: 中
 stage_evidence: 焦炭第六轮提涨已落地；第七轮提上日程；煤炭PPI转正
@@ -60,3 +65,8 @@ falsification:
 - 大盘系统性破位下行
 - 煤炭板块核心标的（潞安/晋控）放量滞涨、联动失效
 chain_relations: []
+history:
+- date: '2026-09-02'
+  stage: 阶段2-加速期
+  action: 演化:add_node 研报点名陕西煤业量价齐升，新增上游煤矿环节标的跟踪
+  result: 待验证

@@ -51,6 +51,8 @@ segments:
   growth: null
   status: null
   last_verified: null
+  materials:
+  - ABF载板（FC-BGA封装基板）
 - id: seg-07
   name: 服务器整机层（算力之"身"）
   value_share: null
@@ -648,4 +650,8 @@ history:
 - date: '2026-08-28'
   stage: 阶段2-加速期
   action: 关注算力服务及服务器整机龙头，布局上游材料
+  result: 待验证
+- date: '2026-09-02'
+  stage: 阶段2-加速期
+  action: 演化:refine_segment 封装层细化新增ABF载板材料，国产化承接AI需求破局
   result: 待验证
