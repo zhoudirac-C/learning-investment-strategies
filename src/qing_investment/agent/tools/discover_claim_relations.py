@@ -346,18 +346,30 @@ def main():
                 to_process.append((path, c))
 
     elif args.claim_id:
-        # Search all YAML files for this claim
+        # 2026-09-03 修复：跨文件重复 id 必须强制消歧，禁止"字典序匹配第一个就 break"。
+        # 原逻辑会把 001.yaml 里的同名 id claim 优先匹配（撞坏 9/3 早盘真实 supersedes），
+        # 且 force=True 会无条件覆盖已 commit 的真值——静默吞错。
+        # 现逻辑：列出全部匹配文件，恰好 1 个时直接走；>1 时拒绝 + 列出文件路径，提示 --file 消歧。
         claims_dir = PROJECT_ROOT / "knowledge" / "claims"
-        found = False
+        matches: list[tuple[Path, dict]] = []
         for yf in sorted(claims_dir.glob("*.yaml")):
             data = yaml.safe_load(yf.read_text(encoding="utf-8"))
             for c in _parse_claims(data):
                 if isinstance(c, dict) and c.get("id") == args.claim_id:
-                    to_process.append((yf, c))
-                    found = True
-                    break
-            if found:
-                break
+                    matches.append((yf, c))
+        if len(matches) == 1:
+            to_process.append(matches[0])
+        elif len(matches) > 1:
+            file_list = "\n".join(f"  - {p.relative_to(PROJECT_ROOT)}" for p, _ in matches)
+            raise SystemExit(
+                f"❌ claim-id '{args.claim_id}' 在 {len(matches)} 个 YAML 文件中均匹配到：\n"
+                f"{file_list}\n"
+                f"--claim-id 模式不再支持隐式选第一个文件。请用 --file 显式指定唯一目标：\n"
+                f"  python scripts/discover_claim_relations.py --file knowledge/claims/<file>.yaml "
+                f"--claim-id {args.claim_id}"
+            )
+        else:
+            print(f"⚠️ claim-id '{args.claim_id}' 在 {claims_dir} 下未找到匹配")
 
     elif args.all_missing:
         claims_dir = PROJECT_ROOT / "knowledge" / "claims"
