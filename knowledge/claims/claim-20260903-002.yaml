@@ -1,0 +1,112 @@
+claims:
+- id: claim-20260903-002-a
+  source_path: sources/raw/财经/2026-09-03-0942-盘中-KC点位判断与跌下来能上仓位.md
+  source_date: '2026-09-03'
+  source_type: 盘中
+  extracted_at: '2026-09-03T10:35:00'
+  claim_type: technical-signal
+  subject: KC50点位维持昨天回调到位是好事
+  timeframe: intraday
+  statement: KC50(科创50)仍维持昨天那个点位（1600-1606区间），如果今天高开低走，有机会跌到1600是好事——调整不充分弱势环境下该来的总会来；如果今天没有跌到位拉起来了，反而并不是一件好事情。
+  evidence_quote: KC还是昨天那个点位，如果今天高开低走，有机会跌到1600是好事，调整不充分弱势环境下该来的总会来。如果今天没有跌到位拉起来了，反而并不是一件好事情。
+  interpretation: UP 把 KC50 跌到1600 作为「调整到位」的积极信号——与9/2 0920 盘中「KC50 1600-1606，创业板3340-3346，今天没有明显的顶底结构，看位置就行了」的判断一致，本条把「跌到位」明确为「好事」，意味着回调给到加仓位。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: KC50跌到1600是好事
+  related_stocks: []
+  tags:
+  - KC50
+  - 科创50
+  - 回调到位
+  - 1600点位
+  - 高开低走
+- id: claim-20260903-002-b
+  source_path: sources/raw/财经/2026-09-03-0942-盘中-KC点位判断与跌下来能上仓位.md
+  source_date: '2026-09-03'
+  source_type: 盘中
+  extracted_at: '2026-09-03T10:35:00'
+  claim_type: operation
+  subject: 高开低走心理不舒服但能上仓位
+  timeframe: intraday
+  statement: 高开低走除了心理上不舒服，账户是亏不了几个钱的；但是跌下来能上仓位，好好把握。仓位打满的就别乱动了。
+  evidence_quote: 高开低走除了心理上不舒服，账户是亏不了几个钱的，但是跌下来能上仓位，好好把握吧。仓位打满的就别乱动了。
+  interpretation: UP 在置顶评论里给出明确操作纪律：① 高开低走不可怕 = 加仓位机会 ② 已满仓者不动作 = 不在反弹中追高、不在中途换仓；这两条互为对偶，给出「未满仓加、已满仓守」的双轨纪律。这是把9/2晚间「明日三档应对」的'加仓档'具体化到盘中。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高开低走是加仓信号与已满仓不动作
+  related_stocks: []
+  tags:
+  - 高开低走
+  - 加仓信号
+  - 满仓不动
+  - 操作纪律
+- id: claim-20260903-002-c
+  source_path: sources/raw/财经/2026-09-03-0942-盘中-KC点位判断与跌下来能上仓位.md
+  source_date: '2026-09-03'
+  source_type: 盘中
+  extracted_at: '2026-09-03T10:35:00'
+  claim_type: methodology
+  subject: 调整不充分弱势环境下该来的总会来
+  timeframe: intraday
+  statement: 在调整不充分的弱势环境下，该来的调整总会来——回避不了；以 KC50 跌到 1600 作为「调整到位」的硬性标准。
+  evidence_quote: 调整不充分弱势环境下该来的总会来。……如果今天高开低走，有机会跌到1600是好事。
+  interpretation: UP 把「调整到位」从模糊判断升级为硬性技术位（KC50 1600点）——这是把方法论应用到具体执行点：弱势环境下不预测调整何时来，但调整不到位之前不加仓；调整到位
+    = 跌下来 = 即可加仓。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 弱势环境下调整到位是加仓前提
+  related_stocks: []
+  tags:
+  - 弱势环境
+  - 调整到位
+  - 硬性技术位
+  - 1600标准
+- id: claim-20260903-002-d
+  source_path: sources/raw/财经/2026-09-03-0942-盘中-KC点位判断与跌下来能上仓位.md
+  source_date: '2026-09-03'
+  source_type: 盘中
+  extracted_at: '2026-09-03T10:35:00'
+  claim_type: risk
+  subject: 没跌到位拉起来反而不好
+  timeframe: intraday
+  statement: 如果今天没有跌到位（KC50未到1600）就拉起来，反而并不是一件好事情——意味着调整不充分+方向未明。
+  evidence_quote: 如果今天没有跌到位拉起来了，反而并不是一件好事情。
+  interpretation: UP 给出一个反直觉的判断：在弱势环境下「拒绝调整的反弹」= 不可靠的反弹。这与9/3 早盘「今日情形A/B」框架互补——A 触发=科技主攻，但本条强调A
+    触发的前提是「调整到位」（KC50 跌到1600），否则 A 的成色要打折扣。这是把情形A 的可证伪条件收得更紧。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 没跌到位的反弹不是好事
+  related_stocks: []
+  tags:
+  - 拒绝调整
+  - 不可靠反弹
+  - 方向未明
+  - 可证伪条件
