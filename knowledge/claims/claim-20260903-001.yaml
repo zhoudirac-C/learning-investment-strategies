@@ -1,0 +1,679 @@
+claims:
+- id: claim-20260903-001-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: macro
+  subject: 隔夜外盘提供止血信号但压制变量未消
+  timeframe: short-term
+  statement: 美股三大指数全面上涨（道指+0.56%、标普500与纳指各+0.46%）；金价反弹收复4300美元盘中重测4400；油价剧烈震荡但收盘持平（美油90美元/布伦特95美元附近）；10年期美债收益率盘中升至4.82%接近三年新高后回落至4.78%，30年期5.25%；美元指数回落至99.50，USDJPY回到158.9日元单日升值近1%。止血的直接原因是ADP
+    8月新增就业3.8万低于预期4.8万，市场重新接受'坏消息就是好消息'，9月加息25bp概率略降至64%左右。但救市场的变量出现的同时，压市场的变量一个都没消失——加息概率仍近三分之二，油价和美债收益率依然高企。
+  evidence_quote: 美股三大指数全面上涨，道指涨 0.56%，标普 500 与纳指各涨 0.46%；金价反弹收复 4300 美元……10 年期美债收益率盘中一度升至
+    4.82%、接近三年新高，随后回落至 4.78%……救市场的变量出现了，压市场的变量一个都没有消失：加息概率仍接近三分之二，油价和美债收益率依然高企。
+  interpretation: UP 把隔夜定义为止血信号但非警报解除：ADP 弱+美债反应验证'坏消息就是好消息'逻辑仍成立，但 4.82% 的盘中高位意味着债市抛压是真实压力——这是
+    9/2 早盘口径（极端冲击次日修复）的延续与收紧。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 隔夜外盘止血但压制变量未消失
+  related_stocks: []
+  tags:
+  - 隔夜外盘
+  - 美股普涨
+  - ADP弱于预期
+  - 加息概率
+- id: claim-20260903-002-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: macro
+  subject: 欧洲债市创新高且通胀回3%是最难受的一块
+  timeframe: short-term
+  statement: 德国10年期国债收益率升至2011年以来高位，英国10年期来到2007年以来高位；欧元区8月通胀重新突破3%，强化了欧洲央行加息预期。欧洲很难像美国那样舒服地交易坏数据等于降息，因为能源通胀的约束更明显。
+  evidence_quote: 欧洲是今天相对最难受的一块：德国 10 年期国债收益率升至 2011 年以来高位，英国 10 年期来到 2007 年以来高位，欧元区
+    8 月通胀重新突破 3%，强化了欧洲央行的加息预期。欧洲很难像美国那样舒服地交易坏数据等于降息，因为能源通胀的约束更明显。
+  interpretation: UP 区分'美式坏数据=降息'与'欧式坏数据=通胀黏性'——这意味着欧债收益率约束比美债更刚性，欧股/欧元的风险偏好修复弹性比美股弱。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 欧洲债市与通胀约束
+  related_stocks: []
+  tags:
+  - 欧洲债市
+  - 德债新高
+  - 欧元区通胀
+  - ECB加息
+- id: claim-20260903-003-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: macro
+  subject: 博通指引短期估值测试但27-28年再确认AI周期
+  timeframe: short-term
+  statement: 博通 FY26Q3营收295.9亿美元、AI半导体收入167亿美元同比增逾两倍，调整后EPS 3.32美元均超预期；但Q4营收指引348亿略低于预期350.3亿，AI芯片指引217亿略高于预期。指引后盘后最深跌约6%，但电话会议给出AI半导体FY26约580亿、FY27约1150亿、FY28约2300亿美元路径，并称2027-2028供应已锁定、需求已超出2027年预期，盘后一度翻红。
+  evidence_quote: 据博通财报，第三财季营收 295.9 亿美元、AI 半导体收入 167 亿美元（同比增逾两倍）……但第四财季营收指引 348 亿美元，略低于市场预期的
+    350.3 亿美元，AI 芯片收入指引 217 亿美元略高于预期。指引公布后盘后最深跌约 6%。……管理层给出 AI 半导体收入 2026 财年约 580
+    亿、2027 财年约 1150 亿、2028 财年约 2300 亿美元的路径。
+  interpretation: UP 拆开看：指引不够超预期是短期估值测试（盘后跌6%），27-28年翻倍再翻倍是中期资本开支周期未结束的再确认（盘后翻红）。亚洲盘取后者——日韩今日高开，韩国开盘涨1.3%。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 博通FY26Q3财报短空长多解读
+  related_stocks: []
+  tags:
+  - 博通财报
+  - AI半导体
+  - 盘后深V
+  - 27-28翻倍
+- id: claim-20260903-004-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: macro
+  subject: 博通FY27订单对应10.3GW AI需求
+  timeframe: industry
+  statement: 据市场整理的博通电话会信息（待核实），2027年博通AI订单对应约10.3GW：Anthropic约5GW、OpenAI约1.3GW、Meta约1GW、谷歌自用逾3GW；2027年收入约1150亿美元，2028年约22-25GW、AI收入约2300亿美元。博通认为现有XPU相比GPU可能有超过一倍的性价比优势。
+  evidence_quote: 据市场整理的电话会信息（待核实），2027 年博通 AI 订单对应约 10.3GW（Anthropic 约 5GW、OpenAI
+    约 1.3GW、Meta 约 1GW、谷歌自用逾 3GW）、收入约 1150 亿美元，2028 年约 22—25GW、AI 收入约 2300 亿美元，博通认为现有
+    XPU 相比 GPU 可能有超过一倍的性价比优势。
+  interpretation: UP 把博通的订单结构视为'头部模型公司收入与订单仍在快速放量'的硬证据——AI资本开支周期没结束；但A股今天能否兑现取决于指数是否走出情形A（横盘向上）。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 博通订单结构与XPU性价比优势
+  related_stocks: []
+  tags:
+  - 博通订单
+  - 10.3GW
+  - Anthropic
+  - OpenAI
+  - Meta
+- id: claim-20260903-005-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: sector-theme
+  subject: HBM4定价海力士加70%三星价高15%差距收窄
+  timeframe: short-term
+  statement: 据SemiAnalysis，SK海力士 HBM4对英伟达的定价预计在每Gb 3.0-3.3美元同比涨幅约70%；对博通、AWS、谷歌、AMD等其他一线客户为每Gb
+    3.7-4.1美元；三星对英伟达定价每Gb 3.5-3.9美元较海力士高约15%；到2027年海力士与三星针对英伟达的HBM利润差距预计从两位数缩窄至个位数百分比。
+  evidence_quote: 据 SemiAnalysis，SK 海力士 HBM4 对英伟达的定价预计在每 Gb 3.0—3.3 美元，同比涨幅约 70%……三星对英伟达定价每
+    Gb 3.5—3.9 美元，较海力士高约 15%；到 2027 年，海力士与三星针对英伟达的 HBM 利润差距预计从两位数缩窄至个位数百分比。
+  interpretation: HBM4 定价同步抬升（HBM4 同比+70%）+ 海力士与三星利润差距收敛——意味着行业 ASP 上行+格局重塑，A股映射以存储链为核心（9/2
+    晚间 UP 把存储+液冷并列为'科技止跌最敏感观察点'，本条为新增数据支撑）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: HBM4定价上调与海力士三星利润收敛
+  related_stocks: []
+  tags:
+  - HBM4
+  - SK海力士
+  - 三星
+  - HBM定价+70%
+  - 利润收敛
+- id: claim-20260903-006-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: methodology
+  subject: ISM支付价格与非农是本周硬节点
+  timeframe: short-term
+  statement: 两个硬节点：其一北京时间22:00公布美国8月ISM服务业PMI，不要只看总量要盯支付价格分项——最舒服的数据是增长温和放缓+支付价格降温；若PMI不错但支付价格很高就是麻烦。其二周五非农——明显强于预期则9月加息概率重抬+美债收益率再冲高+科技股与黄金承压；明显弱于预期在油价高位背景下市场可能转而交易滞胀；所以周五最危险的数字未必是特别好的非农，而是不够差的非农。
+  evidence_quote: 两个硬节点：其一，北京时间 22:00 公布美国 8 月 ISM 服务业 PMI，不要只看总量，要盯支付价格分项……若 PMI
+    不错但支付价格很高，就是麻烦。其二，周五非农……所以周五最危险的数字，未必是一个特别好的非农，而是一个不够差的非农。
+  interpretation: UP 给出 ISM/非农的精细解读框架：①'PMI强+支付价格高'是麻烦组合 ②非农的最危险情形不是强而是'不够差'——这是把'坏消息就是好消息'逻辑的边界条件说清，避免市场反应方向反转。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: ISM支付价格与非农的精细解读
+  related_stocks: []
+  tags:
+  - ISM支付价格
+  - 非农
+  - 滞胀风险
+  - 硬节点
+- id: claim-20260903-007-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: market-cycle
+  subject: 今日全球剧本为亚洲谨慎欧洲承压美股震荡
+  timeframe: intraday
+  statement: 今天的全球剧本大概率是：亚洲先谨慎、欧洲继续承压、美股震荡等数据——不是再次暴跌日，也不是警报解除日。
+  evidence_quote: 今天的全球剧本大概率是：亚洲先谨慎、欧洲继续承压、美股震荡等数据——不是再次暴跌日，也不是警报解除日。
+  interpretation: UP 对今日定位明确：既非 9/2 早盘的'极端冲击次日修复'，也非 8/19 那样的'二次风险释放'，而是'止血信号下的窄幅震荡'。对应到A股是中性偏暖开盘+回归自身节奏。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日全球剧本与A股中性偏暖开盘
+  related_stocks: []
+  tags:
+  - 全球剧本
+  - 亚洲谨慎
+  - 欧洲承压
+  - 中性偏暖开盘
+- id: claim-20260903-008-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: market-cycle
+  subject: 9月2日阴线定性为主动回调非被动踩踏
+  timeframe: short-term
+  statement: 9/2 创业板指跌超2%；客观原因是外围普跌，主观原因是4000点压力+沪指六连阳后复刻8月18-19日走势。但盘中明显能感受到指数下跌意愿不强——创业板振幅只有8月以来第二低（再往下奔新低），叠加下午韩股跌近4%后A股没有继续跟跌，所以9/2更像一次主动回调而非被动踩踏。
+  evidence_quote: 客观原因是外围普跌，主观原因则是盘前提到的上方 4000 点压力＋沪指六连阳……但盘中明显能感受到指数下跌意愿不强，尤其创业板指的振幅只有
+    8 月以来的第二低……所以昨天更像一次主动回调，而非被动踩踏。
+  interpretation: UP 把 9/2 的'缩量阴线=最后一踩'（晚间口径）进一步定性为'主动回调'：振幅低 + 外部冲击下未跟跌 = 不是恐慌抛售。这是把昨晚的判断细化到今天的执行语境。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 9/2阴线定性为主动回调而非被动踩踏
+  related_stocks: []
+  tags:
+  - 9月2日阴线
+  - 主动回调
+  - 非被动踩踏
+  - 创业板振幅
+- id: claim-20260903-009-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: technical-signal
+  subject: 量能跌破1.8万亿距地量区间不远
+  timeframe: short-term
+  statement: 9/2 两市量能创出阶段新低，已跌破1.8万亿关口。按照之前两次1.5-1.6万亿的地量（去年9-11月与今年1-4月）计算，距离地量区间已经不远。横盘怎么横、横多久的观察标尺：若继续缩量向地量靠拢，横盘时间会被压缩；若量能在1.7万亿附近企稳并伴随指数走平，横盘向上的概率随之提高。
+  evidence_quote: 据成交数据，昨天两市量能创出阶段新低，已跌破 1.8 万亿关口。按照之前两次 1.5—1.6 万亿的地量（去年 9—11 月与今年
+    1—4 月）计算，距离地量区间已经不远。
+  interpretation: UP 把'量能创阶段新低'作为横盘时间窗口的可量化锚点：1.5-1.6万亿地量是参考，1.7万亿是横盘企稳线。这与9/2晚间'缩量阴线=内生性回调'的判断一致，本条提供了量化的阈值。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能跌破1.8万亿距地量区间不远
+  related_stocks: []
+  tags:
+  - 量能新低
+  - 1.8万亿
+  - 地量区间
+  - 横盘标尺
+- id: claim-20260903-010-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: operation
+  subject: 大金融是后半周冲击4000点的配合条件
+  timeframe: short-term
+  statement: 9/2 大金融未见主动发力。横盘蓄势阶段不需要大金融表现，但真正冲击4000点的那一步仍然需要它配合——这是后半周的一个观察项，而不是今天的前提条件。
+  evidence_quote: 昨日大金融未见主动发力。横盘蓄势阶段不需要大金融表现，但真正冲击 4000 点的那一步仍然需要它配合——这是后半周的一个观察项，而不是今天的前提条件。
+  interpretation: UP 把大金融从'今天的前置条件'降级为'后半周的观察项'——节奏感清晰：今天不需要它发力，但要观察它是否在为后半周蓄势。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大金融是后半周冲击4000点的观察项
+  related_stocks: []
+  tags:
+  - 大金融
+  - 4000点
+  - 后半周观察项
+- id: claim-20260903-011-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: market-cycle
+  subject: 9月2日情绪数据全方位好于8月19日
+  timeframe: short-term
+  statement: 9/2 二板家数7家，一进二晋级率由13.24%降至11.29%（8/19为6.56%）；首板家数由62家降至36家（19日为29家）；高标晋级失败；跌停个股9家（19日为118家）。个股数据无可避免出现下滑，但具体读数明显好于8/19，与指数层面的观感一致。
+  evidence_quote: 据涨跌停数据，昨日二板家数 7 家，一进二晋级率由 13.24% 降至 11.29%（8 月 19 日为 6.56%）；首板家数由
+    62 家降至 36 家（19 日为 29 家）；高标晋级失败；跌停个股 9 家（19 日为 118 家）。
+  interpretation: UP 用 8/19 作对照：9/2 跌停9家 vs 8/19 跌停118家；一进二晋级率11.29% vs 6.56%。客观读数大幅好于8/19——这与8月18-19日之后走出金健米业(600127)/汉森制药(002412)/深中华A(000017)/楚天龙(003040)/捷荣技术(002855)等高标的模板对应。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 9/2情绪数据全方位好于8/19
+  related_stocks: []
+  tags:
+  - 9月2日情绪数据
+  - vs8月19日
+  - 晋级率
+  - 跌停9家
+- id: claim-20260903-012-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: methodology
+  subject: 横盘后高标涌现的8月模板与今日观察顺序
+  timeframe: short-term
+  statement: 横盘往往给个股更多表现机会：8月19日涨停的个股中就包含了金健米业(600127)和汉森制药(002412)，深中华A(000017)则始于20日，之后陆陆续续走出楚天龙(003040)、捷荣技术(002855)等。所以今天的观察顺序是：先看跌停家数有无增多，在确认亏钱效应没有放大之后，再把注意力放到进攻上。
+  evidence_quote: 8 月 19 日涨停的个股中就包含了金健米业和汉森制药，深中华A 则始于 20 日，之后陆陆续续走出楚天龙、捷荣技术等。所以今天的观察顺序是：先看跌停家数有无增多，在确认亏钱效应没有放大之后，再把注意力放到进攻上。
+  interpretation: UP 提供8月横盘模板的具体标的序列（8/19金健米业(600127)/汉森→8/20深中华A(000017)→后续楚天龙(003040)/捷荣技术(002855)）作为今日观察节奏参考：先确认亏钱效应未放大，再切入进攻。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 横盘后高标涌现的8月模板与观察顺序
+  related_stocks:
+  - code: '600127'
+    name: 金健米业
+    role: 8月横盘模板高标
+  - code: '002412'
+    name: 汉森制药
+    role: 8月横盘模板高标
+  - code: '000017'
+    name: 深中华A
+    role: 8月横盘模板高标
+  - code: '003040'
+    name: 楚天龙
+    role: 8月横盘模板高标
+  - code: '002855'
+    name: 捷荣技术
+    role: 8月横盘模板高标
+  tags:
+  - 8月模板
+  - 金健米业
+  - 汉森制药
+  - 深中华A
+  - 观察顺序
+- id: claim-20260903-013-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: operation
+  subject: 今日横盘向上与横盘向下的情形A与情形B
+  timeframe: intraday
+  statement: 情形A（横盘向上）：开盘承接住外盘暖意、跌停家数继续维持个位数、量能不再创新低，则9/2阴线可定性为主动回调结束，指数横盘向上的概率提高，科技股重新占据主导，液冷、光纤、AI手机等昨日零星异动的方向具备形成规模的条件。情形B（横盘向下）：若高开低走、跌停家数明显增多、量能继续萎缩，说明9/2只是调整的第一步，非科技的「事件催化＋超跌」组合（军工、防御类）占主导，科技股以个股异动为主、难成合力。两种情形的分水岭不在指数点位，而在个股数据与量能：强则科技主攻，弱则非科技补位，不见量价确认不追。
+  evidence_quote: 情形 A（横盘向上）……科技股重新占据主导，液冷、光纤、AI 手机等昨日零星异动的方向具备形成规模的条件。情形 B（横盘向下）……非科技的「事件催化＋超跌」组合（军工、防御类）占主导，科技股以个股异动为主、难成合力。
+  interpretation: UP 给出今日情形A/B的可证伪分水岭：跌停家数+量能而非指数点位。情形A触发器=科技主攻（液冷/光纤/AI手机），情形B触发器=非科技事件催补涨（军工/防御）。这是把9/2晚间三档应对的'第一档'具体化到今日。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日情形A/B分水岭在个股数据与量能
+  related_stocks: []
+  tags:
+  - 情形A
+  - 情形B
+  - AB分水岭
+  - 科技主攻
+  - 非科技补位
+- id: claim-20260903-014-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: sector-theme
+  subject: 军工类似8月农业的事件催化与超跌组合
+  timeframe: short-term
+  statement: 9/2 军工板块逆势走强，消息层面受地缘局势升级催化，叠加板块本身位置较低、前期反弹中没怎么轮动过。其定位类似8月19日的农业、养殖板块，都属于事件催化+超跌板块的组合。但需要注意的是，此前农业股能走出一波涨势除了厄尔尼诺催化外，也和8月底指数与科技股的疲软有关——指数的方向选择将对军工能否延续起到关键影响：情形B之下它是主线，情形A之下它更可能是轮动中的一站。
+  evidence_quote: 据盘面，昨日军工板块逆势走强，消息层面受地缘局势升级催化，叠加板块本身位置较低、前期反弹中没怎么轮动过。个人判断，其定位类似 8
+    月 19 日的农业、养殖板块，都属于事件催化＋超跌板块的组合。
+  interpretation: UP 把军工定位为'事件催化+超跌'组合——情形B下的板块主线、情形A下的轮动一站。这是把9/2晚间'军工补涨性质持续性可能偏弱'的判断进一步与今日情形A/B框架绑定。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 军工的事件催化+超跌组合定位
+  related_stocks: []
+  tags:
+  - 军工
+  - 事件催化+超跌
+  - 情形B主线
+- id: claim-20260903-015-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: sector-theme
+  subject: 液冷PTFE光纤AI手机零星异动需情形A配合
+  timeframe: short-term
+  statement: 9/2 液冷、PTFE、光纤等方向都有零星个股异动，早盘的AI手机概念也可以纳入讨论范畴，但受制于指数调整没有形成规模。隔夜的增量信息有三条：①戴尔DELL因AI服务器需求强劲业绩超预期盘后大涨15.81%，A股相关公司包括浪潮信息(000977)、汇金股份(300368)等；②博通电话会议对2027-2028年AI收入翻倍再翻倍的路径；③SK海力士
+    HBM4定价上调约70%同比。但A股今天能否兑现，取决于指数是否走出情形A。
+  evidence_quote: 据盘面，昨天液冷、PTFE、光纤等方向都有零星个股异动，早盘的 AI 手机概念也可以纳入讨论范畴，但受制于指数调整没有形成规模。
+  interpretation: UP 把三条隔夜增量信息（戴尔15.81% + 博通2027-28翻倍 + HBM4 +70%）整合为科技主攻的'情形A触发器'——与9/2晚间'液冷外溢至金刚石=科技内部扩散信号'一致，本条进一步把兑现条件绑定到情形A。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技AI硬件链零星异动与情形A触发
+  related_stocks:
+  - code: '000977'
+    name: 浪潮信息
+    role: 液冷服务器-主板可交易
+  - code: '300368'
+    name: 汇金股份
+    role: AI服务器-创业板不可交易
+  tags:
+  - 液冷
+  - PTFE
+  - 光纤
+  - AI手机
+  - 情形A配合
+- id: claim-20260903-016-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: methodology
+  subject: 北交所大涨个股作为情绪镜子
+  timeframe: intraday
+  statement: 9/2 北交所概念股板块性反弹，从花溪科技(920895)开始北交所概念已连续几天走强，北交所个股全线大涨，相对应的是20cm个股关注度明显减小。可以找理由的是北交所迎来宣布设立五周年的消息。今天可以通过涨停或大涨的北交所个股来反推日内的强势题材，把它当作一面情绪镜子来用。
+  evidence_quote: 确切说从花溪科技开始，北交所概念已连续几天走强，北交所个股昨日全线大涨……今天可以通过涨停或大涨的北交所个股来反推日内的强势题材，把它当作一面情绪镜子来用。
+  interpretation: UP 把北交所大涨个股视为'情绪镜子'——反向推日内强势题材，而不是当作主线参与。这是把北交所的'独立行情'从9/2晚间判断升级为情绪工具。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 北交所作为情绪镜子反推日内强势题材
+  related_stocks:
+  - code: '920895'
+    name: 花溪科技
+    role: 北交所代表-情绪镜子
+  tags:
+  - 北交所
+  - 情绪镜子
+  - 花溪科技
+- id: claim-20260903-017-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: sector-theme
+  subject: 农业退潮印证事件催化与超跌组合的生命周期
+  timeframe: short-term
+  statement: 9/2 农业板块跌幅居前。作为8月中下旬'事件催化+超跌'的上一站，其退潮本身也印证了这类组合的生命周期依赖指数与科技股的强弱，对军工今天的观察具有参考意义。
+  evidence_quote: 据盘面，昨日农业板块跌幅居前。作为 8 月中下旬「事件催化＋超跌」的上一站，其退潮本身也印证了这类组合的生命周期依赖指数与科技股的强弱，对军工今天的观察具有参考意义。
+  interpretation: UP 用农业板块的退潮作为军工（情形B下的主线）的对照参考——'事件催化+超跌'组合的生命周期高度依赖指数与科技股强弱。农业已退潮，军工能否延续取决于指数方向。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 农业退潮作为军工观察的对照参考
+  related_stocks: []
+  tags:
+  - 农业退潮
+  - 事件催化+超跌
+  - 军工参考
+- id: claim-20260903-018-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: stock-view
+  subject: 本源悟空QRAM突破与神州信息金房能源映射
+  timeframe: short-term
+  statement: 据安徽省量子计算芯片重点实验室消息，本源量子联合中科大、合肥综合性国家科学中心人工智能研究院等团队，在'本源悟空'自主超导量子计算机上研发出面向桶式QRAM的'相干量子路由系统'，相关论文发表于《物理评论X》，传输效率高达98%。据国投证券赵阳观点，2019年谷歌53比特'悬铃木'首次实现量子计算优越性验证，2024年Willow、2025年祖冲之3号均实现性能快速提升，产业进入蓬勃发展阶段，未来有望逐步实现专用量子计算机商用化。神州信息(000555)是国家量子产业联盟首批会员单位，与国盾量子(688027)紧密合作；金房能源(001210)参股北京正道量子持股10%。
+  evidence_quote: 据安徽省量子计算芯片重点实验室消息，本源量子联合中国科学技术大学……研发出面向桶式量子随机存储器（QRAM）的「相干量子路由系统」……传输效率高达
+    98%。
+  interpretation: UP 把本源悟空的QRAM突破作为产业逻辑强化的硬证据（98%传输效率+《物理评论X》），神州信息(000555)与金房能源(001210)为A股映射——量子属于'消息驱动+低位'题材，在横盘期具备日内表现条件，但持续性需看涨停龙头确认。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 本源悟空QRAM突破与量子产业链映射
+  related_stocks:
+  - code: '000555'
+    name: 神州信息
+    role: 量子保密通信-主板可交易
+  - code: '688027'
+    name: 国盾量子
+    role: 量子计算-科创板不可交易
+  - code: '001210'
+    name: 金房能源
+    role: 参股正道量子-主板可交易
+  tags:
+  - 本源悟空
+  - QRAM
+  - 量子计算
+  - 神州信息
+  - 金房能源
+- id: claim-20260903-019-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: stock-view
+  subject: 氮化铝三方战略合作与国产替代机遇
+  timeframe: short-term
+  statement: 据公告，9月2日旭光电子(600353)在苏州与北方华创(002371)、珂玛科技(301611)举行战略合作签约仪式，三方将共建半导体领域协同创新生态，合力推进高端氮化铝材料及半导体装备国产化替代；旭光电子力争2027年前将氮化铝粉体产能由500吨扩增至1000吨。据华泰证券刘俊观点，氮化铝热导率较传统氧化铝的20-40
+    W/(m·K)大幅提升，兼具高绝缘、低介电常数、热膨胀匹配硅等优势；供给端日本德山、京瓷等日系产能合计份额约75%，但日系企业或面临原材料紧张、产能收缩与交付周期延长的困境，兼具粉体自研与规模化量产的国内企业有望迎来机遇。
+  evidence_quote: 据公告，9 月 2 日旭光电子在苏州与北方华创、珂玛科技举行战略合作签约仪式，三方将共建半导体领域协同创新生态，合力推进高端氮化铝材料及半导体装备国产化替代。
+  interpretation: UP 把氮化铝定位为'半导体设备+算力硬件散热'两条主线的交叉点——日系75%份额面临产能收缩，国内粉体自研+规模化量产企业受益。旭光电子(600353)+金博股份(688598)
+    为映射标的，其表现同样受情形A/B选择约束。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 氮化铝三方战略合作与国产替代
+  related_stocks:
+  - code: '600353'
+    name: 旭光电子
+    role: 氮化铝粉体-主板可交易
+  - code: '002371'
+    name: 北方华创
+    role: 半导体设备-主板可交易
+  - code: '301611'
+    name: 珂玛科技
+    role: 氮化铝-创业板不可交易
+  - code: '688598'
+    name: 金博股份
+    role: 氮化铝粉体-科创板不可交易
+  tags:
+  - 氮化铝
+  - 三方战略合作
+  - 国产替代
+  - 旭光电子
+  - 北方华创
+- id: claim-20260903-020-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: sector-theme
+  subject: 印尼镍减产40%与上游涨价线新增催化
+  timeframe: short-term
+  statement: 据报道，受厄尔尼诺引发的干旱影响，印尼最大镍工业园区的冶炼厂供水受限，该园区可能不得不将产量削减多达40%；2025年印尼镍矿产量占全球67%。A股相关公司包括盛屯矿业(600711)、中国中冶(601618)等。这是上游涨价线的一个新增催化，与农业板块的厄尔尼诺逻辑同源，属于横盘期可关注的非科技补充方向。
+  evidence_quote: 受厄尔尼诺引发的干旱影响，印尼最大镍工业园区的冶炼厂供水受限，该园区可能不得不将产量削减多达 40%；2025 年印尼镍矿产量占全球
+    67%。
+  interpretation: UP 把镍列为'上游涨价线新增催化'，与农业的厄尔尼诺逻辑同源——属于横盘期可关注的非科技补充方向。这是把 9/2 早盘农业催化的厄尔尼诺逻辑迁移到镍。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 印尼镍减产40%与上游涨价催化
+  related_stocks:
+  - code: '600711'
+    name: 盛屯矿业
+    role: 镍-主板可交易
+  - code: '601618'
+    name: 中国中冶
+    role: 镍/冶金-主板可交易
+  tags:
+  - 印尼镍
+  - 减产40%
+  - 厄尔尼诺
+  - 盛屯矿业
+- id: claim-20260903-021-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: stock-view
+  subject: 戴尔15.81%映射A股浪潮信息与汇金股份
+  timeframe: short-term
+  statement: 据报道，戴尔科技因AI服务器需求强劲、业绩超预期并上调全年预测而大涨15.81%。这是隔夜AI硬件链里最干净的正面信号，与博通'需求超出2027年预期'的表述互为印证。浪潮信息(000977)是国内液云国产替代代表，汇金股份(300368)是A股AI服务器映射标的——后者创业板不可交易。
+  evidence_quote: 据报道，戴尔科技因 AI 服务器需求强劲、业绩超预期并上调全年预测而大涨 15.81%。这是隔夜 AI 硬件链里最干净的正面信号，与博通「需求超出
+    2027 年预期」的表述互为印证。
+  interpretation: UP 把戴尔+博通互为印证作为AI硬件链'最干净的正面信号'——A股映射为浪潮信息(000977)(主板可交易) + 汇金股份(300368)(创业板不可交易)。这是把
+    9/2 晚间戴尔财报/950亿积压订单的判断（017-a）升级为 15.81%盘后涨幅的明确触发。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 戴尔15.81%与AI硬件链A股映射
+  related_stocks:
+  - code: '000977'
+    name: 浪潮信息
+    role: 液冷国产替代
+  - code: '300368'
+    name: 汇金股份
+    role: AI服务器-创业板不可交易
+  tags:
+  - 戴尔+15.81%
+  - AI服务器
+  - 浪潮信息
+  - 汇金股份
+- id: claim-20260903-022-a
+  source_path: sources/raw/财经/2026-09-03-0858-早盘-周三主动回调阴线复刻8月18-19日节奏.md
+  source_date: '2026-09-03'
+  source_type: 早盘
+  extracted_at: '2026-09-03T09:10:00'
+  claim_type: operation
+  subject: 今日观察清单五项硬约束
+  timeframe: intraday
+  statement: 第一，开盘后半小时的承接与跌停家数——判断情形A还是B的第一道门槛。第二，量能是否止住创新低的趋势，1.7-1.8万亿区间是否企稳。第三，北交所大涨个股所映射的日内强势题材。第四，军工与科技谁在午后占据主导，决定后半周的板块配置倾向。第五，22:00的ISM服务业支付价格分项，预演明晚非农的市场解读方式。
+  evidence_quote: 第一，开盘后半小时的承接与跌停家数……第二，量能是否止住创新低的趋势……第三，北交所大涨个股所映射的日内强势题材。第四，军工与科技谁在午后占据主导……第五，22:00
+    的 ISM 服务业支付价格分项。
+  interpretation: UP 把今日观察压缩为五项可量化指标——前四项盘中执行（A/B分水岭+量能+题材反推+板块主导），第五项跨日联动（ISM支付价格=非农预演）。五项全部为可证伪信号而非主观判断。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日五项观察清单
+  related_stocks: []
+  tags:
+  - 五项观察
+  - 跌停+量能
+  - 题材反推
+  - ISM支付价格
