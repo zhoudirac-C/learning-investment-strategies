@@ -1,0 +1,120 @@
+claims:
+- id: claim-20260903-003-a
+  source_path: sources/raw/财经/2026-09-03-1147-盘中-长鑫全球份额10与液冷确立主线.md
+  source_date: '2026-09-03'
+  source_type: 盘中
+  extracted_at: '2026-09-03T12:05:00'
+  claim_type: stock-view
+  subject: 长鑫存储全球份额到10%与国产DRAM突破
+  timeframe: industry
+  statement: 长鑫存储（ChangXin Memory Technologies，CXMT）全球市场份额已达10%——这是国产 DRAM 行业突破的关键阈值。
+  evidence_quote: 长鑫全球份额到10%了，
+  interpretation: UP 把长鑫的份额突破作为硬数据呈现。10% 是 DRAM 全球前五/前三的入场券——叠加 9/3 早盘 HBM4 定价+70%
+    的产业背景，长鑫的份额扩张直接对应存储链 ASP 上升+国产替代加速。这是把 9/2 晚间「存储+液冷=科技止跌观察点」+9/3 早盘 HBM4 定价的具体证据补齐。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 长鑫存储全球份额突破10%
+  related_stocks: []
+  tags:
+  - 长鑫存储
+  - CXMT
+  - 全球份额10%
+  - 国产DRAM
+  - 存储突破
+- id: claim-20260903-003-b
+  source_path: sources/raw/财经/2026-09-03-1147-盘中-长鑫全球份额10与液冷确立主线.md
+  source_date: '2026-09-03'
+  source_type: 盘中
+  extracted_at: '2026-09-03T12:05:00'
+  claim_type: market-cycle
+  subject: KC50今天没到位但无所谓了
+  timeframe: intraday
+  statement: KC50今天没到位（未跌到 1600），但无所谓了——UP 直接放弃对 KC50 调整到位的要求。
+  evidence_quote: kc50今天没到位，也无所谓了，
+  interpretation: UP 在 11:47 盘中**修正**了 9:42 的判断（9:42 说「跌到1600是好事，没跌到位拉起来反而不好」）。但 11:47
+    改为「没到位也无所谓了」——态度从「必须有调整」转向「主线确立+主线确立」。这是把判断从技术位调整升级为产业主线确认：液冷带头上攻+长鑫份额突破 = 科技主攻格局成立，KC50
+    是否跌到位已经不重要。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: KC50没到位无所谓：技术位要求被产业主线确立覆盖
+  related_stocks: []
+  tags:
+  - KC50没到位
+  - 放弃调整到位要求
+  - 产业主线覆盖技术位
+- id: claim-20260903-003-c
+  source_path: sources/raw/财经/2026-09-03-1147-盘中-长鑫全球份额10与液冷确立主线.md
+  source_date: '2026-09-03'
+  source_type: 盘中
+  extracted_at: '2026-09-03T12:05:00'
+  claim_type: sector-theme
+  subject: 液冷带头上攻确立科技主线地位
+  timeframe: intraday
+  statement: 液冷昨天就表现出很强的主动性（盘中零星异动+科技内部扩散），今天再次带头上攻——**液冷从先锋/观察点升级为确立主线地位**。
+  evidence_quote: 液冷昨天就说过主动性很强，今天再次带头上攻确立主线地位，
+  interpretation: UP 把液冷的地位从「9/2 晚间先锋/观察点」+「9/3 早盘情形A 触发器」**升级为「确立主线」**——这是把「先锋」判断收束到「主线」判断的边际跳跃，意味着：①液冷不再只是科技止跌的观察点
+    ②而是今日反弹的核心驱动 ③存储+液冷两个最敏感分支中，液冷已先于存储兑现。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 液冷确立科技主线地位
+  related_stocks:
+  - code: '002837'
+    name: 英维克
+    role: 液冷-主板可交易-你持仓
+  - code: '000977'
+    name: 浪潮信息
+    role: 液冷服务器-主板可交易-9/2晚间映射
+  tags:
+  - 液冷
+  - 先锋升级主线
+  - 带头上攻
+  - 科技内部扩散
+- id: claim-20260903-003-d
+  source_path: sources/raw/财经/2026-09-03-1147-盘中-长鑫全球份额10与液冷确立主线.md
+  source_date: '2026-09-03'
+  source_type: 盘中
+  extracted_at: '2026-09-03T12:05:00'
+  claim_type: market-cycle
+  subject: 下午行情更值得期待情绪转向乐观
+  timeframe: intraday
+  statement: 对下午的行情会更期待一些——UP 情绪从早盘「不见量价确认不追」的谨慎转向午盘「期待」。
+  evidence_quote: 我对下午的行情会更期待一些。
+  interpretation: UP 的情绪表达：**「期待」是少见的乐观措辞**——与之相对的是 9/2 晚间「明日三档应对」的谨慎，以及 9/3 早盘「今天全球剧本=亚洲谨慎/欧洲承压/美股震荡等数据」的中性。11:47
+    「期待」的措辞+液冷带头上攻+长鑫份额突破共同支持「情形A 触发=科技主攻」的现实兑现。这是把早盘情形A 的可证伪信号**从「可能」升级为「已部分触发」**。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: UP对下午行情转向期待
+  related_stocks: []
+  tags:
+  - 下午行情
+  - 更期待
+  - 情绪转向乐观
+  - 情形A触发
