@@ -82,3 +82,32 @@ class TestUnknownNameClaims:
     def test_negation_still_skipped(self, tmp_path):
         r = {"stage_reason": "江海股份未涨停，仅涨7%"}
         assert check_prediction(r, "2026-08-21", lp_root=self._pool(tmp_path)) == []
+
+
+class TestQuestionPhraseRegression:
+    """疑问语段误报回归（2026-W36 周）：watch_next「国芳集团…是否继续封板」
+    被反向提取出「是否继续」当股票名报「涨停池无 是否继续」。
+
+    提案：framework/proposals/2026-09-05-pattern-patch-blind-up-comparison-w36.md
+    工程问题 2。
+    """
+
+    def _pool(self, tmp_path):
+        p = tmp_path / "20260904.json"
+        p.write_text(json.dumps(
+            {"zt_items": [{"name": "国芳集团", "lbc": 5}]}), encoding="utf-8")
+        return tmp_path
+
+    def test_shifou_jixu_not_flagged(self, tmp_path):
+        r = {"watch_next": ["国芳集团（5板）是否继续封板：封板则高位抱团仍有参照，断板则退潮"]}
+        assert check_prediction(r, "2026-09-04", lp_root=self._pool(tmp_path)) == []
+
+    def test_nengfou_jixu_not_flagged(self, tmp_path):
+        r = {"watch_next": ["国芳集团能否继续封板是今日情绪锚"]}
+        assert check_prediction(r, "2026-09-04", lp_root=self._pool(tmp_path)) == []
+
+    def test_real_stock_claim_still_caught(self, tmp_path):
+        # 拦截能力不退化：真实幻觉个股声明仍须捕获
+        r = {"watch_next": ["江海股份涨停带动板块"]}
+        errors = check_prediction(r, "2026-09-04", lp_root=self._pool(tmp_path))
+        assert any("江海股份" in e for e in errors), errors

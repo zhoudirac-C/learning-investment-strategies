@@ -7,11 +7,11 @@ from investment_engine.shadow.daily import run
 
 
 class TestDailyPromptVersion:
-    def test_prompt_version_is_v13(self):
-        """pattern-patch 合并裁决 2026-08-30：版本号 v12→v13（规则29 方向失效条件 +
-        规则5扩展 双轨互证）。"""
+    def test_prompt_version_is_v14(self):
+        """W36 盲判vsUP对比提案 2026-09-05：版本号 v13→v14（规则30-35 六条新模式 +
+        规则31 机械校验 + 规则26 误报修复）。"""
         from investment_engine.blindtest import replay
-        assert replay.PROMPT_VERSION == "v13"
+        assert replay.PROMPT_VERSION == "v14"
 
     def test_daily_prompt_contains_discipline_rules(self):
         """v6/v8 纪律规则关键词须出现在盘后 prompt（B1/B2/A2-A5/C5引用/C8降级/规则9并列）。"""
@@ -145,3 +145,77 @@ class TestDailyRun:
     def test_prediction_error_propagates(self, monkeypatch):
         r = self._run(monkeypatch, predict=lambda day, **kw: {"date": day, "status": "error"})
         assert r["status"] == "predict_error"
+
+
+class TestStaleStageHitSweep:
+    """历史 pending_maturity 记录的 stage_hit sweep 回填。
+
+    提案：framework/proposals/2026-09-05-pattern-patch-blind-up-comparison-w36.md
+    工程问题 4——收盘轨 429 缺席时当日 -pre 的 stage_hit 永久空缺（W36 的
+    08-31/09-01/09-02-pre 三连空缺根因），后续成功运行日须 sweep 补回填。
+    """
+
+    def setup_method(self):
+        self.root = Path(tempfile.mkdtemp(prefix="daily_sweep_"))
+        self.pred_dir = self.root / "pred"
+        self.attr_dir = self.root / "attr"
+        self.prop_dir = self.root / "prop"
+
+    def teardown_method(self):
+        import shutil
+        shutil.rmtree(self.root, ignore_errors=True)
+
+    def _stub(self, monkeypatch, truth_map):
+        def fake_predict(day, **kw):
+            rec = {"date": day, "result": {"market_stage": "震荡"}, "raw": "",
+                   "stage_hit": None, "due_scores": None, "status": "pending_maturity"}
+            pred_dir = Path(kw["pred_dir"])
+            pred_dir.mkdir(parents=True, exist_ok=True)
+            (pred_dir / f"{day}.json").write_text(json.dumps(rec), encoding="utf-8")
+            return rec
+
+        monkeypatch.setattr("investment_engine.shadow.daily.has_fresh_data",
+                            lambda day, db_path=None: True)
+        monkeypatch.setattr("investment_engine.shadow.daily.run_predict", fake_predict)
+        monkeypatch.setattr("investment_engine.shadow.daily.load_truth",
+                            lambda **kw: truth_map)
+        monkeypatch.setattr("investment_engine.shadow.daily.run_maturity",
+                            lambda day, **kw: {"scored": 0})
+        monkeypatch.setattr("investment_engine.shadow.daily.run_attribution",
+                            lambda day, **kw: {"date": day})
+
+    def test_stale_pre_backfilled(self, monkeypatch):
+        self.pred_dir.mkdir(parents=True, exist_ok=True)
+        (self.pred_dir / "2026-08-06-pre.json").write_text(json.dumps({
+            "date": "2026-08-06", "result": {"market_stage": "调整"}, "raw": "",
+            "stage_hit": None, "due_scores": None, "status": "pending_maturity"}),
+            encoding="utf-8")
+        self._stub(monkeypatch, {"2026-08-07": "震荡", "2026-08-06": "调整"})
+        run("2026-08-07", config_dir="x", pred_dir=self.pred_dir,
+            attr_dir=self.attr_dir, proposal_dir=self.prop_dir)
+        old = json.loads((self.pred_dir / "2026-08-06-pre.json").read_text(encoding="utf-8"))
+        assert old["stage_hit"] is True
+
+    def test_error_record_untouched(self, monkeypatch):
+        self.pred_dir.mkdir(parents=True, exist_ok=True)
+        (self.pred_dir / "2026-08-06.json").write_text(json.dumps({
+            "date": "2026-08-06", "status": "error", "error": "429"}), encoding="utf-8")
+        self._stub(monkeypatch, {"2026-08-07": "震荡", "2026-08-06": "调整"})
+        run("2026-08-07", config_dir="x", pred_dir=self.pred_dir,
+            attr_dir=self.attr_dir, proposal_dir=self.prop_dir)
+        old = json.loads((self.pred_dir / "2026-08-06.json").read_text(encoding="utf-8"))
+        assert old["status"] == "error" and "stage_hit" not in old
+
+
+class TestDailyPromptV14Rules:
+    """v14 六条新模式关键词须在盘后 prompt（提案 2026-09-05 W36 对比）。"""
+
+    def test_v14_rules_in_daily_prompt(self):
+        from investment_engine.blindtest import replay
+        text = replay.SYSTEM_PROMPT
+        assert "只定价开盘" in text  # 规则30 外盘冲击开盘定价论
+        assert "盘面鉴别三证据" in text  # 规则31 外力/内生归因鉴别
+        assert "防御轮动穷尽" in text  # 规则32 防御轮动末端
+        assert "终局情形" in text  # 规则33 调整终局剧本推演
+        assert "做空动能衰竭" in text  # 规则34 地量地价识别
+        assert "复合区间双锚" in text  # 规则35 区间双锚

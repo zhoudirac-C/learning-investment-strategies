@@ -59,9 +59,9 @@ class TestPremarketPrompt:
 
 
 class TestPremarketPromptVersion:
-    def test_prompt_version_is_v13(self):
-        """pattern-patch 合并裁决 2026-08-30：版本号 v12→v13（规则29 方向失效条件）。"""
-        assert pm.PROMPT_VERSION == "v13"
+    def test_prompt_version_is_v14(self):
+        """W36 盲判vsUP对比提案 2026-09-05：版本号 v13→v14（规则30-35 六条新模式）。"""
+        assert pm.PROMPT_VERSION == "v14"
 
     def test_premarket_prompt_contains_discipline_rules(self):
         """v6 新增纪律规则关键词须出现在盘前 prompt（B1/B2/A2-A5/C5引用/C8降级）。"""
@@ -243,3 +243,16 @@ class TestPremarketDataBlocks:
                 "global_macro": {"date": "2026-06-13", "美债收益率": {"10Y": {"yield": 4.70}}}}
         _, captured = self._run_with_pack(monkeypatch, tmp_path, pack, None)
         assert captured["global_macro"]["date"] == "2026-06-13"
+
+
+class TestPremarketPromptV14Rules:
+    """v14 六条新模式关键词须在盘前 prompt（两套 prompt 同步，提案 2026-09-05）。"""
+
+    def test_v14_rules_in_premarket_prompt(self):
+        text = pm.PREMARKET_SYSTEM_PROMPT
+        assert "只定价开盘" in text  # 规则30 外盘冲击开盘定价论
+        assert "盘面鉴别三证据" in text  # 规则31 外力/内生归因鉴别
+        assert "防御轮动穷尽" in text  # 规则32 防御轮动末端
+        assert "终局情形" in text  # 规则33 调整终局剧本推演
+        assert "做空动能衰竭" in text  # 规则34 地量地价识别
+        assert "复合区间双锚" in text  # 规则35 区间双锚

@@ -596,3 +596,76 @@ class TestDualTrackCrossCheck:
     def test_no_premarket_block_skipped(self):
         r = _result(market_stage="震荡", stage_reason="量能温和")
         assert not any("规则5b" in x for x in validate_result(r, pack={}))
+
+
+
+class TestRule26StockCodeRegression:
+    """规则26 误报回归（2026-W36 周每日触发）：6 位股票代码被 \\d{4,5} 正则
+    截取前 5 位误判为幻觉指数点位——国芳集团601086→60108、龙版传媒605577→60557、
+    中际旭创300308→30030。与规则22（watch_next 必含个股级节点）直接冲突。
+
+    提案：framework/proposals/2026-09-05-pattern-patch-blind-up-comparison-w36.md
+    工程问题 1。
+    """
+
+    PACK = {"index": {
+        "IDX000001": [{"d": "2026-09-04", "c": 3930.1}],
+        "IDX399006": [{"d": "2026-09-04", "c": 3286.6}],
+    }}
+
+    def test_six_digit_stock_code_not_flagged(self):
+        # 2026-09-04 真实误报：「60108」来自国芳集团（601086）
+        r = _result(watch_next=[
+            "国芳集团（601086，5板）今日能否晋级6板：封板则高位抱团仍有参照，断板则情绪退潮确认"])
+        assert not any("规则26" in x for x in validate_result(r, pack=self.PACK))
+
+    def test_six_digit_code_3xxxxx_not_flagged(self):
+        # 2026-08-31 真实误报：「30030」来自中际旭创（300308）
+        r = _result(watch_next=["中际旭创（300308）若补跌则外部冲击升级"])
+        assert not any("规则26" in x for x in validate_result(r, pack=self.PACK))
+
+    def test_hallucinated_level_still_flagged(self):
+        # 原有拦截能力不退化：幻觉点位仍须捕获
+        r = _result(invalidation=["上证指数跌破前低4588.7且放量，则震荡判断失效"])
+        assert any("规则26" in x for x in validate_result(r, pack=self.PACK))
+
+    def test_year_string_not_flagged(self):
+        # 日期年份（2026）不应被当作指数点位
+        r = _result(watch_next=["2026-09-05 观察创业板指能否收复3286"])
+        assert not any("规则26" in x for x in validate_result(r, pack=self.PACK))
+
+
+class TestRule31ExternalNatureEvidence:
+    """规则31（v14，提案 2026-09-05 模式二）：nature=「外力扰动」但盘面无恐慌特征
+    （跌停 ≤5 家）时，stage_reason 必须附盘面三证据鉴别（消息冲击/跌停家数/连板梯队），
+    禁止把内生性回调记到隔夜外盘账上（2026-09-01/09-02 连续两单归因错误）。
+    """
+
+    CALM_PACK = {"emotion": {"daban": {"跌停": 0, "上涨家数": 3300}}}
+
+    def test_external_nature_without_evidence_flagged(self):
+        # 09-01 真实错法：引外盘下跌但无跌停/梯队盘面鉴别
+        r = _result(nature="外力扰动",
+                    stage_reason="隔夜费半-2.92%、美债10Y+8.6bp压制风险偏好，科技承压")
+        v = validate_result(r, pack=self.CALM_PACK)
+        assert any("规则31" in x for x in v), v
+
+    def test_external_nature_with_evidence_pass(self):
+        r = _result(nature="外力扰动",
+                    stage_reason="外盘冲击成立（费半-2.92%）；盘面鉴别：跌停0家、"
+                                 "连板梯队完整、无新消息冲击，仍判外力扰动因映射板块直接受压")
+        assert not any("规则31" in x for x in validate_result(r, pack=self.CALM_PACK))
+
+    def test_extreme_day_not_in_scope(self):
+        # 跌停 ≥80 的情绪极端日由规则18 管辖，规则31 不叠加
+        pack = {"emotion": {"daban": {"跌停": 118, "上涨家数": 449}}}
+        r = _result(nature="外力扰动", stage_reason="强势股补跌、多杀多出现，流动性未见底")
+        assert not any("规则31" in x for x in validate_result(r, pack=pack))
+
+    def test_internal_nature_not_checked(self):
+        r = _result(nature="内生瓦解", stage_reason="高位抱团断板，情绪内部瓦解")
+        assert not any("规则31" in x for x in validate_result(r, pack=self.CALM_PACK))
+
+    def test_no_emotion_data_skips(self):
+        r = _result(nature="外力扰动", stage_reason="外盘大跌压制")
+        assert not any("规则31" in x for x in validate_result(r, pack={}))

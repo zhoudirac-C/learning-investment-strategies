@@ -635,3 +635,131 @@ class TestP2DataBlocks:
         ])
         with pytest.raises(LeakageError):
             self._build("2026-06-30", target_day="2026-07-01")
+
+
+class TestDirectionTrack:
+    """direction_track 块：候选方向历史 T+5 超额命中率（截至当日已到期口径）。
+
+    提案：framework/proposals/2026-09-05-pattern-patch-blind-up-comparison-w36.md
+    数据缺口——模型选方向时看不到自身历史战绩（稀缺资源 0/4、存储芯片 0/6 仍被反复选）。
+    防泄漏：只聚合「截至 pack 日已满 5 个交易日」的 scored 记录
+    （与 shadow/maturity.due_predictions 同口径）。
+    """
+
+    def setup_method(self):
+        self.db = Path(tempfile.gettempdir()) / f"test_dt_{id(self)}.db"
+        init_db(db_path=self.db)
+        save_index_klines("sh000300", _klines("IDX000300", [4000.0 + i for i in range(30)]),
+                          db_path=self.db)
+        self.pred = Path(tempfile.mkdtemp())
+
+    def teardown_method(self):
+        self.db.unlink(missing_ok=True)
+
+    def _write_pred(self, name, rec):
+        (self.pred / name).write_text(json.dumps(rec, ensure_ascii=False), encoding="utf-8")
+
+    def _scored(self, day, details):
+        return {"date": day, "status": "scored",
+                "result": {"market_stage": "震荡"},
+                "due_scores": {"directions": {}, "stocks": {},
+                               "direction_details": details}}
+
+    def test_matured_record_aggregated(self):
+        from investment_engine.blindtest.dataset import _load_direction_track
+        self._write_pred("2026-06-10.json", self._scored("2026-06-10", [
+            {"direction_id": "存储芯片", "hit": False, "dir_ret": -5.0, "bench_ret": -1.0},
+            {"direction_id": "通信设备", "hit": True, "dir_ret": 4.0, "bench_ret": -1.0},
+        ]))
+        blk = _load_direction_track("2026-06-30", pred_dir=self.pred, db_path=self.db)
+        assert blk["directions"]["存储芯片"] == {"命中": 0, "样本": 1,
+                                               "命中率": 0.0, "平均超额_pct": -4.0}
+        assert blk["directions"]["通信设备"]["命中率"] == 1.0
+
+    def test_unmatured_record_excluded(self):
+        """未到期（pred 日后 <5 个交易日）的 scored 记录不得进块（防泄漏）。"""
+        from investment_engine.blindtest.dataset import _load_direction_track
+        self._write_pred("2026-06-26.json", self._scored("2026-06-26", [
+            {"direction_id": "稀缺资源", "hit": True, "dir_ret": 3.0, "bench_ret": 0.0},
+        ]))
+        blk = _load_direction_track("2026-06-30", pred_dir=self.pred, db_path=self.db)
+        assert blk is None or "稀缺资源" not in blk["directions"]
+
+    def test_future_and_pending_skipped(self):
+        from investment_engine.blindtest.dataset import _load_direction_track
+        self._write_pred("2026-07-01.json", self._scored("2026-07-01", [
+            {"direction_id": "医药", "hit": True, "dir_ret": 2.0, "bench_ret": 0.0}]))
+        self._write_pred("2026-06-01-pre.json", {
+            "date": "2026-06-01", "status": "pending_maturity", "due_scores": None,
+            "result": {"market_stage": "震荡"}})
+        assert _load_direction_track("2026-06-30", pred_dir=self.pred,
+                                     db_path=self.db) is None
+
+    def test_pack_integration(self):
+        pack = build_daily_pack("2026-06-15", config_dir=Path("config/stock_monitor"),
+                                db_path=self.db, pred_dir=self.pred)
+        assert "direction_track" not in pack  # 无 scored 记录不出块
+        self._write_pred("2026-06-01.json", self._scored("2026-06-01", [
+            {"direction_id": "医药", "hit": True, "dir_ret": 2.0, "bench_ret": 0.0}]))
+        pack = build_daily_pack("2026-06-15", config_dir=Path("config/stock_monitor"),
+                                db_path=self.db, pred_dir=self.pred)
+        assert pack["direction_track"]["directions"]["医药"]["命中率"] == 1.0
+
+
+class TestRangeAnchors:
+    """range_anchors 块：复合区间双锚（规则35 数据基础，收盘价口径）。
+
+    提案：2026-09-05 模式六——指数分化僵持期用区间高/低做双锚，
+    区间内摆动不升级破位/瓦解定性。
+    """
+
+    def test_anchors_from_closes(self):
+        from investment_engine.blindtest.dataset import _range_anchors
+        bars = [{"d": f"2026-06-{i + 1:02d}", "c": c}
+                for i, c in enumerate([3900, 3950, 3800, 4000] + [3920] * 26)]
+        out = _range_anchors({"IDX000001": bars})
+        a = out["IDX000001"]
+        assert a["区间高_60d"] == 4000 and a["区间低_60d"] == 3800
+        assert a["近20日低"] == 3920 and a["最新收盘"] == 3920
+
+    def test_short_series_skipped(self):
+        from investment_engine.blindtest.dataset import _range_anchors
+        out = _range_anchors({"IDX000001": [{"d": "2026-06-01", "c": 1.0}]})
+        assert out is None
+
+    def test_pack_has_block(self):
+        db = Path(tempfile.gettempdir()) / f"test_ra_{id(self)}.db"
+        init_db(db_path=db)
+        save_index_klines("sh000300", _klines("IDX000300", [4000.0 + i for i in range(30)]),
+                          db_path=db)
+        try:
+            pack = build_daily_pack("2026-06-15", config_dir=Path("config/stock_monitor"),
+                                    db_path=db, pred_dir=Path(tempfile.mkdtemp()))
+            assert pack["range_anchors"]["IDX000300"]["区间高_60d"] == 4029.0
+        finally:
+            db.unlink(missing_ok=True)
+
+
+class TestVolumeEarthQuantile:
+    """volume_series 地量分位（规则34 数据基础）：latest_rank_pct =
+    窗口内 ≤ 最新值的点占比，低分位=接近地量。"""
+
+    def setup_method(self):
+        self.kpl = Path(tempfile.mkdtemp())
+        (self.kpl / "emotion").mkdir(parents=True)
+
+    def _write(self, day, qscln):
+        d = {"daban": {}}
+        if qscln is not None:
+            d["daban"]["qscln"] = qscln
+        (self.kpl / "emotion" / f"{day}.json").write_text(
+            json.dumps(d), encoding="utf-8")
+
+    def test_latest_rank_pct(self):
+        self._write("2026-08-18", 300000000)   # 30000.0 亿
+        self._write("2026-08-19", 251104252)   # 25110.4 亿
+        self._write("2026-08-20", 207936324)   # 20793.6 亿（窗口最低）
+        vs = _load_volume_series("2026-08-20", self.kpl,
+                                 vh_path=self.kpl / "no_vh.json")
+        # 3 个点中仅自身 ≤ 最新值 → 1/3
+        assert vs["latest_rank_pct"] == round(100 * 1 / 3, 1)
