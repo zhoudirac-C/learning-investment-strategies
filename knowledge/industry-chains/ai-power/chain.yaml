@@ -10,6 +10,8 @@ segments:
   - 变压器
   - 开关
   - HVDC
+  - 柜内AI电源（AC-DC/DC-DC）
+  - 液冷散热（CDU/冷板/浸没式）
   value_share: ~40%
   barrier: 大功率器件
   trend: 需求增长
@@ -94,4 +96,8 @@ history:
 - date: '2026-09-02'
   stage: 阶段1-启动期
   action: 演化:add_node 领益智造切入AIDC电源并加速放量，新增seg-equip跟踪标的
+  result: 待验证
+- date: '2026-09-05'
+  stage: 阶段1-启动期
+  action: 演化:refine_segment 上游设备进一步细化为柜内电源与液冷散热
   result: 待验证

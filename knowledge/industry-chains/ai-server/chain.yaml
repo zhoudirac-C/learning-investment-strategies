@@ -75,6 +75,11 @@ mappings:
   segment: seg-cool
   relation: 液冷冷板/散热结构件，由汽车零部件跨界切入AI服务器液冷，打造第二增长曲线
   elasticity: concept
+- code: '002126'
+  name: 银轮股份
+  segment: seg-cool
+  relation: 液冷换热模块供应商，与摩丁（Modine）合作，AI电力绑定卡特彼勒
+  elasticity: concept
 current_stage: 阶段3-分歧期
 stage_confidence: 高
 stage_evidence: 2026-09-01 跟踪更新：液冷互连与资本开支提速，确认产业链加速逻辑。
@@ -143,4 +148,8 @@ history:
 - date: '2026-09-02'
   stage: 阶段3-分歧期
   action: 演化:refine_segment 液冷环节细化出屏蔽泵细分卡位
+  result: 待验证
+- date: '2026-09-05'
+  stage: 阶段3-分歧期
+  action: 演化:add_node 液冷环节新增标的：银轮股份（绑定摩丁、海外Tier1卡位）
   result: 待验证

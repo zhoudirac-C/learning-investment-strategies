@@ -70,6 +70,11 @@ mappings:
   segment: seg-module
   relation: CPO/光电子封装测试设备（ficonTEC），服务中游CPO量产的设备环节，为'CPO量产→加仓'触发下的先导标的
   elasticity: concept
+- code: '300570'
+  name: 太辰光
+  segment: seg-device
+  relation: 高密度光互联无源器件（MPO/FA-MT），受益Scale-up互联高密度趋势
+  elasticity: concept
 current_stage: 阶段2-加速期
 stage_confidence: 高
 stage_evidence: 2026-08-28 跟踪更新：数据中心与芯片订单增长及液冷放量，确认AI基建需求，产业链逻辑加强。
@@ -124,4 +129,8 @@ history:
 - date: '2026-09-02'
   stage: 阶段2-加速期
   action: 演化:add_node 新增NPO/2.4T下一代产品跟踪节点
+  result: 待验证
+- date: '2026-09-05'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增高密度光互联无源器件受益标的太辰光
   result: 待验证
