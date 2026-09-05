@@ -271,11 +271,16 @@ def _load_volume_series(day: str, kpl_root: Path,
         return None
     points = [by_date[d] for d in sorted(by_date)][-_VOLUME_SERIES_MAX:]
     vals = [p["成交额_亿"] for p in points]
+    # 地量分位（提案 2026-09-05 模式五/规则34 数据基础）：窗口内 ≤ 最新值的点占比，
+    # 低分位=接近地量（做空动能衰竭识别的正向信号输入）
+    latest = vals[-1]
+    latest_rank_pct = round(100 * sum(1 for v in vals if v <= latest) / len(vals), 1)
     return {
         "points": points,
         "mean_亿": round(sum(vals) / len(vals), 1),
         "peak": max(points, key=lambda p: p["成交额_亿"]),
         "trough": min(points, key=lambda p: p["成交额_亿"]),
+        "latest_rank_pct": latest_rank_pct,
         "coverage": f"{len(points)}/{_VOLUME_SERIES_MAX}",
         "note": "长历史=TDX 两指数合计（与 KPL 口径一致）、近期=KPL 情绪；峰值/谷值/均值为可用窗口口径，非全周期",
     }
@@ -804,10 +809,94 @@ def _load_core_patterns() -> list[dict]:
     return out
 
 
+def _load_direction_track(day: str, pred_dir: Path | None = None,
+                          db_path=None) -> dict | None:
+    """候选方向历史 T+5 超额命中率块（提案 2026-09-05 数据缺口 3）。
+
+    模型选方向时看不到自身历史战绩（稀缺资源 0/4、存储芯片 0/6 仍被反复选）；
+    本块聚合 predictions 目录里已 scored 记录的 due_scores.direction_details。
+    防泄漏：只聚合「截至 day 已满 5 个交易日」的记录（与 shadow/maturity
+    .due_predictions 同口径；交易日以沪深300指数缓存为准，免个股表依赖）；
+    未来日期/未到期/pending 记录一律跳过。无合格记录返回 None（不出块、
+    不登记 missing）。
+    """
+    root = Path(pred_dir) if pred_dir else _REPO / "evals" / "shadow" / "predictions"
+    if not root.exists():
+        return None
+    stats: dict[str, dict] = {}
+    for path in sorted(root.glob("*.json")):
+        try:
+            rec = json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        if rec.get("status") != "scored":
+            continue
+        pred_day = str(rec.get("date") or "")
+        if not pred_day or pred_day >= day:
+            continue
+        # 到期口径：pred_day 与 day 之间（含两端）须 ≥6 个交易日
+        # （maturity.due_predictions: len(days_between)-1 >= 5）
+        days_between = [b["date"] for b in
+                        get_index_daily("IDX000300", pred_day, day, db_path)]
+        if len(days_between) - 1 < 5:
+            continue
+        details = ((rec.get("due_scores") or {}).get("direction_details")) or []
+        for d in details:
+            did = str(d.get("direction_id") or "")
+            if not did:
+                continue
+            s = stats.setdefault(did, {"命中": 0, "样本": 0, "_excess": []})
+            s["样本"] += 1
+            if d.get("hit"):
+                s["命中"] += 1
+            dr, br = d.get("dir_ret"), d.get("bench_ret")
+            if isinstance(dr, (int, float)) and isinstance(br, (int, float)):
+                s["_excess"].append(dr - br)
+    if not stats:
+        return None
+    directions = {}
+    for did in sorted(stats):
+        s = stats[did]
+        n = s["样本"]
+        directions[did] = {
+            "命中": s["命中"],
+            "样本": n,
+            "命中率": round(s["命中"] / n, 2),
+            "平均超额_pct": round(sum(s["_excess"]) / len(s["_excess"]), 1)
+            if s["_excess"] else None,
+        }
+    return {"directions": directions,
+            "口径": "T+5 到期方向超额（方向均值-沪深300），截至当日已满5个交易日"}
+
+
+def _range_anchors(index: dict) -> dict | None:
+    """复合区间双锚（提案 2026-09-05 模式六/规则35 数据基础，收盘价口径）。
+
+    指数分化僵持期用区间高/低做双锚，区间内摆动不升级破位/瓦解定性。
+    输入为 pack 的 index 块（_compact_bars 口径，键含 d/c）。序列不足 20 根
+    的指数跳过；全部不足返回 None（不出块）。
+    """
+    out = {}
+    for code, bars in (index or {}).items():
+        closes = [float(b["c"]) for b in bars
+                  if isinstance(b, dict) and isinstance(b.get("c"), (int, float))]
+        if len(closes) < 5:
+            continue
+        window = closes[-60:]
+        out[code] = {
+            "区间高_60d": max(window),
+            "区间低_60d": min(window),
+            "近20日低": min(closes[-20:]),
+            "最新收盘": closes[-1],
+        }
+    return out or None
+
+
 def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
                      kpl_root=None, em_root=None, lp_root=None,
                      ic_root=None, research_root=None, ff_root=None,
                      ia_root=None, si_root=None, gm_root=None, vh_path=None,
+                     pred_dir=None,
                      target_day: str | None = None) -> dict:
     """组装某日数据包（只含截至当日的数据）。
 
@@ -915,6 +1004,15 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
     for k, v in blocks.items():
         if v is not None:
             pack[k] = v
+    # 复合区间双锚（规则35 数据基础）：从 pack index 块推导，收盘价口径
+    anchors = _range_anchors(index)
+    if anchors is not None:
+        pack["range_anchors"] = anchors
+    # 候选方向历史 T+5 超额命中率（提案 2026-09-05 数据缺口 3）：
+    # 无已到期 scored 记录时不出块、不登记 missing
+    track = _load_direction_track(day, pred_dir=pred_dir, db_path=db_path)
+    if track is not None:
+        pack["direction_track"] = track
     if target_day is not None:
         pack["catalysts_since_prev_day"] = _load_catalysts(
             day, target_day, research, root)

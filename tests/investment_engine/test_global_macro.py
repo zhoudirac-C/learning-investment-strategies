@@ -119,5 +119,6 @@ def test_default_symbols_cover_proposal_fields():
     assert set(gm.GROUPS) == groups
     names = {v["name"] for v in gm.SYMBOLS.values()}
     for want in ("道指", "纳指", "标普", "费城半导体", "美光", "闪迪", "希捷",
-                 "西数", "铠侠", "KOSPI", "日经225", "恒生", "10Y", "30Y", "美元指数"):
+                 "西数", "铠侠", "KOSPI", "日经225", "恒生", "13W", "10Y", "30Y",
+                 "美元指数", "黄金", "铜"):  # 13W/黄金/铜：2026-09-05 增补（08-26/08-27 闭环）
         assert want in names

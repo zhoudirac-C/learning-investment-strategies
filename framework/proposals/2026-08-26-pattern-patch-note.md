@@ -1,7 +1,8 @@
 ---
 date: 2026-08-26
 type: pattern-patch
-status: open
+status: merged
+merged_into: framework/proposals/2026-09-05-open-notes-adjudication.md
 source: evals/shadow/attributions/2026-08-26.json
 ---
 

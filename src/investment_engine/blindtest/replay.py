@@ -33,7 +33,7 @@ _TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v14"
+PROMPT_VERSION = "v15"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -103,7 +103,15 @@ SYSTEM_PROMPT = """你是一个执行已验证方法论的市场分析引擎。�
 23b. 催化兑现覆盖：directions 做催化溯源（规则23）时，若 overnight_us 中该方向的隔夜映射股出现大幅回落（利好兑现），隔夜反向数据优先于前日催化——reason 必须同时引用两者并解释矛盾（如「前日+X%催化 vs 隔夜-Y%兑现回落」），禁止只引用前日利好而忽略隔夜反向信号；此时 posture 不高于「波段」或直接不选该方向。
 27. 方向同簇限选：directions 选出的多条方向不得属于同一相关簇（簇=共享同一核心催化、同涨同跌的方向群，非字面行业分类）。参考分簇——C1 AI硬件链：pcb_ai_chain、ccL_resin_upstream、copper_foil_hvlp4、tungsten_pcb_drill、cipb_power_substrate、mlcc_super_cycle、aramid_ai_fiber、optical_communication、switch_800g_domestic、computing_network_super_node、waic_supernode_catalyst、memory_nor、chip_specialty、semiconductor_silicon_wafer、electronic_gas_wf6、leadframe_upcycle、equipment_packaging_catchup、sk_hynix_adr、edge_ai_endpoint、aidc_power_supply；C2 能源电力：green_power_ai_electric、photovoltaic_low_recovery、lithium_battery_separator_upcycle；C3 大宗周期：coke_coal_upcycle、copper_aluminum_shortage、small_metal_chemical、upstream_scarce_price_rise、polyester_filament_refill、tire_offshore_transfer；C4 医药：pharmaceutical_innovation、ai4s_pharma；C5 金融：securities_bottom、broker_finance；C6 消费农业：pig_farming_hedge、cheese_domestic_sub；C7 主题事件/其他：commercial_aerospace、robot_observation、shipbuilding_boom、typhoon_drainage、film_industry_event、mid_report_performance、kcb_ai_policy、ai_applications_rotation、ai_equity_investment、cybersecurity_mapping。自由文本方向名按语义归簇（如「5G概念」「存储芯片」均属 C1）。两条候选同簇时保留 reason 证据更强的一条，第二条从其它簇选当日证据最强者；若其它簇无合格候选，允许只输出 1 条并在 reason 注明「同簇限选，无其它簇合格候选」。每条 direction 的 reason 中用一句话写明簇归属判断（如「同属C1 AI硬件簇，取证据更强者」）。
 28. 价格结构前置否决（宽度指标无权单独定「企稳」）：判 nature=「缩量企稳」或 market_stage=「震荡」前，必须先以 index 块收盘价序列做价格结构校验——(a) 破位校验：上证指数/创业板指收盘跌破 5 日均线或近期波段低点（收盘价口径）且当日仍收跌时，无论涨跌家数/涨停家数等宽度指标多强，nature 禁止选「缩量企稳」——破位收跌日的宽度修复只按反抽处理（消耗调整时间，不构成企稳），market_stage 优先判「调整」；若指数破位但当日收涨（修复尝试中），仍判「震荡」须在 stage_reason 写明破位事实与收复条件（收回 5 日均线/波段低点上方）。(b) 顶部结构结论级压制：structure 块含任一指数 60min 及以上顶部 forming/divergence 信号时，market_stage 禁止判「主升」，且 stage_reason 必须说明该顶部结构对结论的压制（规则17 只要求引用，本条要求影响结论）；顶部结构叠加破位或 cycle_state.rebound_day 达到/超过 theoretical_window 上限时，market_stage 优先判「调整」，禁止把顶部结构只写进 watch_next/cycle_state.note 而维持原结论。
-29. 方向必须带失效条件：directions 每条须在 reason 末尾给出可证伪的失效条件，用相对口径（如「跌破5日均线」「板块龙头断板」「连续两日跑输大盘」「失守板块支撑」「板块与大盘背离放大」），禁止只给看多理由不带失效条件；posture=「趋势」的方向失效条件须最严（核心指数破位或方向龙头断板即降级波段/回避）。"""
+29. 方向必须带失效条件：directions 每条须在 reason 末尾给出可证伪的失效条件，用相对口径（如「跌破5日均线」「板块龙头断板」「连续两日跑输大盘」「失守板块支撑」「板块与大盘背离放大」），禁止只给看多理由不带失效条件；posture=「趋势」的方向失效条件须最严（核心指数破位或方向龙头断板即降级波段/回避）。
+30. 外盘冲击只定价开盘：隔夜外盘大跌（费半 ≤-2% 或纳指 ≤-1.5%）的默认先验是冲击「只定价开盘」——开盘后市场回到 A 股自身量能与接力节奏，stage 基准先按震荡/低开高走构造。判「调整/外力扰动」前 stage_reason 必须逐条回答三步：①首次定价检查——冲击发生在 A 股收盘后则今日为首次定价，只反映在开盘；②冲击量级源头校准——查源头宽基（标普/纳指）跌幅而非行业指数/个股（个股暴跌 ≠ 系统性冲击），宽基仅微跌则杀伤限情绪端与映射板块；③承接判据前置——判调整必须附加「承接失败」的盘面证据预期（开盘放量破位+无差别下跌放大），而非外盘跌幅本身。与规则24 关系：24 管必须引用外部链条，本条管引用之后如何定权重。边界声明：依赖隔夜外盘映射/冲击的预判只覆盖开盘定价，不覆盖日内反转风险，引用外盘映射时须显式声明该边界。
+31. 盘面鉴别三证据（外力/内生归因）：定 nature 时必查三证据——①当日有无新消息冲击；②跌停家数（≈0 或极少数=无恐慌）；③连板梯队完整度（limit_pool.ladder）。三无+缩量 → 内生性回调（需要的是时间与位置，不主动降仓）；有冲击+跌停扩散 → 外力扰动（降仓）。判「外力扰动」但三无（无恐慌特征）时，stage_reason 必须附三证据读数，禁止把内部过热降温记到隔夜外盘账上。
+32. 防御轮动穷尽：防御阶段跟踪轮动序列（医药→消费→有色→种业→军工…），当补涨到最后一个防御分支且领头高股息（银行/煤炭）触压力位或率先转跌时，判防御阶段末端、变盘临近——directions 禁止新增防御方向，存量防御方向只可标退潮/回避。与规则21 关系：21 管昨日防御方向今日禁顺延，本条管整个防御阶段的末端识别。
+33. 调整终局情形推演：连续 ≥2 日判调整时，scenarios 除 T+1 二分支（延续/反抽）外必须含「终局情形」——跌到位时间窗+位置锚（波段前低/区间底）+确认信号链（大票日线底背离/高标开板冰点/量能放大）+确认后的做多窗口与仓位阶梯；watch_next 含终局确认信号（个股级底背离、冰点完成事件等）。位置锚放量击穿或窗口到期信号未现则剧本作废重估。
+34. 地量地价·做空动能衰竭识别：成交创阶段新低（volume_series.latest_rank_pct 低分位）+指数未深跌+下探回升 = 做空动能衰竭，定性「底部区间确认」。两分离：确认底部 ≠ 确认走强，走强裁判只有量能放大；此时 nature 禁止仅凭跌破短期均线判「内生瓦解」，stage_reason 须区分「区间确认」与「走强确认」。与规则18 关系：18 是极端日判瓦解前的反向否决清单，本条是调整末段的正向企稳区间识别。
+35. 复合区间双锚：指数分化僵持期，用 range_anchors 双锚定区间（顶=区间高_60d，底=区间低_60d/近20日低），区间内摆动不升级破位/瓦解定性；未破底锚不必悲观，放量击穿底锚才升级。
+36. 无显性催化禁入选方向：候选方向无显性催化（隔夜映射/公告/政策/商品价格变动均无）且仅凭资金净流入或涨幅居前的，禁止入选 directions（规则23 的注明+降 posture 处置升级为直接排除）；pack 含 direction_track 块时，选方向前必须查候选方向历史 T+5 超额战绩，命中率=0 且样本 ≥3 的方向禁止入选，坚持入选须在 reason 引用该读数并给出更强证据链。
+37. 资金流性质二次验证：依据板块资金净流入入选方向时，必须先做资金性质校验——结合 lhb.jgmmtj 机构净买卖家数、emotion.daban 封板率、limit_pool 晋级率/first_board_width 判断；机构净卖出家数占优或宽度明显萎缩（首板/涨停家数环比大幅收缩）时按游资短线轮动嫌疑处理，资金流信号降权，该方向不得入选 directions（可写入 watch_next 观察）。存量博弈下数日净流入不等于趋势资金。"""
 
 
 def build_messages(pack_text: str) -> list[dict]:
@@ -124,6 +132,17 @@ def _default_client():
     if not key:
         raise RuntimeError("缺少 SENSENOVA_API_KEY / DEEPSEEK_API_KEY 环境变量")
     return OpenAI(api_key=key, base_url=_BASE_URL)
+
+
+def _is_rate_limit(err: Exception) -> bool:
+    """429/rpm 耗尽类限流错误识别（区别于一般网络/服务错误）。"""
+    s = str(err).lower()
+    return "429" in s or "rate limit" in s or "rpm" in s or "quota" in s
+
+
+def _rate_limit_wait() -> float:
+    """限流退避等待秒数：rpm 窗口 60s，默认等 65s 跨过窗口；SHADOW_LLM_RATE_LIMIT_WAIT 可覆盖。"""
+    return float(os.environ.get("SHADOW_LLM_RATE_LIMIT_WAIT", "65"))
 
 
 def call_deepseek(messages: list[dict], *, model: str = DEFAULT_MODEL,
@@ -169,7 +188,9 @@ def call_deepseek(messages: list[dict], *, model: str = DEFAULT_MODEL,
                 "error": str(e)[:200],
             })
             if attempt < max_retries:
-                time.sleep(2 ** attempt)
+                # 429/rpm 耗尽：2s/4s 指数退避等于无重试（rpm 窗口 60s），
+                # 限流错误排队延时重试（默认 65s 跨过窗口）；其他错误维持原退避
+                time.sleep(_rate_limit_wait() if _is_rate_limit(e) else 2 ** attempt)
     raise RuntimeError(f"DeepSeek 调用失败（{max_retries} 次）: {last_err}")
 
 
@@ -526,10 +547,17 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
                 for src, txt in fields:
                     if any(w in txt for w in ("亿", "万手", "家", "%")):
                         continue
-                    for m in re.finditer(r"\d{4,5}(?:\.\d+)?", txt):
+                    # 误报修复（2026-W36 每日触发）：(?<!\d)/(?!\d) 边界——
+                    # 6 位股票代码（国芳集团601086→60108、中际旭创300308→30030）
+                    # 不再被 \d{4,5} 截取误判为幻觉点位；日期/年份同理剥离
+                    txt_scan = re.sub(r"\d{4}-\d{2}-\d{2}", " ", txt)
+                    for m in re.finditer(r"(?<!\d)\d{4,5}(?:\.\d+)?(?!\d)", txt_scan):
                         num = float(m.group())
                         if num < 1000:
                             continue
+                        if m.group().isdigit() and 1900 <= int(m.group()) <= 2100 \
+                                and txt_scan[m.end():m.end() + 1] in ("年", "-", "/"):
+                            continue  # 年份/日期语境（2026年、2026-…）不是指数点位
                         if not any(abs(num - c) / c <= 0.10 for c in closes):
                             violations.append(
                                 f"规则26: {src} 指数点位「{num}」偏离 pack 全部主要指数"
@@ -544,6 +572,21 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
             violations.append(
                 "规则24: pack 含外盘数据（global_macro/overnight_us），输出未引用"
                 "外部链条——外力/内生归因前置：须注明外部检验结论（成立/不成立/平稳）")
+
+        # 规则31（v14，提案 2026-09-05 模式二）：nature=「外力扰动」但盘面无恐慌
+        # 特征（跌停 ≤5 家）时，stage_reason 必须附盘面鉴别三证据读数（消息冲击/
+        # 跌停家数/连板梯队），禁止把内生性回调记到隔夜外盘账上（09-01/09-02 两单
+        # 归因错误）。极端日（跌停 ≥80）归规则18 管辖，本条不叠加。
+        if result.get("nature") == "外力扰动":
+            die31 = daban.get("跌停")
+            if isinstance(die31, (int, float)) and die31 <= 5:
+                sr31 = str(result.get("stage_reason") or "")
+                ev_hits = sum(1 for h in ("消息", "跌停", "梯队", "连板") if h in sr31)
+                if ev_hits < 2:
+                    violations.append(
+                        "规则31: nature=「外力扰动」但盘面无恐慌特征（跌停≤5家），"
+                        "stage_reason 未附盘面鉴别三证据读数（当日有无新消息冲击/"
+                        "跌停家数/连板梯队完整度）——三无+缩量应判内生性回调")
 
         # 规则28：价格结构前置否决——双核心指数破位且创业板指当日收跌时，
         # nature 禁止「缩量企稳」（破位收跌日的宽度修复只按反抽处理）。

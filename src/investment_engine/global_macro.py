@@ -1,4 +1,4 @@
-"""全球宏观行情快照：Yahoo v8 chart（经 sakura 代理）→ 美债/美元/美股/亚太收盘落盘。
+"""全球宏观行情快照：Yahoo v8 chart（经 sakura 代理）→ 美债/美元/美股/亚太/商品收盘落盘。
 
 提案：framework/proposals/2026-08-20-data-channel-global-macro.md
 补齐复盘盲判「外力/内生」归因的外部数据缺口：美债长端 → 美股半导体/存储链
@@ -45,12 +45,16 @@ _BEIJING = timezone(timedelta(hours=8))
 _REVIEW_CLOSE_UTC_H = 14  # 复盘可得边界：A股日 22:00 北京 = 14:00 UTC
 _PERIOD_LOOKBACK_D = 40   # chart period1 回看窗口（覆盖假期，保证 ≥2 根完整 bar）
 
-# group 输出顺序对齐提案字段顺序
-GROUPS = ("美股三指数", "费城半导体", "存储链", "亚太股指", "美债收益率", "美元指数")
+# group 输出顺序对齐提案字段顺序（商品组 2026-09-05 增补：08-26/08-27 data-channel 闭环）
+GROUPS = ("美股三指数", "费城半导体", "存储链", "亚太股指", "美债收益率", "美元指数",
+          "商品")
 
 # close = 交易所收盘本地时刻（判定 bar 完整性的基准）；kind=yield 为收益率报价
 # （% 数值，chg_bp 为基点变动），缺省 pct（收盘涨跌幅百分数）。
 # 注：铠侠无美股 ADR，用东京上市 285A.T（亚太收盘时刻）。
+# 2026-09-05 增补：13W 国库券（^IRX）作短端代理——Yahoo 无 2Y 符号，曲线形状以
+# 10Y−13W 粗看；商品取 COMEX 黄金/铜期货（LME 无免费公开符号，口径差异如实注明，
+# 闭环提案 08-26/08-27 data-channel 的商品价格检验需求）。
 SYMBOLS: dict[str, dict] = {
     "^DJI":     {"name": "道指", "group": "美股三指数", "close": (16, 0)},
     "^IXIC":    {"name": "纳指", "group": "美股三指数", "close": (16, 0)},
@@ -64,9 +68,12 @@ SYMBOLS: dict[str, dict] = {
     "^KS11":    {"name": "KOSPI", "group": "亚太股指", "close": (15, 30)},
     "^N225":    {"name": "日经225", "group": "亚太股指", "close": (15, 30)},
     "^HSI":     {"name": "恒生", "group": "亚太股指", "close": (16, 0)},
+    "^IRX":     {"name": "13W", "group": "美债收益率", "close": (16, 0), "kind": "yield"},
     "^TNX":     {"name": "10Y", "group": "美债收益率", "close": (16, 0), "kind": "yield"},
     "^TYX":     {"name": "30Y", "group": "美债收益率", "close": (16, 0), "kind": "yield"},
     "DX-Y.NYB": {"name": "美元指数", "group": "美元指数", "close": (16, 0)},
+    "GC=F":     {"name": "黄金", "group": "商品", "close": (17, 0)},
+    "HG=F":     {"name": "铜", "group": "商品", "close": (17, 0)},
 }
 
 

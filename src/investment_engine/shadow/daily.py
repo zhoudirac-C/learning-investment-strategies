@@ -56,6 +56,29 @@ def run(day: str, *, config_dir, db_path=None,
                 pre["stage_hit"] = pre["result"].get("market_stage") == label
                 pre_path.write_text(json.dumps(pre, ensure_ascii=False, indent=2), encoding="utf-8")
 
+    # 历史 pending_maturity 记录 stage_hit sweep 回填（提案 2026-09-05 工程问题 4）：
+    # 收盘轨 429 缺席时当日记录 stage_hit 永久空缺（08-31~09-02-pre 三连空缺根因），
+    # 后续成功运行日 sweep 全目录补回填；error 记录不动（无 result 可比对）
+    truth_all = load_truth(db_path=db_path)
+    if truth_all:
+        for path in sorted(Path(pred_dir).glob("*.json")):
+            try:
+                old = json.loads(path.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                continue
+            if old.get("status") == "error" or old.get("stage_hit") is not None:
+                continue
+            old_day = str(old.get("date") or "")
+            label = truth_all.get(old_day)
+            if not old_day or label is None:
+                continue
+            old_stage = (old.get("result") or {}).get("market_stage")
+            if not old_stage:
+                continue
+            old["stage_hit"] = old_stage == label
+            path.write_text(json.dumps(old, ensure_ascii=False, indent=2),
+                            encoding="utf-8")
+
     # 到期回填 + 到期日的 direction_miss 归因
     mat = run_maturity(day, config_dir=config_dir, db_path=db_path, pred_dir=pred_dir)
     attributed = []

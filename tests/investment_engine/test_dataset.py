@@ -735,7 +735,9 @@ class TestRangeAnchors:
         try:
             pack = build_daily_pack("2026-06-15", config_dir=Path("config/stock_monitor"),
                                     db_path=db, pred_dir=Path(tempfile.mkdtemp()))
-            assert pack["range_anchors"]["IDX000300"]["区间高_60d"] == 4029.0
+            # pack 按 day=2026-06-15 截断（PIT 防泄漏），可用 15 根，区间高=4014.0；
+            # 4029.0 是 06-30 收盘，属未来数据，不得入锚
+            assert pack["range_anchors"]["IDX000300"]["区间高_60d"] == 4014.0
         finally:
             db.unlink(missing_ok=True)
 

@@ -7,11 +7,11 @@ from investment_engine.shadow.daily import run
 
 
 class TestDailyPromptVersion:
-    def test_prompt_version_is_v14(self):
-        """W36 盲判vsUP对比提案 2026-09-05：版本号 v13→v14（规则30-35 六条新模式 +
-        规则31 机械校验 + 规则26 误报修复）。"""
+    def test_prompt_version_is_v15(self):
+        """W36 人审闭环（2026-09-05 open-notes-adjudication）：版本号 v14→v15
+        （规则36/37 + 规则30 边界声明）。"""
         from investment_engine.blindtest import replay
-        assert replay.PROMPT_VERSION == "v14"
+        assert replay.PROMPT_VERSION == "v15"
 
     def test_daily_prompt_contains_discipline_rules(self):
         """v6/v8 纪律规则关键词须出现在盘后 prompt（B1/B2/A2-A5/C5引用/C8降级/规则9并列）。"""
@@ -219,3 +219,15 @@ class TestDailyPromptV14Rules:
         assert "终局情形" in text  # 规则33 调整终局剧本推演
         assert "做空动能衰竭" in text  # 规则34 地量地价识别
         assert "复合区间双锚" in text  # 规则35 区间双锚
+
+
+class TestDailyPromptV15Rules:
+    """v15 规则36/37 + 规则30 边界声明关键词须在盘后 prompt（双轨同步，
+    裁决 2026-09-05-open-notes-adjudication）。"""
+
+    def test_v15_rules_in_daily_prompt(self):
+        from investment_engine.blindtest import replay
+        text = replay.SYSTEM_PROMPT
+        assert "无显性催化禁入选方向" in text and "direction_track" in text  # 规则36
+        assert "资金流性质二次验证" in text and "游资短线轮动" in text  # 规则37
+        assert "不覆盖日内反转风险" in text  # 规则30 边界声明（08-28 capability-boundary）
