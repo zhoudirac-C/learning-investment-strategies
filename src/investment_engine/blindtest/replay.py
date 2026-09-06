@@ -257,6 +257,48 @@ def build_messages(pack_text: str, system_prompt: str | None = None) -> list[dic
     ]
 
 
+# Hermes 全局模型通道（2026-09-06 起盲判主通道，与 chain_tracker/analysis.py
+# 同款机制）：解析 ~/.hermes/config.yaml 的 model.default，全局换模型盲判自动跟随；
+# 解析失败/非 Hermes 环境返回 None → 调用方落 .env sensenova 通道。
+_HERMES_CACHE: dict | None = None
+_HERMES_TRIED = False
+
+
+def _hermes_global() -> dict | None:
+    """解析 Hermes 全局模型配置，返回 {api_key, base_url, model, source}。
+
+    与 cron 调度器用同一个 resolve_runtime_provider()，全局换模型自动跟随。
+    非 Hermes 环境或解析失败返回 None（调用方落 .env 通道）。
+    进程内只解析一次（tick 进程短命，配置漂移由下一次 tick 感知）。
+    """
+    global _HERMES_CACHE, _HERMES_TRIED
+    if _HERMES_TRIED:
+        return _HERMES_CACHE
+    _HERMES_TRIED = True
+    import sys
+    from pathlib import Path
+
+    agent_pkg = Path.home() / ".hermes" / "hermes-agent"
+    if not agent_pkg.is_dir():
+        return None
+    if str(agent_pkg) not in sys.path:
+        sys.path.insert(0, str(agent_pkg))
+    try:
+        from hermes_cli.config import load_config
+        from hermes_cli.runtime_provider import resolve_runtime_provider
+
+        runtime = resolve_runtime_provider()
+        model = (load_config().get("model") or {}).get("default")
+    except Exception:  # noqa: BLE001 - Hermes 配置不可用不算错误
+        return None
+    if not runtime.get("api_key") or not runtime.get("base_url") or not model:
+        return None
+    _HERMES_CACHE = {"api_key": runtime["api_key"],
+                     "base_url": runtime["base_url"], "model": str(model),
+                     "source": runtime.get("source")}
+    return _HERMES_CACHE
+
+
 def _default_client():
     from openai import OpenAI
 
@@ -281,9 +323,9 @@ def _rate_limit_wait() -> float:
     return float(os.environ.get("SHADOW_LLM_RATE_LIMIT_WAIT", "65"))
 
 
-def call_deepseek(messages: list[dict], *, model: str = DEFAULT_MODEL,
-                  max_retries: int = 3, client=None, tag: str | None = None) -> str:
-    client = client or _default_client()
+def _call_with_retry(messages: list[dict], *, model: str, client, max_retries: int,
+                     tag: str | None) -> str:
+    """单通道重试主体：调用一次、限流/非限流退避重试、落账 log/llm_calls.jsonl。"""
     last_err: Exception | None = None
     prompt_chars = sum(len(str(m.get("content", ""))) for m in messages)
 
@@ -294,7 +336,9 @@ def call_deepseek(messages: list[dict], *, model: str = DEFAULT_MODEL,
             # 推理模式 reasoning 吃 token，预算自动加大；非推理模式用基础预算
             max_tokens=_MAX_OUTPUT_TOKENS_THINKING if not _THINKING_DISABLED else _MAX_OUTPUT_TOKENS,
         )
-        if _THINKING_DISABLED:
+        # thinking 控制是 sensenova 专属参数；全局换 provider（如 zhipu）后
+        # 未知 extra_body 可能 400，仅对 sensenova 端点注入
+        if _THINKING_DISABLED and "sensenova" in str(getattr(client, "base_url", "")):
             kwargs["extra_body"] = {"thinking": {"type": "disabled"}}
         return client.chat.completions.create(**kwargs, timeout=_LLM_TIMEOUT)
 
@@ -331,7 +375,42 @@ def call_deepseek(messages: list[dict], *, model: str = DEFAULT_MODEL,
                 # 429/rpm 耗尽：2s/4s 指数退避等于无重试（rpm 窗口 60s），
                 # 限流错误排队延时重试（默认 65s 跨过窗口）；其他错误维持原退避
                 time.sleep(_rate_limit_wait() if _is_rate_limit(e) else 2 ** attempt)
-    raise RuntimeError(f"DeepSeek 调用失败（{max_retries} 次）: {last_err}")
+    raise RuntimeError(f"LLM 调用失败（{max_retries} 次）: {last_err}")
+
+
+def call_deepseek(messages: list[dict], *, model: str = DEFAULT_MODEL,
+                  max_retries: int = 3, client=None, tag: str | None = None) -> str:
+    """调 LLM 并返回 content。通道优先级（client 未显式传入时）：
+
+    1. Hermes 全局模型配置（主通道，跟随 ~/.hermes/config.yaml model.default，
+       全局换模型自动跟随；tag 追加 :hermes:<model> 便于落账追踪）
+    2. .env sensenova（SHADOW_LLM_MODEL / SHADOW_LLM_BASE_URL 可覆盖 = 逃生口）
+
+    client 显式传入（如 chain_tracker 的 GLM 逃生口）→ 完全尊重调用方通道。
+    """
+    hermes_err: Exception | None = None
+    if client is None:
+        g = _hermes_global()
+        if g:
+            from openai import OpenAI
+
+            hc = OpenAI(api_key=g["api_key"], base_url=g["base_url"])
+            hm = g["model"] if model == DEFAULT_MODEL else model
+            htag = f"{tag}:hermes:{g['model']}" if tag else None
+            try:
+                return _call_with_retry(messages, model=hm, client=hc,
+                                        max_retries=max_retries, tag=htag)
+            except RuntimeError as e:
+                hermes_err = e  # 全局通道故障 → 落 .env 通道
+    client = client or _default_client()
+    try:
+        return _call_with_retry(messages, model=model, client=client,
+                                max_retries=max_retries, tag=tag)
+    except RuntimeError as e:
+        if hermes_err is not None:
+            raise RuntimeError(
+                f"{e}（hermes 全局通道亦失败: {hermes_err}）") from e
+        raise
 
 
 def parse_result(raw: str) -> dict:
