@@ -60,8 +60,8 @@ class TestPremarketPrompt:
 
 class TestPremarketPromptVersion:
     def test_prompt_version_is_v15(self):
-        """W36 人审闭环（2026-09-05 open-notes-adjudication）：版本号 v14→v15
-        （规则36/37 + 规则30 边界声明）。"""
+        """PROMPT_VERSION 与盘后盲判共享契约版本（v15；2026-09-05 A/B 后回退，
+        v16 压缩版保留为 replay.SYSTEM_PROMPT_V16 迭代基线）。"""
         assert pm.PROMPT_VERSION == "v15"
 
     def test_premarket_prompt_contains_discipline_rules(self):

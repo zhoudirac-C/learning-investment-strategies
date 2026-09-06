@@ -79,6 +79,14 @@ class TestBuildDailyPack:
             assert set(d) <= {"id", "name", "member_count", "local_count"}
             assert "current_stage" not in d and "stage" not in d
 
+    def test_direction_pool_block_static_only(self):
+        """direction_pool 精选池进包（2026-09-05 A/B 归因：池 id 须在包内可见，
+        否则模型只能选当日 TDX 热点中文名）；只含 id/name 静态字段。"""
+        pack = build_daily_pack("2026-06-15", config_dir=Path("config/stock_monitor"), db_path=self.db)
+        pool = pack["direction_pool"]
+        assert pool and all(set(d) == {"id", "name"} for d in pool)
+        assert any(d["id"] == "mlcc_super_cycle" for d in pool)
+
     def test_prompt_passes_leakage_assertion(self):
         pack = build_daily_pack("2026-06-15", config_dir=Path("config/stock_monitor"), db_path=self.db)
         text = pack_to_prompt(pack)
@@ -241,8 +249,15 @@ class TestKplBlocks:
         assert lhb["source"] == "eastmoney" and lhb["count"] == 2
         # 按 |net_amt| 降序：风华高科(500) 在哈药股份(-100) 前
         assert [i["code"] for i in lhb["items"]] == ["000636", "600664"]
-        # 席位封顶 5
-        assert len(lhb["items"][1]["buy_seats"]) == 5
+        # 席位封顶（2026-09-05 瘦身：5→3）
+        assert len(lhb["items"][1]["buy_seats"]) == 3
+        pack_to_prompt(pack)  # 过防泄漏断言
+
+    def test_chains_filtered_to_active(self):
+        """chains 只进当日活跃链（2026-09-05 瘦身）：fixture 无个股 K 线
+        → active_codes 为空 → 全部过滤，空列表如实进包。"""
+        pack = self._build("2026-06-30")
+        assert pack["chains"] == []
         pack_to_prompt(pack)  # 过防泄漏断言
 
     def test_missing_blocks_annotated(self):

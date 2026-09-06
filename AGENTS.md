@@ -67,6 +67,7 @@ directory). These are thin wrappers that delegate to the project's scripts:
 ~/.hermes/scripts/qing_chain_tracker.py        →  project/scripts/chain_tracker.py（M0-Chain 跟踪 tick）
 ~/.hermes/scripts/qing_chain_discovery.py      →  project/scripts/chain_discovery.py（M0-Chain 发现 tick）
 ~/.hermes/scripts/qing_shadow_direction_tracking.py → project/scripts/shadow_direction_tracking.py（方向层 T+5 周度跟踪，周五 22:37，聚合逻辑在 src/investment_engine/shadow/tracking.py）
+~/.hermes/scripts/qing_shadow_compliance_monitor.py → project/scripts/shadow_compliance_monitor.py（影子盲判合规时序监控，工作日 22:33，时序落 logs/shadow-compliance.jsonl，静默式告警）
 ```
 
 **Rule**: The `qing_` prefix files in `~/.hermes/scripts/` are STABLE entrypoints.

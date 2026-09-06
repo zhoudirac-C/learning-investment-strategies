@@ -8,8 +8,8 @@ from investment_engine.shadow.daily import run
 
 class TestDailyPromptVersion:
     def test_prompt_version_is_v15(self):
-        """W36 人审闭环（2026-09-05 open-notes-adjudication）：版本号 v14→v15
-        （规则36/37 + 规则30 边界声明）。"""
+        """生产默认 prompt 为 v15（2026-09-05 A/B 后回退；v16 压缩版保留为
+        SYSTEM_PROMPT_V16 迭代基线，见 TestPromptV16）。"""
         from investment_engine.blindtest import replay
         assert replay.PROMPT_VERSION == "v15"
 

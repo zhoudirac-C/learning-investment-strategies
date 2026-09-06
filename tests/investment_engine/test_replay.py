@@ -6,7 +6,9 @@ from types import SimpleNamespace
 import pytest
 
 from investment_engine.blindtest.replay import (
-    PROMPT_VERSION, SYSTEM_PROMPT, build_messages, parse_result, run_replay,
+    PROMPT_VERSION, SYSTEM_PROMPT, SYSTEM_PROMPT_V15, SYSTEM_PROMPT_V16,
+    SYSTEM_PROMPT_V17, SYSTEM_PROMPT_V18, _V18_RULE28C,
+    build_messages, parse_result, run_replay,
 )
 
 
@@ -148,3 +150,125 @@ class TestParseResultV2:
     def test_prompt_version_constant(self):
         # 契约版本格式合法即可（v+数字，允许 minor 如 v10.1）；具体版本号随契约演进，不硬编码
         assert re.fullmatch(r"v\d+(\.\d+)?", PROMPT_VERSION)
+
+
+class TestPromptV16:
+    """v16 压缩 prompt（迭代基线，非生产默认）：37 条经验规则 → 推理链 + 元原则。
+
+    2026-09-05 A/B 未通过（阶段 70% vs 50% 但方向 50% vs 66.7%、重试 8 vs 4），
+    生产默认回退 v15；以下断言锁定 v16 作为后续迭代的压缩基线。
+    """
+
+    def test_v16_is_compressed(self):
+        assert len(SYSTEM_PROMPT_V16) < len(SYSTEM_PROMPT_V15) * 0.7
+
+    def test_v15_frozen(self):
+        # v15 原样保留（生产默认）；「23b」乱序编号是其历史形态标记
+        assert "23b" in SYSTEM_PROMPT_V15
+
+    def test_v16_keeps_output_contract(self):
+        for field in ("market_stage", "nature", "stage_reason", "scenarios",
+                      "watch_next", "invalidation", "directions", "used_patterns",
+                      "operation", "cycle_state",
+                      "放量攻击", "缩量企稳", "主升", "反弹超预期"):
+            assert field in SYSTEM_PROMPT_V16, field
+
+    def test_v16_keeps_validator_anchors(self):
+        # validate_result 的关键词校验依赖 prompt 教会模型输出这些锚点
+        for kw in ("补跌", "多杀多", "流动性", "机构", "梯队", "宏观三条件",
+                   "确认位", "过热", "冲量滑落", "盘前", "外力扰动", "同簇",
+                   "信息差风险", "失效条件"):
+            assert kw in SYSTEM_PROMPT_V16, kw
+
+    def test_v16_no_stale_rule_numbering(self):
+        # 新版按 1..N 连续编号，不再出现 23b 这类补丁编号
+        assert "23b" not in SYSTEM_PROMPT_V16
+
+
+class TestPromptV17:
+    """v17（A/B 检验中，非生产默认）：v16 骨架 + 引用清单 + 硬门槛逐条 + 池锚定。"""
+
+    def test_v17_compressed_vs_v15(self):
+        assert len(SYSTEM_PROMPT_V17) < len(SYSTEM_PROMPT_V15) * 0.75
+
+    def test_v17_keeps_output_contract(self):
+        for field in ("market_stage", "nature", "stage_reason", "scenarios",
+                      "watch_next", "invalidation", "directions", "used_patterns",
+                      "operation", "cycle_state", "direction_pool",
+                      "放量攻击", "缩量企稳", "主升", "反弹超预期"):
+            assert field in SYSTEM_PROMPT_V17, field
+
+    def test_v17_keeps_validator_anchors(self):
+        # validate_result 的关键词校验依赖 prompt 教会模型输出这些锚点
+        for kw in ("补跌", "多杀多", "流动性", "机构", "梯队", "宏观三条件",
+                   "确认位", "过热", "冲量滑落", "盘前", "外力扰动", "同簇",
+                   "信息差风险", "失效条件", "钝化", "外盘"):
+            assert kw in SYSTEM_PROMPT_V17, kw
+
+    def test_v17_direction_gates_are_itemized(self):
+        # 硬门槛逐条独立成行（v16 教训：大段落会稀释门槛）
+        for gate in ("催化溯源", "历史战绩", "同簇限选", "资金性质",
+                     "连续性", "失效条件"):
+            assert f"- {gate}" in SYSTEM_PROMPT_V17, gate
+
+    def test_v17_no_stale_rule_numbering(self):
+        assert "23b" not in SYSTEM_PROMPT_V17
+
+
+class TestPromptV18:
+    """v18 = v15 + 规则28(c)「调整需结构确认」（v15 系统性悲观偏置的手术式修复）。"""
+
+    def test_v18_contains_adjustment_gate(self):
+        assert "「调整」需结构确认" in SYSTEM_PROMPT_V18
+        assert "破位收跌" in SYSTEM_PROMPT_V18
+
+    def test_v18_differs_from_v15_only_by_gate(self):
+        # 与 v15 的唯一差异 = 规则28(c) 追加（replace 拼装防漂移）
+        assert SYSTEM_PROMPT_V18.replace(_V18_RULE28C, "") == SYSTEM_PROMPT_V15
+        assert 0 < len(SYSTEM_PROMPT_V18) - len(SYSTEM_PROMPT_V15) < 400
+
+
+class TestPromptSelection:
+    def test_build_messages_default_prompt(self):
+        msgs = build_messages("PACK")
+        assert msgs[0]["content"] == SYSTEM_PROMPT
+
+    def test_build_messages_prompt_override(self):
+        msgs = build_messages("PACK", system_prompt="S")
+        assert msgs[0]["content"] == "S"
+
+    def test_run_replay_records_prompt_version(self, tmp_path, monkeypatch):
+        out = tmp_path / "results.jsonl"
+        monkeypatch.setattr(
+            "investment_engine.blindtest.replay.build_daily_pack", lambda day, **kw: {})
+        monkeypatch.setattr(
+            "investment_engine.blindtest.replay.pack_to_prompt", lambda pack: "TEXT")
+        seen = []
+
+        def fake_call(messages, **kw):
+            seen.append(messages)
+            return GOOD_JSON
+
+        monkeypatch.setattr(
+            "investment_engine.blindtest.replay.call_deepseek", fake_call)
+        stats = run_replay(["2026-06-01"], config_dir="x", out_path=out,
+                           system_prompt=SYSTEM_PROMPT_V15, prompt_version="v15")
+        assert stats["done"] == 1
+        row = json.loads(out.read_text(encoding="utf-8").splitlines()[0])
+        assert row["prompt_version"] == "v15"
+        assert seen[0][0]["content"] == SYSTEM_PROMPT_V15  # 用了覆盖的 prompt
+
+    def test_run_replay_use_validation(self, tmp_path, monkeypatch):
+        """use_validation=True 时走确定性校验层并在行内记录 validation。"""
+        out = tmp_path / "results.jsonl"
+        monkeypatch.setattr(
+            "investment_engine.blindtest.replay.build_daily_pack", lambda day, **kw: {})
+        monkeypatch.setattr(
+            "investment_engine.blindtest.replay.pack_to_prompt", lambda pack: "TEXT")
+        monkeypatch.setattr(
+            "investment_engine.blindtest.replay.call_deepseek", lambda m, **kw: GOOD_JSON)
+        stats = run_replay(["2026-06-01"], config_dir="x", out_path=out,
+                           use_validation=True)
+        assert stats["done"] == 1
+        row = json.loads(out.read_text(encoding="utf-8").splitlines()[0])
+        assert row["validation"]["status"] == "passed"

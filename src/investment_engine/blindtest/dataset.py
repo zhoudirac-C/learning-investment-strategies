@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 from pathlib import Path
 
@@ -17,8 +18,15 @@ FORBIDDEN_RE = re.compile(r"UP|青枫浦|博主")
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 INDEX_CODES = ("IDX000300", "IDX000001", "IDX399006", "IDX399001", "IDX000852",
                "IDX000932", "IDX880823")  # 中证2000/微盘股（2026-08-16 入包，contract-v2 D7 可选项）
+# 2026-09-05 包瘦身 Round C：60→20 展示口径导致「震荡误判调整」净 -2 天
+# （可视历史变短 → 现价显得接近波段低点 → 破位观感放大），已回滚回 60。
 _INDEX_LOOKBACK = 60
 _STOCK_ZONE_DAYS = 20
+# 40 日复验（2026-09-06）：BLINDTEST_PACK_SLIM=0 关闭瘦身三刀，用于基线臂
+# A/B；生产默认保持开启。
+_PACK_SLIM = os.environ.get("BLINDTEST_PACK_SLIM", "1") != "0"
+# 2026-09-05 包瘦身：每股板块标签上限（原每只约 20 个 TDX 板块名，占包 ~25%）
+_SECTOR_CAP_PER_STOCK = 8 if _PACK_SLIM else None
 
 _REPO = Path(__file__).resolve().parents[3]
 
@@ -35,8 +43,9 @@ RESEARCH_ROOT = _REPO / "infra" / "data" / "research"
 IA_ROOT = _REPO / "infra" / "data" / "intraday_amount"
 GM_ROOT = _REPO / "infra" / "data" / "global_macro"
 _NEWS_TITLE_CAP = 60
-_LHB_ITEM_CAP = 20
+_LHB_ITEM_CAP = 12 if _PACK_SLIM else 20  # 2026-09-05 包瘦身：20→12
 _LP_ITEM_CAP = 20
+_LHB_SEAT_CAP = 3 if _PACK_SLIM else 5  # 2026-09-05 包瘦身：每股买卖席位各取前 3（原 5）
 _IC_HIGHLIGHT_CAP = 30
 _RESEARCH_ITEM_CAP = 30  # notices/reports 各封顶（C6）
 _CATALYST_CAP = 60  # catalysts_since_prev_day 总量封顶（C2）
@@ -130,6 +139,25 @@ def _sector_directions(sector_members: dict[str, list[str]],
                          "local_count": len(hit)})
     rows.sort(key=lambda r: (-r["local_count"], -r["member_count"]))
     return rows
+
+
+def _active_chains(chains: list[dict], active_codes: set[str],
+                   sector_names: set[str]) -> list[dict]:
+    """只保留当日有行情的产业链（2026-09-05 包瘦身：26 条全量约 28K 字符）。
+
+    保留条件：映射股与当日 active 股票有交集，或链名（去「产业链」后缀）与
+    当日活跃板块名互含。无活跃链时返回空列表（如实，不算 missing）。
+    """
+    out = []
+    for c in chains:
+        codes = {str(m.get("code", "")).split(".")[0] for m in c.get("mappings") or []}
+        if codes & active_codes:
+            out.append(c)
+            continue
+        cname = str(c.get("name", "")).replace("产业链", "")
+        if cname and any(cname in s or s in cname for s in sector_names):
+            out.append(c)
+    return out
 
 
 def _load_chains() -> list[dict]:
@@ -312,10 +340,10 @@ def _load_news_titles(day: str, kpl_root: Path) -> dict | None:
 
 
 def _cap_em_item(it: dict) -> dict:
-    """东财条目封顶：每股买卖席位各取前 5（字段已是精简形态，其余透传）。"""
+    """东财条目封顶：每股买卖席位各取前 _LHB_SEAT_CAP（字段已是精简形态，其余透传）。"""
     out = dict(it)
-    out["buy_seats"] = (it.get("buy_seats") or [])[:5]
-    out["sell_seats"] = (it.get("sell_seats") or [])[:5]
+    out["buy_seats"] = (it.get("buy_seats") or [])[:_LHB_SEAT_CAP]
+    out["sell_seats"] = (it.get("sell_seats") or [])[:_LHB_SEAT_CAP]
     return out
 
 
@@ -931,7 +959,9 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
         last = bars[-1]
         bare = code.split(".")[0]
         active_codes.add(bare)
-        sectors = [b for b in code_to_sectors.get(bare, []) if b not in _SECTOR_NOISE]
+        # TDX 板块归属（多板块，已滤噪音，上限 _SECTOR_CAP_PER_STOCK）；无板块归属时回退本地 stock_pool direction
+        sectors = [b for b in code_to_sectors.get(bare, [])
+                   if b not in _SECTOR_NOISE][:_SECTOR_CAP_PER_STOCK]
         stocks.append({
             "code": bare, "name": s.get("name", ""),
             # TDX 板块归属（多板块，已滤噪音）；无板块归属时回退本地 stock_pool direction
@@ -950,10 +980,18 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
         "index": index,
         "stocks": stocks,
         "directions": directions,
+        # 精选方向池静态快照（id+打码 name，无时变字段）：directions 块切到 TDX
+        # 板块后池 id 在包内不可见，模型只能选当日热点中文名（2026-09-05 A/B 归因：
+        # v15 靠 prompt 内嵌分簇表看到池 id，其池 id 方向 5/6 命中、TDX 热点 3/6）。
+        # direction_track 战绩也用池 id 词汇，本块是两词汇表的桥。
+        "direction_pool": _load_directions(config_dir),
         "structure": _load_structure(day, db_path),
         "intraday_amount": _load_intraday_amount(day, ia_root),
         "cycle_state": _compute_cycle_states(day, db_path),
-        "chains": _load_chains(),
+        # 只进当日有行情的产业链（瘦身；空列表=当日无活跃链，如实）
+        "chains": (_active_chains(_load_chains(), active_codes,
+                                  {str(d.get("name", "")) for d in directions})
+                   if _PACK_SLIM else _load_chains()),
         "glossary": _load_glossary(),
         "patterns": _load_patterns_index(),
         "core_patterns": _load_core_patterns(),

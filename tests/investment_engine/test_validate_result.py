@@ -335,6 +335,18 @@ class TestRunWithValidation:
         assert validation["retried"] is True
         assert "24000" not in result["scenarios"][0]["condition"]
 
+    def test_first_violations_recorded_on_retry(self):
+        """重试时记录首版违规清单（A/B 归因用）；未重试则无该字段。"""
+        client = _mock_client([BAD_JSON, GOOD_JSON])
+        _, _, validation = run_with_validation(
+            MESSAGES, None, client=client, tag="t")
+        assert any("规则15" in x for x in validation["first_violations"])
+
+        client = _mock_client([GOOD_JSON])
+        _, _, validation = run_with_validation(
+            MESSAGES, None, client=client, tag="t")
+        assert "first_violations" not in validation
+
     def test_persistent_violation_marked_failed_not_masked(self):
         client = _mock_client([BAD_JSON, BAD_JSON])
         raw, result, validation = run_with_validation(

@@ -68,3 +68,35 @@ class TestRateLimitBackoff:
         out = replay.call_deepseek([{"role": "user", "content": "x"}], client=client)
         assert out == "{}"
         assert rec == [2, 4]  # 非限流维持原指数退避
+
+
+class _FakeContentCompletions:
+    """按序返回不同 content 的 fake（空 content 重试测试用）。"""
+
+    def __init__(self, contents):
+        self._contents = list(contents)
+        self.calls = 0
+
+    def create(self, **kw):
+        self.calls += 1
+        return _ok_resp(self._contents.pop(0))
+
+
+class TestEmptyContentRetry:
+    """空 content（模型偶发）视为可重试错误，走短退避；持续空则抛错。"""
+
+    def test_blank_content_retried_then_ok(self, monkeypatch):
+        rec = _sleeps(monkeypatch)
+        client = SimpleNamespace(chat=SimpleNamespace(
+            completions=_FakeContentCompletions(["", "  ", "{}"])))
+        out = replay.call_deepseek([{"role": "user", "content": "x"}], client=client)
+        assert out == "{}"
+        assert rec == [2, 4]  # 空 content 非限流，短退避
+
+    def test_persistent_blank_raises(self, monkeypatch):
+        rec = _sleeps(monkeypatch)
+        client = SimpleNamespace(chat=SimpleNamespace(
+            completions=_FakeContentCompletions(["", "", ""])))
+        with pytest.raises(RuntimeError, match="空 content"):
+            replay.call_deepseek([{"role": "user", "content": "x"}], client=client)
+        assert rec == [2, 4]
