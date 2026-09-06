@@ -1,0 +1,598 @@
+claims:
+- id: claim-20260906-001-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: market-cycle
+  subject: 非农偏强未点燃通胀恐慌估值压制有边界
+  timeframe: short-term
+  statement: 8月非农新增就业16.2万人远超预期（一致预期5.3万），失业率持平4.1%，时薪环比+0.3%/同比+3.1%未加速，前值合计上修5.5万；数据抬升加息预期但未点燃通胀恐慌，市场会读成'劳动力市场没有衰退'，对估值的压制因此是有边界的。
+  evidence_quote: 新增偏强、时薪温和、失业率未升、前值上修，四项里只有新增一项明显偏热，时薪3.1%的同比增速并未加速。这份数据抬升的是加息预期，通胀恐慌并未被点燃，市场会把它读成'劳动力市场没有衰退'，对估值的压制因此是有边界的。
+  interpretation: 非农数据的四项拆解中只有'新增'一项偏热，时薪/失业率/前值均偏温和，因此定性为'加息预期升温'而非'滞胀/通胀失控'——这是后续所有A股判断的地基：估值会承压但幅度有限，市场不会进入恐慌性抛售。该判断是9/6晚间对隔夜非农的官方定调，直接决定周一A股开盘的定价输入性质。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 非农偏强但通胀恐慌未点燃估值压制有边界
+  related_stocks: []
+  tags:
+  - 非农
+  - 加息预期
+  - 估值压制
+  - 宏观定价
+- id: claim-20260906-002-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: market-cycle
+  subject: 美股芯片逆势走强支撑纳指
+  timeframe: short-term
+  statement: 非农偏强情形下纳指跌幅最小（-0.29%），原因是芯片股逆势走强（英伟达+0.8%、美光+6.1%、英特尔+4.5%），AI硬件的盈利确定性在资金眼里暂时跑赢了无风险利率的抬升，这一点直接决定周一A股算力硬件方向的开盘情绪。
+  evidence_quote: 偏强情形下纳指压力理应大于道指，因为它杀的是估值，盈利端并未受损，但周五实际走势是纳指跌幅最小，原因正是芯片股逆势拉动——这说明AI硬件的盈利确定性在资金眼里暂时跑赢了无风险利率的抬升，这一点直接决定了周一A股算力硬件方向的开盘情绪。
+  interpretation: 标准定价模型下非农偏强应最伤高估值科技（纳指），实际走势反直觉（纳指-0.29% < 标普-0.38% < 道指-0.51%），说明资金在为AI硬件盈利买单而非简单杀估值。这是'盈利确定性>无风险利率'的短期实证，为周一A股算力硬件（液冷等）提供外围情绪支撑的锚点。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美股芯片逆势支撑纳指利好周一A股算力硬件情绪
+  related_stocks: []
+  tags:
+  - 美股芯片
+  - 纳指
+  - 算力硬件
+  - 盈利确定性
+- id: claim-20260906-003-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: market-cycle
+  subject: 周五放量阴线提前释放坏消息
+  timeframe: short-term
+  statement: 周五冲高回落的放量阴线属于外力扰动（非农不确定性放大抛压）叠加内生分歧（科技进攻品种连续冲高后需要分歧），且是放量完成的风险释放——周五已把周一的坏消息提前交易了一部分，周一若低开大概率只是定价输入的机械反映，新一轮抛压需要新的触发才会出现；低开不可怕，接不住才可怕。
+  evidence_quote: 周五已经把周一的坏消息提前交易了一部分，所以周一的低开若出现，大概率只是定价输入的机械反映，新一轮抛压需要新的触发才会出现；低开不可怕，接不住才可怕。
+  interpretation: 关键在'放量'二字：放量完成的调整=风险被真实释放而非积压，与'数据落地后再补跌'路径拉开距离。这为周一操作提供了心理锚：低开属预期内（定价输入），真正要防的是低开后无力承接（接不住），观察点从'方向'转到'承接质量'。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 周五放量阴线已提前释放周一坏消息低开不可怕
+  related_stocks: []
+  tags:
+  - 放量阴线
+  - 风险释放
+  - 低开
+  - 承接质量
+- id: claim-20260906-004-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: operation
+  subject: 周一两种情形的共同观察变量
+  timeframe: intraday
+  statement: 周一两种情形：情形A美股芯片支撑压过加息预期导致A股高开冲高回落（需警惕，高开消耗周五尾盘未被抢筹分支的回流预期，量能不继会撕开连板断层）；情形B加息预期主导导致指数低开高走（更健康，低开给承接资金位置，早盘半小时量能不弱于周五同时段则双修复）。两种情形共同的观察变量只有一个：开盘后半小时的量能与中位股的承接，方向本身不构成判断依据。
+  evidence_quote: 两种情形共同的观察变量只有一个：开盘后半小时的量能与中位股的承接，方向本身不构成判断依据。
+  interpretation: 这是对周一开盘的完整预案：不分高开低开，唯一有效信号是'开盘半小时量能+中位股承接'。符合用户'预设触发条件与失效条件'的方法论：方向（高开/低开）不重要，量价结构才重要。情形A的警告对象是追高者，情形B的健康性在于给足承接位。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 周一观察变量只有开盘半小时量能与中位股承接
+  related_stocks: []
+  tags:
+  - 周一预案
+  - 开盘半小时量能
+  - 中位股承接
+  - 情形A情形B
+- id: claim-20260906-005-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: sector-theme
+  subject: 农林牧渔扩散至猪肉预示防御尾声
+  timeframe: short-term
+  statement: 农林牧渔的扩散已从最早的种业和粮食扩散至猪肉的集体补涨，当防御方向的补涨扩散到弹性最差、逻辑最泛的子板块时大概率已进入尾声；短线资金同一天从进攻整体切向防御属于负面信号，但此次切换伴随科技冲高回落、幅度停留在分歧层面离出清还有距离，防御方向持续性很短，一旦科技修复资金会立刻回流。
+  evidence_quote: 当一个防御方向的补涨扩散到弹性最差、逻辑最泛的子板块时，大概率已进入尾声。……所以防御方向的持续性会很短，一旦科技修复，这部分资金会立刻回流。
+  interpretation: 给出防御板块的两层判断：(1)扩散至猪肉=尾声信号，勿追防御；(2)资金进攻切防御虽是负面信号但未到出清，防御只是短期避风港。操作含义：不追农林牧渔/猪肉，周一若科技修复则防御资金回流科技，防御板块自身无持续性。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 防御扩散至猪肉预示尾声科技修复后资金回流
+  related_stocks: []
+  tags:
+  - 农林牧渔
+  - 猪肉
+  - 防御尾声
+  - 资金回流
+- id: claim-20260906-006-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: sector-theme
+  subject: 数字货币周一大概率承压
+  timeframe: short-term
+  statement: 数字货币受比特币价格突破8万美元刺激集体高开回流，但叠加周五晚非农数据，加息预期升温对无息资产的压制会先于A股映射体现，周一板块大概率承压，关注点只在龙头楚天龙(003040)的博弈机会。
+  evidence_quote: 板块受比特币价格突破8万美元刺激集体高开。但把周五晚间的非农叠加进去，加息预期升温对无息资产的压制会先于A股映射体现，周一板块大概率承压。
+  interpretation: 数字货币周五回流是比特币刺激的脉冲式行情，但非农抬升加息预期→无息资产（比特币/数字货币板块）受压制，板块整体周一承压。这条给出的不是追板块的指令，而是把数字货币降级为'龙头博弈'级别机会。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 数字货币受加息预期压制周一承压仅龙头可博弈
+  related_stocks:
+  - code: '003040'
+    name: 楚天龙
+    role: 数字货币龙头-主板可交易
+  tags:
+  - 数字货币
+  - 比特币
+  - 加息预期
+  - 无息资产
+  - 楚天龙
+- id: claim-20260906-007-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: stock-view
+  subject: 楚天龙独立性弱于神奇制药
+  timeframe: intraday
+  statement: 楚天龙(003040)是数字货币板块高开背景下的龙头，走势与8月20日的神奇制药(600613)相似但独立性弱于后者；周一观察点在板块因加息预期转弱时它能否维持封板承接，跟风品种松动而龙头不松才是独立性成立的右侧确认，不宜预判。
+  evidence_quote: 楚天龙的走势与8月20日的神奇制药有相似之处，都是板块高开背景下的龙头独立走强，区别在于神奇制药当时的独立性更强、对板块依赖更低。……这需要盘中确认，不宜预判。
+  interpretation: 给出楚天龙(003040)的明确观察框架：类比标的=8/20神奇制药(600613)，维度=独立性（对板块依赖度）。操作纪律=不预判、只看盘中封板承接，右侧确认信号='跟风松龙头不松'。数字货币板块周一承压背景下楚天龙(003040)能否独立是唯一看点。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 楚天龙类比神奇制药独立性确认看封板承接
+  related_stocks:
+  - code: '003040'
+    name: 楚天龙
+    role: 数字货币龙头-主板可交易
+  tags:
+  - 楚天龙
+  - 数字货币
+  - 独立走强
+  - 封板承接
+- id: claim-20260906-008-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: sector-theme
+  subject: 传媒回流共识未向板块扩散
+  timeframe: short-term
+  statement: 传媒板块回流，龙版传媒(605577)在利空扰动下逆势涨停对板块带动明显，但内部分化后排跟风不足；按利空下逆势走强的读法这属于做多共识凝聚的验证信号，只是共识只凝聚在一只股票上没有向板块面扩散，缺乏后排跟风的龙头逆势更接近资金对个股筹码结构的博弈，当成板块级行情起点为时过早。
+  evidence_quote: 缺乏后排跟风的龙头逆势，更接近资金对个股筹码结构的博弈，把它当成板块级行情的起点为时过早。
+  interpretation: 传媒回流的定性：龙头（龙版传媒(605577)）逆势涨停是共识验证，但'个股强、板块弱'意味着资金在博弈个股筹码而非板块逻辑。操作含义：传媒暂按个股行情对待，不升级为板块级配置机会。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 传媒回流仅龙头共识未扩散暂不按板块行情对待
+  related_stocks:
+  - code: '605577'
+    name: 龙版传媒
+    role: 传媒逆势涨停-主板可交易
+  tags:
+  - 龙版传媒
+  - 传媒
+  - 逆势涨停
+  - 共识验证
+- id: claim-20260906-009-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: sector-theme
+  subject: 科技修复范围收窄以液冷为主
+  timeframe: short-term
+  statement: 科技股冲高回落是拖累指数走弱的主要原因，周一在美股芯片股刺激下科技有望迎来修复，但修复的范围要收窄：缩容炒作环境下依然以液冷为主。
+  evidence_quote: 周一在美股芯片股的刺激下有望迎来修复，但修复的范围要收窄：缩容炒作环境下，依然以液冷为主。
+  interpretation: 缩容（存量缩量）环境下的修复≠普涨，资金只够支撑最强主线。液冷被明确为周一科技修复的首选分支（延续此前液冷Cage连接器与液冷板两条跟踪线），与9/3'液冷确立主线'的观点一脉相承。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技修复范围收窄缩容环境下以液冷为主
+  related_stocks: []
+  tags:
+  - 科技修复
+  - 缩容
+  - 液冷
+  - 主线收窄
+- id: claim-20260906-010-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: risk
+  subject: 芯片逆加息上涨逻辑可证伪条件
+  timeframe: short-term
+  statement: 美股硬件科技在加息预期升温中能不跌反涨的原因目前并不清晰，要等9月11日CPI公布后才能更明朗；从性价比出发AI硬件盈利确定性跑赢无风险利率是大概率事件，反转不会缺席只是迟到。可证伪条件：若CPI落地后加息预期继续抬升而美股芯片股仍能维持相对强势，则确定性溢价逻辑成立；若芯片股在CPI后随利率一起回落，则周五的逆势上涨只是超跌反弹，A股修复窗口要相应缩短。
+  evidence_quote: 这个判断的可证伪条件也很明确：若CPI落地后加息预期继续抬升，而美股芯片股仍能维持相对强势，则确定性溢价的逻辑成立；若芯片股在CPI后随利率一起回落，则周五的逆势上涨只是超跌反弹，A股的修复窗口就要相应缩短。
+  interpretation: 这是罕见的'承认逻辑暂不明朗+给出可证伪条件'的表述：UP明确说美股芯片逆加息上涨的原因不清晰，但用性价比判断'反转不会缺席只是迟到'，并把9/11
+    CPI设为验证节点。对A股的意义：科技修复窗口长度取决于9/11后芯片股能否顶住利率上行——时间锚定清晰，可跟踪可验证。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 芯片逆加息逻辑待9月11日CPI验证可证伪条件明确
+  related_stocks: []
+  tags:
+  - 芯片股
+  - CPI
+  - 可证伪
+  - 确定性溢价
+- id: claim-20260906-011-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: sector-theme
+  subject: 日本会议确认存储与设备供给紧张
+  timeframe: trend
+  statement: 据卖方对9月初日本会议高管指导意见整理：NAND方面企业级存储需求强劲、全球存储供应长期持续紧张、长期协议增加但平均售价仍持续上涨，与DRAM相比新增绿地投资最小；半导体设备订单趋势乐观，由蚀刻、沉积和研磨工具引领，来自台湾、韩国和美国芯片制造商的订单强于中国；T-glass产能扩张按计划推进（2027至2028年较2025年增长100%至200%）但价格上涨尚未足以使供应链完全健康；AI芯片FC
+    BGA基板供应紧张、扩产未跟上；MLCC受AI服务器需求急升但价格上涨尚未启动；HBM混合键合仍处研发阶段，16层甚至20层堆叠可能仍用传统热压键合。
+  evidence_quote: 据卖方对9月初日本会议（8月31日至9月3日）的高管指导意见整理：NAND方面，企业级存储需求强劲，全球存储供应长期持续紧张，尽管长期协议增加，平均售价仍持续上涨……
+  interpretation: 供给端权威信息的一手记录：日本厂商（存储/设备/基板/T-glass/MLCC五线）整体确认'供给紧张延续'，其中NAND、设备、FC
+    BGA三条线最紧，MLCC是需求急升但价格未启动（涨价逻辑还早），HBM混合键合未成熟（利好现有技术路线）。这是'存储是点、设备/基板是线'判断的供给端证据。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 日本会议确认存储设备基板供给紧张延续
+  related_stocks: []
+  tags:
+  - 存储
+  - 日本会议
+  - NAND
+  - 供给紧张
+  - 半导体设备
+- id: claim-20260906-012-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: sector-theme
+  subject: 存储价格出口数据三重印证
+  timeframe: trend
+  statement: 存储价格与出口数据同向走强：9月存储现货价格持续上涨，16Gb DDR4与1Tb NAND周环比各涨2%，16Gb DDR5现货价格54美元创历史新高（年内上涨85%），NAND晶圆价格二季度走软后8月初大幅反弹（年内涨超50%）；韩国半导体出口连续三个月超400亿美元，8月创纪录467亿美元同比激增209%；南亚科技8月销售额447亿新台币同比增长561%。
+  evidence_quote: 9月存储现货价格持续上涨，16Gb DDR4与1Tb NAND周环比各涨2%；16Gb DDR5现货价格达到54美元的历史新高，年内上涨85%；NAND晶圆价格在二季度走软后于8月初大幅反弹，年内仍涨超50%。……韩国半导体出口连续三个月超过400亿美元，8月创纪录达到467亿美元，同比激增209%；南亚科技8月销售额447亿新台币，同比增长561%。
+  interpretation: 量化的三重印证：价格（DDR5现货54美元新高、年内+85%）、出口（韩国8月467亿美元、同比+209%）、厂商收入（南亚科+561%）。数据可交叉核对（韩国产业通商资源部/南亚科月报），是'存储点未松动'的硬证据。DDR5年内翻倍行情仍在加速，NAND晶圆8月初的大反弹是近期新增量。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储现货价格历史新高韩国出口三位数增长
+  related_stocks: []
+  tags:
+  - 存储涨价
+  - DDR5
+  - 韩国出口
+  - 南亚科
+- id: claim-20260906-013-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: sector-theme
+  subject: 存储为点光模块PCB为面
+  timeframe: trend
+  statement: 存储是本轮海内外共振的导火索与关键的'点'，光模块、PCB等是'面'；现货价格创新高、韩国出口三位数增长、日本厂商确认供应长期紧张三者同时成立，意味着存储这个'点'没有松动，面上的调整就停留在分歧层面，谈出清为时过早。
+  evidence_quote: 现货价格创新高、韩国出口三位数增长、日本厂商确认供应长期紧张，三者同时成立，意味着存储这个'点'没有松动，面上的调整就停留在分歧层面，谈出清为时过早。
+  interpretation: 这是本轮行情的核心框架：存储=导火索（点），光模块/PCB=扩散（面）。判断逻辑：点未松动则面只是分歧回调而非趋势反转。对操作的含义：科技（尤其存储/光模块/PCB链）调整是分歧级别，不是出清级别，中期逻辑未破坏。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储是点光模块PCB是面点未松动面不看出清
+  related_stocks: []
+  tags:
+  - 存储
+  - 光模块
+  - PCB
+  - 点面框架
+  - 出清
+- id: claim-20260906-014-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: methodology
+  subject: 存储涨价对国产链短期定价权中期替代
+  timeframe: permanent
+  statement: 存储涨价对海外链是利好，对国产链的解读要分开：短期看它印证了海外龙头的定价权，中期看它恰恰是国产替代的空间所在，与一贯的'国产替代是渐进而长期的过程'判断一致，不支持任何一夜突破的叙事。
+  evidence_quote: 它对海外链是利好，对国产链的解读要分开：短期看它印证了海外龙头的定价权，中期看它恰恰是国产替代的空间所在，与我们一贯的'国产替代是渐进而长期的过程'判断一致，不支持任何一夜突破的叙事。
+  interpretation: 方法论级表述：涨价对国产链是'短期利空（海外定价权更强）→中期利好（替代空间打开）'的双段叙事，并重申国产替代渐进论。操作含义：不追'存储涨价→国产立刻受益'的短线叙事，国产替代标的看着中期空间而非短期涨价催化。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储涨价对国产链短期定价权中期替代空间
+  related_stocks: []
+  tags:
+  - 国产替代
+  - 定价权
+  - 存储涨价
+  - 渐进
+- id: claim-20260906-015-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: sector-theme
+  subject: 磷化铟衬底供给瓶颈印证
+  timeframe: industry
+  statement: 据美银与AXT电话会议纪要，全球InP（磷化铟）衬底需求仍远超供应、客户处于配给状态，需求主要由AI数据中心光模块驱动，NPO与CPO预计2027年下半年起提供增量；AXT即将实现较2025年四季度运行率翻番的产能目标，InP季度收入从约1800万美元升至3070万美元，2026年底季度收入运行率目标上调至6000万至6500万美元。该信息印证光互联上游供给瓶颈仍在，对A股映射属产业链跟踪记录，不构成个股结论。
+  evidence_quote: 全球InP衬底需求仍远超供应，客户处于配给状态，需求主要由AI数据中心光模块驱动，NPO与CPO预计从2027年下半年起提供增量。
+  interpretation: 光互联上游（InP衬底）供给瓶颈的一手印证，与日本会议对基板、T-glass的表述互为佐证。AXT收入指引（1800万→3070万→6000-6500万美元/季）量化了瓶颈的持续性与扩产节奏。明确标注'不构成个股结论'，属产业链跟踪记录，不得据此直接做A股个股判断。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 磷化铟衬底需求远超供应光互联上游瓶颈仍在
+  related_stocks: []
+  tags:
+  - 磷化铟
+  - InP衬底
+  - 光互联
+  - AXT
+- id: claim-20260906-016-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: sector-theme
+  subject: AIDC供电800V政策落地未成主线
+  timeframe: trend
+  statement: 中央网信办等七部门联合印发《促进数字化绿色化协同转型发展实施方案（2026—2030年）》，提出探索算力设施800V高压直流供电架构、推动超百千瓦单机柜部署、引导算力资源向清洁能源富集区集聚；800V高压直流写进部门级五年方案，把AIDC供电架构从厂商路线图变成政策口径，变压器'一器难求'、订单排至2027年的说法有了政策端确认；但板块周五并未成为主线，这类政策催化在缩容环境里更适合作为科技修复时的扩散方向观察，独立启动条件目前不具备。
+  evidence_quote: 800V高压直流写进部门级五年方案，意义在于把AIDC供电架构从厂商路线图变成了政策口径，变压器'一器难求'、订单排至2027年的说法在这个背景下有了政策端的确认；但板块周五并未成为主线，这类政策催化在缩容环境里更适合作为科技修复时的扩散方向观察，独立启动的条件目前还不具备。
+  interpretation: AIDC供电政策落地但市场没买账（周五未成主线），UP定性为'扩散方向而非独立主线'。政策意义被认可（800V入政策口径、变压器订单确认），但操作上不追独立启动。参考国金姚遥观点：电力变压器出海、AIDC元器件（SST/断路器/继电器/熔断器）、特高压、电表配网。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AIDC800V政策确认但未成主线只作扩散方向
+  related_stocks: []
+  tags:
+  - AIDC
+  - 800V
+  - 政策
+  - 变压器
+  - 扩散方向
+- id: claim-20260906-017-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: sector-theme
+  subject: 算力租赁收入放量先于利润释放
+  timeframe: trend
+  statement: 中国银行内蒙古分行为和林格尔新区发放内蒙古首笔'算力Token贷'，将企业词元使用规模、算力合作订单等纳入授信评估，等于金融端开始承认Token分成模式的现金流属性；据华泰证券研报，20家算力租赁样本公司2026年上半年营业收入中位数同比增长40.1%、归母净利润中位数同比增长11%，在建工程/固定资产/使用权资产与存货同比分别增长92.7%/65.9%/128.9%/64.8%；收入增速远高于利润增速说明行业仍在资产转化为可计费产能的阶段，与'算力租赁是国内高端算力近乎唯一来源'框架一致。
+  evidence_quote: 收入增速远高于利润增速，说明行业仍在资产转化为可计费产能的阶段，这与我们此前'算力租赁是国内高端算力近乎唯一来源'的框架一致；Token贷把词元使用规模纳入授信，等于金融端开始承认Token分成模式的现金流属性，这是新云厂逻辑向前推进的一小步，但目前只是一笔试点贷款，规模效应待观察。
+  interpretation: 算力租赁的阶段定性：收入+40% vs 利润+11%的剪刀差=行业处于'资产扩表→产能形成→收入验证'的早期阶段（在建工程+92.7%印证）。Token贷是金融端对新商业模式的边际承认，但仅试点。这解释了为何算力租赁标的适合看长逻辑而非短线业绩。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 算力租赁收入放量先于利润处于资产转产能阶段
+  related_stocks: []
+  tags:
+  - 算力租赁
+  - Token贷
+  - 收入放量
+  - 新云厂
+- id: claim-20260906-018-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: stock-view
+  subject: 顺钠股份中电鑫龙AIDC供电跟踪
+  timeframe: short-term
+  statement: 顺钠股份(000533)、中电鑫龙(002298)是AIDC供电架构政策催化下的产业链跟踪标的：顺钠股份(000533)为数据中心项目提供变压器、开关柜、电抗器等产品，中电鑫龙(002298)提供智能型输配电设备、高低压元器件及电力设计安装一揽子解决方案；两者周五未成主线，列入扩散方向观察清单。
+  evidence_quote: 顺钠股份、中电鑫龙：据公开信息，顺钠股份为数据中心项目提供变压器、开关柜、电抗器等产品；中电鑫龙提供智能型输配电设备、高低压元器件及电力设计安装一揽子解决方案，产品应用于数据中心与算力中心。两者为AIDC供电架构政策催化下的产业链跟踪标的，周五未成主线，列入扩散方向观察清单。
+  interpretation: 纯产业链跟踪记录：两个AIDC供电标的的业务定位与观察属性（扩散方向）。无买入建议、无点位判断，仅在科技修复扩散时作为观察对象。属于'跟踪清单'级别而非'买点'级别。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 顺钠股份中电鑫龙为AIDC供电政策扩散方向跟踪标的
+  related_stocks:
+  - code: '000533'
+    name: 顺钠股份
+    role: AIDC供电-变压器-主板可交易
+  - code: '002298'
+    name: 中电鑫龙
+    role: AIDC供电-输配电-主板可交易
+  tags:
+  - AIDC供电
+  - 变压器
+  - 跟踪标的
+  - 扩散方向
+- id: claim-20260906-019-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: stock-view
+  subject: 行云科技鸿博股份算力租赁跟踪
+  timeframe: trend
+  statement: 行云科技(300209)、鸿博股份(002229)是算力租赁产业链跟踪标的：行云科技(300209)整合多型号异构GPU算力集群提供算力租赁与弹性推理服务，在手3至5年长期订单规模约150.82亿元；鸿博股份(002229)可提供算力租赁及智算中心规划、建设、托管运维一体化服务；两者对应华泰样本中'收入放量先于利润释放'的阶段，跟踪变量是在建工程向可计费产能的转化节奏。
+  evidence_quote: 行云科技整合多型号异构GPU算力集群提供算力租赁与弹性推理服务，在手3至5年长期订单规模约150.82亿元；鸿博股份可提供算力租赁及智算中心规划、建设、托管运维一体化服务。
+  interpretation: 算力租赁两条产业链记录的落点：行云科技(300209)（非A股上市、150.82亿在手订单）与鸿博股份(002229)。跟踪核心变量=在建工程向可计费产能转化节奏，与017号claim的行业阶段判断一致。无买卖点建议。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 行云科技鸿博股份算力租赁跟踪在建工程转化
+  related_stocks:
+  - code: '300209'
+    name: 行云科技
+    role: 算力租赁-创业板不可交易
+  - code: '002229'
+    name: 鸿博股份
+    role: 算力租赁-主板可交易
+  tags:
+  - 算力租赁
+  - 行云科技
+  - 鸿博股份
+  - 在建工程
+- id: claim-20260906-020-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: operation
+  subject: 液冷早盘承接判断修复质量
+  timeframe: intraday
+  statement: 液冷方向是缩容环境下科技修复的首选分支，沿此前跟踪的液冷Cage连接器与液冷板两条线观察；周一若情形B（低开高走）成立，液冷分支在早盘的承接强弱是判断科技修复是分歧回流还是一日游的最直接信号。
+  evidence_quote: 液冷方向：缩容环境下科技修复的首选分支，沿此前跟踪的液冷Cage连接器与液冷板两条线观察。周一若情形B（低开高走）成立，液冷分支在早盘的承接强弱是判断科技修复是分歧回流还是一日游的最直接信号。
+  interpretation: 把009号claim（科技修复以液冷为主）落到操作信号：液冷早盘承接=科技修复质量的最直接观测点。跟踪线明确：液冷Cage连接器+液冷板。周一开盘即验证，属于盘中信号而非预判。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 液冷早盘承接是判断科技修复质量最直接信号
+  related_stocks: []
+  tags:
+  - 液冷
+  - Cage连接器
+  - 液冷板
+  - 早盘承接
+- id: claim-20260906-021-a
+  source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
+  source_date: '2026-09-06'
+  source_type: 专栏
+  extracted_at: '2026-09-06T22:20:00+08:00'
+  claim_type: operation
+  subject: 本周跟踪变量时间表
+  timeframe: short-term
+  statement: 本周跟踪变量：周一观察A股开盘量能是否不弱于周五同时段、连板梯队断层是否修复、首板家数是否锐减、液冷分支早盘承接；周二美国劳动节后复市，观察芯片股相对强势能否延续（A股硬件方向周二晚间的定价输入）；9月11日美国8月CPI是判断'芯片股逆加息上涨'到底是确定性溢价还是超跌反弹的分水岭；9月15至16日美联储会议，若CPI偏热且芯片股仍强则确定性逻辑成立、修复窗口延长，若CPI偏热且芯片股转弱则周五逆势只是反弹，科技修复以一日游对待，仓位纪律回到'缺业绩承接的方向不接飞刀、确定性方向买阴不买阳'。
+  evidence_quote: 若CPI偏热且芯片股仍强，则确定性逻辑成立、修复窗口延长；若CPI偏热且芯片股转弱，则周五的逆势只是反弹，科技修复以一日游对待，仓位纪律回到'缺业绩承接的方向不接飞刀、确定性方向买阴不买阳'。
+  interpretation: 本周的完整跟踪日历与条件式结论：周一（A股开盘量能/连板/液冷）→周二（美股芯片延续性）→9/11（CPI分水岭）→9/15-16（美联储会议）。每个节点都配了明确的'若…则…'决策树。其中9/11
+    CPI是最关键验证点，仓位纪律出现两个可执行条款：缺业绩承接不接飞刀、确定性方向买阴不买阳。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 本周跟踪周一量能周二美芯片9月11日CPI分水岭
+  related_stocks: []
+  tags:
+  - 本周跟踪
+  - CPI
+  - 美联储
+  - 仓位纪律
+  - 一日游
