@@ -15,7 +15,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260906-001-a", "claim-20260805-009", "claim-20260903-006-a"]
+  supplements:
+  - claim-20260906-001-a
+  - claim-20260805-009
+  - claim-20260903-006-a
   last_discovered: 2026-09-07
   links:
     wiki_pages: []
@@ -42,8 +45,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260906-002-a"]
-  contradicts: ["claim-20260827-063-x"]
+  supersedes:
+  - claim-20260906-002-a
+  contradicts:
+  - claim-20260827-063-x
   supplements: []
   last_discovered: 2026-09-07
   links:
@@ -74,7 +79,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-042-a", "claim-20260609-001-d", "claim-20260814-020"]
+  supplements:
+  - claim-20260610-042-a
+  - claim-20260609-001-d
+  - claim-20260814-020
   last_discovered: 2026-09-07
   links:
     wiki_pages: []
@@ -103,9 +111,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260824-002-q", "claim-20260804-012"]
+  supersedes:
+  - claim-20260824-002-q
+  - claim-20260804-012
   contradicts: []
-  supplements: ["claim-20260906-004-a"]
+  supplements:
+  - claim-20260906-004-a
   last_discovered: 2026-09-07
   links:
     wiki_pages: []
@@ -134,9 +145,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260609-005-a"]
+  supersedes:
+  - claim-20260609-005-a
   contradicts: []
-  supplements: ["claim-20260830-002-a", "claim-20260825-033-a"]
+  supplements:
+  - claim-20260830-002-a
+  - claim-20260825-033-a
   last_discovered: 2026-09-07
   links:
     wiki_pages: []
@@ -193,7 +207,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260831-012-a", "claim-20260810-007", "claim-20260819-008"]
+  supersedes:
+  - claim-20260831-012-a
+  - claim-20260810-007
+  - claim-20260819-008
   contradicts: []
   supplements: []
   last_discovered: 2026-09-07
@@ -223,9 +240,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260902-007-a", "claim-20260723-028"]
+  supersedes:
+  - claim-20260902-007-a
+  - claim-20260723-028
   contradicts: []
-  supplements: ["claim-20260622-004-d"]
+  supplements:
+  - claim-20260622-004-d
   last_discovered: 2026-09-07
   links:
     wiki_pages: []
@@ -253,7 +273,9 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260903-013-a", "claim-20260804-010"]
+  contradicts:
+  - claim-20260903-013-a
+  - claim-20260804-010
   supplements: []
   last_discovered: 2026-09-07
   links:
@@ -262,7 +284,7 @@ claims:
     cases: []
   topic: 科技股今天关键在指数配合存储是牵引变量
   related_stocks:
-  - code: '000977'
+  - code: 000977
     name: 浪潮信息
     role: 服务器核心标的-主板可交易
   - code: '603228'
@@ -290,9 +312,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260817-048"]
+  supersedes:
+  - claim-20260817-048
   contradicts: []
-  supplements: ["claim-20260901-052-a", "claim-20260831-016-a"]
+  supplements:
+  - claim-20260901-052-a
+  - claim-20260831-016-a
   last_discovered: 2026-09-07
   links:
     wiki_pages: []
@@ -303,7 +328,7 @@ claims:
   - code: '301666'
     name: 大普微
     role: 存储主控-创业板不可交易
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储模组-主板可交易
   tags:
@@ -328,7 +353,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-022", "claim-20260819-066"]
+  supplements:
+  - claim-20260706-022
+  - claim-20260819-066
   last_discovered: 2026-09-07
   links:
     wiki_pages: []
@@ -356,9 +383,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260722-007"]
+  supersedes:
+  - claim-20260722-007
   contradicts: []
-  supplements: ["claim-20260625-003-g", "claim-20260723-006"]
+  supplements:
+  - claim-20260625-003-g
+  - claim-20260723-006
   last_discovered: 2026-09-07
   links:
     wiki_pages: []
@@ -457,7 +487,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-055", "claim-20260831-005-c", "claim-20260901-023-a"]
+  supplements:
+  - claim-20260805-055
+  - claim-20260831-005-c
+  - claim-20260901-023-a
   last_discovered: 2026-09-07
   links:
     wiki_pages: []
@@ -519,9 +552,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260824-002-q"]
+  supersedes:
+  - claim-20260824-002-q
   contradicts: []
-  supplements: ["claim-20260703-001-j"]
+  supplements:
+  - claim-20260703-001-j
   last_discovered: 2026-09-07
   links:
     wiki_pages: []
@@ -534,3 +569,70 @@ claims:
   - 存储映射
   - 首板
   - 仓位管理
+- id: claim-20260907-018-a
+  source_path: sources/original/bilibili/2026-09-07-0943-图片-摩尔线程解禁直接跌停，浪潮信息被纽约时报写了小作文，还是套壳.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:55:00+08:00'
+  claim_type: risk
+  subject: 摩尔线程解禁跌停与浪潮信息纽约时报小作文
+  timeframe: intraday
+  statement: 摩尔线程(688795)解禁直接跌停；浪潮信息(000977)被纽约时报写小作文（还是套壳买英伟达芯片的事）——两则均为算力/国产算力方向的利空扰动。
+  evidence_quote: 摩尔线程解禁直接跌停，浪潮信息被纽约时报写了小作文，还是套壳买英伟达芯片的事情。
+  interpretation: 盘中突发两利空：①摩尔线程(688795)（科创板688795）解禁抛压直接跌停——解禁类利空是纯筹码面冲击；②纽约时报小作文指控浪潮信息(000977)'套壳买英伟达芯片'——舆论面利空，直接打击9/7早盘专栏提到的'浪潮信息(000977)等核心标的抛压很大'的液冷反攻失败归因。两条都是算力链的负面扰动，会压制9/7开盘存储/算力映射的正反馈强度。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 摩尔线程解禁跌停浪潮信息纽时报小作文算力链利空
+  related_stocks:
+  - code: '688795'
+    name: 摩尔线程
+    role: 国产GPU-科创板不可交易
+  - code: 000977
+    name: 浪潮信息
+    role: 服务器核心标的-主板可交易
+  tags:
+  - 摩尔线程
+  - 解禁跌停
+  - 浪潮信息
+  - 纽约时报
+  - 算力利空
+- id: claim-20260907-019-a
+  source_path: sources/original/bilibili/2026-09-07-0943-图片-摩尔线程解禁直接跌停，浪潮信息被纽约时报写了小作文，还是套壳.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:55:00+08:00'
+  claim_type: operation
+  subject: 摩尔沐溪不占KC50权重可惜砸不出黄金坑
+  timeframe: intraday
+  statement: 置顶评论：摩尔（摩尔线程(688795)）和沐溪（沐曦股份）不占KC50权重，可惜了——不然今天还真能砸个黄金坑出来。
+  evidence_quote: 摩尔和沐溪不占KC50权重，可惜了，不然今天还真能砸个黄金坑出来了。
+  interpretation: 关键信息有三层：①摩尔线程(688795)/沐曦不在科创50指数成分中，其解禁跌停不会拖累科创50ETF/科创芯片ETF的指数表现——持仓588780/588200/588170不受直接拖累；②UP的'可惜砸不出黄金坑'表态说明他视今天盘中的算力链利空为潜在低吸机会而非逃命信号——风险偏好偏多；③'黄金坑'预设=若算力被砸出深度回调是买点而非卖点。这条与9/7早盘'存储是点、映射正反馈则参与'的框架一致，属于盘中风险事件不改变观察结构的判断。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 摩尔沐溪不占KC50权重砸不出黄金坑可惜
+  related_stocks:
+  - code: '688795'
+    name: 摩尔线程
+    role: 国产GPU-科创板不可交易
+  - code: '688720'
+    name: 沐曦股份
+    role: 国产GPU-科创板不可交易
+  tags:
+  - KC50
+  - 黄金坑
+  - 科创50
+  - 解禁
