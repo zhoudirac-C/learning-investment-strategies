@@ -1,0 +1,299 @@
+claims:
+- id: claim-20260907-041-a
+  source_path: sources/original/bilibili/2026-09-07-2254-图片-今天是一根久违的结构性反弹阳线：指数高开后快速分化，沪指被高.md
+  source_date: '2026-09-07'
+  source_type: 复盘
+  extracted_at: '2026-09-08T00:35:00+08:00'
+  claim_type: market-cycle
+  subject: 结构性反弹阳线定性
+  timeframe: short-term
+  statement: 2026-09-07是一根久违的结构性反弹阳线：量能未放出但结构明显切换，属于存量资金的调仓而非增量资金进场，市场仍处于存量博弈下的结构性行情阶段。
+  evidence_quote: 理解这根阳线的关键，在于量能没有放出来，而结构却明显切换了——这是存量资金的调仓，而非增量资金的进场。
+  interpretation: 存量调仓行情方向可以鲜明但持续性需要新动量喂养，一旦主线接力不上切换会反向。这决定了反弹定性为'冰点修复'而非'趋势反转'，操作上不支持追高。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 9/7阳线=存量调仓的结构性反弹而非增量进场
+  related_stocks: []
+  tags:
+  - 结构性反弹
+  - 存量调仓
+  - 量能
+  - 结构切换
+  - 阳线
+- id: claim-20260907-041-b
+  source_path: sources/original/bilibili/2026-09-07-2254-图片-今天是一根久违的结构性反弹阳线：指数高开后快速分化，沪指被高.md
+  source_date: '2026-09-07'
+  source_type: 复盘
+  extracted_at: '2026-09-08T00:35:00+08:00'
+  claim_type: technical-signal
+  subject: 双创与沪指背离
+  timeframe: short-term
+  statement: 双创与沪指开始拉开是9/7盘面最重要的形态信号：若双创持续走强、沪指横盘消化，背离成立，反弹可从冰点修复升级为结构切换；若双创回落跟随沪指，背离失败，今天更接近超跌反抽。
+  evidence_quote: 接下来最值得盯的变量就是双创与沪指的背离能否持续：若双创持续走强、沪指仅是横盘消化，背离成立，那么这轮反弹就有资格从冰点修复升级为结构切换；若双创回落跟随沪指，背离失败，则今天更接近超跌反抽，需要重新等待。
+  interpretation: 这是未来数日判断行情性质的核心观察变量。UP明确'只做观察、不做前置押注'，背离确认前维持观察为主。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 双创/沪指背离=结构切换vs超跌反抽的判定信号
+  related_stocks: []
+  tags:
+  - 双创
+  - 沪指
+  - 背离
+  - 结构切换
+  - 超跌反抽
+- id: claim-20260907-041-c
+  source_path: sources/original/bilibili/2026-09-07-2254-图片-今天是一根久违的结构性反弹阳线：指数高开后快速分化，沪指被高.md
+  source_date: '2026-09-07'
+  source_type: 复盘
+  extracted_at: '2026-09-08T00:35:00+08:00'
+  claim_type: sector-theme
+  subject: 科技反弹结构分层
+  timeframe: short-term
+  statement: 9/7科技反弹是算力硬件（光通信、PCB）独自主攻、其余环节被动跟随：半导体主动性偏弱属被动补涨，AI应用端龙头独立强势但后排跟风不足，主线成色仍有待确认。
+  evidence_quote: 今天的科技反弹是「算力硬件独自主攻、其余环节被动跟随」，主线成色仍有待确认。明日重点关注AI应用方向龙版传媒的分歧考验，龙头能否在分歧中站住，决定后排是否有跟随的资格。
+  interpretation: 科技反弹的广度不足，观察点在半导体/AI应用能否补量接力；龙版传媒(605577)分歧考验是AI应用后排有无跟随资格的前哨。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 算力硬件独攻、半导体被动补涨、AI应用分歧
+  related_stocks:
+  - code: '605577'
+    name: 龙版传媒
+    role: AI应用龙头-主板可交易
+  tags:
+  - 科技反弹
+  - 算力硬件
+  - 半导体补涨
+  - AI应用分歧
+  - 龙版传媒
+- id: claim-20260907-041-d
+  source_path: sources/original/bilibili/2026-09-07-2254-图片-今天是一根久违的结构性反弹阳线：指数高开后快速分化，沪指被高.md
+  source_date: '2026-09-07'
+  source_type: 复盘
+  extracted_at: '2026-09-08T00:35:00+08:00'
+  claim_type: sector-theme
+  subject: 农业涨价链双主线
+  timeframe: short-term
+  statement: 农林牧渔赚钱效应完全不受科技虹吸、向食品消费扩散，背景是超强厄尔尼诺预期叠加联合国粮农组织8月食品价格指数环比大幅上升，资金沿粮食种植—粮油加工—预制菜链条扩散，与科技并行形成存量行情下难得的双主线格局。
+  evidence_quote: 这条线与科技并行而互不挤占，正是存量行情下难得的双主线格局；若明日科技分歧，涨价链有承接情绪的作用，反之亦然。
+  interpretation: 涨价链与科技互为对冲：任一主线分歧时另一条有承接情绪的作用，降低单主线退潮的系统性风险。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 农业涨价链扩散至食品消费，与科技构成双主线
+  related_stocks: []
+  tags:
+  - 农业涨价链
+  - 食品消费
+  - 厄尔尼诺
+  - 双主线
+  - 资金扩散
+- id: claim-20260907-041-e
+  source_path: sources/original/bilibili/2026-09-07-2254-图片-今天是一根久违的结构性反弹阳线：指数高开后快速分化，沪指被高.md
+  source_date: '2026-09-07'
+  source_type: 复盘
+  extracted_at: '2026-09-08T00:35:00+08:00'
+  claim_type: catalyst
+  subject: 光通信三重强化
+  timeframe: trend
+  statement: 光通信是当前唯一在预期、订单与政策三个维度同时得到强化的科技子方向：工信部「十五五」规划把400G以上光传输升级写进五年规划，高盛上调2026-2028全球光模块市场规模预测33%/81%/115%（2028年增至1484.95亿美元），特发信息(000070)CPO用MPO插芯量产出货、天孚通信(300394)FAU/ELS进入交付。
+  evidence_quote: 光通信是当前唯一在预期、订单与政策三个维度同时得到强化的科技子方向，这解释了它为何能成为今天科技反弹的发起者。
+  interpretation: 政策+卖方+公司三层共振支撑光通信在算力硬件中的领涨地位；1.6T进入规模上量、3.2T送样验证是后续跟踪节点。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光通信：政策/订单/预期三维度同时强化
+  related_stocks:
+  - code: '000070'
+    name: 特发信息
+    role: CPO用MPO插芯量产出货-主板可交易
+  - code: '300394'
+    name: 天孚通信
+    role: CPO FAU/ELS交付-创业板不可交易
+  tags:
+  - 光通信
+  - CPO
+  - 光模块
+  - 十五五规划
+  - 高盛上调
+- id: claim-20260907-041-f
+  source_path: sources/original/bilibili/2026-09-07-2254-图片-今天是一根久违的结构性反弹阳线：指数高开后快速分化，沪指被高.md
+  source_date: '2026-09-07'
+  source_type: 复盘
+  extracted_at: '2026-09-08T00:35:00+08:00'
+  claim_type: sector-theme
+  subject: 机器人定价锚切换
+  timeframe: trend
+  statement: 特斯拉向T链核心供应商一次性下达数千台量级Optimus大单（4月量产指引以来首笔批量级订单），叠加三星加速原型机开发（目标CES2027发布）与中金「从主题投资转向价值兑现」的表述，机器人板块定价锚正从故事转向订单，后续板块按有无实际订单分化。
+  evidence_quote: 机器人板块的定价锚正从故事转向订单，后续板块内部会按有无实际订单分化，跟踪的重点转为订单披露与半年报兑现度。
+  interpretation: 板块筛选标准切换：巨轮智能(002031)等有实际订单披露的标的与纯主题标的将走出分化，选股从题材弹性转向订单验证。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 机器人从主题投资转向订单价值兑现
+  related_stocks:
+  - code: '002031'
+    name: 巨轮智能
+    role: 人形机器人微型减速器小批量试用-主板可交易
+  tags:
+  - 人形机器人
+  - 特斯拉Optimus
+  - 订单兑现
+  - 三星
+  - 价值兑现
+- id: claim-20260907-041-g
+  source_path: sources/original/bilibili/2026-09-07-2254-图片-今天是一根久违的结构性反弹阳线：指数高开后快速分化，沪指被高.md
+  source_date: '2026-09-07'
+  source_type: 复盘
+  extracted_at: '2026-09-08T00:35:00+08:00'
+  claim_type: stock-view
+  subject: 集泰股份液冷硅油
+  timeframe: short-term
+  statement: 集泰股份(002909)的液冷硅油瞄准浸没式液冷场景（9/1新申请硅基离子复合冷却液专利），定位为氟化液的主要追赶者，但产品仍在商业化前验证阶段，属于算力主线中尚未被充分定价的散热支线，右侧信号出现之前只记录不动作。
+  evidence_quote: 这条线属于算力主线中尚未被充分定价的散热支线，专利与验证都还在预期阶段，时点意义在于跟踪而非追高，右侧信号出现之前只记录不动作。
+  interpretation: 散热/液冷是算力硬件中低关注度支线，跟踪优先于参与；验证节点为专利落地与商业化订单。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 集泰股份液冷硅油：散热支线只跟踪不追高
+  related_stocks:
+  - code: '002909'
+    name: 集泰股份
+    role: 液冷硅油专利验证阶段-主板可交易
+  tags:
+  - 液冷
+  - 硅油
+  - 浸没式冷却
+  - 散热
+  - 集泰股份
+- id: claim-20260907-041-h
+  source_path: sources/original/bilibili/2026-09-07-2254-图片-今天是一根久违的结构性反弹阳线：指数高开后快速分化，沪指被高.md
+  source_date: '2026-09-07'
+  source_type: 复盘
+  extracted_at: '2026-09-08T00:35:00+08:00'
+  claim_type: market-cycle
+  subject: CPI数据节奏推演
+  timeframe: short-term
+  statement: 9/11晚美国8月CPI是最大外部变量：明日下午起资金可能趋于谨慎，节奏上午延续、下午收敛。情形A（温和/偏鸽）双创背离延续、反弹升级为结构切换、科技从算力硬件扩散到半导体与AI应用；情形B（偏热/偏鹰）利空落地可能性更大，关键看AI硬件业绩兑现能否对冲无风险利率抬升。
+  evidence_quote: 业绩能对冲，则调整属于外力扰动，回补即可；业绩跟不上，则会演变成内生性回调，需重新定位。
+  interpretation: CPI情形B下区分'外力扰动'与'内生回调'的判据是AI硬件业绩兑现度——这直接决定回补还是重新定位，是9/11前后的核心决策树。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 9/11 CPI两种情形推演：外力扰动vs内生回调判据
+  related_stocks: []
+  tags:
+  - CPI
+  - 美联储
+  - 业绩兑现
+  - 内生回调
+  - 外力扰动
+- id: claim-20260907-041-i
+  source_path: sources/original/bilibili/2026-09-07-2254-图片-今天是一根久违的结构性反弹阳线：指数高开后快速分化，沪指被高.md
+  source_date: '2026-09-07'
+  source_type: 复盘
+  extracted_at: '2026-09-08T00:35:00+08:00'
+  claim_type: operation
+  subject: 量能不支持追高
+  timeframe: intraday
+  statement: 9/7的量能结构不支持追高，双创背离与主线扩散都还在待确认状态，右侧确认之前维持观察为主，跟踪清单聚焦三处：双创与沪指背离能否维持、算力硬件之外的科技环节能否补量、农业涨价链前端是否继续走强。
+  evidence_quote: 今天的量能结构不支持追高，双创背离与主线扩散都还在待确认状态。右侧确认之前，维持观察为主。
+  interpretation: 三条跟踪清单即右侧确认条件，全部满足前不加仓不追高；与9/11 CPI前不加总仓位的纪律叠加。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 右侧确认三条件，确认前维持观察不追高
+  related_stocks: []
+  tags:
+  - 不追高
+  - 右侧确认
+  - 观察为主
+  - 跟踪清单
+  - 量能结构
+- id: claim-20260907-041-j
+  source_path: sources/original/bilibili/2026-09-07-2254-图片-今天是一根久违的结构性反弹阳线：指数高开后快速分化，沪指被高.md
+  source_date: '2026-09-07'
+  source_type: 复盘
+  extracted_at: '2026-09-08T00:35:00+08:00'
+  claim_type: stock-view
+  subject: 海欣食品末端补涨
+  timeframe: short-term
+  statement: 海欣食品(002702)作为粮食概念炒作链末端补涨的核心载体，位置意义在于低位、纯正、有股性，但其持续性取决于前端种植、加工环节能否继续走强，前端一旦转弱末端最先退潮。
+  evidence_quote: 末端补涨的位置意义在于低位、纯正、有股性，但也意味着它的持续性取决于前端种植、加工环节能否继续走强，前端一旦转弱，末端最先退潮。
+  interpretation: 涨价链内也存在传导序位：前端（种植）是先行指标，末端（食品加工）是跟风，参与末端必须盯前端。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 海欣食品=涨价链末端补涨，前端转弱最先退潮
+  related_stocks:
+  - code: '002702'
+    name: 海欣食品
+    role: 涨价链末端补涨载体-主板可交易
+  tags:
+  - 农业涨价链
+  - 预制菜
+  - 末端补涨
+  - 食品通胀
+  - 海欣食品
