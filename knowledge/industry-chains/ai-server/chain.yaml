@@ -80,11 +80,11 @@ mappings:
   segment: seg-cool
   relation: 液冷换热模块供应商，与摩丁（Modine）合作，AI电力绑定卡特彼勒
   elasticity: concept
-current_stage: 阶段3-分歧期
+current_stage: 阶段4-见顶期
 stage_confidence: 高
-stage_evidence: 2026-09-01 跟踪更新：液冷互连与资本开支提速，确认产业链加速逻辑。
+stage_evidence: 2026-09-07 跟踪更新：双研报确认高密度算力驱动液冷加速渗透，直接命中关键节点，产业链逻辑加强，仍处分歧期等回踩。
 timing:
-  current_recommendation: 不追高，等分歧回踩
+  current_recommendation: 等回踩确认
   next_trigger: 超节点出货超预期→加仓
   risk: 国产算力生态适配不及预期
 tracking_metrics:
@@ -152,4 +152,8 @@ history:
 - date: '2026-09-05'
   stage: 阶段3-分歧期
   action: 演化:add_node 液冷环节新增标的：银轮股份（绑定摩丁、海外Tier1卡位）
+  result: 待验证
+- date: '2026-09-07'
+  stage: 阶段4-见顶期
+  action: 不追高，保持观察，待回踩企稳后分批介入散热环节
   result: 待验证

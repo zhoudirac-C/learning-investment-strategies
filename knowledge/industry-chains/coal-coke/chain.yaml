@@ -43,11 +43,11 @@ mappings:
   segment: seg-mine
   relation: 上游煤矿龙头，量价齐升、业绩改善直接受益
   elasticity: concept
-current_stage: 阶段2-加速期
-stage_confidence: 中
-stage_evidence: 焦炭第六轮提涨已落地；第七轮提上日程；煤炭PPI转正
+current_stage: 阶段3-分歧期
+stage_confidence: 高
+stage_evidence: 2026-09-07 跟踪更新：动力煤破950验证供给收缩涨价逻辑，加速期确认但不宜追高，等回踩或第七轮提涨。
 timing:
-  current_recommendation: 焦炭龙头（潞安环能），不追高
+  current_recommendation: 阶段2-加速期：不追高，等分歧回踩
   next_trigger: 第七轮提涨落地=加强
   risk: 钢铁需求走弱→焦炭提涨受阻
 tracking_metrics:
@@ -69,4 +69,8 @@ history:
 - date: '2026-09-02'
   stage: 阶段2-加速期
   action: 演化:add_node 研报点名陕西煤业量价齐升，新增上游煤矿环节标的跟踪
+  result: 待验证
+- date: '2026-09-07'
+  stage: 阶段3-分歧期
+  action: 动力煤突破950元/吨直接验证供给收缩+价格上行逻辑，但属价格类强化而非关键节点（第七轮提涨）落地，维持焦炭龙头+上游煤企配置，不追高，等待回踩或第七轮提涨落地再加仓；证伪条件未触发
   result: 待验证
