@@ -1,0 +1,502 @@
+claims:
+- id: claim-20260907-001-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: market-cycle
+  subject: 偏强非农杀估值非盈利
+  timeframe: short-term
+  statement: 8月非农新增16.2万人（预期5.5万），失业率4.1%，6/7月合计上修5.5万；掉期市场对9月16日议息加息的定价概率升至六成以上，年内累计加息定价约38bp；这份数据的性质是偏强非农：杀的是估值而非盈利，纳指压力理论上大于道指。
+  evidence_quote: 按上周盘前提到的读法，这份数据的性质是偏强非农：杀的是估值而非盈利，因此纳指压力理论上大于道指。
+  interpretation: 延续9/6复盘'加息预期升温但未点燃通胀恐慌'的定性框架，补上具体数字：9/16加息概率>60%、年内累计38bp。'杀估值非杀盈利'决定A股映射方向——受影响的是高估值科技资产而非盈利端，为后续'AI硬件逆势走强'的个股层面信号埋下对照。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 偏强非农杀估值非盈利加息概率六成
+  related_stocks: []
+  tags:
+  - 非农
+  - 加息预期
+  - 杀估值
+  - 9月16日议息
+- id: claim-20260907-002-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: market-cycle
+  subject: AI硬件定价逻辑切换为利率加盈利确定性
+  timeframe: trend
+  statement: 上周五美股费城半导体指数盘中涨超3%，SK海力士收盘+8.14%、美光+6.1%、闪迪+11.9%；这组走势说明AI硬件的定价逻辑已从利率单一定价切换为利率+盈利确定性双定价：非农偏强缓解经济失速担忧，盈利确定性一端权重上升，利率端的压制被对冲。
+  evidence_quote: 这组走势说明本轮AI硬件的定价逻辑已经从利率单一定价切换为利率＋盈利确定性定价：非农偏强恰好缓解了此前对经济失速的担忧，盈利确定性一端的权重上来了，利率端的压制反而被对冲。
+  interpretation: 这是对'芯片股逆加息上涨'现象的机制解释升级：不是简单的逆势，而是定价模型从单因子（利率）变为双因子（利率+盈利确定性）。非农偏强在此扮演双重角色——一端抬高利率压制估值，另一端化解衰退担忧强化盈利确定性，后者权重超过前者。该框架直接支撑周一A股存储/算力硬件的开盘情绪。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI硬件定价从利率单因子切换为利率加盈利确定性双因子
+  related_stocks: []
+  tags:
+  - AI硬件
+  - 盈利确定性
+  - 定价逻辑
+  - 费半
+- id: claim-20260907-003-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: catalyst
+  subject: GPT-6 Astra代理能力抬升Token消耗
+  timeframe: trend
+  statement: OpenAI于9月3日发布GPT-6 Astra：在ARC-AGI-3录得99.9%，突破点在于'给出目标即可直接操作电脑'的代理能力而非综合智能指标；Token价格持续下降但用量并未减少，反而因成本降低出现使用更多算力的Jevons效应——Token降价不直接导致AI硬件萎缩。与'AI应用是因、AI硬件与半导体是果'的框架一致。
+  evidence_quote: 二是Token价格持续下降但用量并未减少，反而因成本降低出现使用更多算力的Jevons效应，因此Token降价并不直接导致AI硬件市场萎缩。这与我们8月以来AI应用是因、AI硬件与半导体是果的框架一致，代理能力抬升Token消耗，硬件需求才有扩大的依据。
+  interpretation: 给出OpenAI最新模型的硬件需求逻辑：代理能力（Agent）是Token消耗的放大器，成本下降触发Jevons效应（价格弹性>1），二者叠加使'应用繁荣→硬件需求'传导成立。9/4韩国DRAM
+    ETF盘中+6.6%佐证。这是存储/算力硬件中期需求端的关键叙事基础。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: GPT-6 Astra代理能力抬升Token消耗硬件需求有依据
+  related_stocks: []
+  tags:
+  - GPT-6
+  - Astra
+  - Token
+  - Jevons效应
+  - 代理能力
+- id: claim-20260907-004-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: operation
+  subject: 开盘两条线正反馈或映射失效
+  timeframe: intraday
+  statement: 今天开盘先看两条线：情形A，A股存储与算力硬件对美股映射做出正反馈、指数低开后被快速收回，则视为科技股先于宏观数据修复情绪，上周五午后翻绿属外力扰动，可按午后是否守住早盘低点决定是否顺势参与；情形B，存储高开后被指数拖累回落、量能继续放大而指数不涨，则映射失效、加息预期压制仍是主导，继续等待9月11日8月CPI，把仓位留给数据之后。
+  evidence_quote: 情形A，A股存储与算力硬件对美股映射做出正反馈、指数低开后被快速收回，则视为科技股先于宏观数据修复情绪……情形B，存储高开后被指数拖累回落、量能继续放大而指数不涨，则映射失效……把仓位留给数据之后。
+  interpretation: 9/7开盘的二元预案：存储映射正反馈（情形A）→ 科技先修复，尾盘看是否守住早盘低点再决定参与；映射失效（情形B）→ 不参与，仓位留到9/11
+    CPI后。与9/6复盘'情形A高开冲高回落需警惕/情形B低开高走更健康'的观察变量互补，但今日多了'存储映射'这个前置确认。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 开盘两条线存储正反馈则参与映射失效则等CPI
+  related_stocks: []
+  tags:
+  - 开盘两条线
+  - 存储映射
+  - 正反馈
+  - CPI
+- id: claim-20260907-005-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: market-cycle
+  subject: 放量翻绿是筹码换手非出清
+  timeframe: short-term
+  statement: 上周五较前一交易日放量2718亿，配合全天翻绿但不足10家跌停：放量而不出现跌停潮，意味着卖盘换到了愿意承接的手里，市场下方支撑已经形成；但连续多日冲高回落说明市场仍缺信心，上攻需要外力（9/11
+    CPI）与内力共同作用。
+  evidence_quote: 放量而不出现跌停潮，意味着卖盘换到了愿意承接的手里，市场下方支撑已经形成。但连续多日的冲高回落也足以说明目前市场太缺信心，上攻需要外力与内力共同作用。
+  interpretation: 对9/4放量阴线的量能解读：2718亿增量+跌停<10家的组合=换手而非出清，支撑已形成。同时承认'缺信心'——上攻需9/11
+    CPI外力+内部情绪修复。对震荡市判断：下方有支撑、上方缺信心，本质是等待契机的蓄势结构。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 放量2718亿跌停不足10家筹码换手支撑已形成
+  related_stocks: []
+  tags:
+  - 放量翻绿
+  - 筹码换手
+  - 跌停潮
+  - 支撑
+- id: claim-20260907-006-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: market-cycle
+  subject: 创业板4连阴数学优势积累
+  timeframe: short-term
+  statement: 创业板指已4连阴：今年7月只出现过1次4连阴；2024年9月底至今创业板总共只出现3次5连阴（含以上）。考虑到创业板指已处于接近前低的区域，越跌越会加强数学优势——这是统计概率层面的判断，需右侧量价确认才转化为操作。
+  evidence_quote: 作为参照，在跌得最多的今年7月也只出现过1次4连阴；从2024年9月底至今，创业板总共只出现过3次5连阴（含以上）……个人判断现阶段越跌反而越会进一步加强数学优势——这是一个统计概率层面的判断，仍需右侧量价确认才转化为操作。
+  interpretation: 统计概率方法论的示范：用连阴天数的历史分布（4连阴今年仅1次、5连阴两年半仅3次）推断继续下跌的概率递减，叠加'接近前低'位置
+    → 数学优势积累。但明确声明是概率判断，需右侧量价（出现止跌企稳）才转操作。契合用户'统计判断不等同操作信号'的方法论。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 创业板4连阴历史罕见数学优势积累待右侧确认
+  related_stocks: []
+  tags:
+  - 创业板
+  - 4连阴
+  - 数学优势
+  - 统计概率
+- id: claim-20260907-007-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: market-cycle
+  subject: 短线情绪问题在信心非风险偏好
+  timeframe: short-term
+  statement: 上周五二板6家、一进二晋级率17.14%处于正常区间，但首板35→31家且连续两日中位连板晋级率（二进三）均为0%；一鸣食品止跌、跌停家数减少，短线情绪却没起色——问题在信心而非风险偏好本身，出清已基本完成，情绪只欠契机。
+  evidence_quote: 个人判断，这组数据说明问题在于信心而非风险偏好本身：出清已基本完成，情绪只欠契机。反过来看，正是这种指数有支撑、情绪无高度的组合，最容易在契机出现时形成指数与情绪共振的产物。
+  interpretation: 情绪数据分层：宽度指标（首板）弱、高度指标（晋级率）中性、风险出清（跌停减少）完成 → 判断为'信心缺失'而非'风险偏好崩塌'。操作含义：出清完成+有支撑+无高度的组合=等待契机共振，属蓄势而非下跌中继。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 短线问题在信心非风险偏好出清完成等契机
+  related_stocks: []
+  tags:
+  - 短线情绪
+  - 信心
+  - 首板
+  - 晋级率
+  - 出清
+- id: claim-20260907-008-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: market-cycle
+  subject: 轮动收敛利好景气投资回归
+  timeframe: trend
+  statement: 上周五晋级的6个二连板均是近两个月没有过连续涨停的个股，近期资金更侧重超跌与个别冷门题材；随着轮动收敛的契机临近、基本面定价权重提升，受益的仍将是景气投资的回归。
+  evidence_quote: 上周五晋级的6个二连板均是近两个月没有过连续涨停的个股，可见近期资金更侧重超跌与个别冷门题材。随着后续轮动收敛的契机临近、基本面定价权重提升，个人判断受益的仍将是景气投资的回归。
+  interpretation: 资金行为观察：连板梯队全来自'两个月没涨停'的超跌冷门 → 资金在避险地做低位卡位；当轮动收敛+基本面权重回归时，受益的是景气投资（有业绩支撑的主线方向）。为'存储点'等基本面主线提供情绪面中期支撑。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 连板全为超跌冷门轮动收敛后景气投资回归
+  related_stocks: []
+  tags:
+  - 二连板
+  - 超跌冷门
+  - 轮动收敛
+  - 景气投资
+- id: claim-20260907-009-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: 科技股今天关键变量在指数配合
+  timeframe: intraday
+  statement: 科技股与指数高度绑定：上周五液冷早盘高开回落、10点半前后资金尝试反攻失败，原因一是指数没过前高、二是浪潮信息(000977)等核心标的抛压很大；午后景旺电子(603228)、德龙激光(688170)等异动同样被指数拖累。科技股今天的关键变量仍是指数能否配合，其中存储是最敏感的牵引变量。
+  evidence_quote: 因此科技股今天的关键变量仍然是指数能否配合。其中存储又是最敏感的牵引变量，上周五美股存储的正反馈是否能传导到A股，是判断硬件方向能否企稳的前置观察。
+  interpretation: 科技与指数的耦合判断：单靠板块自身资金无法反转，必须先有指数配合。液冷10:30反攻失败的归因（指数未过前高+浪潮信息(000977)抛压）说明板块内部分歧与外部指数约束并存。存储被指定为最敏感牵引变量——观察顺序的信号意义。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技股今天关键在指数配合存储是牵引变量
+  related_stocks:
+  - code: '000977'
+    name: 浪潮信息
+    role: 服务器核心标的-主板可交易
+  - code: '603228'
+    name: 景旺电子
+    role: PCB-主板可交易
+  - code: '688170'
+    name: 德龙激光
+    role: 激光设备-科创板不可交易
+  tags:
+  - 科技股
+  - 指数配合
+  - 液冷
+  - 存储牵引
+- id: claim-20260907-010-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: 存储是本轮海内外共振的点
+  timeframe: trend
+  statement: 存储行业因AI需求出现结构性短缺、供需缺口加大，预计未来将有高盈利性与资本回报；存储是本轮海内外共振的'点'，只要存储稳住，光模块、液冷等'面'上的调整影响可控；反之若存储映射失效，则整个硬件方向今天以观望为主。
+  evidence_quote: 存储是本轮海内外共振的「点」，只要存储稳住，光模块、液冷等「面」上的调整影响可控；反之若存储映射失效，则整个硬件方向今天以观望为主。
+  interpretation: 9/7对'存储是点、光模块/PCB是面'框架的再确认，并落到今日操作：存储映射是硬件方向的开关——稳住则面调整可控，失效则观望。与9/6'点未松动→谈出清为时过早'判断一致，把框架变成可执行的观察信号。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 存储是海内外共振的点稳住则面调整可控
+  related_stocks:
+  - code: '301666'
+    name: 大普微
+    role: 存储主控-创业板不可交易
+  - code: '001309'
+    name: 德明利
+    role: 存储模组-主板可交易
+  tags:
+  - 存储
+  - 结构性短缺
+  - 共振点
+  - 光模块
+  - 液冷
+- id: claim-20260907-011-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: 韬定律V2先进封装路线
+  timeframe: trend
+  statement: 华为何庭波在ChinaXiv发布韬定律相关论文：麒麟2026芯片晶体管密度从每平方毫米约1.55亿提升至2.38亿（跃升55%），相同性能下NPU功耗降66%、GPU降58%、CPU性能核心降41%，原因在于芯片内部能量主要消耗来自数据传输而非计算本身；韬定律V2把性能提升路径从单一先进制程扩展到器件/电路/芯片/系统协同优化，先进封装、3D集成、混合键合、存储融合与系统互连重要性提升，建议关注晶圆制造、半导体设备、材料、封测四方向。
+  evidence_quote: 韬定律V2将性能提升路径从单一先进制程扩展到器件、电路、芯片和系统层面的协同优化，先进封装、3D集成、混合键合、存储融合与系统互连的重要性有望提升，建议关注晶圆制造、半导体设备、半导体材料、封装测试四个方向。
+  interpretation: 国产算力技术路线更新：韬定律V2把摩尔定律失效后的性能提升路径转向先进封装/3D集成/混合键合等系统级优化——从'制程单点突破'到'多环节协同'，利好半导体设备/材料/封测链。麒麟2026数据（密度+55%、功耗-66%）是实证。属国产链中期逻辑，兑现周期长。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 韬定律V2先进封装系统协同优化路径
+  related_stocks: []
+  tags:
+  - 韬定律
+  - 先进封装
+  - 麒麟2026
+  - 3D集成
+  - 混合键合
+- id: claim-20260907-012-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: 韬定律国产链今天先看止跌
+  timeframe: intraday
+  statement: 韬定律V2相关个股属此前跟踪的国产链（超纯应材(301717)：刻蚀/光刻/薄膜沉积/退火设备等国产半导体核心零部件持续扩大市占率；汇成股份(688403)：基于凸块制造布局Fan-out/2.5D/3D/SiP先进封装），逻辑扎实但兑现周期长；上周五半导体产业链跌幅居前，今天首先看的是止跌而非反弹——止跌需要有承接，而非无抛压。
+  evidence_quote: 个人判断，这条线属于我们此前跟踪的国产链，逻辑扎实但兑现周期长，上周五半导体产业链跌幅居前，今天首先看的是止跌而非反弹——止跌需要有承接，而非无抛压。
+  interpretation: 对韬定律线的操作纪律：中期逻辑认可但短期先确认止跌（承接>无抛压）。区分'止跌'与'反弹'——止跌需主动承接资金，反弹才谈参与。今日半导体链观察优先级：先看能否止跌，不做抢反弹。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 韬定律国产链逻辑扎实但今天先看止跌
+  related_stocks:
+  - code: '301717'
+    name: 超纯应材
+    role: 半导体零部件-创业板不可交易
+  - code: '688403'
+    name: 汇成股份
+    role: 先进封装-科创板不可交易
+  tags:
+  - 韬定律
+  - 国产链
+  - 止跌
+  - 先进封装
+- id: claim-20260907-013-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: 3D扫描与空间数据海外新叙事
+  timeframe: short-term
+  statement: OpenAI向所有付费用户推送GPT-6 Astra，首次将3D CAD空间能力作为核心展示方向，3D扫描仪有望成为空间数据采集的重要入口，A股相关标的包括思看科技(688583)、华曙高科(688433)等；这属于海外映射中的新叙事，只做盘面观察，参与与否取决于是否有个股率先反包吸引资金关注。
+  evidence_quote: 这属于海外映射中的新叙事，只做盘面观察，参与与否取决于是否有个股率先反包吸引资金关注。
+  interpretation: GPT-6 Astra的3D CAD能力衍生出的A股映射：3D扫描/空间数据题材。定性为新叙事+只观察，参与条件是'个股率先反包'——沿用'反包吸引资金'的题材参与模型。未升级为板块级机会。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 3D扫描空间数据海外新叙事只做盘面观察
+  related_stocks:
+  - code: '688583'
+    name: 思看科技
+    role: 3D扫描-科创板不可交易
+  - code: '688433'
+    name: 华曙高科
+    role: 3D打印-科创板不可交易
+  tags:
+  - 3D扫描
+  - 空间数据
+  - GPT-6
+  - 海外映射
+- id: claim-20260907-014-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: 数字货币题材脱颖而出
+  timeframe: short-term
+  statement: 数字货币题材从上周末脱颖而出：开盘冲高后是当日少数保持活跃的方向之一，主要催化来自海外；近期非科技方向的注意力可以多放在海外映射上。
+  evidence_quote: 数字货币题材脱颖而出，开盘冲高后也是当日少数保持活跃的方向之一。考虑到主要催化来自海外，个人判断近期非科技方向的注意力可以多放在海外映射上。
+  interpretation: 题材观察：数字货币因海外催化（比特币）成为非科技方向里少数活跃分支。操作含义：非科技方向的选股标准转向'海外映射'——谁有海外事件催化谁有资金关注，注意这里与9/6'数字货币周一承压'的判断构成时序差异（9/6讲板块整体承压，9/7观察的是当日活性）。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 数字货币因海外催化脱颖而出非科技看海外映射
+  related_stocks: []
+  tags:
+  - 数字货币
+  - 海外催化
+  - 题材
+  - 非科技
+- id: claim-20260907-015-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: AI短剧规模爆发映射与低位反弹
+  timeframe: trend
+  statement: AI短剧爆发：制作价格跳水（每分钟报价从5000元跌至几百元逼近成本线，定制短剧仍可1万至2万元/分钟）；预计2026年国内AI剧漫剧市场规模超400亿元同比+138%，海外规模约40亿美元占微短剧近70%；南京证券认为行业由产能扩张转向精品化与全球化竞争，关注网文IP储备企业与自有APP矩阵+工业化出海平台。A股对应掌阅科技(603533)（iDrama平台增加AI真人剧/漫剧比例）、德才股份(605287)（精品仿真剧）。这条线沿用A股软件与AI应用的定性：炒映射与低位反弹，属波段性机会，缺业绩承接时急跌不接飞刀。
+  evidence_quote: 个人判断，这条线沿用我们对A股软件与AI应用的定性：炒的是映射与低位反弹，属波段性机会，参与前提是有低位预期差且获得短线资金青睐，缺业绩承接时急跌不接飞刀。
+  interpretation: AI应用新子方向：短剧+AI。给出市场规模（400亿+/138%）、产业趋势（精品化全球化）、A股映射（掌阅/德才）。定性为波段性机会而非趋势主线——沿用'软件炒映射'框架，参与条件=低位预期差+资金青睐，纪律=缺业绩不接飞刀。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI短剧400亿市场炒映射低位反弹波段机会
+  related_stocks:
+  - code: '603533'
+    name: 掌阅科技
+    role: AI短剧IP平台-主板可交易
+  - code: '605287'
+    name: 德才股份
+    role: AI短剧制作-主板可交易
+  tags:
+  - AI短剧
+  - 400亿
+  - 映射
+  - 波段机会
+- id: claim-20260907-016-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: sector-theme
+  subject: 防御方向逆势属回踩期过渡
+  timeframe: short-term
+  statement: 上周五猪肉、农业板块逆势走强，煤炭震荡调整；防御方向的逆势属于回踩期过渡，持续性有限，不作为中期主线看待。
+  evidence_quote: 个人判断，防御方向的逆势属于回踩期过渡，持续性有限，不作为中期主线看待。
+  interpretation: 防御品种定性延续9/6'农林牧渔扩散至猪肉=尾声信号'：逆势走强只是回踩期的避险过渡而非主线切换，不追防御。与'资金从进攻切防御是负面信号但幅度停留在分歧层'框架一致。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 猪肉农业防御逆势属过渡持续性有限
+  related_stocks: []
+  tags:
+  - 猪肉
+  - 农业
+  - 防御
+  - 过渡
+- id: claim-20260907-017-a
+  source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
+  source_date: '2026-09-07'
+  source_type: 动态
+  extracted_at: '2026-09-07T09:20:00+08:00'
+  claim_type: operation
+  subject: 今日观察顺序存储指数情绪
+  timeframe: intraday
+  statement: 今天观察顺序：先看A股存储是否对美股映射做出正反馈，再看指数能否借此收回早盘低点，最后看短线情绪的首板家数是否止跌回升；三者依次成立才谈得上情绪与指数共振，任一环节断掉就继续冷眼旁观，把仓位留到9月11日之后。
+  evidence_quote: 因此今天的观察顺序是：先看A股存储是否对美股映射做出正反馈，再看指数能否借此收回早盘低点，最后看短线情绪的首板家数是否止跌回升。三者依次成立，才谈得上情绪与指数的共振；任一环节断掉，就继续冷眼旁观，把仓位留到9月11日之后。
+  interpretation: 9/7操作总纲：三层递进观察（存储映射→指数收回低点→首板回升），全绿才参与，任一断则空仓等9/11。把'存储是点'框架落地为今日唯一入场验证链，与既有持仓的'等契机'策略一致——今天大概率是观察日而非操作日。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日观察三层存储正反馈指数收回低点首板回升
+  related_stocks: []
+  tags:
+  - 观察顺序
+  - 存储映射
+  - 首板
+  - 仓位管理
