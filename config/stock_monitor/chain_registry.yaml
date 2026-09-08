@@ -1,6 +1,6 @@
 version: '1.0'
-updated_at: '2026-08-30'
-description: 产业链持续跟踪注册表——16条独立产业链，AI算力拆分为6条子链单独跟踪
+updated_at: '2026-09-08'
+description: 产业链持续跟踪注册表——17条独立产业链，AI算力拆分为6条子链单独跟踪
 note: 从UP方向池26个主题聚类而来，AI算力按上游材料/驱动因素拆分为独立子链
 chains:
 - chain_id: ai-pcb-ccl
@@ -754,6 +754,107 @@ chains:
   stocks: []
   up_themes:
   - 9
+  existing_chain_yaml: null
+- chain_id: agriculture-price-chain
+  name: 农业涨价链
+  scope: 厄尔尼诺减产叙事下的种业/农资/粮油加工/食品扩散链 + 白糖低位同源方向
+  status: active
+  current_signal: strengthening
+  driver: 超级厄尔尼诺预期减产 + FAO 8月食品价格指数环比大升 + 全球食品通胀预期(2.8%→5%)
+  thesis: 超级厄尔尼诺预期叠加地缘扰动引发全球减产叙事，FAO 8月食品价格指数环比大升、
+    全球食品通胀预期从2.8%升至5%(2027H1)。资金沿"粮食种植/种业→农资(农药/化肥)→
+    粮油加工→预制菜/食品末端"扩散，并向同源低位的养殖/渔业/白糖切换。外生驱动锚定
+    谷物/糖商品价格而非股价；前端强弱决定链条生死，末端最先退潮。UP 定性：与科技并行
+    的存量行情双主线，但非中期主线，属"事件催化+超跌"组合
+  last_verified: '2026-09-08'
+  segments:
+  - name: 前端种植/种业
+    items:
+    - 玉米杂交种子(万向德农，4品种转基因过审，定价+25%)
+    - 种业轮动(登海种业/农发种业)
+    - 粮食种植(金健米业/亚盛集团)
+    bottleneck: 转基因审定节奏
+    trend: 主升后分歧，前端强弱定链条生死
+  - name: 农资(农药/化肥)
+    items:
+    - 除草剂烯草酮(先达股份，满负荷+价格指数+13.58%)
+    - 化肥(细分轮动承接)
+    bottleneck: 秋粮防治刚性需求(水稻病虫害11.5亿亩次)
+    trend: 价格+产能双支撑环节
+  - name: 粮油加工/食品末端
+    items:
+    - 粮油加工(金健米业/京粮控股)
+    - 预制菜/食品(海欣食品=末端补涨核心载体)
+    bottleneck: 无，纯情绪扩散
+    trend: 末端补涨，前端转弱最先退潮
+  - name: 同源低位补涨(养殖/渔业/白糖)
+    items:
+    - 猪肉链(罗牛山/亚盛集团二进三，9/8零分歧加速)
+    - 渔业(中水渔业；注意鱼粉涨价+67%是饲料端成本压力，反向变量)
+    - 白糖(泰国减产17%，糖价周期底部+低库存，UP 9/8点名的低位新方向)
+    bottleneck: 无
+    trend: 加速段，可能一波到底
+  tracking_metrics:
+  - metric: FAO食品价格指数
+    current: 8月环比大幅上升
+    signal_direction: 持续上行=确认，回落=削弱
+  - metric: 谷物/糖外盘价格(ICE11号糖等)
+    current: ICE11号糖创2025年5月以来最高
+    signal_direction: 外盘延续=确认(外生驱动锚定商品价非股价)
+  - metric: 除草剂价格指数
+    current: 2026H1 +13.58%
+    signal_direction: 继续上涨=农资环节确认
+  - metric: 厄尔尼诺强度监测
+    current: 超级厄尔尼诺预期
+    signal_direction: 加强=确认
+  falsification:
+  - 谷物/糖外盘价格连续2周回落(减产叙事被证伪)
+  - 农业前端(种业/种植)龙头放量滞涨、板块联动失效(情绪退潮，末端最先死)
+  - 霍尔木兹等地缘溢价消退+FAO指数转降(涨价基础消失)
+  - 大盘系统性破位或科技虹吸重新收拢存量资金(9/7-9/8曾不受虹吸，此为相对优势)
+  chain_relations: 与coal-coke/copper-aluminum同属上游涨价叙事资金逻辑(UP 8/30化工与农业合并观察口径)；与ai-storage等科技链互为存量资金跷跷板
+  stocks:
+  - code: '600371.SH'
+    name: 万向德农
+    role: 玉米种业龙头+转基因
+    segment: 前端种植/种业
+  - code: '002041.SZ'
+    name: 登海种业
+    role: 种业轮动
+    segment: 前端种植/种业
+  - code: '600127.SH'
+    name: 金健米业
+    role: 粮油加工+粮食前端二波载体
+    segment: 粮油加工/食品末端
+  - code: '603086.SH'
+    name: 先达股份
+    role: 烯草酮满产+涨价，价格产能双支撑
+    segment: 农资(农药/化肥)
+  - code: '000505.SZ'
+    name: 京粮控股
+    role: 粮油加工(3连板后分歧)
+    segment: 粮油加工/食品末端
+  - code: '002702.SZ'
+    name: 海欣食品
+    role: 炒作链末端补涨核心载体
+    segment: 粮油加工/食品末端
+  - code: '000735.SZ'
+    name: 罗牛山
+    role: 猪肉链加速(一进二)
+    segment: 同源低位补涨
+  - code: '600108.SH'
+    name: 亚盛集团
+    role: 农业综合+猪肉链(二进三)
+    segment: 同源低位补涨
+  - code: '000798.SZ'
+    name: 中水渔业
+    role: 渔业补涨预期(鱼粉成本反向变量)
+    segment: 同源低位补涨
+  timing:
+    current_recommendation: 阶段3-分歧期纪律=不追高，等分歧后看承接；或沿同逻辑切更低位(白糖方向)。前端种业/种植若转弱，末端(海欣食品等)最先退潮，须先撤
+  stage_confidence: 高
+  stage_evidence: 8/19事件催化起板(阶段1)→8/26-9/1主升(阶段2)→9/2板块多股跌停分歧(阶段3信号)→9/7-9/8猪肉链零分歧加速+末端补涨扩散，加速与末端补涨并存，UP提示"一波到底"风险
+  up_themes: []
   existing_chain_yaml: null
 - chain_id: robotics
   name: 机器人产业链
