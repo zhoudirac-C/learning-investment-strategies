@@ -1,0 +1,62 @@
+proposal_id: 20260909-pattern-nomination-price-increase-domestication-inverse
+source: up-review
+generated_at: '2026-09-09T10:00:00'
+status: pending-review   # pending-review → approved → applied | rejected
+evidence:
+  window: {start: '2026-08-26', end: '2026-09-08'}
+  occurrences:
+    - date: '2026-08-26'
+      regime: 调整        # 顶部结构第六天，缩量止跌窗口
+      source: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
+      quote: "涨价幅度的排序就是国产化率的倒序表：涨得最凶的品类恰恰是国内做不了的品类（Showerhead+18%、高纯石英+12-15%、先进制程射频电源+13-15%），对应的都是国产化率接近零的环节；普通石英件只涨3-5%恰恰因为国内菲利华、神工能做，涨价对国内厂商不天然等于利润，首先说明对手的定价权还在。"
+  window_note: >-
+    本期 review 窗口仅 14 天（2026-08-26 ~ 2026-09-08），不足提名门槛的 ≥4 周；
+    且该逻辑当前只在"调整"阶段出现 1 次，未满足 ≥2 种市场阶段出现的要求。
+    按 qing-learning-review Step 5 门槛，本提案留在 pending-review 继续观察，
+    待窗口满足后再评估转正。
+candidate_pattern:
+  pattern_id: price_increase_domestication_inverse
+  name: 涨价幅度=国产化率倒序表
+  description: >-
+    当上游涨价链出现"涨价幅度排序"数据时使用。核心原则：涨价幅度最大的环节往往对应国产化率最低、
+    国内厂商无法供给的环节——涨价首先说明海外对手的定价权还在，不天然等于国内厂商利润。
+    用于在涨价链炒作中区分"真国产替代受益"（国内能供、涨价转化为利润）与"定价权仍在海外"
+    （国内做不了、涨价反而凸显卡脖子），避免把所有涨价都线性映射为国产链利好。
+  trigger:
+    - 上游材料/零部件出现涨价函或渠道报价上行，且能获取分品类的涨价幅度排序数据
+    - 市场把"某环节涨价"线性解读为"国内厂商利润弹性"，需要证伪或确认
+    - 国产替代主题下需要区分"国内已能供"与"国内做不了"的环节
+  data_requirements:
+    - name: 分品类涨价幅度
+      channel: 涨价函、渠道报价、券商研报的品类级涨价数据（如 Showerhead +18%、高纯石英 +12-15%）
+    - name: 分品类国产化率
+      channel: 产业链调研、招股书、券商深度报告中的国产化率估计（区分接近零 / 部分替代 / 充分替代）
+    - name: 国内厂商供给能力
+      channel: 国内厂商（如菲利华、神工股份）的产品覆盖与产能验证
+  steps:
+    - step: 1
+      name: 涨价幅度排序
+      question: 本轮涨价中，各品类的涨价幅度从高到低如何排序？
+      action: 列出品类级涨价幅度表，不做任何利润映射
+      data: [分品类涨价幅度]
+    - step: 2
+      name: 国产化率对照
+      question: 涨价幅度最高的品类，国产化率处于什么水平？
+      action: 将涨价幅度排序与国产化率做倒序对照——涨幅最高者若对应国产化率接近零，则定价权在海外
+      data: [分品类涨价幅度, 分品类国产化率]
+    - step: 3
+      name: 受益逻辑分流
+      question: 哪些国内厂商真正受益，哪些只是情绪映射？
+      action: >-
+        国内已能供的品类（如普通石英件，国内菲利华/神工能做）：涨价幅度低但利润可兑现；
+        国内做不了的品类（如 Showerhead、先进制程射频电源）：涨价幅度高但国内无供给，
+        相关标的仅按情绪映射处理，不进入利润弹性测算
+      data: [国内厂商供给能力]
+  falsification:
+    - 涨价幅度最高的品类对应国产化率已较高的环节（倒序关系不成立）
+    - 国内厂商在"做不了"的品类上实现快速突破并量产（倒序表失效，需更新国产化率数据）
+    - 涨价幅度数据本身失真（渠道报价与真实成交价偏差过大）
+  validation:
+    historical_hit_rate: null   # 入库前必须经回测/盲测回填
+    applicable_regime: null
+    known_failures: []
