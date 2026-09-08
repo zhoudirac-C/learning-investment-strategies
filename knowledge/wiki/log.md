@@ -2254,3 +2254,11 @@
 - Gate 1/2/3 一次通过；FT引文无A股标的（长鑫/长江未上市，ASML美股），related_stocks仅interpretation推演标的
 - 输出 knowledge/claims/claim-20260908-002.yaml
 
+
+## 2026-09-08 | qing-learning ingest | 9/8 复盘专栏提取（003 系列 26 条）
+
+- 处理 raw：`2026-09-08-2144-专栏-今天的市场呈现沪指偏强、双创承压的分化格局，农业与周期方向接.md`（充电专栏）
+- claim-20260908-003.yaml（26 条）：market-cycle×5（指数分化/三条件/明日基准/CPI节点/两情形），technical-signal×1（沪指韧性≠科技调整完成），methodology×1（归因多元化），sector-theme×5（科技内部分化/农业扩散/换手质量/周期承接/CRO观察线），catalyst×5（三条新催化+液冷×2+三星封装+1.6T），stock-view×9（中粮糖业/读者传媒/上海电影/深物业A/中京电子/金正大/康盛海鸥/大族汇成/席位统计）
+- 关键增量：**分歧后修复三条件与情形A/B推演**（断板止跌+农业前排承接+科技权重收窄）；农业链扩散至化肥农药+消费端（持续性=换手质量非涨停家数）；9/11 CPI与9/15-16议息双节点
+- Gate 1/3 一次通过；Gate 2 假阳性 5 处（"XX科技"后缀模式）+ related_stocks 漏挂 6 条，NON_COMPANY 追加后过
+- 输出 knowledge/claims/claim-20260908-003.yaml + wiki/每日复盘/2026-09-08.md
