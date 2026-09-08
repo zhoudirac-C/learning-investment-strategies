@@ -1,0 +1,321 @@
+claims:
+- id: claim-20260908-001-a
+  source_path: sources/original/bilibili/2026-09-08-0846-图片-周一市场震荡拉升，创业板指高开高走涨超3%。盘面上，算力硬件.md
+  source_date: '2026-09-08'
+  source_type: 复盘
+  extracted_at: '2026-09-08T09:15:00+08:00'
+  claim_type: market-cycle
+  subject: 9月8日反弹合力定性
+  timeframe: short-term
+  statement: 9/7反弹是外力与内力的合力：海外AI硬件股大涨提供契机，四连阴后的数学优势提供空间；与8/13闪迪/SK海力士大涨后A股冲高回落那次的关键区别在位置——创业板指近一个月又跌近10%，个股位置更低，跟涨更紧。位置决定跟涨力度。
+  evidence_quote: 昨天的反弹是外力与内力的合力：海外AI硬件股大涨提供了契机，四连阴之后的数学优势提供了空间，二者相辅相成。……这次的区别在于位置——创业板指在过去近一个月又跌去了近10%，个股位置更低，跟涨自然更紧。位置决定了跟涨的力度。
+  interpretation: 低位置给反弹更大空间，但'跟涨'属性决定了持续性取决于海外映射与承接质量，而非自身趋势反转。后续观察以承接为核心。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 9/7反弹=外力(美股AI)+内力(四连阴数学优势)合力，位置更低跟涨更紧
+  related_stocks: []
+  tags:
+  - 反弹合力
+  - 数学优势
+  - 海外映射
+  - 位置
+  - 承接
+- id: claim-20260908-001-b
+  source_path: sources/original/bilibili/2026-09-08-0846-图片-周一市场震荡拉升，创业板指高开高走涨超3%。盘面上，算力硬件.md
+  source_date: '2026-09-08'
+  source_type: 复盘
+  extracted_at: '2026-09-08T09:15:00+08:00'
+  claim_type: market-cycle
+  subject: 沪指数学优势转移
+  timeframe: short-term
+  statement: 8月中旬沪指首次逼近4000点后承压回调；9/7沪指收3930附近且四连阴，创业板指的数学优势已转移到沪指身上，至少可让市场情绪在9/11美国CPI出炉前维持稳定。
+  evidence_quote: 个人判断，前一天属于创业板指的数学优势，昨天已经转移到沪指身上。远的不说，至少可以让市场情绪在9月11日美国CPI数据出炉之前维持稳定。
+  interpretation: 数学优势=连跌后的反弹概率优势。沪指接棒意味着大金融（银行/贵金属止跌）是修复抓手，双指数共振比单边更健康。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 数学优势从创业板指转移到四连阴的沪指，CPI前情绪有支撑
+  related_stocks: []
+  tags:
+  - 沪指
+  - 四连阴
+  - 数学优势
+  - CPI
+  - 大金融
+- id: claim-20260908-001-c
+  source_path: sources/original/bilibili/2026-09-08-0846-图片-周一市场震荡拉升，创业板指高开高走涨超3%。盘面上，算力硬件.md
+  source_date: '2026-09-08'
+  source_type: 复盘
+  extracted_at: '2026-09-08T09:15:00+08:00'
+  claim_type: technical-signal
+  subject: 剑桥科技阵眼
+  timeframe: intraday
+  statement: 这波反弹的阵眼是剑桥科技(603083)而非高标：情形A（AI硬件承接良好、阵眼无大量抛盘）则科技仍是主攻、沪指借大金融修复、双指数共振；情形B（阵眼冒大量抛盘）则其余AI硬件难续涨，资金转向AI应用或非科技，重回轮动。分水岭就在剑桥科技(603083)的筹码。
+  evidence_quote: 两种情形的分水岭就在剑桥科技的筹码，这是今天最值得盯的一个观察点。
+  interpretation: 剑桥科技(603083)的抛压是当日科技行情的最领先信号，优先级高于指数与龙头高标。其封板/炸板直接决定AI硬件持仓的日内处理方式。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 剑桥科技筹码=A/情形分水岭，今日最核心观察点
+  related_stocks:
+  - code: '603083'
+    name: 剑桥科技
+    role: 本轮反弹阵眼-光模块-主板可交易
+  tags:
+  - 剑桥科技
+  - 阵眼
+  - 筹码
+  - AI硬件
+  - 两种情形
+- id: claim-20260908-001-d
+  source_path: sources/original/bilibili/2026-09-08-0846-图片-周一市场震荡拉升，创业板指高开高走涨超3%。盘面上，算力硬件.md
+  source_date: '2026-09-08'
+  source_type: 复盘
+  extracted_at: '2026-09-08T09:15:00+08:00'
+  claim_type: risk
+  subject: 缺新叙事反弹上限
+  timeframe: short-term
+  statement: 上周末冒出的潜在新题材（华为芯片、3D打印等）都被资金摁下去了；回看上半年科技行情与前几日农业行情，都依托新叙事接力。缺少新叙事的反弹很容易审美疲劳，这决定反弹的持续性上限。
+  evidence_quote: 个人判断，缺少新叙事的反弹很容易审美疲劳，这一点决定了反弹的持续性上限。
+  interpretation: 反弹高度受限的根因是叙事断层而非资金或逻辑。若人形机器人/白糖等新方向不能形成量价确认，本轮反弹按'修复'而非'新行情'对待，兑现纪律（如588780减仓带）应从严执行。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 缺新叙事=反弹持续性上限，审美疲劳风险
+  related_stocks: []
+  tags:
+  - 新叙事
+  - 审美疲劳
+  - 反弹上限
+  - 华为芯片
+  - 3D打印
+- id: claim-20260908-001-e
+  source_path: sources/original/bilibili/2026-09-08-0846-图片-周一市场震荡拉升，创业板指高开高走涨超3%。盘面上，算力硬件.md
+  source_date: '2026-09-08'
+  source_type: 复盘
+  extracted_at: '2026-09-08T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: 泛农业加速一波到底风险
+  timeframe: short-term
+  statement: 泛农业从猪肉股开始进入加速阶段：亚盛集团二进三、罗牛山一进二几乎零分歧；但也可能因资金无处可去而一波到底，稳妥做法是等分歧后看承接，或找更低位的新方向。
+  evidence_quote: 这两个理解似乎都指向同一个结论——这些个股很可能一波到底。稳妥起见还是等分歧之后看承接再作打算，或者去找更低位的新方向。
+  interpretation: 零分歧加速=博弈末段特征，追高风险大于机会；农业链参与价值转向'更低位'品种（如白糖），末端补涨标的（海欣食品等）按前端走弱即退潮纪律处理。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 泛农业零分歧加速，很可能一波到底，等分歧看承接
+  related_stocks:
+  - code: '600108'
+    name: 亚盛集团
+    role: 农业二进三-主板可交易
+  - code: '000735'
+    name: 罗牛山
+    role: 农业一进二-主板可交易
+  tags:
+  - 泛农业
+  - 加速
+  - 一波到底
+  - 零分歧
+  - 承接
+- id: claim-20260908-001-f
+  source_path: sources/original/bilibili/2026-09-08-0846-图片-周一市场震荡拉升，创业板指高开高走涨超3%。盘面上，算力硬件.md
+  source_date: '2026-09-08'
+  source_type: 复盘
+  extracted_at: '2026-09-08T09:15:00+08:00'
+  claim_type: catalyst
+  subject: 光模块三重催化加码
+  timeframe: trend
+  statement: 光模块催化再加码：OpenAI 9/3发布GPT-6 Astra（Stargate德州基地超10万张GPU预训练，训练算力向10^27 FLOPs推进，最直接受益800G/1.6T/3.2T链条）；高盛首次覆盖中际旭创(300308)H股买入（目标3267港元，2026/27净利预测超一致预期25%/42%）；CPO规模化量产使封测设备缺货蔓延（上银集团滚珠螺杆/单轴机器人追加订单）。技术演进推动增量利润优先向上游光芯片等瓶颈环节迁移。
+  evidence_quote: 技术演进正推动利润重分配，增量利润优先向上游光芯片等接近性能瓶颈的环节迁移，跟踪的重心也应随之上移。
+  interpretation: 继9/7晚复盘'预期/订单/政策三重强化'后，GPT-6 Astra训练集群+高盛上调+设备缺货构成第四、第五重验证；跟踪重心从模块组装上移至光芯片（EML/CW/VCSEL），长光华芯(688048)、仕佳光子(688313)、源杰科技(688498)等上游环节的关注度应提升。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: GPT-6 Astra+高盛上调+CPO设备缺货，利润向上游光芯片迁移
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块龙头-高盛首覆H股-A股创业板不可交易
+  - code: '688048'
+    name: 长光华芯
+    role: 光芯片EML/CW IDM-科创板不可交易
+  - code: '688313'
+    name: 仕佳光子
+    role: 光芯片IDM-科创板不可交易
+  - code: '688498'
+    name: 源杰科技
+    role: 光芯片-科创板不可交易
+  - code: '300620'
+    name: 光库科技
+    role: 光纤激光器件-创业板不可交易
+  tags:
+  - 光模块
+  - GPT-6 Astra
+  - 高盛
+  - CPO
+  - 光芯片
+- id: claim-20260908-001-g
+  source_path: sources/original/bilibili/2026-09-08-0846-图片-周一市场震荡拉升，创业板指高开高走涨超3%。盘面上，算力硬件.md
+  source_date: '2026-09-08'
+  source_type: 复盘
+  extracted_at: '2026-09-08T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: 人形机器人承接叙事
+  timeframe: short-term
+  statement: 宇树UnifoLM-X2-1.0实现全自主搏击（验证世界模型驱动落地可行性），T链核心供应商接大幅加单指引、9月产能爬坡、2026量产订单较确定；行业重心从单点技术突破转向数据/算力/算法/硬件全链条协同。该方向恰落在缺新叙事的空档上，能否承接科技股注意力看今日量价确认。
+  evidence_quote: 这个方向恰好落在上一节所说的缺新叙事的空档上，能否承接科技股的注意力，要看今天有没有量价确认。
+  interpretation: 机器人是'缺新叙事'风险的对冲候选：特斯拉加单（9/7）+宇树技术突破（9/8）连续两天催化。若今日量价确认，机器人可升级为接力叙事；关注方向为整机、核心零部件（金帝股份(603270)谐波减速器/鸣志电器(603728)灵巧手）、具身智能基建三条线。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 人形机器人=新叙事空档的候选承接方向，待量价确认
+  related_stocks:
+  - code: '603270'
+    name: 金帝股份
+    role: 机器人谐波减速器样品验证-主板可交易
+  - code: '603728'
+    name: 鸣志电器
+    role: 机器人灵巧手批量供货-主板可交易
+  tags:
+  - 人形机器人
+  - 宇树
+  - T链加单
+  - 世界模型
+  - 量价确认
+- id: claim-20260908-001-h
+  source_path: sources/original/bilibili/2026-09-08-0846-图片-周一市场震荡拉升，创业板指高开高走涨超3%。盘面上，算力硬件.md
+  source_date: '2026-09-08'
+  source_type: 复盘
+  extracted_at: '2026-09-08T09:15:00+08:00'
+  claim_type: sector-theme
+  subject: 白糖低位新方向
+  timeframe: short-term
+  statement: 泰国产糖量或大降17%带来供应冲击，全球白糖供需格局或重塑；糖价处周期底部、库存偏低、贸易流收紧，厄尔尼诺更易成为价格修复催化。与泛农业同一逻辑链但位置更低，符合找更低位新方向的思路。
+  evidence_quote: 这条线与泛农业的加速属于同一逻辑链条，但位置更低，符合上文找更低位新方向的思路。
+  interpretation: 白糖是农业链内部的补涨位移：泛农业（亚盛/罗牛山）已加速，白糖是同链低位补位选项。相关标的冠农股份(600251)、红棉股份(000523)，属观察池不构成即时动作。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 白糖=农业链更低位新方向（泰国减产17%+周期底部）
+  related_stocks:
+  - code: '600251'
+    name: 冠农股份
+    role: 白糖标的-主板可交易
+  - code: '000523'
+    name: 红棉股份
+    role: 白糖标的-主板可交易
+  tags:
+  - 白糖
+  - 泰国减产
+  - 厄尔尼诺
+  - 周期底部
+  - 低位补涨
+- id: claim-20260908-001-i
+  source_path: sources/original/bilibili/2026-09-08-0846-图片-周一市场震荡拉升，创业板指高开高走涨超3%。盘面上，算力硬件.md
+  source_date: '2026-09-08'
+  source_type: 复盘
+  extracted_at: '2026-09-08T09:15:00+08:00'
+  claim_type: operation
+  subject: 今日三要素观察框架
+  timeframe: intraday
+  statement: 今日按量能·大金融·情绪三要素观察：量能看跟涨放大后的缩量回踩抛压是否可控；大金融看银行/贵金属止跌给沪指四连阴修复抓手；情绪面题材数据已明显回暖（首板31→79家、连板晋级率超50%、一进二晋级率17.14%→29.03%）。短期仍看承接，景气投资回归是中期方向。
+  evidence_quote: 量能上，跟涨日成交放大属正常现象，今天更值得看的是缩量回踩时的抛压是否可控；大金融上，银行昨天的回调压住了沪指，若今天银行、贵金属止跌，沪指的四连阴修复就有了抓手。
+  interpretation: 三要素是9/7'右侧确认三条件'的具体化：核心增量是'缩量回踩抛压可控'这一项——普涨日看不出资金质量，回踩才见真章。大金融止跌是双指数共振的前提。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能/大金融/情绪三要素，核心看缩量回踩抛压
+  related_stocks: []
+  tags:
+  - 量能
+  - 大金融
+  - 情绪
+  - 缩量回踩
+  - 三要素
+- id: claim-20260908-001-i2
+  source_path: sources/original/bilibili/2026-09-08-0846-图片-周一市场震荡拉升，创业板指高开高走涨超3%。盘面上，算力硬件.md
+  source_date: '2026-09-08'
+  source_type: 复盘
+  extracted_at: '2026-09-08T09:15:00+08:00'
+  claim_type: technical-knowledge
+  subject: 长光华芯产能纪要
+  timeframe: trend
+  statement: 长光华芯(688048)纪要：管理层对光通信终端需求乐观；EML+CW激光器月产能3Q26较1H26三位数增长、4Q26再三位数增长；InP外延片自产、设备比衬底更紧、前道设备已提前锁定、后道扩产约三个月翻倍；100G
+    EML已量产、200G EML 2027年放量；100G VCSEL已出货，放量取决于客户CPO进度。
+  evidence_quote: 产能：EML＋CW激光器月产能，3Q26较1H26三位数增长，4Q26较3Q26再三位数增长。InP外延片自产，设备比衬底更紧，但前道设备已提前锁定；后道扩产更快，约三个月可翻倍。
+  interpretation: 光芯片产能三位数连环扩张是上游瓶颈环节的订单验证，与'利润向上游迁移'判断互证；'设备比衬底更紧'给半导体设备/零部件线（富创/新莱等）提供光芯片侧旁证。2027产能以EML为主覆盖100G/200G，1.6T迁移速度是放量节奏变量。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 长光华芯纪要：EML/CW产能两位三位数连环扩张，设备比衬底更紧
+  related_stocks:
+  - code: '688048'
+    name: 长光华芯
+    role: 光芯片EML/CW IDM-科创板不可交易
+  tags:
+  - 长光华芯
+  - EML
+  - CW激光器
+  - 产能扩张
+  - InP

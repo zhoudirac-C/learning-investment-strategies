@@ -2237,3 +2237,11 @@
 - Gate 2 假阳性 4 处（"X X科技"短语）已加 NON_COMPANY；gate2 缓存导致重跑假失败一次（rm 缓存后过）
 - 输出 knowledge/claims/claim-20260907-003.yaml
 
+## 2026-09-08 | qing-learning ingest | 9/8 早盘动态提取（001 系列 10 条）
+
+- 处理 raw：`2026-09-08-0846-图片-周一市场震荡拉升…（08:46 充电早盘）`
+- claim-20260908-001.yaml（10 条）：market-cycle×2（反弹合力/数学优势转移），technical-signal×1（剑桥科技阵眼），risk×1（缺新叙事上限），sector-theme×3（泛农业一波到底/机器人承接/白糖低位），catalyst×1（光模块催化加码+利润上移），operation×1（三要素观察），technical-knowledge×1（长光华芯产能纪要）
+- 关键增量：**剑桥科技(603083)筹码=两情形分水岭**；光芯片产能验证（长光华芯 EML/CW 三位数扩张+设备比衬底更紧）；机器人/白糖=缺新叙事空档的两个候选承接方向
+- Gate 1 subject 日期斜杠 1 处；Gate 2 假阳性 4 处（X X科技）+源杰科技漏标 1 处；gate1/gate2 缓存假失败各一次（rm 后过）
+- 输出 knowledge/claims/claim-20260908-001.yaml
+
