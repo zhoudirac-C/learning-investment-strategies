@@ -1,0 +1,67 @@
+claims:
+- id: claim-20260908-002-a
+  source_path: sources/original/bilibili/2026-09-08-1150-图片-动态-1245544896740196372.md
+  source_date: '2026-09-08'
+  source_type: 动态
+  extracted_at: '2026-09-08T12:03:00+08:00'
+  claim_type: catalyst
+  subject: 长鑫长江囤足DUV
+  timeframe: trend
+  statement: 据Financial Times报道（UP 11:50动态转图），长鑫存储(CXMT)与长江存储(YMTC)均已从ASML囤积足够DUV光刻机，可覆盖未来三年扩产计划——国产存储两大原厂的产能扩张原料端已锁定。
+  evidence_quote: Memory-chip makers CXMT and YMTC have both stocked up enough DUVs
+    from ASML to cover their expansion plans over the next three years, according
+    to a person with knowledge of the matter.
+  interpretation: DUV囤货=国产DRAM/NAND扩产的确定性大幅提升，存储国产替代的产能瓶颈被解除。与长鑫DRAM全球10%份额目标（9/3）形成'份额目标+产能保障'闭环；利好的是国产存储产业链（设备先于晶圆厂受益：设备已发货确认收入）与下游模组厂。对海外存储（闪迪/海力士）是中期竞争压力信号。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: CXMT/YMTC囤足3年DUV=国产存储扩产产能瓶颈解除
+  related_stocks: []
+  tags:
+  - 长鑫存储
+  - 长江存储
+  - DUV
+  - ASML
+  - 国产存储扩产
+- id: claim-20260908-002-b
+  source_path: sources/original/bilibili/2026-09-08-1150-图片-动态-1245544896740196372.md
+  source_date: '2026-09-08'
+  source_type: 动态
+  extracted_at: '2026-09-08T12:03:00+08:00'
+  claim_type: risk
+  subject: 国产DUV差距犹存
+  timeframe: permanent
+  statement: FT引述行业人士：中国DUV能力已显著改善但仍缺乏晶圆厂全流程配套支持；ASML今天的领先地位源于其与台积电的长期协作——光刻机之外的工艺协同才是护城河。
+  evidence_quote: '"Chinese DUV capabilities have improved significantly, but they
+    are still lacking the full support of the fabs," said Lin. "ASML is a leader today
+    because of its collaboration with TSMC."'
+  interpretation: 对国产设备链的冷静剂：光刻机国产化（SMEE等）不等于制造能力追平，机台-工艺协同需要多年磨合。设备投资逻辑应区分'已验证供应商'（北方华创(002371)/中微(688012)等有量产记录）与'纯预期标的'，囤DUV利好的是3年内扩产确定性而非国产设备替代逻辑本身。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: DUV机台≠制造能力：缺乏fab全流程配套，ASML护城河在工艺协同
+  related_stocks:
+  - code: '002371'
+    name: 北方华创
+    role: 已验证国产设备-主板可交易
+  - code: '688012'
+    name: 中微
+    role: 已验证国产刻蚀设备-科创板不可交易
+  tags:
+  - 国产DUV
+  - 工艺协同
+  - ASML护城河
+  - 设备替代
+  - 冷静剂

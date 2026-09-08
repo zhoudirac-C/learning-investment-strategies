@@ -2245,3 +2245,12 @@
 - Gate 1 subject 日期斜杠 1 处；Gate 2 假阳性 4 处（X X科技）+源杰科技漏标 1 处；gate1/gate2 缓存假失败各一次（rm 后过）
 - 输出 knowledge/claims/claim-20260908-001.yaml
 
+## 2026-09-08 | qing-learning ingest | 9/8 11:50 盘中动态提取（002 系列 2 条）
+
+- 处理 raw：`2026-09-08-1150-图片-动态-1245544896740196372.md`（FT截图：CXMT/YMTC囤DUV）
+- claim-20260908-002.yaml（2 条）：
+  - 002-a（catalyst）：长鑫/长江囤足3年DUV=国产存储扩产产能瓶颈解除，与长鑫10%份额目标闭环
+  - 002-b（risk）：机台≠制造能力，缺fab工艺协同配套；设备逻辑区分已验证供应商与纯预期标的
+- Gate 1/2/3 一次通过；FT引文无A股标的（长鑫/长江未上市，ASML美股），related_stocks仅interpretation推演标的
+- 输出 knowledge/claims/claim-20260908-002.yaml
+
