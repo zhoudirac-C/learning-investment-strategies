@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-01",
+  "triggers": [
+    "direction_miss"
+  ],
+  "types": [
+    "步骤缺",
+    "概念误用"
+  ],
+  "analysis": "AI 在方向选择中，以隔夜存储链美光+2.5%/闪迪+5.5%作为映射催化，但忽略了费半指数整体-2.92%的压制，将个股逆势上涨误认为板块强度，属概念误用；同时，AI 已识别出“存量调仓而非增量入场”（依据：半导体行业资金流+74.98亿净流入，但lhb机构净卖出家数31>净买入家数16），却仍沿用昨日行业资金流入作为今日方向依据，缺少对资金流持续性及映射有效性的验证环节，属步骤缺。",
+  "proposal_refs": [
+    "framework/proposals/2026-09-01-pattern-patch-note.md",
+    "framework/proposals/2026-09-01-pattern-patch-note.md",
+    "framework/proposals/2026-09-01-glossary-patch-note.md"
+  ]
+}

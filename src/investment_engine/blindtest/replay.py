@@ -346,11 +346,20 @@ def _call_with_retry(messages: list[dict], *, model: str, client, max_retries: i
         t0 = time.monotonic()
         try:
             resp = _create()
-            content = resp.choices[0].message.content
+            choice = resp.choices[0]
+            content = choice.message.content
+            finish_reason = getattr(choice, "finish_reason", None)
             if not (content or "").strip():
                 # 空 content（deepseek-v4-flash 偶发，2026-09-05 v17 A/B 在 08-21
                 # 因此报废一天）：视为可重试错误，走非限流短退避
                 raise RuntimeError("模型返回空 content")
+            if finish_reason == "length":
+                # max_tokens 截断（2026-09-07 收盘轨 thinking 推理吃满 32768
+                # 上限、JSON 半途被砍报废一天）：视为可重试错误，reasoning
+                # 长度每次调用有波动（同日 28808 vs 32768），重试有概率落回
+                raise RuntimeError(
+                    f"输出被 max_tokens 截断（finish_reason=length, "
+                    f"reply_chars={len(content)}）")
             usage = getattr(resp, "usage", None)
             _log_llm_call({
                 "ts": datetime.now().isoformat(timespec="seconds"),
@@ -360,6 +369,7 @@ def _call_with_retry(messages: list[dict], *, model: str, client, max_retries: i
                 "prompt_tokens": _int_or_none(getattr(usage, "prompt_tokens", None)),
                 "completion_tokens": _int_or_none(getattr(usage, "completion_tokens", None)),
                 "reply_chars": len(content or ""),
+                "finish_reason": finish_reason,
             })
             return content
         except Exception as e:  # noqa: BLE001 - 重试后如实记录
@@ -844,10 +854,18 @@ def _violation_note(violations: list[str]) -> str:
             "严格按原 JSON 契约重新输出完整结果。")
 
 
+def _parse_failure_note(err: ValueError) -> str:
+    return (f"上一版输出不完整或不是合法 JSON（{str(err)[:200]}）。\n"
+            "请严格按原 JSON 契约重新输出完整结果，不要截断、不要省略字段。")
+
+
 def run_with_validation(messages: list[dict], pack: dict | None = None, *,
                         model: str = DEFAULT_MODEL, client=None,
                         tag: str | None = None, call_fn=None) -> tuple[str, dict, dict]:
     """调 LLM + 确定性校验：违规则带说明重试一次；仍违规则标 failed 如实返回。
+
+    首版输出非 JSON（多为 max_tokens 截断）时同样带说明重试一次；parse 重试
+    已发生的不再触发规则重试（单次运行至多两次 LLM 调用）。
 
     返回 (raw, result, validation)；validation = {status, violations, retried}；
     发生过重试时附 first_violations（首版违规清单）——重试通过后首版内容本来
@@ -856,11 +874,27 @@ def run_with_validation(messages: list[dict], pack: dict | None = None, *,
     """
     call = call_fn or call_deepseek
     raw = call(messages, model=model, client=client, tag=tag)
-    result = parse_result(raw)
-    violations = validate_result(result, pack)
     retried = False
-    first_violations = list(violations)
-    if violations:
+    first_violations: list[str] = []
+    try:
+        result = parse_result(raw)
+    except ValueError as e:
+        # 输出非 JSON（多为 max_tokens 截断：2026-09-07 收盘轨 thinking 推理
+        # 吃满 32768 上限、JSON 半途被砍报废一天）——按校验重试同款路径
+        # 带说明重试一次；再失败则如实向外冒泡
+        retried = True
+        first_violations = [f"输出解析失败: {e}"]
+        retry_msgs = list(messages) + [
+            {"role": "assistant", "content": raw},
+            {"role": "user", "content": _parse_failure_note(e)},
+        ]
+        retry_tag = f"{tag}_retry" if tag else None
+        raw = call(retry_msgs, model=model, client=client, tag=retry_tag)
+        result = parse_result(raw)
+    violations = validate_result(result, pack)
+    if not first_violations:
+        first_violations = list(violations)
+    if violations and not retried:
         retried = True
         retry_msgs = list(messages) + [
             {"role": "assistant", "content": raw},
