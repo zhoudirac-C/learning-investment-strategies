@@ -75,7 +75,7 @@ claims:
   intensity: high
   supersedes: []
   contradicts: ["claim-20260731-013"]
-  supplements: []
+  supplements: ["claim-20260908-004-a"]
   last_discovered: 2026-09-09
   links:
     wiki_pages: []
@@ -244,3 +244,121 @@ claims:
   - 芝麻西瓜
   - 震荡期
   - 降低预期
+- id: claim-20260909-009-a
+  source_path: sources/original/bilibili/2026-09-09-0835-图片-今天的盘前预案，仍以持股观察为主。指数暂按上升趋势中的整理看.md
+  source_date: '2026-09-09'
+  source_type: 动态
+  extracted_at: '2026-09-09T20:35:00+08:00'
+  claim_type: operation
+  subject: 9月9日盘前持股观察预案
+  timeframe: intraday
+  statement: 9月9日盘前预案：以持股观察为主，暂不主动做T；指数暂按上升趋势中的整理看待，大级别顶部尚未确认。防守观察位3906点：若15:00收盘低于3906触发减仓预案（收盘确认后下一交易时段执行）；若盘中多次回踩3906获承接、回落缩量反抽有效，再考虑围绕底仓做T；若放量向上突破则继续持股观察。
+  evidence_quote: 今天的盘前预案，仍以持股观察为主。指数暂按上升趋势中的整理看待，大级别顶部尚未确认……第一，盘前以持股观察为主，暂不主动做T。第二，若上证指数15:00收盘低于3906点，则触发减仓预案。第三，若盘中多次回踩3906点附近均获承接，回落缩量、反抽有效，且市场维持区间震荡，再考虑围绕已有底仓做T。
+  interpretation: 三层可执行纪律：①默认动作=持股不动（不因开盘冲高切换）；②唯一减仓触发条件=收盘破3906且收盘确认后执行（区分预判操作）；③做T的前提条件=回踩承接+缩量反抽，属提高把握而非保证。把操作完全绑定到3906这一个价格锚，避免盘中情绪化操作。与9/8-2144'存量结构调整、看分歧后承接'定性衔接。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260609-001-c"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 9月9日盘前预案：持股观察，3906防守位三档执行条件
+  related_stocks: []
+  tags:
+  - 盘前预案
+  - 持股观察
+  - 3906防守位
+  - 减仓触发
+  - 做T条件
+- id: claim-20260909-010-a
+  source_path: sources/original/bilibili/2026-09-09-0835-图片-今天的盘前预案，仍以持股观察为主。指数暂按上升趋势中的整理看.md
+  source_date: '2026-09-09'
+  source_type: 动态
+  extracted_at: '2026-09-09T20:35:00+08:00'
+  claim_type: market-cycle
+  subject: 指数上升趋势中整理与科技磨底定性
+  timeframe: short-term
+  statement: 指数暂按上升趋势中的整理看待，大级别顶部尚未确认；科技方向继续缩量磨底，未放量破位前下跌空间相对有限，但筑底需时间，不能把调整空间有限理解为马上反弹。隔夜美股三大指数收跌（纳指-0.32%），不能以'隔夜科技大涨'为前提推导A股科技走强。
+  evidence_quote: 指数暂按上升趋势中的整理看待，大级别顶部尚未确认；科技方向继续观察磨底质量……在没有出现放量破位之前，倾向于认为进一步下跌空间相对有限，但筑底仍需要时间，不能把'调整空间可能有限'理解为'马上就会反弹'。隔夜外盘不能简单概括为普涨：美股三大指数收跌，其中纳指跌幅为0.32%。
+  interpretation: 三层定性：①方向层：大级别顶部未确认，上升趋势中整理（非反转）；②节奏层：科技磨底未完成，'空间有限'不等于'时间到了'，明确反对把空间判断偷换成反弹时点；③外盘处理：外盘只影响开盘定价，开盘后看A股自身量能承接，纠正'隔夜科技强=A股科技强'的直线映射。与9/9-1027'难有大跌（基本面）难有大涨（成交量）'互为印证。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260903-013-a", "claim-20260607-001-d", "claim-20260731-011"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 上升趋势中整理，顶部未确认，科技缩量磨底需时间
+  related_stocks: []
+  tags:
+  - 上升趋势
+  - 整理
+  - 磨底
+  - 外盘影响
+  - 顶部未确认
+- id: claim-20260909-011-a
+  source_path: sources/original/bilibili/2026-09-09-0835-图片-今天的盘前预案，仍以持股观察为主。指数暂按上升趋势中的整理看.md
+  source_date: '2026-09-09'
+  source_type: 动态
+  extracted_at: '2026-09-09T20:35:00+08:00'
+  claim_type: sector-theme
+  subject: 缩量整理与放量下跌的量能判据
+  timeframe: short-term
+  statement: 回踩时重点区分缩量整理与放量下跌：若回踩成交收缩、抛压减轻，仍按整理思路观察；若跌向3906时成交明显放大且反抽无力，则需重新评估调整强度。缩量本身不代表见底，仍需等待价格与承接配合。
+  evidence_quote: 若回踩过程中成交收缩、抛压减轻，仍可按整理思路观察；若跌向3906点时成交明显放大，且反抽无力，就需要重新评估调整强度。缩量本身并不代表见底，仍要等待价格与承接配合。
+  interpretation: 量能判据的可操作化：把'整理还是转弱'从主观感受变成两个可观测信号（回踩量能是否收缩+反抽是否有力）。同时纠正'缩量=见底'的常见误读——缩量只说明抛压轻，不构成买入信号，需价格与承接双重确认。农业、有色等活跃方向定性为资金轮动与情绪风向标，而非主攻方向。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260830-033-a"]
+  contradicts: []
+  supplements: ["claim-20260702-005-c"]
+  last_discovered: 2026-09-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 缩量整理与放量下跌判据，缩量不代表见底
+  related_stocks: []
+  tags:
+  - 量能判据
+  - 缩量整理
+  - 放量下跌
+  - 承接确认
+- id: claim-20260909-012-a
+  source_path: sources/original/bilibili/2026-09-09-0835-图片-今天的盘前预案，仍以持股观察为主。指数暂按上升趋势中的整理看.md
+  source_date: '2026-09-09'
+  source_type: 动态
+  extracted_at: '2026-09-09T20:35:00+08:00'
+  claim_type: catalyst
+  subject: 美国CPI数据公布前定价窗口
+  timeframe: short-term
+  statement: 美国8月CPI于北京时间9月11日（周五）20:30公布，在当日A股收盘之后；今天至周五收盘有三个A股交易时段观察资金提前定价。数据公布前若维持缩量整理且核心方向承接稳定，可继续等待；若放量下跌反抽无力，应优先处理已发生的量价变化，不能只用'等待数据'解释所有调整。
+  evidence_quote: 美国8月CPI计划于北京时间9月11日周五20:30公布，时间在当日A股收盘之后。今天至周五收盘，仍有三个A股交易时段可以观察资金如何提前定价……若出现放量下跌、反抽无力，则应优先处理已经发生的量价变化，避免仅用'等待数据'解释所有调整。
+  interpretation: 事件窗口的操作框架：CPI是周五盘后公布、对A股的影响是次日开盘定价（与9/1 claim'晚间数据是次日开盘定价输入'一致）。关键纪律：数据窗口不豁免量价纪律——跌破了照样执行防守，不以'等数据'为由拖延。结合建仓纪律：数据前不加仓，观察优先。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260901-014-a", "claim-20260908-003-y"]
+  last_discovered: 2026-09-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 9月11日美国CPI前三个交易日定价观察窗口
+  related_stocks: []
+  tags:
+  - 美国CPI
+  - 事件窗口
+  - 提前定价
+  - 量价纪律

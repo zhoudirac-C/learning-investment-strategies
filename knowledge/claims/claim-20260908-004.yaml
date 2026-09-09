@@ -1,0 +1,61 @@
+# source: 2026-09-08-1333 光博会/高盛光模块谨慎动态（补提取 2026-09-09）
+claims:
+- id: claim-20260908-004-a
+  source_path: sources/original/bilibili/2026-09-08-1333-图片-光博会明天就开了，这次高盛吹的太厉害了，这种位置还是谨慎一些.md
+  source_date: '2026-09-08'
+  source_type: 动态
+  extracted_at: '2026-09-09T20:14:00+08:00'
+  claim_type: risk
+  subject: 光博会前光模块位置谨慎
+  timeframe: short-term
+  statement: 光博会召开前高盛等外资对光模块吹票力度过大，当前位置应保持谨慎，防利好落地变利空；大会虽有催化但不一定板块齐涨，判断依据主要是近期位置和涨跌幅。
+  evidence_quote: 光博会明天就开了，这次高盛吹的太厉害了，这种位置还是谨慎一些，小心利好落地变利空，当然大会肯定会有一些催化，但是不一定会一起涨。主要还是近期的位置和涨跌幅。
+  interpretation: 事件驱动风控观点：当卖方一致预期极强（高盛集中吹票）且板块已处高位时，产业大会这类明牌催化更可能走出'预期兑现即回落'。两层含义：①节奏层明确光模块当前位置不追不加；②方法论层给出事件催化的处理判据——看位置和涨跌幅，不看事件本身强度。与9/9盘前'不急于做T、持股观察'一脉相承。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260805-014", "claim-20260824-001-h", "claim-20260714-005-bd"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光博会前高盛吹票过猛，光模块高位谨慎防利好落地变利空
+  related_stocks: []
+  tags:
+  - 光博会
+  - 高盛
+  - 光模块
+  - 利好兑现
+  - 高位谨慎
+- id: claim-20260908-004-b
+  source_path: sources/original/bilibili/2026-09-08-1333-图片-光博会明天就开了，这次高盛吹的太厉害了，这种位置还是谨慎一些.md
+  source_date: '2026-09-08'
+  source_type: 动态
+  extracted_at: '2026-09-09T20:14:00+08:00'
+  claim_type: methodology
+  subject: 事件催化不等于板块齐涨
+  timeframe: permanent
+  statement: 产业大会等事件催化不保证相关板块齐涨，个股是否跟随取决于近期位置和涨跌幅，不能凭事件关联直接推导上涨。
+  evidence_quote: 当然大会肯定会有一些催化，但是不一定会一起涨。主要还是近期的位置和涨跌幅。
+  interpretation: 这是UP处理事件驱动行情的通用判据：催化是必要非充分条件，资金是否接力取决于筹码位置。位低+涨幅小的标的才可能借催化走强，高位标的借催化兑现。用于过滤'开会=利好=买'的直线推理，与claim-20260909-001'不要光看到涨没看到跌'同一逻辑家族。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260529-004-b", "claim-20260831-005-k", "claim-20260811-046"]
+  last_discovered: 2026-09-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 事件催化是否兑现取决于位置和涨跌幅，非板块齐涨
+  related_stocks: []
+  tags:
+  - 方法论
+  - 事件驱动
+  - 位置判断
+  - 催化兑现
