@@ -318,6 +318,14 @@ def _is_rate_limit(err: Exception) -> bool:
     return "429" in s or "rate limit" in s or "rpm" in s or "quota" in s
 
 
+def _is_temperature_only1(err: Exception) -> bool:
+    """端点只允许 temperature=1 的 400（kimi-for-coding/kimi-k3 实测：
+    'invalid temperature: only 1 is allowed for this model' /
+    'field Temperature invalid, only 1 is allowed for ...'）。"""
+    s = str(err).lower()
+    return "temperature" in s and "only 1" in s
+
+
 def _rate_limit_wait() -> float:
     """限流退避等待秒数：rpm 窗口 60s，默认等 65s 跨过窗口；SHADOW_LLM_RATE_LIMIT_WAIT 可覆盖。"""
     return float(os.environ.get("SHADOW_LLM_RATE_LIMIT_WAIT", "65"))
@@ -328,10 +336,12 @@ def _call_with_retry(messages: list[dict], *, model: str, client, max_retries: i
     """单通道重试主体：调用一次、限流/非限流退避重试、落账 log/llm_calls.jsonl。"""
     last_err: Exception | None = None
     prompt_chars = sum(len(str(m.get("content", ""))) for m in messages)
+    temp_override: float | None = None
 
     def _create():
         kwargs: dict = dict(
-            model=model, messages=messages, temperature=0,
+            model=model, messages=messages,
+            temperature=temp_override if temp_override is not None else 0,
             response_format={"type": "json_object"},
             # 推理模式 reasoning 吃 token，预算自动加大；非推理模式用基础预算
             max_tokens=_MAX_OUTPUT_TOKENS_THINKING if not _THINKING_DISABLED else _MAX_OUTPUT_TOKENS,
@@ -381,6 +391,11 @@ def _call_with_retry(messages: list[dict], *, model: str, client, max_retries: i
                 "prompt_chars": prompt_chars,
                 "error": str(e)[:200],
             })
+            if temp_override is None and _is_temperature_only1(e):
+                # temperature=0 被端点拒绝（仅允许 1）：立即改用 1 重试，
+                # 不消耗退避等待（2026-09-09 kimi-for-coding 实测 400）
+                temp_override = 1
+                continue
             if attempt < max_retries:
                 # 429/rpm 耗尽：2s/4s 指数退避等于无重试（rpm 窗口 60s），
                 # 限流错误排队延时重试（默认 65s 跨过窗口）；其他错误维持原退避

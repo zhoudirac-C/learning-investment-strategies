@@ -1,7 +1,7 @@
-# 影子双轨完整性报告（2026-09-08）
+# 影子双轨完整性报告（2026-09-09）
 
-- 记录日数: 42，完整: 42
-- 提案: open 7 / applied 7 / rejected 1 / retracted 3
+- 记录日数: 44，完整: 44
+- 提案: open 11 / applied 7 / rejected 1 / retracted 5
 
 | 日期 | 阶段判定 | 状态 | 归因 | 完整 |
 |---|---|---|---|---|
@@ -37,7 +37,7 @@
 | 2026-08-31 | - | error | 有 | ✅ |
 | 2026-09-01 | 对 | scored | 有 | ✅ |
 | 2026-09-01 | - | error | 有 | ✅ |
-| 2026-09-02 | 对 | pending_maturity | - | ✅ |
+| 2026-09-02 | 对 | scored | - | ✅ |
 | 2026-09-02 | - | error | - | ✅ |
 | 2026-09-03 | - | error | - | ✅ |
 | 2026-09-03 | 对 | pending_maturity | - | ✅ |
@@ -47,6 +47,8 @@
 | 2026-09-07 | - | error | - | ✅ |
 | 2026-09-08 | 对 | pending_maturity | - | ✅ |
 | 2026-09-08 | 对 | pending_maturity | - | ✅ |
+| 2026-09-09 | 错 | pending_maturity | 有 | ✅ |
+| 2026-09-09 | 对 | pending_maturity | 有 | ✅ |
 
 ## 待处理提案（open 置顶）
 
@@ -57,3 +59,7 @@
 - 2026-08-31-pattern-patch-note.md
 - 2026-09-01-glossary-patch-note.md
 - 2026-09-01-pattern-patch-note.md
+- 2026-09-09-data-channel-note.md
+- 2026-09-09-glossary-patch-28-b.md
+- 2026-09-09-pattern-patch-note.md
+- 2026-09-09-pattern-patch-vs-checklist.md
