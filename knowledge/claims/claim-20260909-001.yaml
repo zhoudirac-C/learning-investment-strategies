@@ -362,3 +362,586 @@ claims:
   - 事件窗口
   - 提前定价
   - 量价纪律
+- id: claim-20260909-013-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: market-cycle
+  subject: 市场环境定性
+  timeframe: short-term
+  statement: 今天市场延续宽幅震荡，沪指相对强势，双创承压后13:30以后有所回升。缩量与普跌并存（成交1.87万亿、较上日减少1052亿、超3600只个股下跌），说明资金仍在观望，但回落后也有承接。短线情绪的分歧已经出现，科技内部尚未形成新的共同进攻方向，市场仍处于过渡阶段。
+  evidence_quote: 今天市场延续宽幅震荡，沪指相对强势，双创承压后在13:30以后有所回升。缩量与普跌并存，说明资金仍在观望，但回落后也有承接。短线情绪的分歧已经出现，科技内部尚未形成新的共同进攻方向，市场仍处于过渡阶段。
+  interpretation: UP对9月9日的环境定性：存量轮动而非趋势行情。缩量+普跌+有承接三要素组合意味着市场既不是单边走弱、也不是进攻启动，处于情绪分歧后的过渡期。接下来观察优先级：传媒分歧能否缓和、农业前排能否守住承接、PCB和光通信能否持续聚集资金。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 市场缩量震荡存量轮动，短线分歧出现仍处过渡阶段
+  related_stocks: []
+  tags:
+  - 市场环境
+  - 缩量震荡
+  - 存量轮动
+  - 短线分歧
+  - 过渡期
+- id: claim-20260909-014-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: technical-signal
+  subject: 指数承接与个股赚钱效应
+  timeframe: short-term
+  statement: 指数有承接与多数个股获得持续赚钱效应是两件需要分别验证的事。当前缩量回落后仍有资金出手，更接近震荡环境中的存量轮动；但若后续下探时抛压继续收敛、回升时成交跟进，震荡承接的判断才会更扎实；若反弹持续缩量、弱势个股继续扩散，则需防范修复反复。
+  evidence_quote: 指数有承接，与多数个股获得持续赚钱效应，仍是两件需要分别验证的事。……若后续下探时抛压继续收敛、回升时成交跟进，震荡承接的判断才会更扎实；若反弹持续缩量、弱势个股继续扩散，则仍需防范修复反复。
+  interpretation: UP给出验证框架：不能仅凭一次午后回升认定调整结束。右侧确认条件被明确为两条——下探抛压收敛、回升成交跟进。这是把'环境判断'变成可证伪观测点的典型做法，监控上应跟踪全A关键位置及午后分时量能。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 指数承接与个股赚钱效应需分别验证，量价确认条件明确
+  related_stocks: []
+  tags:
+  - 量价验证
+  - 承接
+  - 赚钱效应
+  - 右侧确认
+- id: claim-20260909-015-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: risk
+  subject: 龙版传媒停牌核查
+  timeframe: short-term
+  statement: 龙版传媒(605577)自9月9日起停牌核查，增加了高位情绪的不确定性。今天的压力既有轮动加快、短线获利兑现等内生因素，也叠加了核心标的停牌的外部扰动。停牌可以解释情绪降温的一部分，但不能把所有下跌都归因于单一事件，后续仍要看亏钱效应是否继续向农业与消费扩散。
+  evidence_quote: 短线情绪的分歧原本就在预期之内，龙版传媒自9月9日起停牌核查，则增加了高位情绪的不确定性。今天的压力既有轮动加快、短线获利兑现等内生因素，也叠加了核心标的停牌的外部扰动。
+  interpretation: 高位核心标的停牌核查是短线情绪链的外生扰动，UP强调归因纪律：单一事件只解释部分降温，判断风险扩散与否的锚是亏钱效应是否向农业与消费蔓延。这影响农业分歧强度的评估权重。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 龙版传媒停牌核查扰动高位情绪，看亏钱效应是否扩散
+  related_stocks:
+  - code: '605577'
+    name: 龙版传媒
+    role: 高位情绪核心标的-停牌核查-主板可交易
+  tags:
+  - 停牌核查
+  - 高位情绪
+  - 归因纪律
+  - 亏钱效应
+- id: claim-20260909-016-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: sector-theme
+  subject: 科技板块内部强弱
+  timeframe: short-term
+  statement: 液冷降温以后，科技资金暂时失去了统一的聚焦方向。盘面相对强弱暂可概括为：PCB、光通信稍强，存储与MLCC偏弱，半导体整体更弱。若这一排序持续，可能说明资金更偏好海外算力需求可见度较高、订单兑现路径较清晰的环节，但一日强弱还受前期涨幅、估值与筹码结构影响，暂不能归结为单一的海外需求依赖程度。
+  evidence_quote: 盘面相对强弱暂可概括为：PCB、光通信稍强，存储与MLCC偏弱，半导体整体更弱。……若这一排序持续，可能说明资金更偏好海外算力需求可见度较高、订单兑现路径较清晰的环节。
+  interpretation: 科技从'液冷单一主线'进入内部分化阶段，UP给出当日强弱排序及其可能的资金逻辑解释（海外算力可见度），但明确标注这是'若持续'的假设性归因。对持仓的含义：515980/159381所在的科技主线暂无统一聚焦，强弱排序（PCB/光通信>存储/MLCC>半导体）是后续跟踪基准，排序持续才可升级为方向判断。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技内部强弱：PCB光通信稍强，存储MLCC偏弱，半导体更弱
+  related_stocks: []
+  tags:
+  - 科技分化
+  - PCB
+  - 光通信
+  - 存储
+  - 半导体
+- id: claim-20260909-017-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: methodology
+  subject: 科技结束过渡的确认条件
+  timeframe: short-term
+  statement: 科技结束过渡状态，需要核心品种走强与板块扩散相互印证。若只有少数标的冲高，随后资金继续切换，仍按轮动理解；若量能同步改善、核心突破后回踩有承接，才更接近新一轮趋势组织。
+  evidence_quote: 科技结束过渡状态，需要核心品种走强与板块扩散相互印证。若只有少数标的冲高，随后资金继续切换，仍按轮动理解；若量能同步改善、核心突破后回踩有承接，才更接近新一轮趋势组织。
+  interpretation: 方法论口径：'少数标的冲高'与'新一轮趋势'的区分标准是量能改善+核心突破后回踩有承接。这是针对科技板块（含持仓ETF）从轮动转入趋势的判断的右侧确认条件，与014的指数量价确认条件构成同一套验证框架。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技结束过渡需核心走强与板块扩散互证，量能是关键
+  related_stocks: []
+  tags:
+  - 方法论
+  - 趋势确认
+  - 板块扩散
+  - 量能
+- id: claim-20260909-018-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: sector-theme
+  subject: 农业板块分歧检验
+  timeframe: short-term
+  statement: 农业仍是近期延续性较好的方向，金健米业(600127)的趋势表现继续作为观察锚点，糖业则成为补涨扩散中的热门分支。农业已经历持续表现，明天分歧加大的可能性需要纳入预案，观察重点应从板块普遍上涨转向前排换手后的承接与后排掉队的程度。如果核心品种稳住、补涨分支仍有有序接力，分歧可能只是内部整理；若核心同步转弱、补涨快速回落，则情绪扩散链条可能进入收缩阶段。
+  evidence_quote: 农业仍是近期延续性较好的方向，金健米业的趋势表现继续作为观察锚点，糖业则成为补涨扩散中的热门分支。……观察重点应从板块普遍上涨，转向前排换手后的承接与后排掉队的程度。
+  interpretation: 农业进入'分歧检验'阶段而非直接看空：核心稳住+补涨有序接力=内部整理；核心转弱+补涨回落=扩散链条收缩。金健米业(600127)是锚点标的。这与农业链跟踪管线的阶段判断（分歧期）一致，监控上应跟踪金健米业(600127)及前排承接。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 农业延续性好但进入分歧检验，金健米业为锚点看承接
+  related_stocks:
+  - code: '600127'
+    name: 金健米业
+    role: 农业趋势锚点-主板可交易
+  tags:
+  - 农业
+  - 分歧检验
+  - 金健米业
+  - 补涨扩散
+  - 承接
+- id: claim-20260909-019-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: sector-theme
+  subject: 传媒与农业情绪联动
+  timeframe: short-term
+  statement: 农业与传媒虽然产业逻辑不同，但都承载了较多短线情绪资金，因此传媒走弱可能通过风险偏好影响农业的接力意愿。明天传媒能否止跌回流，是判断农业分歧强度的重要旁证。
+  evidence_quote: 农业与传媒虽然产业逻辑不同，但都承载了较多短线情绪资金，因此传媒走弱可能通过风险偏好影响农业的接力意愿。明天传媒能否止跌回流，是判断农业分歧强度的重要旁证。
+  interpretation: 跨板块情绪传导逻辑：传媒（出版传媒(601999)跌停）是短线情绪资金的风向标，其止跌与否是农业分歧强度的旁证指标。这给出一个非同板块的领先观察变量，监控上可把传媒情绪列入农业链跟踪的旁证输入。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 传媒止跌与否是农业分歧强度的重要旁证
+  related_stocks: []
+  tags:
+  - 传媒
+  - 情绪传导
+  - 农业旁证
+  - 风险偏好
+- id: claim-20260909-020-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: catalyst
+  subject: 地缘叙事下的资源航运军工黄金异动
+  timeframe: short-term
+  statement: 煤炭、航运、军工与黄金均有异动，资金交易方向与地缘风险升温的叙事较为一致。云煤能源(600792)、郑州煤电(600121)、大有能源(600403)涨停，海通发展(603162)5天3板，南京港(002040)、招商轮船(601872)涨停，湖南天雁(600698)与莱绅通灵(603900)也有表现。不同方向的传导机制并不相同：资源品偏向价格预期，航运涉及航线与运价，军工更多受到事件关注度影响，持续性需要分别验证。
+  evidence_quote: 煤炭、航运、军工与黄金均有异动，资金交易方向与地缘风险升温的叙事较为一致。……不同方向的传导机制并不相同：资源品偏向价格预期，航运涉及航线与运价，军工更多受到事件关注度影响，持续性需要分别验证。
+  interpretation: UP把地缘驱动的异动定性为'事件与防御补充'而非主线：四个方向传导机制不同，持续性需分别验证。含义是不建议把这类脉冲当作可持续进攻方向对待，与'热点数量不少但缺少稳定接力'的难度判断一致。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 煤炭航运军工黄金地缘异动，传导机制不同需分别验证
+  related_stocks:
+  - code: '600792'
+    name: 云煤能源
+    role: 煤炭地缘异动-主板可交易
+  - code: '600121'
+    name: 郑州煤电
+    role: 煤炭地缘异动-主板可交易
+  - code: '600403'
+    name: 大有能源
+    role: 煤炭地缘异动-主板可交易
+  - code: '603162'
+    name: 海通发展
+    role: 航运地缘异动5天3板-主板可交易
+  - code: '002040'
+    name: 南京港
+    role: 航运地缘异动-主板可交易
+  - code: '601872'
+    name: 招商轮船
+    role: 航运地缘异动-主板可交易
+  - code: '600698'
+    name: 湖南天雁
+    role: 军工地缘异动-主板可交易
+  - code: '603900'
+    name: 莱绅通灵
+    role: 黄金地缘异动-主板可交易
+  tags:
+  - 地缘风险
+  - 煤炭
+  - 航运
+  - 军工
+  - 黄金
+- id: claim-20260909-021-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: sector-theme
+  subject: 消费与培育钻石局部表现
+  timeframe: short-term
+  statement: 消费目前更多体现为局部个股独立表现，会稽山(601579)上涨尚不足以代表消费全面回流；培育钻石方向国机精工(002046)涨停，也仍需观察板块扩散。传媒、影视与房地产偏弱，出版传媒(601999)跌停，我爱我家(000560)、信达地产(600657)、世联行(002285)调整。热点数量不少，但缺少稳定接力，仍是当前交易难度偏高的原因。
+  evidence_quote: 消费目前更多体现为局部个股独立表现，会稽山上涨尚不足以代表消费全面回流；培育钻石方向国机精工涨停，也仍需观察板块扩散。……热点数量不少，但缺少稳定接力，仍是当前交易难度偏高的原因。
+  interpretation: 个股独立上涨≠板块回流，UP用'扩散观察'来过滤单日异动的信号价值。整体交易难度高的原因被归结为热点多但接力不稳定——这是过渡期市场的典型特征。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 消费局部独立不代表回流，热点多但缺稳定接力
+  related_stocks:
+  - code: '601579'
+    name: 会稽山
+    role: 消费局部独立-主板可交易
+  - code: '002046'
+    name: 国机精工
+    role: 培育钻石涨停-主板可交易
+  - code: '601999'
+    name: 出版传媒
+    role: 传媒跌停-主板可交易
+  - code: '000560'
+    name: 我爱我家
+    role: 地产调整-主板可交易
+  - code: '600657'
+    name: 信达地产
+    role: 地产调整-主板可交易
+  - code: '002285'
+    name: 世联行
+    role: 地产调整-主板可交易
+  tags:
+  - 消费
+  - 培育钻石
+  - 传媒
+  - 地产
+  - 热点接力
+- id: claim-20260909-022-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: catalyst
+  subject: 金融发布会与数字货币
+  timeframe: short-term
+  statement: 9月10日15:00将举行金融领域贯彻落实'十五五'规划、推动金融强国建设的新闻发布会。数字货币可以作为事件观察方向，但发布会主题本身并不等于数字人民币新增政策。由于时间在A股收盘时点，尾盘异动更可能反映提前预期，政策内容及后续反馈仍需继续跟踪。
+  evidence_quote: 9月10日15:00将举行金融领域贯彻落实“十五五”规划、推动金融强国建设的新闻发布会。数字货币可以作为事件观察方向，但发布会主题本身并不等于数字人民币新增政策。
+  interpretation: 对9月10日事件的前瞻定性：数字货币是观察方向但不是政策新增的确认，且发布会时间在收盘时点，尾盘异动=提前预期交易。这是提醒不要把预期交易误读为政策落地。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 9月10日金融发布会，数字货币仅是事件观察方向
+  related_stocks: []
+  tags:
+  - 金融发布会
+  - 数字货币
+  - 事件驱动
+  - 十五五
+- id: claim-20260909-023-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: stock-view
+  subject: 红棉股份
+  timeframe: short-term
+  statement: 红棉股份(000523)全资子公司华糖食品从事食糖、饮料的生产制造及销售，'红棉'白砂糖是主导产品之一，但公司同时布局文化创意产业园区，不能仅凭糖业标签认定其业务纯度最高。精制糖加工的盈利还取决于采购成本、产品售价、库存与套期保值，原糖上涨并不必然等比例增厚利润。8月糖价上涨21.5%的信息可作为涨价线索，但具体ICE合约及连续价格口径仍待核实；泰国2026/27榨季产量降至1000万吨以下、降幅超过16%的预测也保留待核实。盘面上若农业分歧导致红棉股份(000523)被动开板，重点看换手后的承接、回封质量及板块前排是否同步企稳；开板本身并不是强势确认。
+  evidence_quote: 公司同时布局文化创意产业园区，不能仅凭糖业标签认定其业务纯度最高。精制糖加工的盈利还取决于采购成本、产品售价、库存与套期保值，原糖上涨并不必然等比例增厚利润。……开板本身并不是强势确认。
+  interpretation: 对糖业热门分支核心标的的三重约束：业务纯度存疑（文化园区业务）、涨价传导不等比例（套保/成本）、数据口径待核实（ICE合约/泰国产量）。操作层面给出开板应对框架：看换手承接+回封质量+前排同步，不把开板当强势确认。与农业链分歧检验框架（018）配套。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 红棉股份糖业标签不等于纯度，开板看承接非强势确认
+  related_stocks:
+  - code: '000523'
+    name: 红棉股份
+    role: 糖业分支核心-业务纯度存疑-主板可交易
+  tags:
+  - 红棉股份
+  - 糖业
+  - 业务纯度
+  - 套保
+  - 开板应对
+- id: claim-20260909-024-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: stock-view
+  subject: 洛轴股份
+  timeframe: short-term
+  statement: 洛轴股份(301699)主营轴承及相关零部件，人形机器人放量有望扩展精密轴承需求，但从行业空间到上市公司利润之间还需经过产品适配、客户认证、订单交付和收入占比提升，新股上市初期的价格发现也会放大短期波动。'鸿元轴承为洛轴股份(301699)旗下企业'的股权归属及'机器人轴承国内市占率超过90%'的统计口径均待核实，不能直接将鸿元的客户与份额计入洛轴。现阶段可跟踪传统制造业务与机器人增量业务的估值差异，但尚不能据此确认'价值洼地'，需补齐机器人收入贡献、可比估值与订单兑现证据。
+  evidence_quote: '''鸿元轴承为洛轴股份旗下企业''的股权归属，以及''机器人轴承国内市占率超过90%''的统计口径均待核实，不能直接将鸿元的客户与份额计入洛轴。……现阶段可跟踪传统制造业务与机器人增量业务的估值差异，但尚不能据此确认''价值洼地''。'
+  interpretation: 对机器人轴承热门新股的证伪式拆解：市场叙事的两个关键事实（鸿元股权归属、90%市占率）都被标记待核实，'价值洼地'结论被明确否定前置。这体现了'从行业空间到公司利润要过四道关'的验证链条，属于典型的叙事-兑现错位风险提示。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 洛轴股份机器人叙事证据未补齐，价值洼地结论不能下
+  related_stocks:
+  - code: '301699'
+    name: 洛轴股份
+    role: 机器人轴承新股-创业板不可交易
+  tags:
+  - 洛轴股份
+  - 机器人轴承
+  - 叙事证伪
+  - 新股
+  - 估值
+- id: claim-20260909-025-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: stock-view
+  subject: 红板科技
+  timeframe: short-term
+  statement: 高速光模块升级对PCB精细线路及信号完整性提出更高要求，红板科技(603459)招股文件披露了mSAP工艺能力与1.6T光模块电路板技术布局，但披露材料中的mSAP线宽线距20/20μm与特定1.6T设计方案的10层4阶、25/25μm并不是可以直接拼接的一套产品规格。'1.6T产品统一采用12-16层任意层互连、20/20μm及全频段阻抗±5%'的组合口径仍待核实；2026-2028年mSAP供需缺口率测算需核对定义与假设。研究重点放在客户认证、良率、产能爬坡与利润贡献，若这些进展与PCB板块的持续强势相互印证，逻辑的可验证性才会提高。
+  evidence_quote: 披露材料中的mSAP线宽线距20/20μm，与特定1.6T设计方案的10层4阶、25/25μm，并不是可以直接拼接的一套产品规格。……研究重点放在客户认证、良率、产能爬坡与利润贡献；若这些进展与PCB板块的持续强势相互印证，逻辑的可验证性才会提高。
+  interpretation: 对PCB新标的的技术口径纠偏：市场流传的技术参数组合被指出是拼接产物，个股逻辑与板块逻辑（016中PCB稍强）需要相互印证才可验证。跟踪锚点为客户认证/良率/产能爬坡，属于订单兑现路径清晰的环节验证。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 红板科技mSAP技术口径不可拼接，跟踪认证良率爬坡
+  related_stocks:
+  - code: '603459'
+    name: 红板科技
+    role: PCB新股-mSAP口径待核实-主板可交易
+  tags:
+  - 红板科技
+  - PCB
+  - mSAP
+  - 1.6T光模块
+  - 客户认证
+- id: claim-20260909-026-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: stock-view
+  subject: 天通股份
+  timeframe: short-term
+  statement: 天通股份(600330)以电子材料为战略重心，面向AI高速电光调制器的8英寸铌酸锂单晶和晶片已有量产披露，但这与异质铌酸锂薄膜晶圆属于不同产品环节，此前披露中薄膜晶圆产线仍在调试，不能由单晶量产推导整个TFLN环节已经兑现。2026-2028年归母净利润预测口径待核实，不作为已实现业绩或确定承诺。跟踪重点是材料业务收入占比、毛利率与新产品交付进展。
+  evidence_quote: 面向AI高速电光调制器的8英寸铌酸锂单晶和晶片已有量产披露，但这与异质铌酸锂薄膜晶圆属于不同产品环节。……不能由单晶量产推导整个TFLN环节已经兑现。
+  interpretation: TFLN叙事的环节级拆分：单晶量产≠薄膜晶圆兑现，两个产品环节被明确区分。净利润预测被标记待核实。这是对光通信产业链延伸标的'以点带面'式叙事的标准证伪动作。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 天通股份铌酸锂单晶量产不等于TFLN薄膜晶圆兑现
+  related_stocks:
+  - code: '600330'
+    name: 天通股份
+    role: 铌酸锂材料-TFLN环节未兑现-主板可交易
+  tags:
+  - 天通股份
+  - 铌酸锂
+  - TFLN
+  - 电子材料
+  - 环节拆分
+- id: claim-20260909-027-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: stock-view
+  subject: 正邦科技
+  timeframe: industry
+  statement: 正邦科技(002157)重整后的经营恢复、降本与潜在资产注入，是区别于单纯猪价反弹的研究线索。即使暂按6月猪价9.6元/公斤、9月8日10.9元/公斤及完全成本13元/公斤比较，猪价回升也尚不足以证明养殖业务已恢复盈利。2027年底资产注入的完成预期及当前推进状态以公告为准。后续重点看售价与成本差额是否持续收窄、现金流是否改善，以及资产注入是否形成明确方案；盈利预测尚未确认时，不用负市盈率或静态PE直接论证便宜。
+  evidence_quote: 重整后的经营恢复、降本与潜在资产注入，是区别于单纯猪价反弹的研究线索。……猪价回升也尚不足以证明养殖业务已恢复盈利。……盈利预测尚未确认时，不用负市盈率或静态PE直接论证便宜。
+  interpretation: 养殖周期标的的研究线索排序：重整恢复+降本+资产注入 > 单纯猪价反弹。给出现价-成本剪刀差（10.9 vs 13元/公斤）作为可跟踪的量化锚点，并否定了用负PE论证便宜的做法。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 正邦科技研究线索是重整加资产注入，猪价回升不足证盈利
+  related_stocks:
+  - code: '002157'
+    name: 正邦科技
+    role: 养殖重整+资产注入-主板可交易
+  tags:
+  - 正邦科技
+  - 养殖周期
+  - 重整
+  - 资产注入
+  - 成本剪刀差
+- id: claim-20260909-028-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: stock-view
+  subject: 湖南黄金
+  timeframe: industry
+  statement: 湖南黄金(002155)业务覆盖黄金、锑、钨等矿产资源，拟收购黄金天岳及中南冶炼相关股权，评估范围内保有金金属资源量111.54吨，只有在交易顺利完成后才会并入上市公司，资源量也不等于当期产量或利润，不能提前按全部兑现处理。后续分两条线跟踪：一是金、锑、钨价格变化能否转化为利润，二是收购审批、资源开发和产能释放进度。盘面上若资源板块延续、公司换手后仍有承接可继续观察趋势；若仅随事件脉冲上涨、随后资金撤离，则暂按短期轮动理解。
+  evidence_quote: 评估范围内保有金金属资源量111.54吨，只有在交易顺利完成后才会并入上市公司。交易仍需履行审批程序，资源量也不等于当期产量或利润，不能提前按全部兑现处理。
+  interpretation: 资源+并购双逻辑标的的兑现路径拆分：资源量111.54吨是'交易完成后'的期权而非当期利润。两条跟踪线（价格→利润、审批→产能）给出明确验证锚点，盘面定性（延续承接=趋势，事件脉冲=轮动）与020的资源品验证逻辑一致。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 湖南黄金111.54吨资源量需审批后并入，两条线跟踪兑现
+  related_stocks:
+  - code: '002155'
+    name: 湖南黄金
+    role: 黄金锑钨+并购-主板可交易
+  tags:
+  - 湖南黄金
+  - 资源并购
+  - 兑现路径
+  - 锑钨
+  - 趋势验证
+- id: claim-20260909-029-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: technical-signal
+  subject: 机构席位动向
+  timeframe: short-term
+  statement: 机构净买入方向包括崇达技术(002815)约2.16亿元、湖南黄金(002155)约2.01亿元、洛轴股份(301699)约9913万元；净卖出方向包括敦煌种业(600354)约2.12亿元、肯特股份(301591)约6079万元、华兴源创(688001)约5824万元。席位动向呈现PCB、资源与新股之间的分散配置，同时农业热门股出现机构卖出。它们可以辅助观察资金分歧，但不能据此认定机构已选定统一主线，也不能将单日席位记录等同于长期持仓意图。
+  evidence_quote: 机构净买入方向包括崇达技术约2.16亿元、湖南黄金约2.01亿元、洛轴股份约9913万元；净卖出方向包括敦煌种业约2.12亿元、肯特股份约6079万元、华兴源创约5824万元。……同时农业热门股出现机构卖出。
+  interpretation: 机构动向的三个信号：①PCB（崇达技术(002815)）获大额净买入，与016的PCB偏强互证；②农业热门股（敦煌种业(600354)）遭机构卖出，与018的农业分歧检验互证；③方向分散，不构成统一主线证据。农业明天尤其需要用核心承接和板块扩散来检验强度。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 机构净买入崇达技术湖南黄金，农业敦煌种业现卖压
+  related_stocks:
+  - code: '002815'
+    name: 崇达技术
+    role: 机构净买入2.16亿PCB-主板可交易
+  - code: '002155'
+    name: 湖南黄金
+    role: 机构净买入2.01亿资源-主板可交易
+  - code: '301699'
+    name: 洛轴股份
+    role: 机构净买入9913万新股-创业板不可交易
+  - code: '600354'
+    name: 敦煌种业
+    role: 机构净卖出2.12亿农业-主板可交易
+  - code: '301591'
+    name: 肯特股份
+    role: 机构净卖出6079万-创业板不可交易
+  - code: '688001'
+    name: 华兴源创
+    role: 机构净卖出5824万-科创板不可交易
+  tags:
+  - 机构席位
+  - 净买入
+  - 净卖出
+  - 资金分歧
+  - PCB资源
+- id: claim-20260909-030-a
+  source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
+  source_date: '2026-09-09'
+  source_type: 复盘
+  extracted_at: '2026-09-09T22:35:00+08:00'
+  claim_type: market-cycle
+  subject: 明日推演情景
+  timeframe: short-term
+  statement: 明天的基准情景仍是震荡过渡。情形A：若量能止缩、双创企稳，传媒负反馈缓和，农业前排换手后保持强度，则情绪可能进入修复，此时若PCB、光通信同步放量并从核心个股向板块扩散，科技重新形成聚焦方向的概率才会提高。情形B：若反弹仍然缩量，传媒跌势扩散，农业补涨分支快速退潮，科技核心也失去承接，则过渡期可能延长，煤炭、黄金、航运的脉冲表现不足以单独证明市场转强。在量价与接力关系得到右侧确认之前，保持观察，不把被动开板、尾盘异动或概念催化本身当作趋势成立的依据。
+  evidence_quote: 明天的基准情景仍是震荡过渡。……在量价与接力关系得到右侧确认之前，保持观察，不把被动开板、尾盘异动或概念催化本身当作趋势成立的依据。
+  interpretation: 明日操作框架：基准=震荡过渡，A/B两情形的区分变量是量能、传媒负反馈、农业前排承接三件事。三个重点跟踪组合：量能与双创、传媒与农业前排、PCB与光通信。这条是次日盘中监控的顶层剧本，与014/016/017/018构成完整验证树。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 明日基准震荡过渡，A承接修复B反复延长，右侧确认前观察
+  related_stocks: []
+  tags:
+  - 明日推演
+  - 情景分析
+  - 量能
+  - 双创
+  - 右侧确认

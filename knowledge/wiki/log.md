@@ -2283,3 +2283,11 @@
 - 悬空引用修复：claim-20260909-003-a supplements 补挂 claim-20260908-004-a
 - Gate 1/2/3 全部一次通过；NON_COMPANY 追加 4 条假阳性模式（"跌空间相对有限"等）
 - 输出 claim-20260908-004.yaml + claim-20260909-001.yaml（12 条）+ wiki/每日复盘/2026-09-08.md + 2026-09-09.md
+
+## 2026-09-10 | qing-learning ingest | 9/9 晚间复盘专栏 22:03 提取（18 条，013-030）
+
+- raw：`sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md`
+- claim-20260909-001.yaml 追加 013-030 共 18 条：market-cycle×3（环境定性/明日推演）、technical-signal×2（量价验证框架/机构席位）、sector-theme×4（科技分化/农业分歧检验/传媒旁证/消费局部）、methodology×1（科技结束过渡确认条件）、risk×1（龙版传媒停牌）、catalyst×2（地缘脉冲/金融发布会）、stock-view×6（红棉/洛轴/红板/天通/正邦/湖南黄金，均为证伪式拆解+跟踪锚点）
+- Gate 2 假阳性追加 NON_COMPANY 4 条（"所处的科技"等科技/电子文本片段）
+- ⚠️ 合并坑：pipeline step3 YAML 条目为顶格 "- id:"，按缩进 2 格追加会破坏顶层列表结构（YAML 仍可解析但新条目并入最后一条的 tags）——本次已按原格式顶格追加并用 gate_validate_claims.py --all 校验 30 条全过
+- 输出 claim-20260909-001.yaml（30 条）+ wiki/每日复盘/2026-09-09.md + claims/index.md
