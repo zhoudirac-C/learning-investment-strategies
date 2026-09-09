@@ -1,0 +1,232 @@
+claims:
+- id: claim-20260909-001-a
+  source_path: sources/original/bilibili/2026-09-09-1027-图片-美股科技涨的好是因为Astra真牛逼啊，scaling la.md
+  source_date: '2026-09-09'
+  source_type: 动态
+  extracted_at: '2026-09-09T12:14:00+08:00'
+  claim_type: macro
+  subject: 美股科技与宏观约束
+  timeframe: short-term
+  statement: 美股科技走强源于OpenAI GPT-6 Astra验证scaling law在十万卡大集群有效，但美债利率下不去、油价又涨起来压制纳斯达克估值，若延续此格局美股有爆掉风险。
+  evidence_quote: 美股科技涨的好是因为Astra真牛逼啊，scaling law十万卡大集群是有效果的，但同样美债下不去，石油又涨起来所以纳斯达克涨不起来，再继续这个样子，美股是要爆掉的。
+  interpretation: UP对美股的定性：AI叙事真实有效（scaling law十万卡集群被验证），但宏观流动性（美债高利率+油价上涨）构成估值天花板。这不是否定AI行情，而是指出美股的风险收益比在恶化——若A股科技与美股AI联动，需警惕美股波动外溢。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美股科技强在scaling law但受美债油价压制，有爆掉风险
+  related_stocks: []
+  tags:
+  - 美股
+  - scaling law
+  - Astra
+  - 美债
+  - 油价
+- id: claim-20260909-002-a
+  source_path: sources/original/bilibili/2026-09-09-1027-图片-美股科技涨的好是因为Astra真牛逼啊，scaling la.md
+  source_date: '2026-09-09'
+  source_type: 动态
+  extracted_at: '2026-09-09T12:14:00+08:00'
+  claim_type: market-cycle
+  subject: A股短期节奏
+  timeframe: short-term
+  statement: A股同时受节前效应与宏观压制，涨不起来是正常的，时间还没到；应对是降低预期、见好就收，近期亏钱的原因就是对行情预期太高。
+  evidence_quote: A股既有节前效应又有宏观压制，涨不起来不是很正常，说了很多遍了，时间还没到，还没到能涨起来的时候，降低预期有钱就赚，赚不到拉到，还在亏钱的原因不就是对近期的行情预期太高，你降低预期见好就收能被套住吗？
+  interpretation: UP重申节奏层判断：当前位置不是主升启动点，节前效应+宏观压制双重约束下指数难有表现。操作纪律是降低预期、见好就收——这与其8月以来'降低预期'的一贯口径一致，属于对持仓者的心理纪律约束而非减仓指令。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A股节前+宏观压制涨不起来，降低预期见好就收
+  related_stocks: []
+  tags:
+  - A股
+  - 节前效应
+  - 降低预期
+  - 见好就收
+  - 节奏
+- id: claim-20260909-003-a
+  source_path: sources/original/bilibili/2026-09-09-1027-图片-美股科技涨的好是因为Astra真牛逼啊，scaling la.md
+  source_date: '2026-09-09'
+  source_type: 动态
+  extracted_at: '2026-09-09T12:14:00+08:00'
+  claim_type: sector-theme
+  subject: 国产GPU方向
+  timeframe: trend
+  statement: scaling law在十万卡大集群被验证有效，国产GPU方向会有行情，但当前位置不应追光模块——只看到涨没看到跌。
+  evidence_quote: scaling law这么有效果，我们的国产GPU会没行情吗？ 你今天去追个光试试，不要光看到涨，没看到跌。
+  interpretation: 两层含义：①方向层肯定国产GPU的产业逻辑（算力需求被scaling law验证放大，国产替代是确定性方向）；②节奏层明确否定当下追高光模块（正值光博会高盛吹票节点，与9/8'光博会谨慎'观点一致）。正确姿势是等回调/低位机会，不在情绪高点追。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: scaling law验证下国产GPU有行情，但当前不追光模块
+  related_stocks: []
+  tags:
+  - 国产GPU
+  - scaling law
+  - 光模块
+  - 不追高
+  - 算力
+- id: claim-20260909-004-a
+  source_path: sources/original/bilibili/2026-09-09-1027-图片-美股科技涨的好是因为Astra真牛逼啊，scaling la.md
+  source_date: '2026-09-09'
+  source_type: 动态
+  extracted_at: '2026-09-09T12:14:00+08:00'
+  claim_type: market-cycle
+  subject: 市场区间定性
+  timeframe: short-term
+  statement: 目前市场难有大跌（基本面不支持），也难有大涨（成交量不支持），整体处于区间震荡格局。
+  evidence_quote: 目前市场难有大跌（基本面不支持），也难有大涨（成交量不支持） 。
+  interpretation: 对指数区间的双向约束定性：下有基本面托底、上有量能不足。含义是既不用恐慌防守，也不该预期突破——与'降低预期、时间还没到'呼应，操作上适合区间思维而非趋势思维。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 市场难有大跌也难有大涨，区间震荡
+  related_stocks: []
+  tags:
+  - 区间震荡
+  - 基本面
+  - 成交量
+  - 指数
+- id: claim-20260909-005-a
+  source_path: sources/original/bilibili/2026-09-09-1107-图片-把最近的行情做个比较，其实特别像去年12月份，你们看下普冉股.md
+  source_date: '2026-09-09'
+  source_type: 动态
+  extracted_at: '2026-09-09T12:16:00+08:00'
+  claim_type: market-cycle
+  subject: 行情类比去年12月
+  timeframe: short-term
+  statement: 当前行情特别像2025年12月：指数每天涨不上去也跌不下来，但个股波动很大（如普冉股份(688766)每天大震荡、股价整体维持区间），持股体验非常难受，目的就是把散户洗出去。
+  evidence_quote: 把最近的行情做个比较，其实特别像去年12月份，你们看下普冉股份就知道了，当时指数每天涨不上去，也跌不下来。但是个股波动很大，普冉每天大震荡，但是股价整体还是维持在那个区间，你如果持股的话，体验感会非常的难受，目的其实就是一个，把散户洗出去。
+  interpretation: UP给当前震荡定性为'洗盘'而非'见顶'：指数横盘+个股大幅震荡的组合，是主力借波动清洗浮筹。历史对照的意义在于——2025年12月的横盘之后迎来了普冉股份(688766)从一百多到九百的主升，所以当下震荡期正确的动作是拿住/选股，而不是被震出去。这与10:27动态'难有大跌也难有大涨'的区间定性互相印证。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 当前行情类似去年12月洗盘：指数横盘个股大震荡，目的是洗出散户
+  related_stocks:
+  - code: '688766'
+    name: 普冉股份
+    role: 洗盘案例样本-科创板不可交易
+  tags:
+  - 洗盘
+  - 横盘震荡
+  - 普冉股份
+  - 散户
+  - 行情类比
+- id: claim-20260909-006-a
+  source_path: sources/original/bilibili/2026-09-09-1107-图片-把最近的行情做个比较，其实特别像去年12月份，你们看下普冉股.md
+  source_date: '2026-09-09'
+  source_type: 动态
+  extracted_at: '2026-09-09T12:16:00+08:00'
+  claim_type: sector-theme
+  subject: 农业叙事否定
+  timeframe: short-term
+  statement: 农业行情与当年商业航天主线行情完全不是一回事：厄尔尼诺对A股农业公司几乎没有影响、题材太老、无法形成周期共振、监管不允许短线炒作（该罚会罚），当前只有游资和量化在里面做，没有参与价值。
+  evidence_quote: 当时的商业航天是天时地利人和的主线行情，跟现在的农业完全不是一回事，最近机构调研过很多，厄尔尼诺对A股的农业公司几乎没有影响，更何况厄尔尼诺现象已经很多年了，一年比一年严重，这个题材太老，也无法形成周期共振，村长也不允许短线炒作，该罚是会罚的，每天就几个游资和量化在里面做，这种行情没有参与的价值。
+  interpretation: 对9/8泛农业加速判断的重要更新：从'等分歧后看承接'直接升级为'没有参与价值'——基于基本面证伪（机构调研结论：厄尔尼诺对A股农业公司业绩几乎无影响）+叙事太老+监管压制三重理由。这与9/7白糖 claim（厄尔尼诺作价格修复催化）的逻辑前提直接冲突，农业/白糖方向应视为纯情绪博弈而非产业逻辑。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts:
+  - claim-20260908-001-e
+  - claim-20260908-001-h
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 农业叙事被否定：厄尔尼诺对A股农业公司几乎无影响，无参与价值
+  related_stocks: []
+  tags:
+  - 农业
+  - 厄尔尼诺
+  - 题材证伪
+  - 游资
+  - 监管
+- id: claim-20260909-007-a
+  source_path: sources/original/bilibili/2026-09-09-1107-图片-把最近的行情做个比较，其实特别像去年12月份，你们看下普冉股.md
+  source_date: '2026-09-09'
+  source_type: 动态
+  extracted_at: '2026-09-09T12:16:00+08:00'
+  claim_type: methodology
+  subject: 普冉股份历史案例
+  timeframe: permanent
+  statement: 普冉股份(688766)2025年12月股价一百多，之后半年涨到九百，是'横盘洗盘期拿住主线个股'的历史样本；该票是UP开充电第一天（十二月中旬）就提到的。
+  evidence_quote: 普冉股份后面从12月份一百多，半年涨到了九百。  所以你现在就问自己，你是要去捡芝麻，还是要去抱西瓜，你想要去抱西瓜，这段时间就是静下心来认真选股。
+  interpretation: 历史案例：横盘期被洗出去的人错过的是5倍主升。UP用此案例论证'震荡期=选股期'的操作纪律——不追当下热闹的芝麻题材（农业），而是提前布局真正的西瓜（科技主线）。注意普冉为科创板688766，用户不可直接交易，只能通过ETF表达同类逻辑。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 普冉股份案例：12月一百多半年涨到九百，震荡期选股等待主升
+  related_stocks:
+  - code: '688766'
+    name: 普冉股份
+    role: 历史主升案例-科创板不可交易
+  tags:
+  - 普冉股份
+  - 历史案例
+  - 主升浪
+  - 选股
+  - 充电
+- id: claim-20260909-008-a
+  source_path: sources/original/bilibili/2026-09-09-1107-图片-把最近的行情做个比较，其实特别像去年12月份，你们看下普冉股.md
+  source_date: '2026-09-09'
+  source_type: 动态
+  extracted_at: '2026-09-09T12:16:00+08:00'
+  claim_type: operation
+  subject: 震荡期操作策略
+  timeframe: short-term
+  statement: 操作上不捡芝麻（短线热门题材）、要抱西瓜（真主线），震荡洗盘这段时间的正确动作是静下心来认真选股，为行情来临做好准备。
+  evidence_quote: 所以你现在就问自己，你是要去捡芝麻，还是要去抱西瓜，你想要去抱西瓜，这段时间就是静下心来认真选股。
+  interpretation: UP给出明确的操作指令：当前震荡期不是交易期而是选股期。结合10:27'降低预期见好就收'，完整纪律=持仓者不被震出去+空仓者不追芝麻题材（如农业）+利用横盘时间完成选股准备。置顶评论补充：'等行情来的时候我希望大家已经准备好了'——预期行情启动在近期（节后），当前是最后的准备窗口。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 震荡期策略：不捡芝麻抱西瓜，静心选股等待行情
+  related_stocks: []
+  tags:
+  - 操作纪律
+  - 选股
+  - 芝麻西瓜
+  - 震荡期
+  - 降低预期
