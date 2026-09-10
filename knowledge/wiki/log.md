@@ -2291,3 +2291,10 @@
 - Gate 2 假阳性追加 NON_COMPANY 4 条（"所处的科技"等科技/电子文本片段）
 - ⚠️ 合并坑：pipeline step3 YAML 条目为顶格 "- id:"，按缩进 2 格追加会破坏顶层列表结构（YAML 仍可解析但新条目并入最后一条的 tags）——本次已按原格式顶格追加并用 gate_validate_claims.py --all 校验 30 条全过
 - 输出 claim-20260909-001.yaml（30 条）+ wiki/每日复盘/2026-09-09.md + claims/index.md
+
+## 2026-09-10 | qing-learning ingest | 9/10 早盘动态 08:52 提取（10 条）
+
+- raw：`sources/original/bilibili/2026-09-10-0852-图片-隔夜美股三大指数收跌，但存储、光通信板块逆势走强。外盘对今天.md`（充电专属，登录态抓取正常）
+- claim-20260910-001.yaml（新文件 10 条）：外盘开盘溢价定性（存储光通信高开预期，持续性看量能承接联动）、指数定性 3909 防守位、三情形推演、三要素框架、存储光通信主线（剑桥科技情绪样本）、AI应用（DeepSeek V4.1 Flash/Meta Muse，接入≠业绩）、煤炭 CCI 984元/吨（弹性vs红利拆分）、非科技轮动健康度、新适确得渠道价口径、3909 操作预案（持有做T/触及最多减两成）
+- Gate 1：subject '、' 修正 + 缓存坑（rm gate1_result.json）；Gate 2 假阳性追加 NON_COMPANY 3 条（"保险券商与科技"等）
+- 输出 claim-20260910-001.yaml + wiki/每日复盘/2026-09-10.md + claims/index.md
