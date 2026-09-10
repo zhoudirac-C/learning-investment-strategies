@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 import time
 import urllib.request
@@ -36,9 +37,11 @@ INDICES = {
     "sz399001": {"secid": "0.399001", "name": "深证成指"},
     "sz399006": {"secid": "0.399006", "name": "创业板指"},
     "sh000688": {"secid": "1.000688", "name": "科创50"},
-    "sh000932": {"secid": "1.000932", "name": "中证2000"},
-    # 微盘股指数（通达信 880823，市值最小 400 只等权）：东财/腾讯无此指数，TDX 直连
-    "880823": {"secid": "", "name": "微盘股指数", "tdx_only": True},
+    # ⚠️ 原注释误标为「中证2000」，实测 sh000932 = 中证消费（中证2000 应为 sh932000）
+    "sh000932": {"secid": "1.000932", "name": "中证消费"},
+    # 微盘股指数（同花顺 883418，市值最小 400 只等权，与万得同口径）
+    # 2026-09-10：原 TDX 880823 因接口封禁无数据，改用同花顺
+    "883418": {"secid": "", "name": "微盘股", "ths_only": True},
 }
 
 TIMEFRAMES = {
@@ -69,6 +72,20 @@ _TENCENT_SYMBOLS = {
     "sh000688": "sh000688",
     "sh000932": "sh000932",
 }
+
+# ---------------------------------------------------------------------------
+# 同花顺板块指数（2026-09-10 新增，替代被封禁的 TDX 独有指数）
+# 微盘股 883418：与万得微盘股同口径（市值最小 400 只等权）
+# 接口: https://d.10jqka.com.cn/v6/line/<prefix><code>/<period>/last.js
+# ---------------------------------------------------------------------------
+_THS_PREFIX = "bk_"
+# 同花顺周期码: 00=日线 41=30min 50=60min（⚠️ 无 120min，由 60min 合成）
+# 键与 TIMEFRAMES 的 klt 一致（101=日线）
+_THS_PERIOD_MAP = {
+    "883418": {101: "00", 30: "41", 60: "50"},
+}
+# 进程内熔断（与东财/TDX 同范式）
+_THS_DEAD = False
 
 
 def _http_get(url: str, *, headers: dict | None = None, timeout: int = HTTP_TIMEOUT) -> str:
@@ -147,6 +164,125 @@ def _parse_eastmoney_klines(raw: list[str]) -> list[dict]:
         except (ValueError, IndexError):
             continue
     return result
+
+
+def _parse_ths_klines(raw: list[str]) -> list[dict]:
+    """解析同花顺 d.10jqka.com.cn 的 K线 data 串。
+
+    每根格式：`时间,开,高,低,收,成交量,成交额,...,0`
+    - 日线时间 = `YYYYMMDD`（8 位）
+    - 分钟线时间 = `YYYYMMDDHHMM`（12 位）
+    """
+    result = []
+    for row in raw:
+        parts = row.split(",")
+        if len(parts) < 6:
+            continue
+        try:
+            t = parts[0]
+            if len(t) >= 12:
+                bar_time = f"{t[0:4]}-{t[4:6]}-{t[6:8]} {t[8:10]}:{t[10:12]}"
+            else:
+                bar_time = f"{t[0:4]}-{t[4:6]}-{t[6:8]}"
+            result.append({
+                "bar_time": bar_time,
+                "open": float(parts[1]),
+                "close": float(parts[4]),
+                "high": float(parts[2]),
+                "low": float(parts[3]),
+                "volume": float(parts[5]),
+                "amount": float(parts[6]) if len(parts) > 6 and parts[6] else 0.0,
+            })
+        except (ValueError, IndexError):
+            continue
+    return result
+
+
+def _synth_daily_from_intraday(code: str, count: int) -> list[dict]:
+    """同花顺日线兜底：由 30 分钟 K线聚合出日线。
+
+    ⚠️ 2026-09-10 实测：同花顺**日线接口 (00) 不可信** ——
+    同一天的收盘在三个口径下互相矛盾，且会随时间被"改写"：
+        - 00/last.js   → 2179.375  (V=885627490)
+        - 00/2026.js   → 2167.324  (V=195645730)  ← 同一接口前后两次请求也不同
+        - 50/last.js 60min → 2168.664
+        - 41/last.js 30min → 2168.664
+        - 当日分时末点     → 2168.664  ← 与官网显示 2168.66 一致
+    因 30min/60min/分时三者一致且自洽（开盘 2186.112 = 日线最高价），
+    判定 **分钟线为权威源**，日线一律由 30min 聚合，不取 00 接口。
+
+    聚合规则：open=首根开盘，close=末根收盘，high=max，low=min，
+    volume/amount=求和。按自然日分组。
+    """
+    bars = fetch_latest_klines_from_ths(code, 30, count=240 * (count + 2))
+    if not bars:
+        return []
+
+    agg: dict[str, list[dict]] = {}
+    for b in bars:
+        day = b["bar_time"][:10]
+        agg.setdefault(day, []).append(b)
+
+    daily = []
+    for day in sorted(agg):
+        grp = agg[day]
+        daily.append({
+            "bar_time": day,
+            "open": grp[0]["open"],
+            "high": max(g["high"] for g in grp),
+            "low": min(g["low"] for g in grp),
+            "close": grp[-1]["close"],
+            "volume": sum(g["volume"] or 0 for g in grp),
+            "amount": sum(g["amount"] or 0 for g in grp),
+        })
+    # 最后一个交易日可能不完整（盘中），但收盘后即为完整日
+    return daily[-count:] if len(daily) > count else daily
+
+
+def fetch_latest_klines_from_ths(code: str, klt: int, count: int = FETCH_BARS) -> list[dict]:
+    """同花顺板块指数 K线（微盘股 883418 等 TDX 独有指数的替代源）。
+
+    2026-09-10 新增：TDX 常规 K线接口被按接口粒度封禁后，微盘股指数
+    (原 TDX 880823) 失去数据。同花顺 883418「微盘股」是同口径替代
+    （市值最小400只等权，2025 年度涨幅 +69.4% vs 万得微盘股 +70.70%）。
+
+    接口: https://d.10jqka.com.cn/v6/line/bk_<code>/<period>/last.js
+    周期码: 00=日线  41=30分钟  50=60分钟  10=周  11=月  12=年
+    ⚠️ 无 120 分钟周期（上层由 60min 合成）。
+
+    ⚠️ 坑：日线 (00) 收盘价可能滞后一个 tick（2026-09-10 实测日线
+    2167.324 vs 分钟线/官方 2168.664）。分钟线更准。
+    需要 headers: Referer https://q.10jqka.com.cn/
+    """
+    import urllib.request
+
+    period = _THS_PERIOD_MAP.get(code, {}).get(klt)
+    if not period:
+        return []
+
+    url = f"https://d.10jqka.com.cn/v6/line/{_THS_PREFIX}{code}/{period}/last.js"
+    headers = {
+        "Referer": "https://q.10jqka.com.cn/",
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        ),
+    }
+    try:
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=HTTP_TIMEOUT) as resp:
+            text = resp.read().decode("utf-8", errors="ignore")
+        m = re.search(r"\((.*)\)\s*;?\s*$", text, re.S)
+        if not m:
+            return []
+        payload = json.loads(m.group(1))
+        raw = [r for r in payload.get("data", "").split(";") if r]
+    except Exception:
+        return []
+
+    result = _parse_ths_klines(raw)
+    result.sort(key=lambda k: k["bar_time"])
+    return result[-count:] if len(result) > count else result
 
 
 def fetch_latest_klines_from_tencent(code: str, count: int = FETCH_BARS,
@@ -283,24 +419,63 @@ def fetch_latest_klines_from_tdx(code: str, klt: int, count: int = FETCH_BARS) -
 
     if klt == 120:
         # 60min → 120min：10:30+11:30 → 11:30，14:00+15:00 → 15:00（按 bar 时点对齐，避免错位）
-        merged = []
-        for i in range(len(bars) - 1):
-            b1, b2 = bars[i], bars[i + 1]
-            hm1 = b1["bar_time"][11:16] if len(b1["bar_time"]) >= 16 else ""
-            hm2 = b2["bar_time"][11:16] if len(b2["bar_time"]) >= 16 else ""
-            if (hm1, hm2) in (("10:30", "11:30"), ("14:00", "15:00")):
-                merged.append({
-                    "bar_time": b2["bar_time"],
-                    "open": b1["open"],
-                    "high": max((b1["high"] or 0), (b2["high"] or 0)),
-                    "low": min((b1["low"] or 0), (b2["low"] or 0)),
-                    "close": b2["close"],
-                    "volume": (b1["volume"] or 0) + (b2["volume"] or 0),
-                    "amount": (b1["amount"] or 0) + (b2["amount"] or 0),
-                })
-        bars = merged
+        bars = _synth_120min_from_60min(bars)
 
     return bars[-count:] if len(bars) > count else bars
+
+
+def _synth_120min_from_60min(bars: list[dict]) -> list[dict]:
+    """60min → 120min 合成：10:30+11:30 → 11:30，14:00+15:00 → 15:00。
+
+    按 bar 时点对齐，避免错位。TDX 与同花顺路径共用。
+    """
+    merged = []
+    for i in range(len(bars) - 1):
+        b1, b2 = bars[i], bars[i + 1]
+        hm1 = b1["bar_time"][11:16] if len(b1["bar_time"]) >= 16 else ""
+        hm2 = b2["bar_time"][11:16] if len(b2["bar_time"]) >= 16 else ""
+        if (hm1, hm2) in (("10:30", "11:30"), ("14:00", "15:00")):
+            merged.append({
+                "bar_time": b2["bar_time"],
+                "open": b1["open"],
+                "high": max((b1["high"] or 0), (b2["high"] or 0)),
+                "low": min((b1["low"] or 0), (b2["low"] or 0)),
+                "close": b2["close"],
+                "volume": (b1["volume"] or 0) + (b2["volume"] or 0),
+                "amount": (b1["amount"] or 0) + (b2["amount"] or 0),
+            })
+    return merged
+
+
+def _fetch_ths_with_breaker(code: str, klt: int, count: int) -> list[dict]:
+    """带进程内熔断的同花顺拉取。
+
+    同花顺无 120min 周期 → 取 60min 合成（与 TDX 路径同逻辑）。
+    """
+    global _THS_DEAD
+    if _THS_DEAD:
+        return []
+    if klt == 101:
+        # ⚠️ 日线接口(00)不可信 → 由 30min 聚合（见 _synth_daily_from_intraday）
+        result = _synth_daily_from_intraday(code, count)
+        if not result:
+            _THS_DEAD = True
+            print("    [INFO] 同花顺不可用，本进程内已熔断")
+        return result
+    if klt == 120:
+        # 同花顺无 120min 周期 → 取 60min 合成（与 TDX 路径同逻辑）
+        bars60 = fetch_latest_klines_from_ths(code, 60, count * 2 + 2)
+        if not bars60:
+            _THS_DEAD = True
+            print("    [INFO] 同花顺不可用，本进程内已熔断")
+            return []
+        merged = _synth_120min_from_60min(bars60)
+        return merged[-count:] if len(merged) > count else merged
+    result = fetch_latest_klines_from_ths(code, klt, count)
+    if not result:
+        _THS_DEAD = True
+        print("    [INFO] 同花顺不可用，本进程内已熔断")
+    return result
 
 
 def _fetch_tdx_with_breaker(code: str, klt: int, count: int) -> list[dict]:
@@ -330,8 +505,11 @@ def fetch_latest_klines(code: str, klt: int, count: int = FETCH_BARS) -> list[di
     按接口粒度封禁（全 host 返回空），因此 TDX 从「分钟线首选兜底」
     降为最后一档；且一旦失败即熔断，避免每次逐台空转 20-30s。
 
-    tdx_only 指数（如 880823 微盘股）东财/腾讯均无数据，只能走 TDX。
+    ths_only 指数（微盘股 883418）走同花顺：TDX 880823 已不可用，
+    东财/腾讯均无此指数。
     """
+    if INDICES[code].get("ths_only"):
+        return _fetch_ths_with_breaker(code, klt, count)
     if INDICES[code].get("tdx_only"):
         return _fetch_tdx_with_breaker(code, klt, count)
     secid = INDICES[code]["secid"]

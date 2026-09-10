@@ -17,7 +17,9 @@ from investment_engine.backtest.history import get_index_daily, get_klines_range
 FORBIDDEN_RE = re.compile(r"UP|青枫浦|博主")
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 INDEX_CODES = ("IDX000300", "IDX000001", "IDX399006", "IDX399001", "IDX000852",
-               "IDX000932", "IDX880823")  # 中证2000/微盘股（2026-08-16 入包，contract-v2 D7 可选项）
+               "IDX000932", "IDX880823")  # 中证消费/微盘股（2026-08-16 入包，contract-v2 D7 可选项）
+# ⚠️ 2026-09-10：IDX880823 底层数据源由 TDX 880823 改为同花顺 883418（TDX 接口封禁）。
+# ⚠️ IDX000932 实为「中证消费」，原注释误标「中证2000」（正确代码 sh932000）。
 # 2026-09-05 包瘦身 Round C：60→20 展示口径导致「震荡误判调整」净 -2 天
 # （可视历史变短 → 现价显得接近波段低点 → 破位观感放大），已回滚回 60。
 _INDEX_LOOKBACK = 60
