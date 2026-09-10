@@ -101,7 +101,15 @@ class TdxClient:
     # 公共 API
     # ------------------------------------------------------------------
 
-    def execute(self, cap: HostCapability, op, *args, retry_empty: bool = False, **kwargs):
+    def execute(
+        self,
+        cap: HostCapability,
+        op,
+        *args,
+        retry_empty: bool = False,
+        strict: bool = False,
+        **kwargs,
+    ):
         """在支持 ``cap`` 能力的服务器上执行 ``op(api, *args, **kwargs)``。
 
         按加权随机顺序尝试多台服务器，任一成功即返回；全部失败抛
@@ -110,8 +118,13 @@ class TdxClient:
         Args:
             retry_empty: True 时，若某台服务器返回空结果（None/空 list/空 dict），
                 视为「软失败」并切换下一台（计入熔断）。用于实时行情/证券列表
-                这类「服务器可能连上但不返回数据」的场景。全部候选都空时返回
-                最后的空结果（不抛异常），由调用方判断。
+                这类「服务器可能连上但不返回数据」的场景。
+            strict: True 时，「所有候选都返回空」视为**硬失败**并抛 TdxDataError，
+                而不是静默返回空结果。用于 K线 这类「空结果一定是故障」的能力——
+                2026-09-10 实测 TDX 服务端按接口粒度封禁
+                （``get_security_bars`` / ``get_index_bars`` 全 host 返回空，
+                而 ``get_security_count`` 正常），此前的静默返回 [] 导致
+                selftest 假绿灯 + 下游逐台空转直至 cron 超时。
         """
         candidates = self._ordered_candidates(cap)
         if not candidates:
@@ -147,6 +160,17 @@ class TdxClient:
                     host.Name, host.IP, host.Port, cap, e,
                 )
                 continue
+
+        # 全部软失败（空）且该能力要求严格 → 抛 TdxDataError
+        if strict and last_result is None and last_err is None:
+            logger.warning(
+                "tdx 能力 %s：尝试 %d 台服务器均返回空结果，判定为服务端接口不可用",
+                cap, tried,
+            )
+            raise TdxDataError(
+                f"尝试 {tried} 台服务器均返回空结果 (能力={cap!r})，"
+                f"疑似服务端按接口粒度封禁"
+            )
 
         # 有硬异常 → 抛出；否则（全部软失败/空）返回最后的空结果
         if last_err is not None and last_result is None:

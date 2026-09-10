@@ -237,7 +237,13 @@ class TdxMarket:
         count: int = 100,
         start: int = 0,
     ) -> list[dict]:
-        """个股K线。``category`` 可为 'daily'/'weekly'/'monthly'/'5min' 等或数字。"""
+        """个股K线。``category`` 可为 'daily'/'weekly'/'monthly'/'5min' 等或数字。
+
+        注意：K线能力使用 ``strict=True`` —— 2026-09-10 起 TDX 公网节点
+        对 ``get_security_bars``/``get_index_bars`` 按接口封禁，
+        全部 host 返回空时必须抛 ``TdxDataError`` 而不是返回 ``[]``，
+        否则上游会静默拿到空数据（selftest 假绿灯 + cron 空转至超时）。
+        """
         market, pure, is_index = resolve_symbol(code)
         cat = self._category(category)
         cap = HostCapability.CapMainKline
@@ -251,6 +257,7 @@ class TdxMarket:
                 else api.get_security_bars(cat, market, pure, start, count)
             ),
             retry_empty=True,
+            strict=True,
         )
         if not raw:
             return []

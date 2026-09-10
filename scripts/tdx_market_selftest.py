@@ -20,20 +20,49 @@ logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(name)s: %(mes
 
 OK = 0
 FAIL = 0
+EMPTY = 0
 
 
-def run(name, fn):
-    global OK, FAIL
+def _nonempty(result) -> bool:
+    """判定「真实取到数据」。
+
+    ⚠️ 2026-09-10 教训：不能只看「是否抛异常」。
+    TDX 服务端按接口粒度封禁时，`get_security_bars` 全 host 返回空，
+    空列表 `[]` 不抛异常 —— 旧版 `run()` 会把它记成 OK，
+    造成 selftest 全绿但实际 0 台 host 能取 K线的假象。
+    正确标准：返回**非空**才算 OK。
+    """
+    if result is None:
+        return False
+    if isinstance(result, (list, dict, str, tuple, set)):
+        return len(result) > 0
+    return True
+
+
+def run(name, fn, expect_nonempty: bool = True):
+    """执行一项自测并统计。
+
+    Args:
+        expect_nonempty: True 时要求返回非空才算 OK（默认，适用于所有取数接口）。
+            仅当「返回空本身是合法结果」时才传 False。
+    """
+    global OK, FAIL, EMPTY
     try:
         result = fn()
-        OK += 1
-        print(f"\n[OK]   {name}")
-        return result
     except Exception as e:  # noqa: BLE001
         FAIL += 1
         print(f"\n[FAIL] {name}: {e!r}")
         traceback.print_exc(limit=2)
         return None
+
+    if expect_nonempty and not _nonempty(result):
+        EMPTY += 1
+        print(f"\n[EMPTY] {name}: 接口连通但返回空 —— 疑似服务端按接口粒度封禁")
+        return result
+
+    OK += 1
+    print(f"\n[OK]   {name}")
+    return result
 
 
 def main() -> None:
@@ -90,8 +119,11 @@ def main() -> None:
     if bl is not None:
         print(f"   板块条数={len(bl)}")
 
-    print(f"\n========== 汇总: OK={OK}  FAIL={FAIL} ==========")
-    sys.exit(0 if FAIL == 0 else 1)
+    print(f"\n========== 汇总: OK={OK}  EMPTY={EMPTY}  FAIL={FAIL} ==========")
+    if EMPTY:
+        print(f"⚠️  {EMPTY} 项接口连通但返回空 —— TDX 常规 K线/行情接口疑似被封禁，"
+              f"请勿据此认为数据正常（2026-09-10 教训）")
+    sys.exit(0 if (FAIL == 0 and EMPTY == 0) else 1)
 
 
 if __name__ == "__main__":

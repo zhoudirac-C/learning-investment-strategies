@@ -49,6 +49,10 @@ TIMEFRAMES = {
 }
 
 FETCH_BARS = 5          # 每次拉最新5根
+
+# 进程内熔断标志（2026-09-10：TDX 常规 K线接口被封禁 / 东财对云 IP 断连）
+_TDX_DEAD = False
+_EM_DEAD = False
 RECOMPUTE_BARS = 35     # 重算最近35根的MACD（保证EMA稳定）
 DELAY = 1.0             # 请求间隔
 HTTP_TIMEOUT = 30       # 单次请求超时（秒），东财偶发连接重置，放宽等待
@@ -94,6 +98,24 @@ def _http_get(url: str, *, headers: dict | None = None, timeout: int = HTTP_TIME
     raise last_err or ConnectionError(f"请求失败: {url}")
 
 
+def _eastmoney_get(url: str, *, timeout: int = HTTP_TIMEOUT) -> str:
+    """带进程内熔断的东财请求。
+
+    2026-09-10：东财 push2his 对云环境 IP 持续 `Remote end closed connection`，
+    每次重试 3 轮耗时约 12s。首次确认失败后本进程短路，
+    直接转腾讯通道，避免 36 次调用累计 ~7 分钟拖垮 cron。
+    """
+    global _EM_DEAD
+    if _EM_DEAD:
+        raise ConnectionError("东财本进程内已熔断")
+    try:
+        return _http_get(url, timeout=timeout)
+    except Exception:
+        _EM_DEAD = True
+        print("    [INFO] 东财不可用，本进程内已熔断（后续直接走腾讯）")
+        raise
+
+
 def _ema(values: list[float], period: int) -> list[float | None]:
     if len(values) < period:
         return [None] * len(values)
@@ -127,23 +149,69 @@ def _parse_eastmoney_klines(raw: list[str]) -> list[dict]:
     return result
 
 
-def fetch_latest_klines_from_tencent(code: str, count: int = FETCH_BARS) -> list[dict]:
-    """腾讯财经指数日 K 兜底（仅日线）。返回与东财统一格式。"""
+def fetch_latest_klines_from_tencent(code: str, count: int = FETCH_BARS,
+                                     klt: int = 101) -> list[dict]:
+    """腾讯财经指数 K线兜底（日线 + 分钟线，2026-09-10 扩展分钟线）。
+
+    日线走 fqkline/get（qfq 前复权）；分钟线走 kline/mkline。
+    返回与东财统一格式。
+    """
     tencent_symbol = _TENCENT_SYMBOLS.get(code)
     if not tencent_symbol:
         return []
 
-    url = (
-        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
-        f"?param={tencent_symbol},day,,,{count + 3},qfq"
-    )
     tencent_headers = {
-        "Referer": "https://finance.qq.com/",
+        "Referer": "https://gu.qq.com/",
         "User-Agent": (
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
             "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         ),
     }
+
+    # 分钟线：klt -> 腾讯周期名
+    _MIN_MAP = {30: "m30", 60: "m60", 120: "m120", 1: "m1", 5: "m5", 15: "m15"}
+    if klt in _MIN_MAP:
+        period = _MIN_MAP[klt]
+        # ⚠️ 必须用 ifzq.gtimg.cn（无 web. 前缀）——带 web. 的域名会 301 跳转
+        url = (
+            "https://ifzq.gtimg.cn/appstock/app/kline/mkline"
+            f"?param={tencent_symbol},{period},,{count + 5}"
+        )
+        try:
+            payload = json.loads(_http_get(url, headers=tencent_headers))
+            raw = payload.get("data", {}).get(tencent_symbol, {}).get(period, [])
+        except Exception:
+            return []
+        result = []
+        for parts in raw or []:
+            if len(parts) < 6:
+                continue
+            try:
+                # 腾讯分钟线：时间(YYYYMMDDHHMM), 开盘, 收盘, 最高, 最低, 成交量
+                t = str(parts[0])
+                bar_time = (
+                    f"{t[0:4]}-{t[4:6]}-{t[6:8]} {t[8:10]}:{t[10:12]}"
+                    if len(t) >= 12 else t
+                )
+                result.append({
+                    "bar_time": bar_time,
+                    "open": float(parts[1]),
+                    "close": float(parts[2]),
+                    "high": float(parts[3]),
+                    "low": float(parts[4]),
+                    "volume": float(parts[5]),
+                    "amount": 0.0,
+                })
+            except (ValueError, IndexError):
+                continue
+        result.sort(key=lambda k: k["bar_time"])
+        return result[-count:] if len(result) > count else result
+
+    # 日线
+    url = (
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+        f"?param={tencent_symbol},day,,,{count + 3},qfq"
+    )
     try:
         text = _http_get(url, headers=tencent_headers)
         payload = json.loads(text)
@@ -235,13 +303,37 @@ def fetch_latest_klines_from_tdx(code: str, klt: int, count: int = FETCH_BARS) -
     return bars[-count:] if len(bars) > count else bars
 
 
-def fetch_latest_klines(code: str, klt: int, count: int = FETCH_BARS) -> list[dict]:
-    """拉取最新 N 根K线（升序）。东财失败：日线回退腾讯，分钟线回退 TDX。
+def _fetch_tdx_with_breaker(code: str, klt: int, count: int) -> list[dict]:
+    """带进程内熔断的 TDX 拉取。
 
-    tdx_only 指数（如 880823 微盘股）跳过东财/腾讯，直接走 TDX。
+    2026-09-10：TDX 常规 K线接口被服务端封禁，每次调用会逐台重试
+    host（约 20-30s）。本进程一旦确认 TDX 不可用，后续调用直接短路，
+    避免 9 指数 × 4 周期 = 36 次调用累计空转数分钟导致 cron 900s 超时。
+    """
+    global _TDX_DEAD
+    if _TDX_DEAD:
+        return []
+    result = fetch_latest_klines_from_tdx(code, klt, count)
+    if not result:
+        _TDX_DEAD = True
+        print("    [INFO] TDX K线不可用，本进程内已熔断（后续跳过 TDX 兜底）")
+    return result
+
+
+def fetch_latest_klines(code: str, klt: int, count: int = FETCH_BARS) -> list[dict]:
+    """拉取最新 N 根K线（升序）。
+
+    降级链（2026-09-10 调整）：
+        东财 push2his  →  腾讯(日线+分钟线)  →  TDX  →  []
+
+    ⚠️ 2026-09-10 起 TDX 公网节点对 get_security_bars/get_index_bars
+    按接口粒度封禁（全 host 返回空），因此 TDX 从「分钟线首选兜底」
+    降为最后一档；且一旦失败即熔断，避免每次逐台空转 20-30s。
+
+    tdx_only 指数（如 880823 微盘股）东财/腾讯均无数据，只能走 TDX。
     """
     if INDICES[code].get("tdx_only"):
-        return fetch_latest_klines_from_tdx(code, klt, count)
+        return _fetch_tdx_with_breaker(code, klt, count)
     secid = INDICES[code]["secid"]
     url = (
         "https://push2his.eastmoney.com/api/qt/stock/kline/get"
@@ -251,7 +343,7 @@ def fetch_latest_klines(code: str, klt: int, count: int = FETCH_BARS) -> list[di
         f"&klt={klt}&fqt=1&end=20500101&lmt={count + 3}"
     )
     try:
-        data = json.loads(_http_get(url))
+        data = json.loads(_eastmoney_get(url))
         raw = data.get("data", {}).get("klines", [])
         result = _parse_eastmoney_klines(raw)
         if result:
@@ -260,21 +352,15 @@ def fetch_latest_klines(code: str, klt: int, count: int = FETCH_BARS) -> list[di
     except Exception as e:
         print(f"    [WARN] 东财 {INDICES[code]['name']} klt={klt} 失败: {str(e)[:80]}")
 
-    # 日线降级到腾讯；分钟线降级到 TDX
-    if klt == 101:
-        print(f"    [INFO] 尝试腾讯日 K 兜底 {INDICES[code]['name']}...")
-        result = fetch_latest_klines_from_tencent(code, count)
-        if result:
-            print(f"    [INFO] 腾讯日 K 兜底成功 {INDICES[code]['name']}: {len(result)} 根")
-            return result
-    else:
-        print(f"    [INFO] 尝试 TDX 分钟线兜底 {INDICES[code]['name']} klt={klt}...")
-        result = fetch_latest_klines_from_tdx(code, klt, count)
-        if result:
-            print(f"    [INFO] TDX 分钟线兜底成功 {INDICES[code]['name']}: {len(result)} 根")
-            return result
+    # 腾讯兜底：日线 + 分钟线（2026-09-10 扩展）
+    print(f"    [INFO] 尝试腾讯兜底 {INDICES[code]['name']} klt={klt}...")
+    result = fetch_latest_klines_from_tencent(code, count, klt=klt)
+    if result:
+        print(f"    [INFO] 腾讯兜底成功 {INDICES[code]['name']}: {len(result)} 根")
+        return result
 
-    return []
+    # TDX 最后一档（已熔断保护）
+    return _fetch_tdx_with_breaker(code, klt, count)
 
 
 def compute_macd_range(klines: list[dict]) -> list[dict]:
