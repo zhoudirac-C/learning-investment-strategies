@@ -134,7 +134,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260827-033-a"]
+  supplements:
+  - claim-20260827-033-a
   last_discovered: 2026-09-10
   links:
     wiki_pages: []
@@ -161,8 +162,7 @@ claims:
   timeframe: short-term
   statement: DeepSeek拟于9月10日前后发布V4.1 Flash，具体上线状态、性能及计费安排以正式公告为准；筹备科创板IPO的消息目前涉及接洽和尽调进展，尚不等同于正式申报或确定上市。模型迭代若能持续降低使用成本、提高任务完成效率，可能拓展下游应用空间；杭钢股份(600126)、每日互动(300766)列入相关业务跟踪名单，重点是实际业务进展与收入兑现，接入模型本身不等于形成显著业绩增量。Meta已推出个人AI助理Muse；AI应用观察重点从产品发布推进到用户使用、付费转化和商业模式验证；美格智能(002881)、亿道信息(001314)作为相关终端方向跟踪标的，具体受益程度仍需业务证据支持。
   evidence_quote: 筹备科创板IPO的消息目前涉及接洽和尽调进展，尚不能等同于正式申报或确定上市。……接入模型本身不等于形成显著业绩增量。
-  interpretation: AI应用两条线索（模型迭代降本+终端应用商业化）均为'事件→观察名单→业务证据'的审慎推演链条，明确否定'接入=业绩'的 shortcut。DeepSeek
-    IPO 消息被标记为未申报状态，防叙事前置定价。
+  interpretation: AI应用两条线索（模型迭代降本+终端应用商业化）均为'事件→观察名单→业务证据'的审慎推演链条，明确否定'接入=业绩'的 shortcut。DeepSeek IPO 消息被标记为未申报状态，防叙事前置定价。
   confidence: high
   status: active
   intensity: medium
@@ -182,7 +182,7 @@ claims:
   - code: '300766'
     name: 每日互动
     role: DeepSeek相关业务跟踪-创业板不可交易
-  - code: '002881'
+  - code: 002881
     name: 美格智能
     role: AI终端方向跟踪-主板可交易
   - code: '001314'
@@ -311,8 +311,7 @@ claims:
   timeframe: short-term
   statement: 落到今日预案：沪指未触及3909点，已有关注方向仍以持有、择机做T为主；若触及防守点位，则按计划最多减两成仓。若随后出现放量下行或趋势结构变化，再重新评估后续预案。做T以已有底仓和明确价差为前提，窄幅震荡时不必为了交易而交易。维持看多判断的同时继续核对基本面是否兑现，让耐心建立在持续验证之上。美国8月CPI于北京时间9月11日20:30公布，数据公布前还包括周四、周五两个A股交易日；美联储FOMC定于9月15-16日，不提前把单一事件方向写进交易结论。
   evidence_quote: 沪指未触及3909点，已有关注方向仍以持有、择机做T为主；若触及防守点位，则按计划最多减两成仓。……做T以已有底仓和明确价差为前提，窄幅震荡时不必为了交易而交易。
-  interpretation: 操作纪律的具体化：防守位3909之上=持有+择机做T；触及=最多减两成仓（量化上限）；放量下行/结构变化=重新评估。事件日历（周五CPI、9/15-16
-    FOMC）只影响观察不预先写入交易结论——延续9/9'数据窗口不豁免量价纪律'口径。
+  interpretation: 操作纪律的具体化：防守位3909之上=持有+择机做T；触及=最多减两成仓（量化上限）；放量下行/结构变化=重新评估。事件日历（周五CPI、9/15-16 FOMC）只影响观察不预先写入交易结论——延续9/9'数据窗口不豁免量价纪律'口径。
   confidence: high
   status: active
   intensity: high
@@ -332,3 +331,586 @@ claims:
   - 减两成
   - 做T
   - CPI窗口
+- id: claim-20260910-011-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: market-cycle
+  subject: 9月10日盘面只有一个主题等
+  timeframe: short-term
+  statement: 9月10日沪深两市全天成交约1.65万亿元，量能继续萎缩，短线情绪趋近冰点，资金交投意愿降至阶段低位。重大数据公布前，缩量更像观望情绪升温，但是否已经止住资金撤离，仍要由后续承接来确认。沪指收于3934.40点下跌0.43%，深证成指下跌0.77%，创业板指下跌0.49%，两市成交较上一交易日减少2085亿元，指数全天弱势震荡，暂未呈现放量下杀的特征。
+  evidence_quote: 今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元，量能继续萎缩，短线情绪趋近冰点，资金交投意愿降至阶段低位。在重大数据公布前，缩量更像观望情绪升温，但是否已经止住资金撤离，仍要由后续承接来确认。
+  interpretation: 当日环境定调：地量+观望+等待数据，非放量出清。连续3天分歧后情绪趋近冰点，关键区分'观望式缩量'（数据前正常）与'撤离式缩量'（需承接确认）。3934点收盘仍守住3909防守位（9/10早盘claim-002）。跟踪锚点：后续承接是否出现。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 9月10日地量1.65万亿主题是等，观望式缩量需承接确认
+  related_stocks: []
+  tags:
+  - 地量
+  - 观望情绪
+  - 缩量
+  - 数据窗口
+  - 承接确认
+- id: claim-20260910-012-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: technical-knowledge
+  subject: 量能周期路径观察框架
+  timeframe: permanent
+  statement: 量能周期观察路径：峰值近4万亿元，回落至2.5-2.6万亿元，再回升至3万亿元以上，随后跌破2.5万亿元、降至2万亿元，反复后接近1.5-1.6万亿元。9月10日成交已接近该框架的低量阶段，有助于定位市场热度，但不能单凭路径推定调整结束。地量本身不必然构成利空，也不等于抛压与承接都已消失，更适合理解为买卖双方参与强度同时下降，部分资金等待数据落地。各阶段日期与成交统计口径仍待统一核实。
+  evidence_quote: 此前用于观察的量能周期路径，是峰值近4万亿元，回落至2.5—2.6万亿元，再回升至3万亿元以上，随后跌破2.5万亿元、降至2万亿元，反复后接近1.5—1.6万亿元。今天的成交已接近这一观察框架的低量阶段；这有助于定位市场热度，却不能单凭路径推定调整结束。
+  interpretation: 量能周期定位工具：完整路径=峰值4万亿→回落2.5-2.6万亿→回升3万亿+→跌破2.5万亿→2万亿→反复后1.5-1.6万亿地量区。当前1.65万亿已到低量阶段。方法论纪律：地量定位热度≠推定调整结束；地量=参与强度同降（买卖双方），非单边抛压。情绪端与指数端要分开看（情绪有修复需求，指数受宏观影响更大）。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能周期路径框架：峰值4万亿至地量1.5-1.6万亿，地量不必然利空
+  related_stocks: []
+  tags:
+  - 量能周期
+  - 地量定位
+  - 1.65万亿
+  - 框架
+  - 口径待核实
+- id: claim-20260910-013-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: market-cycle
+  subject: 周五情绪修复观察窗口与CPI时间表
+  timeframe: short-term
+  statement: 连续三天分歧之后，若题材高位股停止补跌、亏钱效应收敛，周五情绪回暖条件更充分；若核心标的继续走弱，出清过程仍可能延长。倾向于把周五视作情绪修复的观察窗口，指数的外部定价验证留到下周一。美国8月CPI于周五A股收盘后公布，明天盘中交易的是已有信息与数据预期，下周一再检验数据落地后的承接。周五收盘前仍按既定纪律评估周末敞口，不把单一情景当作确定结果。
+  evidence_quote: 倾向于把周五视作情绪修复的观察窗口，指数的外部定价验证则留到下周一。CPI于周五A股收盘后公布，明天盘中交易的是已有信息与数据预期，下周一再检验数据落地后的承接。周五收盘前，仍按既定纪律评估周末敞口，不把单一情景当作确定结果。
+  interpretation: 时间表拆解：周五=情绪修复观察窗口（内因）；下周一=CPI落地承接检验（外因）。两个窗口分开评估，不混为一谈。纪律重申：周五收盘前按既定纪律评估周末敞口（与既定'周五减仓纪律'呼应），数据公布前不加仓。承接信号优先级：题材高位股止跌+亏钱效应收敛=情绪回暖条件。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 周五看情绪修复窗口，下周一检验CPI承接，收盘前评估周末敞口
+  related_stocks: []
+  tags:
+  - 情绪修复
+  - CPI时间表
+  - 周五观察窗口
+  - 周末敞口
+  - 纪律
+- id: claim-20260910-014-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: sector-theme
+  subject: 防御领涨高股息船舶定性
+  timeframe: short-term
+  statement: 银行为首的高股息领涨，船舶逆势走强（松发股份（603268）强势表现受关注）。高股息可解释为数据前资金收缩风险敞口的落脚点；船舶则还包含订单与行业周期因素，不宜全部归入避险交易。暂以防御轮动和独立趋势观察，是否形成持续方向，要看CPI落地后能否继续获得承接。
+  evidence_quote: 银行为首的高股息领涨，船舶逆势走强，松发股份的强势表现受到关注。高股息可以解释为数据前资金收缩风险敞口的落脚点；船舶则还包含订单与行业周期因素，不宜全部归入避险交易。
+  interpretation: 防御阵营内部要拆分：高股息=数据前避险（事件驱动，数据落地后可能退潮）；船舶=订单+行业周期（有独立逻辑，非纯避险）。定性口径：防御轮动+独立趋势分开观察。持续方向确认条件=CPI落地后继续获得承接。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高股息是数据前避险落脚，船舶含订单周期因素不宜全归避险
+  related_stocks:
+  - code: '603268'
+    name: 松发股份
+    role: 船舶逆势走强样本-沪A主板可交易
+  tags:
+  - 高股息
+  - 船舶
+  - 防御轮动
+  - 松发股份
+  - 数据前避险
+- id: claim-20260910-015-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: sector-theme
+  subject: 科技分化PCB相对强势
+  timeframe: short-term
+  statement: 科技股延续分化，PCB相对强势，CPO出现局部拉升，半导体芯片略弱。算力硬件的抛压有趋缓迹象，但板块整体企稳仍需核心标的与上涨范围共同确认。PCB的盘面表现与光通信、算力基础设施的产业线索相呼应，消息能否转化为持续行情，仍要看量价。
+  evidence_quote: 科技股延续分化，PCB相对强势，CPO出现局部拉升，半导体芯片略弱。算力硬件的抛压有趋缓迹象，但板块整体企稳仍需核心标的与上涨范围共同确认。
+  interpretation: 科技内部强弱排序：PCB> CPO（局部）> 半导体芯片（弱）。抛压趋缓≠企稳，企稳双条件=核心标的止跌+上涨范围扩散。与9/10早盘claim-005（存储光通信盘前主线、剑桥科技情绪样本）衔接：盘前预期的光通信只兑现了局部CPO拉升，PCB接力相对强势。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技分化：PCB相对强势CPO局部拉升芯片弱，企稳需核心标的+范围确认
+  related_stocks: []
+  tags:
+  - 科技分化
+  - PCB
+  - CPO
+  - 半导体
+  - 企稳条件
+- id: claim-20260910-016-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: sector-theme
+  subject: 半导体芯片海外链观察与右侧确认纪律
+  timeframe: short-term
+  statement: 半导体芯片继续以海外链为重点观察方向，日韩与美股存储公司的业绩、指引及股价反馈可以作为行业景气的参考。海外表现不直接决定A股时点，国内标的仍需形成自身承接。右侧量价确认之前，不因一条产业消息提前认定反转。
+  evidence_quote: 半导体芯片继续以海外链为重点观察方向，日韩与美股存储公司的业绩、指引及股价反馈，可以作为行业景气的参考。海外表现不直接决定A股时点，国内标的仍需形成自身承接。右侧量价确认之前，不因一条产业消息提前认定反转。
+  interpretation: 海外链定位重申（与9/10早盘claim-001'外盘只给开盘溢价'同源）：海外数据=景气参考，不直接决定A股时点。A股介入需要自身承接+右侧量价确认。纪律：一条产业消息（如存储涨价、海外业绩超预期）不构成反转认定依据。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 半导体看海外链景气参考，右侧量价确认前不认定反转
+  related_stocks: []
+  tags:
+  - 海外链
+  - 存储景气
+  - 右侧确认
+  - 反转纪律
+  - 半导体
+- id: claim-20260910-017-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: market-cycle
+  subject: 情绪题材回流观察三信号与抢筹时点
+  timeframe: short-term
+  statement: 农业、消费、AI应用等方向连续分歧，资金对题材的参与意愿下降。明天可增加对充分调整分支的回流观察，但连续三天并非固定的出清周期；反弹能否出现，要看前期强势股是否止跌、板块内部是否恢复跟随。回流质量三个信号：核心先稳、板块扩散、回落有承接——比单只高标拉升更能说明情绪在修复。若尾盘过早集中拉升，可能把部分次日需求前置；若分歧充分、尾盘未被明显抢筹，而次日早盘重新出现主动买盘，回流的观察价值更高。
+  evidence_quote: 明天更值得记录的是回流质量：核心先稳、板块扩散、回落有承接，三个信号比单只高标拉升更能说明情绪在修复。
+  interpretation: 回流观察方法论（可复用框架）：①三信号=核心先稳+板块扩散+回落有承接；②'连续N天分歧'非固定出清周期（反机械数日子）；③尾盘抢筹时点判断：过早集中拉升=次日需求前置（透支），分歧充分+次日早盘主动买盘=回流价值更高。'没有尾盘抢筹'的全市场判断需分时成交验证，不能凭收盘观感。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 回流质量三信号：核心先稳板块扩散回落有承接，尾盘抢筹透支次日需求
+  related_stocks: []
+  tags:
+  - 回流质量
+  - 三信号
+  - 尾盘抢筹
+  - 情绪修复
+  - 出清周期
+- id: claim-20260910-018-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: stock-view
+  subject: 桂林旅游假期出行观察样本
+  timeframe: short-term
+  statement: 桂林旅游（000978）（000978）与区域客流关联度较高，可以作为假期消费与短线情绪回流的观察样本。2026年中秋假期9月25-27日、国庆假期10月1-7日中间相隔三个工作日，连续长假需请假衔接，不能表述为'超长假期'。截至8月25日的预订统计显示中秋国庆期间机票订单同比增长约五成，酒店订单增长接近两倍，部分热门城市酒店提前预订增长近四成，但这些数字反映平台、特定时点与预订窗口，不能直接等同于假期最终客流或公司收入。若高位分歧后仍有承接并带动旅游板块扩散，其盘面反馈更有参考价值；若只有个股拉升而板块走弱，指示作用有限。经营端继续看实际接待量、客单价与利润转化。
+  evidence_quote: 桂林旅游与区域客流关联度较高，可以作为假期消费与短线情绪回流的观察样本。若高位分歧后仍有承接，并带动旅游板块扩散，其盘面反馈更有参考价值；若只有个股拉升而板块走弱，对整体情绪的指示作用便有限。
+  interpretation: 旅游方向定性：观察样本（情绪回流指示器），非推荐标的。预订数据三重局限=平台口径+时点口径+预订窗口口径，不等于最终客流/收入。盘面参考价值条件=高位分歧后有承接+板块扩散；个股独走=指示无效。经营验证指标=实际接待量+客单价+利润转化。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 桂林旅游是假期消费观察样本，预订数据不能等同最终客流收入
+  related_stocks:
+  - code: 000978
+    name: 桂林旅游
+    role: 假期消费情绪回流观察样本-深A主板可交易
+  tags:
+  - 桂林旅游
+  - 旅游
+  - 假期消费
+  - 情绪回流
+  - 预订数据口径
+- id: claim-20260910-019-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: stock-view
+  subject: 云煤能源焦炭提涨跟踪
+  timeframe: short-term
+  statement: 云煤能源（600792）（600792）：焦炭第五轮提涨已有9月10日执行的行业信息，焦煤供应约束仍是产业链重要变量。公司拥有200万吨焦化项目和两座7.6米大型顶装焦炉，与武昆股份的区位配套有助于减少运输环节成本，形成较稳定的下游消化渠道。低业绩基数提供利润修复观察空间，但不能据此断定弹性必然超过行业龙头。焦炭提涨也可能是在转嫁焦煤成本，真正需要验证的是售价与配煤成本之间的价差、产能利用率及现金回款。第六轮提涨能否出现可作为跟踪变量，不能替代利润测算。
+  evidence_quote: 焦炭第五轮提涨已有9月10日执行的行业信息，焦煤供应约束仍是产业链的重要变量。公司拥有200万吨焦化项目和两座7.6米大型顶装焦炉，与武昆股份的区位配套有助于减少运输环节成本，形成较稳定的下游消化渠道。
+  interpretation: 焦炭逻辑关键辨析：提涨≠利润增长（可能只是转嫁焦煤成本）。利润验证三要素=售价与配煤成本价差+产能利用率+现金回款。公司优势=200万吨焦化+7.6米大顶装焦炉+武昆股份区位配套（运输成本低、下游稳定）。低基数提供修复空间但不断定弹性超龙头。第六轮提涨=跟踪变量非利润结论。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 云煤能源焦炭第五轮提涨落地，提涨可能是转嫁成本需验证价差
+  related_stocks:
+  - code: '600792'
+    name: 云煤能源
+    role: 焦炭第五轮提涨+低基数修复-沪A主板可交易
+  tags:
+  - 云煤能源
+  - 焦炭提涨
+  - 焦煤成本
+  - 利润验证
+  - 周期
+- id: claim-20260910-020-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: stock-view
+  subject: 国创高新沥青排产收缩跟踪
+  timeframe: short-term
+  statement: 国创高新（002377）（002377）：9月国内沥青样本企业计划排产157.5万吨，同比下降42.9%（对应92家企业排产调查，非当月已实现产量）。供给收缩与秋季施工窗口叠加，是9-10月值得跟踪的供需线索。公司拥有武汉、钦州、新津、宁波四个基地，沥青库容15.2万吨。原油供给扰动可能推高成本，也可能限制炼厂生产；传统旺季能否形成有效需求，还要看项目资金、施工与采购节奏。库存'近五年同期最低'和具体断供范围仍待核实。利润最终取决于采购与销售价差、库存周转和回款，不能把沥青现货涨价直接等同于盈利增长。
+  evidence_quote: 9月国内沥青样本企业计划排产157.5万吨，同比下降42.9%，这一数字对应92家企业的排产调查，并非当月已经实现的产量。供给收缩与秋季施工窗口叠加，是9—10月值得跟踪的供需线索。
+  interpretation: 沥青供需线索（9-10月跟踪窗口）：排产-42.9%=计划口径（92家企业调查），非已实现产量——数据口径纪律。供给收缩+秋季施工旺季=供需双击可能。但涨价≠盈利：利润取决于采购销售价差+库存周转+回款。公司资产=四基地+15.2万吨库容。待核实项：'库存近五年最低'说法与断供范围。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国创高新沥青9月排产同比降42.9%，排产计划口径不等于已实现产量
+  related_stocks:
+  - code: '002377'
+    name: 国创高新
+    role: 沥青排产收缩供需线索-深A主板可交易
+  tags:
+  - 国创高新
+  - 沥青
+  - 排产收缩
+  - 秋季施工
+  - 供需线索
+- id: claim-20260910-021-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: catalyst
+  subject: 湖北十五五光通信政策方向
+  timeframe: industry
+  statement: 湖北的'十五五'布局继续强调光通信、高端芯片与数智化建设，光电子信息、存储芯片及自主安全计算是可持续跟踪的政策方向。《数字湖北建设"十五五"规划》的专项正式发文及完整条文仍待核实，不将规划方向直接视作上市公司订单。
+  evidence_quote: 湖北的'十五五'布局继续强调光通信、高端芯片与数智化建设。光电子信息、存储芯片及自主安全计算，是可以持续跟踪的政策方向。《数字湖北建设"十五五"规划》的专项正式发文及完整条文仍待核实，不将规划方向直接视作上市公司订单。
+  interpretation: 政策催化定性：方向可跟踪（光电子信息+存储芯片+自主安全计算），但'规划方向≠上市公司订单'。待核实：专项正式发文与完整条文。与光通信主线（claim-015 PCB/光通信产业线索）形成政策面呼应，属长周期产业政策背景变量。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 湖北十五五强调光通信存储芯片，规划方向不视作上市公司订单
+  related_stocks: []
+  tags:
+  - 湖北十五五
+  - 光通信
+  - 存储芯片
+  - 政策方向
+  - 订单区分
+- id: claim-20260910-022-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: sector-theme
+  subject: 光模块1.6T演进与市场空间预测口径
+  timeframe: industry
+  statement: 高速光模块从400G、800G向1.6T演进，为光互联设备、连接器、测试与高端PCB带来业务机会。2030年全球光模块市场规模达到1086亿美元属于行业预测；2026-2030年复合增速约32.3%的具体版本与基期仍待核实。需求扩张方向有依据，增速与各环节份额仍有不确定性。光模块与海外算力投入关联较高，但制造环节壁垒并不均一，高端光芯片、封装工艺、客户认证与规模交付能力均会影响竞争格局。重点观察从无到有的业务转型，并核查份额流失、价格竞争与估值透支风险；转型叙事本身不构成优势证明。CPO应逐家公司检验估值所要求的增长与商业化进度。
+  evidence_quote: 高速光模块从400G、800G向1.6T演进，为光互联设备、连接器、测试与高端PCB带来业务机会。2030年全球光模块市场规模达到1086亿美元属于行业预测；2026—2030年复合增速约32.3%的具体版本与基期仍待核实。
+  interpretation: 光模块产业跟踪框架：①产品演进=400G→800G→1.6T，受益环节=光互联设备+连接器+测试+高端PCB；②市场规模1086亿美元（2030E）与32.3% CAGR均为预测口径待核实；③壁垒不均一=光芯片/封装/客户认证/规模交付四要素；④转型叙事≠优势证明，警惕份额流失+价格竞争+估值透支；⑤CPO逐家检验估值与商业化进度。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光模块向1.6T演进利好四环节，1086亿美元预测口径待核实
+  related_stocks: []
+  tags:
+  - 光模块
+  - 1.6T
+  - 市场空间
+  - 预测口径
+  - 壁垒
+- id: claim-20260910-023-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: stock-view
+  subject: 罗博特科太辰光光互联定位
+  timeframe: short-term
+  statement: 罗博特科（300757）（300757，创业板）通过ficonTEC布局光电子组装与测试，跟踪可插拔光模块、硅光、CPO、OCS等技术路线的设备需求，新增合同与交付进度以公告为准。太辰光（300570）（300570，创业板）重点对应光无源器件及高密度光连接，观察数据中心需求、产品结构与出货，而非直接套用光模块总市场增速。
+  evidence_quote: 罗博特科、太辰光：罗博特科通过ficonTEC布局光电子组装与测试，跟踪可插拔光模块、硅光、CPO、OCS等技术路线的设备需求，新增合同与交付进度以公告为准。太辰光重点对应光无源器件及高密度光连接，观察数据中心需求、产品结构与出货，而非直接套用光模块总市场增速。
+  interpretation: 两只创业板标的（用户纪律：创业板不买个股，仅跟踪/ETF表达）。罗博特科=光电子组装测试设备（ficonTEC，覆盖可插拔/硅光/CPO/OCS多技术路线）；太辰光=光无源器件+高密度光连接。共同纪律：不套用光模块总市场增速，跟踪各自订单与出货结构。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 罗博特科ficonTEC布局光电组装测试，太辰光对应光无源器件
+  related_stocks:
+  - code: '300757'
+    name: 罗博特科
+    role: ficonTEC光电子组装测试设备-创业板不可交易
+  - code: '300570'
+    name: 太辰光
+    role: 光无源器件+高密度光连接-创业板不可交易
+  tags:
+  - 罗博特科
+  - 太辰光
+  - 光互联
+  - CPO
+  - 光无源器件
+- id: claim-20260910-024-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: catalyst
+  subject: 高德空间智能应用催化算力传导
+  timeframe: short-term
+  statement: 高德ABot-Earth 0.7发布，使3D城市生成与空间智能成为新的应用观察方向。'全球首个'及覆盖超过196个国家和地区的宣传口径仍待核实。模型能力展示可带来情绪催化，能否形成持续硬件需求，要看用户采用、训练与推理频次、单次任务算力消耗及商业投入。沿'应用需求带动硬件投入'传导链，空间智能若扩大训练或推理工作负载，算力基础设施才有新增需求依据。对多模态和3D模型，Token消耗并非唯一指标，还应关注图像、视频、几何数据处理与渲染负载。国产算力从芯片导入走向系统部署的节奏，需由实际订单和利用率验证。
+  evidence_quote: 高德ABot-Earth 0.7发布，使3D城市生成与空间智能成为新的应用观察方向。'全球首个'及覆盖超过196个国家和地区等宣传口径仍待核实。模型能力展示可以带来情绪催化，能否形成持续硬件需求，要看用户采用、训练与推理频次、单次任务算力消耗及商业投入。
+  interpretation: 空间智能→算力传导链（应用带动硬件）：情绪催化（模型发布）与硬件需求（训练推理负载）分开评估。验证四要素=用户采用+训练推理频次+单任务算力消耗+商业投入。口径纪律：'全球首个/196国'宣传待核实。3D/多模态的算力消耗指标≠Token单一指标，含图像视频几何渲染负载。国产算力芯片导入→系统部署节奏看实际订单+利用率。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高德ABot-Earth空间智能是情绪催化，硬件需求需验证训练推理负载
+  related_stocks: []
+  tags:
+  - 高德
+  - 空间智能
+  - 算力传导
+  - 情绪催化
+  - 口径核实
+- id: claim-20260910-025-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: stock-view
+  subject: 华盛昌深南电路配套需求定位
+  timeframe: short-term
+  statement: 华盛昌（002980）（002980）依托伽蓝特布局光通信测试，覆盖100G至1.6T测试需求，跟踪客户导入与规模交付。深南电路（002916）（002916）PCB业务服务高速交换机、光模块、服务器等应用，跟踪相关订单、产能爬坡与毛利率；这指配套电子电路需求，并非光模块或AI服务器整机销售。无锡项目进展以公告为准。
+  evidence_quote: 华盛昌、深南电路：华盛昌依托伽蓝特布局光通信测试，覆盖100G至1.6T测试需求，跟踪客户导入与规模交付。深南电路PCB业务服务高速交换机、光模块、服务器等应用，跟踪相关订单、产能爬坡与毛利率；这指配套电子电路需求，并非光模块或AI服务器整机销售。
+  interpretation: 两只主板标的（可交易范围）：华盛昌（002980主板）=光通信测试设备（伽蓝特，100G-1.6T）；深南电路（002916主板）=高速PCB配套（交换机/光模块/服务器），明确'配套电子电路≠光模块/整机销售'（防叙事外溢口径）。跟踪：客户导入+规模交付（华盛昌）、订单+产能爬坡+毛利率+无锡项目（深南）。与claim-015 PCB相对强势呼应，深南电路是PCB方向核心标的。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 华盛昌光通信测试覆盖100G至1.6T，深南电路是配套PCB非整机
+  related_stocks:
+  - code: 002980
+    name: 华盛昌
+    role: 光通信测试设备(伽蓝特)100G-1.6T-深A主板可交易
+  - code: 002916
+    name: 深南电路
+    role: 高速PCB配套交换机/光模块/服务器-深A主板可交易
+  tags:
+  - 华盛昌
+  - 深南电路
+  - 光通信测试
+  - PCB
+  - 配套需求
+- id: claim-20260910-026-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: macro
+  subject: PPI落地4.90才是关键数字
+  timeframe: short-term
+  statement: 美国8月PPI同比5.4%（前值4.7%，预期5.3%），环比0.4%（前值0%，预期0.4%）；同日欧洲央行宣布加息25个基点。数据公布前金价与美股期货下跌、美元与美债收益率上行，10年期美债收益率升至4.88%附近；公布后跌幅进一步扩大，10年期美债收益率触及4.90%。5.4%不是最重要的数字，4.90%才是：一个只比预期高0.1个百分点的PPI能把10年期推到4.90%，说明市场对通胀坏消息的承受力已经非常低，债市原本就站在悬崖边。PPI测试的是市场还剩多少承受力，CPI决定的是美联储还剩多少耐心。PPI到PCE的传导并不完整，相关分项对8月PCE价格指数的上行压力有限，但今晚的数据把明晚CPI的容错率又压低了一点，CPI将成为美联储下周是否加息的关键。
+  evidence_quote: 个人判断，5.4%不是最重要的数字，4.90%才是。一个只比预期高0.1个百分点的PPI能把10年期推到4.90%，说明市场对通胀坏消息的承受力已经非常低，债市原本就站在悬崖边，今晚只是轻轻推了一下。PPI测试的是市场还剩多少承受力，CPI决定的是美联储还剩多少耐心。
+  interpretation: 通胀定价框架（UP核心观点）：①关键变量不是PPI读数本身，而是10年期美债收益率位置（4.90%）——市场承受力指标；②PPI与CPI的分工=PPI测市场承受力，CPI测美联储耐心；③PPI→PCE传导不完整，对8月PCE压力有限（技术性缓冲）；④CPI容错率被压低，成为下周加息与否的关键。对A股传导路径：美债收益率→全球风险偏好→下周一开盘定价。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: PPI 5.4不是关键，10年期美债4.90才是：市场承受力已到悬崖边
+  related_stocks: []
+  tags:
+  - PPI
+  - 美债收益率
+  - '4.90'
+  - 通胀定价
+  - 承受力
+- id: claim-20260910-027-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: macro
+  subject: 明晚CPI条件化情景A利空出尽B防御
+  timeframe: short-term
+  statement: 情形A：核心CPI环比低于0.3%，加息预期已被消化两个多月，偏温和数据将呈现利空出尽特征，美债收益率回落、美元走弱，下周一A股开盘承接情绪反弹，科技与情绪题材同步回流，指数有机会脱离地量区间。情形B：核心CPI环比达到或高于0.3%，加息概率回升，10年期美债收益率有可能上破4.90%，全球风险资产风格转向防御；对A股冲击大概率仍有限（定价已提前两个多月），但下周一开盘会先反映外盘传导，低开本身不可怕，接不住才可怕，届时看开盘后的量能与大金融能否承接。两种情形共同点：明天白天A股都不在数据影响范围内，仍按自身量能与接力操作，收盘前再按周末与隔夜敞口调仓，不把仓位提前交给尚未公布的数字。
+  evidence_quote: 情形A：核心CPI环比低于0.3%。加息预期已被消化两个多月，偏温和的数据将呈现利空出尽特征，美债收益率回落、美元走弱，下周一A股开盘承接情绪反弹，科技与情绪题材同步回流，指数有机会脱离地量区间。
+  interpretation: CPI双情景推演（完整条件化框架）：A（核心CPI<0.3%）=利空出尽→美债回落+科技题材回流+脱离地量；B（≥0.3%）=防御转向→10Y或破4.90%，A股冲击有限但低开承接是关键，看量能+大金融承接。共同纪律=明天白天按自身量能操作，收盘前调仓应对周末隔夜敞口，不提前交仓给未公布数字（与claim-013时间表一致）。给用户操作含义：周五收盘前是调仓决策点，低开承接观察点在下周一开盘。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: CPI情景A温和=利空出尽回流，B超0.3=防御低开看承接，收盘前调仓
+  related_stocks: []
+  tags:
+  - CPI情景
+  - 利空出尽
+  - 低开承接
+  - 调仓纪律
+  - 美债
+- id: claim-20260910-028-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: macro
+  subject: 美债收益率高企与美元不涨的联手指升日元链条
+  timeframe: trend
+  statement: 美国财政部当前面对两个问题：新债认购倍数与压低付息成本，二选一前者更重要——美债平均久期不超过7年，长端更陡，短期付息压力可承受，发短购长也能部分控制综合成本。真正致命的是需求侧收缩：挪威主权基金下调债券投资比例至50%，到期的一部分美债不再续买，缺口需要其他投资者补上。美债需要市场溢价重新定价，收益率高企正是给出溢价、确保新债顺利发行的手段。传统逻辑下收益率高企对应美元走强，但近期美元指数不涨反跌。美国财长贝森特与日本财相长时间会谈，目的在推升日元，防止日本政府救市时大量抛售美债；美元不能升，才能守住近一个月美日联手推升日元的成果。美元不升又要维持美债吸引力，任务落在通胀预期上：沃什在央行年会的鹰派表态是推高收益率的一只手，油价90美元附近时美方对伊朗动武、油价向100美元上攻是另一只手。这条链条能否成立，观察变量是CPI公布后美元与10年期收益率是否继续背离。
+  evidence_quote: 美元不能升，才能守住近一个月美日联手推升日元的成果。美元不升又要维持美债吸引力，任务就落在通胀预期上：沃什在此前央行年会上的鹰派表态是推高收益率的一只手，油价在90美元附近时美方对伊朗动武、油价向100美元上攻，是另一只手。这条链条能否成立，观察变量是CPI公布后美元与10年期收益率是否继续背离。
+  interpretation: 美债定价链条推演（UP宏观推演框架）：①美债核心矛盾=新债发行需求（挪威主权基金减配50%代表需求侧收缩），收益率高企=给溢价保发行；②美元不升反跌的解构=美日联手推日元（防日本抛美债），贝森特-日财长会谈；③推高收益率的'两只手'=沃什鹰派表态+伊朗动武推油价至100；④证伪锚点=CPI公布后美元与10Y是否继续背离（若背离持续=链条成立，若恢复同向=链条证伪）。这是观察级别的推演，非确定性结论。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美债高收益率=发债溢价手段，美日联手推日元，CPI后看美元与10Y背离
+  related_stocks: []
+  tags:
+  - 美债需求
+  - 日元
+  - 美元背离
+  - 发债溢价
+  - 推演
+- id: claim-20260910-029-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: methodology
+  subject: 产业催化订单利润量价三层验证框架
+  timeframe: permanent
+  statement: 产业催化决定跟踪范围，订单与利润验证经营，量价与承接验证交易时点。
+  evidence_quote: 产业催化决定跟踪范围，订单与利润验证经营，量价与承接验证交易时点。
+  interpretation: UP方法论三层验证框架（永久性）：第一层=产业催化（决定要不要纳入跟踪）；第二层=订单与利润（验证经营改善真伪）；第三层=量价与承接（验证交易时点）。三层缺一不可：只有催化=叙事，只看订单=不知道何时买卖，只看量价=不知道为什么涨。可映射到本文全部个股案例（云煤能源/国创高新/华盛昌/深南电路）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 三层验证框架：催化定范围，订单利润验经营，量价承接验时点
+  related_stocks: []
+  tags:
+  - 三层验证
+  - 催化订单利润量价
+  - 方法论
+  - 永久框架
+- id: claim-20260910-030-a
+  source_path: sources/original/bilibili/2026-09-10-2212-专栏-今天的盘面只有一个主题：等。沪深两市全天成交约1.65万亿元.md
+  source_date: '2026-09-10'
+  source_type: 复盘
+  extracted_at: '2026-09-11T00:40:00+08:00'
+  claim_type: market-cycle
+  subject: 位置决定意义的修复判断条件
+  timeframe: short-term
+  statement: 地量附近、防御领涨、题材分歧与数据窗口，共同说明市场正在降低参与强度。明天优先观察情绪回流的方向与持续性，下周一再评估CPI落地对指数环境的影响；这两个观察窗口之间，始终以实际量价修正判断。位置决定意义：若成交改善、亏钱效应收敛、核心方向形成承接，修复判断才得到支持；若这些信号缺席，就继续等待右侧确认。
+  evidence_quote: 位置决定意义。若成交改善、亏钱效应收敛、核心方向形成承接，修复判断才得到支持；若这些信号缺席，就继续等待右侧确认。
+  interpretation: 修复判断的三条件（可证伪锚点）：①成交改善（量能回升）②亏钱效应收敛（高位股止跌）③核心方向形成承接。三信号齐全=修复确认；缺席=等待右侧。'位置决定意义'=同样的K线形态在不同位置含义不同，地量+低位分歧+数据窗口的组合决定了当前是'降低参与强度'阶段而非'出清'阶段。与claim-017三信号（核心先稳/板块扩散/回落有承接）形成日线+分时两级观察体系。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 修复判断三条件：成交改善亏钱效应收敛核心方向承接，缺席等右侧
+  related_stocks: []
+  tags:
+  - 位置决定意义
+  - 修复三条件
+  - 右侧确认
+  - 量价修正
+  - 可证伪
