@@ -725,7 +725,22 @@ def _fetch_and_compute_macd(klines: list[dict]) -> list[dict]:
 
 
 def synthesize_90min_klines(code: str, dry_run: bool = False) -> int:
-    """从30分钟K线合成90分钟K线，计算MACD后入库。"""
+    """从30分钟K线合成90分钟K线，计算MACD后入库。
+
+    ⚠️ 必须**按交易日分组**切分（2026-09-10 修复）。
+
+    原实现用 `for g in range(len(rows) // 3)` 全局按 bar 数硬切，问题：
+      1. **跨日拼接**：某日 30min 根数 != 9 时错位传染到之后所有交易日。
+         实测上证 249 组里 48 组混了不同日期的数据。
+      2. **跨午休拼接**：11:30+13:00+13:30 拼成的"90min"实际跨 2 小时。
+      3. **末组残缺**：7/9 个指数 30min 总数不整除 3，末尾 1-2 根被静默丢弃。
+
+    污染会传导到盲判 `_compute_cycle_states`（用 90min 做 recent_bottom
+    识别）→ cycle_state / "反弹第N天" 判断失真。
+
+    修复：按日分组，日内每 3 根切一根；不足 3 根的尾组跳过
+    （盘中不完整日，待数据补齐后下次运行自动纳入）。
+    """
     import sqlite3
 
     conn = sqlite3.connect(str(DB_PATH))
@@ -740,19 +755,29 @@ def synthesize_90min_klines(code: str, dry_run: bool = False) -> int:
         conn.close()
         return 0
 
+    # 按交易日分组（防止跨日拼接与错位传染）
+    by_day: dict[str, list] = {}
+    for r in rows:
+        by_day.setdefault(r["bar_time"][:10], []).append(r)
+
     bars_90min = []
-    for g in range(len(rows) // 3):
-        group = rows[g*3:(g+1)*3]
-        bar = {
-            "bar_time": group[-1]["bar_time"],
-            "open": group[0]["open"],
-            "high": max(r["high"] for r in group),
-            "low": min(r["low"] for r in group),
-            "close": group[-1]["close"],
-            "volume": sum(r["volume"] for r in group),
-            "amount": sum(r["amount"] for r in group if r["amount"]),
-        }
-        bars_90min.append(bar)
+    for day in sorted(by_day):
+        day_rows = by_day[day]
+        for i in range(0, len(day_rows) - 2, 3):  # 不足3根的尾组跳过
+            group = day_rows[i:i + 3]
+            bars_90min.append({
+                "bar_time": group[-1]["bar_time"],
+                "open": group[0]["open"],
+                "high": max(r["high"] for r in group),
+                "low": min(r["low"] for r in group),
+                "close": group[-1]["close"],
+                "volume": sum(r["volume"] for r in group),
+                "amount": sum(r["amount"] for r in group if r["amount"]),
+            })
+
+    if not bars_90min:
+        conn.close()
+        return 0
 
     bars_90min = _fetch_and_compute_macd(bars_90min)
 

@@ -206,7 +206,10 @@ def compute_macd(klines: list[dict]) -> list[dict]:
     # DEA = EMA(DIF, 9)
     # 先提取 DIF 非 None 的部分
     valid_dif = [d for d in dif if d is not None]
-    valid_start = next(i for i, d in enumerate(dif) if d is not None)
+    valid_start = next((i for i, d in enumerate(dif) if d is not None), None)
+    if valid_start is None or not valid_dif:
+        # 序列太短（不足 EMA26 起步），无法计算 MACD → 全 None 返回
+        return [dict(k, dif=None, dea=None, macd_hist=None) for k in klines]
     dea_raw = _ema(valid_dif, 9)
 
     dea: list[float | None] = [None] * n
@@ -289,7 +292,19 @@ def mark_fetch_complete(date_str: str) -> None:
 # ═══════════════════════════════════════════════════════════
 
 def synthesize_90min_klines(code: str, dry_run: bool = False) -> int:
-    """从30分钟K线合成90分钟K线，计算MACD后入库。返回合成根数。"""
+    """从30分钟K线合成90分钟K线，计算MACD后入库。返回合成根数。
+
+    ⚠️ 必须**按交易日分组**切分（2026-09-10 修复，与
+    update_index_klines_intraday.py 同逻辑）。
+
+    原实现用 `for g in range(len(rows) // 3)` 全局按 bar 数硬切：
+      1. **跨日拼接**：某日 30min 根数 != 9 时错位传染到之后所有交易日
+         （实测上证 249 组里 48 组跨日）。
+      2. **跨午休拼接**：11:30+13:00+13:30 拼成的"90min"实际跨 2 小时。
+      3. **末组残缺**：末尾 1-2 根被静默丢弃。
+
+    污染会传导到盲判 `_compute_cycle_states` 的 recent_bottom 识别。
+    """
     import sqlite3
 
     conn = sqlite3.connect(str(DB_PATH))
@@ -305,20 +320,29 @@ def synthesize_90min_klines(code: str, dry_run: bool = False) -> int:
         conn.close()
         return 0
 
-    # 每3根合并成1根90分钟
+    # 按交易日分组（防止跨日拼接与错位传染）
+    by_day: dict[str, list] = {}
+    for r in rows:
+        by_day.setdefault(r["bar_time"][:10], []).append(r)
+
     bars_90min = []
-    for g in range(len(rows) // 3):
-        group = rows[g*3:(g+1)*3]
-        bar = {
-            "bar_time": group[-1]["bar_time"],
-            "open": group[0]["open"],
-            "high": max(r["high"] for r in group),
-            "low": min(r["low"] for r in group),
-            "close": group[-1]["close"],
-            "volume": sum(r["volume"] for r in group),
-            "amount": sum(r["amount"] for r in group if r["amount"]),
-        }
-        bars_90min.append(bar)
+    for day in sorted(by_day):
+        day_rows = by_day[day]
+        for i in range(0, len(day_rows) - 2, 3):  # 不足3根的尾组跳过
+            group = day_rows[i:i + 3]
+            bars_90min.append({
+                "bar_time": group[-1]["bar_time"],
+                "open": group[0]["open"],
+                "high": max(r["high"] for r in group),
+                "low": min(r["low"] for r in group),
+                "close": group[-1]["close"],
+                "volume": sum(r["volume"] for r in group),
+                "amount": sum(r["amount"] for r in group if r["amount"]),
+            })
+
+    if not bars_90min:
+        conn.close()
+        return 0
 
     # 计算MACD
     bars_90min = compute_macd(bars_90min)
