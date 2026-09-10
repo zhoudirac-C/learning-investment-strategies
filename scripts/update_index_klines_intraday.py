@@ -427,7 +427,16 @@ def fetch_latest_klines_from_tdx(code: str, klt: int, count: int = FETCH_BARS) -
 def _synth_120min_from_60min(bars: list[dict]) -> list[dict]:
     """60min → 120min 合成：10:30+11:30 → 11:30，14:00+15:00 → 15:00。
 
-    按 bar 时点对齐，避免错位。TDX 与同花顺路径共用。
+    ⚠️ 2026-09-10 起降级为**兜底**：腾讯 `m120` 是原生 120min 接口
+    （486 根/1年，每日恰好2根，间隔210分钟=跨午休），已作为首选。
+
+    本函数的已知偏差（与腾讯原生对比实测）：
+      - close 最大偏差 6.73、low 6.22（上午段 60min 根归属错位）
+      - 原因：上午 60min 只有 10:30/11:30 两根，10:30 根覆盖
+        09:30-10:30，故 120min 的 11:30 根首价取 10:30 根的 open 正确，
+        但 close 取 11:30 根的 close 在部分数据源下不等于 11:30 时刻价。
+
+    仅在同花顺路径（微盘股 883418，腾讯无此指数）仍必须使用。
     """
     merged = []
     for i in range(len(bars) - 1):
@@ -505,13 +514,28 @@ def fetch_latest_klines(code: str, klt: int, count: int = FETCH_BARS) -> list[di
     按接口粒度封禁（全 host 返回空），因此 TDX 从「分钟线首选兜底」
     降为最后一档；且一旦失败即熔断，避免每次逐台空转 20-30s。
 
+    ⚠️ 120min（2026-09-10）：东财 **无原生 120min**（klt=120 非标准取值，
+    实测返回空），而腾讯 `m120` 是原生接口（486根/1年，每日2根，
+    间隔210分钟=跨午休）。故 klt=120 **直接走腾讯**，跳过东财，
+    避免每次白等 3 轮重试 + 熔断日志噪音。
+    下方 `.get("ths_only")`/`.get("tdx_only")` 分支不受此影响。
+
     ths_only 指数（微盘股 883418）走同花顺：TDX 880823 已不可用，
-    东财/腾讯均无此指数。
+    东财/腾讯均无此指数 → 其 120min 只能由 60min 合成。
     """
     if INDICES[code].get("ths_only"):
         return _fetch_ths_with_breaker(code, klt, count)
     if INDICES[code].get("tdx_only"):
         return _fetch_tdx_with_breaker(code, klt, count)
+
+    # 120min：腾讯是原生源，东财无此周期 → 直达腾讯
+    if klt == 120:
+        result = fetch_latest_klines_from_tencent(code, count, klt=120)
+        if result:
+            return result
+        # 腾讯失败才退到合成路径（TDX 60min → 合成）
+        return _fetch_tdx_with_breaker(code, klt, count)
+
     secid = INDICES[code]["secid"]
     url = (
         "https://push2his.eastmoney.com/api/qt/stock/kline/get"

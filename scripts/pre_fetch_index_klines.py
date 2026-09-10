@@ -100,21 +100,86 @@ def init_db() -> None:
 # API 拉取
 # ═══════════════════════════════════════════════════════════
 
-def _http_get(url: str, timeout: float = 20.0) -> str:
-    headers = {
-        "Referer": "https://quote.eastmoney.com/",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-    }
+def _http_get(url: str, timeout: float = 20.0, headers: dict | None = None) -> str:
+    if headers is None:
+        headers = {
+            "Referer": "https://quote.eastmoney.com/",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        }
     req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return resp.read().decode()
+
+
+def _fetch_tencent_native(code: str, period: str, count: int) -> list[dict]:
+    """腾讯原生 K线（无东财对应周期时的源）。
+
+    ⚠️ 2026-09-10：东财**无原生 120min**（klt=120 非标准取值，实测返回空）。
+    腾讯 `m120` 是原生接口（486 根/1年，每日恰好 2 根，间隔 210 分钟 =
+    09:30→11:30 + 午休 + 13:00→15:00，跨午休特征正确）。
+
+    接口: https://ifzq.gtimg.cn/appstock/app/kline/mkline?param=<sym>,<period>,,N
+    ⚠️ 必须用 ifzq.gtimg.cn（带 web. 前缀会 301 跳转），需 Referer。
+    ⚠️ 字段序（已实测验证）: 时间, 开, 收, 高, 低, 量
+    """
+    sym = INDICES[code].get("tencent") or code
+    url = (
+        "https://ifzq.gtimg.cn/appstock/app/kline/mkline"
+        f"?param={sym},{period},,{count + 5}"
+    )
+    try:
+        payload = json.loads(_http_get(url, headers={
+            "Referer": "https://gu.qq.com/",
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            ),
+        }))
+        raw = payload.get("data", {}).get(sym, {}).get(period, []) or []
+    except Exception as e:
+        print(f"  ⚠️ {code} 腾讯 {period} 失败: {str(e)[:60]}")
+        return []
+
+    result = []
+    for parts in raw:
+        if len(parts) < 6:
+            continue
+        try:
+            t = str(parts[0])
+            bar_time = (
+                f"{t[0:4]}-{t[4:6]}-{t[6:8]} {t[8:10]}:{t[10:12]}"
+                if len(t) >= 12 else t
+            )
+            result.append({
+                "bar_time": bar_time,
+                "open": float(parts[1]),
+                "close": float(parts[2]),
+                "high": float(parts[3]),
+                "low": float(parts[4]),
+                "volume": float(parts[5]),
+                "amount": 0.0,
+            })
+        except (ValueError, IndexError):
+            continue
+
+    result.sort(key=lambda k: k["bar_time"])
+    return result[-count:] if len(result) > count else result
 
 
 def fetch_index_klines(code: str, klt: int, count: int) -> list[dict]:
     """
     拉取指数K线。返回按时间升序排列的 K 线列表。
     每项: {"bar_time": "2026-06-12 14:00", "open": ..., "high": ..., "low": ..., "close": ..., "volume": ..., "amount": ...}
+
+    ⚠️ klt=120（2026-09-10）：东财无原生 120min → 直接走腾讯 `m120`，
+    避免 3 轮无效重试（每轮 5-10s）与误导性报错。
     """
+    if klt == 120:
+        native = _fetch_tencent_native(code, "m120", count)
+        if native:
+            return native
+        print(f"  ⚠️ {code} 120min 腾讯原生失败，降级东财（通常为空）")
+
     secid = INDICES[code]["secid"]
     url = (
         "https://push2his.eastmoney.com/api/qt/stock/kline/get"
