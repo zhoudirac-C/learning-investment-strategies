@@ -20,5 +20,8 @@
     "framework/proposals/2026-08-18-data-channel-intraday-sector-strength.md",
     "framework/proposals/2026-08-18-data-channel-structure-pending-lifecycle.md"
   ],
-  "note": "与 8-17 归因的『规则未遵守』属同一类型再现（绝对阈值），说明合入 prompt 的规则缺少机械校验兜底——已提名 fix-deterministic-output-validation（输出后确定性校验，不依赖模型自觉）。5 个 B 类模式提名均标注待窗口验证（证据目前集中震荡 regime），2 个数据通道提案待人审。stage 结果待 maturity 回填后另评。"
+  "note": "与 8-17 归因的『规则未遵守』属同一类型再现（绝对阈值），说明合入 prompt 的规则缺少机械校验兜底——已提名 fix-deterministic-output-validation（输出后确定性校验，不依赖模型自觉）。5 个 B 类模式提名均标注待窗口验证（证据目前集中震荡 regime），2 个数据通道提案待人审。stage 结果待 maturity 回填后另评。",
+  "superseded": true,
+  "superseded_reason": "prediction_rerun:2026-08-18",
+  "retracted_proposals": []
 }
