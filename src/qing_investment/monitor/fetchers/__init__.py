@@ -927,15 +927,35 @@ def _mock_quote_snapshot() -> dict:
     }
 
 
+def _router_get_quotes(codes: list[str], *, kind: str = "auto") -> dict:
+    """marketdata.router 委托间接层（测试 monkeypatch 点）。"""
+    from qing_investment.marketdata import router as _md
+
+    return _md.get_quotes(codes, kind=kind)
+
+
+#: router 源名 → 既有契约源名（下游/测试按这些名字断言）
+_SOURCE_COMPAT = {
+    "eastmoney": "eastmoney_push2",
+    "sina": "sina_hq",
+    "tdx": "tdx",
+    "tencent": "tencent_gtimg",
+}
+
+
 def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
-    """向后兼容的行情获取：东财优先，数据不完整/报错时降级腾讯、新浪。
+    """行情快照统一入口（2026-09-11 收口：降级链由 marketdata.router 提供）。
 
-    与 DataFetcher.fetch() 的区别在于：当东财返回部分数据或出错时，会尝试
-    用腾讯补充，最后才是新浪。测试通过 monkeypatch stock_monitor 的函数来
-    验证降级行为，因此这里延迟导入 stock_monitor 的兼容层函数。
-
-    设置环境变量 QING_AGENT_MOCK_QUOTES=1 时，直接返回 mock 行情快照，
-    包含大盘/指数/板块样本，避免任何真实网络请求（用于 CI/测试）。
+    迁移说明：
+    - 降级顺序从「TDX→东财→腾讯→新浪」四级独立链统一为 router 全局链
+      「腾讯→东财→TDX→新浪」（2026-09-11 用户拍板腾讯优先，东财第二档）；
+      熔断/strict 空语义/120min 原生等能力全部上收 marketdata。
+    - 返回契约不变：``{source, quotes, errors, elapsed_ms}``，legacy quote
+      shape（code/label/secid/latest/price/pct_change/change/...），
+      label 按 targets 反查回填，下游调度器与规则引擎零改动。
+    - QING_AGENT_MOCK_QUOTES=1 仍直接返回 mock 快照（CI/测试零网络）。
+    - stock_monitor.fetch_eastmoney_quotes / fetch_tencent_quotes 不再被
+      本函数调用（保留为底层实现与测试夹具）。
     """
     if not targets:
         return {"source": "none", "quotes": [], "errors": [], "elapsed_ms": 0.0}
@@ -945,91 +965,77 @@ def fetch_quotes_with_fallback(targets: dict[str, str]) -> dict:
     if os.environ.get("QING_AGENT_MOCK_QUOTES", "0").lower() not in ("0", "false", "no"):
         return _mock_quote_snapshot()
 
-    # TDX 优先：直连通达信服务器，规避东财 IP 限流导致的静默失败
-    try:
-        from qing_investment.tdx_market import TdxMarket
-        # targets 是 {label: secid}，secid 格式 "market.code"（1=沪, 0=深）
-        tdx_codes = []
-        label_map: dict[str, str] = {}  # secid "m.code" -> label
-        for label, secid in targets.items():
-            s = str(secid).strip()
-            if "." in s:
-                mkt, code = s.split(".", 1)
-                tdx_codes.append(("sh" if mkt == "1" else "sz") + code)
-            else:
-                tdx_codes.append(s)
-            label_map[s] = label
-        tdx_quotes = TdxMarket().get_quotes(tdx_codes)
-        if tdx_quotes:
-            mapped = []
-            for q in tdx_quotes:
-                code = str(q.get("code", ""))
-                qmarket = q.get("market")
-                # 用 (market, code) 构造 secid 反查 label，避免同 code 不同 market 冲突
-                secid = f"{qmarket}.{code}" if qmarket is not None else code
-                mapped.append({
-                    "code": code,
-                    "market": qmarket,
-                    "name": q.get("name"),
-                    "label": label_map.get(secid) or label_map.get(code) or q.get("name") or code,
-                    "latest": q.get("price"),
-                    "price": q.get("price"),
-                    "prev_close": q.get("prev_close"),
-                    "open": q.get("open"),
-                    "high": q.get("high"),
-                    "low": q.get("low"),
-                    "volume": q.get("volume"),
-                    "amount": q.get("amount"),
-                    "pct_change": q.get("pct_change"),
-                    "source": "tdx",
-                })
-            return {"source": "tdx", "quotes": mapped, "errors": [], "elapsed_ms": 0.0}
-    except Exception:
-        logger.warning("fetch_quotes_with_fallback: TDX path failed, falling back", exc_info=True)
-        pass
+    import time as _time
 
-    # 延迟导入避免循环依赖，并兼容测试 monkeypatch
-    from qing_investment import stock_monitor
+    t0 = _time.monotonic()
 
-    # 尝试1: 东财（数据最全，但可能限流/部分失败）
-    em_result = stock_monitor.fetch_eastmoney_quotes(targets)
-    em_quotes = em_result.get("quotes", []) or []
-    em_errors = em_result.get("errors", []) or []
-    if len(em_quotes) >= len(targets) and not em_errors:
-        return em_result
+    # targets {label: secid} → 前缀形式 codes（市场以 targets 的 secid 为准，
+    # 不重新推断——0.399303 国证2000、1.000001 上证指数这类双义码必须保留原市场）
+    from qing_investment.marketdata.symbol import norm_ticker
 
-    # 尝试2: 腾讯（最稳定，用于补充/替换东财）
-    tencent_result = stock_monitor.fetch_tencent_quotes(targets)
-    tencent_quotes = tencent_result.get("quotes", []) or []
-    if tencent_quotes:
-        # 合并东财已有的数据（如果存在）
-        if em_quotes:
-            seen = {q.get("secid") or q.get("code"): q for q in tencent_quotes}
-            for q in em_quotes:
-                key = q.get("secid") or q.get("code")
-                if key and key not in seen:
-                    seen[key] = q
-                    tencent_quotes.append(q)
-        return {
-            "source": "tencent_gtimg",
-            "quotes": tencent_quotes,
-            "errors": [],
-            "elapsed_ms": tencent_result.get("elapsed_ms", 0.0),
-        }
+    digits_secid: dict[str, str] = {}
+    label_of: dict[str, str] = {}
+    codes: list[str] = []
+    for label, secid in targets.items():
+        s = str(secid).strip()
+        digits = s.split(".", 1)[1] if "." in s else s
+        if s.startswith("1."):
+            code = "sh" + digits
+        elif s.startswith("0."):
+            code = "sz" + digits
+        else:
+            code = digits
+        codes.append(code)
+        digits_secid[digits] = s
+        label_of[digits] = label
 
-    # 尝试3: 新浪（fetchers 内部实现）
-    sina_fetcher = SinaFetcher()
-    sina_result = sina_fetcher.fetch(targets)
-    if sina_result.quotes_count > 0:
-        return {
-            "source": "sina_hq",
-            "quotes": sina_result.data.get("quotes", []),
-            "errors": [sina_result.error] if sina_result.error else [],
-            "elapsed_ms": sina_result.latency_ms,
-        }
+    r = _router_get_quotes(codes, kind="auto")
+    src_name = _SOURCE_COMPAT.get(r.get("source", ""), r.get("source"))
 
-    # 兜底：返回东财（哪怕是部分数据）
-    return em_result
+    quotes: list[dict] = []
+    for q in r.get("quotes", []):
+        raw = str(q.get("code", ""))
+        try:
+            digits = norm_ticker(raw)
+        except ValueError:
+            digits = raw
+        secid = digits_secid.get(digits)
+        if secid is None:
+            continue  # 非请求标的（防御：不把无关行混进快照）
+        price = q.get("price")
+        prev_close = q.get("prev_close")
+        pct = q.get("change_pct")
+        if pct is None and price and prev_close:
+            pct = round((price / prev_close - 1) * 100, 2)
+        change = q.get("change")
+        if change is None and price and prev_close:
+            change = round(price - prev_close, 4)
+        quotes.append({
+            "code": digits,
+            "market": int(secid.split(".", 1)[0]) if "." in secid else None,
+            "secid": secid,
+            "name": q.get("name"),
+            "label": label_of.get(digits) or q.get("name") or digits,
+            "latest": price,
+            "price": price,
+            "prev_close": prev_close,
+            "open": q.get("open"),
+            "high": q.get("high"),
+            "low": q.get("low"),
+            "volume": q.get("volume"),
+            "amount": q.get("amount"),
+            "pct_change": pct,
+            "change": change,
+            "source": src_name,
+        })
+
+    return {
+        "source": src_name,
+        "quotes": quotes,
+        "errors": r.get("errors", []),
+        "elapsed_ms": r.get("elapsed_ms", round((_time.monotonic() - t0) * 1000, 1)),
+    }
+
 
 
 # ──────────────────────────────────────────

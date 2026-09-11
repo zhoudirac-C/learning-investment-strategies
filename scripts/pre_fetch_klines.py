@@ -41,7 +41,11 @@ if str(SRC_PATH) not in sys.path:
 
 import yaml
 from qing_investment.kline_cache import init_db, save_klines, mark_cache_ready
-from qing_investment.agent.tools.stock_data import fetch_stock_kline
+from qing_investment.agent.tools.stock_data import (
+    fetch_stock_kline,
+    fetch_stock_kline_tencent,
+    fetch_stock_kline_eastmoney,
+)
 
 # ── 常量 ──
 CN_TZ = timezone(timedelta(hours=8))
@@ -214,9 +218,6 @@ def main() -> int:
 
             if deadline_hit:
                 try:
-                    from qing_investment.agent.tools.stock_data import (
-                        fetch_stock_kline_tencent,
-                    )
                     klines = fetch_stock_kline_tencent(code, days=DAYS_TO_FETCH)
                 except Exception as e:
                     last_error = str(e)
@@ -247,10 +248,7 @@ def main() -> int:
                             print("  🔌 TDX 连续慢/失败 → 熔断，后续标的转腾讯/东财通道")
                     else:
                         # TDX 不可用，跳过 TDX 直接走腾讯 → 东财降级
-                        from qing_investment.agent.tools.stock_data import (
-                            fetch_stock_kline_tencent,
-                            fetch_stock_kline_eastmoney,
-                        )
+                        # （经模块属性调用，测试可 mock pf.fetch_stock_kline_tencent）
                         klines = fetch_stock_kline_tencent(code, days=DAYS_TO_FETCH)
                         if not klines:
                             klines = fetch_stock_kline_eastmoney(code, days=DAYS_TO_FETCH)
@@ -264,10 +262,6 @@ def main() -> int:
                             _tdx_available = False
                             print(f"  🔌 TDX 连续慢/失败 → 熔断，{code} 及后续标的转腾讯/东财通道")
                             try:
-                                from qing_investment.agent.tools.stock_data import (
-                                    fetch_stock_kline_tencent,
-                                    fetch_stock_kline_eastmoney,
-                                )
                                 klines = fetch_stock_kline_tencent(code, days=DAYS_TO_FETCH)
                                 if not klines:
                                     klines = fetch_stock_kline_eastmoney(code, days=DAYS_TO_FETCH)
