@@ -644,3 +644,93 @@ claims:
   - 做T
   - 观察为先
   - 不抢跑
+- id: claim-20260911-001-020
+  source_path: sources/original/bilibili/2026-09-11-0952-图片-市场还是太弱了，都这样了还杀不下来，从数据上看跌的挺多，但是.md
+  source_date: '2026-09-11'
+  source_type: 动态
+  extracted_at: '2026-09-11T10:37:17+08:00'
+  claim_type: market-cycle
+  subject: 市场太弱但权重杀不下来的背离状态
+  timeframe: intraday
+  statement: 市场还是太弱了，都这样了还杀不下来，从数据上看跌的挺多，但是权重完全下不来。即中位数个股跌幅明显大于指数表现，权重股托底导致指数抗跌，呈现跌不动也涨不动的弱势背离格局。
+  evidence_quote: 市场还是太弱了，都这样了还杀不下来，从数据上看跌的挺多，但是权重完全下不来。
+  interpretation: 弱势背离结构：数据面（个股中位数跌幅）与指数面（权重托底）背离。这一状态延续09:05专栏的变盘倒计时判断——权重杀不下来使指数层面3909防线暂未受考验，但个股层面的弱是真的弱，与专栏'低开承接'观察点互为印证。若后续权重补跌，才是指数方向选择的实质信号。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-11
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 市场太弱但权重杀不下来，指数与个股背离
+  related_stocks: []
+  tags:
+  - 权重托底
+  - 弱势背离
+  - 个股中位数
+  - 指数抗跌
+  - 变盘前夜
+- id: claim-20260911-001-021
+  source_path: sources/original/bilibili/2026-09-11-0952-图片-市场还是太弱了，都这样了还杀不下来，从数据上看跌的挺多，但是.md
+  source_date: '2026-09-11'
+  source_type: 动态
+  extracted_at: '2026-09-11T10:37:17+08:00'
+  claim_type: sector-theme
+  subject: 科技已跌不动无需担心
+  timeframe: short-term
+  statement: 科技已经跌不动了，没什么好担心的。科技板块在本轮杀跌中已无继续下杀的动能，位置上接近跌透。
+  evidence_quote: 科技已经跌不动了，没什么好担心的，
+  interpretation: 对科技主线的安抚性定性：'跌不动'是量价语言，指下跌缺乏量能配合与追空动能，处于9/11专栏所述决胜窗口前的磨底位置。验证标准：科技板块对后续利空不再创新低；若科技放量补跌则此判断失效。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260715-050-a"]
+  contradicts: []
+  supplements: ["claim-20260714-003-d"]
+  last_discovered: 2026-09-11
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技板块跌不动，无需过度担心
+  related_stocks: []
+  tags:
+  - 科技主线
+  - 跌不动
+  - 磨底
+  - 量价语言
+  - 决胜窗口
+- id: claim-20260911-001-022
+  source_path: sources/original/bilibili/2026-09-11-0952-图片-市场还是太弱了，都这样了还杀不下来，从数据上看跌的挺多，但是.md
+  source_date: '2026-09-11'
+  source_type: 动态
+  extracted_at: '2026-09-11T10:37:17+08:00'
+  claim_type: operation
+  subject: 今日抄底者以上证拉不拉得起为减仓条件
+  timeframe: intraday
+  statement: 今天抄底的，看上证，拉不起来就减仓。对当日抄底资金给出明确操作纪律：以上证指数能否拉起作为持有/减仓的判据，若拉不起来则执行减仓。
+  evidence_quote: 今天抄底的，看上证，拉不起来就减仓。
+  interpretation: 操作指令绑定具体触发条件：观察标的=上证指数，动作=减仓，触发=拉不起来（反弹无力/无法收复）。这是条件式减仓而非无条件减仓——若上证拉起则抄底仓可持有。该指令与09:05专栏'3909只看收盘价'的口径互补：抄底仓盯日内反弹力度，底仓盯收盘防线。仅适用于今日（9/11）抄底的新增仓位，不针对既有底仓。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260626-004-a", "claim-20260821-005"]
+  last_discovered: 2026-09-11
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日抄底仓看上证，拉不起来就减仓
+  related_stocks: []
+  tags:
+  - 抄底纪律
+  - 条件式减仓
+  - 上证指数
+  - 日内反弹
+  - 仓位管理
