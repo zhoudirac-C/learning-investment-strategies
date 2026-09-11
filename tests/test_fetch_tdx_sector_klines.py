@@ -166,6 +166,7 @@ class TestMainSemantics:
         """正常拉取成功返回 0（patch 统一层 get_kline）。"""
         sector_json, db_path = env
         saved: list = []
+        monkeypatch.setattr(mod.time, "sleep", lambda s: None)
 
         def fake_get_kline(code, klt, count, *, sources=None):
             assert klt == 101 and count == mod.DAYS
@@ -189,7 +190,10 @@ class TestMainSemantics:
         monkeypatch.setattr(mod.time, "sleep", lambda s: None)
 
         def fake_get_kline(code, klt, count, *, sources=None):
-            return [], "tencent"  # 全链空
+            if code == mod.CONTROL_CODE:
+                raise mod.MarketDataError("对照码也失败", attempts=["tencent: HttpError"])
+            raise mod.MarketDataError("全链空",
+                                      attempts=["tencent: empty result（strict 空语义，视为失败+熔断）"])
 
         monkeypatch.setattr(mod, "get_kline", fake_get_kline)
         rc = mod.main([
@@ -200,14 +204,18 @@ class TestMainSemantics:
         assert rc == 1
 
     def test_marketdata_error_isolated_per_code(self, mod, env, monkeypatch):
-        """MarketDataError 只计单只失败，不拖垮批次。"""
+        """MarketDataError 只计单只失败，不拖垮批次（对照码健康=死码场景）。"""
         sector_json, db_path = env
         saved: list = []
         monkeypatch.setattr(mod.time, "sleep", lambda s: None)
 
         def fake_get_kline(code, klt, count, *, sources=None):
             if code == "600036":
-                raise mod.MarketDataError("全链失败：腾讯超时, 东财超时")
+                raise mod.MarketDataError(
+                    "全链失败",
+                    attempts=["tencent: empty result（strict 空语义，视为失败+熔断）"])
+            if code == mod.CONTROL_CODE:
+                return _bars(2), "tencent"  # 对照码健康 → 600036 判死码
             return _bars(2), "tencent"
 
         monkeypatch.setattr(mod, "get_kline", fake_get_kline)
@@ -221,18 +229,20 @@ class TestMainSemantics:
         assert rc == 0  # 601398 成功 → 本轮有效
         assert saved == ["601398"]
 
-    def test_consecutive_failures_abort(self, mod, env, monkeypatch):
-        """连续 ≥20 只全链失败 → 判定网络级故障中止（不逐只空转）。"""
+    def test_transport_failure_aborts(self, mod, env, monkeypatch):
+        """传输级失败（WAF 限流）+ 对照码也失败 → 连续 3 只后中止。"""
         sector_json, db_path = env
-        codes = [f"{600000 + i:06d}" for i in range(25)]
+        codes = [f"60136{i:02d}" for i in range(10)]  # 避开 CONTROL_CODE 600000
         sector_json.write_text(json.dumps({
             "_built_at": 0, "_source": "test",
             "concept": {"测试板块": codes},
         }), encoding="utf-8")
         monkeypatch.setattr(mod.time, "sleep", lambda s: None)
+        probes: list = []
 
         def fake_get_kline(code, klt, count, *, sources=None):
-            raise mod.MarketDataError("全链失败")
+            probes.append(code)
+            raise mod.MarketDataError("WAF 501", attempts=["tencent: HttpError: 501"])
 
         monkeypatch.setattr(mod, "get_kline", fake_get_kline)
         rc = mod.main([
@@ -241,6 +251,34 @@ class TestMainSemantics:
             "--db", str(db_path),
         ])
         assert rc == 1
+        # 对照码探测恰 3 次；目标去重恰 3 只后中止
+        # （_fetch_bars 内部重试 2 次，不能按裸调用次数断言）
+        assert probes.count(mod.CONTROL_CODE) == mod.CTRL_FAIL_ABORT
+        assert len({c for c in probes if c != mod.CONTROL_CODE}) == mod.CTRL_FAIL_ABORT
+
+    def test_empty_dead_code_resets_and_continues(self, mod, env, monkeypatch):
+        """单只死码（全链空 + 对照码健康）→ 复位后继续，不中止批次。"""
+        sector_json, db_path = env
+        saved: list = []
+        monkeypatch.setattr(mod.time, "sleep", lambda s: None)
+
+        def fake_get_kline(code, klt, count, *, sources=None):
+            if code == "600036":
+                raise mod.MarketDataError(
+                    "全链空",
+                    attempts=["tencent: empty result（strict 空语义，视为失败+熔断）"])
+            return _bars(2), "tencent"  # 其余含对照码全部正常
+
+        monkeypatch.setattr(mod, "get_kline", fake_get_kline)
+        monkeypatch.setattr(mod, "save_klines",
+                            lambda code, klines, db_path=None: saved.append(code))
+        rc = mod.main([
+            "--only", "600036", "601398",
+            "--sector-json", str(sector_json),
+            "--db", str(db_path),
+        ])
+        assert rc == 0
+        assert saved == ["601398"]  # 死码后继续拉到下一只
 
     def test_soft_deadline_stops_batch(self, mod, env, monkeypatch):
         """软时限到达 → 安全收尾返回 0（有成功即有效），剩余下轮续拉。"""

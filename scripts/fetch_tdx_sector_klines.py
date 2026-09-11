@@ -19,7 +19,8 @@
   1. 只拉「盲判方向池」实际会用到的板块成分股（默认全部概念板块去重）
   2. 断点续拉：已拉过且最新日期 >= 动态阈值（10 天内）的跳过
   3. 软时限收尾：cron 执行器 900s 超时前安全退出，剩余下轮续拉
-  4. 连续多只全链失败 → 判定网络级故障，中止本轮（不逐只空转）
+  4. 对照码判别：个股失败时探对照码（600000）——探活=死码（复位熔断继续），
+     探死=源断供/WAF 限流（连续 3 次即中止本轮，不空转）
 
 用法:
   .venv/bin/python scripts/fetch_tdx_sector_klines.py [--limit N] [--no-deadline]
@@ -39,7 +40,7 @@ from qing_investment.marketdata import get_kline  # noqa: E402
 from qing_investment.marketdata.errors import MarketDataError  # noqa: E402
 
 DAYS = 90  # 每只拉 90 根日 K（覆盖评分 horizon=5 的需求）
-DELAY = 0.05  # 单只间隔兜底；主限速由统一层 ratelimit（腾讯 0.25s/次）负责
+DELAY = 0.5  # 单只间隔：~300 次连续 fqkline 触发腾讯 WAF（501）后从 0.05 提高
 MAX_RETRIES = 2  # 降级链已内置多源重试，单只重试从 3 降到 2
 RETRY_DELAY = 1.0  # 重试间隔基数（指数退避：1s, 2s）
 
@@ -48,7 +49,12 @@ RETRY_DELAY = 1.0  # 重试间隔基数（指数退避：1s, 2s）
 SOURCES = ["tencent", "eastmoney"]
 
 SOFT_DEADLINE_S = 780  # cron 900s 超时前收尾（留 120s 给在途请求 + 退出）
-ABORT_AFTER_CONSECUTIVE_FAILS = 20  # 连续 N 只全链失败 → 疑似网络级故障，中止
+CTRL_FAIL_ABORT = 3  # 连续 N 只「失败且对照码也死」→ 源断供（WAF限流/断网），中止
+
+# 源健康对照码：浦发银行，流动性好、长期在市。个股日K「全源空」时用它区分
+# 死码（对照成功）与真断供（对照也失败）——批量枚举场景下 strict 空语义
+# 会把单只死码误熔断全源，必须靠对照探测复位（2026-09-11 实测 600363 事件）
+CONTROL_CODE = "600000"
 
 
 def _load_target_codes(sector_json: Path, db_path: Path, only_codes=None) -> list[str]:
@@ -119,7 +125,12 @@ def _rows_from_bars(bars: list[dict]) -> list[dict]:
 
 
 def _fetch_bars(code: str) -> tuple[list[dict] | None, str]:
-    """统一层拉日线。返回 (rows, source)；失败返回 (None, 错误摘要)。"""
+    """统一层拉日线。返回 (rows, 错误摘要)；失败返回 (None, 摘要)。
+
+    注意：腾讯/东财适配器把 HTTP 异常吞成空返回，因此 WAF 限流在
+    attempts 里同样表现为「empty result」——不能靠错误文本区分死码与
+    断供，统一由 main 循环的对照码探测（_source_healthy）判别。
+    """
     last_err = ""
     for attempt in range(MAX_RETRIES):
         try:
@@ -134,6 +145,27 @@ def _fetch_bars(code: str) -> tuple[list[dict] | None, str]:
         if attempt < MAX_RETRIES - 1:
             time.sleep(RETRY_DELAY * (attempt + 1))
     return None, last_err
+
+
+def _source_healthy() -> tuple[bool, str]:
+    """对照码探测。
+
+    批量枚举场景的关键复位路径：单只死码会触发 strict 空语义把「源」整体
+    熔断（router 把「某代码空」误判为「源故障」），若不复位，后续所有代码
+    直接 BREAKER-OPEN 级联失败。此处先清 K线熔断（半开自愈默认 1800s，
+    批量任务等不起），再探测对照码：成功 → 源健康（刚才的失败是死码）；
+    失败 → 真断供（WAF 限流/断网）。返回 (是否健康, 错误摘要)。
+    """
+    from qing_investment.marketdata.breaker import breaker as _breaker
+    for cap in (f"{s}:kline" for s in SOURCES):
+        _breaker.reset(cap)
+    try:
+        bars, source = get_kline(CONTROL_CODE, 101, 3, sources=SOURCES)
+        if bars:
+            return True, ""
+        return False, f"对照码 {CONTROL_CODE} 全链空"
+    except Exception as e:  # noqa: BLE001
+        return False, f"对照码 {CONTROL_CODE}: {type(e).__name__}: {str(e)[:80]}"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -164,9 +196,11 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     ok = fail = 0
-    consecutive_fail = 0
+    consec_ctrl_fail = 0  # 连续「失败且对照码也死」→ 真断供信号
+    dead_codes = 0
     t0 = time.time()
     stopped_early = ""
+    last_err = ""
     for i, code in enumerate(codes):
         # 软时限：cron 执行器 900s 硬杀之前安全收尾，剩余交给下轮断点续拉
         # （避免「数据写了一半 + cron 记失败」的双输局面）
@@ -179,30 +213,42 @@ def main(argv: list[str] | None = None) -> int:
         if rows:
             save_klines(code, rows, db_path=db_path)
             ok += 1
-            consecutive_fail = 0
+            consec_ctrl_fail = 0
         else:
             fail += 1
-            consecutive_fail += 1
             if fail <= 5:
                 print(f"  ❌ {code}: {last_err}（可能停牌/退市）")
-            if consecutive_fail >= ABORT_AFTER_CONSECUTIVE_FAILS:
-                stopped_early = f"连续 {consecutive_fail} 只全链失败，疑似网络级故障"
-                break
+            # 统一判别：适配器把 HTTP 错误吞成空返回，「死码 vs 断供」
+            # 无法从错误文本区分，对照码探测是唯一可靠信号
+            healthy, ctrl_err = _source_healthy()
+            if healthy:
+                # 源健康 → 判死码：复位被误熔断的源（探测已顺带完成），继续
+                dead_codes += 1
+                consec_ctrl_fail = 0
+            else:
+                consec_ctrl_fail += 1
+                print(f"  ⚠️ {code}: {last_err}；{ctrl_err}")
+                if consec_ctrl_fail >= CTRL_FAIL_ABORT:
+                    stopped_early = (f"连续 {consec_ctrl_fail} 只失败且对照码"
+                                     f"也失败（源断供/WAF 限流）")
+                    break
         if (i + 1) % 100 == 0:
             el = time.time() - t0
             rate = el / (i + 1)
             remain = len(codes) - i - 1
             print(f"  [{i+1}/{len(codes)}] 成功{ok} 失败{fail} "
-                  f"耗时{el:.0f}s 均速{rate:.2f}s/只 剩余约{remain*rate:.0f}s")
+                  f"(死码{dead_codes}) 耗时{el:.0f}s 均速{rate:.2f}s/只 "
+                  f"剩余约{remain*rate:.0f}s")
         time.sleep(DELAY)
 
     el = time.time() - t0
     if stopped_early:
         remain = len(codes) - ok - fail
         print(f"[tdx-klines] 提前收尾：{stopped_early}；成功 {ok} 失败 {fail} "
-              f"剩余 {remain} 只下轮续拉，耗时 {el:.0f}s")
+              f"(其中死码 {dead_codes}) 剩余 {remain} 只下轮续拉，耗时 {el:.0f}s")
     else:
-        print(f"[tdx-klines] 完成: 成功 {ok} 失败 {fail} / 共 {len(codes)}，耗时 {el:.0f}s")
+        print(f"[tdx-klines] 完成: 成功 {ok} 失败 {fail} (其中死码 {dead_codes})"
+              f" / 共 {len(codes)}，耗时 {el:.0f}s")
     # 有成功即视为本轮有效（部分失败如停牌是常态）；全部失败才报错
     return 0 if ok > 0 else 1
 
