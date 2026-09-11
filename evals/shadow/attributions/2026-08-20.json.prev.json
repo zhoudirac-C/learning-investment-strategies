@@ -1,0 +1,16 @@
+{
+  "date": "2026-08-20",
+  "triggers": [
+    "stage_miss_premarket"
+  ],
+  "types": [
+    "步骤缺",
+    "概念误用"
+  ],
+  "analysis": "AI在外部冲击源头不强（标普+0.21%、纳指+0.16%，10Y美债回落5.3bp）且自设情形A为“横向震荡磨窗口”的情况下，最终却将market_stage输出为“调整”，属于概念误用。同时，其推理链缺少“外部冲击充分定价”和“情绪极端日次日修复概率”两个环节：冲击发生在A股收盘后、隔夜费半仅-2.12%，开盘低开大概率已消化；而跌停118家、上涨仅449家、创业板指-6.26%的极端情绪后，在无新增利空且量能未继续放大的前提下，次日更可能是震荡修复而非继续调整。AI过度依赖顶部结构（上证60min top formed）和反弹天数超窗口（科创50第12天）外推‘调整’，忽略了上述反向证据。",
+  "proposal_refs": [
+    "framework/proposals/2026-08-20-pattern-patch-note.md",
+    "framework/proposals/2026-08-20-pattern-patch-note.md",
+    "framework/proposals/2026-08-20-glossary-patch-note.md"
+  ]
+}

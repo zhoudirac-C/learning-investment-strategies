@@ -1,7 +1,7 @@
 ---
 date: 2026-09-09
 type: glossary-patch
-status: open
+status: retracted
 source: evals/shadow/attributions/2026-09-09.json
 ---
 
@@ -14,3 +14,5 @@ source: evals/shadow/attributions/2026-09-09.json
 ## 处置建议
 
 在术语词典中修订28(b)：当非外力但存在内生退潮信号组合（封板率环比下降>15pct、炸板>100家、涨停环比减少>15家、连板高度降级、主线行业资金净流出合计>50亿，满足≥3项）时，不得判震荡/主动降速，应判调整或调整启动；『内生换龙』仅在高位股断板但同时存在低位补涨放量、二板晋级率≥15%（≥8家）时成立，否则按亏钱效应处理
+
+> retracted 2026-09-09：归因记录已被预测重跑作废（prediction_rerun:2026-09-09），本提案证据基础失效；如议题仍成立请人工重开。

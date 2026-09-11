@@ -690,3 +690,22 @@
 - claim-20260910-028-a（macro）：美债高收益率=发债溢价手段，美日联手推日元，CPI后看美元与10Y背离
 - claim-20260910-029-a（methodology）：三层验证框架：催化定范围，订单利润验经营，量价承接验时点
 - claim-20260910-030-a（market-cycle）：修复判断三条件：成交改善亏钱效应收敛核心方向承接，缺席等右侧
+- [claim-20260911-001-001](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — market-cycle / 变盘倒计时三要素同时到位
+- [claim-20260911-001-002](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — market-cycle / 外围利空只反映在开盘定价看承接
+- [claim-20260911-001-003](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — market-cycle / 压缩方向选择与3909收盘价口径
+- [claim-20260911-001-004](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — market-cycle / 量能历史对标与9月下旬决胜窗口
+- [claim-20260911-001-005](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — market-cycle / 大金融高股息是避险配置非攻击信号
+- [claim-20260911-001-006](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — technical-signal / 跌得广跌得浅观望而非恐慌
+- [claim-20260911-001-007](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — market-cycle / 极端低迷是不破不立的前置条件
+- [claim-20260911-001-008](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — operation / CPI前夜两情形操作预案
+- [claim-20260911-001-009](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / 非科技股投机情绪第二次退潮
+- [claim-20260911-001-010](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / 科技股弱反弹磨时间
+- [claim-20260911-001-011](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / FCC靴子落地极端悲观假设未兑现
+- [claim-20260911-001-012](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / MLCC国产替代机会窗口
+- [claim-20260911-001-013](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — catalyst / eSIM是今日最值得盯的新题材
+- [claim-20260911-001-014](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / AI制药故事性强兑现周期最长
+- [claim-20260911-001-015](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / 旅游是非科技股中唯一有产业催化的方向
+- [claim-20260911-001-016](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — catalyst / 算力大会与PCB上游材料高端化
+- [claim-20260911-001-017](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / 机床全球上行周期持续至2027
+- [claim-20260911-001-018](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — catalyst / 甲骨文信号与算力大会内外呼应
+- [claim-20260911-001-019](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — operation / 盘前操作纪律汇总

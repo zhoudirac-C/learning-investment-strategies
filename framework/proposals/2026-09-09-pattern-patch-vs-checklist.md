@@ -1,7 +1,7 @@
 ---
 date: 2026-09-09
 type: pattern-patch
-status: open
+status: retracted
 source: evals/shadow/attributions/2026-09-09.json
 ---
 
@@ -14,3 +14,5 @@ source: evals/shadow/attributions/2026-09-09.json
 ## 处置建议
 
 在position_by_cycle与sentiment_cycle之间插入仲裁步骤：cycle_state出现指数间分歧（部分指数在反弹窗口内、部分严重超窗）时，强制逐条核对情绪三连（涨停家数环比、封板率环比、炸板家数）、主线资金方向、60min顶部结构状态；若情绪三连全部恶化且主线净流出、顶部结构forming/divergence，则超窗指数证据优先，判调整而非震荡；仲裁结论必须写入stage_reason并引用逐项数据
+
+> retracted 2026-09-09：归因记录已被预测重跑作废（prediction_rerun:2026-09-09），本提案证据基础失效；如议题仍成立请人工重开。

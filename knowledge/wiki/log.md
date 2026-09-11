@@ -2307,3 +2307,11 @@
 - 口径纪律落地：武昆股份（武钢集团昆明钢铁股份有限公司）=非上市主体，东财 API 无代码——仅 statement 背景保留，不进 related_stocks；创业板标的（罗博特科/太辰光）role 标注"不可交易"
 - Gate 1：claim_type=industry 枚举修正 + Gate 缓存坑（rm gate1_result.json）；Gate 2 假阳性追加 NON_COMPANY 13 条（"武昆股份""空间智能""压力有限"等）；Gate 3 一次通过
 - 输出 claim-20260910-001.yaml（30 条）+ wiki/每日复盘/2026-09-10.md（晚盘节）+ claims/index.md（晚盘明细段）
+## 2026-09-11 | qing-learning claim | 9/11 早盘专栏提取（19 条）
+
+- 处理 raw：`sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md`（动态ID 1246615687900692485，充电专属）
+- claim-20260911-001.yaml（19 条）：catalyst×3、market-cycle×6、operation×2、sector-theme×7、technical-signal×1
+- 方向层：变盘倒计时三要素(量/时/情)+3909双向预判+量能历史对标；节奏层：CPI前夜两情形预案+操作纪律汇总+非科技退潮+科技弱反弹
+- 产业跟踪：FCC光通信(精准限制偏正面)+MLCC国产替代(中期)+eSIM新题材(真龙确认)+AI制药(量能甄别)+算力大会PCB(双催化)+机床(上行至2027)+甲骨文内外呼应
+- 股票代码：全部经东财API查证；300408三环集团/688300联瑞新材/688697纽威数控/688388嘉元科技为科创板不可交易，仅ETF表达
+- Gate 1 一次通过；Gate 2 修复2次(补标红棉股份000523遗漏+追加18个NON_COMPANY通用词模式)；Gate 3 一次通过

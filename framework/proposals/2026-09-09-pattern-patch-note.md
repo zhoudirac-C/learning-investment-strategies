@@ -1,7 +1,7 @@
 ---
 date: 2026-09-09
 type: pattern-patch
-status: open
+status: retracted
 source: evals/shadow/attributions/2026-09-09.json
 ---
 
@@ -14,3 +14,5 @@ source: evals/shadow/attributions/2026-09-09.json
 ## 处置建议
 
 修补mainline_identification/sentiment_cycle：高标断板未封这一数据项只允许两种解读——『断板收涨+低位晋级率达标=换龙延续』或『断板收跌=亏钱效应启动』，禁止单独以『内生换龙』定性而脱离二板晋级率验证；当晋级率证据缺位时按保守解读计入退潮信号
+
+> retracted 2026-09-09：归因记录已被预测重跑作废（prediction_rerun:2026-09-09），本提案证据基础失效；如议题仍成立请人工重开。
