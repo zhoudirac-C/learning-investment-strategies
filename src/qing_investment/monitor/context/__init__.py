@@ -52,13 +52,20 @@ logger = logging.getLogger(__name__)
 # ──────────────────────────────────────────
 
 def position_rows(config: Any) -> list[dict]:
-    """提取持仓行。"""
+    """提取持仓行。
+
+    schema 兼容：positions.example.yaml 与监控展示代码用 ``shares``/``name``，
+    实盘摄入（券商截图 OCR，qing-positions-ingest）写 ``quantity``/``broker``。
+    在边界层统一暴露 ``shares`` 别名与 ``account`` 回退，避免下游读出 0 股。
+    """
     rows: list[dict] = []
     for account in config.positions.get("accounts", []) or []:
-        account_name = account.get("name", "")
+        account_name = account.get("name") or account.get("broker", "")
         for position in account.get("positions", []) or []:
             row = dict(position)
             row["account"] = account_name
+            if "shares" not in row and "quantity" in row:
+                row["shares"] = row["quantity"]
             rows.append(row)
     return rows
 

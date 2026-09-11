@@ -2861,7 +2861,8 @@ def _build_position_plan_lines(market_context: dict, positions: list[dict]) -> l
     for p in positions:
         code = p.get("code", "N/A")
         name = p.get("name", "N/A")
-        shares = p.get("shares", 0)
+        # schema 兼容: 实盘 yaml 用 quantity, 展示层用 shares
+        shares = p.get("shares", p.get("quantity", 0))
         cost = p.get("cost", "N/A")
         latest = p.get("latest", p.get("price", "N/A"))
         pct = p.get("pct_change", "N/A")

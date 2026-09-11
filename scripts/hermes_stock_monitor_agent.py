@@ -145,9 +145,14 @@ def _normalize_positions(positions_raw: dict | list, quote_lookup: dict[str, dic
     for account in accounts:
         if not isinstance(account, dict):
             continue
+        # schema 兼容: 实盘 yaml 用 broker, 模板用 name
+        account_label = account.get("name") or account.get("broker", "")
         for pos in account.get("positions", []):
             if isinstance(pos, dict):
-                pos["account"] = account.get("name", "")
+                pos["account"] = account_label
+                # schema 兼容: 实盘 yaml 用 quantity, 监控展示用 shares
+                if "shares" not in pos and "quantity" in pos:
+                    pos["shares"] = pos["quantity"]
                 _enrich_stock_with_quote(pos, lookup)
                 result.append(pos)
     # Also handle direct portfolio_stats or positions list at top level
@@ -381,10 +386,14 @@ def _format_fallback_text(data: dict) -> str:
     if isinstance(positions, dict):
         for account in positions.get("accounts", []):
             if isinstance(account, dict):
+                # schema 兼容: 实盘 yaml 用 broker/quantity, 展示层用 name/shares
+                account_label = account.get("name") or account.get("broker", "")
                 for pos in account.get("positions", []) or []:
                     if isinstance(pos, dict):
                         pos = dict(pos)
-                        pos["account"] = account.get("name", "")
+                        pos["account"] = account_label
+                        if "shares" not in pos and "quantity" in pos:
+                            pos["shares"] = pos["quantity"]
                         _enrich_stock_with_quote(pos, quote_lookup)
                         position_rows.append(pos)
     elif isinstance(positions, list):
