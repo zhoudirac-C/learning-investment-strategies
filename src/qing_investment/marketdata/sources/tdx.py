@@ -23,9 +23,14 @@ def fetch_kline(code: str, klt: int, count: int, *, kind: str = "auto") -> list[
 
     cat = {30: "30min", 60: "60min", 101: "daily"}.get(klt, "60min")
     need = count * 2 + 2 if klt == 120 else count + 2
-    from qing_investment.marketdata.symbol import norm_ticker as _n
+    from qing_investment.marketdata.symbol import prefix_for, norm_ticker
     try:
-        rows = TdxMarket().get_kline(_n(code), cat, count=need)
+        # ⚠️ 必须传带前缀形式（'sh512400'）：TdxMarket.resolve_symbol 对裸码
+        # 的市场推断不含 ETF 段（5 开头），'512400' 直接抛 TdxSymbolError——
+        # 2026-09-11 实测：裸码导致 TDX 腿全程静默失效（被封禁熔断掩盖）。
+        digits = norm_ticker(code)
+        prefixed = f"{prefix_for(digits, kind=kind)}{digits}"
+        rows = TdxMarket().get_kline(prefixed, cat, count=need)
     except Exception:
         return []
     if not rows:
