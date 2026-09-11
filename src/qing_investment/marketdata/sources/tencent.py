@@ -84,7 +84,10 @@ def fetch_kline(code: str, klt: int, count: int, *, kind: str = "auto") -> list[
             payload = http_get_json(url, headers=headers)
         except Exception:
             return []
-        raw = payload.get("data", {}).get(sym, {}).get("day", []) or []
+        node = payload.get("data", {}).get(sym, {})
+        # ⚠️ 个股返回键为 qfqday（前复权），指数为 day——必须双键兼容
+        # （2026-09-11 实测：只读 day 会让个股日线路径全空触发降级）
+        raw = node.get("qfqday", []) or node.get("day", []) or []
         bars = []
         for parts in raw:
             if len(parts) < 6:
@@ -151,8 +154,9 @@ def fetch_quotes(codes: list[str], *, kind: str = "auto") -> list[dict]:
                 "change_pct": float(vals[32] or 0),
                 # [35] 是三段拼接（'价格/成交量/成交额'，2026-09-11 实测分隔符为 '/'，
                 # a-stock-data 文档写 \x01 系另一版式）——不直接解析；
-                # 成交额(万元)取 [37]，×1e4 归一到元
+                # 成交额(万元)取 [37]，×1e4 归一到元；成交量(手)取 [36]
                 "amount": float(vals[37] or 0) * 1e4,
+                "volume": float(vals[36] or 0),
                 "pe_ttm": float(vals[39]) if vals[39] else None,
                 "pb": float(vals[46]) if vals[46] else None,
                 "mcap": float(vals[45]) if vals[45] else None,  # 总市值(亿)

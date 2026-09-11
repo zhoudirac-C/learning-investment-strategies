@@ -69,21 +69,19 @@ def test_120min_prefers_tencent_native(script, monkeypatch):
         monkeypatch.setattr(mod.urllib.request, "urlopen", spy_urlopen)
         rows = mod.fetch_index_klines("sh000001", 120, 10)
     else:
-        real_tx = mod.fetch_latest_klines_from_tencent
+        # 2026-09-11 marketdata 收口迁移后，脚本 fetch 层委托
+        # qing_investment.marketdata.router；120min 走腾讯原生的语义
+        # 由 router 降级链保证（120min 链不含 eastmoney）。
+        # spy 对象从脚本内旧函数改为 marketdata 腾讯源。
+        from qing_investment.marketdata.sources import tencent as md_tencent
+
+        real_tx = md_tencent.fetch_kline
 
         def spy_tx(*a, **kw):
             calls["tencent"] += 1
             return real_tx(*a, **kw)
 
-        monkeypatch.setattr(mod, "fetch_latest_klines_from_tencent", spy_tx)
-
-        real_em = mod._eastmoney_get
-
-        def spy_em(*a, **kw):
-            calls["eastmoney"] += 1
-            return real_em(*a, **kw)
-
-        monkeypatch.setattr(mod, "_eastmoney_get", spy_em)
+        monkeypatch.setattr(md_tencent, "fetch_kline", spy_tx)
         rows = mod.fetch_latest_klines("sh000001", 120, 10)
 
     assert rows, "120min 应有数据"

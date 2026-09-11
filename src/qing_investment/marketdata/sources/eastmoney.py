@@ -105,6 +105,8 @@ def fetch_quotes(codes: list[str], *, kind: str = "auto") -> list[dict]:
                     "low": float(r.get("f16") or 0),
                     "change_pct": float(r.get("f3") or 0),
                     "amount": float(r.get("f6") or 0),
+                    "volume": float(r.get("f5") or 0),
+                    "open": float(r.get("f17") or 0),
                     "source": SOURCE,
                 })
             except (ValueError, TypeError):
