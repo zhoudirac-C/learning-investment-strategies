@@ -734,3 +734,152 @@ claims:
   - 上证指数
   - 日内反弹
   - 仓位管理
+- id: claim-20260911-001-023
+  source_path: sources/original/bilibili/2026-09-11-1118-图片-科创50,60分钟以上都出底部钝化了，120分钟底部钝化的级.md
+  source_date: '2026-09-11'
+  source_type: 动态
+  extracted_at: '2026-09-11T13:56:49+08:00'
+  claim_type: technical-signal
+  subject: 科创50 60分钟以上全级别底部钝化 120分钟级别最大
+  timeframe: intraday
+  statement: 科创50在60分钟及以上所有周期都出现底部钝化，其中120分钟底部钝化的级别最大。底部钝化即下跌动能衰竭信号，覆盖周期越长、级别越大，潜在反弹规格越高。
+  evidence_quote: 科创50,60分钟以上都出底部钝化了，120分钟底部钝化的级别最大。
+  interpretation: 多周期共振的动能衰竭信号：60m/120m(2小时)同时底部钝化且120m级别最大，指向科创50短线下跌动能系统性衰竭。与UP上午'科技已经跌不动'判断同向但更技术化——钝化不等于反转成立，需金叉/底背离确认后转化。对持仓含义：科创ETF(588780/588200)持有底仓不动，等待钝化转化为买点确认。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260714-001-t", "claim-20260731-008"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-11
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科创50多周期底部钝化,120分钟级别最大
+  related_stocks: []
+  tags:
+  - 科创50
+  - 底部钝化
+  - 120分钟
+  - 动能衰竭
+  - 多周期共振
+- id: claim-20260911-001-024
+  source_path: sources/original/bilibili/2026-09-11-1118-图片-科创50,60分钟以上都出底部钝化了，120分钟底部钝化的级.md
+  source_date: '2026-09-11'
+  source_type: 动态
+  extracted_at: '2026-09-11T13:56:49+08:00'
+  claim_type: methodology
+  subject: 市场绝望声中应兴奋 抓住危机才能走出来
+  timeframe: permanent
+  statement: 这种时候不应该兴奋起来了吗？现在那么多的声音都是绝望的，股市亏钱的人是大多数啊，你要想走出来，首先就要学会抓住危机。即多数人绝望处恰是机会所在，逆向情绪是底部区域的心理特征。
+  evidence_quote: 这种时候不应该兴奋起来了吗？ 现在那么多的声音都是绝望的，股市亏钱的人是大多数啊，你要想走出来，首先就要学会抓住危机。
+  interpretation: UP核心心理纪律的再次复用：绝望声音密度是情绪底的可观察指标，与'不破不立'前置条件(claim-20260911-001-007)互为印证。这是方法论级固化表述(与前次提法一致)，非单日语境。执行上不等于左侧重仓抄底——结合同日操作纪律(抄底仓看上证、拉不起来就减仓)，兴奋指关注与准备，仓位仍按触发条件执行。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-11
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 绝望声中要兴奋,抓住危机是走出来第一步
+  related_stocks: []
+  tags:
+  - 逆向情绪
+  - 绝望声
+  - 抓住危机
+  - 心理纪律
+  - 情绪底
+- id: claim-20260911-001-025
+  source_path: sources/original/bilibili/2026-09-11-1333-图片-最好的剧本就是今天上证留下影线，如果收上去绿角线又没了，这样.md
+  source_date: '2026-09-11'
+  source_type: 动态
+  extracted_at: '2026-09-11T13:56:49+08:00'
+  claim_type: market-cycle
+  subject: 最优剧本今日留影线 下周一低开高走收阳
+  timeframe: short-term
+  statement: 最好的剧本就是今天上证留下影线，如果收上去绿角线又没了，这样反而不好，下周一低开高走收根阳线，完美。即今日理想走势=收出下影线承接形态，下周一低开高走收阳完成反转结构；若今日强行收上去(绿角线消失)反而透支反弹，不如留影线蓄势。
+  evidence_quote: 最好的剧本就是今天上证留下影线，如果收上去绿角线又没了，这样反而不好，下周一低开高走收根阳线，完美。
+  interpretation: 两日结构剧本：今日下影线(承接确认)+周一低开高走阳线(反转确认)构成完整底部组合。关键细节是'收上去反而不好'——急拉修复会透支下周一的反弹空间，缓跌留影线的蓄势结构优于强行收复。验证锚点：今日收盘形态(下影线有无)与下周一开盘后的走势方向。与09:05专栏'今日+下周一摸排变盘方向'的验证窗口一致。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260607-002-b"]
+  last_discovered: 2026-09-11
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 最优剧本=今日下影线+周一低开高走收阳
+  related_stocks: []
+  tags:
+  - 下影线
+  - 剧本推演
+  - 周一阳线
+  - 反转结构
+  - 蓄势
+- id: claim-20260911-001-026
+  source_path: sources/original/bilibili/2026-09-11-1333-图片-最好的剧本就是今天上证留下影线，如果收上去绿角线又没了，这样.md
+  source_date: '2026-09-11'
+  source_type: 动态
+  extracted_at: '2026-09-11T13:56:49+08:00'
+  claim_type: operation
+  subject: 今日抄底赚一点或摊成本 无所谓
+  timeframe: intraday
+  statement: 今天抄底，抄好了嘛今天还能赚一点，抄不好，加一点成本，无所谓的。即对当日抄底给出容错框架：抄在低点则日内浮盈，抄早被套则摊高一点成本，两者都可接受，不值得为此焦虑。
+  evidence_quote: 今天抄底，抄好了嘛今天还能赚一点，抄不好，加一点成本，无所谓的。
+  interpretation: 抄底动作的成本容错定性：抄底仓定位为低成本试错，最大损失=成本小幅摊高，收益=日内浮盈+底部筹码。与09:52'拉不起来就减仓'配套成完整闭环——入场容错宽松、退出纪律严格(反弹无力即减)。用户今早512400加仓1万股@≈1.727正处此框架内：现价1.718属'加一点成本'情形，按UP口径'无所谓'，退出仍看上证拉不拉得起。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-11
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今日抄底容错框架:赚一点或摊成本皆可接受
+  related_stocks: []
+  tags:
+  - 抄底容错
+  - 摊成本
+  - 试错仓
+  - 日内浮盈
+  - 仓位管理
+- id: claim-20260911-001-027
+  source_path: sources/original/bilibili/2026-09-11-1333-图片-最好的剧本就是今天上证留下影线，如果收上去绿角线又没了，这样.md
+  source_date: '2026-09-11'
+  source_type: 动态
+  extracted_at: '2026-09-11T13:56:49+08:00'
+  claim_type: market-cycle
+  subject: 逻辑观点没有任何变化
+  timeframe: short-term
+  statement: 逻辑观点没有任何变化。即 Despite 盘中下跌，UP维持既有的方向层判断不变——量能时间情绪三要素到位的变盘倒计时、9月下旬决胜窗口、3909收盘价防线等核心框架全部维持。
+  evidence_quote: 逻辑观点没有任何变化。
+  interpretation: 方向层稳定性确认：当日两次盘中下跌未触发任何框架修正，早间专栏全部判断(变盘倒计时/外围只给开盘定价/3909只看收盘/9月下旬决胜窗口)继续有效。对监控含义：无需调整现有防线配置，等收盘对3909与下影线剧本做验证即可。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-11
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 盘中下跌不改变既有逻辑观点
+  related_stocks: []
+  tags:
+  - 逻辑不变
+  - 方向层稳定
+  - 3909防线
+  - 变盘倒计时
