@@ -21,6 +21,45 @@ _DEFAULT_DB_PATH = (
 
 _CN_TZ = timezone(timedelta(hours=8))
 
+# ── 键格式统一（2026-09-12）──
+# stocks_kline 的规范键 = {6位数字}.{SH|SZ|BJ}，与 watchlist/stock_pool/
+# positions 配置码格式一致。交易所由数字前缀权威推导（后缀标注可能错，
+# 如历史上 000001.SH 写入的是平安银行 SZ 数据）；IDX 别名命名空间豁免
+# （fetch_index_klines 写 'IDX000001' 等，指数已统一走 index_klines 表）。
+_EXCHANGE_BY_PREFIX = (
+    ("920", "BJ"),   # 北交所新码段（须在 9 判断前）
+    ("4", "BJ"), ("8", "BJ"),          # 北交所/三板
+    ("0", "SZ"), ("1", "SZ"),          # 深主板 / 深 ETF-LOF
+    ("2", "SZ"), ("3", "SZ"),          # 深 B / 创业板
+    ("5", "SH"), ("6", "SH"),          # 沪 ETF-LOF / 沪主板+科创板
+    ("7", "SH"), ("9", "SH"),          # 沪申购/增发 / 沪 B（920 已先截流）
+)
+
+
+def normalize_stock_key(code: str) -> str:
+    """任意输入码 → stocks_kline 规范键；无法识别或 IDX 别名原样返回。
+
+    - '600363' → '600363.SH'，'sh512880' → '512880.SH'（剥市场前缀）
+    - 错标后缀按数字前缀修正：'000001.SH' → '000001.SZ'
+    - 'IDX000001' → 原样（指数别名键，归一化会与平安银行冲突）
+    """
+    s = str(code).strip()
+    if s.upper().startswith("IDX"):
+        return s
+    core = s.upper()
+    for mkt in (".SH", ".SZ", ".BJ"):
+        core = core.replace(mkt, "")
+    for pref in ("SH", "SZ", "BJ"):
+        if core.startswith(pref):
+            core = core[len(pref):]
+    core = core.strip()
+    if not (len(core) == 6 and core.isdigit()):
+        return s
+    for pref, mkt in _EXCHANGE_BY_PREFIX:
+        if core.startswith(pref):
+            return f"{core}.{mkt}"
+    return s
+
 
 # ── 连接管理 ──
 @contextmanager
@@ -134,10 +173,14 @@ def save_klines(
     """保存单只股票的日K线（覆盖写入该股票的历史数据）。
 
     Args:
-        code: 股票代码，如 "600378"
+        code: 股票代码，任意格式（'600378' / '600378.SH' / 'sh512880'），
+            统一归一化为规范键 {6位数字}.{SH|SZ|BJ} 落库（键格式统一收口点，
+            2026-09-12：此前 sector 补齐写裸码、pre_fetch 写后缀，双键并存
+            使断点续拉跨键判定被遮蔽）。
         klines: K线数据列表，每项为 dict，至少包含 date, open, high, low, close
         db_path: 自定义数据库路径
     """
+    code = normalize_stock_key(code)
     with _get_conn(write=True, db_path=db_path) as conn:
         # 先删除该股票旧数据，再插入新数据（覆盖策略）
         conn.execute("DELETE FROM stocks_kline WHERE code = ?", (code,))
@@ -166,6 +209,81 @@ def save_klines(
                 ],
             )
         conn.commit()
+
+
+def migrate_kline_keys(
+    db_path: Path | None = None, dry_run: bool = False
+) -> dict[str, Any]:
+    """存量键一次性迁移到规范后缀键（2026-09-12 键格式统一）。
+
+    碰撞规则：多个旧键归一到同一规范键（或与现存规范键并存）时，
+    按 MAX(trade_date) 取更新者的整序列，输者整序列丢弃——各写入方
+    （pre_fetch / sector 补齐）均为 90 天窗口覆盖写，无缺日互补价值，
+    且裸码与后缀键复权口径不同（TDX 不复权 vs qfq）不可混拼。
+
+    迁移后下一轮 pre_fetch / sector 补齐将以 qfq 覆盖写规范键，口径自动统一。
+    IDX 别名与已是规范键的行不动。幂等，可重复运行。
+
+    Returns:
+        {"rekeyed": {旧键: 规范键}, "collisions": [被丢弃的旧键...], "dry_run": bool}
+    """
+    rekeyed: dict[str, str] = {}
+    dropped: list[str] = []
+    with _get_conn(write=True, db_path=db_path) as conn:
+        groups: dict[str, list[tuple[str, str]]] = {}
+        for code, max_date in conn.execute(
+            "SELECT code, MAX(trade_date) FROM stocks_kline GROUP BY code"
+        ).fetchall():
+            canon = normalize_stock_key(code)
+            if canon == code:
+                continue  # 已是规范键 / IDX 别名
+            groups.setdefault(canon, []).append((code, max_date))
+
+        for canon, members in groups.items():
+            existing_max = conn.execute(
+                "SELECT MAX(trade_date) FROM stocks_kline WHERE code = ?", (canon,)
+            ).fetchone()[0]
+            members_max = max(m[1] for m in members)
+            winner = max(members, key=lambda m: (m[1], m[0]))[0]
+
+            if existing_max is not None and existing_max >= members_max:
+                # 现存规范键更新（如 sector 补齐 9/11 qfq vs 裸码 06-24 旧数据）
+                # → 丢弃全部旧键
+                for old, _md in members:
+                    if not dry_run:
+                        conn.execute(
+                            "DELETE FROM stocks_kline WHERE code = ?", (old,)
+                        )
+                    dropped.append(old)
+                continue
+
+            if existing_max is not None:
+                # 旧键更新（如 9/11 qfq 裸码 vs 06-24 后缀键）→ 规范键旧行
+                # 一并删除（口径不同不可混拼），再改写；直接 UPDATE 会因
+                # 重叠交易日撞 (code, trade_date) 主键
+                if not dry_run:
+                    conn.execute("DELETE FROM stocks_kline WHERE code = ?", (canon,))
+                dropped.append(canon)
+
+            for old, _md in members:
+                if not dry_run:
+                    if old == winner:
+                        conn.execute(
+                            "UPDATE stocks_kline SET code = ? WHERE code = ?",
+                            (canon, old),
+                        )
+                    else:
+                        conn.execute(
+                            "DELETE FROM stocks_kline WHERE code = ?", (old,)
+                        )
+                if old == winner:
+                    rekeyed[old] = canon
+                else:
+                    dropped.append(old)
+
+        if not dry_run:
+            conn.commit()
+    return {"rekeyed": rekeyed, "collisions": sorted(dropped), "dry_run": dry_run}
 
 
 def save_financial_reports(
@@ -240,10 +358,10 @@ def get_klines(
     with _get_conn(write=False, db_path=db_path) as conn:
         cursor = conn.execute(
             """SELECT * FROM stocks_kline
-                WHERE code = ?
+                WHERE code IN (?, ?)
                 ORDER BY trade_date DESC
                 LIMIT ?""",
-            (code, days),
+            (normalize_stock_key(code), str(code).strip().split(".")[0], days),
         )
         rows = cursor.fetchall()
 

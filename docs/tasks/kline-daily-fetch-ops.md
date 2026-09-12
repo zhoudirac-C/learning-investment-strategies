@@ -2,6 +2,22 @@
 
 > 用途：记录 K 线缓存与影子双轨的每日调度现状，供后续会话/云部署核对。
 
+## 键格式统一（2026-09-12）
+
+`stocks_kline` 的键已从「裸码 / 后缀双键并存」统一为规范键 `{6位}.{SH|SZ|BJ}`
+（与 watchlist/stock_pool/positions 配置码一致）：
+
+- **收口单点**：`qing_investment.kline_cache.normalize_stock_key()`。
+  `save_klines` 写入端归一化（pre_fetch / fetch_tdx_sector / stock_data 三个
+  写入方零改动自动生效）；`get_klines` 读端 `IN (规范键, 裸码)` 双读兼容。
+- **交易所由数字前缀权威推导**：0/1/2/3→SZ、5/6/7/9→SH、920/4/8→BJ，
+  后缀标注错误会被纠正（历史数据曾把平安银行写成 000001.SH）。
+- **存量迁移**：`scripts/migrate_kline_keys.py`（幂等，碰撞按 MAX(trade_date)
+  取更新者整序列）。迁移后断点续拉不再被跨键 MAX 遮蔽，复权口径统一 qfq
+  （下一轮覆盖写生效）。
+- **IDX 别名豁免**：`fetch_index_klines.py` 写 `IDX000001` 等别名键不参与归一。
+- 契约测试：`tests/test_kline_key_unification.py`、`tests/test_kline_key_migration.py`。
+
 ## 现状（云端 Hermes cron，2026-08-13 起）
 
 本机 Mac 的 crontab 是旧形态（测试期），正式运行态在云端，走 Hermes cron + `~/.hermes/scripts/` wrapper。
