@@ -1,0 +1,33 @@
+chain_id: oil-refining
+name: 炼化产业链
+thesis: 全球炼能扩张放缓，成品油需求韧性导致供应偏紧，中国民营大炼化及国有炼化企业凭借规模、成本与一体化优势，盈利有望提升
+last_verified: '2026-09-12'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 原油
+  - 石脑油
+  - 天然气
+- id: midstream
+  name: 中游
+  materials:
+  - 成品油
+  - 化工品
+- id: downstream
+  name: 下游
+  materials:
+  - 汽油
+  - 柴油
+  - 航空煤油
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-12 人工确认入观察列表；提议于 2026-09-04，LLM 初判 阶段1-启动期（研报-全球炼油行业专题：全球成品油供应紧张，中国炼化竞争力凸显（国信证券/炼化及贸易）），积累证据
+  25 条
+timing:
+  current_recommendation: 关注炼化环节龙头企业，重点跟踪成品油裂解价差与全球炼能变化
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

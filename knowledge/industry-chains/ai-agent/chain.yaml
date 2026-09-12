@@ -1,0 +1,33 @@
+chain_id: ai-agent
+name: AI Agent产业链
+thesis: 大模型能力从对话走向计算机操作，催生Agent化改造，带动中间件、任务规划、垂直应用等新环节需求，软件行业商业模式从卖工具转向卖服务。
+last_verified: '2026-09-12'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 多模态训练数据
+  - 算法框架
+  - 知识图谱
+- id: midstream
+  name: 中游
+  materials:
+  - Agent开发平台
+  - API中间件
+  - 人机交互模块
+- id: downstream
+  name: 下游
+  materials:
+  - 行业应用软件
+  - 数字化服务
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-12 人工确认入观察列表；提议于 2026-09-07，LLM 初判 阶段1-启动期（AI系列专题研究：GPT-6
+  Astra：Computer Use突破，AI从Copilot迈向端到端Agent（国信证券/软件开发）），积累证据 29 条
+timing:
+  current_recommendation: 提前布局Agent中间件与垂直应用软件，关注头部大模型厂商应用落地进展。
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

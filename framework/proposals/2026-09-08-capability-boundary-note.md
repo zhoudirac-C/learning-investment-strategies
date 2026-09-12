@@ -1,7 +1,7 @@
 ---
 date: 2026-09-08
 type: capability-boundary
-status: open
+status: applied
 source: evals/shadow/attributions/2026-09-08.json
 ---
 
@@ -14,3 +14,5 @@ source: evals/shadow/attributions/2026-09-08.json
 ## 处置建议
 
 宏观三条件校验中油价分项固定标记『不可校验』并从计票剔除（按2/3条件定案），复盘确认该缺口非本次错因主通路；待接入油价数据源后再纳入计票，避免以『部分成立』作模糊定性。
+
+> applied 2026-09-12：经合并裁决 `2026-09-12-close-track-adjudication.md` 实施——prompt v19 规则25 油价分项固定「不可校验」按 2/3 条件定案，`framework/ai-business-model-falsification.md` 三条件表已同步注明。

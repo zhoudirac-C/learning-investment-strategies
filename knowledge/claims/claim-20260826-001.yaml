@@ -68,7 +68,7 @@ claims:
   evidence_quote: 今天的科技行情本质上是一段有硬边界的半日行情，不是不能做，而是必须在收盘前把持仓过夜的问题想清楚。参照过去四个季度英伟达财报次日股价均下跌的记录，即便业绩超预期，A股科技板块次日也未必能获得正反馈；反过来，如果今天科技方向在财报前就走弱，那说明资金已经提前给出了答案。
   interpretation: 英伟达财报是今天科技行情的硬边界：盘中参与可以，但尾盘要减仓过夜敞口。过去四个季度财报次日A股科技均下跌，即便超预期也不一定正反馈，这是持仓过夜的风险成本。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -97,7 +97,7 @@ claims:
   evidence_quote: 乐观情形下，如果A股能在之后的半个多月里边缩量边筑底，把量能磨回1.5至1.6万亿，等9月下旬海外超长债与美联储议息会议的担忧陆续缓解，那才是指数与科技板块的全新决胜窗口。
   interpretation: 量能路径的终点（1.5-1.6万亿地量）+ 宏观事件（9月海外超长债+美联储）= 全新决胜窗口的时间锚。当前仍处缩量筑底过程中，未见明确底部信号。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260811-005"]
   contradicts: []
@@ -221,7 +221,7 @@ claims:
   evidence_quote: 液冷目前在科技分支里占据身位优势，性质有点类似7月底的MLCC——既然被资金推出来了，后续总能找到逻辑，逻辑后置本来就是这类行情的常态。反过来说，如果今天液冷不够强，那对科技股整体就要更加冷静。
   interpretation: 液冷=有身位优势但逻辑后置的科技分支（类比7月MLCC）。身位够了但需要硬逻辑跟进（业绩订单等），如果今天液冷不强则科技整体偏弱，这是观察科技方向强度的切口。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -687,7 +687,7 @@ claims:
   evidence_quote: 第一，高开不加仓，等承接——高开本身是外盘定价的结果，不是A股资金的选择，能不能边冲高边小幅放量才是唯一有效的确认。第二，今天科技方向的时间窗只到收盘，盘中加满的部分应当在尾盘找高点减出来；沿用此前的隔夜风险敞口原则，持仓过夜的成本不是价格，而是明天开盘那一刻还能不能自由选择。第三，逆指数方向的持有前提是指数继续走弱，一旦指数真正企稳，这部分仓位反而要减。
   interpretation: 8/26操作预案三原则：高开不加仓（外盘定价≠A股选股）、尾盘减科技敞口（隔夜风险原则）、逆指数方向指数企稳则减仓（方向一致性）。三条纪律都指向同一个结论：今天控制敞口优先于方向判断。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260803-013", "claim-20260814-036", "claim-20260814-019"]
   contradicts: []

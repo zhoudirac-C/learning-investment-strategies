@@ -20,7 +20,12 @@ segments:
 - id: downstream
   name: 下游
   materials: []
-mappings: []
+mappings:
+- code: 002812
+  name: 恩捷股份
+  segment: midstream
+  relation: 湿法隔膜龙头，供货头部电芯厂
+  elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 低
 stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-08-31，LLM 初判 阶段2-加速期（国信证券《锂电产业链双周报（2026年8月第2期）：锂电产业链持续产销两旺，业绩维持高速增长趋势》），积累证据
@@ -29,5 +34,13 @@ timing:
   current_recommendation: 关注排产与单位盈利改善的中游材料环节（电解液、结构件、铁锂正极）及龙头电芯；上游锂资源观察涨价持续性
   next_trigger: null
   risk: null
-tracking_metrics: []
+tracking_metrics:
+- metric: 隔膜单位盈利/加工费
+  current: 持续向好（环比改善）
+  signal_direction: 向上
 falsification: []
+history:
+- date: '2026-09-12'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增隔膜单位盈利跟踪节点并映射恩捷股份
+  result: 待验证

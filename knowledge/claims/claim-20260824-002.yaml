@@ -11,7 +11,7 @@ claims:
   evidence_quote: 长端收益率周五继续上行，10年期美债收益率涨逾3个基点报4.734%，30年期同样涨逾3个基点报5.273%。也就是说，美国财政部扩大长债回购的利好，在周五被收益率的再度走高抹掉了大半——股指是企稳了，收益率没有。这波回调的源头本就来自长端美债，源头没有解除，外围这条线目前只能记为暂停，不能记为解除。
   interpretation: UP对外围风险的定性：回调源头是长端美债收益率，股指反弹不代表源头解除。4.734%仍在警戒区上方，外围这条线维持暂停状态而非解除。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260820-002", "claim-20260819-048"]
   contradicts: []
@@ -69,7 +69,7 @@ claims:
   evidence_quote: 美联储主席沃什将于8月28日在杰克逊霍尔经济政策研讨会发表其首次主席演讲。本周真正的定价事件在周五这场演讲——在利率路径口径明确之前，任何关于外围风险解除的推断都缺少落脚点。
   interpretation: 给出明确的时间锚：8月28日杰克逊霍尔演讲是本周最重要的外部变量，在此之前不宜提前定价外围风险解除。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260717-006-d", "claim-20260729-031"]
   contradicts: []
@@ -127,7 +127,7 @@ claims:
   evidence_quote: 市场用两周多的时间，已经成功走完了倒数第二步。但从跌破2万亿到真正见到地量，中间大概率还要间隔不少时间。……地量往往恰恰出现在大家都没有预期的时候。能做的只有边等边试错，好处是至少知道地量的大致范围。
   interpretation: 定量刻度：当前18793亿处于经验路径倒数第二步，距1.5-1.6万亿地量仍有时间距离。操作含义：边等边试错，不预期冰点。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260805-011", "claim-20260820-032", "claim-20260806-001"]
   contradicts: []
@@ -184,7 +184,7 @@ claims:
   evidence_quote: 油价上行是通胀预期抬升、长端收益率下不来的直接原因之一，这条链路今天仍然通着。只要油价维持在这一位置，收益率的回落就是反弹而非反转，对应到A股，就是高估值成长方向的估值修复空间受限。
   interpretation: 油价→通胀→长端收益率→成长股估值约束的传导链仍然有效。高估值成长修复空间受油价位置制约。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260821-003"]
   contradicts: []
@@ -318,7 +318,7 @@ claims:
   evidence_quote: 但这条消息的量级不太够，更关键的是液冷的走强无可避免会对前两天的CPO/NPO产生分流，盘中太辰光就出现过大幅跳水。说不定过几天又会有其他细分方向反过来分流液冷，比如PCB或覆铜板方向……科技就很容易陷入无限轮动的状态——不是没有资金，而是资金总量不足以同时抬起两个分支。
   interpretation: 科技内部结构判断：缩量环境下细分方向互为分流源，追日内领涨分支易被次日轮动反杀。科技整体按弱修复对待，唯一例外仍是光通信等有独立催化的方向。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -510,7 +510,7 @@ claims:
     · 开盘大幅放量，或存储跟随美股走弱：那么上周五那根阳线就要重新定性为缩量反抽，短线情绪拐点证伪，地量的落点会进一步后移。这种情况下不做左侧、不接飞刀，等关键均线支撑与放量确认再谈参与。
   interpretation: 当日操作预案：以开盘量能+存储是否破位为首道分叉，以首板/跌停家数确认。右侧确认代价是少赚，左侧试错代价是本金——混沌期宁可少赚。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260812-024", "claim-20260805-038", "claim-20260813-009"]
   contradicts: []

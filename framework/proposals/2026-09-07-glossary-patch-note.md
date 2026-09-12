@@ -1,7 +1,7 @@
 ---
 date: 2026-09-07
 type: glossary-patch
-status: open
+status: merged
 source: evals/shadow/attributions/2026-09-07.json
 ---
 
@@ -14,3 +14,5 @@ source: evals/shadow/attributions/2026-09-07.json
 ## 处置建议
 
 术语词典补丁：为规则28(a)『破位收涨=修复尝试』增加适用前置——当日量能环比≥前日（缩量大阳如量-17%不适用）且非单一外部链映射驱动，否则信号改标『反抽』、stage维持原判；新增『外力映射日』词条：涨跌主因可溯源至隔夜外部链（费半/存储链/KOSPI等）时，单日K线仅作观察项、不参与阶段重定性。
+
+> merged 2026-09-12：并入合并裁决 `2026-09-12-close-track-adjudication.md` 实施——28(a) 适用前置落 prompt v19 规则28 文本，「外力映射日」词条已回写 up-glossary.md「盲判归因增补（2026年9月12日）」。

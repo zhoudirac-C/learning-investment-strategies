@@ -59,10 +59,10 @@ class TestPremarketPrompt:
 
 
 class TestPremarketPromptVersion:
-    def test_prompt_version_is_v15(self):
-        """PROMPT_VERSION 与盘后盲判共享契约版本（v15；2026-09-05 A/B 后回退，
-        v16 压缩版保留为 replay.SYSTEM_PROMPT_V16 迭代基线）。"""
-        assert pm.PROMPT_VERSION == "v15"
+    def test_prompt_version_is_v19(self):
+        """PROMPT_VERSION 与盘后盲判共享契约版本（v19；2026-09-12 收盘轨
+        合并裁决落地，v15 保持冻结作 A/B 对照臂）。"""
+        assert pm.PROMPT_VERSION == "v19"
 
     def test_premarket_prompt_contains_discipline_rules(self):
         """v6 新增纪律规则关键词须出现在盘前 prompt（B1/B2/A2-A5/C5引用/C8降级）。"""
@@ -268,3 +268,13 @@ class TestPremarketPromptV15Rules:
         assert "无显性催化禁入选方向" in text and "direction_track" in text  # 规则36
         assert "资金流性质二次验证" in text and "游资短线轮动" in text  # 规则37
         assert "不覆盖日内反转风险" in text  # 规则30 边界声明（08-28 capability-boundary）
+
+
+class TestPremarketPromptV19Rules:
+    """v19 规则38（冲突裁决+T+1）+ 规则28(a) 适用前置关键词须在盘前 prompt
+    （双轨同步，裁决 2026-09-12-close-track-adjudication）。"""
+
+    def test_v19_rules_in_premarket_prompt(self):
+        text = pm.PREMARKET_SYSTEM_PROMPT
+        assert "冲突裁决+T+1确认" in text and "反抽观察" in text  # 规则38
+        assert "适用前置" in text and "外力映射日" in text  # 规则28(a) 适用前置

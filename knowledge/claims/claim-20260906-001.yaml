@@ -40,7 +40,7 @@ claims:
   evidence_quote: 偏强情形下纳指压力理应大于道指，因为它杀的是估值，盈利端并未受损，但周五实际走势是纳指跌幅最小，原因正是芯片股逆势拉动——这说明AI硬件的盈利确定性在资金眼里暂时跑赢了无风险利率的抬升，这一点直接决定了周一A股算力硬件方向的开盘情绪。
   interpretation: 标准定价模型下非农偏强应最伤高估值科技（纳指），实际走势反直觉（纳指-0.29% < 标普-0.38% < 道指-0.51%），说明资金在为AI硬件盈利买单而非简单杀估值。这是'盈利确定性>无风险利率'的短期实证，为周一A股算力硬件（液冷等）提供外围情绪支撑的锚点。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -127,7 +127,7 @@ claims:
   evidence_quote: 当一个防御方向的补涨扩散到弹性最差、逻辑最泛的子板块时，大概率已进入尾声。……所以防御方向的持续性会很短，一旦科技修复，这部分资金会立刻回流。
   interpretation: 给出防御板块的两层判断：(1)扩散至猪肉=尾声信号，勿追防御；(2)资金进攻切防御虽是负面信号但未到出清，防御只是短期避风港。操作含义：不追农林牧渔/猪肉，周一若科技修复则防御资金回流科技，防御板块自身无持续性。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260827-061-x", "claim-20260818-058"]
   contradicts: []

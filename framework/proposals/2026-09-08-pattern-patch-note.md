@@ -1,7 +1,7 @@
 ---
 date: 2026-09-08
 type: pattern-patch
-status: open
+status: applied
 source: evals/shadow/attributions/2026-09-08.json
 ---
 
@@ -14,3 +14,5 @@ source: evals/shadow/attributions/2026-09-08.json
 ## 处置建议
 
 在sentiment_cycle模式中增设阈值：封板率单日降幅≥15pct、炸板≥100家、首板环比降幅≥30%三项满足其二时，无论跌停家数，情绪状态强制记为『退潮』并从stage候选集剔除主升与震荡偏强；『跌停0家+梯队完整』仅用于区分烈度（瓦解vs温和退潮），不得作为否定退潮的证据。
+
+> applied 2026-09-12：经合并裁决 `2026-09-12-close-track-adjudication.md` 实施——sentiment_cycle step 2 退潮定量阈值（封板率单日降幅≥15pct/炸板≥100家/首板环比降幅≥30%，三取二）与 falsification、known_failures 已落 reasoning-patterns.yaml。

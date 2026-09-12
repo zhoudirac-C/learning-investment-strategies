@@ -63,6 +63,9 @@ tracking_metrics:
 - metric: 硅料库存/现金流
   current: 去库明显、现金流转正
   signal_direction: 好转
+- metric: 工业硅期货主力(SI0)价格
+  current: 8645（日跌2.1%，逼近前低）
+  signal_direction: 企稳回升=上游出清确认；持续创新低=上游价格证伪预警，领先于组件价格信号
 falsification:
 - 组件价格再创新低
 - 反内卷政策落空
@@ -73,4 +76,8 @@ history:
 - date: '2026-09-02'
   stage: 阶段0-观察
   action: 演化:add_node 新增上游硅料龙头通威股份及硅料去库跟踪指标。
+  result: 待验证
+- date: '2026-09-12'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增工业硅期货价格作为上游出清的高频领先跟踪节点
   result: 待验证

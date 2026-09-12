@@ -19,7 +19,12 @@ segments:
   materials:
   - PTFE覆膜滤料/滤袋
   - PTFE膜材
-mappings: []
+mappings:
+- code: '605020'
+  name: 永和股份
+  segment: midstream
+  relation: 萤石-氢氟酸-R22一体化，PTFE等氟聚合物放量构成第二成长曲线
+  elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 低
 stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-08-31，LLM 初判 阶段0-观察（国金证券《非金属建材行业研究：PTFE方案重要性升级，有望促进产业链新一轮格局更新》），积累证据
@@ -28,5 +33,13 @@ timing:
   current_recommendation: 以观察为主：跟踪水泥超低排放改造节奏与PTFE订单/价格验证，优先关注中游PTFE树脂龙头与上游萤石资源，暂不追高下游环保标的
   next_trigger: null
   risk: null
-tracking_metrics: []
+tracking_metrics:
+- metric: 氟聚合物(PTFE等)收入占比/销量增速
+  current: 第二曲线放量初期，占比仍低
+  signal_direction: 上行
 falsification: []
+history:
+- date: '2026-09-12'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增中游标的永和股份及氟聚合物放量跟踪指标
+  result: 待验证

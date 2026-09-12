@@ -1,0 +1,30 @@
+chain_id: ai-enterprise-saas
+name: AI企业应用/SaaS产业链
+thesis: 模型能力增强与部署成本下降推动企业级AI应用进入渗透率快速提升期，SaaS厂商作为中间层承接需求，有望实现收入与利润双升。
+last_verified: '2026-09-12'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - AI算力
+  - 基础模型
+- id: midstream
+  name: 中游
+  materials:
+  - SaaS平台
+  - AI中间件
+- id: downstream
+  name: 下游
+  materials:
+  - 企业客户
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-12 人工确认入观察列表；提议于 2026-09-09，LLM 初判 阶段1-启动期（人工智能行业专题（21）：SaaS板块指引转向乐观，FDE加速企业AI渗透率提升（国信证券）），积累证据
+  12 条
+timing:
+  current_recommendation: 关注具备AI功能落地能力和客户基础的SaaS龙头
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

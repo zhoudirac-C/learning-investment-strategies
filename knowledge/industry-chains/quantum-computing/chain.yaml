@@ -1,0 +1,36 @@
+chain_id: quantum-computing
+name: 量子计算产业链
+thesis: 量子计算具备算力代际优势，上游核心器件自主可控需求迫切，中游整机与云平台加速迭代，下游金融、化工、医药等场景有望率先落地。
+last_verified: '2026-09-12'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 超导材料
+  - 稀释制冷机
+  - 激光器
+  - 微波器件
+  - 低温电子学器件
+- id: midstream
+  name: 中游
+  materials:
+  - 量子处理器
+  - 量子纠错系统
+  - 量子云平台
+- id: downstream
+  name: 下游
+  materials:
+  - 量子加密通信
+  - 量子算法应用
+  - 行业解决方案
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-12 人工确认入观察列表；提议于 2026-09-10，LLM 初判 阶段0-观察（研报-新质生产力之重点产业链系列（二）：量子计算（国信证券）），积累证据
+  6 条
+timing:
+  current_recommendation: 观察上游核心器件与整机进展，关注政策催化后的主题投资机会
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

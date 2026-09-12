@@ -1,7 +1,7 @@
 ---
 date: 2026-09-07
 type: pattern-patch
-status: open
+status: merged
 source: evals/shadow/attributions/2026-09-07.json
 ---
 
@@ -14,3 +14,5 @@ source: evals/shadow/attributions/2026-09-07.json
 ## 处置建议
 
 volume_source_qualify增补对称规则：量能源子判定=存量高低切（行业流出对冲流入、成交额平量如19460亿环比-4.2%）时，不仅禁止『放量攻击』定性，同等禁止基于单日K线的『修复/阶段升级』定性，stage维持原判直至增量资金口径出现；并将watch_next中的『右侧确认』原则固化为阶段改判的前置校验项。
+
+> merged 2026-09-12：并入合并裁决 `2026-09-12-close-track-adjudication.md` 实施——volume_source_qualify step 2 对称约束与 falsification 已落 reasoning-patterns.yaml，右侧确认前置校验经 prompt v19 规则38 引用生效。

@@ -345,7 +345,7 @@ claims:
   evidence_quote: 美国8月CPI计划于北京时间9月11日周五20:30公布，时间在当日A股收盘之后。今天至周五收盘，仍有三个A股交易时段可以观察资金如何提前定价……若出现放量下跌、反抽无力，则应优先处理已经发生的量价变化，避免仅用'等待数据'解释所有调整。
   interpretation: 事件窗口的操作框架：CPI是周五盘后公布、对A股的影响是次日开盘定价（与9/1 claim'晚间数据是次日开盘定价输入'一致）。关键纪律：数据窗口不豁免量价纪律——跌破了照样执行防守，不以'等数据'为由拖延。结合建仓纪律：数据前不加仓，观察优先。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -465,7 +465,7 @@ claims:
   evidence_quote: 盘面相对强弱暂可概括为：PCB、光通信稍强，存储与MLCC偏弱，半导体整体更弱。……若这一排序持续，可能说明资金更偏好海外算力需求可见度较高、订单兑现路径较清晰的环节。
   interpretation: 科技从'液冷单一主线'进入内部分化阶段，UP给出当日强弱排序及其可能的资金逻辑解释（海外算力可见度），但明确标注这是'若持续'的假设性归因。对持仓的含义：515980/159381所在的科技主线暂无统一聚焦，强弱排序（PCB/光通信>存储/MLCC>半导体）是后续跟踪基准，排序持续才可升级为方向判断。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260907-010-a", "claim-20260825-036-a", "claim-20260827-060-x"]
   contradicts: []

@@ -59,11 +59,15 @@ tracking_metrics:
   current: 转正
   signal_direction: 持续为正=确认
   source: 统计局
+- metric: 焦炭/焦煤期货主力连续
+  current: J0单日-2.5%至2074.5，JM0单日-3.4%至1585.5
+  signal_direction: 期货连续大幅回落领先于现货提涨受阻，为分歧加深/逻辑削弱的预警信号
 falsification:
 - 焦炭提涨受阻或钢厂联合抵制连续2轮
 - 煤炭PPI转负
 - 大盘系统性破位下行
 - 煤炭板块核心标的（潞安/晋控）放量滞涨、联动失效
+- 焦煤期货连续大幅下跌（如5日累计跌超8%）且现货提涨停滞，视为领先证伪信号
 chain_relations: []
 history:
 - date: '2026-09-02'
@@ -73,4 +77,12 @@ history:
 - date: '2026-09-07'
   stage: 阶段3-分歧期
   action: 动力煤突破950元/吨直接验证供给收缩+价格上行逻辑，但属价格类强化而非关键节点（第七轮提涨）落地，维持焦炭龙头+上游煤企配置，不追高，等待回踩或第七轮提涨落地再加仓；证伪条件未触发
+  result: 待验证
+- date: '2026-09-12'
+  stage: 阶段3-分歧期
+  action: 演化:add_node 新增焦炭/焦煤期货主力价格作为提涨逻辑的领先预警节点
+  result: 待验证
+- date: '2026-09-12'
+  stage: 阶段3-分歧期
+  action: 演化:update_falsification 新增期货领先信号证伪条件
   result: 待验证

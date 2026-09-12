@@ -77,7 +77,7 @@ claims:
   evidence_quote: 按一贯的时序纪律，晚间公布的美国数据是明天开盘的定价输入，不是今天盘中的变量——今天仍然按自己的量能与接力节奏做，收盘前再按隔夜敞口决定要不要减。
   interpretation: UP强调时序纪律：晚间美国数据（CPI）只影响明日开盘定价，不在今日盘中反应；今天按自身量能与接力节奏操作。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -108,7 +108,7 @@ claims:
   evidence_quote: 外盘传导只反映在开盘定价上，开盘之后市场就回到自身节奏。低开不可怕，接不住才可怕。在硬科技整体已经反弹一波的位置上，高开反而更需要警惕冲高回落的重复。
   interpretation: UP给开盘纪律：低开不可怕（看承接），高开在硬科技反弹一波后需警惕冲高回落；外盘只定价开盘。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260809-006", "claim-20260731-005"]
   contradicts: []
@@ -140,7 +140,7 @@ claims:
     2025 年 10 月中旬与 2026 年 2 月中旬两次缩量过程，若 2 万亿最终被击穿，前期涌入的增量资金会反过来成为砸盘的主力。
   interpretation: UP警告2万亿整数关口非铁底（历史被击穿多次）；情形A缩至2万亿=横盘做结构，情形B突破4000需3万亿/3.5万亿放量；击穿2万亿则增量资金反成砸盘主力；跟踪增量资金集中度。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: ["claim-20260805-011", "claim-20260212-001-a"]
@@ -279,7 +279,7 @@ claims:
   evidence_quote: 与前几天不同的是，昨天领涨的是国产链的科技股，而非受益英伟达 Rubin 的海外链。国产链的基本面本来就优于海外链，主要风险在科创板估值仍贵，而不在需求。
   interpretation: UP判断科技领涨棒切至国产链：阿里云数据中心产能翻倍+上海十五五规划催化；国产链基本面优于海外链，风险在科创板估值贵不在需求。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260723-006"]
   contradicts: ["claim-20260722-007"]
@@ -666,7 +666,7 @@ claims:
     相比 GB300，单个 FT Socket 所含针脚数为 16000 比 8000；单颗测试时长翻倍以上；单针 ASP 从 2—3 美元提升至 4—5 美元。
   interpretation: UP记录和林微纳(688661)探针逻辑：英伟达探针三供（份额约7%）参与Rubin 9月小批量；测试通胀三因子（出货量/复杂度/功率）+FT针脚16000vs8000+ASP翻倍；供给端日企设备受限持续紧缺。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []

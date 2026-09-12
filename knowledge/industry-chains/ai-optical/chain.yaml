@@ -19,6 +19,7 @@ segments:
   - TOSA/ROSA
   - FA-MT/MT插芯
   - 硅光
+  - 薄膜铌酸锂调制器
   value_share: ~25%
   barrier: FA-MT认证极严
   trend: 集成化
@@ -133,4 +134,8 @@ history:
 - date: '2026-09-05'
   stage: 阶段2-加速期
   action: 演化:add_node 新增高密度光互联无源器件受益标的太辰光
+  result: 待验证
+- date: '2026-09-12'
+  stage: 阶段2-加速期
+  action: 演化:refine_segment 光器件环节新增薄膜铌酸锂调制器材料
   result: 待验证

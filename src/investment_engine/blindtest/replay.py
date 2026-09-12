@@ -33,7 +33,7 @@ _TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v15"
+PROMPT_VERSION = "v19"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -237,8 +237,7 @@ SYSTEM_PROMPT_V17 = """你是一个执行已验证方法论的市场分析引擎
 16. watch_next 首条为个股级验证节点：连板梯队有独苗/断板换龙承接标的/控异动个股，或 lhb 机构席位 top 个股与当日情绪事件矛盾时，第一条点名标的并给确认/证伪条件，不得只写汇总指标。
 17. 中阳/大阳定性前先定位置（反弹修复段还是趋势加速段）：反弹修复段的右侧确认点放在补缺回踩后的量价配合，不得仅凭当日量价齐升判主升/趋势加速。"""
 
-# 生产默认 prompt：A/B 检验期间指向 SYSTEM_PROMPT_V15（回退只需改这一行指向）
-SYSTEM_PROMPT = SYSTEM_PROMPT_V15
+# （生产默认指针移至 v19 定义之后——2026-09-12）
 
 # v18 = v15 + 规则28(c)：判 market_stage=「调整」需价格结构确认。
 # 依据（2026-09-05 v15 二轮 20 日窗口归因）：7 个阶段错判中 5 个为「震荡误判调整」
@@ -248,6 +247,44 @@ _V18_RULE28_ANCHOR = "禁止把顶部结构只写进 watch_next/cycle_state.note
 _V18_RULE28C = "(c) 「调整」需结构确认：判 market_stage=「调整」前，需价格结构证据至少其一——核心指数破位收跌（收盘跌破5日均线或近期波段低点）/ 任一指数60min及以上顶部 forming/divergence / cycle_state.rebound_day 达到或超过 theoretical_window 上限；三者皆无的情绪走弱日默认判「震荡」，把升级为「调整」的条件写入 watch_next。"
 SYSTEM_PROMPT_V18 = SYSTEM_PROMPT_V15.replace(
     _V18_RULE28_ANCHOR, _V18_RULE28_ANCHOR + _V18_RULE28C)
+
+# v19（2026-09-12，合并裁决 proposals/2026-09-12-close-track-adjudication）：
+# v15 + 三处修订——①规则25 油价分项无采集通道期间固定「不可校验」剔出计票
+# （按 2/3 条件定案）；②规则28(a) 破位收涨加适用前置（缩量大阳/外力映射日
+# 改标「反抽」、stage 维持原判）；③新增规则38（收盘重定性冲突裁决+T+1确认，
+# 含 stage-nature 一致性自检与 volume_source_qualify 对称约束引用）。
+# 沿用 v18 字符串拼装手法：锚点失效立即 assert，与 v15 差量可见、不全量复制
+# 避免双写漂移；v15 原样冻结作 A/B 对照臂。
+_V19_RULE25_ANCHOR = "部分成立时写明哪条失效及对应含义。禁止只罗列外盘涨跌数字而不给宏观/AI归因结论。"
+_V19_RULE25_NEW = ("油价分项在无采集通道期间固定标记「不可校验」并从计票剔除，"
+    "按其余 2/3 条件定案（接入油价数据源后恢复三条件全量计票）；"
+    "部分成立时写明哪条失效及对应含义。禁止只罗列外盘涨跌数字而不给宏观/AI归因结论。")
+_V19_RULE28A_ANCHOR = "若指数破位但当日收涨（修复尝试中），仍判「震荡」须在 stage_reason 写明破位事实与收复条件（收回 5 日均线/波段低点上方）。"
+_V19_RULE28A_NEW = ("若指数破位但当日收涨（修复尝试中），先做适用前置校验——"
+    "当日量能环比 ≥ 前日且涨跌主因非单一隔夜外部链映射（费半/存储链/KOSPI 等）；"
+    "任一不满足（缩量大阳/外力映射日）时该信号改标「反抽」，stage 维持原判、"
+    "不得据此改判「震荡」，收复条件写入 watch_next；前置均满足时仍判「震荡」"
+    "须在 stage_reason 写明破位事实与收复条件（收回 5 日均线/波段低点上方）。")
+_V19_RULE38 = ("38. 收盘重定性冲突裁决+T+1确认：收盘结论拟推翻盘前预判或昨日 stage"
+    "（尤其「调整」改判「震荡」）时强制执行——①冲突裁决：单日修复信号"
+    "（单日收涨/宽度回升/未破位）与 ≥2 项在场调整侧证据（宏观利率压制未解除/"
+    "60min 及以上顶部结构 forming/divergence 在位/量能源头=存量高低切非增量/"
+    "宽基未收复 5 日线/规则32 防御轮动末端读数）冲突时，禁止即时翻转 stage，"
+    "降级为「反抽观察」（沿用「缩量反抽（下跌中继）」口径），stage 维持原判；"
+    "②T+1确认：阶段改判须次日验证（回踩不破关键均线+量能不缩）后方可生效，"
+    "未验证前维持原判，改判条件写入 watch_next；③stage-nature 一致性自检："
+    "nature=「主动降速」或 stage_reason 自述含调整成分时，market_stage 必须"
+    "联动为「调整」，禁止「stage 震荡+nature 主动降速」脱钩输出；"
+    "量能源头判定为存量高低切时，同等禁止「放量攻击」与「修复/阶段升级」"
+    "两种定性（volume_source_qualify 对称约束）。")
+assert _V19_RULE25_ANCHOR in SYSTEM_PROMPT_V15, "v19 锚点失效：规则25"
+assert _V19_RULE28A_ANCHOR in SYSTEM_PROMPT_V15, "v19 锚点失效：规则28(a)"
+SYSTEM_PROMPT_V19 = SYSTEM_PROMPT_V15.replace(
+    _V19_RULE25_ANCHOR, _V19_RULE25_NEW).replace(
+    _V19_RULE28A_ANCHOR, _V19_RULE28A_NEW) + "\n" + _V19_RULE38
+
+# 生产默认 prompt：指向 SYSTEM_PROMPT_V19（回退只需改这一行指向）
+SYSTEM_PROMPT = SYSTEM_PROMPT_V19
 
 
 def build_messages(pack_text: str, system_prompt: str | None = None) -> list[dict]:

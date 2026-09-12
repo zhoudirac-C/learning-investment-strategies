@@ -21,7 +21,12 @@ segments:
   - 饲料
   - 生猪/禽肉
   - 食品加工品
-mappings: []
+mappings:
+- code: 000876
+  name: 新希望
+  segment: downstream
+  relation: 生猪养殖龙头，产能去化有望改善供需格局
+  elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 低
 stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-09-01，LLM 初判 阶段0-观察（国信证券《农产品专题：本轮厄尔尼诺强度有概率创历史新高，或催化新一轮农产品上涨周期》），积累证据
@@ -30,5 +35,13 @@ timing:
   current_recommendation: 观察为主：跟踪厄尔尼诺实际强度与糖、粮油价格走势；若涨价兑现，优先关注种业、制糖等直接受益环节，养殖端待成本传导后看价格弹性
   next_trigger: null
   risk: null
-tracking_metrics: []
+tracking_metrics:
+- metric: 能繁母猪存栏量
+  current: 去化中
+  signal_direction: 下降
 falsification: []
+history:
+- date: '2026-09-12'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增生猪产能去化作为下游关键跟踪节点
+  result: 待验证

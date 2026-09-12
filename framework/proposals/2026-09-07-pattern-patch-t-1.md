@@ -1,7 +1,7 @@
 ---
 date: 2026-09-07
 type: pattern-patch
-status: open
+status: merged
 source: evals/shadow/attributions/2026-09-07.json
 ---
 
@@ -14,3 +14,5 @@ source: evals/shadow/attributions/2026-09-07.json
 ## 处置建议
 
 在阶段判定流程新增裁决步骤：当单日修复信号与≥2项在场调整侧证据（宏观利率压制未解除/上级别顶部结构在位/量能源头=存量非增量/宽基未收复5日线）冲突时，禁止即时翻转stage，降级为『反抽观察』，须T+1验证（回踩不破关键均线+量能不缩）后方可改判；同时将『防御轮动末端/变盘临近』读数从叙事观察升级为阶段判定的正式输入字段。
+
+> merged 2026-09-12：并入合并裁决 `2026-09-12-close-track-adjudication.md` 实施——冲突裁决+T+1 确认双门槛落 prompt v19 规则38（盘前/收盘双轨同步）；「防御轮动末端」读数经规则38 引用规则32 成为阶段判定正式输入，未改 pack schema。

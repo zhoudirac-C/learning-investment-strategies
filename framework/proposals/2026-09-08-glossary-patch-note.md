@@ -1,7 +1,7 @@
 ---
 date: 2026-09-08
 type: glossary-patch
-status: open
+status: merged
 source: evals/shadow/attributions/2026-09-08.json
 ---
 
@@ -14,3 +14,5 @@ source: evals/shadow/attributions/2026-09-08.json
 ## 处置建议
 
 术语词典修订三项：①『震荡』要求顶部结构已消解且量能宽度同步企稳，顶部结构生效期+存量高低切+防御补涨独强组合归『调整（防御末端）』；②『宽度修复』拆分为『增量普涨修复』与『防御补涨修复』两子类，后者对齐煤炭/石油率先转跌的防御穷尽逻辑，禁止作为震荡承接证据；③规定nature=主动降速或含调整成分时market_stage必须联动为调整，禁止『stage震荡+nature主动降速』的脱钩输出。
+
+> merged 2026-09-12：并入合并裁决 `2026-09-12-close-track-adjudication.md` 实施——「震荡（阶段判定口径）」「宽度修复（拆两子类）」已回写 up-glossary.md「盲判归因增补（2026年9月12日）」；stage-nature 联动自检并入 prompt v19 规则38③。

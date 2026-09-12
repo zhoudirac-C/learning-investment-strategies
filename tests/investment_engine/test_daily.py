@@ -7,11 +7,22 @@ from investment_engine.shadow.daily import run
 
 
 class TestDailyPromptVersion:
-    def test_prompt_version_is_v15(self):
-        """生产默认 prompt 为 v15（2026-09-05 A/B 后回退；v16 压缩版保留为
-        SYSTEM_PROMPT_V16 迭代基线，见 TestPromptV16）。"""
+    def test_prompt_version_is_v19(self):
+        """生产默认 prompt 为 v19（2026-09-12 收盘轨合并裁决落地，见
+        proposals/2026-09-12-close-track-adjudication；v15 保持冻结作 A/B
+        对照臂，v16/v17/v18 保留为迭代基线）。"""
         from investment_engine.blindtest import replay
-        assert replay.PROMPT_VERSION == "v15"
+        assert replay.PROMPT_VERSION == "v19"
+
+    def test_daily_prompt_contains_v19_rules(self):
+        """v19（2026-09-12 close-track-adjudication）关键词须在盘后 prompt：
+        规则38 冲突裁决+T+1 / 规则28(a) 适用前置 / 规则25 油价不可校验。"""
+        from investment_engine.blindtest import replay
+        text = replay.SYSTEM_PROMPT
+        assert "冲突裁决+T+1确认" in text and "反抽观察" in text  # 规则38
+        assert "适用前置" in text and "外力映射日" in text  # 规则28(a) 适用前置
+        assert "不可校验" in text and "2/3 条件定案" in text  # 规则25 油价分项
+        assert "反抽观察" not in replay.SYSTEM_PROMPT_V15  # v15 保持冻结
 
     def test_daily_prompt_contains_discipline_rules(self):
         """v6/v8 纪律规则关键词须出现在盘后 prompt（B1/B2/A2-A5/C5引用/C8降级/规则9并列）。"""

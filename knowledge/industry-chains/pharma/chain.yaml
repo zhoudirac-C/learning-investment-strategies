@@ -8,6 +8,9 @@ segments:
   materials:
   - CXO
   - 原料药
+  - CDMO服务
+  - 安全性评价（安评）
+  - 临床CRO服务
   value_share: ~30%
   barrier: 研发周期
   trend: 稳定
@@ -45,3 +48,8 @@ falsification:
 - 大盘系统性破位下行
 - 板块无核心标的联动（映射缺失）
 chain_relations: []
+history:
+- date: '2026-09-12'
+  stage: 阶段0-观察
+  action: 演化:refine_segment 细化上游CXO为CDMO/安评/临床CRO等细分景气结构
+  result: 待验证

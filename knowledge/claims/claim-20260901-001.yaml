@@ -11,7 +11,7 @@ claims:
   evidence_quote: 今天亚洲市场是弱，但不会一起跌。日本、韩国这类对全球利率和科技估值更敏感的市场应当相对谨慎，因为真正压制亚洲风险资产的已经不是某一个人的表态，而是美债收益率高、油价高、加息预期高这三件事同时存在。
   interpretation: 外围压制从单一事件（沃什表态）升级为三重变量叠加的系统性压制，日韩比A股更敏感，A股因PMI结构支撑相对抗跌是后续判断的前提。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -160,7 +160,7 @@ claims:
   evidence_quote: 若今日10年期进一步升至4.80%、30年期升至5.30%，全球市场的警报将再次升级，届时需要防范的不只是估值压缩，还有跨资产的被动去杠杆。
   interpretation: 10Y 4.80%与30Y 5.30%是升级为去杠杆情景的触发阈值，4.70-4.75是压力释放区；给区间让监控可量化执行。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -219,7 +219,7 @@ claims:
   evidence_quote: 90美元是战场，91美元是确认线。油价决定的不是能源股，而是美债会不会重新交易通胀，所以它是这一轮的总开关。
   interpretation: 油价不是板块逻辑而是宏观总开关：破91美元触发美债重新交易通胀，进而传导全球估值；90/91双阈值可量化监控。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260805-006", "claim-20260607-003-f", "claim-20260824-002-g"]
   contradicts: []
@@ -517,7 +517,7 @@ claims:
   evidence_quote: 如果指数想突破上方4000点的压制，大金融是不可或缺的一环——它既是权重上的抬轿者，也是市场对流动性预期的直接读数。
   interpretation: 大金融扩散（券商→银行）是4000点突破的必要条件，扩散延续性即今日验证点；大金融被定义为流动性预期读数而非单纯权重。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260813-005"]
   contradicts: ["claim-20260624-001-h"]
@@ -580,7 +580,7 @@ claims:
   evidence_quote: 要避免的是连续跌停的情况出现——一旦局部区域的亏钱效应加剧，后续无可避免会传导开来并影响整个市场。
   interpretation: 接力指标全面健康（晋级率吻合、首板增）但跌停增多是唯一裂缝；监控口径从跌停家数转为是否出现第二个跌停（连续跌停才是扩散信号）。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260810-007", "claim-20260812-007", "claim-20260812-024"]
   contradicts: []

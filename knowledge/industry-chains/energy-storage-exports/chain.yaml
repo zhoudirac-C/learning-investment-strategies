@@ -1,0 +1,36 @@
+chain_id: energy-storage-exports
+name: 储能出海产业链
+thesis: 全球能源转型推动电网侧和工商业储能需求爆发，海外户储和表前储能市场空间大。中国在电芯、PCS、系统集成环节具备全球竞争力，通过模式创新（如整站交付、本地化运营）切入海外市场，形成从电芯到系统集成再到海外渠道的完整出海链条。
+last_verified: '2026-09-12'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 磷酸铁锂电芯
+  - 储能变流器PCS
+  - 能量管理系统EMS
+  - 电池管理系统BMS
+  - 温控/消防
+- id: midstream
+  name: 中游
+  materials:
+  - 储能系统集成
+  - 升压变流一体机
+  - 集装箱式储能系统
+- id: downstream
+  name: 下游
+  materials:
+  - 电网侧储能电站
+  - 工商业储能
+  - 户用储能
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-12 人工确认入观察列表；提议于 2026-09-04，LLM 初判 阶段2-加速期（2026年中国储能出海行业——全球化扩张浪潮（头豹研究院/电池）），积累证据
+  38 条
+timing:
+  current_recommendation: 重点关注高毛利且具备海外渠道优势的系统集成商和PCS环节，同时跟踪电芯出海的盈利弹性
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

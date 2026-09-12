@@ -24,7 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 from investment_engine.blindtest import dataset
 from investment_engine.blindtest.replay import (
     DEFAULT_MODEL, SYSTEM_PROMPT_V15, SYSTEM_PROMPT_V16, SYSTEM_PROMPT_V17,
-    SYSTEM_PROMPT_V18, run_replay,
+    SYSTEM_PROMPT_V18, SYSTEM_PROMPT_V19, run_replay,
 )
 from investment_engine.blindtest.score import (
     direction_scores, load_results, stage_accuracy, stock_scores,
@@ -33,7 +33,8 @@ from investment_engine.blindtest.truth import load_truth
 
 OUT_DIR = Path("evals/blindtest/ab-prompt-v17")
 ALL_ARMS = {"v15": SYSTEM_PROMPT_V15, "v16": SYSTEM_PROMPT_V16,
-            "v17": SYSTEM_PROMPT_V17, "v18": SYSTEM_PROMPT_V18}
+            "v17": SYSTEM_PROMPT_V17, "v18": SYSTEM_PROMPT_V18,
+            "v19": SYSTEM_PROMPT_V19}
 
 
 def _pct(v) -> str:
