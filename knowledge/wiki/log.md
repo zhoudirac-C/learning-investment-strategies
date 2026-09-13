@@ -2331,3 +2331,13 @@
 - 关系：-023 supersedes claim-20260714-001-t + claim-20260731-008（旧钝化判断）；-025 supplements claim-20260607-002-b（下影线原理）；-024/-026/-027 无关系
 - 无个股标的（科创50/上证均为指数），related_stocks 全空；Gate 1/2/3 一次通过（本次无假阳性）
 - 输出：claims/index.md +5 行 + wiki/每日复盘/2026-09-11.md 追加盘中动态续节；同步 Neo4j 52/52 + Qdrant 4624 条
+
+## 2026-09-14 | qing-learning claim | 9/13 晚间复盘专栏提取（33 条）
+
+- 处理 raw：`sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md`（动态ID 1247544414467784745，充电专属，9/13 21:09发布）
+- claim-20260913-001.yaml（33 条）：catalyst×2、macro×6、market-cycle×7、methodology×3、operation×2、sector-theme×5、stock-view×6、technical-signal×2
+- 方向层：修复观察期定性+创业板/沪指分化预案+宏观组合（CPI环比抬升/欧央行加息/9-17联储决议）；节奏层：两窗口时间表+情形A/B触发失效条件+题材情绪扩散判据
+- 产业跟踪：双星新材离型膜（占比<1%防过度联想）+三孚股份9N口径折扣+中新赛克AI安全+1.6T光模块预测口径+剑桥科技800G/1.6T进度+阳光电源提价链
+- 股票代码：9家全部经东财API查证；300408/688519/300274 为创业板/科创板不可交易，仅ETF表达
+- Gate 1 一次通过；Gate 2 追加16个NON_COMPANY（2026-09-13 复盘专栏批次）+1次缓存坑复现；Gate 3 一次通过
+- 输出：claims/index.md +33 行 + wiki/每日复盘/2026-09-13.md（新建）+ wiki/index.md +1 行
