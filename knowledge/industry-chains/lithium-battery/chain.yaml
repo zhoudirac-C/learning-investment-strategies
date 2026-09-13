@@ -26,12 +26,11 @@ mappings:
   segment: midstream
   relation: 湿法隔膜龙头，供货头部电芯厂
   elasticity: concept
-current_stage: 阶段0-观察
-stage_confidence: 低
-stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-08-31，LLM 初判 阶段2-加速期（国信证券《锂电产业链双周报（2026年8月第2期）：锂电产业链持续产销两旺，业绩维持高速增长趋势》），积累证据
-  18 条
+current_stage: 阶段1-启动期
+stage_confidence: 中
+stage_evidence: 2026-09-13 跟踪更新：研报直击隔膜盈利关键节点，观察期获直接证据，推进至启动期，可介入中游隔膜环节。
 timing:
-  current_recommendation: 关注排产与单位盈利改善的中游材料环节（电解液、结构件、铁锂正极）及龙头电芯；上游锂资源观察涨价持续性
+  current_recommendation: 可介入（右侧确认）：新信息直接命中本链关键节点『隔膜单位盈利/加工费』，隔膜环节盈利向好获独立研报印证
   next_trigger: null
   risk: null
 tracking_metrics:
@@ -43,4 +42,8 @@ history:
 - date: '2026-09-12'
   stage: 阶段0-观察
   action: 演化:add_node 新增隔膜单位盈利跟踪节点并映射恩捷股份
+  result: 待验证
+- date: '2026-09-13'
+  stage: 阶段1-启动期
+  action: 可介入中游隔膜环节龙头（恩捷股份、星源材质），继续跟踪排产与单位盈利数据验证持续性；电解液/结构件/铁锂正极同步关注；上游锂资源仍观察涨价持续性，不追高
   result: 待验证
