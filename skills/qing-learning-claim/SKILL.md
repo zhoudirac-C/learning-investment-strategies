@@ -67,7 +67,7 @@ python scripts/extract_claims_pipeline.py continue
 
 ## 约束速查
 
-### 18 个必需字段
+### 19 个必需字段
 
 | # | 字段 | 说明 |
 |---|------|------|
@@ -75,8 +75,9 @@ python scripts/extract_claims_pipeline.py continue
 | 2 | source_path | raw 文件路径 |
 | 3 | source_date | YYYY-MM-DD |
 | 4 | source_type | 专栏/视频/复盘/动态 |
-| 5 | extracted_at | ISO 时间戳 |
-| 6 | claim_type | market-cycle/sector-theme/stock-view/methodology/risk/technical-signal/technical-knowledge/macro/operation/catalyst/general |
+| 5 | **up_id** | **内容来源 up 标识（2026-09-14 新增）**：B站 uid 如 `1420210197`；手工整理稿填 `unknown`；缠论课程填 `chanlun-original` |
+| 6 | extracted_at | ISO 时间戳 |
+| 7 | claim_type | market-cycle/sector-theme/stock-view/methodology/risk/technical-signal/technical-knowledge/macro/operation/catalyst/general |
 | 7 | subject | 单一主题（无`/`、`、`、`+`） |
 | 8 | timeframe | intraday/short-term/trend/industry/permanent |
 | 9 | statement | 核心观点，包含公司名(6位代码) |
@@ -91,7 +92,6 @@ python scripts/extract_claims_pipeline.py continue
 | 18 | topic | 一句话主题 |
 
 ### related_stocks 格式
-
 ```yaml
 # ✅ 正确（结构化对象，code 为字符串带引号，含前导零）
 related_stocks:
@@ -150,7 +150,25 @@ Step 4:
 ☐ git commit 已推
 ```
 
-## 已知坑点
+### 已知坑点
+
+### 0. 多 up 体系（2026-09-14）
+
+**背景**：知识库从单一 UP（青枫浦上Q）扩展为多 up 共存。不同 up 观点不一致是**正常现象**，不得强行调和。
+
+**字段**：
+- `up_id`（**必填**）：B站 uid。缺失会 Gate 1 报错。
+- `up_name`（可选）：显示名。
+- `disagrees_with`（可选 list）：**不同 up** 对同一主题的分歧。与 `supersedes`/`contradicts` 严格区分——
+  后两者只用于**同一 up 自身**的观点演进/自我矛盾；跨 up 的分歧一律进 `disagrees_with`。
+
+**Gate 宽限**：`gate_validate_claims.py` 对存量 claim 采用宽松模式（`--all` 时 up_id 缺失仅警告），
+新建 claim（pipeline 单文件校验）为严格模式。宽限集见 `GRANDFATHERED_FIELDS`。
+
+**存量状态**：2026-09-14 已回填 3,602/4,687 条（76.9%）——`1420210197`×3,265 + `chanlun-original`×337。
+剩余 1,085 条（`sources/raw/财经/` 手工整理稿，raw 头无 up_uid）待第二阶段处理。
+
+**回填脚本**：`scripts/backfill_claim_up_id.py`（文本级插入保格式，幂等，支持 `--apply` / `--limit` dry-run）。
 
 ### 1. Gate 结果缓存导致重跑卡在失败状态
 

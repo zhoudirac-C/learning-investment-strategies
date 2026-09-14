@@ -24,6 +24,15 @@ CLAIMS_DIR = REPO / "knowledge/claims"
 CHANLUN_UID = "chanlun-original"
 CHANLUN_NAME = "缠中说禅"
 
+# 归属已确认的 up（2026-09-14 用户确认：sources/raw/财经 手工整理稿全是青枫浦上Q）
+QINGFENG_UID = "1420210197"
+QINGFENG_NAME = "青枫浦上Q"
+
+# 手工整理稿目录（无 up_uid 元数据，但内容确认为青枫浦上Q）
+MANUAL_DIRS = ("sources/raw/财经",)
+# 早期 bilibili 抓取格式（头部无 front matter，但有"青枫浦上Q"署名）
+EARLY_BILIBILI_PREFIX = "sources/original/bilibili"
+
 
 def build_raw_index() -> tuple[dict[str, tuple[str, str]], dict[str, tuple[str, str]]]:
     """扫描 raw 文件，建立 path->(uid,name) 与 basename->(uid,name) 索引。"""
@@ -54,6 +63,13 @@ def resolve(path: str, by_path, by_base) -> tuple[str, str] | None:
     sp = (path or "").strip()
     if not sp:
         return None
+
+    # 绝对路径归一（早期 claim 写成 /home/ubuntu/learning-investment-strategies/...）
+    if sp.startswith("/"):
+        marker = "learning-investment-strategies/"
+        idx = sp.find(marker)
+        sp = sp[idx + len(marker):] if idx >= 0 else sp.lstrip("/")
+
     if sp in by_path:
         return by_path[sp]
     bn = pathlib.Path(sp).name
@@ -62,6 +78,13 @@ def resolve(path: str, by_path, by_base) -> tuple[str, str] | None:
     # 缠论课程：非 up 来源，显式标识
     if sp.startswith("sources/chanlun"):
         return (CHANLUN_UID, CHANLUN_NAME)
+    # 手工整理稿（2026-09-14 用户确认全部为青枫浦上Q 内容）
+    for d in MANUAL_DIRS:
+        if sp.startswith(d):
+            return (QINGFENG_UID, QINGFENG_NAME)
+    # 早期 bilibili 抓取格式（头部无 front matter，正文署名青枫浦上Q）
+    if sp.startswith(EARLY_BILIBILI_PREFIX):
+        return (QINGFENG_UID, QINGFENG_NAME)
     return None
 
 
