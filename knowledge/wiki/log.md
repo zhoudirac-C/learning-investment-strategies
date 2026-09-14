@@ -2341,3 +2341,14 @@
 - 股票代码：9家全部经东财API查证；300408/688519/300274 为创业板/科创板不可交易，仅ETF表达
 - Gate 1 一次通过；Gate 2 追加16个NON_COMPANY（2026-09-13 复盘专栏批次）+1次缓存坑复现；Gate 3 一次通过
 - 输出：claims/index.md +33 行 + wiki/每日复盘/2026-09-13.md（新建）+ wiki/index.md +1 行
+
+## 2026-09-14 | qing-learning claim | 9/14 早盘专栏提取（27 条）
+
+- 处理 raw：`sources/original/bilibili/2026-09-14-0851-图片-一、隔夜与开盘观察：中东消息带来新的定价变量 周一外盘早盘，.md`（动态ID 1247725339965128710，充电专属，9/14 08:51 发布）
+- 会话复用 fetcher 自动建的 `20260914_090341_077c0b`（state=init），未新建 session（9/11 坑1 正确执行）
+- claim-20260914-001.yaml（27 条）：catalyst×4、macro×3、market-cycle×4、methodology×6、operation×2、sector-theme×7、technical-signal×1
+- 方向层：中东能源新增变量+议息预期差框架+油价美债收益率传导坐标；节奏层：两情形+观察重心转向广度/量价/行业分布
+- 产业跟踪：村田MLCC跨年度产品线优化+模拟芯片涨价审慎+中远海运重工辅导备案+造船四指标框架
+- 股票代码：东财 API 查证；中远海运重工未上市（无代码，不录标的）；杰华特 688141 科创板不可交易
+- Gate 1 一次通过；Gate 2 修复 1 轮（改写 2 处自造措辞）+ 追加 3 个 NON_COMPANY；Gate 3 一次通过
+- 输出：claims/index.md +27 行 + wiki/每日复盘/2026-09-14.md（新建）+ wiki/index.md +1 行
