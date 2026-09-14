@@ -12,7 +12,7 @@ description: |
 写 claim 不走"纯 LLM → 提交"路径，而是走 **C2 编排管线**：
 
 ```
-Step 1: Agent 读 raw → 写宽松 JSON → Gate 1 校验 18 字段
+Step 1: Agent 读 raw → 写宽松 JSON → Gate 1 校验 19 字段
 Step 2: Agent 读 JSON → 补股票代码 + related_stocks → Gate 2 校验代码/格式
 Step 3: Python 自动格式化 → YAML → Gate 3 最终校验
 Step 4: Agent 更新 wiki/index/commit
@@ -131,7 +131,7 @@ curl -s "https://searchapi.eastmoney.com/api/suggest/get?input=公司名&type=14
 Step 1:
 ☐ 已逐段阅读全文，无遗漏
 ☐ 每条 claim 只有 1 个主题
-☐ 18 个必需字段齐全
+☐ 19 个必需字段齐全（含 up_id：B站 uid / `unknown` / `chanlun-original`）
 ☐ 颗粒度检查：原文中每一个独立的定性判断（如"已到历史尾部区域"）都要提取为独立 claim，不要藏在同段另一条 claim 的 interpretation 中。同一段落的定量事实（"23个交易日"）和定性结论（"风险收益比在倾斜"）是两条不同的 claim
 
 Step 2:

@@ -8,7 +8,7 @@
 
 ---
 
-## 〇、18 个必需字段（MANDATORY — 写完 claim 必须检查）
+## 〇、19 个必需字段（MANDATORY — 写完 claim 必须检查）
 
 **每个 claim 必须包含以下全部字段。缺失任一项会导致 Neo4j 关系不完整、Qdrant 不可检索、Agent 无法引用。**
 
