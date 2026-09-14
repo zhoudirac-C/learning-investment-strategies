@@ -226,9 +226,9 @@ def fetch_up_comment(dynamic_id: str, sessdata: str, up_name: str | None = None)
 def extract_article_id(item: dict) -> str:
     """从动态数据中提取专栏文章ID（cv号中的数字部分）。"""
     modules = item.get("modules", {})
-    dyn_mod = modules.get("module_dynamic", {})
-    major = dyn_mod.get("major", {})
-    article = major.get("article", {}) or {}
+    dyn_mod = modules.get("module_dynamic") or {}
+    major = dyn_mod.get("major") or {}
+    article = major.get("article") or {}
     return str(article.get("id", "")) if article.get("id") else ""
 
 
@@ -546,7 +546,7 @@ def extract_pics_from_dynamic(item: dict) -> list[str]:
 def extract_video_info(item: dict) -> dict:
     modules = item.get("modules", {})
     dynamic_module = modules.get("module_dynamic", {})
-    archive = dynamic_module.get("major", {}).get("archive")
+    archive = (dynamic_module.get("major") or {}).get("archive")
     if archive and isinstance(archive, dict):
         return {
             "title": archive.get("title", ""),
@@ -669,10 +669,10 @@ def _merge_detail(item: dict, detail_data: dict) -> dict:
 
     detail_modules = detail_item.get("modules", {})
     if detail_modules:
-        merged_modules = merged.get("modules", {})
-        detail_dynamic = detail_modules.get("module_dynamic", {})
+        merged_modules = merged.get("modules") or {}
+        detail_dynamic = detail_modules.get("module_dynamic") or {}
         if detail_dynamic:
-            merged_dynamic = merged_modules.get("module_dynamic", {})
+            merged_dynamic = merged_modules.get("module_dynamic") or {}
             detail_desc = detail_dynamic.get("desc")
             if detail_desc is not None:
                 merged_dynamic["desc"] = detail_desc

@@ -6,6 +6,8 @@ B站多UP动态拉取 + 通知脚本。
     BILIBILI_SESSDATA=xxx python3 scripts/bilibili_notify.py
     python3 scripts/bilibili_notify.py --uid 52512172      # 只跑单个 UP
     python3 scripts/bilibili_notify.py --check-only        # 只查不存
+    python3 scripts/bilibili_notify.py --since 2026-08-15 --backfill --uid 525121722
+                                                           # 历史补录（指定起始日）
 
 配置:
     config/bilibili_ups.yaml   UP 列表（uid/name/enabled）
@@ -167,6 +169,63 @@ def _content_fingerprint(content: str) -> str:
 
 # ── 单 UP 拉取 ────────────────────────────────────────────────────
 
+# ── 时间戳工具（历史补录） ─────────────────────────────────────────
+
+def _item_ts(item: dict) -> int:
+    """取动态发布时间戳（int）。取不到返回 0。"""
+    t = item.get("modules", {}).get("module_author", {}).get("pub_ts")
+    try:
+        return int(t)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _item_after(item: dict, since_ts: float) -> bool:
+    return _item_ts(item) >= since_ts
+
+
+def _paginate_until(uid: str, sessdata: str, first_items: list, since_ts: float,
+                    max_pages: int = 20) -> list:
+    """回溯分页直到越过 since_ts（动态按时间倒序返回）。
+
+    返回合并后的 items（含首页），已按 since_ts 过滤尾部。
+    """
+    all_items = list(first_items)
+    offset = ""
+    merged = None
+    # 首页的 offset 需要重新取一次才能拿到
+    try:
+        r0 = fetch_dynamic_list(uid, sessdata)
+        offset = (r0.get("data") or {}).get("offset", "") or ""
+        merged = not (r0.get("data") or {}).get("has_more", False)
+    except Exception:
+        return all_items
+
+    page = 1
+    while offset and not merged and page < max_pages:
+        # 已回溯到早于 since_ts 的动态则停止
+        if all_items and _item_ts(all_items[-1]) < since_ts:
+            break
+        try:
+            r = fetch_dynamic_list(uid, sessdata, offset=offset)
+        except Exception as exc:
+            print(f"WARN: 分页失败 offset={offset}: {exc}", file=sys.stderr)
+            break
+        d = r.get("data") or {}
+        items = d.get("items") or []
+        if not items:
+            break
+        all_items.extend(items)
+        offset = d.get("offset", "") or ""
+        merged = not d.get("has_more", False)
+        page += 1
+
+    return all_items
+
+
+# ── 时间戳工具结束 ────────────────────────────────────────────────
+
+
 def process_up(
     up: dict,
     sessdata: str,
@@ -175,8 +234,16 @@ def process_up(
     *,
     check_only: bool = False,
     max_fetch: int = 5,
+    since_ts: float | None = None,
+    backfill: bool = False,
+    force: bool = False,
 ) -> tuple[list[Path], dict[str, bool]]:
-    """拉取单个 UP 的动态，返回 (saved_files, {filepath: is_new})。"""
+    """拉取单个 UP 的动态，返回 (saved_files, {filepath: is_new})。
+
+    since_ts: 只处理发布时间 >= 该时间戳的动态（历史补录用）。
+    backfill: 历史补录模式——不受 max_fetch 限制，且不置 initialized。
+    force:    忽略 processed_ids 去重（历史补录需真正落盘时用）。
+    """
     uid = up["uid"]
     up_name = up.get("name") or uid
     up_state = _get_up_state(state, uid)
@@ -192,10 +259,18 @@ def process_up(
         up_state["last_check_time"] = datetime.now().isoformat()
         return [], {}
 
+    # 按 --since 过滤（含分页回溯）
+    if since_ts is not None:
+        items = _paginate_until(uid, sessdata, items, since_ts)
+
     new_items = []
     for item in items:
         dynamic_id = str(item.get("id_str", ""))
-        if not dynamic_id or dynamic_id in processed_ids:
+        if not dynamic_id:
+            continue
+        if since_ts is not None and not _item_after(item, since_ts):
+            continue
+        if not force and dynamic_id in processed_ids:
             continue
         new_items.append((dynamic_id, item))
 
@@ -203,8 +278,8 @@ def process_up(
         up_state["last_check_time"] = datetime.now().isoformat()
         return [], {}
 
-    # ── 新 UP 首次运行 = 静默初始化 ──
-    if not up_state.get("initialized"):
+    # ── 新 UP 首次运行 = 静默初始化（补录模式跳过） ──
+    if not up_state.get("initialized") and not backfill:
         for dynamic_id, _ in new_items:
             processed_ids.add(dynamic_id)
         up_state["processed_ids"] = sorted(processed_ids)
@@ -222,12 +297,15 @@ def process_up(
         print(f"CHECK: [{up_name}] 发现 {len(new_items)} 条新动态")
         return [], {}
 
+    limit = len(new_items) if backfill else min(len(new_items), max_fetch)
+    print(f"INFO: [{up_name}] 待处理 {limit} 条（总计匹配 {len(new_items)} 条）", file=sys.stderr)
+
     temp_dir = original_dir() / ".temp"
     temp_dir.mkdir(exist_ok=True)
 
     saved_files: list[Path] = []
     dedup_results: dict[str, bool] = {}
-    for dynamic_id, item in reversed(new_items[:max_fetch]):
+    for dynamic_id, item in reversed(new_items[:limit]):
         try:
             basic = item.get("basic", {})
             is_only_fans = basic.get("is_only_fans", False)
@@ -376,7 +454,20 @@ def main() -> int:
     parser.add_argument("--check-only", action="store_true", help="只查不存")
     parser.add_argument("--max-fetch", type=int, default=5, help="每个UP最多处理几条新动态")
     parser.add_argument("--state-file", type=Path, help="state 文件路径")
+    parser.add_argument("--since", help="只处理该日期之后的动态，如 2026-08-15（历史补录）")
+    parser.add_argument("--backfill", action="store_true",
+                        help="历史补录模式：不受 max_fetch 限制，且不触发静默初始化")
+    parser.add_argument("--force", action="store_true",
+                        help="忽略 processed_ids 去重（历史补录需真正落盘时用）")
     args = parser.parse_args()
+
+    since_ts = None
+    if args.since:
+        try:
+            since_ts = datetime.strptime(args.since, "%Y-%m-%d").timestamp()
+        except ValueError:
+            print(f"ERROR: --since 格式应为 YYYY-MM-DD，收到 {args.since}", file=sys.stderr)
+            return 2
 
     sessdata = os.environ.get("BILIBILI_SESSDATA", "")
     sessdata_file = Path.home() / ".hermes" / "bilibili_sessdata.txt"
@@ -431,6 +522,7 @@ def main() -> int:
             saved, dedup_results = process_up(
                 up, sessdata, state, dedup,
                 check_only=args.check_only, max_fetch=args.max_fetch,
+                since_ts=since_ts, backfill=args.backfill, force=args.force,
             )
         except SystemExit:
             continue
