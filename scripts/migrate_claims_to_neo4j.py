@@ -319,6 +319,8 @@ def _migrate_single_claim(session, claim: dict):
             c.time_frame = $time_frame,
             c.subject = $subject,
             c.source_date = $source_date,
+            c.up_id = $up_id,
+            c.up_name = $up_name,
             c.file = $file
         """,
         {
@@ -333,6 +335,9 @@ def _migrate_single_claim(session, claim: dict):
             "time_frame": claim.get("time_frame", "") or claim.get("timeframe", ""),
             "subject": claim.get("subject", ""),
             "source_date": claim.get("source_date", ""),
+            # 2026-09-14 多 up 体系
+            "up_id": claim.get("up_id", "") or "unknown",
+            "up_name": claim.get("up_name", ""),
             "file": claim.get("_file", ""),
         },
     )
@@ -509,6 +514,25 @@ def migrate_relations():
                         "a_id": cid,
                         "b_id": opp_id,
                         "reason": claim.get("contradicts_reason", "contradiction"),
+                    },
+                )
+
+            # DISAGREES_WITH（2026-09-14 多 up 体系：跨 up 观点分歧）
+            disagrees = claim.get("disagrees_with", [])
+            if isinstance(disagrees, str):
+                disagrees = [disagrees]
+            for opp_id in disagrees or []:
+                if opp_id not in claim_map:
+                    continue
+                session.run(
+                    """
+                    MATCH (a:Claim {id: $a_id}), (b:Claim {id: $b_id})
+                    MERGE (a)-[:DISAGREES_WITH {reason: $reason}]->(b)
+                    """,
+                    {
+                        "a_id": cid,
+                        "b_id": opp_id,
+                        "reason": claim.get("disagrees_reason", "cross-up disagreement"),
                     },
                 )
 

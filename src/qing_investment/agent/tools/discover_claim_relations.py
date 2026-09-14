@@ -45,6 +45,7 @@ from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
 
 COLLECTION = "qing_claims"
 
+# 同 up 关系判定（沿用原有语义：同一作者的观点演进）
 RELATION_PROMPT = """你是投资研究助手。请判断两条投资观点 claim 之间的关系。
 
 Claim A（新）:
@@ -76,6 +77,41 @@ Claim B（已有）:
 以 JSON 格式回复（只输出 JSON）：
 {{"relation": "supersedes|supplements|contradicts|none", "reason": "简短中文说明（<50字）"}}"""
 
+# 跨 up 关系判定（2026-09-14 多 up 体系）
+# 关键区别：不同博主观点不一致是正常的，不构成"同一人自相矛盾"
+CROSS_UP_PROMPT = """你是投资研究助手。请判断两位【不同博主】的投资观点之间的关系。
+
+⚠️ 重要前提：Claim A 和 Claim B 来自**不同的博主**（各自独立的分析体系）。
+不同博主对同一标的有不同判断是完全正常的现象，**不得**据此判定为"矛盾"或"取代"。
+
+Claim A（来自博主 {up_a}）:
+  主题: {subject_a}
+  表述: {statement_a}
+  解释: {interpretation_a}
+  日期: {date_a}
+  类型: {type_a}
+
+Claim B（来自博主 {up_b}）:
+  主题: {subject_b}
+  表述: {statement_b}
+  解释: {interpretation_b}
+  日期: {date_b}
+  类型: {type_b}
+
+关系类型（选一个）：
+- agrees: 两位博主观点方向一致（可相互印证）
+- disagrees: 两位博主观点方向相反或关键判断冲突（保存为分歧记录）
+- supplements: 一方补充了另一方的细节、标的或证据（方向不冲突）
+- none: 无直接关系
+
+注意：
+- 禁止输出 supersedes / contradicts —— 不同博主之间不存在"取代"或"自相矛盾"
+- 方向相反 = disagrees（这是有价值的信号，说明该主题存在分歧）
+- 仅因共享板块/标的不构成关系 = none
+
+以 JSON 格式回复（只输出 JSON）：
+{{"relation": "agrees|disagrees|supplements|none", "reason": "简短中文说明（<50字）"}}"""
+
 
 def find_similar_claims(
     claim: dict, qdrant: QdrantClientWrapper, emb_model, top_k: int = 3
@@ -99,6 +135,8 @@ def find_similar_claims(
                 "statement": payload.get("statement", ""),
                 "source_date": payload.get("source_date", ""),
                 "claim_type": payload.get("claim_type", ""),
+                "up_id": payload.get("up_id", ""),
+                "up_name": payload.get("up_name", ""),
                 "score": r.get("score", 0),
             })
         if len(similar) >= top_k:
@@ -127,9 +165,32 @@ def fetch_full_claim(claim_id: str, neo4j: Neo4jClient) -> dict | None:
     }
 
 
+# 同 up 允许的关系类型
+SAME_UP_RELATIONS = {"supersedes", "supplements", "contradicts", "none"}
+# 跨 up 允许的关系类型（禁止 supersedes/contradicts）
+CROSS_UP_RELATIONS = {"agrees", "disagrees", "supplements", "none"}
+
+
+def is_same_up(claim_a: dict, claim_b: dict) -> bool:
+    """判断两条 claim 是否来自同一 up。
+
+    缺失 up_id 一律视为 "unknown"。两边都 unknown 时返回 True（保守：
+    不确定时不误判为跨 up 分歧，走同 up 路径）。
+    """
+    a = str(claim_a.get("up_id") or "unknown").strip() or "unknown"
+    b = str(claim_b.get("up_id") or "unknown").strip() or "unknown"
+    return a == b
+
+
 def judge_relation(claim_a: dict, claim_b: dict, llm) -> dict:
-    """Ask LLM to judge the relation between two claims. Retries on timeout."""
-    prompt = RELATION_PROMPT.format(
+    """Ask LLM to judge the relation between two claims. Retries on timeout.
+
+    2026-09-14 多 up 分流：同 up 走 RELATION_PROMPT（supersedes/contradicts/...），
+    跨 up 走 CROSS_UP_PROMPT（agrees/disagrees/supplements/none）。
+    """
+    same = is_same_up(claim_a, claim_b)
+    tmpl = RELATION_PROMPT if same else CROSS_UP_PROMPT
+    fmt = dict(
         subject_a=claim_a.get("subject", ""),
         statement_a=claim_a.get("statement", ""),
         interpretation_a=claim_a.get("interpretation", "")[:300],
@@ -141,6 +202,11 @@ def judge_relation(claim_a: dict, claim_b: dict, llm) -> dict:
         date_b=claim_b.get("source_date", ""),
         type_b=claim_b.get("claim_type", ""),
     )
+    if not same:
+        fmt["up_a"] = claim_a.get("up_name") or claim_a.get("up_id") or "未知"
+        fmt["up_b"] = claim_b.get("up_name") or claim_b.get("up_id") or "未知"
+    prompt = tmpl.format(**fmt)
+
     import time as _time
     last_error = None
     for attempt in range(5):
@@ -152,12 +218,21 @@ def judge_relation(claim_a: dict, claim_b: dict, llm) -> dict:
                 resp = resp.split("\n", 1)[1]
                 if resp.endswith("```"):
                     resp = resp[:-3]
-            return json.loads(resp)
+            parsed = json.loads(resp)
+            # 防御：跨 up 分支若 LLM 违规输出 supersedes/contradicts，降级为 disagrees/none
+            rel = (parsed.get("relation") or "none").strip()
+            allowed = SAME_UP_RELATIONS if same else CROSS_UP_RELATIONS
+            if rel not in allowed:
+                rel = "none"
+                parsed["reason"] = (parsed.get("reason") or "") + " [越界关系已降级为none]"
+            parsed["relation"] = rel
+            parsed["same_up"] = same
+            return parsed
         except (json.JSONDecodeError, Exception) as e:
             last_error = e
             if attempt < 4:
                 _time.sleep(2 ** attempt)  # 1s, 2s, 4s, 8s backoff
-    return {"relation": "error", "reason": f"LLM error after 5 retries: {last_error}"}
+    return {"relation": "error", "reason": f"LLM error after 5 retries: {last_error}", "same_up": same}
 
 
 def process_claim(
@@ -168,9 +243,21 @@ def process_claim(
     llm,
     dry_run: bool = False,
 ) -> dict:
-    """Process a single claim: find similar, judge relations, return results."""
+    """Process a single claim: find similar, judge relations, return results.
+
+    2026-09-14 多 up 分流：
+      - 同 up → supersedes / contradicts / supplements
+      - 跨 up → disagrees_with（agree 不入库，仅记录 pairs）
+    """
     cid = claim.get("id", "")
-    results = {"claim_id": cid, "supersedes": [], "contradicts": [], "supplements": [], "pairs": []}
+    results = {
+        "claim_id": cid,
+        "supersedes": [],
+        "contradicts": [],
+        "supplements": [],
+        "disagrees_with": [],
+        "pairs": [],
+    }
 
     similar = find_similar_claims(claim, qdrant, emb_model, top_k=3)
     if not similar:
@@ -182,27 +269,38 @@ def process_claim(
         if not sim_full:
             continue
 
+        # up 标识：优先用 Neo4j 返回的，缺失时回退到 Qdrant payload
+        if not sim_full.get("up_id"):
+            sim_full["up_id"] = sim.get("up_id") or "unknown"
+        if not sim_full.get("up_name"):
+            sim_full["up_name"] = sim.get("up_name") or ""
+
         # Ask LLM
         judgment = judge_relation(claim, sim_full, llm)
         relation = judgment.get("relation", "none")
+        same_up = judgment.get("same_up", True)
         pair_info = {
             "target_id": sim["id"],
             "relation": relation,
             "reason": judgment.get("reason", ""),
             "score": sim.get("score", 0),
+            "same_up": same_up,
         }
         results["pairs"].append(pair_info)
 
-        if relation == "supersedes":
+        if relation == "supersedes" and same_up:
             if sim["id"] not in results["supersedes"]:
                 results["supersedes"].append(sim["id"])
-        elif relation == "contradicts":
+        elif relation == "contradicts" and same_up:
             if sim["id"] not in results["contradicts"]:
                 results["contradicts"].append(sim["id"])
         elif relation == "supplements":
             if sim["id"] not in results["supplements"]:
                 results["supplements"].append(sim["id"])
-    
+        elif relation == "disagrees" and not same_up:
+            if sim["id"] not in results["disagrees_with"]:
+                results["disagrees_with"].append(sim["id"])
+
     return results
 
 
@@ -258,14 +356,26 @@ def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run
                     # Skip orphan list items from old YAML format
                     while i < len(lines) and lines[i].strip().startswith("- claim-"):
                         i += 1
-                    # Write supplements right after contradicts
+                    # 2026-09-14 多 up 体系：disagrees_with（跨 up 分歧）
+                    # 仅在非空时写入，避免 4000+ 存量文件被无意义改动
+                    dw = results.get("disagrees_with") or []
+                    if dw:
+                        new_lines.append(f"{indent}disagrees_with: {json.dumps(dw)}")
+                        updated = True
+                    # Write supplements right after disagrees_with
                     new_lines.append(f"{indent}supplements: {json.dumps(results.get('supplements', []))}")
                     updated = True
                     # Write last_discovered after supplements
-                    if results.get("supersedes") or results.get("contradicts") or results.get("supplements") or force:
+                    if results.get("supersedes") or results.get("contradicts") or results.get("supplements") or dw or force:
                         new_lines.append(f"{indent}last_discovered: {today_str}")
                         updated = True
                         has_last_discovered = True
+                    continue
+                elif line.strip().startswith("disagrees_with:"):
+                    # 已存在的 disagrees_with 行 — 跳过（上面 contradicts 分支会重写）
+                    i += 1
+                    while i < len(lines) and lines[i].strip().startswith("- claim-"):
+                        i += 1
                     continue
                 elif line.strip().startswith("supplements:"):
                     # Existing supplements line — skip (re-written after contradicts above)

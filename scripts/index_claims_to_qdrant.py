@@ -208,6 +208,9 @@ def main():
                 "status": claim.get("status", ""),
                 "claim_type": claim.get("claim_type", ""),
                 "intensity": claim.get("intensity", "medium"),
+                # 2026-09-14 多 up 体系：供 discover 分流与按 up 过滤检索
+                "up_id": claim.get("up_id", ""),
+                "up_name": claim.get("up_name", ""),
             },
         ))
 
