@@ -123,10 +123,15 @@ def next_action(session: dict) -> dict:
 逐段阅读全文后，提取核心观点为 claims。
 
 **要求：**
-1. 每条 claim 包含 18 个必需字段（id, source_path, source_date, source_type, extracted_at, claim_type, subject, timeframe, statement, evidence_quote, interpretation, confidence, status, intensity, supersedes, contradicts, links, topic）
-2. 不要包含 `related_stocks` 和 `tags`（Step 2 补）
-3. 宽松格式，先关注内容完整性
-4. 写入后运行编排脚本: `python scripts/extract_claims_pipeline.py continue`
+1. 每条 claim 包含 19 个必需字段（id, source_path, source_date, source_type, up_id, extracted_at, claim_type, subject, timeframe, statement, evidence_quote, interpretation, confidence, status, intensity, supersedes, contradicts, links, topic）
+2. **up_id 取值规则（重要）**：从 raw 文件头部读取 `up_uid` 字段原样填入（如 "1420210197"）。
+   - 若 raw 头部无 `up_uid`（手工整理稿），填 "unknown"。
+   - 缠论课程（source_path 以 sources/chanlun/ 开头）填 "chanlun-original"。
+   - 可选：同时填 `up_name`（raw 头部的 up_name，或 "缠中说禅" / "未标注"）。
+3. 不要包含 `related_stocks` 和 `tags`（Step 2 补）
+4. 不同的 up 观点可以不一致，这是正常的——不要强行为不同来源的观点做一致性调和
+5. 宽松格式，先关注内容完整性
+6. 写入后运行编排脚本: `python scripts/extract_claims_pipeline.py continue`
 
 **输出位置**: tools 的 write_file 写入 {sess_dir / 'step1_raw.json'}
 **格式**: JSON 格式的 claims 列表

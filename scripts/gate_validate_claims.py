@@ -31,13 +31,26 @@ from qing_investment.claim_schema import (
 )
 
 # ── Gate 1: 字段完整性 ──────────────────────────────────
-def gate1_missing_fields(claim: dict) -> list[str]:
-    """检查 18 个必需字段是否都存在"""
+# 2026-09-14 多 up 体系扩展：up_id 为新增必填字段，
+# 但存量 claim（回填前）可能缺失。对静态审计（--all）降级为警告，
+# 对新建 claim（pipeline Step 1/2）保持强制。
+GRANDFATHERED_FIELDS = {"up_id"}
+
+
+def gate1_missing_fields(claim: dict, strict: bool = True) -> tuple[list[str], list[str]]:
+    """检查必需字段是否都存在。
+
+    返回 (errors, warnings)。strict=False 时 GRANDFATHERED_FIELDS 缺失进 warnings。
+    """
     missing = []
+    warnings = []
     for k in REQUIRED_FIELDS:
         if k not in claim or claim[k] is None or claim[k] == "":
-            missing.append(k)
-    return missing
+            if not strict and k in GRANDFATHERED_FIELDS:
+                warnings.append(k)
+            else:
+                missing.append(k)
+    return missing, warnings
 
 
 # ── Gate 2: 枚举值合法性 ────────────────────────────────
@@ -661,17 +674,23 @@ def gate5_stock_codes(claim: dict) -> list[str]:
 
 
 # ── 主校验函数 ──────────────────────────────────────────
-def validate_claims(claims: list[dict], step: int = 2) -> list[dict]:
+def validate_claims(claims: list[dict], step: int = 2, strict: bool = True) -> list[dict]:
     """对 claims 列表执行门禁检查
-    
+
     step=1: 只检查字段完整性 + 枚举 + 原子性（不含 related_stocks/代码）
     step=2: 全量检查（所有 5 道门禁）
+
+    strict=True  : up_id 缺失 = 错误（用于新建 claim 的 pipeline 门禁）
+    strict=False : up_id 缺失 = 警告（用于存量全量审计，回填过渡期）
     """
     results = []
     for claim in claims:
         cid = claim.get("id", "?")
         errors = []
-        errors.extend(gate1_missing_fields(claim))
+        warns = []
+        missing, warn_fields = gate1_missing_fields(claim, strict=strict)
+        errors.extend(missing)
+        warns.extend(f"缺失新字段(存量宽限): {w}" for w in warn_fields)
         errors.extend(gate2_enum_invalid(claim))
         if step >= 2:
             errors.extend(gate3_related_stocks(claim))
@@ -679,7 +698,9 @@ def validate_claims(claims: list[dict], step: int = 2) -> list[dict]:
         if step >= 2:
             errors.extend(gate5_stock_codes(claim))
         if errors:
-            results.append({"id": cid, "errors": errors})
+            results.append({"id": cid, "errors": errors, "warnings": warns})
+        elif warns:
+            results.append({"id": cid, "errors": [], "warnings": warns})
     return results
 
 
@@ -716,22 +737,28 @@ def main():
         args.pop(step_idx[0])
 
     if "--all" in args:
-        # 全量审计
+        # 全量审计（存量宽限：up_id 缺失仅警告）
         claims_dir = REPO_ROOT / "knowledge" / "claims"
         yaml_files = sorted(f for f in claims_dir.glob("*.yaml") if not f.name.endswith(".bak"))
         total_errors = 0
+        total_warns = 0
         for fpath in yaml_files:
             try:
                 claims = load_claims(str(fpath))
-                results = validate_claims(claims, step=step)
-                if results:
+                results = validate_claims(claims, step=step, strict=False)
+                errs = [r for r in results if r["errors"]]
+                wrns = [r for r in results if not r["errors"] and r.get("warnings")]
+                if errs:
                     print(f"❌ {fpath.name}")
-                    for r in results:
+                    for r in errs:
                         for e in r["errors"]:
                             print(f"   {r['id']}: {e}")
-                    total_errors += len(results)
+                    total_errors += len(errs)
+                total_warns += len(wrns)
             except Exception as e:
                 print(f"⚠️  {fpath.name}: 解析失败 — {e}")
+        if total_warns:
+            print(f"\nℹ️  共 {total_warns} 条 claim 缺 up_id（存量宽限，待回填第二阶段）")
         if total_errors == 0:
             print("✅ 全量审计通过")
             sys.exit(0)

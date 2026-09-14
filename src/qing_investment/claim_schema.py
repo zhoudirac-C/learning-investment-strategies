@@ -28,6 +28,7 @@ REQUIRED_FIELDS = {
     "source_path",
     "source_date",
     "source_type",
+    "up_id",
     "extracted_at",
     "claim_type",
     "subject",
@@ -43,6 +44,20 @@ REQUIRED_FIELDS = {
     "links",
 }
 
+# 非必填但受认可的字段（多 up 体系扩展）
+OPTIONAL_FIELDS = {
+    "up_name",          # up 显示名（非主键，可缺失）
+    "disagrees_with",   # 不同 up 之间的观点分歧（与 supersedes/contradicts 区分）
+    "related_stocks",
+    "tags",
+    "topic",
+}
+
+# 虚拟 up_id：非 up 来源的内容
+VIRTUAL_UP_IDS = {
+    "chanlun-original",  # 缠中说禅原著课程
+}
+
 
 @dataclass(frozen=True)
 class Claim:
@@ -50,6 +65,7 @@ class Claim:
     source_path: str
     source_date: str
     source_type: str
+    up_id: str
     extracted_at: str
     claim_type: str
     subject: str
@@ -63,6 +79,12 @@ class Claim:
     supersedes: list[str]
     contradicts: list[str]
     links: dict[str, list[str]]
+    up_name: str = ""
+    disagrees_with: list[str] = None  # type: ignore[assignment]
+
+    def __post_init__(self) -> None:
+        if self.disagrees_with is None:
+            object.__setattr__(self, "disagrees_with", [])
 
 
 def validate_claim_dict(data: dict[str, Any]) -> Claim:
@@ -83,6 +105,16 @@ def validate_claim_dict(data: dict[str, Any]) -> Claim:
     if not isinstance(data["links"], dict):
         raise ValueError("links must be a dict")
 
+    # up_id 必填且非空（虚拟 up 用 VIRTUAL_UP_IDS）
+    up_id_val = str(data["up_id"]).strip()
+    if not up_id_val:
+        raise ValueError("up_id must be a non-empty string")
+
+    # disagrees_with 若存在必须是 list
+    dw = data.get("disagrees_with")
+    if dw is not None and not isinstance(dw, list):
+        raise ValueError("disagrees_with must be a list")
+
     links = {
         "wiki_pages": list(data["links"].get("wiki_pages", [])),
         "methodology_pages": list(data["links"].get("methodology_pages", [])),
@@ -94,6 +126,7 @@ def validate_claim_dict(data: dict[str, Any]) -> Claim:
         source_path=str(data["source_path"]),
         source_date=str(data["source_date"]),
         source_type=str(data["source_type"]),
+        up_id=up_id_val,
         extracted_at=str(data["extracted_at"]),
         claim_type=str(data["claim_type"]),
         subject=str(data["subject"]),
@@ -107,6 +140,8 @@ def validate_claim_dict(data: dict[str, Any]) -> Claim:
         supersedes=[str(item) for item in data["supersedes"]],
         contradicts=[str(item) for item in data["contradicts"]],
         links=links,
+        up_name=str(data.get("up_name") or ""),
+        disagrees_with=[str(i) for i in (dw or [])],
     )
 
 
