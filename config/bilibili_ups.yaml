@@ -1,0 +1,43 @@
+# B站 UP 动态监控列表
+#
+# 用法：scripts/bilibili_notify.py 读取本文件，逐个 UP 拉取动态。
+# 新增 UP：追加一项，enabled: true。首次运行默认静默初始化
+# （只记录 processed_ids、不发通知），之后只推增量。
+#
+# 字段：
+#   uid      B站 UID（必填，字符串）
+#   name     展示名（用于通知标题 + 落盘 up_name 兜底）
+#   enabled  是否纳入监控（默认 true）
+#   priority 备注用：core=青枫浦上Q 主线；watch=扩展观察
+#
+# state 文件 ~/.hermes/bilibili_up_state.json 结构（v2，按 uid 分键）：
+#   {
+#     "version": 2,
+#     "ups": {
+#       "<uid>": {"processed_ids": [...], "last_dynamic_id": "...",
+#                 "last_check_time": "...", "initialized": true}
+#     }
+#   }
+
+version: 2
+
+ups:
+  - uid: "1420210197"
+    name: "青枫浦上Q"
+    enabled: true
+    priority: core
+
+  - uid: "52512172"
+    name: "莫大韭菜"
+    enabled: true
+    priority: watch
+
+  - uid: "424405794"
+    name: "Mark__Huang"
+    enabled: true
+    priority: watch
+
+  - uid: "550494308"
+    name: "卢本圆复盘"
+    enabled: true
+    priority: watch
