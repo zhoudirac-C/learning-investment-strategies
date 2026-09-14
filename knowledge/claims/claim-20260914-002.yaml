@@ -1,0 +1,357 @@
+claims:
+- id: claim-20260914-002-a
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
+    今日指数集体.md
+  source_date: '2026-09-14'
+  source_type: 复盘
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-15T00:08:43'
+  claim_type: market-cycle
+  subject: 9月14日指数与个股广度背离
+  timeframe: short-term
+  statement: 9月14日指数集体低开、早盘回升后再度回落，收盘沪指跌0.07%、深成指跌0.64%、创业板指跌1.10%，但全市场超过3100只个股上涨，指数偏弱与局部修复同时存在，权重表现与个股广度之间出现差异。
+  evidence_quote: 今日指数集体低开，早盘回升后再度回落。收盘沪指跌0.07%，深成指跌0.64%，创业板指跌1.10%；沪深两市成交约1.63万亿元，较上一交易日减少3427亿元。与此同时，全市场超过3100只个股上涨，说明指数偏弱与局部修复同时存在，权重表现和个股广度之间出现了差异。
+  interpretation: 指数跌而个股普涨，是典型的权重拖累+局部活跃结构。这种背离说明抛压不是均匀落在所有方向，指数点位不能代表个股赚钱效应。在判断市场性质时，个股广度比指数涨跌更能反映真实情绪，因此这一背离是混沌期的直接证据。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 指数与个股广度背离
+  related_stocks: []
+  tags:
+  - 指数背离
+  - 个股广度
+  - 缩量
+  - 大盘定性
+- id: claim-20260914-002-b
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
+    今日指数集体.md
+  source_date: '2026-09-14'
+  source_type: 复盘
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-15T00:08:43'
+  claim_type: market-cycle
+  subject: 混沌期描述与退潮结束的确认条件
+  timeframe: short-term
+  statement: 当前盘面缺乏一致方向，用混沌期描述有直观意义，但现有表现尚不足以确认上一轮退潮已经结束，更不能据此确定新周期即将启动。
+  evidence_quote: 用"混沌期"描述这种缺乏一致方向的盘面有一定直观意义，但现有表现尚不足以确认上一轮退潮已经结束，更不能据此确定新周期即将启动。
+  interpretation: 这是对市场阶段性质的谨慎定性。UP同时否定了两个方向：既不能说退潮结束（不能转多），也不能说新周期启动（不能追涨）。混沌期的操作含义是降低仓位弹性、等待方向确认，而不是押注单向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260609-005-f", "claim-20260524-018", "claim-20260913-001-032"]
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 混沌期定性
+  related_stocks: []
+  tags:
+  - 混沌期
+  - 退潮
+  - 新周期
+  - 市场阶段
+- id: claim-20260914-002-c
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
+    今日指数集体.md
+  source_date: '2026-09-14'
+  source_type: 复盘
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-15T00:08:43'
+  claim_type: technical-knowledge
+  subject: 缩量不能单独作为抛压释放完毕的依据
+  timeframe: permanent
+  statement: 缩量说明成交活跃程度下降，但不能单凭缩量认定抛压已经释放完毕；指数回升后再次回落反映上午修复未能延续，而上涨个股数量较多说明压力没有均匀落在所有方向。
+  evidence_quote: 今天的量能变化尤其值得记录。缩量说明成交活跃程度下降，但不能单凭这一点认定抛压已经释放完毕。指数回升后再次回落，反映出上午的修复未能延续；而上涨个股数量较多，又说明压力没有均匀落在所有方向。
+  interpretation: 这是方法论级别的纠偏：缩量常被误读为抛压出尽，但UP明确否定单一指标的充分性。判断抛压是否释放需要结合价格能否站稳——缩量叠加冲高回落，恰恰说明承接力量不足，而非抛压消失。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: ["claim-20260729-002"]
+  supplements: ["claim-20260909-011-a", "claim-20260816-003"]
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 缩量指标解读边界
+  related_stocks: []
+  tags:
+  - 缩量
+  - 抛压
+  - 量能解读
+  - 方法论
+- id: claim-20260914-002-d
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
+    今日指数集体.md
+  source_date: '2026-09-14'
+  source_type: 复盘
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-15T00:08:43'
+  claim_type: market-cycle
+  subject: 当前市场主要特征是指数与题材缺乏同步性
+  timeframe: short-term
+  statement: 当前市场的主要特征是指数、权重与局部题材之间缺乏同步性，而非单一方向的趋势性下跌或上涨。
+  evidence_quote: 当前市场的主要特征，是指数、权重与局部题材之间缺乏同步性。
+  interpretation: 同步性缺失是混沌期的结构性定义。指数、权重、题材三者不同步说明资金没有统一主线，各自为战——这决定了操作上不宜按单一主线加仓，而应按各自节奏独立判断。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260518-018"]
+  contradicts: []
+  supplements: ["claim-20260813-027"]
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 指数权重题材不同步
+  related_stocks: []
+  tags:
+  - 同步性
+  - 指数
+  - 权重
+  - 题材
+- id: claim-20260914-002-e
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
+    今日指数集体.md
+  source_date: '2026-09-14'
+  source_type: 复盘
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-15T00:08:43'
+  claim_type: sector-theme
+  subject: 科技内部活跃范围收窄
+  timeframe: short-term
+  statement: 科技内部分化明显，AI安全方向集中走强，PCB、MLCC、金刚石相关方向盘中活跃，但光通信以及部分市值较大的硬件公司表现偏弱，科技活跃更多集中在局部环节，尚未形成主要方向同步回升的状态。
+  evidence_quote: 科技内部的分化较为明显。AI安全方向集中走强，PCB、MLCC、金刚石相关方向盘中活跃，但光通信以及部分市值较大的硬件公司表现偏弱。从今天的价格分布看，科技的活跃更多集中在局部环节，尚未形成主要方向同步回升的状态。
+  interpretation: 科技内部分化的具体形态是：小环节（AI安全方向、PCB、MLCC、金刚石）活跃，而大市值硬件与光通信偏弱，这与光模块等海外链方向承压一致。活跃范围收窄反映的是板块内部资金降级到更小市值、更边缘的环节，属主线不明的表现。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: ["claim-20260910-015-a"]
+  contradicts: ["claim-20260907-041-c"]
+  supplements: ["claim-20260914-001-017"]
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技内部活跃收窄
+  related_stocks: []
+  tags:
+  - 科技内部分化
+  - AI安全
+  - PCB
+  - MLCC
+  - 光通信
+- id: claim-20260914-002-f
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
+    今日指数集体.md
+  source_date: '2026-09-14'
+  source_type: 复盘
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-15T00:08:43'
+  claim_type: methodology
+  subject: 不能凭少数股票涨幅推断资金性质与经营变化
+  timeframe: permanent
+  statement: 科技的活跃范围收窄不能直接推断全部由热钱主导，资金性质需要更完整的交易资料支持；少数股票涨幅突出也不代表其经营变化更大。安全议题受关注与硬件需求预期出现分歧可以同时发生，二者间是否存在稳定的资金迁移关系无法仅凭一天行情确认。
+  evidence_quote: 这种结构可以称为活跃范围收窄，但不能直接由此判断全部由"热钱"主导。资金性质需要更完整的交易资料支持，少数股票涨幅突出也不代表其经营变化更大。安全议题受到关注，与硬件需求预期出现分歧，可以同时发生；二者之间是否存在稳定的资金迁移关系，还无法仅凭一天行情确认。
+  interpretation: 方法论纠偏：从价格表现反推资金性质（热钱/机构）需要完整交易资料，单日涨幅不能作为证据。同理，不能把"安全议题走强"与"硬件走弱"直接建立资金迁移的因果——两者可以独立发生。这避免了叙事化归因。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260914-001-017", "claim-20070730-001-a"]
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 单日涨幅不能推断资金性质
+  related_stocks: []
+  tags:
+  - 方法论
+  - 资金性质
+  - 归因
+  - 热钱
+- id: claim-20260914-002-g
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
+    今日指数集体.md
+  source_date: '2026-09-14'
+  source_type: 复盘
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-15T00:08:43'
+  claim_type: sector-theme
+  subject: 医药修复的持续性待验证
+  timeframe: short-term
+  statement: 医药方向出现阶段性修复，前期调整、消息变化和估值因素都可能参与定价；不能仅因上一轮涨幅较大就断言整个行业基本面已无法支撑。创新药、研发服务、医疗器械和传统制药面对的经营变量不同，仍需分别考察研发进展、商业化收入、订单和现金流，今天的回升可作为盘面记录，持续性尚待经营与市场数据验证。
+  evidence_quote: 医药方向今天出现阶段性修复。前期调整、消息变化和估值因素都可能参与定价，不能仅因上一轮涨幅较大，就断言整个行业的基本面已经无法支撑。创新药、研发服务、医疗器械和传统制药面对的经营变量不同，仍需分别考察研发进展、商业化收入、订单和现金流。今天的回升可以作为盘面记录，持续性则尚待经营与市场数据验证。
+  interpretation: 两重纪律：①不能用前期涨幅大就否定基本面（避免线性外推）；②医药内部细分经营变量完全不同，必须分拆考察而非整体判断。UP对医药只做盘面记录，不给方向结论——持续性需数据验证。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: ["claim-20260824-001-k", "claim-20260825-012-a"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药修复持续性待验证
+  related_stocks: []
+  tags:
+  - 医药
+  - 创新药
+  - 研发服务
+  - 修复
+- id: claim-20260914-002-h
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
+    今日指数集体.md
+  source_date: '2026-09-14'
+  source_type: 复盘
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-15T00:08:43'
+  claim_type: catalyst
+  subject: 智能网联新能源汽车十五五规划
+  timeframe: industry
+  statement: 工信部等九部门已印发《智能网联新能源汽车产业发展十五五规划》，文件于9月9日成文、9月10日发布；规划提供中长期产业方向，但具体措施如何转化为项目、销量和利润仍存在执行过程，因此汽车走强不足以推导其将成为市场过渡主线。
+  evidence_quote: 汽车板块也有活跃表现。政策背景方面，工信部等九部门已印发《智能网联新能源汽车产业发展"十五五"规划》，文件于9月9日成文、9月10日发布。规划印发提供了中长期产业方向，具体措施如何转化为项目、销量和利润，还存在执行过程。因此，汽车今天走强，并不足以推导其将成为市场的"过渡主线"。
+  interpretation: 典型政策催化评估框架：文件成文/发布时点明确（9/9、9/10），但UP强调从政策到业绩存在执行链条，不能把政策印发等同于行情主线确立。这是对'政策利好=买入理由'的直接否定。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 汽车政策催化不等同主线
+  related_stocks: []
+  tags:
+  - 汽车
+  - 智能网联
+  - 十五五规划
+  - 政策催化
+- id: claim-20260914-002-i
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
+    今日指数集体.md
+  source_date: '2026-09-14'
+  source_type: 复盘
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-15T00:08:43'
+  claim_type: methodology
+  subject: 题材名称不决定短期防御性
+  timeframe: permanent
+  statement: 部分农业、消费等此前活跃方向继续调整，说明题材名称并不能决定短期价格是否具有防御性；经过较大上涨后，相关股票同样可能面临估值和交易拥挤度的变化。
+  evidence_quote: 部分农业、消费等此前活跃方向继续调整，也提醒我们：题材名称并不能决定短期价格是否具有防御性。经过较大上涨后，相关股票同样可能面临估值和交易拥挤度的变化。
+  interpretation: '对''防御性板块''概念的纠偏：防御属性不是标签固有，而是取决于前期涨幅带来的估值与拥挤度。涨多了的消费农业同样会补跌。这条与农业链（chain_registry
+    #17）的退潮观察直接相关。'
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 题材名称不等于防御性
+  related_stocks: []
+  tags:
+  - 方法论
+  - 防御性
+  - 农业
+  - 消费
+  - 拥挤度
+- id: claim-20260914-002-j
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
+    今日指数集体.md
+  source_date: '2026-09-14'
+  source_type: 复盘
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-15T00:08:43'
+  claim_type: sector-theme
+  subject: 头部AI公司减速对硬件端是增速风险
+  timeframe: industry
+  statement: 上周美债收益率与美股同涨源于AI表现出的强大性能，可以无视美债风险；但现在头部AI公司集体表示减速，对硬件端就是增速不及预期的风险。即使没有头部AI公司喊话，海外链业绩增速的二阶导也会放缓。
+  evidence_quote: 上周出现美债收益率和美股同涨的情况，那是因为Ai表现出的强大性能，因此可以无视美债风险，但现在头部Ai公司集体表示减速，那么对于硬件端来讲就是增速不及预期的风险，我在做完二线光之后就不在看海外链的理由也在于此，即使没有头部Ai公司喊话，海外链业绩增速的二阶导也会放缓。
+  interpretation: 这是海外链看空逻辑的核心：不是需求绝对下降，而是增速的二阶导（加速度）放缓——这对高估值硬件是杀伤。头部AI公司集体喊减速是触发因素，但UP强调即使没有这个信号，二阶导问题依然存在。这说明海外链的弱势是结构性的，不是消息驱动的短期波动。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20260812-038"]
+  supplements: ["claim-20260805-016"]
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 海外链增速二阶导放缓
+  related_stocks: []
+  tags:
+  - 海外链
+  - AI减速
+  - 二阶导
+  - 硬件
+  - 美债
+- id: claim-20260914-002-k
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
+    今日指数集体.md
+  source_date: '2026-09-14'
+  source_type: 复盘
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-15T00:08:43'
+  claim_type: sector-theme
+  subject: 国产替代方向观点未变
+  timeframe: trend
+  statement: 在海外链面临业绩增速二阶导放缓与美股IPO风险的情况下，观点没有变化，依然看好国产替代方向。
+  evidence_quote: 只不过在我当时看来风险最大是在十月美股IPO的事情外加二阶导的问题，那么我的观点还是没有变化，国产替代。
+  interpretation: 这是UP的核心方向立场重申：海外链（二线光已做完）切向国产替代。风险时点定位在十月美股IPO + 二阶导问题。这条与用户的国产链ETF持仓（515980/588790等）方向一致，属于中期方向层判断。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260819-061", "claim-20260804-039"]
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国产替代方向不变
+  related_stocks: []
+  tags:
+  - 国产替代
+  - 海外链
+  - 方向判断
+  - 美股IPO
