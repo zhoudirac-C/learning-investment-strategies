@@ -154,18 +154,23 @@ def fetch_dynamic_detail(dynamic_id: str, sessdata: str) -> dict:
         return json.loads(resp.read().decode("utf-8"))
 
 
-UP_NAME = "青枫浦上Q"
-
-def fetch_up_comment(dynamic_id: str, sessdata: str) -> dict | None:
+def fetch_up_comment(dynamic_id: str, sessdata: str, up_name: str | None = None) -> dict | None:
     """获取动态评论区中 UP 主自己的评论。
-    
-    只返回 UP 主（青枫浦上Q）的评论，其他用户忽略。
+
+    只返回 UP 主本人的评论，其他用户忽略。
+    up_name 为 None 时从动态自身的 author 推导（多 UP 场景推荐）。
     """
     detail = fetch_dynamic_detail(dynamic_id, sessdata)
     if detail.get("code") != 0:
         return None
-    
-    basic = detail.get("data", {}).get("item", {}).get("basic", {})
+
+    item = detail.get("data", {}).get("item", {})
+    if not up_name:
+        up_name = (item.get("modules", {})
+                       .get("module_author", {})
+                       .get("name", "")) or None
+
+    basic = item.get("basic", {})
     oid = basic.get("rid_str", "") or basic.get("comment_id_str", "")
     if not oid:
         return None
@@ -193,7 +198,7 @@ def fetch_up_comment(dynamic_id: str, sessdata: str) -> dict | None:
             upper_top = data.get("data", {}).get("upper", {}).get("top")
             if upper_top:
                 uname = upper_top.get("member", {}).get("uname", "")
-                if uname == UP_NAME:
+                if up_name and uname == up_name:
                     return {
                         "content": upper_top.get("content", {}).get("message", ""),
                         "uname": uname,
@@ -203,7 +208,7 @@ def fetch_up_comment(dynamic_id: str, sessdata: str) -> dict | None:
             # 2. 遍历 replies 找 UP 主评论
             for reply in data.get("data", {}).get("replies", []):
                 uname = reply.get("member", {}).get("uname", "")
-                if uname == UP_NAME:
+                if up_name and uname == up_name:
                     return {
                         "content": reply.get("content", {}).get("message", ""),
                         "uname": uname,
