@@ -134,6 +134,9 @@ def compute_macd_range(klines: list[dict]) -> list[dict]:
         else:
             k["macd_hist"] = None
 
+    return klines
+
+
 def update_one(code: str, timeframe: str, dry_run: bool = False) -> dict:
     """更新单个指数×周期的K线。返回统计。"""
     import sqlite3
