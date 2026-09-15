@@ -299,3 +299,14 @@ def test_resolve_api_key_fallback_openrouter(monkeypatch, tmp_path):
     monkeypatch.delenv("CUSTOM_OPENROUTER_API_KEY", raising=False)
     monkeypatch.setenv("OPENROUTER_API_KEY", "sk-fallback")
     assert asr.resolve_api_key(_cfg(tmp_path)) == "sk-fallback"
+
+
+def test_transcribe_single_refusal_treated_as_failure(monkeypatch, tmp_path):
+    """模型返回拒答（而非转写）时应抛错触发重试。"""
+    monkeypatch.setattr(
+        asr, "_post_json",
+        lambda url, body, key, timeout=180: {"choices": [{"message": {"content": "我无法直接接收或处理音频文件。我是文本AI，只能阅读文字。"}}]},
+    )
+    mp3 = _write_mp3(tmp_path / "a.mp3")
+    with pytest.raises(RuntimeError, match="拒答"):
+        asr._transcribe_single(mp3, _cfg(tmp_path), "key")

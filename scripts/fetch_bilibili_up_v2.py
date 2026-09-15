@@ -962,13 +962,19 @@ def backfill_video_asr(
     sessdata: str,
     asr_cfg: dict,
     max_items: int | None = None,
+    since_date: str | None = None,
 ) -> list[Path]:
-    """对已有视频类 raw 补跑 ASR，写入 ## 视频转写 段。返回更新的文件列表。"""
+    """对已有视频类 raw 补跑 ASR，写入 ## 视频转写 段。返回更新的文件列表。
+
+    since_date: 只处理文件名日期 >= 该日期的 raw（如 "2026-08-15"）。
+    """
     updated: list[Path] = []
     if asr_mod is None:
         print("ERROR: ASR 模块不可用", file=sys.stderr)
         return updated
     for md in sorted(original_dir().glob("*.md")):
+        if since_date and md.name < since_date:
+            continue
         text = md.read_text(encoding="utf-8")
         if 'dynamic_type: "视频"' not in text or "## 视频转写" in text:
             continue
@@ -1262,6 +1268,7 @@ def main() -> int:
     parser.add_argument("--no-comment", action="store_true", help="禁用评论获取")
     parser.add_argument("--no-asr", action="store_true", help="禁用视频语音转写")
     parser.add_argument("--asr-backfill", action="store_true", help="对已有视频动态 raw 补跑 ASR 后退出")
+    parser.add_argument("--asr-backfill-since", help="只回填文件名日期 >= 该日期的 raw，如 2026-08-15")
     parser.add_argument("--asr-model", help="覆盖 ASR 模型（默认读 config/bilibili_asr.yaml）")
     args = parser.parse_args()
 
@@ -1279,7 +1286,7 @@ def main() -> int:
         if asr_mod is None:
             print("ERROR: ASR 模块不可用，无法回填", file=sys.stderr)
             return 1
-        updated = backfill_video_asr(args.sessdata, asr_cfg)
+        updated = backfill_video_asr(args.sessdata, asr_cfg, since_date=args.asr_backfill_since)
         for filepath in updated:
             print(f"ASR_BACKFILL: {filepath.relative_to(repo_root())}")
         return 0

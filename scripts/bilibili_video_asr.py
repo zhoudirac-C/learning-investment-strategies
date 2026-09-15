@@ -66,6 +66,15 @@ TRANSCRIBE_PROMPT = (
     "只输出转写正文，不要输出任何解释。"
 )
 
+# 模型偶发返回「拒答」而非转写（实测出现过），按失败处理以便重试
+_REFUSAL_PATTERNS = (
+    "我无法直接接收或处理音频",
+    "我是文本AI",
+    "无法处理该音频",
+    "无法转写这段音频",
+    "语音转文字工具",
+)
+
 
 # ── 配置 ──────────────────────────────────────────────────────────
 
@@ -408,7 +417,10 @@ def _transcribe_single(mp3_path: Path, cfg: dict, api_key: str) -> str:
             )
         if not content.strip():
             raise RuntimeError(f"ASR 返回空内容: {json.dumps(data, ensure_ascii=False)[:200]}")
-        return content.strip()
+        text = content.strip()
+        if any(p in text for p in _REFUSAL_PATTERNS) and len(text) < 500:
+            raise RuntimeError(f"ASR 返回拒答而非转写: {text[:80]}")
+        return text
 
     return _retry(_call, cfg, what=f"transcribe({mp3_path.name})")
 
