@@ -43,11 +43,11 @@ mappings:
   segment: seg-mine
   relation: 上游煤矿龙头，量价齐升、业绩改善直接受益
   elasticity: concept
-current_stage: 阶段3-分歧期
-stage_confidence: 高
-stage_evidence: 2026-09-07 跟踪更新：动力煤破950验证供给收缩涨价逻辑，加速期确认但不宜追高，等回踩或第七轮提涨。
+current_stage: 阶段2-加速期
+stage_confidence: 中
+stage_evidence: 2026-09-14 跟踪更新：双焦期货续跌叠加煤炭消费达峰担忧，分歧期内部走弱，提涨逻辑受考验。
 timing:
-  current_recommendation: 阶段2-加速期：不追高，等分歧回踩
+  current_recommendation: 阶段3-分歧期：等回踩确认，暂停追多，以第七轮提涨落地为确认信号
   next_trigger: 第七轮提涨落地=加强
   risk: 钢铁需求走弱→焦炭提涨受阻
 tracking_metrics:
@@ -85,4 +85,8 @@ history:
 - date: '2026-09-12'
   stage: 阶段3-分歧期
   action: 演化:update_falsification 新增期货领先信号证伪条件
+  result: 待验证
+- date: '2026-09-14'
+  stage: 阶段2-加速期
+  action: 减仓/观望，不加仓；若焦煤5日累计跌幅扩大或焦炭提涨连续受阻，进一步降仓退出
   result: 待验证
