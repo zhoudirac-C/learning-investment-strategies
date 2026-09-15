@@ -1,6 +1,6 @@
-# 影子双轨完整性报告（2026-09-14）
+# 影子双轨完整性报告（2026-09-16）
 
-- 记录日数: 89，完整: 89
+- 记录日数: 93，完整: 93
 - 提案: open 56 / applied 9 / rejected 0 / retracted 7
 
 | 日期 | 阶段判定 | 状态 | 归因 | 完整 |
@@ -79,10 +79,10 @@
 | 2026-09-07 | 对 | scored | 有 | ✅ |
 | 2026-09-07 | 错 | scored | 有 | ✅ |
 | 2026-09-07 | - | error | 有 | ✅ |
-| 2026-09-08 | 对 | pending_maturity | 有 | ✅ |
-| 2026-09-08 | 对 | pending_maturity | 有 | ✅ |
-| 2026-09-08 | 错 | pending_maturity | 有 | ✅ |
-| 2026-09-08 | 对 | pending_maturity | 有 | ✅ |
+| 2026-09-08 | 对 | scored | 有 | ✅ |
+| 2026-09-08 | 对 | scored | 有 | ✅ |
+| 2026-09-08 | 错 | scored | 有 | ✅ |
+| 2026-09-08 | 对 | scored | 有 | ✅ |
 | 2026-09-09 | 对 | pending_maturity | 有 | ✅ |
 | 2026-09-09 | 错 | pending_maturity | 有 | ✅ |
 | 2026-09-09 | 对 | pending_maturity | 有 | ✅ |
@@ -92,8 +92,12 @@
 | 2026-09-10 | 对 | pending_maturity | - | ✅ |
 | 2026-09-11 | 对 | pending_maturity | - | ✅ |
 | 2026-09-11 | 对 | pending_maturity | - | ✅ |
-| 2026-09-14 | - | pending_maturity | - | ✅ |
-| 2026-09-14 | - | pending_maturity | - | ✅ |
+| 2026-09-14 | 对 | pending_maturity | - | ✅ |
+| 2026-09-14 | 对 | pending_maturity | - | ✅ |
+| 2026-09-14 | 对 | pending_maturity | - | ✅ |
+| 2026-09-15 | 对 | pending_maturity | - | ✅ |
+| 2026-09-15 | 对 | pending_maturity | - | ✅ |
+| 2026-09-15 | 对 | pending_maturity | - | ✅ |
 
 ## 待处理提案（open 置顶）
 
