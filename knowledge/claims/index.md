@@ -790,12 +790,12 @@
 - [claim-20260914-002-j](sources/original/bilibili/2026-09-14-2252-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E4%BB%8A%E6%97%A5%E5%B8%82%E5%9C%BA%EF%BC%9A%E5%B1%80%E9%83%A8%E4%BF%AE%E5%A4%8D%E4%BB%8D%E5%9C%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%9B%9E%E5%8D%87%E7%BC%BA%E4%B9%8F%E6%8C%81%E7%BB%AD%E6%80%A7%20%E4%BB%8A%E6%97%A5%E6%8C%87%E6%95%B0%E9%9B%86%E4%BD%93.md) — sector-theme / 头部AI公司减速对硬件端是增速风险
 - [claim-20260914-002-k](sources/original/bilibili/2026-09-14-2252-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E4%BB%8A%E6%97%A5%E5%B8%82%E5%9C%BA%EF%BC%9A%E5%B1%80%E9%83%A8%E4%BF%AE%E5%A4%8D%E4%BB%8D%E5%9C%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%9B%9E%E5%8D%87%E7%BC%BA%E4%B9%8F%E6%8C%81%E7%BB%AD%E6%80%A7%20%E4%BB%8A%E6%97%A5%E6%8C%87%E6%95%B0%E9%9B%86%E4%BD%93.md) — sector-theme / 国产替代方向观点未变
 
-- [claim-20260903-001-a](sources/original/bilibili/2026-09-03-1539-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1243748457938681865.md) — operation / 万邦医药日内高抛低吸
+- [claim-20260903-037-a](sources/original/bilibili/2026-09-03-1539-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1243748457938681865.md) — operation / 万邦医药日内高抛低吸
 - [claim-20260904-001-a](sources/original/bilibili/2026-09-04-1006-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1244033806979039253.md) — operation / 顺钠股份开盘加仓
-- [claim-20260908-001-a](sources/original/bilibili/2026-09-08-0956-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1245515450456997890.md) — operation / 万邦医药高位减仓
-- [claim-20260908-002-a](sources/original/bilibili/2026-09-08-1328-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1245570258508447779.md) — technical-signal / 万邦医药放量上攻
-- [claim-20260909-001-a](sources/original/bilibili/2026-09-09-1316-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1245938229857746962.md) — operation / 万邦医药回调补仓
+- [claim-20260908-006-a](sources/original/bilibili/2026-09-08-0956-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1245515450456997890.md) — operation / 万邦医药高位减仓
+- [claim-20260908-007-a](sources/original/bilibili/2026-09-08-1328-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1245570258508447779.md) — technical-signal / 万邦医药放量上攻
+- [claim-20260909-031-a](sources/original/bilibili/2026-09-09-1316-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1245938229857746962.md) — operation / 万邦医药回调补仓
 - [claim-20260914-003-a](sources/original/bilibili/2026-09-14-0940-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1247738010152206342.md) — operation / 江海股份建仓
 - [claim-20260914-004-a](sources/original/bilibili/2026-09-14-1032-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1247751406095433729.md) — technical-signal / 万邦医药涨停封板
 - [claim-20260914-005-a](sources/original/bilibili/2026-09-14-1340-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1247799694409596933.md) — operation / 西点药业建仓
-- [claim-20260902-001-a](sources/original/bilibili/2026-09-02-1039-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1243300089132220422.md) — risk / 跟单风险提示
+- [claim-20260902-022-a](sources/original/bilibili/2026-09-02-1039-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1243300089132220422.md) — risk / 跟单风险提示
