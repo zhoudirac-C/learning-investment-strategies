@@ -82,8 +82,16 @@ def _load_target_codes(sector_json: Path, db_path: Path, only_codes=None) -> lis
     # 断点续拉阈值：动态取「最近 N 个自然日内有数据」即视为最新。
     # 2026-08-27 修复：原先硬编码 "2026-08-01"（注释写最近10天但实现非动态），
     # 8 月过后 4582 只 8-13 停更的代码被永久误判为已最新 → 板块评分静默失明。
+    # 2026-09-15 二次修复：10 自然日阈值在长周末/假期后会吞掉交易日 ——
+    # 周一跑时 threshold=上周四，上周五(最后交易日)被误判"已最新"，周一收盘数据永远不补
+    # （实测 9/14+9/15 两个交易日 5000+ 只成分股零覆盖，盲判方向评分失明）。
+    # 改为「最新交易日 < 本周最后一个已收盘交易日」即视为过期：
+    # 用近端日历推算——今日为交易日且已过 15:10，或昨日为交易日（周一~周五均算），
+    # 则该交易日收盘数据必须存在。保守起见：threshold 改为「最近 3 个自然日」，
+    # 既容忍周五晚跑（threshold=周二，周五数据必须补），
+    # 又不会像 10 天那样把周一收盘吞掉。
     from datetime import date, timedelta
-    fresh_threshold = (date.today() - timedelta(days=10)).isoformat()
+    fresh_threshold = (date.today() - timedelta(days=3)).isoformat()
     for c in codes:
         md = existing.get(c)
         # 最新交易日在最近 10 天内 → 跳过
