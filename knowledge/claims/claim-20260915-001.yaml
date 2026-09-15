@@ -1,0 +1,294 @@
+claims:
+- id: claim-20260903-001-a
+  source_path: sources/original/bilibili/2026-09-03-1539-图片-动态-1243748457938681865.md
+  source_date: '2026-09-03'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T09:20:44'
+  claim_type: operation
+  subject: 万邦医药日内高抛低吸
+  timeframe: intraday
+  statement: 9月3日对万邦医药(301520)做日内T：10:36-10:46 在 54.88-55.485 区间买入 7600 股，11:03-11:08
+    在 55.0-56.17 区间卖出 3840 股，量价均为实盘交割单记录。
+  evidence_quote: 万邦医药 卖出 56.160 440 卖11:08:34 / 万邦医药 卖出 55.790 1500 卖11:06:47 / 万邦医药
+    买入 55.085 4200 买 10:46:23 / 万邦医药 买入 55.483 3000 买 10:36:08
+  interpretation: 典型的日内高抛低吸：先低位买入、再高位分批卖出，买卖价差约 0.5-1 元。体现UP在万邦医药上的短线做T节奏，且卖出价（55-56）高于买入价（54.88-55.48），当日为盈利T。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 万邦医药9月3日做T记录
+  related_stocks:
+  - code: '301520'
+    name: 万邦医药
+    role: 创业板标的-不可交易（用户仅主板）
+  tags:
+  - 做T
+  - 万邦医药
+  - 日内交易
+  - 实盘交割单
+- id: claim-20260904-001-a
+  source_path: sources/original/bilibili/2026-09-04-1006-图片-动态-1244033806979039253.md
+  source_date: '2026-09-04'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T09:20:44'
+  claim_type: operation
+  subject: 顺钠股份开盘加仓
+  timeframe: intraday
+  statement: 9月4日开盘 09:35-09:36 连续买入顺钠股份(000533)，其中一笔 15100 股（约17.8万元）、一笔 2400 股（约2.8万元）。
+  evidence_quote: 顺钠股份 买入 15100 买 09:35:54 178482.000 / 顺钠股份 买入 1.840 2400 买 09:36:16
+    28416.000
+  interpretation: 开盘即大额买入（合计约20.7万元），是加仓动作而非试探。顺钠股份为主板标的（000533），用户可参考。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 顺钠股份9月4日开盘加仓
+  related_stocks:
+  - code: '000533'
+    name: 顺钠股份
+    role: 主板标的-可交易
+  tags:
+  - 加仓
+  - 顺钠股份
+  - 开盘买入
+- id: claim-20260908-001-a
+  source_path: sources/original/bilibili/2026-09-08-0956-图片-动态-1245515450456997890.md
+  source_date: '2026-09-08'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T09:20:44'
+  claim_type: operation
+  subject: 万邦医药高位减仓
+  timeframe: intraday
+  statement: 9月8日万邦医药(301520)在 62.56-64.25 区间分批卖出（含 09:50 卖出 1800 股、13:08-13:11 连续卖出2000股），同时买入中粮资本(002423)：09:51
+    买入 11400 股（9.89元）、13:56 买入 8100 股（9.90元）。
+  evidence_quote: 万邦医药 63.81 500 卖出 卖13:11:46 / 万邦医药 64.250 卖出 卖13:08:48 / 万邦医药 62.560
+    1800 卖出 卖09:50:48 / 中粮资本 9.900 8100 买入 买13:56:36 / 中粮资本 9.890 11400 买入 买09:51:37
+  interpretation: 明显的换仓动作：高位（62-64元）减持万邦医药，同日在 9.89-9.90 位置大举建仓中粮资本（合计约19.6万元）。中粮资本为主板标的（002423），用户可参考。这反映UP认为万邦医药短期涨幅到位、转投其他方向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 9月8日万邦医药减仓与中粮资本建仓
+  related_stocks:
+  - code: '301520'
+    name: 万邦医药
+    role: 创业板标的-减仓
+  - code: '002423'
+    name: 中粮资本
+    role: 主板标的-可交易
+  tags:
+  - 换仓
+  - 万邦医药
+  - 中粮资本
+  - 高位减仓
+- id: claim-20260908-002-a
+  source_path: sources/original/bilibili/2026-09-08-1328-图片-动态-1245570258508447779.md
+  source_date: '2026-09-08'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T09:20:44'
+  claim_type: technical-signal
+  subject: 万邦医药放量上攻
+  timeframe: intraday
+  statement: 万邦医药(301520)当日报 65.78 元（+8.35%），换手率 27.00%、量比 1.49，流通市值 21.51 亿，属显著放量。
+  evidence_quote: 万邦医药 301520创融L1 高低 65.81 市值61.29亿 量比 1.49 65.78 59.11 流通21.51亿 换
+    27.00% 最新：65.785.07+8.35%
+  interpretation: 换手率27%属极高水平，说明筹码快速换手、资金博弈激烈。量比仅1.49说明当日成交与近期均值相比并未大幅放大——高换手更多来自流通盘小（21.51亿）。这解释了UP在高位减仓的动机。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 万邦医药9月8日量能特征
+  related_stocks:
+  - code: '301520'
+    name: 万邦医药
+    role: 创业板标的-不可交易
+  tags:
+  - 万邦医药
+  - 换手率
+  - 量能
+  - 高换手
+- id: claim-20260909-001-a
+  source_path: sources/original/bilibili/2026-09-09-1316-图片-动态-1245938229857746962.md
+  source_date: '2026-09-09'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T09:20:44'
+  claim_type: operation
+  subject: 万邦医药回调补仓
+  timeframe: intraday
+  statement: 9月9日 13:09 万邦医药(301520)买入400股（62.1元），另有一笔700股委托部分撤单。
+  evidence_quote: 今日成交单 万邦医药 400 买入 62.1 400 已成 买13:09:32 万邦医药 62.030 100 买入部撤 买13:09:22
+    62.030 700 部撤
+  interpretation: 前一交易日（9/8）刚在62-64元减仓，9/9又在62元附近买回，说明UP认为62元是万邦医药的支撑位、回调可补。买卖在同一价格区间反复，属高频T操作。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 万邦医药9月9日补仓
+  related_stocks:
+  - code: '301520'
+    name: 万邦医药
+    role: 创业板标的-不可交易
+  tags:
+  - 万邦医药
+  - 回调补仓
+  - 做T
+- id: claim-20260914-003-a
+  source_path: sources/original/bilibili/2026-09-14-0940-图片-动态-1247738010152206342.md
+  source_date: '2026-09-14'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T09:20:44'
+  claim_type: operation
+  subject: 江海股份建仓
+  timeframe: intraday
+  statement: 9月14日 09:37 买入江海股份(002484) 3500 股，成交均价 55.937 元（约19.6万元）。
+  evidence_quote: 交单 江海股份 56.000 3500 买入 55.937 3500 已成 买 09:37:43
+  interpretation: 开盘即建仓的主板标的（002484，江海股份为铝电解电容龙头）。用户可参考此标的与价位。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 江海股份9月14日建仓
+  related_stocks:
+  - code: '002484'
+    name: 江海股份
+    role: 主板标的-可交易
+  tags:
+  - 建仓
+  - 江海股份
+  - 电容
+- id: claim-20260914-004-a
+  source_path: sources/original/bilibili/2026-09-14-1032-图片-动态-1247751406095433729.md
+  source_date: '2026-09-14'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T09:20:44'
+  claim_type: technical-signal
+  subject: 万邦医药涨停封板
+  timeframe: intraday
+  statement: 9月14日万邦医药(301520)涨停报 63.60 元（+20.00%），首板封单占成交 37.63%，最高封单额 2.38 亿元，涨停成交额
+    0.37 亿元；此前 09-11 入选龙虎榜、净买入 2463 万元。
+  evidence_quote: 万邦医药 301520 创融L1 63.60 换 30.38% 10.6020.00% 龙虎榜：09-11入选，净买入2463万元
+    首板 封单占成交 37.63% 最高封单额 2.38亿 涨停成交额 0.37亿
+  interpretation: 20cm涨停（创业板）+ 封单占比37.63%说明封板较强。龙虎榜净买入2463万显示有资金主动介入。但同一动态OCR还显示江海股份(002484)行情，说明UP同时盯多只标的。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 万邦医药9月14日涨停
+  related_stocks:
+  - code: '301520'
+    name: 万邦医药
+    role: 创业板标的-不可交易
+  tags:
+  - 涨停
+  - 万邦医药
+  - 龙虎榜
+  - 封单
+- id: claim-20260914-005-a
+  source_path: sources/original/bilibili/2026-09-14-1340-图片-动态-1247799694409596933.md
+  source_date: '2026-09-14'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T09:20:44'
+  claim_type: operation
+  subject: 西点药业建仓
+  timeframe: intraday
+  statement: 9月14日 13:37 买入西点药业(301130) 5800 股，委托价 26.720 元（另有一笔6900股委托部分撤单）。
+  evidence_quote: 今日成交单 西点药业 780 5800 买入 本 5800 已成 买13:37:31 西点药业 26.720 6900 买入部撤
+    买13:37:27 26.720 1100 部撤
+  interpretation: 西点药业为创业板标的（301130），用户不可直接交易，仅作方向参考。当日多笔买入动作显示UP在加仓医药方向。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 西点药业9月14日建仓
+  related_stocks:
+  - code: '301130'
+    name: 西点药业
+    role: 创业板标的-不可交易
+  tags:
+  - 建仓
+  - 西点药业
+  - 医药
+- id: claim-20260902-001-a
+  source_path: sources/original/bilibili/2026-09-02-1039-图片-动态-1243300089132220422.md
+  source_date: '2026-09-02'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T09:20:44'
+  claim_type: risk
+  subject: 跟单风险提示
+  timeframe: permanent
+  statement: 提示跟随者自行控制仓位：「抄屁股可以，不要大抄屁股。没有什么是稳赢的」。
+  evidence_quote: 大家自己控制仓位。抄屁股可以，不要大抄屁股。没有什么是稳赢的
+  interpretation: UP明确反对跟随者重仓复制其操作。这与UP反复强调的「仅个人记录、不荐股」立场一致，也是风险控制的核心表述——任何策略都不存在稳赢。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 跟单仓位控制与风险提示
+  related_stocks: []
+  tags:
+  - 风险提示
+  - 仓位控制
+  - 跟单风险
