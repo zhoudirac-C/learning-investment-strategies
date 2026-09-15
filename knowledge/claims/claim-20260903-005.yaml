@@ -1,0 +1,61 @@
+claims:
+- id: claim-20260903-036-a
+  source_path: sources/original/bilibili/2026-09-03-2003-视频-降低标准，赚辛苦钱。.md
+  source_date: '2026-09-03'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: operation
+  subject: 降低收益预期的操作定调
+  timeframe: short-term
+  statement: UP 将当前阶段的操作定调为"降低标准，赚辛苦钱"——主动降低收益预期与出手标准，接受需要精细化操作、单笔收益偏薄的辛苦钱模式。
+  evidence_quote: 降低标准，赚辛苦钱。
+  interpretation: 标题即观点。"降低标准"指降低对单笔交易收益与确定性的要求；"赚辛苦钱"指接受靠高频、精细操作积累薄利的模式。该定调与 9 月初
+    UP 反复强调的缩量、轮动加快、赚钱难度上升的环境判断一致。注意：该 raw 仅为视频标题与动态原文（充电专属视频，38 分钟，无转写稿），结论以标题文本为准。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 当前阶段操作定调：降低标准赚辛苦钱
+  related_stocks: []
+  tags:
+  - 降低标准
+  - 赚辛苦钱
+  - 收益预期
+  - 操作定调
+  - 缩量环境
+- id: claim-20260903-036-b
+  source_path: sources/original/bilibili/2026-09-03-2003-视频-降低标准，赚辛苦钱。.md
+  source_date: '2026-09-03'
+  source_type: 视频
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: technical-signal
+  subject: 视频字幕片段提及标的站上较强趋势
+  timeframe: short-term
+  statement: 视频画面 OCR 中保留有一句字幕片段"对吧站上比较强的趋势了"，指向 UP 在视频中确认某标的（或指数）已站上较强趋势；同一截图中还出现"超跌反弹"字样。
+  evidence_quote: 对吧站上比较强的趋势了
+  interpretation: 该片段来自充电专属视频的画面 OCR，噪声极大（大量乱码数字为行情软件界面元素），无法确认所指具体标的与语境，仅作为低置信度线索保留：视频核心内容大概率围绕超跌反弹机会与趋势确认展开，与标题"降低标准，赚辛苦钱"的操作定调相互印证。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 视频字幕片段：标的站上较强趋势
+  related_stocks: []
+  tags:
+  - 超跌反弹
+  - 趋势确认
+  - OCR片段
+  - 低置信度

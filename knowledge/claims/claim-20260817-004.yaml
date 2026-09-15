@@ -1,0 +1,97 @@
+claims:
+- id: claim-20260817-004-001
+  source_path: sources/original/bilibili/2026-08-17-1816-视频-如何高效利用xq资源 -.md
+  source_date: '2026-08-17'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T17:35:00+08:00'
+  claim_type: methodology
+  subject: 低吸不追高的买入时机纪律
+  timeframe: permanent
+  statement: 一般冲高的股票不建议去买因为风险太大，低吸会好很多；看到推荐不一定马上买，可以先加关注，等有回调的机会更好，因为买得便宜才是王道。
+  evidence_quote: 其实一般冲高的就不建议大家去去去买，因为风险太大了。如果是低吸的话会好很多，然后仓位控制啊，包括一些止盈策略、止损策略。就是不一定嗯看到了马上就买，你可以先加关注，然后如果有回调的机会就更好，因为你买的便宜才是王道嘛。
+  interpretation: UP在介绍星球使用方法时给出的通用买入纪律：不追高、等回调、便宜优先，配合仓位控制与止盈止损策略使用。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 买入时机纪律：不追冲高、低吸等回调、买得便宜是王道
+  related_stocks: []
+  tags:
+  - 低吸
+  - 不追高
+  - 买入时机
+  - 仓位控制
+- id: claim-20260817-004-002
+  source_path: sources/original/bilibili/2026-08-17-1816-视频-如何高效利用xq资源 -.md
+  source_date: '2026-08-17'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T17:35:00+08:00'
+  claim_type: market-cycle
+  subject: 拥挤度指标在7月回调前已到顶部
+  timeframe: trend
+  statement: 拥挤度指标在7月回调之前基本上已经在顶部，5月其实已出现顶部信号、6月也是，当时给了很多次逃顶机会但没有抓住。
+  evidence_quote: 比如说这个拥挤度的那个一些我觉得看到的，我觉得拥挤度的指标在7月回调之前基本上就是在顶部了，虽然说5月5月其实也已经出现了顶部的信号，但包括整个6月其实也是，当时如果其实给了很多次很多次的逃顶的机会，但只是我们没有没有没有抓到而已。
+  interpretation: UP复盘确认拥挤度指标对市场顶部有领先指示意义：5月首发信号、6-7月持续顶部，此后7月回调兑现。该指标是其宏观择时工具箱的一部分。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  disagrees_with: ["claim-20260610-009-a"]
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 拥挤度指标5-7月持续顶部后7月回调兑现，具领先指示意义
+  related_stocks: []
+  tags:
+  - 拥挤度
+  - 顶部信号
+  - 逃顶
+  - 宏观择时
+- id: claim-20260817-004-003
+  source_path: sources/original/bilibili/2026-08-17-1816-视频-如何高效利用xq资源 -.md
+  source_date: '2026-08-17'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T17:35:00+08:00'
+  claim_type: methodology
+  subject: 斯迪克案例印证买入时机决定盈亏
+  timeframe: permanent
+  statement: 斯迪克(300806)从三十多块钱起UP就在个股分析中持续讲买入逻辑与展望，早期跟随者不可能亏钱；但后期高位追入者在其回调腰斩时产生亏损——同一标的盈亏取决于买入时机。
+  evidence_quote: 比如说最早最早的斯迪克，其实我在这里个股分析其实讲了很多，就是从大概三十多块钱的时候买入逻辑是什么，然后以及展望是怎么样的。如果是那个时候加入星球的，我觉得应该不可能有人在斯迪克上亏钱，如果是后面再高位买的话，确实它回调了，腰斩了，然后然后可能会产生亏损，但是毕竟还是要看买入时机。
+  interpretation: UP用斯迪克(300806)案例自证其个股分析价值，同时强调同一标的不同时机买入结果迥异——这是其低吸纪律的实证支撑。
+  confidence: medium
+  status: case-only
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 斯迪克案例：30多元讲逻辑vs高位追入腰斩，买入时机决定盈亏
+  related_stocks:
+  - code: '300806'
+    name: 斯迪克
+    role: 案例标的-创业板
+  tags:
+  - 斯迪克
+  - 买入时机
+  - 案例

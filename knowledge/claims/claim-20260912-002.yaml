@@ -1,0 +1,952 @@
+claims:
+- id: claim-20260912-002-1
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: sector-theme
+  subject: 光模块组装厂属性
+  timeframe: industry
+  statement: UP 认为光模块生意本质是组装厂，中际旭创(300308)的优势仅在于量大、进入北美供应链、供货稳定。
+  evidence_quote: 感觉光模块的生意，说实话有点楞大劫。就是组装厂嘛，其实大家都知道，但是中继它好在哪，就是比如说它量大环保，然后又进北美供货，又稳定。只有这种优点。
+  interpretation: UP 逛完光博会后对光模块环节的评价偏负面：行业门槛不高（组装厂属性），龙头中际旭创(300308)（转写作『中继』）的护城河来自规模、北美客户准入与供货稳定性，而非技术壁垒。这类『只有规模与渠道优点』的环节在竞争加剧时利润率易受压。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光模块本质是组装厂，中际旭创优势在量与北美供应链
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块龙头-创业板不可交易
+  tags:
+  - 光模块
+  - 中际旭创
+  - 组装厂
+  - 北美供应链
+  - 光博会
+- id: claim-20260912-002-2
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: sector-theme
+  subject: 1.6T光模块竞争
+  timeframe: industry
+  statement: 立讯精密(002475)、亨通光电(600487)等厂商全部入局 1.6T 光模块，UP 评价该方向『太卷了』。
+  evidence_quote: 然后后面什么立讯…啊立讯可以说，什么立讯还有什么亨通这种，全部都来做1.6T。太卷了。
+  interpretation: 1.6T 作为光模块下一代主力速率，吸引立讯精密(002475)、亨通光电(600487)等跨界/延伸厂商进入，UP 认为竞争格局将明显恶化。这与
+    claim-20260912-002-1 的『组装厂属性』判断相互印证：门槛不高时新进入者会快速涌入。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 立讯、亨通等全来做1.6T，光模块竞争加剧
+  related_stocks:
+  - code: '002475'
+    name: 立讯精密
+    role: 1.6T新进入者-主板可交易
+  - code: '600487'
+    name: 亨通光电
+    role: 1.6T新进入者-主板可交易
+  tags:
+  - 光模块
+  - 1.6T
+  - 立讯精密
+  - 亨通光电
+  - 竞争加剧
+- id: claim-20260912-002-3
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: sector-theme
+  subject: CPO与NPO落地节奏
+  timeframe: industry
+  statement: UP 判断 CPO 共封装光学落地没那么快，更可能先走 NPO 近封装光学这条更容易实现的路径，OCS 等近封装需要用到的环节受益。
+  evidence_quote: 其实大家都在强调那个什么，就是近期下一个可能CPO没那么快，可能就是共封装没那么快，可能是NPO这种近封装光学。然后近封装的话，就是相当于一个比较容易实现的概念。然后就是有一些什么OCS啊，利好，会有一些近封装需要用到的。
+  interpretation: 这是光博会产业反馈层面的节奏判断：市场对 CPO 的预期可能超前，NPO 作为更易实现的过渡方案会先落地，投资上对应的是 OCS（光交换）等近封装配套环节的现实利好，而非直接押注
+    CPO。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: CPO没那么快，NPO近封装更容易落地，OCS受益
+  related_stocks: []
+  tags:
+  - CPO
+  - NPO
+  - OCS
+  - 光模块
+  - 落地节奏
+- id: claim-20260912-002-4
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: sector-theme
+  subject: 光芯片供给稀缺
+  timeframe: industry
+  statement: UP 认为光芯片环节能做的厂商很少，分 CW 与 EML 两个技术方向，各自都只有那几家。
+  evidence_quote: 然后除了光模块，然后我还去了一下光芯片。光芯片其实没几家能做。就是分什么CW光方向还有EML方向。都是那几家。
+  interpretation: 与光模块的『组装厂、太卷』形成对比，光芯片是产业链中供给稀缺的环节——技术方向收敛（CW/EML）、玩家有限。稀缺性环节在需求上行时更具定价与溢价能力，这也是
+    UP 自己买光芯片标的的原因（见 claim-20260912-002-5）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光芯片没几家能做，分CW与EML两个方向
+  related_stocks: []
+  tags:
+  - 光芯片
+  - CW
+  - EML
+  - 供给稀缺
+  - 光博会
+- id: claim-20260912-002-5
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: catalyst
+  subject: 200G EML量产时点
+  timeframe: short-term
+  statement: UP 持仓的光芯片标的核心催化是 200G EML 量产，管理层指引四季度量产，但 UP 认为兑现时点『不好讲』。
+  evidence_quote: 我自己其实买的那个就是在等，等它200 EML到底什么时候量产。管理层是说四季度，但也不好讲。
+  interpretation: UP 自己买入光芯片标的并等待 200G EML 量产催化，但对管理层给出的四季度指引持保留态度——量产时点存在滑期风险，属于『指引已知、兑现待验』型催化。标的未点名。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: UP持仓光芯片标的等200G EML量产，指引四季度但有不确定性
+  related_stocks: []
+  tags:
+  - 光芯片
+  - 200G
+  - EML
+  - 量产催化
+  - 四季度指引
+- id: claim-20260912-002-6
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: sector-theme
+  subject: 光纤受益逻辑
+  timeframe: industry
+  statement: UP 认为光纤环节真正受益的只有进入北美供应链的公司：长飞光纤(601869)是明确受益龙头，亨通光电(600487)勉强算；以国内数据中心和三大运营商远距离传输为主的厂商很难有北美生意。
+  evidence_quote: 然后他们基本上就是国内数据中心。通信为主了。还有就是那那个什么中移动、联通那三家，这种远距离的，他们基本上很难有北美的生意。所以说光纤真正受益的还得是就是有进北美供应链的，那不就是长飞，然后亨通勉强算。
+  interpretation: UP 逛光博会光纤展台后的结论：光纤的 AI 行情受益标的要用『是否进入北美供应链』来筛，国内运营商体系（中国移动、中国联通等）需求不等于
+    AI 算力需求弹性。长飞光纤(601869)是 UP 眼中光纤环节的核心受益标的，亨通光电(600487)只是勉强够格。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光纤只有进北美供应链的真正受益：长飞是龙头、亨通勉强算
+  related_stocks:
+  - code: '601869'
+    name: 长飞光纤
+    role: 光纤龙头进北美供应链-主板可交易
+  - code: '600487'
+    name: 亨通光电
+    role: 勉强受益-主板可交易
+  tags:
+  - 光纤
+  - 长飞光纤
+  - 亨通光电
+  - 北美供应链
+  - 运营商
+- id: claim-20260912-002-7
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: stock-view
+  subject: 特发信息
+  timeframe: industry
+  statement: 特发信息(000070)自称有供谷歌等客户，但 UP 认为其非民企属性导致没有做业绩的动力，只要不倒闭不被 ST 就可以苟着。
+  evidence_quote: 然后我们去问了那个什么特发，他们讲他们也是说有供谷歌那些，但是特发好像还有无人机吧，主要是这些。但是特发这个毕竟是那个什么它不是民企嘛，所以没有什么动力去去说嗯把业绩做的漂亮啊怎么样，反正它只要不死只要不倒闭不被ST，它就可以苟苟着就可以苟着了。
+  interpretation: UP 光博会现场询问了特发信息(000070)，确认其有谷歌等海外客户叙事，但因其国资/非民企背景，管理层缺乏把业绩做漂亮的激励，投资价值上属于『有逻辑但没动力兑现』的类型。UP
+    明确表示光纤上自己唯一持有的是弹性最大的龙头（未点名，语境指向长飞光纤(601869)）。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 特发信息有供谷歌叙事但国企属性缺乏做业绩动力
+  related_stocks:
+  - code: '000070'
+    name: 特发信息
+    role: 光纤国企标的-主板可交易
+  tags:
+  - 特发信息
+  - 光纤
+  - 谷歌供应链
+  - 国企激励
+  - 光博会
+- id: claim-20260912-002-8
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: sector-theme
+  subject: 检测设备溢价消退
+  timeframe: industry
+  statement: 半导体检测、存储检测、光模块检测设备已从龙头独占走向各家都有：龙头独有时享受高溢价（上市后一年涨二十几倍），普及后高溢价消失，光博会期间检测设备公司股价不涨反跌。
+  evidence_quote: 之前不是那那家有一家龙头嘛，然后大家龙头如果是只有它有的话，它就有享受高溢价嘛，所以当时也好像一年刚上市好像涨二十几倍还是三十几倍。结果后面大家看一下都有，然后光博会那几天反而做嗯检测设备的那家公司好像股价还没涨…光博会那天好像还大跌。
+  interpretation: 这是一个『稀缺性溢价随供给普及而消失』的产业案例：检测设备从独家到多家可做的过程中，估值溢价被抹平，即便有光博会这类产业事件催化，股价也不再上涨。UP
+    的隐含结论是设备环节的投资窗口在『独占期』，普及后不应再给溢价。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 检测设备从龙头独占高溢价到普及后溢价消失
+  related_stocks: []
+  tags:
+  - 检测设备
+  - 半导体检测
+  - 光模块检测
+  - 稀缺性溢价
+  - 光博会
+- id: claim-20260912-002-9
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: catalyst
+  subject: ZJD定增结果
+  timeframe: short-term
+  statement: ZJD（UP 代号，Z for Zoo）定增价已出，UP 认为定增不及预期：原本传长鑫存储（未上市）包销，后因各种纠纷没有产业资本进入。
+  evidence_quote: 就是那家公司定增价最近也出了，如果它定增其实个人我感觉是有点不及预期的，原本是说嗯那家什么长鑫长鑫包了，但后面好像又又又又又又被一些反正就是各种纠纷吧，反正现在没有什么产业资本进。
+  interpretation: UP 上周直播已提过该公司（半导体/存储检测设备方向），本次更新其定增进展：长鑫存储包销预期落空、无产业资本入局，UP 定性为『不及预期』。定增缺乏产业资本背书，削弱了市场对其订单确定性的信心。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: ZJD定增不及预期：长鑫包销落空、无产业资本进入
+  related_stocks: []
+  tags:
+  - ZJD
+  - 定增
+  - 长鑫存储
+  - 产业资本
+  - 不及预期
+- id: claim-20260912-002-10
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: stock-view
+  subject: ZJD与长鑫的订单关系
+  timeframe: industry
+  statement: ZJD 创始人与长鑫存储（未上市）创始人是清华同学、关系很好；订单层面只要国内有突破能用，长鑫肯定优先用国内设备而非国外。
+  evidence_quote: 公司的创始人跟长鑫的创始人是同学嘛，好像都是清华的同学还是什么，就关系很好。然后这个订单这一块，嗯，懂的都懂嘛，反正他们基本上只要能用，他们也不会说是优先用国外的，只要国内有突破能用，他肯定是优先用国内的。
+  interpretation: 尽管定增层面长鑫未入局（见 claim-20260912-002-9），UP 认为 ZJD 与长鑫存储的创始人同学关系叠加国产替代采购倾向（能用国产就优先国产），其订单基本盘仍有保障。『懂的都懂』暗示订单获取存在非市场化的人脉维度。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: ZJD与长鑫创始人是同学，订单国产优先逻辑仍在
+  related_stocks: []
+  tags:
+  - ZJD
+  - 长鑫存储
+  - 国产替代
+  - 订单关系
+  - 存储设备
+- id: claim-20260912-002-11
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: stock-view
+  subject: ZJD业绩测算
+  timeframe: short-term
+  statement: ZJD 若明年有 100 亿订单、按公司长期 20%-30% 净利率目标测算约 20 亿利润，当前市值约 400 亿。
+  evidence_quote: 算他明年如果有100亿的订单的话，他说长期是做、做到20%到30%的净利率嘛，往这个目标努力嘛。那你就按20亿的利润，现在好像就400、400亿市值？我看一下。对，400亿的市值。
+  interpretation: 定量事实链：100 亿订单假设 × 20% 净利率下限 = 约 20 亿利润，对应约 400 亿市值即约 20 倍 PE。注意
+    100 亿订单是 UP 的假设情景（『如果有』），20%-30% 净利率是公司自述的长期目标而非当前实际。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: ZJD测算：100亿订单×20%净利率≈20亿利润，对应400亿市值
+  related_stocks: []
+  tags:
+  - ZJD
+  - 业绩测算
+  - 净利率
+  - 订单假设
+  - 存储设备
+- id: claim-20260912-002-12
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: stock-view
+  subject: ZJD估值判断
+  timeframe: short-term
+  statement: UP 认为 ZJD 约 400 亿市值在设备公司里算很便宜。
+  evidence_quote: 400亿的市值，我觉得在设备这里算、算很便宜的了。
+  interpretation: 这是基于 claim-20260912-002-11 测算（约 20 倍假设 PE）的独立定性判断：在半导体/存储检测设备板块横向对比中，UP
+    认为 ZJD 估值便宜。该判断与定增不及预期（claim-20260912-002-9）并存——UP 的态度是『短期催化落空但估值有安全垫』。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: UP判断ZJD约400亿市值在设备公司里算很便宜
+  related_stocks: []
+  tags:
+  - ZJD
+  - 估值
+  - 设备股
+  - 安全垫
+- id: claim-20260912-002-13
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: stock-view
+  subject: 索尔思光电进度
+  timeframe: industry
+  statement: UP 转述光博会调研印象：索尔思光电（转写作『索尔斯』，东山精密(002384)收购标的）对外展示的进度在几家光芯片/光模块厂商中似乎是最领先的。
+  evidence_quote: 东大哥还是可以的，哲神第一天去聊了，跟索尔斯聊了，但是我不知道，因为我不在嘛。我感觉看下来，他们对外的进度啊，各方面的确实好像是最领先的。就是就这几家嘛，呃，索尔斯，然后后面两家。
+  interpretation: 信息来自同行『哲神/哲森』光博会第一天的调研转述，UP 本人不在场，且『索尔斯』按语境理解为索尔思光电（Source Photonics，东山精密(002384)收购标的），存在转写与信息双重不确定性，仅作低置信度产业线索记录。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 索尔思光电对外进度在几家中最领先（光博会调研转述）
+  related_stocks:
+  - code: '002384'
+    name: 东山精密
+    role: 索尔思光电收购方-主板可交易
+  tags:
+  - 索尔思光电
+  - 东山精密
+  - 光芯片
+  - 光博会
+  - 调研转述
+- id: claim-20260912-002-14
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: operation
+  subject: UP当前仓位结构
+  timeframe: short-term
+  statement: UP 当前实盘仓位资源股占约一半（最少要占到一半），另一半是科技股。
+  evidence_quote: 然后我觉得资源的话，我现在就是配了挺多的，你从仓位上来看基本上也是一半，最少要占到一半嘛。然后另外一半才是科技。
+  interpretation: 定量仓位披露：资源:科技 ≈ 1:1，资源是底仓性质的『最少一半』。结合其铜供需长期逻辑（claim-20260912-002-16）与缩量市场买稳的框架（claim-20260912-002-19），资源股在组合中承担防御与供给逻辑双重角色。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: UP实盘仓位：资源至少一半，另一半科技
+  related_stocks: []
+  tags:
+  - 仓位结构
+  - 资源股
+  - 科技股
+  - 实盘
+  - 配置
+- id: claim-20260912-002-15
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: macro
+  subject: 美国加征关税影响
+  timeframe: short-term
+  statement: UP 认为美国若真敢加征关税算利空落地，不敢加同样是没有利空；即便加税，美国自身损伤更大，且加税与否不影响铜等资源的长期逻辑。
+  evidence_quote: 他要是真、真敢加，也算、算利空落地；他要是不敢加，那就也是利空落地，就没有利空了嘛。但我觉得他加是有可能，但是反正就是他自己损伤肯定更大嘛。…铜他那个之前加税加税的事情我看了一下好像是为了嗯加加关税现在就说不加然后铜价又跌了其实这些东西都不影响长期来说。
+  interpretation: UP 对关税事件持『双向都是落地』的淡化态度：加与不加都不构成持续压制资源股的新变量，短期铜价回落不改变长期供需叙事。这支撑其在资源上保持至少一半仓位的操作（claim-20260912-002-14）。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 关税加与不加都是利空落地，美国自身损伤更大
+  related_stocks: []
+  tags:
+  - 关税
+  - 利空落地
+  - 资源股
+  - 宏观
+  - 铜价
+- id: claim-20260912-002-16
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: sector-theme
+  subject: 铜长期供需
+  timeframe: industry
+  statement: UP 认为铜长期看供给远远满足不了需求：每年新发现、新开采的铜矿数量都在减少，而需求没有减少、还没到大衰退的时候。
+  evidence_quote: 这些东西主要主要还是供给需求角度上来说嘛。我们家还有这种资源铜的话比较容易分析了那你那个什么供给是远远远远满足不了需求的。每年新新发现的铜矿新开采的铜矿数量都在减少但是你的需求的话没有没有减少啊还没有到大衰退的时候。
+  interpretation: UP 的铜多头框架是供给端叙事：矿山发现与开采量趋势性收缩，需求端尚未见大衰退，因此长期供需缺口成立；短期关税扰动（claim-20260912-002-15）不改变该框架。这是其资源重仓的核心逻辑之一。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 铜长期供给远不能满足需求：新矿减少、需求未减
+  related_stocks: []
+  tags:
+  - 铜
+  - 供需缺口
+  - 铜矿
+  - 资源股
+  - 长期逻辑
+- id: claim-20260912-002-17
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: methodology
+  subject: 成交量与市值偏好
+  timeframe: permanent
+  statement: UP 的选股市值偏好随成交量切换：没有成交量的市场买小市值（卖的人少、容易买起来），放量市场则应去找龙头。
+  evidence_quote: 又是20厘米，然后又是小市值这种，就感觉在这个没有成交量的市场大家就就那个什么，说实话这种卖也没什么人卖，买的话很容易就买起来。可能是一个偏好吧，我感觉在这个市场上面。如果是放量的话那大家肯定是去找龙头。那么小市值的我觉得拿一拿也也行吧。
+  interpretation: 缩量环境下小市值标的筹码稳定、少量资金即可推动，是流动性套利逻辑；放量环境下流动性充裕，资金会聚焦龙头获取beta。该框架解释了
+    UP 当前持仓偏小市值小标的的原因（光刻胶上游、OCS、探针、电容、液冷等）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 缩量市场买小市值、放量市场找龙头
+  related_stocks: []
+  tags:
+  - 成交量
+  - 小市值
+  - 龙头
+  - 选股框架
+  - 流动性
+- id: claim-20260912-002-18
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: market-cycle
+  subject: 成交量阈值判断
+  timeframe: short-term
+  statement: UP 引述『泽神』的成交量框架：1.5 万亿以下是困难模式，2 万亿以上算比较正常，3 万亿则买什么赚什么；当前科技还是不行，不要和趋势作对。
+  evidence_quote: 反正科技还是不行还是要引用一下泽神的名名言成交量还是很关键的1.5万亿以下很难只能说困难模式。然后嗯两万亿以上算是比较比较比较算正常吧。三万亿的话那就是基本上就买谁谁谁什么买十厘米都是亏亏十厘米钱这种感觉不要和趋势作对。
+  interpretation: 定量的市场状态划分：1.5 万亿（困难模式）/2 万亿（正常）/3 万亿（全面做多）三档阈值。UP 借用该框架说明当前缩量环境下科技股难做，操作上应尊重趋势而非对抗。注意该框架引自他人（泽神），UP
+    是认同并转述。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 成交量三档框架：1.5万亿困难模式、2万亿正常、3万亿买什么赚什么
+  related_stocks: []
+  tags:
+  - 成交量
+  - 困难模式
+  - 市场状态
+  - 趋势
+  - 阈值
+- id: claim-20260912-002-19
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: methodology
+  subject: 成交量与弹性偏好
+  timeframe: permanent
+  statement: UP 的持仓风格随成交量切换：放量推演就买弹性大的标的；现在没有成交量就买稳的、龟缩防守。
+  evidence_quote: 放量的推演思路，那就买弹性大的就好了呀。现在是属于没有什么成交量嘛，就买一些稳的嘛，就龟缩一下。
+  interpretation: 与 claim-20260912-002-17（市值维度：小市值 vs 龙头）互补，这条是弹性维度：缩量期降组合弹性求稳，放量期加弹性进攻。两档风格切换的共同触发变量都是成交量，与其资源底仓+小市值科技的当前持仓结构一致。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 放量买弹性大的，缩量买稳的龟缩
+  related_stocks: []
+  tags:
+  - 成交量
+  - 弹性
+  - 持仓风格
+  - 防守
+  - 进攻
+- id: claim-20260912-002-20
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: operation
+  subject: 趋势走坏就离场
+  timeframe: permanent
+  statement: UP 的纪律是走势挣扎、趋势走坏的标的不格局、直接跑；磷化铟标的走得挣扎已列入此列，东山精密(002384)实盘也因破位很久没买。
+  evidence_quote: 唉，然后回到那个什么磷化家磷磷化铟第二也走得很挣扎，反正这种我都不格局了。如果它它走坏了趋势我就我就跑了。…东山我的模拟组合里面还有吧实盘我很久都没买了因为破位了之前。
+  interpretation: UP 的卖出纪律是趋势破位触发，不依赖基本面叙事——即便长期关注的标的（东山精密(002384)仍在模拟组合），实盘破位后也执行离场。这是其风控框架中『技术面一票否决』的体现。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 趋势走坏就跑不格局：磷化铟挣扎、东山破位后实盘离场
+  related_stocks:
+  - code: '002384'
+    name: 东山精密
+    role: 破位离场案例-主板可交易
+  tags:
+  - 卖出纪律
+  - 趋势破位
+  - 磷化铟
+  - 东山精密
+  - 风控
+- id: claim-20260912-002-21
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: sector-theme
+  subject: MLCC涨价逻辑
+  timeframe: industry
+  statement: UP 认为 MLCC 涨价是供需逻辑：村田（日股 6981）等日系厂商收缩中低端产能转做高端（更赚钱），国产只能做中低端替代，供需错配带动涨价。
+  evidence_quote: 就是像上周五涨的MLCC也是供需角度。那个什么村田不是召回了很多MLCC的产……那个什么吗。好像就是高端的好做，然后赚钱他就去做高端的，然后国产的就是只能做一些中低端的替代，就相当于涨价了嘛。
+  interpretation: MLCC 涨价的结构是『海外龙头退出中低端+国产替代补位但产能/规格有限』，与电子布等涨价品种同属供需框架。UP 将上周五 MLCC
+    上涨归因于此，属于周期性涨价而非需求爆发。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: MLCC涨价：村田转高端、国产中低端替代的供需逻辑
+  related_stocks: []
+  tags:
+  - MLCC
+  - 涨价
+  - 村田
+  - 国产替代
+  - 供需
+- id: claim-20260912-002-22
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: sector-theme
+  subject: 电容涨价幅度
+  timeframe: short-term
+  statement: UP 看到有几款非最高端电容出厂价比年初涨了二十到二十五倍：年初约 1 元一颗，现在约 25 元一颗，而成本仅几毛钱；但这类涨价有周期。
+  evidence_quote: 我看了有几款电容，不是最高端的，它但是它的出厂价比年初的时候涨了二十、二十五倍。年初的时候一块钱一颗，现在要二十五块钱一颗，想一下有多夸张。相对来说，一块钱一颗他都能赚钱，那成本不就几毛钱嘛。所以这种东西很离谱，但是它都是有周期的嘛。
+  interpretation: 定量事实：部分电容（非最高端规格）出厂价年内涨 20-25 倍，且涨价前 1 元/颗时已有盈利，说明当前价格远超成本线、利润空间极大。UP
+    同时提示周期属性——暴利会吸引供给回归，涨价不可线性外推。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 部分电容出厂价年内涨20-25倍（1元→25元/颗）但有周期
+  related_stocks: []
+  tags:
+  - 电容
+  - 涨价
+  - 出厂价
+  - 周期
+  - 供需
+- id: claim-20260912-002-23
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: risk
+  subject: 顶部按计算器风险
+  timeframe: permanent
+  statement: UP 以特种气体为例警示：顶部按计算器能按出几千亿市值，但公司不一定所有产品都能按那个价格卖，行情来得快去得也快。
+  evidence_quote: 之前炒的那个什么……什么气体啊，特种气体这种，大家顶部按计算器，真的能按出几千亿的市值来。但问题是公司它不一定所有东西都能按那个价格卖。然后马上来的快也去得也快。所以所有东西归结到后面还是要看……
+  interpretation: 方法论警示：涨价品种的『单价×产能』顶部测算隐含所有产出都能按最高成交价出售的假设，实际不成立——特气行情即为例证。这与 claim-20260912-002-22
+    的『涨价有周期』呼应：对暴涨品种做市值测算时必须对价格假设打折。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 警示：涨价品种顶部按计算器会高估市值，来得快去得快
+  related_stocks: []
+  tags:
+  - 特种气体
+  - 按计算器
+  - 估值风险
+  - 涨价品种
+  - 周期
+- id: claim-20260912-002-24
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: stock-view
+  subject: 潍柴动力
+  timeframe: short-term
+  statement: UP 认为潍柴动力(000338)走势有点坏了但公司没问题，高盛近期研报目标价约 48 元。
+  evidence_quote: 潍柴主要是走势有点坏了，公司没问题啊，高盛给的给的好像最近的那个研报是48还是多少吧，目标价。
+  interpretation: UP 区分了基本面与技术面：公司基本面无问题（附高盛 48 元目标价作为外部参照），但走势已走坏。按 UP 自己的纪律（claim-20260912-002-20
+    趋势走坏就跑），该标的属于回避/离场范畴。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 潍柴动力走势走坏但公司没问题，高盛目标价约48元
+  related_stocks:
+  - code: '000338'
+    name: 潍柴动力
+    role: 走势走坏观察标的-主板可交易
+  tags:
+  - 潍柴动力
+  - 高盛
+  - 目标价
+  - 走势走坏
+  - 基本面
+- id: claim-20260912-002-25
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: sector-theme
+  subject: 铜缆板块分化
+  timeframe: short-term
+  statement: 铜缆方向美股几家表现可以；A股内部明显分化——神宇股份(300563)（铜缆）周五起飞，而沃尔核材(002130)不涨。
+  evidence_quote: 怎么又来铜缆了呀，我看了一下美股好像那边有几家铜缆表现还可以。哦，上周涨的也是那个，那个什么神宇是不是就是铜缆啊？看不懂，周五起飞了。那为什么沃尔不涨？
+  interpretation: 同一题材内个股表现大幅分化，神宇股份(300563)周五大涨而板块老标的沃尔核材(002130)滞涨，UP 表示『看不懂』。分化提示铜缆炒作在缩容、资金只打新标的，板块整体强度存疑。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 铜缆分化：神宇股份周五起飞、沃尔核材不涨
+  related_stocks:
+  - code: '300563'
+    name: 神宇股份
+    role: 铜缆活跃标的-创业板不可交易
+  - code: '002130'
+    name: 沃尔核材
+    role: 铜缆滞涨标的-主板可交易
+  tags:
+  - 铜缆
+  - 神宇股份
+  - 沃尔核材
+  - 板块分化
+  - 题材缩容
+- id: claim-20260912-002-26
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: methodology
+  subject: 回购叠加见底选股
+  timeframe: permanent
+  statement: UP 当前的选股偏好是买有回购、股价见底的科技股；其持有的港股 PCB 钻针标的是钻针里最便宜的（A 股对标新锐股份(688257)），且公司自己有回购。
+  evidence_quote: 然后下面那个也是一个做那种，它不是收购了一家做PCB钻针的那家公司嘛。然后它也是整个钻针里面最便宜，之前算下来是新锐，但是新锐新锐是A股嘛，然后港股这个更便宜。反正也买着，而且它自己也有回购。反正我现在比较喜欢有有回购，然后股价见底的科技。
+  interpretation: 选股框架的两个过滤条件：公司回购（产业资本背书）+ 股价见底（技术面位置低）。案例：港股某 PCB 钻针标的估值比 A 股新锐股份(688257)还便宜且有回购。缩量市场里该偏好与买稳龟缩（claim-20260912-002-19）一致。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: UP偏好有回购且股价见底的科技股，港股钻针标的比新锐便宜
+  related_stocks:
+  - code: '688257'
+    name: 新锐股份
+    role: 钻针A股对标-科创板不可交易
+  tags:
+  - 回购
+  - 股价见底
+  - PCB钻针
+  - 新锐股份
+  - 选股框架
+- id: claim-20260912-002-27
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: operation
+  subject: OCS急跌套利操作
+  timeframe: intraday
+  statement: UP 上周五在 OCS 标的跌十几个点时买入，意图捞一笔、博下周一高开几个点做短线套利。
+  evidence_quote: 然后下面一个是OCS是上周上周五刚买的我看它跌十几个点，我想着去捞一笔说不定下周一高开几个点就可以可以套一下利。
+  interpretation: 这是一笔明确的超短事件套利：标的急跌十几个点后介入，博弈次日高开修复，持有周期以天计。OCS 同时是其产业逻辑看好的方向（claim-20260912-002-3），但此笔操作性质是纯短线套利，应与中线逻辑区分。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: OCS标的急跌十几个点时买入，博次日高开套利
+  related_stocks: []
+  tags:
+  - OCS
+  - 急跌买入
+  - 短线套利
+  - 高开博弈
+- id: claim-20260912-002-28
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: market-cycle
+  subject: 当前市场困难模式
+  timeframe: short-term
+  statement: UP 坦言当前市场拿着有点绝望、是困难模式，走势不管有量没量都恶心，打算等三季度（业绩/窗口）。
+  evidence_quote: 绝望，我真的拿着有点绝望了，我觉得还是等三季度吧。太恶心了，这个市场，就是这种困难模式，我感觉绝望一直都是困难模式。你看它那个线，不管是有量没量，它都是那么恶心。
+  interpretation: 情绪层面的真实持仓体验记录：在缩量困难模式下 UP 持仓体验差、接近绝望，策略上是熬到三季度再验证。与其成交量框架（claim-20260912-002-18）一致——1.5
+    万亿以下困难模式中不寄望趋势机会。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: UP：当前市场困难模式拿着绝望，等三季度
+  related_stocks: []
+  tags:
+  - 困难模式
+  - 市场情绪
+  - 缩量
+  - 持仓体验
+  - 三季度
+- id: claim-20260912-002-29
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: stock-view
+  subject: 港股电解铝标的
+  timeframe: trend
+  statement: UP 持有的港股某实业标的是有增量的电解铝：中东及海外有产能但受战争影响可能延后，整体四五倍估值、比中国宏桥(01378.HK)还便宜，股息与业绩有保证，UP
+    趁下跌买了一点。
+  evidence_quote: 然后下一家是那个什么、什么实业，这个是有、属于一个有增量的那个电解、电解铝吧。我看了一下它在中东啊还有在海外其实都是有产能的，但是可能由、由于这种战争影响，它可能要延、延后嘛。但是整体来说还是比较、比较便宜，就四五倍估值吧，比、比那个鬼火还是要便宜一些。然后股息也……就是业绩有保证，不如说那港股我就买一点看一下。刚好呢它那几天在跌嘛。
+  interpretation: 匿名港股标的（『什么实业』，UP 否认是中国宏桥(01378.HK)——转写『鬼火/虹桥』疑为宏桥误写）：核心逻辑是电解铝增量产能+四五倍低估值+股息保底，风险点是中东产能受战争影响延后。UP
+    在其下跌时建仓，属于低估值资源股的左侧买入。标的身份不确定，仅作低置信度线索。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 港股电解铝标的：四五倍估值有增量，中东产能或因战争延后
+  related_stocks: []
+  tags:
+  - 电解铝
+  - 港股
+  - 低估值
+  - 中东产能
+  - 左侧买入
+- id: claim-20260912-002-30
+  source_path: sources/original/bilibili/2026-09-12-2308-视频-9.12直播回放（又被ban了） -.md
+  source_date: '2026-09-12'
+  source_type: 视频
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-15T20:26:00'
+  claim_type: sector-theme
+  subject: 磁电存储题材
+  timeframe: trend
+  statement: UP 认为磁电存储的故事还是挺大的，其持有的 DeepSeek 概念相关标的主要看磁电存储逻辑，操作上慢慢做高抛低吸，上周项目进度有利好。
+  evidence_quote: 然后这家公司，那Deepseek大家都都都都都那个什么了，反正我就慢慢搞高抛低吸嘛。上周确实是有有一些利好吧，就是项目进度上来说。…Deepseek没有跟NLCC吧，呃也也也有吧，有些概念。那主要还是磁电磁电存储。磁电磁电存储的故事还是挺大的。
+  interpretation: UP 对磁电存储题材空间持积极态度（『故事还是挺大的』），其持仓标的兼有 DeepSeek 概念，操作节奏是高抛低吸而非坚定持有，上周项目进度有利好。转写中『NLCC』疑为
+    MLCC 误写，UP 否认标的主要逻辑是 MLCC，强调是磁电存储。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 磁电存储故事大，UP对相关标的做高抛低吸
+  related_stocks: []
+  tags:
+  - 磁电存储
+  - DeepSeek概念
+  - 高抛低吸
+  - 题材

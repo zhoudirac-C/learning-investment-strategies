@@ -1,0 +1,297 @@
+claims:
+- id: claim-20260827-007-001
+  source_path: sources/original/bilibili/2026-08-27-0808-视频-【同花顺原图】立新 哈药 英伟达，电力 创新药
+    科技 -.md
+  source_date: '2026-08-27'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:28:00+08:00'
+  claim_type: operation
+  subject: 昨日买入立新能源约25万元
+  timeframe: intraday
+  statement: UP昨天两笔短线操作：一笔买入立新能源(001258)，上板直线拉得比较快，交割单显示买了25万左右；另一笔买了舒泰神(300204)。
+  evidence_quote: 先说一下昨天的两笔短线操作，一笔是买入立新能源，这根上板的直线拉得还是比较快的。交割单在这，买了25万左右啊，好吧。
+  interpretation: UP披露的实盘买入操作，立新能源(001258)为打板式短线参与。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: UP昨日买入立新能源约25万并买入舒泰神
+  related_stocks:
+  - code: '001258'
+    name: 立新能源
+    role: 电力-深主板
+  - code: '300204'
+    name: 舒泰神
+    role: 创新药-创业板
+  tags:
+  - 立新能源
+  - 短线操作
+  - 交割单
+  - 打板
+- id: claim-20260827-007-002
+  source_path: sources/original/bilibili/2026-08-27-0808-视频-【同花顺原图】立新 哈药 英伟达，电力 创新药
+    科技 -.md
+  source_date: '2026-08-27'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:28:00+08:00'
+  claim_type: stock-view
+  subject: 立新能源午后拉板类比4月21日华电辽能二波走势
+  timeframe: short-term
+  statement: 立新能源(001258)午后拉板有点像4月21号华电辽能(600396)的走势：4月21日之前K线来回磨、上午分时磨了之后午后直接上板，开启二波行情；但历史图形只是参考，今天看立新的盘中承接——承接强就继续拿着博弈溢价，承接弱就减仓降低成本。
+  evidence_quote: 它这个午后拉板就有点像4月21号那天华电辽能的那个走势啊。4月21日之前，这些K线都是在来回磨，然后上午的分时也磨了之后午后直接上板，开启了二波行情。但是历史的图形也只是一种参考，今天的话我还是会看立新的一个盘中的承接，如果承接强，我就继续拿着博弈溢价。承接弱的话，我会减仓降低成本。
+  interpretation: UP用历史图形类比构建二波预期，但明确以盘中承接为决策触发条件而非迷信图形，失效条件是承接弱。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 立新能源类比华电辽能二波，承接强弱决定持有或减仓
+  related_stocks:
+  - code: '001258'
+    name: 立新能源
+    role: 电力-深主板
+  - code: '600396'
+    name: 华电辽能
+    role: 电力-沪主板
+  tags:
+  - 立新能源
+  - 华电辽能
+  - 二波行情
+  - 盘中承接
+- id: claim-20260827-007-003
+  source_path: sources/original/bilibili/2026-08-27-0808-视频-【同花顺原图】立新 哈药 英伟达，电力 创新药
+    科技 -.md
+  source_date: '2026-08-27'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:28:00+08:00'
+  claim_type: operation
+  subject: 买舒泰神做医药低位补涨且拉高即减仓或止盈
+  timeframe: intraday
+  statement: 舒泰神(300204)纯属医药短线：UP昨天说过如果情绪标的好、中军也走得好，可以选择做低位的或高位的都可以；当时开开实业(600272)快封板了，UP就选择买一个医药低位来做补涨；今天如果有拉高就会减仓或者止盈，二选一。
+  evidence_quote: 舒泰神纯属是做一个医药的短线，我昨天也说了，如果说情绪标的走得好，中军也走得好的话，你可以选择要么做低位的，要么做高位的都可以。那当时开开也快封板了，我就选择买一个医药的低位来做一个补涨。今天如果有拉高，我就会减仓或者说止盈，二选一。
+  interpretation: UP的医药短线参与方式：以情绪标和中军为前提，用低位补涨思路介入，明确当日兑现纪律。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 舒泰神医药低位补涨，拉高即减仓或止盈二选一
+  related_stocks:
+  - code: '300204'
+    name: 舒泰神
+    role: 创新药-创业板
+  - code: '600272'
+    name: 开开实业
+    role: 医药商业-沪主板
+  tags:
+  - 舒泰神
+  - 医药短线
+  - 低位补涨
+  - 止盈
+- id: claim-20260827-007-004
+  source_path: sources/original/bilibili/2026-08-27-0808-视频-【同花顺原图】立新 哈药 英伟达，电力 创新药
+    科技 -.md
+  source_date: '2026-08-27'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:28:00+08:00'
+  claim_type: stock-view
+  subject: 医药低位的汉商集团昨天弱转强失败
+  timeframe: intraday
+  statement: 医药低位的汉商集团(600774)集团(600774)昨天弱转强失败了。
+  evidence_quote: 那像医药低位的汉商，昨天弱转强就失败了。
+  interpretation: UP记录的医药低位标的弱转强失败案例，作为板块内部分化证据。
+  confidence: medium
+  status: case-only
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 汉商集团弱转强失败，医药低位分化
+  related_stocks:
+  - code: '600774'
+    name: 汉商集团
+    role: 医药-沪主板
+  tags:
+  - 汉商集团
+  - 弱转强失败
+  - 医药低位
+- id: claim-20260827-007-005
+  source_path: sources/original/bilibili/2026-08-27-0808-视频-【同花顺原图】立新 哈药 英伟达，电力 创新药
+    科技 -.md
+  source_date: '2026-08-27'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:28:00+08:00'
+  claim_type: stock-view
+  subject: 医药情绪锚定哈药股份且踩20日线可博弈双头
+  timeframe: short-term
+  statement: 医药现在的情绪锚定哈药股份(600664)来做；UP之前预判哈药股份(600664)踩到均线之后，在中军或一些短线标情绪依然稳健的情况下有可能走双头；要博弈双头的话踩到20日线可以稍微考虑看看，但止盈止损自己设置好，毕竟已经拉得很高了；UP自己拿了4万3千股。
+  evidence_quote: 医药现在的一个情绪还是锚定哈药来做。哈药我之前大概预判过，踩到均线之后，中军或者一些短线标情绪依然稳健的情况下，有可能会去走双头啊。那所以说如果你要博弈双头的话，如果踩到20日线是可以稍微考虑看看的。止盈止损自己设置好啊，毕竟已经拉得那么高了。甚至是4万3千股，拿得还是比较多的。
+  interpretation: 哈药股份(600664)是医药板块情绪锚，UP给出双头博弈的具体触发位（20日线）并自带失效管理（止盈止损），同时披露仓位规模。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药锚定哈药股份，踩20日线可博弈双头需自带止盈止损
+  related_stocks:
+  - code: '600664'
+    name: 哈药股份
+    role: 医药-沪主板
+  tags:
+  - 哈药股份
+  - 情绪锚
+  - 双头
+  - 20日线
+- id: claim-20260827-007-006
+  source_path: sources/original/bilibili/2026-08-27-0808-视频-【同花顺原图】立新 哈药 英伟达，电力 创新药
+    科技 -.md
+  source_date: '2026-08-27'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:28:00+08:00'
+  claim_type: operation
+  subject: 8月19日补仓部分今天看承接T出
+  timeframe: intraday
+  statement: UP的波段T有目标价，8月19号补的那一部分今天可能会或多或少T一点，看盘中承接强度，不上板的话可能就会T。
+  evidence_quote: 那我们之前说过的波段T是有一个目标价的，但是我们8月19号有补过，贴了很多次交割单了啊。8月19号补的那一部分，我今天可能会或多或少T一点啊，就还是一样看盘中承接强度吧，好吧。不上板的话可能就会T。
+  interpretation: UP披露的做T纪律：补仓部分以盘中承接强度为T出触发条件，不上板即执行。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 8月19日补仓部分看承接T出，不上板就T
+  related_stocks: []
+  tags:
+  - 波段T
+  - 补仓
+  - 盘中承接
+  - 目标价
+- id: claim-20260827-007-007
+  source_path: sources/original/bilibili/2026-08-27-0808-视频-【同花顺原图】立新 哈药 英伟达，电力 创新药
+    科技 -.md
+  source_date: '2026-08-27'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:28:00+08:00'
+  claim_type: stock-view
+  subject: 电网设备方向观察杭电股份强度
+  timeframe: short-term
+  statement: 电网设备相关，UP会观察杭电股份(603618)的强度。
+  evidence_quote: 电网设备相关，我会观察杭电股份的一个强度。
+  interpretation: UP把杭电股份(603618)作为电网设备方向的强度观察标的。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 电网设备方向以杭电股份为强度观察锚
+  related_stocks:
+  - code: '603618'
+    name: 杭电股份
+    role: 电网设备-沪主板
+  tags:
+  - 电网设备
+  - 杭电股份
+  - 强度观察
+- id: claim-20260827-007-008
+  source_path: sources/original/bilibili/2026-08-27-0808-视频-【同花顺原图】立新 哈药 英伟达，电力 创新药
+    科技 -.md
+  source_date: '2026-08-27'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:28:00+08:00'
+  claim_type: sector-theme
+  subject: A股光模块PCB存储线看英伟达Q3业绩指引
+  timeframe: short-term
+  statement: A股跟英伟达业绩相关联比较重的就是光模块、PCB、存储这一条线，主要看英伟达Q3的业绩指引（业绩凌晨4点发布）。
+  evidence_quote: 那A股跟英伟达业绩相关联比较重的就是光模块、PCB、存储这一条线，主要看英伟达Q3的一个业绩指引。
+  interpretation: UP给出英伟达财报向A股的映射路径：光模块、PCB、存储三条硬件链以Q3指引为核心变量。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 英伟达业绩映射A股光模块PCB存储线，核心看Q3指引
+  related_stocks: []
+  tags:
+  - 英伟达
+  - 光模块
+  - PCB
+  - 存储
+  - Q3指引
+- id: claim-20260827-007-009
+  source_path: sources/original/bilibili/2026-08-27-0808-视频-【同花顺原图】立新 哈药 英伟达，电力 创新药
+    科技 -.md
+  source_date: '2026-08-27'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:28:00+08:00'
+  claim_type: market-cycle
+  subject: 高位科技缩量上涨后下砸需巨量长阳提振信心
+  timeframe: short-term
+  statement: 现在高位科技经常就是缩量上涨之后再往下砸，市场信心比较弱，特别需要一根巨量的长阳来提振信心；英伟达业绩好的话可能也会兑现从而影响A股科技走势，不好就更不好。
+  evidence_quote: 现在高位科技经常就是缩量上涨之后再往下砸，市场的信心是比较弱的，特别需要一根巨量的长阳来提振信心。那英伟达业绩好的话，可能也会兑现，从而影响A股的科技走势。那不好那就更不好了，对吧，所以说还是希望它能好啊。
+  interpretation: UP对高位科技的定性：缩量上涨后的下砸说明信心弱，利好兑现风险（业绩好也砸）与利空风险并存，需巨量长阳确认信心修复。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高位科技缩量上涨后下砸信心弱，需巨量长阳且防利好兑现
+  related_stocks: []
+  tags:
+  - 高位科技
+  - 缩量上涨
+  - 巨量长阳
+  - 利好兑现

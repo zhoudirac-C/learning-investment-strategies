@@ -1,0 +1,187 @@
+claims:
+- id: claim-20260818-005-001
+  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB
+    -.md
+  source_date: '2026-08-18'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:38:00+08:00'
+  claim_type: operation
+  subject: 宇树上市前临时加仓绿的谐波
+  timeframe: intraday
+  statement: 昨日尾盘临时加仓绿的谐波(688017)200股，触发因素是想到8月19日宇树要上市，属于临盘的事件博弈操作。
+  evidence_quote: 昨天尾盘，即将收盘的时候突然想到，19号宇树要上市，所以说我就干脆，绿的又捡了200股，这个比较临时。
+  interpretation: UP以宇树上市事件为催化剂对机器人标的小仓位试探性加仓，明确标注为临时起意的事件博弈而非计划内操作。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  disagrees_with: ["claim-20260813-017", "claim-20260818-022"]
+  supplements: ["claim-20260810-019"]
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 宇树8/19上市前尾盘临时加仓绿的谐波200股
+  related_stocks:
+  - code: '688017'
+    name: 绿的谐波
+    role: 机器人谐波减速器-科创板
+  tags:
+  - 宇树上市
+  - 绿的谐波
+  - 事件博弈
+  - 临时加仓
+- id: claim-20260818-005-002
+  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB
+    -.md
+  source_date: '2026-08-18'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:38:00+08:00'
+  claim_type: operation
+  subject: 朱雀三发射前减仓超捷股份
+  timeframe: intraday
+  statement: 8月19日朱雀三号遥二发射前，UP昨日尾盘减仓超捷股份(301005)；该持仓成本56块多，操作顺利——两次120元附近T出、70几元加回。
+  evidence_quote: 那像19号遥望三，商业航天也要发射，所以说我的超捷也减了。那商业航天最近很多人也有在问，我们昨天那个超捷是进行了一个减仓，昨天尾盘，我早上10点的时候也说是尾盘要减。成本的话是56块多，因为我们做的还算比较顺利，两次120都有踢到，然后70几又加回来。
+  interpretation: 发射事件落地前主动减仓兑现，是事件驱动标的的标准风控动作；成本56元经两轮高抛低吸已建立安全垫。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260817-002-a"]
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 朱雀三遥二发射前减仓超捷股份，成本56经两轮做T
+  related_stocks:
+  - code: '301005'
+    name: 超捷股份
+    role: 商业航天紧固件-创业板
+  tags:
+  - 超捷股份
+  - 朱雀三号
+  - 发射前减仓
+  - 做T
+- id: claim-20260818-005-003
+  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB
+    -.md
+  source_date: '2026-08-18'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:38:00+08:00'
+  claim_type: methodology
+  subject: 事件博弈先把成本降到舒服位置
+  timeframe: permanent
+  statement: 博弈朱雀三回收这类事件时，利好还是利空不是股民说了算、是市场说了算；最好的参与状态是先把成本降下来到舒服的位置（如十几二十个点浮盈），到时赚也好小亏也无所谓。
+  evidence_quote: 明天朱雀三遥二即将发射，我认为这个目前商业航天利好还是利空，不是股民说的算，那是市场说的算。那如果说你要博弈朱雀三的一个回收，现在最好的状态就是把成本先降下来，然后到一个舒服的位置，比如十几二十个点，这样，那到时候是利好利空，市场说的算。赚也好，那小亏也无所谓，对吧。
+  interpretation: UP的事件博弈方法论：不预判事件结果，而是通过提前做T把成本降到有浮盈安全垫的位置，用仓位结构而非预测来应对不确定性。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 事件博弈方法论：不预判结果，先把成本降到有安全垫的位置
+  related_stocks: []
+  tags:
+  - 事件博弈
+  - 成本安全垫
+  - 做T
+  - 方法论
+- id: claim-20260818-005-004
+  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB
+    -.md
+  source_date: '2026-08-18'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:38:00+08:00'
+  claim_type: sector-theme
+  subject: 算力硬件周一兑现后的盘面结构
+  timeframe: intraday
+  statement: 周末判断周一（8/17）算力硬件是短线买入点已兑现：存储的长鑫科技(688825)、江波龙(301308)、德明利(001309)走势还行但存储板块整体反弹偏弱（资金被长鑫虹吸）；海外链中际旭创(300308)、新易盛(300502)反弹较好；PCB的胜宏科技(300476)、沪电股份(002463)等也走强。
+  evidence_quote: 那周一算力硬件端，比如存储的一个长鑫科技、江波龙、德明利这些，走的都还行，但是像存储板块反弹还是比较弱的，很多资金被长鑫虹吸过去了。算力硬件端还有像CPU的中际旭创、还有新易盛，这些海外链反弹的就比较好。还有PCB的这个胜宏科技、沪电股份等等。
+  interpretation: 算力硬件内部结构分化：海外链（光模块）强于国产存储，存储内部又向长鑫科技(688825)集中——板块反弹质量一般，资金抱团核心标的。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 算力硬件周一兑现：海外链强于存储，存储资金被长鑫虹吸
+  related_stocks:
+  - code: '688825'
+    name: 长鑫科技
+    role: 存储核心-科创板
+  - code: '301308'
+    name: 江波龙
+    role: 存储模组-创业板
+  - code: '001309'
+    name: 德明利
+    role: 存储模组-深主板
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块海外链-创业板
+  - code: '300502'
+    name: 新易盛
+    role: 光模块海外链-创业板
+  - code: '300476'
+    name: 胜宏科技
+    role: PCB-创业板
+  - code: '002463'
+    name: 沪电股份
+    role: PCB-深主板
+  tags:
+  - 算力硬件
+  - 存储
+  - 光模块
+  - PCB
+  - 资金虹吸
+- id: claim-20260818-005-005
+  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB
+    -.md
+  source_date: '2026-08-18'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:38:00+08:00'
+  claim_type: operation
+  subject: 周二算力硬件短线套利窗口
+  timeframe: intraday
+  statement: 周二（8/19）是算力硬件的短线套利窗口、想减仓摊薄成本是一个机会：周一进场的短线获利盘叠加前期解套的套牢盘，两股抛压集中释放；按自己仓位做决定，不一定要强卖。
+  evidence_quote: 那像周二的话，我认为是算力硬件的一个短线套利窗口，如果想减仓摊薄成本是一个机会，我认为今天是一个机会。周一进场的这些短线获利盘，叠加前期的解套的套牢盘，两股抛压集中释放，那这种资金按照自己的仓位做决定就行，不一定要强卖。
+  interpretation: UP对事件催化短线方向给出明确的兑现窗口判断：获利盘+套牢盘双重抛压日=减仓摊薄成本的时机，但强调按仓位自主决定、非强制卖出指令。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 周二算力硬件两股抛压集中释放，是减仓摊薄成本的套利窗口
+  related_stocks: []
+  tags:
+  - 算力硬件
+  - 套利窗口
+  - 获利盘
+  - 套牢盘
+  - 减仓摊薄

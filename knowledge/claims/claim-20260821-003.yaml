@@ -1,0 +1,283 @@
+claims:
+- id: claim-20260821-003-001
+  source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
+  source_date: '2026-08-21'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:10:30+08:00'
+  claim_type: stock-view
+  subject: 宇树暴跌后价格仍未到满意区间
+  timeframe: short-term
+  statement: 宇树科技(688836)（转写作"语数"）上市次日即暴跌，UP认为当前价格还没有到他想要的"四倍以内"区间，有闲钱可能会少量博弈，但对这个价格不算特别满意，即暂不急于大举抄底。
+  evidence_quote: 那语数这两天确实是挺拉胯的啊，那最近语数暴跌啊，最惨的应该就是我们飞哥了啊。对吧？他已经惨到了那种同花顺源图的程度了。
+  interpretation: 宇树科技(688836)8/19科创板上市后暴跌（UP朋友单日前天亏13.24个点/18万元），UP给出的态度是"还没到四倍以内区间、价格不满意、有闲钱才博弈"——对次新高位股采取等待更深回调而非追跌买入的姿态。"四倍以内"大概率指相对发行价150.80元的涨幅倍数区间。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 宇树科技暴跌后UP认为价格仍不满意，未到其想要的四倍以内区间
+  related_stocks:
+  - code: '688836'
+    name: 宇树科技
+    role: 人形机器人次新股-科创板
+  tags:
+  - 宇树科技
+  - 次新股
+  - 暴跌
+  - 抄底时机
+- id: claim-20260821-003-002
+  source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
+  source_date: '2026-08-21'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:10:30+08:00'
+  claim_type: operation
+  subject: 机器人与航天从高抛转入低吸环节
+  timeframe: short-term
+  statement: 机器人与航天板块此前处于高抛环节（特别在宇树科技(688836)上市之前完成高抛），节奏收益较好；现在进入低吸环节，UP提示注意分批、注意风险。
+  evidence_quote: 那机器人跟航天，我们之前是进入一个高抛的环节，特别在语数上市之前进行了一个高抛。我们节奏是非常舒服，吃得非常饱。那现在进入的是一个低吸的环节啊，那注意分批，注意风险，好吧，兄弟们。
+  interpretation: UP对机器人与航天板块采取事件驱动的波段节奏管理：宇树科技(688836)上市兑现前高抛、暴跌后转低吸，但明确附带"分批、注意风险"的风控约束，而非一次性重仓抄底。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 机器人与航天板块宇树上市前高抛后转入分批低吸环节
+  related_stocks:
+  - code: '688836'
+    name: 宇树科技
+    role: 机器人情绪锚-科创板
+  tags:
+  - 机器人
+  - 航天
+  - 高抛低吸
+  - 波段节奏
+  - 分批低吸
+- id: claim-20260821-003-003
+  source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
+  source_date: '2026-08-21'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:10:30+08:00'
+  claim_type: sector-theme
+  subject: 神奇制药一字板是哈药异动受限后的资金高切低
+  timeframe: intraday
+  statement: 神奇制药(600613)昨日开盘一字板，性质是医药板块内部资金的高切低补涨：主因哈药股份(600664)受30个交易日200%异动规则限制，资金拉不了哈药，只能跑去神奇制药做补涨。
+  evidence_quote: 昨天神奇制药开盘就一字板了，算是医药板块内部的资金的高切低。主要还是受哈药的30个交易日200%异动的限制，资金拉不了哈药，所以只能跑去神奇制药做补涨。
+  interpretation: UP揭示了医药短线资金在监管约束下的传导结构：龙头哈药股份(600664)被异动规则锁死后，溢出资金做低位补涨标的神奇制药(600613)，补涨标的一字板的持续性依附于龙头监管状态而非自身基本面。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 哈药受30日200%异动限制，资金高切低拉神奇制药一字板补涨
+  related_stocks:
+  - code: '600613'
+    name: 神奇制药
+    role: 医药补涨标的-沪主板
+  - code: '600664'
+    name: 哈药股份
+    role: 医药龙头异动受限-沪主板
+  tags:
+  - 神奇制药
+  - 哈药股份
+  - 高切低
+  - 异动规则
+  - 补涨
+- id: claim-20260821-003-004
+  source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
+  source_date: '2026-08-21'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:10:30+08:00'
+  claim_type: risk
+  subject: 哈药尾盘异动未压住叠加监管严格盘面预期不佳
+  timeframe: short-term
+  statement: 昨日尾盘哈药股份(600664)差一分钱，异动始终没有压住；UP判断不一定会直接崩盘，但当下监管环境比较严格，盘面预期不会太好，此前的高位投机短线标的相对风险系数偏高。
+  evidence_quote: 那像昨天尾盘，哈药就差一分钱啊，异动始终是没有压住。不一定会直接崩盘，但是当下监管环境是比较严格的，盘面预期我觉得不会太好。
+  interpretation: 异动规则压不住意味着哈药股份(600664)进入重点监控概率上升，UP对医药高位短线给出明确的风险提示而非崩盘断言——监管不确定性是当前医药投机的主要压制变量。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 哈药尾盘差一分钱异动未压住，监管严格下医药高位短线风险偏高
+  related_stocks:
+  - code: '600664'
+    name: 哈药股份
+    role: 医药龙头异动受限-沪主板
+  tags:
+  - 哈药股份
+  - 异动规则
+  - 监管风险
+  - 高位短线
+- id: claim-20260821-003-005
+  source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
+  source_date: '2026-08-21'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:10:30+08:00'
+  claim_type: catalyst
+  subject: Moderna暴涨映射A股抗癌药线
+  timeframe: intraday
+  statement: 医药昨日还有抗癌药这条线，催化是美股Moderna前天暴涨170几（%），A股映射炒作百克生物(688276)、康希诺(688185)等，上游CXO的博腾股份(300363)也被带起来；博腾股份(300363)与药明康德(603259)一样属于抗癌药中军。
+  evidence_quote: 那医药昨天还有一条抗癌药这条线，主要是美股Moderna前天是暴涨了170几啊。那像A股炒的就是像类似百克生物啊、康希诺这些啊。像上游的这个CXO博腾股份也是被带起来了。那博腾跟药明康德一样，也是属于抗癌药的中军。
+  interpretation: 典型的美股映射行情：Moderna（美股，不标注）单日暴涨触发A股抗癌药概念情绪炒作，UP将标的分为情绪映射层（百克生物(688276)、康希诺(688185)）与中军层（博腾股份(300363)、药明康德(603259)），中军定性意味着机构资金可参与的大容量标的。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 美股Moderna暴涨170%映射A股抗癌药线，博腾药明为中军
+  related_stocks:
+  - code: '688276'
+    name: 百克生物
+    role: 抗癌药情绪映射-科创板
+  - code: '688185'
+    name: 康希诺
+    role: 抗癌药情绪映射-科创板
+  - code: '300363'
+    name: 博腾股份
+    role: CXO抗癌药中军-创业板
+  - code: '603259'
+    name: 药明康德
+    role: CXO抗癌药中军-沪主板
+  tags:
+  - Moderna
+  - 抗癌药
+  - CXO
+  - 美股映射
+  - 创新药
+- id: claim-20260821-003-006
+  source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
+  source_date: '2026-08-21'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:10:30+08:00'
+  claim_type: methodology
+  subject: 哈药监管期内医药操作选高辨识度标的
+  timeframe: short-term
+  statement: 在哈药股份(600664)进监管的时间段内，医药操作框架：做短线投机（如神奇制药(600613)、开开实业(600272)、百花医药(600721)这类高位股）风险系数高；想做抗癌药就要追逐有高辨识度的高标；若前两种短线都觉得太危险要做中军，也要做龙头中军、有高辨识度的中军——UP认为这是当下最稳妥的方法和选择。
+  evidence_quote: 如果你想做抗癌药，那就要去追逐比较有高辨识度的高标。那如果前面两种短线都觉得太过危险，要做中军的话，也要做龙头中军，做有高辨识度一点的中军啊。目前来看是这样的，在哈药进监管的这么一个时间内，我觉得这是最稳妥的方法，也是最稳妥的选择。
+  interpretation: 监管压制期内的板块参与方法论：标的辨识度（市场共识度）成为风控筛选的第一标准，宁可做高辨识度高标或龙头中军，不做模糊跟风股，本质是用流动性与共识对冲监管不确定性。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 哈药监管期内医药操作：追逐高辨识度高标或龙头中军最稳妥
+  related_stocks:
+  - code: '600664'
+    name: 哈药股份
+    role: 医药龙头异动受限-沪主板
+  - code: '600613'
+    name: 神奇制药
+    role: 医药高位投机-沪主板
+  - code: '600272'
+    name: 开开实业
+    role: 医药高位投机-沪主板
+  - code: '600721'
+    name: 百花医药
+    role: 医药高位投机-沪主板
+  tags:
+  - 医药
+  - 监管期
+  - 高辨识度
+  - 龙头中军
+  - 操作框架
+- id: claim-20260821-003-007
+  source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
+  source_date: '2026-08-21'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:10:30+08:00'
+  claim_type: stock-view
+  subject: 顺络电子中报营收增长但扣非与现金流偏弱
+  timeframe: trend
+  statement: 顺络电子(002138)（UP昵称"顺子"）中报：业务广泛分布于国内外新能源、智能电网、数据中心、半导体、轨道交通、基础设施、大型工业等领域，硬件具备服务算电协同场景的能力，但财报未披露算电协同业务的具体订单和营收占比；营收同比增长、海内外业务同步放量，但扣非净利润差一点、经营现金流转负、回款压力较大；UP整体比较满意。
+  evidence_quote: 那业务广泛分布于国内外新能源、智能电网、数据中心、半导体和电、轨道交通、基础设施、大型工业等领域。那可以看出，公司的硬件具备服务算电协同场景的能力，但是财报没有披露算电协同的业务具体订单，还有营收占比。另外营收是同比增长的，业务海内外也同步放量，但是扣非净利润这一边还是差一点，经营现金流转负，所以说回款压力也比较大。整体来说我还是比较满意的。
+  interpretation: UP对顺络电子(002138)中报的态度是"满意但有瑕疵"：算电协同叙事具备硬件能力背书但尚无订单/营收数据验证，成长性（营收放量）与质量（扣非弱、现金流转负）并存——叙事兑现度有待后续财报确认。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 顺络电子中报：营收放量+算电协同能力，但扣非弱、现金流转负
+  related_stocks:
+  - code: '002138'
+    name: 顺络电子
+    role: 算电协同硬件-深主板
+  tags:
+  - 顺络电子
+  - 中报
+  - 算电协同
+  - 现金流
+  - 扣非净利润
+- id: claim-20260821-003-008
+  source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
+  source_date: '2026-08-21'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:10:30+08:00'
+  claim_type: operation
+  subject: 顺络电子抄底仓位有差价就T出
+  timeframe: short-term
+  statement: 顺络电子(002138)操作计划：这两天抄底的部分有差价就可以T出；波段做T还是看老样子，但波段T不一定能到满意价格；8月19日补的仓位昨天因行情缩量无聊没有机会T出去。
+  evidence_quote: 那这两天如果是抄底的，那就有差价就可以踢了。那波段踢的话还是看老样子啊，但是波段踢也不一定能到我们满意的价格。那8月19号我们补的仓，昨天因为起得晚啊，而且昨天行情确实是缩量且无聊，没有什么机会踢出去啊。
+  interpretation: UP对顺络电子(002138)延续8/16以来的做T管理（实盘号成本9.94元、T点13.5元附近），新增信息是8/19已补仓且尚未T出，缩量行情下做T策略被动等待差价。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 顺络电子8/19补仓后缩量未T出，抄底仓有差价就T
+  related_stocks:
+  - code: '002138'
+    name: 顺络电子
+    role: 实盘做T标的-深主板
+  tags:
+  - 顺络电子
+  - 做T
+  - 补仓
+  - 缩量行情

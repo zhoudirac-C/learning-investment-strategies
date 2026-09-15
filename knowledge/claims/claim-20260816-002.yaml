@@ -1,0 +1,318 @@
+claims:
+- id: claim-20260816-002-001
+  source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
+  source_date: '2026-08-16'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:25:00+08:00'
+  claim_type: sector-theme
+  subject: 牛来电影带牛股情绪炒作
+  timeframe: intraday
+  statement: 周末电影《牛来》火到出圈，被股民视为情绪呐喊；同花顺热榜被带牛字股票霸屏（金牛化工(600722)、罗牛山(000735)、公牛集团(603195)）且分布在不同板块；若周一这些带牛股涨得好、有涨停，则马和羊概念股可以考虑参与，若涨得不好则放弃。
+  evidence_quote: 也有说是，股民的一个呐喊。迈入了明币驱逐劣币的时代啊。那像现在同花顺的这个热门榜，要么就是金牛化工。要么就是罗牛山，公牛集团。好家伙还分布在不同的板块啊。A股炒情绪，如果说明天，这些股，涨得好，有涨停，那马和羊，就可以考虑一下。如果这些热门榜的带牛的股也涨得不好，那马和羊，也就算了。
+  interpretation: UP给出的是条件触发型情绪题材参与计划：以带牛股周一盘面表现为触发条件，强则套利马羊概念、弱则放弃，属纯情绪博弈而非基本面逻辑。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 《牛来》出圈引发带牛股热榜霸屏，按强度条件参与马羊概念
+  related_stocks:
+  - code: '600722'
+    name: 金牛化工
+    role: 带牛股情绪标的-沪主板
+  - code: '000735'
+    name: 罗牛山
+    role: 带牛股情绪标的-深主板
+  - code: '603195'
+    name: 公牛集团
+    role: 带牛股情绪标的-沪主板
+  tags:
+  - 牛来电影
+  - 情绪炒作
+  - 同花顺热榜
+  - 带牛股
+  - 条件参与
+- id: claim-20260816-002-002
+  source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
+  source_date: '2026-08-16'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:25:00+08:00'
+  claim_type: operation
+  subject: 实盘持仓做T计划
+  timeframe: short-term
+  statement: 实盘号持仓从未补仓、成本9.94元，下一个做T卖出点放在13.5元左右区间；另一账户上周已补仓30万元，若周一有差价就T出，交割单在同花顺L2可查。
+  evidence_quote: 上周我们屁股号啊，顺子是补了30万啊。交割单都在这啊。如果说明天有差价的话我就会T一下，那像，呃，实盘号是没有补过仓的，9块9毛4的本。下一个T点我大概还是放在13块5左右啊。这个区间。那这个交割单同花顺LV2都是可以查的。
+  interpretation: UP披露具体持仓成本与做T触发价位，属于可验证的操作计划：13.5元附近为减仓T点，回踩再接；双账户差异化管理（一个已补仓、一个未补）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20260817-001-a"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 实盘号成本9.94元、下一T点13.5元的具体做T计划
+  related_stocks: []
+  tags:
+  - 做T
+  - 持仓成本
+  - 补仓
+  - 操作计划
+- id: claim-20260816-002-003
+  source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
+  source_date: '2026-08-16'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:25:00+08:00'
+  claim_type: operation
+  subject: 机器人与商业航天冲高减仓纪律
+  timeframe: trend
+  statement: 对机器人和商业航天板块，UP一贯的纪律是有冲高就要减仓，上周已执行交割单减仓，并在回踩后接回做T。
+  evidence_quote: 那像我们绿的谐波进来，呃，也做过T，冲高也减过仓了，对机器人，对商业航天，我一直的看法就是，有冲高就要减仓，上周的一个交割单减仓啊，后面又接回来做T了。
+  interpretation: 冲高减仓、回踩接回是UP对高波动题材股的固定操作纪律，适用于机器人和商业航天这类已积累较大涨幅的方向。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 机器人与商业航天执行冲高减仓、回踩接回纪律
+  related_stocks: []
+  tags:
+  - 机器人
+  - 商业航天
+  - 冲高减仓
+  - 操作纪律
+- id: claim-20260816-002-004
+  source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
+  source_date: '2026-08-16'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:25:00+08:00'
+  claim_type: sector-theme
+  subject: 机器人板块7月末以来涨幅
+  timeframe: trend
+  statement: 自7月29日以来机器人板块个股普遍上涨，无论绿的谐波(688017)还是主板埃斯顿(002747)，随随便便都有一二十个点的涨幅；没做出来的要自己注意。
+  evidence_quote: 那像机器人无论你是抄了我的绿的，还是说你买主板的埃斯顿，7月29到现在，随随便便面十几二十个点是很轻松对吧，你都还没有做出来的话，那就要自己注意了哈。
+  interpretation: UP用自身持仓与主板标的说明机器人板块趋势行情的赚钱效应，同时暗含对踏空/追高者的风险提示。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 机器人板块7月29日以来普遍上涨一二十个点
+  related_stocks:
+  - code: '688017'
+    name: 绿的谐波
+    role: 机器人谐波减速器-科创板
+  - code: '002747'
+    name: 埃斯顿
+    role: 机器人主板标的-深主板
+  tags:
+  - 机器人
+  - 绿的谐波
+  - 埃斯顿
+  - 趋势涨幅
+- id: claim-20260816-002-005
+  source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
+  source_date: '2026-08-16'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:25:00+08:00'
+  claim_type: catalyst
+  subject: DeepSeek分谷定价涨价
+  timeframe: industry
+  statement: DeepSeek周末公告不再走持续低价竞争路线，正式推出分谷定价模式（工作日9-12点、14-18点高峰价贵，其余闲时半价），8月27日正式生效；UP认为这有概率是国产大模型低价内卷迎来阶段性变化的时刻，利好利空见仁见智。
+  evidence_quote: 周末发布公告说不再走持续低价竞争路线，正式推出分谷定价模式。其实很好理解，就是高峰的时候，价格贵一点，例如工作日的早上9点到12点，下午的2点到6点，其余闲余时刻，价格就半价优惠。那从行业发展的角度，这次调价动作有概率是国产大模型低价内卷，迎来阶段性变化的时刻啊。那也有利空理解成利空，随着这个见仁见智，硬币都有两面对吧？
+  interpretation: 定价机制切换被UP解读为行业性信号而非单一公司行为：低价内卷阶段可能结束，对行业整体偏利好，并由此衍生两个机会方向（算力硬件、大模型）。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: DeepSeek分谷定价：国产大模型低价内卷的阶段性拐点信号
+  related_stocks: []
+  tags:
+  - DeepSeek
+  - 分谷定价
+  - 大模型
+  - 低价内卷
+- id: claim-20260816-002-006
+  source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
+  source_date: '2026-08-16'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:25:00+08:00'
+  claim_type: sector-theme
+  subject: 算力硬件短线机会
+  timeframe: short-term
+  statement: DeepSeek分谷定价的深层原因是白天企业扎堆调用大模型导致推理GPU算力挤兑严重；算力硬件是该消息催生的机会方向之一，但UP只看短线，认为波段机会还没到。
+  evidence_quote: 那算力硬件，之所以分流出高峰涨价，低谷降价，就是白天企业扎堆调用大模型的时候，推理用的GPU根本不够用，算力资源挤兑严重。那像这里算力硬件要做的话，我还是看短线的啊。波段的机会我觉得还没有到。
+  interpretation: UP把算力硬件定位为事件催化的短线方向而非趋势波段，参与层级明显低于趋势持仓，反映其对算力硬件持续性的保留态度。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260816-024", "claim-20260702-005-b"]
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 算力硬件：DeepSeek涨价催化的短线方向，波段机会未到
+  related_stocks: []
+  tags:
+  - 算力硬件
+  - GPU挤兑
+  - 短线
+  - DeepSeek
+- id: claim-20260816-002-007
+  source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
+  source_date: '2026-08-16'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:25:00+08:00'
+  claim_type: sector-theme
+  subject: 大模型头部厂商定价权
+  timeframe: industry
+  statement: DeepSeek主动调整定价机制、不再一味压缩利润换用户，侧面说明国内头部大模型厂商已慢慢建立专属的定价权、溢价权；大模型板块可以看，强度参考每日互动(300766)、昆仑万维(300418)等龙头股再决定做不做。
+  evidence_quote: 另一个利好肯定就是国内的头部的大模型厂商了。等于主动调整定价机制，不再一味压缩利润换用户。侧面说明头部模型已经慢慢建立起，专属的一个定价权溢价权等等啊。所以就是大模型这一块大家也可以看一下啊。像强度的话就可以参考一下每日互动啊、昆仑万维啊，这些龙头股。再决定做还是不做啊。
+  interpretation: 以龙头强度作为板块参与的确认信号，是UP常用的板块参与方法论；定价权叙事是大模型板块的中期逻辑。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  disagrees_with: ["claim-20260816-022"]
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大模型头部厂商建立定价权，参考龙头强度参与
+  related_stocks:
+  - code: '300766'
+    name: 每日互动
+    role: 大模型龙头强度参照-创业板
+  - code: '300418'
+    name: 昆仑万维
+    role: 大模型龙头强度参照-创业板
+  tags:
+  - 大模型
+  - 定价权
+  - 每日互动
+  - 昆仑万维
+- id: claim-20260816-002-008
+  source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
+  source_date: '2026-08-16'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:25:00+08:00'
+  claim_type: sector-theme
+  subject: 科技与小金属缩量调整未破位
+  timeframe: short-term
+  statement: 上周科技与小金属缩量调整但没有破位，走势健康；风险提示是若手上科技股走出下跌中继形态就要特别注意。
+  evidence_quote: 上周科技跟小金属缩量调整，但是没有破位，走的还是挺好的。当然这边也要提示一下风险，要多留意形态，如果你手上的科技股，走出下跌中继的形态就要特别注意。
+  interpretation: 缩量不破位等于健康整固；下跌中继形态是UP给出的风控触发条件，破位即需重新评估持仓。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260913-001-018"]
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技与小金属缩量调整未破位，警惕下跌中继形态
+  related_stocks: []
+  tags:
+  - 科技
+  - 小金属
+  - 缩量调整
+  - 下跌中继
+- id: claim-20260816-002-009
+  source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
+  source_date: '2026-08-16'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T17:25:00+08:00'
+  claim_type: sector-theme
+  subject: 白酒板块暂不介入
+  timeframe: trend
+  statement: 汇金与证金已从茅台(600519)十大股东中消失；白酒各档次（茅台(600519)、五粮液(000858)、水井坊(600779)、舍得(600702)）业绩都一般，UP明确表示现在不会考虑买入白酒股。
+  evidence_quote: 那像白酒板块，那个汇金跟证金是从茅台的十大股东消失了啊。一个是最近白酒无论你是高端一点的，像茅台，或者稍差一点的五粮液，或者次高端的那些水井坊啊舍得，业绩都一般，对吧。但是你要让我现在去买白酒股，我暂时还是不会考虑。
+  interpretation: 国家队退出十大股东叠加全行业业绩平淡，UP对白酒给出明确的回避结论，是负面观点的明确表达。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 汇金证金退出茅台十大股东，白酒板块暂不介入
+  related_stocks:
+  - code: '600519'
+    name: 贵州茅台
+    role: 白酒龙头-沪主板
+  - code: '000858'
+    name: 五粮液
+    role: 白酒-深主板
+  - code: '600779'
+    name: 水井坊
+    role: 次高端白酒-沪主板
+  - code: '600702'
+    name: 舍得酒业
+    role: 次高端白酒-沪主板
+  - code: '600436'
+    name: 片仔癀
+    role: 长线消费白马对照-沪主板
+  tags:
+  - 白酒
+  - 贵州茅台
+  - 汇金证金
+  - 业绩平淡

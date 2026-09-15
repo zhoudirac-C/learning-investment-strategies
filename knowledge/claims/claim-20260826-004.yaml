@@ -1,0 +1,279 @@
+claims:
+- id: claim-20260826-004-001
+  source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
+  source_date: '2026-08-26'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:09:00+08:00'
+  claim_type: sector-theme
+  subject: 科创指数与创业板指数弱因含大量高位科技股
+  timeframe: short-term
+  statement: 科创指数、创业板指数当前都比较弱，原因是指数内包含了大量的高位科技股票。
+  evidence_quote: 我们先来看这个科创指……科创指数，还有这个创业板指数啊，都是比较弱的，因为里面包含了大量的高位科技股票。
+  interpretation: UP将指数弱势归因于成分股中高位科技股的拖累，意味着指数企稳的前提是高位科技股止跌。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科创与创业板指数弱，因成分股含大量高位科技股
+  related_stocks: []
+  tags:
+  - 科创指数
+  - 创业板指数
+  - 高位科技股
+  - 指数弱势
+- id: claim-20260826-004-002
+  source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
+  source_date: '2026-08-26'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:09:00+08:00'
+  claim_type: methodology
+  subject: 科技波段需抓双头形态个股且难度很大
+  timeframe: short-term
+  statement: 科技股现在要做波段，除非能抓到走出双头形态的个股；在PCB、光模块、存储里面，要在几十只高辨识度、高标中找到那一两只，难度很大。
+  evidence_quote: 科技你这边如果说想要做波段，除非你能把握、能抓到有走出双头形态的个股。在比如PCB、光模块、存储里面，你要在几十只高辨识度、高标中找到那一两只啊，难度还是很大的。
+  interpretation: 波段机会仅限于少数走出特定形态的个股而非板块整体，选股胜率低，不适合多数参与者。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技波段仅限双头形态个股，几十只高标中选一两只难度大
+  related_stocks: []
+  tags:
+  - 科技股
+  - 波段
+  - 双头形态
+  - PCB
+  - 存储
+- id: claim-20260826-004-003
+  source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
+  source_date: '2026-08-26'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:09:00+08:00'
+  claim_type: stock-view
+  subject: 风华高科缺量环境下跌至51块多
+  timeframe: intraday
+  statement: 风华高科(000636)上周五开盘前UP提示该位置很多资金害怕是下跌中继、不敢参与，因为市场没量；周二收盘已经跌到51块多。
+  evidence_quote: 就拿这个风华高科举个例，上周五开盘前我是说在这个位置，很多资金害怕这边是下跌中继，不敢参与，因为市场没量。周二收盘已经跌到51块多了。
+  interpretation: 缺量环境下高辨识度科技股承接不足，UP此前对风华高科(000636)下跌中继的担忧被验证，属于已被走势证实的提示性案例。
+  confidence: medium
+  status: case-only
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 风华高科案例：市场没量资金怕下跌中继，周二收盘跌到51块多
+  related_stocks:
+  - code: '000636'
+    name: 风华高科
+    role: MLCC电子元件-深主板
+  tags:
+  - 风华高科
+  - 下跌中继
+  - 市场缩量
+  - 高位科技股
+- id: claim-20260826-004-004
+  source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
+  source_date: '2026-08-26'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:09:00+08:00'
+  claim_type: operation
+  subject: 科技短线20日线30日线低吸破位就走
+  timeframe: short-term
+  statement: 科技股做短线博弈上涨的一两根小阳线，可以在20日线、30日线低吸，大不了破位就走；但做波段因市场没有量，难以确定好的开仓点。
+  evidence_quote: 所以说科技的话，如果你要做短线博弈上涨的一两根小阳线，我是觉得你在20日线、30日线低吸做一做是可以的，大不了就破位就走。但是你要做波段，市场没有量，还比较难确定哪里是比较好的开仓点。
+  interpretation: UP给出的科技参与方式是严格限定在短线低吸加破位止损，否定了缺量环境下的波段开仓，属于纪律性操作框架。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技短线可20日线30日线低吸破位止损，波段缺量难开仓
+  related_stocks: []
+  tags:
+  - 科技短线
+  - 20日线低吸
+  - 破位止损
+  - 波段开仓
+- id: claim-20260826-004-005
+  source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
+  source_date: '2026-08-26'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:09:00+08:00'
+  claim_type: catalyst
+  subject: 中文在线二季度单季盈利且ReelShort赚1.5亿
+  timeframe: trend
+  statement: 中文在线(300364)二季度单季已经实现盈利，现金流明显改善；其中海外子公司ReelShort赚了1.5个亿，是中文在线(300364)的海外付费短剧APP，是出海业务的载体。
+  evidence_quote: 二季度单季已经实现盈利，那现金流也明显的改善。其中它的海外的子公司ReelShort赚了1.5个亿，是中文字研的那海外付费短剧APP，是出海业务的载体。
+  interpretation: 中报数据落地验证了中文在线(300364)短剧出海业务的盈利能力，属于基本面改善信号；UP此前博弈中报脉冲的逻辑依据即在于此。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中文在线Q2单季盈利现金流改善，ReelShort赚1.5亿为出海载体
+  related_stocks:
+  - code: '300364'
+    name: 中文在线
+    role: 短剧出海AIGC-创业板
+  tags:
+  - 中文在线
+  - ReelShort
+  - 中报盈利
+  - 短剧出海
+  - AIGC
+- id: claim-20260826-004-006
+  source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
+  source_date: '2026-08-26'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:09:00+08:00'
+  claim_type: methodology
+  subject: AIGC波段模式中业绩好坏分别是做T与补仓机会
+  timeframe: trend
+  statement: 在UP的AIGC波段模式中：业绩好就是给机会做T，业绩差就是给机会补仓；但补仓的前提是仓位管理有做好，而不是重仓梭哈，重仓梭哈绝对不可取。
+  evidence_quote: 在我们波段的模式中，如果业绩好，就是给我们机会做T；如果业绩差，就给我们机会补仓。但补仓的前提是你仓位管理有做好，而不是去重仓梭哈，这种是绝对不可取的。
+  interpretation: UP把业绩当波段工具而非选股标准——选的不是拼业绩的老登白马，业绩只是做T或补仓的触发器，核心约束是仓位管理。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AIGC波段模式：业绩好做T、业绩差补仓，仓位管理为前提
+  related_stocks: []
+  tags:
+  - AIGC
+  - 波段模式
+  - 做T
+  - 补仓
+  - 仓位管理
+- id: claim-20260826-004-007
+  source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
+  source_date: '2026-08-26'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:09:00+08:00'
+  claim_type: operation
+  subject: 昨日做T中文在线赚近6万元
+  timeframe: intraday
+  statement: UP昨天赚了快6万块，其中中文在线(300364)做了T（做了小10万）练习盘感；8月19号加的仓位还没T出去，这两天有好机会会T出去；竞价补仓做T的原因是博弈中报带来的资金脉冲，且中文在线(300364)已缩量很多天。
+  evidence_quote: 昨天是赚了快6万块啊，中文是做了T，其实也就做了小10万啊，练习一下盘感。那8月19号加的那些还没有T出去，这两天如果好的机会会T出去的。竞价补仓T的原因，一个是博弈中文会出中报，有资金会有脉冲，那有脉冲我就T掉了。它也是缩了很多天的量。
+  interpretation: UP披露的实盘操作：利用中报事件的资金脉冲做T，缩量是低吸补仓的观察信号之一。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: UP昨日做T中文在线赚近6万，博弈中报资金脉冲
+  related_stocks:
+  - code: '300364'
+    name: 中文在线
+    role: 短剧出海AIGC-创业板
+  tags:
+  - 中文在线
+  - 做T
+  - 中报脉冲
+  - 竞价补仓
+  - 盘感
+- id: claim-20260826-004-008
+  source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
+  source_date: '2026-08-26'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:09:00+08:00'
+  claim_type: operation
+  subject: 当前持仓九只覆盖脑机漫剧软件电网眼科中药航天机器人
+  timeframe: short-term
+  statement: UP当前持仓还是九只：脑机、漫剧、两只软件、电网、眼科、中药、航天、机器人；大部分红盘，被套的票没有任何想割的会继续拿着，中药现在盈利14万。
+  evidence_quote: 我们持仓还是那九只：脑机、漫剧、两只软件、电网、眼科、中药、航天、机器人。那很多都是节奏踩得很好，还是大部分都是红的。那被套的票也没有任何想割的，还是会继续拿着。
+  interpretation: UP披露的持仓结构为分散的多题材组合，被套不割体现其模式内持有纪律，加减仓以动态或视频披露。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: UP持仓九只：脑机漫剧两只软件电网眼科中药航天机器人
+  related_stocks: []
+  tags:
+  - 持仓
+  - 脑机
+  - AI漫剧
+  - 中药
+  - 被套持有
+- id: claim-20260826-004-009
+  source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
+  source_date: '2026-08-26'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:09:00+08:00'
+  claim_type: stock-view
+  subject: 哈药股份中军不崩则医药短线有性价比
+  timeframe: short-term
+  statement: 医药短线维持原观点：只要哈药股份(600664)没有崩、药的中军没有崩，做药短线投机的后排或前排风险还是有的，但性价比也是有的；如果真想做，止盈止损自己设置好。
+  evidence_quote: 只要哈药股份没有崩，药的中军没有崩，像做这些短线投机的这个后排或者前排啊，药的风险还是有的，那性价比也是有的。如果真想做，那止盈止损自己设置好，好吧。
+  interpretation: UP把哈药股份(600664)当作医药短线情绪的中军锚：中军不崩则板块投机性价比成立，失效条件即中军崩，参与需自带止盈止损。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药短线以哈药股份为中军锚，不崩则有性价比
+  related_stocks:
+  - code: '600664'
+    name: 哈药股份
+    role: 医药-沪主板
+  tags:
+  - 医药短线
+  - 哈药股份
+  - 中军锚
+  - 止盈止损

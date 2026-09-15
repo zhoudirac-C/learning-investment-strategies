@@ -1,0 +1,484 @@
+claims:
+- id: claim-20260909-032-a
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: stock-view
+  subject: 龙版传媒监管核查
+  timeframe: short-term
+  statement: 龙版传媒(605577)被监管核查关小黑屋，昨日没有涨停，原本要进入压异动环节——若每天涨幅控制在三个点以内仍很可能把异动绕过去，但这次不一样，被监管核查了。
+  evidence_quote: 龙版被关小黑屋了，昨天没有涨停，本来都要进入压异动环节了。如果每天涨个三个点以内，还是很可能把异动绕过去的。但是这次不一样啊，被监管核查了。
+  interpretation: 高标股压异动策略失效的实例：控制日涨幅规避交易所异动公告，不等于规避监管核查。龙版传媒(605577)作为AI应用方向的高标被核查，短期该方向高标情绪承压，资金行为会更谨慎。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 龙版传媒压异动期间被监管核查关小黑屋
+  related_stocks:
+  - code: '605577'
+    name: 龙版传媒
+    role: AI应用高标-主板可交易
+  tags:
+  - 龙版传媒
+  - 监管核查
+  - 压异动
+  - AI应用
+  - 高标
+- id: claim-20260909-032-b
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: risk
+  subject: 高标股监管核查风险
+  timeframe: permanent
+  statement: 即便绕过了异动、压住了异动，高标股仍有被监管核查的可能，利欧股份(002131)是先例。
+  evidence_quote: 这让我想到以前老朋友利欧啊，即便绕过了异动，压住了异动，还是有被监管核查的可能。
+  interpretation: 这是对压异动策略有效性的边界警示：技术性规避交易规则不等于规避监管风险。参与高标博弈需把监管核查作为独立风险因子计入，利欧股份(002131)的经历说明压异动成功不代表安全。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 压住异动仍可能被监管核查，利欧股份是先例
+  related_stocks:
+  - code: '002131'
+    name: 利欧股份
+    role: 监管核查先例-主板可交易
+  tags:
+  - 监管核查
+  - 压异动
+  - 利欧股份
+  - 高标风险
+- id: claim-20260909-032-c
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: stock-view
+  subject: 龙版传媒复牌时间
+  timeframe: short-term
+  statement: 按照监管核查的节奏推断，龙版传媒(605577)最快也要下周一才能出来。
+  evidence_quote: 那按照这个节奏，龙版最快也要下周一才能出来了。
+  interpretation: UP基于历史核查案例给出的时间窗口推断：本周内AI应用方向缺少情绪龙头，龙版传媒(605577)缺席期间高标接力情绪缺锚，资金可能转向中军或其他方向轮动。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 龙版传媒预计最快下周一才能出来
+  related_stocks:
+  - code: '605577'
+    name: 龙版传媒
+    role: AI应用高标-主板可交易
+  tags:
+  - 龙版传媒
+  - 监管核查
+  - 复牌时间
+- id: claim-20260909-032-d
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: operation
+  subject: AI应用高标应对策略
+  timeframe: short-term
+  statement: 依旧看好AI应用方向，但龙版传媒(605577)被核查后不要盲目去追高标，应找有辨识度的中军分批低吸、等待轮动，这样比较稳妥。
+  evidence_quote: 如果你依旧是看好AI应用的话，不要盲目去追高标，还是找一些有辨识度的中军，分批低吸等待轮动，这样比较稳妥。
+  interpretation: 高标缺位期的替代策略：用有辨识度的中军加分批低吸替代追高标，本质是降低监管风险敞口的同时保持对AI应用方向的暴露，辨识度是选股核心标准。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 看好AI应用但不追高标，找辨识度中军分批低吸等轮动
+  related_stocks:
+  - code: '605577'
+    name: 龙版传媒
+    role: AI应用高标-主板可交易
+  tags:
+  - AI应用
+  - 高标
+  - 中军
+  - 分批低吸
+  - 轮动
+- id: claim-20260909-032-e
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: stock-view
+  subject: 中文在线目标价
+  timeframe: trend
+  statement: 龙版传媒(605577)被关对中文在线(300364)的影响很有限，中文在线(300364)依旧锚定芒果超媒(300413)，UP的目标价维持老样子不变。
+  evidence_quote: 那即便龙版进去的，我觉得对中文的影响是很有限的。中文依旧是锚定芒果，我的目标价还是老样子。
+  interpretation: UP把中文在线(300364)的定价锚从情绪龙头龙版传媒(605577)切换到基本面与市值对标锚芒果超媒(300413)，意味着持有逻辑不依赖短线情绪，龙版事件不改变中文的中期估值框架与目标价。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 龙版被关对中文在线影响有限，锚定芒果目标价不变
+  related_stocks:
+  - code: '300364'
+    name: 中文在线
+    role: AI应用中军持仓-创业板不可交易
+  - code: '300413'
+    name: 芒果超媒
+    role: 估值对标锚-创业板不可交易
+  tags:
+  - 中文在线
+  - 芒果超媒
+  - 目标价
+  - 龙版传媒
+- id: claim-20260909-032-f
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: sector-theme
+  subject: 医药板块反弹性质
+  timeframe: short-term
+  statement: 当下医药板块属于超跌反弹，板块情绪有分歧。
+  evidence_quote: 当下医药属于是超跌反弹，板块情绪有分歧
+  interpretation: 对医药行情的定性判断：是超跌反弹而非趋势反转，意味着反弹高度有限、持续性存疑，对应操作是减仓做T而非加仓持有。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药当下是超跌反弹，板块情绪有分歧
+  related_stocks: []
+  tags:
+  - 医药
+  - 超跌反弹
+  - 情绪分歧
+- id: claim-20260909-032-g
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: operation
+  subject: 万邦医药减仓
+  timeframe: intraday
+  statement: 昨日对万邦医药(301520)高位分批减仓，有浮盈先落袋一部分，剩余二十几万底仓，等来到目标价格之后再继续做T。
+  evidence_quote: 昨天万邦医药是高位分批减仓，剩下二十几万底仓，有浮盈我就先落袋一部分了。还留着二十几万底仓，等来到目标价格之后再继续做T。
+  interpretation: 实盘纪律展示：反弹行情中分批兑现浮盈并保留底仓，兼顾落袋与后续博弈空间。等到目标价再继续做T说明减仓是节奏性操作而非看空离场。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 万邦医药高位分批减仓，留二十几万底仓等目标价做T
+  related_stocks:
+  - code: '301520'
+    name: 万邦医药
+    role: 医药超跌反弹持仓-创业板不可交易
+  tags:
+  - 万邦医药
+  - 减仓
+  - 浮盈落袋
+  - 做T
+  - 底仓
+- id: claim-20260909-032-h
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: methodology
+  subject: 锚定情绪标的操作法
+  timeframe: permanent
+  statement: 医药持仓的操作锚定哈药股份(600664)的表现：昨日哈药股份(600664)表现不佳，索性对万邦医药(301520)做减仓处理，知行合一。
+  evidence_quote: 我锚定的一直是哈药的表现，知行合一。昨天哈药表现不佳，索性万邦就做减仓处理。
+  interpretation: UP的个股操作决策法：选定板块情绪锚标的，锚标的走弱就对持仓股减仓，避免个股与板块情绪背离的侥幸心理。知行合一强调按预设锚执行而非临盘犹豫。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药操作锚定哈药表现，哈药不佳则万邦减仓
+  related_stocks:
+  - code: '600664'
+    name: 哈药股份
+    role: 医药情绪锚标的-主板可交易
+  - code: '301520'
+    name: 万邦医药
+    role: 医药超跌反弹持仓-创业板不可交易
+  tags:
+  - 锚定情绪标的
+  - 知行合一
+  - 哈药股份
+  - 万邦医药
+  - 减仓
+- id: claim-20260909-032-i
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: risk
+  subject: 万邦医药监管风险
+  timeframe: short-term
+  statement: 万邦医药(301520)的监管观察还没有过去，存在监管层面的不确定性。
+  evidence_quote: 而且万邦的一个监管观察还没有过去，也存在监管层面的不确定性。
+  interpretation: 除板块情绪分歧外，万邦医药(301520)个股层面还叠加监管观察风险，这是减仓的另一条独立理由——监管不确定性窗口内主动降低暴露。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 万邦医药监管观察未过去，存在监管不确定性
+  related_stocks:
+  - code: '301520'
+    name: 万邦医药
+    role: 医药超跌反弹持仓-创业板不可交易
+  tags:
+  - 万邦医药
+  - 监管观察
+  - 监管不确定性
+- id: claim-20260909-032-j
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: methodology
+  subject: 轮动底仓仓位管理
+  timeframe: permanent
+  statement: UP给自己设置的轮动底仓规则是尽量减到二十万左右，做T操作也比较小心翼翼。
+  evidence_quote: 这个是昨天的一个交割单啊，T得还是比较小心翼翼的。因为我自己设置的一个轮动底仓就是尽量要减到二十万左右。
+  interpretation: 可复用的资金管理规则：做T型持仓设定底仓金额上限约二十万，浮盈部分兑现，底仓保留以维持跟踪与后续操作权，控制单票敞口。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 轮动底仓尽量减到二十万左右的仓位管理规则
+  related_stocks: []
+  tags:
+  - 轮动底仓
+  - 仓位管理
+  - 做T
+- id: claim-20260909-032-k
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: sector-theme
+  subject: 农业板块分歧
+  timeframe: intraday
+  statement: 农业板块今天看分歧，锚定的情绪标的是亚盛集团(600108)。
+  evidence_quote: 农业这边今天锚定的情绪标的是亚盛集团。那农业板块我今天是看分歧的
+  interpretation: 农业前期异动后进入分歧日的判断，亚盛集团(600108)作为情绪锚——锚标的当日表现决定板块强弱确认，分歧日不宜追高。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 农业板块今日看分歧，情绪锚为亚盛集团
+  related_stocks:
+  - code: '600108'
+    name: 亚盛集团
+    role: 农业情绪锚标的-主板可交易
+  tags:
+  - 农业
+  - 分歧
+  - 亚盛集团
+  - 情绪锚
+- id: claim-20260909-032-l
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: sector-theme
+  subject: 零售板块分歧
+  timeframe: intraday
+  statement: 零售板块今天也是一个分歧点，目前零售最强的标的是百大集团(600865)。
+  evidence_quote: 包括零售这一块，今天也觉得是一个分歧点啊。零售最强的目前就是百大。
+  interpretation: 零售与农业同步进入分歧日，百大集团(600865)为板块内最强辨识度标的，分歧日观察最强标的的承接力是判断板块能否延续的关键。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 零售板块今日看分歧，最强标的为百大集团
+  related_stocks:
+  - code: '600865'
+    name: 百大集团
+    role: 零售最强标的-主板可交易
+  tags:
+  - 零售
+  - 分歧
+  - 百大集团
+- id: claim-20260909-032-m
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: sector-theme
+  subject: 国防板块绕异动
+  timeframe: intraday
+  statement: 国防板块今天开始也要开始绕异动了。
+  evidence_quote: 国防今天开始也要开始绕异动了。
+  interpretation: 国防板块涨幅累积到接近异动线，资金开始控制节奏规避异动公告——意味着板块处于主升中段，短期涨速可能被人为压制，但方向未变。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 国防板块今天开始进入绕异动阶段
+  related_stocks: []
+  tags:
+  - 国防
+  - 绕异动
+- id: claim-20260909-032-n
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: operation
+  subject: 稳定币中军防守仓
+  timeframe: short-term
+  statement: 打野号切入一点稳定币的中军做防守用，止损线严格设置在20日线，跌破没拉回就走。
+  evidence_quote: 所以我打野号也是切了一点稳定币的中军，其实也是做防守用的。那止损线是严格设置在20日线，跌破没拉回我就走啊。
+  interpretation: 防守仓的配置逻辑与纪律：选板块中军而非弹性标的做防守，止损纪律量化到20日均线并加确认条件跌破没拉回才走，避免单日假跌破误杀。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 稳定币中军做防守仓，止损线严格设在20日线
+  related_stocks: []
+  tags:
+  - 稳定币
+  - 中军
+  - 防守仓
+  - 20日线止损
+- id: claim-20260909-032-o
+  source_path: sources/original/bilibili/2026-09-09-0820-视频-龙版关进小黑屋，农业、零售今日看分歧，医药继续T
+    -.md
+  source_date: '2026-09-09'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T20:25:00+08:00'
+  claim_type: sector-theme
+  subject: 科技板块量能
+  timeframe: short-term
+  statement: 科技板块维持老观点：还是要等放量的大阳线确认，现在最大问题就是没有量；昨天下午就被韩国股市带下来了。
+  evidence_quote: 科技还是老观点，那像昨天下午就被韩国股市这边带下来了，还是要等放量的大阳线。现在最大问题就是没有量。
+  interpretation: 科技处于易受外围扰动的弱势整理期——被韩股带动即回落说明内生动能不足，放量大阳线是UP认定的右侧确认信号，信号出现前不参与。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技等放量大阳线确认，当前最大问题是没有量
+  related_stocks: []
+  tags:
+  - 科技
+  - 量能
+  - 放量大阳线
+  - 韩国股市

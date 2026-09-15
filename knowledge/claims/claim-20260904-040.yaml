@@ -1,0 +1,193 @@
+claims:
+- id: claim-20260904-040-001
+  source_path: sources/original/bilibili/2026-09-04-0827-视频-隔夜美股反弹，加息预期回落。短线投机重点看哈药表现。
+    -.md
+  source_date: '2026-09-04'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:22:00+08:00'
+  claim_type: macro
+  subject: 沃勒鸽派表态推动隔夜美股反弹
+  timeframe: intraday
+  statement: 昨晚美股反弹，核心源于美联储沃勒表态：如果八月通胀继续回落，倾向九月不加息；美债收益率下行带动美股走强，韩国市场也小幅高开。
+  evidence_quote: 盘前先说一下美股，昨晚美股迎来反弹，核心源于美联储沃勒的表态，如果八月通胀继续回落，倾向九月不加息。美债收益率下行，带动着美股走强。那谁知棒子那边开的，目前也算是小高开啊。
+  interpretation: 加息预期回落是隔夜外盘修复的直接催化，对A股开盘情绪构成正向外溢。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 沃勒称通胀回落则九月倾向不加息，美债收益率下行美股反弹
+  related_stocks: []
+  tags:
+  - 美联储
+  - 沃勒
+  - 加息预期
+  - 美债收益率
+  - 美股反弹
+- id: claim-20260904-040-002
+  source_path: sources/original/bilibili/2026-09-04-0827-视频-隔夜美股反弹，加息预期回落。短线投机重点看哈药表现。
+    -.md
+  source_date: '2026-09-04'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:22:00+08:00'
+  claim_type: operation
+  subject: 液冷今天是高抛做T时间窗口
+  timeframe: intraday
+  statement: 9月1日专门提的液冷，今天感觉是个高抛、做T的时间窗口。
+  evidence_quote: 科技这边九月一号专门提了液冷，今天感觉是个高抛的时间窗口，做T的时间窗口。
+  interpretation: 液冷短线已至兑现窗口，按反弹做T处理而非加仓——与9月1日'高位硬件只做短线'的定位一致。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 液冷短线进入高抛做T窗口
+  related_stocks: []
+  tags:
+  - 液冷
+  - 高抛
+  - 做T
+  - 科技硬件
+- id: claim-20260904-040-003
+  source_path: sources/original/bilibili/2026-09-04-0827-视频-隔夜美股反弹，加息预期回落。短线投机重点看哈药表现。
+    -.md
+  source_date: '2026-09-04'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:22:00+08:00'
+  claim_type: sector-theme
+  subject: 哈药今日表现决定投机票情绪
+  timeframe: intraday
+  statement: 哈药股份(600664)昨天收盘-7%、姿态摆得很低，这是好事——绕过了异动监管；今天哈药股份(600664)的表现很重要，如果继续走得不好，投机票情绪基本会退潮，不仅医药板块，整个短线题材的赚钱效应都会受拖累。
+  evidence_quote: 说说哈药，昨天哈药姿态摆得很低，收盘负七个点收。那这是好事，这样是绕过了异动监管。今天哈药的表现就很重要了，如果哈药继续走得不好的话，投机票的情绪基本会退潮。那不仅仅是医药板块，整个短线题材的赚钱效应都会受到拖累。
+  interpretation: 哈药股份(600664)是当前短线情绪的总开关：其绕开异动监管后的方向选择决定整个投机链条的赚钱效应，属于情绪锚的传导逻辑。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 哈药-7%低姿态绕过异动监管，其今日走向决定短线投机情绪
+  related_stocks:
+  - code: '600664'
+    name: 哈药股份
+    role: 医药短线总龙头-沪主板
+  tags:
+  - 哈药股份
+  - 异动监管
+  - 短线情绪
+  - 医药
+- id: claim-20260904-040-004
+  source_path: sources/original/bilibili/2026-09-04-0827-视频-隔夜美股反弹，加息预期回落。短线投机重点看哈药表现。
+    -.md
+  source_date: '2026-09-04'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:22:00+08:00'
+  claim_type: methodology
+  subject: 医药锚定哈药而非买哈药
+  timeframe: short-term
+  statement: 医药一直说的是锚定哈药股份(600664)，而不是让你去买哈药股份(600664)；之前提过哈药股份(600664)可以做双头的点是五六个交易日前；哈药股份(600664)距离绕异动还剩一两天的时候，主力资金不太敢有大的表现，甚至不敢拉得太高，不然又怕绕进去。
+  evidence_quote: 那再说回医药，我一直说的是锚定哈药，而不是让你去买哈药。那之前有提过说哈药可以做双头的点，那个是五六个交易日前嘛，交易日啊，而且哈药距离绕异动还剩一两天的时候，主力资金是不太敢有大的表现的，甚至不敢拉得太高，不然又怕绕进去了，对吧？
+  interpretation: 龙头锚定与龙头买入是两回事：哈药股份(600664)作为情绪锚使用；异动监管窗口期主力行为会自我约束，双头买点已过、当前不是介入时机。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 锚定哈药不等于买哈药：异动窗口期主力不敢表现，双头买点已过
+  related_stocks:
+  - code: '600664'
+    name: 哈药股份
+    role: 医药情绪锚-沪主板
+  tags:
+  - 哈药股份
+  - 龙头锚定
+  - 异动监管
+  - 双头
+- id: claim-20260904-040-005
+  source_path: sources/original/bilibili/2026-09-04-0827-视频-隔夜美股反弹，加息预期回落。短线投机重点看哈药表现。
+    -.md
+  source_date: '2026-09-04'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:22:00+08:00'
+  claim_type: stock-view
+  subject: 千金药业尾盘拉涨停是哈药不崩前提下的情绪先锋
+  timeframe: intraday
+  statement: 千金药业(600479)昨天-5%尾盘硬生生拉到涨停，属于医药的中位补涨票：资金不方便拉升哈药股份(600664)，就拿千金出来做情绪先锋；千金毕竟不是总龙头，走强的基础建立在哈药股份(600664)不崩之上，如果哈药股份(600664)今天走弱，千金的溢价很难维持。
+  evidence_quote: 那像昨天医药这边再说一个比较有辨识度的，就千金，负五个点尾盘硬生生拉到涨停。千金是属于医药的中位补涨票，昨天资金不方便去拉升哈药，就拿千金出来做情绪先锋。那千金毕竟不是总龙头，它的走强的基础是建立在哈药不崩之上的。所以如果哈药今天走弱，千金的溢价很难维持。
+  interpretation: 补涨票的定价依附于总龙头稳定：千金药业(600479)的涨停是主力资金在龙头受限时的情绪出口，龙头走弱则补涨溢价快速消退。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 千金药业尾盘-5%拉涨停：中位补涨情绪先锋，依赖哈药不崩
+  related_stocks:
+  - code: '600479'
+    name: 千金药业
+    role: 医药中位补涨-沪主板
+  - code: '600664'
+    name: 哈药股份
+    role: 医药总龙头-沪主板
+  tags:
+  - 千金药业
+  - 补涨票
+  - 情绪先锋
+  - 哈药股份
+- id: claim-20260904-040-006
+  source_path: sources/original/bilibili/2026-09-04-0827-视频-隔夜美股反弹，加息预期回落。短线投机重点看哈药表现。
+    -.md
+  source_date: '2026-09-04'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T18:22:00+08:00'
+  claim_type: methodology
+  subject: 不是无限子弹要控制好仓位
+  timeframe: permanent
+  statement: UP声明自己不是无限子弹：8月18日开始的那支主号不加任何钱、不加任何杠杆一直做到现在；打野号资金可以进出，单笔二三十万、四五十万对打野资金占比其实不高，观众要自己控制好仓位。
+  evidence_quote: 那还是要说一下，我不是无限子弹，我十八号那九支的那支号啊，我是不加任何钱不加任何杠杆一直做到现在的啊。但打野号因为我是可以钱是可以进进出出的嘛，所以说呃不要看我一笔什么二三十万四五十万，其实对我打野的这个比例占占比其实不高的，自己控制好仓位啊。
+  interpretation: 跟单风险提示：UP的绝对单笔金额不代表其仓位比例，盲目抄金额会放大风险；仓位管理以自身资金结构为准。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: UP声明非无限子弹：主号不加钱不加杠杆，单笔金额占比不高
+  related_stocks: []
+  tags:
+  - 仓位管理
+  - 风险控制
+  - 跟单风险

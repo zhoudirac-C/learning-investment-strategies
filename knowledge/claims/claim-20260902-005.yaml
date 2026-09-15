@@ -1,0 +1,65 @@
+claims:
+- id: claim-20260902-005-1
+  source_path: sources/original/bilibili/2026-09-02-0818-视频-早安 宝宝们.md
+  source_date: '2026-09-02'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T12:23:03Z'
+  claim_type: stock-view
+  subject: 哈药股份
+  timeframe: short-term
+  statement: 卢本圆复盘在 2026-09-02 早盘视频中以马前炮方式讨论医药方向的哈药股份(600664)，并称再吃涨停
+  evidence_quote: 再吃涨停，聊聊医药 哈药，AI应用 漫剧，马前炮！
+  interpretation: 该视频 ASR 转写失败（模型拒绝：The request was rejected because it was considered
+    high risk），正文观点不可得，仅能依据视频标题提取。标题将再吃涨停与聊聊医药哈药连读，指向 UP 此前提示的哈药股份(600664)方向兑现涨停，属马前炮跟踪记录；具体买卖观点、仓位与逻辑无法确认，仅作主题级留痕，后续若获得可用转写应重新提取。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 卢本圆复盘 2026-09-02 早盘视频讨论医药哈药并称再吃涨停
+  related_stocks:
+  - code: '600664'
+    name: 哈药股份
+    role: 医药主板标的-沪A可交易
+  tags:
+  - 卢本圆复盘
+  - 哈药股份
+  - 医药
+  - 马前炮
+  - 涨停
+- id: claim-20260902-005-2
+  source_path: sources/original/bilibili/2026-09-02-0818-视频-早安 宝宝们.md
+  source_date: '2026-09-02'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-15T12:23:03Z'
+  claim_type: sector-theme
+  subject: AI漫剧
+  timeframe: short-term
+  statement: 卢本圆复盘在 2026-09-02 早盘视频中将 AI 应用方向的漫剧列为讨论主题
+  evidence_quote: 再吃涨停，聊聊医药 哈药，AI应用 漫剧，马前炮！
+  interpretation: 该视频 ASR 转写失败（模型拒绝：The request was rejected because it was considered
+    high risk），正文观点不可得，仅能依据视频标题提取。标题显示 UP 当日关注 AI 应用侧的漫剧细分方向并以马前炮定位，但具体标的多空观点与逻辑无法确认，仅作主题级留痕，后续若获得可用转写应重新提取。
+  confidence: low
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 卢本圆复盘 2026-09-02 早盘视频关注 AI 应用漫剧方向
+  related_stocks: []
+  tags:
+  - 卢本圆复盘
+  - AI应用
+  - 漫剧
+  - 马前炮
