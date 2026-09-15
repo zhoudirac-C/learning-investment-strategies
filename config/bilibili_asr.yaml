@@ -1,0 +1,35 @@
+# B站视频动态语音转写（ASR）配置
+#
+# 供 scripts/fetch_bilibili_up_v2.py（视频动态）与 scripts/bilibili_video_asr.py 使用。
+# 设计文档：docs/superpowers/specs/2026-09-15-bilibili-video-asr-design.md
+#
+# 关闭 ASR：enabled: false，或 CLI 加 --no-asr。
+
+enabled: true
+provider: openrouter
+model: xiaomi/mimo-v2.5
+api_key_env: CUSTOM_OPENROUTER_API_KEY   # 兜底：OPENROUTER_API_KEY
+api_base: https://openrouter.ai/api/v1
+
+audio:
+  format: wav
+  sample_rate: 16000
+  channels: 1
+  encode: mp3          # 上传前转 mp3 降体积
+  bitrate: 32k
+  max_base64_mb: 10    # 超限切段
+  segment_seconds: 240 # 保守分块（每条 5 分钟视频约 2 段）
+
+timeout:
+  download: 60
+  transcribe: 180
+
+retry:
+  max_attempts: 3
+  backoff_seconds: [5, 15, 45]
+
+# 成本估算：mimo-v2.5 实测 85 分钟 ≈ ¥0.13 → 约 2.55e-5 元/秒
+cost_guard:
+  daily_limit_cny: 5.0
+  cny_per_second: 0.0000255
+  log_file: logs/bilibili_asr.jsonl

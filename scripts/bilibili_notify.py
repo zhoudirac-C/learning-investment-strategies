@@ -56,6 +56,8 @@ from fetch_bilibili_up_v2 import (
     original_dir,
     repo_root,
     build_index,
+    maybe_asr_video,
+    asr_mod,
 )
 
 # B站 claims 去重器
@@ -237,6 +239,8 @@ def process_up(
     since_ts: float | None = None,
     backfill: bool = False,
     force: bool = False,
+    enable_asr: bool = True,
+    asr_cfg: dict | None = None,
 ) -> tuple[list[Path], dict[str, bool]]:
     """拉取单个 UP 的动态，返回 (saved_files, {filepath: is_new})。
 
@@ -347,13 +351,21 @@ def process_up(
             if ocr_results:
                 ocr_text = "\n\n".join(ocr_results)
 
+            # 视频动态：语音转写（增强，失败不阻塞落盘）
+            asr_text = ""
+            asr_meta = None
+            if enable_asr and dyn_type == "视频":
+                asr_text, asr_meta = maybe_asr_video(item, sessdata, asr_cfg, dynamic_id)
+
             filepath = save_dynamic_to_file(
                 item, uid, dynamic_id,
                 detail_data=detail_data,
                 top_comment=top_comment,
                 ocr_text=ocr_text,
+                asr_text=asr_text,
                 is_only_fans=is_only_fans,
                 sessdata=sessdata,
+                asr_meta=asr_meta,
             )
             saved_files.append(filepath)
             processed_ids.add(dynamic_id)
@@ -459,6 +471,7 @@ def main() -> int:
                         help="历史补录模式：不受 max_fetch 限制，且不触发静默初始化")
     parser.add_argument("--force", action="store_true",
                         help="忽略 processed_ids 去重（历史补录需真正落盘时用）")
+    parser.add_argument("--no-asr", action="store_true", help="禁用视频语音转写")
     args = parser.parse_args()
 
     since_ts = None
@@ -504,6 +517,22 @@ def main() -> int:
             {"uid": target, "name": target, "enabled": True}
         ]
 
+    # ASR 启动预检：读取 config/bilibili_asr.yaml（缺失用内置默认值，不硬失败）；
+    # 模块不可用 / ffmpeg 缺失 / 配置禁用 → 整体禁用并告警
+    enable_asr = not args.no_asr
+    asr_cfg = None
+    if enable_asr:
+        if asr_mod is None:
+            print("WARN: ASR 模块不可用，视频转写已禁用", file=sys.stderr)
+            enable_asr = False
+        elif not asr_mod.check_ffmpeg():
+            print("WARN: ffmpeg 未安装，ASR 整体禁用", file=sys.stderr)
+            enable_asr = False
+        else:
+            asr_cfg = asr_mod.load_config()
+            if not asr_cfg.get("enabled", True):
+                enable_asr = False
+
     state_path = args.state_file or STATE_PATH
     state = _normalize_state(load_state(state_path))
 
@@ -523,6 +552,7 @@ def main() -> int:
                 up, sessdata, state, dedup,
                 check_only=args.check_only, max_fetch=args.max_fetch,
                 since_ts=since_ts, backfill=args.backfill, force=args.force,
+                enable_asr=enable_asr, asr_cfg=asr_cfg,
             )
         except SystemExit:
             continue

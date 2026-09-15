@@ -29,6 +29,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+# ASR 模块（视频动态语音转写）：不可用时 ASR 自动禁用，不影响主流程
+try:
+    from scripts import bilibili_video_asr as asr_mod
+except ImportError:  # 以脚本方式直接运行（sys.path[0] 为 scripts/）
+    try:
+        import bilibili_video_asr as asr_mod  # type: ignore[no-redef]
+    except ImportError:
+        asr_mod = None  # type: ignore[assignment]
+
 
 # ── 配置 ──────────────────────────────────────────────────────────
 
@@ -689,6 +698,51 @@ def _merge_detail(item: dict, detail_data: dict) -> dict:
     return merged
 
 
+def build_asr_section(asr_text: str, meta: dict | None = None) -> list[str]:
+    """构造 ## 视频转写 段（含模型/时长/转写时间元信息）。"""
+    meta = meta or {}
+    model = meta.get("model", "")
+    duration = meta.get("duration", "")
+    ts = meta.get("ts") or datetime.now().isoformat(timespec="minutes")
+    lines = ["## 视频转写", ""]
+    if model or duration:
+        lines.append(f"> 模型：{model} | 时长：{duration} | 转写时间：{ts}")
+        lines.append("")
+    lines.append(asr_text)
+    lines.append("")
+    return lines
+
+
+def maybe_asr_video(
+    item: dict,
+    sessdata: str,
+    asr_cfg: dict | None,
+    dynamic_id: str = "",
+) -> tuple[str, dict | None]:
+    """视频动态语音转写入口。返回 (asr_text, asr_meta)。
+
+    ASR 是增强不是必需：任何失败只降级为文本标注，绝不抛出。
+    asr_cfg 为 None / enabled=False / 无 BV 号时返回标注文本。
+    """
+    video_info = extract_video_info(item)
+    meta = {
+        "model": (asr_cfg or {}).get("model", ""),
+        "duration": video_info.get("duration", ""),
+    }
+    if not video_info.get("bvid"):
+        return "[ASR跳过: 无BV号]", meta
+    if asr_mod is None or not asr_cfg or not asr_cfg.get("enabled", True):
+        return "", meta
+    try:
+        text = asr_mod.asr_video(item, asr_cfg, sessdata)
+    except Exception as exc:  # noqa: BLE001 - ASR 失败绝不中断主流程
+        print(f"WARN: ASR 失败 {dynamic_id}: {exc}", file=sys.stderr)
+        text = ""
+    if not text:
+        text = "[ASR失败: 转写不可用，详见 stderr 日志]"
+    return text, meta
+
+
 def save_dynamic_to_file(
     item: dict,
     uid: str,
@@ -696,11 +750,13 @@ def save_dynamic_to_file(
     detail_data: dict | None = None,
     top_comment: dict | None = None,
     ocr_text: str = "",
+    asr_text: str = "",
     *,
     is_only_fans: bool = False,
     sessdata: str = "",
     screenshot_path: Path | None = None,
     playwright_pics: list[str] | None = None,
+    asr_meta: dict | None = None,
 ) -> Path:
     if detail_data:
         item = _merge_detail(item, detail_data)
@@ -771,6 +827,10 @@ def save_dynamic_to_file(
     video_info = extract_video_info(item)
     if text:
         lines.append(text)
+        # 视频类型总是写 BV 号（此前仅无正文时才写，会漏掉有正文的视频动态）
+        if dyn_type == "视频" and video_info.get("bvid"):
+            lines.append("")
+            lines.append(f"- BV号：{video_info['bvid']}")
     elif video_info:
         lines.append(f"**视频：{video_info.get('title', '')}**")
         lines.append(f"- BV号：{video_info.get('bvid', '')}")
@@ -781,6 +841,10 @@ def save_dynamic_to_file(
         lines.append("（无文字内容）")
 
     lines.append("")
+
+    # 视频语音转写
+    if asr_text:
+        lines.extend(build_asr_section(asr_text, asr_meta))
 
     # OCR 结果
     if ocr_text:
@@ -860,6 +924,68 @@ def save_dynamic_to_file(
     filepath.write_text("\n".join(lines), encoding="utf-8")
 
     return filepath
+
+
+# ── ASR 回填 ──────────────────────────────────────────────────────
+
+def _extract_embedded_item(text: str) -> dict | None:
+    """从 raw markdown 尾部的 HTML 注释块解析原始 API item JSON。"""
+    m = re.search(r"## 原始API数据.*?```json\s*(.*?)```", text, re.S)
+    if not m:
+        return None
+    try:
+        return json.loads(m.group(1))
+    except json.JSONDecodeError:
+        return None
+
+
+def _insert_asr_section(filepath: Path, section_lines: list[str]) -> None:
+    """把 ## 视频转写 段插到 ## 原文 段之后（下一个二级标题之前）。"""
+    lines = filepath.read_text(encoding="utf-8").splitlines()
+    try:
+        start = lines.index("## 原文")
+    except ValueError:
+        return
+    insert_at = len(lines)
+    for i in range(start + 1, len(lines)):
+        if lines[i].startswith("## "):
+            insert_at = i
+            break
+    block = list(section_lines)
+    if insert_at > 0 and lines[insert_at - 1].strip():
+        block.insert(0, "")
+    new_lines = lines[:insert_at] + block + lines[insert_at:]
+    filepath.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
+
+
+def backfill_video_asr(
+    sessdata: str,
+    asr_cfg: dict,
+    max_items: int | None = None,
+) -> list[Path]:
+    """对已有视频类 raw 补跑 ASR，写入 ## 视频转写 段。返回更新的文件列表。"""
+    updated: list[Path] = []
+    if asr_mod is None:
+        print("ERROR: ASR 模块不可用", file=sys.stderr)
+        return updated
+    for md in sorted(original_dir().glob("*.md")):
+        text = md.read_text(encoding="utf-8")
+        if 'dynamic_type: "视频"' not in text or "## 视频转写" in text:
+            continue
+        item = _extract_embedded_item(text)
+        if not item:
+            print(f"WARN: {md.name} 无嵌入 JSON，跳过", file=sys.stderr)
+            continue
+        asr_text, meta = maybe_asr_video(item, sessdata, asr_cfg, md.stem)
+        if not asr_text or asr_text.startswith("[ASR"):
+            print(f"WARN: {md.name} ASR 不可用（{asr_text or '未启用'}），跳过", file=sys.stderr)
+            continue
+        _insert_asr_section(md, build_asr_section(asr_text, meta))
+        updated.append(md)
+        print(f"INFO: ASR 回填完成 {md.name}", file=sys.stderr)
+        if max_items and len(updated) >= max_items:
+            break
+    return updated
 
 
 # ── Index 生成 ────────────────────────────────────────────────────
@@ -955,10 +1081,26 @@ def run(
     extract_pics: bool = False,
     enable_ocr: bool = True,
     enable_comment: bool = True,
+    enable_asr: bool = True,
+    asr_cfg: dict | None = None,
 ) -> list[Path]:
     """拉取动态，返回新保存的文件路径列表。"""
     saved_files: list[Path] = []
     processed_ids: set = set(state.get("processed_ids", []))
+
+    # ASR 启动预检：ffmpeg 缺失 / 配置禁用 / 模块不可用 → 整体禁用并告警
+    if enable_asr:
+        if asr_mod is None:
+            print("WARN: ASR 模块不可用，视频转写已禁用", file=sys.stderr)
+            enable_asr = False
+        elif not asr_mod.check_ffmpeg():
+            print("WARN: ffmpeg 未安装，ASR 整体禁用", file=sys.stderr)
+            enable_asr = False
+        else:
+            if asr_cfg is None:
+                asr_cfg = asr_mod.load_config()
+            if not asr_cfg.get("enabled", True):
+                enable_asr = False
 
     # 拉取动态列表
     try:
@@ -1054,15 +1196,23 @@ def run(
                     if not ocr_text and screenshot_path and screenshot_path.exists():
                         ocr_text = ocr_image(screenshot_path)
 
+            # 视频动态：语音转写（增强，失败不阻塞落盘）
+            asr_text = ""
+            asr_meta = None
+            if enable_asr and classify_dynamic_type(item) == "视频":
+                asr_text, asr_meta = maybe_asr_video(item, sessdata, asr_cfg, dynamic_id)
+
             filepath = save_dynamic_to_file(
                 item, uid, dynamic_id,
                 detail_data=detail_data,
                 top_comment=top_comment,
                 ocr_text=ocr_text,
+                asr_text=asr_text,
                 is_only_fans=is_only_fans,
                 sessdata=sessdata,
                 screenshot_path=screenshot_path,
                 playwright_pics=playwright_pics,
+                asr_meta=asr_meta,
             )
             saved_files.append(filepath)
             processed_ids.add(dynamic_id)
@@ -1110,11 +1260,29 @@ def main() -> int:
     parser.add_argument("--extract-pics", action="store_true", help="用Playwright提取充电专属动态的图片URL")
     parser.add_argument("--no-ocr", action="store_true", help="禁用 OCR")
     parser.add_argument("--no-comment", action="store_true", help="禁用评论获取")
+    parser.add_argument("--no-asr", action="store_true", help="禁用视频语音转写")
+    parser.add_argument("--asr-backfill", action="store_true", help="对已有视频动态 raw 补跑 ASR 后退出")
+    parser.add_argument("--asr-model", help="覆盖 ASR 模型（默认读 config/bilibili_asr.yaml）")
     args = parser.parse_args()
 
     if not args.sessdata:
         print("ERROR: 需要提供 BILIBILI_SESSDATA 环境变量或 --sessdata 参数", file=sys.stderr)
         return 1
+
+    asr_cfg = None
+    if asr_mod is not None and (not args.no_asr or args.asr_backfill):
+        asr_cfg = asr_mod.load_config()
+        if args.asr_model:
+            asr_cfg["model"] = args.asr_model
+
+    if args.asr_backfill:
+        if asr_mod is None:
+            print("ERROR: ASR 模块不可用，无法回填", file=sys.stderr)
+            return 1
+        updated = backfill_video_asr(args.sessdata, asr_cfg)
+        for filepath in updated:
+            print(f"ASR_BACKFILL: {filepath.relative_to(repo_root())}")
+        return 0
 
     if args.state_file:
         state_path = args.state_file
@@ -1134,6 +1302,8 @@ def main() -> int:
         extract_pics=args.extract_pics,
         enable_ocr=not args.no_ocr,
         enable_comment=not args.no_comment,
+        enable_asr=not args.no_asr,
+        asr_cfg=asr_cfg,
     )
 
     for filepath in saved:
