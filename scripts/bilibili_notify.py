@@ -432,11 +432,26 @@ def render_notification(filepath: Path, up_name: str, is_new: bool) -> str:
         elif line.startswith("url:"):
             url = line.split(":", 1)[1].strip().strip('"')
 
-    text_start = content.find("## 原文\n\n")
-    text_end = content.find("\n\n## 图片 OCR") if "## 图片 OCR" in content else content.find("\n\n## 图片")
+    _TEXT_MARKER = "## 原文\n\n"
+    text_start = content.find(_TEXT_MARKER)
+    # 2026-09-16 修复（两个 bug 一起）：
+    #  bug 1 — 原终止符只用 `## 图片 OCR` / `## 图片`，导致「无图纯文字动态」
+    #          （正文后紧跟 `## 互动数据`）匹配不到 → text_end = -1 → 正文静默丢弃。
+    #          实测影响 70 个 raw，其中 10 个含实质正文（最大 10007 字的复盘专栏）。
+    #  bug 2 — 偏移量硬编码为 +9，但 `len("## 原文\n\n")` 只有 7 → 每条通知正文
+    #          都被静默吃掉前 2 个字符（如本条「周一视频…」被截成「视频…」）。
+    #  修复：用 marker 长度而非魔法数字；终止符改为「原文段之后的下一个 `## ` 标题」，
+    #  若无后续标题则取到文件末尾，并剥离尾部 HTML 注释（原始 API JSON）。
+    text_end = -1
+    if text_start > 0:
+        body_start = text_start + len(_TEXT_MARKER)
+        nxt = re.search(r"\n\n## ", content[body_start:])
+        text_end = body_start + nxt.start() if nxt else len(content)
     raw_text = ""
     if text_start > 0 and text_end > text_start:
-        raw_text = content[text_start + 9:text_end].strip()
+        raw_text = content[text_start + len(_TEXT_MARKER):text_end].strip()
+        # 剥离尾部 HTML 注释（原始 API 数据块）
+        raw_text = re.sub(r"\n*<!--.*$", "", raw_text, flags=re.S).strip()
 
     msg = f"📢 **{up_name} 新动态**\n\n"
     if not is_new:
