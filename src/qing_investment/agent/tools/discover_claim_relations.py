@@ -40,7 +40,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 import numpy as np
 from qing_investment.agent.tools.neo4j_client import Neo4jClient
-from qing_investment.agent.tools.llm_client import get_embedding_model, get_llm_client, get_llm_client_with_fallback
+from qing_investment.agent.tools.llm_client import SENSENOVA_FALLBACK_MODELS, get_embedding_model, get_llm_client, get_llm_client_with_fallback
 from qing_investment.agent.tools.qdrant_client import QdrantClientWrapper
 
 COLLECTION = "qing_claims"
@@ -443,7 +443,12 @@ def main():
     qdrant = QdrantClientWrapper()
     neo4j = Neo4jClient()
     emb_model = get_embedding_model()
-    llm = get_llm_client_with_fallback()
+    # 2026-09-16：主通道切 workbuddy deepseek-v4.1-flash（Hermes 本地代理 8317，
+    # 不限流），同代理 glm-5.3-flash 次之，sensenova 链仅作末位兜底。
+    llm = get_llm_client_with_fallback(
+        provider="workbuddy",
+        fallback_models=["workbuddy:glm-5.3-flash", *SENSENOVA_FALLBACK_MODELS],
+    )
 
     # Collect claims to process
     to_process: list[tuple[Path, dict]] = []

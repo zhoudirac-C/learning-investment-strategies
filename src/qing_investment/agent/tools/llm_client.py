@@ -168,6 +168,15 @@ LLM_PROVIDERS: dict[str, dict[str, Any]] = {
         "default_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
         "api_key_env": "TOGETHER_API_KEY",
     },
+    # 2026-09-16：workbuddy——Hermes 本地代理（127.0.0.1:8317）上的自定义 provider
+    # （对应 ~/.hermes/config.yaml 的 providers.custom_workbuddy）。
+    # deepseek-v4.1-flash 不限流，供 discover 等批量任务绕过 sensenova 配额。
+    # key 不复制到项目 .env，由 _get_provider_api_key 从 ~/.hermes/.env 读取。
+    "workbuddy": {
+        "base_url": "http://127.0.0.1:8317/v1",
+        "default_model": "deepseek-v4.1-flash",
+        "api_key_env": "CUSTOM_WORKBUDDY_API_KEY",
+    },
     # 2026-09-03：discover 改用 Hermes 全局模型（跟随 ~/.hermes/config.yaml 的
     # model.default，与 cron 调度器、chain_tracker 走同一个 resolve_runtime_provider）。
     # base_url/api_key/default_model 留空——运行时由 _resolve_hermes_global() 注入；
@@ -239,6 +248,34 @@ def _resolve_hermes_global() -> dict | None:
 _embedding_model = None
 
 
+# ~/.hermes/.env 解析缓存（进程内只读一次）
+_HERMES_ENV_CACHE: dict[str, str] | None = None
+
+
+def _get_provider_api_key(settings_obj: Any, api_key_env: str) -> str | None:
+    """按优先级取 provider key：项目 Settings → 进程环境 → ~/.hermes/.env。
+
+    第三级兜底为 Hermes 管理的 key（如 CUSTOM_WORKBUDDY_API_KEY）提供来源，
+    避免把同一份 secret 复制进项目 .env。
+    """
+    key = getattr(settings_obj, api_key_env.lower(), None) or os.environ.get(api_key_env)
+    if key:
+        return key
+    global _HERMES_ENV_CACHE
+    if _HERMES_ENV_CACHE is None:
+        _HERMES_ENV_CACHE = {}
+        from pathlib import Path
+
+        hermes_env = Path.home() / ".hermes" / ".env"
+        if hermes_env.is_file():
+            for line in hermes_env.read_text().splitlines():
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    k, _, v = line.partition("=")
+                    _HERMES_ENV_CACHE[k.strip()] = v.strip().strip("\"'")
+    return _HERMES_ENV_CACHE.get(api_key_env) or None
+
+
 
 # Fallback 链：主 provider 失败时自动切换（2026-08-27 新增）
 # 2026-09-01：支持 "provider:model" 跨 provider 条目（sensenova 平台配额耗尽，
@@ -277,10 +314,7 @@ def get_llm_client_with_fallback(
         if fb_provider == (provider or settings.llm_provider or "").lower() and fb_model == primary_model:
             continue
         fb_cfg = LLM_PROVIDERS[fb_provider]
-        fb_api_key = (
-            getattr(settings, fb_cfg["api_key_env"].lower(), None)
-            or os.environ.get(fb_cfg["api_key_env"])
-        )
+        fb_api_key = _get_provider_api_key(settings, fb_cfg["api_key_env"])
         clients.append(ChatOpenAI(
             model=fb_model,
             api_key=fb_api_key,
@@ -384,10 +418,7 @@ def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -
             )
 
     config = LLM_PROVIDERS[target]
-    api_key = (
-        getattr(settings, config["api_key_env"].lower(), None)
-        or os.environ.get(config["api_key_env"])
-    )
+    api_key = _get_provider_api_key(settings, config["api_key_env"])
     base_url = settings.llm_base_url or config["base_url"]
     # 2026-08-24 修复：LLM_MODEL 是主 provider 的模型名（如 stealth/ox-alpha），
     # 不能透传给 fallback provider——deepseek 收到会报 400 invalid model name。
@@ -401,7 +432,7 @@ def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -
     if not api_key:
         raise ValueError(
             f"Provider '{target}' requires {config['api_key_env']}. "
-            f"Set it in .env or environment variable."
+            f"Set it in .env, environment variable, or ~/.hermes/.env."
         )
 
     # Kimi Coding Plan 走 Anthropic 协议 → 返回专用客户端
