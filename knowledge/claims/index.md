@@ -464,23 +464,31 @@
 - [claim-20260814-001.yaml](claim-20260814-001.yaml)
 - [claim-20260814-002.yaml](claim-20260814-002.yaml)
 - [claim-20260816-001.yaml](claim-20260816-001.yaml)
+- [claim-20260816-002.yaml](claim-20260816-002.yaml)
+- [claim-20260816-003.yaml](claim-20260816-003.yaml)
 - [claim-20260817-001.yaml](claim-20260817-001.yaml)
 - [claim-20260817-002.yaml](claim-20260817-002.yaml)
 - [claim-20260817-003.yaml](claim-20260817-003.yaml)
+- [claim-20260817-004.yaml](claim-20260817-004.yaml)
 - [claim-20260818-001.yaml](claim-20260818-001.yaml)
 - [claim-20260818-002.yaml](claim-20260818-002.yaml)
 - [claim-20260818-003.yaml](claim-20260818-003.yaml)
 - [claim-20260818-004.yaml](claim-20260818-004.yaml)
+- [claim-20260818-005.yaml](claim-20260818-005.yaml)
 - [claim-20260819-001.yaml](claim-20260819-001.yaml)
 - [claim-20260819-002.yaml](claim-20260819-002.yaml)
 - [claim-20260819-003.yaml](claim-20260819-003.yaml)
 - [claim-20260819-004.yaml](claim-20260819-004.yaml)
 - [claim-20260819-005.yaml](claim-20260819-005.yaml)
+- [claim-20260819-006.yaml](claim-20260819-006.yaml)
+- [claim-20260819-007.yaml](claim-20260819-007.yaml)
 - [claim-20260820-001.yaml](claim-20260820-001.yaml)
 - [claim-20260820-002.yaml](claim-20260820-002.yaml)
 - [claim-20260820-003.yaml](claim-20260820-003.yaml)
 - [claim-20260821-001.yaml](claim-20260821-001.yaml)
 - [claim-20260821-002.yaml](claim-20260821-002.yaml)
+- [claim-20260821-003.yaml](claim-20260821-003.yaml)
+- [claim-20260823-001.yaml](claim-20260823-001.yaml)
 - [claim-20260824-001.yaml](claim-20260824-001.yaml)
 - [claim-20260824-002.yaml](claim-20260824-002.yaml)
 - [claim-20260824-003.yaml](claim-20260824-003.yaml)
@@ -490,14 +498,19 @@
 - [claim-20260826-001.yaml](claim-20260826-001.yaml)
 - [claim-20260826-002.yaml](claim-20260826-002.yaml)
 - [claim-20260826-003.yaml](claim-20260826-003.yaml)
+- [claim-20260826-004.yaml](claim-20260826-004.yaml)
+- [claim-20260826-005.yaml](claim-20260826-005.yaml)
 - [claim-20260827-001.yaml](claim-20260827-001.yaml)
 - [claim-20260827-002.yaml](claim-20260827-002.yaml)
 - [claim-20260827-003.yaml](claim-20260827-003.yaml)
 - [claim-20260827-004.yaml](claim-20260827-004.yaml)
 - [claim-20260827-005.yaml](claim-20260827-005.yaml)
 - [claim-20260827-006.yaml](claim-20260827-006.yaml)
+- [claim-20260827-007.yaml](claim-20260827-007.yaml)
 - [claim-20260828-001.yaml](claim-20260828-001.yaml)
 - [claim-20260828-002.yaml](claim-20260828-002.yaml)
+- [claim-20260828-003.yaml](claim-20260828-003.yaml)
+- [claim-20260829-001.yaml](claim-20260829-001.yaml)
 - [claim-20260830-001.yaml](claim-20260830-001.yaml)
 - [claim-20260831-001.yaml](claim-20260831-001.yaml)
 - [claim-20260831-002.yaml](claim-20260831-002.yaml)
@@ -510,13 +523,18 @@
 - [claim-20260901-004.yaml](claim-20260901-004.yaml)
 - [claim-20260901-005.yaml](claim-20260901-005.yaml)
 - [claim-20260901-006.yaml](claim-20260901-006.yaml)
+- [claim-20260901-007.yaml](claim-20260901-007.yaml)
+- [claim-20260901-008.yaml](claim-20260901-008.yaml)
 - [claim-20260902-001.yaml](claim-20260902-001.yaml)
 - [claim-20260902-002.yaml](claim-20260902-002.yaml)
 - [claim-20260902-003.yaml](claim-20260902-003.yaml)
 - [claim-20260902-004.yaml](claim-20260902-004.yaml)
+- [claim-20260902-005.yaml](claim-20260902-005.yaml)
 - [claim-20260903-001.yaml](claim-20260903-001.yaml)
 - [claim-20260903-002.yaml](claim-20260903-002.yaml)
 - [claim-20260903-003.yaml](claim-20260903-003.yaml)
+- [claim-20260903-004.yaml](claim-20260903-004.yaml)
+- [claim-20260903-005.yaml](claim-20260903-005.yaml)
 - [claim-20260904-001.yaml](claim-20260904-001.yaml)
 - [claim-20260904-002.yaml](claim-20260904-002.yaml)
 - [claim-20260904-003.yaml](claim-20260904-003.yaml)
@@ -556,272 +574,34 @@
 - [claim-20260904-037.yaml](claim-20260904-037.yaml)
 - [claim-20260904-038.yaml](claim-20260904-038.yaml)
 - [claim-20260904-039.yaml](claim-20260904-039.yaml)
+- [claim-20260904-040.yaml](claim-20260904-040.yaml)
+- [claim-20260905-001.yaml](claim-20260905-001.yaml)
 - [claim-20260906-001.yaml](claim-20260906-001.yaml)
+- [claim-20260906-002.yaml](claim-20260906-002.yaml)
+- [claim-20260906-003.yaml](claim-20260906-003.yaml)
+- [claim-20260906-004.yaml](claim-20260906-004.yaml)
 - [claim-20260907-001.yaml](claim-20260907-001.yaml)
-
-### 2026-09-07-002
 - [claim-20260907-002.yaml](claim-20260907-002.yaml)
-- claim-20260907-040-a（stock-view）：热门评论——海外链最大预期做双头（博弈仓位），国产链星辰大海（中期主线）
-### 2026-09-07-003
 - [claim-20260907-003.yaml](claim-20260907-003.yaml)
-- claim-20260907-041-a（market-cycle）：9/7久违结构性反弹阳线=存量调仓而非增量进场，持续性需新动量喂养
-- claim-20260907-041-b（technical-signal）：双创与沪指背离=结构切换vs超跌反抽的核心判定信号，背离前只观察不押注
-- claim-20260907-041-c（sector-theme）：科技反弹结构分层——算力硬件独攻、半导体被动补涨、AI应用分歧待龙版传媒考验
-- claim-20260907-041-d（sector-theme）：农业涨价链扩散至食品消费不受科技虹吸，与科技构成双主线互为对冲
-- claim-20260907-041-e（catalyst）：光通信是唯一预期/订单/政策三维度同时强化的科技子方向（十五五规划+高盛上调+特发信息/天孚交付）
-- claim-20260907-041-f（sector-theme）：机器人定价锚从故事转向订单（特斯拉批量Optimus大单+三星CES2027），板块按有无订单分化
-- claim-20260907-041-g（stock-view）：集泰股份(002909)液冷硅油=散热支线尚未充分定价，右侧前只记录不动作
-- claim-20260907-041-h（market-cycle）：9/11 CPI两情形推演——判据=AI硬件业绩能否对冲利率抬升（外力扰动vs内生回调）
-- claim-20260907-041-i（operation）：量能不支持追高，右侧确认三条件（背离维持/科技补量/涨价链前端）前维持观察
-- claim-20260907-041-j（stock-view）：海欣食品(002702)=涨价链末端补涨，前端转弱末端最先退潮
-### 2026-09-08-001
+- [claim-20260907-004.yaml](claim-20260907-004.yaml)
+- [claim-20260907-005.yaml](claim-20260907-005.yaml)
 - [claim-20260908-001.yaml](claim-20260908-001.yaml)
-- claim-20260908-001-a（market-cycle）：9/7反弹=外力(美股AI大涨)+内力(四连阴数学优势)合力，位置更低跟涨更紧
-- claim-20260908-001-b（market-cycle）：数学优势转移至四连阴沪指，CPI前情绪有支撑
-- claim-20260908-001-c（technical-signal）：剑桥科技(603083)筹码=两情形分水岭，今日最核心观察点
-- claim-20260908-001-d（risk）：缺新叙事（华为芯片/3D打印被摁）=反弹持续性上限，审美疲劳风险
-- claim-20260908-001-e（sector-theme）：泛农业零分歧加速很可能一波到底，等分歧看承接
-- claim-20260908-001-f（catalyst）：GPT-6 Astra+高盛上调+CPO设备缺货，增量利润向上游光芯片迁移
-- claim-20260908-001-g（sector-theme）：人形机器人（宇树全自主搏击+T链加单）=新叙事空档候选，待量价确认
-- claim-20260908-001-h（sector-theme）：白糖=农业链更低位新方向（泰国减产17%+周期底部）
-- claim-20260908-001-i（operation）：量能/大金融/情绪三要素，核心看缩量回踩抛压
-- claim-20260908-001-i2（technical-knowledge）：长光华芯(688048)纪要EML/CW产能三位数连环扩张，设备比衬底更紧
-### 2026-09-08-002
 - [claim-20260908-002.yaml](claim-20260908-002.yaml)
-- claim-20260908-002-a（catalyst）：FT报道长鑫/长江囤足3年DUV——国产存储扩产产能瓶颈解除（转图，FT引文）
-- claim-20260908-002-b（risk）：国产DUV机台≠制造能力，缺fab全流程配套；ASML护城河在与台积电的工艺协同（北方华创(002371)/中微(688012)为已验证设备逻辑）
-### 2026-09-08-003
 - [claim-20260908-003.yaml](claim-20260908-003.yaml)
-- claim-20260908-003-a（market-cycle）：9/8指数分化量能持平，3400家上涨与指数下跌并存=存量结构调整
-- claim-20260908-003-b（technical-signal）：沪指红盘不等于科技调整完成，龙版传媒(605577)未晋级
-- claim-20260908-003-c（market-cycle）：分歧后修复三条件——断板止跌/农业前排承接/科技权重收窄
-- claim-20260908-003-d（methodology）：归因多元化+位置识别+量价确认，拒绝预设调整时长
-- claim-20260908-003-e（sector-theme）：科技内部硬件回调应用补涨并存，非主线全面回归
-- claim-20260908-003-f（catalyst）：DeepSeek内测/三星封装APL/高通亚马逊1.6T三条催化次日跟踪
-- claim-20260908-003-g（sector-theme）：农业扩散至化肥农药与消费端，化肥涨停潮
-- claim-20260908-003-h（sector-theme）：农业持续性由核心标的换手质量验证，非涨停家数
-- claim-20260908-003-i（sector-theme）：周期走强=资金轮动承接，非稳定防御
-- claim-20260908-003-j（sector-theme）：CRO单股涨停不足以确认行业切换
-- claim-20260908-003-k（stock-view）：中粮糖业(600737)糖价催化，缺口测算口径分歧≠一致预期
-- claim-20260908-003-l（stock-view）：读者传媒(603999)低位接力条件挂龙版传媒企稳
-- claim-20260908-003-m（stock-view）：上海电影(601595)AI内容热度→收入转化待验证
-- claim-20260908-003-n（stock-view）：深物业A(000011)政策预期与盈利修复有距离
-- claim-20260908-003-o（stock-view）：中京电子(002579)1.6T消息不等于入链
-- claim-20260908-003-p（stock-view）：金正大(002470)农业扩散短线关注，糖价≠肥料利润
-- claim-20260908-003-q（stock-view）：康盛股份(002418)/海鸥股份(603269)业务基础≠DeepSeek供货
-- claim-20260908-003-r（stock-view）：大族激光(002008)/汇成股份(688403)设备储备≠三星订单
-- claim-20260908-003-s（technical-knowledge）：机构席位净买卖24只统计（净卖15:净买9）
-- claim-20260908-003-t（catalyst）：DeepSeek V4.1-Flash内测，液冷需求需部署验证
-- claim-20260908-003-u（catalyst）：液冷Q3批量交付窗口+Rubin产业参照
-- claim-20260908-003-v（catalyst）：三星先进封装APL开所，5年400亿日元
-- claim-20260908-003-w（catalyst）：高通亚马逊1.6T合作范围待确认
-- claim-20260908-003-x（market-cycle）：明日基准情形先分歧再观察修复
-- claim-20260908-003-y（market-cycle）：9/11 CPI与9/15-16议息分两个定价节点
-- claim-20260908-003-z（market-cycle）：情形A修复确认与情形B分歧扩散推演
-### 2026-09-08-004（盘中动态 13:33）
 - [claim-20260908-004.yaml](claim-20260908-004.yaml)
-- claim-20260908-004-a（risk）：光博会召开前高盛等外资对光模块吹票力度过大，当前位置应保持谨慎，防利好落地变利空；大会虽有催化但不一定板块齐涨，判断依据主要是近期位置和涨跌幅
-- claim-20260908-004-b（methodology）：产业大会等事件催化不保证相关板块齐涨，不能凭事件关联直接推导上涨
-### 2026-09-09-001（盘前 08:35 + 盘中 10:27 + 11:07）
+- [claim-20260908-005.yaml](claim-20260908-005.yaml)
 - [claim-20260909-001.yaml](claim-20260909-001.yaml)
-- claim-20260909-001-a（macro）：美股科技强在Astra验证scaling law十万卡有效，但美债+油价压制，再这样美股要爆掉
-- claim-20260909-002-a（market-cycle）：A股节前效应+宏观压制涨不起来正常，时间还没到，降低预期见好就收
-- claim-20260909-003-a（sector-theme）：scaling law验证下国产GPU有行情，但当前不追光模块
-- claim-20260909-004-a（market-cycle）：难有大跌（基本面）也难有大涨（量能），区间震荡
-- claim-20260909-005-a（market-cycle）：行情类比去年12月洗盘——指数横盘个股大震荡，目的是洗出散户（普冉案例）
-- claim-20260909-006-a（sector-theme）：农业叙事否定——厄尔尼诺对A股农业公司几乎无影响+题材老+监管压制，无参与价值（contradicts 9/8泛农业/白糖）
-- claim-20260909-007-a（methodology）：普冉股份案例：12月一百多半年涨到九百，横盘期拿住主线个股
-- claim-20260909-008-a（operation）：不捡芝麻抱西瓜，震荡期=选股期，等行情来前准备好
-- claim-20260909-009-a（operation）：9月9日盘前持股观察预案，3906防守位三档执行条件（收盘破→减仓/回踩承接→做T/放量突破→持股）
-- claim-20260909-010-a（market-cycle）：指数上升趋势中整理，大级别顶部未确认，科技缩量磨底需时间（空间有限≠马上反弹）
-- claim-20260909-011-a（sector-theme）：缩量整理与放量下跌量能判据，缩量不代表见底
-- claim-20260909-012-a（catalyst）：9/11美国CPI（周五20:30盘后）前三个交易日定价观察窗口，数据窗口不豁免量价纪律
-
-### 2026-09-09-002（晚间复盘 22:03）
-- claim-20260909-013-a（market-cycle）：缩量震荡存量轮动，短线分歧出现仍处过渡阶段
-- claim-20260909-014-a（technical-signal）：指数承接与个股赚钱效应需分别验证，量价确认条件明确
-- claim-20260909-015-a（risk）：龙版传媒(605577)停牌核查扰动高位情绪，看亏钱效应是否扩散
-- claim-20260909-016-a（sector-theme）：科技内部强弱PCB光通信稍强，存储MLCC偏弱，半导体更弱
-- claim-20260909-017-a（methodology）：科技结束过渡需核心走强与板块扩散互证
-- claim-20260909-018-a（sector-theme）：农业延续性好但进入分歧检验，金健米业(600127)为锚点
-- claim-20260909-019-a（sector-theme）：传媒止跌与否是农业分歧强度的重要旁证
-- claim-20260909-020-a（catalyst）：煤炭航运军工黄金地缘异动，传导机制不同需分别验证
-- claim-20260909-021-a（sector-theme）：消费局部独立不代表回流，热点多但缺稳定接力
-- claim-20260909-022-a（catalyst）：9月10日金融发布会，数字货币仅是事件观察方向
-- claim-20260909-023-a（stock-view）：红棉股份(000523)糖业标签不等于纯度，开板看承接非强势确认
-- claim-20260909-024-a（stock-view）：洛轴股份(301699)机器人叙事证据未补齐
-- claim-20260909-025-a（stock-view）：红板科技(603459)mSAP技术口径不可拼接
-- claim-20260909-026-a（stock-view）：天通股份(600330)铌酸锂单晶量产不等于TFLN兑现
-- claim-20260909-027-a（stock-view）：正邦科技(002157)研究线索是重整加资产注入
-- claim-20260909-028-a（stock-view）：湖南黄金(002155)111.54吨资源量需审批后并入
-- claim-20260909-029-a（technical-signal）：机构净买入崇达技术(002815)湖南黄金(002155)，敦煌种业(600354)现卖压
-- claim-20260909-030-a（market-cycle）：明日基准震荡过渡，A承接修复B反复延长
-
-### 2026-09-10-001（早盘动态 08:52）
-- claim-20260910-001-a（technical-signal）：美股存储光通信逆势走强只给A股开盘溢价，持续性看量能承接
-- claim-20260910-002-a（market-cycle）：上升趋势缩量震荡定性不变，今日防守位3909
-- claim-20260910-003-a（market-cycle）：指数三要素框架：量能定性质、金融科技配合定扩散、放量有效性定进攻
-- claim-20260910-004-a（market-cycle）：今日三情形：高开承接修复/高开回落做T不加仓/防御转弱看资金去向
-- claim-20260910-005-a（sector-theme）：存储光通信为盘前主线，剑桥科技(603083)为情绪样本，看新分支
-- claim-20260910-006-a（catalyst）：DeepSeek V4.1 Flash与Meta Muse催化，接入不等于业绩
-- claim-20260910-007-a（catalyst）：动力煤984元/吨催化煤炭，盈利弹性与红利配置逻辑须分开
-- claim-20260910-008-a（sector-theme）：轮动健康度看新旧承接，旧题材快速退潮则赚钱效应缩短
-- claim-20260910-009-a（catalyst）：新适确得缺货仅限渠道价格，不能外推品类涨价与出厂价
-- claim-20260910-010-a（operation）：3909之上持有做T，触及最多减两成，数据前不加仓
-
-### 2026-09-10-001（晚间复盘 22:12，续号 011-030）
-- claim-20260910-011-a（market-cycle）：9月10日地量1.65万亿主题是等，观望式缩量需承接确认
-- claim-20260910-012-a（technical-knowledge）：量能周期路径框架：峰值4万亿至地量1.5-1.6万亿，地量不必然利空
-- claim-20260910-013-a（market-cycle）：周五看情绪修复窗口，下周一检验CPI承接，收盘前评估周末敞口
-- claim-20260910-014-a（sector-theme）：高股息是数据前避险落脚，船舶含订单周期因素不宜全归避险
-- claim-20260910-015-a（sector-theme）：科技分化：PCB相对强势CPO局部拉升芯片弱，企稳需核心标的+范围确认
-- claim-20260910-016-a（sector-theme）：半导体看海外链景气参考，右侧量价确认前不认定反转
-- claim-20260910-017-a（market-cycle）：回流质量三信号：核心先稳板块扩散回落有承接，尾盘抢筹透支次日需求
-- claim-20260910-018-a（stock-view）：桂林旅游(000978)是假期消费观察样本，预订数据不能等同最终客流收入
-- claim-20260910-019-a（stock-view）：云煤能源(600792)焦炭第五轮提涨落地，提涨可能是转嫁成本需验证价差
-- claim-20260910-020-a（stock-view）：国创高新(002377)沥青9月排产同比降42.9%，排产计划口径不等于已实现产量
-- claim-20260910-021-a（catalyst）：湖北十五五强调光通信存储芯片，规划方向不视作上市公司订单
-- claim-20260910-022-a（sector-theme）：光模块向1.6T演进利好四环节，1086亿美元预测口径待核实
-- claim-20260910-023-a（stock-view）：罗博特科(300757)ficonTEC布局光电组装测试，太辰光(300570)对应光无源器件
-- claim-20260910-024-a（catalyst）：高德ABot-Earth空间智能是情绪催化，硬件需求需验证训练推理负载
-- claim-20260910-025-a（stock-view）：华盛昌(002980)光通信测试覆盖100G至1.6T，深南电路(002916)是配套PCB非整机
-- claim-20260910-026-a（macro）：PPI 5.4不是关键，10年期美债4.90才是：市场承受力已到悬崖边
-- claim-20260910-027-a（macro）：CPI情景A温和=利空出尽回流，B超0.3=防御低开看承接，收盘前调仓
-- claim-20260910-028-a（macro）：美债高收益率=发债溢价手段，美日联手推日元，CPI后看美元与10Y背离
-- claim-20260910-029-a（methodology）：三层验证框架：催化定范围，订单利润验经营，量价承接验时点
-- claim-20260910-030-a（market-cycle）：修复判断三条件：成交改善亏钱效应收敛核心方向承接，缺席等右侧
-- [claim-20260911-001-001](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — market-cycle / 变盘倒计时三要素同时到位
-- [claim-20260911-001-002](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — market-cycle / 外围利空只反映在开盘定价看承接
-- [claim-20260911-001-003](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — market-cycle / 压缩方向选择与3909收盘价口径
-- [claim-20260911-001-004](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — market-cycle / 量能历史对标与9月下旬决胜窗口
-- [claim-20260911-001-005](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — market-cycle / 大金融高股息是避险配置非攻击信号
-- [claim-20260911-001-006](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — technical-signal / 跌得广跌得浅观望而非恐慌
-- [claim-20260911-001-007](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — market-cycle / 极端低迷是不破不立的前置条件
-- [claim-20260911-001-008](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — operation / CPI前夜两情形操作预案
-- [claim-20260911-001-009](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / 非科技股投机情绪第二次退潮
-- [claim-20260911-001-010](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / 科技股弱反弹磨时间
-- [claim-20260911-001-011](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / FCC靴子落地极端悲观假设未兑现
-- [claim-20260911-001-012](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / MLCC国产替代机会窗口
-- [claim-20260911-001-013](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — catalyst / eSIM是今日最值得盯的新题材
-- [claim-20260911-001-014](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / AI制药故事性强兑现周期最长
-- [claim-20260911-001-015](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / 旅游是非科技股中唯一有产业催化的方向
-- [claim-20260911-001-016](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — catalyst / 算力大会与PCB上游材料高端化
-- [claim-20260911-001-017](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — sector-theme / 机床全球上行周期持续至2027
-- [claim-20260911-001-018](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — catalyst / 甲骨文信号与算力大会内外呼应
-- [claim-20260911-001-019](sources/original/bilibili/2026-09-11-0905-专栏-指数横盘七个交易日、波幅极小，量能回到接近 1.6 万亿的地.md) — operation / 盘前操作纪律汇总
-- [claim-20260911-001-020](sources/original/bilibili/2026-09-11-0952-图片-市场还是太弱了，都这样了还杀不下来，从数据上看跌的挺多，但是.md) — market-cycle / 市场太弱但权重杀不下来的背离状态
-- [claim-20260911-001-021](sources/original/bilibili/2026-09-11-0952-图片-市场还是太弱了，都这样了还杀不下来，从数据上看跌的挺多，但是.md) — sector-theme / 科技已跌不动无需担心
-- [claim-20260911-001-022](sources/original/bilibili/2026-09-11-0952-图片-市场还是太弱了，都这样了还杀不下来，从数据上看跌的挺多，但是.md) — operation / 今日抄底者以上证拉不拉得起为减仓条件
-- [claim-20260911-001-023](sources/original/bilibili/2026-09-11-1118-图片-科创50,60分钟以上都出底部钝化了，120分钟底部钝化的级.md) — technical-signal / 科创50 60分钟以上全级别底部钝化 120分钟级别最大
-- [claim-20260911-001-024](sources/original/bilibili/2026-09-11-1118-图片-科创50,60分钟以上都出底部钝化了，120分钟底部钝化的级.md) — methodology / 市场绝望声中应兴奋 抓住危机才能走出来
-- [claim-20260911-001-025](sources/original/bilibili/2026-09-11-1333-图片-最好的剧本就是今天上证留下影线，如果收上去绿角线又没了，这样.md) — market-cycle / 最优剧本今日留影线 下周一低开高走收阳
-- [claim-20260911-001-026](sources/original/bilibili/2026-09-11-1333-图片-最好的剧本就是今天上证留下影线，如果收上去绿角线又没了，这样.md) — operation / 今日抄底赚一点或摊成本 无所谓
-- [claim-20260911-001-027](sources/original/bilibili/2026-09-11-1333-图片-最好的剧本就是今天上证留下影线，如果收上去绿角线又没了，这样.md) — market-cycle / 逻辑观点没有任何变化
-
-- [claim-20260913-001-001](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — market-cycle / 周五下探修复观察期
-- [claim-20260913-001-002](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — market-cycle / 9月11日收盘数据与放量普跌组合
-- [claim-20260913-001-003](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — market-cycle / 7月30日形态类比与二次探底判断权重
-- [claim-20260913-001-004](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — market-cycle / 创业板与沪指修复节奏分化预案
-- [claim-20260913-001-005](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — market-cycle / 美股科技外盘修复信号
-- [claim-20260913-001-006](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — technical-signal / 量能质量判别标准
-- [claim-20260913-001-007](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — technical-signal / 下个交易日量能验证标准
-- [claim-20260913-001-008](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — sector-theme / 大金融走弱约束沪指修复
-- [claim-20260913-001-009](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — market-cycle / 指数与个股情绪背离
-- [claim-20260913-001-010](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — macro / 美联储议息日程与加息情景
-- [claim-20260913-001-011](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — macro / 美国8月CPI结构解读
-- [claim-20260913-001-012](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — macro / 决议后四种结果组合推演
-- [claim-20260913-001-013](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — macro / 长端利率期限溢价与AI融资需求
-- [claim-20260913-001-014](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — macro / 债券定价数值示例与见底误区
-- [claim-20260913-001-015](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — macro / 欧央行加息25bp
-- [claim-20260913-001-016](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — market-cycle / 两个观察窗口时间表
-- [claim-20260913-001-017](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — operation / 情形A修复延续并向科技扩散
-- [claim-20260913-001-018](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — operation / 情形B冲高回落或外部压力再起
-- [claim-20260913-001-019](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — sector-theme / 题材情绪观察指标组
-- [claim-20260913-001-020](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — sector-theme / 非科技股资金分流风险
-- [claim-20260913-001-021](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — sector-theme / MLCC与PCB线索及半导体跟随定位
-- [claim-20260913-001-022](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — methodology / 盈利兑现与估值承受力
-- [claim-20260913-001-023](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — stock-view / 双星新材MLCC离型膜跟踪要点
-- [claim-20260913-001-024](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — stock-view / 双星新材MLCC离型膜占比不足1%
-- [claim-20260913-001-025](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — stock-view / 三孚股份高纯硅材料跟踪要点
-- [claim-20260913-001-026](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — stock-view / 中新赛克AI安全治理业务跟踪
-- [claim-20260913-001-027](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — catalyst / 1.6T光模块出货预测与订单口径
-- [claim-20260913-001-028](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — stock-view / 剑桥科技800G量产与1.6T测试进度
-- [claim-20260913-001-029](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — stock-view / 南亚新材1.6T材料布局证明力边界
-- [claim-20260913-001-030](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — catalyst / 阳光电源光储提价5%-15%
-- [claim-20260913-001-031](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — sector-theme / 光储链上游零部件受益待验证
-- [claim-20260913-001-032](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — methodology / 收盘小结：确认与未确认清单
-- [claim-20260913-001-033](sources/original/bilibili/2026-09-13-2109-%E4%B8%93%E6%A0%8F-%E5%91%A8%E4%BA%94%E6%8C%87%E6%95%B0%E5%85%88%E6%8A%91%E5%90%8E%E6%89%AC%EF%BC%8C%E5%88%9B%E4%B8%9A%E6%9D%BF%E6%8C%87%E6%94%B6%E7%9B%98%E8%B7%8C%E5%B9%85%E6%98%8E%E6%98%BE%E6%94%B6%E7%AA%84%EF%BC%8CMLCC%E3%80%81PCB.md) — methodology / 操作纪律与证据层级
-- [claim-20260914-001-001](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — market-cycle / 中东能源冲击作为新定价变量
-- [claim-20260914-001-002](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — methodology / 供应影响≠输送能力
-- [claim-20260914-001-003](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — market-cycle / 周五反弹不足确认利空出尽
-- [claim-20260914-001-004](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — macro / 议息定价看政策与预期差异
-- [claim-20260914-001-005](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — macro / 油价与美债收益率组合传导
-- [claim-20260914-001-006](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — methodology / 整数关口解释力弱于变化原因
-- [claim-20260914-001-007](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — market-cycle / 上周五抛售与承接并存
-- [claim-20260914-001-008](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — technical-signal / 量能须联合价格广度验证
-- [claim-20260914-001-009](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — sector-theme / 技术描述不直接转化为仓位
-- [claim-20260914-001-010](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — methodology / 观点趋同不构成反向操作理由
-- [claim-20260914-001-011](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — macro / 加息约束路径与反弹脆弱性
-- [claim-20260914-001-012](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — market-cycle / 短期压力源与观察重心转向
-- [claim-20260914-001-013](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — operation / 情形A高开稳定广度扩散
-- [claim-20260914-001-014](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — operation / 情形B高开回落局部活跃非接替
-- [claim-20260914-001-015](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — methodology / 全天判断需三者一致
-- [claim-20260914-001-016](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — sector-theme / 假期效应待数据验证
-- [claim-20260914-001-017](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — sector-theme / 科技内部按CPO/PCB/MLCC分别分析
-- [claim-20260914-001-018](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — catalyst / AI安全倡议≠算力收缩
-- [claim-20260914-001-019](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — sector-theme / 算力需求对冲与AI回报现金流标尺
-- [claim-20260914-001-020](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — sector-theme / 非科技须回归经营逻辑
-- [claim-20260914-001-021](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — catalyst / 村田MLCC跨年度产品线优化
-- [claim-20260914-001-022](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — sector-theme / MLCC受益需规格认证交期验证
-- [claim-20260914-001-023](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — catalyst / 模拟芯片涨价待正式披露
-- [claim-20260914-001-024](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — methodology / 模拟芯片涨价结构性与盈利约束
-- [claim-20260914-001-025](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — catalyst / 中远海运重工辅导备案≠发行获批
-- [claim-20260914-001-026](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — methodology / 造船四指标框架与长周期前提
-- [claim-20260914-001-027](sources/original/bilibili/2026-09-14-0851-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E9%9A%94%E5%A4%9C%E4%B8%8E%E5%BC%80%E7%9B%98%E8%A7%82%E5%AF%9F%EF%BC%9A%E4%B8%AD%E4%B8%9C%E6%B6%88%E6%81%AF%E5%B8%A6%E6%9D%A5%E6%96%B0%E7%9A%84%E5%AE%9A%E4%BB%B7%E5%8F%98%E9%87%8F%20%E5%91%A8%E4%B8%80%E5%A4%96%E7%9B%98%E6%97%A9%E7%9B%98%EF%BC%8C.md) — sector-theme / 航线风险至造船盈利双向时滞
-- [claim-20260914-002-a](sources/original/bilibili/2026-09-14-2252-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E4%BB%8A%E6%97%A5%E5%B8%82%E5%9C%BA%EF%BC%9A%E5%B1%80%E9%83%A8%E4%BF%AE%E5%A4%8D%E4%BB%8D%E5%9C%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%9B%9E%E5%8D%87%E7%BC%BA%E4%B9%8F%E6%8C%81%E7%BB%AD%E6%80%A7%20%E4%BB%8A%E6%97%A5%E6%8C%87%E6%95%B0%E9%9B%86%E4%BD%93.md) — market-cycle / 9月14日指数与个股广度背离
-- [claim-20260914-002-b](sources/original/bilibili/2026-09-14-2252-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E4%BB%8A%E6%97%A5%E5%B8%82%E5%9C%BA%EF%BC%9A%E5%B1%80%E9%83%A8%E4%BF%AE%E5%A4%8D%E4%BB%8D%E5%9C%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%9B%9E%E5%8D%87%E7%BC%BA%E4%B9%8F%E6%8C%81%E7%BB%AD%E6%80%A7%20%E4%BB%8A%E6%97%A5%E6%8C%87%E6%95%B0%E9%9B%86%E4%BD%93.md) — market-cycle / 混沌期描述与退潮结束的确认条件
-- [claim-20260914-002-c](sources/original/bilibili/2026-09-14-2252-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E4%BB%8A%E6%97%A5%E5%B8%82%E5%9C%BA%EF%BC%9A%E5%B1%80%E9%83%A8%E4%BF%AE%E5%A4%8D%E4%BB%8D%E5%9C%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%9B%9E%E5%8D%87%E7%BC%BA%E4%B9%8F%E6%8C%81%E7%BB%AD%E6%80%A7%20%E4%BB%8A%E6%97%A5%E6%8C%87%E6%95%B0%E9%9B%86%E4%BD%93.md) — technical-knowledge / 缩量不能单独作为抛压释放完毕的依据
-- [claim-20260914-002-d](sources/original/bilibili/2026-09-14-2252-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E4%BB%8A%E6%97%A5%E5%B8%82%E5%9C%BA%EF%BC%9A%E5%B1%80%E9%83%A8%E4%BF%AE%E5%A4%8D%E4%BB%8D%E5%9C%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%9B%9E%E5%8D%87%E7%BC%BA%E4%B9%8F%E6%8C%81%E7%BB%AD%E6%80%A7%20%E4%BB%8A%E6%97%A5%E6%8C%87%E6%95%B0%E9%9B%86%E4%BD%93.md) — market-cycle / 当前市场主要特征是指数与题材缺乏同步性
-- [claim-20260914-002-e](sources/original/bilibili/2026-09-14-2252-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E4%BB%8A%E6%97%A5%E5%B8%82%E5%9C%BA%EF%BC%9A%E5%B1%80%E9%83%A8%E4%BF%AE%E5%A4%8D%E4%BB%8D%E5%9C%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%9B%9E%E5%8D%87%E7%BC%BA%E4%B9%8F%E6%8C%81%E7%BB%AD%E6%80%A7%20%E4%BB%8A%E6%97%A5%E6%8C%87%E6%95%B0%E9%9B%86%E4%BD%93.md) — sector-theme / 科技内部活跃范围收窄
-- [claim-20260914-002-f](sources/original/bilibili/2026-09-14-2252-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E4%BB%8A%E6%97%A5%E5%B8%82%E5%9C%BA%EF%BC%9A%E5%B1%80%E9%83%A8%E4%BF%AE%E5%A4%8D%E4%BB%8D%E5%9C%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%9B%9E%E5%8D%87%E7%BC%BA%E4%B9%8F%E6%8C%81%E7%BB%AD%E6%80%A7%20%E4%BB%8A%E6%97%A5%E6%8C%87%E6%95%B0%E9%9B%86%E4%BD%93.md) — methodology / 不能凭少数股票涨幅推断资金性质与经营变化
-- [claim-20260914-002-g](sources/original/bilibili/2026-09-14-2252-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E4%BB%8A%E6%97%A5%E5%B8%82%E5%9C%BA%EF%BC%9A%E5%B1%80%E9%83%A8%E4%BF%AE%E5%A4%8D%E4%BB%8D%E5%9C%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%9B%9E%E5%8D%87%E7%BC%BA%E4%B9%8F%E6%8C%81%E7%BB%AD%E6%80%A7%20%E4%BB%8A%E6%97%A5%E6%8C%87%E6%95%B0%E9%9B%86%E4%BD%93.md) — sector-theme / 医药修复的持续性待验证
-- [claim-20260914-002-h](sources/original/bilibili/2026-09-14-2252-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E4%BB%8A%E6%97%A5%E5%B8%82%E5%9C%BA%EF%BC%9A%E5%B1%80%E9%83%A8%E4%BF%AE%E5%A4%8D%E4%BB%8D%E5%9C%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%9B%9E%E5%8D%87%E7%BC%BA%E4%B9%8F%E6%8C%81%E7%BB%AD%E6%80%A7%20%E4%BB%8A%E6%97%A5%E6%8C%87%E6%95%B0%E9%9B%86%E4%BD%93.md) — catalyst / 智能网联新能源汽车十五五规划
-- [claim-20260914-002-i](sources/original/bilibili/2026-09-14-2252-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E4%BB%8A%E6%97%A5%E5%B8%82%E5%9C%BA%EF%BC%9A%E5%B1%80%E9%83%A8%E4%BF%AE%E5%A4%8D%E4%BB%8D%E5%9C%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%9B%9E%E5%8D%87%E7%BC%BA%E4%B9%8F%E6%8C%81%E7%BB%AD%E6%80%A7%20%E4%BB%8A%E6%97%A5%E6%8C%87%E6%95%B0%E9%9B%86%E4%BD%93.md) — methodology / 题材名称不决定短期防御性
-- [claim-20260914-002-j](sources/original/bilibili/2026-09-14-2252-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E4%BB%8A%E6%97%A5%E5%B8%82%E5%9C%BA%EF%BC%9A%E5%B1%80%E9%83%A8%E4%BF%AE%E5%A4%8D%E4%BB%8D%E5%9C%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%9B%9E%E5%8D%87%E7%BC%BA%E4%B9%8F%E6%8C%81%E7%BB%AD%E6%80%A7%20%E4%BB%8A%E6%97%A5%E6%8C%87%E6%95%B0%E9%9B%86%E4%BD%93.md) — sector-theme / 头部AI公司减速对硬件端是增速风险
-- [claim-20260914-002-k](sources/original/bilibili/2026-09-14-2252-%E5%9B%BE%E7%89%87-%E4%B8%80%E3%80%81%E4%BB%8A%E6%97%A5%E5%B8%82%E5%9C%BA%EF%BC%9A%E5%B1%80%E9%83%A8%E4%BF%AE%E5%A4%8D%E4%BB%8D%E5%9C%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%9B%9E%E5%8D%87%E7%BC%BA%E4%B9%8F%E6%8C%81%E7%BB%AD%E6%80%A7%20%E4%BB%8A%E6%97%A5%E6%8C%87%E6%95%B0%E9%9B%86%E4%BD%93.md) — sector-theme / 国产替代方向观点未变
-
-- [claim-20260903-037-a](sources/original/bilibili/2026-09-03-1539-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1243748457938681865.md) — operation / 万邦医药日内高抛低吸
-- [claim-20260904-001-a](sources/original/bilibili/2026-09-04-1006-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1244033806979039253.md) — operation / 顺钠股份开盘加仓
-- [claim-20260908-006-a](sources/original/bilibili/2026-09-08-0956-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1245515450456997890.md) — operation / 万邦医药高位减仓
-- [claim-20260908-007-a](sources/original/bilibili/2026-09-08-1328-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1245570258508447779.md) — technical-signal / 万邦医药放量上攻
-- [claim-20260909-031-a](sources/original/bilibili/2026-09-09-1316-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1245938229857746962.md) — operation / 万邦医药回调补仓
-- [claim-20260914-003-a](sources/original/bilibili/2026-09-14-0940-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1247738010152206342.md) — operation / 江海股份建仓
-- [claim-20260914-004-a](sources/original/bilibili/2026-09-14-1032-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1247751406095433729.md) — technical-signal / 万邦医药涨停封板
-- [claim-20260914-005-a](sources/original/bilibili/2026-09-14-1340-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1247799694409596933.md) — operation / 西点药业建仓
-- [claim-20260902-022-a](sources/original/bilibili/2026-09-02-1039-%E5%9B%BE%E7%89%87-%E5%8A%A8%E6%80%81-1243300089132220422.md) — risk / 跟单风险提示
-
-### 2026-09-15-004（晚间复盘专栏 21:50，青枫浦上Q）
-- [claim-20260915-004-1](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — market-cycle / 9月15日市场缩量分化冲高回落
-- [claim-20260915-004-2](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — market-cycle / 调整性质为内生性回调不必过度悲观
-- [claim-20260915-004-3](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — technical-signal / 右侧确认结构切换的两项条件
-- [claim-20260915-004-4](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — sector-theme / 市场开始区分海外AI与国产算力两类需求
-- [claim-20260915-004-5](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — risk / 海外AI放缓消息不能直接推导资本开支下调
-- [claim-20260915-004-6](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — sector-theme / 国产替代提供第二层需求但不改变行业总需求约束
-- [claim-20260915-004-7](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — risk / 利空下韧性只是抛压缓和非估值见底证据
-- [claim-20260915-004-8](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — sector-theme / 国产替代能否形成相互支撑的增长链条是核心研究问题
-- [claim-20260915-004-9](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — macro / 加息已成为市场基准情景且利率通胀担忧突出
-- [claim-20260915-004-10](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — macro / FOMC决议北京时间17日凌晨2点公布需看点阵图
-- [claim-20260915-004-11](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — macro / 机构对加息趋同但对紧缩持续时间判断分化
-- [claim-20260915-004-12](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — macro / 加息背景下长短端收益率可能分化
-- [claim-20260915-004-13](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — macro / 收益率曲线形状不能唯一识别原因
-- [claim-20260915-004-14](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — macro / FOMC结果分情形A宽松低于预期与情形B更强约束
-- [claim-20260915-004-15](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — market-cycle / 高利率下盈利增长快可对冲估值倍数下降
-- [claim-20260915-004-16](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — risk / 利率快速上行叠加债市波动率放大冲击
-- [claim-20260915-004-17](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — sector-theme / FOMC影响A股需区分海外链与国内链渠道
-- [claim-20260915-004-18](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — stock-view / 景旺电子高速光模块PCB制造要求提高
-- [claim-20260915-004-19](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — stock-view / 航天电器算力互连液冷配套已进入场景
-- [claim-20260915-004-20](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — stock-view / 拓荆科技三维集成键合设备需求与阶段差异
-- [claim-20260915-004-21](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — methodology / 三案例归纳出能力已具备兑现待确认阶段
-- [claim-20260915-004-22](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — market-cycle / 市场尝试重新衡量产业进展与盈利但未确认风格切换
-- [claim-20260915-004-23](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — technical-signal / 近两日跟踪变量三项
-- [claim-20260915-004-24](sources/original/bilibili/2026-09-15-2150-%E4%B8%93%E6%A0%8F-%E4%BB%8A%E5%A4%A9%E7%9A%84%E5%B8%82%E5%9C%BA%E5%90%8C%E6%97%B6%E5%91%88%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B4%E4%BD%93%E4%BA%A4%E6%98%93%E6%B4%BB%E8%B7%83%E5%BA%A6%E7%BB%A7%E7%BB%AD%E4%B8%8B%E9%99%8D%EF%BC%8C%E5%8D%8A%E5%AF%BC%E4%BD%93%E4%B8%8E.md) — risk / 高位题材情绪溢价受挑战回撤或演变为多杀多
+- [claim-20260909-002.yaml](claim-20260909-002.yaml)
+- [claim-20260910-001.yaml](claim-20260910-001.yaml)
+- [claim-20260911-001.yaml](claim-20260911-001.yaml)
+- [claim-20260912-001.yaml](claim-20260912-001.yaml)
+- [claim-20260912-002.yaml](claim-20260912-002.yaml)
+- [claim-20260913-001.yaml](claim-20260913-001.yaml)
+- [claim-20260914-001.yaml](claim-20260914-001.yaml)
+- [claim-20260914-002.yaml](claim-20260914-002.yaml)
+- [claim-20260914-003.yaml](claim-20260914-003.yaml)
+- [claim-20260915-001.yaml](claim-20260915-001.yaml)
+- [claim-20260915-002.yaml](claim-20260915-002.yaml)
+- [claim-20260915-003.yaml](claim-20260915-003.yaml)
+- [claim-20260915-004.yaml](claim-20260915-004.yaml)
+- [claim-20260916-001.yaml](claim-20260916-001.yaml)
