@@ -12,27 +12,35 @@ HERMES_VENV="/home/ubuntu/.hermes/hermes-agent/venv"
 PYTHON3="$HERMES_VENV/bin/python3"
 HERMES="$HERMES_VENV/bin/python -m hermes_cli.main"
 
-echo "=== Step 0: 停止 Qing-Agent + Hermes gateway + MCP servers ==="
-# 停 Qing-Agent（释放 Qdrant 锁）
-pkill -f "uvicorn.*qing_investment" 2>/dev/null || true
-for i in 1 2 3; do
-  if pgrep -f "gunicorn.*qing_investment" >/dev/null 2>&1; then
-    pkill -f "gunicorn.*qing_investment" 2>/dev/null || true
+echo "=== Step 0: 服务预检（Qdrant 服务端模式，不停服）==="
+# 2026-09-16 重构：Qdrant 自 2026-06-16 起为「仅服务端模式」（./bin/qdrant, port 6333, RocksDB）。
+# 服务端支持多 Client 并发，--force-recreate 在服务端内部完成，无需独占锁。
+# 因此原「停 Agent + gateway + MCP」逻辑已全部移除——它不仅多余，且会在盘中打断监控链路
+# （pkill gateway 会杀死正在执行任务的 Hermes 主进程本身）。
+
+QDRANT_OK=0; AGENT_OK=0; NEO4J_OK=0
+curl -sf --max-time 5 http://localhost:6333/collections >/dev/null 2>&1 && QDRANT_OK=1
+curl -sf --max-time 5 http://localhost:8000/health    >/dev/null 2>&1 && AGENT_OK=1
+curl -sf --max-time 5 http://localhost:7474           >/dev/null 2>&1 && NEO4J_OK=1
+
+echo "  Qdrant(6333): $([ $QDRANT_OK = 1 ] && echo OK || echo DOWN)"
+echo "  Agent(8000) : $([ $AGENT_OK  = 1 ] && echo OK || echo DOWN)"
+echo "  Neo4j(7474) : $([ $NEO4J_OK  = 1 ] && echo OK || echo DOWN)"
+
+if [ $QDRANT_OK = 0 ]; then
+  echo "  ⚠️  Qdrant 服务端未运行，尝试拉起..."
+  nohup ./bin/qdrant > /tmp/qdrant.log 2>&1 &
+  for i in {1..15}; do
+    curl -sf --max-time 3 http://localhost:6333/collections >/dev/null 2>&1 && { echo "  ✅ Qdrant 已就绪"; QDRANT_OK=1; break; }
     sleep 1
-  fi
-done
-pgrep -f "gunicorn.*qing_investment" >/dev/null 2>&1 && pkill -9 -f "gunicorn.*qing_investment" 2>/dev/null || true
+  done
+  [ $QDRANT_OK = 0 ] && { echo "  ❌ Qdrant 启动失败，见 /tmp/qdrant.log"; exit 1; }
+fi
 
-# 停 Hermes gateway（会顺带关闭其管理的 MCP server 子进程）
-pkill -f "hermes_cli.main gateway" 2>/dev/null || true
-sleep 2
-
-# 兜底：直接清掉残留的 MCP server
-pkill -f "mcp_qdrant_server.py" 2>/dev/null || true
-pkill -f "mcp_neo4j_server.py" 2>/dev/null || true
-sleep 2
-
-echo "Agent / gateway / MCP processes cleared"
+if [ $NEO4J_OK = 0 ]; then
+  echo "  ❌ Neo4j 未运行（迁移步骤需要它）。请先启动 Neo4j 再重试。" >&2
+  exit 1
+fi
 
 echo "=== Step 1: 关系发现 discover_claim_relations.py --all-missing ==="
 PYTHONPATH=src .venv/bin/python src/qing_investment/agent/tools/discover_claim_relations.py --all-missing
@@ -43,27 +51,31 @@ PYTHONPATH=src .venv/bin/python scripts/migrate_claims_to_neo4j.py
 echo "=== Step 3: Qdrant 重建 index_claims_to_qdrant.py --force-recreate ==="
 PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate
 
-echo "=== Step 4: 重启 Qing-Agent ==="
-PYTHONPATH=src nohup .venv/bin/python -m uvicorn qing_investment.agent.main:app --host 127.0.0.1 --port 8000 --log-level info > agent.log 2>&1 &
-sleep 5
+echo "=== Step 4: 验证 Agent（仅当不在线才拉起）==="
+# 2026-09-16 重构：不再无条件 kill + 重启 Agent，也不再重启 Hermes gateway。
+# gateway 重启会连带杀掉作为其子进程的 Agent，且会杀死正在执行任务的 Hermes 主进程本身。
+if curl -sf --max-time 5 http://localhost:8000/health >/dev/null 2>&1; then
+  echo "  Agent 已在线，无需重启。"
+else
+  echo "  Agent 不在线，拉起中..."
+  PYTHONPATH=src nohup .venv/bin/python -m uvicorn qing_investment.agent.main:app \
+    --host 127.0.0.1 --port 8000 --log-level info > /tmp/qing-agent.log 2>&1 &
+  for i in {1..20}; do
+    curl -sf --max-time 3 http://localhost:8000/health >/dev/null 2>&1 && break
+    sleep 1
+  done
+fi
 
-echo "=== Step 5: 验证 Agent health ==="
-curl -s http://localhost:8000/health || echo "Health check failed"
-
-echo "=== Step 6: 重启 Hermes gateway（连带重启 Kimi Code CLI / Hermes Agent 的 MCP）==="
-nohup "$PYTHON3" -m hermes_cli.main gateway run --replace > /tmp/hermes_gateway.log 2>&1 &
-sleep 5
-
-# 等待 gateway 起来
-for i in {1..12}; do
-  if pgrep -f "hermes_cli.main gateway" >/dev/null 2>&1; then
-    break
+echo "=== Step 5: 三件套终验 ==="
+for pair in "Qdrant:http://localhost:6333/collections" "Agent:http://localhost:8000/health" "Neo4j:http://localhost:7474"; do
+  name="${pair%%:*}"; url="${pair#*:}"
+  if curl -sf --max-time 5 "$url" >/dev/null 2>&1; then
+    echo "  ✅ $name OK"
+  else
+    echo "  ❌ $name DOWN"
   fi
-  sleep 1
 done
 
-echo "=== Step 7: 验证 MCP 连接 ==="
-hermes mcp test qdrant 2>&1 | tail -5
-hermes mcp test neo4j 2>&1 | tail -5
-
 echo "=== 同步管线完成 ==="
+echo "提示：如需重启 Hermes gateway（Kimi Code CLI 侧 MCP 句柄失效时），"
+echo "      gateway 会连带杀掉 Agent，重启后必须重新拉起并验证 Agent health。"

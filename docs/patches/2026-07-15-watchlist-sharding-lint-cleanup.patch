@@ -1,0 +1,53 @@
+From c64186a1ce0dff31e1f44a9bfae1b11176bb9e68 Mon Sep 17 00:00:00 2001
+From: zhoudirac <zhoudirac@gmail.com>
+Date: Wed, 15 Jul 2026 13:51:00 +0800
+Subject: [PATCH] style(agent): final review cleanups for watchlist sharding
+
+- Remove unused Send import from builder.py
+- Fix import order in nodes.py (stdlib before third-party)
+- Remove unused idx variable in merge_scanner_results
+---
+ src/qing_investment/agent/graph/builder.py | 1 -
+ src/qing_investment/agent/graph/nodes.py   | 5 ++---
+ 2 files changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/src/qing_investment/agent/graph/builder.py b/src/qing_investment/agent/graph/builder.py
+index 1dbd450..2edf732 100644
+--- a/src/qing_investment/agent/graph/builder.py
++++ b/src/qing_investment/agent/graph/builder.py
+@@ -1,7 +1,6 @@
+ from __future__ import annotations
+ 
+ import logging
+-from langgraph.types import Send
+ from langgraph.graph import END, StateGraph
+ 
+ logger = logging.getLogger(__name__)
+diff --git a/src/qing_investment/agent/graph/nodes.py b/src/qing_investment/agent/graph/nodes.py
+index 9c82c7b..64d1a08 100644
+--- a/src/qing_investment/agent/graph/nodes.py
++++ b/src/qing_investment/agent/graph/nodes.py
+@@ -8,10 +8,9 @@ import os
+ import re
+ import time
+ from datetime import datetime, timezone, timedelta
+-
+-from langgraph.types import Send
+ from pathlib import Path
+ 
++from langgraph.types import Send
+ import numpy as np
+ 
+ from qing_investment.agent.tools.daily_state import (
+@@ -2286,7 +2285,7 @@ def merge_scanner_results(state: AgentState) -> AgentState:
+ 
+     daily_state_overrides: list[dict] = []
+ 
+-    for idx, r in enumerate(results):
++    for r in results:
+         mc = r.get("market_context", {}) if isinstance(r, dict) else {}
+         reasoning_steps.extend(r.get("reasoning_steps", []) if isinstance(r, dict) else [])
+         total_cost.extend(r.get("cost_tracking", []) if isinstance(r, dict) else [])
+-- 
+2.43.0
+
