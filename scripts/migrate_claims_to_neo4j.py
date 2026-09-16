@@ -226,6 +226,8 @@ def migrate():
         session.run("CREATE INDEX claim_status IF NOT EXISTS FOR (c:Claim) ON (c.status)")
         session.run("CREATE INDEX claim_type IF NOT EXISTS FOR (c:Claim) ON (c.claim_type)")
         session.run("CREATE INDEX claim_intensity IF NOT EXISTS FOR (c:Claim) ON (c.intensity)")
+        # 2026-09-17: stance 供过滤（fact/view/market-regime/mixed）
+        session.run("CREATE INDEX claim_stance IF NOT EXISTS FOR (c:Claim) ON (c.stance)")
 
     # Collect files and determine which need processing
     yaml_files = sorted(glob.glob(str(CLAIMS_DIR / "*.yaml")))
@@ -321,6 +323,7 @@ def _migrate_single_claim(session, claim: dict):
             c.source_date = $source_date,
             c.up_id = $up_id,
             c.up_name = $up_name,
+            c.stance = $stance,
             c.file = $file
         """,
         {
@@ -338,6 +341,8 @@ def _migrate_single_claim(session, claim: dict):
             # 2026-09-14 多 up 体系
             "up_id": claim.get("up_id", "") or "unknown",
             "up_name": claim.get("up_name", ""),
+            # 2026-09-17 话语性质（fact/view/market-regime/mixed），存量缺失写 unknown
+            "stance": claim.get("stance", "") or "unknown",
             "file": claim.get("_file", ""),
         },
     )

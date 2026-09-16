@@ -169,7 +169,7 @@ def main():
             "c.subject as subject, c.source_date as source_date, "
             "c.confidence as confidence, c.status as status, "
             "c.claim_type as claim_type, c.intensity as intensity, "
-            "c.up_id as up_id, c.up_name as up_name"
+            "c.up_id as up_id, c.up_name as up_name, c.stance as stance"
         )
         claims = list(result)
 
@@ -212,6 +212,8 @@ def main():
                 # 2026-09-14 多 up 体系：供 discover 分流与按 up 过滤检索
                 "up_id": claim.get("up_id", ""),
                 "up_name": claim.get("up_name", ""),
+                # 2026-09-17 话语性质：供过滤事实播报（fact/view/market-regime/mixed）
+                "stance": claim.get("stance", "") or "unknown",
             },
         ))
 
