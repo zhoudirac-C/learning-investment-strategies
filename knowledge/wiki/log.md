@@ -2416,3 +2416,21 @@
 - 代码核实：23 个公司名批量过东财 searchapi（含港股），无凭记忆
 - 输出：claims/index.md +1 行 + wiki/每日复盘/2026-09-12-Mark__Huang.md（新建）+ wiki/index.md +1 行 + 每日复盘/index.md +1 行 + log.md
 
+
+## 2026-09-16 23:20 — 9/16 晚间复盘专栏提取（38 条）
+
+- 处理 raw：`sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md`
+  （B站动态 ID 1248681674584096787，专栏《9.16（复盘）》，22:42 发布，充电专属）
+- 会话 `20260916_230429_a3b963`；claim-20260916-003.yaml（38 条）：
+  market-cycle×9、catalyst×7、stock-view×8、sector-theme×4、methodology×4、operation×2、
+  technical-signal×2、macro×2
+- up_id `1420210197`（青枫浦上Q）
+- **核心内容**：风格切换完成（量价确认）但级别仍是反弹非反转；反转判据=**新叙事被市场认可**；
+  选股双条件**①国产化率低=空间 ②已从验证跨到批量供货=时点**；三个案例覆盖设备零部件（中瓷电子）/系统级PCB（中富电路）/制造耗材（彤程新材）；FOMC 前抢跑，给出情形A/B 两套剧本 + 可验证判据
+- **与早盘专栏衔接**（不构成摇摆）：早盘「不承接不追高开」→ 盘后被量价确认兑认为「切换完成但级别仍是反弹」，两者通过「新叙事」判据衔接
+- Gate 1 一次通过 / **Gate 2 修复 1 轮（18 个 NON_COMPANY 假阳性：多为「…科技」通用词截断 + 北京科华微电子[彤程新材控股子公司非上市]）→ 清 gate2_result.json 缓存后重跑** / Gate 3 一次通过
+- 代码核实：31 个公司名批量过东财 searchapi（含 2 个未上市主体 长江存储/华虹半导体），无凭记忆
+- **formatter 坑**：`step1_raw.json` 的 claim dict 未含 `topic` 字段 → `yaml.dump` 后 topic 全丢；
+  Step 4 补回 38 条 topic 并按既有 claim 字段顺序重排 YAML
+- 输出：knowledge/claims/claim-20260916-003.yaml（新建）+ claims/index.md +1 行 +
+  wiki/每日复盘/2026-09-16.md（追加晚间复盘章节）+ log.md
