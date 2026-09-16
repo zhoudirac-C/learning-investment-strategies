@@ -2401,3 +2401,18 @@
 - Gate 1 一次通过 / Gate 2 修复 1 轮（8 个 NON_COMPANY 假阳性：科技/电子 板块描述词）/ Gate 3 一次通过
 - 代码核实：江海股份 = 002484（东财 API 确认，未凭记忆）
 - 输出：claims/index.md 重建 + wiki/每日复盘/2026-09-16-卢本圆.md（新建）+ wiki/index.md +1 行 + log.md
+
+## 2026-09-16 17:55 — 9/12 Mark__Huang 光博会图片动态单独提取（14 条）
+
+- 处理 raw：`sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md`（动态ID 1247199047583793169，**1920x5011 超长截图**）
+- **来源性质**：UP 用 AI（豆包）把当晚直播二次总结的笔记截图，页面带「内容由AI生成」标识 → 存在 AI 补全成分
+- 用户背景：原图与该 UP 同晚直播视频（已提取为 claim-20260912-002，30条）内容部分重合；用户决定「不补历史缺口，单独重跑图片提取」，以盘出图上独有增量
+- 会话 `20260916_175217_9f5e81`；claim-20260912-003.yaml（14 条）：sector-theme×5、operation×2、stock-view×6、risk×1
+- up_id `424405794`（Mark__Huang），与青枫浦上Q 分属不同 up
+- **核心增量**：图上独有的**个人持仓标的清单**（直播中 UP 多用代号/指代）→ 铜三标的/港股电解铝创新实业/八亿时空/天工国际/细分赛道映射（炬光、和林微纳、海星、科创新源、博杰、方邦）等
+- **置信度分层**：AI 补全的公司名映射一律 `confidence: low`，与 UP 原话可对应部分给 high/medium；interpretation 内逐一标注「AI 二次加工，UP 未确认」
+- **evidence_quote 纪律**：quote 保持原文措辞不含代码（Step 2 曾误插代码，已批量还原）
+- Gate 1 一次通过 / **Gate 2 修复 1 轮（港股 5 位代码被拒 → 依库内惯例从 related_stocks 移除、正文写 `代码.HK`）+ 清 gate2_result.json 缓存后重跑** / Gate 3 一次通过
+- 代码核实：23 个公司名批量过东财 searchapi（含港股），无凭记忆
+- 输出：claims/index.md +1 行 + wiki/每日复盘/2026-09-12-Mark__Huang.md（新建）+ wiki/index.md +1 行 + 每日复盘/index.md +1 行 + log.md
+

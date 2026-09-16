@@ -1,0 +1,460 @@
+claims:
+- id: claim-20260912-003-a
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: sector-theme
+  subject: 光电子产业链选股主线
+  timeframe: industry
+  statement: 光电子产业链当前内卷严重，选股优先绑定已进入北美供应链的头部厂商。
+  evidence_quote: 核心结论：·光电子产业链当前内卷严重，优先绑定进入北美供应链的头部厂商
+  interpretation: 这是 UP 光博会调研（9/12）后给出的产业链总纲——竞争格局恶化时，供应链准入资质（而非产能规模）成为核心壁垒。该结论与当晚直播中'光纤真正受益的还得是有进北美供应链的'的表述一致，属同一判断的书面化表达。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光电子产业链选股主线
+  related_stocks: []
+  tags:
+  - 光电子
+  - 北美供应链
+  - 产业链调研
+- id: claim-20260912-003-b
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: operation
+  subject: 弱成交量市场配置原则
+  timeframe: short-term
+  statement: 弱成交量市需收缩仓位，优先布局低估值、小市值的确定性标的。
+  evidence_quote: ·弱成交量市场需收缩仓位，优先布局低估值、小市值的确定性标的
+  interpretation: 这是 UP 把'成交量决定打法'的方法论落到配置结论上——缩量环境先保命（降仓位）再谈结构（小市值+低估值）。与当晚直播中'没有成交量的市场就买一些稳的，龟缩一下'、'小市值的拿一拿也行'互为印证。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 弱成交量市场配置原则
+  related_stocks: []
+  tags:
+  - 缩量
+  - 仓位管理
+  - 小市值
+- id: claim-20260912-003-c
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: risk
+  subject: 周期品涨价情绪泡沫
+  timeframe: short-term
+  statement: 周期品投资需警惕短期涨价带来的情绪泡沫，避免高位接盘。
+  evidence_quote: ·周期品投资需警惕短期涨价带来的情绪泡沫，避免高位接盘
+  interpretation: UP 对 MLCC、电子布这类由供需缺口驱动的涨价行情保持警惕——他承认涨价逻辑成立（见 claim-003-k），但强调要防情绪溢价。与当晚直播'顶部按计算器'警示、'马上来得快也去得也快'同源。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 周期品涨价情绪泡沫
+  related_stocks: []
+  tags:
+  - 周期品
+  - 情绪泡沫
+  - 风险提示
+- id: claim-20260912-003-d
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: sector-theme
+  subject: 光芯片供给格局
+  timeframe: industry
+  statement: 国内可量产光芯片的厂商极少，主要集中东山精密(002384)旗下索尔思、源杰科技(688498)、长光华芯(688048)几家，分CW光与EML两大技术路线，头部厂商集中度极高。
+  evidence_quote: 供给端格局：国内可量产光芯片的厂商极少（东山精密索尔思，源杰科技，长光华芯），分为CW光、EML两大技术路线，头部厂商集中度极高。
+  interpretation: 这是本次图上独有的'点名版'结论——当晚直播 UP 用的是模糊表述（'没几家能做''都是那几家'），此图由 AI 补全成了具体公司名单。名单本身属
+    AI 二次加工，需与 UP 原话区分。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光芯片供给格局
+  related_stocks:
+  - code: '688498'
+    name: 源杰科技
+    role: 光芯片-科创板不可交易
+  - code: '688048'
+    name: 长光华芯
+    role: 光芯片-科创板不可交易
+  - code: '002384'
+    name: 东山精密
+    role: 光芯片母公司-深主板可交易
+  tags:
+  - 光芯片
+  - CW
+  - EML
+- id: claim-20260912-003-e
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: sector-theme
+  subject: 光纤厂商北美链准入
+  timeframe: industry
+  statement: 国内光纤厂商如烽火通信(600498)主要服务国内数据中心与三大运营商，远距离传输赛道基本无北美订单；仅长飞、亨通等已进入北美供应链的厂商明确受益。
+  evidence_quote: '市场服务范围：国内厂商例如烽火通信核心服务国内数据中心、三大运营商，远距离传输赛道基本无北美订单（北美链打钱快，利润高）
+
+    受益标的筛选：仅长飞、亨通等已进入北美供应链的厂商明确受益，特发供应谷歌且布局无人机业务，业绩释放动力不足。'
+  interpretation: UP 给出光纤赛道唯一的筛选标准=北美供应链准入，并解释了原因：北美链'打钱快、利润高'。烽火通信(600498)被点名为反面案例（服务国内运营商为主）。当晚直播亦有同义表述，但未点名烽火通信(600498)。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光纤厂商北美链准入
+  related_stocks:
+  - code: '600498'
+    name: 烽火通信
+    role: 光纤-沪主板可交易
+  - code: '601869'
+    name: 长飞光纤
+    role: 光纤-沪主板可交易
+  - code: '600487'
+    name: 亨通光电
+    role: 光纤-沪主板可交易
+  - code: '000070'
+    name: 特发信息
+    role: 光纤-深主板可交易
+  tags:
+  - 光纤
+  - 北美供应链
+  - 烽火通信
+- id: claim-20260912-003-f
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: sector-theme
+  subject: 检测设备溢价消退
+  timeframe: industry
+  statement: 光模块检测设备赛道此前龙头厂商联讯仪器(688808)因独家技术享受高溢价，上市后曾涨20-30倍；当前多家厂商均推出同类设备，光博会期间相关厂商股价表现低迷。
+  evidence_quote: 行业溢价逻辑：此前龙头厂商（联讯仪器）因独家技术享受高溢价，上市后曾涨20-30倍，当前多家厂商均推出同类设备，光博会期间相关厂商股价表现低迷。
+  interpretation: 与当晚直播口径一致（'一年刚上市好像涨二十几倍还是三十几倍''结果后面大家看一下都有'），但图上补出了具体公司名联讯仪器(688808)与'20-30倍'区间。属
+    AI 二次加工的点名版。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 检测设备溢价消退
+  related_stocks:
+  - code: '688808'
+    name: 联讯仪器
+    role: 检测设备-科创板不可交易
+  tags:
+  - 检测设备
+  - 溢价消退
+  - 联讯仪器
+- id: claim-20260912-003-g
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: stock-view
+  subject: 精智达(688627)业绩测算
+  timeframe: short-term
+  statement: 精智达(688627)定增价已落地，创始人与长鑫创始人为同学；若明年实现100亿订单、20%净利率，对应400亿市值估值偏低。
+  evidence_quote: 标的相关情况：精智达定增价已落地，创始人与长鑫创始人为同学，若明年实现100亿订单、20%净利率，对应400亿市值估值偏低。
+  interpretation: 这是图上对'ZJD'代号的 AI 解码版——当晚直播全程用代号 ZJD/长鑫，未点名精智达(688627)。估值算式（100亿订单×20%净利率→400亿市值'偏低'）与直播一致，但公司名的映射属
+    AI 推断，未获 UP 本人确认。
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 精智达业绩测算
+  related_stocks:
+  - code: '688627'
+    name: 精智达
+    role: 检测设备-科创板不可交易
+  tags:
+  - 精智达
+  - 定增
+  - 估值测算
+- id: claim-20260912-003-h
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: stock-view
+  subject: 东山索尔思进度领先
+  timeframe: short-term
+  statement: 东山精密(002384)旗下索尔思光芯片对外披露的进度领先于同行，是当前光芯片赛道的头部标的。
+  evidence_quote: 头部厂商判断：东山索尔思光芯片对外披露的进度领先于同行，为当前赛道的头部标的。
+  interpretation: 与当晚直播'他们对外的进度啊，各方面的确实好像是最领先的'一致，图上把代号'索尔斯'规范成了'索尔思'并明确归属东山精密(002384)。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 东山索尔思进度领先
+  related_stocks:
+  - code: '002384'
+    name: 东山精密
+    role: 光芯片母公司-深主板可交易
+  tags:
+  - 索尔思
+  - 光芯片
+  - 东山精密
+- id: claim-20260912-003-i
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: operation
+  subject: 资源与科技仓位对半
+  timeframe: short-term
+  statement: UP 的仓位结构为资源类占50%、科技类占50%，其中资源类占比不低于50%，优先选择有回购、股价见底的标的。
+  evidence_quote: '仓位结构为资源类占50%，科技类占50%
+
+    仓位结构：整体仓位中资源类占比不低于50%，剩余50%配置科技类标的，优先选择有回购、股价见底的标的。'
+  interpretation: 当晚直播只给了定性表述（'基本上也是一半，最少要占到一半'），此图把它量化到 50%/50% 的具体比例。量化值是 AI 补的，'不低于一半'的底线约束与直播一致。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 资源与科技仓位对半
+  related_stocks: []
+  tags:
+  - 仓位结构
+  - 资源
+  - 科技
+- id: claim-20260912-003-j
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: stock-view
+  subject: 铜相关持仓三标的
+  timeframe: trend
+  statement: UP 的铜相关持仓为紫金矿业(601899)、藏格矿业(000408)、五矿资源(01208.HK)；逻辑为铜供给端新增产能逐年减少、需求端无明显下滑，长期供需缺口明确，不受关税政策短期波动影响。
+  evidence_quote: 铜相关标的（紫金矿业，藏格矿业，五矿资源(01208)）：铜供给端新增产能逐年减少，需求端无明显下滑，长期供需缺口明确，不受关税政策短期波动影响。
+  interpretation: 这是图上独有的标的清单——当晚直播只讲铜的供需逻辑，未点名任何铜标的。三个公司名均为 AI 二次加工产物，UP 本人未在信息来源中确认。
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 铜相关持仓三标的
+  related_stocks:
+  - code: '601899'
+    name: 紫金矿业
+    role: 铜-沪主板可交易
+  - code: '000408'
+    name: 藏格矿业
+    role: 铜-深主板可交易
+  tags:
+  - 铜
+  - 供需缺口
+  - 资源持仓
+- id: claim-20260912-003-k
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: stock-view
+  subject: 港股电解铝持仓
+  timeframe: trend
+  statement: UP 的港股电解铝持仓为创新实业(02788.HK)，对应海外中东产能，估值仅4-5倍、股息率有保障；产能落地或受战争因素延后，但安全边际较高。
+  evidence_quote: 港股电解铝标的（创新实业(02788)）：对应海外中东产能，估值仅4-5倍，股息率有保障，虽产能落地或受战争因素延后，但安全边际较高。
+  interpretation: 当晚直播 UP 只说'那个什么实业'（未点名），图上由 AI 补全为创新实业(02788.HK)。'四五倍估值''中东产能''战争影响延后'三项细节与直播一致，公司名为
+    AI 推断。
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 港股电解铝持仓
+  related_stocks: []
+  tags:
+  - 电解铝
+  - 港股
+  - 创新实业
+- id: claim-20260912-003-l
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: stock-view
+  subject: 光刻胶持仓与操作
+  timeframe: short-term
+  statement: UP 持有光刻胶上游小市值标的八亿时空(688181)，未出现破位走势，低成交量环境下筹码稳定、拉升阻力较小；操作上向下可于前低附近止损，向上空间很大。
+  evidence_quote: 光刻胶相关标的（八亿时空）：配置光刻胶上游小市值标的，未出现破位走势，低成交量环境下筹码稳定，拉升阻力较小。（向下可以前低附近止损，向上空间很大）
+  interpretation: 图上独有的点名标的——当晚直播未讨论光刻胶个股。此条同时给出了完整的操作框架（止损位=前低附近，向上空间大），是典型的'小市值+低成交量易拉升'打法。公司名为
+    AI 二次加工。
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光刻胶持仓与操作
+  related_stocks:
+  - code: '688181'
+    name: 八亿时空
+    role: 光刻胶-科创板不可交易
+  tags:
+  - 光刻胶
+  - 八亿时空
+  - 小市值
+- id: claim-20260912-003-m
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: stock-view
+  subject: 细分赛道持仓映射
+  timeframe: short-term
+  statement: UP 的科技类细分赛道持仓包括 PCB钻针天工国际(00826.HK)、OCS炬光科技(688167)、检测探针和林微纳(688661)、AI电源海星股份(603115)、液冷科创新源(300731)与博杰、AI铜箔方邦股份(688020)，操作上反复高抛低吸、趋势走坏即止盈。
+  evidence_quote: 细分赛道标的：涵盖PCB 钻针（天工国际(00826)）、OCS（炬光科技）、检测探针（和林微纳）、AI电源（海星股份）、液冷（科创新源，博杰），AI铜箔（方邦股份）等赛道，反复高抛低吸，趋势走坏即止盈。
+  interpretation: 这是图上独有的最完整标的映射表——当晚直播中 UP 提到 OCS、液冷、探针、AI电源、PCB钻针等方向，但多以'那个''这家公司'指代，未给出公司名。此映射为
+    AI 二次加工，是本图相对视频的最大信息增量，也是最大不确定源。
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 细分赛道持仓映射
+  related_stocks:
+  - code: '688167'
+    name: 炬光科技
+    role: OCS-科创板不可交易
+  - code: '688661'
+    name: 和林微纳
+    role: 检测探针-科创板不可交易
+  - code: '603115'
+    name: 海星股份
+    role: AI电源-沪主板可交易
+  - code: '300731'
+    name: 科创新源
+    role: 液冷-创业板不可交易
+  - code: '002975'
+    name: 博杰股份
+    role: 液冷-深主板可交易
+  - code: '688020'
+    name: 方邦股份
+    role: AI铜箔-科创板不可交易
+  tags:
+  - 细分赛道
+  - 高抛低吸
+  - 持仓映射
+- id: claim-20260912-003-n
+  source_path: sources/original/bilibili/2026-09-12-2249-图片-动态-1247199047583793169.md
+  source_date: '2026-09-12'
+  source_type: 动态
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-09-16T17:55:00+08:00'
+  claim_type: sector-theme
+  subject: MLCC与电子布供需缺口
+  timeframe: short-term
+  statement: MLCC、电子布等涨价逻辑均来自供需缺口，相关标的行情波动快，需警惕周期顶部估值泡沫风险。
+  evidence_quote: 周期品判断：MLCC、电子布等涨价逻辑均来自供需缺口，相关标的行情波动快，需警惕周期顶部估值泡沫风险。
+  interpretation: 把'涨价=供需缺口'的归因与'周期顶部泡沫'的风险提示成对给出——承认逻辑成立但强调周期属性。与当晚直播'有供需角度''但它都是有周期的嘛'完全同源。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: MLCC与电子布供需缺口
+  related_stocks: []
+  tags:
+  - MLCC
+  - 电子布
+  - 供需缺口
