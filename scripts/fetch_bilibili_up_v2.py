@@ -294,8 +294,77 @@ def fetch_article_content(article_id: str, sessdata: str) -> str:
 
 # ── OCR ───────────────────────────────────────────────────────────
 
+def _filter_watermarks(boxes: list) -> tuple:
+    """过滤水印/印章类文字块（如成交单截图上的「本圆」印章）。
+
+    判定：box 高 > 中位行高 × 1.5（印章/斜水印常横跨多行），
+    且形状非扁长（w < h × 1.6）——避免把「大号但单行」的标题误判为水印。
+    返回 (正常块, 水印块)。
+    """
+    if len(boxes) < 3:
+        return boxes, []
+    heights = sorted(b["y1"] - b["y0"] for b in boxes)
+    median_h = heights[len(heights) // 2]
+    if median_h <= 0:
+        return boxes, []
+    normal, marks = [], []
+    for b in boxes:
+        h = b["y1"] - b["y0"]
+        w = max(b["x1"] - b["x0"], 1)
+        if h > median_h * 1.5 and w < h * 1.6:
+            marks.append(b)
+        else:
+            normal.append(b)
+    return normal, marks
+
+
+def _group_rows(boxes: list, min_overlap: float = 0.3) -> list:
+    """同 y 区间行聚类：垂直重叠 ≥ 30% 块高视为同一视觉行，行内按 x0 排序。
+
+    背景（2026-09-16）：旧实现按 OCR 识别顺序拼接，表格类截图（成交单/持仓）
+    多列数据被交错拍平。RapidOCR 每个文字块自带四点坐标框，按 y 聚类、x 排序
+    即可还原行列结构。
+    """
+    rows: list = []
+    for b in sorted(boxes, key=lambda x: (x["y0"], x["x0"])):
+        h = max(b["y1"] - b["y0"], 1)
+        placed = False
+        for row in reversed(rows):
+            r_y0 = min(x["y0"] for x in row)
+            r_y1 = max(x["y1"] for x in row)
+            overlap = min(b["y1"], r_y1) - max(b["y0"], r_y0)
+            if overlap >= h * min_overlap:
+                row.append(b)
+                placed = True
+                break
+        if not placed:
+            rows.append([b])
+    for row in rows:
+        row.sort(key=lambda x: x["x0"])
+    return rows
+
+
+def _render_rows(rows: list, marks: list) -> str:
+    """行列表 + 水印块 → 文本（按 y0 穿插排序，行内 ` | ` 分隔）。"""
+    items = [(min(b["y0"] for b in row), "row", row) for row in rows]
+    items += [(b["y0"], "mark", b) for b in marks]
+    items.sort(key=lambda t: t[0])
+    out = []
+    for _, kind, payload in items:
+        if kind == "row":
+            out.append(" | ".join(b["text"] for b in payload))
+        else:
+            out.append(f"[水印: {payload['text']}]")
+    return "\n".join(out)
+
+
 def ocr_image(image_path: Path) -> str:
-    """使用 RapidOCR 识别图片文字。"""
+    """使用 RapidOCR 识别图片文字，保留坐标做行聚类还原表格结构。
+
+    2026-09-16 修复：旧实现丢弃 RapidOCR 坐标框（line[0]），按识别顺序拼接
+    → 表格类截图（成交单/持仓）行列被交错拍平成一串孤立数字。现保留坐标，
+    同 y 行聚类 + 行内按 x 排序（` | ` 分隔），印章/水印块单独标 [水印: ...]。
+    """
     try:
         from rapidocr_onnxruntime import RapidOCR
         from PIL import Image
@@ -307,21 +376,34 @@ def ocr_image(image_path: Path) -> str:
         img = Image.open(image_path)
         width, height = img.size
 
-        # 长图分块 OCR，每块最大 2000px 高度
+        # 长图分块 OCR，每块最大 2000px 高度（行聚类按块内坐标还原）
         chunk_height = 2000
-        all_texts = []
+        chunk_outputs = []
 
         for y in range(0, height, chunk_height):
             bottom = min(y + chunk_height, height)
             chunk = img.crop((0, y, width, bottom))
             result, _ = ocr(chunk)
-            if result:
-                for line in result:
-                    text = line[1] if isinstance(line[1], str) else line[1][0] if len(line) > 1 else ""
-                    if text.strip():
-                        all_texts.append(text)
+            if not result:
+                continue
+            boxes = []
+            for line in result:
+                text = line[1] if isinstance(line[1], str) else line[1][0] if len(line) > 1 else ""
+                if not text.strip():
+                    continue
+                box = line[0] or []
+                xs = [p[0] for p in box] or [0, 0]
+                ys = [p[1] for p in box] or [0, 0]
+                boxes.append({
+                    "text": text.strip(),
+                    "x0": min(xs), "x1": max(xs),
+                    "y0": min(ys), "y1": max(ys),
+                })
+            normal, marks = _filter_watermarks(boxes)
+            rows = _group_rows(normal)
+            chunk_outputs.append(_render_rows(rows, marks))
 
-        return "\n".join(all_texts)
+        return "\n".join(o for o in chunk_outputs if o)
     except Exception as exc:
         print(f"WARN: OCR 失败 {image_path}: {exc}", file=sys.stderr)
         return ""
