@@ -1,0 +1,186 @@
+claims:
+- id: claim-20260916-002-a
+  source_path: sources/original/bilibili/2026-09-16-1145-图片-周一视频开始聊的就是本周科技反弹窗口。 如果量大2.5万亿以.md
+  source_date: '2026-09-16'
+  source_type: 图片
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-16T12:32:00+08:00'
+  claim_type: market-cycle
+  subject: 本周定性为科技反弹窗口
+  timeframe: short-term
+  statement: 本周定性为科技反弹窗口，该判断自周一的视频中已开始提出
+  evidence_quote: 周一视频开始聊的就是本周科技反弹窗口。
+  interpretation: 卢本圆复盘把本周定位为科技方向的反弹窗口期，强调这一判断在周一视频中即已给出（属于前置判断的延续而非事后追认）。需注意其用词是反弹而非反转，与下一条的量能分档操作纪律构成一套完整的短期框架。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 本周为科技反弹窗口且判断自周一视频已提出
+  related_stocks: []
+  tags:
+  - 科技反弹窗口
+  - 本周定性
+  - 卢本圆复盘
+- id: claim-20260916-002-b
+  source_path: sources/original/bilibili/2026-09-16-1145-图片-周一视频开始聊的就是本周科技反弹窗口。 如果量大2.5万亿以.md
+  source_date: '2026-09-16'
+  source_type: 图片
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-16T12:32:00+08:00'
+  claim_type: methodology
+  subject: 按成交量分档的科技操作纪律
+  timeframe: intraday
+  statement: 科技方向操作按两市成交量分档：量能2.5万亿以上时行情好做，量能约2万亿时只做低吸不追高
+  evidence_quote: 如果量大2.5万亿以上就好做点量小2万亿左右就低吸（不追高）mlcc pcb 和 光纤
+  interpretation: 这是一条可量化的量能门槛纪律：2.5万亿作为行情可积极参与的分界，2万亿附近则降级为低吸不追高。把抽象的量能判断转化为具体数字阈值，可直接用于当日盘中决策。与青枫浦上Q的缩量框架可互相参照。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能2.5万亿好做与2万亿只低吸的分档纪律
+  related_stocks: []
+  tags:
+  - 量能分档
+  - 2.5万亿
+  - 2万亿
+  - 操作纪律
+  - 低吸不追高
+- id: claim-20260916-002-c
+  source_path: sources/original/bilibili/2026-09-16-1145-图片-周一视频开始聊的就是本周科技反弹窗口。 如果量大2.5万亿以.md
+  source_date: '2026-09-16'
+  source_type: 图片
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-16T12:32:00+08:00'
+  claim_type: stock-view
+  subject: 低吸方向限定MLCC与PCB与光纤
+  timeframe: short-term
+  statement: 量能约2万亿的低吸情形下，方向限定为MLCC、PCB与光纤三个细分领域
+  evidence_quote: 量小2万亿左右就低吸（不追高）mlcc pcb 和 光纤
+  interpretation: 给出了科技内部的具体方向选择：MLCC、PCB、光纤。三者均为AI硬件链条上的细分环节，属于电子元件与光互联范畴。这是操作层面的方向限定，与其一贯的科技硬件偏好一致。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 低吸方向限定为MLCC与PCB与光纤
+  related_stocks:
+  - code: '000636'
+    name: 风华高科
+    role: MLCC代表标的-主板可交易
+  - code: '600183'
+    name: 生益科技
+    role: PCB上覆铜板龙头-主板可交易
+  tags:
+  - MLCC
+  - PCB
+  - 光纤
+  - 低吸方向
+  - 科技硬件
+- id: claim-20260916-002-d
+  source_path: sources/original/bilibili/2026-09-16-1145-图片-周一视频开始聊的就是本周科技反弹窗口。 如果量大2.5万亿以.md
+  source_date: '2026-09-16'
+  source_type: 图片
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-16T12:32:00+08:00'
+  claim_type: operation
+  subject: 当前位置不作判断并自述低吸党做T
+  timeframe: intraday
+  statement: 对当前指数位置不作方向判断，自述其作为低吸党会在此类位置做T
+  evidence_quote: 今天这个位置我就不判断了，我这种低吸党是会做T。
+  interpretation: 面对当前位置主动放弃方向判断，转为交易型应对（做T）。这种表态本身是一种信息：说明其认为当前处于方向不明但波动可利用的阶段，与反弹窗口定性配套。与青枫浦上Q在议息前不做方向性判断的处理形成呼应。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 当前位置不作方向判断只做T
+  related_stocks: []
+  tags:
+  - 不做判断
+  - 做T
+  - 低吸党
+  - 震荡应对
+- id: claim-20260916-002-e
+  source_path: sources/original/bilibili/2026-09-16-1145-图片-周一视频开始聊的就是本周科技反弹窗口。 如果量大2.5万亿以.md
+  source_date: '2026-09-16'
+  source_type: 图片
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-16T12:32:00+08:00'
+  claim_type: stock-view
+  subject: 江海股份两日获利了结后已无科技持仓
+  timeframe: intraday
+  statement: 已卖出前天低吸的江海股份(002484)，两日取得八个点收益，卖出价与现价接近，当前手中已无科技持仓
+  evidence_quote: 不过前天吸的江海两天八个点卖了。和现价差不多。手里没科技了。
+  interpretation: 具体交易记录：江海股份两天八个点获利了结，且明确当前无科技持仓。此处的信息价值在于仓位状态——其处于空仓科技状态，因此其对科技的表述属于旁观视角而非持仓立场，需在解读其观点时计入这一偏差。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 江海股份两日八个点卖出且已无科技持仓
+  related_stocks:
+  - code: '002484'
+    name: 江海股份
+    role: 已卖出-两日八个点获利-主板可交易
+  tags:
+  - 江海股份
+  - 获利了结
+  - 科技空仓
+  - 仓位状态
+- id: claim-20260916-002-f
+  source_path: sources/original/bilibili/2026-09-16-1145-图片-周一视频开始聊的就是本周科技反弹窗口。 如果量大2.5万亿以.md
+  source_date: '2026-09-16'
+  source_type: 图片
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-16T12:32:00+08:00'
+  claim_type: market-cycle
+  subject: 当前量能只能按反弹看待
+  timeframe: short-term
+  statement: 以当前量能水平判断，科技行情暂时只能按反弹看待，反转需要等待
+  evidence_quote: 这个量，暂时也只能当反弹看。也希望尽快反转。
+  interpretation: 核心定性判断：量能不足决定当前只有反弹级别而非反转级别。这与前文量能分档纪律形成逻辑闭环——量能是区分反弹与反转的关键变量。反弹与反转的区别直接决定操作性质（做T/低吸
+    vs 持股待涨），是重要的可检索判断。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能不足决定当前仅为反弹非反转
+  related_stocks: []
+  tags:
+  - 反弹非反转
+  - 量能不足
+  - 行情级别
+  - 定性判断
