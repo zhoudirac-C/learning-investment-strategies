@@ -1,5 +1,35 @@
 # Config 变更日志
 
+## 2026-09-16 — 条件轮询 cron 退役（无 YAML 字段改动）
+
+### 变更
+- **删除 cron job**「条件驱动轮询（add_zone/风控）」(job `9ba78acd7635`,
+  `*/5 9-11,14-15 * * 1-5`)，`qing_stock_monitor_poll.py` 通道退役（脚本保留，
+  加退役注释，可手动单跑）。
+- 同期删除：观察池热度计算、B站Cookie提醒、日志清理、旧版B站青枫浦上Q监控
+  （后三个为 7/28 起暂停的残留），及「观察池热度计算」cron。
+
+### 对 YAML 的影响：**零**
+`reduce_zone` / `risk_zone` / `add_zone` 字段与代码读取点均不变
+（`PositionRuleEngine.evaluate()`, rules/__init__.py L218–L281）。
+变的只是**触发结算通道**：5 分钟机械提醒 → 30 分钟 agent 分析通道。
+
+**给未来改配置的人**：`risk_zone` 命中仍会产生「风控观察」告警，但只在
+agent 通道的 tick 上（每 30 分钟）。若你为某标的配了 zone 后期待"秒级提醒"，
+**不会有** —— 见 `README.md`「价格区间的三条触发链」。
+
+### 实测数据（2026-09-16）
+| 字段 | positions.yaml 命中数 |
+|---|---|
+| `risk_zone` | 6 |
+| `reduce_zone` | 1（512400.SH） |
+| `add_zone` | **0**（加仓区目前只写在 `today_plan`/`note` 自由文本里，无结构化提醒） |
+
+### 验证
+- [x] `--agent-json-context` 实跑返回 10 条 alerts（含 zone/买入信号候选）
+- [x] 两次脚本语法检查通过（项目内 + `~/.hermes` wrapper）
+- [x] `RuleEngine` / `validate_position_price_zones` 导入正常
+
 ## 2026-06-29 — 6/28 晚间复盘驱动更新
 
 ### 复盘核心结论

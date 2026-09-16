@@ -1,8 +1,20 @@
 #!/usr/bin/env python3
 """条件驱动轮询 — 纯规则价格触发检查。
 
-每 5 分钟拉行情，检查持仓的 add_zone/reduce_zone/risk_zone，
-有触发就输出提醒消息。不需要 LLM。
+⚠️ 【已退役 2026-09-16】本脚本不再被任何 cron 任务调用。
+
+原 cron「条件驱动轮询（add_zone/风控）」(*/5 9-11,14-15 * * 1-5) 已删除。
+positions.yaml 的 reduce_zone / risk_zone / add_zone 仍由
+`PositionRuleEngine.evaluate()` (src/qing_investment/monitor/rules/__init__.py
+L218–L281) 读取，但触发结算改走 agent 通道：
+    hermes_stock_monitor_agent.py → run_tick(agent_json_context=True) → alerts[]
+即由「持仓双引擎盘中监控」等 30 分钟粒度的 cron 承载，不再有 5 分钟机械提醒。
+
+保留本文件的原因：便于需要时手动单跑一次（例如盘中人工核查 zone 是否穿越）：
+    bash ~/.hermes/scripts/qing_stock_monitor_poll.py
+
+字段覆盖率（2026-09-16）：risk_zone ×6、reduce_zone ×1、add_zone ×0。
+详见 config/stock_monitor/README.md「价格区间的三条触发链」。
 """
 
 from __future__ import annotations

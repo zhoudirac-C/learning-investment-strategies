@@ -518,6 +518,35 @@ See [`docs/hallucination-defense-layers.md`](hallucination-defense-layers.md).
 
 Reference: `skills/qing-stock-monitor-update/references/p3-kline-entry-zone-workflow.md`
 
+### Poll Channel Retirement (2026-09-16)
+
+**What changed**: The every-5-minute mechanical poll channel
+（cron「条件驱动轮询（add_zone/风控）」，`*/5 9-11,14-15 * * 1-5`）was removed.
+`scripts/qing_stock_monitor_poll.py` is retained on disk as a retired entrypoint
+(deprecation header added) but no cron job invokes it.
+
+**Impact on zone alerts** — the reader code is unchanged:
+
+```
+positions.yaml {reduce_zone, risk_zone, add_zone}
+  └─ PositionRuleEngine.evaluate()   # rules/__init__.py L218–L281, sole reader
+       ├─ [RETIRED] poll channel      → scripts/qing_stock_monitor_poll.py
+       └─ [LIVE]    agent channel     → hermes_stock_monitor_agent.py → run_tick()
+                                         → agent-json-context → alerts[] → Hermes
+```
+
+So zone crossings still surface, at **30-minute granularity** instead of 5 minutes.
+Verified 2026-09-16: `run_tick(..., agent_json_context=True)` returns a JSON payload
+whose `alerts` array carries the live zone / buy-signal alerts (10 alerts observed).
+
+**Pitfall**: `context/_agent_context_data()` builds a *different* dict that has **no**
+`alerts` key. Only the payload returned by `run_tick()` carries alerts. When debugging
+"zone configured but never alerts", confirm which path produced the context.
+
+**Field coverage as of 2026-09-16**: `risk_zone` ×6, `reduce_zone` ×1 (512400.SH),
+`add_zone` ×0 — the add-on path is dormant until a position explicitly declares
+`add_zone: 'low-high'`.
+
 ### Poll Field Lineage Fix
 
 **Problem**: Poll script read watchlist using old field paths that didn't match the restructured `strategy_pack.yaml` format.
@@ -528,7 +557,7 @@ Reference: `skills/qing-stock-monitor-update/references/p3-kline-entry-zone-work
 entry_points:
   - code: 000534.SZ
     entry_zone:
-      price_range: "30.5-31.0"    # poll reads here
+      price_range: "30.5-31.0"    # entry-zone rule reads here
       source_kline: "2026-06-08"
 ```
 

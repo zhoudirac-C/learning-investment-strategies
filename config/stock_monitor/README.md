@@ -39,9 +39,52 @@ Before you add, remove, or rename fields, verify the reader code so you don't br
 | `name` | No (fallback from quote) | Alert text | free text |
 | `reduce_zone` | No | "减仓观察" alert | string range `"47.50-50.00"` or single number |
 | `risk_zone` / `risk_line` | No | "风控观察" alert | same range format |
+| `add_zone` | No | "加仓观察" alert | same range format |
 
 **Safe to add** extra keys (`shares`, `cost`, `pnl`, `today_plan`, `notes`, …) — the script ignores them.  
-**Do NOT rename** `accounts`, `positions`, `code`, `reduce_zone`, `risk_zone`, or `risk_line` without updating `stock_monitor.py`.
+**Do NOT rename** `accounts`, `positions`, `code`, `reduce_zone`, `risk_zone`, `risk_line`, or `add_zone` without updating `stock_monitor.py`.
+
+#### 价格区间的三条触发链（2026-09-16 实证）
+
+三个 zone 字段的规则判定实现在 `src/qing_investment/monitor/rules/__init__.py::PositionRuleEngine.evaluate()`
+（L218–L281），但**触发结算的通道在 2026-09-16 变更过**，改字段前必须知道链路走向：
+
+```
+positions.yaml 的 reduce_zone / risk_zone / add_zone
+  └─ PositionRuleEngine.evaluate()  ← 唯一读取点，读的是 config["positions"]["accounts"][].positions[]
+       ├─【通道A｜每5分钟机械提醒】qing_stock_monitor_poll.py → 已删除（2026-09-16）
+       └─【通道B｜每30分钟 LLM 分析】hermes_stock_monitor_agent.py → run_tick() → agent-json-context
+            └─ 输出的 alerts[] 字段传给 Hermes agent，由其解释后出报
+```
+
+- **通道A（Poll）已于 2026-09-16 停用**：原 cron「条件驱动轮询（add_zone/风控）」`*/5 9-11,14-15 * * 1-5` 被移除。
+  影响：zone 穿越**不再有 5 分钟粒度的机械提醒**，最快响应粒度变为通道B的 30 分钟。
+- **通道B 仍然生效**（无需任何配置改动）：实证方式 ——
+
+  ```bash
+  cd /home/ubuntu/learning-investment-strategies
+  PYTHONPATH=src .venv/bin/python -m qing_investment.stock_monitor \
+      --agent-json-context --ignore-trading-time
+  # 输出的 JSON 里 "alerts" 数组即为当前触发的 zone/买入信号告警
+  ```
+
+  注意：必须在 `POST /tick` 或 `run_tick()` 内调用。`context/_agent_context_data()`（另一种 context 构造路径）
+  **不含** `alerts` 字段，只有 `run_tick()` 产出的 JSON 才有——排查"配了 zone 怎么不告警"时先确认走的是哪条路径。
+
+**措辞纪律**：`risk_zone` 触发是**风控观察**（预警），不是自动减仓指令。改 positions.yaml 前先 grep 该标的
+全部防守线字段，把冲突列给用户拍板。
+
+### zone 字段当前覆盖率（2026-09-16）
+
+| 字段 | 当前 positions.yaml 命中数 | 说明 |
+|---|---|---|
+| `risk_zone` | 6 | 分布在 `accounts[].positions[]` 各标的 |
+| `reduce_zone` | 1 | 仅 512400.SH |
+| `add_zone` | **0** | 当前无标的配置；加仓区间目前写在各标的 `today_plan` / `note` 的自由文本里（如 512400 的「加仓区1.783-1.800企稳才接回」） |
+
+**注意**：`add_zone` 为 0 表示该规则的代码路径处于空转状态——不是 bug，但也意味着"加仓区"目前
+**没有任何机械提醒**，完全依赖通道B的 LLM 读取 `today_plan` 文本。若希望加仓区获得结构化提醒，
+需要显式在 positions.yaml 落 `add_zone: '低-高'` 字段。
 
 `closed_positions` under an account is **never read** by the monitor (only `positions` is iterated). It is safe for bookkeeping, but moves into `closed_positions` will stop quote-fetching and alerting for that stock.
 
