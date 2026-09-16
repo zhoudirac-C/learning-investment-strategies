@@ -28,6 +28,7 @@ from qing_investment.claim_schema import (
     VALID_CONFIDENCE,
     VALID_STATUS,
     VALID_INTENSITY,
+    VALID_STANCE,
 )
 
 # ── Gate 1: 字段完整性 ──────────────────────────────────
@@ -69,6 +70,10 @@ def gate2_enum_invalid(claim: dict) -> list[str]:
     st = claim.get("status")
     if st and st not in VALID_STATUS:
         errors.append(f"status='{st}' 不在 {sorted(VALID_STATUS)}")
+    # stance 非必填；仅当存在时校验（2026-09-17 新增，存量缺失合法）
+    sa = claim.get("stance")
+    if sa and sa not in VALID_STANCE:
+        errors.append(f"stance='{sa}' 不在 {sorted(VALID_STANCE)}")
     ins = claim.get("intensity")
     if ins and ins not in VALID_INTENSITY:
         errors.append(f"intensity='{ins}' 不在 {sorted(VALID_INTENSITY)}")

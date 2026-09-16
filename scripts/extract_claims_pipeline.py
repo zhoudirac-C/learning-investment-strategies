@@ -124,6 +124,7 @@ def next_action(session: dict) -> dict:
 
 **要求：**
 1. 每条 claim 包含 19 个必需字段（id, source_path, source_date, source_type, up_id, extracted_at, claim_type, subject, timeframe, statement, evidence_quote, interpretation, confidence, status, intensity, supersedes, contradicts, links, topic）
+   **外加 1 个可选字段 `stance`（本步务必填写，见第 8 条）**。
 2. **up_id 取值规则（重要）**：从 raw 文件头部读取 `up_uid` 字段原样填入（如 "1420210197"）。
    - 若 raw 头部无 `up_uid`（手工整理稿），填 "unknown"。
    - 缠论课程（source_path 以 sources/chanlun/ 开头）填 "chanlun-original"。
@@ -172,6 +173,35 @@ def next_action(session: dict) -> dict:
 
    ⚠️ **产出的证据**：宁少勿滥。一篇复盘提取 8-15 条真观点，好过 30 条含大量播报。
    如果某段全是数据罗列、读完后你没发现作者立场，**这段就不产生 claim**。
+
+8. **`stance` 标注（每条 claim 必填，四值择一）**：标注这条 claim 是「什么性质的话」。
+
+   | 值 | 含义 | 典型 |
+   |---|---|---|
+   | `fact` | 事实陈述/转述 | 行情数据、涨幅榜、政策转述、研报引用、公司资料 |
+   | `view` | 对**具体标的/板块/事件**的判断 | 看好/看空某方向、操作建议、选股判据、方法论 |
+   | `market-regime` | 对**市场/情绪/风格处于什么阶段**的定性定位 | 周期位置、级别判定、性质定性 |
+   | `mixed` | 事实与判断兼有且**不可拆分** | 确实无法分离时（优先拆分，不轻易用） |
+
+   ⚠️ **`view` 与 `market-regime` 的判别（易混，重点）**：
+   - 判断对象是**大盘/全局/风格/情绪周期** → `market-regime`
+     · 「风格切换已经完成，但级别仍是反弹而非反转」
+     · 「本轮情绪周期已进入尾部释放阶段」
+     · 「当前用混沌期描述有直观意义，但不足以确认退潮结束」
+     · 「反弹属于议息前的提前博弈叠加科技回流」
+   - 判断对象是**某个板块/个股/主题** → `view`
+     · 「依然看好国产替代方向」
+     · 「电网设备属于跟随方向，独立行情需等招标数据」
+     · 「黄酒是低位品种借政策口径的独立行情」
+
+   ⚠️ **「市场处于什么阶段」一律算观点，不算事实**：即使句子里带数据，
+     只要落点是**阶段/级别/性质定位**，就是 `market-regime`；
+     数据部分放进 `evidence_quote`。
+     （判据：这句话换个人说还成立吗？「成交额 1.84 万亿」成立→事实；
+      「已进入尾部释放阶段」不成立→观点）
+
+   ⚠️ **本步已过滤事实，故绝大多数 claim 应为 `view` 或 `market-regime`**。
+     若你标出大量 `fact`，说明第 7 条门槛没执行到位，请回头复查。
 
 **输出位置**: tools 的 write_file 写入 {sess_dir / 'step1_raw.json'}
 **格式**: JSON 格式的 claims 列表

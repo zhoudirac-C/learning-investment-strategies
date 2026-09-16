@@ -23,6 +23,14 @@ VALID_TIMEFRAMES = {"intraday", "short-term", "trend", "industry", "permanent"}
 VALID_CONFIDENCE = {"high", "medium", "low"}
 VALID_STATUS = {"active", "superseded", "contradicted", "expired", "case-only"}
 
+# 话语性质（2026-09-17 新增，四值）：
+#   fact          = 事实陈述/转述（行情数据、涨幅榜、政策转述、研报引用、公司资料）
+#   view          = 该 up 对具体标的/板块/事件的判断（看好/看空、操作建议、选股判据、方法论）
+#   market-regime = 对「市场/情绪/风格处于什么阶段」的定性定位
+#                   （周期位置、级别判定、性质定性，如「反弹非反转」「情绪周期尾部释放」「混沌期」）
+#   mixed         = 事实与判断兼有且不可拆分（拆分时优先只提判断部分，事实进 evidence_quote）
+VALID_STANCE = {"fact", "view", "market-regime", "mixed"}
+
 REQUIRED_FIELDS = {
     "id",
     "source_path",
@@ -51,6 +59,7 @@ OPTIONAL_FIELDS = {
     "related_stocks",
     "tags",
     "topic",
+    "stance",           # 话语性质 fact/view/market-regime/mixed（2026-09-17 新增，非必填）
 }
 
 # 虚拟 up_id：非 up 来源的内容
@@ -81,6 +90,7 @@ class Claim:
     links: dict[str, list[str]]
     up_name: str = ""
     disagrees_with: list[str] = None  # type: ignore[assignment]
+    stance: str = ""                  # 话语性质（四值，2026-09-17 新增，可空）
 
     def __post_init__(self) -> None:
         if self.disagrees_with is None:
@@ -115,6 +125,11 @@ def validate_claim_dict(data: dict[str, Any]) -> Claim:
     if dw is not None and not isinstance(dw, list):
         raise ValueError("disagrees_with must be a list")
 
+    # stance 非必填；若存在必须是合法枚举（2026-09-17 新增）
+    stance_val = data.get("stance")
+    if stance_val not in (None, ""):
+        _require_enum("stance", str(stance_val), VALID_STANCE)
+
     links = {
         "wiki_pages": list(data["links"].get("wiki_pages", [])),
         "methodology_pages": list(data["links"].get("methodology_pages", [])),
@@ -142,6 +157,7 @@ def validate_claim_dict(data: dict[str, Any]) -> Claim:
         links=links,
         up_name=str(data.get("up_name") or ""),
         disagrees_with=[str(i) for i in (dw or [])],
+        stance=str(data.get("stance") or ""),
     )
 
 
