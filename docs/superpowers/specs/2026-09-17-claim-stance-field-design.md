@@ -1,7 +1,8 @@
 # Claim Schema 扩展：新增 `stance` 字段（事实 vs 观点）
 
 > **状态：✅ 已实施（2026-09-17，commit a58557d）** —— 采用**四值**方案（用户中途由三值改四值）
-> 已落地：Schema / Gate / 提取 prompt / Skill 四层。图库层（Neo4j+Qdrant）与存量回填**暂缓**。
+> 已落地：**五层全部完成**（Schema / Gate / 提取 prompt / Skill / 图库层）。
+> 存量回填**暂缓**（缺字段一律写 `unknown`，下游必须容错）。
 > 提案日期：2026-09-17
 > 提案人：用户（提出质疑）+ Agent（方案设计）
 > 关联 skill：`qing-claim-schema-evolution`
@@ -358,7 +359,9 @@ assert VALID_STANCE == {"fact", "view", "mixed"}
 |---|---|---|
 | 1 | 字段名用 `stance` 还是 `nature` / `epistemic_type` | ✅ 已定：`stance` |
 | 2 | ~~三值~~ **四值** `fact/view/market-regime/mixed` | ✅ 已定：四值（用户中途改） |
-| 3 | 是否**同步实施**图库层（Neo4j 属性 + Qdrant payload） | ⬜ **暂缓**，待用户决定 |
+| 3 | 是否**同步实施**图库层（Neo4j 属性 + Qdrant payload） | ✅ **已做**（commit 6fb9345） |
+| 3b | 38 个 `_1` 重复文件 | ✅ **已归档** 37 个到 `_dups/`；保护 1 个（见下） |
+| 3c | FOMC 结果 | ✅ 已出：加息25bp/3.75-4.00%/12-0/点阵图隐含年内再+1次 → **落在情形B** |
 | 4 | 是否回填存量 5,234 条 | 建议**暂不回填**，新 claim 生效即可 |
 | 5 | 是否改 `discover` 的 fact 降权 | 建议**先不动**，观察轮后再评估 |
 | 6 | ~~是否同步改 Step 1 提取门槛~~ | ✅ **已做**（commit f56822c/2df5723） |
