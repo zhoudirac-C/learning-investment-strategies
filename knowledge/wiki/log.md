@@ -2434,3 +2434,16 @@
   Step 4 补回 38 条 topic 并按既有 claim 字段顺序重排 YAML
 - 输出：knowledge/claims/claim-20260916-003.yaml（新建）+ claims/index.md +1 行 +
   wiki/每日复盘/2026-09-16.md（追加晚间复盘章节）+ log.md
+
+## 2026-09-17 早盘专栏（08:51）— 18 条 claim
+
+- 源：B站动态 1248838659930587157《9.17(早盘)》（up_id 1420210197）
+- **首次启用提取门槛**（Step 1 prompt 第 7 条）：只提观点，跳过纯事实播报
+- **首次启用 stance 字段**（第 8 条）：18 条 = market-regime 7 + view 11 + **fact 0**
+- 核心判断：议息偏鹰但**未开启加息通道→属可消化**；放量性质判据=**前半小时成交是否不降**；
+  今日落成情形A（转折确认）/B（上周五翻版）；纪律=**多看少动做T，两种情形均不加仓**
+- Gate 1 修复 1 轮（subject 含 `+`/`、`）→ **清 gate1_result.json 缓存后过**
+- Gate 2 修复 1 轮（6 个 NON_COMPANY 假阳性：「科技/制药」通用词截断）→ 清 gate2 缓存后过
+- Gate 3 一次通过；`topic`/`stance`/`related_stocks`/`tags` 各 18/18 存活（未复现 formatter 丢字段）
+- 产出：knowledge/claims/claim-20260917-001.yaml（新建）+ claims/index.md +1 行
+  + wiki/每日复盘/2026-09-17.md（新建）+ 本 log
