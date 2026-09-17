@@ -2447,3 +2447,18 @@
 - Gate 3 一次通过；`topic`/`stance`/`related_stocks`/`tags` 各 18/18 存活（未复现 formatter 丢字段）
 - 产出：knowledge/claims/claim-20260917-001.yaml（新建）+ claims/index.md +1 行
   + wiki/每日复盘/2026-09-17.md（新建）+ 本 log
+
+## 2026-09-17 卢本圆早盘视频（08:20）— 8 条 claim
+
+- 源：B站动态 1248830465088946183《节前科技高抛低吸，医药观察趋势》（up_id 550494308）
+- ASR：xiaomi/mimo-v2.5，时长 03:28，09:04 自动转写成功（非空、未降级）
+- stance：view 7 + market-regime 1 + **fact 0**（门槛生效）
+- 核心：①电力因闽东六板压制位撤出、立讯获利了结 ②换仓加西点（设割肉条件）
+  ③科技量能门槛 **>2.5万亿好做 / <2万亿逢低吸** ④**国庆前日均量能难上2万亿→只能高抛低吸**
+  ⑤不等加息消息（"对我来说都一样"）
+- ⚠️ **标的存疑**：原话"万邦，成本三十六"，但 A股万邦德(002082)已被ST且现价9.15元，
+  与成本36严重不符 → 判为 ASR 音译代号，`related_stocks` 留空 + confidence=low，待用户核实
+- Gate 1 修复 1 轮（误把 stance 值 market-regime 写进 claim_type）→ 清 gate1 缓存后过
+- Gate 2 修复 2 轮（无标的条误插代码；「科技」通用词截断 3 条）→ 清 gate2 缓存后过
+- Gate 3 一次通过；topic/stance/related_stocks/tags 各 8/8 存活
+- 产出：knowledge/claims/claim-20260917-002.yaml（新建）+ claims/index.md +1 行

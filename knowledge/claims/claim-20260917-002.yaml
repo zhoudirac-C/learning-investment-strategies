@@ -1,0 +1,244 @@
+claims:
+- id: claim-20260917-002-a
+  source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
+  source_date: '2026-09-17'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-17T09:28:00+08:00'
+  claim_type: operation
+  subject: 电力因闽东六板压制位先撤，立讯获利了结
+  topic: 电力板块撤出与立讯了结的操作记录
+  timeframe: short-term
+  statement: 电力板块已撤出，主要考虑闽东电力(000993)已是六板、六进七一般是短线压制位，板块龙头到六进七节点先撤；立讯精密(002475)两次进场一次赚一万八、一次赚两千，昨天获利了结。
+  evidence_quote: 昨天立讯是获利了结，两次进立讯，一次是赚一万八，一次是赚了个两千块啊。主要还是考虑到电力高标这边闽东啊已经是六板了。那六进七一般被我们视为一个短线的压制位，所以板块龙头六进七的这个节点，我电力就先撤了。
+  interpretation: 记录已执行操作及其依据：撤电力用的是「板块龙头六进七=短线压制位」这条具体判据；立讯精密(002475)了结为短线兑现。属操作记录，非新方法论（判据本身是既有经验）。
+  stance: view
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '002475'
+    name: 立讯精密
+    role: 已获利了结-主板可交易
+  - code: '000993'
+    name: 闽东电力
+    role: 电力板块龙头六板-撤出参照-主板可交易
+  tags:
+  - 电力撤出
+  - 六进七压制
+  - 立讯了结
+- id: claim-20260917-002-b
+  source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
+  source_date: '2026-09-17'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-17T09:28:00+08:00'
+  claim_type: operation
+  subject: 立讯出来的资金加仓西点，但西点辨识度低且设了割肉条件
+  topic: 西点加仓与止损条件
+  timeframe: short-term
+  statement: 立讯精密(002475)出来的钱加了西点药业(301130)，西点现在四十个（打引号）；西点辨识度相对较低，如果后面医药的趋势走坏了，该割肉也得割肉。
+  evidence_quote: 所以说我立讯出来的钱加了西点，西点现在四十个了，打引号。但是西点的这个辨识度相对较低啊，我之前就说过了，如果后面医药的趋势走坏了，我该割肉我也得割肉。
+  interpretation: 换仓操作记录 + 明确的失效条件（医药趋势走坏即割肉）。注意「辨识度低」是 UP 自己给该仓的定性折扣，属风险自认而非推荐。
+  stance: view
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '301130'
+    name: 西点药业
+    role: 加仓标的-创业板不可交易
+  tags:
+  - 换仓
+  - 西点
+  - 割肉条件
+- id: claim-20260917-002-c
+  source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
+  source_date: '2026-09-17'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-17T09:28:00+08:00'
+  claim_type: stock-view
+  subject: 观察仓仅剩十万与成本36，允许离场（标的待核实）
+  topic: 万邦观察仓的处置口径
+  timeframe: short-term
+  statement: 万邦德重申仅剩十万块的观察仓、成本三十六，目前仅仅是观察仓；很多人还有七十二块左右最高点获利的机会，想走就可以走了。
+  evidence_quote: 那万邦再重申一下啊，剩个十万块的这个观察仓，三十六的成本，目前就仅仅是观察仓，所以昨天我说想走就可以走了。很多人还是有七十二块左右，最高点获利的机会，是吧？
+  interpretation: 明确该仓性质为「观察仓」（非主攻），并给出自由度（想走可走）。⚠️ 标的存疑：原话为「万邦」，成本三十六；但 A股「万邦德」现已被
+    ST 且现价 9.15 元，与「成本36」严重不符；全市场查到的其他「万邦」系标的亦无 36 元价位。判断为 ASR 音译代号（可能指某非「万邦」标的），故
+    related_stocks 留空、置信度降为 low，待用户核实。
+  stance: view
+  confidence: low
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 万邦
+  - 观察仓
+  - 成本36
+- id: claim-20260917-002-d
+  source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
+  source_date: '2026-09-17'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-17T09:28:00+08:00'
+  claim_type: sector-theme
+  subject: 医药有走趋势的可能，节前或慢慢走出，但仍待观察
+  topic: 医药趋势可能性判断
+  timeframe: trend
+  statement: 医药我觉得还是有走趋势的可能的；短线投机像零售（国光连锁跌停）、农业（金健米业补跌）都在走弱，相对而言医药这些标的在活跃；医药还是有可能慢慢在国庆节前走出趋势的，但还有待观察。
+  evidence_quote: 那医药的话我觉得还是有走趋势的可能的。那短线投机像其他的零售啊，国光也跌停，农业的金健米业也开始补跌。相对来说就医药的这些标的，哈尔斯早上昨天早上拉了一波啊。医药还是有可能慢慢在国庆节前走出趋势的，但还有待观察。
+  interpretation: 给出医药的条件性看好（有走趋势可能 + 节前时间窗），但明确加「待观察」限定。同时用零售/农业走弱作对照来支撑医药的相对强势。
+  stance: view
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 医药
+  - 趋势可能
+  - 待观察
+- id: claim-20260917-002-e
+  source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
+  source_date: '2026-09-17'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-17T09:28:00+08:00'
+  claim_type: methodology
+  subject: 科技量能门槛：量大于2.5万亿好做，小于2万亿则逢低吸
+  topic: 科技行情的量能门槛
+  timeframe: trend
+  statement: 之前聊的就是如果量大于2.5万亿以上就科技好做点，量小于两万亿左右就逢低吸；吸的方向是MLCC、PCB和光纤。
+  evidence_quote: 那之前聊的就是如果量大于2.5万亿以上就科技好做点，量小于两万亿左右就逢低吸。吸的我说MLCC、PCB和光纤周一视频就都说了。
+  interpretation: 给出可量化的科技操作门槛（2.5万亿/2万亿两档）与对应策略，是本篇最具复用价值的判据。与青枫浦「量能决定打法」同一框架但阈值更保守。
+  stance: view
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 量能门槛
+  - 2.5万亿
+  - 逢低吸
+- id: claim-20260917-002-f
+  source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
+  source_date: '2026-09-17'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-17T09:28:00+08:00'
+  claim_type: operation
+  subject: 昨天对低吸仓位是T点，可卖一点
+  topic: 昨日T点判断
+  timeframe: short-term
+  statement: 昨天其实也说的比较明白，是个T点——比如低吸的这些兄弟手中可能还有一点科技的，我觉得是个T点，可以卖一点。
+  evidence_quote: 那昨天我其实也说的比较明白，是个T点啊，就是比如低吸的我们这些低吸的兄弟手中可能还有一点科技的，我觉得是个这个T点啊，就是可以卖一点。
+  interpretation: 对昨日行情的操作定性（T点=高抛机会），属短线择时判断。
+  stance: view
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - T点
+  - 高抛
+  - 短线择时
+- id: claim-20260917-002-g
+  source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
+  source_date: '2026-09-17'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-17T09:28:00+08:00'
+  claim_type: market-cycle
+  subject: 国庆前科技日均量能难上2万亿，只能逢高抛逢低吸
+  topic: 节前量能现实约束与策略
+  timeframe: short-term
+  statement: 科技主要还是量的问题，但马上要到国庆了，国庆之前想它每天飙到两万亿、2.5万亿，不现实；所以还是那个思路，逢高抛、逢低吸。
+  evidence_quote: 科技主要还是这个量的问题，但我们马上要到国庆了。国庆之前你想它每天飙到两万亿、2.5万亿，不现实啊，我觉得不现实。所以还是那个思路，逢高抛，逢低吸啊，就这么简单。
+  interpretation: 把量能门槛（前一条）落到节前时间窗，得出「不现实→只能高抛低吸」的结论。这是对市场级别的现实约束判断，与青枫浦「假期效应+缩量→持续性有限」互相印证。
+  stance: market-regime
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 节前量能
+  - 现实约束
+  - 高抛低吸
+- id: claim-20260917-002-h
+  source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
+  source_date: '2026-09-17'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-17T09:28:00+08:00'
+  claim_type: macro
+  subject: 不等加息消息，加息与否对操作无区别
+  topic: 对议息事件的处理态度
+  timeframe: short-term
+  statement: 不再等这个加息的消息，因为对我来说都一样；万亿如果没加，那就是超预期，那也不错，不过这种想想就好。
+  evidence_quote: 那再去等这个加息的消息，我就不等了，因为其实对我来说都一样。……那万亿如果没加，那就是超预期啊，那也不错。不过这种想想就好啊，梦里梦里还是有的，想想就好。
+  interpretation: 明确的宏观事件处理态度：不把议息作为决策变量。与青枫浦「拆两层、给情形A/B」形成方法论差异，但两人的最终操作纪律（不加仓/高抛低吸）一致。
+  stance: view
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 议息态度
+  - 不等待
+  - 宏观事件
