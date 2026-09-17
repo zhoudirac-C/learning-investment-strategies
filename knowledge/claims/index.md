@@ -610,3 +610,4 @@
 - [claim-20260916-003.yaml](claim-20260916-003.yaml)
 - [claim-20260917-001.yaml](claim-20260917-001.yaml)
 - [claim-20260917-002.yaml](claim-20260917-002.yaml)
+- [claim-20260917-003.yaml](claim-20260917-003.yaml)
