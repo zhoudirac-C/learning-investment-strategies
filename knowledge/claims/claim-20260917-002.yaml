@@ -74,16 +74,14 @@ claims:
   up_name: 卢本圆复盘
   extracted_at: '2026-09-17T09:28:00+08:00'
   claim_type: stock-view
-  subject: 观察仓仅剩十万与成本36，允许离场（标的待核实）
-  topic: 万邦观察仓的处置口径
+  subject: 万邦医药观察仓仅剩十万与成本36，允许离场
+  topic: 万邦医药观察仓的处置口径
   timeframe: short-term
-  statement: 万邦德重申仅剩十万块的观察仓、成本三十六，目前仅仅是观察仓；很多人还有七十二块左右最高点获利的机会，想走就可以走了。
+  statement: 万邦医药(301520)重申仅剩十万块的观察仓、成本三十六，目前仅仅是观察仓；很多人还有七十二块左右最高点获利的机会，想走就可以走了。
   evidence_quote: 那万邦再重申一下啊，剩个十万块的这个观察仓，三十六的成本，目前就仅仅是观察仓，所以昨天我说想走就可以走了。很多人还是有七十二块左右，最高点获利的机会，是吧？
-  interpretation: 明确该仓性质为「观察仓」（非主攻），并给出自由度（想走可走）。⚠️ 标的存疑：原话为「万邦」，成本三十六；但 A股「万邦德」现已被
-    ST 且现价 9.15 元，与「成本36」严重不符；全市场查到的其他「万邦」系标的亦无 36 元价位。判断为 ASR 音译代号（可能指某非「万邦」标的），故
-    related_stocks 留空、置信度降为 low，待用户核实。
+  interpretation: 明确该仓性质为「观察仓」（非主攻），并给出离场自由度（想走可走）。成本36、并提及「七十二块左右最高点获利机会」，与该标的从36元区间上行至70元以上的走势吻合；标的经用户确认为万邦医药(301520)，原判「存疑」已更正。
   stance: view
-  confidence: low
+  confidence: high
   status: active
   intensity: medium
   supersedes: []
@@ -92,9 +90,12 @@ claims:
     wiki_pages: []
     methodology_pages: []
     cases: []
-  related_stocks: []
+  related_stocks:
+  - code: '301520'
+    name: 万邦医药
+    role: 观察仓-创业板不可交易
   tags:
-  - 万邦
+  - 万邦医药
   - 观察仓
   - 成本36
 - id: claim-20260917-002-d
