@@ -2464,10 +2464,11 @@
 - Gate 3 一次通过；topic/stance/related_stocks/tags 各 8/8 存活
 - 产出：knowledge/claims/claim-20260917-002.yaml（新建）+ claims/index.md +1 行
 
-## 2026-09-17 22:2x 晚间复盘专栏提取（青枫浦上Q 21:58）
-- raw: sources/original/bilibili/2026-09-17-2158-专栏-*.md（同晚 21:51 先发版存档未提取，后发版口径为准）
-- 产出：knowledge/claims/claim-20260917-003.yaml（15 条，claim-20260917-003-a ~ 017-a；view 13 + market-regime 2；fact 0）
-- 提取门槛执行：行情播报/研报转述/公司资料均未单独建条，事实仅留 evidence_quote；公司代码全部东财 searchapi API 核实（8 家）
-- Gate 2 修复 1 轮：「…科技」截断假阳性 4 条 → NON_COMPANY 追加 + 清 gate2 缓存
-- ⚠️ 事故与恢复：wiki/每日复盘/2026-09-17.md 曾被 write_file 整页覆盖（丢早盘 133 行）→ git checkout 还原后改为**追加**晚间小节（+44 行）
-- topic/stance/related_stocks/tags 15/15 存活；当日全库 claim id 唯一性校验通过（5275 条）
+## 2026-09-17 晚间复盘专栏提取（青枫浦上Q 21:58）
+- 来源：B站动态1249041326547140656；21:51篇仅存档并记录差异，不合并成一致观点。
+- 15条，claim-20260917-003-a～017-a，文件claim-20260917-003.yaml；view 13、market-regime 2、fact 0。
+- 公司代码经东财API查证；关联标的逐条限定为该claim引文实际出现且语义相关的公司。
+- Gate格式校验之外，追加引文逐字、实体范围、ID与wiki引用核验；修复手工实体路由错位9处及wiki编号错位，未增加观点。
+- 早盘wiki保留原有内容，仅追加晚间部分。
+- 曾误启动全库all-missing，停止后将本轮误改的9/16文件恢复至启动前版本；改为本次15条定点discover。
+- 下游同步与最终Git提交结果以本次实际验收为准。

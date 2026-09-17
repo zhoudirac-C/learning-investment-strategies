@@ -20,8 +20,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260909-030-a", "claim-20260913-001-018", "claim-20260804-008"]
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
@@ -32,7 +34,6 @@ claims:
   - 议息
   - 震荡轮动
   - 变盘边界
-  supplements: []
 - id: claim-20260917-004-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -46,27 +47,25 @@ claims:
   timeframe: short-term
   statement: 退潮压力缓和目前只能确认到局部，情绪改善并不均匀；退潮结束仍需修复持续性证据，若修复后再次集中走弱则不能升级阶段判断。
   evidence_quote: 据财联社收盘梳理，今日47股涨停，连板股9只，封板股口径的连板晋级率为33.33%。前期强势股的负反馈有所缓和，但部分高位股仍明显下跌，说明情绪改善并不均匀。盘面记录中的中视传媒、吉鑫科技等修复，可以视为资金重新尝试承接的信号；下一步更要看修复后是否再度转弱。退潮压力缓和可以确认到局部，退潮结束仍需要持续性证据。
-  interpretation: 后发篇不再采用21:51篇退潮期已经过去的确定表述。该条抽取阶段定位及确认边界，而非涨停家数等事实。 观察样本仅用于检验判断，不构成买入推荐。
+  interpretation: 后发篇不再采用21:51篇退潮期已经过去的确定表述。该条抽取阶段定位及确认边界，而非涨停家数等事实。
   stance: market-regime
   confidence: high
   status: active
   intensity: medium
-  supersedes: []
+  supersedes: ["claim-20260913-001-018", "claim-20260914-002-b"]
   contradicts: []
+  supplements: ["claim-20260824-003-c"]
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
     methodology_pages: []
     cases: []
-  related_stocks:
-  - code: '002584'
-    name: 西陇科学
-    role: 短线情绪修复观察样本-深A主板可交易
+  related_stocks: []
   tags:
   - 退潮缓和
   - 持续性证据
   - 局部确认
-  supplements: []
 - id: claim-20260917-005-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -80,27 +79,25 @@ claims:
   timeframe: trend
   statement: 科技核心回升、板块成交占比提高且市场总成交温和增加，才更接近主动进攻；仅少数个股脉冲拉升、其他板块同步回落仍属存量切换。缩量不能单独证明抛压出清或指数安全。
   evidence_quote: 明日若科技核心回升、板块成交占比提高，同时市场总成交温和增加，才更接近主动进攻；若只是少数个股脉冲拉升，其他板块同步回落，则仍属于存量切换。缩量不能单独证明抛压出清，也不能保证指数安全。
-  interpretation: 总量与结构同时验证，避免把板块内资金集中误认作全市场增量。条件用于辨别行情性质，并非机械买入信号。 观察样本仅用于检验判断，不构成买入推荐。
+  interpretation: 总量与结构同时验证，避免把板块内资金集中误认作全市场增量。条件用于辨别行情性质，并非机械买入信号。
   stance: view
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260901-017-a", "claim-20260909-014-a", "claim-20260910-003-a"]
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
     methodology_pages: []
     cases: []
-  related_stocks:
-  - code: '600371'
-    name: 万向德农
-    role: 农业反抽二波观察样本-沪A主板可交易
+  related_stocks: []
   tags:
   - 主动进攻
   - 存量切换
   - 量能结构
-  supplements: []
 - id: claim-20260917-006-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -121,6 +118,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260908-003-z", "claim-20260913-001-017", "claim-20260910-003-a"]
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
@@ -131,7 +130,6 @@ claims:
   - 权重承接
   - 市场广度
   - 大金融
-  supplements: []
 - id: claim-20260917-007-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -145,13 +143,15 @@ claims:
   timeframe: short-term
   statement: 国产算力和光通信核心企稳后，需上涨范围扩大、回调有承接、午后强度维持、同时间成交改善且收盘不明显回吐，并观察西陇科学(002584)等情绪样本无新增负反馈；先跟踪订单或业绩依据清晰的方向，等待回流经受一次分歧检验再评估参与强度，不能把开盘拉升当全天确认。
   evidence_quote: 情形 A · 科技回流形成合力：早盘国产算力与光通信核心率先企稳，随后板块上涨范围扩大，回调有承接；午后仍能维持强度，且成交较今日同时间段改善，收盘没有明显回吐。若西陇科学等情绪观察股也未出现新增负反馈，则可以把市场理解为分歧后的再平衡。应对上先跟踪订单或业绩依据较清晰的方向，等待回流经受一次分歧检验，再评估参与强度，不把开盘几分钟的拉升当作全天确认。
-  interpretation: 保留次日预案的完整时序约束；情绪样本不是买入推荐。没有给出具体仓位比例或买入价格，不能自行补成加仓指令。 观察样本仅用于检验判断，不构成买入推荐。
+  interpretation: 保留次日预案的完整时序约束；情绪样本不是买入推荐。没有给出具体仓位比例或买入价格，不能自行补成加仓指令。
   stance: view
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260910-017-a", "claim-20260908-003-z"]
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
@@ -161,14 +161,10 @@ claims:
   - code: '002584'
     name: 西陇科学
     role: 短线情绪修复观察样本-深A主板可交易
-  - code: '600371'
-    name: 万向德农
-    role: 农业反抽二波观察样本-沪A主板可交易
   tags:
   - 科技回流
   - 分歧检验
   - 参与条件
-  supplements: []
 - id: claim-20260917-008-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -189,6 +185,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260913-001-018", "claim-20260908-003-z", "claim-20260814-013"]
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
@@ -199,7 +197,6 @@ claims:
   - 轮动转防守
   - 失效条件
   - 放量破位
-  supplements: []
 - id: claim-20260917-009-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -220,21 +217,14 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260908-003-z"]
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
     methodology_pages: []
     cases: []
   related_stocks:
-  - code: '002281'
-    name: 光迅科技
-    role: 光模块-海外链业绩窗口样本-深A主板可交易
-  - code: '300394'
-    name: 天孚通信
-    role: 光器件FAU-创业板不可交易
-  - code: '300684'
-    name: 中石科技
-    role: 光通信散热与液冷-创业板不可交易
   - code: '600371'
     name: 万向德农
     role: 农业反抽二波观察样本-沪A主板可交易
@@ -242,7 +232,6 @@ claims:
   - 防御反抽
   - 二波判据
   - 万向德农
-  supplements: []
 - id: claim-20260917-010-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -263,6 +252,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260810-037"]
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
@@ -273,7 +264,6 @@ claims:
   - 汽车风电
   - 进攻轮动
   - 主线条件
-  supplements: []
 - id: claim-20260917-011-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -294,23 +284,18 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260804-026", "claim-20260915-004-6", "claim-20260826-017-a"]
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
     methodology_pages: []
     cases: []
-  related_stocks:
-  - code: '301297'
-    name: 富乐德
-    role: 功率半导体陶瓷载板-创业板不可交易
-  - code: '688797'
-    name: 臻宝科技
-    role: 半导体设备陶瓷零部件-科创板不可交易
+  related_stocks: []
   tags:
   - 国产链
   - 业务联动
   - 订单验证
-  supplements: []
 - id: claim-20260917-012-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -331,6 +316,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  relation_review_note: '人工复核：旧观点明确三季度可能拐点但贡献不大、交易明年报表，与本条股价可能先于利润兑现并不矛盾；剔除自动判出的冲突边。'
+  supplements: ["claim-20260915-004-21"]
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
@@ -350,7 +338,6 @@ claims:
   - 海外链
   - 业绩兑现
   - 三季报
-  supplements: []
 - id: claim-20260917-013-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -371,20 +358,18 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260721-029", "claim-20260913-001-033"]
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
     methodology_pages: []
     cases: []
-  related_stocks:
-  - code: '601869'
-    name: 长飞光纤
-    role: 棒纤缆一体化-沪A主板可交易
+  related_stocks: []
   tags:
   - 资本开支
   - 采购验证
   - 收入传导
-  supplements: []
 - id: claim-20260917-014-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -408,6 +393,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260913-001-033", "claim-20260812-023", "claim-20260826-015-a"]
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
@@ -418,7 +405,6 @@ claims:
   - 零部件
   - 国产替代
   - 盈利兑现
-  supplements: []
 - id: claim-20260917-015-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -439,6 +425,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260826-017-a"]
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
@@ -449,7 +437,6 @@ claims:
   - 陶瓷零件
   - 封装载板
   - 分开验证
-  supplements: []
 - id: claim-20260917-016-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -470,6 +457,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
@@ -480,7 +469,6 @@ claims:
   - 光互连
   - 受益门槛
   - 集群扩展
-  supplements: []
 - id: claim-20260917-017-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -501,6 +489,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260913-001-033"]
+  last_discovered: 2026-09-17
   links:
     wiki_pages:
     - knowledge/wiki/每日复盘/2026-09-17.md
@@ -511,4 +501,3 @@ claims:
   - 政策催化
   - 经营预期
   - 地产链承接
-  supplements: []
