@@ -1,0 +1,136 @@
+claims:
+- id: claim-20260917-018-a
+  source_path: sources/original/bilibili/2026-09-17-1320-图片-动态-1248907950615953412.md
+  source_date: '2026-09-17'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-18T00:33:18.908605+08:00'
+  claim_type: operation
+  subject: 西点减半转向辨识度
+  topic: 西点减半转向辨识度
+  timeframe: intraday
+  statement: 西点药业(301130)走得较慢，卢本圆表示将其中一半切换至更有辨识度的标的。
+  evidence_quote: 西点走的比较墨迹，切一半去辨识度。
+  interpretation: 这是UP对西点药业(301130)的盘中调仓意图与理由，不是对读者的买入推荐。成交截图只能作操作证据，不能把部分撤单的委托数量当作成交量；引文没有点名换入对象，不把其他标的写入本条结论。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20260917-002-b
+  - claim-20260915-003-6
+  - claim-20260915-003-5
+  last_discovered: 2026-09-18
+  links:
+    wiki_pages:
+    - knowledge/wiki/每日复盘/2026-09-17-卢本圆盘中动态.md
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks:
+  - code: '301130'
+    name: 西点药业
+    role: 减半调仓对象-创业板不可交易
+  tags:
+  - 卢本圆复盘
+  - 盘中动态
+  - 操作纪律
+- id: claim-20260917-019-a
+  source_path: sources/original/bilibili/2026-09-17-1320-图片-动态-1248907950615953412.md
+  source_date: '2026-09-17'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-18T00:33:18.908605+08:00'
+  claim_type: operation
+  subject: 当日不再参与科技
+  topic: 当日不再参与科技
+  timeframe: intraday
+  statement: 科技方向，卢本圆明确表示2026年9月17日当天不再参与。
+  evidence_quote: 科技我不做了今天。
+  interpretation: 这是当日操作范围的收缩，不应外推为长期看空，也不等于证明所有相关持仓已经清空。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-18
+  links:
+    wiki_pages:
+    - knowledge/wiki/每日复盘/2026-09-17-卢本圆盘中动态.md
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 卢本圆复盘
+  - 盘中动态
+  - 操作纪律
+- id: claim-20260917-020-a
+  source_path: sources/original/bilibili/2026-09-17-1440-图片-【打野号】买了情绪高度票，凑个热闹纯粹希望有高度出来。风险太.md
+  source_date: '2026-09-17'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-18T00:33:18.908605+08:00'
+  claim_type: risk
+  subject: 打野号情绪高度博弈风险
+  topic: 打野号情绪高度博弈风险
+  timeframe: intraday
+  statement: 打野号参与情绪高度票只是凑热闹、希望市场出现高度；卢本圆明确评价这笔博弈风险太高、没有逻辑。
+  evidence_quote: 【打野号】买了情绪高度票，凑个热闹纯粹希望有高度出来。风险太高，收盘公布在置顶吧。没逻辑的。
+  interpretation: 记录的是UP对自身情绪投机的动机与高风险定性，不是确定性机会或跟单推荐；已获取的正文与评论均未披露名称，不推断标的或代码。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-18
+  links:
+    wiki_pages:
+    - knowledge/wiki/每日复盘/2026-09-17-卢本圆盘中动态.md
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 卢本圆复盘
+  - 盘中动态
+  - 操作纪律
+- id: claim-20260917-021-a
+  source_path: sources/original/bilibili/2026-09-17-1440-图片-【打野号】买了情绪高度票，凑个热闹纯粹希望有高度出来。风险太.md
+  source_date: '2026-09-17'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-18T00:33:18.908605+08:00'
+  claim_type: operation
+  subject: 打野号次日不符预期则退出
+  topic: 打野号次日不符预期则退出
+  timeframe: intraday
+  statement: 针对打野号这笔情绪高度博弈，卢本圆表示次日若不符合预期就退出。
+  evidence_quote: 明天不符合预期我会摁掉。
+  interpretation: 来自2026年9月18日补抓的UP置顶或热门评论。评论接口摘要不含发表时间，“明天”保留相对表述，不强行换算日期；UP未给出预期阈值，不自拟价格线，也不认定已卖出。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20260917-020-a
+  last_discovered: 2026-09-18
+  links:
+    wiki_pages:
+    - knowledge/wiki/每日复盘/2026-09-17-卢本圆盘中动态.md
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 卢本圆复盘
+  - 盘中动态
+  - 操作纪律
