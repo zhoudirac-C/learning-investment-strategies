@@ -1767,15 +1767,31 @@ themes:
   - 医药在指数回暖后能否修复（8/25-012：修复不了则降预期）
   - 煤炭9-10月冬储旺季供需缺口兑现（8/25-014，独立催化参考）
   stocks:
-  - code: 512400.SH
-    name: 有色金属ETF南方
-    role: holding_etf
-    segment: 有色金属全谱（铜铝铅锌+小金属，全球定价暴露）
+  - code: 600721.SH
+    name: 百花医药
+    role: holding_stock
+    segment: 医药（用户自选，非UP点名）
     priority: 持仓-华宝证券
-    watch_reason: 2026-08-25 持仓 30,000股@1.9254（截图登记，现价1.883 浮亏2.2%）。UP 8/25：资源股走强是全球定价结果，持续性不取决于A股量能；有色持续性可能胜于农业。
+    watch_reason: '2026-09-18 新买 3,000股@成本11.931（截图登记，现价11.950）。买入依据=用户自主判断：医药方向跟随卢本圆「一直在买医药股」的大方向，标的选择理由为「百花辨识度高+前一日涨停」。⚠️ 卢本圆9/18原话「医药已经涨了很久，千万不要追高，只可以低吸」与本买入时点存在冲突，用户已知悉。'
+    defense_line: '跌破11.870（9/17涨停收盘价）收盘确认制 → 离场。⚠️ 成本11.931高于防线，触发即亏损约-0.5%'
     lifecycle:
       stage: holding
+      entered_stage: '2026-09-18'
+    linked_claims:
+    - claim_id: claim-20260918-006
+      relevance: theme
+      claim_type: sector-theme
+      note: 卢本圆「医药切忌追高只可低吸」— 与本买入时点的冲突记录
+  - code: 512400.SH
+    name: 有色金属ETF南方
+    role: closed_holding
+    segment: 有色金属全谱（铜铝铅锌+小金属，全球定价暴露）
+    priority: 持仓-华宝证券
+    watch_reason: '⚠️ 已清仓（2026-09-16 截图确认）。历史记录：8/25 持仓 30,000股@1.9254。本条保留作历史依据，不再监控。'
+    lifecycle:
+      stage: closed
       entered_stage: '2026-08-25'
+      exited_stage: '2026-09-16'
     linked_claims:
     - claim_id: claim-20260825-010
       relevance: theme
