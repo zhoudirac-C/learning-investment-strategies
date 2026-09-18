@@ -137,9 +137,9 @@
   claims 索引总数 5218 → 5296；缺失 id 16 → **3**（见数据质量章节）。
 - contradicts 待人工 review 存量 185 条（脚本不自动翻转）；本期增量已按上表分类，
   无需高亮裁决项。
-- ⚠️ 回填后 claims 有变更，按 AGENTS.md 知识维护流程应跑
-  discover → Neo4j migrate → Qdrant rebuild → restart Agent（本次未执行，
-  建议择低峰窗口进行）。
+- ✅ claims 变更后的知识维护流程已执行完毕（2026-09-19 凌晨低峰）：discover
+  （90 条处理、142 条关系）→ 第三轮 status 回填 11 条 → Neo4j migrate（1077 条）→
+  Qdrant 全量重建（5324 条，自检 10/10 dim=512）→ Qing-Agent 重启健康检查通过。
 
 ## Framework 更新状态总结
 
