@@ -150,3 +150,46 @@ class TestFilterDuplicates:
             [_proposal()], [{"chain_id": "ai-pcb-ccl", "name": "AI PCB/CCL 产业链"}],
             [])
         assert len(kept) == 1 and skipped == []
+
+
+class TestMomentumPrompt:
+    """异动驱动拆链 prompt（引擎 B，设计文档 §4.4）。"""
+
+    def _card(self) -> dict:
+        return {"theme": "通信设备", "zt_count": 6, "first_board_count": 4,
+                "max_lbc": 2, "seal_fund": 8e8, "earliest_seal": "09:25",
+                "leaders": ["剑桥科技", "新易盛"], "sector_pct": 4.3,
+                "streak_days": 2, "trigger_reasons": ["zt_burst"],
+                "stocks": [{"code": "001", "name": "剑桥科技", "lbc": 2,
+                            "fund": 3e8, "fbt": "09:25", "pct": 10.0},
+                           {"code": "002", "name": "新易盛", "lbc": 1,
+                            "fund": 2e8, "fbt": "09:35", "pct": 10.0}]}
+
+    def test_prompt_contains_card_stage_and_items(self):
+        from investment_engine.chain_tracker.discovery import (
+            build_momentum_messages)
+        chains = [{"chain_id": "ai-pcb-ccl", "name": "AI PCB/CCL 产业链",
+                   "driver": "Rubin代际升级"}]
+        pending = [_proposal()]
+        related = [_item("光通信行业深度：1.6T 放量", info_id="AP9")]
+        msgs = build_momentum_messages(self._card(), chains, pending, related,
+                                       stage="阶段2-加速期")
+        assert msgs[0]["role"] == "system"
+        user = msgs[1]["content"]
+        assert "通信设备" in user
+        assert "剑桥科技" in user and "新易盛" in user
+        assert "光通信行业深度" in user
+        assert "ai-pcb-ccl" in user and "solid-state-battery" in user
+        assert "阶段2-加速期" in user
+
+    def test_parse_preserves_source_type(self):
+        raw = json.dumps({"proposals": [
+            {**_proposal(), "source_type": "momentum",
+             "source_info_ids": ["sector:2026-09-16:momentum:通信设备"]}]},
+            ensure_ascii=False)
+        props = parse_discovery(raw)
+        assert props[0]["source_type"] == "momentum"
+
+    def test_parse_defaults_source_type_report(self):
+        raw = json.dumps({"proposals": [_proposal()]}, ensure_ascii=False)
+        assert parse_discovery(raw)[0]["source_type"] == "report"

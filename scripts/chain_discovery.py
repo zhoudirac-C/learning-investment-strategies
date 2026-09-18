@@ -42,13 +42,15 @@ def _cmd_scan(args: argparse.Namespace) -> int:
     from investment_engine.chain_tracker.discovery_core import run_discovery
 
     summary = run_discovery(date=args.date, offline=args.offline,
-                            no_llm=args.no_llm, dry_run=args.dry_run)
+                            no_llm=args.no_llm, dry_run=args.dry_run,
+                            source=args.source)
 
     mode = ("dry-run" if args.dry_run else "no-llm" if args.no_llm
             else "offline" if args.offline else "live")
     print(f"[chain_discovery] {summary['date']} {summary['tick']} ({mode}) "
           f"fetched={summary['fetched']} new={summary['new_items']} "
           f"sector={summary['sector_anomalies']} "
+          f"momentum={summary['momentum_triggers']} "
           f"evidence={summary['evidence_hits']} "
           f"candidates={summary['candidates']} llm={summary['llm_calls']} "
           f"errors={summary['llm_errors']} "
@@ -56,8 +58,9 @@ def _cmd_scan(args: argparse.Namespace) -> int:
     for cid, n in summary["evidence"].items():
         print(f"  📎 证据累积 +{n} 条 → {cid}（待确认提议）")
     for p in summary["proposals"]:
+        src = "🔥异动" if p.get("source_type") == "momentum" else "📄研报"
         print(f"  💡 {p['name']}（{p['chain_id']}，{p['current_stage']}，"
-              f"置信度 {p['confidence']}）")
+              f"置信度 {p['confidence']}，{src}）")
         print(f"     驱动：{p['driver']}")
         print(f"     时机：{p.get('timing') or '-'}")
     if summary["skipped_duplicates"]:
@@ -78,8 +81,10 @@ def _cmd_list(_args: argparse.Namespace) -> int:
     print(f"[chain_discovery] 待确认提议 {len(pending)} 条（候选池，证据会持续累积）：")
     for p in pending:
         ev = p.get("evidence") or []
+        src = "异动" if p.get("source_type") == "momentum" else "研报"
         print(f"  - {p['chain_id']} | {p['name']} | 提议 {p.get('current_stage')}"
-              f"（置信度 {p.get('confidence')}，提议于 {p.get('proposed_at')}）")
+              f"（置信度 {p.get('confidence')}，{src}驱动，"
+              f"提议于 {p.get('proposed_at')}）")
         print(f"    驱动：{p.get('driver')}")
         print(f"    来源：{p.get('source')} 信息 {len(p.get('source_info_ids') or [])} 条")
         print(f"    证据累积：{len(ev)} 条"
@@ -129,6 +134,10 @@ def main(argv: list[str] | None = None) -> int:
                    help="只做去重+触发/匹配过滤，不调 LLM（候选不落账，留给真实跑）")
     p.add_argument("--dry-run", action="store_true",
                    help="预览：不写 DB/pending/审计")
+    p.add_argument("--source", choices=("all", "report", "momentum"),
+                   default="all",
+                   help="发现源：all（默认）/ report（引擎A 研报驱动）/ "
+                        "momentum（引擎B 异动驱动，分层调试与回放用）")
     args, rest = p.parse_known_args(argv)
 
     if rest and rest[0] in ("list", "confirm", "reject"):

@@ -112,10 +112,12 @@ class DiscoveryCase:
             json.dumps(_notices(), ensure_ascii=False), encoding="utf-8")
         self.tracking = self.dir / "tracking"
         self.ff_empty = self.dir / "ff_empty"  # 不存在 → 板块触发源缺席
+        self.pool_empty = self.dir / "pool_empty"  # 不存在 → 异动触发源缺席
         self.kw = dict(date=DATE, now=NOW, offline=True,
                        base_dir=self.chains_dir, tracking_dir=self.tracking,
                        db_path=self.dir / "discovery_items.db",
-                       research_root=self.research, sector_root=self.ff_empty)
+                       research_root=self.research, sector_root=self.ff_empty,
+                       pool_root=self.pool_empty)
 
     def db(self) -> ProcessedItemsDB:
         return ProcessedItemsDB(self.dir / "discovery_items.db")
@@ -164,7 +166,7 @@ class TestDiscoveryTick(DiscoveryCase):
             date="2026-08-30", now=NOW, offline=True,
             base_dir=self.chains_dir, tracking_dir=self.tracking,
             db_path=self.dir / "discovery_items.db", research_root=self.research,
-            sector_root=self.ff_empty,
+            sector_root=self.ff_empty, pool_root=self.pool_empty,
             call_fn=lambda m, **k: pytest.fail("不应调 LLM"))
         assert summary["new_items"] == 0
         assert summary["llm_calls"] == 0
@@ -237,15 +239,15 @@ class TestDiscoveryTick(DiscoveryCase):
         assert summary2["llm_errors"] == 0
         assert self.db().get("AP101")["llm_verdict"] == "proposed"
 
-    def test_sector_anomaly_flows_into_candidates(self):
-        """板块异动触发源（T17 补强）：无归属板块进候选，有归属板块不算。"""
+    def test_sector_anomaly_rerouted_to_momentum(self):
+        """板块异动裸行改道（引擎 B 设计 §4.5）：不进研报批次；
+        有归属的仍 matched_existing，无归属的记 sector_routed 由异动引擎自评估。"""
         ff = self.dir / "fund_flow"
         ff.mkdir()
         (ff / f"{DATE.replace('-', '')}.json").write_text(json.dumps({
             "date": DATE,
             "industry": {"即时": []},
             "concept": {"即时": [
-                # 无归属 → 候选
                 {"行业": "供销社", "行业-涨跌幅": 3.06,
                  "领涨股": "辉隆股份", "领涨股-涨跌幅": 9.97},
                 # 领涨股紫金矿业在 copper-aluminum 链 → matched_existing
@@ -254,12 +256,19 @@ class TestDiscoveryTick(DiscoveryCase):
             ]},
         }, ensure_ascii=False), encoding="utf-8")
 
-        summary = run_discovery(call_fn=lambda m, **k: _found(),
+        captured = []
+
+        def call_fn(messages, **kw):
+            captured.append(messages)
+            return _found()
+
+        summary = run_discovery(call_fn=call_fn,
                                 **dict(self.kw, sector_root=ff))
         assert summary["sector_anomalies"] == 2
-        assert summary["candidates"] == 3  # AP101/AP104 + 供销社板块
+        assert summary["candidates"] == 2  # 只有 AP101/AP104，板块裸行不再进研报批次
+        assert "供销社板块" not in captured[0][1]["content"]
         db = self.db()
-        assert db.get(f"sector:{DATE}:concept:供销社")["llm_verdict"] == "proposed"
+        assert db.get(f"sector:{DATE}:concept:供销社")["llm_verdict"] == "sector_routed"
         cu = db.get(f"sector:{DATE}:concept:铜业")
         assert cu["llm_verdict"] == "matched_existing"
         assert cu["chain_id"] == "copper-aluminum"
@@ -280,7 +289,7 @@ class TestDiscoveryTick(DiscoveryCase):
             date=date2, now=datetime(2026, 9, 1, 10, 30), offline=True,
             base_dir=self.chains_dir, tracking_dir=self.tracking,
             db_path=self.dir / "discovery_items.db", research_root=self.research,
-            sector_root=self.ff_empty,
+            sector_root=self.ff_empty, pool_root=self.pool_empty,
             call_fn=lambda m, **k: pytest.fail("证据命中不应再调 LLM"))
         assert summary["evidence_hits"] == 1
         assert summary["evidence"] == {"carbon-fiber": 1}
@@ -292,3 +301,101 @@ class TestDiscoveryTick(DiscoveryCase):
         db = self.db()
         assert db.get("AP201")["llm_verdict"] == "evidence"
         assert db.get("AP201")["chain_id"] == "carbon-fiber"
+
+
+def _zt(code, name, hybk, lbc=1, fund=1e8, fbt="93000"):
+    return {"code": code, "name": name, "hybk": hybk, "lbc": lbc,
+            "fund": fund, "fbt": fbt, "pct": 10.0, "zbc": 0,
+            "days_ct": f"{lbc}天{lbc}板"}
+
+
+class TestMomentumBranch(DiscoveryCase):
+    """异动驱动发现分支（引擎 B，设计文档 §4.5）。"""
+
+    def _pool_file(self, date, items, zb=None):
+        pool_dir = self.dir / "pool"
+        pool_dir.mkdir(exist_ok=True)
+        (pool_dir / f"{date.replace('-', '')}.json").write_text(json.dumps({
+            "date": date, "zt_count": len(items), "zb_count": len(zb or []),
+            "zt_items": items, "zb_items": zb or []}, ensure_ascii=False),
+            encoding="utf-8")
+        return pool_dir
+
+    def test_momentum_end_to_end(self):
+        pool_dir = self._pool_file(DATE, [
+            _zt("001", "剑桥科技", "通信设备", lbc=3, fund=3e8, fbt="92500"),
+            _zt("002", "新易盛", "通信设备"),
+            _zt("003", "中际旭创", "通信设备"),
+            _zt("004", "百通能源", "电力"),
+        ])
+        captured = []
+
+        def call_fn(messages, **kw):
+            captured.append(messages)
+            return _found()
+
+        summary = run_discovery(call_fn=call_fn, source="momentum",
+                                **dict(self.kw, pool_root=pool_dir))
+        assert summary["momentum_triggers"] == 1
+        # source=momentum：研报批次被跳过，只有异动拆链一次调用
+        assert summary["llm_calls"] == 1
+        user = captured[0][1]["content"]
+        assert "题材异动卡" in user and "剑桥科技" in user
+        props = [p for p in summary["proposals"]
+                 if p.get("source_type") == "momentum"]
+        assert len(props) == 1
+        # 规则层阶段覆盖 LLM 给的阶段（_found 返回 阶段1-启动期）
+        assert props[0]["current_stage"] == "阶段2-加速期"
+        assert props[0]["stage_evidence"]["max_lbc"] == 3
+        # source_info_ids 由系统强制填充（不信 LLM）
+        assert props[0]["source_info_ids"][0] == f"sector:{DATE}:momentum:通信设备"
+        pending = load_pending(self.pending_path())
+        mom = [p for p in pending if p.get("source_type") == "momentum"]
+        assert len(mom) == 1
+        db = self.db()
+        row = db.get(f"sector:{DATE}:momentum:通信设备")
+        assert row["llm_verdict"] == "proposed"
+
+    def test_theme_matching_existing_chain_excluded(self):
+        # FR8 关键词命中 test-chain-a（materials FR8价格）
+        pool_dir = self._pool_file(DATE, [
+            _zt("001", "生益科技", "FR8"),
+            _zt("002", "某股A", "FR8"),
+            _zt("003", "某股B", "FR8"),
+        ])
+        summary = run_discovery(
+            call_fn=lambda m, **k: pytest.fail("已有链题材不应调 LLM"),
+            source="momentum", **dict(self.kw, pool_root=pool_dir))
+        assert summary["momentum_triggers"] == 1
+        assert summary["llm_calls"] == 0
+        row = self.db().get(f"sector:{DATE}:momentum:FR8")
+        assert row["llm_verdict"] == "matched_existing"
+        assert row["chain_id"] == "test-chain-a"
+
+    def test_source_report_skips_momentum(self):
+        pool_dir = self._pool_file(DATE, [
+            _zt("001", "剑桥科技", "通信设备"),
+            _zt("002", "新易盛", "通信设备"),
+            _zt("003", "中际旭创", "通信设备"),
+        ])
+        summary = run_discovery(call_fn=lambda m, **k: _NONE_FOUND,
+                                source="report",
+                                **dict(self.kw, pool_root=pool_dir))
+        assert summary["momentum_triggers"] == 0
+        assert self.db().get(f"sector:{DATE}:momentum:通信设备") is None
+
+    def test_momentum_llm_failure_not_recorded(self):
+        pool_dir = self._pool_file(DATE, [
+            _zt("001", "剑桥科技", "通信设备"),
+            _zt("002", "新易盛", "通信设备"),
+            _zt("003", "中际旭创", "通信设备"),
+        ])
+
+        def boom(messages, **kw):
+            raise RuntimeError("LLM down")
+
+        summary = run_discovery(call_fn=boom, source="momentum",
+                                **dict(self.kw, pool_root=pool_dir))
+        assert summary["llm_errors"] == 1
+        # 失败不落账 → 下一 tick 自愈重试
+        assert self.db().get(f"sector:{DATE}:momentum:通信设备") is None

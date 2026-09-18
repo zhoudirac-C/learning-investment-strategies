@@ -65,7 +65,7 @@ directory). These are thin wrappers that delegate to the project's scripts:
 ~/.hermes/scripts/qing_stock_monitor_daily_review.py → project/scripts/hermes_stock_monitor_daily_review.py
 ~/.hermes/scripts/qing_stock_monitor_poll.py   →  project/scripts/qing_stock_monitor_poll.py
 ~/.hermes/scripts/qing_chain_tracker.py        →  project/scripts/chain_tracker.py（M0-Chain 跟踪 tick）
-~/.hermes/scripts/qing_chain_discovery.py      →  project/scripts/chain_discovery.py（M0-Chain 发现 tick）
+~/.hermes/scripts/qing_chain_discovery.py      →  project/scripts/chain_discovery.py（M0-Chain 发现 tick；双引擎：引擎A 研报驱动 + 引擎B 资金异动驱动（limit_pool/fund_flow 触发→LLM 拆链），`--source all/report/momentum` 可分层，设计见 docs/design/chain-momentum-discovery-design.md）
 ~/.hermes/scripts/qing_shadow_direction_tracking.py → project/scripts/shadow_direction_tracking.py（方向层 T+5 周度跟踪，周五 22:37，聚合逻辑在 src/investment_engine/shadow/tracking.py）
 ~/.hermes/scripts/qing_shadow_compliance_monitor.py → project/scripts/shadow_compliance_monitor.py（影子盲判合规时序监控，工作日 22:33，时序落 logs/shadow-compliance.jsonl，静默式告警）
 ~/.hermes/scripts/qing_openrouter_free_fallback.py → project/scripts/hermes_openrouter_free_fallback.py（每 2 小时（每小时段第 7 分钟）拉 OpenRouter 免费模型，AA intelligence_index 智力优先排序 + 1-token 实测探测可用性（403/429 沉底），重写 config.yaml 的 fallback_providers，复用 custom_nex-n25 凭据，时序落 logs/openrouter_free_fallback.jsonl）

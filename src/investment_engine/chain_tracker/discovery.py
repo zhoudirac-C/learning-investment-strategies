@@ -123,6 +123,10 @@ def _normalize_proposal(p: dict) -> dict | None:
         out["current_stage"] = "阶段0-观察"
     if out.get("confidence") not in CONFIDENCE_LEVELS:
         out["confidence"] = "中"
+    # 来源分层：momentum=资金异动驱动（引擎 B），report=研报驱动（引擎 A）；
+    # 事后按层统计命中率。非法值回落 report。
+    if out.get("source_type") not in ("report", "momentum"):
+        out["source_type"] = "report"
     if not isinstance(out.get("chain"), dict):
         out["chain"] = {}
     ids = out.get("source_info_ids")
@@ -191,6 +195,108 @@ def filter_duplicate_proposals(
         seen_ids.add(cid)
         kept.append(p)
     return kept, skipped
+
+
+# ---------- 引擎 B：异动驱动拆链（设计文档 §4.4） ----------
+
+_MOMENTUM_SYSTEM = (
+    "你是产业链拆解分析师。输入是一个已被资金行为确认的题材异动，"
+    "你的任务是拆解它的产业链图谱，为后续补涨环节挖掘提供地图。"
+    "只输出 JSON，不要输出任何其他内容。"
+)
+
+_MOMENTUM_USER_TMPL = """【题材异动卡】（资金行为已确认，无需再判断是否值得关注）：
+题材：{theme} | 涨停 {zt_count} 家（首板 {first_board_count}）| 最高 {max_lbc} 板
+封单资金合计 {seal_fund_text} | 最早首封 {earliest_seal} | 连续上榜 {streak_days} 天
+板块涨幅 {sector_pct_text} | 触发：{trigger_text} | 领涨：{leaders_text}
+
+【板块内涨停个股明细】（标的优先从这里选，这些是资金认的票）：
+{stocks_text}
+
+【当日相关信息】（研报/公告，作为拆链素材而非触发依据）：
+{related_text}
+
+【已有产业链清单】（避免重复提议）：
+{existing_chains}
+
+【待确认提议清单】（已提议待人工确认，不要重复）：
+{pending_proposals}
+
+规则层阶段初判：{stage}（由涨停/连板/炸板数据得出，直接采用，不要修改）。
+
+任务：判断该题材是否有可拆解的产业链传导路径（上游→中游→下游）。
+- 纯情绪题材（次新股/壳资源/无产业逻辑的情绪炒作）或无法拆解传导路径的，
+  输出空列表。
+- 有产业链逻辑则输出 1 条提议；chain 的 upstream/midstream/downstream 各段
+  除 materials/key_nodes/stocks 外，加 "benefit_level": "核心/间接/联动"
+  （核心=直接受益业绩弹性最大，间接=供需传导受益，联动=仅情绪带动）。
+- stocks 优先从涨停明细中选取；单一来源 confidence 最高给 中。
+
+输出格式（0 或 1 条）：
+{{
+  "proposals": [
+    {{
+      "chain_id": "简短英文ID（小写字母/数字/连字符）",
+      "name": "产业链名称",
+      "driver": "驱动因素（≤50字）",
+      "thesis": "产业逻辑（≤100字）",
+      "chain": {{
+        "upstream": {{"materials": [...], "key_nodes": [...], "stocks": [...], "benefit_level": "..."}},
+        "midstream": {{"materials": [...], "key_nodes": [...], "stocks": [...], "benefit_level": "..."}},
+        "downstream": {{"materials": [...], "key_nodes": [...], "stocks": [...], "benefit_level": "..."}}
+      }},
+      "current_stage": "{stage}",
+      "timing": "当前建议（做哪个环节/观察/回避）",
+      "confidence": "高/中/低",
+      "source": "资金异动（{theme}）+ 素材来源",
+      "source_info_ids": []
+    }}
+  ]
+}}
+"""
+
+
+def _fmt_yi(v: float | int | None) -> str:
+    try:
+        return f"{float(v) / 1e8:.1f}亿"
+    except (TypeError, ValueError):
+        return "-"
+
+
+def build_momentum_messages(card: dict, chains: list[dict], pending: list[dict],
+                            related_items: list[dict], *,
+                            stage: str) -> list[dict]:
+    """异动拆链 prompt：题材热度卡 + 涨停明细 + 相关素材 + 已有链/pending。
+
+    card 来自 momentum.aggregate_theme_cards + trigger_themes（含 trigger_reasons）；
+    stage 来自 momentum.judge_stage（规则初判，prompt 中锁定不让 LLM 改）。
+    """
+    stocks_text = "\n".join(
+        f"- {s.get('name')}（{s.get('code')}）：{s.get('lbc')}板，"
+        f"封单{_fmt_yi(s.get('fund'))}，首封{s.get('fbt') or '-'}"
+        for s in card.get("stocks") or []) or "（无）"
+    related_text = "\n".join(
+        f"- [{i.get('info_id')}] {i.get('title')}" for i in related_items) or "（无）"
+    sector_pct = card.get("sector_pct")
+    user = _MOMENTUM_USER_TMPL.format(
+        theme=card.get("theme"),
+        zt_count=card.get("zt_count"),
+        first_board_count=card.get("first_board_count"),
+        max_lbc=card.get("max_lbc"),
+        seal_fund_text=_fmt_yi(card.get("seal_fund")),
+        earliest_seal=card.get("earliest_seal") or "-",
+        streak_days=card.get("streak_days"),
+        sector_pct_text=(f"{sector_pct:+.1f}%" if sector_pct is not None else "-"),
+        trigger_text="/".join(card.get("trigger_reasons") or []),
+        leaders_text="、".join(card.get("leaders") or []) or "-",
+        stocks_text=stocks_text,
+        related_text=related_text,
+        existing_chains="\n".join(_fmt_chain_line(c) for c in chains) or "（无）",
+        pending_proposals="\n".join(_fmt_chain_line(p) for p in pending) or "（无）",
+        stage=stage,
+    )
+    return [{"role": "system", "content": _MOMENTUM_SYSTEM},
+            {"role": "user", "content": user}]
 
 
 def build_pending_index(pending: list[dict]) -> dict[str, dict]:
