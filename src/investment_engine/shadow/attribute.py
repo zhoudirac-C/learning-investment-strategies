@@ -29,6 +29,7 @@ ATTR_PROMPT = """你是方法论复盘归因员。AI 在没有参考任何人物
   "proposals": [{{"type": "data-channel|pattern-patch|glossary-patch|capability-boundary",
                 "title": "一句话", "action": "具体处置建议"}}]}}
 归因口径：数据缺=推理所需数据没有采集通道；步骤缺=方法论缺环节；概念误用=术语/框架用错场景；信息差=依赖非公开渠道信息（不强求，标注能力边界即可）。
+审计项（2026-09-18 合并裁决增补）：若 AI 判断中 cycle_state 多指数 bottom_date/rebound_day 存在分歧，检查是否选取了对预设结论最有利的单一指数锚定（正确做法=给出区间或取中位并显式标注分歧）；存在单点锚定时在 analysis 中指出并归入「概念误用」。
 types 可多选；proposals 可为空列表。只输出 JSON。
 
 【判错类型】{trigger}

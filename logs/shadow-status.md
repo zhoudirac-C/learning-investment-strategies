@@ -1,7 +1,7 @@
-# 影子双轨完整性报告（2026-09-16）
+# 影子双轨完整性报告（2026-09-18）
 
-- 记录日数: 93，完整: 93
-- 提案: open 56 / applied 9 / rejected 0 / retracted 7
+- 记录日数: 99，完整: 99
+- 提案: open 59 / applied 11 / pending 3 / rejected 0 / retracted 7
 
 | 日期 | 阶段判定 | 状态 | 归因 | 完整 |
 |---|---|---|---|---|
@@ -83,21 +83,27 @@
 | 2026-09-08 | 对 | scored | 有 | ✅ |
 | 2026-09-08 | 错 | scored | 有 | ✅ |
 | 2026-09-08 | 对 | scored | 有 | ✅ |
-| 2026-09-09 | 对 | pending_maturity | 有 | ✅ |
-| 2026-09-09 | 错 | pending_maturity | 有 | ✅ |
-| 2026-09-09 | 对 | pending_maturity | 有 | ✅ |
-| 2026-09-09 | 对 | pending_maturity | 有 | ✅ |
-| 2026-09-10 | 对 | pending_maturity | - | ✅ |
-| 2026-09-10 | 对 | pending_maturity | - | ✅ |
-| 2026-09-10 | 对 | pending_maturity | - | ✅ |
-| 2026-09-11 | 对 | pending_maturity | - | ✅ |
-| 2026-09-11 | 对 | pending_maturity | - | ✅ |
+| 2026-09-09 | 对 | scored | 有 | ✅ |
+| 2026-09-09 | 错 | scored | 有 | ✅ |
+| 2026-09-09 | 对 | scored | 有 | ✅ |
+| 2026-09-09 | 对 | scored | 有 | ✅ |
+| 2026-09-10 | 对 | scored | 有 | ✅ |
+| 2026-09-10 | 对 | scored | 有 | ✅ |
+| 2026-09-10 | 对 | scored | 有 | ✅ |
+| 2026-09-11 | 对 | scored | - | ✅ |
+| 2026-09-11 | 对 | scored | - | ✅ |
 | 2026-09-14 | 对 | pending_maturity | - | ✅ |
 | 2026-09-14 | 对 | pending_maturity | - | ✅ |
 | 2026-09-14 | 对 | pending_maturity | - | ✅ |
 | 2026-09-15 | 对 | pending_maturity | - | ✅ |
 | 2026-09-15 | 对 | pending_maturity | - | ✅ |
 | 2026-09-15 | 对 | pending_maturity | - | ✅ |
+| 2026-09-16 | 对 | pending_maturity | - | ✅ |
+| 2026-09-16 | 对 | pending_maturity | - | ✅ |
+| 2026-09-17 | 错 | pending_maturity | 有 | ✅ |
+| 2026-09-17 | 对 | pending_maturity | 有 | ✅ |
+| 2026-09-18 | 错 | pending_maturity | 有 | ✅ |
+| 2026-09-18 | 错 | pending_maturity | 有 | ✅ |
 
 ## 待处理提案（open 置顶）
 
@@ -157,3 +163,6 @@
 - 2026-09-03-data-channel-a.md
 - 2026-09-03-pattern-patch-note.md
 - 2026-09-09-data-channel-note.md
+- 2026-09-10-capability-boundary-note.md
+- 2026-09-10-glossary-patch-note.md
+- 2026-09-10-pattern-patch-note.md
