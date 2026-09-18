@@ -15,3 +15,4 @@
 - [sector-cases/2026-05-31-MLCC被动元件周期上行.md](sector-cases/2026-05-31-MLCC被动元件周期上行.md)
 - [stock-cases/2026-04-20-圣阳股份三连板炸板预警.md](stock-cases/2026-04-20-圣阳股份三连板炸板预警.md)
 - [stock-cases/2026-07-16-盛科通信预期与失效离场.md](stock-cases/2026-07-16-盛科通信预期与失效离场.md)
+- [stock-cases/2026-09-18-爱丽家居纯博弈高度快速离场.md](stock-cases/2026-09-18-爱丽家居纯博弈高度快速离场.md)

@@ -1,0 +1,532 @@
+claims:
+- id: claim-20260918-002-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: macro
+  subject: 议息加息已定价
+  topic: 美联储加息25bp已定价，观察重点转向市场对后续利率路径的重新定价及对宽基ETF(如515980)的压力传导
+  timeframe: short-term
+  statement: 议息结果已经经过一个 A 股交易日消化，观察重点应转向市场对后续利率路径的重新定价，以及这种压力是否继续传导至宽基ETF（如515980）
+  evidence_quote: 北京时间周四凌晨，美联储宣布加息 25 个基点，联邦基金利率目标区间升至 3.75%—4.00%。经济预测中的年末利率中位数仍保留进一步加息空间，但这是参会者的预测，不是年内一定再次加息的承诺。
+  interpretation: 加息本身已是事件落地，UP 的重点不是加息本身而是市场如何重新定价后续路径 + 压力是否传导至宽基ETF（如 515980)。属对宏观事件的解读性判断，可复用。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 美联储
+  - 议息
+  - 加息落地
+  - 利率路径
+  - 压力传导
+- id: claim-20260918-003-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: market-cycle
+  subject: 外部变量不可简单对冲
+  topic: 美股与KOSPI涨跌不能简单相抵，A股自身反应才是真实信号
+  timeframe: short-term
+  statement: 美股的涨跌不能简单外推为 A 股走势，真正有参考价值的是 A 股自身反应：低开后是否迅速收回、回落时抛压是否减轻、科技核心能否先于指数转强
+  evidence_quote: 今天开盘仍看外盘与亚洲市场的方向，但美股和韩国 KOSPI 的涨跌不能简单相抵。更有参考价值的是 A 股自身反应。
+  interpretation: 方法论：外部变量只是起点，A股自身反应才是检验依据。UP 明确反对简单外推逻辑。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - 外部变量
+  - A股自身反应
+  - 外推
+  - 方法论
+- id: claim-20260918-004-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: market-cycle
+  subject: 量能增量持续性
+  topic: 周三增量资金真实但持续性待验证；预估值上修不等于新增成交
+  timeframe: short-term
+  statement: 周三盘中量能逐步抬升（10点半预估1.5万亿至11点1.6万亿加，午后实际1.84万亿）说明参与意愿在增强，但预估值上修与实际成交额增加是两个口径，不能把约3000亿的预估变化直接称作新增成交或净流入；持续性仍待验证
+  evidence_quote: 据所提供的盘中观察记录，10 点半前后全天成交额预估约为 1.5 万亿元，11 点升至 1.6 万亿元以上，午后进一步上修，最终实际成交约
+    1.84 万亿元。这条路径说明参与意愿在交易过程中增强，比单看指数收盘涨幅更有价值。但预估值上修与实际成交额增加是两个口径，不能把约 3000 亿元的预估变化直接称作新增成交或净流入。
+  interpretation: 这是对量能数据的解读而非播报。门槛判定：数据+解读，只提解读部分。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - 量能
+  - 成交额
+  - 预估口径
+  - 增量资金
+  - 持续性
+- id: claim-20260918-005-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: methodology
+  subject: 放量与价格方向
+  topic: 放量需与价格方向同向验证，放量下跌等于抛压扩大
+  timeframe: permanent
+  statement: 放量需要与价格方向一起看，放量下跌同样可能意味着抛压扩大；放量上涨才有说服力
+  evidence_quote: 放量需要与价格方向一起看，放量下跌同样可能意味着抛压扩大。
+  interpretation: 可复用的技术判断方法论。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 放量
+  - 价格方向
+  - 技术分析
+  - 方法论
+- id: claim-20260918-006-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: market-cycle
+  subject: 大金融承接的有效性
+  topic: 权重托指数不等于市场赚钱；只有权重不拖累加科技有主动性加广度配合，突破才有持续资金
+  timeframe: short-term
+  statement: 权重托住指数，但上涨家数持续减少、科技反弹不断被卖出，仍然是局部防守。只有权重不拖累、科技有主动性、市场广度也配合，指数突破才更容易获得持续资金支持
+  evidence_quote: 银行、保险若在科技分歧时走强，可作为权重承接的观察点；券商若与科技核心同步活跃，更值得跟踪市场参与意愿是否回升。这里要区分指数稳定与个股赚钱效应：权重托住指数，但上涨家数持续减少、科技反弹不断被卖出，仍然是局部防守。
+  interpretation: 判断市场突破有效性的三层条件（权重/科技/广度），属方法论。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 大金融
+  - 权重承接
+  - 市场广度
+  - 突破有效性
+- id: claim-20260918-007-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: methodology
+  subject: 情绪观察样本
+  topic: 情绪观察要选有承接反馈的样本而非仅看涨跌
+  timeframe: permanent
+  statement: 观察情绪不能只看涨跌，要看开盘是否摆脱压价、回落是否有人承接、修复后能否保住涨幅；冲高回落和炸板后的反馈比竞价或短暂拉升更能说明问题
+  evidence_quote: 红棉股份(000523)、云南旅游(002059)等前期弱势标的，可继续作为情绪观察样本：开盘是否摆脱持续压价，盘中回落是否有人承接，修复后能否保住涨幅。今天尤其要看冲高回落和炸板后的反馈，避免只凭竞价或短暂拉升判断情绪已经全面转强。
+  interpretation: 情绪观察的方法论（选什么样本、观察什么信号），可复用。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks:
+  - code: '000523'
+    name: 红棉股份
+    role: 情绪观察样本-深主板可交易
+  - code: '002059'
+    name: 云南旅游
+    role: 情绪观察样本-深主板可交易
+  tags:
+  - 情绪观察
+  - 承接
+  - 冲高回落
+  - 炸板
+  - 样本选择
+- id: claim-20260918-008-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: operation
+  subject: 周五操作框架
+  topic: 周五围绕既有持仓做T，分情形A修复延续和情形B量能不足管理，不因脉冲拉升抬高预期
+  timeframe: short-term
+  statement: 情形A：修复延续，乘机围绕既有持仓做T，留意分歧中率先转强、回落缩量且承接稳定的方向；情形B：量能跟进不足，降低操作频率，处理失去承接的弱势持仓；强势持续时避免反复卖出后追高买回，弱势下行时避免为摊成本加码
+  evidence_quote: 情形 A：修复延续，主动性增强，操作上围绕既有持仓做 T，留意分歧中率先转强、回落缩量且承接稳定的方向。情形 B：量能跟进不足，修复反复，应先处理失去承接的弱势持仓。持股为主的前提是结构没有被破坏，不能把做
+    T 演变成连续补仓。
+  interpretation: 完整的操作预案加失效条件加交易纪律，属实操性操作判断。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 周五操作
+  - 做T
+  - 失效条件
+  - 交易纪律
+- id: claim-20260918-009-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: market-cycle
+  subject: 题材扩容与持续性
+  topic: 涨停扩容和跌停收敛不等于趋势形成；分歧中看资金选择才是真正信号
+  timeframe: short-term
+  statement: 周三二板 9 家、首板 25 到 77 家、跌停 27 到 4 家，指向短线风险偏好修复。但周五更有意义的问题是：周三启动的方向能否在周四分歧后继续获得资金支持、周四新首板能否获得隔日溢价；若晋级集中在少数有产业进展、有板块联动的方向，可以继续跟踪；若新首板热闹但隔日低开低走，就把预期压回轮动与做
+    T
+  evidence_quote: 周三二板 9 家，一进二晋级率由 6.82%升至 36%；首板由 25 家增至 77 家，跌停由 27 家降至 4 家。这组数据指向的是短线风险偏好修复，其中首板扩容代表尝试新方向的资金增加，跌停收敛代表极端亏钱效应减轻。
+  interpretation: 门槛判定：数据是论据，解读是判断。UP 在数据之后给出了明确的解读与操作框架。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - 涨停扩容
+  - 风险偏好
+  - 轮动
+  - 隔日溢价
+- id: claim-20260918-010-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: sector-theme
+  subject: 非科技轮动判断
+  topic: 非科技方向能否延续取决于科技分歧程度；防守方向只有权重抬升无扩散等于资金避险
+  timeframe: short-term
+  statement: 非科技方向能否延续，既要看自身催化，也要看宽基ETF是否持续吸引增量。若防守方向只有权重抬升而缺少扩散，宜理解为资金避险；若宽基ETF回稳后它仍能保持相对强势，再提高关注程度
+  evidence_quote: 非科技股：轮动机会取决于科技分歧程度。从周三的盘中记录看，在科技集中走强之前，风电一度延续活跃，炭黑、黄酒、电力和福建本地股也有局部表现；随后指数放量反弹，资金更集中地转向算力硬件。
+  interpretation: 操作框架：非科技方向的延续性以宽基ETF分歧为前提。属可复用判据。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 非科技轮动
+  - 宽基ETF分歧
+  - 资金避险
+  - 延续性
+- id: claim-20260918-011-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: sector-theme
+  subject: 科技止跌待确认
+  topic: 科技已现止跌修复迹象，但不宜切换为连续主升预期，节前允许反复
+  timeframe: short-term
+  statement: 科技已有止跌修复迹象，节前允许反复；优先等待主动性与承接同时出现。今天对宽基ETF的判断不宜过度悲观，也不宜直接切换为连续主升预期（须以
+    515980 等宽基ETF 实际走势为据）
+  evidence_quote: 科技股：止跌迹象已经消失，趋势需要继续确认。今天对宽基ETF的判断不宜过度悲观，也不宜直接切换为连续主升预期。重点观察先走强的核心能否守住回踩，二线品种能否形成有效联动，以及板块上涨是否有持续成交支持。
+  interpretation: UP 对科技/宽基ETF方向的定性定位（止跌不等于趋势），属板块层面的核心观点。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks:
+  - code: '515980'
+    name: 科创50ETF
+    role: 科技方向观察载体-ETF可交易
+  tags:
+  - 科技止跌
+  - 修复
+  - 主升预期
+  - 节前
+  - '515980'
+- id: claim-20260918-012-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: catalyst
+  subject: 硅片涨价预期待验证
+  topic: 硅片涨价至2027年是研究预期非已确认事实；中晶科技(003026)和有研硅(688432)按各自产品结构跟踪
+  timeframe: industry
+  statement: 海外硅片提价、重掺硅片长协重谈，但"涨价至少持续至 2027 年"应理解为研究预期，仍需后续长协与实际交付验证；中晶科技(003026)、有研硅(688432)按各自产品尺寸和业务结构跟踪，避免混用不同产品的需求预测
+  evidence_quote: 产业材料提到海外硅片提价、重掺硅片长协重谈，但"涨价至少持续至 2027 年"应理解为研究预期，仍需后续长协与实际交付验证。中晶科技(003026)、有研硅(688432)可按各自产品尺寸和业务结构跟踪，避免混用不同产品的需求预测。
+  interpretation: 产业跟踪条，含研报口径引用。UP 的研判方法论：不因政策/研究口径直接下结论。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks:
+  - code: '003026'
+    name: 中晶科技
+    role: 硅片-深主板可交易
+  - code: '688432'
+    name: 有研硅
+    role: 硅片-科创板不可交易
+  tags:
+  - 硅片
+  - 涨价
+  - 研究预期
+  - 长协验证
+  - 中晶科技
+- id: claim-20260918-013-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: methodology
+  subject: AI算力设备跟踪口径
+  topic: 跟踪AI服务器和PCB设备应看扩产兑现，勿把整机需求增长等同各家设备利润增长
+  timeframe: industry
+  statement: AI 服务器与 PCB 设备逻辑从整机延伸至 GPU 制造、先进封装、HBM 及封装、高速高多层 PCB，再传导至相关设备（芯碁微装(688630)直写光刻、东威科技(688700)垂直连续电镀）；订单增加以后还要看产能爬坡、交付验收和回款同步；不要把整机需求增长直接等同于每家设备公司的利润增长
+  evidence_quote: 据媒体报道 9 月 16 日报道，苹果正探索面向企业客户、采用自研芯片的 AI 服务器，并讨论使用英伟达互联技术；相关 M8 Ultra
+    产品仍处于规划阶段。它提供了自研算力与高速互联继续发展的观察线索，但尚不能据此确认具体量产时间、A 股供应链名单或采购规模。更值得持续跟踪的，是行业资本开支是否转化为高多层
+    PCB、高端载板和先进封装等环节的扩产与设备采购。
+  interpretation: 产业链跟踪的方法论：扩产兑现才是关键指标，不是整机需求。不因单一消息抬高预期。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks:
+  - code: '688630'
+    name: 芯碁微装
+    role: 直写光刻设备-科创板不可交易
+  - code: '688700'
+    name: 东威科技
+    role: 垂直连续电镀设备-科创板不可交易
+  tags:
+  - AI算力
+  - PCB设备
+  - 扩产兑现
+  - 跟踪口径
+- id: claim-20260918-014-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: catalyst
+  subject: AI制药融资催化
+  topic: AI制药重点看研发与验证需求，融资完成与药物研发成功之间有较长距离
+  timeframe: industry
+  statement: 字节跳动分拆的 AI 制药业务 Anew Labs 完成约 2.9 亿美元首次外部融资（投后估值约 15 亿美元），资本对 AI 药物发现与研发服务的关注升温，但融资完成与药物研发成功之间仍有较长距离；百普赛斯(301080)（HEK293/CHO
+    表达体系加 AI 数据反馈）和阳光诺和(688621)（多肽平台加华为云合作）可从上游实验验证与研发平台切入跟踪客户需求与里程碑
+  evidence_quote: 据路透社 9 月 16 日援引知情人士报道，字节跳动分拆的 AI 制药业务 Anew Labs 完成约 2.9 亿美元首次外部融资，投后估值约
+    15 亿美元，字节保留约 56% 股权。上述数据属于媒体报道口径。对产业链的意义，在于资本对 AI 药物发现与研发服务的关注升温，但融资完成与药物研发成功之间仍有较长距离。
+  interpretation: 含研报/媒体引用（路透社报道口径），UP 明确标注属于媒体报道口径。重点在研发与验证需求，非融资新闻本身。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks:
+  - code: '301080'
+    name: 百普赛斯
+    role: AI制药上游蛋白试剂-创业板不可交易
+  - code: '688621'
+    name: 阳光诺和
+    role: 多肽研发平台-科创板不可交易
+  tags:
+  - AI制药
+  - 融资
+  - 研发验证
+  - 百普赛斯
+  - 阳光诺和
+- id: claim-20260918-015-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: catalyst
+  subject: 数据中心电源订单口径
+  topic: Generac亚马逊协议：24亿是初始交付，80亿是上限门槛，均非已确认采购订单
+  timeframe: industry
+  statement: Generac 与亚马逊签订数据中心备用电源长期供应协议，预计 2027 至 2028 年初始交付约 24 亿美元，后续归属与累计采购付款挂钩，门槛最高达
+    80 亿美元；80 亿美元不应表述为已确认的采购订单，也不能据此认定全行业产能排满；交易上若消息带来大幅高开，先观察承接和板块联动，再判断持续性
+  evidence_quote: Generac 披露与亚马逊签订数据中心备用电源长期供应协议，预计于 2027 至 2028 年初始交付的产品总额约 24 亿美元。另有认股权证安排，其后续归属与亚马逊及关联方累计采购付款挂钩，相关门槛最高达
+    80 亿美元。因此，80 亿美元不应表述为已确认的采购订单，也不能据此认定全行业产能排满。
+  interpretation: 含研报/新闻引用（Generac公告口径），UP 明确给出解读：数字不等于订单，不因海外单一公司股价反应代替国内业务兑现。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 数据中心电源
+  - Generac
+  - 订单口径
+  - 海外映射
+- id: claim-20260918-016-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: stock-view
+  subject: 数据中心电源A股线索
+  topic: 长源东谷(603950)和泰豪科技(600590)为数据中心备用电源 A 股相关线索，待核实客户认证与订单
+  timeframe: industry
+  statement: A 股方面，可继续跟踪长源东谷(603950)、泰豪科技(600590)等相关业务线索，核实客户认证、供货范围与新增订单；海外需求增长是否传导到具体企业，需要各自公告和经营数据确认
+  evidence_quote: 数据中心建设的配套需求可延伸至备用电源、发电机组及相关零部件。A 股方面，可继续跟踪长源东谷(603950)、泰豪科技(600590)等相关业务线索，核实客户认证、供货范围与新增订单；海外需求增长是否传导到具体企业，需要各自公告和经营数据确认。
+  interpretation: UP 明确标注为线索而非推荐，需核实后才可进一步跟踪。
+  confidence: high
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks:
+  - code: '603950'
+    name: 长源东谷
+    role: 数据中心备用电源-沪主板可交易
+  - code: '600590'
+    name: 泰豪科技
+    role: 数据中心备用电源-沪主板可交易
+  tags:
+  - 长源东谷
+  - 泰豪科技
+  - 数据中心电源
+  - A股线索
+- id: claim-20260918-017-a
+  source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
+  source_date: '2026-09-18'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-18T09:45:00+08:00'
+  claim_type: methodology
+  subject: 节前操作纪律
+  topic: 节前以持股观察为主；没有合适机会等待本身就是预案；做T服务于持仓管理，结构破坏时优先执行防守纪律
+  timeframe: permanent
+  statement: 节前整体以持股观察为主的预案不变，但前提是持仓逻辑和价格结构没有明显恶化。盘中做 T 以已有可卖持仓和明确价差为基础；没有合适机会，等待本身就是预案的一部分。降低预期，保留耐心；做
+    T 服务于持仓管理，结构破坏时优先执行防守纪律
+  evidence_quote: 指数继续跟踪底部结构与趋势突破，科技方向保持耐心。节前整体以持股观察为主的预案不变，但前提仍是持仓逻辑和价格结构没有明显恶化。……没有合适机会，等待本身就是预案的一部分。降低预期，保留耐心；做
+    T 服务于持仓管理，结构破坏时优先执行防守纪律。
+  interpretation: 可复用的操作纪律：等待等于预案，防守优先于进攻。属方法论级观点。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 节前纪律
+  - 持股观察
+  - 等待即预案
+  - 防守优先
