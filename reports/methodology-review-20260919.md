@@ -57,9 +57,13 @@
 ### 数据质量问题（pipeline 侧，建议核查）
 
 - 上期报告的跨文件 ID 撞号（0831/0902）仍未修复。
-- 新增异常：claim-20260909-008-a contradicts **claim-20070621-001-c**（年份 2007，疑似
-  异常 id，建议核查来源）。
-- 关系边引用的缺失 id 16 个（上期 14 个，缓慢增长）。
+- ~~claim-20260909-008-a contradicts claim-20070621-001-c~~ **已核实非异常**：
+  claim-20070621-001.yaml 是缠中说禅 2007 年原文 claims（sources/chanlun/），跨轨道引用合法。
+- ~~关系边引用的缺失 id 16 个~~ **已定位根因并修复**：其中 13 个是扁平格式历史文件
+  （整文件一条 claim、id 即文件名），`backfill_claim_status.py` 的 `load_claims` 只解析
+  `claims:` 列表导致漏索引（误报 missing）；脚本已修复并二次回填 23 条（详见本期
+  Step 6 更新）。真正悬空 id 仅 3 个：claim-20260817-009 / 023 / 027（08-17 批次重编号
+  遗留，指向已不存在的老 id，需人工映射，不宜机械处理）。
 
 ## 窗口主线叙事（四阶段）
 
@@ -128,10 +132,11 @@
 
 ## 一致性检查（Step 6）
 
-- 执行 `backfill_claim_status.py`：机械回填 superseded **33 条、25 个文件**已落盘
-  （报告 `logs/status_backfill_report.txt`）。
-- contradicts 待人工 review 存量 179 条（上期 174 条；脚本不自动翻转）；本期增量已按
-  上表分类，无需高亮裁决项。
+- 第一轮 `backfill_claim_status.py`：机械回填 superseded **33 条、25 个文件**。
+- 第二轮（脚本扁平格式漏索引修复后）：再回填 **23 条、23 个文件**（历史扁平 claim），
+  claims 索引总数 5218 → 5296；缺失 id 16 → **3**（见数据质量章节）。
+- contradicts 待人工 review 存量 185 条（脚本不自动翻转）；本期增量已按上表分类，
+  无需高亮裁决项。
 - ⚠️ 回填后 claims 有变更，按 AGENTS.md 知识维护流程应跑
   discover → Neo4j migrate → Qdrant rebuild → restart Agent（本次未执行，
   建议择低峰窗口进行）。

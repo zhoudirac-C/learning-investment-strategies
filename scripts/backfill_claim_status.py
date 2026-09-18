@@ -52,6 +52,8 @@ def load_claims(claims_dir: Path = CLAIMS_DIR) -> tuple[dict, dict]:
             continue
         if isinstance(data, dict):
             items = data.get("claims") or []
+            if not items and data.get("id"):
+                items = [data]  # 扁平格式：整文件即一条 claim（id 即文件名）
         elif isinstance(data, list):
             items = data
         else:
@@ -150,11 +152,17 @@ def main() -> int:
 
     changed_files = 0
     for fp, text in sorted(file_texts.items(), key=lambda kv: str(kv[0])):
+        data = yaml.safe_load(text)
+        if isinstance(data, dict):
+            items = data.get("claims") or []
+            if not items and data.get("id"):
+                items = [data]  # 扁平格式：整文件即一条 claim
+        elif isinstance(data, list):
+            items = data
+        else:
+            items = []
         ids_in_file = {
-            c["id"] for c in
-            ((yaml.safe_load(text).get("claims") or []) if isinstance(yaml.safe_load(text), dict)
-             else (yaml.safe_load(text) or []))
-            if isinstance(c, dict)
+            c["id"] for c in items if isinstance(c, dict) and c.get("id")
         } & set(updates)
         if not ids_in_file:
             continue
