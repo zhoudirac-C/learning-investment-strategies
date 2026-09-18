@@ -519,7 +519,7 @@ claims:
   evidence_quote: 量能：昨日两市成交2.58万亿，较月初的3.66万亿缩量约30%，距离上月11日2.55万亿的地量仅一步之遥，有点「一步到位」的既视感。
   interpretation: 成交量快速萎缩至地量水平，显示抛压大幅减轻。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260629-001-f"]
   contradicts: ["claim-20260702-002-c", "claim-20260616-002-c"]
@@ -774,7 +774,7 @@ claims:
   evidence_quote: 周一盘前已提示情绪极端，按理说指数进一步回调、恐慌理应加剧，但昨日跌停家数反而收窄
   interpretation: 恐慌未随指数下跌放大，暗示情绪已在修复。
   confidence: medium
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260706-002-a", "claim-20260707-011-a"]
   contradicts: []
@@ -900,7 +900,7 @@ claims:
   evidence_quote: 市场情绪周期定位仍在调整阶段。
   interpretation: 尚未转入上升周期，仍需谨慎对待。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: ["claim-20260630-001-a", "claim-20260707-003-a"]
   contradicts: []

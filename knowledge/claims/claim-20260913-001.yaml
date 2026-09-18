@@ -518,7 +518,7 @@ claims:
   evidence_quote: 此时可以提高对风格切换的观察权重，但仍需用后续收盘与盈利兑现验证，不因一次高开或单日大涨就确认趋势反转
   interpretation: 两情形推演的多头分支。触发条件明确：量价配合+上涨家数+亏钱效应收敛+利率回落。对应操作是提高风格切换观察权重（不是直接加仓），与'数据前不加仓'纪律一致。
   confidence: high
-  status: active
+  status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
@@ -550,7 +550,7 @@ claims:
   evidence_quote: 对应纪律是及时下调原有乐观假设，重新审视风险暴露，不把每次回落都解释为确认中的“二次探底”。两类情形均以实际信号为准，不预先指定必然发生的路径
   interpretation: 两情形推演的空头分支。失效条件明确，触发时动作=下调乐观假设+重审风险暴露。与claim-017构成完整触发/失效条件对，符合用户调仓方案需触发+失效条件的规范。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
