@@ -351,6 +351,9 @@ claims:
   - code: '001330'
     name: 博纳影业
     role: 影视-跟涨-主板可交易
+  - code: "300426"
+    name: "华智数媒"
+    role: "回填-正文提及"
   tags:
   - 影视
   - 北京文化
@@ -521,7 +524,10 @@ claims:
     methodology_pages: []
     cases: []
   topic: 美国创世纪计划GS1：AI4S科学基础模型催化
-  related_stocks: []
+  related_stocks:
+  - code: "300083"
+    name: "创世纪"
+    role: "回填-正文提及"
   tags:
   - AI4S
   - 创世纪计划
@@ -1249,6 +1255,9 @@ claims:
   - code: '300666'
     name: 江丰电子
     role: 靶材+静电卡盘-创业板不可交易
+  - code: "688981"
+    name: "中芯国际"
+    role: "回填-正文提及"
   tags:
   - 江丰电子
   - 溅射靶材
@@ -1857,7 +1866,10 @@ claims:
     methodology_pages: []
     cases: []
   topic: 上海十五五软件规划催化
-  related_stocks: []
+  related_stocks:
+  - code: "002265"
+    name: "建设工业"
+    role: "回填-正文提及"
   tags:
   - 上海十五五
   - 智算设施

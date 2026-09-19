@@ -431,6 +431,9 @@ claims:
   - code: '605577'
     name: 龙版传媒
     role: 高位观察标的-断板
+  - code: "601999"
+    name: "出版传媒"
+    role: "回填-正文提及"
   links:
     wiki_pages: []
     methodology_pages: []
@@ -907,7 +910,10 @@ claims:
   contradicts: []
   supplements: []
   last_discovered: 2026-09-08
-  related_stocks: []
+  related_stocks:
+  - code: "605577"
+    name: "龙版传媒"
+    role: "回填-正文提及"
   links:
     wiki_pages: []
     methodology_pages: []

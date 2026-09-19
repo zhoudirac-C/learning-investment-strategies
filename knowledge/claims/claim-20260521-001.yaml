@@ -71,6 +71,16 @@ claims:
   - 追高
   - AI
   - A股
+  related_stocks:
+  - code: "300308"
+    name: "中际旭创"
+    role: "回填-正文提及"
+  - code: "300394"
+    name: "天孚通信"
+    role: "回填-正文提及"
+  - code: "300502"
+    name: "新易盛"
+    role: "回填-正文提及"
 - id: claim-20260521-001-c
   topic: 长鑫科技上会与长江存储辅导形成存储双催化
   source_path: sources/raw/财经/早盘：26-05-21：反弹途中不追高，聚焦AI与存储主线轮动.md
@@ -108,6 +118,10 @@ claims:
   - 催化
   - 中军
   - 长鑫
+  related_stocks:
+  - code: "688825"
+    name: "长鑫科技"
+    role: "回填-正文提及"
 - id: claim-20260521-001-d
   topic: 玻璃基板与Micro-LED
   source_path: sources/raw/财经/早盘：26-05-21：反弹途中不追高，聚焦AI与存储主线轮动.md
@@ -215,6 +229,9 @@ claims:
   - code: '603986'
     name: 兆易创新
     role: 参考标的
+  - code: "688012"
+    name: "中微公司"
+    role: "回填-正文提及"
 - id: claim-20260521-001-g
   topic: 情绪分歧日
   source_path: sources/raw/财经/午盘：26-05-21：情绪分歧日，半导体设备洗盘与Micro-LED补涨分化.md

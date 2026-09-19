@@ -125,6 +125,13 @@ claims:
       - 技术信号
       - 电力
       - 放量
+    related_stocks:
+    - code: "300067"
+      name: "安诺其"
+      role: "回填-正文提及"
+    - code: "301439"
+      name: "泓淋电力"
+      role: "回填-正文提及"
   - id: claim-20260601-001-e
     topic: 5月14日以来仅有3个交易日跌停家数为个
     source_path: sources/raw/财经/早盘：26-06-01：调整周期第13天，AI与PCB共振观察.md
@@ -221,6 +228,10 @@ claims:
       - 仓位
       - 电力
       - AI
+    related_stocks:
+    - code: "301439"
+      name: "泓淋电力"
+      role: "回填-正文提及"
   - id: claim-20260601-001-h
     topic: 6月市场面临较大的解禁压力
     source_path: sources/raw/财经/早盘：26-06-01：调整周期第13天，AI与PCB共振观察.md

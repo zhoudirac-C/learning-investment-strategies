@@ -126,6 +126,16 @@ claims:
   tags:
   - MLCC已提
   - 方法论
+  related_stocks:
+  - code: "600246"
+    name: "万通发展"
+    role: "回填-正文提及"
+  - code: "000066"
+    name: "中国长城"
+    role: "回填-正文提及"
+  - code: "000969"
+    name: "安泰科技"
+    role: "回填-正文提及"
 - id: claim-20260602-002-e
   topic: AI数据中心瓶颈从"算力"向供电端
   source_path: sources/raw/财经/动态：26-06-02：AI算力新增量-甲骨文SOFC与Marvell DSP.md
@@ -175,6 +185,12 @@ claims:
   - code: '688515'
     name: 裕太微
     role: 参考标的
+  - code: "002281"
+    name: "光迅科技"
+    role: "回填-正文提及"
+  - code: "000338"
+    name: "潍柴动力"
+    role: "回填-正文提及"
 - id: claim-20260602-002-f
   topic: SOFC国产化早期、DSP国产替代在研
   source_path: sources/raw/财经/动态：26-06-02：AI算力新增量-甲骨文SOFC与Marvell DSP.md
@@ -222,3 +238,9 @@ claims:
   - code: '688515'
     name: 裕太微
     role: 参考标的
+  - code: "002281"
+    name: "光迅科技"
+    role: "回填-正文提及"
+  - code: "000338"
+    name: "潍柴动力"
+    role: "回填-正文提及"

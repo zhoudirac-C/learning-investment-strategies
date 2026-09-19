@@ -95,6 +95,9 @@ claims:
   - code: 002484
     name: 江海股份
     role: 参考标的
+  - code: "002012"
+    name: "凯恩股份"
+    role: "回填-正文提及"
 - id: claim-20260528-001-d
   topic: 功率半导体年内第二轮涨价
   source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
@@ -170,6 +173,10 @@ claims:
   - 缩量
   - 催化
   - 主线
+  related_stocks:
+  - code: "600935"
+    name: "华塑股份"
+    role: "回填-正文提及"
 - id: claim-20260528-001-f
   topic: Astrotech暴涨459%映射月球资
   source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
@@ -203,3 +210,16 @@ claims:
   - 资源
   - A股
   - 宏观
+  related_stocks:
+  - code: "688031"
+    name: "星环科技"
+    role: "回填-正文提及"
+  - code: "600850"
+    name: "电科数字"
+    role: "回填-正文提及"
+  - code: "002149"
+    name: "西部材料"
+    role: "回填-正文提及"
+  - code: "300749"
+    name: "顶固集创"
+    role: "回填-正文提及"

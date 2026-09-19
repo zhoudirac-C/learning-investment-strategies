@@ -181,6 +181,9 @@ claims:
   - code: '603118'
     name: 共进股份
     role: 小票反包标的-交换机ODM-主板可交易
+  - code: "688347"
+    name: "华虹宏力"
+    role: "回填-正文提及"
   tags:
   - 盘面观察
   - 电力缺席
@@ -373,7 +376,10 @@ claims:
   contradicts: []
   supplements: ["claim-20260623-001-j", "claim-20260625-003-r"]
   last_discovered: 2026-07-22
-  related_stocks: []
+  related_stocks:
+  - code: "000686"
+    name: "东北证券"
+    role: "回填-正文提及"
   tags:
   - 半导体设备
   - SEMI

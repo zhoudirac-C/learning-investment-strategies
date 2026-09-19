@@ -1,0 +1,94 @@
+claims:
+- id: claim-20241107-001-a
+  source_path: sources/raw/财经/2024-11-07-1915-视频-方法，60秒 （选二） -.md
+  source_date: '2024-11-07'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-19T10:45:00+08:00'
+  claim_type: methodology
+  subject: 分歧行情选股法
+  topic: 分歧行情选逆势上涨板块中增速快的强势股
+  timeframe: permanent
+  statement: 分歧行情（很多板块净流出、下跌）中，应在逆势上涨的板块里选择增速比较快的、强势的个股，这么做的胜率会比较大
+  evidence_quote: 其实每一轮赚钱行情呢，都会有一个时间点是在分歧的，很多板块都会净流出，都会下跌，反而逆势上涨的板块呢，选择增速比较快的、强势的个股。分歧行情这么做呢，胜率是会比较大。
+  interpretation: 分歧日是天然选股过滤器：市场普跌时逆势走强的板块与个股展示了资金的真实选择，比普涨日的跟涨股更有信息量。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-19
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 分歧行情
+  - 选股
+  - 逆势上涨
+- id: claim-20241107-001-b
+  source_path: sources/raw/财经/2024-11-07-1915-视频-方法，60秒 （选二） -.md
+  source_date: '2024-11-07'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-19T10:45:00+08:00'
+  claim_type: methodology
+  subject: 轮动行情选股法
+  topic: 轮动行情卖强买弱，单边持续则轮动结束
+  timeframe: permanent
+  statement: 轮动行情中先观察哪些板块在交替上涨并加自选、观察板块中个股强弱；当板块A上涨时卖出其底仓，用这笔钱买入正在回调中的板块B，赚钱概率较高；若出现一个一直涨、另一个一直跌，则代表轮动结束
+  evidence_quote: 在轮动行情中，我们通过先观察，观察主要是哪些板块在涨，在交替地涨，我们就把这些板块加自选，观察一下板块中个股的强弱。……一旦证券行情上涨的时候呢，我们就选择把证券行情的底仓卖出，卖出来的钱呢，买入正在回调中的人工智能板块。……那轮动行情有可能它一直涨上去，另外一只一直跌下去呢？那就代表轮动结束嘛。
+  interpretation: 轮动的本质是资金在几个板块间来回，操作节奏是「卖强买弱」而非追涨。同时给出轮动模式的失效信号（一边持续单边），有明确的退出判据。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-19
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 轮动行情
+  - 板块轮动
+  - 卖强买弱
+- id: claim-20241107-001-c
+  source_path: sources/raw/财经/2024-11-07-1915-视频-方法，60秒 （选二） -.md
+  source_date: '2024-11-07'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-19T10:45:00+08:00'
+  claim_type: methodology
+  subject: 区分主线与轮动
+  topic: 先区分市场在炒主线还是炒轮动，再定选股策略
+  timeframe: permanent
+  statement: 操作前必须区分市场是在炒主线还是在炒轮动，两种行情对应完全不同的选股策略
+  evidence_quote: 所以我们一定要区分好是在炒主线还是在炒轮动，这一点是非常非常非常重要的兄弟们。
+  interpretation: 主线行情适合持有强者恒强，轮动行情适合卖强买弱——行情性质定性错误会导致策略完全用反。这是UP方法论中「先判断市场状态、再选策略」原则的体现。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-19
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 主线
+  - 轮动
+  - 市场状态

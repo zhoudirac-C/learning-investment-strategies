@@ -702,7 +702,10 @@ claims:
     wiki_pages: []
     methodology_pages: []
     cases: []
-  related_stocks: []
+  related_stocks:
+  - code: "601988"
+    name: "中国银行"
+    role: "回填-正文提及"
   tags:
   - Token
   - 词元

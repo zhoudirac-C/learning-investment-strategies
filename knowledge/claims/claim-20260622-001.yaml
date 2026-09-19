@@ -191,7 +191,46 @@ claims:
   - 微信AI
   - 英伟达
   - 供给冲击
-  related_stocks: [002167, 000657, 002960, 600657, 300409, 300769, 000960, 002428]
+  related_stocks:
+  - code: "002167"
+    name: "东方锆业"
+    role: "原有"
+  - code: "000657"
+    name: "中钨高新"
+    role: "原有"
+  - code: "002960"
+    name: "青鸟智控"
+    role: "原有"
+  - code: "600657"
+    name: "信达地产"
+    role: "原有"
+  - code: "300409"
+    name: "道氏技术"
+    role: "原有"
+  - code: "300769"
+    name: "德方纳米"
+    role: "原有"
+  - code: "000960"
+    name: "锡业股份"
+    role: "原有"
+  - code: "002428"
+    name: "云南锗业"
+    role: "原有"
+  - code: "002167"
+    name: "东方锆业"
+    role: "回填-正文提及"
+  - code: "000657"
+    name: "中钨高新"
+    role: "回填-正文提及"
+  - code: "002436"
+    name: "兴森科技"
+    role: "回填-正文提及"
+  - code: "300769"
+    name: "德方纳米"
+    role: "回填-正文提及"
+  - code: "301358"
+    name: "湖南裕能"
+    role: "回填-正文提及"
 
 - id: claim-20260622-001-g
   source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
@@ -283,7 +322,19 @@ claims:
   - 涨价
   - 订单排期
   - 新能源
-  related_stocks: [300769, 300409]
+  related_stocks:
+  - code: "300769"
+    name: "德方纳米"
+    role: "原有"
+  - code: "300409"
+    name: "道氏技术"
+    role: "原有"
+  - code: "300769"
+    name: "德方纳米"
+    role: "回填-正文提及"
+  - code: "301358"
+    name: "湖南裕能"
+    role: "回填-正文提及"
 
 - id: claim-20260622-001-j
   source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md

@@ -89,7 +89,13 @@ claims:
     methodology_pages: []
     cases: []
   topic: 国产算力业绩驱动非纯题材轮动
-  related_stocks: ["盛科通信"]
+  related_stocks:
+  - code: "688702"
+    name: "盛科通信"
+    role: "原有"
+  - code: "688702"
+    name: "盛科通信"
+    role: "回填-正文提及"
   tags:
   - 国产算力
   - 盛科通信
@@ -122,7 +128,28 @@ claims:
     methodology_pages: []
     cases: []
   topic: 端侧AI备案落地 资金共识在低位而非方向
-  related_stocks: ["瑞芯微", "翱捷科技", "美格智能", "国光电器"]
+  related_stocks:
+  - code: "603893"
+    name: "瑞芯微"
+    role: "原有"
+  - code: "688220"
+    name: "翱捷科技"
+    role: "原有"
+  - code: "002881"
+    name: "美格智能"
+    role: "原有"
+  - code: "002045"
+    name: "国光电器"
+    role: "原有"
+  - code: "603893"
+    name: "瑞芯微"
+    role: "回填-正文提及"
+  - code: "002881"
+    name: "美格智能"
+    role: "回填-正文提及"
+  - code: "688220"
+    name: "翱捷科技"
+    role: "回填-正文提及"
   tags:
   - 端侧AI
   - 苹果
@@ -221,7 +248,13 @@ claims:
     methodology_pages: []
     cases: []
   topic: 国光电器——端侧AI声学龙头拐点
-  related_stocks: ["国光电器"]
+  related_stocks:
+  - code: "002045"
+    name: "国光电器"
+    role: "原有"
+  - code: "002045"
+    name: "国光电器"
+    role: "回填-正文提及"
   tags:
   - 国光电器
   - 端侧AI
@@ -255,7 +288,16 @@ claims:
     methodology_pages: []
     cases: []
   topic: 领先股份——引线框架龙头受益封装涨价周期
-  related_stocks: ["领先股份", "日月光"]
+  related_stocks:
+  - code: "603991"
+    name: "领先股份"
+    role: "原有"
+  - code: ""
+    name: "日月光"
+    role: "原有"
+  - code: "603991"
+    name: "领先股份"
+    role: "回填-正文提及"
   tags:
   - 领先股份
   - 引线框架
@@ -289,7 +331,13 @@ claims:
     methodology_pages: []
     cases: []
   topic: 香江控股跨界IDC从0到1突破
-  related_stocks: ["香江控股"]
+  related_stocks:
+  - code: "600162"
+    name: "香江控股"
+    role: "原有"
+  - code: "600162"
+    name: "香江控股"
+    role: "回填-正文提及"
   tags:
   - 香江控股
   - IDC
@@ -393,7 +441,25 @@ claims:
     methodology_pages: []
     cases: []
   topic: 芳纶AI光纤——算力硬件上游延伸分支
-  related_stocks: ["泰和新材", "中化国际", "民士达"]
+  related_stocks:
+  - code: "002254"
+    name: "泰和新材"
+    role: "原有"
+  - code: "600500"
+    name: "中化国际"
+    role: "原有"
+  - code: "920394"
+    name: "民士达"
+    role: "原有"
+  - code: "600500"
+    name: "中化国际"
+    role: "回填-正文提及"
+  - code: "920394"
+    name: "民士达"
+    role: "回填-正文提及"
+  - code: "002254"
+    name: "泰和新材"
+    role: "回填-正文提及"
   tags:
   - 芳纶
   - 光纤
@@ -427,7 +493,25 @@ claims:
     methodology_pages: []
     cases: []
   topic: 轮胎——反倾销加速出海逻辑
-  related_stocks: ["中策橡胶", "赛轮轮胎", "森麒麟"]
+  related_stocks:
+  - code: "603049"
+    name: "中策橡胶"
+    role: "原有"
+  - code: "601058"
+    name: "赛轮轮胎"
+    role: "原有"
+  - code: "002984"
+    name: "森麒麟"
+    role: "原有"
+  - code: "603049"
+    name: "中策橡胶"
+    role: "回填-正文提及"
+  - code: "002984"
+    name: "森麒麟"
+    role: "回填-正文提及"
+  - code: "601058"
+    name: "赛轮轮胎"
+    role: "回填-正文提及"
   tags:
   - 轮胎
   - 反倾销

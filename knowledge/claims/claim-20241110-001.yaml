@@ -1,0 +1,94 @@
+claims:
+- id: claim-20241110-001-a
+  source_path: sources/raw/财经/2024-11-10-1953-视频-给新手的科普（一） -.md
+  source_date: '2024-11-10'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-19T10:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 市盈率的含义
+  topic: 市盈率等于总市值除以净利润，含义是回本年限
+  timeframe: permanent
+  statement: 市盈率=公司总市值÷净利润，含义是以当前盈利水平买入后靠盈利回本的年限（如100亿市值、20亿净利即5倍市盈率=5年回本）；它随总市值（股价）和净利润每年变动，是普通而常用的估值参考指标
+  evidence_quote: 市盈率就是一家公司的总市值除以一家公司的净利润。比如说一家公司它是100亿的一个总市值，它的净利润今年达到了20亿，它的市盈率就是100除以20等于5，5倍。……意思就是说你要5年之后才算回本，才算买到了它真正的价值。
+  interpretation: 面向新手的估值概念科普，把市盈率翻译成「回本年限」便于理解。属工具性知识定义，UP定位其为「判断价格贵还是便宜」的指标。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-19
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 市盈率
+  - 估值
+  - 新手科普
+- id: claim-20241110-001-b
+  source_path: sources/raw/财经/2024-11-10-1953-视频-给新手的科普（一） -.md
+  source_date: '2024-11-10'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-19T10:45:00+08:00'
+  claim_type: methodology
+  subject: 市盈率与盈利预判
+  topic: 估值要落到未来盈利增速判断，学会看财报
+  timeframe: permanent
+  statement: 选股最终要落脚到判断公司未来的盈利能力：盈利增速快则市盈率越来越低、股价越来越被追捧（如今年赚1亿、明年5亿、后年10亿）；要懂得看财报
+  evidence_quote: 如果说它盈利增速很快，它今年赚了一个亿，明年赚了五个亿呢，后年赚十个亿呢，那它的市盈率是不是就越来越低？那相对应的它的股价是不是大家越来越想要啊……所以说我们要懂得最终还是要懂得判断一家公司的一个盈利能力，懂得看财报。
+  interpretation: 静态市盈率低不是买入理由，动态盈利增速才是股价驱动——估值必须与成长性结合看，这是UP把估值指标落到选股实操的关键一环。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-19
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 盈利增速
+  - 财报
+  - 估值
+- id: claim-20241110-001-c
+  source_path: sources/raw/财经/2024-11-10-1953-视频-给新手的科普（一） -.md
+  source_date: '2024-11-10'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-19T10:45:00+08:00'
+  claim_type: methodology
+  subject: 市盈率的局限
+  topic: 市盈率的边界：估值看贵贱，短期涨跌看资金
+  timeframe: permanent
+  statement: 市盈率只是普通而常用的估值参考，不能当做神：A股不讲道理，短期涨不涨看的是资金量、有没有资金介入
+  evidence_quote: 那市盈率仅仅就是一个普通而又非常常用的一个估值指标而已，不要把它当做神哈，因为A股是不讲道理的，A股只看资金量，能做一个非常好的参考，但最终涨还是短期内涨还是不涨，好吧，还是看资金，有没有资金介入。
+  interpretation: UP对估值指标的边界定性：估值决定贵不贵，资金决定涨不涨。短期交易层面资金面优先于估值面——这与UP整体「资金为王」的A股观一致。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-19
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 市盈率
+  - 资金面
+  - A股

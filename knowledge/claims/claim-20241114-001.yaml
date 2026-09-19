@@ -1,0 +1,94 @@
+claims:
+- id: claim-20241114-001-a
+  source_path: sources/raw/财经/2024-11-14-1908-视频-方法，50秒，集合竞价（选三） -.md
+  source_date: '2024-11-14'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-19T10:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 集合竞价看盘时段
+  topic: 集合竞价只看9点20分至9点25分不可撤单时段
+  timeframe: permanent
+  statement: 集合竞价9:15-9:20挂单可以随时撤，该区间的竞价表现不用管；9:20-9:25才是判断抛压、承接和多空胜负的关键时段
+  evidence_quote: 先明确一个时间点，9点15分到9点20分，这一段时间呢，集合竞价你挂单是可以随时撤单的。所以这个区间的竞价表现我们不用管。我们主要看9点20分到9点25分。这个时间段呢，可以判断抛压，还有承接，可以判断是多方赢还是空方赢。
+  interpretation: 9:20前的封板可以是主力试错甚至诱多（可撤单无成本），9:20后不可撤单的资金才是真实意愿。看竞价的正确窗口是9:20-9:25。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-19
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 集合竞价
+  - 撤单规则
+  - 打板
+- id: claim-20241114-001-b
+  source_path: sources/raw/财经/2024-11-14-1908-视频-方法，50秒，集合竞价（选三） -.md
+  source_date: '2024-11-14'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-19T10:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 集合竞价红绿柱读法
+  topic: 竞价未匹配买单多则主力做多意愿强开板概率低
+  timeframe: permanent
+  statement: 集合竞价图下方柱体是双方已匹配成功的单量、上方柱体是未匹配成功的单量：上方绿色越多代表排队卖的资金多，应换一只；上方基本红色且下方细微红色，代表排队等买资金多、市场认可度高、主力做多意愿比较强、开板概率比较低，可以参考
+  evidence_quote: 下面的这一块呢，是双方已经匹配成功的单量。上面的这一块呢，是双方没有匹配成功的单量。……上面的这个如果是绿色越多呢，就代表说排队卖的资金比较多。那我们换一只。像这只，上面基本都是红色的，下面也是细微的红色，就代表说排队等买的资金多。那就代表着切过来的这只呢，市场的认可度高，主力的做多意愿比较强，开板的概率比较低。
+  interpretation: 未匹配买单堆积=想买而买不到的资金，是开盘后继续推高的潜在力量。UP同时指出：9:15-9:20同样封板但后续走弱的，是主力想做多但能力或意愿不强。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-19
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 集合竞价
+  - 红绿柱
+  - 主力意愿
+- id: claim-20241114-001-c
+  source_path: sources/raw/财经/2024-11-14-1908-视频-方法，50秒，集合竞价（选三） -.md
+  source_date: '2024-11-14'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-19T10:45:00+08:00'
+  claim_type: methodology
+  subject: 竞价板块联动选股
+  topic: 板块竞价共振则买后排补涨，上板概率大
+  timeframe: permanent
+  statement: 如果板块中很多只个股集合竞价强度一致且封板资金量大，代表这个板块今天会有所表现、很难被打压下来；可以找板块内有代表性但表现较弱的后排股适当参与，上板概率很大
+  evidence_quote: 如果说它的板块中有很多只股，集合竞价的强度跟它一样强，然后封板的资金量大。那么就代表着这个板块今天会有所表现，很难被打压下来。竞价表现那么好的板块，你就可以找一些后排买入啊，它的胜率是比较大的。……它同一板块中很多只涨停了，然后它也在这个板块中有所代表性，但是它表现比较弱，就可以适当地去参与啊。这样上板的概率很大。
+  interpretation: 个股竞价强度要结合板块维度确认：板块共振的竞价强度才是当天主线信号。操作上不追已封板的龙头，而是买板块内尚未启动的后排股，博补涨上板。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-19
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 集合竞价
+  - 板块共振
+  - 后排补涨

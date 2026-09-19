@@ -338,6 +338,9 @@ claims:
   - code: '601929'
     name: 吉视传媒
     role: AI内容+文化算力双轮-四环节闭环壁垒
+  - code: "603099"
+    name: "长白山"
+    role: "回填-正文提及"
   tags: []
   links: {}
   topic: 吉视传媒算力内容渠道四环闭环壁垒
@@ -393,6 +396,9 @@ claims:
   - code: '002328'
     name: 新朋股份
     role: AI液冷+储能转型-特斯拉Megapack柜体供应商
+  - code: "600000"
+    name: "浦发银行"
+    role: "回填-正文提及"
   tags: []
   links: {}
   topic: 新朋股份液冷储能回购三重共振
@@ -686,7 +692,10 @@ claims:
   contradicts: []
   supplements: []
   last_discovered: 2026-09-01
-  related_stocks: []
+  related_stocks:
+  - code: "300413"
+    name: "芒果超媒"
+    role: "回填-正文提及"
   tags: []
   links: {}
   topic: 9月1日双情形五条跟踪变量

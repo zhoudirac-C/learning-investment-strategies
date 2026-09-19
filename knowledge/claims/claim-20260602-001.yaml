@@ -63,6 +63,10 @@ claims:
   - 市场周期
   - 缩量
   - 放量
+  related_stocks:
+  - code: "002384"
+    name: "东山精密"
+    role: "回填-正文提及"
 - id: claim-20260602-001-c
   topic: 机构股近期草木皆兵
   source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
@@ -128,6 +132,13 @@ claims:
   - 板块主题
   - PCB
   - AI
+  related_stocks:
+  - code: "603890"
+    name: "春秋电子"
+    role: "回填-正文提及"
+  - code: "300956"
+    name: "英力股份"
+    role: "回填-正文提及"
 - id: claim-20260602-001-e
   topic: 昨日指数走弱理论上电力应走强
   source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
@@ -159,6 +170,13 @@ claims:
   - 电力
   - 煤炭
   - 防御
+  related_stocks:
+  - code: "600726"
+    name: "华电能源"
+    role: "回填-正文提及"
+  - code: "600396"
+    name: "华电辽能"
+    role: "回填-正文提及"
 - id: claim-20260602-001-f
   topic: 今年机构风格、基本面主导、有真实订单
   source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md

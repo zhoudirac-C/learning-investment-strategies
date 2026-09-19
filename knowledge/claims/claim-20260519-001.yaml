@@ -170,6 +170,9 @@ claims:
   - code: 000021.SZ
     name: 深科技
     role: 参考标的
+  - code: "688825"
+    name: "长鑫科技"
+    role: "回填-正文提及"
 - id: claim-20260519-001-f
   topic: 物理AI与机器人
   source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md
@@ -333,6 +336,10 @@ claims:
   tags:
   - 操作策略
   - 市场情绪
+  related_stocks:
+  - code: "002918"
+    name: "蒙娜丽莎"
+    role: "回填-正文提及"
 - id: claim-20260519-001-k
   topic: 领益智造为算力客户提供1.3亿美元担保
   source_path: sources/raw/财经/早盘：26-05-19：指数修复博弈窗口，长鑫IPO催化，谷歌大会与物理AI发酵.md

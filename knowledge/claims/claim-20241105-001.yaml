@@ -1,0 +1,65 @@
+claims:
+- id: claim-20241105-001-a
+  source_path: sources/raw/财经/2024-11-05-2003-视频-方法，60秒，看线，易懂（T二） -.md
+  source_date: '2024-11-05'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-19T10:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: 均线低吸做T
+  topic: 用5日线与10日线分级低吸做T
+  timeframe: permanent
+  statement: 趋势向上的股短期涨多后做T看均线：股价回撤到5日线而不破（掉一两分没事）可低吸；回踩10日线只稍微买一点，博的是短期内的补涨，因为此时股性已没那么厚积有力
+  evidence_quote: 我会先看五日线，那条黑的，那条五日线。股价回撤到五日线的时候而不破，比如说它掉个一两分没事情，我一般会选，我看好的话，我五日线会继续低吸。……那十日线呢，就是这只股呢都感觉已经已经没有那么厚积有力了，但是还是稍微看好有一点行情。就是它回踩十日线我会稍微买一点，回踩这个十日线呢，我博的是什么呢？回踩这个十日线我博的就是短期内的一个补涨。
+  interpretation: 均线位置对应信心分级：5日线是强趋势的主买点，10日线降级为博补涨的小仓位买点。这是UP给新手的简化规则（原话：会选股的话看什么线都差不多）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-19
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - 做T
+  - 均线
+  - 低吸
+  - 五日线
+- id: claim-20241105-001-b
+  source_path: sources/raw/财经/2024-11-05-2003-视频-方法，60秒，看线，易懂（T二） -.md
+  source_date: '2024-11-05'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-19T10:45:00+08:00'
+  claim_type: technical-knowledge
+  subject: MACD五分线做T买卖点
+  topic: 5分钟MACD柱体与金叉死叉辅助做T买卖点
+  timeframe: permanent
+  statement: MACD切到5分钟线看做T买卖点：绿柱快要消失是分时买点，红柱拉得很长差不多是卖点；黑线上穿红（橙）线是买点，黑线下穿是卖点。UP自陈「不一定准」，强调分时线不如选股重要
+  evidence_quote: MACD指标我一般看的是把它切到五分线来。……当绿柱快要消失的时候……这就是一个分时分线的一个买点。然后当红柱感觉说这个红柱好长条啊……就差不多是一个做T的一个卖点。它当黑线上穿这个红线的时候呢……就是一个买点。当黑线呢下插这个红线的时候……就是一个卖点。当然不一定准，但是说我认为做T的这些分时线都不是最重要的，最重要的还是选股。
+  interpretation: 5分钟级MACD柱体衰竭与金叉死叉作为做T的辅助计时工具。UP明确将其定位为次要工具（选股大于分时线），避免过度依赖指标。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-09-19
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  stance: view
+  related_stocks: []
+  tags:
+  - MACD
+  - 分时线
+  - 做T
+  - 买卖点
