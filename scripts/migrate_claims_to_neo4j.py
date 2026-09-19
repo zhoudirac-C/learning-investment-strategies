@@ -136,6 +136,63 @@ def extract_stock_codes(text: str) -> set[str]:
             codes.add(code)
     
     return codes
+
+
+def _norm_code(raw) -> str:
+    """归一化股票代码：去交易所后缀、补零到 6 位。非代码返回 ''。"""
+    s = str(raw or "").strip()
+    if not s:
+        return ""
+    s = re.split(r"[.\s]", s)[0].strip()
+    if not s.isdigit():
+        return ""
+    return s.zfill(6)
+
+
+def extract_related_stocks(claim: dict) -> list[tuple[str, str]]:
+    """从 claim['related_stocks'] 提取 (code, name) 列表。
+
+    2026-09-19 新增：存量回填了 411 条 related_stocks，但本脚本原先只从
+    正文正则/名称映射提取，**完全不读该字段** → 回填只停在 YAML 层。
+    本函数让结构化标的进入图库。
+
+    处置：
+      - 归一化 code（`601133.SH` → `601133`）
+      - 空 code / 非数字 code 跳过（不建空码 Stock 节点）
+      - name 缺失时退回 code
+    返回去重后的 [(code, name)]，保持声明顺序。
+    """
+    rs = claim.get("related_stocks")
+    if not isinstance(rs, list):
+        # 兼容旧格式：links.related_stocks
+        links = claim.get("links")
+        if isinstance(links, dict) and isinstance(links.get("related_stocks"), list):
+            rs = links["related_stocks"]
+        else:
+            return []
+
+    out: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for item in rs:
+        if isinstance(item, dict):
+            code = _norm_code(item.get("code"))
+            name = str(item.get("name") or "").strip() or code
+        elif isinstance(item, str):
+            # 旧格式：纯名字或纯代码
+            tok = item.strip()
+            if tok.isdigit() and len(tok) == 6:
+                code, name = tok, tok
+            else:
+                code = _norm_code(_load_stock_name_mapping().get(tok, ""))
+                name = tok
+        else:
+            continue
+        if not code or code in seen:
+            continue
+        seen.add(code)
+        out.append((code, name))
+    return out
+
 SECTOR_KEYWORDS = [
     "半导体", "AI", "算力", "存储", "新能源", "光伏", "锂电", "电力", "军工",
     "商业航天", "机器人", "CPO", "光模块", "通信", "消费电子", "医药", "化工",
@@ -324,6 +381,7 @@ def _migrate_single_claim(session, claim: dict):
             c.up_id = $up_id,
             c.up_name = $up_name,
             c.stance = $stance,
+            c.related_stocks = $related_stocks,
             c.file = $file
         """,
         {
@@ -343,6 +401,12 @@ def _migrate_single_claim(session, claim: dict):
             "up_name": claim.get("up_name", ""),
             # 2026-09-17 话语性质（fact/view/market-regime/mixed），存量缺失写 unknown
             "stance": claim.get("stance", "") or "unknown",
+            # 2026-09-19 结构化标的池：进图库供过滤/检索（存名字列表，便于 Cypher 直读）
+            "related_stocks": [
+                str(x.get("name") or x.get("code") or "")
+                for x in (claim.get("related_stocks") or [])
+                if isinstance(x, dict)
+            ] if isinstance(claim.get("related_stocks"), list) else [],
             "file": claim.get("_file", ""),
         },
     )
@@ -350,8 +414,27 @@ def _migrate_single_claim(session, claim: dict):
     # Extract and link entities
     subject = claim.get("subject", "")
     statement = claim.get("statement", "") or claim.get("text", "")
-    stock_codes = extract_stock_codes(subject + " " + statement)
     name = subject or statement[:100]
+
+    # ── 2026-09-19：结构化标的（related_stocks）优先于正文正则 ──
+    # 该字段是显式标的池，权威性高于从正文猜出的代码；且带正确 name，
+    # 修掉「Stock.name 被写成 claim.subject 句子」的历史 bug。
+    related = extract_related_stocks(claim)
+    related_codes = {c for c, _ in related}
+    for code, stk_name in related:
+        session.run(
+            """
+            MERGE (s:Stock {code: $code})
+            SET s.name = $name
+            WITH s
+            MATCH (c:Claim {id: $cid})
+            MERGE (c)-[:ABOUT {relation_type: 'mentions'}]->(s)
+            """,
+            {"code": code, "name": stk_name, "cid": cid},
+        )
+
+    # 正文里额外提到的代码（related_stocks 之外的）—— name 用 claim.subject 兜底
+    stock_codes = extract_stock_codes(subject + " " + statement) - related_codes
     for code in stock_codes:
         session.run(
             """

@@ -169,7 +169,8 @@ def main():
             "c.subject as subject, c.source_date as source_date, "
             "c.confidence as confidence, c.status as status, "
             "c.claim_type as claim_type, c.intensity as intensity, "
-            "c.up_id as up_id, c.up_name as up_name, c.stance as stance"
+            "c.up_id as up_id, c.up_name as up_name, c.stance as stance, "
+            "c.related_stocks as related_stocks"
         )
         claims = list(result)
 
@@ -214,6 +215,8 @@ def main():
                 "up_name": claim.get("up_name", ""),
                 # 2026-09-17 话语性质：供过滤事实播报（fact/view/market-regime/mixed）
                 "stance": claim.get("stance", "") or "unknown",
+                # 2026-09-19 结构化标的池：供按标的检索（此前该字段未进 payload）
+                "related_stocks": claim.get("related_stocks") or [],
             },
         ))
 
