@@ -15,7 +15,7 @@ Gate 验证门禁 — Claim 字段完整性 + 格式校验
 退出码：0 = 通过, 1 = 有错误
 """
 
-import json, sys, os
+import json, sys, os, re
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -116,12 +116,14 @@ def gate3_related_stocks(claim: dict) -> list[str]:
             elif isinstance(item, dict):
                 if "code" not in item or "name" not in item:
                     errors.append(f"related_stocks 项 {item} 缺 code/name 字段")
-                # Gate 3b: code 必须是字符串（6位数字代码），不能是整数
+                # Gate 3b: code 必须是字符串（6位数字代码，可选 .SH/.SZ/.BJ 后缀），不能是整数
+                #  2026-09-19：后缀写法（688652.SH）是存量广泛使用的有效标注，放行。
                 code_val = item.get("code")
                 if isinstance(code_val, int):
                     errors.append(f"related_stocks code={code_val} 是整数类型，应改为字符串 '{code_val}'")
-                elif isinstance(code_val, str) and not code_val.isdigit():
-                    errors.append(f"related_stocks code='{code_val}' 不是纯数字字符串")
+                elif isinstance(code_val, str):
+                    if not re.fullmatch(r"\d{6}(?:\.(?:SH|SZ|BJ))?", code_val.strip()):
+                        errors.append(f"related_stocks code='{code_val}' 不是纯数字字符串")
     return errors
 
 
@@ -171,6 +173,78 @@ _AMBIGUOUS_NAMES = {
     "中国电信",
 }
 
+# ── v4 新增（2026-09-19 方案A）──────────────────────────────
+#
+# 1) 代码标注识别（含全角括号 + 交易所后缀）
+#    存量已写入的等效写法：688652.SH / 002897.SZ / 830799.BJ / （603221）
+_CODE_SUFFIX_RE = r"\s*[（(]\s*\d{4,6}\s*(?:\.(?:SH|SZ|BJ))?\s*[）)]"
+
+# 2) 券商/研报机构名 —— 作为「信息源署名」出现时豁免，作为标的不豁免。
+#    收录口径：仅头部券商与常被研报引用的机构；刻意保持短名单（避免误放行真标的）。
+BROKER_HOUSE_NAMES = {
+    "中信证券", "中信建投", "国泰海通", "国泰君安", "华泰证券", "招商证券",
+    "广发证券", "申万宏源", "海通证券", "国信证券", "东方证券", "光大证券",
+    "兴业证券", "东吴证券", "长江证券", "国金证券", "华创证券", "天风证券",
+    "国海证券", "民生证券", "方正证券", "中金公司", "中银证券", "浙商证券",
+    "西部证券", "东兴证券", "太平洋证券", "国元证券", "财通证券", "华安证券",
+    "太平洋", "开源证券", "信达证券", "国联民生", "中泰证券", "华西证券",
+    "山西证券", "第一创业", "财达证券", "湘财股份", "首创证券", "华林证券",
+    "国盛证券", "华宝证券", "华鑫证券", "华福证券", "东海证券", "华龙证券",
+    "国都证券", "川财证券", "华金证券", "国融证券", "粤开证券", "德邦证券",
+    "华源证券", "东方财富", "同花顺", "指南针",
+}
+
+# 3) 署名语境标记：机构名**之前**的引导词，或**之后**的动作词。
+#    例：「据华泰证券测算」「引用长江证券观点」「XX证券指/认为/定义为/点评/预测」
+#    ⚠️ 2026-09-19 实测：仅靠 6 字邻域太窄，漏掉大量变体
+#    （「国金证券定义为」「东吴证券/国盛证券研报逻辑」「中信证券保荐」「招商证券：」），
+#    故另行叠加"券商名 + 券商后缀/动作词"的整体模式判定。
+_BROKER_LEAD_RE = re.compile(
+    r"(据|根据|引用|引用自|来自|摘自|参考|源自|转引|援引|结合)\s*$")
+_BROKER_TAIL_RE = re.compile(
+    r"^\s*(观点|测算|判断|认为|分析|团队|研报|报告|数据|统计|指出|预计|表示|看|提出|"
+    r"提供|显示|定[义调]|点评|预测|保荐|称|指|估|假设|曾|):?\s*"
+)
+# 「XX证券」+ 券商行业动作词，几乎必然是署名（券商作为标的时不会这么搭配）
+_BROKER_CONTEXT_RE = re.compile(
+    r"(研报|卖方|保荐|承销|分析师|团队)" + r"|" + r"(券商|机构)(?!板块|股|行业)")
+# 但若该券商名本身是句子主语/标的（后接涨跌/走势词），则是标的而非署名
+_BROKER_AS_TARGET_RE = re.compile(
+    r"^\s*(今日|昨日|当天|盘中)?\s*(涨停|跌停|大涨|大跌|走强|走弱|领涨|领跌|拉升|"
+    r"异动|封板|开板|破位|创新高|再创新高|新低|上涨|下跌|放量|缩量|收涨|收跌)")
+# 并列券商（「东吴证券/国盛证券研报」）—— 名后紧跟分隔符再接另一券商
+_BROKER_CHAIN_RE = re.compile(r"^\s*[/、，,]\s*[\u4e00-\u9fff]{2,6}证券")
+
+
+def _is_broker_attribution(text: str, name: str) -> bool:
+    """判断 name 在 text 中是否处于「研报署名」语境。
+
+    四重判定（命中任一即视为署名）：
+      1. 名前 12 字内有引导词（据/引用/来自/援引…）
+      2. 名后紧跟券商动作词（观点/测算/认为/定义为/点评/保荐…）
+      3. 名的邻域（前 25 字）出现券商语境词（研报/卖方/团队/保荐…）
+      4. 名后紧跟「/另一券商」（并列署名）
+
+    ⚠️ 例外：若该名后紧跟涨跌/走势词（= 它本身是标的），一律不豁免。
+    """
+    for m in re.finditer(re.escape(name), text):
+        i = m.start()
+        tail_win = text[m.end() : m.end() + 10]
+        if _BROKER_AS_TARGET_RE.search(tail_win):
+            # 作为标的出现（华泰证券今日涨停）→ 不豁免
+            continue
+        if _BROKER_CHAIN_RE.search(tail_win):
+            return True
+        lead_win = text[max(0, i - 12) : i]
+        if _BROKER_LEAD_RE.search(lead_win):
+            return True
+        if _BROKER_TAIL_RE.search(tail_win):
+            return True
+        near_win = text[max(0, i - 25) : m.end() + 12]
+        if _BROKER_CONTEXT_RE.search(near_win):
+            return True
+    return False
+
 
 def _load_company_names() -> set:
     """加载 A 股公司名词典（data/company_names.json）。
@@ -200,10 +274,48 @@ def _company_names() -> set:
     return _COMPANY_NAMES
 
 
+def _is_course_claim(claim: dict) -> bool:
+    """缠论课程类 claim —— 其历史案例中的公司名是教学素材，非投资标的。
+
+    判别：claim id 日期段 < 2020（课程原始日期）或 source_path 含 chanlun。
+    2026-09-19：这类 claim 共 337 条，其中 11 处命中 gate5，
+    属「课中以贵州茅台2004年周线二买为历史案例演示」一类，整批豁免。
+    """
+    cid = str(claim.get("id", ""))
+    m = re.match(r"claim-(\d{8})", cid)
+    if m and int(m.group(1)[:4]) < 2020:
+        return True
+    sp = str(claim.get("source_path", "")).lower()
+    return "chanlun" in sp
+
+
+_ANALOGY_LEAD_RE = re.compile(r"(类似|参照|类比|如同|好比|对标|相当于)\s*$")
+
+
+def _is_analogy_mention(text: str, name: str) -> bool:
+    """类比引用 —— 「类似赛力斯第一步」「类似同花顺的轻量版」是修辞对照，非标的。
+
+    2026-09-19：存量中此类仅 2 处，但仍需豁免以免污染标的池。
+    """
+    for m in re.finditer(re.escape(name), text):
+        if _ANALOGY_LEAD_RE.search(text[max(0, m.start() - 8) : m.start()]):
+            return True
+    return False
+
+
 def gate5_stock_codes(claim: dict) -> list[str]:
     """检查 statement/interpretation 中提到的公司名是否带 6 位代码。
 
-    v3：词典最大匹配 —— 在文本中扫描已知 A 股公司名，命中且未标注代码则报错。
+    v4（2026-09-19 方案A）：在 v3 词典最大匹配之上，新增三条豁免/识别规则：
+
+      1. **related_stocks 豁免** —— 正文提到的公司名若已在 related_stocks
+         结构化列出（name 匹配），视为已标注。语义依据：gate3 确立「标的池 =
+         related_stocks」，产业链罗列式 claim（一条列 20+ 公司名）不应要求在
+         正文重复写码。
+      2. **代码格式扩展** —— 旧正则 `[（(]\\d{6}[）)]` 认不出 `688652.SH` /
+         `002897.SZ` / `.BJ` 后缀写法；这些是有效标注，扩展识别。
+      3. **研报署名豁免** —— 「据华泰证券」「东吴证券测算」「引用长江证券观点」
+         是信息源署名而非投资标的（用户 2026-09-19 拍板豁免）。
     """
     import re
 
@@ -241,11 +353,32 @@ def gate5_stock_codes(claim: dict) -> list[str]:
         if not matched:
             i += 1
 
-    # 3) 过滤同形词 + 已标注代码
+    # 3) 过滤同形词 + 已标注代码 + 豁免项
+    #    related_stocks 中已结构化列出的标的 → 正文无需重复写码（2026-09-19）
+    rs = claim.get("related_stocks") or []
+    rs_names: set[str] = set()
+    if isinstance(rs, list):
+        for item in rs:
+            if isinstance(item, dict) and item.get("name"):
+                rs_names.add(str(item["name"]))
+
     for name in hits:
         if name in _AMBIGUOUS_NAMES:
             continue
-        if re.search(re.escape(name) + r"[（(]\d{6}[）)]", text):
+        if _is_course_claim(claim):
+            # 缠论课程历史案例 → 教学素材非标的（2026-09-19）
+            continue
+        if name in BROKER_HOUSE_NAMES and _is_broker_attribution(text, name):
+            # 研报署名语境 → 信息源非标的（2026-09-19 用户拍板）
+            continue
+        if _is_analogy_mention(text, name):
+            # 类比引用（「类似赛力斯第一步」）→ 修辞对照非标的
+            continue
+        if name in rs_names:
+            # 已在 related_stocks 结构化列出 → 豁免
+            continue
+        if re.search(re.escape(name) + _CODE_SUFFIX_RE, text):
+            # 该名字后紧跟有效代码标注（含全角括号 / .SH/.SZ/.BJ 后缀）→ 已标注
             continue
         errors.append(f"'{name}' 在文本中出现但未标注 6 位代码")
 
