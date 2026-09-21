@@ -562,3 +562,4 @@
 - sources/raw/财经/2026-08-03-0947-视频-今天都是干货，值得一看。聊聊持仓，记得点赞。.md → claim-20260803-002 (7 claims) → 免费教学合集回填
 - sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md → claim-20260921-001 (28 claims) → wiki: 每日复盘/2026-09-20-青枫浦上Q复盘专栏 → discover 49 关系 → Neo4j+Qdrant 已同步
 - sources/original/bilibili/2026-09-21-0803-视频-沈鼓警示新股风险｜节前科技高抛低吸｜聊光刻胶半导体，医药看趋.md → 手动 ASR 转写（mimo-v2.5，228s，≈¥0.004）+ 人工校订同音专名 → 按「视频类不进 claim 提取」口径存档，已入 bilibili_exclude.yaml（dynamic_id 1250310549525233668） → 双落点：sources/raw/财经/2026-09-21-0803-卢本圆早盘-沈鼓警示新股风险-节前科技高抛低吸-光刻胶半导体医药看趋势.md
+- sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md → claim-20260921-002 (34 claims) → wiki: 每日复盘/2026-09-21-青枫浦上Q早盘专栏 → discover 58 关系 → Neo4j+Qdrant 已同步

@@ -17,6 +17,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260526-011", "claim-20260816-003-016"]
+  last_discovered: 2026-09-21
   links: []
   topic: 操作策略
   stance: market-regime
@@ -44,6 +46,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260909-010-a"]
+  last_discovered: 2026-09-21
   links: []
   topic: 市场节奏
   stance: market-regime
@@ -71,6 +75,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260913-001-006", "claim-20260910-003-a", "claim-20260913-001-007"]
+  last_discovered: 2026-09-21
   links: []
   topic: 方法论
   stance: view
@@ -98,6 +104,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260913-001-033", "claim-20260921-001-h"]
+  last_discovered: 2026-09-21
   links: []
   topic: 方法论
   stance: view
@@ -124,6 +132,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260910-003-a", "claim-20260917-006-a", "claim-20260918-006-a"]
+  last_discovered: 2026-09-21
   links: []
   topic: 方法论
   stance: view
@@ -151,6 +161,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260913-001-019", "claim-20260612-008-h", "claim-20260918-007-a"]
+  last_discovered: 2026-09-21
   links: []
   topic: 方法论
   stance: view
@@ -178,6 +190,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260829-001-004", "claim-20080819-001-b"]
+  last_discovered: 2026-09-21
   links: []
   topic: 方法论
   stance: view
@@ -205,6 +219,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-21
   links: []
   topic: 市场节奏
   stance: view
@@ -232,6 +248,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260826-023-a"]
+  last_discovered: 2026-09-21
   links: []
   topic: 方法论
   stance: view
@@ -258,6 +276,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260910-018-a", "claim-20260921-001-j"]
+  last_discovered: 2026-09-21
   links: []
   topic: 市场节奏
   stance: view
@@ -285,6 +305,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260615-012", "claim-20260913-001-033"]
+  last_discovered: 2026-09-21
   links: []
   topic: 操作策略
   stance: view
@@ -312,6 +334,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-21
   links: []
   topic: 操作策略
   stance: view
@@ -339,6 +363,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260805-013", "claim-20260810-026"]
+  last_discovered: 2026-09-21
   links: []
   topic: 方法论
   stance: view
@@ -366,6 +392,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260918-009-a"]
+  last_discovered: 2026-09-21
   links: []
   topic: 情绪周期
   stance: view
@@ -396,6 +424,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-21
   links: []
   topic: 情绪周期
   stance: view
@@ -422,6 +452,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260914-002-g", "claim-20260910-017-a", "claim-20260814-016"]
+  last_discovered: 2026-09-21
   links: []
   topic: 板块轮动
   stance: view
@@ -448,7 +480,9 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: []
+  contradicts: ["claim-20260816-003-010"]
+  supplements: []
+  last_discovered: 2026-09-21
   links: []
   topic: 方法论
   stance: view
@@ -474,8 +508,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260810-020", "claim-20260910-015-a"]
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-21
   links: []
   topic: 科技
   stance: view
@@ -505,6 +541,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260913-001-017", "claim-20260426-004", "claim-20260810-020"]
+  last_discovered: 2026-09-21
   links: []
   topic: 科技
   stance: view
@@ -531,6 +569,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260921-001-q", "claim-20260819-068"]
+  last_discovered: 2026-09-21
   links: []
   topic: 方法论
   stance: view
@@ -558,6 +598,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260914-001-004", "claim-20260913-001-012"]
+  last_discovered: 2026-09-21
   links: []
   topic: 宏观
   stance: view
@@ -583,8 +625,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
-  contradicts: []
+  supersedes: ["claim-20260921-001-v"]
+  contradicts: ["claim-20260624-006-g"]
+  supplements: ["claim-20260609-005-c"]
+  last_discovered: 2026-09-21
   links: []
   topic: 产业跟踪
   stance: view
@@ -613,6 +657,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260921-001-v", "claim-20260914-001-022"]
+  last_discovered: 2026-09-21
   links: []
   topic: 产业跟踪
   stance: view
@@ -640,6 +686,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-21
   links: []
   topic: 产业跟踪
   stance: view
@@ -674,6 +722,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260602-003-c"]
+  last_discovered: 2026-09-21
   links: []
   topic: 产业跟踪
   stance: view
@@ -700,6 +750,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260921-001-s"]
+  last_discovered: 2026-09-21
   links: []
   topic: 产业跟踪
   stance: view
@@ -733,6 +785,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260526-029"]
+  last_discovered: 2026-09-21
   links: []
   topic: 产业跟踪
   stance: view
@@ -767,6 +821,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260729-007", "claim-20260917-014-a", "claim-20260826-015-a"]
+  last_discovered: 2026-09-21
   links: []
   topic: 产业跟踪
   stance: view
@@ -794,6 +850,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260523-006"]
+  last_discovered: 2026-09-21
   links: []
   topic: 产业跟踪
   stance: view
@@ -826,6 +884,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260806-050", "claim-20260723-012"]
+  last_discovered: 2026-09-21
   links: []
   topic: 产业跟踪
   stance: view
@@ -860,6 +920,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260814-018"]
+  last_discovered: 2026-09-21
   links: []
   topic: 产业跟踪
   stance: view
@@ -893,6 +955,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260818-030", "claim-20260816-003-013", "claim-20260823-001-005"]
+  last_discovered: 2026-09-21
   links: []
   topic: 操作策略
   stance: view
@@ -917,8 +981,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes: ["claim-20260810-020"]
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-21
   links: []
   topic: 市场节奏
   stance: market-regime
@@ -946,6 +1012,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260914-002-g", "claim-20260921-001-g"]
+  last_discovered: 2026-09-21
   links: []
   topic: 操作策略
   stance: view
