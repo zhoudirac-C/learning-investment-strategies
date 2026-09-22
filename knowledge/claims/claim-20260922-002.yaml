@@ -1,0 +1,203 @@
+claims:
+- id: claim-20260922-002-a
+  source_path: sources/original/bilibili/2026-09-22-0808-视频-希望哈药医药再猛一天，科技低吸了存储 -.md
+  source_date: '2026-09-22'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-22T09:31:24.342469+08:00'
+  claim_type: operation
+  subject: 医药持仓做T操作记录
+  topic: 医药持仓操作与做T计划
+  timeframe: short-term
+  statement: 打野号持有三只药（万邦、汉森制药(002412)、药明康德(603259)），昨日买入药明康德(603259)16万作为趋势中军，逻辑是哈药股份(600664)上板带动医药情绪且已配弹性品种；没进哈药股份(600664)的原因是已有四只药且哈药股份(600664)拉得太快；后续对药明、汉森制药(002412)开始做T。
+  evidence_quote: 药明康德买了16万，交个单。我昨天视频说如果哈药能够再上一板，整个医药的情绪将会被带动到。那当时哈药上板之后……我就在选择买了一点药明这种趋势中军啊，看后续能不能再涨几天。那除了万邦以外，后续的药明还有，还有汉森，我会开始做T啊。
+  interpretation: 属**操作记录**（已执行），非新推荐。要点：①「哈药股份(600664)再板→带动医药情绪」是他买趋势中军的触发逻辑，昨日预判今日兑现；②不买龙头哈药股份(600664)而买药明的结构原因=已有四只药（板块集中度约束）+哈药股份(600664)拉太快（追高性价比差）；③从「买入持有」转「做T」=对医药短线预期是「再涨几天」级别而非趋势主升。「万邦」为
+    ASR 音译代号（9/17 已判存疑：候选标的与口播成本36元均不匹配），不作具体标的处理。
+  confidence: medium
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '603259'
+    name: 药明康德
+    role: 医药趋势中军-打野号买入16万-主板可交易
+  - code: '002412'
+    name: 汉森制药
+    role: 打野号医药持仓-ASR名称与医药属性吻合-主板可交易
+  - code: '600664'
+    name: 哈药股份
+    role: 医药情绪龙头-UP未买入-主板可交易
+  tags:
+  - 医药
+  - 药明康德
+  - 做T
+  - 操作记录
+- id: claim-20260922-002-b
+  source_path: sources/original/bilibili/2026-09-22-0808-视频-希望哈药医药再猛一天，科技低吸了存储 -.md
+  source_date: '2026-09-22'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-22T09:31:24.342469+08:00'
+  claim_type: market-cycle
+  subject: 国庆前量能难保持两万亿
+  topic: 节前量能与科技风险判断
+  timeframe: short-term
+  statement: 国庆节来临之前，大盘的量能不可能每天都保持2万亿，这种环境下科技就是危险。
+  evidence_quote: 因为我知道在国庆节来之前，大盘的量能不可能每天都保持2万亿，那科技就是危险。
+  interpretation: UP 的节前市场判断：2万亿日成交不可持续到国庆 → 高量能依赖的科技板块在节前环境中危险。这是他今日把科技仓位切向低位存储的宏观前提。与青枫浦上Q今日「中秋跨节顾虑拖慢科技修复」判断方向一致（不同UP，不强行调和，仅注明共振）。
+  confidence: high
+  stance: market-regime
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 国庆节前
+  - 量能
+  - 科技风险
+- id: claim-20260922-002-c
+  source_path: sources/original/bilibili/2026-09-22-0808-视频-希望哈药医药再猛一天，科技低吸了存储 -.md
+  source_date: '2026-09-22'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-22T09:31:24.342469+08:00'
+  claim_type: operation
+  subject: 科技板块穿插轮动打法
+  topic: 科技仓位轮动策略与操作记录
+  timeframe: short-term
+  statement: 科技仓位打法：一部分资金在科技各板块中来回穿插，获利了结一只或割肉一只就换去下一个板块；已执行：麦格米特(002851)分两笔获利了结（两天赚1万5），切换进低位存储的江波龙(301308)。
+  evidence_quote: 后续对于科技，我还是打算一部分资金在科技各种板块中来回穿插，获利了结一只或者割肉一只就再去下一个板块，来回做。……麦格米特分两笔获利了结……然后进了江波龙。
+  interpretation: 操作记录+打法说明：科技内部轮动脉冲式操作（不重押单一细分、兑现即走、切向下一个），执行样本=麦格米特(002851)→江波龙(301308)。该打法的前提判断见
+    002-b（节前量缩科技危险），所以切的方向是**低位**存储而非追高。
+  confidence: high
+  stance: view
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '002851'
+    name: 麦格米特
+    role: 获利了结卖出-操作记录-主板可交易
+  - code: '301308'
+    name: 江波龙
+    role: 低位存储切入-操作记录-创业板不可交易
+  tags:
+  - 科技轮动
+  - 麦格米特
+  - 江波龙
+  - 低位存储
+- id: claim-20260922-002-d
+  source_path: sources/original/bilibili/2026-09-22-0808-视频-希望哈药医药再猛一天，科技低吸了存储 -.md
+  source_date: '2026-09-22'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-22T09:31:24.342469+08:00'
+  claim_type: sector-theme
+  subject: 低位存储的博弈思路
+  topic: 存储切回逻辑
+  timeframe: short-term
+  statement: 把麦格米特(002851)切到低位存储的博弈思路：资金在大盘量能上来之后会切回科技，届时涨得比较少的存储很可能被资金带动；这需要耐心，也不保证赚钱。
+  evidence_quote: 我就选择买比较低位的存储，把麦格米特切到低位存储，这个是需要点耐心的，也不保证赚钱啊，我就博弈说资金后面大盘量能上来之后再切回来做科技。那那些还没涨的，比如说存储的涨得比较少的，就很有可能会被资金带动到。
+  interpretation: 明确的博弈结构：低位存储=「等量能回升→资金回流科技→低位补涨」的提前卡位。UP 自己标注了不确定性（需耐心、不保证赚钱）——这是赔率型左侧布局，不是确定性推荐。与青枫浦上Q「存储经验：供需价格先于整体行情成独立线索」形成不同视角（卢=资金轮动卡位，青枫=产业供需先行），不强行调和。
+  confidence: high
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '301308'
+    name: 江波龙
+    role: 低位存储切入-操作记录-创业板不可交易
+  tags:
+  - 存储
+  - 低位卡位
+  - 资金回流
+- id: claim-20260922-002-e
+  source_path: sources/original/bilibili/2026-09-22-0808-视频-希望哈药医药再猛一天，科技低吸了存储 -.md
+  source_date: '2026-09-22'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-22T09:31:24.342469+08:00'
+  claim_type: risk
+  subject: 绕异动监管的风险判断
+  topic: 异动监管博弈的放弃判据
+  timeframe: short-term
+  statement: 曾考虑博弈「精剑米业」绕30天200%异动，但判断其涨停很难绕过去、即便绕过去监管也很严，综合后放弃（哈药股份(600664)和精剑米业最终都没去）。
+  evidence_quote: 当时我又想去博弈一下精剑米业绕那个30天200%异动，但是它如果涨停的话，又很难绕过去啊，有一定的难度，而且就算绕过去，监管也很严。所以我综合了一下，哈药也没去，精剑米业最后也没去了。
+  interpretation: 风控判据：绕异动监管类博弈的两个否决条件=①涨停状态下技术上难绕过30天200%异动线 ②监管处罚风险。「精剑米业」为 ASR
+    音译，疑似金健米业(600127)（米业名称精确匹配+音近），但无口播价格特征可校准，**按存疑代号处理**，不作标的确认。
+  confidence: medium
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 异动监管
+  - 30天200%
+  - 风控
+- id: claim-20260922-002-f
+  source_path: sources/original/bilibili/2026-09-22-0808-视频-希望哈药医药再猛一天，科技低吸了存储 -.md
+  source_date: '2026-09-22'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-22T09:31:24.342469+08:00'
+  claim_type: risk
+  subject: 纯博弈高度票的风险纪律
+  topic: 高度博弈票的回避原则
+  timeframe: short-term
+  statement: 高振明包、爱丽家居(603221)这类纯博弈高度的票不会在盘中发交割单（避免引导跟风）；单日成交约70亿的票是赌博盘，碰都不敢碰，昨日追进赌博的资金今天可能难受。
+  evidence_quote: 那包括后面什么高振明包、爱丽家居的这种纯博弈高度的票，我是不会在盘中发交割单的。……昨天的一个成交额差不多有个70个亿啊，这个成交额是非常恐怖的啊，可见进来赌博的人是有多少啊。像这种碰都不敢碰。
+  interpretation: 风险纪律两层：①对自己——纯博弈高度的票不做盘中公示（防粉丝跟风接刀）；②对盘面——天量成交（约70亿）=赌博盘特征，回避。「高振明包」为
+    ASR 音译，疑似高争民爆(002827)（音近），无价格特征校准，按存疑代号处理；爱丽家居(603221)为 9/18 已证实代号（口播价33.61指纹匹配）。70亿成交的具体指向
+    UP 未点名（语境在哈药股份(600664)附近但哈药股份(600664)体量难支撑70亿），不绑定标的。
+  confidence: medium
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '603221'
+    name: 爱丽家居
+    role: 纯博弈高度票-回避-主板可交易
+  tags:
+  - 高度博弈
+  - 交割单
+  - 赌博盘
