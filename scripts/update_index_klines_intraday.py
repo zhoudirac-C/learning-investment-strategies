@@ -55,6 +55,53 @@ FETCH_BARS = 5          # 每次拉最新5根
 RECOMPUTE_BARS = 35     # 重算最近35根的MACD（保证EMA稳定）
 DELAY = 1.0             # 请求间隔
 
+# ── 输出策略（2026-09-22）：成功/无增量静默，仅有错误时向 stdout 发告警 ──
+# Hermes cron no_agent 语义：stdout 非空 → 投递飞书；stdout 为空 → 静默；
+# 非零退出 → 错误告警。因此 print() 全部转写 logs/index_klines_intraday.log，
+# stdout 只承载需要用户知道的错误摘要（见 alert()）。
+# 「新增0根」属正常幂等去重，不算错误，不告警。
+LOG_PATH = REPO_ROOT / "logs" / "index_klines_intraday.log"
+
+
+class _LogWriter:
+    """print() 全部转写日志文件，不进 stdout（避免 cron 每30分钟投递）。"""
+
+    def __init__(self, fp):
+        self._fp = fp
+
+    def write(self, s):
+        self._fp.write(s)
+        self._fp.flush()
+
+    def flush(self):
+        self._fp.flush()
+
+
+_log_fp = None
+_real_stdout = sys.stdout
+
+
+def _start_logging() -> None:
+    global _log_fp
+    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    _log_fp = open(LOG_PATH, "a", encoding="utf-8")
+    _log_fp.write(f"\n===== {datetime.now(CN_TZ).strftime('%Y-%m-%d %H:%M:%S')} =====\n")
+    sys.stdout = _LogWriter(_log_fp)
+
+
+def alert(msg: str) -> None:
+    """写真实 stdout（cron 会投递飞书）+ 同步进日志。
+
+    ⚠️ 必须 flush：main() 里 sys.stdout 已被替换为 _LogWriter，
+    解释器退出时只 flush 当前 sys.stdout/sys.stderr，
+    原始 stdout 的缓冲区可能不被冲刷导致告警丢失（2026-09-22 实测）。
+    """
+    _real_stdout.write(msg.rstrip("\n") + "\n")
+    _real_stdout.flush()
+    if _log_fp:
+        _log_fp.write(f"[ALERT] {msg}\n")
+        _log_fp.flush()
+
 # ---------------------------------------------------------------------------
 # 数据获取：已收口到 qing_investment.marketdata（2026-09-11 统一数据源层）
 #
@@ -384,6 +431,8 @@ def main() -> int:
     parser.add_argument("--force", action="store_true", help="非交易时段也执行")
     args = parser.parse_args()
 
+    _start_logging()
+
     if not args.force and not is_trading_time():
         now = datetime.now(CN_TZ)
         print(f"[{now.strftime('%H:%M')}] 非交易时段，跳过（--force 可强制执行）")
@@ -392,6 +441,7 @@ def main() -> int:
     now = datetime.now(CN_TZ)
     results = []
     total_new = 0
+    problems: list[str] = []  # 错误明细，末尾有错误时汇总告警
 
     print(f"[{now.strftime('%H:%M')}] 盘中增量更新开始")
 
@@ -403,6 +453,7 @@ def main() -> int:
             except Exception as e:
                 err_msg = str(e)[:80]
                 print(f"  ❌ {INDICES[code]['name']} {TIMEFRAMES[tf]['name']}: 异常 ({err_msg})")
+                problems.append(f"{INDICES[code]['name']} {TIMEFRAMES[tf]['name']}: 异常({err_msg})")
                 results.append({"status": "error", "code": code, "tf": tf, "error": err_msg})
                 continue
 
@@ -418,6 +469,8 @@ def main() -> int:
                 pass  # 静默
             else:
                 print(f"  ⚠️ {INDICES[code]['name']} {TIMEFRAMES[tf]['name']}: {r['status']}")
+                if r["status"] == "no_api_data":
+                    problems.append(f"{INDICES[code]['name']} {TIMEFRAMES[tf]['name']}: 全源失败/无数据")
 
     updated = sum(1 for r in results if r["status"] == "updated")
     skipped = sum(1 for r in results if r["status"] in ("up_to_date", "no_new_bars"))
@@ -434,10 +487,23 @@ def main() -> int:
             if n:
                 print(f"  🔧 {INDICES[code]['name']}: 90分钟合成 {n}根")
         except Exception as e:
-            print(f"  ❌ {INDICES[code]['name']}: 90分钟合成失败 ({str(e)[:80]})")
+            err_msg = str(e)[:80]
+            print(f"  ❌ {INDICES[code]['name']}: 90分钟合成失败 ({err_msg})")
+            problems.append(f"{INDICES[code]['name']}: 90分钟合成失败({err_msg})")
 
     print(f"[完成] 新增 {total_new} 根K线, 更新 {updated} 组, 跳过 {skipped} 组, 错误 {errors}")
-    return 0 if errors == 0 else 1
+
+    # 有错误 → 向 stdout 发告警摘要（cron 投递飞书）；无错误 → stdout 为空 = 静默
+    if problems:
+        detail = "；".join(problems[:10])
+        if len(problems) > 10:
+            detail += f" 等{len(problems)}项"
+        alert(
+            f"❌ 指数K线盘中更新 {len(problems)} 项错误"
+            f"（新增{total_new}根 更新{updated}组 跳过{skipped}组）：{detail}"
+        )
+
+    return 0 if errors == 0 and not problems else 1
 
 
 if __name__ == "__main__":

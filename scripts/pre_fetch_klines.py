@@ -59,6 +59,52 @@ TDX_BREAKER_STREAK = 3         # 连续慢/失败 N 只 → 熔断 TDX，后续�
 # 全局时限：cron no_agent 超时 900s，留 120s buffer。到点后剩余标的走腾讯快速通道。
 DEADLINE_SEC = int(os.environ.get("KLINE_FETCH_DEADLINE_SEC", "780"))
 
+# ── 输出策略（2026-09-22）：成功/SKIP 静默，仅失败时向 stdout 发告警 ──
+# Hermes cron no_agent 语义：stdout 非空 → 投递飞书；stdout 为空 → 静默；
+# 非零退出 → 错误告警。因此 print() 全部转写 logs/pre_fetch_klines.log，
+# stdout 只承载需要用户知道的失败摘要（见 alert()）。
+LOG_PATH = REPO_ROOT / "logs" / "pre_fetch_klines.log"
+
+
+class _LogWriter:
+    """print() 全部转写日志文件，不进 stdout（避免 cron 每轮投递）。"""
+
+    def __init__(self, fp):
+        self._fp = fp
+
+    def write(self, s):
+        self._fp.write(s)
+        self._fp.flush()
+
+    def flush(self):
+        self._fp.flush()
+
+
+_log_fp = None
+_real_stdout = sys.stdout
+
+
+def _start_logging() -> None:
+    global _log_fp
+    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    _log_fp = open(LOG_PATH, "a", encoding="utf-8")
+    _log_fp.write(f"\n===== {datetime.now(CN_TZ).strftime('%Y-%m-%d %H:%M:%S')} =====\n")
+    sys.stdout = _LogWriter(_log_fp)
+
+
+def alert(msg: str) -> None:
+    """写真实 stdout（cron 会投递飞书）+ 同步进日志。
+
+    ⚠️ 必须 flush：main() 里 sys.stdout 已被替换为 _LogWriter，
+    解释器退出时只 flush 当前 sys.stdout/sys.stderr，
+    原始 stdout 的缓冲区可能不被冲刷导致告警丢失（2026-09-22 实测）。
+    """
+    _real_stdout.write(msg.rstrip("\n") + "\n")
+    _real_stdout.flush()
+    if _log_fp:
+        _log_fp.write(f"[ALERT] {msg}\n")
+        _log_fp.flush()
+
 
 # ── 配置读取 ──
 def _load_yaml(path: Path) -> dict:
@@ -123,6 +169,7 @@ def _watchlist_codes() -> set[str]:
 
 # ── 核心逻辑 ──
 def main() -> int:
+    _start_logging()
     # === 时区校验（云端关键）===
     now_cn = datetime.now(CN_TZ)
     today_str = now_cn.strftime("%Y-%m-%d")
@@ -164,7 +211,8 @@ def main() -> int:
 
     if not codes:
         print("[WARN] 未提取到任何股票代码，检查 watchlist.yaml/positions.yaml/stock_pool.yaml")
-        return 0
+        alert("❌ K线预拉取：未提取到任何股票代码，检查 watchlist.yaml/positions.yaml/stock_pool.yaml")
+        return 1
 
     print(f"[{now_cn.strftime('%H:%M')}] 预拉取 {total} 只标的日K线（{DAYS_TO_FETCH}日）...")
 
@@ -198,6 +246,7 @@ def main() -> int:
     success_count = 0
     fail_count = 0
     skip_count = 0
+    failed_codes: list[str] = []  # 失败明细，末尾有失败时汇总告警
     start_ts = time.monotonic()
     tdx_bad_streak = 0   # TDX 连续慢/失败计数（熔断用）
     deadline_hit = False
@@ -222,11 +271,14 @@ def main() -> int:
                 except Exception as e:
                     last_error = str(e)
                     print(f"  ❌ {code}: 快速通道失败 ({last_error[:60]})")
+                    failed_codes.append(f"{code}(快速通道: {last_error[:60]})")
                 if klines:
                     save_klines(code, klines)
                     success_count += 1
                 else:
                     fail_count += 1
+                    if not last_error:
+                        failed_codes.append(f"{code}(快速通道无数据)")
                     save_klines(code, [])
                 time.sleep(0.2)
                 continue
@@ -274,6 +326,7 @@ def main() -> int:
                         time.sleep(sleep_sec)
                     else:
                         print(f"  ❌ {code}: 重试耗尽 ({last_error[:60]})")
+                        failed_codes.append(f"{code}(重试耗尽: {last_error[:60]})")
 
             # 保存结果
             if klines:
@@ -281,6 +334,9 @@ def main() -> int:
                 success_count += 1
             elif last_error:
                 fail_count += 1
+                # 熔断切换路径的失败没在重试循环里记录，这里兜底补记
+                if not any(c.startswith(code) for c in failed_codes):
+                    failed_codes.append(f"{code}({last_error[:60]})")
                 # 写入空标记，避免后续反复拉取同一只失败票
                 save_klines(code, [])
             else:
@@ -306,6 +362,16 @@ def main() -> int:
         f" ✅{success_count} ❌{fail_count} ⚠️{skip_count} / 总计{total}"
         f" (失败率 {fail_rate:.1%})"
     )
+
+    # 有失败 → 向 stdout 发告警摘要（cron 投递飞书）；全成功 → stdout 为空 = 静默
+    if fail_count > 0:
+        detail = "；".join(failed_codes[:10])
+        if len(failed_codes) > 10:
+            detail += f" 等{len(failed_codes)}只"
+        alert(
+            f"❌ K线预拉取 {fail_count}/{total} 只失败（成功{success_count} 无数据{skip_count}）："
+            f"{detail or '详见 logs/pre_fetch_klines.log'}"
+        )
 
     return 0 if fail_rate <= 0.2 else 1
 
