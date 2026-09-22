@@ -1,0 +1,101 @@
+claims:
+- id: claim-20260922-003-a
+  source_path: sources/original/bilibili/2026-09-22-1126-图片-动态-1250734003211730949.md
+  source_date: '2026-09-22'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-22T11:45:17.976945+08:00'
+  claim_type: operation
+  subject: 汉森制药获利了结
+  topic: 打野号医药操作记录
+  timeframe: intraday
+  statement: 打野号汉森制药(002412)获利了结，赚约1.8万（成交单：卖出 9.690×20000股，11:23:24 已成）。
+  evidence_quote: 【打野号】汉森获利了结赚1.8w，药明补到20个。
+  interpretation: 操作记录。与今早视频（002-a）「药明、汉森开始做T」衔接——汉森直接兑现离场（9.69×2万股），比「做T」更进一步。注意：这与今早「药明还有汉森我会开始做T」同日生效，属短线兑现。
+  confidence: high
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '002412'
+    name: 汉森制药
+    role: 打野号医药-获利了结卖出-主板可交易
+  tags:
+  - 汉森制药
+  - 获利了结
+  - 医药
+  - 操作记录
+- id: claim-20260922-003-b
+  source_path: sources/original/bilibili/2026-09-22-1126-图片-动态-1250734003211730949.md
+  source_date: '2026-09-22'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-22T11:45:17.976945+08:00'
+  claim_type: operation
+  subject: 药明康德补仓至20万
+  topic: 打野号医药持仓结构
+  timeframe: intraday
+  statement: 药明康德(603259)补仓至20万（今日再买 168.110×200股）；当前医药持仓只剩两只：弹性的万邦（ASR代号存疑）和中军药明康德。
+  evidence_quote: 药明补到20个。现在药就剩弹性的万邦和中军药明。
+  interpretation: 操作记录+持仓结构披露：医药从三只收缩到两只（汉森兑现离场），加码中军药明康德至20万，保留弹性仓「万邦」（代号存疑，9/17起未证实）。结构含义：医药敞口不减反集中于中军+弹性双哑铃。
+  confidence: high
+  stance: view
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '603259'
+    name: 药明康德
+    role: 打野号医药中军-补仓至20万-主板可交易
+  tags:
+  - 药明康德
+  - 补仓
+  - 医药持仓
+  - 操作记录
+- id: claim-20260922-003-c
+  source_path: sources/original/bilibili/2026-09-22-1126-图片-动态-1250734003211730949.md
+  source_date: '2026-09-22'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-22T11:45:17.976945+08:00'
+  claim_type: operation
+  subject: 开仓MLCC国瓷材料
+  topic: 打野号新开仓操作
+  timeframe: intraday
+  statement: 开仓 MLCC 方向的国瓷材料(300285)（成交单：买入 67.080×2500股，11:24:15 已成，约16.8万）；昨天没追高、今天开一笔，如果晚点再砸可能还会吸一笔。
+  evidence_quote: 开仓mlcc国瓷，昨天没追高，今天开一笔。如果晚点再砸，可能还会吸一笔
+  interpretation: 操作记录+分批计划：①选昨天不追今天才开=等分歧低吸而非追高；②预留第二笔条件=「晚点再砸可能还会吸」（向下分批，非向上加仓）。方向含义：早盘视频说的「科技低吸存储」之外，又加了
+    MLCC（与青枫浦上Q今日早盘专栏的MLCC观察线重合，跨UP共振）。国瓷材料为创业板，用户不可直接交易，只能借道ETF。
+  confidence: high
+  stance: view
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '300285'
+    name: 国瓷材料
+    role: MLCC材料-开仓买入-创业板不可交易
+  tags:
+  - 国瓷材料
+  - MLCC
+  - 开仓
+  - 分批低吸
