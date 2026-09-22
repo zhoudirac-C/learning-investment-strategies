@@ -1,0 +1,617 @@
+claims:
+- id: claim-20260922-001-a
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: market-cycle
+  subject: 指数重回上升趋势观察框架
+  topic: 指数修复后的仓位框架
+  timeframe: short-term
+  statement: 指数收盘已重新回到上升趋势的观察框架，理论仓位按六成把握，今日以已关注方向持股或做T为主。
+  evidence_quote: 个人判断，指数收盘已重新回到上升趋势的观察框架，理论仓位按六成把握，今日以已关注方向持股或做T为主。
+  interpretation: UP 对周一（9/21）修复后的总定性：指数层面回到上升趋势观察框架=看多立场升级，但仓位只给六成（留四成纠错空间），操作上不追加新方向、只做持仓管理（持股/做T）。这是当日的总纲。
+  confidence: high
+  stance: market-regime
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 上升趋势
+  - 仓位管理
+  - 指数修复
+- id: claim-20260922-001-b
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: market-cycle
+  subject: 情绪修复先于科技修复
+  topic: 修复结构定性
+  timeframe: short-term
+  statement: 本轮修复先修复的是短线情绪，医药、地产与大金融活跃，科技方向仍未形成一致向上反馈；能否从情绪修复走向更有持续性的反弹，取决于量能承接与科技核心的主动表现。
+  evidence_quote: 市场先修复的是短线情绪，医药、地产与大金融共同活跃，有基本面支撑的科技方向则仍未形成一致向上的反馈。……能否从情绪修复走向更有持续性的反弹，还要看量能承接与科技核心的主动表现。
+  interpretation: UP 对修复性质的定性：目前是情绪驱动（医药/地产/金融），不是科技主线驱动。持续性的两个确认条件=量能承接+科技核心主动表现，二者缺席则修复只能定性为情绪修复。
+  confidence: high
+  stance: market-regime
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 情绪修复
+  - 科技接力
+  - 反弹持续性
+- id: claim-20260922-001-c
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: market-cycle
+  subject: 外盘催化只改善开盘预期
+  topic: 外盘与A股接力关系
+  timeframe: intraday
+  statement: 外盘走强首先改善的是开盘预期，之后仍要检验本土资金是否愿意接力；只有少数连板股被顶高、核心趋势股高开低走，说明资金更偏好短线博弈，不能据此判定科技已经全面回流。
+  evidence_quote: 外盘走强首先改善的是开盘预期，之后仍要检验本土资金是否愿意接力。若科技方向高开，重点看开盘后的回落有没有承接、成交能否持续，以及容量品种能否与弹性品种同步走强。只有少数连板股继续被顶高、核心趋势股却高开低走，仍然说明资金更偏好短线博弈，不能据此判定科技已经全面回流。
+  interpretation: 判据型观点：外盘→A股的传导分两层（开盘预期→资金接力），验证点是回落承接+容量品种与弹性品种同步走强。反向判据：连板股顶高而核心趋势股高开低走=短线博弈，否决「科技全面回流」结论。
+  confidence: high
+  stance: market-regime
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 外盘催化
+  - 资金接力
+  - 短线博弈
+- id: claim-20260922-001-d
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: methodology
+  subject: 不把暂时落后当必然补涨
+  topic: 产业逻辑的耐心纪律
+  timeframe: trend
+  statement: 不把「暂时落后」直接当成「必然补涨」，也不因为一两个交易日反馈平淡，就把原有产业逻辑全部推翻；对产业逻辑仍成立、价格与订单能继续验证的方向可以多些耐心，但补涨能否发生要由盘面确认。
+  evidence_quote: 不把“暂时落后”直接当成“必然补涨”，也不因为一两个交易日反馈平淡，就把原有产业逻辑全部推翻。
+  interpretation: 操作纪律：双向防错——既不宿命论（落后≠必补涨），也不轻易否逻辑（短期平淡≠逻辑失效）。耐心的前提是价格与订单可继续验证。
+  confidence: high
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 产业逻辑
+  - 耐心纪律
+  - 操作纪律
+- id: claim-20260922-001-e
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: market-cycle
+  subject: 中秋跨节顾虑拖慢科技修复
+  topic: 假期因素对修复节奏的影响
+  timeframe: short-term
+  statement: 中秋假期临近，部分资金对持仓跨节有所顾虑，可能影响科技方向的修复速度。
+  evidence_quote: 中秋假期临近，部分资金对持仓跨节有所顾虑，可能影响科技方向的修复速度。
+  interpretation: UP 对节奏的判断：假期因素压的是修复速度不是方向。本周仅剩 9/22-24 三个交易日（9/25-27 休市），跨节资金顾虑是科技修复偏慢的解释变量之一。
+  confidence: medium
+  stance: market-regime
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 中秋假期
+  - 跨节资金
+  - 修复节奏
+- id: claim-20260922-001-f
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: methodology
+  subject: 量能双窗口观察框架
+  topic: 量能跟踪方法论
+  timeframe: intraday
+  statement: 沿用「看外部锚点、看量能变化」框架：重点放在10:30和13:30两个观察窗口比较同期成交与全天动态估算；2万亿元附近是当期参照，量价是否协调比守住某个整数更重要；须区分盘中估算与收盘实值——早盘放量代表参与意愿改善，午后估算回落说明增量资金没有持续加速。
+  evidence_quote: 把更多注意力放在10:30和13:30两个观察窗口，比较同一口径下的同期成交与全天动态估算。……2万亿元附近是当期参照，量价是否协调比守住某个整数更重要。
+  interpretation: 可复用方法论：①两个固定时点（10:30辨情绪/13:30验承接）同口径对比；②动态估算的回落本身就是信号（增量未加速）；③整数关口让位于量价协调。
+  confidence: high
+  stance: view
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 量能观察
+  - 10:30窗口
+  - 13:30窗口
+- id: claim-20260922-001-g
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: market-cycle
+  subject: 金融拉升须与赚钱效应分开判断
+  topic: 金融权重的判据
+  timeframe: intraday
+  statement: 今日仍把券商作为观察指数承接的重要线索；若金融权重稳定、科技核心接力，反弹结构更扎实；若只有金融拉指数而科技与多数个股承接减弱，指数强度需要与实际赚钱效应分开判断。
+  evidence_quote: 若金融权重稳定、科技核心接力，反弹的结构会更扎实；若只有金融拉指数，而科技与多数个股的承接减弱，指数强度就需要与实际赚钱效应分开判断。
+  interpretation: 判据：金融独拉=指数虚强，须与赚钱效应分开定价；金融稳定+科技接力=结构扎实的反弹。
+  confidence: high
+  stance: market-regime
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 券商
+  - 金融权重
+  - 赚钱效应
+- id: claim-20260922-001-h
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: methodology
+  subject: 普涨后第一次分歧的判据
+  topic: 分歧性质判别框架
+  timeframe: short-term
+  statement: 普涨之后重点看第一次分歧的承接：结合炸板后的修复、前排封单稳定性和昨日强势股反馈，判断是正常分歧还是亏钱效应开始扩散；防止把普涨时的高胜率错当成常态。
+  evidence_quote: 需要防止的则是把普涨时的高胜率错当成常态。今日即便涨停数量和晋级率回落，也要结合炸板后的修复、前排封单稳定性和昨日强势股反馈，判断是正常分歧还是亏钱效应开始扩散。
+  interpretation: 方法论：普涨次日涨停数/晋级率回落≠退潮，分歧性质的三重判据=炸板修复力+前排封单+强势股反馈。
+  confidence: high
+  stance: view
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 分歧承接
+  - 炸板修复
+  - 晋级率
+- id: claim-20260922-001-i
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: operation
+  subject: 科技接力的情形A与情形B
+  topic: 当日操作剧本
+  timeframe: intraday
+  statement: 情形A（科技回流、分歧获承接）：继续按六成理论仓位围绕已关注方向持有或机动仓做T，不因竞价强势追高、不因单股涨停临时扩仓；情形B（科技高开低走、情绪退潮）：先减机动仓和弱势持仓、暂停追涨接力，若量价与广度一起转弱则降低整体风险敞口——六成是理论参考，不是必须维持的仓位。
+  evidence_quote: 此时可继续按六成理论仓位的框架，围绕已关注方向持有或用机动仓做T……不因竞价强势追高，不因单只个股涨停临时扩大总仓位。／此时先减少机动仓和弱势持仓，暂停追涨接力。……六成是当前理论参考，不是必须维持的仓位。
+  interpretation: UP 当日的双剧本操作框架，触发条件分别是科技回落后再走强+广度同步改善（A）vs 科技弱于预期+强势股成片冲高回落+晋级率破位（B）。B
+    情形下底仓去留看「逻辑与承接是否正常」。
+  confidence: high
+  stance: view
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 操作剧本
+  - 情形A
+  - 情形B
+- id: claim-20260922-001-j
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: methodology
+  subject: 晋级率与首板家数的经验观察线
+  topic: 短线情绪观察阈值
+  timeframe: short-term
+  statement: 本轮修复的经验观察线：一进二晋级率能否维持在15%左右、首板家数能否保持在60家附近或以上；这些是本轮经验观察线，不是机械买卖信号。
+  evidence_quote: 一进二晋级率能否维持在15%左右，首板家数能否保持在60家附近或以上，可作为这一轮修复的观察参考。这些是本轮经验观察线，不是机械买卖信号。
+  interpretation: UP 自定的量化观察线（一进二≈15%、首板≈60家），明确声明非机械信号。另注意口径提醒：20%（低位首板次日承接）与66.7%（连板晋级）分母不同，数字须同口径连续比较。
+  confidence: high
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 一进二晋级率
+  - 首板家数
+  - 观察线
+- id: claim-20260922-001-k
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: methodology
+  subject: 梯队活力的判别
+  topic: 涨停梯队结构判据
+  timeframe: short-term
+  statement: 百股涨停之后，第一次分歧若没引发连续大面积亏钱，情绪通常仍有反复活跃的可能；高标维持高度、低位不断补充才说明梯队有活力；只剩少数高标硬撑、后排明显掉队时应降低接力的容错预期。
+  evidence_quote: 高标维持高度、低位不断补充，才说明梯队还有活力；只剩少数高标硬撑、后排明显掉队时，就应降低接力的容错预期。
+  interpretation: 判据型方法论：情绪分歧后的可交易性看梯队结构（高标+低位补位），而非涨停总数。
+  confidence: high
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 涨停梯队
+  - 高标
+  - 低位补位
+- id: claim-20260922-001-l
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: market-cycle
+  subject: 高低切换的当前特征
+  topic: 资金轮动方向定性
+  timeframe: short-term
+  statement: 资金继续寻找位置较低、能够形成板块效应的品种（医药、地产接棒农业、煤炭），这是当前高低切换的重要特征；节前题材切换可能较快，不宜仅凭一日涨幅宣布新主线；已有仓位优先围绕熟悉的产业与个股跟踪，减少在加速方向间的被动追逐。
+  evidence_quote: 农业、煤炭等前期方向之后，资金继续寻找位置较低、能够形成板块效应的品种，这是当前高低切换的重要特征。……不宜仅凭一日涨幅宣布新主线。已有仓位优先围绕熟悉的产业与个股跟踪，减少从一个加速方向换到另一个加速方向的被动追逐。
+  interpretation: 风格定性：高低切换进行时，低位+板块效应是筛选标准；纪律：节前轮动快，不追加速、不官宣新主线。
+  confidence: high
+  stance: market-regime
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 高低切换
+  - 医药
+  - 地产
+- id: claim-20260922-001-m
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: sector-theme
+  subject: 科技股看容量品种真实反馈
+  topic: 科技回流的验证标准
+  timeframe: short-term
+  statement: 科技方向个别强势股与板块整体仍有落差：华瓷股份(001216)高标情绪活跃但风华高科(000636)等产业品种未同步给出强势趋势反馈，说明市场仍在区别对待短线辨识度与中期业绩逻辑；观察要落到真实从事相关业务的容量品种，不能只用连板高度判断产业资金是否全面回流。
+  evidence_quote: 华瓷股份的高标情绪持续活跃，但风华高科等产业品种没有同步给出强势趋势反馈，说明市场仍在区别对待短线辨识度与中期业绩逻辑。今日观察要落到真实从事相关业务的容量品种，不能只用连板高度判断产业资金是否全面回流。
+  interpretation: 以 MLCC 为样本的判据：连板高度（华瓷股份(001216)）≠产业资金回流，须看容量品种（风华高科(000636)）的趋势反馈。短线辨识度与中期业绩逻辑被市场分开定价。
+  confidence: high
+  stance: view
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '001216'
+    name: 华瓷股份
+    role: MLCC题材高标情绪标的-主板可交易
+  - code: '000636'
+    name: 风华高科
+    role: MLCC产业容量品种-科技回流验证锚-主板可交易
+  tags:
+  - MLCC
+  - 容量品种
+  - 连板高度
+- id: claim-20260922-001-n
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: sector-theme
+  subject: 科技细分独立线索的筛法
+  topic: 科技两手准备与筛选标准
+  timeframe: short-term
+  statement: 科技做两手准备：海外上涨带动核心主动转强则观察PCB、材料、机器人及AI应用的持续板块联动；整体低于预期则继续筛选能独立走强的细分方向。存储的经验提示：供需与价格变化能先于整体科技行情形成独立线索；更应重视有涨价、交付或产品落地支撑的分支，而非机械寻找上一轮行情的复制品。
+  evidence_quote: 存储此前的经验提示，供需与价格变化能够先于整体科技行情形成独立线索。今天更应重视有涨价、交付或产品落地支撑的分支，而不是机械寻找上一轮行情的复制品。
+  interpretation: 筛选标准：涨价/交付/产品落地三要素支撑的分支优先；方法论迁移：存储的「供需价格先于整体行情」经验可复用到其他科技细分。
+  confidence: high
+  stance: view
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 科技细分
+  - 涨价
+  - 存储经验
+- id: claim-20260922-001-o
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: sector-theme
+  subject: CXO景气跟踪框架
+  topic: 医药研发外包的跟踪方法
+  timeframe: industry
+  statement: 《医药工业发展“十五五”规划》为CRO/CDMO（CXO）提供中长期观察线索，景气跟踪应落到融资、订单与项目推进；诺禾致源(688315)_TMP（研发工具与服务）与南华生物(000504)_TMP（细胞治疗与再生医学）业务模式不同，不能直接用同一套传统CRO订单逻辑衡量。
+  evidence_quote: 研发效率提升、复杂药物开发及后续商业化，为药物研发外包服务（CRO）和合同研发生产服务（CDMO）提供了中长期观察线索。……景气跟踪应落到融资、订单与项目推进。……两家公司在医药行情中受到关注，但业务模式不同，不能直接用同一套传统CRO订单逻辑衡量。
+  interpretation: 框架条：政策催化→CXO 中长期线索，验证三要素=融资/订单/项目推进；个股层（诺禾致源(688315)、南华生物(000504)）只作业务区分提醒，不单独建
+    claim。
+  confidence: medium
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '688315'
+    name: 诺禾致源
+    role: 多组学科研服务-药物研发支持-科创板不可交易
+  - code: '000504'
+    name: 南华生物
+    role: 细胞治疗与再生医学-主板可交易
+  tags:
+  - CXO
+  - 十五五规划
+  - 医药外包
+- id: claim-20260922-001-p
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: sector-theme
+  subject: PCB材料升级是较清楚的产业线索
+  topic: 覆铜板与硅微粉的产业判断
+  timeframe: industry
+  statement: PCB的材料升级仍是科技链条中较清楚的产业线索；材料价格变化要结合铜箔、玻璃布、树脂成本与下游高频高速需求结构一起看；AI服务器与高速通信提高了对低损耗、粒径控制及产品稳定性的要求。
+  evidence_quote: 印制电路板（PCB）的材料升级仍是科技链条中较清楚的产业线索。……价格变化要结合铜箔、玻璃布和树脂的成本，以及下游高频高速产品的需求结构一起看。
+  interpretation: 框架条：UP 明确把 PCB 材料升级（覆铜板/球形硅微粉）列为科技链中确定性较高的产业线索；跟踪口径=成本（铜箔/玻璃布/树脂）×需求结构（高频高速）。相关标的凌玮科技(301373)、联瑞新材(688300)的产业进展作
+    evidence。
+  confidence: high
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '301373'
+    name: 凌玮科技
+    role: 球形硅微粉-江苏辉迈布局-创业板不可交易
+  - code: '688300'
+    name: 联瑞新材
+    role: 高频高速基板用球形二氧化硅-科创板不可交易
+  tags:
+  - 覆铜板
+  - 球形硅微粉
+  - PCB材料
+- id: claim-20260922-001-q
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: sector-theme
+  subject: 灵巧手观察重点在微型电机与驱动
+  topic: 人形机器人灵巧手产业判断
+  timeframe: industry
+  statement: 灵巧手精细操作对微型驱动、结构集成、控制和感知的协同提出更高要求，产业观察重点在微型电机和驱动环节；鸣志电器(603728)、均胜电子(600699)已有相关方案披露，但尚未确认与宇树Dex5-S的供应关系。
+  evidence_quote: 灵巧手承担机器人与环境交互的末端操作，提升自由度与缩小体积，会同时提高对微型驱动、结构集成、控制和感知的要求。……其产业观察重点在微型电机和驱动环节。……上述公司披露尚未确认与Dex5-S的供应关系。
+  interpretation: 框架条：宇树 Dex5-S 发布为催化，UP 给的观察落点=微型电机/驱动环节（鸣志电器(603728)、均胜电子(600699)），并明示供应关系未确认（防把概念沾边当实质供货）。
+  confidence: medium
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '603728'
+    name: 鸣志电器
+    role: 灵巧手微型空心杯电机及驱动-主板可交易
+  - code: '600699'
+    name: 均胜电子
+    role: 灵巧手/电子皮肤等机器人部件方案-主板可交易
+  tags:
+  - 灵巧手
+  - 微型电机
+  - 宇树Dex5-S
+- id: claim-20260922-001-r
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: sector-theme
+  subject: AI应用看收入增量映射
+  topic: AI智能体的A股映射判据
+  timeframe: industry
+  statement: 智能体竞争除模型能力外，还涉及用户触达、账户权限、数据连接和服务生态；对A股应用公司而言，更有意义的映射是现有客户、投放渠道与产品服务能否形成收入增量。
+  evidence_quote: 智能体能够持续调用工具、处理任务，其竞争除模型能力之外，也涉及用户触达、账户权限、数据连接和服务生态。对A股应用公司而言，更有意义的映射是现有客户、投放渠道与产品服务能否形成收入增量。
+  interpretation: 框架条：Meta Muse 催化下，UP 给的 A 股映射判据=既有客户/渠道/服务能否变成收入增量（蓝色光标(300058)、三人行(605168)为观察样本），而非概念对标。
+  confidence: medium
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '300058'
+    name: 蓝色光标
+    role: Meta官方代理商-海外数字广告-创业板不可交易
+  - code: '605168'
+    name: 三人行
+    role: AI全链路营销智能体-主板可交易
+  tags:
+  - AI智能体
+  - Meta Muse
+  - AI营销
+- id: claim-20260922-001-s
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: sector-theme
+  subject: 服务器CPU是智能体时代的观察环节
+  topic: 计算平台需求判断
+  timeframe: industry
+  statement: 智能体持续执行任务除模型推理外还需任务调度、后台逻辑和数据处理，服务器CPU因而成为计算平台需求的观察环节之一；A股可从国产处理器与整机生态跟踪，关注点放在产品适配、客户需求和实际交付。
+  evidence_quote: 智能体持续执行任务，除了模型推理，还需要任务调度、后台逻辑和数据处理，服务器CPU因而成为计算平台需求的观察环节之一。A股可从国产处理器与整机生态跟踪……关注点应放在产品适配、客户需求和实际交付。
+  interpretation: 框架条：AMD 万亿市值+服务器CPU 2030 年约2200亿美元的前瞻预测是背景（公司预测，需收入订单兑现），UP 的观察落点=国产整机生态（中国长城(000066)），验证三要素=适配/需求/交付。
+  confidence: medium
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '000066'
+    name: 中国长城
+    role: 国产服务器整机-飞腾处理器-主板可交易
+  tags:
+  - 服务器CPU
+  - 国产处理器
+  - AMD
+- id: claim-20260922-001-t
+  source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
+  source_date: '2026-09-22'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-09-22T09:19:43.748446+08:00'
+  claim_type: operation
+  subject: 做T与仓位纪律
+  topic: 持仓管理操作纪律
+  timeframe: permanent
+  statement: 做T只围绕已有可卖持仓和事先安排的机动部分展开，避免做成被动加仓；冲高卖出与回落接回要有各自条件，接不回时不追着买；有耐心的前提是逻辑仍在、结构未坏；控制仓位的目的是给判断留出纠错余地；增量机会先看确认，不为参与每一轮热点频繁切换。
+  evidence_quote: 做T只围绕已有可卖持仓和事先安排的机动部分展开，避免做成被动加仓。冲高后的卖出与回落后的接回要有各自条件，接不回时也不追着买……有耐心的前提是逻辑仍在、结构未坏；控制仓位的目的，是给判断留出纠错余地。
+  interpretation: 通用操作纪律（长期有效）：做T边界、接回纪律、耐心前提、仓位与纠错的关系。
+  confidence: high
+  stance: view
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 做T纪律
+  - 仓位控制
+  - 纠错余地

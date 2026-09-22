@@ -565,3 +565,5 @@
 - sources/original/bilibili/2026-09-21-0907-专栏-上周五的修复，让今天的重点从担心短期方向，转向观察市场能否把.md → claim-20260921-002 (34 claims) → wiki: 每日复盘/2026-09-21-青枫浦上Q早盘专栏 → discover 58 关系 → Neo4j+Qdrant 已同步
 
 - sources/original/bilibili/2026-09-21-2225-专栏-今天的市场，指数修复与题材扩散同时发生，赚钱效应更多集中在小.md → claim-20260921-003 (25 claims) → wiki: 每日复盘/2026-09-21-青枫浦上Q复盘专栏 → discover 52 关系 → Neo4j+Qdrant 已同步
+
+- sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md → claim-20260922-001 (20 claims) → wiki: 每日复盘/2026-09-22-青枫浦上Q早盘专栏 → 下游同步未跑（用户指示）
