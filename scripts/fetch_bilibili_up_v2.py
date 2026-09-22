@@ -292,6 +292,81 @@ def fetch_article_content(article_id: str, sessdata: str) -> str:
     return "\n\n".join(content_parts) if content_parts else ""
 
 
+class _OpusTextParser:
+    """opus 页面 HTML 的正文解析器（stdlib html.parser 实现）。
+
+    结构：<div class="opus-module-content ..."> 内嵌若干 <p>/<span>/<br>，
+    用 div 嵌套深度跟踪块边界，多个 content 块各自成段。
+    """
+
+    def __init__(self):
+        from html.parser import HTMLParser
+
+        outer = self
+
+        class _P(HTMLParser):
+            def __init__(self):
+                super().__init__(convert_charrefs=True)
+                self.depth = 0
+                self._cur: list[str] = []
+
+            def handle_starttag(self, tag, attrs):
+                cls = dict(attrs).get("class") or ""
+                if tag == "div" and "opus-module-content" in cls:
+                    if self.depth == 0:
+                        self._cur = []
+                    self.depth += 1
+                elif self.depth > 0 and tag == "div":
+                    self.depth += 1
+                if self.depth > 0 and tag == "br":
+                    self._cur.append("\n")
+
+            def handle_endtag(self, tag):
+                if self.depth > 0 and tag == "p":
+                    self._cur.append("\n")
+                if tag == "div" and self.depth > 0:
+                    self.depth -= 1
+                    if self.depth == 0:
+                        seg = "".join(self._cur).strip()
+                        if seg:
+                            outer.parts.append(seg)
+                        self._cur = []
+
+            def handle_data(self, data):
+                if self.depth > 0:
+                    self._cur.append(data)
+
+        self.parts: list[str] = []
+        self._p = _P()
+
+    def feed(self, html_text: str) -> None:
+        self._p.feed(html_text)
+
+
+def fetch_opus_text(dynamic_id: str, sessdata: str) -> str:
+    """从 opus 页面 HTML 提取动态正文（充电专属图片/文字动态的兜底通道）。
+
+    背景（2026-09-22 实测，卢本圆 11:26 动态 1250734003211730949）：
+    is_only_fans=true 的动态，list/detail JSON API 对登录态隐藏正文
+    （desc=null，detail 也只给 major.draw 不给文字），但 opus 页面是服务端
+    渲染，正文在 <div class="opus-module-content"> 里，带 SESSDATA 即可拿到。
+    """
+    url = f"https://www.bilibili.com/opus/{dynamic_id}"
+    req = urllib.request.Request(url)
+    req.add_header("User-Agent", USER_AGENT)
+    req.add_header("Cookie", build_cookie(sessdata))
+    req.add_header("Referer", "https://www.bilibili.com/")
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            page = resp.read().decode("utf-8", errors="replace")
+    except Exception:
+        return ""
+
+    parser = _OpusTextParser()
+    parser.feed(page)
+    return "\n".join(parser.parts).strip()
+
+
 # ── OCR ───────────────────────────────────────────────────────────
 
 def _filter_watermarks(boxes: list) -> tuple:
@@ -856,6 +931,13 @@ def save_dynamic_to_file(
             article_text = fetch_article_content(article_id, sessdata)
             if article_text:
                 text = article_text
+
+    # 充电专属图片/文字动态兜底：JSON API 对登录态隐藏正文（desc=null），
+    # 但 opus 页面 HTML 服务端渲染含正文（2026-09-22 实测，fetch_opus_text）
+    if not text.strip() and sessdata and dyn_type in ("图片", "文字"):
+        opus_text = fetch_opus_text(dynamic_id, sessdata)
+        if opus_text:
+            text = opus_text
 
     pub_time_str = author.get("pub_time", "")
     pub_ts = author.get("pub_ts", "")
