@@ -61,7 +61,9 @@ bash scripts/run_discover_with_progress.sh
 PYTHONPATH=src .venv/bin/python scripts/migrate_claims_to_neo4j.py
 
 # 3. Qdrant 重建（服务端模式，无需停服）
-PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate
+#    ⚠️ 必须带 --skip-agent-kill：默认会主动 kill uvicorn（2026-09-22 两次实测复现，
+#    重建后 /health rc=7）。忘了带就跑完后手动重启 Agent 并 curl /health 验证。
+PYTHONPATH=src .venv/bin/python scripts/index_claims_to_qdrant.py --force-recreate --skip-agent-kill
 
 # 4. 验证 Agent（若不在线才拉起）
 curl -s localhost:8000/health || \
