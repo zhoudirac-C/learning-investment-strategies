@@ -43,11 +43,11 @@ mappings:
   segment: seg-mine
   relation: 上游煤矿龙头，量价齐升、业绩改善直接受益
   elasticity: concept
-current_stage: 阶段2-加速期
-stage_confidence: 中
-stage_evidence: 2026-09-14 跟踪更新：双焦期货续跌叠加煤炭消费达峰担忧，分歧期内部走弱，提涨逻辑受考验。
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-18 跟踪更新：焦炭焦煤期货双双大跌，提涨逻辑削弱，阶段回退至观察期，等待现货端确认。
 timing:
-  current_recommendation: 阶段3-分歧期：等回踩确认，暂停追多，以第七轮提涨落地为确认信号
+  current_recommendation: 等回踩确认，暂停追多；关注焦炭现货提涨及期货企稳信号
   next_trigger: 第七轮提涨落地=加强
   risk: 钢铁需求走弱→焦炭提涨受阻
 tracking_metrics:
@@ -62,12 +62,16 @@ tracking_metrics:
 - metric: 焦炭/焦煤期货主力连续
   current: J0单日-2.5%至2074.5，JM0单日-3.4%至1585.5
   signal_direction: 期货连续大幅回落领先于现货提涨受阻，为分歧加深/逻辑削弱的预警信号
+- metric: 煤炭月度进口量（同比）
+  current: 26年8月同比小幅回落，增量存在不确定性
+  signal_direction: 进口持续回落=供给收缩加强；进口回升=削弱国内提价逻辑
 falsification:
 - 焦炭提涨受阻或钢厂联合抵制连续2轮
 - 煤炭PPI转负
 - 大盘系统性破位下行
 - 煤炭板块核心标的（潞安/晋控）放量滞涨、联动失效
 - 焦煤期货连续大幅下跌（如5日累计跌超8%）且现货提涨停滞，视为领先证伪信号
+- 出现主流研报/政策明确指向煤炭消费总量达峰且需求侧数据同步走弱，视为中长期需求逻辑证伪信号
 chain_relations: []
 history:
 - date: '2026-09-02'
@@ -89,4 +93,20 @@ history:
 - date: '2026-09-14'
   stage: 阶段2-加速期
   action: 减仓/观望，不加仓；若焦煤5日累计跌幅扩大或焦炭提涨连续受阻，进一步降仓退出
+  result: 待验证
+- date: '2026-09-17'
+  stage: 阶段1-启动期
+  action: 相对登记的阶段2回退至阶段3，与原有时机建议对齐。新报价直接命中双焦期货关键节点且进一步走弱，构成逻辑削弱，但仍待独立行情核验。需求侧仅为预期层面的暂定归因，不能由价格下跌确认钢厂需求下降或煤矿供给变化。暂不新增受益标的，也不将焦煤下跌直接认定为焦化利润改善。优先跟踪上游焦煤现货与中游第七轮提涨。现有信息未证明任何证伪条件触发：缺少5日连续可比行情及现货提涨停滞证据，亦无连续两轮抵制、PPI转负、大盘破位或核心标的量价失效的新证据。
+  result: 待验证
+- date: '2026-09-18'
+  stage: 阶段0-观察
+  action: 观望，不介入
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段0-观察
+  action: 演化:update_falsification 新增煤炭消费达峰类需求中长期见顶叙事作为潜在证伪条件
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增跟踪节点：煤炭进口量（供给侧边际变量）
   result: 待验证

@@ -76,11 +76,11 @@ mappings:
   segment: seg-device
   relation: 高密度光互联无源器件（MPO/FA-MT），受益Scale-up互联高密度趋势
   elasticity: concept
-current_stage: 阶段2-加速期
+current_stage: 阶段3-分歧期
 stage_confidence: 高
-stage_evidence: 2026-08-28 跟踪更新：数据中心与芯片订单增长及液冷放量，确认AI基建需求，产业链逻辑加强。
+stage_evidence: 2026-09-23 跟踪更新：CPO稳定量产交付直接命中关键节点，产业链加速期确认；AI投入盈利承压提示下游分化，建议聚焦中游CPO供应链。
 timing:
-  current_recommendation: 可介入（右侧确认）
+  current_recommendation: 不追高，等分歧回踩
   next_trigger: CPO量产→CPO产业链加仓
   risk: CPO商业化推迟，技术路线不确定性
 tracking_metrics:
@@ -118,6 +118,9 @@ chain_relations:
 - target: rare-metals
   relation: 上游共享
   note: 磷化铟是激光器衬底材料
+- target: 国产AI算力产业链
+  relation: 华为昇腾960+NPO超节点规模商用，拉动国产光互联（CW/EML光芯片、光引擎、高密度无源器件、先进封装设备）需求，形成独立于海外CSP的第二条光互联需求曲线
+  note: 华为链光互联验证进度与出货节奏将成为与CSP资本开支并列的跟踪变量，若华为链超节点上量超预期，将强化上游光芯片国产化率与中游设备订单逻辑
 history:
 - date: '2026-08-28'
   stage: 阶段2-加速期
@@ -138,4 +141,12 @@ history:
 - date: '2026-09-12'
   stage: 阶段2-加速期
   action: 演化:refine_segment 光器件环节新增薄膜铌酸锂调制器材料
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段3-分歧期
+  action: CPO稳定量产交付直接命中'CPO量产进度'关键节点，触发加仓信号；优先配置CPO核心器件/设备，规避短期盈利承压的下游应用
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段3-分歧期
+  action: 演化:add_relation 新增以华为昇腾NPO超节点为核心的国产AI互联支线，与英伟达/博通体系并行
   result: 待验证

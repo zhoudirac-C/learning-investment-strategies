@@ -47,6 +47,11 @@ mappings:
   segment: seg-mlcc
   relation: MLCC/陶瓷电容
   elasticity: elastic
+- code: 002138
+  name: 顺络电子
+  segment: seg-mlcc
+  relation: 中游电感龙头，TLVR电感+钽电容承接AI服务器电源增量需求
+  elasticity: concept
 current_stage: 阶段2-加速期
 stage_confidence: 中
 stage_evidence: 国巨B/B值>1.3；高容交期拉长；缺货延至2027；MLCC涨价函持续
@@ -67,6 +72,9 @@ tracking_metrics:
   current: 拉长中
   signal_direction: 继续拉长=加强
   source: 研报/渠道
+- metric: TLVR电感AI服务器放量
+  current: 构筑AI增量，2Q毛利率环比修复
+  signal_direction: 上行
 falsification:
 - 国巨B/B值跌破1.0持续2周
 - MLCC涨价函撤回或渠道价格回落
@@ -76,3 +84,8 @@ chain_relations:
 - target: ai-server
   relation: 下游需求来源
   note: AI服务器MLCC用量是传统的4-7倍
+history:
+- date: '2026-09-23'
+  stage: 阶段2-加速期
+  action: 演化:add_node AI增量扩展至TLVR电感/钽电容，新增标的顺络电子
+  result: 待验证

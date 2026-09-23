@@ -92,6 +92,12 @@ tracking_metrics:
 - metric: ABF载板交期
   current: 拉长
   signal_direction: 交期进一步拉长=加强（封测材料紧缺度上升）；交期回归=警惕需求见顶
+- metric: 探针卡/存储测试耗材订单（国产替代进度）
+  current: 国产替代初期，强一股份获券商首次覆盖
+  signal_direction: 存储晶圆测试需求上升带动探针卡订单增长=加强；存储扩产放缓或探针卡订单不及预期=削弱
+- metric: AI应用发布/推理需求（大模型与Agent迭代节奏）
+  current: Meta Muse、DeepSeek V4.1 Flash发布，应用端催化密集
+  signal_direction: 发布密集且商业化落地=加强（利好HBM/AI服务器）；发布停滞或商业化不及预期=削弱
 falsification:
 - DRAM现货价连续2周回落
 - 长江存储IPO撤回或无限期推迟
@@ -112,4 +118,12 @@ history:
 - date: '2026-09-02'
   stage: 阶段2-加速期
   action: 演化:add_node NVHBM重构内存架构+载板紧缺，封测环节新增ABF载板交期跟踪节点
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段2-加速期
+  action: 演化:add_node 存储扩产衍生测试耗材需求，探针卡国产替代成新跟踪节点
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增AI应用发布/推理需求作为下游前瞻跟踪节点
   result: 待验证

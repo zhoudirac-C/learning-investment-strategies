@@ -1,0 +1,34 @@
+chain_id: diamond-thermal
+name: 金刚石散热材料产业链
+thesis: AI算力芯片发热量提升推动散热材料从铜/铝向金刚石升级，CVD金刚石膜、金刚石铜复合材料切入AI服务器/GPU均热与封装环节；上游MPCVD设备与高纯甲烷等气体、中游金刚石制备、下游AI散热模组形成新传导链，产业化拐点驱动订单放量
+last_verified: '2026-09-23'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 高纯甲烷/氢气
+  - 金刚石粉体/籽晶
+  - MPCVD设备腔体与微波源
+- id: midstream
+  name: 中游
+  materials:
+  - CVD金刚石膜
+  - 金刚石铜/铝复合材料
+  - 金刚石热沉片
+- id: downstream
+  name: 下游
+  materials:
+  - 均热板/VC均热片
+  - TIM导热界面材料
+  - 封装基板
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-23 人工确认入观察列表；提议于 2026-09-21，LLM 初判 阶段1-启动期（西南证券《金刚石行业深度报告：AI散热驱动材料升级，产业化迎来拐点》），积累证据
+  18 条
+timing:
+  current_recommendation: 关注上游MPCVD设备与高纯气体环节先行受益，中游CVD金刚石膜具备量产能力的龙头为核心承接标的；下游散热模组短期以主题催化为主，需跟踪AI客户验证进展
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

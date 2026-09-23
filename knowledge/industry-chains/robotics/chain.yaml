@@ -27,7 +27,12 @@ segments:
   value_share: ~20%
   barrier: 场景验证
   trend: 增长
-mappings: []
+mappings:
+- code: '688017'
+  name: 绿的谐波
+  segment: seg-parts
+  relation: 谐波减速器龙头，人形机器人关节核心零部件供应商
+  elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 低
 stage_evidence: Optimus量产进行中但节奏反复；题材属性强业绩支撑弱；标的映射待补充
@@ -46,3 +51,8 @@ falsification:
 - 大盘系统性破位下行
 - 板块无核心标的联动（映射缺失）
 chain_relations: []
+history:
+- date: '2026-09-23'
+  stage: 阶段0-观察
+  action: 演化:add_node 研报印证减速器为核心受益环节，补充上游标的映射
+  result: 待验证

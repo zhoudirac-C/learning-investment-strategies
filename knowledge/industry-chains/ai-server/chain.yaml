@@ -8,6 +8,9 @@ segments:
   name: 上游设备
   materials:
   - 半导体设备
+  - ATE测试机
+  - 探针卡
+  - 测试探针（耗材）
   value_share: ~15%
   barrier: 先进制程设备
   trend: 国产替代
@@ -34,6 +37,8 @@ segments:
   - 供电(HVDC)
   - 液冷屏蔽泵
   - 热泵配套
+  - 数据中心液冷屏蔽泵
+  - 冷却水泵
   value_share: ~15%
   barrier: 液冷渗透率
   trend: 加速
@@ -85,6 +90,11 @@ mappings:
   segment: seg-cool
   relation: 精密温控/液冷全链条龙头，直接绑定本链'液冷渗透率'关键节点，股权激励绑定高成长目标
   elasticity: concept
+- code: '688676'
+  name: 金盘科技
+  segment: seg-cool
+  relation: 数据中心干式变压器/供配电设备，受益整柜功耗跃迁带来的供电需求外溢
+  elasticity: concept
 current_stage: 阶段4-见顶期
 stage_confidence: 高
 stage_evidence: 2026-09-07 跟踪更新：双研报确认高密度算力驱动液冷加速渗透，直接命中关键节点，产业链逻辑加强，仍处分歧期等回踩。
@@ -112,6 +122,15 @@ tracking_metrics:
 - metric: 数据中心电源/液冷订单
   current: 营收高增/放量在即
   signal_direction: 加强
+- metric: 数据中心供电设备订单
+  current: 金盘科技数据中心与海外业务高增，订单充裕
+  signal_direction: 上行
+- metric: 华为昇腾芯片迭代/NPO超节点商用进度
+  current: 昇腾960性能翻倍，NPO超节点首次规模商用（2026-09-18）
+  signal_direction: 强化国产算力份额提升逻辑，验证2026年反超英伟达预期
+- metric: 超节点互联方案（NPO/光互联/铜连接）渗透与出货
+  current: 华为NPO与昇腾960超节点引领智算互联新变局
+  signal_direction: 加速=加强
 falsification:
 - 超节点出货量大幅低于预期
 - CSP资本开支缩减
@@ -165,4 +184,24 @@ history:
 - date: '2026-09-12'
   stage: 阶段4-见顶期
   action: 演化:add_node 液冷龙头英维克入链，补齐seg-cool纯液冷标的缺口
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段4-见顶期
+  action: 演化:add_node 供电需求外溢至电网设备，新增数据中心供配电节点与标的金盘科技
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段4-见顶期
+  action: 演化:refine_segment 上游设备细化出ATE测试机/探针卡耗材方向
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段4-见顶期
+  action: 演化:refine_segment 液冷环节细化：新增数据中心液冷屏蔽泵/水泵配套
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段4-见顶期
+  action: 演化:add_node 新增国产超节点技术节点：昇腾960性能翻倍、NPO超节点规模商用。
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段4-见顶期
+  action: 演化:add_node 新增智算互联（NPO/光互联）跟踪节点
   result: 待验证

@@ -1,0 +1,32 @@
+chain_id: oil-tanker-shipping
+name: 油运（VLCC）产业链
+thesis: 地缘风险推升中东原油运输风险溢价，运价急涨；供给端船队老龄化、新船订单低位，短期运力弹性小，油运公司单位运价向上传导直接增厚利润，业绩弹性显著
+last_verified: '2026-09-23'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 船用钢材
+  - 船用主机/动力系统
+  - 船舶配套（锚链、油缆等）
+- id: midstream
+  name: 中游
+  materials:
+  - VLCC/Suezmax/MR运力
+  - 船用燃油
+- id: downstream
+  name: 下游
+  materials:
+  - 原油
+  - 成品油
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-23 人工确认入观察列表；提议于 2026-09-13，LLM 初判 阶段2-加速期（国金证券交通运输产业行业研究：中东航线VLCC运费突破80万，河南快递涨价），积累证据
+  16 条
+timing:
+  current_recommendation: 优先弹性最大的VLCC纯油运标的（中远海能、招商轮船），跟踪运价持续性；运价波动极大，地缘事件缓和即回吐，回调再布局、不追高
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

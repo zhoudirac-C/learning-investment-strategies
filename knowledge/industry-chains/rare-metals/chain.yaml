@@ -32,6 +32,11 @@ mappings:
   segment: seg-refine
   relation: 铟提纯全球龙头
   elasticity: core
+- code: 002428
+  name: 云南锗业
+  segment: seg-refine
+  relation: 子公司鑫耀半导体产磷化铟单晶/衬底，直接承接AI光互联激光器衬底需求
+  elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 中
 stage_evidence: 铟价年内+60%已计价大半；磷化铟需求增长但体量小；等AI光互联需求进一步放量信号
@@ -44,6 +49,9 @@ tracking_metrics:
   current: 年内+60%
   signal_direction: 持续上涨=确认
   source: 生意社/研报
+- metric: 磷化铟衬底订单/出货量
+  current: 需求验证中，光博会显示光互联供不应求
+  signal_direction: 上行
 falsification:
 - 铟价连续2周回落超10%
 - 磷化铟需求不及预期
@@ -53,3 +61,8 @@ chain_relations:
 - target: ai-optical
   relation: 上游供给
   note: 磷化铟是激光器衬底材料
+history:
+- date: '2026-09-23'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增磷化铟衬底标的云南锗业，作下游需求直接跟踪节点
+  result: 待验证

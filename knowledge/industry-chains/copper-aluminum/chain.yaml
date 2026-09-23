@@ -59,6 +59,9 @@ tracking_metrics:
 - metric: 米拉多二期投产进度
   current: 继续延期
   signal_direction: 延期=矿端供给缺口维持=加强；投产放量=供给增量释放=削弱
+- metric: 铜精矿现货加工费TC
+  current: 矿端约束强化，TC低位运行
+  signal_direction: TC进一步下行或转负=矿端缺口扩大=加强；TC显著回升=矿端供给放松=削弱
 falsification:
 - 铜价跌破60日均线持续2周
 - 铝产能复产超预期
@@ -72,4 +75,8 @@ history:
 - date: '2026-09-02'
   stage: 阶段0-观察
   action: 演化:add_node 新增铜矿扩建供给节点与标的铜陵有色
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增铜精矿现货加工费TC作为矿端供给缺口的量化跟踪节点
   result: 待验证

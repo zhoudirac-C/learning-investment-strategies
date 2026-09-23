@@ -447,6 +447,16 @@ mappings:
   elasticity: elastic
   elasticity_reason: null
   last_verified: '2026-05-18'
+- code: '688303'
+  name: 大全能源
+  segment: seg-14
+  relation: 硅料主业承压，AIDC配电成为第二增长极，印证AI算力电力需求向配电侧扩散
+  elasticity: concept
+- code: '300014'
+  name: 亿纬锂能
+  segment: seg-15
+  relation: 与Fluence Energy签框架协议切入AIDC储能市场，电池龙头向数据中心储能延伸
+  elasticity: concept
 current_stage: 阶段2-加速期
 stage_confidence: 中
 stage_evidence: 2026-09-01 跟踪更新：Q2数据中心加速与应流两机订单高增，双节点实证，产业链由启动期推进至加速期。
@@ -467,6 +477,12 @@ tracking_metrics:
   current: 推进中
   signal_direction: 落地=加强
   source: 政策文件
+- metric: AIDC配电需求外溢
+  current: 光伏硅料企业切入AIDC配电（需求外溢至配电=加强）
+  signal_direction: 正向
+- metric: AIDC储能配套需求
+  current: 起步放量（头部电池厂与国际储能集成商签框架协议切入）
+  signal_direction: 订单落地=加强
 falsification:
 - AIDC装机量增速放缓
 - 燃气轮机国产化停滞
@@ -484,4 +500,12 @@ history:
 - date: '2026-09-01'
   stage: 阶段2-加速期
   action: 持有核心仓位；回踩不破趋势加仓，重点加码燃机中游（seg-03/04）与AIDC电源（seg-15/16）
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段2-加速期
+  action: 演化:add_node 大全能源转型AIDC配电，新增智能电网环节标的
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增AIDC储能需求节点及亿纬锂能标的
   result: 待验证

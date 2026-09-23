@@ -54,6 +54,7 @@ segments:
   materials:
   - ABF载板（FC-BGA封装基板）
   - 玻璃基载板
+  - 特种玻纤
 - id: seg-07
   name: 服务器整机层（算力之"身"）
   value_share: null
@@ -659,4 +660,8 @@ history:
 - date: '2026-09-12'
   stage: 阶段2-加速期
   action: 演化:refine_segment seg-06封装材料新增玻璃基载板方向。
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段2-加速期
+  action: 演化:refine_segment 封装测试层新增玻璃载板/特种玻纤材料方向
   result: 待验证

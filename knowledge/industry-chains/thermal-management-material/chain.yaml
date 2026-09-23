@@ -1,0 +1,40 @@
+chain_id: thermal-management-material
+name: 散热材料产业链
+thesis: AI终端算力上行使散热从被动配角变为设计约束，VC均热板向超薄大面积升级、石墨膜向多层复合升级，上游PI膜/铜箔/石墨原料到中游均热板与导热界面材料再到下游消费电子与服务器，量价齐升且国产替代加速
+last_verified: '2026-09-23'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 聚酰亚胺(PI)膜
+  - 压延铜箔
+  - 高导热石墨原料
+  - 氮化铝/氮化硼陶瓷粉体
+  - 有机硅/环氧导热基体
+- id: midstream
+  name: 中游
+  materials:
+  - 人工石墨散热膜
+  - 石墨烯导热膜
+  - VC均热板/热管
+  - 导热界面材料(TIM)
+  - 导热凝胶/相变材料
+- id: downstream
+  name: 下游
+  materials:
+  - 智能手机
+  - AI PC
+  - AR/VR眼镜
+  - AI服务器/光模块
+  - 汽车电子
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-23 人工确认入观察列表；提议于 2026-09-15，LLM 初判 阶段1-启动期（山西证券《散热材料深度报告（一）：AI消费电子时代将至，散热材料需求凸显》），积累证据
+  50 条
+timing:
+  current_recommendation: 优先关注均热板与石墨膜环节的量产弹性，以及上游PI膜/球形粉体的国产替代；留意单一券商深度报告催化后的下游验证
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

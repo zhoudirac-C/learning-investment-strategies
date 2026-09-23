@@ -28,3 +28,12 @@ timing:
   risk: null
 tracking_metrics: []
 falsification: []
+chain_relations:
+- target: AI算力产业链
+  relation: 上游算力资本开支受芯片/电力/建设能力约束，影响本链部署成本曲线；算力ROI变现进度决定企业AI预算持续性，进而影响SaaS渗透节奏
+  note: 国信ROI测算框架提供跨链跟踪变量：算力供给增速与企业AI投资回收期
+history:
+- date: '2026-09-23'
+  stage: 阶段0-观察
+  action: 演化:add_relation 算力供给约束与ROI变现进度构成影响本链部署成本与需求的外部传导关系
+  result: 待验证

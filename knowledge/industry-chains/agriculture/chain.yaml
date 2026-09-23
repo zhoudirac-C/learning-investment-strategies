@@ -27,6 +27,11 @@ mappings:
   segment: downstream
   relation: 生猪养殖龙头，产能去化有望改善供需格局
   elasticity: concept
+- code: '834566'
+  name: 绿亨科技
+  segment: upstream
+  relation: 农药制剂+种子，厄尔尼诺需求弹性叠加出口放量受益
+  elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 低
 stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-09-01，LLM 初判 阶段0-观察（国信证券《农产品专题：本轮厄尔尼诺强度有概率创历史新高，或催化新一轮农产品上涨周期》），积累证据
@@ -39,9 +44,18 @@ tracking_metrics:
 - metric: 能繁母猪存栏量
   current: 去化中
   signal_direction: 下降
-falsification: []
+falsification:
+- 能繁母猪存栏连续2个月环比转增（去化停滞）且猪价未现反转→证伪生猪去化逻辑，下调养殖端价格弹性预期
 history:
 - date: '2026-09-12'
   stage: 阶段0-观察
   action: 演化:add_node 新增生猪产能去化作为下游关键跟踪节点
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段0-观察
+  action: 演化:update_falsification 补充生猪去化证伪条件，明确跟踪与退出信号
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段0-观察
+  action: 演化:add_node 北交所农药出口标的纳入上游受益跟踪
   result: 待验证

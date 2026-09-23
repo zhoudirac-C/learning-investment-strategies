@@ -17,6 +17,8 @@ segments:
   - 隔膜
   - 电解液
   - 精密结构件
+  - 湿法隔膜（收购产能）
+  - 隔膜基膜/涂覆一体化产能
 - id: downstream
   name: 下游
   materials: []
@@ -25,6 +27,11 @@ mappings:
   name: 恩捷股份
   segment: midstream
   relation: 湿法隔膜龙头，供货头部电芯厂
+  elasticity: concept
+- code: '300568'
+  name: 星源材质
+  segment: midstream
+  relation: 隔膜头部厂商，隔膜盈利稳中向好，加速布局半导体材料打造第二增长曲线
   elasticity: concept
 current_stage: 阶段1-启动期
 stage_confidence: 中
@@ -37,6 +44,9 @@ tracking_metrics:
 - metric: 隔膜单位盈利/加工费
   current: 持续向好（环比改善）
   signal_direction: 向上
+- metric: 碳酸锂价格
+  current: 波动明显，方向待确认
+  signal_direction: 向上（待确认）
 falsification: []
 history:
 - date: '2026-09-12'
@@ -46,4 +56,16 @@ history:
 - date: '2026-09-13'
   stage: 阶段1-启动期
   action: 可介入中游隔膜环节龙头（恩捷股份、星源材质），继续跟踪排产与单位盈利数据验证持续性；电解液/结构件/铁锂正极同步关注；上游锂资源仍观察涨价持续性，不追高
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段1-启动期
+  action: 演化:add_node 隔膜环节新增标的星源材质，盈利向好获直接印证
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段1-启动期
+  action: 演化:add_node 新增上游碳酸锂价格跟踪节点，完善价格弹性传导观测体系
+  result: 待验证
+- date: '2026-09-23'
+  stage: 阶段1-启动期
+  action: 演化:refine_segment 隔膜环节龙头通过外延收购进一步集中，供给格局优化
   result: 待验证

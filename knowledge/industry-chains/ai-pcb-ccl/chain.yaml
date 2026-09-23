@@ -85,6 +85,9 @@ tracking_metrics:
   current: 日本Nittobo主导
   signal_direction: 大陆切入=加强
   source: 研报
+- metric: 斗山CCL扩产进度
+  current: 宣布近万亿韩元扩产
+  signal_direction: 扩产落地=需求确认（加强）；大规模投产临近=2027年后供给压力（削弱）
 falsification:
 - FR8价格连续2周回落或CCL厂商撤回涨价函
 - 下游PCB厂砍单、渠道库存从低位快速回补
@@ -97,3 +100,8 @@ chain_relations:
 - target: electronic-gas
   relation: 上游共享
   note: 钨矿既是钻针原料也是WF6原料
+history:
+- date: '2026-09-23'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增跟踪节点：海外CCL厂商（斗山）扩产进度
+  result: 待验证
