@@ -12,12 +12,15 @@ import pytest
 from qing_investment.agent.graph import nodes
 
 QUOTES = [
+    # amount 单位 = **元**（marketdata 统一模块口径：腾讯 qt.gtimg[35] 第三段 /
+    # 东财 amount 均为元）。2026-09-23 修正：旧测试数据是"万元"口径，与生产
+    # 实际不符，导致 87173482 亿量级事故未被测试拦住。
     {"label": "上证指数", "secid": "1.000001", "code": "000001",
-     "pct_change": -0.13, "amount": "67565913"},
+     "pct_change": -0.13, "amount": "675659130000"},
     {"label": "深证成指", "secid": "0.399001", "code": "399001",
-     "pct_change": 0.44, "amount": "80777218"},
+     "pct_change": 0.44, "amount": "807772180000"},
     {"label": "创业板指", "secid": "0.399006", "code": "399006",
-     "pct_change": 1.13, "amount": "38662532"},
+     "pct_change": 1.13, "amount": "386625320000"},
     {"label": "恩捷股份(002812.SZ)", "code": "002812", "pct_change": 0.71},
 ]
 SENTIMENT = {"up_count": 1878, "down_count": 3443, "limit_up_count": 47,
@@ -66,10 +69,25 @@ class TestDegradedDigest:
         text = out["summary_text"]
         assert "未加工原始数据" in text
         assert "上证指数-0.13%" in text and "创业板指+1.13%" in text
-        assert "沪深合计约14834亿" in text  # (67565913+80777218)万 → 亿
+        # amount 为元口径：(675659130000+807772180000)/1e8 → 14834 亿
+        assert "沪深合计约14834亿" in text
         assert "涨停47" in text and "炸板率44.7%" in text and "涨1878/跌3443家" in text
         assert "被动元件+4.3%" in text and "线下药店+6.3%" in text
         assert out["emotion_signals"]["consecutive_height"] == 6
+
+    def test_digest_discards_absurd_amount(self):
+        """量级越界（如旧代码 1e4 倍放大事故）→ 丢弃该字段而非输出荒谬值。
+
+        2026-09-23 回归：实测生产出过「沪深合计约 87173482 亿」。
+        """
+        out = nodes._build_degraded_digest(
+            {"quotes": [
+                {"label": "上证指数", "pct_change": 0, "amount": "8717348200000000"},
+                {"label": "深证成指", "pct_change": 0, "amount": "1"}],
+             "sentiment": {}}, {})
+        text = out["summary_text"]
+        assert "87173482" not in text
+        assert "量级越界" in text or "量能" not in text
 
     def test_digest_tolerates_empty_input(self):
         out = nodes._build_degraded_digest({}, {})

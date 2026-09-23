@@ -1626,7 +1626,12 @@ def _build_degraded_digest(market_snapshot: dict, esb: dict) -> dict:
     if idx_parts:
         parts.append("指数：" + " ".join(idx_parts[:6]))
 
-    # 量能：沪深成交额合计（quotes 的 amount 单位为万元）
+    # 量能：沪深成交额合计
+    # ⚠️ 单位纪律（2026-09-23 修复 87173482 亿事故）：marketdata 统一模块的
+    # 成交额字段单位是**元**（腾讯 qt.gtimg [35] 第三段 / 东财 amount 均为元），
+    # 旧代码按"万元"除以 1e4 → 数值放大 1e4 倍，产出 87173482 亿这种荒谬值。
+    # 现改为按元处理，并加**合理性区间校验**（两市合计 3000 亿~6 万亿），
+    # 越界一律不输出该字段而不是硬报——宁缺勿错。
     def _amount_of(keyword: str) -> float | None:
         for q in quotes:
             label = q.get("label") or q.get("name") or ""
@@ -1638,8 +1643,14 @@ def _build_degraded_digest(market_snapshot: dict, esb: dict) -> dict:
         return None
 
     sh_amt, sz_amt = _amount_of("上证指数"), _amount_of("深证成指")
-    if sh_amt is not None and sz_amt is not None and (sh_amt + sz_amt) > 0:
-        parts.append(f"量能：沪深合计约{(sh_amt + sz_amt) / 10000.0:.0f}亿（截至快照时间）")
+    if sh_amt is not None and sz_amt is not None:
+        total_yuan = sh_amt + sz_amt
+        total_yi = total_yuan / 1e8
+        # 合理区间：A 股两市合计成交额常态 3000 亿 ~ 6 万亿
+        if 3000 <= total_yi <= 60000:
+            parts.append(f"量能：沪深合计约{total_yi:.0f}亿（截至快照时间）")
+        elif total_yi > 0:
+            parts.append("量能：数据异常已丢弃（量级越界）")
 
     if sentiment:
         emo: list[str] = []
