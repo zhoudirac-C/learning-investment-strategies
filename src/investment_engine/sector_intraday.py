@@ -49,7 +49,13 @@ DATA_ROOT = Path("infra/data/sector_intraday")
 
 
 def _bar_day(bar: dict) -> str:
-    return str(bar.get("datetime", ""))[:10]
+    # 兼容 bar_time（统一模块/东财/腾讯）与 datetime（历史 TdxMarket）
+    return str(bar.get("bar_time") or bar.get("datetime") or "")[:10]
+
+
+def _bar_hm(bar: dict) -> str:
+    """bar 的 HH:MM（兼容 bar_time / datetime 两种键）。"""
+    return str(bar.get("bar_time") or bar.get("datetime") or "")[11:16]
 
 
 def _split_day(bars: list[dict]) -> tuple[list[dict], list[dict]]:
@@ -65,7 +71,7 @@ def _split_day(bars: list[dict]) -> tuple[list[dict], list[dict]]:
 def _am_close(today: list[dict]) -> dict | None:
     """上午收盘 bar（11:30）；缺失时退化为当日首根。"""
     for b in today:
-        if str(b.get("datetime", ""))[11:16] == "11:30":
+        if _bar_hm(b) == "11:30":
             return b
     return today[0] if today else None
 
@@ -84,23 +90,77 @@ def _marker(am_pct: float, pm_pct: float) -> str:
     return "平稳"
 
 
+# TDX 880 板块 → 东财板块名映射（2026-09-23 建，用于 880 K线被 TDX 封禁后的替代）
+# 东财行业分类名与通达信 880 分类**不完全一致**，且东财分一/二/三级
+# （如「银行」不在 m:90 t:2 一级清单内，需按名搜索命中）。
+# 值为候选名列表——按顺序尝试，命中即用。
+_EM_NAME_CANDIDATES: dict[str, list[str]] = {
+    "880471": ["银行"],
+    "880301": ["煤炭", "煤炭行业", "焦炭加工"],
+    "880310": ["石油", "石油行业", "油气开采"],
+    "880305": ["电力", "电力行业", "火力发电"],
+    "880360": ["农林牧渔", "农牧饲渔", "农业种植"],
+    "880398": ["医疗保健", "医疗服务", "医疗器械"],
+    "880491": ["半导体", "半导体材料", "半导体设备"],
+    "880490": ["通信设备", "通信服务", "通信"],
+    "880493": ["软件服务", "软件开发", "软件"],
+    "880492": ["元器件", "电子元件", "消费电子"],
+    "880472": ["证券", "券商", "证券Ⅱ"],
+}
+
+
+def _fetch_sector_bars(code: str, count: int, *, name: str = "") -> list[dict]:
+    """拉板块 60min K线：统一模块（TDX 存活时）→ 东财板块指数兜底。
+
+    数据源演进（2026-09-23）：
+    - 原直连 ``TdxMarket.get_kline(code, "60min")``，走 ``CapMainKline``——
+      该能力已被 TDX 服务端按接口粒度**封禁**（实测 5 台服务器均返空），死链。
+    - 现优先走统一模块（TDX 若恢复则自动生效），失败后用东财板块指数
+      ``em_board.board_kline_by_name`` 兜底（按 _EM_NAME_CANDIDATES 映射查 BK 码）。
+    """
+    from qing_investment import marketdata as md
+
+    # 通道 1：统一模块（klt=60）——TDX 已被封禁，此路径会快速失败（断路器）
+    try:
+        bars, _src = md.get_kline(code, klt=60, count=count, kind="index")
+        if bars:
+            return bars
+    except Exception:  # noqa: BLE001 — 降级到东财板块
+        pass
+
+    # 通道 2：东财板块指数（880 → 东财名的候选列表，逐个试）
+    # ⚠️ 只试候选列表首项 + 一次 board_list 查询，避免封禁时逐候选累计耗时
+    try:
+        from qing_investment.marketdata.sources import em_board
+    except Exception:  # noqa: BLE001
+        return []
+    candidates = _EM_NAME_CANDIDATES.get(code) or ([name] if name else [])
+    for cand in candidates[:2]:
+        try:
+            bars = em_board.board_kline_by_name(cand, klt=60, count=count)
+            if bars:
+                return bars
+        except Exception:  # noqa: BLE001
+            continue
+    return []
+
+
 def compute_sector_intraday(*, tdx=None, sectors: dict | None = None) -> dict | None:
     """拉 SECTORS 60min K线，计算全日/上午/下午涨跌幅、标记与阵营拉升定性。
 
-    tdx 可注入 TdxMarket 兼容对象（测试用）；None 时自建 TdxMarket。
+    tdx: **兼容保留**——历史测试注入 TdxMarket 兼容对象；None 时走统一模块
+        + 东财板块兜底（2026-09-23 迁移，见 _fetch_sector_bars）。
     任一板块拉取失败跳过该板块；全部失败/无当日数据返回 None。
     """
     sectors = sectors or SECTORS
-    mkt = tdx
-    if mkt is None:
-        from qing_investment.tdx_market.market import TdxMarket
-        mkt = TdxMarket()
-
     rows: list[dict] = []
     row_days: list[str] = []
     for code, meta in sectors.items():
         try:
-            bars = mkt.get_kline(code, category="60min", count=16)
+            if tdx is not None:
+                bars = tdx.get_kline(code, category="60min", count=16)
+            else:
+                bars = _fetch_sector_bars(code, 16, name=meta.get("name", ""))
         except Exception:  # noqa: BLE001 - 单板块失败不阻断其余
             continue
         prev, today = _split_day(bars or [])
@@ -109,7 +169,7 @@ def compute_sector_intraday(*, tdx=None, sectors: dict | None = None) -> dict | 
         # 收盘完整性守卫：最新日最后一根必须是 15:00 bar。盘前/盘中拉取时
         # 部分板块会带出当日 stub bar（close=昨收 → 0.0% 假行），且幂等文件名
         # 会挡住收盘后的真实落盘（2026-08-19 08:52 实测踩中）。
-        if str(today[-1].get("datetime", ""))[11:16] != "15:00":
+        if _bar_hm(today[-1]) != "15:00":
             continue
         prev_close = prev[-1].get("close")
         am = _am_close(today)
