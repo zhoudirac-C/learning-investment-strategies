@@ -2051,3 +2051,34 @@ directions:
     timing: "右侧确认前不追；分歧承接日观察"
   note: "UP 8/10复盘：阿里云AIDC交付100天、800G需求扩容国产替代；科技反转必要条件=强势分支整体性新高（8/9周复盘观察窗口=交换机+磷化铟）。与computing_network_super_node（超节点）方向关联但定位不同：本方向聚焦国产链新高定性信号。"
 
+
+- id: pharma_cxo_recover
+  name: CXO/创新药修复（昭衍新药换仓承接药明）
+  current_stage: diverging
+  intensity: 中
+  note: "⚠️ 此为持仓驱动的方向登记，非UP主线。9/23用户清仓药明康德(603259)→换仓昭衍新药(603127)，同板块(CXO)换仓。与卢本圆9/23 09:45「药明获利了结」同步。方向依据=用户自主选择+UP 9/23 10:05「切了16w康龙化成 CRO 不是药投机 45.30+」暗示CRO板块有资金动作。"
+  source_claims:
+  - claim-20260811-014(医药分歧修复三段式)
+  - claim-20260811-017(业绩兑现确定性排序)
+  trigger: 9/23 药明清仓+昭衍建仓同时发生(用户自主换仓)；UP 9/23 10:05提及CRO板块(康龙化成603087)；医药板块分歧修复三段式适用于昭衍后续走势判断
+  entry_range: 昭衍新药已建仓(1100股@48.050)；后续加仓待用户拍板；分歧缩量后的再放量确认点参考(复用医药分歧修复框架)
+  chain_note: CXO/创新药链条：药物发现CRO(昭衍新药) → 临床前 → 安评 → CDMO(康龙化成603087=UP 9/23点名) → 模式动物 → 平台型 → 测序仪(长江证券AI4S七环节框架, claim-20260811-017)。昭衍为CRO核心环节(药物发现+临床前+安评)。持续性按业绩兑现确定性排序而非叙事性感度。
+  industry_chain:
+    upstream: []
+    midstream:
+    - segment: CXO核心(药物发现+临床前+安评)
+      stocks:
+      - code: 603127.SH
+        name: 昭衍新药
+        pumped: false
+    - segment: CXO(CDMO+临床+工艺)
+      stocks:
+      - code: 603087.SH
+        name: 康龙化成
+        pumped: false
+      - code: 603259.SH
+        name: 药明康德(已清仓)
+        pumped: false
+    downstream: []
+  risk_zone: 医药板块整体破位→全板块减仓(参考医药ETF 159992)
+  stop_loss_rule: 个股按收盘确认制；板块联动破位→全板块减仓

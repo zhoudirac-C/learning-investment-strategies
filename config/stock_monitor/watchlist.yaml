@@ -467,6 +467,41 @@ themes:
   name: 医药/创新药
   up_positioning: 「跌透了等反弹」，非「逻辑反转」。用ETF做beta
   note: 无具体标的推荐。医药ETF更适合参与。
+  stocks:
+  - code: 603127.SH
+    name: 昭衍新药
+    priority: P2-重点（华宝账户主力，CXO核心）
+    role: holding_stock
+    segment: CXO/创新药（药物发现CRO+临床前+安评+CDMO）
+    lifecycle:
+      entered_stage: '2026-09-23'
+      stage: holding
+    source_docs:
+    - config/stock_monitor/positions.yaml
+    watch_reason: 2026-09-23 华宝证券持仓1100股@成本48.050（市值52,547元=华宝50.8%=组合20.0%）。买入依据=用户自主选择：清仓药明康德(603259)后在同板块(CXO/创新药)换仓。9/23
+      10:05 UP「切了16w康龙化成 CRO 不是药投机 45.30+」暗示CRO板块有资金动作（康龙化成603087）。腾讯现价47.770(-0.57%)。⚠️
+      无止损线=待用户拍板。占组合20.0%为第三大敞口。
+    confirm_with:
+    - 药明康德603259.SH(同板块,华宝已清仓)
+    - 康龙化成603087.SH(CRO同板块,UP 9/23提及)
+    entry_zone:
+      description: 2026-09-23 持仓截图登记：1100股@成本48.050，市值52,547元，占华宝账户50.8%=全组合20.0%。现价47.770=-0.57%，浮亏-28元。
+      price_range: 待用户拍板买入/加仓区间
+      method: 同板块换仓（药明清仓→昭衍新建）
+      confirm_signal: 无(已成交)
+      hard_stop: 待用户拍板
+    up_mention_status:
+      last_mentioned_date: '2026-09-23'
+      mention_context: 9/23 10:05 UP动态「切了16w康龙化成 CRO 不是药投机 45.30+」提及CRO板块（昭衍为CXO核心标的，间接关联）
+      sentiment: 中性偏积极
+    risk_zone: 待用户拍板(占组合20.0%)
+    reduce_zone: 待用户拍板
+    defense_line: 待用户拍板（占华宝账户50.8%=组合20.0%，当前无防线为第三大敞口）
+  market_checks:
+  - 医药板块分歧修复三段式（分歧—缩量—再放量）(claim-20260811-014)
+  - CXO/创新药业绩兑现确定性排序（药物发现CRO→临床前→安评→CDMO）(长江证券AI4S框架, claim-20260811-017)
+  - 药明康德清仓后由昭衍新药承接CRO敞口（同板块换仓）
+  - 医药ETF(159992)做beta，个股按分化处理
 - id: securities_bottom
   name: 证券
   up_positioning: 「等月线两根强阳确认右侧再动」
