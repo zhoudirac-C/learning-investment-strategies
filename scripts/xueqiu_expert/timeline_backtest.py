@@ -28,10 +28,10 @@ POSTS_DIR = REPO / "data" / "xueqiu" / "posts"
 PROGRESS = POSTS_DIR / "_progress.json"
 CDP_URL = "http://localhost:9222"
 CUTOFF = "2024-09-01"          # 回测截止：翻到此日期前的帖子为止
-PAGE_SLEEP = 5
+PAGE_SLEEP = 15                # 2026-09-23 实测：5s/页把IP打进WAF封禁窗口，降到15s
 MAX_PAGES = 30                 # 页数封顶：高频用户(数千帖)记 partial，诚实标注覆盖不足
-BATCH_SIZE = 20
-BATCH_SLEEP = 120
+BATCH_SIZE = 10
+BATCH_SLEEP = 300
 WAF_SLEEP = 300
 COUNT = 20                     # 实测 count 上限=20（30+ 返回空）
 
@@ -146,7 +146,7 @@ def main() -> None:
         # 自起实例 + 注入登录 cookie（Chrome152 对 CDP ws origin 校验 ECONNRESET，
         # 无法 connect 9222；WAF JS challenge 会被真实浏览器自动执行通过）
         ctx = pw.chromium.launch_persistent_context(
-            user_data_dir="/tmp/xq_pw_profile",
+            user_data_dir="/home/ubuntu/.config/chromium",
             headless=True,
             executable_path="/usr/bin/google-chrome-stable",
             user_agent=("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
