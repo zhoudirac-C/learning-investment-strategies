@@ -179,3 +179,49 @@ def get_intraday(code: str, *, kind: str = "auto",
     2026-09-10 实测存活）。
     """
     return get_kline(code, 30, 16, kind=kind, sources=sources)
+
+
+def get_turnover(code: str = "sh000001", *, kind: str = "index") -> tuple[float, str]:
+    """当日累计成交额（元）——盘中量能的单点口径。
+
+    **为什么需要独立入口**：K线链里只有东财带 ``amount``，而腾讯/新浪恒为
+    ``0.0``（2026-09-23 实测）。``get_kline`` 默认链腾讯优先 → 会返回"看起来
+    成功、amount 全空"的假成功。本入口用**不依赖 K线的独立通道**兜底：
+
+    1. 腾讯 ``fetch_minute_turnover``（分钟线累计值，实测 1 次成功、交叉验证一致）
+    2. 东财 K线 ``amount``（东财可用时优先精度更高，但本环境间歇封禁）
+
+    返回 ``(amount_yuan, source)``；全部失败抛 :class:`MarketDataError`。
+    """
+    from qing_investment.marketdata.sources import tencent
+
+    errors: list[str] = []
+    # 通道 1：腾讯分钟线累计（最可靠）
+    mt = tencent.fetch_minute_turnover(code, kind=kind)
+    if mt and mt.get("cum_amount"):
+        return float(mt["cum_amount"]), f"tencent_minute@{mt.get('last_minute')}"
+    errors.append("tencent_minute: empty")
+
+    # 通道 2：东财 K线 amount（需未熔断）
+    if not breaker.is_open("eastmoney:kline"):
+        try:
+            bars, src = get_kline(code, 101, 1, kind=kind, sources=["eastmoney"])
+            amt = bars[-1].get("amount") if bars else 0
+            if amt:
+                return float(amt), f"{src}_kline_amount"
+            errors.append("eastmoney_kline: amount=0")
+        except Exception as e:  # noqa: BLE001
+            errors.append(f"eastmoney_kline: {type(e).__name__}: {str(e)[:80]}")
+    else:
+        errors.append("eastmoney_kline: BREAKER-OPEN")
+
+    raise MarketDataError(
+        f"get_turnover({code}) 全部通道失败。attempts: {'; '.join(errors)}",
+        attempts=errors)
+
+
+def get_market_turnover(*, kind: str = "index") -> tuple[float, str]:
+    """两市（沪+深）总成交额（元）。指数对 = 上证指数 + 深证成指。"""
+    sh, s1 = get_turnover("sh000001", kind=kind)
+    sz, s2 = get_turnover("sz399001", kind=kind)
+    return sh + sz, f"{s1}+{s2}"

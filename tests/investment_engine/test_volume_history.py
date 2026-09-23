@@ -31,10 +31,14 @@ class _FakeTdx:
 class TestCompute:
     def test_sum_and_convert(self):
         data = compute_volume_history(tdx=_FakeTdx())
+        assert data is not None
         assert [p["date"] for p in data["points"]] == ["2026-08-19", "2026-08-20"]
         assert data["points"][0]["成交额_亿"] == 25110.0   # (1.2181+1.2929)e12/1e8
         assert data["points"][1]["成交额_亿"] == 20794.0
-        assert "fetched_at" in data and "TDX" in data["source"]
+        # source 字符串 2026-09-23 起改为统一模块口径（不再写死 TDX）；
+        # 注入路径标记 [injected] 便于区分真实通道与测试注入
+        assert "fetched_at" in data and "amount 合计" in data["source"]
+        assert "[injected]" in data["source"]
 
     def test_missing_counterpart_day_skipped(self):
         class _Half(_FakeTdx):

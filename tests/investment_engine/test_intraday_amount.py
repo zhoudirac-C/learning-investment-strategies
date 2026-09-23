@@ -34,8 +34,9 @@ def _flat_tdx() -> FakeTdx:
 def test_compute_keys_and_flat_shape():
     data = ia.compute_intraday_amount(tdx=_flat_tdx())
     # 「形态」等旧键名不动（prompt 规则 9 引用）；校准新增字段并列呈现
+    # source 为 2026-09-23 新增的数据源留痕字段（迁移统一模块后必需）
     assert set(data) == {"date", "分时", "开盘预估全天_亿", "尾盘实际全天_亿", "形态",
-                         "环比前日_pct", "占比中位数", "校准残差_pct"}
+                         "环比前日_pct", "占比中位数", "校准残差_pct", "source"}
     assert data["date"] == DAY  # 由最新一根 K 线推导，前一交易日 K 线被滤掉
     assert len(data["分时"]) == 4
     assert [set(r) for r in data["分时"]] == [{"时点", "累计_亿", "预估全天_亿"}] * 4

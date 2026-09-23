@@ -1,4 +1,4 @@
-"""分时量能：TDX 60min 四点曲线计算 + 落盘/读取（C1 分时腿）。
+"""分时量能：60min 四点曲线计算 + 落盘/读取（C1 分时腿）。
 
 预估模型（2026-08-20 校准，提案 2026-08-20-fix-intraday-amount-calibration）：
 旧版「预估全天 = 累计 × 240/已交易分钟」朴素外推，在 A 股首小时成交占比
@@ -12,9 +12,17 @@
 一字不动（prompt 规则 9 引用「形态」字段）；环比前日_pct/占比中位数/校准残差_pct
 为新增并列字段。形态判定沿用原阈值，但输入已是校准后预估。
 
-与 dataset 版差异：day 不入参时由 TDX 返回数据推导（最新完整交易日），便于
+数据源（2026-09-23 迁移）：**统一收口模块 `qing_investment.marketdata`**。
+- 原实现直连 `TdxMarket.get_kline`，而 TDX `CapMainKline` 已被服务端**按接口
+  粒度封禁**（实测「尝试 5 台服务器均返回空结果」）→ cron `7fa2028f99ca`
+  长期 exit 1 未落盘，是 pre-run 量能字段缺失（进而被 LLM 拼出 87173482 亿）的根因。
+- 现走 `md.get_index_kline(..., sources=...)`，**60min 链必须含 eastmoney**：
+  腾讯/新浪的 bar `amount` 恒为 0.0，只有东财带成交额（2026-09-23 实测）。
+- 数据源优先级由 `_AMOUNT_SOURCES` 控制；全源失败返回 None（保持原契约）。
+
+与 dataset 版差异：day 不入参时由数据源返回数据推导（最新完整交易日），便于
 收盘后 cron 落盘；也可显式传 day 重算历史日（校准只用该日之前的样本，防泄漏）。
-TDX 不可达/当日数据不足时返回 None（与 dataset 现状一致）。
+全源不可达/当日数据不足时返回 None（与 dataset 现状一致）。
 """
 
 from __future__ import annotations
@@ -28,16 +36,43 @@ DEFAULT_DATA_DIR = Path("infra/data/intraday_amount")
 _MINUTE_MAP = {"10:30": 60, "11:30": 120, "14:00": 180, "15:00": 240}
 _HIST_DAYS = 20  # 校准样本窗口（近 20 个交易日）
 
+#: 60min 成交额源优先级。**必须含 eastmoney**——腾讯/新浪 bar 的 amount 恒为 0.0，
+#: 只有东财带成交额（2026-09-23 实测：东财 4102 亿 / 腾讯 0.0 / 新浪 0.0）。
+#: 东财在本环境间歇封禁，故列首位 + 腾讯兜底（腾讯即便 amount=0 也能算形态，
+#: 只是金额口径失真；_validate_amount 会在全源 amount 为空时返回 None）。
+_AMOUNT_SOURCES = ["eastmoney", "tencent"]
+
+
+def _fetch_bars(code: str, count: int, sources: list[str] | None = None):
+    """拉 60min 指数 K线（统一模块），返回 (bars, source)；失败返回 ([], err)。"""
+    from qing_investment import marketdata as md
+
+    try:
+        bars, src = md.get_index_kline(code, klt=60, count=count,
+                                       sources=sources or _AMOUNT_SOURCES)
+        return bars, src
+    except Exception as e:  # noqa: BLE001
+        return [], f"{type(e).__name__}: {str(e)[:120]}"
+
 
 def _day_points(bars: list[dict], out: dict[str, dict[str, float]]) -> None:
-    """60min K 线累入 {交易日: {时点: 成交额(亿)}}（两市分时对齐后合并）。"""
+    """60min K 线累入 {交易日: {时点: 成交额(亿)}}（两市分时对齐后合并）。
+
+    兼容两种 bar_time 键：统一模块用 ``bar_time``（腾讯/东财/新浪一致），
+    历史 TdxMarket 用 ``datetime``——两者都读，便于过渡期与测试注入。
+    """
     for r in bars:
-        dt = str(r.get("datetime", ""))
+        dt = str(r.get("bar_time") or r.get("datetime") or "")
         day, hm = dt[:10], dt[11:16]
         if hm not in _MINUTE_MAP:
             continue
         slot = out.setdefault(day, {})
         slot[hm] = slot.get(hm, 0.0) + (r.get("amount") or 0) / 1e8
+
+
+def _validate_amount(bars: list[dict]) -> bool:
+    """校验 bar 是否真带成交额（防"能拉到但 amount 全 0"的假成功）。"""
+    return any((b.get("amount") or 0) > 0 for b in bars)
 
 
 def _cum_curve(pts: dict[str, float]) -> list[float]:
@@ -50,25 +85,37 @@ def _cum_curve(pts: dict[str, float]) -> list[float]:
 
 
 def compute_intraday_amount(tdx=None, day: str | None = None) -> dict | None:
-    """用 TDX 拉上证+深证 60min 成交额，构建盘中量能形态。
+    """用统一模块拉上证+深证 60min 成交额，构建盘中量能形态。
 
-    tdx 可注入 TdxMarket 兼容对象（测试用）；None 时自建 TdxMarket。
+    tdx: **兼容保留**——历史测试注入 TdxMarket 兼容对象（须实现
+        ``get_kline(code, "60min", count=N)``）；None 时走统一模块
+        （2026-09-23 迁移，见模块 docstring）。
     day 缺省取数据最新完整交易日；显式传入时按该日重算（校准只用更早交易日）。
-    返回 None（TDX 拉取失败/完整交易日不足）或：
+    返回 None（全源不可达/成交额全空/完整交易日不足）或：
     {date, 分时[{时点,累计_亿,预估全天_亿}], 开盘预估全天_亿, 尾盘实际全天_亿, 形态,
-     环比前日_pct, 占比中位数, 校准残差_pct}。
+     环比前日_pct, 占比中位数, 校准残差_pct, source}。
     """
-    try:
-        mkt = tdx
-        if mkt is None:
-            from qing_investment.tdx_market import TdxMarket
-            mkt = TdxMarket()
-        count = (_HIST_DAYS + 1) * 4
-        sh = mkt.get_kline("sh000001", "60min", count=count)
-        sz = mkt.get_kline("sz399001", "60min", count=count)
-    except Exception:
-        return None
+    count = (_HIST_DAYS + 1) * 4
+    source_note = ""
+    if tdx is not None:
+        # 兼容路径：注入对象（测试/历史调用方）
+        try:
+            sh = tdx.get_kline("sh000001", "60min", count=count)
+            sz = tdx.get_kline("sz399001", "60min", count=count)
+            source_note = "injected"
+        except Exception:
+            return None
+    else:
+        sh, s1 = _fetch_bars("sh000001", count)
+        sz, s2 = _fetch_bars("sz399001", count)
+        source_note = f"{s1}/{s2}"
+        if not (sh and sz):
+            return None
     if not sh or not sz:
+        return None
+    # 成交额守卫：腾讯/新浪 bar 的 amount 恒为 0.0——若不校验，会产出全 0 的
+    # "形态正常"结果（假成功）。至少一方须带真实成交额。
+    if not (_validate_amount(sh) or _validate_amount(sz)):
         return None
     per_day: dict[str, dict[str, float]] = {}
     _day_points(sh, per_day)
@@ -123,7 +170,7 @@ def compute_intraday_amount(tdx=None, day: str | None = None) -> dict | None:
     return {"date": day, "分时": rows, "开盘预估全天_亿": open_est,
             "尾盘实际全天_亿": round(close_actual, 0), "形态": shape,
             "环比前日_pct": huanbi, "占比中位数": ratio_med,
-            "校准残差_pct": residual}
+            "校准残差_pct": residual, "source": source_note}
 
 
 def load_intraday_amount(day: str,

@@ -52,7 +52,9 @@ from qing_investment.marketdata.router import (
     get_index_kline,
     get_intraday,
     get_kline,
+    get_market_turnover,
     get_quotes,
+    get_turnover,
 )
 
 __all__ = [
@@ -68,4 +70,6 @@ __all__ = [
     "get_index_kline",
     "get_intraday",
     "get_quotes",
+    "get_turnover",
+    "get_market_turnover",
 ]

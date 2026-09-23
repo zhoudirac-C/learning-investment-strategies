@@ -143,6 +143,17 @@ def fetch_quotes(codes: list[str], *, kind: str = "auto") -> list[dict]:
         if len(vals) < 53:
             continue
         try:
+            # [35] 是三段拼接 '价格/成交量(手)/成交额(元)'（2026-09-11 实测分隔符为 '/'，
+            # a-stock-data 文档写 \x01 系另一版式）。**成交额优先取 [35] 第三段**：
+            # 它是元级精确值；[37] 只是"万元"近似（茅台 253595万 vs 实际 25.36亿），
+            # 且 [37] 对指数会退化为成交量语义（2026-09-23 实测：上证 [37]=成交量），
+            # 直接 ×1e4 会得出"0.5亿"这类荒谬值。
+            amount = 0.0
+            comp = str(vals[35] or "").split("/")
+            if len(comp) == 3 and comp[2]:
+                amount = float(comp[2])
+            elif vals[37]:  # 兜底：老版式无 [35] 三段时退回 [37] 万元
+                amount = float(vals[37]) * 1e4
             quotes.append({
                 "code": key_of.get(key, key[2:]),
                 "name": vals[1],
@@ -152,10 +163,7 @@ def fetch_quotes(codes: list[str], *, kind: str = "auto") -> list[dict]:
                 "high": float(vals[33] or 0),
                 "low": float(vals[34] or 0),
                 "change_pct": float(vals[32] or 0),
-                # [35] 是三段拼接（'价格/成交量/成交额'，2026-09-11 实测分隔符为 '/'，
-                # a-stock-data 文档写 \x01 系另一版式）——不直接解析；
-                # 成交额(万元)取 [37]，×1e4 归一到元；成交量(手)取 [36]
-                "amount": float(vals[37] or 0) * 1e4,
+                "amount": amount,
                 "volume": float(vals[36] or 0),
                 "pe_ttm": float(vals[39]) if vals[39] else None,
                 "pb": float(vals[46]) if vals[46] else None,
@@ -165,3 +173,33 @@ def fetch_quotes(codes: list[str], *, kind: str = "auto") -> list[dict]:
         except (ValueError, IndexError):
             continue
     return quotes
+
+
+def fetch_minute_turnover(code: str, *, kind: str = "auto") -> dict | None:
+    """当日分钟线末行累计成交额（元）——盘中量能最可靠的单点口径。
+
+    腾讯分钟线 ``ifzq.gtimg.cn/appstock/app/minute/query``：每行 =
+    ``HHMM 价格 累计成交量(手) 累计成交额(元)``，**第 4 列是累计值**，
+    直接取末行即可（无需逐行求和）。
+
+    返回 ``{code, last_minute, cum_amount, cum_volume}``；失败返回 None。
+    """
+    sym = tencent_symbol(code, kind=kind)
+    ratelimit.acquire(SOURCE)
+    try:
+        payload = http_get_json(
+            f"https://ifzq.gtimg.cn/appstock/app/minute/query?code={sym}",
+            headers={"Referer": "https://gu.qq.com/"})
+    except Exception:
+        return None
+    rows = (((payload.get("data") or {}).get(sym) or {}).get("data") or {}).get("data") or []
+    if not rows:
+        return None
+    parts = str(rows[-1]).split()
+    if len(parts) < 4:
+        return None
+    try:
+        return {"code": sym, "last_minute": parts[0],
+                "cum_amount": float(parts[3]), "cum_volume": float(parts[2])}
+    except (ValueError, IndexError):
+        return None
