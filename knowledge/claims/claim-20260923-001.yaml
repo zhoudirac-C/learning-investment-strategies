@@ -1,0 +1,246 @@
+claims:
+- id: claim-20260923-001-a
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
+    -.md
+  source_date: '2026-09-23'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-23T08:20:00'
+  claim_type: sector-theme
+  subject: 医药趋势未走完但难度上升
+  timeframe: trend
+  stance: view
+  statement: 卢本圆判断医药还没有走完、近期整体趋势向上，但板块内部资金切换轮动很快，没有那么好做。
+  evidence_quote: 屁股决定脑袋，我会这么留就是我个人认为医药还没有走完。像昨天百花封板，千金尾盘也拉了个板啊，这个其实也是很提振士气。包括我昨天在视频的标题直接点名说我希望哈药再来一板啊，那哈药也板了。医药我认为近期整体的一个趋势还是向上的，只是说板块内部的资金切换轮动的会比较快，没有那么好做。
+  interpretation: 卢本圆以自身持仓结构（留中军+弹性票）反证其对医药方向的信心（自述「屁股决定脑袋」），同时明确提示操作难度上升——方向看多与节奏难做并存。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 医药趋势向上未走完但轮动快难度上升
+  related_stocks:
+  - code: '600664'
+    name: 哈药股份
+    role: 医药情绪锚二连板-主板可交易
+  - code: '603259'
+    name: 药明康德
+    role: 医药中军-主板可交易
+  tags:
+  - 医药
+  - 趋势判断
+  - 轮动加快
+  - 卢本圆
+- id: claim-20260923-001-b
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
+    -.md
+  source_date: '2026-09-23'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-23T08:20:00'
+  claim_type: operation
+  subject: 医药持仓结构与离场纪律
+  timeframe: short-term
+  stance: view
+  statement: 医药持仓留两只：药明康德(603259)作趋势中军+万邦医药(301520)作弹性票（成本三十几、现价八十几）；一旦发现趋势走坏，药明会马上走。
+  evidence_quote: 那医药的话我们现在就留了一只药明，还有万邦，一只属于弹性票，一只是中军。…那万邦现在八十几，我们成本三十几。医药还是多观察观察吧，一旦发现趋势走坏，药明我会马上走啊。
+  interpretation: 中军+弹性的双票结构对应「趋势向上但轮动快」的判断：中军吃趋势、弹性博超额。离场触发条件明确——医药趋势走坏即出药明。注意：ASR
+    转写，「万邦」按 9/21 早盘交叉验证为万邦医药(301520)。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 药明中军+万邦弹性，趋势走坏即走
+  related_stocks:
+  - code: '603259'
+    name: 药明康德
+    role: 医药趋势中军-主板可交易
+  - code: '301520'
+    name: 万邦医药
+    role: 医药弹性票成本30+现价80+-创业板不可交易
+  tags:
+  - 药明康德
+  - 万邦医药
+  - 持仓结构
+  - 离场纪律
+- id: claim-20260923-001-c
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
+    -.md
+  source_date: '2026-09-23'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-23T08:20:00'
+  claim_type: market-cycle
+  subject: 缺量环境下科技难普涨
+  timeframe: short-term
+  stance: market-regime
+  statement: 量能不可能一直维持在两万亿以上（节前有时到两万有时不到），在这种量能下科技很难做到普涨，而且会经常冲高回落。
+  evidence_quote: 那其实我一直以来的观点就是最近的量不可能一直维持在两万亿以上，确实有时候到两万有时候又不到。在这种量能下，科技是很难做到普涨的，而且会经常冲高回落。
+  interpretation: 卢本圆的量能定性：节前两万亿不可持续 → 科技只能是轮动行情而非普涨，「冲高回落」是常态而非异常——这直接决定科技仓位只能按短线博弈处理。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 节前量能不能维持两万亿，科技难普涨常冲高回落
+  related_stocks: []
+  tags:
+  - 缺量
+  - 两万亿
+  - 科技
+  - 冲高回落
+- id: claim-20260923-001-d
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
+    -.md
+  source_date: '2026-09-23'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-23T08:20:00'
+  claim_type: operation
+  subject: 科技短线博弈策略
+  timeframe: short-term
+  stance: view
+  statement: 缺量下的科技策略：买自己看好的三个板块（MLCC、光纤、存储），等待资金轮动到就马上做T或马上获利了结，不留恋。
+  evidence_quote: 所以说我的一个暂定想法就是买自己看好的三个板块，然后等待资金轮动到，马上做T，或者马上获利了结。…那如果后续对科技依然没那么友善的话，我该走还是会走的，不会留恋的。
+  interpretation: 策略结构 = 提前埋伏看好的分支 + 等轮动 + 轮动到即兑现。这是「缺量→不普涨→轮动」定性的操作映射：不做趋势持有，做轮动差价。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 埋伏三个科技分支等轮动到即做T或了结
+  related_stocks:
+  - code: '301308'
+    name: 江波龙
+    role: 存储-创业板不可交易
+  tags:
+  - 科技
+  - 轮动
+  - 做T
+  - 获利了结
+  - 短线博弈
+- id: claim-20260923-001-e
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
+    -.md
+  source_date: '2026-09-23'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-23T08:20:00'
+  claim_type: operation
+  subject: MLCC与光纤的加仓计划
+  timeframe: short-term
+  stance: view
+  statement: MLCC 和光纤若摸到 20 日线还会再吸一笔：当前 20 万仓位，最多打到 30 万；止损暂时不设，观察行情后续演变。
+  evidence_quote: 那像MLCC还有光纤，我可能在20日线，摸到20日线还会再吸一笔，因为现在是20的仓位嘛，我可能会最多打到30万。止损的话暂时还要观察，观察整个行情后面的演变。
+  interpretation: 明确的条件化加仓计划：触发=价格回踩 20 日线，幅度=20万→30万上限，止损=暂不机械设置、以行情演变为观察依据。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: MLCC光纤摸20日线加至30万上限
+  related_stocks: []
+  tags:
+  - MLCC
+  - 光纤
+  - 20日线
+  - 加仓计划
+  - 仓位上限
+- id: claim-20260923-001-f
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
+    -.md
+  source_date: '2026-09-23'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-23T08:20:00'
+  claim_type: methodology
+  subject: 科技开仓的低吸原则
+  timeframe: permanent
+  stance: view
+  statement: 方法论：科技开仓以低吸为原则——前天买的是板块低位，昨天买的是个股日内分时低位；低吸买点分层（板块低位 → 个股分时低位）。
+  evidence_quote: 那其实我开仓自己是科技，还是以低吸为原则的。前天是板块低位，那昨天是个股的日内分时低位。
+  interpretation: 卢本圆的低吸有两个层次：板块级低位（方向择时）与个股日内分时低位（入场择点），两天各演示一层。缺量轮动市里低吸是成本优势的来源，配合「轮动到即兑现」构成完整闭环。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技低吸两层次：板块低位与个股分时低位
+  related_stocks: []
+  tags:
+  - 低吸
+  - 板块低位
+  - 分时低位
+  - 开仓原则
+- id: claim-20260923-001-g
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
+    -.md
+  source_date: '2026-09-23'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-09-23T08:20:00'
+  claim_type: risk
+  subject: 投机高度票的异动风险提示
+  timeframe: short-term
+  stance: view
+  statement: 投机板块要真走出来必须有标的先打出高度；金健米业(600127)有 30 个交易日 200% 异动风险需注意，闽东电力(000993)昨日收盘后已触发异动；投机票尾盘捞一笔就走，注意风险。
+  evidence_quote: 因为我前面说投机板块如果要真的走出来必须有呃标的先来出来打出高度对吧。那像我提过的金健啊还有艾力啊，其实最近都是不断的往上在打高度。那金健有一个30个交易日200%异动呢，这个大家自己注意一下。像闽东昨天收盘之后就触发了异动啊。投机票我只能说大家自己注意好保护好自己吧…一定永远注意风险注意风险注意风险注意风险啊。
+  interpretation: 高度票打出空间是投机板块成立的前提（复用其一贯方法论），但 30 日 200% 异动线是金健米业的监管约束，闽东电力已触发异动——卢本圆明确提示监管风险并自述投机票只尾盘短打、不盘中展示。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 投机需高度票打空间，金健闽东异动风险提示
+  related_stocks:
+  - code: '600127'
+    name: 金健米业
+    role: 投机高度票-30日200%异动风险-主板可交易
+  - code: '000993'
+    name: 闽东电力
+    role: 投机票已触发异动-主板可交易
+  - code: '603221'
+    name: 爱丽家居
+    role: 投机高度票破前高-主板可交易
+  tags:
+  - 投机
+  - 高度票
+  - 异动监管
+  - 金健米业
+  - 闽东电力
