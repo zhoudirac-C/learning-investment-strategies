@@ -157,6 +157,7 @@ def main() -> None:
         ctx.add_cookies(pw_cookies)
         page = ctx.pages[0] if ctx.pages else ctx.new_page()
         n_ok = n_err = 0
+        consec_waf = 0
         for i, c in enumerate(todo, 1):
             uid = str(c["uid"])
             name = c.get("screen_name", "")
@@ -175,8 +176,18 @@ def main() -> None:
                 f"({res['pages']}页, 最早{res['oldest']}, {time.time()-t0:.0f}s)")
             if res["status"] == "ok":
                 n_ok += 1
+                consec_waf = 0
+            elif res["status"] == "waf_blocked":
+                n_err += 1
+                consec_waf += 1
+                # IP级封禁保护：连续2人WAF即熔断中止（继续跑=全员空转）
+                if consec_waf >= 2:
+                    log(f"🚨 连续 {consec_waf} 人 WAF 封禁，判定 IP 封禁窗口未过，熔断中止。"
+                        f"进度已保存，冷却 30-60 分钟后重启续跑。")
+                    break
             else:
                 n_err += 1
+                consec_waf = 0
             if i % BATCH_SIZE == 0 and i < len(todo):
                 log(f"  —— 已 {i} 人，批间休息 {BATCH_SLEEP}s ——")
                 time.sleep(BATCH_SLEEP)
