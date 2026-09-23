@@ -36,6 +36,8 @@ stock_data_output/
 
 # Infrastructure data volumes
 infra/data/
+# 雪球大牛回测板块K线缓存（akshare可再生，36M，同 infra/data/ 口径）
+data/xueqiu/sector_klines/
 
 # Environment variables (contains API keys)
 .env
