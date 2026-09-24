@@ -128,7 +128,9 @@ def main() -> None:
     POSTS_DIR.mkdir(parents=True, exist_ok=True)
     cands = json.loads(CANDIDATES.read_text())["with_uid"]
     if args.source:
-        cands = [c for c in cands if c.get("source", "").startswith(args.source)]
+        # 支持多渠道："B,C" = 渠道B+C（2026-09-24 拍板：砍掉渠道A，只做B 44+C 97=141人）
+        wanted = {s.strip() for s in args.source.split(",")}
+        cands = [c for c in cands if c.get("source", "")[:1] in wanted]
     progress = json.loads(PROGRESS.read_text()) if PROGRESS.exists() else {}
     todo = [c for c in cands if str(c["uid"]) not in progress]
     if args.limit:
