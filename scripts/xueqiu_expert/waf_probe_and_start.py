@@ -67,7 +67,11 @@ def probe() -> bool:
             args=["--disable-blink-features=AutomationControlled"])
         ctx.add_cookies(pw_cookies)
         page = ctx.pages[0] if ctx.pages else ctx.new_page()
-        page.goto("https://xueqiu.com/v4/statuses/user_timeline.json"
+        # 2026-09-24：裸域被 WAF 模式拦截（与 P3 取数同维度），www 同路径正常。
+        # 先访问首页预热（对齐实测成功序列），再探 www API
+        page.goto("https://xueqiu.com/", timeout=30000, wait_until="domcontentloaded")
+        time.sleep(2)
+        page.goto("https://www.xueqiu.com/v4/statuses/user_timeline.json"
                   "?user_id=6876843497&page=1&count=20", timeout=30000)
         time.sleep(2)
         txt = page.evaluate("document.body.innerText")

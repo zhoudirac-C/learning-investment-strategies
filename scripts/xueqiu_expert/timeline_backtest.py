@@ -45,7 +45,10 @@ def fetch_page(page, uid: str, page_no: int):  # -> dict | str("waf") | None
 
     2026-09-23 实测：/statuses/original/timeline.json 只含原创长文——渠道A
     讨论区作者大面积为空（"不可方物的铁拳"0帖）；v4 端点覆盖全部发言。"""
-    url = (f"https://xueqiu.com/v4/statuses/user_timeline.json"
+    # 2026-09-24：裸域 xueqiu.com 直连 API 触发 WAF 模式拦截（登录态+API 路径维度，
+    # HTML 页面正常；封禁 2h+ 未自动解除）。www.xueqiu.com 同路径返回正常 JSON
+    # （页面自身 XHR 也走 www）→ 取数统一走 www
+    url = (f"https://www.xueqiu.com/v4/statuses/user_timeline.json"
            f"?user_id={uid}&page={page_no}&count={COUNT}")
     try:
         page.goto(url, timeout=30000)
