@@ -455,7 +455,7 @@ def call_deepseek(messages: list[dict], *, model: str = DEFAULT_MODEL,
     client 显式传入（如 chain_tracker 的 GLM 逃生口）→ 完全尊重调用方通道。
     """
     hermes_err: Exception | None = None
-    if client is None:
+    if client is None and not os.environ.get("SHADOW_DISABLE_HERMES"):
         g = _hermes_global()
         if g:
             from openai import OpenAI
