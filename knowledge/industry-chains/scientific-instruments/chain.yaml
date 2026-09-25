@@ -1,0 +1,38 @@
+chain_id: scientific-instruments
+name: 科学仪器/测试测量产业链
+thesis: 涨停6家中4家为测试测量/科学仪器厂商（优利德、普源精电、东方中科、莱伯泰科），国产替代+设备更新驱动整机采购放量，向上带动核心元器件配套，向下拉动科研与产业检测需求，传导路径清晰可拆。
+last_verified: '2026-09-25'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 高速ADC/DAC芯片
+  - FPGA/专用ASIC
+  - 精密传感器
+  - 光学元件
+  - 精密机械结构件
+  - 高端PCB
+- id: midstream
+  name: 中游
+  materials:
+  - 电子测量仪器整机（示波器/万用表/频谱仪）
+  - 实验室分析与前处理设备
+  - 智能计量仪表
+- id: downstream
+  name: 下游
+  materials:
+  - 科研院所与高校采购
+  - 半导体/通信研发检测
+  - 汽车电子与新能源测试
+  - 燃气计量运营
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-25 人工确认入观察列表；提议于 2026-09-23，LLM 初判 阶段1-启动期（资金异动（通用设备）+ 涨停个股结构归纳（无研报/公告素材）），积累证据
+  13 条
+timing:
+  current_recommendation: 启动期首板：优先做中游科学仪器整机（优利德、普源精电），上游元器件与下游分销观察补涨机会；谨防一日游分歧，重点跟踪次日封板强度与板块梯队形成情况。
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

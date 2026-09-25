@@ -26,7 +26,10 @@ timing:
   current_recommendation: 关注具备AI功能落地能力和客户基础的SaaS龙头
   next_trigger: null
   risk: null
-tracking_metrics: []
+tracking_metrics:
+- metric: 国产算力/CPU供需缺口（智能体带动，订单排期/交付周期）
+  current: 供需持续趋紧
+  signal_direction: 缺口扩大=智能体放量前导信号，向中游SaaS需求传导
 falsification: []
 chain_relations:
 - target: AI算力产业链
@@ -36,4 +39,8 @@ history:
 - date: '2026-09-23'
   stage: 阶段0-观察
   action: 演化:add_relation 算力供给约束与ROI变现进度构成影响本链部署成本与需求的外部传导关系
+  result: 待验证
+- date: '2026-09-25'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增上游前导节点：智能体驱动的国产算力/CPU供需缺口
   result: 待验证

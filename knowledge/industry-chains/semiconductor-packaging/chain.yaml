@@ -1,0 +1,38 @@
+chain_id: semiconductor-packaging
+name: 半导体封装材料/先进封装产业链
+thesis: 封装材料（引线框架、键合丝、塑封料、IC基板）为封测核心耗材，占封测成本约五成且国产化空间大；封测稼动回升与先进封装扩产直接拉动中游材料量价弹性，并向上游铜带、硅微粉、环氧树脂传导；下游封测厂与芯片设计环节主要受情绪联动。
+last_verified: '2026-09-25'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 高精度铜合金带材
+  - 金/银/铜键合母材
+  - 球形硅微粉
+  - 电子级环氧树脂
+  - BT/ABF载板树脂
+- id: midstream
+  name: 中游
+  materials:
+  - 引线框架
+  - 键合金丝/铜丝
+  - 环氧塑封料（EMC）
+  - IC封装基板/载板
+  - 封装胶粘剂、焊球
+- id: downstream
+  name: 下游
+  materials:
+  - 封测代工产能（Bumping/倒装/2.5D-3D）
+  - 先进封装工艺（Chiplet/FO）
+  - 芯片成品（射频前端/SoC）
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-09-25 人工确认入观察列表；提议于 2026-09-23，LLM 初判 阶段2-加速期（资金异动（半导体涨停3家，康强电子领涨封单1.6亿）+
+  无当日研报素材，按领涨股业务归属归纳产业链），积累证据 28 条
+timing:
+  current_recommendation: 优先做资金已确认的中游封装材料环节（以康强电子为锚），沿上游硅微粉/铜带/环氧树脂及下游封测厂（长电、通富、华天）挖掘低位补涨；慧智微所在射频设计分支为小封单跟风板（20cm、0.1亿封单），观察持续性、不追高。
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

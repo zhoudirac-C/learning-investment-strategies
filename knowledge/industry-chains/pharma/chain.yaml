@@ -32,12 +32,17 @@ segments:
   value_share: ~20%
   barrier: 医保谈判
   trend: 增长
-mappings: []
-current_stage: 阶段0-观察
-stage_confidence: 低
-stage_evidence: license-out持续但股价已部分反映；超跌反弹逻辑；标的映射待补充
+mappings:
+- code: '688192'
+  name: 迪哲医药
+  segment: seg-rd
+  relation: 肺癌创新药WCLC正向数据读出，中游管线重估高弹性标的
+  elasticity: concept
+current_stage: 阶段1-启动期
+stage_confidence: 中
+stage_evidence: 2026-09-24 跟踪更新：西南证券WCLC专题直接命中'临床数据读出'关键节点，正向数据落地强化中游重估，推进至启动期可右侧小仓介入
 timing:
-  current_recommendation: 暂不介入，观察；标的映射待补充
+  current_recommendation: 可介入（右侧确认）
   next_trigger: license-out大单或医保谈判利好
   risk: 反弹后继续阴跌
 tracking_metrics:
@@ -66,4 +71,12 @@ history:
 - date: '2026-09-23'
   stage: 阶段0-观察
   action: 演化:refine_segment 中游研发细化出AI制药/多模态医疗数据新方向
+  result: 待验证
+- date: '2026-09-24'
+  stage: 阶段1-启动期
+  action: WCLC正向数据读出直接命中本链关键节点，可小仓位介入中游肺癌数据受益标的；持续跟踪BD/license-out落地与板块核心标的联动，若联动缺失或大盘破位则退出
+  result: 待验证
+- date: '2026-09-25'
+  stage: 阶段1-启动期
+  action: 演化:add_node 补充WCLC数据受益标的映射，填充'标的映射待补充'缺口
   result: 待验证

@@ -95,6 +95,11 @@ mappings:
   segment: seg-cool
   relation: 数据中心干式变压器/供配电设备，受益整柜功耗跃迁带来的供电需求外溢
   elasticity: concept
+- code: '002536'
+  name: 飞龙股份
+  segment: seg-cool
+  relation: 老牌汽车电子水泵龙头，将水泵技术平移至服务器液冷泵/冷却水泵赛道，填补本链液冷泵环节标的空白，与英维克（系统）/祥鑫科技（冷板）形成部件互补
+  elasticity: concept
 current_stage: 阶段4-见顶期
 stage_confidence: 高
 stage_evidence: 2026-09-07 跟踪更新：双研报确认高密度算力驱动液冷加速渗透，直接命中关键节点，产业链逻辑加强，仍处分歧期等回踩。
@@ -131,6 +136,9 @@ tracking_metrics:
 - metric: 超节点互联方案（NPO/光互联/铜连接）渗透与出货
   current: 华为NPO与昇腾960超节点引领智算互联新变局
   signal_direction: 加速=加强
+- metric: 服务器液冷泵国产供应商突破进展
+  current: 飞龙股份等汽车零部件企业跨界切入，服务器液冷泵新赛道迎来突破（2026-09-23研报）
+  signal_direction: 供应商增多/订单落地=加强液冷渗透率逻辑；同时也提示竞争加剧风险
 falsification:
 - 超节点出货量大幅低于预期
 - CSP资本开支缩减
@@ -204,4 +212,8 @@ history:
 - date: '2026-09-23'
   stage: 阶段4-见顶期
   action: 演化:add_node 新增智算互联（NPO/光互联）跟踪节点
+  result: 待验证
+- date: '2026-09-25'
+  stage: 阶段4-见顶期
+  action: 演化:add_node 新增液冷泵环节标的：飞龙股份跨界切入服务器液冷泵
   result: 待验证

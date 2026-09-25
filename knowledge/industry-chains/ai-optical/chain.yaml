@@ -40,6 +40,13 @@ segments:
   value_share: ~20%
   barrier: CSP资本开支
   trend: 高增长
+- id: seg-interconnect-ic
+  name: 互联芯片与铜互联（Scale-up）
+  materials:
+  - AEC有源电缆
+  - Retimer重定时芯片
+  - PCIe/CXL Switch芯片
+  - 互联DSP芯片
 mappings:
 - code: 002281
   name: 光迅科技
@@ -106,6 +113,12 @@ tracking_metrics:
 - metric: NPO/2.4T新品量产进度
   current: 蓄势待发（预研/推进中）
   signal_direction: 送样或量产落地=加强
+- metric: NPO超节点互联（昇腾首个NPO超节点落地）
+  current: 首次发布/商用起步
+  signal_direction: 加强
+- metric: 硅光晶圆代工扩产与出货（Tower Semiconductor等海外代工厂）
+  current: Tower硅光业务加速放量并扩产支撑盈利增长
+  signal_direction: 硅光代工订单放量/扩产=加强（CPO与1.6T硅光方案上游前导）
 falsification:
 - 800G/1.6T出货量低于预期连续2个季度
 - CSP资本开支缩减，AI基建投资放缓
@@ -149,4 +162,16 @@ history:
 - date: '2026-09-23'
   stage: 阶段3-分歧期
   action: 演化:add_relation 新增以华为昇腾NPO超节点为核心的国产AI互联支线，与英伟达/博通体系并行
+  result: 待验证
+- date: '2026-09-25'
+  stage: 阶段3-分歧期
+  action: 演化:add_node 海外AMD Helios与国产昇腾NPO超节点双线推进，Scale-up互联需求再获交叉验证
+  result: 待验证
+- date: '2026-09-25'
+  stage: 阶段3-分歧期
+  action: 演化:refine_segment Scale-up互联铜光并存，新增互联芯片/铜互联环节
+  result: 待验证
+- date: '2026-09-25'
+  stage: 阶段3-分歧期
+  action: 演化:add_node 新增硅光代工扩产为CPO商业化上游前导节点
   result: 待验证
