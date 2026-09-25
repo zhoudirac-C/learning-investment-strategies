@@ -90,6 +90,25 @@ def parse_run_log(text: str) -> dict:
     return out
 
 
+def fetch_progress() -> tuple[int, int, int]:
+    """全文抓取真进度：以磁盘快照为准（单调递增，重启不归零）。
+    返回 (已有快照数, 目标总数, 近10分钟新增)。"""
+    try:
+        snaps = {p.stem for p in SNAPS.glob("*.md")}
+    except OSError:
+        snaps = set()
+    total = 0
+    try:
+        cands = json.loads(CAND.read_text())
+        total = len({c["target"] for c in cands if c.get("target")})
+    except Exception:  # noqa: BLE001
+        pass
+    import time as _t
+    cutoff = _t.time() - 600
+    recent = sum(1 for p in SNAPS.glob("*.md") if p.stat().st_mtime >= cutoff)
+    return len(snaps), total, recent
+
+
 def llm_health() -> dict:
     try:
         lines = LLM_LOG.read_text().strip().splitlines()[-300:]
@@ -154,17 +173,24 @@ def main() -> None:
         if "select" in info:
             s = info["select"]
             lines.append(f"- 候选帖选择：{s['candidates']} 条（硬层 {s['hard']} / LLM兜底 {s['llm']}）")
+        else:
+            try:
+                cands = json.loads(CAND.read_text())
+                n_llm = sum(1 for c in cands if c.get("match_layer") == "llm_tag")
+                lines.append(f"- 候选帖选择：{len(cands)} 条（硬层 {len(cands)-n_llm} / "
+                             f"LLM兜底 {n_llm}）[断点复用]")
+            except Exception:  # noqa: BLE001
+                pass
         if phase == "llm_tag" and "tag" in info:
             t = info["tag"]
             pct = t["done"] / t["total"] * 100 if t["total"] else 0
             lines.append(f"- 阶段①LLM标签兜底：{t['done']}/{t['total']}（{pct:.0f}%）")
-        elif phase == "fetch" and "fetch" in info:
-            f_ = info["fetch"]
-            pct = f_["done"] / f_["total"] * 100 if f_["total"] else 0
-            lines.append(f"- 阶段②全文抓取：{f_['done']}/{f_['total']}（{pct:.0f}%，"
-                         f"成功 {f_['ok']} / 失败回退 {f_['miss']}）")
-        elif "fetch_done" in info and phase == "judge":
-            pass
+        # 阶段②以磁盘快照为准（单调递增，重启不归零）；日志计数器仅作 miss 参考
+        snaps, total, recent10 = fetch_progress()
+        if total and (phase in ("fetch", "judge", "judge_done") or snaps):
+            pct = snaps / total * 100 if total else 0
+            lines.append(f"- 阶段②全文抓取：{snaps}/{total}（{pct:.0f}%，近10min +{recent10}，"
+                         f"~{recent10*6}/h）")
         if phase == "judge" and "judge" in info:
             j = info["judge"]
             pct = j["done"] / j["total"] * 100 if j["total"] else 0
@@ -182,12 +208,10 @@ def main() -> None:
                      f"（tag {health['tag_1h']} + judge {health['judge_1h']}），"
                      f"当前主用模型 {health['last_model']}")
     try:
-        n_snap = len(list(SNAPS.glob("*.md")))
+        n_verdicts = len(list(VERDICTS.glob("[0-9]*.json"))) if VERDICTS.exists() else 0
     except OSError:
-        n_snap = 0
-    n_verdicts = len(list(VERDICTS.glob("[0-9]*.json"))) if VERDICTS.exists() else 0
-    lines.append(f"- 落盘：全文快照 {n_snap} | verdicts {n_verdicts} 人 | "
-                 f"主日志告警行 {info['errors']}")
+        n_verdicts = 0
+    lines.append(f"- 落盘：verdicts {n_verdicts} 人 | 主日志告警行 {info['errors']}")
     print("\n".join(lines))
 
 
