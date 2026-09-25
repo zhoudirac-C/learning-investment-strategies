@@ -68,8 +68,9 @@ RISK_TAIL_RE = re.compile(r"风险提示：用户发表的所有文章.*$", re.S
 SOURCE_LINE_RE = re.compile(r"^来源：雪球App[^）]*）", re.S)
 
 WORKBUDDY_CHAIN = [
-    "workbuddy:deepseek-v4.1-flash",
+    # 2026-09-24 用户拍板：主模型切 glm-5.3-flash（全局默认一致），deepseek 系降为兜底
     "workbuddy:glm-5.3-flash",
+    "workbuddy:deepseek-v4.1-flash",
     "workbuddy:deepseek-v4-flash",
     "workbuddy:deepseek-v4-pro",
 ]
@@ -697,6 +698,8 @@ def main() -> None:
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--uid", type=str, default=None)
     ap.add_argument("--no-llm", action="store_true", help="select 阶段跳过 LLM 兜底")
+    ap.add_argument("--redo-select", action="store_true",
+                    help="忽略已有 candidates_posts.json 强制重跑 select（含 LLM 标签兜底）")
     args = ap.parse_args()
 
     if args.rank:
@@ -714,7 +717,12 @@ def main() -> None:
     if CAND_OUT.exists() and (args.fetch_only or args.judge_only):
         candidates = json.loads(CAND_OUT.read_text())
     if not (args.fetch_only or args.judge_only):
-        candidates = step_select(client)
+        if CAND_OUT.exists() and not args.redo_select:
+            # 断点语义：select+标签兜底已完成（可能数千次 LLM 调用），不重跑
+            candidates = json.loads(CAND_OUT.read_text())
+            log(f"候选帖已存在，跳过 select/标签兜底（{len(candidates)} 条；--redo-select 强制重跑）")
+        else:
+            candidates = step_select(client)
     if args.select_only:
         return
     if not args.judge_only:
