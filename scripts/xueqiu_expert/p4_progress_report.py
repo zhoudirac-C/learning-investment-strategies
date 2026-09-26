@@ -187,15 +187,26 @@ def main() -> None:
             lines.append(f"- 阶段①LLM标签兜底：{t['done']}/{t['total']}（{pct:.0f}%）")
         # 阶段②以磁盘快照为准（单调递增，重启不归零）；日志计数器仅作 miss 参考
         snaps, total, recent10 = fetch_progress()
-        if total and (phase in ("fetch", "judge", "judge_done") or snaps):
+        if "fetch_done" in info:
+            # 阶段②已收尾：显示终态，不再打印误导性的"+0"速率
+            f = info["fetch_done"]
+            done_total = f["new"] + f["miss"] + f["skip"]
+            lines.append(f"- 阶段②全文抓取：✅ 已完成（新增 {f['new']} / 失败 {f['miss']}"
+                         f"→回退摘要判定 / 已有 {f['skip']}，共 {done_total}；"
+                         f"快照落盘 {snaps}）")
+        elif total and (phase in ("fetch", "judge", "judge_done") or snaps):
             pct = snaps / total * 100 if total else 0
             lines.append(f"- 阶段②全文抓取：{snaps}/{total}（{pct:.0f}%，近10min +{recent10}，"
                          f"~{recent10*6}/h）")
         if phase == "judge" and "judge" in info:
             j = info["judge"]
             pct = j["done"] / j["total"] * 100 if j["total"] else 0
+            eta = ""
+            if health.get("judge_1h") and j["done"]:
+                remain = j["total"] - j["done"]
+                eta = f"，按近1h速率剩 ~{remain / health['judge_1h']:.0f}h"
             lines.append(f"- 阶段③LLM判定：{j['done']}/{j['total']}（{pct:.0f}%，"
-                         f"命中帖 {j['hit']}）")
+                         f"命中帖 {j['hit']}{eta}）")
         if info["phase"] == "judge_done":
             lines.append("- 阶段③LLM判定已完成，等待汇总/评分")
 
