@@ -17,6 +17,7 @@ LLM 兜底链（2026-09-24 用户拍板）：
   python verdict_pipeline.py --select-only           # 只跑候选帖选择（纯函数+LLM标签兜底）
   python verdict_pipeline.py --fetch-only            # 只抓全文快照（断点续跑）
   python verdict_pipeline.py --judge-only            # 只跑 LLM 判定（断点续跑）
+  python verdict_pipeline.py --judge-only --redo-judge  # 归档旧判定并按当前 prompt 重判
   python verdict_pipeline.py                         # 全流程 select → tag → fetch → judge
   python verdict_pipeline.py --rank                  # P5：读 verdicts/ 评 TOP20
   python verdict_pipeline.py --sample-review         # 生成 TOP20+中腰部人工复核清单
@@ -59,6 +60,7 @@ LLM_LOG = REPO / "logs" / "llm_calls_p4.jsonl"
 SAMPLE_TOP_N = 20
 SAMPLE_MID_N = 10
 SAMPLE_SEED = 20260927
+JUDGE_PROMPT_VERSION = "2026-09-27-strict"
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36")
@@ -186,7 +188,37 @@ def parse_llm_json(raw: str) -> dict | None:
         data = json.loads(text)
         return data if isinstance(data, dict) else None
     except json.JSONDecodeError:
+        pass
+    # glm-5.3-flash 偶尔先推理后给 JSON：提取第一个平衡大括号对象。
+    start = text.find("{")
+    if start < 0:
         return None
+    depth = 0
+    in_str = False
+    esc = False
+    for i in range(start, len(text)):
+        ch = text[i]
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+            continue
+        if ch == '"':
+            in_str = True
+        elif ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                try:
+                    data = json.loads(text[start:i + 1])
+                    return data if isinstance(data, dict) else None
+                except json.JSONDecodeError:
+                    return None
+    return None
 
 
 def score_expert(hits: list[dict], total_original_posts: int) -> dict:
@@ -489,8 +521,11 @@ def step_select(client) -> list[dict]:
                 f"{j}. [{b['date']}] {(b['title'] + ' ' + b['description'])[:160]}"
                 for j, b in enumerate(batch))
             prompt = (
-                "以下每条是雪球用户帖子的开头片段。判断每条主要讨论的行业/主题，"
-                "从候选板块清单中选（可多选，精确匹配清单原文；与清单都无关则空数组）。\n"
+                "以下每条是雪球用户帖子的开头片段。只允许给“明确讨论”的候选板块打标签：\n"
+                "1) 精确出现候选板块名，或无歧义的核心产业链/核心标的；\n"
+                "2) 禁止把泛AI/泛科技/泛制造/泛资源/国产替代/趋势方法论/指数研究映射到窄板块；\n"
+                "3) 个股只有在帖子围绕其基本面/订单/景气/政策且该股是板块核心代表时才可映射；\n"
+                "4) 拿不准一律空数组，宁可漏不可错。\n"
                 f"候选板块清单：\n{sector_list}\n\n帖子：\n{lines}\n\n"
                 '只输出 JSON：{"items": [{"i": 0, "sectors": ["板块名"]}]}')
             raw = call_llm(client, prompt, kind="tag")
@@ -550,8 +585,24 @@ def step_fetch(candidates: list[dict], limit: int = 0, uid: str | None = None) -
     log(f"全文完成：新增 {ok}，失败 {miss}（回退摘要判定），已有 {skip}")
 
 
+def build_judge_prompt(candidate: dict, text: str) -> str:
+    secs = "、".join(candidate["sectors"])
+    return (
+        f"以下是雪球用户 {candidate['date']} 的帖子全文。针对板块【{secs}】逐个严格判定：\n"
+        "bullish 必须同时满足：①文本明确落在该板块本身/核心产业链/核心标的；"
+        "②有前瞻看多、看好、看涨、买入、加仓、布局、景气向上、明确受益等态度。\n"
+        "若文本只讨论个股，但该股业务/名称明显属于某候选板块（如锂矿股之于能源金属），按该板块表态判断；否则不要硬映射。\n"
+        "以下一律 neutral：只提及或讨论事实；泛AI/泛科技/泛制造/泛资源/国产替代/趋势方法论/指数研究；"
+        "个股短句情绪（牛逼/龙头强/没跌多少）但无明确买入加仓；看多的是别的板块；"
+        "转发/调研/访谈没有作者明确背书；对个股质疑、相对强弱、兑现讨论。\n"
+        "bearish 仅在明确看空/卖出/提示该板块风险时给出。拿不准一律 neutral。\n"
+        "禁止输出任何思考、理由、英文、Markdown 或多余字符；只输出一行 JSON。\n\n"
+        f"帖子：\n{text}\n\n"
+        '只输出 JSON：{"stance": {"板块名": "bullish|bearish|neutral"}}')
+
+
 def step_judge(client, candidates: list[dict], limit: int = 0,
-               uid: str | None = None) -> None:
+               uid: str | None = None, redo: bool = False) -> None:
     """LLM 看多/中性/看空（按帖 × 其候选板块）→ verdicts/{uid}.json。"""
     VERDICTS_DIR.mkdir(parents=True, exist_ok=True)
     event_index, _ = load_inputs()
@@ -562,16 +613,26 @@ def step_judge(client, candidates: list[dict], limit: int = 0,
     # 断点：已判定 target 集合（含无命中帖，避免重跑重复判定）
     prog_file = VERDICTS_DIR / "_judge_progress.json"
     done_targets: set[str] = set()
-    if prog_file.exists():
-        try:
-            done_targets = set(json.loads(prog_file.read_text()))
-        except Exception:  # noqa: BLE001
-            done_targets = set()
-    for f in VERDICTS_DIR.glob("[0-9]*.json"):
-        try:
-            done_targets |= {h["target"] for h in json.loads(f.read_text()).get("hits", [])}
-        except Exception:  # noqa: BLE001
-            continue
+    if redo:
+        archive = VERDICTS_DIR / f"_archive_{datetime.now():%Y%m%d_%H%M%S}"
+        old_files = list(VERDICTS_DIR.glob("[0-9]*.json"))
+        if old_files:
+            archive.mkdir(parents=True, exist_ok=True)
+            for f in old_files:
+                f.rename(archive / f.name)
+        prog_file.unlink(missing_ok=True)
+        log(f"redo-judge：归档旧 verdicts {len(old_files)} 个 → {archive.name}，按新 prompt 重判 {len(todo)} 帖")
+    else:
+        if prog_file.exists():
+            try:
+                done_targets = set(json.loads(prog_file.read_text()))
+            except Exception:  # noqa: BLE001
+                done_targets = set()
+        for f in VERDICTS_DIR.glob("[0-9]*.json"):
+            try:
+                done_targets |= {h["target"] for h in json.loads(f.read_text()).get("hits", [])}
+            except Exception:  # noqa: BLE001
+                continue
     by_uid: dict[str, dict] = {}
     n_hit = n_no = 0
     for i, c in enumerate(todo, 1):
@@ -579,22 +640,17 @@ def step_judge(client, candidates: list[dict], limit: int = 0,
             continue
         sp = snapshot_path(c["target"], c["date"])
         if c.get("judged_on") != "trunc" and sp.exists():
-            text = sp.read_text(errors="replace")[:6000]
+            text = sp.read_text(errors="replace")[:4000]
         else:
             text = ((c["title"] + " ") + c["description"])[:1000]
             c["judged_on"] = "trunc"
-        secs = "、".join(c["sectors"])
-        prompt = (
-            f"以下是雪球用户 {c['date']} 的帖子全文。针对板块【{secs}】：\n"
-            "判断作者在发帖时对每个板块（或其核心个股/产业链）的态度：\n"
-            "- bullish=明确看多/看好/看涨/建议买入布局\n"
-            "- bearish=明确看空/看淡/提示风险卖出\n"
-            "- neutral=仅提及、讨论事实、态度不明\n\n"
-            f"帖子：\n{text}\n\n"
-            '只输出 JSON：{"stance": {"板块名": "bullish|bearish|neutral"}}')
+        prompt = build_judge_prompt(c, text)
         raw = call_llm(client, prompt, kind="judge")
         data = parse_llm_json(raw) if raw else None
         stances = (data or {}).get("stance") or {}
+        if not stances and isinstance(data, dict):
+            stances = {k: v for k, v in data.items()
+                       if str(v).lower() in {"bullish", "bearish", "neutral"}}
         rec = by_uid.setdefault(c["uid"], {
             "uid": c["uid"], "screen_name": c["screen_name"], "source": c["source"],
             "posts_total": 0, "original_total": 0, "hits": []})
@@ -832,6 +888,7 @@ def step_sample_review(top_n: int = SAMPLE_TOP_N, mid_n: int = SAMPLE_MID_N,
             "judged_on": hit.get("judged_on", ""),
             "excerpt": _review_excerpt(hit),
             "machine_verdict": "bullish",
+            "prompt_version": JUDGE_PROMPT_VERSION,
             "human_verdict": "",
             "human_notes": "",
             "review_checks": {
@@ -842,7 +899,7 @@ def step_sample_review(top_n: int = SAMPLE_TOP_N, mid_n: int = SAMPLE_MID_N,
             },
         }
         old = existing_review.get((target, str(hit.get("sector") or "")))
-        if old:
+        if old and old.get("prompt_version") == JUDGE_PROMPT_VERSION:
             row["human_verdict"] = old.get("human_verdict", "")
             row["human_notes"] = old.get("human_notes", "")
             row["review_checks"] = old.get("review_checks", row["review_checks"])
@@ -865,8 +922,10 @@ def step_rank() -> list[dict]:
     human_file = VERDICTS_DIR / "_sample_review.json"
     if human_file.exists():
         rows = json.loads(human_file.read_text())
-        judged = [r for r in rows if r.get("human_verdict")]
+        current = [r for r in rows if r.get("prompt_version") == JUDGE_PROMPT_VERSION]
+        judged = [r for r in current if r.get("human_verdict")]
         errors = sum(1 for r in judged if r["human_verdict"] != r["machine_verdict"])
+        rows = current or rows
     report = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "experts_evaluated": len(verdicts),
@@ -898,6 +957,8 @@ def main() -> None:
     ap.add_argument("--no-llm", action="store_true", help="select 阶段跳过 LLM 兜底")
     ap.add_argument("--redo-select", action="store_true",
                     help="忽略已有 candidates_posts.json 强制重跑 select（含 LLM 标签兜底）")
+    ap.add_argument("--redo-judge", action="store_true",
+                    help="归档旧 verdicts 并按当前 prompt 强制重跑 judge")
     args = ap.parse_args()
 
     if args.rank:
@@ -927,7 +988,7 @@ def main() -> None:
         step_fetch(candidates, limit=args.limit, uid=args.uid)
     if args.select_only or args.fetch_only:
         return
-    step_judge(client, candidates, limit=args.limit, uid=args.uid)
+    step_judge(client, candidates, limit=args.limit, uid=args.uid, redo=args.redo_judge)
     step_rank()
 
 
