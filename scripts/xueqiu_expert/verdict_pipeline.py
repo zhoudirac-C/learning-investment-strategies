@@ -19,12 +19,13 @@ LLM 兜底链（2026-09-24 用户拍板）：
   python verdict_pipeline.py --judge-only            # 只跑 LLM 判定（断点续跑）
   python verdict_pipeline.py                         # 全流程 select → tag → fetch → judge
   python verdict_pipeline.py --rank                  # P5：读 verdicts/ 评 TOP20
-  python verdict_pipeline.py --sample-review         # 生成 20 条人工复核清单
+  python verdict_pipeline.py --sample-review         # 生成 TOP20+中腰部人工复核清单
   python verdict_pipeline.py --limit 3 --uid 123     # 试跑
 产出：
   data/xueqiu/candidates_posts.json     # 窗口内候选帖（含命中板块与来源层）
   data/xueqiu/verdicts/{uid}.json       # 每人命中明细
   data/xueqiu/verdicts/_sample_review.json
+  data/xueqiu/expert_acceptance_review.md
   data/xueqiu/expert_ranking.json       # P5 TOP20
   sources/raw/xueqiu/{date}-{uid}-{id}.md   # 命中帖全文快照
   logs/llm_calls_p4.jsonl               # LLM 调用落账
@@ -53,7 +54,11 @@ VERDICTS_DIR = DATA / "verdicts"
 SNAP_DIR = REPO / "sources" / "raw" / "xueqiu"
 CAND_OUT = DATA / "candidates_posts.json"
 RANKING_OUT = DATA / "expert_ranking.json"
+REVIEW_MD_OUT = DATA / "expert_acceptance_review.md"
 LLM_LOG = REPO / "logs" / "llm_calls_p4.jsonl"
+SAMPLE_TOP_N = 20
+SAMPLE_MID_N = 10
+SAMPLE_SEED = 20260927
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36")
@@ -634,26 +639,201 @@ def step_judge(client, candidates: list[dict], limit: int = 0,
     log(f"判定完成：判定帖 {len(todo)}，覆盖 {len(by_uid)} 人 → verdicts/")
 
 
-def step_sample_review(n: int = 20) -> Path:
-    """人工复核清单：分层抽样（bullish 判定 + 各渠道）。"""
-    hits = []
-    for f in VERDICTS_DIR.glob("[0-9]*.json"):
-        d = json.loads(f.read_text())
-        for h in d.get("hits", []):
-            hits.append({**h, "uid": d["uid"], "screen_name": d["screen_name"]})
-    random.seed(42)
-    sample = random.sample(hits, min(n, len(hits)))
-    out = []
-    for h in sample:
-        sp = SNAP_DIR / h["snapshot"]
-        excerpt = sp.read_text(errors="replace")[:600] if sp.exists() else "(无快照)"
-        out.append({"uid": h["uid"], "screen_name": h["screen_name"],
-                    "date": h["date"], "sector": h["sector"], "tier": h["tier"],
-                    "target": h["target"], "excerpt": excerpt,
-                    "machine_verdict": "bullish", "human_verdict": ""})
+def _to_float(value: Any) -> float:
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def _hit_priority(hit: dict, prefer_tier: str = "strong") -> tuple:
+    """复核样本优先级：指定档位 > 有快照 > 提前天数更长 > 板块涨幅更大。"""
+    return (
+        1 if hit.get("tier") == prefer_tier else 0,
+        1 if hit.get("snapshot") else 0,
+        int(hit.get("lead_days") or 0),
+        _to_float(hit.get("max_gain_20d")),
+        str(hit.get("date") or ""),
+        str(hit.get("target") or ""),
+    )
+
+
+def _pick_hit(hits: list[dict], used_targets: set[str],
+              prefer_tier: str = "strong") -> dict | None:
+    for hit in sorted(hits, key=lambda h: _hit_priority(h, prefer_tier), reverse=True):
+        target = hit.get("target")
+        if target and target not in used_targets:
+            return hit
+    return None
+
+
+def _review_excerpt(hit: dict, limit: int = 600) -> str:
+    snapshot = hit.get("snapshot") or ""
+    if not snapshot:
+        return "(无快照)"
+    sp = SNAP_DIR / snapshot
+    if not sp.exists():
+        return "(快照缺失)"
+    return sp.read_text(errors="replace")[:limit]
+
+
+def _md_cell(value: Any) -> str:
+    return str(value if value is not None else "").replace("|", "\\|").replace("\n", " ")
+
+
+def _write_acceptance_review_md(rows: list[dict], top_rows: list[dict]) -> Path:
+    """生成可勾选验收表：先专家级验收 TOP20，再逐条复核抽样命中。"""
+    rid_by_uid = {str(r.get("uid")): r.get("review_id", "") for r in rows}
+    lines = [
+        "# 雪球大牛回测 TOP20 验收与抽样复核",
+        "",
+        f"- 生成时间：{datetime.now().isoformat(timespec='seconds')}",
+        f"- 机器可读复核表：`data/xueqiu/verdicts/_sample_review.json`（填 `human_verdict` 后重跑 `--rank` 更新误差率）",
+        "- 抽样口径：TOP20 每专家 1 条代表命中 + 21~80 名中腰部随机 10 人各 1 条；每 3 个专家优先抽 1 条中命中，固定随机种子 = 20260927",
+        "",
+        "## 一、TOP20 名单验收清单（专家级）",
+        "",
+        "- [ ] 逐项确认：排名是否符合直觉；若某专家明显不应进入 TOP20，在备注写原因并勾选“剔除/降权”。",
+        "",
+        "| 验收 | rank | 专家 | uid | source | coverage | 综合 | 强/中 | 跨板块 | 密度 | 命中帖 | 复核样本 | 处理 | 备注 |",
+        "|---|---:|---|---|---|---|---:|---:|---:|---:|---:|---|---|---|",
+    ]
+    for r in top_rows:
+        uid = str(r.get("uid"))
+        lines.append(
+            "| [ ] | "
+            + " | ".join([
+                str(r.get("rank", "")),
+                _md_cell(r.get("screen_name", "")),
+                _md_cell(uid),
+                _md_cell(r.get("source", "")),
+                _md_cell(r.get("coverage_note", "")),
+                str(r.get("composite", "")),
+                f"{r.get('strong', 0)}/{r.get('mid', 0)}",
+                str(r.get("persist", "")),
+                str(r.get("density", "")),
+                str(len(r.get("hits", []))),
+                _md_cell(rid_by_uid.get(uid, "")),
+                "保留/降权/剔除",
+                "",
+            ])
+            + " |"
+        )
+
+    lines += [
+        "",
+        "## 二、抽样复核表（逐条判定）",
+        "",
+        "填写规则：`human_verdict` 只填 `bullish` / `bearish` / `neutral`；与 `machine_verdict` 不一致即计 1 条误差。",
+        "重点看 4 件事：①是否明确看多；②是否对应同一板块/核心产业链；③发帖日是否在启动前 3~21 天；④快照是否可用。",
+        "",
+        "| 完成 | review_id | bucket | rank | 专家 | date | sector | tier | lead | gain20d | machine | human | snapshot | 原文 |",
+        "|---|---|---|---:|---|---|---|---|---:|---:|---|---|---|---|",
+    ]
+    for r in rows:
+        url = r.get("url") or ""
+        lines.append(
+            "| [ ] | "
+            + " | ".join([
+                _md_cell(r.get("review_id", "")),
+                _md_cell(r.get("sample_bucket", "")),
+                str(r.get("rank", "")),
+                _md_cell(r.get("screen_name", "")),
+                _md_cell(r.get("date", "")),
+                _md_cell(r.get("sector", "")),
+                _md_cell(r.get("tier", "")),
+                str(r.get("lead_days", "")),
+                str(r.get("max_gain_20d", "")),
+                _md_cell(r.get("machine_verdict", "")),
+                "",
+                _md_cell(r.get("snapshot", "")),
+                f"[link]({url})" if url else "",
+            ])
+            + " |"
+        )
+
+    lines += [
+        "",
+        "## 三、摘录（复核时先看这里，不够再点原文/快照）",
+        "",
+    ]
+    for r in rows:
+        lines += [
+            f"### {r.get('review_id')} | {r.get('screen_name')} | {r.get('date')} | {r.get('sector')} | {r.get('tier')}",
+            "",
+            _md_cell(r.get("excerpt", ""))[:900],
+            "",
+        ]
+
+    REVIEW_MD_OUT.write_text("\n".join(lines) + "\n")
+    return REVIEW_MD_OUT
+
+
+def step_sample_review(top_n: int = SAMPLE_TOP_N, mid_n: int = SAMPLE_MID_N,
+                       seed: int = SAMPLE_SEED) -> Path:
+    """人工复核清单：TOP20 全覆盖 + 中腰部随机补样，输出 JSON+Markdown。"""
+    verdicts = [json.loads(f.read_text())
+                for f in VERDICTS_DIR.glob("[0-9]*.json")]
+    if not verdicts:
+        raise RuntimeError("verdicts/ 为空，无法生成复核清单")
+    ranked = rank_all(verdicts, top_n=len(verdicts))
+    by_uid = {str(v.get("uid")): v for v in verdicts}
+
+    selected: list[tuple[dict, str]] = [(r, "top20") for r in ranked[:top_n]]
+    mid_pool = [r for r in ranked[top_n:] if r.get("hits") and r.get("rank", 999) <= 80]
+    if not mid_pool:
+        mid_pool = [r for r in ranked[top_n:] if r.get("hits")]
+    rng = random.Random(seed)
+    selected += [(r, "mid_random")
+                 for r in rng.sample(mid_pool, min(mid_n, len(mid_pool)))]
+
+    rows: list[dict] = []
+    used_targets: set[str] = set()
+    for idx, (r, bucket) in enumerate(selected, 1):
+        uid = str(r.get("uid"))
+        expert = by_uid.get(uid, r)
+        prefer_tier = "mid" if idx % 3 == 0 else "strong"
+        hit = _pick_hit(expert.get("hits", []), used_targets, prefer_tier=prefer_tier)
+        if not hit:
+            continue
+        target = str(hit.get("target") or "")
+        if not target:
+            continue
+        used_targets.add(target)
+        url = ("https://www.xueqiu.com" + target) if target.startswith("/") else target
+        rows.append({
+            "review_id": f"R{len(rows) + 1:02d}",
+            "sample_bucket": bucket,
+            "rank": r.get("rank"),
+            "uid": uid,
+            "screen_name": r.get("screen_name") or expert.get("screen_name", ""),
+            "source": r.get("source") or expert.get("source", ""),
+            "coverage_note": r.get("coverage_note") or expert.get("coverage_note", ""),
+            "date": hit.get("date"),
+            "sector": hit.get("sector"),
+            "tier": hit.get("tier"),
+            "lead_days": hit.get("lead_days"),
+            "max_gain_20d": hit.get("max_gain_20d"),
+            "target": target,
+            "url": url,
+            "snapshot": hit.get("snapshot", ""),
+            "judged_on": hit.get("judged_on", ""),
+            "excerpt": _review_excerpt(hit),
+            "machine_verdict": "bullish",
+            "human_verdict": "",
+            "human_notes": "",
+            "review_checks": {
+                "direction_is_bullish": "",
+                "sector_match": "",
+                "date_in_window": "",
+                "snapshot_usable": "",
+            },
+        })
+
     path = VERDICTS_DIR / "_sample_review.json"
-    path.write_text(json.dumps(out, ensure_ascii=False, indent=1))
-    log(f"人工复核清单 {len(out)} 条 → {path}")
+    path.write_text(json.dumps(rows, ensure_ascii=False, indent=1))
+    md_path = _write_acceptance_review_md(rows, ranked[:top_n])
+    log(f"人工复核清单 {len(rows)} 条 → {path}；验收表 → {md_path}")
     return path
 
 
