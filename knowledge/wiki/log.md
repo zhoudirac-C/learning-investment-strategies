@@ -2618,3 +2618,13 @@
 - 产出：`knowledge/claims/claim-20260927-001.yaml`（29 条，001-a~ac）；wiki：`knowledge/wiki/每日复盘/2026-09-27-青枫浦上Q复盘专栏.md`
 - 股票代码：康强电子 002119 / 沃格光电 603773 / 帝尔激光 300776(创业板) / 托伦斯 301583(创业板)
 - index 补登：claims/index.md +1 条；wiki/index.md +1 条
+
+## 2026-09-28 00:30 Mark__Huang 9/27 晚间图片动态 claim 提取（C2 管线）
+
+- Raw：`sources/original/bilibili/2026-09-27-2305-图片-分享图片.md`（dynamic_id 1252769439752912897，充电专属图片动态，is_only_fans=true；观点来源=`## 图片 OCR 识别` 段）
+- 管线 session：20260928_002708_d36094，Gate 1/2/3 一次通过
+- 提取门槛执行：15 条真观点（市场定性/资金结构 3、操作与仓位 4、偏好产业方向 3、压低预期方向 4、个股 2）；油价/通胀/房价/AI工具等事实或未明方向段未单提
+- 产出：`knowledge/claims/claim-20260927-002.yaml`（15 条，002-a~o）；wiki：`knowledge/wiki/每日复盘/2026-09-27-Mark__Huang.md`
+- 股票代码：飞凯材料 300398(创业板) / 国瓷材料 300285(创业板) / 光智科技 300489(创业板) / 博杰股份 002975 / 成都先导 688222(科创板) / 阳光电源 300274(创业板) / 禾望电气 603063 / 潍柴动力 000338 / 东威科技 688700(科创板)
+- index 补登：claims/index.md +1 条；wiki/index.md +1 条；每日复盘/index.md +1 条
+- 下游管线（discover/Neo4j/Qdrant）未执行（P4 redo-judge 正在占用 LLM 通道，待用户指示或 P4 完成后补跑）
