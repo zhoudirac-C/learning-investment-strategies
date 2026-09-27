@@ -17,7 +17,7 @@ LLM 兜底链（2026-09-24 用户拍板）：
   python verdict_pipeline.py --select-only           # 只跑候选帖选择（纯函数+LLM标签兜底）
   python verdict_pipeline.py --fetch-only            # 只抓全文快照（断点续跑）
   python verdict_pipeline.py --judge-only            # 只跑 LLM 判定（断点续跑）
-  python verdict_pipeline.py --judge-only --redo-judge  # 归档旧判定并按当前 prompt 重判
+  python verdict_pipeline.py --judge-only --redo-judge --concurrency 6  # 归档旧判定并并发重判
   python verdict_pipeline.py                         # 全流程 select → tag → fetch → judge
   python verdict_pipeline.py --rank                  # P5：读 verdicts/ 评 TOP20
   python verdict_pipeline.py --sample-review         # 生成 TOP20+中腰部人工复核清单
@@ -40,8 +40,10 @@ import random
 import re
 import subprocess
 import sys
+import threading
 import time
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
@@ -57,6 +59,7 @@ CAND_OUT = DATA / "candidates_posts.json"
 RANKING_OUT = DATA / "expert_ranking.json"
 REVIEW_MD_OUT = DATA / "expert_acceptance_review.md"
 LLM_LOG = REPO / "logs" / "llm_calls_p4.jsonl"
+_LLM_LOG_LOCK = threading.Lock()
 SAMPLE_TOP_N = 20
 SAMPLE_MID_N = 10
 SAMPLE_SEED = 20260927
@@ -355,9 +358,11 @@ def make_llm_client() -> ChainClient:
 
 def _llm_log(record: dict) -> None:
     LLM_LOG.parent.mkdir(parents=True, exist_ok=True)
-    with LLM_LOG.open("a") as f:
-        f.write(json.dumps({"ts": datetime.now().isoformat(timespec="seconds"),
-                            **record}, ensure_ascii=False) + "\n")
+    line = json.dumps({"ts": datetime.now().isoformat(timespec="seconds"),
+                       **record}, ensure_ascii=False) + "\n"
+    with _LLM_LOG_LOCK:
+        with LLM_LOG.open("a") as f:
+            f.write(line)
 
 
 def call_llm(client, prompt: str, *, kind: str, max_tokens: int = 2000,
@@ -602,78 +607,54 @@ def build_judge_prompt(candidate: dict, text: str) -> str:
 
 
 def step_judge(client, candidates: list[dict], limit: int = 0,
-               uid: str | None = None, redo: bool = False) -> None:
-    """LLM 看多/中性/看空（按帖 × 其候选板块）→ verdicts/{uid}.json。"""
+               uid: str | None = None, redo: bool = False,
+               concurrency: int = 1) -> None:
+    """LLM 看多/中性/看空（按帖 × 其候选板块）→ verdicts/{uid}.json。
+
+    可控并发版：每帖判定结果先落 `_judge_records.jsonl`，结束时按 records
+    重建 verdicts；中断后不带 --redo-judge 续跑可从 records/progress 恢复。
+    """
     VERDICTS_DIR.mkdir(parents=True, exist_ok=True)
     event_index, _ = load_inputs()
-    todo = [c for c in candidates
-            if c.get("sectors") and (uid is None or c["uid"] == uid)]
-    if limit:
-        todo = todo[:limit]
-    # 断点：已判定 target 集合（含无命中帖，避免重跑重复判定）
     prog_file = VERDICTS_DIR / "_judge_progress.json"
+    records_file = VERDICTS_DIR / "_judge_records.jsonl"
     done_targets: set[str] = set()
+
     if redo:
         archive = VERDICTS_DIR / f"_archive_{datetime.now():%Y%m%d_%H%M%S}"
         old_files = list(VERDICTS_DIR.glob("[0-9]*.json"))
+        for f in (records_file, prog_file):
+            if f.exists():
+                old_files.append(f)
         if old_files:
             archive.mkdir(parents=True, exist_ok=True)
             for f in old_files:
                 f.rename(archive / f.name)
-        prog_file.unlink(missing_ok=True)
-        log(f"redo-judge：归档旧 verdicts {len(old_files)} 个 → {archive.name}，按新 prompt 重判 {len(todo)} 帖")
+        log(f"redo-judge：归档旧判定产物 {len(old_files)} 个 → {archive.name}")
     else:
         if prog_file.exists():
             try:
                 done_targets = set(json.loads(prog_file.read_text()))
             except Exception:  # noqa: BLE001
                 done_targets = set()
+        if records_file.exists():
+            for line in records_file.read_text(errors="replace").splitlines():
+                try:
+                    done_targets.add(json.loads(line)["target"])
+                except Exception:  # noqa: BLE001
+                    continue
         for f in VERDICTS_DIR.glob("[0-9]*.json"):
             try:
                 done_targets |= {h["target"] for h in json.loads(f.read_text()).get("hits", [])}
             except Exception:  # noqa: BLE001
                 continue
-    by_uid: dict[str, dict] = {}
-    n_hit = n_no = 0
-    for i, c in enumerate(todo, 1):
-        if c["target"] in done_targets:
-            continue
-        sp = snapshot_path(c["target"], c["date"])
-        if c.get("judged_on") != "trunc" and sp.exists():
-            text = sp.read_text(errors="replace")[:4000]
-        else:
-            text = ((c["title"] + " ") + c["description"])[:1000]
-            c["judged_on"] = "trunc"
-        prompt = build_judge_prompt(c, text)
-        raw = call_llm(client, prompt, kind="judge")
-        data = parse_llm_json(raw) if raw else None
-        stances = (data or {}).get("stance") or {}
-        if not stances and isinstance(data, dict):
-            stances = {k: v for k, v in data.items()
-                       if str(v).lower() in {"bullish", "bearish", "neutral"}}
-        rec = by_uid.setdefault(c["uid"], {
-            "uid": c["uid"], "screen_name": c["screen_name"], "source": c["source"],
-            "posts_total": 0, "original_total": 0, "hits": []})
-        done_targets.add(c["target"])
-        if i % 50 == 0:
-            prog_file.write_text(json.dumps(sorted(done_targets)))
-        hit_any = False
-        post_day = parse_post_date(c["date"])
-        for sec in c["sectors"]:
-            if str(stances.get(sec, "")).lower() == "bullish" and post_day:
-                for h in find_window_hits(event_index, sec, post_day):
-                    rec["hits"].append({**h, "target": c["target"], "date": c["date"],
-                                        "judged_on": c["judged_on"],
-                                        "snapshot": sp.name if sp.exists() else ""})
-                    hit_any = True
-        n_hit += hit_any
-        n_no += not hit_any
-        if i % 100 == 0:
-            log(f"判定进度 {i}/{len(todo)}（有命中帖 {n_hit} / 无 {n_no}）")
-        time.sleep(JUDGE_SLEEP)
 
-    prog_file.write_text(json.dumps(sorted(done_targets)))
-    # 汇总落盘（补 posts 统计）
+    todo = [c for c in candidates
+            if c.get("sectors") and (uid is None or c["uid"] == uid)
+            and c.get("target") and c["target"] not in done_targets]
+    if limit:
+        todo = todo[:limit]
+
     stats: dict[str, dict] = {}
     for f in POSTS_DIR.glob("*.json"):
         d = json.loads(f.read_text())
@@ -684,6 +665,96 @@ def step_judge(client, candidates: list[dict], limit: int = 0,
             "posts_total": len(ps),
             "original_total": sum(1 for p in ps if is_original(p)),
             "status": d.get("status", "")}
+
+    specs = build_chain_specs()
+    if not specs:
+        raise RuntimeError("LLM 兜底链为空，无法 judge")
+    log("judge LLM 兜底链: " + " → ".join(s["label"] for s in specs))
+    log(f"judge 并发度: {max(1, concurrency)}；待判定 {len(todo)} 帖（跳过已完成 {len(done_targets)}）")
+
+    tls = threading.local()
+
+    def get_client() -> ChainClient:
+        if not hasattr(tls, "client"):
+            tls.client = ChainClient(specs)
+        return tls.client
+
+    record_lock = threading.Lock()
+    state_lock = threading.Lock()
+    counts = {"done": 0, "hit": 0, "no": 0}
+
+    def judge_one(c: dict) -> dict:
+        sp = snapshot_path(c["target"], c["date"])
+        judged_on = c.get("judged_on", "full")
+        if judged_on != "trunc" and sp.exists():
+            text = sp.read_text(errors="replace")[:4000]
+        else:
+            text = ((c["title"] + " ") + c["description"])[:1000]
+            judged_on = "trunc"
+        stances: dict = {}
+        try:
+            raw = call_llm(get_client(), build_judge_prompt(c, text), kind="judge")
+            data = parse_llm_json(raw) if raw else None
+            stances = (data or {}).get("stance") or {}
+            if not stances and isinstance(data, dict):
+                stances = {k: v for k, v in data.items()
+                           if str(v).lower() in {"bullish", "bearish", "neutral"}}
+        except Exception:  # noqa: BLE001
+            stances = {}
+        time.sleep(JUDGE_SLEEP)
+        return {"uid": c["uid"], "screen_name": c["screen_name"], "source": c["source"],
+                "target": c["target"], "date": c["date"], "sectors": c["sectors"],
+                "judged_on": judged_on, "snapshot": sp.name if sp.exists() else "",
+                "stances": stances, "prompt_version": JUDGE_PROMPT_VERSION}
+
+    def handle(rec: dict) -> None:
+        with record_lock:
+            with records_file.open("a") as f:
+                f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        with state_lock:
+            done_targets.add(rec["target"])
+            counts["done"] += 1
+            hit_any = any(str(rec["stances"].get(sec, "")).lower() == "bullish"
+                          for sec in rec["sectors"])
+            counts["hit"] += hit_any
+            counts["no"] += not hit_any
+            if counts["done"] % 50 == 0:
+                prog_file.write_text(json.dumps(sorted(done_targets)))
+            if counts["done"] % 100 == 0:
+                log(f"判定进度 {counts['done']}/{len(todo)}（有命中帖 {counts['hit']} / 无 {counts['no']}）")
+
+    workers = max(1, concurrency)
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futures = [ex.submit(judge_one, c) for c in todo]
+        for fut in as_completed(futures):
+            handle(fut.result())
+    prog_file.write_text(json.dumps(sorted(done_targets)))
+
+    # 按 records 重建 verdicts（可恢复：last record wins）
+    records: dict[str, dict] = {}
+    if records_file.exists():
+        for line in records_file.read_text(errors="replace").splitlines():
+            try:
+                r = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if r.get("target"):
+                records[r["target"]] = r
+
+    by_uid: dict[str, dict] = {}
+    for r in records.values():
+        rec = by_uid.setdefault(r["uid"], {
+            "uid": r["uid"], "screen_name": r["screen_name"], "source": r["source"],
+            "posts_total": 0, "original_total": 0, "hits": []})
+        post_day = parse_post_date(r["date"])
+        if not post_day:
+            continue
+        for sec in r.get("sectors", []):
+            if str((r.get("stances") or {}).get(sec, "")).lower() == "bullish":
+                for h in find_window_hits(event_index, sec, post_day):
+                    rec["hits"].append({**h, "target": r["target"], "date": r["date"],
+                                        "judged_on": r.get("judged_on", ""),
+                                        "snapshot": r.get("snapshot", "")})
     for uid_, rec in by_uid.items():
         st = stats.get(uid_, {})
         rec["posts_total"] = st.get("posts_total", 0)
@@ -692,7 +763,7 @@ def step_judge(client, candidates: list[dict], limit: int = 0,
         rec["hit_posts"] = len({h["target"] for h in rec["hits"]})
         (VERDICTS_DIR / f"{uid_}.json").write_text(
             json.dumps(rec, ensure_ascii=False, indent=1))
-    log(f"判定完成：判定帖 {len(todo)}，覆盖 {len(by_uid)} 人 → verdicts/")
+    log(f"判定完成：本轮判定帖 {counts['done']}，records {len(records)}，覆盖 {len(by_uid)} 人 → verdicts/")
 
 
 def _to_float(value: Any) -> float:
@@ -959,6 +1030,8 @@ def main() -> None:
                     help="忽略已有 candidates_posts.json 强制重跑 select（含 LLM 标签兜底）")
     ap.add_argument("--redo-judge", action="store_true",
                     help="归档旧 verdicts 并按当前 prompt 强制重跑 judge")
+    ap.add_argument("--concurrency", type=int, default=1,
+                    help="judge 并发线程数（每线程独立 LLM client）")
     args = ap.parse_args()
 
     if args.rank:
@@ -988,7 +1061,8 @@ def main() -> None:
         step_fetch(candidates, limit=args.limit, uid=args.uid)
     if args.select_only or args.fetch_only:
         return
-    step_judge(client, candidates, limit=args.limit, uid=args.uid, redo=args.redo_judge)
+    step_judge(client, candidates, limit=args.limit, uid=args.uid,
+               redo=args.redo_judge, concurrency=args.concurrency)
     step_rank()
 
 
