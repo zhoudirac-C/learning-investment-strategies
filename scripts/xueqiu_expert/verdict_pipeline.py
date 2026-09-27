@@ -732,8 +732,9 @@ def _write_acceptance_review_md(rows: list[dict], top_rows: list[dict]) -> Path:
     ]
     for r in rows:
         url = r.get("url") or ""
+        done = "[x]" if r.get("human_verdict") else "[ ]"
         lines.append(
-            "| [ ] | "
+            f"| {done} | "
             + " | ".join([
                 _md_cell(r.get("review_id", "")),
                 _md_cell(r.get("sample_bucket", "")),
@@ -745,7 +746,7 @@ def _write_acceptance_review_md(rows: list[dict], top_rows: list[dict]) -> Path:
                 str(r.get("lead_days", "")),
                 str(r.get("max_gain_20d", "")),
                 _md_cell(r.get("machine_verdict", "")),
-                "",
+                _md_cell(r.get("human_verdict", "")),
                 _md_cell(r.get("snapshot", "")),
                 f"[link]({url})" if url else "",
             ])
@@ -760,6 +761,8 @@ def _write_acceptance_review_md(rows: list[dict], top_rows: list[dict]) -> Path:
     for r in rows:
         lines += [
             f"### {r.get('review_id')} | {r.get('screen_name')} | {r.get('date')} | {r.get('sector')} | {r.get('tier')}",
+            "",
+            f"机器：{r.get('machine_verdict', '')}；人工：{r.get('human_verdict', '') or '（未填）'}；备注：{r.get('human_notes', '')}",
             "",
             _md_cell(r.get("excerpt", ""))[:900],
             "",
@@ -778,6 +781,15 @@ def step_sample_review(top_n: int = SAMPLE_TOP_N, mid_n: int = SAMPLE_MID_N,
         raise RuntimeError("verdicts/ 为空，无法生成复核清单")
     ranked = rank_all(verdicts, top_n=len(verdicts))
     by_uid = {str(v.get("uid")): v for v in verdicts}
+    review_path = VERDICTS_DIR / "_sample_review.json"
+    existing_review: dict[tuple[str, str], dict] = {}
+    if review_path.exists():
+        try:
+            for old in json.loads(review_path.read_text()):
+                existing_review[(str(old.get("target") or ""),
+                                 str(old.get("sector") or ""))] = old
+        except Exception:  # noqa: BLE001
+            existing_review = {}
 
     selected: list[tuple[dict, str]] = [(r, "top20") for r in ranked[:top_n]]
     mid_pool = [r for r in ranked[top_n:] if r.get("hits") and r.get("rank", 999) <= 80]
@@ -801,7 +813,7 @@ def step_sample_review(top_n: int = SAMPLE_TOP_N, mid_n: int = SAMPLE_MID_N,
             continue
         used_targets.add(target)
         url = ("https://www.xueqiu.com" + target) if target.startswith("/") else target
-        rows.append({
+        row = {
             "review_id": f"R{len(rows) + 1:02d}",
             "sample_bucket": bucket,
             "rank": r.get("rank"),
@@ -828,7 +840,13 @@ def step_sample_review(top_n: int = SAMPLE_TOP_N, mid_n: int = SAMPLE_MID_N,
                 "date_in_window": "",
                 "snapshot_usable": "",
             },
-        })
+        }
+        old = existing_review.get((target, str(hit.get("sector") or "")))
+        if old:
+            row["human_verdict"] = old.get("human_verdict", "")
+            row["human_notes"] = old.get("human_notes", "")
+            row["review_checks"] = old.get("review_checks", row["review_checks"])
+        rows.append(row)
 
     path = VERDICTS_DIR / "_sample_review.json"
     path.write_text(json.dumps(rows, ensure_ascii=False, indent=1))
