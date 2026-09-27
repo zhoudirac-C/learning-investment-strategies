@@ -19,7 +19,10 @@ import time
 from pathlib import Path
 
 ROOT = Path("/home/ubuntu/learning-investment-strategies")
-RUN_LOG = ROOT / "logs" / "p4_verdict_run.log"
+_LOG_CANDIDATES = [ROOT / "logs" / "p4_verdict_rerun.log",
+                   ROOT / "logs" / "p4_verdict_run.log"]
+RUN_LOG = max(_LOG_CANDIDATES,
+              key=lambda p: p.stat().st_mtime if p.exists() else 0)
 LLM_LOG = ROOT / "logs" / "llm_calls_p4.jsonl"
 CAND = ROOT / "data" / "xueqiu" / "candidates_posts.json"
 VERDICTS = ROOT / "data" / "xueqiu" / "verdicts"
@@ -149,7 +152,7 @@ def main() -> None:
     info = parse_run_log(log_text)
     health = llm_health()
 
-    if RANKING.exists():
+    if RANKING.exists() and not running:
         lines.append("✅ **雪球P4/P5 已全部完成**（expert_ranking.json 已产出）")
         try:
             rep = json.loads(RANKING.read_text())
@@ -165,7 +168,7 @@ def main() -> None:
         lines.append("- 本播报任务可以关闭：回复「停止 雪球P4进度播报」")
     elif not running and run_age is not None and run_age > 5:
         lines.append("❌ **P4 进程已退出但未产出 expert_ranking.json —— 疑似中断！**")
-        lines.append(f"- 主日志最后更新 {run_age:.0f} 分钟前，请检查 logs/p4_verdict_run.log 尾部")
+        lines.append(f"- 主日志最后更新 {run_age:.0f} 分钟前，请检查 {RUN_LOG.name} 尾部")
         lines.append("- 断点已落盘（候选/快照/判定进度），重新拉起即可续跑")
     else:
         phase = info["phase"]
