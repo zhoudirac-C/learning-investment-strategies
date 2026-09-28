@@ -39,6 +39,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -68,6 +70,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -97,6 +101,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260904-037"]
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -127,6 +133,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -156,6 +164,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -186,6 +196,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  disagrees_with: ["claim-20260629-001-v"]
+  supplements: ["claim-20260918-012-a"]
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -216,6 +229,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260629-001-p", "claim-20260826-044-a"]
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -252,6 +267,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260630-003-an", "claim-20260830-008-a"]
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -288,6 +305,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260807-014", "claim-20260804-035", "claim-20260806-038"]
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -317,6 +336,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  disagrees_with: ["claim-20260719-011"]
+  supplements: []
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -349,6 +371,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -384,6 +408,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -416,6 +442,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  supplements: ["claim-20260912-002-24"]
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -445,6 +473,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-09-28
   links:
     wiki_pages: []
     methodology_pages: []
@@ -468,3 +498,5 @@ claims:
   - PCB设备
   - 玻璃基板
   - 减持落地
+
+  last_discovered: 2026-09-28
