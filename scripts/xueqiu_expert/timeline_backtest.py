@@ -72,7 +72,7 @@ def fetch_page(page, uid: str, page_no: int):  # -> dict | str("waf") | None
         return "waf"
 
 
-def backtest_user(page, uid: str, name: str) -> dict:
+def backtest_user(page, uid: str, name: str, max_pages: int = MAX_PAGES) -> dict:
     """翻完一个用户的 2 年原创帖。返回 {status, posts, pages, oldest}。"""
     all_posts: list[dict] = []
     page_no = 1
@@ -113,9 +113,9 @@ def backtest_user(page, uid: str, name: str) -> dict:
         max_page = d.get("maxPage") or ((d.get("total") or 0) + COUNT - 1) // COUNT
         if page_no >= max_page:
             break
-        if page_no >= MAX_PAGES:
+        if page_no >= max_pages:
             # 高频用户页数封顶：partial 状态，诚实标注覆盖不足
-            return {"status": f"partial(>{MAX_PAGES}页,仅覆盖至{oldest})",
+            return {"status": f"partial(>{max_pages}页,仅覆盖至{oldest})",
                     "posts": all_posts, "pages": page_no, "oldest": oldest}
         page_no += 1
         time.sleep(PAGE_SLEEP)
@@ -126,16 +126,24 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--source", type=str, default="")
+    ap.add_argument("--uid", type=str, default="", help="只补跑单个 uid（忽略 --source）")
+    ap.add_argument("--max-pages", type=int, default=MAX_PAGES, help="单用户页数上限（补覆盖可调大）")
+    ap.add_argument("--retry", action="store_true", help="忽略 _progress.json 中该 uid 的已完成状态，强制重跑")
     args = ap.parse_args()
 
     POSTS_DIR.mkdir(parents=True, exist_ok=True)
     cands = json.loads(CANDIDATES.read_text())["with_uid"]
-    if args.source:
+    if args.uid:
+        cands = [c for c in cands if str(c.get("uid")) == args.uid]
+    elif args.source:
         # 支持多渠道："B,C" = 渠道B+C（2026-09-24 拍板：砍掉渠道A，只做B 44+C 97=141人）
         wanted = {s.strip() for s in args.source.split(",")}
         cands = [c for c in cands if c.get("source", "")[:1] in wanted]
     progress = json.loads(PROGRESS.read_text()) if PROGRESS.exists() else {}
-    todo = [c for c in cands if str(c["uid"]) not in progress]
+    if args.retry:
+        todo = cands
+    else:
+        todo = [c for c in cands if str(c["uid"]) not in progress]
     if args.limit:
         todo = todo[:args.limit]
     log(f"候选人 {len(cands)}，已完成 {len(progress)}，本批 {len(todo)}")
@@ -167,7 +175,7 @@ def main() -> None:
             uid = str(c["uid"])
             name = c.get("screen_name", "")
             t0 = time.time()
-            res = backtest_user(page, uid, name)
+            res = backtest_user(page, uid, name, max_pages=args.max_pages)
             (POSTS_DIR / f"{uid}.json").write_text(json.dumps(
                 {"uid": uid, "screen_name": name, "source": c.get("source"),
                  "status": res["status"], "pages": res["pages"],
