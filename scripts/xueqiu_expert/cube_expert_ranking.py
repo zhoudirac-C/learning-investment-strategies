@@ -67,6 +67,10 @@ def cookie_header() -> str:
     return "; ".join(f"{c['name']}={c['value']}" for c in cookies if "xueqiu" in (c.get("domain") or ""))
 
 
+class RateLimited(RuntimeError):
+    pass
+
+
 def fetch_cube(symbol: str) -> dict:
     path = CUBE_DIR / f"{symbol}.json"
     if path.exists():
@@ -77,8 +81,7 @@ def fetch_cube(symbol: str) -> dict:
         "Referer": "https://xueqiu.com/",
         "Cookie": cookie_header(),
     }
-    last = None
-    for attempt in range(1, 4):
+    for attempt in range(1, 3):  # 最多2次；持续限流时快速熔断，避免 cron 900s 空转
         try:
             req = urllib.request.Request(url, headers=headers)
             with urllib.request.urlopen(req, timeout=30) as r:
@@ -88,17 +91,16 @@ def fetch_cube(symbol: str) -> dict:
             return data
         except urllib.error.HTTPError as e:  # noqa: BLE001
             body = e.read().decode("utf-8", errors="replace")[:300]
-            last = f"HTTP {e.code} {body}"
             if e.code == 400 and "110017" in body:
-                wait = 60 * attempt
-                log(f"{symbol} 触发限流 110017，{wait}s 后重试（{attempt}/3）")
-                time.sleep(wait)
-                continue
-            raise RuntimeError(last)
+                if attempt == 1:
+                    log(f"{symbol} 触发限流 110017，60s 后再试一次")
+                    time.sleep(60)
+                    continue
+                raise RateLimited(f"雪球组合接口仍限流 110017（{symbol}）")
+            raise RuntimeError(f"HTTP {e.code} {body}")
         except Exception as e:  # noqa: BLE001
-            last = str(e)
-            time.sleep(5 * attempt)
-    raise RuntimeError(last)
+            raise RuntimeError(str(e))
+    raise RuntimeError("unreachable")
 
 
 def parse_day(ms) -> str | None:
@@ -194,6 +196,10 @@ def main() -> None:
                 "cube_symbol": sym, "cube_annualized": c.get("cube_annualized"),
                 "followers_count": c.get("followers_count"), **sc,
             })
+        except RateLimited as e:
+            # 持续限流：整轮快速退出（exit 0），由外层决定是否稍后重跑，避免 97 个组合逐个空转。
+            print(f"RATE_LIMITED {e}")
+            return
         except Exception as e:  # noqa: BLE001
             rows.append({"uid": str(c["uid"]), "screen_name": c.get("screen_name", ""),
                          "cube_symbol": sym, "error": str(e)[:200]})
