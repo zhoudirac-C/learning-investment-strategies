@@ -224,6 +224,45 @@ def parse_llm_json(raw: str) -> dict | None:
     return None
 
 
+POSITIVE_HIT_RE = re.compile(
+    r"看好|看涨|买入|买够|买了|加仓|加到|建仓|布局|追高|换了一些|二次拉升|不确定性消除|推荐|受益|受益更明显|"
+    r"超预期|中标|目标价|龙头已定|跨年龙头|一哥|刚刚开始|核心主线|贝塔行情|景气|上修|产能|订单覆盖|订单已覆盖|"
+    r"需求没有转弱|长牛|底部区域|买点|接单|抄底|看多|做多|资本开支|投资约|投入|扩建|建设人工智能数据中心|"
+    r"信仰|便宜|没有最高|出货量第一|预期很好|刚需|紧缺|基本面没啥问题|打破海外垄断|应用于|市占率|"
+    r"合同负债|存货大幅增长|进入十大股东|协同效应|替代概念|产能指引|财务自由|起来了|应当涨|在涨|算力！|翻了好几倍|风投仓|预期足够低|长期持有")
+NEGATIVE_HINT_RE = re.compile(
+    r"自然寻底|等企稳|弱转强|壮胆|盲猜|拉涨停|登基|王爷|亏麻|无力回天|边际向差|"
+    r"指数编制|分红率|派息率|股利支付率|中证红利|嘉年华|访谈|对话|活动预告")
+
+
+def hit_postfilter_ok(rec: dict, sector: str) -> bool:
+    """LLM 判定后的确定性降噪：宁可漏不可错。
+
+    规则来源：2026-09-28 strict2 抽样误差（无快照、短句情绪、科普/名单罗列、
+    指数/分红规则解释、谨慎跟踪话术）。只在 LLM 已判 bullish 后调用。
+    """
+    snap = (rec or {}).get("snapshot") or ""
+    if not snap:
+        return False
+    sp = SNAP_DIR / snap
+    if not sp.exists():
+        return False
+    text = sp.read_text(errors="replace")[:4000]
+    if not text.strip():
+        return False
+    # 强负向/规则解释话术一票否决（即使后文有零散正向词）。
+    if re.search(r"亏麻|无力回天|边际向差|自然寻底|等企稳|弱转强|指数编制|中证红利|分红率|股利支付率", text):
+        return False
+    # 纯名单罗列（大量顿号且没有投资动作/结论）不纳入。
+    if text.count("、") >= 12 and not POSITIVE_HIT_RE.search(text):
+        return False
+    # 明确负向/谨慎/规则解释话术，且无正向动作结论 → 不纳入。
+    if NEGATIVE_HINT_RE.search(text) and not POSITIVE_HIT_RE.search(text):
+        return False
+    # 必须至少有正向投资信号；纯讨论/摘录/感叹不纳入。
+    return bool(POSITIVE_HIT_RE.search(text))
+
+
 def score_expert(hits: list[dict], total_original_posts: int) -> dict:
     """设计 §4.4：眼力=强×3+中×1；持续力=命中跨板块数；密度=命中/总原创帖；
     综合=眼力×0.5+持续力×0.3+密度×0.2。"""
@@ -754,6 +793,8 @@ def step_judge(client, candidates: list[dict], limit: int = 0,
             continue
         for sec in r.get("sectors", []):
             if str((r.get("stances") or {}).get(sec, "")).lower() == "bullish":
+                if not hit_postfilter_ok(r, sec):
+                    continue
                 for h in find_window_hits(event_index, sec, post_day):
                     rec["hits"].append({**h, "target": r["target"], "date": r["date"],
                                         "judged_on": r.get("judged_on", ""),

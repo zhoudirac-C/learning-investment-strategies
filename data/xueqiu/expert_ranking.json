@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-09-28T17:44:07",
+ "generated_at": "2026-09-28T18:07:39",
  "experts_evaluated": 107,
  "sample_review": {
-  "total": 43,
-  "judged": 43,
-  "machine_error_rate": 0.2558139534883721,
+  "total": 37,
+  "judged": 37,
+  "machine_error_rate": 0.02702702702702703,
   "note": "human_verdict 填完后重跑 --rank 更新误差率"
  },
  "coverage_caveat": "名单 = 当前仍活跃且曾预判对的人；36 个高产用户仅覆盖最近~600帖（2026-09-24 拍板接受）",
@@ -16,12 +16,12 @@
    "posts_total": 466,
    "original_total": 149,
    "coverage_note": "waf_blocked",
-   "eye_score": 129,
-   "strong": 38,
-   "mid": 15,
+   "eye_score": 95,
+   "strong": 29,
+   "mid": 8,
    "persist": 8,
-   "density": 0.355705,
-   "composite": 66.971141,
+   "density": 0.248322,
+   "composite": 49.949664,
    "rank": 1
   },
   {
@@ -31,12 +31,12 @@
    "posts_total": 590,
    "original_total": 371,
    "coverage_note": "partial(>30页,仅覆盖至2025-11-25)",
-   "eye_score": 46,
-   "strong": 14,
-   "mid": 4,
-   "persist": 10,
-   "density": 0.048518,
-   "composite": 26.009704,
+   "eye_score": 27,
+   "strong": 8,
+   "mid": 3,
+   "persist": 7,
+   "density": 0.02965,
+   "composite": 15.60593,
    "rank": 2
   },
   {
@@ -46,28 +46,13 @@
    "posts_total": 587,
    "original_total": 178,
    "coverage_note": "partial(>30页,仅覆盖至2025-06-21)",
-   "eye_score": 50,
-   "strong": 14,
-   "mid": 8,
+   "eye_score": 27,
+   "strong": 7,
+   "mid": 6,
    "persist": 3,
-   "density": 0.123596,
-   "composite": 25.924719,
+   "density": 0.073034,
+   "composite": 14.414607,
    "rank": 3
-  },
-  {
-   "uid": "7694187222",
-   "screen_name": "Kevinpyy",
-   "source": "C",
-   "posts_total": 580,
-   "original_total": 440,
-   "coverage_note": "partial(>30页,仅覆盖至2024-11-06)",
-   "eye_score": 42,
-   "strong": 13,
-   "mid": 3,
-   "persist": 7,
-   "density": 0.036364,
-   "composite": 23.107273,
-   "rank": 4
   },
   {
    "uid": "9210717241",
@@ -76,88 +61,13 @@
    "posts_total": 598,
    "original_total": 480,
    "coverage_note": "partial(>30页,仅覆盖至2026-06-10)",
-   "eye_score": 40,
-   "strong": 13,
-   "mid": 1,
-   "persist": 6,
-   "density": 0.029167,
-   "composite": 21.805833,
-   "rank": 5
-  },
-  {
-   "uid": "1151776929",
-   "screen_name": "逆转拓扑",
-   "source": "C",
-   "posts_total": 592,
-   "original_total": 398,
-   "coverage_note": "partial(>30页,仅覆盖至2025-06-06)",
-   "eye_score": 35,
-   "strong": 11,
-   "mid": 2,
-   "persist": 4,
-   "density": 0.032663,
-   "composite": 18.706533,
-   "rank": 6
-  },
-  {
-   "uid": "1588293171",
-   "screen_name": "阳明阳明",
-   "source": "C",
-   "posts_total": 379,
-   "original_total": 309,
-   "coverage_note": "ok",
-   "eye_score": 31,
+   "eye_score": 25,
    "strong": 8,
-   "mid": 7,
-   "persist": 9,
-   "density": 0.048544,
-   "composite": 18.209709,
-   "rank": 7
-  },
-  {
-   "uid": "8896225427",
-   "screen_name": "德加圣手",
-   "source": "B",
-   "posts_total": 593,
-   "original_total": 327,
-   "coverage_note": "partial(>30页,仅覆盖至2025-11-23)",
-   "eye_score": 33,
-   "strong": 11,
-   "mid": 0,
-   "persist": 4,
-   "density": 0.033639,
-   "composite": 17.706728,
-   "rank": 8
-  },
-  {
-   "uid": "1993371359",
-   "screen_name": "吕执着",
-   "source": "B",
-   "posts_total": 572,
-   "original_total": 482,
-   "coverage_note": "partial(>30页,仅覆盖至2026-02-05)",
-   "eye_score": 33,
-   "strong": 10,
-   "mid": 3,
-   "persist": 4,
-   "density": 0.026971,
-   "composite": 17.705394,
-   "rank": 9
-  },
-  {
-   "uid": "5192877654",
-   "screen_name": "aOracle",
-   "source": "B",
-   "posts_total": 258,
-   "original_total": 237,
-   "coverage_note": "ok",
-   "eye_score": 31,
-   "strong": 10,
    "mid": 1,
    "persist": 3,
-   "density": 0.046414,
-   "composite": 16.409283,
-   "rank": 10
+   "density": 0.01875,
+   "composite": 13.40375,
+   "rank": 4
   },
   {
    "uid": "3234835196",
@@ -166,73 +76,28 @@
    "posts_total": 475,
    "original_total": 320,
    "coverage_note": "ok",
-   "eye_score": 23,
+   "eye_score": 22,
    "strong": 7,
-   "mid": 2,
+   "mid": 1,
    "persist": 5,
-   "density": 0.028125,
-   "composite": 13.005625,
-   "rank": 11
+   "density": 0.025,
+   "composite": 12.505,
+   "rank": 5
   },
   {
-   "uid": "4930371170",
-   "screen_name": "DrChuck",
+   "uid": "5192877654",
+   "screen_name": "aOracle",
    "source": "B",
-   "posts_total": 506,
-   "original_total": 158,
+   "posts_total": 258,
+   "original_total": 237,
    "coverage_note": "ok",
-   "eye_score": 21,
-   "strong": 7,
-   "mid": 0,
-   "persist": 3,
-   "density": 0.044304,
-   "composite": 11.408861,
-   "rank": 12
-  },
-  {
-   "uid": "5176241533",
-   "screen_name": "重剑堂",
-   "source": "C",
-   "posts_total": 598,
-   "original_total": 248,
-   "coverage_note": "partial(>30页,仅覆盖至2024-10-02)",
-   "eye_score": 20,
-   "strong": 6,
-   "mid": 2,
-   "persist": 4,
-   "density": 0.032258,
-   "composite": 11.206452,
-   "rank": 13
-  },
-  {
-   "uid": "7895717506",
-   "screen_name": "山高林茂",
-   "source": "B",
-   "posts_total": 560,
-   "original_total": 493,
-   "coverage_note": "partial(>30页,仅覆盖至2025-10-28)",
    "eye_score": 18,
-   "strong": 5,
-   "mid": 3,
-   "persist": 4,
-   "density": 0.016227,
-   "composite": 10.203245,
-   "rank": 14
-  },
-  {
-   "uid": "1066188300",
-   "screen_name": "伊夫圣洛朗",
-   "source": "C",
-   "posts_total": 595,
-   "original_total": 289,
-   "coverage_note": "partial(>30页,仅覆盖至2026-06-01)",
-   "eye_score": 15,
-   "strong": 5,
+   "strong": 6,
    "mid": 0,
-   "persist": 5,
-   "density": 0.017301,
-   "composite": 9.00346,
-   "rank": 15
+   "persist": 2,
+   "density": 0.025316,
+   "composite": 9.605063,
+   "rank": 6
   },
   {
    "uid": "2673334984",
@@ -247,22 +112,7 @@
    "persist": 4,
    "density": 0.022026,
    "composite": 8.704405,
-   "rank": 16
-  },
-  {
-   "uid": "5742821612",
-   "screen_name": "养叔的猫",
-   "source": "B",
-   "posts_total": 596,
-   "original_total": 564,
-   "coverage_note": "partial(>30页,仅覆盖至2026-03-07)",
-   "eye_score": 13,
-   "strong": 4,
-   "mid": 1,
-   "persist": 3,
-   "density": 0.008865,
-   "composite": 7.401773,
-   "rank": 17
+   "rank": 7
   },
   {
    "uid": "1433550277",
@@ -277,36 +127,186 @@
    "persist": 4,
    "density": 0.022989,
    "composite": 7.204598,
-   "rank": 18
+   "rank": 8
   },
   {
-   "uid": "7935264816",
-   "screen_name": "独孤酋长",
+   "uid": "7694187222",
+   "screen_name": "Kevinpyy",
    "source": "C",
-   "posts_total": 40,
-   "original_total": 19,
+   "posts_total": 580,
+   "original_total": 440,
+   "coverage_note": "partial(>30页,仅覆盖至2024-11-06)",
+   "eye_score": 10,
+   "strong": 3,
+   "mid": 1,
+   "persist": 4,
+   "density": 0.009091,
+   "composite": 6.201818,
+   "rank": 9
+  },
+  {
+   "uid": "1588293171",
+   "screen_name": "阳明阳明",
+   "source": "C",
+   "posts_total": 379,
+   "original_total": 309,
    "coverage_note": "ok",
-   "eye_score": 12,
-   "strong": 4,
-   "mid": 0,
+   "eye_score": 10,
+   "strong": 3,
+   "mid": 1,
    "persist": 2,
-   "density": 0.210526,
-   "composite": 6.642105,
-   "rank": 19
+   "density": 0.012945,
+   "composite": 5.602589,
+   "rank": 10
   },
   {
-   "uid": "6845979533",
-   "screen_name": "金石之缘",
-   "source": "C",
-   "posts_total": 254,
-   "original_total": 206,
+   "uid": "4930371170",
+   "screen_name": "DrChuck",
+   "source": "B",
+   "posts_total": 506,
+   "original_total": 158,
    "coverage_note": "ok",
    "eye_score": 9,
    "strong": 3,
    "mid": 0,
    "persist": 3,
-   "density": 0.014563,
-   "composite": 5.402913,
+   "density": 0.018987,
+   "composite": 5.403797,
+   "rank": 11
+  },
+  {
+   "uid": "1066188300",
+   "screen_name": "伊夫圣洛朗",
+   "source": "C",
+   "posts_total": 595,
+   "original_total": 289,
+   "coverage_note": "partial(>30页,仅覆盖至2026-06-01)",
+   "eye_score": 9,
+   "strong": 3,
+   "mid": 0,
+   "persist": 3,
+   "density": 0.010381,
+   "composite": 5.402076,
+   "rank": 12
+  },
+  {
+   "uid": "7895717506",
+   "screen_name": "山高林茂",
+   "source": "B",
+   "posts_total": 560,
+   "original_total": 493,
+   "coverage_note": "partial(>30页,仅覆盖至2025-10-28)",
+   "eye_score": 9,
+   "strong": 2,
+   "mid": 3,
+   "persist": 2,
+   "density": 0.010142,
+   "composite": 5.102028,
+   "rank": 13
+  },
+  {
+   "uid": "8896225427",
+   "screen_name": "德加圣手",
+   "source": "B",
+   "posts_total": 593,
+   "original_total": 327,
+   "coverage_note": "partial(>30页,仅覆盖至2025-11-23)",
+   "eye_score": 9,
+   "strong": 3,
+   "mid": 0,
+   "persist": 2,
+   "density": 0.009174,
+   "composite": 5.101835,
+   "rank": 14
+  },
+  {
+   "uid": "1151776929",
+   "screen_name": "逆转拓扑",
+   "source": "C",
+   "posts_total": 592,
+   "original_total": 398,
+   "coverage_note": "partial(>30页,仅覆盖至2025-06-06)",
+   "eye_score": 9,
+   "strong": 3,
+   "mid": 0,
+   "persist": 2,
+   "density": 0.007538,
+   "composite": 5.101508,
+   "rank": 15
+  },
+  {
+   "uid": "5042266913",
+   "screen_name": "不穿正装",
+   "source": "C",
+   "posts_total": 573,
+   "original_total": 489,
+   "coverage_note": "ok",
+   "eye_score": 9,
+   "strong": 3,
+   "mid": 0,
+   "persist": 2,
+   "density": 0.006135,
+   "composite": 5.101227,
+   "rank": 16
+  },
+  {
+   "uid": "5742821612",
+   "screen_name": "养叔的猫",
+   "source": "B",
+   "posts_total": 596,
+   "original_total": 564,
+   "coverage_note": "partial(>30页,仅覆盖至2026-03-07)",
+   "eye_score": 9,
+   "strong": 3,
+   "mid": 0,
+   "persist": 2,
+   "density": 0.005319,
+   "composite": 5.101064,
+   "rank": 17
+  },
+  {
+   "uid": "5176241533",
+   "screen_name": "重剑堂",
+   "source": "C",
+   "posts_total": 598,
+   "original_total": 248,
+   "coverage_note": "partial(>30页,仅覆盖至2024-10-02)",
+   "eye_score": 8,
+   "strong": 2,
+   "mid": 2,
+   "persist": 3,
+   "density": 0.016129,
+   "composite": 4.903226,
+   "rank": 18
+  },
+  {
+   "uid": "3440100627",
+   "screen_name": "大变革时代",
+   "source": "C",
+   "posts_total": 20,
+   "original_total": 16,
+   "coverage_note": "ok",
+   "eye_score": 7,
+   "strong": 2,
+   "mid": 1,
+   "persist": 2,
+   "density": 0.1875,
+   "composite": 4.1375,
+   "rank": 19
+  },
+  {
+   "uid": "8320106988",
+   "screen_name": "白水小懒猫",
+   "source": "C",
+   "posts_total": 155,
+   "original_total": 3,
+   "coverage_note": "ok",
+   "eye_score": 6,
+   "strong": 2,
+   "mid": 0,
+   "persist": 2,
+   "density": 0.666667,
+   "composite": 3.733333,
    "rank": 20
   }
  ],
@@ -322,50 +322,6 @@
     "date": "2026-07-29",
     "judged_on": "full",
     "snapshot": "2026-07-29-402654126.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-08-03",
-    "lead_days": 5,
-    "tier": "mid",
-    "max_gain_20d": 21.72,
-    "target": "/5853011447/402566914",
-    "date": "2026-07-29",
-    "judged_on": "full",
-    "snapshot": "2026-07-29-402566914.md"
-   },
-   {
-    "sector": "存储芯片",
-    "launch_date": "2026-08-03",
-    "lead_days": 5,
-    "tier": "mid",
-    "max_gain_20d": 22.26,
-    "target": "/5853011447/402566914",
-    "date": "2026-07-29",
-    "judged_on": "full",
-    "snapshot": "2026-07-29-402566914.md"
-   },
-   {
-    "sector": "中芯国际概念",
-    "launch_date": "2026-08-03",
-    "lead_days": 6,
-    "tier": "mid",
-    "max_gain_20d": 26.92,
-    "target": "/5853011447/402367607",
-    "date": "2026-07-28",
-    "judged_on": "full",
-    "snapshot": "2026-07-28-402367607.md"
-   },
-   {
-    "sector": "光刻机",
-    "launch_date": "2026-08-03",
-    "lead_days": 6,
-    "tier": "mid",
-    "max_gain_20d": 24.12,
-    "target": "/5853011447/402367607",
-    "date": "2026-07-28",
-    "judged_on": "full",
-    "snapshot": "2026-07-28-402367607.md"
    },
    {
     "sector": "半导体",
@@ -388,17 +344,6 @@
     "date": "2026-07-24",
     "judged_on": "full",
     "snapshot": "2026-07-24-401952986.md"
-   },
-   {
-    "sector": "中芯国际概念",
-    "launch_date": "2026-08-03",
-    "lead_days": 10,
-    "tier": "strong",
-    "max_gain_20d": 26.92,
-    "target": "/5853011447/401912609",
-    "date": "2026-07-24",
-    "judged_on": "full",
-    "snapshot": "2026-07-24-401912609.md"
    },
    {
     "sector": "光刻机",
@@ -458,28 +403,6 @@
    {
     "sector": "半导体",
     "launch_date": "2026-07-30",
-    "lead_days": 9,
-    "tier": "strong",
-    "max_gain_20d": 27.26,
-    "target": "/5853011447/401418721",
-    "date": "2026-07-21",
-    "judged_on": "full",
-    "snapshot": "2026-07-21-401418721.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-08-03",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 21.72,
-    "target": "/5853011447/401418721",
-    "date": "2026-07-21",
-    "judged_on": "full",
-    "snapshot": "2026-07-21-401418721.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-07-30",
     "lead_days": 14,
     "tier": "strong",
     "max_gain_20d": 27.26,
@@ -520,28 +443,6 @@
     "date": "2026-07-23",
     "judged_on": "full",
     "snapshot": "2026-07-23-401797257.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-07-30",
-    "lead_days": 17,
-    "tier": "strong",
-    "max_gain_20d": 27.26,
-    "target": "/5853011447/399866832",
-    "date": "2026-07-13",
-    "judged_on": "full",
-    "snapshot": "2026-07-13-399866832.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-08-03",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 21.72,
-    "target": "/5853011447/399866832",
-    "date": "2026-07-13",
-    "judged_on": "full",
-    "snapshot": "2026-07-13-399866832.md"
    },
    {
     "sector": "半导体",
@@ -698,17 +599,6 @@
     "snapshot": "2026-06-03-392545230.md"
    },
    {
-    "sector": "存储芯片",
-    "launch_date": "2026-06-08",
-    "lead_days": 6,
-    "tier": "mid",
-    "max_gain_20d": 37.59,
-    "target": "/5853011447/392289905",
-    "date": "2026-06-02",
-    "judged_on": "full",
-    "snapshot": "2026-06-02-392289905.md"
-   },
-   {
     "sector": "中芯国际概念",
     "launch_date": "2026-06-08",
     "lead_days": 6,
@@ -784,17 +674,6 @@
     "date": "2026-06-05",
     "judged_on": "full",
     "snapshot": "2026-06-05-393014625.md"
-   },
-   {
-    "sector": "中芯国际概念",
-    "launch_date": "2026-06-08",
-    "lead_days": 4,
-    "tier": "mid",
-    "max_gain_20d": 48.79,
-    "target": "/5853011447/392791284",
-    "date": "2026-06-04",
-    "judged_on": "full",
-    "snapshot": "2026-06-04-392791284.md"
    },
    {
     "sector": "存储芯片",
@@ -821,28 +700,6 @@
    {
     "sector": "半导体",
     "launch_date": "2026-06-08",
-    "lead_days": 12,
-    "tier": "strong",
-    "max_gain_20d": 42.66,
-    "target": "/5853011447/391133846",
-    "date": "2026-05-27",
-    "judged_on": "full",
-    "snapshot": "2026-05-27-391133846.md"
-   },
-   {
-    "sector": "存储芯片",
-    "launch_date": "2026-06-08",
-    "lead_days": 12,
-    "tier": "strong",
-    "max_gain_20d": 37.59,
-    "target": "/5853011447/391133846",
-    "date": "2026-05-27",
-    "judged_on": "full",
-    "snapshot": "2026-05-27-391133846.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-06-08",
     "lead_days": 13,
     "tier": "strong",
     "max_gain_20d": 42.66,
@@ -850,17 +707,6 @@
     "date": "2026-05-26",
     "judged_on": "full",
     "snapshot": "2026-05-26-391032092.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-06-08",
-    "lead_days": 12,
-    "tier": "strong",
-    "max_gain_20d": 42.66,
-    "target": "/5853011447/391146825",
-    "date": "2026-05-27",
-    "judged_on": "full",
-    "snapshot": "2026-05-27-391146825.md"
    },
    {
     "sector": "存储芯片",
@@ -872,42 +718,9 @@
     "date": "2026-05-20",
     "judged_on": "full",
     "snapshot": "2026-05-20-389888384.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-07-30",
-    "lead_days": 4,
-    "tier": "mid",
-    "max_gain_20d": 27.26,
-    "target": "/5853011447/402160094",
-    "date": "2026-07-26",
-    "judged_on": "full",
-    "snapshot": "2026-07-26-402160094.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-08-03",
-    "lead_days": 8,
-    "tier": "strong",
-    "max_gain_20d": 21.72,
-    "target": "/5853011447/402160094",
-    "date": "2026-07-26",
-    "judged_on": "full",
-    "snapshot": "2026-07-26-402160094.md"
    }
   ],
   "7704111861": [
-   {
-    "sector": "液冷服务器",
-    "launch_date": "2026-07-30",
-    "lead_days": 18,
-    "tier": "strong",
-    "max_gain_20d": 21.47,
-    "target": "/7704111861/399671554",
-    "date": "2026-07-12",
-    "judged_on": "full",
-    "snapshot": "2026-07-12-399671554.md"
-   },
    {
     "sector": "PCB概念",
     "launch_date": "2026-05-21",
@@ -953,50 +766,6 @@
     "snapshot": "2026-03-23-380612015.md"
    },
    {
-    "sector": "算力租赁",
-    "launch_date": "2026-04-07",
-    "lead_days": 8,
-    "tier": "strong",
-    "max_gain_20d": 20.79,
-    "target": "/7704111861/381730576",
-    "date": "2026-03-30",
-    "judged_on": "full",
-    "snapshot": "2026-03-30-381730576.md"
-   },
-   {
-    "sector": "商业航天",
-    "launch_date": "2025-12-24",
-    "lead_days": 9,
-    "tier": "strong",
-    "max_gain_20d": 22.71,
-    "target": "/7704111861/365989334",
-    "date": "2025-12-15",
-    "judged_on": "full",
-    "snapshot": "2025-12-15-365989334.md"
-   },
-   {
-    "sector": "电网设备",
-    "launch_date": "2025-12-18",
-    "lead_days": 6,
-    "tier": "mid",
-    "max_gain_20d": 21.23,
-    "target": "/7704111861/365738614",
-    "date": "2025-12-12",
-    "judged_on": "full",
-    "snapshot": "2025-12-12-365738614.md"
-   },
-   {
-    "sector": "商业航天",
-    "launch_date": "2025-12-24",
-    "lead_days": 12,
-    "tier": "strong",
-    "max_gain_20d": 22.71,
-    "target": "/7704111861/365689990",
-    "date": "2025-12-12",
-    "judged_on": "full",
-    "snapshot": "2025-12-12-365689990.md"
-   },
-   {
     "sector": "IT服务",
     "launch_date": "2025-12-16",
     "lead_days": 4,
@@ -1017,17 +786,6 @@
     "date": "2025-12-12",
     "judged_on": "full",
     "snapshot": "2025-12-12-365746798.md"
-   },
-   {
-    "sector": "商业航天",
-    "launch_date": "2025-12-24",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 22.71,
-    "target": "/7704111861/365477730",
-    "date": "2025-12-11",
-    "judged_on": "full",
-    "snapshot": "2025-12-11-365477730.md"
    },
    {
     "sector": "卫星导航",
@@ -1072,17 +830,6 @@
     "date": "2025-12-07",
     "judged_on": "full",
     "snapshot": "2025-12-07-364886144.md"
-   },
-   {
-    "sector": "商业航天",
-    "launch_date": "2025-12-11",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 32.75,
-    "target": "/7704111861/363627961",
-    "date": "2025-11-28",
-    "judged_on": "full",
-    "snapshot": "2025-11-28-363627961.md"
    },
    {
     "sector": "鸿蒙概念",
@@ -1166,28 +913,6 @@
    {
     "sector": "电池",
     "launch_date": "2025-10-17",
-    "lead_days": 4,
-    "tier": "mid",
-    "max_gain_20d": 22.87,
-    "target": "/5243796549/356336688",
-    "date": "2025-10-13",
-    "judged_on": "full",
-    "snapshot": "2025-10-13-356336688.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2025-10-20",
-    "lead_days": 7,
-    "tier": "strong",
-    "max_gain_20d": 26.27,
-    "target": "/5243796549/356336688",
-    "date": "2025-10-13",
-    "judged_on": "full",
-    "snapshot": "2025-10-13-356336688.md"
-   },
-   {
-    "sector": "电池",
-    "launch_date": "2025-10-17",
     "lead_days": 5,
     "tier": "mid",
     "max_gain_20d": 22.87,
@@ -1206,39 +931,6 @@
     "date": "2026-03-24",
     "judged_on": "full",
     "snapshot": "2026-03-24-380953586.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2026-03-23",
-    "lead_days": 11,
-    "tier": "strong",
-    "max_gain_20d": 30.6,
-    "target": "/5243796549/379082944",
-    "date": "2026-03-12",
-    "judged_on": "full",
-    "snapshot": "2026-03-12-379082944.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2026-03-23",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 30.6,
-    "target": "/5243796549/378744005",
-    "date": "2026-03-10",
-    "judged_on": "full",
-    "snapshot": "2026-03-10-378744005.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2026-03-23",
-    "lead_days": 15,
-    "tier": "strong",
-    "max_gain_20d": 30.6,
-    "target": "/5243796549/378481973",
-    "date": "2026-03-08",
-    "judged_on": "trunc",
-    "snapshot": ""
    },
    {
     "sector": "能源金属",
@@ -1264,28 +956,6 @@
    },
    {
     "sector": "能源金属",
-    "launch_date": "2025-12-31",
-    "lead_days": 7,
-    "tier": "strong",
-    "max_gain_20d": 20.46,
-    "target": "/5243796549/367533452",
-    "date": "2025-12-24",
-    "judged_on": "full",
-    "snapshot": "2025-12-24-367533452.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2025-12-31",
-    "lead_days": 7,
-    "tier": "strong",
-    "max_gain_20d": 20.46,
-    "target": "/5243796549/367488091",
-    "date": "2025-12-24",
-    "judged_on": "full",
-    "snapshot": "2025-12-24-367488091.md"
-   },
-   {
-    "sector": "能源金属",
     "launch_date": "2025-10-20",
     "lead_days": 12,
     "tier": "strong",
@@ -1294,28 +964,6 @@
     "date": "2025-10-08",
     "judged_on": "full",
     "snapshot": "2025-10-08-355659327.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2025-09-04",
-    "lead_days": 6,
-    "tier": "mid",
-    "max_gain_20d": 23.04,
-    "target": "/5243796549/349837622",
-    "date": "2025-08-29",
-    "judged_on": "full",
-    "snapshot": "2025-08-29-349837622.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2025-09-04",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 23.04,
-    "target": "/5243796549/348430520",
-    "date": "2025-08-22",
-    "judged_on": "trunc",
-    "snapshot": ""
    },
    {
     "sector": "能源金属",
@@ -1338,184 +986,6 @@
     "date": "2025-08-20",
     "judged_on": "full",
     "snapshot": "2025-08-20-348096425.md"
-   }
-  ],
-  "7694187222": [
-   {
-    "sector": "小金属",
-    "launch_date": "2026-02-02",
-    "lead_days": 7,
-    "tier": "strong",
-    "max_gain_20d": 29.71,
-    "target": "/7694187222/373037484",
-    "date": "2026-01-26",
-    "judged_on": "full",
-    "snapshot": "2026-01-26-373037484.md"
-   },
-   {
-    "sector": "电池",
-    "launch_date": "2025-10-17",
-    "lead_days": 5,
-    "tier": "mid",
-    "max_gain_20d": 22.87,
-    "target": "/7694187222/356238345",
-    "date": "2025-10-12",
-    "judged_on": "full",
-    "snapshot": "2025-10-12-356238345.md"
-   },
-   {
-    "sector": "电池",
-    "launch_date": "2025-10-17",
-    "lead_days": 8,
-    "tier": "strong",
-    "max_gain_20d": 22.87,
-    "target": "/7694187222/355833341",
-    "date": "2025-10-09",
-    "judged_on": "full",
-    "snapshot": "2025-10-09-355833341.md"
-   },
-   {
-    "sector": "快手概念",
-    "launch_date": "2025-12-16",
-    "lead_days": 11,
-    "tier": "strong",
-    "max_gain_20d": 39.76,
-    "target": "/7694187222/364723883",
-    "date": "2025-12-05",
-    "judged_on": "full",
-    "snapshot": "2025-12-05-364723883.md"
-   },
-   {
-    "sector": "海工装备",
-    "launch_date": "2025-02-28",
-    "lead_days": 5,
-    "tier": "mid",
-    "max_gain_20d": 22.44,
-    "target": "/7694187222/324607125",
-    "date": "2025-02-23",
-    "judged_on": "full",
-    "snapshot": "2025-02-23-324607125.md"
-   },
-   {
-    "sector": "氟化工概念",
-    "launch_date": "2026-06-08",
-    "lead_days": 11,
-    "tier": "strong",
-    "max_gain_20d": 25.7,
-    "target": "/7694187222/391438302",
-    "date": "2026-05-28",
-    "judged_on": "full",
-    "snapshot": "2026-05-28-391438302.md"
-   },
-   {
-    "sector": "先进封装",
-    "launch_date": "2026-05-21",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 21.99,
-    "target": "/7694187222/387815381",
-    "date": "2026-05-08",
-    "judged_on": "full",
-    "snapshot": "2026-05-08-387815381.md"
-   },
-   {
-    "sector": "先进封装",
-    "launch_date": "2026-05-21",
-    "lead_days": 8,
-    "tier": "strong",
-    "max_gain_20d": 21.99,
-    "target": "/7694187222/388566737",
-    "date": "2026-05-13",
-    "judged_on": "full",
-    "snapshot": "2026-05-13-388566737.md"
-   },
-   {
-    "sector": "先进封装",
-    "launch_date": "2026-06-01",
-    "lead_days": 19,
-    "tier": "strong",
-    "max_gain_20d": 31.29,
-    "target": "/7694187222/388566737",
-    "date": "2026-05-13",
-    "judged_on": "full",
-    "snapshot": "2026-05-13-388566737.md"
-   },
-   {
-    "sector": "先进封装",
-    "launch_date": "2026-05-21",
-    "lead_days": 10,
-    "tier": "strong",
-    "max_gain_20d": 21.99,
-    "target": "/7694187222/388077985",
-    "date": "2026-05-11",
-    "judged_on": "trunc",
-    "snapshot": ""
-   },
-   {
-    "sector": "先进封装",
-    "launch_date": "2026-06-01",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 31.29,
-    "target": "/7694187222/388077985",
-    "date": "2026-05-11",
-    "judged_on": "trunc",
-    "snapshot": ""
-   },
-   {
-    "sector": "先进封装",
-    "launch_date": "2026-05-21",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 21.99,
-    "target": "/7694187222/387835180",
-    "date": "2026-05-08",
-    "judged_on": "full",
-    "snapshot": "2026-05-08-387835180.md"
-   },
-   {
-    "sector": "先进封装",
-    "launch_date": "2026-04-24",
-    "lead_days": 6,
-    "tier": "mid",
-    "max_gain_20d": 30.19,
-    "target": "/7694187222/384552667",
-    "date": "2026-04-18",
-    "judged_on": "full",
-    "snapshot": "2026-04-18-384552667.md"
-   },
-   {
-    "sector": "工业金属",
-    "launch_date": "2026-03-23",
-    "lead_days": 11,
-    "tier": "strong",
-    "max_gain_20d": 21.79,
-    "target": "/7694187222/379091162",
-    "date": "2026-03-12",
-    "judged_on": "full",
-    "snapshot": "2026-03-12-379091162.md"
-   },
-   {
-    "sector": "工业金属",
-    "launch_date": "2026-03-23",
-    "lead_days": 11,
-    "tier": "strong",
-    "max_gain_20d": 21.79,
-    "target": "/7694187222/379083623",
-    "date": "2026-03-12",
-    "judged_on": "full",
-    "snapshot": "2026-03-12-379083623.md"
-   },
-   {
-    "sector": "工业金属",
-    "launch_date": "2026-03-23",
-    "lead_days": 14,
-    "tier": "strong",
-    "max_gain_20d": 21.79,
-    "target": "/7694187222/378653967",
-    "date": "2026-03-09",
-    "judged_on": "full",
-    "snapshot": "2026-03-09-378653967.md"
    }
   ],
   "9210717241": [
@@ -1575,61 +1045,6 @@
     "snapshot": "2026-07-15-400336623.md"
    },
    {
-    "sector": "芯片概念",
-    "launch_date": "2026-07-30",
-    "lead_days": 18,
-    "tier": "strong",
-    "max_gain_20d": 22.42,
-    "target": "/9210717241/399685636",
-    "date": "2026-07-12",
-    "judged_on": "full",
-    "snapshot": "2026-07-12-399685636.md"
-   },
-   {
-    "sector": "PET铜箔",
-    "launch_date": "2026-07-30",
-    "lead_days": 11,
-    "tier": "strong",
-    "max_gain_20d": 28.84,
-    "target": "/9210717241/401028831",
-    "date": "2026-07-19",
-    "judged_on": "full",
-    "snapshot": "2026-07-19-401028831.md"
-   },
-   {
-    "sector": "PET铜箔",
-    "launch_date": "2026-08-03",
-    "lead_days": 15,
-    "tier": "strong",
-    "max_gain_20d": 23.51,
-    "target": "/9210717241/401028831",
-    "date": "2026-07-19",
-    "judged_on": "full",
-    "snapshot": "2026-07-19-401028831.md"
-   },
-   {
-    "sector": "通信设备",
-    "launch_date": "2026-07-30",
-    "lead_days": 11,
-    "tier": "strong",
-    "max_gain_20d": 28.27,
-    "target": "/9210717241/401028831",
-    "date": "2026-07-19",
-    "judged_on": "full",
-    "snapshot": "2026-07-19-401028831.md"
-   },
-   {
-    "sector": "通信设备",
-    "launch_date": "2026-08-03",
-    "lead_days": 15,
-    "tier": "strong",
-    "max_gain_20d": 21.59,
-    "target": "/9210717241/401028831",
-    "date": "2026-07-19",
-    "judged_on": "full",
-    "snapshot": "2026-07-19-401028831.md"
-   },
-   {
     "sector": "存储芯片",
     "launch_date": "2026-07-30",
     "lead_days": 15,
@@ -1674,709 +1089,6 @@
     "snapshot": "2026-07-13-399777153.md"
    }
   ],
-  "1151776929": [
-   {
-    "sector": "阿里巴巴概念",
-    "launch_date": "2025-12-16",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 23.3,
-    "target": "/1151776929/363174989",
-    "date": "2025-11-25",
-    "judged_on": "full",
-    "snapshot": "2025-11-25-363174989.md"
-   },
-   {
-    "sector": "阿里巴巴概念",
-    "launch_date": "2025-12-16",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 23.3,
-    "target": "/1151776929/363120493",
-    "date": "2025-11-25",
-    "judged_on": "full",
-    "snapshot": "2025-11-25-363120493.md"
-   },
-   {
-    "sector": "阿里巴巴概念",
-    "launch_date": "2025-12-16",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 23.3,
-    "target": "/1151776929/363111748",
-    "date": "2025-11-25",
-    "judged_on": "full",
-    "snapshot": "2025-11-25-363111748.md"
-   },
-   {
-    "sector": "阿里巴巴概念",
-    "launch_date": "2025-12-16",
-    "lead_days": 15,
-    "tier": "strong",
-    "max_gain_20d": 23.3,
-    "target": "/1151776929/363897101",
-    "date": "2025-12-01",
-    "judged_on": "full",
-    "snapshot": "2025-12-01-363897101.md"
-   },
-   {
-    "sector": "工程机械",
-    "launch_date": "2025-07-04",
-    "lead_days": 3,
-    "tier": "mid",
-    "max_gain_20d": 24.93,
-    "target": "/1151776929/340757423",
-    "date": "2025-07-01",
-    "judged_on": "full",
-    "snapshot": "2025-07-01-340757423.md"
-   },
-   {
-    "sector": "工程机械",
-    "launch_date": "2025-07-15",
-    "lead_days": 14,
-    "tier": "strong",
-    "max_gain_20d": 23.0,
-    "target": "/1151776929/340757423",
-    "date": "2025-07-01",
-    "judged_on": "full",
-    "snapshot": "2025-07-01-340757423.md"
-   },
-   {
-    "sector": "存储芯片",
-    "launch_date": "2026-07-30",
-    "lead_days": 3,
-    "tier": "mid",
-    "max_gain_20d": 28.14,
-    "target": "/1151776929/402178220",
-    "date": "2026-07-27",
-    "judged_on": "full",
-    "snapshot": "2026-07-27-402178220.md"
-   },
-   {
-    "sector": "存储芯片",
-    "launch_date": "2026-08-03",
-    "lead_days": 7,
-    "tier": "strong",
-    "max_gain_20d": 22.26,
-    "target": "/1151776929/402178220",
-    "date": "2026-07-27",
-    "judged_on": "full",
-    "snapshot": "2026-07-27-402178220.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2025-09-04",
-    "lead_days": 17,
-    "tier": "strong",
-    "max_gain_20d": 23.04,
-    "target": "/1151776929/347518267",
-    "date": "2025-08-18",
-    "judged_on": "trunc",
-    "snapshot": ""
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2025-09-04",
-    "lead_days": 17,
-    "tier": "strong",
-    "max_gain_20d": 23.04,
-    "target": "/1151776929/347528928",
-    "date": "2025-08-18",
-    "judged_on": "full",
-    "snapshot": "2025-08-18-347528928.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2025-09-04",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 23.04,
-    "target": "/1151776929/346985482",
-    "date": "2025-08-14",
-    "judged_on": "full",
-    "snapshot": "2025-08-14-346985482.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2025-09-04",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 23.04,
-    "target": "/1151776929/347008049",
-    "date": "2025-08-14",
-    "judged_on": "trunc",
-    "snapshot": ""
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2025-09-04",
-    "lead_days": 20,
-    "tier": "strong",
-    "max_gain_20d": 23.04,
-    "target": "/1151776929/347153120",
-    "date": "2025-08-15",
-    "judged_on": "full",
-    "snapshot": "2025-08-15-347153120.md"
-   }
-  ],
-  "1588293171": [
-   {
-    "sector": "小金属",
-    "launch_date": "2026-02-02",
-    "lead_days": 12,
-    "tier": "strong",
-    "max_gain_20d": 29.71,
-    "target": "/1588293171/372227666",
-    "date": "2026-01-21",
-    "judged_on": "full",
-    "snapshot": "2026-01-21-372227666.md"
-   },
-   {
-    "sector": "贵金属",
-    "launch_date": "2025-08-28",
-    "lead_days": 7,
-    "tier": "strong",
-    "max_gain_20d": 20.57,
-    "target": "/1588293171/348304878",
-    "date": "2025-08-21",
-    "judged_on": "full",
-    "snapshot": "2025-08-21-348304878.md"
-   },
-   {
-    "sector": "贵金属",
-    "launch_date": "2025-09-04",
-    "lead_days": 14,
-    "tier": "strong",
-    "max_gain_20d": 23.9,
-    "target": "/1588293171/348304878",
-    "date": "2025-08-21",
-    "judged_on": "full",
-    "snapshot": "2025-08-21-348304878.md"
-   },
-   {
-    "sector": "消费电子",
-    "launch_date": "2025-01-13",
-    "lead_days": 3,
-    "tier": "mid",
-    "max_gain_20d": 20.68,
-    "target": "/1588293171/320057144",
-    "date": "2025-01-10",
-    "judged_on": "full",
-    "snapshot": "2025-01-10-320057144.md"
-   },
-   {
-    "sector": "贵金属",
-    "launch_date": "2025-04-08",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 30.43,
-    "target": "/1588293171/327795124",
-    "date": "2025-03-18",
-    "judged_on": "full",
-    "snapshot": "2025-03-18-327795124.md"
-   },
-   {
-    "sector": "油气开采及服务",
-    "launch_date": "2026-01-27",
-    "lead_days": 3,
-    "tier": "mid",
-    "max_gain_20d": 49.15,
-    "target": "/1588293171/372776456",
-    "date": "2026-01-24",
-    "judged_on": "full",
-    "snapshot": "2026-01-24-372776456.md"
-   },
-   {
-    "sector": "油气开采及服务",
-    "launch_date": "2026-02-02",
-    "lead_days": 9,
-    "tier": "strong",
-    "max_gain_20d": 38.74,
-    "target": "/1588293171/372776456",
-    "date": "2026-01-24",
-    "judged_on": "full",
-    "snapshot": "2026-01-24-372776456.md"
-   },
-   {
-    "sector": "油气开采及服务",
-    "launch_date": "2026-02-13",
-    "lead_days": 20,
-    "tier": "strong",
-    "max_gain_20d": 25.96,
-    "target": "/1588293171/372776456",
-    "date": "2026-01-24",
-    "judged_on": "full",
-    "snapshot": "2026-01-24-372776456.md"
-   },
-   {
-    "sector": "金属铜",
-    "launch_date": "2025-12-16",
-    "lead_days": 8,
-    "tier": "strong",
-    "max_gain_20d": 20.4,
-    "target": "/1588293171/365004508",
-    "date": "2025-12-08",
-    "judged_on": "full",
-    "snapshot": "2025-12-08-365004508.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2025-09-04",
-    "lead_days": 3,
-    "tier": "mid",
-    "max_gain_20d": 23.04,
-    "target": "/1588293171/350381644",
-    "date": "2025-09-01",
-    "judged_on": "full",
-    "snapshot": "2025-09-01-350381644.md"
-   },
-   {
-    "sector": "贵金属",
-    "launch_date": "2025-09-04",
-    "lead_days": 3,
-    "tier": "mid",
-    "max_gain_20d": 23.9,
-    "target": "/1588293171/350381644",
-    "date": "2025-09-01",
-    "judged_on": "full",
-    "snapshot": "2025-09-01-350381644.md"
-   },
-   {
-    "sector": "贵金属",
-    "launch_date": "2025-09-18",
-    "lead_days": 17,
-    "tier": "strong",
-    "max_gain_20d": 23.37,
-    "target": "/1588293171/350381644",
-    "date": "2025-09-01",
-    "judged_on": "full",
-    "snapshot": "2025-09-01-350381644.md"
-   },
-   {
-    "sector": "金属锌",
-    "launch_date": "2025-09-04",
-    "lead_days": 3,
-    "tier": "mid",
-    "max_gain_20d": 21.15,
-    "target": "/1588293171/350381644",
-    "date": "2025-09-01",
-    "judged_on": "full",
-    "snapshot": "2025-09-01-350381644.md"
-   },
-   {
-    "sector": "金属镍",
-    "launch_date": "2025-09-04",
-    "lead_days": 3,
-    "tier": "mid",
-    "max_gain_20d": 20.68,
-    "target": "/1588293171/350381644",
-    "date": "2025-09-01",
-    "judged_on": "full",
-    "snapshot": "2025-09-01-350381644.md"
-   },
-   {
-    "sector": "数字货币",
-    "launch_date": "2025-05-28",
-    "lead_days": 6,
-    "tier": "mid",
-    "max_gain_20d": 25.86,
-    "target": "/1588293171/336005017",
-    "date": "2025-05-22",
-    "judged_on": "full",
-    "snapshot": "2025-05-22-336005017.md"
-   }
-  ],
-  "8896225427": [
-   {
-    "sector": "软件开发",
-    "launch_date": "2025-12-16",
-    "lead_days": 8,
-    "tier": "strong",
-    "max_gain_20d": 25.17,
-    "target": "/8896225427/364943424",
-    "date": "2025-12-08",
-    "judged_on": "full",
-    "snapshot": "2025-12-08-364943424.md"
-   },
-   {
-    "sector": "软件开发",
-    "launch_date": "2025-12-16",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 25.17,
-    "target": "/8896225427/364272596",
-    "date": "2025-12-03",
-    "judged_on": "full",
-    "snapshot": "2025-12-03-364272596.md"
-   },
-   {
-    "sector": "软件开发",
-    "launch_date": "2025-12-16",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 25.17,
-    "target": "/8896225427/364290233",
-    "date": "2025-12-03",
-    "judged_on": "full",
-    "snapshot": "2025-12-03-364290233.md"
-   },
-   {
-    "sector": "软件开发",
-    "launch_date": "2025-12-16",
-    "lead_days": 14,
-    "tier": "strong",
-    "max_gain_20d": 25.17,
-    "target": "/8896225427/364179117",
-    "date": "2025-12-02",
-    "judged_on": "full",
-    "snapshot": "2025-12-02-364179117.md"
-   },
-   {
-    "sector": "软件开发",
-    "launch_date": "2025-12-16",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 25.17,
-    "target": "/8896225427/364292043",
-    "date": "2025-12-03",
-    "judged_on": "trunc",
-    "snapshot": ""
-   },
-   {
-    "sector": "软件开发",
-    "launch_date": "2025-12-16",
-    "lead_days": 15,
-    "tier": "strong",
-    "max_gain_20d": 25.17,
-    "target": "/8896225427/363940680",
-    "date": "2025-12-01",
-    "judged_on": "full",
-    "snapshot": "2025-12-01-363940680.md"
-   },
-   {
-    "sector": "人工智能",
-    "launch_date": "2025-12-16",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 20.22,
-    "target": "/8896225427/363212997",
-    "date": "2025-11-25",
-    "judged_on": "full",
-    "snapshot": "2025-11-25-363212997.md"
-   },
-   {
-    "sector": "阿里巴巴概念",
-    "launch_date": "2025-12-16",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 23.3,
-    "target": "/8896225427/363212997",
-    "date": "2025-11-25",
-    "judged_on": "full",
-    "snapshot": "2025-11-25-363212997.md"
-   },
-   {
-    "sector": "软件开发",
-    "launch_date": "2025-12-16",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 25.17,
-    "target": "/8896225427/363096462",
-    "date": "2025-11-25",
-    "judged_on": "full",
-    "snapshot": "2025-11-25-363096462.md"
-   },
-   {
-    "sector": "游戏",
-    "launch_date": "2025-12-16",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 25.51,
-    "target": "/8896225427/363137075",
-    "date": "2025-11-25",
-    "judged_on": "full",
-    "snapshot": "2025-11-25-363137075.md"
-   },
-   {
-    "sector": "软件开发",
-    "launch_date": "2025-12-16",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 25.17,
-    "target": "/8896225427/363137075",
-    "date": "2025-11-25",
-    "judged_on": "full",
-    "snapshot": "2025-11-25-363137075.md"
-   }
-  ],
-  "1993371359": [
-   {
-    "sector": "半导体",
-    "launch_date": "2026-08-03",
-    "lead_days": 6,
-    "tier": "mid",
-    "max_gain_20d": 21.72,
-    "target": "/1993371359/402354213",
-    "date": "2026-07-28",
-    "judged_on": "full",
-    "snapshot": "2026-07-28-402354213.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-07-30",
-    "lead_days": 6,
-    "tier": "mid",
-    "max_gain_20d": 27.26,
-    "target": "/1993371359/401952756",
-    "date": "2026-07-24",
-    "judged_on": "full",
-    "snapshot": "2026-07-24-401952756.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-08-03",
-    "lead_days": 10,
-    "tier": "strong",
-    "max_gain_20d": 21.72,
-    "target": "/1993371359/401952756",
-    "date": "2026-07-24",
-    "judged_on": "full",
-    "snapshot": "2026-07-24-401952756.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-07-30",
-    "lead_days": 17,
-    "tier": "strong",
-    "max_gain_20d": 27.26,
-    "target": "/1993371359/399732077",
-    "date": "2026-07-13",
-    "judged_on": "full",
-    "snapshot": "2026-07-13-399732077.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-08-03",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 21.72,
-    "target": "/1993371359/399732077",
-    "date": "2026-07-13",
-    "judged_on": "full",
-    "snapshot": "2026-07-13-399732077.md"
-   },
-   {
-    "sector": "黄金概念",
-    "launch_date": "2026-07-20",
-    "lead_days": 17,
-    "tier": "strong",
-    "max_gain_20d": 21.48,
-    "target": "/1993371359/398343071",
-    "date": "2026-07-03",
-    "judged_on": "full",
-    "snapshot": "2026-07-03-398343071.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-06-08",
-    "lead_days": 11,
-    "tier": "strong",
-    "max_gain_20d": 42.66,
-    "target": "/1993371359/391453041",
-    "date": "2026-05-28",
-    "judged_on": "full",
-    "snapshot": "2026-05-28-391453041.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-06-08",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 42.66,
-    "target": "/1993371359/390888883",
-    "date": "2026-05-26",
-    "judged_on": "full",
-    "snapshot": "2026-05-26-390888883.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-06-08",
-    "lead_days": 12,
-    "tier": "strong",
-    "max_gain_20d": 42.66,
-    "target": "/1993371359/391121827",
-    "date": "2026-05-27",
-    "judged_on": "full",
-    "snapshot": "2026-05-27-391121827.md"
-   },
-   {
-    "sector": "存储芯片",
-    "launch_date": "2026-06-08",
-    "lead_days": 18,
-    "tier": "strong",
-    "max_gain_20d": 37.59,
-    "target": "/1993371359/390210106",
-    "date": "2026-05-21",
-    "judged_on": "full",
-    "snapshot": "2026-05-21-390210106.md"
-   },
-   {
-    "sector": "半导体",
-    "launch_date": "2026-06-08",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 42.66,
-    "target": "/1993371359/389439631",
-    "date": "2026-05-18",
-    "judged_on": "full",
-    "snapshot": "2026-05-18-389439631.md"
-   },
-   {
-    "sector": "PET铜箔",
-    "launch_date": "2026-04-13",
-    "lead_days": 5,
-    "tier": "mid",
-    "max_gain_20d": 24.42,
-    "target": "/1993371359/382983541",
-    "date": "2026-04-08",
-    "judged_on": "full",
-    "snapshot": "2026-04-08-382983541.md"
-   },
-   {
-    "sector": "PET铜箔",
-    "launch_date": "2026-04-23",
-    "lead_days": 15,
-    "tier": "strong",
-    "max_gain_20d": 21.29,
-    "target": "/1993371359/382983541",
-    "date": "2026-04-08",
-    "judged_on": "full",
-    "snapshot": "2026-04-08-382983541.md"
-   }
-  ],
-  "5192877654": [
-   {
-    "sector": "小米汽车",
-    "launch_date": "2025-04-08",
-    "lead_days": 11,
-    "tier": "strong",
-    "max_gain_20d": 22.4,
-    "target": "/5192877654/329231072",
-    "date": "2025-03-28",
-    "judged_on": "full",
-    "snapshot": "2025-03-28-329231072.md"
-   },
-   {
-    "sector": "小米汽车",
-    "launch_date": "2025-04-08",
-    "lead_days": 14,
-    "tier": "strong",
-    "max_gain_20d": 22.4,
-    "target": "/5192877654/328721458",
-    "date": "2025-03-25",
-    "judged_on": "full",
-    "snapshot": "2025-03-25-328721458.md"
-   },
-   {
-    "sector": "小米汽车",
-    "launch_date": "2025-04-08",
-    "lead_days": 20,
-    "tier": "strong",
-    "max_gain_20d": 22.4,
-    "target": "/5192877654/328091946",
-    "date": "2025-03-19",
-    "judged_on": "full",
-    "snapshot": "2025-03-19-328091946.md"
-   },
-   {
-    "sector": "小米汽车",
-    "launch_date": "2025-04-08",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 22.4,
-    "target": "/5192877654/327753747",
-    "date": "2025-03-18",
-    "judged_on": "full",
-    "snapshot": "2025-03-18-327753747.md"
-   },
-   {
-    "sector": "小米汽车",
-    "launch_date": "2024-09-18",
-    "lead_days": 5,
-    "tier": "mid",
-    "max_gain_20d": 43.42,
-    "target": "/5192877654/304626131",
-    "date": "2024-09-13",
-    "judged_on": "full",
-    "snapshot": "2024-09-13-304626131.md"
-   },
-   {
-    "sector": "小米汽车",
-    "launch_date": "2024-09-18",
-    "lead_days": 11,
-    "tier": "strong",
-    "max_gain_20d": 43.42,
-    "target": "/5192877654/303903369",
-    "date": "2024-09-07",
-    "judged_on": "full",
-    "snapshot": "2024-09-07-303903369.md"
-   },
-   {
-    "sector": "小米汽车",
-    "launch_date": "2024-09-18",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 43.42,
-    "target": "/5192877654/303663020",
-    "date": "2024-09-05",
-    "judged_on": "full",
-    "snapshot": "2024-09-05-303663020.md"
-   },
-   {
-    "sector": "小米汽车",
-    "launch_date": "2024-10-16",
-    "lead_days": 17,
-    "tier": "strong",
-    "max_gain_20d": 20.17,
-    "target": "/5192877654/306152258",
-    "date": "2024-09-29",
-    "judged_on": "full",
-    "snapshot": "2024-09-29-306152258.md"
-   },
-   {
-    "sector": "小米汽车",
-    "launch_date": "2024-09-18",
-    "lead_days": 14,
-    "tier": "strong",
-    "max_gain_20d": 43.42,
-    "target": "/5192877654/303565414",
-    "date": "2024-09-04",
-    "judged_on": "full",
-    "snapshot": "2024-09-04-303565414.md"
-   },
-   {
-    "sector": "AI手机",
-    "launch_date": "2024-09-18",
-    "lead_days": 15,
-    "tier": "strong",
-    "max_gain_20d": 53.81,
-    "target": "/5192877654/303425438",
-    "date": "2024-09-03",
-    "judged_on": "full",
-    "snapshot": "2024-09-03-303425438.md"
-   },
-   {
-    "sector": "消费电子",
-    "launch_date": "2025-07-23",
-    "lead_days": 15,
-    "tier": "strong",
-    "max_gain_20d": 22.74,
-    "target": "/5192877654/341642263",
-    "date": "2025-07-08",
-    "judged_on": "full",
-    "snapshot": "2025-07-08-341642263.md"
-   }
-  ],
   "3234835196": [
    {
     "sector": "半导体",
@@ -2399,17 +1111,6 @@
     "date": "2026-07-20",
     "judged_on": "full",
     "snapshot": "2026-07-20-401054832.md"
-   },
-   {
-    "sector": "先进封装",
-    "launch_date": "2026-06-01",
-    "lead_days": 5,
-    "tier": "mid",
-    "max_gain_20d": 31.29,
-    "target": "/3234835196/391183077",
-    "date": "2026-05-27",
-    "judged_on": "full",
-    "snapshot": "2026-05-27-391183077.md"
    },
    {
     "sector": "先进封装",
@@ -2478,320 +1179,72 @@
     "snapshot": "2025-07-14-342413578.md"
    }
   ],
-  "4930371170": [
+  "5192877654": [
    {
-    "sector": "黄金概念",
-    "launch_date": "2025-12-30",
-    "lead_days": 13,
+    "sector": "小米汽车",
+    "launch_date": "2025-04-08",
+    "lead_days": 11,
     "tier": "strong",
-    "max_gain_20d": 36.22,
-    "target": "/4930371170/366337803",
-    "date": "2025-12-17",
+    "max_gain_20d": 22.4,
+    "target": "/5192877654/329231072",
+    "date": "2025-03-28",
     "judged_on": "full",
-    "snapshot": "2025-12-17-366337803.md"
+    "snapshot": "2025-03-28-329231072.md"
    },
    {
-    "sector": "黄金概念",
-    "launch_date": "2025-12-30",
+    "sector": "小米汽车",
+    "launch_date": "2025-04-08",
+    "lead_days": 14,
+    "tier": "strong",
+    "max_gain_20d": 22.4,
+    "target": "/5192877654/328721458",
+    "date": "2025-03-25",
+    "judged_on": "full",
+    "snapshot": "2025-03-25-328721458.md"
+   },
+   {
+    "sector": "小米汽车",
+    "launch_date": "2025-04-08",
+    "lead_days": 21,
+    "tier": "strong",
+    "max_gain_20d": 22.4,
+    "target": "/5192877654/327753747",
+    "date": "2025-03-18",
+    "judged_on": "full",
+    "snapshot": "2025-03-18-327753747.md"
+   },
+   {
+    "sector": "小米汽车",
+    "launch_date": "2024-09-18",
+    "lead_days": 11,
+    "tier": "strong",
+    "max_gain_20d": 43.42,
+    "target": "/5192877654/303903369",
+    "date": "2024-09-07",
+    "judged_on": "full",
+    "snapshot": "2024-09-07-303903369.md"
+   },
+   {
+    "sector": "小米汽车",
+    "launch_date": "2024-10-16",
     "lead_days": 17,
     "tier": "strong",
-    "max_gain_20d": 36.22,
-    "target": "/4930371170/365849514",
-    "date": "2025-12-13",
+    "max_gain_20d": 20.17,
+    "target": "/5192877654/306152258",
+    "date": "2024-09-29",
     "judged_on": "full",
-    "snapshot": "2025-12-13-365849514.md"
+    "snapshot": "2024-09-29-306152258.md"
    },
    {
-    "sector": "黄金概念",
-    "launch_date": "2025-12-30",
+    "sector": "消费电子",
+    "launch_date": "2025-07-23",
     "lead_days": 15,
     "tier": "strong",
-    "max_gain_20d": 36.22,
-    "target": "/4930371170/366067240",
-    "date": "2025-12-15",
+    "max_gain_20d": 22.74,
+    "target": "/5192877654/341642263",
+    "date": "2025-07-08",
     "judged_on": "full",
-    "snapshot": "2025-12-15-366067240.md"
-   },
-   {
-    "sector": "腾讯概念",
-    "launch_date": "2025-12-16",
-    "lead_days": 20,
-    "tier": "strong",
-    "max_gain_20d": 22.52,
-    "target": "/4930371170/363239940",
-    "date": "2025-11-26",
-    "judged_on": "full",
-    "snapshot": "2025-11-26-363239940.md"
-   },
-   {
-    "sector": "黄金概念",
-    "launch_date": "2024-09-18",
-    "lead_days": 14,
-    "tier": "strong",
-    "max_gain_20d": 29.47,
-    "target": "/4930371170/303480270",
-    "date": "2024-09-04",
-    "judged_on": "full",
-    "snapshot": "2024-09-04-303480270.md"
-   },
-   {
-    "sector": "贵金属",
-    "launch_date": "2025-12-31",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 103.18,
-    "target": "/4930371170/365257891",
-    "date": "2025-12-10",
-    "judged_on": "full",
-    "snapshot": "2025-12-10-365257891.md"
-   },
-   {
-    "sector": "黄金概念",
-    "launch_date": "2025-12-30",
-    "lead_days": 20,
-    "tier": "strong",
-    "max_gain_20d": 36.22,
-    "target": "/4930371170/365257891",
-    "date": "2025-12-10",
-    "judged_on": "full",
-    "snapshot": "2025-12-10-365257891.md"
-   }
-  ],
-  "5176241533": [
-   {
-    "sector": "快手概念",
-    "launch_date": "2026-07-24",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 21.41,
-    "target": "/5176241533/398267171",
-    "date": "2026-07-03",
-    "judged_on": "full",
-    "snapshot": "2026-07-03-398267171.md"
-   },
-   {
-    "sector": "腾讯概念",
-    "launch_date": "2025-12-16",
-    "lead_days": 19,
-    "tier": "strong",
-    "max_gain_20d": 22.52,
-    "target": "/5176241533/363540518",
-    "date": "2025-11-27",
-    "judged_on": "full",
-    "snapshot": "2025-11-27-363540518.md"
-   },
-   {
-    "sector": "互联网电商",
-    "launch_date": "2025-04-07",
-    "lead_days": 4,
-    "tier": "mid",
-    "max_gain_20d": 25.63,
-    "target": "/5176241533/330086239",
-    "date": "2025-04-03",
-    "judged_on": "full",
-    "snapshot": "2025-04-03-330086239.md"
-   },
-   {
-    "sector": "拼多多概念",
-    "launch_date": "2025-04-07",
-    "lead_days": 4,
-    "tier": "mid",
-    "max_gain_20d": 20.26,
-    "target": "/5176241533/330086239",
-    "date": "2025-04-03",
-    "judged_on": "full",
-    "snapshot": "2025-04-03-330086239.md"
-   },
-   {
-    "sector": "拼多多概念",
-    "launch_date": "2025-04-07",
-    "lead_days": 18,
-    "tier": "strong",
-    "max_gain_20d": 20.26,
-    "target": "/5176241533/328235038",
-    "date": "2025-03-20",
-    "judged_on": "full",
-    "snapshot": "2025-03-20-328235038.md"
-   },
-   {
-    "sector": "拼多多概念",
-    "launch_date": "2025-04-07",
-    "lead_days": 18,
-    "tier": "strong",
-    "max_gain_20d": 20.26,
-    "target": "/5176241533/328231166",
-    "date": "2025-03-20",
-    "judged_on": "full",
-    "snapshot": "2025-03-20-328231166.md"
-   },
-   {
-    "sector": "拼多多概念",
-    "launch_date": "2025-01-06",
-    "lead_days": 19,
-    "tier": "strong",
-    "max_gain_20d": 23.09,
-    "target": "/5176241533/317283008",
-    "date": "2024-12-18",
-    "judged_on": "full",
-    "snapshot": "2024-12-18-317283008.md"
-   },
-   {
-    "sector": "互联网电商",
-    "launch_date": "2026-04-03",
-    "lead_days": 9,
-    "tier": "strong",
-    "max_gain_20d": 21.7,
-    "target": "/5176241533/381130612",
-    "date": "2026-03-25",
-    "judged_on": "trunc",
-    "snapshot": ""
-   }
-  ],
-  "7895717506": [
-   {
-    "sector": "贵金属",
-    "launch_date": "2026-01-19",
-    "lead_days": 8,
-    "tier": "strong",
-    "max_gain_20d": 26.95,
-    "target": "/7895717506/370166459",
-    "date": "2026-01-11",
-    "judged_on": "trunc",
-    "snapshot": ""
-   },
-   {
-    "sector": "工业金属",
-    "launch_date": "2026-03-23",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 21.79,
-    "target": "/7895717506/377495507",
-    "date": "2026-03-02",
-    "judged_on": "full",
-    "snapshot": "2026-03-02-377495507.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2026-03-23",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 30.6,
-    "target": "/7895717506/377495507",
-    "date": "2026-03-02",
-    "judged_on": "full",
-    "snapshot": "2026-03-02-377495507.md"
-   },
-   {
-    "sector": "金属铜",
-    "launch_date": "2026-07-20",
-    "lead_days": 12,
-    "tier": "strong",
-    "max_gain_20d": 22.17,
-    "target": "/7895717506/399050476",
-    "date": "2026-07-08",
-    "judged_on": "full",
-    "snapshot": "2026-07-08-399050476.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2025-12-31",
-    "lead_days": 4,
-    "tier": "mid",
-    "max_gain_20d": 20.46,
-    "target": "/7895717506/367925231",
-    "date": "2025-12-27",
-    "judged_on": "full",
-    "snapshot": "2025-12-27-367925231.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2025-12-31",
-    "lead_days": 5,
-    "tier": "mid",
-    "max_gain_20d": 20.46,
-    "target": "/7895717506/367778765",
-    "date": "2025-12-26",
-    "judged_on": "full",
-    "snapshot": "2025-12-26-367778765.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2025-12-31",
-    "lead_days": 6,
-    "tier": "mid",
-    "max_gain_20d": 20.46,
-    "target": "/7895717506/367697226",
-    "date": "2025-12-25",
-    "judged_on": "full",
-    "snapshot": "2025-12-25-367697226.md"
-   },
-   {
-    "sector": "金属铜",
-    "launch_date": "2025-12-16",
-    "lead_days": 20,
-    "tier": "strong",
-    "max_gain_20d": 20.4,
-    "target": "/7895717506/363273114",
-    "date": "2025-11-26",
-    "judged_on": "full",
-    "snapshot": "2025-11-26-363273114.md"
-   }
-  ],
-  "1066188300": [
-   {
-    "sector": "生物制品",
-    "launch_date": "2026-07-30",
-    "lead_days": 8,
-    "tier": "strong",
-    "max_gain_20d": 23.24,
-    "target": "/1066188300/401659718",
-    "date": "2026-07-22",
-    "judged_on": "full",
-    "snapshot": "2026-07-22-401659718.md"
-   },
-   {
-    "sector": "黄金概念",
-    "launch_date": "2026-07-20",
-    "lead_days": 20,
-    "tier": "strong",
-    "max_gain_20d": 21.48,
-    "target": "/1066188300/397637289",
-    "date": "2026-06-30",
-    "judged_on": "full",
-    "snapshot": "2026-06-30-397637289.md"
-   },
-   {
-    "sector": "光学光电子",
-    "launch_date": "2026-07-30",
-    "lead_days": 14,
-    "tier": "strong",
-    "max_gain_20d": 21.49,
-    "target": "/1066188300/400440481",
-    "date": "2026-07-16",
-    "judged_on": "full",
-    "snapshot": "2026-07-16-400440481.md"
-   },
-   {
-    "sector": "OLED",
-    "launch_date": "2026-07-30",
-    "lead_days": 17,
-    "tier": "strong",
-    "max_gain_20d": 24.66,
-    "target": "/1066188300/399908453",
-    "date": "2026-07-13",
-    "judged_on": "full",
-    "snapshot": "2026-07-13-399908453.md"
-   },
-   {
-    "sector": "贵金属",
-    "launch_date": "2026-07-17",
-    "lead_days": 21,
-    "tier": "strong",
-    "max_gain_20d": 41.23,
-    "target": "/1066188300/396999145",
-    "date": "2026-06-26",
-    "judged_on": "full",
-    "snapshot": "2026-06-26-396999145.md"
+    "snapshot": "2025-07-08-341642263.md"
    }
   ],
   "2673334984": [
@@ -2851,63 +1304,6 @@
     "snapshot": "2024-08-23-302100679.md"
    }
   ],
-  "5742821612": [
-   {
-    "sector": "存储芯片",
-    "launch_date": "2026-07-30",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 28.14,
-    "target": "/5742821612/400850601",
-    "date": "2026-07-17",
-    "judged_on": "full",
-    "snapshot": "2026-07-17-400850601.md"
-   },
-   {
-    "sector": "存储芯片",
-    "launch_date": "2026-08-03",
-    "lead_days": 17,
-    "tier": "strong",
-    "max_gain_20d": 22.26,
-    "target": "/5742821612/400850601",
-    "date": "2026-07-17",
-    "judged_on": "full",
-    "snapshot": "2026-07-17-400850601.md"
-   },
-   {
-    "sector": "小金属",
-    "launch_date": "2026-06-08",
-    "lead_days": 18,
-    "tier": "strong",
-    "max_gain_20d": 25.19,
-    "target": "/5742821612/390086741",
-    "date": "2026-05-21",
-    "judged_on": "full",
-    "snapshot": "2026-05-21-390086741.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2026-03-23",
-    "lead_days": 5,
-    "tier": "mid",
-    "max_gain_20d": 30.6,
-    "target": "/5742821612/379950213",
-    "date": "2026-03-18",
-    "judged_on": "full",
-    "snapshot": "2026-03-18-379950213.md"
-   },
-   {
-    "sector": "能源金属",
-    "launch_date": "2026-04-03",
-    "lead_days": 16,
-    "tier": "strong",
-    "max_gain_20d": 40.16,
-    "target": "/5742821612/379950213",
-    "date": "2026-03-18",
-    "judged_on": "full",
-    "snapshot": "2026-03-18-379950213.md"
-   }
-  ],
   "1433550277": [
    {
     "sector": "证券",
@@ -2954,85 +1350,468 @@
     "snapshot": "2024-09-02-303318904.md"
    }
   ],
-  "7935264816": [
+  "7694187222": [
    {
-    "sector": "通信设备",
-    "launch_date": "2025-07-31",
-    "lead_days": 9,
+    "sector": "电池",
+    "launch_date": "2025-10-17",
+    "lead_days": 8,
     "tier": "strong",
-    "max_gain_20d": 23.67,
-    "target": "/7935264816/343645331",
-    "date": "2025-07-22",
+    "max_gain_20d": 22.87,
+    "target": "/7694187222/355833341",
+    "date": "2025-10-09",
     "judged_on": "full",
-    "snapshot": "2025-07-22-343645331.md"
+    "snapshot": "2025-10-09-355833341.md"
    },
    {
-    "sector": "通信设备",
-    "launch_date": "2025-08-04",
-    "lead_days": 13,
-    "tier": "strong",
-    "max_gain_20d": 22.94,
-    "target": "/7935264816/343645331",
-    "date": "2025-07-22",
+    "sector": "海工装备",
+    "launch_date": "2025-02-28",
+    "lead_days": 5,
+    "tier": "mid",
+    "max_gain_20d": 22.44,
+    "target": "/7694187222/324607125",
+    "date": "2025-02-23",
     "judged_on": "full",
-    "snapshot": "2025-07-22-343645331.md"
+    "snapshot": "2025-02-23-324607125.md"
    },
    {
-    "sector": "共封装光学(CPO)",
-    "launch_date": "2025-07-28",
-    "lead_days": 12,
+    "sector": "氟化工概念",
+    "launch_date": "2026-06-08",
+    "lead_days": 11,
     "tier": "strong",
-    "max_gain_20d": 21.89,
-    "target": "/7935264816/342835107",
-    "date": "2025-07-16",
-    "judged_on": "trunc",
-    "snapshot": ""
+    "max_gain_20d": 25.7,
+    "target": "/7694187222/391438302",
+    "date": "2026-05-28",
+    "judged_on": "full",
+    "snapshot": "2026-05-28-391438302.md"
    },
    {
-    "sector": "共封装光学(CPO)",
-    "launch_date": "2025-08-04",
-    "lead_days": 19,
+    "sector": "工业金属",
+    "launch_date": "2026-03-23",
+    "lead_days": 11,
     "tier": "strong",
-    "max_gain_20d": 28.67,
-    "target": "/7935264816/342835107",
-    "date": "2025-07-16",
-    "judged_on": "trunc",
-    "snapshot": ""
+    "max_gain_20d": 21.79,
+    "target": "/7694187222/379091162",
+    "date": "2026-03-12",
+    "judged_on": "full",
+    "snapshot": "2026-03-12-379091162.md"
    }
   ],
-  "6845979533": [
+  "1588293171": [
    {
-    "sector": "核电",
-    "launch_date": "2024-09-23",
-    "lead_days": 10,
-    "tier": "strong",
-    "max_gain_20d": 37.28,
-    "target": "/6845979533/304539624",
-    "date": "2024-09-13",
-    "judged_on": "full",
-    "snapshot": "2024-09-13-304539624.md"
-   },
-   {
-    "sector": "绿色电力",
-    "launch_date": "2024-09-18",
+    "sector": "贵金属",
+    "launch_date": "2025-08-28",
     "lead_days": 7,
     "tier": "strong",
-    "max_gain_20d": 31.04,
-    "target": "/6845979533/304345141",
-    "date": "2024-09-11",
+    "max_gain_20d": 20.57,
+    "target": "/1588293171/348304878",
+    "date": "2025-08-21",
     "judged_on": "full",
-    "snapshot": "2024-09-11-304345141.md"
+    "snapshot": "2025-08-21-348304878.md"
    },
    {
-    "sector": "高股息精选",
-    "launch_date": "2024-09-23",
+    "sector": "贵金属",
+    "launch_date": "2025-09-04",
+    "lead_days": 14,
+    "tier": "strong",
+    "max_gain_20d": 23.9,
+    "target": "/1588293171/348304878",
+    "date": "2025-08-21",
+    "judged_on": "full",
+    "snapshot": "2025-08-21-348304878.md"
+   },
+   {
+    "sector": "消费电子",
+    "launch_date": "2025-01-13",
+    "lead_days": 3,
+    "tier": "mid",
+    "max_gain_20d": 20.68,
+    "target": "/1588293171/320057144",
+    "date": "2025-01-10",
+    "judged_on": "full",
+    "snapshot": "2025-01-10-320057144.md"
+   },
+   {
+    "sector": "贵金属",
+    "launch_date": "2025-04-08",
+    "lead_days": 21,
+    "tier": "strong",
+    "max_gain_20d": 30.43,
+    "target": "/1588293171/327795124",
+    "date": "2025-03-18",
+    "judged_on": "full",
+    "snapshot": "2025-03-18-327795124.md"
+   }
+  ],
+  "4930371170": [
+   {
+    "sector": "腾讯概念",
+    "launch_date": "2025-12-16",
+    "lead_days": 20,
+    "tier": "strong",
+    "max_gain_20d": 22.52,
+    "target": "/4930371170/363239940",
+    "date": "2025-11-26",
+    "judged_on": "full",
+    "snapshot": "2025-11-26-363239940.md"
+   },
+   {
+    "sector": "贵金属",
+    "launch_date": "2025-12-31",
+    "lead_days": 21,
+    "tier": "strong",
+    "max_gain_20d": 103.18,
+    "target": "/4930371170/365257891",
+    "date": "2025-12-10",
+    "judged_on": "full",
+    "snapshot": "2025-12-10-365257891.md"
+   },
+   {
+    "sector": "黄金概念",
+    "launch_date": "2025-12-30",
+    "lead_days": 20,
+    "tier": "strong",
+    "max_gain_20d": 36.22,
+    "target": "/4930371170/365257891",
+    "date": "2025-12-10",
+    "judged_on": "full",
+    "snapshot": "2025-12-10-365257891.md"
+   }
+  ],
+  "1066188300": [
+   {
+    "sector": "黄金概念",
+    "launch_date": "2026-07-20",
+    "lead_days": 20,
+    "tier": "strong",
+    "max_gain_20d": 21.48,
+    "target": "/1066188300/397637289",
+    "date": "2026-06-30",
+    "judged_on": "full",
+    "snapshot": "2026-06-30-397637289.md"
+   },
+   {
+    "sector": "OLED",
+    "launch_date": "2026-07-30",
+    "lead_days": 17,
+    "tier": "strong",
+    "max_gain_20d": 24.66,
+    "target": "/1066188300/399908453",
+    "date": "2026-07-13",
+    "judged_on": "full",
+    "snapshot": "2026-07-13-399908453.md"
+   },
+   {
+    "sector": "贵金属",
+    "launch_date": "2026-07-17",
+    "lead_days": 21,
+    "tier": "strong",
+    "max_gain_20d": 41.23,
+    "target": "/1066188300/396999145",
+    "date": "2026-06-26",
+    "judged_on": "full",
+    "snapshot": "2026-06-26-396999145.md"
+   }
+  ],
+  "7895717506": [
+   {
+    "sector": "工业金属",
+    "launch_date": "2026-03-23",
+    "lead_days": 21,
+    "tier": "strong",
+    "max_gain_20d": 21.79,
+    "target": "/7895717506/377495507",
+    "date": "2026-03-02",
+    "judged_on": "full",
+    "snapshot": "2026-03-02-377495507.md"
+   },
+   {
+    "sector": "能源金属",
+    "launch_date": "2026-03-23",
+    "lead_days": 21,
+    "tier": "strong",
+    "max_gain_20d": 30.6,
+    "target": "/7895717506/377495507",
+    "date": "2026-03-02",
+    "judged_on": "full",
+    "snapshot": "2026-03-02-377495507.md"
+   },
+   {
+    "sector": "能源金属",
+    "launch_date": "2025-12-31",
+    "lead_days": 4,
+    "tier": "mid",
+    "max_gain_20d": 20.46,
+    "target": "/7895717506/367925231",
+    "date": "2025-12-27",
+    "judged_on": "full",
+    "snapshot": "2025-12-27-367925231.md"
+   },
+   {
+    "sector": "能源金属",
+    "launch_date": "2025-12-31",
+    "lead_days": 5,
+    "tier": "mid",
+    "max_gain_20d": 20.46,
+    "target": "/7895717506/367778765",
+    "date": "2025-12-26",
+    "judged_on": "full",
+    "snapshot": "2025-12-26-367778765.md"
+   },
+   {
+    "sector": "能源金属",
+    "launch_date": "2025-12-31",
+    "lead_days": 6,
+    "tier": "mid",
+    "max_gain_20d": 20.46,
+    "target": "/7895717506/367697226",
+    "date": "2025-12-25",
+    "judged_on": "full",
+    "snapshot": "2025-12-25-367697226.md"
+   }
+  ],
+  "8896225427": [
+   {
+    "sector": "软件开发",
+    "launch_date": "2025-12-16",
+    "lead_days": 13,
+    "tier": "strong",
+    "max_gain_20d": 25.17,
+    "target": "/8896225427/364290233",
+    "date": "2025-12-03",
+    "judged_on": "full",
+    "snapshot": "2025-12-03-364290233.md"
+   },
+   {
+    "sector": "游戏",
+    "launch_date": "2025-12-16",
+    "lead_days": 21,
+    "tier": "strong",
+    "max_gain_20d": 25.51,
+    "target": "/8896225427/363137075",
+    "date": "2025-11-25",
+    "judged_on": "full",
+    "snapshot": "2025-11-25-363137075.md"
+   },
+   {
+    "sector": "软件开发",
+    "launch_date": "2025-12-16",
+    "lead_days": 21,
+    "tier": "strong",
+    "max_gain_20d": 25.17,
+    "target": "/8896225427/363137075",
+    "date": "2025-11-25",
+    "judged_on": "full",
+    "snapshot": "2025-11-25-363137075.md"
+   }
+  ],
+  "1151776929": [
+   {
+    "sector": "阿里巴巴概念",
+    "launch_date": "2025-12-16",
+    "lead_days": 21,
+    "tier": "strong",
+    "max_gain_20d": 23.3,
+    "target": "/1151776929/363120493",
+    "date": "2025-11-25",
+    "judged_on": "full",
+    "snapshot": "2025-11-25-363120493.md"
+   },
+   {
+    "sector": "能源金属",
+    "launch_date": "2025-09-04",
+    "lead_days": 21,
+    "tier": "strong",
+    "max_gain_20d": 23.04,
+    "target": "/1151776929/346985482",
+    "date": "2025-08-14",
+    "judged_on": "full",
+    "snapshot": "2025-08-14-346985482.md"
+   },
+   {
+    "sector": "能源金属",
+    "launch_date": "2025-09-04",
+    "lead_days": 20,
+    "tier": "strong",
+    "max_gain_20d": 23.04,
+    "target": "/1151776929/347153120",
+    "date": "2025-08-15",
+    "judged_on": "full",
+    "snapshot": "2025-08-15-347153120.md"
+   }
+  ],
+  "5042266913": [
+   {
+    "sector": "能源金属",
+    "launch_date": "2026-03-23",
+    "lead_days": 16,
+    "tier": "strong",
+    "max_gain_20d": 30.6,
+    "target": "/5042266913/378444044",
+    "date": "2026-03-07",
+    "judged_on": "full",
+    "snapshot": "2026-03-07-378444044.md"
+   },
+   {
+    "sector": "东数西算(算力)",
+    "launch_date": "2025-01-13",
+    "lead_days": 19,
+    "tier": "strong",
+    "max_gain_20d": 35.73,
+    "target": "/5042266913/318101945",
+    "date": "2024-12-25",
+    "judged_on": "full",
+    "snapshot": "2024-12-25-318101945.md"
+   },
+   {
+    "sector": "东数西算(算力)",
+    "launch_date": "2025-02-06",
+    "lead_days": 10,
+    "tier": "strong",
+    "max_gain_20d": 22.88,
+    "target": "/5042266913/321874049",
+    "date": "2025-01-27",
+    "judged_on": "full",
+    "snapshot": "2025-01-27-321874049.md"
+   }
+  ],
+  "5742821612": [
+   {
+    "sector": "存储芯片",
+    "launch_date": "2026-07-30",
+    "lead_days": 13,
+    "tier": "strong",
+    "max_gain_20d": 28.14,
+    "target": "/5742821612/400850601",
+    "date": "2026-07-17",
+    "judged_on": "full",
+    "snapshot": "2026-07-17-400850601.md"
+   },
+   {
+    "sector": "存储芯片",
+    "launch_date": "2026-08-03",
+    "lead_days": 17,
+    "tier": "strong",
+    "max_gain_20d": 22.26,
+    "target": "/5742821612/400850601",
+    "date": "2026-07-17",
+    "judged_on": "full",
+    "snapshot": "2026-07-17-400850601.md"
+   },
+   {
+    "sector": "小金属",
+    "launch_date": "2026-06-08",
+    "lead_days": 18,
+    "tier": "strong",
+    "max_gain_20d": 25.19,
+    "target": "/5742821612/390086741",
+    "date": "2026-05-21",
+    "judged_on": "full",
+    "snapshot": "2026-05-21-390086741.md"
+   }
+  ],
+  "5176241533": [
+   {
+    "sector": "快手概念",
+    "launch_date": "2026-07-24",
+    "lead_days": 21,
+    "tier": "strong",
+    "max_gain_20d": 21.41,
+    "target": "/5176241533/398267171",
+    "date": "2026-07-03",
+    "judged_on": "full",
+    "snapshot": "2026-07-03-398267171.md"
+   },
+   {
+    "sector": "互联网电商",
+    "launch_date": "2025-04-07",
+    "lead_days": 4,
+    "tier": "mid",
+    "max_gain_20d": 25.63,
+    "target": "/5176241533/330086239",
+    "date": "2025-04-03",
+    "judged_on": "full",
+    "snapshot": "2025-04-03-330086239.md"
+   },
+   {
+    "sector": "拼多多概念",
+    "launch_date": "2025-04-07",
+    "lead_days": 4,
+    "tier": "mid",
+    "max_gain_20d": 20.26,
+    "target": "/5176241533/330086239",
+    "date": "2025-04-03",
+    "judged_on": "full",
+    "snapshot": "2025-04-03-330086239.md"
+   },
+   {
+    "sector": "拼多多概念",
+    "launch_date": "2025-04-07",
+    "lead_days": 18,
+    "tier": "strong",
+    "max_gain_20d": 20.26,
+    "target": "/5176241533/328231166",
+    "date": "2025-03-20",
+    "judged_on": "full",
+    "snapshot": "2025-03-20-328231166.md"
+   }
+  ],
+  "3440100627": [
+   {
+    "sector": "数据中心(AIDC)",
+    "launch_date": "2025-01-13",
+    "lead_days": 5,
+    "tier": "mid",
+    "max_gain_20d": 25.19,
+    "target": "/3440100627/319859129",
+    "date": "2025-01-08",
+    "judged_on": "full",
+    "snapshot": "2025-01-08-319859129.md"
+   },
+   {
+    "sector": "数据中心(AIDC)",
+    "launch_date": "2025-01-27",
+    "lead_days": 19,
+    "tier": "strong",
+    "max_gain_20d": 24.14,
+    "target": "/3440100627/319859129",
+    "date": "2025-01-08",
+    "judged_on": "full",
+    "snapshot": "2025-01-08-319859129.md"
+   },
+   {
+    "sector": "铜缆高速连接",
+    "launch_date": "2025-01-13",
     "lead_days": 12,
     "tier": "strong",
-    "max_gain_20d": 22.47,
-    "target": "/6845979533/304345141",
-    "date": "2024-09-11",
+    "max_gain_20d": 20.43,
+    "target": "/3440100627/318935065",
+    "date": "2025-01-01",
     "judged_on": "full",
-    "snapshot": "2024-09-11-304345141.md"
+    "snapshot": "2025-01-01-318935065.md"
+   }
+  ],
+  "8320106988": [
+   {
+    "sector": "光刻机",
+    "launch_date": "2025-09-04",
+    "lead_days": 11,
+    "tier": "strong",
+    "max_gain_20d": 21.23,
+    "target": "/8320106988/348696870",
+    "date": "2025-08-24",
+    "judged_on": "full",
+    "snapshot": "2025-08-24-348696870.md"
+   },
+   {
+    "sector": "半导体",
+    "launch_date": "2025-09-04",
+    "lead_days": 11,
+    "tier": "strong",
+    "max_gain_20d": 25.03,
+    "target": "/8320106988/348696870",
+    "date": "2025-08-24",
+    "judged_on": "full",
+    "snapshot": "2025-08-24-348696870.md"
    }
   ]
  }
