@@ -63,7 +63,7 @@ _LLM_LOG_LOCK = threading.Lock()
 SAMPLE_TOP_N = 20
 SAMPLE_MID_N = 10
 SAMPLE_SEED = 20260927
-JUDGE_PROMPT_VERSION = "2026-09-27-strict"
+JUDGE_PROMPT_VERSION = "2026-09-28-strict2"
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36")
@@ -593,15 +593,18 @@ def step_fetch(candidates: list[dict], limit: int = 0, uid: str | None = None) -
 def build_judge_prompt(candidate: dict, text: str) -> str:
     secs = "、".join(candidate["sectors"])
     return (
-        f"以下是雪球用户 {candidate['date']} 的帖子全文。针对板块【{secs}】逐个严格判定：\n"
-        "bullish 必须同时满足：①文本明确落在该板块本身/核心产业链/核心标的；"
-        "②有前瞻看多、看好、看涨、买入、加仓、布局、景气向上、明确受益等态度。\n"
+        f"以下是雪球用户 {candidate['date']} 的帖子全文。针对板块【{secs}】逐个严格判定。\n"
+        "bullish：明确落在该板块本身/核心产业链/核心标的，且有前瞻看多/看好/看涨/买入/加仓/布局/景气向上/明确受益，"
+        "或给出定价超预期、出货超预期、中标、产能上修、目标价等明确利好该板块的判断。转发研报但有明确看好结论也算 bullish。\n"
         "若文本只讨论个股，但该股业务/名称明显属于某候选板块（如锂矿股之于能源金属），按该板块表态判断；否则不要硬映射。\n"
-        "以下一律 neutral：只提及或讨论事实；泛AI/泛科技/泛制造/泛资源/国产替代/趋势方法论/指数研究；"
-        "个股短句情绪（牛逼/龙头强/没跌多少）但无明确买入加仓；看多的是别的板块；"
-        "转发/调研/访谈没有作者明确背书；对个股质疑、相对强弱、兑现讨论。\n"
-        "bearish 仅在明确看空/卖出/提示该板块风险时给出。拿不准一律 neutral。\n"
-        "禁止输出任何思考、理由、英文、Markdown 或多余字符；只输出一行 JSON。\n\n"
+        "neutral：只提及事实；泛AI/泛科技/泛制造/泛资源/国产替代/趋势方法论/指数研究；Token工厂/AI工厂/商业模式/护城河/估值方法等科普且无明确看多结论；"
+        "会议、访谈、嘉年华、活动预告或单纯转述他人观点；指数/情绪/拥挤度/宏观周报罗列多行业但未单独强调候选板块；政策原文摘录或调侃而无作者投资结论；"
+        "个股短句情绪但无明确买入加仓；看多的是别的板块；对个股质疑、相对强弱、兑现讨论；纯风控预案且不给方向；"
+        "仅解释高股息/分红率/指数编制规则，或指出分红率超过净利润、不可持续、被指数剔除等，即使股息率高也按 neutral。\n"
+        "明确说“大跌就加某板块ETF/标的”属于有方向的买入意向，不按纯风控处理。bearish 仅在明确看空/卖出/提示该板块风险时给出。拿不准一律 neutral。\n"
+        "输出要求：第一个字符必须是 {，禁止任何思考、理由、英文、Markdown；只输出一行 JSON。\n"
+        "示例：科普“什么是Token工厂”对算力租赁 → {\"stance\":{\"算力租赁\":\"neutral\"}}；"
+        "“mate80定价超预期，出货将超预期”对鸿蒙概念 → {\"stance\":{\"鸿蒙概念\":\"bullish\"}}。\n\n"
         f"帖子：\n{text}\n\n"
         '只输出 JSON：{"stance": {"板块名": "bullish|bearish|neutral"}}')
 
