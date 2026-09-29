@@ -6,7 +6,9 @@
 - 分组：POST /friendships/groups/members/update.json  data={uid, gid}（gid=该用户分组全集，逗号拼接）
 - 建组：POST /friendships/groups/create.json data={name}（同样要 session_token）
 
-用法：.venv/bin/python scripts/xueqiu_expert/follow_top20.py [--group 大牛TOP20]
+用法：.venv/bin/python scripts/xueqiu_expert/follow_top20.py [--group 大牛TOP20] [--split-by-source]
+  --split-by-source：除大组外，按候选人 source（A/B/C 渠道）建「<group>-A/B/C」子组，
+                    每人同时挂大组+渠道子组（members/update.json 为全集覆盖语义，须同时传所有 gid）
 """
 import json
 import sys
@@ -21,10 +23,12 @@ def main():
     group_name = "大牛TOP20"
     if "--group" in sys.argv:
         group_name = sys.argv[sys.argv.index("--group") + 1]
+    split = "--split-by-source" in sys.argv
 
     top = json.loads(RANKING.read_text())["top20"]
     uids = [(str(r["uid"]), r["screen_name"]) for r in top]
-    print(f"TOP{len(uids)}，目标分组「{group_name}」")
+    src_of = {str(r["uid"]): r.get("source", "?")[:1] for r in top}
+    print(f"TOP{len(uids)}，目标分组「{group_name}」split={split}")
 
     from playwright.sync_api import sync_playwright
     cookies = json.loads((Path.home() / "xq_cookies.json").read_text())
@@ -66,17 +70,28 @@ def main():
             return page.evaluate(
                 "async (p) => { const r = await fetch(p); return await r.text(); }", path)
 
-        # 1) 建/找分组
-        groups = json.loads(api_get("/friendships/groups.json"))
-        gid = next((g["id"] for g in groups if g["name"] == group_name), None)
-        if gid is None:
-            r = api_post("/friendships/groups/create.json", {"name": group_name})
-            print(f"创建分组: {r['status']} {r['text'][:150]}")
+        # 1) 建/找分组（大组 + 可选渠道子组）
+        def ensure_group(name):
             groups = json.loads(api_get("/friendships/groups.json"))
-            gid = next((g["id"] for g in groups if g["name"] == group_name), None)
-        print(f"分组 gid={gid}")
+            g = next((g["id"] for g in groups if g["name"] == name), None)
+            if g is None:
+                r = api_post("/friendships/groups/create.json", {"name": name})
+                print(f"创建分组「{name}」: {r['status']} {r['text'][:120]}")
+                groups = json.loads(api_get("/friendships/groups.json"))
+                g = next((g["id"] for g in groups if g["name"] == name), None)
+            return g
+
+        gid = ensure_group(group_name)
+        print(f"分组「{group_name}」gid={gid}")
         if gid is None:
             print("❌ 分组创建失败，中止"); return
+        sub_gid = {}
+        if split:
+            for ch in ("A", "B", "C"):
+                sub_gid[ch] = ensure_group(f"{group_name}-{ch}")
+                print(f"子组「{group_name}-{ch}」gid={sub_gid[ch]}")
+            if any(v is None for v in sub_gid.values()):
+                print("❌ 子组创建失败，中止"); return
 
         # 2) 已关注名单（避免重复关注）
         followed = set()
@@ -105,8 +120,11 @@ def main():
                 time.sleep(2.5)  # 写操作限速防验证码
             else:
                 ok_f += 1
+            gids = [str(gid)]
+            if split and src_of.get(uid) in sub_gid:
+                gids.append(str(sub_gid[src_of[uid]]))
             rg = api_post("/friendships/groups/members/update.json",
-                          {"uid": uid, "gid": str(gid)})
+                          {"uid": uid, "gid": ",".join(gids)})
             gmsg = "入组✓" if rg["status"] == 200 else f"入组✗{rg['status']}:{rg['text'][:80]}"
             if rg["status"] == 200:
                 ok_g += 1
@@ -117,7 +135,7 @@ def main():
         time.sleep(2)
         groups = json.loads(api_get("/friendships/groups.json"))
         for g in groups:
-            if g["name"] in (group_name, "全部", "未分组"):
+            if g["name"] == "全部" or g["name"].startswith(group_name):
                 print(f"  「{g['name']}」成员 {g['member_count']}")
         print(f"完成：关注 {ok_f}/{len(uids)}，入组 {ok_g}/{len(uids)}")
 
