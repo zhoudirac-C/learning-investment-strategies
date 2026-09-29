@@ -2667,4 +2667,4 @@
 - 产出：`knowledge/claims/claim-20260929-002.yaml`（19 条，002-a~s）；wiki：`knowledge/wiki/每日复盘/2026-09-29-青枫浦上Q复盘专栏.md`
 - 股票代码：先导智能 300450(创业板) / 国轩高科 002074 / 津药药业 600488 / 值得买 300785(创业板)
 - index 补登：claims/index.md +1 条；wiki/index.md +1 条；每日复盘/index.md +1 条
-- 下游管线（discover/Neo4j/Qdrant）：待执行（连同 9/27 Mark__Huang 15 条、9/28 早盘 17 条、9/28 复盘 25 条、9/29 早盘 24 条 pending 一并补跑）
+- 下游管线（discover/Neo4j/Qdrant）：已执行（2026-09-30 00:45 完成：discover 处理 20 条新 claim、建立 33 条关系（002-a 承接并 supersedes claim-20260928-002-i 情形推演）；Neo4j 迁移 34 条；Qdrant 重建 5653 条；Agent 已重启并健康）
