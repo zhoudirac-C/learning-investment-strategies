@@ -25,7 +25,9 @@ CUBE_DIR = DATA / "cubes"
 OUT = DATA / "cube_expert_ranking.json"
 MAPPING = REPO / "config" / "stock_monitor" / "stock_sector_mapping.json"
 MIN_WEIGHT_INCR = 5.0  # 百分点
-SLEEP = 2.0
+SLEEP = 5.0  # 2026-09-29 实测 2s 间隔 ~25 次连抓即触发 110017，提至 5s
+GLOBAL_COOLDOWN = 600  # 限流后全局冷却 10 分钟续跑（账号级配额冷却期 >6min 实测）
+MAX_COOLDOWNS = 3  # 冷却次数封顶，防无限挂起
 COUNT = 20  # 雪球该端点 count>20 会 400；且高频会触发 110017，需要慢速+退避
 
 
@@ -75,13 +77,16 @@ def fetch_cube(symbol: str) -> dict:
     path = CUBE_DIR / f"{symbol}.json"
     if path.exists():
         return json.loads(path.read_text(encoding="utf-8"))
-    url = f"https://xueqiu.com/cubes/rebalancing/history.json?cube_symbol={symbol}&count={COUNT}&page=1"
+    hosts = ["xueqiu.com", "www.xueqiu.com"]  # 110017 时切 www 重试（xueqiu-cube-tracking skill 实测绕过模式）
+    backoffs = [0, 60, 120, 180]  # skill 口径：110017 时 60/120/180s 退避
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
         "Referer": "https://xueqiu.com/",
         "Cookie": cookie_header(),
     }
-    for attempt in range(1, 3):  # 最多2次；持续限流时快速熔断，避免 cron 900s 空转
+    for attempt in range(1, 5):
+        host = hosts[(attempt - 1) % len(hosts)]
+        url = f"https://{host}/cubes/rebalancing/history.json?cube_symbol={symbol}&count={COUNT}&page=1"
         try:
             req = urllib.request.Request(url, headers=headers)
             with urllib.request.urlopen(req, timeout=30) as r:
@@ -92,9 +97,9 @@ def fetch_cube(symbol: str) -> dict:
         except urllib.error.HTTPError as e:  # noqa: BLE001
             body = e.read().decode("utf-8", errors="replace")[:300]
             if e.code == 400 and "110017" in body:
-                if attempt == 1:
-                    log(f"{symbol} 触发限流 110017，60s 后再试一次")
-                    time.sleep(60)
+                if attempt < 4:
+                    log(f"{symbol} 触发限流 110017（{host}），{backoffs[attempt]}s 后换 {hosts[attempt % len(hosts)]} 重试")
+                    time.sleep(backoffs[attempt])
                     continue
                 raise RateLimited(f"雪球组合接口仍限流 110017（{symbol}）")
             raise RuntimeError(f"HTTP {e.code} {body}")
@@ -186,7 +191,10 @@ def main() -> None:
     cubes = [c for c in cands if c.get("source", "").startswith("C") and c.get("cube_symbol")]
     log(f"C渠道组合 {len(cubes)} 个")
     rows = []
-    for i, c in enumerate(cubes, 1):
+    cooldowns = 0
+    i = 0
+    while i < len(cubes):
+        c = cubes[i]
         sym = c["cube_symbol"]
         try:
             cube = fetch_cube(sym)
@@ -196,13 +204,20 @@ def main() -> None:
                 "cube_symbol": sym, "cube_annualized": c.get("cube_annualized"),
                 "followers_count": c.get("followers_count"), **sc,
             })
+            i += 1
         except RateLimited as e:
-            # 持续限流：整轮快速退出（exit 0），由外层决定是否稍后重跑，避免 97 个组合逐个空转。
-            print(f"RATE_LIMITED {e}")
-            return
+            # 2026-09-29 拍板：限流不再中止，全局冷却后续跑（i 不推进）；冷却次数封顶防无限挂起
+            cooldowns += 1
+            if cooldowns > MAX_COOLDOWNS:
+                print(f"RATE_LIMITED {e}（已冷却 {cooldowns - 1} 次仍未解封，退出；缓存断点可续跑）")
+                return
+            log(f"{sym} 持续限流，全局冷却 {GLOBAL_COOLDOWN}s 后续跑（第 {cooldowns}/{MAX_COOLDOWNS} 次冷却）")
+            time.sleep(GLOBAL_COOLDOWN)
+            continue
         except Exception as e:  # noqa: BLE001
             rows.append({"uid": str(c["uid"]), "screen_name": c.get("screen_name", ""),
                          "cube_symbol": sym, "error": str(e)[:200]})
+            i += 1
         if i % 20 == 0:
             log(f"进度 {i}/{len(cubes)}")
     rows.sort(key=lambda r: r.get("composite", 0), reverse=True)
