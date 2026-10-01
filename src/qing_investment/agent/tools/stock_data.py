@@ -2,6 +2,8 @@ from __future__ import annotations
 
 """个股和指数实时数据获取（支持多数据源降级）。"""
 
+import os
+
 def _normalize_code(code: str) -> tuple[str, str]:
     """标准化股票代码，返回 (pure_code, full_code)。"""
     code = code.strip().lower()
