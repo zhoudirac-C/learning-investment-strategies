@@ -2686,4 +2686,4 @@
 - 股票代码全部东财 API 核实：万科A 000002/金龙羽 002882/金银河 300619(创业板)/时代万恒 600241/雪龙集团 603949/善水科技 301190(创业板)/长飞光纤 601869/太辰光 300570(创业板)/华大智造 688114(科创板)/百普赛斯 301080(创业板)/新炬网络 605398/汉王科技 002362；evidence_quote 保持纯引文无代码
 - wiki 新增 4 页：每日复盘/2026-09-29-青枫浦上Q图片动态.md、2026-09-30-青枫浦上Q早盘专栏.md、2026-10-01-青枫浦上Q国庆专栏.md、2026-10-02-青枫浦上Q隔夜复盘.md
 - 索引：claims/index.md + wiki/index.md 由 build_indexes.py 重建；每日复盘/index.md 手工插入 4 条
-- 下游管线（discover/Neo4j/Qdrant）：**未执行**（等用户指令）；新 claim 无 last_discovered，后续如做观点冲突对照分析须先补跑 discover
+- 下游管线（discover/Neo4j/Qdrant）：已执行（2026-10-02 13:10 完成：discover 4 文件共 69 条关系（其中 20261002-001-e 鸽派表态 contradicts 8/27 鹰派判断、supersedes 两条9月议息旧读）；Neo4j 迁移 39/39 节点+69 出边；Qdrant force-recreate 5692 条完整通过；Agent 未中断 health OK）
