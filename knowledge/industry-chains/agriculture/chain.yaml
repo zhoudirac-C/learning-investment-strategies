@@ -32,6 +32,11 @@ mappings:
   segment: upstream
   relation: 农药制剂+种子，厄尔尼诺需求弹性叠加出口放量受益
   elasticity: concept
+- code: '301665'
+  name: 泰禾股份
+  segment: upstream
+  relation: 创制农药+功能化学品协同，国际化稳步推进，厄尔尼诺催化农化需求下的创制农药弹性标的
+  elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 低
 stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-09-01，LLM 初判 阶段0-观察（国信证券《农产品专题：本轮厄尔尼诺强度有概率创历史新高，或催化新一轮农产品上涨周期》），积累证据
@@ -58,4 +63,8 @@ history:
 - date: '2026-09-23'
   stage: 阶段0-观察
   action: 演化:add_node 北交所农药出口标的纳入上游受益跟踪
+  result: 待验证
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增上游创制农药标的泰禾股份
   result: 待验证

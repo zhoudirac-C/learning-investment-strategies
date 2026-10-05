@@ -38,11 +38,11 @@ mappings:
   segment: seg-rd
   relation: 肺癌创新药WCLC正向数据读出，中游管线重估高弹性标的
   elasticity: concept
-current_stage: 阶段1-启动期
+current_stage: 阶段2-加速期
 stage_confidence: 中
-stage_evidence: 2026-09-24 跟踪更新：西南证券WCLC专题直接命中'临床数据读出'关键节点，正向数据落地强化中游重估，推进至启动期可右侧小仓介入
+stage_evidence: 2026-09-30 跟踪更新：迪哲获阿斯利康6亿美元首付款直接命中license-out大单触发，中游重估确认，链推进至加速期，不追高等回踩。
 timing:
-  current_recommendation: 可介入（右侧确认）
+  current_recommendation: license-out大单触发已兑现，加速期不追高，等分歧回踩介入
   next_trigger: license-out大单或医保谈判利好
   risk: 反弹后继续阴跌
 tracking_metrics:
@@ -79,4 +79,8 @@ history:
 - date: '2026-09-25'
   stage: 阶段1-启动期
   action: 演化:add_node 补充WCLC数据受益标的映射，填充'标的映射待补充'缺口
+  result: 待验证
+- date: '2026-09-30'
+  stage: 阶段2-加速期
+  action: 持有迪哲医药者续持；未介入者等回踩确认，关注后续里程碑付款及CXO订单传导
   result: 待验证

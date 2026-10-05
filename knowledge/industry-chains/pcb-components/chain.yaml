@@ -1,0 +1,114 @@
+chain_id: pcb-components
+name: PCB（印制电路板）产业链
+thesis: 元件（PCB）处于电子产业链中游，上游受覆铜板、铜箔、树脂等材料成本与供应影响，下游直接对接服务器、汽车电子、通信基站等高景气终端。当前资金聚焦PCB制造环节，看好技术升级（高频高速、HDI、多层板）带来的结构性增长机会。
+last_verified: '2026-10-05'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 覆铜板
+  - 电解铜箔
+  - 电子级树脂
+  - 半固化片
+  - 铜球
+- id: midstream
+  name: 中游
+  materials:
+  - 刚性板
+  - HDI板
+  - 高频高速板
+  - IC载板
+  - 金属基板
+- id: downstream
+  name: 下游
+  materials:
+  - 服务器主板
+  - 汽车雷达板
+  - 通信背板
+  - 消费电子主板
+mappings:
+- code: '600183'
+  name: 生益科技
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '688519'
+  name: 南亚新材
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '603186'
+  name: 华正新材
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: 002913
+  name: 奥士康
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: 002815
+  name: 崇达技术
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: 000823
+  name: 超声电子
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '605058'
+  name: 澳弘电子
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '603328'
+  name: 依顿电子
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '688655'
+  name: 迅捷兴
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '605258'
+  name: 协和电子
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '601138'
+  name: 工业富联
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+- code: 002920
+  name: 德赛西威
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+- code: '000063'
+  name: 中兴通讯
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+- code: '002475'
+  name: 立讯精密
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-05 人工确认入观察列表；提议于 2026-09-29，LLM 初判 阶段1-启动期（资金异动（元件板块7家首板，奥士康、崇达技术领涨）），积累证据
+  23 条
+timing:
+  current_recommendation: 聚焦中游PCB制造环节（奥士康、崇达技术等资金认筹标的），观察上游CCL（覆铜板）价格传导与下游AI服务器订单持续性
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []
+history:
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 人工回填观察列表标的 14 只（自 confirm 时字符串形状丢失恢复）
+  result: 待验证

@@ -35,7 +35,10 @@ timing:
   current_recommendation: 优先低介电电子布/电子纱及高端电子布环节（宏和科技、国际复材、中材科技），关注粗纱龙头盈利修复（中国巨石、长海股份）；纯建筑建材用玻纤弹性有限，回避。
   next_trigger: null
   risk: null
-tracking_metrics: []
+tracking_metrics:
+- metric: 高速CCL及低介电电子布涨价幅度与订单排期
+  current: 研报称供给瓶颈强化涨价弹性，尚无实际涨价数据
+  signal_direction: 涨价落地并传导至电子布价格=阶段推进信号
 falsification: []
 chain_relations:
 - target: 硅微粉填料
@@ -45,4 +48,8 @@ history:
 - date: '2026-09-23'
   stage: 阶段0-观察
   action: 演化:add_relation 硅微粉填料与电子布同属高频CCL上游配方迭代，存在同向传导关系
+  result: 待验证
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增关键跟踪节点：高速CCL/电子布涨价落地情况
   result: 待验证

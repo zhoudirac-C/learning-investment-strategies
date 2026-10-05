@@ -1,0 +1,68 @@
+chain_id: trading-card
+name: 集换式卡牌产业链
+thesis: 集换式卡牌（TCG）融合收藏、社交与竞技属性，国内TCG市场处于导入期向成长期过渡阶段。产业链上游为IP授权与原画设计，中游为卡牌印刷制造与发行渠道，下游为赛事运营、交易平台与二级市场。具备IP运营能力、赛事体系与渠道优势的公司将率先受益。
+last_verified: '2026-10-05'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - IP授权
+  - 原画设计
+  - 特殊油墨与纸张
+- id: midstream
+  name: 中游
+  materials:
+  - 卡牌印刷
+  - 盲盒包装
+- id: downstream
+  name: 下游
+  materials:
+  - 卡牌交易平台
+  - 赛事运营
+  - 直播内容
+mappings:
+- code: 002292
+  name: 奥飞娱乐
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '300364'
+  name: 中文在线
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '002605'
+  name: 姚记科技
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '603444'
+  name: 吉比特
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '300418'
+  name: 昆仑万维
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+- code: '002624'
+  name: 完美世界
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-05 人工确认入观察列表；提议于 2026-09-28，LLM 初判 阶段1-启动期（中邮证券集换式卡牌行业深度报告），积累证据
+  16 条
+timing:
+  current_recommendation: 关注具备IP运营能力与渠道优势的中游发行商及下游交易平台，上游IP授权方弹性较大但需验证IP热度持续性
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []
+history:
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 人工回填观察列表标的 6 只（自 confirm 时字符串形状丢失恢复）
+  result: 待验证

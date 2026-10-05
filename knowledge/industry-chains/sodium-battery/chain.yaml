@@ -1,0 +1,89 @@
+chain_id: sodium-battery
+name: 钠离子电池产业链
+thesis: 钠电池在原材料成本（碳酸钠 vs 碳酸锂）、低温性能和安全性上具备差异化优势，随着产业链深化与产能落地，在两轮车、储能、A00级车等场景加速渗透，正极/负极/电解液等专用材料环节迎来增量需求。
+last_verified: '2026-10-05'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 碳酸钠
+  - 正极材料（层状氧化物/聚阴离子）
+  - 硬碳负极
+  - 钠电电解液
+- id: midstream
+  name: 中游
+  materials:
+  - 钠电电芯
+  - 电池PACK
+- id: downstream
+  name: 下游
+  materials:
+  - 储能系统
+  - 两轮车
+  - A00级电动车
+mappings:
+- code: '688707'
+  name: 振华新材
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '688005'
+  name: 容百科技
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '920185'
+  name: 贝特瑞
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '002407'
+  name: 多氟多
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '300750'
+  name: 宁德时代
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: 002866
+  name: 传艺科技
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '600152'
+  name: 维科技术
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '300438'
+  name: 鹏辉能源
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '600348'
+  name: 华阳股份
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+- code: '688063'
+  name: 派能科技
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-05 人工确认入观察列表；提议于 2026-09-30，LLM 初判 阶段0-观察（电力设备及新能源：产业链持续深化，钠电放量可期（太平洋证券）），积累证据
+  13 条
+timing:
+  current_recommendation: 观察正极材料与硬碳负极等专用材料环节的放量节奏，等待订单与产能验证
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []
+history:
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 人工回填观察列表标的 10 只（自 confirm 时字符串形状丢失恢复）
+  result: 待验证

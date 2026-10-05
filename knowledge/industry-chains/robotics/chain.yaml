@@ -45,6 +45,12 @@ tracking_metrics:
   current: 进行中
   signal_direction: 量产爬坡确认=加强
   source: 特斯拉财报/新闻
+- metric: Optimus周产量
+  current: 数百台/周
+  signal_direction: 持续增长=加强
+- metric: Optimus Gen3发布
+  current: 渲染图曝光，发布临近
+  signal_direction: 正式发布+量产规格确认=加强
 falsification:
 - Optimus量产大幅推迟
 - 机器人板块题材持续退潮
@@ -55,4 +61,12 @@ history:
 - date: '2026-09-23'
   stage: 阶段0-观察
   action: 演化:add_node 研报印证减速器为核心受益环节，补充上游标的映射
+  result: 待验证
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增Optimus周产量跟踪指标
+  result: 待验证
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增跟踪节点：Optimus Gen3正式发布
   result: 待验证

@@ -57,6 +57,11 @@ mappings:
   segment: seg-equip
   relation: 干式变压器龙头，数据中心与海外业务高增、订单充裕，直接受益AIDC电力设备需求
   elasticity: concept
+- code: 002518
+  name: 科士达
+  segment: seg-equip
+  relation: 数据中心UPS/关键电源+精密温控供应商，数据中心业务稳步增长，海外光储贡献第二增量
+  elasticity: concept
 current_stage: 阶段2-加速期
 stage_confidence: 中
 stage_evidence: 2026-09-10 跟踪更新：AI电源业绩兑现验证产业链逻辑，阶段由启动推进至加速期。
@@ -113,4 +118,8 @@ history:
 - date: '2026-09-23'
   stage: 阶段2-加速期
   action: 演化:add_node 新增变压器环节标的金盘科技，补齐链条电力设备直接标的
+  result: 待验证
+- date: '2026-10-05'
+  stage: 阶段2-加速期
+  action: 演化:add_node 数据中心电源标的科士达纳入上游设备跟踪
   result: 待验证

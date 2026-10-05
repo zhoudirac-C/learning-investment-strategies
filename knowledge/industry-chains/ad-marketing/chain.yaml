@@ -1,0 +1,56 @@
+chain_id: ad-marketing
+name: 广告营销产业链
+thesis: 广告营销链条为：上游媒体流量资源（电视/户外/互联网平台）→中游广告代理与营销服务商（策划、投放、效果营销）→下游品牌广告主（快消/汽车/互联网）。消费回暖与AI生成内容应用落地推动营销服务商订单与毛利修复，板块处于启动初期。
+last_verified: '2026-10-05'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 媒体流量资源
+  - 广告位资源
+  - 内容IP版权
+  - 数据流量
+- id: midstream
+  name: 中游
+  materials:
+  - 整合营销服务
+  - 数字营销投放
+  - 效果广告代理
+  - 内容创意制作
+- id: downstream
+  name: 下游
+  materials:
+  - 品牌广告预算
+  - 效果广告投放
+  - 电商促销投放
+mappings:
+- code: '000607'
+  name: 华媒控股
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '603598'
+  name: 引力传媒
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '603602'
+  name: 纵横通信
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-05 人工确认入观察列表；提议于 2026-09-29，LLM 初判 阶段1-启动期（资金异动（广告营销）：涨停3家、封单1.7亿、领涨引力传媒/华媒控股/纵横通信；无当日研报素材），积累证据
+  8 条
+timing:
+  current_recommendation: 聚焦中游营销服务商（引力传媒为领涨核心），观察首板晋级与板块扩散情况；上游媒体资源（华媒控股）作为补涨备选；下游暂不参与
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []
+history:
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 人工回填观察列表标的 3 只（自 confirm 时字符串形状丢失恢复）
+  result: 待验证

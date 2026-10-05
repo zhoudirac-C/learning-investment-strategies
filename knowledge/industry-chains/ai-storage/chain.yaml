@@ -98,6 +98,9 @@ tracking_metrics:
 - metric: AI应用发布/推理需求（大模型与Agent迭代节奏）
   current: Meta Muse、DeepSeek V4.1 Flash发布，应用端催化密集
   signal_direction: 发布密集且商业化落地=加强（利好HBM/AI服务器）；发布停滞或商业化不及预期=削弱
+- metric: 电子气体国产替代/存储扩产配套供气订单
+  current: 国产替代推进中，广钢气体获券商首次覆盖
+  signal_direction: 存储扩产带动现场制气订单增长=加强；扩产放缓或订单不及预期=削弱
 falsification:
 - DRAM现货价连续2周回落
 - 长江存储IPO撤回或无限期推迟
@@ -126,4 +129,8 @@ history:
 - date: '2026-09-23'
   stage: 阶段2-加速期
   action: 演化:add_node 新增AI应用发布/推理需求作为下游前瞻跟踪节点
+  result: 待验证
+- date: '2026-10-05'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增上游材料环节：电子大宗气体/特气（晶圆制造耗材）
   result: 待验证

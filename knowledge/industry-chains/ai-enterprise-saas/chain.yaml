@@ -30,6 +30,9 @@ tracking_metrics:
 - metric: 国产算力/CPU供需缺口（智能体带动，订单排期/交付周期）
   current: 供需持续趋紧
   signal_direction: 缺口扩大=智能体放量前导信号，向中游SaaS需求传导
+- metric: 海外SaaS/云厂商AI相关收入增速（Snowflake产品收入、Oracle OCI AI订单等）
+  current: 2026-09-27华鑫点评：Snowflake产品收入增长提速、AI应用带动平台消费；Oracle OCI增长提速、AI订单支撑收入扩张
+  signal_direction: 海外AI货币化加速→前导验证国内中游SaaS渗透率提升与需求传导
 falsification: []
 chain_relations:
 - target: AI算力产业链
@@ -43,4 +46,8 @@ history:
 - date: '2026-09-25'
   stage: 阶段0-观察
   action: 演化:add_node 新增上游前导节点：智能体驱动的国产算力/CPU供需缺口
+  result: 待验证
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增海外SaaS/云龙头AI货币化前导跟踪节点
   result: 待验证

@@ -1,0 +1,69 @@
+chain_id: solid-state-battery
+name: 固态电池产业链
+thesis: 固态电池处于产业化前夜，头部厂商中试线落地与装车测试提速，带动电解质/锂金属负极等新材料需求及制浆、测试等专用设备先行受益，设备环节订单先于电芯业绩兑现。
+last_verified: '2026-10-05'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 固态电解质（硫化物/氧化物）
+  - 锂金属负极
+  - 高镍正极
+  - 硫化锂
+- id: midstream
+  name: 中游
+  materials:
+  - 固态电芯
+  - 干法电极
+- id: downstream
+  name: 下游
+  materials:
+  - 浆料制浆设备
+  - 涂布设备
+  - 电池测试设备
+mappings:
+- code: 002058
+  name: 紫竹高科
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '002074'
+  name: 国轩高科
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '600241'
+  name: 时代万恒
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '600152'
+  name: 维科技术
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '301513'
+  name: 尚水智能
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+- code: '920779'
+  name: 武汉蓝电
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-05 人工确认入观察列表；提议于 2026-09-29，LLM 初判 阶段2-加速期（资金异动（电池）+ 板块涨停梯队结构（电芯+设备+测试多点共振）），积累证据
+  6 条
+timing:
+  current_recommendation: 加速期追高风险上升，优先观察设备/测试等低位补涨环节（尚水智能、武汉蓝电），电芯龙头国轩高科看封单持续性
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []
+history:
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 人工回填观察列表标的 6 只（自 confirm 时字符串形状丢失恢复）
+  result: 待验证

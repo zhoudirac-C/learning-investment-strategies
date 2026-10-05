@@ -1,0 +1,91 @@
+chain_id: vaccine-biologics
+name: 疫苗与创新生物制品产业链
+thesis: 疫苗与创新生物制品具备清晰传导路径：上游培养基、佐剂、纯化填料等核心耗材国产化替代；中游疫苗/单抗/重组蛋白研发生产为价值核心，License-out与放量直接兑现业绩；下游CDMO、流通接种环节联动受益。板块低位首板异动，属启动初期，业绩兑现看管线兑现与出海订单。
+last_verified: '2026-10-05'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 培养基
+  - 佐剂
+  - 纯化填料/层析介质
+  - 一次性耗材
+  - 玻璃瓶/胶塞包材
+- id: midstream
+  name: 中游
+  materials:
+  - 疫苗原液与制剂
+  - 单抗/双特异性抗体
+  - 重组蛋白药物
+- id: downstream
+  name: 下游
+  materials:
+  - 生物制品CDMO/CMO服务
+  - 冷链流通
+  - 接种服务与渠道
+mappings:
+- code: '688690'
+  name: 纳微科技
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '301080'
+  name: 百普赛斯
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '300171'
+  name: 东富龙
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '300358'
+  name: 楚天科技
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '688185'
+  name: 康希诺
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '603590'
+  name: 康辰药业
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '688276'
+  name: 百克生物
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '300122'
+  name: 智飞生物
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '300347'
+  name: 泰格医药
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+- code: 000028
+  name: 国药一致
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-05 人工确认入观察列表；提议于 2026-09-30，LLM 初判 阶段1-启动期（资金异动（生物制品）+ 无当日研报素材（纯资金行为）），积累证据
+  5 条
+timing:
+  current_recommendation: 以中游疫苗/创新生物制品龙头（康希诺、泰诺麦博）为核心跟踪其连板强度与封单持续性；启动期只做龙头确认，上游耗材（纳微科技等）待资金向产业链扩散再介入；若次日分歧加大则回避跟风补涨股。
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []
+history:
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 人工回填观察列表标的 10 只（自 confirm 时字符串形状丢失恢复）
+  result: 待验证

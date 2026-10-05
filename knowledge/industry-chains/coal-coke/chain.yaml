@@ -65,6 +65,9 @@ tracking_metrics:
 - metric: 煤炭月度进口量（同比）
   current: 26年8月同比小幅回落，增量存在不确定性
   signal_direction: 进口持续回落=供给收缩加强；进口回升=削弱国内提价逻辑
+- metric: 冬储补库进度与动力煤港口价
+  current: 港口价再度上行、补库预期升温（2026-09-29）
+  signal_direction: 港口价持续上行+补库放量=需求确认加强；回落=削弱
 falsification:
 - 焦炭提涨受阻或钢厂联合抵制连续2轮
 - 煤炭PPI转负
@@ -109,4 +112,8 @@ history:
 - date: '2026-09-23'
   stage: 阶段0-观察
   action: 演化:add_node 新增跟踪节点：煤炭进口量（供给侧边际变量）
+  result: 待验证
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增冬储补库/动力煤港口价跟踪节点
   result: 待验证

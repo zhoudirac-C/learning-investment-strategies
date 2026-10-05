@@ -28,4 +28,10 @@ timing:
   next_trigger: null
   risk: null
 tracking_metrics: []
-falsification: []
+falsification:
+- 地缘冲突导致原油价格大幅上行，PTA/MEG成本抬升且无法向下游传导，长丝-原料价差显著收窄
+history:
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 演化:update_falsification 新增证伪条件：油价大涨吞噬长丝价差
+  result: 待验证

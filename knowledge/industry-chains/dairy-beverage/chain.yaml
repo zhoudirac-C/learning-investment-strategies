@@ -1,0 +1,88 @@
+chain_id: dairy-beverage
+name: 乳制品/含乳饮料产业链
+thesis: 上游原奶产能历经多年出清，奶价周期见底预期升温，中游乳企成本红利与需求修复共振释放盈利弹性；均瑶健康（乳酸菌饮品）2板领涨、阳光乳业（区域低温奶）首板助攻，资金沿原奶—加工—渠道链条展开布局。
+last_verified: '2026-10-05'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 生鲜乳/原奶
+  - 饲料（苜蓿、玉米、豆粕）
+  - 包装材料（利乐包、PET瓶、纸盒）
+- id: midstream
+  name: 中游
+  materials:
+  - 常温/低温白奶
+  - 酸奶
+  - 乳酸菌饮品
+  - 含乳饮料
+- id: downstream
+  name: 下游
+  materials:
+  - 终端乳制品消费品
+mappings:
+- code: '300106'
+  name: 西部牧业
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: 002910
+  name: 庄园牧场
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '600359'
+  name: 新农开发
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '605388'
+  name: 均瑶健康
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: 001318
+  name: 阳光乳业
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: 002946
+  name: 新乳业
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '600597'
+  name: 光明乳业
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '600887'
+  name: 伊利股份
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '301078'
+  name: 孩子王
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+- code: '603214'
+  name: 爱婴室
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-05 人工确认入观察列表；提议于 2026-09-30，LLM 初判 阶段1-启动期（资金异动（饮料乳品：均瑶健康2板、阳光乳业首板）），积累证据
+  5 条
+timing:
+  current_recommendation: 聚焦中游加工环节：跟踪均瑶健康连板高度与梯队是否扩围，确认后可挖掘上游牧场类弹性标的补涨；下游渠道仅作情绪联动观察，若梯队断板则回避。
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []
+history:
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 人工回填观察列表标的 10 只（自 confirm 时字符串形状丢失恢复）
+  result: 待验证

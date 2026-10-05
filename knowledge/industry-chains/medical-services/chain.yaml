@@ -1,0 +1,104 @@
+chain_id: medical-services
+name: 医疗服务产业链
+thesis: 传导路径清晰：上游设备试剂耗材→中游流通分销与医学检验/基因检测服务→下游专科医疗机构；支付端与诊疗量回升沿链传导，本轮资金已在中游流通与检测服务、下游口腔服务两个环节完成首板确认，服务机构为题材本体。
+last_verified: '2026-10-05'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 体外诊断试剂与耗材
+  - 基因测序仪及测序试剂
+  - 医学影像与治疗设备
+  - 设备核心零部件
+- id: midstream
+  name: 中游
+  materials:
+  - 器械/IVD产品集成分销
+  - 基因检测试剂盒
+  - 检验服务外包（ICL）
+- id: downstream
+  name: 下游
+  materials:
+  - 口腔/眼科/体检等专科诊疗服务
+  - 医院运营管理服务
+mappings:
+- code: '688114'
+  name: 华大智造
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '300760'
+  name: 迈瑞医疗
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '300832'
+  name: 新产业
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '603658'
+  name: 安图生物
+  segment: upstream
+  relation: 标的
+  elasticity: concept
+- code: '603122'
+  name: 合富中国
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '000710'
+  name: 贝瑞基因
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '603108'
+  name: 润达医疗
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '603882'
+  name: 金域医学
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '300244'
+  name: 迪安诊断
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '002622'
+  name: 皓宸医疗
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+- code: '300015'
+  name: 爱尔眼科
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+- code: '600763'
+  name: 通策医疗
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+- code: '002044'
+  name: 美年健康
+  segment: downstream
+  relation: 标的
+  elasticity: concept
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-05 人工确认入观察列表；提议于 2026-09-25，LLM 初判 阶段1-启动期（资金异动（医疗服务）+ 无（当日无研报/公告素材）），积累证据
+  14 条
+timing:
+  current_recommendation: 梯队浅（最高1板）属启动期：优先沿资金已确认的中游流通/检测服务环节挖补涨（合富中国、贝瑞基因同向），下游口腔/体检服务观察皓宸医疗晋级与分歧低吸机会；上游设备试剂传导偏慢，暂观察不追高。
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []
+history:
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 人工回填观察列表标的 13 只（自 confirm 时字符串形状丢失恢复）
+  result: 待验证

@@ -11,6 +11,8 @@ segments:
   growth: null
   status: null
   last_verified: null
+  materials:
+  - 半导体IP
 - id: seg-02
   name: AI芯片设计
   value_share: null
@@ -639,6 +641,9 @@ tracking_metrics:
   current: 头部运营商净利率10-15%→30%+
   signal_direction: 验证=加强
   source: 研报
+- metric: NPO（近封装光学）产业化进度
+  current: 产业发展加速，光模块持续受益
+  signal_direction: NPO方案规模落地=加强
 falsification:
 - 昇腾出货量大幅低于预期
 - 国产算力生态适配停滞
@@ -664,4 +669,12 @@ history:
 - date: '2026-09-23'
   stage: 阶段2-加速期
   action: 演化:refine_segment 封装测试层新增玻璃载板/特种玻纤材料方向
+  result: 待验证
+- date: '2026-10-05'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增NPO产业化进度作为高速互联层跟踪节点
+  result: 待验证
+- date: '2026-10-05'
+  stage: 阶段2-加速期
+  action: 演化:refine_segment 端侧AI芯片IP需求爆发，细化芯片设计层（seg-01）下的半导体IP细分领域
   result: 待验证

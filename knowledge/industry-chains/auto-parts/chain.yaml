@@ -1,0 +1,58 @@
+chain_id: auto-parts
+name: 汽车零部件产业链
+thesis: 汽车零部件由特钢/铝材等原材料，经传动、轴承、紧固件、冷却系统等部件环节，最终配套整车与后市场。板块2板龙头+3首板梯队成形，资金优先锁定中游部件核心标的，上游材料与下游整车存在补涨传导空间。
+last_verified: '2026-10-05'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 特钢/齿轮钢
+  - 轴承钢
+  - 铝合金
+  - 橡胶密封材料
+  - 粉末冶金
+- id: midstream
+  name: 中游
+  materials:
+  - 齿轮坯料
+  - 紧固件线材
+  - 硅油介质
+- id: downstream
+  name: 下游
+  materials: []
+mappings:
+- code: '603949'
+  name: 雪龙集团
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '603767'
+  name: 中马传动
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: 000678
+  name: 襄阳轴承
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+- code: '605018'
+  name: 长华集团
+  segment: midstream
+  relation: 标的
+  elasticity: concept
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-05 人工确认入观察列表；提议于 2026-09-25，LLM 初判 阶段1-启动期（资金异动（汽车零部）+ 无当日研报素材，链路基于通用产业地图拆解），积累证据
+  17 条
+timing:
+  current_recommendation: 启动期：聚焦中游部件核心梯队，雪龙集团2板为空间标，观察中游低位传动/轴承/紧固件补涨；上游材料与下游整车待情绪扩散后再介入，回避非梯队跟风票。
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []
+history:
+- date: '2026-10-05'
+  stage: 阶段0-观察
+  action: 人工回填观察列表标的 4 只（自 confirm 时字符串形状丢失恢复）
+  result: 待验证
