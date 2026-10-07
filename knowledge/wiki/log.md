@@ -1,5 +1,13 @@
 # 操作日志
 
+
+## 2026-10-07 | qing-learning ingest | 10/7 节后复盘专栏提取：调整中继两锚定+再平衡看量能+右侧跟随纪律（001）
+
+- 处理 raw：`sources/original/bilibili/2026-10-07-2241-专栏-…（22:41 复盘专栏，充电专属，opus 通道全文）` 1篇
+- claim-20261007-001.yaml（13 条）：market-cycle×4（补涨修复定性/调整中继两锚定/地量解读/再平衡量能判据），sector-theme×5（科技趋势票/AI应用催化节奏/医药新载体/地产首日检验/固态电池扩散），technical-signal×1（反核=情绪先于指数变盘），risk×1（10月末三事件密度检验锚定），methodology×1（供给约束题材硬度>轮动题材+位置决定意义），operation×1（等锚定降低频率、长阳右侧跟随）
+- Gate 1/2/3 一次通过，无假阳性；编号约定=文件内字母后缀 001-a～001-m（step1 初稿误用旧全局序号，step4 前已统一改正）
+- wiki 新增 `knowledge/wiki/每日复盘/2026-10-07-青枫浦上Q复盘专栏.md`；claims/index.md + wiki/index.md + 每日复盘/index.md 已更新
+- 后续待办：discover 关系挖掘（新 claims 无 last_discovered，按用户指示决定是否跑）
 ## 2026-09-01 | qing-learning ingest | 9/1 早盘两篇动态提取：外围三高测试+4000点攻防+120分钟高8（001-002）
 
 - 处理 raw：`sources/original/bilibili/2026-09-01-0859-专栏-…（早盘复盘）` + `2026-09-01-0910-图片-…（120分钟高8）` 2篇
