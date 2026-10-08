@@ -1,0 +1,760 @@
+claims:
+- id: claim-20261008-007-a
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: market-cycle
+  subject: 结构性调整定性与两分支验证
+  timeframe: short-term
+  statement: 当前更接近风险偏好下降后的结构性调整：无风险利率抬升提高远期盈利折现要求，对高估值成长股形成压力。后续验证两分支——若成交继续收缩、反弹高度下降、科技核心持续创新低，阴跌风险进一步上升；若缩量伴随价格不再下移、核心品种出现主动买盘，则可能转向抛压衰减。缩量是承接退潮还是卖压减轻，要由价格重心和板块强弱共同验证。
+  stance: market-regime
+  evidence_quote: 个人判断，当前更接近风险偏好下降后的结构性调整。无风险利率抬升会提高远期盈利的折现要求，对高估值成长股形成压力；市场对盈利兑现、监管变化和资本开支的预期也在同时参与定价。后续若成交继续收缩、反弹高度下降、科技核心持续创新低，阴跌风险会进一步上升；若缩量伴随价格不再下移、核心品种出现主动买盘，则可能转向抛压衰减。
+  interpretation: 对早盘『基准情形=震荡消化或温和修复』的收盘修正：实际走了偏弱路径，定性更新为结构性调整，并给出阴跌风险上升 vs 抛压衰减的可观察分界条件。
+  confidence: high
+  status: active
+  intensity: high
+  related_stocks: []
+  tags:
+  - 结构性调整
+  - 风险偏好
+  - 阴跌风险
+  - 抛压衰减
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 定性=风险偏好下降后的结构性调整，两分支验证阴跌或抛压衰减
+- id: claim-20261008-007-b
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: technical-signal
+  subject: 放量下跌与午后承接不足解读
+  timeframe: intraday
+  statement: 全天放量与午后交投降温同时发生：前者是节后交易与抛压集中释放，后者反映后半场新增买盘跟进不足；午后量能减弱时指数仍继续回落，是承接偏弱的信号，但仅凭量价关系还不足以断言买盘已经完全消失。
+  stance: view
+  evidence_quote: 全天放量与午后交投降温可以同时发生：前者说明节后交易与抛压集中释放，后者反映后半场新增买盘跟进不足。午后量能减弱时指数仍继续回落，是承接偏弱的信号，但仅凭量价关系，还不足以断言买盘已经完全消失。
+  interpretation: 对 16821 亿放量下跌的解读纪律：承接偏弱是信号而非结论，防止单日量价外推为『买盘消失』的过度悲观。
+  confidence: high
+  status: active
+  intensity: high
+  related_stocks: []
+  tags:
+  - 放量下跌
+  - 承接不足
+  - 量价解读
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 放量=抛压集中释放+新增买盘不足；承接偏弱是信号非结论
+- id: claim-20261008-007-c
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: methodology
+  subject: 量能有效性判读规则
+  timeframe: short-term
+  statement: 量能的有效性最终体现在价格上：放量时指数仍下移、领跌股继续扩散=抛压释放；下探时量能收敛、随后回升有增量成交且回踩不再跌破先前低点=承接改善；单独出现成交萎缩，暂时不能作为抢反弹的依据。明日比较口径：开盘后量能与今天相同时段比较，全天成交待收盘确认，避免用午后天然较低的成交速度直接判定市场进一步缩量。
+  stance: view
+  evidence_quote: 量能的有效性最终体现在价格上。如果放量时指数仍下移、领跌股继续扩散，应理解为抛压释放；如果下探时量能收敛、随后回升有增量成交，且回踩不再跌破先前低点，才更接近承接改善。单独出现成交萎缩，暂时不能作为抢反弹的依据。……开盘后的量能应与今天相同时段比较，全天成交则待收盘确认，避免用午后天然较低的成交速度直接判定市场进一步缩量。
+  interpretation: 对早盘『量能三分类』框架的下跌日适配版：给出抛压释放 vs 承接改善的价格确认条件，外加次日量能比较的口径纪律（同时段对比、全天待收盘）。
+  confidence: high
+  status: active
+  intensity: high
+  related_stocks: []
+  tags:
+  - 量能有效性
+  - 承接改善
+  - 抛压释放
+  - 比较口径
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 量能有效性看价格：放量+下移=抛压释放，缩量探底回升不破前低=承接改善
+- id: claim-20261008-007-d
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: sector-theme
+  subject: 大金融支撑与风险偏好背离
+  timeframe: intraday
+  statement: 银行与电力逆势活跃对沪指形成相对支撑（沪指跌幅小于双创），高股息走强反映部分资金偏好向稳定现金流迁移；但市场超3700只个股下跌，权重韧性尚未转化为普遍赚钱效应；只靠银行抬升指数仍不足以确认整体修复，下一交易日要同时看银行能否维持稳定、券商保险是否形成协同，以及科技和中小市值方向是否停止拖累。
+  stance: view
+  evidence_quote: 银行与电力等方向逆势活跃，对沪指形成相对支撑，因此沪指跌幅小于双创指数。高股息的走强反映部分资金偏好向稳定现金流迁移，但市场超过3700只个股下跌，权重韧性尚未转化为普遍赚钱效应。……只靠银行抬升指数，仍不足以确认整体修复。
+  interpretation: 与早盘『红盘靠权重=结构分化』规则（001-h）的下跌日版本：权重护盘与个股普跌并存时，修复确认需要银行稳定+券商保险协同+科技止跌三条件。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks: []
+  tags:
+  - 银行
+  - 高股息
+  - 权重护盘
+  - 修复确认
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 银行护盘≠整体修复：需券商保险协同+科技止跌
+- id: claim-20261008-007-e
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: market-cycle
+  subject: 反核反馈与情绪指数分离条件
+  timeframe: intraday
+  statement: 局部反核有反馈但持续性需验证：襄阳轴承(000678)、深物业A(000011)盘中冲高给提前参与反核的资金提供了兑现窗口，随后回落说明筹码分歧并未消失；对持仓者的正反馈与追高者能否获利是两件需要分别观察的事；情绪端有机会逐步与指数端分离，但要看到高位股分歧后继续有人承接并带动中低位梯队，而不是只靠少数品种维持热度。
+  stance: view
+  evidence_quote: 短线情绪相对指数更有韧性。襄阳轴承、深物业A今天盘中的冲高，给提前参与反核的资金提供了兑现窗口；随后回落又说明筹码分歧并未消失。对持仓者的正反馈，与追高者能否获利，是两件需要分别观察的事。情绪端有机会逐步与指数端分离，但要看到高位股分歧后继续有人承接，并带动中低位梯队，而不是只靠少数品种维持热度。
+  interpretation: 情绪观察的两组分层：①反核冲高=先手兑现窗口≠追高者机会；②情绪与指数分离的确认条件=高位分歧后有人承接+带动中低位，而非少数品种独撑。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks:
+  - code: '000678'
+    name: 襄阳轴承
+    role: 反核兑现窗口观察标-主板可交易
+  - code: '000011'
+    name: 深物业A
+    role: 反核兑现窗口观察标-主板可交易
+  tags:
+  - 反核
+  - 情绪梯队
+  - 兑现窗口
+  - 分歧承接
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 反核冲高=先手兑现窗口；情绪指数分离需高位承接带动中低位
+- id: claim-20261008-007-f
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: methodology
+  subject: 明日观察重点与3800关口纪律
+  timeframe: intraday
+  statement: 明日（10月9日）观察重点：科技能否止跌、固态电池能否承接分歧、高位题材能否延续赚钱效应；开盘只用于识别强弱，午后与收盘用于确认持续性；上证指数在3800点附近反复只能说明这里是近期观察区，不能凭整数关口预设支撑一定有效。
+  stance: view
+  evidence_quote: 下一交易日为10月9日。观察重点放在科技能否止跌、固态电池能否承接分歧，以及高位题材能否延续赚钱效应。开盘只用于识别强弱，午后与收盘用于确认持续性。上证指数今天在3800点附近反复，只能说明这里是近期观察区，不能凭整数关口预设支撑一定有效。
+  interpretation: 明日框架三重点+两条纪律：时点分工（开盘辨强弱/午后收盘定持续）+ 整数关口不预设支撑（3800 只是观察区）。
+  confidence: high
+  status: active
+  intensity: high
+  related_stocks: []
+  tags:
+  - 明日观察
+  - '3800'
+  - 整数关口
+  - 时点分工
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 明日三重点：科技止跌/电池承接/题材溢价；3800不预设支撑
+- id: claim-20261008-007-g
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: methodology
+  subject: 情形A下探承接修复扩散
+  timeframe: intraday
+  statement: 情形A（下探获得承接、修复由局部扩散）：早盘回落后双创指数不再持续扩大跌幅，科技核心在指数下探时率先稳定；电池方向分歧后保留强势梯队，银行同步维持稳定；若午后回升伴随成交改善、收盘重心抬高、下跌家数明显收敛，可把判断从全面防守调整为观察结构性修复。操作上只跟随已形成承接的方向，控制试错规模，优先确认回踩后的强度；收盘前尚未完成的确认，不提前写成趋势反转。
+  stance: view
+  evidence_quote: 情形 A · 下探获得承接，修复由局部扩散：早盘回落后，双创指数不再持续扩大跌幅，科技核心在指数下探时率先稳定；电池方向分歧后保留强势梯队，银行同步维持稳定。若午后回升伴随成交改善，收盘重心抬高、下跌家数明显收敛，可把判断从全面防守调整为观察结构性修复。操作上只跟随已形成承接的方向，控制试错规模，优先确认回踩后的强度。收盘前尚未完成的确认，不提前写成趋势反转。
+  interpretation: 情形A的四要素确认链（双创止跌+科技核心率先稳+电池梯队保留+银行稳定）与两个操作纪律（只跟随已承接方向、未完成确认不提前写反转）。
+  confidence: high
+  status: active
+  intensity: high
+  related_stocks: []
+  tags:
+  - 情形A
+  - 结构性修复
+  - 承接确认
+  - 试错规模
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形A：四要素齐备则从全面防守转为观察结构性修复
+- id: claim-20261008-007-h
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: methodology
+  subject: 情形B反弹无量共振走弱与分界
+  timeframe: intraday
+  statement: 情形B（反弹无量、指数与情绪再度共振走弱）：科技核心继续创新低、反弹很快回吐；同一时段成交较今天下降但价格重心持续下移；固态电池出现集中炸板或高位股大幅补跌——若这些信号延续到午后及收盘，按承接继续减弱处理。操作上降低主动暴露，放弃没有承接依据的抄底，优先处理破坏原有持有逻辑的仓位；个别股票的急拉不能替代整个持仓方向的风险判断。分界规则：指数偏弱而少数题材保持强势时维持局部观察，不强行套入全面转强；只有缩量、没有新低也不机械判为情形B；两套预案的分界是承接质量、价格重心和赚钱效应的联动。
+  stance: view
+  evidence_quote: 情形 B · 反弹无量，指数与情绪再度共振走弱：科技核心继续创新低，反弹很快回吐；同一时段成交较今天下降，价格重心却持续下移；固态电池出现集中炸板或高位股大幅补跌。若这些信号延续到午后及收盘，应按承接继续减弱处理。操作上降低主动暴露，放弃没有承接依据的抄底，优先处理破坏原有持有逻辑的仓位。个别股票的急拉不能替代整个持仓方向的风险判断。……若指数偏弱而少数题材保持强势，维持局部观察即可，不强行套入全面转强的结论；若只有缩量、没有新低，也不机械判为情形B。
+  interpretation: 情形B的三信号（核心新低/量缩价移/电池炸板或高位补跌）与三操作（降暴露/不无承接抄底/先处理逻辑破坏仓位），外加两条防误判分界（局部强势不套转强、缩量不新低不机械判B）。
+  confidence: high
+  status: active
+  intensity: high
+  related_stocks: []
+  tags:
+  - 情形B
+  - 共振走弱
+  - 降低暴露
+  - 分界规则
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形B：核心新低+量缩价移+电池炸板则降暴露，放弃无承接抄底
+- id: claim-20261008-007-i
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: sector-theme
+  subject: 题材梯队集中与晋级反馈
+  timeframe: intraday
+  statement: 指数重挫并未令题材交易全面停摆，但强势梯队向少数方向集中（新华传媒(600825)8连板、九阳股份(002242)与时代万恒(600241)4连板等）；下一交易日比高度本身更重要的，是晋级失败后的反馈，以及前一日封板资金能否获得正常溢价。
+  stance: view
+  evidence_quote: 据收盘统计，当日45只个股涨停、15只跌停；连板梯队中，新华传媒8连板，九阳股份、时代万恒4连板，上海洗霸、传艺科技等3连板，龙蟠科技、陆家嘴等2连板。可以看到指数重挫并未令题材交易全面停摆，但强势梯队向少数方向集中。下一交易日比高度本身更重要的，是晋级失败后的反馈，以及前一日封板资金能否获得正常溢价。
+  interpretation: 梯队数据的解读纪律：高度（8连板）不是重点，晋级失败反馈与封板资金溢价才是次日情绪观测点——与『6家二板参照』同类的前瞻指标思路。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks:
+  - code: '600825'
+    name: 新华传媒
+    role: 8连板高标-主板可交易
+  - code: '600241'
+    name: 时代万恒
+    role: 4连板兼电池线-主板可交易
+  tags:
+  - 连板梯队
+  - 晋级反馈
+  - 封板溢价
+  - 题材集中度
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 题材未停摆但向少数集中；次日看晋级失败反馈与封板溢价
+- id: claim-20261008-007-j
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: sector-theme
+  subject: 非科技三线轮动与电池承接
+  timeframe: intraday
+  statement: 科技走弱的同时，锂电与固态电池、油气与航运、银行为首的高股息相对活跃，呈资金轮动特征；电池线对科技资金的承接最直接（既有时代万恒(600241)连板高度，也有多个中低位品种响应）；油气航运对应能源价格、运输景气与事件预期，高股息对应现金流和防御需求，三条线驱动并不相同；电池次日若分歧后仍能保留核心、容量品种不快速转弱，才有条件继续扩展，若一致高开后迅速回落，持续性就要打折。
+  stance: view
+  evidence_quote: 从板块表现看，科技走弱的同时，锂电与固态电池、油气与航运、银行为首的高股息方向相对活跃，呈现资金轮动特征。电池线既有时代万恒的连板高度，也有多个中低位品种响应，对科技资金的承接较为直接。次日若分歧后仍能保留核心、容量品种不快速转弱，才有条件继续扩展；若一致高开后迅速回落，持续性就要打折。油气、航运更多对应能源价格、运输景气与事件预期；高股息对应现金流和防御需求，三条线的驱动并不相同。
+  interpretation: 电池是当前非科技方向的承接主力（与卢本圆『固态电池=量化行情』视角互补：青枫浦看资金承接结构，卢看参与主体）；次日持续性判据=分歧后保留核心+容量品种不转弱，警惕一致高开快速回落。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks:
+  - code: '600241'
+    name: 时代万恒
+    role: 电池线连板高度标的-主板可交易
+  tags:
+  - 电池
+  - 油气航运
+  - 高股息
+  - 轮动承接
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 电池承接最直接；三线驱动不同；次日看分歧后核心保留
+- id: claim-20261008-007-k
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: sector-theme
+  subject: 地产与超跌反弹的定性边界
+  timeframe: short-term
+  statement: 地产方面，陆家嘴(600663)的商业资产运营与证券化逻辑可以单独跟踪，深物业A(000011)的短线反核首先属于情绪交易；医药、消费和新能源内部仍有超跌反弹，但今天并未形成统一上行的合力，不能把局部走强扩大为整个行业趋势反转。
+  stance: view
+  evidence_quote: 地产方面，陆家嘴的商业资产运营与证券化逻辑可以单独跟踪，深物业A的短线反核则首先属于情绪交易。医药、消费和新能源内部仍有超跌反弹，但今天并未形成统一上行的合力，不能把局部走强扩大为整个行业趋势反转。
+  interpretation: 对今日轮动方向的定性边界划分：陆家嘴=资产证券化逻辑（需单独跟踪）、深物业A=情绪交易（不要混淆逻辑层级）、超跌反弹方向未形成合力（局部≠行业反转）。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks:
+  - code: '600663'
+    name: 陆家嘴
+    role: 商业资产运营与证券化单独跟踪-主板可交易
+  - code: '000011'
+    name: 深物业A
+    role: 短线反核属情绪交易-主板可交易
+  tags:
+  - 地产
+  - 超跌反弹
+  - 定性边界
+  - 情绪交易
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 陆家嘴=资产证券化逻辑单独跟踪；局部走强≠行业反转
+- id: claim-20261008-007-l
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: sector-theme
+  subject: 科技三季报分化选股
+  timeframe: short-term
+  statement: 临近三季报密集披露窗口，市场会进一步比较订单、收入、毛利率和现金流的兑现程度；液冷、光互联与高端PCB仍值得从业务层面拆解；短线判断不预设整个行业都处在相同景气区间，而是寻找盈利变化能够覆盖估值压力、并在盘面上率先稳定的品种。
+  stance: view
+  evidence_quote: 科技股的大幅调整拖累双创，但临近三季报密集披露窗口，市场会进一步比较订单、收入、毛利率和现金流的兑现程度。液冷、光互联与高端PCB仍值得从业务层面拆解。短线判断不预设整个行业都处在相同景气区间，而是寻找盈利变化能够覆盖估值压力、并在盘面上率先稳定的品种。
+  interpretation: 科技大跌后的选股框架：不行业一刀切，以三季报四要素（订单/收入/毛利率/现金流）兑现度为分化标准，标的要求=盈利覆盖估值压力+盘面率先稳定。与卢本圆『三季报业绩自己把关』同向但更具体。
+  confidence: high
+  status: active
+  intensity: high
+  related_stocks: []
+  tags:
+  - 三季报
+  - 科技分化
+  - 业绩兑现
+  - 率先稳定
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 三季报窗口科技分化：找盈利覆盖估值压力+盘面率先稳定的品种
+- id: claim-20261008-007-m
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: technical-knowledge
+  subject: 光互联部件层级区分
+  timeframe: industry
+  statement: 光互联需要区分层级：CPO（共封装光学）是将光引擎与交换芯片等放在更近位置的集成架构，可插拔光模块是可独立插拔的收发产品；FAU（光纤阵列单元）、保偏光纤、MPO多芯连接器（MTP为其中一种品牌实现）及隔离器属于具体部件，应用位置与客户要求各不相同；它们对某项政策的直接敏感度可能存在差别，但仍受终端需求、供货路径和认证约束影响，不能统一认定为不受影响。
+  stance: view
+  evidence_quote: 光互联尤其需要区分光模块、CPO和配套器件。共封装光学（CPO）描述的是将光引擎与交换芯片等放在更近位置的集成架构；可插拔光模块是一类可独立插拔的收发产品。光纤阵列单元（FAU）、保偏光纤、多芯连接器（MPO，MTP为其中一种品牌实现）及隔离器属于具体部件，应用位置与客户要求各不相同。它们对某项政策的直接敏感度可能存在差别，但仍受终端需求、供货路径和认证约束影响，不能统一认定为不受影响。
+  interpretation: 光互联产业链的名词层级澄清条（知识型）：CPO≠可插拔光模块≠部件（FAU/保偏/MPO/隔离器），为后续FCC政策影响分析提供分类基础；政策敏感度有差别但都受终端需求与认证约束。
+  confidence: high
+  status: active
+  intensity: low
+  related_stocks: []
+  tags:
+  - CPO
+  - 光模块
+  - FAU
+  - 保偏光纤
+  - MPO
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光互联层级：CPO架构/可插拔模块/FAU等部件不可混同
+- id: claim-20261008-007-n
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: sector-theme
+  subject: PCB回落的两因区分
+  timeframe: short-term
+  statement: PCB的回落要区分科技仓位整体收缩与公司订单变化：若行业风险偏好拖累是主要因素，后续修复应看到核心公司率先企稳、板块回升有成交配合；若盈利预期同步下修，就不能仅用『被动下跌』解释；科技的机会更可能先表现为内部纠偏，随后才是板块联动。
+  stance: view
+  evidence_quote: PCB的回落也要区分科技仓位整体收缩与公司订单变化。若行业风险偏好拖累是主要因素，后续修复应看到核心公司率先企稳、板块回升有成交配合；若盈利预期同步下修，就不能仅用“被动下跌”解释。科技的机会更可能先表现为内部纠偏，随后才是板块联动。
+  interpretation: PCB归因两分支（风险偏好β vs 盈利下修α）各有不同的后续验证信号；『先内部纠偏后板块联动』给出科技修复的次序预期。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks: []
+  tags:
+  - PCB
+  - 归因区分
+  - 盈利下修
+  - 内部纠偏
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: PCB回落区分β与α；科技修复先内部纠偏后板块联动
+- id: claim-20261008-007-o
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: sector-theme
+  subject: FCC政策参数校准
+  timeframe: industry
+  statement: 市场围绕3.2T产品代际及65%物料比例展开交易，但这两个参数目前对应政策研究情景，尚不能当作FCC已生效的统一限制；FCC有关设备授权、部件来源及物料清单的征求意见，与美国国会9月24日提出的S.5548联邦采购法案属于不同程序，后者草案中的五年过渡安排不能直接套用到所有商业市场的光模块供货；不能仅凭主席任期2028年6月30日推断限制会自动落空；对800G和1.6T应持续跟踪正式适用范围，不能把暂未明确限制解释为永久豁免。
+  stance: view
+  evidence_quote: 市场围绕3.2T产品代际及65%物料比例展开交易，但这两个参数目前对应政策研究情景，尚不能当作美国联邦通信委员会（FCC）已生效的统一限制。FCC有关设备授权、部件来源及物料清单的征求意见，与美国国会2026年9月24日提出的S.5548联邦采购法案，属于不同程序；后者草案中的五年过渡安排，也不能直接套用到所有商业市场的光模块供货。……不能仅凭2028年这个时间点，推断限制会自动落空。……不能把暂未明确限制解释为永久豁免。
+  interpretation: 对光模块政策预期的四重校准：①交易参数≠生效限制 ②FCC征求意见与S.5548是不同程序 ③主席任期不决定规则存废 ④暂未限制≠永久豁免。防止市场把政策研究情景当成既定事实定价。
+  confidence: high
+  status: active
+  intensity: high
+  related_stocks: []
+  tags:
+  - FCC
+  - 光模块
+  - S.5548
+  - 政策校准
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: FCC四重校准：交易参数≠生效限制，暂未限制≠永久豁免
+- id: claim-20261008-007-p
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: methodology
+  subject: 供应链OEM到JDM验证框架
+  timeframe: industry
+  statement: 供应链研究沿OEM向JDM的协作变化展开：产品定制化提高时，云服务商可能更深入参与器件选择、设计验证和采购分配，但不同客户的做法仍需逐一确认；康宁与博通的官方合作已将FAU、单模及保偏光纤、连接器纳入CPO光互联体系；对应A股，关键是公司实际进入哪类产品、哪一客户、处于送样还是量产阶段；研发协作、器件供给和制造能力的价值会随架构变化重新分配，终端需求增速与供应约束仍应以订单、交付和资本开支验证。
+  stance: view
+  evidence_quote: 供应链研究可沿OEM（原始设备制造）向JDM（联合设计制造）的协作变化继续展开：当产品定制化提高，云服务商可能更深入参与器件选择、设计验证和采购分配，但不同客户的做法仍需逐一确认。康宁与博通的官方合作介绍已将FAU、单模及保偏光纤、连接器纳入CPO光互联体系。对应A股，关键是公司实际进入哪类产品、哪一客户、处于送样还是量产阶段。
+  interpretation: CPO供应链的A股映射方法：不看概念归属，看『哪类产品+哪一客户+送样还是量产』三要素；价值分配随架构（OEM→JDM）变化重新洗牌，以订单/交付/资本开支验证。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks: []
+  tags:
+  - OEM
+  - JDM
+  - CPO供应链
+  - 送样量产
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: CPO映射A股三要素：产品+客户+阶段（送样还是量产）
+- id: claim-20261008-007-q
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: sector-theme
+  subject: AI Agent成本下降的产业映射
+  timeframe: industry
+  statement: Claude Haiku 5.5（10月7日发布）输入输出每百万Token 0.1/0.5美元、平均运行成本下降约75%（厂商测算）：产业意义在于成本较低的模型开始承担代码修改、检索和工具调用等高频任务，复杂规划交由更强模型处理，Agent的单位任务成本因此有下降空间；企业客服、知识管理、办公流程和AI编程更容易把成本变化映射到效率与付费回报；模型路由、缓存复用和推理调度的重要性也会提升；对算力的影响需要同时计算效率提升与调用增长——只有新增任务足够多，才会把单次推理节约转化为总算力需求扩张。
+  stance: view
+  evidence_quote: 产业意义在于，成本较低的模型开始承担代码修改、检索和工具调用等高频任务，复杂规划交由更强模型处理，Agent的单位任务成本因此有下降空间。企业客服、知识管理、办公流程和AI编程更容易把成本变化映射到效率与付费回报。模型路由、缓存复用和推理调度的重要性也会提升。对算力的影响需要同时计算效率提升与调用增长：只有新增任务足够多，才会把单次推理节约转化为总算力需求扩张。
+  interpretation: 模型降价的产业传导框架：高频任务下沉低成本模型→Agent单位成本下降→应用端（客服/知识管理/办公/AI编程）最先兑现；算力端影响=效率提升×调用增长的对冲结果，不单向看多或看空。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks: []
+  tags:
+  - AI Agent
+  - 模型降价
+  - 成本传导
+  - 算力对冲
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 低成本模型承担高频任务，Agent单位成本下降；算力影响=效率×调用双向计算
+- id: claim-20261008-007-r
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: sector-theme
+  subject: 人形机器人标的的验证层级
+  timeframe: industry
+  statement: 广东政策支持与场景开放有助于人形机器人产业从样机验证走向商业化，但具体公司的收入进展仍取决于客户验证、批量交付和成本控制；精达股份(600577)主业电磁线，机器人电机是其高端线材可拓展的应用方向（年报已披露布局），观察重点是高端产品认证与客户导入；大业股份(603278)子公司与北京邮电大学围绕腱绳材料及感知功能的合作属既有研发储备（2025年4月披露）；两者均应与整机量产形成的实际采购区别看待。
+  stance: view
+  evidence_quote: 精达股份的主业为电磁线，产品用于电机绕组，机器人电机是其高端线材可拓展的应用方向，公司年报已披露相关布局。大业股份子公司大业机器人与北京邮电大学围绕腱绳材料及感知功能开展合作，合作消息最早于2025年4月披露，属于既有研发储备。前者的观察重点是高端产品认证与客户导入，后者则是腱绳材料和感知功能的研发进展，均应与整机量产形成的实际采购区别看待。
+  interpretation: 机器人链的验证层级纪律：可拓展方向（精达）与既有研发储备（大业）都不等于量产订单——政策催化（广东举全市之力）与公司收入之间隔着客户验证/批量交付/成本控制三层。
+  confidence: medium
+  status: active
+  intensity: medium
+  related_stocks:
+  - code: '600577'
+    name: 精达股份
+    role: 电磁线-机器人电机高端线材可拓展-主板可交易
+  - code: '603278'
+    name: 大业股份
+    role: 腱绳材料既有研发储备-主板可交易
+  tags:
+  - 人形机器人
+  - 精达股份
+  - 大业股份
+  - 验证层级
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 机器人链：可拓展方向与研发储备均不等于量产采购
+- id: claim-20261008-007-s
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: sector-theme
+  subject: 国产算力与PCB材料跟踪
+  timeframe: industry
+  statement: 上海新增13款生成式AI服务登记（累计253款）——应用供给增加为国产算力提供潜在需求，但服务登记数量与采购金额并无固定对应关系；科翔股份(300903)具备HDI、高多层板、厚铜板、软硬结合板工艺，陶瓷基板为既有品类，2026年中报对低介电常数氮化硅产品仍表述为完成小批量试制、计划导入AI服务器，后续重点是客户验证及收入规模。
+  stance: view
+  evidence_quote: 应用供给增加为国产算力提供潜在需求，但服务登记数量与采购金额并无固定对应关系。PCB产业中，科翔股份具备高密度互联板（HDI）、高多层板、厚铜板、软硬结合板等工艺，陶瓷基板也是其既有品类；2026年中报对低介电常数氮化硅产品仍表述为完成小批量试制、计划导入AI服务器，后续重点是客户验证及收入规模。
+  interpretation: 两处防过度解读：①AI服务登记数≠算力采购金额 ②科翔的氮化硅仍处『小批量试制+计划导入』阶段，跟踪点是客户验证及收入规模而非题材联想。
+  confidence: medium
+  status: active
+  intensity: medium
+  related_stocks:
+  - code: '300903'
+    name: 科翔股份
+    role: PCB与陶瓷基板-氮化硅小批量试制阶段-创业板用户不可跟买
+  tags:
+  - 国产算力
+  - 科翔股份
+  - 氮化硅
+  - 服务登记
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI服务登记≠采购金额；科翔氮化硅仍处试制导入阶段
+- id: claim-20261008-007-t
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: sector-theme
+  subject: 陆家嘴资产盘活与口径纪律
+  timeframe: industry
+  statement: 工商业用地续期制度、楼宇更新和商业不动产REITs为持有型平台资产盘活提供研究线索；陆家嘴(600663)在营物业386万平方米（甲级写字楼235万）、出租率74%、上半年租赁现金流入同比减少5%——核心区位资产具备经营基础，但重估能否落到股东回报要结合出租率、租金和现金流表现；华安陆家嘴商业REIT规模27.30亿元、上市公司认购30%份额付8.19亿元，属于参与基金投资，不能直接写成上市公司出售自身资产取得退出收入；住宅线的195亿元待结算权益货值、约60%毛利率及30-40亿元权益经营利润属于机构预测，不能直接折算为归母净利润承诺。
+  stance: view
+  evidence_quote: 华安陆家嘴商业REIT已完成募集……上市公司认购30%份额，支付8.19亿元；该事项属于参与基金投资，不能直接写成上市公司出售自身资产取得退出收入。……这些属于机构预测，不能直接折算为上市公司归母净利润承诺；实际贡献仍以交付、成本结转、权益比例及财报确认为准。
+  interpretation: 两处口径纪律：①REIT认购=基金投资≠资产出售退出收入 ②机构测算的货值/毛利率/利润≠归母净利润承诺。加上基本盘数据（出租率74%、租赁现金流-5%）提示重估兑现仍需经营验证。
+  confidence: medium
+  status: active
+  intensity: medium
+  related_stocks:
+  - code: '600663'
+    name: 陆家嘴
+    role: 商业地产REITs与资产盘活-主板可交易
+  tags:
+  - 陆家嘴
+  - REITs
+  - 口径纪律
+  - 资产盘活
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 陆家嘴REIT认购≠出售资产；机构测算≠归母承诺
+- id: claim-20261008-007-u
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: sector-theme
+  subject: 大金重工造船第二曲线
+  timeframe: industry
+  statement: 大金重工(002487)由海上风电装备向船舶建造延伸，已获得订单验证：累计签署新船制造订单24艘、合同总金额约120亿元，交付周期覆盖2027-2030年；订单主要为大型散货船（同时包括甲板运输船、无动力半潜驳船和多用途重吊船），船型结构需要分别看待，不能将全部订单统一归入特种海工船；分析第二增长曲线应把订单储备、预收款与履约、造船投入和实际毛利率串起来，避免以长期合同总额代替当期利润。
+  stance: view
+  evidence_quote: 大金重工由海上风电装备向船舶建造延伸，已获得订单验证。2026年半年报披露，公司累计签署新船制造订单24艘、合同总金额约120亿元，交付周期覆盖2027—2030年。订单主要为大型散货船，同时包括甲板运输船、无动力半潜驳船和多用途重吊船，船型结构需要分别看待，不能将全部订单统一归入特种海工船。……应把订单储备、预收款与履约、造船投入和实际毛利率串起来，避免以长期合同总额代替当期利润。
+  interpretation: 大金重工第二曲线的跟踪框架：订单真实（24艘120亿、挪威希腊船东4月40.58亿合同）但结构要拆（主力是散货船非特种海工船），兑现看订单储备→预收款履约→造船投入→毛利率的链条而非合同总额。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks:
+  - code: '002487'
+    name: 大金重工
+    role: 海工向造船延伸-24艘120亿订单-主板可交易
+  tags:
+  - 大金重工
+  - 造船订单
+  - 第二曲线
+  - 散货船
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 大金重工造船订单已验证（24艘120亿），但船型以散货为主须拆开看
+- id: claim-20261008-007-v
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: sector-theme
+  subject: 厄尔尼诺与粮食安全映射
+  timeframe: industry
+  statement: 世界气象组织10月8日信息：厄尔尼诺预计12月达峰、持续至2027年2月概率接近100%、强度可能达1950年以来最强事件之一——气候扰动会提高市场对农业产量、粮食贸易和库存安全的关注，但不能将全球气候判断直接换算为单一公司的盈利；金健米业(600127)9月22日风险提示公告已明确稻谷、白米等主要原料价格未发生重大变化、终端销售价格未见异常、上半年归母净利润亏损957.91万元；对加工企业而言原料涨价如果不能向终端传导还可能挤压毛利——这条线先观察题材资金反馈，再以采购成本、库存和终端售价验证盈利变化。
+  stance: view
+  evidence_quote: 气候扰动会提高市场对农业产量、粮食贸易和库存安全的关注，但地区降水、作物结构和库存水平决定实际影响，不能将全球气候判断直接换算为单一公司的盈利。金健米业主营粮油食品加工，是粮食安全题材中辨识度较高的公司。公司9月22日风险提示公告已明确，稻谷、白米等主要原料价格未发生重大变化，终端销售价格未见异常……对加工企业而言，原料涨价如果不能向终端传导，还可能挤压毛利，因此这条线先观察题材资金反馈，再以采购成本、库存和终端售价验证盈利变化。
+  interpretation: 厄尔尼诺题材的两层隔离：气候判断≠公司盈利（中间隔地区降水/作物结构/库存），题材辨识度≠业绩兑现（金健自己公告原料价未变+终端无异常+上半年亏损）；加工企业原料涨价甚至可能反向挤压毛利。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks:
+  - code: '600127'
+    name: 金健米业
+    role: 粮食安全题材辨识度标的-主板可交易
+  tags:
+  - 厄尔尼诺
+  - 粮食安全
+  - 金健米业
+  - 题材隔离
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 厄尔尼诺≠单一公司盈利；金健公告原料价未变、先观察题材资金反馈
+- id: claim-20261008-007-w
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: macro
+  subject: 人民币汇率政策映射纪律
+  timeframe: short-term
+  statement: 央行10月8日重申以市场供求为基础、参考一篮子货币调节的有管理浮动汇率制度，无意通过贬值获取贸易竞争优势；政策表述的重点是市场定价与防范超调，并不预设汇率目标；年末结汇可能影响阶段性供求，美元、海外利率和跨境资金流动仍会共同决定路径；映射到A股，应观察汇率变化如何影响外资风险偏好、出口企业结算及外币负债成本，不把某一汇率区间视为政策承诺，也不把人民币单日升贬直接等同于股市方向。
+  stance: view
+  evidence_quote: 政策表述的重点是市场定价与防范超调，并不预设汇率目标。年末结汇可能影响阶段性供求，美元、海外利率和跨境资金流动仍会共同决定路径。映射到A股，应观察汇率变化如何影响外资风险偏好、出口企业结算及外币负债成本，不把某一汇率区间视为政策承诺，也不把人民币单日升贬直接等同于股市方向。
+  interpretation: 汇率政策解读的两条纪律：不预设目标（区间≠承诺）+ 不简单线性映射（单日升贬≠股市方向）；可观察的传导路径=外资风险偏好/出口结算/外币负债成本。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks: []
+  tags:
+  - 人民币汇率
+  - 央行表态
+  - 映射纪律
+  - 防范超调
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 汇率不预设目标不线性映射；观察外资偏好/出口结算/外币负债
+- id: claim-20261008-007-x
+  source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
+  source_date: '2026-10-08'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: operation
+  subject: 收盘操作纪律
+  timeframe: short-term
+  statement: 个人纪律：先判断持仓方向是否仍有资金和基本面支撑，再决定参与强度；没有承接时不因跌幅大而连续摊低成本；出现修复时也不因一根急拉放大预期；消息交易先辨认正式文件、研究假设和产品阶段，产业研究再落实到公司收入、订单和利润；让观察条件决定动作，避免用长期产业故事替代短期风险控制。
+  stance: view
+  evidence_quote: 个人纪律是先判断持仓方向是否仍有资金和基本面支撑，再决定参与强度。没有承接时不因跌幅大而连续摊低成本；出现修复时也不因一根急拉放大预期。消息交易先辨认正式文件、研究假设和产品阶段，产业研究再落实到公司收入、订单和利润。让观察条件决定动作，避免用长期产业故事替代短期风险控制。
+  interpretation: 大跌日的四条自我保护纪律：①参与强度跟随资金+基本面支撑 ②跌幅大≠摊低成本的理由（无承接不摊低） ③一根急拉不放大预期 ④产业故事不替代风险控制——与情形B的『放弃无承接抄底』互为呼应。
+  confidence: high
+  status: active
+  intensity: high
+  related_stocks: []
+  tags:
+  - 操作纪律
+  - 摊低成本
+  - 急拉预期
+  - 观察条件
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 无承接不因跌幅大摊低成本，一根急拉不放大预期

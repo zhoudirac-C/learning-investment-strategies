@@ -1,0 +1,68 @@
+claims:
+- id: claim-20261008-006-a
+  source_path: sources/original/bilibili/2026-10-08-2000-图片-【打野号】 中文定增取消，港股IPO也一并终止。 站在我的博.md
+  source_date: '2026-10-08'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: catalyst
+  subject: 中文在线定增取消的剧本二解读
+  timeframe: short-term
+  statement: 中文在线(300364)定增取消、港股IPO一并终止——在UP的博弈框架里，这个结果比拖着延期回复问询函更贴合之前预想的剧本：本来就是第二种剧本，定增能审核通过的概率很低。
+  stance: view
+  evidence_quote: 中文定增取消，港股IPO也一并终止。站在我的博弈框架里，这个结果，比拖着延期回复问询函更贴合我之前预想的剧本。刚好就是我之前聊的第二种剧本，本来这次定增能审核通过的概率就很低。
+  interpretation: UP 把『定增终止』这个表面利空解读为预期内的剧本二兑现——他的博弈框架里定增通过本来就是低概率事件，利空落地比悬而未决更好。这是典型的事件预期差交易思路。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks:
+  - code: '300364'
+    name: 中文在线
+    role: 打野号重仓标的-创业板用户不可跟买
+  tags:
+  - 中文在线
+  - 定增终止
+  - 剧本兑现
+  - AI漫剧
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 中文在线定增取消=剧本二兑现（低概率事件落地优于悬置）
+- id: claim-20261008-006-b
+  source_path: sources/original/bilibili/2026-10-08-2000-图片-【打野号】 中文定增取消，港股IPO也一并终止。 站在我的博.md
+  source_date: '2026-10-08'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-10-08T22:40:00+08:00'
+  claim_type: operation
+  subject: 打野号补仓中文在线40万
+  timeframe: intraday
+  statement: 打野号今日补仓中文在线(300364)40万（成交单：21.43×4200+21.38×4000+约21.06×5000+20.84×5200），打野仓中文总成本21.6、18400股；实盘号成本更低20.3，两个账户都持有；短线风险不小，是个人看好AI漫剧业务线所以没在盘中发；明天涨跌无法预判，不确定性依旧存在。
+  stance: view
+  evidence_quote: 今天打野号直接补了40万，打野仓中文在线总成本21.6，18400股。众所周知实盘号中文成本更低，20.3，整个9月基本没怎么操作，两个账户都持有。打野号这笔补仓，短线风险不小只，是我个人看好AI漫剧这条业务线，所以就没盘中发了。明天涨跌无法预判，不确定性依旧存在。
+  interpretation: 实盘操作记录：利空落地日逆势补仓40万，他自己明确标注『短线风险不小』——这是信念驱动的加仓（看好AI漫剧业务线），不是无风险提示的跟单信号。两个账户成本锚：打野21.6/实盘20.3。
+  confidence: high
+  status: active
+  intensity: high
+  related_stocks:
+  - code: '300364'
+    name: 中文在线
+    role: 打野号补仓40万总成本21.6-创业板用户不可跟买
+  tags:
+  - 中文在线
+  - 补仓
+  - 打野号
+  - AI漫剧
+  - 利空落地
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 打野号补仓中文在线40万（总成本21.6/18400股），自认短线风险不小
