@@ -2720,3 +2720,11 @@
 - ⚠️ 踩坑：log.md 追加时用了 `open(w).write(open().read()+entry)` inline 写法 → w 模式先截断再读空，log 被清空 2720 行（commit da3eeac6 含坏文件），已从 HEAD~1 恢复。教训：文件「先读后写」永远分两步
 - 下游管线（discover/Neo4j/Qdrant）：已执行（2026-10-08 10:55 完成：discover 24 条挖到 48 关系，12 条 supersedes 建立方法论演进链——量能三分类 supersedes 9/9+9/13 旧版、情形推演 supersedes 9/21+9/28 版、美债拍卖框架 supersedes 8/19 版；Neo4j 5734 节点关系落图验证；Qdrant force-recreate 重建）
 - 重大修复（discover 写回 bug）：id 不在块首的老格式 claim 文件（如 claim-20260927-002 的 Mark 9/27 动态，块以 `- source_path:` 开头），write_results_to_yaml 扫描越过块尾把关系写进下一 claim 头部，且自身永远缺 last_discovered 被反复重跑（002-a 连跑三次：9/29→10/7→今晨×2）。修复：block_start_re 按顶层 '- <已知字段>:' 识别块边界 + 块内无关系字段时直接在 id 行后插入。数据修正：002-a 关系归位、002-b 恢复自有空关系（supl[]+ld 9-29）。修复后 --all-missing 复跑处理 0 条 = 无重跑。注：002-c~o 头部关系为 9/28 历史写入状态未动
+## 2026-10-08 11:10 青枫浦上Q 10:46早盘总结动态 claim 提取（C2 管线）
+
+- Raw 1 篇：`2026-10-08-1046-图片-总结一下早盘的情况*`（盘中总结，图片动态带文字正文）
+- 管线 session：20261008_105909_b8afc7，Gate 1/2/3 一次通过
+- 提取门槛执行：8 条真观点（view 6 / market-regime 2）；「科技和题材是两种不同风格」为风格自知纪律并入 003-h 不单列；昨视频复核句不提
+- 产出 `claim-20261008-003.yaml`（003-a~h）；金健米业 600127/华电辽能 600396 经 claims 库历史标注复核
+- wiki 新增：每日复盘/2026-10-08-青枫浦上Q早盘总结动态.md（含与卢本圆同日观点对照）
+- 下游管线（discover/Neo4j/Qdrant）：已执行（见末尾补记）
