@@ -2727,4 +2727,4 @@
 - 提取门槛执行：8 条真观点（view 6 / market-regime 2）；「科技和题材是两种不同风格」为风格自知纪律并入 003-h 不单列；昨视频复核句不提
 - 产出 `claim-20261008-003.yaml`（003-a~h）；金健米业 600127/华电辽能 600396 经 claims 库历史标注复核
 - wiki 新增：每日复盘/2026-10-08-青枫浦上Q早盘总结动态.md（含与卢本圆同日观点对照）
-- 下游管线（discover/Neo4j/Qdrant）：已执行（见末尾补记）
+- 下游管线（discover/Neo4j/Qdrant）：已执行（2026-10-08 11:25 完成：discover 8 条挖 10 关系——003-f 科技无趋势 supersedes 8/16 科技看好条、003-d 老登清单 supersedes 9/22 旧定性、003-a 地产定性 supersedes 9/21 事件驱动条；Neo4j 8/8 迁移；Qdrant force-recreate 5742 条完整性通过；Agent 存活）
