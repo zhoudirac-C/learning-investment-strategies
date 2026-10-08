@@ -328,6 +328,18 @@ def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run
             # Find and replace supersedes/contradicts in this block
             block_claims_id = claim_id
             has_last_discovered = False
+            # 2026-10-08 修复：id 不在块首的老格式文件（如 claim-20260927-002，块以
+            # "- source_path:" 开头、id 在块中部）时，下方扫描会越过块尾进入下一个
+            # claim 块，把关系写进别人头部（002-a 的关系被写进 002-b），且自身永远
+            # 拿不到 last_discovered → 每次 --all-missing 都被重跑。
+            block_start_re = re.compile(
+                r"^- (?:id|source_path|source_date|source_type|up_id|up_name|extracted_at|"
+                r"claim_type|subject|timeframe|statement|stance|evidence_quote|interpretation|"
+                r"confidence|status|intensity|related_stocks|tags|supersedes|contradicts|"
+                r"disagrees_with|supplements|last_discovered|links|topic):")
+            id_insert_pos = len(new_lines)  # id 行之后的位置（new_lines 尾部）
+            id_indent = line[:len(line) - len(line.lstrip())] + ("  " if line.lstrip().startswith("- ") else "")
+            wrote_rel = False
             while i < len(lines):
                 line = lines[i]
                 # Stop at next claim
@@ -335,6 +347,9 @@ def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run
                     # Check if it's a different claim
                     if claim_id not in line:
                         break
+                # 顶层 '- <已知字段>:' = 新 claim 块开始（兼容 id 不在块首的格式）
+                if block_start_re.match(line):
+                    break
 
                 if line.strip().startswith("last_discovered:"):
                     has_last_discovered = True
@@ -343,6 +358,7 @@ def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run
                     indent = line[:len(line) - len(line.lstrip())]
                     new_lines.append(f"{indent}supersedes: {json.dumps(results['supersedes'])}")
                     updated = True
+                    wrote_rel = True
                     i += 1
                     # Skip orphan list items from old YAML format (e.g. "    - claim-xxx")
                     while i < len(lines) and lines[i].strip().startswith("- claim-"):
@@ -352,6 +368,7 @@ def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run
                     indent = line[:len(line) - len(line.lstrip())]
                     new_lines.append(f"{indent}contradicts: {json.dumps(results['contradicts'])}")
                     updated = True
+                    wrote_rel = True
                     i += 1
                     # Skip orphan list items from old YAML format
                     while i < len(lines) and lines[i].strip().startswith("- claim-"):
@@ -390,6 +407,23 @@ def write_results_to_yaml(file_path: Path, claim_id: str, results: dict, dry_run
 
                 new_lines.append(line)
                 i += 1
+
+            # id 不在块首的块：扫描到块尾仍未找到 supersedes/contradicts 行
+            # → 直接在 id 行后插入关系字段（否则该 claim 永远缺 last_discovered，
+            # 每次 --all-missing 都被重跑，且关系被写进下一块头部）
+            if not wrote_rel:
+                ins = [
+                    f"{id_indent}supersedes: {json.dumps(results['supersedes'])}",
+                    f"{id_indent}contradicts: {json.dumps(results['contradicts'])}",
+                ]
+                dw0 = results.get("disagrees_with") or []
+                if dw0:
+                    ins.append(f"{id_indent}disagrees_with: {json.dumps(dw0)}")
+                ins.append(f"{id_indent}supplements: {json.dumps(results.get('supplements', []))}")
+                ins.append(f"{id_indent}last_discovered: {today_str}")
+                new_lines[id_insert_pos:id_insert_pos] = ins
+                updated = True
+                has_last_discovered = True
 
             # Append last_discovered after the claim block (only if not already written above)
             if not has_last_discovered:

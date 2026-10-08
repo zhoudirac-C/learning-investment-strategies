@@ -369,6 +369,21 @@ python scripts/gate_validate_claims.py --all --step 2 | grep "是整数类型"
 
 ## ⚠️ 9. 下游管线：提取后必须跑 discover → Neo4j → Qdrant
 
+### 10. 文件「先读后写」必须分两步（2026-10-08 实战，log.md 被清空 2720 行）
+
+❌ **禁止 inline 写法**：`open(p,'w').write(open(p).read() + entry)` ——
+外层 `open(p,'w')` **先求值并立即截断文件**，内层 read 读到的是空文件 → 整文件被清空。
+（本次 log.md 追加专栏条目时踩中，2720 行历史全丢，靠 `git show HEAD~1:...` 恢复。）
+
+✅ 正确写法：
+```python
+content = open(p, encoding='utf-8').read()   # 第一步：读入变量
+open(p, 'w', encoding='utf-8').write(content + entry)  # 第二步：写
+```
+
+同类雷区：任何「读同一文件再写回」的操作，读和写之间不得有 `open(p,'w')` 求值。
+提交前可用 `git show --stat HEAD` 检查意外的大删除（本次症状：log.md `-2720` 行）。
+
 **2026-06-17 实战教训**：提取完 YAML 后直接跳了 Neo4j，**跳过了 discover_claim_relations**。后果是新 12 条 claim 的 supersedes/contradicts 全部为空，没有与已有 871 条建立关系链。
 
 ### 完整管线（不可跳过任何一步）
