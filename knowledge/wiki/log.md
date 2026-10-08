@@ -2707,4 +2707,5 @@
 - 踩坑修复：`_auto_format_yaml()` 对含空格长 source_path 折行产生孤儿行「    地产 -.md」×6 → 手工修复为带引号单行（后续 raw 文件名含空格时需复检此模式）
 - wiki 新增：每日复盘/2026-10-08-卢本圆复盘盘前视频.md + 每日复盘/index.md 插入
 - 索引：claims/index.md + wiki/index.md 由 build_indexes.py 重建
-- 下游管线（discover/Neo4j/Qdrant）：已执行（见下条）
+- 下游管线（discover/Neo4j/Qdrant）：已执行（2026-10-08 10:10 完成：discover 6 条新 claim 挖到 5 关系（002-a supersedes 9/23-001-b 医药结构演进 sim0.910 + disagrees 8/24-002-i；002-b supersedes 9/15-003-13 两万亿旧门槛）；Neo4j 5711 节点/30634 关系，三类新边全部落图验证；Qdrant force-recreate 5711 条完整性通过（512 维）；Agent 全程存活 health ok）
+- 附带修复：①extract_claims_pipeline._auto_format_yaml 加 width=100000 根治含空格长 source_path 折行孤儿行（step2 重跑验证 0 孤儿行）②discover 重跑误清 claim-20260927-002-a→claim-20260529-003-a 的 supplements，已恢复（目标文件仍在，属两轮 LLM 判断不一致）

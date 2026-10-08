@@ -32,9 +32,11 @@ claims:
   - 持仓结构
   - 节后展望
   - 防守
-  supersedes:
-  - claim-20260923-001-b
+  supersedes: ["claim-20260923-001-b"]
   contradicts: []
+  disagrees_with: ["claim-20260824-002-i"]
+  supplements: ["claim-20260825-012-a"]
+  last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -73,8 +75,10 @@ claims:
   - 仓位纪律
   - 滚动做T
   - 2.2万亿
-  supersedes: []
+  supersedes: ["claim-20260915-003-13"]
   contradicts: []
+  supplements: ["claim-20260914-003-11", "claim-20260922-001-i"]
+  last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -105,6 +109,8 @@ claims:
   - 风险提示
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -136,6 +142,8 @@ claims:
   - 低参与
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -166,6 +174,8 @@ claims:
   - 市场对比
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
@@ -196,6 +206,8 @@ claims:
   - 低换手
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []

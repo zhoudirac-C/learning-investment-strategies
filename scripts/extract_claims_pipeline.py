@@ -519,7 +519,8 @@ def _auto_format_yaml(json_path: str, yaml_out_dir: str):
         # 如果有 session 文件映射，复用编号
         yaml_path = yaml_out / f"claim-{src_date}-output.yaml"
         with open(yaml_path, "w") as f:
-            yaml.dump({"claims": enriched}, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+            # width 设大避免长 source_path（含空格）被折行成孤儿行（2026-10-08 实测 bug）
+            yaml.dump({"claims": enriched}, f, allow_unicode=True, default_flow_style=False, sort_keys=False, width=100000)
 
         # Post-process: quote YAML stock codes with leading zeros
         # yaml.dump outputs code: 002971 as bare number → YAML parser sees octal int 2971
