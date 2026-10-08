@@ -2696,3 +2696,15 @@
 - wiki 新增 4 页：每日复盘/2026-09-29-青枫浦上Q图片动态.md、2026-09-30-青枫浦上Q早盘专栏.md、2026-10-01-青枫浦上Q国庆专栏.md、2026-10-02-青枫浦上Q隔夜复盘.md
 - 索引：claims/index.md + wiki/index.md 由 build_indexes.py 重建；每日复盘/index.md 手工插入 4 条
 - 下游管线（discover/Neo4j/Qdrant）：已执行（2026-10-02 13:10 完成：discover 4 文件共 69 条关系（其中 20261002-001-e 鸽派表态 contradicts 8/27 鹰派判断、supersedes 两条9月议息旧读）；Neo4j 迁移 39/39 节点+69 出边；Qdrant force-recreate 5692 条完整通过；Agent 未中断 health OK）
+## 2026-10-08 09:45 卢本圆复盘 10/8盘前视频 claim 提取（C2 管线）
+
+- Raw 1 篇：`2026-10-08-0808-视频-科技等2.2万亿信号，复盘医药，短线观察汽车 地产 -`（视频，04:21，08:17 自动抓取时 ASR 失败）
+- ASR 补跑：手动链路（view→playurl fnval=16→m4s→wav→mp3 32k 两段→OpenRouter mimo-v2.5），voxtral-small 24b 交叉验证；成本约 ¥0.013，耗时 82s
+- 错字校准（双 ASR 均错，靠交易 raw 交叉验证）：恩升/恒生→汉森（汉森制药002412，9/22 打野弹性票，与万邦-西点-药明-康龙序列吻合）、C点→成本（cost 代号）；校订记录已留痕 raw 元信息行
+- 管线 session：20261008_091440_5a26f9，Gate 1/2/3 一次通过
+- 提取门槛执行：6 条真观点（view 4 / market-regime 1 / 其余 operation），港股走弱并入 002-a 作论据、「节前缺量停更视频」为更新节奏说明未提、劝诫类内容未提
+- 产出：`claim-20261008-002.yaml`（002-a~f：医药结构1+科技纪律2+短线题材1+流动性1+实盘号1）；002-a supersedes claim-20260923-001-b（医药结构演进）
+- 踩坑修复：`_auto_format_yaml()` 对含空格长 source_path 折行产生孤儿行「    地产 -.md」×6 → 手工修复为带引号单行（后续 raw 文件名含空格时需复检此模式）
+- wiki 新增：每日复盘/2026-10-08-卢本圆复盘盘前视频.md + 每日复盘/index.md 插入
+- 索引：claims/index.md + wiki/index.md 由 build_indexes.py 重建
+- 下游管线（discover/Neo4j/Qdrant）：已执行（见下条）

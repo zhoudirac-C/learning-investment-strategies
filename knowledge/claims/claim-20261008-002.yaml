@@ -1,0 +1,203 @@
+claims:
+- id: claim-20261008-002-a
+  source_path: "sources/original/bilibili/2026-10-08-0808-视频-科技等2.2万亿信号，复盘医药，短线观察汽车 地产 -.md"
+  source_date: '2026-10-08'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-10-08T09:25:00+08:00'
+  claim_type: sector-theme
+  subject: 节后医药趋势延续与防守结构
+  timeframe: short-term
+  statement: 节后医药趋势依然还在，但持仓结构转为防守：只保留一只中军CRO（康龙化成(300759)）与一只成本已摊至超低的弹性票（万邦医药(301520)），暂定不变。
+  stance: view
+  evidence_quote: 医药的话，节后我认为趋势依然还在，但是昨天港股是有开盘，港股的医药走弱。所以我暂定还是先拿着一个中军CRO，然后再配备一个已经成本降到超低的一个弹性票，目前还是暂定如此。
+  interpretation: 医药从节前进攻态转入持有观察态：趋势判断未变但结构防守化，直接触发因素是港股医药节后走弱（盘面事实作论据，不单独立条）。中军由药明康德(603259)切换为康龙化成是9/23盘中已执行的调整，本条是节后对该结构的再确认。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks:
+  - code: '300759'
+    name: 康龙化成
+    role: 中军CRO持仓-创业板用户不可跟买
+  - code: '301520'
+    name: 万邦医药
+    role: 超低成本弹性票-创业板用户不可跟买
+  - code: '603259'
+    name: 药明康德
+    role: 前一任中军(9/23已切至康龙)-主板可交易
+  tags:
+  - 医药
+  - CRO
+  - 持仓结构
+  - 节后展望
+  - 防守
+  supersedes:
+  - claim-20260923-001-b
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 节后医药趋势还在，结构=中军CRO+超低成本弹性票
+- id: claim-20261008-002-b
+  source_path: "sources/original/bilibili/2026-10-08-0808-视频-科技等2.2万亿信号，复盘医药，短线观察汽车 地产 -.md"
+  source_date: '2026-10-08'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-10-08T09:25:00+08:00'
+  claim_type: methodology
+  subject: 科技仓位量能阈值纪律
+  timeframe: short-term
+  statement: 科技仓位以大盘量能为总开关：大盘量能摸到2.2万亿之前不开任何科技新仓；节后若稳住站上2万亿，现有科技底仓拿着滚动做T。
+  stance: view
+  evidence_quote: 科技其实最简单的就是看着大盘的量能做。我这边是打算在大盘能摸到2.2万亿之前，科技不开任何的新仓。大盘节后如果能稳住站上2万亿，现有的科技就拿着滚动做T就行了。
+  interpretation: 把『买科技是为博弈节后资金回流』的原始逻辑收敛为可执行的量能规则：2.2万亿=不开新仓的天花板线，2万亿=存量做T的启动线，避免情绪化加减仓。科技现有三方向为存储、光纤涨价、MLCC（缺量环境是其总前提，9/23判断的延续）。
+  confidence: high
+  status: active
+  intensity: high
+  related_stocks:
+  - code: '301308'
+    name: 江波龙
+    role: 存储持仓-滚动做T对象-创业板用户不可跟买
+  - code: '601869'
+    name: 长飞光纤
+    role: 光纤涨价逻辑持仓-滚动做T对象-主板可交易
+  - code: '300285'
+    name: 国瓷材料
+    role: MLCC持仓-滚动做T对象-创业板用户不可跟买
+  tags:
+  - 科技
+  - 量能
+  - 仓位纪律
+  - 滚动做T
+  - 2.2万亿
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 2.2万亿前科技不开新仓，站稳2万亿滚动做T
+- id: claim-20261008-002-c
+  source_path: "sources/original/bilibili/2026-10-08-0808-视频-科技等2.2万亿信号，复盘医药，短线观察汽车 地产 -.md"
+  source_date: '2026-10-08'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-10-08T09:25:00+08:00'
+  claim_type: risk
+  subject: 三季报窗口科技业绩把关
+  timeframe: short-term
+  statement: 10月是三季报披露密集窗口，买科技要自己对业绩把关——业绩风险由持仓者自行核验。
+  stance: view
+  evidence_quote: 另外10月份是三季报披露的一个密集的窗口。科技买的话，业绩这方面要自己去把关。
+  interpretation: 三季报密集披露期对缺业绩支撑的科技题材是证伪窗口：UP 提示的是业绩核验义务而非看空方向，与其持有科技底仓做T的姿态一致。
+  confidence: high
+  status: active
+  intensity: medium
+  related_stocks: []
+  tags:
+  - 三季报
+  - 科技
+  - 业绩风险
+  - 风险提示
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 10月三季报窗口，科技持仓须自核业绩
+- id: claim-20261008-002-d
+  source_path: "sources/original/bilibili/2026-10-08-0808-视频-科技等2.2万亿信号，复盘医药，短线观察汽车 地产 -.md"
+  source_date: '2026-10-08'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-10-08T09:25:00+08:00'
+  claim_type: sector-theme
+  subject: 节后短线题材取舍
+  timeframe: short-term
+  statement: 短线题材上放弃旧题材（农业、零售）暂不看；对新生方向（汽车、房地产）仅给『想做须控制仓位』的轻参与口径；自述近期短线投机积极性不高。
+  stance: view
+  evidence_quote: 短线题材像之前的农业啊、零售啊，我这两天就先暂时不看了。那像新走出来的汽车啊、房地产啊，这些想做的话自己控制好仓位。近期我做短线投机的这个积极性不高，并不高。
+  interpretation: 旧题材明确放弃、新题材不给参与背书只给仓位约束，配合投机积极性不高的自述——对短线题材整体保持低参与态，与其把精力放在医药持有+科技做T的配置一致。
+  confidence: medium
+  status: active
+  intensity: medium
+  related_stocks: []
+  tags:
+  - 短线题材
+  - 汽车
+  - 房地产
+  - 仓位控制
+  - 低参与
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 旧题材不看，汽车地产轻仓试，投机积极性不高
+- id: claim-20261008-002-e
+  source_path: "sources/original/bilibili/2026-10-08-0808-视频-科技等2.2万亿信号，复盘医药，短线观察汽车 地产 -.md"
+  source_date: '2026-10-08'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-10-08T09:25:00+08:00'
+  claim_type: market-cycle
+  subject: A股流动性优于港股判断
+  timeframe: short-term
+  statement: 港股约一半个股在零轴附近横移，对比之下A股流动性『还是有一点可贵的』——A股市场流动性质地优于港股。
+  stance: market-regime
+  evidence_quote: 有1300多家，基本上一半的股票，港股一半的股票在零轴附近震荡。A股至少还是有一点可贵的，就是流动性还不错。
+  interpretation: 借节后港股开盘日『一半个股零轴横移』的盘面对比，给出A股流动性占优的定性评价；属于市场质地判断而非操作指令，强度低。
+  confidence: medium
+  status: active
+  intensity: low
+  related_stocks: []
+  tags:
+  - A股
+  - 港股
+  - 流动性
+  - 市场对比
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 港股半数个股横移，A股流动性占优
+- id: claim-20261008-002-f
+  source_path: "sources/original/bilibili/2026-10-08-0808-视频-科技等2.2万亿信号，复盘医药，短线观察汽车 地产 -.md"
+  source_date: '2026-10-08'
+  source_type: 视频
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-10-08T09:25:00+08:00'
+  claim_type: operation
+  subject: 实盘号八概念组合再确认
+  timeframe: short-term
+  statement: 实盘号（280万）基本很少操作，9只标的8个概念；若重新选择组合、好好做波段度过当前枯燥行情，依然会选8个概念——组合分散+低换手的姿态延续。
+  stance: view
+  evidence_quote: 实盘号现在基本是很少操作，我9月11号动态有成本，9只标的，8个概念。如果让我重新增减的话，来选一个组合，好好做波段，好好的度过这么枯燥的行情，我依然还是选择8个概念。
+  interpretation: 对实盘号主仓的再确认：8概念分散+波段低换手是对『枯燥行情』的适配策略；隐含对当前行情下频繁调仓性价比低的判断。
+  confidence: medium
+  status: active
+  intensity: medium
+  related_stocks: []
+  tags:
+  - 实盘号
+  - 组合管理
+  - 波段
+  - 低换手
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 实盘号9只8概念，重来仍选8概念做波段
