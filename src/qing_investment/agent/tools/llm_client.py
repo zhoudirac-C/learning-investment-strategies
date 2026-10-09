@@ -400,7 +400,9 @@ def get_llm_client(provider: str | None = None, max_tokens: int | None = None) -
                 model=g["model"],
                 api_key=g["api_key"],
                 base_url=g["base_url"],
-                temperature=0.3,
+                # 2026-10-09：k3（api.kimi.com/coding）只允许 temperature=1，
+                # 传 0.3 报 400 invalid temperature；hermes_global 跟随全局模型，统一用 1
+                temperature=1,
                 max_tokens=max_tokens or 4096,
                 request_timeout=120,
             )

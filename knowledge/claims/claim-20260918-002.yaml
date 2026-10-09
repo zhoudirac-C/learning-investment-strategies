@@ -217,7 +217,7 @@ claims:
     T 演变成连续补仓。
   interpretation: 完整的操作预案加失效条件加交易纪律，属实操性操作判断。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: []
   contradicts: []
@@ -545,7 +545,7 @@ claims:
     T 服务于持仓管理，结构破坏时优先执行防守纪律。
   interpretation: 可复用的操作纪律：等待等于预案，防守优先于进攻。属方法论级观点。
   confidence: high
-  status: active
+  status: superseded
   intensity: high
   supersedes: ["claim-20260910-010-a"]
   contradicts: []
