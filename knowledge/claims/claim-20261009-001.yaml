@@ -1,0 +1,565 @@
+claims:
+- id: claim-20261009-001-a
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: market-cycle
+  subject: 本周资金回归证据不足与节奏安排
+  timeframe: short-term
+  statement: 本周资金全面回归的证据还不充分，节后首日冲高回落、市场仍在寻找有效承接。周五先降低预期，把持续性验证的重点放到下周；本周仅两个交易日，资金回归还需要时间验证，但今天出现的有效信号仍按标准处理。
+  stance: market-regime
+  evidence_quote: 节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活跃，市场仍在寻找有效承接。个人判断，本周资金全面回归的证据还不充分，周五先降低预期，把持续性验证的重点放到下周。……本周只有两个交易日，资金回归还需要时间验证。……本周降低预期，重点在下周，但今天出现的有效信号仍按标准处理。
+  interpretation: UP对节后首周的整体定性：不急于认定资金回流，本周定位为观察验证期而非进攻期，操作预期主动压低，但不放弃对盘中有效信号的标准化响应。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20261008-001-a"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 节后首周资金回归证据不足，降低预期、重点验证放到下周
+  related_stocks: []
+  tags:
+  - 资金回归
+  - 节后节奏
+  - 降低预期
+  - 持续性验证
+  - 市场阶段
+- id: claim-20261009-001-b
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: market-cycle
+  subject: 放量下跌的性质判定
+  timeframe: intraday
+  statement: 昨日成交放大伴随价格走弱（上证跌0.79%、创业板跌3.15%、科创50跌4.82%，成交约1.68万亿元较节前增约2441亿元、超3700只个股下跌），这组量价关系反映分歧和卖压，尚未给出普遍回流的证据。
+  stance: market-regime
+  evidence_quote: 昨日的成交增加，伴随着价格走弱。据10月8日收盘报道，上证指数报3811.90点，跌0.79%；深证成指报12620.90点，跌2.07%；创业板指报3036.66点，跌3.15%；科创50报1456.32点，跌4.82%。沪深两市成交约1.68万亿元，较9月30日增加约2441亿元，全市场超过3700只个股下跌。这组量价关系反映分歧和卖压，尚未给出普遍回流的证据。
+  interpretation: 对节后首日量价的定性：增量成交是分歧与卖压释放而非增量资金回流，否定了『放量=资金回归』的直觉解读。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 放量下跌=分歧卖压而非回流，尚无普遍回流证据
+  related_stocks: []
+  tags:
+  - 量价关系
+  - 放量下跌
+  - 分歧卖压
+  - 资金回流
+- id: claim-20261009-001-c
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: market-cycle
+  subject: 短线情绪局部韧性与普遍修复的距离
+  timeframe: intraday
+  statement: 短线情绪呈现局部韧性，普遍修复仍有距离：高标延续（新华传媒(600825)8连板）说明局部接力尚在，但炸板较多（43股涨停33股炸板、封板率约57%）说明追涨资金面对的分歧依然明显。
+  stance: market-regime
+  evidence_quote: 短线情绪呈现局部韧性，普遍修复仍有距离。据财联社10月8日复盘，43股涨停、33股炸板，封板率约57%；连板晋级率58.33%，新华传媒8连板，剔除该股后的次高度为4板。高标延续说明局部接力尚在，炸板较多则说明追涨资金面对的分歧依然明显。
+  interpretation: 情绪周期定位：接力资金未死（高标8板），但分歧大（炸板近半），属局部行情而非普遍修复，追涨胜率环境偏差。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260913-001-019"]
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情绪局部韧性（高标8板）但炸板近半，普遍修复仍有距离
+  related_stocks:
+  - code: '600825'
+    name: 新华传媒
+    role: 8连板高标-情绪观察-主板可交易
+  tags:
+  - 短线情绪
+  - 连板高标
+  - 炸板率
+  - 封板率
+  - 情绪周期
+- id: claim-20261009-001-d
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: market-cycle
+  subject: 外部利好对科技压力的作用边界
+  timeframe: short-term
+  statement: 美国长债收益率回落也未阻止纳指下跌，说明单一外部利好暂时不足以改变科技股的交易压力；假期前半段的科技修复已遇到新的分歧。韩股仍是科技风险偏好的观察窗口，把韩股弱势与纳指回落放在一起，A股需要验证的是自身承接能否改善。
+  stance: market-regime
+  evidence_quote: 韩股仍是科技风险偏好的观察窗口。据韩联社，10月8日KOSPI收报6625.93点，跌177.97点，约2.62%。把韩股弱势与纳指回落放在一起，今天A股需要验证的是自身承接能否改善。美国长债收益率回落也未阻止纳指下跌，说明单一外部利好暂时不足以改变科技股的交易压力。
+  interpretation: 否定『美债利率回落→科技压力解除』的线性传导：利率缓和是必要非充分条件，科技压力缓解需A股自身承接验证；韩股作为科技风险偏好的先行观察窗口继续有效。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260806-007", "claim-20260913-001-018"]
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 单一外部利好不足以解除科技压力，承接需A股自身验证
+  related_stocks: []
+  tags:
+  - 美债收益率
+  - 纳指
+  - 韩股观察窗口
+  - 科技压力
+  - 外部传导
+- id: claim-20261009-001-e
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: operation
+  subject: 60分钟底部结构两段论与加仓标准
+  timeframe: short-term
+  statement: 加仓标准的两段论：60分钟底部钝化只提示下行动能可能减弱（随后仍可能延长或消失），只有钝化发展为底部结构形成才进入既定加仓标准；不把一次急拉直接当成结构完成。态度上不怕再跌一些，怕的是有效机会出现时没有准备——准备工作包括备选方向、结构条件和失效后的应对；若60分钟底部结构形成即满足加仓标准，只有钝化时继续等待。
+  stance: view
+  evidence_quote: 指数今天重点留意60分钟，观察是否出现底部钝化，以及钝化能否进一步形成底部结构。钝化提示下行动能可能减弱，随后仍可能延长或消失；结构形成才进入既定加仓标准。盘前只设观察条件，盘中按持续使用的指标和参数确认，不把一次急拉直接当成结构完成。……我的态度是，这里不怕再跌一些，怕的是有效机会出现时没有准备；准备工作包括备选方向、结构条件和失效后的应对。若60分钟底部结构形成，就满足我的加仓标准；只有钝化时，继续等待。
+  interpretation: 核心操作纪律：钝化≠结构，结构=加仓触发器；急拉不算数。当前阶段的主要任务是准备（备选方向/结构条件/失效应对）而非抢跑。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260226-001-a", "claim-20260624-002-c"]
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 钝化≠结构，60m底部结构形成才是加仓触发器
+  related_stocks: []
+  tags:
+  - 60分钟底部结构
+  - 钝化
+  - 加仓标准
+  - 操作纪律
+  - 底部机会
+- id: claim-20261009-001-f
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: operation
+  subject: 底部确认的两情形预案
+  timeframe: short-term
+  statement: 情形A：60分钟底部结构按既定规则确认、指数回落有承接、上涨家数与核心板块同步改善→启动加仓预案，优先筛选指数转强时率先响应、回踩仍有买盘的方向；若只有单一指数形成结构而其他指数显著走弱，降低对修复广度的评价。情形B：只有钝化未形成结构，或短暂转强后继续放量下探、跌停扩散→保留观察，不提前兑现『底部已到』；若结构确认后按既定规则失效，停止加仓并重新评估新增仓位。周五若只是缩量横盘没触发条件，把进一步确认留到下周。
+  stance: view
+  evidence_quote: 情形A：60分钟底部结构按既定规则确认，指数回落有承接，上涨家数与核心板块同步改善。届时启动加仓预案，优先筛选在指数转强时率先响应、回踩仍有买盘的方向；具体节奏结合原有仓位和标的波动安排。若只有单一指数形成结构，其他指数继续显著走弱，则降低对修复广度的评价，后续仍需验证。情形B：只有钝化而未形成结构，或盘中短暂转强后继续放量下探、跌停扩散。此时保留观察，不提前兑现『底部已到』的判断；若结构确认后又按既定规则失效，则停止继续加仓，并重新评估新增仓位。周五若只是缩量横盘、没有触发条件，就把进一步确认留到下周。
+  interpretation: 完整决策树：触发条件（结构+承接+广度）、选股标准（率先响应+回踩有买盘）、广度折扣规则（单一指数结构降级）、失效处理（停止加仓重新评估）、无信号处理（留到下周）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: ["claim-20261008-001-k", "claim-20261008-007-g"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情形A加仓/情形B观察的两分支预案与失效处理规则
+  related_stocks: []
+  tags:
+  - 两情形预案
+  - 加仓预案
+  - 失效条件
+  - 修复广度
+  - 决策树
+- id: claim-20261009-001-g
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: methodology
+  subject: 成交有效回流的判据
+  timeframe: short-term
+  statement: 成交增加不等于有效回流：开盘集中释放的成交、下跌中的被动换手都可能放大量能；只有价格稳住、上涨家数扩大、核心板块回落有买盘同时出现，成交增加才更接近有效回流。缩量企稳可以继续观察，放量下跌则需要重新评估卖压。
+  stance: view
+  evidence_quote: 开盘集中释放的成交、下跌过程中的被动换手，都可能放大量能；只有价格稳住、上涨家数扩大、核心板块回落有买盘，成交增加才更接近有效回流。……缩量企稳可以继续观察，放量下跌则需要重新评估卖压；底部结构出现后，也要检查量价是否配合。
+  interpretation: 量能解读的三要素判据（价格稳住+家数扩大+核心板块有承接），区分『被动放量』与『有效回流』；给出缩量企稳与放量下跌的不同应对。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261008-001-g", "claim-20261008-007-c", "claim-20260921-002-c"]
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 有效回流三要素：价格稳住+上涨家数扩大+核心板块承接
+  related_stocks: []
+  tags:
+  - 量能判据
+  - 有效回流
+  - 被动放量
+  - 缩量企稳
+  - 量价配合
+- id: claim-20261009-001-h
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: methodology
+  subject: 修复扩散的三条件与权重观察项
+  timeframe: short-term
+  statement: 修复扩散需三条件同现：权重稳定、双创止跌、上涨家数回升；如果只有少数权重维持红盘而科技核心继续下探，仍按结构分化处理而非修复。银行、保险、券商作为环境观察项（银行昨日相对强势缓冲了上证跌幅）。
+  stance: view
+  evidence_quote: 银行昨日相对强势，有助于缓冲上证的跌幅，但创业板和科创50仍明显承压。今天继续把银行、保险、券商作为环境观察项：权重稳定、双创止跌、上涨家数回升同时出现，修复才有扩散基础；如果只有少数权重维持红盘，科技核心继续下探，就仍按结构分化处理。
+  interpretation: 区分『权重护盘』与『真修复』：单一权重红盘≠修复扩散，需权重+双创+广度三者共振；金融三驾马车定位为环境观察项而非进攻方向。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260908-003-z", "claim-20261008-007-g", "claim-20260928-002-e"]
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 修复扩散=权重稳定+双创止跌+家数回升三条件同现
+  related_stocks: []
+  tags:
+  - 修复扩散
+  - 权重观察
+  - 双创止跌
+  - 结构分化
+  - 银行保险券商
+- id: claim-20261009-001-i
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: methodology
+  subject: 指数板块个股的判断顺序与共振判据
+  timeframe: permanent
+  statement: 先确定指数低点，再寻找跟指数共振的板块；判断共振看三点——板块能否随指数企稳而扩大上涨范围、核心品种能否承接回落、尾盘能否保留强度。总体顺序：指数定环境，板块定方向，个股定时点。
+  stance: view
+  evidence_quote: 先确定指数低点，再寻找跟指数共振的板块。判断共振时，看板块能否随指数企稳而扩大上涨范围、核心品种能否承接回落，以及尾盘能否保留强度。……指数定环境，板块定方向，个股定时点，按这个顺序做判断。
+  interpretation: UP自上而下决策链的完整表述：环境（指数）→方向（板块共振三判据）→时点（个股）；板块早晚一天就是冰火两重天，方向选择受存量资金切换影响。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260526-011", "claim-20260621-001-c", "claim-20260921-002-ag"]
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 指数定环境、板块定方向、个股定时点+共振三判据
+  related_stocks: []
+  tags:
+  - 决策顺序
+  - 指数环境
+  - 板块共振
+  - 共振判据
+  - 方法论
+- id: claim-20261009-001-j
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: sector-theme
+  subject: 科技修复的路径与证据要求
+  timeframe: short-term
+  statement: 科技修复需要先处理亏钱效应：先看大跌核心（源杰科技(688498)、长光华芯(688048)等跌停品种）能否止跌、低开后能否稳住，再看算力硬件、PCB与半导体是否出现由点到面的修复；少数二三线PCB品种活跃只反映局部资金偏好，距离整个科技板块回暖仍需更多证据。
+  stance: view
+  evidence_quote: 科技修复需要先处理亏钱效应。昨日CPO和半导体继续调整，源杰科技、长光华芯跌停；外围科技隔夜也承压。今天先看大跌核心能否止跌、低开后能否稳住，再看算力硬件、PCB与半导体是否出现由点到面的修复。少数二三线PCB品种活跃，可以反映局部资金偏好，距离整个科技板块回暖仍需更多证据。
+  interpretation: 科技方向的观察次序：亏钱效应收敛（核心止跌）→由点到面扩散；当前仅二三线局部活跃，不上调为板块级回暖。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260629-001-ab"]
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技修复先处理亏钱效应，由点到面，局部活跃≠板块回暖
+  related_stocks:
+  - code: '688498'
+    name: 源杰科技
+    role: CPO大跌核心-亏钱效应观察-科创板不可交易
+  - code: '688048'
+    name: 长光华芯
+    role: 半导体大跌核心-亏钱效应观察-科创板不可交易
+  tags:
+  - 科技修复
+  - 亏钱效应
+  - CPO
+  - 半导体
+  - PCB
+  - 由点到面
+- id: claim-20261009-001-k
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: sector-theme
+  subject: 轮动方向的观察框架与避险持续性
+  timeframe: short-term
+  statement: 各轮动方向的观察锚点：固态电池看核心股分歧承接和后排是否扩散；航运、油气与外部能源扰动相关，需同时看事件变化与开盘兑现；银行提供权重支撑；地产重点看核心股承接，万科A(000002)等容量品种能否稳住比一次竞价波动更有意义；医药、地产、消费、染料和种业放轮动备选。指数若转强，昨日避险方向未必继续领先，需要重新比较资金去向。
+  stance: view
+  evidence_quote: 固态电池昨日逆势活跃，今天先看核心股分歧承接和后排是否扩散；航运、油气与外部能源扰动相关，要同时看事件变化与开盘兑现。银行提供权重支撑，医药、地产、消费、染料和种业仍可放在轮动备选中。指数若转强，昨日避险方向未必继续领先，需要重新比较资金去向。……地产重点看核心股承接，万科A等容量品种能否稳住，比一次竞价波动更有意义。
+  interpretation: 节后首日逆势方向（固态电池/航运/银行）按轮动框架处理而非主线确认；关键提示：指数转强后避险与进攻的资金再平衡，昨日强势方向可能让位。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261008-007-j", "claim-20261008-001-o"]
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 轮动方向各设观察锚点，指数转强后避险方向未必继续领先
+  related_stocks:
+  - code: '000002'
+    name: 万科A
+    role: 地产容量核心-承接观察-主板可交易
+  tags:
+  - 固态电池
+  - 航运
+  - 银行
+  - 地产
+  - 板块轮动
+  - 避险方向
+- id: claim-20261009-001-l
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: sector-theme
+  subject: AI医药的受益链条与验证约束
+  timeframe: industry
+  statement: 医药可增加AI for Science（AI4S）成长视角，但传导有约束：AI提高分子设计和筛选效率后，值得追踪的增量是实验验证、模型服务、试剂、测序和设备采购；传导要经过项目立项和客户预算，不能仅从候选分子增加推导所有上游企业同步受益。罗氏40%管线决策记录AI贡献是决策统计而非40%药物由AI独立研发。医药获得科技成长属性的前提，是具体业务能接住新增需求；先等板块止跌，再评价AI医药能否走出持续性。
+  stance: view
+  evidence_quote: 个人判断，AI提高分子设计和筛选效率后，值得追踪的增量是实验验证、模型服务、试剂、测序和设备采购。传导还要经过项目立项和客户预算，不能仅从候选分子增加推导所有上游企业同步受益。医药获得科技成长属性的前提，是具体业务能够接住新增需求。……前者是已发生的决策统计，后者包含未来目标，均不能等同于相应比例的药物由AI独立研发。……先等板块止跌，再评价AI医药能否走出持续性。
+  interpretation: AI4S产业链的受益排序（实验验证/模型服务/试剂/测序/设备）与两层证伪边界（罗氏数据的正确读法、候选分子→上游收入的传导折扣）；交易上要求板块先止跌再谈持续性。跟踪标的：成都先导(688222)看客户付费项目与商业化服务收入、百奥赛图(688796)看抗体合作与模型订单、贝瑞基因(000710)与康希诺(688185)的AI应用及收入贡献待披露验证。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261008-001-n", "claim-20260930-001-k", "claim-20260811-016"]
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI4S受益增量=实验验证/模型服务/试剂/测序/设备，传导需经立项与预算
+  related_stocks:
+  - code: '688222'
+    name: 成都先导
+    role: AI4S-DEL平台跟踪-科创板不可交易
+  - code: '688796'
+    name: 百奥赛图
+    role: AI4S-抗体库模型跟踪-科创板不可交易
+  - code: '000710'
+    name: 贝瑞基因
+    role: 测序-AI贡献待验证-主板可交易
+  - code: '688185'
+    name: 康希诺
+    role: 疫苗-AI贡献待验证-科创板不可交易
+  tags:
+  - AI4S
+  - AI医药
+  - 罗氏
+  - 受益链条
+  - 传导约束
+  - 证伪边界
+- id: claim-20261009-001-m
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: sector-theme
+  subject: 创新药BD合作的意义与读法
+  timeframe: industry
+  statement: 三笔BD合作（艾博生物-诺华、再生元-赛诺菲、诺和诺德-恒瑞医药(600276)）体现药企对研发资产的持续投入，中国资产相关的艾博与恒瑞两笔潜在总额约103.75亿美元；但潜在交易总额不等于当期到账（三笔首付款合计18.75亿美元），创新药合作与AI业务的联系也需逐项验证。
+  stance: view
+  evidence_quote: 三笔合作体现了药企对研发资产的持续投入。……按公告简单合计，三笔合作潜在总额约183.75亿美元，约定首付款合计18.75亿美元；中国资产相关的艾博与恒瑞两笔，潜在总额约103.75亿美元。……潜在交易总额不等于当期到账，创新药合作也需逐项验证与AI业务的联系。
+  interpretation: 创新药出海BD是产业趋势证据（中国资产占比过半），但UP强调口径纪律：标题总额≠现金流入，也不自动等于AI受益，避免题材化误读。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261008-001-r"]
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 创新药BD体现研发投入持续，但潜在总额≠到账、≠AI受益
+  related_stocks:
+  - code: '600276'
+    name: 恒瑞医药
+    role: HRS-1596授权诺和诺德-GLP-1出海-主板可交易
+  tags:
+  - 创新药BD
+  - license-out
+  - 恒瑞医药
+  - GLP-1
+  - 口径纪律
+- id: claim-20261009-001-n
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: sector-theme
+  subject: 高速覆铜板升级的研究方向
+  timeframe: industry
+  statement: 高速覆铜板升级值得沿低介电、低损耗树脂方向研究，包括改性PPO、碳氢树脂及BCB等体系（东材科技(601208)关注电子材料验证与放量，呈和科技(688625)先核对产品在板材配方中的应用与客户导入）；迈威尔将2028财年营收预期由约180亿美元提高至约200亿美元（增长线索集中在数据中心连接需求）为高速互联升级提供观察依据，但海外企业预期与A股材料企业收入之间需建立明确供货证据，不能直接等同。
+  stance: view
+  evidence_quote: 高速覆铜板升级值得沿低介电、低损耗树脂方向研究，包括改性PPO、碳氢树脂及BCB等体系。东材科技关注相关电子材料验证与放量；呈和科技先核对具体产品在板材配方中的应用及客户导入。迈威尔的增长预期与A股材料企业收入之间，还需建立明确供货证据，不能直接等同。
+  interpretation: AI硬件链的新挖掘方向：高速覆铜板树脂体系（PPO/碳氢/BCB）；迈威尔指引上调是需求侧观察依据，但映射到A股标的需供货证据链，防止概念化炒作。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: ["claim-20261008-001-t"]
+  contradicts: []
+  supplements: ["claim-20260922-001-p", "claim-20260911-001-016"]
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高速覆铜板沿低介电低损耗树脂（PPO/碳氢/BCB）研究，映射需供货证据
+  related_stocks:
+  - code: '601208'
+    name: 东材科技
+    role: 电子树脂材料-验证放量跟踪-主板可交易
+  - code: '688625'
+    name: 呈和科技
+    role: 板材配方应用待核对-科创板不可交易
+  tags:
+  - 高速覆铜板
+  - 低介电树脂
+  - PPO
+  - 碳氢树脂
+  - BCB
+  - 迈威尔
+- id: claim-20261009-001-o
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: methodology
+  subject: 海外映射消息的A股验证框架
+  timeframe: permanent
+  statement: 海外映射最终要回到A股的交易条件：AI基础设施消息观察采购和交付，医药消息观察研发与合作进度，能源消息观察价格与运输变化；近期有催化且出现领涨迹象的方向可进入备选池，盘中能否与指数共振决定其短线观察优先级。选股上最值得留意的是近期已有催化、调整中相对抗跌、并在指数结构确认时得到新增资金认可的分支。
+  stance: view
+  evidence_quote: 海外映射最终还要回到A股的交易条件。AI基础设施消息观察采购和交付，医药消息观察研发与合作进度，能源消息观察价格与运输变化。近期有催化且出现领涨迹象的方向，可以进入备选池；盘中能否与指数共振，决定其短线观察优先级。……最值得留意的是近期已有催化、调整中相对抗跌，并在指数结构确认时得到新增资金认可的分支。
+  interpretation: 海外消息→A股交易的统一过滤框架：分行业设定验证锚点（采购交付/研发合作/价格运输），备选池标准=催化+领涨迹象，优先级=盘中与指数共振。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260921-002-t", "claim-20260929-002-o"]
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 海外映射需回到A股交易条件验证，备选池=催化+领涨+指数共振
+  related_stocks: []
+  tags:
+  - 海外映射
+  - 验证框架
+  - 备选池
+  - 选股标准
+  - 指数共振
+- id: claim-20261009-001-p
+  source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
+  source_date: '2026-10-09'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-09T08:45:00+08:00'
+  claim_type: operation
+  subject: 盘中执行节奏与口径一致纪律
+  timeframe: intraday
+  statement: 盘中执行节奏：先看开盘后半小时的量价与承接（与10月8日同期比较），再在60分钟信号所属周期结束时核对状态，午后检查强度能否保持；观察对象与指标参数保持一致，避免临盘更换口径寻找买入理由。外围主要影响开盘定价，盘中方向取决于A股自己的量能、权重和亏钱效应——低开不可怕，接不住才可怕。
+  stance: view
+  evidence_quote: 执行上，先看开盘后半小时的量价与承接，再在60分钟信号所属周期结束时核对状态，午后检查强度能否保持。观察对象与指标参数保持一致，避免临盘更换口径寻找买入理由。……个人判断，外围主要影响开盘定价，盘中方向取决于A股自己的量能、权重和亏钱效应。低开不可怕，接不住才可怕；底部机会要靠结构确认。
+  interpretation: 当日操作时间表（开盘半小时→60m周期末→午后）与两条纪律：口径一致（不临盘换指标找理由）、内外分工（外围定开盘、内因定盘中）。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261008-007-c", "claim-20260911-001-003", "claim-20260817-003"]
+  last_discovered: 2026-10-09
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 开盘半小时→60m周期末→午后的核对节奏，禁临盘换口径
+  related_stocks: []
+  tags:
+  - 盘中节奏
+  - 口径一致
+  - 开盘定价
+  - 执行纪律
+  - 60分钟
