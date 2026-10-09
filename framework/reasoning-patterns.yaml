@@ -1,6 +1,6 @@
 updated_at: '2026-10-09'
-version: 3.0-source-neutral
-merge_note: 将116个单raw模式聚合为10个通用推理框架，并优化description以支持语义匹配
+version: 3.1-source-neutral
+merge_note: 将116个单raw模式聚合为10个通用推理框架，并优化description以支持语义匹配；v3.1（2026-10-09）经提案制人审新增第18个框架 crash_loop_attribution（暴跌互爆归因与救市需求判断），证据跨2026-07杠杆恐慌与2026-10机构互爆两个剧本
 distill_note: v3.0 来源中立改写（v2.1 引擎⓪）——trigger/steps/falsification 不含 UP 指称， validation
   区块随回测与盲测回填；UP 锚定版备份见 reasoning-patterns-v2.1-up-anchored.yaml。
 patterns:
@@ -7642,3 +7642,77 @@ patterns:
     - 各情绪龙头均走出明显赚钱效应，抱团结构有实盘印证
     - 首板基数约87家样本充足，折算误差较小
     merge_suggestion: 原文完整执行首板×15%折算并延伸抱团解读
+- pattern_id: crash_loop_attribution
+  name: 暴跌互爆归因与救市需求判断框架（融资余额三分法）
+  description: 当市场出现连续暴跌/恐慌下跌、需要判断下跌性质与是否依赖外部力量（GJD）介入时使用。典型查询：这轮暴跌是什么性质、会不会止跌、要不要等国家队、融资盘会不会爆仓、GJD会救市吗。核心原则：先归因互爆主体（融资盘/外围传导/机构互爆），再推导救市需求——涨出来的风险（估值泡沫）跌一波即消化，跌出来的风险（机构互爆恶性循环）没有强有力向上力量无法打破，历史上每次都需GJD级买入终结。融资余额是判别互爆主体的第一数据锚点：暴跌中融资余额仍在增加=散户在加仓、杠杆未出清→排除融资盘互爆；融资余额骤降=杠杆平仓螺旋进行中。
+  trigger:
+  - 指数或主线板块连续暴跌、出现"不计代价一键清仓"式下跌
+  - 需要回答"这轮下跌是什么性质/会不会止跌/要不要等国家队"
+  - 融资余额、龙虎榜机构席位、外围市场联动数据可得
+  source_raw:
+  - sources/original/bilibili/2026-10-09-1030-图片-科技股暴跌，但市场总的融资余额还是增加的，说明散户还在加仓，.md
+  - framework/proposals/20261009-pattern-nomination-crash-loop-attribution.yaml
+  - knowledge/claims/claim-20260702-004.yaml
+  - knowledge/claims/claim-20260719.yaml
+  - knowledge/claims/claim-20260721.yaml
+  applicable_themes:
+  - 暴跌归因
+  - 融资余额
+  - 两融
+  - 杠杆资金
+  - 机构互爆
+  - 国家队
+  - GJD救市
+  - 恐慌下跌
+  - 赎回踩踏
+  data_requirements:
+  - name: 两融余额及融资净买入走向
+    channel: qing_investment.marketdata.get_margin_balance()（东财 RPTA_WEB_MARGIN_DAILYTRADE，日频 T 日晚间披露；与 UP 东财融资融券数据中心截图同口径）
+  - name: 龙虎榜机构席位动向
+    channel: 龙虎榜数据（机构专用席位净买入/净卖出，判断机构抱团撤退还是承接）
+  - name: 外围市场联动
+    channel: 隔夜美股/韩股/费半等外围科技链表现，判断是否外围传导剧本
+  - name: 领跌结构
+    channel: 领跌板块是否为机构重仓方向（公募/险资/社保重仓股），跌停与下跌家数分布
+  steps:
+  - step: 1
+    name: 互爆主体识别（三分法）
+    question: 本轮下跌是谁在不计代价卖出——融资盘、外围传导、还是机构互爆？
+    action: ①融资余额走向：暴跌中余额仍增=散户加仓、融资盘互爆风险不大；余额骤降=杠杆平仓螺旋；②外围联动：外围同步杀跌→外围传导剧本（如2026年7月）；外围平稳→内部剧本；③龙虎榜机构席位+领跌结构：机构席位抱团撤退+机构重仓股领跌→机构互爆
+    data:
+    - 两融余额及融资净买入走向
+    - 外围市场联动
+    - 龙虎榜机构席位动向
+    - 领跌结构
+  - step: 2
+    name: 恶性循环机制确认
+    question: 是否已形成"跌出来的风险"自我强化循环？
+    action: 机构互爆循环链条：低成交量下部分资金卖出→杀跌触发止盈→绝对收益结构被动卖出→量化调仓→赎回压力下卖未跌停持仓→相互踩踏放大；确认标志=持续下杀已与基本面无关、重仓基金不计成本卖出、跌停卖不出去转而卖没跌停的
+    data:
+    - 领跌结构
+  - step: 3
+    name: 救市需求判断
+    question: 该循环能否自愈，还是需要 GJD 级力量？
+    action: 涨出来的风险（估值泡沫）跌一波估值消化即结束，不需外部力量；跌出来的风险（机构互爆恶性循环）没有强有力向上力量无法打破，历史上每次都靠GJD买入终结→此类下跌的判断重心从"何时跌够"转为"GJD何时进场、以什么形式进场"
+    data: []
+  - step: 4
+    name: 救市形式与力度校准
+    question: 若 GJD 介入，托的是什么底、力度够吗？
+    action: GJD增持央企/宽基ETF直接托的是指数底与权重底，科技等成长底仍需自身筹码出清确认；单日拉抬对科技情绪帮助有限，护盘需持续一至两周才有效；注意机构互爆历史样本少，GJD的经验在散户杠杆爆仓（2015年），机构互爆的资金规模难判断，救市力度存在不确定性
+    data:
+    - 领跌结构
+  falsification:
+  - 暴跌中融资余额骤降且龙虎榜显示散户席位割肉为主（实为融资盘互爆，归因三分法误判主体）
+  - 机构互爆循环在未见GJD级买入的情况下自行终结（"只能靠GJD打破"被证伪）
+  - 外围市场同步暴跌被证明是主因（外围传导剧本误判为内部互爆）
+  validation:
+    historical_hit_rate: null
+    applicable_regime: 恐慌/调整（2026-07 杠杆恐慌、2026-10 机构互爆两个剧本均出现）
+    known_failures: []
+  examples:
+  - pattern_id: crash_loop_attribution_20261009
+    date: '2026-10-09'
+    source: sources/original/bilibili/2026-10-09-1030-图片-科技股暴跌，但市场总的融资余额还是增加的，说明散户还在加仓，.md
+    theme: 机构互爆定性
+    key_logic: 融资余额10-08反增+41.39亿=散户加仓→排除融资盘互爆；外围平稳→排除外围传导；龙虎榜机构抱团撤退→定性纯机构互爆；机构互爆只能GJD买入打破
+    market_context: 节后首日科技股暴跌次日，上证3811，两融余额2.57万亿

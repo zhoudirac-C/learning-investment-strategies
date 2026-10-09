@@ -1,7 +1,7 @@
 proposal_id: 20261009-pattern-nomination-crash-loop-attribution
 source: up-review
 generated_at: '2026-10-09T22:30:00'
-status: pending-review   # pending-review → approved → applied | rejected
+status: applied   # 2026-10-09 用户人审拍板：证据已足（跨 2026-07 杠杆恐慌 / 2026-10 机构互爆两剧本），直接入库 reasoning-patterns.yaml v3.1（第18个框架）；配套文档 framework/crash-loop-attribution.md；数据通道 marketdata.get_margin_balance 已落地
 evidence:
   window: {start: '2026-07-02', end: '2026-10-09'}
   occurrences:

@@ -6,7 +6,9 @@
 ## 核心结论（5 条）
 
 1. **本期最重要的框架增量：「暴跌互爆归因与救市需求判断」（融资融券三分法），已生成 B 类提案
-   `framework/proposals/20261009-pattern-nomination-crash-loop-attribution.yaml`（pending-review）**。
+   `framework/proposals/20261009-pattern-nomination-crash-loop-attribution.yaml`，用户当日人审拍板
+   「证据已足」直接入库 reasoning-patterns.yaml v3.1（第 18 个框架），配套文档
+   `framework/crash-loop-attribution.md`，数据通道 `marketdata.get_margin_balance()` 已落地**。
    10-09 UP 用融资余额走向完成了一次完整的下跌归因：融资余额仍在增加（10-08 融资净买入 +41.39 亿）
    =散户还在加仓→排除融资盘互爆；外围平稳→排除外围传导；龙虎榜机构抱团撤退+机构重仓股领跌
    →定性为纯内部机构互爆（险资/社保/公募/私募/FOF/量化卡风控线、赎回线相互踩踏）；进而推出
@@ -98,8 +100,8 @@
 
 ## 后续建议
 
-1. crash_loop_attribution 提案人审：批准则保持 pending-review 等待盲判验证；如认为证据
-   已足（跨 7 月/10 月两 regime）可拍板提前入库。
+1. ~~crash_loop_attribution 提案人审~~ **已完成（当日拍板入库 v3.1 + 配套文档 + 数据通道）**。
+   后续观察点：下一次暴跌场景用该框架盲判验证，回填 validation.historical_hit_rate。
 2. 「量能阈值仓位门控」写入 trading-rules.md（Review→Write 管道，需用户确认后执行）。
-3. 数据通道备忘：提案所需两融数据（东财融资融券数据中心）当前 marketdata 层无现成接口，
-   若提案转正需补数据通道（可作为 pattern 配套 data-channel 提案）。
+3. ~~两融数据通道~~ **已完成**：`qing_investment.marketdata.get_margin_balance(days=N)`，
+   东财 RPTA_WEB_MARGIN_DAILYTRADE，实测与 UP 截图口径吻合。

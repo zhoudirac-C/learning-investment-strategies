@@ -36,6 +36,7 @@
 - ``news``     财联社电报（cls.cn 本地签名零 key）
 - ``official`` 中证/国证指数成分与权重、深交所官方交易日历
 - ``macro``    人民银行社融 / 统计局 PMI
+- ``margin``   两融市场合计日度数据（东财数据中心，crash_loop_attribution 框架数据锚点）
 """
 
 from __future__ import annotations
@@ -56,6 +57,7 @@ from qing_investment.marketdata.router import (
     get_quotes,
     get_turnover,
 )
+from qing_investment.marketdata.margin import get_margin_balance
 
 __all__ = [
     "MarketDataError",
@@ -72,4 +74,5 @@ __all__ = [
     "get_quotes",
     "get_turnover",
     "get_market_turnover",
+    "get_margin_balance",
 ]
