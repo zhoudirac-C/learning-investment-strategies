@@ -20,8 +20,12 @@ CHAIN_STATES_NOTE = (
     "产业链知识库状态。分析板块异动/方向轮动时先查：该板块属于哪条链、"
     "链处于什么阶段、时机建议做哪个环节。阶段口径：阶段0-观察=不介入；"
     "阶段1-启动期=可右侧确认介入；阶段2-加速期=不追高等分歧回踩；"
-    "阶段3-分歧期=等回踩确认；阶段4-见顶期=退出。available=false 时"
-    "明确说明知识库不可用，不得编造链阶段。"
+    "阶段3-分歧期=等回踩确认；阶段4-见顶期=退出。"
+    "board_snapshot=该链映射的同花顺板块指数量价快照"
+    "（drawdown_from_120d_high_pct=距120日高点回撤%，负值越深调整越深；"
+    "volume_ratio_5_60=5日/60日均量比，<1为缩量；proxy_note 存在时该板块为弱代理，权重放低）。"
+    "叙事与板块量价背离时（如叙事确认但板块回撤>20%且缩量），按量价为准下修判断。"
+    "available=false 时明确说明知识库不可用，不得编造链阶段。"
 )
 
 
@@ -111,13 +115,33 @@ def chain_states_view(*, max_stocks: int = 3,
         timing = c.get("timing") if isinstance(c.get("timing"), dict) else {}
         stocks = [f"{m.get('name')}({str(m.get('code')).zfill(6)})"
                   for m in (c.get("mappings") or [])[:max_stocks]]
-        out.append({
+        entry = {
             "chain_id": c.get("chain_id"),
             "name": c.get("name"),
             "current_stage": c.get("current_stage") or "阶段0-观察",
             "stage_confidence": c.get("stage_confidence"),
             "timing": timing.get("current_recommendation"),
             "stocks": stocks,
-        })
+        }
+        # 板块量价快照（2026-10-10 用户拍板并入）：同花顺板块指数 compact 版。
+        # 读本地缓存（board_klines），缓存缺失/映射不存在时静默省略该字段。
+        try:
+            from investment_engine.chain_tracker.board_context import board_metrics
+
+            bm = board_metrics(str(c.get("chain_id") or ""))
+        except Exception:  # noqa: BLE001 - 快照缺失不阻断视图
+            bm = None
+        if bm:
+            entry["board_snapshot"] = {
+                "board": bm["board"],
+                "as_of": bm["as_of"],
+                "drawdown_from_120d_high_pct": bm["drawdown_from_120d_high_pct"],
+                "change_20d_pct": bm["change_20d_pct"],
+                "volume_ratio_5_60": bm["volume_ratio_5_60"],
+                "vs_ma60_pct": bm["vs_ma60_pct"],
+            }
+            if bm.get("proxy_strength") != "exact":
+                entry["board_snapshot"]["proxy_note"] = bm.get("proxy_note") or "弱代理"
+        out.append(entry)
     return out
 
