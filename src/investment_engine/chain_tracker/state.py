@@ -18,6 +18,17 @@ def apply_chain_update(chain: dict, result: dict, *, today: str) -> dict | None:
     if stage_change not in ("forward", "backward"):
         return None
 
+    # 量价硬护栏（2026-10-10）：板块深度回撤时禁止阶段前进。
+    # 不走 LLM，宁可漏不可错——防止"叙事加速、股价腰斩"时阶段失真。
+    if stage_change == "forward":
+        from investment_engine.chain_tracker.board_context import forward_blocked
+
+        blocked, reason = forward_blocked(
+            chain.get("chain_id") or "", chain.get("current_stage") or "阶段0-观察")
+        if blocked:
+            print(f"[chain_tracker] 量价护栏拦截: {chain.get('chain_id')}: {reason}")
+            return None
+
     old_stage = chain.get("current_stage") or "阶段0-观察"
     if old_stage not in STAGE_LEVELS:
         old_stage = "阶段0-观察"

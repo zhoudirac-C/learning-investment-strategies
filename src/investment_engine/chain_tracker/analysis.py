@@ -45,6 +45,9 @@ _USER_TMPL = """以下是产业链"{chain_name}"的当前状态和新信息。
 【标的映射】（已有标的，避免重复提议）
 {mappings_text}
 
+【板块量价快照】（同花顺板块指数，阶段判断的量价腿；空=无数据）
+{board_context}
+
 【新信息】（{n_items} 条）
 {items_text}
 
@@ -82,6 +85,13 @@ Step 5 - 判断持续性并给出操作建议：
     FR8 实际涨价）；泛化的行业情绪、同板块其他链条的利好、"业绩符合预期"类
     无增量表述，一律 unchanged。
   - stage_change=backward 仅当证伪条件被触发或关键节点明确恶化。
+
+  量价背离约束（2026-10-10 加入，UP 阶段模型是量价行为框架）：
+  - 阶段判断必须同时参考【板块量价快照】。产业叙事确认但板块量价背离
+    （如板块距120日高点回撤>20%且量能比<1持续缩量）时，不得判 forward；
+    叙事确认+量价同步走强才可 forward。
+  - 板块深度回撤（距高点>30%）且核心标的放量滞涨，应视为证伪条件第4条
+    "板块核心标的放量滞涨、联动失效"的触发信号，考虑 backward。
 
 阶段枚举（new_stage 必须取其中之一）：
 阶段0-观察 / 阶段1-启动期 / 阶段2-加速期 / 阶段3-分歧期 / 阶段4-见顶期
@@ -173,6 +183,8 @@ def format_items(items: list[dict], max_items: int) -> str:
 
 def build_tracking_messages(chain: dict, items: list[dict],
                             *, max_items: int = 30) -> list[dict]:
+    from investment_engine.chain_tracker.board_context import format_board_context
+
     falsification = chain.get("falsification") or []
     user = _USER_TMPL.format(
         chain_name=chain.get("name"),
@@ -185,6 +197,7 @@ def build_tracking_messages(chain: dict, items: list[dict],
         falsification="\n".join(f"- {f}" for f in falsification) or "（无）",
         segments_text=_fmt_segments(chain),
         mappings_text=_fmt_mappings(chain),
+        board_context=format_board_context(chain.get("chain_id") or "") or "（无板块映射或缓存缺失）",
         n_items=len(items),
         items_text=format_items(items, max_items),
     )
