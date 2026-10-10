@@ -48,6 +48,9 @@ _USER_TMPL = """以下是产业链"{chain_name}"的当前状态和新信息。
 【板块量价快照】（同花顺板块指数，阶段判断的量价腿；空=无数据）
 {board_context}
 
+【板块估值快照】（估值-业绩腿：opportunity_zone=潜在机会区；空=无数据）
+{valuation_context}
+
 【新信息】（{n_items} 条）
 {items_text}
 
@@ -183,7 +186,8 @@ def format_items(items: list[dict], max_items: int) -> str:
 
 def build_tracking_messages(chain: dict, items: list[dict],
                             *, max_items: int = 30) -> list[dict]:
-    from investment_engine.chain_tracker.board_context import format_board_context
+    from investment_engine.chain_tracker.board_context import (
+        format_board_context, format_valuation_context)
 
     falsification = chain.get("falsification") or []
     user = _USER_TMPL.format(
@@ -198,6 +202,7 @@ def build_tracking_messages(chain: dict, items: list[dict],
         segments_text=_fmt_segments(chain),
         mappings_text=_fmt_mappings(chain),
         board_context=format_board_context(chain.get("chain_id") or "") or "（无板块映射或缓存缺失）",
+        valuation_context=format_valuation_context(chain.get("chain_id") or "") or "（无估值快照，等待周一/四刷新）",
         n_items=len(items),
         items_text=format_items(items, max_items),
     )

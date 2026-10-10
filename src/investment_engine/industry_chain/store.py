@@ -25,6 +25,9 @@ CHAIN_STATES_NOTE = (
     "（drawdown_from_120d_high_pct=距120日高点回撤%，负值越深调整越深；"
     "volume_ratio_5_60=5日/60日均量比，<1为缩量；proxy_note 存在时该板块为弱代理，权重放低）。"
     "叙事与板块量价背离时（如叙事确认但板块回撤>20%且缩量），按量价为准下修判断。"
+    "valuation=估值-业绩腿（pe_peg 链看 PEG/预期增速，pb_cycle 链看 PB 三年分位）；"
+    "opportunity_zone=true（低估值+利润增长+价格低位）且阶段处于观察/分歧期时"
+    "是黄金击球区；加速期但 opportunity_zone=false 时警惕纯叙事行情。"
     "available=false 时明确说明知识库不可用，不得编造链阶段。"
 )
 
@@ -142,6 +145,31 @@ def chain_states_view(*, max_stocks: int = 3,
             }
             if bm.get("proxy_strength") != "exact":
                 entry["board_snapshot"]["proxy_note"] = bm.get("proxy_note") or "弱代理"
+        # 估值腿（2026-10-11）：opportunity_zone 机会区标签 + 估值中位数。
+        # 数据来自 fetch_board_valuation.py（周一/四刷新），缓存缺失静默省略。
+        try:
+            from investment_engine.chain_tracker.board_context import valuation_snapshot
+
+            vs = valuation_snapshot(str(c.get("chain_id") or ""))
+        except Exception:  # noqa: BLE001
+            vs = None
+        if vs:
+            vagg = vs.get("aggregate") or {}
+            entry["valuation"] = {
+                "method": vs.get("valuation_method"),
+                "as_of": vs.get("as_of"),
+                "opportunity_zone": bool((vs.get("opportunity") or {}).get("opportunity_zone")),
+            }
+            if vs.get("valuation_method") == "pe_peg":
+                entry["valuation"].update(
+                    pe_ttm_median=vagg.get("pe_ttm_median"),
+                    dyn_pe_median=vagg.get("dyn_pe_median"),
+                    growth_pct_median=vagg.get("growth_pct_median"),
+                    peg_median=vagg.get("peg_median"))
+            else:
+                entry["valuation"].update(
+                    pb_median=vagg.get("pb_median"),
+                    pb_percentile_3y_median=vagg.get("pb_percentile_3y_median"))
         out.append(entry)
     return out
 

@@ -2,24 +2,27 @@
 # 用途：chain_tracker 跟踪引擎的板块量价快照输入（阶段判断的数据腿）
 # 数据源：akshare stock_board_concept_index_ths / stock_board_industry_index_ths
 # proxy_strength: exact=板块即产业链本体; proxy=弱代理(板块口径比链宽)
+# valuation_method（2026-10-11 用户拍板，按 methodology/f10-fundamental-analysis.md 公司类型路由）:
+#   pe_peg   = 高成长链: 动态PE+PEG+一致预期增速（东财 RPT_WEB_RESPREDICT）
+#   pb_cycle = 强周期链: PB历史分位+周期位置（谨慎用PE——周期底部PE失真）
 chains:
-  ai-pcb-ccl:            {board: "PCB概念",          type: concept,  proxy_strength: exact}
-  ai-optical:            {board: "共封装光学(CPO)",   type: concept,  proxy_strength: exact}
-  ai-storage:            {board: "存储芯片",          type: concept,  proxy_strength: exact}
-  ai-server:             {board: "液冷服务器",        type: concept,  proxy_strength: exact}
-  ai-chip-design:        {board: "芯片概念",          type: concept,  proxy_strength: proxy,  note: "板块过宽(含设计+制造+封测)"}
-  ai-power:              {board: "数据中心(AIDC)",    type: concept,  proxy_strength: proxy,  note: "链是电力设备/HVDC，板块偏IDC整体; 与ai-server量价同向"}
-  mlcc-passive:          {board: "MLCC概念",         type: concept,  proxy_strength: exact}
-  electronic-gas:        {board: "电子化学品",        type: industry, proxy_strength: proxy,  note: "无电子特气板块，WF6仅其中小类"}
-  copper-aluminum:       {board: "金属铜",           type: concept,  proxy_strength: proxy,  note: "铝无独立板块，代理只覆盖铜"}
-  rare-metals:           {board: "小金属概念",        type: concept,  proxy_strength: exact}
-  coal-coke:             {board: "煤炭概念",          type: concept,  proxy_strength: exact}
-  photovoltaic:          {board: "光伏概念",          type: concept,  proxy_strength: exact}
-  semiconductor-equipment: {board: "光刻机",         type: concept,  proxy_strength: exact}
-  aerospace:             {board: "商业航天",          type: concept,  proxy_strength: exact}
-  pharma:                {board: "创新药",           type: concept,  proxy_strength: exact}
-  robotics:              {board: "人形机器人",        type: concept,  proxy_strength: exact}
-  agriculture-price-chain: {board: "农业种植",       type: concept,  proxy_strength: exact,  note: "已narrative_falsified，留档"}
-  shipbuilding:          {board: "海工装备",          type: concept,  proxy_strength: proxy,  note: "无船舶制造板块，海工含非船标的"}
-  coal-to-olefin:        {board: "煤化工概念",        type: concept,  proxy_strength: exact}
-  industrial-software:   {board: "软件开发",          type: industry, proxy_strength: proxy,  note: "无工业软件板块，行业口径含所有软件"}
+  ai-pcb-ccl:            {board: "PCB概念",          type: concept,  proxy_strength: exact,  valuation_method: pe_peg}
+  ai-optical:            {board: "共封装光学(CPO)",   type: concept,  proxy_strength: exact,  valuation_method: pe_peg}
+  ai-storage:            {board: "存储芯片",          type: concept,  proxy_strength: exact,  valuation_method: pe_peg}
+  ai-server:             {board: "液冷服务器",        type: concept,  proxy_strength: exact,  valuation_method: pe_peg}
+  ai-chip-design:        {board: "芯片概念",          type: concept,  proxy_strength: proxy,  valuation_method: pe_peg,  note: "板块过宽(含设计+制造+封测)"}
+  ai-power:              {board: "数据中心(AIDC)",    type: concept,  proxy_strength: proxy,  valuation_method: pe_peg,  note: "链是电力设备/HVDC，板块偏IDC整体; 与ai-server量价同向"}
+  mlcc-passive:          {board: "MLCC概念",         type: concept,  proxy_strength: exact,  valuation_method: pe_peg}
+  electronic-gas:        {board: "电子化学品",        type: industry, proxy_strength: proxy,  valuation_method: pe_peg,  note: "无电子特气板块，WF6仅其中小类"}
+  copper-aluminum:       {board: "金属铜",           type: concept,  proxy_strength: proxy,  valuation_method: pb_cycle, note: "铝无独立板块，代理只覆盖铜"}
+  rare-metals:           {board: "小金属概念",        type: concept,  proxy_strength: exact,  valuation_method: pb_cycle}
+  coal-coke:             {board: "煤炭概念",          type: concept,  proxy_strength: exact,  valuation_method: pb_cycle}
+  photovoltaic:          {board: "光伏概念",          type: concept,  proxy_strength: exact,  valuation_method: pb_cycle}
+  semiconductor-equipment: {board: "光刻机",         type: concept,  proxy_strength: exact,  valuation_method: pe_peg}
+  aerospace:             {board: "商业航天",          type: concept,  proxy_strength: exact,  valuation_method: pe_peg}
+  pharma:                {board: "创新药",           type: concept,  proxy_strength: exact,  valuation_method: pe_peg}
+  robotics:              {board: "人形机器人",        type: concept,  proxy_strength: exact,  valuation_method: pe_peg}
+  agriculture-price-chain: {board: "农业种植",       type: concept,  proxy_strength: exact,  valuation_method: pb_cycle, note: "已narrative_falsified，留档"}
+  shipbuilding:          {board: "海工装备",          type: concept,  proxy_strength: proxy,  valuation_method: pb_cycle, note: "无船舶制造板块，海工含非船标的"}
+  coal-to-olefin:        {board: "煤化工概念",        type: concept,  proxy_strength: exact,  valuation_method: pb_cycle}
+  industrial-software:   {board: "软件开发",          type: industry, proxy_strength: proxy,  valuation_method: pe_peg,  note: "无工业软件板块，行业口径含所有软件"}

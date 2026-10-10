@@ -42,6 +42,11 @@ def _load_map() -> dict:
     return _MAP_CACHE
 
 
+def load_board_map() -> dict:
+    """chain_board_map.yaml 的链→板块映射（chain_id → cfg），带进程内缓存。"""
+    return _load_map()
+
+
 def _cache_path(board_type: str, board: str) -> Path:
     safe = board.replace("/", "_").replace("(", "_").replace(")", "_")
     return CACHE_DIR / f"{board_type}_{safe}.json"
@@ -113,3 +118,49 @@ def forward_blocked(chain_id: str, current_stage: str) -> tuple[bool, str]:
                   f"（量价护栏 2026-10-10）")
         return True, reason
     return False, ""
+
+
+# ── 估值腿（2026-10-11 用户拍板：opportunity_zone 正交标签）──────────────
+
+VALUATION_DIR = ROOT / "infra" / "data" / "board_valuation"
+
+
+def valuation_snapshot(chain_id: str) -> dict | None:
+    """读板块估值快照缓存（fetch_board_valuation.py 产出，周一/四刷新）。
+
+    返回 None = 无缓存。字段见 scripts/fetch_board_valuation.py。
+    """
+    p = VALUATION_DIR / f"{chain_id}.json"
+    if not p.exists():
+        return None
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001 - 损坏即缺失
+        return None
+
+
+def format_valuation_context(chain_id: str) -> str:
+    """供 chain_tracker prompt 注入的估值快照文本。无数据返回空串。"""
+    v = valuation_snapshot(chain_id)
+    if not v:
+        return ""
+    agg = v.get("aggregate") or {}
+    opp = v.get("opportunity") or {}
+    lines = [f"板块估值快照（{v.get('board')}，估值口径={v.get('valuation_method')}，"
+             f"数据 {v.get('as_of')}，每周一/四刷新）"]
+    if v.get("valuation_method") == "pe_peg":
+        lines.append(
+            f"- PE-TTM中位 {agg.get('pe_ttm_median')} / 动态PE中位 {agg.get('dyn_pe_median')}"
+            f" / 预期增速中位 {agg.get('growth_pct_median')}% / PEG中位 {agg.get('peg_median')}"
+            f"（机构覆盖中位 {agg.get('org_coverage_median')} 家，亏损剔除 {agg.get('loss_excluded')} 只）")
+    else:
+        lines.append(
+            f"- PB中位 {agg.get('pb_median')} / PB三年分位中位 {agg.get('pb_percentile_3y_median')}%"
+            f"（强周期链按 F10 方法论用 PB 不用 PE；产品价企稳需结合期货腿另行确认）")
+    if opp:
+        mark = "是 🎯" if opp.get("opportunity_zone") else "否"
+        lines.append(f"- 潜在机会区(opportunity_zone): {mark}——" + "；".join(opp.get("reasons") or []))
+    lines.append("用法：opportunity_zone=是 且阶段处于0-观察/3-分歧期时，是黄金击球区"
+                 "（低估值+利润增长+价格低位），可在阶段判断中作为 forward 的加分证据；"
+                 "阶段2-加速期但机会区=否（高PEG）时，警惕纯叙事行情。")
+    return "\n".join(lines)
