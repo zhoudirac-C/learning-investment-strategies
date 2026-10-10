@@ -1,5 +1,5 @@
 version: '1.0'
-updated_at: '2026-09-08'
+updated_at: '2026-10-10'
 description: 产业链持续跟踪注册表——17条独立产业链，AI算力拆分为6条子链单独跟踪
 note: 从UP方向池26个主题聚类而来，AI算力按上游材料/驱动因素拆分为独立子链
 chains:
@@ -224,8 +224,8 @@ chains:
 - chain_id: ai-server
   name: AI服务器/超节点产业链
   scope: 服务器整机/超节点/液冷/供电
-  status: active
-  current_signal: confirmed
+  status: watch
+  current_signal: neutral
   driver: 超节点架构升级（NVLink/UALink）+ 整柜功耗跃迁 + 国产算力放量
   segments:
   - name: 上游设备
@@ -342,8 +342,8 @@ chains:
 - chain_id: ai-power
   name: AI电力/AIDC产业链
   scope: AI算力→电力需求→AIDC供电/散热
-  status: watch
-  current_signal: neutral
+  status: active
+  current_signal: confirmed
   driver: AI算力→电力需求长逻辑 + 算电协同政策
   segments:
   - name: 上游设备
@@ -564,8 +564,8 @@ chains:
 - chain_id: coal-coke
   name: 煤炭/焦炭产业链
   scope: 焦炭连续提涨 — 戴维斯双击
-  status: active
-  current_signal: confirmed
+  status: watch
+  current_signal: neutral
   driver: 焦炭连续提涨 + 迎峰度夏保供
   segments:
   - name: 上游煤矿
@@ -726,8 +726,8 @@ chains:
 - chain_id: pharma
   name: 医药/创新药产业链
   scope: 创新药/CXO
-  status: watch
-  current_signal: neutral
+  status: active
+  current_signal: confirmed
   driver: license-out 强劲 + 超跌反弹
   segments:
   - name: 上游CXO
