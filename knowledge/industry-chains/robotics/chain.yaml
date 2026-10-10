@@ -33,6 +33,11 @@ mappings:
   segment: seg-parts
   relation: 谐波减速器龙头，人形机器人关节核心零部件供应商
   elasticity: concept
+- code: '002472'
+  name: 双环传动
+  segment: seg-parts
+  relation: 人形机器人减速器系统方案供应商，新能源汽车齿轮龙头延伸切入
+  elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 低
 stage_evidence: Optimus量产进行中但节奏反复；题材属性强业绩支撑弱；标的映射待补充
@@ -51,6 +56,9 @@ tracking_metrics:
 - metric: Optimus Gen3发布
   current: 渲染图曝光，发布临近
   signal_direction: 正式发布+量产规格确认=加强
+- metric: 双环传动机器人减速器业务进展
+  current: 系统方案供应商定位确认（研报），定点/订单待落地
+  signal_direction: 定点或批量订单落地=加强
 falsification:
 - Optimus量产大幅推迟
 - 机器人板块题材持续退潮
@@ -69,4 +77,8 @@ history:
 - date: '2026-10-05'
   stage: 阶段0-观察
   action: 演化:add_node 新增跟踪节点：Optimus Gen3正式发布
+  result: 待验证
+- date: '2026-10-10'
+  stage: 阶段0-观察
+  action: 演化:add_node 双环传动确认为人形机器人减速器系统方案商，补充上游标的映射
   result: 待验证

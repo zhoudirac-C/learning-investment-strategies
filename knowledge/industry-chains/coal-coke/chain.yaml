@@ -43,6 +43,11 @@ mappings:
   segment: seg-mine
   relation: 上游煤矿龙头，量价齐升、业绩改善直接受益
   elasticity: concept
+- code: '601918'
+  name: 新集能源
+  segment: seg-mine
+  relation: 煤电一体化：上游动力煤涨价受益+下游电力放量受益，分红强化；可作下游电力需求刚性的交叉验证标的
+  elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 低
 stage_evidence: 2026-09-18 跟踪更新：焦炭焦煤期货双双大跌，提涨逻辑削弱，阶段回退至观察期，等待现货端确认。
@@ -116,4 +121,8 @@ history:
 - date: '2026-10-05'
   stage: 阶段0-观察
   action: 演化:add_node 新增冬储补库/动力煤港口价跟踪节点
+  result: 待验证
+- date: '2026-10-10'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增煤电一体化标的601918新集能源，煤价上行与电力放量双受益
   result: 待验证

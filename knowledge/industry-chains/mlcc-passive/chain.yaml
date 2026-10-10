@@ -75,6 +75,9 @@ tracking_metrics:
 - metric: TLVR电感AI服务器放量
   current: 构筑AI增量，2Q毛利率环比修复
   signal_direction: 上行
+- metric: 三星电机等海外大厂长协签订
+  current: 三星电机再签长协，锁量锁价倾向显现
+  signal_direction: 上行
 falsification:
 - 国巨B/B值跌破1.0持续2周
 - MLCC涨价函撤回或渠道价格回落
@@ -88,4 +91,8 @@ history:
 - date: '2026-09-23'
   stage: 阶段2-加速期
   action: 演化:add_node AI增量扩展至TLVR电感/钽电容，新增标的顺络电子
+  result: 待验证
+- date: '2026-10-10'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增跟踪节点：海外大厂长协签订情况
   result: 待验证

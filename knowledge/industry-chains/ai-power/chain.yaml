@@ -12,6 +12,7 @@ segments:
   - HVDC
   - 柜内AI电源（AC-DC/DC-DC）
   - 液冷散热（CDU/冷板/浸没式）
+  - 磁悬浮压缩机（数据中心制冷）
   value_share: ~40%
   barrier: 大功率器件
   trend: 需求增长
@@ -122,4 +123,8 @@ history:
 - date: '2026-10-05'
   stage: 阶段2-加速期
   action: 演化:add_node 数据中心电源标的科士达纳入上游设备跟踪
+  result: 待验证
+- date: '2026-10-10'
+  stage: 阶段2-加速期
+  action: 演化:refine_segment 上游设备制冷环节细化：新增磁悬浮压缩机技术路线
   result: 待验证

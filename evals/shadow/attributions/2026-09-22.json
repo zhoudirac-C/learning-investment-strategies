@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-22",
+  "triggers": [
+    "direction_miss"
+  ],
+  "types": [
+    "步骤缺",
+    "概念误用"
+  ],
+  "analysis": "AI在cycle_state中已识别出指数周期分歧显著：上证rebound_day=37、科创50=35，均远超理论上限2天，而创业板指rebound_day=4处于6-8天窗口中段。但在note中明确写“科技主线锚定取此口径”，即单点锚定创业板指新周期，未按正确做法给出区间或取中位并显式标注分歧。该行为构成对周期位置框架的选择性使用，属于概念误用。方向判断上，AI基于隔夜纳指+2.26%、费半+4.29%、AMD+9.95%等判定“外部链条检验成立且正向映射”，并新增光通信/小金属方向；但实际optical_communication dir_ret=-11.70%、small_metal_chemical dir_ret=-4.38%，均低于基准-4.11%，映射未兑现且高开低走。AI在操作层面承认超窗（“反弹超预期段”）并选择克制，但方向层面仍新增科技，说明周期压制未传导至方向决策，外部利好与超窗状态冲突时缺少优先级判定环节，属步骤缺。",
+  "proposal_refs": [
+    "framework/proposals/2026-09-22-glossary-patch-note.md",
+    "framework/proposals/2026-09-22-pattern-patch-note.md"
+  ]
+}

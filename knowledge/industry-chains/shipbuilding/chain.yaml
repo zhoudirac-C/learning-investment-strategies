@@ -1,0 +1,33 @@
+chain_id: shipbuilding
+name: 船舶制造产业链
+thesis: 航运脱碳新规（CII/EEXI、2030碳强度目标）推动老旧船替换与LNG/甲醇双燃料船占比提升；船坞产能稀缺、在手订单排期充足，总装龙头订单结构优化，船用动力与配套设备量价齐升，中船集团资产整合强化龙头格局。
+last_verified: '2026-10-10'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 船用中厚板
+  - 船用柴油机/双燃料主机
+  - 轴系与锚链
+  - 舱室设备与涂料
+- id: midstream
+  name: 中游
+  materials:
+  - 船体总装
+  - 船舶设计与改装
+- id: downstream
+  name: 下游
+  materials:
+  - 航运运力
+  - 船舶融资租赁
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-10 人工确认入观察列表；提议于 2026-10-07，LLM 初判 阶段2-加速期（中国船舶深度研究报告：全球造船龙头，资产整合与绿色转型驱动价值重估），积累证据
+  11 条
+timing:
+  current_recommendation: 关注中游总装龙头（资产整合+绿色船型占比提升）与上游船用动力配套环节；下游航运受运价周期影响，建议独立跟踪
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

@@ -105,6 +105,11 @@ mappings:
   segment: seg-machine
   relation: NPO/光互联方案核心供应商，直接绑定本链'超节点互联方案（NPO/光互联）渗透与出货'关键节点，填补光互联环节标的空白
   elasticity: concept
+- code: 002281
+  name: 光迅科技
+  segment: seg-machine
+  relation: 光芯片-器件-模块全链一体化供应商，与新易盛共同绑定'超节点互联方案（NPO/光互联/铜连接）渗透与出货'关键节点，受益国产算力超节点放量
+  elasticity: concept
 current_stage: 阶段4-见顶期
 stage_confidence: 高
 stage_evidence: 2026-09-07 跟踪更新：双研报确认高密度算力驱动液冷加速渗透，直接命中关键节点，产业链逻辑加强，仍处分歧期等回踩。
@@ -147,6 +152,9 @@ tracking_metrics:
 - metric: 晶圆代工价格（台积电先进制程）
   current: 2027年有望继续涨价，反映AI算力需求下代工产能持续紧张
   signal_direction: 涨价延续=加强中游满产逻辑；涨价终止/降价=需求转弱预警
+- metric: 国产光互联全链一体化（光芯片-器件-模块）进度
+  current: 光迅科技全链一体化领先、国产光互联持续突围（2026-10-08东吴研报）
+  signal_direction: 上行
 falsification:
 - 超节点出货量大幅低于预期
 - CSP资本开支缩减
@@ -232,4 +240,8 @@ history:
 - date: '2026-10-05'
   stage: 阶段4-见顶期
   action: 演化:add_node 新增NPO/光互联受益标的新易盛
+  result: 待验证
+- date: '2026-10-10'
+  stage: 阶段4-见顶期
+  action: 演化:add_node 国产光互联全链一体化龙头光迅科技入链，超节点互联供应商扩容
   result: 待验证

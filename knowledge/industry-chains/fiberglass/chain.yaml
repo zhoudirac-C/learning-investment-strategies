@@ -26,19 +26,26 @@ segments:
   - 风电叶片
   - 汽车轻量化部件
   - 低空经济机体结构
-mappings: []
-current_stage: 阶段0-观察
-stage_confidence: 低
-stage_evidence: 2026-09-02 人工确认入观察列表；提议于 2026-09-01，LLM 初判 阶段2-加速期（建材行业策略报告：传统建材供需承压，AI浪潮驱动玻纤行业价值重估（华龙证券）），积累证据
-  6 条
+mappings:
+- code: '600176'
+  name: 中国巨石
+  segment: midstream
+  relation: 粗纱+电子纱龙头，三季报业绩兑现，对电子布涨价弹性最大
+  elasticity: concept
+current_stage: 阶段1-启动期
+stage_confidence: 中
+stage_evidence: 2026-10-10 跟踪更新：10月电子布涨价落地命中关键节点，链由观察推进至启动期，可右侧介入电子布/电子纱环节龙头。
 timing:
-  current_recommendation: 优先低介电电子布/电子纱及高端电子布环节（宏和科技、国际复材、中材科技），关注粗纱龙头盈利修复（中国巨石、长海股份）；纯建筑建材用玻纤弹性有限，回避。
+  current_recommendation: 涨价落地直接命中关键节点（涨价落地并传导至电子布价格），阶段0→1右侧确认，可介入
   next_trigger: null
   risk: null
 tracking_metrics:
 - metric: 高速CCL及低介电电子布涨价幅度与订单排期
   current: 研报称供给瓶颈强化涨价弹性，尚无实际涨价数据
   signal_direction: 涨价落地并传导至电子布价格=阶段推进信号
+- metric: 电子布实际涨价幅度与执行持续性
+  current: 2026年10月电子布涨价已落地（国金证券点评确认），具体幅度待跟踪
+  signal_direction: 涨价幅度扩大/订单排期拉长=加速；涨价执行不力或回吐=证伪
 falsification: []
 chain_relations:
 - target: 硅微粉填料
@@ -52,4 +59,12 @@ history:
 - date: '2026-10-05'
   stage: 阶段0-观察
   action: 演化:add_node 新增关键跟踪节点：高速CCL/电子布涨价落地情况
+  result: 待验证
+- date: '2026-10-10'
+  stage: 阶段1-启动期
+  action: 优先布局低介电/高端电子布环节（宏和科技、中材科技）及涨价弹性最大的中国巨石、国际复材；待第二独立来源（公司公告/价格跟踪数据）确认涨价幅度后加仓；证伪条件未触发
+  result: 待验证
+- date: '2026-10-10'
+  stage: 阶段1-启动期
+  action: 演化:add_node 补充电子布涨价跟踪指标与核心标的映射
   result: 待验证

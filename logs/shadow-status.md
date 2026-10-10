@@ -1,7 +1,7 @@
-# 影子双轨完整性报告（2026-09-28）
+# 影子双轨完整性报告（2026-10-09）
 
-- 记录日数: 108，完整: 108
-- 提案: open 72 / applied 11 / pending 3 / rejected 0 / retracted 7
+- 记录日数: 116，完整: 116
+- 提案: open 80 / applied 11 / pending 3 / rejected 0 / retracted 7
 
 | 日期 | 阶段判定 | 状态 | 归因 | 完整 |
 |---|---|---|---|---|
@@ -104,15 +104,23 @@
 | 2026-09-17 | 对 | scored | 有 | ✅ |
 | 2026-09-18 | 错 | scored | 有 | ✅ |
 | 2026-09-18 | 错 | scored | 有 | ✅ |
-| 2026-09-21 | 对 | pending_maturity | - | ✅ |
-| 2026-09-21 | 对 | pending_maturity | - | ✅ |
-| 2026-09-22 | 对 | pending_maturity | - | ✅ |
-| 2026-09-22 | 对 | pending_maturity | - | ✅ |
-| 2026-09-23 | 错 | pending_maturity | 有 | ✅ |
-| 2026-09-23 | 错 | pending_maturity | 有 | ✅ |
-| 2026-09-24 | 对 | pending_maturity | - | ✅ |
+| 2026-09-21 | 对 | scored | 有 | ✅ |
+| 2026-09-21 | 对 | scored | 有 | ✅ |
+| 2026-09-22 | 对 | scored | 有 | ✅ |
+| 2026-09-22 | 对 | scored | 有 | ✅ |
+| 2026-09-23 | 错 | scored | 有 | ✅ |
+| 2026-09-23 | 错 | scored | 有 | ✅ |
+| 2026-09-24 | 对 | scored | 有 | ✅ |
 | 2026-09-28 | 对 | pending_maturity | 有 | ✅ |
 | 2026-09-28 | 错 | pending_maturity | 有 | ✅ |
+| 2026-09-29 | 对 | pending_maturity | - | ✅ |
+| 2026-09-29 | 对 | pending_maturity | - | ✅ |
+| 2026-09-30 | 对 | pending_maturity | - | ✅ |
+| 2026-09-30 | 对 | pending_maturity | - | ✅ |
+| 2026-10-08 | 对 | pending_maturity | - | ✅ |
+| 2026-10-08 | 对 | pending_maturity | - | ✅ |
+| 2026-10-09 | 对 | pending_maturity | - | ✅ |
+| 2026-10-09 | 对 | pending_maturity | - | ✅ |
 
 ## 待处理提案（open 置顶）
 
@@ -182,9 +190,17 @@
 - 2026-09-16-glossary-patch-note.md
 - 2026-09-16-pattern-patch-note.md
 - 2026-09-16-pattern-patch-t-1.md
+- 2026-09-21-glossary-patch-cycle-state.md
+- 2026-09-21-pattern-patch-direction-posture.md
+- 2026-09-21-pattern-patch-note.md
+- 2026-09-22-glossary-patch-note.md
+- 2026-09-22-pattern-patch-note.md
 - 2026-09-23-capability-boundary-note.md
 - 2026-09-23-glossary-patch-market-stage.md
 - 2026-09-23-glossary-patch-note.md
 - 2026-09-23-pattern-patch-note.md
+- 2026-09-24-capability-boundary-note.md
+- 2026-09-24-glossary-patch-note.md
+- 2026-09-24-pattern-patch-note.md
 - 2026-09-28-glossary-patch-note.md
 - 2026-09-28-pattern-patch-note.md

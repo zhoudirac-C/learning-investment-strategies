@@ -105,10 +105,17 @@ timing:
   current_recommendation: 聚焦中游PCB制造环节（奥士康、崇达技术等资金认筹标的），观察上游CCL（覆铜板）价格传导与下游AI服务器订单持续性
   next_trigger: null
   risk: null
-tracking_metrics: []
+tracking_metrics:
+- metric: 德赛西威智能座舱域控制器国内市占率
+  current: 17.9%（国内第一，全球8.4%第一）
+  signal_direction: 份额上升→汽车电子终端景气→中游汽车板订单增加
 falsification: []
 history:
 - date: '2026-10-05'
   stage: 阶段0-观察
   action: 人工回填观察列表标的 14 只（自 confirm 时字符串形状丢失恢复）
+  result: 待验证
+- date: '2026-10-10'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增下游汽车电子需求节点：德赛西威域控市占率
   result: 待验证

@@ -19,7 +19,12 @@ segments:
   materials:
   - 原油
   - 成品油
-mappings: []
+mappings:
+- code: '600026'
+  name: 中远海能
+  segment: midstream
+  relation: VLCC船队155艘/2257.6万载重吨全球第一，纯油运运价弹性最大标的
+  elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 低
 stage_evidence: 2026-09-23 人工确认入观察列表；提议于 2026-09-13，LLM 初判 阶段2-加速期（国金证券交通运输产业行业研究：中东航线VLCC运费突破80万，河南快递涨价），积累证据
@@ -30,3 +35,8 @@ timing:
   risk: null
 tracking_metrics: []
 falsification: []
+history:
+- date: '2026-10-10'
+  stage: 阶段0-观察
+  action: 演化:add_node 中远海能确认为中游VLCC核心标的，运力全球第一
+  result: 待验证

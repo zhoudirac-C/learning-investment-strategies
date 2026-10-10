@@ -22,6 +22,11 @@ segments:
   - 生猪/禽肉
   - 食品加工品
 mappings:
+- code: '002311'
+  name: 海大集团
+  segment: downstream
+  relation: 全球饲料销量第一的农牧全产业链龙头，规模采购+配方技术对冲原料涨价并顺价份额集中，养殖盈利修复带动饲料量利弹性；填补下游饲料环节无标的映射的空白（来源：2026-10-07 海大集团深度研究报告；原提案代码002234误植，2026-10-10人工修正）
+  elasticity: concept
 - code: 000876
   name: 新希望
   segment: downstream

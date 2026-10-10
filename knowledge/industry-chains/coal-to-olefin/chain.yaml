@@ -1,0 +1,33 @@
+chain_id: coal-to-olefin
+name: 煤制烯烃/煤化工产业链
+thesis: 煤经气化合成制甲醇、再制烯烃，成本显著低于石脑油路线；油价中高位+煤价平稳下价差扩大，一体化产能指标稀缺，龙头盈利连创新高，煤头路线盈利韧性优于油头。
+last_verified: '2026-10-10'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 动力煤/原料煤
+  - 煤炭开采洗选
+- id: midstream
+  name: 中游
+  materials:
+  - 甲醇
+  - 乙烯
+  - 丙烯
+- id: downstream
+  name: 下游
+  materials:
+  - 聚乙烯
+  - 聚丙烯
+  - EVA/PP专用料
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-10 人工确认入观察列表；提议于 2026-10-07，LLM 初判 阶段2-加速期（宝丰能源深度研究报告：稳居煤制烯烃产能规模行业第一，经营业绩连创新高），积累证据
+  12 条
+timing:
+  current_recommendation: 优选一体化程度高、具备稀缺产能指标的煤制烯烃龙头；跟踪油煤价差与聚烯烃价差变化，回避无成本优势的一般煤化工产能。
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []
