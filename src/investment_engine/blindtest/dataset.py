@@ -44,6 +44,7 @@ SI_ROOT = _REPO / "infra" / "data" / "sector_intraday"
 RESEARCH_ROOT = _REPO / "infra" / "data" / "research"
 IA_ROOT = _REPO / "infra" / "data" / "intraday_amount"
 GM_ROOT = _REPO / "infra" / "data" / "global_macro"
+MARGIN_CACHE = _REPO / "infra" / "data" / "margin" / "margin_daily.json"
 _NEWS_TITLE_CAP = 60
 _LHB_ITEM_CAP = 12 if _PACK_SLIM else 20  # 2026-09-05 包瘦身：20→12
 _LP_ITEM_CAP = 20
@@ -813,7 +814,8 @@ def _compute_cycle_states(day: str, db_path=None) -> dict:
     return out
 
 
-_CORE_PATTERN_IDS = ("sentiment_cycle", "mainline_identification", "position_by_cycle")
+_CORE_PATTERN_IDS = ("sentiment_cycle", "mainline_identification", "position_by_cycle",
+                     "crash_loop_attribution")  # 2026-10-09 挂入：暴跌归因框架（非暴跌日作预警用）
 
 
 def _load_core_patterns() -> list[dict]:
@@ -922,11 +924,57 @@ def _range_anchors(index: dict) -> dict | None:
     return out or None
 
 
+def _load_margin(day: str, cache_path=None) -> dict | None:
+    """两融市场合计块（东财 RPTA_WEB_MARGIN_DAILYTRADE，T 日晚间披露）。
+
+    crash_loop_attribution 框架的数据锚点：暴跌归因第一步「互爆主体识别」
+    用融资余额走向区分融资盘互爆（余额骤降=杠杆平仓螺旋）与机构互爆
+    （余额反增=散户加仓）。整段历史序列缓存本地（历史行不可变，回放安全——
+    按 date <= day 过滤，缓存刷新不引入未来数据）；缓存最后日期 < day 时
+    调 marketdata.get_margin_balance 刷新。网络失败且缓存为空返回 None
+    （调用方登记 missing）；缓存非空则用陈旧缓存出包（如实标注最新日期）。
+    """
+    import json as _json
+
+    path = Path(cache_path) if cache_path else MARGIN_CACHE
+    rows: list[dict] = []
+    if path.exists():
+        try:
+            rows = _json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            rows = []
+    last_cached = rows[-1].get("date", "") if rows else ""
+    if last_cached < day:
+        try:
+            from qing_investment.marketdata import get_margin_balance
+            fresh = get_margin_balance(days=40)
+            if fresh:
+                rows = fresh
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(_json.dumps(rows, ensure_ascii=False), encoding="utf-8")
+        except Exception:
+            if not rows:
+                return None
+    series = [r for r in rows if r.get("date") and str(r["date"]) <= day][-10:]
+    if not series:
+        return None
+    latest = series[-1]
+    return {
+        "最新日期": latest["date"],
+        "融资余额_亿": latest.get("fin_balance"),
+        "融资净买入_亿": latest.get("fin_net_buy"),
+        "两融余额_亿": latest.get("margin_balance"),
+        "占流通市值比_pct": latest.get("balance_ratio"),
+        "平均维持担保比例_pct": latest.get("avg_guarantee_ratio"),
+        "series": series,
+    }
+
+
 def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
                      kpl_root=None, em_root=None, lp_root=None,
                      ic_root=None, research_root=None, ff_root=None,
                      ia_root=None, si_root=None, gm_root=None, vh_path=None,
-                     pred_dir=None,
+                     pred_dir=None, mg_path=None,
                      target_day: str | None = None) -> dict:
     """组装某日数据包（只含截至当日的数据）。
 
@@ -1041,6 +1089,11 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
         missing.append("global_macro")
     else:
         blocks["global_macro"] = global_macro
+    margin = _load_margin(day, cache_path=mg_path)
+    if margin is None:
+        missing.append("margin")
+    else:
+        blocks["margin"] = margin
     for k, v in blocks.items():
         if v is not None:
             pack[k] = v

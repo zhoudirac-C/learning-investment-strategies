@@ -1,8 +1,9 @@
 ---
 date: 2026-09-23
 type: pattern-patch
-status: open
+status: implemented
 source: evals/shadow/attributions/2026-09-23.json
+resolved_by: v20 规则40（多指数周期分歧仲裁）：prompt 条文 + 机械校验（分歧时 note 必标「分歧/区间」；激进仓位 basis 须 ≥2 指数名对照或区间/中位措辞），2026-10-09 落地
 ---
 
 # 多指数周期分歧强制区间化后再定操作锚

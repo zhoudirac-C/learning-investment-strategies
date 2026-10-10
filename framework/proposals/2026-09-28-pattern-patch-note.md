@@ -1,8 +1,9 @@
 ---
 date: 2026-09-28
 type: pattern-patch
-status: open
+status: implemented
 source: evals/shadow/attributions/2026-09-28.json
+resolved_by: 规则15（量能禁自拍绝对阈值）+规则38②（阶段改判T+1确认）+规则35（复合区间双锚）；2026-10-09 复核：9-29~10-09 四日量能全部环比+分位两口径分列，「环比微增判放量」误用零复发
 ---
 
 # 增加破位有效性验证环节

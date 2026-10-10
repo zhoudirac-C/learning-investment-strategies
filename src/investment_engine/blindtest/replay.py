@@ -33,7 +33,7 @@ _TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v19"
+PROMPT_VERSION = "v20"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -283,12 +283,37 @@ _V19_RULE38 = ("38. 收盘重定性冲突裁决+T+1确认：收盘结论拟推�
     "两种定性（volume_source_qualify 对称约束）。")
 assert _V19_RULE25_ANCHOR in SYSTEM_PROMPT_V15, "v19 锚点失效：规则25"
 assert _V19_RULE28A_ANCHOR in SYSTEM_PROMPT_V15, "v19 锚点失效：规则28(a)"
+assert "与操作建议（position_by_cycle）时必须逐条对照其步骤" in SYSTEM_PROMPT_V15, \
+    "v20 锚点失效：core_patterns 说明句"
 SYSTEM_PROMPT_V19 = SYSTEM_PROMPT_V15.replace(
     _V19_RULE25_ANCHOR, _V19_RULE25_NEW).replace(
     _V19_RULE28A_ANCHOR, _V19_RULE28A_NEW) + "\n" + _V19_RULE38
 
-# 生产默认 prompt：指向 SYSTEM_PROMPT_V19（回退只需改这一行指向）
-SYSTEM_PROMPT = SYSTEM_PROMPT_V19
+_V20_RULE39_41 = (
+    "39. 外盘映射×周期位置冲突校验：隔夜外盘映射强涨但上位压制在位时，映射视为"
+    "高开兑现风险而非方向催化——上位压制指满足任一：①structure 含任一指数 60min"
+    "及以上顶部 forming/divergence；②cycle_state 有指数 rebound_day 超过其"
+    "theoretical_window 上限（超窗）。触发时相关映射方向 trend 禁止标「加强」，"
+    "posture 上限「维持/试探」，reason 必须写明兑现风险与压制来源（顶部结构级别/"
+    "超窗读数）；scenarios 须预演高开低走路径及对应减仓条件。与规则23b 关系："
+    "23b 管隔夜映射反向回落，本条管隔夜强涨与上位压制的冲突。\n"
+    "40. 多指数周期分歧仲裁：cycle_state 各指数 bottom_date 不一致（分歧）时，"
+    "禁止选取单一指数作为操作主锚——cycle_state.note 必须显式标注「分歧」并给出"
+    "区间（rebound_day 最小~最大）；operation.basis 须基于区间或科技主线中位表述，"
+    "不得只引用对预设结论最有利的单一指数读数；分歧未消解时判「高位兑现/"
+    "反弹超预期」须在 basis 写明各指数窗口对照，否则按中性偏谨慎处理。\n"
+    "41. 输出完整性自检：directions 可以宁缺毋滥为空（空时 stage_reason 注明"
+    "「无合格方向」及原因），但 watch_next/invalidation 任何交易日不得为空列表"
+    "——总有可观察变量与失效条件可写；发现本版输出较前版字段变空视为退化，"
+    "必须补齐后再输出。")
+SYSTEM_PROMPT_V20 = SYSTEM_PROMPT_V19.replace(
+    "与操作建议（position_by_cycle）时必须逐条对照其步骤",
+    "与操作建议（position_by_cycle）时必须逐条对照其步骤；连续暴跌/恐慌下跌场景"
+    "另须对照暴跌归因框架（crash_loop_attribution）的互爆主体识别步骤，"
+    "结合 margin 块两融读数判断下跌性质与外部力量需求") + "\n" + _V20_RULE39_41
+
+# 生产默认 prompt：指向 SYSTEM_PROMPT_V20（回退只需改这一行指向）
+SYSTEM_PROMPT = SYSTEM_PROMPT_V20
 
 
 def build_messages(pack_text: str, system_prompt: str | None = None) -> list[dict]:
@@ -576,6 +601,16 @@ _EXTERNAL_HINTS = ("外盘", "美股", "隔夜", "美债", "费半", "费城", "
 # 规则25：宏观三条件校验引用词（宏观压制 vs AI证伪定性）
 _MACRO_CHECK_HINTS = ("宏观三条件", "三条件", "美联储", "油价", "4.70", "4.7%", "十年期", "10Y")
 
+# 规则39（v20，合并提案 2026-09-21/2026-09-22）：隔夜外盘强映射（主题映射股
+# 平均涨幅 ≥5%）× 上位压制（60min+ 顶部 forming/divergence 或周期超窗）并存时，
+# 映射方向 trend=「加强」必须附兑现风险措辞
+_RULE39_SURGE_PCT = 5.0
+_RULE39_RISK_WORDS = ("兑现", "高开低走", "回落", "分歧", "压力位", "超窗", "压制")
+
+# 规则40（v20，提案 2026-09-23 强化）：多指数 bottom_date 分歧时的仲裁措辞要求
+_RULE40_NOTE_WORDS = ("分歧", "区间")
+_RULE40_BASIS_WORDS = ("分歧", "区间", "中位")
+
 _LADDER_HINTS = ("梯队", "连板", "首板", "晋级", "二板", "断板", "高度", "宽度", "抱团")
 _STRUCTURE_HINTS = ("钝化", "顶部结构", "背离", "MACD", "绿柱", "高9", "DIF")
 _REDUCE_RE = re.compile(r"降仓|减仓|获利了结|兑现|清仓|卖出")
@@ -643,6 +678,20 @@ def _result_text(result: dict) -> str:
     parts += [op.get("action"), op.get("basis")]
     parts.append((result.get("cycle_state") or {}).get("note"))
     return " ".join(str(p or "") for p in parts)
+
+
+def _cycle_over_window(cycle_state) -> bool:
+    """cycle_state 任一指数 rebound_day 超过 theoretical_window 上限（超窗）。"""
+    if not isinstance(cycle_state, dict):
+        return False
+    for st in cycle_state.values():
+        if not isinstance(st, dict):
+            continue
+        rd = st.get("rebound_day")
+        nums = [int(x) for x in re.findall(r"\d+", str(st.get("theoretical_window") or ""))]
+        if isinstance(rd, int) and nums and rd > max(nums):
+            return True
+    return False
 
 
 def _iter_top_signals(structure, ref_date: str | None = None) -> list[tuple[str, str, str]]:
@@ -857,6 +906,71 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
             violations.append(
                 "规则24: pack 含外盘数据（global_macro/overnight_us），输出未引用"
                 "外部链条——外力/内生归因前置：须注明外部检验结论（成立/不成立/平稳）")
+
+        # 规则39（v20）：隔夜强映射 × 上位压制并存时，trend=「加强」须附兑现风险
+        themes39 = (pack.get("overnight_us") or {}).get("themes") or []
+        surge39 = False
+        for th in themes39:
+            if not isinstance(th, dict):
+                continue
+            pcts: list[float] = []
+            for s in (th.get("stocks") or []):
+                if isinstance(s, dict) and isinstance(s.get("pct_change"), (int, float)):
+                    pcts.append(float(s["pct_change"]))
+            if pcts and sum(pcts) / len(pcts) >= _RULE39_SURGE_PCT:
+                surge39 = True
+                break
+        # 规则39 不传 ref_date：上位压制的顶部结构在失效前持续有效（9-21 归因实证：
+        # 11 天前的 60min 顶部仍是压制条件），不用规则17 的 10 日时效窗口
+        tops39 = [t for t in _iter_top_signals(pack.get("structure"))
+                  if t[2] in ("forming", "divergence")]
+        if surge39 and (tops39 or _cycle_over_window(pack.get("cycle_state"))):
+            for d in result.get("directions") or []:
+                if not isinstance(d, dict) or str(d.get("trend")) != "加强":
+                    continue
+                reason39 = str(d.get("reason") or "")
+                if not any(w in reason39 for w in _RULE39_RISK_WORDS):
+                    violations.append(
+                        f"规则39: 隔夜外盘强映射（映射股均值≥{_RULE39_SURGE_PCT:.0f}%）"
+                        "与上位压制（顶部结构/周期超窗）并存，方向 "
+                        f"「{d.get('direction_id')}」trend=「加强」未附兑现风险措辞——"
+                        "高位强映射是兑现风险而非催化，posture 上限「维持/试探」")
+
+        # 规则40（v20）：多指数周期分歧仲裁——bottom_date 分歧时禁止单一指数锚定
+        cs40 = pack.get("cycle_state") or {}
+        bds = {str(v.get("bottom_date")) for v in cs40.values()
+               if isinstance(v, dict) and v.get("bottom_date")}
+        if len(bds) > 1:
+            note40 = str((result.get("cycle_state") or {}).get("note") or "")
+            basis40 = str((result.get("operation") or {}).get("basis") or "")
+            pos40 = str((result.get("operation") or {}).get("position") or "")
+            # note 仲裁标注为硬要求；激进仓位（高位兑现/反弹超预期——单点锚定高发区）
+            # 的 basis 须体现多指数对照：提到 ≥2 个指数名（各指数窗口对照）或
+            # 含「区间/中位/分歧」仲裁词。中性仓位不强扣（2026-10-09 实测合规）。
+            # 指数名口径与 _CYCLE_INDEXES 一致（dataset 侧多指数周期三指数）
+            note_ok = any(w in note40 for w in _RULE40_NOTE_WORDS)
+            basis_ok = True
+            if pos40 in ("高位兑现", "反弹超预期"):
+                idx_hits = sum(1 for n in ("科创50", "创业板指", "上证") if n in basis40)
+                basis_ok = idx_hits >= 2 or \
+                    any(w in basis40 for w in _RULE40_BASIS_WORDS)
+            if not note_ok or not basis_ok:
+                violations.append(
+                    "规则40: cycle_state 多指数 bottom_date 分歧（"
+                    + "、".join(sorted(bds)) + "），未显式仲裁——cycle_state.note 须标注"
+                    "「分歧」并给出 rebound_day 区间，operation.basis 须基于区间/中位表述，"
+                    "禁止只引用对预设结论最有利的单一指数读数")
+
+        # 规则41（v20）：交易日复盘输出完整性——核心块全空=退化（2026-09-29 重试事故）
+        if pack.get("emotion") or pack.get("index"):
+            op41 = result.get("operation") or {}
+            if not result.get("directions") and not result.get("watch_next") and \
+                    not result.get("invalidation") and not result.get("used_patterns") and \
+                    not str(op41.get("action") or ""):
+                violations.append(
+                    "规则41: 输出退化——directions/watch_next/invalidation/used_patterns "
+                    "全空且 operation.action 为空（疑似重试后字段丢失）；"
+                    "watch_next/invalidation 任何交易日不得为空，必须补齐")
 
         # 规则31（v14，提案 2026-09-05 模式二）：nature=「外力扰动」但盘面无恐慌
         # 特征（跌停 ≤5 家）时，stage_reason 必须附盘面鉴别三证据读数（消息冲击/

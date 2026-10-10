@@ -681,3 +681,147 @@ class TestRule31ExternalNatureEvidence:
     def test_no_emotion_data_skips(self):
         r = _result(nature="外力扰动", stage_reason="外盘大跌压制")
         assert not any("规则31" in x for x in validate_result(r, pack={}))
+
+
+class TestRule39OvernightSurgeAtTop:
+    """规则39（v20，合并提案 2026-09-21/2026-09-22）：隔夜外盘强映射（主题映射股
+    均值涨幅 ≥5%）与上位压制（60min+ 顶部 forming/divergence 或周期超窗）并存时，
+    映射方向 trend=「加强」必须附兑现风险措辞——外盘强映射在高位是兑现风险而非催化。
+    """
+
+    SURGE_TOP_PACK = {
+        "date": "2026-09-21",
+        "overnight_us": {"themes": [{"id": "memory", "stocks": [
+            {"symbol": "MU", "pct_change": 3.9},
+            {"symbol": "SNDK", "pct_change": 11.0}]}]},
+        "structure": {"上证指数": {"60min": {"top": {"state": "forming",
+                                                    "time": "2026-09-10 10:30"}}}},
+    }
+
+    def test_surge_at_top_strengthen_without_risk_flagged(self):
+        # 09-21 真实错法：美光+3.9%/闪迪+11% 且 60min 顶部在位，仍标「加强」
+        r = _result(directions=[{"direction_id": "memory_nor", "trend": "加强",
+                                 "posture": "波段", "stocks": [],
+                                 "reason": "隔夜美光+3.9%、闪迪+11%强催化"}])
+        v = validate_result(r, pack=self.SURGE_TOP_PACK)
+        assert any("规则39" in x for x in v), v
+
+    def test_surge_at_top_strengthen_with_risk_passes(self):
+        r = _result(directions=[{"direction_id": "memory_nor", "trend": "加强",
+                                 "posture": "试探", "stocks": [],
+                                 "reason": "隔夜强催化但60min顶部在位，按高开兑现风险处理"}])
+        assert not any("规则39" in x for x in validate_result(r, pack=self.SURGE_TOP_PACK))
+
+    def test_maintain_posture_not_flagged(self):
+        r = _result(directions=[{"direction_id": "memory_nor", "trend": "维持",
+                                 "posture": "波段", "stocks": [],
+                                 "reason": "隔夜映射偏强但位置高"}])
+        assert not any("规则39" in x for x in validate_result(r, pack=self.SURGE_TOP_PACK))
+
+    def test_no_top_signal_skips(self):
+        pack = {"date": "2026-09-21",
+                "overnight_us": self.SURGE_TOP_PACK["overnight_us"]}
+        r = _result(directions=[{"direction_id": "memory_nor", "trend": "加强",
+                                 "posture": "波段", "stocks": [], "reason": "隔夜强催化"}])
+        assert not any("规则39" in x for x in validate_result(r, pack=pack))
+
+    def test_weak_overnight_skips(self):
+        pack = {"date": "2026-09-21",
+                "overnight_us": {"themes": [{"id": "m", "stocks": [
+                    {"symbol": "A", "pct_change": 1.0}]}]},
+                "structure": self.SURGE_TOP_PACK["structure"]}
+        r = _result(directions=[{"direction_id": "memory_nor", "trend": "加强",
+                                 "posture": "波段", "stocks": [], "reason": "弱映射"}])
+        assert not any("规则39" in x for x in validate_result(r, pack=pack))
+
+    def test_over_window_cycle_triggers(self):
+        # 09-22 真实错法：无顶部结构但科创50 rebound_day=37 远超2天窗口（超窗压制）
+        pack = {"date": "2026-09-22",
+                "overnight_us": self.SURGE_TOP_PACK["overnight_us"],
+                "cycle_state": {"科创50": {"rebound_day": 37, "bottom_date": "2026-08-04",
+                                          "theoretical_window": "2天"}}}
+        r = _result(directions=[{"direction_id": "optical", "trend": "加强",
+                                 "posture": "波段", "stocks": [], "reason": "隔夜AMD+9.95%"}])
+        v = validate_result(r, pack=pack)
+        assert any("规则39" in x for x in v), v
+
+
+class TestRule40CycleDivergence:
+    """规则40（v20，提案 2026-09-23 强化为机械校验）：cycle_state 多指数
+    bottom_date 分歧时，禁止单一指数锚定——note 须标「分歧/区间」，
+    operation.basis 须基于区间表述（9-22/9-23/9-24 三连犯）。"""
+
+    DIVERGED_PACK = {"cycle_state": {
+        "创业板指": {"rebound_day": 5, "bottom_date": "2026-09-17", "theoretical_window": "6-8天"},
+        "科创50": {"rebound_day": 37, "bottom_date": "2026-08-04", "theoretical_window": "2天"},
+        "上证指数": {"rebound_day": 39, "bottom_date": "2026-07-31", "theoretical_window": "2天"},
+    }}
+
+    def test_divergence_unmarked_flagged(self):
+        # 09-23 真实错法：note 承认分歧但 operation 仍以单一超窗指数锚定高位兑现
+        r = _result(cycle_state={"rebound_day": 5, "note": "反弹第5天，窗口中段"},
+                    operation={"position": "高位兑现", "action": "获利了结",
+                               "basis": "科创50反弹37天远超窗口"})
+        v = validate_result(r, pack=self.DIVERGED_PACK)
+        assert any("规则40" in x for x in v), v
+
+    def test_divergence_marked_passes(self):
+        r = _result(cycle_state={"rebound_day": 5,
+                                 "note": "多指数分歧：创业板指5天/科创50为37天，按区间5~39天处理"},
+                    operation={"position": "反弹中段", "action": "持有",
+                               "basis": "多指数分歧，按区间中位锚定"})
+        assert not any("规则40" in x for x in validate_result(r, pack=self.DIVERGED_PACK))
+
+    def test_consistent_cycle_skips(self):
+        pack = {"cycle_state": {
+            "创业板指": {"rebound_day": 5, "bottom_date": "2026-09-17", "theoretical_window": "6-8天"},
+            "科创50": {"rebound_day": 6, "bottom_date": "2026-09-17", "theoretical_window": "6-8天"}}}
+        assert not any("规则40" in x for x in validate_result(_result(), pack=pack))
+
+    def test_no_cycle_state_skips(self):
+        assert not any("规则40" in x for x in validate_result(_result(), pack={}))
+
+
+class TestRule41OutputCompleteness:
+    """规则41（v20）：交易日复盘核心输出块禁止全空（2026-09-29 重试后退化事故：
+    directions/watch_next/invalidation/used_patterns 全空 + operation 空壳，
+    validation 却放行）。"""
+
+    TRADING_PACK = {"emotion": {"daban": {"跌停": 10, "上涨家数": 3000}}}
+
+    def test_fully_empty_core_flagged(self):
+        # 09-29 真实退化签名
+        r = _result(directions=[], watch_next=[], invalidation=[], used_patterns=[],
+                    operation={"position": "", "action": "", "basis": ""})
+        v = validate_result(r, pack=self.TRADING_PACK)
+        assert any("规则41" in x for x in v), v
+
+    def test_watch_next_present_passes(self):
+        r = _result(watch_next=["观察二板家数"],
+                    operation={"position": "磨底期", "action": "", "basis": ""})
+        assert not any("规则41" in x for x in validate_result(r, pack=self.TRADING_PACK))
+
+    def test_action_present_passes(self):
+        # operation.action 非空即非退化（watch_next 空单独不拦，由 prompt 条文引导）
+        assert not any("规则41" in x for x in validate_result(_result(), pack=self.TRADING_PACK))
+
+    def test_no_pack_skips(self):
+        r = _result(operation={"position": "", "action": "", "basis": ""})
+        assert not any("规则41" in x for x in validate_result(r, pack={}))
+
+    def test_neutral_position_with_synthesis_passes(self):
+        # 2026-10-09 真实合规：note 标分歧 + 磨底期（中性）+ basis 多指数综合表述
+        r = _result(cycle_state={"rebound_day": 2, "note": "指数间底部日期分歧，综合新周期锚定"},
+                    operation={"position": "磨底期", "action": "克制",
+                               "basis": "上证60min底第2天+创业板30min底刚形成，综合判断"})
+        assert not any("规则40" in x for x in
+                       validate_result(r, pack=TestRule40CycleDivergence.DIVERGED_PACK))
+
+    def test_aggressive_with_multi_index_basis_passes(self):
+        # 2026-10-08 真实合规：note 标分歧 + basis 逐指数窗口对照（创业板指+科创50）
+        r = _result(cycle_state={"rebound_day": 10,
+                                 "note": "指数间底部日期分歧：科创50底8/04、上证底10/08 vs 创业板指9/17，按科技主线锚定"},
+                    operation={"position": "高位兑现", "action": "兑现降仓",
+                               "basis": "创业板指rebound_day=10>6-8天、科创50=42>2天，均超窗"})
+        assert not any("规则40" in x for x in
+                       validate_result(r, pack=TestRule40CycleDivergence.DIVERGED_PACK))
