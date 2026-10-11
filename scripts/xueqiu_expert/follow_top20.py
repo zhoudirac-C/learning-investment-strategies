@@ -9,6 +9,8 @@
 用法：.venv/bin/python scripts/xueqiu_expert/follow_top20.py [--group 大牛TOP20] [--split-by-source]
   --split-by-source：除大组外，按候选人 source（A/B/C 渠道）建「<group>-A/B/C」子组，
                     每人同时挂大组+渠道子组（members/update.json 为全集覆盖语义，须同时传所有 gid）
+  --uids 123,456 --group 组名：关注任意名单（不读 expert_ranking.json），名称自动从
+                    cube_perf_ranking.json / candidates.json 反查
 """
 import json
 import sys
@@ -26,8 +28,25 @@ def main():
     split = "--split-by-source" in sys.argv
 
     top = json.loads(RANKING.read_text())["top20"]
-    uids = [(str(r["uid"]), r["screen_name"]) for r in top]
-    src_of = {str(r["uid"]): r.get("source", "?")[:1] for r in top}
+    if "--uids" in sys.argv:
+        # 任意名单模式：名称从 perf 排名 / candidates 反查
+        raw_uids = sys.argv[sys.argv.index("--uids") + 1].split(",")
+        name_of = {}
+        for f in ("cube_perf_ranking.json", "candidates.json", "expert_ranking.json"):
+            p = REPO / "data" / "xueqiu" / f
+            if not p.exists():
+                continue
+            d = json.loads(p.read_text())
+            rows = d.get("top") or d.get("top20") or d.get("with_uid") or []
+            for r in rows:
+                if r.get("uid") and r.get("screen_name"):
+                    name_of[str(r["uid"])] = r["screen_name"]
+        uids = [(u.strip(), name_of.get(u.strip(), u.strip())) for u in raw_uids if u.strip()]
+        src_of = {}
+        split = False
+    else:
+        uids = [(str(r["uid"]), r["screen_name"]) for r in top]
+        src_of = {str(r["uid"]): r.get("source", "?")[:1] for r in top}
     print(f"TOP{len(uids)}，目标分组「{group_name}」split={split}")
 
     from playwright.sync_api import sync_playwright
