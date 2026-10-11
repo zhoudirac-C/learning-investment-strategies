@@ -30,8 +30,10 @@ def _ma5_amounts(bars: list[dict]) -> list[float]:
     return [sum(amts[i - 4:i + 1]) / 5 for i in range(4, len(amts))]
 
 
-def volume_component(bars: list[dict], window: int = 250) -> float:
-    """量能分位：当前 5 日均额 在过去 window 日 5 日均额序列中的分位。"""
+def volume_component(bars: list[dict], window: int = 500) -> float:
+    """量能分位：当前 5 日均额 在过去 window 根日K的 5 日均额序列中的分位。
+    窗口默认 500 根（约2年）：250 日窗口在"长期低迷后再低迷"场景下分位失真偏高
+    （2024/9/23 校准锚点暴露：对比集里全是地量夏，5500亿都显得不冷）。"""
     ma5 = _ma5_amounts(bars)[-window:]
     if len(ma5) < 20:
         return 50.0
@@ -81,7 +83,16 @@ def compute_temperature(bars: list[dict], board_stats: dict | None = None,
     avail = {k: v for k, v in comps.items() if v is not None}
     wsum = sum(WEIGHTS[k] for k in avail)
     score = sum(avail[k] * WEIGHTS[k] for k in avail) / wsum if wsum else 50.0
+    panic = False
+    # 恐慌规则（2025/4/7 校准锚点）：20日跌超10% 且量能分位>80 = 放量暴跌，
+    # 是恐慌出逃（恐惧）而非人声鼎沸（贪婪）→ 强制压入冷区。量能本身无方向，须由价格定性。
+    if len(bars) >= 21:
+        ret20 = (bars[-1]["close"] / bars[-21]["close"] - 1) * 100
+        if ret20 <= -10 and (comps["volume"] or 0) >= 80:
+            score = min(score, 25.0)
+            panic = True
     score = round(score, 1)
     zone = "hot" if score >= HOT else ("cold" if score <= COLD else "neutral")
     return {"score": score, "components": comps, "zone": zone,
+            "panic": panic,
             "as_of": bars[-1]["date"] if bars else None}
