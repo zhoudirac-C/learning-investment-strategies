@@ -12,8 +12,11 @@
 - 首次运行/新 cube 静默建基线（防空刷）；之后 rb_id 变化才输出。
 - 权重噪声：快照间隔内的价格漂移会造成权重微动，报告阈值 |Δ|>=1.0pp；
   新进/清仓标的始终报告。rb_id 未变时静默刷新快照（保持 diff 基线新鲜）。
+- 僵尸组合剔除（2026-10-11 拍板）：state 中 last_rb.updated_at 距今 > STALE_DAYS（60 天）
+  的 cube 跳过抓取与监控；跨线时一次性推送剔除通知（state 打 stale 标记防重复），
+  若其之后恢复调仓（周度业绩排名重跑后人工复审）再手动清标记。
 限流：SLEEP=5s；110017 走 60/120/180s 退避 + 双域名轮换（xueqiu-cube-tracking 口径）。
-状态：data/xueqiu/cube_watch_state.json {symbol: {rb_id, holdings{symbol:weight}, updated_at}}
+状态：data/xueqiu/cube_watch_state.json {symbol: {rb_id, holdings{symbol:weight}, updated_at, stale?}}
 """
 from __future__ import annotations
 
@@ -34,6 +37,7 @@ PERF_RANKING = DATA / "cube_perf_ranking.json"
 CAND = DATA / "candidates.json"
 STATE = DATA / "cube_watch_state.json"
 TOP_N = 20  # 业绩轨 TOP_N
+STALE_DAYS = 60  # 超过 60 天未调仓 = 僵尸组合，剔除监控
 SLEEP = 5.0
 REPORT_THRESHOLD_PP = 1.0  # 权重变化报告阈值（百分点），过滤价格漂移噪声
 MAX_CHANGE_LINES = 12  # 单次调仓最多展开的股票行数
@@ -201,11 +205,23 @@ def main() -> None:
 
     blocks: list[str] = []
     errors: list[str] = []
+    stale_notes: list[str] = []
+    now_ms = time.time() * 1000
     for m in members:
         sym = m.get("cube_symbol")
         name = m["screen_name"]
         if not sym:
             errors.append(f"⚠️ {name}({m['uid']}) 无 cube_symbol，跳过")
+            continue
+        # 僵尸组合剔除：>STALE_DAYS 未调仓，跳过抓取；跨线时一次性通知
+        prev0 = state.get(sym) or {}
+        last_ts = prev0.get("updated_at") or 0
+        age_days = (now_ms - last_ts) / 86400000 if last_ts else 0
+        if last_ts and age_days > STALE_DAYS:
+            if not prev0.get("stale"):
+                stale_notes.append(f"🧟 {name} 的 {sym} 已 {age_days:.0f} 天未调仓，剔除监控")
+                prev0["stale"] = True
+                state[sym] = prev0
             continue
         try:
             data = fetch_current(sym)
@@ -260,11 +276,12 @@ def main() -> None:
     if args.init:
         log_err(f"基线已建立：{len(state)} 个 cube")
         return
-    if not blocks and not errors:
+    if not blocks and not errors and not stale_notes:
         return
     now = datetime.now().strftime("%Y-%m-%d %H:%M")
     out = [f"雪球TOP20-C类 组合调仓监控（{now}）"]
     out.extend(errors)
+    out.extend(stale_notes)
     out.extend(blocks)
     print("\n".join(out), flush=True)
 
