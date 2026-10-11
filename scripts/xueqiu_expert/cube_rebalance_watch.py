@@ -2,10 +2,11 @@
 """雪球大牛 TOP20 C类（组合主理人）调仓监控（增量 → 飞书）。
 
 背景：C 类专家一般不发帖，timeline 监控对他们系统性失灵；他们的信号在组合调仓上。
-口径（2026-10-11 用户拍板方向）：
-- 监控对象 = ① 文本轨 TOP20 中 source==C 的 9 人 + ② 组合轨 cube_expert_ranking.json
-  中有命中分（hit_events>0）且不在 ① 中的成员（2026-10-11 拍板方案④，合计 14 人）。
-  理由：文本 9 人是主跟对象；组合轨有命中者是被验证过"提前布局能力"的增量，两边互补。
+口径（2026-10-11 用户拍板 v2）：
+- 监控对象 = data/xueqiu/cube_perf_ranking.json 业绩轨 TOP_N（默认 20），
+  顺序即该文件排名（近12M年化×月胜率×回撤综合分，97 个 C 候选全量算出）。
+  历史口径（v1：文本轨 TOP20-C 9 人 + 组合轨命中 5 人）已废弃——实测文本眼力
+  与组合业绩基本不相关（明天肯定赚文本#2、业绩#76/97）。
 - 端点 = /cubes/rebalancing/current.json（返回 last_rb 含完整 holdings 快照）。
 - 触发 = last_rb.id 相对 state 变化；state 同时存 holdings 快照用于 diff。
 - 首次运行/新 cube 静默建基线（防空刷）；之后 rb_id 变化才输出。
@@ -29,9 +30,10 @@ REPO = Path(__file__).resolve().parents[2]
 DATA = REPO / "data" / "xueqiu"
 RANKING = DATA / "expert_ranking.json"
 CUBE_RANKING = DATA / "cube_expert_ranking.json"
+PERF_RANKING = DATA / "cube_perf_ranking.json"
 CAND = DATA / "candidates.json"
 STATE = DATA / "cube_watch_state.json"
-TOP_N = 20
+TOP_N = 20  # 业绩轨 TOP_N
 SLEEP = 5.0
 REPORT_THRESHOLD_PP = 1.0  # 权重变化报告阈值（百分点），过滤价格漂移噪声
 MAX_CHANGE_LINES = 12  # 单次调仓最多展开的股票行数
@@ -47,11 +49,23 @@ def cookie_header() -> str:
 
 
 def load_c_members() -> list[dict]:
-    """监控名单 = ① 文本轨 TOP20 source==C + ② 组合轨有命中分的增量（方案④）。
+    """监控名单 = 业绩轨 cube_perf_ranking.json TOP_N（2026-10-11 拍板 v2）。
 
-    ② 的 cube_symbol 直接来自 cube_expert_ranking.json；① 的按 uid 匹配
-    （兜底 candidates.json）。
+    perf 文件缺失时回退 v1 口径（文本 TOP20-C + 组合轨命中），保证监控不空转。
     """
+    if PERF_RANKING.exists():
+        perf = json.loads(PERF_RANKING.read_text(encoding="utf-8"))
+        out = []
+        for r in perf.get("top", [])[:TOP_N]:
+            if "error" in r or not r.get("cube_symbol"):
+                continue
+            out.append({"uid": str(r["uid"]), "screen_name": r.get("screen_name") or str(r["uid"]),
+                        "rank": r.get("rank"), "group": f"业绩轨#{r.get('rank')}",
+                        "cube_symbol": r["cube_symbol"]})
+        if out:
+            return out
+        log_err("⚠️ cube_perf_ranking.json 无有效条目，回退 v1 名单")
+    # ---- v1 回退口径 ----
     top = json.loads(RANKING.read_text(encoding="utf-8")).get("top20", [])[:TOP_N]
     c_members = [t for t in top if t.get("source") == "C"]
     sym_by_uid: dict[str, str] = {}
