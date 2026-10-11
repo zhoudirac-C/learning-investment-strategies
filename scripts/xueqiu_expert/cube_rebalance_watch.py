@@ -3,8 +3,9 @@
 
 背景：C 类专家一般不发帖，timeline 监控对他们系统性失灵；他们的信号在组合调仓上。
 口径（2026-10-11 用户拍板方向）：
-- 监控对象 = data/xueqiu/expert_ranking.json TOP20 中 source==C 的成员，
-  cube_symbol 从 cube_expert_ranking.json 按 uid 匹配（兜底 candidates.json）。
+- 监控对象 = ① 文本轨 TOP20 中 source==C 的 9 人 + ② 组合轨 cube_expert_ranking.json
+  中有命中分（hit_events>0）且不在 ① 中的成员（2026-10-11 拍板方案④，合计 14 人）。
+  理由：文本 9 人是主跟对象；组合轨有命中者是被验证过"提前布局能力"的增量，两边互补。
 - 端点 = /cubes/rebalancing/current.json（返回 last_rb 含完整 holdings 快照）。
 - 触发 = last_rb.id 相对 state 变化；state 同时存 holdings 快照用于 diff。
 - 首次运行/新 cube 静默建基线（防空刷）；之后 rb_id 变化才输出。
@@ -46,12 +47,18 @@ def cookie_header() -> str:
 
 
 def load_c_members() -> list[dict]:
-    """TOP20 中 source==C 的成员 + cube_symbol（cube_expert_ranking → candidates 兜底）。"""
+    """监控名单 = ① 文本轨 TOP20 source==C + ② 组合轨有命中分的增量（方案④）。
+
+    ② 的 cube_symbol 直接来自 cube_expert_ranking.json；① 的按 uid 匹配
+    （兜底 candidates.json）。
+    """
     top = json.loads(RANKING.read_text(encoding="utf-8")).get("top20", [])[:TOP_N]
     c_members = [t for t in top if t.get("source") == "C"]
     sym_by_uid: dict[str, str] = {}
+    cube_rows: list[dict] = []
     if CUBE_RANKING.exists():
-        for r in json.loads(CUBE_RANKING.read_text(encoding="utf-8")).get("top", []):
+        cube_rows = json.loads(CUBE_RANKING.read_text(encoding="utf-8")).get("top", [])
+        for r in cube_rows:
             if r.get("cube_symbol"):
                 sym_by_uid[str(r["uid"])] = r["cube_symbol"]
     if CAND.exists():
@@ -60,10 +67,24 @@ def load_c_members() -> list[dict]:
             if uid not in sym_by_uid and c.get("cube_symbol"):
                 sym_by_uid[uid] = c["cube_symbol"]
     out = []
+    seen: set[str] = set()
     for m in c_members:
         uid = str(m["uid"])
+        seen.add(uid)
         out.append({"uid": uid, "screen_name": m.get("screen_name") or uid,
-                    "rank": m.get("rank"), "cube_symbol": sym_by_uid.get(uid)})
+                    "rank": m.get("rank"), "group": "文本TOP20-C",
+                    "cube_symbol": sym_by_uid.get(uid)})
+    # ② 组合轨有命中分的增量（cube 回测证明有提前布局能力的人）
+    for r in cube_rows:
+        uid = str(r.get("uid"))
+        if uid in seen or "error" in r or not r.get("cube_symbol"):
+            continue
+        if (r.get("hit_events") or 0) <= 0:
+            continue
+        seen.add(uid)
+        out.append({"uid": uid, "screen_name": r.get("screen_name") or uid,
+                    "rank": r.get("rank"), "group": "组合轨命中",
+                    "cube_symbol": r["cube_symbol"]})
     return out
 
 
@@ -160,7 +181,7 @@ def main() -> None:
         print(f"C类监控 {len(members)} 人 / state {len(state)} 个 cube")
         for m in members:
             st = state.get(m["cube_symbol"] or "", {})
-            print(f"  #{m['rank']} {m['screen_name']} {m['uid']} cube={m['cube_symbol']} "
+            print(f"  [{m.get('group','?')}] #{m['rank']} {m['screen_name']} {m['uid']} cube={m['cube_symbol']} "
                   f"rb_id={st.get('rb_id')} holdings={len(st.get('holdings') or {})}")
         return
 
