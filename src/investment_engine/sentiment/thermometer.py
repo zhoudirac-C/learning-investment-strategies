@@ -84,11 +84,13 @@ def compute_temperature(bars: list[dict], board_stats: dict | None = None,
     wsum = sum(WEIGHTS[k] for k in avail)
     score = sum(avail[k] * WEIGHTS[k] for k in avail) / wsum if wsum else 50.0
     panic = False
-    # 恐慌规则（2025/4/7 校准锚点）：20日跌超10% 且量能分位>80 = 放量暴跌，
-    # 是恐慌出逃（恐惧）而非人声鼎沸（贪婪）→ 强制压入冷区。量能本身无方向，须由价格定性。
-    if len(bars) >= 21:
-        ret20 = (bars[-1]["close"] / bars[-21]["close"] - 1) * 100
-        if ret20 <= -10 and (comps["volume"] or 0) >= 80:
+    # 恐慌规则 v3（2025/4/7 校准锚点）：5日跌超10% = 崩盘式恐慌，强制压入冷区。
+    # 量能本身无方向须由价格定性；不做量能门槛——4/7 千股跌停是"想卖卖不出"的缩量
+    # 恐慌（量比中位数仅 0.87），放量假设在跌停潮里不成立；924 天量又永久压制了
+    # 500 日量能分位的读数。崩盘最干净的签名是纯价格。
+    if len(bars) >= 6:
+        ret5 = (bars[-1]["close"] / bars[-6]["close"] - 1) * 100
+        if ret5 <= -10:
             score = min(score, 25.0)
             panic = True
     score = round(score, 1)
