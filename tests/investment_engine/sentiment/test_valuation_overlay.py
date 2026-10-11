@@ -3,7 +3,7 @@ from investment_engine.sentiment import valuation_overlay as vo
 
 
 def test_classify_cyclical():
-    assert vo.classify_board("煤炭开采") == "cyclical"
+    assert vo.classify_board("煤炭开采加工") == "cyclical"
     assert vo.classify_board("半导体") == "growth"
 
 
@@ -28,7 +28,7 @@ def test_assess_expensive_cyclical(monkeypatch):
                         lambda c: {"PE_TTM": 8.0, "PB_MRQ": 5.0})
     monkeypatch.setattr(vo, "fetch_history",
                         lambda c, field, days=1095: [1.0 + i * 0.04 for i in range(100)])
-    r = vo.assess_valuation("煤炭开采", use_cache=False)
+    r = vo.assess_valuation("煤炭开采加工", use_cache=False)
     assert r["method"] == "pb_percentile"
     assert r["cheap"] is False
     assert r["value"] >= 80.0
