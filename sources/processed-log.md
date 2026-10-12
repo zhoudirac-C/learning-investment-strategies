@@ -581,3 +581,6 @@
 - sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md → claim-20261011-001 (28 claims) → wiki: 每日复盘/2026-10-11-青枫浦上Q复盘专栏 → 下游 discover/Neo4j/Qdrant 已跑（2026-10-12，28节点+46关系入图，Qdrant 5828条）
 - sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md → claim-20261012-001 (26 claims) → wiki: 每日复盘/2026-10-12-青枫浦上Q早盘专栏 → 下游 discover/Neo4j/Qdrant 已跑（2026-10-12，26节点+51关系入图，Qdrant 5854条）
 - sources/original/bilibili/2026-10-12-0808-视频-我AI漫剧继续拿，科技耐心等量，风电现阶段观察，投机票做得少.md → claim-20261012-002 (5 claims) → wiki: 每日复盘/2026-10-12-卢本圆早盘视频 → 下游 discover/Neo4j/Qdrant 已跑（2026-10-12，5节点+10关系入图，Qdrant 5859条）
+- sources/original/bilibili/2026-10-12-1049-图片-现阶段就像是刚经历过一场大病，已经抢救过来脱离生命危险，但是.md → claim-20261012-003 (4 claims) → wiki: 每日复盘/2026-10-12-青枫浦上Q盘中动态-大病比喻与筹码出清 → 下游 discover/Neo4j/Qdrant 已跑（2026-10-12，19节点+36关系入图，Qdrant 5878条）
+- sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md → claim-20261012-004 (15 claims) → wiki: 每日复盘/2026-10-12-青枫浦上Q复盘专栏 → 下游 discover/Neo4j/Qdrant 已跑（2026-10-12，19节点+36关系入图，Qdrant 5878条）
+- sources/original/bilibili/2026-10-12-1939-视频-投机如山岳一样古老。 感谢观看，一键三连。.md → 跳过（ASR 转写失败，无观点文本）

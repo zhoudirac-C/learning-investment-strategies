@@ -1,0 +1,511 @@
+claims:
+- id: claim-20261012-004-a
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: market-cycle
+  subject: 磨底结束的双确认条件
+  timeframe: short-term
+  statement: 磨底结束需要量价止跌与资金重新回到科技同时得到确认，单靠银行护盘还不够；只要银行仍在创新高、成交继续收缩、科技继续走弱，磨底就没有结束。
+  evidence_quote: 磨底结束需要量价止跌与资金重新回到科技同时得到确认，单靠银行护盘还不够。……只要银行仍在创新高、成交继续收缩、科技继续走弱，磨底就没有结束。
+  interpretation: UP给出的磨底结束判定标准：两个条件缺一不可——量价层面止跌（缩量不跌或放量收复），资金层面从防御（银行）回流科技。银行护盘只稳住沪指权重结构，不代表市场修复。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: ["claim-20260720-016"]
+  contradicts: []
+  supplements: ["claim-20260909-017-a", "claim-20260916-001-k"]
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 磨底结束需量价止跌+资金回科技双确认
+  related_stocks: []
+  tags:
+  - 磨底
+  - 量价止跌
+  - 科技回流
+  - 双确认
+- id: claim-20261012-004-b
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: methodology
+  subject: 止跌的两条量价路径与信号可靠性标准
+  timeframe: permanent
+  statement: 观察止跌有两条量价路径：一是低位继续缩量但指数和领跌核心不再创新低、卖盘减少后价格横住；二是成交主动放大、指数逐步收复本周阴线失地。盘中拉起只是初步信号，收盘能否保住修复、次日是否延续，才决定信号的可靠程度。
+  evidence_quote: 观察止跌有两条量价路径：一条是在低位继续缩量，但指数和领跌核心不再创新低，卖盘减少后价格能够横住；另一条是成交主动放大，指数逐步收复本周阴线所对应的失地。……盘中拉起只是初步信号，收盘能否保住修复、次日是否延续，才决定信号的可靠程度。
+  interpretation: UP的止跌识别方法论：止跌路径分「缩量横住」与「放量收复」两类，且信号确认以收盘价和次日延续性为准，不用盘中脉冲代替确认。可复用于任何调整末期的量价判断。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261007-001-m", "claim-20260928-002-d", "claim-20260913-001-007"]
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 止跌两条路径：缩量横住或放量收复，以收盘+次日延续确认
+  related_stocks: []
+  tags:
+  - 止跌路径
+  - 量价
+  - 信号确认
+  - 方法论
+- id: claim-20261012-004-c
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: market-cycle
+  subject: 缩量下跌不能判断抛压枯竭
+  timeframe: short-term
+  statement: 上周五探底回升后今日没有形成量能与科技的共振，说明修复尚未转化为持续主动买盘；成交萎缩叠加双创走弱，首先说明承接意愿不足，不能仅凭缩量就判断抛压已经枯竭。
+  evidence_quote: 上周五探底回升后，今日没有继续形成量能与科技的共振，说明修复尚未转化为持续主动买盘。……成交萎缩叠加双创走弱，首先说明承接意愿不足，不能仅凭缩量就判断抛压已经枯竭。
+  interpretation: UP对今日（10-12）盘面的定性：修复未转化为持续主动买盘，当前缩量反映的是承接意愿不足而非抛压出清完毕。这是对「缩量=跌不动」直觉的明确纠偏。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260914-002-c", "claim-20260909-011-a", "claim-20260816-003"]
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 缩量下跌首先说明承接不足，不能据此判断抛压枯竭
+  related_stocks: []
+  tags:
+  - 缩量
+  - 承接意愿
+  - 抛压
+  - 纠偏
+- id: claim-20261012-004-d
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: market-cycle
+  subject: 银行护盘与科技修复的角色区分
+  timeframe: short-term
+  statement: 银行走强有助于稳定沪指，却无法替代科技对成交活跃度和风险偏好的贡献；科技持续失血时资金转向红利更像防守选择。不能从银行回落直接推断资金已经完成切换，银行暂停上涨本身也不够，若科技没有改善，只能说明防御端也在松动。
+  evidence_quote: 银行走强有助于稳定沪指，却无法替代科技对成交活跃度和风险偏好的贡献。此前市场的重要增量集中于科技，科技持续失血时，资金转向红利更像是防守选择。……银行暂停上涨本身并不够，若科技没有改善，只能说明防御端也在松动。
+  interpretation: UP对红利/科技轮动的解读框架：银行行情的性质是防守选择而非新主线；判断风格切换的关键在科技端是否获得主动承接，而非银行端是否回落——银行跌+科技不涨=防御松动，不是切换完成。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260913-001-008", "claim-20260515-012", "claim-20261012-001-f"]
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 银行走强是防守选择，风格切换须看科技承接而非银行回落
+  related_stocks: []
+  tags:
+  - 银行护盘
+  - 风格切换
+  - 红利
+  - 科技
+- id: claim-20261012-004-e
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: market-cycle
+  subject: 情绪结构为高标抱团而非全面修复
+  timeframe: intraday
+  statement: 高度继续打开（新华传媒(600825)升至10连板）与晋级率偏低（33.33%）同时存在，说明资金更倾向抱团核心，中间梯队淘汰激烈；短线生态尚有结构性机会，但局部赚钱效应不足以确认全市场反弹。观察情绪修复，既要看高标能否承接分歧，也要看中低位是否出现连续补位。
+  evidence_quote: 高度继续打开与晋级率偏低同时存在，说明资金更倾向抱团核心，中间梯队的淘汰仍然激烈。观察情绪修复，既要看高标能否承接分歧，也要看中低位是否出现连续补位。……局部赚钱效应尚不足以确认全市场反弹。
+  interpretation: UP对当前情绪周期的定性：高标打开+低晋级率=抱团结构而非全面情绪转强。情绪修复的确认标准是「高标承接分歧」与「中低位连续补位」同时出现，不能因高标晋级就上调全市场判断。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: medium
+  supersedes: ["claim-20261009-001-c"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高标抱团+低晋级率=结构性机会，不足以确认全市场反弹
+  related_stocks:
+  - code: '600825'
+    name: 新华传媒
+    role: 传媒高标10连板-主板可交易
+  tags:
+  - 情绪周期
+  - 连板
+  - 晋级率
+  - 抱团
+- id: claim-20261012-004-f
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: market-cycle
+  subject: 科技出清进入后段但仍会反复
+  timeframe: trend
+  statement: 市场主要症结仍在科技：成交额前5%个股交易集中度已从六七月接近54%回落至约43%的历史中枢，本轮核心卖压更多来自保险和固收+资金的被动去化；按净值相关性推算，二季度新增科技暴露可能已消化七至八成，尚有两至三成需要处理。这为「出清进入后段、短期仍会反复」的判断提供依据。
+  evidence_quote: 成交额前5%个股的交易集中度已从六七月接近54%回落至约43%的历史中枢，本轮核心卖压更多来自保险和固收+资金的被动去化。相关研究按净值与科技板块的相关性推算，二季度新增科技暴露可能已消化七至八成，尚有两至三成需要处理。这是模型估算，不能等同于逐笔持仓核验，但为"出清进入后段、短期仍会反复"的判断提供了依据。
+  interpretation: UP对科技卖压的阶段定位：出清进入后段（进度约70-80%）但尚未完成，短期仍会反复。与10-12早盘动态的「绝对收益资金被迫卖出」归因一致，此处进一步给出量化进度估算，同时提示模型估算不等于持仓核验的事实边界。
+  confidence: medium
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260617-038-c", "claim-20260812-015", "claim-20260909-030-a"]
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技出清进入后段（消化七八成），短期仍会反复
+  related_stocks: []
+  tags:
+  - 科技出清
+  - 保险资金
+  - 固收+
+  - 交易集中度
+- id: claim-20261012-004-g
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: market-cycle
+  subject: 本轮调整性质为仓位出清而非AI基本面逆转
+  timeframe: trend
+  statement: 本轮调整相较7月更接近前期科技仓位的继续出清，尚不能据价格下跌就认定整个AI产业的基本面发生逆转；但出清进入尾声不代表已经完成，更不意味着所有公司的业绩与估值都能同步修复，接下来仍需用业绩兑现和股价承接来验证。
+  evidence_quote: 个人判断，本轮调整相较7月更接近前期科技仓位继续出清，尚不能据价格下跌就认定整个AI产业的基本面发生逆转。不过，出清进入尾声也不代表已经完成，更不意味着所有公司的业绩与估值都能同步修复。接下来仍需用业绩兑现和股价承接来验证这一判断。
+  interpretation: UP对AI方向的核心定性：定性为资金面出清（仓位问题）而非基本面逆转（产业问题），这是方向层的重要判断——价格跌≠逻辑破。但同时给出双向约束：尾声≠完成，验证标准是业绩兑现+股价承接。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261008-007-n", "claim-20261012-001-j"]
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 本轮调整=科技仓位出清而非AI基本面逆转，需业绩+承接验证
+  related_stocks: []
+  tags:
+  - AI
+  - 仓位出清
+  - 基本面
+  - 业绩验证
+- id: claim-20261012-004-h
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: sector-theme
+  subject: 联讯仪器业绩预告的市场反馈检验
+  timeframe: short-term
+  statement: 10月13日先看联讯仪器业绩预告后的市场反馈：若高增长预告能带动测试设备、光器件和光模块共同止跌，盈利增长这一端就有机会重新发挥定价作用；若只有个别公司短暂冲高、科技核心仍回低位，说明资金与估值压力尚未解除。业绩利好是否被市场接受，比单看预增倍数更有参考意义。
+  evidence_quote: 10月13日先看联讯仪器业绩预告后的市场反馈。若高增长预告能带动测试设备、光器件和光模块共同止跌，盈利增长这一端就有机会重新发挥定价作用；若只有个别公司短暂冲高，科技核心仍回到低位，说明资金与估值压力尚未解除。业绩利好是否被市场接受，比单看预增倍数更有参考意义。
+  interpretation: UP给出的业绩催化检验框架：看「板块联动止跌」而非「个股脉冲」。联讯仪器预告（前三季净利同比+1866%~2073%）是试金石，接受=盈利定价权回归，拒绝=资金/估值压力未除。
+  confidence: high
+  status: active
+  stance: view
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 联讯仪器业绩反馈是科技盈利定价权回归的试金石
+  related_stocks:
+  - code: '688808'
+    name: 联讯仪器
+    role: 光通信测试设备-科创板不可交易
+  tags:
+  - 联讯仪器
+  - 业绩预告
+  - 光模块
+  - 盈利定价
+- id: claim-20261012-004-i
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: macro
+  subject: 美CPI与美股三季报的观察框架
+  timeframe: short-term
+  statement: 10月14日20:30（北京时间）美国公布9月CPI，CPI影响通胀与利率预期，但美债长端收益率还受财政供给、期限溢价等因素影响，需观察公布后的实际走势；美股三季报除云厂商和芯片企业资本开支指引外，还应关注经营现金流、自由现金流及资金投入的可持续性。
+  evidence_quote: 海外事件窗口在北京时间10月14日20:30，美国将公布9月消费者价格指数（CPI）；10月15日是A股消化该数据后的首个交易日。CPI会影响通胀与利率预期，但美债长端收益率还受财政供给、期限溢价等因素影响，需观察公布后的实际走势。后续美股三季报除云厂商和芯片企业的资本开支指引外，还应关注经营现金流、自由现金流及资金投入的可持续性。
+  interpretation: UP的宏观观察纪律：①CPI≠美债走势的单变量决定，须看公布后的实际走势而非机械推演；②美股财报季评估AI叙事的重心从资本开支指引扩展到现金流可持续性。均为「怎么看」而非「是什么」的判断框架。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261011-001-k", "claim-20260621-006-q"]
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: CPI看美债实际走势，财报季看现金流可持续性
+  related_stocks: []
+  tags:
+  - 美国CPI
+  - 美债收益率
+  - 美股财报
+  - 现金流
+- id: claim-20261012-004-j
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: operation
+  subject: 情形推演：修复确认与磨底维持的操作判据
+  timeframe: short-term
+  statement: 情形A（修复）：低位缩量不跌或放量收复本周阴线，同时银行相对强势减弱、光模块等核心持续承接，两组条件同时出现且以收盘确认+后续延续为准，阶段修复可信度提高。情形B（磨底维持）：银行仍创新高、成交进一步萎缩，或创业板短暂回升后再走低，则维持磨底判断；领跌方向未稳之前，不提前把局部轮动上升为全面反转。
+  evidence_quote: 情形 A · 量价止跌与科技回流共振：……两组条件要同时出现，不能用一个盘中脉冲代替确认。情形 B · 银行继续走强 科技修复失败：……领跌方向未稳之前，不提前把局部轮动上升为全面反转。
+  interpretation: UP把明日到本周的操作判断写成双情形条件树：A转强需量价+风格双确认，B失败则题材按轮动观察、强势股分歧先看承接。核心纪律是不把局部信号外推为全面反转。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: ["claim-20261008-007-g", "claim-20261008-001-k", "claim-20260928-002-i"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 修复需量价+科技回流双确认，否则维持磨底不外推反转
+  related_stocks: []
+  tags:
+  - 情形推演
+  - 修复确认
+  - 磨底
+  - 操作判据
+- id: claim-20261012-004-k
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: sector-theme
+  subject: 传媒向AI应用分支扩散的确认判据
+  timeframe: short-term
+  statement: 传媒连续走强叠加新华传媒(600825)停牌核查后，值得重视的变化是资金由短剧、漫剧进一步扩散到AI医疗、AI教育、AI安全和AI智能体，且新分支能连续获得承接——扩散成立，AI应用的市场地位才有进一步提高的基础；龙版传媒(605577)能否在分歧后形成二波延续是观察窗口，单只股票加速不足以确认整个应用端升级。
+  evidence_quote: 第一种值得重视的变化，是资金由短剧、漫剧进一步扩散到AI医疗、AI教育、AI安全和AI智能体，且新分支能够连续获得承接。如果这种扩散成立，AI应用的市场地位才有进一步提高的基础。龙版传媒能否在分歧后形成二波延续，是观察内容方向持续性的一个窗口；单只股票加速仍不足以确认整个应用端升级。
+  interpretation: UP给出AI应用行情升级的确认判据：分支扩散+连续承接，两者缺一则仍是个股行情。高标停牌后的资金去向（有序承接扩散 vs 集中兑现）直接决定板块分歧强度。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: ["claim-20260806-008"]
+  contradicts: []
+  supplements: ["claim-20261012-001-j"]
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI应用升级须分支扩散+连续承接，单股加速不算数
+  related_stocks:
+  - code: '600825'
+    name: 新华传媒
+    role: 传媒高标停牌核查-主板可交易
+  - code: '605577'
+    name: 龙版传媒
+    role: 传媒二波观察窗口-主板可交易
+  tags:
+  - 传媒
+  - AI应用
+  - 分支扩散
+  - 龙版传媒
+- id: claim-20261012-004-l
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: methodology
+  subject: 情绪高标的题材地位与产业实质分开跟踪
+  timeframe: permanent
+  statement: 时代万恒(600241)在电池方向有情绪辨识度，但公司已明确产品未涉及固态电池；九阳股份(002242)的机器人与AI关联主要是财务性股权投资（持深思考7.92%）。题材地位与实际产品范围应分开理解，连板表现作为短线情绪观察，产业进展按被投企业业务和上市公司实际权益、贡献分别跟踪。
+  evidence_quote: 时代万恒在电池方向具有情绪辨识度，但公司已明确其产品未涉及固态电池……题材地位与实际产品范围应分开理解。……九阳的连板表现可作为短线情绪观察，产业进展则应按被投企业业务和上市公司的实际权益、贡献分别跟踪。
+  interpretation: UP的高标跟踪纪律：情绪价值（辨识度/连板）与产业价值（实际产品/权益）分账处理，不因连板把题材想象当成基本面。可复用于所有题材高标的评估。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260922-001-m", "claim-20260830-015-a"]
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 高标连板是情绪观察，产业实质按实际产品权益分账
+  related_stocks:
+  - code: '600241'
+    name: 时代万恒
+    role: 电池情绪高标6连板-主板可交易
+  - code: '002242'
+    name: 九阳股份
+    role: 消费+机器人情绪标的6连板-主板可交易
+  tags:
+  - 情绪高标
+  - 题材与实质
+  - 时代万恒
+  - 九阳股份
+- id: claim-20261012-004-m
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: sector-theme
+  subject: 光模块止跌是创业板反弹的核心观察变量
+  timeframe: short-term
+  statement: 中际旭创(300308)、新易盛(300502)等光模块核心及部分上游光器件仍在近期低位反复，尚未形成可靠趋势修复；光模块作为本轮领跌方向，是阶段反弹能否成立的核心观察变量。若指数先涨而领跌核心仍无承接，修复持续性存疑；若核心先横住再出现板块扩散，指数反弹才更有基础。
+  evidence_quote: 接下来一至两个交易日，需要看创业板能否及时收复失地、避免弱势结构进一步恶化。若指数先涨而领跌核心仍无承接，修复持续性仍存疑；若核心先横住，再出现板块扩散，指数反弹才更有基础。光模块作为本轮领跌方向，是阶段反弹能否成立的核心观察变量。
+  interpretation: UP确立的观察次序：领跌核心（光模块）→板块扩散→指数修复。「核心先横住再扩散」的反弹结构比「指数先涨核心不跟」更可靠，这决定了创业板反弹判断的信号优先级。
+  confidence: high
+  status: active
+  stance: view
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260909-030-a", "claim-20260804-010"]
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 光模块核心先横住再扩散，创业板反弹才有基础
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 光模块核心-创业板不可交易
+  - code: '300502'
+    name: 新易盛
+    role: 光模块核心-创业板不可交易
+  tags:
+  - 光模块
+  - 创业板
+  - 中际旭创
+  - 领跌核心
+- id: claim-20261012-004-n
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: sector-theme
+  subject: 独立涨价品种的跟踪与兑现纪律
+  timeframe: short-term
+  statement: 随着善水科技(301190)走强，有独立供需变化的涨价品种值得持续跟踪，金丹科技(300829)乳酸提价8%是其中一条产业线索；但对一次性涨价和业绩高增，要进一步观察订单、利润及现金流兑现，试车阶段与稳定量产是两个不同节点，公司自身也提示调价预计不会对2026年度业绩产生重大影响。
+  evidence_quote: 随着善水科技走强，有独立供需变化的涨价品种也值得持续跟踪，金丹科技的乳酸提价是其中一条产业线索。……对一次性涨价和业绩高增，进一步观察订单、利润及现金流兑现。……试车阶段与稳定量产仍是两个不同节点。
+  interpretation: UP对涨价题材的跟踪框架：涨价线索可跟踪但预期管理从严——一次性涨价≠持续盈利，验证链条是订单→利润→现金流；产能叙事区分「试车」与「量产」两个节点。公司公告的自我提示（不构成重大影响）应纳入权重。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260901-026-a"]
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 涨价品种可跟踪但须看订单利润现金流兑现
+  related_stocks:
+  - code: '301190'
+    name: 善水科技
+    role: 独立涨价品种-创业板不可交易
+  - code: '300829'
+    name: 金丹科技
+    role: 乳酸提价8%-创业板不可交易
+  tags:
+  - 涨价品种
+  - 金丹科技
+  - 兑现纪律
+  - 善水科技
+- id: claim-20261012-004-o
+  source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
+  source_date: '2026-10-12'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-12T23:30:00'
+  claim_type: operation
+  subject: 磨底期操作纪律与确认优先级
+  timeframe: short-term
+  statement: 操作上围绕可观察条件调整节奏：指数修复看收盘，板块修复看核心与扩散，个股分歧看承接；传媒开板、新能源回流、农业修复分别验证，不用一条题材的涨跌替另一条线作结论。当前不预设仓位比例，也不因「出清尾声」省略确认过程；低位缩量不跌或放量修复加上资金真正回到科技，是提高阶段反弹判断的前提，在此之前减少对弱势反抽和高位加速的主观押注。
+  evidence_quote: 操作上继续围绕可观察条件调整节奏：指数修复看收盘，板块修复看核心与扩散，个股分歧看承接。……当前不预设仓位比例，也不因"出清尾声"就省略确认过程。低位缩量不跌或放量修复，加上资金真正回到科技，是提高阶段反弹判断的前提。在这之前，保留对主线变化的敏感度，减少对弱势反抽和高位加速的主观押注。
+  interpretation: UP磨底期的总操作纪律：分层确认（指数看收盘/板块看核心扩散/个股看承接）、题材线各自独立验证不互相代替、不预设仓位、不因阶段判断（出清尾声）跳过确认流程。
+  confidence: high
+  status: active
+  stance: view
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260615-012", "claim-20260910-004-a", "claim-20261008-007-h"]
+  last_discovered: 2026-10-12
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 磨底期分层确认：指数看收盘、板块看扩散、个股看承接
+  related_stocks: []
+  tags:
+  - 操作纪律
+  - 分层确认
+  - 磨底期
+  - 仓位
