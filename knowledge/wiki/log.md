@@ -2773,7 +2773,7 @@
 - 提取门槛执行：26 条真观点（view 24 / market-regime 2，fact 0）；纯事实段（美股美债油价/KOSPI/收盘数据/晋级数据/以旧换新/台系营收明细/Moderna与Isomorphic）均未单独建 claim
 - 产出 `claim-20261012-001.yaml`（001-a~z）；22 个标的代码经东财 API 批量核实（主板9/创业板9/科创板5/北交所1：力王股份920627）；金斯瑞生物科技(01548.HK) 港股按惯例正文标注不进 related_stocks
 - wiki 新增：每日复盘/2026-10-12-青枫浦上Q早盘专栏.md（含与 10/11 复盘 001 的衔接对照）
-- 下游管线（discover/Neo4j/Qdrant）：待执行
+- 下游管线已跑：discover 10 关系（8 supplements/1 supersedes/1 cross-up disagrees）→ Neo4j 5 节点 → Qdrant 5859 条重建 → Agent 健康 ✓
 
 ## 2026-10-12 08:08 卢本圆早盘视频提取（C2 管线）
 
