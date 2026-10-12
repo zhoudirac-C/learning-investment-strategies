@@ -107,13 +107,15 @@ def main() -> int:
 
     hot = sorted((b for b in boards if b["zone"] == "hot"),
                  key=lambda x: -x["score"])[:5]
-    cold = sorted((b for b in boards if b["zone"] == "cold"),
-                  key=lambda x: x["score"])[:5]
+    cold_all = sorted((b for b in boards if b["zone"] == "cold"),
+                      key=lambda x: x["score"])
+    cold = cold_all[:5]
 
-    # 估值 overlay：仅最冷 5 个（惰性+3天缓存；冰封区在弱市里可能几十个，全量估值太重）
+    # 估值 overlay：全部 cold 板块（2026-10-12 方案2：新跨区板块常在 TOP5 之外，
+    # 只算 TOP5 会导致"新冷门"推送看不到便宜/冷但贵判定）。3天缓存控制成本。
     if not args.no_valuation:
         from investment_engine.sentiment.valuation_overlay import assess_valuation
-        for b in cold:
+        for b in cold_all:
             try:
                 v = assess_valuation(b["name"])
                 b["valuation"] = v
@@ -122,8 +124,8 @@ def main() -> int:
                 b["valuation"] = {"error": str(e)[:80]}
                 b["opportunity"] = False
         # 回填到 boards 列表对应项
-        val_by_name = {b["name"]: b.get("valuation") for b in cold}
-        opp_by_name = {b["name"]: b.get("opportunity") for b in cold}
+        val_by_name = {b["name"]: b.get("valuation") for b in cold_all}
+        opp_by_name = {b["name"]: b.get("opportunity") for b in cold_all}
         for b in boards:
             if b["name"] in val_by_name:
                 b["valuation"] = val_by_name[b["name"]]
