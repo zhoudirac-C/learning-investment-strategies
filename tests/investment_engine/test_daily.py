@@ -7,13 +7,12 @@ from investment_engine.shadow.daily import run
 
 
 class TestDailyPromptVersion:
-    def test_prompt_version_is_v20(self):
-        """生产默认 prompt 为 v20（2026-10-09 落地：规则39 外盘映射×周期位置冲突
-        （合并提案 2026-09-21/09-22）、规则40 多指数周期分歧仲裁（提案 09-23 强化）、
-        规则41 输出完整性（09-29 重试退化事故）；v15 保持冻结作 A/B 对照臂，
-        v16/v17/v18 保留为迭代基线）。"""
+    def test_prompt_version_is_v21(self):
+        """生产默认 prompt 为 v21（2026-10-13 落地：规则42 业绩催化检验——pack 含
+        earnings_catalysts 时 watch_next 必须引用催化标的做承接/带动同类检验，
+        提案 2026-10-13 earnings_catalyst_test；v15 保持冻结作 A/B 对照臂）。"""
         from investment_engine.blindtest import replay
-        assert replay.PROMPT_VERSION == "v20"
+        assert replay.PROMPT_VERSION == "v21"
 
     def test_daily_prompt_contains_v19_rules(self):
         """v19（2026-09-12 close-track-adjudication）关键词须在盘后 prompt：

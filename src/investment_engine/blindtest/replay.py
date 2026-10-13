@@ -33,7 +33,7 @@ _TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v20"
+PROMPT_VERSION = "v21"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -312,8 +312,16 @@ SYSTEM_PROMPT_V20 = SYSTEM_PROMPT_V19.replace(
     "另须对照暴跌归因框架（crash_loop_attribution）的互爆主体识别步骤，"
     "结合 margin 块两融读数判断下跌性质与外部力量需求") + "\n" + _V20_RULE39_41
 
-# 生产默认 prompt：指向 SYSTEM_PROMPT_V20（回退只需改这一行指向）
-SYSTEM_PROMPT = SYSTEM_PROMPT_V20
+_V21_RULE42 = (
+    "42. 业绩催化检验：pack 含 earnings_catalysts（业绩预告/快报块）时，"
+    "watch_next 必须至少引用一只催化标的（名称或代码），给出「承接/带动同类」"
+    "检验项——业绩利好落地后比增速数字更重要的是价格反应：有无新的持续卖盘、"
+    "下探能否被接住、反弹能否带动同类公司；单股脉冲而同类不跟只算情绪引导，"
+    "不能当作板块转折信号；高开低走/利好兑现走弱视为情形B证据。\n")
+SYSTEM_PROMPT_V21 = SYSTEM_PROMPT_V20 + "\n" + _V21_RULE42
+
+# 生产默认 prompt：指向 SYSTEM_PROMPT_V21（回退只需改这一行指向）
+SYSTEM_PROMPT = SYSTEM_PROMPT_V21
 
 
 def build_messages(pack_text: str, system_prompt: str | None = None) -> list[dict]:
@@ -1013,6 +1021,22 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
         violations.append(
             f"规则5b: 收盘判「{stage}」与当日盘前预判「{pm_stage}」不一致，"
             "stage_reason 未写明推翻盘前预判的理由（双轨互证）")
+
+    # 规则42（v21，提案 2026-10-13 earnings_catalyst_test）：pack 含业绩预告/
+    # 快报块时，watch_next 必须引用至少一只催化标的做「承接/带动同类」检验。
+    ec42 = (pack or {}).get("earnings_catalysts") or []
+    if ec42:
+        watch_text = json.dumps(result.get("watch_next") or [], ensure_ascii=False)
+        hit = any(
+            (str(c.get("name") or "") and str(c["name"]) in watch_text) or
+            (str(c.get("code") or "") and str(c["code"]) in watch_text)
+            for c in ec42 if isinstance(c, dict))
+        if not hit:
+            names = "、".join(str(c.get("name") or c.get("code")) for c in ec42[:4])
+            violations.append(
+                "规则42: pack 含业绩预告/快报催化（" + names + "），watch_next "
+                "未引用任一催化标的——业绩利好落地须给出「承接/带动同类」检验项，"
+                "价格反应（持续卖盘/下探承接/带动同类）重于增速数字")
 
     return violations
 

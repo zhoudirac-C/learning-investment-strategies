@@ -825,3 +825,43 @@ class TestRule41OutputCompleteness:
                                "basis": "创业板指rebound_day=10>6-8天、科创50=42>2天，均超窗"})
         assert not any("规则40" in x for x in
                        validate_result(r, pack=TestRule40CycleDivergence.DIVERGED_PACK))
+
+
+class TestRule42EarningsCatalyst:
+    """规则42（v21，提案 2026-10-13 earnings_catalyst_test）：pack 含
+    earnings_catalysts（业绩预告/快报块）时，watch_next 必须至少引用一只催化
+    标的的名称或代码做「承接/带动同类」检验——UP 业绩检验框架：价格反应
+    （卖盘竭/下探承接/带动同类）胜过增速数字。pack 无该块时豁免。"""
+
+    PACK = {"earnings_catalysts": [
+        {"date": "2026-10-12", "code": "688498", "name": "源杰科技",
+         "title": "源杰科技:2026年前三季度业绩预告"},
+        {"date": "2026-10-12", "code": "300623", "name": "捷捷微电",
+         "title": "捷捷微电:2026年前三季度业绩预告"},
+    ]}
+
+    def _result(self, watch_next):
+        return {"market_stage": "调整", "stage_reason": "缩量整理",
+                "watch_next": watch_next}
+
+    def test_missing_watch_flagged(self):
+        v = validate_result(self._result(["二板晋级率观察", "量能台阶"]), self.PACK)
+        assert any("规则42" in x for x in v)
+
+    def test_watch_by_name_passes(self):
+        v = validate_result(self._result(
+            ["源杰科技业绩预告落地后下探能否被接住、能否带动光器件同类"]), self.PACK)
+        assert not any("规则42" in x for x in v)
+
+    def test_watch_by_code_passes(self):
+        v = validate_result(self._result(["688498 利好兑现后的持续卖盘观察"]), self.PACK)
+        assert not any("规则42" in x for x in v)
+
+    def test_no_block_exempt(self):
+        v = validate_result(self._result(["二板晋级率观察"]), {"index": {}})
+        assert not any("规则42" in x for x in v)
+
+    def test_empty_block_exempt(self):
+        v = validate_result(self._result(["二板晋级率观察"]),
+                            {"earnings_catalysts": []})
+        assert not any("规则42" in x for x in v)

@@ -669,6 +669,35 @@ def _load_catalysts(day: str, target_day: str, research_root: Path,
     return out[:_CATALYST_CAP][::-1]
 
 
+def _load_earnings_catalysts(day: str, research_root: Path) -> list[dict] | None:
+    """业绩预告/快报催化块（提案 2026-10-13 earnings_catalyst_test）。
+
+    UP 业绩检验框架（011-l/004-h/001-h）：业绩预告落地后的价格反应是板块
+    转折的核心观察信号。扫描 ≤ day 的最近 5 个自然日公告（覆盖周末，约合
+    3 个交易日），精确匹配标题「业绩预告」「业绩快报」（不匹配「关联交易预计」
+    等假阳性）。按 date <= day 过滤，回放安全。空结果返回 None（无业绩预告
+    是常态，不登记 missing）。
+    """
+    import re as _re
+    from datetime import date as _date, timedelta as _td
+
+    pat = _re.compile(r"业绩预告|业绩快报")
+    end = _date.fromisoformat(day)
+    out: list[dict] = []
+    for i in range(5):
+        d = (end - _td(days=i)).isoformat()
+        for n in _read_json_list(Path(research_root) / "notices" / f"{d}.json"):
+            title = str(n.get("title", ""))
+            if not pat.search(title):
+                continue
+            assert_no_leakage(title, day)
+            out.append({"date": d, "code": n.get("code"),
+                        "name": n.get("name"), "title": title})
+    if not out:
+        return None
+    return out[:20][::-1]
+
+
 def _ff_top(rows: list, n: int, *, reverse: bool) -> list[dict]:
     """资金流窗口净额排序取 topN（净额单位亿元，akshare 原值）。"""
     valid = [r for r in rows if isinstance(r.get("净额"), (int, float))]
@@ -1160,6 +1189,9 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
     if target_day is not None:
         pack["catalysts_since_prev_day"] = _load_catalysts(
             day, target_day, research, root)
+    ec = _load_earnings_catalysts(day, research)
+    if ec is not None:
+        pack["earnings_catalysts"] = ec
     if missing:
         pack["missing"] = missing
     return pack
