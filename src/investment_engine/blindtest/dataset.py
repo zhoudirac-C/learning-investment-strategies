@@ -970,6 +970,52 @@ def _load_margin(day: str, cache_path=None) -> dict | None:
     }
 
 
+def _load_concentration(day: str, data_dir=None) -> dict | None:
+    """全市场成交集中度块（top5% 成交额占比，东财 clist 收盘快照）。
+
+    提案 2026-10-13-pack-enhancement-turnover-concentration：复算 UP 004-f
+    「成交额前5%个股集中度」作为筹码出清进度代理变量。快照每日收盘后落盘
+    （历史文件不可变，按 date <= day 过滤，回放安全）；陈旧快照如实标注
+    stale_days。无数据返回 None（调用方登记 missing）。
+    """
+    import datetime as _dt
+    import json as _json
+
+    root = Path(data_dir) if data_dir else (
+        Path(__file__).resolve().parents[3] / "infra" / "data" / "turnover_concentration")
+    if not root.exists():
+        return None
+    snaps = []
+    for f in sorted(root.glob("*.json")):
+        try:
+            d = _json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        if d.get("date") and str(d["date"]) <= day:
+            snaps.append(d)
+    if not snaps:
+        return None
+    snaps.sort(key=lambda x: str(x["date"]))
+    latest = snaps[-1]
+    result = {
+        "as_of": latest["date"],
+        "concentration_pct": latest.get("concentration_pct"),
+        "total_amount_yi": latest.get("total_amount_yi"),
+        "n_stocks": latest.get("n_stocks"),
+    }
+    try:
+        stale = (_dt.date.fromisoformat(day) - _dt.date.fromisoformat(str(latest["date"]))).days
+        if stale > 0:
+            result["stale_days"] = stale
+    except Exception:
+        pass
+    window = [s.get("concentration_pct") for s in snaps[-20:]
+              if isinstance(s.get("concentration_pct"), (int, float))]
+    if len(window) >= 5:
+        result["ma20_pct"] = round(sum(window) / len(window), 2)
+    return result
+
+
 def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
                      kpl_root=None, em_root=None, lp_root=None,
                      ic_root=None, research_root=None, ff_root=None,
@@ -1094,6 +1140,11 @@ def build_daily_pack(day: str, *, config_dir: Path, db_path=None,
         missing.append("margin")
     else:
         blocks["margin"] = margin
+    concentration = _load_concentration(day)
+    if concentration is None:
+        missing.append("turnover_concentration")
+    else:
+        blocks["turnover_concentration"] = concentration
     for k, v in blocks.items():
         if v is not None:
             pack[k] = v

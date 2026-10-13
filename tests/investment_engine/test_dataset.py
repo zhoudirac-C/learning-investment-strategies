@@ -221,7 +221,13 @@ class TestKplBlocks:
     def teardown_method(self):
         self.db.unlink(missing_ok=True)
 
-    def test_blocks_present(self):
+    def test_blocks_present(self, monkeypatch):
+        # 成交集中度块（2026-10-13 提案3）：fixture 补 stub，验证进包
+        stub = {"as_of": "2026-06-30", "concentration_pct": 45.0,
+                "total_amount_yi": 15000.0, "n_stocks": 5500}
+        monkeypatch.setattr(
+            "investment_engine.blindtest.dataset._load_concentration",
+            lambda day, data_dir=None: stub)
         pack = self._build("2026-06-30")
         assert pack["emotion"]["daban"]["今日涨停"] == 99
         assert pack["emotion"]["daban"]["封板率_pct"] == 87.6
@@ -248,6 +254,7 @@ class TestKplBlocks:
         assert pack["global_macro"]["美债收益率"]["10Y"]["yield"] == 4.65
         assert pack["global_macro"]["美股三指数"]["纳指"]["pct"] == 0.15
         assert "fetched_at" not in pack["global_macro"]
+        assert pack["turnover_concentration"]["concentration_pct"] == 45.0
         assert "missing" not in pack
         pack_to_prompt(pack)  # 过防泄漏断言
 
@@ -274,7 +281,7 @@ class TestKplBlocks:
         assert pack["missing"] == ["kpl_emotion", "kpl_news_titles", "kpl_lhb",
                                    "kpl_volume_series", "limit_pool", "intraday_changes",
                                    "research", "fund_flow", "sector_intraday",
-                                   "global_macro"]
+                                   "global_macro", "turnover_concentration"]
         assert "emotion" not in pack
 
 
