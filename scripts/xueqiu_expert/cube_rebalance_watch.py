@@ -171,7 +171,7 @@ def fmt_ts(ms) -> str:
 
 
 def diff_holdings(old: dict[str, float], new: dict[str, float],
-                  names: dict[str, str]) -> list[str]:
+                  names: dict[str, str], old_names: dict[str, str] | None = None) -> list[str]:
     lines = []
     for sym in sorted(new, key=lambda s: -new[s]):
         nm = names.get(sym) or sym
@@ -182,7 +182,8 @@ def diff_holdings(old: dict[str, float], new: dict[str, float],
             lines.append(f"  {arrow} {nm}({sym}) {old[sym]:.1f}% → {new[sym]:.1f}%")
     for sym in sorted(old):
         if sym not in new:
-            lines.append(f"  🔴 清仓 {sym}（原 {old[sym]:.1f}%）")
+            nm = (old_names or {}).get(sym) or sym
+            lines.append(f"  🔴 清仓 {nm}({sym})（原 {old[sym]:.1f}%）")
     return lines
 
 
@@ -245,18 +246,21 @@ def main() -> None:
         if prev_rb_id is None:
             # 首次见该 cube：静默建基线
             state[sym] = {"rb_id": rb_id, "holdings": new_holdings,
+                          "names": holdings_names(last_rb),
                           "updated_at": last_rb.get("updated_at")}
             continue
 
         if rb_id == prev_rb_id:
             # 无新调仓：静默刷新快照，保持 diff 基线新鲜
             state[sym] = {"rb_id": rb_id, "holdings": new_holdings,
+                          "names": holdings_names(last_rb),
                           "updated_at": last_rb.get("updated_at")}
             continue
 
         # 新调仓
         names = holdings_names(last_rb)
-        changes = diff_holdings(prev_holdings, new_holdings, names)
+        changes = diff_holdings(prev_holdings, new_holdings, names,
+                                old_names=prev.get("names"))
         status = last_rb.get("status") or "?"
         status_zh = {"success": "已成交", "pending": "挂单未成交"}.get(status, status)
         head = (f"📊 {name} 的 {sym} 调仓（{fmt_ts(last_rb.get('updated_at'))}，{status_zh}）"
@@ -269,6 +273,7 @@ def main() -> None:
             block = head + "\n  （权重微调，无 |Δ|≥1pp 的个股变动）"
         blocks.append(block)
         state[sym] = {"rb_id": rb_id, "holdings": new_holdings,
+                      "names": names,
                       "updated_at": last_rb.get("updated_at")}
 
     STATE.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
