@@ -1,0 +1,591 @@
+claims:
+- id: claim-20261013-001-a
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: market-cycle
+  subject: 修复未形成持续买盘的定性
+  timeframe: short-term
+  statement: 周一的回落说明上周五午后的修复尚未形成持续买盘；大跌后反抽并不罕见，反抽之后仍愿意接力的资金有多少才决定低点能否站住；今天先确认大盘低点，再考虑与指数共振的板块。
+  evidence_quote: 周一的回落，说明上周五午后的修复尚未形成持续买盘。……大跌后出现反抽并不罕见，反抽之后仍愿意接力的资金有多少，才决定低点能否站住。……今天继续跟踪日线序列与日线底部钝化，先确认大盘低点，再考虑与指数共振的板块。
+  interpretation: UP对盘面阶段的定性：上周五修复未被周一延续证实，当前任务是低点确认而非进攻。任务顺序明确——指数低点在前、板块共振在后。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260820-027"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 修复未成持续买盘，先确认大盘低点再谈板块共振
+  related_stocks: []
+  tags:
+  - 修复验证
+  - 持续买盘
+  - 低点确认
+- id: claim-20261013-001-b
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: market-cycle
+  subject: 缩量下跌的双向解读
+  timeframe: short-term
+  statement: 下跌过程中的缩量既可能包含卖压减少，也可能意味着资金暂时回避高波动品种，仅凭成交额下降无法判断抛压已经出清。
+  evidence_quote: 周一量能回落至约1.54万亿元，缩量3627亿元，显示买盘恢复不足。下跌过程中的缩量，既可能包含卖压减少，也可能意味着资金暂时回避高波动品种，仅凭成交额下降，无法判断抛压已经出清。
+  interpretation: 连续第二日强调同一纪律（与 004-c 呼应）：缩量是双义信号，不能单向解读为抛压枯竭。UP 把「买盘恢复不足」作为缩量下行的主要读法。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260909-011-a", "claim-20260927-001-f", "claim-20261012-004-c"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 缩量下跌是双义信号，不能据此判断抛压出清
+  related_stocks: []
+  tags:
+  - 缩量
+  - 抛压
+  - 双义信号
+- id: claim-20261013-001-c
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: market-cycle
+  subject: AI硬件权重调整是指数修复受限的主因
+  timeframe: short-term
+  statement: 近期AI硬件权重（中际旭创(300308)、新易盛(300502)、天孚通信(300394)等光通信核心）的持续调整是指数修复受限的重要原因；源杰科技(688498)周一收跌6.96%叠加此前机构席位集中卖出，说明短线承接面对的是更持续的筹码压力。海外科技股走弱会加剧压力，但不能把A股午后下跌全部归因于韩国市场，内生买盘不足与外部情绪冲击需要一起看。
+  evidence_quote: 近期AI硬件权重的持续调整，是指数修复受限的重要原因。中际旭创、新易盛、天孚通信等光通信核心，既影响科技方向的风险偏好，也影响资金对成长指数的预期。……海外科技股同步走弱会加剧这种压力，但不能把A股午后下跌全部归因于韩国市场，内生买盘不足与外部情绪冲击需要一起看。
+  interpretation: UP对指数受压的归因：主因是内部AI硬件权重筹码压力（机构卖出+趋势走弱），外部（海外/韩国）是加剧项而非唯一解释。纠偏「全怪外围」的归因偷懒。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: ["claim-20260806-007"]
+  contradicts: []
+  supplements: ["claim-20260803-021"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 指数修复受限主因是AI硬件权重筹码压力，外围只是加剧项
+  related_stocks:
+  - code: '300308'
+    name: 中际旭创
+    role: 光通信核心-创业板不可交易
+  - code: '300502'
+    name: 新易盛
+    role: 光通信核心-创业板不可交易
+  - code: '300394'
+    name: 天孚通信
+    role: 光通信核心-创业板不可交易
+  tags:
+  - AI硬件
+  - 光通信
+  - 筹码压力
+  - 归因
+- id: claim-20261013-001-d
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: methodology
+  subject: 日线序列与底部钝化的配合使用
+  timeframe: permanent
+  statement: 序列是观察时间窗口的工具，钝化是动能变化的线索，两者都需要价格和成交配合：指数再度探低而动能没有同步恶化、随后出现有效回收，低点参考价值才增加；下跌加速导致钝化消失，则要接受底部形成时间后移。不因序列临近完成就提前确认见底，也不把盘中反抽当作日线结构已经成立。
+  evidence_quote: 日线层面继续跟踪序列的推进，以及底部钝化能否保留、强化并进一步形成结构确认。序列是观察时间窗口的工具，钝化是动能变化的线索，两者都需要价格和成交配合。……不因为序列临近完成就提前确认见底，也不把盘中反抽当作日线结构已经成立。
+  interpretation: UP的大盘底部判断方法论：时间工具（序列）+动能线索（钝化）双轨，且都必须由价格和成交验证；两个防误判纪律——序列完成≠见底、盘中反抽≠结构成立。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260929-001-o", "claim-20260929-001-a", "claim-20260609-001-c"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 序列定时间窗口+钝化看动能，见底须价格成交配合
+  related_stocks: []
+  tags:
+  - 日线序列
+  - 底部钝化
+  - 见底纪律
+  - 方法论
+- id: claim-20261013-001-e
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: methodology
+  subject: 关键点位的分层确认与同时段量能对照
+  timeframe: short-term
+  statement: 价格上先看3791点附近短线承接，再看上周五3754点区域；向上看3800—3820点能否由反弹阻力转成回踩支撑。盘中越过3800点只说明发生了修复，回踩能否守住、收盘能否保持、次日能否延续才是不同层次的确认；量能要对照相同交易时段，反弹时买盘增加、回踩时抛压收敛比全天成交额单独放大更有意义。
+  evidence_quote: 价格位置上，先观察3791点附近的短线承接，再看上周五3754点区域；向上则看3800—3820点能否由反弹阻力转成回踩支撑。盘中越过3800点，只能说明发生了修复，能否在回踩中守住、收盘能否保持、次日能否延续，才是不同层次的确认。量能也要对照相同交易时段：反弹时买盘有所增加、回踩时抛压收敛，比全天成交额单独放大更有意义。
+  interpretation: UP给出的今日点位地图与确认层次：越过关键位只是第一层，回踩守住/收盘保持/次日延续依次递进；量能须同时段对照（时段结构>全天总量）。
+  confidence: high
+  status: active
+  stance: view
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261008-007-c", "claim-20260929-001-h"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 3791/3754/3800-3820点位地图：越过≠确认，回踩+收盘+次日递进
+  related_stocks: []
+  tags:
+  - 点位确认
+  - '3791'
+  - '3754'
+  - 量能同时段
+- id: claim-20261013-001-f
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: market-cycle
+  subject: 银行护盘反映防御集中而非风险偏好回升
+  timeframe: short-term
+  statement: 银行逆势走强（中国银行(601988)、中信银行(601998)、工商银行(601398)续创历史新高）解释了沪指跌幅小于双创，但银行上涨与多数个股下跌同时发生，反映的是防御资金集中，不能直接证明市场风险偏好回升。今天看银行能否稳定，更看券商、保险是否更广泛参与、资金能否从权重扩散到科技和中小市值；若仍是银行护指数、科技走弱，操作环境就没有实质改善。
+  evidence_quote: 但银行上涨与多数个股下跌同时发生，反映的是防御资金集中，并不能直接证明市场风险偏好回升。今天既看银行能否保持稳定，也看券商、保险是否出现更广泛的参与，以及资金能否从权重扩散到科技和中小市值股票。若仍是银行护住指数、科技持续走弱，操作环境就没有发生实质改善。
+  interpretation: 延续 004-d 的红利定性并细化验证路径：风险偏好回升的证据链=券商保险参与→资金扩散到科技/中小市值；只有银行独涨=防御抱团，环境未变。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261008-007-d", "claim-20260901-048-a", "claim-20261012-004-d"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 银行独涨=防御集中，风险偏好回升须看券商保险与扩散
+  related_stocks:
+  - code: '601988'
+    name: 中国银行
+    role: 银行护盘权重-主板可交易
+  - code: '601998'
+    name: 中信银行
+    role: 银行护盘权重-主板可交易
+  - code: '601398'
+    name: 工商银行
+    role: 银行护盘权重-主板可交易
+  tags:
+  - 银行护盘
+  - 防御资金
+  - 券商保险
+  - 扩散
+- id: claim-20261013-001-g
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: methodology
+  subject: 情绪修复的验证次序与统计口径纪律
+  timeframe: short-term
+  statement: 情绪能否修复的验证次序：先看跌停与大幅回撤能否收敛，再看首板供给能否恢复，最后看连板晋级是否扩散。只有高度而没有宽度，意味着资金集中在少数辨识度股票，对大多数参与者不友好。统计口径上，不同平台在ST股等范围可能有差异，连续比较必须使用同一口径，不能拼接不同样本判断情绪。
+  evidence_quote: 今天情绪能否修复，首先看跌停与大幅回撤能否收敛，再看首板供给能否恢复，最后看连板晋级是否扩散。只有高度而没有宽度，往往意味着资金集中在少数辨识度较高的股票中，对大多数参与者并不友好。……不同统计平台在ST股等范围上可能存在差异，连续比较应使用同一口径，不能拼接不同样本判断情绪。
+  interpretation: UP的情绪跟踪方法论：三层递进验证（亏钱收敛→首板供给→晋级扩散），并强调数据口径一致性——拼接不同平台样本会得出错误情绪结论。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260913-001-019", "claim-20261012-004-e", "claim-20260921-002-f"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 情绪修复三层验证：跌停收敛→首板恢复→晋级扩散，口径须一致
+  related_stocks: []
+  tags:
+  - 情绪修复
+  - 跌停收敛
+  - 首板供给
+  - 统计口径
+- id: claim-20261013-001-h
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: sector-theme
+  subject: 业绩预告检验看价格反应而非增速数字
+  timeframe: intraday
+  statement: 源杰科技(688498)、联讯仪器(688808)业绩预告后，市场将直接检验盈利增长能否抵消资金撤出与估值收缩的压力；比预告增速数字更值得观察的是利好落地后的价格反应——有没有新的持续卖盘、下探能否被接住、反弹能否带动同类公司。单个高人气标的率先稳定有情绪引导价值，但整个硬件板块是否跟随决定引导能持续多久。
+  evidence_quote: 相比预告的增速数字，更值得观察的是利好落地之后的价格反应：有没有新的持续卖盘、下探能否被接住、反弹能否带动同类公司。单个高人气标的率先稳定具有情绪引导价值，但整个硬件板块是否跟随，决定这种引导能够持续多久。
+  interpretation: UP的业绩催化检验框架（与 004-h 同框架、今日落地执行）：三重观察——卖盘是否竭、下探是否有承接、能否带动同类；单股稳定只是情绪引导，板块跟随才决定持续性。
+  confidence: high
+  status: active
+  stance: view
+  intensity: high
+  supersedes: ["claim-20261012-004-h"]
+  contradicts: []
+  supplements: ["claim-20260913-001-022"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 业绩利好检验=卖盘+承接+带动同类，胜过增速数字
+  related_stocks:
+  - code: '688498'
+    name: 源杰科技
+    role: 光芯片业绩预告-科创板不可交易
+  - code: '688808'
+    name: 联讯仪器
+    role: 测试设备业绩预告-科创板不可交易
+  tags:
+  - 业绩预告
+  - 价格反应
+  - 源杰科技
+  - 联讯仪器
+- id: claim-20261013-001-i
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: operation
+  subject: 今日双情形操作预案
+  timeframe: intraday
+  statement: 情形A（核心止跌带动修复）：AI硬件不再领跌、源杰科技(688498)、联讯仪器(688808)回落有承接、科创50与创业板同步改善、沪指回3800—3820回踩守住+上涨家数扩大+跌停减少——此时优先观察与指数同步转强、回踩有买盘的方向；盘中只做阶段性确认，日线结构以收盘为准，先等承接再做有限试错，不因一次急拉放大暴露。情形B（利好冲高回落继续寻底）：预告只带来短促高开、核心硬件再走弱或沪指无法站稳3800—3820，则按弱势震荡处理；3791失守看3754，3754有效跌破且不能收回不预设V形反弹；低点未确认前以等待和控制回撤为主，不逆势加仓补救判断。
+  evidence_quote: 先等承接，再做有限试错，不因一次急拉立即放大暴露。……若该区域也被有效跌破且不能收回，不预设必然出现V形反弹。……低点未确认之前，以等待和控制回撤为主，不用逆势加仓补救判断。
+  interpretation: UP今日操作条件树：A=修复成立才有限试错且逐层确认；B=继续寻底则防守优先，明确禁止逆势加仓补救。中间状态（银行拉指数但科技宽度未改善）按局部修复处理，不把指数翻红当全面转强。
+  confidence: high
+  status: active
+  stance: view
+  intensity: high
+  supersedes: ["claim-20260910-004-a", "claim-20260928-002-i"]
+  contradicts: []
+  supplements: ["claim-20261008-007-h"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: A情形有限试错不追急拉，B情形防守不逆势加仓
+  related_stocks:
+  - code: '688498'
+    name: 源杰科技
+    role: 业绩检验样本-科创板不可交易
+  - code: '688808'
+    name: 联讯仪器
+    role: 业绩检验样本-科创板不可交易
+  tags:
+  - 双情形
+  - 操作预案
+  - 有限试错
+  - 控制回撤
+- id: claim-20261013-001-j
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: methodology
+  subject: 新题材进入观察范围的四条标准
+  timeframe: permanent
+  statement: 值得进入观察范围的新题材应满足：有可辨认的催化、板块内多只股票响应、核心在分歧中仍有承接、次日能维持一定强度。高低切可以提前准备观察，但不以低价、低位或新概念替代真实催化和资金反馈；先观察市场选择谁，再判断能否与指数共振，不提前给任何方向预定主线位置。当前线索：AI安全、算力服务价格变化、人工智能与铁路结合、细分化工涨价。
+  evidence_quote: 值得进入观察范围的新题材，应有可辨认的催化，板块内出现多只股票响应，核心在分歧中仍有承接，并能在次日维持一定强度。……先观察市场选择谁，再判断它能否与指数形成共振，不提前给任何一个方向预定主线位置。
+  interpretation: UP的新题材筛选框架（可复用）：催化+响应广度+分歧承接+次日强度四条件；并给出高低切的纪律——低位本身不是逻辑，必须由催化和资金反馈驱动。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 新题材四条件：催化+多股响应+分歧承接+次日强度
+  related_stocks: []
+  tags:
+  - 新题材
+  - 高低切
+  - 催化
+  - 方法论
+- id: claim-20261013-001-k
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: market-cycle
+  subject: 硬件稳住是应用发挥的前提
+  timeframe: short-term
+  statement: AI硬件与软件并非完全独立：硬件权重持续下跌会压低成长指数和风险偏好，应用方向即使有自身催化也易受整体收缩影响。当前先看硬件能否停止制造新的负反馈，再看应用端是否放大修复弹性；不要求所有硬件公司同步大涨，但至少需要核心不再持续创新低、科创50与创业板跌幅收敛、资金愿意重新进入成长方向。
+  evidence_quote: 当前先看硬件能否停止制造新的负反馈，再看应用端是否放大修复弹性。这里不要求所有硬件公司同步大涨，但至少需要核心不再持续创新低，科创50与创业板跌幅收敛，资金愿意重新进入成长方向。
+  interpretation: UP对科技内部结构的排序：硬件（权重）是地基，应用（弹性）是上层——地基不稳时应用的催化会被市场收缩压制。硬件企稳的最低标准=核心不创新低+指数跌幅收敛+资金回流，而非大涨。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261009-001-j", "claim-20260806-007"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 硬件止跌是应用弹性的前提，企稳标准是不再创新低
+  related_stocks: []
+  tags:
+  - AI硬件
+  - AI应用
+  - 风险偏好
+  - 科创50
+- id: claim-20261013-001-l
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: sector-theme
+  subject: 源杰联讯作为观察样本的价值与机构卖压假设
+  timeframe: short-term
+  statement: 源杰科技(688498)和联讯仪器(688808)适合作为高关注度观察样本，因为它们同时连接产业景气、机构持仓与短线情绪；对机构卖压「接近尾声」的判断目前更适合当作待价格验证的假设——公司盈利高增长与股票阶段性调整可以同时存在，机构对未来增速、估值和持仓风险的重新评估不会因为一份预告自动结束。
+  evidence_quote: 源杰科技(688498)和联讯仪器(688808)适合作为高关注度的观察样本，原因在于它们同时连接产业景气、机构持仓与短线情绪。对机构卖压"接近尾声"的判断，目前更适合当作待价格验证的假设。公司盈利高增长与股票阶段性调整可以同时存在，机构对未来增速、估值和持仓风险的重新评估，不会因为一份预告自动结束。
+  interpretation: UP把「机构卖压接近尾声」明确定性为假设而非结论——这是对昨日复盘「出清进入后段」判断的自我纪律化：必须用价格验证，预告本身不能终结机构重估。
+  confidence: high
+  status: active
+  stance: view
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261012-004-h"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 机构卖压尾声是待验证假设，预告不能终结机构重估
+  related_stocks:
+  - code: '688498'
+    name: 源杰科技
+    role: 产业景气+机构持仓+情绪样本-科创板不可交易
+  - code: '688808'
+    name: 联讯仪器
+    role: 产业景气+机构持仓+情绪样本-科创板不可交易
+  tags:
+  - 源杰科技
+  - 联讯仪器
+  - 机构卖压
+  - 假设验证
+- id: claim-20261013-001-m
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: macro
+  subject: 外部资产观察框架的非机械解读
+  timeframe: short-term
+  statement: 布油观察区间108/105美元：向上突破并持续运行意味着通胀压力需重新评估，回落至105以下有助于缓解——但点位只用于观察外部环境，不能直接替代A股板块量价确认。美债10年期观察5.20%—5.35%区间（回落利于成长估值缓和，持续上破需防重新定价），30年期要单独观察不能套用同一组阈值；黄金与原油未必同向，美元及实际利率上行可能抵消避险需求，不能把地缘风险升级直接等同于贵金属上涨。
+  evidence_quote: 今天可把108美元和105美元作为布油的观察区间……这里的点位只用于观察外部环境变化，不能直接替代A股板块的量价确认。……30年期要单独观察，不能套用同一组阈值。黄金与原油也未必同向运行，美元及实际利率上行可能抵消黄金的避险需求，因此不能把地缘风险升级直接等同于贵金属上涨。
+  interpretation: UP的外部宏观观察纪律三连：①外部点位是环境变量不是A股信号；②不同期限美债阈值独立；③地缘→黄金的线性传导被美元/实际利率打断。均为反机械推演的判断框架。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260914-001-005", "claim-20260913-001-016", "claim-20260929-002-h"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 外部资产是环境变量：油108/105、10Y与30Y分轨、地缘≠黄金涨
+  related_stocks: []
+  tags:
+  - 布油
+  - 美债收益率
+  - 黄金
+  - 宏观框架
+- id: claim-20261013-001-n
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: macro
+  subject: 美国银行财报的看点排序
+  timeframe: short-term
+  statement: 今晚摩根大通、富国银行、高盛、花旗三季度业绩，比利润增速更值得细看的是存款成本、贷款需求、资产质量与拨备变化，以及高收益率对银行证券资产的影响。高利率既可能支持利息收入也可能抬高融资成本压制贷款需求，取决于各行资产负债结构；若利润尚可但管理层下调需求预期，要留意市场对经济代价的重新评估。
+  evidence_quote: 比利润增速更值得细看的是存款成本、贷款需求、资产质量与拨备变化，以及高收益率对银行证券资产的影响。……若盈利与信贷质量同时稳健，金融股可能提供支撑；若利润尚可但管理层下调需求预期，则要留意市场对经济代价的重新评估。
+  interpretation: UP给银行财报季的分析框架：结构性指标（存款成本/贷款需求/拨备/证券资产减值）优先于利润表观增速；前瞻指引中的需求预期比当期利润更能驱动重定价。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 银行财报看存款成本与需求指引，胜过利润增速
+  related_stocks: []
+  tags:
+  - 美国银行
+  - 财报
+  - 存款成本
+  - 贷款需求
+- id: claim-20261013-001-o
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: sector-theme
+  subject: 涨价题材的联动边界与热度利润分账
+  timeframe: short-term
+  statement: 金丹科技(300829)乳酸提价与善水科技(301190)的活跃只能从涨价主题和资金行为上观察联动，两者产品与盈利结构不同，不能混为同一供需链条；短期题材热度与全年利润贡献需要分开衡量，重点是实际成交价格、销量及原料成本变化——两家公司公告都说明产品调价只是观察经营变化的起点，利润传导还需销量和成本配合。
+  evidence_quote: 两者产品与盈利结构不同，只能从涨价主题和资金行为上观察联动，不能混为同一供需链条。……短期题材热度与全年利润贡献因此需要分开衡量，重点仍是实际成交价格、销量及原料成本的变化。……产品调价是观察经营变化的起点，利润传导还需要销量和成本配合。
+  interpretation: UP对涨价题材的两条纪律：①同主题≠同供需链，联动只在资金行为层面成立；②调价公告≠利润，传导链条是成交价→销量→成本。是对 004-n 涨价兑现纪律的细化。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: ["claim-20261012-004-n"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 涨价股联动只在主题资金层成立，调价≠利润需量本配合
+  related_stocks:
+  - code: '300829'
+    name: 金丹科技
+    role: 乳酸提价8%-创业板不可交易
+  - code: '301190'
+    name: 善水科技
+    role: 涨价题材活跃-创业板不可交易
+  tags:
+  - 涨价题材
+  - 金丹科技
+  - 善水科技
+  - 利润传导
+- id: claim-20261013-001-p
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: sector-theme
+  subject: 算力租赁业务的分析框架
+  timeframe: industry
+  statement: Nebius部分GPU按需租赁价格上调16.9%—21.0%，但按需价格反映临时弹性用量的边际供需，与长期承诺合同口径不同；短期容量紧张可推高即期租金，长期供给扩张后溢价能否保留要看交付速度、需求增长与客户自建能力。对算力租赁业务，收入增长、设备折旧、融资成本和利用率应放在一起分析，不能只看设备规模或名义报价。
+  evidence_quote: 按需价格反映临时、弹性用量的边际供需，与长期承诺合同的口径不同……短期容量紧张可以推高即期租金，但长期供给扩张之后溢价能否保留，还要看交付速度、需求增长与客户自建能力。……对算力租赁业务而言，收入增长、设备折旧、融资成本和利用率应放在一起分析，不能只看设备规模或名义报价。
+  interpretation: UP给算力租赁行业的分析框架：区分按需价（边际供需）与长约价（收入主体）；评估业务用四要素（收入/折旧/融资成本/利用率），警惕「设备规模」「名义报价」式叙事。映射标的：亚康股份、申昊科技。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260830-022-a"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 算力租赁：按需价≠长约，收入折旧融资成本利用率一起看
+  related_stocks:
+  - code: '301085'
+    name: 亚康股份
+    role: 算力集成交付运维-创业板不可交易
+  - code: '300853'
+    name: 申昊科技
+    role: 智算服务器采购-创业板不可交易
+  tags:
+  - 算力租赁
+  - Nebius
+  - 商业模式
+  - 利用率
+- id: claim-20261013-001-q
+  source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
+  source_date: '2026-10-13'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-13T08:50:00'
+  claim_type: sector-theme
+  subject: 非科技方向的轮动边界
+  timeframe: short-term
+  statement: 非科技方向沿业绩预增、农业消费、风电与电池分别观察：不能把一次有机硅催化外推成所有化工品同步走强；农业大消费偏反复轮动，没有新增催化与连续增量买盘很难仅凭前一天活跃推演成持续行情；电池产业链近期与指数呈反向波动，这种关系若不断重复会消耗追涨资金耐心，需新增订单、技术进展或价格变化重建独立驱动，而不是继续依赖市场走弱才获得关注。
+  evidence_quote: 不能把一次有机硅催化外推成所有化工品同步走强。农业、大消费更偏反复轮动，防御属性能够吸引短期资金，但若没有新增催化与连续增量买盘，很难仅凭前一天活跃就推演成持续行情。……接下来要看新增订单、技术进展或价格变化能否重新建立独立驱动，也看指数修复时板块能否维持承接，而不是继续依赖市场走弱才获得关注。
+  interpretation: UP对非科技轮动的三条边界：①单一品种催化不外推全行业；②防御轮动无新增催化则无持续性；③电池的「逆势才涨」关系是减分项——健康方向应在指数修复时也能维持承接。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261011-001-q"]
+  last_discovered: 2026-10-13
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 非科技轮动三边界：催化不外推、防御需增量、电池须独立驱动
+  related_stocks: []
+  tags:
+  - 非科技轮动
+  - 化工
+  - 电池
+  - 防御轮动

@@ -584,3 +584,4 @@
 - sources/original/bilibili/2026-10-12-1049-图片-现阶段就像是刚经历过一场大病，已经抢救过来脱离生命危险，但是.md → claim-20261012-003 (4 claims) → wiki: 每日复盘/2026-10-12-青枫浦上Q盘中动态-大病比喻与筹码出清 → 下游 discover/Neo4j/Qdrant 已跑（2026-10-12，19节点+36关系入图，Qdrant 5878条）
 - sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md → claim-20261012-004 (15 claims) → wiki: 每日复盘/2026-10-12-青枫浦上Q复盘专栏 → 下游 discover/Neo4j/Qdrant 已跑（2026-10-12，19节点+36关系入图，Qdrant 5878条）
 - sources/original/bilibili/2026-10-12-1939-视频-投机如山岳一样古老。 感谢观看，一键三连。.md → 跳过（ASR 转写失败，无观点文本）
+- sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md → claim-20261013-001 (17 claims) → wiki: 每日复盘/2026-10-13-青枫浦上Q早盘专栏 → 下游 discover/Neo4j/Qdrant 已跑（2026-10-13，17节点+31关系入图，Qdrant 5895条）
