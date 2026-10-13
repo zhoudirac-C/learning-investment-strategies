@@ -206,6 +206,38 @@ def _extract_daily_state_block(content: str) -> dict | None:
         return None
 
 
+_JSON_FENCE_RE = re.compile(r"```(?:json)?\s*\n(.*?)```", re.DOTALL)
+
+
+def _parse_llm_json_content(content: str | None) -> dict:
+    """解析 LLM 输出中的 JSON 对象为 dict，失败返回 {}。
+
+    处理顺序：
+    1. 剥离 ```daily_state 代码块（副产物，不是主输出）
+    2. 提取 ```json / ``` 围栏内容（k3 等模型间歇性围栏包裹，2026-10-12 实测）
+    3. 裸 JSON 直读
+    4. 兜底：截取首个 { 到末个 } 之间的子串再试
+    顶层非 dict（list/标量）一律视为失败返回 {}。
+    """
+    if not content:
+        return {}
+    cleaned = re.sub(r"```daily_state\s*[\s\S]*?```", "", content).strip()
+    if not cleaned:
+        return {}
+    candidates = [m.group(1).strip() for m in _JSON_FENCE_RE.finditer(cleaned)]
+    candidates.append(cleaned)
+    if "{" in cleaned and "}" in cleaned:
+        candidates.append(cleaned[cleaned.index("{"): cleaned.rindex("}") + 1])
+    for cand in candidates:
+        try:
+            obj = json.loads(cand)
+        except (json.JSONDecodeError, ValueError):
+            continue
+        if isinstance(obj, dict):
+            return obj
+    return {}
+
+
 def _now_cn_str(fmt: str = "%H:%M") -> str:
     return datetime.now(_CN_TZ).strftime(fmt)
 
@@ -911,6 +943,7 @@ def _safe_llm_invoke(
     prompt: str,
     min_length: int = 0,
     use_acp_first: bool | None = None,
+    json_mode: bool = False,
 ) -> str:
     """安全调用 LLM，默认走配置 provider。
 
@@ -943,12 +976,26 @@ def _safe_llm_invoke(
     # if cli_first:
     #     local_providers.append("kimi-code-cli")
 
+    # JSON 模式（2026-10-12，k3 间歇性 ```json 围栏包裹的 API 层双保险）：
+    # kimi coding 端点实测支持 response_format={"type":"json_object"}；
+    # 只在「期望 JSON dict 输出」的节点开启， prose/list 输出节点勿开。
+    _invoke_kwargs = {"response_format": {"type": "json_object"}} if json_mode else {}
+
+    def _invoke(llm_obj):
+        if _invoke_kwargs:
+            try:
+                return llm_obj.invoke(prompt, **_invoke_kwargs).content
+            except TypeError:
+                # 客户端不接受 kwargs（如本地 ACP），降级裸调用
+                return llm_obj.invoke(prompt).content
+        return llm_obj.invoke(prompt).content
+
     for local_provider in local_providers:
         logger.info("[_safe_llm_invoke] 优先尝试 %s", local_provider)
         record_provider_usage(local_provider, "attempt", "local-first enabled")
         local_llm = get_llm_client(provider=local_provider)
         try:
-            content = local_llm.invoke(prompt).content
+            content = _invoke(local_llm)
             record_provider_usage(local_provider, "success", f"content_len={len(content)}")
             logger.info(
                 "[_safe_llm_invoke] %s 成功, content_len=%d, tracker=%s",
@@ -978,7 +1025,7 @@ def _safe_llm_invoke(
     record_provider_usage(settings.llm_provider, "fallback" if local_providers else "attempt")
     try:
         llm = get_llm_client()
-        content = llm.invoke(prompt).content
+        content = _invoke(llm)
         record_provider_usage(settings.llm_provider, "success", f"content_len={len(content)}")
         logger.info(
             "[_safe_llm_invoke] provider %s 成功, content_len=%d, tracker=%s",
@@ -1008,11 +1055,8 @@ def parse_query(state: AgentState) -> AgentState:
 
 输入：{query}
 """
-    content = _safe_llm_invoke(prompt)
-    try:
-        parsed = json.loads(content) if content else {}
-    except json.JSONDecodeError:
-        parsed = {}
+    content = _safe_llm_invoke(prompt, json_mode=True)
+    parsed = _parse_llm_json_content(content)
 
     if not parsed:
         parsed = {
@@ -1895,26 +1939,22 @@ def market_summary(state: AgentState) -> AgentState:
             **({"_data_missing_note": _data_missing_note} if _data_missing_note else {}),
         }
 
-    content = _safe_llm_invoke(prompt)
+    content = _safe_llm_invoke(prompt, json_mode=True)
     if not content:
         # 空返回（超时/限流等瞬时失败）重试一次
         logger.warning("market_summary_llm: empty content, retrying once")
-        content = _safe_llm_invoke(prompt)
+        content = _safe_llm_invoke(prompt, json_mode=True)
     _t1 = time.time()
     logger.info(
         "market_summary_llm: duration=%.1fs prompt_len=%d content_len=%d",
         _t1 - _t0, len(prompt), len(content) if content else 0
     )
 
-    cleaned_content = re.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
-    _json_parse_failed = False
-    try:
-        result = json.loads(cleaned_content) if cleaned_content else {}
-    except json.JSONDecodeError:
-        result = {}
-        _json_parse_failed = True
+    result = _parse_llm_json_content(content)
+    # 判定真实失败原因：有返回内容但解析不出 dict → json_parse_error；无内容 → llm_empty
+    _json_parse_failed = bool(content) and not result
 
-    if not result or not isinstance(result, dict):
+    if not result:
         # fallback：区分真实失败原因 + 规则拼装原始数据降级摘要（不编造判断）
         _fb_reason = "json_parse_error" if (content and _json_parse_failed) else "llm_empty"
         result = dict(fallback)
@@ -2355,24 +2395,20 @@ def stock_scanner_shard(state: AgentState) -> AgentState:
             ],
         }
 
-    content = _safe_llm_invoke(prompt)
+    content = _safe_llm_invoke(prompt, json_mode=True)
     _t1 = time.time()
     logger.info(
         "stock_scanner_shard_llm: duration=%.1fs prompt_len=%d content_len=%d",
         _t1 - _t0, len(prompt), len(content) if content else 0
     )
 
-    cleaned_content = re.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
+    scan_result = _parse_llm_json_content(content)
     scan_failed = False
-    try:
-        scan_result = json.loads(cleaned_content) if cleaned_content else {}
-    except json.JSONDecodeError:
+    if not scan_result and content:
         logger.warning(
             "stock_scanner_shard failed to parse LLM output as JSON (content_len=%d): %s...",
-            len(cleaned_content) if cleaned_content else 0,
-            cleaned_content[:200] if cleaned_content else "",
+            len(content), content[:200],
         )
-        scan_result = {}
         scan_failed = True
 
     if not scan_result:
@@ -2435,8 +2471,12 @@ def merge_scanner_results(state: AgentState) -> AgentState:
     analysis_type = (state.get("parsed_intent") or {}).get("analysis_type", "stock")
 
     merged = dict(market_summary_ctx)
-    merged.setdefault("opportunity_scan", [])
-    merged.setdefault("position_plans", [])
+    # 类型护栏（2026-10-13 崩溃事故）：LLM 可能把 opportunity_scan/position_plans
+    # 输出成 dict 而非 list，setdefault 对已有 key 不生效，append 即炸 AttributeError
+    # 并拖垮进程。类型不符的 LLM 输出一律按空表处理，丢弃好过崩溃。
+    for _k in ("opportunity_scan", "position_plans"):
+        if not isinstance(merged.get(_k), list):
+            merged[_k] = []
 
     reasoning_steps: list[str] = []
     total_cost: list[dict] = []
@@ -2456,10 +2496,12 @@ def merge_scanner_results(state: AgentState) -> AgentState:
         if override:
             daily_state_overrides.append(override)
 
-        for opp in mc.get("opportunity_scan", []):
-            merged["opportunity_scan"].append(opp)
-        for plan in mc.get("position_plans", []):
-            merged["position_plans"].append(plan)
+        opps = mc.get("opportunity_scan", [])
+        if isinstance(opps, list):
+            merged["opportunity_scan"].extend(opps)
+        plans = mc.get("position_plans", [])
+        if isinstance(plans, list):
+            merged["position_plans"].extend(plans)
 
     if any_truncated:
         merged["_truncated"] = True
@@ -2680,20 +2722,15 @@ def stock_analyst(state: AgentState) -> AgentState:
 
 请输出JSON：
 """
-    content = _safe_llm_invoke(prompt)
+    content = _safe_llm_invoke(prompt, json_mode=True)
 
     # 成本追踪
     _sa_ct = CostTracker()
     _sa_ct.record_call(provider=(settings.llm_provider or "deepseek"))
     _sa_cost = _sa_ct.snapshot()
 
-    # 清洗可能的 ```daily_state 代码块，避免 JSON 解析失败
-    import re as _re_sa
-    cleaned_content = _re_sa.sub(r"```daily_state\s*[\s\S]*?```", "", content or "").strip() if content else ""
-    try:
-        result = json.loads(cleaned_content) if cleaned_content else {}
-    except json.JSONDecodeError:
-        result = {}
+    # 清洗 ```daily_state / ```json 围栏，避免 JSON 解析失败（k3 间歇性围栏包裹，2026-10-12）
+    result = _parse_llm_json_content(content)
 
     if not result:
         result = {
@@ -3197,7 +3234,7 @@ def reviewer(state: AgentState) -> AgentState:
 请输出JSON：
 """
     # reviewer 每次 retry 都调 LLM，优先走远端 deepseek 以避免本地 ACP 拖慢整体耗时
-    content = _safe_llm_invoke(prompt, use_acp_first=False)
+    content = _safe_llm_invoke(prompt, use_acp_first=False, json_mode=True)
 
     # 成本追踪
     _rv_ct = CostTracker()
@@ -3205,10 +3242,7 @@ def reviewer(state: AgentState) -> AgentState:
     _rv_cost = _rv_ct.snapshot()
     logger.info("[reviewer] cost_tracking: calls=%s cost=%s", _rv_cost["llm_calls"], _rv_cost["total_cost_usd"])
 
-    try:
-        result = json.loads(content) if content else {}
-    except json.JSONDecodeError:
-        result = {}
+    result = _parse_llm_json_content(content)
 
     if not result:
         # 简单规则检查 fallback
