@@ -1,0 +1,485 @@
+claims:
+- id: claim-20261014-001-a
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: market-cycle
+  subject: 反弹改善与强度待验证的定性
+  timeframe: short-term
+  statement: 反弹已有改善，强度仍待验证；今明两天能否连续修复，比单次深V更重要。
+  evidence_quote: 眼下的核心判断是：反弹已有改善，强度仍待验证；今明两天能否连续修复，比单次深V更重要。
+  interpretation: 对当前反弹阶段的总定性：单次深V只是第一步，能否收复失地、分歧中守住、接着涨才决定行情真正改善。验证窗口锁定10月14-15日。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-002-a
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 反弹定性
+  - 连续修复
+  - 验证窗口
+  - 强度验证
+  topic: 反弹有改善但强度待验证，今明两天连续修复比单次深V重要
+- id: claim-20261014-001-b
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: methodology
+  subject: 先行个股的板块合力确认法
+  timeframe: short-term
+  statement: 昨日最有价值的变化是部分AI硬件个股在指数尚未回升时就率先走强；若这些先行品种与PCB、光通信核心延续强势、指数回落时仍稳住，修复才可能从个别公司扩展成板块合力；若竞价强但开盘迅速回落或仅小票脉冲，按弱势轮动理解。
+  evidence_quote: 昨天最有价值的变化，是部分AI硬件个股在指数尚未回升时就率先走强。源杰科技、联讯仪器等开盘后的主动表现，给科技板块的止跌提供了线索。……若竞价强、开盘后迅速回落，或仅有少量小票脉冲，则还应按弱势轮动理解。
+  interpretation: 方法论：以先行个股（源杰科技、联讯仪器）的主动性强弱作为板块合力能否形成的观察锚，给出可证伪分支。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-e
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '688498'
+    name: 源杰科技
+    role: AI硬件先行个股-科创板不可交易
+  - code: '688808'
+    name: 联讯仪器
+    role: AI硬件先行个股-科创板不可交易
+  tags:
+  - 先行个股
+  - 板块合力
+  - 弱势轮动
+  - AI硬件
+  topic: AI硬件先行个股是板块合力能否形成的观察锚
+- id: claim-20261014-001-c
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: methodology
+  subject: 盘中验证的分层时间结构
+  timeframe: short-term
+  statement: 盘中冲高只说明有买盘，收盘站稳并获得次日承接才是持续性证据；验证次序为早盘看领涨方向承接与同时段成交、午后看扩散、收盘看创业板守新增涨幅。
+  evidence_quote: 盘中冲高只能说明有买盘，收盘站稳并获得次日承接，才是持续性证据。
+  interpretation: 方法论：盘中确认分三个时间层次（早盘/午后/收盘），持续性证据只有收盘站稳+次日承接才成立，防止把盘中急拉当修复完成。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-e
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 盘中确认
+  - 收盘站稳
+  - 次日承接
+  - 时间层次
+  topic: 持续性证据=收盘站稳+次日承接，非盘中冲高
+- id: claim-20261014-001-d
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: market-cycle
+  subject: 用时间换空间的接受度
+  timeframe: short-term
+  statement: 可以接受用时间换空间：单日未完成反包，今明两天若连续上移、回踩低点抬高、核心板块成交不萎缩，仍有机会逐步修复跌幅；但弱修复后的风险不会自动消失，历史对照不足以推导本轮必然重复相同路径。
+  evidence_quote: 今天可以接受“用时间换空间”。……这些对照提醒我们，弱修复后的风险不会自动消失，但几个历史片段不足以推导本轮必然重复相同路径。
+  interpretation: 对反弹节奏的判断：不要求单日反包，用多日连续修复替代；同时拒绝用「历史上次日都弱」机械推导，体现样本量意识。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261014-001-a
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 时间换空间
+  - 连续修复
+  - 回踩抬高
+  - 样本量意识
+  topic: 接受时间换空间，历史对照不足推导本轮重复
+- id: claim-20261014-001-e
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: methodology
+  subject: 指数颜色对赚钱效应的解释力边界
+  timeframe: short-term
+  statement: 若沪指翻红而科技核心、个股广度继续走弱，指数颜色对整体赚钱效应的解释力就有限；前期低点附近需要真实承接，不能仅凭权重托举认定支撑有效。
+  evidence_quote: 若沪指翻红而科技核心、个股广度继续走弱，指数颜色对整体赚钱效应的解释力就有限。前期低点附近同样需要真实承接，不能仅凭权重托举就认定支撑有效。
+  interpretation: 方法论：警惕权重护指数造成的虚假稳定信号，沪指颜色≠赚钱效应，需个股广度与真实承接佐证。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-f
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 权重护盘
+  - 赚钱效应
+  - 个股广度
+  - 真实承接
+  topic: 沪指颜色≠赚钱效应，权重托举不等于支撑有效
+- id: claim-20261014-001-f
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: market-cycle
+  subject: 情绪修复的三层并行验证标准
+  timeframe: short-term
+  statement: 短线生态修复完成需要同时看到跌停保持低位、昨日首板有合理承接、领涨题材内部产生新晋级；仅首板数量增加不足以证明修复完成。
+  evidence_quote: 今天需要同时看到跌停保持低位、昨日首板有合理承接，以及领涨题材内部能够产生新的晋级；仅靠首板数量增加，还不足以证明短线生态已经修复完成。
+  interpretation: 情绪修复验证标准从「首板扩容」升级为三项并行条件；对照昨日首板扩容/跌停降至8家的改善数据，仍判定未完成。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-g
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 情绪修复
+  - 首板扩容
+  - 跌停收敛
+  - 晋级验证
+  topic: 情绪修复需跌停低位+首板承接+新晋级三项并行
+- id: claim-20261014-001-g
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: operation
+  subject: 情形A连续修复成立的条件与应对
+  timeframe: short-term
+  statement: 情形A：早盘回落受承接、AI硬件至少一至两个分支延续、核心个股相对指数主动；创业板上攻3000点成交配合、突破后回踩不轻易失守。应对：围绕经换手和回踩检验的强势方向小范围跟踪，确认逐步增加参与程度；未完成连续确认前不因一次急拉大幅提高仓位。
+  evidence_quote: 情形 A · 连续修复逐步成立：……应对上先围绕经过换手和回踩检验的强势方向小范围跟踪，确认逐步增加，再考虑提高参与程度。未完成连续确认前，不因一次急拉大幅提高仓位。
+  interpretation: 操作预案（正情形）：入场范围限定于经换手+回踩检验的强势方向，参与程度与确认程度挂钩，急拉不是加仓理由。
+  confidence: high
+  status: active
+  stance: view
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-i
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 情形A
+  - 连续修复
+  - 强势方向
+  - 小范围跟踪
+  topic: 情形A：回踩检验过的强势方向小范围跟踪，确认再加仓
+- id: claim-20261014-001-h
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: operation
+  subject: 情形B冲高回落或修复中断的应对
+  timeframe: short-term
+  statement: 情形B：创业板3000点再受压、硬件核心快速转弱、首板溢价下降、跌停重新扩散；反抽收不回失地则二次下探风险增加。应对：减少新增试错、利用反弹梳理弱势持仓；支撑与板块承接同时失效就按既定计划收缩；破位后不以「已经跌很多」加仓，也不等重复深V替代止损。
+  evidence_quote: 情形 B · 冲高回落或修复中断：……破位后不以“已经跌很多”为加仓理由，也不等待重复的深V来替代止损纪律。
+  interpretation: 操作预案（负情形）：防守优先，破位纪律明确——跌得多不是买回来的理由，深V预期不能替代止损。
+  confidence: high
+  status: active
+  stance: view
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-i
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 情形B
+  - 防守预案
+  - 止损纪律
+  - 破位不加仓
+  topic: 情形B：减少试错，破位不以跌很多为由加仓
+- id: claim-20261014-001-i
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: methodology
+  subject: 高标分歧的解读边界
+  timeframe: short-term
+  statement: 高标分歧本身不宜单独解读为全面退潮：弱市资金向少数辨识度品种集中，修复时转向容量更大方向是正常资金选择；真正需警惕的是旧高标转弱后新领涨方向也无法延续，最终只剩快速轮动。
+  evidence_quote: 高标分歧本身不宜单独解读为全面退潮。真正需要警惕的是旧高标转弱之后，新领涨方向也无法延续，最终只剩快速轮动。
+  interpretation: 方法论：高标分歧是资金再分配信号而非必然退潮信号；危险信号是新方向同样无延续性（只剩快速轮动）。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-g
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 高标分歧
+  - 资金再分配
+  - 快速轮动
+  - 退潮误判
+  topic: 高标分歧非全面退潮，警惕新方向无延续只剩快速轮动
+- id: claim-20261014-001-j
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: sector-theme
+  subject: 涨价梯队扩散的观察法（分散染料）
+  timeframe: industry
+  statement: 分散染料涨价预期向相关品种扩散：先行品种（善水科技）强势维持+补涨出现有效换手，链条才完整；前排松动、后排仅开盘冲高，追补涨的收益风险比下降。亚邦股份、吉华集团放在善水科技之后的补涨梯队中观察。
+  evidence_quote: 先行品种强势维持、补涨出现有效换手，链条才更完整；如果前排松动、后排只在开盘短暂冲高，追逐补涨的收益风险比就会下降。
+  interpretation: 题材判断方法论：涨价链完整信号=前排维持+后排有效换手；只看后排开盘脉冲判断链走远是误区。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-o
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '301190'
+    name: 善水科技
+    role: 涨价链先行品种-创业板不可交易
+  - code: '603188'
+    name: 亚邦股份
+    role: 分散染料补涨梯队-主板
+  - code: '603980'
+    name: 吉华集团
+    role: 分散染料补涨梯队-主板
+  tags:
+  - 涨价梯队
+  - 分散染料
+  - 补涨换手
+  - 收益风险比
+  topic: 涨价链完整信号=前排维持+后排有效换手
+- id: claim-20261014-001-k
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: sector-theme
+  subject: 低位新题材的检验标准（冰雪经济与军工）
+  timeframe: short-term
+  statement: 冰雪经济具备低位、关注少、季节性催化特征；观察资金能否从单个涨停扩散到有业务联系的设备、保温材料、运营环节，前排分歧后仍有承接；军工午后异动也按同样标准：只有次日延续并形成板块合力，才提高跟踪优先级。
+  evidence_quote: 今天观察的是首轮启动后，资金能否从单个涨停扩散到具有业务联系的设备、保温材料及运营环节，以及前排分歧后是否仍有承接。军工午后的异动也宜按同样标准检验，只有次日延续并形成板块合力，才具备提高跟踪优先级的条件。
+  interpretation: 新题材检验框架：扩散（涨停→产业链相关环节）+承接（分歧后仍有人接）+延续（次日板块合力）三步，达标才升优先级。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-j
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '000530'
+    name: 冰山冷热
+    role: 冰雪设备冷热系统-主板
+  - code: '301010'
+    name: 晶雪节能
+    role: 保温材料-创业板不可交易
+  tags:
+  - 新题材检验
+  - 冰雪经济
+  - 扩散承接延续
+  - 军工
+  topic: 新题材检验：扩散+承接+延续三步才升优先级
+- id: claim-20261014-001-l
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: sector-theme
+  subject: 硬件先稳与应用再扩散的传导次序
+  timeframe: short-term
+  statement: AI应用继续观察「大票搭台，小票唱戏」的传导：硬件核心先稳定，风险偏好才更有条件向短剧、游戏、网络安全、世界模型扩散；判断次序仍是硬件承接→应用扩散→持续性验证；硬件重新走弱则应用端独立强势需更严格检验。
+  evidence_quote: AI应用则继续观察“大票搭台，小票唱戏”的传导。硬件核心若先稳定下来，市场风险偏好才更有条件向短剧、游戏、网络安全、世界模型等细分方向扩散。……判断次序仍是硬件承接、应用扩散、持续性验证；若硬件重新走弱，应用端的独立强势也需要更严格地检验。
+  interpretation: 板块传导框架：硬件是应用的前提变量，应用扩散是硬件修复的确认信号；次序错乱（应用独立走强）反而是需要警惕的异常。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-l
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 大票搭台
+  - 应用扩散
+  - 传导次序
+  - 风险偏好
+  topic: 硬件先稳是应用扩散的前提，次序错乱需警惕
+- id: claim-20261014-001-m
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: sector-theme
+  subject: 硬件板块内部分化的预期与选股线索
+  timeframe: short-term
+  statement: 量能约束下硬件板块内部大概率仍需分化：指数延续修复时，光通信、PCB、服务器电源或温控中有一至两个分支持续走强就足以提供有效线索，不要求所有分支同时上涨；业绩兑现、订单交付、产能利用率能解释强势的品种，值得比单纯超跌反抽多看一步。
+  evidence_quote: 在量能约束下，硬件板块内部大概率仍需分化。……公司业绩兑现、订单交付和产能利用率能够解释强势的品种，值得比单纯超跌反抽多看一步，但也要把业绩增长与股价已有预期放在一起考量。
+  interpretation: 板块内部结构预判：分化是基准情形；选股线索偏好有基本面解释（业绩/订单/产能）的强势品种，而非纯超跌反抽。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-c
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '300502'
+    name: 新易盛
+    role: 光通信核心-创业板不可交易
+  - code: '300308'
+    name: 中际旭创
+    role: 光通信核心-创业板不可交易
+  - code: '300394'
+    name: 天孚通信
+    role: 光通信核心-创业板不可交易
+  tags:
+  - 板块分化
+  - 基本面解释
+  - 业绩订单产能
+  - 超跌反抽
+  topic: 量能约束下硬件内部分化是基准，偏好有基本面解释的强势品种
+- id: claim-20261014-001-n
+  source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
+  source_date: '2026-10-14'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:45:00'
+  claim_type: risk
+  subject: 覆铜板调价执行期的产业影响判断边界
+  timeframe: industry
+  statement: 松下调价已进入执行期，影响将体现于订单结构、采购成本与销售价格的变化；需求增加能否转化为供应商持续增长取决于客户认证、量产良率、按期交付；上游提价对材料企业和下游PCB厂商影响需分别判断。
+  evidence_quote: 这轮调价已进入执行期，对产业链的影响将体现于订单结构、采购成本和销售价格的变化。……需求增加能否转化为供应商的持续增长，还取决于客户认证、量产良率和按期交付能力；上游提价对材料企业和下游PCB厂商的影响，也需结合采购与销售价格的传导情况分别判断。
+  interpretation: 产业判断边界：调价=观察经营变化起点而非结论，传导链（认证/良率/交付）决定最终受益者；威尔高(301301)、崇达技术(002827)等个股事实作为论据不单独建 claim。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-o
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '301251'
+    name: 威尔高
+    role: 服务器电源PCB-创业板不可交易
+  - code: '002815'
+    name: 崇达技术
+    role: 高多层高速PCB-主板
+  tags:
+  - 覆铜板调价
+  - 执行期
+  - 认证良率交付
+  - 传导判断
+  topic: 调价是观察起点，传导链决定最终受益者
