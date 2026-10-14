@@ -1,0 +1,190 @@
+claims:
+- id: claim-20261013-002-a
+  source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
+  source_date: '2026-10-13'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:15:00'
+  claim_type: market-cycle
+  subject: 日线序列低8与低点出现时序的偏好
+  timeframe: short-term
+  statement: 今天日线已出低8，最好收盘能稳在3764下方，如果涨上去就没有低点买入的机会，明天出低点反而是最完美的走势。
+  evidence_quote: 今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去，就没有什么低点买入的机会，明天出低点反而是最完美的走势。
+  interpretation: UP 对大盘低点确认时序的主动偏好：宁可指数再压一天在3764下方完成序列出低点，也不希望提前涨上去丧失低位买入窗口。与早盘专栏「先确认大盘低点再考虑板块」一致，是低吸派节奏判断。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-a
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 日线序列
+  - 低8
+  - '3764'
+  - 低点确认
+  - 买点时序
+  topic: 日线低8已出，盼收盘稳3764下方明日出低点
+- id: claim-20261013-002-b
+  source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
+  source_date: '2026-10-13'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:15:00'
+  claim_type: methodology
+  subject: 负乖离过大抄底的性质与代价
+  timeframe: short-term
+  statement: 这两天坚持和抄底做的其实是负乖离过大，负乖离过大并没有明确的买点，但如果低位不买，就只能等右侧趋势，而右侧趋势必然是追高的——两种模式各有代价，没有完美模式，适合自己的最重要，不要左右脑互博。
+  evidence_quote: 这两天我们坚持和抄底做的其实是负乖离过大，负乖离过大并没有明确的买点，但如果低位不买，就只能等右侧趋势，右侧趋势必然是追高的。……做交易不要左右脑互博，没有完美的模式，适合自己的最重要。
+  interpretation: 方法论：UP 明确承认当前低吸并无精确买点（负乖离是模糊区域而非信号），并坦陈该模式的代价是可能买早；右侧的代价是追高。核心纪律是选定一种模式执行到底，不临场切换。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 负乖离
+  - 抄底
+  - 左侧交易
+  - 右侧趋势
+  - 模式纪律
+  topic: 负乖离抄底无明确买点，左右侧各有代价勿互博
+- id: claim-20261013-002-c
+  source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
+  source_date: '2026-10-13'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:15:00'
+  claim_type: market-cycle
+  subject: 右侧趋势交易的入场门槛
+  timeframe: short-term
+  statement: 右侧趋势选手的入场条件是大盘突破并站稳3908，在此之前不构成右侧买点。
+  evidence_quote: 如果你们有右侧选手，那就只能等大盘突破站稳3908。
+  interpretation: 给出了右侧模式的可证伪锚点：3908 突破站稳前，右侧资金应保持空仓/观望。与左低吸的3764下方构成一组明确的区间坐标系（3764下方买、3908上方追）。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-002-b
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 右侧交易
+  - '3908'
+  - 突破站稳
+  - 入场门槛
+  topic: 右侧选手入场门槛为大盘突破站稳3908
+- id: claim-20261013-002-d
+  source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
+  source_date: '2026-10-13'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:15:00'
+  claim_type: market-cycle
+  subject: 潜在行情的定性与时间窗口
+  timeframe: trend
+  statement: 后面如果起行情，会是本年最后一波机会，行情随时启动，启动后就没有时间做研究了——要抓紧最后的时间看F10、从F10里找东西。
+  evidence_quote: 后面如果起行情，也会是本年最后一波机会，行情随时启动，等来了也就没什么太大的机会去研究了，抓紧最后的时间去看F10，从F10里找东西。
+  interpretation: 对年内行情节奏的预判：当前处于行情启动前的最后研究窗口，选股功课必须前置完成。隐含方法论：行情来临时买入决策依赖平时积累的F10基本面研究，而非临场选股。
+  confidence: high
+  status: active
+  stance: market-regime
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 年内最后一波
+  - 行情启动
+  - F10研究
+  - 前置功课
+  topic: 若起行情是本年最后一波，启动前抓紧做F10功课
+- id: claim-20261013-002-e
+  source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
+  source_date: '2026-10-13'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:15:00'
+  claim_type: market-cycle
+  subject: 下一波行情的风格预判
+  timeframe: trend
+  statement: 如果后面起行情，风格要切换到成长股。
+  evidence_quote: 风格也是要切换到成长股的。
+  interpretation: 明确的方向层预判：下一波行情的主线风格是成长股（而非当前护盘的银行/红利）。与专栏中「资金能否从权重扩散到科技和中小市值」的验证逻辑衔接，是选股风格的前瞻指引。
+  confidence: medium
+  status: active
+  stance: market-regime
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 风格切换
+  - 成长股
+  - 主线预判
+  topic: 下一波行情风格将切换到成长股
+- id: claim-20261013-002-f
+  source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
+  source_date: '2026-10-13'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T09:15:00'
+  claim_type: methodology
+  subject: 回撤期的资金曲线观
+  timeframe: permanent
+  statement: 不要用单月盈亏评价体系：七月赚七十几后八月照样回撤三四十个点，回撤不重要，做回来就行，只要最终结果是好的——股市永远不缺机会。
+  evidence_quote: 我七月份赚了七十几个点，八月份你们赚的最多的时候，我反而大幅回撤，回撤三四十个点，这些都不重要，做回来就行了，只要最终的结果是好的就行，股市永远不缺机会。
+  interpretation: 心态方法论：UP 用自身资金曲线说明高波动模式的固有回撤，主张以累计结果而非过程回撤评价策略，前提是模式本身长期有效。这是对订阅者用单月业绩质疑体系的回应。
+  confidence: medium
+  status: active
+  stance: view
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 回撤观
+  - 资金曲线
+  - 长期主义
+  - 心态管理
+  topic: 回撤三四十个点不重要，做回来就行
