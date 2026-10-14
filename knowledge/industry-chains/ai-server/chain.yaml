@@ -39,6 +39,9 @@ segments:
   - 热泵配套
   - 数据中心液冷屏蔽泵
   - 冷却水泵
+  - 热界面材料TIM
+  - 导热凝胶/导热垫片
+  - 芯片近端散热组件
   value_share: ~15%
   barrier: 液冷渗透率
   trend: 加速
@@ -110,6 +113,11 @@ mappings:
   segment: seg-machine
   relation: 光芯片-器件-模块全链一体化供应商，与新易盛共同绑定'超节点互联方案（NPO/光互联/铜连接）渗透与出货'关键节点，受益国产算力超节点放量
   elasticity: concept
+- code: '300604'
+  name: 长川科技
+  segment: seg-equip
+  relation: ATE测试机+探针台国产供应商，直接受益AI芯片测试需求外溢，填补本链上游设备环节测试设备标的空白
+  elasticity: concept
 current_stage: 阶段4-见顶期
 stage_confidence: 高
 stage_evidence: 2026-09-07 跟踪更新：双研报确认高密度算力驱动液冷加速渗透，直接命中关键节点，产业链逻辑加强，仍处分歧期等回踩。
@@ -155,6 +163,9 @@ tracking_metrics:
 - metric: 国产光互联全链一体化（光芯片-器件-模块）进度
   current: 光迅科技全链一体化领先、国产光互联持续突围（2026-10-08东吴研报）
   signal_direction: 上行
+- metric: ATE测试设备/测试耗材（探针卡）订单与出货
+  current: 东吴研报推荐AI投资加速利好的ATE测试设备和耗材，技术迭代带来增量需求（2026-10-11）
+  signal_direction: 订单放量/国产替代加速=加强；订单不及预期=弱化
 falsification:
 - 超节点出货量大幅低于预期
 - CSP资本开支缩减
@@ -244,4 +255,12 @@ history:
 - date: '2026-10-10'
   stage: 阶段4-见顶期
   action: 演化:add_node 国产光互联全链一体化龙头光迅科技入链，超节点互联供应商扩容
+  result: 待验证
+- date: '2026-10-14'
+  stage: 阶段4-见顶期
+  action: 演化:add_node 上游设备环节补充ATE测试机标的长川科技，填补测试设备标的空白
+  result: 待验证
+- date: '2026-10-14'
+  stage: 阶段4-见顶期
+  action: 演化:refine_segment 中游散热环节细化新增热界面材料TIM（芯片近端热管理）
   result: 待验证

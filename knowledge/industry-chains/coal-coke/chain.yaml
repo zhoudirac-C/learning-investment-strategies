@@ -50,11 +50,11 @@ mappings:
   elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 低
-stage_evidence: 2026-09-18 跟踪更新：焦炭焦煤期货双双大跌，提涨逻辑削弱，阶段回退至观察期，等待现货端确认。
+stage_evidence: 2026-09-18 跟踪更新：焦炭焦煤期货双双大跌，提涨逻辑削弱，阶段回退至观察期，等待现货端确认。（演化确认：重心 seg-coke→seg-mine）
 timing:
-  current_recommendation: 等回踩确认，暂停追多；关注焦炭现货提涨及期货企稳信号
-  next_trigger: 第七轮提涨落地=加强
-  risk: 钢铁需求走弱→焦炭提涨受阻
+  current_recommendation: 观察期内优先跟踪上游动力煤龙头（陕西煤业/晋控煤业/新集能源），中游焦炭标的（潞安环能）待焦煤现货企稳后再评估
+  next_trigger: 焦煤现货止跌企稳+焦炭第七轮提涨落地
+  risk: 炼焦煤现货持续回落拖累焦炭提涨受阻，进而反向压制动力煤情绪
 tracking_metrics:
 - metric: 焦炭提涨轮次
   current: 第六轮已落地
@@ -125,4 +125,8 @@ history:
 - date: '2026-10-10'
   stage: 阶段0-观察
   action: 演化:add_node 新增煤电一体化标的601918新集能源，煤价上行与电力放量双受益
+  result: 待验证
+- date: '2026-10-14'
+  stage: 阶段0-观察
+  action: 演化:focus_shift 链内动力煤与炼焦煤分化，受益重心由中游焦炭偏向上游动力煤矿
   result: 待验证

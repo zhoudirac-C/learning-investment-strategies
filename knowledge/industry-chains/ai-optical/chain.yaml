@@ -10,6 +10,7 @@ segments:
   - EML激光器
   - CW激光器
   - 探测器(PD)
+  - VCSEL激光器
   value_share: ~20%
   barrier: EML高端产能紧缺
   trend: 需求爆发
@@ -174,4 +175,8 @@ history:
 - date: '2026-09-25'
   stage: 阶段3-分歧期
   action: 演化:add_node 新增硅光代工扩产为CPO商业化上游前导节点
+  result: 待验证
+- date: '2026-10-14'
+  stage: 阶段3-分歧期
+  action: 演化:refine_segment VCSEL作为NPO/短距光互联激光器路线价值量获产业关注
   result: 待验证

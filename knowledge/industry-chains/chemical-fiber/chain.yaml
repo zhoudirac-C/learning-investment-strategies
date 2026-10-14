@@ -1,0 +1,34 @@
+chain_id: chemical-fiber
+name: 化纤（氨纶/粘胶）产业链
+thesis: 氨纶行业集中度高，晓星全规格提价释放价格拐点信号；粘胶长丝产能持续缩减带来供给缺口。化纤作为纺织服装核心原料，价格上行叠加产能出清，龙头企业盈利弹性显著。
+last_verified: '2026-10-14'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - PTMEG
+  - 纯MDI
+  - 棉浆粕
+  - 溶解浆
+- id: midstream
+  name: 中游
+  materials:
+  - 氨纶
+  - 粘胶长丝
+  - 粘胶短纤
+- id: downstream
+  name: 下游
+  materials:
+  - 面料
+  - 纺织服装
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-14 人工确认入观察列表；提议于 2026-10-11，LLM 初判 阶段1-启动期（开源证券基础化工行业周报），积累证据
+  1 条
+timing:
+  current_recommendation: 关注氨纶/粘胶长丝龙头企业，价格上行周期初期布局
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

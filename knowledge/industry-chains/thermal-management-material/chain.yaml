@@ -1,6 +1,6 @@
 chain_id: thermal-management-material
 name: 散热材料产业链
-thesis: AI终端算力上行使散热从被动配角变为设计约束，VC均热板向超薄大面积升级、石墨膜向多层复合升级，上游PI膜/铜箔/石墨原料到中游均热板与导热界面材料再到下游消费电子与服务器，量价齐升且国产替代加速
+thesis: AI终端算力上行使散热从被动配角变为设计约束，VC均热板向超薄大面积升级、石墨膜向多层复合升级；同时芯片功耗与热流密度抬升推动芯片近端热管理升级，TIM导热界面材料向高导热/低热阻方向价值重估，上游PI膜/铜箔/石墨原料到中游均热板、石墨膜与TIM再到下游消费电子与服务器，量价齐升且国产替代加速
 last_verified: '2026-09-23'
 segments:
 - id: upstream
@@ -38,3 +38,8 @@ timing:
   risk: null
 tracking_metrics: []
 falsification: []
+history:
+- date: '2026-10-14'
+  stage: 阶段0-观察
+  action: 演化:update_thesis 新增芯片近端高热流密度下TIM价值重估路径
+  result: 待验证

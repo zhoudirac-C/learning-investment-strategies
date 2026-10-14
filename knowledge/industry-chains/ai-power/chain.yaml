@@ -63,6 +63,11 @@ mappings:
   segment: seg-equip
   relation: 数据中心UPS/关键电源+精密温控供应商，数据中心业务稳步增长，海外光储贡献第二增量
   elasticity: concept
+- code: 000811
+  name: 冰轮环境
+  segment: seg-equip
+  relation: 数据中心磁悬浮压缩机/温控设备供应商，Q3业绩有望超预期，海外AIDC业务打开长期成长空间
+  elasticity: concept
 current_stage: 阶段2-加速期
 stage_confidence: 中
 stage_evidence: 2026-09-10 跟踪更新：AI电源业绩兑现验证产业链逻辑，阶段由启动推进至加速期。
@@ -127,4 +132,8 @@ history:
 - date: '2026-10-10'
   stage: 阶段2-加速期
   action: 演化:refine_segment 上游设备制冷环节细化：新增磁悬浮压缩机技术路线
+  result: 待验证
+- date: '2026-10-14'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增冰轮环境：seg-equip磁悬浮压缩机受益AIDC制冷需求
   result: 待验证

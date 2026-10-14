@@ -52,6 +52,11 @@ mappings:
   segment: seg-mlcc
   relation: 中游电感龙头，TLVR电感+钽电容承接AI服务器电源增量需求
   elasticity: concept
+- code: '300174'
+  name: 三环集团
+  segment: seg-mlcc
+  relation: 电子陶瓷垂直一体化（粉体自供），MLCC中游龙头，SOFC第二成长线
+  elasticity: concept
 current_stage: 阶段3-分歧期
 stage_confidence: 中
 stage_evidence: 2026-10-10 人工校准：风华高科自6/29高点回撤41.2%，叙事（缺货延至2027/涨价函）与量价背离，回退至分歧期，等回踩确认。
@@ -95,4 +100,8 @@ history:
 - date: '2026-10-10'
   stage: 阶段2-加速期
   action: 演化:add_node 新增跟踪节点：海外大厂长协签订情况
+  result: 待验证
+- date: '2026-10-14'
+  stage: 阶段3-分歧期
+  action: 演化:add_node 新增标的三环集团：垂直一体化MLCC龙头
   result: 待验证

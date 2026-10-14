@@ -1,0 +1,37 @@
+chain_id: biobased-biodegradable-chem
+name: 生物基/生物降解化学制品（乳酸-聚乳酸）产业链
+thesis: 金丹科技为乳酸及聚乳酸龙头，醋化股份主营醋酸衍生物可用于生物降解塑料增塑，恒大高新涉足化工新材料。生物基材料以玉米等为原料经发酵制乳酸，聚合成聚乳酸（PLA），用于可降解包装、农膜等。政策推动下可降解塑料渗透率提升，带动中游乳酸/PLA及上游生物发酵环节。
+last_verified: '2026-10-14'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 玉米
+  - 秸秆等生物质原料
+  - 葡萄糖
+  - 醋酸
+- id: midstream
+  name: 中游
+  materials:
+  - 乳酸
+  - 聚乳酸（PLA）
+  - 醋酸衍生物
+  - 生物降解改性料
+- id: downstream
+  name: 下游
+  materials:
+  - 可降解塑料袋
+  - 一次性餐具
+  - 农用地膜
+  - 包装材料
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-14 人工确认入观察列表；提议于 2026-10-12，LLM 初判 阶段1-启动期（资金异动（化学制品）+ 个股业务属性推断），积累证据
+  5 条
+timing:
+  current_recommendation: 关注中游乳酸/PLA环节龙头的持续性，观察封单与连板确认；上游原料与下游制品仅作跟踪
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

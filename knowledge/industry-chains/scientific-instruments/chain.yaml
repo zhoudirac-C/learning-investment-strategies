@@ -25,7 +25,12 @@ segments:
   - 半导体/通信研发检测
   - 汽车电子与新能源测试
   - 燃气计量运营
-mappings: []
+mappings:
+- code: '688112'
+  name: 鼎阳科技
+  segment: midstream
+  relation: 频谱分析仪/矢量网络分析仪整机厂商，直接对应研报推荐的VNA网分设备方向
+  elasticity: concept
 current_stage: 阶段0-观察
 stage_confidence: 低
 stage_evidence: 2026-09-25 人工确认入观察列表；提议于 2026-09-23，LLM 初判 阶段1-启动期（资金异动（通用设备）+ 涨停个股结构归纳（无研报/公告素材）），积累证据
@@ -34,5 +39,13 @@ timing:
   current_recommendation: 启动期首板：优先做中游科学仪器整机（优利德、普源精电），上游元器件与下游分销观察补涨机会；谨防一日游分歧，重点跟踪次日封板强度与板块梯队形成情况。
   next_trigger: null
   risk: null
-tracking_metrics: []
+tracking_metrics:
+- metric: VNA/射频类仪器AI研发检测订单
+  current: 研报推荐方向，尚无订单数据
+  signal_direction: 上行（AI资本开支加速带动）
 falsification: []
+history:
+- date: '2026-10-14'
+  stage: 阶段0-观察
+  action: 演化:add_node 新增VNA网分设备标的鼎阳科技纳入中游跟踪
+  result: 待验证

@@ -1,0 +1,36 @@
+chain_id: grid-equipment
+name: 电网设备产业链
+thesis: 电网投资逆周期属性凸显，特高压骨干网与配电网智能化升级双轮驱动，拉动一次/二次设备需求，电缆、开关设备、变压器及配电自动化环节受益。
+last_verified: '2026-10-14'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 取向硅钢
+  - 电解铜
+  - 绝缘材料
+  - 环氧树脂
+- id: midstream
+  name: 中游
+  materials:
+  - 电力电缆
+  - 变压器
+  - 开关设备
+  - 避雷器
+- id: downstream
+  name: 下游
+  materials:
+  - 元器件分销
+  - 电气成套集成
+  - 电网运维
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-14 人工确认入观察列表；提议于 2026-10-12，LLM 初判 阶段1-启动期（资金异动（电网设备）），积累证据
+  3 条
+timing:
+  current_recommendation: 聚焦中游核心设备环节（电缆/开关设备），跟踪特高压招标与配网投资数据验证持续性
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

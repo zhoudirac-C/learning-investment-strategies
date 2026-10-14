@@ -1,0 +1,36 @@
+chain_id: wind-power-equipment
+name: 风电设备产业链
+thesis: 国信证券研报指出国内“两海”风电（陆上+海上）景气度同步上行，2027年风电设备企业盈利有望高增长。产业链从上游原材料（铸件、叶片材料、塔筒）到中游整机制造、核心零部件（主轴、齿轮箱、发电机），再到下游风电场开发运营，景气度逐级传导。
+last_verified: '2026-10-14'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 铸件
+  - 塔筒
+  - 叶片材料（玻纤/碳纤）
+  - 主轴轴承
+  - 齿轮箱
+  - 发电机
+- id: midstream
+  name: 中游
+  materials:
+  - 整机装配
+  - 核心零部件集成
+- id: downstream
+  name: 下游
+  materials:
+  - 风电场开发
+  - EPC
+  - 运营维护
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-14 人工确认入观察列表；提议于 2026-10-13，LLM 初判 阶段1-启动期（风机行业专题：国内两海景气共振，2027年风电设备盈利高增可期（国信证券/风电设备）），积累证据
+  5 条
+timing:
+  current_recommendation: 关注中游整机与核心零部件环节，优选具备出口与海风双重逻辑的龙头；上游铸锻件/塔筒需观察产能利用率与价格弹性；下游运营商业绩稳定但弹性较低，可长期配置。
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

@@ -1,0 +1,35 @@
+chain_id: broadcast-tv-network
+name: 广电网络（有线电视/广电5G）产业链
+thesis: 以中国广电一网整合和5G 700MHz商用为主线，上游传输设备与内容制作、中游省级广电网络运营、下游智慧家庭与政企应用构成传导路径，运营商资产重估弹性最大。
+last_verified: '2026-10-14'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 光纤光缆
+  - 传输设备
+  - 机顶盒芯片
+  - 内容版权
+- id: midstream
+  name: 中游
+  materials:
+  - 有线电视网络
+  - 广电5G基站（700MHz）
+  - IDC机房
+- id: downstream
+  name: 下游
+  materials:
+  - 智能电视终端
+  - OTT/IPTV应用
+  - 超高清显示
+mappings: []
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-14 人工确认入观察列表；提议于 2026-10-12，LLM 初判 阶段1-启动期（资金异动（电视广播）+ 涨停明细（吉视传媒、广电网络）），积累证据
+  6 条
+timing:
+  current_recommendation: 观察阶段：仅2家涨停且最高2板，先跟踪吉视传媒/广电网络连板持续性，确认政策催化后再向上游设备端挖掘补涨
+  next_trigger: null
+  risk: null
+tracking_metrics: []
+falsification: []

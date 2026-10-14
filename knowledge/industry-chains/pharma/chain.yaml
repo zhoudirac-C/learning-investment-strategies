@@ -12,6 +12,12 @@ segments:
   - CDMO服务
   - 安全性评价（安评）
   - 临床CRO服务
+  - rationale2_supply_demand 中 driver=技术 与 affected_segment=上游，且 info 提及 Charles River
+    与全球临床前CRO趋势，故细化出临床前CRO作为结构增量
+  - confidence30 趋势（开源证券/中药Ⅱ） @ 2026-10-11 [info_id=AP202610111830335455]
+  - detail_add_materials 已包含 '临床CRO服务'，新增 '临床前CRO服务' 以区分并覆盖临床前环节
+  - step4_beneficiaries 为空，因现有标的映射仅 688192 迪哲医药（seg-rd），无上游CXO标的，故不重复提议
+  - step5_recommendation 的 timing 建议关注上游CXO中临床前CRO相关标的，作为结构性受益方向
   value_share: ~30%
   barrier: 研发周期
   trend: 稳定
@@ -54,6 +60,9 @@ tracking_metrics:
 - metric: 学术会议临床数据读出（WCLC/ASCO等）
   current: WCLC大会临近，数据待读出
   signal_direction: 正向数据读出=中游管线价值重估+license-out/BD概率提升
+- metric: CXO三季报业绩及新签订单
+  current: 三季报披露窗口期，业绩待验证
+  signal_direction: 业绩超预期/订单回暖=上游逻辑确认+链传导强化；低于预期=削弱上游环节
 falsification:
 - license-out交易额连续2季度下滑
 - 医保谈判大幅降价超预期
@@ -88,4 +97,12 @@ history:
 - date: '2026-10-10'
   stage: 阶段2-加速期
   action: 演化:update_thesis 上游CXO逻辑增加'AI赋能'新维度
+  result: 待验证
+- date: '2026-10-14'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增跟踪节点：CXO三季报业绩/新签订单
+  result: 待验证
+- date: '2026-10-14'
+  stage: 阶段2-加速期
+  action: 演化:refine_segment 上游CXO细化出临床前CRO sub-segment，受全球趋势与AI赋能驱动
   result: 待验证
