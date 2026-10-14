@@ -1,0 +1,97 @@
+claims:
+- id: claim-20261014-004-a
+  source_path: sources/original/bilibili/2026-10-14-1429-图片-今天问题不大，基本上是按剧本在走了，虽然我最近不强调外盘，但.md
+  source_date: '2026-10-14'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T15:10:00'
+  claim_type: macro
+  subject: 美国CPI的核心检验点：能源涨价是否扩散
+  timeframe: short-term
+  statement: 本次CPI最需要检验的是油价上涨带来的通胀压力有没有扩散到能源以外的商品和服务：整体CPI环比升至0.6%已被市场接受、未必带来额外冲击；核心CPI达0.2%或更低则支持美债收益率继续回落；核心CPI明显超预期意味着非能源通胀压力比想象顽固，此前债市修复判断会受到挑战。
+  evidence_quote: 这次美国CPI最需要检验的，是油价上涨带来的通胀压力，有没有扩散到能源以外的商品和服务。按照预期，市场已经接受整体CPI环比升至0.6%，同时预计核心CPI降至0.2%……整体CPI达到0.6%，未必会带来额外冲击，因为市场已经有所准备；核心CPI达到0.2%或更低，则可能支持近期美债收益率继续回落。反过来，核心CPI如果明显超预期，就意味着非能源领域的通胀压力可能比市场想象的更顽固……
+  interpretation: 宏观数据解读框架：分整体 vs 核心两条线，关键问题不是数据本身高低而是「是否已被预期消化」——已消化的坏数据不冲击，未消化的核心超预期才冲击。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-n
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 美国CPI
+  - 核心通胀
+  - 能源扩散
+  - 预期消化
+  topic: CPI核心检验点=能源涨价是否扩散至非能源领域
+- id: claim-20261014-004-b
+  source_path: sources/original/bilibili/2026-10-14-1429-图片-今天问题不大，基本上是按剧本在走了，虽然我最近不强调外盘，但.md
+  source_date: '2026-10-14'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T15:10:00'
+  claim_type: macro
+  subject: 数据后收益率反应比数据本身更重要
+  timeframe: short-term
+  statement: 判断美债是否真正转强要看数据公布后收益率的反应方式而非数据好坏：CPI略超预期但10Y/30Y只短暂上升随后回落，说明高收益率对买盘吸引力在增强；CPI符合或低于预期但收益率持续上涨，则需警惕乐观预期已提前反映。10年期与30年期要对照：同步回落=改善一致；10Y回落30Y上涨=长期债券仍有额外压力。
+  evidence_quote: 但判断美债是否真正转强，还要看数据公布后，收益率如何反应，而不能只看数据好坏。如果CPI略超预期，10年期和30年期收益率却只短暂上升、随后回落，说明偏热的数据没有推动持续抛售……两种期限的表现也要对照：同步回落，说明改善较为一致；10年期回落、30年期却上涨，则说明长期债券仍有额外压力。
+  interpretation: 方法论：价格反应（含预期消化）>数据读数本身；用反应模式反推债市结构。10Y/30Y 期限对照是免费的结构信息。
+  confidence: high
+  status: active
+  stance: view
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-n
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 收益率反应
+  - 数据解读
+  - 期限对照
+  - 债市结构
+  topic: 数据后收益率反应模式比数据本身更重要
+- id: claim-20261014-004-c
+  source_path: sources/original/bilibili/2026-10-14-1429-图片-今天问题不大，基本上是按剧本在走了，虽然我最近不强调外盘，但.md
+  source_date: '2026-10-14'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-14T15:10:00'
+  claim_type: macro
+  subject: 单次数据不足确认长期收益率趋势见顶
+  timeframe: short-term
+  statement: 这次CPI可以检验近期收益率回落是否获得基本面支持，但仅凭一次数据不足以确认长期收益率已经趋势性见顶。
+  evidence_quote: 这次CPI可以检验近期收益率回落是否获得基本面支持，但仅凭一次数据，还不足以确认长期收益率已经趋势性见顶。
+  interpretation: 判断边界纪律：一次数据只做「检验」用途，不做「确认趋势」用途——与个股「利好落地看价格反应而非数字」同构的方法论在宏观层面的应用。
+  confidence: high
+  status: active
+  stance: view
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements:
+  - claim-20261013-001-h
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 单次数据
+  - 趋势确认
+  - 判断边界
+  - 见顶纪律
+  topic: 一次数据只检验不确认长期收益率趋势见顶
