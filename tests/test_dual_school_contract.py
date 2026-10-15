@@ -141,3 +141,29 @@ class TestDualSchoolContract:
 
         block = _load_dual_school_contract({"school_conflicts": "【CF-001】..."})
         assert "双学派输出契约" in block
+
+    def test_dual_school_survives_prompt_truncation(self):
+        """回归：prompt 超限截断后，双学派契约与冲突卡不得丢失。
+
+        2026-10-15 E2E 实测发现的 bug：market_summary 的截断分支重建 prompt 时
+        漏掉 _dual_school_block，导致契约 0 次进入 LLM（真实数据复现）。
+        """
+        from qing_investment.agent.graph.nodes import (
+            _load_dual_school_contract,
+            _truncate_context_for_prompt,
+        )
+
+        ctx = {
+            "school_conflicts": "【CF-001】护盘能否判为止跌（qing vs gator）",
+            "gator_rules_snapshot": {"available": True, "scissors": {"level": "met"}},
+            "claims": [{"x": "y" * 400} for _ in range(300)],   # 逼出截断
+            "reasoning_patterns": [{"p": i} for i in range(60)],
+        }
+        contract = _load_dual_school_contract(ctx)
+        assert "双学派输出契约" in contract
+
+        truncated, was = _truncate_context_for_prompt(ctx, 5000, max_bytes=60000)
+        assert was, "应触发截断（测试前提）"
+        # 两个双学派键不在截断白名单里，必须存活
+        assert truncated.get("school_conflicts"), "冲突卡被误截断"
+        assert truncated.get("gator_rules_snapshot"), "gator 快照被误截断"

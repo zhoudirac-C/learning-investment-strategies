@@ -2001,7 +2001,9 @@ def market_summary(state: AgentState) -> AgentState:
             "market_summary prompt exceeds %d bytes (%d bytes), truncating context fields",
             _MAX_MARKET_SUMMARY_PROMPT_BYTES, prompt_bytes,
         )
-        non_context_bytes = prompt_bytes - len(context_json.encode("utf-8"))
+        non_context_bytes = (
+            prompt_bytes - len(context_json.encode("utf-8"))
+        )
         context, was_truncated = _truncate_context_for_prompt(
             context, non_context_bytes, _MAX_MARKET_SUMMARY_PROMPT_BYTES
         )
@@ -2010,6 +2012,8 @@ def market_summary(state: AgentState) -> AgentState:
         prompt = f"""{prompt_template_filled}
 
 {_data_missing_note}
+
+{_dual_school_block}
 
 检索到的知识：
 {context_json}
