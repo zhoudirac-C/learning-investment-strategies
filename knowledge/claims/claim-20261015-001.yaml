@@ -1,0 +1,601 @@
+claims:
+- claim_type: market-cycle
+  subject: 市场阶段定性：低活跃度与弱情绪并存，但局部题材仍有资金接力
+  timeframe: short-term
+  statement: 市场已进入低活跃度和弱情绪并存的阶段，量能回落、首板骤减，但局部题材仍有资金接力，尚未到全面退潮。
+  evidence_quote: 量能回落、首板骤减，说明市场已进入低活跃度和弱情绪并存的阶段，但局部题材仍有资金接力。
+  interpretation: 阶段定性为「低活跃+弱情绪并存」，区别于全面退潮：局部接力仍在，操作基调是防守中留意局部结构性机会，不做全面收缩。
+  confidence: high
+  stance: market-regime
+  intensity: high
+  topic: 低活跃度弱情绪并存但局部题材仍有接力
+  tags:
+  - 市场阶段
+  - 低活跃度
+  - 弱情绪
+  - 局部接力
+  id: claim-20261015-001-1
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: ["claim-20260518-018"]
+  contradicts: []
+  supplements: ["claim-20260927-001-j"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+- claim_type: market-cycle
+  subject: 低点形成过程值得跟踪，但不能由地量直接推出见底
+  timeframe: short-term
+  statement: 当前可以把注意力转向低点形成的过程，但买点仍要等待承接和结构确认，不能由地量直接推出见底。
+  evidence_quote: 当前可以把注意力转向低点形成的过程，买点仍要等待承接和结构确认，不能由地量直接推出见底。
+  interpretation: 方法论：地量是低点形成的必要观察信号而非充分条件；买点确认顺序=承接出现→结构完成，缩量本身不构成入场依据。
+  confidence: high
+  stance: view
+  intensity: medium
+  topic: 地量不能直接推见底，买点等承接与结构确认
+  tags:
+  - 地量
+  - 见底判断
+  - 买点纪律
+  - 承接确认
+  id: claim-20261015-001-2
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260921-001-b", "claim-20260930-001-b", "claim-20070614-001-b"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+- claim_type: methodology
+  subject: 海外防御交易向A股传导需经业务结构盈利周期与本地资金偏好筛选
+  timeframe: short-term
+  statement: 海外防御交易（如美股医药走强）向A股传导时，要经过业务结构、盈利周期和本地资金偏好的筛选，不能直接外推为A股同方向修复；医药能否借势修复，首先看高开后能否保住涨幅、回落时是否有持续承接。
+  evidence_quote: 海外防御交易向A股传导时，还要经过业务结构、盈利周期和本地资金偏好的筛选；今天医药能否借势修复，首先看高开后能否保住涨幅，以及回落时是否有持续承接。
+  interpretation: 方法论：外盘映射三级筛选框架（业务结构/盈利周期/本地资金偏好），落脚到盘面验证=高开保涨幅+回落有承接，避免「美股涨→A股同方向涨」的线性外推。
+  confidence: high
+  stance: view
+  intensity: medium
+  topic: 海外防御交易传导需三级筛选
+  tags:
+  - 外盘映射
+  - 医药
+  - 传导筛选
+  - 方法论
+  id: claim-20261015-001-3
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260921-001-r", "claim-20261009-001-o"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+- claim_type: methodology
+  subject: A股与韩国市场同步下跌不能认定单一因果
+  timeframe: short-term
+  statement: 本周A股午后走弱与韩国市场承压存在时间共振，可能放大本已偏弱的风险偏好，但不能仅凭同步下跌认定单一因果；连续调整可以提示短期压力，却不足以独立证明次日反弹概率已经提高。
+  evidence_quote: 本周A股午后走弱与韩国市场承压存在时间上的共振，可能放大了本已偏弱的风险偏好，但不能仅凭同步下跌认定单一因果。……连续调整可以提示短期压力，却不足以独立证明次日反弹概率已经提高。
+  interpretation: 方法论：外盘共振只作扰动放大器解释，不构成因果判定，也不构成「连跌后反弹概率升高」的依据——反对赌反转的概率化推理。
+  confidence: high
+  stance: view
+  intensity: medium
+  topic: 韩国市场共振是扰动不是因果
+  tags:
+  - 外盘
+  - KOSPI
+  - 因果判定
+  - 方法论
+  id: claim-20261015-001-4
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+- claim_type: methodology
+  subject: 早盘验证顺序：先看30分钟强弱分布，再看午后首个30分钟量价配合
+  timeframe: short-term
+  statement: 开盘后先看30分钟内的强弱分布，再看午后开盘首个30分钟的量价配合；修复要有扩散基础（指数收复失地、科技核心止跌、上涨家数增加），若只是传媒或医药少数个股拉升而双创与多数个股继续下移，仍属局部轮动。
+  evidence_quote: 开盘后先看30分钟内的强弱分布，再看午后开盘首个30分钟的量价配合。若指数低开后逐步收复失地、科技核心止跌，且上涨家数随之增加，修复才有扩散基础；若只是传媒或医药少数个股拉升，而双创指数与多数个股继续下移，仍属于局部轮动。
+  interpretation: 盘中验证方法论：修复真伪=广度验证（多数个股+双创同向），少数板块拉升不算修复；时间锚点=开盘30分钟+午后首个30分钟。
+  confidence: high
+  stance: view
+  intensity: medium
+  topic: 修复真伪看广度不看少数板块拉升
+  tags:
+  - 盘中验证
+  - 量价配合
+  - 广度
+  - 方法论
+  id: claim-20261015-001-5
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261009-001-p"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+- claim_type: methodology
+  subject: 午后量价三组合判别买盘是否回流
+  timeframe: short-term
+  statement: 若上午仍缩量横盘，13:00以后优先比较同一时间窗口的成交和价格方向：量能增加、指数重心抬升、核心股回踩不再破低，才是买盘回来的组合；放量下跌说明抛压未释放完，平量或缩量下滑也不能当作企稳。这是近期盘面的识别方法，不是任何缩量午后都会下跌的固定规律。
+  evidence_quote: 今天若上午仍然缩量横盘，13:00以后应优先比较同一时间窗口的成交和价格方向：量能增加、指数重心抬升、核心股回踩不再破低，才是买盘回来的组合；放量下跌则说明抛压尚未释放完，平量或缩量下滑也不能当作企稳。
+  interpretation: 承接判别三要素（量增+重心抬升+核心不破低）的细化；强调同时间窗口比较、反对把局部经验固化为规律。
+  confidence: high
+  stance: view
+  intensity: medium
+  topic: 午后同窗口量价三要素判买盘回流
+  tags:
+  - 午后承接
+  - 量价
+  - 方法论
+  - 同窗口比较
+  id: claim-20261015-001-6
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261008-007-c", "claim-20261014-005-2", "claim-20260927-001-f"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+- claim_type: market-cycle
+  subject: 3764点收盘确认与破位钝化结构三阶段分离
+  timeframe: short-term
+  statement: 上证3764点是本轮预案的技术观察参考位，判断要看收盘而非盘中短暂跌破；跌破点位、出现钝化和结构完成是三个不同阶段，不能提前合并成买入信号。若收盘低于3764点，需核对动量指标是否出现底背离雏形；没有日线钝化时，即使有分时反弹也先按较小级别修复观察。
+  evidence_quote: 这个位置是本轮预案沿用的技术观察参考位，判断时要看收盘，而不是盘中短暂跌破。……跌破点位、出现钝化和结构完成，是三个不同阶段，不能提前合并成买入信号。……若没有形成日线钝化，即使出现分时反弹，也先按较小级别修复观察。
+  interpretation: 关键价位操作纪律：收盘确认口径 + 三阶段（破位→钝化→结构）分离，禁止把技术信号链条压缩成一次性买入触发；无日线钝化时分时反弹降级处理。
+  confidence: high
+  stance: market-regime
+  intensity: high
+  topic: 3764收盘确认+破位钝化结构三阶段分离
+  tags:
+  - '3764'
+  - 底背离
+  - 钝化
+  - 三阶段
+  - 关键价位
+  id: claim-20261015-001-7
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260929-001-o", "claim-20261009-001-f", "claim-20261013-001-d"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+- claim_type: sector-theme
+  subject: 大金融观察逻辑：银行稳指数而券商需与成交回升同步
+  timeframe: short-term
+  statement: 银行稳定可缓和指数波动，券商若与成交回升同步走强才有助于确认风险偏好改善；如果只有权重护住指数而科技股、涨跌家数与短线接力持续恶化，赚钱效应仍未修复。保险资金与固收加调整科技仓位只是解释抛压的假设，不能靠盘口确定资金已出清。
+  evidence_quote: 银行稳定可以缓和指数波动，券商若与成交回升同步走强，更有助于确认风险偏好改善；如果只有权重护住指数，而科技股、涨跌家数与短线接力持续恶化，赚钱效应仍未修复。保险资金与固收加产品调整科技仓位，可以作为解释抛压的假设，但仅靠盘口不能确定相关资金已经完成出清。
+  interpretation: 权重护盘有效性判据：券商强度须与成交回升共振，否则是虚假稳定；「资金出清」类叙事在无盘口证据时只能作假设不作结论。
+  confidence: high
+  stance: view
+  intensity: medium
+  topic: 权重护盘有效性看券商与成交共振
+  tags:
+  - 大金融
+  - 券商
+  - 护盘
+  - 出清验证
+  id: claim-20261015-001-8
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: ["claim-20260928-002-e"]
+  contradicts: []
+  supplements: ["claim-20261008-007-d", "claim-20260910-003-a"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+- claim_type: sector-theme
+  subject: 情绪修复判据首板回升溢价保持与跌停不扩散同看
+  timeframe: short-term
+  statement: 判断情绪转强要同时看首板能否回升、昨日强势股是否保有溢价、跌停是否继续扩散；仅有指数反弹而高位题材集中补跌，仍难判断情绪已转强。
+  evidence_quote: 今天要同时看首板能否回升、昨日强势股是否保有溢价，以及跌停是否继续扩散；仅有指数反弹，而高位题材集中补跌，仍难判断情绪已转强。
+  interpretation: 情绪面三指标并看法则，指数反弹不等于情绪修复，防止被指数单一信号误导。
+  confidence: high
+  stance: view
+  intensity: medium
+  topic: 情绪转强三指标：首板/溢价/跌停扩散
+  tags:
+  - 情绪
+  - 首板
+  - 连板溢价
+  - 跌停扩散
+  id: claim-20261015-001-9
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260913-001-019", "claim-20260918-007-a", "claim-20261013-001-g"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+- claim_type: market-cycle
+  subject: 两种情形预案：承接改善转修复观察 vs 无承接则暂停猜底新增交易
+  timeframe: short-term
+  statement: 情形A：回落不再创新低、科技核心与PCB稳定、午后量价改善、上涨家数回升——判断由被动防守转向修复观察，参与以已确认承接的方向为先，不追逐单次脉冲、不把盘中翻红当日线底部完成。情形B：缩量无承接或放量下探、收盘低于3764——检验钝化条件，暂停以猜底为依据的新增交易，按原有风险边界处理持仓；等待结构不意味着取消止损，更不意味着越跌越加。
+  evidence_quote: 出现这一组合，可将判断由被动防守转向修复观察……参与以已确认承接的方向为先，避免追逐单次脉冲，不把盘中翻红提前当作日线底部完成。……暂停以猜底为依据的新增交易，按原有风险边界处理持仓；等待结构不意味着取消止损，更不意味着越跌越加。
+  interpretation: 双情形预案框架：A转修复观察的条件组合明确（四要素），B的纪律是暂停新增+保留止损；核心是「先让市场给出证据，再决定参与力度」。
+  confidence: high
+  stance: view
+  intensity: high
+  topic: 双情形预案：修复观察 vs 暂停猜底新增
+  tags:
+  - 预案
+  - 承接
+  - 猜底
+  - 操作纪律
+  id: claim-20261015-001-10
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: ["claim-20261009-001-f", "claim-20261008-007-g", "claim-20261012-001-k"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+- claim_type: sector-theme
+  subject: 涨价题材分散轮动：行业价格上涨与个股短线持续性没有必然对应
+  timeframe: short-term
+  statement: 本周涨价题材（鱼粉、乳酸、染料、煤炭等）频繁切换，资金聚焦程度不足；多个品种同时出现价格故事时资金容易来回轮动和高低切换，行业价格上涨与个股短线持续性之间没有必然对应。煤炭午后异动后要看能否带动同方向扩散，而非只留下少数活跃个股。
+  evidence_quote: 如今多个品种同时出现价格故事，资金容易来回轮动和高低切换，行业价格上涨与个股短线持续性之间并没有必然对应。周三煤炭午后异动，今天仍要看能否带动同方向扩散，而非只留下少数活跃个股。
+  interpretation: 对涨价题材的谨慎判断：价格故事多≠可聚焦，判据是同方向扩散能力而非单股活跃度。
+  confidence: high
+  stance: view
+  intensity: medium
+  topic: 涨价题材资金分散，涨价与持续性无必然对应
+  tags:
+  - 涨价题材
+  - 轮动
+  - 扩散判据
+  id: claim-20261015-001-11
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261014-005-10"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+- claim_type: sector-theme
+  subject: 冰雪题材关注点在承接与跟进，个股标签与实际业务须分开
+  timeframe: short-term
+  statement: 冰雪大世界题材资金关注相对集中，能否超预期要看前排分歧后的承接与后排跟进强度；对晶雪节能(301010)，需把市场赋予的题材标签与其实际业务（节能保温围护系统）分开，不能由冰雪概念直接推定新增订单或利润。
+  evidence_quote: 这个方向的优势在于资金关注相对集中，能否超预期要看前排分歧后的承接与后排跟进强度。对晶雪节能，还需把市场赋予的题材标签与其节能保温围护系统等实际业务分开，不能由冰雪概念直接推定新增订单或利润。
+  interpretation: 题材跟踪方法论：题材标签≠业务兑现，概念到利润的推定被明确禁止；观察锚=前排分歧承接+后排跟进。
+  confidence: high
+  stance: view
+  intensity: medium
+  topic: 冰雪题材看承接，标签与业务分开
+  related_stocks:
+  - code: '301010'
+    name: 晶雪节能
+    role: 冰雪题材观察标的-创业板不可交易
+  tags:
+  - 冰雪题材
+  - 晶雪节能
+  - 题材标签
+  - 业务区分
+  id: claim-20261015-001-12
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261013-001-j", "claim-20260928-002-l"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+- claim_type: sector-theme
+  subject: 医药回流判据：高开缩小回撤且创新药有序联动才算配置线索
+  timeframe: short-term
+  statement: 医药看海外防御交易能否转化为A股持续回流：若高开后能缩小回撤，且创新药与其他医药细分出现有序联动，才有机会从一日轮动发展为更稳定的配置线索；若再次高开低走，说明催化仍停留在开盘定价。华北制药(600812)、津药药业(600488)只放盘面观察范围，不能笼统归入创新药出海受益链。
+  evidence_quote: 若高开后能够缩小回撤，且创新药与其他医药细分方向出现有序联动，才有机会从一日轮动发展为更稳定的配置线索；若再次高开低走，则说明催化仍停留在开盘定价。华北制药、津药药业可以放在医药板块的盘面观察范围，但不能笼统归入创新药出海受益链。
+  interpretation: 医药从轮动升级为配置线索的判据=回撤收敛+细分联动；个股归类纪律：盘面观察≠受益链认定。
+  confidence: high
+  stance: view
+  intensity: medium
+  topic: 医药回流升级判据与个股归类纪律
+  related_stocks:
+  - code: '600812'
+    name: 华北制药
+    role: 医药盘面观察标的-主板可交易
+  - code: '600488'
+    name: 津药药业
+    role: 医药盘面观察标的-主板可交易
+  tags:
+  - 医药
+  - 回流判据
+  - 创新药出海
+  - 归类纪律
+  id: claim-20261015-001-13
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: ["claim-20260824-002-i", "claim-20260825-012-a"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+- claim_type: sector-theme
+  subject: 科技两线判据：硬件看出清验证，应用须指数回暖时保持强度
+  timeframe: short-term
+  statement: AI硬件部分个股相较周一表现出韧性，可作为持续性抛压是否减弱的线索，但「资金出清接近尾声」仍是待验证的判断；源杰科技(688498)作情绪观察股之一，结合PCB板块涨跌广度判断，避免用单只个股代替整个科技方向。AI应用若始终只在指数下跌时活跃（弱市相对强势选择），距离形成稳定主线仍有距离；更有价值的变化是指数回暖时应用也保持强度并出现新增资金和更广泛的板块跟随。
+  evidence_quote: 相较周一，部分个股表现出一定韧性，可以作为持续性抛压是否减弱的线索；但「资金出清接近尾声」仍是待盘面验证的判断。……如果始终只在指数下跌时活跃，距离形成稳定主线仍有距离。
+  interpretation: 两条判据：①硬件止跌=韧性线索但出清结论需验证；②应用主线资格=逆指数活跃不算数，须指数回暖时同向走强+新增资金+板块跟随。
+  confidence: high
+  stance: view
+  intensity: medium
+  related_stocks:
+  - code: '688498'
+    name: 源杰科技
+    role: AI硬件情绪观察股-科创板不可交易
+  topic: 硬件出清待验证，应用主线资格须指数回暖时走强
+  tags:
+  - AI硬件
+  - AI应用
+  - PCB
+  - 源杰科技
+  - 主线判据
+  id: claim-20261015-001-14
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+- claim_type: sector-theme
+  subject: 硬件企稳是应用轮动的有利条件而非充分条件
+  timeframe: short-term
+  statement: 硬件企稳有助于缓和科技内部风险偏好，短剧、游戏、网络安全、世界模型等细分方向才更容易获得轮动空间，但不会自动全部受益；PCB优先观察业绩与价格传导，应用观察内容、产品与商业化催化。风电设备与汽车跌幅居前，需先出现止跌和资金回流证据，不能仅因跌幅较大就列为优先修复方向。
+  evidence_quote: 硬件企稳有助于缓和科技内部的风险偏好，短剧、游戏、网络安全、世界模型等细分方向才更容易获得轮动空间，但不会自动全部受益。……风电设备与汽车昨日跌幅居前，尚需先出现止跌和资金回流证据，不能仅因跌幅较大就列为优先修复方向。
+  interpretation: 板块联动条件化：硬件企稳是应用轮动的有利条件而非充分条件；「超跌优先修复」被明确否定，修复资格需止跌+资金回流证据。
+  confidence: high
+  stance: view
+  intensity: medium
+  topic: 硬件企稳是应用轮动前置而非充分条件
+  tags:
+  - 科技内部结构
+  - 轮动条件
+  - 超跌修复否定
+  id: claim-20261015-001-15
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261013-001-k", "claim-20261009-001-j"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+- claim_type: sector-theme
+  subject: PCB产业验证重点：涨价传导与各环节利润留存
+  timeframe: trend
+  statement: PCB/覆铜板涨价能否转化为板厂利润，取决于客户接受程度、合同调整周期和产品结构；高端材料需求偏紧与普通板材竞争格局需分别观察。本轮产业验证的重点是涨价能否顺利传导，以及不同环节实际保留了多少利润；后续由订单与交付变化验证三四季度板材供应偏紧的判断。
+  evidence_quote: 涨价能否转化为板厂利润，取决于客户接受程度、合同调整周期和产品结构；高端材料需求偏紧与普通板材竞争格局也需分别观察。……本轮产业验证的重点，是涨价能否顺利传导，以及不同环节实际保留了多少利润。
+  interpretation: PCB产业链跟踪框架：涨价叙事→利润的转化链条拆解（接受度/合同周期/产品结构），材料端偏紧与板材竞争分层观察；超声电子(000823)业绩预告是传导验证线索之一。
+  confidence: high
+  stance: view
+  intensity: medium
+  related_stocks:
+  - code: 000823
+    name: 超声电子
+    role: PCB涨价传导验证标的-主板可交易
+  - code: '002552'
+    name: 宝鼎科技
+    role: 覆铜板铜箔材料环节跟踪标的-主板可交易
+  topic: PCB涨价传导与环节利润留存验证
+  tags:
+  - PCB
+  - 覆铜板
+  - 涨价传导
+  - 产业链验证
+  id: claim-20261015-001-16
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261014-001-n"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+- claim_type: sector-theme
+  subject: 微信免费短剧入口有社交分发增量但长期竞争落在IP制作留存
+  timeframe: trend
+  statement: 腾讯绿泡泡短剧小程序免费+广告变现模式，相比单纯推荐入口增加了社交发现和分发的可能性；入口扩展有望增加内容触达，但长期竞争仍要落到优质IP、制作能力和用户留存，平台流量能否变成内容方收入，需要发行分成和作品表现支撑。
+  evidence_quote: 入口扩展有望增加内容触达，但长期竞争仍要落到优质知识产权（IP）、制作能力和用户留存，平台流量能否变成内容方收入，需要发行分成和作品表现支撑。
+  interpretation: 对短剧/AI漫剧新催化的定性：入口流量是增量但非终局，竞争终局变量=IP+制作+留存；流量到收入的转化需分成与作品验证。相关公司（德才股份(605287)旗下奇想无限、华是科技(301218)）均处早期，尚未对业绩产生重大影响。
+  confidence: medium
+  stance: view
+  intensity: medium
+  related_stocks:
+  - code: '605287'
+    name: 德才股份
+    role: AI漫剧布局观察标的（子公司奇想无限）-主板可交易
+  - code: '301218'
+    name: 华是科技
+    role: AI短剧制作观察标的-创业板不可交易
+  topic: 微信短剧入口增量与竞争终局变量
+  tags:
+  - 短剧
+  - AI漫剧
+  - 微信入口
+  - 商业化验证
+  id: claim-20261015-001-17
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261011-001-y", "claim-20261012-001-r"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+- claim_type: methodology
+  subject: 操作纪律：结构未成不以猜底加仓，低位不恐慌杀跌，反弹不抢跑确认
+  timeframe: short-term
+  statement: 低位不恐慌杀跌，反弹不抢跑确认；结构未成，不以猜底加仓，风险边界已经触发则照常执行。先让市场给出证据，再决定参与力度。对已连续调整的持仓，不因一次普跌情绪化处理，也不因期待反弹而忽略个股逻辑变化、流动性恶化或既定风控条件。
+  evidence_quote: 低位不恐慌杀跌，反弹不抢跑确认；结构未成，不以猜底加仓，风险边界已经触发则照常执行。先让市场给出证据，再决定参与力度。
+  interpretation: 弱市操作纪律三原则：不情绪化杀跌、不抢跑确认、不猜底加仓；风控优先于观点，证据优先于预期。
+  confidence: high
+  stance: view
+  intensity: high
+  topic: 弱市操作纪律：不杀跌不抢跑不猜底
+  tags:
+  - 操作纪律
+  - 猜底
+  - 风险边界
+  - 证据优先
+  id: claim-20261015-001-18
+  source_path: sources/original/bilibili/2026-10-15-0840-专栏-周三市场再次走出上午缩量震荡、午后跌幅扩大的路径，双创指数均_1.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-15T09:05:00'
+  status: active
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260823-001-006", "claim-20261012-004-o", "claim-20260823-001-005"]
+  last_discovered: 2026-10-15
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
