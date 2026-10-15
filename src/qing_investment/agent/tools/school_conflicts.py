@@ -1,11 +1,12 @@
 """学派冲突登记表加载（辩论卡）。
 
-设计文档：docs/design/dual-school-architecture.md §5.3
+设计文档：docs/design/dual-school-architecture.md §5.3 / §5.4
 数据：framework/school-conflicts.yaml
 
-核心纪律：
-- pending_backtest 的冲突，输出必须双列，不允许 agent 选边
-- resolution 只能来自回测/人工，不由此模块生成
+核心纪律（2026-10-15 用户拍板）：
+- 冲突不做回测裁决，作为多专家不同观点**长期并列保留**
+- standing 状态的冲突，输出必须双列，不允许 agent 选边或调和
+- resolution 仅来自用户人工裁决，不由此模块生成
 """
 
 from __future__ import annotations
@@ -18,8 +19,9 @@ import yaml
 _REPO_ROOT = Path(__file__).resolve().parents[4]
 CONFLICTS_FILE = _REPO_ROOT / "framework" / "school-conflicts.yaml"
 
-# 需要 agent 双列输出（禁止选边）的状态
-UNRESOLVED_STATUSES = {"pending_backtest", "backtesting"}
+# 需要 agent 双列输出（禁止选边）的状态：
+# standing = 长期并列（默认）；backtesting 保留以兼容历史数据
+UNRESOLVED_STATUSES = {"standing", "backtesting"}
 
 
 @dataclass
@@ -32,12 +34,12 @@ class SchoolConflict:
     severity: str = "medium"
     school_views: dict = field(default_factory=dict)
     round1_cross_exam: dict = field(default_factory=dict)
-    status: str = "pending_backtest"
+    status: str = "standing"
     resolution: dict | None = None
 
     @property
     def is_unresolved(self) -> bool:
-        """未裁决 → agent 必须双列呈现，不得选边。"""
+        """长期并列/未裁决 → agent 必须双列呈现，不得选边。"""
         return self.status in UNRESOLVED_STATUSES
 
     def render_card(self) -> str:
@@ -56,7 +58,7 @@ class SchoolConflict:
         if exam.get("gator_critique"):
             lines.append(f"  · 交叉反驳（对 gator）：{exam['gator_critique']}")
         if self.is_unresolved:
-            lines.append("  ⚠️ 状态：待回测裁决 —— 必须双列呈现，不得自行选边")
+            lines.append("  ⚠️ 状态：多专家分歧，长期并列 —— 必须双列呈现，不得自行选边或调和")
         elif self.resolution:
             lines.append(f"  ✅ 裁决：{self.resolution}")
         return "\n".join(lines)
@@ -83,7 +85,7 @@ def load_conflicts(path: Path | None = None) -> list[SchoolConflict]:
                 severity=c.get("severity", "medium"),
                 school_views=c.get("school_views", {}) or {},
                 round1_cross_exam=c.get("round1_cross_exam", {}) or {},
-                status=c.get("status", "pending_backtest"),
+                status=c.get("status", "standing"),
                 resolution=c.get("resolution"),
             )
         )

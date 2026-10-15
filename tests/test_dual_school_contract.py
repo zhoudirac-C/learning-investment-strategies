@@ -42,16 +42,20 @@ class TestConflictsFile:
             assert c.round1_cross_exam.get("qing_critique"), f"{c.conflict_id} 缺对 qing 的反驳"
             assert c.round1_cross_exam.get("gator_critique"), f"{c.conflict_id} 缺对 gator 的反驳"
 
-    def test_unresolved_has_no_resolution(self):
-        """未裁决的冲突不得有 resolution（防止 agent 自行裁决）。"""
+    def test_standing_has_no_resolution(self):
+        """长期并列的冲突不得有 resolution（防止 agent 自行裁决）。"""
         for c in load_conflicts():
             if c.is_unresolved:
-                assert not c.resolution, f"{c.conflict_id} 未裁决却带了 resolution"
+                assert not c.resolution, f"{c.conflict_id} 并列中却带了 resolution"
 
     def test_status_enum_valid(self):
-        valid = {"pending_backtest", "backtesting", "resolved", "agreed"}
+        valid = {"standing", "resolved"}
         for c in load_conflicts():
             assert c.status in valid, f"{c.conflict_id} 状态非法: {c.status}"
+
+    def test_all_default_standing(self):
+        """初版全部为长期并列（不做回测裁决，方案 §5.4）。"""
+        assert all(c.status == "standing" for c in load_conflicts())
 
 
 class TestRendering:
@@ -59,16 +63,17 @@ class TestRendering:
         c = SchoolConflict(
             conflict_id="CF-999", question="测试冲突", theme="测试",
             school_views={"qing": {"view": "A"}, "gator": {"view": "B"}},
-            status="pending_backtest",
+            status="standing",
         )
         card = c.render_card()
         assert "双列呈现" in card
         assert "不得自行选边" in card
+        assert "长期并列" in card
 
     def test_render_resolved_shows_resolution(self):
         c = SchoolConflict(
-            conflict_id="CF-998", question="已裁决", status="resolved",
-            resolution={"conclusion": "回测支持 gator", "date": "2026-10-15"},
+            conflict_id="CF-998", question="已人工裁决", status="resolved",
+            resolution={"conclusion": "用户裁决支持 gator", "date": "2026-10-15"},
         )
         card = c.render_card()
         assert "裁决" in card
@@ -81,7 +86,7 @@ class TestRendering:
 
     def test_load_block_unresolved_only(self):
         block = load_conflicts_block(unresolved_only=True)
-        # 全部为 pending → 应包含全部 cf
+        # 全部为 standing → 应包含全部 cf
         assert "CF-001" in block
 
 
@@ -111,9 +116,10 @@ class TestDualSchoolContract:
         assert p.exists()
         text = p.read_text(encoding="utf-8")
         # 六段式结构 + 关键纪律
-        for seg in ["共识区", "青枫浦上Q", "鳄鱼派", "矛盾与裁决", "操作建议", "涌现发现"]:
+        for seg in ["共识区", "青枫浦上Q", "鳄鱼派", "矛盾与分歧", "操作建议", "涌现发现"]:
             assert seg in text, f"契约缺段落: {seg}"
-        assert "不得自行选边" in text or "严禁自行选边" in text
+        assert "严禁自行选边" in text
+        assert "长期并列" in text
 
     def test_contract_gating_no_gator(self):
         """context 无 gator 内容 → 不注入契约（保持既有输出形态）。"""
