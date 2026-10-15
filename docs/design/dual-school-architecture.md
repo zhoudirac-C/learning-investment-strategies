@@ -221,9 +221,27 @@ conflicts:
 | P2b | 鳄鱼派确定性规则代码化（gator_rules.py：止跌5信号/剪刀差/情绪冰点） | 盘中规则实时跑 | 0.5天 |
 | P3 | gator 50 章全量入册：拆解脚本 → 50 pattern 草案生成 → 21 个可计算规则同步入 gator_rules.py → 人工 review 冲突章节 + 现有18框架 school 标注复审 | 双学派 pattern 库（~68 个总 pattern） | 2-3天 |
 | P4 | school-conflicts.yaml 辩论卡初版 + agent 双学派输出契约 + prompts | agent 多专家输出 | 1天 |
-| P5 | 公众号 cron（23:00 fetch→claim） | 增量管线运转 | 0.5天 |
+| P5 | 公众号 cron（23:00 fetch→claim）✅ 已实施 | 增量管线运转 | 0.5天 |
 
 **总计约 4.5-5.5 天**（P3 从精选改为全量程序化拆解，工作量扩大但一次到位；P2a/P2b 仍并行）。
+
+### 7.1 P5 实施记录（2026-10-15）
+
+公众号增量管线**拆成两个 cron**（因为 claim 提取需 LLM 编排，不能纯脚本化）：
+
+| 时间 | 任务 | 类型 | Job ID | 说明 |
+|---|---|---|---|---|
+| 每日 23:00 | 公众号抓取 | `no_agent` watchdog | `d1cd513b9ebc` | `~/.hermes/scripts/qing_fetch_wechat_mp.py` → `scripts/fetch_wechat_article.py`；有新增输出 `NEW_ARTICLE:` 行投递飞书，无新增静默 |
+| 每日 23:30 | claim 提取（gator） | LLM Agent | `e6be7c8c942a` | 加载 `qing-claim-extraction-ops` + `qing-learning-claim`；up_id=`wechat-ecyu-0001`、school=`gator`；走 C2 Gate 管线 + 下游四步同步 |
+
+**设计要点**：
+- 抓取脚本前置容器健康检查（`curl 127.0.0.1:4310`），容器不可用则静默 exit 0，不产生噪声告警
+- DB 为 root 属主 → cron 脚本用 `sudo -n`（服务器已配免密，实测通过）
+- 两任务间隔 30 分钟，避免抓取未完成就触发提取
+- 提取任务自带空转检测：无新文章直接结束，不生成多余输出
+
+**降级路径**：we-mp-rss 的公众平台通道若被微信封堵（见 §9），抓取任务会静默失败，
+此时退回「人工转发文章链接 → 手动走 claim 管线」模式，claim 库数据不受影响。
 
 ---
 
