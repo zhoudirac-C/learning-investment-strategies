@@ -129,6 +129,22 @@ def _summarize_claim(claim: dict, max_len: int = 50) -> dict:
     }
 
 
+def _claim_school(claim: dict) -> str:
+    """claim 的学派：优先读 school 字段，缺失时由 up_id 推导（2026-10-15）。"""
+    sid = str(claim.get("school", "") or "")
+    if sid:
+        return sid
+    up_id = str(claim.get("up_id", "") or "")
+    if not up_id:
+        return ""
+    try:
+        from qing_investment.schools import school_of_up
+
+        return school_of_up(up_id) or ""
+    except Exception:
+        return ""
+
+
 def _score_claim_relevance(
     claim: dict,
     stock_code: str,
@@ -205,6 +221,7 @@ def build_stock_context(
     qdrant_claims: list[dict] | None = None,
     max_claims: int = 3,
     active_patterns: list[dict] | None = None,
+    school_filter: list[str] | None = None,
 ) -> dict:
     """为单只标的构建增强上下文。
 
@@ -215,6 +232,9 @@ def build_stock_context(
         qdrant_claims: 从 Qdrant 语义召回的 claims（可选）
         max_claims: 最多注入几条 claims 摘要（防止上下文溢出）
         active_patterns: 当前激活的 reasoning patterns（可选），用于 claims 排序
+        school_filter: 学派过滤（2026-10-15 双学派架构）。None = 不过滤（现状兼容）；
+                       ["qing"] / ["gator"] = 单专家模式。
+                       注意：claims 无 school 字段时（未回填）按 up_id 兜底推导。
 
     Returns:
         {
@@ -228,6 +248,13 @@ def build_stock_context(
             "latest_date": "2026-06-04",
         }
     """
+    # 学派过滤（可选）：按 school 字段过滤，缺失时由 up_id 推导
+    if school_filter:
+        allowed = set(school_filter)
+        neo4j_claims = [c for c in neo4j_claims if _claim_school(c) in allowed]
+        if qdrant_claims:
+            qdrant_claims = [c for c in qdrant_claims if _claim_school(c) in allowed]
+
     # 合并并去重
     all_claims: list[dict] = []
     seen_ids: set[str] = set()
@@ -291,6 +318,7 @@ def build_market_context(
     qdrant_client: Any | None = None,
     embedding_model: Any | None = None,
     active_patterns: list[dict] | None = None,
+    school_filter: list[str] | None = None,
 ) -> dict:
     """为市场分析构建完整的增强上下文。
 
@@ -434,7 +462,10 @@ def build_market_context(
                 logger.warning("Qdrant claims retrieval failed for %s: %s", code, e)
 
         # 构建上下文（传入 active_patterns）
-        ctx = build_stock_context(code, name, neo4j_claims, qdrant_claims, active_patterns=active_patterns)
+        ctx = build_stock_context(
+            code, name, neo4j_claims, qdrant_claims,
+            active_patterns=active_patterns, school_filter=school_filter,
+        )
         stock_contexts.append(ctx)
 
         # 收集方向信号（使用动态方向列表）

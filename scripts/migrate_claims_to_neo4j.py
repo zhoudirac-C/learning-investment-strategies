@@ -44,6 +44,16 @@ from qing_investment.agent.config import settings
 CLAIMS_DIR = REPO_ROOT / "knowledge" / "claims"
 STATE_PATH = REPO_ROOT / ".migrate_state.json"
 
+
+def _school_of(up_id: str) -> str:
+    """由 up_id 推导学派。失败返回空串。"""
+    try:
+        from qing_investment.schools import school_of_up
+
+        return school_of_up(up_id) or ""
+    except Exception:
+        return ""
+
 # Regex for Chinese stock codes (6 digits, optionally with .SH/.SZ suffix)
 STOCK_CODE_RE = re.compile(r"\b(\d{6})(?:\.SH|\.SZ|\.sh|\.sz)?\b")
 # Also match stock names that might be in positions.yaml
@@ -381,6 +391,7 @@ def _migrate_single_claim(session, claim: dict):
             c.up_id = $up_id,
             c.up_name = $up_name,
             c.stance = $stance,
+            c.school = $school,
             c.related_stocks = $related_stocks,
             c.file = $file
         """,
@@ -401,6 +412,8 @@ def _migrate_single_claim(session, claim: dict):
             "up_name": claim.get("up_name", ""),
             # 2026-09-17 话语性质（fact/view/market-regime/mixed），存量缺失写 unknown
             "stance": claim.get("stance", "") or "unknown",
+            # 2026-10-15 双学派架构：学派归属（qing/gator/watchlist），由 up_id 推导兜底
+            "school": claim.get("school", "") or _school_of(claim.get("up_id", "")),
             # 2026-09-19 结构化标的池：进图库供过滤/检索（存名字列表，便于 Cypher 直读）
             "related_stocks": [
                 str(x.get("name") or x.get("code") or "")

@@ -32,6 +32,16 @@ QDRANT_DATA_DIR = os.path.join(PROJECT_ROOT, ".qdrant_data")
 QDRANT_LOCK_FILE = os.path.join(QDRANT_DATA_DIR, ".lock")
 
 
+def _school_of(up_id: str) -> str:
+    """由 up_id 推导学派（缓存于 schools 模块）。失败返回空串。"""
+    try:
+        from qing_investment.schools import school_of_up
+
+        return school_of_up(up_id) or ""
+    except Exception:
+        return ""
+
+
 def _kill_agent_if_running():
     """Kill uvicorn Qing-Agent to release Qdrant file lock."""
     try:
@@ -217,6 +227,8 @@ def main():
                 "stance": claim.get("stance", "") or "unknown",
                 # 2026-09-19 结构化标的池：供按标的检索（此前该字段未进 payload）
                 "related_stocks": claim.get("related_stocks") or [],
+                # 2026-10-15 双学派架构：供按学派过滤检索（qing/gator/watchlist）
+                "school": claim.get("school", "") or _school_of(claim.get("up_id", "")),
             },
         ))
 

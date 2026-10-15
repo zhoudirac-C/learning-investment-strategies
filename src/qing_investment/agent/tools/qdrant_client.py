@@ -33,10 +33,21 @@ class QdrantClientWrapper:
             )
             logger.info("Created Qdrant collection: %s", name)
 
-    def search(self, query_vector, collection: str = "qing_knowledge", limit: int = 5):
+    def search(
+        self,
+        query_vector,
+        collection: str = "qing_knowledge",
+        limit: int = 5,
+        schools: list[str] | None = None,
+    ):
         """Semantic search — queries Qdrant server via query_points API.
 
         Supports qing_knowledge (wiki+raw docs) and qing_claims (structured claims).
+
+        Args:
+            schools: 学派过滤（2026-10-15 双学派架构）。None = 不过滤（现状兼容）；
+                     ["qing"] / ["gator"] = 单专家模式；["qing","gator","shared"] 等。
+                     过滤字段为 payload.school（存量无该字段的点不会被匹配）。
         """
         import numpy as np
 
@@ -45,11 +56,20 @@ class QdrantClientWrapper:
         else:
             query_vec = np.array(query_vector).flatten()
 
+        query_filter = None
+        if schools:
+            from qdrant_client.models import FieldCondition, Filter, MatchAny
+
+            query_filter = Filter(
+                must=[FieldCondition(key="school", match=MatchAny(any=list(schools)))]
+            )
+
         resp = self._client.query_points(
             collection_name=collection,
             query=query_vec.tolist(),
             limit=limit,
             with_payload=True,
+            query_filter=query_filter,
         )
         return [
             {"id": r.id, "score": r.score, "payload": r.payload or {}}
