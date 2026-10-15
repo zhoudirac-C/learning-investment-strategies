@@ -20849,5 +20849,591 @@
       "dt_sector_summary": {},
       "fetched_at": "2026-10-09T18:11:00.209775+08:00"
     }
+  },
+  "2026-10-12": {
+    "date": "2026-10-12",
+    "built_at": "2026-10-12T18:10:42.487540+08:00",
+    "market": {
+      "stage": "退潮期（磨底中，修复窗口开启）",
+      "stage_detail": "①大盘日线全绿（上证/深成/创业板/科创50/全A 日线MACD绿柱放大+低7），趋势仍向下；②但60分钟上证/全A/创业板/科创50同步红柱放大（DIF上穿DEA），120分钟/90分钟绿柱缩短——小级别出现修复信号；③斐波那契34天窗口今天正好到期（深成/创业板/全A距8/17高点34天整、上证33天差1天），变盘窗口开启；④情绪数据：涨停47家、跌停19家（较前期恐慌收敛）、炸板率56%偏高",
+      "direction_priority": [
+        {
+          "direction": "防御避险（白酒/银行/保险）",
+          "intensity": "",
+          "source": "stock_scanner:market:derived"
+        },
+        {
+          "direction": "出版传媒（新华传媒10板带队）",
+          "intensity": "",
+          "source": "stock_scanner:market:derived"
+        },
+        {
+          "direction": "文化振兴",
+          "intensity": "",
+          "source": "stock_scanner:market:derived"
+        }
+      ],
+      "position_stance": "先持有1100股为主，仓位已占组合约24.6%，不宜在58.7附近直接重仓追加。61.0上方走强再补，跌破57.2先减一部分，56.0以下继续收缩，55.0失守则执行止损。",
+      "key_levels": {
+        "shanghai_index": {
+          "full_position_trigger": "4088（UP 6/15 09:45 明确定价：收盘站上可满仓干，但需具备选股能力。6/21节前沪指冲高回落偏弱，当前未触发）",
+          "valid_repair": "量价确认+科技高低切（已替代4033固定点位，6/9后UP不再使用4033作为修复标准）",
+          "weak_repair": "4000（心理关口，缩量站回无效，需放量+科技主动承接）",
+          "trend_defense": "3950（月线支撑，收盘跌破→筑底失败信号）",
+          "framework_evolution": "6/3: 4033/4130纪律线引入。6/5: 4033修正为科技清仓线。6/9: 生命线下调至4000。\n6/11早盘: 地量信号+情景A/B框架替代二元点位判断。4033已连续12天被跌破。\n6/11晚间: 全A趋势下跌23个交易日→历史级别尾部。午后回升提前消耗修复动能。\n6/21: K型分化确立。双创创新高vs沪指偏弱。涨价链排序取代单一方向判断。\n"
+        },
+        "star_board_50": {
+          "warning": "PE约225倍/PB约9.43倍，历史最高估值区间。短期仍偏强但无安全垫，看作需随时减仓的高Beta位置而非加仓位置。对海外半导体板块大跌高度敏感。",
+          "source_claim": "claim-20260621-001-e"
+        },
+        "nasdaq": {
+          "watch": "费城半导体指数是否稳住震荡区间"
+        },
+        "oil": {
+          "escalation_threshold": "90美元",
+          "relief_threshold": "80美元"
+        },
+        "dollar_index": {
+          "escalation_threshold": 101,
+          "description": "美元指数站上101+10Y美债同步站上4.5%=主流资金确认风险升级+加息预期抬头→压制科技股与有色估值。这是今晚最该盯的数据而非盘中传闻。",
+          "source_claim": "claim-20260622-001-b"
+        },
+        "us10y_treasury": {
+          "escalation_threshold": "4.5%",
+          "description": "10年期美债收益率同步站上4.5%+美元101→风险升级信号",
+          "source_claim": "claim-20260622-001-b"
+        },
+        "csi2000": {
+          "index_code": "883418",
+          "name": "微盘股（同花顺883418）",
+          "description": "UP 6/15复盘将微盘股列为第一隐忧和验证维度。2026-09-10 起直接跟踪 微盘股指数本身（同花顺883418，沪深A股市值最小400只等权）， 替代原先误标为「中证2000」的 sh000932（实为中证消费）。 数据源：d.10jqka.com.cn（日线由30min聚合，因该站日线接口不可信）。",
+          "break_condition": {
+            "level": "🔴 第一隐忧",
+            "description": "收盘持续在20日均线下方运行 = 破位确认",
+            "trigger": "close_below_MA20",
+            "risk_chain": "微盘股破位→拖累全A→拖累AI科技→修复证伪"
+          },
+          "broad_verify": {
+            "level": "✅ 线索① 尾盘补涨（验证广度）",
+            "description": "中证2000收阳且跑赢全A（涨幅>中证全指）= 微盘股补涨确认，意味着\"所有板块同向往上\"条件成立",
+            "trigger": "zz2000_gain > all_share_gain AND zz2000_close_positive"
+          },
+          "monitor_frequency": "每日，关注尾盘（14:52）最终收盘确认",
+          "invalidation_conditions": [
+            "中证2000连续3日收于MA20下方→微盘破位确认，降仓至10%",
+            "中证2000跳空低开且30分钟不补缺→防御模式"
+          ]
+        }
+      }
+    },
+    "positions": {},
+    "kpl_emotion": {
+      "fetched_at": "2026-10-12T17:45:40",
+      "up_count": 1167,
+      "down_count": 4324,
+      "flat_count": 69,
+      "limit_up": 46,
+      "limit_down": 19,
+      "prev_limit_up": 69,
+      "prev_limit_down": 8,
+      "fengban_rate": 64.7887,
+      "lianban_height": "10连板",
+      "concept_boards": [
+        {
+          "name": "银行",
+          "pct": "1.99"
+        },
+        {
+          "name": "文化传媒",
+          "pct": "0.58"
+        },
+        {
+          "name": "AI应用",
+          "pct": "-0.59"
+        },
+        {
+          "name": "智能电网",
+          "pct": "-1.10"
+        }
+      ]
+    },
+    "tomorrow_scenarios": null,
+    "dragon_tiger_board": {
+      "board_count": 83,
+      "watch_dt_items": [],
+      "dt_nettop5": [
+        {
+          "code": "300006",
+          "name": "莱美药业",
+          "net_buy": "+3.21亿"
+        },
+        {
+          "code": "002531",
+          "name": "天顺风能",
+          "net_buy": "+2.50亿"
+        },
+        {
+          "code": "601929",
+          "name": "吉视传媒",
+          "net_buy": "+1.85亿"
+        },
+        {
+          "code": "603533",
+          "name": "掌阅科技",
+          "net_buy": "+1.54亿"
+        },
+        {
+          "code": "002264",
+          "name": "新华都",
+          "net_buy": "+1.18亿"
+        }
+      ],
+      "dt_sector_summary": {},
+      "fetched_at": "2026-10-12T18:10:42.521314+08:00"
+    }
+  },
+  "2026-10-13": {
+    "date": "2026-10-13",
+    "built_at": "2026-10-13T18:10:23.424403+08:00",
+    "market": {
+      "stage": "调整期（磨底阶段）",
+      "stage_detail": "三步共振法：1）MACD各级别不一致——日线/120分钟绿柱仍放大（上证/深成/创业板/科创/全A五指数一致），但30/60分钟金叉红柱放大，90/120分钟绿柱缩短，属60分钟级别弱反弹而非日线级别底部结构；2）九转序列日线低8（明日可能低9），科创50曾于9/15出现低9后仍下跌，显示当前处于下跌通道中，低9有效性需MACD底背离确认，目前日线无背离；3）斐波那契窗口——上证/科创50距8/1",
+      "direction_priority": [
+        {
+          "direction": "光互连（CPO/光模块）",
+          "intensity": "",
+          "source": "stock_scanner:market:derived"
+        },
+        {
+          "direction": "PCB/印制电路板",
+          "intensity": "",
+          "source": "stock_scanner:market:derived"
+        },
+        {
+          "direction": "出版/传媒（高低切过渡）",
+          "intensity": "",
+          "source": "stock_scanner:market:derived"
+        }
+      ],
+      "position_stance": "未判断",
+      "key_levels": {
+        "shanghai_index": {
+          "full_position_trigger": "4088（UP 6/15 09:45 明确定价：收盘站上可满仓干，但需具备选股能力。6/21节前沪指冲高回落偏弱，当前未触发）",
+          "valid_repair": "量价确认+科技高低切（已替代4033固定点位，6/9后UP不再使用4033作为修复标准）",
+          "weak_repair": "4000（心理关口，缩量站回无效，需放量+科技主动承接）",
+          "trend_defense": "3950（月线支撑，收盘跌破→筑底失败信号）",
+          "framework_evolution": "6/3: 4033/4130纪律线引入。6/5: 4033修正为科技清仓线。6/9: 生命线下调至4000。\n6/11早盘: 地量信号+情景A/B框架替代二元点位判断。4033已连续12天被跌破。\n6/11晚间: 全A趋势下跌23个交易日→历史级别尾部。午后回升提前消耗修复动能。\n6/21: K型分化确立。双创创新高vs沪指偏弱。涨价链排序取代单一方向判断。\n"
+        },
+        "star_board_50": {
+          "warning": "PE约225倍/PB约9.43倍，历史最高估值区间。短期仍偏强但无安全垫，看作需随时减仓的高Beta位置而非加仓位置。对海外半导体板块大跌高度敏感。",
+          "source_claim": "claim-20260621-001-e"
+        },
+        "nasdaq": {
+          "watch": "费城半导体指数是否稳住震荡区间"
+        },
+        "oil": {
+          "escalation_threshold": "90美元",
+          "relief_threshold": "80美元"
+        },
+        "dollar_index": {
+          "escalation_threshold": 101,
+          "description": "美元指数站上101+10Y美债同步站上4.5%=主流资金确认风险升级+加息预期抬头→压制科技股与有色估值。这是今晚最该盯的数据而非盘中传闻。",
+          "source_claim": "claim-20260622-001-b"
+        },
+        "us10y_treasury": {
+          "escalation_threshold": "4.5%",
+          "description": "10年期美债收益率同步站上4.5%+美元101→风险升级信号",
+          "source_claim": "claim-20260622-001-b"
+        },
+        "csi2000": {
+          "index_code": "883418",
+          "name": "微盘股（同花顺883418）",
+          "description": "UP 6/15复盘将微盘股列为第一隐忧和验证维度。2026-09-10 起直接跟踪 微盘股指数本身（同花顺883418，沪深A股市值最小400只等权）， 替代原先误标为「中证2000」的 sh000932（实为中证消费）。 数据源：d.10jqka.com.cn（日线由30min聚合，因该站日线接口不可信）。",
+          "break_condition": {
+            "level": "🔴 第一隐忧",
+            "description": "收盘持续在20日均线下方运行 = 破位确认",
+            "trigger": "close_below_MA20",
+            "risk_chain": "微盘股破位→拖累全A→拖累AI科技→修复证伪"
+          },
+          "broad_verify": {
+            "level": "✅ 线索① 尾盘补涨（验证广度）",
+            "description": "中证2000收阳且跑赢全A（涨幅>中证全指）= 微盘股补涨确认，意味着\"所有板块同向往上\"条件成立",
+            "trigger": "zz2000_gain > all_share_gain AND zz2000_close_positive"
+          },
+          "monitor_frequency": "每日，关注尾盘（14:52）最终收盘确认",
+          "invalidation_conditions": [
+            "中证2000连续3日收于MA20下方→微盘破位确认，降仓至10%",
+            "中证2000跳空低开且30分钟不补缺→防御模式"
+          ]
+        }
+      }
+    },
+    "positions": {},
+    "kpl_emotion": {
+      "fetched_at": "2026-10-13T17:45:21",
+      "up_count": 2909,
+      "down_count": 2485,
+      "flat_count": 166,
+      "limit_up": 67,
+      "limit_down": 8,
+      "prev_limit_up": 46,
+      "prev_limit_down": 19,
+      "fengban_rate": 77.907,
+      "lianban_height": "2连板",
+      "concept_boards": [
+        {
+          "name": "冰雪产业",
+          "pct": "2.66"
+        },
+        {
+          "name": "通信",
+          "pct": "1.11"
+        },
+        {
+          "name": "体育产业",
+          "pct": "0.98"
+        },
+        {
+          "name": "化工",
+          "pct": "0.59"
+        }
+      ]
+    },
+    "tomorrow_scenarios": null,
+    "dragon_tiger_board": {
+      "board_count": 67,
+      "watch_dt_items": [],
+      "dt_nettop5": [
+        {
+          "code": "301660",
+          "name": "粤芯半导体",
+          "net_buy": "+3.82亿"
+        },
+        {
+          "code": "002242",
+          "name": "九阳股份",
+          "net_buy": "+1.50亿"
+        },
+        {
+          "code": "002639",
+          "name": "雪人集团",
+          "net_buy": "+1.33亿"
+        },
+        {
+          "code": "002640",
+          "name": "跨境通",
+          "net_buy": "+1.23亿"
+        },
+        {
+          "code": "600354",
+          "name": "敦煌种业",
+          "net_buy": "+1.03亿"
+        }
+      ],
+      "dt_sector_summary": {},
+      "fetched_at": "2026-10-13T18:10:23.459686+08:00"
+    }
+  },
+  "2026-10-14": {
+    "date": "2026-10-14",
+    "built_at": "2026-10-14T18:10:16.942742+08:00",
+    "market": {
+      "stage": "退潮期（尾段，逼近冰点）",
+      "stage_detail": "①涨953家/跌4541家、跌停11家（>10未修复）、炸板率61.2%——亏钱效应仍在扩散但未到恐慌级（<50家跌停）；②五指数日线同步低9已兑现（10-14），叠加斐波那契13天窗口（9-22高点距今10天，差3天）——时间维度底部临近；③MACD日线全线绿柱放大，但120分钟绿柱缩短、60分钟红柱缩短接近零轴——小级别钝化开始酝酿；④结论：时间与九转共振指向底部区域，但日线动能未衰竭+无底部",
+      "direction_priority": [
+        {
+          "direction": "出版/AI语料",
+          "intensity": "",
+          "source": "stock_scanner:market:derived"
+        },
+        {
+          "direction": "油气开采",
+          "intensity": "",
+          "source": "stock_scanner:market:derived"
+        },
+        {
+          "direction": "文娱游戏",
+          "intensity": "",
+          "source": "stock_scanner:market:derived"
+        }
+      ],
+      "position_stance": "≤4成防守，等全A放量中阳线确认后再试错",
+      "key_levels": {
+        "shanghai_index": {
+          "full_position_trigger": "4088（UP 6/15 09:45 明确定价：收盘站上可满仓干，但需具备选股能力。6/21节前沪指冲高回落偏弱，当前未触发）",
+          "valid_repair": "量价确认+科技高低切（已替代4033固定点位，6/9后UP不再使用4033作为修复标准）",
+          "weak_repair": "4000（心理关口，缩量站回无效，需放量+科技主动承接）",
+          "trend_defense": "3950（月线支撑，收盘跌破→筑底失败信号）",
+          "framework_evolution": "6/3: 4033/4130纪律线引入。6/5: 4033修正为科技清仓线。6/9: 生命线下调至4000。\n6/11早盘: 地量信号+情景A/B框架替代二元点位判断。4033已连续12天被跌破。\n6/11晚间: 全A趋势下跌23个交易日→历史级别尾部。午后回升提前消耗修复动能。\n6/21: K型分化确立。双创创新高vs沪指偏弱。涨价链排序取代单一方向判断。\n"
+        },
+        "star_board_50": {
+          "warning": "PE约225倍/PB约9.43倍，历史最高估值区间。短期仍偏强但无安全垫，看作需随时减仓的高Beta位置而非加仓位置。对海外半导体板块大跌高度敏感。",
+          "source_claim": "claim-20260621-001-e"
+        },
+        "nasdaq": {
+          "watch": "费城半导体指数是否稳住震荡区间"
+        },
+        "oil": {
+          "escalation_threshold": "90美元",
+          "relief_threshold": "80美元"
+        },
+        "dollar_index": {
+          "escalation_threshold": 101,
+          "description": "美元指数站上101+10Y美债同步站上4.5%=主流资金确认风险升级+加息预期抬头→压制科技股与有色估值。这是今晚最该盯的数据而非盘中传闻。",
+          "source_claim": "claim-20260622-001-b"
+        },
+        "us10y_treasury": {
+          "escalation_threshold": "4.5%",
+          "description": "10年期美债收益率同步站上4.5%+美元101→风险升级信号",
+          "source_claim": "claim-20260622-001-b"
+        },
+        "csi2000": {
+          "index_code": "883418",
+          "name": "微盘股（同花顺883418）",
+          "description": "UP 6/15复盘将微盘股列为第一隐忧和验证维度。2026-09-10 起直接跟踪 微盘股指数本身（同花顺883418，沪深A股市值最小400只等权）， 替代原先误标为「中证2000」的 sh000932（实为中证消费）。 数据源：d.10jqka.com.cn（日线由30min聚合，因该站日线接口不可信）。",
+          "break_condition": {
+            "level": "🔴 第一隐忧",
+            "description": "收盘持续在20日均线下方运行 = 破位确认",
+            "trigger": "close_below_MA20",
+            "risk_chain": "微盘股破位→拖累全A→拖累AI科技→修复证伪"
+          },
+          "broad_verify": {
+            "level": "✅ 线索① 尾盘补涨（验证广度）",
+            "description": "中证2000收阳且跑赢全A（涨幅>中证全指）= 微盘股补涨确认，意味着\"所有板块同向往上\"条件成立",
+            "trigger": "zz2000_gain > all_share_gain AND zz2000_close_positive"
+          },
+          "monitor_frequency": "每日，关注尾盘（14:52）最终收盘确认",
+          "invalidation_conditions": [
+            "中证2000连续3日收于MA20下方→微盘破位确认，降仓至10%",
+            "中证2000跳空低开且30分钟不补缺→防御模式"
+          ]
+        }
+      }
+    },
+    "positions": {},
+    "kpl_emotion": {
+      "fetched_at": "2026-10-14T17:45:14",
+      "up_count": 978,
+      "down_count": 4496,
+      "flat_count": 88,
+      "limit_up": 36,
+      "limit_down": 11,
+      "prev_limit_up": 67,
+      "prev_limit_down": 8,
+      "fengban_rate": 60,
+      "lianban_height": null,
+      "concept_boards": [
+        {
+          "name": "游戏",
+          "pct": "0.65"
+        },
+        {
+          "name": "文化传媒",
+          "pct": "-0.05"
+        },
+        {
+          "name": "冰雪产业",
+          "pct": "-0.74"
+        },
+        {
+          "name": "AI应用",
+          "pct": "-1.28"
+        }
+      ]
+    },
+    "tomorrow_scenarios": null,
+    "dragon_tiger_board": {
+      "board_count": 76,
+      "watch_dt_items": [
+        "中材科技(002080) 净买-3.73亿"
+      ],
+      "dt_nettop5": [
+        {
+          "code": "601579",
+          "name": "会稽山",
+          "net_buy": "+2.12亿"
+        },
+        {
+          "code": "300299",
+          "name": "富春股份",
+          "net_buy": "+2.04亿"
+        },
+        {
+          "code": "300299",
+          "name": "富春股份",
+          "net_buy": "+1.81亿"
+        },
+        {
+          "code": "605287",
+          "name": "德才股份",
+          "net_buy": "+1.64亿"
+        },
+        {
+          "code": "002029",
+          "name": "七匹狼",
+          "net_buy": "+1.56亿"
+        }
+      ],
+      "dt_sector_summary": {
+        "pcb_ai_chain": {
+          "stocks": [
+            "002080"
+          ],
+          "total_net_str": "-3.73亿"
+        }
+      },
+      "fetched_at": "2026-10-14T18:10:17.011086+08:00"
+    }
+  },
+  "2026-10-15": {
+    "date": "2026-10-15",
+    "built_at": "2026-10-15T18:10:25.046457+08:00",
+    "market": {
+      "stage": "调整期（冰点段，底部区域信号累积中）",
+      "stage_detail": "三步共振法：①MACD：日线/120/90/60分钟全线绿柱放大（日线DIF -124.5），下跌动能未衰竭，但30分钟绿柱首次缩短（全A/上证/深成/创业板四指数同步），最小级别出现衰减迹象；②九转：上证/深成/创业板/科创50/全A五大指数今日同步日线低9兑现——下跌趋势中低9虽易失效，但五指数共振的低9+30分钟绿柱缩短组合是超卖信号；③斐波那契：距9/22高点11个交易日，距13天窗口仅差",
+      "direction_priority": [
+        {
+          "direction": "出版/传媒（高位退潮中）",
+          "intensity": "",
+          "source": "stock_scanner:market:derived"
+        },
+        {
+          "direction": "防御（白酒/银行/证券）",
+          "intensity": "",
+          "source": "stock_scanner:market:derived"
+        },
+        {
+          "direction": "AI硬件（观察超跌反弹窗口）",
+          "intensity": "",
+          "source": "stock_scanner:market:derived"
+        }
+      ],
+      "position_stance": "仓位≤3成防守，明日验证假摔组合（今日弱+明日强）后可0.5成试错，全A中阳线前不加仓",
+      "key_levels": {
+        "shanghai_index": {
+          "full_position_trigger": "4088（UP 6/15 09:45 明确定价：收盘站上可满仓干，但需具备选股能力。6/21节前沪指冲高回落偏弱，当前未触发）",
+          "valid_repair": "量价确认+科技高低切（已替代4033固定点位，6/9后UP不再使用4033作为修复标准）",
+          "weak_repair": "4000（心理关口，缩量站回无效，需放量+科技主动承接）",
+          "trend_defense": "3950（月线支撑，收盘跌破→筑底失败信号）",
+          "framework_evolution": "6/3: 4033/4130纪律线引入。6/5: 4033修正为科技清仓线。6/9: 生命线下调至4000。\n6/11早盘: 地量信号+情景A/B框架替代二元点位判断。4033已连续12天被跌破。\n6/11晚间: 全A趋势下跌23个交易日→历史级别尾部。午后回升提前消耗修复动能。\n6/21: K型分化确立。双创创新高vs沪指偏弱。涨价链排序取代单一方向判断。\n"
+        },
+        "star_board_50": {
+          "warning": "PE约225倍/PB约9.43倍，历史最高估值区间。短期仍偏强但无安全垫，看作需随时减仓的高Beta位置而非加仓位置。对海外半导体板块大跌高度敏感。",
+          "source_claim": "claim-20260621-001-e"
+        },
+        "nasdaq": {
+          "watch": "费城半导体指数是否稳住震荡区间"
+        },
+        "oil": {
+          "escalation_threshold": "90美元",
+          "relief_threshold": "80美元"
+        },
+        "dollar_index": {
+          "escalation_threshold": 101,
+          "description": "美元指数站上101+10Y美债同步站上4.5%=主流资金确认风险升级+加息预期抬头→压制科技股与有色估值。这是今晚最该盯的数据而非盘中传闻。",
+          "source_claim": "claim-20260622-001-b"
+        },
+        "us10y_treasury": {
+          "escalation_threshold": "4.5%",
+          "description": "10年期美债收益率同步站上4.5%+美元101→风险升级信号",
+          "source_claim": "claim-20260622-001-b"
+        },
+        "csi2000": {
+          "index_code": "883418",
+          "name": "微盘股（同花顺883418）",
+          "description": "UP 6/15复盘将微盘股列为第一隐忧和验证维度。2026-09-10 起直接跟踪 微盘股指数本身（同花顺883418，沪深A股市值最小400只等权）， 替代原先误标为「中证2000」的 sh000932（实为中证消费）。 数据源：d.10jqka.com.cn（日线由30min聚合，因该站日线接口不可信）。",
+          "break_condition": {
+            "level": "🔴 第一隐忧",
+            "description": "收盘持续在20日均线下方运行 = 破位确认",
+            "trigger": "close_below_MA20",
+            "risk_chain": "微盘股破位→拖累全A→拖累AI科技→修复证伪"
+          },
+          "broad_verify": {
+            "level": "✅ 线索① 尾盘补涨（验证广度）",
+            "description": "中证2000收阳且跑赢全A（涨幅>中证全指）= 微盘股补涨确认，意味着\"所有板块同向往上\"条件成立",
+            "trigger": "zz2000_gain > all_share_gain AND zz2000_close_positive"
+          },
+          "monitor_frequency": "每日，关注尾盘（14:52）最终收盘确认",
+          "invalidation_conditions": [
+            "中证2000连续3日收于MA20下方→微盘破位确认，降仓至10%",
+            "中证2000跳空低开且30分钟不补缺→防御模式"
+          ]
+        }
+      }
+    },
+    "positions": {},
+    "kpl_emotion": {
+      "fetched_at": "2026-10-15T17:45:23",
+      "up_count": 430,
+      "down_count": 5107,
+      "flat_count": 27,
+      "limit_up": 36,
+      "limit_down": 26,
+      "prev_limit_up": 36,
+      "prev_limit_down": 11,
+      "fengban_rate": 83.7209,
+      "lianban_height": "5连板",
+      "concept_boards": [
+        {
+          "name": "证券",
+          "pct": "0.32"
+        },
+        {
+          "name": "三季报增长",
+          "pct": "-1.69"
+        },
+        {
+          "name": "医药",
+          "pct": "-1.89"
+        },
+        {
+          "name": "冰雪产业",
+          "pct": "-2.44"
+        }
+      ]
+    },
+    "tomorrow_scenarios": null,
+    "dragon_tiger_board": {
+      "board_count": 66,
+      "watch_dt_items": [
+        "百花医药(600721) 净买+1.91亿"
+      ],
+      "dt_nettop5": [
+        {
+          "code": "600869",
+          "name": "远东股份",
+          "net_buy": "+2.64亿"
+        },
+        {
+          "code": "002945",
+          "name": "华林证券",
+          "net_buy": "+1.93亿"
+        },
+        {
+          "code": "600721",
+          "name": "百花医药",
+          "net_buy": "+1.91亿"
+        },
+        {
+          "code": "301569",
+          "name": "联亚药业",
+          "net_buy": "+1.37亿"
+        },
+        {
+          "code": "301282",
+          "name": "金禄电子",
+          "net_buy": "+1.21亿"
+        }
+      ],
+      "dt_sector_summary": {
+        "holding_etf_huabao": {
+          "stocks": [
+            "600721"
+          ],
+          "total_net_str": "+1.91亿"
+        }
+      },
+      "fetched_at": "2026-10-15T18:10:25.081170+08:00"
+    }
   }
 }
