@@ -74,6 +74,90 @@ def _load_prompt_for_trigger(trigger_id: str | None, default_name: str) -> str:
     return _load_prompt(default_name)
 
 
+def _load_dual_school_contract(context: dict) -> str:
+    """双学派输出契约（2026-10-15）。
+
+    仅当 context 里带 gator 学派内容（冲突卡或规则快照可用）时注入，
+    避免单学派场景浪费 token / 改变既有输出形态。
+    """
+    has_gator = bool(
+        context.get("school_conflicts")
+        or (context.get("gator_rules_snapshot") or {}).get("available")
+        or any(
+            (p or {}).get("school") == "gator"
+            for p in (context.get("reasoning_patterns") or [])
+        )
+    )
+    if not has_gator:
+        return ""
+    return _load_prompt("dual_school_output")
+
+
+def _load_gator_rules_snapshot() -> dict:
+    """鳄鱼派规则引擎实时快照（双学派，2026-10-15）。
+
+    确定性规则（不占 token 的判断）在注入前先跑一遍，LLM 只负责解读。
+    数据源不可用时返回 {"available": False, "reason": ...}，不编造数值。
+    """
+    try:
+        from qing_investment import marketdata as md
+        from qing_investment.monitor.rules.gator_rules import (
+            assess_scissors, assess_stop_falling,
+        )
+
+        index_codes = {
+            "sh_pct": "sh000001", "cyb_pct": "sz399006",
+            "hs300_pct": "sh000300", "zz2000_pct": "sh000852",
+        }
+        snap = md.get_quotes(list(index_codes.values()))
+        quotes = snap.get("quotes") or []
+        by_code = {q.get("code"): q for q in quotes if isinstance(q, dict)}
+        market = {}
+        for key, code in index_codes.items():
+            q = by_code.get(code) or {}
+            try:
+                market[key] = float(q.get("change_pct"))
+            except (TypeError, ValueError):
+                market[key] = None
+
+        if all(v is None for v in market.values()):
+            return {"available": False, "reason": "指数数据不可用"}
+
+        stop = assess_stop_falling(market=market)
+        scissors = assess_scissors(market.get("hs300_pct"), market.get("zz2000_pct"))
+        return {
+            "available": True,
+            "school": "gator",
+            "market_pct": market,
+            "stop_falling": {
+                "met": stop.met_count,
+                "total": stop.total_count,
+                "stance": stop.stance,
+                "signals": [
+                    {"name": s.name, "level": s.level.value, "detail": s.detail}
+                    for s in stop.signals
+                ],
+            },
+            "scissors": {"level": scissors.level.value, "detail": scissors.detail},
+            "note": (
+                "以上为确定性规则引擎输出（非 LLM 判断）。"
+                "UNKNOWN 表示数据缺失，不得当作不满足；"
+                "引用时标注 [gator] 学派与章节。"
+            ),
+        }
+    except Exception as exc:
+        return {"available": False, "reason": f"gator 规则引擎不可用: {exc}"}
+
+
+def _load_school_conflicts_block() -> str:
+    """加载待裁决的学派冲突辩论卡（双学派，2026-10-15）。"""
+    try:
+        from qing_investment.agent.tools.school_conflicts import load_conflicts_block
+        return load_conflicts_block(unresolved_only=True)
+    except Exception:
+        return ""
+
+
 def _load_analysis_framework() -> str:
     """加载市场分析框架 prompt 片段（独立于主 prompt，方便修改）。"""
     path = _PROMPT_DIR / "market_analysis_framework.txt"
@@ -1876,6 +1960,9 @@ def market_summary(state: AgentState) -> AgentState:
         "pre_market_brief": pre_market_brief if trigger_id == "pre_market" else "",
         "active_opportunities": refreshed_opportunities,
         "industry_chain_states": _load_industry_chain_states(),
+        # 双学派（2026-10-15）：相关学派冲突辩论卡 + 鳄鱼派规则引擎快照
+        "school_conflicts": _load_school_conflicts_block(),
+        "gator_rules_snapshot": _load_gator_rules_snapshot(),
     }
 
     fallback = {
@@ -1895,9 +1982,12 @@ def market_summary(state: AgentState) -> AgentState:
     }
 
     context_json = json.dumps(context, ensure_ascii=False, indent=2, default=str)
+    _dual_school_block = _load_dual_school_contract(context)
     prompt = f"""{prompt_template_filled}
 
 {_data_missing_note}
+
+{_dual_school_block}
 
 检索到的知识：
 {context_json}

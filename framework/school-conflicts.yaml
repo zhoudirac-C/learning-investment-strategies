@@ -1,0 +1,206 @@
+# 学派冲突登记表（辩论卡）
+#
+# 设计文档：docs/design/dual-school-architecture.md §5.3
+# 定位：qing（青枫浦上Q）与 gator（像鳄鱼一样思考）两派在同一问题上的
+#       **判断分歧**登记处。不是「谁对谁错」的裁判，而是把分歧结构化保存，
+#       供 agent 双列输出 + 回测裁决使用。
+#
+# ⚠️ 裁决规则（用户 2026-10-15 拍板前的默认口径）：
+#   - status=pending_backtest 的冲突，agent 输出时必须**双列呈现**，
+#     标注「待回测裁决」，**不允许 agent 自行选边**。
+#   - resolution 只能由回测结论（qing-strategy-backtest）或用户人工裁决填写，
+#     LLM 不得自行生成裁决结果。
+#   - 回测结果与任一派主张冲突时，不改写原主张，只在 resolution 记录事实。
+#
+# status 枚举：
+#   pending_backtest  待回测（默认，双列输出）
+#   backtesting       回测中
+#   resolved          已裁决（resolution 必填，须注明依据）
+#   agreed            经复核实为表述差异，非真冲突（保留记录，标 agreed）
+#
+# hit_rate：分学派命中率，由 qing-strategy-backtest 回填。
+
+version: "1.0"
+updated_at: "2026-10-15"
+schools:
+  - qing
+  - gator
+
+conflicts:
+  # ── CF-001 ────────────────────────────────────────────────
+  - conflict_id: CF-001
+    question: "上涨由护盘/国家队驱动时，能否判定为止跌/见底"
+    theme: 底部判定
+    severity: high
+    school_views:
+      qing:
+        view: "以结构为准：缠论中枢下沿 + MACD 背离（价格新低/DIF 未同步）+ 金叉确认。护盘资金入场若同步形成底分型与背离结构，可视为见底依据的一部分。"
+        evidence:
+          - framework/reasoning-patterns.yaml#pattern_id=bottom_structure_divergence
+          - framework/technical-analysis-framework.md
+        hit_rate: null
+      gator:
+        view: "护盘驱动 ≠ 止跌。护盘底只是『大手托出的低点』，不等于见底完成——还需市场自己磨出市场底。判定纪律：IF 上涨由护盘驱动 THEN 不判定为止跌，后续仍有震荡反复。"
+        evidence:
+          - gator-ch12-hedge-3-levels#12.3
+          - gator-ch49-bottom-structure-2-types#49.1
+        hit_rate: null
+    round1_cross_exam:
+      qing_critique: "护盘确实可能带来结构性底分型，但底分型未必对应中枢背驰——若只有护盘无背离，结构未完成，本派同样不认。分歧不在『护盘算不算』，而在『护盘底当天的反弹能否构成买点』。"
+      gator_critique: "结构信号的滞后性：缠论底分型/背驰确认时，护盘底的最佳位置可能已过。且历史上护盘底之后仍有二次探底（2026-07底、8月初），仅凭当日结构就下结论风险偏高。"
+    status: pending_backtest
+    resolution: null
+
+  # ── CF-002 ────────────────────────────────────────────────
+  - conflict_id: CF-002
+    question: "地量（成交量极度萎缩）能否作为见底信号"
+    theme: 底部判定
+    severity: high
+    school_views:
+      qing:
+        view: "缩量是调整末端特征之一，地量＋缩量横盘若伴随结构收敛（中枢震荡末端）可视为蓄势；但需量能确认后才是买点——缩量本身不构成买入依据。"
+        evidence:
+          - framework/reasoning-patterns.yaml#pattern_id=volume_structure
+          - framework/technical-analysis-framework.md
+        hit_rate: null
+      gator:
+        view: "地量 ≠ 止跌。地量见低价的前提是筹码已完成充分交换（散户经历希望-失望-绝望并抛出、情绪进入无人问津）。若无真正恐慌大跌 + 套牢盘未割肉，市场只是在『耗着』，后续往往靠集中割肉放量大跌打破僵局。"
+        evidence:
+          - gator-ch15-false-bottom-rules#15.1
+        hit_rate: null
+    round1_cross_exam:
+      qing_critique: "本派也不认『地量即买点』。真正的差异是：Q 体系里缩量可以出现在结构收敛的蓄势阶段（时间换空间），而鳄鱼派要求先有恐慌释放——对『缩量横盘后向上突破』这类路径，两派前置条件不同。"
+      gator_critique: "缠论把缩量视为中性/偏正面（蓄势）的倾向，容易在下跌中继里被误读为蓄势，而实际是筹码未出清。"
+    status: pending_backtest
+    resolution: null
+
+  # ── CF-003 ────────────────────────────────────────────────
+  - conflict_id: CF-003
+    question: "左侧买入（下跌途中/未确认见底时建仓）的幅度与时机"
+    theme: 买点与仓位
+    severity: medium
+    school_views:
+      qing:
+        view: "缠论三类买点以结构定位为主：日线定性质、60分钟主判、30分钟入场；中枢下沿/背驰点可左侧分批，但须绑定具体价格与失效条件。"
+        evidence:
+          - framework/reasoning-patterns.yaml#pattern_id=buy_point_structure
+          - methodology/decision-flow.md
+        hit_rate: null
+      gator:
+        view: "下跌幅度决定左侧买入资格（第14章）：要求跌幅达到特定量级 + 反例规则排除（地量不认、光护盘不认）。护盘底只给底仓，市场底才加仓——明确反对在未排除反例时重仓左侧。"
+        evidence:
+          - gator-ch14-decline-depth-left-buy
+          - gator-ch15-false-bottom-rules
+          - gator-ch49-bottom-structure-2-types#49.1
+        hit_rate: null
+    round1_cross_exam:
+      qing_critique: "结构买点本身已含失效条件（跌破中枢/背驰失败），并非无条件左侧；鳄鱼派『跌幅量级』是价格比例口径，未考虑结构位置，同一跌幅在中枢下沿与中枢中部意义完全不同。"
+      gator_critique: "结构信号在极端下跌中会连续失效（背驰后再背驰），跌幅+反例排除是更保守的前置闸门；两派叠加反而可以降低假信号。"
+    status: pending_backtest
+    resolution: null
+
+  # ── CF-004 ────────────────────────────────────────────────
+  - conflict_id: CF-004
+    question: "情绪冰点/退潮的判定口径与阈值"
+    theme: 情绪与量能
+    severity: medium
+    school_views:
+      qing:
+        view: "以板块温度为锚（无人问津处买入/人声鼎沸处卖出），结合成交额集中度、板块轮动强度判断情绪位置；偏连续指标与相对分位，不设硬阈值。"
+        evidence:
+          - framework/reasoning-patterns.yaml#pattern_id=market_regime
+          - config/stock_monitor/board_sentiment（板块情绪温度计）
+        hit_rate: null
+      gator:
+        view: "情绪是相对的且给出硬阈值：短期冰点 = 微盘股跌≥3% + 跌停家数>30 + 上证跌>2%；退潮 = 过去一个月日均涨停100家而近几日降到80+；过热 = 熊市日均涨停60以下而几天飙到80+。"
+        evidence:
+          - gator-ch01-emotion-ice（gator_rules.assess_emotion_ice）
+          - gator-ch20-emotion-cycle-themes#20.1
+        hit_rate: null
+    round1_cross_exam:
+      qing_critique: "硬阈值的问题在于市场结构变化（注册制后涨跌停家数基准漂移），2026 年的『日均涨停100家』未必适用于后续年份；相对分位更能自适应。"
+      gator_critique: "相对分位在极端行情里钝化，冰点时刻往往正是分位数失效的时候；硬阈值至少给出可复现的判定，也便于回测。" 
+    status: pending_backtest
+    resolution: null
+
+  # ── CF-005 ────────────────────────────────────────────────
+  - conflict_id: CF-005
+    question: "剪刀差（机构 vs 游资分歧）与指数共振，哪个优先级更高"
+    theme: 信号优先级
+    severity: medium
+    school_views:
+      qing:
+        view: "指数共振（多指数同向、无背离）是趋势成立的基础；分歧存在时倾向降低仓位或等待结构修复，未把剪刀差作为独立判据。"
+        evidence:
+          - framework/market-breadth-framework.md
+          - framework/reasoning-patterns.yaml#pattern_id=index_resonance
+        hit_rate: null
+      gator:
+        view: "剪刀差 >0.5% 存在分歧、>1% 分歧较重、>2% 分歧严重，分歧明显则涨跌不可持续——作为独立的持续性判据，与指数共振并列（共振管『能不能涨』，剪刀差管『涨得久不久』）。"
+        evidence:
+          - gator-ch08-scissors-divergence（gator_rules.assess_scissors）
+        hit_rate: null
+    round1_cross_exam:
+      qing_critique: "剪刀差本质是风格分化，在板块轮动市里长期存在（尤其科技 vs 权重的结构性行情），常态化的分歧若都判『不可持续』会频繁误杀趋势。"
+      gator_critique: "分化到 2% 以上时，历史上确实多次对应急跌；阈值越高越可靠，轻分歧可忽略。"
+    status: pending_backtest
+    resolution: null
+
+  # ── CF-006 ────────────────────────────────────────────────
+  - conflict_id: CF-006
+    question: "『护盘』行为本身的性质判断（利多信号 vs 中性/风险信号）"
+    theme: 资金与政策
+    severity: high
+    school_views:
+      qing:
+        view: "国家队/护盘资金入场是流动性托底的正面变量，可作为底部区域的辅助证据（尤其与结构底重叠时）。"
+        evidence:
+          - framework/reasoning-patterns.yaml#pattern_id=liquidity_driven
+          - framework/crash-loop-attribution.md（GJD 救市）
+        hit_rate: null
+      gator:
+        view: "护盘不改趋势：『市场底永远是市场合力形成的。恐慌情绪不消散、筹码未完成充分交换，靠大手买也无法整体止跌。』且大救市本身是风险信号——『如果非要拖到大救市，我只会躲得远远的』（2015 年高位大救市没救起来的经历）。"
+        evidence:
+          - gator-ch12-hedge-3-levels#12.3
+          - gator-ch12-hedge-3-levels#12.1（大救市 = 躲避信号）
+        hit_rate: null
+    round1_cross_exam:
+      qing_critique: "两派其实分层：护盘作为『流动性变量』是正面的（Q 视角），作为『见底判据』是不充分的（鳄鱼视角）——分歧可能源于表述层级不同而非实质矛盾。"
+      gator_critique: "关键差异在『大救市』：Q 体系视其为托底，本派视其为风险（需大救市说明常规手段已失效）。这一条是实质分歧，不是表述差异。"
+    status: pending_backtest
+    resolution: null
+
+  # ── CF-007 ────────────────────────────────────────────────
+  - conflict_id: CF-007
+    question: "见底时间/路径的确定性表达（是否允许预测底部形态）"
+    theme: 方法论元规则
+    severity: low
+    school_views:
+      qing:
+        view: "日线定性质 + 结构推演，允许给出路径假设（如中枢震荡后向上/向下），但须附验证时点与失效条件。"
+        evidence:
+          - methodology/decision-flow.md
+          - framework/output-contracts.md（证伪条件）
+        hit_rate: null
+      gator:
+        view: "不预测疯牛/慢牛，只跟随：『出现疯牛信号了，当疯牛做；出现危险信号了，就撤离。充足的应对策略，比准确的预测更重要。』（2026-01-28）"
+        evidence:
+          - gator-ch15-false-bottom-rules#15.3
+        hit_rate: null
+    round1_cross_exam:
+      qing_critique: "本派的路径假设同样带证伪条件，不是『预测』而是『可验证假设』——与鳄鱼派的『应对优先』并不冲突。"
+      gator_critique: "实践中『路径假设』容易被下游读成预测结论；表述上标注置信度与失效点可缓解，但纪律上更倾向只讲应对。"
+    status: pending_backtest
+    resolution: null
+
+
+# ── 涌现发现区（两派交叉后的新洞察，由 agent 输出时累积，人工确认后固化）──
+emergent_findings: []
+# 示例（待验证的真实案例后填入）：
+# - id: EF-001
+#   date: "2026-10-15"
+#   insight: "护盘底 + 缠论中枢下沿同时成立时，市场底出现概率显著提升"
+#   derived_from: [CF-001, CF-006]
+#   school_basis: {qing: "中枢下沿", gator: "护盘底≠见底，需市场底"}
+#   confirmed_by: null
+#   status: candidate   # candidate / validated / rejected

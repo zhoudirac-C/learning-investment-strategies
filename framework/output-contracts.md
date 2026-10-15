@@ -34,3 +34,24 @@
 - 下一期跟踪字段
 - 学习结论
 - 风险提示
+
+## 双学派分析报告（6 段式）
+
+**触发**：分析涉及 qing + gator 两个学派时（输入含 gator 内容，或用户说「两派都看」）。
+**Prompt**：`src/qing_investment/agent/prompts/system/dual_school_output.txt`
+**设计**：`docs/design/dual-school-architecture.md` §5.2
+
+1. 共识区 — 两派一致的部分（无共识则明写）
+2. 青枫浦上Q 视角 `[qing]` — 缠论结构 + 量价 + 板块温度 + claims，绑价格锚点
+3. 鳄鱼派视角 `[gator]` — 规则清单逐条核对（✅/❌/❔）+ 章节来源
+4. 矛盾与裁决 — 引用 `framework/school-conflicts.yaml` 辩论卡；未裁决**双列不选边**
+5. 操作建议 — 方向层 + 节奏层 + 触发/失效条件；有未裁决矛盾时给出两派各自路径
+6. 涌现发现（可选）— 交叉洞察，标 `candidate`，不得当结论用
+
+**硬约束**：
+- 两派平权，不预设主次；引用必须在句中标 `[qing]` / `[gator]`
+- 未裁决矛盾严禁调和成模糊表述，也不允许 agent 自行选边
+- `resolution` 只能来自回测或人工，LLM 不得生成
+- gator-method 为第三方提炼库，引用须标注「第三方提炼」，不得当 UP 原话
+
+**用户指定学派时**：`按缠论看` → 只出 qing 视角 + 操作建议；`按鳄鱼派看` → 只出 gator 视角 + 操作建议（对应 `school_filter`）。
