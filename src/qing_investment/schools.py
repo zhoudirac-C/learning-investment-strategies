@@ -25,6 +25,8 @@ class School:
     style: str
     is_default: bool
     provenance_note: str = ""
+    # 采集通道（一个 up_id 可对应多平台：公众号 + B站 是同一人，2026-10-15）
+    platforms: tuple[dict, ...] = ()
 
 
 @lru_cache(maxsize=1)
@@ -43,6 +45,7 @@ def load_schools() -> tuple[School, ...]:
                 style=str(item.get("style", "")),
                 is_default=bool(item.get("is_default", False)),
                 provenance_note=str(item.get("provenance_note", "") or ""),
+                platforms=tuple(item.get("platforms", []) or []),
             )
         )
     if not schools:
@@ -67,6 +70,36 @@ def _up_to_school() -> dict[str, str]:
 def school_of_up(up_id: str) -> str | None:
     """返回 up_id 所属 school_id；未登记返回 None。"""
     return _up_to_school().get(str(up_id))
+
+
+@lru_cache(maxsize=1)
+def _platform_to_up() -> dict[str, str]:
+    """平台通道 id/uid → 统一 up_id 的反查表。
+
+    例：{"wechat-ecyu-0001": "gator-ecyu-0001", "470672214": "gator-ecyu-0001"}
+    用于兼容：抓取脚本/历史 md 里可能仍带旧平台 id，统一映射到 up_id。
+    """
+    mapping: dict[str, str] = {}
+    for s in load_schools():
+        for plat in s.platforms:
+            if not isinstance(plat, dict):
+                continue
+            for key in ("id", "uid"):
+                v = plat.get(key)
+                if v:
+                    mapping[str(v)] = s.up_ids[0] if s.up_ids else ""
+    return mapping
+
+
+def resolve_up_id(candidate: str) -> str:
+    """把平台通道 id / uid 归一化为统一 up_id。
+
+    已是正式 up_id 的原样返回；未登记的也原样返回（不阻断）。
+    """
+    c = str(candidate)
+    if c in _up_to_school():
+        return c
+    return _platform_to_up().get(c, c)
 
 
 def default_school() -> str:

@@ -37,7 +37,7 @@ schools:
     is_default: true
   - school_id: gator           # 鳄鱼派（新增）
     display_name: 像鳄鱼一样思考
-    up_ids: ["wechat-ecyu-0001", "470672214"]   # 公众号 + B站
+    up_id: "gator-ecyu-0001"                     # 统一（公众号 + B站 同一人）
     sources: ["wechat_mp", "bilibili_dynamic", "third_party/gator-method"]
     style: 资金生态位 + 预案-信号-执行规则体系
     is_default: false
@@ -58,7 +58,7 @@ schools:
 ### 3.1 claim 侧（改动最小）
 
 - `claim_schema.py`：
-  - `VIRTUAL_UP_IDS` 扩展注册 `wechat-ecyu-0001`（真实虚拟 UP，类比 chanlun-original）
+  - `VIRTUAL_UP_IDS` 扩展注册 `gator-ecyu-0001`（真实虚拟 UP，类比 chanlun-original）
   - 校验逻辑不变（up_id 必填）→ **天然隔离**：每条 claim 已带 up_id，检索时按 school 过滤即可
 - 新增 linter 规则：claim 的 `source_path` 前缀必须与其 up_id 所属 school 的 `sources` 匹配
   （防止 gator 的文章被记到 qing 头上）
@@ -119,8 +119,8 @@ qing 学派（现状，不动）:
 
 gator 学派（新增）:
   公众号 we-mp-rss DB → scripts/fetch_wechat_article.py → sources/original/wechat/
-  B站动态 fetch → sources/original/bilibili/（up_id 470672214）
-  → claim 提取（up_id=wechat-ecyu-0001，同一套 gate）
+  B站动态 fetch → sources/original/bilibili/（同一个 up_id=gator-ecyu-0001）
+  → claim 提取（up_id=gator-ecyu-0001，同一套 gate）
   → 月度 pattern 复盘（reasoning-patterns-gator.yaml 增量）
   → 代码规则更新（gator_rules.py 阈值调整）
 
@@ -225,6 +225,35 @@ conflicts:
 
 **总计约 4.5-5.5 天**（P3 从精选改为全量程序化拆解，工作量扩大但一次到位；P2a/P2b 仍并行）。
 
+### 7.0 多平台统一 up_id（2026-10-15 用户拍板）
+
+**问题**：「像鳄鱼一样思考」同时有微信公众号和 B站 两个采集源，最初登记为两个
+up_id（`wechat-ecyu-0001` / `470672214`），导致同一人的观点被系统当成两个 UP。
+
+**决策**：统一为单一 up_id `gator-ecyu-0001`。
+
+**理由**：
+1. up_id 的语义是「一个人」，平台只是**采集通道**，不该是身份维度
+2. 当时两侧 claim 均为 0 条 → 零迁移成本（事后合并需动 Neo4j/Qdrant/关系边）
+3. `school=gator` 内的统计（如未来做学派命中率）不应被人为拆散
+
+**实现**：
+```yaml
+- school_id: gator
+  up_ids: ["gator-ecyu-0001"]          # 唯一身份
+  platforms:                            # 采集通道（可多个）
+    - {type: wechat,   id: "wechat-ecyu-0001"}
+    - {type: bilibili, uid: "470672214"}
+```
+
+- `schools.py` 新增 `_platform_to_up()` + `resolve_up_id()`：平台 id → 统一 up_id 归一化
+- `claim_schema.py` 校验前先归一化 → **旧 id 写入的 claim 自动归到统一 up_id**（向后兼容）
+- `config/bilibili_ups.yaml` 加 `up_id` 字段与公众号对齐
+- `scripts/fetch_wechat_article.py` 的 `UP_ID` 改为统一 id
+- 新增 `TestGatorUnifiedUpId` 测试组（6 例：三种 id 归一、B站来源放行、跨学派仍拦、幂等）
+
+**注意**：`platforms` 里的 id 仅作**溯源与兼容**，不再作为 claim 的 up_id 取值。
+
 ### 7.1 P5 实施记录（2026-10-15）
 
 公众号增量管线**拆成两个 cron**（因为 claim 提取需 LLM 编排，不能纯脚本化）：
@@ -232,7 +261,7 @@ conflicts:
 | 时间 | 任务 | 类型 | Job ID | 说明 |
 |---|---|---|---|---|
 | 每日 23:00 | 公众号抓取 | `no_agent` watchdog | `d1cd513b9ebc` | `~/.hermes/scripts/qing_fetch_wechat_mp.py` → `scripts/fetch_wechat_article.py`；有新增输出 `NEW_ARTICLE:` 行投递飞书，无新增静默 |
-| 每日 23:30 | claim 提取（gator） | LLM Agent | `e6be7c8c942a` | 加载 `qing-claim-extraction-ops` + `qing-learning-claim`；up_id=`wechat-ecyu-0001`、school=`gator`；走 C2 Gate 管线 + 下游四步同步 |
+| 每日 23:30 | claim 提取（gator） | LLM Agent | `e6be7c8c942a` | 加载 `qing-claim-extraction-ops` + `qing-learning-claim`；up_id=`gator-ecyu-0001`、school=`gator`；走 C2 Gate 管线 + 下游四步同步 |
 
 **设计要点**：
 - 抓取脚本前置容器健康检查（`curl 127.0.0.1:4310`），容器不可用则静默 exit 0，不产生噪声告警

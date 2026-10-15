@@ -14,7 +14,7 @@
 
 1. **禁止直接修改本目录** — 更新只走"上游仓库重新克隆覆盖"
 2. **提 claim 时**：凡源自本目录的规则，claim 的 source_path 必须指向本目录路径，
-   up_id 用 `wechat-ecyu-0001` 但 provenance 标注 `third_party/gator-method`
+   up_id 用 `gator-ecyu-0001` 但 provenance 标注 `third_party/gator-method`
    （后续用我们抓的公众号原文校验/替换）
 3. **时效性**：部分规则带时间戳（如 20250710 融资盘选股法），引用时保留 source_date
 

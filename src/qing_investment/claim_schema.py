@@ -65,7 +65,7 @@ OPTIONAL_FIELDS = {
 # 虚拟 up_id：非 up 来源的内容
 VIRTUAL_UP_IDS = {
     "chanlun-original",  # 缠中说禅原著课程
-    "wechat-ecyu-0001",  # 微信公众号「像鳄鱼一样思考」（2026-10-15 新增）
+    "gator-ecyu-0001",   # 「像鳄鱼一样思考」（公众号+B站 统一 up_id，2026-10-15）
 }
 
 
@@ -136,8 +136,12 @@ def validate_claim_dict(data: dict[str, Any]) -> Claim:
     # 显式写入时以推导值为准（禁止手工跨学派标注）。
     up_school = ""
     try:
-        from qing_investment.schools import school_of_up, source_path_allowed
+        from qing_investment.schools import (
+            resolve_up_id, school_of_up, source_path_allowed,
+        )
 
+        # 归一化：平台通道 id（wechat-ecyu-0001 / 470672214）→ 统一 up_id
+        up_id_val = resolve_up_id(str(up_id_val))
         up_school = school_of_up(up_id_val) or ""
         # 来源前缀校验：up_id 归属学派 与 source_path 必须匹配
         if not source_path_allowed(up_id_val, str(data["source_path"])):

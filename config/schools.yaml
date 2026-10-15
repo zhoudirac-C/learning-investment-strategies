@@ -35,8 +35,10 @@ schools:
   - school_id: gator
     display_name: 像鳄鱼一样思考
     up_ids:
-      - "wechat-ecyu-0001"    # 微信公众号（we-mp-rss 管线）
-      - "470672214"           # B站
+      - "gator-ecyu-0001"     # 统一 up_id：公众号 + B站 是同一人（2026-10-15 合并）
+    platforms:
+      - {type: wechat,   id: "wechat-ecyu-0001"}   # 公众号采集通道 id
+      - {type: bilibili, uid: "470672214"}          # B站 uid
     sources:
       - "sources/original/wechat/"
       - "sources/original/bilibili/"

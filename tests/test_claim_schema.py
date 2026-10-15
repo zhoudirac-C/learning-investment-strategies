@@ -125,3 +125,44 @@ def test_validate_claim_rejects_non_list_disagrees_with():
     data["disagrees_with"] = "claim-20260901-005-c"
     with pytest.raises(ValueError, match="disagrees_with"):
         validate_claim_dict(data)
+
+
+# ── 多平台统一 up_id（2026-10-15：公众号 + B站 同一人）──────────────
+
+class TestGatorUnifiedUpId:
+    """「像鳄鱼一样思考」公众号与 B站 是同一人，统一 up_id=gator-ecyu-0001。"""
+
+    @pytest.mark.parametrize("platform_up_id", [
+        "gator-ecyu-0001",     # 统一 id
+        "wechat-ecyu-0001",    # 公众号采集通道 id（旧）
+        "470672214",           # B站 uid（旧）
+    ])
+    def test_all_platform_ids_normalize_to_unified(self, platform_up_id):
+        data = valid_claim_dict()
+        data["up_id"] = platform_up_id
+        data["source_path"] = "sources/original/wechat/2026-10-15-x.md"
+        claim = validate_claim_dict(data)
+        assert claim.up_id == "gator-ecyu-0001", "平台 id 应归一化为统一 up_id"
+        assert claim.school == "gator"
+
+    def test_bilibili_source_allowed(self):
+        data = valid_claim_dict()
+        data["up_id"] = "gator-ecyu-0001"
+        data["source_path"] = "sources/original/bilibili/2026-10-15-x.md"
+        claim = validate_claim_dict(data)
+        assert claim.school == "gator"
+
+    def test_cross_school_still_blocked(self):
+        """统一后跨学派污染仍必须被拦截。"""
+        data = valid_claim_dict()
+        data["up_id"] = "gator-ecyu-0001"
+        data["source_path"] = "sources/raw/财经/x.md"   # qing 的来源
+        with pytest.raises(ValueError, match="不允许|不在|不属于"):
+            validate_claim_dict(data)
+
+    def test_resolve_up_id_idempotent(self):
+        from qing_investment.schools import resolve_up_id
+
+        once = resolve_up_id("wechat-ecyu-0001")
+        assert resolve_up_id(once) == once, "归一化应幂等"
+        assert resolve_up_id("1420210197") == "1420210197", "未登记 id 原样返回"

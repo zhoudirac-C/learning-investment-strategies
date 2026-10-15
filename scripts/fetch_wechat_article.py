@@ -38,7 +38,9 @@ STATE_FILE = Path("/home/ubuntu/.hermes/wechat_mp_state.json")
 REPO_ROOT = Path(os.environ.get("HERMES_REPO_ROOT", "/home/ubuntu/learning-investment-strategies"))
 OUT_DIR = REPO_ROOT / "sources/original/wechat"
 
-UP_ID = "wechat-ecyu-0001"
+# 统一 up_id：公众号 + B站 是同一人「像鳄鱼一样思考」（2026-10-15 合并）
+# 公众号采集通道 id 保留在 config/schools.yaml 的 platforms 里
+UP_ID = "gator-ecyu-0001"
 UP_NAME = "像鳄鱼一样思考"
 
 
