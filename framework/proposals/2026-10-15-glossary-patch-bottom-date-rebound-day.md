@@ -1,7 +1,7 @@
 ---
 date: 2026-10-15
 type: glossary-patch
-status: open
+status: retracted
 source: evals/shadow/attributions/2026-10-15.json
 ---
 
@@ -14,3 +14,5 @@ source: evals/shadow/attributions/2026-10-15.json
 ## 处置建议
 
 遇到底部分歧时输出区间/中位并显式标注分歧；若采用单一指数（如创业板指15天），须同时做相反锚定的稳健性检验，否则按规则40取中性并注明该单点锚定是概念误用风险。
+
+> retracted 2026-10-15：归因记录已被预测重跑作废（prediction_rerun:2026-10-15），本提案证据基础失效；如议题仍成立请人工重开。

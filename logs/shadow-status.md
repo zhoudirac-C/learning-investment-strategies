@@ -1,7 +1,7 @@
 # 影子双轨完整性报告（2026-10-15）
 
 - 记录日数: 124，完整: 124
-- 提案: open 84 / applied 11 / pending 3 / rejected 0 / retracted 7
+- 提案: open 84 / applied 11 / pending 3 / rejected 0 / retracted 8
 
 | 日期 | 阶段判定 | 状态 | 归因 | 完整 |
 |---|---|---|---|---|
@@ -212,7 +212,7 @@
 - 2026-10-08-capability-boundary-note.md
 - 2026-10-08-glossary-patch-cycle-state.md
 - 2026-10-08-pattern-patch-note.md
+- 2026-10-15-capability-boundary-global-macro-sector-intraday.md
 - 2026-10-15-capability-boundary-note.md
-- 2026-10-15-glossary-patch-bottom-date-rebound-day.md
 - 2026-10-15-glossary-patch-note.md
 - 2026-10-15-pattern-patch-note.md
