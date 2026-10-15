@@ -573,21 +573,34 @@ _PATTERN_EMBEDDINGS_CACHE: tuple[list[dict], np.ndarray] | None = None
 
 
 def _ensure_patterns_cache() -> list[dict]:
-    """加载 reasoning-patterns.yaml 到内存缓存（懒加载，首次调用时加载）。"""
+    """加载 reasoning-patterns.yaml + reasoning-patterns-gator.yaml 到内存缓存。
+
+    双学派架构（2026-10-15）：qingside 默认给每条 pattern 打 school 标签
+    （缺失视为 qing），gator 侧 pattern 自带 school=gator。
+    """
     global _PATTERNS_CACHE
     if _PATTERNS_CACHE:
         return _PATTERNS_CACHE
     import yaml
-    patterns_file = _REPO_ROOT / "framework" / "reasoning-patterns.yaml"
-    if not patterns_file.exists():
-        _PATTERNS_CACHE = []
-        return []
-    try:
-        with open(patterns_file, encoding="utf-8") as f:
-            data = yaml.safe_load(f)
-        _PATTERNS_CACHE = data.get("patterns", []) if data else []
-    except Exception:
-        _PATTERNS_CACHE = []
+
+    patterns: list[dict] = []
+    for fname, default_school in (
+        ("reasoning-patterns.yaml", "qing"),
+        ("reasoning-patterns-gator.yaml", "gator"),
+    ):
+        patterns_file = _REPO_ROOT / "framework" / fname
+        if not patterns_file.exists():
+            continue
+        try:
+            with open(patterns_file, encoding="utf-8") as f:
+                data = yaml.safe_load(f)
+            for p in (data.get("patterns", []) if data else []):
+                if isinstance(p, dict) and not p.get("school"):
+                    p["school"] = default_school
+                patterns.append(p)
+        except Exception:
+            continue
+    _PATTERNS_CACHE = patterns
     return _PATTERNS_CACHE
 
 
