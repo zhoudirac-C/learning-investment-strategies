@@ -1,0 +1,573 @@
+claims:
+- id: claim-20261015-003-a
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: market-cycle
+  subject: 收盘定性：完成尾盘托底但未完成广泛修复
+  timeframe: short-term
+  statement: 今天市场完成了尾盘托底，却没有完成广泛修复——资金集中在防御属性较强的方向与少数科技个股，高位连板仍有韧性，低位接力则明显承压。
+  evidence_quote: 今天市场完成了尾盘托底，却没有完成广泛修复。资金集中在防御属性较强的方向与少数科技个股，高位连板仍有韧性，低位接力则明显承压。
+  interpretation: 把「托底」与「修复」拆成两件事是当天定性核心：指数端稳住不等于赚钱效应恢复。因此操作基调是防守优先，不能因为指数翻红而普遍提高暴露。
+  confidence: high
+  intensity: high
+  stance: market-regime
+  topic: 尾盘托底完成但广泛修复未完成
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 市场定性
+  - 尾盘托底
+  - 未广泛修复
+  - 防守基调
+- id: claim-20261015-003-b
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: market-cycle
+  subject: 明日路径预判：指数端先修复情绪端后跟上
+  timeframe: short-term
+  statement: 个人判断，明天更可能先出现指数端强于情绪端的修复，指数先稳、情绪后修的可能性较大。
+  evidence_quote: 明天更可能先出现指数端强于情绪端的修复；能否进一步回暖，要看托底之后有没有资金愿意向个股扩散。……个人判断，指数先稳、情绪后修的可能性较大。
+  interpretation: 给出的是修复的顺序结构（先指数、后情绪）而非修复的确定性，并把验证锚点明确为「托底之后资金是否向个股扩散」。这是可证伪的路径预判。
+  confidence: medium
+  intensity: medium
+  stance: market-regime
+  topic: 指数先稳情绪后修的顺序预判
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 明日预判
+  - 指数先稳
+  - 情绪后修
+  - 扩散验证
+- id: claim-20261015-003-c
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: methodology
+  subject: 量能判据：不看放量幅度，看成交对应的价格结果
+  timeframe: short-term
+  statement: 不必要求市场机械复制今天的放量幅度，关键在于成交对应的价格结果——若成交继续放大而指数重心反复走低说明卖压未消化，若回落时量缩、承接稳定且上涨从防守板块扩展到科技核心，修复基础才更扎实。
+  evidence_quote: 不必要求市场机械复制今天的放量幅度，关键在于成交对应的价格结果。……若成交继续放大而指数重心反复走低，说明卖压尚未消化；若回落时量缩、承接稳定，上涨从防守板块扩展到科技核心，修复基础才会更扎实。
+  interpretation: 把「放量」从结论改写为条件变量：同一放量在「跌+承接」与「涨+扩散」两种价格结果下含义相反。可复用的判据是量价配合方向而非量能绝对水平。
+  confidence: high
+  intensity: medium
+  stance: view
+  topic: 量能须结合价格结果而非绝对幅度判断
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 量能判据
+  - 价格结果
+  - 量价配合
+  - 修复基础
+- id: claim-20261015-003-d
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: methodology
+  subject: 大金融走强属于稳指数动作，扩散效果比涨幅更重要
+  timeframe: short-term
+  statement: 银行和券商走强对降低指数下行速度有帮助，但要看次日是否持续、是否带动其他权重、中小市值个股是否同步止跌；不能因为今天守住关口就认定之后不会再次受到考验，盘中得失与收盘确认应分别看待。
+  evidence_quote: 这些动作对降低指数下行速度有帮助，但银行和券商的走强能否提高全市场风险偏好，要看次日是否持续、是否带动其他权重，以及中小市值个股是否同步止跌。3700点是当前便于观察的关口，盘中得失和收盘确认应分别看待，不能因为今天守住，就认定之后不会再次受到考验。
+  interpretation: 把「权重护盘」与「风险偏好改善」切开：前者是防跌任务，后者才对应可进攻。并给出两条判据（持续性、中小市值是否同步止跌）和一条纪律（盘中/收盘分开看）。
+  confidence: high
+  intensity: medium
+  stance: view
+  topic: 金融权重走强须看扩散与持续性
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 大金融
+  - 稳指数
+  - 扩散效果
+  - 关口确认
+- id: claim-20261015-003-e
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: methodology
+  subject: 情绪强弱判别：看梯队补充而非最高板高度
+  timeframe: short-term
+  statement: 高位能晋级而低位接不上，反映资金更愿意抱住已有辨识度的标的，尚未形成顺畅的梯队补充；单看最高板继续抬升，容易高估情绪强度。
+  evidence_quote: 高位能晋级而低位接不上，反映资金更愿意抱住已有辨识度的标的，尚未形成顺畅的梯队补充。……单看最高板继续抬升，容易高估情绪强度。
+  interpretation: 明确反对以最高板高度作为情绪强度的代理变量，改以「断板亏钱效应是否释放、低位晋级是否正反馈、高位分歧后能否真实承接」三项替代。是可复用的情绪度量纠偏。
+  confidence: high
+  intensity: medium
+  stance: view
+  topic: 情绪强度看低位梯队接续而非最高板
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '002343'
+    name: 慈文传媒
+    role: 高位5连板-主板可交易
+  - code: '002696'
+    name: 百洋股份
+    role: 高位5连板-主板可交易
+  tags:
+  - 情绪判别
+  - 梯队补充
+  - 最高板
+  - 亏钱效应
+- id: claim-20261015-003-f
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: methodology
+  subject: 介入节奏：观察可以前移，接力不必抢先
+  timeframe: short-term
+  statement: 观察可以前移，接力不必抢先；只有个股承接和板块扩散同步改善，才提高试错积极性。
+  evidence_quote: 观察可以前移，接力不必抢先；只有个股承接和板块扩散同步改善，才提高试错积极性。
+  interpretation: 把「提高关注度」与「提高仓位」解耦：允许提前看，但试错积极性只在承接+扩散双条件同时改善后才提升。是可复用的入场分级条件。
+  confidence: high
+  intensity: high
+  stance: view
+  topic: 观察前移但接力不抢先的条件式加仓
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 介入节奏
+  - 观察前移
+  - 接力不抢先
+  - 条件加仓
+- id: claim-20261015-003-g
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: operation
+  subject: 反弹缺少扩散时的纪律：防守优先，保护既有盈利
+  timeframe: short-term
+  statement: 若托底延续、个股承接改善，再逐步提高参与积极性；若反弹缺少扩散、低位亏钱继续放大，则优先控制回撤，明天接力保持谨慎，已有盈利优先保护；预案跟随盘面验证，不能让产业远景替代当下的退出纪律。
+  evidence_quote: 若托底延续、个股承接改善，再逐步提高参与积极性；若反弹缺少扩散、低位亏钱继续放大，则优先控制回撤。明天接力保持谨慎，已有盈利优先保护；预案跟随盘面验证，不能让产业远景替代当下的退出纪律。
+  interpretation: 给出双向条件化操作口径（改善→提高参与；恶化→控制回撤），并强调退出纪律优先于产业逻辑。是本次复盘中可执行性最强的一条。
+  confidence: high
+  intensity: high
+  stance: view
+  topic: 反弹无扩散时防守优先与保护盈利
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 操作纪律
+  - 防守优先
+  - 保护盈利
+  - 退出纪律
+- id: claim-20261015-003-h
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: methodology
+  subject: 不因短暂翻红或热门概念改变风险暴露与业务判断
+  timeframe: short-term
+  statement: 不因为指数短暂翻红就普遍提高风险暴露，不因为个股挂上热门概念就忽略其真实业务和交易位置。
+  evidence_quote: 操作上，不因为指数短暂翻红就普遍提高风险暴露，不因为个股挂上热门概念就忽略其真实业务和交易位置。
+  interpretation: 两条防错原则：指数层面的信号不等于个股层面的信号；概念关联不等于业务关联。对应后续题材节的「不能提前把概念关联当成补涨资格」。
+  confidence: high
+  intensity: medium
+  stance: view
+  topic: 指数翻红与概念挂靠均不构成加仓理由
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 防错原则
+  - 风险暴露
+  - 概念关联
+  - 交易位置
+- id: claim-20261015-003-i
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: sector-theme
+  subject: 传媒短剧补涨方向：倾向「廉价经济」延伸而非AI应用
+  timeframe: short-term
+  statement: 后续传媒短剧若出现补涨，个人更倾向观察低成本娱乐、内容消费与性价比消费这条「廉价经济」线的延伸；暂不把所有补涨都归入AI应用，这个判断需要新晋级个股的业务属性和持续性验证。
+  evidence_quote: 后续若出现补涨，个人更倾向观察低成本娱乐、内容消费与性价比消费，也就是“廉价经济”这条线的延伸；暂不把所有补涨都归入AI应用。这个判断需要新晋级个股的业务属性和持续性验证，不能提前把概念关联当成补涨资格。
+  interpretation: 对同一轮传媒短剧给出与市场主流（AI应用）不同的归属框架，并自设验证条件（业务属性+持续性），明确拒绝以概念关联作为补涨资格。属于有立场、可证伪的板块观点。
+  confidence: medium
+  intensity: medium
+  stance: view
+  topic: 传媒补涨归廉价经济而非AI应用
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 传媒短剧
+  - 廉价经济
+  - 补涨归属
+  - 概念验证
+- id: claim-20261015-003-j
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: sector-theme
+  subject: 单日异动不等于下一条主线，须看板块内连续跟随
+  timeframe: short-term
+  statement: 医药与午后异动的新能源启动频次和持续性尚不稳定，若缺乏板块内的连续跟随，单日异动容易给人「下一条主线」的错觉，应逐条观察，避免在弱市中频繁追逐刚刚拉升的方向。
+  evidence_quote: 医药与午后异动的新能源同样可以放在轮动观察中，但它们的启动频次和持续性尚不稳定。若缺乏板块内的连续跟随，单日异动容易给人“下一条主线”的错觉。……不同板块的节奏并不一致，仍应逐条观察，避免在弱市中频繁追逐刚刚拉升的方向。
+  interpretation: 弱市中把「异动」与「主线」严格区分，判据是板块内连续跟随；并给出行为约束（逐条观察、不追刚拉升方向）。属可复用的题材筛选纪律。
+  confidence: high
+  intensity: medium
+  stance: view
+  topic: 单日异动不构成主线须看连续跟随
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 单日异动
+  - 主线判别
+  - 连续跟随
+  - 弱市纪律
+- id: claim-20261015-003-k
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: sector-theme
+  subject: PCB局部突出但未形成大中小同步，扩散看核心与光通信设备传导
+  timeframe: short-term
+  statement: PCB是科技中表现最突出的局部方向，但资金更集中于弹性较强的细分公司，板块有强股并未形成大中小市值公司同步上行，因此暂时难以带动整个科技板块回暖。
+  evidence_quote: PCB是科技中表现最突出的局部方向……但资金更集中于弹性较强的细分公司。板块有强股，并未形成大中小市值公司同步上行的局面，因此暂时难以带动整个科技板块回暖。
+  interpretation: 区分「板块有强股」与「板块回暖」：前者可由少数小市值弹性股制造，后者要求大中小同步。给出扩散验证路径（核心公司承接→大市值响应→向光通信与设备传导）。
+  confidence: high
+  intensity: medium
+  stance: view
+  topic: PCB局部强股不等同科技板块回暖
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '605058'
+    name: 澳弘电子
+    role: PCB-高标
+  - code: '603386'
+    name: 骏亚科技
+    role: PCB
+  - code: '002815'
+    name: 崇达技术
+    role: PCB
+  - code: '002134'
+    name: 天津普林
+    role: PCB
+  - code: '002463'
+    name: 沪电股份
+    role: PCB-核心权重
+  - code: '301282'
+    name: 金禄电子
+    role: PCB-创业板不可交易
+  tags:
+  - PCB
+  - 局部强股
+  - 板块扩散
+  - 科技回暖
+- id: claim-20261015-003-l
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: sector-theme
+  subject: 光通信修复的验证条件是业绩承接非小票强势
+  timeframe: industry
+  statement: 光通信部分公司的业绩信息为科技端提供了基本面支点；明天若业绩较好的公司能在分歧中稳定并带动同类公司改善，科技修复才更有持续基础；如果只有少数小票维持强势、核心权重仍承压，就继续按个股行情看待，不把局部热度放大成全面反转。
+  evidence_quote: 明天若业绩较好的公司能够在分歧中稳定，并带动同类公司改善，科技修复才更有持续基础；如果只有少数小票维持强势、核心权重仍然承压，就继续按个股行情看待，不把局部热度放大成全面反转。
+  interpretation: 把业绩预告作为科技修复的基本面验证锚点，并预设两种路径的对应定性（业绩股稳定+带动→修复持续；仅小票强→个股行情）。是可证伪的板块级判断。
+  confidence: high
+  intensity: medium
+  stance: view
+  topic: 科技修复看业绩承接非小票强势
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '002281'
+    name: 光迅科技
+    role: 光通信-业绩预告
+  tags:
+  - 光通信
+  - 业绩承接
+  - 修复验证
+  - 个股行情
+- id: claim-20261015-003-m
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: sector-theme
+  subject: SOFC 与金属铬链条：规划产能不可直接换算为采购需求
+  timeframe: industry
+  statement: SOFC扩产可能带动用铬需求，但设备厂产能、实际出货和金属采购存在不同时间节奏；Bloom披露过按需求扩至5GW的能力，不宜直接写成2027年确定投产或出货目标；简单用规划产能乘单耗所得的是特定假设下的需求规模，不能直接当作新增采购。
+  evidence_quote: SOFC扩产可能带动用铬需求，但设备厂产能、实际出货和金属采购存在不同的时间节奏。Bloom披露过按需求扩至5GW的能力，不宜直接写成2027年确定投产或出货目标。机构对于单位功率耗铬量的估算也存在差异，简单用规划产能乘单耗所得的是特定假设下的需求规模，不能直接当作新增采购。
+  interpretation: 对产业链测算方法提出约束：能力披露≠确定产出目标，产能×单耗仅属特定假设。要求以合同执行、销量与利润贡献作为核心观察变量。属可复用的产业研究纪律。
+  confidence: high
+  intensity: medium
+  stance: view
+  topic: 规划产能不可直接换算为采购需求
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '603067'
+    name: 振华股份
+    role: 金属铬-SOFC链
+  tags:
+  - SOFC
+  - 金属铬
+  - 产能换算
+  - 产业口径
+- id: claim-20261015-003-n
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: methodology
+  subject: 涨价线的研究口径是挂牌价不可换算为利润增幅
+  timeframe: industry
+  statement: 行业挂牌价格上涨不能直接换算为公司的销售均价和利润增幅；6-硝体价格与销量在一定程度上呈反向变动，公司预计对整体业绩影响程度有限；工艺能力与剩余产能提供潜在弹性，真正的量价齐升仍需实际产销量、成交均价与财报确认。
+  evidence_quote: 公司近期异动公告同时提示，6-硝体价格与销量在一定程度上呈反向变动，受销量减少、原材料供应限制及其他产品毛利变化影响，公司预计对整体业绩影响程度有限。因此，行业挂牌价格上涨不能直接换算为公司的销售均价和利润增幅。……真正的量价齐升仍需实际产销量、成交均价与财报确认。这条线应保留供需跟踪，但不提前锁定盈利兑现幅度。
+  interpretation: 把「涨价题材」拆成价格、销量、毛利三层，指出价格与销量可能反向，故挂牌价涨幅与利润增幅之间不存在直接换算关系。给出实证口径（产销量、成交均价、财报）并明确不提前锁定兑现幅度。
+  confidence: high
+  intensity: medium
+  stance: view
+  topic: 涨价线挂牌价不可换算利润增幅
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '301190'
+    name: 善水科技
+    role: 6-硝体-创业板不可交易
+  tags:
+  - 涨价线
+  - 6-硝体
+  - 量价齐升
+  - 利润换算
+- id: claim-20261015-003-o
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: sector-theme
+  subject: 端侧AI功能落地预期带来关注但不可推定订单
+  timeframe: industry
+  statement: 苹果智能功能逐步落地有望增加市场对端侧推理、低功耗连接与智能终端交互的关注；但相关公司的业务关联主要体现在终端联网、控制与开发平台能力，不能据此直接认定获得苹果智能相关订单。
+  evidence_quote: 相关功能逐步落地，有望增加市场对端侧推理、低功耗连接与智能终端交互的关注。……两家公司各自处于智能硬件和连接生态中，业务关联主要体现在终端联网、控制与开发平台能力，不能据此直接认定获得苹果智能相关订单。
+  interpretation: 把「功能落地预期」定位为关注度催化而非订单证据，明确拒绝从生态位置反推订单。与前述「概念关联不等于业务关联」同源，但对象为端侧AI主题。
+  confidence: high
+  intensity: low
+  stance: view
+  topic: 端侧AI关注度催化不等于订单落地
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '603068'
+    name: 博通集成
+    role: 端侧AI-无线连接
+  - code: '688018'
+    name: 乐鑫科技
+    role: 端侧AI-AIoT-科创板不可交易
+  tags:
+  - 端侧AI
+  - 苹果智能
+  - 关注催化
+  - 订单推定
+- id: claim-20261015-003-p
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: sector-theme
+  subject: 半导体设备：工程与融资进展不等于订单确认
+  timeframe: industry
+  statement: 工程建设与融资进展共同构成存储产业资本开支的观察线索，但募资尚未等同于到账支出，土建推进也不代表设备订单已经确认；若工程、资金和采购按计划衔接，2027年相关设备需求值得跟踪，具体时点仍受建设及客户采购节奏影响。
+  evidence_quote: 工程建设与融资进展共同构成存储产业资本开支的观察线索，但募资尚未等同于到账支出，土建推进也不代表设备订单已经确认。若工程、资金和采购按计划衔接，2027年相关设备需求值得跟踪，具体时点仍受建设及客户采购节奏影响。
+  interpretation: 对存储扩产链条给出三段式传导与各自的时间差：融资≠到账支出、土建≠订单确认、需求兑现时点受客户节奏约束。属可复用的产业时点判读纪律。
+  confidence: high
+  intensity: low
+  stance: view
+  topic: 扩产工程与融资进展不等同设备订单
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks:
+  - code: '688652'
+    name: 京仪装备
+    role: 半导体设备-科创板不可交易
+  - code: '688120'
+    name: 华海清科
+    role: CMP-离子注入-科创板不可交易
+  tags:
+  - 半导体设备
+  - 存储扩产
+  - 融资口径
+  - 订单确认
+- id: claim-20261015-003-q
+  source_path: sources/original/bilibili/2026-10-15-2153-专栏-今日指数低开后弱势震荡，放量之下多空博弈激烈，宽基ETF与金.md
+  source_date: '2026-10-15'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-16T00:30:00'
+  claim_type: methodology
+  subject: 订单跟踪口径：重复订单与新品供货优于笼统的全年订单预期
+  timeframe: industry
+  statement: 新品供货和复购比笼统的全年订单预期更有助于判断业务进度，部分新机型仍处于客户端验证阶段时应单独区分。
+  evidence_quote: 部分新机型仍处于客户端验证阶段。新品供货和复购比笼统的全年订单预期更有助于判断业务进度。
+  interpretation: 给出半导体设备类公司的进度判据优先级：已批量供货+重复订单 > 新机型验证 > 全年订单预期。属可复用的跟踪指标排序。
+  confidence: medium
+  intensity: low
+  stance: view
+  topic: 设备公司进度看重复订单与新品供货
+  status: active
+  supersedes: []
+  contradicts: []
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  related_stocks: []
+  tags:
+  - 订单跟踪
+  - 重复订单
+  - 新品供货
+  - 进度判据
