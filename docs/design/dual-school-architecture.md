@@ -254,6 +254,25 @@ up_id（`wechat-ecyu-0001` / `470672214`），导致同一人的观点被系统�
 
 **注意**：`platforms` 里的 id 仅作**溯源与兼容**，不再作为 claim 的 up_id 取值。
 
+### 7.0.1 注入验证工具（2026-10-15）
+
+E2E 验证时发现真 bug（截断分支丢契约），遂把验证手法沉淀为正式工具：
+
+```
+scripts/verify_agent_injection.py
+```
+
+- 复用真实 agent 请求 log（`qing-agent-request.YYYY-MM-DD.log`）回放指定请求
+- hook `nodes._safe_llm_invoke` 抓 LLM 实际收到的 prompt
+- **三层检查**：送达（prompt 含目标文本）/ 截断诊断（是否触 128KB 上限）/
+  采纳（LLM 输出是否真用上）
+- `--preset dual-school` 一键检查双学派注入链路；退出码 0/1 可接门禁
+- 默认零费用（本地送达检查），`--with-llm` 才真调 LLM
+
+配套 skill：`qing-agent-injection-verification`（含 hook 细节与踩坑）。
+
+**教训**：单测全绿 ≠ 生效。凡注入经过截断/降级/重试分支的，必须用真实入参验证。
+
 ### 7.1 P5 实施记录（2026-10-15）
 
 公众号增量管线**拆成两个 cron**（因为 claim 提取需 LLM 编排，不能纯脚本化）：
