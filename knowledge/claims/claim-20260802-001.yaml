@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260802-001
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -17,7 +17,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260730-014", "claim-20260731-009"]
+  supplements:
+  - claim-20260730-014
+  - claim-20260731-009
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -29,10 +31,11 @@ claims:
   - 7月收官日
   - 修复阳线
   - 情绪修复
+  school: qing
 - id: claim-20260802-002
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -47,7 +50,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260731-009", "claim-20260730-014"]
+  supplements:
+  - claim-20260731-009
+  - claim-20260730-014
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -59,10 +64,11 @@ claims:
   - 双创
   - 高开回落
   - 分歧确认
+  school: qing
 - id: claim-20260802-003
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -75,9 +81,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260607-004-c"]
+  supersedes:
+  - claim-20260607-004-c
   contradicts: []
-  supplements: ["claim-20260730-016"]
+  supplements:
+  - claim-20260730-016
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -89,10 +97,11 @@ claims:
   - 风格切换
   - 杀科技买红利
   - 单向定价
+  school: qing
 - id: claim-20260802-004
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -107,7 +116,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260713-006-f", "claim-20260708-002-p", "claim-20260703-001-f"]
+  supplements:
+  - claim-20260713-006-f
+  - claim-20260708-002-p
+  - claim-20260703-001-f
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -119,10 +131,11 @@ claims:
   - 外盘传导
   - 纳指
   - 开盘定价
+  school: qing
 - id: claim-20260802-005
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -135,9 +148,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260609-001-a"]
+  supersedes:
+  - claim-20260609-001-a
   contradicts: []
-  supplements: ["claim-20260611-001-l", "claim-20260611-006-a"]
+  supplements:
+  - claim-20260611-001-l
+  - claim-20260611-006-a
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -149,10 +165,11 @@ claims:
   - 恐慌阶段
   - 趋势加仓
   - 量能验证
+  school: qing
 - id: claim-20260802-006
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -165,7 +182,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260731-015"]
+  supersedes:
+  - claim-20260731-015
   contradicts: []
   supplements: []
   last_discovered: 2026-08-03
@@ -187,13 +205,13 @@ claims:
   - code: '300364'
     name: 中文在线
     role: Seedance链第二档-红果短剧内容合作-创业板不可交易
-  - code: '000892'
+  - code: 000892
     name: 欢瑞世纪
     role: Seedance链第二档-红果短剧内容合作-深主板可交易
   - code: '300182'
     name: 捷成股份
     role: Seedance链第二档-红果内容供应-创业板不可交易
-  - code: '000681'
+  - code: 000681
     name: 视觉中国
     role: Seedance链第三档-仅洽谈-深主板可交易
   - code: '603533'
@@ -205,10 +223,11 @@ claims:
   - 短剧
   - 即梦AI
   - 火山引擎
+  school: qing
 - id: claim-20260802-007
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -223,7 +242,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-005-c", "claim-20260616-005-d"]
+  supplements:
+  - claim-20260616-005-c
+  - claim-20260616-005-d
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -252,7 +273,7 @@ claims:
   - code: '603883'
     name: 老百姓
     role: WorkBuddy生态接入-腾讯健康-沪主板可交易
-  - code: '002899'
+  - code: 002899
     name: 英派斯
     role: WorkBuddy生态接入-AI眼镜-深主板可交易
   - code: '002357'
@@ -263,10 +284,11 @@ claims:
   - WorkBuddy
   - 腾讯生态
   - 四大天王
+  school: qing
 - id: claim-20260802-008
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -275,14 +297,14 @@ claims:
   timeframe: short-term
   statement: MCP新规范（版本号2026-07-28）于7月28日发布，核心变动是从双向有状态协议改写为请求回应式无状态架构，真正利好能承接生产级Agent部署的基础设施与工程能力方（云、CDN、边缘计算与有真实客户的软件商），该线是题材而非主线
   evidence_quote: 协议无状态化真正利好的是能够承接生产级Agent部署的基础设施与工程能力方——也就是云、CDN、边缘计算与有真实企业客户的软件商……这条线本质上是协议层利好经由映射层定价，弹性大但基本面锚弱，属于典型的题材而非主线。
-  interpretation: MCP自2024年11月问世以来的第五个规格版本、幅度最大一次：无状态架构使服务器无需维持会话、可直接部署在Serverless与边缘计算环境，引入版本化扩展框架与OAuth
-    2.1/OIDC身份认证。市场梳理的概念股（中科金财(002657)、恒锋信息(300605)、浪潮软件(600756)、东方材料(603110)、彩讯股份(300634)、鼎捷数智(300378)、合合信息(688615)、汉得信息(300170)、深信服(300454)、网宿科技(300017)等）中，网宿科技(300017)、深信服(300454)这类业务形态与协议变化关系更实。注意时间应更正为7月28日而非月末。
+  interpretation: MCP自2024年11月问世以来的第五个规格版本、幅度最大一次：无状态架构使服务器无需维持会话、可直接部署在Serverless与边缘计算环境，引入版本化扩展框架与OAuth 2.1/OIDC身份认证。市场梳理的概念股（中科金财(002657)、恒锋信息(300605)、浪潮软件(600756)、东方材料(603110)、彩讯股份(300634)、鼎捷数智(300378)、合合信息(688615)、汉得信息(300170)、深信服(300454)、网宿科技(300017)等）中，网宿科技(300017)、深信服(300454)这类业务形态与协议变化关系更实。注意时间应更正为7月28日而非月末。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260730-020"]
+  supplements:
+  - claim-20260730-020
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -325,10 +347,11 @@ claims:
   - 无状态化
   - Serverless
   - 题材非主线
+  school: qing
 - id: claim-20260802-009
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -337,14 +360,15 @@ claims:
   timeframe: short-term
   statement: AI营销与AI软件层是当日自由市值最大的一组（昆仑万维(300418)、蓝色光标(300058)、利欧股份(002131)、易点天下(301171)、天娱数科(002354)等），软件端是这轮AI应用行情里唯一有财报证据的一层，市场从买宏大叙事转向买兑现证据
   evidence_quote: 软件端则是这轮AI应用行情里唯一有财报证据的一层……市场对大模型替代软件的担忧在这轮财报季被部分证伪，AI开始被验证为能抬升合同价值与订阅收入的增量，而非替代项。
-  interpretation: 财报证据：Snowflake FY27Q1营收13.9亿美元同比+33%、RPO 92亿美元+38%、与亚马逊签五年60亿美元基础设施协议；Salesforce
-    Agentforce ARR 12亿美元+205%，AI及数据相关ARR合计34亿美元+200%+；金蝶国际预计2026H1营收36.08-36.39亿元+13%-14%、归母净利4000-6000万（去年同期亏9800万）。以上为卖方口径转述未逐项独立核实。8月AI主线要成立，最终须由国内对应标的（金山办公(688111)、合合信息(688615)、鼎捷数智(300378)、中控技术(688777)、万兴科技(300624)、汉得信息(300170)、税友股份(603171)、港股金蝶国际）用中报接棒，而非靠概念清单轮动。昆仑万维(300418)催化SkyReels-A3实际发布于2025年8月11日距今近一年，真正可跟踪变量是SkyReels短剧平台商业化进展与AI短剧内容分发数据。
+  interpretation: 财报证据：Snowflake FY27Q1营收13.9亿美元同比+33%、RPO 92亿美元+38%、与亚马逊签五年60亿美元基础设施协议；Salesforce Agentforce ARR 12亿美元+205%，AI及数据相关ARR合计34亿美元+200%+；金蝶国际预计2026H1营收36.08-36.39亿元+13%-14%、归母净利4000-6000万（去年同期亏9800万）。以上为卖方口径转述未逐项独立核实。8月AI主线要成立，最终须由国内对应标的（金山办公(688111)、合合信息(688615)、鼎捷数智(300378)、中控技术(688777)、万兴科技(300624)、汉得信息(300170)、税友股份(603171)、港股金蝶国际）用中报接棒，而非靠概念清单轮动。昆仑万维(300418)催化SkyReels-A3实际发布于2025年8月11日距今近一年，真正可跟踪变量是SkyReels短剧平台商业化进展与AI短剧内容分发数据。
   confidence: medium
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260730-008", "claim-20260616-005-d"]
+  supplements:
+  - claim-20260730-008
+  - claim-20260616-005-d
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -400,10 +424,11 @@ claims:
   - 买兑现证据
   - 中报接棒
   - SkyReels
+  school: qing
 - id: claim-20260802-010
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -418,7 +443,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260728-011"]
+  supplements:
+  - claim-20260728-011
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -440,10 +466,11 @@ claims:
   - 中报预告
   - 存储涨价
   - 双重涨价
+  school: qing
 - id: claim-20260802-011
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -458,7 +485,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260714-005-ai", "claim-20260610-016-a"]
+  supplements:
+  - claim-20260714-005-ai
+  - claim-20260610-016-a
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -471,10 +500,11 @@ claims:
   - 涨价传导
   - 周期性折价
   - 阅读顺序
+  school: qing
 - id: claim-20260802-012
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -487,9 +517,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260604-005-c"]
+  supersedes:
+  - claim-20260604-005-c
   contradicts: []
-  supplements: ["claim-20260610-025-a", "claim-20260719-017"]
+  supplements:
+  - claim-20260610-025-a
+  - claim-20260719-017
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -500,7 +533,7 @@ claims:
   - code: '603986'
     name: 兆易创新
     role: 存储-竞价涨停后炸板-沪主板可交易
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 情绪龙头-炸板尾盘翻绿-深主板可交易
   - code: '600667'
@@ -554,10 +587,11 @@ claims:
   - 补跌未出清
   - 炸板
   - CPO
+  school: qing
 - id: claim-20260802-013
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -572,7 +606,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-q", "claim-20260702-002-g", "claim-20260719-009"]
+  supplements:
+  - claim-20260622-003-q
+  - claim-20260702-002-g
+  - claim-20260719-009
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -591,10 +628,11 @@ claims:
   - 租金上修
   - 供需仍紧
   - 反向验证
+  school: qing
 - id: claim-20260802-014
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -607,7 +645,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260706-002-f"]
+  supersedes:
+  - claim-20260706-002-f
   contradicts: []
   supplements: []
   last_discovered: 2026-08-03
@@ -668,10 +707,11 @@ claims:
   - 事件驱动
   - 预期映射
   - 数采规模
+  school: qing
 - id: claim-20260802-015
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -708,10 +748,11 @@ claims:
   - 国常会核准
   - 华龙一号
   - 常态化审批
+  school: qing
 - id: claim-20260802-016
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -724,9 +765,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260715-047-a"]
-  contradicts: ["claim-20260614-003-c"]
-  supplements: ["claim-20260609-005-a"]
+  supersedes:
+  - claim-20260715-047-a
+  contradicts:
+  - claim-20260614-003-c
+  supplements:
+  - claim-20260609-005-a
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -746,7 +790,7 @@ claims:
   - code: '605179'
     name: 一鸣食品
     role: 防御-早盘逆势-沪主板可交易
-  - code: '000428'
+  - code: 000428
     name: 华天酒店
     role: 防御-早盘逆势-深主板可交易
   tags:
@@ -754,10 +798,11 @@ claims:
   - 存量博弈
   - 增量资金
   - 防御板块
+  school: qing
 - id: claim-20260802-017
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -788,10 +833,11 @@ claims:
   - 明略科技
   - 股权转让
   - 预期先行
+  school: qing
 - id: claim-20260802-018
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -805,8 +851,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260719-020"]
-  supplements: ["claim-20260708-014-a"]
+  contradicts:
+  - claim-20260719-020
+  supplements:
+  - claim-20260708-014-a
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -828,10 +876,11 @@ claims:
   - AI-ISP
   - 行业性景气
   - 量价齐升
+  school: qing
 - id: claim-20260802-019
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -862,10 +911,11 @@ claims:
   - IPO
   - 增速回落
   - 情绪锚
+  school: qing
 - id: claim-20260802-020
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -880,7 +930,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-039"]
+  supplements:
+  - claim-20260729-039
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -896,26 +947,29 @@ claims:
   - 具身智能
   - AI培训
   - 兑现周期
+  school: qing
 - id: claim-20260802-021
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
   claim_type: catalyst
   subject: 月之暗面F轮融资
   timeframe: short-term
-  statement: 月之暗面7月29日确认完成F轮融资超35亿美元、投后估值350亿美元，G轮（Pre-IPO轮）提前启动投前估值升至500亿美元，此前7月16日发布Kimi
-    K3以2.8万亿总参数刷新全球开源模型规模上限并支持百万token上下文
+  statement: 月之暗面7月29日确认完成F轮融资超35亿美元、投后估值350亿美元，G轮（Pre-IPO轮）提前启动投前估值升至500亿美元，此前7月16日发布Kimi K3以2.8万亿总参数刷新全球开源模型规模上限并支持百万token上下文
   evidence_quote: 月之暗面已于7月29日确认完成F轮融资，金额超35亿美元，投后估值350亿美元；因超目标金额三倍多提前关闭，原定8月开始的G轮（Pre-IPO轮）已提前启动，投前估值升至500亿美元。
   interpretation: 7/19晚因算力紧缺暂停C端新用户订阅。材料另提及智谱GLM5.3预计8月发布、MiniMax M系列预计9月发布，属预期口径暂记为待核实。融资节奏加速（F轮超募3倍提前关闭+Pre-IPO提前启动）反映一级市场对AI大模型头部资产的定价持续上行。
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260729-034"]
+  supersedes:
+  - claim-20260729-034
   contradicts: []
-  supplements: ["claim-20260720-009", "claim-20260717-001-l"]
+  supplements:
+  - claim-20260720-009
+  - claim-20260717-001-l
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -928,18 +982,18 @@ claims:
   - Kimi
   - F轮融资
   - Pre-IPO
+  school: qing
 - id: claim-20260802-022
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
   claim_type: methodology
   subject: 卖方四大看空逻辑检验
   timeframe: short-term
-  statement: 卖方AI上游四大看空逻辑（资本开支逻辑反转、科技巨头发债信用风险、Token Budgeting压制高端需求、卖铲人逻辑松动）中目前只有Token
-    Budgeting一条有直接证据（OpenAI走量档降价、旗舰档不降价），其余三条更接近推演，把买兑现证据的转向等同于上游见顶下游启动是把叙事替换当成产业转折
+  statement: 卖方AI上游四大看空逻辑（资本开支逻辑反转、科技巨头发债信用风险、Token Budgeting压制高端需求、卖铲人逻辑松动）中目前只有Token Budgeting一条有直接证据（OpenAI走量档降价、旗舰档不降价），其余三条更接近推演，把买兑现证据的转向等同于上游见顶下游启动是把叙事替换当成产业转折
   evidence_quote: 市场风格确实在从买宏大叙事转向买兑现证据，但把这一转向直接等同于上游见顶、下游启动，是把叙事替换当成了产业转折。
   interpretation: 四条看空逻辑逐条检验：资本开支逻辑反转（无直接证据）、科技巨头发债信用风险（无直接证据）、Token Budgeting压制高端需求（有直接证据：OpenAI走量档降价、旗舰档不降价）、卖铲人逻辑松动（无直接证据）。分析空头叙事要区分已证事实与推演，不能因为风格转向就断言产业趋势反转。
   confidence: high
@@ -947,7 +1001,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260721-029"]
+  supplements:
+  - claim-20260721-029
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -960,10 +1015,11 @@ claims:
   - TokenBudgeting
   - 资本开支
   - 看空逻辑
+  school: qing
 - id: claim-20260802-023
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -976,9 +1032,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260729-004"]
+  supersedes:
+  - claim-20260729-004
   contradicts: []
-  supplements: ["claim-20260614-014-p"]
+  supplements:
+  - claim-20260614-014-p
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -991,10 +1049,11 @@ claims:
   - 情形B
   - 分歧转一致
   - 右侧确认
+  school: qing
 - id: claim-20260802-024
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -1009,7 +1068,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260531-002-a", "claim-20260609-005-f"]
+  supplements:
+  - claim-20260531-002-a
+  - claim-20260609-005-f
   last_discovered: 2026-08-03
   links:
     wiki_pages: []
@@ -1017,7 +1078,7 @@ claims:
     cases: []
   topic: 四个共同跟踪变量：封板率/情绪龙头/跷跷板/主线收敛
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 情绪龙头-止跌企稳观察-深主板可交易
   tags:
@@ -1025,10 +1086,11 @@ claims:
   - 情绪龙头
   - 主线收敛
   - 逐日记录
+  school: qing
 - id: claim-20260802-025
   source_path: sources/original/bilibili/2026-08-02-2228-复盘-8.2（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-02'
   source_type: 复盘
   extracted_at: '2026-08-03T20:35:00+08:00'
@@ -1042,7 +1104,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260617-038-c"]
+  contradicts:
+  - claim-20260617-038-c
   supplements: []
   last_discovered: 2026-08-03
   links:
@@ -1056,3 +1119,4 @@ claims:
   - token消耗
   - 涨价周期
   - 外盘传导
+  school: qing

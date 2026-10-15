@@ -18,7 +18,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261008-006-b", "claim-20260816-002-002"]
+  supplements:
+  - claim-20261008-006-b
+  - claim-20260816-002-002
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -34,6 +36,7 @@ claims:
   - 加仓记录
   - 均价管理
   topic: 波段做T须有完整成本台账（日期股数均价）
+  school: watchlist
 - id: claim-20261014-002-b
   source_path: sources/original/bilibili/2026-10-14-0808-视频-AI应用大票低吸，PCB看承接延续，固态投机需要做T -.md
   source_date: '2026-10-14'
@@ -53,7 +56,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260909-032-d", "claim-20260806-008"]
+  supplements:
+  - claim-20260909-032-d
+  - claim-20260806-008
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -69,6 +74,7 @@ claims:
   - 低吸大票
   - 监管预期
   topic: AI应用重点监控下保险策略为低吸大票
+  school: watchlist
 - id: claim-20261014-002-c
   source_path: sources/original/bilibili/2026-10-14-0808-视频-AI应用大票低吸，PCB看承接延续，固态投机需要做T -.md
   source_date: '2026-10-14'
@@ -88,14 +94,15 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261012-002-e"]
+  supplements:
+  - claim-20261012-002-e
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks:
-  - code: '002487'
+  - code: 002487
     name: 大金重工
     role: 风电塔筒-主板
   tags:
@@ -104,6 +111,7 @@ claims:
   - 欧盟限制
   - 情绪压制
   topic: 外部政策预期板块不急博弈反包，情绪压制是慢变量
+  school: watchlist
 - id: claim-20261014-002-d
   source_path: sources/original/bilibili/2026-10-14-0808-视频-AI应用大票低吸，PCB看承接延续，固态投机需要做T -.md
   source_date: '2026-10-14'
@@ -123,14 +131,15 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-005"]
+  supplements:
+  - claim-20260810-005
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks:
-  - code: '000823'
+  - code: 000823
     name: 超声电子
     role: PCB人气票-主板
   tags:
@@ -139,6 +148,7 @@ claims:
   - 2.2万亿
   - 开仓纪律
   topic: PCB看好但量能不到2.2万亿不开新仓
+  school: watchlist
 - id: claim-20261014-002-e
   source_path: sources/original/bilibili/2026-10-14-0808-视频-AI应用大票低吸，PCB看承接延续，固态投机需要做T -.md
   source_date: '2026-10-14'
@@ -158,7 +168,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260916-003-m", "claim-20260906-003-005"]
+  supplements:
+  - claim-20260916-003-m
+  - claim-20260906-003-005
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -171,6 +183,7 @@ claims:
   - 短线党
   - 包装党
   topic: 叙事党破位犹豫离场不知行合一，短线党进出自由
+  school: watchlist
 - id: claim-20261014-002-f
   source_path: sources/original/bilibili/2026-10-14-0808-视频-AI应用大票低吸，PCB看承接延续，固态投机需要做T -.md
   source_date: '2026-10-14'
@@ -190,7 +203,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-002-g"]
+  supplements:
+  - claim-20260622-002-g
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -203,6 +217,7 @@ claims:
   - 反向波动
   - 底仓做T
   topic: 固态电池常与大盘反向，低吸为主有拉就T
+  school: watchlist
 - id: claim-20261014-002-g
   source_path: sources/original/bilibili/2026-10-14-0808-视频-AI应用大票低吸，PCB看承接延续，固态投机需要做T -.md
   source_date: '2026-10-14'
@@ -222,7 +237,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-007-006", "claim-20260914-003-12"]
+  supplements:
+  - claim-20260819-007-006
+  - claim-20260914-003-12
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -238,3 +255,4 @@ claims:
   - 情绪锚
   - 分离判断
   topic: 医药短线情绪受嗨药影响，CRO不受拖累可继续做
+  school: watchlist

@@ -1,9 +1,8 @@
 claims:
 - id: claim-20260902-016-a
-  source_path: sources/original/bilibili/2026-09-02-1003-图片-连板瞬间退潮，所以不要光看见吃肉，还得看见挨打。
-    煤炭两天高.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-09-02-1003-图片-连板瞬间退潮，所以不要光看见吃肉，还得看见挨打。 煤炭两天高.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 盘中动态
   extracted_at: '2026-09-02T10:28:00+08:00'
@@ -16,9 +15,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260826-027-a", "claim-20260811-042"]
+  supersedes:
+  - claim-20260826-027-a
+  - claim-20260811-042
   contradicts: []
-  supplements: ["claim-20260818-044"]
+  supplements:
+  - claim-20260818-044
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -31,11 +33,11 @@ claims:
   - 煤炭
   - 高开低走
   - 震荡
+  school: qing
 - id: claim-20260902-017-a
-  source_path: sources/original/bilibili/2026-09-02-1003-图片-连板瞬间退潮，所以不要光看见吃肉，还得看见挨打。
-    煤炭两天高.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-09-02-1003-图片-连板瞬间退潮，所以不要光看见吃肉，还得看见挨打。 煤炭两天高.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 盘中动态
   extracted_at: '2026-09-02T10:28:00+08:00'
@@ -50,7 +52,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-023", "claim-20070614-001-c", "claim-20070621-001-c"]
+  supplements:
+  - claim-20260526-023
+  - claim-20070614-001-c
+  - claim-20070621-001-c
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -64,11 +69,11 @@ claims:
   - 液冷
   - 趋势跟踪
   - 回调介入
+  school: qing
 - id: claim-20260902-018-a
-  source_path: sources/original/bilibili/2026-09-02-1003-图片-连板瞬间退潮，所以不要光看见吃肉，还得看见挨打。
-    煤炭两天高.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-09-02-1003-图片-连板瞬间退潮，所以不要光看见吃肉，还得看见挨打。 煤炭两天高.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 盘中动态
   extracted_at: '2026-09-02T10:28:00+08:00'
@@ -83,7 +88,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260730-018"]
+  supplements:
+  - claim-20260730-018
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -96,3 +102,4 @@ claims:
   - 石油
   - 避险
   - 煤炭
+  school: qing

@@ -18,7 +18,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260929-001-o"]
+  supplements:
+  - claim-20260929-001-o
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -31,6 +32,7 @@ claims:
   - 个股闪崩
   - 序列确认
   topic: 最好别收上去，出现低9和钝化才是最优路径
+  school: qing
 - id: claim-20261014-003-2
   source_path: sources/original/bilibili/2026-10-14-0947-图片-今天最好是别收上去，收上去我担心后面会空跌，到时候你们心态又.md
   source_date: '2026-10-14'
@@ -50,7 +52,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-006-a"]
+  supplements:
+  - claim-20260917-006-a
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -63,6 +66,7 @@ claims:
   - 闪崩风险
   - 防守选择
   topic: 低点确认期高成交量权重比中小票安全
+  school: qing
 - id: claim-20261014-003-3
   source_path: sources/original/bilibili/2026-10-14-0947-图片-今天最好是别收上去，收上去我担心后面会空跌，到时候你们心态又.md
   source_date: '2026-10-14'
@@ -95,6 +99,7 @@ claims:
   - 触发条件
   - 低吸纪律
   topic: 收3764下方即完全满足满仓节点
+  school: qing
 - id: claim-20261014-003-4
   source_path: sources/original/bilibili/2026-10-14-0947-图片-今天最好是别收上去，收上去我担心后面会空跌，到时候你们心态又.md
   source_date: '2026-10-14'
@@ -114,7 +119,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261013-002-d"]
+  supplements:
+  - claim-20261013-002-d
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -127,3 +133,4 @@ claims:
   - 吃好行情
   - 情绪定调
   topic: 当前位置不用焦虑，任务是把行情吃好
+  school: qing

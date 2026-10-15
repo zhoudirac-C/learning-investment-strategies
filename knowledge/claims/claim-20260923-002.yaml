@@ -1,7 +1,6 @@
 claims:
 - id: claim-20260923-002-a
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -20,7 +19,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260515-001", "claim-20260626-001-a", "claim-20260616-001-c"]
+  supersedes:
+  - claim-20260515-001
+  - claim-20260626-001-a
+  - claim-20260616-001-c
   contradicts: []
   supplements: []
   last_discovered: 2026-09-23
@@ -34,9 +36,9 @@ claims:
   - 上升趋势
   - 偏多
   - 指数定性
+  school: qing
 - id: claim-20260923-002-b
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -67,9 +69,9 @@ claims:
   - 假期效应
   - 冲高回落
   - 新方向
+  school: qing
 - id: claim-20260923-002-c
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -87,7 +89,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260605-001-i", "claim-20260918-017-a", "claim-20260604-001-a"]
+  supplements:
+  - claim-20260605-001-i
+  - claim-20260918-017-a
+  - claim-20260604-001-a
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -100,9 +105,9 @@ claims:
   - 持股
   - 操作基调
   - 新方向
+  school: qing
 - id: claim-20260923-002-d
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -132,9 +137,9 @@ claims:
   - 锚点
   - KOSPI
   - 科技股风偏
+  school: qing
 - id: claim-20260923-002-e
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -165,9 +170,9 @@ claims:
   - 加息预期
   - 日韩反包
   - 传导链
+  school: qing
 - id: claim-20260923-002-f
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -185,7 +190,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-003"]
+  supplements:
+  - claim-20260914-001-003
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -197,9 +203,9 @@ claims:
   - 特朗普访华
   - 提前定价
   - 预期差
+  school: qing
 - id: claim-20260923-002-g
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -215,9 +221,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260901-008-a", "claim-20260902-001-d"]
+  supersedes:
+  - claim-20260901-008-a
+  - claim-20260902-001-d
   contradicts: []
-  supplements: ["claim-20260914-001-005"]
+  supplements:
+  - claim-20260914-001-005
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -231,9 +240,9 @@ claims:
   - 柴油
   - 美债
   - 宏观框架
+  school: qing
 - id: claim-20260923-002-h
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -251,7 +260,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260622-004-a"]
+  supersedes:
+  - claim-20260622-004-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-23
@@ -265,9 +275,9 @@ claims:
   - 美伊会谈
   - 讨价还价
   - 油价主线
+  school: qing
 - id: claim-20260923-002-i
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -298,9 +308,9 @@ claims:
   - 美欧分化
   - WTI
   - 布伦特
+  school: qing
 - id: claim-20260923-002-j
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -330,9 +340,9 @@ claims:
   - 首板收缩
   - 晋级率
   - 抱团
+  school: qing
 - id: claim-20260923-002-k
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -358,7 +368,7 @@ claims:
     cases: []
   topic: 监管收紧或促使资金流回其他方向
   related_stocks:
-  - code: '000993'
+  - code: 000993
     name: 闽东电力
     role: 尾盘严重异动-主板可交易
   - code: '603230'
@@ -371,9 +381,9 @@ claims:
   - 监管
   - 异动
   - 资金再分配
+  school: qing
 - id: claim-20260923-002-l
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -391,8 +401,7 @@ claims:
     情形B：资金其实只认低位、有消息催化的方向，后面会不断轮动、高低切换。
 
     两种情形哪个成立，是接下来要跟踪的重点。'
-  interpretation: UP 把 CPU 异动上升为「持续主线 vs 轮动一环」的判别命题，情形A 的参照系是去年9-10月存储行情（即主线级行情）——这是昨晚复盘「风格切换待确认」在
-    CPU 细分上的具体化。
+  interpretation: UP 把 CPU 异动上升为「持续主线 vs 轮动一环」的判别命题，情形A 的参照系是去年9-10月存储行情（即主线级行情）——这是昨晚复盘「风格切换待确认」在 CPU 细分上的具体化。
   confidence: high
   status: active
   intensity: high
@@ -411,9 +420,9 @@ claims:
   - 两种情形
   - 存储行情
   - 轮动
+  school: qing
 - id: claim-20260923-002-m
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -431,7 +440,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-020"]
+  supplements:
+  - claim-20260810-020
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -444,9 +454,9 @@ claims:
   - 趋势筛选
   - 冲高回落创新高
   - 绝对涨幅
+  school: qing
 - id: claim-20260923-002-n
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -466,7 +476,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260916-001-o"]
+  supplements:
+  - claim-20260916-001-o
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -491,9 +502,9 @@ claims:
   - 跷跷板
   - 分化
   - 精选
+  school: qing
 - id: claim-20260923-002-o
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -505,8 +516,7 @@ claims:
   stance: view
   statement: Meta Muse（消费级AI智能体）为用户配置持久化云端执行环境，大量计算负载会重新转回CPU，CPU可能迎来新一轮定价逻辑的重塑；若在Meta社交生态大规模铺开，服务器端单机CPU数量会明显增加。相关公司：综艺股份(600770)、禾盛新材(002290)等。
   evidence_quote: 有观点认为，Muse会为用户配置持久化的云端执行环境，大量计算负载会重新转回CPU，CPU可能迎来新一轮定价逻辑的重塑。如果这种模式在Meta的社交生态里大规模铺开，服务器端单机配置的CPU数量会明显增加。
-  interpretation: UP 把「Muse 负载回迁 CPU」列为今日关注方向之首——这是 CPU 两情形（002-l）背后的产业逻辑注脚：Agent
-    商业化不仅利好应用，还可能重塑 CPU 的定价逻辑。
+  interpretation: UP 把「Muse 负载回迁 CPU」列为今日关注方向之首——这是 CPU 两情形（002-l）背后的产业逻辑注脚：Agent 商业化不仅利好应用，还可能重塑 CPU 的定价逻辑。
   confidence: medium
   status: active
   intensity: medium
@@ -523,7 +533,7 @@ claims:
   - code: '600770'
     name: 综艺股份
     role: CPU方向-主板可交易
-  - code: '002290'
+  - code: 002290
     name: 禾盛新材
     role: 参股熠知电子-国产AI CPU-主板可交易
   tags:
@@ -531,9 +541,9 @@ claims:
   - CPU
   - 定价逻辑
   - 负载回迁
+  school: qing
 - id: claim-20260923-002-p
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -569,9 +579,9 @@ claims:
   - Agent Commerce
   - Shopify
   - 智能体购物
+  school: qing
 - id: claim-20260923-002-q
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -589,7 +599,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-010", "claim-20260817-038"]
+  supplements:
+  - claim-20260810-010
+  - claim-20260817-038
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -608,9 +620,9 @@ claims:
   - 集采平台
   - 中东欧
   - 估值
+  school: qing
 - id: claim-20260923-002-r
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -622,14 +634,15 @@ claims:
   stance: view
   statement: 玻璃基板正从技术验证走向产品化，京东方(000725)全球创新伙伴大会（9/22-27）期间是一个催化窗口。相关公司：沃格光电(603773)（TGV送样验证）、戈碧迦(920438)（玻璃载板已量产，北交所不可交易）等。
   evidence_quote: 个人判断，玻璃基板正从技术验证走向产品化，京东方大会期间是一个催化窗口。
-  interpretation: UP 对玻璃基板给出明确的阶段判断（技术验证→产品化）+ 时点判断（京东方大会=催化窗口），叠加台积电到访面板厂的 CoPoS
-    布局传闻，是本周可跟踪的事件驱动方向。
+  interpretation: UP 对玻璃基板给出明确的阶段判断（技术验证→产品化）+ 时点判断（京东方大会=催化窗口），叠加台积电到访面板厂的 CoPoS 布局传闻，是本周可跟踪的事件驱动方向。
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260630-001-d"]
+  supersedes:
+  - claim-20260630-001-d
   contradicts: []
-  supplements: ["claim-20260617-009-s"]
+  supplements:
+  - claim-20260617-009-s
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -651,9 +664,9 @@ claims:
   - 京东方
   - 产品化
   - 催化窗口
+  school: qing
 - id: claim-20260923-002-s
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -669,7 +682,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260903-020-a"]
+  supersedes:
+  - claim-20260903-020-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-23
@@ -690,9 +704,9 @@ claims:
   - 印尼减产
   - 利空出尽
   - 配置价值
+  school: qing
 - id: claim-20260923-002-t
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -724,7 +738,7 @@ claims:
   - code: '301311'
     name: 昆船智能
     role: 烟草设备稠浆法-创业板不可交易
-  - code: '002925'
+  - code: 002925
     name: 盈趣科技
     role: PMI加热器具代工-主板可交易
   tags:
@@ -732,9 +746,9 @@ claims:
   - 加热不燃烧
   - 烟草
   - 日本验证
+  school: qing
 - id: claim-20260923-002-u
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -752,7 +766,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260813-035"]
+  supplements:
+  - claim-20260813-035
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -777,9 +792,9 @@ claims:
   - 224G
   - 测试需求
   - 创远信科
+  school: qing
 - id: claim-20260923-002-v
-  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。
-    板块：.md
+  source_path: sources/original/bilibili/2026-09-23-0901-专栏-今日要点 指数：短期已进入上升趋势，操作上可以偏多。 板块：.md
   source_date: '2026-09-23'
   source_type: 专栏
   up_id: '1420210197'
@@ -797,9 +812,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260814-036", "claim-20260911-001-008"]
+  supersedes:
+  - claim-20260814-036
+  - claim-20260911-001-008
   contradicts: []
-  supplements: ["claim-20260911-001-002"]
+  supplements:
+  - claim-20260911-001-002
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -812,3 +830,4 @@ claims:
   - CPU守住
   - 防守
   - 低开不可怕
+  school: qing

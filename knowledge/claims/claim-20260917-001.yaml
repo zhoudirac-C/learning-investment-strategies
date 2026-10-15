@@ -19,7 +19,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260916-003-x", "claim-20260913-001-012"]
+  supplements:
+  - claim-20260916-003-x
+  - claim-20260913-001-012
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -30,6 +32,7 @@ claims:
   - 议息结果
   - 两层拆解
   - 已定价vs增量
+  school: qing
 - id: claim-20260917-001-b
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -50,7 +53,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260916-003-y", "claim-20260917-001-r", "claim-20260917-001-a"]
+  supplements:
+  - claim-20260916-003-y
+  - claim-20260917-001-r
+  - claim-20260917-001-a
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -61,6 +67,7 @@ claims:
   - 加息通道
   - 可消化范围
   - 判据升级
+  school: qing
 - id: claim-20260917-001-c
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -81,7 +88,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260809-007"]
+  supplements:
+  - claim-20260809-007
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -92,6 +100,7 @@ claims:
   - 加息类型
   - 分子端
   - 美股路径
+  school: qing
 - id: claim-20260917-001-d
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -112,7 +121,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260703-001-c", "claim-20260914-001-004"]
+  supplements:
+  - claim-20260703-001-c
+  - claim-20260914-001-004
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -123,6 +134,7 @@ claims:
   - A股独立性
   - 国内变量
   - 量能情绪
+  school: qing
 - id: claim-20260917-001-e
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -143,7 +155,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-001-i", "claim-20260914-001-007"]
+  supplements:
+  - claim-20260917-001-i
+  - claim-20260914-001-007
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -154,6 +168,7 @@ claims:
   - 放量性质
   - 前半小时成交
   - 抢跑or转折
+  school: qing
 - id: claim-20260917-001-f
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -172,9 +187,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260916-001-f"]
+  supersedes:
+  - claim-20260916-001-f
   contradicts: []
-  supplements: ["claim-20260911-001-005", "claim-20260902-001-i"]
+  supplements:
+  - claim-20260911-001-005
+  - claim-20260902-001-i
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -185,6 +203,7 @@ claims:
   - 大金融
   - 防御备选
   - 稳定器
+  school: qing
 - id: claim-20260917-001-g
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -203,9 +222,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260826-006-a"]
+  supersedes:
+  - claim-20260826-006-a
   contradicts: []
-  supplements: ["claim-20260803-005", "claim-20260806-003"]
+  supplements:
+  - claim-20260803-005
+  - claim-20260806-003
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -216,6 +238,7 @@ claims:
   - 接力强度
   - 二板家数
   - 情绪健康度
+  school: qing
 - id: claim-20260917-001-h
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -236,7 +259,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260823-001-003", "claim-20260913-001-009"]
+  supplements:
+  - claim-20260823-001-003
+  - claim-20260913-001-009
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -247,6 +272,7 @@ claims:
   - 指数协调性
   - 假期效应
   - 持续性约束
+  school: qing
 - id: claim-20260917-001-i
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -258,15 +284,15 @@ claims:
   subject: 今日落成两种情形：A为转折确认，B为上周五翻版
   topic: 今日情形的A/B判据
   timeframe: short-term
-  statement: 情形A：前半小时成交不弱于昨日同期、科创50守住昨天半分位、二板家数达两位数 → 昨天放量确认为转折而非抢跑，科技以算力硬件为主线；情形B：高开后成交萎缩或科创50跌破半分位、二板回到个位数
-    → 昨天是上周五翻版，议息落地后资金再观望，指数回到缩量震荡，科技止跌定性不变但反弹级别下修。
+  statement: 情形A：前半小时成交不弱于昨日同期、科创50守住昨天半分位、二板家数达两位数 → 昨天放量确认为转折而非抢跑，科技以算力硬件为主线；情形B：高开后成交萎缩或科创50跌破半分位、二板回到个位数 → 昨天是上周五翻版，议息落地后资金再观望，指数回到缩量震荡，科技止跌定性不变但反弹级别下修。
   evidence_quote: 情形A：低开或平开后前半小时成交不弱于昨日同期，科创50守住昨天的半分位，二板家数达到两位数，则昨天的放量被确认为转折而非抢跑……情形B：高开后成交萎缩，或低开后科创50跌破昨天的半分位，二板家数回到个位数，则昨天属于上周五的翻版，议息落地后资金再次观望，指数回到缩量震荡；这种情形下科技止跌的定性不变，但反弹级别下修，防御与能源方向会有轮动机会。
   interpretation: 把今日走势落成互斥且可验证的两种情形，每种绑定三个观测指标，并给出各自的定性后果（转折 vs 抢跑、级别维持 vs 下修）。是可直接执行的盘前预案。
   stance: market-regime
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260903-013-a"]
+  supersedes:
+  - claim-20260903-013-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-19
@@ -279,6 +305,7 @@ claims:
   - 今日情形
   - A转折
   - B翻版
+  school: qing
 - id: claim-20260917-001-j
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -297,9 +324,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260803-013"]
+  supersedes:
+  - claim-20260803-013
   contradicts: []
-  supplements: ["claim-20260916-003-x"]
+  supplements:
+  - claim-20260916-003-x
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -310,6 +339,7 @@ claims:
   - 周四预案
   - 多看少动
   - 做T
+  school: qing
 - id: claim-20260917-001-k
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -328,8 +358,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260731-011", "claim-20260821-009"]
-  contradicts: ["claim-20260816-003-015"]
+  supersedes:
+  - claim-20260731-011
+  - claim-20260821-009
+  contradicts:
+  - claim-20260816-003-015
   supplements: []
   last_discovered: 2026-09-19
   links:
@@ -341,6 +374,7 @@ claims:
   - 科技止跌
   - 新催化
   - 节后领涨
+  school: qing
 - id: claim-20260917-001-l
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -361,7 +395,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260816-008", "claim-20260622-001-c", "claim-20260702-005-j"]
+  supplements:
+  - claim-20260816-008
+  - claim-20260622-001-c
+  - claim-20260702-005-j
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -372,6 +409,7 @@ claims:
   - 明牌硬件
   - 路径依赖
   - 板块轮动
+  school: qing
 - id: claim-20260917-001-m
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -392,7 +430,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260907-009-a"]
+  supplements:
+  - claim-20260907-009-a
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -403,6 +442,7 @@ claims:
   - 非科技
   - 指数量能绑定
   - 能源高股息
+  school: qing
 - id: claim-20260917-001-n
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -423,7 +463,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260916-003-m"]
+  supplements:
+  - claim-20260916-003-m
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -434,6 +475,7 @@ claims:
   - 硅片
   - 扩散判据
   - 既有逻辑
+  school: qing
 - id: claim-20260917-001-o
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -471,6 +513,7 @@ claims:
   - PCB设备
   - 未充分定价
   - AI服务器
+  school: qing
 - id: claim-20260917-001-p
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -489,7 +532,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260818-062"]
+  supersedes:
+  - claim-20260818-062
   contradicts: []
   supplements: []
   last_discovered: 2026-09-19
@@ -508,6 +552,7 @@ claims:
   - AI制药
   - 独立催化
   - 承接条件
+  school: qing
 - id: claim-20260917-001-q
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -528,7 +573,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260809-017", "claim-20260916-003-aj"]
+  supplements:
+  - claim-20260809-017
+  - claim-20260916-003-aj
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -539,6 +586,7 @@ claims:
   - 备用电源
   - 算电缺口
   - 一日博弈
+  school: qing
 - id: claim-20260917-001-r
   source_path: sources/raw/财经/2026-09-17-0851-早盘-美联储议息结果已于今天凌晨公布加息25个基点.md
   source_date: '2026-09-17'
@@ -557,9 +605,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260916-003-al"]
+  supersedes:
+  - claim-20260916-003-al
   contradicts: []
-  supplements: ["claim-20260916-003-x"]
+  supplements:
+  - claim-20260916-003-x
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -570,3 +620,4 @@ claims:
   - 盘前小结
   - 跟踪变量
   - 操作纪律
+  school: qing

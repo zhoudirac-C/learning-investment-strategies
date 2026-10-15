@@ -2,8 +2,8 @@ claims:
 - id: claim-20260529-005-a
   topic: 机构市回调幅度规律
   source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 视频
   extracted_at: 2026-06-01
@@ -17,7 +17,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-006-a"]
+  supplements:
+  - claim-20260611-006-a
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -28,11 +29,12 @@ claims:
   tags:
   - 机构市回调幅
   - 方法论
+  school: qing
 - id: claim-20260529-005-b
   topic: 半导体双顶卖点判断
   source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 视频
   extracted_at: 2026-06-01
@@ -59,14 +61,15 @@ claims:
   - 半导体
   - 业绩
   related_stocks:
-  - code: "301392"
-    name: "汇成真空"
-    role: "回填-正文提及"
+  - code: '301392'
+    name: 汇成真空
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260529-005-c
   topic: 半导体设备国产化远期预期
   source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 视频
   extracted_at: 2026-06-01
@@ -80,7 +83,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260605-001-e", "claim-20260611-001-k"]
+  supplements:
+  - claim-20260605-001-e
+  - claim-20260611-001-k
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -100,14 +105,15 @@ claims:
   - code: '688502'
     name: 茂莱光学
     role: 参考标的
-  - code: "301392"
-    name: "汇成真空"
-    role: "回填-正文提及"
+  - code: '301392'
+    name: 汇成真空
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260529-005-d
   topic: 软件/AIPC 6月题材窗口
   source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 视频
   extracted_at: 2026-06-01
@@ -138,11 +144,12 @@ claims:
   - code: '000066'
     name: 中国长城
     role: 参考标的
+  school: qing
 - id: claim-20260529-005-e
   topic: 强势板块尾盘套利法
   source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 视频
   extracted_at: 2026-06-01
@@ -156,7 +163,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-003-d"]
+  supplements:
+  - claim-20260604-003-d
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -168,17 +176,18 @@ claims:
   - 强势板块尾盘
   - 方法论
   related_stocks:
-  - code: "688365"
-    name: "光云科技"
-    role: "回填-正文提及"
-  - code: "688590"
-    name: "新致软件"
-    role: "回填-正文提及"
+  - code: '688365'
+    name: 光云科技
+    role: 回填-正文提及
+  - code: '688590'
+    name: 新致软件
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260529-005-f
   topic: 汇率风险与出口型企业筛选
   source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 视频
   extracted_at: 2026-06-01
@@ -192,7 +201,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-003-e", "claim-20260426-008"]
+  supplements:
+  - claim-20260604-003-e
+  - claim-20260426-008
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -205,17 +216,18 @@ claims:
   - 涨价
   - 汇率
   related_stocks:
-  - code: "002261"
-    name: "拓维信息"
-    role: "回填-正文提及"
-  - code: "300017"
-    name: "网宿科技"
-    role: "回填-正文提及"
+  - code: '002261'
+    name: 拓维信息
+    role: 回填-正文提及
+  - code: '300017'
+    name: 网宿科技
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260529-005-g
   topic: 算力租赁与液冷现状
   source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 视频
   extracted_at: 2026-06-01
@@ -246,11 +258,12 @@ claims:
   - code: 002837
     name: 英维克
     role: 参考标的
+  school: qing
 - id: claim-20260529-005-h
   topic: 6月市场定位与磨底时间
   source_path: sources/raw/财经/视频：26-05-29：牛市多急跌，机构市回调规律与6月题材窗口.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 视频
   extracted_at: 2026-06-01
@@ -264,7 +277,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-004-i"]
+  supplements:
+  - claim-20260604-004-i
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -277,9 +291,10 @@ claims:
   - 市场周期
   - 业绩
   related_stocks:
-  - code: "300442"
-    name: "润泽科技"
-    role: "回填-正文提及"
-  - code: "002202"
-    name: "金风科技"
-    role: "回填-正文提及"
+  - code: '300442'
+    name: 润泽科技
+    role: 回填-正文提及
+  - code: '002202'
+    name: 金风科技
+    role: 回填-正文提及
+  school: qing

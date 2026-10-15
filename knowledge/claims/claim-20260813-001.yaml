@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260813-001
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -15,8 +15,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260714-001-j"]
-  contradicts: ["claim-20260702-002-a", "claim-20260807-003"]
+  supersedes:
+  - claim-20260714-001-j
+  contradicts:
+  - claim-20260702-002-a
+  - claim-20260807-003
   supplements: []
   last_discovered: 2026-08-13
   links:
@@ -31,10 +34,11 @@ claims:
   - 指数弱结构强
   - 算力租赁
   - 存储
+  school: qing
 - id: claim-20260813-002
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -62,10 +66,11 @@ claims:
   - 隔夜外盘
   - 开盘定价
   - 系统性转向
+  school: qing
 - id: claim-20260813-003
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -73,15 +78,15 @@ claims:
   subject: 业绩兑现期价格里price in多少比业绩本身重要
   timeframe: permanent
   statement: Coherent盘后业绩指引全面超预期，股价却跌超5%，这是业绩兑现期最好的提醒：进入业绩兑现期之后，价格里已经price in了多少，比业绩本身更重要。
-  evidence_quote: 盘后Coherent业绩指引全面超预期，股价却跌超5%。……Coherent盘后超预期却不涨反跌，是这个阶段最好的提醒：进入业绩兑现期之后，价格里已经price
-    in了多少，比业绩本身更重要。
+  evidence_quote: 盘后Coherent业绩指引全面超预期，股价却跌超5%。……Coherent盘后超预期却不涨反跌，是这个阶段最好的提醒：进入业绩兑现期之后，价格里已经price in了多少，比业绩本身更重要。
   interpretation: UP提炼方法论：业绩兑现期，市场已price in的程度比业绩本身更重要，超预期反而可能成为利好兑现的卖点。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-005"]
+  supplements:
+  - claim-20260805-005
   last_discovered: 2026-08-13
   links:
     wiki_pages: []
@@ -94,10 +99,11 @@ claims:
   - price in
   - Coherent
   - 方法论
+  school: qing
 - id: claim-20260813-004
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -112,7 +118,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-005"]
+  supplements:
+  - claim-20260810-005
   last_discovered: 2026-08-13
   links:
     wiki_pages: []
@@ -125,10 +132,11 @@ claims:
   - 半日成交
   - 1.45万亿
   - 观察阈值
+  school: qing
 - id: claim-20260813-005
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -141,9 +149,11 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260624-001-h"]
+  supersedes:
+  - claim-20260624-001-h
   contradicts: []
-  supplements: ["claim-20260622-001-h"]
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-08-13
   links:
     wiki_pages: []
@@ -156,10 +166,11 @@ claims:
   - 横盘
   - 时间换空间
   - 指数
+  school: qing
 - id: claim-20260813-006
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -172,9 +183,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260810-007"]
+  supersedes:
+  - claim-20260810-007
   contradicts: []
-  supplements: ["claim-20260803-005"]
+  supplements:
+  - claim-20260803-005
   last_discovered: 2026-08-13
   links:
     wiki_pages: []
@@ -187,10 +200,11 @@ claims:
   - 轮动型健康
   - 涨停家数
   - 炸板率
+  school: qing
 - id: claim-20260813-007
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -203,9 +217,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260806-003", "claim-20260805-013"]
+  supersedes:
+  - claim-20260806-003
+  - claim-20260805-013
   contradicts: []
-  supplements: ["claim-20260804-009"]
+  supplements:
+  - claim-20260804-009
   last_discovered: 2026-08-13
   links:
     wiki_pages: []
@@ -218,10 +235,11 @@ claims:
   - 首板家数
   - 二板
   - 情绪修复
+  school: qing
 - id: claim-20260813-008
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -253,10 +271,11 @@ claims:
   - 寒武纪
   - 突破契机
   - CPI
+  school: qing
 - id: claim-20260813-009
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -271,7 +290,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260811-001"]
+  supplements:
+  - claim-20260811-001
   last_discovered: 2026-08-13
   links:
     wiki_pages: []
@@ -284,10 +304,11 @@ claims:
   - 放量突破
   - 高开缩量
   - 海外链
+  school: qing
 - id: claim-20260813-010
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -302,7 +323,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260719-009", "claim-20260607-004-f", "claim-20260812-012"]
+  supplements:
+  - claim-20260719-009
+  - claim-20260607-004-f
+  - claim-20260812-012
   last_discovered: 2026-08-13
   links:
     wiki_pages: []
@@ -316,10 +340,11 @@ claims:
   - 算力租赁
   - 内外共振
   - 国产GPU
+  school: qing
 - id: claim-20260813-011
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -334,7 +359,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260804-036", "claim-20260805-024", "claim-20260719-009"]
+  supplements:
+  - claim-20260804-036
+  - claim-20260805-024
+  - claim-20260719-009
   last_discovered: 2026-08-13
   links:
     wiki_pages: []
@@ -345,7 +373,7 @@ claims:
   - code: '603887'
     name: 城地香江
     role: 算力租赁-2连板
-  - code: '002229'
+  - code: 002229
     name: 鸿博股份
     role: 算力租赁-2连板
   - code: '600602'
@@ -359,10 +387,11 @@ claims:
   - 买点
   - price in
   - 追高
+  school: qing
 - id: claim-20260813-012
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -377,7 +406,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-q", "claim-20260805-026"]
+  supplements:
+  - claim-20260622-003-q
+  - claim-20260805-026
   last_discovered: 2026-08-13
   links:
     wiki_pages: []
@@ -394,7 +425,7 @@ claims:
   - code: '301396'
     name: 宏景科技
     role: 北京ZP模型映射
-  - code: '002929'
+  - code: 002929
     name: 润建股份
     role: 北京ZJ云映射
   - code: '300687'
@@ -403,7 +434,7 @@ claims:
   - code: '300857'
     name: 协创数据
     role: 杭州AL云映射
-  - code: '000815'
+  - code: 000815
     name: 美利云
     role: 板块内活跃
   - code: '301315'
@@ -414,10 +445,11 @@ claims:
   - 模型映射
   - 算租标的
   - 产业链跟踪
+  school: qing
 - id: claim-20260813-013
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -430,8 +462,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260805-033", "claim-20260806-008"]
-  contradicts: ["claim-20260610-042-a"]
+  supersedes:
+  - claim-20260805-033
+  - claim-20260806-008
+  contradicts:
+  - claim-20260610-042-a
   supplements: []
   last_discovered: 2026-08-13
   links:
@@ -451,10 +486,11 @@ claims:
   - AI硬件
   - 强弱互换
   - 事件驱动
+  school: qing
 - id: claim-20260813-014
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -467,7 +503,8 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260805-015"]
+  supersedes:
+  - claim-20260805-015
   contradicts: []
   supplements: []
   last_discovered: 2026-08-13
@@ -483,10 +520,11 @@ claims:
   - 海内外共振
   - 光模块
   - CPO
+  school: qing
 - id: claim-20260813-015
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -520,10 +558,11 @@ claims:
   - 低价低成交
   - 缩量
   - 资金腾挪
+  school: qing
 - id: claim-20260813-016
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -538,7 +577,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-031", "claim-20260810-007", "claim-20260812-007"]
+  supplements:
+  - claim-20260810-031
+  - claim-20260810-007
+  - claim-20260812-007
   last_discovered: 2026-08-13
   links:
     wiki_pages: []
@@ -558,10 +600,11 @@ claims:
   - 严重异动
   - 情绪风向标
   - 断板
+  school: qing
 - id: claim-20260813-017
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -574,9 +617,12 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260810-019"]
+  supersedes:
+  - claim-20260810-019
   contradicts: []
-  supplements: ["claim-20260811-048", "claim-20260608-004-c"]
+  supplements:
+  - claim-20260811-048
+  - claim-20260608-004-c
   last_discovered: 2026-08-13
   links:
     wiki_pages: []
@@ -593,10 +639,11 @@ claims:
   - 新股上市
   - 预期先行
   - 兑现回落
+  school: qing
 - id: claim-20260813-018
   source_path: sources/original/bilibili/2026-08-13-0852-图片-隔夜美国7月CPI靴子落地，美股指数涨跌不一，但AI算力这条.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-13'
   source_type: 动态
   extracted_at: '2026-08-13T09:25:00+08:00'
@@ -610,8 +657,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260812-012"]
-  supplements: ["claim-20260805-024"]
+  contradicts:
+  - claim-20260812-012
+  supplements:
+  - claim-20260805-024
   last_discovered: 2026-08-13
   links:
     wiki_pages: []
@@ -624,3 +673,4 @@ claims:
   - 算力租赁
   - AI扩散框架
   - 政策风险
+  school: qing

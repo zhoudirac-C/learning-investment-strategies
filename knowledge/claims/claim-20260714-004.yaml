@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260714-004-a
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-1350-图片-昨天视频也说过了，韩国那边日线低9，肯定会顺势反弹，但是这波.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-14'
   source_type: 动态
   extracted_at: '2026-07-14T22:50:07+08:00'
@@ -17,7 +17,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260714-001-q", "claim-20260609-001-c"]
+  supplements:
+  - claim-20260714-001-q
+  - claim-20260609-001-c
   last_discovered: 2026-07-14
   links:
     wiki_pages: []
@@ -31,10 +33,11 @@ claims:
   - 美联储会议
   - 反弹
   - 市场周期
+  school: qing
 - id: claim-20260714-004-b
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-1350-图片-昨天视频也说过了，韩国那边日线低9，肯定会顺势反弹，但是这波.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-14'
   source_type: 动态
   extracted_at: '2026-07-14T22:50:07+08:00'
@@ -62,10 +65,11 @@ claims:
   - 政策催化
   - A股
   - 宏观
+  school: qing
 - id: claim-20260714-004-c
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-1350-图片-昨天视频也说过了，韩国那边日线低9，肯定会顺势反弹，但是这波.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-14'
   source_type: 动态
   extracted_at: '2026-07-14T22:50:07+08:00'
@@ -78,8 +82,10 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260621-006-k"]
-  contradicts: ["claim-20260521-002-k"]
+  supersedes:
+  - claim-20260621-006-k
+  contradicts:
+  - claim-20260521-002-k
   supplements: []
   last_discovered: 2026-07-14
   links:
@@ -93,10 +99,11 @@ claims:
   - 韩国股市
   - 杠杆
   - 风险
+  school: qing
 - id: claim-20260714-004-d
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-1350-图片-昨天视频也说过了，韩国那边日线低9，肯定会顺势反弹，但是这波.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-14'
   source_type: 动态
   extracted_at: '2026-07-14T22:50:07+08:00'
@@ -111,7 +118,10 @@ claims:
   confidence: medium
   status: superseded
   intensity: high
-  supersedes: ["claim-20260616-001-c", "claim-20260610-009-a", "claim-20260601-001-a"]
+  supersedes:
+  - claim-20260616-001-c
+  - claim-20260610-009-a
+  - claim-20260601-001-a
   contradicts: []
   supplements: []
   last_discovered: 2026-07-14
@@ -127,10 +137,11 @@ claims:
   - 底部结构
   - 技术信号
   - 趋势
+  school: qing
 - id: claim-20260714-004-e
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-1350-图片-昨天视频也说过了，韩国那边日线低9，肯定会顺势反弹，但是这波.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-14'
   source_type: 动态
   extracted_at: '2026-07-14T22:50:07+08:00'
@@ -143,9 +154,11 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260623-004-c"]
+  supersedes:
+  - claim-20260623-004-c
   contradicts: []
-  supplements: ["claim-20260414-004"]
+  supplements:
+  - claim-20260414-004
   last_discovered: 2026-07-14
   links:
     wiki_pages: []
@@ -158,10 +171,11 @@ claims:
   - 散户
   - 配置
   - 操作策略
+  school: qing
 - id: claim-20260714-004-f
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-14-1350-图片-昨天视频也说过了，韩国那边日线低9，肯定会顺势反弹，但是这波.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-14'
   source_type: 动态
   extracted_at: '2026-07-14T22:50:07+08:00'
@@ -189,3 +203,4 @@ claims:
   - 板块主题
   - 涨停
   - 龙头
+  school: qing

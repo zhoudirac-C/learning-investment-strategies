@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260625-002-a
   source_path: sources/original/bilibili/2026-06-25-0930-图片-之前也讲过上升趋势中的高9属于主级正向波，不过不用太过于担心.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-25'
   source_type: 盘中动态
   extracted_at: '2026-06-25'
@@ -32,11 +32,11 @@ claims:
   - 趋势分析
   - 修复力度
   - 杀老登
-
+  school: qing
 - id: claim-20260625-002-b
   source_path: sources/original/bilibili/2026-06-25-0930-图片-之前也讲过上升趋势中的高9属于主级正向波，不过不用太过于担心.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-25'
   source_type: 盘中动态
   extracted_at: '2026-06-25'
@@ -65,11 +65,11 @@ claims:
   - 高9
   - 化解
   - 轻仓
-
+  school: qing
 - id: claim-20260625-003-a-dup1
   source_path: sources/original/bilibili/2026-06-25-1130-图片-大盘似乎在选择一种最难的方式，既不杀老登，也不冲高回落，那么.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-25'
   source_type: 收盘前动态
   extracted_at: '2026-06-25'
@@ -84,7 +84,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-002-a"]
+  supplements:
+  - claim-20260625-002-a
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -98,11 +99,11 @@ claims:
   - 修复
   - 杀老登
   - 路径选择
-
+  school: qing
 - id: claim-20260625-003-b-dup1
   source_path: sources/original/bilibili/2026-06-25-1130-图片-大盘似乎在选择一种最难的方式，既不杀老登，也不冲高回落，那么.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-25'
   source_type: 收盘前动态
   extracted_at: '2026-06-25'
@@ -133,3 +134,4 @@ claims:
   - 利润回撤
   - FOMO
   - 操作纪律
+  school: qing

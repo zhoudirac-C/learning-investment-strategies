@@ -2,8 +2,8 @@ claims:
 - id: claim-20260602-002-a
   topic: 盘中4032点企稳确认，可做先买后卖的T
   source_path: sources/raw/财经/动态：26-06-02：盘中4032企稳，先买后卖做T.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-02
   source_type: 动态
   extracted_at: 2026-06-02
@@ -17,7 +17,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260522-001-e"]
+  supplements:
+  - claim-20260522-001-e
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -29,11 +30,12 @@ claims:
   - 盘中4032
   - 操作策略
   - 反弹
+  school: qing
 - id: claim-20260602-002-b
   topic: 光纤的最大需求驱动力不是AI光通信
   source_path: sources/raw/财经/动态：26-06-02：光纤最大卖点在地缘冲突而非AI.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-02
   source_type: 动态
   extracted_at: 2026-06-02
@@ -62,11 +64,12 @@ claims:
   - 龙头
   - 军工
   - AI
+  school: qing
 - id: claim-20260602-002-c
   topic: 半导体今日反弹是缩量
   source_path: sources/raw/财经/动态：26-06-02：半导体AI硬件缩量反弹，MLCC已说很久.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-02
   source_type: 动态
   extracted_at: 2026-06-02
@@ -80,7 +83,10 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-006-b", "claim-20260607-004-c", "claim-20260614-014-p"]
+  supplements:
+  - claim-20260610-006-b
+  - claim-20260607-004-c
+  - claim-20260614-014-p
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -96,11 +102,12 @@ claims:
   - 反弹
   - 放量
   - AI
+  school: qing
 - id: claim-20260602-002-d
   topic: 博主已提前1-2周提示MLCC机会
   source_path: sources/raw/财经/动态：26-06-02：半导体AI硬件缩量反弹，MLCC已说很久.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-02
   source_type: 动态
   extracted_at: 2026-06-02
@@ -127,36 +134,37 @@ claims:
   - MLCC已提
   - 方法论
   related_stocks:
-  - code: "600246"
-    name: "万通发展"
-    role: "回填-正文提及"
-  - code: "000066"
-    name: "中国长城"
-    role: "回填-正文提及"
-  - code: "000969"
-    name: "安泰科技"
-    role: "回填-正文提及"
+  - code: '600246'
+    name: 万通发展
+    role: 回填-正文提及
+  - code: '000066'
+    name: 中国长城
+    role: 回填-正文提及
+  - code: 000969
+    name: 安泰科技
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260602-002-e
   topic: AI数据中心瓶颈从"算力"向供电端
   source_path: sources/raw/财经/动态：26-06-02：AI算力新增量-甲骨文SOFC与Marvell DSP.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-02
   source_type: 动态
   extracted_at: 2026-06-02
   claim_type: sector-theme
   subject: AI数据中心瓶颈向两端延伸：供电端SOFC和互联端DSP
   timeframe: trend
-  statement: AI数据中心瓶颈从"算力"向供电端（电不够用）和互联端（互联卡脖子）延伸。SOFC（固体氧化物燃料电池）是供电新解法，甲骨文与Bloom
-    Energy 2.8GW大单；DSP是800G/1.6T光模块核心芯片，全球仅4家量产
+  statement: AI数据中心瓶颈从"算力"向供电端（电不够用）和互联端（互联卡脖子）延伸。SOFC（固体氧化物燃料电池）是供电新解法，甲骨文与Bloom Energy 2.8GW大单；DSP是800G/1.6T光模块核心芯片，全球仅4家量产
   evidence_quote: AI数据中心的瓶颈正在从'算力'向两端延伸——一端是电不够用，一端是互联卡脖子。
-  interpretation: AI硬件产业新催化：①瓶颈转移：算力→供电+互联——这是AI基础设施演化的重要判断；②SOFC：固体氧化物燃料电池，发电效率50%-65%，甲骨文2.8GW大单。A股间接逻辑：潮州三环（电解质陶瓷）、潍柴动力（系统/整机）；③DSP：数字信号处理器，800G/1.6T光模块"大脑"，成本占比20%-30%。全球仅博通/Marvell/MaxLinear/Credo四家量产。确定性层：中际旭创、新易盛、天孚通信；预期层：裕太微、光迅科技、烽火通信；④海外确定性
-    vs 国内预期：SOFC和DSP都是海外有订单/需求，国内多在早期/在研；⑤硬信号等待：订单、流片、量产落地才能从概念走向业绩。这是两个新的AI硬件细分方向，属于产业链认知更新。
+  interpretation: AI硬件产业新催化：①瓶颈转移：算力→供电+互联——这是AI基础设施演化的重要判断；②SOFC：固体氧化物燃料电池，发电效率50%-65%，甲骨文2.8GW大单。A股间接逻辑：潮州三环（电解质陶瓷）、潍柴动力（系统/整机）；③DSP：数字信号处理器，800G/1.6T光模块"大脑"，成本占比20%-30%。全球仅博通/Marvell/MaxLinear/Credo四家量产。确定性层：中际旭创、新易盛、天孚通信；预期层：裕太微、光迅科技、烽火通信；④海外确定性 vs 国内预期：SOFC和DSP都是海外有订单/需求，国内多在早期/在研；⑤硬信号等待：订单、流片、量产落地才能从概念走向业绩。这是两个新的AI硬件细分方向，属于产业链认知更新。
   confidence: high
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260603-004-d", "claim-20260526-005"]
+  supplements:
+  - claim-20260603-004-d
+  - claim-20260526-005
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -185,17 +193,18 @@ claims:
   - code: '688515'
     name: 裕太微
     role: 参考标的
-  - code: "002281"
-    name: "光迅科技"
-    role: "回填-正文提及"
-  - code: "000338"
-    name: "潍柴动力"
-    role: "回填-正文提及"
+  - code: 002281
+    name: 光迅科技
+    role: 回填-正文提及
+  - code: 000338
+    name: 潍柴动力
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260602-002-f
   topic: SOFC国产化早期、DSP国产替代在研
   source_path: sources/raw/财经/动态：26-06-02：AI算力新增量-甲骨文SOFC与Marvell DSP.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-02
   source_type: 动态
   extracted_at: 2026-06-02
@@ -238,9 +247,10 @@ claims:
   - code: '688515'
     name: 裕太微
     role: 参考标的
-  - code: "002281"
-    name: "光迅科技"
-    role: "回填-正文提及"
-  - code: "000338"
-    name: "潍柴动力"
-    role: "回填-正文提及"
+  - code: 002281
+    name: 光迅科技
+    role: 回填-正文提及
+  - code: 000338
+    name: 潍柴动力
+    role: 回填-正文提及
+  school: qing

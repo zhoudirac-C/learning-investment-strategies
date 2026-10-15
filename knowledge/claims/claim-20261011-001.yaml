@@ -7,15 +7,16 @@ claims:
   extracted_at: '2026-10-12T08:30:00'
   confidence: high
   status: active
-  supersedes: []
+  supersedes:
+  - claim-20260913-001-001
+  - claim-20260928-002-i
+  - claim-20260913-001-003
   contradicts: []
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   id: claim-20261011-001-a
-  supersedes: ["claim-20260913-001-001", "claim-20260928-002-i", "claim-20260913-001-003"]
-  contradicts: []
   supplements: []
   last_discovered: 2026-10-12
   claim_type: market-cycle
@@ -34,6 +35,7 @@ claims:
   - 市场阶段
   - 长下影
   - 放量
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -49,9 +51,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-b
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260809-028", "claim-20260921-002-c"]
+  supplements:
+  - claim-20260809-028
+  - claim-20260921-002-c
   last_discovered: 2026-10-12
   claim_type: market-cycle
   subject: 反弹延续验证要素
@@ -68,6 +70,7 @@ claims:
   - 宽基ETF
   - 业绩兑现
   - 持续溢价
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -83,9 +86,8 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-c
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20261009-001-p"]
+  supplements:
+  - claim-20261009-001-p
   last_discovered: 2026-10-12
   claim_type: market-cycle
   subject: 承接资金性质
@@ -102,6 +104,7 @@ claims:
   - 量化交易
   - 资金性质
   - 承接持续性
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -117,9 +120,8 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-d
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20261008-007-g"]
+  supplements:
+  - claim-20261008-007-g
   last_discovered: 2026-10-12
   claim_type: methodology
   subject: 长下影信号解读
@@ -136,6 +138,7 @@ claims:
   - 底部确认
   - 技术性回补
   - 反弹条件
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -151,9 +154,8 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-e
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260523-017"]
+  supplements:
+  - claim-20260523-017
   last_discovered: 2026-10-12
   claim_type: methodology
   subject: ETF放量解读边界
@@ -170,6 +172,7 @@ claims:
   - 信号外推
   - 风险偏好
   - 产业景气
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -185,9 +188,10 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-f
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260909-011-a", "claim-20261008-001-g", "claim-20260929-001-g"]
+  supplements:
+  - claim-20260909-011-a
+  - claim-20261008-001-g
+  - claim-20260929-001-g
   last_discovered: 2026-10-12
   claim_type: methodology
   subject: 量能位置解读
@@ -204,6 +208,7 @@ claims:
   - 缩量性质
   - 承接判断
   - 抛压收敛
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -219,9 +224,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-g
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260729-021", "claim-20260729-025-dup1"]
+  supplements:
+  - claim-20260729-021
+  - claim-20260729-025-dup1
   last_discovered: 2026-10-12
   claim_type: methodology
   subject: 承接证据口径
@@ -238,6 +243,7 @@ claims:
   - 申赎数据
   - 新增开户
   - 证据口径
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -253,9 +259,10 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-h
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260922-001-g", "claim-20260921-002-e", "claim-20260927-001-i"]
+  supplements:
+  - claim-20260922-001-g
+  - claim-20260921-002-e
+  - claim-20260927-001-i
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: 大金融与科技分工
@@ -272,6 +279,7 @@ claims:
   - 赚钱效应
   - 科技
   - 权重托举
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -287,9 +295,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-i
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260922-004-n", "claim-20260921-002-f"]
+  supplements:
+  - claim-20260922-004-n
+  - claim-20260921-002-f
   last_discovered: 2026-10-12
   claim_type: market-cycle
   subject: 情绪修复程度
@@ -306,6 +314,7 @@ claims:
   - 亏钱效应
   - 撬板
   - 双线跟踪
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -321,8 +330,6 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-j
-  supersedes: []
-  contradicts: []
   supplements: []
   last_discovered: 2026-10-12
   claim_type: macro
@@ -340,6 +347,7 @@ claims:
   - 财政限额
   - 政策落地
   - 增量资金
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -355,9 +363,8 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-k
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260916-003-x"]
+  supplements:
+  - claim-20260916-003-x
   last_discovered: 2026-10-12
   claim_type: macro
   subject: 下周事件节奏
@@ -374,6 +381,7 @@ claims:
   - 美债收益率
   - 事件节奏
   - 科技估值
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -389,9 +397,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-l
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260825-023-a", "claim-20260917-012-a"]
+  supplements:
+  - claim-20260825-023-a
+  - claim-20260917-012-a
   last_discovered: 2026-10-12
   claim_type: stock-view
   subject: 景旺电子业绩验证
@@ -412,6 +420,7 @@ claims:
   - 业绩预告
   - 换手承接
   - AI硬件
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -427,9 +436,8 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-m
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260625-003-g"]
+  supplements:
+  - claim-20260625-003-g
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: 半导体设备验证
@@ -447,6 +455,7 @@ claims:
   - 台积电
   - 资本开支
   - 国产订单
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -455,16 +464,16 @@ claims:
   extracted_at: '2026-10-12T08:30:00'
   confidence: high
   status: active
-  supersedes: []
+  supersedes:
+  - claim-20260913-001-017
   contradicts: []
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   id: claim-20261011-001-n
-  supersedes: ["claim-20260913-001-017"]
-  contradicts: []
-  supplements: ["claim-20261008-001-k"]
+  supplements:
+  - claim-20261008-001-k
   last_discovered: 2026-10-12
   claim_type: operation
   subject: 情形A应对
@@ -481,6 +490,7 @@ claims:
   - 修复共振
   - 操作预案
   - 收盘确认
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -489,16 +499,16 @@ claims:
   extracted_at: '2026-10-12T08:30:00'
   confidence: high
   status: active
-  supersedes: []
+  supersedes:
+  - claim-20260814-036
   contradicts: []
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   id: claim-20261011-001-o
-  supersedes: ["claim-20260814-036"]
-  contradicts: []
-  supplements: ["claim-20261008-007-h"]
+  supplements:
+  - claim-20261008-007-h
   last_discovered: 2026-10-12
   claim_type: operation
   subject: 情形B应对
@@ -518,6 +528,7 @@ claims:
   - 风控
   - 收缩试错
   - 失效判断
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -527,15 +538,15 @@ claims:
   confidence: high
   status: active
   supersedes: []
-  contradicts: []
+  contradicts:
+  - claim-20260921-003-n
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   id: claim-20261011-001-p
-  supersedes: []
-  contradicts: ["claim-20260921-003-n"]
-  supplements: ["claim-20260921-003-q"]
+  supplements:
+  - claim-20260921-003-q
   last_discovered: 2026-10-12
   claim_type: market-cycle
   subject: 题材扩散结构
@@ -552,6 +563,7 @@ claims:
   - 新高数
   - 换手活跃
   - 趋势突破
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -567,9 +579,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-q
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260921-003-j", "claim-20261008-007-j"]
+  supplements:
+  - claim-20260921-003-j
+  - claim-20261008-007-j
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: 非科技轮动定位
@@ -587,6 +599,7 @@ claims:
   - 固态电池
   - 稀土
   - 政策题材
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -602,9 +615,8 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-r
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260927-001-p"]
+  supplements:
+  - claim-20260927-001-p
   last_discovered: 2026-10-12
   claim_type: methodology
   subject: 轮动观察方法
@@ -621,6 +633,7 @@ claims:
   - 辨识度龙头
   - 首次回流
   - 盈亏比
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -629,16 +642,17 @@ claims:
   extracted_at: '2026-10-12T08:30:00'
   confidence: high
   status: active
-  supersedes: []
+  supersedes:
+  - claim-20260910-015-a
   contradicts: []
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   id: claim-20261011-001-s
-  supersedes: ["claim-20260910-015-a"]
-  contradicts: []
-  supplements: ["claim-20260928-002-r", "claim-20260831-019-a"]
+  supplements:
+  - claim-20260928-002-r
+  - claim-20260831-019-a
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: 科技修复结构
@@ -650,7 +664,7 @@ claims:
   stance: view
   intensity: high
   related_stocks:
-  - code: '002912'
+  - code: 002912
     name: 中新赛克
     role: AI安全短线承接样本-主板可交易
   tags:
@@ -658,6 +672,7 @@ claims:
   - AI安全
   - 半导体硬件
   - 板块广度
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -673,8 +688,6 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-t
-  supersedes: []
-  contradicts: []
   supplements: []
   last_discovered: 2026-10-12
   claim_type: stock-view
@@ -695,6 +708,7 @@ claims:
   - 龙虎榜
   - 席位口径
   - AI短剧
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -710,9 +724,8 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-u
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20261008-007-x"]
+  supplements:
+  - claim-20261008-007-x
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: AI应用商业闭环
@@ -729,6 +742,7 @@ claims:
   - 商业闭环
   - 算力投入
   - 现金流
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -744,9 +758,10 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-v
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260723-012", "claim-20260807-012", "claim-20260729-033-dup1"]
+  supplements:
+  - claim-20260723-012
+  - claim-20260807-012
+  - claim-20260729-033-dup1
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: AI安全需求框架
@@ -770,7 +785,7 @@ claims:
   - code: '688023'
     name: 安恒信息
     role: AI安全研究样本-科创板不可交易
-  - code: '002439'
+  - code: 002439
     name: 启明星辰
     role: AI安全研究样本-主板可交易
   - code: '688225'
@@ -797,6 +812,7 @@ claims:
   - 智能体防护
   - 网络安全
   - 商业化兑现
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -812,8 +828,6 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-w
-  supersedes: []
-  contradicts: []
   supplements: []
   last_discovered: 2026-10-12
   claim_type: sector-theme
@@ -840,6 +854,7 @@ claims:
   - 精矿调价
   - 利润传导
   - 永磁材料
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -855,8 +870,6 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-x
-  supersedes: []
-  contradicts: []
   supplements: []
   last_discovered: 2026-10-12
   claim_type: sector-theme
@@ -902,7 +915,7 @@ claims:
   - code: '688484'
     name: 南芯科技
     role: 模拟与电源器件-科创板不可交易
-  - code: '001283'
+  - code: 001283
     name: 豪鹏科技
     role: 电池研究样本-主板可交易
   - code: '300014'
@@ -926,6 +939,7 @@ claims:
   - SoC
   - 传导路径
   - 智能终端
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -941,9 +955,10 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-y
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260907-015-a", "claim-20260805-055", "claim-20260803-002-c"]
+  supplements:
+  - claim-20260907-015-a
+  - claim-20260805-055
+  - claim-20260803-002-c
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: AI短剧阶段
@@ -964,7 +979,7 @@ claims:
   - code: '300182'
     name: 捷成股份
     role: AIGC微短剧合作-创业板不可交易
-  - code: '000829'
+  - code: 000829
     name: 天音控股
     role: 网文IP改编线索-主板可交易
   tags:
@@ -972,6 +987,7 @@ claims:
   - 分发变现
   - 内容出海
   - 市场规模口径
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -987,9 +1003,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-z
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260922-001-r", "claim-20260805-032"]
+  supplements:
+  - claim-20260922-001-r
+  - claim-20260805-032
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: 企业消费AI应用
@@ -1015,6 +1031,7 @@ claims:
   - 消费AI
   - 工作流程
   - 付费转化
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -1030,8 +1047,6 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-aa
-  supersedes: []
-  contradicts: []
   supplements: []
   last_discovered: 2026-10-12
   claim_type: sector-theme
@@ -1055,6 +1070,7 @@ claims:
   - 临床决策
   - 数据授权
   - 支付机制
+  school: qing
 - source_path: sources/original/bilibili/2026-10-11-2314-专栏-周五指数探底回升，长下影配合明显放量，反弹质量比预期高一些。.md
   source_date: '2026-10-11'
   source_type: 专栏
@@ -1070,9 +1086,10 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261011-001-ab
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20261008-007-x", "claim-20260921-001-z", "claim-20260831-027-a"]
+  supplements:
+  - claim-20261008-007-x
+  - claim-20260921-001-z
+  - claim-20260831-027-a
   last_discovered: 2026-10-12
   claim_type: operation
   subject: 操作纪律
@@ -1089,3 +1106,4 @@ claims:
   - 试错收缩
   - 产业研究
   - 交易确认
+  school: qing

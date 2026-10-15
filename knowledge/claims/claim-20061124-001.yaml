@@ -1,8 +1,8 @@
 claims:
 - id: claim-20061124-001-a
   source_path: sources/chanlun/lesson_010.md
-  up_id: "chanlun-original"
-  up_name: "缠中说禅"
+  up_id: chanlun-original
+  up_name: 缠中说禅
   source_date: '2006-11-24'
   source_type: 专栏
   extracted_at: '2026-07-18'
@@ -29,10 +29,11 @@ claims:
     wiki_pages:
     - 投资方法论/缠论
   timeframe: permanent
+  school: qing
 - id: claim-20061124-001-b
   source_path: sources/chanlun/lesson_010.md
-  up_id: "chanlun-original"
-  up_name: "缠中说禅"
+  up_id: chanlun-original
+  up_name: 缠中说禅
   source_date: '2006-11-24'
   source_type: 专栏
   extracted_at: '2026-07-18'
@@ -52,10 +53,12 @@ claims:
   - 持仓纪律
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260426-006"]
+  supplements:
+  - claim-20260426-006
   last_discovered: 2026-07-18
   intensity: high
   links:
     wiki_pages:
     - 投资方法论/缠论
   timeframe: permanent
+  school: qing

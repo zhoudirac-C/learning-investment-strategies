@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260623-004-a
   source_path: sources/raw/财经/2026-06-23-1420-盘中-午盘补充-充电专属.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 午盘补充
   extracted_at: '2026-06-23T20:22:33'
@@ -17,7 +17,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-004-c", "claim-20260611-006-a", "claim-20260518-014"]
+  supplements:
+  - claim-20260623-004-c
+  - claim-20260611-006-a
+  - claim-20260518-014
   last_discovered: 2026-06-25
   links:
   - claim-20260623-002-a
@@ -29,10 +32,11 @@ claims:
   - 大涨后策略
   - 持股观望
   - 活得更久
+  school: qing
 - id: claim-20260623-004-b
   source_path: sources/raw/财经/2026-06-23-1420-盘中-午盘补充-充电专属.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 午盘补充
   extracted_at: '2026-06-23T20:22:33'
@@ -45,8 +49,10 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260609-005-a"]
-  contradicts: ["claim-20260617-038-c"]
+  supersedes:
+  - claim-20260609-005-a
+  contradicts:
+  - claim-20260617-038-c
   last_discovered: 2026-06-23
   links:
   - claim-20260623-002-a
@@ -59,10 +65,11 @@ claims:
   - 早盘修复
   - 方向不确定
   - 多空博弈
+  school: qing
 - id: claim-20260623-004-c
   source_path: sources/raw/财经/2026-06-23-1420-盘中-午盘补充-充电专属.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 午盘补充
   extracted_at: '2026-06-23T20:22:33'
@@ -75,7 +82,8 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260426-001"]
+  supersedes:
+  - claim-20260426-001
   contradicts: []
   last_discovered: 2026-06-23
   links:
@@ -88,3 +96,4 @@ claims:
   - 持仓不动
   - 观望
   - 安全边际
+  school: qing

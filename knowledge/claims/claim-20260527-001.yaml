@@ -2,8 +2,8 @@ claims:
 - id: claim-20260527-001-a
   topic: 指数短期仍处于调整过程
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -11,8 +11,7 @@ claims:
   subject: 上证指数
   timeframe: short-term
   statement: 指数短期仍处于调整过程，暂无明确方向，量能未缩至2.5-2.6万亿，未真正企稳，这几天放量滞涨
-  evidence_quote: '"指数短期仍处于调整过程，暂时没有明确方向。 5月中旬那轮缩量到2.89万亿就停止了，并未如预期缩至2.5–2.6万亿，导致市场始终没有真正企稳，
-    这几天甚至容易被视作放量滞涨。"
+  evidence_quote: '"指数短期仍处于调整过程，暂时没有明确方向。 5月中旬那轮缩量到2.89万亿就停止了，并未如预期缩至2.5–2.6万亿，导致市场始终没有真正企稳， 这几天甚至容易被视作放量滞涨。"
 
     '
   interpretation: 调整尚未结束，量能是核心观察指标
@@ -33,11 +32,12 @@ claims:
   - 上证指数
   - 放量
   - 量能
+  school: qing
 - id: claim-20260527-001-b
   topic: 大普微停牌是市场情绪转折点
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -64,11 +64,12 @@ claims:
   tags:
   - 市场周期
   - 市场情绪
+  school: qing
 - id: claim-20260527-001-c
   topic: 昨日低开低走与盘前地缘局势变化有关
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -76,8 +77,7 @@ claims:
   subject: 地缘局势
   timeframe: short-term
   statement: 昨日低开低走与盘前地缘局势变化有关，协议预期未兑现引发避险
-  evidence_quote: '"宏观层面看，昨日低开低走可能与盘前地缘局势变化有关。之前影响减小是因为没有实质预期， 而上周末围绕协议是否达成的预期被重新挑起，结果从''几小时后会有好消息''变成两天都没结果，
-    部分资金又萌生避险想法。"
+  evidence_quote: '"宏观层面看，昨日低开低走可能与盘前地缘局势变化有关。之前影响减小是因为没有实质预期， 而上周末围绕协议是否达成的预期被重新挑起，结果从''几小时后会有好消息''变成两天都没结果， 部分资金又萌生避险想法。"
 
     '
   interpretation: 地缘不确定性是近期市场调整的宏观诱因之一
@@ -85,7 +85,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260528-005-a"]
+  supplements:
+  - claim-20260528-005-a
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -95,11 +96,12 @@ claims:
   tags:
   - 地缘局势
   - 宏观
+  school: qing
 - id: claim-20260527-001-d
   topic: 等缩量或突破、等情绪回暖、等利好落地
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -115,7 +117,8 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-004-f"]
+  supplements:
+  - claim-20260527-004-f
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -125,11 +128,12 @@ claims:
   tags:
   - 操作策略
   - 缩量
+  school: qing
 - id: claim-20260527-001-e
   topic: 半导体（非存储/封测/功率）
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -158,11 +162,12 @@ claims:
   - 板块主题
   - 半导体
   - 存储
+  school: qing
 - id: claim-20260527-001-f
   topic: AI趋势股走箱体震荡
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -189,11 +194,12 @@ claims:
   tags:
   - 板块主题
   - AI方向
+  school: qing
 - id: claim-20260527-001-g
   topic: 华为韬1（国产半导体）
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -201,8 +207,7 @@ claims:
   subject: 华为韬1（国产半导体）
   timeframe: short-term
   statement: 华为韬1不及预期，10cm封单不足，20cm无一进二，中芯国际被闷杀
-  evidence_quote: '"关于半导体（华为韬）：参照去年超级水电站题材标准，昨日竞价就显示不及预期。 10cm方向仅华天科技一个一字板且封单不够多，甚至不如周一的MLCC；
-    20cm方向除华大九天反包一点外，没有一进二，像中芯国际这种人气标的直接被闷杀， 完全没匹配上高规格叙事。"
+  evidence_quote: '"关于半导体（华为韬）：参照去年超级水电站题材标准，昨日竞价就显示不及预期。 10cm方向仅华天科技一个一字板且封单不够多，甚至不如周一的MLCC； 20cm方向除华大九天反包一点外，没有一进二，像中芯国际这种人气标的直接被闷杀， 完全没匹配上高规格叙事。"
 
     '
   interpretation: 高规格叙事未得到市场资金认可，题材发酵失败
@@ -228,14 +233,15 @@ claims:
   - 半导体
   - 华为
   related_stocks:
-  - code: "688981"
-    name: "中芯国际"
-    role: "回填-正文提及"
+  - code: '688981'
+    name: 中芯国际
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260527-001-h
   topic: AI资金应更聚焦头尾两端——大容量明牌标
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -251,7 +257,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-005-b", "claim-20260616-005-g", "claim-20260615-004"]
+  supplements:
+  - claim-20260616-005-b
+  - claim-20260616-005-g
+  - claim-20260615-004
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -262,11 +271,12 @@ claims:
   tags:
   - 板块主题
   - AI方向
+  school: qing
 - id: claim-20260527-001-i
   topic: 市场赚钱效应
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -293,11 +303,12 @@ claims:
   - 市场周期
   - AI
   - 分化
+  school: qing
 - id: claim-20260527-001-j
   topic: 人形机器人
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -305,8 +316,7 @@ claims:
   subject: 人形机器人
   timeframe: trend
   statement: 宇树科技6月1日首发审议，云深处、乐聚智能已受理，特斯拉Optimus 7月启动
-  evidence_quote: '"上交所上市审核委员会定于6月1日召开2026年第31次审议会议，审议宇树科技（首发）。 沪深交易所已受理宇树科技、云深处科技、乐聚智能三家人形机器人公司IPO申请，
-    叠加特斯拉Optimus产线7月启动，产业化逐渐进入1-10阶段。"
+  evidence_quote: '"上交所上市审核委员会定于6月1日召开2026年第31次审议会议，审议宇树科技（首发）。 沪深交易所已受理宇树科技、云深处科技、乐聚智能三家人形机器人公司IPO申请， 叠加特斯拉Optimus产线7月启动，产业化逐渐进入1-10阶段。"
 
     '
   interpretation: 人形机器人进入产业化1-10阶段，IPO催化密集
@@ -314,7 +324,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-004-h", "claim-20260521-003-e"]
+  supplements:
+  - claim-20260608-004-h
+  - claim-20260521-003-e
   last_discovered: 2026-06-24
   links:
     related_claims:
@@ -327,11 +339,12 @@ claims:
   tags:
   - 人形机器人
   - 板块主题
+  school: qing
 - id: claim-20260527-001-k
   topic: 英特尔押注玻璃基板
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -347,7 +360,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-001-d", "claim-20260617-009-s", "claim-20260616-013"]
+  supplements:
+  - claim-20260521-001-d
+  - claim-20260617-009-s
+  - claim-20260616-013
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -360,11 +376,12 @@ claims:
   tags:
   - 板块主题
   - 玻璃基板
+  school: qing
 - id: claim-20260527-001-l
   topic: 2026年全球钨供需缺口预计达1.85万
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -380,7 +397,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-002-a"]
+  supplements:
+  - claim-20260611-002-a
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -393,11 +411,12 @@ claims:
   tags:
   - 钨金属
   - 宏观
+  school: qing
 - id: claim-20260527-001-m
   topic: 美光科技涨19.29%
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -413,7 +432,9 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-001-c", "claim-20260515-004"]
+  supplements:
+  - claim-20260521-001-c
+  - claim-20260515-004
   last_discovered: 2026-06-24
   links:
     related_claims:
@@ -427,11 +448,12 @@ claims:
   tags:
   - 板块主题
   - 存储芯片
+  school: qing
 - id: claim-20260527-001-n
   topic: SpaceX上市计划提振航天产业投资热情
   source_path: sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: morning-report
   extracted_at: 2026-05-27
@@ -447,7 +469,9 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-013-s", "claim-20260609-004-a"]
+  supplements:
+  - claim-20260617-013-s
+  - claim-20260609-004-a
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -460,3 +484,4 @@ claims:
   - 板块主题
   - 商业航天
   - 共振
+  school: qing

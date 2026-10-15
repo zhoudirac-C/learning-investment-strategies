@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260626-001-a
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -17,8 +17,11 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260616-001-c"]
-  contradicts: ["claim-20260527-004-f", "claim-20260604-001-a"]
+  supersedes:
+  - claim-20260616-001-c
+  contradicts:
+  - claim-20260527-004-f
+  - claim-20260604-001-a
   supplements: []
   last_discovered: 2026-06-26
   links:
@@ -31,10 +34,11 @@ claims:
   - 早盘
   - 指数趋势
   - 持股策略
+  school: qing
 - id: claim-20260626-001-b
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -47,9 +51,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260519-003-b"]
+  supersedes:
+  - claim-20260519-003-b
   contradicts: []
-  supplements: ["claim-20260518-018", "claim-20260515-001"]
+  supplements:
+  - claim-20260518-018
+  - claim-20260515-001
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -61,10 +68,11 @@ claims:
   - 市场分化
   - 科技主线
   - 亏钱效应
+  school: qing
 - id: claim-20260626-001-c
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -77,9 +85,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260520-003-f"]
+  supersedes:
+  - claim-20260520-003-f
   contradicts: []
-  supplements: ["claim-20260526-019", "claim-20260603-001-d"]
+  supplements:
+  - claim-20260526-019
+  - claim-20260603-001-d
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -91,10 +102,11 @@ claims:
   - 成交量
   - 板块轮动
   - 量能阈值
+  school: qing
 - id: claim-20260626-001-d
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -107,9 +119,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260527-001-d", "claim-20260617-001-c"]
+  supersedes:
+  - claim-20260527-001-d
+  - claim-20260617-001-c
   contradicts: []
-  supplements: ["claim-20260624-003-a"]
+  supplements:
+  - claim-20260624-003-a
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -121,10 +136,11 @@ claims:
   - 操作策略
   - 谨慎追涨
   - 降低预期
+  school: qing
 - id: claim-20260626-001-e
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -137,7 +153,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260610-006-b", "claim-20260623-001-a"]
+  supersedes:
+  - claim-20260610-006-b
+  - claim-20260623-001-a
   contradicts: []
   supplements: []
   last_discovered: 2026-06-26
@@ -147,7 +165,7 @@ claims:
     cases: []
   topic: 周四天量后创业板指被承接
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储龙头-深A主板可交易
   - code: '688525'
@@ -157,10 +175,11 @@ claims:
   - 创业板指
   - 市场承接
   - 天量
+  school: qing
 - id: claim-20260626-001-f
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -173,9 +192,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260624-001-c"]
+  supersedes:
+  - claim-20260624-001-c
   contradicts: []
-  supplements: ["claim-20260625-003-d", "claim-20260625-001-b"]
+  supplements:
+  - claim-20260625-003-d
+  - claim-20260625-001-b
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -186,17 +208,18 @@ claims:
   - code: '688525'
     name: 佰维存储
     role: 存储龙头-科创板可交易
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储龙头-深A主板可交易
   tags:
   - 美光业绩
   - KOSPI
   - 外部传导
+  school: qing
 - id: claim-20260626-001-g
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -209,7 +232,9 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260625-001-e", "claim-20260610-035-a"]
+  supersedes:
+  - claim-20260625-001-e
+  - claim-20260610-035-a
   contradicts: []
   supplements: []
   last_discovered: 2026-06-26
@@ -223,10 +248,11 @@ claims:
   - PCE
   - 美联储加息
   - 宏观数据
+  school: qing
 - id: claim-20260626-001-h
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -239,9 +265,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260623-001-a"]
+  supersedes:
+  - claim-20260623-001-a
   contradicts: []
-  supplements: ["claim-20260615-023", "claim-20260614-014-p"]
+  supplements:
+  - claim-20260615-023
+  - claim-20260614-014-p
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -253,10 +282,11 @@ claims:
   - 量能考验
   - 承接力
   - 观察日
+  school: qing
 - id: claim-20260626-001-i
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -271,7 +301,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260120-001-a"]
+  supplements:
+  - claim-20260120-001-a
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -284,10 +315,11 @@ claims:
   - 量能
   - 大金融
   - 市场情绪
+  school: qing
 - id: claim-20260626-001-j
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -303,8 +335,11 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260601-004-b", "claim-20260528-004-b"]
-  supplements: ["claim-20260601-004-e"]
+  contradicts:
+  - claim-20260601-004-b
+  - claim-20260528-004-b
+  supplements:
+  - claim-20260601-004-e
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -316,10 +351,11 @@ claims:
   - AI主线
   - 板块轮动
   - 主线策略
+  school: qing
 - id: claim-20260626-001-k
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -334,7 +370,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260519-003-d", "claim-20260617-038-c"]
+  supplements:
+  - claim-20260519-003-d
+  - claim-20260617-038-c
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -342,7 +380,7 @@ claims:
     cases: []
   topic: 存储风华或分歧资金或流向光模块
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储龙头-深A主板可交易
   - code: '688525'
@@ -353,10 +391,11 @@ claims:
   - 光模块
   - 中报业绩
   - 板块分歧
+  school: qing
 - id: claim-20260626-001-l
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -369,7 +408,8 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260610-006-c"]
+  supersedes:
+  - claim-20260610-006-c
   contradicts: []
   supplements: []
   last_discovered: 2026-06-26
@@ -386,10 +426,11 @@ claims:
   - 连板晋级率
   - 短线情绪
   - 一字涨停
+  school: qing
 - id: claim-20260626-001-m
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -404,7 +445,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-001-f"]
+  supplements:
+  - claim-20260625-001-f
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -416,10 +458,11 @@ claims:
   - 英伟达
   - Rubin
   - 题材阶段
+  school: qing
 - id: claim-20260626-001-n
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -432,7 +475,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260604-004-c"]
+  supersedes:
+  - claim-20260604-004-c
   contradicts: []
   supplements: []
   last_discovered: 2026-06-26
@@ -450,10 +494,11 @@ claims:
   - 补涨
   - 中船特气
   - 高标
+  school: qing
 - id: claim-20260626-001-o
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -467,7 +512,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260604-003-d"]
+  contradicts:
+  - claim-20260604-003-d
   supplements: []
   last_discovered: 2026-06-26
   links:
@@ -476,7 +522,7 @@ claims:
     cases: []
   topic: 存储定位为机构重仓趋势股
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储趋势标的-深A主板可交易
   - code: '688525'
@@ -486,10 +532,11 @@ claims:
   - 存储
   - 机构重仓
   - 趋势股
+  school: qing
 - id: claim-20260626-001-p
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -504,7 +551,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-004", "claim-20260518-013", "claim-20260521-001-c"]
+  supplements:
+  - claim-20260515-004
+  - claim-20260518-013
+  - claim-20260521-001-c
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -512,7 +562,7 @@ claims:
     cases: []
   topic: 长鑫长存IPO或撬动国产存储
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 国产存储标的-深A主板可交易
   - code: '688525'
@@ -523,10 +573,11 @@ claims:
   - 长鑫
   - 长存
   - IPO催化
+  school: qing
 - id: claim-20260626-001-q
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -541,7 +592,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-h", "claim-20260624-006-n"]
+  supplements:
+  - claim-20260625-003-h
+  - claim-20260624-006-n
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -549,7 +602,7 @@ claims:
     cases: []
   topic: MLCC电容受江海股份涨价催化
   related_stocks:
-  - code: '002484'
+  - code: 002484
     name: 江海股份
     role: MLCC涨价催化-深A主板可交易
   tags:
@@ -557,10 +610,11 @@ claims:
   - 电容
   - 涨价
   - 江海股份
+  school: qing
 - id: claim-20260626-001-r
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -583,23 +637,24 @@ claims:
     cases: []
   topic: 非科技股套利需等指数回落确认
   related_stocks:
-  - code: '002928'
+  - code: 002928
     name: 华夏航空
     role: 机场航运轮动-深A主板可交易
-  - code: '000783'
+  - code: 000783
     name: 长江证券
     role: 大金融轮动-深A主板可交易
-  - code: '000799'
+  - code: 000799
     name: 酒鬼酒
     role: 消费轮动-深A主板可交易
   tags:
   - 非科技股
   - 轮动
   - 套利时机
+  school: qing
 - id: claim-20260626-001-s
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -612,7 +667,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260625-001-j"]
+  supersedes:
+  - claim-20260625-001-j
   contradicts: []
   supplements: []
   last_discovered: 2026-06-26
@@ -625,7 +681,7 @@ claims:
   - code: '688525'
     name: 佰维存储
     role: 存储产业链-科创板可交易
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储产业链-深A主板可交易
   - code: '600667'
@@ -638,10 +694,11 @@ claims:
   - 美光
   - 财报
   - 存储芯片
+  school: qing
 - id: claim-20260626-001-t
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -654,9 +711,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260515-004", "claim-20260527-001-m"]
+  supersedes:
+  - claim-20260515-004
+  - claim-20260527-001-m
   contradicts: []
-  supplements: ["claim-20260518-013"]
+  supplements:
+  - claim-20260518-013
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -667,7 +727,7 @@ claims:
   - code: '688525'
     name: 佰维存储
     role: 存储产业链-科创板可交易
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储产业链-深A主板可交易
   - code: '600667'
@@ -680,10 +740,11 @@ claims:
   - HBM4
   - 存储节点
   - 超级周期
+  school: qing
 - id: claim-20260626-001-u
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -709,7 +770,7 @@ claims:
   - code: '600601'
     name: 方正科技
     role: PCB产业链-沪A主板可交易
-  - code: '002916'
+  - code: 002916
     name: 深南电路
     role: PCB产业链-深A主板可交易
   tags:
@@ -717,10 +778,11 @@ claims:
   - 材料缺货
   - 交期
   - 涨价
+  school: qing
 - id: claim-20260626-001-v
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -733,7 +795,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260531-002-e"]
+  supersedes:
+  - claim-20260531-002-e
   contradicts: []
   supplements: []
   last_discovered: 2026-06-26
@@ -746,17 +809,18 @@ claims:
   - code: '600601'
     name: 方正科技
     role: PCB产业链-沪A主板可交易
-  - code: '002916'
+  - code: 002916
     name: 深南电路
     role: PCB产业链-深A主板可交易
   tags:
   - VR200
   - GB300
   - PCB价值量
+  school: qing
 - id: claim-20260626-001-w
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -764,15 +828,15 @@ claims:
   subject: 英伟达800V HVDC方案
   timeframe: trend
   statement: 英伟达正打造800V HVDC Power Rack方案，目标2026年第三季完成备货，大规模采用预计落在2028年
-  evidence_quote: 供电架构：据《科创板日报》25日援引TrendForce集邦咨询研究，英伟达正积极打造自家800V HVDC Power Rack方案，目标于2026年第三季完成备货、供有需求的Vera
-    Rubin客户选用（非标准配备），预计将于2027下半年Rubin Ultra系列后逐步放大采用，大规模采用估落在2028年
+  evidence_quote: 供电架构：据《科创板日报》25日援引TrendForce集邦咨询研究，英伟达正积极打造自家800V HVDC Power Rack方案，目标于2026年第三季完成备货、供有需求的Vera Rubin客户选用（非标准配备），预计将于2027下半年Rubin Ultra系列后逐步放大采用，大规模采用估落在2028年
   interpretation: 800V HVDC是英伟达下一代供电架构的重要变化，2026Q3开始备货，2028年大规模放量，相关供应链进入导入期
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-q"]
+  supplements:
+  - claim-20260625-003-q
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -780,7 +844,7 @@ claims:
     cases: []
   topic: 英伟达800V HVDC方案2026Q3备货
   related_stocks:
-  - code: '002851'
+  - code: 002851
     name: 麦格米特
     role: HVDC供电-深A主板可交易
   - code: '300286'
@@ -791,10 +855,11 @@ claims:
   - 800V
   - HVDC
   - 供电架构
+  school: qing
 - id: claim-20260626-001-x
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -809,7 +874,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-003-c"]
+  supplements:
+  - claim-20260527-003-c
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -817,7 +883,7 @@ claims:
     cases: []
   topic: 2026至2030年HVDC渗透率预计20%升至70%
   related_stocks:
-  - code: '002851'
+  - code: 002851
     name: 麦格米特
     role: HVDC供电-深A主板可交易
   - code: '300286'
@@ -827,10 +893,11 @@ claims:
   - HVDC
   - 渗透率
   - 数据中心供电
+  school: qing
 - id: claim-20260626-001-y
   source_path: sources/original/bilibili/2026-06-26-0854-图片-一、指数：上升趋势，适合持股，但谨慎追涨 指数仍处上升趋势，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T01:09:02Z'
@@ -843,9 +910,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260625-003-r"]
+  supersedes:
+  - claim-20260625-003-r
   contradicts: []
-  supplements: ["claim-20260520-003-d", "claim-20260616-009-s"]
+  supplements:
+  - claim-20260520-003-d
+  - claim-20260616-009-s
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -863,3 +933,4 @@ claims:
   - IBM
   - 0.7纳米
   - 先进制程
+  school: qing

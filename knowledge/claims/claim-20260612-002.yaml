@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260612-002-a
   source_path: sources/raw/财经/盘中：26-06-12：机器人与半导体材料构成科技内部跷跷板，商业航天IPO双面效应.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 盘中
   extracted_at: '2026-06-12T11:00:00'
@@ -17,7 +17,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-001-e", "claim-20260515-007", "claim-20260609-001-b"]
+  supplements:
+  - claim-20260521-001-e
+  - claim-20260515-007
+  - claim-20260609-001-b
   last_discovered: 2026-06-25
   links:
     methodology_pages:
@@ -30,10 +33,11 @@ claims:
   - 物理AI
   - 半导体材料
   - 光模块
+  school: qing
 - id: claim-20260612-002-b
   source_path: sources/raw/财经/盘中：26-06-12：机器人与半导体材料构成科技内部跷跷板，商业航天IPO双面效应.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 盘中
   extracted_at: '2026-06-12T11:00:00'
@@ -46,7 +50,8 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260609-003-d"]
+  supersedes:
+  - claim-20260609-003-d
   contradicts: []
   last_discovered: 2026-06-12
   links:
@@ -60,10 +65,11 @@ claims:
   - 自主程度
   - CPO
   - 半导体材料
+  school: qing
 - id: claim-20260612-002-c
   source_path: sources/raw/财经/盘中：26-06-12：机器人与半导体材料构成科技内部跷跷板，商业航天IPO双面效应.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 盘中
   extracted_at: '2026-06-12T11:00:00'
@@ -78,7 +84,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-021-a", "claim-20260617-013-s"]
+  supplements:
+  - claim-20260610-021-a
+  - claim-20260617-013-s
   last_discovered: 2026-06-25
   links:
     methodology_pages:
@@ -93,10 +101,11 @@ claims:
   - IPO虹吸
   - 国产催化
   - 估值锚
+  school: qing
 - id: claim-20260612-002-d
   source_path: sources/raw/财经/盘中：26-06-12：机器人与半导体材料构成科技内部跷跷板，商业航天IPO双面效应.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 盘中
   extracted_at: '2026-06-12T11:00:00'
@@ -111,7 +120,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260612-002-e"]
+  supplements:
+  - claim-20260612-002-e
   last_discovered: 2026-06-25
   links:
     methodology_pages:
@@ -127,10 +137,11 @@ claims:
   - 发射节点
   - IPO落地
   - 左侧风险
+  school: qing
 - id: claim-20260612-002-e
   source_path: sources/raw/财经/盘中：26-06-12：机器人与半导体材料构成科技内部跷跷板，商业航天IPO双面效应.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 盘中
   extracted_at: '2026-06-12T11:00:00'
@@ -144,7 +155,8 @@ claims:
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260607-003-c"]
+  contradicts:
+  - claim-20260607-003-c
   last_discovered: 2026-06-12
   links:
     methodology_pages:
@@ -158,10 +170,11 @@ claims:
   - 科技内部对冲
   - 国产替代穿越
   - AI硬件右侧
+  school: qing
 - id: claim-20260612-002-f
   source_path: sources/raw/财经/盘中：26-06-12：机器人与半导体材料构成科技内部跷跷板，商业航天IPO双面效应.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 盘中
   extracted_at: '2026-06-12T11:00:00'
@@ -174,7 +187,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260528-005-c"]
+  supersedes:
+  - claim-20260528-005-c
   contradicts: []
   last_discovered: 2026-06-12
   links:
@@ -188,3 +202,4 @@ claims:
   - A股传导
   - 高波动
   - 风控提示
+  school: qing

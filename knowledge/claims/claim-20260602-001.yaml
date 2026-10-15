@@ -2,8 +2,8 @@ claims:
 - id: claim-20260602-001-a
   topic: 日线顶部结构已成
   source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-02
   source_type: 早盘
   extracted_at: 2026-06-02
@@ -31,11 +31,12 @@ claims:
   - 日线
   - 上证
   - 止跌
+  school: qing
 - id: claim-20260602-001-b
   topic: 弱势行情下放量等于砸盘资金变多
   source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-02
   source_type: 早盘
   extracted_at: 2026-06-02
@@ -64,14 +65,15 @@ claims:
   - 缩量
   - 放量
   related_stocks:
-  - code: "002384"
-    name: "东山精密"
-    role: "回填-正文提及"
+  - code: 002384
+    name: 东山精密
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260602-001-c
   topic: 机构股近期草木皆兵
   source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-02
   source_type: 早盘
   extracted_at: 2026-06-02
@@ -101,11 +103,12 @@ claims:
   - code: 002384
     name: 东山精密
     role: 参考标的
+  school: qing
 - id: claim-20260602-001-d
   topic: 重点看英伟达AIPC端侧和MiniMax
   source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-02
   source_type: 早盘
   extracted_at: 2026-06-02
@@ -114,8 +117,7 @@ claims:
   timeframe: intraday
   statement: 重点看英伟达AIPC端侧和MiniMax上市大模型能否进一步走强，二者本质都属AI应用端非硬件。炒新不炒旧在MLCC、超级电容上已体现，昨日反包个股多出自此方向，板块整体强于PCB等传统方向
   evidence_quote: 重点看英伟达AIPC（端侧）和MiniMax上市（大模型）能否进一步走强——二者本质都属AI应用端（非硬件），这是相关个股能逆势走强的核心原因。上周末新热点大概率被优先关注。炒新不炒旧在MLCC、超级电容上已体现，昨日反包个股多出自此方向，板块整体强于PCB等传统方向。
-  interpretation: 今日科技方向优先级：①AIPC端侧+MiniMax大模型——周末新热点，AI应用端（非硬件），这是逆势走强的核心原因；②炒新不炒旧——MLCC、超级电容已体现，昨日反包个股多出自新方向；③PCB等传统方向相对弱势——资金偏好新催化；④AIPC催化：英伟达Windows
-    PC本周亮相+微软ARM跟进+建银国际PC换代空间。相关：春秋电子、英力股份。这是一个明确的日内资金轮动预判：新热点>AIPC>MiniMax>传统科技。
+  interpretation: 今日科技方向优先级：①AIPC端侧+MiniMax大模型——周末新热点，AI应用端（非硬件），这是逆势走强的核心原因；②炒新不炒旧——MLCC、超级电容已体现，昨日反包个股多出自新方向；③PCB等传统方向相对弱势——资金偏好新催化；④AIPC催化：英伟达Windows PC本周亮相+微软ARM跟进+建银国际PC换代空间。相关：春秋电子、英力股份。这是一个明确的日内资金轮动预判：新热点>AIPC>MiniMax>传统科技。
   confidence: high
   status: superseded
   supersedes:
@@ -133,17 +135,18 @@ claims:
   - PCB
   - AI
   related_stocks:
-  - code: "603890"
-    name: "春秋电子"
-    role: "回填-正文提及"
-  - code: "300956"
-    name: "英力股份"
-    role: "回填-正文提及"
+  - code: '603890'
+    name: 春秋电子
+    role: 回填-正文提及
+  - code: '300956'
+    name: 英力股份
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260602-001-e
   topic: 昨日指数走弱理论上电力应走强
   source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-02
   source_type: 早盘
   extracted_at: 2026-06-02
@@ -171,17 +174,18 @@ claims:
   - 煤炭
   - 防御
   related_stocks:
-  - code: "600726"
-    name: "华电能源"
-    role: "回填-正文提及"
-  - code: "600396"
-    name: "华电辽能"
-    role: "回填-正文提及"
+  - code: '600726'
+    name: 华电能源
+    role: 回填-正文提及
+  - code: '600396'
+    name: 华电辽能
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260602-001-f
   topic: 今年机构风格、基本面主导、有真实订单
   source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-02
   source_type: 早盘
   extracted_at: 2026-06-02
@@ -208,11 +212,12 @@ claims:
   tags:
   - 补涨和不涨的
   - 方法论
+  school: qing
 - id: claim-20260602-001-g
   topic: 今日科技正常反弹概率较大
   source_path: sources/raw/财经/早盘：26-06-02：调整第14天，AIPC与MiniMax能否持续.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-02
   source_type: 早盘
   extracted_at: 2026-06-02
@@ -238,3 +243,4 @@ claims:
   - 今日科技正常
   - 操作策略
   - 反弹
+  school: qing

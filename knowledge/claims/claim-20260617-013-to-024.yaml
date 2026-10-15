@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260617-013-s
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-17T13:25:32+08:00'
@@ -15,8 +15,11 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260609-001-e"]
-  contradicts: ["claim-20260612-002-d", "claim-20260612-002-c"]
+  supersedes:
+  - claim-20260609-001-e
+  contradicts:
+  - claim-20260612-002-d
+  - claim-20260612-002-c
   last_discovered: 2026-06-17
   links: []
   topic: 商业航天
@@ -27,10 +30,11 @@ claims:
   - 星网组网
   - 可回收火箭
   - 情绪共振
+  school: qing
 - id: claim-20260617-014-c
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-17T13:25:32+08:00'
@@ -43,7 +47,8 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260604-004-l"]
+  supersedes:
+  - claim-20260604-004-l
   contradicts: []
   last_discovered: 2026-06-17
   links: []
@@ -55,10 +60,11 @@ claims:
   - 朱雀三号
   - 7月9日
   - 调整50%
+  school: qing
 - id: claim-20260617-015-s
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-17T13:25:32+08:00'
@@ -73,7 +79,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-004-e", "claim-20260617-013-s", "claim-20260609-004-c"]
+  supplements:
+  - claim-20260609-004-e
+  - claim-20260617-013-s
+  - claim-20260609-004-c
   last_discovered: 2026-06-25
   links: []
   topic: 商业航天产业逻辑
@@ -84,10 +93,11 @@ claims:
   - 低轨卫星
   - 射频芯片
   - 需求放量
+  school: qing
 - id: claim-20260617-016-c
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-17T13:25:32+08:00'
@@ -102,7 +112,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-004-b", "claim-20260609-004-g"]
+  supplements:
+  - claim-20260609-004-b
+  - claim-20260609-004-g
   last_discovered: 2026-06-25
   links: []
   topic: 商业航天政策端
@@ -113,10 +125,11 @@ claims:
   - 政策催化
   - 规模化
   - 体制性信号
+  school: qing
 - id: claim-20260617-017-m
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-17T13:25:32+08:00'
@@ -131,7 +144,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-004-g", "claim-20260604-004-l"]
+  supplements:
+  - claim-20260609-004-g
+  - claim-20260604-004-l
   last_discovered: 2026-06-25
   links: []
   topic: 商业航天标的分类
@@ -160,10 +175,11 @@ claims:
   - 芯片量产
   - 收入落地
   - 低位博弈
+  school: qing
 - id: claim-20260617-018-s
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-17T13:25:32+08:00'
@@ -192,10 +208,11 @@ claims:
   - 6天6板
   - 情绪龙头
   - 兑现度低
+  school: qing
 - id: claim-20260617-019-s
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-17T13:25:32+08:00'
@@ -210,7 +227,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-013-s", "claim-20260609-001-e", "claim-20260617-017-m"]
+  supplements:
+  - claim-20260617-013-s
+  - claim-20260609-001-e
+  - claim-20260617-017-m
   last_discovered: 2026-06-25
   links: []
   topic: 鲁信创投
@@ -224,10 +244,11 @@ claims:
   - 15天12板
   - 参股情绪
   - 0.82%
+  school: qing
 - id: claim-20260617-020-s
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-17T13:25:32+08:00'
@@ -256,10 +277,11 @@ claims:
   - 参股2.15%
   - 设计单位
   - 双重逻辑
+  school: qing
 - id: claim-20260617-021-s
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-17T13:25:32+08:00'
@@ -274,7 +296,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-017-m", "claim-20260607-003-d"]
+  supplements:
+  - claim-20260617-017-m
+  - claim-20260607-003-d
   last_discovered: 2026-06-25
   links: []
   topic: 铖昌科技
@@ -288,10 +312,11 @@ claims:
   - 星网量产
   - 应收账款
   - 基本面瑕疵
+  school: qing
 - id: claim-20260617-022-s
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-17T13:25:32+08:00'
@@ -320,10 +345,11 @@ claims:
   - 收入增长
   - 半年涨300%
   - 实控人减持
+  school: qing
 - id: claim-20260617-023-s
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-17T13:25:32+08:00'
@@ -352,10 +378,11 @@ claims:
   - 商业航天
   - 低位博弈
   - 未发酵题材
+  school: qing
 - id: claim-20260617-024-c
   source_path: sources/original/bilibili/2026-06-17-1012-图片-SpaceX上市后市值突破2.6万亿美元，叠加国内星网、垣信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-17T13:25:32+08:00'
@@ -384,3 +411,4 @@ claims:
   - 深桑达A
   - 端午假期
   - 大资金动向
+  school: qing

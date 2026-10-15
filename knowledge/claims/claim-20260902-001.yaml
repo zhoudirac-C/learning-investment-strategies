@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260902-001-a
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
@@ -17,7 +17,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-048", "claim-20260901-005-a", "claim-20260818-028"]
+  supplements:
+  - claim-20260819-048
+  - claim-20260901-005-a
+  - claim-20260818-028
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -31,10 +34,11 @@ claims:
   - 日元
   - 原油
   - ISM制造业
+  school: qing
 - id: claim-20260902-001-b
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
@@ -49,7 +53,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260901-007-a"]
+  supplements:
+  - claim-20260901-007-a
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -62,10 +67,11 @@ claims:
   - 修复路径
   - 外盘映射
   - A股独立节奏
+  school: qing
 - id: claim-20260902-001-c
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
@@ -78,7 +84,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260819-002", "claim-20260901-006-a", "claim-20260824-002-a"]
+  supersedes:
+  - claim-20260819-002
+  - claim-20260901-006-a
+  - claim-20260824-002-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-02
@@ -93,10 +102,11 @@ claims:
   - 4.80关口
   - 双情形推演
   - 风险资产
+  school: qing
 - id: claim-20260902-001-d
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
@@ -109,7 +119,9 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260901-008-a", "claim-20260607-003-f"]
+  supersedes:
+  - claim-20260901-008-a
+  - claim-20260607-003-f
   contradicts: []
   supplements: []
   last_discovered: 2026-09-02
@@ -124,10 +136,11 @@ claims:
   - 95美元
   - 通胀传导链
   - 霍尔木兹海峡
+  school: qing
 - id: claim-20260902-001-e
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
@@ -140,7 +153,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260805-009"]
+  supersedes:
+  - claim-20260805-009
   contradicts: []
   supplements: []
   last_discovered: 2026-09-02
@@ -155,10 +169,11 @@ claims:
   - 美债反应
   - 数据解读框架
   - 防守信号
+  school: qing
 - id: claim-20260902-001-f
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
@@ -171,7 +186,9 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260819-007", "claim-20260717-001-d"]
+  supersedes:
+  - claim-20260819-007
+  - claim-20260717-001-d
   contradicts: []
   supplements: []
   last_discovered: 2026-09-02
@@ -186,10 +203,11 @@ claims:
   - 三要素
   - 大金融
   - 炸板率
+  school: qing
 - id: claim-20260902-001-g
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
@@ -202,9 +220,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260617-001-c", "claim-20260818-031"]
+  supersedes:
+  - claim-20260617-001-c
+  - claim-20260818-031
   contradicts: []
-  supplements: ["claim-20260818-049"]
+  supplements:
+  - claim-20260818-049
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -217,10 +238,11 @@ claims:
   - 连阳统计
   - 议息日历
   - 休整节奏
+  school: qing
 - id: claim-20260902-001-h
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
@@ -233,7 +255,9 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260814-010", "claim-20260831-012-a"]
+  supersedes:
+  - claim-20260814-010
+  - claim-20260831-012-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-02
@@ -248,10 +272,11 @@ claims:
   - 跌停家数
   - 市场广度
   - 亏钱效应
+  school: qing
 - id: claim-20260902-001-i
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
@@ -264,7 +289,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260624-001-h"]
+  supersedes:
+  - claim-20260624-001-h
   contradicts: []
   supplements: []
   last_discovered: 2026-09-02
@@ -279,10 +305,11 @@ claims:
   - 科技反包
   - 大金融
   - 互联网金融
+  school: qing
 - id: claim-20260902-001-j
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
@@ -297,7 +324,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-011", "claim-20260826-039-a", "claim-20260817-023"]
+  supplements:
+  - claim-20260819-011
+  - claim-20260826-039-a
+  - claim-20260817-023
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -316,10 +346,11 @@ claims:
   - 拉尼娜
   - 农产品
   - 种业
+  school: qing
 - id: claim-20260902-001-k
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
@@ -334,7 +365,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260717-001-g", "claim-20260817-049"]
+  supplements:
+  - claim-20260717-001-g
+  - claim-20260817-049
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -353,10 +386,11 @@ claims:
   - 端侧AI
   - 散热
   - 价值重构
+  school: qing
 - id: claim-20260902-001-l
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
@@ -371,7 +405,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260825-043-a", "claim-20260819-055", "claim-20260818-059"]
+  supplements:
+  - claim-20260825-043-a
+  - claim-20260819-055
+  - claim-20260818-059
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -390,27 +427,29 @@ claims:
   - 四轮提涨
   - 上游涨价
   - 价格中枢
+  school: qing
 - id: claim-20260902-001-m
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
   claim_type: catalyst
   subject: 苹果折叠屏与GoPro并购光通信映射
   timeframe: short-term
-  statement: 美股映射两条线索：苹果涨2.61%，新任CEO首封全员信强调下周发布会，苹果入局折叠屏催化相关市场，A股相关公司科森科技(603626)、恒铭达(002947)；GoPro大涨40.38%，宣布与光通信公司Starman
-    Optical达成最终合并协议，从消费级相机拓展至AI数据中心光收发器市场，行业竞争将从硬件参数转向场景定义与算法软件优化，A股相关公司影石创新(688775)
-  evidence_quote: 苹果涨2.61%……苹果入局折叠屏催化相关市场，关注核心增量环节机遇，A股相关公司包括科森科技、恒铭达等。GoPro涨40.38%：据公司公告，GoPro宣布与光通信公司Starman
-    Optical达成最终合并协议，从消费级相机拓展至AI数据中心光收发器以及政府、国防、航空航天与机器人市场
+  statement: 美股映射两条线索：苹果涨2.61%，新任CEO首封全员信强调下周发布会，苹果入局折叠屏催化相关市场，A股相关公司科森科技(603626)、恒铭达(002947)；GoPro大涨40.38%，宣布与光通信公司Starman Optical达成最终合并协议，从消费级相机拓展至AI数据中心光收发器市场，行业竞争将从硬件参数转向场景定义与算法软件优化，A股相关公司影石创新(688775)
+  evidence_quote: 苹果涨2.61%……苹果入局折叠屏催化相关市场，关注核心增量环节机遇，A股相关公司包括科森科技、恒铭达等。GoPro涨40.38%：据公司公告，GoPro宣布与光通信公司Starman Optical达成最终合并协议，从消费级相机拓展至AI数据中心光收发器以及政府、国防、航空航天与机器人市场
   interpretation: GoPro被光通信公司并购侧面印证AI数据中心光互连资产的稀缺性溢价，与JPM互连取代内存成为关键瓶颈的判断互相印证；苹果折叠屏为消费电子新催化
   confidence: medium
   status: active
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260824-003-p", "claim-20260817-049", "claim-20260825-048-a"]
+  supplements:
+  - claim-20260824-003-p
+  - claim-20260817-049
+  - claim-20260825-048-a
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -421,7 +460,7 @@ claims:
   - code: '603626'
     name: 科森科技
     role: 苹果折叠屏结构件-主板可交易
-  - code: '002947'
+  - code: 002947
     name: 恒铭达
     role: 苹果折叠屏上游-主板可交易
   - code: '688775'
@@ -432,10 +471,11 @@ claims:
   - GoPro并购
   - 光通信
   - 美股映射
+  school: qing
 - id: claim-20260902-001-n
   source_path: sources/original/bilibili/2026-09-02-0856-专栏-周二市场震荡调整，创业板指、深成指均跌超1%。盘面上农业、大.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-02'
   source_type: 专栏
   extracted_at: '2026-09-02T09:10:00+08:00'
@@ -448,9 +488,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260826-022-a"]
+  supersedes:
+  - claim-20260826-022-a
   contradicts: []
-  supplements: ["claim-20260901-014-a"]
+  supplements:
+  - claim-20260901-014-a
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -463,3 +505,4 @@ claims:
   - ADP
   - 仓位管理
   - 收盘前调仓
+  school: qing

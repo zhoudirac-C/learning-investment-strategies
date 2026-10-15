@@ -1,11 +1,11 @@
 - id: claim-20260420-001
   topic: 从4月14日尾盘开始把仓位打起来
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:00:00+08:00"
+  extracted_at: '2026-05-18T14:00:00+08:00'
   claim_type: operation
   subject: 仓位策略
   timeframe: short-term
@@ -14,8 +14,11 @@
   interpretation: 4月中旬是主升浪启动窗口，应积极加仓参与算力主线行情。
   confidence: high
   status: superseded
-  supersedes: ["claim-20260605-002-a", "claim-20260525-002"]
-  contradicts: ["claim-20260426-001"]
+  supersedes:
+  - claim-20260605-002-a
+  - claim-20260525-002
+  contradicts:
+  - claim-20260426-001
   last_discovered: 2026-06-08
   links:
     wiki_pages: []
@@ -23,17 +26,18 @@
     cases: []
   intensity: high
   tags:
-    - 操作策略
-    - 主线
-    - 仓位
+  - 操作策略
+  - 主线
+  - 仓位
+  school: qing
 - id: claim-20260420-002
   topic: 牛市持仓纪律
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:00:00+08:00"
+  extracted_at: '2026-05-18T14:00:00+08:00'
   claim_type: methodology
   subject: 牛市持仓纪律
   timeframe: permanent
@@ -44,7 +48,9 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260426-006", "claim-20260420-003"]
+  supplements:
+  - claim-20260426-006
+  - claim-20260420-003
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -52,16 +58,17 @@
     cases: []
   intensity: high
   tags:
-    - 牛市持仓纪律
-    - 方法论
+  - 牛市持仓纪律
+  - 方法论
+  school: qing
 - id: claim-20260420-003
   topic: 右侧交易思路
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:00:00+08:00"
+  extracted_at: '2026-05-18T14:00:00+08:00'
   claim_type: operation
   subject: 右侧交易
   timeframe: short-term
@@ -72,7 +79,8 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260518-014"]
+  supplements:
+  - claim-20260518-014
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -80,17 +88,18 @@
     cases: []
   intensity: high
   tags:
-    - 操作策略
-    - 主线
-    - 日线
+  - 操作策略
+  - 主线
+  - 日线
+  school: qing
 - id: claim-20260420-004
   topic: 四月不能瞎炒概念
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:00:00+08:00"
+  extracted_at: '2026-05-18T14:00:00+08:00'
   claim_type: operation
   subject: 选股纪律
   timeframe: permanent
@@ -101,7 +110,8 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260420-007"]
+  supplements:
+  - claim-20260420-007
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -109,17 +119,18 @@
     cases: []
   intensity: high
   tags:
-    - 操作策略
-    - 算力租赁
-    - AI
+  - 操作策略
+  - 算力租赁
+  - AI
+  school: qing
 - id: claim-20260426-001
   topic: 未来两周偏谨慎
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:00:00+08:00"
+  extracted_at: '2026-05-18T14:00:00+08:00'
   claim_type: operation
   subject: 仓位策略
   timeframe: short-term
@@ -129,7 +140,9 @@
   confidence: high
   status: superseded
   supersedes: []
-  contradicts: ["claim-20260420-001", "claim-20260604-001-a"]
+  contradicts:
+  - claim-20260420-001
+  - claim-20260604-001-a
   last_discovered: 2026-06-08
   links:
     wiki_pages: []
@@ -137,18 +150,19 @@
     cases: []
   intensity: high
   tags:
-    - 操作策略
-    - CPO
-    - 仓位
-    - 追高
+  - 操作策略
+  - CPO
+  - 仓位
+  - 追高
+  school: qing
 - id: claim-20260426-002
   topic: 若原油逼近或站上100
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:00:00+08:00"
+  extracted_at: '2026-05-18T14:00:00+08:00'
   claim_type: technical-signal
   subject: 油价预警
   timeframe: short-term
@@ -167,19 +181,20 @@
     cases: []
   intensity: high
   tags:
-    - 技术信号
-    - 通胀
-    - 降息
-    - 估值
-    - 油价
+  - 技术信号
+  - 通胀
+  - 降息
+  - 估值
+  - 油价
+  school: qing
 - id: claim-20260426-003
   topic: 关键时间窗口
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:00:00+08:00"
+  extracted_at: '2026-05-18T14:00:00+08:00'
   claim_type: market-cycle
   subject: 关键时间窗口
   timeframe: short-term
@@ -188,8 +203,10 @@
   interpretation: 5月中旬多重事件叠加，是判断下一波行情的关键节点。
   confidence: high
   status: expired
-  supersedes: ["claim-20260528-005-d"]
-  contradicts: ["claim-20260607-001-e"]
+  supersedes:
+  - claim-20260528-005-d
+  contradicts:
+  - claim-20260607-001-e
   last_discovered: 2026-06-08
   links:
     wiki_pages: []
@@ -197,17 +214,18 @@
     cases: []
   intensity: high
   tags:
-    - 关键时间窗口
-    - 市场周期
-    - 美联储
+  - 关键时间窗口
+  - 市场周期
+  - 美联储
+  school: qing
 - id: claim-20260426-004
   topic: 纯概念补涨一定被淘汰
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:00:00+08:00"
+  extracted_at: '2026-05-18T14:00:00+08:00'
   claim_type: operation
   subject: 选股纪律
   timeframe: short-term
@@ -218,7 +236,9 @@
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-012", "claim-20260622-001-h"]
+  supplements:
+  - claim-20260515-012
+  - claim-20260622-001-h
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -226,17 +246,18 @@
     cases: []
   intensity: high
   tags:
-    - 操作策略
-    - 主线
-    - 修复
+  - 操作策略
+  - 主线
+  - 修复
+  school: qing
 - id: claim-20260426-005
   topic: 产业扩散规律
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:00:00+08:00"
+  extracted_at: '2026-05-18T14:00:00+08:00'
   claim_type: methodology
   subject: 产业扩散规律
   timeframe: permanent
@@ -247,7 +268,10 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260603-004-f", "claim-20260622-003-g", "claim-20260524-016"]
+  supplements:
+  - claim-20260603-004-f
+  - claim-20260622-003-g
+  - claim-20260524-016
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -255,20 +279,21 @@
     cases: []
   intensity: high
   tags:
-    - 燃气轮机
-    - PCB
-    - 新能源
-    - 方法论
-    - 光模块
-    - AI
+  - 燃气轮机
+  - PCB
+  - 新能源
+  - 方法论
+  - 光模块
+  - AI
+  school: qing
 - id: claim-20260426-006
   topic: 牛市中最容易亏钱的方式
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:00:00+08:00"
+  extracted_at: '2026-05-18T14:00:00+08:00'
   claim_type: methodology
   subject: 牛市纪律
   timeframe: permanent
@@ -279,7 +304,9 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-006-a", "claim-20260518-014"]
+  supplements:
+  - claim-20260611-006-a
+  - claim-20260518-014
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -287,17 +314,18 @@
     cases: []
   intensity: high
   tags:
-    - 方法论
-    - 主线
-    - 轮动
+  - 方法论
+  - 主线
+  - 轮动
+  school: qing
 - id: claim-20260426-007
   topic: 高位爆量阴线就是出货
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:00:00+08:00"
+  extracted_at: '2026-05-18T14:00:00+08:00'
   claim_type: technical-signal
   subject: 出货判断
   timeframe: permanent
@@ -307,7 +335,8 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260607-002-g"]
+  contradicts:
+  - claim-20260607-002-g
   last_discovered: 2026-06-08
   links:
     wiki_pages: []
@@ -315,5 +344,6 @@
     cases: []
   intensity: high
   tags:
-    - 技术信号
-    - 出货判断
+  - 技术信号
+  - 出货判断
+  school: qing

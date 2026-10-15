@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260826-001-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260605-001-a", "claim-20260612-001-a"]
+  supersedes:
+  - claim-20260605-001-a
+  - claim-20260612-001-a
   contradicts: []
-  supplements: ["claim-20260608-001-a"]
+  supplements:
+  - claim-20260608-001-a
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -29,10 +32,11 @@ claims:
   - 顶部结构
   - 观望
   - 信号确认
+  school: qing
 - id: claim-20260826-002-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -45,9 +49,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260729-002"]
+  supersedes:
+  - claim-20260729-002
   contradicts: []
-  supplements: ["claim-20260702-005-c", "claim-20260607-002-g"]
+  supplements:
+  - claim-20260702-005-c
+  - claim-20260607-002-g
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -60,10 +67,11 @@ claims:
   - 止跌
   - 量能
   - 高开
+  school: qing
 - id: claim-20260826-003-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -91,10 +99,11 @@ claims:
   - 半日行情
   - 过夜敞口
   - 科技
+  school: qing
 - id: claim-20260826-004-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -107,9 +116,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260811-005"]
+  supersedes:
+  - claim-20260811-005
   contradicts: []
-  supplements: ["claim-20260820-032", "claim-20260824-002-e"]
+  supplements:
+  - claim-20260820-032
+  - claim-20260824-002-e
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -122,10 +134,11 @@ claims:
   - 地量
   - 决胜窗口
   - 9月
+  school: qing
 - id: claim-20260826-005-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -140,7 +153,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260804-010", "claim-20260820-031"]
+  supplements:
+  - claim-20260804-010
+  - claim-20260820-031
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -151,7 +166,7 @@ claims:
   - code: '300750'
     name: 宁德时代
     role: 创业板领跌股止跌-不可交易(主板规则)
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储板块企稳标的-深主板可交易
   tags:
@@ -160,10 +175,11 @@ claims:
   - 德明利
   - 止跌
   - 信心
+  school: qing
 - id: claim-20260826-006-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -176,9 +192,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260806-003", "claim-20260820-010"]
+  supersedes:
+  - claim-20260806-003
+  - claim-20260820-010
   contradicts: []
-  supplements: ["claim-20260819-008"]
+  supplements:
+  - claim-20260819-008
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -192,10 +211,11 @@ claims:
   - 强度
   - 首板
   - 晋级率
+  school: qing
 - id: claim-20260826-007-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -208,7 +228,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260731-009", "claim-20260805-059", "claim-20260729-004"]
+  supersedes:
+  - claim-20260731-009
+  - claim-20260805-059
+  - claim-20260729-004
   contradicts: []
   supplements: []
   last_discovered: 2026-08-26
@@ -223,10 +246,11 @@ claims:
   - 高开
   - 冲高回落
   - 内生回调
+  school: qing
 - id: claim-20260826-008-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -241,7 +265,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260824-002-k", "claim-20260825-036-a"]
+  supplements:
+  - claim-20260824-002-k
+  - claim-20260825-036-a
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -249,7 +275,7 @@ claims:
     cases: []
   topic: 液冷被资金推出来占据身位(类似7月MLCC)，逻辑后置是常态
   related_stocks:
-  - code: '002837'
+  - code: 002837
     name: 英维克
     role: 液冷身位标的-深主板可交易
   tags:
@@ -257,10 +283,11 @@ claims:
   - 身位
   - 逻辑后置
   - MLCC
+  school: qing
 - id: claim-20260826-009-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -283,7 +310,7 @@ claims:
     cases: []
   topic: 英维克半年报：营收增速放缓、Q2净利环比暴增但基数极低，是修复非爆发
   related_stocks:
-  - code: '002837'
+  - code: 002837
     name: 英维克
     role: 液冷龙头标的-深主板可交易
   tags:
@@ -291,10 +318,11 @@ claims:
   - 半年报
   - 基数陷阱
   - 应收账款
+  school: qing
 - id: claim-20260826-010-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -309,7 +337,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260820-047"]
+  supplements:
+  - claim-20260820-047
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -322,10 +351,11 @@ claims:
   - 折叠屏
   - 日历确定性
   - 备选
+  school: qing
 - id: claim-20260826-011-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -359,10 +389,11 @@ claims:
   - 高温超导
   - 主题投资
   - 事件驱动
+  school: qing
 - id: claim-20260826-012-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -377,7 +408,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-015-a", "claim-20260812-033"]
+  supplements:
+  - claim-20260610-015-a
+  - claim-20260812-033
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -390,10 +423,11 @@ claims:
   - 无人驾驶
   - 低位
   - 科技备选
+  school: qing
 - id: claim-20260826-013-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -406,9 +440,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260809-016"]
+  supersedes:
+  - claim-20260809-016
   contradicts: []
-  supplements: ["claim-20260825-012-a", "claim-20260824-002-i"]
+  supplements:
+  - claim-20260825-012-a
+  - claim-20260824-002-i
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -424,10 +461,11 @@ claims:
   - 分水岭
   - Moderna
   - 过渡方向
+  school: qing
 - id: claim-20260826-014-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -455,10 +493,11 @@ claims:
   - 农业
   - 资源
   - 方向一致性
+  school: qing
 - id: claim-20260826-015-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -471,9 +510,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260702-005-i"]
+  supersedes:
+  - claim-20260702-005-i
   contradicts: []
-  supplements: ["claim-20260812-022", "claim-20260818-068"]
+  supplements:
+  - claim-20260812-022
+  - claim-20260818-068
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -498,10 +540,11 @@ claims:
   - 零部件
   - 卖铲人
   - 业绩弹性
+  school: qing
 - id: claim-20260826-016-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -516,7 +559,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-c"]
+  supplements:
+  - claim-20260609-005-c
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -535,10 +579,11 @@ claims:
   - 国产化率
   - 倒序表
   - 定价权
+  school: qing
 - id: claim-20260826-017-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -553,7 +598,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260826-015-a", "claim-20260825-022-a"]
+  supplements:
+  - claim-20260826-015-a
+  - claim-20260825-022-a
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -572,10 +619,11 @@ claims:
   - 自研
   - 第三方供应商
   - 渐进
+  school: qing
 - id: claim-20260826-018-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -590,7 +638,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260824-001-m", "claim-20260818-067"]
+  supplements:
+  - claim-20260824-001-m
+  - claim-20260818-067
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -612,10 +662,11 @@ claims:
   - 纯增量
   - 电连技术
   - 送样
+  school: qing
 - id: claim-20260826-019-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -628,9 +679,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260818-020", "claim-20260812-032"]
+  supersedes:
+  - claim-20260818-020
+  - claim-20260812-032
   contradicts: []
-  supplements: ["claim-20260813-038"]
+  supplements:
+  - claim-20260813-038
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -644,10 +698,11 @@ claims:
   - Cage
   - Socket
   - 方法论
+  school: qing
 - id: claim-20260826-020-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -660,7 +715,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260812-020"]
+  supersedes:
+  - claim-20260812-020
   contradicts: []
   supplements: []
   last_discovered: 2026-08-26
@@ -679,10 +735,11 @@ claims:
   - 英伟达
   - 产能外溢
   - 价值量
+  school: qing
 - id: claim-20260826-021-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -717,10 +774,11 @@ claims:
   - 技术差距
   - 中石科技
   - 德邦科技
+  school: qing
 - id: claim-20260826-022-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -733,7 +791,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260803-013", "claim-20260814-036", "claim-20260814-019"]
+  supersedes:
+  - claim-20260803-013
+  - claim-20260814-036
+  - claim-20260814-019
   contradicts: []
   supplements: []
   last_discovered: 2026-08-26
@@ -748,10 +809,11 @@ claims:
   - 高开不加仓
   - 尾盘减仓
   - 逆指数减
+  school: qing
 - id: claim-20260826-023-a
   source_path: sources/original/bilibili/2026-08-26-0906-专栏-顶部结构成立后的第六个交易日，昨日的止跌是缩量换来的，而不是.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-26'
   source_type: 专栏
   extracted_at: '2026-08-26T09:18:00+08:00'
@@ -764,9 +826,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260804-020"]
+  supersedes:
+  - claim-20260804-020
   contradicts: []
-  supplements: ["claim-20260805-048"]
+  supplements:
+  - claim-20260805-048
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -780,3 +844,4 @@ claims:
   - 液冷
   - 医药
   - 晋级率
+  school: qing

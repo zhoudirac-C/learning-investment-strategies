@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260610-008-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -15,7 +15,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260609-005-a", "claim-20260601-004-a", "claim-20260603-001-d"]
+  supersedes:
+  - claim-20260609-005-a
+  - claim-20260601-004-a
+  - claim-20260603-001-d
   contradicts: []
   last_discovered: 2026-06-11
   links: []
@@ -23,10 +26,11 @@ claims:
   related_stocks: []
   tags:
   - 市场周期判断
+  school: qing
 - id: claim-20260610-009-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -40,17 +44,19 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260608-001-b"]
+  contradicts:
+  - claim-20260608-001-b
   last_discovered: 2026-06-11
   links: []
   topic: 调整修复判断
   related_stocks: []
   tags:
   - 调整修复判断
+  school: qing
 - id: claim-20260610-010-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -58,24 +64,25 @@ claims:
   subject: A股独立性判断
   timeframe: trend
   statement: A股当前定价主导权不在国内。TMT与上游材料主导市场，与全球流动性、AI capex叙事高度绑定，外围一动，A股难独善其身。修复的弹性与时点高度依赖外围（美联储路径+油价）。
-  evidence_quote: 整体跌幅相较海外可控，但要走独立行情难度大——A 股当前定价主导权不在国内。若现在是消费或新能源主导的内需型行情，海外扰动影响会小得多;但当下主导市场的是科技与上游材料，与全球流动性、AI capex 叙事高度绑定，外围一动，A
-    股难独善其身。
+  evidence_quote: 整体跌幅相较海外可控，但要走独立行情难度大——A 股当前定价主导权不在国内。若现在是消费或新能源主导的内需型行情，海外扰动影响会小得多;但当下主导市场的是科技与上游材料，与全球流动性、AI capex 叙事高度绑定，外围一动，A 股难独善其身。
   interpretation: A股科技方向与全球流动性高度绑定，不能脱离外围环境独立判断。修复弹性取决于美联储路径和油价走势。
   confidence: high
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260406-003"]
+  contradicts:
+  - claim-20260406-003
   last_discovered: 2026-06-11
   links: []
   topic: 宏观环境
   related_stocks: []
   tags:
   - 宏观环境
+  school: qing
 - id: claim-20260610-011-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -88,7 +95,8 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260526-034"]
+  supersedes:
+  - claim-20260526-034
   contradicts: []
   last_discovered: 2026-06-11
   links: []
@@ -96,10 +104,11 @@ claims:
   related_stocks: []
   tags:
   - 资金流向
+  school: qing
 - id: claim-20260610-012-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -114,17 +123,19 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-i"]
+  supplements:
+  - claim-20260622-003-i
   last_discovered: 2026-06-25
   links: []
   topic: 上游材料
   related_stocks: []
   tags:
   - 上游材料
+  school: qing
 - id: claim-20260610-013-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -139,7 +150,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260605-001-g", "claim-20260525-025", "claim-20260609-005-d"]
+  supplements:
+  - claim-20260605-001-g
+  - claim-20260525-025
+  - claim-20260609-005-d
   last_discovered: 2026-06-25
   links: []
   topic: 国产算力
@@ -147,15 +161,16 @@ claims:
   - code: '688702'
     name: 盛科通信
     role: 科创板-不可交易
-  - code: "603019"
-    name: "中科曙光"
-    role: "回填-正文提及"
+  - code: '603019'
+    name: 中科曙光
+    role: 回填-正文提及
   tags:
   - 国产算力
+  school: qing
 - id: claim-20260610-014-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -170,7 +185,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-004-g"]
+  supplements:
+  - claim-20260607-004-g
   last_discovered: 2026-06-25
   links: []
   topic: AI应用
@@ -181,10 +197,11 @@ claims:
   tags:
   - AI应用
   - 智能体
+  school: qing
 - id: claim-20260610-015-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -198,17 +215,19 @@ claims:
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260531-002-a"]
+  contradicts:
+  - claim-20260531-002-a
   last_discovered: 2026-06-11
   links: []
   topic: 操作策略
   related_stocks: []
   tags:
   - 操作策略
+  school: qing
 - id: claim-20260610-016-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -223,17 +242,21 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-d", "claim-20260611-006-a", "claim-20260610-012-a"]
+  supplements:
+  - claim-20260622-004-d
+  - claim-20260611-006-a
+  - claim-20260610-012-a
   last_discovered: 2026-06-25
   links: []
   topic: 涨价逻辑
   related_stocks: []
   tags:
   - 涨价逻辑
+  school: qing
 - id: claim-20260610-017-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -241,15 +264,17 @@ claims:
   subject: 电子特气与六氟化钨涨价逻辑
   timeframe: trend
   statement: 电子特气/六氟化钨（WF6）是涨价主线最干净的方向。中国限制对日钨原料，日本关东电化、中央硝子拟7/1起永久停产（合计约占全球25%产能）；WF6 6N从年初50-70万/吨升至200-250万/吨。供给侧逻辑是这轮最干净的——产能永久退出+涨价有财报兑现。
-  evidence_quote: 电子特气 / 六氟化钨（WF6）——涨价主线最干净 ：中国限制对日钨原料，日本关东电化、中央硝子拟 7/1 起永久停产（合计约占全球 25% 产能）;WF6 6N 从年初 50–70 万/吨升至 200–250
-    万/吨。 供给侧逻辑是这轮最干净的——产能永久退出 + 涨价有财报兑现，不是纯炒预期。
+  evidence_quote: 电子特气 / 六氟化钨（WF6）——涨价主线最干净 ：中国限制对日钨原料，日本关东电化、中央硝子拟 7/1 起永久停产（合计约占全球 25% 产能）;WF6 6N 从年初 50–70 万/吨升至 200–250 万/吨。 供给侧逻辑是这轮最干净的——产能永久退出 + 涨价有财报兑现，不是纯炒预期。
   interpretation: WF6是供给侧最干净的涨价品种，但位置已贵、龙头严重异动。参与方式应是'右侧、轻仓、带止损'，二线标的（昊华、中巨芯）若回踩不破趋势，风险收益比优于龙头。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-003-a", "claim-20260621-001-h", "claim-20260611-002-a"]
+  supplements:
+  - claim-20260611-003-a
+  - claim-20260621-001-h
+  - claim-20260611-002-a
   last_discovered: 2026-06-25
   links: []
   topic: 电子特气
@@ -273,10 +298,11 @@ claims:
   - 电子特气
   - WF6
   - 涨价逻辑
+  school: qing
 - id: claim-20260610-018-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -284,15 +310,16 @@ claims:
   subject: 高频高速覆铜板上游材料
   timeframe: trend
   statement: 高频高速覆铜板上游材料（球形硅微粉/PPO）是'涨价xAI需求x国产替代'三重交集，且技术壁垒真实（化学法球硅、电子级PPO都是少数玩家），比六氟化钨更有'独苗'属性、位置也相对不那么极端。雅克科技(002409)尤其值得关注，同时挂在球硅、前驱体（海力士）、光刻胶三条线上。
-  evidence_quote: 高频高速覆铜板上游材料（球形硅微粉 / PPO）：AI 高速 CCL 拉动球硅，M6+ 需化学法，业内仅少数能稳定量产。 这是'涨价 xAI 需求 x 国产替代'三重交集，且技术壁垒真实（化学法球硅、电子级
-    PPO 都是少数玩家），比六氟化钨更有'独苗'属性、位置也相对不那么极端。雅克科技(002409)尤其值得关注，它同时挂在球硅、前驱体（海力士）、光刻胶三条线上，平台型逻辑已反复验证。
+  evidence_quote: 高频高速覆铜板上游材料（球形硅微粉 / PPO）：AI 高速 CCL 拉动球硅，M6+ 需化学法，业内仅少数能稳定量产。 这是'涨价 xAI 需求 x 国产替代'三重交集，且技术壁垒真实（化学法球硅、电子级 PPO 都是少数玩家），比六氟化钨更有'独苗'属性、位置也相对不那么极端。雅克科技(002409)尤其值得关注，它同时挂在球硅、前驱体（海力士）、光刻胶三条线上，平台型逻辑已反复验证。
   interpretation: 球形硅微粉/PPO方向兼具涨价、AI需求、国产替代三重逻辑，技术壁垒高，是第一梯队里更可持有的方向。雅克科技是平台型标的，覆盖多条线。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-i", "claim-20260603-004-f"]
+  supplements:
+  - claim-20260622-003-i
+  - claim-20260603-004-f
   last_discovered: 2026-06-25
   links: []
   topic: 覆铜板材料
@@ -315,10 +342,11 @@ claims:
   tags:
   - 覆铜板材料
   - 上游材料
+  school: qing
 - id: claim-20260610-019-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -326,15 +354,17 @@ claims:
   subject: 钨产业链与PCB钻针
   timeframe: trend
   statement: 钨产业链与六氟化钨同源（钨出口管制），逻辑自洽。鼎泰高科的钻针龙头地位+Rubin放量是清晰的量增逻辑，比纯涨价品种多一层需求侧支撑，质地优于单纯资源股。
-  evidence_quote: 钨产业链 / PCB 钻针 ：钨价反弹，APT 较年初 +14.9%;Rubin Q3 量产推升钻针需求，CR5 75.2%。 与六氟化钨同源（钨出口管制），逻辑自洽。鼎泰高科的钻针龙头地位 + Rubin
-    放量是清晰的量增逻辑，比纯涨价品种多一层'需求侧'支撑，质地优于单纯资源股。
+  evidence_quote: 钨产业链 / PCB 钻针 ：钨价反弹，APT 较年初 +14.9%;Rubin Q3 量产推升钻针需求，CR5 75.2%。 与六氟化钨同源（钨出口管制），逻辑自洽。鼎泰高科的钻针龙头地位 + Rubin 放量是清晰的量增逻辑，比纯涨价品种多一层'需求侧'支撑，质地优于单纯资源股。
   interpretation: 钨产业链可作为涨价主线的配置补充，鼎泰高科兼具涨价+需求放量双重逻辑，质地优于纯资源股。
   confidence: medium
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-003-a", "claim-20260611-002-a", "claim-20260616-007-c"]
+  supplements:
+  - claim-20260611-003-a
+  - claim-20260611-002-a
+  - claim-20260616-007-c
   last_discovered: 2026-06-25
   links: []
   topic: 钨产业链
@@ -350,10 +380,11 @@ claims:
     role: 创业板-不可交易
   tags:
   - 钨产业链
+  school: qing
 - id: claim-20260610-020-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -361,14 +392,15 @@ claims:
   subject: 光伏板块低位修复
   timeframe: trend
   statement: 光伏是低位方向里唯一同时具备'调整到位+大资金进场+实质政策催化'三要素的。5/12见顶调整近一个月，今日尾盘20亿爆拉，隆基+8.8%、爱旭/晶澳涨停。催化为爱旭高管表态周期来了+强制标准清退产能传闻（或清退约30%）+跌到位。
-  evidence_quote: 光伏：时间空间到位 + 龙头有大资金 + 政策催化 ：5/12 见顶调整近一个月;今日尾盘 20 亿爆拉，隆基 +8.8%、爱旭/晶澳涨停;催化为爱旭高管表态周期来了 + 强制标准清退产能传闻（或清退约 30%）+
-    跌到位。 这是低位方向里唯一同时具备'调整到位 + 大资金进场 + 实质政策催化'三要素的——尾盘 20 亿不是散户行为。
+  evidence_quote: 光伏：时间空间到位 + 龙头有大资金 + 政策催化 ：5/12 见顶调整近一个月;今日尾盘 20 亿爆拉，隆基 +8.8%、爱旭/晶澳涨停;催化为爱旭高管表态周期来了 + 强制标准清退产能传闻（或清退约 30%）+ 跌到位。 这是低位方向里唯一同时具备'调整到位 + 大资金进场 + 实质政策催化'三要素的——尾盘 20 亿不是散户行为。
   interpretation: 光伏是低位修复里最看好的方向，但强制标准仍是传闻需验证，且基本面（产能过剩）尚未根本反转。参与方式：中长线看核心龙头或板块ETF，不做短线，等突破前高加速再考虑兑现。
   confidence: medium
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260608-004-c", "claim-20260531-002-a"]
+  contradicts:
+  - claim-20260608-004-c
+  - claim-20260531-002-a
   last_discovered: 2026-06-11
   links: []
   topic: 光伏
@@ -384,10 +416,11 @@ claims:
     role: 主板可交易
   tags:
   - 光伏
+  school: qing
 - id: claim-20260610-021-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -402,7 +435,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-036-a", "claim-20260612-002-e"]
+  supplements:
+  - claim-20260610-036-a
+  - claim-20260612-002-e
   last_discovered: 2026-06-25
   links: []
   topic: 商业航天
@@ -412,10 +447,11 @@ claims:
     role: 科创板-不可交易
   tags:
   - 商业航天
+  school: qing
 - id: claim-20260610-022-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -437,10 +473,11 @@ claims:
   related_stocks: []
   tags:
   - 医药
+  school: qing
 - id: claim-20260610-023-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -455,17 +492,21 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260615-001", "claim-20260610-037-a", "claim-20260609-001-c"]
+  supplements:
+  - claim-20260615-001
+  - claim-20260610-037-a
+  - claim-20260609-001-c
   last_discovered: 2026-06-25
   links: []
   topic: 证券
   related_stocks: []
   tags:
   - 证券
+  school: qing
 - id: claim-20260610-024-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -480,17 +521,19 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-002-g"]
+  supplements:
+  - claim-20260521-002-g
   last_discovered: 2026-06-25
   links: []
   topic: 机器人
   related_stocks: []
   tags:
   - 机器人
+  school: qing
 - id: claim-20260610-039-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -505,7 +548,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-041-a"]
+  supplements:
+  - claim-20260610-041-a
   last_discovered: 2026-06-25
   links: []
   topic: 风电
@@ -513,10 +557,11 @@ claims:
   tags:
   - 风电
   - 低位修复
+  school: qing
 - id: claim-20260610-040-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -530,7 +575,8 @@ claims:
   status: superseded
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260531-002-a"]
+  contradicts:
+  - claim-20260531-002-a
   last_discovered: 2026-06-11
   links: []
   topic: 食品饮料
@@ -539,10 +585,11 @@ claims:
   - 食品饮料
   - 消费
   - 低位修复
+  school: qing
 - id: claim-20260610-041-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -565,10 +612,11 @@ claims:
   tags:
   - 新能源汽车
   - 低位修复
+  school: qing
 - id: claim-20260610-042-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -576,15 +624,16 @@ claims:
   subject: AI与AI应用板块
   timeframe: trend
   statement: AI/AI应用跌回低位、技术面不贵，是科技内部低位修复方向。与高低切换框架最契合——硬件退潮、低位AI接力的逻辑成立。但AI太宽泛，真正要找的是'低位+有真实落地'的细分（如智能体里有B端订单的、算力里有放量确定性的），而非整体性买入。
-  evidence_quote: 13. AI / AI 应用 ：跌回低位、技术面不贵，科技内部低位修复方向。与高低切换框架最契合——硬件退潮、低位 AI 接力的逻辑成立。但 AI 太宽泛，真正要找的是"低位 + 有真实落地"的细分（如智能体里有
-    B 端订单的、算力里有放量确定性的），而非整体性买入。
+  evidence_quote: 13. AI / AI 应用 ：跌回低位、技术面不贵，科技内部低位修复方向。与高低切换框架最契合——硬件退潮、低位 AI 接力的逻辑成立。但 AI 太宽泛，真正要找的是"低位 + 有真实落地"的细分（如智能体里有 B 端订单的、算力里有放量确定性的），而非整体性买入。
   interpretation: AI方向是高低切换的受益方，但不能整体性买入。需要精选有真实落地的细分（B端智能体、确定放量的算力），否则容易踩入题材陷阱。
   confidence: medium
   status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260601-004-c", "claim-20260616-005-g"]
+  supplements:
+  - claim-20260601-004-c
+  - claim-20260616-005-g
   last_discovered: 2026-06-25
   links: []
   topic: AI应用
@@ -593,10 +642,11 @@ claims:
   - AI
   - 高低切换
   - 科技
+  school: qing
 - id: claim-20260610-025-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -611,17 +661,19 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h"]
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-06-25
   links: []
   topic: 存储芯片
   related_stocks: []
   tags:
   - 存储芯片
+  school: qing
 - id: claim-20260610-026-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -643,10 +695,11 @@ claims:
   related_stocks: []
   tags:
   - CPU
+  school: qing
 - id: claim-20260610-027-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -661,17 +714,19 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-002-i"]
+  supplements:
+  - claim-20260521-002-i
   last_discovered: 2026-06-25
   links: []
   topic: 科创50
   related_stocks: []
   tags:
   - 科创50
+  school: qing
 - id: claim-20260610-028-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -686,7 +741,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-002-g"]
+  supplements:
+  - claim-20260622-002-g
   last_discovered: 2026-06-25
   links: []
   topic: 锂矿电池
@@ -697,10 +753,11 @@ claims:
   tags:
   - 锂矿电池
   - 锂电池
+  school: qing
 - id: claim-20260610-029-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -722,10 +779,11 @@ claims:
   related_stocks: []
   tags:
   - 稀土
+  school: qing
 - id: claim-20260610-030-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -747,10 +805,11 @@ claims:
   related_stocks: []
   tags:
   - 黄金
+  school: qing
 - id: claim-20260610-031-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -764,17 +823,19 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260406-002"]
+  contradicts:
+  - claim-20260406-002
   last_discovered: 2026-06-11
   links: []
   topic: 石油
   related_stocks: []
   tags:
   - 石油
+  school: qing
 - id: claim-20260610-032-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -788,17 +849,19 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260602-001-e"]
+  contradicts:
+  - claim-20260602-001-e
   last_discovered: 2026-06-11
   links: []
   topic: 煤炭
   related_stocks: []
   tags:
   - 煤炭
+  school: qing
 - id: claim-20260610-033-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -811,7 +874,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260529-004-a"]
+  supersedes:
+  - claim-20260529-004-a
   contradicts: []
   last_discovered: 2026-06-11
   links: []
@@ -819,10 +883,11 @@ claims:
   related_stocks: []
   tags:
   - 房地产
+  school: qing
 - id: claim-20260610-034-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -847,10 +912,11 @@ claims:
     role: 主板可交易
   tags:
   - 绿电
+  school: qing
 - id: claim-20260610-035-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -858,15 +924,15 @@ claims:
   subject: 美国CPI与美联储路径
   timeframe: short-term
   statement: 5月CPI同比4.2%（2023年4月来最高），但核心环比仅0.2%（低于预期）、核心商品环比-0.1%；涨幅几乎全来自能源（环比+3.9%）。FOMC 6/17议息维持不变已被充分定价。核心矛盾：读'4.2%表头'是鹰派，读'软核心+负核心商品'是鸽派。
-  evidence_quote: 5 月 CPI 同比 4.2%（2023 年 4 月来最高、连续第三月加速），但核心环比仅 0.2%（低于预期）、核心商品环比 -0.1%;涨幅几乎全来自能源（环比 +3.9%、同比 +23.5%），系伊朗局势驱动的油价冲击。FOMC
-    6/17 议息，维持不变（3.50–3.75%）已被充分定价。核心矛盾。 两面数据：读'4.2% 表头'是鹰派，读'软核心 + 负核心商品'是鸽派。
+  evidence_quote: 5 月 CPI 同比 4.2%（2023 年 4 月来最高、连续第三月加速），但核心环比仅 0.2%（低于预期）、核心商品环比 -0.1%;涨幅几乎全来自能源（环比 +3.9%、同比 +23.5%），系伊朗局势驱动的油价冲击。FOMC 6/17 议息，维持不变（3.50–3.75%）已被充分定价。核心矛盾。 两面数据：读'4.2% 表头'是鹰派，读'软核心 + 负核心商品'是鸽派。
   interpretation: CPI数据存在两面解读，市场未来一周在鹰鸽之间选边。真正的摆动因子不是4.2%本身，而是油价是否升级。
   confidence: high
   status: superseded
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-036-a"]
+  supplements:
+  - claim-20260610-036-a
   last_discovered: 2026-06-25
   links: []
   topic: 美联储
@@ -874,10 +940,11 @@ claims:
   tags:
   - 美联储
   - CPI
+  school: qing
 - id: claim-20260610-036-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -885,14 +952,14 @@ claims:
   subject: 6月17美联储情景对冲策略
   timeframe: short-term
   statement: 用涨价材料（电子特气、钨）和能源地缘相关（商业航天、核电）作为情景B的天然对冲；AI硬件、硅片、出海链是情景A的进攻仓。核心商品环比-0.1%对汽零'客户承担关税'逻辑是温和支撑，可作为出海链的底气。这样无论6/17走哪个情景，组合都有承接。
-  evidence_quote: 目前有一条对冲思路：用涨价材料（电子特气、钨）和能源地缘相关（商业航天、核电）作为情景B 的天然对冲，因为油价上行恰恰利好这两条线;而 AI 硬件、硅片、出海链是情景A 的进攻仓。这样无论 6/17 走哪个情景，组合都有承接。另外，核心商品
-    -0.1% 对汽零'客户承担关税'逻辑是温和支撑，可作为出海链的底气。
+  evidence_quote: 目前有一条对冲思路：用涨价材料（电子特气、钨）和能源地缘相关（商业航天、核电）作为情景B 的天然对冲，因为油价上行恰恰利好这两条线;而 AI 硬件、硅片、出海链是情景A 的进攻仓。这样无论 6/17 走哪个情景，组合都有承接。另外，核心商品 -0.1% 对汽零'客户承担关税'逻辑是温和支撑，可作为出海链的底气。
   interpretation: 构建对冲组合：情景B（油价/地缘升级）→涨价材料+能源地缘；情景A（鸽派/降息）→AI硬件+出海链。
   confidence: medium
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260607-003-c"]
+  contradicts:
+  - claim-20260607-003-c
   last_discovered: 2026-06-11
   links: []
   topic: 对冲策略
@@ -900,10 +967,11 @@ claims:
   tags:
   - 对冲策略
   - 美联储
+  school: qing
 - id: claim-20260610-037-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -916,7 +984,9 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260526-023", "claim-20260608-001-i"]
+  supersedes:
+  - claim-20260526-023
+  - claim-20260608-001-i
   contradicts: []
   last_discovered: 2026-06-11
   links: []
@@ -925,10 +995,11 @@ claims:
   tags:
   - 操作纪律
   - 右侧交易
+  school: qing
 - id: claim-20260610-038-a
   source_path: sources/original/bilibili/2026-06-10-2254-专栏-指数与情绪：指数震荡回落，短线情绪走弱，午后企稳。整体跌幅相.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: bilibili_article
   extracted_at: '2026-06-10T23:33:50'
@@ -942,10 +1013,12 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260531-002-a"]
+  contradicts:
+  - claim-20260531-002-a
   last_discovered: 2026-06-11
   links: []
   topic: 操作总纲
   related_stocks: []
   tags:
   - 操作总纲
+  school: qing

@@ -1,7 +1,6 @@
 claims:
 - id: claim-20260818-005-001
-  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB
-    -.md
+  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB -.md
   source_date: '2026-08-18'
   source_type: 视频
   up_id: '550494308'
@@ -18,8 +17,11 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260813-017", "claim-20260818-022"]
-  supplements: ["claim-20260810-019"]
+  disagrees_with:
+  - claim-20260813-017
+  - claim-20260818-022
+  supplements:
+  - claim-20260810-019
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -35,9 +37,9 @@ claims:
   - 绿的谐波
   - 事件博弈
   - 临时加仓
+  school: watchlist
 - id: claim-20260818-005-002
-  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB
-    -.md
+  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB -.md
   source_date: '2026-08-18'
   source_type: 视频
   up_id: '550494308'
@@ -54,7 +56,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260817-002-a"]
+  supplements:
+  - claim-20260817-002-a
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -70,9 +73,9 @@ claims:
   - 朱雀三号
   - 发射前减仓
   - 做T
+  school: watchlist
 - id: claim-20260818-005-003
-  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB
-    -.md
+  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB -.md
   source_date: '2026-08-18'
   source_type: 视频
   up_id: '550494308'
@@ -102,9 +105,9 @@ claims:
   - 成本安全垫
   - 做T
   - 方法论
+  school: watchlist
 - id: claim-20260818-005-004
-  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB
-    -.md
+  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB -.md
   source_date: '2026-08-18'
   source_type: 视频
   up_id: '550494308'
@@ -121,7 +124,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-009", "claim-20260830-008-a"]
+  supplements:
+  - claim-20260803-009
+  - claim-20260830-008-a
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -135,7 +140,7 @@ claims:
   - code: '301308'
     name: 江波龙
     role: 存储模组-创业板
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储模组-深主板
   - code: '300308'
@@ -156,9 +161,9 @@ claims:
   - 光模块
   - PCB
   - 资金虹吸
+  school: watchlist
 - id: claim-20260818-005-005
-  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB
-    -.md
+  source_path: sources/original/bilibili/2026-08-18-0804-视频-涨停做T，聊聊商业航天、机器人、光模块存储PCB -.md
   source_date: '2026-08-18'
   source_type: 视频
   up_id: '550494308'
@@ -189,3 +194,4 @@ claims:
   - 获利盘
   - 套牢盘
   - 减仓摊薄
+  school: watchlist

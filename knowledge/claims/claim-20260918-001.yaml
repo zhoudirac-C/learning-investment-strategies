@@ -35,6 +35,7 @@ claims:
   - 投机高度票
   - 爱丽家居
   - 知行合一
+  school: watchlist
 - id: claim-20260918-002-a
   source_path: sources/raw/财经/2026-09-18-0820-视频-打野拿了不少医药，爱丽别跟我｜聊聊医药与半导体设备 -.md
   source_date: '2026-09-18'
@@ -66,6 +67,7 @@ claims:
   - 医药
   - 投机高标
   - 板块角色
+  school: watchlist
 - id: claim-20260918-003-a
   source_path: sources/raw/财经/2026-09-18-0820-视频-打野拿了不少医药，爱丽别跟我｜聊聊医药与半导体设备 -.md
   source_date: '2026-09-18'
@@ -100,6 +102,7 @@ claims:
   - 操作纪律
   - 投机票
   - 投资者教育
+  school: watchlist
 - id: claim-20260918-004-a
   source_path: sources/raw/财经/2026-09-18-0820-视频-打野拿了不少医药，爱丽别跟我｜聊聊医药与半导体设备 -.md
   source_date: '2026-09-18'
@@ -117,9 +120,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260917-002-b"]
+  supersedes:
+  - claim-20260917-002-b
   contradicts: []
-  supplements: ["claim-20260914-005-a", "claim-20260915-003-6"]
+  supplements:
+  - claim-20260914-005-a
+  - claim-20260915-003-6
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -138,6 +144,7 @@ claims:
   - 辨识度
   - 医药
   - 换股
+  school: watchlist
 - id: claim-20260918-005-a
   source_path: sources/raw/财经/2026-09-18-0820-视频-打野拿了不少医药，爱丽别跟我｜聊聊医药与半导体设备 -.md
   source_date: '2026-09-18'
@@ -157,7 +164,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-002-d"]
+  supplements:
+  - claim-20260917-002-d
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -173,6 +181,7 @@ claims:
   - 医药
   - 失效条件
   - 万邦医药
+  school: watchlist
 - id: claim-20260918-006-a
   source_path: sources/raw/财经/2026-09-18-0820-视频-打野拿了不少医药，爱丽别跟我｜聊聊医药与半导体设备 -.md
   source_date: '2026-09-18'
@@ -192,7 +201,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260814-016"]
+  supplements:
+  - claim-20260814-016
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -204,6 +214,7 @@ claims:
   - 操作纪律
   - 医药
   - 低吸
+  school: watchlist
 - id: claim-20260918-007-a
   source_path: sources/raw/财经/2026-09-18-0820-视频-打野拿了不少医药，爱丽别跟我｜聊聊医药与半导体设备 -.md
   source_date: '2026-09-18'
@@ -223,7 +234,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-002-e", "claim-20260917-002-f"]
+  supplements:
+  - claim-20260917-002-e
+  - claim-20260917-002-f
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -236,6 +249,7 @@ claims:
   - 光刻胶
   - 半导体设备
   - 低吸
+  school: watchlist
 - id: claim-20260918-008-a
   source_path: sources/raw/财经/2026-09-18-0820-视频-打野拿了不少医药，爱丽别跟我｜聊聊医药与半导体设备 -.md
   source_date: '2026-09-18'
@@ -253,9 +267,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260917-002-g"]
+  supersedes:
+  - claim-20260917-002-g
   contradicts: []
-  supplements: ["claim-20260807-006", "claim-20260914-003-11"]
+  supplements:
+  - claim-20260807-006
+  - claim-20260914-003-11
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -267,6 +284,7 @@ claims:
   - 量能
   - 节前
   - 市场环境
+  school: watchlist
 - id: claim-20260918-009-a
   source_path: sources/raw/财经/2026-09-18-0820-视频-打野拿了不少医药，爱丽别跟我｜聊聊医药与半导体设备 -.md
   source_date: '2026-09-18'
@@ -308,6 +326,7 @@ claims:
   - 高抛低吸
   - 做T
   - 节前
+  school: watchlist
 - id: claim-20260918-010-a
   source_path: sources/raw/财经/2026-09-18-0820-视频-打野拿了不少医药，爱丽别跟我｜聊聊医药与半导体设备 -.md
   source_date: '2026-09-18'
@@ -325,9 +344,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260917-002-c"]
+  supersedes:
+  - claim-20260917-002-c
   contradicts: []
-  supplements: ["claim-20260915-003-4", "claim-20260909-032-g"]
+  supplements:
+  - claim-20260915-003-4
+  - claim-20260909-032-g
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -343,3 +365,4 @@ claims:
   - 波段底仓
   - 万邦医药
   - 例外持仓
+  school: watchlist

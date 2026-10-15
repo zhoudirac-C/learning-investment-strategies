@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260720-005
   source_path: sources/original/bilibili/2026-07-20-0858-图片-盘前要点 一、指数：各周期底部结构消失，短期只需跟踪上升趋势.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-20'
   source_type: 动态
   extracted_at: '2026-07-20T09:17:00+08:00'
@@ -17,7 +17,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20070424-001-a", "claim-20260608-001-e"]
+  supplements:
+  - claim-20070424-001-a
+  - claim-20260608-001-e
   last_discovered: 2026-07-20
   links: {}
   topic: 沪指暴跌后次日涨概率75.9%，最差情形为科技边反弹边降仓
@@ -27,3 +29,4 @@ claims:
   - 历史统计
   - 75.9%概率
   - 科技边拉边降仓
+  school: qing

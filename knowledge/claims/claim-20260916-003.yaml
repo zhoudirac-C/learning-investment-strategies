@@ -29,6 +29,7 @@ claims:
   - 指数收盘
   - 双创强势
   - 科创50
+  school: qing
 - id: claim-20260916-003-b
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -46,7 +47,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260830-002-a", "claim-20260805-011"]
+  supersedes:
+  - claim-20260830-002-a
+  - claim-20260805-011
   contradicts: []
   supplements: []
   last_discovered: 2026-09-19
@@ -59,6 +62,7 @@ claims:
   - 成交额
   - 量能
   - 缩量惯性
+  school: qing
 - id: claim-20260916-003-c
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -76,7 +80,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260608-001-e"]
+  supersedes:
+  - claim-20260608-001-e
   contradicts: []
   supplements: []
   last_discovered: 2026-09-19
@@ -89,6 +94,7 @@ claims:
   - 市场宽度
   - 涨停家数
   - 普涨
+  school: qing
 - id: claim-20260916-003-d
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -106,7 +112,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260609-005-a", "claim-20260803-042"]
+  supersedes:
+  - claim-20260609-005-a
+  - claim-20260803-042
   contradicts: []
   supplements: []
   last_discovered: 2026-09-19
@@ -119,6 +127,7 @@ claims:
   - 风格切换
   - 科技主线
   - 量价确认
+  school: qing
 - id: claim-20260916-003-e
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -136,7 +145,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260803-041"]
+  supersedes:
+  - claim-20260803-041
   contradicts: []
   supplements: []
   last_discovered: 2026-09-19
@@ -149,6 +159,7 @@ claims:
   - 反弹级别
   - 反转判据
   - 新叙事
+  school: qing
 - id: claim-20260916-003-f
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -168,7 +179,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260818-001", "claim-20260916-001-zf", "claim-20260916-001-a"]
+  supplements:
+  - claim-20260818-001
+  - claim-20260916-001-zf
+  - claim-20260916-001-a
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -179,6 +193,7 @@ claims:
   - 外盘锚点
   - 美股映射
   - 开盘方向
+  school: qing
 - id: claim-20260916-003-g
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -198,7 +213,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260916-001-i"]
+  supplements:
+  - claim-20260916-001-i
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -212,6 +228,7 @@ claims:
   - 宁德时代
   - 权重股
   - 创业板指
+  school: qing
 - id: claim-20260916-003-h
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -231,7 +248,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260826-026-a", "claim-20260819-035", "claim-20260817-034"]
+  supplements:
+  - claim-20260826-026-a
+  - claim-20260819-035
+  - claim-20260817-034
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -242,6 +262,7 @@ claims:
   - 右侧确认
   - 量能门槛
   - 分级标准
+  school: qing
 - id: claim-20260916-003-i
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -259,9 +280,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260901-020-a"]
+  supersedes:
+  - claim-20260901-020-a
   contradicts: []
-  supplements: ["claim-20260916-001-h", "claim-20260916-001-l"]
+  supplements:
+  - claim-20260916-001-h
+  - claim-20260916-001-l
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -271,7 +295,7 @@ claims:
   - code: '000523'
     name: 红棉股份
     role: 昨日3连跌停-情绪修复观察
-  - code: '002059'
+  - code: 002059
     name: 云南旅游
     role: 昨日3连跌停-情绪修复观察
   - code: '600371'
@@ -281,6 +305,7 @@ claims:
   - 亏钱效应
   - 跌停家数
   - 情绪修复
+  school: qing
 - id: claim-20260916-003-j
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -298,9 +323,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260915-004-22"]
+  supersedes:
+  - claim-20260915-004-22
   contradicts: []
-  supplements: ["claim-20260913-001-017", "claim-20260713-002-m"]
+  supplements:
+  - claim-20260913-001-017
+  - claim-20260713-002-m
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -311,6 +339,7 @@ claims:
   - 情绪修复
   - 负反馈
   - 方法论
+  school: qing
 - id: claim-20260916-003-k
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -330,7 +359,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260826-036-a"]
+  supplements:
+  - claim-20260826-036-a
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -341,6 +371,7 @@ claims:
   - 通信设备
   - 半导体
   - 板块涨幅
+  school: qing
 - id: claim-20260916-003-l
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -360,7 +391,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-003-c", "claim-20260814-014", "claim-20260910-015-a"]
+  supplements:
+  - claim-20260706-003-c
+  - claim-20260814-014
+  - claim-20260910-015-a
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -371,6 +405,7 @@ claims:
   - 国产替代
   - 算力硬件
   - 双线共振
+  school: qing
 - id: claim-20260916-003-m
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -390,7 +425,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260908-001-d", "claim-20260809-010"]
+  supplements:
+  - claim-20260908-001-d
+  - claim-20260809-010
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -401,6 +438,7 @@ claims:
   - 新叙事
   - 行情级别
   - 方法论
+  school: qing
 - id: claim-20260916-003-n
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -420,7 +458,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260629-001-v"]
+  supplements:
+  - claim-20260629-001-v
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -431,6 +470,7 @@ claims:
   - 重掺硅片
   - 涨价
   - 中信证券
+  school: qing
 - id: claim-20260916-003-o
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -450,7 +490,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260907-041-e", "claim-20260526-031"]
+  supplements:
+  - claim-20260907-041-e
+  - claim-20260526-031
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -461,6 +503,7 @@ claims:
   - 光芯片
   - 订单能见度
   - 中金公司
+  school: qing
 - id: claim-20260916-003-p
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -506,6 +549,7 @@ claims:
   - 硅片
   - 碳化硅
   - 涨停标的
+  school: qing
 - id: claim-20260916-003-q
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -532,7 +576,7 @@ claims:
     methodology_pages: []
     cases: []
   related_stocks:
-  - code: '002281'
+  - code: 002281
     name: 光迅科技
     role: 光通信-主板可交易
   - code: '600105'
@@ -548,6 +592,7 @@ claims:
   - CPO
   - 光通信
   - 涨停标的
+  school: qing
 - id: claim-20260916-003-r
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -581,6 +626,7 @@ claims:
   - 工程机械
   - 非科技承压
   - 资金分流
+  school: qing
 - id: claim-20260916-003-s
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -620,6 +666,7 @@ claims:
   - 黄酒
   - 历史新高
   - 独立行情
+  school: qing
 - id: claim-20260916-003-t
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -659,6 +706,7 @@ claims:
   - 黄酒
   - 政策催化
   - 历史经典产业
+  school: qing
 - id: claim-20260916-003-u
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -678,20 +726,23 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260723-030", "claim-20260518-018"]
+  supplements:
+  - claim-20260723-030
+  - claim-20260518-018
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks:
-  - code: '000993'
+  - code: 000993
     name: 闽东电力
     role: 投机龙头-带动福建板块而非电力
   tags:
   - 投机退潮
   - 题材加分项
   - 福建板块
+  school: qing
 - id: claim-20260916-003-v
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -711,7 +762,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260520-001-d"]
+  supplements:
+  - claim-20260520-001-d
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -725,6 +777,7 @@ claims:
   - 加速板
   - 情绪投机
   - 科技分支
+  school: qing
 - id: claim-20260916-003-w
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -742,9 +795,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260908-003-y"]
+  supersedes:
+  - claim-20260908-003-y
   contradicts: []
-  supplements: ["claim-20260916-003-x", "claim-20260913-001-010"]
+  supplements:
+  - claim-20260916-003-x
+  - claim-20260913-001-010
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -755,6 +811,7 @@ claims:
   - FOMC
   - 美债收益率
   - 议息博弈
+  school: qing
 - id: claim-20260916-003-x
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -774,7 +831,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260910-027-a"]
+  supplements:
+  - claim-20260910-027-a
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -785,6 +843,7 @@ claims:
   - 情形推演
   - 科创50半分位
   - 操作预案
+  school: qing
 - id: claim-20260916-003-y
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -804,7 +863,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-001-b", "claim-20260612-003-f"]
+  supplements:
+  - claim-20260917-001-b
+  - claim-20260612-003-f
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -815,6 +876,7 @@ claims:
   - 宏观事件
   - 加息通道
   - 情绪管理
+  school: qing
 - id: claim-20260916-003-z
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -834,7 +896,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260811-037", "claim-20260818-068", "claim-20260605-001-e"]
+  supplements:
+  - claim-20260811-037
+  - claim-20260818-068
+  - claim-20260605-001-e
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -848,6 +913,7 @@ claims:
   - 中瓷电子
   - 静电卡盘
   - 设备零部件
+  school: qing
 - id: claim-20260916-003-aa
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -887,6 +953,7 @@ claims:
   - 中富电路
   - AI电源PCB
   - 厚铜板
+  school: qing
 - id: claim-20260916-003-ab
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -916,13 +983,14 @@ claims:
   - code: '603650'
     name: 彤程新材
     role: 光刻胶-主板可交易
-  - code: "600360"
-    name: "华微电子"
-    role: "回填-正文提及"
+  - code: '600360'
+    name: 华微电子
+    role: 回填-正文提及
   tags:
   - 彤程新材
   - 光刻胶
   - 国产替代
+  school: qing
 - id: claim-20260916-003-ac
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -942,7 +1010,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260716-002-j", "claim-20260622-001-d"]
+  supplements:
+  - claim-20260716-002-j
+  - claim-20260622-001-d
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -953,6 +1023,7 @@ claims:
   - 选股框架
   - 国产化率
   - 批量供货
+  school: qing
 - id: claim-20260916-003-ad
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -972,7 +1043,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-038", "claim-20260831-005-s"]
+  supplements:
+  - claim-20260803-038
+  - claim-20260831-005-s
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -983,6 +1056,7 @@ claims:
   - Vera Rubin
   - CoreWeave
   - PCB与光互联
+  school: qing
 - id: claim-20260916-003-ae
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -1002,7 +1076,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-005-g", "claim-20260910-015-a"]
+  supplements:
+  - claim-20260616-005-g
+  - claim-20260910-015-a
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -1013,6 +1089,7 @@ claims:
   - 光通信
   - 产业时点对应
   - 订单能见度
+  school: qing
 - id: claim-20260916-003-af
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -1032,7 +1109,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260709-004-m", "claim-20260816-016"]
+  supplements:
+  - claim-20260709-004-m
+  - claim-20260816-016
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -1055,6 +1134,7 @@ claims:
   - 天孚通信
   - CPO器件
   - 交付状态
+  school: qing
 - id: claim-20260916-003-ag
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -1074,7 +1154,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260723-032", "claim-20260814-034", "claim-20260625-003-s"]
+  supplements:
+  - claim-20260723-032
+  - claim-20260814-034
+  - claim-20260625-003-s
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -1085,6 +1168,7 @@ claims:
   - 数据中心电力
   - 供需缺口
   - TrendForce
+  school: qing
 - id: claim-20260916-003-ah
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -1104,7 +1188,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-036", "claim-20260916-003-ai", "claim-20260610-034-a"]
+  supplements:
+  - claim-20260803-036
+  - claim-20260916-003-ai
+  - claim-20260610-034-a
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -1115,6 +1202,7 @@ claims:
   - 算电协同
   - 电网规划
   - 华福证券
+  school: qing
 - id: claim-20260916-003-ai
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -1134,23 +1222,26 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-036", "claim-20260916-003-ah"]
+  supplements:
+  - claim-20260803-036
+  - claim-20260916-003-ah
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks:
-  - code: '002980'
+  - code: 002980
     name: 华盛昌
     role: 电力智能测量-主板可交易
-  - code: '002498'
+  - code: 002498
     name: 汉缆股份
     role: 电缆与输变电-主板可交易
   tags:
   - 华盛昌
   - 汉缆股份
   - 电网标的
+  school: qing
 - id: claim-20260916-003-aj
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -1170,7 +1261,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-001-q"]
+  supplements:
+  - claim-20260917-001-q
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -1181,6 +1273,7 @@ claims:
   - 电网设备
   - 跟随方向
   - 招标验证
+  school: qing
 - id: claim-20260916-003-ak
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -1200,7 +1293,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260916-003-ac"]
+  supplements:
+  - claim-20260916-003-ac
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -1211,6 +1305,7 @@ claims:
   - 操作纪律
   - 参与范围
   - 题材加分项
+  school: qing
 - id: claim-20260916-003-al
   source_path: sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   source_date: '2026-09-16'
@@ -1228,7 +1323,9 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260915-004-23", "claim-20260817-052"]
+  supersedes:
+  - claim-20260915-004-23
+  - claim-20260817-052
   contradicts: []
   supplements: []
   last_discovered: 2026-09-19
@@ -1244,3 +1341,4 @@ claims:
   - 明日跟踪
   - 观察清单
   - 情绪延续
+  school: qing

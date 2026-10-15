@@ -11,12 +11,12 @@ claims:
   timeframe: short-term
   statement: UP 将当前阶段的操作定调为"降低标准，赚辛苦钱"——主动降低收益预期与出手标准，接受需要精细化操作、单笔收益偏薄的辛苦钱模式。
   evidence_quote: 降低标准，赚辛苦钱。
-  interpretation: 标题即观点。"降低标准"指降低对单笔交易收益与确定性的要求；"赚辛苦钱"指接受靠高频、精细操作积累薄利的模式。该定调与 9 月初
-    UP 反复强调的缩量、轮动加快、赚钱难度上升的环境判断一致。注意：该 raw 仅为视频标题与动态原文（充电专属视频，38 分钟，无转写稿），结论以标题文本为准。
+  interpretation: 标题即观点。"降低标准"指降低对单笔交易收益与确定性的要求；"赚辛苦钱"指接受靠高频、精细操作积累薄利的模式。该定调与 9 月初 UP 反复强调的缩量、轮动加快、赚钱难度上升的环境判断一致。注意：该 raw 仅为视频标题与动态原文（充电专属视频，38 分钟，无转写稿），结论以标题文本为准。
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260716-003-b"]
+  supersedes:
+  - claim-20260716-003-b
   contradicts: []
   supplements: []
   last_discovered: 2026-09-15
@@ -32,6 +32,7 @@ claims:
   - 收益预期
   - 操作定调
   - 缩量环境
+  school: qing
 - id: claim-20260903-036-b
   source_path: sources/original/bilibili/2026-09-03-2003-视频-降低标准，赚辛苦钱。.md
   source_date: '2026-09-03'
@@ -63,3 +64,4 @@ claims:
   - 趋势确认
   - OCR片段
   - 低置信度
+  school: qing

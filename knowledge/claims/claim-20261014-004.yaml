@@ -18,7 +18,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-035-a"]
+  supplements:
+  - claim-20260610-035-a
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -31,6 +32,7 @@ claims:
   - 能源扩散
   - 预期消化
   topic: CPI核心检验点=能源涨价是否扩散至非能源领域
+  school: qing
 - id: claim-20261014-004-b
   source_path: sources/original/bilibili/2026-10-14-1429-图片-今天问题不大，基本上是按剧本在走了，虽然我最近不强调外盘，但.md
   source_date: '2026-10-14'
@@ -50,7 +52,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260928-002-c", "claim-20260902-001-e"]
+  supplements:
+  - claim-20260928-002-c
+  - claim-20260902-001-e
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -63,6 +67,7 @@ claims:
   - 期限对照
   - 债市结构
   topic: 数据后收益率反应模式比数据本身更重要
+  school: qing
 - id: claim-20261014-004-c
   source_path: sources/original/bilibili/2026-10-14-1429-图片-今天问题不大，基本上是按剧本在走了，虽然我最近不强调外盘，但.md
   source_date: '2026-10-14'
@@ -82,7 +87,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260928-002-c"]
+  supplements:
+  - claim-20260928-002-c
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -95,3 +101,4 @@ claims:
   - 判断边界
   - 见顶纪律
   topic: 一次数据只检验不确认长期收益率趋势见顶
+  school: qing

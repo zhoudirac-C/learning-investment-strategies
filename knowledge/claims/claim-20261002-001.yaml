@@ -31,6 +31,7 @@ claims:
   - V型反转
   - 趋势定性
   - 三重压力
+  school: qing
 - id: claim-20261002-001-b
   source_path: sources/original/bilibili/2026-10-02-0903-图片-隔夜市场被两只手救了！欧债风暴+美联储鸽派发声，但危险远未远.md
   source_date: '2026-10-02'
@@ -49,9 +50,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260831-005-a-dup1"]
+  supersedes:
+  - claim-20260831-005-a-dup1
   contradicts: []
-  supplements: ["claim-20260929-002-h", "claim-20260819-003"]
+  supplements:
+  - claim-20260929-002-h
+  - claim-20260819-003
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -63,6 +67,7 @@ claims:
   - 宽松预期
   - 反身性
   - 失效条件
+  school: qing
 - id: claim-20261002-001-c
   source_path: sources/original/bilibili/2026-10-02-0903-图片-隔夜市场被两只手救了！欧债风暴+美联储鸽派发声，但危险远未远.md
   source_date: '2026-10-02'
@@ -95,6 +100,7 @@ claims:
   - 金发姑娘
   - 情景推演
   - 加息概率
+  school: qing
 - id: claim-20261002-001-d
   source_path: sources/original/bilibili/2026-10-02-0903-图片-隔夜市场被两只手救了！欧债风暴+美联储鸽派发声，但危险远未远.md
   source_date: '2026-10-02'
@@ -113,7 +119,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260831-005-a-dup1", "claim-20260913-001-001"]
+  supersedes:
+  - claim-20260831-005-a-dup1
+  - claim-20260913-001-001
   contradicts: []
   supplements: []
   last_discovered: 2026-10-02
@@ -128,6 +136,7 @@ claims:
   - 油价
   - 通胀
   - 暂停加息
+  school: qing
 - id: claim-20261002-001-e
   source_path: sources/original/bilibili/2026-10-02-0903-图片-隔夜市场被两只手救了！欧债风暴+美联储鸽派发声，但危险远未远.md
   source_date: '2026-10-02'
@@ -146,8 +155,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260914-001-004", "claim-20260729-031-dup1"]
-  contradicts: ["claim-20260827-062-x"]
+  supersedes:
+  - claim-20260914-001-004
+  - claim-20260729-031-dup1
+  contradicts:
+  - claim-20260827-062-x
   supplements: []
   last_discovered: 2026-10-02
   links:
@@ -160,3 +172,4 @@ claims:
   - 鸽派
   - 加息预期
   - 鲍曼
+  school: qing

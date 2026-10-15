@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260729-024-dup1
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -16,8 +16,11 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260617-038-c", "claim-20260607-004-c"]
-  supplements: ["claim-20260515-012"]
+  contradicts:
+  - claim-20260617-038-c
+  - claim-20260607-004-c
+  supplements:
+  - claim-20260515-012
   last_discovered: 2026-07-30
   links:
     wiki_pages:
@@ -32,10 +35,11 @@ claims:
   - 科技下跌
   - 分化
   topic: 7月29日阳线需要拆开看：科技跌消费涨的防御性位移
+  school: qing
 - id: claim-20260729-025-dup1
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -48,9 +52,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260724-001"]
+  supersedes:
+  - claim-20260724-001
   contradicts: []
-  supplements: ["claim-20260616-002-c", "claim-20260518-019"]
+  supplements:
+  - claim-20260616-002-c
+  - claim-20260518-019
   last_discovered: 2026-07-30
   links:
     wiki_pages:
@@ -65,10 +72,11 @@ claims:
   - 风格切换
   - 磨底
   topic: 7月29日放量是存量再分配而非增量资金入场的判断
+  school: qing
 - id: claim-20260729-026-dup1
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -98,10 +106,11 @@ claims:
   - 磨底
   - 下沿确认
   topic: 上证3800点61.8%回撤位反复不破确认下沿但不等于向上空间
+  school: qing
 - id: claim-20260729-027-dup1
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -116,7 +125,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260728-008", "claim-20260515-012"]
+  supplements:
+  - claim-20260728-008
+  - claim-20260515-012
   last_discovered: 2026-07-30
   links:
     wiki_pages: []
@@ -131,10 +142,11 @@ claims:
   - 反向信号
   - 避险
   topic: 热钱一致性转防御是反向信号，避险行情持续性弱
+  school: qing
 - id: claim-20260729-028-dup1
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -147,9 +159,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260708-006-m"]
-  contradicts: ["claim-20260527-001-i"]
-  supplements: ["claim-20260729-024"]
+  supersedes:
+  - claim-20260708-006-m
+  contradicts:
+  - claim-20260527-001-i
+  supplements:
+  - claim-20260729-024
   last_discovered: 2026-07-30
   links:
     wiki_pages: []
@@ -170,10 +185,11 @@ claims:
   - 畏高
   - 接力不足
   topic: 普涨与龙头补跌并存说明赚钱效应散乱资金畏高
+  school: qing
 - id: claim-20260729-029-dup1
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -188,7 +204,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-025", "claim-20260617-038-c"]
+  supplements:
+  - claim-20260729-025
+  - claim-20260617-038-c
   last_discovered: 2026-07-30
   links:
     wiki_pages:
@@ -209,10 +227,11 @@ claims:
   - 端侧AI
   - 分化
   topic: 科技空头动能消耗但内部分化未收敛，MLCC和端侧AI逆势抗跌
+  school: qing
 - id: claim-20260729-030-dup1
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -227,7 +246,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-025", "claim-20260728-011"]
+  supplements:
+  - claim-20260729-025
+  - claim-20260728-011
   last_discovered: 2026-07-30
   links:
     wiki_pages:
@@ -242,10 +263,11 @@ claims:
   - DRAM
   - 国产链
   topic: 长鑫是这一轮科技情绪的定盘星
+  school: qing
 - id: claim-20260729-031-dup1
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -260,7 +282,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-026", "claim-20260729-006"]
+  supplements:
+  - claim-20260729-026
+  - claim-20260729-006
   last_discovered: 2026-07-30
   links:
     wiki_pages:
@@ -275,10 +299,11 @@ claims:
   - 不加息
   - 鹰派
   topic: 美联储7月议息不加息但偏鹰的基准情景与两段市场反应
+  school: qing
 - id: claim-20260729-032-dup1
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -287,14 +312,15 @@ claims:
   timeframe: permanent
   statement: 假如美联储不加息、油价低于80美元、10年期美债收益率在4.70%下方，而微软或Meta仍因资本开支或自由现金流问题下跌，则可确认科技股的问题已不再是宏观环境，而是AI商业模式自身。
   evidence_quote: 关键的证伪条件是这样一组：假如美联储不加息、油价继续低于80美元、10年期美债收益率继续位于4.70%下方，而微软或Meta仍因资本开支、自由现金流或AI回报问题下跌，那么就可以确认——科技股的问题已经不再是宏观环境，而是AI商业模式自身。
-  interpretation: UP提出了一个系统性的证伪框架，用来判断科技下跌的归因。当三个宏观负面因素（加息、油价高、美债收益率高）都被排除时，若AI巨头仍然下跌，则根源在AI产业内部。这个框架帮助投资者区分宏观扰动（可等待修复）vs
-    基本面恶化（应减仓）。
+  interpretation: UP提出了一个系统性的证伪框架，用来判断科技下跌的归因。当三个宏观负面因素（加息、油价高、美债收益率高）都被排除时，若AI巨头仍然下跌，则根源在AI产业内部。这个框架帮助投资者区分宏观扰动（可等待修复）vs 基本面恶化（应减仓）。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-027", "claim-20260721-029"]
+  supplements:
+  - claim-20260729-027
+  - claim-20260721-029
   last_discovered: 2026-07-30
   links:
     wiki_pages: []
@@ -309,10 +335,11 @@ claims:
   - 资本开支
   - 自由现金流
   topic: AI商业模式证伪条件：排除宏观因素后若科技仍跌则问题在AI自身
+  school: qing
 - id: claim-20260729-033-dup1
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -325,9 +352,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260723-012"]
+  supersedes:
+  - claim-20260723-012
   contradicts: []
-  supplements: ["claim-20260729-028"]
+  supplements:
+  - claim-20260729-028
   last_discovered: 2026-07-30
   links:
     wiki_pages:
@@ -342,10 +371,11 @@ claims:
   - 开放安全AI联盟
   - 产业催化
   topic: AI安全从可选项变为必选项，国内产业关注度将抬升
+  school: qing
 - id: claim-20260729-034-dup1
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -358,9 +388,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260717-001-l"]
+  supersedes:
+  - claim-20260717-001-l
   contradicts: []
-  supplements: ["claim-20260720-009", "claim-20260617-010-s"]
+  supplements:
+  - claim-20260720-009
+  - claim-20260617-010-s
   last_discovered: 2026-07-30
   links:
     wiki_pages:
@@ -375,10 +408,11 @@ claims:
   - AI融资
   - Pre-IPO
   topic: 月之暗面Kimi融资超35亿美元，国产模型加速追赶全球顶尖
+  school: qing
 - id: claim-20260729-035-dup1
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -391,9 +425,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260609-005-f", "claim-20260629-001-ad"]
+  supersedes:
+  - claim-20260609-005-f
+  - claim-20260629-001-ad
   contradicts: []
-  supplements: ["claim-20260612-006-f"]
+  supplements:
+  - claim-20260612-006-f
   last_discovered: 2026-07-30
   links:
     wiki_pages: []
@@ -408,10 +445,11 @@ claims:
   - 右侧介入
   - 不追高
   topic: 磨底阶段操作纪律：不见量价确认不追，分清楚反弹与反转再介入
+  school: qing
 - id: claim-20260729-036-dup1
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -424,9 +462,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260614-014-p"]
+  supersedes:
+  - claim-20260614-014-p
   contradicts: []
-  supplements: ["claim-20260728-015"]
+  supplements:
+  - claim-20260728-015
   last_discovered: 2026-07-30
   links:
     wiki_pages:
@@ -441,10 +481,11 @@ claims:
   - 韩股
   - 量能重回科技
   topic: 7月30日跟踪变量优先级：FOMC>微软Meta财报>韩股>A股量能>防御持续性
+  school: qing
 - id: claim-20260729-037
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -453,14 +494,15 @@ claims:
   timeframe: trend
   statement: 天融信(002212)依托自研天问大模型构建AI安全运营中心，相关产品在政府、能源、制造等行业落地；自研智能交换机全系支持IPv6并实现交换与安全一体化，有望受益于IPv6单栈演进带来的机房改造需求。IDC预测2030年中国AI安全市场规模340亿元、复合增速50.5%。
   evidence_quote: 天融信：据公开信息，公司依托自研天问大模型构建AI安全运营中心与全生命周期治理体系，相关产品在政府、能源、制造等行业落地；自研智能交换机全系支持IPv6并实现交换与安全一体化，有望受益于IPv6单栈演进带来的机房改造需求。所引用的IDC预测2030年中国AI安全市场规模340亿元、复合增速50.5%。
-  interpretation: UP将天融信(002212)定位为AI安全+IPv6双驱动标的。AI安全从可选项变为必选项的大环境利好公司AI安全业务；IPv6单栈演进是政策驱动的增量需求，公司产品已就绪。IDC数据（2030年340亿、CAGR
-    50.5%）提供了市场空间参照。
+  interpretation: UP将天融信(002212)定位为AI安全+IPv6双驱动标的。AI安全从可选项变为必选项的大环境利好公司AI安全业务；IPv6单栈演进是政策驱动的增量需求，公司产品已就绪。IDC数据（2030年340亿、CAGR 50.5%）提供了市场空间参照。
   confidence: medium
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-029", "claim-20260723-012"]
+  supplements:
+  - claim-20260729-029
+  - claim-20260723-012
   last_discovered: 2026-07-30
   links:
     wiki_pages: []
@@ -477,10 +519,11 @@ claims:
   - 天问大模型
   - AI安全运营
   topic: 天融信受益AI安全必选化趋势和IPv6改造需求
+  school: qing
 - id: claim-20260729-038
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -493,9 +536,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260722-022"]
+  supersedes:
+  - claim-20260722-022
   contradicts: []
-  supplements: ["claim-20260729-031", "claim-20260720-027"]
+  supplements:
+  - claim-20260729-031
+  - claim-20260720-027
   last_discovered: 2026-07-30
   links:
     wiki_pages: []
@@ -512,10 +558,11 @@ claims:
   - 全球产能龙头
   - 齿科陶瓷
   topic: 长裕集团氧化锆涨价受益，全球产能7.5万吨/年市占率约30%
+  school: qing
 - id: claim-20260729-039
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -530,7 +577,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-030", "claim-20260608-001-g", "claim-20260608-004-h"]
+  supplements:
+  - claim-20260729-030
+  - claim-20260608-001-g
+  - claim-20260608-004-h
   last_discovered: 2026-07-30
   links:
     wiki_pages: []
@@ -547,10 +597,11 @@ claims:
   - 人形机器人
   - 职业教育
   topic: 传智教育具身智能人才培养新学科受益于产业爆发期
+  school: qing
 - id: claim-20260729-040
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -565,7 +616,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-032", "claim-20260622-003-g", "claim-20260625-001-k"]
+  supplements:
+  - claim-20260729-032
+  - claim-20260622-003-g
+  - claim-20260625-001-k
   last_discovered: 2026-07-30
   links:
     wiki_pages:
@@ -586,10 +640,11 @@ claims:
   - 顺络电子
   - 国瓷材料
   topic: 光模块1.6T商业化放量+千亿数据园区项目，顺络电子国瓷材料受益
+  school: qing
 - id: claim-20260729-041
   source_path: sources/raw/财经/2026-07-29-复盘专栏-阳线拆解-资金转防御.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-29'
   source_type: 复盘
   extracted_at: '2026-07-30T23:41:00+08:00'
@@ -602,7 +657,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260601-004-a"]
+  supersedes:
+  - claim-20260601-004-a
   contradicts: []
   supplements: []
   last_discovered: 2026-07-30
@@ -619,3 +675,4 @@ claims:
   - 被动切换
   - 风格分析
   topic: 小微盘强于科技权重是科技拖累减弱的结果，非主动风格切换
+  school: qing

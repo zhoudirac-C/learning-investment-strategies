@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260611-001-a-dup2
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -17,7 +17,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-001-b", "claim-20260612-003-s"]
+  supplements:
+  - claim-20260611-001-b
+  - claim-20260612-003-s
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -31,10 +33,11 @@ claims:
   - 趋势性下跌
   - 历史对照
   - 风险收益比
+  school: qing
 - id: claim-20260611-001-b-dup1
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -48,7 +51,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260518-018"]
+  contradicts:
+  - claim-20260518-018
   last_discovered: 2026-06-12
   links:
     wiki_pages:
@@ -62,10 +66,11 @@ claims:
   - 温水煮蛙
   - 结构差异
   - 历史对比
+  school: qing
 - id: claim-20260611-001-c-dup1
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -80,7 +85,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-n"]
+  supplements:
+  - claim-20260622-003-n
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -94,10 +100,11 @@ claims:
   - 中阳线
   - 企稳信号
   - 不预测只跟随
+  school: qing
 - id: claim-20260611-001-d-dup1
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -110,8 +117,10 @@ claims:
   confidence: medium
   status: superseded
   intensity: low
-  supersedes: ["claim-20260526-025"]
-  contradicts: ["claim-20260518-002"]
+  supersedes:
+  - claim-20260526-025
+  contradicts:
+  - claim-20260518-002
   last_discovered: 2026-06-12
   links:
     wiki_pages:
@@ -124,10 +133,11 @@ claims:
   - 午后回升
   - 修复动能
   - 预期管理
+  school: qing
 - id: claim-20260611-001-e-dup1
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -140,8 +150,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260609-005-c"]
-  contradicts: ["claim-20260610-012-a"]
+  supersedes:
+  - claim-20260609-005-c
+  contradicts:
+  - claim-20260610-012-a
   last_discovered: 2026-06-12
   links:
     wiki_pages:
@@ -156,10 +168,11 @@ claims:
   - 高潮迹象
   - 雨露均沾
   - 补涨方向
+  school: qing
 - id: claim-20260611-001-f-dup1
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -174,7 +187,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-001-e", "claim-20260609-005-f"]
+  supplements:
+  - claim-20260611-001-e
+  - claim-20260609-005-f
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -190,10 +205,11 @@ claims:
   - 设备
   - 封装
   - 涨价扩散
+  school: qing
 - id: claim-20260611-001-g
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -208,7 +224,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-023"]
+  supplements:
+  - claim-20260526-023
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -225,10 +242,11 @@ claims:
   - PCB
   - 核心主线
   - 母题
+  school: qing
 - id: claim-20260611-001-h
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -259,10 +277,11 @@ claims:
   - 预期差
   - 算力租赁
   - 海外映射
+  school: qing
 - id: claim-20260611-001-i
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -297,10 +316,11 @@ claims:
   - 天极科技
   - 被动元件
   - MLCC替代
+  school: qing
 - id: claim-20260611-001-j
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -315,7 +335,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-005-h", "claim-20260622-003-p"]
+  supplements:
+  - claim-20260623-005-h
+  - claim-20260622-003-p
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -335,10 +357,11 @@ claims:
   - 昇腾
   - 国产替代
   - 半导体设备
+  school: qing
 - id: claim-20260611-001-k
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -372,10 +395,11 @@ claims:
   - 茂莱光学
   - 国产替代
   - 市场传闻
+  school: qing
 - id: claim-20260611-001-l
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -388,7 +412,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260528-002-c"]
+  supersedes:
+  - claim-20260528-002-c
   contradicts: []
   last_discovered: 2026-06-12
   links:
@@ -404,10 +429,11 @@ claims:
   - 博弈策略
   - 仓位管理
   - 趋势下跌
+  school: qing
 - id: claim-20260611-001-m
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -422,7 +448,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-001-l", "claim-20260515-013", "claim-20260608-001-i"]
+  supplements:
+  - claim-20260611-001-l
+  - claim-20260515-013
+  - claim-20260608-001-i
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -437,10 +466,11 @@ claims:
   - 建仓条件
   - 全A中阳线
   - 博弈vs建仓
+  school: qing
 - id: claim-20260611-001-n
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -454,7 +484,8 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260608-001-e"]
+  contradicts:
+  - claim-20260608-001-e
   last_discovered: 2026-06-12
   links:
     wiki_pages:
@@ -469,10 +500,11 @@ claims:
   - 跌停
   - 20%涨跌幅
   - 避险
+  school: qing
 - id: claim-20260611-001-o
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -505,10 +537,11 @@ claims:
   - 壳价值
   - 事件驱动
   - 西安高新
+  school: qing
 - id: claim-20260611-001-p
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -523,7 +556,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-008", "claim-20260611-001-j"]
+  supplements:
+  - claim-20260526-008
+  - claim-20260611-001-j
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -539,10 +574,11 @@ claims:
   - 韬定律
   - 时间缩微
   - 国产算力
+  school: qing
 - id: claim-20260611-001-q
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -571,10 +607,11 @@ claims:
   - 科技强国
   - 政策面
   - 科技自立自强
+  school: qing
 - id: claim-20260611-001-r
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -588,7 +625,8 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260604-004-b"]
+  contradicts:
+  - claim-20260604-004-b
   last_discovered: 2026-06-12
   links:
     wiki_pages:
@@ -612,10 +650,11 @@ claims:
   - 北方华创
   - 国产链
   - 权重容量股
+  school: qing
 - id: claim-20260611-001-s
   source_path: sources/raw/财经/2026-06-11-2152-专栏-全A趋势性下跌23交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 专栏
   extracted_at: '2026-06-11T23:32:39'
@@ -628,7 +667,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260518-006"]
+  supersedes:
+  - claim-20260518-006
   contradicts: []
   last_discovered: 2026-06-12
   links:
@@ -643,3 +683,4 @@ claims:
   - 调整尾部区域
   - 风险收益比
   - 等待确认信号
+  school: qing

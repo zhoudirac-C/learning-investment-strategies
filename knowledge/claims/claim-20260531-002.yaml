@@ -2,8 +2,8 @@ claims:
 - id: claim-20260531-002-a
   topic: 周五市场大幅分化
   source_path: sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-31
   source_type: 复盘
   extracted_at: 2026-05-31
@@ -12,13 +12,14 @@ claims:
   timeframe: short-term
   statement: 周五市场大幅分化，防御品种涨幅居前。在存量博弈环境下，科技见顶+消费见底的顺畅叙事难以认同；主线（硅基通胀/AI算力）地位无可替代，近期震荡只是消化拥挤而非切换。低位方向若没有增量资金，大概率是反弹而非反转
   evidence_quote: 在存量博弈环境下，科技见顶+消费见底的'顺畅叙事'难以认同；主线（硅基通胀/AI算力）地位无可替代，近期震荡只是消化拥挤，而非切换。存量环境下，主线退潮时支线并不会因此受益（资金属性反直觉）；超跌方向若没有增量资金，大概率是'反弹'而非'反转'。
-  interpretation: 主线判断的核心逻辑：①周五科技与防御的极端分化引发"风格切换"讨论，但博主认为这种叙事在存量环境下不成立；②资金属性反直觉——主线退潮时资金不会自动流向支线，而是可能一起下跌；③除AI外其余板块微观调研下确实没有景气度，这是本轮牛市根基；④科技震荡是因为前期涨幅过大需要消化拥挤，但没有任何板块能替代硅基通胀的主线地位；⑤
-    tactical应对：增厚止盈安全垫，等图形与趋势再度走好时卷土重来。
+  interpretation: 主线判断的核心逻辑：①周五科技与防御的极端分化引发"风格切换"讨论，但博主认为这种叙事在存量环境下不成立；②资金属性反直觉——主线退潮时资金不会自动流向支线，而是可能一起下跌；③除AI外其余板块微观调研下确实没有景气度，这是本轮牛市根基；④科技震荡是因为前期涨幅过大需要消化拥挤，但没有任何板块能替代硅基通胀的主线地位；⑤ tactical应对：增厚止盈安全垫，等图形与趋势再度走好时卷土重来。
   confidence: high
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260614-002-b", "claim-20260609-005-f"]
+  supplements:
+  - claim-20260614-002-b
+  - claim-20260609-005-f
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -36,11 +37,12 @@ claims:
   - AI
   - 防御
   - 消费
+  school: qing
 - id: claim-20260531-002-b
   topic: 被动元件（MLCC为代表）进入周期上行
   source_path: sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-31
   source_type: 复盘
   extracted_at: 2026-05-31
@@ -54,7 +56,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-c"]
+  supplements:
+  - claim-20260609-005-c
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -67,11 +70,12 @@ claims:
   - 涨价
   - 放量
   - 存储
+  school: qing
 - id: claim-20260531-002-c
   topic: MLCC涨价结构与供需格局
   source_path: sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-31
   source_type: 复盘
   extracted_at: 2026-05-31
@@ -85,7 +89,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-c"]
+  supplements:
+  - claim-20260609-005-c
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -96,11 +101,12 @@ claims:
   tags:
   - MLCC涨价
   - 板块主题
+  school: qing
 - id: claim-20260531-002-d
   topic: AI服务器MLCC用量持续上行
   source_path: sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-31
   source_type: 复盘
   extracted_at: 2026-05-31
@@ -114,7 +120,9 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-015", "claim-20260523-001"]
+  supplements:
+  - claim-20260616-015
+  - claim-20260523-001
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -125,11 +133,12 @@ claims:
   tags:
   - AI服务器M
   - 板块主题
+  school: qing
 - id: claim-20260531-002-e
   topic: VR200 NVL72机柜PCB价值量同
   source_path: sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-31
   source_type: 复盘
   extracted_at: 2026-05-31
@@ -156,11 +165,12 @@ claims:
   - PCB
   - 半导体
   - 美元
+  school: qing
 - id: claim-20260531-002-f
   topic: 煤炭安监风暴+迎峰度夏，煤价重启上涨
   source_path: sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-31
   source_type: 复盘
   extracted_at: 2026-05-31
@@ -185,11 +195,12 @@ claims:
   tags:
   - 煤炭安监风暴
   - 板块主题
+  school: qing
 - id: claim-20260531-002-g
   topic: 安赛蜜三轮涨价87.5%，三寡头格局优异
   source_path: sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-31
   source_type: 复盘
   extracted_at: 2026-05-31
@@ -222,11 +233,12 @@ claims:
   - code: 002597
     name: 金禾实业
     role: 参考标的
+  school: qing
 - id: claim-20260531-002-h
   topic: 巨化股份超纯PFA达到半导体要求
   source_path: sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-31
   source_type: 复盘
   extracted_at: 2026-05-31
@@ -240,7 +252,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260615-020"]
+  supplements:
+  - claim-20260615-020
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -256,11 +269,12 @@ claims:
   - code: '600160'
     name: 巨化股份
     role: 参考标的
+  school: qing
 - id: claim-20260531-002-i
   topic: 国务院印发城市更新"十五五"规划
   source_path: sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-31
   source_type: 复盘
   extracted_at: 2026-05-31
@@ -274,7 +288,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260530-001-h"]
+  supplements:
+  - claim-20260530-001-h
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -286,11 +301,12 @@ claims:
   - 板块主题
   - 地产
   - 主线
+  school: qing
 - id: claim-20260531-002-j
   topic: 长鑫存储已过会
   source_path: sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-31
   source_type: 复盘
   extracted_at: 2026-05-31
@@ -299,13 +315,13 @@ claims:
   timeframe: short-term
   statement: 长鑫存储已过会，预计6月下旬至7月初上市，估值或2.6万亿起步/3万亿打底，对科创板存在巨大吸血与资金分流压力，市场已在提前下跌预演
   evidence_quote: 长鑫存储已过会，预计6月下旬至7月初上市，估值或2.6万亿起步/3万亿打底，对科创板存在巨大'吸血'与资金分流压力，市场已在提前下跌预演。
-  interpretation: 长鑫上市的风险量化：①时间节点：6月下旬-7月初；②估值规模：2.6万亿起步/3万亿打底，是科创板历史级IPO；③影响：对科创板形成显著资金分流压力（"吸血"效应）；④市场预演：当前半导体/科创50的调整可能已部分price
-    in这一预期；⑤应对：需为6月"风格再平衡+极端修正"做好止盈安全垫，长鑫上市后可能带来低位再布局机遇。这是一个需要纳入仓位管理的关键事件节点。
+  interpretation: 长鑫上市的风险量化：①时间节点：6月下旬-7月初；②估值规模：2.6万亿起步/3万亿打底，是科创板历史级IPO；③影响：对科创板形成显著资金分流压力（"吸血"效应）；④市场预演：当前半导体/科创50的调整可能已部分price in这一预期；⑤应对：需为6月"风格再平衡+极端修正"做好止盈安全垫，长鑫上市后可能带来低位再布局机遇。这是一个需要纳入仓位管理的关键事件节点。
   confidence: high
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260614-010-l"]
+  supplements:
+  - claim-20260614-010-l
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -318,11 +334,12 @@ claims:
   - 长鑫存储
   - 科创板
   - 估值
+  school: qing
 - id: claim-20260531-002-k
   topic: 全国首个绿色算力全栈AI平台在内蒙古呼和
   source_path: sources/raw/财经/复盘：26-05-31：科技震荡消化拥挤，被动元件全面进入周期上行.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-31
   source_type: 复盘
   extracted_at: 2026-05-31
@@ -336,7 +353,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260518-009"]
+  supplements:
+  - claim-20260518-009
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -355,3 +373,4 @@ claims:
   - code: 001896
     name: 豫能控股
     role: 参考标的
+  school: qing

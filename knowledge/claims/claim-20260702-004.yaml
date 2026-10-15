@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260702-004-a
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -17,7 +17,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-006-k", "claim-20260624-001-h"]
+  supplements:
+  - claim-20260621-006-k
+  - claim-20260624-001-h
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
@@ -31,10 +33,11 @@ claims:
   - 杠杆风险
   - 科技股暴跌
   topic: 两融历史新高叠加长鑫传闻量化放大的暴跌归因
+  school: qing
 - id: claim-20260702-004-b
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -49,7 +52,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-006-k", "claim-20260624-006-a", "claim-20260608-001-c"]
+  supplements:
+  - claim-20260621-006-k
+  - claim-20260624-006-a
+  - claim-20260608-001-c
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
@@ -63,10 +69,11 @@ claims:
   - 两融
   - 参照对比
   topic: A股科技股呈现韩国杠杆市场高度波动特征
+  school: qing
 - id: claim-20260702-004-c
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -81,7 +88,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-004-d", "claim-20260607-001-a", "claim-20260617-038-c"]
+  supplements:
+  - claim-20260607-004-d
+  - claim-20260607-001-a
+  - claim-20260617-038-c
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
@@ -95,10 +105,11 @@ claims:
   - 7月底
   - 短期波动
   topic: 科技行情未终结真正风险在7月底美股财报
+  school: qing
 - id: claim-20260702-004-d
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -113,7 +124,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-001-d"]
+  supplements:
+  - claim-20260625-001-d
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
@@ -127,10 +139,11 @@ claims:
   - 均线修复
   - 震荡上行
   topic: 科创50回踩均线修复后继续向上
+  school: qing
 - id: claim-20260702-004-e
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -144,7 +157,8 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260604-004-a"]
+  contradicts:
+  - claim-20260604-004-a
   supplements: []
   last_discovered: 2026-07-02
   links:
@@ -159,10 +173,11 @@ claims:
   - 发行
   - 催化
   topic: 长鑫上市时间线支撑行情未结束判断
+  school: qing
 - id: claim-20260702-004-f
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -175,7 +190,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260608-003-a"]
+  supersedes:
+  - claim-20260608-003-a
   contradicts: []
   supplements: []
   last_discovered: 2026-07-02
@@ -191,10 +207,11 @@ claims:
   - 亏损复盘
   - 单赛道押注
   topic: 满仓单一押注科技是当日亏损主因
+  school: qing
 - id: claim-20260702-004-g
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -223,10 +240,11 @@ claims:
   - 乖离率
   - 利润垫
   topic: 主升浪均线缺口过大减半仓规则
+  school: qing
 - id: claim-20260702-004-h
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -241,7 +259,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-001-f", "claim-20260525-018", "claim-20260531-002-j"]
+  supplements:
+  - claim-20260625-001-f
+  - claim-20260525-018
+  - claim-20260531-002-j
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
@@ -255,10 +276,11 @@ claims:
   - 砸盘
   - 再起一波
   topic: 半导体四阶段走势推演与长鑫上市时间线对应
+  school: qing
 - id: claim-20260702-004-i
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -272,7 +294,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260629-001-ab"]
+  contradicts:
+  - claim-20260629-001-ab
   supplements: []
   last_discovered: 2026-07-02
   links:
@@ -290,10 +313,11 @@ claims:
   - 风险排序
   - 低吸
   topic: 兆易创新风险大于半导体上游材料零部件
+  school: qing
 - id: claim-20260702-004-j
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -307,8 +331,11 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260604-004-b"]
-  supplements: ["claim-20260617-029-s", "claim-20260609-005-b"]
+  contradicts:
+  - claim-20260604-004-b
+  supplements:
+  - claim-20260617-029-s
+  - claim-20260609-005-b
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
@@ -322,10 +349,11 @@ claims:
   - 长期看好
   - 国产替代
   topic: 本轮国产半导体非渣男行情将走出超级大行情
+  school: qing
 - id: claim-20260702-004-k
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -340,7 +368,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-g", "claim-20260617-039-m", "claim-20260616-008-c"]
+  supplements:
+  - claim-20260621-001-g
+  - claim-20260617-039-m
+  - claim-20260616-008-c
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
@@ -354,10 +385,11 @@ claims:
   - 业绩筛选
   - 强制披露
   topic: 7月15日中报预告截止筛选标的
+  school: qing
 - id: claim-20260702-004-l
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -386,10 +418,11 @@ claims:
   - 持有观察
   - 逆势走强
   topic: 氟概念行情可持续到中报结束
+  school: qing
 - id: claim-20260702-004-m
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -404,14 +437,16 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-004-e", "claim-20260604-006-a"]
+  supplements:
+  - claim-20260604-004-e
+  - claim-20260604-006-a
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks:
-  - code: '002812'
+  - code: 002812
     name: 恩捷股份
     role: 隔膜龙头-主板可交易
   tags:
@@ -421,10 +456,11 @@ claims:
   - 锂矿
   - 满产满销
   topic: 隔膜赛道恩捷满产满销独立于锂矿行情
+  school: qing
 - id: claim-20260702-004-n
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -439,7 +475,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-002-g"]
+  supplements:
+  - claim-20260622-002-g
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
@@ -456,10 +493,11 @@ claims:
   - 价格突破
   - 新能源
   topic: 锂矿标的行情依赖锂矿价格突破
+  school: qing
 - id: claim-20260702-004-o
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -488,10 +526,11 @@ claims:
   - 均线走稳
   - 提前埋伏
   topic: 保险板块3-4周后启动向上可提前布局
+  school: qing
 - id: claim-20260702-004-p
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -504,7 +543,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260616-001-c", "claim-20260602-001-a", "claim-20260615-001"]
+  supersedes:
+  - claim-20260616-001-c
+  - claim-20260602-001-a
+  - claim-20260615-001
   contradicts: []
   supplements: []
   last_discovered: 2026-07-02
@@ -520,10 +562,11 @@ claims:
   - 缺口回补
   - 全年乐观
   topic: 上证4108点之上整体上行趋势未变
+  school: qing
 - id: claim-20260702-004-q
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -532,14 +575,14 @@ claims:
   timeframe: trend
   statement: UP指出国内IDC行业此前多年走熊，近期字节系带头启动IDC涨价，IDC服务商几乎不承担大额原材料成本，哪怕服务价格只上涨几个百分点，对公司盈利的改善幅度也会非常夸张，业绩弹性极高。
   evidence_quote: 国内IDC行业此前多年走熊，润泽智联相关标的股价从90多元跌到4元，2020年后逐步走稳，近期字节系带头启动IDC涨价，盈利弹性极大。IDC服务商几乎不承担大额原材料成本，哪怕服务价格只上涨几个百分点，对公司盈利的改善幅度也会非常夸张，业绩弹性极高。
-  interpretation: UP给出了IDC涨价的核心投资逻辑：①行业谷底反转——从90多跌到4元，经过充分出清后字节系领头涨价 ②强经营杠杆——IDC成本结构是固定成本（机房建设+电费）+几乎没有可变原材料成本，涨价直接转化为利润
-    ③'几个百分点涨价带来夸张盈利改善'是典型的经营杠杆效应。润泽科技(300442)是弹性最大的标的，但300442为创业板不可交易。
+  interpretation: UP给出了IDC涨价的核心投资逻辑：①行业谷底反转——从90多跌到4元，经过充分出清后字节系领头涨价 ②强经营杠杆——IDC成本结构是固定成本（机房建设+电费）+几乎没有可变原材料成本，涨价直接转化为利润 ③'几个百分点涨价带来夸张盈利改善'是典型的经营杠杆效应。润泽科技(300442)是弹性最大的标的，但300442为创业板不可交易。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-001-g"]
+  supplements:
+  - claim-20260702-001-g
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
@@ -556,10 +599,11 @@ claims:
   - 经营杠杆
   - 润泽科技
   topic: 字节系带头IDC涨价行业盈利弹性极大
+  school: qing
 - id: claim-20260702-004-r
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -574,7 +618,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-001-g"]
+  supplements:
+  - claim-20260702-001-g
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
@@ -588,10 +633,11 @@ claims:
   - 燃气轮机
   - 配套传导
   topic: IDC涨价传导到AIDC配套电源液冷燃气轮机
+  school: qing
 - id: claim-20260702-004-s
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -623,10 +669,11 @@ claims:
   - 60日线
   - 调整完成
   topic: 寒武纪等国产GPUCPU错杀需等调整完成后布局
+  school: qing
 - id: claim-20260702-004-t
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -640,8 +687,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260521-002-k"]
-  supplements: ["claim-20260622-001-h"]
+  contradicts:
+  - claim-20260521-002-k
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
@@ -655,10 +704,11 @@ claims:
   - 启动条件
   - 耐心等待
   topic: 国产算力行情要等7月底美股财报风险出清
+  school: qing
 - id: claim-20260702-004-u
   source_path: sources/raw/财经/2026-07-02-2232-复盘-科技股暴跌+两融历史新高+多方向策略梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 复盘
   extracted_at: '2026-07-02T22:40:18+08:00'
@@ -673,7 +723,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-001-d", "claim-20260624-006-b", "claim-20260702-003-b"]
+  supplements:
+  - claim-20260702-001-d
+  - claim-20260624-006-b
+  - claim-20260702-003-b
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
@@ -687,3 +740,4 @@ claims:
   - 半导体
   - 产业逻辑
   topic: 国产算力是科创板块脱离半导体独立上行的方向
+  school: qing

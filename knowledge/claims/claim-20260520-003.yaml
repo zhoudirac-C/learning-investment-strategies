@@ -2,8 +2,8 @@ claims:
 - id: claim-20260520-003-a
   topic: 5月20日行情定性为AI硬科技结构牛和科
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-20
   source_type: review
   extracted_at: 2026-05-21
@@ -33,11 +33,12 @@ claims:
   - 科创50
   - 市场周期
   - AI
+  school: qing
 - id: claim-20260520-003-b
   topic: 科创50虹吸
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-20
   source_type: review
   extracted_at: 2026-05-21
@@ -45,8 +46,7 @@ claims:
   subject: 科创50虹吸
   timeframe: short-term
   statement: 科创50当前是虹吸型上涨而非带动型上涨，若继续单独加速而全A不跟，短线风险会加大
-  evidence_quote: '"科创50现在不是典型的“带动型上涨”，更像“虹吸型上涨”。 明天若科创50继续高开高走，反而不能盲目乐观，要看大盘和全 A
-    上涨家数能否跟上。"
+  evidence_quote: '"科创50现在不是典型的“带动型上涨”，更像“虹吸型上涨”。 明天若科创50继续高开高走，反而不能盲目乐观，要看大盘和全 A 上涨家数能否跟上。"
 
     '
   interpretation: 判断行情健康度不能只看科创50涨幅，需要同步观察上证、全A上涨家数和非科技板块扩散
@@ -66,11 +66,12 @@ claims:
   tags:
   - 科创50虹吸
   - 技术信号
+  school: qing
 - id: claim-20260520-003-c
   topic: 半导体产业链
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-20
   source_type: review
   extracted_at: 2026-05-21
@@ -86,7 +87,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-025-f", "claim-20260520-003-d", "claim-20260603-004-f"]
+  supplements:
+  - claim-20260526-025-f
+  - claim-20260520-003-d
+  - claim-20260603-004-f
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -109,11 +113,12 @@ claims:
   - code: '688347'
     name: 华虹公司
     role: 参考标的
+  school: qing
 - id: claim-20260520-003-d
   topic: AI硬科技传导路径
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-20
   source_type: review
   extracted_at: 2026-05-21
@@ -129,7 +134,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260520-003-c", "claim-20260603-004-f", "claim-20260521-002-f"]
+  supplements:
+  - claim-20260520-003-c
+  - claim-20260603-004-f
+  - claim-20260521-002-f
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -145,11 +153,12 @@ claims:
   - GPU
   - 存储
   - AI
+  school: qing
 - id: claim-20260520-003-e
   topic: 光通信进入核心分化、二线补涨、业绩验证阶
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-20
   source_type: review
   extracted_at: 2026-05-21
@@ -165,7 +174,10 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-d", "claim-20260622-001-d", "claim-20260521-003-c"]
+  supplements:
+  - claim-20260622-004-d
+  - claim-20260622-001-d
+  - claim-20260521-003-c
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -178,11 +190,12 @@ claims:
   - 板块主题
   - 分化
   - 业绩
+  school: qing
 - id: claim-20260520-003-f
   topic: 流动性与成交额
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-20
   source_type: review
   extracted_at: 2026-05-21
@@ -190,8 +203,7 @@ claims:
   subject: 流动性与成交额
   timeframe: short-term
   statement: 成交额2.95万亿但未突破3万亿，若高位科技股继续加速而成交无法放大，需要警惕缩量冲高后的分化
-  evidence_quote: '"当日成交约 2.95 万亿，较前一日放量 672 亿，流动性整体充足，但未进入全面加速阶段。 流动性风险：成交额无法重新站上
-    3 万亿，但高位科技股继续加速，需警惕缩量冲高后的分化。"
+  evidence_quote: '"当日成交约 2.95 万亿，较前一日放量 672 亿，流动性整体充足，但未进入全面加速阶段。 流动性风险：成交额无法重新站上 3 万亿，但高位科技股继续加速，需警惕缩量冲高后的分化。"
 
     '
   interpretation: 流动性充足但不足以支撑所有方向同时上涨，接近3万亿但未突破时更容易出现结构性虹吸
@@ -199,7 +211,9 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-019", "claim-20260518-019"]
+  supplements:
+  - claim-20260526-019
+  - claim-20260518-019
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -213,11 +227,12 @@ claims:
   - 流动性与成交额
   - 缩量
   - 分化
+  school: qing
 - id: claim-20260520-003-g
   topic: 5月21日操作原则是核心持股、分歧低吸、
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-20
   source_type: review
   extracted_at: 2026-05-21
@@ -225,8 +240,7 @@ claims:
   subject: 操作策略
   timeframe: short-term
   statement: 5月21日操作原则是核心持股、分歧低吸、日内做T、回避后排纯补涨，并重点观察科创、全A、半导体梯队
-  evidence_quote: '"总体操作原则：核心持股，分歧低吸，日内做 T，回避后排纯补涨。 三看三更看：看科创50强度，更要看全 A 扩散；看半导体高度，更要看板块梯队；
-    看指数涨跌，更要看账户真实赚钱效应。"
+  evidence_quote: '"总体操作原则：核心持股，分歧低吸，日内做 T，回避后排纯补涨。 三看三更看：看科创50强度，更要看全 A 扩散；看半导体高度，更要看板块梯队； 看指数涨跌，更要看账户真实赚钱效应。"
 
     '
   interpretation: 结构牛和虹吸行情下，操作重点从追指数切换到持核心、看扩散、避后排
@@ -249,11 +263,12 @@ claims:
   - 半导体
   - 后排
   - 低吸
+  school: qing
 - id: claim-20260520-003-h
   topic: 通富微电市场认知从GPU封测厂升级为AI
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-20
   source_type: review
   extracted_at: 2026-05-21
@@ -287,11 +302,12 @@ claims:
   - code: 002156.SZ
     name: 通富微电
     role: 参考标的
+  school: qing
 - id: claim-20260520-003-i
   topic: 中科飞测是半导体检测量测核心弹性标的
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-20
   source_type: review
   extracted_at: 2026-05-21
@@ -327,11 +343,12 @@ claims:
   - code: 688361.SH
     name: 中科飞测
     role: 参考标的
+  school: qing
 - id: claim-20260520-003-j
   topic: 新易盛仍是光通信逻辑核心
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-20
   source_type: review
   extracted_at: 2026-05-21
@@ -347,7 +364,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260602-003-c"]
+  supplements:
+  - claim-20260602-003-c
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -363,11 +381,12 @@ claims:
   - code: 300502.SZ
     name: 新易盛
     role: 参考标的
+  school: qing
 - id: claim-20260520-003-k
   topic: 国产算力与昇腾
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-20
   source_type: review
   extracted_at: 2026-05-21
@@ -383,7 +402,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260426-012", "claim-20260526-032"]
+  supplements:
+  - claim-20260426-012
+  - claim-20260526-032
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -400,11 +421,12 @@ claims:
   - code: '000062'
     name: 深圳华强
     role: 参考标的
+  school: qing
 - id: claim-20260520-003-l
   topic: 英伟达财报窗口
   source_path: sources/raw/财经/复盘：26-05-20：科创虹吸加剧，半导体接棒主线，全市场未共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-20
   source_type: review
   extracted_at: 2026-05-21
@@ -420,7 +442,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-001-b"]
+  supplements:
+  - claim-20260521-001-b
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -434,3 +457,4 @@ claims:
   - 光模块
   - PCB
   - 分化
+  school: qing

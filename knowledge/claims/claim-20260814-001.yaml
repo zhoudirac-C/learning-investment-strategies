@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260814-001
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260805-001"]
+  supersedes:
+  - claim-20260805-001
   contradicts: []
-  supplements: ["claim-20260809-005", "claim-20260810-003"]
+  supplements:
+  - claim-20260809-005
+  - claim-20260810-003
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -30,10 +33,11 @@ claims:
   - PPI
   - 美债收益率
   - 隔夜美股三大指数
+  school: qing
 - id: claim-20260814-002
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -47,7 +51,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260807-003", "claim-20260731-003", "claim-20260804-003"]
+  contradicts:
+  - claim-20260807-003
+  - claim-20260731-003
+  - claim-20260804-003
   supplements: []
   last_discovered: 2026-08-14
   links:
@@ -61,10 +68,11 @@ claims:
   - 主线
   - 资金流向
   - 隔夜存储大涨光通
+  school: qing
 - id: claim-20260814-003
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -78,8 +86,11 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260804-003", "claim-20260803-002"]
-  supplements: ["claim-20260805-003"]
+  contradicts:
+  - claim-20260804-003
+  - claim-20260803-002
+  supplements:
+  - claim-20260805-003
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -92,10 +103,11 @@ claims:
   - 量能
   - 情绪
   - 隔夜给A股的输入
+  school: qing
 - id: claim-20260814-004
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -108,9 +120,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260703-001-f", "claim-20260708-002-p"]
+  supersedes:
+  - claim-20260703-001-f
+  - claim-20260708-002-p
   contradicts: []
-  supplements: ["claim-20260810-004"]
+  supplements:
+  - claim-20260810-004
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -123,10 +138,11 @@ claims:
   - 量能形态
   - 晋级率
   - 外盘只反映开盘定
+  school: qing
 - id: claim-20260814-005
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -154,10 +170,11 @@ claims:
   - 量能形态
   - 晋级率
   - 昨日成交从3万亿
+  school: qing
 - id: claim-20260814-006
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -186,10 +203,11 @@ claims:
   - 量能形态
   - 晋级率
   - 开盘量太大的两个
+  school: qing
 - id: claim-20260814-007
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -202,9 +220,12 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260811-041", "claim-20260806-010"]
+  supersedes:
+  - claim-20260811-041
+  - claim-20260806-010
   contradicts: []
-  supplements: ["claim-20260804-011"]
+  supplements:
+  - claim-20260804-011
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -217,10 +238,11 @@ claims:
   - 量能
   - 情绪
   - 情形A开盘平量或
+  school: qing
 - id: claim-20260814-008
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -233,7 +255,9 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260804-011", "claim-20260806-010"]
+  supersedes:
+  - claim-20260804-011
+  - claim-20260806-010
   contradicts: []
   supplements: []
   last_discovered: 2026-08-14
@@ -248,10 +272,11 @@ claims:
   - 量能
   - 情绪
   - 情形B开盘冲量后
+  school: qing
 - id: claim-20260814-009
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -266,7 +291,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-004", "claim-20260515-012"]
+  supplements:
+  - claim-20260803-004
+  - claim-20260515-012
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -279,10 +306,11 @@ claims:
   - 量能
   - 情绪
   - 防御内部切换与大
+  school: qing
 - id: claim-20260814-010
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -295,7 +323,10 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260810-007", "claim-20260804-009", "claim-20260806-003"]
+  supersedes:
+  - claim-20260810-007
+  - claim-20260804-009
+  - claim-20260806-003
   contradicts: []
   supplements: []
   last_discovered: 2026-08-14
@@ -313,10 +344,11 @@ claims:
   - 连板
   - 首板
   - 昨日盘面二板12
+  school: qing
 - id: claim-20260814-011
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -329,7 +361,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260813-007", "claim-20260806-003", "claim-20260804-009"]
+  supersedes:
+  - claim-20260813-007
+  - claim-20260806-003
+  - claim-20260804-009
   contradicts: []
   supplements: []
   last_discovered: 2026-08-14
@@ -344,10 +379,11 @@ claims:
   - 量能形态
   - 晋级率
   - 首板家数乘以晋级
+  school: qing
 - id: claim-20260814-012
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -360,9 +396,11 @@ claims:
   confidence: medium
   status: superseded
   intensity: high
-  supersedes: ["claim-20260807-027"]
+  supersedes:
+  - claim-20260807-027
   contradicts: []
-  supplements: ["claim-20260226-001-a"]
+  supplements:
+  - claim-20260226-001-a
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -375,10 +413,11 @@ claims:
   - 连板
   - 首板
   - 指数高9消失无6
+  school: qing
 - id: claim-20260814-013
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -393,7 +432,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-030", "claim-20260622-001-h", "claim-20260803-043"]
+  supplements:
+  - claim-20260803-030
+  - claim-20260622-001-h
+  - claim-20260803-043
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -406,10 +448,11 @@ claims:
   - 量能
   - 情绪
   - 科技处于轮动弱反
+  school: qing
 - id: claim-20260814-014
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -423,8 +466,11 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260813-013"]
-  supplements: ["claim-20260707-025-a", "claim-20260526-032"]
+  contradicts:
+  - claim-20260813-013
+  supplements:
+  - claim-20260707-025-a
+  - claim-20260526-032
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -437,10 +483,11 @@ claims:
   - 主线
   - 资金流向
   - 算力租赁与AI应
+  school: qing
 - id: claim-20260814-015
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -455,7 +502,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260813-011"]
+  supplements:
+  - claim-20260813-011
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -468,10 +516,11 @@ claims:
   - 主线
   - 资金流向
   - 算力租赁方向边际
+  school: qing
 - id: claim-20260814-016
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -484,9 +533,12 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260715-052-a"]
-  contradicts: ["claim-20260809-016"]
-  supplements: ["claim-20260813-009"]
+  supersedes:
+  - claim-20260715-052-a
+  contradicts:
+  - claim-20260809-016
+  supplements:
+  - claim-20260813-009
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -500,10 +552,11 @@ claims:
   - 主线
   - 资金流向
   - 医药被资金防守需
+  school: qing
 - id: claim-20260814-017
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -516,7 +569,9 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260717-001-j", "claim-20260811-047"]
+  supersedes:
+  - claim-20260717-001-j
+  - claim-20260811-047
   contradicts: []
   supplements: []
   last_discovered: 2026-08-14
@@ -531,18 +586,18 @@ claims:
   - 主线
   - 资金流向
   - 医药关键在AI制
+  school: qing
 - id: claim-20260814-018
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
   claim_type: sector-theme
   subject: 北美科技大厂密集加码AI制药
   timeframe: trend
-  statement: 北美科技大厂近期密集加码AI制药：OpenAI已招聘生命科学领域FDE、下一代模型Astra定位科研模型，Anthropic成立科学团队并获诺奖人才加盟，Google凭借AlphaFold持续推进，亚马逊AWS上线集成40余个生物模型的Amazon
-    BioDiscover；这轮重押背后是AI对药物研发双十困境的实质性突破，早期药物发现与临床前验证是当前最先兑现的环节，AI4S企业长期竞争力取决于真实实验验证能力与专属实验数据闭环，具备闭环能力的企业有望获得更强产业链定价权
+  statement: 北美科技大厂近期密集加码AI制药：OpenAI已招聘生命科学领域FDE、下一代模型Astra定位科研模型，Anthropic成立科学团队并获诺奖人才加盟，Google凭借AlphaFold持续推进，亚马逊AWS上线集成40余个生物模型的Amazon BioDiscover；这轮重押背后是AI对药物研发双十困境的实质性突破，早期药物发现与临床前验证是当前最先兑现的环节，AI4S企业长期竞争力取决于真实实验验证能力与专属实验数据闭环，具备闭环能力的企业有望获得更强产业链定价权
   evidence_quote: 据长江证券计算机团队，北美科技大厂近期密集加码AI制药……其观点是，这一轮大厂重押背后是AI对药物研发“双十困境”的实质性突破；传导链条上，早期药物发现与临床前验证是当前最先兑现的环节；AI4S企业的长期竞争力取决于真实实验验证能力与专属实验数据闭环，具备闭环能力的企业有望获得更强的产业链定价权。
   interpretation: 产业逻辑：大厂重押确认AI4S方向，兑现顺序上早期药物发现与临床前验证最先受益，竞争壁垒在实验验证能力与数据闭环
   confidence: medium
@@ -550,7 +605,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260811-016", "claim-20260809-022"]
+  supplements:
+  - claim-20260811-016
+  - claim-20260809-022
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -569,10 +626,11 @@ claims:
   - 主线
   - 资金流向
   - 北美科技大厂密集
+  school: qing
 - id: claim-20260814-019
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -587,7 +645,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-040"]
+  supplements:
+  - claim-20260805-040
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -600,27 +659,28 @@ claims:
   - 做T
   - 仓位
   - 周末前对盘中加满
+  school: qing
 - id: claim-20260814-020
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
   claim_type: catalyst
   subject: DeepSeek开放Harness开发者预览版并MIT开源
   timeframe: trend
-  statement: 8月13日晚DeepSeek在官宣调价后开放DeepSeek Harness开发者预览版（v0.1）并以MIT协议开放源代码，采取一切皆插件的设计思路，模型、工具、技能、会话、沙箱、存储、循环、调度、UI等所有Agent能力均由插件组合而成、可自由替换灵活重组；新价格自8月17日起执行并引入峰谷定价，V4
-    Pro高峰时段输出价格约为原来的4.5倍
-  evidence_quote: 8月13日晚DeepSeek在官宣调价后开放DeepSeek Harness开发者预览版（v0.1），并同步以MIT协议开放源代码。Harness采取“一切皆插件”的设计思路……价格方面，据报道新价格自8月17日起执行并引入峰谷定价，以V4
-    Pro为例，高峰时段输出价格约为原来的4.5倍。
+  statement: 8月13日晚DeepSeek在官宣调价后开放DeepSeek Harness开发者预览版（v0.1）并以MIT协议开放源代码，采取一切皆插件的设计思路，模型、工具、技能、会话、沙箱、存储、循环、调度、UI等所有Agent能力均由插件组合而成、可自由替换灵活重组；新价格自8月17日起执行并引入峰谷定价，V4 Pro高峰时段输出价格约为原来的4.5倍
+  evidence_quote: 8月13日晚DeepSeek在官宣调价后开放DeepSeek Harness开发者预览版（v0.1），并同步以MIT协议开放源代码。Harness采取“一切皆插件”的设计思路……价格方面，据报道新价格自8月17日起执行并引入峰谷定价，以V4 Pro为例，高峰时段输出价格约为原来的4.5倍。
   interpretation: DeepSeek从模型厂商向智能体全栈基础设施演进，MIT开源消除厂商锁定顾虑，峰谷定价标志国产AI从价格战转向理性定价
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260807-018", "claim-20260805-032"]
+  supplements:
+  - claim-20260807-018
+  - claim-20260805-032
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -633,27 +693,28 @@ claims:
   - 事件
   - 公告
   - DeepSeek
+  school: qing
 - id: claim-20260814-021
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
   claim_type: sector-theme
   subject: DeepSeek涨价对算力链是双向印证
   timeframe: trend
-  statement: DeepSeek涨价对算力链是双向印证：价格端确认算力紧张，收入端为模型公司自身的算力扩张储备资金，同时缓解全球市场对国产开源模型价格战的担忧；Harness开源标志DeepSeek从模型厂商向智能体全栈基础设施演进，但它的A股映射不该是谁接入了DeepSeek，而是给Agent卖铲子的AI
-    Infra环节
-  evidence_quote: 个人判断，涨价对算力链是双向印证：价格端确认算力紧张，收入端为模型公司自身的算力扩张储备资金，同时缓解全球市场对国产开源模型价格战的担忧。Harness开源则标志DeepSeek从模型厂商向智能体全栈基础设施演进。但它的A股映射不该是“谁接入了DeepSeek”，而是给Agent卖铲子的AI
-    Infra环节。
+  statement: DeepSeek涨价对算力链是双向印证：价格端确认算力紧张，收入端为模型公司自身的算力扩张储备资金，同时缓解全球市场对国产开源模型价格战的担忧；Harness开源标志DeepSeek从模型厂商向智能体全栈基础设施演进，但它的A股映射不该是谁接入了DeepSeek，而是给Agent卖铲子的AI Infra环节
+  evidence_quote: 个人判断，涨价对算力链是双向印证：价格端确认算力紧张，收入端为模型公司自身的算力扩张储备资金，同时缓解全球市场对国产开源模型价格战的担忧。Harness开源则标志DeepSeek从模型厂商向智能体全栈基础设施演进。但它的A股映射不该是“谁接入了DeepSeek”，而是给Agent卖铲子的AI Infra环节。
   interpretation: 涨价利好算力链（紧张加收入储备），A股受益方向是AI Infra卖铲子环节而非接入方概念股，这是区分本轮行情真假受益的核心口径
   confidence: medium
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-002-g", "claim-20260805-024"]
+  supplements:
+  - claim-20260702-002-g
+  - claim-20260805-024
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -672,10 +733,11 @@ claims:
   - 主线
   - 资金流向
   - DeepSeek
+  school: qing
 - id: claim-20260814-022
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -690,7 +752,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-032", "claim-20260609-005-d", "claim-20260812-012"]
+  supplements:
+  - claim-20260805-032
+  - claim-20260609-005-d
+  - claim-20260812-012
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -704,18 +769,19 @@ claims:
   - code: '301396'
     name: 宏景科技
     role: 创业板-不可交易
-  - code: "000686"
-    name: "东北证券"
-    role: "回填-正文提及"
+  - code: 000686
+    name: 东北证券
+    role: 回填-正文提及
   tags:
   - 板块
   - 主线
   - 资金流向
   - Token计量商
+  school: qing
 - id: claim-20260814-023
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -730,7 +796,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260703-001-h"]
+  supplements:
+  - claim-20260703-001-h
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -746,10 +813,11 @@ claims:
   - 业绩
   - 中报
   - 协创数据Q2净利
+  school: qing
 - id: claim-20260814-024
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -764,7 +832,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-021"]
+  supplements:
+  - claim-20260812-021
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -777,10 +846,11 @@ claims:
   - 业绩
   - 中报
   - 市值对标只能当情
+  school: qing
 - id: claim-20260814-025
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -793,9 +863,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260702-001-l"]
+  supersedes:
+  - claim-20260702-001-l
   contradicts: []
-  supplements: ["claim-20260701-001-c"]
+  supplements:
+  - claim-20260701-001-c
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -808,10 +880,11 @@ claims:
   - 做T
   - 仓位
   - 算力租赁操作纪律
+  school: qing
 - id: claim-20260814-026
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -845,10 +918,11 @@ claims:
   - 事件
   - 公告
   - 中际旭创受让中石
+  school: qing
 - id: claim-20260814-027
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -863,7 +937,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260809-023", "claim-20260809-026", "claim-20260809-024"]
+  supplements:
+  - claim-20260809-023
+  - claim-20260809-026
+  - claim-20260809-024
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -876,10 +953,11 @@ claims:
   - 液冷
   - 光模块
   - 光模块散热两条路
+  school: qing
 - id: claim-20260814-028
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -916,10 +994,11 @@ claims:
   - 主线
   - 资金流向
   - 两倍做多光模块定
+  school: qing
 - id: claim-20260814-029
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -932,9 +1011,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260810-032"]
+  supersedes:
+  - claim-20260810-032
   contradicts: []
-  supplements: ["claim-20260608-001-d"]
+  supplements:
+  - claim-20260608-001-d
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -947,10 +1028,11 @@ claims:
   - 主线
   - 资金流向
   - 今日光模块本体承
+  school: qing
 - id: claim-20260814-030
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -965,7 +1047,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260813-042"]
+  supplements:
+  - claim-20260813-042
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -981,10 +1064,11 @@ claims:
   - 业绩
   - 中报
   - 中芯国际26Q2
+  school: qing
 - id: claim-20260814-031
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -1015,10 +1099,11 @@ claims:
   - 业绩
   - 中报
   - 华虹宏力26Q2
+  school: qing
 - id: claim-20260814-032
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -1033,7 +1118,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260813-042", "claim-20260804-042"]
+  supplements:
+  - claim-20260813-042
+  - claim-20260804-042
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -1052,10 +1139,11 @@ claims:
   - 主线
   - 资金流向
   - 晶圆双龙头从赚营
+  school: qing
 - id: claim-20260814-033
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -1083,10 +1171,11 @@ claims:
   - 量能
   - 情绪
   - 半导体内部今日分
+  school: qing
 - id: claim-20260814-034
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -1101,7 +1190,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-002-h", "claim-20260724-008", "claim-20260809-017"]
+  supplements:
+  - claim-20260706-002-h
+  - claim-20260724-008
+  - claim-20260809-017
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -1115,7 +1207,7 @@ claims:
   - code: '002213'
     name: 大为股份
     role: 主板-可交易
-  - code: '002851'
+  - code: 002851
     name: 麦格米特
     role: 主板-可交易
   - code: '300870'
@@ -1126,10 +1218,11 @@ claims:
   - 主线
   - 资金流向
   - 存储链与数据中心
+  school: qing
 - id: claim-20260814-035
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -1143,7 +1236,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260807-022"]
+  contradicts:
+  - claim-20260807-022
   supplements: []
   last_discovered: 2026-08-14
   links:
@@ -1166,10 +1260,11 @@ claims:
   - 业绩
   - 中报
   - 国产算力中报兑现
+  school: qing
 - id: claim-20260814-036
   source_path: sources/original/bilibili/2026-08-14-0902-专栏-隔夜标普再创新高，但同一晚存储大涨、光通信下跌，资金做了取舍.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 专栏
   extracted_at: '2026-08-14T09:18:12'
@@ -1182,7 +1277,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260809-029", "claim-20260729-004", "claim-20260702-005-c"]
+  supersedes:
+  - claim-20260809-029
+  - claim-20260729-004
+  - claim-20260702-005-c
   contradicts: []
   supplements: []
   last_discovered: 2026-08-14
@@ -1197,3 +1295,4 @@ claims:
   - 做T
   - 仓位
   - 今日两情形应对方
+  school: qing

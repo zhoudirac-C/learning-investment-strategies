@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260622-002-a
   source_path: sources/original/bilibili/2026-06-22-1042-图片-有梦想的选手重点感悟一下今天这段话。 ​ 过去的连板，一个涨.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-22T15:13:00+08:00'
@@ -40,10 +40,11 @@ claims:
   - 连板复盘
   - 金安国纪
   - 诺德股份
+  school: qing
 - id: claim-20260622-002-b
   source_path: sources/original/bilibili/2026-06-22-1042-图片-有梦想的选手重点感悟一下今天这段话。 ​ 过去的连板，一个涨.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-22T15:13:00+08:00'
@@ -58,7 +59,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-002-a"]
+  supplements:
+  - claim-20260622-002-a
   last_discovered: 2026-06-25
   links: []
   topic: 加速票筛选
@@ -69,10 +71,11 @@ claims:
   - 新高突破
   - 趋势结构
   - 板块窗口
+  school: qing
 - id: claim-20260622-002-c
   source_path: sources/original/bilibili/2026-06-22-1042-图片-有梦想的选手重点感悟一下今天这段话。 ​ 过去的连板，一个涨.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-22T15:13:00+08:00'
@@ -87,7 +90,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-d", "claim-20260610-010-a"]
+  supplements:
+  - claim-20260622-001-d
+  - claim-20260610-010-a
   last_discovered: 2026-06-25
   links: []
   topic: 定价权与主线
@@ -95,7 +100,7 @@ claims:
   - code: '688400'
     name: 凌云光
     role: 机器视觉-科创板不可交易
-  - code: '000917'
+  - code: 000917
     name: 电广传媒
     role: 广电传媒-主板可交易
   - code: '002432'
@@ -107,10 +112,11 @@ claims:
   - 上游材料
   - 影子逻辑
   - 港股智谱
+  school: qing
 - id: claim-20260622-002-d
   source_path: sources/original/bilibili/2026-06-22-1042-图片-有梦想的选手重点感悟一下今天这段话。 ​ 过去的连板，一个涨.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-22T15:13:00+08:00'
@@ -123,8 +129,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260610-016-a"]
-  contradicts: ["claim-20260622-002-g"]
+  supersedes:
+  - claim-20260610-016-a
+  contradicts:
+  - claim-20260622-002-g
   last_discovered: 2026-06-23
   links: []
   topic: 涨价链vs锂电
@@ -135,10 +143,11 @@ claims:
   - 定价权
   - 资源涨价
   - 碳酸锂
+  school: qing
 - id: claim-20260622-002-e
   source_path: sources/original/bilibili/2026-06-22-1042-图片-有梦想的选手重点感悟一下今天这段话。 ​ 过去的连板，一个涨.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-22T15:13:00+08:00'
@@ -151,7 +160,8 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260609-003-a"]
+  supersedes:
+  - claim-20260609-003-a
   contradicts: []
   last_discovered: 2026-06-23
   links: []
@@ -163,10 +173,11 @@ claims:
   - 光纤
   - 洗筹
   - 补跌
+  school: qing
 - id: claim-20260622-002-f
   source_path: sources/original/bilibili/2026-06-22-1042-图片-有梦想的选手重点感悟一下今天这段话。 ​ 过去的连板，一个涨.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-22T15:13:00+08:00'
@@ -201,10 +212,11 @@ claims:
   - 诺德股份
   - 主线判断
   - 趋势中继
+  school: qing
 - id: claim-20260622-002-g
   source_path: sources/original/bilibili/2026-06-22-1042-图片-有梦想的选手重点感悟一下今天这段话。 ​ 过去的连板，一个涨.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-22T15:13:00+08:00'
@@ -219,7 +231,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-002-d", "claim-20260531-002-a"]
+  supplements:
+  - claim-20260622-002-d
+  - claim-20260531-002-a
   last_discovered: 2026-06-25
   links: []
   topic: 锂电高低切换
@@ -230,10 +244,11 @@ claims:
   - 碳酸锂
   - 科技获利
   - 方向选择
+  school: qing
 - id: claim-20260622-002-h
   source_path: sources/original/bilibili/2026-06-22-1042-图片-有梦想的选手重点感悟一下今天这段话。 ​ 过去的连板，一个涨.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-22T15:13:00+08:00'
@@ -246,7 +261,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260603-004-c"]
+  supersedes:
+  - claim-20260603-004-c
   contradicts: []
   last_discovered: 2026-06-23
   links: []
@@ -258,3 +274,4 @@ claims:
   - 同步分歧
   - 主升倒计时
   - 科技补跌
+  school: qing

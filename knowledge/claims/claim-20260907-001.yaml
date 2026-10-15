@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260907-001-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -33,10 +33,11 @@ claims:
   - 加息预期
   - 杀估值
   - 9月16日议息
+  school: qing
 - id: claim-20260907-002-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -66,10 +67,11 @@ claims:
   - 盈利确定性
   - 定价逻辑
   - 费半
+  school: qing
 - id: claim-20260907-003-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -78,8 +80,7 @@ claims:
   timeframe: trend
   statement: OpenAI于9月3日发布GPT-6 Astra：在ARC-AGI-3录得99.9%，突破点在于'给出目标即可直接操作电脑'的代理能力而非综合智能指标；Token价格持续下降但用量并未减少，反而因成本降低出现使用更多算力的Jevons效应——Token降价不直接导致AI硬件萎缩。与'AI应用是因、AI硬件与半导体是果'的框架一致。
   evidence_quote: 二是Token价格持续下降但用量并未减少，反而因成本降低出现使用更多算力的Jevons效应，因此Token降价并不直接导致AI硬件市场萎缩。这与我们8月以来AI应用是因、AI硬件与半导体是果的框架一致，代理能力抬升Token消耗，硬件需求才有扩大的依据。
-  interpretation: 给出OpenAI最新模型的硬件需求逻辑：代理能力（Agent）是Token消耗的放大器，成本下降触发Jevons效应（价格弹性>1），二者叠加使'应用繁荣→硬件需求'传导成立。9/4韩国DRAM
-    ETF盘中+6.6%佐证。这是存储/算力硬件中期需求端的关键叙事基础。
+  interpretation: 给出OpenAI最新模型的硬件需求逻辑：代理能力（Agent）是Token消耗的放大器，成本下降触发Jevons效应（价格弹性>1），二者叠加使'应用繁荣→硬件需求'传导成立。9/4韩国DRAM ETF盘中+6.6%佐证。这是存储/算力硬件中期需求端的关键叙事基础。
   confidence: high
   status: active
   intensity: high
@@ -102,10 +103,11 @@ claims:
   - Token
   - Jevons效应
   - 代理能力
+  school: qing
 - id: claim-20260907-004-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -114,8 +116,7 @@ claims:
   timeframe: intraday
   statement: 今天开盘先看两条线：情形A，A股存储与算力硬件对美股映射做出正反馈、指数低开后被快速收回，则视为科技股先于宏观数据修复情绪，上周五午后翻绿属外力扰动，可按午后是否守住早盘低点决定是否顺势参与；情形B，存储高开后被指数拖累回落、量能继续放大而指数不涨，则映射失效、加息预期压制仍是主导，继续等待9月11日8月CPI，把仓位留给数据之后。
   evidence_quote: 情形A，A股存储与算力硬件对美股映射做出正反馈、指数低开后被快速收回，则视为科技股先于宏观数据修复情绪……情形B，存储高开后被指数拖累回落、量能继续放大而指数不涨，则映射失效……把仓位留给数据之后。
-  interpretation: 9/7开盘的二元预案：存储映射正反馈（情形A）→ 科技先修复，尾盘看是否守住早盘低点再决定参与；映射失效（情形B）→ 不参与，仓位留到9/11
-    CPI后。与9/6复盘'情形A高开冲高回落需警惕/情形B低开高走更健康'的观察变量互补，但今日多了'存储映射'这个前置确认。
+  interpretation: 9/7开盘的二元预案：存储映射正反馈（情形A）→ 科技先修复，尾盘看是否守住早盘低点再决定参与；映射失效（情形B）→ 不参与，仓位留到9/11 CPI后。与9/6复盘'情形A高开冲高回落需警惕/情形B低开高走更健康'的观察变量互补，但今日多了'存储映射'这个前置确认。
   confidence: high
   status: superseded
   intensity: high
@@ -137,21 +138,20 @@ claims:
   - 存储映射
   - 正反馈
   - CPI
+  school: qing
 - id: claim-20260907-005-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
   claim_type: market-cycle
   subject: 放量翻绿是筹码换手非出清
   timeframe: short-term
-  statement: 上周五较前一交易日放量2718亿，配合全天翻绿但不足10家跌停：放量而不出现跌停潮，意味着卖盘换到了愿意承接的手里，市场下方支撑已经形成；但连续多日冲高回落说明市场仍缺信心，上攻需要外力（9/11
-    CPI）与内力共同作用。
+  statement: 上周五较前一交易日放量2718亿，配合全天翻绿但不足10家跌停：放量而不出现跌停潮，意味着卖盘换到了愿意承接的手里，市场下方支撑已经形成；但连续多日冲高回落说明市场仍缺信心，上攻需要外力（9/11 CPI）与内力共同作用。
   evidence_quote: 放量而不出现跌停潮，意味着卖盘换到了愿意承接的手里，市场下方支撑已经形成。但连续多日的冲高回落也足以说明目前市场太缺信心，上攻需要外力与内力共同作用。
-  interpretation: 对9/4放量阴线的量能解读：2718亿增量+跌停<10家的组合=换手而非出清，支撑已形成。同时承认'缺信心'——上攻需9/11
-    CPI外力+内部情绪修复。对震荡市判断：下方有支撑、上方缺信心，本质是等待契机的蓄势结构。
+  interpretation: 对9/4放量阴线的量能解读：2718亿增量+跌停<10家的组合=换手而非出清，支撑已形成。同时承认'缺信心'——上攻需9/11 CPI外力+内部情绪修复。对震荡市判断：下方有支撑、上方缺信心，本质是等待契机的蓄势结构。
   confidence: high
   status: active
   intensity: medium
@@ -173,10 +173,11 @@ claims:
   - 筹码换手
   - 跌停潮
   - 支撑
+  school: qing
 - id: claim-20260907-006-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -185,8 +186,7 @@ claims:
   timeframe: short-term
   statement: 创业板指已4连阴：今年7月只出现过1次4连阴；2024年9月底至今创业板总共只出现3次5连阴（含以上）。考虑到创业板指已处于接近前低的区域，越跌越会加强数学优势——这是统计概率层面的判断，需右侧量价确认才转化为操作。
   evidence_quote: 作为参照，在跌得最多的今年7月也只出现过1次4连阴；从2024年9月底至今，创业板总共只出现过3次5连阴（含以上）……个人判断现阶段越跌反而越会进一步加强数学优势——这是一个统计概率层面的判断，仍需右侧量价确认才转化为操作。
-  interpretation: 统计概率方法论的示范：用连阴天数的历史分布（4连阴今年仅1次、5连阴两年半仅3次）推断继续下跌的概率递减，叠加'接近前低'位置
-    → 数学优势积累。但明确声明是概率判断，需右侧量价（出现止跌企稳）才转操作。契合用户'统计判断不等同操作信号'的方法论。
+  interpretation: 统计概率方法论的示范：用连阴天数的历史分布（4连阴今年仅1次、5连阴两年半仅3次）推断继续下跌的概率递减，叠加'接近前低'位置 → 数学优势积累。但明确声明是概率判断，需右侧量价（出现止跌企稳）才转操作。契合用户'统计判断不等同操作信号'的方法论。
   confidence: medium
   status: superseded
   intensity: medium
@@ -205,10 +205,11 @@ claims:
   - 4连阴
   - 数学优势
   - 统计概率
+  school: qing
 - id: claim-20260907-007-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -234,19 +235,20 @@ claims:
     cases: []
   topic: 短线问题在信心非风险偏好出清完成等契机
   related_stocks:
-  - code: "605179"
-    name: "一鸣食品"
-    role: "回填-正文提及"
+  - code: '605179'
+    name: 一鸣食品
+    role: 回填-正文提及
   tags:
   - 短线情绪
   - 信心
   - 首板
   - 晋级率
   - 出清
+  school: qing
 - id: claim-20260907-008-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -277,10 +279,11 @@ claims:
   - 超跌冷门
   - 轮动收敛
   - 景气投资
+  school: qing
 - id: claim-20260907-009-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -319,10 +322,11 @@ claims:
   - 指数配合
   - 液冷
   - 存储牵引
+  school: qing
 - id: claim-20260907-010-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -360,10 +364,11 @@ claims:
   - 共振点
   - 光模块
   - 液冷
+  school: qing
 - id: claim-20260907-011-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -394,10 +399,11 @@ claims:
   - 麒麟2026
   - 3D集成
   - 混合键合
+  school: qing
 - id: claim-20260907-012-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -434,10 +440,11 @@ claims:
   - 国产链
   - 止跌
   - 先进封装
+  school: qing
 - id: claim-20260907-013-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -471,10 +478,11 @@ claims:
   - 空间数据
   - GPT-6
   - 海外映射
+  school: qing
 - id: claim-20260907-014-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -502,10 +510,11 @@ claims:
   - 海外催化
   - 题材
   - 非科技
+  school: qing
 - id: claim-20260907-015-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -537,18 +546,19 @@ claims:
   - code: '605287'
     name: 德才股份
     role: AI短剧制作-主板可交易
-  - code: "601990"
-    name: "南京证券"
-    role: "回填-正文提及"
+  - code: '601990'
+    name: 南京证券
+    role: 回填-正文提及
   tags:
   - AI短剧
   - 400亿
   - 映射
   - 波段机会
+  school: qing
 - id: claim-20260907-016-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -576,10 +586,11 @@ claims:
   - 农业
   - 防御
   - 过渡
+  school: qing
 - id: claim-20260907-017-a
   source_path: sources/original/bilibili/2026-09-07-0853-图片-一、隔夜与开盘预判：非农偏强，存储领涨，开盘定价先看两条线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:20:00+08:00'
@@ -609,10 +620,11 @@ claims:
   - 存储映射
   - 首板
   - 仓位管理
+  school: qing
 - id: claim-20260907-018-a
   source_path: sources/original/bilibili/2026-09-07-0943-图片-摩尔线程解禁直接跌停，浪潮信息被纽约时报写了小作文，还是套壳.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:55:00+08:00'
@@ -647,10 +659,11 @@ claims:
   - 浪潮信息
   - 纽约时报
   - 算力利空
+  school: qing
 - id: claim-20260907-019-a
   source_path: sources/original/bilibili/2026-09-07-0943-图片-摩尔线程解禁直接跌停，浪潮信息被纽约时报写了小作文，还是套壳.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T09:55:00+08:00'
@@ -665,7 +678,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-003-i", "claim-20260607-003-b"]
+  supplements:
+  - claim-20260607-003-i
+  - claim-20260607-003-b
   last_discovered: 2026-09-08
   links:
     wiki_pages: []
@@ -684,3 +699,4 @@ claims:
   - 黄金坑
   - 科创50
   - 解禁
+  school: qing

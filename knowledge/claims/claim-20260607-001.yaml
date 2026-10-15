@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260607-001-a
   source_path: sources/raw/财经/视频：26-06-07：技术分析第二课-长黑线、上吊线与流星线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 视频
   extracted_at: '2026-06-07'
@@ -30,10 +30,11 @@ claims:
   intensity: medium
   links: {}
   timeframe: short-term
+  school: qing
 - id: claim-20260607-001-b
   source_path: sources/raw/财经/视频：26-06-07：技术分析第二课-长黑线、上吊线与流星线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 视频
   extracted_at: '2026-06-07'
@@ -56,15 +57,18 @@ claims:
   - 一空一多
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-001-d", "claim-20260608-001-i"]
+  supplements:
+  - claim-20260607-001-d
+  - claim-20260608-001-i
   last_discovered: 2026-06-25
   intensity: medium
   links: {}
   timeframe: short-term
+  school: qing
 - id: claim-20260607-001-c
   source_path: sources/raw/财经/视频：26-06-07：技术分析第二课-长黑线、上吊线与流星线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 视频
   extracted_at: '2026-06-07'
@@ -86,15 +90,19 @@ claims:
   - 趋势破坏
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-001-d", "claim-20260607-001-a", "claim-20260607-001-e"]
+  supplements:
+  - claim-20260607-001-d
+  - claim-20260607-001-a
+  - claim-20260607-001-e
   last_discovered: 2026-06-25
   intensity: medium
   links: {}
   timeframe: short-term
+  school: qing
 - id: claim-20260607-001-d
   source_path: sources/raw/财经/视频：26-06-07：技术分析第二课-长黑线、上吊线与流星线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 视频
   extracted_at: '2026-06-07'
@@ -122,10 +130,11 @@ claims:
   intensity: high
   links: {}
   timeframe: trend
+  school: qing
 - id: claim-20260607-001-e
   source_path: sources/raw/财经/视频：26-06-07：技术分析第二课-长黑线、上吊线与流星线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 视频
   extracted_at: '2026-06-07'
@@ -151,3 +160,4 @@ claims:
   intensity: medium
   links: {}
   timeframe: trend
+  school: qing

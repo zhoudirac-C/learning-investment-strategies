@@ -17,7 +17,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260807-023"]
+  supplements:
+  - claim-20260807-023
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -37,6 +38,7 @@ claims:
   - 后西游记
   - 事件驱动
   - 做T
+  school: watchlist
 - id: claim-20260901-007-002
   source_path: sources/original/bilibili/2026-09-01-0818-视频-早安，早盘盘前还习惯吗？.md
   source_date: '2026-09-01'
@@ -55,7 +57,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-033"]
+  supplements:
+  - claim-20260805-033
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -68,6 +71,7 @@ claims:
   - 龙头战法
   - 盘口强度
   - 轮动纪律
+  school: watchlist
 - id: claim-20260901-007-003
   source_path: sources/original/bilibili/2026-09-01-0818-视频-早安，早盘盘前还习惯吗？.md
   source_date: '2026-09-01'
@@ -86,7 +90,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-006-b", "claim-20260914-001-017"]
+  supplements:
+  - claim-20260624-006-b
+  - claim-20260914-001-017
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -100,6 +106,7 @@ claims:
   - 存储
   - 液冷
   - 反弹与反转
+  school: watchlist
 - id: claim-20260901-007-004
   source_path: sources/original/bilibili/2026-09-01-0818-视频-早安，早盘盘前还习惯吗？.md
   source_date: '2026-09-01'
@@ -133,6 +140,7 @@ claims:
   - 中芯国际
   - 20日线
   - 科技硬件
+  school: watchlist
 - id: claim-20260901-007-005
   source_path: sources/original/bilibili/2026-09-01-0818-视频-早安，早盘盘前还习惯吗？.md
   source_date: '2026-09-01'
@@ -151,8 +159,11 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260812-008", "claim-20260820-042"]
-  supplements: ["claim-20260717-001-j"]
+  disagrees_with:
+  - claim-20260812-008
+  - claim-20260820-042
+  supplements:
+  - claim-20260717-001-j
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -168,6 +179,7 @@ claims:
   - 哈药股份
   - 总龙头
   - 短线纪律
+  school: watchlist
 - id: claim-20260901-007-006
   source_path: sources/original/bilibili/2026-09-01-0818-视频-早安，早盘盘前还习惯吗？.md
   source_date: '2026-09-01'
@@ -186,7 +198,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260901-047-a"]
+  supplements:
+  - claim-20260901-047-a
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -206,6 +219,7 @@ claims:
   - 万向德农
   - 金健米业
   - 连板回封
+  school: watchlist
 - id: claim-20260901-007-007
   source_path: sources/original/bilibili/2026-09-01-0818-视频-早安，早盘盘前还习惯吗？.md
   source_date: '2026-09-01'
@@ -224,7 +238,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-002-f"]
+  supplements:
+  - claim-20260706-002-f
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -237,6 +252,7 @@ claims:
   - 特斯拉发布会
   - 事件催化
   - 做T
+  school: watchlist
 - id: claim-20260901-007-008
   source_path: sources/original/bilibili/2026-09-01-0818-视频-早安，早盘盘前还习惯吗？.md
   source_date: '2026-09-01'
@@ -255,7 +271,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-019"]
+  supplements:
+  - claim-20260810-019
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -275,3 +292,4 @@ claims:
   - 机器人
   - 波段操作
   - 利好兑现
+  school: watchlist

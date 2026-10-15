@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260818-027
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-18-0927-图片-今天有可能会出现60分钟级别的顶部钝化，如果形成对应调整时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-18'
   source_type: 动态
   extracted_at: '2026-08-18T09:47:00'
@@ -17,7 +17,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260106-001-a"]
+  supplements:
+  - claim-20260106-001-a
   last_discovered: 2026-08-18
   links:
     wiki_pages: []
@@ -30,10 +31,11 @@ claims:
   - 顶部钝化
   - 调整周期
   - 技术信号
+  school: qing
 - id: claim-20260818-028
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-18-0927-图片-今天有可能会出现60分钟级别的顶部钝化，如果形成对应调整时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-18'
   source_type: 动态
   extracted_at: '2026-08-18T09:47:00'
@@ -47,8 +49,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260814-001"]
-  supplements: ["claim-20260721-030"]
+  contradicts:
+  - claim-20260814-001
+  supplements:
+  - claim-20260721-030
   last_discovered: 2026-08-18
   links:
     wiki_pages: []
@@ -61,10 +65,11 @@ claims:
   - 十年期收益率
   - 加息预期
   - 成长股压力
+  school: qing
 - id: claim-20260818-029
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-18-0927-图片-今天有可能会出现60分钟级别的顶部钝化，如果形成对应调整时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-18'
   source_type: 动态
   extracted_at: '2026-08-18T09:47:00'
@@ -92,10 +97,11 @@ claims:
   - 该涨不涨
   - 该跌不跌
   - 定价逻辑
+  school: qing
 - id: claim-20260818-030
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-18-0927-图片-今天有可能会出现60分钟级别的顶部钝化，如果形成对应调整时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-18'
   source_type: 动态
   extracted_at: '2026-08-18T09:47:00'
@@ -108,9 +114,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260520-001-g", "claim-20260805-044"]
+  supersedes:
+  - claim-20260520-001-g
+  - claim-20260805-044
   contradicts: []
-  supplements: ["claim-20260730-023"]
+  supplements:
+  - claim-20260730-023
   last_discovered: 2026-08-18
   links:
     wiki_pages: []
@@ -123,3 +132,4 @@ claims:
   - 5成仓
   - 做T
   - 不追涨
+  school: qing

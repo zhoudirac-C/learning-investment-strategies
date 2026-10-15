@@ -18,7 +18,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260928-002-k", "claim-20260906-004-a"]
+  supplements:
+  - claim-20260928-002-k
+  - claim-20260906-004-a
   last_discovered: 2026-10-07
   links:
     wiki_pages: []
@@ -32,6 +34,7 @@ claims:
   - 开盘定价
   - 美联储
   - 量能
+  school: qing
 - id: claim-20261007-001-b
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -51,7 +54,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-024"]
+  supplements:
+  - claim-20260803-024
   last_discovered: 2026-10-07
   links:
     wiki_pages: []
@@ -65,6 +69,7 @@ claims:
   - 二次恐慌
   - 利空跌不下去
   - 情绪出清
+  school: qing
 - id: claim-20261007-001-c
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -84,7 +89,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260910-012-a", "claim-20260930-001-f"]
+  supplements:
+  - claim-20260910-012-a
+  - claim-20260930-001-f
   last_discovered: 2026-10-07
   links:
     wiki_pages: []
@@ -97,6 +104,7 @@ claims:
   - 持币观望
   - 节前布局
   - 量能基础
+  school: qing
 - id: claim-20261007-001-d
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -116,7 +124,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-001-i", "claim-20260913-001-009"]
+  supplements:
+  - claim-20260608-001-i
+  - claim-20260913-001-009
   last_discovered: 2026-10-07
   links:
     wiki_pages: []
@@ -124,7 +134,7 @@ claims:
     cases: []
   topic: 反核是情绪端改善信号，情绪先于指数变盘
   related_stocks:
-  - code: '000678'
+  - code: 000678
     name: 襄阳轴承
     role: 反核信号观察样本-主板可交易
   - code: '000011'
@@ -135,6 +145,7 @@ claims:
   - 情绪端
   - 亏钱效应
   - 先于指数变盘
+  school: qing
 - id: claim-20261007-001-e
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -168,6 +179,7 @@ claims:
   - 议息会议
   - 事件密度
   - 不确定性
+  school: qing
 - id: claim-20261007-001-f
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -185,9 +197,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260909-030-a"]
+  supersedes:
+  - claim-20260909-030-a
   contradicts: []
-  supplements: ["claim-20260930-001-f", "claim-20260824-002-k"]
+  supplements:
+  - claim-20260930-001-f
+  - claim-20260824-002-k
   last_discovered: 2026-10-07
   links:
     wiki_pages: []
@@ -201,6 +216,7 @@ claims:
   - 非科技
   - 轮动
   - 资金争夺
+  school: qing
 - id: claim-20261007-001-g
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -220,7 +236,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-c"]
+  supplements:
+  - claim-20260622-001-c
   last_discovered: 2026-10-07
   links:
     wiki_pages: []
@@ -240,6 +257,7 @@ claims:
   - 趋势票
   - 元件指数
   - 抱团博弈
+  school: qing
 - id: claim-20261007-001-h
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -259,7 +277,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-032", "claim-20260609-005-e", "claim-20260817-049"]
+  supplements:
+  - claim-20260805-032
+  - claim-20260609-005-e
+  - claim-20260817-049
   last_discovered: 2026-10-07
   links:
     wiki_pages: []
@@ -279,6 +300,7 @@ claims:
   - 智谱
   - 催化节奏
   - 业绩验证
+  school: qing
 - id: claim-20261007-001-i
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -296,7 +318,9 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260809-016", "claim-20260817-038"]
+  supersedes:
+  - claim-20260809-016
+  - claim-20260817-038
   contradicts: []
   supplements: []
   last_discovered: 2026-10-07
@@ -321,6 +345,7 @@ claims:
   - 长期下降趋势
   - 对外授权
   - CXO
+  school: qing
 - id: claim-20261007-001-j
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -340,7 +365,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-001-h"]
+  supplements:
+  - claim-20260921-001-h
   last_discovered: 2026-10-07
   links:
     wiki_pages: []
@@ -357,6 +383,7 @@ claims:
   - 大长腿
   - 兑现盘
   - 检验
+  school: qing
 - id: claim-20261007-001-k
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -374,9 +401,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260929-002-m"]
+  supersedes:
+  - claim-20260929-002-m
   contradicts: []
-  supplements: ["claim-20260930-001-q", "claim-20260928-002-m"]
+  supplements:
+  - claim-20260930-001-q
+  - claim-20260928-002-m
   last_discovered: 2026-10-07
   links:
     wiki_pages: []
@@ -393,6 +423,7 @@ claims:
   - 扩散
   - 量能
   - 持续性
+  school: qing
 - id: claim-20261007-001-l
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -412,7 +443,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260811-050"]
+  supplements:
+  - claim-20260811-050
   last_discovered: 2026-10-07
   links:
     wiki_pages: []
@@ -432,6 +464,7 @@ claims:
   - 奶价
   - 逻辑硬度
   - 位置
+  school: qing
 - id: claim-20261007-001-m
   source_path: sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   source_date: '2026-10-07'
@@ -449,9 +482,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260928-002-i"]
+  supersedes:
+  - claim-20260928-002-i
   contradicts: []
-  supplements: ["claim-20260823-001-006", "claim-20260829-001-004"]
+  supplements:
+  - claim-20260823-001-006
+  - claim-20260829-001-004
   last_discovered: 2026-10-07
   links:
     wiki_pages: []
@@ -465,3 +501,4 @@ claims:
   - 长阳
   - 降低频率
   - 确定性
+  school: qing

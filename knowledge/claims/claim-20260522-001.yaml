@@ -2,8 +2,8 @@ claims:
 - id: claim-20260522-001-a
   topic: 极致冰点后修复质量
   source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-22
   source_type: morning
   extracted_at: 2026-05-22
@@ -19,7 +19,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-006-f", "claim-20260527-005-b", "claim-20260522-002-a"]
+  supplements:
+  - claim-20260610-006-f
+  - claim-20260527-005-b
+  - claim-20260522-002-a
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -37,11 +40,12 @@ claims:
   - 存储
   - AI
   - 修复
+  school: qing
 - id: claim-20260522-001-b
   topic: 上证关键点位
   source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-22
   source_type: morning
   extracted_at: 2026-05-22
@@ -72,11 +76,12 @@ claims:
   - 技术信号
   - 修复
   - 上证
+  school: qing
 - id: claim-20260522-001-c
   topic: 日内四阶段剧本
   source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-22
   source_type: morning
   extracted_at: 2026-05-22
@@ -92,7 +97,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260522-001-e"]
+  supplements:
+  - claim-20260522-001-e
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -106,11 +112,12 @@ claims:
   - 操作策略
   - 放量
   - 修复
+  school: qing
 - id: claim-20260522-001-d
   topic: 30分钟底部钝化
   source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-22
   source_type: morning
   extracted_at: 2026-05-22
@@ -141,11 +148,12 @@ claims:
   - 30分钟
   - 放量
   - 修复
+  school: qing
 - id: claim-20260522-001-e
   topic: 先买后卖做T
   source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-22
   source_type: morning
   extracted_at: 2026-05-22
@@ -161,7 +169,8 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260602-002-a"]
+  supplements:
+  - claim-20260602-002-a
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -175,11 +184,12 @@ claims:
   - 主线
   - 放量
   - 反弹
+  school: qing
 - id: claim-20260522-001-f
   topic: 半导体产业链
   source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-22
   source_type: morning
   extracted_at: 2026-05-22
@@ -195,7 +205,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-001-f", "claim-20260520-001-e"]
+  supplements:
+  - claim-20260521-001-f
+  - claim-20260520-001-e
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -220,14 +232,15 @@ claims:
   - code: '002371'
     name: 北方华创
     role: 参考标的
-  - code: "688256"
-    name: "寒武纪"
-    role: "回填-正文提及"
+  - code: '688256'
+    name: 寒武纪
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260522-001-g
   topic: AI方向分类
   source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-22
   source_type: morning
   extracted_at: 2026-05-22
@@ -235,8 +248,7 @@ claims:
   subject: AI方向分类
   timeframe: intraday
   statement: AI方向要分三类处理：趋势未破的硬逻辑票可等分时确认做T，放量破位高位票只当反抽，MLCC、Micro-LED、玻璃基板等低位新分支看承接
-  evidence_quote: '"AI现在要分三类来看。第一类是趋势没破、只是跟随指数回踩的硬逻辑票，这类可以做T。 第二类是已经放量破位的高位票，这类即使反弹，也先当反抽看。
-    第三类是低位新分支，比如前天的MLCC、昨天的Micro LED、玻璃基板等。"
+  evidence_quote: '"AI现在要分三类来看。第一类是趋势没破、只是跟随指数回踩的硬逻辑票，这类可以做T。 第二类是已经放量破位的高位票，这类即使反弹，也先当反抽看。 第三类是低位新分支，比如前天的MLCC、昨天的Micro LED、玻璃基板等。"
 
     '
   interpretation: AI内部不能无差别抄底，需要按趋势状态和分支属性分层处理
@@ -244,7 +256,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260522-001-e", "claim-20260527-005-i", "claim-20260521-001-j"]
+  supplements:
+  - claim-20260522-001-e
+  - claim-20260527-005-i
+  - claim-20260521-001-j
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -259,11 +274,12 @@ claims:
   - 板块主题
   - AI
   - 放量
+  school: qing
 - id: claim-20260522-001-h
   topic: 玻璃基板短线不看谁开得最高
   source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-22
   source_type: morning
   extracted_at: 2026-05-22
@@ -292,11 +308,12 @@ claims:
   - 板块主题
   - 轮动
   - 放量
+  school: qing
 - id: claim-20260522-001-i
   topic: 京东与擎天租合作对机器人应用端有催化
   source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-22
   source_type: morning
   extracted_at: 2026-05-22
@@ -304,8 +321,7 @@ claims:
   subject: 机器人
   timeframe: intraday
   statement: 京东与擎天租合作对机器人应用端有催化，但机器人要成为强方向，必须本体、零部件、执行器等扩散，并且在科技主线修复时仍保持强度
-  evidence_quote: '"机器人今天可以观察，但不宜喧宾夺主。 它要成为强方向，需要满足两个条件。第一，板块不是单点脉冲，而是本体、零部件、执行器、丝杠、减速器一起扩散。
-    第二，它不能只是趁半导体分歧吸血，而要在科技主线修复时还能保持强度。"
+  evidence_quote: '"机器人今天可以观察，但不宜喧宾夺主。 它要成为强方向，需要满足两个条件。第一，板块不是单点脉冲，而是本体、零部件、执行器、丝杠、减速器一起扩散。 第二，它不能只是趁半导体分歧吸血，而要在科技主线修复时还能保持强度。"
 
     '
   interpretation: 机器人仍是条件型观察方向，必须证明自己不是半导体分歧时的吸血轮动
@@ -328,11 +344,12 @@ claims:
   - 催化
   - 主线
   - 修复
+  school: qing
 - id: claim-20260522-001-j
   topic: 量子计算受美国政府拟向9家公司投入约20
   source_path: sources/raw/财经/早盘：26-05-22：极致冰点后看修复质量，主线承接与30分钟底部钝化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-22
   source_type: morning
   extracted_at: 2026-05-22
@@ -365,3 +382,4 @@ claims:
   - 存储
   - A股
   - 美元
+  school: qing

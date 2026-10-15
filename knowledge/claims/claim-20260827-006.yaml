@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260827-055-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260821-005", "claim-20260812-005"]
+  supersedes:
+  - claim-20260821-005
+  - claim-20260812-005
   contradicts: []
-  supplements: ["claim-20260820-008"]
+  supplements:
+  - claim-20260820-008
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -31,10 +34,11 @@ claims:
   - 点上放量
   - 承接面
   - 缩量僵持
+  school: qing
 - id: claim-20260827-056-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -49,7 +53,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260817-034", "claim-20260826-026-a"]
+  supplements:
+  - claim-20260817-034
+  - claim-20260826-026-a
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -63,10 +69,11 @@ claims:
   - 放量向上
   - 方法论
   - K线性质
+  school: qing
 - id: claim-20260827-057-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -79,7 +86,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260804-024", "claim-20260812-024", "claim-20260818-008"]
+  supersedes:
+  - claim-20260804-024
+  - claim-20260812-024
+  - claim-20260818-008
   contradicts: []
   supplements: []
   last_discovered: 2026-08-28
@@ -101,28 +111,29 @@ claims:
   - 宽度
   - 赚钱效应
   - 情绪修复
+  school: qing
 - id: claim-20260827-058-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
   claim_type: catalyst
   subject: 英伟达FY2028指引把AI能见度拉长到一整年
   timeframe: trend
-  statement: 英伟达首次给出下一财年指引：预计截至2028年1月的财年营收增长约70%，远高于分析师约44%预估；五大超大规模云厂商资本开支将从2026年约8000亿美元升至明年约1.3万亿美元；Vera
-    Rubin平台已开始出货，本季占数据中心营收约五分之一。这份指引对A股的意义不在「超预期」四字——它真正提供的是久期：把AI资本开支能见度从一个季度拉长到一整个财年，而久期是趋势投资最稀缺的东西。
-  evidence_quote: 更关键的是电话会上的两条增量信息。据公司管理层表述，英伟达罕见地对一年之后作出展望，初步预计截至2028年1月的下一财年营收将增长约70%，远高于分析师此前约44%的预估，这是公司首次给出该财年指引；同时预计五大超大规模云厂商的资本开支将从2026年的约8000亿美元升至明年的约1.3万亿美元，下一代Vera
-    Rubin平台已开始出货，预计在截至10月的本季占数据中心营收约五分之一。……它真正提供的是久期：把AI资本开支的能见度从一个季度拉长到一整个财年，而久期恰恰是趋势投资最稀缺的东西。
-  interpretation: 与早盘 001/002 claim 呼应但视角不同：早盘讲「盘后反转机制」，复盘讲「对A股映射的意义」——久期是趋势投资的核心变量，FY2028
-    指引把 AI 行情从「事件驱动」升级为「年度级产业趋势」。
+  statement: 英伟达首次给出下一财年指引：预计截至2028年1月的财年营收增长约70%，远高于分析师约44%预估；五大超大规模云厂商资本开支将从2026年约8000亿美元升至明年约1.3万亿美元；Vera Rubin平台已开始出货，本季占数据中心营收约五分之一。这份指引对A股的意义不在「超预期」四字——它真正提供的是久期：把AI资本开支能见度从一个季度拉长到一整个财年，而久期是趋势投资最稀缺的东西。
+  evidence_quote: 更关键的是电话会上的两条增量信息。据公司管理层表述，英伟达罕见地对一年之后作出展望，初步预计截至2028年1月的下一财年营收将增长约70%，远高于分析师此前约44%的预估，这是公司首次给出该财年指引；同时预计五大超大规模云厂商的资本开支将从2026年的约8000亿美元升至明年的约1.3万亿美元，下一代Vera Rubin平台已开始出货，预计在截至10月的本季占数据中心营收约五分之一。……它真正提供的是久期：把AI资本开支的能见度从一个季度拉长到一整个财年，而久期恰恰是趋势投资最稀缺的东西。
+  interpretation: 与早盘 001/002 claim 呼应但视角不同：早盘讲「盘后反转机制」，复盘讲「对A股映射的意义」——久期是趋势投资的核心变量，FY2028 指引把 AI 行情从「事件驱动」升级为「年度级产业趋势」。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-002", "claim-20260826-048-a", "claim-20260723-002"]
+  supplements:
+  - claim-20260812-002
+  - claim-20260826-048-a
+  - claim-20260723-002
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -136,10 +147,11 @@ claims:
   - 资本开支
   - 久期
   - AI资本开支
+  school: qing
 - id: claim-20260827-059-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -154,7 +166,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260824-002-l", "claim-20260805-017"]
+  supplements:
+  - claim-20260824-002-l
+  - claim-20260805-017
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -171,10 +185,11 @@ claims:
   - 澜起科技
   - 供应链映射
   - 英伟达
+  school: qing
 - id: claim-20260827-060-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -187,9 +202,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260622-001-h"]
-  contradicts: ["claim-20260730-016"]
-  supplements: ["claim-20260617-038-c"]
+  supersedes:
+  - claim-20260622-001-h
+  contradicts:
+  - claim-20260730-016
+  supplements:
+  - claim-20260617-038-c
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -203,10 +221,11 @@ claims:
   - 中期反转
   - 光通信
   - 液冷Cage
+  school: qing
 - id: claim-20260827-061-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -220,8 +239,11 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260818-058", "claim-20260824-001-j"]
-  supplements: ["claim-20260728-008"]
+  contradicts:
+  - claim-20260818-058
+  - claim-20260824-001-j
+  supplements:
+  - claim-20260728-008
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -235,10 +257,11 @@ claims:
   - 攻守同涨
   - 防御属性
   - 厄尔尼诺
+  school: qing
 - id: claim-20260827-062-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -251,9 +274,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260729-031"]
+  supersedes:
+  - claim-20260729-031
   contradicts: []
-  supplements: ["claim-20260826-049-a", "claim-20260812-036"]
+  supplements:
+  - claim-20260826-049-a
+  - claim-20260812-036
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -267,10 +293,11 @@ claims:
   - 沃什
   - 鹰派
   - 加息定价
+  school: qing
 - id: claim-20260827-063-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -283,9 +310,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260821-003"]
+  supersedes:
+  - claim-20260821-003
   contradicts: []
-  supplements: ["claim-20260729-032", "claim-20260805-005"]
+  supplements:
+  - claim-20260729-032
+  - claim-20260805-005
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -299,10 +329,11 @@ claims:
   - 证伪测试
   - 估值压制
   - 宏观矛盾
+  school: qing
 - id: claim-20260827-064-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -331,10 +362,11 @@ claims:
   - '3887'
   - 纠错点位
   - 仓位倒推
+  school: qing
 - id: claim-20260827-065-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -349,7 +381,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260813-011"]
+  supplements:
+  - claim-20260813-011
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -366,10 +399,11 @@ claims:
   - 叙事贝塔
   - 算力
   - 波段
+  school: qing
 - id: claim-20260827-066-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -384,7 +418,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260826-037-a", "claim-20260817-060", "claim-20260825-021-a"]
+  supplements:
+  - claim-20260826-037-a
+  - claim-20260817-060
+  - claim-20260825-021-a
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -395,19 +432,20 @@ claims:
   - code: '603269'
     name: 海鸥股份
     role: 液冷冷却塔-主板可交易
-  - code: "920808"
-    name: "曙光数创"
-    role: "回填-正文提及"
+  - code: '920808'
+    name: 曙光数创
+    role: 回填-正文提及
   tags:
   - 海鸥股份
   - 冷却塔
   - 认证壁垒
   - 液冷
   - 竞争格局
+  school: qing
 - id: claim-20260827-067-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -422,7 +460,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-023"]
+  supplements:
+  - claim-20260812-023
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -436,10 +475,11 @@ claims:
   - 主题波段
   - 景气投资
   - 光刻机
+  school: qing
 - id: claim-20260827-068-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -471,10 +511,11 @@ claims:
   - 中报
   - 订单质量
   - 合同负债
+  school: qing
 - id: claim-20260827-069-x
   source_path: sources/raw/财经/2026-08-27-复盘-科技调整告一段落量能重上两万亿.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 专栏
   extracted_at: '2026-08-28T01:40:00+08:00'
@@ -489,7 +530,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-022", "claim-20260820-020"]
+  supplements:
+  - claim-20260812-022
+  - claim-20260820-020
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -506,3 +549,4 @@ claims:
   - Gasbox
   - 零部件
   - 双条件判据
+  school: qing

@@ -19,7 +19,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260922-002-a"]
+  supplements:
+  - claim-20260922-002-a
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -34,6 +35,7 @@ claims:
   - 获利了结
   - 医药
   - 操作记录
+  school: watchlist
 - id: claim-20260922-003-b
   source_path: sources/original/bilibili/2026-09-22-1126-图片-动态-1250734003211730949.md
   source_date: '2026-09-22'
@@ -52,9 +54,11 @@ claims:
   stance: view
   status: active
   intensity: high
-  supersedes: ["claim-20260922-002-a"]
+  supersedes:
+  - claim-20260922-002-a
   contradicts: []
-  supplements: ["claim-20260908-005-3"]
+  supplements:
+  - claim-20260908-005-3
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -69,6 +73,7 @@ claims:
   - 补仓
   - 医药持仓
   - 操作记录
+  school: watchlist
 - id: claim-20260922-003-c
   source_path: sources/original/bilibili/2026-09-22-1126-图片-动态-1250734003211730949.md
   source_date: '2026-09-22'
@@ -82,15 +87,15 @@ claims:
   timeframe: intraday
   statement: 开仓 MLCC 方向的国瓷材料(300285)（成交单：买入 67.080×2500股，11:24:15 已成，约16.8万）；昨天没追高、今天开一笔，如果晚点再砸可能还会吸一笔。
   evidence_quote: 开仓mlcc国瓷，昨天没追高，今天开一笔。如果晚点再砸，可能还会吸一笔
-  interpretation: 操作记录+分批计划：①选昨天不追今天才开=等分歧低吸而非追高；②预留第二笔条件=「晚点再砸可能还会吸」（向下分批，非向上加仓）。方向含义：早盘视频说的「科技低吸存储」之外，又加了
-    MLCC（与青枫浦上Q今日早盘专栏的MLCC观察线重合，跨UP共振）。国瓷材料为创业板，用户不可直接交易，只能借道ETF。
+  interpretation: 操作记录+分批计划：①选昨天不追今天才开=等分歧低吸而非追高；②预留第二笔条件=「晚点再砸可能还会吸」（向下分批，非向上加仓）。方向含义：早盘视频说的「科技低吸存储」之外，又加了 MLCC（与青枫浦上Q今日早盘专栏的MLCC观察线重合，跨UP共振）。国瓷材料为创业板，用户不可直接交易，只能借道ETF。
   confidence: high
   stance: view
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260915-003-10"]
+  supplements:
+  - claim-20260915-003-10
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -105,3 +110,4 @@ claims:
   - MLCC
   - 开仓
   - 分批低吸
+  school: watchlist

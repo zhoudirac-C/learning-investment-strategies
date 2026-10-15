@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260702-001-a
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 专栏
   extracted_at: '2026-07-02T08:31:24+08:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260625-003-a"]
-  contradicts: ["claim-20260617-038-c"]
-  supplements: ["claim-20260607-004-c"]
+  supersedes:
+  - claim-20260625-003-a
+  contradicts:
+  - claim-20260617-038-c
+  supplements:
+  - claim-20260607-004-c
   last_discovered: 2026-07-02
   related_stocks: []
   tags:
@@ -31,10 +34,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 增量资金推动风格再均衡
+  school: qing
 - id: claim-20260702-001-b
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 专栏
   extracted_at: '2026-07-02T08:31:24+08:00'
@@ -49,7 +53,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-e", "claim-20260602-001-f"]
+  supplements:
+  - claim-20260621-001-e
+  - claim-20260602-001-f
   last_discovered: 2026-07-02
   related_stocks: []
   tags:
@@ -63,10 +69,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 监管降温与融资余额高位风险
+  school: qing
 - id: claim-20260702-001-c
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 专栏
   extracted_at: '2026-07-02T08:31:24+08:00'
@@ -79,9 +86,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260612-009-i"]
-  contradicts: ["claim-20260604-004-b"]
-  supplements: ["claim-20260629-004-q"]
+  supersedes:
+  - claim-20260612-009-i
+  contradicts:
+  - claim-20260604-004-b
+  supplements:
+  - claim-20260629-004-q
   last_discovered: 2026-07-02
   related_stocks: []
   tags:
@@ -95,10 +105,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 科技分化后半导体上游仍是核心
+  school: qing
 - id: claim-20260702-001-d
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 专栏
   extracted_at: '2026-07-02T08:31:24+08:00'
@@ -113,7 +124,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-d", "claim-20260526-032", "claim-20260610-013-a"]
+  supplements:
+  - claim-20260609-005-d
+  - claim-20260526-032
+  - claim-20260610-013-a
   last_discovered: 2026-07-02
   related_stocks: []
   tags:
@@ -127,10 +141,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 国产算力链高切低预期差
+  school: qing
 - id: claim-20260702-001-e
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 专栏
   extracted_at: '2026-07-02T08:31:24+08:00'
@@ -144,7 +159,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260617-038-c", "claim-20260607-004-c", "claim-20260531-002-a"]
+  contradicts:
+  - claim-20260617-038-c
+  - claim-20260607-004-c
+  - claim-20260531-002-a
   supplements: []
   last_discovered: 2026-07-02
   related_stocks: []
@@ -159,10 +177,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 非科技聚焦金融共同走强非风格切换
+  school: qing
 - id: claim-20260702-001-f
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 专栏
   extracted_at: '2026-07-02T08:31:24+08:00'
@@ -177,7 +196,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-c", "claim-20260625-003-g"]
+  supplements:
+  - claim-20260609-005-c
+  - claim-20260625-003-g
   last_discovered: 2026-07-02
   related_stocks: []
   tags:
@@ -191,10 +212,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 先进封装涨价推动封装材料国产替代
+  school: qing
 - id: claim-20260702-001-g
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 专栏
   extracted_at: '2026-07-02T08:31:24+08:00'
@@ -223,10 +245,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: AIDC字节系涨价反映需求超预期
+  school: qing
 - id: claim-20260702-001-h
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 专栏
   extracted_at: '2026-07-02T08:31:24+08:00'
@@ -235,8 +258,7 @@ claims:
   timeframe: trend
   statement: UP判断三美股份(603379)电子级氢氟酸G5级受益于AI与算力驱动的先进制程使蚀刻层数增加及国产替代双重驱动，国内G5级供需缺口仍高达70%，公司2万吨已投产、二期3万吨试生产，半导体材料端业绩弹性正进入持续释放通道。
   evidence_quote: 三美股份(603379)：据公司信息，AI与算力驱动的先进制程使蚀刻层数增加，超高纯G5级电子级氢氟酸需求显著提升...国内G5级供需缺口仍高达70%。公司通过持股51%的浙江森田新材料已建成2万吨/年产能...个人判断，随下游晶圆厂扩产与国产替代双重驱动，公司半导体材料端业绩弹性正进入持续释放通道。
-  interpretation: UP详细拆解了三美股份(603379)的电子级氢氟酸逻辑：①需求端：先进制程蚀刻层数增加消耗更多电子级氢氟酸 ②供给端：中东地缘推升原材料成本，韩国厂商开始从中国采购
-    ③国产替代：G5级供需缺口70%。公司产能规划清晰（现有2万吨+二期3万吨试产+2027年6万吨技改），且已通过三星存储/台积电认证。业绩弹性从逻辑走向兑现。
+  interpretation: UP详细拆解了三美股份(603379)的电子级氢氟酸逻辑：①需求端：先进制程蚀刻层数增加消耗更多电子级氢氟酸 ②供给端：中东地缘推升原材料成本，韩国厂商开始从中国采购 ③国产替代：G5级供需缺口70%。公司产能规划清晰（现有2万吨+二期3万吨试产+2027年6万吨技改），且已通过三星存储/台积电认证。业绩弹性从逻辑走向兑现。
   confidence: high
   status: active
   intensity: medium
@@ -259,10 +281,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 三美股份电子级氢氟酸供需缺口业绩释放
+  school: qing
 - id: claim-20260702-001-i
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 专栏
   extracted_at: '2026-07-02T08:31:24+08:00'
@@ -277,7 +300,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-g"]
+  supplements:
+  - claim-20260625-003-g
   last_discovered: 2026-07-02
   related_stocks:
   - code: '688535'
@@ -294,10 +318,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 华海诚科GMC国产替代放量窗口
+  school: qing
 - id: claim-20260702-001-j
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 专栏
   extracted_at: '2026-07-02T08:31:24+08:00'
@@ -329,10 +354,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 银之杰开盘啦+券商牌照估值切换
+  school: qing
 - id: claim-20260702-001-k
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 专栏
   extracted_at: '2026-07-02T08:31:24+08:00'
@@ -341,14 +367,15 @@ claims:
   timeframe: trend
   statement: UP判断新股臻宝科技(688797)上市后6个交易日涨1657%把同类硅零部件（神工股份688233、富创精密688409、江丰电子300666、珂玛科技301611）估值抬高，但这些标的经调整后业绩对应估值尚未过度透支，仍有兑现中期业绩再上台阶的长线机会。
   evidence_quote: 半导体零部件（跟踪提示）：据盘面信息，新股臻宝科技(688797)上市后6个交易日涨幅1657%的热炒，把同类硅零部件（神工股份688233）、静电卡盘（富创精密688409/江丰电子300666/珂玛科技301611）的估值一并抬高...个人判断，长期看这几家零部件业绩对应估值尚未像臻宝般过度透支，经调整后仍有兑现中期业绩、市值再上台阶的长线机会。
-  interpretation: UP的推理链条：①臻宝科技(688797)6天1657%→情绪把同类标的一起推高→短期过热需调整 ②富创精密(688409)/江丰电子(300666)/珂玛科技(301611)等有真实业绩支撑，不像臻宝纯炒作
-    ③神工股份(688233)作为硅零部件对标估值同步抬高，调整后这些标的有业绩兑现+市值上台阶的中长期机会。这与UP前一日「半导体设备零部件该调整」的判断一致，但UP增加了「调整后仍有中长线机会」的积极预期。
+  interpretation: UP的推理链条：①臻宝科技(688797)6天1657%→情绪把同类标的一起推高→短期过热需调整 ②富创精密(688409)/江丰电子(300666)/珂玛科技(301611)等有真实业绩支撑，不像臻宝纯炒作 ③神工股份(688233)作为硅零部件对标估值同步抬高，调整后这些标的有业绩兑现+市值上台阶的中长期机会。这与UP前一日「半导体设备零部件该调整」的判断一致，但UP增加了「调整后仍有中长线机会」的积极预期。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260604-004-a"]
-  supplements: ["claim-20260625-003-g"]
+  contradicts:
+  - claim-20260604-004-a
+  supplements:
+  - claim-20260625-003-g
   last_discovered: 2026-07-02
   related_stocks:
   - code: '688797'
@@ -377,10 +404,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 半导体零部件调整后中长线机会
+  school: qing
 - id: claim-20260702-001-l
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 专栏
   extracted_at: '2026-07-02T08:31:24+08:00'
@@ -393,9 +421,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260426-001"]
+  supersedes:
+  - claim-20260426-001
   contradicts: []
-  supplements: ["claim-20260625-002-b", "claim-20260612-002-e"]
+  supplements:
+  - claim-20260625-002-b
+  - claim-20260612-002-e
   last_discovered: 2026-07-02
   related_stocks: []
   tags:
@@ -409,10 +440,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 冲高加速减仓增厚安全垫
+  school: qing
 - id: claim-20260702-001-m
   source_path: sources/original/bilibili/2026-07-02-0131-专栏-今日是一段「指数剧烈分化、增量资金重新入场」的行情。理解今天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 专栏
   extracted_at: '2026-07-02T08:31:24+08:00'
@@ -427,7 +459,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-f", "claim-20260622-004-d"]
+  supplements:
+  - claim-20260609-005-f
+  - claim-20260622-004-d
   last_discovered: 2026-07-02
   related_stocks: []
   tags:
@@ -441,3 +475,4 @@ claims:
     methodology_pages: []
     cases: []
   topic: 不赌只做右侧方法论
+  school: qing

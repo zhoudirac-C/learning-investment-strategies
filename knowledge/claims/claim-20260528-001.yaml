@@ -2,8 +2,8 @@ claims:
 - id: claim-20260528-001-a
   topic: 5月27日回踩定性：非破位
   source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 早盘
   extracted_at: 2026-05-28
@@ -17,7 +17,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-005-a", "claim-20260526-025"]
+  supplements:
+  - claim-20260527-005-a
+  - claim-20260526-025
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -29,11 +31,12 @@ claims:
   - 市场周期
   - 轮动
   - 回调
+  school: qing
 - id: claim-20260528-001-b
   topic: 开盘三个锚点判断日内风格
   source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 早盘
   extracted_at: 2026-05-28
@@ -47,7 +50,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-006-e"]
+  supplements:
+  - claim-20260527-006-e
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -61,11 +65,12 @@ claims:
   - 龙头
   - 电力
   - 防御
+  school: qing
 - id: claim-20260528-001-c
   topic: 超级电容：从实验室到机柜级标配
   source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 早盘
   extracted_at: 2026-05-28
@@ -79,7 +84,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-005-d", "claim-20260527-005-g", "claim-20260521-003-f"]
+  supplements:
+  - claim-20260527-005-d
+  - claim-20260527-005-g
+  - claim-20260521-003-f
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -95,30 +103,30 @@ claims:
   - code: 002484
     name: 江海股份
     role: 参考标的
-  - code: "002012"
-    name: "凯恩股份"
-    role: "回填-正文提及"
+  - code: '002012'
+    name: 凯恩股份
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260528-001-d
   topic: 功率半导体年内第二轮涨价
   source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 早盘
   extracted_at: 2026-05-28
   claim_type: sector-theme
   subject: 功率半导体年内第二轮涨价
   timeframe: industry
-  statement: 英飞凌、德州仪器同日通知7月1日起第二轮提价，覆盖PMIC、MOSFET，功率半导体是AI领域的通胀环节，AI机架电源价值从GB200的3.6万美元升至Vera
-    Rubin CPX的近40万美元
-  evidence_quote: 英飞凌5月26日通知客户7月1日起再次提价...德州仪器同样7月1日起提价，覆盖PMIC、MOSFET，亦为年内第二轮...AI机架电源价值从GB200的3.6万美元升至Vera
-    Rubin CPX的近40万美元，单位功率价值提升2.5倍
+  statement: 英飞凌、德州仪器同日通知7月1日起第二轮提价，覆盖PMIC、MOSFET，功率半导体是AI领域的通胀环节，AI机架电源价值从GB200的3.6万美元升至Vera Rubin CPX的近40万美元
+  evidence_quote: 英飞凌5月26日通知客户7月1日起再次提价...德州仪器同样7月1日起提价，覆盖PMIC、MOSFET，亦为年内第二轮...AI机架电源价值从GB200的3.6万美元升至Vera Rubin CPX的近40万美元，单位功率价值提升2.5倍
   interpretation: 功率半导体的涨价逻辑：①双龙头（英飞凌+TI）同步第二轮提价，说明行业性供需紧张；②AI驱动价值量跃升（2.5倍）；③8英寸晶圆紧缺下，产能规模+顺价能力是竞争焦点。标的：芯联集成（产能最大）、捷捷微电。
   confidence: high
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-045-s"]
+  supplements:
+  - claim-20260617-045-s
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -140,11 +148,12 @@ claims:
   - code: '688469'
     name: 芯联集成
     role: 参考标的
+  school: qing
 - id: claim-20260528-001-e
   topic: 缩量阶段新分支优先排序
   source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 早盘
   extracted_at: 2026-05-28
@@ -174,14 +183,15 @@ claims:
   - 催化
   - 主线
   related_stocks:
-  - code: "600935"
-    name: "华塑股份"
-    role: "回填-正文提及"
+  - code: '600935'
+    name: 华塑股份
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260528-001-f
   topic: Astrotech暴涨459%映射月球资
   source_path: sources/raw/财经/早盘：26-05-28：调整周期未完，防御股剧本与半导体接力观察.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 早盘
   extracted_at: 2026-05-28
@@ -189,8 +199,7 @@ claims:
   subject: 海外映射：Astrotech月球主题与Snowflake财报
   timeframe: short-term
   statement: Astrotech暴涨459%映射月球资源开发与半导体制造主题，Snowflake盘后涨35%验证企业IT需求韧性，A股映射分别为顶固集创/西部材料和星环科技/电科数字
-  evidence_quote: Astrotech +459.11%。战略转向月球资源开发、月球工业基础设施、月球先进计算与半导体制造...A股映射看顶固集创、西部材料。Snowflake
-    盘后 +35%...A股映射看星环科技、电科数字
+  evidence_quote: Astrotech +459.11%。战略转向月球资源开发、月球工业基础设施、月球先进计算与半导体制造...A股映射看顶固集创、西部材料。Snowflake 盘后 +35%...A股映射看星环科技、电科数字
   interpretation: 海外映射两条线：①Astrotech是纯主题催化（月球芯片+氦-3量子计算），A股映射偏概念；②Snowflake是基本面验证（企业IT需求+AI增量），A股映射有业绩支撑。区分主题炒作和基本面映射，决定参与仓位。
   confidence: medium
   status: active
@@ -211,15 +220,16 @@ claims:
   - A股
   - 宏观
   related_stocks:
-  - code: "688031"
-    name: "星环科技"
-    role: "回填-正文提及"
-  - code: "600850"
-    name: "电科数字"
-    role: "回填-正文提及"
-  - code: "002149"
-    name: "西部材料"
-    role: "回填-正文提及"
-  - code: "300749"
-    name: "顶固集创"
-    role: "回填-正文提及"
+  - code: '688031'
+    name: 星环科技
+    role: 回填-正文提及
+  - code: '600850'
+    name: 电科数字
+    role: 回填-正文提及
+  - code: 002149
+    name: 西部材料
+    role: 回填-正文提及
+  - code: '300749'
+    name: 顶固集创
+    role: 回填-正文提及
+  school: qing

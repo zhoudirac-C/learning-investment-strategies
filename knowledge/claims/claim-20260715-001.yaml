@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260715-001-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -15,7 +15,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260527-004-f"]
+  supersedes:
+  - claim-20260527-004-f
   contradicts: []
   supplements: []
   last_discovered: 2026-07-15
@@ -30,10 +31,11 @@ claims:
   - 上证指数
   - 先消化后分化
   - 单边大涨
+  school: qing
 - id: claim-20260715-002-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -46,9 +48,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260610-035-a", "claim-20260626-001-g"]
+  supersedes:
+  - claim-20260610-035-a
+  - claim-20260626-001-g
   contradicts: []
-  supplements: ["claim-20260714-005-a"]
+  supplements:
+  - claim-20260714-005-a
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -61,10 +66,11 @@ claims:
   - 加息预期
   - 通胀
   - 环比转负
+  school: qing
 - id: claim-20260715-003-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -77,8 +83,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["qing-2026-06-08-macro-warsh-hold-steady-001", "claim-20260621-006-a"]
-  contradicts: ["claim-20260530-001-c"]
+  supersedes:
+  - qing-2026-06-08-macro-warsh-hold-steady-001
+  - claim-20260621-006-a
+  contradicts:
+  - claim-20260530-001-c
   supplements: []
   last_discovered: 2026-07-15
   links:
@@ -92,10 +101,11 @@ claims:
   - 沃什
   - 加息门槛
   - 鹰派
+  school: qing
 - id: claim-20260715-004-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -110,7 +120,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-003-f", "claim-20260714-005-c"]
+  supplements:
+  - claim-20260607-003-f
+  - claim-20260714-005-c
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -123,10 +135,11 @@ claims:
   - 原油
   - 霍尔木兹
   - 风险溢价
+  school: qing
 - id: claim-20260715-005-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -141,7 +154,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260406-001"]
+  supplements:
+  - claim-20260406-001
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -154,10 +168,11 @@ claims:
   - WTI
   - 柴油
   - 通胀传导
+  school: qing
 - id: claim-20260715-006-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -172,7 +187,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-001-j", "claim-20260624-006-g"]
+  supplements:
+  - claim-20260625-001-j
+  - claim-20260624-006-g
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -188,10 +205,11 @@ claims:
   - 业绩暴雷
   - AI支出
   - 传统IT
+  school: qing
 - id: claim-20260715-006-b
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -205,8 +223,11 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260610-042-a"]
-  supplements: ["claim-20260615-009", "claim-20260621-006-i"]
+  contradicts:
+  - claim-20260610-042-a
+  supplements:
+  - claim-20260615-009
+  - claim-20260621-006-i
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -220,10 +241,11 @@ claims:
   - AI服务器
   - NAND
   - DRAM
+  school: qing
 - id: claim-20260715-007-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -237,7 +259,9 @@ claims:
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260714-001-k", "claim-20260702-002-a"]
+  contradicts:
+  - claim-20260714-001-k
+  - claim-20260702-002-a
   supplements: []
   last_discovered: 2026-07-15
   links:
@@ -264,10 +288,11 @@ claims:
   - 英伟达
   - SK海力士
   - 费城半导体
+  school: qing
 - id: claim-20260715-008-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -282,7 +307,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-006-a"]
+  supplements:
+  - claim-20260610-006-a
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -295,10 +321,11 @@ claims:
   - 深V
   - 回撤
   - A股科技
+  school: qing
 - id: claim-20260715-009-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -313,7 +340,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h"]
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -326,10 +354,11 @@ claims:
   - Mag7
   - 等权重标普
   - 罗素2000
+  school: qing
 - id: claim-20260715-010-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -342,8 +371,11 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260608-001-e", "claim-20260706-002-a"]
-  contradicts: ["claim-20260713-002-c"]
+  supersedes:
+  - claim-20260608-001-e
+  - claim-20260706-002-a
+  contradicts:
+  - claim-20260713-002-c
   supplements: []
   last_discovered: 2026-07-15
   links:
@@ -357,10 +389,11 @@ claims:
   - 创业板指
   - 缩量反弹
   - 成交额
+  school: qing
 - id: claim-20260715-011-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -373,7 +406,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260703-001-c", "claim-20260709-012-b", "claim-20260623-001-a"]
+  supersedes:
+  - claim-20260703-001-c
+  - claim-20260709-012-b
+  - claim-20260623-001-a
   contradicts: []
   supplements: []
   last_discovered: 2026-07-15
@@ -388,10 +424,11 @@ claims:
   - 量能
   - 缩量磨底
   - 放量
+  school: qing
 - id: claim-20260715-012-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -404,8 +441,11 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260605-001-a", "claim-20260709-004-a"]
-  contradicts: ["claim-20260526-025-a"]
+  supersedes:
+  - claim-20260605-001-a
+  - claim-20260709-004-a
+  contradicts:
+  - claim-20260526-025-a
   supplements: []
   last_discovered: 2026-07-15
   links:
@@ -419,10 +459,11 @@ claims:
   - '3985'
   - 日线底
   - 右侧入场
+  school: qing
 - id: claim-20260715-013-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -435,9 +476,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260601-001-e"]
+  supersedes:
+  - claim-20260601-001-e
   contradicts: []
-  supplements: ["claim-20260515-011"]
+  supplements:
+  - claim-20260515-011
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -449,10 +492,11 @@ claims:
   - 跌停家数
   - 反弹质量
   - 情绪出清
+  school: qing
 - id: claim-20260715-013-b
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -467,7 +511,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260709-012-c", "claim-20260623-001-n"]
+  supplements:
+  - claim-20260709-012-c
+  - claim-20260623-001-n
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -486,10 +532,11 @@ claims:
   - 恒尚节能
   - 连板高标
   - 情绪指标
+  school: qing
 - id: claim-20260715-014-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -504,7 +551,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260120-001-a", "claim-20260703-001-a"]
+  supplements:
+  - claim-20260120-001-a
+  - claim-20260703-001-a
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -517,10 +566,11 @@ claims:
   - 量能
   - 情绪
   - 权重
+  school: qing
 - id: claim-20260715-015-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -535,7 +585,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-006-k"]
+  supplements:
+  - claim-20260610-006-k
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -552,13 +603,13 @@ claims:
   - code: '688183'
     name: 生益电子
     role: 科创板PCB-科创板不可交易
-  - code: '002916'
+  - code: 002916
     name: 深南电路
     role: PCB/封装基板-主板可交易
-  - code: '001389'
+  - code: 001389
     name: 广合科技
     role: PCB-主板可交易
-  - code: '001388'
+  - code: 001388
     name: 信通电子
     role: PCB-主板可交易
   tags:
@@ -567,10 +618,11 @@ claims:
   - AI芯片
   - CCL涨价
   - 半年报业绩
+  school: qing
 - id: claim-20260715-016-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -583,9 +635,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260604-004-b"]
+  supersedes:
+  - claim-20260604-004-b
   contradicts: []
-  supplements: ["claim-20260714-001-af", "claim-20260712-012-l"]
+  supplements:
+  - claim-20260714-001-af
+  - claim-20260712-012-l
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -598,10 +653,11 @@ claims:
   - 半年报
   - 指数企稳
   - 优中选优
+  school: qing
 - id: claim-20260715-017-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -614,7 +670,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260713-012-l", "claim-20260714-001-bj"]
+  supersedes:
+  - claim-20260713-012-l
+  - claim-20260714-001-bj
   contradicts: []
   supplements: []
   last_discovered: 2026-07-15
@@ -636,10 +694,11 @@ claims:
   - 存储
   - 中芯国际
   - 科创板
+  school: qing
 - id: claim-20260715-017-b
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -654,7 +713,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-004-a", "claim-20260515-004", "claim-20260713-021-u"]
+  supplements:
+  - claim-20260611-004-a
+  - claim-20260515-004
+  - claim-20260713-021-u
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -670,10 +732,11 @@ claims:
   - 长鑫科技
   - 资本开支
   - 国产替代
+  school: qing
 - id: claim-20260715-017-c
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -688,7 +751,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260714-001-cf"]
+  supplements:
+  - claim-20260714-001-cf
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -702,19 +766,20 @@ claims:
   - code: '920186'
     name: 中科仪
     role: 干式真空泵-北交所可交易
-  - code: "688825"
-    name: "长鑫科技"
-    role: "回填-正文提及"
+  - code: '688825'
+    name: 长鑫科技
+    role: 回填-正文提及
   tags:
   - 中微公司
   - 中科仪
   - 刻蚀设备
   - 真空泵
   - 存储扩产
+  school: qing
 - id: claim-20260715-018-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -729,7 +794,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260630-001-g"]
+  supplements:
+  - claim-20260630-001-g
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -749,10 +815,11 @@ claims:
   - 分时计费
   - 格灵深瞳
   - 申菱环境
+  school: qing
 - id: claim-20260715-019-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -766,8 +833,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260614-011-m"]
-  supplements: ["claim-20260610-030-a"]
+  contradicts:
+  - claim-20260614-011-m
+  supplements:
+  - claim-20260610-030-a
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -787,10 +856,11 @@ claims:
   - CPI
   - 四川黄金
   - 招金黄金
+  school: qing
 - id: claim-20260715-019-b
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -803,9 +873,12 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260614-011-m"]
+  supersedes:
+  - claim-20260614-011-m
   contradicts: []
-  supplements: ["claim-20260610-030-a", "claim-20260621-006-h"]
+  supplements:
+  - claim-20260610-030-a
+  - claim-20260621-006-h
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -818,10 +891,11 @@ claims:
   - 4000美元
   - 4100美元
   - 油价
+  school: qing
 - id: claim-20260715-020-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -835,8 +909,10 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260625-001-g"]
-  supplements: ["claim-20260630-001-p"]
+  contradicts:
+  - claim-20260625-001-g
+  supplements:
+  - claim-20260630-001-p
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -849,10 +925,11 @@ claims:
   - 科技股
   - 防御
   - 一日游
+  school: qing
 - id: claim-20260715-021-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -865,9 +942,12 @@ claims:
   confidence: medium
   status: superseded
   intensity: high
-  supersedes: ["claim-20260610-006-b"]
+  supersedes:
+  - claim-20260610-006-b
   contradicts: []
-  supplements: ["claim-20260622-001-b", "claim-20260622-004-b"]
+  supplements:
+  - claim-20260622-001-b
+  - claim-20260622-004-b
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -881,10 +961,11 @@ claims:
   - 美元
   - 美债收益率
   - A股修复
+  school: qing
 - id: claim-20260715-022-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -897,9 +978,12 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260714-005-be", "claim-20260609-005-a"]
+  supersedes:
+  - claim-20260714-005-be
+  - claim-20260609-005-a
   contradicts: []
-  supplements: ["claim-20260713-009-i"]
+  supplements:
+  - claim-20260713-009-i
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -912,10 +996,11 @@ claims:
   - 油价
   - 美元
   - A股磨底
+  school: qing
 - id: claim-20260715-023-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -930,7 +1015,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-004-k"]
+  supplements:
+  - claim-20260702-004-k
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -954,10 +1040,11 @@ claims:
   - 新易盛
   - 中际旭创
   - 天孚通信
+  school: qing
 - id: claim-20260715-024-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -972,7 +1059,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260715-021-a", "claim-20260622-001-b"]
+  supplements:
+  - claim-20260715-021-a
+  - claim-20260622-001-b
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -992,10 +1081,11 @@ claims:
   - '3985'
   - 跌停家数
   - 高标
+  school: qing
 - id: claim-20260715-025-a
   source_path: sources/original/bilibili/2026-07-15-0903-图片-个人判断，周三更可能是先消化、后分化的一天，而不是单边大涨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T09:15:52+08:00'
@@ -1008,9 +1098,12 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260622-001-h", "claim-20260622-004-k"]
+  supersedes:
+  - claim-20260622-001-h
+  - claim-20260622-004-k
   contradicts: []
-  supplements: ["claim-20260607-004-d"]
+  supplements:
+  - claim-20260607-004-d
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -1024,3 +1117,4 @@ claims:
   - 油价
   - 右侧交易
   - 科技股
+  school: qing

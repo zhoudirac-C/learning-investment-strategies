@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260821-001
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260820-001", "claim-20260610-006-a"]
+  supersedes:
+  - claim-20260820-001
+  - claim-20260610-006-a
   contradicts: []
-  supplements: ["claim-20260805-001"]
+  supplements:
+  - claim-20260805-001
   last_discovered: 2026-08-21
   links:
     wiki_pages: []
@@ -30,10 +33,11 @@ claims:
   - 费半翻红
   - 美光
   - 三大指数下台阶
+  school: qing
 - id: claim-20260821-002
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -48,7 +52,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-051", "claim-20260813-014", "claim-20260805-015"]
+  supplements:
+  - claim-20260819-051
+  - claim-20260813-014
+  - claim-20260805-015
   last_discovered: 2026-08-21
   links:
     wiki_pages: []
@@ -61,10 +68,11 @@ claims:
   - 存储不塌
   - 场内承接
   - 硬件
+  school: qing
 - id: claim-20260821-003
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -73,14 +81,15 @@ claims:
   timeframe: short-term
   statement: 据隔夜数据，十年期美债收益率回升4个基点至4.70%，布伦特原油涨1.86%报93.32美元/桶，WTI报86.32美元，COMEX黄金涨2.13%报4585美元。此前用来区分宏观扰动与AI商业模式证伪的三条前置条件——美联储不动、油价低于80美元、十年期收益率低于4.70%——目前一条都不成立。个人判断，这一轮压制的性质仍应归到宏观，而不是AI逻辑本身出了问题。
   evidence_quote: 三条前置条件——美联储不动、油价低于80美元、十年期收益率低于4.70%——目前一条都不成立。
-  interpretation: 宏观三压制同时抬头：10年美债4.70%（+4bp）、布伦特93.32（+1.86%）、黄金4585（+2.13%）；区分宏观扰动vs
-    AI证伪的三条件（美联储不动/油价<80/10年<4.70%）一条不成立。仍定性宏观压制非AI逻辑问题。
+  interpretation: 宏观三压制同时抬头：10年美债4.70%（+4bp）、布伦特93.32（+1.86%）、黄金4585（+2.13%）；区分宏观扰动vs AI证伪的三条件（美联储不动/油价<80/10年<4.70%）一条不成立。仍定性宏观压制非AI逻辑问题。
   confidence: high
   status: superseded
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-061", "claim-20260729-032"]
+  supplements:
+  - claim-20260819-061
+  - claim-20260729-032
   last_discovered: 2026-08-21
   links:
     wiki_pages: []
@@ -93,10 +102,11 @@ claims:
   - 4.70%
   - 布伦特93
   - 前置条件
+  school: qing
 - id: claim-20260821-004
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -111,7 +121,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260703-001-f", "claim-20260809-006", "claim-20260810-004"]
+  supplements:
+  - claim-20260703-001-f
+  - claim-20260809-006
+  - claim-20260810-004
   last_discovered: 2026-08-21
   links:
     wiki_pages: []
@@ -124,10 +137,11 @@ claims:
   - 低开不可怕
   - 中概
   - 阿里抗跌
+  school: qing
 - id: claim-20260821-005
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -142,7 +156,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-005", "claim-20260820-032", "claim-20260820-008"]
+  supplements:
+  - claim-20260812-005
+  - claim-20260820-032
+  - claim-20260820-008
   last_discovered: 2026-08-21
   links:
     wiki_pages: []
@@ -155,10 +172,11 @@ claims:
   - 2.5万亿
   - 弱修复
   - 2万亿
+  school: qing
 - id: claim-20260821-006
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -171,7 +189,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260507-001-a", "claim-20260820-012"]
+  supersedes:
+  - claim-20260507-001-a
+  - claim-20260820-012
   contradicts: []
   supplements: []
   last_discovered: 2026-08-21
@@ -186,10 +206,11 @@ claims:
   - 60分钟顶
   - 90分钟顶
   - 下周下半周
+  school: qing
 - id: claim-20260821-007
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -202,8 +223,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260804-009", "claim-20260812-007"]
-  contradicts: ["claim-20260806-003"]
+  supersedes:
+  - claim-20260804-009
+  - claim-20260812-007
+  contradicts:
+  - claim-20260806-003
   supplements: []
   last_discovered: 2026-08-21
   links:
@@ -220,10 +244,11 @@ claims:
   - 高度塌陷
   - 首板74
   - 晋级率10.34%
+  school: qing
 - id: claim-20260821-008
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -236,7 +261,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260722-005", "claim-20260803-005", "claim-20260806-053"]
+  supersedes:
+  - claim-20260722-005
+  - claim-20260803-005
+  - claim-20260806-053
   contradicts: []
   supplements: []
   last_discovered: 2026-08-21
@@ -251,10 +279,11 @@ claims:
   - 首板
   - 跌停
   - 情绪拐点
+  school: qing
 - id: claim-20260821-009
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -267,7 +296,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260731-011", "claim-20260622-001-h", "claim-20260625-001-d"]
+  supersedes:
+  - claim-20260731-011
+  - claim-20260622-001-h
+  - claim-20260625-001-d
   contradicts: []
   supplements: []
   last_discovered: 2026-08-21
@@ -282,10 +314,11 @@ claims:
   - 无止跌
   - 穿越
   - 观望
+  school: qing
 - id: claim-20260821-010
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -298,9 +331,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260622-001-h"]
+  supersedes:
+  - claim-20260622-001-h
   contradicts: []
-  supplements: ["claim-20260817-027"]
+  supplements:
+  - claim-20260817-027
   last_discovered: 2026-08-21
   links:
     wiki_pages: []
@@ -313,10 +348,11 @@ claims:
   - 脱敏
   - 警惕信号
   - 封测
+  school: qing
 - id: claim-20260821-011
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -329,8 +365,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260812-008", "claim-20260818-062"]
-  contradicts: ["claim-20260809-016"]
+  supersedes:
+  - claim-20260812-008
+  - claim-20260818-062
+  contradicts:
+  - claim-20260809-016
   supplements: []
   last_discovered: 2026-08-21
   links:
@@ -344,10 +383,11 @@ claims:
   - 莫德纳回落
   - 分歧
   - 弱修复
+  school: qing
 - id: claim-20260821-012
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -360,7 +400,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260820-037", "claim-20260820-013"]
+  supersedes:
+  - claim-20260820-037
+  - claim-20260820-013
   contradicts: []
   supplements: []
   last_discovered: 2026-08-21
@@ -381,10 +423,11 @@ claims:
   - 顶线数据
   - 缺催化
   - 口径修正
+  school: qing
 - id: claim-20260821-013
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -399,7 +442,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260820-014"]
+  supplements:
+  - claim-20260820-014
   last_discovered: 2026-08-21
   links:
     wiki_pages: []
@@ -418,10 +462,11 @@ claims:
   - 反包
   - 一字
   - 延续性
+  school: qing
 - id: claim-20260821-014
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -436,7 +481,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260820-006", "claim-20260713-004-d", "claim-20260817-048"]
+  supplements:
+  - claim-20260820-006
+  - claim-20260713-004-d
+  - claim-20260817-048
   last_discovered: 2026-08-21
   links:
     wiki_pages: []
@@ -449,10 +497,11 @@ claims:
   - CPO论文
   - 回购
   - 托底
+  school: qing
 - id: claim-20260821-015
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -467,7 +516,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260817-012", "claim-20260818-067"]
+  supplements:
+  - claim-20260817-012
+  - claim-20260818-067
   last_discovered: 2026-08-21
   links:
     wiki_pages: []
@@ -486,21 +537,20 @@ claims:
   - FAU
   - 价值量
   - 光库科技
+  school: qing
 - id: claim-20260821-016
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
   claim_type: stock-view
   subject: 阿里云收入以上45%数字好但不是新预期已定价
   timeframe: short-term
-  statement: 据阿里巴巴2027财年第一季度财报，季度营收2689.5亿元、同比增长9%，调整后净利润207.2亿元；阿里云外部商业化收入加速增长45%，增速创22个季度新高；AI相关产品收入连续第十二个季度实现三位数同比增长；云业务经调整EBITA同比增长133%、EBITA利润率升至12%，全球云厂商增速对比为谷歌云82%、阿里云45%、Azure
-    43%、AWS 37%。关键在于时点：45%这个数字早在7月8日就以财报前瞻的形式流出，当日港股阿里盘中大涨逾12.5%，主要预期已在一个多月前定价过一轮；隔夜阿里美股仅涨1.26%，亦从侧面印证。A股映射今天更可能是分化而非普涨。
+  statement: 据阿里巴巴2027财年第一季度财报，季度营收2689.5亿元、同比增长9%，调整后净利润207.2亿元；阿里云外部商业化收入加速增长45%，增速创22个季度新高；AI相关产品收入连续第十二个季度实现三位数同比增长；云业务经调整EBITA同比增长133%、EBITA利润率升至12%，全球云厂商增速对比为谷歌云82%、阿里云45%、Azure 43%、AWS 37%。关键在于时点：45%这个数字早在7月8日就以财报前瞻的形式流出，当日港股阿里盘中大涨逾12.5%，主要预期已在一个多月前定价过一轮；隔夜阿里美股仅涨1.26%，亦从侧面印证。A股映射今天更可能是分化而非普涨。
   evidence_quote: 45%这个数字早在7月8日就以财报前瞻的形式流出……主要预期已在一个多月前定价过一轮。
-  interpretation: 阿里FY2027Q1：营收2689.5亿+9%/云外部收入+45%（22季度新高）/AI收入连续12季度三位数增长/云EBITA利润率12%（全球对比：谷歌82%/阿里45%/Azure
-    43%/AWS 37%）；但45%早在7/8财报前瞻流出已定价→A股映射=分化非普涨，挑实质合作绑定。
+  interpretation: 阿里FY2027Q1：营收2689.5亿+9%/云外部收入+45%（22季度新高）/AI收入连续12季度三位数增长/云EBITA利润率12%（全球对比：谷歌82%/阿里45%/Azure 43%/AWS 37%）；但45%早在7/8财报前瞻流出已定价→A股映射=分化非普涨，挑实质合作绑定。
   confidence: high
   status: active
   intensity: medium
@@ -514,7 +564,7 @@ claims:
     cases: []
   topic: 阿里云45%数字好但预期已定价
   related_stocks:
-  - code: '002929'
+  - code: 002929
     name: 润建股份
     role: 阿里云合作-主板可交易
   - code: '603171'
@@ -525,10 +575,11 @@ claims:
   - 45%
   - 已定价
   - 分化
+  school: qing
 - id: claim-20260821-017
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -542,8 +593,11 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260817-023"]
-  supplements: ["claim-20260818-060", "claim-20260805-039"]
+  contradicts:
+  - claim-20260817-023
+  supplements:
+  - claim-20260818-060
+  - claim-20260805-039
   last_discovered: 2026-08-21
   links:
     wiki_pages: []
@@ -562,10 +616,11 @@ claims:
   - 霍尔木兹
   - 地缘
   - 波段
+  school: qing
 - id: claim-20260821-018
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -578,8 +633,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260805-013", "claim-20260803-013"]
-  contradicts: ["claim-20260803-005"]
+  supersedes:
+  - claim-20260805-013
+  - claim-20260803-013
+  contradicts:
+  - claim-20260803-005
   supplements: []
   last_discovered: 2026-08-21
   links:
@@ -593,10 +651,11 @@ claims:
   - 情绪拐点
   - 首板50
   - 二板10
+  school: qing
 - id: claim-20260821-019
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -609,9 +668,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260820-035"]
+  supersedes:
+  - claim-20260820-035
   contradicts: []
-  supplements: ["claim-20260812-024"]
+  supplements:
+  - claim-20260812-024
   last_discovered: 2026-08-21
   links:
     wiki_pages: []
@@ -624,10 +685,11 @@ claims:
   - 一日游
   - 一次性放量
   - 疫苗分歧
+  school: qing
 - id: claim-20260821-020
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -642,7 +704,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260813-002"]
+  supplements:
+  - claim-20260813-002
   last_discovered: 2026-08-21
   links:
     wiki_pages: []
@@ -655,10 +718,11 @@ claims:
   - 外围主导
   - 警惕信号
   - 承接
+  school: qing
 - id: claim-20260821-021
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-21-0849-图片-隔夜三大指数集体下台阶，费城半导体独自翻红；十年期美债回到4.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-21'
   source_type: 早盘动态
   extracted_at: '2026-08-21T09:11:00'
@@ -671,9 +735,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260814-019"]
+  supersedes:
+  - claim-20260814-019
   contradicts: []
-  supplements: ["claim-20260614-002-b"]
+  supplements:
+  - claim-20260614-002-b
   last_discovered: 2026-08-21
   links:
     wiki_pages: []
@@ -686,3 +752,4 @@ claims:
   - 地缘升温
   - 周末成本
   - 自由选择
+  school: qing

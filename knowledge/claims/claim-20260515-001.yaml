@@ -1,8 +1,8 @@
 - id: claim-20260515-001
   topic: 指数高位震荡分歧加剧
   source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-15
   source_type: 周复盘
   extracted_at: '2026-05-18T13:25:00+08:00'
@@ -29,11 +29,12 @@
   - 市场周期
   - 主线
   - 轮动
+  school: qing
 - id: claim-20260515-002
   topic: 劣性轮动的特征是每个方向只能涨一天或半天
   source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-15
   source_type: 周复盘
   extracted_at: '2026-05-18T13:25:00+08:00'
@@ -47,7 +48,8 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-008"]
+  supplements:
+  - claim-20260515-008
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -59,11 +61,12 @@
   - 劣性轮动
   - 方法论
   - 轮动判断
+  school: qing
 - id: claim-20260515-003
   topic: 从进攻思维切换到防守反击思维
   source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-15
   source_type: 周复盘
   extracted_at: '2026-05-18T13:25:00+08:00'
@@ -77,7 +80,10 @@
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-002-i", "claim-20260515-012", "claim-20260612-003-x"]
+  supplements:
+  - claim-20260521-002-i
+  - claim-20260515-012
+  - claim-20260612-003-x
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -91,11 +97,12 @@
   - 追高
   - 进攻
   - 修复
+  school: qing
 - id: claim-20260515-004
   topic: 存储产业链
   source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-15
   source_type: 周复盘
   extracted_at: '2026-05-18T13:25:00+08:00'
@@ -109,7 +116,10 @@
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260518-013", "claim-20260525-023", "claim-20260518-001"]
+  supplements:
+  - claim-20260518-013
+  - claim-20260525-023
+  - claim-20260518-001
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -129,14 +139,15 @@
   - code: '603986'
     name: 兆易创新
     role: 参考标的
-  - code: "688825"
-    name: "长鑫科技"
-    role: "回填-正文提及"
+  - code: '688825'
+    name: 长鑫科技
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260515-005
   topic: 碳化硅修复与否是判断市场轮动质量
   source_path: sources/raw/财经/周复盘：26-05-15：动态周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-15
   source_type: 周复盘
   extracted_at: '2026-05-18T13:25:00+08:00'
@@ -150,7 +161,8 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260522-001-a"]
+  supplements:
+  - claim-20260522-001-a
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -163,3 +175,4 @@
   - 劣性轮动
   - 碳化硅
   - 修复
+  school: qing

@@ -1,0 +1,60 @@
+# 学派注册表（多专家知识体系）
+#
+# 全系统唯一的 up_id → school 映射源。所有下游（claim 校验、检索过滤、
+# agent 注入、盲判计分）都读本文件，不得在代码里硬编码 up_id 归属。
+#
+# 设计文档：docs/design/dual-school-architecture.md
+#
+# 字段：
+#   school_id    学派标识（英文短名，用于 Qdrant payload / pattern.school / CLI 过滤）
+#   display_name 展示名
+#   up_ids       属于该学派的 up_id 列表（B站 uid / 虚拟 up_id）
+#   sources      claim source_path 允许的来源前缀（linter 用）
+#   style        方法论一句话概括
+#   is_default   是否为默认学派（无指定时使用；存量 claim 归属基准）
+#
+# 新增 UP：在 bilibili_ups.yaml 加条目 + 在此登记 up_id 归属（或默认 watchlist）
+# 升格为专家：新建 school 条目 + 指派 up_ids，全链路自动获得隔离/分组能力
+
+version: 1
+
+schools:
+  - school_id: qing
+    display_name: 青枫浦上Q
+    up_ids:
+      - "1420210197"          # B站
+      - "chanlun-original"    # 缠中说禅原著（虚拟 up，缠论课程）
+    sources:
+      - "sources/original/bilibili/"
+      - "sources/raw/财经/"
+      - "sources/chanlun/"
+      - "/home/ubuntu/learning-investment-strategies/sources/"
+    style: 结构化技术分析（缠论 + 七轨布林 + 双引擎）
+    is_default: true
+
+  - school_id: gator
+    display_name: 像鳄鱼一样思考
+    up_ids:
+      - "wechat-ecyu-0001"    # 微信公众号（we-mp-rss 管线）
+      - "470672214"           # B站
+    sources:
+      - "sources/original/wechat/"
+      - "sources/original/bilibili/"
+      - "sources/third_party/gator-method/"
+    style: 资金生态位 + 预案-信号-执行规则体系
+    is_default: false
+    provenance_note: >-
+      部分规则源自第三方提炼库 sources/third_party/gator-method（非 UP 原文），
+      提 claim 时须在 source_path 标注该路径，后续用公众号原文校验/替换。
+
+  - school_id: watchlist
+    display_name: 观察池
+    up_ids:
+      - "525121722"           # 莫大韭菜
+      - "424405794"           # Mark__Huang
+      - "550494308"           # 卢本圆复盘
+    sources:
+      - "sources/original/bilibili/"
+      - "sources/raw/财经/"
+    style: 杂（仅通知，不进 claim 库）
+    is_default: false

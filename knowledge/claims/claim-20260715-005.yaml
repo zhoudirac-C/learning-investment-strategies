@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260715-042-a
   source_path: sources/original/bilibili/2026-07-15-1548-图片-社融数据增加，经济数据拉跨，剧本已经开始了，来吧，告诉我会发.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T21:20:00+08:00'
@@ -15,9 +15,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260715-032-a"]
+  supersedes:
+  - claim-20260715-032-a
   contradicts: []
-  supplements: ["claim-20260715-031-a"]
+  supplements:
+  - claim-20260715-031-a
   last_discovered: 2026-07-15
   links:
     wiki_pages: []
@@ -31,11 +33,11 @@ claims:
   - 情形二
   - 情形三
   - 宏观
-
+  school: qing
 - id: claim-20260715-043-a
   source_path: sources/original/bilibili/2026-07-15-1548-图片-社融数据增加，经济数据拉跨，剧本已经开始了，来吧，告诉我会发.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-15'
   source_type: 动态
   extracted_at: '2026-07-15T21:20:00+08:00'
@@ -62,3 +64,4 @@ claims:
   - 方法论
   - 数据驱动
   - 情景框架
+  school: qing

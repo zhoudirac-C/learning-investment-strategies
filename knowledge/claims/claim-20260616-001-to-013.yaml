@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260616-001-c
   source_path: sources/original/bilibili/2026-06-16-0858-图片-一、大盘：突破下降趋势线，短期看多做多.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_image
   extracted_at: '2026-06-16T09:07:23+08:00'
@@ -15,7 +15,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260609-001-c", "claim-20260610-009-a", "claim-20260615-001"]
+  supersedes:
+  - claim-20260609-001-c
+  - claim-20260610-009-a
+  - claim-20260615-001
   contradicts: []
   last_discovered: 2026-06-16
   links: {}
@@ -26,10 +29,11 @@ claims:
   - 看多做多
   - 风险释放
   topic: 大盘趋势
+  school: qing
 - id: claim-20260616-002-c
   source_path: sources/original/bilibili/2026-06-16-0858-图片-一、大盘：突破下降趋势线，短期看多做多.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_image
   extracted_at: '2026-06-16T09:07:23+08:00'
@@ -43,7 +47,8 @@ claims:
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260614-001-a"]
+  contradicts:
+  - claim-20260614-001-a
   last_discovered: 2026-06-16
   links: {}
   related_stocks: []
@@ -53,10 +58,11 @@ claims:
   - 量能天花板
   - 结构性行情
   topic: 量能分析
+  school: qing
 - id: claim-20260616-003-c
   source_path: sources/original/bilibili/2026-06-16-0858-图片-一、大盘：突破下降趋势线，短期看多做多.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_image
   extracted_at: '2026-06-16T09:07:23+08:00'
@@ -70,7 +76,8 @@ claims:
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260614-014-p"]
+  contradicts:
+  - claim-20260614-014-p
   last_discovered: 2026-06-16
   links: {}
   related_stocks: []
@@ -81,10 +88,11 @@ claims:
   - 量能触底
   - 情绪回暖
   topic: 方法论
+  school: qing
 - id: claim-20260616-004-c
   source_path: sources/original/bilibili/2026-06-16-0858-图片-一、大盘：突破下降趋势线，短期看多做多.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_image
   extracted_at: '2026-06-16T09:07:23+08:00'
@@ -109,10 +117,11 @@ claims:
   - 见底信号
   - 见顶信号
   topic: 资金面分析
+  school: qing
 - id: claim-20260616-005-o
   source_path: sources/original/bilibili/2026-06-16-0858-图片-一、大盘：突破下降趋势线，短期看多做多.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_image
   extracted_at: '2026-06-16T09:07:23+08:00'
@@ -138,10 +147,11 @@ claims:
   - 承接观察
   - 日内策略
   topic: 操作策略
+  school: qing
 - id: claim-20260616-006-c
   source_path: sources/original/bilibili/2026-06-16-0858-图片-一、大盘：突破下降趋势线，短期看多做多.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_image
   extracted_at: '2026-06-16T09:07:23+08:00'
@@ -155,7 +165,9 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260604-004-b", "claim-20260607-003-c"]
+  contradicts:
+  - claim-20260604-004-b
+  - claim-20260607-003-c
   last_discovered: 2026-06-16
   links: {}
   related_stocks:
@@ -169,10 +181,11 @@ claims:
   - 跌停家数
   - 电子化学品
   topic: 科技板块框架
+  school: qing
 - id: claim-20260616-007-c
   source_path: sources/original/bilibili/2026-06-16-0858-图片-一、大盘：突破下降趋势线，短期看多做多.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_image
   extracted_at: '2026-06-16T09:07:23+08:00'
@@ -186,7 +199,8 @@ claims:
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260607-003-c"]
+  contradicts:
+  - claim-20260607-003-c
   last_discovered: 2026-06-16
   links: {}
   related_stocks:
@@ -200,10 +214,11 @@ claims:
   - 20cm高度
   - 铜箔CCL氟化工
   topic: 科技板块炒作路径
+  school: qing
 - id: claim-20260616-008-c
   source_path: sources/original/bilibili/2026-06-16-0858-图片-一、大盘：突破下降趋势线，短期看多做多.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_image
   extracted_at: '2026-06-16T09:07:23+08:00'
@@ -232,10 +247,11 @@ claims:
   - 股价跑输
   - 首板晋级率
   topic: 中报策略
+  school: qing
 - id: claim-20260616-009-s
   source_path: sources/original/bilibili/2026-06-16-0858-图片-一、大盘：突破下降趋势线，短期看多做多.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_image
   extracted_at: '2026-06-16T09:07:23+08:00'
@@ -267,10 +283,11 @@ claims:
   - 麒麟芯片
   - 半导体
   topic: 先进制程
+  school: qing
 - id: claim-20260616-010-s
   source_path: sources/original/bilibili/2026-06-16-0858-图片-一、大盘：突破下降趋势线，短期看多做多.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_image
   extracted_at: '2026-06-16T09:07:23+08:00'
@@ -278,15 +295,16 @@ claims:
   subject: 铜箔方向AI算力上游材料
   timeframe: industry
   statement: 2026年6月16日UP关注铜箔方向。HVLP4代算力铜箔在手订单已排至2027年下半年，AI算力驱动AI PCB量价齐升。国产替代提速，一旦规模出货有望打破日韩垄断。板块内公司：铜冠铜箔(301217)、诺德股份(600110)等。
-  evidence_quote: 据报道，国内一家铜箔厂商市场负责人表示，其专为AI服务器、高速光模块配套的HVLP4代算力铜箔在手订单已排至2027年下半年。西部证券杨敬梅指出，AI算力驱动AI
-    PCB量价齐升，HVLP铜箔为上游关键材料。板块内公司：铜冠铜箔、诺德股份等。
+  evidence_quote: 据报道，国内一家铜箔厂商市场负责人表示，其专为AI服务器、高速光模块配套的HVLP4代算力铜箔在手订单已排至2027年下半年。西部证券杨敬梅指出，AI算力驱动AI PCB量价齐升，HVLP铜箔为上游关键材料。板块内公司：铜冠铜箔、诺德股份等。
   interpretation: 铜箔方向核心逻辑：HVLP4代铜箔订单排期到2027下半年（可见度极高），国产替代从概念进入实质性放量阶段。诺德股份（主板可交易）和铜冠铜箔都是潜在受益标的。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-001-d", "claim-20260621-001-o"]
+  supplements:
+  - claim-20260609-001-d
+  - claim-20260621-001-o
   last_discovered: 2026-06-25
   links: {}
   related_stocks:
@@ -303,10 +321,11 @@ claims:
   - 国产替代
   - PCB上游
   topic: 铜箔
+  school: qing
 - id: claim-20260616-011-s
   source_path: sources/original/bilibili/2026-06-16-0858-图片-一、大盘：突破下降趋势线，短期看多做多.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_image
   extracted_at: '2026-06-16T09:07:23+08:00'
@@ -331,9 +350,9 @@ claims:
   - code: '002625'
     name: 光启技术
     role: 超材料龙头-主板可交易
-  - code: "000901"
-    name: "航天科技"
-    role: "回填-正文提及"
+  - code: 000901
+    name: 航天科技
+    role: 回填-正文提及
   tags:
   - 超表面电磁调控
   - 卫星通信
@@ -341,10 +360,11 @@ claims:
   - 航天电子
   - 新技术
   topic: 超表面电磁调控
+  school: qing
 - id: claim-20260616-012-s
   source_path: sources/original/bilibili/2026-06-16-0858-图片-一、大盘：突破下降趋势线，短期看多做多.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_image
   extracted_at: '2026-06-16T09:07:23+08:00'
@@ -359,7 +379,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260615-018", "claim-20260623-001-m", "claim-20260604-006-a"]
+  supplements:
+  - claim-20260615-018
+  - claim-20260623-001-m
+  - claim-20260604-006-a
   last_discovered: 2026-06-25
   links: {}
   related_stocks:
@@ -379,10 +402,11 @@ claims:
   - 储能
   - 上行周期
   topic: 锂电
+  school: qing
 - id: claim-20260616-013-s
   source_path: sources/original/bilibili/2026-06-16-0858-图片-一、大盘：突破下降趋势线，短期看多做多.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_image
   extracted_at: '2026-06-16T09:07:23+08:00'
@@ -414,3 +438,4 @@ claims:
   - CAGR51%
   - 主题炒作
   topic: 量子计算
+  school: qing

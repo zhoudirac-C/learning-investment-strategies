@@ -10,7 +10,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-061"]
+  supplements:
+  - claim-20260819-061
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -32,6 +33,7 @@ claims:
   - 估值基数
   - 费城半导体
   - 会计口径
+  school: qing
 - id: claim-20261009-002-b
   source_path: sources/original/bilibili/2026-10-09-0846-图片-事件：据向投资者公开的财务文件消息，OpenAI在9月底向投.md
   source_date: '2026-10-09'
@@ -65,6 +67,7 @@ claims:
   - 营收增速
   - 增长斜率
   - 科技主线
+  school: qing
 - id: claim-20261009-002-c
   source_path: sources/original/bilibili/2026-10-09-0937-图片-昨天说过了，今天收根下影线，别着急，下影线收出来看上证60分.md
   source_date: '2026-10-09'
@@ -84,7 +87,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260927-001-b"]
+  supplements:
+  - claim-20260927-001-b
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -97,6 +101,7 @@ claims:
   - 上证60分钟
   - 底部结构
   - 节奏
+  school: qing
 - id: claim-20261009-002-d
   source_path: sources/original/bilibili/2026-10-09-1030-图片-科技股暴跌，但市场总的融资余额还是增加的，说明散户还在加仓，.md
   source_date: '2026-10-09'
@@ -106,9 +111,11 @@ claims:
   extracted_at: '2026-10-09T21:55:58'
   confidence: high
   status: active
-  supersedes: ["claim-20260731-011"]
+  supersedes:
+  - claim-20260731-011
   contradicts: []
-  supplements: ["claim-20260730-016"]
+  supplements:
+  - claim-20260730-016
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -130,6 +137,7 @@ claims:
   - 融资余额
   - 龙虎榜
   - 风控赎回
+  school: qing
 - id: claim-20261009-002-e
   source_path: sources/original/bilibili/2026-10-09-1030-图片-科技股暴跌，但市场总的融资余额还是增加的，说明散户还在加仓，.md
   source_date: '2026-10-09'
@@ -163,6 +171,7 @@ claims:
   - 量化调仓
   - 被动卖出
   - 市场结构
+  school: qing
 - id: claim-20261009-002-f
   source_path: sources/original/bilibili/2026-10-09-1030-图片-科技股暴跌，但市场总的融资余额还是增加的，说明散户还在加仓，.md
   source_date: '2026-10-09'
@@ -173,8 +182,10 @@ claims:
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260928-002-b"]
-  supplements: ["claim-20260611-001-b-dup1"]
+  contradicts:
+  - claim-20260928-002-b
+  supplements:
+  - claim-20260611-001-b-dup1
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -195,6 +206,7 @@ claims:
   - 外围股市
   - 机构互爆
   - 与7月对比
+  school: qing
 - id: claim-20261009-002-g
   source_path: sources/original/bilibili/2026-10-09-1030-图片-科技股暴跌，但市场总的融资余额还是增加的，说明散户还在加仓，.md
   source_date: '2026-10-09'
@@ -206,7 +218,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-029"]
+  supplements:
+  - claim-20260803-029
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -227,6 +240,7 @@ claims:
   - 恶性循环
   - 打破条件
   - 底部确认
+  school: qing
 - id: claim-20261009-002-h
   source_path: sources/original/bilibili/2026-10-09-1030-图片-科技股暴跌，但市场总的融资余额还是增加的，说明散户还在加仓，.md
   source_date: '2026-10-09'
@@ -238,7 +252,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260723-026"]
+  supplements:
+  - claim-20260723-026
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -259,6 +274,7 @@ claims:
   - 证金汇金
   - 救市ETF
   - IPO
+  school: qing
 - id: claim-20261009-002-i
   source_path: sources/original/bilibili/2026-10-09-1420-图片-下影线如约而至，后面怎么走就看下周一了。 做交易，这种时候不.md
   source_date: '2026-10-09'
@@ -291,6 +307,7 @@ claims:
   - 方向选择
   - 下周一
   - 节奏
+  school: qing
 - id: claim-20261009-002-j
   source_path: sources/original/bilibili/2026-10-09-1420-图片-下影线如约而至，后面怎么走就看下周一了。 做交易，这种时候不.md
   source_date: '2026-10-09'
@@ -302,7 +319,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260823-001-006", "claim-20070621-001-c"]
+  supplements:
+  - claim-20260823-001-006
+  - claim-20070621-001-c
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -324,3 +343,4 @@ claims:
   - 降低预期
   - 账户管理
   - 纪律
+  school: qing

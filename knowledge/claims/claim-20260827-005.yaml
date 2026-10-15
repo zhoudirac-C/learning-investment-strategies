@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260827-054-x
   source_path: sources/raw/财经/2026-08-27-尾盘-站稳3932加仓指令.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 动态
   extracted_at: '2026-08-28T01:38:00+08:00'
@@ -15,8 +15,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260605-002-a"]
-  contradicts: ["claim-20260826-022-a"]
+  supersedes:
+  - claim-20260605-002-a
+  contradicts:
+  - claim-20260826-022-a
   supplements: []
   last_discovered: 2026-08-28
   links:
@@ -31,3 +33,4 @@ claims:
   - 仓位管理
   - 尾盘确认
   - 大金融
+  school: qing

@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260825-027-a
   source_path: sources/raw/财经/2026-08-25-1300-午盘-低开修复防御占优避险内部替换-金健米业弱转强.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T13:14:00+08:00'
@@ -30,10 +30,11 @@ claims:
   - 自身节奏
   - 缩量
   - 关税
+  school: qing
 - id: claim-20260825-028-a
   source_path: sources/raw/财经/2026-08-25-1300-午盘-低开修复防御占优避险内部替换-金健米业弱转强.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T13:14:00+08:00'
@@ -70,10 +71,11 @@ claims:
   - 缩容炒作
   - 楚天龙
   - 黄金回调
+  school: qing
 - id: claim-20260825-029-a
   source_path: sources/raw/财经/2026-08-25-1300-午盘-低开修复防御占优避险内部替换-金健米业弱转强.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T13:14:00+08:00'
@@ -99,7 +101,7 @@ claims:
   - code: '002412'
     name: 汉森制药
     role: 医药连板龙头-主板可交易
-  - code: '002837'
+  - code: 002837
     name: 英维克
     role: 液冷核心-主板可交易
   tags:
@@ -107,10 +109,11 @@ claims:
   - 液冷
   - 英维克
   - 汉森制药
+  school: qing
 - id: claim-20260825-030-a
   source_path: sources/raw/财经/2026-08-25-1300-午盘-低开修复防御占优避险内部替换-金健米业弱转强.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T13:14:00+08:00'
@@ -141,10 +144,11 @@ claims:
   - 二波先兆
   - 金健米业
   - 板块助攻
+  school: qing
 - id: claim-20260825-031-a
   source_path: sources/raw/财经/2026-08-25-1300-午盘-低开修复防御占优避险内部替换-金健米业弱转强.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T13:14:00+08:00'
@@ -157,9 +161,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260709-002-g"]
+  supersedes:
+  - claim-20260709-002-g
   contradicts: []
-  supplements: ["claim-20260611-001-b"]
+  supplements:
+  - claim-20260611-001-b
   last_discovered: 2026-08-25
   links:
     wiki_pages: []
@@ -171,10 +177,11 @@ claims:
   - 二次冰点
   - 中期落点
   - 反弹非反转
+  school: qing
 - id: claim-20260825-032-a
   source_path: sources/raw/财经/2026-08-25-1300-午盘-低开修复防御占优避险内部替换-金健米业弱转强.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T13:14:00+08:00'
@@ -187,7 +194,10 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260622-001-h", "claim-20260730-016", "claim-20260609-001-a"]
+  supersedes:
+  - claim-20260622-001-h
+  - claim-20260730-016
+  - claim-20260609-001-a
   contradicts: []
   supplements: []
   last_discovered: 2026-08-25
@@ -202,3 +212,4 @@ claims:
   - 调整结构完成
   - 耐心
   - 杀跌尾声
+  school: qing

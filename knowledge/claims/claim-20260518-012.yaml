@@ -1,11 +1,11 @@
 - id: claim-20260518-012
   topic: 调整性质判断
   source_path: sources/raw/财经/早盘补充：26-05-18：耐心持股，切换核心.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-18
   source_type: 早盘补充
-  extracted_at: "2026-05-18T13:25:00+08:00"
+  extracted_at: '2026-05-18T13:25:00+08:00'
   claim_type: market-cycle
   subject: 调整性质判断
   timeframe: short-term
@@ -16,26 +16,30 @@
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h", "claim-20260617-038-c", "claim-20260612-002-e"]
+  supplements:
+  - claim-20260622-001-h
+  - claim-20260617-038-c
+  - claim-20260612-002-e
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/调整性质判断
+    - 市场分析/调整性质判断
     methodology_pages: []
     cases: []
   intensity: medium
   tags:
-    - 调整性质判断
-    - 市场周期
-    - 业绩
+  - 调整性质判断
+  - 市场周期
+  - 业绩
+  school: qing
 - id: claim-20260518-013
   topic: 长鑫存储产业链
   source_path: sources/raw/财经/早盘补充：26-05-18：耐心持股，切换核心.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-18
   source_type: 早盘补充
-  extracted_at: "2026-05-18T13:25:00+08:00"
+  extracted_at: '2026-05-18T13:25:00+08:00'
   claim_type: sector-theme
   subject: 长鑫存储产业链
   timeframe: trend
@@ -46,28 +50,32 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-004", "claim-20260518-001", "claim-20260519-001-d"]
+  supplements:
+  - claim-20260515-004
+  - claim-20260518-001
+  - claim-20260519-001-d
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/长鑫存储产业链
+    - 市场分析/长鑫存储产业链
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 板块主题
-    - 长鑫存储
-    - IPO
-    - 业绩
-    - 催化
+  - 板块主题
+  - 长鑫存储
+  - IPO
+  - 业绩
+  - 催化
+  school: qing
 - id: claim-20260518-014
   topic: 交易方法论
   source_path: sources/raw/财经/早盘补充：26-05-18：耐心持股，切换核心.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-18
   source_type: 早盘补充
-  extracted_at: "2026-05-18T13:25:00+08:00"
+  extracted_at: '2026-05-18T13:25:00+08:00'
   claim_type: methodology
   subject: 交易方法论
   timeframe: permanent
@@ -78,15 +86,18 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260426-006", "claim-20260614-002-b"]
+  supplements:
+  - claim-20260426-006
+  - claim-20260614-002-b
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 投资方法论/分歧中找机会
+    - 投资方法论/分歧中找机会
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 交易方法论
-    - 主线
-    - 方法论
+  - 交易方法论
+  - 主线
+  - 方法论
+  school: qing

@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260626-003-a
   source_path: sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:32:00Z'
@@ -17,7 +17,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-025-b"]
+  supplements:
+  - claim-20260526-025-b
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -29,10 +30,11 @@ claims:
   - 创业板指
   - 5分钟顶部
   - 技术信号
+  school: qing
 - id: claim-20260626-003-b
   source_path: sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:32:00Z'
@@ -45,7 +47,9 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260526-022", "claim-20260526-025-b"]
+  supersedes:
+  - claim-20260526-022
+  - claim-20260526-025-b
   contradicts: []
   supplements: []
   last_discovered: 2026-06-26
@@ -59,10 +63,11 @@ claims:
   - 抄底
   - 时间窗口
   - 11点15
+  school: qing
 - id: claim-20260626-003-c
   source_path: sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:32:00Z'
@@ -75,8 +80,10 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260531-001-f"]
-  contradicts: ["claim-20260605-001-b"]
+  supersedes:
+  - claim-20260531-001-f
+  contradicts:
+  - claim-20260605-001-b
   supplements: []
   last_discovered: 2026-06-26
   links:
@@ -89,10 +96,11 @@ claims:
   - 上证指数
   - '4008'
   - 支撑
+  school: qing
 - id: claim-20260626-003-d
   source_path: sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:32:00Z'
@@ -105,7 +113,9 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260612-003-t", "claim-20260531-001-f"]
+  supersedes:
+  - claim-20260612-003-t
+  - claim-20260531-001-f
   contradicts: []
   supplements: []
   last_discovered: 2026-06-26
@@ -119,10 +129,11 @@ claims:
   - 上证指数
   - '3907'
   - 跳空缺口
+  school: qing
 - id: claim-20260626-003-e
   source_path: sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:32:00Z'
@@ -135,9 +146,12 @@ claims:
   confidence: low
   status: active
   intensity: medium
-  supersedes: ["claim-20260524-014"]
+  supersedes:
+  - claim-20260524-014
   contradicts: []
-  supplements: ["claim-20260326-001-a", "claim-20260324-001-a"]
+  supplements:
+  - claim-20260326-001-a
+  - claim-20260324-001-a
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -149,10 +163,11 @@ claims:
   - 上证指数
   - 补缺
   - 二次探底
+  school: qing
 - id: claim-20260626-003-f
   source_path: sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:32:00Z'
@@ -165,7 +180,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260609-001-c", "claim-20260526-022", "claim-20260601-001-g"]
+  supersedes:
+  - claim-20260609-001-c
+  - claim-20260526-022
+  - claim-20260601-001-g
   contradicts: []
   supplements: []
   last_discovered: 2026-06-26
@@ -179,10 +197,11 @@ claims:
   - 抄底
   - 下午观察
   - 位置确认
+  school: qing
 - id: claim-20260626-003-g
   source_path: sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:32:00Z'
@@ -195,8 +214,10 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260522-003-c"]
-  contradicts: ["claim-20260601-001-g"]
+  supersedes:
+  - claim-20260522-003-c
+  contradicts:
+  - claim-20260601-001-g
   supplements: []
   last_discovered: 2026-06-26
   links:
@@ -209,10 +230,11 @@ claims:
   - 早盘杀跌
   - 下午修复
   - 抄底纪律
+  school: qing
 - id: claim-20260626-003-h
   source_path: sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:32:00Z'
@@ -227,7 +249,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-011", "claim-20260528-002-e", "claim-20260122-001-b"]
+  supplements:
+  - claim-20260515-011
+  - claim-20260528-002-e
+  - claim-20260122-001-b
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -239,10 +264,11 @@ claims:
   - 涨跌家数
   - 情绪
   - 修复力度
+  school: qing
 - id: claim-20260626-003-i
   source_path: sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:32:00Z'
@@ -255,9 +281,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260519-003-f", "claim-20260527-004-a"]
+  supersedes:
+  - claim-20260519-003-f
+  - claim-20260527-004-a
   contradicts: []
-  supplements: ["claim-20260522-002-d"]
+  supplements:
+  - claim-20260522-002-d
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -269,10 +298,11 @@ claims:
   - 下午修复
   - 降仓
   - 风控
+  school: qing
 - id: claim-20260626-003-j
   source_path: sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:32:00Z'
@@ -287,7 +317,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-007-b"]
+  supplements:
+  - claim-20260610-007-b
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -299,10 +330,11 @@ claims:
   - 做T
   - 高抛低吸
   - 控制成本
+  school: qing
 - id: claim-20260626-003-k
   source_path: sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:32:00Z'
@@ -315,9 +347,12 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260601-001-g"]
-  contradicts: ["claim-20260624-006-e"]
-  supplements: ["claim-20260526-023"]
+  supersedes:
+  - claim-20260601-001-g
+  contradicts:
+  - claim-20260624-006-e
+  supplements:
+  - claim-20260526-023
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -330,10 +365,11 @@ claims:
   - 中报业绩
   - 超跌
   - 指数ETF
+  school: qing
 - id: claim-20260626-003-l
   source_path: sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:32:00Z'
@@ -360,10 +396,11 @@ claims:
   - 商业航天
   - 高低切
   - 尾盘套利
+  school: qing
 - id: claim-20260626-003-m
   source_path: sources/original/bilibili/2026-06-26-1205-图片-今天这个抄底跟大家说一下。一方面，昨天尾盘创业板指5分钟级别.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:32:00Z'
@@ -376,9 +413,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260525-028"]
+  supersedes:
+  - claim-20260525-028
   contradicts: []
-  supplements: ["claim-20260529-004-b", "claim-20260611-006-a"]
+  supplements:
+  - claim-20260529-004-b
+  - claim-20260611-006-a
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -390,3 +430,4 @@ claims:
   - 高低切
   - 涨幅较大
   - 节奏控制
+  school: qing

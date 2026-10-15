@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260604-003-a
   source_path: sources/raw/财经/视频：26-06-04：UP盘后视频录音整理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-04'
   source_type: 视频
   extracted_at: '2026-06-04'
@@ -43,16 +43,17 @@ claims:
   intensity: medium
   links: {}
   related_stocks:
-  - code: "301392"
-    name: "汇成真空"
-    role: "回填-正文提及"
-  - code: "688502"
-    name: "茂莱光学"
-    role: "回填-正文提及"
+  - code: '301392'
+    name: 汇成真空
+    role: 回填-正文提及
+  - code: '688502'
+    name: 茂莱光学
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260604-003-b
   source_path: sources/raw/财经/视频：26-06-04：UP盘后视频录音整理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-04'
   source_type: 视频
   extracted_at: '2026-06-04'
@@ -83,15 +84,17 @@ claims:
   - 中线格局
   related_claims: []
   contradicts: []
-  supplements: ["claim-20260604-004-f"]
+  supplements:
+  - claim-20260604-004-f
   last_discovered: 2026-06-25
   supersedes: []
   intensity: high
   links: {}
+  school: qing
 - id: claim-20260604-003-c
   source_path: sources/raw/财经/视频：26-06-04：UP盘后视频录音整理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-04'
   source_type: 视频
   extracted_at: '2026-06-04'
@@ -128,10 +131,11 @@ claims:
   - claim-20260526-015
   intensity: high
   links: {}
+  school: qing
 - id: claim-20260604-003-d
   source_path: sources/raw/财经/视频：26-06-04：UP盘后视频录音整理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-04'
   source_type: 视频
   extracted_at: '2026-06-04'
@@ -165,15 +169,18 @@ claims:
   - 不格局
   related_claims: []
   contradicts: []
-  supplements: ["claim-20260529-005-e", "claim-20260604-001-a"]
+  supplements:
+  - claim-20260529-005-e
+  - claim-20260604-001-a
   last_discovered: 2026-06-25
   supersedes: []
   intensity: high
   links: {}
+  school: qing
 - id: claim-20260604-003-e
   source_path: sources/raw/财经/视频：26-06-04：UP盘后视频录音整理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-04'
   source_type: 视频
   extracted_at: '2026-06-04'
@@ -209,28 +216,32 @@ claims:
   - 润泽科技
   related_claims: []
   contradicts: []
-  supplements: ["claim-20260529-005-f", "claim-20260524-006", "claim-20260524-005"]
+  supplements:
+  - claim-20260529-005-f
+  - claim-20260524-006
+  - claim-20260524-005
   last_discovered: 2026-06-25
   supersedes: []
   intensity: medium
   links: {}
   related_stocks:
-  - code: "002261"
-    name: "拓维信息"
-    role: "回填-正文提及"
-  - code: "300442"
-    name: "润泽科技"
-    role: "回填-正文提及"
-  - code: "300017"
-    name: "网宿科技"
-    role: "回填-正文提及"
-  - code: "002202"
-    name: "金风科技"
-    role: "回填-正文提及"
+  - code: '002261'
+    name: 拓维信息
+    role: 回填-正文提及
+  - code: '300442'
+    name: 润泽科技
+    role: 回填-正文提及
+  - code: '300017'
+    name: 网宿科技
+    role: 回填-正文提及
+  - code: '002202'
+    name: 金风科技
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260604-003-f
   source_path: sources/raw/财经/视频：26-06-04：UP盘后视频录音整理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-04'
   source_type: 视频
   extracted_at: '2026-06-04'
@@ -262,7 +273,9 @@ claims:
   - 板块风控
   related_claims: []
   contradicts: []
-  supplements: ["claim-20260529-005-g", "claim-20260622-003-q"]
+  supplements:
+  - claim-20260529-005-g
+  - claim-20260622-003-q
   last_discovered: 2026-06-25
   supersedes: []
   intensity: medium
@@ -271,3 +284,4 @@ claims:
   - code: '002156'
     name: 通富微电
     role: 参考标的
+  school: qing

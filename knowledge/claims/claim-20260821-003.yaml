@@ -17,7 +17,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260818-022", "claim-20260819-062"]
+  supplements:
+  - claim-20260818-022
+  - claim-20260819-062
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -33,6 +35,7 @@ claims:
   - 次新股
   - 暴跌
   - 抄底时机
+  school: watchlist
 - id: claim-20260821-003-002
   source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
   source_date: '2026-08-21'
@@ -51,8 +54,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260819-023"]
-  supplements: ["claim-20260820-024"]
+  disagrees_with:
+  - claim-20260819-023
+  supplements:
+  - claim-20260820-024
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -69,6 +74,7 @@ claims:
   - 高抛低吸
   - 波段节奏
   - 分批低吸
+  school: watchlist
 - id: claim-20260821-003-003
   source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
   source_date: '2026-08-21'
@@ -87,7 +93,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260820-034"]
+  disagrees_with:
+  - claim-20260820-034
   supplements: []
   last_discovered: 2026-09-15
   links:
@@ -108,6 +115,7 @@ claims:
   - 高切低
   - 异动规则
   - 补涨
+  school: watchlist
 - id: claim-20260821-003-004
   source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
   source_date: '2026-08-21'
@@ -126,7 +134,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260813-016"]
+  supplements:
+  - claim-20260813-016
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -142,6 +151,7 @@ claims:
   - 异动规则
   - 监管风险
   - 高位短线
+  school: watchlist
 - id: claim-20260821-003-005
   source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
   source_date: '2026-08-21'
@@ -160,7 +170,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260820-042"]
+  supplements:
+  - claim-20260820-042
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -186,6 +197,7 @@ claims:
   - CXO
   - 美股映射
   - 创新药
+  school: watchlist
 - id: claim-20260821-003-006
   source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
   source_date: '2026-08-21'
@@ -204,7 +216,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-008", "claim-20260717-001-j"]
+  supplements:
+  - claim-20260812-008
+  - claim-20260717-001-j
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -230,6 +244,7 @@ claims:
   - 高辨识度
   - 龙头中军
   - 操作框架
+  school: watchlist
 - id: claim-20260821-003-007
   source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
   source_date: '2026-08-21'
@@ -256,7 +271,7 @@ claims:
     cases: []
   topic: 顺络电子中报：营收放量+算电协同能力，但扣非弱、现金流转负
   related_stocks:
-  - code: '002138'
+  - code: 002138
     name: 顺络电子
     role: 算电协同硬件-深主板
   tags:
@@ -265,6 +280,7 @@ claims:
   - 算电协同
   - 现金流
   - 扣非净利润
+  school: watchlist
 - id: claim-20260821-003-008
   source_path: sources/original/bilibili/2026-08-21-0808-视频-早安，尊贵的领航圆们。.md
   source_date: '2026-08-21'
@@ -291,7 +307,7 @@ claims:
     cases: []
   topic: 顺络电子8/19补仓后缩量未T出，抄底仓有差价就T
   related_stocks:
-  - code: '002138'
+  - code: 002138
     name: 顺络电子
     role: 实盘做T标的-深主板
   tags:
@@ -299,3 +315,4 @@ claims:
   - 做T
   - 补仓
   - 缩量行情
+  school: watchlist

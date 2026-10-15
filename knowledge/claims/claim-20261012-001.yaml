@@ -7,16 +7,17 @@ claims:
   extracted_at: '2026-10-12T09:10:00'
   confidence: high
   status: active
-  supersedes: []
+  supersedes:
+  - claim-20260922-001-b
   contradicts: []
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   id: claim-20261012-001-a
-  supersedes: ["claim-20260922-001-b"]
-  contradicts: []
-  supplements: ["claim-20260929-002-c", "claim-20260929-002-k"]
+  supplements:
+  - claim-20260929-002-c
+  - claim-20260929-002-k
   last_discovered: 2026-10-12
   claim_type: market-cycle
   subject: 修复基础与今日任务
@@ -32,6 +33,7 @@ claims:
   - 反弹延续
   - 主线确立
   - 修复基础
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -47,9 +49,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-b
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260910-001-a", "claim-20260921-001-r"]
+  supplements:
+  - claim-20260910-001-a
+  - claim-20260921-001-r
   last_discovered: 2026-10-12
   claim_type: macro
   subject: 外部环境与成长估值
@@ -66,6 +68,7 @@ claims:
   - 美债收益率
   - 油价
   - 成长估值
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -81,9 +84,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-c
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260709-006-f", "claim-20260929-001-e"]
+  supplements:
+  - claim-20260709-006-f
+  - claim-20260929-001-e
   last_discovered: 2026-10-12
   claim_type: macro
   subject: 韩国科技股锚点
@@ -100,6 +103,7 @@ claims:
   - 三星电子
   - SK海力士
   - 风险偏好锚点
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -115,9 +119,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-d
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260908-003-z", "claim-20260625-001-b"]
+  supplements:
+  - claim-20260908-003-z
+  - claim-20260625-001-b
   last_discovered: 2026-10-12
   claim_type: methodology
   subject: 港股呼应解读
@@ -133,6 +137,7 @@ claims:
   - 港股联动
   - 因果纪律
   - 承接评价
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -141,16 +146,17 @@ claims:
   extracted_at: '2026-10-12T09:10:00'
   confidence: high
   status: active
-  supersedes: []
+  supersedes:
+  - claim-20260929-001-h
   contradicts: []
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   id: claim-20261012-001-e
-  supersedes: ["claim-20260929-001-h"]
-  contradicts: []
-  supplements: ["claim-20260921-002-c", "claim-20261008-007-c"]
+  supplements:
+  - claim-20260921-002-c
+  - claim-20261008-007-c
   last_discovered: 2026-10-12
   claim_type: methodology
   subject: 今日量能验证法
@@ -167,6 +173,7 @@ claims:
   - 同时段对比
   - 上涨宽度
   - 卖盘释放
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -182,9 +189,10 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-f
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260913-001-008", "claim-20260929-001-j", "claim-20260928-002-e"]
+  supplements:
+  - claim-20260913-001-008
+  - claim-20260929-001-j
+  - claim-20260928-002-e
   last_discovered: 2026-10-12
   claim_type: market-cycle
   subject: 大金融成长组合判据
@@ -201,6 +209,7 @@ claims:
   - 双创
   - 局部护盘
   - 资金转移
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -209,16 +218,17 @@ claims:
   extracted_at: '2026-10-12T09:10:00'
   confidence: high
   status: active
-  supersedes: []
+  supersedes:
+  - claim-20260814-011
   contradicts: []
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   id: claim-20261012-001-g
-  supersedes: ["claim-20260814-011"]
-  contradicts: []
-  supplements: ["claim-20260805-013", "claim-20260813-007"]
+  supplements:
+  - claim-20260805-013
+  - claim-20260813-007
   last_discovered: 2026-10-12
   claim_type: methodology
   subject: 晋级率推演框架
@@ -235,6 +245,7 @@ claims:
   - 首板
   - 二板
   - 情绪宽度
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -250,9 +261,8 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-h
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260921-003-k"]
+  supplements:
+  - claim-20260921-003-k
   last_discovered: 2026-10-12
   claim_type: market-cycle
   subject: 创业板修复定性
@@ -269,6 +279,7 @@ claims:
   - 情绪修复
   - 反弹中断
   - 前低检验
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -284,9 +295,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-i
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260922-001-f", "claim-20261011-001-c"]
+  supplements:
+  - claim-20260922-001-f
+  - claim-20261011-001-c
   last_discovered: 2026-10-12
   claim_type: methodology
   subject: 估值与买盘关系
@@ -303,6 +314,7 @@ claims:
   - ETF份额
   - 融资余额
   - 净流入口径
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -311,15 +323,14 @@ claims:
   extracted_at: '2026-10-12T09:10:00'
   confidence: high
   status: active
-  supersedes: []
+  supersedes:
+  - claim-20261011-001-n
   contradicts: []
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   id: claim-20261012-001-j
-  supersedes: ["claim-20261011-001-n"]
-  contradicts: []
   supplements: []
   last_discovered: 2026-10-12
   claim_type: operation
@@ -336,6 +347,7 @@ claims:
   - 情形A
   - 修复升级
   - 梯队补充
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -351,9 +363,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-k
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20261008-007-h", "claim-20261008-001-k"]
+  supplements:
+  - claim-20261008-007-h
+  - claim-20261008-001-k
   last_discovered: 2026-10-12
   claim_type: operation
   subject: 情形B预案
@@ -370,6 +382,7 @@ claims:
   - 反弹降级
   - 回补退出
   - 局部轮动
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -385,9 +398,10 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-l
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260811-046", "claim-20261011-001-s", "claim-20260816-003-016"]
+  supplements:
+  - claim-20260811-046
+  - claim-20261011-001-s
+  - claim-20260816-003-016
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: 科技先锋转向应用
@@ -416,6 +430,7 @@ claims:
   - 网络安全
   - 影视传媒
   - 承载转移
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -431,9 +446,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-m
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260830-008-a", "claim-20261009-001-j"]
+  supplements:
+  - claim-20260830-008-a
+  - claim-20261009-001-j
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: 硬件景气与卖压
@@ -453,6 +468,7 @@ claims:
   - PCB
   - 机构席位
   - 板块宽度
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -468,9 +484,10 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-n
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260928-001-l", "claim-20261009-001-o", "claim-20261009-001-l"]
+  supplements:
+  - claim-20260928-001-l
+  - claim-20261009-001-o
+  - claim-20261009-001-l
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: AI医药映射
@@ -487,6 +504,7 @@ claims:
   - mRNA
   - 海外映射
   - 港股窗口
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -495,15 +513,14 @@ claims:
   extracted_at: '2026-10-12T09:10:00'
   confidence: high
   status: active
-  supersedes: []
+  supersedes:
+  - claim-20260929-002-m
   contradicts: []
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   id: claim-20261012-001-o
-  supersedes: ["claim-20260929-002-m"]
-  contradicts: []
   supplements: []
   last_discovered: 2026-10-12
   claim_type: sector-theme
@@ -522,7 +539,7 @@ claims:
   - code: '300340'
     name: 科恒股份
     role: 电池链开板观察-创业板不可交易
-  - code: '002709'
+  - code: 002709
     name: 天赐材料
     role: 电池材料核心-主板可交易
   tags:
@@ -530,6 +547,7 @@ claims:
   - 跷跷板
   - 分歧承接
   - 避险买盘
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -545,9 +563,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-p
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260827-067-x", "claim-20261008-007-l"]
+  supplements:
+  - claim-20260827-067-x
+  - claim-20261008-007-l
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: 有机硅业绩线
@@ -567,6 +585,7 @@ claims:
   - 业绩预告
   - 低基数
   - 板块行情
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -582,8 +601,6 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-q
-  supersedes: []
-  contradicts: []
   supplements: []
   last_discovered: 2026-10-12
   claim_type: sector-theme
@@ -601,6 +618,7 @@ claims:
   - 消费
   - 轮动
   - 资金竞争
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -616,10 +634,11 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-r
-  supersedes: []
-  contradicts: []
-  disagrees_with: ["claim-20260906-004-010"]
-  supplements: ["claim-20260908-003-m", "claim-20260929-001-w"]
+  disagrees_with:
+  - claim-20260906-004-010
+  supplements:
+  - claim-20260908-003-m
+  - claim-20260929-001-w
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: AI内容商业化验证
@@ -648,6 +667,7 @@ claims:
   - 短剧
   - 商业化验证
   - 概念与利润
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -663,9 +683,8 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-s
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260917-017-a"]
+  supplements:
+  - claim-20260917-017-a
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: AI安全政策兑现链路
@@ -688,6 +707,7 @@ claims:
   - 政策兑现
   - 招标交付
   - 回款
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -703,9 +723,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-t
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260930-001-i", "claim-20261007-001-k"]
+  supplements:
+  - claim-20260930-001-i
+  - claim-20261007-001-k
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: 固态电池目标口径
@@ -720,10 +740,10 @@ claims:
   - code: '300340'
     name: 科恒股份
     role: 电池环节-创业板不可交易
-  - code: '002709'
+  - code: 002709
     name: 天赐材料
     role: 电池材料-主板可交易
-  - code: '002805'
+  - code: 002805
     name: 丰元股份
     role: 电池材料-主板可交易
   - code: '300530'
@@ -734,6 +754,7 @@ claims:
   - 十五五规划
   - 中试良率
   - 产业化
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -749,9 +770,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-u
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20261009-001-l", "claim-20260918-014-a"]
+  supplements:
+  - claim-20261009-001-l
+  - claim-20260918-014-a
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: AI医药验证框架
@@ -777,6 +798,7 @@ claims:
   - AI制药
   - 验证框架
   - 临床监管
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -792,8 +814,6 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-v
-  supersedes: []
-  contradicts: []
   supplements: []
   last_discovered: 2026-10-12
   claim_type: sector-theme
@@ -817,6 +837,7 @@ claims:
   - 调价传导
   - 聚乳酸
   - 成本转嫁
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -832,8 +853,6 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-w
-  supersedes: []
-  contradicts: []
   supplements: []
   last_discovered: 2026-10-12
   claim_type: sector-theme
@@ -857,6 +876,7 @@ claims:
   - 零部件调价
   - 设备维护
   - 传导确认
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -872,9 +892,10 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-x
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260803-021", "claim-20261009-001-j", "claim-20260907-010-a"]
+  supplements:
+  - claim-20260803-021
+  - claim-20261009-001-j
+  - claim-20260907-010-a
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: AI硬件景气与约束
@@ -891,6 +912,7 @@ claims:
   - 台系营收
   - 景气跟踪
   - 风格切换
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -906,9 +928,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-001-y
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260819-006-011", "claim-20261008-007-r"]
+  supplements:
+  - claim-20260819-006-011
+  - claim-20261008-007-r
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: 机器人订单验证
@@ -926,7 +948,7 @@ claims:
   - code: '601689'
     name: 拓普集团
     role: 执行器与汽车零部件-主板可交易
-  - code: '002979'
+  - code: 002979
     name: 雷赛智能
     role: 运动控制-主板可交易
   - code: '600699'
@@ -937,6 +959,7 @@ claims:
   - 具身智能
   - 订单验证
   - 客户定点
+  school: qing
 - source_path: sources/original/bilibili/2026-10-12-0832-专栏-节后第二个交易日，A股午后探底回升，三大指数集体翻红，创业板.md
   source_date: '2026-10-12'
   source_type: 专栏
@@ -945,16 +968,17 @@ claims:
   extracted_at: '2026-10-12T09:10:00'
   confidence: high
   status: active
-  supersedes: []
+  supersedes:
+  - claim-20260930-001-q
   contradicts: []
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   id: claim-20261012-001-z
-  supersedes: ["claim-20260930-001-q"]
-  contradicts: []
-  supplements: ["claim-20260909-030-a", "claim-20260910-003-a"]
+  supplements:
+  - claim-20260909-030-a
+  - claim-20260910-003-a
   last_discovered: 2026-10-12
   claim_type: methodology
   subject: 今日三变量与处理顺序
@@ -971,3 +995,4 @@ claims:
   - 处理顺序
   - 行动门槛
   - 反转定义
+  school: qing

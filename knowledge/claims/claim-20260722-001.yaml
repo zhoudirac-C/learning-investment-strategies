@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260722-001
   source_path: sources/raw/财经/2026-07-22-0900-专栏-隔夜外围企稳，昨日A股以反核和普涨收场，情绪明显释放。今天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-22'
   source_type: 专栏
   extracted_at: '2026-07-22T09:12:00+08:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260703-001-j"]
+  supersedes:
+  - claim-20260703-001-j
   contradicts: []
-  supplements: ["claim-20260623-001-a", "claim-20260531-002-a"]
+  supplements:
+  - claim-20260623-001-a
+  - claim-20260531-002-a
   last_discovered: 2026-07-22
   related_stocks: []
   tags:
@@ -30,10 +33,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 7月22日早盘：趋势突破前只试错不加仓，核心变量在分歧力度
+  school: qing
 - id: claim-20260722-002
   source_path: sources/raw/财经/2026-07-22-0900-专栏-隔夜外围企稳，昨日A股以反核和普涨收场，情绪明显释放。今天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-22'
   source_type: 专栏
   extracted_at: '2026-07-22T09:12:00+08:00'
@@ -48,7 +52,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260703-001-j"]
+  supplements:
+  - claim-20260703-001-j
   last_discovered: 2026-07-22
   related_stocks: []
   tags:
@@ -61,10 +66,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 7月22日早盘：量化加仓标准——4010六成/4055满仓+时间衰减机制
+  school: qing
 - id: claim-20260722-003
   source_path: sources/raw/财经/2026-07-22-0900-专栏-隔夜外围企稳，昨日A股以反核和普涨收场，情绪明显释放。今天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-22'
   source_type: 专栏
   extracted_at: '2026-07-22T09:12:00+08:00'
@@ -79,7 +85,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260716-001-e"]
+  supplements:
+  - claim-20260716-001-e
   last_discovered: 2026-07-22
   related_stocks: []
   tags:
@@ -92,10 +99,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 7月22日早盘：韩国底结构短期止跌概率大，但外盘不等于A股反转
+  school: qing
 - id: claim-20260722-004
   source_path: sources/raw/财经/2026-07-22-0900-专栏-隔夜外围企稳，昨日A股以反核和普涨收场，情绪明显释放。今天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-22'
   source_type: 专栏
   extracted_at: '2026-07-22T09:12:00+08:00'
@@ -108,7 +116,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260703-001-j", "claim-20260622-001-h", "claim-20260608-001-i"]
+  supersedes:
+  - claim-20260703-001-j
+  - claim-20260622-001-h
+  - claim-20260608-001-i
   contradicts: []
   supplements: []
   last_discovered: 2026-07-22
@@ -123,10 +134,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 7月22日早盘：大涨的兜底意义——最坏已排除，从防守到试错
+  school: qing
 - id: claim-20260722-005
   source_path: sources/raw/财经/2026-07-22-0900-专栏-隔夜外围企稳，昨日A股以反核和普涨收场，情绪明显释放。今天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-22'
   source_type: 专栏
   extracted_at: '2026-07-22T09:12:00+08:00'
@@ -139,7 +151,8 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260601-001-e"]
+  supersedes:
+  - claim-20260601-001-e
   contradicts: []
   supplements: []
   last_discovered: 2026-07-22
@@ -154,10 +167,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 7月22日早盘：跌停210→20说明恐慌解除，个位数才说明结构修复
+  school: qing
 - id: claim-20260722-006
   source_path: sources/raw/财经/2026-07-22-0900-专栏-隔夜外围企稳，昨日A股以反核和普涨收场，情绪明显释放。今天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-22'
   source_type: 专栏
   extracted_at: '2026-07-22T09:12:00+08:00'
@@ -172,7 +186,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260721-014", "claim-20260622-001-h"]
+  supplements:
+  - claim-20260721-014
+  - claim-20260622-001-h
   last_discovered: 2026-07-22
   related_stocks:
   - code: '002432'
@@ -181,9 +197,9 @@ claims:
   - code: '603118'
     name: 共进股份
     role: 小票反包标的-交换机ODM-主板可交易
-  - code: "688347"
-    name: "华虹宏力"
-    role: "回填-正文提及"
+  - code: '688347'
+    name: 华虹宏力
+    role: 回填-正文提及
   tags:
   - 盘面观察
   - 电力缺席
@@ -195,10 +211,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 7月22日早盘：四个盘面观察点鉴别反弹质量——电力/小票/大票/情绪
+  school: qing
 - id: claim-20260722-007
   source_path: sources/raw/财经/2026-07-22-0900-专栏-隔夜外围企稳，昨日A股以反核和普涨收场，情绪明显释放。今天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-22'
   source_type: 专栏
   extracted_at: '2026-07-22T09:12:00+08:00'
@@ -211,9 +228,12 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260604-004-b"]
+  supersedes:
+  - claim-20260604-004-b
   contradicts: []
-  supplements: ["claim-20260625-003-g", "claim-20260625-001-f"]
+  supplements:
+  - claim-20260625-003-g
+  - claim-20260625-001-f
   last_discovered: 2026-07-22
   related_stocks:
   - code: '301583'
@@ -233,10 +253,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 7月22日早盘：半导体领先国产链-托伦斯已提前走强-留意功率器件超算节点
+  school: qing
 - id: claim-20260722-008
   source_path: sources/raw/财经/2026-07-22-0900-专栏-隔夜外围企稳，昨日A股以反核和普涨收场，情绪明显释放。今天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-22'
   source_type: 专栏
   extracted_at: '2026-07-22T09:12:00+08:00'
@@ -249,8 +270,10 @@ claims:
   confidence: medium
   status: superseded
   intensity: low
-  supersedes: ["claim-20260607-003-d"]
-  contradicts: ["claim-20260721-010"]
+  supersedes:
+  - claim-20260607-003-d
+  contradicts:
+  - claim-20260721-010
   supplements: []
   last_discovered: 2026-07-22
   related_stocks:
@@ -271,10 +294,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 7月22日早盘：AI应用资金优先级低于半导体，等高度打开
+  school: qing
 - id: claim-20260722-009
   source_path: sources/raw/财经/2026-07-22-0900-专栏-隔夜外围企稳，昨日A股以反核和普涨收场，情绪明显释放。今天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-22'
   source_type: 专栏
   extracted_at: '2026-07-22T09:12:00+08:00'
@@ -288,11 +312,14 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260608-001-f", "claim-20260612-012-l"]
-  supplements: ["claim-20260625-001-g"]
+  contradicts:
+  - claim-20260608-001-f
+  - claim-20260612-012-l
+  supplements:
+  - claim-20260625-001-g
   last_discovered: 2026-07-22
   related_stocks:
-  - code: '001258'
+  - code: 001258
     name: 立新能源
     role: 电力老登-观望-主板可交易
   - code: '600744'
@@ -315,10 +342,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 7月22日早盘：电力医药老登与科技跷跷板-指数弱则防御有机会
+  school: qing
 - id: claim-20260722-010
   source_path: sources/raw/财经/2026-07-22-0900-专栏-隔夜外围企稳，昨日A股以反核和普涨收场，情绪明显释放。今天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-22'
   source_type: 专栏
   extracted_at: '2026-07-22T09:12:00+08:00'
@@ -331,12 +359,15 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260721-014", "claim-20260721-007"]
+  supersedes:
+  - claim-20260721-014
+  - claim-20260721-007
   contradicts: []
-  supplements: ["claim-20260703-001-d"]
+  supplements:
+  - claim-20260703-001-d
   last_discovered: 2026-07-22
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储跌停龙-被动修复-主板可交易
   - code: '603698'
@@ -356,10 +387,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 7月22日早盘：德明利打开跌停+航天工程高开——跌停龙风险解除信号
+  school: qing
 - id: claim-20260722-011
   source_path: sources/raw/财经/2026-07-22-0900-专栏-隔夜外围企稳，昨日A股以反核和普涨收场，情绪明显释放。今天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-22'
   source_type: 专栏
   extracted_at: '2026-07-22T09:12:00+08:00'
@@ -374,12 +406,14 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-001-j", "claim-20260625-003-r"]
+  supplements:
+  - claim-20260623-001-j
+  - claim-20260625-003-r
   last_discovered: 2026-07-22
   related_stocks:
-  - code: "000686"
-    name: "东北证券"
-    role: "回填-正文提及"
+  - code: 000686
+    name: 东北证券
+    role: 回填-正文提及
   tags:
   - 半导体设备
   - SEMI
@@ -391,10 +425,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 7月22日早盘：半导体设备景气度确认但属慢变量补逻辑非新催化
+  school: qing
 - id: claim-20260722-012
   source_path: sources/raw/财经/2026-07-22-0900-专栏-隔夜外围企稳，昨日A股以反核和普涨收场，情绪明显释放。今天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-22'
   source_type: 专栏
   extracted_at: '2026-07-22T09:12:00+08:00'
@@ -409,7 +444,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260721-028", "claim-20260720-019", "claim-20260717-001-j"]
+  supplements:
+  - claim-20260721-028
+  - claim-20260720-019
+  - claim-20260717-001-j
   last_discovered: 2026-07-22
   related_stocks:
   - code: '688621'
@@ -426,3 +464,4 @@ claims:
     methodology_pages: []
     cases: []
   topic: 7月22日早盘：创新药首报首发与CXO核心驱动力是CDMO新分子放量
+  school: qing

@@ -16,7 +16,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-006", "claim-20260813-047", "claim-20260826-026-a"]
+  supplements:
+  - claim-20260913-001-006
+  - claim-20260813-047
+  - claim-20260826-026-a
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -31,6 +34,7 @@ claims:
   - 净流入
   - 修复可信度
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-b
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -42,14 +46,16 @@ claims:
   timeframe: short-term
   statement: 判断修复是否有效，不能用单日放量作依据，而要看回踩时抛压能否收敛、随后低点是否抬高，且主线核心、量能与市场广度能否共同改善；可以提高对结构性机会的关注，但不能因此取消失效条件
   evidence_quote: 更可靠的验证，是回踩时抛压收敛、随后低点抬高，且主线核心、量能与市场广度能够共同改善。可以提高对结构性机会的关注，不能因此取消失效条件。
-  interpretation: UP 给出的放量有效性验证清单（回踩抛压收敛 / 低点抬高 / 核心+量能+广度共同改善）。是可复用的验证框架，且明确「提高关注
-    ≠ 取消失效条件」的纪律表述。
+  interpretation: UP 给出的放量有效性验证清单（回踩抛压收敛 / 低点抬高 / 核心+量能+广度共同改善）。是可复用的验证框架，且明确「提高关注 ≠ 取消失效条件」的纪律表述。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260826-026-a", "claim-20260909-011-a", "claim-20260915-004-3"]
+  supplements:
+  - claim-20260826-026-a
+  - claim-20260909-011-a
+  - claim-20260915-004-3
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -64,6 +70,7 @@ claims:
   - 市场广度
   - 失效条件
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-c
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -81,7 +88,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-006", "claim-20260913-001-007"]
+  supplements:
+  - claim-20260913-001-006
+  - claim-20260913-001-007
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -96,6 +105,7 @@ claims:
   - 上涨家数
   - 主线承接
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-d
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -113,7 +123,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260918-006-a", "claim-20260917-006-a"]
+  supplements:
+  - claim-20260918-006-a
+  - claim-20260917-006-a
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -128,6 +140,7 @@ claims:
   - 地产
   - 结构稳定
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-e
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -163,6 +176,7 @@ claims:
   - code: '601091'
     name: C沈鼓
     role: 近端次新-沪主板可交易(601前缀)
+  school: qing
 - id: claim-20260921-001-f
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -180,7 +194,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-026", "claim-20260915-004-2"]
+  supplements:
+  - claim-20260810-026
+  - claim-20260915-004-2
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -194,6 +210,7 @@ claims:
   - 局部分歧
   - 高波动
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-g
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -229,6 +246,7 @@ claims:
   - code: '688801'
     name: 燧原科技-U
     role: 国产算力链高辨识度核心-科创板不可交易
+  school: qing
 - id: claim-20260921-001-h
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -244,7 +262,10 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260810-026", "claim-20260908-003-z", "claim-20260913-001-017"]
+  supersedes:
+  - claim-20260810-026
+  - claim-20260908-003-z
+  - claim-20260913-001-017
   contradicts: []
   supplements: []
   last_discovered: 2026-09-21
@@ -261,6 +282,7 @@ claims:
   - 收盘结构
   - 价量确认
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-i
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -278,7 +300,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-018"]
+  supplements:
+  - claim-20260913-001-018
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -293,6 +316,7 @@ claims:
   - 失效持仓
   - 价格信号
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-j
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -325,6 +349,7 @@ claims:
   - 中秋休市
   - 前强后稳
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-k
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -342,7 +367,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260901-001-a"]
+  supplements:
+  - claim-20260901-001-a
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -357,6 +383,7 @@ claims:
   - 日本央行
   - 估值约束
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-l
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -389,6 +416,7 @@ claims:
   - 港股
   - 路径推演
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-m
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -406,7 +434,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260902-001-a", "claim-20260914-001-005", "claim-20260910-028-a"]
+  supplements:
+  - claim-20260902-001-a
+  - claim-20260914-001-005
+  - claim-20260910-028-a
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -421,6 +452,7 @@ claims:
   - 黄金
   - 美元日元
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-n
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -438,7 +470,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260831-020-a", "claim-20260515-008"]
+  supplements:
+  - claim-20260831-020-a
+  - claim-20260515-008
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -456,6 +490,7 @@ claims:
   - code: '000002'
     name: 万科A
     role: 地产政策催化标的-主板可交易
+  school: qing
 - id: claim-20260921-001-o
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -473,7 +508,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260530-001-g"]
+  supplements:
+  - claim-20260530-001-g
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -488,6 +524,7 @@ claims:
   - 资产质量
   - 个体差异
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-p
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -503,9 +540,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260723-006"]
+  supersedes:
+  - claim-20260723-006
   contradicts: []
-  supplements: ["claim-20260624-006-b"]
+  supplements:
+  - claim-20260624-006-b
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -523,6 +562,7 @@ claims:
   - code: '688801'
     name: 燧原科技-U
     role: 国产算力链核心-科创板不可交易
+  school: qing
 - id: claim-20260921-001-q
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -540,7 +580,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-038", "claim-20260819-068", "claim-20260909-016-a"]
+  supplements:
+  - claim-20260812-038
+  - claim-20260819-068
+  - claim-20260909-016-a
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -555,6 +598,7 @@ claims:
   - 液冷
   - 补涨逻辑
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-r
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -572,7 +616,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260902-001-b", "claim-20260809-032"]
+  supplements:
+  - claim-20260902-001-b
+  - claim-20260809-032
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -587,6 +633,7 @@ claims:
   - 订单盈利
   - 美股分化
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-s
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -604,7 +651,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-022"]
+  supplements:
+  - claim-20260914-001-022
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -619,9 +667,10 @@ claims:
   - 客户验证
   - 订单≠利润
   related_stocks:
-  - code: '002185'
+  - code: 002185
     name: 华天科技
     role: 先进封装/FOPLP跟踪-主板可交易
+  school: qing
 - id: claim-20260921-001-t
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -639,7 +688,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260806-042", "claim-20260907-010-a"]
+  supplements:
+  - claim-20260806-042
+  - claim-20260907-010-a
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -654,6 +705,7 @@ claims:
   - 规格拆分
   - 合约价
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-u
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -671,7 +723,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260827-069-x"]
+  supplements:
+  - claim-20260827-069-x
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -686,9 +739,10 @@ claims:
   - 交付验收
   - CPO测试
   related_stocks:
-  - code: '002980'
+  - code: 002980
     name: 华盛昌
     role: 光通信测试/伽蓝特并表-主板可交易
+  school: qing
 - id: claim-20260921-001-v
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -706,7 +760,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-h", "claim-20260912-002-21", "claim-20260911-001-012"]
+  supplements:
+  - claim-20260621-001-h
+  - claim-20260912-002-21
+  - claim-20260911-001-012
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -727,6 +784,7 @@ claims:
   - code: '300806'
     name: 斯迪克
     role: MLCC离型膜-创业板不可交易
+  school: qing
 - id: claim-20260921-001-w
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -744,7 +802,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260831-021-a", "claim-20260825-046-a", "claim-20260805-032"]
+  supplements:
+  - claim-20260831-021-a
+  - claim-20260825-046-a
+  - claim-20260805-032
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -765,6 +826,7 @@ claims:
   - code: '300857'
     name: 协创数据
     role: 算力租赁-创业板不可交易
+  school: qing
 - id: claim-20260921-001-x
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -782,7 +844,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260816-022", "claim-20260831-021-a"]
+  supplements:
+  - claim-20260816-022
+  - claim-20260831-021-a
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -797,6 +861,7 @@ claims:
   - 在建工程
   - 盈亏平衡
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-y
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -814,7 +879,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-005"]
+  supplements:
+  - claim-20260914-001-005
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -829,6 +895,7 @@ claims:
   - 能源成本
   - 资本开支
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-z
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -846,7 +913,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-033", "claim-20260913-001-018"]
+  supplements:
+  - claim-20260913-001-033
+  - claim-20260913-001-018
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -861,6 +930,7 @@ claims:
   - 仓位管理
   - 节前敞口
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-aa
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -878,7 +948,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-033", "claim-20260901-028-a"]
+  supplements:
+  - claim-20260913-001-033
+  - claim-20260901-028-a
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -893,6 +965,7 @@ claims:
   - 失效信号
   - 撤回条件
   related_stocks: []
+  school: qing
 - id: claim-20260921-001-ab
   source_path: sources/original/bilibili/2026-09-20-2207-专栏-周五市场在科技带动下高开走强，沪深两市成交重返2万亿元，地产.md
   source_date: '2026-09-20'
@@ -910,7 +983,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-017", "claim-20260913-001-032"]
+  supplements:
+  - claim-20260913-001-017
+  - claim-20260913-001-032
   last_discovered: 2026-09-21
   links:
     wiki_pages: []
@@ -925,3 +1000,4 @@ claims:
   - 反抽
   - 预案
   related_stocks: []
+  school: qing

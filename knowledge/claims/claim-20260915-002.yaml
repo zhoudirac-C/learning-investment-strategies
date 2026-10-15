@@ -1,7 +1,6 @@
 claims:
 - id: claim-20260915-002-1
-  source_path: sources/original/bilibili/2026-09-15-0111-视频-为了拯救 Ai 行情，手搓了一个日活 1 万的
-    Ai 应用.md
+  source_path: sources/original/bilibili/2026-09-15-0111-视频-为了拯救 Ai 行情，手搓了一个日活 1 万的 Ai 应用.md
   source_date: '2026-09-15'
   source_type: 视频
   up_id: '525121722'
@@ -18,7 +17,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-005-a", "claim-20260814-020"]
+  supplements:
+  - claim-20260616-005-a
+  - claim-20260814-020
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -31,9 +32,9 @@ claims:
   - 应用落地
   - 个人开发者
   - 日活
+  school: watchlist
 - id: claim-20260915-002-2
-  source_path: sources/original/bilibili/2026-09-15-0111-视频-为了拯救 Ai 行情，手搓了一个日活 1 万的
-    Ai 应用.md
+  source_path: sources/original/bilibili/2026-09-15-0111-视频-为了拯救 Ai 行情，手搓了一个日活 1 万的 Ai 应用.md
   source_date: '2026-09-15'
   source_type: 视频
   up_id: '525121722'
@@ -63,9 +64,9 @@ claims:
   - 应用落地
   - 板块催化
   - 叙事
+  school: watchlist
 - id: claim-20260915-002-3
-  source_path: sources/original/bilibili/2026-09-15-0111-视频-为了拯救 Ai 行情，手搓了一个日活 1 万的
-    Ai 应用.md
+  source_path: sources/original/bilibili/2026-09-15-0111-视频-为了拯救 Ai 行情，手搓了一个日活 1 万的 Ai 应用.md
   source_date: '2026-09-15'
   source_type: 视频
   up_id: '525121722'
@@ -82,7 +83,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-061", "claim-20260904-038-a"]
+  supplements:
+  - claim-20260819-061
+  - claim-20260904-038-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -95,3 +98,4 @@ claims:
   - 散户情绪
   - 投资焦虑
   - 盈利转化
+  school: watchlist

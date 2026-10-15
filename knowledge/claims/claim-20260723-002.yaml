@@ -1,9 +1,8 @@
 claims:
 - id: claim-20260723-025
-  source_path: sources/original/bilibili/2026-07-23-1331-图片-没想到换了一种问法没想到就把大家问住了，说实话有点失望。
-    我.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-07-23-1331-图片-没想到换了一种问法没想到就把大家问住了，说实话有点失望。 我.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-23'
   source_type: 动态
   extracted_at: '2026-07-23T23:30:00+08:00'
@@ -34,11 +33,11 @@ claims:
   - 均线过拟合
   - 技术跟踪
   topic: 7月23日午后：华虹半导体20日线为当前参考级别
+  school: qing
 - id: claim-20260723-026
-  source_path: sources/original/bilibili/2026-07-23-1331-图片-没想到换了一种问法没想到就把大家问住了，说实话有点失望。
-    我.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-07-23-1331-图片-没想到换了一种问法没想到就把大家问住了，说实话有点失望。 我.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-23'
   source_type: 动态
   extracted_at: '2026-07-23T23:30:00+08:00'
@@ -53,7 +52,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-006-m"]
+  supplements:
+  - claim-20260621-006-m
   last_discovered: 2026-07-23
   links:
     wiki_pages: []
@@ -65,11 +65,11 @@ claims:
   - 操作难度
   - 风险收益比
   topic: 7月23日午后：下半年行情难度判断——指数可涨但操作更难
+  school: qing
 - id: claim-20260723-027
-  source_path: sources/original/bilibili/2026-07-23-1331-图片-没想到换了一种问法没想到就把大家问住了，说实话有点失望。
-    我.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-07-23-1331-图片-没想到换了一种问法没想到就把大家问住了，说实话有点失望。 我.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-23'
   source_type: 动态
   extracted_at: '2026-07-23T23:30:00+08:00'
@@ -84,7 +84,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20061227-001-a", "claim-20070821-001-c"]
+  supplements:
+  - claim-20061227-001-a
+  - claim-20070821-001-c
   last_discovered: 2026-07-23
   links:
     wiki_pages: []
@@ -97,3 +99,4 @@ claims:
   - 市场分化
   - 交易风格
   topic: 7月23日午后：市场分化——技术派vs情绪派分野，适合自己的交易最重要
+  school: qing

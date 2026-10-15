@@ -32,6 +32,7 @@ claims:
   - 低点确认
   - 买点时序
   topic: 日线低8已出，盼收盘稳3764下方明日出低点
+  school: qing
 - id: claim-20261013-002-b
   source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
   source_date: '2026-10-13'
@@ -50,7 +51,8 @@ claims:
   stance: view
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260702-001-m"]
+  contradicts:
+  - claim-20260702-001-m
   supplements: []
   last_discovered: 2026-10-14
   links:
@@ -65,6 +67,7 @@ claims:
   - 右侧趋势
   - 模式纪律
   topic: 负乖离抄底无明确买点，左右侧各有代价勿互博
+  school: qing
 - id: claim-20261013-002-c
   source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
   source_date: '2026-10-13'
@@ -84,7 +87,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-004-a"]
+  supplements:
+  - claim-20260623-004-a
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -97,6 +101,7 @@ claims:
   - 突破站稳
   - 入场门槛
   topic: 右侧选手入场门槛为大盘突破站稳3908
+  school: qing
 - id: claim-20261013-002-d
   source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
   source_date: '2026-10-13'
@@ -116,7 +121,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260906-003-005"]
+  supplements:
+  - claim-20260906-003-005
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -129,6 +135,7 @@ claims:
   - F10研究
   - 前置功课
   topic: 若起行情是本年最后一波，启动前抓紧做F10功课
+  school: qing
 - id: claim-20261013-002-e
   source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
   source_date: '2026-10-13'
@@ -148,7 +155,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260705-008-a"]
+  supplements:
+  - claim-20260705-008-a
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -160,6 +168,7 @@ claims:
   - 成长股
   - 主线预判
   topic: 下一波行情风格将切换到成长股
+  school: qing
 - id: claim-20261013-002-f
   source_path: sources/original/bilibili/2026-10-13-1355-图片-今天日线已经出低8了，最好收盘能稳在3764下方，如果涨上去.md
   source_date: '2026-10-13'
@@ -192,3 +201,4 @@ claims:
   - 长期主义
   - 心态管理
   topic: 回撤三四十个点不重要，做回来就行
+  school: qing

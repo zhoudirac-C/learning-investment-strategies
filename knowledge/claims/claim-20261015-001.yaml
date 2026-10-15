@@ -22,15 +22,18 @@ claims:
   up_name: 青枫浦上Q
   extracted_at: '2026-10-15T09:05:00'
   status: active
-  supersedes: ["claim-20260518-018"]
+  supersedes:
+  - claim-20260518-018
   contradicts: []
-  supplements: ["claim-20260927-001-j"]
+  supplements:
+  - claim-20260927-001-j
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks: []
+  school: qing
 - claim_type: market-cycle
   subject: 低点形成过程值得跟踪，但不能由地量直接推出见底
   timeframe: short-term
@@ -56,13 +59,17 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-001-b", "claim-20260930-001-b", "claim-20070614-001-b"]
+  supplements:
+  - claim-20260921-001-b
+  - claim-20260930-001-b
+  - claim-20070614-001-b
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks: []
+  school: qing
 - claim_type: methodology
   subject: 海外防御交易向A股传导需经业务结构盈利周期与本地资金偏好筛选
   timeframe: short-term
@@ -88,13 +95,16 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-001-r", "claim-20261009-001-o"]
+  supplements:
+  - claim-20260921-001-r
+  - claim-20261009-001-o
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks: []
+  school: qing
 - claim_type: methodology
   subject: A股与韩国市场同步下跌不能认定单一因果
   timeframe: short-term
@@ -127,6 +137,7 @@ claims:
     methodology_pages: []
     cases: []
   related_stocks: []
+  school: qing
 - claim_type: methodology
   subject: 早盘验证顺序：先看30分钟强弱分布，再看午后首个30分钟量价配合
   timeframe: short-term
@@ -152,13 +163,15 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261009-001-p"]
+  supplements:
+  - claim-20261009-001-p
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks: []
+  school: qing
 - claim_type: methodology
   subject: 午后量价三组合判别买盘是否回流
   timeframe: short-term
@@ -184,13 +197,17 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261008-007-c", "claim-20261014-005-2", "claim-20260927-001-f"]
+  supplements:
+  - claim-20261008-007-c
+  - claim-20261014-005-2
+  - claim-20260927-001-f
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks: []
+  school: qing
 - claim_type: market-cycle
   subject: 3764点收盘确认与破位钝化结构三阶段分离
   timeframe: short-term
@@ -217,13 +234,17 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260929-001-o", "claim-20261009-001-f", "claim-20261013-001-d"]
+  supplements:
+  - claim-20260929-001-o
+  - claim-20261009-001-f
+  - claim-20261013-001-d
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks: []
+  school: qing
 - claim_type: sector-theme
   subject: 大金融观察逻辑：银行稳指数而券商需与成交回升同步
   timeframe: short-term
@@ -247,15 +268,19 @@ claims:
   up_name: 青枫浦上Q
   extracted_at: '2026-10-15T09:05:00'
   status: active
-  supersedes: ["claim-20260928-002-e"]
+  supersedes:
+  - claim-20260928-002-e
   contradicts: []
-  supplements: ["claim-20261008-007-d", "claim-20260910-003-a"]
+  supplements:
+  - claim-20261008-007-d
+  - claim-20260910-003-a
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks: []
+  school: qing
 - claim_type: sector-theme
   subject: 情绪修复判据首板回升溢价保持与跌停不扩散同看
   timeframe: short-term
@@ -281,13 +306,17 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-019", "claim-20260918-007-a", "claim-20261013-001-g"]
+  supplements:
+  - claim-20260913-001-019
+  - claim-20260918-007-a
+  - claim-20261013-001-g
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks: []
+  school: qing
 - claim_type: market-cycle
   subject: 两种情形预案：承接改善转修复观察 vs 无承接则暂停猜底新增交易
   timeframe: short-term
@@ -311,7 +340,10 @@ claims:
   up_name: 青枫浦上Q
   extracted_at: '2026-10-15T09:05:00'
   status: active
-  supersedes: ["claim-20261009-001-f", "claim-20261008-007-g", "claim-20261012-001-k"]
+  supersedes:
+  - claim-20261009-001-f
+  - claim-20261008-007-g
+  - claim-20261012-001-k
   contradicts: []
   supplements: []
   last_discovered: 2026-10-15
@@ -320,6 +352,7 @@ claims:
     methodology_pages: []
     cases: []
   related_stocks: []
+  school: qing
 - claim_type: sector-theme
   subject: 涨价题材分散轮动：行业价格上涨与个股短线持续性没有必然对应
   timeframe: short-term
@@ -344,13 +377,15 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261014-005-10"]
+  supplements:
+  - claim-20261014-005-10
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks: []
+  school: qing
 - claim_type: sector-theme
   subject: 冰雪题材关注点在承接与跟进，个股标签与实际业务须分开
   timeframe: short-term
@@ -380,12 +415,15 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261013-001-j", "claim-20260928-002-l"]
+  supplements:
+  - claim-20261013-001-j
+  - claim-20260928-002-l
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
+  school: qing
 - claim_type: sector-theme
   subject: 医药回流判据：高开缩小回撤且创新药有序联动才算配置线索
   timeframe: short-term
@@ -416,7 +454,9 @@ claims:
   up_name: 青枫浦上Q
   extracted_at: '2026-10-15T09:05:00'
   status: active
-  supersedes: ["claim-20260824-002-i", "claim-20260825-012-a"]
+  supersedes:
+  - claim-20260824-002-i
+  - claim-20260825-012-a
   contradicts: []
   supplements: []
   last_discovered: 2026-10-15
@@ -424,6 +464,7 @@ claims:
     wiki_pages: []
     methodology_pages: []
     cases: []
+  school: qing
 - claim_type: sector-theme
   subject: 科技两线判据：硬件看出清验证，应用须指数回暖时保持强度
   timeframe: short-term
@@ -460,6 +501,7 @@ claims:
     wiki_pages: []
     methodology_pages: []
     cases: []
+  school: qing
 - claim_type: sector-theme
   subject: 硬件企稳是应用轮动的有利条件而非充分条件
   timeframe: short-term
@@ -484,13 +526,16 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261013-001-k", "claim-20261009-001-j"]
+  supplements:
+  - claim-20261013-001-k
+  - claim-20261009-001-j
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks: []
+  school: qing
 - claim_type: sector-theme
   subject: PCB产业验证重点：涨价传导与各环节利润留存
   timeframe: trend
@@ -523,12 +568,14 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261014-001-n"]
+  supplements:
+  - claim-20261014-001-n
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
+  school: qing
 - claim_type: sector-theme
   subject: 微信免费短剧入口有社交分发增量但长期竞争落在IP制作留存
   timeframe: trend
@@ -561,12 +608,15 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261011-001-y", "claim-20261012-001-r"]
+  supplements:
+  - claim-20261011-001-y
+  - claim-20261012-001-r
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
+  school: qing
 - claim_type: methodology
   subject: 操作纪律：结构未成不以猜底加仓，低位不恐慌杀跌，反弹不抢跑确认
   timeframe: short-term
@@ -592,10 +642,14 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260823-001-006", "claim-20261012-004-o", "claim-20260823-001-005"]
+  supplements:
+  - claim-20260823-001-006
+  - claim-20261012-004-o
+  - claim-20260823-001-005
   last_discovered: 2026-10-15
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks: []
+  school: qing

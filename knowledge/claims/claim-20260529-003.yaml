@@ -2,8 +2,8 @@ claims:
 - id: claim-20260529-003-a
   topic: 轻指数重个股的操作思路
   source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 早盘
   extracted_at: 2026-05-29
@@ -29,11 +29,12 @@ claims:
   - 轻指数重个股
   - 方法论
   - 分化
+  school: qing
 - id: claim-20260529-003-b
   topic: 炒新题材+炒小个股的资金风格
   source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 早盘
   extracted_at: 2026-05-29
@@ -42,13 +43,14 @@ claims:
   timeframe: short-term
   statement: 当前资金风格明显向小盘+新题材倾斜，涨停个股几乎都在几百亿市值及以下，新细分逻辑（如MLCC树脂）容易被挖掘并快速涨停
   evidence_quote: 当前个股选择有明显向小盘发展的趋势，昨日华塑股份回封后直接秒板，而华虹公司这类千亿市值个股封板已不再像之前那么容易，昨日涨停个股几乎都是几百亿市值及以下。后续除非指数放量反弹，否则'炒新（题材）+炒小（个股）'的趋势大概率延续。
-  interpretation: 资金风格切换的信号：①大盘蓝筹封板困难（华虹公司千亿市值涨停不易）；②小盘股容易被推上涨停（华塑股份秒板）；③新细分逻辑（皖维高新被挖MLCC树脂）一旦被发现就快速涨停；④这种风格在缩量+轮动环境中更易延续，因为小盘消耗资金少、弹性大。操作
-    implication：选股应偏向小市值+新题材，回避已充分博弈的大盘核心。
+  interpretation: 资金风格切换的信号：①大盘蓝筹封板困难（华虹公司千亿市值涨停不易）；②小盘股容易被推上涨停（华塑股份秒板）；③新细分逻辑（皖维高新被挖MLCC树脂）一旦被发现就快速涨停；④这种风格在缩量+轮动环境中更易延续，因为小盘消耗资金少、弹性大。操作 implication：选股应偏向小市值+新题材，回避已充分博弈的大盘核心。
   confidence: high
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260603-001-d", "claim-20260602-001-c"]
+  supplements:
+  - claim-20260603-001-d
+  - claim-20260602-001-c
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -60,17 +62,18 @@ claims:
   - 炒新题材+炒
   - 市场周期
   related_stocks:
-  - code: "600935"
-    name: "华塑股份"
-    role: "回填-正文提及"
-  - code: "600063"
-    name: "皖维高新"
-    role: "回填-正文提及"
+  - code: '600935'
+    name: 华塑股份
+    role: 回填-正文提及
+  - code: '600063'
+    name: 皖维高新
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260529-003-c
   topic: 拐点次日调整的买入节奏
   source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 早盘
   extracted_at: 2026-05-29
@@ -84,7 +87,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260519-002-b"]
+  supplements:
+  - claim-20260519-002-b
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -96,11 +100,12 @@ claims:
   tags:
   - 拐点次日调整
   - 操作策略
+  school: qing
 - id: claim-20260529-003-d
   topic: 早盘三大确认点框架
   source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 早盘
   extracted_at: 2026-05-29
@@ -114,7 +119,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260601-001-g"]
+  supplements:
+  - claim-20260601-001-g
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -126,11 +132,12 @@ claims:
   - 早盘三大确认
   - 操作策略
   - 催化
+  school: qing
 - id: claim-20260529-003-e
   topic: 金刚石散热新催化
   source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 早盘
   extracted_at: 2026-05-29
@@ -144,7 +151,9 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-011-s", "claim-20260621-001-n"]
+  supplements:
+  - claim-20260617-011-s
+  - claim-20260621-001-n
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -157,17 +166,18 @@ claims:
   - 半导体
   - AI
   related_stocks:
-  - code: "300179"
-    name: "四方达"
-    role: "回填-正文提及"
-  - code: "600172"
-    name: "黄河旋风"
-    role: "回填-正文提及"
+  - code: '300179'
+    name: 四方达
+    role: 回填-正文提及
+  - code: '600172'
+    name: 黄河旋风
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260529-003-f
   topic: 戴尔AI服务器业绩超预期映射
   source_path: sources/raw/财经/早盘：26-05-29：轻指数重个股，AI新分支与利好催化观察.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 早盘
   extracted_at: 2026-05-29
@@ -181,7 +191,9 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260601-004-d", "claim-20260622-003-p"]
+  supplements:
+  - claim-20260601-004-d
+  - claim-20260622-003-p
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -201,3 +213,4 @@ claims:
   - code: '002600'
     name: 领益智造
     role: 参考标的
+  school: qing

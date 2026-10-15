@@ -30,6 +30,7 @@ claims:
   - 滞涨
   - 首阴
   - 资金结构
+  school: qing
 - id: claim-20260823-001-002
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -61,6 +62,7 @@ claims:
   - 合力资金
   - 盘口特征
   - 分时流畅
+  school: qing
 - id: claim-20260823-001-003
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -79,7 +81,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260910-003-a"]
+  supplements:
+  - claim-20260910-003-a
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -92,6 +95,7 @@ claims:
   - 上涨效率
   - 存量博弈
   - 趋势质量
+  school: qing
 - id: claim-20260823-001-004
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -123,6 +127,7 @@ claims:
   - 左侧处理
   - 滚动降仓
   - 三阶段
+  school: qing
 - id: claim-20260823-001-005
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -141,7 +146,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260730-023", "claim-20061116-001-c"]
+  supplements:
+  - claim-20260730-023
+  - claim-20061116-001-c
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -154,6 +161,7 @@ claims:
   - 滞涨
   - 胜率赔率
   - 风险控制
+  school: qing
 - id: claim-20260823-001-006
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -172,7 +180,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20070424-001-a", "claim-20260803-024"]
+  supplements:
+  - claim-20070424-001-a
+  - claim-20260803-024
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -185,6 +195,7 @@ claims:
   - 预期落空
   - 减仓轮动
   - 死扛误区
+  school: qing
 - id: claim-20260823-001-007
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -216,6 +227,7 @@ claims:
   - 突发分歧
   - 适用前提
   - 反包
+  school: qing
 - id: claim-20260823-001-008
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -250,6 +262,7 @@ claims:
   - 首阴案例
   - MLCC
   - 情绪失衡
+  school: qing
 - id: claim-20260823-001-009
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -281,6 +294,7 @@ claims:
   - 止损纪律
   - 龙头走A
   - 心理误区
+  school: qing
 - id: claim-20260823-001-010
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -312,6 +326,7 @@ claims:
   - 退出窗口
   - 红盘离场
   - 资金记忆
+  school: qing
 - id: claim-20260823-001-011
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -343,6 +358,7 @@ claims:
   - 低吸误区
   - 盈亏比
   - 波动预期
+  school: qing
 - id: claim-20260823-001-012
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -361,7 +377,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20070209-001-c"]
+  supplements:
+  - claim-20070209-001-c
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -374,6 +391,7 @@ claims:
   - 极弱开盘
   - 认错离场
   - 龙头溢价
+  school: qing
 - id: claim-20260823-001-013
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -392,7 +410,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260529-005-e"]
+  supplements:
+  - claim-20260529-005-e
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -408,6 +427,7 @@ claims:
   - 仙人指路
   - 裕太微
   - 适用边界
+  school: qing
 - id: claim-20260823-001-014
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -439,6 +459,7 @@ claims:
   - 筹码结构
   - 趋势确认
   - 高位修复
+  school: qing
 - id: claim-20260823-001-015
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -470,6 +491,7 @@ claims:
   - 二十日线
   - 次新股
   - 阶段判断
+  school: qing
 - id: claim-20260823-001-016
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -501,6 +523,7 @@ claims:
   - 止跌信号
   - 低吸纪律
   - 资金记忆
+  school: qing
 - id: claim-20260823-001-017
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -519,7 +542,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-011-dup1"]
+  supplements:
+  - claim-20260729-011-dup1
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -532,6 +556,7 @@ claims:
   - 新手风险
   - 交易经验
   - 人群隔离
+  school: qing
 - id: claim-20260823-001-018
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -550,7 +575,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260804-038"]
+  supplements:
+  - claim-20260804-038
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -563,6 +589,7 @@ claims:
   - 见顶过程
   - 双头
   - 反包纪律
+  school: qing
 - id: claim-20260823-001-019
   source_path: sources/original/bilibili/2026-08-23-1228-视频-强趋势股交易（3） 感谢观看，一键三连。.md
   source_date: '2026-08-23'
@@ -581,7 +608,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20070528-001-b"]
+  supplements:
+  - claim-20070528-001-b
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -589,11 +617,12 @@ claims:
     cases: []
   topic: 不该发生买点五项标准：支点、赔率、核心地位、新旧阶段、检验位
   related_stocks:
-  - code: "300785"
-    name: "值得买"
-    role: "回填-正文提及"
+  - code: '300785'
+    name: 值得买
+    role: 回填-正文提及
   tags:
   - 买点标准
   - 上涨支点
   - 检验位
   - 机会成本
+  school: qing

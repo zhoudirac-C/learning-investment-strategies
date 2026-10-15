@@ -1,16 +1,15 @@
 claims:
 - id: claim-20260610-006-a
   source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: 早盘
   extracted_at: '2026-06-10T09:20:00+08:00'
   claim_type: market-cycle
   subject: 隔夜外盘——美股深度回调，加息担忧升温
   timeframe: short-term
-  statement: 隔夜美股开盘上涨后转跌，标普500盘中跌逾2%，纳斯达克100一度跌逾4%，收盘有所收窄。金价跌破4300美元，比特币下探6万美元，美元指数超跌反弹接近100关口。震荡加剧的触发点是北京时间22:00美国5月成屋销售数据（年化417万套，创5个月新高），市场将其解读为加息担忧的催化剂。CME
-    FedWatch显示12月加息概率约68%。做市商大幅撤走买盘导致流动性极度匮乏，是盘中2-4%夸张振幅的合理解释。科技股遭集中抛售，但消费股上涨、小盘股一度翻红、防御板块相对抗跌——资金从偏贵板块向相对便宜方向切换。本轮高位洗牌是否完全结束较难判断，韩国股市周一跌停熔断、周二涨停熔断说明市场极度敏感。
+  statement: 隔夜美股开盘上涨后转跌，标普500盘中跌逾2%，纳斯达克100一度跌逾4%，收盘有所收窄。金价跌破4300美元，比特币下探6万美元，美元指数超跌反弹接近100关口。震荡加剧的触发点是北京时间22:00美国5月成屋销售数据（年化417万套，创5个月新高），市场将其解读为加息担忧的催化剂。CME FedWatch显示12月加息概率约68%。做市商大幅撤走买盘导致流动性极度匮乏，是盘中2-4%夸张振幅的合理解释。科技股遭集中抛售，但消费股上涨、小盘股一度翻红、防御板块相对抗跌——资金从偏贵板块向相对便宜方向切换。本轮高位洗牌是否完全结束较难判断，韩国股市周一跌停熔断、周二涨停熔断说明市场极度敏感。
   evidence_quote: 美股开盘上涨后转跌、跌幅扩大，标普500盘中一度跌逾2%，纳斯达克100一度跌逾4%，但收盘均有所收窄。与此同时，金价跌破4300美元，比特币向下测试6万美元，油价跌破90美元，美元指数超跌反弹、再度接近100关口。
   interpretation: UP 对隔夜外盘的解读框架：①核心触发是成屋销售数据好于预期→加息担忧重燃→科技被杀估值；②盘中剧烈震荡的性质是流动性崩塌（做市商撤单）而非基本面突变；③科技被抛但消费/小盘/防御上涨，说明是轮动而非全面崩盘；④韩国股市熔断式波动说明全球市场处于极端情绪化状态。三个观察企稳的信号：美股科技巨头波动率收窄、汇率稳定、油价进一步回落。
   confidence: high
@@ -18,7 +17,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-003-a", "claim-20260614-011-m", "claim-20260622-004-k"]
+  supplements:
+  - claim-20260607-003-a
+  - claim-20260614-011-m
+  - claim-20260622-004-k
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -32,10 +34,11 @@ claims:
   - 加息
   - 流动性风险
   - 轮动
+  school: qing
 - id: claim-20260610-006-b
   source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: 早盘
   extracted_at: '2026-06-10T09:20:00+08:00'
@@ -50,7 +53,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-006-g"]
+  supplements:
+  - claim-20260610-006-g
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -64,10 +68,11 @@ claims:
   - 结构性反弹
   - 均线压制
   - 技术性反弹
+  school: qing
 - id: claim-20260610-006-c
   source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: 早盘
   extracted_at: '2026-06-10T09:20:00+08:00'
@@ -82,7 +87,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-006-g", "claim-20260608-001-e"]
+  supplements:
+  - claim-20260610-006-g
+  - claim-20260608-001-e
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -96,10 +103,11 @@ claims:
   - 情绪观察
   - 微盘股
   - 全A指数
+  school: qing
 - id: claim-20260610-006-d
   source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: 早盘
   extracted_at: '2026-06-10T09:20:00+08:00'
@@ -113,7 +121,8 @@ claims:
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260604-006-c"]
+  contradicts:
+  - claim-20260604-006-c
   last_discovered: 2026-06-11
   links:
     wiki_pages: []
@@ -127,10 +136,11 @@ claims:
   - 电子树脂
   - 光纤
   - 扩散路径
+  school: qing
 - id: claim-20260610-006-e
   source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: 早盘
   extracted_at: '2026-06-10T09:20:00+08:00'
@@ -145,7 +155,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-006-d", "claim-20260609-005-b"]
+  supplements:
+  - claim-20260610-006-d
+  - claim-20260609-005-b
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -159,10 +171,11 @@ claims:
   - 费城半导体
   - 最新最缺
   - 硅片
+  school: qing
 - id: claim-20260610-006-f
   source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: 早盘
   extracted_at: '2026-06-10T09:20:00+08:00'
@@ -177,7 +190,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-003-a"]
+  supplements:
+  - claim-20260609-003-a
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -191,10 +205,11 @@ claims:
   - 全A指数
   - 大小盘同步
   - 分歧低吸
+  school: qing
 - id: claim-20260610-006-g
   source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: 早盘
   extracted_at: '2026-06-10T09:20:00+08:00'
@@ -209,7 +224,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-006-b"]
+  supplements:
+  - claim-20260610-006-b
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -223,10 +239,11 @@ claims:
   - 先手仓位
   - 右侧确认
   - 等待观察
+  school: qing
 - id: claim-20260610-006-h
   source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: 早盘
   extracted_at: '2026-06-10T09:20:00+08:00'
@@ -241,7 +258,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260525-009"]
+  supplements:
+  - claim-20260525-009
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -255,10 +273,11 @@ claims:
   - 地缘冲突
   - PCB半导体化
   - M10
+  school: qing
 - id: claim-20260610-006-i
   source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: 早盘
   extracted_at: '2026-06-10T09:20:00+08:00'
@@ -267,14 +286,16 @@ claims:
   timeframe: trend
   statement: 相关公司公告称与某存储原厂签订18.61亿美元日常经营性采购合同，锁量锁价，承诺采购期24个月。卖方观点：2026Q1以来各类存储产品价格环比急剧上涨，全年价格持续上涨可期；2026年全球新增供给有限，机构预计存储紧缺趋势或延续至2027年。
   evidence_quote: 相关公司公告称，与某存储原厂签订日常经营性采购合同，合同总承诺采购金额为18.61亿美元，锁量锁价。卖方观点：2026年一季度以来各类存储产品价格环比急剧上涨，在能见度范围内今年价格持续上涨可期，同时2026年全球新增供给有限，有机构预计存储紧缺趋势或延续至2027年。
-  interpretation: 存储方向出现明确的产业信号：①18.61亿美元锁量锁价合同说明产业链对缺货有共识（否则不会提前锁定24个月）；②Q1价格暴涨+新增供给有限→全年涨价预期强烈；③机构预期紧缺延续至2027年。这是继5/23
-    Rubin BOM拆解后存储逻辑的进一步确认。
+  interpretation: 存储方向出现明确的产业信号：①18.61亿美元锁量锁价合同说明产业链对缺货有共识（否则不会提前锁定24个月）；②Q1价格暴涨+新增供给有限→全年涨价预期强烈；③机构预期紧缺延续至2027年。这是继5/23 Rubin BOM拆解后存储逻辑的进一步确认。
   confidence: medium
   status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-041-s", "claim-20260617-042-s", "claim-20260621-001-k"]
+  supplements:
+  - claim-20260617-041-s
+  - claim-20260617-042-s
+  - claim-20260621-001-k
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -288,10 +309,11 @@ claims:
   - 存储紧缺
   - 涨价
   - 增量供给有限
+  school: qing
 - id: claim-20260610-006-j
   source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: 早盘
   extracted_at: '2026-06-10T09:20:00+08:00'
@@ -306,7 +328,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260615-019", "claim-20260608-004-h", "claim-20260607-003-d"]
+  supplements:
+  - claim-20260615-019
+  - claim-20260608-004-h
+  - claim-20260607-003-d
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -320,10 +345,11 @@ claims:
   - 预售
   - 趋势观察
   - 小订与交付差异
+  school: qing
 - id: claim-20260610-006-k
   source_path: sources/raw/财经/早盘：26-06-10：冷眼旁观，等结构慢慢理顺.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-10'
   source_type: 早盘
   extracted_at: '2026-06-10T09:20:00+08:00'
@@ -361,3 +387,4 @@ claims:
   - NPO
   - 400V直流
   - 海外映射
+  school: qing

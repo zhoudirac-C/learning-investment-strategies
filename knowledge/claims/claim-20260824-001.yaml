@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260824-001-a
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -15,7 +15,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260804-024", "claim-20260807-008"]
+  supersedes:
+  - claim-20260804-024
+  - claim-20260807-008
   contradicts: []
   supplements: []
   last_discovered: 2026-08-24
@@ -30,10 +32,11 @@ claims:
   - 情绪收敛
   - 缩量
   related_stocks: []
+  school: qing
 - id: claim-20260824-001-b
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -46,7 +49,10 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260820-032", "claim-20260805-011", "claim-20260810-005"]
+  supersedes:
+  - claim-20260820-032
+  - claim-20260805-011
+  - claim-20260810-005
   contradicts: []
   supplements: []
   last_discovered: 2026-08-24
@@ -61,10 +67,11 @@ claims:
   - 2.5万亿
   - 收缩路径
   related_stocks: []
+  school: qing
 - id: claim-20260824-001-c
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -77,9 +84,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260731-019"]
+  supersedes:
+  - claim-20260731-019
   contradicts: []
-  supplements: ["claim-20080829-001-c"]
+  supplements:
+  - claim-20080829-001-c
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -92,10 +101,11 @@ claims:
   - 反转
   - 操作纪律
   related_stocks: []
+  school: qing
 - id: claim-20260824-001-d
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -110,7 +120,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260824-001-e", "claim-20260809-029"]
+  supplements:
+  - claim-20260824-001-e
+  - claim-20260809-029
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -123,10 +135,11 @@ claims:
   - 跌停家数
   - 权重托底
   related_stocks: []
+  school: qing
 - id: claim-20260824-001-e
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -139,9 +152,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260629-001-j"]
+  supersedes:
+  - claim-20260629-001-j
   contradicts: []
-  supplements: ["claim-20260824-001-d"]
+  supplements:
+  - claim-20260824-001-d
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -153,10 +168,11 @@ claims:
   - 修复窗口
   - 超跌反弹
   related_stocks: []
+  school: qing
 - id: claim-20260824-001-f
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -171,7 +187,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260708-005-i", "claim-20260812-033"]
+  supplements:
+  - claim-20260708-005-i
+  - claim-20260812-033
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -183,18 +201,18 @@ claims:
   - 轮动补涨
   - 反弹形态
   related_stocks: []
+  school: qing
 - id: claim-20260824-001-g
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
   claim_type: sector-theme
   subject: 英伟达服务器涨价是上游议价权转移的确认
   timeframe: industry
-  statement: 据彭博社报道，因内存芯片成本飙升，搭载英伟达AI芯片的服务器价格将上涨、很多情况下涨幅超过15%，适用于明年初出货的Vera Rubin与Grace
-    Blackwell机型；这不是单纯的科技利好，而是上游议价权转移的确认书——三星、SK海力士、美光在AI需求激增下拿到了罕见的定价权。
+  statement: 据彭博社报道，因内存芯片成本飙升，搭载英伟达AI芯片的服务器价格将上涨、很多情况下涨幅超过15%，适用于明年初出货的Vera Rubin与Grace Blackwell机型；这不是单纯的科技利好，而是上游议价权转移的确认书——三星、SK海力士、美光在AI需求激增下拿到了罕见的定价权。
   evidence_quote: 这不是一条单纯的科技利好，它同时是上游议价权转移的确认书。涨价的根因，是三星、SK海力士、美光在AI基础设施需求激增下拿到了罕见的定价权，连行业最强势的英伟达都无法自行消化成本。
   interpretation: 产业逻辑：涨价映射分两头——最直接受益是有定价权的存储与内存环节，其次是单机价值量抬升的高速互联、液冷与连接器；对下游云厂与算力租赁则首先是成本，需警惕硬件太贵压制资本开支增速。
   confidence: high
@@ -202,7 +220,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-020"]
+  supplements:
+  - claim-20260812-020
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -215,10 +234,11 @@ claims:
   - 存储定价权
   - 上游议价权
   related_stocks: []
+  school: qing
 - id: claim-20260824-001-h
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -252,13 +272,14 @@ claims:
   - code: '688313'
     name: 仕佳光子
     role: NPO涨幅参照-科创板不可交易
-  - code: "300548"
-    name: "长芯博创"
-    role: "回填-正文提及"
+  - code: '300548'
+    name: 长芯博创
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260824-001-i
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -285,10 +306,11 @@ claims:
   - 节点纪律
   - 抢跑降权
   related_stocks: []
+  school: qing
 - id: claim-20260824-001-j
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -303,7 +325,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-005"]
+  supplements:
+  - claim-20260819-005
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -316,10 +339,11 @@ claims:
   - 美债美元
   - 有色
   related_stocks: []
+  school: qing
 - id: claim-20260824-001-k
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -332,9 +356,11 @@ claims:
   confidence: medium
   status: superseded
   intensity: low
-  supersedes: ["claim-20260811-047"]
+  supersedes:
+  - claim-20260811-047
   contradicts: []
-  supplements: ["claim-20260820-042"]
+  supplements:
+  - claim-20260820-042
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -349,10 +375,11 @@ claims:
   - code: '600613'
     name: 神奇制药
     role: 医药情绪载体-主板可交易
+  school: qing
 - id: claim-20260824-001-l
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -367,7 +394,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260816-017"]
+  supplements:
+  - claim-20260816-017
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -382,18 +410,18 @@ claims:
   - code: '000017'
     name: 深中华A
     role: 黄金核心情绪载体-主板可交易
+  school: qing
 - id: claim-20260824-001-m
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
   claim_type: operation
   subject: 电连技术NPO Socket是从无到有的增量线索以送样转订单为准
   timeframe: trend
-  statement: 据卖方材料，花旗预测CPO与NPO合计出货量将从2026年的40万只增至2028年的5600万只；天风证券指出电连技术(300679) NPO
-    Socket业务正配合大客户积极研发并已送样多家NPO公司。这是一条从无到有的转型线索，符合只参与增量、不参与份额由高转低的原则，但兑现节奏要以送样转订单为准。
+  statement: 据卖方材料，花旗预测CPO与NPO合计出货量将从2026年的40万只增至2028年的5600万只；天风证券指出电连技术(300679) NPO Socket业务正配合大客户积极研发并已送样多家NPO公司。这是一条从无到有的转型线索，符合只参与增量、不参与份额由高转低的原则，但兑现节奏要以送样转订单为准。
   evidence_quote: 天风证券指出，公司NPO Socket业务正配合大客户积极研发并已送样多家NPO公司。以上为卖方结论；个人判断的落点是，这是一条从无到有的转型线索，符合只参与增量、不参与份额由高转低的原则，但兑现节奏要以送样转订单为准。
   interpretation: 标的观察项：增量逻辑清晰但兑现锚点是送样转订单；创业板标的，主板用户需以ETF表达该暴露。
   confidence: medium
@@ -401,7 +429,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260818-067", "claim-20260610-006-k"]
+  supplements:
+  - claim-20260818-067
+  - claim-20260610-006-k
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -416,10 +446,11 @@ claims:
   - code: '300679'
     name: 电连技术
     role: NPO Socket增量标的-创业板不可交易
+  school: qing
 - id: claim-20260824-001-n
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -434,7 +465,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-001-i"]
+  supplements:
+  - claim-20260623-001-i
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -450,10 +482,11 @@ claims:
   - code: '002536'
     name: 飞龙股份
     role: 液冷泵订单验证-主板可交易
+  school: qing
 - id: claim-20260824-001-o
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -466,9 +499,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260806-002"]
+  supersedes:
+  - claim-20260806-002
   contradicts: []
-  supplements: ["claim-20260625-003-c"]
+  supplements:
+  - claim-20260625-003-c
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -483,10 +518,11 @@ claims:
   - code: '300308'
     name: 中际旭创
     role: 光模块业绩龙头-创业板不可交易
+  school: qing
 - id: claim-20260824-001-p
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -501,7 +537,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-004", "claim-20260809-014"]
+  supplements:
+  - claim-20260515-004
+  - claim-20260809-014
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -514,10 +552,11 @@ claims:
   - 存储扩产
   - 国产设备材料
   related_stocks: []
+  school: qing
 - id: claim-20260824-001-q
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -530,7 +569,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260818-033", "claim-20260622-004-k"]
+  supersedes:
+  - claim-20260818-033
+  - claim-20260622-004-k
   contradicts: []
   supplements: []
   last_discovered: 2026-08-24
@@ -544,10 +585,11 @@ claims:
   - 监管收紧
   - 仓位纪律
   related_stocks: []
+  school: qing
 - id: claim-20260824-001-r
   source_path: sources/original/bilibili/2026-08-24-0041-图片-上周A股先扬后抑，周三一根大阴之后，周四、周五连续两个交易日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 复盘
   extracted_at: '2026-08-24T01:35:00+08:00'
@@ -562,7 +604,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260717-006-d"]
+  supplements:
+  - claim-20260717-006-d
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -574,3 +617,4 @@ claims:
   - 沃什讲话
   - 事件日历
   related_stocks: []
+  school: qing

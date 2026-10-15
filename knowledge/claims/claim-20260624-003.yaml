@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260624-003-a
   source_path: sources/raw/财经/2026-06-24-1054-动态-高利率环境vs科技产业趋势-两种相反观念同时成立.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 动态
   extracted_at: '2026-06-24T12:30:00'
@@ -11,14 +11,14 @@ claims:
   timeframe: trend
   statement: 未来市场大概率会处在一个长期高利率环境中，这意味着估值端会持续承压。高利率环境压制估值弹性，市场波动会加大，单一方向的回撤风险也会提高。
   evidence_quote: 从宏观层面看，宏观因素本来就不是一两天的变量，而是中长期约束。未来市场大概率会处在一个长期高利率环境中，这意味着估值端会持续承压。
-  interpretation: UP在6/24早盘讨论美元指数101的基础上，进一步深化了宏观判断：①高利率不是短期波动而是'中长期约束'——不是一两天的变量，而是将持续影响估值的结构性因素；②高利率下估值弹性被压缩，意味着A股过去靠估值扩张推动的行情模式已改变（和5/30
-    claim提到的'AI是遮羞布'形成呼应）；③市场波动会加大，这是增量信息——不仅是方向性判断，也是波动率判断。
+  interpretation: UP在6/24早盘讨论美元指数101的基础上，进一步深化了宏观判断：①高利率不是短期波动而是'中长期约束'——不是一两天的变量，而是将持续影响估值的结构性因素；②高利率下估值弹性被压缩，意味着A股过去靠估值扩张推动的行情模式已改变（和5/30 claim提到的'AI是遮羞布'形成呼应）；③市场波动会加大，这是增量信息——不仅是方向性判断，也是波动率判断。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-003-c"]
+  supplements:
+  - claim-20260624-003-c
   last_discovered: 2026-06-25
   links:
   - claim-20260624-001-b
@@ -31,10 +31,11 @@ claims:
   - 宏观逆风
   - 高波动环境
   - 宏观约束
+  school: qing
 - id: claim-20260624-003-b
   source_path: sources/raw/财经/2026-06-24-1054-动态-高利率环境vs科技产业趋势-两种相反观念同时成立.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 动态
   extracted_at: '2026-06-24T12:30:00'
@@ -47,7 +48,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-c"]
+  supersedes:
+  - claim-20260602-003-c
   contradicts: []
   last_discovered: 2026-06-24
   links: []
@@ -59,10 +61,11 @@ claims:
   - 半导体
   - 光通信
   - 科技业绩
+  school: qing
 - id: claim-20260624-003-c
   source_path: sources/raw/财经/2026-06-24-1054-动态-高利率环境vs科技产业趋势-两种相反观念同时成立.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 动态
   extracted_at: '2026-06-24T12:30:00'
@@ -77,7 +80,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h", "claim-20260624-003-a"]
+  supplements:
+  - claim-20260622-001-h
+  - claim-20260624-003-a
   last_discovered: 2026-06-25
   links:
   - claim-20260624-001-a
@@ -89,10 +94,11 @@ claims:
   - 高利率逆风
   - 科技顺风
   - 策略框架
+  school: qing
 - id: claim-20260624-003-d
   source_path: sources/raw/财经/2026-06-24-1054-动态-高利率环境vs科技产业趋势-两种相反观念同时成立.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 动态
   extracted_at: '2026-06-24T12:30:00'
@@ -106,7 +112,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260528-002-b"]
+  contradicts:
+  - claim-20260528-002-b
   last_discovered: 2026-06-24
   links:
   - claim-20260624-003-c
@@ -118,3 +125,4 @@ claims:
   - 抗高利率
   - 降低波动
   - 策略转型
+  school: qing

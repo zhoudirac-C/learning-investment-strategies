@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260706-003-a
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -17,7 +17,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-004-b", "claim-20260706-025", "claim-20260706-024"]
+  supplements:
+  - claim-20260623-004-b
+  - claim-20260706-025
+  - claim-20260706-024
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -29,10 +32,11 @@ claims:
   - 混沌期
   - 科技高低切换
   - 风格切换
+  school: qing
 - id: claim-20260706-003-b
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -45,9 +49,11 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260603-004-a"]
+  supersedes:
+  - claim-20260603-004-a
   contradicts: []
-  supplements: ["claim-20260612-002-e"]
+  supplements:
+  - claim-20260612-002-e
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -59,10 +65,11 @@ claims:
   - 内生性轮动
   - Kyber延迟
   - 国产链
+  school: qing
 - id: claim-20260706-003-c
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -77,7 +84,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-002-c", "claim-20260702-005-e", "claim-20260702-001-d"]
+  supplements:
+  - claim-20260706-002-c
+  - claim-20260702-005-e
+  - claim-20260702-001-d
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -89,10 +99,11 @@ claims:
   - 国产算力
   - 超节点
   - 交换机
+  school: qing
 - id: claim-20260706-003-d
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -107,7 +118,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-004-d", "claim-20260609-001-d"]
+  supplements:
+  - claim-20260624-004-d
+  - claim-20260609-001-d
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -119,10 +132,11 @@ claims:
   - 海外算力
   - Kyber
   - PCB
+  school: qing
 - id: claim-20260706-003-e
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -137,7 +151,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-002-f", "claim-20260705-039-a"]
+  supplements:
+  - claim-20260706-002-f
+  - claim-20260705-039-a
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -149,10 +165,11 @@ claims:
   - 机器人
   - Optimus
   - 核心标的
+  school: qing
 - id: claim-20260706-003-f
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -166,8 +183,11 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260702-001-e"]
-  supplements: ["claim-20260702-002-m", "claim-20260531-002-a"]
+  contradicts:
+  - claim-20260702-001-e
+  supplements:
+  - claim-20260702-002-m
+  - claim-20260531-002-a
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -179,10 +199,11 @@ claims:
   - 非科技方向
   - 日内脉冲
   - 资金试错
+  school: qing
 - id: claim-20260706-003-g
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -205,7 +226,7 @@ claims:
     cases: []
   topic: 星网锐捷因锐捷网络股权存在估值修复空间
   related_stocks:
-  - code: '002396'
+  - code: 002396
     name: 星网锐捷
     role: 国产超节点母公司-主板可交易
   - code: '301165'
@@ -215,10 +236,11 @@ claims:
   - 星网锐捷
   - 锐捷网络
   - 国产交换机
+  school: qing
 - id: claim-20260706-003-h
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -248,10 +270,11 @@ claims:
   - 蔚蓝锂芯
   - BBU电芯
   - AI数据中心
+  school: qing
 - id: claim-20260706-003-i
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -281,10 +304,11 @@ claims:
   - 青龙管业
   - 台风巴威
   - 管网修复
+  school: qing
 - id: claim-20260706-003-j
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -297,7 +321,9 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260617-014-c", "claim-20260629-004-au"]
+  supersedes:
+  - claim-20260617-014-c
+  - claim-20260629-004-au
   contradicts: []
   supplements: []
   last_discovered: 2026-07-07
@@ -311,10 +337,11 @@ claims:
   - 商业航天
   - 朱雀三号
   - 右侧应对
+  school: qing
 - id: claim-20260706-003-k
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -329,7 +356,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260603-004-d", "claim-20260615-021", "claim-20260523-010"]
+  supplements:
+  - claim-20260603-004-d
+  - claim-20260615-021
+  - claim-20260523-010
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -347,10 +377,11 @@ claims:
   - 算力资本开支
   - AIDC
   - 数据中心
+  school: qing
 - id: claim-20260706-003-l
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -365,7 +396,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-e", "claim-20260616-005-a"]
+  supplements:
+  - claim-20260609-005-e
+  - claim-20260616-005-a
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -383,10 +416,11 @@ claims:
   - 腾讯混元
   - Hy3
   - AI应用
+  school: qing
 - id: claim-20260706-003-m
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -401,7 +435,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-039-m", "claim-20260706-002-j", "claim-20260621-001-g"]
+  supplements:
+  - claim-20260617-039-m
+  - claim-20260706-002-j
+  - claim-20260621-001-g
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -413,10 +450,11 @@ claims:
   - WAIC
   - 中报预告
   - Token调用
+  school: qing
 - id: claim-20260706-003-n
   source_path: sources/original/bilibili/2026-07-06-2346-图片-今日指数早盘下探回升，午后再度小幅回落，量能相较上一交易日小.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-06'
   source_type: 复盘
   extracted_at: '2026-07-06T23:55:52+08:00'
@@ -431,7 +469,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-f", "claim-20260531-002-a", "claim-20260515-008"]
+  supplements:
+  - claim-20260609-005-f
+  - claim-20260531-002-a
+  - claim-20260515-008
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -443,3 +484,4 @@ claims:
   - 混沌期纪律
   - 右侧确认
   - 资金沉淀
+  school: qing

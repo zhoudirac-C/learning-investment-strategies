@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260913-001-001
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -15,7 +15,9 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260910-003-a", "claim-20260909-013-a"]
+  supersedes:
+  - claim-20260910-003-a
+  - claim-20260909-013-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-14
@@ -31,10 +33,11 @@ claims:
   - 量价确认
   - MLCC
   - PCB
+  school: qing
 - id: claim-20260913-001-002
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -63,10 +66,11 @@ claims:
   - 沪指
   - 创业板指
   - 成交1.97万亿
+  school: qing
 - id: claim-20260913-001-003
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -95,10 +99,11 @@ claims:
   - 7月30日
   - 下影线
   - 确认条件
+  school: qing
 - id: claim-20260913-001-004
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -113,7 +118,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260615-002"]
+  supplements:
+  - claim-20260615-002
   last_discovered: 2026-09-14
   links:
     wiki_pages: []
@@ -127,10 +133,11 @@ claims:
   - 修复节奏
   - 金融权重
   - 分化预案
+  school: qing
 - id: claim-20260913-001-005
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -158,10 +165,11 @@ claims:
   - 费城半导体
   - 外盘信号
   - 利空出尽
+  school: qing
 - id: claim-20260913-001-006
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -189,10 +197,11 @@ claims:
   - 放量
   - 增量资金
   - 承接
+  school: qing
 - id: claim-20260913-001-007
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -220,10 +229,11 @@ claims:
   - 早盘修复
   - 上涨家数
   - 科技成交
+  school: qing
 - id: claim-20260913-001-008
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -252,10 +262,11 @@ claims:
   - 高股息
   - 风格切换
   - 沪指
+  school: qing
 - id: claim-20260913-001-009
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -270,7 +281,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260615-023"]
+  supplements:
+  - claim-20260615-023
   last_discovered: 2026-09-14
   links:
     wiki_pages: []
@@ -283,18 +295,18 @@ claims:
   - 涨跌家数
   - 跌停扩散
   - 强势股反馈
+  school: qing
 - id: claim-20260913-001-010
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
   claim_type: macro
   subject: 美联储议息日程与加息情景
   timeframe: short-term
-  statement: 美联储7月29日维持联邦基金目标区间3.50%-3.75%；9月议息会议安排在15-16日，决议北京时间9月17日凌晨2点公布、2点半新闻发布会。若上调25个基点目标区间才会变为3.75%-4.00%，截至本稿整理时这仍是待发生的政策情景。市场定价（CME
-    FedWatch）是随交易变化的市场快照，不是委员投票结果，任何时点概率只描述当时预期。
+  statement: 美联储7月29日维持联邦基金目标区间3.50%-3.75%；9月议息会议安排在15-16日，决议北京时间9月17日凌晨2点公布、2点半新闻发布会。若上调25个基点目标区间才会变为3.75%-4.00%，截至本稿整理时这仍是待发生的政策情景。市场定价（CME FedWatch）是随交易变化的市场快照，不是委员投票结果，任何时点概率只描述当时预期。
   evidence_quote: 9月议息会议安排在15日至16日，决议将于北京时间9月17日凌晨2点公布，2点半举行新闻发布会，并有经济预测摘要。若上调25个基点，目标区间才会变为3.75%—4.00%；截至本稿整理时，这仍是待发生的政策情景
   interpretation: 9/17凌晨美联储决议是下周最大外生变量，9/16收盘前的仓位决策需预留该事件的定价空间。注意本专栏写'上调25bp'为假设情景，与市场当前主流降息预期相反，UP特意保持开放而不预设方向。
   confidence: high
@@ -316,10 +328,11 @@ claims:
   - 加息
   - FedWatch
   - 政策情景
+  school: qing
 - id: claim-20260913-001-011
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -348,10 +361,11 @@ claims:
   - 再通胀
   - 能源涨价
   - 紧缩
+  school: qing
 - id: claim-20260913-001-012
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -379,10 +393,11 @@ claims:
   - 决议行情
   - 暂停不必然利好
   - 企业盈利
+  school: qing
 - id: claim-20260913-001-013
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -410,10 +425,11 @@ claims:
   - AI融资
   - 债券供给
   - 长端利率
+  school: qing
 - id: claim-20260913-001-014
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -441,10 +457,11 @@ claims:
   - 久期
   - 收益率
   - 见底误区
+  school: qing
 - id: claim-20260913-001-015
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -472,10 +489,11 @@ claims:
   - 加息25bp
   - 融资条件
   - 风险资产
+  school: qing
 - id: claim-20260913-001-016
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -504,10 +522,11 @@ claims:
   - 9月17日
   - 两年期美债
   - 实际利率
+  school: qing
 - id: claim-20260913-001-017
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -536,10 +555,11 @@ claims:
   - 量价配合
   - 亏钱效应收敛
   - 利率回落
+  school: qing
 - id: claim-20260913-001-018
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -568,10 +588,11 @@ claims:
   - 下调假设
   - 风险暴露
   - 二次探底
+  school: qing
 - id: claim-20260913-001-019
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -599,10 +620,11 @@ claims:
   - 亏钱效应
   - 连板反馈
   - 题材周期
+  school: qing
 - id: claim-20260913-001-020
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -631,10 +653,11 @@ claims:
   - 农业
   - 消费
   - 承接减弱
+  school: qing
 - id: claim-20260913-001-021
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -647,7 +670,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260525-003"]
+  supersedes:
+  - claim-20260525-003
   contradicts: []
   supplements: []
   last_discovered: 2026-09-14
@@ -663,10 +687,11 @@ claims:
   - 光通信
   - 液冷
   - 半导体芯片
+  school: qing
 - id: claim-20260913-001-022
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -694,10 +719,11 @@ claims:
   - 估值承受力
   - 无风险利率
   - 竞争格局
+  school: qing
 - id: claim-20260913-001-023
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -720,7 +746,7 @@ claims:
     cases: []
   topic: 双星新材离型膜机会链三环节验证，规划≠业绩
   related_stocks:
-  - code: '002585'
+  - code: 002585
     name: 双星新材
     role: MLCC离型膜基材-主板可交易
   - code: '300408'
@@ -732,10 +758,11 @@ claims:
   - MLCC
   - 客户认证
   - 产能爬坡
+  school: qing
 - id: claim-20260913-001-024
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -758,7 +785,7 @@ claims:
     cases: []
   topic: 双星新材MLCC离型膜占比不足1%未涉AI算力
   related_stocks:
-  - code: '002585'
+  - code: 002585
     name: 双星新材
     role: MLCC离型膜标的-主板可交易
   tags:
@@ -767,10 +794,11 @@ claims:
   - 异动公告
   - AI算力
   - 业绩影响
+  school: qing
 - id: claim-20260913-001-025
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -783,7 +811,8 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260623-005-f"]
+  supersedes:
+  - claim-20260623-005-f
   contradicts: []
   supplements: []
   last_discovered: 2026-09-14
@@ -802,18 +831,18 @@ claims:
   - PCVD
   - 保偏光纤
   - 供给约束
+  school: qing
 - id: claim-20260913-001-026
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
   claim_type: stock-view
   subject: 中新赛克AI安全治理业务跟踪
   timeframe: industry
-  statement: 智能体获得更多系统权限后，身份管理、数据保护和运行时治理的重要性上升。ETR在2026年4月发布、涉及517位企业技术领导者的调查中，37%的受访组织已部署或测试智能体，仅3%广泛部署了智能体专属安全控制、20%尚无此类控制，这反映特定样本中的部署与安全治理差距，不能推广为全部企业比例。中新赛克(002912)2026年半年报披露以AI
-    WorkForce为能力底座向政企客户提供场景开发、智能体部署与AI安全治理，并布局AI治理网关、小赛安全智脑等产品。'安全预算可能常态化'可以作为需求假设，相关业务能否形成稳定持续增长的收入仍需更多经营数据验证，后续观察客户采购、项目交付、复购或续费以及相关收入与现金回款。
+  statement: 智能体获得更多系统权限后，身份管理、数据保护和运行时治理的重要性上升。ETR在2026年4月发布、涉及517位企业技术领导者的调查中，37%的受访组织已部署或测试智能体，仅3%广泛部署了智能体专属安全控制、20%尚无此类控制，这反映特定样本中的部署与安全治理差距，不能推广为全部企业比例。中新赛克(002912)2026年半年报披露以AI WorkForce为能力底座向政企客户提供场景开发、智能体部署与AI安全治理，并布局AI治理网关、小赛安全智脑等产品。'安全预算可能常态化'可以作为需求假设，相关业务能否形成稳定持续增长的收入仍需更多经营数据验证，后续观察客户采购、项目交付、复购或续费以及相关收入与现金回款。
   evidence_quote: 中新赛克2026年半年报披露，以AI WorkForce为能力底座，向政企客户提供场景开发、智能体部署与AI安全治理，并布局AI治理网关、小赛安全智脑等产品。后续需要观察客户采购、项目交付、复购或续费，以及相关收入与现金回款
   interpretation: AI安全治理是需求假设而非已验证收入：ETR样本数据（37%部署/3%安全控制）暴露治理缺口，中新赛克有产品布局，但订单→收入→回款的验证链未走完。
   confidence: medium
@@ -829,7 +858,7 @@ claims:
     cases: []
   topic: 中新赛克AI安全治理：需求假设成立、收入验证未完
   related_stocks:
-  - code: '002912'
+  - code: 002912
     name: 中新赛克
     role: AI安全治理-主板可交易
   tags:
@@ -838,10 +867,11 @@ claims:
   - 智能体治理
   - ETR调查
   - 收入验证
+  school: qing
 - id: claim-20260913-001-027
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -870,10 +900,11 @@ claims:
   - 高盛预测
   - 订单口径
   - 出货量
+  school: qing
 - id: claim-20260913-001-028
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -882,8 +913,7 @@ claims:
   timeframe: industry
   statement: 剑桥科技(603083)9月9日最新投资者记录显示，多款800G产品已量产，1.6T在三个客户处测试过，但具体出货与量产节奏未详细披露，同时提示DSP芯片供应约束。对公司的观察应落在客户进度、物料保障、交付和收入确认。
   evidence_quote: 剑桥科技9月9日最新投资者记录显示，多款800G产品已量产，1.6T在三个客户处测试过，但具体出货与量产节奏未详细披露，同时提示DSP芯片供应约束
-  interpretation: 阵眼标的剑桥科技(603083)的进度坐标：800G已量产（兑现层）、1.6T三客户测试（预期层）、DSP供应约束（瓶颈层）。与9/11
-    claim-010 的阵眼定位记录呼应，其股价对板块情绪仍有指示意义。
+  interpretation: 阵眼标的剑桥科技(603083)的进度坐标：800G已量产（兑现层）、1.6T三客户测试（预期层）、DSP供应约束（瓶颈层）。与9/11 claim-010 的阵眼定位记录呼应，其股价对板块情绪仍有指示意义。
   confidence: high
   status: active
   intensity: medium
@@ -905,10 +935,11 @@ claims:
   - 800G量产
   - 1.6T测试
   - DSP供应约束
+  school: qing
 - id: claim-20260913-001-029
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -923,7 +954,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260911-001-016"]
+  supplements:
+  - claim-20260911-001-016
   last_discovered: 2026-09-14
   links:
     wiki_pages: []
@@ -940,10 +972,11 @@ claims:
   - 1.6T
   - CPO
   - 产品布局
+  school: qing
 - id: claim-20260913-001-030
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -958,7 +991,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-007-a"]
+  supplements:
+  - claim-20260604-007-a
   last_discovered: 2026-09-14
   links:
     wiki_pages: []
@@ -975,10 +1009,11 @@ claims:
   - 光伏逆变器
   - 储能
   - 毛利率
+  school: qing
 - id: claim-20260913-001-031
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -1013,10 +1048,11 @@ claims:
   - 新亚电子
   - 艾华集团
   - 业务关联
+  school: qing
 - id: claim-20260913-001-032
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -1045,10 +1081,11 @@ claims:
   - 趋势反转
   - 风格切换
   - 总纲
+  school: qing
 - id: claim-20260913-001-033
   source_path: sources/original/bilibili/2026-09-13-2109-专栏-周五指数先抑后扬，创业板指收盘跌幅明显收窄，MLCC、PCB.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-13'
   source_type: 专栏
   extracted_at: '2026-09-14T00:45:29+08:00'
@@ -1077,3 +1114,4 @@ claims:
   - 补仓
   - 仓位
   - 方法论
+  school: qing

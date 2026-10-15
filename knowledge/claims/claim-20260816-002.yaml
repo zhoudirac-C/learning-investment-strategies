@@ -40,6 +40,7 @@ claims:
   - 同花顺热榜
   - 带牛股
   - 条件参与
+  school: watchlist
 - id: claim-20260816-002-002
   source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
   source_date: '2026-08-16'
@@ -56,7 +57,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260817-001-a"]
+  supersedes:
+  - claim-20260817-001-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-15
@@ -71,6 +73,7 @@ claims:
   - 持仓成本
   - 补仓
   - 操作计划
+  school: watchlist
 - id: claim-20260816-002-003
   source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
   source_date: '2026-08-16'
@@ -102,6 +105,7 @@ claims:
   - 商业航天
   - 冲高减仓
   - 操作纪律
+  school: watchlist
 - id: claim-20260816-002-004
   source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
   source_date: '2026-08-16'
@@ -139,6 +143,7 @@ claims:
   - 绿的谐波
   - 埃斯顿
   - 趋势涨幅
+  school: watchlist
 - id: claim-20260816-002-005
   source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
   source_date: '2026-08-16'
@@ -170,6 +175,7 @@ claims:
   - 分谷定价
   - 大模型
   - 低价内卷
+  school: watchlist
 - id: claim-20260816-002-006
   source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
   source_date: '2026-08-16'
@@ -188,7 +194,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260816-024", "claim-20260702-005-b"]
+  supplements:
+  - claim-20260816-024
+  - claim-20260702-005-b
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -201,6 +209,7 @@ claims:
   - GPU挤兑
   - 短线
   - DeepSeek
+  school: watchlist
 - id: claim-20260816-002-007
   source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
   source_date: '2026-08-16'
@@ -219,7 +228,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260816-022"]
+  disagrees_with:
+  - claim-20260816-022
   supplements: []
   last_discovered: 2026-09-15
   links:
@@ -239,6 +249,7 @@ claims:
   - 定价权
   - 每日互动
   - 昆仑万维
+  school: watchlist
 - id: claim-20260816-002-008
   source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
   source_date: '2026-08-16'
@@ -257,7 +268,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-018"]
+  supplements:
+  - claim-20260913-001-018
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -270,6 +282,7 @@ claims:
   - 小金属
   - 缩量调整
   - 下跌中继
+  school: watchlist
 - id: claim-20260816-002-009
   source_path: sources/original/bilibili/2026-08-16-1643-视频-周一计划，牛来！机器人、deepseek涨价、算力硬件、大模.md
   source_date: '2026-08-16'
@@ -299,7 +312,7 @@ claims:
   - code: '600519'
     name: 贵州茅台
     role: 白酒龙头-沪主板
-  - code: '000858'
+  - code: 000858
     name: 五粮液
     role: 白酒-深主板
   - code: '600779'
@@ -316,3 +329,4 @@ claims:
   - 贵州茅台
   - 汇金证金
   - 业绩平淡
+  school: watchlist

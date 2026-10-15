@@ -1,10 +1,8 @@
 claims:
-# ==================== 一、隔夜与开盘预判 ====================
-
 - id: claim-20260717-001-a
   source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T00:58:00+08:00'
@@ -19,7 +17,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260716-002-a"]
+  supplements:
+  - claim-20260716-002-a
   last_discovered: 2026-07-17
   links:
     wiki_pages: []
@@ -32,11 +31,11 @@ claims:
   - 高位兑现
   - 存储链调整
   - 全球半导体
-
+  school: qing
 - id: claim-20260717-001-b
   source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T00:58:00+08:00'
@@ -51,7 +50,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260716-002-a", "claim-20260715-055-a"]
+  supplements:
+  - claim-20260716-002-a
+  - claim-20260715-055-a
   last_discovered: 2026-07-17
   links:
     wiki_pages: []
@@ -64,11 +65,11 @@ claims:
   - 独立交易日
   - 外盘传导
   - A股定价
-
+  school: qing
 - id: claim-20260717-001-c
   source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T00:58:00+08:00'
@@ -96,11 +97,11 @@ claims:
   - 杠杆出清
   - 磨底期
   - 逆周期调节
-
+  school: qing
 - id: claim-20260717-001-d
   source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T00:58:00+08:00'
@@ -113,9 +114,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260715-055-a"]
+  supersedes:
+  - claim-20260715-055-a
   contradicts: []
-  supplements: ["claim-20260716-002-a", "claim-20260716-002-b"]
+  supplements:
+  - claim-20260716-002-a
+  - claim-20260716-002-b
   last_discovered: 2026-07-17
   links:
     wiki_pages: []
@@ -123,22 +127,20 @@ claims:
     cases: []
   topic: 三要素：量能地量+券商需止稳+情绪收敛→反弹预期
   related_stocks:
-  - code: "301583"
-    name: "托伦斯"
-    role: "回填-正文提及"
+  - code: '301583'
+    name: 托伦斯
+    role: 回填-正文提及
   tags:
   - 量能
   - 大金融
   - 情绪
   - 反弹预期
   - 三要素
-
-# ==================== 二、今日重点：两种情形，一个共振信号 ====================
-
+  school: qing
 - id: claim-20260717-001-e
   source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T00:58:00+08:00'
@@ -151,9 +153,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260716-002-b"]
+  supersedes:
+  - claim-20260716-002-b
   contradicts: []
-  supplements: ["claim-20260713-009-i", "claim-20260716-002-a"]
+  supplements:
+  - claim-20260713-009-i
+  - claim-20260716-002-a
   last_discovered: 2026-07-17
   links:
     wiki_pages: []
@@ -167,11 +172,11 @@ claims:
   - 情形B
   - 超跌反弹
   - 券商止稳
-
+  school: qing
 - id: claim-20260717-001-f
   source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T00:58:00+08:00'
@@ -186,7 +191,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260716-002-d", "claim-20260716-002-e"]
+  supplements:
+  - claim-20260716-002-d
+  - claim-20260716-002-e
   last_discovered: 2026-07-17
   links:
     wiki_pages: []
@@ -195,21 +202,19 @@ claims:
   topic: 德明利是存储链修复核心锚点
   related_stocks:
   - 603528.SH
-  - code: "001309"
-    name: "德明利"
-    role: "回填-正文提及"
+  - code: 001309
+    name: 德明利
+    role: 回填-正文提及
   tags:
   - 德明利
   - 存储
   - 右侧信号
   - 底部结构
-
-# ==================== 三、题材与消息面 ====================
-
+  school: qing
 - id: claim-20260717-001-g
   source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外台积电二季报营收.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T00:58:00+08:00'
@@ -222,9 +227,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260527-005-e", "claim-20260716-002-d"]
+  supersedes:
+  - claim-20260527-005-e
+  - claim-20260716-002-d
   contradicts: []
-  supplements: ["claim-20260716-002-g"]
+  supplements:
+  - claim-20260716-002-g
   last_discovered: 2026-07-17
   links:
     wiki_pages: []
@@ -236,25 +244,25 @@ claims:
   - 002881.SZ
   - 603160.SH
   - 600829.SH
-  - code: "000829"
-    name: "天音控股"
-    role: "回填-正文提及"
-  - code: "603893"
-    name: "瑞芯微"
-    role: "回填-正文提及"
-  - code: "002881"
-    name: "美格智能"
-    role: "回填-正文提及"
+  - code: 000829
+    name: 天音控股
+    role: 回填-正文提及
+  - code: '603893'
+    name: 瑞芯微
+    role: 回填-正文提及
+  - code: 002881
+    name: 美格智能
+    role: 回填-正文提及
   tags:
   - 端侧AI
   - 备案
   - Apple Intelligence
   - 避风港
-
+  school: qing
 - id: claim-20260717-001-h
   source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T00:58:00+08:00'
@@ -280,20 +288,20 @@ claims:
   - 688190.SH
   - 603112.SH
   - 600203.SH
-  - code: "688333"
-    name: "铂力特"
-    role: "回填-正文提及"
+  - code: '688333'
+    name: 铂力特
+    role: 回填-正文提及
   tags:
   - 3D打印
   - 苹果链
   - 调研纪要
   - 冷处理
   - 小作文
-
+  school: qing
 - id: claim-20260717-001-i
   source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T00:58:00+08:00'
@@ -308,7 +316,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260716-002-c"]
+  supplements:
+  - claim-20260716-002-c
   last_discovered: 2026-07-17
   links:
     wiki_pages: []
@@ -326,11 +335,11 @@ claims:
   - 人形机器人
   - 预期差
   - 超跌
-
+  school: qing
 - id: claim-20260717-001-j
   source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T00:58:00+08:00'
@@ -343,9 +352,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260716-002-f"]
+  supersedes:
+  - claim-20260716-002-f
   contradicts: []
-  supplements: ["claim-20260716-001-i"]
+  supplements:
+  - claim-20260716-001-i
   last_discovered: 2026-07-17
   links:
     wiki_pages: []
@@ -356,26 +367,26 @@ claims:
   - 600664.SH
   - 600436.SH
   - 600085.SH
-  - code: "600085"
-    name: "同仁堂"
-    role: "回填-正文提及"
-  - code: "600664"
-    name: "哈药股份"
-    role: "回填-正文提及"
-  - code: "600436"
-    name: "片仔癀"
-    role: "回填-正文提及"
+  - code: '600085'
+    name: 同仁堂
+    role: 回填-正文提及
+  - code: '600664'
+    name: 哈药股份
+    role: 回填-正文提及
+  - code: '600436'
+    name: 片仔癀
+    role: 回填-正文提及
   tags:
   - 医药
   - 中药
   - 高低切换
   - 估值修复
   - 系统切换
-
+  school: qing
 - id: claim-20260717-001-k
   source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T00:58:00+08:00'
@@ -390,7 +401,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260716-002-e"]
+  supplements:
+  - claim-20260716-002-e
   last_discovered: 2026-07-17
   links:
     wiki_pages: []
@@ -398,20 +410,20 @@ claims:
     cases: []
   topic: 题材选择不拘一格，超跌低位是必要条件
   related_stocks:
-  - code: "600436"
-    name: "片仔癀"
-    role: "回填-正文提及"
+  - code: '600436'
+    name: 片仔癀
+    role: 回填-正文提及
   tags:
   - 方法论
   - 超跌
   - 低位
   - 风险偏好
   - 位置决定意义
-
+  school: qing
 - id: claim-20260717-001-l
   source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T00:58:00+08:00'
@@ -426,7 +438,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260716-002-b"]
+  supplements:
+  - claim-20260716-002-b
   last_discovered: 2026-07-17
   links:
     wiki_pages: []
@@ -435,20 +448,20 @@ claims:
   topic: DeepSeek估值3510亿，国资入股
   related_stocks:
   - 300577.SZ
-  - code: "300577"
-    name: "开润股份"
-    role: "回填-正文提及"
+  - code: '300577'
+    name: 开润股份
+    role: 回填-正文提及
   tags:
   - DeepSeek
   - 大模型
   - 国资入股
   - 融资
   - WAIC
-
+  school: qing
 - id: claim-20260717-001-m
   source_path: sources/original/bilibili/2026-07-17-0858-图片-一、隔夜与开盘预判：回归自身节奏 先看外盘。台积电二季报营收.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T00:58:00+08:00'
@@ -474,3 +487,4 @@ claims:
   tags:
   - 视频预告
   - 后续展开
+  school: qing

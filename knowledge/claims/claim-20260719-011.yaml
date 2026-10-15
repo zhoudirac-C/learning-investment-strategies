@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260719-011
   source_path: sources/original/bilibili/2026-07-19-2252-专栏-周五指数全天单边回落，券商银行一度拉升，上证指数纹丝不动，尾.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-19'
   source_type: 专栏
   extracted_at: '2026-07-19T23:53:00+08:00'
@@ -17,7 +17,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-017"]
+  supplements:
+  - claim-20260526-017
   last_discovered: 2026-07-20
   links: {}
   topic: 光纤行业超级景气周期，AI数据中心驱动保偏光纤需求爆发
@@ -37,3 +38,4 @@ claims:
   - AI数据中心
   - 超级景气
   - 杭电股份
+  school: qing

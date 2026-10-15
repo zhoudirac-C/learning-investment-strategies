@@ -1,11 +1,11 @@
 claims:
 - id: claim-20260618-003-a
   source_path: sources/original/bilibili/2026-06-18-1442-图片-今天大盘收十字星，是非常健康的走势，多空在高位充分换手却没有.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-18'
   source_type: 动态
-  extracted_at: '2026-06-18T14:42+08:00'
+  extracted_at: 2026-06-18T14:42+08:00
   claim_type: market-cycle
   subject: 十字星高位换手健康走势节后红包行情
   timeframe: short-term
@@ -17,7 +17,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260618-003-b"]
+  supplements:
+  - claim-20260618-003-b
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -30,13 +31,14 @@ claims:
   - 高位换手
   - 红包行情
   - 节后判断
+  school: qing
 - id: claim-20260618-003-b
   source_path: sources/original/bilibili/2026-06-18-1442-图片-今天大盘收十字星，是非常健康的走势，多空在高位充分换手却没有.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-18'
   source_type: 动态
-  extracted_at: '2026-06-18T14:42+08:00'
+  extracted_at: 2026-06-18T14:42+08:00
   claim_type: market-cycle
   subject: 节后红包行情确认强化09_42判断
   timeframe: short-term
@@ -48,7 +50,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260618-003-a"]
+  supplements:
+  - claim-20260618-003-a
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -60,13 +63,14 @@ claims:
   - 节后
   - 红包行情
   - 结轮定调
+  school: qing
 - id: claim-20260618-003-c
   source_path: sources/original/bilibili/2026-06-18-1442-图片-今天大盘收十字星，是非常健康的走势，多空在高位充分换手却没有.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-18'
   source_type: 动态
-  extracted_at: '2026-06-18T14:42+08:00'
+  extracted_at: 2026-06-18T14:42+08:00
   claim_type: operation
   subject: 6_18晚不做复盘6_20_21周末正常更新
   timeframe: point
@@ -78,7 +82,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260605-004-c"]
+  supplements:
+  - claim-20260605-004-c
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -90,13 +95,14 @@ claims:
   - 复盘节奏
   - 端午
   - 排程信息
+  school: qing
 - id: claim-20260618-003-d
   source_path: sources/original/bilibili/2026-06-18-1442-图片-今天大盘收十字星，是非常健康的走势，多空在高位充分换手却没有.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-18'
   source_type: 动态
-  extracted_at: '2026-06-18T14:42+08:00'
+  extracted_at: 2026-06-18T14:42+08:00
   claim_type: methodology
   subject: 交易核心是持续能力非单次输赢
   timeframe: trend
@@ -121,3 +127,4 @@ claims:
   - 持续能力
   - 情绪管理
   - 节奏调整
+  school: qing

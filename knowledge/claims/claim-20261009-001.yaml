@@ -16,7 +16,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20261008-001-a"]
+  supersedes:
+  - claim-20261008-001-a
   contradicts: []
   supplements: []
   last_discovered: 2026-10-09
@@ -32,6 +33,7 @@ claims:
   - 降低预期
   - 持续性验证
   - 市场阶段
+  school: qing
 - id: claim-20261009-001-b
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -64,6 +66,7 @@ claims:
   - 放量下跌
   - 分歧卖压
   - 资金回流
+  school: qing
 - id: claim-20261009-001-c
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -83,7 +86,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-019"]
+  supplements:
+  - claim-20260913-001-019
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -100,6 +104,7 @@ claims:
   - 炸板率
   - 封板率
   - 情绪周期
+  school: qing
 - id: claim-20261009-001-d
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -119,7 +124,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260806-007", "claim-20260913-001-018"]
+  supplements:
+  - claim-20260806-007
+  - claim-20260913-001-018
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -133,6 +140,7 @@ claims:
   - 韩股观察窗口
   - 科技压力
   - 外部传导
+  school: qing
 - id: claim-20261009-001-e
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -152,7 +160,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260226-001-a", "claim-20260624-002-c"]
+  supplements:
+  - claim-20260226-001-a
+  - claim-20260624-002-c
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -166,6 +176,7 @@ claims:
   - 加仓标准
   - 操作纪律
   - 底部机会
+  school: qing
 - id: claim-20261009-001-f
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -183,7 +194,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20261008-001-k", "claim-20261008-007-g"]
+  supersedes:
+  - claim-20261008-001-k
+  - claim-20261008-007-g
   contradicts: []
   supplements: []
   last_discovered: 2026-10-09
@@ -199,6 +212,7 @@ claims:
   - 失效条件
   - 修复广度
   - 决策树
+  school: qing
 - id: claim-20261009-001-g
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -218,7 +232,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261008-001-g", "claim-20261008-007-c", "claim-20260921-002-c"]
+  supplements:
+  - claim-20261008-001-g
+  - claim-20261008-007-c
+  - claim-20260921-002-c
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -232,6 +249,7 @@ claims:
   - 被动放量
   - 缩量企稳
   - 量价配合
+  school: qing
 - id: claim-20261009-001-h
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -251,7 +269,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260908-003-z", "claim-20261008-007-g", "claim-20260928-002-e"]
+  supplements:
+  - claim-20260908-003-z
+  - claim-20261008-007-g
+  - claim-20260928-002-e
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -265,6 +286,7 @@ claims:
   - 双创止跌
   - 结构分化
   - 银行保险券商
+  school: qing
 - id: claim-20261009-001-i
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -284,7 +306,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-011", "claim-20260621-001-c", "claim-20260921-002-ag"]
+  supplements:
+  - claim-20260526-011
+  - claim-20260621-001-c
+  - claim-20260921-002-ag
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -298,6 +323,7 @@ claims:
   - 板块共振
   - 共振判据
   - 方法论
+  school: qing
 - id: claim-20261009-001-j
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -317,7 +343,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260629-001-ab"]
+  supplements:
+  - claim-20260629-001-ab
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -338,6 +365,7 @@ claims:
   - 半导体
   - PCB
   - 由点到面
+  school: qing
 - id: claim-20261009-001-k
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -357,7 +385,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261008-007-j", "claim-20261008-001-o"]
+  supplements:
+  - claim-20261008-007-j
+  - claim-20261008-001-o
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -375,6 +405,7 @@ claims:
   - 地产
   - 板块轮动
   - 避险方向
+  school: qing
 - id: claim-20261009-001-l
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -394,7 +425,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261008-001-n", "claim-20260930-001-k", "claim-20260811-016"]
+  supplements:
+  - claim-20261008-001-n
+  - claim-20260930-001-k
+  - claim-20260811-016
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -421,6 +455,7 @@ claims:
   - 受益链条
   - 传导约束
   - 证伪边界
+  school: qing
 - id: claim-20261009-001-m
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -440,7 +475,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261008-001-r"]
+  supplements:
+  - claim-20261008-001-r
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -457,6 +493,7 @@ claims:
   - 恒瑞医药
   - GLP-1
   - 口径纪律
+  school: qing
 - id: claim-20261009-001-n
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -474,9 +511,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20261008-001-t"]
+  supersedes:
+  - claim-20261008-001-t
   contradicts: []
-  supplements: ["claim-20260922-001-p", "claim-20260911-001-016"]
+  supplements:
+  - claim-20260922-001-p
+  - claim-20260911-001-016
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -497,6 +537,7 @@ claims:
   - 碳氢树脂
   - BCB
   - 迈威尔
+  school: qing
 - id: claim-20261009-001-o
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -516,7 +557,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-t", "claim-20260929-002-o"]
+  supplements:
+  - claim-20260921-002-t
+  - claim-20260929-002-o
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -530,6 +573,7 @@ claims:
   - 备选池
   - 选股标准
   - 指数共振
+  school: qing
 - id: claim-20261009-001-p
   source_path: sources/original/bilibili/2026-10-09-0833-专栏-节后首日，A股冲高回落，科技承压，固态电池、航运和银行逆势活.md
   source_date: '2026-10-09'
@@ -549,7 +593,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261008-007-c", "claim-20260911-001-003", "claim-20260817-003"]
+  supplements:
+  - claim-20261008-007-c
+  - claim-20260911-001-003
+  - claim-20260817-003
   last_discovered: 2026-10-09
   links:
     wiki_pages: []
@@ -563,3 +610,4 @@ claims:
   - 开盘定价
   - 执行纪律
   - 60分钟
+  school: qing

@@ -1,8 +1,8 @@
 claims:
 - id: claim-20060607-001-a
   source_path: sources/chanlun/lesson_001.md
-  up_id: "chanlun-original"
-  up_name: "缠中说禅"
+  up_id: chanlun-original
+  up_name: 缠中说禅
   source_date: '2006-06-07'
   source_type: 专栏
   extracted_at: '2026-07-18'
@@ -21,7 +21,8 @@ claims:
   - 赢家输家
   - 市场本质
   supersedes: []
-  contradicts: ["qing-2026-06-08-methodology-correct-vs-profitable-001"]
+  contradicts:
+  - qing-2026-06-08-methodology-correct-vs-profitable-001
   supplements: []
   last_discovered: 2026-07-18
   intensity: medium
@@ -29,3 +30,4 @@ claims:
     wiki_pages:
     - 投资方法论/缠论
   timeframe: permanent
+  school: qing

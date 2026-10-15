@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260629-002-a
   source_path: sources/raw/财经/2026-06-29-0946-盘中-指数收红与半导体设备零部件.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 盘中动态
   extracted_at: '2026-06-29T12:52:11Z'
@@ -30,10 +30,11 @@ claims:
   - 收红K
   - 明日阴线
   - 短线判断
+  school: qing
 - id: claim-20260629-002-b
   source_path: sources/raw/财经/2026-06-29-0946-盘中-指数收红与半导体设备零部件.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 盘中动态
   extracted_at: '2026-06-29T12:52:11Z'
@@ -48,7 +49,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260626-003-d"]
+  supplements:
+  - claim-20260626-003-d
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -60,10 +62,11 @@ claims:
   - 3997缺口
   - 补缺
   - 指数位置
+  school: qing
 - id: claim-20260629-002-c
   source_path: sources/raw/财经/2026-06-29-0946-盘中-指数收红与半导体设备零部件.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 盘中动态
   extracted_at: '2026-06-29T12:52:11Z'
@@ -78,7 +81,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260628-001-g", "claim-20260523-006", "claim-20260521-001-e"]
+  supplements:
+  - claim-20260628-001-g
+  - claim-20260523-006
+  - claim-20260521-001-e
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -90,10 +96,11 @@ claims:
   - 半导体设备零部件
   - 强趋势
   - 持有策略
+  school: qing
 - id: claim-20260629-002-d
   source_path: sources/raw/财经/2026-06-29-0946-盘中-指数收红与半导体设备零部件.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 盘中动态
   extracted_at: '2026-06-29T12:52:11Z'
@@ -120,10 +127,11 @@ claims:
   - 交易之道
   - 学习
   - 干中学
+  school: qing
 - id: claim-20260629-002-e
   source_path: sources/raw/财经/2026-06-29-0946-盘中-指数收红与半导体设备零部件.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 盘中动态
   extracted_at: '2026-06-29T12:52:11Z'
@@ -151,10 +159,11 @@ claims:
   - 利润垫
   - 经验积累
   - 心态
+  school: qing
 - id: claim-20260629-002-f
   source_path: sources/raw/财经/2026-06-29-0946-盘中-指数收红与半导体设备零部件.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 盘中动态
   extracted_at: '2026-06-29T12:52:11Z'
@@ -182,3 +191,4 @@ claims:
   - 30号
   - 明日上涨
   - 情景判断
+  school: qing

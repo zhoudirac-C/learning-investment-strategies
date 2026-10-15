@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260713-002-a
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -30,10 +30,11 @@ claims:
   - 操作框架
   - 冰点反弹
   - 趋势判断
+  school: qing
 - id: claim-20260713-002-b
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -56,18 +57,19 @@ claims:
     cases: []
   topic: 韩股触发年内第七次熔断并拖累亚太科技股
   related_stocks:
-  - code: "002540"
-    name: "亚太科技"
-    role: "回填-正文提及"
+  - code: '002540'
+    name: 亚太科技
+    role: 回填-正文提及
   tags:
   - 韩股熔断
   - KOSPI
   - 三星电子
   - SK海力士
+  school: qing
 - id: claim-20260713-002-c
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -82,7 +84,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260709-002-g", "claim-20260707-013-a"]
+  supplements:
+  - claim-20260709-002-g
+  - claim-20260707-013-a
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -93,7 +97,7 @@ claims:
   - code: '603986'
     name: 兆易创新
     role: 存储芯片-主板可交易
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储芯片-主板可交易
   - code: '300475'
@@ -107,10 +111,11 @@ claims:
   - 缩量
   - 存储芯片
   - MLCC
+  school: qing
 - id: claim-20260713-002-d
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -124,7 +129,8 @@ claims:
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260709-002-g"]
+  contradicts:
+  - claim-20260709-002-g
   supplements: []
   last_discovered: 2026-07-13
   links:
@@ -138,10 +144,11 @@ claims:
   - 外力扰动
   - 筹码出清
   - 冰点反弹
+  school: qing
 - id: claim-20260713-002-e
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -155,8 +162,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260531-002-a"]
-  supplements: ["claim-20260523-012"]
+  contradicts:
+  - claim-20260531-002-a
+  supplements:
+  - claim-20260523-012
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -169,10 +178,11 @@ claims:
   - 资本开支
   - 云厂商
   - 估值中枢
+  school: qing
 - id: claim-20260713-002-f
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -200,10 +210,11 @@ claims:
   - Capex
   - 资产负债表
   - 自由现金流
+  school: qing
 - id: claim-20260713-002-g
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -231,10 +242,11 @@ claims:
   - 信用利差
   - Capex
   - 科技股
+  school: qing
 - id: claim-20260713-002-h
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -262,10 +274,11 @@ claims:
   - 叙事分歧
   - 超预期
   - 抛售
+  school: qing
 - id: claim-20260713-002-i
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -278,7 +291,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260531-002-a"]
+  supersedes:
+  - claim-20260531-002-a
   contradicts: []
   supplements: []
   last_discovered: 2026-07-13
@@ -293,10 +307,11 @@ claims:
   - Capex
   - HBM
   - 消费电子
+  school: qing
 - id: claim-20260713-002-j
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -324,10 +339,11 @@ claims:
   - 外资
   - 获利盘
   - 资金结构
+  school: qing
 - id: claim-20260713-002-k
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -355,10 +371,11 @@ claims:
   - 反弹减仓
   - 筹码松动
   - 催化节点
+  school: qing
 - id: claim-20260713-002-l
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -386,10 +403,11 @@ claims:
   - 医药
   - 银行煤炭石油
   - 过渡
+  school: qing
 - id: claim-20260713-002-m
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -404,7 +422,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-006-c"]
+  supplements:
+  - claim-20260616-006-c
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -417,10 +436,11 @@ claims:
   - 轮动线
   - 连板生态
   - 主线
+  school: qing
 - id: claim-20260713-002-n
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -435,7 +455,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260709-002-g"]
+  supplements:
+  - claim-20260709-002-g
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -448,10 +469,11 @@ claims:
   - 冰点反弹
   - 右侧确认
   - 仓位控制
+  school: qing
 - id: claim-20260713-002-o
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -479,10 +501,11 @@ claims:
   - 昇腾
   - 国产替代
   - 半导体扩产
+  school: qing
 - id: claim-20260713-002-p
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -511,7 +534,7 @@ claims:
   - code: '688107'
     name: 安路科技
     role: 国产FPGA-科创板不可交易
-  - code: '002049'
+  - code: 002049
     name: 紫光国微
     role: 国产FPGA-主板可交易
   tags:
@@ -519,10 +542,11 @@ claims:
   - 国产替代
   - 交期拉长
   - 量价齐升
+  school: qing
 - id: claim-20260713-002-q
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -553,10 +577,11 @@ claims:
   - 交换芯片
   - 超节点
   - 国产算力
+  school: qing
 - id: claim-20260713-002-r
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -590,10 +615,11 @@ claims:
   - 数字化转型
   - 特种机器人
   - 汇川技术
+  school: qing
 - id: claim-20260713-002-s
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -608,7 +634,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260531-002-a"]
+  supplements:
+  - claim-20260531-002-a
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -627,10 +654,11 @@ claims:
   - 数据中心
   - 算力过剩
   - 华丰科技
+  school: qing
 - id: claim-20260713-002-t
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -653,10 +681,10 @@ claims:
     cases: []
   topic: 中国创新药对外授权额创历史新高
   related_stocks:
-  - code: '002821'
+  - code: 002821
     name: 凯莱英
     role: 创新药CDMO-主板可交易
-  - code: '000908'
+  - code: 000908
     name: 石药景峰
     role: 中成药与创新药-主板可交易
   tags:
@@ -664,10 +692,11 @@ claims:
   - 对外授权
   - CDMO
   - 医药
+  school: qing
 - id: claim-20260713-002-u
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-07-13-2302-图片-先把操作框架放在最前面：上升趋势，无视节点；震荡趋势，找止跌.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-13'
   source_type: 动态
   extracted_at: '2026-07-13T23:17:14.374439+08:00'
@@ -682,7 +711,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260709-002-g"]
+  supplements:
+  - claim-20260709-002-g
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -695,3 +725,4 @@ claims:
   - 量价确认
   - 右侧交易
   - 明日观察
+  school: qing

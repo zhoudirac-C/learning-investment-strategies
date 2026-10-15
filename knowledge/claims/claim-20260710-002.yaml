@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260710-002-a
   source_path: sources/raw/财经/盘中：26-07-10：300-688如约开砸，科技没上车的抓住上车机会.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 盘中动态
   extracted_at: '2026-07-10T12:20:00+08:00'
@@ -17,7 +17,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-001-d", "claim-20260709-006-b"]
+  supplements:
+  - claim-20260625-001-d
+  - claim-20260709-006-b
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -31,10 +33,11 @@ claims:
   - '300'
   - '688'
   - 盘中下杀
+  school: qing
 - id: claim-20260710-002-b
   source_path: sources/raw/财经/盘中：26-07-10：300-688如约开砸，科技没上车的抓住上车机会.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 盘中动态
   extracted_at: '2026-07-10T12:20:00+08:00'
@@ -48,8 +51,11 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260708-002-al", "claim-20260603-002-a"]
-  supplements: ["claim-20260622-001-h"]
+  contradicts:
+  - claim-20260708-002-al
+  - claim-20260603-002-a
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -62,10 +68,11 @@ claims:
   - 上车机会
   - 盘中低点
   - 节奏
+  school: qing
 - id: claim-20260710-002-c
   source_path: sources/raw/财经/盘中：26-07-10：300-688如约开砸，科技没上车的抓住上车机会.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 盘中动态
   extracted_at: '2026-07-10T12:20:00+08:00'
@@ -78,9 +85,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260525-013"]
+  supersedes:
+  - claim-20260525-013
   contradicts: []
-  supplements: ["claim-20260610-015-a", "claim-20260709-006-h"]
+  supplements:
+  - claim-20260610-015-a
+  - claim-20260709-006-h
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -93,10 +103,11 @@ claims:
   - 切换能力
   - 配置
   - 节奏
+  school: qing
 - id: claim-20260710-002-d
   source_path: sources/raw/财经/盘中：26-07-10：300-688如约开砸，科技没上车的抓住上车机会.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 盘中动态
   extracted_at: '2026-07-10T12:20:00+08:00'
@@ -109,9 +120,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260520-001-g", "claim-20260426-001"]
+  supersedes:
+  - claim-20260520-001-g
+  - claim-20260426-001
   contradicts: []
-  supplements: ["claim-20260629-004-j"]
+  supplements:
+  - claim-20260629-004-j
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -124,10 +138,11 @@ claims:
   - 半仓科技
   - 半仓配置
   - 不赌单边
+  school: qing
 - id: claim-20260710-002-e
   source_path: sources/raw/财经/盘中：26-07-10：300-688如约开砸，科技没上车的抓住上车机会.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 盘中动态
   extracted_at: '2026-07-10T12:20:00+08:00'
@@ -140,7 +155,9 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260604-004-j", "claim-20260610-036-a"]
+  supersedes:
+  - claim-20260604-004-j
+  - claim-20260610-036-a
   contradicts: []
   supplements: []
   last_discovered: 2026-07-10
@@ -155,10 +172,11 @@ claims:
   - 出海链
   - 配置
   - 不追高
+  school: qing
 - id: claim-20260710-002-f
   source_path: sources/raw/财经/盘中：26-07-10：300-688如约开砸，科技没上车的抓住上车机会.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 盘中动态
   extracted_at: '2026-07-10T12:20:00+08:00'
@@ -171,9 +189,11 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260609-002-a"]
+  supersedes:
+  - claim-20260609-002-a
   contradicts: []
-  supplements: ["claim-20260621-006-t"]
+  supplements:
+  - claim-20260621-006-t
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -186,10 +206,11 @@ claims:
   - 保险
   - 金融配置
   - 不追高
+  school: qing
 - id: claim-20260710-002-g
   source_path: sources/raw/财经/盘中：26-07-10：300-688如约开砸，科技没上车的抓住上车机会.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 盘中动态
   extracted_at: '2026-07-10T12:20:00+08:00'
@@ -202,9 +223,11 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260612-003-ah"]
+  supersedes:
+  - claim-20260612-003-ah
   contradicts: []
-  supplements: ["claim-20260530-001-e"]
+  supplements:
+  - claim-20260530-001-e
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -216,10 +239,11 @@ claims:
   - 港股
   - 跨市场配置
   - 不追高
+  school: qing
 - id: claim-20260710-002-h
   source_path: sources/raw/财经/盘中：26-07-10：300-688如约开砸，科技没上车的抓住上车机会.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 盘中动态
   extracted_at: '2026-07-10T12:20:00+08:00'
@@ -234,7 +258,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-002-g", "claim-20260629-004-aa"]
+  supplements:
+  - claim-20260706-002-g
+  - claim-20260629-004-aa
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -246,3 +272,4 @@ claims:
   - 医药
   - 防御配置
   - 不追高
+  school: qing

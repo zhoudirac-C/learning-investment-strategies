@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260716-001-a
   source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T18:24:00'
@@ -17,7 +17,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260715-055-a", "claim-20260614-015-e", "claim-20260604-004-h"]
+  supplements:
+  - claim-20260715-055-a
+  - claim-20260614-015-e
+  - claim-20260604-004-h
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -30,10 +33,11 @@ claims:
   - 科技低开
   - 消费医药
   - A股开盘
+  school: qing
 - id: claim-20260716-001-b
   source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T18:24:00'
@@ -46,7 +50,8 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260715-046-a"]
+  supersedes:
+  - claim-20260715-046-a
   contradicts: []
   supplements: []
   last_discovered: 2026-07-16
@@ -61,10 +66,11 @@ claims:
   - 低开进场
   - 快进快出
   - 短线操作
+  school: qing
 - id: claim-20260716-001-c
   source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T18:24:00'
@@ -79,7 +85,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260715-049-a", "claim-20260708-004-u"]
+  supplements:
+  - claim-20260715-049-a
+  - claim-20260708-004-u
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -92,10 +100,11 @@ claims:
   - 半导体
   - 主动投降
   - 量价分析
+  school: qing
 - id: claim-20260716-001-d
   source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T18:24:00'
@@ -108,9 +117,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260623-001-c", "claim-20260629-001-t"]
+  supersedes:
+  - claim-20260623-001-c
+  - claim-20260629-001-t
   contradicts: []
-  supplements: ["claim-20260610-006-c"]
+  supplements:
+  - claim-20260610-006-c
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -126,10 +138,11 @@ claims:
   - 涨停梯队
   - 跌停家数
   - 哈药股份
+  school: qing
 - id: claim-20260716-001-e
   source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T18:24:00'
@@ -142,9 +155,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260629-001-i"]
+  supersedes:
+  - claim-20260629-001-i
   contradicts: []
-  supplements: ["claim-20260609-005-a", "claim-20260629-001-ab"]
+  supplements:
+  - claim-20260609-005-a
+  - claim-20260629-001-ab
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -155,21 +171,22 @@ claims:
   - code: '300502'
     name: 新易盛
     role: 光模块龙头-创业板不可交易
-  - code: "300308"
-    name: "中际旭创"
-    role: "回填-正文提及"
-  - code: "300394"
-    name: "天孚通信"
-    role: "回填-正文提及"
+  - code: '300308'
+    name: 中际旭创
+    role: 回填-正文提及
+  - code: '300394'
+    name: 天孚通信
+    role: 回填-正文提及
   tags:
   - 双情景
   - 韩股
   - 易中天
   - 共振信号
+  school: qing
 - id: claim-20260716-001-f
   source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T18:24:00'
@@ -182,7 +199,9 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260715-023-a", "claim-20260617-039-m"]
+  supersedes:
+  - claim-20260715-023-a
+  - claim-20260617-039-m
   contradicts: []
   supplements: []
   last_discovered: 2026-07-16
@@ -206,10 +225,11 @@ claims:
   - 半年报
   - 光模块
   - 业绩披露
+  school: qing
 - id: claim-20260716-001-g
   source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T18:24:00'
@@ -224,7 +244,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-e", "claim-20260610-042-a"]
+  supplements:
+  - claim-20260609-005-e
+  - claim-20260610-042-a
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -241,10 +263,11 @@ claims:
   - 瑞芯微
   - 手机AI
   - 智能体
+  school: qing
 - id: claim-20260716-001-h
   source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T18:24:00'
@@ -276,10 +299,11 @@ claims:
   - 半导体材料
   - 大普微
   - 江丰电子
+  school: qing
 - id: claim-20260716-001-i
   source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T18:24:00'
@@ -294,7 +318,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260715-052-a", "claim-20260630-001-p", "claim-20260604-004-h"]
+  supplements:
+  - claim-20260715-052-a
+  - claim-20260630-001-p
+  - claim-20260604-004-h
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -317,10 +344,11 @@ claims:
   - 低位修复
   - 哈药股份
   - 分歧转一致
+  school: qing
 - id: claim-20260716-001-j
   source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T18:24:00'
@@ -351,10 +379,11 @@ claims:
   - 电影
   - 票房
   - 中国电影
+  school: qing
 - id: claim-20260716-001-k
   source_path: sources/raw/财经/2026-07-16-0908-早盘-隔夜与开盘预判.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T18:24:00'
@@ -380,7 +409,7 @@ claims:
   - code: '002536'
     name: 飞龙股份
     role: 海外算力链-主板可交易
-  - code: '002851'
+  - code: 002851
     name: 麦格米特
     role: 海外算力链-主板可交易
   tags:
@@ -389,3 +418,4 @@ claims:
   - 国产链
   - 英伟达
   - 算力
+  school: qing

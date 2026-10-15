@@ -4,8 +4,8 @@ claims:
   subject: 商业航天-SpaceX上市
   claim_type: sector-theme
   source_path: sources/raw/财经/视频：26-06-09：中国商业航天产业深度分析——从政策拐点到SpaceX上市.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: video
   extracted_at: '2026-06-09T16:30:00+08:00'
@@ -31,13 +31,14 @@ claims:
   - IPO
   - 太空算力
   topic: 商业航天
+  school: qing
 - id: claim-20260609-004-b
   statement: 中国商业航天已跨过分水岭，从试验阶段进入万星组网、批量制造、规模运营的新阶段，从航天工程转向航天工业。当前面临ITU规则带来的时间压力——已申请约20万颗卫星，要求两年内完成15%部署、7年内全部完成。
   subject: 商业航天-产业发展阶段
   claim_type: sector-theme
   source_path: sources/raw/财经/视频：26-06-09：中国商业航天产业深度分析——从政策拐点到SpaceX上市.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: video
   extracted_at: '2026-06-09T16:30:00+08:00'
@@ -49,7 +50,9 @@ claims:
   timeframe: trend
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-004-g", "claim-20260609-004-e"]
+  supplements:
+  - claim-20260609-004-g
+  - claim-20260609-004-e
   last_discovered: 2026-06-25
   links: []
   related_stocks:
@@ -66,13 +69,14 @@ claims:
   - ITU
   - 批量化制造
   topic: 商业航天
+  school: qing
 - id: claim-20260609-004-c
   statement: 商业航天当前高度关注源于四大拐点同时出现：①政策拐点（完整政策体系已形成）；②技术拐点（可回收火箭、星间激光通信等同时从0到1）；③成本拐点（可回收火箭+批量化制造，目标入轨成本200美元/公斤）；④需求拐点（通信/遥感/物联网/AI四类清晰需求）。
   subject: 商业航天-四大拐点
   claim_type: methodology
   source_path: sources/raw/财经/视频：26-06-09：中国商业航天产业深度分析——从政策拐点到SpaceX上市.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: video
   extracted_at: '2026-06-09T16:30:00+08:00'
@@ -95,13 +99,14 @@ claims:
   - 分析框架
   - 产业方法论
   topic: 商业航天
+  school: qing
 - id: claim-20260609-004-d
   statement: 中美商业航天路径存在根本差异：美国是资本驱动、超级公司垂直整合的一家独大模式；中国是战略驱动、举国协同、多类主体共同推进的多方探索模式。中国依托完整制造业体系形成产业集群，制造业龙头跨界进入航天是核心机会。
   subject: 商业航天-中美路径差异
   claim_type: methodology
   source_path: sources/raw/财经/视频：26-06-09：中国商业航天产业深度分析——从政策拐点到SpaceX上市.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: video
   extracted_at: '2026-06-09T16:30:00+08:00'
@@ -113,7 +118,9 @@ claims:
   timeframe: permanent
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-004-g", "claim-20260609-004-b"]
+  supplements:
+  - claim-20260609-004-g
+  - claim-20260609-004-b
   last_discovered: 2026-06-25
   links: []
   related_stocks: []
@@ -123,13 +130,14 @@ claims:
   - 跨界延伸
   - 制造业龙头
   topic: 商业航天
+  school: qing
 - id: claim-20260609-004-e
   statement: 低轨卫星通信核心市场在全球（一带一路沿线发展中国家），可满足这些国家对第二套低轨通信网络的需求。中国低轨通信当前从试验到规模化，核心瓶颈是发射成本和批量化制造，目标是年产2000-3000颗卫星。
   subject: 商业航天-卫星通信市场
   claim_type: sector-theme
   source_path: sources/raw/财经/视频：26-06-09：中国商业航天产业深度分析——从政策拐点到SpaceX上市.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: video
   extracted_at: '2026-06-09T16:30:00+08:00'
@@ -141,7 +149,10 @@ claims:
   timeframe: trend
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-004-c", "claim-20260617-015-s", "claim-20260609-004-b"]
+  supplements:
+  - claim-20260609-004-c
+  - claim-20260617-015-s
+  - claim-20260609-004-b
   last_discovered: 2026-06-25
   links: []
   related_stocks:
@@ -157,13 +168,14 @@ claims:
   - 一带一路
   - 通信载荷
   topic: 商业航天
+  school: qing
 - id: claim-20260609-004-f
   statement: 太空算力是商业航天下一个十年的核心主线，当前存在四大瓶颈：能源供应（超柔性展开太阳翼）、热管理（太空只能辐射散热，是核心制约）、抗辐射计算（宇航级芯片vs商规芯片+容错两条路线）、星间通信。大规模太空数据中心至少需要10-15年验证。
   subject: 商业航天-太空算力瓶颈
   claim_type: methodology
   source_path: sources/raw/财经/视频：26-06-09：中国商业航天产业深度分析——从政策拐点到SpaceX上市.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: video
   extracted_at: '2026-06-09T16:30:00+08:00'
@@ -175,7 +187,9 @@ claims:
   timeframe: permanent
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-004-g", "claim-20260609-004-b"]
+  supplements:
+  - claim-20260609-004-g
+  - claim-20260609-004-b
   last_discovered: 2026-06-25
   links: []
   related_stocks: []
@@ -186,13 +200,14 @@ claims:
   - 热管理
   - 抗辐射
   topic: 商业航天
+  school: qing
 - id: claim-20260609-004-g
   statement: 商业航天产业链配套环节（测控、热控、太空态势感知）的先发壁垒高、能产生持续现金流，在万星组网时代需求确定性更强，商业成熟速度会快于前端整星项目。核心机会在制造业龙头跨界延伸。
   subject: 商业航天-投资逻辑
   claim_type: methodology
   source_path: sources/raw/财经/视频：26-06-09：中国商业航天产业深度分析——从政策拐点到SpaceX上市.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: video
   extracted_at: '2026-06-09T16:30:00+08:00'
@@ -204,7 +219,10 @@ claims:
   timeframe: permanent
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-004-f", "claim-20260609-004-b", "claim-20260609-004-d"]
+  supplements:
+  - claim-20260609-004-f
+  - claim-20260609-004-b
+  - claim-20260609-004-d
   last_discovered: 2026-06-25
   links: []
   related_stocks:
@@ -223,13 +241,14 @@ claims:
   - 投资逻辑
   - 0.5阶段
   topic: 商业航天
+  school: qing
 - id: claim-20260609-004-h
   statement: SpaceX的Starlink已迭代四代，V3单星带宽1024Gb，单次发射总带宽61440Gb（相比V2提升20倍+）。当前Starlink用户达1030万，覆盖164个国家，中位下载速度225Mbps，目标今年内降到20毫秒。
   subject: 商业航天-Starlink演进
   claim_type: sector-theme
   source_path: sources/raw/财经/视频：26-06-09：中国商业航天产业深度分析——从政策拐点到SpaceX上市.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: video
   extracted_at: '2026-06-09T16:30:00+08:00'
@@ -252,3 +271,4 @@ claims:
   - 卫星通信
   - SpaceX
   topic: 商业航天
+  school: qing

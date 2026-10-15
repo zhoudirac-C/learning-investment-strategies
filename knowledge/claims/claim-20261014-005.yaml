@@ -16,7 +16,10 @@ claims:
   status: active
   stance: market-regime
   intensity: high
-  supersedes: ["claim-20260917-008-a", "claim-20260830-033-a", "claim-20260921-001-h"]
+  supersedes:
+  - claim-20260917-008-a
+  - claim-20260830-033-a
+  - claim-20260921-001-h
   contradicts: []
   supplements: []
   last_discovered: 2026-10-14
@@ -31,6 +34,7 @@ claims:
   - 量能收缩
   - 防守占优
   - 良性分化转走弱
+  school: qing
 - id: claim-20261014-005-2
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -48,9 +52,12 @@ claims:
   status: active
   stance: view
   intensity: medium
-  supersedes: ["claim-20260927-001-f"]
+  supersedes:
+  - claim-20260927-001-f
   contradicts: []
-  supplements: ["claim-20260909-011-a", "claim-20261008-007-c"]
+  supplements:
+  - claim-20260909-011-a
+  - claim-20261008-007-c
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -63,6 +70,7 @@ claims:
   - 量价三条件
   - 见底确认
   - 不预设见底日期
+  school: qing
 - id: claim-20261014-005-3
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -95,6 +103,7 @@ claims:
   - 神秘资金
   - GJD托底
   - 不恐慌
+  school: qing
 - id: claim-20261014-005-4
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -114,7 +123,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-024"]
+  supplements:
+  - claim-20260803-024
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -127,6 +137,7 @@ claims:
   - 利空出尽
   - 贵金属反弹
   - 承接确认
+  school: qing
 - id: claim-20261014-005-5
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -146,7 +157,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260825-032-a", "claim-20260714-005-bf", "claim-20260721-013"]
+  supplements:
+  - claim-20260825-032-a
+  - claim-20260714-005-bf
+  - claim-20260721-013
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -158,6 +172,7 @@ claims:
   - AI算力
   - 三季报景气
   - 高景气未变
+  school: qing
 - id: claim-20261014-005-6
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -177,7 +192,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261008-007-e", "claim-20260908-003-z"]
+  supplements:
+  - claim-20261008-007-e
+  - claim-20260908-003-z
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -199,6 +216,7 @@ claims:
   - 情绪拐点
   - 龙版传媒
   - 观察序列
+  school: qing
 - id: claim-20261014-005-7
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -216,7 +234,8 @@ claims:
   status: active
   stance: view
   intensity: high
-  supersedes: ["claim-20261011-001-n"]
+  supersedes:
+  - claim-20261011-001-n
   contradicts: []
   supplements: []
   last_discovered: 2026-10-14
@@ -231,6 +250,7 @@ claims:
   - 情形推演
   - 四步验证链
   - 超声电子
+  school: qing
 - id: claim-20261014-005-8
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -250,7 +270,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261013-001-f", "claim-20261008-007-d", "claim-20260910-003-a"]
+  supplements:
+  - claim-20261013-001-f
+  - claim-20261008-007-d
+  - claim-20260910-003-a
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -266,6 +289,7 @@ claims:
   - 风险偏好
   - 防守占优
   - 中国神华
+  school: qing
 - id: claim-20261014-005-9
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -301,6 +325,7 @@ claims:
   - 口红效应
   - 情绪驱动
   - 芒果超媒
+  school: qing
 - id: claim-20261014-005-10
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -320,7 +345,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-008"]
+  supplements:
+  - claim-20260515-008
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -333,6 +359,7 @@ claims:
   - 核心强度
   - 后排补涨
   - 失效条件
+  school: qing
 - id: claim-20261014-005-11
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -352,7 +379,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261011-001-q"]
+  supplements:
+  - claim-20261011-001-q
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -365,6 +393,7 @@ claims:
   - 承接失败
   - 反抽确认
   - 成交跟进
+  school: qing
 - id: claim-20261014-005-12
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -384,7 +413,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261013-001-c"]
+  supplements:
+  - claim-20261013-001-c
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -392,7 +422,7 @@ claims:
     cases: []
   topic: 超声电子(000823)是PCB修复的观察窗口，强者恒强需板块响应
   related_stocks:
-  - code: '000823'
+  - code: 000823
     name: 超声电子
     role: PCB+业绩线修复观察窗口-主板可交易
   tags:
@@ -400,6 +430,7 @@ claims:
   - PCB
   - 相对强度
   - 强者恒强
+  school: qing
 - id: claim-20261014-005-13
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -419,7 +450,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261001-001-g"]
+  supplements:
+  - claim-20261001-001-g
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -432,6 +464,7 @@ claims:
   - 半导体设备
   - EUV
   - 国产设备验证
+  school: qing
 - id: claim-20261014-005-14
   source_path: sources/original/bilibili/2026-10-14-2159-专栏-今日市场由上午的良性分化转为午后的同步走弱，量能再度收缩，资.md
   source_date: '2026-10-14'
@@ -451,7 +484,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261008-007-x"]
+  supplements:
+  - claim-20261008-007-x
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -464,3 +498,4 @@ claims:
   - 标准漂移
   - 短线转长期
   - 操作纪律
+  school: qing

@@ -18,7 +18,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-003-k"]
+  supplements:
+  - claim-20260921-003-k
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -30,6 +31,7 @@ claims:
   - 市场阶段
   - 恢复期
   - 耐心持仓
+  school: qing
 - id: claim-20261012-003-b
   source_path: sources/original/bilibili/2026-10-12-1049-图片-现阶段就像是刚经历过一场大病，已经抢救过来脱离生命危险，但是.md
   source_date: '2026-10-12'
@@ -61,6 +63,7 @@ claims:
   - 筹码出清
   - 受迫盘
   - 方法论
+  school: qing
 - id: claim-20261012-003-c
   source_path: sources/original/bilibili/2026-10-12-1049-图片-现阶段就像是刚经历过一场大病，已经抢救过来脱离生命危险，但是.md
   source_date: '2026-10-12'
@@ -79,7 +82,8 @@ claims:
   stance: market-regime
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260907-005-a"]
+  contradicts:
+  - claim-20260907-005-a
   supplements: []
   last_discovered: 2026-10-12
   links:
@@ -93,6 +97,7 @@ claims:
   - 绝对收益资金
   - 保险年金
   - 资金结构
+  school: qing
 - id: claim-20261012-003-d
   source_path: sources/original/bilibili/2026-10-12-1049-图片-现阶段就像是刚经历过一场大病，已经抢救过来脱离生命危险，但是.md
   source_date: '2026-10-12'
@@ -112,7 +117,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-004-c"]
+  supplements:
+  - claim-20260623-004-c
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -124,3 +130,4 @@ claims:
   - 操作纪律
   - 逆向买入
   - 受迫盘
+  school: qing

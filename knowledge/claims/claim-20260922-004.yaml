@@ -31,6 +31,7 @@ claims:
   - 良性分化
   - 高低切换
   - 退潮判别
+  school: qing
 - id: claim-20260922-004-b
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -50,7 +51,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260915-004-23", "claim-20260816-002"]
+  supplements:
+  - claim-20260915-004-23
+  - claim-20260816-002
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -62,6 +65,7 @@ claims:
   - 回调预判
   - 节前效应
   - 内生性回调
+  school: qing
 - id: claim-20260922-004-c
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -79,9 +83,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260603-001-d"]
+  supersedes:
+  - claim-20260603-001-d
   contradicts: []
-  supplements: ["claim-20260902-007-a"]
+  supplements:
+  - claim-20260902-007-a
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -93,6 +99,7 @@ claims:
   - 风格切换
   - 跟踪变量
   - 情绪周期
+  school: qing
 - id: claim-20260922-004-d
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -111,8 +118,11 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260813-013"]
-  supplements: ["claim-20260609-005-e", "claim-20260610-042-a"]
+  contradicts:
+  - claim-20260813-013
+  supplements:
+  - claim-20260609-005-e
+  - claim-20260610-042-a
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -128,6 +138,7 @@ claims:
   - Agent商业化
   - 叙事切换
   - 南威软件
+  school: qing
 - id: claim-20260922-004-e
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -147,7 +158,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260518-012", "claim-20260824-003-c", "claim-20260812-029"]
+  supplements:
+  - claim-20260518-012
+  - claim-20260824-003-c
+  - claim-20260812-029
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -160,6 +174,7 @@ claims:
   - 算力互联
   - 换手
   - 中期趋势
+  school: qing
 - id: claim-20260922-004-f
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -173,14 +188,15 @@ claims:
   stance: view
   statement: 算力租赁是A股对Agent商业化叙事景气度映射最直接、又符合机构审美的方向，比纯蹭概念的AI应用更适合作为中期跟踪对象。
   evidence_quote: 这条线与今天AI应用的强势是同一件事的两面：应用端Token消耗放量，才是推理侧租赁需求的来源。个人判断，算力租赁是A股里对Agent商业化叙事景气度映射最直接、又符合机构审美的方向，比纯蹭概念的AI应用更适合作为中期跟踪对象。
-  interpretation: UP 在 AI 应用与算力租赁之间做了明确的相对排序：算力租赁兼具叙事映射直接性与机构审美，是中期跟踪的优先项。逻辑链条是应用端
-    Token 消耗放量 → 推理侧租赁需求。
+  interpretation: UP 在 AI 应用与算力租赁之间做了明确的相对排序：算力租赁兼具叙事映射直接性与机构审美，是中期跟踪的优先项。逻辑链条是应用端 Token 消耗放量 → 推理侧租赁需求。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260807-026", "claim-20260813-013"]
+  supplements:
+  - claim-20260807-026
+  - claim-20260813-013
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -199,6 +215,7 @@ claims:
   - Agent商业化
   - 推理侧需求
   - 机构审美
+  school: qing
 - id: claim-20260922-004-g
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -211,14 +228,13 @@ claims:
   timeframe: industry
   stance: view
   statement: Agentic AI 推动大模型向自主任务执行系统演进，CPU密集型任务井喷，国产AI CPU迎来需求拐点；今日端侧AI与CPU走弱属被硬件拖累的被动回落。
-  evidence_quote: 逻辑上，Agentic AI推动大模型从单次生成工具向自主任务执行系统演进，多线程推理、任务调度与持续计算需求显著提升，CPU密集型任务井喷，国产AI
-    CPU迎来需求拐点。这条线与今日盘面上端侧AI与CPU早盘逆势是同一叙事，今天午后被硬件拖累走弱，属被动回落。
-  interpretation: UP 给出 CPU 环节的产业级判断：Agent 化带来的多线程推理与任务调度需求是 CPU 密集型任务井喷的来源，构成国产 AI
-    CPU 的需求拐点逻辑；盘面走弱定性为被动回落而非逻辑破坏。
+  evidence_quote: 逻辑上，Agentic AI推动大模型从单次生成工具向自主任务执行系统演进，多线程推理、任务调度与持续计算需求显著提升，CPU密集型任务井喷，国产AI CPU迎来需求拐点。这条线与今日盘面上端侧AI与CPU早盘逆势是同一叙事，今天午后被硬件拖累走弱，属被动回落。
+  interpretation: UP 给出 CPU 环节的产业级判断：Agent 化带来的多线程推理与任务调度需求是 CPU 密集型任务井喷的来源，构成国产 AI CPU 的需求拐点逻辑；盘面走弱定性为被动回落而非逻辑破坏。
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260712-030-ad"]
+  supersedes:
+  - claim-20260712-030-ad
   contradicts: []
   supplements: []
   last_discovered: 2026-09-22
@@ -228,7 +244,7 @@ claims:
     cases: []
   topic: Agent化推动国产AI CPU需求拐点
   related_stocks:
-  - code: '002290'
+  - code: 002290
     name: 禾盛新材
     role: 参股熠知电子-国产AI CPU-主板可交易
   tags:
@@ -236,6 +252,7 @@ claims:
   - Agentic AI
   - 需求拐点
   - 禾盛新材
+  school: qing
 - id: claim-20260922-004-h
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -253,7 +270,9 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260817-021", "claim-20260824-001-k"]
+  supersedes:
+  - claim-20260817-021
+  - claim-20260824-001-k
   contradicts: []
   supplements: []
   last_discovered: 2026-09-22
@@ -274,6 +293,7 @@ claims:
   - 梯队演化
   - 前排晋级
   - 后排出清
+  school: qing
 - id: claim-20260922-004-i
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -292,8 +312,10 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260811-020"]
-  supplements: ["claim-20260820-009"]
+  contradicts:
+  - claim-20260811-020
+  supplements:
+  - claim-20260820-009
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -306,6 +328,7 @@ claims:
   - 煤炭
   - 防御方向
   - 超跌修复
+  school: qing
 - id: claim-20260922-004-j
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -323,9 +346,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260729-023"]
+  supersedes:
+  - claim-20260729-023
   contradicts: []
-  supplements: ["claim-20260729-027-dup1", "claim-20260515-012"]
+  supplements:
+  - claim-20260729-027-dup1
+  - claim-20260515-012
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -338,6 +364,7 @@ claims:
   - 防御性拉升
   - 负面信号
   - 过渡方向
+  school: qing
 - id: claim-20260922-004-k
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -357,7 +384,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260922-001-h", "claim-20260921-002-f"]
+  supplements:
+  - claim-20260922-001-h
+  - claim-20260921-002-f
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -372,6 +401,7 @@ claims:
   - 新股临停
   - 赚钱效应
   - 情绪分化
+  school: qing
 - id: claim-20260922-004-l
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -385,14 +415,14 @@ claims:
   stance: view
   statement: AI PCB处于新品拉货与良率爬升阶段，是硬件里少数在硬件整体回落当天仍在做新高的细分环节，下半年业绩释放值得期待。
   evidence_quote: 据招商证券，目前AI PCB环节正处于新品拉货、良率爬升阶段，新品价格及利润率都非常可观，下半年业绩释放值得期待。结合今日历史新高公司占比中PCB位列第一，这是硬件里少数在硬件整体回落当天仍在做新高的细分环节。
-  interpretation: UP 用「历史新高占比第一」的宽度数据交叉验证券商对 AI PCB 景气阶段的判断，得出 PCB 是硬科技内部相对强度最高的细分——高低切换中
-    PCB 是「高」的一端。
+  interpretation: UP 用「历史新高占比第一」的宽度数据交叉验证券商对 AI PCB 景气阶段的判断，得出 PCB 是硬科技内部相对强度最高的细分——高低切换中 PCB 是「高」的一端。
   confidence: medium
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-001-o"]
+  supplements:
+  - claim-20260917-001-o
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -411,6 +441,7 @@ claims:
   - 历史新高
   - 业绩释放
   - 招商证券
+  school: qing
 - id: claim-20260922-004-m
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -430,7 +461,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-006-017", "claim-20260608-004-h"]
+  supplements:
+  - claim-20260819-006-017
+  - claim-20260608-004-h
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -446,6 +479,7 @@ claims:
   - 人形机器人
   - 进口替代
   - 联域股份
+  school: qing
 - id: claim-20260922-004-n
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -463,9 +497,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260830-033-a", "claim-20260810-026"]
+  supersedes:
+  - claim-20260830-033-a
+  - claim-20260810-026
   contradicts: []
-  supplements: ["claim-20260910-004-a"]
+  supplements:
+  - claim-20260910-004-a
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -478,6 +515,7 @@ claims:
   - 右侧确认
   - 情形推演
   - 仓位管理
+  school: qing
 - id: claim-20260922-004-o
   source_path: sources/original/bilibili/2026-09-22-2159-图片-今日指数冲高回落，量能较上一交易日放大，全天可以用放量滞涨四_1.md
   source_date: '2026-09-22'
@@ -495,9 +533,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260826-051-a"]
+  supersedes:
+  - claim-20260826-051-a
   contradicts: []
-  supplements: ["claim-20260803-042"]
+  supplements:
+  - claim-20260803-042
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -510,3 +550,4 @@ claims:
   - 可证伪变量
   - 晋级率
   - 风格切换
+  school: qing

@@ -30,6 +30,7 @@ claims:
   - 不追高
   - 买入时机
   - 仓位控制
+  school: watchlist
 - id: claim-20260817-004-002
   source_path: sources/original/bilibili/2026-08-17-1816-视频-如何高效利用xq资源 -.md
   source_date: '2026-08-17'
@@ -48,7 +49,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260610-009-a"]
+  disagrees_with:
+  - claim-20260610-009-a
   supplements: []
   last_discovered: 2026-09-15
   links:
@@ -62,6 +64,7 @@ claims:
   - 顶部信号
   - 逃顶
   - 宏观择时
+  school: watchlist
 - id: claim-20260817-004-003
   source_path: sources/original/bilibili/2026-08-17-1816-视频-如何高效利用xq资源 -.md
   source_date: '2026-08-17'
@@ -95,3 +98,4 @@ claims:
   - 斯迪克
   - 买入时机
   - 案例
+  school: watchlist

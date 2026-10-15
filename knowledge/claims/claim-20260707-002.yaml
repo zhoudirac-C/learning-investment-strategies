@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260707-002-a
   source_path: sources/original/bilibili/2026-07-07-0952-图片-不会操作的，恩捷拿到10月。今天的盘面情况基本上也都和视频说.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:55:00+08:00'
@@ -17,7 +17,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260708-006-ba"]
+  supplements:
+  - claim-20260708-006-ba
   last_discovered: 2026-07-09
   links:
     wiki_pages: []
@@ -25,7 +26,7 @@ claims:
     cases: []
   topic: 恩捷股份中线持有至10月
   related_stocks:
-  - code: '002812'
+  - code: 002812
     name: 恩捷股份
     role: 隔膜龙头-主板可交易
   tags:
@@ -33,10 +34,11 @@ claims:
   - 中线持有
   - 10月
   - 隔膜
+  school: qing
 - id: claim-20260707-002-b
   source_path: sources/original/bilibili/2026-07-07-0952-图片-不会操作的，恩捷拿到10月。今天的盘面情况基本上也都和视频说.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:55:00+08:00'
@@ -51,7 +53,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260708-003-h", "claim-20260521-002-h"]
+  supplements:
+  - claim-20260708-003-h
+  - claim-20260521-002-h
   last_discovered: 2026-07-09
   links:
     wiki_pages: []
@@ -64,10 +68,11 @@ claims:
   - 光通信
   - 修复力度
   - 科技线
+  school: qing
 - id: claim-20260707-002-c
   source_path: sources/original/bilibili/2026-07-07-0952-图片-不会操作的，恩捷拿到10月。今天的盘面情况基本上也都和视频说.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:55:00+08:00'
@@ -81,8 +86,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260708-002-ak"]
-  supplements: ["claim-20260706-003-a"]
+  contradicts:
+  - claim-20260708-002-ak
+  supplements:
+  - claim-20260706-003-a
   last_discovered: 2026-07-09
   links:
     wiki_pages: []
@@ -95,3 +102,4 @@ claims:
   - 不要割肉
   - 启动
   - 置顶评论
+  school: qing

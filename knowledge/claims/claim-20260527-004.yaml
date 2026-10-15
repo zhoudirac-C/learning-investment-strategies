@@ -2,8 +2,8 @@ claims:
 - id: claim-20260527-004-a
   topic: 当前节点操作建议
   source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 午盘
   extracted_at: 2026-05-27
@@ -32,11 +32,12 @@ claims:
   - 当前节点操作建议
   - 操作策略
   - 仓位
+  school: qing
 - id: claim-20260527-004-b
   topic: 美股极端信号
   source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 午盘
   extracted_at: 2026-05-27
@@ -52,7 +53,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["qing-2026-06-08-macro-us-equity-opening-critical-001"]
+  supplements:
+  - qing-2026-06-08-macro-us-equity-opening-critical-001
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -67,11 +69,12 @@ claims:
   - 仓位
   - 消费
   - 宏观
+  school: qing
 - id: claim-20260527-004-c
   topic: 比特币跳水
   source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 午盘
   extracted_at: 2026-05-27
@@ -87,7 +90,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-006-a", "claim-20260612-003-a"]
+  supplements:
+  - claim-20260610-006-a
+  - claim-20260612-003-a
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -98,11 +103,12 @@ claims:
   - 技术信号
   - 美股
   - 美元
+  school: qing
 - id: claim-20260527-004-d
   topic: 美伊协议市场预期过高
   source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 午盘
   extracted_at: 2026-05-27
@@ -118,7 +124,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-004", "claim-20260414-001"]
+  supplements:
+  - claim-20260616-004
+  - claim-20260414-001
   last_discovered: 2026-06-25
   links:
     related_claims: []
@@ -128,11 +136,12 @@ claims:
   tags:
   - 美伊协议
   - 宏观
+  school: qing
 - id: claim-20260527-004-e
   topic: 债市与美联储
   source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 午盘
   extracted_at: 2026-05-27
@@ -140,8 +149,7 @@ claims:
   subject: 债市与美联储
   timeframe: short-term
   statement: 市场从"通胀恐慌"切换到"衰退恐慌"，收益率曲线趋平，美联储立场右移，呈现滞胀剧本
-  evidence_quote: '"油价上涨是供应受威胁的''恐慌型通胀''而非''繁荣型通胀''，市场正从''通胀恐慌''切换到''衰退恐慌''， 收益率曲线开始趋平，连鸽派沃勒都中性化，美联储立场整体右移——短债说''通胀没死、美联储还得硬''，
-    长债说''经济快被高利率勒死''，这正是央行最讨厌的滞胀剧本。"
+  evidence_quote: '"油价上涨是供应受威胁的''恐慌型通胀''而非''繁荣型通胀''，市场正从''通胀恐慌''切换到''衰退恐慌''， 收益率曲线开始趋平，连鸽派沃勒都中性化，美联储立场整体右移——短债说''通胀没死、美联储还得硬''， 长债说''经济快被高利率勒死''，这正是央行最讨厌的滞胀剧本。"
 
     '
   interpretation: 债市定价从通胀转向衰退，美联储陷入滞胀困境，政策空间受限
@@ -163,11 +171,12 @@ claims:
   - 衰退
   - 宏观
   - 恐慌
+  school: qing
 - id: claim-20260527-004-f
   topic: A股处于"等缩量、等情绪、等利好落地"
   source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 午盘
   extracted_at: 2026-05-27
@@ -183,7 +192,9 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h", "claim-20260605-001-i"]
+  supplements:
+  - claim-20260622-001-h
+  - claim-20260605-001-i
   last_discovered: 2026-06-25
   links:
     related_claims:
@@ -196,11 +207,12 @@ claims:
   - A股
   - 缩量
   - 进攻
+  school: qing
 - id: claim-20260527-004-g
   topic: 外盘AI软着陆叙事
   source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 午盘
   extracted_at: 2026-05-27
@@ -216,7 +228,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-004-h"]
+  supplements:
+  - claim-20260527-004-h
   last_discovered: 2026-06-25
   links:
     related_claims: []
@@ -228,11 +241,12 @@ claims:
   - AI
   - 油价
   - 宏观
+  school: qing
 - id: claim-20260527-004-h
   topic: 高位风险组合
   source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 午盘
   extracted_at: 2026-05-27
@@ -261,11 +275,12 @@ claims:
   - 高位风险组合
   - 仓位
   - 龙头
+  school: qing
 - id: claim-20260527-004-i
   topic: 风险识别框架
   source_path: sources/raw/财经/午盘：26-05-27：今天不能抄底，注意外盘风险.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 午盘
   extracted_at: 2026-05-27
@@ -281,7 +296,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260406-001"]
+  supplements:
+  - claim-20260406-001
   last_discovered: 2026-06-25
   links:
     related_claims: []
@@ -292,3 +308,4 @@ claims:
   - 方法论
   - 恐慌
   - 通胀
+  school: qing

@@ -9,7 +9,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260529-003-a"]
+  supplements:
+  - claim-20260529-003-a
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
@@ -31,6 +32,7 @@ claims:
   - 选股框架
   - 低估值
   - 涨价逻辑
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -62,6 +64,7 @@ claims:
   - 节前行情
   - 反弹非趋势
   - 市场阶段
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -93,6 +96,7 @@ claims:
   - 仓位管理
   - 节前减仓
   - 防踏空
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -103,7 +107,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260904-037"]
+  supplements:
+  - claim-20260904-037
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -125,6 +130,7 @@ claims:
   - 技术面
   - 均线止损
   - 高开减仓
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -156,6 +162,7 @@ claims:
   - 资金偏好
   - 炒小炒差
   - PCB拥挤度
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -188,6 +195,7 @@ claims:
   - 12寸
   - 涨价
   - 尺寸分化
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -198,8 +206,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260629-001-v"]
-  supplements: ["claim-20260918-012-a"]
+  disagrees_with:
+  - claim-20260629-001-v
+  supplements:
+  - claim-20260918-012-a
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -221,6 +231,7 @@ claims:
   - 涨价
   - 上游材料
   - 国产传导
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -231,7 +242,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260629-001-p", "claim-20260826-044-a"]
+  supplements:
+  - claim-20260629-001-p
+  - claim-20260826-044-a
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -259,6 +272,7 @@ claims:
   - 底部区间
   - 国瓷材料
   - 飞凯材料
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -269,7 +283,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260630-003-an", "claim-20260830-008-a"]
+  supplements:
+  - claim-20260630-003-an
+  - claim-20260830-008-a
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -289,7 +305,7 @@ claims:
   - code: '300489'
     name: 光智科技
     role: 光智科技-创业板不可交易
-  - code: '002975'
+  - code: 002975
     name: 博杰股份
     role: 博杰股份-主板可交易
   tags:
@@ -297,6 +313,7 @@ claims:
   - 供给缺口
   - 光智科技
   - 博杰股份
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -307,7 +324,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260807-014", "claim-20260804-035", "claim-20260806-038"]
+  supplements:
+  - claim-20260807-014
+  - claim-20260804-035
+  - claim-20260806-038
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -328,6 +348,7 @@ claims:
   - 保偏光纤
   - 液冷
   - 赛道空间
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -338,7 +359,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260719-011"]
+  disagrees_with:
+  - claim-20260719-011
   supplements: []
   last_discovered: 2026-09-28
   links:
@@ -363,6 +385,7 @@ claims:
   - AI制药
   - 成都先导
   - 兑现节奏
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -400,6 +423,7 @@ claims:
   - 新能源
   - 头部疲软
   - 布局性价比
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -427,13 +451,14 @@ claims:
   interpretation: Mark用利润路径而非静态PE论证潍柴动力(000338)低估，核心在盈利增长兑现后估值仍低。
   topic: 潍柴动力低估值判断
   related_stocks:
-  - code: '000338'
+  - code: 000338
     name: 潍柴动力
     role: 潍柴动力-主板可交易
   tags:
   - 潍柴动力
   - 低估值
   - 利润预测
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -444,7 +469,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260912-002-24"]
+  supplements:
+  - claim-20260912-002-24
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -465,6 +491,7 @@ claims:
   - 黄金
   - 企稳确认
   - 介入时点
+  school: watchlist
 - source_path: sources/original/bilibili/2026-09-27-2305-图片-分享图片.md
   source_date: '2026-09-27'
   source_type: 动态
@@ -500,5 +527,4 @@ claims:
   - PCB设备
   - 玻璃基板
   - 减持落地
-
-  last_discovered: 2026-09-28
+  school: watchlist

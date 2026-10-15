@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260605-001-a
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-05'
   source_type: 早盘
   extracted_at: '2026-06-05'
@@ -30,10 +30,11 @@ claims:
   intensity: medium
   links: {}
   timeframe: short-term
+  school: qing
 - id: claim-20260605-001-b
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-05'
   source_type: 早盘
   extracted_at: '2026-06-05'
@@ -59,10 +60,11 @@ claims:
   intensity: high
   links: {}
   timeframe: short-term
+  school: qing
 - id: claim-20260605-001-c
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-05'
   source_type: 早盘
   extracted_at: '2026-06-05'
@@ -91,15 +93,18 @@ claims:
   - 板块框架
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-006-d", "claim-20260609-005-b"]
+  supplements:
+  - claim-20260610-006-d
+  - claim-20260609-005-b
   last_discovered: 2026-06-25
   intensity: medium
   links: {}
   timeframe: trend
+  school: qing
 - id: claim-20260605-001-d
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-05'
   source_type: 早盘
   extracted_at: '2026-06-05'
@@ -114,9 +119,9 @@ claims:
   related_stocks:
   - code: 601088.SH
     name: 中国神华
-  - code: "600403"
-    name: "大有能源"
-    role: "回填-正文提及"
+  - code: '600403'
+    name: 大有能源
+    role: 回填-正文提及
   tags:
   - 煤炭
   - 防御板块
@@ -131,10 +136,11 @@ claims:
   intensity: medium
   links: {}
   timeframe: short-term
+  school: qing
 - id: claim-20260605-001-e
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-05'
   source_type: 早盘
   extracted_at: '2026-06-05'
@@ -147,7 +153,7 @@ claims:
   status: active
   claim_type: sector-theme
   related_stocks:
-  - code: "301611"
+  - code: '301611'
     name: 珂玛科技
   tags:
   - 珂玛科技
@@ -158,15 +164,17 @@ claims:
   - 北方华创
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260518-016"]
+  supplements:
+  - claim-20260518-016
   last_discovered: 2026-06-25
   intensity: medium
   links: {}
   timeframe: trend
+  school: qing
 - id: claim-20260605-001-f
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-05'
   source_type: 早盘
   extracted_at: '2026-06-05'
@@ -179,11 +187,11 @@ claims:
   status: active
   claim_type: sector-theme
   related_stocks:
-  - code: "301018"
+  - code: '301018'
     name: 申菱环境
-  - code: "002837"
-    name: "英维克"
-    role: "回填-正文提及"
+  - code: 002837
+    name: 英维克
+    role: 回填-正文提及
   tags:
   - 申菱环境
   - 液冷
@@ -198,10 +206,11 @@ claims:
   intensity: medium
   links: {}
   timeframe: trend
+  school: qing
 - id: claim-20260605-001-g
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-05'
   source_type: 早盘
   extracted_at: '2026-06-05'
@@ -236,10 +245,11 @@ claims:
   intensity: medium
   links: {}
   timeframe: trend
+  school: qing
 - id: claim-20260605-001-h
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-05'
   source_type: 早盘
   extracted_at: '2026-06-05'
@@ -265,10 +275,11 @@ claims:
   intensity: medium
   links: {}
   timeframe: short-term
+  school: qing
 - id: claim-20260605-001-i
   source_path: sources/raw/财经/早盘：26-06-05：调整第17天，AI上游材料最确定，昇腾赔率升高.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-05'
   source_type: 早盘
   extracted_at: '2026-06-05'
@@ -293,3 +304,4 @@ claims:
   intensity: high
   links: {}
   timeframe: short-term
+  school: qing

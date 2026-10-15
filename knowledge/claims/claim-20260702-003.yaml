@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260702-003-a
   source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 盘中动态
   extracted_at: '2026-07-02T13:34:21+08:00'
@@ -17,7 +17,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-038-c"]
+  supplements:
+  - claim-20260617-038-c
   last_discovered: 2026-07-02
   related_stocks: []
   tags:
@@ -31,10 +32,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 早盘指数恐慌个股修复分化
+  school: qing
 - id: claim-20260702-003-b
   source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 盘中动态
   extracted_at: '2026-07-02T13:34:21+08:00'
@@ -48,11 +50,14 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260623-005-b"]
-  supplements: ["claim-20260702-001-d", "claim-20260602-003-c"]
+  contradicts:
+  - claim-20260623-005-b
+  supplements:
+  - claim-20260702-001-d
+  - claim-20260602-003-c
   last_discovered: 2026-07-02
   related_stocks:
-  - code: '002409'
+  - code: 002409
     name: 雅克科技
     role: 半导体上游材料标的-主板可交易
   - code: '000021'
@@ -69,10 +74,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 科技调整核心是Token增速回落
+  school: qing
 - id: claim-20260702-003-c
   source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 盘中动态
   extracted_at: '2026-07-02T13:34:21+08:00'
@@ -87,7 +93,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-003-d", "claim-20260625-003-g"]
+  supplements:
+  - claim-20260607-003-d
+  - claim-20260625-003-g
   last_discovered: 2026-07-02
   related_stocks: []
   tags:
@@ -101,10 +109,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 半导体上游修复机器人逆势爆发
+  school: qing
 - id: claim-20260702-003-d
   source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 盘中动态
   extracted_at: '2026-07-02T13:34:21+08:00'
@@ -118,8 +127,11 @@ claims:
   status: superseded
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260702-002-m"]
-  supplements: ["claim-20260702-001-e", "claim-20260610-015-a"]
+  contradicts:
+  - claim-20260702-002-m
+  supplements:
+  - claim-20260702-001-e
+  - claim-20260610-015-a
   last_discovered: 2026-07-02
   related_stocks: []
   tags:
@@ -133,10 +145,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 非科技大金融医药逢低跟踪
+  school: qing
 - id: claim-20260702-003-e
   source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 盘中动态
   extracted_at: '2026-07-02T13:34:21+08:00'
@@ -149,9 +162,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260608-004-a", "claim-20260602-003-a"]
+  supersedes:
+  - claim-20260608-004-a
+  - claim-20260602-003-a
   contradicts: []
-  supplements: ["claim-20260617-038-c"]
+  supplements:
+  - claim-20260617-038-c
   last_discovered: 2026-07-02
   related_stocks: []
   tags:
@@ -165,10 +181,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 恐慌集中释放下周Token窗口有望企稳
+  school: qing
 - id: claim-20260702-003-f
   source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 盘中动态
   extracted_at: '2026-07-02T13:34:21+08:00'
@@ -183,7 +200,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-001-l", "claim-20260616-001-c"]
+  supplements:
+  - claim-20260611-001-l
+  - claim-20260616-001-c
   last_discovered: 2026-07-02
   related_stocks: []
   tags:
@@ -197,10 +216,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 恐慌杀跌酝酿买点ETF平滑风险
+  school: qing
 - id: claim-20260702-003-g
   source_path: sources/original/bilibili/2026-07-02-1331-图片-早盘受海外市场扰动，三大指数集体低开后维持弱势震荡，截至午间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-02'
   source_type: 盘中动态
   extracted_at: '2026-07-02T13:34:21+08:00'
@@ -213,9 +233,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260609-001-a", "claim-20260622-001-h"]
+  supersedes:
+  - claim-20260609-001-a
+  - claim-20260622-001-h
   contradicts: []
-  supplements: ["claim-20260622-004-k"]
+  supplements:
+  - claim-20260622-004-k
   last_discovered: 2026-07-02
   related_stocks: []
   tags:
@@ -229,3 +252,4 @@ claims:
     methodology_pages: []
     cases: []
   topic: 结构性抱团非全面冰点
+  school: qing

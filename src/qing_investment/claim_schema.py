@@ -65,6 +65,7 @@ OPTIONAL_FIELDS = {
 # 虚拟 up_id：非 up 来源的内容
 VIRTUAL_UP_IDS = {
     "chanlun-original",  # 缠中说禅原著课程
+    "wechat-ecyu-0001",  # 微信公众号「像鳄鱼一样思考」（2026-10-15 新增）
 }
 
 
@@ -91,6 +92,7 @@ class Claim:
     up_name: str = ""
     disagrees_with: list[str] = None  # type: ignore[assignment]
     stance: str = ""                  # 话语性质（四值，2026-09-17 新增，可空）
+    school: str = ""                  # 学派（qing/gator/watchlist，由 up_id 推导，2026-10-15）
 
     def __post_init__(self) -> None:
         if self.disagrees_with is None:
@@ -130,6 +132,24 @@ def validate_claim_dict(data: dict[str, Any]) -> Claim:
     if stance_val not in (None, ""):
         _require_enum("stance", str(stance_val), VALID_STANCE)
 
+    # school 非必填；由 up_id 推导（2026-10-15 双学派架构）。
+    # 显式写入时以推导值为准（禁止手工跨学派标注）。
+    up_school = ""
+    try:
+        from qing_investment.schools import school_of_up, source_path_allowed
+
+        up_school = school_of_up(up_id_val) or ""
+        # 来源前缀校验：up_id 归属学派 与 source_path 必须匹配
+        if not source_path_allowed(up_id_val, str(data["source_path"])):
+            raise ValueError(
+                f"source_path {data['source_path']!r} 不属于 up_id {up_id_val!r} "
+                f"所属学派 {up_school!r} 的允许来源（见 config/schools.yaml）"
+            )
+    except ValueError:
+        raise
+    except Exception:
+        pass  # schools 模块不可用时降级（不阻断既有校验）
+
     links = {
         "wiki_pages": list(data["links"].get("wiki_pages", [])),
         "methodology_pages": list(data["links"].get("methodology_pages", [])),
@@ -158,6 +178,7 @@ def validate_claim_dict(data: dict[str, Any]) -> Claim:
         up_name=str(data.get("up_name") or ""),
         disagrees_with=[str(i) for i in (dw or [])],
         stance=str(data.get("stance") or ""),
+        school=up_school,
     )
 
 

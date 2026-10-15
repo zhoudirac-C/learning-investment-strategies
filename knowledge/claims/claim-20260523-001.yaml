@@ -1,11 +1,11 @@
 - id: claim-20260523-001
   topic: Rubin BOM价值扩散
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-23
   source_type: 视频
-  extracted_at: "2026-05-23T12:21:17+08:00"
+  extracted_at: '2026-05-23T12:21:17+08:00'
   claim_type: sector-theme
   subject: Rubin BOM价值扩散
   timeframe: trend
@@ -16,30 +16,34 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260531-002-d", "claim-20260523-003", "claim-20260531-002-e"]
+  supplements:
+  - claim-20260531-002-d
+  - claim-20260523-003
+  - claim-20260531-002-e
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/AI上游涨价链
-      - 市场分析/PCB与先进封装
-      - 市场分析/光通信
+    - 市场分析/AI上游涨价链
+    - 市场分析/PCB与先进封装
+    - 市场分析/光通信
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 板块主题
-    - PCB
-    - GPU
-    - 存储
-    - AI
+  - 板块主题
+  - PCB
+  - GPU
+  - 存储
+  - AI
+  school: qing
 - id: claim-20260523-002
   topic: 存储链价值占比跃升
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-23
   source_type: 视频
-  extracted_at: "2026-05-23T12:21:17+08:00"
+  extracted_at: '2026-05-23T12:21:17+08:00'
   claim_type: sector-theme
   subject: 存储链价值占比跃升
   timeframe: trend
@@ -50,27 +54,29 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-009"]
+  supplements:
+  - claim-20260526-009
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/长鑫存储产业链
-      - 市场分析/半导体产业链
+    - 市场分析/长鑫存储产业链
+    - 市场分析/半导体产业链
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 板块主题
-    - AI
-    - 存储
+  - 板块主题
+  - AI
+  - 存储
+  school: qing
 - id: claim-20260523-003
   topic: PCB与ABF基板
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-23
   source_type: 视频
-  extracted_at: "2026-05-23T12:21:17+08:00"
+  extracted_at: '2026-05-23T12:21:17+08:00'
   claim_type: sector-theme
   subject: PCB与ABF基板
   timeframe: trend
@@ -81,28 +87,31 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260525-003", "claim-20260525-008"]
+  supplements:
+  - claim-20260525-003
+  - claim-20260525-008
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/PCB与先进封装
-      - 市场分析/AI上游涨价链
+    - 市场分析/PCB与先进封装
+    - 市场分析/AI上游涨价链
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 板块主题
-    - PCB
-    - GPU
-    - AI
+  - 板块主题
+  - PCB
+  - GPU
+  - AI
+  school: qing
 - id: claim-20260523-004
   topic: MLCC涨价链
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-23
   source_type: 视频
-  extracted_at: "2026-05-23T12:21:17+08:00"
+  extracted_at: '2026-05-23T12:21:17+08:00'
   claim_type: sector-theme
   subject: MLCC涨价链
   timeframe: trend
@@ -113,26 +122,29 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260601-004-d", "claim-20260616-015"]
+  supplements:
+  - claim-20260601-004-d
+  - claim-20260616-015
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/AI上游涨价链
+    - 市场分析/AI上游涨价链
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 板块主题
-    - AI
-    - 通胀
+  - 板块主题
+  - AI
+  - 通胀
+  school: qing
 - id: claim-20260523-005
   topic: 电源液冷与HVDC
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-23
   source_type: 视频
-  extracted_at: "2026-05-23T12:21:17+08:00"
+  extracted_at: '2026-05-23T12:21:17+08:00'
   claim_type: sector-theme
   subject: 电源液冷与HVDC
   timeframe: trend
@@ -143,27 +155,30 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-003-a", "claim-20260523-001"]
+  supplements:
+  - claim-20260527-003-a
+  - claim-20260523-001
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/AI电源与超级电容
-      - 市场分析/AI上游涨价链
+    - 市场分析/AI电源与超级电容
+    - 市场分析/AI上游涨价链
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 板块主题
-    - AI
-    - 电力
+  - 板块主题
+  - AI
+  - 电力
+  school: qing
 - id: claim-20260523-006
   topic: 半导体设备材料零部件
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-23
   source_type: 视频
-  extracted_at: "2026-05-23T12:21:17+08:00"
+  extracted_at: '2026-05-23T12:21:17+08:00'
   claim_type: sector-theme
   subject: 半导体设备材料零部件
   timeframe: trend
@@ -174,32 +189,34 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260603-004-f"]
+  supplements:
+  - claim-20260603-004-f
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/半导体产业链
-      - 市场分析/半导体设备
-      - 市场分析/半导体设备零部件
+    - 市场分析/半导体产业链
+    - 市场分析/半导体设备
+    - 市场分析/半导体设备零部件
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 板块主题
-    - 半导体
-    - 扩产
-    - 算力
-    - 放量
-    - 业绩
-    - AI
+  - 板块主题
+  - 半导体
+  - 扩产
+  - 算力
+  - 放量
+  - 业绩
+  - AI
+  school: qing
 - id: claim-20260523-007
   topic: Micro LED光互联
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-23
   source_type: 视频
-  extracted_at: "2026-05-23T12:21:17+08:00"
+  extracted_at: '2026-05-23T12:21:17+08:00'
   claim_type: sector-theme
   subject: Micro LED光互联
   timeframe: trend
@@ -210,27 +227,31 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260523-008", "claim-20260615-007", "claim-20260603-004-d"]
+  supplements:
+  - claim-20260523-008
+  - claim-20260615-007
+  - claim-20260603-004-d
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/玻璃基板与Micro-LED
-      - 市场分析/光通信
+    - 市场分析/玻璃基板与Micro-LED
+    - 市场分析/光通信
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 板块主题
-    - AI
-    - 算力
+  - 板块主题
+  - AI
+  - 算力
+  school: qing
 - id: claim-20260523-008
   topic: 茂莱光学被定位为精密光学平台型公司
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-23
   source_type: 视频
-  extracted_at: "2026-05-23T12:21:17+08:00"
+  extracted_at: '2026-05-23T12:21:17+08:00'
   claim_type: stock-view
   subject: 茂莱光学
   timeframe: trend
@@ -241,35 +262,37 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-001-m"]
+  supplements:
+  - claim-20260521-001-m
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/光通信
-      - 市场分析/玻璃基板与Micro-LED
-      - 市场分析/半导体设备零部件
+    - 市场分析/光通信
+    - 市场分析/玻璃基板与Micro-LED
+    - 市场分析/半导体设备零部件
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 个股观点
-    - 茂莱光学
-    - CPO
-    - 半导体
-    - 追高
-    - AI
+  - 个股观点
+  - 茂莱光学
+  - CPO
+  - 半导体
+  - 追高
+  - AI
   related_stocks:
-    - code: 688502.SH
-      name: 茂莱光学
-      role: 参考标的
+  - code: 688502.SH
+    name: 茂莱光学
+    role: 参考标的
+  school: qing
 - id: claim-20260523-009
   topic: 光测试仪器铲子股
   source_path: sources/raw/财经/视频：26-05-23：Rubin BOM拆解，PCB、MLCC、ABF涨价与半导体光互联扩散.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-23
   source_type: 视频
-  extracted_at: "2026-05-23T12:21:17+08:00"
+  extracted_at: '2026-05-23T12:21:17+08:00'
   claim_type: methodology
   subject: 光测试仪器铲子股
   timeframe: trend
@@ -284,12 +307,13 @@
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/光通信
+    - 市场分析/光通信
     methodology_pages:
-      - 投资方法论/主线判断
+    - 投资方法论/主线判断
     cases: []
   intensity: high
   tags:
-    - 光测试仪器铲子股
-    - 光模块
-    - 方法论
+  - 光测试仪器铲子股
+  - 光模块
+  - 方法论
+  school: qing

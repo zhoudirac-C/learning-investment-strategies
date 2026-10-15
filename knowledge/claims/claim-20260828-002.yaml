@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260828-002-a
   source_path: sources/original/bilibili/2026-08-28-1101-图片-上证指数90分钟是高9，科创50，中证500，深成指10点的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 动态
   extracted_at: '2026-08-28T11:20:00+08:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260708-002-x", "claim-20260804-008"]
+  supersedes:
+  - claim-20260708-002-x
+  - claim-20260804-008
   contradicts: []
-  supplements: ["claim-20260625-002-a"]
+  supplements:
+  - claim-20260625-002-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -31,10 +34,11 @@ claims:
   - 科创50
   - 假摔
   related_stocks: []
+  school: qing
 - id: claim-20260828-002-b
   source_path: sources/original/bilibili/2026-08-28-1101-图片-上证指数90分钟是高9，科创50，中证500，深成指10点的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 动态
   extracted_at: '2026-08-28T11:20:00+08:00'
@@ -47,9 +51,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260827-051-x"]
+  supersedes:
+  - claim-20260827-051-x
   contradicts: []
-  supplements: ["claim-20260827-054-x", "claim-20260819-031"]
+  supplements:
+  - claim-20260827-054-x
+  - claim-20260819-031
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -63,10 +70,11 @@ claims:
   - 止损
   - 分批建仓
   related_stocks: []
+  school: qing
 - id: claim-20260828-002-c
   source_path: sources/original/bilibili/2026-08-28-1101-图片-上证指数90分钟是高9，科创50，中证500，深成指10点的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 动态
   extracted_at: '2026-08-28T11:20:00+08:00'
@@ -81,7 +89,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["qing-2026-06-08-methodology-correct-vs-profitable-001", "claim-20061124-001-b"]
+  supplements:
+  - qing-2026-06-08-methodology-correct-vs-profitable-001
+  - claim-20061124-001-b
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -95,10 +105,11 @@ claims:
   - 高维度
   - 交易模式
   related_stocks: []
+  school: qing
 - id: claim-20260828-002-d
   source_path: sources/original/bilibili/2026-08-28-1018-图片-今天走强的是OCS光交换。部分科技虽然弱，但仍然延续了昨天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 动态
   extracted_at: '2026-08-28T11:28:00+08:00'
@@ -127,10 +138,11 @@ claims:
   - 光互连
   - 分支切换
   related_stocks: []
+  school: qing
 - id: claim-20260828-002-e
   source_path: sources/original/bilibili/2026-08-28-1018-图片-今天走强的是OCS光交换。部分科技虽然弱，但仍然延续了昨天的.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 动态
   extracted_at: '2026-08-28T11:28:00+08:00'
@@ -143,7 +155,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260813-027"]
+  supersedes:
+  - claim-20260813-027
   contradicts: []
   supplements: []
   last_discovered: 2026-08-31
@@ -159,3 +172,4 @@ claims:
   - 良性
   - 情绪周期
   related_stocks: []
+  school: qing

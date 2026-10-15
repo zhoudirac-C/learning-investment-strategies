@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260728-001
   source_path: sources/original/bilibili/2026-07-28-1053-图片-动态-1229944677841502213.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-28'
   source_type: 动态
   extracted_at: '2026-07-29T09:32:47+08:00'
@@ -42,10 +42,11 @@ claims:
   - 弹性与确定性
   - 半导体设备
   topic: 光刻机产业链三层分级：整机与专用分系统/通用零部件/配套设备
+  school: qing
 - id: claim-20260728-002
   source_path: sources/original/bilibili/2026-07-28-1053-图片-动态-1229944677841502213.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-28'
   source_type: 动态
   extracted_at: '2026-07-29T09:32:47+08:00'
@@ -76,7 +77,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-001-k", "claim-20260523-008"]
+  supplements:
+  - claim-20260625-001-k
+  - claim-20260523-008
   last_discovered: 2026-07-29
   links:
     wiki_pages: []
@@ -104,10 +107,11 @@ claims:
   - 茂莱光学
   - 曝光物镜
   topic: 光刻机第一层标的：茂莱光学/汇成真空/菲沃泰/美利信/波长光电
+  school: qing
 - id: claim-20260728-003
   source_path: sources/original/bilibili/2026-07-28-1053-图片-动态-1229944677841502213.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-28'
   source_type: 动态
   extracted_at: '2026-07-29T09:32:47+08:00'
@@ -144,7 +148,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260603-004-f", "claim-20260617-043-s"]
+  supplements:
+  - claim-20260603-004-f
+  - claim-20260617-043-s
   last_discovered: 2026-07-29
   links:
     wiki_pages: []
@@ -181,10 +187,11 @@ claims:
   - 瓶颈层
   - 富创精密
   topic: 光刻机第二层标的：富创精密/江丰电子/正帆科技/珂玛科技/神工股份/新莱应材/京仪装备/埃科光电
+  school: qing
 - id: claim-20260728-004
   source_path: sources/original/bilibili/2026-07-28-1053-图片-动态-1229944677841502213.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-28'
   source_type: 动态
   extracted_at: '2026-07-29T09:32:47+08:00'
@@ -227,7 +234,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-043-s"]
+  supplements:
+  - claim-20260617-043-s
   last_discovered: 2026-07-29
   links:
     wiki_pages: []
@@ -280,3 +288,4 @@ claims:
   - 北方华创
   - 金海通
   topic: 光刻机第三层标的：芯源微/北方华创/中微公司/拓荆科技/华海清科/金海通等
+  school: qing

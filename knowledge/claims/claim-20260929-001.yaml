@@ -17,7 +17,8 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260609-001-c"]
+  supersedes:
+  - claim-20260609-001-c
   contradicts: []
   supplements: []
   last_discovered: 2026-09-29
@@ -31,6 +32,7 @@ claims:
   - 日线钝化
   - 底部结构
   - 技术信号
+  school: qing
 - id: claim-20260929-001-b
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -51,7 +53,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-033"]
+  supplements:
+  - claim-20260913-001-033
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -63,6 +66,7 @@ claims:
   - 耐心等待
   - 仓位纪律
   - 指数方向
+  school: qing
 - id: claim-20260929-001-c
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -83,7 +87,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260928-002-j", "claim-20260914-001-005"]
+  supplements:
+  - claim-20260928-002-j
+  - claim-20260914-001-005
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -95,6 +101,7 @@ claims:
   - 合约口径
   - 数据口径
   - 方法论
+  school: qing
 - id: claim-20260929-001-d
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -115,7 +122,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260928-002-n", "claim-20260908-003-z", "claim-20260928-002-k"]
+  supplements:
+  - claim-20260928-002-n
+  - claim-20260908-003-z
+  - claim-20260928-002-k
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -127,6 +137,7 @@ claims:
   - 资金承接
   - 海外变量
   - 验证条件
+  school: qing
 - id: claim-20260929-001-e
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -147,7 +158,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260928-001-e", "claim-20260916-001-a"]
+  supplements:
+  - claim-20260928-001-e
+  - claim-20260916-001-a
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -159,6 +172,7 @@ claims:
   - 盘前锚点
   - 风险偏好
   - 方法论
+  school: qing
 - id: claim-20260929-001-f
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -179,7 +193,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260811-003", "claim-20260813-002", "claim-20260922-001-c"]
+  supplements:
+  - claim-20260811-003
+  - claim-20260813-002
+  - claim-20260922-001-c
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -191,6 +208,7 @@ claims:
   - 开盘定价
   - 内因优先
   - 量价结构
+  school: qing
 - id: claim-20260929-001-g
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -211,7 +229,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260909-011-a", "claim-20260918-005-a", "claim-20260927-001-f"]
+  supplements:
+  - claim-20260909-011-a
+  - claim-20260918-005-a
+  - claim-20260927-001-f
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -223,6 +244,7 @@ claims:
   - 放量下跌
   - 买盘接力
   - 方法论
+  school: qing
 - id: claim-20260929-001-h
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -243,7 +265,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-c", "claim-20260928-002-i"]
+  supplements:
+  - claim-20260921-002-c
+  - claim-20260928-002-i
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -255,6 +279,7 @@ claims:
   - 三情形框架
   - 修复可信度
   - 开盘半小时
+  school: qing
 - id: claim-20260929-001-i
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -275,7 +300,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-003"]
+  supplements:
+  - claim-20260913-001-003
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -287,6 +313,7 @@ claims:
   - 新增买盘
   - 阶段判断
   - 昨日复盘
+  school: qing
 - id: claim-20260929-001-j
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -305,9 +332,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260807-007"]
+  supersedes:
+  - claim-20260807-007
   contradicts: []
-  supplements: ["claim-20260928-002-e"]
+  supplements:
+  - claim-20260928-002-e
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -319,6 +348,7 @@ claims:
   - 上证观察
   - 市场宽度
   - 权重护盘
+  school: qing
 - id: claim-20260929-001-k
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -351,6 +381,7 @@ claims:
   - 晋级率
   - 亏钱效应
   - 情绪降温
+  school: qing
 - id: claim-20260929-001-l
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -369,9 +400,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260928-002-i"]
+  supersedes:
+  - claim-20260928-002-i
   contradicts: []
-  supplements: ["claim-20260913-001-009"]
+  supplements:
+  - claim-20260913-001-009
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -386,6 +419,7 @@ claims:
   - 跌停修复
   - 亏钱效应收敛
   - 沈鼓集团
+  school: qing
 - id: claim-20260929-001-m
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -404,9 +438,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260813-007"]
+  supersedes:
+  - claim-20260813-007
   contradicts: []
-  supplements: ["claim-20260922-001-j", "claim-20260814-011"]
+  supplements:
+  - claim-20260922-001-j
+  - claim-20260814-011
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -418,6 +455,7 @@ claims:
   - 首板二板
   - 接力梯队
   - 经验参数
+  school: qing
 - id: claim-20260929-001-n
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -450,6 +488,7 @@ claims:
   - 底部确认
   - 收线确认
   - 情形A
+  school: qing
 - id: claim-20260929-001-o
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -470,7 +509,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-004"]
+  supplements:
+  - claim-20260729-004
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -482,6 +522,7 @@ claims:
   - 日线钝化
   - 收盘确认
   - 情形B
+  school: qing
 - id: claim-20260929-001-p
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -500,7 +541,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260907-006-a"]
+  supersedes:
+  - claim-20260907-006-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-29
@@ -514,6 +556,7 @@ claims:
   - 超跌修复
   - 样本纪律
   - 结构确认
+  school: qing
 - id: claim-20260929-001-q
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -534,7 +577,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260928-002-q"]
+  supplements:
+  - claim-20260928-002-q
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -561,6 +605,7 @@ claims:
   - 板块热度
   - 以点带面
   - 光模块
+  school: qing
 - id: claim-20260929-001-r
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -581,7 +626,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260922-001-c", "claim-20260921-002-r"]
+  supplements:
+  - claim-20260922-001-c
+  - claim-20260921-002-r
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -593,6 +640,7 @@ claims:
   - 网络安全
   - 板块扩散
   - 持续性验证
+  school: qing
 - id: claim-20260929-001-s
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -613,7 +661,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-ah"]
+  supplements:
+  - claim-20260921-002-ah
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -631,6 +680,7 @@ claims:
   - 房地产轮动
   - 二次启动
   - 量价信号
+  school: qing
 - id: claim-20260929-001-t
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -651,7 +701,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260923-002-n"]
+  supplements:
+  - claim-20260923-002-n
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -661,7 +712,7 @@ claims:
   - code: '600418'
     name: 江淮汽车
     role: 汽车方向核心股-主板可交易
-  - code: '000980'
+  - code: 000980
     name: 众泰汽车
     role: 汽车方向核心股-主板可交易
   - code: '601579'
@@ -672,6 +723,7 @@ claims:
   - 核心股扩散
   - 资金分流
   - 观察顺序
+  school: qing
 - id: claim-20260929-001-u
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -692,14 +744,17 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260806-050", "claim-20260901-062-a", "claim-20260913-001-026"]
+  supplements:
+  - claim-20260806-050
+  - claim-20260901-062-a
+  - claim-20260913-001-026
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks:
-  - code: '002912'
+  - code: 002912
     name: 中新赛克
     role: AI安全观察对象-主板可交易
   - code: '688244'
@@ -716,6 +771,7 @@ claims:
   - 智能体安全
   - 主题催化
   - 受益验证
+  school: qing
 - id: claim-20260929-001-v
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -757,6 +813,7 @@ claims:
   - 长鑫
   - 招标订单兑现
   - HBM
+  school: qing
 - id: claim-20260929-001-w
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -777,7 +834,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260928-002-s"]
+  supplements:
+  - claim-20260928-002-s
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -798,6 +856,7 @@ claims:
   - 院线定档
   - 商业化验证
   - 主题催化
+  school: qing
 - id: claim-20260929-001-x
   source_path: sources/original/bilibili/2026-09-29-0837-专栏-中秋节后的第一个交易日，市场放量低开低走，创业板与科创50均.md
   source_date: '2026-09-29'
@@ -818,7 +877,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-002-g"]
+  supplements:
+  - claim-20260914-002-g
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -836,3 +896,4 @@ claims:
   - 海外临床
   - A股映射
   - 竞争预期
+  school: qing

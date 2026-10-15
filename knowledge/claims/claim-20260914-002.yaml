@@ -1,7 +1,6 @@
 claims:
 - id: claim-20260914-002-a
-  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
-    今日指数集体.md
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性 今日指数集体.md
   source_date: '2026-09-14'
   source_type: 复盘
   up_id: '1420210197'
@@ -31,9 +30,9 @@ claims:
   - 个股广度
   - 缩量
   - 大盘定性
+  school: qing
 - id: claim-20260914-002-b
-  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
-    今日指数集体.md
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性 今日指数集体.md
   source_date: '2026-09-14'
   source_type: 复盘
   up_id: '1420210197'
@@ -50,7 +49,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-f", "claim-20260524-018", "claim-20260913-001-032"]
+  supplements:
+  - claim-20260609-005-f
+  - claim-20260524-018
+  - claim-20260913-001-032
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -63,9 +65,9 @@ claims:
   - 退潮
   - 新周期
   - 市场阶段
+  school: qing
 - id: claim-20260914-002-c
-  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
-    今日指数集体.md
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性 今日指数集体.md
   source_date: '2026-09-14'
   source_type: 复盘
   up_id: '1420210197'
@@ -81,8 +83,11 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260729-002"]
-  supplements: ["claim-20260909-011-a", "claim-20260816-003"]
+  contradicts:
+  - claim-20260729-002
+  supplements:
+  - claim-20260909-011-a
+  - claim-20260816-003
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -95,9 +100,9 @@ claims:
   - 抛压
   - 量能解读
   - 方法论
+  school: qing
 - id: claim-20260914-002-d
-  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
-    今日指数集体.md
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性 今日指数集体.md
   source_date: '2026-09-14'
   source_type: 复盘
   up_id: '1420210197'
@@ -112,9 +117,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260518-018"]
+  supersedes:
+  - claim-20260518-018
   contradicts: []
-  supplements: ["claim-20260813-027"]
+  supplements:
+  - claim-20260813-027
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -127,9 +134,9 @@ claims:
   - 指数
   - 权重
   - 题材
+  school: qing
 - id: claim-20260914-002-e
-  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
-    今日指数集体.md
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性 今日指数集体.md
   source_date: '2026-09-14'
   source_type: 复盘
   up_id: '1420210197'
@@ -144,9 +151,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260910-015-a"]
-  contradicts: ["claim-20260907-041-c"]
-  supplements: ["claim-20260914-001-017"]
+  supersedes:
+  - claim-20260910-015-a
+  contradicts:
+  - claim-20260907-041-c
+  supplements:
+  - claim-20260914-001-017
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -160,9 +170,9 @@ claims:
   - PCB
   - MLCC
   - 光通信
+  school: qing
 - id: claim-20260914-002-f
-  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
-    今日指数集体.md
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性 今日指数集体.md
   source_date: '2026-09-14'
   source_type: 复盘
   up_id: '1420210197'
@@ -179,7 +189,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-017", "claim-20070730-001-a"]
+  supplements:
+  - claim-20260914-001-017
+  - claim-20070730-001-a
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -192,9 +204,9 @@ claims:
   - 资金性质
   - 归因
   - 热钱
+  school: qing
 - id: claim-20260914-002-g
-  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
-    今日指数集体.md
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性 今日指数集体.md
   source_date: '2026-09-14'
   source_type: 复盘
   up_id: '1420210197'
@@ -209,7 +221,9 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260824-001-k", "claim-20260825-012-a"]
+  supersedes:
+  - claim-20260824-001-k
+  - claim-20260825-012-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-15
@@ -224,9 +238,9 @@ claims:
   - 创新药
   - 研发服务
   - 修复
+  school: qing
 - id: claim-20260914-002-h
-  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
-    今日指数集体.md
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性 今日指数集体.md
   source_date: '2026-09-14'
   source_type: 复盘
   up_id: '1420210197'
@@ -256,9 +270,9 @@ claims:
   - 智能网联
   - 十五五规划
   - 政策催化
+  school: qing
 - id: claim-20260914-002-i
-  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
-    今日指数集体.md
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性 今日指数集体.md
   source_date: '2026-09-14'
   source_type: 复盘
   up_id: '1420210197'
@@ -269,8 +283,7 @@ claims:
   timeframe: permanent
   statement: 部分农业、消费等此前活跃方向继续调整，说明题材名称并不能决定短期价格是否具有防御性；经过较大上涨后，相关股票同样可能面临估值和交易拥挤度的变化。
   evidence_quote: 部分农业、消费等此前活跃方向继续调整，也提醒我们：题材名称并不能决定短期价格是否具有防御性。经过较大上涨后，相关股票同样可能面临估值和交易拥挤度的变化。
-  interpretation: '对''防御性板块''概念的纠偏：防御属性不是标签固有，而是取决于前期涨幅带来的估值与拥挤度。涨多了的消费农业同样会补跌。这条与农业链（chain_registry
-    #17）的退潮观察直接相关。'
+  interpretation: '对''防御性板块''概念的纠偏：防御属性不是标签固有，而是取决于前期涨幅带来的估值与拥挤度。涨多了的消费农业同样会补跌。这条与农业链（chain_registry #17）的退潮观察直接相关。'
   confidence: high
   status: active
   intensity: medium
@@ -290,9 +303,9 @@ claims:
   - 农业
   - 消费
   - 拥挤度
+  school: qing
 - id: claim-20260914-002-j
-  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
-    今日指数集体.md
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性 今日指数集体.md
   source_date: '2026-09-14'
   source_type: 复盘
   up_id: '1420210197'
@@ -308,8 +321,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260812-038"]
-  supplements: ["claim-20260805-016"]
+  contradicts:
+  - claim-20260812-038
+  supplements:
+  - claim-20260805-016
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -323,9 +338,9 @@ claims:
   - 二阶导
   - 硬件
   - 美债
+  school: qing
 - id: claim-20260914-002-k
-  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性
-    今日指数集体.md
+  source_path: sources/original/bilibili/2026-09-14-2252-图片-一、今日市场：局部修复仍在，整体回升缺乏持续性 今日指数集体.md
   source_date: '2026-09-14'
   source_type: 复盘
   up_id: '1420210197'
@@ -342,7 +357,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-061", "claim-20260804-039"]
+  supplements:
+  - claim-20260819-061
+  - claim-20260804-039
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -355,3 +372,4 @@ claims:
   - 海外链
   - 方向判断
   - 美股IPO
+  school: qing

@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260621-006-a
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260612-003-d"]
-  contradicts: ["qing-2026-06-08-macro-warsh-hold-steady-001"]
-  supplements: ["claim-20260610-035-a"]
+  supersedes:
+  - claim-20260612-003-d
+  contradicts:
+  - qing-2026-06-08-macro-warsh-hold-steady-001
+  supplements:
+  - claim-20260610-035-a
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -30,10 +33,11 @@ claims:
   - 前瞻指引
   - 加息
   - 沃什
+  school: qing
 - id: claim-20260621-006-b
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -47,8 +51,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260530-001-c"]
-  supplements: ["claim-20260624-001-b"]
+  contradicts:
+  - claim-20260530-001-c
+  supplements:
+  - claim-20260624-001-b
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -61,10 +67,11 @@ claims:
   - 高估值
   - 波动率
   - 利率中枢
+  school: qing
 - id: claim-20260621-006-c
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -78,8 +85,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260624-001-b"]
-  supplements: ["qing-2026-06-08-macro-46-cbs-above-target-001"]
+  contradicts:
+  - claim-20260624-001-b
+  supplements:
+  - qing-2026-06-08-macro-46-cbs-above-target-001
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -91,10 +100,11 @@ claims:
   - 美国经济
   - 财政刺激
   - 不降息不衰退
+  school: qing
 - id: claim-20260621-006-d
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -121,10 +131,11 @@ claims:
   - 美元
   - 区间震荡
   - 外汇
+  school: qing
 - id: claim-20260621-006-e
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -137,8 +148,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260612-003-c"]
-  contradicts: ["claim-20260406-002", "claim-20260610-031-a"]
+  supersedes:
+  - claim-20260612-003-c
+  contradicts:
+  - claim-20260406-002
+  - claim-20260610-031-a
   supplements: []
   last_discovered: 2026-06-30
   links:
@@ -151,10 +165,11 @@ claims:
   - 原油
   - 油价中枢
   - 70-85美元
+  school: qing
 - id: claim-20260621-006-f
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -169,7 +184,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-003-f", "claim-20260528-005-e", "claim-20260414-001"]
+  supplements:
+  - claim-20260607-003-f
+  - claim-20260528-005-e
+  - claim-20260414-001
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -181,10 +199,11 @@ claims:
   - 霍尔木兹海峡
   - 油价风险
   - 地缘风险
+  school: qing
 - id: claim-20260621-006-g
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -197,7 +216,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260524-006"]
+  supersedes:
+  - claim-20260524-006
   contradicts: []
   supplements: []
   last_discovered: 2026-06-30
@@ -211,10 +231,11 @@ claims:
   - 人民币
   - 汇率
   - 6.75-6.85
+  school: qing
 - id: claim-20260621-006-h
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -227,9 +248,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260612-003-ab", "claim-20260610-030-a"]
+  supersedes:
+  - claim-20260612-003-ab
+  - claim-20260610-030-a
   contradicts: []
-  supplements: ["claim-20260607-004-h"]
+  supplements:
+  - claim-20260607-004-h
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -241,10 +265,11 @@ claims:
   - 黄金
   - 金价
   - 3500-5000美元
+  school: qing
 - id: claim-20260621-006-i
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -272,10 +297,11 @@ claims:
   - 三阶段
   - 云计算
   - 价值回归
+  school: qing
 - id: claim-20260621-006-j
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -290,7 +316,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-b"]
+  supplements:
+  - claim-20260622-004-b
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -302,10 +329,11 @@ claims:
   - AI估值
   - 泡沫风险
   - 财报
+  school: qing
 - id: claim-20260621-006-k
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -320,7 +348,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-001-c"]
+  supplements:
+  - claim-20260608-001-c
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -333,10 +362,11 @@ claims:
   - 杠杆ETF
   - 程序化交易
   - A股传导
+  school: qing
 - id: claim-20260621-006-l
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -364,10 +394,11 @@ claims:
   - 消费
   - 出口
   - 集成电路
+  school: qing
 - id: claim-20260621-006-m
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -380,7 +411,9 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260608-001-e", "claim-20260526-011"]
+  supersedes:
+  - claim-20260608-001-e
+  - claim-20260526-011
   contradicts: []
   supplements: []
   last_discovered: 2026-06-30
@@ -394,10 +427,11 @@ claims:
   - A股
   - 指数空间
   - 4500-4600点
+  school: qing
 - id: claim-20260621-006-n
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -410,8 +444,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260609-005-d"]
-  contradicts: ["claim-20260604-004-b", "claim-20260604-006-c"]
+  supersedes:
+  - claim-20260609-005-d
+  contradicts:
+  - claim-20260604-004-b
+  - claim-20260604-006-c
   supplements: []
   last_discovered: 2026-06-30
   links:
@@ -425,10 +462,11 @@ claims:
   - 科技制造
   - 高股息
   - 地产链
+  school: qing
 - id: claim-20260621-006-o
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -443,7 +481,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260530-001-i", "claim-20260621-001-a"]
+  supplements:
+  - claim-20260530-001-i
+  - claim-20260621-001-a
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -451,18 +491,19 @@ claims:
     cases: []
   topic: AI和出海产业就业拉动弱，K型分化长期化
   related_stocks:
-  - code: "300832"
-    name: "新产业"
-    role: "回填-正文提及"
+  - code: '300832'
+    name: 新产业
+    role: 回填-正文提及
   tags:
   - K型分化
   - AI就业
   - 出海
   - 消费
+  school: qing
 - id: claim-20260621-006-p
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -477,7 +518,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-003-j"]
+  supplements:
+  - claim-20260607-003-j
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -490,10 +532,11 @@ claims:
   - FOMC
   - 核心PCE
   - 国内会议
+  school: qing
 - id: claim-20260621-006-q
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -508,7 +551,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-001-c", "claim-20260617-039-m"]
+  supplements:
+  - claim-20260624-001-c
+  - claim-20260617-039-m
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -521,10 +566,11 @@ claims:
   - AI兑现
   - 杰克逊霍尔
   - 点阵图
+  school: qing
 - id: claim-20260621-006-r
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -538,7 +584,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260617-025-c"]
+  contradicts:
+  - claim-20260617-025-c
   supplements: []
   last_discovered: 2026-06-30
   links:
@@ -552,10 +599,11 @@ claims:
   - 小盘股
   - 无盈利AI
   - 中期选举
+  school: qing
 - id: claim-20260621-006-s
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -570,7 +618,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260601-004-e"]
+  supplements:
+  - claim-20260601-004-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -582,10 +631,11 @@ claims:
   - 交易框架
   - 政策博弈
   - 波动率
+  school: qing
 - id: claim-20260621-006-t
   source_path: sources/raw/财经/2026-06-21-视频-宏观投资周复盘.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 视频
   extracted_at: '2026-06-30T00:30:05.993083+00:00'
@@ -616,3 +666,4 @@ claims:
   - 中国人寿
   - 报行合一
   - 配置机会
+  school: qing

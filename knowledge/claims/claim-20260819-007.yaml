@@ -1,7 +1,6 @@
 claims:
 - id: claim-20260819-007-001
-  source_path: sources/original/bilibili/2026-08-19-0800-视频-今天宇树上市，聊国产软件、机器人、种业、创新药短线
-    -.md
+  source_path: sources/original/bilibili/2026-08-19-0800-视频-今天宇树上市，聊国产软件、机器人、种业、创新药短线 -.md
   source_date: '2026-08-19'
   source_type: 视频
   up_id: '550494308'
@@ -10,17 +9,16 @@ claims:
   claim_type: catalyst
   subject: 国产软件因Windows停用消息爆拉
   timeframe: intraday
-  statement: 昨日下午国产软件突然爆拉：中国软件(600536)、诚迈科技(300598)启动点相近，拓维信息(002261)、京东方A(000725)也被带动；催化是彭博社消息称中国据悉提前停用政府机构定制版Windows
-    10操作系统，但该消息目前没有官方通报。
-  evidence_quote: 昨天这个软件突然间下午就爆拉，像中国软件、诚迈科技，启动点都差不多。那像我们的老朋友拓维信息、京东方，也是有被带动到。主要原因还是一则来自彭博社的消息，中国据悉提前停用政府机构定制版Windows
-    10操作系统，所以这些国产替代的个股就软件就拉起来了。但这个消息目前还是没有官方通报的啊。
+  statement: 昨日下午国产软件突然爆拉：中国软件(600536)、诚迈科技(300598)启动点相近，拓维信息(002261)、京东方A(000725)也被带动；催化是彭博社消息称中国据悉提前停用政府机构定制版Windows 10操作系统，但该消息目前没有官方通报。
+  evidence_quote: 昨天这个软件突然间下午就爆拉，像中国软件、诚迈科技，启动点都差不多。那像我们的老朋友拓维信息、京东方，也是有被带动到。主要原因还是一则来自彭博社的消息，中国据悉提前停用政府机构定制版Windows 10操作系统，所以这些国产替代的个股就软件就拉起来了。但这个消息目前还是没有官方通报的啊。
   interpretation: 外媒消息驱动的国产替代情绪行情，UP特别提示未经官方通报——消息未证实是参与此类行情的结构性风险。
   confidence: medium
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260807-023"]
+  disagrees_with:
+  - claim-20260807-023
   supplements: []
   last_discovered: 2026-09-15
   links:
@@ -46,9 +44,9 @@ claims:
   - Windows停用
   - 彭博社
   - 国产替代
+  school: watchlist
 - id: claim-20260819-007-002
-  source_path: sources/original/bilibili/2026-08-19-0800-视频-今天宇树上市，聊国产软件、机器人、种业、创新药短线
-    -.md
+  source_path: sources/original/bilibili/2026-08-19-0800-视频-今天宇树上市，聊国产软件、机器人、种业、创新药短线 -.md
   source_date: '2026-08-19'
   source_type: 视频
   up_id: '550494308'
@@ -65,7 +63,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260907-041-d", "claim-20260902-001-j", "claim-20260908-003-h"]
+  supplements:
+  - claim-20260907-041-d
+  - claim-20260902-001-j
+  - claim-20260908-003-h
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -79,9 +80,9 @@ claims:
   - 厄尔尼诺
   - 粮价
   - 减仓做T
+  school: watchlist
 - id: claim-20260819-007-003
-  source_path: sources/original/bilibili/2026-08-19-0800-视频-今天宇树上市，聊国产软件、机器人、种业、创新药短线
-    -.md
+  source_path: sources/original/bilibili/2026-08-19-0800-视频-今天宇树上市，聊国产软件、机器人、种业、创新药短线 -.md
   source_date: '2026-08-19'
   source_type: 视频
   up_id: '550494308'
@@ -98,7 +99,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-011"]
+  supplements:
+  - claim-20260819-011
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -120,9 +122,9 @@ claims:
   - 北交所
   - 情绪标的
   - 短线
+  school: watchlist
 - id: claim-20260819-007-004
-  source_path: sources/original/bilibili/2026-08-19-0800-视频-今天宇树上市，聊国产软件、机器人、种业、创新药短线
-    -.md
+  source_path: sources/original/bilibili/2026-08-19-0800-视频-今天宇树上市，聊国产软件、机器人、种业、创新药短线 -.md
   source_date: '2026-08-19'
   source_type: 视频
   up_id: '550494308'
@@ -139,7 +141,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260818-022", "claim-20260819-015"]
+  supplements:
+  - claim-20260818-022
+  - claim-20260819-015
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -161,9 +165,9 @@ claims:
   - 利润垫
   - 新股博弈
   - 朱雀三
+  school: watchlist
 - id: claim-20260819-007-005
-  source_path: sources/original/bilibili/2026-08-19-0800-视频-今天宇树上市，聊国产软件、机器人、种业、创新药短线
-    -.md
+  source_path: sources/original/bilibili/2026-08-19-0800-视频-今天宇树上市，聊国产软件、机器人、种业、创新药短线 -.md
   source_date: '2026-08-19'
   source_type: 视频
   up_id: '550494308'
@@ -180,7 +184,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260902-007-a", "claim-20260723-028"]
+  supplements:
+  - claim-20260902-007-a
+  - claim-20260723-028
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -193,9 +199,9 @@ claims:
   - 情绪龙头
   - 高位题材
   - 负反馈
+  school: watchlist
 - id: claim-20260819-007-006
-  source_path: sources/original/bilibili/2026-08-19-0800-视频-今天宇树上市，聊国产软件、机器人、种业、创新药短线
-    -.md
+  source_path: sources/original/bilibili/2026-08-19-0800-视频-今天宇树上市，聊国产软件、机器人、种业、创新药短线 -.md
   source_date: '2026-08-19'
   source_type: 视频
   up_id: '550494308'
@@ -212,7 +218,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260717-001-j", "claim-20260820-034", "claim-20260824-002-i"]
+  supplements:
+  - claim-20260717-001-j
+  - claim-20260820-034
+  - claim-20260824-002-i
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -228,3 +237,4 @@ claims:
   - 哈药股份
   - 情绪锚
   - 换手率
+  school: watchlist

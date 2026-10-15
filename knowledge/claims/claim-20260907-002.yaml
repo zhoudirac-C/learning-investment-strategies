@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260907-040-a
   source_path: sources/original/bilibili/2026-09-07-0943-图片-摩尔线程解禁直接跌停，浪潮信息被纽约时报写了小作文，还是套壳.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-07'
   source_type: 动态
   extracted_at: '2026-09-07T20:07:00+08:00'
@@ -15,9 +15,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260812-009"]
+  supersedes:
+  - claim-20260812-009
   contradicts: []
-  supplements: ["claim-20260810-015"]
+  supplements:
+  - claim-20260810-015
   last_discovered: 2026-09-08
   links:
     wiki_pages: []
@@ -31,3 +33,4 @@ claims:
   - 双头
   - 算力
   - 星辰大海
+  school: qing

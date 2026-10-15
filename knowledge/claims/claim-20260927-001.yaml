@@ -15,9 +15,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260910-010-a"]
+  supersedes:
+  - claim-20260910-010-a
   contradicts: []
-  supplements: ["claim-20260703-001-j"]
+  supplements:
+  - claim-20260703-001-j
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -31,6 +33,7 @@ claims:
   - 弱势震荡
   - 结构轮动
   - 基准判断
+  school: qing
 - id: claim-20260927-001-b
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -49,7 +52,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260910-030-a", "claim-20260918-011-a"]
+  supplements:
+  - claim-20260910-030-a
+  - claim-20260918-011-a
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -64,6 +69,7 @@ claims:
   - 下跌收敛
   - 核心止跌
   - 承接改善
+  school: qing
 - id: claim-20260927-001-c
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -80,9 +86,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260819-047"]
+  supersedes:
+  - claim-20260819-047
   contradicts: []
-  supplements: ["claim-20260824-003-c"]
+  supplements:
+  - claim-20260824-003-c
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -96,6 +104,7 @@ claims:
   - 科技资产
   - 风险偏好
   - 市场定性
+  school: qing
 - id: claim-20260927-001-d
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -114,7 +123,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260818-040"]
+  supplements:
+  - claim-20260818-040
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -128,6 +138,7 @@ claims:
   - 局部换手
   - 修复确认
   - 定性方法
+  school: qing
 - id: claim-20260927-001-e
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -146,7 +157,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260518-002", "claim-20260917-004-a", "claim-20260916-003-h"]
+  supplements:
+  - claim-20260518-002
+  - claim-20260917-004-a
+  - claim-20260916-003-h
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -160,6 +174,7 @@ claims:
   - 调整结束
   - 缩量解读
   - 方法论
+  school: qing
 - id: claim-20260927-001-f
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -178,7 +193,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260909-011-a", "claim-20260830-033-a"]
+  supplements:
+  - claim-20260909-011-a
+  - claim-20260830-033-a
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -192,6 +209,7 @@ claims:
   - 卖压收敛
   - 承接薄弱
   - 量价分析
+  school: qing
 - id: claim-20260927-001-g
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -210,7 +228,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-l", "claim-20260913-001-018"]
+  supplements:
+  - claim-20260921-002-l
+  - claim-20260913-001-018
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -225,6 +245,7 @@ claims:
   - 市场宽度
   - 科技核心
   - 方法论
+  school: qing
 - id: claim-20260927-001-h
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -243,7 +264,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260524-008", "claim-20260917-001-f", "claim-20260824-003-f"]
+  supplements:
+  - claim-20260524-008
+  - claim-20260917-001-f
+  - claim-20260824-003-f
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -258,6 +282,7 @@ claims:
   - 煤炭石油
   - 防御偏好
   - 资金行为
+  school: qing
 - id: claim-20260927-001-i
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -276,7 +301,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-e", "claim-20260922-001-g", "claim-20260921-003-t"]
+  supplements:
+  - claim-20260921-002-e
+  - claim-20260922-001-g
+  - claim-20260921-003-t
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -291,6 +319,7 @@ claims:
   - 券商
   - 科技权重
   - 赚钱效应
+  school: qing
 - id: claim-20260927-001-j
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -307,9 +336,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260916-003-u"]
+  supersedes:
+  - claim-20260916-003-u
   contradicts: []
-  supplements: ["claim-20260922-001-c", "claim-20260803-028"]
+  supplements:
+  - claim-20260922-001-c
+  - claim-20260803-028
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -323,6 +355,7 @@ claims:
   - 尾盘异动
   - 短线资金
   - 容错率
+  school: qing
 - id: claim-20260927-001-k
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -341,7 +374,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-006-a", "claim-20260908-003-z"]
+  supplements:
+  - claim-20260917-006-a
+  - claim-20260908-003-z
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -355,6 +390,7 @@ claims:
   - 开盘溢价
   - 回封质量
   - 情绪验证
+  school: qing
 - id: claim-20260927-001-l
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -371,7 +407,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260921-003-i"]
+  supersedes:
+  - claim-20260921-003-i
   contradicts: []
   supplements: []
   last_discovered: 2026-09-27
@@ -387,6 +424,7 @@ claims:
   - 节前资金
   - 产业催化
   - 博弈
+  school: qing
 - id: claim-20260927-001-m
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -405,7 +443,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-001-h", "claim-20260908-003-z"]
+  supplements:
+  - claim-20260921-001-h
+  - claim-20260908-003-z
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -420,6 +460,7 @@ claims:
   - 承接验证
   - 竞价
   - 操作框架
+  school: qing
 - id: claim-20260927-001-n
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -438,7 +479,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-018", "claim-20260823-001-006", "claim-20260908-003-z"]
+  supplements:
+  - claim-20260913-001-018
+  - claim-20260823-001-006
+  - claim-20260908-003-z
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -453,6 +497,7 @@ claims:
   - 情绪溢价
   - 后排补涨
   - 锚定思维
+  school: qing
 - id: claim-20260927-001-o
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -464,15 +509,16 @@ claims:
   subject: 长假外部变量定价
   timeframe: short-term
   statement: 美国PCE与非农数据及假期内油价、美债收益率变化可能在10月8日集中进入A股定价；节后能否走出'利空落地'仍取决于实际数据、海外价格反应和开市承接，不能把'提前兑现'当成'风险已经全部消化'，应在9月30日收盘前完成假期持仓安排。
-  evidence_quote: 两份报告及假期内油价、美债收益率变化，都可能在10月8日集中进入A股定价。节前回撤可以包含部分预期折价，节后能否走出“利空落地”仍取决于实际数据、海外价格反应和开市承接。
-    应在9月30日收盘前完成假期持仓安排，为9月30日晚PCE、10月2日非农及假期资产价格波动保留余地。节后判断留待10月8日开盘与盘中承接验证，不把“提前兑现”当成“风险已经全部消化”。
+  evidence_quote: 两份报告及假期内油价、美债收益率变化，都可能在10月8日集中进入A股定价。节前回撤可以包含部分预期折价，节后能否走出“利空落地”仍取决于实际数据、海外价格反应和开市承接。 应在9月30日收盘前完成假期持仓安排，为9月30日晚PCE、10月2日非农及假期资产价格波动保留余地。节后判断留待10月8日开盘与盘中承接验证，不把“提前兑现”当成“风险已经全部消化”。
   interpretation: 长假风险管理框架：假期信息在节后首个交易日集中定价，'提前兑现'只消化部分预期，节后承接才是最终裁判；操作上持仓安排必须在数据公布前的9月30日收盘前完成。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-010", "claim-20260901-014-a"]
+  supplements:
+  - claim-20260805-010
+  - claim-20260901-014-a
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -487,6 +533,7 @@ claims:
   - 非农数据
   - 利空落地
   - 持仓安排
+  school: qing
 - id: claim-20260927-001-p
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -505,7 +552,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260909-017-a", "claim-20260921-003-j"]
+  supplements:
+  - claim-20260909-017-a
+  - claim-20260921-003-j
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -519,6 +568,7 @@ claims:
   - 次日承接
   - 新主线
   - 低位方向
+  school: qing
 - id: claim-20260927-001-q
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -537,7 +587,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260824-003-f", "claim-20260529-004-b"]
+  supplements:
+  - claim-20260824-003-f
+  - claim-20260529-004-b
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -551,6 +603,7 @@ claims:
   - 政策题材
   - 高开兑现
   - 指数偏弱
+  school: qing
 - id: claim-20260927-001-r
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -569,7 +622,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260908-003-l"]
+  supplements:
+  - claim-20260908-003-l
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -583,6 +637,7 @@ claims:
   - 版权确权
   - 授权运营
   - 选股判据
+  school: qing
 - id: claim-20260927-001-s
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -616,6 +671,7 @@ claims:
   - 缩容轮动
   - 核心强度
   - 板块宽度
+  school: qing
 - id: claim-20260927-001-t
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -634,7 +690,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-033", "claim-20260914-001-014"]
+  supplements:
+  - claim-20260913-001-033
+  - claim-20260914-001-014
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -654,6 +712,7 @@ claims:
   - 高开回落
   - 量价承接
   - 产业链联动
+  school: qing
 - id: claim-20260927-001-u
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -672,7 +731,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-009-s", "claim-20260923-002-r", "claim-20260819-066"]
+  supplements:
+  - claim-20260617-009-s
+  - claim-20260923-002-r
+  - claim-20260819-066
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -693,6 +755,7 @@ claims:
   - 先进封装
   - 消息定性
   - 研发导入
+  school: qing
 - id: claim-20260927-001-v
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -711,7 +774,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260923-002-r"]
+  supplements:
+  - claim-20260923-002-r
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -725,6 +789,7 @@ claims:
   - 临时载板
   - 玻璃芯基板
   - 技术知识
+  school: qing
 - id: claim-20260927-001-w
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -760,6 +825,7 @@ claims:
   - 兑现阶段
   - 小批量出货
   - 订单转化
+  school: qing
 - id: claim-20260927-001-x
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -778,7 +844,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260629-004-q", "claim-20260729-007", "claim-20260826-015-a"]
+  supplements:
+  - claim-20260629-004-q
+  - claim-20260729-007
+  - claim-20260826-015-a
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -795,6 +864,7 @@ claims:
   - 上游传导
   - 精密零部件
   - 检测
+  school: qing
 - id: claim-20260927-001-y
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -813,7 +883,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-ab", "claim-20260921-001-aa"]
+  supplements:
+  - claim-20260921-002-ab
+  - claim-20260921-001-aa
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -827,6 +899,7 @@ claims:
   - 交期验证
   - 设备导入
   - 研究纪律
+  school: qing
 - id: claim-20260927-001-z
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -845,7 +918,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-006-017"]
+  supplements:
+  - claim-20260819-006-017
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -859,6 +933,7 @@ claims:
   - 零部件验证
   - 整机交付
   - 订单跟踪
+  school: qing
 - id: claim-20260927-001-aa
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -877,7 +952,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260910-006-a"]
+  supplements:
+  - claim-20260910-006-a
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -891,6 +967,7 @@ claims:
   - 媒体消息
   - 待证实
   - 风险纪律
+  school: qing
 - id: claim-20260927-001-ab
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -909,7 +986,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-033", "claim-20260922-001-d"]
+  supplements:
+  - claim-20260913-001-033
+  - claim-20260922-001-d
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -918,7 +997,7 @@ claims:
   topic: 补涨需资金扩散与相对表现验证，估值看利润质量
   stance: view
   related_stocks:
-  - code: '002119'
+  - code: 002119
     name: 康强电子
     role: 引线框架收入兑现利润待验证-主板可交易
   tags:
@@ -927,6 +1006,7 @@ claims:
   - 相对表现
   - 利润质量
   - 康强电子
+  school: qing
 - id: claim-20260927-001-ac
   source_path: sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   source_date: '2026-09-27'
@@ -938,15 +1018,16 @@ claims:
   subject: 节前题材交易执行纪律
   timeframe: short-term
   statement: 执行上玻璃基板不以高开幅度作为追价理由，福建不把尾盘高潮直接外推到次日，PCB不因二三线活跃就忽略核心的弱势；已有产业依据的公司继续核对验证、订单、收入与利润的进度，依赖消息和补涨逻辑的交易采用更严格的退出条件；与其争抢每个轮动，不如等待有产业依据的核心公司重新得到资金确认，观点服从盘面反馈。
-  evidence_quote: 玻璃基板不以高开幅度作为追价理由，福建不把尾盘高潮直接外推到次日，PCB不因二三线活跃就忽略核心的弱势。已有产业依据的公司，继续核对验证、订单、收入与利润的进度；依赖消息和补涨逻辑的交易，采用更严格的退出条件。
-    与其争抢每个轮动，不如等待有产业依据的核心公司重新得到资金确认。
+  evidence_quote: 玻璃基板不以高开幅度作为追价理由，福建不把尾盘高潮直接外推到次日，PCB不因二三线活跃就忽略核心的弱势。已有产业依据的公司，继续核对验证、订单、收入与利润的进度；依赖消息和补涨逻辑的交易，采用更严格的退出条件。 与其争抢每个轮动，不如等待有产业依据的核心公司重新得到资金确认。
   interpretation: 节前总执行纪律：对三类题材分别设置反直觉约束（不追高、不外推、不忽略核心），按产业依据分级管理交易（有依据的核对进度、纯消息的严格退出），总原则是放弃轮动的争抢，等待有产业依据的核心公司重新获得资金确认，观点服从盘面反馈。
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260622-004-d"]
+  supersedes:
+  - claim-20260622-004-d
   contradicts: []
-  supplements: ["claim-20260913-001-033"]
+  supplements:
+  - claim-20260913-001-033
   last_discovered: 2026-09-27
   links:
     wiki_pages: []
@@ -967,3 +1048,4 @@ claims:
   - 轮动
   - 产业依据
   - 资金确认
+  school: qing

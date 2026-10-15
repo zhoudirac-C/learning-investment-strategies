@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260909-001-a
   source_path: sources/original/bilibili/2026-09-09-1027-图片-美股科技涨的好是因为Astra真牛逼啊，scaling la.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 动态
   extracted_at: '2026-09-09T12:14:00+08:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260827-063-x"]
-  contradicts: ["claim-20260805-001"]
-  supplements: ["claim-20260901-007-a"]
+  supersedes:
+  - claim-20260827-063-x
+  contradicts:
+  - claim-20260805-001
+  supplements:
+  - claim-20260901-007-a
   last_discovered: 2026-09-09
   links:
     wiki_pages: []
@@ -31,10 +34,11 @@ claims:
   - Astra
   - 美债
   - 油价
+  school: qing
 - id: claim-20260909-002-a
   source_path: sources/original/bilibili/2026-09-09-1027-图片-美股科技涨的好是因为Astra真牛逼啊，scaling la.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 动态
   extracted_at: '2026-09-09T12:14:00+08:00'
@@ -47,9 +51,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260715-025-a", "claim-20260622-001-h"]
+  supersedes:
+  - claim-20260715-025-a
+  - claim-20260622-001-h
   contradicts: []
-  supplements: ["claim-20260527-004-f"]
+  supplements:
+  - claim-20260527-004-f
   last_discovered: 2026-09-09
   links:
     wiki_pages: []
@@ -63,10 +70,11 @@ claims:
   - 降低预期
   - 见好就收
   - 节奏
+  school: qing
 - id: claim-20260909-003-a
   source_path: sources/original/bilibili/2026-09-09-1027-图片-美股科技涨的好是因为Astra真牛逼啊，scaling la.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 动态
   extracted_at: '2026-09-09T12:14:00+08:00'
@@ -80,8 +88,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260731-013"]
-  supplements: ["claim-20260908-004-a"]
+  contradicts:
+  - claim-20260731-013
+  supplements:
+  - claim-20260908-004-a
   last_discovered: 2026-09-09
   links:
     wiki_pages: []
@@ -95,10 +105,11 @@ claims:
   - 光模块
   - 不追高
   - 算力
+  school: qing
 - id: claim-20260909-004-a
   source_path: sources/original/bilibili/2026-09-09-1027-图片-美股科技涨的好是因为Astra真牛逼啊，scaling la.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 动态
   extracted_at: '2026-09-09T12:14:00+08:00'
@@ -111,7 +122,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260813-027", "claim-20260706-002-a", "claim-20260630-001-a"]
+  supersedes:
+  - claim-20260813-027
+  - claim-20260706-002-a
+  - claim-20260630-001-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-09
@@ -126,10 +140,11 @@ claims:
   - 基本面
   - 成交量
   - 指数
+  school: qing
 - id: claim-20260909-005-a
   source_path: sources/original/bilibili/2026-09-09-1107-图片-把最近的行情做个比较，其实特别像去年12月份，你们看下普冉股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 动态
   extracted_at: '2026-09-09T12:16:00+08:00'
@@ -142,9 +157,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260623-001-a"]
+  supersedes:
+  - claim-20260623-001-a
   contradicts: []
-  supplements: ["claim-20260608-001-e", "claim-20260420-001"]
+  supplements:
+  - claim-20260608-001-e
+  - claim-20260420-001
   last_discovered: 2026-09-09
   links:
     wiki_pages: []
@@ -161,10 +179,11 @@ claims:
   - 普冉股份
   - 散户
   - 行情类比
+  school: qing
 - id: claim-20260909-006-a
   source_path: sources/original/bilibili/2026-09-09-1107-图片-把最近的行情做个比较，其实特别像去年12月份，你们看下普冉股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 动态
   extracted_at: '2026-09-09T12:16:00+08:00'
@@ -177,8 +196,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260819-057"]
-  contradicts: ["claim-20260907-041-d"]
+  supersedes:
+  - claim-20260819-057
+  contradicts:
+  - claim-20260907-041-d
   supplements: []
   last_discovered: 2026-09-09
   links:
@@ -193,10 +214,11 @@ claims:
   - 题材证伪
   - 游资
   - 监管
+  school: qing
 - id: claim-20260909-007-a
   source_path: sources/original/bilibili/2026-09-09-1107-图片-把最近的行情做个比较，其实特别像去年12月份，你们看下普冉股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 动态
   extracted_at: '2026-09-09T12:16:00+08:00'
@@ -211,7 +233,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260903-012-a"]
+  supplements:
+  - claim-20260903-012-a
   last_discovered: 2026-09-09
   links:
     wiki_pages: []
@@ -228,10 +251,11 @@ claims:
   - 主升浪
   - 选股
   - 充电
+  school: qing
 - id: claim-20260909-008-a
   source_path: sources/original/bilibili/2026-09-09-1107-图片-把最近的行情做个比较，其实特别像去年12月份，你们看下普冉股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 动态
   extracted_at: '2026-09-09T12:16:00+08:00'
@@ -245,8 +269,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20070621-001-c"]
-  supplements: ["claim-20260902-007-a"]
+  contradicts:
+  - claim-20070621-001-c
+  supplements:
+  - claim-20260902-007-a
   last_discovered: 2026-09-09
   links:
     wiki_pages: []
@@ -260,10 +286,11 @@ claims:
   - 芝麻西瓜
   - 震荡期
   - 降低预期
+  school: qing
 - id: claim-20260909-009-a
   source_path: sources/original/bilibili/2026-09-09-0835-图片-今天的盘前预案，仍以持股观察为主。指数暂按上升趋势中的整理看.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 动态
   extracted_at: '2026-09-09T20:35:00+08:00'
@@ -276,7 +303,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260609-001-c"]
+  supersedes:
+  - claim-20260609-001-c
   contradicts: []
   supplements: []
   last_discovered: 2026-09-09
@@ -292,10 +320,11 @@ claims:
   - 3906防守位
   - 减仓触发
   - 做T条件
+  school: qing
 - id: claim-20260909-010-a
   source_path: sources/original/bilibili/2026-09-09-0835-图片-今天的盘前预案，仍以持股观察为主。指数暂按上升趋势中的整理看.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 动态
   extracted_at: '2026-09-09T20:35:00+08:00'
@@ -308,7 +337,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260903-013-a", "claim-20260607-001-d", "claim-20260731-011"]
+  supersedes:
+  - claim-20260903-013-a
+  - claim-20260607-001-d
+  - claim-20260731-011
   contradicts: []
   supplements: []
   last_discovered: 2026-09-09
@@ -324,10 +356,11 @@ claims:
   - 磨底
   - 外盘影响
   - 顶部未确认
+  school: qing
 - id: claim-20260909-011-a
   source_path: sources/original/bilibili/2026-09-09-0835-图片-今天的盘前预案，仍以持股观察为主。指数暂按上升趋势中的整理看.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 动态
   extracted_at: '2026-09-09T20:35:00+08:00'
@@ -340,9 +373,11 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260830-033-a"]
+  supersedes:
+  - claim-20260830-033-a
   contradicts: []
-  supplements: ["claim-20260702-005-c"]
+  supplements:
+  - claim-20260702-005-c
   last_discovered: 2026-09-09
   links:
     wiki_pages: []
@@ -355,10 +390,11 @@ claims:
   - 缩量整理
   - 放量下跌
   - 承接确认
+  school: qing
 - id: claim-20260909-012-a
   source_path: sources/original/bilibili/2026-09-09-0835-图片-今天的盘前预案，仍以持股观察为主。指数暂按上升趋势中的整理看.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 动态
   extracted_at: '2026-09-09T20:35:00+08:00'
@@ -373,7 +409,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260901-014-a", "claim-20260908-003-y"]
+  supplements:
+  - claim-20260901-014-a
+  - claim-20260908-003-y
   last_discovered: 2026-09-09
   links:
     wiki_pages: []
@@ -386,10 +424,11 @@ claims:
   - 事件窗口
   - 提前定价
   - 量价纪律
+  school: qing
 - id: claim-20260909-013-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -402,7 +441,10 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260908-003-a", "claim-20260721-015", "claim-20260610-006-b"]
+  supersedes:
+  - claim-20260908-003-a
+  - claim-20260721-015
+  - claim-20260610-006-b
   contradicts: []
   supplements: []
   last_discovered: 2026-09-10
@@ -418,10 +460,11 @@ claims:
   - 存量轮动
   - 短线分歧
   - 过渡期
+  school: qing
 - id: claim-20260909-014-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -434,7 +477,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260824-002-q", "claim-20260908-003-z", "claim-20260814-036"]
+  supersedes:
+  - claim-20260824-002-q
+  - claim-20260908-003-z
+  - claim-20260814-036
   contradicts: []
   supplements: []
   last_discovered: 2026-09-10
@@ -449,10 +495,11 @@ claims:
   - 承接
   - 赚钱效应
   - 右侧确认
+  school: qing
 - id: claim-20260909-015-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -465,9 +512,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260810-007", "claim-20260812-024"]
+  supersedes:
+  - claim-20260810-007
+  - claim-20260812-024
   contradicts: []
-  supplements: ["claim-20260617-002-m"]
+  supplements:
+  - claim-20260617-002-m
   last_discovered: 2026-09-10
   links:
     wiki_pages: []
@@ -483,10 +533,11 @@ claims:
   - 高位情绪
   - 归因纪律
   - 亏钱效应
+  school: qing
 - id: claim-20260909-016-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -499,7 +550,10 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260907-010-a", "claim-20260825-036-a", "claim-20260827-060-x"]
+  supersedes:
+  - claim-20260907-010-a
+  - claim-20260825-036-a
+  - claim-20260827-060-x
   contradicts: []
   supplements: []
   last_discovered: 2026-09-10
@@ -515,10 +569,11 @@ claims:
   - 光通信
   - 存储
   - 半导体
+  school: qing
 - id: claim-20260909-017-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -531,9 +586,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260809-010"]
+  supersedes:
+  - claim-20260809-010
   contradicts: []
-  supplements: ["claim-20260706-025", "claim-20260908-003-z"]
+  supplements:
+  - claim-20260706-025
+  - claim-20260908-003-z
   last_discovered: 2026-09-10
   links:
     wiki_pages: []
@@ -546,10 +604,11 @@ claims:
   - 趋势确认
   - 板块扩散
   - 量能
+  school: qing
 - id: claim-20260909-018-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -562,7 +621,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260818-058"]
+  supersedes:
+  - claim-20260818-058
   contradicts: []
   supplements: []
   last_discovered: 2026-09-10
@@ -581,10 +641,11 @@ claims:
   - 金健米业
   - 补涨扩散
   - 承接
+  school: qing
 - id: claim-20260909-019-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -599,7 +660,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-057", "claim-20260909-006-a", "claim-20260908-003-h"]
+  supplements:
+  - claim-20260819-057
+  - claim-20260909-006-a
+  - claim-20260908-003-h
   last_discovered: 2026-09-10
   links:
     wiki_pages: []
@@ -612,10 +676,11 @@ claims:
   - 情绪传导
   - 农业旁证
   - 风险偏好
+  school: qing
 - id: claim-20260909-020-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -628,7 +693,8 @@ claims:
   confidence: high
   status: active
   intensity: low
-  supersedes: ["claim-20260807-017"]
+  supersedes:
+  - claim-20260807-017
   contradicts: []
   supplements: []
   last_discovered: 2026-09-10
@@ -668,10 +734,11 @@ claims:
   - 航运
   - 军工
   - 黄金
+  school: qing
 - id: claim-20260909-021-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -684,7 +751,9 @@ claims:
   confidence: high
   status: active
   intensity: low
-  supersedes: ["claim-20260817-039", "claim-20260901-020-a"]
+  supersedes:
+  - claim-20260817-039
+  - claim-20260901-020-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-10
@@ -709,7 +778,7 @@ claims:
   - code: '600657'
     name: 信达地产
     role: 地产调整-主板可交易
-  - code: '002285'
+  - code: 002285
     name: 世联行
     role: 地产调整-主板可交易
   tags:
@@ -718,10 +787,11 @@ claims:
   - 传媒
   - 地产
   - 热点接力
+  school: qing
 - id: claim-20260909-022-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -736,7 +806,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260907-014-a"]
+  supplements:
+  - claim-20260907-014-a
   last_discovered: 2026-09-10
   links:
     wiki_pages: []
@@ -744,18 +815,19 @@ claims:
     cases: []
   topic: 9月10日金融发布会，数字货币仅是事件观察方向
   related_stocks:
-  - code: "920670"
-    name: "数字人"
-    role: "回填-正文提及"
+  - code: '920670'
+    name: 数字人
+    role: 回填-正文提及
   tags:
   - 金融发布会
   - 数字货币
   - 事件驱动
   - 十五五
+  school: qing
 - id: claim-20260909-023-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -787,10 +859,11 @@ claims:
   - 业务纯度
   - 套保
   - 开板应对
+  school: qing
 - id: claim-20260909-024-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -822,10 +895,11 @@ claims:
   - 叙事证伪
   - 新股
   - 估值
+  school: qing
 - id: claim-20260909-025-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -857,10 +931,11 @@ claims:
   - mSAP
   - 1.6T光模块
   - 客户认证
+  school: qing
 - id: claim-20260909-026-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -875,7 +950,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-g"]
+  supplements:
+  - claim-20260622-003-g
   last_discovered: 2026-09-10
   links:
     wiki_pages: []
@@ -892,10 +968,11 @@ claims:
   - TFLN
   - 电子材料
   - 环节拆分
+  school: qing
 - id: claim-20260909-027-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -927,10 +1004,11 @@ claims:
   - 重整
   - 资产注入
   - 成本剪刀差
+  school: qing
 - id: claim-20260909-028-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -962,10 +1040,11 @@ claims:
   - 兑现路径
   - 锑钨
   - 趋势验证
+  school: qing
 - id: claim-20260909-029-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -978,9 +1057,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260817-047", "claim-20260818-043"]
+  supersedes:
+  - claim-20260817-047
+  - claim-20260818-043
   contradicts: []
-  supplements: ["claim-20260901-064-a"]
+  supplements:
+  - claim-20260901-064-a
   last_discovered: 2026-09-10
   links:
     wiki_pages: []
@@ -988,7 +1070,7 @@ claims:
     cases: []
   topic: 机构净买入崇达技术湖南黄金，农业敦煌种业现卖压
   related_stocks:
-  - code: '002815'
+  - code: 002815
     name: 崇达技术
     role: 机构净买入2.16亿PCB-主板可交易
   - code: '002155'
@@ -1012,10 +1094,11 @@ claims:
   - 净卖出
   - 资金分歧
   - PCB资源
+  school: qing
 - id: claim-20260909-030-a
   source_path: sources/original/bilibili/2026-09-09-2203-专栏-今天市场延续宽幅震荡，沪指相对强势，双创承压后在1330以后.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-09'
   source_type: 复盘
   extracted_at: '2026-09-09T22:35:00+08:00'
@@ -1028,7 +1111,10 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260903-013-a", "claim-20260908-003-x", "claim-20260825-054-a"]
+  supersedes:
+  - claim-20260903-013-a
+  - claim-20260908-003-x
+  - claim-20260825-054-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-10
@@ -1044,3 +1130,4 @@ claims:
   - 量能
   - 双创
   - 右侧确认
+  school: qing

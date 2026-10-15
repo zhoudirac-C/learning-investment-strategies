@@ -2,8 +2,8 @@ claims:
 - id: claim-20260603-001-a
   topic: 日线顶部结构后第15个交易日
   source_path: sources/raw/财经/早盘：26-06-03：调整第15天，上升途中调整临近尾声.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-03
   source_type: 早盘
   extracted_at: 2026-06-03
@@ -12,8 +12,7 @@ claims:
   timeframe: short-term
   statement: 日线顶部结构后第15个交易日，上证呈15度角浅调整，更像上升途中歇脚而非趋势反转。AI多数方向回撤约20%，处于历史调整区间15%-30%的下沿附近，调整大概率临近尾声
   evidence_quote: 从形态看，上证目前是15度角的浅调整，更像上升途中的歇脚，而非趋势反转。本轮AI多数方向回撤幅度在-20%左右，而历史上趋势股在上升途中的调整通常落在15%–30%区间，20%已经走到了下沿附近，意味着这波调整大概率临近尾声。
-  interpretation: 周期定位更新：①顶部结构后第15天，调整时间已足够长；②15度角浅调整——形态上不是急跌，是缓跌，这是趋势中继而非反转的典型特征；③回撤幅度20%处于历史区间下沿——意味着继续下跌空间有限；④两个止跌信号叠加：120分钟低9（周一）+
-    30分钟底部结构（周二）——技术面支持短期企稳；⑤核心结论：调整临近尾声，短期企稳概率较大。这是对当前市场周期的关键判断，与昨日复盘claim-20260602-003-a"共振修复"形成连续判断。
+  interpretation: 周期定位更新：①顶部结构后第15天，调整时间已足够长；②15度角浅调整——形态上不是急跌，是缓跌，这是趋势中继而非反转的典型特征；③回撤幅度20%处于历史区间下沿——意味着继续下跌空间有限；④两个止跌信号叠加：120分钟低9（周一）+ 30分钟底部结构（周二）——技术面支持短期企稳；⑤核心结论：调整临近尾声，短期企稳概率较大。这是对当前市场周期的关键判断，与昨日复盘claim-20260602-003-a"共振修复"形成连续判断。
   confidence: high
   status: superseded
   supersedes:
@@ -35,11 +34,12 @@ claims:
   - 上证
   - 反转
   - AI
+  school: qing
 - id: claim-20260603-001-b
   topic: 严格按交易标准执行
   source_path: sources/raw/财经/早盘：26-06-03：调整第15天，上升途中调整临近尾声.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-03
   source_type: 早盘
   extracted_at: 2026-06-03
@@ -48,8 +48,7 @@ claims:
   timeframe: short-term
   statement: 严格按交易标准执行：收盘价跌穿4033点清仓，向上突破4130点满仓。这两个点位是纪律线，不带感情执行
   evidence_quote: 严格按交易标准执行：收盘价跌穿4033点清仓，向上突破4130点满仓，这两个点位是纪律线，不带感情。
-  interpretation: 操作纪律：①4033点是清仓线——收盘跌破即执行，不是盘中跌破；②4130点是满仓线——向上突破即满仓；③纪律线不带感情——这是博主反复强调的交易纪律；④与昨日（6月2日）4032点相比，清仓线上移至4033点，满仓线维持4130点不变；⑤心理承受力偏弱的人，死守这一条标准即可。这是明确的操作规则，属于durable
-    rule级别。
+  interpretation: 操作纪律：①4033点是清仓线——收盘跌破即执行，不是盘中跌破；②4130点是满仓线——向上突破即满仓；③纪律线不带感情——这是博主反复强调的交易纪律；④与昨日（6月2日）4032点相比，清仓线上移至4033点，满仓线维持4130点不变；⑤心理承受力偏弱的人，死守这一条标准即可。这是明确的操作规则，属于durable rule级别。
   confidence: high
   status: active
   supersedes:
@@ -66,11 +65,12 @@ claims:
   tags:
   - 指数纪律线：
   - 操作策略
+  school: qing
 - id: claim-20260603-001-c
   topic: 除燃气轮机外
   source_path: sources/raw/财经/早盘：26-06-03：调整第15天，上升途中调整临近尾声.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-03
   source_type: 早盘
   extracted_at: 2026-06-03
@@ -98,11 +98,12 @@ claims:
   - 存储芯片
   - 半导体
   - AI
+  school: qing
 - id: claim-20260603-001-d
   topic: 周二更倾向于定性为技术性反弹
   source_path: sources/raw/财经/早盘：26-06-03：调整第15天，上升途中调整临近尾声.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-03
   source_type: 早盘
   extracted_at: 2026-06-03
@@ -116,7 +117,10 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260615-001", "claim-20260607-004-c", "claim-20260622-001-h"]
+  supplements:
+  - claim-20260615-001
+  - claim-20260607-004-c
+  - claim-20260622-001-h
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -128,11 +132,12 @@ claims:
   - 创业板指
   - 市场周期
   - 反弹
+  school: qing
 - id: claim-20260603-001-e
   topic: MLCC因高盛研报价值重估
   source_path: sources/raw/财经/早盘：26-06-03：调整第15天，上升途中调整临近尾声.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-03
   source_type: 早盘
   extracted_at: 2026-06-03
@@ -146,7 +151,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260615-015", "claim-20260622-003-g"]
+  supplements:
+  - claim-20260615-015
+  - claim-20260622-003-g
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -162,11 +169,12 @@ claims:
   - code: '688515'
     name: 裕太微
     role: 参考标的
+  school: qing
 - id: claim-20260603-001-f
   topic: 今日盘前预案以做T为主
   source_path: sources/raw/财经/早盘：26-06-03：调整第15天，上升途中调整临近尾声.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-03
   source_type: 早盘
   extracted_at: 2026-06-03
@@ -193,3 +201,4 @@ claims:
   - 操作策略
   - 存储芯片
   - CPO
+  school: qing

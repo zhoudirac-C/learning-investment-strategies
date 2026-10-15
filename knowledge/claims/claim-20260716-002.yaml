@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260716-002-a
   source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T23:05:00+08:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260601-004-a", "claim-20260529-002-a"]
+  supersedes:
+  - claim-20260601-004-a
+  - claim-20260529-002-a
   contradicts: []
-  supplements: ["claim-20260713-009-i"]
+  supplements:
+  - claim-20260713-009-i
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -31,11 +34,11 @@ claims:
   - 情绪回调
   - WAIC
   - 博弈窗口
-
+  school: qing
 - id: claim-20260716-002-b
   source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T23:05:00+08:00'
@@ -50,7 +53,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-005-c"]
+  supplements:
+  - claim-20260702-005-c
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -63,11 +67,11 @@ claims:
   - 条件化框架
   - 博弈
   - 方法论
-
+  school: qing
 - id: claim-20260716-002-c
   source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T23:05:00+08:00'
@@ -80,9 +84,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260609-005-d"]
+  supersedes:
+  - claim-20260609-005-d
   contradicts: []
-  supplements: ["claim-20260702-005-e", "claim-20260702-001-d"]
+  supplements:
+  - claim-20260702-005-e
+  - claim-20260702-001-d
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -90,20 +97,20 @@ claims:
     cases: []
   topic: 国产算力业绩驱动非纯题材轮动
   related_stocks:
-  - code: "688702"
-    name: "盛科通信"
-    role: "原有"
+  - code: '688702'
+    name: 盛科通信
+    role: 原有
   tags:
   - 国产算力
   - 盛科通信
   - 业绩驱动
   - WAIC
   - 交换机
-
+  school: qing
 - id: claim-20260716-002-d
   source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T23:05:00+08:00'
@@ -116,9 +123,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260602-001-d"]
+  supersedes:
+  - claim-20260602-001-d
   contradicts: []
-  supplements: ["claim-20260716-001-g"]
+  supplements:
+  - claim-20260716-001-g
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -126,18 +135,18 @@ claims:
     cases: []
   topic: 端侧AI备案落地 资金共识在低位而非方向
   related_stocks:
-  - code: "603893"
-    name: "瑞芯微"
-    role: "原有"
-  - code: "688220"
-    name: "翱捷科技"
-    role: "原有"
-  - code: "002881"
-    name: "美格智能"
-    role: "原有"
-  - code: "002045"
-    name: "国光电器"
-    role: "原有"
+  - code: '603893'
+    name: 瑞芯微
+    role: 原有
+  - code: '688220'
+    name: 翱捷科技
+    role: 原有
+  - code: 002881
+    name: 美格智能
+    role: 原有
+  - code: '002045'
+    name: 国光电器
+    role: 原有
   tags:
   - 端侧AI
   - 苹果
@@ -145,11 +154,11 @@ claims:
   - 备案落地
   - 位置决定意义
   - 低位逻辑
-
+  school: qing
 - id: claim-20260716-002-e
   source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T23:05:00+08:00'
@@ -162,9 +171,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260610-016-a"]
+  supersedes:
+  - claim-20260610-016-a
   contradicts: []
-  supplements: ["claim-20260624-006-c", "claim-20260629-001-ad"]
+  supplements:
+  - claim-20260624-006-c
+  - claim-20260629-001-ad
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -177,11 +189,11 @@ claims:
   - 位置决定意义
   - 方法论
   - 选股审美
-
+  school: qing
 - id: claim-20260716-002-f
   source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T23:05:00+08:00'
@@ -194,8 +206,10 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260715-020-a"]
-  contradicts: ["claim-20260630-001-p"]
+  supersedes:
+  - claim-20260715-020-a
+  contradicts:
+  - claim-20260630-001-p
   supplements: []
   last_discovered: 2026-07-16
   links:
@@ -210,11 +224,11 @@ claims:
   - 分歧
   - 筹码压力
   - 短期热度
-
+  school: qing
 - id: claim-20260716-002-g
   source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T23:05:00+08:00'
@@ -229,7 +243,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260602-003-c"]
+  supplements:
+  - claim-20260602-003-c
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -237,9 +252,9 @@ claims:
     cases: []
   topic: 国光电器——端侧AI声学龙头拐点
   related_stocks:
-  - code: "002045"
-    name: "国光电器"
-    role: "原有"
+  - code: '002045'
+    name: 国光电器
+    role: 原有
   tags:
   - 国光电器
   - 端侧AI
@@ -247,11 +262,11 @@ claims:
   - Meta VR
   - AI眼镜
   - 跟踪型标的
-
+  school: qing
 - id: claim-20260716-002-h
   source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T23:05:00+08:00'
@@ -264,9 +279,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260709-004-l"]
+  supersedes:
+  - claim-20260709-004-l
   contradicts: []
-  supplements: ["claim-20260625-003-g", "claim-20260622-003-f"]
+  supplements:
+  - claim-20260625-003-g
+  - claim-20260622-003-f
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -274,12 +292,12 @@ claims:
     cases: []
   topic: 领先股份——引线框架龙头受益封装涨价周期
   related_stocks:
-  - code: "603991"
-    name: "领先股份"
-    role: "原有"
-  - code: ""
-    name: "日月光"
-    role: "原有"
+  - code: '603991'
+    name: 领先股份
+    role: 原有
+  - code: ''
+    name: 日月光
+    role: 原有
   tags:
   - 领先股份
   - 引线框架
@@ -287,11 +305,11 @@ claims:
   - 涨价周期
   - AAMI
   - 业绩估值双修复
-
+  school: qing
 - id: claim-20260716-002-i
   source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T23:05:00+08:00'
@@ -314,9 +332,9 @@ claims:
     cases: []
   topic: 香江控股跨界IDC从0到1突破
   related_stocks:
-  - code: "600162"
-    name: "香江控股"
-    role: "原有"
+  - code: '600162'
+    name: 香江控股
+    role: 原有
   tags:
   - 香江控股
   - IDC
@@ -324,11 +342,11 @@ claims:
   - 中国移动
   - 弱转强
   - 时点意义
-
+  school: qing
 - id: claim-20260716-002-j
   source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T23:05:00+08:00'
@@ -343,14 +361,29 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260629-001-ab"]
+  supplements:
+  - claim-20260629-001-ab
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 四条研报线索共性——供需缺口+国产替代+成本红利
-  related_stocks: ["奥比中光", "华依科技", "芯动联科", "海天瑞声", "天奇股份", "亿嘉和", "泰和新材", "中化国际", "民士达", "中策橡胶", "赛轮轮胎", "森麒麟", "妙可蓝多", "伊利股份"]
+  related_stocks:
+  - 奥比中光
+  - 华依科技
+  - 芯动联科
+  - 海天瑞声
+  - 天奇股份
+  - 亿嘉和
+  - 泰和新材
+  - 中化国际
+  - 民士达
+  - 中策橡胶
+  - 赛轮轮胎
+  - 森麒麟
+  - 妙可蓝多
+  - 伊利股份
   tags:
   - 研报
   - 供需缺口
@@ -361,11 +394,11 @@ claims:
   - 轮胎
   - 奶酪
   - 中期跟踪
-
+  school: qing
 - id: claim-20260716-002-k
   source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T23:05:00+08:00'
@@ -380,7 +413,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-006-a"]
+  supplements:
+  - claim-20260611-006-a
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -394,11 +428,11 @@ claims:
   - 业绩驱动
   - 情绪驱动
   - 方法论
-
+  school: qing
 - id: claim-20260716-002-l
   source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T23:05:00+08:00'
@@ -413,7 +447,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-004-f"]
+  supplements:
+  - claim-20260608-004-f
   last_discovered: 2026-07-16
   links:
     wiki_pages: []
@@ -421,15 +456,15 @@ claims:
     cases: []
   topic: 芳纶AI光纤——算力硬件上游延伸分支
   related_stocks:
-  - code: "002254"
-    name: "泰和新材"
-    role: "原有"
-  - code: "600500"
-    name: "中化国际"
-    role: "原有"
-  - code: "920394"
-    name: "民士达"
-    role: "原有"
+  - code: '002254'
+    name: 泰和新材
+    role: 原有
+  - code: '600500'
+    name: 中化国际
+    role: 原有
+  - code: '920394'
+    name: 民士达
+    role: 原有
   tags:
   - 芳纶
   - 光纤
@@ -437,11 +472,11 @@ claims:
   - AI
   - 供需缺口
   - 天风证券
-
+  school: qing
 - id: claim-20260716-002-m
   source_path: sources/original/bilibili/2026-07-16-2234-图片-今日指数低开高走后再度回落，短线情绪午后同步走弱：昨日2连板.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-16'
   source_type: 动态
   extracted_at: '2026-07-16T23:05:00+08:00'
@@ -464,15 +499,15 @@ claims:
     cases: []
   topic: 轮胎——反倾销加速出海逻辑
   related_stocks:
-  - code: "603049"
-    name: "中策橡胶"
-    role: "原有"
-  - code: "601058"
-    name: "赛轮轮胎"
-    role: "原有"
-  - code: "002984"
-    name: "森麒麟"
-    role: "原有"
+  - code: '603049'
+    name: 中策橡胶
+    role: 原有
+  - code: '601058'
+    name: 赛轮轮胎
+    role: 原有
+  - code: 002984
+    name: 森麒麟
+    role: 原有
   tags:
   - 轮胎
   - 反倾销
@@ -480,3 +515,4 @@ claims:
   - 订单转移
   - 低估值
   - 中泰证券
+  school: qing

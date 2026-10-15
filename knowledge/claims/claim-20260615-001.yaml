@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260615-001
   source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T10:56:33+08:00'
@@ -15,8 +15,10 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260507-001-a"]
-  contradicts: ["claim-20260603-001-d"]
+  supersedes:
+  - claim-20260507-001-a
+  contradicts:
+  - claim-20260603-001-d
   last_discovered: 2026-06-15
   links: []
   topic: 大盘研判
@@ -25,10 +27,11 @@ claims:
   - 磨底末段
   - 4088点
   - 个股行情
+  school: qing
 - id: claim-20260615-002
   source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T10:56:33+08:00'
@@ -43,7 +46,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-a"]
+  supplements:
+  - claim-20260621-001-a
   last_discovered: 2026-06-25
   links: []
   topic: 大盘研判
@@ -52,10 +56,11 @@ claims:
   - 风格切换
   - 创业板追赶
   - 科技节奏
+  school: qing
 - id: claim-20260615-003
   source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T10:56:33+08:00'
@@ -69,7 +74,8 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260604-004-b"]
+  contradicts:
+  - claim-20260604-004-b
   last_discovered: 2026-06-15
   links: []
   topic: 科技股
@@ -78,10 +84,11 @@ claims:
   - 六氟化钨
   - 切换观察
   - 三层框架
+  school: qing
 - id: claim-20260615-004
   source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T10:56:33+08:00'
@@ -117,10 +124,11 @@ claims:
   - 中报业绩
   - 涨价
   - 国产替代
+  school: qing
 - id: claim-20260615-005
   source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T10:56:33+08:00'
@@ -135,7 +143,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-c"]
+  supplements:
+  - claim-20260609-005-c
   last_discovered: 2026-06-25
   links: []
   topic: 铜箔
@@ -149,7 +158,7 @@ claims:
   - code: '600110'
     name: 诺德股份
     role: 铜箔-主板可交易
-  - code: '002288'
+  - code: 002288
     name: 超华科技
     role: 铜箔-主板可交易
   - code: '301176'
@@ -161,10 +170,11 @@ claims:
   - 供给溢价
   - HVLP
   - 量价齐升
+  school: qing
 - id: claim-20260615-006
   source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T10:56:33+08:00'
@@ -198,10 +208,11 @@ claims:
   - AI服务器
   - 国产替代
   - 电源链
+  school: qing
 - id: claim-20260615-007
   source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T10:56:33+08:00'
@@ -216,7 +227,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-i"]
+  supplements:
+  - claim-20260622-003-i
   last_discovered: 2026-06-25
   links: []
   topic: 有色金属
@@ -235,10 +247,11 @@ claims:
   - 地缘缓和
   - AI基建
   - 铜铝
+  school: qing
 - id: claim-20260615-008
   source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T10:56:33+08:00'
@@ -252,7 +265,8 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260607-003-f"]
+  contradicts:
+  - claim-20260607-003-f
   last_discovered: 2026-06-15
   links: []
   topic: 油价
@@ -271,10 +285,11 @@ claims:
   - 油价回落
   - 炼化
   - 航空
+  school: qing
 - id: claim-20260615-009
   source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T10:56:33+08:00'
@@ -288,7 +303,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260610-028-a"]
+  contradicts:
+  - claim-20260610-028-a
   last_discovered: 2026-06-15
   links: []
   topic: 锂电储能
@@ -304,10 +320,11 @@ claims:
   - 排产新高
   - 储能
   - 业绩兑现
+  school: qing
 - id: claim-20260615-010
   source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T10:56:33+08:00'
@@ -332,10 +349,11 @@ claims:
   - AI服务器
   - 光模块
   - 供给收缩
+  school: qing
 - id: claim-20260615-011
   source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T10:56:33+08:00'
@@ -350,7 +368,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-017-m", "claim-20260617-023-s", "claim-20260604-004-l"]
+  supplements:
+  - claim-20260617-017-m
+  - claim-20260617-023-s
+  - claim-20260604-004-l
   last_discovered: 2026-06-25
   links: []
   topic: 商业航天
@@ -365,10 +386,11 @@ claims:
   - 商业航天
   - 卫星
   - 星链
+  school: qing
 - id: claim-20260615-012
   source_path: sources/original/bilibili/2026-06-15-0904-图片-上周五市场高开后分化，沪指表现较强，创业板指高开低走收涨0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T10:56:33+08:00'
@@ -381,7 +403,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260604-001-a", "claim-20260610-006-g"]
+  supersedes:
+  - claim-20260604-001-a
+  - claim-20260610-006-g
   contradicts: []
   last_discovered: 2026-06-15
   links: []
@@ -392,3 +416,4 @@ claims:
   - 右侧确认
   - 中报期
   - 强者恒强
+  school: qing

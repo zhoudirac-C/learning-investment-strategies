@@ -2,8 +2,8 @@ claims:
 - id: claim-20260521-003-a
   topic: 真恐慌非崩盘
   source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-21
   source_type: review
   extracted_at: 2026-05-22
@@ -35,11 +35,12 @@ claims:
   - 放量
   - 恐慌
   - 杀跌
+  school: qing
 - id: claim-20260521-003-b
   topic: 高位宽幅震荡
   source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-21
   source_type: review
   extracted_at: 2026-05-22
@@ -69,11 +70,12 @@ claims:
   tags:
   - 高位宽幅震荡
   - 市场周期
+  school: qing
 - id: claim-20260521-003-c
   topic: 科技主线筛选
   source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-21
   source_type: review
   extracted_at: 2026-05-22
@@ -105,11 +107,12 @@ claims:
   - 半导体
   - 杀跌
   - 主线
+  school: qing
 - id: claim-20260521-003-d
   topic: PCB与先进封装
   source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-21
   source_type: review
   extracted_at: 2026-05-22
@@ -125,7 +128,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-005-g", "claim-20260525-003"]
+  supplements:
+  - claim-20260616-005-g
+  - claim-20260525-003
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -141,11 +146,12 @@ claims:
   - 算力
   - 主线
   - AI
+  school: qing
 - id: claim-20260521-003-e
   topic: 机器人与具身智能
   source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-21
   source_type: review
   extracted_at: 2026-05-22
@@ -161,7 +167,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-001-f", "claim-20260521-003-i", "claim-20260522-001-i"]
+  supplements:
+  - claim-20260608-001-f
+  - claim-20260521-003-i
+  - claim-20260522-001-i
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -183,11 +192,12 @@ claims:
   - code: '601689'
     name: 拓普集团
     role: 参考标的
+  school: qing
 - id: claim-20260521-003-f
   topic: AI电源与超级电容
   source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-21
   source_type: review
   extracted_at: 2026-05-22
@@ -203,7 +213,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-005-d", "claim-20260602-002-e"]
+  supplements:
+  - claim-20260527-005-d
+  - claim-20260602-002-e
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -217,11 +229,12 @@ claims:
   - AI
   - 储能
   - 算力
+  school: qing
 - id: claim-20260521-003-g
   topic: 二次冰点低吸
   source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-21
   source_type: review
   extracted_at: 2026-05-22
@@ -229,8 +242,7 @@ claims:
   subject: 二次冰点低吸
   timeframe: short-term
   statement: 明日最优剧本是低开急杀后快速拉回，若10点前放量拉升且机器人或PCB率先翻红，可用1-2成仓位低吸强势方向龙头
-  evidence_quote: '"第一种情景，低开急杀后快速拉回，概率60%，是最优剧本。 触发条件是开盘下探1%到2%，10点前出现放量拉升，率先翻红的是机器人或PCB。
-    操作策略是用1到2成仓位低吸强势方向龙头。"
+  evidence_quote: '"第一种情景，低开急杀后快速拉回，概率60%，是最优剧本。 触发条件是开盘下探1%到2%，10点前出现放量拉升，率先翻红的是机器人或PCB。 操作策略是用1到2成仓位低吸强势方向龙头。"
 
     '
   interpretation: 二次冰点低吸不是见跌就买，而是等待急杀、放量拉回、主动方向率先翻红三者共振
@@ -257,11 +269,12 @@ claims:
   - 龙头
   - 放量
   - 仓位
+  school: qing
 - id: claim-20260521-003-h
   topic: 仓位与持仓分层
   source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-21
   source_type: review
   extracted_at: 2026-05-22
@@ -277,7 +290,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260525-019", "claim-20260525-002"]
+  supplements:
+  - claim-20260525-019
+  - claim-20260525-002
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -290,11 +305,12 @@ claims:
   - 仓位与持仓分层
   - 操作策略
   - 反弹
+  school: qing
 - id: claim-20260521-003-i
   topic: 5月22核心观察池
   source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-21
   source_type: review
   extracted_at: 2026-05-22
@@ -302,8 +318,7 @@ claims:
   subject: 5月22核心观察池
   timeframe: intraday
   statement: 5月22重点观察利仁科技、澜起科技、拓普集团、纬达光电、盛剑科技、江海股份，分别作为机器人情绪、半导体趋势、机器人中军、玻璃基板活口、半导体铲子和超级电容龙头锚点
-  evidence_quote: '"利仁科技是机器人短线情绪标杆。澜起科技是半导体核心趋势股。 拓普集团是机器人加AI液冷双主线中军。纬达光电是玻璃基板高弹性标的。
-    盛剑科技是半导体环保设备铲子股。江海股份是超级电容龙头。"
+  evidence_quote: '"利仁科技是机器人短线情绪标杆。澜起科技是半导体核心趋势股。 拓普集团是机器人加AI液冷双主线中军。纬达光电是玻璃基板高弹性标的。 盛剑科技是半导体环保设备铲子股。江海股份是超级电容龙头。"
 
     '
   interpretation: 这些标的不是无条件买入清单，而是次日判断板块主动修复、活口延续和新分支能否成势的观察锚
@@ -311,7 +326,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-004-h", "claim-20260521-001-f"]
+  supplements:
+  - claim-20260608-004-h
+  - claim-20260521-001-f
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -348,11 +365,12 @@ claims:
   - code: '603324'
     name: 盛剑科技
     role: 参考标的
+  school: qing
 - id: claim-20260521-003-j
   topic: 调整延长风险
   source_path: sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-21
   source_type: review
   extracted_at: 2026-05-22
@@ -383,3 +401,4 @@ claims:
   - 调整延长风险
   - 调整周期
   - 放量
+  school: qing

@@ -10,13 +10,14 @@ claims:
   intensity: medium
   topic: 8/14盘面数据：指数强个股弱的缩量十字星
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: superseded
-  supersedes: ["claim-20260713-002-c"]
+  supersedes:
+  - claim-20260713-002-c
   contradicts: []
   supplements: []
   last_discovered: 2026-08-17
@@ -30,6 +31,7 @@ claims:
   - 指数个股背离
   - 缩量
   - 涨停家数
+  school: qing
 - id: claim-20260816-002
   claim_type: market-cycle
   subject: 周四放量回调属内生性回调
@@ -41,15 +43,17 @@ claims:
   intensity: medium
   topic: 周四放量回调定性：内生性回调而非外力扰动，不必悲观
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260811-041", "claim-20260805-048"]
+  supplements:
+  - claim-20260811-041
+  - claim-20260805-048
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -61,6 +65,7 @@ claims:
   - 内生性回调
   - 获利兑现
   - 高低切
+  school: qing
 - id: claim-20260816-003
   claim_type: methodology
   subject: 缩量企稳只证明卖方衰竭
@@ -72,15 +77,18 @@ claims:
   intensity: medium
   topic: 缩量企稳的解读边界：只证卖方衰竭不证买盘回来
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-002", "claim-20260713-002-u", "claim-20260713-009-i"]
+  supplements:
+  - claim-20260729-002
+  - claim-20260713-002-u
+  - claim-20260713-009-i
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -92,6 +100,7 @@ claims:
   - 卖方衰竭
   - 存量博弈
   - 量价验证
+  school: qing
 - id: claim-20260816-004
   claim_type: market-cycle
   subject: 连续反弹后震荡整固阶段
@@ -103,15 +112,18 @@ claims:
   intensity: medium
   topic: 当前位置判断：震荡整固、平衡市、科技医药轮动
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
-  supersedes: ["claim-20260813-027", "claim-20260706-006"]
+  supersedes:
+  - claim-20260813-027
+  - claim-20260706-006
   contradicts: []
-  supplements: ["claim-20260723-003"]
+  supplements:
+  - claim-20260723-003
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -123,6 +135,7 @@ claims:
   - 平衡市
   - 多头排列
   - 3950压力位
+  school: qing
 - id: claim-20260816-005
   claim_type: operation
   subject: 下周情形A量能回2.5万亿向上变盘
@@ -134,15 +147,18 @@ claims:
   intensity: medium
   topic: 下周情形A：缩量换手后量能回2.5万亿则向上变盘
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
-  supersedes: ["claim-20260809-028", "claim-20260614-014-p"]
+  supersedes:
+  - claim-20260809-028
+  - claim-20260614-014-p
   contradicts: []
-  supplements: ["claim-20260724-005"]
+  supplements:
+  - claim-20260724-005
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -154,6 +170,7 @@ claims:
   - 向上变盘
   - 右侧参与
   - 权重科技同步
+  school: qing
 - id: claim-20260816-006
   claim_type: operation
   subject: 下周情形B量能跌破2万亿回踩均线
@@ -165,15 +182,17 @@ claims:
   intensity: medium
   topic: 下周情形B：跌破2万亿则回踩10-20日均线，看缩量与反抽阳线
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-029", "claim-20260724-005"]
+  supplements:
+  - claim-20260812-029
+  - claim-20260724-005
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -185,6 +204,7 @@ claims:
   - 回踩均线
   - 缩量健康度
   - 反抽阳线
+  school: qing
 - id: claim-20260816-007
   claim_type: methodology
   subject: 变盘是条件判断不在日历上
@@ -196,15 +216,16 @@ claims:
   intensity: medium
   topic: 变盘是条件判断（量能+交换机新高）而非日历预测
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-035"]
+  supplements:
+  - claim-20260729-035
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -216,6 +237,7 @@ claims:
   - 变盘
   - 量价确认
   - 不预测日期
+  school: qing
 - id: claim-20260816-008
   claim_type: sector-theme
   subject: 算力硬件日内最强方向
@@ -227,15 +249,18 @@ claims:
   intensity: medium
   topic: 日内最强算力硬件：结构性修复非普涨，产业事件驱动分支
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: superseded
   supersedes: []
-  contradicts: ["claim-20260702-005-j"]
-  supplements: ["claim-20260624-006-b", "claim-20260526-032"]
+  contradicts:
+  - claim-20260702-005-j
+  supplements:
+  - claim-20260624-006-b
+  - claim-20260526-032
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -248,6 +273,7 @@ claims:
   - 液冷
   - PCB
   - 结构性修复
+  school: qing
 - id: claim-20260816-009
   claim_type: sector-theme
   subject: 旭创受让中石科技信息价值大于交易
@@ -259,15 +285,16 @@ claims:
   intensity: high
   topic: 旭创17.47亿受让中石科技10.47%股权：印证1.6T散热需求，信息价值大于交易
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260814-026"]
+  supplements:
+  - claim-20260814-026
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -286,28 +313,29 @@ claims:
   - 散热
   - 1.6T
   - 产能约束
+  school: qing
 - id: claim-20260816-010
   claim_type: sector-theme
   subject: 散热链条选股不能混为一谈
   timeframe: industry
   statement: 光模块散热链条为芯片→导热界面材料TIM1→铜凸台/均热板VC→顶盖/散热齿→（风冷，或TIM2→冷板→冷却液），前半段属模块内部散热、后半段属模块外部cage散热，两者互为补充同时需要；中石科技(300684)做模块内部的导热界面材料与均热板，鼎通科技(688668)、奕东电子(301123)的产品落在cage侧，应用场景与客户都不是同一批，业绩兑现节奏并不同步，选股不能混为一谈。
-  evidence_quote: 光模块的散热链条是：芯片 → 导热界面材料（TIM1）→ 铜凸台/均热板（VC）均热 → 顶盖/散热齿 →（风冷空气，或 TIM2
-    → 冷板 → 冷却液）。其中前半段属于光模块内部散热，后半段属于模块外部的 cage 散热…中石科技(300684)做的是模块内部的导热界面材料与均热板，而鼎通科技(688668)、奕东电子(301123)的产品落在
-    cage 侧，应用场景与客户都不是同一批。个人判断，随着功耗抬升，液冷化是确定方向，但选股上不能混为一谈——同一则消息刺激下，两类标的的业绩兑现节奏并不同步。
+  evidence_quote: 光模块的散热链条是：芯片 → 导热界面材料（TIM1）→ 铜凸台/均热板（VC）均热 → 顶盖/散热齿 →（风冷空气，或 TIM2 → 冷板 → 冷却液）。其中前半段属于光模块内部散热，后半段属于模块外部的 cage 散热…中石科技(300684)做的是模块内部的导热界面材料与均热板，而鼎通科技(688668)、奕东电子(301123)的产品落在 cage 侧，应用场景与客户都不是同一批。个人判断，随着功耗抬升，液冷化是确定方向，但选股上不能混为一谈——同一则消息刺激下，两类标的的业绩兑现节奏并不同步。
   interpretation: 同一事件（旭创锁中石科技(300684)）刺激下两类标的路径不同：模块内部（中石科技(300684)）vs cage侧（鼎通科技(688668)、奕东电子(301123)），业务兑现节奏不同步——把选股从概念炒作拉回业务环节拆解（技术拆解本身已在8/14提取，本条是标的映射增量）。
   confidence: high
   intensity: medium
   topic: 散热选股拆环节：模块内部与cage侧标的不同步，不能混为一谈
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260814-027", "claim-20260814-028"]
+  supplements:
+  - claim-20260814-027
+  - claim-20260814-028
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -329,27 +357,28 @@ claims:
   - cage散热
   - 模块内部
   - 业绩兑现
+  school: qing
 - id: claim-20260816-011
   claim_type: catalyst
   subject: 英伟达Spectrum-X硅光交换机全面量产
   timeframe: industry
   statement: 英伟达NVIDIA AI Infrastructure官方账号8月14日发布：Spectrum-X以太网硅光交换机已进入全面量产，基于Spectrum-6交换ASIC，为AI工厂提供102.4Tb/s交换容量，激光器数量减至四分之一、功耗降至五分之一、平均故障间隔时间提升10倍；供应链含台积电（硅光工艺）、矽品（封装测试）、Lumentum（激光芯片）、天孚通信(300394)（激光器模块子组件封装组装）、鸿海（系统组装），首批客户为CoreWeave、Lambda与甲骨文；这是CPO第一次拿到全面量产措辞，性质从技术验证转为商用落地。
-  evidence_quote: 据英伟达 NVIDIA AI Infrastructure 官方账号8月14日发布，Spectrum-X 以太网硅光交换机（Ethernet
-    Photonics）已进入全面量产…相比原有方案，激光器数量减少至四分之一、功耗降至五分之一、平均故障间隔时间提升10倍…首批客户为CoreWeave、Lambda与甲骨文。个人判断，这是CPO第一次拿到全面量产这个措辞，性质上从技术验证转为商用落地。
+  evidence_quote: 据英伟达 NVIDIA AI Infrastructure 官方账号8月14日发布，Spectrum-X 以太网硅光交换机（Ethernet Photonics）已进入全面量产…相比原有方案，激光器数量减少至四分之一、功耗降至五分之一、平均故障间隔时间提升10倍…首批客户为CoreWeave、Lambda与甲骨文。个人判断，这是CPO第一次拿到全面量产这个措辞，性质上从技术验证转为商用落地。
   interpretation: CPO产业化里程碑：从实验室验证到全面量产，A股光通信（尤其天孚通信(300394)）是直接受益环节；天孚通信(300394)作为国内唯一出现在英伟达官方供应链名单的公司，稀缺卡位再次确认。
   confidence: high
   intensity: high
   topic: 英伟达Spectrum-X硅光交换机全面量产：CPO从验证转商用落地
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-038"]
+  supplements:
+  - claim-20260803-038
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -365,6 +394,7 @@ claims:
   - 全面量产
   - Spectrum-X
   - 天孚通信
+  school: qing
 - id: claim-20260816-012
   claim_type: risk
   subject: CPO估值不便宜追高性价比要单独算
@@ -376,8 +406,8 @@ claims:
   intensity: medium
   topic: CPO风险：估值不便宜+收入兑现有时差，追高性价比单独算
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
@@ -396,6 +426,7 @@ claims:
   - 估值
   - 追高
   - 收入兑现时差
+  school: qing
 - id: claim-20260816-013
   claim_type: sector-theme
   subject: 交换机分支新高与证伪条件
@@ -407,15 +438,18 @@ claims:
   intensity: high
   topic: 交换机新高=反弹转反转关键，证伪条件为紫光华勤不跟涨
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
-  supersedes: ["claim-20260813-028", "claim-20260812-033"]
+  supersedes:
+  - claim-20260813-028
+  - claim-20260812-033
   contradicts: []
-  supplements: ["claim-20260809-028"]
+  supplements:
+  - claim-20260809-028
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -431,7 +465,7 @@ claims:
   - code: '688702'
     name: 盛科通信
     role: 科创板-不可交易
-  - code: '000938'
+  - code: 000938
     name: 紫光股份
     role: 主板-可交易
   - code: '603296'
@@ -443,6 +477,7 @@ claims:
   - 反弹转反转
   - 证伪条件
   - 新高
+  school: qing
 - id: claim-20260816-014
   claim_type: technical-signal
   subject: 情绪端高低切高位未走A
@@ -454,15 +489,16 @@ claims:
   intensity: medium
   topic: 情绪端高低切明显：高位未走A，筹码松动在中高位
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-047"]
+  supplements:
+  - claim-20260805-047
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -472,7 +508,7 @@ claims:
   - code: '003032'
     name: 传智教育
     role: 主板-可交易
-  - code: '002827'
+  - code: 002827
     name: 高争民爆
     role: 主板-可交易
   - code: '603758'
@@ -487,6 +523,7 @@ claims:
   - 情绪
   - 中高位
   - 断板修复
+  school: qing
 - id: claim-20260816-015
   claim_type: stock-view
   subject: 共进股份超节点弹性来自位置与筹码
@@ -498,15 +535,18 @@ claims:
   intensity: medium
   topic: 共进股份：超节点ODM弹性来自位置筹码非基本面
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
-  supersedes: ["claim-20260721-025", "claim-20260728-010"]
+  supersedes:
+  - claim-20260721-025
+  - claim-20260728-010
   contradicts: []
-  supplements: ["claim-20260722-019"]
+  supplements:
+  - claim-20260722-019
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -522,6 +562,7 @@ claims:
   - 交换机ODM
   - 3414亿
   - 位置筹码
+  school: qing
 - id: claim-20260816-016
   claim_type: stock-view
   subject: 天孚通信CPO稀缺卡位
@@ -533,15 +574,17 @@ claims:
   intensity: medium
   topic: 天孚通信：英伟达CPO供应链稀缺卡位，跟踪占比爬坡与二供
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-038", "claim-20260709-004-m"]
+  supplements:
+  - claim-20260803-038
+  - claim-20260709-004-m
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -557,6 +600,7 @@ claims:
   - FAU
   - 1.6T光引擎
   - 英伟达供应链
+  school: qing
 - id: claim-20260816-017
   claim_type: stock-view
   subject: 海洋王纯情绪载体标的
@@ -568,15 +612,17 @@ claims:
   intensity: medium
   topic: 海洋王等低位补涨：纯情绪载体，回撤比上涨快
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-007", "claim-20260722-015"]
+  supplements:
+  - claim-20260810-007
+  - claim-20260722-015
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -610,6 +656,7 @@ claims:
   - 低位补涨
   - 筹码结构
   - 回撤风险
+  school: qing
 - id: claim-20260816-018
   claim_type: stock-view
   subject: 网宿科技中报二季度拐点
@@ -621,8 +668,8 @@ claims:
   intensity: medium
   topic: 网宿科技中报：Q2拐点+结构切换，AI Infra卖铲子定位确认
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
@@ -645,6 +692,7 @@ claims:
   - 二季度拐点
   - 结构切换
   - AI Infra
+  school: qing
 - id: claim-20260816-019
   claim_type: catalyst
   subject: Anthropic二季度初步营收超115亿美元
@@ -656,15 +704,17 @@ claims:
   intensity: medium
   topic: Anthropic Q2初步营收115亿美元+利润转正：海外AI叙事兑现
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-002", "claim-20260805-021"]
+  supplements:
+  - claim-20260812-002
+  - claim-20260805-021
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -677,6 +727,7 @@ claims:
   - 海外AI
   - 业绩兑现
   - 利润转正
+  school: qing
 - id: claim-20260816-020
   claim_type: catalyst
   subject: 国内Token调用量跃迁与Token贷落地
@@ -688,30 +739,32 @@ claims:
   intensity: medium
   topic: Token经济数据：日均调用量1000亿→140万亿，Token贷落地
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-032"]
+  supplements:
+  - claim-20260805-032
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks:
-  - code: "601988"
-    name: "中国银行"
-    role: "回填-正文提及"
+  - code: '601988'
+    name: 中国银行
+    role: 回填-正文提及
   tags:
   - Token
   - 词元
   - 调用量
   - Token贷
   - 计费单位
+  school: qing
 - id: claim-20260816-021
   claim_type: sector-theme
   subject: 算力租赁从卖算力转向卖Token
@@ -723,15 +776,18 @@ claims:
   intensity: medium
   topic: 算力租赁卖Token叙事：东吴观点+优刻得美利云映射
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-026", "claim-20260622-003-q", "claim-20260805-025"]
+  supplements:
+  - claim-20260805-026
+  - claim-20260622-003-q
+  - claim-20260805-025
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -741,7 +797,7 @@ claims:
   - code: '688158'
     name: 优刻得
     role: 科创板-不可交易
-  - code: '000815'
+  - code: 000815
     name: 美利云
     role: 主板-可交易
   tags:
@@ -750,6 +806,7 @@ claims:
   - PE切PS
   - 优刻得
   - 美利云
+  school: qing
 - id: claim-20260816-022
   claim_type: methodology
   subject: PS估值是叙事不是定价依据
@@ -761,15 +818,17 @@ claims:
   intensity: medium
   topic: 算力租赁PS估值是叙事：需Token分成与回本周期数据验证
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-012", "claim-20260805-024"]
+  supplements:
+  - claim-20260812-012
+  - claim-20260805-024
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -782,28 +841,29 @@ claims:
   - Token分成
   - 回本周期
   - 定价依据
+  school: qing
 - id: claim-20260816-023
   claim_type: catalyst
   subject: 大模型侧边际变化周报
   timeframe: industry
-  statement: 本周大模型动态：DeepSeek V4 Pro正式版上线并重点增强Agent能力，API采用峰谷定价、闲时价格为高峰时段的一半；通义上线超节点产品并计划大幅提升模块化数据中心产能；智谱发布GLM
-    5.3，MaaS平台已启用超5万块国产算力芯片；海外方面，Anthropic与算力供应商签署长周期算力协议、OpenAI推出更高速的API服务。
-  evidence_quote: DeepSeek V4 Pro 正式版上线并重点增强Agent能力，API采用峰谷定价、闲时价格为高峰时段的一半；通义上线超节点产品并计划大幅提升模块化数据中心产能；智谱发布GLM
-    5.3，MaaS平台已启用超5万块国产算力芯片；海外方面，Anthropic 与算力供应商签署长周期算力协议、OpenAI 推出更高速的API服务。
+  statement: 本周大模型动态：DeepSeek V4 Pro正式版上线并重点增强Agent能力，API采用峰谷定价、闲时价格为高峰时段的一半；通义上线超节点产品并计划大幅提升模块化数据中心产能；智谱发布GLM 5.3，MaaS平台已启用超5万块国产算力芯片；海外方面，Anthropic与算力供应商签署长周期算力协议、OpenAI推出更高速的API服务。
+  evidence_quote: DeepSeek V4 Pro 正式版上线并重点增强Agent能力，API采用峰谷定价、闲时价格为高峰时段的一半；通义上线超节点产品并计划大幅提升模块化数据中心产能；智谱发布GLM 5.3，MaaS平台已启用超5万块国产算力芯片；海外方面，Anthropic 与算力供应商签署长周期算力协议、OpenAI 推出更高速的API服务。
   interpretation: 产业事实记录：国产模型迭代+国产算力芯片启用规模（5万+）是国产算力链需求端可量化跟踪指标。
   confidence: medium
   intensity: low
   topic: 大模型周报：DeepSeek V4 Pro/通义超节点/GLM 5.3
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
   supersedes: []
-  contradicts: ["claim-20260806-029"]
-  supplements: ["claim-20260721-027"]
+  contradicts:
+  - claim-20260806-029
+  supplements:
+  - claim-20260721-027
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -816,28 +876,30 @@ claims:
   - 大模型
   - 国产算力芯片
   - 峰谷定价
+  school: qing
 - id: claim-20260816-024
   claim_type: sector-theme
   subject: Agent竞争延伸至模型乘Harness系统
   timeframe: trend
-  statement: Agent竞争已从单纯的模型能力延伸到模型乘Harness系统，上下文、工具与编排共同决定效果，企业采购的比较口径也随之转向完成任务的成本；对A股映射依然落在AI
-    Infra（编排、监督、部署环节价值抬升）而不是应用本身，通用大模型能力持续下沉会继续侵蚀标准化功能型软件的空间；国内算力芯片启用规模的抬升是国产算力链需求端可以持续跟踪的量化指标。
-  evidence_quote: 周报给出的核心观察是，Agent竞争已从单纯的模型能力延伸到「模型×Harness」系统，上下文、工具与编排共同决定效果，企业采购的比较口径也随之转向「完成任务的成本」。个人判断，这条线索对A股的映射依然落在AI
-    Infra而不是应用本身：编排、监督、部署这些环节的价值在抬升…
+  statement: Agent竞争已从单纯的模型能力延伸到模型乘Harness系统，上下文、工具与编排共同决定效果，企业采购的比较口径也随之转向完成任务的成本；对A股映射依然落在AI Infra（编排、监督、部署环节价值抬升）而不是应用本身，通用大模型能力持续下沉会继续侵蚀标准化功能型软件的空间；国内算力芯片启用规模的抬升是国产算力链需求端可以持续跟踪的量化指标。
+  evidence_quote: 周报给出的核心观察是，Agent竞争已从单纯的模型能力延伸到「模型×Harness」系统，上下文、工具与编排共同决定效果，企业采购的比较口径也随之转向「完成任务的成本」。个人判断，这条线索对A股的映射依然落在AI Infra而不是应用本身：编排、监督、部署这些环节的价值在抬升…
   interpretation: 竞争维度变化（模型能力→模型×Harness系统）+A股映射（AI Infra受益、标准化软件被侵蚀）+量化指标（国产算力芯片启用规模）。
   confidence: medium
   intensity: medium
   topic: Agent竞争延伸模型×Harness，A股映射在AI Infra
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-032", "claim-20260814-021", "claim-20260811-054"]
+  supplements:
+  - claim-20260805-032
+  - claim-20260814-021
+  - claim-20260811-054
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
@@ -850,6 +912,7 @@ claims:
   - AI Infra
   - 国产算力
   - 采购口径
+  school: qing
 - id: claim-20260816-025
   claim_type: operation
   subject: 下周三个观察变量
@@ -861,22 +924,24 @@ claims:
   intensity: medium
   topic: 下周跟踪：量能回2.5万亿+交换机新高+医药二次启动
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-16-2257-专栏-这一周收在一根指数稳、个股弱、量能缩的十字星上。周四的放量回.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-16'
   source_type: 专栏
   extracted_at: '2026-08-16T23:20:00'
   status: active
-  supersedes: ["claim-20260614-014-p"]
+  supersedes:
+  - claim-20260614-014-p
   contradicts: []
-  supplements: ["claim-20260809-028"]
+  supplements:
+  - claim-20260809-028
   last_discovered: 2026-08-17
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks:
-  - code: '000938'
+  - code: 000938
     name: 紫光股份
     role: 主板-可交易
   - code: '603296'
@@ -888,3 +953,4 @@ claims:
   - 医药二次启动
   - 观察变量
   - 紫光股份
+  school: qing

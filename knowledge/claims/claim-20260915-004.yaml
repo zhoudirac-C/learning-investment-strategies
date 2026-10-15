@@ -15,9 +15,11 @@ claims:
   confidence: high
   status: case-only
   intensity: medium
-  supersedes: ["claim-20260910-011-a"]
+  supersedes:
+  - claim-20260910-011-a
   contradicts: []
-  supplements: ["claim-20260914-002-a"]
+  supplements:
+  - claim-20260914-002-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -30,6 +32,7 @@ claims:
   - 缩量
   - 科创50
   - 市场广度
+  school: qing
 - id: claim-20260915-004-2
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -46,7 +49,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260824-003-c", "claim-20260901-043-a", "claim-20260818-045"]
+  supersedes:
+  - claim-20260824-003-c
+  - claim-20260901-043-a
+  - claim-20260818-045
   contradicts: []
   supplements: []
   last_discovered: 2026-09-16
@@ -61,6 +67,7 @@ claims:
   - 内生性回调
   - 高位题材
   - 轮动
+  school: qing
 - id: claim-20260915-004-3
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -79,7 +86,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260212-001-a", "claim-20260812-005"]
+  supplements:
+  - claim-20260212-001-a
+  - claim-20260812-005
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -93,6 +102,7 @@ claims:
   - 科创50
   - 地量
   - 量价齐升
+  school: qing
 - id: claim-20260915-004-4
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -111,7 +121,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-d", "claim-20260826-017-a"]
+  supplements:
+  - claim-20260609-005-d
+  - claim-20260826-017-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -125,6 +137,7 @@ claims:
   - 海外链
   - 国产链
   - 节奏差
+  school: qing
 - id: claim-20260915-004-5
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -143,7 +156,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-018"]
+  supplements:
+  - claim-20260914-001-018
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -156,6 +170,7 @@ claims:
   - 资本开支
   - 预期管理
   - 海外链
+  school: qing
 - id: claim-20260915-004-6
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -174,7 +189,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260826-017-a"]
+  supplements:
+  - claim-20260826-017-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -187,6 +203,7 @@ claims:
   - 需求边界
   - 算力配套
   - 行业总需求
+  school: qing
 - id: claim-20260915-004-7
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -205,7 +222,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-018", "claim-20260913-001-032"]
+  supplements:
+  - claim-20260913-001-018
+  - claim-20260913-001-032
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -218,6 +237,7 @@ claims:
   - 抛压缓和
   - 估值判断
   - 见底证据
+  school: qing
 - id: claim-20260915-004-8
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -236,7 +256,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260721-022", "claim-20260914-001-019"]
+  supplements:
+  - claim-20260721-022
+  - claim-20260914-001-019
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -249,6 +271,7 @@ claims:
   - 增长链条
   - 推理需求
   - Token传导
+  school: qing
 - id: claim-20260915-004-9
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -265,9 +288,12 @@ claims:
   confidence: high
   status: case-only
   intensity: medium
-  supersedes: ["claim-20260729-031", "claim-20260729-031-dup1"]
+  supersedes:
+  - claim-20260729-031
+  - claim-20260729-031-dup1
   contradicts: []
-  supplements: ["claim-20260913-001-010"]
+  supplements:
+  - claim-20260913-001-010
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -280,6 +306,7 @@ claims:
   - 加息
   - 美债收益率
   - 定价基准
+  school: qing
 - id: claim-20260915-004-10
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -298,7 +325,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-010", "claim-20260908-003-y"]
+  supplements:
+  - claim-20260913-001-010
+  - claim-20260908-003-y
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -311,6 +340,7 @@ claims:
   - 点阵图
   - 利率路径
   - 事件时点
+  school: qing
 - id: claim-20260915-004-11
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -329,7 +359,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-004", "claim-20260913-001-010"]
+  supplements:
+  - claim-20260914-001-004
+  - claim-20260913-001-010
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -342,6 +374,7 @@ claims:
   - 高盛
   - 加息预期
   - 紧缩持续时间
+  school: qing
 - id: claim-20260915-004-12
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -360,7 +393,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-013", "claim-20260914-001-011"]
+  supplements:
+  - claim-20260913-001-013
+  - claim-20260914-001-011
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -373,6 +408,7 @@ claims:
   - 期限溢价
   - 收益率曲线
   - 长端利率
+  school: qing
 - id: claim-20260915-004-13
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -391,7 +427,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260831-003-a-dup1"]
+  supplements:
+  - claim-20260831-003-a-dup1
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -404,6 +441,7 @@ claims:
   - 分析方法论
   - 通胀补偿
   - 信用利差
+  school: qing
 - id: claim-20260915-004-14
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -422,7 +460,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-012"]
+  supplements:
+  - claim-20260913-001-012
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -435,6 +474,7 @@ claims:
   - 情景分析
   - 成长股估值
   - 紧缩预期
+  school: qing
 - id: claim-20260915-004-15
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -453,7 +493,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-022", "claim-20260809-007", "claim-20260825-007-a"]
+  supplements:
+  - claim-20260913-001-022
+  - claim-20260809-007
+  - claim-20260825-007-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -466,6 +509,7 @@ claims:
   - 高利率
   - 盈利兑现
   - 估值倍数
+  school: qing
 - id: claim-20260915-004-16
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -478,14 +522,15 @@ claims:
   timeframe: short-term
   statement: 如果利率在较短时间内快速上行且MOVE等债券波动率指标升高，冲击可能通过融资、杠杆和风险偏好进一步放大；对AI基础设施，传导链条从资金成本延伸到项目经济性，再影响资本开支的规模节奏与供应商订单；利率波动是需要研究的放大因素，但不能代替对利率绝对水平和产业回报的分析。
   evidence_quote: 如果利率在较短时间内快速上行，同时MOVE等债券波动率指标升高，冲击还可能通过融资、杠杆和风险偏好进一步放大。
-  interpretation: 给出利率风险的'速度+波动率'放大机制：快上行+MOVE走高时才升级为系统性风险，传导至 AI 基建资本开支→供应商订单；监测变量明确为
-    MOVE 指标，定位是放大器而非主因。
+  interpretation: 给出利率风险的'速度+波动率'放大机制：快上行+MOVE走高时才升级为系统性风险，传导至 AI 基建资本开支→供应商订单；监测变量明确为 MOVE 指标，定位是放大器而非主因。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260809-007", "claim-20260913-001-013"]
+  supplements:
+  - claim-20260809-007
+  - claim-20260913-001-013
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -498,6 +543,7 @@ claims:
   - MOVE指标
   - 杠杆
   - AI资本开支
+  school: qing
 - id: claim-20260915-004-17
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -510,14 +556,16 @@ claims:
   timeframe: industry
   statement: 美联储会议的影响传到A股需区分渠道：海外需求占比较高的企业更容易受海外客户资本开支与采购节奏影响；以国内客户为主的企业更多取决于国内融资条件、采购预算和项目进度；两者都会受全球估值比较和风险偏好的间接影响，美联储会议可能改变短期定价环境，持续的产业增长仍需真实需求和经营回报支撑。
   evidence_quote: 海外需求占比较高的企业，更容易受到海外客户资本开支与采购节奏的影响；以国内客户为主的企业，则更多取决于国内融资条件、采购预算和项目进度。
-  interpretation: 把 FOMC 冲击在 A 股内部的传导按客户结构分层：海外链=直接暴露（客户资本开支），国内链=间接暴露（融资条件/估值比较）；与
-    claim-004 的两类需求框架互为表里，共同构成'海外链弱、国产链韧'的结构判断。
+  interpretation: 把 FOMC 冲击在 A 股内部的传导按客户结构分层：海外链=直接暴露（客户资本开支），国内链=间接暴露（融资条件/估值比较）；与 claim-004 的两类需求框架互为表里，共同构成'海外链弱、国产链韧'的结构判断。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-038", "claim-20260723-002", "claim-20260721-029"]
+  supplements:
+  - claim-20260812-038
+  - claim-20260723-002
+  - claim-20260721-029
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -530,6 +578,7 @@ claims:
   - 海外链
   - 国内链
   - FOMC影响
+  school: qing
 - id: claim-20260915-004-18
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -542,8 +591,7 @@ claims:
   timeframe: industry
   statement: 景旺电子（603228）反映高速光模块对PCB精细制造能力要求的提高：据公司8月调研记录，800G、1.6T光模块PCB已批量交付，三条mSAP产线运行良好并继续推进新增产线，3.2T、NPO等应用仍处于与客户联合开发和工艺优化阶段；HDI的互连结构与mSAP的线路制造工艺并非简单替代关系；能够确认的产业变化是更高速更高密度产品正在提高对精细加工、良率和专用产能的要求，后续产线计划以实际建设进度为准。
   evidence_quote: 据公司8月调研记录，800G、1.6T光模块PCB已批量交付，三条mSAP产线运行良好，并继续推进新增产线；3.2T、NPO等应用仍处于与客户联合开发和工艺优化阶段。
-  interpretation: 个股案例1（材料工艺环节）：800G/1.6T 批量交付=已兑现部分，3.2T/NPO=期权部分；UP 强调 HDI 与 mSAP
-    是互连结构与制造工艺两个维度不可混谈——对'PCB在光模块价值量提升'叙事做技术口径澄清。
+  interpretation: 个股案例1（材料工艺环节）：800G/1.6T 批量交付=已兑现部分，3.2T/NPO=期权部分；UP 强调 HDI 与 mSAP 是互连结构与制造工艺两个维度不可混谈——对'PCB在光模块价值量提升'叙事做技术口径澄清。
   confidence: high
   status: active
   intensity: medium
@@ -565,6 +613,7 @@ claims:
   - PCB
   - 光模块
   - mSAP工艺
+  school: qing
 - id: claim-20260915-004-19
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -583,7 +632,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260818-067"]
+  supplements:
+  - claim-20260818-067
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -599,6 +649,7 @@ claims:
   - 高速连接器
   - 液冷
   - 算力互连
+  school: qing
 - id: claim-20260915-004-20
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -611,8 +662,7 @@ claims:
   timeframe: industry
   statement: 拓荆科技（688072）反映三维集成对键合及配套设备的需求：据公司官网产品目录，产品覆盖晶圆对晶圆混合键合、晶圆对晶圆熔融键合、芯片对晶圆混合键合以及键合前处理和量检测等环节，并明确列出面向HBM和三维集成的设备应用；不同键合工艺承担的连接功能并不相同，不能把所有HBM生产都理解为已采用混合键合；设备具备应用能力与客户验证、批量订单及收入确认之间仍有阶段差异，行业扩产规模不能直接折算成单家公司收入。
   evidence_quote: 产品覆盖晶圆对晶圆混合键合、晶圆对晶圆熔融键合、芯片对晶圆混合键合，以及键合前处理和量检测等环节，并明确列出了面向HBM和三维集成的设备应用。
-  interpretation: 个股案例3（三维集成环节）：设备能力覆盖=入场券而非收入；UP 明确两个澄清——键合工艺≠全部HBM都用混合键合、行业扩产≠单家公司收入；与
-    claim-008 '环节进展≠全链兑现' 的框架同构。
+  interpretation: 个股案例3（三维集成环节）：设备能力覆盖=入场券而非收入；UP 明确两个澄清——键合工艺≠全部HBM都用混合键合、行业扩产≠单家公司收入；与 claim-008 '环节进展≠全链兑现' 的框架同构。
   confidence: high
   status: active
   intensity: medium
@@ -634,6 +684,7 @@ claims:
   - 键合设备
   - HBM
   - 三维集成
+  school: qing
 - id: claim-20260915-004-21
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -646,14 +697,14 @@ claims:
   timeframe: industry
   statement: 景旺电子（603228）、航天电器（002025）、拓荆科技（688072）三个案例串起来显示AI与半导体升级正沿材料工艺、系统互连和三维集成向更多环节传导；技术覆盖面扩大并不保证产业链所有企业同步增长，决定经营结果的还包括客户采用哪条技术路线、企业能取得多少订单、量产良率以及利润能否转化为现金流；三家公司都处于'能力已具备、兑现待确认'阶段，跟踪落点在下一次订单、交付或财报披露，而非当下的股价波动。
   evidence_quote: 时点上，三家公司都处于「能力已具备、兑现待确认」的阶段，跟踪的落点在下一次订单、交付或财报披露，而非当下的股价波动。
-  interpretation: 三案例的合并方法论：把个股跟踪从价格维度切换到事件维度（订单/交付/财报三个触发器）；'能力具备'与'业绩兑现'分属两个阶段，是
-    UP 处理产业链个股的通用框架，可复用于其他标的。
+  interpretation: 三案例的合并方法论：把个股跟踪从价格维度切换到事件维度（订单/交付/财报三个触发器）；'能力具备'与'业绩兑现'分属两个阶段，是 UP 处理产业链个股的通用框架，可复用于其他标的。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260827-067-x"]
+  supplements:
+  - claim-20260827-067-x
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -675,6 +726,7 @@ claims:
   - 兑现验证
   - 订单交付
   - 财报披露
+  school: qing
 - id: claim-20260915-004-22
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -687,14 +739,16 @@ claims:
   timeframe: short-term
   statement: 比较明确的事实是整体交易活跃度继续下降、科技中部分产业方向表现出相对韧性；个人判断市场正在尝试重新衡量产业进展与盈利能力，这种变化值得继续记录，但目前还不能确认为全面的风格切换。
   evidence_quote: 个人判断，市场内部正在出现重新评估产业与业绩的迹象，但这种变化目前仍属局部结构改善，距离形成持续、广泛的市场共识还有一段距离。
-  interpretation: 全篇的总判断：'产业与业绩重新定价'已出现迹象但停留在局部结构改善层面，风格切换未确认——结论的保守程度与 claim-003
-    的右侧确认双条件一致，宁缺毋滥。
+  interpretation: 全篇的总判断：'产业与业绩重新定价'已出现迹象但停留在局部结构改善层面，风格切换未确认——结论的保守程度与 claim-003 的右侧确认双条件一致，宁缺毋滥。
   confidence: high
   status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260630-002-d", "claim-20260913-001-017", "claim-20260715-033-a"]
+  supplements:
+  - claim-20260630-002-d
+  - claim-20260913-001-017
+  - claim-20260715-033-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -707,6 +761,7 @@ claims:
   - 重新定价
   - 产业进展
   - 盈利能力
+  school: qing
 - id: claim-20260915-004-23
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -738,6 +793,7 @@ claims:
   - FOMC情景
   - 科创50强弱
   - 多杀多
+  school: qing
 - id: claim-20260915-004-24
   source_path: sources/original/bilibili/2026-09-15-2150-专栏-今天的市场同时呈现两个特征：整体交易活跃度继续下降，半导体与.md
   source_date: '2026-09-15'
@@ -750,14 +806,16 @@ claims:
   timeframe: short-term
   statement: 短线情绪依然割裂，部分前期涨幅较大的题材品种出现连续快速回撤，原有的情绪溢价正在受到挑战；半导体相对强势可作为风格变化的初步线索，但仅凭一天的涨跌无法证明过去两个月的交易结构已完成切换。
   evidence_quote: 部分前期涨幅较大的题材品种出现连续快速回撤，原有的情绪溢价正在受到挑战。从性质上看，今天的调整更接近轮动与高位题材降温带来的内生性回调
-  interpretation: 高位题材的风险提示：情绪溢价挤压仍在进行时；'半导体强势=初步线索而非证据'的表述防止把单日风格信号过度解读，与 claim-003
-    右侧确认纪律呼应。
+  interpretation: 高位题材的风险提示：情绪溢价挤压仍在进行时；'半导体强势=初步线索而非证据'的表述防止把单日风格信号过度解读，与 claim-003 右侧确认纪律呼应。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-017", "claim-20260913-001-019", "claim-20260830-004-a"]
+  supplements:
+  - claim-20260913-001-017
+  - claim-20260913-001-019
+  - claim-20260830-004-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -770,3 +828,4 @@ claims:
   - 情绪溢价
   - 连续回撤
   - 半导体强势
+  school: qing

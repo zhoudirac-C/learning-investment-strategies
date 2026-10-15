@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260719-004
   source_path: sources/original/bilibili/2026-07-19-2252-专栏-周五指数全天单边回落，券商银行一度拉升，上证指数纹丝不动，尾.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-19'
   source_type: 专栏
   extracted_at: '2026-07-19T23:53:00+08:00'
@@ -17,7 +17,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-001-c"]
+  supplements:
+  - claim-20260609-001-c
   last_discovered: 2026-07-20
   links: {}
   topic: 修正：冰点方法论仅适用于连板情绪股，不适用于趋势股找底
@@ -28,3 +29,4 @@ claims:
   - 趋势股
   - 连板情绪股
   - 磨底
+  school: qing

@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260810-001
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -15,7 +15,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260623-001-a", "claim-20260722-001"]
+  supersedes:
+  - claim-20260623-001-a
+  - claim-20260722-001
   contradicts: []
   supplements: []
   last_discovered: 2026-08-10
@@ -30,10 +32,11 @@ claims:
   - 防守转进攻
   - 卖方乐观
   - 竞价
+  school: qing
 - id: claim-20260810-002
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -46,9 +49,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260805-006"]
+  supersedes:
+  - claim-20260805-006
   contradicts: []
-  supplements: ["claim-20260715-022-a", "claim-20260729-031"]
+  supplements:
+  - claim-20260715-022-a
+  - claim-20260729-031
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -61,10 +67,11 @@ claims:
   - 80美元观察线
   - 降息交易
   - 高开
+  school: qing
 - id: claim-20260810-003
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -78,8 +85,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260702-002-a"]
-  supplements: ["claim-20260731-003"]
+  contradicts:
+  - claim-20260702-002-a
+  supplements:
+  - claim-20260731-003
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -93,10 +102,11 @@ claims:
   - 费半
   - 黄金
   - 白银
+  school: qing
 - id: claim-20260810-004
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -111,7 +121,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260708-002-p", "claim-20260703-001-f", "claim-20260809-006"]
+  supplements:
+  - claim-20260708-002-p
+  - claim-20260703-001-f
+  - claim-20260809-006
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -124,10 +137,11 @@ claims:
   - 开盘定价
   - 高开
   - 承接
+  school: qing
 - id: claim-20260810-005
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -140,9 +154,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260805-046", "claim-20260807-006"]
+  supersedes:
+  - claim-20260805-046
+  - claim-20260807-006
   contradicts: []
-  supplements: ["claim-20260806-001"]
+  supplements:
+  - claim-20260806-001
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -155,10 +172,11 @@ claims:
   - 2.5万亿
   - 3万亿
   - 承接力
+  school: qing
 - id: claim-20260810-006
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -171,9 +189,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260709-004-b"]
+  supersedes:
+  - claim-20260709-004-b
   contradicts: []
-  supplements: ["claim-20260605-001-b"]
+  supplements:
+  - claim-20260605-001-b
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -186,10 +206,11 @@ claims:
   - '3970'
   - 套牢盘
   - 获利盘
+  school: qing
 - id: claim-20260810-007
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -204,7 +225,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260806-022", "claim-20260805-013"]
+  supplements:
+  - claim-20260806-022
+  - claim-20260805-013
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -215,7 +238,7 @@ claims:
   - code: '603221'
     name: 爱丽家居
     role: 高标断板-主板可交易
-  - code: '002963'
+  - code: 002963
     name: 豪尔赛
     role: 高标断板-主板可交易
   - code: '601700'
@@ -230,10 +253,11 @@ claims:
   - 高低切
   - 内生换龙
   - 晋级率
+  school: qing
 - id: claim-20260810-008
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -248,7 +272,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-025-a"]
+  supplements:
+  - claim-20260610-025-a
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -260,10 +285,11 @@ claims:
   - 高低切
   - 题材更替
   - 轮动
+  school: qing
 - id: claim-20260810-009
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -291,10 +317,11 @@ claims:
   - 反向指标
   - 修复程度
   - 反弹时长
+  school: qing
 - id: claim-20260810-010
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -309,7 +336,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260717-001-j", "claim-20260809-016"]
+  supplements:
+  - claim-20260717-001-j
+  - claim-20260809-016
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -332,10 +361,11 @@ claims:
   - License-out
   - 一致转分歧
   - 出海
+  school: qing
 - id: claim-20260810-011
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -350,7 +380,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-054", "claim-20260803-037"]
+  supplements:
+  - claim-20260805-054
+  - claim-20260803-037
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -366,10 +398,11 @@ claims:
   - 中报
   - 指引上调
   - 创新药
+  school: qing
 - id: claim-20260810-012
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -400,10 +433,11 @@ claims:
   - 1260H
   - 禁令
   - 高开承接
+  school: qing
 - id: claim-20260810-013
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -416,9 +450,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260716-002-f"]
+  supersedes:
+  - claim-20260716-002-f
   contradicts: []
-  supplements: ["claim-20260809-018", "claim-20260809-016"]
+  supplements:
+  - claim-20260809-018
+  - claim-20260809-016
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -441,10 +478,11 @@ claims:
   - 昭衍新药
   - 实验猴
   - 分歧承接
+  school: qing
 - id: claim-20260810-014
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -458,7 +496,8 @@ claims:
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260803-021"]
+  contradicts:
+  - claim-20260803-021
   supplements: []
   last_discovered: 2026-08-10
   links:
@@ -485,10 +524,11 @@ claims:
   - CCL
   - CPO
   - 资金信任
+  school: qing
 - id: claim-20260810-015
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -503,7 +543,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260809-030", "claim-20260622-001-h"]
+  supplements:
+  - claim-20260809-030
+  - claim-20260622-001-h
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -519,10 +561,11 @@ claims:
   - AI硬件
   - 海外链
   - 不追一致
+  school: qing
 - id: claim-20260810-016
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -536,7 +579,9 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260617-041-s", "claim-20260804-032"]
+  contradicts:
+  - claim-20260617-041-s
+  - claim-20260804-032
   supplements: []
   last_discovered: 2026-08-10
   links:
@@ -557,10 +602,11 @@ claims:
   - NAND
   - 设备订单
   - 存储观望
+  school: qing
 - id: claim-20260810-017
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -575,7 +621,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260715-017-c", "claim-20260611-001-j", "claim-20260721-026"]
+  supplements:
+  - claim-20260715-017-c
+  - claim-20260611-001-j
+  - claim-20260721-026
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -595,10 +644,11 @@ claims:
   - ICP刻蚀
   - 探针台
   - 设备出海
+  school: qing
 - id: claim-20260810-018
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -611,8 +661,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260610-030-a"]
-  contradicts: ["claim-20260806-017"]
+  supersedes:
+  - claim-20260610-030-a
+  contradicts:
+  - claim-20260806-017
   supplements: []
   last_discovered: 2026-08-10
   links:
@@ -627,10 +679,11 @@ claims:
   - 禁铜钴
   - 情绪映射
   - 油价
+  school: qing
 - id: claim-20260810-019
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -645,7 +698,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-012"]
+  supplements:
+  - claim-20260803-012
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -661,10 +715,11 @@ claims:
   - 申购
   - 机器人
   - 资金分流
+  school: qing
 - id: claim-20260810-020
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -677,8 +732,11 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260610-006-g", "claim-20260622-001-h"]
-  contradicts: ["claim-20260604-001-a"]
+  supersedes:
+  - claim-20260610-006-g
+  - claim-20260622-001-h
+  contradicts:
+  - claim-20260604-001-a
   supplements: []
   last_discovered: 2026-08-10
   links:
@@ -692,10 +750,11 @@ claims:
   - 超跌反弹
   - 轮动
   - 上涨初期
+  school: qing
 - id: claim-20260810-021
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -708,9 +767,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260715-055-a", "claim-20260804-020"]
+  supersedes:
+  - claim-20260715-055-a
+  - claim-20260804-020
   contradicts: []
-  supplements: ["claim-20260809-028"]
+  supplements:
+  - claim-20260809-028
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -723,10 +785,11 @@ claims:
   - 量能
   - 医药承接
   - PCB秒回
+  school: qing
 - id: claim-20260810-022
   source_path: sources/original/bilibili/2026-08-10-0856-图片-上周五指数突破上升趋势，情绪在连续四根阳线后开始走强，战略上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 动态
   extracted_at: '2026-08-10T09:06:00+08:00'
@@ -754,10 +817,11 @@ claims:
   - 秒板
   - 先定方向
   - 参考指标
+  school: qing
 - id: claim-20260810-023
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -770,7 +834,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260526-025"]
+  supersedes:
+  - claim-20260526-025
   contradicts: []
   supplements: []
   last_discovered: 2026-08-10
@@ -785,10 +850,11 @@ claims:
   - 午后回暖
   - 剧烈分歧
   - 节奏
+  school: qing
 - id: claim-20260810-024
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -801,9 +867,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260807-006", "claim-20260805-046"]
+  supersedes:
+  - claim-20260807-006
+  - claim-20260805-046
   contradicts: []
-  supplements: ["claim-20260810-005"]
+  supplements:
+  - claim-20260810-005
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -817,10 +886,11 @@ claims:
   - 2.5万亿
   - 3万亿过热
   - 反弹未结束
+  school: qing
 - id: claim-20260810-025
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -835,7 +905,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260804-008"]
+  supplements:
+  - claim-20260804-008
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -848,10 +919,11 @@ claims:
   - 情绪端带动
   - 量价关系
   - 创业板大跌
+  school: qing
 - id: claim-20260810-026
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -864,7 +936,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260805-059", "claim-20260803-013", "claim-20260806-052"]
+  supersedes:
+  - claim-20260805-059
+  - claim-20260803-013
+  - claim-20260806-052
   contradicts: []
   supplements: []
   last_discovered: 2026-08-10
@@ -880,10 +955,11 @@ claims:
   - 承接
   - 退潮
   - 分歧一日游
+  school: qing
 - id: claim-20260810-027
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -896,7 +972,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260806-003", "claim-20260804-009", "claim-20260623-001-c"]
+  supersedes:
+  - claim-20260806-003
+  - claim-20260804-009
+  - claim-20260623-001-c
   contradicts: []
   supplements: []
   last_discovered: 2026-08-10
@@ -912,10 +991,11 @@ claims:
   - 二板13家
   - 晋级率
   - 封板率
+  school: qing
 - id: claim-20260810-028
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -928,9 +1008,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260717-001-j"]
-  contradicts: ["claim-20260715-052-a"]
-  supplements: ["claim-20260809-018"]
+  supersedes:
+  - claim-20260717-001-j
+  contradicts:
+  - claim-20260715-052-a
+  supplements:
+  - claim-20260809-018
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -947,10 +1030,11 @@ claims:
   - 哈药股份
   - 热钱
   - 追涨动能
+  school: qing
 - id: claim-20260810-029
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -965,7 +1049,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260806-022"]
+  supplements:
+  - claim-20260806-022
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -978,10 +1063,11 @@ claims:
   - 无产业锚
   - 参照系
   - 断板风险
+  school: qing
 - id: claim-20260810-030
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -995,8 +1081,11 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260810-007"]
-  supplements: ["claim-20260623-001-b", "claim-20260617-002-m"]
+  contradicts:
+  - claim-20260810-007
+  supplements:
+  - claim-20260623-001-b
+  - claim-20260617-002-m
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -1013,10 +1102,11 @@ claims:
   - 10连板
   - 市盈率
   - 监管风险
+  school: qing
 - id: claim-20260810-031
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1031,7 +1121,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-007", "claim-20260807-009", "claim-20260806-022"]
+  supplements:
+  - claim-20260810-007
+  - claim-20260807-009
+  - claim-20260806-022
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -1048,10 +1141,11 @@ claims:
   - 停牌核查
   - 传导范围
   - 负反馈
+  school: qing
 - id: claim-20260810-032
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1065,8 +1159,11 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260806-007"]
-  supplements: ["claim-20260804-010", "claim-20260723-034"]
+  contradicts:
+  - claim-20260806-007
+  supplements:
+  - claim-20260804-010
+  - claim-20260723-034
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -1074,7 +1171,7 @@ claims:
     cases: []
   topic: 科技被拖累非被抛弃，明日承压后有望回流
   related_stocks:
-  - code: '002281'
+  - code: 002281
     name: 光迅科技
     role: 光模块-盘中触及跌停-主板可交易
   - code: '300308'
@@ -1089,10 +1186,11 @@ claims:
   - 科技回流
   - 光迅科技
   - 亏钱效应
+  school: qing
 - id: claim-20260810-033
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1107,7 +1205,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-015", "claim-20260609-005-f", "claim-20260803-032"]
+  supplements:
+  - claim-20260810-015
+  - claim-20260609-005-f
+  - claim-20260803-032
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -1121,10 +1222,11 @@ claims:
   - 交换芯片
   - 新高
   - 右侧确认
+  school: qing
 - id: claim-20260810-034
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1139,7 +1241,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260806-051", "claim-20260803-041"]
+  supplements:
+  - claim-20260806-051
+  - claim-20260803-041
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -1159,10 +1263,11 @@ claims:
   - 石基信息
   - 榕基软件
   - 回流预期
+  school: qing
 - id: claim-20260810-035
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1175,8 +1280,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260809-016"]
-  contradicts: ["claim-20260715-020-a", "claim-20260604-004-h"]
+  supersedes:
+  - claim-20260809-016
+  contradicts:
+  - claim-20260715-020-a
+  - claim-20260604-004-h
   supplements: []
   last_discovered: 2026-08-10
   links:
@@ -1188,7 +1296,7 @@ claims:
   - code: '600721'
     name: 百花医药
     role: 医药情绪-5连板-主板可交易
-  - code: '002900'
+  - code: 002900
     name: 哈三联
     role: 医药-5天3板-主板可交易
   - code: '600267'
@@ -1200,10 +1308,11 @@ claims:
   - 百花医药
   - 半年报
   - 进攻属性
+  school: qing
 - id: claim-20260810-036
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1218,7 +1327,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260716-001-j"]
+  supplements:
+  - claim-20260716-001-j
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -1226,10 +1336,10 @@ claims:
     cases: []
   topic: 影视午后推力：北京文化一字，催化在点映票房
   related_stocks:
-  - code: '000802'
+  - code: 000802
     name: 北京文化
     role: 影视-开盘一字涨停-主板可交易
-  - code: '002739'
+  - code: 002739
     name: 儒意电影
     role: 影视-午后封板-主板可交易
   - code: '600977'
@@ -1247,10 +1357,11 @@ claims:
   - 儒意电影
   - 欢迎来龙餐馆
   - 午后推力
+  school: qing
 - id: claim-20260810-037
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1265,7 +1376,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260601-004-e"]
+  supplements:
+  - claim-20260601-004-e
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -1279,10 +1391,11 @@ claims:
   - 高潮兑现
   - 连续分歧回流
   - 短线节奏
+  school: qing
 - id: claim-20260810-038
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1314,10 +1427,11 @@ claims:
   - TEC
   - Micro-TEC
   - 光模块
+  school: qing
 - id: claim-20260810-039
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1349,10 +1463,11 @@ claims:
   - 光模块PCBA
   - Marvell
   - 重组
+  school: qing
 - id: claim-20260810-040
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1381,10 +1496,11 @@ claims:
   - 1.6T
   - 产能扩张
   - 光模块需求
+  school: qing
 - id: claim-20260810-041
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1399,7 +1515,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-032"]
+  supplements:
+  - claim-20260803-032
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -1416,10 +1533,11 @@ claims:
   - 右侧确认
   - 华懋科技
   - 择时
+  school: qing
 - id: claim-20260810-042
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1434,7 +1552,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260716-001-j"]
+  supplements:
+  - claim-20260716-001-j
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -1442,10 +1561,10 @@ claims:
     cases: []
   topic: 北京文化《欢迎来龙餐馆》：点映逆跌60%评分创纪录
   related_stocks:
-  - code: '000802'
+  - code: 000802
     name: 北京文化
     role: 《欢迎来龙餐馆》参投方-一字涨停-主板可交易
-  - code: '002739'
+  - code: 002739
     name: 儒意电影
     role: 联合出品方-午后封板-主板可交易
   tags:
@@ -1454,10 +1573,11 @@ claims:
   - 点映
   - 票房
   - 一字涨停
+  school: qing
 - id: claim-20260810-043
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1480,7 +1600,7 @@ claims:
     cases: []
   topic: 影视事件驱动：看排片与票房曲线，一字板后看获利盘
   related_stocks:
-  - code: '000802'
+  - code: 000802
     name: 北京文化
     role: 事件驱动案例标的-主板可交易
   tags:
@@ -1489,27 +1609,27 @@ claims:
   - 票房曲线
   - 高口碑低转化
   - 获利盘
+  school: qing
 - id: claim-20260810-044
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
   claim_type: sector-theme
   subject: 交换机：阿里云模块化AIDC交付100天，800G需求扩容国产替代
   timeframe: trend
-  statement: 阿里云基于首创全模块化设计架构已将大型AIDC数据中心交付工期缩短至100天（国内传统6-12个月、美国12-18个月），建设成本降低10%以上，今年计划模块化数据中心全球产能提升两倍以上；爱建证券认为海外云厂商资本开支+国内智算中心建设共同支撑800G高速交换机需求扩容，国内厂商在800G规模化部署、CPO硅光领域完成积累，国产替代持续推进；锐捷网络（301165）是字节、阿里、腾讯等头部互联网企业的数据中心交换机核心供应商，紫光股份（000938）51.2T
-    CPO硅光交换机2025年已批量交付部署。
-  evidence_quote: 基于首创全模块化设计架构，阿里云已将大型AIDC数据中心的交付工期缩短至100天……爱建证券表示，海外云厂商持续加大数据中心资本开支，国内智算中心建设稳步推进，共同支撑800G高速交换机行业需求扩容……锐捷网络已是字节跳动、阿里、腾讯等头部互联网企业的数据中心交换机核心供应商；紫光股份51.2T
-    CPO硅光数据中心交换机产品2025年已实现批量交付部署。
+  statement: 阿里云基于首创全模块化设计架构已将大型AIDC数据中心交付工期缩短至100天（国内传统6-12个月、美国12-18个月），建设成本降低10%以上，今年计划模块化数据中心全球产能提升两倍以上；爱建证券认为海外云厂商资本开支+国内智算中心建设共同支撑800G高速交换机需求扩容，国内厂商在800G规模化部署、CPO硅光领域完成积累，国产替代持续推进；锐捷网络（301165）是字节、阿里、腾讯等头部互联网企业的数据中心交换机核心供应商，紫光股份（000938）51.2T CPO硅光交换机2025年已批量交付部署。
+  evidence_quote: 基于首创全模块化设计架构，阿里云已将大型AIDC数据中心的交付工期缩短至100天……爱建证券表示，海外云厂商持续加大数据中心资本开支，国内智算中心建设稳步推进，共同支撑800G高速交换机行业需求扩容……锐捷网络已是字节跳动、阿里、腾讯等头部互联网企业的数据中心交换机核心供应商；紫光股份51.2T CPO硅光数据中心交换机产品2025年已实现批量交付部署。
   interpretation: UP记录交换机题材的产业证据链：阿里云模块化交付提速降本+800G需求扩容+国产替代（锐捷核心供应商、紫光CPO硅光批量交付），落在国产链离新高最近的分支上。
   confidence: medium
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-058"]
+  supplements:
+  - claim-20260805-058
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -1520,7 +1640,7 @@ claims:
   - code: '301165'
     name: 锐捷网络
     role: 数据中心交换机核心供应商-创业板不可交易
-  - code: '000938'
+  - code: 000938
     name: 紫光股份
     role: CPO硅光交换机-主板可交易
   tags:
@@ -1529,10 +1649,11 @@ claims:
   - 模块化数据中心
   - 800G
   - 国产替代
+  school: qing
 - id: claim-20260810-045
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1547,7 +1668,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-031"]
+  supplements:
+  - claim-20260803-031
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -1555,19 +1677,20 @@ claims:
     cases: []
   topic: AI应用出海政策：真政策但A股炒映射，波段对待
   related_stocks:
-  - code: "600284"
-    name: "浦东建设"
-    role: "回填-正文提及"
+  - code: '600284'
+    name: 浦东建设
+    role: 回填-正文提及
   tags:
   - AI应用
   - 模型出海
   - 上海政策
   - 事件驱动
   - AI基础设施
+  school: qing
 - id: claim-20260810-046
   source_path: sources/original/bilibili/2026-08-10-2213-专栏-今天是一根典型的“分歧被推迟”的日线。指数走势分化、午后同步.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-10'
   source_type: 复盘
   extracted_at: '2026-08-10T22:40:00+08:00'
@@ -1580,9 +1703,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260804-020", "claim-20260804-010"]
+  supersedes:
+  - claim-20260804-020
+  - claim-20260804-010
   contradicts: []
-  supplements: ["claim-20260805-059"]
+  supplements:
+  - claim-20260805-059
   last_discovered: 2026-08-10
   links:
     wiki_pages: []
@@ -1599,3 +1725,4 @@ claims:
   - 情绪
   - 科技
   - 非科技
+  school: qing

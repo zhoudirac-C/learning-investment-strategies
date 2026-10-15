@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260707-001-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -15,8 +15,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260706-006", "claim-20260703-001-j"]
-  contradicts: ["claim-20260626-001-a"]
+  supersedes:
+  - claim-20260706-006
+  - claim-20260703-001-j
+  contradicts:
+  - claim-20260626-001-a
   supplements: []
   last_discovered: 2026-07-07
   links:
@@ -29,10 +32,11 @@ claims:
   - 指数
   - 震荡市
   - 调整段
+  school: qing
 - id: claim-20260707-002-a-dup1
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -45,8 +49,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260531-002-a"]
-  contradicts: ["claim-20260703-001-a", "claim-20260706-002-k"]
+  supersedes:
+  - claim-20260531-002-a
+  contradicts:
+  - claim-20260703-001-a
+  - claim-20260706-002-k
   supplements: []
   last_discovered: 2026-07-07
   links:
@@ -59,10 +66,11 @@ claims:
   - 科技方向
   - 高位震荡
   - 人气低迷
+  school: qing
 - id: claim-20260707-003-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -75,8 +83,10 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260528-002-e"]
-  contradicts: ["claim-20260630-001-a"]
+  supersedes:
+  - claim-20260528-002-e
+  contradicts:
+  - claim-20260630-001-a
   supplements: []
   last_discovered: 2026-07-07
   links:
@@ -89,10 +99,11 @@ claims:
   - 情绪周期
   - 调整时间
   - 人气恢复
+  school: qing
 - id: claim-20260707-004-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -105,8 +116,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-001-a"]
-  contradicts: ["claim-20260702-002-a"]
+  supersedes:
+  - claim-20260705-001-a
+  contradicts:
+  - claim-20260702-002-a
   supplements: []
   last_discovered: 2026-07-07
   links:
@@ -120,10 +133,11 @@ claims:
   - 纳指
   - 芯片股
   - 存储反弹
+  school: qing
 - id: claim-20260707-005-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -137,8 +151,11 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260629-004-ax"]
-  supplements: ["claim-20260623-001-j", "claim-20260518-008"]
+  contradicts:
+  - claim-20260629-004-ax
+  supplements:
+  - claim-20260623-001-j
+  - claim-20260518-008
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -150,10 +167,11 @@ claims:
   - SEAJ
   - 半导体设备
   - 日本
+  school: qing
 - id: claim-20260707-006-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -168,7 +186,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-042-s", "claim-20260625-001-i"]
+  supplements:
+  - claim-20260617-042-s
+  - claim-20260625-001-i
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -182,10 +202,11 @@ claims:
   - 存储
   - 业绩
   - 纳斯达克
+  school: qing
 - id: claim-20260707-007-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -198,9 +219,11 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["qing-2026-06-08-macro-us-equity-opening-critical-001"]
+  supersedes:
+  - qing-2026-06-08-macro-us-equity-opening-critical-001
   contradicts: []
-  supplements: ["claim-20260625-001-d"]
+  supplements:
+  - claim-20260625-001-d
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -212,10 +235,11 @@ claims:
   - 美股存储
   - 止跌
   - 科技反弹
+  school: qing
 - id: claim-20260707-008-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -228,9 +252,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260601-002-b"]
+  supersedes:
+  - claim-20260601-002-b
   contradicts: []
-  supplements: ["claim-20260612-003-b", "qing-2026-06-08-macro-us-equity-opening-critical-001"]
+  supplements:
+  - claim-20260612-003-b
+  - qing-2026-06-08-macro-us-equity-opening-critical-001
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -242,10 +269,11 @@ claims:
   - 一日游
   - 缩量震荡
   - 防御
+  school: qing
 - id: claim-20260707-009-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -260,7 +288,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260703-001-f", "claim-20260702-002-b", "claim-20260526-014"]
+  supplements:
+  - claim-20260703-001-f
+  - claim-20260702-002-b
+  - claim-20260526-014
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -272,10 +303,11 @@ claims:
   - 开盘
   - 高开
   - 承接
+  school: qing
 - id: claim-20260707-010-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -289,8 +321,11 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260601-003-a"]
-  supplements: ["claim-20260706-002-a", "claim-20260629-001-f"]
+  contradicts:
+  - claim-20260601-003-a
+  supplements:
+  - claim-20260706-002-a
+  - claim-20260629-001-f
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -302,10 +337,11 @@ claims:
   - 量能
   - 振幅
   - 缩量
+  school: qing
 - id: claim-20260707-011-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -318,7 +354,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260703-001-d", "claim-20260626-003-h", "claim-20260626-001-l"]
+  supersedes:
+  - claim-20260703-001-d
+  - claim-20260626-003-h
+  - claim-20260626-001-l
   contradicts: []
   supplements: []
   last_discovered: 2026-07-07
@@ -332,10 +371,11 @@ claims:
   - 连板晋级率
   - 跌停家数
   - 情绪冰点
+  school: qing
 - id: claim-20260707-012-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -348,8 +388,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260611-001-n"]
-  contradicts: ["claim-20260703-001-d"]
+  supersedes:
+  - claim-20260611-001-n
+  contradicts:
+  - claim-20260703-001-d
   supplements: []
   last_discovered: 2026-07-07
   links:
@@ -365,10 +407,11 @@ claims:
   - 高位股
   - 聚石化学
   - 情绪极端
+  school: qing
 - id: claim-20260707-013-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -381,9 +424,12 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260630-001-a", "claim-20260630-003-d"]
+  supersedes:
+  - claim-20260630-001-a
+  - claim-20260630-003-d
   contradicts: []
-  supplements: ["claim-20260528-002-a"]
+  supplements:
+  - claim-20260528-002-a
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -395,10 +441,11 @@ claims:
   - 共振修复
   - 情绪
   - 指数
+  school: qing
 - id: claim-20260707-014-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -412,8 +459,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260617-034-m"]
-  supplements: ["claim-20260426-004"]
+  contradicts:
+  - claim-20260617-034-m
+  supplements:
+  - claim-20260426-004
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -424,7 +473,7 @@ claims:
   - code: '301165'
     name: 锐捷网络
     role: 交换机龙头-创业板可交易
-  - code: '002396'
+  - code: 002396
     name: 星网锐捷
     role: 交换机-主板可交易
   - code: '301191'
@@ -437,10 +486,11 @@ claims:
   - 交换机
   - 业绩确定性
   - 中报预增
+  school: qing
 - id: claim-20260707-015-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -455,7 +505,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-n"]
+  supplements:
+  - claim-20260625-003-n
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -466,7 +517,7 @@ claims:
   - code: '301165'
     name: 锐捷网络
     role: 交换机龙头-创业板可交易
-  - code: '002396'
+  - code: 002396
     name: 星网锐捷
     role: 交换机-主板可交易
   - code: '301191'
@@ -476,10 +527,11 @@ claims:
   - 数据中心交换机
   - 400G
   - 800G
+  school: qing
 - id: claim-20260707-016-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -492,9 +544,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260706-031"]
+  supersedes:
+  - claim-20260706-031
   contradicts: []
-  supplements: ["claim-20260703-001-h"]
+  supplements:
+  - claim-20260703-001-h
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -509,10 +563,11 @@ claims:
   - 锐捷网络
   - 交换机
   - 业绩预增
+  school: qing
 - id: claim-20260707-017-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -527,7 +582,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-f", "claim-20260629-004-t", "claim-20260617-033-m"]
+  supplements:
+  - claim-20260625-003-f
+  - claim-20260629-004-t
+  - claim-20260617-033-m
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -542,10 +600,11 @@ claims:
   - 存储
   - 估值逻辑
   - AI需求
+  school: qing
 - id: claim-20260707-018-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -571,10 +630,11 @@ claims:
   tags:
   - 三星
   - DRAM涨价
+  school: qing
 - id: claim-20260707-019-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -589,7 +649,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-036", "claim-20260706-020"]
+  supplements:
+  - claim-20260706-036
+  - claim-20260706-020
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -604,10 +666,11 @@ claims:
   - 江波龙
   - 存储
   - 业绩预增
+  school: qing
 - id: claim-20260707-020-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -622,7 +685,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260630-003-ai", "claim-20260624-006-j", "claim-20260406-004"]
+  supplements:
+  - claim-20260630-003-ai
+  - claim-20260624-006-j
+  - claim-20260406-004
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -641,10 +707,11 @@ claims:
   - 设备
   - 零部件
   - 定价权
+  school: qing
 - id: claim-20260707-021-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -659,7 +726,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-016", "claim-20260526-013", "claim-20260605-001-f"]
+  supplements:
+  - claim-20260706-016
+  - claim-20260526-013
+  - claim-20260605-001-f
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -671,10 +741,11 @@ claims:
   - 液冷
   - 华为链
   - 发布会预期
+  school: qing
 - id: claim-20260707-022-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -689,7 +760,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260626-001-x"]
+  supplements:
+  - claim-20260626-001-x
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -708,10 +780,11 @@ claims:
   - HVDC
   - 英伟达
   - AI机房
+  school: qing
 - id: claim-20260707-023-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -726,7 +799,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-h"]
+  supplements:
+  - claim-20260625-003-h
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -741,10 +815,11 @@ claims:
   - 法拉电子
   - 薄膜电容
   - AIDC
+  school: qing
 - id: claim-20260707-024-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -759,7 +834,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260602-002-e", "claim-20260526-036"]
+  supplements:
+  - claim-20260602-002-e
+  - claim-20260526-036
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -774,10 +851,11 @@ claims:
   - 中恒电气
   - HVDC
   - 智算中心
+  school: qing
 - id: claim-20260707-025-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -790,9 +868,12 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260609-005-d"]
+  supersedes:
+  - claim-20260609-005-d
   contradicts: []
-  supplements: ["claim-20260526-032", "claim-20260702-005-e"]
+  supplements:
+  - claim-20260526-032
+  - claim-20260702-005-e
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -804,10 +885,11 @@ claims:
   - 光通信
   - 国产算力
   - 北美AI需求
+  school: qing
 - id: claim-20260707-026-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -837,10 +919,11 @@ claims:
   - 中际旭创
   - 光模块
   - 业绩
+  school: qing
 - id: claim-20260707-027-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -855,7 +938,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-031"]
+  supplements:
+  - claim-20260526-031
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -870,10 +954,11 @@ claims:
   - 长光华芯
   - 光芯片
   - 国产替代
+  school: qing
 - id: claim-20260707-028-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -888,7 +973,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-017", "claim-20260609-003-c"]
+  supplements:
+  - claim-20260526-017
+  - claim-20260609-003-c
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -903,10 +990,11 @@ claims:
   - 长飞光纤
   - 光纤光缆
   - 护城河
+  school: qing
 - id: claim-20260707-029-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -921,7 +1009,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260630-003-ae", "claim-20260706-002-i", "claim-20260630-003-ag"]
+  supplements:
+  - claim-20260630-003-ae
+  - claim-20260706-002-i
+  - claim-20260630-003-ag
   last_discovered: 2026-07-07
   links:
     wiki_pages: []
@@ -936,10 +1027,11 @@ claims:
   - 华丰科技
   - 高速连接器
   - 华为系
+  school: qing
 - id: claim-20260707-030-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -954,7 +1046,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260707-029-a", "claim-20260625-003-k"]
+  supplements:
+  - claim-20260707-029-a
+  - claim-20260625-003-k
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -969,10 +1063,11 @@ claims:
   - 胜蓝股份
   - 高速连接器
   - 阿里系
+  school: qing
 - id: claim-20260707-031-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -987,7 +1082,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-004-b"]
+  supplements:
+  - claim-20260604-004-b
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1001,17 +1097,18 @@ claims:
   - code: '688017'
     name: 绿的谐波
     role: 谐波减速器-科创板可交易
-  - code: '002965'
+  - code: 002965
     name: 祥鑫科技
     role: 汽车结构件-主板可交易
   tags:
   - 非科技方向
   - 重个股轻板块
   - 资金深度介入
+  school: qing
 - id: claim-20260707-032-a
   source_path: sources/original/bilibili/2026-07-07-0850-图片-指数：整体仍是震荡市，从趋势角度看，当前处于震荡市中的调整段.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-07'
   source_type: 动态
   extracted_at: '2026-07-07T09:12:43+08:00'
@@ -1024,9 +1121,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260703-001-j", "claim-20260706-026"]
+  supersedes:
+  - claim-20260703-001-j
+  - claim-20260706-026
   contradicts: []
-  supplements: ["claim-20260612-007-g"]
+  supplements:
+  - claim-20260612-007-g
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1038,3 +1138,4 @@ claims:
   - 操作纪律
   - 持股
   - 共振加仓
+  school: qing

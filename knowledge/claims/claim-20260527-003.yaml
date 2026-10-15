@@ -2,8 +2,8 @@ claims:
 - id: claim-20260527-003-a
   topic: SST/功率器件
   source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: dynamic
   extracted_at: 2026-05-27
@@ -19,7 +19,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260523-005", "claim-20260527-003-f"]
+  supplements:
+  - claim-20260523-005
+  - claim-20260527-003-f
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -31,11 +33,12 @@ claims:
   tags:
   - SST/功率器件
   - 板块主题
+  school: qing
 - id: claim-20260527-003-b
   topic: 英伟达平台电源
   source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: dynamic
   extracted_at: 2026-05-27
@@ -43,8 +46,7 @@ claims:
   subject: 英伟达平台电源
   timeframe: trend
   statement: 英伟达平台电源价值量大幅提升，Vera Rubin CPX版较GB200增长超10倍
-  evidence_quote: '"GB200 NVL72机架电源价值为36,000美元（120kW），GB300提升至57,600美元（140kW）， 而Vera
-    Rubin平台标准版为76,000美元（200kW+），若采用HVDC独立电源机架方案， Vera Rubin CPX版本更飙升至398,160美元（380kW+），较GB200增长超10倍。"
+  evidence_quote: '"GB200 NVL72机架电源价值为36,000美元（120kW），GB300提升至57,600美元（140kW）， 而Vera Rubin平台标准版为76,000美元（200kW+），若采用HVDC独立电源机架方案， Vera Rubin CPX版本更飙升至398,160美元（380kW+），较GB200增长超10倍。"
 
     '
   interpretation: 配电环节是AI算力扩容中价值量提升最显著的环节之一
@@ -52,7 +54,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260528-001-d", "claim-20260526-037"]
+  supplements:
+  - claim-20260528-001-d
+  - claim-20260526-037
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -64,11 +68,12 @@ claims:
   tags:
   - 英伟达平台电源
   - 板块主题
+  school: qing
 - id: claim-20260527-003-c
   topic: 功率器件技术趋势
   source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: dynamic
   extracted_at: 2026-05-27
@@ -84,7 +89,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-003-a"]
+  supplements:
+  - claim-20260527-003-a
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -99,11 +105,12 @@ claims:
   tags:
   - 功率器件技术趋势
   - 板块主题
+  school: qing
 - id: claim-20260527-003-d
   topic: 功率器件/电源核心标的
   source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: dynamic
   extracted_at: 2026-05-27
@@ -119,7 +126,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-003-i", "claim-20260528-001-c"]
+  supplements:
+  - claim-20260521-003-i
+  - claim-20260528-001-c
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -137,23 +146,24 @@ claims:
   - 功率器件/电
   - 个股观点
   related_stocks:
-  - code: "002922"
-    name: "伊戈尔"
-    role: "回填-正文提及"
-  - code: "300373"
-    name: "扬杰科技"
-    role: "回填-正文提及"
-  - code: "002484"
-    name: "江海股份"
-    role: "回填-正文提及"
-  - code: "688676"
-    name: "金盘科技"
-    role: "回填-正文提及"
+  - code: 002922
+    name: 伊戈尔
+    role: 回填-正文提及
+  - code: '300373'
+    name: 扬杰科技
+    role: 回填-正文提及
+  - code: 002484
+    name: 江海股份
+    role: 回填-正文提及
+  - code: '688676'
+    name: 金盘科技
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260527-003-e
   topic: 功率器件涨价逻辑
   source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: dynamic
   extracted_at: 2026-05-27
@@ -161,8 +171,7 @@ claims:
   subject: 功率器件涨价逻辑
   timeframe: trend
   statement: 功率器件逻辑类似MLCC，由电源拉动涨价，但MLCC逻辑更强
-  evidence_quote: '"功率器件的逻辑有点类似于MLCC，功率器件是电源拉动涨价， MLCC是服务器内部需求拉动涨价，但是服务器对MLCC的需求体量更大，
-    因此MLCC的逻辑更强。"
+  evidence_quote: '"功率器件的逻辑有点类似于MLCC，功率器件是电源拉动涨价， MLCC是服务器内部需求拉动涨价，但是服务器对MLCC的需求体量更大， 因此MLCC的逻辑更强。"
 
     '
   interpretation: 功率器件涨价逻辑成立，但强度次于MLCC（因需求体量差异）
@@ -170,7 +179,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260528-001-d", "claim-20260527-003-a"]
+  supplements:
+  - claim-20260528-001-d
+  - claim-20260527-003-a
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -182,11 +193,12 @@ claims:
   tags:
   - 功率器件涨价逻辑
   - 板块主题
+  school: qing
 - id: claim-20260527-003-f
   topic: 电源/SST/功率器件
   source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: dynamic
   extracted_at: 2026-05-27
@@ -202,7 +214,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-003-a", "claim-20260527-003-e", "claim-20260523-005"]
+  supplements:
+  - claim-20260527-003-a
+  - claim-20260527-003-e
+  - claim-20260523-005
   last_discovered: 2026-06-24
   links:
     related_claims:
@@ -214,11 +229,12 @@ claims:
   - 电源/SST
   - 操作策略
   - 回调
+  school: qing
 - id: claim-20260527-003-g
   topic: GaN/SiC标的
   source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: dynamic
   extracted_at: 2026-05-27
@@ -251,17 +267,18 @@ claims:
   - 个股观点
   - 港股
   related_stocks:
-  - code: "300373"
-    name: "扬杰科技"
-    role: "回填-正文提及"
-  - code: "605111"
-    name: "新洁能"
-    role: "回填-正文提及"
+  - code: '300373'
+    name: 扬杰科技
+    role: 回填-正文提及
+  - code: '605111'
+    name: 新洁能
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260527-003-h
   topic: 电容及材料
   source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: dynamic
   extracted_at: 2026-05-27
@@ -277,7 +294,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260528-001-c", "claim-20260521-003-i"]
+  supplements:
+  - claim-20260528-001-c
+  - claim-20260521-003-i
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -292,20 +311,21 @@ claims:
   - 电容及材料
   - 个股观点
   related_stocks:
-  - code: "000962"
-    name: "东方钽业"
-    role: "回填-正文提及"
-  - code: "600673"
-    name: "东阳光"
-    role: "回填-正文提及"
-  - code: "002484"
-    name: "江海股份"
-    role: "回填-正文提及"
+  - code: 000962
+    name: 东方钽业
+    role: 回填-正文提及
+  - code: '600673'
+    name: 东阳光
+    role: 回填-正文提及
+  - code: 002484
+    name: 江海股份
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260527-003-i
   topic: 二次电源核心标的是新雷能
   source_path: sources/raw/财经/动态：26-05-27：11点08分补充-电源SST功率器件产业链梳理.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: dynamic
   extracted_at: 2026-05-27
@@ -321,7 +341,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-003-d", "claim-20260521-003-f"]
+  supplements:
+  - claim-20260527-003-d
+  - claim-20260521-003-f
   last_discovered: 2026-06-24
   links:
     related_claims: []
@@ -334,6 +356,7 @@ claims:
   - 个股观点
   - 二次电源
   related_stocks:
-  - code: "300593"
-    name: "新雷能"
-    role: "回填-正文提及"
+  - code: '300593'
+    name: 新雷能
+    role: 回填-正文提及
+  school: qing

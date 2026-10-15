@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260623-001-a
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -15,7 +15,9 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260617-001-c", "claim-20260614-001-a"]
+  supersedes:
+  - claim-20260617-001-c
+  - claim-20260614-001-a
   contradicts: []
   last_discovered: 2026-06-23
   links:
@@ -24,19 +26,20 @@ claims:
     cases: []
   topic: 指数上升趋势但量能3.74万亿至历史第二高位，警惕停牌核查和保证金政策等场外变量
   related_stocks:
-  - code: "300394"
-    name: "天孚通信"
-    role: "回填-正文提及"
+  - code: '300394'
+    name: 天孚通信
+    role: 回填-正文提及
   tags:
   - 量能
   - 历史天量
   - 停牌核查
   - 保证金
   - 场外变量
+  school: qing
 - id: claim-20260623-001-b
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -51,7 +54,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260518-023"]
+  supplements:
+  - claim-20260518-023
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -65,10 +69,11 @@ claims:
   - 港股券商
   - 风险提示
   - 高位拥挤
+  school: qing
 - id: claim-20260623-001-c
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -81,7 +86,8 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260610-006-c"]
+  supersedes:
+  - claim-20260610-006-c
   contradicts: []
   last_discovered: 2026-06-23
   links:
@@ -99,10 +105,11 @@ claims:
   - 炸板率
   - 情绪指标
   - 旭光电子
+  school: qing
 - id: claim-20260623-001-d
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -115,7 +122,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260612-009-i"]
+  supersedes:
+  - claim-20260612-009-i
   contradicts: []
   last_discovered: 2026-06-23
   links:
@@ -127,7 +135,7 @@ claims:
   - code: '600172'
     name: 黄河旋风
     role: 培育钻石龙头-主板可交易
-  - code: '002428'
+  - code: 002428
     name: 云南锗业
     role: 磷化铟上游材料-主板可交易
   - code: '600397'
@@ -151,10 +159,11 @@ claims:
   - 磷化铟
   - 钨
   - 氧化锆
+  school: qing
 - id: claim-20260623-001-e
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -167,7 +176,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260611-005-a"]
+  supersedes:
+  - claim-20260611-005-a
   contradicts: []
   last_discovered: 2026-06-23
   links:
@@ -182,10 +192,11 @@ claims:
   - 周期判断
   - 聚焦龙头
   - 新催化
+  school: qing
 - id: claim-20260623-001-f
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -214,10 +225,11 @@ claims:
   - 调整
   - 资金回流
   - 辅助验证
+  school: qing
 - id: claim-20260623-001-g
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -230,8 +242,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260612-012-l"]
-  contradicts: ["claim-20260612-002-e"]
+  supersedes:
+  - claim-20260612-012-l
+  contradicts:
+  - claim-20260612-002-e
   last_discovered: 2026-06-23
   links:
     wiki_pages: []
@@ -245,10 +259,11 @@ claims:
   - 煤炭
   - 防御
   - 资金承接
+  school: qing
 - id: claim-20260623-001-h
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -263,7 +278,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-c"]
+  supplements:
+  - claim-20260609-005-c
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -283,10 +299,11 @@ claims:
   - 散热材料
   - 涨价
   - 供需缺口
+  school: qing
 - id: claim-20260623-001-i
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -294,15 +311,15 @@ claims:
   subject: 液冷英伟达Rubin全面液冷产业链共振英维克金富科技
   timeframe: trend
   statement: 英伟达官方博客详解即将量产的Rubin平台采用全面液冷技术，Rubin为全球首个100%液冷AI计算平台。天风证券认为Vera Rubin标志着数据中心正式进入100%全液冷工业化成熟期。产业链标的：英维克(002837)（液冷全链条产品列入英伟达MGX生态）、金富科技(003018)（收购进入液冷头部厂商供应体系）等。
-  evidence_quote: 当地时间6月21日，英伟达官方博客详解即将量产的Rubin平台所采用的全面液冷技术，称其为数据中心历史上最重要的能效突破之一，Rubin为全球首个100%液冷的AI计算平台。天风证券电新团队观点：Vera
-    Rubin发布标志数据中心进入100%全液冷工业化成熟期。产业链提及英维克(002837)（液冷全链条产品与解决方案列入英伟达MGX生态合作伙伴）、金富科技(003018)等。
+  evidence_quote: 当地时间6月21日，英伟达官方博客详解即将量产的Rubin平台所采用的全面液冷技术，称其为数据中心历史上最重要的能效突破之一，Rubin为全球首个100%液冷的AI计算平台。天风证券电新团队观点：Vera Rubin发布标志数据中心进入100%全液冷工业化成熟期。产业链提及英维克(002837)（液冷全链条产品与解决方案列入英伟达MGX生态合作伙伴）、金富科技(003018)等。
   interpretation: 英伟达官方背书液冷方向，Rubin平台100%液冷标志产业进入全面液冷时代，后续液冷渗透率将加速提升。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-005-g"]
+  supplements:
+  - claim-20260623-005-g
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -310,10 +327,10 @@ claims:
     cases: []
   topic: 英伟达Rubin 100%液冷标志液冷产业进入全面渗透阶段产业链共振
   related_stocks:
-  - code: '002837'
+  - code: 002837
     name: 英维克
     role: 液冷全链条龙头英伟达MGX生态-主板可交易
-  - code: '003018'
+  - code: 003018
     name: 金富科技
     role: 液冷收购进入头部供应体系-主板可交易
   tags:
@@ -322,10 +339,11 @@ claims:
   - Rubin
   - 英维克
   - 全液冷
+  school: qing
 - id: claim-20260623-001-j
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -340,7 +358,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-p", "claim-20260518-008"]
+  supplements:
+  - claim-20260622-003-p
+  - claim-20260518-008
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -363,10 +383,11 @@ claims:
   - 中报高增
   - SEMI
   - 国产替代
+  school: qing
 - id: claim-20260623-001-k
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -381,7 +402,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-q"]
+  supplements:
+  - claim-20260622-003-q
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -392,10 +414,10 @@ claims:
   - code: '603629'
     name: 利通电子
     role: 算力租赁龙头国内经手最多-主板可交易
-  - code: '002990'
+  - code: 002990
     name: 盛视科技
     role: 算力租赁年底冲击1000台-主板可交易
-  - code: '001339'
+  - code: 001339
     name: 智微智能
     role: 算力租赁进军-主板可交易
   - code: '300857'
@@ -410,10 +432,11 @@ claims:
   - 盛视科技
   - 服务器入关
   - 渠道回暖
+  school: qing
 - id: claim-20260623-001-l
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -428,7 +451,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-017-a"]
+  supplements:
+  - claim-20260610-017-a
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -436,7 +460,7 @@ claims:
     cases: []
   topic: Getty数据资产重估和日本酸素涨价两个独立涨价线索属扩散方向
   related_stocks:
-  - code: '000681'
+  - code: 000681
     name: 视觉中国
     role: 数据IP资产-主板可交易
   - code: '300540'
@@ -451,10 +475,11 @@ claims:
   - 日本酸素
   - 涨价
   - 视觉中国
+  school: qing
 - id: claim-20260623-001-m
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -469,7 +494,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-012-s", "claim-20260604-006-a"]
+  supplements:
+  - claim-20260616-012-s
+  - claim-20260604-006-a
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -483,10 +510,11 @@ claims:
   - 有色金属
   - 锂电池
   - PCB
+  school: qing
 - id: claim-20260623-001-n
   source_path: sources/raw/财经/2026-06-23-早盘0900-一句话定调-指数上升趋势-量能逼近历史天量-算力材料主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 动态
   extracted_at: '2026-06-23T09:42:00+08:00'
@@ -499,8 +527,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260622-001-h", "claim-20260525-005"]
-  contradicts: ["claim-20260604-004-a"]
+  supersedes:
+  - claim-20260622-001-h
+  - claim-20260525-005
+  contradicts:
+  - claim-20260604-004-a
   last_discovered: 2026-06-23
   links:
     wiki_pages: []
@@ -514,3 +545,4 @@ claims:
   - 算力材料
   - 晋级率
   - 防御切换
+  school: qing

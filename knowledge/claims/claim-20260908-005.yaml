@@ -17,8 +17,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260824-002-i"]
-  supplements: ["claim-20260809-016"]
+  disagrees_with:
+  - claim-20260824-002-i
+  supplements:
+  - claim-20260809-016
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -37,6 +39,7 @@ claims:
   - 企稳窗口
   - 集中补跌
   - 高辨识度标的
+  school: watchlist
 - id: claim-20260908-005-2
   source_path: sources/original/bilibili/2026-09-08-0820-视频-医药、AI应用、科技。摩尔解禁20cm跌停，高位科技警惕筹码.md
   source_date: '2026-09-08'
@@ -69,6 +72,7 @@ claims:
   - 补涨
   - 情绪周期
   - 交易方法论
+  school: watchlist
 - id: claim-20260908-005-3
   source_path: sources/original/bilibili/2026-09-08-0820-视频-医药、AI应用、科技。摩尔解禁20cm跌停，高位科技警惕筹码.md
   source_date: '2026-09-08'
@@ -85,9 +89,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260903-001-a"]
-  contradicts: ["claim-20260908-001-a"]
-  supplements: ["claim-20260909-001-a"]
+  supersedes:
+  - claim-20260903-001-a
+  contradicts:
+  - claim-20260908-001-a
+  supplements:
+  - claim-20260909-001-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -106,6 +113,7 @@ claims:
   - 高抛低吸
   - 分批建仓
   - 医药投机
+  school: watchlist
 - id: claim-20260908-005-4
   source_path: sources/original/bilibili/2026-09-08-0820-视频-医药、AI应用、科技。摩尔解禁20cm跌停，高位科技警惕筹码.md
   source_date: '2026-09-08'
@@ -140,6 +148,7 @@ claims:
   - 龙版传媒
   - 涨停
   - 题材龙头
+  school: watchlist
 - id: claim-20260908-005-5
   source_path: sources/original/bilibili/2026-09-08-0820-视频-医药、AI应用、科技。摩尔解禁20cm跌停，高位科技警惕筹码.md
   source_date: '2026-09-08'
@@ -177,6 +186,7 @@ claims:
   - 芒果超媒
   - 分批减仓
   - AI应用
+  school: watchlist
 - id: claim-20260908-005-6
   source_path: sources/original/bilibili/2026-09-08-0820-视频-医药、AI应用、科技。摩尔解禁20cm跌停，高位科技警惕筹码.md
   source_date: '2026-09-08'
@@ -195,8 +205,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260806-024"]
-  supplements: ["claim-20260907-041-h"]
+  disagrees_with:
+  - claim-20260806-024
+  supplements:
+  - claim-20260907-041-h
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -209,6 +221,7 @@ claims:
   - 资金回流
   - 美债收益率
   - 外围压力
+  school: watchlist
 - id: claim-20260908-005-7
   source_path: sources/original/bilibili/2026-09-08-0820-视频-医药、AI应用、科技。摩尔解禁20cm跌停，高位科技警惕筹码.md
   source_date: '2026-09-08'
@@ -227,7 +240,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-c"]
+  supplements:
+  - claim-20260625-003-c
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -240,6 +254,7 @@ claims:
   - 成交量
   - 内部切换
   - 科技板块
+  school: watchlist
 - id: claim-20260908-005-8
   source_path: sources/original/bilibili/2026-09-08-0820-视频-医药、AI应用、科技。摩尔解禁20cm跌停，高位科技警惕筹码.md
   source_date: '2026-09-08'
@@ -258,7 +273,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260612-003-ad", "claim-20260709-004-o"]
+  supplements:
+  - claim-20260612-003-ad
+  - claim-20260709-004-o
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -271,6 +288,7 @@ claims:
   - 增量资金
   - 单日走强
   - 交易方法论
+  school: watchlist
 - id: claim-20260908-005-9
   source_path: sources/original/bilibili/2026-09-08-0820-视频-医药、AI应用、科技。摩尔解禁20cm跌停，高位科技警惕筹码.md
   source_date: '2026-09-08'
@@ -289,7 +307,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260902-001-i", "claim-20260526-011", "claim-20260811-046"]
+  supplements:
+  - claim-20260902-001-i
+  - claim-20260526-011
+  - claim-20260811-046
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -302,6 +323,7 @@ claims:
   - 风险偏好
   - 题材股
   - 大盘
+  school: watchlist
 - id: claim-20260908-005-10
   source_path: sources/original/bilibili/2026-09-08-0820-视频-医药、AI应用、科技。摩尔解禁20cm跌停，高位科技警惕筹码.md
   source_date: '2026-09-08'
@@ -320,8 +342,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260907-019-a"]
-  supplements: ["claim-20260907-018-a"]
+  disagrees_with:
+  - claim-20260907-019-a
+  supplements:
+  - claim-20260907-018-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -337,6 +361,7 @@ claims:
   - 解禁
   - 跌停
   - 筹码风险
+  school: watchlist
 - id: claim-20260908-005-11
   source_path: sources/original/bilibili/2026-09-08-0820-视频-医药、AI应用、科技。摩尔解禁20cm跌停，高位科技警惕筹码.md
   source_date: '2026-09-08'
@@ -355,7 +380,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260907-018-a"]
+  supplements:
+  - claim-20260907-018-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -371,6 +397,7 @@ claims:
   - 筹码松动
   - 获利兑现
   - 风险信号
+  school: watchlist
 - id: claim-20260908-005-12
   source_path: sources/original/bilibili/2026-09-08-0820-视频-医药、AI应用、科技。摩尔解禁20cm跌停，高位科技警惕筹码.md
   source_date: '2026-09-08'
@@ -389,7 +416,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260709-006-c", "claim-20260914-001-013"]
+  supplements:
+  - claim-20260709-006-c
+  - claim-20260914-001-013
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -402,6 +431,7 @@ claims:
   - 增量放量
   - 持续行情
   - 量能条件
+  school: watchlist
 - id: claim-20260908-005-13
   source_path: sources/original/bilibili/2026-09-08-0820-视频-医药、AI应用、科技。摩尔解禁20cm跌停，高位科技警惕筹码.md
   source_date: '2026-09-08'
@@ -434,3 +464,4 @@ claims:
   - 中药
   - 电网
   - 漫剧
+  school: watchlist

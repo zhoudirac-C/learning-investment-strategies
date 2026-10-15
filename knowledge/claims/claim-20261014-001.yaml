@@ -16,9 +16,11 @@ claims:
   status: active
   stance: market-regime
   intensity: high
-  supersedes: ["claim-20261012-001-a"]
+  supersedes:
+  - claim-20261012-001-a
   contradicts: []
-  supplements: ["claim-20260929-002-c"]
+  supplements:
+  - claim-20260929-002-c
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -31,6 +33,7 @@ claims:
   - 验证窗口
   - 强度验证
   topic: 反弹有改善但强度待验证，今明两天连续修复比单次深V重要
+  school: qing
 - id: claim-20261014-001-b
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -50,7 +53,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-r"]
+  supplements:
+  - claim-20260921-002-r
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -69,6 +73,7 @@ claims:
   - 弱势轮动
   - AI硬件
   topic: AI硬件先行个股是板块合力能否形成的观察锚
+  school: qing
 - id: claim-20261014-001-c
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -88,7 +93,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-i", "claim-20261008-001-j", "claim-20261013-001-e"]
+  supplements:
+  - claim-20260921-002-i
+  - claim-20261008-001-j
+  - claim-20261013-001-e
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -101,6 +109,7 @@ claims:
   - 次日承接
   - 时间层次
   topic: 持续性证据=收盘站稳+次日承接，非盘中冲高
+  school: qing
 - id: claim-20261014-001-d
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -120,7 +129,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-001-h", "claim-20260804-021", "claim-20261012-004-j"]
+  supplements:
+  - claim-20260921-001-h
+  - claim-20260804-021
+  - claim-20261012-004-j
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -133,6 +145,7 @@ claims:
   - 回踩抬高
   - 样本量意识
   topic: 接受时间换空间，历史对照不足推导本轮重复
+  school: qing
 - id: claim-20261014-001-e
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -152,7 +165,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-e", "claim-20260922-001-g", "claim-20260927-001-i"]
+  supplements:
+  - claim-20260921-002-e
+  - claim-20260922-001-g
+  - claim-20260927-001-i
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -165,6 +181,7 @@ claims:
   - 个股广度
   - 真实承接
   topic: 沪指颜色≠赚钱效应，权重托举不等于支撑有效
+  school: qing
 - id: claim-20261014-001-f
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -182,9 +199,12 @@ claims:
   status: active
   stance: market-regime
   intensity: medium
-  supersedes: ["claim-20261012-001-a"]
+  supersedes:
+  - claim-20261012-001-a
   contradicts: []
-  supplements: ["claim-20260803-005", "claim-20261008-001-i"]
+  supplements:
+  - claim-20260803-005
+  - claim-20261008-001-i
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -197,6 +217,7 @@ claims:
   - 跌停收敛
   - 晋级验证
   topic: 情绪修复需跌停低位+首板承接+新晋级三项并行
+  school: qing
 - id: claim-20261014-001-g
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -214,9 +235,12 @@ claims:
   status: active
   stance: view
   intensity: high
-  supersedes: ["claim-20261011-001-n", "claim-20261008-007-g"]
+  supersedes:
+  - claim-20261011-001-n
+  - claim-20261008-007-g
   contradicts: []
-  supplements: ["claim-20261012-001-k"]
+  supplements:
+  - claim-20261012-001-k
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -229,6 +253,7 @@ claims:
   - 强势方向
   - 小范围跟踪
   topic: 情形A：回踩检验过的强势方向小范围跟踪，确认再加仓
+  school: qing
 - id: claim-20261014-001-h
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -246,9 +271,12 @@ claims:
   status: active
   stance: view
   intensity: high
-  supersedes: ["claim-20261012-001-k", "claim-20260928-002-i"]
+  supersedes:
+  - claim-20261012-001-k
+  - claim-20260928-002-i
   contradicts: []
-  supplements: ["claim-20261008-007-h"]
+  supplements:
+  - claim-20261008-007-h
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -261,6 +289,7 @@ claims:
   - 止损纪律
   - 破位不加仓
   topic: 情形B：减少试错，破位不以跌很多为由加仓
+  school: qing
 - id: claim-20261014-001-i
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -280,7 +309,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-003-q", "claim-20260918-009-a"]
+  supplements:
+  - claim-20260921-003-q
+  - claim-20260918-009-a
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -293,6 +324,7 @@ claims:
   - 快速轮动
   - 退潮误判
   topic: 高标分歧非全面退潮，警惕新方向无延续只剩快速轮动
+  school: qing
 - id: claim-20261014-001-j
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -334,6 +366,7 @@ claims:
   - 补涨换手
   - 收益风险比
   topic: 涨价链完整信号=前排维持+后排有效换手
+  school: qing
 - id: claim-20261014-001-k
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -353,7 +386,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261013-001-j", "claim-20260909-030-a"]
+  supplements:
+  - claim-20261013-001-j
+  - claim-20260909-030-a
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -372,6 +407,7 @@ claims:
   - 扩散承接延续
   - 军工
   topic: 新题材检验：扩散+承接+延续三步才升优先级
+  school: qing
 - id: claim-20261014-001-l
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -391,7 +427,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261013-001-k", "claim-20261011-001-s", "claim-20260906-003-011"]
+  supplements:
+  - claim-20261013-001-k
+  - claim-20261011-001-s
+  - claim-20260906-003-011
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -404,6 +443,7 @@ claims:
   - 传导次序
   - 风险偏好
   topic: 硬件先稳是应用扩散的前提，次序错乱需警惕
+  school: qing
 - id: claim-20261014-001-m
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -423,7 +463,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-017", "claim-20260922-001-n"]
+  supplements:
+  - claim-20260914-001-017
+  - claim-20260922-001-n
   last_discovered: 2026-10-14
   links:
     wiki_pages: []
@@ -445,6 +487,7 @@ claims:
   - 业绩订单产能
   - 超跌反抽
   topic: 量能约束下硬件内部分化是基准，偏好有基本面解释的强势品种
+  school: qing
 - id: claim-20261014-001-n
   source_path: sources/original/bilibili/2026-10-14-0901-专栏-周二市场再次探底回升，沪指收红，创业板指与科创综指盘中一度跌.md
   source_date: '2026-10-14'
@@ -474,7 +517,7 @@ claims:
   - code: '301251'
     name: 威尔高
     role: 服务器电源PCB-创业板不可交易
-  - code: '002815'
+  - code: 002815
     name: 崇达技术
     role: 高多层高速PCB-主板
   tags:
@@ -483,3 +526,4 @@ claims:
   - 认证良率交付
   - 传导判断
   topic: 调价是观察起点，传导链决定最终受益者
+  school: qing

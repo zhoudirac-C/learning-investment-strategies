@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260708-002-a
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -15,9 +15,11 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260610-006-a"]
+  supersedes:
+  - claim-20260610-006-a
   contradicts: []
-  supplements: ["claim-20260607-001-c"]
+  supplements:
+  - claim-20260607-001-c
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -31,10 +33,11 @@ claims:
   - 标普500
   - 开盘
   - 定价
+  school: qing
 - id: claim-20260708-002-b
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -47,8 +50,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260702-002-a"]
-  contradicts: ["claim-20260707-004-a"]
+  supersedes:
+  - claim-20260702-002-a
+  contradicts:
+  - claim-20260707-004-a
   supplements: []
   last_discovered: 2026-07-08
   links:
@@ -63,10 +68,11 @@ claims:
   - 芯片
   - 大盘
   - 科技
+  school: qing
 - id: claim-20260708-002-c
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -79,9 +85,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260629-001-b", "claim-20260702-002-a"]
+  supersedes:
+  - claim-20260629-001-b
+  - claim-20260702-002-a
   contradicts: []
-  supplements: ["claim-20260608-001-d"]
+  supplements:
+  - claim-20260608-001-d
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -94,10 +103,11 @@ claims:
   - 半导体
   - 存储
   - sector-theme
+  school: qing
 - id: claim-20260708-002-d
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -112,7 +122,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-001-e", "claim-20260624-001-h", "claim-20260610-015-a"]
+  supplements:
+  - claim-20260702-001-e
+  - claim-20260624-001-h
+  - claim-20260610-015-a
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -126,10 +139,11 @@ claims:
   - 芯片
   - 大盘
   - 科技
+  school: qing
 - id: claim-20260708-002-e
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -143,7 +157,9 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260521-002-f", "claim-20260523-006"]
+  contradicts:
+  - claim-20260521-002-f
+  - claim-20260523-006
   supplements: []
   last_discovered: 2026-07-08
   links:
@@ -157,10 +173,11 @@ claims:
   - 半导体
   - AI
   - sector-theme
+  school: qing
 - id: claim-20260708-002-f
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -174,8 +191,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260626-001-o"]
-  supplements: ["claim-20260702-005-a"]
+  contradicts:
+  - claim-20260626-001-o
+  supplements:
+  - claim-20260702-005-a
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -189,10 +208,11 @@ claims:
   - 存储
   - 调整
   - sector-theme
+  school: qing
 - id: claim-20260708-002-g
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -206,7 +226,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260625-003-j", "claim-20260629-004-t", "claim-20260617-041-s"]
+  contradicts:
+  - claim-20260625-003-j
+  - claim-20260629-004-t
+  - claim-20260617-041-s
   supplements: []
   last_discovered: 2026-07-08
   links:
@@ -219,10 +242,11 @@ claims:
   - 存储价格
   - 存储
   - sector-theme
+  school: qing
 - id: claim-20260708-002-h
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -251,10 +275,11 @@ claims:
   - PCB
   - 新能源
   - 谷歌
+  school: qing
 - id: claim-20260708-002-i
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -269,7 +294,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-002-e", "claim-20260706-003-d", "claim-20260624-004-d"]
+  supplements:
+  - claim-20260702-002-e
+  - claim-20260706-003-d
+  - claim-20260624-004-d
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -282,10 +310,11 @@ claims:
   - AI
   - 情绪
   - sector-theme
+  school: qing
 - id: claim-20260708-002-j
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -298,9 +327,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260610-031-a"]
+  supersedes:
+  - claim-20260610-031-a
   contradicts: []
-  supplements: ["claim-20260621-006-f", "claim-20260607-003-f"]
+  supplements:
+  - claim-20260621-006-f
+  - claim-20260607-003-f
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -314,10 +346,11 @@ claims:
   - 中东
   - 伊朗
   - 霍尔木兹
+  school: qing
 - id: claim-20260708-002-k
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -346,10 +379,11 @@ claims:
   - 地缘
   - 中东
   - 风险
+  school: qing
 - id: claim-20260708-002-l
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -378,10 +412,11 @@ claims:
   - 韩国股市
   - 情绪
   - 开盘
+  school: qing
 - id: claim-20260708-002-m
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -395,7 +430,8 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260706-020"]
+  contradicts:
+  - claim-20260706-020
   supplements: []
   last_discovered: 2026-07-08
   links:
@@ -410,10 +446,11 @@ claims:
   - 业绩
   - 龙头
   - stock-view
+  school: qing
 - id: claim-20260708-002-n
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -428,7 +465,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-001-i"]
+  supplements:
+  - claim-20260625-001-i
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -442,10 +480,11 @@ claims:
   - 情绪
   - IPO
   - 上市
+  school: qing
 - id: claim-20260708-002-o
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -460,7 +499,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-041-s", "claim-20260624-001-d"]
+  supplements:
+  - claim-20260617-041-s
+  - claim-20260624-001-d
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -474,10 +515,11 @@ claims:
   - 情绪
   - 上市
   - stock-view
+  school: qing
 - id: claim-20260708-002-p
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -490,9 +532,12 @@ claims:
   confidence: medium
   status: superseded
   intensity: high
-  supersedes: ["claim-20260703-001-f", "claim-20260629-001-d"]
+  supersedes:
+  - claim-20260703-001-f
+  - claim-20260629-001-d
   contradicts: []
-  supplements: ["claim-20260707-009-a"]
+  supplements:
+  - claim-20260707-009-a
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -505,10 +550,11 @@ claims:
   - 开盘
   - 定价
   - methodology
+  school: qing
 - id: claim-20260708-002-q
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -521,8 +567,11 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260629-001-f"]
-  contradicts: ["claim-20260702-002-c", "claim-20260616-002-c"]
+  supersedes:
+  - claim-20260629-001-f
+  contradicts:
+  - claim-20260702-002-c
+  - claim-20260616-002-c
   supplements: []
   last_discovered: 2026-07-08
   links:
@@ -535,10 +584,11 @@ claims:
   - A股成交额
   - 成交额
   - technical-signal
+  school: qing
 - id: claim-20260708-002-r
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -551,8 +601,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260703-001-c"]
-  contradicts: ["claim-20260623-001-a"]
+  supersedes:
+  - claim-20260703-001-c
+  contradicts:
+  - claim-20260623-001-a
   supplements: []
   last_discovered: 2026-07-08
   links:
@@ -567,10 +619,11 @@ claims:
   - 量能
   - 沪指
   - 开盘
+  school: qing
 - id: claim-20260708-002-s
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -585,7 +638,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-001-a"]
+  supplements:
+  - claim-20260527-001-a
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -597,10 +651,11 @@ claims:
   - 筹码规模
   - 调整
   - market-cycle
+  school: qing
 - id: claim-20260708-002-t
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -614,7 +669,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260623-001-a"]
+  contradicts:
+  - claim-20260623-001-a
   supplements: []
   last_discovered: 2026-07-08
   links:
@@ -629,10 +685,11 @@ claims:
   - 底部
   - 风险
   - market-cycle
+  school: qing
 - id: claim-20260708-002-u
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -645,8 +702,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260518-019-b", "claim-20260518-019-c"]
-  contradicts: ["claim-20260521-002-b"]
+  supersedes:
+  - claim-20260518-019-b
+  - claim-20260518-019-c
+  contradicts:
+  - claim-20260521-002-b
   supplements: []
   last_discovered: 2026-07-08
   links:
@@ -659,10 +719,11 @@ claims:
   - 上证指数
   - 沪指
   - technical-signal
+  school: qing
 - id: claim-20260708-002-v
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -676,8 +737,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260604-004-a"]
-  supplements: ["claim-20260521-001-b"]
+  contradicts:
+  - claim-20260604-004-a
+  supplements:
+  - claim-20260521-001-b
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -699,10 +762,11 @@ claims:
   - CPO
   - 支撑
   - stock-view
+  school: qing
 - id: claim-20260708-002-w
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -715,7 +779,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260626-003-c", "claim-20260531-001-f", "claim-20260608-001-b"]
+  supersedes:
+  - claim-20260626-003-c
+  - claim-20260531-001-f
+  - claim-20260608-001-b
   contradicts: []
   supplements: []
   last_discovered: 2026-07-08
@@ -730,10 +797,11 @@ claims:
   - 沪指
   - 支撑
   - technical-signal
+  school: qing
 - id: claim-20260708-002-x
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -760,10 +828,11 @@ claims:
   - 120分钟底部结构
   - 底部
   - technical-signal
+  school: qing
 - id: claim-20260708-002-y
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -776,7 +845,9 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260706-002-a", "claim-20260707-011-a"]
+  supersedes:
+  - claim-20260706-002-a
+  - claim-20260707-011-a
   contradicts: []
   supplements: []
   last_discovered: 2026-07-08
@@ -790,10 +861,11 @@ claims:
   - 市场情绪
   - 情绪
   - market-cycle
+  school: qing
 - id: claim-20260708-002-z
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -807,7 +879,8 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260626-001-l"]
+  contradicts:
+  - claim-20260626-001-l
   supplements: []
   last_discovered: 2026-07-08
   links:
@@ -824,10 +897,11 @@ claims:
   - 情绪
   - 连板
   - stock-view
+  school: qing
 - id: claim-20260708-002-aa
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -840,9 +914,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260528-005-b"]
-  contradicts: ["claim-20260518-002"]
-  supplements: ["claim-20260528-004-j"]
+  supersedes:
+  - claim-20260528-005-b
+  contradicts:
+  - claim-20260518-002
+  supplements:
+  - claim-20260528-004-j
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -855,10 +932,11 @@ claims:
   - 情绪
   - 连板
   - market-cycle
+  school: qing
 - id: claim-20260708-002-ab
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -886,10 +964,11 @@ claims:
   - 首板
   - 反弹
   - methodology
+  school: qing
 - id: claim-20260708-002-ac
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -902,7 +981,9 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260630-001-a", "claim-20260707-003-a"]
+  supersedes:
+  - claim-20260630-001-a
+  - claim-20260707-003-a
   contradicts: []
   supplements: []
   last_discovered: 2026-07-08
@@ -917,10 +998,11 @@ claims:
   - 情绪
   - 调整
   - market-cycle
+  school: qing
 - id: claim-20260708-002-ad
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -933,9 +1015,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260615-004"]
-  contradicts: ["claim-20260612-002-b"]
-  supplements: ["claim-20260521-003-d"]
+  supersedes:
+  - claim-20260615-004
+  contradicts:
+  - claim-20260612-002-b
+  supplements:
+  - claim-20260521-003-d
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -949,10 +1034,11 @@ claims:
   - AI
   - CPO
   - 科技
+  school: qing
 - id: claim-20260708-002-ae
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -965,9 +1051,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260528-005-g"]
+  supersedes:
+  - claim-20260528-005-g
   contradicts: []
-  supplements: ["claim-20260526-025-d", "claim-20260526-028"]
+  supplements:
+  - claim-20260526-025-d
+  - claim-20260526-028
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -979,10 +1068,11 @@ claims:
   - 调整末端判断
   - 调整
   - methodology
+  school: qing
 - id: claim-20260708-002-af
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -995,7 +1085,9 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260611-001-c", "claim-20260609-003-a"]
+  supersedes:
+  - claim-20260611-001-c
+  - claim-20260609-003-a
   contradicts: []
   supplements: []
   last_discovered: 2026-07-08
@@ -1009,10 +1101,11 @@ claims:
   - 中阳线
   - 反弹
   - technical-signal
+  school: qing
 - id: claim-20260708-002-ag
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1025,9 +1118,11 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260630-001-l"]
+  supersedes:
+  - claim-20260630-001-l
   contradicts: []
-  supplements: ["claim-20260625-001-d"]
+  supplements:
+  - claim-20260625-001-d
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1041,10 +1136,11 @@ claims:
   - 科技
   - 反弹
   - 调整
+  school: qing
 - id: claim-20260708-002-ah
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1059,7 +1155,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-d", "claim-20260702-001-d"]
+  supplements:
+  - claim-20260609-005-d
+  - claim-20260702-001-d
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1067,7 +1165,7 @@ claims:
     cases: []
   topic: 浪潮信息业绩利好或成科技修复催化剂。
   related_stocks:
-  - code: '000977'
+  - code: 000977
     name: 浪潮信息
     role: 浪潮信息-主板可交易
   tags:
@@ -1076,10 +1174,11 @@ claims:
   - 国产AI
   - 业绩
   - stock-view
+  school: qing
 - id: claim-20260708-002-ai
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1092,9 +1191,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260629-001-i"]
+  supersedes:
+  - claim-20260629-001-i
   contradicts: []
-  supplements: ["claim-20260515-012", "claim-20260625-001-d"]
+  supplements:
+  - claim-20260515-012
+  - claim-20260625-001-d
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1108,10 +1210,11 @@ claims:
   - 科技
   - 反弹
   - operation
+  school: qing
 - id: claim-20260708-002-aj
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1124,9 +1227,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260629-001-j"]
+  supersedes:
+  - claim-20260629-001-j
   contradicts: []
-  supplements: ["claim-20260527-005-b", "claim-20260515-003"]
+  supplements:
+  - claim-20260527-005-b
+  - claim-20260515-003
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1138,10 +1244,11 @@ claims:
   - 弱反弹策略
   - 反弹
   - operation
+  school: qing
 - id: claim-20260708-002-ak
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1154,7 +1261,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260610-006-f"]
+  supersedes:
+  - claim-20260610-006-f
   contradicts: []
   supplements: []
   last_discovered: 2026-07-08
@@ -1170,10 +1278,11 @@ claims:
   - PCB
   - 新能源
   - 谷歌
+  school: qing
 - id: claim-20260708-002-al
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1186,8 +1295,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260630-001-j"]
-  contradicts: ["claim-20260526-011"]
+  supersedes:
+  - claim-20260630-001-j
+  contradicts:
+  - claim-20260526-011
   supplements: []
   last_discovered: 2026-07-08
   links:
@@ -1201,10 +1312,11 @@ claims:
   - 大盘
   - 科技
   - market-cycle
+  school: qing
 - id: claim-20260708-002-am
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1217,9 +1329,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260601-001-g", "claim-20260706-002-j"]
+  supersedes:
+  - claim-20260601-001-g
+  - claim-20260706-002-j
   contradicts: []
-  supplements: ["claim-20260604-004-i"]
+  supplements:
+  - claim-20260604-004-i
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1231,10 +1346,11 @@ claims:
   - 操作策略
   - operation
   - 市场
+  school: qing
 - id: claim-20260708-002-an
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1247,9 +1363,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260612-002-b", "claim-20260521-002-f"]
+  supersedes:
+  - claim-20260612-002-b
+  - claim-20260521-002-f
   contradicts: []
-  supplements: ["claim-20260702-003-c"]
+  supplements:
+  - claim-20260702-003-c
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1263,10 +1382,11 @@ claims:
   - AI
   - 国产链
   - 科技
+  school: qing
 - id: claim-20260708-002-ao
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1279,9 +1399,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260526-025-e"]
+  supersedes:
+  - claim-20260526-025-e
   contradicts: []
-  supplements: ["claim-20260521-002-f"]
+  supplements:
+  - claim-20260521-002-f
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1294,10 +1416,11 @@ claims:
   - 半导体
   - 国产链
   - sector-theme
+  school: qing
 - id: claim-20260708-002-ap
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1311,8 +1434,11 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260609-003-d", "claim-20260625-001-f"]
-  supplements: ["claim-20260521-002-d"]
+  contradicts:
+  - claim-20260609-003-d
+  - claim-20260625-001-f
+  supplements:
+  - claim-20260521-002-d
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1325,10 +1451,11 @@ claims:
   - 半导体
   - 反弹
   - sector-theme
+  school: qing
 - id: claim-20260708-002-aq
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1342,7 +1469,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260626-001-o"]
+  contradicts:
+  - claim-20260626-001-o
   supplements: []
   last_discovered: 2026-07-08
   links:
@@ -1356,10 +1484,11 @@ claims:
   - 存储
   - 科技
   - sector-theme
+  school: qing
 - id: claim-20260708-002-ar
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1374,7 +1503,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260629-001-ab", "claim-20260612-003-i"]
+  supplements:
+  - claim-20260629-001-ab
+  - claim-20260612-003-i
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1388,10 +1519,11 @@ claims:
   - AI
   - 情绪
   - 反弹
+  school: qing
 - id: claim-20260708-002-as
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1404,9 +1536,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-006-a", "claim-20260706-003-a"]
+  supersedes:
+  - claim-20260705-006-a
+  - claim-20260706-003-a
   contradicts: []
-  supplements: ["claim-20260629-004-a"]
+  supplements:
+  - claim-20260629-004-a
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1418,10 +1553,11 @@ claims:
   - 市场风格切换
   - market-cycle
   - 市场
+  school: qing
 - id: claim-20260708-002-at
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1436,7 +1572,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-001-f", "claim-20260706-018"]
+  supplements:
+  - claim-20260608-001-f
+  - claim-20260706-018
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1449,10 +1587,11 @@ claims:
   - 机器人
   - 反弹
   - sector-theme
+  school: qing
 - id: claim-20260708-002-au
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1481,10 +1620,11 @@ claims:
   - 医药
   - 固态电池
   - 低位轮动
+  school: qing
 - id: claim-20260708-002-av
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1497,9 +1637,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260611-001-p"]
+  supersedes:
+  - claim-20260611-001-p
   contradicts: []
-  supplements: ["claim-20260706-022", "claim-20260526-003"]
+  supplements:
+  - claim-20260706-022
+  - claim-20260526-003
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1513,10 +1656,11 @@ claims:
   - 算力
   - 华为
   - 韬定律
+  school: qing
 - id: claim-20260708-002-aw
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1531,7 +1675,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-022", "claim-20260705-010-a", "claim-20260526-030"]
+  supplements:
+  - claim-20260706-022
+  - claim-20260705-010-a
+  - claim-20260526-030
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1548,10 +1695,11 @@ claims:
   - 华为
   - 韬定律
   - sector-theme
+  school: qing
 - id: claim-20260708-002-ax
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1564,9 +1712,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260525-015"]
+  supersedes:
+  - claim-20260525-015
   contradicts: []
-  supplements: ["claim-20260706-022"]
+  supplements:
+  - claim-20260706-022
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1580,10 +1730,11 @@ claims:
   - 算力
   - 封装
   - 先进封装
+  school: qing
 - id: claim-20260708-002-ay
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1596,9 +1747,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260706-022", "claim-20260526-032"]
+  supersedes:
+  - claim-20260706-022
+  - claim-20260526-032
   contradicts: []
-  supplements: ["claim-20260706-003-c"]
+  supplements:
+  - claim-20260706-003-c
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1611,10 +1765,11 @@ claims:
   - 算力
   - 封装
   - sector-theme
+  school: qing
 - id: claim-20260708-002-az
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1629,7 +1784,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260529-003-f", "claim-20260621-001-o", "claim-20260706-031"]
+  supplements:
+  - claim-20260529-003-f
+  - claim-20260621-001-o
+  - claim-20260706-031
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1637,7 +1795,7 @@ claims:
     cases: []
   topic: 浪潮信息单季业绩大增。
   related_stocks:
-  - code: '000977'
+  - code: 000977
     name: 浪潮信息
     role: 浪潮信息-主板可交易
   tags:
@@ -1646,10 +1804,11 @@ claims:
   - 算力
   - 国产AI
   - 业绩
+  school: qing
 - id: claim-20260708-002-ba
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1662,9 +1821,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260702-005-e"]
+  supersedes:
+  - claim-20260702-005-e
   contradicts: []
-  supplements: ["claim-20260706-002-c", "claim-20260526-032"]
+  supplements:
+  - claim-20260706-002-c
+  - claim-20260526-032
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1672,7 +1834,7 @@ claims:
     cases: []
   topic: 国产超节点算力逻辑持续验证。
   related_stocks:
-  - code: '000977'
+  - code: 000977
     name: 浪潮信息
     role: 浪潮信息-主板可交易
   - code: '301165'
@@ -1683,10 +1845,11 @@ claims:
   - 算力
   - 业绩
   - sector-theme
+  school: qing
 - id: claim-20260708-002-bb
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1701,7 +1864,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-039"]
+  supplements:
+  - claim-20260706-039
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1709,7 +1873,7 @@ claims:
     cases: []
   topic: 华天科技为先进封装相关标的。
   related_stocks:
-  - code: '002185'
+  - code: 002185
     name: 华天科技
     role: 华天科技-主板可交易
   tags:
@@ -1718,10 +1882,11 @@ claims:
   - 先进封装
   - 科技
   - stock-view
+  school: qing
 - id: claim-20260708-002-bc
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1748,10 +1913,11 @@ claims:
   - 旅游强国规划
   - 旅游
   - catalyst
+  school: qing
 - id: claim-20260708-002-bd
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1766,7 +1932,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260530-001-j"]
+  supplements:
+  - claim-20260530-001-j
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1778,10 +1945,11 @@ claims:
   - 旅游规划目标
   - 旅游
   - sector-theme
+  school: qing
 - id: claim-20260708-002-be
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1809,10 +1977,11 @@ claims:
   - 旅游
   - 支撑
   - macro
+  school: qing
 - id: claim-20260708-002-bf
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1842,10 +2011,11 @@ claims:
   - 入境游市场增量
   - 旅游
   - sector-theme
+  school: qing
 - id: claim-20260708-002-bg
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1873,10 +2043,11 @@ claims:
   - 旅游
   - 反弹
   - sector-theme
+  school: qing
 - id: claim-20260708-002-bh
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1899,17 +2070,18 @@ claims:
     cases: []
   topic: 天府文旅冰雪影旅业务。
   related_stocks:
-  - code: '000558'
+  - code: 000558
     name: 天府文旅
     role: 天府文旅-主板可交易
   tags:
   - 天府文旅
   - 旅游
   - stock-view
+  school: qing
 - id: claim-20260708-002-bi
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1939,10 +2111,11 @@ claims:
   - 探路者
   - 旅游
   - stock-view
+  school: qing
 - id: claim-20260708-002-bj
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1957,7 +2130,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-007-e", "claim-20260604-004-h", "claim-20260705-036-a"]
+  supplements:
+  - claim-20260604-007-e
+  - claim-20260604-004-h
+  - claim-20260705-036-a
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -1974,10 +2150,11 @@ claims:
   - 创新药
   - GLP-1
   - catalyst
+  school: qing
 - id: claim-20260708-002-bk
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -1992,7 +2169,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-007-e"]
+  supplements:
+  - claim-20260604-007-e
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -2007,10 +2185,11 @@ claims:
   - 康恩贝
   - 创新药
   - catalyst
+  school: qing
 - id: claim-20260708-002-bl
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -2023,9 +2202,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260604-004-h"]
+  supersedes:
+  - claim-20260604-004-h
   contradicts: []
-  supplements: ["claim-20260604-007-e"]
+  supplements:
+  - claim-20260604-007-e
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -2042,10 +2223,11 @@ claims:
   - 创新药
   - 支撑
   - sector-theme
+  school: qing
 - id: claim-20260708-002-bm
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -2060,7 +2242,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-002-j"]
+  supplements:
+  - claim-20260521-002-j
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -2073,10 +2256,11 @@ claims:
   - 创新药
   - 业绩
   - sector-theme
+  school: qing
 - id: claim-20260708-002-bn
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -2091,7 +2275,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-007-e", "claim-20260604-004-h"]
+  supplements:
+  - claim-20260604-007-e
+  - claim-20260604-004-h
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -2107,10 +2293,11 @@ claims:
   - 医药
   - 创新药
   - stock-view
+  school: qing
 - id: claim-20260708-002-bo
   source_path: sources/original/bilibili/2026-07-08-0911-图片-一、隔夜与开盘预判 北京时间7月8日凌晨美股收跌：道指跌0..md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 早盘
   extracted_at: '2026-07-08T09:20:25+08:00'
@@ -2133,10 +2320,11 @@ claims:
     cases: []
   topic: 石药景峰中药创新药平台。
   related_stocks:
-  - code: '000908'
+  - code: 000908
     name: 石药景峰
     role: 石药景峰-主板可交易
   tags:
   - 石药景峰
   - 创新药
   - stock-view
+  school: qing

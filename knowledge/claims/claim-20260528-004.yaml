@@ -2,8 +2,8 @@ claims:
 - id: claim-20260528-004-a
   topic: 连续杀跌后V型修复的拐点定性
   source_path: sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 复盘
   extracted_at: 2026-05-28
@@ -30,11 +30,12 @@ claims:
   - 市场周期
   - 杀跌
   - 修复
+  school: qing
 - id: claim-20260528-004-b
   topic: 普涨式轮动的结构性问题
   source_path: sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 复盘
   extracted_at: 2026-05-28
@@ -48,7 +49,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260603-004-b", "claim-20260622-004-d", "claim-20260609-005-f"]
+  supplements:
+  - claim-20260603-004-b
+  - claim-20260622-004-d
+  - claim-20260609-005-f
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -61,11 +65,12 @@ claims:
   - 市场周期
   - 主线
   - 轮动
+  school: qing
 - id: claim-20260528-004-c
   topic: 拐点验证的两个关键条件
   source_path: sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 复盘
   extracted_at: 2026-05-28
@@ -74,13 +79,14 @@ claims:
   timeframe: short-term
   statement: 拐点验证需盯死两个条件：①分歧日全A不破位（破位即失效）；②聚焦度收敛出明确主线（否则只有宽度没有高度）
   evidence_quote: 接下来一两个交易日，盯死两件事，任何一件证伪都要降级处理：验证点1（指数强度底线）：明后天出现分歧时，全A指数必须相对强势、不能破位。一旦破位，行情大概率回归到5月22日那种杀跌场景里去。验证点2（聚焦度）：正常的情绪上升周期都会逐步收敛出一个明显的聚焦方向。如果持续只有轮动、出不来聚焦，那就意味着——有轮动上涨，没有高度空间。
-  interpretation: 拐点验证的框架：①第一道防线是指数结构，破位意味着拐点逻辑作废，回归杀跌剧本；②第二道防线是聚焦度，没有聚焦就没有高度空间，对短线结构不友好；③理想剧本：明天普涨
-    → 下周一分化 → 主线明确。下周一的分化日是检验聚焦度的关键窗口。
+  interpretation: 拐点验证的框架：①第一道防线是指数结构，破位意味着拐点逻辑作废，回归杀跌剧本；②第二道防线是聚焦度，没有聚焦就没有高度空间，对短线结构不友好；③理想剧本：明天普涨 → 下周一分化 → 主线明确。下周一的分化日是检验聚焦度的关键窗口。
   confidence: high
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260528-004-j", "claim-20260609-005-f"]
+  supplements:
+  - claim-20260528-004-j
+  - claim-20260609-005-f
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -93,11 +99,12 @@ claims:
   - 拐点验证的两
   - 方法论
   - 主线
+  school: qing
 - id: claim-20260528-004-d
   topic: 上游涨价链的进攻价值
   source_path: sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 复盘
   extracted_at: 2026-05-28
@@ -111,7 +118,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-q", "claim-20260622-003-f"]
+  supplements:
+  - claim-20260621-001-q
+  - claim-20260622-003-f
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -124,11 +133,12 @@ claims:
   - 进攻
   - 涨价
   - 修复
+  school: qing
 - id: claim-20260528-004-e
   topic: 涨价扩散路径推演
   source_path: sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 复盘
   extracted_at: 2026-05-28
@@ -142,7 +152,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-001-e", "claim-20260622-003-f", "claim-20260609-005-c"]
+  supplements:
+  - claim-20260611-001-e
+  - claim-20260622-003-f
+  - claim-20260609-005-c
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -155,11 +168,12 @@ claims:
   - 变压器
   - 半导体
   - 涨价
+  school: qing
 - id: claim-20260528-004-f
   topic: CPU自研主题的产业催化与A股映射
   source_path: sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 复盘
   extracted_at: 2026-05-28
@@ -167,10 +181,8 @@ claims:
   subject: CPU自研主题的产业催化与A股映射
   timeframe: industry
   statement: 字节自研CPU催化CPU配套产业链增量窗口，A股映射两条干净卡位：ST得润(CPU Socket)、万通发展/数渡科技(PCIe Switch)
-  evidence_quote: 今天最重要的'新变量'是字节跳动被曝正在自研定制CPU（路透独家）。CPU出货量与Socket是1:1刚性绑定，每一颗自研或外采CPU都必须配一个Socket才能上板。得润是中国大陆唯一通过Intel官方认证、并量产千针级CPU
-    Socket的上市公司。万通发展/数渡科技是'超节点GPU互联'赛道里A股稀缺的体系化进口替代核心标的。
-  interpretation: CPU自研主题的三层逻辑：①产业侧：AI从训练切到推理→CPU消耗跃升→供应短缺/价格飙升→大厂被迫自研；②国内映射：Socket是1:1刚性配套，PCIe
-    Switch是超节点互联核心，两者都是国产替代稀缺环节；③主题价值：可能是科技内部裂变出的新分支候选，有明确催化、清晰配套逻辑、稀缺标的。但ST得润的风险（ST身份、流动性约束）必须单独对待。
+  evidence_quote: 今天最重要的'新变量'是字节跳动被曝正在自研定制CPU（路透独家）。CPU出货量与Socket是1:1刚性绑定，每一颗自研或外采CPU都必须配一个Socket才能上板。得润是中国大陆唯一通过Intel官方认证、并量产千针级CPU Socket的上市公司。万通发展/数渡科技是'超节点GPU互联'赛道里A股稀缺的体系化进口替代核心标的。
+  interpretation: CPU自研主题的三层逻辑：①产业侧：AI从训练切到推理→CPU消耗跃升→供应短缺/价格飙升→大厂被迫自研；②国内映射：Socket是1:1刚性配套，PCIe Switch是超节点互联核心，两者都是国产替代稀缺环节；③主题价值：可能是科技内部裂变出的新分支候选，有明确催化、清晰配套逻辑、稀缺标的。但ST得润的风险（ST身份、流动性约束）必须单独对待。
   confidence: high
   status: active
   supersedes: []
@@ -195,11 +207,12 @@ claims:
   - code: '600246'
     name: 万通发展
     role: 参考标的
+  school: qing
 - id: claim-20260528-004-g
   topic: 全球云厂商用"自研芯片+token化变现
   source_path: sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 复盘
   extracted_at: 2026-05-28
@@ -207,16 +220,14 @@ claims:
   subject: 全球云厂商"自研芯片+token化变现"重构AI成本结构
   timeframe: industry
   statement: 全球云厂商用"自研芯片+token化变现"重构AI成本与利润结构，A股CPU配套、PCIe Switch、液冷、SST是国内映射
-  evidence_quote: 全球云厂商都在做定制CPU；国内百度（昆仑芯）、阿里（倚天710）、腾讯（紫霄）也在持续推进自研服务器CPU的集群化。AWS靠Bedrock的'代币即服务(TaaS)'模式
-    + 折旧政策拉长实现了利润率反转。这条信息和字节自研CPU新闻是同一枚硬币的两面：全球云厂商都在用'自研芯片 + token化变现'重构AI的成本与利润结构。A股的CPU配套、PCIe
-    Switch、液冷、SST，全都是这个全球资本开支与降本周期在国内的映射。
-  interpretation: AI产业金融化的两层叙事：①硬件层：自研芯片（CPU/GPU/加速器）是云厂商压低成本、撑起利润率的底层武器；②变现层：token化（TaaS）比IaaS利润更厚但风险更高；③国内映射：CPU
-    Socket、PCIe Switch、液冷、SST都是这个全球周期的受益环节。这是一个把"算力/token"变成可交易标的的范式转变。
+  evidence_quote: 全球云厂商都在做定制CPU；国内百度（昆仑芯）、阿里（倚天710）、腾讯（紫霄）也在持续推进自研服务器CPU的集群化。AWS靠Bedrock的'代币即服务(TaaS)'模式 + 折旧政策拉长实现了利润率反转。这条信息和字节自研CPU新闻是同一枚硬币的两面：全球云厂商都在用'自研芯片 + token化变现'重构AI的成本与利润结构。A股的CPU配套、PCIe Switch、液冷、SST，全都是这个全球资本开支与降本周期在国内的映射。
+  interpretation: AI产业金融化的两层叙事：①硬件层：自研芯片（CPU/GPU/加速器）是云厂商压低成本、撑起利润率的底层武器；②变现层：token化（TaaS）比IaaS利润更厚但风险更高；③国内映射：CPU Socket、PCIe Switch、液冷、SST都是这个全球周期的受益环节。这是一个把"算力/token"变成可交易标的的范式转变。
   confidence: high
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-002-f"]
+  supplements:
+  - claim-20260521-002-f
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -229,11 +240,12 @@ claims:
   - AI
   - A股
   - 宏观
+  school: qing
 - id: claim-20260528-004-h
   topic: ST/题材股的风控纪律
   source_path: sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 复盘
   extracted_at: 2026-05-28
@@ -259,11 +271,12 @@ claims:
   tags:
   - ST/题材股
   - 仓位管理
+  school: qing
 - id: claim-20260528-004-i
   topic: 缩量修复的隐患
   source_path: sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 复盘
   extracted_at: 2026-05-28
@@ -277,7 +290,10 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260615-004", "claim-20260518-002", "claim-20260602-002-c"]
+  supplements:
+  - claim-20260615-004
+  - claim-20260518-002
+  - claim-20260602-002-c
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -289,11 +305,12 @@ claims:
   - 技术信号
   - 缩量
   - 修复
+  school: qing
 - id: claim-20260528-004-j
   topic: 拐点有效性的概率本质
   source_path: sources/raw/财经/复盘：26-05-28：连续杀跌后的情绪共振拐点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-28
   source_type: 复盘
   extracted_at: 2026-05-28
@@ -307,7 +324,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260528-004-c", "claim-20260528-004-a"]
+  supplements:
+  - claim-20260528-004-c
+  - claim-20260528-004-a
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -318,3 +337,4 @@ claims:
   intensity: high
   tags:
   - 拐点有效性的
+  school: qing

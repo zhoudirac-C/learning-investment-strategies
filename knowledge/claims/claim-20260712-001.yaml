@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260712-001-a
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -15,7 +15,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260614-004-d"]
+  supersedes:
+  - claim-20260614-004-d
   contradicts: []
   supplements: []
   last_discovered: 2026-07-13
@@ -30,10 +31,11 @@ claims:
   - 杀跌情绪
   - 短线偏空
   - 市场结构
+  school: qing
 - id: claim-20260712-002-b
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -46,9 +48,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260623-004-a", "claim-20260629-001-ac"]
+  supersedes:
+  - claim-20260623-004-a
+  - claim-20260629-001-ac
   contradicts: []
-  supplements: ["claim-20260611-001-m"]
+  supplements:
+  - claim-20260611-001-m
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -60,10 +65,11 @@ claims:
   - 仓位管理
   - 防守策略
   - 短线应对
+  school: qing
 - id: claim-20260712-003-c
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -76,9 +82,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260623-004-a"]
+  supersedes:
+  - claim-20260623-004-a
   contradicts: []
-  supplements: ["claim-20260608-002-b"]
+  supplements:
+  - claim-20260608-002-b
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -90,10 +98,11 @@ claims:
   - 大势判断
   - 市场风险
   - 多头不利
+  school: qing
 - id: claim-20260712-004-d
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -106,7 +115,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-a"]
+  supersedes:
+  - claim-20260602-003-a
   contradicts: []
   supplements: []
   last_discovered: 2026-07-13
@@ -120,10 +130,11 @@ claims:
   - 周一观察
   - 情绪反馈
   - 调整级别
+  school: qing
 - id: claim-20260712-005-e
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -136,9 +147,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260608-001-e"]
+  supersedes:
+  - claim-20260608-001-e
   contradicts: []
-  supplements: ["claim-20260526-011", "claim-20260621-006-m"]
+  supplements:
+  - claim-20260526-011
+  - claim-20260621-006-m
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -166,10 +180,11 @@ claims:
   - 科技股
   - 个股普涨
   - 市场割裂
+  school: qing
 - id: claim-20260712-006-f
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -184,7 +199,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-001-d", "claim-20260525-021"]
+  supplements:
+  - claim-20260625-001-d
+  - claim-20260525-021
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -196,10 +213,11 @@ claims:
   - 科技分化
   - 非科技走强
   - 反弹反复性
+  school: qing
 - id: claim-20260712-007-g
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -212,8 +230,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260518-012"]
-  contradicts: ["claim-20260603-004-a"]
+  supersedes:
+  - claim-20260518-012
+  contradicts:
+  - claim-20260603-004-a
   supplements: []
   last_discovered: 2026-07-13
   links:
@@ -226,10 +246,11 @@ claims:
   - 内生性回调
   - 筹码波动
   - 算力趋势
+  school: qing
 - id: claim-20260712-008-h
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -244,7 +265,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260528-002-a", "claim-20260528-005-b", "claim-20260515-010"]
+  supplements:
+  - claim-20260528-002-a
+  - claim-20260528-005-b
+  - claim-20260515-010
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -256,10 +280,11 @@ claims:
   - 放量阴包阳
   - 情绪释放
   - 节奏确认
+  school: qing
 - id: claim-20260712-009-i
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -272,7 +297,8 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260616-003-c"]
+  supersedes:
+  - claim-20260616-003-c
   contradicts: []
   supplements: []
   last_discovered: 2026-07-13
@@ -286,10 +312,11 @@ claims:
   - 条件化框架
   - 周一应对
   - 防守为先
+  school: qing
 - id: claim-20260712-010-j
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -304,7 +331,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260531-002-a", "claim-20260623-004-b"]
+  supplements:
+  - claim-20260531-002-a
+  - claim-20260623-004-b
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -319,10 +348,11 @@ claims:
   - 存量博弈
   - 板块跷跷板
   - 系统性转换
+  school: qing
 - id: claim-20260712-011-k
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -335,7 +365,9 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260615-023", "claim-20260621-001-g"]
+  supersedes:
+  - claim-20260615-023
+  - claim-20260621-001-g
   contradicts: []
   supplements: []
   last_discovered: 2026-07-13
@@ -352,10 +384,11 @@ claims:
   - 中报预告
   - 基本面验证
   - 博弈焦点
+  school: qing
 - id: claim-20260712-012-l
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -370,7 +403,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h", "claim-20260612-002-e", "claim-20260518-012"]
+  supplements:
+  - claim-20260622-001-h
+  - claim-20260612-002-e
+  - claim-20260518-012
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -383,10 +419,11 @@ claims:
   - 商业航天
   - 国产算力
   - 高拥挤释放
+  school: qing
 - id: claim-20260712-013-m
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -399,8 +436,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260515-001", "claim-20260515-012"]
-  contradicts: ["claim-20260527-005-c"]
+  supersedes:
+  - claim-20260515-001
+  - claim-20260515-012
+  contradicts:
+  - claim-20260527-005-c
   supplements: []
   last_discovered: 2026-07-13
   links:
@@ -413,10 +453,11 @@ claims:
   - 科技无序波动
   - 降低关注
   - 避免强交易
+  school: qing
 - id: claim-20260712-014-n
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -429,9 +470,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260610-013-a"]
+  supersedes:
+  - claim-20260610-013-a
   contradicts: []
-  supplements: ["claim-20260623-005-i", "claim-20260518-009"]
+  supplements:
+  - claim-20260623-005-i
+  - claim-20260518-009
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -443,10 +487,11 @@ claims:
   - 昇腾950
   - 全国算力网
   - 国产算力
+  school: qing
 - id: claim-20260712-015-o
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -461,7 +506,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-d", "claim-20260624-006-b", "claim-20260526-032"]
+  supplements:
+  - claim-20260609-005-d
+  - claim-20260624-006-b
+  - claim-20260526-032
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -474,10 +522,11 @@ claims:
   - Token调用量
   - ARR增长
   - 算力需求
+  school: qing
 - id: claim-20260712-016-p
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -492,7 +541,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260426-012", "claim-20260518-009", "claim-20260622-003-q"]
+  supplements:
+  - claim-20260426-012
+  - claim-20260518-009
+  - claim-20260622-003-q
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -500,19 +552,19 @@ claims:
     cases: []
   topic: 算力链Q2利润加速释放
   related_stocks:
-  - code: '001339'
+  - code: 001339
     name: 智微智能
     role: 主板可交易
   - code: '300209'
     name: 行云科技
     role: 创业板不可交易
-  - code: '000977'
+  - code: 000977
     name: 浪潮信息
     role: 主板可交易
   - code: '301165'
     name: 锐捷网络
     role: 创业板不可交易
-  - code: '000938'
+  - code: 000938
     name: 紫光股份
     role: 主板可交易
   tags:
@@ -520,10 +572,11 @@ claims:
   - Q2业绩
   - 算力租赁
   - 国产交换机
+  school: qing
 - id: claim-20260712-017-q
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -538,7 +591,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-021-a", "claim-20260612-003-ag"]
+  supplements:
+  - claim-20260610-021-a
+  - claim-20260612-003-ag
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -550,10 +605,11 @@ claims:
   - 商业航天
   - 卡节点
   - 阶段主线
+  school: qing
 - id: claim-20260712-018-r
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -566,9 +622,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260626-003-l"]
+  supersedes:
+  - claim-20260626-003-l
   contradicts: []
-  supplements: ["claim-20260609-004-g", "claim-20260607-003-d"]
+  supplements:
+  - claim-20260609-004-g
+  - claim-20260607-003-d
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -584,10 +643,11 @@ claims:
   - 周一应对
   - 前排持续性
   - 放量长阳
+  school: qing
 - id: claim-20260712-019-s
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -600,9 +660,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260529-002-b"]
+  supersedes:
+  - claim-20260529-002-b
   contradicts: []
-  supplements: ["claim-20260610-042-a"]
+  supplements:
+  - claim-20260610-042-a
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -614,10 +676,11 @@ claims:
   - AI应用
   - 硬件领跌
   - 高低切换
+  school: qing
 - id: claim-20260712-020-t
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -632,7 +695,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-042-a"]
+  supplements:
+  - claim-20260610-042-a
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -644,10 +708,11 @@ claims:
   - 科技内部分化
   - 硬件
   - 应用软件
+  school: qing
 - id: claim-20260712-021-u
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -661,7 +726,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260604-004-n"]
+  contradicts:
+  - claim-20260604-004-n
   supplements: []
   last_discovered: 2026-07-13
   links:
@@ -674,10 +740,11 @@ claims:
   - 港股科技
   - AI含量
   - 价值重估
+  school: qing
 - id: claim-20260712-022-v
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -704,10 +771,11 @@ claims:
   - 海外云厂商
   - 估值锚
   - AI资本开支
+  school: qing
 - id: claim-20260712-023-w
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -720,9 +788,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260531-001-i"]
+  supersedes:
+  - claim-20260531-001-i
   contradicts: []
-  supplements: ["claim-20260607-003-d"]
+  supplements:
+  - claim-20260607-003-d
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -734,10 +804,11 @@ claims:
   - 港股映射
   - AI应用
   - 资金轮动
+  school: qing
 - id: claim-20260712-024-x
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -750,8 +821,11 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260612-012-l", "claim-20260622-001-g"]
-  contradicts: ["claim-20260614-015-e"]
+  supersedes:
+  - claim-20260612-012-l
+  - claim-20260622-001-g
+  contradicts:
+  - claim-20260614-015-e
   supplements: []
   last_discovered: 2026-07-13
   links:
@@ -769,17 +843,18 @@ claims:
   - code: '603127'
     name: 昭衍新药
     role: 主板可交易
-  - code: '002038'
+  - code: 002038
     name: 双鹭药业
     role: 主板可交易
   tags:
   - 医药趋势
   - 防御线
   - 非科技轮动
+  school: qing
 - id: claim-20260712-025-y
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -793,7 +868,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260528-002-b"]
+  contradicts:
+  - claim-20260528-002-b
   supplements: []
   last_discovered: 2026-07-13
   links:
@@ -806,10 +882,11 @@ claims:
   - 食品饮料
   - 中报业绩
   - 防御补充
+  school: qing
 - id: claim-20260712-026-z
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -822,7 +899,8 @@ claims:
   confidence: medium
   status: superseded
   intensity: high
-  supersedes: ["claim-20260607-003-e"]
+  supersedes:
+  - claim-20260607-003-e
   contradicts: []
   supplements: []
   last_discovered: 2026-07-13
@@ -839,10 +917,11 @@ claims:
   - 美国CPI
   - 通胀叙事
   - 科技情绪
+  school: qing
 - id: claim-20260712-027-aa
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -857,7 +936,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-001-b", "claim-20260518-022"]
+  supplements:
+  - claim-20260609-001-b
+  - claim-20260518-022
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -869,10 +950,11 @@ claims:
   - WAIC
   - 人工智能大会
   - 科技催化
+  school: qing
 - id: claim-20260712-028-ab
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -885,9 +967,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260615-023"]
+  supersedes:
+  - claim-20260615-023
   contradicts: []
-  supplements: ["claim-20260621-001-g"]
+  supplements:
+  - claim-20260621-001-g
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -902,10 +986,11 @@ claims:
   - 中报预告
   - 7月15日
   - 阶段底部
+  school: qing
 - id: claim-20260712-029-ac
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -920,7 +1005,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-005-b", "claim-20260616-005-g"]
+  supplements:
+  - claim-20260623-005-b
+  - claim-20260616-005-g
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -932,10 +1019,11 @@ claims:
   - Token调用量
   - 模型ARR
   - 北美云厂Capex
+  school: qing
 - id: claim-20260712-030-ad
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -943,15 +1031,15 @@ claims:
   subject: 国产CPU双击逻辑
   timeframe: industry
   statement: 国产CPU面临Intel涨价替代与Agentic AI CPU需求上升的双击，信创与互联网场景加速落地。
-  evidence_quote: 国产CPU · 涨价替代与Agent需求双击：Intel 2026年多轮上调消费级及至强服务器CPU价格，累计提价约30%，部分产能转供数据中心导致交期大幅延长；Agentic
-    AI工作流高度依赖CPU完成编排、协同与校验，行业CPU/GPU配比正从1:8向1:4乃至1:1回归。国产端海光四号、鲲鹏950、龙芯3C6000陆续推出，信创与互联网场景加速落地。
+  evidence_quote: 国产CPU · 涨价替代与Agent需求双击：Intel 2026年多轮上调消费级及至强服务器CPU价格，累计提价约30%，部分产能转供数据中心导致交期大幅延长；Agentic AI工作流高度依赖CPU完成编排、协同与校验，行业CPU/GPU配比正从1:8向1:4乃至1:1回归。国产端海光四号、鲲鹏950、龙芯3C6000陆续推出，信创与互联网场景加速落地。
   interpretation: UP认为进口CPU涨价与Agent需求提升为国产CPU带来替代和需求双重机会。
   confidence: medium
   status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260601-004-c"]
+  supplements:
+  - claim-20260601-004-c
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -964,10 +1052,11 @@ claims:
   - Intel涨价
   - Agent需求
   - 信创
+  school: qing
 - id: claim-20260712-031-ae
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -980,9 +1069,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260622-003-q"]
+  supersedes:
+  - claim-20260622-003-q
   contradicts: []
-  supplements: ["claim-20260420-005", "claim-20260518-009"]
+  supplements:
+  - claim-20260420-005
+  - claim-20260518-009
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -994,10 +1086,11 @@ claims:
   - 算力租赁
   - 业绩高增
   - 有卡有利润
+  school: qing
 - id: claim-20260712-032-af
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -1012,7 +1105,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-u", "claim-20260610-006-d"]
+  supplements:
+  - claim-20260625-003-u
+  - claim-20260610-006-d
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -1027,10 +1122,11 @@ claims:
   - 锡膏
   - 光模块升级
   - 国产替代
+  school: qing
 - id: claim-20260712-033-ag
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -1045,7 +1141,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260525-006"]
+  supplements:
+  - claim-20260525-006
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -1056,17 +1153,18 @@ claims:
   - code: '300964'
     name: 本川智能
     role: 创业板不可交易
-  - code: '002851'
+  - code: 002851
     name: 麦格米特
     role: 主板可交易
   tags:
   - CIPB功率基板
   - AI服务器电源
   - 麦格米特订单
+  school: qing
 - id: claim-20260712-034-ah
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -1093,10 +1191,11 @@ claims:
   - 原奶
   - 周期反转
   - 奶价回升
+  school: qing
 - id: claim-20260712-035-ai
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -1111,7 +1210,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-g", "claim-20260521-002-j"]
+  supplements:
+  - claim-20260621-001-g
+  - claim-20260521-002-j
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -1123,10 +1224,11 @@ claims:
   - 食品饮料
   - 中报预告
   - 选股优先级
+  school: qing
 - id: claim-20260712-036-aj
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -1141,7 +1243,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-g", "claim-20260610-036-a", "claim-20260624-006-b"]
+  supplements:
+  - claim-20260625-003-g
+  - claim-20260610-036-a
+  - claim-20260624-006-b
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -1153,10 +1258,11 @@ claims:
   - 氦气
   - 出口管制
   - 国产供应链
+  school: qing
 - id: claim-20260712-037-ak
   source_path: sources/original/bilibili/2026-07-12-2303-专栏-周四反弹当天说过，周五科技会高开低走。周五给出了验证：指数上.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-12'
   source_type: 复盘
   extracted_at: '2026-07-12T23:21:53+08:00'
@@ -1171,7 +1277,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-034-a", "claim-20260518-010", "claim-20260625-003-s"]
+  supplements:
+  - claim-20260610-034-a
+  - claim-20260518-010
+  - claim-20260625-003-s
   last_discovered: 2026-07-13
   links:
     wiki_pages: []
@@ -1183,3 +1292,4 @@ claims:
   - 绿电
   - 储能
   - 节能降碳政策
+  school: qing

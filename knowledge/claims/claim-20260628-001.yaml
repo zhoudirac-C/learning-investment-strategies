@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260628-001-a
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -16,8 +16,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260526-025-a"]
-  supplements: ["claim-20260616-001-c"]
+  contradicts:
+  - claim-20260526-025-a
+  supplements:
+  - claim-20260616-001-c
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -29,10 +31,11 @@ claims:
   - 短线周期
   - 主升分歧
   - 周期判断
+  school: qing
 - id: claim-20260628-001-b
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -45,7 +48,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260610-006-f", "claim-20260616-005"]
+  supersedes:
+  - claim-20260610-006-f
+  - claim-20260616-005
   contradicts: []
   supplements: []
   last_discovered: 2026-06-29
@@ -59,10 +64,11 @@ claims:
   - 全A指数
   - 破位
   - 市场难度
+  school: qing
 - id: claim-20260628-001-c
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -75,9 +81,12 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260527-005-b", "claim-20260611-001-d"]
+  supersedes:
+  - claim-20260527-005-b
+  - claim-20260611-001-d
   contradicts: []
-  supplements: ["claim-20260522-002-d"]
+  supplements:
+  - claim-20260522-002-d
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -89,10 +98,11 @@ claims:
   - 次日节奏
   - 修复弹性
   - 短线节奏
+  school: qing
 - id: claim-20260628-001-d
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -105,8 +115,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260603-001-f"]
-  contradicts: ["claim-20260624-006-b", "claim-20260626-001-k"]
+  supersedes:
+  - claim-20260603-001-f
+  contradicts:
+  - claim-20260624-006-b
+  - claim-20260626-001-k
   supplements: []
   last_discovered: 2026-06-29
   links:
@@ -119,10 +132,11 @@ claims:
   - 算力硬件
   - 光通信
   - 退潮
+  school: qing
 - id: claim-20260628-001-e
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -137,7 +151,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-g", "claim-20260617-038-c", "claim-20260617-039-m"]
+  supplements:
+  - claim-20260621-001-g
+  - claim-20260617-038-c
+  - claim-20260617-039-m
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -149,10 +166,11 @@ claims:
   - 中报行情
   - 高确定性
   - 资金收敛
+  school: qing
 - id: claim-20260628-001-f
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -160,15 +178,17 @@ claims:
   subject: 半导体硅片涨价
   timeframe: industry
   statement: HBM、3D NAND及全球晶圆厂扩产驱动下，半导体硅片进入涨价周期，国产硅片需求刚性
-  evidence_quote: 据台湾工商时报等，环球晶、合晶、台胜科等台厂6英寸硅片已率先完成涨价，8英寸需求快速升温，12英寸进入新一轮价格协商；信越化学、SUMCO、环球晶圆三大龙头年内已是第二轮提价，12英寸常规片涨5%—8%，适配AI/HPC的高端专用片涨18%—22%，年内累计涨幅超15%。逻辑上，同等容量下HBM对12英寸硅片的消耗约为主流DRAM的3倍，3D
-    NAND全面切换双晶圆键合又使12英寸需求翻倍，存储工艺迭代正系统性抬升硅片消耗。据SEMI，到2028年全球预计新建108座晶圆厂，其中中国占47座，下游扩产持续释放对国产硅片的刚性需求。
+  evidence_quote: 据台湾工商时报等，环球晶、合晶、台胜科等台厂6英寸硅片已率先完成涨价，8英寸需求快速升温，12英寸进入新一轮价格协商；信越化学、SUMCO、环球晶圆三大龙头年内已是第二轮提价，12英寸常规片涨5%—8%，适配AI/HPC的高端专用片涨18%—22%，年内累计涨幅超15%。逻辑上，同等容量下HBM对12英寸硅片的消耗约为主流DRAM的3倍，3D NAND全面切换双晶圆键合又使12英寸需求翻倍，存储工艺迭代正系统性抬升硅片消耗。据SEMI，到2028年全球预计新建108座晶圆厂，其中中国占47座，下游扩产持续释放对国产硅片的刚性需求。
   interpretation: UP梳理半导体硅片涨价逻辑：HBM和3D NAND技术迭代大幅提升12英寸硅片消耗，全球晶圆厂扩产（尤其中国47座）释放国产硅片刚性需求，台厂和海外龙头已启动年内第二轮提价。
   confidence: high
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260611-001-e"]
-  supplements: ["claim-20260624-006-d", "claim-20260609-003-d"]
+  contradicts:
+  - claim-20260611-001-e
+  supplements:
+  - claim-20260624-006-d
+  - claim-20260609-003-d
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -180,10 +200,11 @@ claims:
   - 半导体硅片
   - 涨价
   - 晶圆厂扩产
+  school: qing
 - id: claim-20260628-001-g
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -198,7 +219,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260523-006", "claim-20260520-003-c"]
+  supplements:
+  - claim-20260523-006
+  - claim-20260520-003-c
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -210,10 +233,11 @@ claims:
   - 半导体设备
   - 零部件
   - 国产化
+  school: qing
 - id: claim-20260628-001-h
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -228,7 +252,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260518-024", "claim-20260624-006-l"]
+  supplements:
+  - claim-20260518-024
+  - claim-20260624-006-l
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -240,10 +266,11 @@ claims:
   - 洁净室
   - 晶圆厂
   - 扩产前置
+  school: qing
 - id: claim-20260628-001-i
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -258,7 +285,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-006-n"]
+  supplements:
+  - claim-20260624-006-n
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -270,10 +298,11 @@ claims:
   - 碳化硅
   - 量价齐升
   - 800V
+  school: qing
 - id: claim-20260628-001-j
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -286,7 +315,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260621-001-l"]
+  supersedes:
+  - claim-20260621-001-l
   contradicts: []
   supplements: []
   last_discovered: 2026-06-29
@@ -300,10 +330,11 @@ claims:
   - 磷化铟
   - 铟
   - 紧缺
+  school: qing
 - id: claim-20260628-001-k
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -311,15 +342,17 @@ claims:
   subject: AIDC供电与国产算力
   timeframe: short-term
   statement: AIDC供电与国产算力是中报兑现的高确定性方向
-  evidence_quote: 据东吴证券，白云电器作为特高压电容器龙头，变压器获北美高端市场认可，率先发布应用于AIDC的SST产品并与华为等达成战略合作，切入800V
-    HVDC配电赛道。算力端，据国盛证券，国产算力链Q1收入已集体高增——寒武纪26Q1收入28.85亿元、同比增159.56%，海光信息Q1营收40.34亿元、同比增68.06%，摩尔线程Q1收入7.38亿元、同比增155.35%且归母净利首次转盈；豆包大模型日均Token调用量已突破180万亿、一年增超10倍。个人判断，这两端都属于“产业需求井喷→业绩集中释放”的中报高确定性方向。
+  evidence_quote: 据东吴证券，白云电器作为特高压电容器龙头，变压器获北美高端市场认可，率先发布应用于AIDC的SST产品并与华为等达成战略合作，切入800V HVDC配电赛道。算力端，据国盛证券，国产算力链Q1收入已集体高增——寒武纪26Q1收入28.85亿元、同比增159.56%，海光信息Q1营收40.34亿元、同比增68.06%，摩尔线程Q1收入7.38亿元、同比增155.35%且归母净利首次转盈；豆包大模型日均Token调用量已突破180万亿、一年增超10倍。个人判断，这两端都属于“产业需求井喷→业绩集中释放”的中报高确定性方向。
   interpretation: UP将AIDC供电（白云电器(603861)等切入800V HVDC）与国产算力（寒武纪(688256)、海光信息(688041)等Q1高增）并列为中报高确定性方向。
   confidence: high
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260609-005-d"]
-  supplements: ["claim-20260621-001-o", "claim-20260624-006-b"]
+  contradicts:
+  - claim-20260609-005-d
+  supplements:
+  - claim-20260621-001-o
+  - claim-20260624-006-b
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -340,10 +373,11 @@ claims:
   - AIDC供电
   - 国产算力
   - 中报兑现
+  school: qing
 - id: claim-20260628-001-l
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -358,7 +392,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-001-j"]
+  supplements:
+  - claim-20260521-001-j
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -370,10 +405,11 @@ claims:
   - 养殖
   - 对冲
   - 产能去化
+  school: qing
 - id: claim-20260628-001-m
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -388,7 +424,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260519-001-e", "claim-20260520-003-i"]
+  supplements:
+  - claim-20260519-001-e
+  - claim-20260520-003-i
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -403,10 +441,11 @@ claims:
   - 深科技
   - 长鑫
   - 封测
+  school: qing
 - id: claim-20260628-001-n
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -429,17 +468,18 @@ claims:
     cases: []
   topic: 西安奕材12英寸硅片利润兑现窗口
   related_stocks:
-  - code: "688783"
-    name: "西安奕材"
-    role: "回填-正文提及"
+  - code: '688783'
+    name: 西安奕材
+    role: 回填-正文提及
   tags:
   - 西安奕材
   - 12英寸硅片
   - 利润兑现
+  school: qing
 - id: claim-20260628-001-o
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -452,9 +492,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260623-005-g"]
+  supersedes:
+  - claim-20260623-005-g
   contradicts: []
-  supplements: ["claim-20260623-001-i", "claim-20260605-001-f"]
+  supplements:
+  - claim-20260623-001-i
+  - claim-20260605-001-f
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -469,10 +512,11 @@ claims:
   - 江南新材
   - 液冷
   - 英伟达链
+  school: qing
 - id: claim-20260628-001-p
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -487,7 +531,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260529-003-e", "claim-20260623-001-h", "claim-20260612-009-i"]
+  supplements:
+  - claim-20260529-003-e
+  - claim-20260623-001-h
+  - claim-20260612-009-i
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -505,10 +552,11 @@ claims:
   - 散热材料
   - 金刚石散热
   - 力量钻石
+  school: qing
 - id: claim-20260628-001-q
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -541,10 +589,11 @@ claims:
   - 碳纤维
   - 中复神鹰
   - 三重共振
+  school: qing
 - id: claim-20260628-001-r
   source_path: sources/original/bilibili/2026-06-28-2237-图片-本周（6月15日—26日）是一段相对完整的短线主升与分歧周期.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-28'
   source_type: 复盘
   extracted_at: '2026-06-29T08:39:39Z'
@@ -557,7 +606,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260625-003-t"]
+  supersedes:
+  - claim-20260625-003-t
   contradicts: []
   supplements: []
   last_discovered: 2026-06-29
@@ -571,3 +621,4 @@ claims:
   - 右侧确认
   - 结构性分化
   - 操作策略
+  school: qing

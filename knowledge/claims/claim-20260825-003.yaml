@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260825-033-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -15,7 +15,10 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260609-005-a", "claim-20260729-002", "claim-20260706-002-a"]
+  supersedes:
+  - claim-20260609-005-a
+  - claim-20260729-002
+  - claim-20260706-002-a
   contradicts: []
   supplements: []
   last_discovered: 2026-08-26
@@ -30,10 +33,11 @@ claims:
   - 抛压衰减
   - 缩量
   - 风险偏好
+  school: qing
 - id: claim-20260825-034-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -46,9 +50,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260616-002-c"]
+  supersedes:
+  - claim-20260616-002-c
   contradicts: []
-  supplements: ["claim-20260609-005-f", "claim-20260614-014-p"]
+  supplements:
+  - claim-20260609-005-f
+  - claim-20260614-014-p
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -61,10 +68,11 @@ claims:
   - 地量
   - 右侧确认
   - 量价同步
+  school: qing
 - id: claim-20260825-035-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -79,7 +87,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-027", "claim-20260810-025", "claim-20260724-001"]
+  supplements:
+  - claim-20260812-027
+  - claim-20260810-025
+  - claim-20260724-001
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -92,10 +103,11 @@ claims:
   - 存量博弈
   - 黄白线
   - 小市值
+  school: qing
 - id: claim-20260825-036-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -103,13 +115,15 @@ claims:
   subject: 科技板块利空消化期
   timeframe: short-term
   statement: 科技板块整体仍处于利空消化期：今日午后跟随修复但力度偏弱，仅液冷服务器、保偏光纤等少数细分跑道相对独立；阿里高管及创始人的连续增持给AI方向带来信心，科技的反弹首先是止跌，止跌来自有承接而不是没有抛压。
-  evidence_quote: 科技整体表现平淡，午后跟随修复回流但力度偏弱，仅液冷服务器、保偏光纤等少数细分赛道走得相对独立，板块整体仍处于利空消化期。好在阿里高管及创始人的连续增持，给
-    AI 方向带来了一些信心。科技的反弹首先是让科技止跌，而止跌来自有承接，不是来自没有抛压。
+  evidence_quote: 科技整体表现平淡，午后跟随修复回流但力度偏弱，仅液冷服务器、保偏光纤等少数细分赛道走得相对独立，板块整体仍处于利空消化期。好在阿里高管及创始人的连续增持，给 AI 方向带来了一些信心。科技的反弹首先是让科技止跌，而止跌来自有承接，不是来自没有抛压。
   interpretation: 科技=利空消化期（消化前期外盘存储链大跌的利空），反弹质量看承接力度而非抛压消失。阿里增持是信心边际改善信号，但不足以上升为反转确认。液冷/保偏光纤是板块内相对独立的细分。
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260821-009", "claim-20260622-001-h", "claim-20260810-032"]
+  supersedes:
+  - claim-20260821-009
+  - claim-20260622-001-h
+  - claim-20260810-032
   contradicts: []
   supplements: []
   last_discovered: 2026-08-26
@@ -125,10 +139,11 @@ claims:
   - 液冷
   - 保偏光纤
   - 阿里增持
+  school: qing
 - id: claim-20260825-037-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -136,15 +151,17 @@ claims:
   subject: 液冷产业订单周期
   timeframe: industry
   statement: 液冷产业链自2026年三季度起陆续释放业绩：26Q3国内进入真正的批量订单落地阶段（主要来自北美客户）、26Q4进入稳定批量交付并在报表端体现、2027年业绩增速显著提升；今日英维克(002837)强势涨停带动板块放量，飞龙订单开始放量，英维克季度业绩逐渐好转。
-  evidence_quote: 今日英维克强势涨停，带动板块放量。据近期陆续披露的半年报，飞龙已明确订单开始放量，英维克季度业绩逐渐好转，行业自三季度起陆续释放业绩。据机构近期调研后的判断，26Q3
-    国内进入真正的批量订单落地阶段（主要来自北美客户），26Q4 进入稳定批量交付并在报表端体现，27 年业绩增速显著提升。
+  evidence_quote: 今日英维克强势涨停，带动板块放量。据近期陆续披露的半年报，飞龙已明确订单开始放量，英维克季度业绩逐渐好转，行业自三季度起陆续释放业绩。据机构近期调研后的判断，26Q3 国内进入真正的批量订单落地阶段（主要来自北美客户），26Q4 进入稳定批量交付并在报表端体现，27 年业绩增速显著提升。
   interpretation: 液冷是产业趋势+订单兑现双确认的方向：机构调研给出26Q3批量订单/26Q4报表体现/27年提速的明确时间轴。英维克涨停是板块放量的当日催化，飞龙（飞荣达）订单放量是基本面积累。跟踪锚点：订单落地节奏与报表兑现。
   confidence: medium
   status: superseded
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260824-001-n", "claim-20260605-001-f", "claim-20260817-037"]
+  supplements:
+  - claim-20260824-001-n
+  - claim-20260605-001-f
+  - claim-20260817-037
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -152,7 +169,7 @@ claims:
     cases: []
   topic: 液冷26Q3批量订单落地、26Q4报表体现、27年提速，英维克涨停带动
   related_stocks:
-  - code: '002837'
+  - code: 002837
     name: 英维克
     role: 液冷组装龙头-深主板可交易
   - code: '300602'
@@ -163,10 +180,11 @@ claims:
   - 订单周期
   - 英维克
   - 业绩释放
+  school: qing
 - id: claim-20260825-038-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -174,15 +192,16 @@ claims:
   subject: 液冷三条支线框架
   timeframe: industry
   statement: 液冷板块内部按三条支线跟踪：方向龙头一是机柜内外组装厂鸿富瀚(301086)、英维克(002837)、申菱环境(301018)，其中鸿富瀚按明年利润13亿计约11倍PE、三季度已向下游出货单季利润或创历史新高，英维克今年利润预测10-15亿、申菱环境5-10亿，上半年释放不多下半年加速；二是光模块液冷cage：鼎通科技(688668)、奕东电子(301123)；三是液冷TIM材料：中石科技(300684)、飞荣达(300602)、科创新源(300731)、思泉新材(301489)。
-  evidence_quote: 板块内部按三条支线跟踪。方向龙头一是机柜内外的组装厂：鸿富瀚、英维克、申菱环境；据卖方测算，鸿富瀚按明年利润十三亿元计约十一倍市盈率，本年度三季度已在向下游陆续出货，单季利润或创历史新高，英维克、申菱环境今年利润预测区间分别在十至十五亿元、五至十亿元，上半年释放不多、下半年加速。二是光模块液冷
-    cage：鼎通科技、奕东电子，产业趋势明确，行业在等订单落地。三是液冷 TIM 材料：中石科技、飞荣达、科创新源、思泉新材。
+  evidence_quote: 板块内部按三条支线跟踪。方向龙头一是机柜内外的组装厂：鸿富瀚、英维克、申菱环境；据卖方测算，鸿富瀚按明年利润十三亿元计约十一倍市盈率，本年度三季度已在向下游陆续出货，单季利润或创历史新高，英维克、申菱环境今年利润预测区间分别在十至十五亿元、五至十亿元，上半年释放不多、下半年加速。二是光模块液冷 cage：鼎通科技、奕东电子，产业趋势明确，行业在等订单落地。三是液冷 TIM 材料：中石科技、飞荣达、科创新源、思泉新材。
   interpretation: 液冷产业链结构化的选股框架：组装厂（估值+业绩弹性）、cage（趋势+等订单）、TIM材料（弹性标的池）。组装厂有卖方盈利预测锚：鸿富瀚估值最低（11倍PE）+业绩确定性最高（三季度已出货），是三条支线里逻辑最顺的。
   confidence: medium
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260605-001-f", "claim-20260825-021-a"]
+  supplements:
+  - claim-20260605-001-f
+  - claim-20260825-021-a
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -193,7 +212,7 @@ claims:
   - code: '301086'
     name: 鸿富瀚
     role: 液冷组装厂-创业板不可交易(主板规则)
-  - code: '002837'
+  - code: 002837
     name: 英维克
     role: 液冷组装厂-深主板可交易
   - code: '301018'
@@ -223,10 +242,11 @@ claims:
   - cage
   - TIM材料
   - 支线
+  school: qing
 - id: claim-20260825-039-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -240,8 +260,11 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260809-026"]
-  supplements: ["claim-20260805-020", "claim-20260813-038"]
+  contradicts:
+  - claim-20260809-026
+  supplements:
+  - claim-20260805-020
+  - claim-20260813-038
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -260,10 +283,11 @@ claims:
   - 光模块
   - 渗透率
   - 性价比
+  school: qing
 - id: claim-20260825-040-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -276,7 +300,10 @@ claims:
   confidence: high
   status: superseded
   intensity: low
-  supersedes: ["claim-20260818-058", "claim-20260818-035", "claim-20260612-012-l"]
+  supersedes:
+  - claim-20260818-058
+  - claim-20260818-035
+  - claim-20260612-012-l
   contradicts: []
   supplements: []
   last_discovered: 2026-08-26
@@ -291,10 +318,11 @@ claims:
   - 过渡方向
   - 高股息
   - 防御
+  school: qing
 - id: claim-20260825-041-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -307,9 +335,11 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260824-003-o"]
+  supersedes:
+  - claim-20260824-003-o
   contradicts: []
-  supplements: ["claim-20260824-001-j"]
+  supplements:
+  - claim-20260824-001-j
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -322,10 +352,11 @@ claims:
   - 黄金
   - 独立性
   - 主动走强
+  school: qing
 - id: claim-20260825-042-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -338,7 +369,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260817-038", "claim-20260821-011", "claim-20260824-003-k"]
+  supersedes:
+  - claim-20260817-038
+  - claim-20260821-011
+  - claim-20260824-003-k
   contradicts: []
   supplements: []
   last_discovered: 2026-08-26
@@ -351,7 +385,7 @@ claims:
   - code: '002412'
     name: 汉森制药
     role: 医药情绪高标-深主板可交易
-  - code: '000931'
+  - code: 000931
     name: 中关村
     role: 疑似错杀标的-深主板可交易
   - code: '603259'
@@ -362,10 +396,11 @@ claims:
   - 回流
   - 药明康德
   - 汉森制药
+  school: qing
 - id: claim-20260825-043-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -373,15 +408,17 @@ claims:
   subject: 焦煤涨价产业事实
   timeframe: industry
   statement: 焦煤是当下最硬的产业事实：上周末京唐港主焦煤报价2620元/吨、周环比大涨14.91%（8月8日同一口径2240元/吨，涨价趋势连贯）；供给端安全监管趋严致煤矿复产及产量释放有限，叠加山西煤矿事故后安监升级、蒙煤通关维持低位；需求端焦炭首轮提涨落地、第二轮提涨开启，下游采购及补库积极性提升。
-  evidence_quote: 据卖方跟踪，上周末京唐港主焦煤报价已达 2620 元／吨，周环比大涨 14.91%（作为参照，8 月 8 日同一口径报价为 2240
-    元／吨，涨价趋势连贯）。供给端，安全监管持续趋严导致煤矿复产及产量释放有限，叠加山西煤矿事故后安监升级、蒙煤通关维持低位，炼焦煤供给持续偏紧；需求端，焦炭首轮提涨落地、第二轮提涨开启，下游采购及补库积极性提升。
+  evidence_quote: 据卖方跟踪，上周末京唐港主焦煤报价已达 2620 元／吨，周环比大涨 14.91%（作为参照，8 月 8 日同一口径报价为 2240 元／吨，涨价趋势连贯）。供给端，安全监管持续趋严导致煤矿复产及产量释放有限，叠加山西煤矿事故后安监升级、蒙煤通关维持低位，炼焦煤供给持续偏紧；需求端，焦炭首轮提涨落地、第二轮提涨开启，下游采购及补库积极性提升。
   interpretation: 焦煤涨价有明确的量价数据支撑（+14.91%周环比、趋势连贯）与供需逻辑（供给约束+需求提涨），是当前产业面上最硬的涨价事实之一。涨价链方向里焦煤的确定性较高，但与盘面弱势下高股息防御的活跃互为因果。
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260819-055", "claim-20260614-007-i"]
+  supersedes:
+  - claim-20260819-055
+  - claim-20260614-007-i
   contradicts: []
-  supplements: ["claim-20260818-059"]
+  supplements:
+  - claim-20260818-059
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -397,10 +434,11 @@ claims:
   - 涨价
   - 供给偏紧
   - 提涨
+  school: qing
 - id: claim-20260825-044-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -408,15 +446,17 @@ claims:
   subject: 算力网六网协同政策
   timeframe: industry
   statement: 国家发改委副主任岳修虎主持召开'六网协同'协调推进工作会，专题研究完善'六张网'多元化投融资模式；长江证券表示算力网作为'六张网'关键一环，'十五五'期间或带动每年1.1万亿元投资，成为AI硬件需求的总闸。
-  evidence_quote: 据媒体报道，国家发展改革委党组成员、副主任岳修虎主持召开'六网协同'协调推进工作会，专题研究完善'六张网'多元化投融资模式，分类细化财政、金融、投资、价格等支持政策，为重大工程项目加快开工建设提供支撑。长江证券表示，算力网作为'六张网'关键一环，'十五五'期间或带动每年
-    1.1 万亿元投资，成为 AI 硬件需求的总闸。
+  evidence_quote: 据媒体报道，国家发展改革委党组成员、副主任岳修虎主持召开'六网协同'协调推进工作会，专题研究完善'六张网'多元化投融资模式，分类细化财政、金融、投资、价格等支持政策，为重大工程项目加快开工建设提供支撑。长江证券表示，算力网作为'六张网'关键一环，'十五五'期间或带动每年 1.1 万亿元投资，成为 AI 硬件需求的总闸。
   interpretation: 算力网从产业逻辑升级为政策逻辑（六网协同+投融资支持），政策变量抬高算力需求的确定性下限。1.1万亿/年投资是卖方测算，需注意是'总闸'量级而非全部落地到A股。
   confidence: medium
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260824-002-n", "claim-20260819-065", "claim-20260721-027"]
+  supplements:
+  - claim-20260824-002-n
+  - claim-20260819-065
+  - claim-20260721-027
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -429,10 +469,11 @@ claims:
   - 六网协同
   - 政策
   - 1.1万亿
+  school: qing
 - id: claim-20260825-045-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -440,15 +481,17 @@ claims:
   subject: 半导体设备景气创新高
   timeframe: industry
   statement: SEMI预计2026年全球半导体制造设备销售额将创下1659亿美元历史新高、同比增长23.2%，并有望在2028年达到2295亿美元、实现连续五年增长；上海'十五五'规划聚焦集成电路、人工智能、生物医药等重点产业提升出口竞争力。
-  evidence_quote: 据媒体报道，《上海市加快国际贸易中心建设'十五五'规划》提出聚焦集成电路、人工智能、生物医药、新能源汽车、船舶海工、空天产品等重点产业提升出口竞争力。中信建投研报援引
-    SEMI 预计，2026 年全球半导体制造设备销售额将创下 1659 亿美元的历史新高、同比增长 23.2%，并有望在 2028 年达到 2295 亿美元、实现连续五年增长。
+  evidence_quote: 据媒体报道，《上海市加快国际贸易中心建设'十五五'规划》提出聚焦集成电路、人工智能、生物医药、新能源汽车、船舶海工、空天产品等重点产业提升出口竞争力。中信建投研报援引 SEMI 预计，2026 年全球半导体制造设备销售额将创下 1659 亿美元的历史新高、同比增长 23.2%，并有望在 2028 年达到 2295 亿美元、实现连续五年增长。
   interpretation: 半导体设备是明确的景气上行变量（1659亿美元+23.2%→2295亿美元五年连增），叠加上海出口规划政策支撑。产业确定性高，但仍是'会不会有'的层面，报表兑现节奏另论。
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260623-001-j", "claim-20260625-003-r"]
+  supersedes:
+  - claim-20260623-001-j
+  - claim-20260625-003-r
   contradicts: []
-  supplements: ["claim-20260722-011"]
+  supplements:
+  - claim-20260722-011
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -461,10 +504,11 @@ claims:
   - SEMI
   - 景气
   - 十五五
+  school: qing
 - id: claim-20260825-046-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -479,7 +523,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-033-m", "claim-20260624-006-c"]
+  supplements:
+  - claim-20260617-033-m
+  - claim-20260624-006-c
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -492,10 +538,11 @@ claims:
   - 确定性下限
   - 订单兑现
   - 方法论
+  school: qing
 - id: claim-20260825-047-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -503,17 +550,15 @@ claims:
   subject: 松发股份造船转型
   timeframe: industry
   statement: 松发股份(603268)凭借2025年重大资产重组全额置入恒力重工100%股权，从濒临退市的日用陶瓷企业转型为A股民营造船标的：上半年恒力重工新承接船舶订单207艘（散货49/集装箱56/油轮94），首斩8艘超大型液氨运输船订单，累计接单超500艘、交船计划排至2030年，并已超额完成重组约定三年累计48亿元扣非净利润业绩承诺；行业层面2026上半年中国新船订单量1.09亿载重吨占全球80.9%，中国船厂新签订单同比增91%占全球71%。
-  evidence_quote: 公司凭借 2025 年完成的重大资产重组，全额置入恒力重工 100% 股权，已从濒临退市的日用陶瓷企业转型为 A 股民营造船标的。据公司披露，上半年恒力重工新承接船舶订单
-    207 艘，涵盖散货船 49 艘、集装箱船 56 艘、油轮 94 艘，并首次斩获 8 艘超大型液氨运输船订单，同期高质量交付船舶 40 艘，累计接单已超 500
-    艘，交船计划排至 2030 年，并已超额完成重组时约定的三年累计 48 亿元扣非净利润业绩承诺。据行业数据，2026 年上半年中国造船三大指标持续领跑全球，新船订单量达
-    10901 万载重吨、占全球总量 80.9%；中国船厂新签订单 1239 万修正吨，同比大增 91%、占全球份额 71%。
+  evidence_quote: 公司凭借 2025 年完成的重大资产重组，全额置入恒力重工 100% 股权，已从濒临退市的日用陶瓷企业转型为 A 股民营造船标的。据公司披露，上半年恒力重工新承接船舶订单 207 艘，涵盖散货船 49 艘、集装箱船 56 艘、油轮 94 艘，并首次斩获 8 艘超大型液氨运输船订单，同期高质量交付船舶 40 艘，累计接单已超 500 艘，交船计划排至 2030 年，并已超额完成重组时约定的三年累计 48 亿元扣非净利润业绩承诺。据行业数据，2026 年上半年中国造船三大指标持续领跑全球，新船订单量达 10901 万载重吨、占全球总量 80.9%；中国船厂新签订单 1239 万修正吨，同比大增 91%、占全球份额 71%。
   interpretation: 松发股份=造船重组+订单高增+业绩承诺超额兑现：207艘新单/500艘累计/排产至2030/48亿扣非已超额。行业β（中国造船全球份额80.9%）+公司α（重组质变）叠加。液氨船是新订单亮点（8艘超大型）。
   confidence: medium
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260720-026"]
+  supplements:
+  - claim-20260720-026
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -530,10 +575,11 @@ claims:
   - 恒力重工
   - 重组
   - 液氨运输船
+  school: qing
 - id: claim-20260825-048-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -541,16 +587,16 @@ claims:
   subject: 太辰光MPO逻辑
   timeframe: industry
   statement: 太辰光(300570)是A股MPO方向代表标的：CPO需要在单台交换机集成海量光纤通道，高芯数MPO将端口数量减少数倍，是CPO交换机前面板高密度连接的主要方案，CPO越普及MPO需求量/技术要求/价值量拉动越显著；公司从陶瓷插芯起家具备垂直整合能力，自研MPO连接器已规模化生产，作为康宁等全球头部光通信企业供应商间接进入海外CPO产业链。
-  evidence_quote: 与传统可插拔光模块不同，CPO 为实现超高带宽，需要在单台交换机内部集成海量光纤通道……高芯数 MPO 能将端口数量减少数倍，是目前
-    CPO 交换机前面板实现高密度连接的主要方案……CPO 越普及，MPO 的需求量、技术要求与价值量拉动就越显著。公司是 A 股 MPO 方向的代表标的，从陶瓷插芯起家……自研制造的
-    MPO 连接器已实现规模化生产，并作为康宁等全球头部光通信企业的供应商，间接进入海外 CPO 产业链。
+  evidence_quote: 与传统可插拔光模块不同，CPO 为实现超高带宽，需要在单台交换机内部集成海量光纤通道……高芯数 MPO 能将端口数量减少数倍，是目前 CPO 交换机前面板实现高密度连接的主要方案……CPO 越普及，MPO 的需求量、技术要求与价值量拉动就越显著。公司是 A 股 MPO 方向的代表标的，从陶瓷插芯起家……自研制造的 MPO 连接器已实现规模化生产，并作为康宁等全球头部光通信企业的供应商，间接进入海外 CPO 产业链。
   interpretation: 太辰光=CPO渗透的直接受益标的线：MPO是CPO架构的标准化高密度接口，渗透率提升拉动量价。康宁供应链背书海外CPO产业链卡位。属光连接方向的产业趋势标的。
   confidence: medium
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260817-042", "claim-20260816-016"]
+  supplements:
+  - claim-20260817-042
+  - claim-20260816-016
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -567,10 +613,11 @@ claims:
   - CPO
   - 康宁
   - 光连接
+  school: qing
 - id: claim-20260825-049-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -578,15 +625,16 @@ claims:
   subject: 上海能源焦煤量价齐升
   timeframe: industry
   statement: 上海能源(600508)拥有江苏徐州和新疆两大基地4对矿井核定总产能909万吨/年：2026上半年商品煤吨煤售价942元/吨同比+13.0%、单位成本仅+4.1%、吨煤毛利+45.5%，归母净利润2.83亿元同比+38.02%，其中二季度单季2.10亿元环比大增183.20%；供给偏紧煤价易涨难跌背景下，这是量价齐升的业绩释放窗口，观察重点在价格能否延续到三季度报表。
-  evidence_quote: 据公司半年报，2026 年上半年商品煤吨煤售价达 942 元／吨、同比提升 13.0%，单位成本仅增长 4.1%，推动吨煤毛利增长
-    45.5%；上半年归母净利润 2.83 亿元、同比增长 38.02%，其中二季度单季归母净利润 2.10 亿元、环比大增 183.20%。在供给持续偏紧、煤价易涨难跌的产业背景下，个人判断这是一个量价齐升的业绩释放窗口，观察重点在于价格能否延续到三季度报表。
+  evidence_quote: 据公司半年报，2026 年上半年商品煤吨煤售价达 942 元／吨、同比提升 13.0%，单位成本仅增长 4.1%，推动吨煤毛利增长 45.5%；上半年归母净利润 2.83 亿元、同比增长 38.02%，其中二季度单季归母净利润 2.10 亿元、环比大增 183.20%。在供给持续偏紧、煤价易涨难跌的产业背景下，个人判断这是一个量价齐升的业绩释放窗口，观察重点在于价格能否延续到三季度报表。
   interpretation: 上海能源是焦煤涨价的报表验证标的：售价+13%/成本+4.1%/毛利+45.5%，Q2环比+183%弹性已现。量价齐升逻辑当前仍成立，风险点是焦煤价格三季度延续性（决定窗口是否关闭）。
   confidence: medium
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-055", "claim-20260825-043-a"]
+  supplements:
+  - claim-20260819-055
+  - claim-20260825-043-a
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -602,10 +650,11 @@ claims:
   - 焦煤
   - 量价齐升
   - 业绩
+  school: qing
 - id: claim-20260825-050-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -620,7 +669,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260820-044", "claim-20260817-042", "claim-20260820-039"]
+  supplements:
+  - claim-20260820-044
+  - claim-20260817-042
+  - claim-20260820-039
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -636,10 +688,11 @@ claims:
   - 光棒
   - 保偏光纤
   - 算力网
+  school: qing
 - id: claim-20260825-051-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -648,14 +701,16 @@ claims:
   timeframe: industry
   statement: 正帆科技(688596)、华亚智能(003043)是半导体设备上游环节：正帆科技深耕半导体工艺制程二十余年、GasBox产品已打破国外垄断，为集成电路FAB厂提供超高纯电子气体、电子化学品及配套介质供应系统与运营维保服务；华亚智能精密金属结构件以半导体设备结构件为核心，产品应用于刻蚀、薄膜沉积、光刻、封装等环节，间接进入海内外主流半导体设备厂商供应链。
   evidence_quote: 正帆科技深耕半导体及泛半导体工艺制程领域二十余年，GasBox 产品已打破国外垄断，并为集成电路 FAB 厂提供超高纯电子气体、电子化学品及配套介质供应系统与运营维保服务；华亚智能的精密金属结构件以半导体设备结构件为核心发展方向，产品已应用于刻蚀、薄膜沉积、光刻、封装等环节，并通过客户体系间接进入海内外主流半导体设备厂商供应链。
-  interpretation: 半导体设备上游两条线：正帆科技（GasBox打破垄断+FAB厂介质供应系统）、华亚智能（设备结构件覆盖刻蚀/薄膜/光刻/封装）。对应SEMI
-    2026设备+23.2%景气的上游受益标的，均为主板可交易（正帆科技688为科创板）。
+  interpretation: 半导体设备上游两条线：正帆科技（GasBox打破垄断+FAB厂介质供应系统）、华亚智能（设备结构件覆盖刻蚀/薄膜/光刻/封装）。对应SEMI 2026设备+23.2%景气的上游受益标的，均为主板可交易（正帆科技688为科创板）。
   confidence: low
   status: active
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260728-003", "claim-20260721-026", "claim-20260707-020-a"]
+  supplements:
+  - claim-20260728-003
+  - claim-20260721-026
+  - claim-20260707-020-a
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -674,10 +729,11 @@ claims:
   - 华亚智能
   - 半导体设备
   - GasBox
+  school: qing
 - id: claim-20260825-052-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -685,15 +741,15 @@ claims:
   subject: 英伟达财报分水岭
   timeframe: short-term
   statement: 最大的外部变量是英伟达财报：本季(FY2027Q2)营收一致预期约920亿美元、非GAAP每股收益2.06-2.09美元，公司此前指引910亿美元上下浮动2%且不含中国数据中心计算产品收入；真正的分水岭不在本季数字，而在下季度营收指引能否突破1050亿美元。
-  evidence_quote: 据市场一致预期，本季（FY2027Q2）营收约 920 亿美元、非 GAAP 每股收益约 2.06 至 2.09 美元，公司此前给出的指引为
-    910 亿美元上下浮动 2%，且不包含中国数据中心计算产品收入。真正的分水岭不在本季数字，而在下季度营收指引能否突破 1050 亿美元。
+  evidence_quote: 据市场一致预期，本季（FY2027Q2）营收约 920 亿美元、非 GAAP 每股收益约 2.06 至 2.09 美元，公司此前给出的指引为 910 亿美元上下浮动 2%，且不包含中国数据中心计算产品收入。真正的分水岭不在本季数字，而在下季度营收指引能否突破 1050 亿美元。
   interpretation: 英伟达财报的观察框架：本季数字（预期充分）不是关键，下季指引（1050亿阈值）才是分水岭。指引破1050亿=需求延续确认，否则算力预期证伪风险。是明日（8/26）科技方向的最大外部变量。
   confidence: medium
   status: superseded
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-002"]
+  supplements:
+  - claim-20260812-002
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -707,10 +763,11 @@ claims:
   - 指引
   - 1050亿
   - 外部变量
+  school: qing
 - id: claim-20260825-053-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -718,15 +775,15 @@ claims:
   subject: 英伟达循环融资争议
   timeframe: short-term
   statement: 需特别关注英伟达电话会是否对'循环融资'与表外负债给出清晰回应：8月10日英伟达与六家资管及投行机构签署总规模5000亿美元的AI基础设施融资平台谅解备忘录，市场对供应商股权投资、take-or-pay算力协议与债务融资采购是否放大真实需求的争议由此而来；若管理层不能清晰解释风险控制与回报预期，资本的担忧将持续压制估值。
-  evidence_quote: 还要特别关注电话会是否对'循环融资'与表外负债给出清晰回应。据媒体报道，8 月 10 日英伟达与六家资管及投行机构签署总规模达
-    5000 亿美元的 AI 基础设施融资平台谅解备忘录，市场对供应商股权投资、take-or-pay 算力协议与债务融资采购是否放大了真实需求的争议由此而来。若管理层不能清晰解释风险控制与回报预期，资本的担忧将持续压制估值。
+  evidence_quote: 还要特别关注电话会是否对'循环融资'与表外负债给出清晰回应。据媒体报道，8 月 10 日英伟达与六家资管及投行机构签署总规模达 5000 亿美元的 AI 基础设施融资平台谅解备忘录，市场对供应商股权投资、take-or-pay 算力协议与债务融资采购是否放大了真实需求的争议由此而来。若管理层不能清晰解释风险控制与回报预期，资本的担忧将持续压制估值。
   interpretation: 英伟达财报的第二个观察点：循环融资/表外负债的争议（5000亿美元融资平台），本质是'算力需求是否被融资放大'的怀疑论。风险点=若解释不清压制AI板块估值；机会点=清晰回应则担忧解除。
   confidence: medium
   status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260820-041"]
+  supplements:
+  - claim-20260820-041
   last_discovered: 2026-08-26
   links:
     wiki_pages: []
@@ -740,10 +797,11 @@ claims:
   - 表外负债
   - 5000亿
   - 估值
+  school: qing
 - id: claim-20260825-054-a
   source_path: sources/original/bilibili/2026-08-25-2140-图片-今日指数低开后震荡分化，沪指相对强势、全天震荡走高，小微盘股.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-25'
   source_type: 动态
   extracted_at: '2026-08-25T23:58:00+08:00'
@@ -751,13 +809,15 @@ claims:
   subject: 明日反弹靠科技节奏
   timeframe: short-term
   statement: 明日还有进一步反弹的预期且大概率要靠科技带动，具体看隔夜美股和英伟达财报反馈：情形A美股企稳+财报指引兑现→科技高开带动量能温和放大反弹延续，重点观察液冷、光连接等有产业订单支撑的细分，不追已脱离防守属性的短线过渡方向；情形B指引低于预期或电话会对循环融资含糊→科技高开低走、量能继续萎缩在地量附近，小微盘活跃只是缩容环境下的存量腾挪，反弹很快转入回踩；但反弹过后大概率还有一个回踩，注意节奏。
-  evidence_quote: 整体上，明天市场还有进一步反弹的预期，而这个反弹大概率要靠科技去带动，具体要看晚上美股的表现和英伟达财报的反馈。……情形 A：隔夜美股企稳、财报与指引兑现，科技高开并带动量能温和放大，反弹得以延续，此时重点观察液冷、光连接等有产业订单支撑的细分能否承接……情形
-    B：指引低于预期，或电话会对循环融资含糊其辞，科技高开低走、量能继续萎缩在地量附近，那么今日的小微盘活跃就只是缩容环境下的存量腾挪，反弹会很快转入回踩。但反弹过后大概率还有一个回踩，注意节奏。
+  evidence_quote: 整体上，明天市场还有进一步反弹的预期，而这个反弹大概率要靠科技去带动，具体要看晚上美股的表现和英伟达财报的反馈。……情形 A：隔夜美股企稳、财报与指引兑现，科技高开并带动量能温和放大，反弹得以延续，此时重点观察液冷、光连接等有产业订单支撑的细分能否承接……情形 B：指引低于预期，或电话会对循环融资含糊其辞，科技高开低走、量能继续萎缩在地量附近，那么今日的小微盘活跃就只是缩容环境下的存量腾挪，反弹会很快转入回踩。但反弹过后大概率还有一个回踩，注意节奏。
   interpretation: 8/26盘前的双情形框架：反弹延续（A：美股企稳+财报兑现，看液冷/光连接承接）vs 转回踩（B：指引低预期/融资含糊，小微盘=存量腾挪）。反弹靠科技是节奏判断，反弹后回踩是一致预期，操作上注意节奏而非方向长度。
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260805-048", "claim-20260804-010", "claim-20260602-001-g"]
+  supersedes:
+  - claim-20260805-048
+  - claim-20260804-010
+  - claim-20260602-001-g
   contradicts: []
   supplements: []
   last_discovered: 2026-08-26
@@ -773,3 +833,4 @@ claims:
   - 英伟达财报
   - 回踩
   - 节奏
+  school: qing

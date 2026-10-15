@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260901-042-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -15,7 +15,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260623-001-a", "claim-20260816-001", "claim-20260819-007"]
+  supersedes:
+  - claim-20260623-001-a
+  - claim-20260816-001
+  - claim-20260819-007
   contradicts: []
   supplements: []
   last_discovered: 2026-09-02
@@ -31,10 +34,11 @@ claims:
   - 科创50
   - 创业板指
   - 量能
+  school: qing
 - id: claim-20260901-043-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -47,9 +51,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260816-002", "claim-20260811-041"]
+  supersedes:
+  - claim-20260816-002
+  - claim-20260811-041
   contradicts: []
-  supplements: ["claim-20260824-003-c"]
+  supplements:
+  - claim-20260824-003-c
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -63,10 +70,11 @@ claims:
   - 跌停
   - 连板梯队
   - 仓位管理
+  school: qing
 - id: claim-20260901-044-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -79,9 +87,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260702-001-a", "claim-20260609-005-a"]
+  supersedes:
+  - claim-20260702-001-a
+  - claim-20260609-005-a
   contradicts: []
-  supplements: ["claim-20260802-016"]
+  supplements:
+  - claim-20260802-016
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -95,10 +106,11 @@ claims:
   - 增量资金
   - 9月展望
   - 量能
+  school: qing
 - id: claim-20260901-045-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -111,9 +123,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260824-003-e", "claim-20260806-027"]
+  supersedes:
+  - claim-20260824-003-e
+  - claim-20260806-027
   contradicts: []
-  supplements: ["claim-20260811-049"]
+  supplements:
+  - claim-20260811-049
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -127,10 +142,11 @@ claims:
   - 上游涨价
   - 风险偏好
   - 三层框架
+  school: qing
 - id: claim-20260901-046-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -143,9 +159,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260830-005-a", "claim-20260825-040-a"]
+  supersedes:
+  - claim-20260830-005-a
+  - claim-20260825-040-a
   contradicts: []
-  supplements: ["claim-20260817-039"]
+  supplements:
+  - claim-20260817-039
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -159,13 +178,13 @@ claims:
   - code: '600540'
     name: 新赛股份
     role: 主板可交易
-  - code: '002679'
+  - code: 002679
     name: 福建金森
     role: 主板可交易
   - code: '000505'
     name: 京粮控股
     role: 主板可交易
-  - code: '000998'
+  - code: 000998
     name: 隆平高科
     role: 主板可交易
   - code: '600127'
@@ -177,10 +196,11 @@ claims:
   - 短线热钱
   - 连板
   - 电力对标
+  school: qing
 - id: claim-20260901-047-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -195,7 +215,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260817-039", "claim-20260830-006-a", "claim-20260819-057"]
+  supplements:
+  - claim-20260817-039
+  - claim-20260830-006-a
+  - claim-20260819-057
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -209,10 +232,11 @@ claims:
   - 农药
   - 消费品牌
   - 不追高
+  school: qing
 - id: claim-20260901-048-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -226,8 +250,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260831-005-h"]
-  supplements: ["claim-20260624-001-h"]
+  contradicts:
+  - claim-20260831-005-h
+  supplements:
+  - claim-20260624-001-h
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -247,7 +273,7 @@ claims:
   - code: '600919'
     name: 江苏银行
     role: 主板可交易
-  - code: '002945'
+  - code: 002945
     name: 华林证券
     role: 主板可交易
   tags:
@@ -256,10 +282,11 @@ claims:
   - 避风港
   - 历史新高
   - 指数抗跌
+  school: qing
 - id: claim-20260901-049-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -273,8 +300,11 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260818-062"]
-  supplements: ["claim-20260825-012-a", "claim-20260809-016"]
+  contradicts:
+  - claim-20260818-062
+  supplements:
+  - claim-20260825-012-a
+  - claim-20260809-016
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -285,7 +315,7 @@ claims:
   - code: '600828'
     name: 茂业商业
     role: 主板可交易
-  - code: '000596'
+  - code: 000596
     name: 古井贡酒
     role: 主板可交易
   - code: '000721'
@@ -297,10 +327,11 @@ claims:
   - 政策刺激
   - 通胀传导
   - 防御
+  school: qing
 - id: claim-20260901-050-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -315,7 +346,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260811-046"]
+  supplements:
+  - claim-20260811-046
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -326,7 +358,7 @@ claims:
   - code: '300413'
     name: 芒果超媒
     role: 创业板不可交易
-  - code: '000892'
+  - code: 000892
     name: 欢瑞世纪
     role: 主板可交易
   - code: '603721'
@@ -341,10 +373,11 @@ claims:
   - AI内容
   - 结构性轮动
   - 波段
+  school: qing
 - id: claim-20260901-051-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -357,9 +390,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260806-007", "claim-20260810-032"]
+  supersedes:
+  - claim-20260806-007
+  - claim-20260810-032
   contradicts: []
-  supplements: ["claim-20260803-021"]
+  supplements:
+  - claim-20260803-021
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -382,10 +418,11 @@ claims:
   - 液冷
   - 算力基础设施
   - 止跌
+  school: qing
 - id: claim-20260901-052-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -398,9 +435,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260813-014", "claim-20260817-048"]
+  supersedes:
+  - claim-20260813-014
+  - claim-20260817-048
   contradicts: []
-  supplements: ["claim-20260825-006-a"]
+  supplements:
+  - claim-20260825-006-a
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -414,10 +454,11 @@ claims:
   - 海内外共振
   - 硬件企稳
   - 观察点
+  school: qing
 - id: claim-20260901-053-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -432,7 +473,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260809-013", "claim-20260813-013", "claim-20260812-010"]
+  supplements:
+  - claim-20260809-013
+  - claim-20260813-013
+  - claim-20260812-010
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -440,7 +484,7 @@ claims:
     cases: []
   topic: A股AI应用炒映射与预期差属波段机会
   related_stocks:
-  - code: '002291'
+  - code: 002291
     name: 遥望科技
     role: 主板可交易
   - code: '003005'
@@ -452,10 +496,11 @@ claims:
   - 映射
   - 预期差
   - 波段
+  school: qing
 - id: claim-20260901-054-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -470,7 +515,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260806-022", "claim-20260817-045", "claim-20260810-007"]
+  supplements:
+  - claim-20260806-022
+  - claim-20260817-045
+  - claim-20260810-007
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -481,7 +529,7 @@ claims:
   - code: '603221'
     name: 爱丽家居
     role: 主板可交易
-  - code: '002855'
+  - code: 002855
     name: 捷荣技术
     role: 主板可交易
   tags:
@@ -490,10 +538,11 @@ claims:
   - 妖股
   - 内生性
   - 情绪
+  school: qing
 - id: claim-20260901-055-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -506,9 +555,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260812-039"]
+  supersedes:
+  - claim-20260812-039
   contradicts: []
-  supplements: ["claim-20260818-070", "claim-20260805-013"]
+  supplements:
+  - claim-20260818-070
+  - claim-20260805-013
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -522,10 +574,11 @@ claims:
   - 二板
   - 尾盘抢筹
   - 情绪高点
+  school: qing
 - id: claim-20260901-056-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -540,7 +593,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260809-021"]
+  supplements:
+  - claim-20260809-021
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -557,10 +611,11 @@ claims:
   - 存储测试
   - 跨界并购
   - SLT
+  school: qing
 - id: claim-20260901-057-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -575,7 +630,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260826-041-a"]
+  supplements:
+  - claim-20260826-041-a
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -583,7 +639,7 @@ claims:
     cases: []
   topic: 捷荣技术接替连板梯队龙头仅盘面记录
   related_stocks:
-  - code: '002855'
+  - code: 002855
     name: 捷荣技术
     role: 主板可交易
   tags:
@@ -591,10 +647,11 @@ claims:
   - 连板龙头
   - 妖股
   - 盘面记录
+  school: qing
 - id: claim-20260901-058-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -609,7 +666,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-032", "claim-20260811-054", "claim-20260805-049"]
+  supplements:
+  - claim-20260805-032
+  - claim-20260811-054
+  - claim-20260805-049
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -620,19 +680,20 @@ claims:
   - code: '003005'
     name: 竞业达
     role: 主板可交易
-  - code: "920670"
-    name: "数字人"
-    role: "回填-正文提及"
+  - code: '920670'
+    name: 数字人
+    role: 回填-正文提及
   tags:
   - 竞业达
   - 教育AI
   - 星空教育大模型
   - 轨道交通
   - 波段
+  school: qing
 - id: claim-20260901-059-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -664,10 +725,11 @@ claims:
   - 除草剂
   - 农药
   - 扩散段
+  school: qing
 - id: claim-20260901-060-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -682,7 +744,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260825-021-a", "claim-20260831-005-o", "claim-20260809-025"]
+  supplements:
+  - claim-20260825-021-a
+  - claim-20260831-005-o
+  - claim-20260809-025
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -690,10 +755,10 @@ claims:
     cases: []
   topic: 康盛股份液冷处卡位阶段兑现按订单看
   related_stocks:
-  - code: '002418'
+  - code: 002418
     name: 康盛股份
     role: 主板可交易
-  - code: '002837'
+  - code: 002837
     name: 英维克
     role: 主板可交易
   tags:
@@ -702,10 +767,11 @@ claims:
   - 冷板式
   - 浸没式
   - 订单兑现
+  school: qing
 - id: claim-20260901-061-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -737,18 +803,18 @@ claims:
   - FISH
   - 境外收入
   - 低基数
+  school: qing
 - id: claim-20260901-062-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
   claim_type: catalyst
   subject: 海外AI智能体落地对A股是叙事而非业绩
   timeframe: short-term
-  statement: 据财联社9月1日电，物流企业OneRail即将推出采用英伟达AI软件的平台OmniStar（配送方案筛选从约20分钟缩短至2分30秒）；鼎捷数智(300378)以EnerA智慧能源AI
-    Agent为核心AI业务签单近2亿元，久其软件(002279)推出久其女娲天工AI平台。个人判断海外落地案例对A股的作用是叙事而非业绩，映射能否兑现仍要回到国内签单额与交付进度两个可验证变量上。
+  statement: 据财联社9月1日电，物流企业OneRail即将推出采用英伟达AI软件的平台OmniStar（配送方案筛选从约20分钟缩短至2分30秒）；鼎捷数智(300378)以EnerA智慧能源AI Agent为核心AI业务签单近2亿元，久其软件(002279)推出久其女娲天工AI平台。个人判断海外落地案例对A股的作用是叙事而非业绩，映射能否兑现仍要回到国内签单额与交付进度两个可验证变量上。
   evidence_quote: 个人判断，海外落地案例对A股的作用是叙事而非业绩，映射能否兑现，仍要回到国内签单额与交付进度这两个可验证的变量上。
   interpretation: AI智能体映射行情的验证锚：国内签单额+交付进度，不因海外案例直接给业绩定价。鼎捷数智(300378)签单近2亿元是当前少数可验证的业绩线索。
   confidence: medium
@@ -756,7 +822,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260817-049", "claim-20260813-013"]
+  supplements:
+  - claim-20260817-049
+  - claim-20260813-013
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -767,7 +835,7 @@ claims:
   - code: '300378'
     name: 鼎捷数智
     role: 创业板不可交易
-  - code: '002279'
+  - code: 002279
     name: 久其软件
     role: 主板可交易
   tags:
@@ -776,10 +844,11 @@ claims:
   - 鼎捷数智
   - 签单额
   - 映射
+  school: qing
 - id: claim-20260901-063-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -794,7 +863,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-004-f", "claim-20260609-004-b"]
+  supplements:
+  - claim-20260609-004-f
+  - claim-20260609-004-b
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -814,10 +885,11 @@ claims:
   - 星网
   - 千帆星座
   - 发射节奏
+  school: qing
 - id: claim-20260901-064-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -832,7 +904,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260817-047", "claim-20260830-026-a"]
+  supplements:
+  - claim-20260817-047
+  - claim-20260830-026-a
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -840,7 +914,7 @@ claims:
     cases: []
   topic: 机构净卖出敦煌种业印证农业是热钱载体
   related_stocks:
-  - code: '002886'
+  - code: 002886
     name: 沃特股份
     role: 主板可交易
   - code: '300364'
@@ -861,10 +935,11 @@ claims:
   - 敦煌种业
   - 景旺电子
   - 热钱
+  school: qing
 - id: claim-20260901-065-a
   source_path: sources/original/bilibili/2026-09-01-2148-专栏-今日是一段典型的存量博弈日：指数在缩量中分化，科技退潮，农业.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 复盘
   extracted_at: '2026-09-01T22:20:00+08:00'
@@ -877,7 +952,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260806-053", "claim-20260804-020", "claim-20260805-060"]
+  supersedes:
+  - claim-20260806-053
+  - claim-20260804-020
+  - claim-20260805-060
   contradicts: []
   supplements: []
   last_discovered: 2026-09-02
@@ -893,3 +971,4 @@ claims:
   - 存储止跌
   - 接力梯队
   - 不追
+  school: qing

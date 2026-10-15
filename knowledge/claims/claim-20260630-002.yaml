@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260630-002-a
   source_path: sources/raw/财经/2026-06-30-1157-动态-机器人预期差.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 动态
   extracted_at: '2026-06-30T12:32:14+08:00'
@@ -30,10 +30,11 @@ claims:
   - 定价
   - 兑现
   - 方法论
+  school: qing
 - id: claim-20260630-002-b
   source_path: sources/raw/财经/2026-06-30-1157-动态-机器人预期差.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 动态
   extracted_at: '2026-06-30T12:32:14+08:00'
@@ -47,8 +48,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260612-002-b"]
-  supplements: ["claim-20260521-002-f"]
+  contradicts:
+  - claim-20260612-002-b
+  supplements:
+  - claim-20260521-002-f
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -61,10 +64,11 @@ claims:
   - 边际增量
   - 共识
   - 预期差
+  school: qing
 - id: claim-20260630-002-c
   source_path: sources/raw/财经/2026-06-30-1157-动态-机器人预期差.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 动态
   extracted_at: '2026-06-30T12:32:14+08:00'
@@ -77,9 +81,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260607-004-g"]
+  supersedes:
+  - claim-20260607-004-g
   contradicts: []
-  supplements: ["claim-20260609-001-b", "claim-20260519-001-f"]
+  supplements:
+  - claim-20260609-001-b
+  - claim-20260519-001-f
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -93,10 +100,11 @@ claims:
   - 具身智能
   - AI应用端
   - 定价共识
+  school: qing
 - id: claim-20260630-002-d
   source_path: sources/raw/财经/2026-06-30-1157-动态-机器人预期差.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 动态
   extracted_at: '2026-06-30T12:32:14+08:00'
@@ -111,7 +119,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-034-m"]
+  supplements:
+  - claim-20260617-034-m
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -125,10 +134,11 @@ claims:
   - 主题想象
   - 产业验证
   - 估值重估
+  school: qing
 - id: claim-20260630-002-e
   source_path: sources/raw/财经/2026-06-30-1157-动态-机器人预期差.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 动态
   extracted_at: '2026-06-30T12:32:14+08:00'
@@ -143,7 +153,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-005-a"]
+  supplements:
+  - claim-20260611-005-a
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -156,10 +167,11 @@ claims:
   - 弹性
   - 不确定性
   - 情绪炒作
+  school: qing
 - id: claim-20260630-002-f
   source_path: sources/raw/财经/2026-06-30-1157-动态-机器人预期差.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 动态
   extracted_at: '2026-06-30T12:32:14+08:00'
@@ -174,7 +186,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-g"]
+  supplements:
+  - claim-20260625-003-g
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -188,3 +201,4 @@ claims:
   - 机器人
   - 确定性
   - 定价
+  school: qing

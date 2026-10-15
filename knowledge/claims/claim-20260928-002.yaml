@@ -31,6 +31,7 @@ claims:
   - 风险释放
   - 观察窗口
   - 承接回流
+  school: qing
 - id: claim-20260928-002-b
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -62,6 +63,7 @@ claims:
   - 节前效应
   - 风险敞口
   - 归因框架
+  school: qing
 - id: claim-20260928-002-c
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -80,7 +82,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-005", "claim-20260915-004-12", "claim-20260816-003-005"]
+  supplements:
+  - claim-20260914-001-005
+  - claim-20260915-004-12
+  - claim-20260816-003-005
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -94,6 +99,7 @@ claims:
   - 贴现率
   - 高估值成长
   - 压力情景
+  school: qing
 - id: claim-20260928-002-d
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -112,7 +118,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260910-003-a", "claim-20260921-002-c", "claim-20260913-001-009"]
+  supplements:
+  - claim-20260910-003-a
+  - claim-20260921-002-c
+  - claim-20260913-001-009
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -126,6 +135,7 @@ claims:
   - 量价关系
   - 抛压衰减
   - 无量反弹
+  school: qing
 - id: claim-20260928-002-e
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -144,7 +154,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-e", "claim-20260917-006-a", "claim-20260910-003-a"]
+  supplements:
+  - claim-20260921-002-e
+  - claim-20260917-006-a
+  - claim-20260910-003-a
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -158,6 +171,7 @@ claims:
   - 权重护盘
   - 修复条件
   - 参与难度
+  school: qing
 - id: claim-20260928-002-f
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -190,6 +204,7 @@ claims:
   - 股息率
   - 估值缓冲
   - 内部分化
+  school: qing
 - id: claim-20260928-002-g
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -206,7 +221,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260902-007-a", "claim-20260630-001-a", "claim-20260824-003-b"]
+  supersedes:
+  - claim-20260902-007-a
+  - claim-20260630-001-a
+  - claim-20260824-003-b
   contradicts: []
   supplements: []
   last_discovered: 2026-09-29
@@ -221,6 +239,7 @@ claims:
   - 情绪冰点
   - 低迷区
   - 承接确认
+  school: qing
 - id: claim-20260928-002-h
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -239,7 +258,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260826-027-a", "claim-20260913-001-018"]
+  supplements:
+  - claim-20260826-027-a
+  - claim-20260913-001-018
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -253,6 +274,7 @@ claims:
   - 强势股补跌
   - 负反馈
   - 核心回封
+  school: qing
 - id: claim-20260928-002-i
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -264,13 +286,13 @@ claims:
   subject: 明日情形应对框架
   timeframe: short-term
   statement: 9月29日按两种情形应对：情形A（抛压衰减）下指数不再持续创盘中新低、跌停明显减少、强势方向回落有承接且科技权重企稳，先按情绪修复观察，午后修复维持才提高反弹持续性判断，优先观察强势方向、不将超跌直接当作机会；情形B（继续破位）下创业板放量下行、抗跌股补跌、跌停维持高位，说明资金仍在收缩敞口，即使盘中快速拉升只要量能与广度跟不上仍按弱势反抽处理，应降低参与强度、控制隔夜风险。
-  evidence_quote: 情形 A · 抛压衰减，局部修复逐步扩散：若早盘分歧后指数不再持续创出盘中新低，跌停家数明显减少，汽车整车、风电或玻璃基板核心个股回落有承接，同时科技权重由拖累转为企稳，可以先按情绪修复观察。午后若修复仍能维持、上涨家数继续增加，才有条件提高对反弹持续性的判断。优先观察强势方向，不将超跌直接当作机会。情形
-    B · 指数继续破位，强势方向补跌：若创业板继续放量下行，前一日抗跌股也出现冲高回落或连续失守，跌停数量维持高位，说明资金仍在收缩风险敞口。即使盘中出现快速拉升，只要量能与板块广度跟不上，仍按弱势反抽处理。此时应降低参与强度，控制隔夜风险，等待新的承接结构形成。
+  evidence_quote: 情形 A · 抛压衰减，局部修复逐步扩散：若早盘分歧后指数不再持续创出盘中新低，跌停家数明显减少，汽车整车、风电或玻璃基板核心个股回落有承接，同时科技权重由拖累转为企稳，可以先按情绪修复观察。午后若修复仍能维持、上涨家数继续增加，才有条件提高对反弹持续性的判断。优先观察强势方向，不将超跌直接当作机会。情形 B · 指数继续破位，强势方向补跌：若创业板继续放量下行，前一日抗跌股也出现冲高回落或连续失守，跌停数量维持高位，说明资金仍在收缩风险敞口。即使盘中出现快速拉升，只要量能与板块广度跟不上，仍按弱势反抽处理。此时应降低参与强度，控制隔夜风险，等待新的承接结构形成。
   interpretation: UP给出的次日决策树：用指数新低、跌停家数、强势方向承接、科技权重四个信号分流到修复观察或弱势反抽两种处理，分别对应提高观察权重与降低参与强度两种仓位动作。
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260824-003-d"]
+  supersedes:
+  - claim-20260824-003-d
   contradicts: []
   supplements: []
   last_discovered: 2026-09-29
@@ -286,6 +308,7 @@ claims:
   - 情绪修复
   - 弱势反抽
   - 隔夜风险
+  school: qing
 - id: claim-20260928-002-j
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -304,7 +327,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-005", "claim-20260921-001-y", "claim-20260901-010-a"]
+  supplements:
+  - claim-20260914-001-005
+  - claim-20260921-001-y
+  - claim-20260901-010-a
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -318,6 +344,7 @@ claims:
   - 海外数据
   - 估值压力
   - 增长预期
+  school: qing
 - id: claim-20260928-002-k
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -334,9 +361,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260908-003-z"]
+  supersedes:
+  - claim-20260908-003-z
   contradicts: []
-  supplements: ["claim-20260913-001-018"]
+  supplements:
+  - claim-20260913-001-018
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -350,6 +379,7 @@ claims:
   - 前提条件
   - 资金回流
   - 幅度预判
+  school: qing
 - id: claim-20260928-002-l
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -368,7 +398,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260927-001-ac"]
+  supplements:
+  - claim-20260927-001-ac
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -388,6 +419,7 @@ claims:
   - 辨识度标的
   - 核心承接
   - 连板
+  school: qing
 - id: claim-20260928-002-m
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -404,7 +436,8 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260917-010-a"]
+  supersedes:
+  - claim-20260917-010-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-29
@@ -418,7 +451,7 @@ claims:
   - code: '600418'
     name: 江淮汽车
     role: 整车方向盘面观察点-沪主板可交易
-  - code: '000980'
+  - code: 000980
     name: 众泰汽车
     role: 整车方向盘面观察点-深主板可交易
   tags:
@@ -426,6 +459,7 @@ claims:
   - 整车风电
   - 超跌反弹
   - 医药对标
+  school: qing
 - id: claim-20260928-002-n
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -444,7 +478,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260615-012", "claim-20260819-030"]
+  supplements:
+  - claim-20260615-012
+  - claim-20260819-030
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -458,6 +494,7 @@ claims:
   - 观察框架
   - 核心活跃
   - 板块轮动
+  school: qing
 - id: claim-20260928-002-o
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -476,7 +513,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260915-004-7", "claim-20260805-038", "claim-20260922-001-f"]
+  supplements:
+  - claim-20260915-004-7
+  - claim-20260805-038
+  - claim-20260922-001-f
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -490,6 +530,7 @@ claims:
   - 见底判据
   - 景气贴现率
   - 利空出清
+  school: qing
 - id: claim-20260928-002-p
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -525,6 +566,7 @@ claims:
   - 核心抗跌
   - 持续性验证
   - 容量
+  school: qing
 - id: claim-20260928-002-q
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -560,6 +602,7 @@ claims:
   - 矢量网络分析仪
   - 核心到板块
   - 正反馈
+  school: qing
 - id: claim-20260928-002-r
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -578,7 +621,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260831-019-a"]
+  supplements:
+  - claim-20260831-019-a
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -590,7 +634,7 @@ claims:
   - code: '688244'
     name: 永信至诚
     role: AI安全20cm领涨-科创板不可交易
-  - code: '002912'
+  - code: 002912
     name: 中新赛克
     role: AI安全跟随标的-深主板可交易
   tags:
@@ -598,6 +642,7 @@ claims:
   - 智能体安全
   - 异动验证
   - 次日反馈
+  school: qing
 - id: claim-20260928-002-s
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -616,7 +661,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260811-024", "claim-20260927-001-ac"]
+  supplements:
+  - claim-20260811-024
+  - claim-20260927-001-ac
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -633,6 +680,7 @@ claims:
   - 国庆档
   - 弱市轮动
   - 无新主线
+  school: qing
 - id: claim-20260928-002-t
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -649,9 +697,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260630-001-d"]
+  supersedes:
+  - claim-20260630-001-d
   contradicts: []
-  supplements: ["claim-20260927-001-u", "claim-20260923-002-r"]
+  supplements:
+  - claim-20260927-001-u
+  - claim-20260923-002-r
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -665,6 +716,7 @@ claims:
   - 产业映射
   - 量产良率
   - 封装可靠性
+  school: qing
 - id: claim-20260928-002-u
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -683,7 +735,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260816-010", "claim-20260928-001-n", "claim-20260628-001-p"]
+  supplements:
+  - claim-20260816-010
+  - claim-20260928-001-n
+  - claim-20260628-001-p
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -712,6 +767,7 @@ claims:
   - 石墨烯
   - 金刚石
   - 热界面材料
+  school: qing
 - id: claim-20260928-002-v
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -730,7 +786,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260904-014"]
+  supplements:
+  - claim-20260904-014
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -744,6 +801,7 @@ claims:
   - 氟化液
   - 液冷架构
   - 客户认证
+  school: qing
 - id: claim-20260928-002-w
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -762,7 +820,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260927-001-z", "claim-20260630-002-d", "claim-20260819-006-017"]
+  supplements:
+  - claim-20260927-001-z
+  - claim-20260630-002-d
+  - claim-20260819-006-017
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -779,6 +840,7 @@ claims:
   - 产品验证
   - 交付
   - 出货量叙事
+  school: qing
 - id: claim-20260928-002-x
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -797,7 +859,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-026", "claim-20260723-012"]
+  supplements:
+  - claim-20260913-001-026
+  - claim-20260723-012
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -814,6 +878,7 @@ claims:
   - 智能体
   - 系统运行安全
   - 权限控制
+  school: qing
 - id: claim-20260928-002-y
   source_path: sources/original/bilibili/2026-09-28-2255-专栏-今天市场低开低走，创业板指收跌4.53%，午后虽有企稳迹象，.md
   source_date: '2026-09-28'
@@ -832,7 +897,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-033", "claim-20260921-001-z", "claim-20260913-001-018"]
+  supplements:
+  - claim-20260913-001-033
+  - claim-20260921-001-z
+  - claim-20260913-001-018
   last_discovered: 2026-09-29
   links:
     wiki_pages: []
@@ -846,3 +914,4 @@ claims:
   - 不抢反转
   - 不追脉冲
   - 节前仓位
+  school: qing

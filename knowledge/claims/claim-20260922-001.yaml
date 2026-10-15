@@ -17,7 +17,9 @@ claims:
   stance: market-regime
   status: active
   intensity: high
-  supersedes: ["claim-20260706-006", "claim-20260616-001-c"]
+  supersedes:
+  - claim-20260706-006
+  - claim-20260616-001-c
   contradicts: []
   supplements: []
   last_discovered: 2026-09-22
@@ -30,6 +32,7 @@ claims:
   - 上升趋势
   - 仓位管理
   - 指数修复
+  school: qing
 - id: claim-20260922-001-b
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -50,7 +53,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-003-k", "claim-20260824-003-c"]
+  supplements:
+  - claim-20260921-003-k
+  - claim-20260824-003-c
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -61,6 +66,7 @@ claims:
   - 情绪修复
   - 科技接力
   - 反弹持续性
+  school: qing
 - id: claim-20260922-001-c
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -81,7 +87,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260910-001-a"]
+  supplements:
+  - claim-20260910-001-a
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -92,6 +99,7 @@ claims:
   - 外盘催化
   - 资金接力
   - 短线博弈
+  school: qing
 - id: claim-20260922-001-d
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -112,7 +120,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260901-028-a", "claim-20260609-005-f"]
+  supplements:
+  - claim-20260901-028-a
+  - claim-20260609-005-f
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -123,6 +133,7 @@ claims:
   - 产业逻辑
   - 耐心纪律
   - 操作纪律
+  school: qing
 - id: claim-20260922-001-e
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -143,7 +154,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260713-016-p", "claim-20260522-002-d"]
+  supplements:
+  - claim-20260713-016-p
+  - claim-20260522-002-d
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -154,6 +167,7 @@ claims:
   - 中秋假期
   - 跨节资金
   - 修复节奏
+  school: qing
 - id: claim-20260922-001-f
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -174,7 +188,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260918-004-a", "claim-20260921-002-c"]
+  supplements:
+  - claim-20260918-004-a
+  - claim-20260921-002-c
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -185,6 +201,7 @@ claims:
   - 量能观察
   - 10:30窗口
   - 13:30窗口
+  school: qing
 - id: claim-20260922-001-g
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -205,7 +222,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-e", "claim-20260921-001-d", "claim-20260909-014-a"]
+  supplements:
+  - claim-20260921-002-e
+  - claim-20260921-001-d
+  - claim-20260909-014-a
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -216,6 +236,7 @@ claims:
   - 券商
   - 金融权重
   - 赚钱效应
+  school: qing
 - id: claim-20260922-001-h
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -236,7 +257,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-m", "claim-20260908-003-z"]
+  supplements:
+  - claim-20260921-002-m
+  - claim-20260908-003-z
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -247,6 +270,7 @@ claims:
   - 分歧承接
   - 炸板修复
   - 晋级率
+  school: qing
 - id: claim-20260922-001-i
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -260,13 +284,13 @@ claims:
   timeframe: intraday
   statement: 情形A（科技回流、分歧获承接）：继续按六成理论仓位围绕已关注方向持有或机动仓做T，不因竞价强势追高、不因单股涨停临时扩仓；情形B（科技高开低走、情绪退潮）：先减机动仓和弱势持仓、暂停追涨接力，若量价与广度一起转弱则降低整体风险敞口——六成是理论参考，不是必须维持的仓位。
   evidence_quote: 此时可继续按六成理论仓位的框架，围绕已关注方向持有或用机动仓做T……不因竞价强势追高，不因单只个股涨停临时扩大总仓位。／此时先减少机动仓和弱势持仓，暂停追涨接力。……六成是当前理论参考，不是必须维持的仓位。
-  interpretation: UP 当日的双剧本操作框架，触发条件分别是科技回落后再走强+广度同步改善（A）vs 科技弱于预期+强势股成片冲高回落+晋级率破位（B）。B
-    情形下底仓去留看「逻辑与承接是否正常」。
+  interpretation: UP 当日的双剧本操作框架，触发条件分别是科技回落后再走强+广度同步改善（A）vs 科技弱于预期+强势股成片冲高回落+晋级率破位（B）。B 情形下底仓去留看「逻辑与承接是否正常」。
   confidence: high
   stance: view
   status: active
   intensity: high
-  supersedes: ["claim-20260918-008-a"]
+  supersedes:
+  - claim-20260918-008-a
   contradicts: []
   supplements: []
   last_discovered: 2026-09-22
@@ -279,6 +303,7 @@ claims:
   - 操作剧本
   - 情形A
   - 情形B
+  school: qing
 - id: claim-20260922-001-j
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -299,7 +324,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260813-007", "claim-20260814-011", "claim-20260723-005"]
+  supplements:
+  - claim-20260813-007
+  - claim-20260814-011
+  - claim-20260723-005
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -310,6 +338,7 @@ claims:
   - 一进二晋级率
   - 首板家数
   - 观察线
+  school: qing
 - id: claim-20260922-001-k
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -330,7 +359,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260901-055-a", "claim-20260921-003-k"]
+  supplements:
+  - claim-20260901-055-a
+  - claim-20260921-003-k
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -341,6 +372,7 @@ claims:
   - 涨停梯队
   - 高标
   - 低位补位
+  school: qing
 - id: claim-20260922-001-l
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -361,7 +393,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-s", "claim-20260921-003-q"]
+  supplements:
+  - claim-20260921-002-s
+  - claim-20260921-003-q
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -372,6 +406,7 @@ claims:
   - 高低切换
   - 医药
   - 地产
+  school: qing
 - id: claim-20260922-001-m
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -392,7 +427,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260827-067-x", "claim-20260921-002-r"]
+  supplements:
+  - claim-20260827-067-x
+  - claim-20260921-002-r
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -409,6 +446,7 @@ claims:
   - MLCC
   - 容量品种
   - 连板高度
+  school: qing
 - id: claim-20260922-001-n
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -429,7 +467,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-017", "claim-20260702-005-j", "claim-20260622-004-d"]
+  supplements:
+  - claim-20260914-001-017
+  - claim-20260702-005-j
+  - claim-20260622-004-d
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -440,6 +481,7 @@ claims:
   - 科技细分
   - 涨价
   - 存储经验
+  school: qing
 - id: claim-20260922-001-o
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -453,8 +495,7 @@ claims:
   timeframe: industry
   statement: 《医药工业发展“十五五”规划》为CRO/CDMO（CXO）提供中长期观察线索，景气跟踪应落到融资、订单与项目推进；诺禾致源(688315)_TMP（研发工具与服务）与南华生物(000504)_TMP（细胞治疗与再生医学）业务模式不同，不能直接用同一套传统CRO订单逻辑衡量。
   evidence_quote: 研发效率提升、复杂药物开发及后续商业化，为药物研发外包服务（CRO）和合同研发生产服务（CDMO）提供了中长期观察线索。……景气跟踪应落到融资、订单与项目推进。……两家公司在医药行情中受到关注，但业务模式不同，不能直接用同一套传统CRO订单逻辑衡量。
-  interpretation: 框架条：政策催化→CXO 中长期线索，验证三要素=融资/订单/项目推进；个股层（诺禾致源(688315)、南华生物(000504)）只作业务区分提醒，不单独建
-    claim。
+  interpretation: 框架条：政策催化→CXO 中长期线索，验证三要素=融资/订单/项目推进；个股层（诺禾致源(688315)、南华生物(000504)）只作业务区分提醒，不单独建 claim。
   confidence: medium
   stance: view
   status: active
@@ -478,6 +519,7 @@ claims:
   - CXO
   - 十五五规划
   - 医药外包
+  school: qing
 - id: claim-20260922-001-p
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -491,15 +533,15 @@ claims:
   timeframe: industry
   statement: PCB的材料升级仍是科技链条中较清楚的产业线索；材料价格变化要结合铜箔、玻璃布、树脂成本与下游高频高速需求结构一起看；AI服务器与高速通信提高了对低损耗、粒径控制及产品稳定性的要求。
   evidence_quote: 印制电路板（PCB）的材料升级仍是科技链条中较清楚的产业线索。……价格变化要结合铜箔、玻璃布和树脂的成本，以及下游高频高速产品的需求结构一起看。
-  interpretation: 框架条：UP 明确把 PCB 材料升级（覆铜板/球形硅微粉）列为科技链中确定性较高的产业线索；跟踪口径=成本（铜箔/玻璃布/树脂）×需求结构（高频高速）。相关标的凌玮科技(301373)、联瑞新材(688300)的产业进展作
-    evidence。
+  interpretation: 框架条：UP 明确把 PCB 材料升级（覆铜板/球形硅微粉）列为科技链中确定性较高的产业线索；跟踪口径=成本（铜箔/玻璃布/树脂）×需求结构（高频高速）。相关标的凌玮科技(301373)、联瑞新材(688300)的产业进展作 evidence。
   confidence: high
   stance: view
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260605-001-c"]
+  supplements:
+  - claim-20260605-001-c
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -516,6 +558,7 @@ claims:
   - 覆铜板
   - 球形硅微粉
   - PCB材料
+  school: qing
 - id: claim-20260922-001-q
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -536,7 +579,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-006-019", "claim-20260819-006-004", "claim-20260819-006-017"]
+  supplements:
+  - claim-20260819-006-019
+  - claim-20260819-006-004
+  - claim-20260819-006-017
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -553,6 +599,7 @@ claims:
   - 灵巧手
   - 微型电机
   - 宇树Dex5-S
+  school: qing
 - id: claim-20260922-001-r
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -572,8 +619,11 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260816-024"]
-  supplements: ["claim-20260805-032", "claim-20260803-031"]
+  contradicts:
+  - claim-20260816-024
+  supplements:
+  - claim-20260805-032
+  - claim-20260803-031
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -590,6 +640,7 @@ claims:
   - AI智能体
   - Meta Muse
   - AI营销
+  school: qing
 - id: claim-20260922-001-s
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -610,7 +661,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260816-024", "claim-20260609-005-e"]
+  supplements:
+  - claim-20260816-024
+  - claim-20260609-005-e
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -624,6 +677,7 @@ claims:
   - 服务器CPU
   - 国产处理器
   - AMD
+  school: qing
 - id: claim-20260922-001-t
   source_path: sources/original/bilibili/2026-09-22-0908-专栏-周一指数继续修复，沪指收涨0.97%，两市成交维持在2万亿元.md
   source_date: '2026-09-22'
@@ -644,7 +698,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260918-008-a", "claim-20260921-002-af"]
+  supplements:
+  - claim-20260918-008-a
+  - claim-20260921-002-af
   last_discovered: 2026-09-22
   links:
     wiki_pages: []
@@ -655,3 +711,4 @@ claims:
   - 做T纪律
   - 仓位控制
   - 纠错余地
+  school: qing

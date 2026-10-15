@@ -1,8 +1,8 @@
 claims:
 - id: claim-20061120-001-a
   source_path: sources/chanlun/lesson_008.md
-  up_id: "chanlun-original"
-  up_name: "缠中说禅"
+  up_id: chanlun-original
+  up_name: 缠中说禅
   source_date: '2006-11-20'
   source_type: 专栏
   extracted_at: '2026-07-18'
@@ -23,17 +23,19 @@ claims:
   - 萌动标准
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-023"]
+  supplements:
+  - claim-20260526-023
   last_discovered: 2026-07-18
   intensity: high
   links:
     wiki_pages:
     - 投资方法论/缠论
   timeframe: permanent
+  school: qing
 - id: claim-20061120-001-b
   source_path: sources/chanlun/lesson_008.md
-  up_id: "chanlun-original"
-  up_name: "缠中说禅"
+  up_id: chanlun-original
+  up_name: 缠中说禅
   source_date: '2006-11-20'
   source_type: 专栏
   extracted_at: '2026-07-18'
@@ -60,10 +62,11 @@ claims:
     wiki_pages:
     - 投资方法论/缠论
   timeframe: permanent
+  school: qing
 - id: claim-20061120-001-c
   source_path: sources/chanlun/lesson_008.md
-  up_id: "chanlun-original"
-  up_name: "缠中说禅"
+  up_id: chanlun-original
+  up_name: 缠中说禅
   source_date: '2006-11-20'
   source_type: 专栏
   extracted_at: '2026-07-18'
@@ -91,3 +94,4 @@ claims:
     wiki_pages:
     - 投资方法论/缠论
   timeframe: permanent
+  school: qing

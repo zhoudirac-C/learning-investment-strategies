@@ -30,6 +30,7 @@ claims:
   - 锚点
   - 量能
   - 外盘传导
+  school: qing
 - id: claim-20260916-001-b
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -48,7 +49,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260911-001-004", "claim-20260913-001-016"]
+  supplements:
+  - claim-20260911-001-004
+  - claim-20260913-001-016
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -60,6 +63,7 @@ claims:
   - 美联储
   - 议息前观望
   - 事件驱动
+  school: qing
 - id: claim-20260916-001-c
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -78,7 +82,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-027", "claim-20260915-004-3", "claim-20260909-011-a"]
+  supplements:
+  - claim-20260812-027
+  - claim-20260915-004-3
+  - claim-20260909-011-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -90,6 +97,7 @@ claims:
   - 缩量
   - 市场定性
   - 证伪条件
+  school: qing
 - id: claim-20260916-001-d
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -108,7 +116,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260906-004-019", "claim-20260901-044-a"]
+  supplements:
+  - claim-20260906-004-019
+  - claim-20260901-044-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -120,6 +130,7 @@ claims:
   - 成交额
   - 年内新低
   - 边际变化
+  school: qing
 - id: claim-20260916-001-e
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -137,7 +148,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260806-019"]
+  contradicts:
+  - claim-20260806-019
   supplements: []
   last_discovered: 2026-09-16
   links:
@@ -150,6 +162,7 @@ claims:
   - 反弹不放量
   - 量价背离
   - 创业板指
+  school: qing
 - id: claim-20260916-001-f
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -168,7 +181,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260911-001-005"]
+  supplements:
+  - claim-20260911-001-005
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -187,6 +201,7 @@ claims:
   - 指数稳定器
   - 护盘
   - 券商
+  school: qing
 - id: claim-20260916-001-g
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -218,6 +233,7 @@ claims:
   - 一进二晋级率
   - 跌停家数
   - leading信号
+  school: qing
 - id: claim-20260916-001-h
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -234,9 +250,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260721-007"]
+  supersedes:
+  - claim-20260721-007
   contradicts: []
-  supplements: ["claim-20260901-020-a", "claim-20260903-012-a"]
+  supplements:
+  - claim-20260901-020-a
+  - claim-20260903-012-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -247,13 +266,13 @@ claims:
   - code: '000523'
     name: 红棉股份
     role: 3连跌停-情绪风险样本-主板可交易
-  - code: '002059'
+  - code: 002059
     name: 云南旅游
     role: 3连跌停-情绪风险样本-主板可交易
-  - code: '002208'
+  - code: 002208
     name: 合肥城建
     role: 7月亏钱效应扩散历史案例-主板可交易
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 7月亏钱效应扩散历史案例-主板可交易
   tags:
@@ -261,6 +280,7 @@ claims:
   - 连续跌停
   - 情绪传导
   - 风险
+  school: qing
 - id: claim-20260916-001-i
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -279,7 +299,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260915-004-1"]
+  supplements:
+  - claim-20260915-004-1
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -295,6 +316,7 @@ claims:
   - X因素
   - 权重失速
   - 创业板指
+  school: qing
 - id: claim-20260916-001-j
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -326,6 +348,7 @@ claims:
   - 极致缩量
   - 观察框架
   - 方法论
+  school: qing
 - id: claim-20260916-001-k
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -344,7 +367,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260814-036"]
+  supplements:
+  - claim-20260814-036
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -358,7 +382,7 @@ claims:
   - code: '000523'
     name: 红棉股份
     role: 情形A校验项-主板可交易
-  - code: '002059'
+  - code: 002059
     name: 云南旅游
     role: 情形A校验项-主板可交易
   tags:
@@ -366,6 +390,7 @@ claims:
   - 缩量磨底
   - 触发条件
   - 日内操作
+  school: qing
 - id: claim-20260916-001-l
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -382,9 +407,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260814-036"]
+  supersedes:
+  - claim-20260814-036
   contradicts: []
-  supplements: ["claim-20260913-001-018", "claim-20260702-005-c"]
+  supplements:
+  - claim-20260913-001-018
+  - claim-20260702-005-c
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -397,6 +425,7 @@ claims:
   - 二次共振
   - 不预判承接
   - 右侧纪律
+  school: qing
 - id: claim-20260916-001-m
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -413,9 +442,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260914-002-e"]
+  supersedes:
+  - claim-20260914-002-e
   contradicts: []
-  supplements: ["claim-20260906-003-011", "claim-20260816-003-016"]
+  supplements:
+  - claim-20260906-003-011
+  - claim-20260816-003-016
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -423,13 +455,13 @@ claims:
     cases: []
   topic: 科技内部硬件与软件双线吸水，其他题材被虹吸
   related_stocks:
-  - code: '000868'
+  - code: 000868
     name: 安凯客车
     role: 炸板样本-汽车-主板可交易
   - code: '603439'
     name: 三力制药
     role: 炸板样本-医药-主板可交易
-  - code: '002842'
+  - code: 002842
     name: 翔鹭钨业
     role: 炸板样本-钨-主板可交易
   tags:
@@ -437,6 +469,7 @@ claims:
   - 硬件与软件
   - 虹吸
   - 炸板
+  school: qing
 - id: claim-20260916-001-n
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -455,7 +488,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-002", "claim-20260826-028-a"]
+  supplements:
+  - claim-20260515-002
+  - claim-20260826-028-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -468,6 +503,7 @@ claims:
   - 轮动质量
   - 分散轮动
   - 追高性价比
+  school: qing
 - id: claim-20260916-001-o
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -486,7 +522,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260901-044-a"]
+  supplements:
+  - claim-20260901-044-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -497,10 +534,10 @@ claims:
   - code: '000523'
     name: 红棉股份
     role: 非科技止跌前置条件-主板可交易
-  - code: '002059'
+  - code: 002059
     name: 云南旅游
     role: 非科技止跌前置条件-主板可交易
-  - code: '000978'
+  - code: 000978
     name: 桂林旅游
     role: 极端情绪样本-1分钟跌停-主板可交易
   tags:
@@ -508,6 +545,7 @@ claims:
   - 跷跷板
   - 前置条件
   - 注意力分配
+  school: qing
 - id: claim-20260916-001-p
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -537,7 +575,7 @@ claims:
   - code: '601218'
     name: 吉鑫科技
     role: 海上风电-主板可交易
-  - code: '000993'
+  - code: 000993
     name: 闽东电力
     role: 海上风电-主板可交易
   tags:
@@ -545,6 +583,7 @@ claims:
   - 产业催化
   - 持续性判据
   - 独立放量
+  school: qing
 - id: claim-20260916-001-q
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -576,6 +615,7 @@ claims:
   - Rystad Energy
   - 供需约束
   - 售价涨幅
+  school: qing
 - id: claim-20260916-001-r
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -594,7 +634,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-004-j"]
+  supplements:
+  - claim-20260604-004-j
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -605,7 +646,7 @@ claims:
   - code: '601218'
     name: 吉鑫科技
     role: 海上风电-主板可交易
-  - code: '000993'
+  - code: 000993
     name: 闽东电力
     role: 海上风电-主板可交易
   tags:
@@ -613,6 +654,7 @@ claims:
   - 拍卖窗口
   - '2027'
   - 国海证券
+  school: qing
 - id: claim-20260916-001-s
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -631,7 +673,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260825-045-a"]
+  supplements:
+  - claim-20260825-045-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -645,6 +688,7 @@ claims:
   - Token消耗
   - 国产算力
   - 待核实
+  school: qing
 - id: claim-20260916-001-t
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -663,7 +707,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260911-001-016", "claim-20260910-015-a"]
+  supplements:
+  - claim-20260911-001-016
+  - claim-20260910-015-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -676,6 +722,7 @@ claims:
   - All-to-All
   - 财通证券
   - 产业链增量
+  school: qing
 - id: claim-20260916-001-u
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -686,17 +733,16 @@ claims:
   claim_type: stock-view
   subject: 亚康股份超节点算力产品布局
   timeframe: industry
-  statement: 据公司披露，亚康股份(301085)对搭载昇腾、鲲鹏芯片的算力产品进行销售与售后服务，控股子公司亚康华创推出搭载昇腾芯片与DeepSeek平台的桌面级智能一体机D-BOX
-    Pro，已适配DeepSeek 1.5B、7B、8B、14B四款基础模型
-  evidence_quote: 亚康股份：据公司披露，公司对搭载昇腾、鲲鹏芯片的算力产品进行销售与售后服务，控股子公司亚康华创推出搭载昇腾芯片与DeepSeek平台的桌面级智能一体机D-BOX
-    Pro，已适配DeepSeek 1.5B、7B、8B、14B四款基础模型。
+  statement: 据公司披露，亚康股份(301085)对搭载昇腾、鲲鹏芯片的算力产品进行销售与售后服务，控股子公司亚康华创推出搭载昇腾芯片与DeepSeek平台的桌面级智能一体机D-BOX Pro，已适配DeepSeek 1.5B、7B、8B、14B四款基础模型
+  evidence_quote: 亚康股份：据公司披露，公司对搭载昇腾、鲲鹏芯片的算力产品进行销售与售后服务，控股子公司亚康华创推出搭载昇腾芯片与DeepSeek平台的桌面级智能一体机D-BOX Pro，已适配DeepSeek 1.5B、7B、8B、14B四款基础模型。
   interpretation: 公司信息来自公司披露，属可验证事实。亚康股份的业务定位是昇腾生态的销售与售后服务渠道+一体机产品，属于国产算力配套环节。注意该股为创业板，不在用户可交易范围。
   confidence: high
   status: active
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-k"]
+  supplements:
+  - claim-20260625-003-k
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -712,6 +758,7 @@ claims:
   - 昇腾
   - D-BOX Pro
   - 国产算力
+  school: qing
 - id: claim-20260916-001-v
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -730,7 +777,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260824-001-n", "claim-20260825-037-a", "claim-20260825-021-a"]
+  supplements:
+  - claim-20260824-001-n
+  - claim-20260825-037-a
+  - claim-20260825-021-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -746,6 +796,7 @@ claims:
   - 液冷
   - 订单
   - 批量交付
+  school: qing
 - id: claim-20260916-001-w
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -764,7 +815,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-033", "claim-20260609-005-f"]
+  supplements:
+  - claim-20260810-033
+  - claim-20260609-005-f
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -777,6 +830,7 @@ claims:
   - 右侧确认
   - 消息面高开
   - 不追
+  school: qing
 - id: claim-20260916-001-x
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -795,7 +849,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-055", "claim-20260825-043-a"]
+  supplements:
+  - claim-20260819-055
+  - claim-20260825-043-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -808,6 +864,7 @@ claims:
   - 涨价
   - 历史新高
   - 煤焦油
+  school: qing
 - id: claim-20260916-001-y
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -826,7 +883,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260722-027"]
+  supplements:
+  - claim-20260722-027
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -839,6 +897,7 @@ claims:
   - 供给反内卷
   - 国海证券
   - 旺季
+  school: qing
 - id: claim-20260916-001-z
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -865,7 +924,7 @@ claims:
     cases: []
   topic: 黑猫股份炭黑周期反转与导电炭黑成长
   related_stocks:
-  - code: '002068'
+  - code: 002068
     name: 黑猫股份
     role: 炭黑龙头-周期反转-主板可交易
   tags:
@@ -873,6 +932,7 @@ claims:
   - 炭黑龙头
   - 周期反转
   - 导电炭黑
+  school: qing
 - id: claim-20260916-001-za
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -907,6 +967,7 @@ claims:
   - 煤基路线
   - 油煤价差
   - 成本优势
+  school: qing
 - id: claim-20260916-001-zb
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -925,7 +986,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260901-026-a", "claim-20260610-016-a"]
+  supplements:
+  - claim-20260901-026-a
+  - claim-20260610-016-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -937,6 +1000,7 @@ claims:
   - 涨价题材
   - 放量确认
   - 右侧纪律
+  school: qing
 - id: claim-20260916-001-zc
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -954,8 +1018,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260804-004"]
-  supplements: ["claim-20260914-001-001"]
+  contradicts:
+  - claim-20260804-004
+  supplements:
+  - claim-20260914-001-001
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -974,6 +1040,7 @@ claims:
   - 沙特停运
   - 红海
   - 上游油气
+  school: qing
 - id: claim-20260916-001-zd
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -992,7 +1059,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260806-050", "claim-20260831-019-a"]
+  supplements:
+  - claim-20260806-050
+  - claim-20260831-019-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -1012,6 +1081,7 @@ claims:
   - 软件资金
   - 任子行
   - 绿盟科技
+  school: qing
 - id: claim-20260916-001-ze
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -1029,8 +1099,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260814-001"]
-  supplements: ["claim-20260906-002-a"]
+  contradicts:
+  - claim-20260814-001
+  supplements:
+  - claim-20260906-002-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -1044,6 +1116,7 @@ claims:
   - AI硬件
   - 利率
   - 背离
+  school: qing
 - id: claim-20260916-001-zf
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -1062,7 +1135,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-003", "claim-20260526-011"]
+  supplements:
+  - claim-20260706-003
+  - claim-20260526-011
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -1075,6 +1150,7 @@ claims:
   - 半小时量能
   - 指数低开
   - 科技硬件
+  school: qing
 - id: claim-20260916-001-zg
   source_path: sources/original/bilibili/2026-09-16-0854-专栏-周二市场冲高回落，创业板指跌超1%。盘面上，PCB概念开盘冲.md
   source_date: '2026-09-16'
@@ -1091,7 +1167,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260901-065-a", "claim-20260915-004-23"]
+  supersedes:
+  - claim-20260901-065-a
+  - claim-20260915-004-23
   contradicts: []
   supplements: []
   last_discovered: 2026-09-16
@@ -1107,3 +1185,4 @@ claims:
   - FOMC
   - 量能
   - 情绪
+  school: qing

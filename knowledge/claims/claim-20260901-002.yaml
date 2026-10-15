@@ -1,9 +1,8 @@
 claims:
 - id: claim-20260901-029-a
-  source_path: sources/original/bilibili/2026-09-01-0910-图片-上证指数120分钟周期来到高8，要提防大级别高点风险。
-    如果.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-09-01-0910-图片-上证指数120分钟周期来到高8，要提防大级别高点风险。 如果.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 动态
   extracted_at: '2026-09-01T09:25:00'
@@ -16,9 +15,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260828-002-a"]
+  supersedes:
+  - claim-20260828-002-a
   contradicts: []
-  supplements: ["claim-20260225-001-a"]
+  supplements:
+  - claim-20260225-001-a
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -32,11 +33,11 @@ claims:
   - 高9
   - 顶部钝化
   - '3990.3'
+  school: qing
 - id: claim-20260901-030-a
-  source_path: sources/original/bilibili/2026-09-01-0910-图片-上证指数120分钟周期来到高8，要提防大级别高点风险。
-    如果.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-09-01-0910-图片-上证指数120分钟周期来到高8，要提防大级别高点风险。 如果.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 动态
   extracted_at: '2026-09-01T09:25:00'
@@ -51,7 +52,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-029", "claim-20070614-001-c"]
+  supplements:
+  - claim-20260812-029
+  - claim-20070614-001-c
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -65,11 +68,11 @@ claims:
   - 4000关口
   - 量能被动放大
   - 震荡
+  school: qing
 - id: claim-20260901-031-a
-  source_path: sources/original/bilibili/2026-09-01-0910-图片-上证指数120分钟周期来到高8，要提防大级别高点风险。
-    如果.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-09-01-0910-图片-上证指数120分钟周期来到高8，要提防大级别高点风险。 如果.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-01'
   source_type: 动态
   extracted_at: '2026-09-01T09:25:00'
@@ -82,9 +85,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260225-001-a"]
+  supersedes:
+  - claim-20260225-001-a
   contradicts: []
-  supplements: ["claim-20260226-001-a", "claim-20260106-001-a"]
+  supplements:
+  - claim-20260226-001-a
+  - claim-20260106-001-a
   last_discovered: 2026-09-02
   links:
     wiki_pages: []
@@ -98,3 +104,4 @@ claims:
   - 高9共振
   - 右侧确认
   - 分步执行
+  school: qing

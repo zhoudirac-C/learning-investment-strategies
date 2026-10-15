@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260814-037
   source_path: sources/original/bilibili/2026-08-14-1345-图片-今天这种走势就很健康了，一旦市场走出流动性压制，基本面重回主.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 动态
   extracted_at: '2026-08-14T18:28:47'
@@ -16,8 +16,11 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260609-005-a"]
-  supplements: ["claim-20260622-001-h", "claim-20260723-030"]
+  contradicts:
+  - claim-20260609-005-a
+  supplements:
+  - claim-20260622-001-h
+  - claim-20260723-030
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -30,10 +33,11 @@ claims:
   - 基本面定价
   - AI技术迭代
   - 走势健康
+  school: qing
 - id: claim-20260814-038
   source_path: sources/original/bilibili/2026-08-14-1345-图片-今天这种走势就很健康了，一旦市场走出流动性压制，基本面重回主.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 动态
   extracted_at: '2026-08-14T18:28:47'
@@ -48,7 +52,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-038"]
+  supplements:
+  - claim-20260803-038
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -62,10 +67,11 @@ claims:
   - 800V高压电源
   - 算力租赁
   - AI应用
+  school: qing
 - id: claim-20260814-039
   source_path: sources/original/bilibili/2026-08-14-1345-图片-今天这种走势就很健康了，一旦市场走出流动性压制，基本面重回主.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-14'
   source_type: 动态
   extracted_at: '2026-08-14T18:28:47'
@@ -80,7 +86,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260528-002-c", "claim-20260813-046", "claim-20260521-002-i"]
+  supplements:
+  - claim-20260528-002-c
+  - claim-20260813-046
+  - claim-20260521-002-i
   last_discovered: 2026-08-14
   links:
     wiki_pages: []
@@ -93,3 +102,4 @@ claims:
   - 不追涨
   - 灵活做T
   - 操作纪律
+  school: qing

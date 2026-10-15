@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260703-001-a
   source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-03'
   source_type: 早盘
   extracted_at: '2026-07-03T09:19:20+08:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260531-002-a", "claim-20260518-018"]
+  supersedes:
+  - claim-20260531-002-a
+  - claim-20260518-018
   contradicts: []
-  supplements: ["claim-20260615-023"]
+  supplements:
+  - claim-20260615-023
   last_discovered: 2026-07-03
   links:
     wiki_pages: []
@@ -31,10 +34,11 @@ claims:
   - 大金融
   - 情绪
   topic: 震荡市框架不变非科技风险已释放科技情绪调整
+  school: qing
 - id: claim-20260703-001-b
   source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-03'
   source_type: 早盘
   extracted_at: '2026-07-03T09:19:20+08:00'
@@ -48,8 +52,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260625-003-a"]
-  supplements: ["claim-20260601-004-a"]
+  contradicts:
+  - claim-20260625-003-a
+  supplements:
+  - claim-20260601-004-a
   last_discovered: 2026-07-03
   links:
     wiki_pages: []
@@ -63,10 +69,11 @@ claims:
   - Meta
   - 韩股
   topic: 科技暴跌复盘三重因素导致开盘放量定调
+  school: qing
 - id: claim-20260703-001-c
   source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-03'
   source_type: 早盘
   extracted_at: '2026-07-03T09:19:20+08:00'
@@ -79,9 +86,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260623-001-a"]
+  supersedes:
+  - claim-20260623-001-a
   contradicts: []
-  supplements: ["claim-20260212-001-a", "claim-20260624-001-f"]
+  supplements:
+  - claim-20260212-001-a
+  - claim-20260624-001-f
   last_discovered: 2026-07-03
   links:
     wiki_pages: []
@@ -96,10 +106,11 @@ claims:
   - 6月8日参考
   - 积极信号
   topic: 今日关键变量量能缩量近10%为积极信号
+  school: qing
 - id: claim-20260703-001-d
   source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-03'
   source_type: 早盘
   extracted_at: '2026-07-03T09:19:20+08:00'
@@ -112,9 +123,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260602-001-a"]
+  supersedes:
+  - claim-20260602-001-a
   contradicts: []
-  supplements: ["claim-20260625-001-d", "claim-20260622-001-h"]
+  supplements:
+  - claim-20260625-001-d
+  - claim-20260622-001-h
   last_discovered: 2026-07-03
   links:
     wiki_pages: []
@@ -135,10 +149,11 @@ claims:
   - 连板4板
   - 2021年7月28日
   topic: 情绪冰点已现进入反弹时间窗
+  school: qing
 - id: claim-20260703-001-e
   source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-03'
   source_type: 早盘
   extracted_at: '2026-07-03T09:19:20+08:00'
@@ -151,9 +166,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260622-001-h"]
+  supersedes:
+  - claim-20260622-001-h
   contradicts: []
-  supplements: ["claim-20260702-005-c", "claim-20260609-005-a"]
+  supplements:
+  - claim-20260702-005-c
+  - claim-20260609-005-a
   last_discovered: 2026-07-03
   links:
     wiki_pages: []
@@ -167,10 +185,11 @@ claims:
   - 跌停减少
   - 补跌周期
   topic: 双情景预案情形A修复启动vs情形B补跌未结束
+  school: qing
 - id: claim-20260703-001-f
   source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-03'
   source_type: 早盘
   extracted_at: '2026-07-03T09:19:20+08:00'
@@ -185,7 +204,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-002-b", "claim-20260629-001-d"]
+  supplements:
+  - claim-20260702-002-b
+  - claim-20260629-001-d
   last_discovered: 2026-07-03
   links:
     wiki_pages: []
@@ -199,10 +220,11 @@ claims:
   - 承接
   - KOSPI
   topic: 外盘只决定开盘定价关键看低开后是否有承接
+  school: qing
 - id: claim-20260703-001-g
   source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-03'
   source_type: 早盘
   extracted_at: '2026-07-03T09:19:20+08:00'
@@ -216,8 +238,11 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260614-015-e"]
-  supplements: ["claim-20260702-005-a", "claim-20260622-002-g"]
+  contradicts:
+  - claim-20260614-015-e
+  supplements:
+  - claim-20260702-005-a
+  - claim-20260622-002-g
   last_discovered: 2026-07-03
   links:
     wiki_pages: []
@@ -237,10 +262,11 @@ claims:
   - 玻璃基板
   - 涨价避风港
   topic: 大跌验证上游为王上游原材料是本轮避风港
+  school: qing
 - id: claim-20260703-001-h
   source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-03'
   source_type: 早盘
   extracted_at: '2026-07-03T09:19:20+08:00'
@@ -255,7 +281,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-d", "claim-20260622-003-p"]
+  supplements:
+  - claim-20260625-003-d
+  - claim-20260622-003-p
   last_discovered: 2026-07-03
   links:
     wiki_pages: []
@@ -278,10 +306,11 @@ claims:
   - 交换机
   - 算力过剩叙事对照
   topic: 锐捷网络业绩超预期验证国内AI基建在兑现
+  school: qing
 - id: claim-20260703-001-i
   source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-03'
   source_type: 早盘
   extracted_at: '2026-07-03T09:19:20+08:00'
@@ -294,8 +323,11 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260624-006-o"]
-  contradicts: ["claim-20260609-001-b", "claim-20260702-005-h"]
+  supersedes:
+  - claim-20260624-006-o
+  contradicts:
+  - claim-20260609-001-b
+  - claim-20260702-005-h
   supplements: []
   last_discovered: 2026-07-03
   links:
@@ -309,7 +341,7 @@ claims:
   - code: '300083'
     name: 创世纪
     role: 宇树合作-创业板不可交易
-  - code: '002979'
+  - code: 002979
     name: 雷赛智能
     role: 机器人概念-主板可交易
   - code: '002354'
@@ -322,10 +354,11 @@ claims:
   - 催化密度
   - 旧闻炒作
   topic: 人形机器人两条催化叠加但催化密度不及AI
+  school: qing
 - id: claim-20260703-001-j
   source_path: sources/raw/财经/2026-07-03-0911-早盘-费半两日累跌11%科技低开看承接-震荡市框架不变-情绪冰点进入反弹时间窗.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-03'
   source_type: 早盘
   extracted_at: '2026-07-03T09:19:20+08:00'
@@ -338,9 +371,11 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260622-001-h"]
+  supersedes:
+  - claim-20260622-001-h
   contradicts: []
-  supplements: ["claim-20260609-005-a"]
+  supplements:
+  - claim-20260609-005-a
   last_discovered: 2026-07-03
   links:
     wiki_pages: []
@@ -354,3 +389,4 @@ claims:
   - 量价配合
   - 情绪调整
   topic: 盘前预案持股为主位置决定意义等右侧确认
+  school: qing

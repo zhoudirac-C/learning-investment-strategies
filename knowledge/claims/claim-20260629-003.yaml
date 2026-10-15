@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260629-003-a
   source_path: sources/raw/财经/2026-06-29-1033-盘中-配置心态与操作难度.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 盘中动态
   extracted_at: '2026-06-29T12:54:02Z'
@@ -17,7 +17,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-002-b"]
+  supplements:
+  - claim-20260625-002-b
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -29,10 +30,11 @@ claims:
   - 配置
   - 收益波动
   - 持仓舒适度
+  school: qing
 - id: claim-20260629-003-b
   source_path: sources/raw/财经/2026-06-29-1033-盘中-配置心态与操作难度.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 盘中动态
   extracted_at: '2026-06-29T12:54:02Z'
@@ -45,7 +47,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260520-002-a"]
+  supersedes:
+  - claim-20260520-002-a
   contradicts: []
   supplements: []
   last_discovered: 2026-06-29
@@ -59,10 +62,11 @@ claims:
   - 操作难度
   - 未来两周
   - 市场判断
+  school: qing
 - id: claim-20260629-003-c
   source_path: sources/raw/财经/2026-06-29-1033-盘中-配置心态与操作难度.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 盘中动态
   extracted_at: '2026-06-29T12:54:02Z'
@@ -77,7 +81,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-003", "claim-20260521-002-i"]
+  supplements:
+  - claim-20260515-003
+  - claim-20260521-002-i
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -90,10 +96,11 @@ claims:
   - 出击
   - 守势
   - 分时
+  school: qing
 - id: claim-20260629-003-d
   source_path: sources/raw/财经/2026-06-29-1033-盘中-配置心态与操作难度.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 盘中动态
   extracted_at: '2026-06-29T12:54:02Z'
@@ -106,9 +113,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260525-028"]
+  supersedes:
+  - claim-20260525-028
   contradicts: []
-  supplements: ["claim-20260602-002-d"]
+  supplements:
+  - claim-20260602-002-d
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -120,10 +129,11 @@ claims:
   - 不追高
   - 周末复盘
   - 盘中判断
+  school: qing
 - id: claim-20260629-003-e
   source_path: sources/raw/财经/2026-06-29-1033-盘中-配置心态与操作难度.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 盘中动态
   extracted_at: '2026-06-29T12:54:02Z'
@@ -137,8 +147,11 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260608-002-b"]
-  supplements: ["claim-20260624-006-e", "claim-20260623-004-a"]
+  contradicts:
+  - claim-20260608-002-b
+  supplements:
+  - claim-20260624-006-e
+  - claim-20260623-004-a
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -150,3 +163,4 @@ claims:
   - 指数风险
   - 配置
   - 心态
+  school: qing

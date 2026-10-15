@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260615-004-dup1
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -15,7 +15,9 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260609-003-a", "claim-20260604-005-a"]
+  supersedes:
+  - claim-20260609-003-a
+  - claim-20260604-005-a
   contradicts: []
   last_discovered: 2026-06-16
   links: []
@@ -25,10 +27,11 @@ claims:
   - 市场判断
   - 盘面分析
   - 结构行情
+  school: qing
 - id: claim-20260615-005-dup1
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -43,7 +46,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-006-f", "claim-20260608-001-a"]
+  supplements:
+  - claim-20260610-006-f
+  - claim-20260608-001-a
   last_discovered: 2026-06-25
   links: []
   topic: 风险提示·微盘股
@@ -52,10 +57,11 @@ claims:
   - 风险提示
   - 微盘股
   - 市场结构
+  school: qing
 - id: claim-20260615-006-dup1
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -70,7 +76,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260615-023"]
+  supplements:
+  - claim-20260615-023
   last_discovered: 2026-06-25
   links: []
   topic: 方法论·盘面验证
@@ -79,10 +86,11 @@ claims:
   - 盘面验证
   - 方法论
   - 操作框架
+  school: qing
 - id: claim-20260615-007-dup1
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -97,7 +105,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260603-004-d", "claim-20260523-007"]
+  supplements:
+  - claim-20260603-004-d
+  - claim-20260523-007
   last_discovered: 2026-06-25
   links: []
   topic: 光通信·CPO·MPO
@@ -111,10 +121,10 @@ claims:
   - code: '688167'
     name: 炬光科技
     role: 光器件-科创板不可交易
-  - code: '002281'
+  - code: 002281
     name: 光迅科技
     role: 光模块-主板可交易
-  - code: '002384'
+  - code: 002384
     name: 东山精密
     role: 光模块-FPC-主板可交易
   - code: '601869'
@@ -137,10 +147,11 @@ claims:
   - MPO
   - CPO
   - AI算力
+  school: qing
 - id: claim-20260615-008-dup1
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -169,10 +180,11 @@ claims:
   - MT插芯
   - MPO
   - 光通信
+  school: qing
 - id: claim-20260615-009-dup1
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -203,7 +215,7 @@ claims:
   - code: '688167'
     name: 炬光科技
     role: 光器件-科创板不可交易
-  - code: '002384'
+  - code: 002384
     name: 东山精密
     role: 光模块-FPC-主板可交易
   - code: '601869'
@@ -214,10 +226,11 @@ claims:
   - NPO
   - OCS
   - 光通信
+  school: qing
 - id: claim-20260615-010-dup1
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -232,7 +245,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-021"]
+  supplements:
+  - claim-20260616-021
   last_discovered: 2026-06-25
   links: []
   topic: PCB·光刻胶·油墨
@@ -248,10 +262,11 @@ claims:
   - 油墨
   - 光刻胶
   - 算力
+  school: qing
 - id: claim-20260615-011-dup1
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -279,10 +294,11 @@ claims:
   - 油墨
   - 光刻胶
   - 算力
+  school: qing
 - id: claim-20260615-012-dup1
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -296,7 +312,9 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260531-002-b", "claim-20260609-001-d"]
+  contradicts:
+  - claim-20260531-002-b
+  - claim-20260609-001-d
   last_discovered: 2026-06-16
   links: []
   topic: MLCC·被动元件
@@ -314,10 +332,11 @@ claims:
   - MLCC
   - 被动元件
   - AI服务器
+  school: qing
 - id: claim-20260615-013-dup1
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -343,10 +362,11 @@ claims:
   - MLCC
   - 被动元件
   - AI服务器
+  school: qing
 - id: claim-20260615-014-dup1
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -373,10 +393,11 @@ claims:
   - 稀有金属
   - 新金路
   - 铌钽锡
+  school: qing
 - id: claim-20260615-015-dup1
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -391,7 +412,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-016", "claim-20260604-005-g"]
+  supplements:
+  - claim-20260616-016
+  - claim-20260604-005-g
   last_discovered: 2026-06-25
   links: []
   topic: MLCC·博迁新材
@@ -403,10 +426,11 @@ claims:
   - MLCC
   - 被动元件
   - AI服务器
+  school: qing
 - id: claim-20260615-016
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -434,10 +458,11 @@ claims:
   - 油墨
   - 光刻胶
   - 算力
+  school: qing
 - id: claim-20260615-017
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -451,7 +476,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260609-001-d"]
+  contradicts:
+  - claim-20260609-001-d
   last_discovered: 2026-06-16
   links: []
   topic: MLCC·扩散逻辑
@@ -472,10 +498,11 @@ claims:
   - MLCC
   - 被动元件
   - AI服务器
+  school: qing
 - id: claim-20260615-018
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -490,7 +517,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-012-s"]
+  supplements:
+  - claim-20260616-012-s
   last_discovered: 2026-06-25
   links: []
   topic: 锂电池·产业链
@@ -508,10 +536,11 @@ claims:
   - 锂电池
   - 亿纬锂能
   - 产业链
+  school: qing
 - id: claim-20260615-019
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -526,7 +555,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-004-h", "claim-20260610-006-j", "claim-20260607-004-o"]
+  supplements:
+  - claim-20260608-004-h
+  - claim-20260610-006-j
+  - claim-20260607-004-o
   last_discovered: 2026-06-25
   links: []
   topic: 机器人·汽车产业链
@@ -537,7 +569,7 @@ claims:
   - code: '688231'
     name: 隆达股份
     role: 精密丝杠-科创板不可交易
-  - code: '002850'
+  - code: 002850
     name: 科达利
     role: 结构件-主板可交易
   tags:
@@ -545,10 +577,11 @@ claims:
   - 减速器
   - 丝杠
   - NEV
+  school: qing
 - id: claim-20260615-020
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -563,7 +596,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260531-002-h"]
+  supplements:
+  - claim-20260531-002-h
   last_discovered: 2026-06-25
   links: []
   topic: 制冷剂·氟化工
@@ -582,10 +616,11 @@ claims:
   - HFCs
   - 配额
   - PFA
+  school: qing
 - id: claim-20260615-021
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -600,7 +635,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260603-004-d", "claim-20260615-009"]
+  supplements:
+  - claim-20260603-004-d
+  - claim-20260615-009
   last_discovered: 2026-06-25
   links: []
   topic: DCI·算力互联
@@ -615,10 +652,11 @@ claims:
   - DCI
   - 算力互联
   - 数据中心
+  school: qing
 - id: claim-20260615-022
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -633,7 +671,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-018"]
+  supplements:
+  - claim-20260526-018
   last_discovered: 2026-06-25
   links: []
   topic: 有色金属·铜铝
@@ -644,20 +683,21 @@ claims:
   - code: '603993'
     name: 洛阳钼业
     role: 铜钴矿-主板可交易
-  - code: '000807'
+  - code: 000807
     name: 云铝股份
     role: 电解铝-主板可交易
-  - code: '000933'
+  - code: 000933
     name: 神火股份
     role: 电解铝-主板可交易
   tags:
   - 有色金属
   - 铜铝
   - 供给缺口
+  school: qing
 - id: claim-20260615-023
   source_path: sources/raw/财经/2026-06-15-2232-专栏-6.15（复盘）.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-15'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-15T23:00:00'
@@ -670,7 +710,8 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260609-005-a"]
+  supersedes:
+  - claim-20260609-005-a
   contradicts: []
   last_discovered: 2026-06-16
   links: []
@@ -680,3 +721,4 @@ claims:
   - 操作纪律
   - 量能验证
   - 中报窗口
+  school: qing

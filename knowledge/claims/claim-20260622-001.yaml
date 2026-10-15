@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260622-001-a
   source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: 早盘专栏
   extracted_at: '2026-06-22T09:06:00'
@@ -17,7 +17,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-a", "claim-20260622-004-k"]
+  supplements:
+  - claim-20260622-004-a
+  - claim-20260622-004-k
   last_discovered: 2026-06-25
   links:
     geo_event: 美伊瑞士会谈
@@ -29,11 +31,11 @@ claims:
   - 日内节奏
   - 机构定价
   related_stocks: []
-
+  school: qing
 - id: claim-20260622-001-b
   source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: 早盘专栏
   extracted_at: '2026-06-22T09:06:00'
@@ -48,12 +50,15 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-b", "claim-20260622-001-c", "claim-20260610-006-a"]
+  supplements:
+  - claim-20260622-004-b
+  - claim-20260622-001-c
+  - claim-20260610-006-a
   last_discovered: 2026-06-25
   links:
     macro_indicators:
-      - 美元指数
-      - 10Y美债收益率
+    - 美元指数
+    - 10Y美债收益率
   topic: 美元指数101+10Y美债4.5%同步上行=风险信号
   tags:
   - 美元指数
@@ -62,11 +67,11 @@ claims:
   - 科技估值
   - 有色
   related_stocks: []
-
+  school: qing
 - id: claim-20260622-001-c
   source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: 早盘专栏
   extracted_at: '2026-06-22T09:06:00'
@@ -81,7 +86,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h", "claim-20260617-033-m"]
+  supplements:
+  - claim-20260622-001-h
+  - claim-20260617-033-m
   last_discovered: 2026-06-25
   links: {}
   topic: 指数失真，选股应聚焦有业绩兑现的大市值趋势股和AI算力硬件主线
@@ -95,11 +102,11 @@ claims:
   - PCB
   - 业绩驱动
   related_stocks: []
-
+  school: qing
 - id: claim-20260622-001-d
   source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: 早盘专栏
   extracted_at: '2026-06-22T09:06:00'
@@ -114,7 +121,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h", "claim-20260622-004-k"]
+  supplements:
+  - claim-20260622-001-h
+  - claim-20260622-004-k
   last_discovered: 2026-06-25
   links: {}
   topic: 板块分野——缺货涨价（MLCC/电子布/存储/CPO/PCB）有真实供需，玻璃基板/碳化硅属炒作未来
@@ -129,12 +138,15 @@ claims:
   - 碳化硅
   - 脱虚就实
   - 易中天
-  related_stocks: [300308, 300502, 300394]
-
+  related_stocks:
+  - 300308
+  - 300502
+  - 300394
+  school: qing
 - id: claim-20260622-001-e
   source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: 早盘专栏
   extracted_at: '2026-06-22T09:06:00'
@@ -159,12 +171,17 @@ claims:
   - 兑现压力
   - 分歧日
   - 卡位
-  related_stocks: [000636, 603678, 002916, 600183, 603228]
-
+  related_stocks:
+  - 414
+  - 603678
+  - 002916
+  - 600183
+  - 603228
+  school: qing
 - id: claim-20260622-001-f
   source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: 早盘专栏
   extracted_at: '2026-06-22T09:06:00'
@@ -179,7 +196,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-006-a", "claim-20260604-007-a"]
+  supplements:
+  - claim-20260604-006-a
+  - claim-20260604-007-a
   last_discovered: 2026-06-25
   links: {}
   topic: 5条增量信息：氧化锆/PCB链/磷酸铁锂/磷化铟/微信AI
@@ -192,41 +211,41 @@ claims:
   - 英伟达
   - 供给冲击
   related_stocks:
-  - code: "002167"
-    name: "东方锆业"
-    role: "原有"
-  - code: "000657"
-    name: "中钨高新"
-    role: "原有"
-  - code: "002960"
-    name: "青鸟智控"
-    role: "原有"
-  - code: "600657"
-    name: "信达地产"
-    role: "原有"
-  - code: "300409"
-    name: "道氏技术"
-    role: "原有"
-  - code: "300769"
-    name: "德方纳米"
-    role: "原有"
-  - code: "000960"
-    name: "锡业股份"
-    role: "原有"
-  - code: "002428"
-    name: "云南锗业"
-    role: "原有"
-  - code: "002436"
-    name: "兴森科技"
-    role: "回填-正文提及"
-  - code: "301358"
-    name: "湖南裕能"
-    role: "回填-正文提及"
-
+  - code: '002167'
+    name: 东方锆业
+    role: 原有
+  - code: '000657'
+    name: 中钨高新
+    role: 原有
+  - code: 002960
+    name: 青鸟智控
+    role: 原有
+  - code: '600657'
+    name: 信达地产
+    role: 原有
+  - code: '300409'
+    name: 道氏技术
+    role: 原有
+  - code: '300769'
+    name: 德方纳米
+    role: 原有
+  - code: 000960
+    name: 锡业股份
+    role: 原有
+  - code: 002428
+    name: 云南锗业
+    role: 原有
+  - code: '002436'
+    name: 兴森科技
+    role: 回填-正文提及
+  - code: '301358'
+    name: 湖南裕能
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260622-001-g
   source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: 早盘专栏
   extracted_at: '2026-06-22T09:06:00'
@@ -241,7 +260,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-j"]
+  supplements:
+  - claim-20260622-004-j
   last_discovered: 2026-06-25
   links: {}
   topic: 有色金属每周末最后一个交易日轮动，氧化锆供给端催化最清晰
@@ -252,12 +272,14 @@ claims:
   - 供给端
   - 商业航天
   - 中字头
-  related_stocks: [002167, 000657]
-
+  related_stocks:
+  - 1143
+  - 431
+  school: qing
 - id: claim-20260622-001-h
   source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: 早盘专栏
   extracted_at: '2026-06-22T09:06:00'
@@ -272,7 +294,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-k", "claim-20260617-038-c"]
+  supplements:
+  - claim-20260622-004-k
+  - claim-20260617-038-c
   last_discovered: 2026-06-25
   links: {}
   topic: 盘前预案：持股为主→科技高切低（AI应用端）→今晚10后才是真正行情起点
@@ -285,11 +309,11 @@ claims:
   - 机构定价
   - 克制情绪
   related_stocks: []
-
+  school: qing
 - id: claim-20260622-001-i
   source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: 早盘专栏
   extracted_at: '2026-06-22T09:06:00'
@@ -304,7 +328,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-g", "claim-20260621-001-h"]
+  supplements:
+  - claim-20260622-004-g
+  - claim-20260621-001-h
   last_discovered: 2026-06-25
   links: {}
   topic: 磷酸铁锂价格翻倍+订单排至2027，需求旺盛
@@ -314,20 +340,20 @@ claims:
   - 订单排期
   - 新能源
   related_stocks:
-  - code: "300769"
-    name: "德方纳米"
-    role: "原有"
-  - code: "300409"
-    name: "道氏技术"
-    role: "原有"
-  - code: "301358"
-    name: "湖南裕能"
-    role: "回填-正文提及"
-
+  - code: '300769'
+    name: 德方纳米
+    role: 原有
+  - code: '300409'
+    name: 道氏技术
+    role: 原有
+  - code: '301358'
+    name: 湖南裕能
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260622-001-j
   source_path: sources/raw/财经/2026-06-22-早盘0913-今日核心矛盾-美伊谈判-特朗普地雷-缺货vs炒作未来.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-22'
   source_type: 早盘专栏
   extracted_at: '2026-06-22T09:06:00'
@@ -350,4 +376,6 @@ claims:
   - IPO
   - 新能源
   - 风光发电
-  related_stocks: [001248]
+  related_stocks:
+  - 001248
+  school: qing

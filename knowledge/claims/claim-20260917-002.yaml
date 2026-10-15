@@ -29,13 +29,14 @@ claims:
   - code: '002475'
     name: 立讯精密
     role: 已获利了结-主板可交易
-  - code: '000993'
+  - code: 000993
     name: 闽东电力
     role: 电力板块龙头六板-撤出参照-主板可交易
   tags:
   - 电力撤出
   - 六进七压制
   - 立讯了结
+  school: watchlist
 - id: claim-20260917-002-b
   source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
   source_date: '2026-09-17'
@@ -54,9 +55,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260915-003-6"]
+  supersedes:
+  - claim-20260915-003-6
   contradicts: []
-  supplements: ["claim-20260915-003-5"]
+  supplements:
+  - claim-20260915-003-5
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -70,6 +73,7 @@ claims:
   - 换仓
   - 西点
   - 割肉条件
+  school: watchlist
 - id: claim-20260917-002-c
   source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
   source_date: '2026-09-17'
@@ -104,6 +108,7 @@ claims:
   - 万邦医药
   - 观察仓
   - 成本36
+  school: watchlist
 - id: claim-20260917-002-d
   source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
   source_date: '2026-09-17'
@@ -124,23 +129,25 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260915-003-2"]
+  supplements:
+  - claim-20260915-003-2
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   related_stocks:
-  - code: "605188"
-    name: "国光连锁"
-    role: "回填-正文提及"
-  - code: "600127"
-    name: "金健米业"
-    role: "回填-正文提及"
+  - code: '605188'
+    name: 国光连锁
+    role: 回填-正文提及
+  - code: '600127'
+    name: 金健米业
+    role: 回填-正文提及
   tags:
   - 医药
   - 趋势可能
   - 待观察
+  school: watchlist
 - id: claim-20260917-002-e
   source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
   source_date: '2026-09-17'
@@ -161,7 +168,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260915-003-13", "claim-20260914-003-11", "claim-20260917-002-g"]
+  supplements:
+  - claim-20260915-003-13
+  - claim-20260914-003-11
+  - claim-20260917-002-g
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -172,6 +182,7 @@ claims:
   - 量能门槛
   - 2.5万亿
   - 逢低吸
+  school: watchlist
 - id: claim-20260917-002-f
   source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
   source_date: '2026-09-17'
@@ -190,7 +201,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260915-003-11"]
+  supersedes:
+  - claim-20260915-003-11
   contradicts: []
   supplements: []
   last_discovered: 2026-09-19
@@ -203,6 +215,7 @@ claims:
   - T点
   - 高抛
   - 短线择时
+  school: watchlist
 - id: claim-20260917-002-g
   source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
   source_date: '2026-09-17'
@@ -223,7 +236,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-002-e", "claim-20260915-003-13"]
+  supplements:
+  - claim-20260917-002-e
+  - claim-20260915-003-13
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -234,6 +249,7 @@ claims:
   - 节前量能
   - 现实约束
   - 高抛低吸
+  school: watchlist
 - id: claim-20260917-002-h
   source_path: sources/raw/财经/2026-09-17-0820-卢本圆早盘-节前科技高抛低吸医药观察趋势.md
   source_date: '2026-09-17'
@@ -254,7 +270,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-001-j", "claim-20260913-001-012"]
+  supplements:
+  - claim-20260917-001-j
+  - claim-20260913-001-012
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -265,3 +283,4 @@ claims:
   - 议息态度
   - 不等待
   - 宏观事件
+  school: watchlist

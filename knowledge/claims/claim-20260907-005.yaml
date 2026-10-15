@@ -16,7 +16,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260825-032-a"]
+  contradicts:
+  - claim-20260825-032-a
   supplements: []
   last_discovered: 2026-09-16
   links:
@@ -30,6 +31,7 @@ claims:
   - 预期管理
   - 青枫浦上Q
   - 充电专属无转写
+  school: qing
 - id: claim-20260907-005-2
   source_path: sources/original/bilibili/2026-09-07-2200-视频-请再一次降低预期。 感谢观看，一键三连。.md
   source_date: '2026-09-07'
@@ -48,7 +50,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260818-061"]
+  supplements:
+  - claim-20260818-061
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -61,3 +64,4 @@ claims:
   - 市场定性
   - 青枫浦上Q
   - 充电专属无转写
+  school: qing

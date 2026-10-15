@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260624-001-a
   source_path: sources/raw/财经/2026-06-24-0902-早盘-市场从AI时代切换到美元时代-美光财报核按钮.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 专栏
   extracted_at: '2026-06-24T09:30:00'
@@ -28,10 +28,11 @@ claims:
   - AI退潮
   - 美元指数101
   - 宏观重估
+  school: qing
 - id: claim-20260624-001-b
   source_path: sources/raw/财经/2026-06-24-0902-早盘-市场从AI时代切换到美元时代-美光财报核按钮.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 专栏
   extracted_at: '2026-06-24T09:30:00'
@@ -44,8 +45,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260612-003-d"]
-  contradicts: ["claim-20260530-001-c", "claim-20260617-036-r"]
+  supersedes:
+  - claim-20260612-003-d
+  contradicts:
+  - claim-20260530-001-c
+  - claim-20260617-036-r
   last_discovered: 2026-06-24
   links: []
   topic: 美联储加息预期重新定价
@@ -56,10 +60,11 @@ claims:
   - 美元101
   - 偏鹰
   - 利率定价
+  school: qing
 - id: claim-20260624-001-c
   source_path: sources/raw/财经/2026-06-24-0902-早盘-市场从AI时代切换到美元时代-美光财报核按钮.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 专栏
   extracted_at: '2026-06-24T09:30:00'
@@ -74,7 +79,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-001-j", "claim-20260604-004-a"]
+  supplements:
+  - claim-20260624-001-j
+  - claim-20260604-004-a
   last_discovered: 2026-06-25
   links: []
   topic: 美光财报决定AI方向
@@ -85,10 +92,11 @@ claims:
   - HBM订单
   - 半导体
   - 期权波动
+  school: qing
 - id: claim-20260624-001-d
   source_path: sources/raw/财经/2026-06-24-0902-早盘-市场从AI时代切换到美元时代-美光财报核按钮.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 专栏
   extracted_at: '2026-06-24T09:30:00'
@@ -96,14 +104,14 @@ claims:
   subject: SK海力士减产传闻触发全球AI下跌传导链
   timeframe: intraday
   statement: SK海力士减产传闻触发蝴蝶效应：海力士暴跌→韩国杠杆ETF被迫卖出→韩国指数一日两熔→全球半导体ETF被动减仓→AI概念股集体下挫→纳指被拖下水。若属实，意味着最接近订单的人已发现需求没那么疯狂。
-  evidence_quote: 据市场消息，韩国AI神股SK海力士突传减产，股价暴跌。若属实，意味着最接近订单的人已发现需求没那么疯狂——这是市场最怕看到的事。传导链条：SK海力士权重巨大且韩国散户偏爱杠杆ETF
-    → 海力士跌、杠杆ETF被迫卖出 → 韩国指数暴跌（一日两熔） → 全球半导体ETF被动减仓 → AI概念股集体下挫 → 纳指被拖下水。
+  evidence_quote: 据市场消息，韩国AI神股SK海力士突传减产，股价暴跌。若属实，意味着最接近订单的人已发现需求没那么疯狂——这是市场最怕看到的事。传导链条：SK海力士权重巨大且韩国散户偏爱杠杆ETF → 海力士跌、杠杆ETF被迫卖出 → 韩国指数暴跌（一日两熔） → 全球半导体ETF被动减仓 → AI概念股集体下挫 → 纳指被拖下水。
   interpretation: UP拆解了SK海力士减产传闻的完整传导链条：①SK海力士在韩国市场权重巨大+散户杠杆ETF的脆弱结构放大了单一传闻的影响；②蝴蝶效应从韩国→全球半导体ETF→纳指，说明全球AI定价的高度联动性；③'最接近订单的人'(海力士)的减产决策，如果是真实的，将对AI需求预期构成结构性冲击；④此事件为今天美光财报提供了重要的前奏背景。
   confidence: medium
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260607-003-a"]
+  contradicts:
+  - claim-20260607-003-a
   last_discovered: 2026-06-24
   links: []
   topic: SK海力士减产传闻传导链
@@ -114,10 +122,11 @@ claims:
   - 半导体ETF
   - 蝴蝶效应
   - AI泡沫
+  school: qing
 - id: claim-20260624-001-e
   source_path: sources/raw/财经/2026-06-24-0902-早盘-市场从AI时代切换到美元时代-美光财报核按钮.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 专栏
   extracted_at: '2026-06-24T09:30:00'
@@ -131,7 +140,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260612-003-h"]
+  contradicts:
+  - claim-20260612-003-h
   last_discovered: 2026-06-24
   links: []
   topic: AI回调定性：挤泡沫非否定行业
@@ -142,10 +152,11 @@ claims:
   - 新能源类比
   - 挤泡沫
   - 回调定性
+  school: qing
 - id: claim-20260624-001-f
   source_path: sources/raw/财经/2026-06-24-0902-早盘-市场从AI时代切换到美元时代-美光财报核按钮.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 专栏
   extracted_at: '2026-06-24T09:30:00'
@@ -158,7 +169,8 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260608-004-c"]
+  supersedes:
+  - claim-20260608-004-c
   contradicts: []
   last_discovered: 2026-06-24
   links: []
@@ -170,10 +182,11 @@ claims:
   - 增量资金消化
   - 场外变量
   - 6月8日先例
+  school: qing
 - id: claim-20260624-001-g
   source_path: sources/raw/财经/2026-06-24-0902-早盘-市场从AI时代切换到美元时代-美光财报核按钮.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 专栏
   extracted_at: '2026-06-24T09:30:00'
@@ -186,7 +199,8 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260622-002-g"]
+  supersedes:
+  - claim-20260622-002-g
   contradicts: []
   last_discovered: 2026-06-24
   links: []
@@ -198,10 +212,11 @@ claims:
   - 氧化锆
   - 功率半导体
   - 资金进攻方向
+  school: qing
 - id: claim-20260624-001-h
   source_path: sources/raw/财经/2026-06-24-0902-早盘-市场从AI时代切换到美元时代-美光财报核按钮.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 专栏
   extracted_at: '2026-06-24T09:30:00'
@@ -215,7 +230,8 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260526-034"]
+  contradicts:
+  - claim-20260526-034
   last_discovered: 2026-06-24
   links: []
   topic: 大金融共振逻辑失效
@@ -223,7 +239,7 @@ claims:
   - code: '300085'
     name: 银之杰
     role: 金融科技-创业板不可交易
-  - code: '000783'
+  - code: 000783
     name: 长江证券
     role: 券商-主板可交易
   tags:
@@ -232,10 +248,11 @@ claims:
   - 指数基本盘
   - 银之杰
   - 长江证券
+  school: qing
 - id: claim-20260624-001-i
   source_path: sources/raw/财经/2026-06-24-0902-早盘-市场从AI时代切换到美元时代-美光财报核按钮.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 专栏
   extracted_at: '2026-06-24T09:30:00'
@@ -243,15 +260,17 @@ claims:
   subject: 灵晟超算登顶TOP500标志国产算力破局
   timeframe: short-term
   statement: 全国产自主研制的'灵晟'以2.19 EFlops持续双精度性能登顶全球超算TOP500，时隔九年中国超算再次全球第一。采用自研LX2 CPU内嵌矩阵加速单元并集成首颗国产HBM，内存带宽较传统CPU提升10倍。看好2026年起国产超节点在AI训推驱动下放量。相关标的：和林微纳(688661)、利和兴(301013)。
-  evidence_quote: 据ISC2026（德国汉堡国际超算大会），全国产自主研制的「灵晟」以2.19 EFlops持续双精度性能登顶全球超算TOP500……采用自研LX2
-    CPU，内嵌矩阵加速单元并集成首颗国产HBM，内存带宽较传统CPU提升10倍，打破CPU-GPU异构壁垒。据华泰证券4月11日深度报告《超节点：26年国产算力破局之道》，看好2026年起国产超节点在AI训推驱动下放量。
+  evidence_quote: 据ISC2026（德国汉堡国际超算大会），全国产自主研制的「灵晟」以2.19 EFlops持续双精度性能登顶全球超算TOP500……采用自研LX2 CPU，内嵌矩阵加速单元并集成首颗国产HBM，内存带宽较传统CPU提升10倍，打破CPU-GPU异构壁垒。据华泰证券4月11日深度报告《超节点：26年国产算力破局之道》，看好2026年起国产超节点在AI训推驱动下放量。
   interpretation: UP转述了一个重要的产业进展：①灵晟超算登顶TOP500是中国在超算领域9年后重新夺冠，纯国产技术路线（自研CPU+国产HBM）；②技术突破在于集成矩阵加速单元，打破CPU-GPU异构壁垒——这是国产算力的架构创新；③华泰证券看好2026年国产超节点放量，AI训推是最核心应用场景。
   confidence: medium
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-d", "claim-20260623-005-i", "claim-20260621-001-o"]
+  supplements:
+  - claim-20260609-005-d
+  - claim-20260623-005-i
+  - claim-20260621-001-o
   last_discovered: 2026-06-25
   links: []
   topic: 灵晟超算登顶TOP500
@@ -268,10 +287,11 @@ claims:
   - 国产算力
   - HBM国产
   - 超节点
+  school: qing
 - id: claim-20260624-001-j
   source_path: sources/raw/财经/2026-06-24-0902-早盘-市场从AI时代切换到美元时代-美光财报核按钮.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-24'
   source_type: 专栏
   extracted_at: '2026-06-24T09:30:00'
@@ -286,7 +306,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h", "claim-20260622-004-k"]
+  supplements:
+  - claim-20260622-001-h
+  - claim-20260622-004-k
   last_discovered: 2026-06-25
   links: []
   topic: 今日四盯盘清单
@@ -297,3 +319,4 @@ claims:
   - 美光财报
   - 低开博弈
   - 场外变量
+  school: qing

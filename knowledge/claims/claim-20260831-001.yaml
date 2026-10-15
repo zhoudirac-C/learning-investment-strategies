@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260831-001-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -17,7 +17,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260826-049-a", "claim-20260827-062-x", "claim-20260824-002-c"]
+  supplements:
+  - claim-20260826-049-a
+  - claim-20260827-062-x
+  - claim-20260824-002-c
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -31,10 +34,11 @@ claims:
   - 偏鹰
   - 前瞻指引
   - 美联储
+  school: qing
 - id: claim-20260831-002-a-dup1
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -47,8 +51,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260610-006-a"]
-  contradicts: ["claim-20260819-001", "claim-20260814-001"]
+  supersedes:
+  - claim-20260610-006-a
+  contradicts:
+  - claim-20260819-001
+  - claim-20260814-001
   supplements: []
   last_discovered: 2026-08-31
   links:
@@ -63,10 +70,11 @@ claims:
   - 美债收益率
   - 黄金跳水
   - 半导体股弱
+  school: qing
 - id: claim-20260831-003-a-dup1
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -81,7 +89,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260820-004", "claim-20260825-007-a"]
+  supplements:
+  - claim-20260820-004
+  - claim-20260825-007-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -95,10 +105,11 @@ claims:
   - 短端
   - 估值杀伤
   - 系统性重估
+  school: qing
 - id: claim-20260831-004-a-dup1
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -113,7 +124,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260813-002", "claim-20260703-001-f", "claim-20260825-003-a"]
+  supplements:
+  - claim-20260813-002
+  - claim-20260703-001-f
+  - claim-20260825-003-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -126,10 +140,11 @@ claims:
   - 外盘映射
   - 低开
   - 接不住才可怕
+  school: qing
 - id: claim-20260831-005-a-dup1
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -142,9 +157,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260729-031"]
+  supersedes:
+  - claim-20260729-031
   contradicts: []
-  supplements: ["claim-20260809-007", "claim-20260813-027"]
+  supplements:
+  - claim-20260809-007
+  - claim-20260813-027
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -158,10 +176,11 @@ claims:
   - 9月议息
   - 宽松预期
   - 博弈
+  school: qing
 - id: claim-20260831-006-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -174,8 +193,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260518-018", "claim-20260602-001-b"]
-  contradicts: ["claim-20260708-001-a"]
+  supersedes:
+  - claim-20260518-018
+  - claim-20260602-001-b
+  contradicts:
+  - claim-20260708-001-a
   supplements: []
   last_discovered: 2026-08-31
   links:
@@ -190,10 +212,11 @@ claims:
   - 纠错点位
   - '3894'
   - 降低预期
+  school: qing
 - id: claim-20260831-007-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -206,9 +229,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260804-008"]
+  supersedes:
+  - claim-20260804-008
   contradicts: []
-  supplements: ["claim-20260811-041"]
+  supplements:
+  - claim-20260811-041
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -222,10 +247,11 @@ claims:
   - 量能对照
   - 不破位
   - 分时结构
+  school: qing
 - id: claim-20260831-008-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -240,7 +266,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260820-022"]
+  supplements:
+  - claim-20260820-022
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -254,10 +281,11 @@ claims:
   - 现房销售
   - 预售资金监管
   - 开发贷
+  school: qing
 - id: claim-20260831-009-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -280,19 +308,20 @@ claims:
     cases: []
   topic: 竣工备案后放贷对开发商现金流的冲击远大于40年房贷的需求改善
   related_stocks:
-  - code: "600266"
-    name: "城建发展"
-    role: "回填-正文提及"
+  - code: '600266'
+    name: 城建发展
+    role: 回填-正文提及
   tags:
   - 竣工备案放贷
   - 现金流冲击
   - 房企分化
   - 高周转收紧
   - 穿越周期
+  school: qing
 - id: claim-20260831-010-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -306,7 +335,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260820-022"]
+  contradicts:
+  - claim-20260820-022
   supplements: []
   last_discovered: 2026-08-31
   links:
@@ -320,10 +350,11 @@ claims:
   - 涉房敞口
   - 制度修复
   - 销售拉动慢
+  school: qing
 - id: claim-20260831-011-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -338,7 +369,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-001-h"]
+  supplements:
+  - claim-20260624-001-h
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -351,10 +383,11 @@ claims:
   - 大金融变量
   - 主题博弈
   - 政策抓手
+  school: qing
 - id: claim-20260831-012-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -367,7 +400,10 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260810-007", "claim-20260806-003", "claim-20260804-009"]
+  supersedes:
+  - claim-20260810-007
+  - claim-20260806-003
+  - claim-20260804-009
   contradicts: []
   supplements: []
   last_discovered: 2026-08-31
@@ -383,10 +419,11 @@ claims:
   - 混沌试错期
   - 容错率
   - 滞后性
+  school: qing
 - id: claim-20260831-013-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -401,7 +438,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260821-008", "claim-20260804-009", "claim-20260819-072"]
+  supplements:
+  - claim-20260821-008
+  - claim-20260804-009
+  - claim-20260819-072
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -414,10 +454,11 @@ claims:
   - 二板健康线
   - 负反馈
   - 跌停家数
+  school: qing
 - id: claim-20260831-014-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -430,7 +471,9 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260605-001-b", "claim-20260819-007"]
+  supersedes:
+  - claim-20260605-001-b
+  - claim-20260819-007
   contradicts: []
   supplements: []
   last_discovered: 2026-08-31
@@ -446,10 +489,11 @@ claims:
   - '1620'
   - '3350'
   - 非买点
+  school: qing
 - id: claim-20260831-015-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -462,9 +506,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260807-019"]
+  supersedes:
+  - claim-20260807-019
   contradicts: []
-  supplements: ["claim-20260806-051", "claim-20260826-050-a"]
+  supplements:
+  - claim-20260806-051
+  - claim-20260826-050-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -484,10 +531,11 @@ claims:
   - 三六零
   - 炸板次日
   - 观察哨
+  school: qing
 - id: claim-20260831-016-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -502,7 +550,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260818-009", "claim-20260817-048", "claim-20260807-019"]
+  supplements:
+  - claim-20260818-009
+  - claim-20260817-048
+  - claim-20260807-019
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -516,10 +567,11 @@ claims:
   - 以点带面
   - 科技翻身条件
   - 容量方向
+  school: qing
 - id: claim-20260831-017-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -532,7 +584,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260820-021"]
+  supersedes:
+  - claim-20260820-021
   contradicts: []
   supplements: []
   last_discovered: 2026-08-31
@@ -554,10 +607,11 @@ claims:
   - 逆势板块
   - 温度计
   - 预期差
+  school: qing
 - id: claim-20260831-018-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -572,7 +626,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-004-a"]
+  supplements:
+  - claim-20260604-004-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -586,10 +641,11 @@ claims:
   - PMI
   - 政策预期
   - 共振向下
+  school: qing
 - id: claim-20260831-019-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -604,7 +660,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260809-013"]
+  supplements:
+  - claim-20260809-013
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -624,10 +681,11 @@ claims:
   - 外盘映射
   - 一日游
   - 订单验证
+  school: qing
 - id: claim-20260831-020-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -662,10 +720,11 @@ claims:
   - 城建发展
   - 南都物业
   - 选股逻辑
+  school: qing
 - id: claim-20260831-021-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -680,7 +739,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260811-054", "claim-20260827-016-a", "claim-20260805-025"]
+  supplements:
+  - claim-20260811-054
+  - claim-20260827-016-a
+  - claim-20260805-025
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -700,10 +762,11 @@ claims:
   - 新云厂
   - 在手订单
   - 题材辨别
+  school: qing
 - id: claim-20260831-022-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -718,7 +781,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260817-039", "claim-20260702-002-m"]
+  supplements:
+  - claim-20260817-039
+  - claim-20260702-002-m
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -737,10 +802,11 @@ claims:
   - Gap
   - 映射补充位
   - 资金分流
+  school: qing
 - id: claim-20260831-023-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -753,9 +819,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260809-025"]
+  supersedes:
+  - claim-20260809-025
   contradicts: []
-  supplements: ["claim-20260805-020", "claim-20260826-037-a"]
+  supplements:
+  - claim-20260805-020
+  - claim-20260826-037-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -775,10 +844,11 @@ claims:
   - 鼎通科技
   - 奕东电子
   - 时间差
+  school: qing
 - id: claim-20260831-024-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -791,9 +861,12 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260809-025"]
-  contradicts: ["claim-20260426-010"]
-  supplements: ["claim-20260825-037-a"]
+  supersedes:
+  - claim-20260809-025
+  contradicts:
+  - claim-20260426-010
+  supplements:
+  - claim-20260825-037-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -810,26 +883,28 @@ claims:
   - 独供
   - Q4放量
   - 交流口径
+  school: qing
 - id: claim-20260831-025-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
   claim_type: catalyst
   subject: 奕东电子中报扭亏：Cage订单大幅增长但费用压制利润
   timeframe: trend
-  statement: 奕东电子(301123)中报：上半年营收14.13亿元同比增40.11%、归母净利915.90万元同比扭亏（股权激励费用0.3亿以上+研发费用增加压制）；Q2营收8.04亿元同比增41.5%；连接器及零组件营收6.54亿元同比增51.85%、热管理产品1.74亿元同比增712.26%；与光模块配套的Cage产品OSFP
-    112G、OSFP-XD 224G、OverPass 224G等系列订单大幅增长，承接国内国际头部客户新一代光模块CAGE产品持续大批量交付；并购冠鼎后散热产品批量应用于高性能AI数据中心集群。
+  statement: 奕东电子(301123)中报：上半年营收14.13亿元同比增40.11%、归母净利915.90万元同比扭亏（股权激励费用0.3亿以上+研发费用增加压制）；Q2营收8.04亿元同比增41.5%；连接器及零组件营收6.54亿元同比增51.85%、热管理产品1.74亿元同比增712.26%；与光模块配套的Cage产品OSFP 112G、OSFP-XD 224G、OverPass 224G等系列订单大幅增长，承接国内国际头部客户新一代光模块CAGE产品持续大批量交付；并购冠鼎后散热产品批量应用于高性能AI数据中心集群。
   evidence_quote: 与光模块配套的Cage产品中，OSFP 112G、OSFP-XD 224G、OverPass 224G等系列订单大幅增长
   interpretation: 奕东的报表验证：热管理+712%是Cage放量的财务痕迹；利润被费用压制恰好说明还在投入期，兑现弹性在后。
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260817-059"]
+  supersedes:
+  - claim-20260817-059
   contradicts: []
-  supplements: ["claim-20260825-023-a"]
+  supplements:
+  - claim-20260825-023-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -846,18 +921,18 @@ claims:
   - Cage订单
   - 热管理
   - 费用压制
+  school: qing
 - id: claim-20260831-026-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
   claim_type: stock-view
   subject: 华丰科技是切换期业绩坑：910C向950切换良率爬坡决定修复
   timeframe: trend
-  statement: 华丰科技(688629)中报：上半年营收12.61亿元同比增14.09%、归母净利1.47亿元同比降2.23%不及预期；通信板块增11%、防务增41%、工业降8%；利润承压主因910C向950切换：950高速线模组量产初期良率偏低、原材料涨价；据公司交流，新一代224G高速线模组6月量产、当前产能爬坡期、7至8月良率已明显好转，产能瓶颈为人员与场地不足、产线扩建成本前置；NPO
-    socket已完成产品开发、CPU socket已量产；这是典型的切换期业绩坑：老产品退、新产品还在爬坡，报表最难看的时点通常在切换中间；能否修复取决于Q3至Q4良率爬坡与产能释放的兑现，属跟踪验证型标的，不适合当作博弈型标的来做。
+  statement: 华丰科技(688629)中报：上半年营收12.61亿元同比增14.09%、归母净利1.47亿元同比降2.23%不及预期；通信板块增11%、防务增41%、工业降8%；利润承压主因910C向950切换：950高速线模组量产初期良率偏低、原材料涨价；据公司交流，新一代224G高速线模组6月量产、当前产能爬坡期、7至8月良率已明显好转，产能瓶颈为人员与场地不足、产线扩建成本前置；NPO socket已完成产品开发、CPU socket已量产；这是典型的切换期业绩坑：老产品退、新产品还在爬坡，报表最难看的时点通常在切换中间；能否修复取决于Q3至Q4良率爬坡与产能释放的兑现，属跟踪验证型标的，不适合当作博弈型标的来做。
   evidence_quote: 这是一份典型的切换期业绩坑：老产品退、新产品还在爬坡，报表最难看的时点通常就在切换的中间。
   interpretation: 切换期业绩坑的识别模板：老退新爬=报表最难看在中间；跟踪锚=Q3至Q4良率爬坡；标的定性=跟踪验证型非博弈型。
   confidence: medium
@@ -882,10 +957,11 @@ claims:
   - 910C切换950
   - 良率爬坡
   - 跟踪验证
+  school: qing
 - id: claim-20260831-027-a
   source_path: sources/original/bilibili/2026-08-31-0858-专栏-今天有三件事叠在一起：沃什的鹰派讲话是A股第一次定价，地产信.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 复盘
   extracted_at: '2026-08-31T09:15:38'
@@ -898,9 +974,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260805-038", "claim-20260824-002-q"]
+  supersedes:
+  - claim-20260805-038
+  - claim-20260824-002-q
   contradicts: []
-  supplements: ["claim-20260803-013"]
+  supplements:
+  - claim-20260803-013
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -914,3 +993,4 @@ claims:
   - 不动
   - 买阴不买阳
   - 排雷优先
+  school: qing

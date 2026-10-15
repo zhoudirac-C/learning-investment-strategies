@@ -1,9 +1,8 @@
 claims:
 - id: claim-20260723-044
-  source_path: sources/original/bilibili/2026-07-23-0957-图片-这会儿的强度还行，需要注意的是，国家队最近天天做T。
-    配置选.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-07-23-0957-图片-这会儿的强度还行，需要注意的是，国家队最近天天做T。 配置选.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-23'
   source_type: 动态
   extracted_at: '2026-07-23T23:30:00+08:00'
@@ -16,9 +15,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260624-004-e"]
+  supersedes:
+  - claim-20260624-004-e
   contradicts: []
-  supplements: ["claim-20260714-005-bg", "claim-20260612-002-e"]
+  supplements:
+  - claim-20260714-005-bg
+  - claim-20260612-002-e
   last_discovered: 2026-07-23
   links:
     wiki_pages: []
@@ -32,11 +34,11 @@ claims:
   - 持仓等待
   - 指数站稳
   topic: 7月23日早盘：国家队天天做T——配置选手等待指数站稳
+  school: qing
 - id: claim-20260723-045
-  source_path: sources/original/bilibili/2026-07-23-0957-图片-这会儿的强度还行，需要注意的是，国家队最近天天做T。
-    配置选.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-07-23-0957-图片-这会儿的强度还行，需要注意的是，国家队最近天天做T。 配置选.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-23'
   source_type: 动态
   extracted_at: '2026-07-23T23:30:00+08:00'
@@ -44,15 +46,15 @@ claims:
   subject: 谷歌云待确认订单5140亿美元-三层优先级框架-链中期背书
   timeframe: trend
   statement: 谷歌云业务待确认订单总额5140亿美元，环比新增超500亿，增长动力来自企业AI产品需求。三层信号优先级：待确认订单5140亿且24个月内确认超50%（客户已签约）大于capex指引1950-2050亿且2027年继续提升（公司支出计划）大于管理层定性判断。第一层对A股光模块、PCB、服务器链条构成中期需求背书。
-  evidence_quote: 谷歌云业务待确认订单总额5140亿美元，环比新增超500亿，增长动力来自企业AI产品需求。从产业链跟踪的角度，5140亿待确认订单且24个月内确认超50%（客户已签约）＞
-    capex指引上调至1950-2050亿且2027年继续提升（公司支出计划）＞ 管理层对赛道早期的定性判断。其中第一层是最值得作为跟踪锚的，它对A股光模块、PCB、服务器链条构成的是中期需求背书，而非短期情绪催化。
+  evidence_quote: 谷歌云业务待确认订单总额5140亿美元，环比新增超500亿，增长动力来自企业AI产品需求。从产业链跟踪的角度，5140亿待确认订单且24个月内确认超50%（客户已签约）＞ capex指引上调至1950-2050亿且2027年继续提升（公司支出计划）＞ 管理层对赛道早期的定性判断。其中第一层是最值得作为跟踪锚的，它对A股光模块、PCB、服务器链条构成的是中期需求背书，而非短期情绪催化。
   interpretation: UP提出三层信号优先级框架来评估海外AI利好。核心逻辑：已签约的待确认订单 > 公司资本开支计划 > 管理层言论。5140亿待确认订单是需求端最硬的证据（客户已签约，24个月内确认超50%），比CAPEX计划（可调整）和言论（可动摇）更可靠。对A股的影响不是短期情绪催化（追涨不可取），而是中期产业链基本面背书。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260723-002"]
+  supplements:
+  - claim-20260723-002
   last_discovered: 2026-07-23
   links:
     wiki_pages: []
@@ -67,11 +69,11 @@ claims:
   - PCB
   - 服务器
   topic: 7月23日早盘：谷歌云5140亿待确认订单——三层优先级框架分析
+  school: qing
 - id: claim-20260723-046
-  source_path: sources/original/bilibili/2026-07-23-0957-图片-这会儿的强度还行，需要注意的是，国家队最近天天做T。
-    配置选.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-07-23-0957-图片-这会儿的强度还行，需要注意的是，国家队最近天天做T。 配置选.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-23'
   source_type: 动态
   extracted_at: '2026-07-23T23:30:00+08:00'
@@ -86,7 +88,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260707-024-a", "claim-20260722-025"]
+  supplements:
+  - claim-20260707-024-a
+  - claim-20260722-025
   last_discovered: 2026-07-23
   links:
     wiki_pages: []
@@ -100,11 +104,11 @@ claims:
   - 传输
   - 供电
   topic: 7月23日早盘：谷歌CAPEX 60%服务器40%数据中心——受益环节排序
+  school: qing
 - id: claim-20260723-047
-  source_path: sources/original/bilibili/2026-07-23-0957-图片-这会儿的强度还行，需要注意的是，国家队最近天天做T。
-    配置选.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-07-23-0957-图片-这会儿的强度还行，需要注意的是，国家队最近天天做T。 配置选.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-23'
   source_type: 动态
   extracted_at: '2026-07-23T23:30:00+08:00'
@@ -119,7 +123,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-004-f", "claim-20260723-002", "claim-20260723-011"]
+  supplements:
+  - claim-20260607-004-f
+  - claim-20260723-002
+  - claim-20260723-011
   last_discovered: 2026-07-23
   links:
     wiki_pages: []
@@ -133,3 +140,4 @@ claims:
   - AI资本开支
   - 能见度
   topic: 7月23日早盘：OpenAI+超微+谷歌三合一——海外AI资本开支能见度上行
+  school: qing

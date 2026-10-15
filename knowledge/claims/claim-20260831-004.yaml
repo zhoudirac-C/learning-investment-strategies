@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260831-004-a
   source_path: sources/original/bilibili/2026-08-31-1432-图片-再说一遍上周五说过的模式交易，科技整体偏弱，局部走强，不过走.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 动态
   extracted_at: '2026-08-31T21:28:00'
@@ -15,7 +15,9 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260825-032-a", "claim-20260826-003-a"]
+  supersedes:
+  - claim-20260825-032-a
+  - claim-20260826-003-a
   contradicts: []
   supplements: []
   last_discovered: 2026-08-31
@@ -31,10 +33,11 @@ claims:
   - 模式交易
   - 行情初期
   - 抄底
+  school: qing
 - id: claim-20260831-004-b
   source_path: sources/original/bilibili/2026-08-31-1432-图片-再说一遍上周五说过的模式交易，科技整体偏弱，局部走强，不过走.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 动态
   extracted_at: '2026-08-31T21:28:00'
@@ -63,10 +66,11 @@ claims:
   - 纪律
   - 利润垫
   - 仓位
+  school: qing
 - id: claim-20260831-004-c
   source_path: sources/original/bilibili/2026-08-31-1432-图片-再说一遍上周五说过的模式交易，科技整体偏弱，局部走强，不过走.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-31'
   source_type: 动态
   extracted_at: '2026-08-31T21:28:00'
@@ -81,7 +85,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-004-a"]
+  supplements:
+  - claim-20260527-004-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -95,3 +100,4 @@ claims:
   - 心理承受
   - 现金流
   - 纪律
+  school: qing

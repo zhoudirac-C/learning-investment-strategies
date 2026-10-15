@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260611-001-a-dup1
   source_path: sources/raw/财经/2026-06-11-半导体材料对日替代主线发酵-青枫浦上Q.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 动态
   extracted_at: '2026-06-11T17:15:54'
@@ -17,7 +17,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-002-a", "claim-20260612-002-b"]
+  supplements:
+  - claim-20260611-002-a
+  - claim-20260612-002-b
   last_discovered: 2026-06-25
   related_stocks:
   - code: '688981'
@@ -37,10 +39,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 半导体材料对日替代发酵，中韩蜜月挤出日系
+  school: qing
 - id: claim-20260611-002-a
   source_path: sources/raw/财经/2026-06-11-半导体材料对日替代主线发酵-青枫浦上Q.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 动态
   extracted_at: '2026-06-11T17:15:54'
@@ -55,7 +58,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-003-a", "claim-20260610-019-a", "claim-20260610-017-a"]
+  supplements:
+  - claim-20260611-003-a
+  - claim-20260610-019-a
+  - claim-20260610-017-a
   last_discovered: 2026-06-25
   related_stocks:
   - code: '688146'
@@ -74,10 +80,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 钨产业链受益于对日替代的出口管制逻辑
+  school: qing
 - id: claim-20260611-003-a
   source_path: sources/raw/财经/2026-06-11-半导体材料对日替代主线发酵-青枫浦上Q.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 动态
   extracted_at: '2026-06-11T17:15:54'
@@ -92,7 +99,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-002-a", "claim-20260610-017-a", "claim-20260610-019-a"]
+  supplements:
+  - claim-20260611-002-a
+  - claim-20260610-017-a
+  - claim-20260610-019-a
   last_discovered: 2026-06-25
   related_stocks:
   - code: '688146'
@@ -110,10 +120,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 钨出口管制受益核心标的
+  school: qing
 - id: claim-20260611-004-a
   source_path: sources/raw/财经/2026-06-11-半导体材料对日替代主线发酵-青枫浦上Q.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 动态
   extracted_at: '2026-06-11T17:15:54'
@@ -128,7 +139,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-005-h", "claim-20260609-005-b"]
+  supplements:
+  - claim-20260623-005-h
+  - claim-20260609-005-b
   last_discovered: 2026-06-25
   related_stocks:
   - code: '688981'
@@ -147,10 +160,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 四家晶圆厂未来两年5000亿利润支撑扩产通胀逻辑
+  school: qing
 - id: claim-20260611-005-a
   source_path: sources/raw/财经/2026-06-11-半导体材料对日替代主线发酵-青枫浦上Q.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 动态
   extracted_at: '2026-06-11T17:15:54'
@@ -165,7 +179,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-f"]
+  supplements:
+  - claim-20260609-005-f
   last_discovered: 2026-06-25
   related_stocks: []
   tags:
@@ -178,10 +193,11 @@ claims:
     methodology_pages: []
     cases: []
   topic: 半导体材料情绪加速，预期差缩小不宜追高
+  school: qing
 - id: claim-20260611-006-a
   source_path: sources/raw/财经/2026-06-11-半导体材料对日替代主线发酵-青枫浦上Q.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 动态
   extracted_at: '2026-06-11T17:15:54'
@@ -196,7 +212,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260614-002-b"]
+  supplements:
+  - claim-20260614-002-b
   last_discovered: 2026-06-25
   related_stocks: []
   tags:
@@ -212,10 +229,11 @@ claims:
     - framework/stock-analysis-playbook.md
     cases: []
   topic: 调整时关注不追高，等待低位机会
+  school: qing
 - id: claim-20260611-007-a
   source_path: sources/raw/财经/2026-06-11-半导体材料对日替代主线发酵-青枫浦上Q.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-11'
   source_type: 动态
   extracted_at: '2026-06-11T17:15:54'
@@ -230,7 +248,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-003-a", "claim-20260611-002-a"]
+  supplements:
+  - claim-20260611-003-a
+  - claim-20260611-002-a
   last_discovered: 2026-06-25
   related_stocks:
   - code: '688146'
@@ -247,3 +267,4 @@ claims:
     methodology_pages: []
     cases: []
   topic: 江丰电子全球靶材龙二受益钨出口管制
+  school: qing

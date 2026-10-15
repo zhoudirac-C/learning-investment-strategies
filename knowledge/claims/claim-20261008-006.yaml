@@ -34,6 +34,7 @@ claims:
     methodology_pages: []
     cases: []
   topic: 中文在线定增取消=剧本二兑现（低概率事件落地优于悬置）
+  school: watchlist
 - id: claim-20261008-006-b
   source_path: sources/original/bilibili/2026-10-08-2000-图片-【打野号】 中文定增取消，港股IPO也一并终止。 站在我的博.md
   source_date: '2026-10-08'
@@ -61,8 +62,10 @@ claims:
   - 打野号
   - AI漫剧
   - 利空落地
-  supersedes: ["claim-20260826-004-007"]
-  contradicts: ["claim-20260908-005-5"]
+  supersedes:
+  - claim-20260826-004-007
+  contradicts:
+  - claim-20260908-005-5
   supplements: []
   last_discovered: 2026-10-08
   links:
@@ -70,3 +73,4 @@ claims:
     methodology_pages: []
     cases: []
   topic: 打野号补仓中文在线40万（总成本21.6/18400股），自认短线风险不小
+  school: watchlist

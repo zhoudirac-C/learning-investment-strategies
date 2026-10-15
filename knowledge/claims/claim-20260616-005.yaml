@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260616-005-a
   source_path: sources/original/bilibili/2026-06-16-1213-图片-动态-1214379643401928704.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili动态
   extracted_at: '2026-06-16T12:49:00+08:00'
@@ -19,7 +19,9 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-005-f", "claim-20260610-042-a"]
+  supplements:
+  - claim-20260616-005-f
+  - claim-20260610-042-a
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -47,10 +49,11 @@ claims:
   - Agent
   - 支付宝
   - 微信
+  school: qing
 - id: claim-20260616-005-b
   source_path: sources/original/bilibili/2026-06-16-1213-图片-动态-1214379643401928704.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili动态
   extracted_at: '2026-06-16T12:49:00+08:00'
@@ -67,7 +70,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-005-e", "claim-20260616-005-g", "claim-20260610-042-a"]
+  supplements:
+  - claim-20260616-005-e
+  - claim-20260616-005-g
+  - claim-20260610-042-a
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -83,10 +89,11 @@ claims:
   - 标的分层
   - 可证伪性
   - AI应用
+  school: qing
 - id: claim-20260616-005-c
   source_path: sources/original/bilibili/2026-06-16-1213-图片-动态-1214379643401928704.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili动态
   extracted_at: '2026-06-16T12:49:00+08:00'
@@ -103,7 +110,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-005-d"]
+  supplements:
+  - claim-20260616-005-d
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -115,12 +123,12 @@ claims:
   - 博思软件(300525)
   - 润和软件(300339)
   - 三七互娱(002555)
-  - code: "300525"
-    name: "博思软件"
-    role: "回填-正文提及"
-  - code: "300339"
-    name: "润和软件"
-    role: "回填-正文提及"
+  - code: '300525'
+    name: 博思软件
+    role: 回填-正文提及
+  - code: '300339'
+    name: 润和软件
+    role: 回填-正文提及
   related_sectors:
   - AI应用
   - 金融科技
@@ -130,10 +138,11 @@ claims:
   - 直接持股
   - 恒生电子
   - 三七互娱
+  school: qing
 - id: claim-20260616-005-d
   source_path: sources/original/bilibili/2026-06-16-1213-图片-动态-1214379643401928704.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili动态
   extracted_at: '2026-06-16T12:49:00+08:00'
@@ -150,7 +159,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-005-c", "claim-20260616-005-b"]
+  supplements:
+  - claim-20260616-005-c
+  - claim-20260616-005-b
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -163,15 +174,15 @@ claims:
   - 高伟达(300465)
   - 金山办公(688111)
   - 宇信科技(300674)
-  - code: "300674"
-    name: "宇信科技"
-    role: "回填-正文提及"
-  - code: "688111"
-    name: "金山办公"
-    role: "回填-正文提及"
-  - code: "300465"
-    name: "高伟达"
-    role: "回填-正文提及"
+  - code: '300674'
+    name: 宇信科技
+    role: 回填-正文提及
+  - code: '688111'
+    name: 金山办公
+    role: 回填-正文提及
+  - code: '300465'
+    name: 高伟达
+    role: 回填-正文提及
   related_sectors:
   - AI应用
   - 政务信息化
@@ -182,10 +193,11 @@ claims:
   - 场景合作
   - 泛微网络
   - 南威软件
+  school: qing
 - id: claim-20260616-005-e
   source_path: sources/original/bilibili/2026-06-16-1213-图片-动态-1214379643401928704.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili动态
   extracted_at: '2026-06-16T12:49:00+08:00'
@@ -200,7 +212,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-005-b", "claim-20260616-005-g", "claim-20260616-005-c"]
+  supplements:
+  - claim-20260616-005-b
+  - claim-20260616-005-g
+  - claim-20260616-005-c
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -215,10 +230,11 @@ claims:
   - C档
   - 标签弹性
   - 风险提示
+  school: qing
 - id: claim-20260616-005-f
   source_path: sources/original/bilibili/2026-06-16-1213-图片-动态-1214379643401928704.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili动态
   extracted_at: '2026-06-16T12:49:00+08:00'
@@ -235,7 +251,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-005-a", "claim-20260609-005-e"]
+  supplements:
+  - claim-20260616-005-a
+  - claim-20260609-005-e
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -251,10 +269,11 @@ claims:
   - 预期兑现
   - 支付宝AI版
   - 微信智能体
+  school: qing
 - id: claim-20260616-005-g
   source_path: sources/original/bilibili/2026-06-16-1213-图片-动态-1214379643401928704.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili动态
   extracted_at: '2026-06-16T12:49:00+08:00'
@@ -271,7 +290,9 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-005-b", "claim-20260601-004-b"]
+  supplements:
+  - claim-20260616-005-b
+  - claim-20260601-004-b
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -288,10 +309,11 @@ claims:
   - AI硬件
   - 高频刚需场景
   - 两条腿
+  school: qing
 - id: claim-20260616-005-h
   source_path: sources/original/bilibili/2026-06-16-1213-图片-动态-1214379643401928704.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili动态
   extracted_at: '2026-06-16T12:49:00+08:00'
@@ -315,12 +337,13 @@ claims:
     cases: []
   related_stocks:
   - 恒生电子(600570)
-  - code: "600570"
-    name: "恒生电子"
-    role: "回填-正文提及"
+  - code: '600570'
+    name: 恒生电子
+    role: 回填-正文提及
   related_sectors: []
   topic: 免责声明区分事实推断
   tags:
   - 免责声明
   - 事实与推断
   - 恒生电子
+  school: qing

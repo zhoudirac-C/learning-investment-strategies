@@ -16,9 +16,11 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260614-004-d"]
+  supersedes:
+  - claim-20260614-004-d
   contradicts: []
-  supplements: ["claim-20260819-030"]
+  supplements:
+  - claim-20260819-030
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -32,6 +34,7 @@ claims:
   - 市场结构
   - 修复高度
   - 外部环境
+  school: qing
 - id: claim-20260928-001-b
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -51,7 +54,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260927-001-o", "claim-20260825-003-a"]
+  supplements:
+  - claim-20260927-001-o
+  - claim-20260825-003-a
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -64,6 +69,7 @@ claims:
   - 开盘定价
   - 全天承接
   - 国庆前
+  school: qing
 - id: claim-20260928-001-c
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -82,8 +88,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260909-001-a"]
-  supplements: ["claim-20260721-031"]
+  contradicts:
+  - claim-20260909-001-a
+  supplements:
+  - claim-20260721-031
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -96,6 +104,7 @@ claims:
   - 美债收益率
   - 估值约束
   - 通胀
+  school: qing
 - id: claim-20260928-001-d
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -128,6 +137,7 @@ claims:
   - 政策背景
   - 产业影响
   - 落实进度
+  school: qing
 - id: claim-20260928-001-e
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -147,7 +157,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260731-010"]
+  supplements:
+  - claim-20260731-010
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -160,6 +171,7 @@ claims:
   - 归因方法
   - 证据标准
   - 跨市场联动
+  school: qing
 - id: claim-20260928-001-f
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -179,7 +191,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260927-001-f", "claim-20260909-011-a"]
+  supplements:
+  - claim-20260927-001-f
+  - claim-20260909-011-a
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -192,6 +206,7 @@ claims:
   - 承接不足
   - 弱平衡
   - 科技权重
+  school: qing
 - id: claim-20260928-001-g
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -211,7 +226,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260910-011-a", "claim-20260910-012-a"]
+  supplements:
+  - claim-20260910-011-a
+  - claim-20260910-012-a
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -224,6 +241,7 @@ claims:
   - 量能推断
   - 缩量
   - 左侧判断
+  school: qing
 - id: claim-20260928-001-h
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -243,7 +261,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260910-003-a"]
+  supplements:
+  - claim-20260910-003-a
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -257,6 +276,7 @@ claims:
   - 大金融
   - 情绪指标
   - 交叉验证
+  school: qing
 - id: claim-20260928-001-i
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -290,6 +310,7 @@ claims:
   - 晋级率
   - 回暖判据
   - 上涨宽度
+  school: qing
 - id: claim-20260928-001-j
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -309,7 +330,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260826-034-a", "claim-20260903-034-a"]
+  supplements:
+  - claim-20260826-034-a
+  - claim-20260903-034-a
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -317,7 +340,7 @@ claims:
     cases: []
   stance: view
   related_stocks:
-  - code: '002819'
+  - code: 002819
     name: 东方中科
     role: VNA矢量网络分析仪方向活跃标的-深市主板可交易
   - code: '301689'
@@ -329,6 +352,7 @@ claims:
   - 光通信
   - 修复成色
   - 板块合力
+  school: qing
 - id: claim-20260928-001-k
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -348,7 +372,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-017-a", "claim-20260927-001-ac"]
+  supplements:
+  - claim-20260917-017-a
+  - claim-20260927-001-ac
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -361,6 +387,7 @@ claims:
   - 政策主题
   - 项目订单
   - 概念外推
+  school: qing
 - id: claim-20260928-001-l
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -393,6 +420,7 @@ claims:
   - 创新药
   - 情绪样本
   - 海外映射
+  school: qing
 - id: claim-20260928-001-m
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -412,7 +440,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-026", "claim-20260921-002-ad", "claim-20260723-012"]
+  supplements:
+  - claim-20260913-001-026
+  - claim-20260921-002-ad
+  - claim-20260723-012
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -425,6 +456,7 @@ claims:
   - 智能体
   - 网络安全
   - 业绩验证
+  school: qing
 - id: claim-20260928-001-n
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -442,9 +474,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260529-003-e"]
+  supersedes:
+  - claim-20260529-003-e
   contradicts: []
-  supplements: ["claim-20260623-001-h"]
+  supplements:
+  - claim-20260623-001-h
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -461,6 +495,7 @@ claims:
   - 算力散热
   - 商业化验证
   - 系统工程
+  school: qing
 - id: claim-20260928-001-o
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -480,7 +515,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-001-s"]
+  supplements:
+  - claim-20260921-001-s
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -494,6 +530,7 @@ claims:
   - 技术验证
   - 客户采用
   - 数据中心电力
+  school: qing
 - id: claim-20260928-001-p
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -511,7 +548,8 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260913-001-017"]
+  supersedes:
+  - claim-20260913-001-017
   contradicts: []
   supplements: []
   last_discovered: 2026-09-28
@@ -526,6 +564,7 @@ claims:
   - 修复扩展
   - 阶段性回补
   - 扩散宽度
+  school: qing
 - id: claim-20260928-001-q
   source_path: sources/original/bilibili/2026-09-28-0859-图片-中秋节前最后一个交易日，三大指数低开低走，成交额缩至约1.6.md
   source_date: '2026-09-28'
@@ -545,7 +584,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260824-002-q"]
+  supplements:
+  - claim-20260824-002-q
   last_discovered: 2026-09-28
   links:
     wiki_pages: []
@@ -558,3 +598,4 @@ claims:
   - 开盘样本
   - 跟踪变量
   - 时间维度
+  school: qing

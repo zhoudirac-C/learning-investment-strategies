@@ -1,8 +1,8 @@
 - id: claim-20260603-003-a
   topic: 冲不上去没关系
   source_path: sources/raw/财经/动态：26-06-03-1417：冲不上去没关系，光通信大概率反复.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-03
   source_type: 盘中动态
   extracted_at: 2026-06-03
@@ -20,18 +20,19 @@
   last_discovered: 2026-06-25
   links:
     wiki_pages:
-      - knowledge/wiki/每日复盘/2026-06-03.md
+    - knowledge/wiki/每日复盘/2026-06-03.md
     methodology_pages: []
     cases: []
   intensity: medium
   tags:
-    - 市场周期
-    - 市场节奏
+  - 市场周期
+  - 市场节奏
+  school: qing
 - id: claim-20260603-003-b
   topic: AI硬件和半导体
   source_path: sources/raw/财经/动态：26-06-03-1417：冲不上去没关系，光通信大概率反复.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-03
   source_type: 盘中动态
   extracted_at: 2026-06-03
@@ -43,24 +44,27 @@
   interpretation: AI硬件和半导体是今天主要上涨方向，其他方向需谨慎
   confidence: high
   status: active
-  supersedes: ["claim-20260525-023"]
-  contradicts: ["claim-20260604-004-c"]
+  supersedes:
+  - claim-20260525-023
+  contradicts:
+  - claim-20260604-004-c
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - knowledge/wiki/每日复盘/2026-06-03.md
+    - knowledge/wiki/每日复盘/2026-06-03.md
     methodology_pages: []
     cases: []
   intensity: medium
   tags:
-    - 板块主题
-    - 半导体
-    - AI
+  - 板块主题
+  - 半导体
+  - AI
+  school: qing
 - id: claim-20260603-003-c
   topic: 大概率能反复
   source_path: sources/raw/财经/动态：26-06-03-1417：冲不上去没关系，光通信大概率反复.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-03
   source_type: 盘中动态
   extracted_at: 2026-06-03
@@ -72,23 +76,25 @@
   interpretation: 光通信（CPO/光模块/光纤）近期多次利好，博主认为会反复活跃，短期不看空
   confidence: high
   status: active
-  supersedes: ["claim-20260520-003-e"]
+  supersedes:
+  - claim-20260520-003-e
   contradicts: []
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - knowledge/wiki/每日复盘/2026-06-03.md
+    - knowledge/wiki/每日复盘/2026-06-03.md
     methodology_pages: []
     cases: []
   intensity: low
   tags:
-    - 板块主题
-    - 光通信
+  - 板块主题
+  - 光通信
+  school: qing
 - id: claim-20260603-003-d
   topic: 其他方向
   source_path: sources/raw/财经/动态：26-06-03-1417：冲不上去没关系，光通信大概率反复.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-03
   source_type: 盘中动态
   extracted_at: 2026-06-03
@@ -102,21 +108,23 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["qing-2026-06-08-strategy-july-meeting-reentry-001"]
+  supplements:
+  - qing-2026-06-08-strategy-july-meeting-reentry-001
   last_discovered: 2026-06-25
   links:
     wiki_pages:
-      - knowledge/wiki/每日复盘/2026-06-03.md
+    - knowledge/wiki/每日复盘/2026-06-03.md
     methodology_pages: []
     cases: []
   intensity: low
   tags:
-    - 其他方向
+  - 其他方向
+  school: qing
 - id: claim-20260603-003-e
   topic: 赚钱更爽更舒服
   source_path: sources/raw/财经/动态：26-06-03-1417：冲不上去没关系，光通信大概率反复.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-03
   source_type: 置顶评论
   extracted_at: 2026-06-03
@@ -130,14 +138,17 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260524-018", "claim-20260521-002-i"]
+  supplements:
+  - claim-20260524-018
+  - claim-20260521-002-i
   last_discovered: 2026-06-25
   links:
     wiki_pages:
-      - knowledge/wiki/投资方法论/交易心态与纪律.md
+    - knowledge/wiki/投资方法论/交易心态与纪律.md
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 方法论
-    - 低位票
+  - 方法论
+  - 低位票
+  school: qing

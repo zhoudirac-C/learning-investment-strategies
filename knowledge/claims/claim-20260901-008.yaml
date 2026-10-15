@@ -17,7 +17,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260902-015-a", "claim-20260902-015-a-dup1"]
+  supplements:
+  - claim-20260902-015-a
+  - claim-20260902-015-a-dup1
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -34,6 +36,7 @@ claims:
   - 保偏光纤
   - AI数据中心
   - CPO
+  school: watchlist
 - id: claim-20260901-008-002
   source_path: sources/original/bilibili/2026-09-01-1634-视频-AI算力浪潮之下，长飞特种光纤未来最大的突破口在哪？.md
   source_date: '2026-09-01'
@@ -52,7 +55,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260902-015-a", "claim-20260902-015-a-dup1", "claim-20260820-044"]
+  supplements:
+  - claim-20260902-015-a
+  - claim-20260902-015-a-dup1
+  - claim-20260820-044
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -68,6 +74,7 @@ claims:
   - 保偏光纤
   - 光引擎
   - 特种光纤
+  school: watchlist
 - id: claim-20260901-008-003
   source_path: sources/original/bilibili/2026-09-01-1634-视频-AI算力浪潮之下，长飞特种光纤未来最大的突破口在哪？.md
   source_date: '2026-09-01'
@@ -86,7 +93,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260603-004-d"]
+  supplements:
+  - claim-20260603-004-d
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -102,3 +110,4 @@ claims:
   - CPO元年
   - AI数据中心
   - 光通信
+  school: watchlist

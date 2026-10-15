@@ -17,7 +17,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260811-041", "claim-20260928-002-i"]
+  supersedes:
+  - claim-20260811-041
+  - claim-20260928-002-i
   contradicts: []
   supplements: []
   last_discovered: 2026-09-30
@@ -31,6 +33,7 @@ claims:
   - 弱反抽
   - 节前防守
   - 情绪修复
+  school: qing
 - id: claim-20260929-002-b
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -51,7 +54,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260923-003-d"]
+  supplements:
+  - claim-20260923-003-d
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -62,6 +66,7 @@ claims:
   - 缩量
   - 存量轮动
   - 承接不足
+  school: qing
 - id: claim-20260929-002-c
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -82,7 +87,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-017", "claim-20260609-005-a", "claim-20260527-005-b"]
+  supplements:
+  - claim-20260913-001-017
+  - claim-20260609-005-a
+  - claim-20260527-005-b
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -93,6 +101,7 @@ claims:
   - 修复确认
   - 三要素验证
   - 方法论
+  school: qing
 - id: claim-20260929-002-d
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -113,7 +122,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260928-002-y", "claim-20260928-002-k"]
+  supplements:
+  - claim-20260928-002-y
+  - claim-20260928-002-k
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -124,6 +135,7 @@ claims:
   - 节后反弹
   - 假期变量
   - 前瞻判断
+  school: qing
 - id: claim-20260929-002-e
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -144,7 +156,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260927-001-i", "claim-20260917-006-a", "claim-20260921-002-e"]
+  supplements:
+  - claim-20260927-001-i
+  - claim-20260917-006-a
+  - claim-20260921-002-e
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -155,6 +170,7 @@ claims:
   - 大金融
   - 权重托底
   - 风险偏好
+  school: qing
 - id: claim-20260929-002-f
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -173,9 +189,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260122-001-b"]
+  supersedes:
+  - claim-20260122-001-b
   contradicts: []
-  supplements: ["claim-20260913-001-019", "claim-20260913-001-009"]
+  supplements:
+  - claim-20260913-001-019
+  - claim-20260913-001-009
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -187,6 +206,7 @@ claims:
   - 亏钱效应
   - 跌停
   - 接力意愿
+  school: qing
 - id: claim-20260929-002-g
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -207,7 +227,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-033-m", "claim-20260820-009", "claim-20260803-002-f"]
+  supplements:
+  - claim-20260617-033-m
+  - claim-20260820-009
+  - claim-20260803-002-f
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -218,6 +241,7 @@ claims:
   - 新高结构
   - 防御
   - 业绩支撑
+  school: qing
 - id: claim-20260929-002-h
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -238,7 +262,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260809-007"]
+  supplements:
+  - claim-20260809-007
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -251,6 +276,7 @@ claims:
   - 油价
   - 非农
   - 汇率
+  school: qing
 - id: claim-20260929-002-i
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -269,7 +295,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260908-003-z"]
+  supersedes:
+  - claim-20260908-003-z
   contradicts: []
   supplements: []
   last_discovered: 2026-09-30
@@ -282,6 +309,7 @@ claims:
   - 情形推演
   - 操作纪律
   - 收盘确认
+  school: qing
 - id: claim-20260929-002-j
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -302,7 +330,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260928-002-y", "claim-20260913-001-033", "claim-20260518-029"]
+  supplements:
+  - claim-20260928-002-y
+  - claim-20260913-001-033
+  - claim-20260518-029
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -313,6 +344,7 @@ claims:
   - 交易纪律
   - 政策预期
   - 追涨
+  school: qing
 - id: claim-20260929-002-k
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -333,7 +365,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260908-003-c"]
+  supplements:
+  - claim-20260908-003-c
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -344,6 +377,7 @@ claims:
   - 题材反馈
   - 修复结构
   - 前排换手
+  school: qing
 - id: claim-20260929-002-l
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -362,9 +396,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260921-001-n", "claim-20260921-003-p"]
+  supersedes:
+  - claim-20260921-001-n
+  - claim-20260921-003-p
   contradicts: []
-  supplements: ["claim-20260921-001-h"]
+  supplements:
+  - claim-20260921-001-h
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -376,6 +413,7 @@ claims:
   - 购房贴息
   - 承接验证
   - 政策兑现
+  school: qing
 - id: claim-20260929-002-m
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -413,6 +451,7 @@ claims:
   - 固态电池
   - 设备交付
   - 分歧预判
+  school: qing
 - id: claim-20260929-002-n
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -447,6 +486,7 @@ claims:
   - 医药
   - 独立性验证
   - 强势股
+  school: qing
 - id: claim-20260929-002-o
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -467,7 +507,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h"]
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -482,6 +523,7 @@ claims:
   - PCB
   - AI应用
   - 选股标准
+  school: qing
 - id: claim-20260929-002-p
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -502,7 +544,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260912-002-16"]
+  supplements:
+  - claim-20260912-002-16
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -514,6 +557,7 @@ claims:
   - 电网
   - 算力网
   - 口径方法
+  school: qing
 - id: claim-20260929-002-q
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -534,7 +578,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260906-003-006"]
+  supplements:
+  - claim-20260906-003-006
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -546,6 +591,7 @@ claims:
   - 再贷款
   - 结构性货币政策
   - 半导体设备
+  school: qing
 - id: claim-20260929-002-r
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -566,7 +612,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260831-020-a", "claim-20260921-003-p"]
+  supplements:
+  - claim-20260831-020-a
+  - claim-20260921-003-p
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -577,6 +625,7 @@ claims:
   - 购房贴息
   - 政策传导
   - 地产研究
+  school: qing
 - id: claim-20260929-002-s
   source_path: sources/original/bilibili/2026-09-29-2238-专栏-今日市场在低量能中完成一次情绪修复，地产午后拉升对沪指形成支.md
   source_date: '2026-09-29'
@@ -597,7 +646,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260922-004-e", "claim-20260809-007"]
+  supplements:
+  - claim-20260922-004-e
+  - claim-20260809-007
   last_discovered: 2026-09-30
   links:
     wiki_pages: []
@@ -608,3 +659,4 @@ claims:
   - 中期框架
   - 长端利率
   - 政策兑现
+  school: qing

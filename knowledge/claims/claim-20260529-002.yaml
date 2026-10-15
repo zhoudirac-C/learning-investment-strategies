@@ -2,8 +2,8 @@ claims:
 - id: claim-20260529-002-a
   topic: 今日上午定性为高低切换剧本而非下跌新周期
   source_path: sources/raw/财经/午盘：26-05-29：高低切换剧本，买阴卖阳等共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 午盘
   extracted_at: 2026-05-29
@@ -30,11 +30,12 @@ claims:
   - 高低切
   - 轮动
   - 杀跌
+  school: qing
 - id: claim-20260529-002-b
   topic: AI科技获利回吐而非趋势破坏
   source_path: sources/raw/财经/午盘：26-05-29：高低切换剧本，买阴卖阳等共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 午盘
   extracted_at: 2026-05-29
@@ -72,11 +73,12 @@ claims:
   - code: 002185
     name: 华天科技
     role: 参考标的
+  school: qing
 - id: claim-20260529-002-c
   topic: 消费超跌方向的先涨后跌风险
   source_path: sources/raw/财经/午盘：26-05-29：高低切换剧本，买阴卖阳等共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 午盘
   extracted_at: 2026-05-29
@@ -90,7 +92,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h"]
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -106,11 +109,12 @@ claims:
   - 金融
   - 主线
   - 消费
+  school: qing
 - id: claim-20260529-002-d
   topic: 买阴卖阳策略与低吸做T
   source_path: sources/raw/财经/午盘：26-05-29：高低切换剧本，买阴卖阳等共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 午盘
   extracted_at: 2026-05-29
@@ -124,7 +128,10 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260528-002-c", "claim-20260521-002-i", "claim-20260519-001-g"]
+  supplements:
+  - claim-20260528-002-c
+  - claim-20260521-002-i
+  - claim-20260519-001-g
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -137,11 +144,12 @@ claims:
   - 止跌
   - 追高
   - 低吸
+  school: qing
 - id: claim-20260529-002-e
   topic: 全A下跌结构需强势阳线共振消除
   source_path: sources/raw/财经/午盘：26-05-29：高低切换剧本，买阴卖阳等共振.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-29
   source_type: 午盘
   extracted_at: 2026-05-29
@@ -169,3 +177,4 @@ claims:
   - 市场周期
   - 共振
   - 恐慌
+  school: qing

@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260616-001
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -17,7 +17,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-028", "claim-20260616-005-o"]
+  supplements:
+  - claim-20260526-028
+  - claim-20260616-005-o
   last_discovered: 2026-06-25
   links: []
   topic: 大盘情绪
@@ -31,10 +33,11 @@ claims:
   tags:
   - 2连板过热信号，隔日情绪通常转差
   - 大盘情绪
+  school: qing
 - id: claim-20260616-002
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -47,7 +50,9 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260531-002-a", "claim-20260526-034"]
+  supersedes:
+  - claim-20260531-002-a
+  - claim-20260526-034
   contradicts: []
   last_discovered: 2026-06-16
   links: []
@@ -56,10 +61,11 @@ claims:
   tags:
   - 缺乏增量资金背景下防守以过渡为主，非全面退潮
   - 大盘情绪
+  school: qing
 - id: claim-20260616-003
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -74,7 +80,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-001-i"]
+  supplements:
+  - claim-20260527-001-i
   last_discovered: 2026-06-25
   links: []
   topic: 大盘情绪
@@ -82,10 +89,11 @@ claims:
   tags:
   - 资金最终回流科技，因其他方向赚钱效应太差
   - 大盘情绪
+  school: qing
 - id: claim-20260616-004
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -100,7 +108,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260601-002-b", "claim-20260612-002-e", "claim-20260518-012"]
+  supplements:
+  - claim-20260601-002-b
+  - claim-20260612-002-e
+  - claim-20260518-012
   last_discovered: 2026-06-25
   links: []
   topic: 大盘情绪
@@ -108,10 +119,11 @@ claims:
   tags:
   - 两大外部风险：美股科技回调与美伊和平协议生变
   - 大盘情绪
+  school: qing
 - id: claim-20260616-005
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -124,8 +136,11 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260601-004-a", "claim-20260610-006-f"]
-  contradicts: ["claim-20260615-005"]
+  supersedes:
+  - claim-20260601-004-a
+  - claim-20260610-006-f
+  contradicts:
+  - claim-20260615-005
   last_discovered: 2026-06-16
   links: []
   topic: 大盘情绪
@@ -133,10 +148,11 @@ claims:
   tags:
   - 全A指数2连阳抬升底部空间，短期难破位
   - 大盘情绪
+  school: qing
 - id: claim-20260616-006
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -149,8 +165,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260610-006-f"]
-  contradicts: ["claim-20260607-004-d"]
+  supersedes:
+  - claim-20260610-006-f
+  contradicts:
+  - claim-20260607-004-d
   last_discovered: 2026-06-16
   links: []
   topic: 大盘情绪
@@ -158,10 +176,11 @@ claims:
   tags:
   - 大盘情绪
   - AI科技第一次分歧回落尾盘是最佳买入节点
+  school: qing
 - id: claim-20260616-007
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -176,7 +195,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-008"]
+  supplements:
+  - claim-20260616-008
   last_discovered: 2026-06-25
   links: []
   topic: 情绪载体
@@ -190,10 +210,11 @@ claims:
   tags:
   - 情绪载体
   - 风华高科主动开板与30天200%异动压制有关
+  school: qing
 - id: claim-20260616-008
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -208,7 +229,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-012-m"]
+  supplements:
+  - claim-20260617-012-m
   last_discovered: 2026-06-25
   links: []
   topic: 情绪载体
@@ -222,10 +244,11 @@ claims:
   tags:
   - 情绪载体
   - 太辰光成为唯一连续两日强势的MPO容量核心
+  school: qing
 - id: claim-20260616-009
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -240,7 +263,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-g"]
+  supplements:
+  - claim-20260622-003-g
   last_discovered: 2026-06-25
   links: []
   topic: 光芯片
@@ -248,10 +272,11 @@ claims:
   tags:
   - 光芯片
   - AMD加速外部激光器采购，CW光源成国产切入先锋
+  school: qing
 - id: claim-20260616-010
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -274,10 +299,11 @@ claims:
   tags:
   - 光芯片
   - Lumentum披露InP光芯片供需缺口25-30%，EML积压超2年
+  school: qing
 - id: claim-20260616-011
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -292,7 +318,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260603-001-e"]
+  supplements:
+  - claim-20260603-001-e
   last_discovered: 2026-06-25
   links: []
   topic: 个股分析
@@ -303,10 +330,11 @@ claims:
   tags:
   - 个股分析
   - 永鼎股份CW光芯片光纤涨价与超导远期题材
+  school: qing
 - id: claim-20260616-012
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -314,8 +342,7 @@ claims:
   subject: 3D打印产业拐点临近，苹果折叠屏与商业航天双驱动
   timeframe: industry
   statement: 3D打印产业拐点临近，驱动来自苹果折叠屏（iPhone Fold预计2026秋推出，极致精度要求）和商业航天（SpaceX猛禽3大量采用3D打印）。
-  evidence_quote: 传统CNC加工钛合金良率仅30%—40%，而3D打印可将材料利用率提升至95%以上，并实现0.15mm级超薄零件一体化成形。苹果iPhone
-    Fold预计2026年秋推出...若苹果一旦量产，将形成行业示范效应。商业航天是工业级3D打印渗透率提升最确定的赛道之一
+  evidence_quote: 传统CNC加工钛合金良率仅30%—40%，而3D打印可将材料利用率提升至95%以上，并实现0.15mm级超薄零件一体化成形。苹果iPhone Fold预计2026年秋推出...若苹果一旦量产，将形成行业示范效应。商业航天是工业级3D打印渗透率提升最确定的赛道之一
   interpretation: 苹果折叠屏对钛合金中框精度要求极高（0.15mm级），传统CNC无法满足，3D打印是唯一可行方案。若苹果量产则形成示范效应，华为/小米/三星跟进概率大。属于「技术预期走向产业验证」的类型。
   confidence: medium
   status: active
@@ -330,10 +357,11 @@ claims:
   tags:
   - 3D打印产业拐点临近，苹果折叠屏与商业航天双驱动
   - AI科技
+  school: qing
 - id: claim-20260616-013
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -347,7 +375,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260608-001-d"]
+  contradicts:
+  - claim-20260608-001-d
   last_discovered: 2026-06-16
   links: []
   topic: AI科技
@@ -361,10 +390,11 @@ claims:
   tags:
   - 玻璃基板：台积电首次公开披露验证进展，产业链进入产业化前夜
   - AI科技
+  school: qing
 - id: claim-20260616-014
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -387,10 +417,11 @@ claims:
   tags:
   - 液冷产业2026年进入订单业绩之年，产能瓶颈而非需求问题
   - AI科技
+  school: qing
 - id: claim-20260616-015
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -398,13 +429,13 @@ claims:
   subject: MLCC结构性缺货超越2018超级周期，AI服务器驱动高端化
   timeframe: industry
   statement: MLCC本轮由AI驱动的缺货周期将超越2018年被动元件超级大循环；英伟达VR200机柜MLCC用量60万颗，是传统服务器25-33倍；高容高压料号占产能4-7倍。
-  evidence_quote: 国巨、华新科、禾伸堂、信昌电四大龙头在股东会上异口同声看旺景气，确认这一轮由AI驱动的缺货周期将超越2018年被动元件超级大循环。英伟达GB300
-    NVL72单机柜MLCC用量约44万颗，新一代VR200机柜增至60万颗，而传统通用服务器单台仅1800至2500颗
+  evidence_quote: 国巨、华新科、禾伸堂、信昌电四大龙头在股东会上异口同声看旺景气，确认这一轮由AI驱动的缺货周期将超越2018年被动元件超级大循环。英伟达GB300 NVL72单机柜MLCC用量约44万颗，新一代VR200机柜增至60万颗，而传统通用服务器单台仅1800至2500颗
   interpretation: 本轮MLCC缺货与2018年有本质区别：2018年是消费电子+矿机驱动、全品类普涨；本轮是AI结构化缺货、高容先紧高压后紧。AI料占用产能是普通料4-7倍，这意味着供给弹性更小、涨价持续性更强。
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260531-002-d"]
+  supersedes:
+  - claim-20260531-002-d
   contradicts: []
   last_discovered: 2026-06-16
   links: []
@@ -419,10 +450,11 @@ claims:
   tags:
   - MLCC
   - MLCC结构性缺货超越2018超级周期，AI服务器驱动高端化
+  school: qing
 - id: claim-20260616-016
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -435,7 +467,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260615-015"]
+  supersedes:
+  - claim-20260615-015
   contradicts: []
   last_discovered: 2026-06-16
   links: []
@@ -447,10 +480,11 @@ claims:
   tags:
   - 个股分析
   - 博迁新材：80nm超细镍粉受益于MLCC超薄化趋势
+  school: qing
 - id: claim-20260616-017
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -476,10 +510,11 @@ claims:
   tags:
   - 炬光科技：CPO边缘耦合IP授权，从器件商向技术标准定义者跃迁
   - 个股分析
+  school: qing
 - id: claim-20260616-018
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -508,10 +543,11 @@ claims:
   tags:
   - 个股分析
   - 福光股份：切入Coherent产业链，估值对比腾景存安全边际
+  school: qing
 - id: claim-20260616-019
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -531,16 +567,17 @@ claims:
   links: []
   topic: 个股分析
   related_stocks:
-  - code: '002384'
+  - code: 002384
     name: 东山精密
     role: 主板可交易
   tags:
   - 东山精密12亿美元光芯片扩产
   - 个股分析
+  school: qing
 - id: claim-20260616-020
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -566,10 +603,11 @@ claims:
   tags:
   - 个股分析
   - 通富微电：AMD产业链纯度最高的A股标的
+  school: qing
 - id: claim-20260616-021
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -582,7 +620,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260615-010"]
+  supersedes:
+  - claim-20260615-010
   contradicts: []
   last_discovered: 2026-06-16
   links: []
@@ -591,10 +630,11 @@ claims:
   tags:
   - AI科技
   - PCB油墨国产替代加速，AI服务器驱动量价齐升
+  school: qing
 - id: claim-20260616-022
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -607,7 +647,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260615-011"]
+  supersedes:
+  - claim-20260615-011
   contradicts: []
   last_discovered: 2026-06-16
   links: []
@@ -619,10 +660,11 @@ claims:
   tags:
   - 个股分析
   - 强力新材：PSPI国产替代迎旭化成限供窗口期
+  school: qing
 - id: claim-20260616-023
   source_path: sources/original/bilibili/2026-06-16-2210-专栏-6.16(复盘) 一、盘面定调：情绪回暖但已显过热，科技内部.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-16'
   source_type: bilibili_dynamic
   extracted_at: '2026-06-16T23:50:00'
@@ -630,15 +672,15 @@ claims:
   subject: 茂莱光学半导体量检测光通信ARVR三线并进
   timeframe: industry
   statement: 茂莱光学(688502)半导体业务增速70%+，FSO产品供货Google Taara项目，AR/VR检测收入同比增长170%，已募集6亿元扩产。
-  evidence_quote: 半导体量检测下游景气度高，海外AI客户单季增速超30%...预计半导体业务整体增速保持70%左右。光通信方面，自由空间光通信FSO产品交付Google
-    Taara项目（20km级20Gbps）...AR/VR检测25年相关收入同比增长170%
+  evidence_quote: 半导体量检测下游景气度高，海外AI客户单季增速超30%...预计半导体业务整体增速保持70%左右。光通信方面，自由空间光通信FSO产品交付Google Taara项目（20km级20Gbps）...AR/VR检测25年相关收入同比增长170%
   interpretation: 茂莱光学(688502)三线业务均在高景气赛道。FSO（自由空间光通信）供货Google Taara是亮点，属于星间/地面激光通信赛道。但三线同时布局意味着单一业务爆发对公司弹性可能不如纯正标的。
   confidence: medium
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260523-008"]
+  supplements:
+  - claim-20260523-008
   last_discovered: 2026-06-25
   links: []
   topic: 个股分析
@@ -649,3 +691,4 @@ claims:
   tags:
   - 茂莱光学半导体量检测光通信ARVR三线并进
   - 个股分析
+  school: qing

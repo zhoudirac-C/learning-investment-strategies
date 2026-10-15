@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260630-001-a
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -15,7 +15,9 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260601-004-e", "claim-20260515-001"]
+  supersedes:
+  - claim-20260601-004-e
+  - claim-20260515-001
   contradicts: []
   supplements: []
   last_discovered: 2026-06-30
@@ -30,10 +32,11 @@ claims:
   - 轮动震荡
   - 共振
   - 连板晋级
+  school: qing
 - id: claim-20260630-001-b
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -48,7 +51,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-001-f", "claim-20260614-002-b"]
+  supplements:
+  - claim-20260624-001-f
+  - claim-20260614-002-b
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -61,10 +66,11 @@ claims:
   - 买阴
   - 共振
   - 正反馈闭环
+  school: qing
 - id: claim-20260630-001-c
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -91,10 +97,11 @@ claims:
   - 美股映射
   - 开盘定价
   - A股节奏
+  school: qing
 - id: claim-20260630-001-d
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -108,7 +115,8 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260622-004-d"]
+  contradicts:
+  - claim-20260622-004-d
   supplements: []
   last_discovered: 2026-06-30
   links:
@@ -122,10 +130,11 @@ claims:
   - 康宁
   - 美股映射
   - 发酵
+  school: qing
 - id: claim-20260630-001-e
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -138,8 +147,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-002-c"]
-  contradicts: ["claim-20260625-003-g", "claim-20260625-001-f"]
+  supersedes:
+  - claim-20260602-002-c
+  contradicts:
+  - claim-20260625-003-g
+  - claim-20260625-001-f
   supplements: []
   last_discovered: 2026-06-30
   links:
@@ -153,10 +165,11 @@ claims:
   - 谨慎追高
   - 边际支撑
   - 利好兑现
+  school: qing
 - id: claim-20260630-001-f
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -170,8 +183,11 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260617-001-e"]
-  supplements: ["claim-20260518-008", "claim-20260623-001-j"]
+  contradicts:
+  - claim-20260617-001-e
+  supplements:
+  - claim-20260518-008
+  - claim-20260623-001-j
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -185,10 +201,11 @@ claims:
   - SK海力士
   - 投资加码
   - 产业链情绪
+  school: qing
 - id: claim-20260630-001-g
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -202,8 +219,11 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260525-025"]
-  supplements: ["claim-20260621-001-o", "claim-20260607-003-i"]
+  contradicts:
+  - claim-20260525-025
+  supplements:
+  - claim-20260621-001-o
+  - claim-20260607-003-i
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -216,10 +236,11 @@ claims:
   - 算力
   - 峰谷计费
   - 价格拐点
+  school: qing
 - id: claim-20260630-001-h
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -232,9 +253,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260616-002-c"]
+  supersedes:
+  - claim-20260616-002-c
   contradicts: []
-  supplements: ["claim-20260518-019", "claim-20260614-014-p"]
+  supplements:
+  - claim-20260518-019
+  - claim-20260614-014-p
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -247,10 +271,11 @@ claims:
   - 天花板
   - 增量空间
   - 指数
+  school: qing
 - id: claim-20260630-001-i
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -263,7 +288,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260515-010", "claim-20260212-001-a", "claim-20260608-001-b"]
+  supersedes:
+  - claim-20260515-010
+  - claim-20260212-001-a
+  - claim-20260608-001-b
   contradicts: []
   supplements: []
   last_discovered: 2026-06-30
@@ -278,10 +306,11 @@ claims:
   - 蓄力
   - 高位震荡
   - 观察点
+  school: qing
 - id: claim-20260630-001-j
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -294,9 +323,11 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260603-001-d"]
+  supersedes:
+  - claim-20260603-001-d
   contradicts: []
-  supplements: ["claim-20260609-005-f"]
+  supplements:
+  - claim-20260609-005-f
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -309,10 +340,11 @@ claims:
   - 反包
   - 科创50
   - 结构分化
+  school: qing
 - id: claim-20260630-001-k
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -327,7 +359,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260629-001-l", "claim-20260622-001-h"]
+  supplements:
+  - claim-20260629-001-l
+  - claim-20260622-001-h
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -340,10 +374,11 @@ claims:
   - 一九行情
   - 右侧确认
   - 结构契机
+  school: qing
 - id: claim-20260630-001-l
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -356,7 +391,9 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260625-001-d", "claim-20260602-003-a"]
+  supersedes:
+  - claim-20260625-001-d
+  - claim-20260602-003-a
   contradicts: []
   supplements: []
   last_discovered: 2026-06-30
@@ -371,10 +408,11 @@ claims:
   - 月底调仓
   - 冰点
   - 修复力度
+  school: qing
 - id: claim-20260630-001-m
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -388,8 +426,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260520-003-e"]
-  supplements: ["claim-20260527-005-c"]
+  contradicts:
+  - claim-20260520-003-e
+  supplements:
+  - claim-20260527-005-c
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -412,10 +452,11 @@ claims:
   - 中际旭创
   - 天孚通信
   - 华虹公司
+  school: qing
 - id: claim-20260630-001-n
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -430,7 +471,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-006-d", "claim-20260628-001-g", "claim-20260523-006"]
+  supplements:
+  - claim-20260624-006-d
+  - claim-20260628-001-g
+  - claim-20260523-006
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -462,10 +506,11 @@ claims:
   - 洁净室
   - 电子特气
   - 韩国扩产
+  school: qing
 - id: claim-20260630-001-o
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -480,7 +525,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-001-n", "claim-20260629-001-h"]
+  supplements:
+  - claim-20260623-001-n
+  - claim-20260629-001-h
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -496,10 +543,11 @@ claims:
   - 半导体
   - 有研硅
   - 修复持续性
+  school: qing
 - id: claim-20260630-001-p
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -514,7 +562,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-001-f"]
+  supplements:
+  - claim-20260624-001-f
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -522,13 +571,13 @@ claims:
     cases: []
   topic: 医药大消费领涨未回落，医保谈判进入实质阶段
   related_stocks:
-  - code: '002728'
+  - code: 002728
     name: 特一药业
     role: 医药-主板可交易
   - code: '300436'
     name: 广生堂
     role: 医药-创业板不可交易
-  - code: '002568'
+  - code: 002568
     name: 百润股份
     role: 消费-主板可交易
   tags:
@@ -537,10 +586,11 @@ claims:
   - 医保谈判
   - 特一药业
   - 广生堂
+  school: qing
 - id: claim-20260630-001-q
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -555,7 +605,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-004-b"]
+  supplements:
+  - claim-20260609-004-b
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -566,7 +617,7 @@ claims:
   - code: '603121'
     name: 华培动力
     role: 钙钛矿叠层关联-主板可交易
-  - code: '002865'
+  - code: 002865
     name: 钧达股份
     role: 钙钛矿叠层参股-主板可交易
   - code: '300118'
@@ -587,10 +638,11 @@ claims:
   - 商业航天
   - 在轨验证
   - 恒星力量
+  school: qing
 - id: claim-20260630-001-r
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -605,7 +657,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-f"]
+  supplements:
+  - claim-20260609-005-f
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -618,10 +671,11 @@ claims:
   - 估值想象
   - 业绩兑现
   - 右侧确认
+  school: qing
 - id: claim-20260630-001-s
   source_path: sources/raw/财经/2026-06-30-0900-早盘-大震荡市个股分化.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 早盘
   extracted_at: '2026-06-30T12:26:07+08:00'
@@ -629,15 +683,16 @@ claims:
   subject: 今日操作思路
   timeframe: intraday
   statement: 已关注方向盘前以持股为主，盘中再定去留；对半导体设备谨慎追高，买阴或等市场有效共振再动手，不见有效共振不勉强右侧。
-  evidence_quote: 已关注方向盘前以持股为主，盘中再定去留。混沌震荡市、个股分化，先把预期降下来。今天的判断顺序是：先看开盘量能（能否回落）→ 再看半导体二连板的晋级数（情绪接力）→
-    看玻璃基板、算力等盘前有产业新变化的弱势分支能否借映射发酵→ 最后看科创50能否独立走强（结构契机）。操作上，对已连涨两日的半导体设备谨慎追高；对当下并非好情绪节点的整体格局，买阴或等市场有效共振走出情绪主升再动手，会更从容；只有能形成正反馈闭环的局部新强，才考虑日内博弈。不见有效共振，不勉强右侧。
+  evidence_quote: 已关注方向盘前以持股为主，盘中再定去留。混沌震荡市、个股分化，先把预期降下来。今天的判断顺序是：先看开盘量能（能否回落）→ 再看半导体二连板的晋级数（情绪接力）→ 看玻璃基板、算力等盘前有产业新变化的弱势分支能否借映射发酵→ 最后看科创50能否独立走强（结构契机）。操作上，对已连涨两日的半导体设备谨慎追高；对当下并非好情绪节点的整体格局，买阴或等市场有效共振走出情绪主升再动手，会更从容；只有能形成正反馈闭环的局部新强，才考虑日内博弈。不见有效共振，不勉强右侧。
   interpretation: UP给出今日操作框架：持股为主，观察量能、连板晋级、弱势分支发酵、科创50独立走强四个信号，确认共振后再加仓。
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260605-001-i"]
+  supersedes:
+  - claim-20260605-001-i
   contradicts: []
-  supplements: ["claim-20260622-001-h"]
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -651,3 +706,4 @@ claims:
   - 半导体设备
   - 量能
   - 连板晋级
+  school: qing

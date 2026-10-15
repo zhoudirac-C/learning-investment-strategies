@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260906-001-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -15,9 +15,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260607-004-a"]
+  supersedes:
+  - claim-20260607-004-a
   contradicts: []
-  supplements: ["claim-20260903-006-a"]
+  supplements:
+  - claim-20260903-006-a
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -30,10 +32,11 @@ claims:
   - 加息预期
   - 估值压制
   - 宏观定价
+  school: qing
 - id: claim-20260906-002-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -48,7 +51,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260903-022-a", "claim-20260809-013"]
+  supplements:
+  - claim-20260903-022-a
+  - claim-20260809-013
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -61,10 +66,11 @@ claims:
   - 纳指
   - 算力硬件
   - 盈利确定性
+  school: qing
 - id: claim-20260906-003-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -77,7 +83,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260816-002", "claim-20260830-033-a", "claim-20260614-004-d"]
+  supersedes:
+  - claim-20260816-002
+  - claim-20260830-033-a
+  - claim-20260614-004-d
   contradicts: []
   supplements: []
   last_discovered: 2026-09-06
@@ -92,10 +101,11 @@ claims:
   - 风险释放
   - 低开
   - 承接质量
+  school: qing
 - id: claim-20260906-004-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -108,7 +118,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260809-029", "claim-20260814-036", "claim-20260824-002-q"]
+  supersedes:
+  - claim-20260809-029
+  - claim-20260814-036
+  - claim-20260824-002-q
   contradicts: []
   supplements: []
   last_discovered: 2026-09-06
@@ -123,10 +136,11 @@ claims:
   - 开盘半小时量能
   - 中位股承接
   - 情形A情形B
+  school: qing
 - id: claim-20260906-005-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -139,9 +153,12 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260827-061-x", "claim-20260818-058"]
+  supersedes:
+  - claim-20260827-061-x
+  - claim-20260818-058
   contradicts: []
-  supplements: ["claim-20260826-034-a"]
+  supplements:
+  - claim-20260826-034-a
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -154,10 +171,11 @@ claims:
   - 猪肉
   - 防御尾声
   - 资金回流
+  school: qing
 - id: claim-20260906-006-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -170,7 +188,9 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260904-027", "claim-20260824-003-n"]
+  supersedes:
+  - claim-20260904-027
+  - claim-20260824-003-n
   contradicts: []
   supplements: []
   last_discovered: 2026-09-06
@@ -189,10 +209,11 @@ claims:
   - 加息预期
   - 无息资产
   - 楚天龙
+  school: qing
 - id: claim-20260906-007-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -207,7 +228,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260901-021-a"]
+  supplements:
+  - claim-20260901-021-a
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -223,10 +245,11 @@ claims:
   - 数字货币
   - 独立走强
   - 封板承接
+  school: qing
 - id: claim-20260906-008-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -257,10 +280,11 @@ claims:
   - 传媒
   - 逆势涨停
   - 共识验证
+  school: qing
 - id: claim-20260906-009-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -275,7 +299,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260825-036-a", "claim-20260826-008-a", "claim-20260902-013-a"]
+  supplements:
+  - claim-20260825-036-a
+  - claim-20260826-008-a
+  - claim-20260902-013-a
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -288,10 +315,11 @@ claims:
   - 缩容
   - 液冷
   - 主线收窄
+  school: qing
 - id: claim-20260906-010-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -300,14 +328,14 @@ claims:
   timeframe: short-term
   statement: 美股硬件科技在加息预期升温中能不跌反涨的原因目前并不清晰，要等9月11日CPI公布后才能更明朗；从性价比出发AI硬件盈利确定性跑赢无风险利率是大概率事件，反转不会缺席只是迟到。可证伪条件：若CPI落地后加息预期继续抬升而美股芯片股仍能维持相对强势，则确定性溢价逻辑成立；若芯片股在CPI后随利率一起回落，则周五的逆势上涨只是超跌反弹，A股修复窗口要相应缩短。
   evidence_quote: 这个判断的可证伪条件也很明确：若CPI落地后加息预期继续抬升，而美股芯片股仍能维持相对强势，则确定性溢价的逻辑成立；若芯片股在CPI后随利率一起回落，则周五的逆势上涨只是超跌反弹，A股的修复窗口就要相应缩短。
-  interpretation: 这是罕见的'承认逻辑暂不明朗+给出可证伪条件'的表述：UP明确说美股芯片逆加息上涨的原因不清晰，但用性价比判断'反转不会缺席只是迟到'，并把9/11
-    CPI设为验证节点。对A股的意义：科技修复窗口长度取决于9/11后芯片股能否顶住利率上行——时间锚定清晰，可跟踪可验证。
+  interpretation: 这是罕见的'承认逻辑暂不明朗+给出可证伪条件'的表述：UP明确说美股芯片逆加息上涨的原因不清晰，但用性价比判断'反转不会缺席只是迟到'，并把9/11 CPI设为验证节点。对A股的意义：科技修复窗口长度取决于9/11后芯片股能否顶住利率上行——时间锚定清晰，可跟踪可验证。
   confidence: medium
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260827-060-x"]
+  supplements:
+  - claim-20260827-060-x
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -320,27 +348,28 @@ claims:
   - CPI
   - 可证伪
   - 确定性溢价
+  school: qing
 - id: claim-20260906-011-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
   claim_type: sector-theme
   subject: 日本会议确认存储与设备供给紧张
   timeframe: trend
-  statement: 据卖方对9月初日本会议高管指导意见整理：NAND方面企业级存储需求强劲、全球存储供应长期持续紧张、长期协议增加但平均售价仍持续上涨，与DRAM相比新增绿地投资最小；半导体设备订单趋势乐观，由蚀刻、沉积和研磨工具引领，来自台湾、韩国和美国芯片制造商的订单强于中国；T-glass产能扩张按计划推进（2027至2028年较2025年增长100%至200%）但价格上涨尚未足以使供应链完全健康；AI芯片FC
-    BGA基板供应紧张、扩产未跟上；MLCC受AI服务器需求急升但价格上涨尚未启动；HBM混合键合仍处研发阶段，16层甚至20层堆叠可能仍用传统热压键合。
+  statement: 据卖方对9月初日本会议高管指导意见整理：NAND方面企业级存储需求强劲、全球存储供应长期持续紧张、长期协议增加但平均售价仍持续上涨，与DRAM相比新增绿地投资最小；半导体设备订单趋势乐观，由蚀刻、沉积和研磨工具引领，来自台湾、韩国和美国芯片制造商的订单强于中国；T-glass产能扩张按计划推进（2027至2028年较2025年增长100%至200%）但价格上涨尚未足以使供应链完全健康；AI芯片FC BGA基板供应紧张、扩产未跟上；MLCC受AI服务器需求急升但价格上涨尚未启动；HBM混合键合仍处研发阶段，16层甚至20层堆叠可能仍用传统热压键合。
   evidence_quote: 据卖方对9月初日本会议（8月31日至9月3日）的高管指导意见整理：NAND方面，企业级存储需求强劲，全球存储供应长期持续紧张，尽管长期协议增加，平均售价仍持续上涨……
-  interpretation: 供给端权威信息的一手记录：日本厂商（存储/设备/基板/T-glass/MLCC五线）整体确认'供给紧张延续'，其中NAND、设备、FC
-    BGA三条线最紧，MLCC是需求急升但价格未启动（涨价逻辑还早），HBM混合键合未成熟（利好现有技术路线）。这是'存储是点、设备/基板是线'判断的供给端证据。
+  interpretation: 供给端权威信息的一手记录：日本厂商（存储/设备/基板/T-glass/MLCC五线）整体确认'供给紧张延续'，其中NAND、设备、FC BGA三条线最紧，MLCC是需求急升但价格未启动（涨价逻辑还早），HBM混合键合未成熟（利好现有技术路线）。这是'存储是点、设备/基板是线'判断的供给端证据。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-022", "claim-20260810-016"]
+  supplements:
+  - claim-20260812-022
+  - claim-20260810-016
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -354,10 +383,11 @@ claims:
   - NAND
   - 供给紧张
   - 半导体设备
+  school: qing
 - id: claim-20260906-012-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -370,9 +400,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260610-006-i"]
+  supersedes:
+  - claim-20260610-006-i
   contradicts: []
-  supplements: ["claim-20260617-042-s"]
+  supplements:
+  - claim-20260617-042-s
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -385,10 +417,11 @@ claims:
   - DDR5
   - 韩国出口
   - 南亚科
+  school: qing
 - id: claim-20260906-013-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -401,9 +434,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260813-014", "claim-20260825-006-a"]
+  supersedes:
+  - claim-20260813-014
+  - claim-20260825-006-a
   contradicts: []
-  supplements: ["claim-20260819-051"]
+  supplements:
+  - claim-20260819-051
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -417,10 +453,11 @@ claims:
   - PCB
   - 点面框架
   - 出清
+  school: qing
 - id: claim-20260906-014-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -435,7 +472,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-009"]
+  supplements:
+  - claim-20260812-009
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -448,10 +486,11 @@ claims:
   - 定价权
   - 存储涨价
   - 渐进
+  school: qing
 - id: claim-20260906-015-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -466,7 +505,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-040", "claim-20260804-035", "claim-20260806-006"]
+  supplements:
+  - claim-20260810-040
+  - claim-20260804-035
+  - claim-20260806-006
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -479,10 +521,11 @@ claims:
   - InP衬底
   - 光互联
   - AXT
+  school: qing
 - id: claim-20260906-016-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -511,10 +554,11 @@ claims:
   - 政策
   - 变压器
   - 扩散方向
+  school: qing
 - id: claim-20260906-017-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -529,7 +573,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260827-016-a", "claim-20260622-003-q", "claim-20260819-065"]
+  supplements:
+  - claim-20260827-016-a
+  - claim-20260622-003-q
+  - claim-20260819-065
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -537,18 +584,19 @@ claims:
     cases: []
   topic: 算力租赁收入放量先于利润处于资产转产能阶段
   related_stocks:
-  - code: "601988"
-    name: "中国银行"
-    role: "回填-正文提及"
+  - code: '601988'
+    name: 中国银行
+    role: 回填-正文提及
   tags:
   - 算力租赁
   - Token贷
   - 收入放量
   - 新云厂
+  school: qing
 - id: claim-20260906-018-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -563,7 +611,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260809-017", "claim-20260814-034", "claim-20260527-005-g"]
+  supplements:
+  - claim-20260809-017
+  - claim-20260814-034
+  - claim-20260527-005-g
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -574,7 +625,7 @@ claims:
   - code: '000533'
     name: 顺钠股份
     role: AIDC供电-变压器-主板可交易
-  - code: '002298'
+  - code: 002298
     name: 中电鑫龙
     role: AIDC供电-输配电-主板可交易
   tags:
@@ -582,10 +633,11 @@ claims:
   - 变压器
   - 跟踪标的
   - 扩散方向
+  school: qing
 - id: claim-20260906-019-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -600,7 +652,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-026", "claim-20260622-003-q", "claim-20260813-012"]
+  supplements:
+  - claim-20260805-026
+  - claim-20260622-003-q
+  - claim-20260813-012
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -611,7 +666,7 @@ claims:
   - code: '300209'
     name: 行云科技
     role: 算力租赁-创业板不可交易
-  - code: '002229'
+  - code: 002229
     name: 鸿博股份
     role: 算力租赁-主板可交易
   tags:
@@ -619,10 +674,11 @@ claims:
   - 行云科技
   - 鸿博股份
   - 在建工程
+  school: qing
 - id: claim-20260906-020-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -637,7 +693,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260903-034-a", "claim-20260810-026", "claim-20260831-023-a"]
+  supplements:
+  - claim-20260903-034-a
+  - claim-20260810-026
+  - claim-20260831-023-a
   last_discovered: 2026-09-06
   links:
     wiki_pages: []
@@ -650,10 +709,11 @@ claims:
   - Cage连接器
   - 液冷板
   - 早盘承接
+  school: qing
 - id: claim-20260906-021-a
   source_path: sources/original/bilibili/2026-09-06-2156-专栏-周五这根冲高回落的放量阴线，放在非农公布前一夜看，性质其实比.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-06'
   source_type: 专栏
   extracted_at: '2026-09-06T22:20:00+08:00'
@@ -662,12 +722,13 @@ claims:
   timeframe: short-term
   statement: 本周跟踪变量：周一观察A股开盘量能是否不弱于周五同时段、连板梯队断层是否修复、首板家数是否锐减、液冷分支早盘承接；周二美国劳动节后复市，观察芯片股相对强势能否延续（A股硬件方向周二晚间的定价输入）；9月11日美国8月CPI是判断'芯片股逆加息上涨'到底是确定性溢价还是超跌反弹的分水岭；9月15至16日美联储会议，若CPI偏热且芯片股仍强则确定性逻辑成立、修复窗口延长，若CPI偏热且芯片股转弱则周五逆势只是反弹，科技修复以一日游对待，仓位纪律回到'缺业绩承接的方向不接飞刀、确定性方向买阴不买阳'。
   evidence_quote: 若CPI偏热且芯片股仍强，则确定性逻辑成立、修复窗口延长；若CPI偏热且芯片股转弱，则周五的逆势只是反弹，科技修复以一日游对待，仓位纪律回到'缺业绩承接的方向不接飞刀、确定性方向买阴不买阳'。
-  interpretation: 本周的完整跟踪日历与条件式结论：周一（A股开盘量能/连板/液冷）→周二（美股芯片延续性）→9/11（CPI分水岭）→9/15-16（美联储会议）。每个节点都配了明确的'若…则…'决策树。其中9/11
-    CPI是最关键验证点，仓位纪律出现两个可执行条款：缺业绩承接不接飞刀、确定性方向买阴不买阳。
+  interpretation: 本周的完整跟踪日历与条件式结论：周一（A股开盘量能/连板/液冷）→周二（美股芯片延续性）→9/11（CPI分水岭）→9/15-16（美联储会议）。每个节点都配了明确的'若…则…'决策树。其中9/11 CPI是最关键验证点，仓位纪律出现两个可执行条款：缺业绩承接不接飞刀、确定性方向买阴不买阳。
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260831-005-z", "claim-20260614-014-p"]
+  supersedes:
+  - claim-20260831-005-z
+  - claim-20260614-014-p
   contradicts: []
   supplements: []
   last_discovered: 2026-09-06
@@ -683,3 +744,4 @@ claims:
   - 美联储
   - 仓位纪律
   - 一日游
+  school: qing

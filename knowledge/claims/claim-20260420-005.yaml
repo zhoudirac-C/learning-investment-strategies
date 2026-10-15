@@ -1,11 +1,11 @@
 - id: claim-20260420-005
   topic: 协创数据是算力租赁第一阶段核心标的
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:30:00+08:00"
+  extracted_at: '2026-05-18T14:30:00+08:00'
   claim_type: stock-view
   subject: 协创数据
   timeframe: trend
@@ -16,7 +16,9 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-003-i", "claim-20260622-003-q"]
+  supplements:
+  - claim-20260607-003-i
+  - claim-20260622-003-q
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -24,21 +26,22 @@
     cases: []
   intensity: high
   tags:
-    - 算力租赁
-    - 协创数据
-    - 个股观点
+  - 算力租赁
+  - 协创数据
+  - 个股观点
   related_stocks:
-    - code: 300857.SZ
-      name: 协创数据
-      role: 参考标的
+  - code: 300857.SZ
+    name: 协创数据
+    role: 参考标的
+  school: qing
 - id: claim-20260420-006
   topic: 宏景科技是算力租赁第一阶段核心标的
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:30:00+08:00"
+  extracted_at: '2026-05-18T14:30:00+08:00'
   claim_type: stock-view
   subject: 宏景科技
   timeframe: trend
@@ -49,7 +52,9 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-q", "claim-20260420-005"]
+  supplements:
+  - claim-20260622-003-q
+  - claim-20260420-005
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -57,22 +62,23 @@
     cases: []
   intensity: high
   tags:
-    - 算力租赁
-    - 宏景科技
-    - 个股观点
-    - 银行
+  - 算力租赁
+  - 宏景科技
+  - 个股观点
+  - 银行
   related_stocks:
-    - code: 301396.SZ
-      name: 宏景科技
-      role: 参考标的
+  - code: 301396.SZ
+    name: 宏景科技
+    role: 参考标的
+  school: qing
 - id: claim-20260420-007
   topic: 网宿科技是AI算力第四阶段（CDN）核心
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:30:00+08:00"
+  extracted_at: '2026-05-18T14:30:00+08:00'
   claim_type: stock-view
   subject: 网宿科技
   timeframe: trend
@@ -83,7 +89,8 @@
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260426-008"]
+  supplements:
+  - claim-20260426-008
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -91,24 +98,25 @@
     cases: []
   intensity: high
   tags:
-    - 个股观点
-    - 网宿科技
-    - 算力
-    - 利率
-    - 估值
-    - AI
+  - 个股观点
+  - 网宿科技
+  - 算力
+  - 利率
+  - 估值
+  - AI
   related_stocks:
-    - code: 300017.SZ
-      name: 网宿科技
-      role: 参考标的
+  - code: 300017.SZ
+    name: 网宿科技
+    role: 参考标的
+  school: qing
 - id: claim-20260420-008
   topic: 润泽科技从去年12月底开始推荐
   source_path: sources/raw/财经/周复盘：26-04-20：跟上节奏，AI算力四阶段炒作路径.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-20
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:30:00+08:00"
+  extracted_at: '2026-05-18T14:30:00+08:00'
   claim_type: stock-view
   subject: 润泽科技
   timeframe: short-term
@@ -118,7 +126,8 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260607-003-c"]
+  contradicts:
+  - claim-20260607-003-c
   last_discovered: 2026-06-08
   links:
     wiki_pages: []
@@ -126,21 +135,22 @@
     cases: []
   intensity: high
   tags:
-    - 润泽科技
-    - 个股观点
-    - AI
+  - 润泽科技
+  - 个股观点
+  - AI
   related_stocks:
-    - code: 300442.SZ
-      name: 润泽科技
-      role: 参考标的
+  - code: 300442.SZ
+    name: 润泽科技
+    role: 参考标的
+  school: qing
 - id: claim-20260426-008
   topic: 网宿科技一季报正常非爆雷
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:30:00+08:00"
+  extracted_at: '2026-05-18T14:30:00+08:00'
   claim_type: stock-view
   subject: 网宿科技
   timeframe: trend
@@ -149,7 +159,8 @@
   interpretation: 网宿科技基本面在AI驱动下改善，但现金利用效率是隐患。汇兑损失是账面重估而非真实亏损。
   confidence: high
   status: active
-  supersedes: ["claim-20260420-007"]
+  supersedes:
+  - claim-20260420-007
   contradicts: []
   last_discovered: 2026-06-08
   links:
@@ -158,22 +169,23 @@
     cases: []
   intensity: high
   tags:
-    - 网宿科技
-    - 个股观点
-    - AI
-    - 利率
+  - 网宿科技
+  - 个股观点
+  - AI
+  - 利率
   related_stocks:
-    - code: 300017.SZ
-      name: 网宿科技
-      role: 参考标的
+  - code: 300017.SZ
+    name: 网宿科技
+    role: 参考标的
+  school: qing
 - id: claim-20260426-009
   topic: 烽火通信炒两个逻辑
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:30:00+08:00"
+  extracted_at: '2026-05-18T14:30:00+08:00'
   claim_type: stock-view
   subject: 烽火通信
   timeframe: trend
@@ -183,7 +195,8 @@
   confidence: medium
   status: active
   supersedes: []
-  contradicts: ["claim-20260607-003-c"]
+  contradicts:
+  - claim-20260607-003-c
   last_discovered: 2026-06-08
   links:
     wiki_pages: []
@@ -191,24 +204,25 @@
     cases: []
   intensity: high
   tags:
-    - 个股观点
-    - 烽火通信
-    - 二波
-    - 业绩
-    - 华为
-    - 涨价
+  - 个股观点
+  - 烽火通信
+  - 二波
+  - 业绩
+  - 华为
+  - 涨价
   related_stocks:
-    - code: 600498.SH
-      name: 烽火通信
-      role: 参考标的
+  - code: 600498.SH
+    name: 烽火通信
+    role: 参考标的
+  school: qing
 - id: claim-20260426-010
   topic: 英维克液冷赛道内卷已来
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:30:00+08:00"
+  extracted_at: '2026-05-18T14:30:00+08:00'
   claim_type: stock-view
   subject: 英维克
   timeframe: trend
@@ -219,7 +233,8 @@
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260529-005-g"]
+  supplements:
+  - claim-20260529-005-g
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -227,23 +242,24 @@
     cases: []
   intensity: high
   tags:
-    - 个股观点
-    - 英维克
-    - 反弹
-    - 业绩
-    - AI
+  - 个股观点
+  - 英维克
+  - 反弹
+  - 业绩
+  - AI
   related_stocks:
-    - code: 002837.SZ
-      name: 英维克
-      role: 参考标的
+  - code: 002837.SZ
+    name: 英维克
+    role: 参考标的
+  school: qing
 - id: claim-20260426-011
   topic: 智微智能是算力租赁方向的卖铲子模式
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:30:00+08:00"
+  extracted_at: '2026-05-18T14:30:00+08:00'
   claim_type: stock-view
   subject: 智微智能
   timeframe: trend
@@ -254,7 +270,8 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-q"]
+  supplements:
+  - claim-20260622-003-q
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -262,23 +279,24 @@
     cases: []
   intensity: high
   tags:
-    - 智微智能
-    - 个股观点
-    - 算力租赁
-    - 业绩
-    - AI
+  - 智微智能
+  - 个股观点
+  - 算力租赁
+  - 业绩
+  - AI
   related_stocks:
-    - code: 001339.SZ
-      name: 智微智能
-      role: 参考标的
+  - code: 001339.SZ
+    name: 智微智能
+    role: 参考标的
+  school: qing
 - id: claim-20260426-012
   topic: 润和软件是CANN+鸿蒙+国产算力
   source_path: sources/raw/财经/周复盘：26-04-26：交易需要不完美，也需要接受不完美.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-04-26
   source_type: 周复盘
-  extracted_at: "2026-05-18T14:30:00+08:00"
+  extracted_at: '2026-05-18T14:30:00+08:00'
   claim_type: stock-view
   subject: 润和软件
   timeframe: trend
@@ -297,12 +315,13 @@
     cases: []
   intensity: high
   tags:
-    - 润和软件
-    - 国产算力
-    - 个股观点
-    - 金融
-    - 业绩
+  - 润和软件
+  - 国产算力
+  - 个股观点
+  - 金融
+  - 业绩
   related_stocks:
-    - code: 300339.SZ
-      name: 润和软件
-      role: 参考标的
+  - code: 300339.SZ
+    name: 润和软件
+    role: 参考标的
+  school: qing

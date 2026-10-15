@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260607-003-a
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 周复盘
   extracted_at: '2026-06-07T21:00:00+08:00'
@@ -30,10 +30,11 @@ claims:
   - 情绪
   - 支撑
   - 芯片
+  school: qing
 - id: claim-20260607-003-b
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 周复盘
   extracted_at: '2026-06-07T21:00:00+08:00'
@@ -47,7 +48,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-001-a", "claim-20260607-003-c"]
+  supplements:
+  - claim-20260607-001-a
+  - claim-20260607-003-c
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -57,10 +60,11 @@ claims:
   topic: 当前市场阶段——正在挖黄金坑，尚未到底
   tags:
   - 周期判断
+  school: qing
 - id: claim-20260607-003-c
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 周复盘
   extracted_at: '2026-06-07T21:00:00+08:00'
@@ -89,13 +93,14 @@ claims:
   - 军工
   - 操作策略
   related_stocks:
-  - code: "603629"
-    name: "利通电子"
-    role: "回填-正文提及"
+  - code: '603629'
+    name: 利通电子
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260607-003-d
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 周复盘
   extracted_at: '2026-06-07T21:00:00+08:00'
@@ -109,7 +114,10 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-001-f", "claim-20260604-006-c", "claim-20260604-004-a"]
+  supplements:
+  - claim-20260608-001-f
+  - claim-20260604-006-c
+  - claim-20260604-004-a
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -125,10 +133,11 @@ claims:
   - 板块主题
   - 电力
   - 风电
+  school: qing
 - id: claim-20260607-003-e
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 周复盘
   extracted_at: '2026-06-07T21:00:00+08:00'
@@ -152,18 +161,18 @@ claims:
   topic: CPI数据（6月10日）——下周最大变量
   tags:
   - 宏观
+  school: qing
 - id: claim-20260607-003-f
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 周复盘
   extracted_at: '2026-06-07T21:00:00+08:00'
   claim_type: macro
   subject: 原油破100的连锁反应风险
   timeframe: short-term
-  statement: 如果原油站上100美元，会引发连锁反应：十年期美债收益率飙升→整体数据更难看。需盯信用利差（当前9.13），信用利差级别决定黄金坑深度。霍尔木兹海峡通航仅恢复约一半（近三周70艘
-    vs 和平时期135艘）。
+  statement: 如果原油站上100美元，会引发连锁反应：十年期美债收益率飙升→整体数据更难看。需盯信用利差（当前9.13），信用利差级别决定黄金坑深度。霍尔木兹海峡通航仅恢复约一半（近三周70艘 vs 和平时期135艘）。
   evidence_quote: 如果原油下一周又站上100了，会发生某种连锁反应...会让整体的十年期美债收益率往上飙，一飙整体的数据就很难看了。信用利差是9.13还行，如果再往下飙就很难看了。这一轮的黄金坑，我们需要去盯一下信用利差，信用利差的级别确定了它的黄金坑会踩得有多深。
   interpretation: 原油价格是黄金坑深度的决定变量。信用利差是关键观测指标。
   confidence: medium
@@ -180,10 +189,11 @@ claims:
   topic: 原油破100的连锁反应风险
   tags:
   - 宏观
+  school: qing
 - id: claim-20260607-003-g
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 周复盘
   extracted_at: '2026-06-07T21:00:00+08:00'
@@ -208,10 +218,11 @@ claims:
   topic: 黄金目标位4230——下周预计可见
   tags:
   - 宏观
+  school: qing
 - id: claim-20260607-003-h
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 周复盘
   extracted_at: '2026-06-07T21:00:00+08:00'
@@ -225,7 +236,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-003-c"]
+  supplements:
+  - claim-20260607-003-c
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -242,10 +254,11 @@ claims:
   - code: '300442'
     name: 润泽科技
     role: 参考标的
+  school: qing
 - id: claim-20260607-003-i
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 周复盘
   extracted_at: '2026-06-07T21:00:00+08:00'
@@ -272,13 +285,14 @@ claims:
   - 个股分析
   - 算力
   related_stocks:
-  - code: "603629"
-    name: "利通电子"
-    role: "回填-正文提及"
+  - code: '603629'
+    name: 利通电子
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260607-003-j
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 周复盘
   extracted_at: '2026-06-07T21:00:00+08:00'
@@ -292,7 +306,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260601-001-c"]
+  supplements:
+  - claim-20260601-001-c
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -305,10 +320,11 @@ claims:
   - 宏观
   - 恐慌
   - 机器人
+  school: qing
 - id: claim-20260607-003-k
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 周复盘
   extracted_at: '2026-06-07T21:00:00+08:00'
@@ -333,10 +349,11 @@ claims:
   tags:
   - 方法论
   - 龙头
+  school: qing
 - id: claim-20260607-003-l
   source_path: sources/raw/财经/周复盘：26-06-07：博通引发全球科技调整，A股方向切换机器人与商业航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-07'
   source_type: 周复盘
   extracted_at: '2026-06-07T21:00:00+08:00'
@@ -350,7 +367,10 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-004-a", "claim-20260604-004-h", "claim-20260607-003-d"]
+  supplements:
+  - claim-20260604-004-a
+  - claim-20260604-004-h
+  - claim-20260607-003-d
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -370,6 +390,7 @@ claims:
   - code: '600276'
     name: 恒瑞医药
     role: 参考标的
-  - code: "688235"
-    name: "百济神州"
-    role: "回填-正文提及"
+  - code: '688235'
+    name: 百济神州
+    role: 回填-正文提及
+  school: qing

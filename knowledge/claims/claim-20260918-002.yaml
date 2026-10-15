@@ -16,9 +16,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260917-001-a", "claim-20260916-003-x"]
+  supersedes:
+  - claim-20260917-001-a
+  - claim-20260916-003-x
   contradicts: []
-  supplements: ["claim-20260913-001-012"]
+  supplements:
+  - claim-20260913-001-012
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -32,6 +35,7 @@ claims:
   - 加息落地
   - 利率路径
   - 压力传导
+  school: qing
 - id: claim-20260918-003-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -51,7 +55,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260804-011"]
+  supplements:
+  - claim-20260804-011
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -64,6 +69,7 @@ claims:
   - A股自身反应
   - 外推
   - 方法论
+  school: qing
 - id: claim-20260918-004-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -76,15 +82,15 @@ claims:
   topic: 周三增量资金真实但持续性待验证；预估值上修不等于新增成交
   timeframe: short-term
   statement: 周三盘中量能逐步抬升（10点半预估1.5万亿至11点1.6万亿加，午后实际1.84万亿）说明参与意愿在增强，但预估值上修与实际成交额增加是两个口径，不能把约3000亿的预估变化直接称作新增成交或净流入；持续性仍待验证
-  evidence_quote: 据所提供的盘中观察记录，10 点半前后全天成交额预估约为 1.5 万亿元，11 点升至 1.6 万亿元以上，午后进一步上修，最终实际成交约
-    1.84 万亿元。这条路径说明参与意愿在交易过程中增强，比单看指数收盘涨幅更有价值。但预估值上修与实际成交额增加是两个口径，不能把约 3000 亿元的预估变化直接称作新增成交或净流入。
+  evidence_quote: 据所提供的盘中观察记录，10 点半前后全天成交额预估约为 1.5 万亿元，11 点升至 1.6 万亿元以上，午后进一步上修，最终实际成交约 1.84 万亿元。这条路径说明参与意愿在交易过程中增强，比单看指数收盘涨幅更有价值。但预估值上修与实际成交额增加是两个口径，不能把约 3000 亿元的预估变化直接称作新增成交或净流入。
   interpretation: 这是对量能数据的解读而非播报。门槛判定：数据+解读，只提解读部分。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-006"]
+  supplements:
+  - claim-20260913-001-006
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -98,6 +104,7 @@ claims:
   - 预估口径
   - 增量资金
   - 持续性
+  school: qing
 - id: claim-20260918-005-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -117,7 +124,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260909-011-a", "claim-20260914-001-008", "claim-20260913-001-006"]
+  supplements:
+  - claim-20260909-011-a
+  - claim-20260914-001-008
+  - claim-20260913-001-006
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -130,6 +140,7 @@ claims:
   - 价格方向
   - 技术分析
   - 方法论
+  school: qing
 - id: claim-20260918-006-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -149,7 +160,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260910-003-a", "claim-20260909-014-a"]
+  supplements:
+  - claim-20260910-003-a
+  - claim-20260909-014-a
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -162,6 +175,7 @@ claims:
   - 权重承接
   - 市场广度
   - 突破有效性
+  school: qing
 - id: claim-20260918-007-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -181,7 +195,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260823-001-004", "claim-20260913-001-018", "claim-20260813-047"]
+  supplements:
+  - claim-20260823-001-004
+  - claim-20260913-001-018
+  - claim-20260813-047
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -192,7 +209,7 @@ claims:
   - code: '000523'
     name: 红棉股份
     role: 情绪观察样本-深主板可交易
-  - code: '002059'
+  - code: 002059
     name: 云南旅游
     role: 情绪观察样本-深主板可交易
   tags:
@@ -201,6 +218,7 @@ claims:
   - 冲高回落
   - 炸板
   - 样本选择
+  school: qing
 - id: claim-20260918-008-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -213,8 +231,7 @@ claims:
   topic: 周五围绕既有持仓做T，分情形A修复延续和情形B量能不足管理，不因脉冲拉升抬高预期
   timeframe: short-term
   statement: 情形A：修复延续，乘机围绕既有持仓做T，留意分歧中率先转强、回落缩量且承接稳定的方向；情形B：量能跟进不足，降低操作频率，处理失去承接的弱势持仓；强势持续时避免反复卖出后追高买回，弱势下行时避免为摊成本加码
-  evidence_quote: 情形 A：修复延续，主动性增强，操作上围绕既有持仓做 T，留意分歧中率先转强、回落缩量且承接稳定的方向。情形 B：量能跟进不足，修复反复，应先处理失去承接的弱势持仓。持股为主的前提是结构没有被破坏，不能把做
-    T 演变成连续补仓。
+  evidence_quote: 情形 A：修复延续，主动性增强，操作上围绕既有持仓做 T，留意分歧中率先转强、回落缩量且承接稳定的方向。情形 B：量能跟进不足，修复反复，应先处理失去承接的弱势持仓。持股为主的前提是结构没有被破坏，不能把做 T 演变成连续补仓。
   interpretation: 完整的操作预案加失效条件加交易纪律，属实操性操作判断。
   confidence: high
   status: superseded
@@ -234,6 +251,7 @@ claims:
   - 做T
   - 失效条件
   - 交易纪律
+  school: qing
 - id: claim-20260918-009-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -245,8 +263,7 @@ claims:
   subject: 题材扩容与持续性
   topic: 涨停扩容和跌停收敛不等于趋势形成；分歧中看资金选择才是真正信号
   timeframe: short-term
-  statement: 周三二板 9 家、首板 25 到 77 家、跌停 27 到 4 家，指向短线风险偏好修复。但周五更有意义的问题是：周三启动的方向能否在周四分歧后继续获得资金支持、周四新首板能否获得隔日溢价；若晋级集中在少数有产业进展、有板块联动的方向，可以继续跟踪；若新首板热闹但隔日低开低走，就把预期压回轮动与做
-    T
+  statement: 周三二板 9 家、首板 25 到 77 家、跌停 27 到 4 家，指向短线风险偏好修复。但周五更有意义的问题是：周三启动的方向能否在周四分歧后继续获得资金支持、周四新首板能否获得隔日溢价；若晋级集中在少数有产业进展、有板块联动的方向，可以继续跟踪；若新首板热闹但隔日低开低走，就把预期压回轮动与做 T
   evidence_quote: 周三二板 9 家，一进二晋级率由 6.82%升至 36%；首板由 25 家增至 77 家，跌停由 27 家降至 4 家。这组数据指向的是短线风险偏好修复，其中首板扩容代表尝试新方向的资金增加，跌停收敛代表极端亏钱效应减轻。
   interpretation: 门槛判定：数据是论据，解读是判断。UP 在数据之后给出了明确的解读与操作框架。
   confidence: high
@@ -267,6 +284,7 @@ claims:
   - 风险偏好
   - 轮动
   - 隔日溢价
+  school: qing
 - id: claim-20260918-010-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -286,7 +304,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-008"]
+  supplements:
+  - claim-20260515-008
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -299,6 +318,7 @@ claims:
   - 宽基ETF分歧
   - 资金避险
   - 延续性
+  school: qing
 - id: claim-20260918-011-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -310,16 +330,17 @@ claims:
   subject: 科技止跌待确认
   topic: 科技已现止跌修复迹象，但不宜切换为连续主升预期，节前允许反复
   timeframe: short-term
-  statement: 科技已有止跌修复迹象，节前允许反复；优先等待主动性与承接同时出现。今天对宽基ETF的判断不宜过度悲观，也不宜直接切换为连续主升预期（须以
-    515980 等宽基ETF 实际走势为据）
+  statement: 科技已有止跌修复迹象，节前允许反复；优先等待主动性与承接同时出现。今天对宽基ETF的判断不宜过度悲观，也不宜直接切换为连续主升预期（须以 515980 等宽基ETF 实际走势为据）
   evidence_quote: 科技股：止跌迹象已经消失，趋势需要继续确认。今天对宽基ETF的判断不宜过度悲观，也不宜直接切换为连续主升预期。重点观察先走强的核心能否守住回踩，二线品种能否形成有效联动，以及板块上涨是否有持续成交支持。
   interpretation: UP 对科技/宽基ETF方向的定性定位（止跌不等于趋势），属板块层面的核心观点。
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260814-013"]
+  supersedes:
+  - claim-20260814-013
   contradicts: []
-  supplements: ["claim-20260819-071"]
+  supplements:
+  - claim-20260819-071
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -336,6 +357,7 @@ claims:
   - 主升预期
   - 节前
   - '515980'
+  school: qing
 - id: claim-20260918-012-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -355,7 +377,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260629-001-v", "claim-20260916-003-n"]
+  supplements:
+  - claim-20260629-001-v
+  - claim-20260916-003-n
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -375,6 +399,7 @@ claims:
   - 研究预期
   - 长协验证
   - 中晶科技
+  school: qing
 - id: claim-20260918-013-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -387,9 +412,7 @@ claims:
   topic: 跟踪AI服务器和PCB设备应看扩产兑现，勿把整机需求增长等同各家设备利润增长
   timeframe: industry
   statement: AI 服务器与 PCB 设备逻辑从整机延伸至 GPU 制造、先进封装、HBM 及封装、高速高多层 PCB，再传导至相关设备（芯碁微装(688630)直写光刻、东威科技(688700)垂直连续电镀）；订单增加以后还要看产能爬坡、交付验收和回款同步；不要把整机需求增长直接等同于每家设备公司的利润增长
-  evidence_quote: 据媒体报道 9 月 16 日报道，苹果正探索面向企业客户、采用自研芯片的 AI 服务器，并讨论使用英伟达互联技术；相关 M8 Ultra
-    产品仍处于规划阶段。它提供了自研算力与高速互联继续发展的观察线索，但尚不能据此确认具体量产时间、A 股供应链名单或采购规模。更值得持续跟踪的，是行业资本开支是否转化为高多层
-    PCB、高端载板和先进封装等环节的扩产与设备采购。
+  evidence_quote: 据媒体报道 9 月 16 日报道，苹果正探索面向企业客户、采用自研芯片的 AI 服务器，并讨论使用英伟达互联技术；相关 M8 Ultra 产品仍处于规划阶段。它提供了自研算力与高速互联继续发展的观察线索，但尚不能据此确认具体量产时间、A 股供应链名单或采购规模。更值得持续跟踪的，是行业资本开支是否转化为高多层 PCB、高端载板和先进封装等环节的扩产与设备采购。
   interpretation: 产业链跟踪的方法论：扩产兑现才是关键指标，不是整机需求。不因单一消息抬高预期。
   confidence: high
   status: active
@@ -415,6 +438,7 @@ claims:
   - PCB设备
   - 扩产兑现
   - 跟踪口径
+  school: qing
 - id: claim-20260918-014-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -426,17 +450,17 @@ claims:
   subject: AI制药融资催化
   topic: AI制药重点看研发与验证需求，融资完成与药物研发成功之间有较长距离
   timeframe: industry
-  statement: 字节跳动分拆的 AI 制药业务 Anew Labs 完成约 2.9 亿美元首次外部融资（投后估值约 15 亿美元），资本对 AI 药物发现与研发服务的关注升温，但融资完成与药物研发成功之间仍有较长距离；百普赛斯(301080)（HEK293/CHO
-    表达体系加 AI 数据反馈）和阳光诺和(688621)（多肽平台加华为云合作）可从上游实验验证与研发平台切入跟踪客户需求与里程碑
-  evidence_quote: 据路透社 9 月 16 日援引知情人士报道，字节跳动分拆的 AI 制药业务 Anew Labs 完成约 2.9 亿美元首次外部融资，投后估值约
-    15 亿美元，字节保留约 56% 股权。上述数据属于媒体报道口径。对产业链的意义，在于资本对 AI 药物发现与研发服务的关注升温，但融资完成与药物研发成功之间仍有较长距离。
+  statement: 字节跳动分拆的 AI 制药业务 Anew Labs 完成约 2.9 亿美元首次外部融资（投后估值约 15 亿美元），资本对 AI 药物发现与研发服务的关注升温，但融资完成与药物研发成功之间仍有较长距离；百普赛斯(301080)（HEK293/CHO 表达体系加 AI 数据反馈）和阳光诺和(688621)（多肽平台加华为云合作）可从上游实验验证与研发平台切入跟踪客户需求与里程碑
+  evidence_quote: 据路透社 9 月 16 日援引知情人士报道，字节跳动分拆的 AI 制药业务 Anew Labs 完成约 2.9 亿美元首次外部融资，投后估值约 15 亿美元，字节保留约 56% 股权。上述数据属于媒体报道口径。对产业链的意义，在于资本对 AI 药物发现与研发服务的关注升温，但融资完成与药物研发成功之间仍有较长距离。
   interpretation: 含研报/媒体引用（路透社报道口径），UP 明确标注属于媒体报道口径。重点在研发与验证需求，非融资新闻本身。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-010", "claim-20260814-018"]
+  supplements:
+  - claim-20260810-010
+  - claim-20260814-018
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -456,6 +480,7 @@ claims:
   - 研发验证
   - 百普赛斯
   - 阳光诺和
+  school: qing
 - id: claim-20260918-015-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -467,17 +492,16 @@ claims:
   subject: 数据中心电源订单口径
   topic: Generac亚马逊协议：24亿是初始交付，80亿是上限门槛，均非已确认采购订单
   timeframe: industry
-  statement: Generac 与亚马逊签订数据中心备用电源长期供应协议，预计 2027 至 2028 年初始交付约 24 亿美元，后续归属与累计采购付款挂钩，门槛最高达
-    80 亿美元；80 亿美元不应表述为已确认的采购订单，也不能据此认定全行业产能排满；交易上若消息带来大幅高开，先观察承接和板块联动，再判断持续性
-  evidence_quote: Generac 披露与亚马逊签订数据中心备用电源长期供应协议，预计于 2027 至 2028 年初始交付的产品总额约 24 亿美元。另有认股权证安排，其后续归属与亚马逊及关联方累计采购付款挂钩，相关门槛最高达
-    80 亿美元。因此，80 亿美元不应表述为已确认的采购订单，也不能据此认定全行业产能排满。
+  statement: Generac 与亚马逊签订数据中心备用电源长期供应协议，预计 2027 至 2028 年初始交付约 24 亿美元，后续归属与累计采购付款挂钩，门槛最高达 80 亿美元；80 亿美元不应表述为已确认的采购订单，也不能据此认定全行业产能排满；交易上若消息带来大幅高开，先观察承接和板块联动，再判断持续性
+  evidence_quote: Generac 披露与亚马逊签订数据中心备用电源长期供应协议，预计于 2027 至 2028 年初始交付的产品总额约 24 亿美元。另有认股权证安排，其后续归属与亚马逊及关联方累计采购付款挂钩，相关门槛最高达 80 亿美元。因此，80 亿美元不应表述为已确认的采购订单，也不能据此认定全行业产能排满。
   interpretation: 含研报/新闻引用（Generac公告口径），UP 明确给出解读：数字不等于订单，不因海外单一公司股价反应代替国内业务兑现。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-001-q"]
+  supplements:
+  - claim-20260917-001-q
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -490,6 +514,7 @@ claims:
   - Generac
   - 订单口径
   - 海外映射
+  school: qing
 - id: claim-20260918-016-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -528,6 +553,7 @@ claims:
   - 泰豪科技
   - 数据中心电源
   - A股线索
+  school: qing
 - id: claim-20260918-017-a
   source_path: sources/raw/财经/2026-09-18-0847-专栏-周三放量反弹，科技方向率先修复；周四冲高回落，量能小幅收缩，.md
   source_date: '2026-09-18'
@@ -539,17 +565,18 @@ claims:
   subject: 节前操作纪律
   topic: 节前以持股观察为主；没有合适机会等待本身就是预案；做T服务于持仓管理，结构破坏时优先执行防守纪律
   timeframe: permanent
-  statement: 节前整体以持股观察为主的预案不变，但前提是持仓逻辑和价格结构没有明显恶化。盘中做 T 以已有可卖持仓和明确价差为基础；没有合适机会，等待本身就是预案的一部分。降低预期，保留耐心；做
-    T 服务于持仓管理，结构破坏时优先执行防守纪律
-  evidence_quote: 指数继续跟踪底部结构与趋势突破，科技方向保持耐心。节前整体以持股观察为主的预案不变，但前提仍是持仓逻辑和价格结构没有明显恶化。……没有合适机会，等待本身就是预案的一部分。降低预期，保留耐心；做
-    T 服务于持仓管理，结构破坏时优先执行防守纪律。
+  statement: 节前整体以持股观察为主的预案不变，但前提是持仓逻辑和价格结构没有明显恶化。盘中做 T 以已有可卖持仓和明确价差为基础；没有合适机会，等待本身就是预案的一部分。降低预期，保留耐心；做 T 服务于持仓管理，结构破坏时优先执行防守纪律
+  evidence_quote: 指数继续跟踪底部结构与趋势突破，科技方向保持耐心。节前整体以持股观察为主的预案不变，但前提仍是持仓逻辑和价格结构没有明显恶化。……没有合适机会，等待本身就是预案的一部分。降低预期，保留耐心；做 T 服务于持仓管理，结构破坏时优先执行防守纪律。
   interpretation: 可复用的操作纪律：等待等于预案，防守优先于进攻。属方法论级观点。
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260910-010-a"]
+  supersedes:
+  - claim-20260910-010-a
   contradicts: []
-  supplements: ["claim-20260909-009-a", "claim-20260605-001-i"]
+  supplements:
+  - claim-20260909-009-a
+  - claim-20260605-001-i
   last_discovered: 2026-09-19
   links:
     wiki_pages: []
@@ -562,3 +589,4 @@ claims:
   - 持股观察
   - 等待即预案
   - 防守优先
+  school: qing

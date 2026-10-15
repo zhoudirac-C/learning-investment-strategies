@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260617-001-a
   source_path: sources/original/bilibili/2026-06-17-2237-图片-动态-1214911656712208391.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 动态
   extracted_at: '2026-06-17T23:27:54+08:00'
@@ -17,7 +17,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-e", "claim-20260617-001-b"]
+  supplements:
+  - claim-20260621-001-e
+  - claim-20260617-001-b
   last_discovered: 2026-06-24
   links:
     wiki_pages: []
@@ -30,10 +32,11 @@ claims:
   - 大基金
   - 董监高减持
   - 半导体
+  school: qing
 - id: claim-20260617-001-b
   source_path: sources/original/bilibili/2026-06-17-2237-图片-动态-1214911656712208391.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 动态
   extracted_at: '2026-06-17T23:27:54+08:00'
@@ -46,7 +49,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260524-024"]
+  supersedes:
+  - claim-20260524-024
   contradicts: []
   last_discovered: 2026-06-17
   links:
@@ -69,10 +73,11 @@ claims:
   - 大基金
   - 半导体
   - 询价转让
+  school: qing
 - id: claim-20260617-001-c-dup1
   source_path: sources/original/bilibili/2026-06-17-2237-图片-动态-1214911656712208391.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 动态
   extracted_at: '2026-06-17T23:27:54+08:00'
@@ -88,7 +93,8 @@ claims:
   status: superseded
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260524-024"]
+  contradicts:
+  - claim-20260524-024
   last_discovered: 2026-06-17
   links:
     wiki_pages: []
@@ -100,10 +106,11 @@ claims:
   - 减持
   - 大基金
   - 董监高减持
+  school: qing
 - id: claim-20260617-001-d
   source_path: sources/original/bilibili/2026-06-17-2237-图片-动态-1214911656712208391.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 动态
   extracted_at: '2026-06-17T23:27:54+08:00'
@@ -131,10 +138,11 @@ claims:
   - 询价转让
   - 风险警示
   - 板块分析
+  school: qing
 - id: claim-20260617-001-e
   source_path: sources/original/bilibili/2026-06-17-2237-图片-动态-1214911656712208391.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 动态
   extracted_at: '2026-06-17T23:27:54+08:00'
@@ -148,7 +156,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260518-008", "claim-20260526-025-f", "claim-20260609-003-d"]
+  contradicts:
+  - claim-20260518-008
+  - claim-20260526-025-f
+  - claim-20260609-003-d
   last_discovered: 2026-06-17
   links:
     wiki_pages: []
@@ -185,3 +196,4 @@ claims:
   - 半导体
   - 风险警示
   - 板块分析
+  school: qing

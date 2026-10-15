@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260630-003-a
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -15,9 +15,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -29,10 +31,11 @@ claims:
   - 修复日
   - 轮动震荡
   - 趋势分支
+  school: qing
 - id: claim-20260630-003-b
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -45,8 +48,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260521-001-a", "claim-20260625-003-a"]
-  contradicts: ["claim-20260527-001-a"]
+  supersedes:
+  - claim-20260521-001-a
+  - claim-20260625-003-a
+  contradicts:
+  - claim-20260527-001-a
   supplements: []
   last_discovered: 2026-06-30
   links:
@@ -59,10 +65,11 @@ claims:
   - 指数
   - 双创
   - 量能
+  school: qing
 - id: claim-20260630-003-c
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -75,8 +82,10 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260524-013"]
-  contradicts: ["claim-20260602-002-c"]
+  supersedes:
+  - claim-20260524-013
+  contradicts:
+  - claim-20260602-002-c
   supplements: []
   last_discovered: 2026-06-30
   links:
@@ -89,10 +98,11 @@ claims:
   - 缩量
   - 基金调仓
   - 退潮信号
+  school: qing
 - id: claim-20260630-003-d
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -105,9 +115,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260609-005-a", "claim-20260601-004-e"]
+  supersedes:
+  - claim-20260609-005-a
+  - claim-20260601-004-e
   contradicts: []
-  supplements: ["claim-20260622-001-h"]
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -119,10 +132,11 @@ claims:
   - 轮动震荡
   - 强共振修复
   - 指数结构
+  school: qing
 - id: claim-20260630-003-e
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -135,9 +149,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260617-005-o"]
+  supersedes:
+  - claim-20260617-005-o
   contradicts: []
-  supplements: ["claim-20260623-004-b", "claim-20260630-001-s"]
+  supplements:
+  - claim-20260623-004-b
+  - claim-20260630-001-s
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -149,10 +166,11 @@ claims:
   - 买阴策略
   - 半导体
   - 分歧参与
+  school: qing
 - id: claim-20260630-003-f
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -167,7 +185,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-f"]
+  supplements:
+  - claim-20260609-005-f
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -179,10 +198,11 @@ claims:
   - 盘前增量信息
   - 轮动修复
   - 前一日涨幅
+  school: qing
 - id: claim-20260630-003-g
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -197,7 +217,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-006-d"]
+  supplements:
+  - claim-20260624-006-d
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -210,10 +231,11 @@ claims:
   - 产业驱动
   - 台积电涨价
   - 三星扩产
+  school: qing
 - id: claim-20260630-003-h
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -228,7 +250,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-p", "claim-20260629-001-l", "claim-20260622-004-d"]
+  supplements:
+  - claim-20260621-001-p
+  - claim-20260629-001-l
+  - claim-20260622-004-d
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -241,10 +266,11 @@ claims:
   - 情绪核心
   - 趋势为主
   - 产业消息
+  school: qing
 - id: claim-20260630-003-i
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -259,7 +285,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260629-004-m", "claim-20260629-004-k"]
+  supplements:
+  - claim-20260629-004-m
+  - claim-20260629-004-k
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -271,10 +299,11 @@ claims:
   - 半导体
   - 产业信息
   - 周期节奏
+  school: qing
 - id: claim-20260630-003-j
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -287,8 +316,11 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260521-003-c"]
-  contradicts: ["claim-20260629-004-m", "claim-20260527-001-e"]
+  supersedes:
+  - claim-20260521-003-c
+  contradicts:
+  - claim-20260629-004-m
+  - claim-20260527-001-e
   supplements: []
   last_discovered: 2026-06-30
   links:
@@ -302,10 +334,11 @@ claims:
   - 趋势主升
   - 首次分歧
   - 反包
+  school: qing
 - id: claim-20260630-003-k
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -318,8 +351,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260629-004-q", "claim-20260629-004-r"]
-  contradicts: ["claim-20260617-001-e"]
+  supersedes:
+  - claim-20260629-004-q
+  - claim-20260629-004-r
+  contradicts:
+  - claim-20260617-001-e
   supplements: []
   last_discovered: 2026-06-30
   links:
@@ -333,10 +369,11 @@ claims:
   - 设备
   - 材料
   - 洁净室
+  school: qing
 - id: claim-20260630-003-l
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -351,7 +388,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260629-004-o", "claim-20260518-008", "claim-20260630-001-f"]
+  supplements:
+  - claim-20260629-004-o
+  - claim-20260518-008
+  - claim-20260630-001-f
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -364,10 +404,11 @@ claims:
   - 半导体检测设备
   - HBM4
   - 扩产
+  school: qing
 - id: claim-20260630-003-m
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -382,7 +423,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260629-001-r", "claim-20260629-004-q"]
+  supplements:
+  - claim-20260629-001-r
+  - claim-20260629-004-q
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -395,10 +438,11 @@ claims:
   - 全球扩产
   - 算力网工程
   - 业绩释放
+  school: qing
 - id: claim-20260630-003-n
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -428,10 +472,11 @@ claims:
   - 赛腾股份
   - HBM
   - 缺陷检测
+  school: qing
 - id: claim-20260630-003-o
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -454,7 +499,7 @@ claims:
     cases: []
   topic: 亚威股份参股苏州芯测间接供货海力士测试机
   related_stocks:
-  - code: '002559'
+  - code: 002559
     name: 亚威股份
     role: 主板可交易
   tags:
@@ -462,10 +507,11 @@ claims:
   - 苏州芯测
   - GSI
   - 海力士
+  school: qing
 - id: claim-20260630-003-p
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -480,7 +526,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-i"]
+  supplements:
+  - claim-20260621-001-i
   last_discovered: 2026-07-01
   links:
     wiki_pages: []
@@ -496,10 +543,11 @@ claims:
   - 新易盛
   - PCB
   - 液冷
+  school: qing
 - id: claim-20260630-003-q
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -526,10 +574,11 @@ claims:
   - PCB
   - 涨价逻辑
   - 中游制造
+  school: qing
 - id: claim-20260630-003-r
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -543,8 +592,11 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260426-010", "claim-20260529-005-g"]
-  supplements: ["claim-20260617-039-m"]
+  contradicts:
+  - claim-20260426-010
+  - claim-20260529-005-g
+  supplements:
+  - claim-20260617-039-m
   last_discovered: 2026-07-01
   links:
     wiki_pages: []
@@ -556,10 +608,11 @@ claims:
   - 液冷
   - 中报
   - 业绩释放
+  school: qing
 - id: claim-20260630-003-s
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -586,10 +639,11 @@ claims:
   - 光连接器
   - AI算力集群
   - 价值重构
+  school: qing
 - id: claim-20260630-003-t
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -603,7 +657,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260604-003-c"]
+  contradicts:
+  - claim-20260604-003-c
   supplements: []
   last_discovered: 2026-07-01
   links:
@@ -617,10 +672,11 @@ claims:
   - 1.6T
   - MPO
   - Shuffle Box
+  school: qing
 - id: claim-20260630-003-u
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -635,7 +691,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-005-i", "claim-20260526-006", "claim-20260524-017"]
+  supplements:
+  - claim-20260527-005-i
+  - claim-20260526-006
+  - claim-20260524-017
   last_discovered: 2026-07-01
   links:
     wiki_pages: []
@@ -649,10 +708,11 @@ claims:
   - OIO
   - FAU
   - GlassBridge
+  school: qing
 - id: claim-20260630-003-v
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -667,7 +727,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260603-004-d", "claim-20260622-003-g", "claim-20260622-004-h"]
+  supplements:
+  - claim-20260603-004-d
+  - claim-20260622-003-g
+  - claim-20260622-004-h
   last_discovered: 2026-07-01
   links:
     wiki_pages: []
@@ -680,10 +743,11 @@ claims:
   - NVIDIA
   - 康宁
   - 光连接产能
+  school: qing
 - id: claim-20260630-003-w
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -698,7 +762,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260614-005-g", "claim-20260609-005-d"]
+  supplements:
+  - claim-20260614-005-g
+  - claim-20260609-005-d
   last_discovered: 2026-07-01
   links:
     wiki_pages: []
@@ -710,10 +776,11 @@ claims:
   - 美团
   - LongCat-2.0
   - 国产算力集群
+  school: qing
 - id: claim-20260630-003-x
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -728,7 +795,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-q", "claim-20260615-021"]
+  supplements:
+  - claim-20260622-003-q
+  - claim-20260615-021
   last_discovered: 2026-07-01
   links:
     wiki_pages: []
@@ -740,10 +809,11 @@ claims:
   - 国常会
   - AI创新
   - 超大规模智算集群
+  school: qing
 - id: claim-20260630-003-y
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -770,10 +840,11 @@ claims:
   - DeepSeek
   - V4
   - 国产模型
+  school: qing
 - id: claim-20260630-003-z
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -786,9 +857,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260609-003-d"]
+  supersedes:
+  - claim-20260609-003-d
   contradicts: []
-  supplements: ["claim-20260522-001-f", "claim-20260630-003-ab"]
+  supplements:
+  - claim-20260522-001-f
+  - claim-20260630-003-ab
   last_discovered: 2026-07-02
   links:
     wiki_pages: []
@@ -803,10 +877,11 @@ claims:
   - 寒武纪
   - 国产芯片
   - 万亿市值
+  school: qing
 - id: claim-20260630-003-aa
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -819,9 +894,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -834,10 +911,11 @@ claims:
   - TCL科技
   - 京东方A
   - 轮动震荡
+  school: qing
 - id: claim-20260630-003-ab
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -850,9 +928,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -868,10 +948,11 @@ claims:
   - 国产模型
   - 国产芯片
   - 商业闭环
+  school: qing
 - id: claim-20260630-003-ac
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -884,9 +965,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -899,10 +982,11 @@ claims:
   - 全栈效率
   - HBM
   - 互联
+  school: qing
 - id: claim-20260630-003-ad
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -915,9 +999,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -930,10 +1016,11 @@ claims:
   - 补涨
   - 板块高潮
   - 短线调整
+  school: qing
 - id: claim-20260630-003-ae
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -946,9 +1033,11 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -961,10 +1050,11 @@ claims:
   - 950PR
   - 超节点
   - 8192卡
+  school: qing
 - id: claim-20260630-003-af
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -977,9 +1067,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -991,10 +1083,11 @@ claims:
   - 超节点
   - 华泰证券
   - 2026放量元年
+  school: qing
 - id: claim-20260630-003-ag
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -1007,9 +1100,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -1025,10 +1120,11 @@ claims:
   - 超节点
   - CPO交换机
   - LPO光模块
+  school: qing
 - id: claim-20260630-003-ah
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -1041,9 +1137,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -1058,10 +1156,11 @@ claims:
   - 锐捷网络
   - 超节点
   - 订单兑现
+  school: qing
 - id: claim-20260630-003-ai
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -1074,9 +1173,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -1088,10 +1189,11 @@ claims:
   - 半导体零部件
   - 涨价潮
   - 定价权
+  school: qing
 - id: claim-20260630-003-aj
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -1104,9 +1206,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -1119,10 +1223,11 @@ claims:
   - 锡
   - 铟
   - 铪
+  school: qing
 - id: claim-20260630-003-ak
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -1135,9 +1240,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -1150,10 +1257,11 @@ claims:
   - 前段设备
   - 市场规模
   - 上修
+  school: qing
 - id: claim-20260630-003-al
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -1166,9 +1274,11 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -1180,10 +1290,11 @@ claims:
   - 三星电机
   - MLCC
   - AI服务器
+  school: qing
 - id: claim-20260630-003-am
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -1196,9 +1307,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -1213,10 +1326,11 @@ claims:
   - 博迁新材
   - 镍粉
   - 三星电机
+  school: qing
 - id: claim-20260630-003-an
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -1229,9 +1343,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -1244,10 +1360,11 @@ claims:
   - 小金属
   - 右侧确认
   - 情绪偏热
+  school: qing
 - id: claim-20260630-003-ao
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -1260,9 +1377,11 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -1274,10 +1393,11 @@ claims:
   - 机器人
   - 异动
   - 持续性
+  school: qing
 - id: claim-20260630-003-ap
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -1290,9 +1410,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -1306,10 +1428,11 @@ claims:
   - 特斯拉
   - 宇树
   - 乐聚
+  school: qing
 - id: claim-20260630-003-aq
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -1322,9 +1445,11 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -1337,10 +1462,11 @@ claims:
   - 拖拉机出口
   - 一拖股份
   - 中联重科
+  school: qing
 - id: claim-20260630-003-ar
   source_path: sources/raw/财经/2026-06-30-2240-复盘-有宽度没强度的修复日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-30'
   source_type: 复盘
   extracted_at: '2026-06-30T23:43:39+08:00'
@@ -1353,9 +1479,11 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260602-003-b"]
+  supersedes:
+  - claim-20260602-003-b
   contradicts: []
-  supplements: ["claim-20260528-002-e"]
+  supplements:
+  - claim-20260528-002-e
   last_discovered: 2026-06-30
   links:
     wiki_pages: []
@@ -1368,3 +1496,4 @@ claims:
   - 上游物料
   - 回调不破位
   - 趋势检验
+  school: qing

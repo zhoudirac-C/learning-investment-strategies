@@ -1,11 +1,11 @@
 - id: claim-20260524-019
   topic: 美债收益率高企的结构性原因
   source_path: sources/raw/财经/视频：26-05-24：周复盘，美债收益率上行、6月回调与AI硬件黄金坑.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-24
   source_type: 视频
-  extracted_at: "2026-05-25T10:21:35+08:00"
+  extracted_at: '2026-05-25T10:21:35+08:00'
   claim_type: macro
   subject: 美债收益率高企的结构性原因
   timeframe: trend
@@ -16,27 +16,30 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-004-b", "claim-20260523-010"]
+  supplements:
+  - claim-20260607-004-b
+  - claim-20260523-010
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/AI资本开支周期与泡沫风险
-      - 每日复盘/2026-05-24
+    - 市场分析/AI资本开支周期与泡沫风险
+    - 每日复盘/2026-05-24
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 美债收益率高
-    - AI
-    - 宏观
+  - 美债收益率高
+  - AI
+  - 宏观
+  school: qing
 - id: claim-20260524-020
   topic: 30年美债收益率阈值
   source_path: sources/raw/财经/视频：26-05-24：周复盘，美债收益率上行、6月回调与AI硬件黄金坑.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-24
   source_type: 视频
-  extracted_at: "2026-05-25T10:21:35+08:00"
+  extracted_at: '2026-05-25T10:21:35+08:00'
   claim_type: risk
   subject: 30年美债收益率阈值
   timeframe: short-term
@@ -47,27 +50,31 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-b", "claim-20260524-019", "claim-20260622-001-b"]
+  supplements:
+  - claim-20260622-004-b
+  - claim-20260524-019
+  - claim-20260622-001-b
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/AI资本开支周期与泡沫风险
+    - 市场分析/AI资本开支周期与泡沫风险
     methodology_pages:
-      - 投资方法论/仓位管理
+    - 投资方法论/仓位管理
     cases: []
   intensity: high
   tags:
-    - 30年美债收
-    - AI
-    - 回调
+  - 30年美债收
+  - AI
+  - 回调
+  school: qing
 - id: claim-20260524-021
   topic: 6月回调前仓位纪律
   source_path: sources/raw/财经/视频：26-05-24：周复盘，美债收益率上行、6月回调与AI硬件黄金坑.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-24
   source_type: 视频
-  extracted_at: "2026-05-25T10:21:35+08:00"
+  extracted_at: '2026-05-25T10:21:35+08:00'
   claim_type: operation
   subject: 6月回调前仓位纪律
   timeframe: short-term
@@ -76,29 +83,33 @@
   interpretation: 这是一套事件窗口型仓位纪律，重点不是判断长期AI结束，而是在流动性风险落地前避免满仓和追高。
   confidence: medium
   status: superseded
-  supersedes: ["claim-20260426-001"]
-  contradicts: ["claim-20260525-002", "claim-20260420-001"]
+  supersedes:
+  - claim-20260426-001
+  contradicts:
+  - claim-20260525-002
+  - claim-20260420-001
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 每日复盘/2026-05-24
+    - 每日复盘/2026-05-24
     methodology_pages:
-      - 投资方法论/仓位管理
-      - 投资方法论/交易纪律
+    - 投资方法论/仓位管理
+    - 投资方法论/交易纪律
     cases: []
   intensity: high
   tags:
-    - 操作策略
-    - 回调
-    - 仓位
+  - 操作策略
+  - 回调
+  - 仓位
+  school: qing
 - id: claim-20260524-022
   topic: PCB与MLCC鱼尾不追高
   source_path: sources/raw/财经/视频：26-05-24：周复盘，美债收益率上行、6月回调与AI硬件黄金坑.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-24
   source_type: 视频
-  extracted_at: "2026-05-25T10:21:35+08:00"
+  extracted_at: '2026-05-25T10:21:35+08:00'
   claim_type: operation
   subject: PCB与MLCC鱼尾不追高
   timeframe: intraday
@@ -109,28 +120,31 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260602-002-d", "claim-20260524-018"]
+  supplements:
+  - claim-20260602-002-d
+  - claim-20260524-018
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/PCB与先进封装
-      - 市场分析/AI上游涨价链
+    - 市场分析/PCB与先进封装
+    - 市场分析/AI上游涨价链
     methodology_pages:
-      - 投资方法论/交易纪律
+    - 投资方法论/交易纪律
     cases: []
   intensity: high
   tags:
-    - 操作策略
-    - PCB
-    - 追高
+  - 操作策略
+  - PCB
+  - 追高
+  school: qing
 - id: claim-20260524-023
   topic: 退潮到穿越期的赔率选择
   source_path: sources/raw/财经/视频：26-05-24：周复盘，美债收益率上行、6月回调与AI硬件黄金坑.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-24
   source_type: 视频
-  extracted_at: "2026-05-25T10:21:35+08:00"
+  extracted_at: '2026-05-25T10:21:35+08:00'
   claim_type: methodology
   subject: 退潮到穿越期的赔率选择
   timeframe: short-term
@@ -141,27 +155,31 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260524-018", "claim-20260524-013", "claim-20260611-001-l"]
+  supplements:
+  - claim-20260524-018
+  - claim-20260524-013
+  - claim-20260611-001-l
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/情绪判断
+    - 市场分析/情绪判断
     methodology_pages:
-      - 投资方法论/交易纪律
-      - 投资方法论/仓位管理
+    - 投资方法论/交易纪律
+    - 投资方法论/仓位管理
     cases: []
   intensity: high
   tags:
-    - 退潮到穿越期
-    - 方法论
+  - 退潮到穿越期
+  - 方法论
+  school: qing
 - id: claim-20260524-024
   topic: 半导体减持公告风险
   source_path: sources/raw/财经/视频：26-05-24：周复盘，美债收益率上行、6月回调与AI硬件黄金坑.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-24
   source_type: 视频
-  extracted_at: "2026-05-25T10:21:35+08:00"
+  extracted_at: '2026-05-25T10:21:35+08:00'
   claim_type: risk
   subject: 半导体减持公告风险
   timeframe: short-term
@@ -172,15 +190,18 @@
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-001-a", "claim-20260621-001-e"]
+  supplements:
+  - claim-20260617-001-a
+  - claim-20260621-001-e
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/半导体产业链
+    - 市场分析/半导体产业链
     methodology_pages:
-      - 投资方法论/交易纪律
+    - 投资方法论/交易纪律
     cases: []
   intensity: high
   tags:
-    - 半导体减持公
-    - 主线
+  - 半导体减持公
+  - 主线
+  school: qing

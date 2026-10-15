@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260629-001-a
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -15,8 +15,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260608-001-b"]
-  contradicts: ["claim-20260531-001-f", "claim-20260602-001-a"]
+  supersedes:
+  - claim-20260608-001-b
+  contradicts:
+  - claim-20260531-001-f
+  - claim-20260602-001-a
   supplements: []
   last_discovered: 2026-06-29
   links:
@@ -30,10 +33,11 @@ claims:
   - 跌破支撑
   - 仓位管理
   - 防守
+  school: qing
 - id: claim-20260629-001-b
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -46,9 +50,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260608-001-d", "claim-20260610-006-a"]
+  supersedes:
+  - claim-20260608-001-d
+  - claim-20260610-006-a
   contradicts: []
-  supplements: ["claim-20260623-005-a"]
+  supplements:
+  - claim-20260623-005-a
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -61,10 +68,11 @@ claims:
   - 外围市场
   - 开盘情绪
   - 风险
+  school: qing
 - id: claim-20260629-001-c
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -77,7 +85,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260521-001-g"]
+  supersedes:
+  - claim-20260521-001-g
   contradicts: []
   supplements: []
   last_discovered: 2026-06-29
@@ -91,10 +100,11 @@ claims:
   - 情绪周期
   - 冰点
   - 阶段性
+  school: qing
 - id: claim-20260629-001-d
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -107,9 +117,11 @@ claims:
   confidence: medium
   status: superseded
   intensity: high
-  supersedes: ["claim-20260608-001-b"]
+  supersedes:
+  - claim-20260608-001-b
   contradicts: []
-  supplements: ["claim-20260522-002-d"]
+  supplements:
+  - claim-20260522-002-d
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -121,10 +133,11 @@ claims:
   - 低开
   - 情绪修复
   - 量价承接
+  school: qing
 - id: claim-20260629-001-e
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -137,9 +150,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260614-014-p"]
+  supersedes:
+  - claim-20260614-014-p
   contradicts: []
-  supplements: ["claim-20260626-001-i", "claim-20260120-001-a"]
+  supplements:
+  - claim-20260626-001-i
+  - claim-20260120-001-a
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -153,10 +169,11 @@ claims:
   - 量能
   - 大金融
   - 情绪
+  school: qing
 - id: claim-20260629-001-f
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -171,7 +188,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260626-001-c", "claim-20260616-002-c"]
+  supplements:
+  - claim-20260626-001-c
+  - claim-20260616-002-c
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -184,10 +203,11 @@ claims:
   - 月底效应
   - 半年结算
   - 波动
+  school: qing
 - id: claim-20260629-001-g
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -201,8 +221,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260526-034"]
-  supplements: ["claim-20260624-001-h"]
+  contradicts:
+  - claim-20260526-034
+  supplements:
+  - claim-20260624-001-h
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -216,10 +238,11 @@ claims:
   - 保险
   - 券商
   - 降仓
+  school: qing
 - id: claim-20260629-001-h
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -232,9 +255,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260612-011-k"]
+  supersedes:
+  - claim-20260612-011-k
   contradicts: []
-  supplements: ["claim-20260526-028", "claim-20260515-011"]
+  supplements:
+  - claim-20260526-028
+  - claim-20260515-011
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -246,10 +272,11 @@ claims:
   - 连板晋级率
   - 短线情绪
   - 木桶理论
+  school: qing
 - id: claim-20260629-001-i
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -264,7 +291,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-012", "claim-20260610-006-f", "claim-20260609-005-a"]
+  supplements:
+  - claim-20260515-012
+  - claim-20260610-006-f
+  - claim-20260609-005-a
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -276,10 +306,11 @@ claims:
   - 情景A
   - 低开修复
   - 科技主线
+  school: qing
 - id: claim-20260629-001-j
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -294,7 +325,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260522-002-d", "claim-20260515-010", "claim-20260608-001-b"]
+  supplements:
+  - claim-20260522-002-d
+  - claim-20260515-010
+  - claim-20260608-001-b
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -306,10 +340,11 @@ claims:
   - 情景B
   - 防守
   - 保留先手
+  school: qing
 - id: claim-20260629-001-k
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -322,8 +357,10 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260623-005-a"]
-  contradicts: ["claim-20260625-001-b"]
+  supersedes:
+  - claim-20260623-005-a
+  contradicts:
+  - claim-20260625-001-b
   supplements: []
   last_discovered: 2026-06-29
   links:
@@ -336,10 +373,11 @@ claims:
   - 月底效应
   - 韩国股市
   - 边际影响
+  school: qing
 - id: claim-20260629-001-l
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -354,7 +392,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-d", "claim-20260622-001-d", "claim-20260612-002-b"]
+  supplements:
+  - claim-20260622-004-d
+  - claim-20260622-001-d
+  - claim-20260612-002-b
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -367,10 +408,11 @@ claims:
   - 二次点火
   - 国产替代
   - 业绩
+  school: qing
 - id: claim-20260629-001-m
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -385,7 +427,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-037-c", "claim-20260617-027-c"]
+  supplements:
+  - claim-20260617-037-c
+  - claim-20260617-027-c
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -397,10 +441,11 @@ claims:
   - 电子行业
   - 利润增长
   - 业绩支撑
+  school: qing
 - id: claim-20260629-001-n
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -415,7 +460,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-041-s", "claim-20260610-006-i", "claim-20260625-003-j"]
+  supplements:
+  - claim-20260617-041-s
+  - claim-20260610-006-i
+  - claim-20260625-003-j
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -423,7 +471,7 @@ claims:
     cases: []
   topic: 存储供需收紧涨价逻辑强化
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储核心标的-深主板可交易
   - code: '600667'
@@ -434,10 +482,11 @@ claims:
   - 长鑫存储
   - DDR5涨价
   - 国产替代
+  school: qing
 - id: claim-20260629-001-o
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -452,7 +501,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260626-001-o"]
+  supplements:
+  - claim-20260626-001-o
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -460,7 +510,7 @@ claims:
     cases: []
   topic: 存储板块偏中线定位非短线
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储核心标的-深主板可交易
   - code: '600667'
@@ -470,10 +520,11 @@ claims:
   - 存储
   - 中线定位
   - 机构重仓
+  school: qing
 - id: claim-20260629-001-p
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -486,9 +537,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260624-006-n"]
-  contradicts: ["claim-20260611-001-e"]
-  supplements: ["claim-20260609-005-c"]
+  supersedes:
+  - claim-20260624-006-n
+  contradicts:
+  - claim-20260611-001-e
+  supplements:
+  - claim-20260609-005-c
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -519,10 +573,11 @@ claims:
   - 涨价周期
   - 缺货
   - 交期
+  school: qing
 - id: claim-20260629-001-q
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -537,7 +592,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-006-n"]
+  supplements:
+  - claim-20260624-006-n
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -562,10 +618,11 @@ claims:
   - IGBT
   - 碳化硅
   - 涨价空间
+  school: qing
 - id: claim-20260629-001-r
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -580,7 +637,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-g"]
+  supplements:
+  - claim-20260625-003-g
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -593,10 +651,11 @@ claims:
   - 二氧化碳
   - 第四代半导体
   - 国产替代
+  school: qing
 - id: claim-20260629-001-s
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -609,9 +668,11 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260622-001-d"]
+  supersedes:
+  - claim-20260622-001-d
   contradicts: []
-  supplements: ["claim-20260622-004-d"]
+  supplements:
+  - claim-20260622-004-d
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -624,10 +685,11 @@ claims:
   - 业绩
   - 资金集中
   - 分化
+  school: qing
 - id: claim-20260629-001-t
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -640,7 +702,9 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260626-001-l", "claim-20260610-006-c"]
+  supersedes:
+  - claim-20260626-001-l
+  - claim-20260610-006-c
   contradicts: []
   supplements: []
   last_discovered: 2026-06-29
@@ -654,10 +718,11 @@ claims:
   - 涨停家数
   - 连板晋级率
   - 短线情绪
+  school: qing
 - id: claim-20260629-001-u
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -670,9 +735,12 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260624-001-g"]
-  contradicts: ["claim-20260610-006-d"]
-  supplements: ["claim-20260612-009-i"]
+  supersedes:
+  - claim-20260624-001-g
+  contradicts:
+  - claim-20260610-006-d
+  supplements:
+  - claim-20260612-009-i
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -684,10 +752,11 @@ claims:
   - 材料题材
   - 轮动
   - 资金游走
+  school: qing
 - id: claim-20260629-001-v
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -702,7 +771,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-006-n", "claim-20260628-001-f", "claim-20260624-006-d"]
+  supplements:
+  - claim-20260624-006-n
+  - claim-20260628-001-f
+  - claim-20260624-006-d
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -710,7 +782,7 @@ claims:
     cases: []
   topic: 半导体硅片进入涨价周期
   related_stocks:
-  - code: '002129'
+  - code: 002129
     name: TCL中环
     role: 半导体硅片-深主板可交易
   - code: '688432'
@@ -721,10 +793,11 @@ claims:
   - 涨价
   - 成熟制程
   - AI应用
+  school: qing
 - id: claim-20260629-001-w
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -739,7 +812,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260628-001-q"]
+  supplements:
+  - claim-20260628-001-q
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -750,17 +824,18 @@ claims:
   - code: '688295'
     name: 中复神鹰
     role: 碳纤维龙头-科创板不可交易
-  - code: "601008"
-    name: "连云港"
-    role: "回填-正文提及"
+  - code: '601008'
+    name: 连云港
+    role: 回填-正文提及
   tags:
   - 碳纤维
   - 中复神鹰
   - 产能投产
+  school: qing
 - id: claim-20260629-001-x
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -775,7 +850,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260605-001-e"]
+  supplements:
+  - claim-20260605-001-e
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -789,7 +865,7 @@ claims:
   - code: '688362'
     name: 甬矽电子
     role: 先进封装-科创板不可交易
-  - code: '002185'
+  - code: 002185
     name: 华天科技
     role: 先进封装-深主板可交易
   - code: '002156'
@@ -800,10 +876,11 @@ claims:
   - 扩产
   - OSAT
   - 算力需求
+  school: qing
 - id: claim-20260629-001-y
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -818,7 +895,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260614-006-h"]
+  supplements:
+  - claim-20260614-006-h
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -837,10 +915,11 @@ claims:
   - 光通信
   - 马斯克
   - Mesh
+  school: qing
 - id: claim-20260629-001-z
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -854,7 +933,8 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260604-004-b"]
+  contradicts:
+  - claim-20260604-004-b
   supplements: []
   last_discovered: 2026-06-29
   links:
@@ -867,10 +947,11 @@ claims:
   - 非科技股
   - 性价比
   - 叙事
+  school: qing
 - id: claim-20260629-001-aa
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -885,7 +966,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-003", "claim-20260522-002-d"]
+  supplements:
+  - claim-20260515-003
+  - claim-20260522-002-d
   last_discovered: 2026-06-29
   links:
     wiki_pages: []
@@ -897,10 +980,11 @@ claims:
   - 周一预案
   - 保留先手
   - 修复力度
+  school: qing
 - id: claim-20260629-001-ab
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -913,8 +997,11 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260608-001-b"]
-  contradicts: ["claim-20260531-001-f", "claim-20260602-001-a"]
+  supersedes:
+  - claim-20260608-001-b
+  contradicts:
+  - claim-20260531-001-f
+  - claim-20260602-001-a
   supplements: []
   last_discovered: 2026-06-29
   links:
@@ -923,7 +1010,7 @@ claims:
     cases: []
   topic: 情形A首选存储功率半导体半导体材料
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储核心标的-深主板可交易
   - code: '600667'
@@ -935,7 +1022,7 @@ claims:
   - code: '600703'
     name: 三安光电
     role: 化合物半导体-沪主板可交易
-  - code: '002129'
+  - code: 002129
     name: TCL中环
     role: 半导体硅片-深主板可交易
   - code: '688432'
@@ -946,10 +1033,11 @@ claims:
   - 国产替代
   - 中报业绩
   - 科技品种
+  school: qing
 - id: claim-20260629-001-ac
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -962,8 +1050,11 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260608-001-b"]
-  contradicts: ["claim-20260531-001-f", "claim-20260602-001-a"]
+  supersedes:
+  - claim-20260608-001-b
+  contradicts:
+  - claim-20260531-001-f
+  - claim-20260602-001-a
   supplements: []
   last_discovered: 2026-06-29
   links:
@@ -977,10 +1068,11 @@ claims:
   - 防守
   - 右侧信号
   - 连板晋级率
+  school: qing
 - id: claim-20260629-001-ad
   source_path: sources/raw/财经/2026-06-29-0903-早盘-指数破位与科技主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-29'
   source_type: 早盘
   extracted_at: '2026-06-29T12:20:15Z'
@@ -993,8 +1085,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260608-001-b"]
-  contradicts: ["claim-20260531-001-f", "claim-20260602-001-a"]
+  supersedes:
+  - claim-20260608-001-b
+  contradicts:
+  - claim-20260531-001-f
+  - claim-20260602-001-a
   supplements: []
   last_discovered: 2026-06-29
   links:
@@ -1008,3 +1103,4 @@ claims:
   - 量价配合
   - 位置决定意义
   - 不追高
+  school: qing

@@ -17,7 +17,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-011", "claim-20260907-006-a", "claim-20260825-013-a"]
+  supplements:
+  - claim-20260526-011
+  - claim-20260907-006-a
+  - claim-20260825-013-a
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -30,6 +33,7 @@ claims:
   - 创业板指数
   - 高位科技股
   - 指数弱势
+  school: watchlist
 - id: claim-20260826-004-002
   source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
   source_date: '2026-08-26'
@@ -48,7 +52,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260811-007"]
+  supplements:
+  - claim-20260811-007
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -62,6 +67,7 @@ claims:
   - 双头形态
   - PCB
   - 存储
+  school: watchlist
 - id: claim-20260826-004-003
   source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
   source_date: '2026-08-26'
@@ -96,6 +102,7 @@ claims:
   - 下跌中继
   - 市场缩量
   - 高位科技股
+  school: watchlist
 - id: claim-20260826-004-004
   source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
   source_date: '2026-08-26'
@@ -127,6 +134,7 @@ claims:
   - 20日线低吸
   - 破位止损
   - 波段开仓
+  school: watchlist
 - id: claim-20260826-004-005
   source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
   source_date: '2026-08-26'
@@ -162,6 +170,7 @@ claims:
   - 中报盈利
   - 短剧出海
   - AIGC
+  school: watchlist
 - id: claim-20260826-004-006
   source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
   source_date: '2026-08-26'
@@ -194,6 +203,7 @@ claims:
   - 做T
   - 补仓
   - 仓位管理
+  school: watchlist
 - id: claim-20260826-004-007
   source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
   source_date: '2026-08-26'
@@ -229,6 +239,7 @@ claims:
   - 中报脉冲
   - 竞价补仓
   - 盘感
+  school: watchlist
 - id: claim-20260826-004-008
   source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
   source_date: '2026-08-26'
@@ -261,6 +272,7 @@ claims:
   - AI漫剧
   - 中药
   - 被套持有
+  school: watchlist
 - id: claim-20260826-004-009
   source_path: sources/original/bilibili/2026-08-26-0808-视频-聊科技、医药短线，AI漫剧以及持仓 -.md
   source_date: '2026-08-26'
@@ -279,8 +291,11 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260824-002-i"]
-  supplements: ["claim-20260717-001-j", "claim-20260812-008"]
+  disagrees_with:
+  - claim-20260824-002-i
+  supplements:
+  - claim-20260717-001-j
+  - claim-20260812-008
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -296,3 +311,4 @@ claims:
   - 哈药股份
   - 中军锚
   - 止盈止损
+  school: watchlist

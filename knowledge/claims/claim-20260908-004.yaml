@@ -1,9 +1,8 @@
-# source: 2026-09-08-1333 光博会/高盛光模块谨慎动态（补提取 2026-09-09）
 claims:
 - id: claim-20260908-004-a
   source_path: sources/original/bilibili/2026-09-08-1333-图片-光博会明天就开了，这次高盛吹的太厉害了，这种位置还是谨慎一些.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-08'
   source_type: 动态
   extracted_at: '2026-09-09T20:14:00+08:00'
@@ -16,7 +15,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260805-014", "claim-20260824-001-h", "claim-20260714-005-bd"]
+  supersedes:
+  - claim-20260805-014
+  - claim-20260824-001-h
+  - claim-20260714-005-bd
   contradicts: []
   supplements: []
   last_discovered: 2026-09-09
@@ -32,10 +34,11 @@ claims:
   - 光模块
   - 利好兑现
   - 高位谨慎
+  school: qing
 - id: claim-20260908-004-b
   source_path: sources/original/bilibili/2026-09-08-1333-图片-光博会明天就开了，这次高盛吹的太厉害了，这种位置还是谨慎一些.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-09-08'
   source_type: 动态
   extracted_at: '2026-09-09T20:14:00+08:00'
@@ -50,7 +53,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260529-004-b", "claim-20260831-005-k", "claim-20260811-046"]
+  supplements:
+  - claim-20260529-004-b
+  - claim-20260831-005-k
+  - claim-20260811-046
   last_discovered: 2026-09-09
   links:
     wiki_pages: []
@@ -63,3 +69,4 @@ claims:
   - 事件驱动
   - 位置判断
   - 催化兑现
+  school: qing

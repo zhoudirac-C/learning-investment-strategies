@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260705-001-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -15,9 +15,12 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260623-005-c", "claim-20260623-005-a"]
+  supersedes:
+  - claim-20260623-005-c
+  - claim-20260623-005-a
   contradicts: []
-  supplements: ["claim-20260624-006-a"]
+  supplements:
+  - claim-20260624-006-a
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -27,10 +30,11 @@ claims:
   related_stocks: []
   tags:
   - A股科技
+  school: qing
 - id: claim-20260705-002-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -43,8 +47,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260608-004-d"]
-  contradicts: ["claim-20260415-001-a"]
+  supersedes:
+  - claim-20260608-004-d
+  contradicts:
+  - claim-20260415-001-a
   supplements: []
   last_discovered: 2026-07-06
   links:
@@ -56,10 +62,11 @@ claims:
   tags:
   - 反弹
   - 趋势反转
+  school: qing
 - id: claim-20260705-003-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -72,9 +79,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260603-004-a"]
+  supersedes:
+  - claim-20260603-004-a
   contradicts: []
-  supplements: ["claim-20260629-001-i", "claim-20260522-001-a"]
+  supplements:
+  - claim-20260629-001-i
+  - claim-20260522-001-a
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -83,10 +93,11 @@ claims:
   topic: 冲高回落为外力扰动后的技术性修复
   related_stocks: []
   tags: []
+  school: qing
 - id: claim-20260705-004-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -99,7 +110,9 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260528-004-i", "claim-20260524-013"]
+  supersedes:
+  - claim-20260528-004-i
+  - claim-20260524-013
   contradicts: []
   supplements: []
   last_discovered: 2026-07-06
@@ -111,10 +124,11 @@ claims:
   related_stocks: []
   tags:
   - 反弹
+  school: qing
 - id: claim-20260705-005-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -128,8 +142,11 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260626-001-b"]
-  supplements: ["claim-20260518-018", "claim-20260702-001-a"]
+  contradicts:
+  - claim-20260626-001-b
+  supplements:
+  - claim-20260518-018
+  - claim-20260702-001-a
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -138,10 +155,11 @@ claims:
   topic: 市场情绪回暖转向低位补涨
   related_stocks: []
   tags: []
+  school: qing
 - id: claim-20260705-006-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -154,9 +172,12 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260527-005-h", "claim-20260603-001-d"]
+  supersedes:
+  - claim-20260527-005-h
+  - claim-20260603-001-d
   contradicts: []
-  supplements: ["claim-20260629-004-a"]
+  supplements:
+  - claim-20260629-004-a
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -165,10 +186,11 @@ claims:
   topic: 风格切换将以反复拉锯方式进行
   related_stocks: []
   tags: []
+  school: qing
 - id: claim-20260705-007-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -181,7 +203,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260515-001", "claim-20260518-018", "claim-20260604-001-a"]
+  supersedes:
+  - claim-20260515-001
+  - claim-20260518-018
+  - claim-20260604-001-a
   contradicts: []
   supplements: []
   last_discovered: 2026-07-06
@@ -192,10 +217,11 @@ claims:
   topic: 市场处于混沌期轮动加快
   related_stocks: []
   tags: []
+  school: qing
 - id: claim-20260705-008-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -208,7 +234,9 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260622-003-c", "claim-20260622-003-o"]
+  supersedes:
+  - claim-20260622-003-c
+  - claim-20260622-003-o
   contradicts: []
   supplements: []
   last_discovered: 2026-07-06
@@ -219,10 +247,11 @@ claims:
   topic: 全面行情节奏将慢于预期
   related_stocks: []
   tags: []
+  school: qing
 - id: claim-20260705-009-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -235,8 +264,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260630-003-ar", "claim-20260702-002-k"]
-  contradicts: ["claim-20260703-001-g"]
+  supersedes:
+  - claim-20260630-003-ar
+  - claim-20260702-002-k
+  contradicts:
+  - claim-20260703-001-g
   supplements: []
   last_discovered: 2026-07-06
   links:
@@ -247,10 +279,11 @@ claims:
   related_stocks: []
   tags:
   - 半导体
+  school: qing
 - id: claim-20260705-010-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -265,7 +298,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-001", "claim-20260526-013", "claim-20260525-015"]
+  supplements:
+  - claim-20260526-001
+  - claim-20260526-013
+  - claim-20260525-015
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -276,17 +312,18 @@ claims:
   - code: '688120'
     name: 华海清科
     role: 科创板不可交易
-  - code: '002119'
+  - code: 002119
     name: 康强电子
     role: 主板可交易
   tags:
   - 韬定律
   - 先进封装
   - 混合键合
+  school: qing
 - id: claim-20260705-011-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -301,7 +338,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-002", "claim-20260624-006-j", "claim-20260526-010"]
+  supplements:
+  - claim-20260526-002
+  - claim-20260624-006-j
+  - claim-20260526-010
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -312,16 +352,17 @@ claims:
   - code: '688120'
     name: 华海清科
     role: 科创板不可交易
-  - code: '002119'
+  - code: 002119
     name: 康强电子
     role: 主板可交易
   tags:
   - 韬定律
   - 先进封装
+  school: qing
 - id: claim-20260705-012-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -335,8 +376,11 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260526-032"]
-  supplements: ["claim-20260702-005-e", "claim-20260702-005-b"]
+  contradicts:
+  - claim-20260526-032
+  supplements:
+  - claim-20260702-005-e
+  - claim-20260702-005-b
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -348,10 +392,11 @@ claims:
   - 反弹
   - 算力硬件
   - Token调用
+  school: qing
 - id: claim-20260705-013-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -366,7 +411,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-005-b"]
+  supplements:
+  - claim-20260623-005-b
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -377,10 +423,11 @@ claims:
   tags:
   - 算力硬件
   - Token调用
+  school: qing
 - id: claim-20260705-014-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -405,10 +452,11 @@ claims:
   related_stocks: []
   tags:
   - Token调用
+  school: qing
 - id: claim-20260705-015-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -422,7 +470,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260623-005-b"]
+  contradicts:
+  - claim-20260623-005-b
   supplements: []
   last_discovered: 2026-07-06
   links:
@@ -436,10 +485,11 @@ claims:
   - 算力硬件
   - Token调用
   - 仓位纪律
+  school: qing
 - id: claim-20260705-016-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -452,9 +502,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260515-007"]
+  supersedes:
+  - claim-20260515-007
   contradicts: []
-  supplements: ["claim-20260702-003-c", "claim-20260608-004-h"]
+  supplements:
+  - claim-20260702-003-c
+  - claim-20260608-004-h
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -464,10 +517,11 @@ claims:
   related_stocks: []
   tags:
   - 人形机器人
+  school: qing
 - id: claim-20260705-017-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -482,7 +536,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-005-g", "claim-20260623-005-b", "claim-20260607-004-g"]
+  supplements:
+  - claim-20260702-005-g
+  - claim-20260623-005-b
+  - claim-20260607-004-g
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -494,10 +551,11 @@ claims:
   - 算力硬件
   - Token调用
   - 人形机器人
+  school: qing
 - id: claim-20260705-018-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -512,7 +570,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-004-e", "claim-20260607-003-d", "claim-20260702-003-c"]
+  supplements:
+  - claim-20260607-004-e
+  - claim-20260607-003-d
+  - claim-20260702-003-c
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -522,10 +583,11 @@ claims:
   related_stocks: []
   tags:
   - 人形机器人
+  school: qing
 - id: claim-20260705-019-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -540,7 +602,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260531-002-a"]
+  supplements:
+  - claim-20260531-002-a
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -550,10 +613,11 @@ claims:
   related_stocks: []
   tags:
   - 反弹
+  school: qing
 - id: claim-20260705-020-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -566,9 +630,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260702-003-d"]
+  supersedes:
+  - claim-20260702-003-d
   contradicts: []
-  supplements: ["claim-20260702-001-e", "claim-20260629-004-z"]
+  supplements:
+  - claim-20260702-001-e
+  - claim-20260629-004-z
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -580,10 +647,11 @@ claims:
   - A股科技
   - 医药
   - 大金融
+  school: qing
 - id: claim-20260705-021-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -608,10 +676,11 @@ claims:
   related_stocks: []
   tags:
   - 船舶
+  school: qing
 - id: claim-20260705-022-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -626,7 +695,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-033-m", "claim-20260702-001-a", "claim-20260702-001-e"]
+  supplements:
+  - claim-20260617-033-m
+  - claim-20260702-001-a
+  - claim-20260702-001-e
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -637,10 +709,11 @@ claims:
   tags:
   - A股科技
   - 业绩锚
+  school: qing
 - id: claim-20260705-023-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -655,7 +728,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-021-a"]
+  supplements:
+  - claim-20260610-021-a
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -665,10 +739,11 @@ claims:
   related_stocks: []
   tags:
   - 商业航天
+  school: qing
 - id: claim-20260705-024-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -683,7 +758,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260518-012", "claim-20260515-008"]
+  supplements:
+  - claim-20260518-012
+  - claim-20260515-008
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -692,10 +769,11 @@ claims:
   topic: 资金结构切换预示行情性质改变
   related_stocks: []
   tags: []
+  school: qing
 - id: claim-20260705-025-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -710,7 +788,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260629-004-at", "claim-20260629-004-as", "claim-20260617-014-c"]
+  supplements:
+  - claim-20260629-004-at
+  - claim-20260629-004-as
+  - claim-20260617-014-c
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -720,10 +801,11 @@ claims:
   related_stocks: []
   tags:
   - 可回收火箭
+  school: qing
 - id: claim-20260705-026-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -738,7 +820,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-013-s", "claim-20260609-004-g", "claim-20260609-004-b"]
+  supplements:
+  - claim-20260617-013-s
+  - claim-20260609-004-g
+  - claim-20260609-004-b
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -749,10 +834,11 @@ claims:
   tags:
   - 商业航天
   - 可回收火箭
+  school: qing
 - id: claim-20260705-027-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -767,7 +853,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260629-004-au", "claim-20260617-013-s"]
+  supplements:
+  - claim-20260629-004-au
+  - claim-20260617-013-s
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -778,10 +866,11 @@ claims:
   tags:
   - 商业航天
   - 可回收火箭
+  school: qing
 - id: claim-20260705-028-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -796,7 +885,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-001-f"]
+  supplements:
+  - claim-20260611-001-f
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -812,10 +902,11 @@ claims:
     role: 科创板不可交易
   tags:
   - 存储
+  school: qing
 - id: claim-20260705-029-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -829,8 +920,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260626-001-k"]
-  supplements: ["claim-20260626-001-p"]
+  contradicts:
+  - claim-20260626-001-k
+  supplements:
+  - claim-20260626-001-p
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -847,10 +940,11 @@ claims:
   tags:
   - 存储
   - 业绩锚
+  school: qing
 - id: claim-20260705-030-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -865,7 +959,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-047-v", "claim-20260518-024"]
+  supplements:
+  - claim-20260617-047-v
+  - claim-20260518-024
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -884,10 +980,11 @@ claims:
   - 存储
   - 正帆科技
   - 聚辰股份
+  school: qing
 - id: claim-20260705-031-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -902,7 +999,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-003-e", "claim-20260608-004-h", "claim-20260630-003-ap"]
+  supplements:
+  - claim-20260521-003-e
+  - claim-20260608-004-h
+  - claim-20260630-003-ap
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -916,10 +1016,11 @@ claims:
   tags:
   - 人形机器人
   - 拓普集团
+  school: qing
 - id: claim-20260705-032-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -934,7 +1035,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-003", "claim-20260526-013"]
+  supplements:
+  - claim-20260526-003
+  - claim-20260526-013
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -949,10 +1052,11 @@ claims:
   - 韬定律
   - 华海清科
   - 业绩锚
+  school: qing
 - id: claim-20260705-033-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -967,7 +1071,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-002-k", "claim-20260630-003-ar"]
+  supplements:
+  - claim-20260702-002-k
+  - claim-20260630-003-ar
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -975,16 +1081,17 @@ claims:
     cases: []
   topic: 康强电子为补跌反弹窗口封装材料标的
   related_stocks:
-  - code: '002119'
+  - code: 002119
     name: 康强电子
     role: 主板可交易
   tags:
   - 反弹
   - 康强电子
+  school: qing
 - id: claim-20260705-034-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -999,7 +1106,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-001-d", "claim-20260525-003"]
+  supplements:
+  - claim-20260521-001-d
+  - claim-20260525-003
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -1012,10 +1121,11 @@ claims:
     role: 主板可交易
   tags:
   - 格林达
+  school: qing
 - id: claim-20260705-035-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -1030,7 +1140,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260703-001-g"]
+  supplements:
+  - claim-20260703-001-g
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -1044,10 +1155,11 @@ claims:
   tags:
   - 算力硬件
   - 和林微纳
+  school: qing
 - id: claim-20260705-036-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -1062,7 +1174,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-007-e"]
+  supplements:
+  - claim-20260604-007-e
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -1076,10 +1189,11 @@ claims:
   tags:
   - 医药
   - 海特生物
+  school: qing
 - id: claim-20260705-037-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -1109,10 +1223,11 @@ claims:
   - A股科技
   - 中际联合
   - 业绩锚
+  school: qing
 - id: claim-20260705-038-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -1127,7 +1242,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260614-004-d", "claim-20260515-012", "claim-20260609-005-f"]
+  supplements:
+  - claim-20260614-004-d
+  - claim-20260515-012
+  - claim-20260609-005-f
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -1141,10 +1259,11 @@ claims:
   - 半导体
   - 先进封装
   - 量能
+  school: qing
 - id: claim-20260705-039-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -1159,7 +1278,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-001-f", "claim-20260607-003-d"]
+  supplements:
+  - claim-20260608-001-f
+  - claim-20260607-003-d
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -1170,10 +1291,11 @@ claims:
   tags:
   - 人形机器人
   - 量能
+  school: qing
 - id: claim-20260705-040-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -1188,7 +1310,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-014-c", "claim-20260629-004-au", "claim-20260617-013-s"]
+  supplements:
+  - claim-20260617-014-c
+  - claim-20260629-004-au
+  - claim-20260617-013-s
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -1200,10 +1325,11 @@ claims:
   - 商业航天
   - 可回收火箭
   - 量能
+  school: qing
 - id: claim-20260705-041-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -1216,9 +1342,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260531-002-a"]
+  supersedes:
+  - claim-20260531-002-a
   contradicts: []
-  supplements: ["claim-20260629-001-ac", "claim-20260609-005-a"]
+  supplements:
+  - claim-20260629-001-ac
+  - claim-20260609-005-a
   last_discovered: 2026-07-06
   links:
     wiki_pages: []
@@ -1232,10 +1361,11 @@ claims:
   - 大金融
   - 业绩锚
   - 量能
+  school: qing
 - id: claim-20260705-042-a
   source_path: sources/original/bilibili/2026-07-05-2317-专栏-周五三大指数冲高回落，午后涨幅明显收窄，收盘沪指涨0.37%.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-05'
   source_type: 复盘
   extracted_at: '2026-07-06T00:13:21Z'
@@ -1248,7 +1378,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260612-006-f", "claim-20260610-037-a", "claim-20260611-001-m"]
+  supersedes:
+  - claim-20260612-006-f
+  - claim-20260610-037-a
+  - claim-20260611-001-m
   contradicts: []
   supplements: []
   last_discovered: 2026-07-06
@@ -1260,3 +1393,4 @@ claims:
   related_stocks: []
   tags:
   - 仓位纪律
+  school: qing

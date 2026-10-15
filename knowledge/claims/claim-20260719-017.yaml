@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260719-017
   source_path: sources/original/bilibili/2026-07-19-2252-专栏-周五指数全天单边回落，券商银行一度拉升，上证指数纹丝不动，尾.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-19'
   source_type: 专栏
   extracted_at: '2026-07-19T23:53:00+08:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260622-001-h"]
-  contradicts: ["claim-20260527-005-a"]
-  supplements: ["claim-20260612-002-e"]
+  supersedes:
+  - claim-20260622-001-h
+  contradicts:
+  - claim-20260527-005-a
+  supplements:
+  - claim-20260612-002-e
   last_discovered: 2026-07-20
   links: {}
   topic: 下周计划两种情形应对，核心看周一承接与科技表现
@@ -28,3 +31,4 @@ claims:
   - 情形B
   - 止跌确认
   - 科技补跌
+  school: qing

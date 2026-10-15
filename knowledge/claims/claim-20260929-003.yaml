@@ -19,7 +19,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-061", "claim-20260820-041"]
+  supplements:
+  - claim-20260819-061
+  - claim-20260820-041
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -32,6 +34,7 @@ claims:
   - 企业预算
   - 重新定价
   - Anthropic
+  school: qing
 - id: claim-20260929-003-b
   source_path: sources/original/bilibili/2026-09-29-0923-图片-围绕人工智能商业化，最近出现了一场值得关注的争论：即使模型越.md
   source_date: '2026-09-29'
@@ -52,7 +55,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-001-x", "claim-20260805-032"]
+  supplements:
+  - claim-20260921-001-x
+  - claim-20260805-032
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -64,6 +69,7 @@ claims:
   - 收入口径
   - 按用量收费
   - 方法论
+  school: qing
 - id: claim-20260929-003-c
   source_path: sources/original/bilibili/2026-09-29-1016-图片-梦想选手这两天要考虑一下布局十一期间可能会发酵的点了，目前有.md
   source_date: '2026-09-29'
@@ -83,7 +89,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260923-002-b"]
+  contradicts:
+  - claim-20260923-002-b
   supplements: []
   last_discovered: 2026-10-02
   links:
@@ -97,6 +104,7 @@ claims:
   - MUSE
   - VNA
   - 梦想选手
+  school: qing
 - id: claim-20260929-003-d
   source_path: sources/original/bilibili/2026-09-29-1435-图片-基本上也就昨天一天能加仓的，今天没什么好加仓的点，今天是节前.md
   source_date: '2026-09-29'
@@ -129,3 +137,4 @@ claims:
   - 出金日
   - 仓位管理
   - 节前操作
+  school: qing

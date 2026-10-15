@@ -18,7 +18,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260820-027"]
+  supplements:
+  - claim-20260820-027
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -30,6 +31,7 @@ claims:
   - 修复验证
   - 持续买盘
   - 低点确认
+  school: qing
 - id: claim-20261013-001-b
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -49,7 +51,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260909-011-a", "claim-20260927-001-f", "claim-20261012-004-c"]
+  supplements:
+  - claim-20260909-011-a
+  - claim-20260927-001-f
+  - claim-20261012-004-c
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -61,6 +66,7 @@ claims:
   - 缩量
   - 抛压
   - 双义信号
+  school: qing
 - id: claim-20261013-001-c
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -78,9 +84,11 @@ claims:
   status: active
   stance: market-regime
   intensity: high
-  supersedes: ["claim-20260806-007"]
+  supersedes:
+  - claim-20260806-007
   contradicts: []
-  supplements: ["claim-20260803-021"]
+  supplements:
+  - claim-20260803-021
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -102,6 +110,7 @@ claims:
   - 光通信
   - 筹码压力
   - 归因
+  school: qing
 - id: claim-20261013-001-d
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -121,7 +130,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260929-001-o", "claim-20260929-001-a", "claim-20260609-001-c"]
+  supplements:
+  - claim-20260929-001-o
+  - claim-20260929-001-a
+  - claim-20260609-001-c
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -134,6 +146,7 @@ claims:
   - 底部钝化
   - 见底纪律
   - 方法论
+  school: qing
 - id: claim-20261013-001-e
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -153,7 +166,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261008-007-c", "claim-20260929-001-h"]
+  supplements:
+  - claim-20261008-007-c
+  - claim-20260929-001-h
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -166,6 +181,7 @@ claims:
   - '3791'
   - '3754'
   - 量能同时段
+  school: qing
 - id: claim-20261013-001-f
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -185,7 +201,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261008-007-d", "claim-20260901-048-a", "claim-20261012-004-d"]
+  supplements:
+  - claim-20261008-007-d
+  - claim-20260901-048-a
+  - claim-20261012-004-d
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -207,6 +226,7 @@ claims:
   - 防御资金
   - 券商保险
   - 扩散
+  school: qing
 - id: claim-20261013-001-g
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -226,7 +246,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-019", "claim-20261012-004-e", "claim-20260921-002-f"]
+  supplements:
+  - claim-20260913-001-019
+  - claim-20261012-004-e
+  - claim-20260921-002-f
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -239,6 +262,7 @@ claims:
   - 跌停收敛
   - 首板供给
   - 统计口径
+  school: qing
 - id: claim-20261013-001-h
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -256,9 +280,11 @@ claims:
   status: active
   stance: view
   intensity: high
-  supersedes: ["claim-20261012-004-h"]
+  supersedes:
+  - claim-20261012-004-h
   contradicts: []
-  supplements: ["claim-20260913-001-022"]
+  supplements:
+  - claim-20260913-001-022
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -277,6 +303,7 @@ claims:
   - 价格反应
   - 源杰科技
   - 联讯仪器
+  school: qing
 - id: claim-20261013-001-i
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -294,9 +321,12 @@ claims:
   status: active
   stance: view
   intensity: high
-  supersedes: ["claim-20260910-004-a", "claim-20260928-002-i"]
+  supersedes:
+  - claim-20260910-004-a
+  - claim-20260928-002-i
   contradicts: []
-  supplements: ["claim-20261008-007-h"]
+  supplements:
+  - claim-20261008-007-h
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -315,6 +345,7 @@ claims:
   - 操作预案
   - 有限试错
   - 控制回撤
+  school: qing
 - id: claim-20261013-001-j
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -347,6 +378,7 @@ claims:
   - 高低切
   - 催化
   - 方法论
+  school: qing
 - id: claim-20261013-001-k
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -366,7 +398,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261009-001-j", "claim-20260806-007"]
+  supplements:
+  - claim-20261009-001-j
+  - claim-20260806-007
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -379,6 +413,7 @@ claims:
   - AI应用
   - 风险偏好
   - 科创50
+  school: qing
 - id: claim-20261013-001-l
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -398,7 +433,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261012-004-h"]
+  supplements:
+  - claim-20261012-004-h
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -417,6 +453,7 @@ claims:
   - 联讯仪器
   - 机构卖压
   - 假设验证
+  school: qing
 - id: claim-20261013-001-m
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -436,7 +473,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-005", "claim-20260913-001-016", "claim-20260929-002-h"]
+  supplements:
+  - claim-20260914-001-005
+  - claim-20260913-001-016
+  - claim-20260929-002-h
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -449,6 +489,7 @@ claims:
   - 美债收益率
   - 黄金
   - 宏观框架
+  school: qing
 - id: claim-20261013-001-n
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -481,6 +522,7 @@ claims:
   - 财报
   - 存款成本
   - 贷款需求
+  school: qing
 - id: claim-20261013-001-o
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -498,7 +540,8 @@ claims:
   status: active
   stance: view
   intensity: medium
-  supersedes: ["claim-20261012-004-n"]
+  supersedes:
+  - claim-20261012-004-n
   contradicts: []
   supplements: []
   last_discovered: 2026-10-13
@@ -519,6 +562,7 @@ claims:
   - 金丹科技
   - 善水科技
   - 利润传导
+  school: qing
 - id: claim-20261013-001-p
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -538,7 +582,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260830-022-a"]
+  supplements:
+  - claim-20260830-022-a
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -557,6 +602,7 @@ claims:
   - Nebius
   - 商业模式
   - 利用率
+  school: qing
 - id: claim-20261013-001-q
   source_path: sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md
   source_date: '2026-10-13'
@@ -576,7 +622,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261011-001-q"]
+  supplements:
+  - claim-20261011-001-q
   last_discovered: 2026-10-13
   links:
     wiki_pages: []
@@ -589,3 +636,4 @@ claims:
   - 化工
   - 电池
   - 防御轮动
+  school: qing

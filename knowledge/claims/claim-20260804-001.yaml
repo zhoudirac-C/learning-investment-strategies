@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260804-001
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -15,9 +15,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260610-006-a"]
+  supersedes:
+  - claim-20260610-006-a
   contradicts: []
-  supplements: ["claim-20260702-002-a"]
+  supplements:
+  - claim-20260702-002-a
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -31,10 +33,11 @@ claims:
   - 失真
   - 七巨头
   - 开盘定价
+  school: qing
 - id: claim-20260804-002
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -42,16 +45,16 @@ claims:
   subject: 存储修复只沿NAND一条支线
   timeframe: short-term
   statement: 存储隔夜修复只沿铠侠-闪迪-NAND/模组这一条线而非整个存储链条同步：铠侠ADR涨约14%、闪迪反弹超6%、美光仅涨0.79%，而SK海力士跌0.70%、西部数据与希捷均跌逾3%；映射到A股同样挂着存储二字，今天开盘的含金量不一样——NAND模组方向的止跌确定性高于HBM、先进封装与DRAM相关方向。
-  evidence_quote: 个人判断：这一轮修复是「铠侠—闪迪—NAND / 模组」这一条线，而非整个存储链条同步。DRAM 与 HBM 的代表（SK 海力士、美光）、HDD
-    的代表（西数、希捷）都没跟上。映射到 A 股，同样挂着「存储」两个字，今天开盘的含金量并不一样：NAND 模组方向的止跌确定性，要高于 HBM、先进封装与
-    DRAM 相关方向。
+  evidence_quote: 个人判断：这一轮修复是「铠侠—闪迪—NAND / 模组」这一条线，而非整个存储链条同步。DRAM 与 HBM 的代表（SK 海力士、美光）、HDD 的代表（西数、希捷）都没跟上。映射到 A 股，同样挂着「存储」两个字，今天开盘的含金量并不一样：NAND 模组方向的止跌确定性，要高于 HBM、先进封装与 DRAM 相关方向。
   interpretation: UP对存储修复给出精细的结构判断：隔夜正反馈（铠侠ADR+14%）只沿NAND/模组支线传导，DRAM/HBM（SK海力士/美光）与HDD（西数/希捷）掉队。A股映射含金量分层：NAND模组止跌确定性最高，HBM/先进封装/DRAM次之。这是当日开盘预期定价的核心依据。
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260803-002"]
+  supersedes:
+  - claim-20260803-002
   contradicts: []
-  supplements: ["claim-20260803-009"]
+  supplements:
+  - claim-20260803-009
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -65,10 +68,11 @@ claims:
   - DRAM
   - HBM
   - 支线分化
+  school: qing
 - id: claim-20260804-003
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -76,15 +80,16 @@ claims:
   subject: 光通信是隔夜更干净的线
   timeframe: intraday
   statement: 隔夜光通信涨幅结构比存储整齐得多且没有先跌3%再拉回的过程：Lumentum涨9.24%、Coherent涨逾9%、康宁涨6.07%、Credo涨逾5%；今天A股开盘后最值得优先验证的不是存储，而是光模块方向能否接得住这份外溢。
-  evidence_quote: 另一条昨日盘前材料里没有覆盖、但隔夜信号更干净的线是光通信。据公开行情，Lumentum 涨 9.24%，Coherent 涨逾
-    9%，康宁涨 6.07%，Credo 涨逾 5%。这一组的涨幅结构比存储整齐得多，且没有「先跌 3% 再拉回」的过程。倾向于认为，今天 A 股开盘后最值得优先验证的不是存储，而是光模块方向能否接得住这份外溢。
+  evidence_quote: 另一条昨日盘前材料里没有覆盖、但隔夜信号更干净的线是光通信。据公开行情，Lumentum 涨 9.24%，Coherent 涨逾 9%，康宁涨 6.07%，Credo 涨逾 5%。这一组的涨幅结构比存储整齐得多，且没有「先跌 3% 再拉回」的过程。倾向于认为，今天 A 股开盘后最值得优先验证的不是存储，而是光模块方向能否接得住这份外溢。
   interpretation: UP指出光通信是隔夜最干净的信号：涨幅整齐（Lumentum/Coherent/康宁/Credo全线上涨）且无先跌后拉过程，强度优于存储。操作含义：今日优先验证光模块承接而非存储——把最干净的信号放在最前面看。
   confidence: high
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260608-001-d"]
-  supplements: ["claim-20260803-009"]
+  contradicts:
+  - claim-20260608-001-d
+  supplements:
+  - claim-20260803-009
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -98,10 +103,11 @@ claims:
   - Coherent
   - 外溢
   - 优先验证
+  school: qing
 - id: claim-20260804-004
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -109,13 +115,13 @@ claims:
   subject: 油价大跌：石油石化压制，中下游边际利好
   timeframe: short-term
   statement: 特朗普宣布取消原定针对伊朗的打击行动+OPEC+决定自2026年9月起每日产量配额上调18.8万桶，国际油价大跌（WTI跌逾5%、布伦特跌逾4%）：对石油石化是压制项，对航空、交运及化工中下游是成本端边际利好，但油价单日大跌本身不足以支撑这些方向走出独立行情。
-  evidence_quote: 其余外围变量：据公开报道，美国总统特朗普宣布取消原定针对伊朗的打击行动，国际油价大跌，NYMEX WTI 原油跌逾 5%、ICE
-    布伦特原油跌逾 4%；叠加 OPEC+ 决定自 2026 年 9 月起每日石油产量配额上调 18.8 万桶。个人判断，这对石油石化是压制项，对航空、交运及化工中下游是成本端的边际利好，但油价单日大跌本身不足以支撑这些方向走出独立行情。
+  evidence_quote: 其余外围变量：据公开报道，美国总统特朗普宣布取消原定针对伊朗的打击行动，国际油价大跌，NYMEX WTI 原油跌逾 5%、ICE 布伦特原油跌逾 4%；叠加 OPEC+ 决定自 2026 年 9 月起每日石油产量配额上调 18.8 万桶。个人判断，这对石油石化是压制项，对航空、交运及化工中下游是成本端的边际利好，但油价单日大跌本身不足以支撑这些方向走出独立行情。
   interpretation: UP分析油价大跌的结构性影响：利空石油石化（压制项）、利好航空/交运/化工中下游（成本端边际利好），但明确单日油价波动不足以支撑独立行情——只做成本端参考，不做方向级判断。
   confidence: high
   status: superseded
   intensity: low
-  supersedes: ["claim-20260720-030"]
+  supersedes:
+  - claim-20260720-030
   contradicts: []
   supplements: []
   last_discovered: 2026-08-04
@@ -131,10 +137,11 @@ claims:
   - OPEC+
   - 石油石化
   - 中下游利好
+  school: qing
 - id: claim-20260804-005
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -142,16 +149,15 @@ claims:
   subject: 本周三个硬时点：非农与SpaceX财报及闪迪西数财报
   timeframe: short-term
   statement: 本周日历上有三个硬时点：其一，周五美国7月非农（FactSet预期新增8.75万人、前值5.7万，失业率或从4.2%升至4.3%）；其二，SpaceX周二首次以上市公司身份发布财报，商业航天今日盘中可能提前反应；其三，闪迪与西部数据财报预计北京时间8月6日凌晨前后发布（待核实）——若属实则周三收盘前存储方向仓位管理需预留变量，不宜在财报前把仓位打满。
-  evidence_quote: 本周日历上有三个硬时点。其一，据新浪财经援引 FactSet 一致预期，美国 7 月非农预计新增 8.75 万人（前值 5.7
-    万），失业率或从 4.2% 升至 4.3%，周五公布。其二，据公开报道，SpaceX 将于本周二首次以上市公司身份发布财报，商业航天方向今日盘中可能提前反应。其三，据雪球等公开日程信息，闪迪与西部数据财报预计在北京时间
-    8 月 6 日凌晨前后发布——此项待核实，但若属实，则周三收盘前存储方向的仓位管理需要预留这个变量，不宜在财报前把仓位打满。
+  evidence_quote: 本周日历上有三个硬时点。其一，据新浪财经援引 FactSet 一致预期，美国 7 月非农预计新增 8.75 万人（前值 5.7 万），失业率或从 4.2% 升至 4.3%，周五公布。其二，据公开报道，SpaceX 将于本周二首次以上市公司身份发布财报，商业航天方向今日盘中可能提前反应。其三，据雪球等公开日程信息，闪迪与西部数据财报预计在北京时间 8 月 6 日凌晨前后发布——此项待核实，但若属实，则周三收盘前存储方向的仓位管理需要预留这个变量，不宜在财报前把仓位打满。
   interpretation: UP列出本周三个时点风险：周五非农（失业率上行预期）、周二SpaceX财报（商业航天提前反应）、闪迪/西数8/6凌晨财报（存储仓位需预留变量，财报前不打满仓）。这是本周操作的时间约束框架。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-014"]
+  supplements:
+  - claim-20260803-014
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -165,10 +171,11 @@ claims:
   - 闪迪财报
   - 硬时点
   - 仓位管理
+  school: qing
 - id: claim-20260804-006
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -176,14 +183,14 @@ claims:
   subject: 量能2万亿：历史首次跌至2万亿的位置
   timeframe: short-term
   statement: 昨日沪深两市成交2万亿元（缩量5446亿），一步到位缩到2万亿，位置上对应去年10月中旬与今年2月中旬那两次量能首次跌至2万亿；理论上距离一波量价齐升的反弹不远了，但两轮历史样本里首次到2万亿之后都还有一段在这一带的反复，直接从此起爆的概率并不高于先去1.8至1.9万亿再磨一次的概率——把快到了当成就是今天，是这个位置最容易犯的错。
-  evidence_quote: 按此前归纳的量能路径：峰值近 4 万亿先降至 2.5 至 2.6 万亿区间，再回升至 3 万亿以上，跌破 2.5 万亿后进一步缩至
-    2 万亿，在此反复一段时间，最后才落到 1.5 至 1.6 万亿的地量——分别对应去年 11 月底和今年 4 月初。昨天是一步到位缩到 2 万亿，位置上对应去年
-    10 月中旬与今年 2 月中旬那两次「量能首次跌至 2 万亿」。个人判断，理论上距离一波量价齐升的反弹不远了；但两轮历史样本里，「首次到 2 万亿」之后都还有一段在这一带的反复……把「快到了」当成「就是今天」，是这个位置最容易犯的错。
+  evidence_quote: 按此前归纳的量能路径：峰值近 4 万亿先降至 2.5 至 2.6 万亿区间，再回升至 3 万亿以上，跌破 2.5 万亿后进一步缩至 2 万亿，在此反复一段时间，最后才落到 1.5 至 1.6 万亿的地量——分别对应去年 11 月底和今年 4 月初。昨天是一步到位缩到 2 万亿，位置上对应去年 10 月中旬与今年 2 月中旬那两次「量能首次跌至 2 万亿」。个人判断，理论上距离一波量价齐升的反弹不远了；但两轮历史样本里，「首次到 2 万亿」之后都还有一段在这一带的反复……把「快到了」当成「就是今天」，是这个位置最容易犯的错。
   interpretation: UP用历史量能路径定位当前：昨日2万亿=历史两次首次跌至2万亿的位置（去年10月中/今年2月中）。判断：距反弹不远但首次到2万亿后通常还有反复，不排除先去1.8-1.9万亿再磨。核心警示：快到了≠就是今天，防止左侧抢跑。
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260212-001-a", "claim-20260623-001-a"]
+  supersedes:
+  - claim-20260212-001-a
+  - claim-20260623-001-a
   contradicts: []
   supplements: []
   last_discovered: 2026-08-04
@@ -199,10 +206,11 @@ claims:
   - 快到了
   - 量价齐升
   - 反复磨底
+  school: qing
 - id: claim-20260804-007
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -215,9 +223,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260702-003-a", "claim-20260723-028"]
+  supersedes:
+  - claim-20260702-003-a
+  - claim-20260723-028
   contradicts: []
-  supplements: ["claim-20260803-013"]
+  supplements:
+  - claim-20260803-013
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -231,10 +242,11 @@ claims:
   - 恐慌出清
   - 4000只上涨
   - 结构判别
+  school: qing
 - id: claim-20260804-008
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -242,15 +254,16 @@ claims:
   subject: 结构健康不等于指数自己走出来
   timeframe: short-term
   statement: 缩量磨底期指数方向由权重决定、赚钱效应由中小盘决定，两者可以长期背离：上证从上周二至今在3750至3850之间小幅震荡，创业板指昨天与上周二的收盘价其实相差有限；震荡筑底的判断到目前为止没有被证伪，性价比区域的定位也没有变化。
-  evidence_quote: 但结构健康不等于指数能自己走出来。缩量磨底期，指数的方向由权重决定，赚钱效应由中小盘决定，两者可以长期背离。上证从上周二至今在
-    3750 至 3850 之间小幅震荡，创业板指看着波动大，昨天与上周二的收盘价其实相差有限。震荡筑底的判断到目前为止没有被证伪，性价比区域的定位也没有变化。
+  evidence_quote: 但结构健康不等于指数能自己走出来。缩量磨底期，指数的方向由权重决定，赚钱效应由中小盘决定，两者可以长期背离。上证从上周二至今在 3750 至 3850 之间小幅震荡，创业板指看着波动大，昨天与上周二的收盘价其实相差有限。震荡筑底的判断到目前为止没有被证伪，性价比区域的定位也没有变化。
   interpretation: UP强调磨底期的指数与赚钱效应分离机制：权重决定指数方向、中小盘决定赚钱效应，可长期背离。上证3750-3850窄幅震荡验证筑底判断未被证伪——但结构健康不保证指数上行，这是对磨底性质的精确限定。
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260609-005-a"]
+  supersedes:
+  - claim-20260609-005-a
   contradicts: []
-  supplements: ["claim-20260723-028"]
+  supplements:
+  - claim-20260723-028
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -264,10 +277,11 @@ claims:
   - 震荡筑底
   - 3750-3850
   - 结构健康
+  school: qing
 - id: claim-20260804-009
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -275,15 +289,17 @@ claims:
   subject: 昨日接力数据：承接在线但首板下滑
   timeframe: intraday
   statement: 昨日二板家数13个对应一进二晋级率14.77%，首板家数由88家减少至58家（降幅远好于7月下旬），跌停数量控制在个位数，高标传智教育(003032)缩量一字晋级至6板、次高标一鸣食品(605179)尾盘上板；13个二板与88个首板按15%晋级率口径基本吻合，承接在线。但瑕疵在首板家数下滑——意味着新增资金仍在观望，昨天的接力靠的是存量高标的稳定性而不是增量入场，一旦高标出现分歧，缺乏首板梯队会让情绪的下滑速度快于上行速度。
-  evidence_quote: 据昨日盘面数据，二板家数 13 个，对应一进二晋级率 14.77%；首板家数由 88 家减少至 58 家，降幅远好于 7 月下旬；跌停数量控制在个位数；高标传智教育缩量一字晋级至
-    6 板，次高标一鸣食品尾盘上板。按「首板家数 × 约 15% 晋级率」的推演口径，13 个二板与 88 个首板基本吻合，承接是在线的。唯一的瑕疵在首板家数下滑。个人判断，这意味着新增资金仍在观望，昨天的接力靠的是存量高标的稳定性而不是增量入场；一旦高标出现分歧，缺乏首板梯队会让情绪的下滑速度快于上行速度。
+  evidence_quote: 据昨日盘面数据，二板家数 13 个，对应一进二晋级率 14.77%；首板家数由 88 家减少至 58 家，降幅远好于 7 月下旬；跌停数量控制在个位数；高标传智教育缩量一字晋级至 6 板，次高标一鸣食品尾盘上板。按「首板家数 × 约 15% 晋级率」的推演口径，13 个二板与 88 个首板基本吻合，承接是在线的。唯一的瑕疵在首板家数下滑。个人判断，这意味着新增资金仍在观望，昨天的接力靠的是存量高标的稳定性而不是增量入场；一旦高标出现分歧，缺乏首板梯队会让情绪的下滑速度快于上行速度。
   interpretation: UP量化昨日情绪结构：二板13个/晋级率14.77%、首板88→58家、跌停个位数、传智教育(003032)6板、一鸣食品(605179)尾盘上板，按15%晋级率口径吻合=承接在线；但首板下滑暴露隐患——接力靠存量高标而非增量，高标分歧时情绪下坠快。首板家数列为今日跟踪项。
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260623-001-c", "claim-20260716-001-d"]
+  supersedes:
+  - claim-20260623-001-c
+  - claim-20260716-001-d
   contradicts: []
-  supplements: ["claim-20260723-005"]
+  supplements:
+  - claim-20260723-005
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -297,10 +313,11 @@ claims:
   - 首板下滑
   - 传智教育6板
   - 承接在线
+  school: qing
 - id: claim-20260804-010
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -308,15 +325,16 @@ claims:
   subject: 情形A：正反馈落地确认量能低点
   timeframe: intraday
   statement: 情形A正反馈落地：存储方向高开后能守住分时均价（重点看德明利(001309)、江波龙(301308)这类NAND与模组标的），光模块跟随隔夜光通信走强且不是一小时行情，量能从2万亿回升——则可以确认昨天的缩量就是这一轮的量能低点，科技止跌即指数止跌；操作原则仍是多找低点而非追高，按科技的反弹是让科技止跌的框架，止跌来自有承接而不是无抛压，要在大资金对轰的攻守易势过程中建仓，而不是等它走完。
-  evidence_quote: 情形 A · 正反馈落地：存储方向高开后能守住分时均价（重点看德明利、江波龙这类 NAND 与模组标的），光模块跟随隔夜光通信走强并且不是一小时行情，量能从
-    2 万亿回升。则可以确认昨天的缩量就是这一轮的量能低点，科技止跌即指数止跌。此种情形下的操作原则仍是「多找低点」而非追高——按「科技的反弹是让科技止跌，而不是反弹」的框架，止跌来自有承接而不是无抛压，跌停股龙虎榜上的大资金对轰就是攻守易势的过程，要在这个过程中建仓，而不是等它走完。
+  evidence_quote: 情形 A · 正反馈落地：存储方向高开后能守住分时均价（重点看德明利、江波龙这类 NAND 与模组标的），光模块跟随隔夜光通信走强并且不是一小时行情，量能从 2 万亿回升。则可以确认昨天的缩量就是这一轮的量能低点，科技止跌即指数止跌。此种情形下的操作原则仍是「多找低点」而非追高——按「科技的反弹是让科技止跌，而不是反弹」的框架，止跌来自有承接而不是无抛压，跌停股龙虎榜上的大资金对轰就是攻守易势的过程，要在这个过程中建仓，而不是等它走完。
   interpretation: UP给出情形A的三条件：存储守分时均价（德明利(001309)/江波龙(301308)NAND模组）+光模块非一小时行情+量能回升。确认后操作多找低点不追高，建仓时机选在攻守易势过程中而非完成后。这是对科技反弹框架（让科技止跌而非反弹）的盘中应用。
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260730-019"]
+  supersedes:
+  - claim-20260730-019
   contradicts: []
-  supplements: ["claim-20260729-004"]
+  supplements:
+  - claim-20260729-004
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -324,7 +342,7 @@ claims:
     cases: []
   topic: 情形A：存储守均价+光模块接住+量能回升=量能低点，多找低点不追高
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储NAND模组-观察标的-深主板可交易
   - code: '301308'
@@ -336,10 +354,11 @@ claims:
   - 分时均价
   - 多找低点
   - 量能低点
+  school: qing
 - id: claim-20260804-011
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -347,15 +366,17 @@ claims:
   subject: 情形B：高开低走则做T等待
   timeframe: intraday
   statement: 情形B高开低走：存储冲高回落、光模块只反弹半小时到一小时、量能不升反降至1.9万亿以下——则说明外盘正反馈没有转化成场内承接，2万亿不是终点，参考去年11月底与今年4月初的1.5至1.6万亿地量，磨底时间要往后拉；此种情形下不必急于抄科技，做T为主或持股等待，等右侧确认。
-  evidence_quote: 情形 B · 高开低走：存储冲高回落，光模块只反弹半小时到一小时，量能不升反降至 1.9 万亿以下。则说明外盘的正反馈没有转化成场内承接，2
-    万亿不是终点；参考去年 11 月底与今年 4 月初的 1.5 至 1.6 万亿地量，磨底时间要往后拉。此种情形下不必急于抄科技，做 T 为主或持股等待，等右侧确认。
+  evidence_quote: 情形 B · 高开低走：存储冲高回落，光模块只反弹半小时到一小时，量能不升反降至 1.9 万亿以下。则说明外盘的正反馈没有转化成场内承接，2 万亿不是终点；参考去年 11 月底与今年 4 月初的 1.5 至 1.6 万亿地量，磨底时间要往后拉。此种情形下不必急于抄科技，做 T 为主或持股等待，等右侧确认。
   interpretation: UP给出情形B的三条件：存储冲高回落+光模块反弹仅半小时到一小时+量能降至1.9万亿以下。对应操作：不急于抄科技、做T或持股等待右侧确认，磨底时间按1.5-1.6万亿地量样本拉长。与情形A构成完整双预案。
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260803-013"]
+  supersedes:
+  - claim-20260803-013
   contradicts: []
-  supplements: ["claim-20260729-004", "claim-20260802-023"]
+  supplements:
+  - claim-20260729-004
+  - claim-20260802-023
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -363,7 +384,7 @@ claims:
     cases: []
   topic: 情形B：存储冲高回落+光模块半小时行情+量能1.9万亿以下则做T等待
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储-冲高回落观察-深主板可交易
   - code: '301308'
@@ -375,10 +396,11 @@ claims:
   - 1.9万亿
   - 做T等待
   - 右侧确认
+  school: qing
 - id: claim-20260804-012
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -386,15 +408,15 @@ claims:
   subject: 开盘观察顺序与反向信号
   timeframe: intraday
   statement: 开盘观察顺序建议：光模块→NAND模组→指数量能，把最干净的信号放在最前面看而不是先盯着最纠结的存储；反向信号：如果今天电力、医药、大消费这类传统超跌板块反而强于科技，那不是好消息，而是情形B的早期征兆——它们靠指数回调才支愣起来，在隔夜科技全线走强的背景下还能跑赢，只能说明资金不敢碰科技。
-  evidence_quote: 开盘观察顺序建议是：光模块 → NAND 模组 → 指数量能。把最干净的信号放在最前面看，而不是先盯着最纠结的存储。另外提示一个反向信号：如果今天电力、医药、大消费这类传统超跌板块反而强于科技，那不是好消息，而是情形
-    B 的早期征兆——它们本就靠「指数回调」才支愣起来，在隔夜科技全线走强的背景下还能跑赢，只能说明资金不敢碰科技。
+  evidence_quote: 开盘观察顺序建议是：光模块 → NAND 模组 → 指数量能。把最干净的信号放在最前面看，而不是先盯着最纠结的存储。另外提示一个反向信号：如果今天电力、医药、大消费这类传统超跌板块反而强于科技，那不是好消息，而是情形 B 的早期征兆——它们本就靠「指数回调」才支愣起来，在隔夜科技全线走强的背景下还能跑赢，只能说明资金不敢碰科技。
   interpretation: UP给出今日观察框架：验证顺序光模块→NAND模组→指数量能（干净信号优先）；并给出反向信号——传统超跌板块（电力/医药/大消费）强于科技=资金不敢碰科技=情形B征兆。这一反向信号是当日最容易被误读的盘面特征。
   confidence: high
   status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h"]
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -408,10 +430,11 @@ claims:
   - 反向信号
   - 超跌板块
   - 情形B征兆
+  school: qing
 - id: claim-20260804-013
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -424,9 +447,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260803-033"]
+  supersedes:
+  - claim-20260803-033
   contradicts: []
-  supplements: ["claim-20260802-015", "claim-20260803-011"]
+  supplements:
+  - claim-20260802-015
+  - claim-20260803-011
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -449,28 +475,28 @@ claims:
   - 超跌板块
   - 中国核建
   - 持续性
+  school: qing
 - id: claim-20260804-014
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
   claim_type: sector-theme
   subject: AI办公：三家整合指向AI成为办公基础能力
   timeframe: short-term
-  statement: 8月3日阿里千问办公开启公测（Qoder、Work、悟空、MuleRun三款Agent产品合并为统一产品体系）、7月30日字节跳动将飞书产品团队并入豆包销售线划归火山引擎、同日腾讯WorkBuddy上线人机双写协同编辑能力——三家整合手法各异但指向一致：让AI从独立功能变成办公App的基础能力；AI叙事正从投入切换到兑现；相关标的：金山办公(688111)（WPS
-    AI锚定AIGC内容创作/Copilot智慧助手/Insight知识洞察）、金桥信息(603918)（金桥e享VaaS远程通讯及云协作平台）。
-  evidence_quote: 据公开信息，8 月 3 日阿里巴巴千问办公开启公测，Qoder、Work、悟空、MuleRun 三款 Agent 产品合并为统一产品体系；7
-    月 30 日字节跳动将飞书产品团队并入豆包、销售线划归火山引擎；同日腾讯 WorkBuddy 上线「人机双写」协同编辑能力。三家整合手法各异但指向一致：让
-    AI 从独立功能变成办公 App 的基础能力。华源证券文化传媒团队认为，AI 应用产品的落地和执行仍是产业发展与市场交易的核心，AI 叙事正从投入切换到兑现。
+  statement: 8月3日阿里千问办公开启公测（Qoder、Work、悟空、MuleRun三款Agent产品合并为统一产品体系）、7月30日字节跳动将飞书产品团队并入豆包销售线划归火山引擎、同日腾讯WorkBuddy上线人机双写协同编辑能力——三家整合手法各异但指向一致：让AI从独立功能变成办公App的基础能力；AI叙事正从投入切换到兑现；相关标的：金山办公(688111)（WPS AI锚定AIGC内容创作/Copilot智慧助手/Insight知识洞察）、金桥信息(603918)（金桥e享VaaS远程通讯及云协作平台）。
+  evidence_quote: 据公开信息，8 月 3 日阿里巴巴千问办公开启公测，Qoder、Work、悟空、MuleRun 三款 Agent 产品合并为统一产品体系；7 月 30 日字节跳动将飞书产品团队并入豆包、销售线划归火山引擎；同日腾讯 WorkBuddy 上线「人机双写」协同编辑能力。三家整合手法各异但指向一致：让 AI 从独立功能变成办公 App 的基础能力。华源证券文化传媒团队认为，AI 应用产品的落地和执行仍是产业发展与市场交易的核心，AI 叙事正从投入切换到兑现。
   interpretation: UP记录AI办公产业整合动态：阿里（千问办公公测+Agent产品合并）、字节（飞书并入豆包）、腾讯（WorkBuddy人机双写）三家同日/近期动作，共同指向AI内化为办公基础能力；叙事从投入切换到兑现。金山办公(688111)、金桥信息(603918)为产业链跟踪标的。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-039", "claim-20260616-005-d"]
+  supplements:
+  - claim-20260803-039
+  - claim-20260616-005-d
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -490,10 +516,11 @@ claims:
   - 飞书豆包
   - WorkBuddy
   - 基础能力
+  school: qing
 - id: claim-20260804-015
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -508,7 +535,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-008", "claim-20260601-004-b", "claim-20260802-023"]
+  supplements:
+  - claim-20260803-008
+  - claim-20260601-004-b
+  - claim-20260802-023
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -528,10 +558,11 @@ claims:
   - 传智教育
   - 分歧转一致
   - 细分方向
+  school: qing
 - id: claim-20260804-016
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -545,8 +576,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260730-017"]
-  supplements: ["claim-20260714-005-bd"]
+  contradicts:
+  - claim-20260730-017
+  supplements:
+  - claim-20260714-005-bd
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -569,10 +602,11 @@ claims:
   - 先验证再参与
   - 量价确认
   - 中际旭创
+  school: qing
 - id: claim-20260804-017
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -587,7 +621,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260721-013", "claim-20260803-032", "claim-20260617-041-s"]
+  supplements:
+  - claim-20260721-013
+  - claim-20260803-032
+  - claim-20260617-041-s
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -604,10 +641,11 @@ claims:
   - 需求侧证据
   - 筹码问题
   - 景气度
+  school: qing
 - id: claim-20260804-018
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -615,9 +653,7 @@ claims:
   subject: 量子科技：会议型催化弱于政策批复型
   timeframe: short-term
   statement: 第五届CCF量子计算大会暨大湾区量子科学论坛8月3日在深圳开幕（姚期智与薛其坤共同担任大会主席，近千家机构约2400人）；相关标的：铜牛信息(300895)（与国科量子战略合作推进量子通信市场化）、天融信(002212)（投资安徽问天量子，量子密码应用落地VPN/堡垒机）；会议型催化的爆发力弱于政策批复型，更适合列入观察名单而非首选方向。
-  evidence_quote: 量子科技：据公开报道，为期三天的第五届 CCF 量子计算大会暨大湾区量子科学论坛于 8 月 3 日在深圳开幕，由姚期智与薛其坤共同担任大会主席，汇聚近千家机构约
-    2400 人。相关标的：铜牛信息（与国科量子签订战略合作协议，推进量子通信技术市场化）、天融信（投资安徽问天量子，已将量子密码通信、认证、签名、密钥生成等成果应用于
-    VPN、堡垒机等产品）。个人判断，会议型催化的爆发力弱于政策批复型，更适合列入观察名单而非首选方向。
+  evidence_quote: 量子科技：据公开报道，为期三天的第五届 CCF 量子计算大会暨大湾区量子科学论坛于 8 月 3 日在深圳开幕，由姚期智与薛其坤共同担任大会主席，汇聚近千家机构约 2400 人。相关标的：铜牛信息（与国科量子签订战略合作协议，推进量子通信技术市场化）、天融信（投资安徽问天量子，已将量子密码通信、认证、签名、密钥生成等成果应用于 VPN、堡垒机等产品）。个人判断，会议型催化的爆发力弱于政策批复型，更适合列入观察名单而非首选方向。
   interpretation: UP记录量子科技会议催化（CCF量子计算大会），并给出催化强度分层方法论：会议型催化爆发力弱于政策批复型（如核电核准），量子方向只入观察名单非首选。铜牛信息(300895)、天融信(002212)为产业链跟踪标的。
   confidence: medium
   status: active
@@ -644,10 +680,11 @@ claims:
   - 会议型催化
   - 观察名单
   - 天融信
+  school: qing
 - id: claim-20260804-019
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -655,16 +692,15 @@ claims:
   subject: 海外映射：AI中下游成反弹主力
   timeframe: short-term
   statement: 亚马逊涨4.58%市值首破3万亿美元，云厂商财报验证AI回报兑现，AI中下游（云、AI办公、多模态应用）成为反弹主力，A股相关公司包括卓易信息(688258)、云赛智联(600602)；Snap盘后涨8%二季度业绩全面超预期且广告业务复苏迹象增强，A股相关公司包括蓝色光标(300058)、三人行(605168)；Palantir周一收盘后公布财报、SpaceX周二首次以上市公司身份发布财报，商业航天方向可同步跟踪。
-  evidence_quote: 海外映射：亚马逊涨 4.58%、市值首破 3 万亿美元，云厂商财报验证 AI 回报兑现，AI 中下游（云、AI 办公、多模态应用）成为反弹主力，A
-    股相关公司包括卓易信息、云赛智联；Snap 盘后涨 8%，二季度业绩全面超预期且广告业务复苏迹象增强，A 股相关公司包括蓝色光标、三人行。另据公开报道，Palantir
-    于周一收盘后公布财报，SpaceX 于周二首次以上市公司身份发布财报，商业航天方向可同步跟踪。
+  evidence_quote: 海外映射：亚马逊涨 4.58%、市值首破 3 万亿美元，云厂商财报验证 AI 回报兑现，AI 中下游（云、AI 办公、多模态应用）成为反弹主力，A 股相关公司包括卓易信息、云赛智联；Snap 盘后涨 8%，二季度业绩全面超预期且广告业务复苏迹象增强，A 股相关公司包括蓝色光标、三人行。另据公开报道，Palantir 于周一收盘后公布财报，SpaceX 于周二首次以上市公司身份发布财报，商业航天方向可同步跟踪。
   interpretation: UP梳理隔夜海外映射：云厂商财报（亚马逊市值破3万亿）验证AI回报兑现→AI中下游是反弹主力（卓易信息(688258)/云赛智联(600602)），Snap超预期→广告复苏（蓝色光标(300058)/三人行(605168)），Palantir/SpaceX财报→商业航天跟踪。为A股对应方向提供映射依据。
   confidence: high
   status: superseded
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-001-e"]
+  supplements:
+  - claim-20260609-001-e
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -690,10 +726,11 @@ claims:
   - Snap
   - AI中下游
   - 商业航天
+  school: qing
 - id: claim-20260804-020
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -701,16 +738,15 @@ claims:
   subject: 五个盘中验证变量
   timeframe: intraday
   statement: 今日盘中需逐项验证五个变量：其一，光模块方向能否把隔夜外盘强度接过来且不是一小时行情；其二，NAND模组方向（德明利(001309)、江波龙(301308)）能否守住分时均价；其三，量能能否从2万亿回升还是继续下探至1.9万亿以下；其四，首板家数能否止住下滑、二板与晋级率能否维持昨天水平；其五，传统超跌板块（电力、医药、大消费）与科技的相对强弱——若前者反强警惕情形B。
-  evidence_quote: 需要在今日盘中逐项验证的变量有五个：其一，光模块方向能否把隔夜的外盘强度接过来，且不是一小时行情；其二，NAND 模组方向（德明利、江波龙）能否守住分时均价；其三，量能能否从
-    2 万亿回升，还是继续下探至 1.9 万亿以下；其四，首板家数能否止住下滑，二板与晋级率能否维持在昨天的水平；其五，传统超跌板块（电力、医药、大消费）与科技的相对强弱——若前者反强，警惕情形
-    B。
+  evidence_quote: 需要在今日盘中逐项验证的变量有五个：其一，光模块方向能否把隔夜的外盘强度接过来，且不是一小时行情；其二，NAND 模组方向（德明利、江波龙）能否守住分时均价；其三，量能能否从 2 万亿回升，还是继续下探至 1.9 万亿以下；其四，首板家数能否止住下滑，二板与晋级率能否维持在昨天的水平；其五，传统超跌板块（电力、医药、大消费）与科技的相对强弱——若前者反强，警惕情形 B。
   interpretation: UP整合今日五个盘中验证变量：光模块承接/存储守均价/量能方向/首板止跌/超跌板块相对强弱，覆盖双情形A/B的判别条件。这是当日盘面跟踪的操作清单。
   confidence: high
   status: superseded
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260802-024"]
+  supplements:
+  - claim-20260802-024
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -724,10 +760,11 @@ claims:
   - NAND均价
   - 首板
   - 相对强弱
+  school: qing
 - id: claim-20260804-021
   source_path: sources/original/bilibili/2026-08-04-0913-专栏-隔夜涨的是七巨头，不是芯片；存储的正反馈只兑现了一半。费城半.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 早盘
   extracted_at: '2026-08-04T09:35:00+08:00'
@@ -742,7 +779,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260614-002-b", "claim-20260612-002-e", "claim-20260622-001-h"]
+  supplements:
+  - claim-20260614-002-b
+  - claim-20260612-002-e
+  - claim-20260622-001-h
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -756,10 +796,11 @@ claims:
   - 位置便宜
   - 时点成熟
   - 耐心
+  school: qing
 - id: claim-20260804-022
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -772,7 +813,8 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260703-001-c"]
+  supersedes:
+  - claim-20260703-001-c
   contradicts: []
   supplements: []
   last_discovered: 2026-08-04
@@ -787,10 +829,11 @@ claims:
   - 修复非反转
   - 右侧确认
   - 验证线
+  school: qing
 - id: claim-20260804-023
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -803,9 +846,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260717-001-d"]
+  supersedes:
+  - claim-20260717-001-d
   contradicts: []
-  supplements: ["claim-20260730-014", "claim-20260731-009"]
+  supplements:
+  - claim-20260730-014
+  - claim-20260731-009
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -818,10 +864,11 @@ claims:
   - 创业板指
   - 回撤区间
   - 牛转熊恐慌
+  school: qing
 - id: claim-20260804-024
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -836,7 +883,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-005", "claim-20260803-042"]
+  supplements:
+  - claim-20260803-005
+  - claim-20260803-042
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -853,10 +902,11 @@ claims:
   - 7连板
   - 二板晋级率
   - 高标容错率
+  school: qing
 - id: claim-20260804-025
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -869,8 +919,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260731-013"]
-  contradicts: ["claim-20260702-003-b"]
+  supersedes:
+  - claim-20260731-013
+  contradicts:
+  - claim-20260702-003-b
   supplements: []
   last_discovered: 2026-08-04
   links:
@@ -885,10 +937,11 @@ claims:
   - 磷化铟
   - 算力租赁
   - 反弹核心
+  school: qing
 - id: claim-20260804-026
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -901,9 +954,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260722-007"]
+  supersedes:
+  - claim-20260722-007
   contradicts: []
-  supplements: ["claim-20260723-006", "claim-20260609-003-d"]
+  supplements:
+  - claim-20260723-006
+  - claim-20260609-003-d
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -916,10 +972,11 @@ claims:
   - 补涨
   - 海外链叙事
   - 风险偏好
+  school: qing
 - id: claim-20260804-027
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -927,15 +984,15 @@ claims:
   subject: AI应用商业化拐点预期升温
   timeframe: short-term
   statement: AI软件、应用方向如期迎来回流：Palantir二季度业绩大超预期并上调全年营收与利润指引、大涨超20%，安森美业绩与指引双超并预计2026年AI数据中心收入翻倍以上，市场对AI应用迎来商业化拐点的预期持续升温。
-  evidence_quote: AI软件、应用方向如期迎来回流。据公开信息，Palantir二季度业绩大超预期并上调全年营收与利润指引，大涨超20%；同期安森美（ON
-    Semiconductor）业绩与指引双超，并表示预计2026年AI数据中心收入将翻倍以上。市场对AI应用迎来商业化拐点的预期持续升温。
+  evidence_quote: AI软件、应用方向如期迎来回流。据公开信息，Palantir二季度业绩大超预期并上调全年营收与利润指引，大涨超20%；同期安森美（ON Semiconductor）业绩与指引双超，并表示预计2026年AI数据中心收入将翻倍以上。市场对AI应用迎来商业化拐点的预期持续升温。
   interpretation: UP记录AI应用回流的基本面催化：Palantir（软件）与安森美（半导体）双双超预期，构成AI应用商业化拐点预期的证据链。这是科技主攻方向中除光互连外的另一条支线，回流符合预期。
   confidence: medium
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260804-019"]
+  supplements:
+  - claim-20260804-019
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -948,10 +1005,11 @@ claims:
   - Palantir
   - 安森美
   - 商业化拐点
+  school: qing
 - id: claim-20260804-028
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -964,9 +1022,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260803-037"]
+  supersedes:
+  - claim-20260803-037
   contradicts: []
-  supplements: ["claim-20260630-001-p", "claim-20260715-052-a"]
+  supplements:
+  - claim-20260630-001-p
+  - claim-20260715-052-a
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -982,10 +1043,11 @@ claims:
   - 业绩指引
   - 医药板块
   - 基本面锚
+  school: qing
 - id: claim-20260804-029
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1000,7 +1062,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-012", "claim-20260531-002-a"]
+  supplements:
+  - claim-20260515-012
+  - claim-20260531-002-a
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1014,10 +1078,11 @@ claims:
   - 存量调仓
   - 增量入场
   - 红利板块
+  school: qing
 - id: claim-20260804-030
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1032,7 +1097,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260719-009"]
+  supplements:
+  - claim-20260719-009
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1049,10 +1115,11 @@ claims:
   - 融资租赁
   - 上架率
   - 重资产高杠杆
+  school: qing
 - id: claim-20260804-031
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1081,10 +1148,11 @@ claims:
   - 预期先行
   - Robotaxi
   - 激光雷达
+  school: qing
 - id: claim-20260804-032
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1097,7 +1165,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260721-013"]
+  supersedes:
+  - claim-20260721-013
   contradicts: []
   supplements: []
   last_discovered: 2026-08-04
@@ -1113,10 +1182,11 @@ claims:
   - 长约
   - 纯周期股
   - 判顶
+  school: qing
 - id: claim-20260804-033
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1131,7 +1201,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260730-016"]
+  supplements:
+  - claim-20260730-016
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1145,10 +1216,11 @@ claims:
   - 政策风险
   - 情绪打击
   - 中国份额
+  school: qing
 - id: claim-20260804-034
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1162,7 +1234,9 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260721-031", "claim-20260607-003-f"]
+  contradicts:
+  - claim-20260721-031
+  - claim-20260607-003-f
   supplements: []
   last_discovered: 2026-08-04
   links:
@@ -1177,18 +1251,18 @@ claims:
   - 贴现率
   - 估值分母
   - 加息路径
+  school: qing
 - id: claim-20260804-035
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
   claim_type: stock-view
   subject: 云南锗业磷化铟具备上游国产替代供需缺口三重属性
   timeframe: short-term
-  statement: 云南锗业(002428)为国内磷化铟衬底龙头，磷化铟是制作光芯片的关键衬底材料，2026年4月启动高品质磷化铟单晶片建设项目（18个月建设期，15万片/年扩至45万片，含6000片6英寸）；Lumentum
-    CEO称磷化铟供应紧张程度已超越DRAM和NAND、出货量仍比客户需求低30%以上——磷化铟是光互连链条里少数同时具备上游、国产替代与供需缺口三重属性的位置，与光模块整机的贝塔不完全同源，若明日海外链承压而磷化铟相对抗跌，说明市场愿意给上游材料独立定价。
+  statement: 云南锗业(002428)为国内磷化铟衬底龙头，磷化铟是制作光芯片的关键衬底材料，2026年4月启动高品质磷化铟单晶片建设项目（18个月建设期，15万片/年扩至45万片，含6000片6英寸）；Lumentum CEO称磷化铟供应紧张程度已超越DRAM和NAND、出货量仍比客户需求低30%以上——磷化铟是光互连链条里少数同时具备上游、国产替代与供需缺口三重属性的位置，与光模块整机的贝塔不完全同源，若明日海外链承压而磷化铟相对抗跌，说明市场愿意给上游材料独立定价。
   evidence_quote: 个人判断，磷化铟是光互连链条里少数同时具备上游、国产替代与供需缺口三重属性的位置，与光模块整机的贝塔并不完全同源——若明日海外链整体承压而磷化铟相对抗跌，说明市场愿意给上游材料一个独立定价。
   interpretation: UP把云南锗业定位为光互连上游材料标的：三重属性（上游/国产替代/供需缺口）使其与光模块整机贝塔不同源，并给出明日验证实验——海外链承压时磷化铟能否抗跌、获得独立定价。需注意Lumentum表态按原引来源记录待核实。
   confidence: medium
@@ -1196,7 +1270,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-g", "claim-20260610-006-d", "claim-20260621-001-l"]
+  supplements:
+  - claim-20260625-003-g
+  - claim-20260610-006-d
+  - claim-20260621-001-l
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1204,7 +1281,7 @@ claims:
     cases: []
   topic: 云南锗业磷化铟三重属性，观察明日独立定价实验
   related_stocks:
-  - code: '002428'
+  - code: 002428
     name: 云南锗业
     role: 磷化铟衬底龙头-深主板可交易
   tags:
@@ -1213,10 +1290,11 @@ claims:
   - 国产替代
   - 供需缺口
   - 上游材料
+  school: qing
 - id: claim-20260804-036
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1231,7 +1309,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260719-009", "claim-20260622-003-q", "claim-20260609-005-d"]
+  supplements:
+  - claim-20260719-009
+  - claim-20260622-003-q
+  - claim-20260609-005-d
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1248,10 +1329,11 @@ claims:
   - 加价潮
   - 长期订单
   - 独立验证
+  school: qing
 - id: claim-20260804-037
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1264,7 +1346,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260607-003-c"]
+  supersedes:
+  - claim-20260607-003-c
   contradicts: []
   supplements: []
   last_discovered: 2026-08-04
@@ -1280,10 +1363,11 @@ claims:
   - 量增逻辑
   - 二三线
   - 锂矿类比
+  school: qing
 - id: claim-20260804-038
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1298,7 +1382,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-h"]
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1312,10 +1397,11 @@ claims:
   - 透支3年
   - 量增链
   - 领涨品种换人
+  school: qing
 - id: claim-20260804-039
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1330,7 +1416,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260722-028", "claim-20260604-004-b"]
+  supplements:
+  - claim-20260722-028
+  - claim-20260604-004-b
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1344,10 +1432,11 @@ claims:
   - 资本开支
   - 债务融资
   - 科创板估值
+  school: qing
 - id: claim-20260804-040
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1360,9 +1449,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260721-013"]
+  supersedes:
+  - claim-20260721-013
   contradicts: []
-  supplements: ["claim-20260803-032"]
+  supplements:
+  - claim-20260803-032
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1376,10 +1467,11 @@ claims:
   - 周期性
   - 提前判顶
   - 观望
+  school: qing
 - id: claim-20260804-041
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1408,10 +1500,11 @@ claims:
   - 市占率
   - 竞争加剧
   - 从无到有
+  school: qing
 - id: claim-20260804-042
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1426,7 +1519,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-004-b"]
+  supplements:
+  - claim-20260604-004-b
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1440,10 +1534,11 @@ claims:
   - 壁垒
   - 周期持久
   - 估值
+  school: qing
 - id: claim-20260804-043
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1458,7 +1553,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260630-002-f"]
+  supplements:
+  - claim-20260630-002-f
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1471,10 +1567,11 @@ claims:
   - 订单高增
   - 国产链
   - 估值
+  school: qing
 - id: claim-20260804-044
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1483,8 +1580,7 @@ claims:
   timeframe: intraday
   statement: 今天科技硬件（海外链）是反弹主流且深度绑架指数权重，FCC消息落在这个位置上杀伤力会被放大；明日大概率是一场强分化——海外链承压，其他支线（算力租赁、国产链、智驾、AI应用）需要出来撑情绪，到底反应到什么程度只能开盘看情况。
   evidence_quote: 今天科技硬件（海外链）是反弹主流，而这块又深度绑架各个指数的权重，所以FCC消息落在这个位置上，杀伤力会被放大。个人判断，明日应该是一场强分化：海外链承压，其他支线需要出来撑情绪。到底反应到什么程度，只能开盘看情况再说。
-  interpretation: UP给出明日盘面总预判：强分化——海外链（权重股）承压、支线撑情绪；FCC消息因落在权重位置而杀伤力放大。这是对明日大盘定调的核心
-    claim，后续情形A/B是应对分支。
+  interpretation: UP给出明日盘面总预判：强分化——海外链（权重股）承压、支线撑情绪；FCC消息因落在权重位置而杀伤力放大。这是对明日大盘定调的核心 claim，后续情形A/B是应对分支。
   confidence: high
   status: active
   intensity: high
@@ -1503,10 +1599,11 @@ claims:
   - 海外链承压
   - 支线撑情绪
   - FCC
+  school: qing
 - id: claim-20260804-045
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1519,9 +1616,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260702-002-b"]
+  supersedes:
+  - claim-20260702-002-b
   contradicts: []
-  supplements: ["claim-20260720-021"]
+  supplements:
+  - claim-20260720-021
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1535,10 +1634,11 @@ claims:
   - 支线主动性
   - 接得住
   - 盘中修复
+  school: qing
 - id: claim-20260804-046
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1551,9 +1651,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260803-043"]
+  supersedes:
+  - claim-20260803-043
   contradicts: []
-  supplements: ["claim-20260729-004"]
+  supplements:
+  - claim-20260729-004
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1566,10 +1668,11 @@ claims:
   - 资金结构脆弱
   - 轮动思路
   - 量价共振
+  school: qing
 - id: claim-20260804-047
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1584,7 +1687,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260722-015", "claim-20260804-010"]
+  supplements:
+  - claim-20260722-015
+  - claim-20260804-010
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1598,10 +1703,11 @@ claims:
   - 强者恒强
   - 分时形态
   - 防御回补
+  school: qing
 - id: claim-20260804-048
   source_path: sources/original/bilibili/2026-08-04-2243-专栏-今天是科技连续调整之后的一次系统性修复，量能与情绪同步回暖，.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 复盘
   extracted_at: '2026-08-04T23:02:00+08:00'
@@ -1616,7 +1722,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-042-a", "claim-20260804-011"]
+  supplements:
+  - claim-20260610-042-a
+  - claim-20260804-011
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1630,10 +1738,11 @@ claims:
   - 国产半导体
   - AI应用
   - 外部事件
+  school: qing
 - id: claim-20260804-049
   source_path: sources/original/bilibili/2026-08-04-1048-图片-跟昨天预想的一样，轮动补跌应该是差不多结束了，后面就是轮动修.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 盘中
   extracted_at: '2026-08-04T23:20:00+08:00'
@@ -1646,7 +1755,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260803-030"]
+  supersedes:
+  - claim-20260803-030
   contradicts: []
   supplements: []
   last_discovered: 2026-08-04
@@ -1661,10 +1771,11 @@ claims:
   - 轮动修复
   - 盘中验证
   - 结构调整
+  school: qing
 - id: claim-20260804-050
   source_path: sources/original/bilibili/2026-08-04-1048-图片-跟昨天预想的一样，轮动补跌应该是差不多结束了，后面就是轮动修.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 盘中
   extracted_at: '2026-08-04T23:20:00+08:00'
@@ -1692,10 +1803,11 @@ claims:
   - 不追涨杀跌
   - 提前埋伏
   - 操作纪律
+  school: qing
 - id: claim-20260804-051
   source_path: sources/original/bilibili/2026-08-04-1048-图片-跟昨天预想的一样，轮动补跌应该是差不多结束了，后面就是轮动修.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 盘中
   extracted_at: '2026-08-04T23:20:00+08:00'
@@ -1709,8 +1821,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260529-003-a"]
-  supplements: ["claim-20260702-003-f"]
+  contradicts:
+  - claim-20260529-003-a
+  supplements:
+  - claim-20260702-003-f
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1723,10 +1837,11 @@ claims:
   - 稳健策略
   - 规避个股
   - 轮动行情
+  school: qing
 - id: claim-20260804-052
   source_path: sources/original/bilibili/2026-08-04-1048-图片-跟昨天预想的一样，轮动补跌应该是差不多结束了，后面就是轮动修.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 盘中
   extracted_at: '2026-08-04T23:20:00+08:00'
@@ -1741,7 +1856,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-042-a", "claim-20260803-008", "claim-20260616-005-g"]
+  supplements:
+  - claim-20260610-042-a
+  - claim-20260803-008
+  - claim-20260616-005-g
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1755,10 +1873,11 @@ claims:
   - 算力租赁
   - Workbuddy
   - 局部分化
+  school: qing
 - id: claim-20260804-053
   source_path: sources/original/bilibili/2026-08-04-1351-图片-现在的行情就是很容易超预期，跌了超预期，涨也超预期。所以做T.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 盘中
   extracted_at: '2026-08-04T23:21:00+08:00'
@@ -1771,7 +1890,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260601-004-e"]
+  supersedes:
+  - claim-20260601-004-e
   contradicts: []
   supplements: []
   last_discovered: 2026-08-04
@@ -1786,10 +1906,11 @@ claims:
   - 行情波动
   - 双向超预期
   - 判断置信度
+  school: qing
 - id: claim-20260804-054
   source_path: sources/original/bilibili/2026-08-04-1351-图片-现在的行情就是很容易超预期，跌了超预期，涨也超预期。所以做T.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 盘中
   extracted_at: '2026-08-04T23:21:00+08:00'
@@ -1804,7 +1925,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-011"]
+  supplements:
+  - claim-20260729-011
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1817,10 +1939,11 @@ claims:
   - 小仓位
   - T飞
   - 仓位纪律
+  school: qing
 - id: claim-20260804-055
   source_path: sources/original/bilibili/2026-08-04-1351-图片-现在的行情就是很容易超预期，跌了超预期，涨也超预期。所以做T.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-04'
   source_type: 盘中
   extracted_at: '2026-08-04T23:21:00+08:00'
@@ -1833,9 +1956,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260521-001-j"]
+  supersedes:
+  - claim-20260521-001-j
   contradicts: []
-  supplements: ["claim-20260624-006-e"]
+  supplements:
+  - claim-20260624-006-e
   last_discovered: 2026-08-04
   links:
     wiki_pages: []
@@ -1848,3 +1973,4 @@ claims:
   - 昨日视频
   - 进退有度
   - 仓位弹性
+  school: qing

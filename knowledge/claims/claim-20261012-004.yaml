@@ -16,9 +16,12 @@ claims:
   status: active
   stance: market-regime
   intensity: high
-  supersedes: ["claim-20260720-016"]
+  supersedes:
+  - claim-20260720-016
   contradicts: []
-  supplements: ["claim-20260909-017-a", "claim-20260916-001-k"]
+  supplements:
+  - claim-20260909-017-a
+  - claim-20260916-001-k
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -31,6 +34,7 @@ claims:
   - 量价止跌
   - 科技回流
   - 双确认
+  school: qing
 - id: claim-20261012-004-b
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -50,7 +54,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261007-001-m", "claim-20260928-002-d", "claim-20260913-001-007"]
+  supplements:
+  - claim-20261007-001-m
+  - claim-20260928-002-d
+  - claim-20260913-001-007
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -63,6 +70,7 @@ claims:
   - 量价
   - 信号确认
   - 方法论
+  school: qing
 - id: claim-20261012-004-c
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -82,7 +90,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-002-c", "claim-20260909-011-a", "claim-20260816-003"]
+  supplements:
+  - claim-20260914-002-c
+  - claim-20260909-011-a
+  - claim-20260816-003
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -95,6 +106,7 @@ claims:
   - 承接意愿
   - 抛压
   - 纠偏
+  school: qing
 - id: claim-20261012-004-d
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -114,7 +126,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-008", "claim-20260515-012", "claim-20261012-001-f"]
+  supplements:
+  - claim-20260913-001-008
+  - claim-20260515-012
+  - claim-20261012-001-f
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -127,6 +142,7 @@ claims:
   - 风格切换
   - 红利
   - 科技
+  school: qing
 - id: claim-20261012-004-e
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -144,7 +160,8 @@ claims:
   status: active
   stance: market-regime
   intensity: medium
-  supersedes: ["claim-20261009-001-c"]
+  supersedes:
+  - claim-20261009-001-c
   contradicts: []
   supplements: []
   last_discovered: 2026-10-12
@@ -162,6 +179,7 @@ claims:
   - 连板
   - 晋级率
   - 抱团
+  school: qing
 - id: claim-20261012-004-f
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -181,7 +199,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-038-c", "claim-20260812-015", "claim-20260909-030-a"]
+  supplements:
+  - claim-20260617-038-c
+  - claim-20260812-015
+  - claim-20260909-030-a
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -194,6 +215,7 @@ claims:
   - 保险资金
   - 固收+
   - 交易集中度
+  school: qing
 - id: claim-20261012-004-g
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -213,7 +235,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261008-007-n", "claim-20261012-001-j"]
+  supplements:
+  - claim-20261008-007-n
+  - claim-20261012-001-j
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -226,6 +250,7 @@ claims:
   - 仓位出清
   - 基本面
   - 业绩验证
+  school: qing
 - id: claim-20261012-004-h
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -261,6 +286,7 @@ claims:
   - 业绩预告
   - 光模块
   - 盈利定价
+  school: qing
 - id: claim-20261012-004-i
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -280,7 +306,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261011-001-k", "claim-20260621-006-q"]
+  supplements:
+  - claim-20261011-001-k
+  - claim-20260621-006-q
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -293,6 +321,7 @@ claims:
   - 美债收益率
   - 美股财报
   - 现金流
+  school: qing
 - id: claim-20261012-004-j
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -310,7 +339,10 @@ claims:
   status: active
   stance: market-regime
   intensity: high
-  supersedes: ["claim-20261008-007-g", "claim-20261008-001-k", "claim-20260928-002-i"]
+  supersedes:
+  - claim-20261008-007-g
+  - claim-20261008-001-k
+  - claim-20260928-002-i
   contradicts: []
   supplements: []
   last_discovered: 2026-10-12
@@ -325,6 +357,7 @@ claims:
   - 修复确认
   - 磨底
   - 操作判据
+  school: qing
 - id: claim-20261012-004-k
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -342,9 +375,11 @@ claims:
   status: active
   stance: view
   intensity: medium
-  supersedes: ["claim-20260806-008"]
+  supersedes:
+  - claim-20260806-008
   contradicts: []
-  supplements: ["claim-20261012-001-j"]
+  supplements:
+  - claim-20261012-001-j
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -363,6 +398,7 @@ claims:
   - AI应用
   - 分支扩散
   - 龙版传媒
+  school: qing
 - id: claim-20261012-004-l
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -382,7 +418,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260922-001-m", "claim-20260830-015-a"]
+  supplements:
+  - claim-20260922-001-m
+  - claim-20260830-015-a
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -401,6 +439,7 @@ claims:
   - 题材与实质
   - 时代万恒
   - 九阳股份
+  school: qing
 - id: claim-20261012-004-m
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -420,7 +459,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260909-030-a", "claim-20260804-010"]
+  supplements:
+  - claim-20260909-030-a
+  - claim-20260804-010
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -439,6 +480,7 @@ claims:
   - 创业板
   - 中际旭创
   - 领跌核心
+  school: qing
 - id: claim-20261012-004-n
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -458,7 +500,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260901-026-a"]
+  supplements:
+  - claim-20260901-026-a
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -477,6 +520,7 @@ claims:
   - 金丹科技
   - 兑现纪律
   - 善水科技
+  school: qing
 - id: claim-20261012-004-o
   source_path: sources/original/bilibili/2026-10-12-2158-专栏-今日市场继续震荡走弱，银行等高股息红利方向托住沪指，双创指数.md
   source_date: '2026-10-12'
@@ -496,7 +540,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260615-012", "claim-20260910-004-a", "claim-20261008-007-h"]
+  supplements:
+  - claim-20260615-012
+  - claim-20260910-004-a
+  - claim-20261008-007-h
   last_discovered: 2026-10-12
   links:
     wiki_pages: []
@@ -509,3 +556,4 @@ claims:
   - 分层确认
   - 磨底期
   - 仓位
+  school: qing

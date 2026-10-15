@@ -21,8 +21,8 @@ claims:
 
     '
   source_path: sources/raw/财经/研报：26-01-06：旭升集团78亿定点，储能机器人航空航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-01-06'
   source_type: 机构研报（UP动态转发）
   extracted_at: '2026-06-08'
@@ -48,7 +48,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-006-a", "claim-20260604-004-e"]
+  supplements:
+  - claim-20260604-006-a
+  - claim-20260604-004-e
   last_discovered: 2026-06-25
   links:
     related_claims:
@@ -82,15 +84,16 @@ claims:
   - 恩捷股份
   - 机构研报
   related_stocks:
-  - code: "688353"
-    name: "华盛锂电"
-    role: "回填-正文提及"
-  - code: "300432"
-    name: "富临精工"
-    role: "回填-正文提及"
-  - code: "002812"
-    name: "恩捷股份"
-    role: "回填-正文提及"
+  - code: '688353'
+    name: 华盛锂电
+    role: 回填-正文提及
+  - code: '300432'
+    name: 富临精工
+    role: 回填-正文提及
+  - code: 002812
+    name: 恩捷股份
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260604-007-b
   topic: 机构研报标的——风电
   statement: '风电方向机构推荐标的：大金重工(002487)——管桩全年新增订单预计200亿(翻倍+)，规划建设11艘甲板运输船，与欧洲4港口签署合作协议(预计年内增至9个以上)。27年开建2艘管桩安装船(单船日租金约400万，年利润超10亿)。2030年前有望实现百亿利润，加速向千亿市值迈进。
@@ -99,8 +102,8 @@ claims:
 
     '
   source_path: sources/raw/财经/研报：26-04-20：旭创Q1超预期、大金重工全链条、杰瑞Q1燃机兑现、Claude Opus 4.7.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-04-20'
   source_type: 机构研报（UP动态转发）
   extracted_at: '2026-06-08'
@@ -139,6 +142,7 @@ claims:
   - 大金重工
   - 金风科技
   - 机构研报
+  school: qing
 - id: claim-20260604-007-c
   topic: 机构研报标的——燃气轮机
   statement: '燃气轮机方向机构推荐标的（UP 6/4视频类比"上一轮牛市锂电池，确定性最高"）：
@@ -155,8 +159,8 @@ claims:
 
     '
   source_path: sources/raw/财经/研报：26-04-20：旭创Q1超预期、大金重工全链条、杰瑞Q1燃机兑现、Claude Opus 4.7.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-04-20'
   source_type: 机构研报（UP动态转发）
   extracted_at: '2026-06-08'
@@ -178,7 +182,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-004-f"]
+  supplements:
+  - claim-20260604-004-f
   last_discovered: 2026-06-25
   links:
     related_claims:
@@ -211,6 +216,7 @@ claims:
   - 银轮股份
   - 联德股份
   - 机构研报
+  school: qing
 - id: claim-20260604-007-d
   topic: 机构研报标的——消费/消费品
   statement: '消费/消费品方向机构推荐标的（UP动态转发）：
@@ -233,8 +239,8 @@ claims:
 
     '
   source_path: sources/raw/财经/研报：26-01-22：中粮科技阿洛酮糖、字节漫剧、深信服青云凯盛兖矿帝科.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-01-22'
   source_type: 机构研报（UP动态转发）
   extracted_at: '2026-06-08'
@@ -248,8 +254,7 @@ claims:
     分众传媒：退出数禾，分红比例≥80%不受影响
 
     '
-  interpretation: '主板可交易：罗莱生活(002293)、中粮科技(000930)、分众传媒(002027)、奥飞娱乐(002292)、三七互娱(002555)。UP
-    6/4视频提到的"卖枕头的"=罗莱生活，"打开F10看毛利净利"
+  interpretation: '主板可交易：罗莱生活(002293)、中粮科技(000930)、分众传媒(002027)、奥飞娱乐(002292)、三七互娱(002555)。UP 6/4视频提到的"卖枕头的"=罗莱生活，"打开F10看毛利净利"
 
     '
   confidence: low
@@ -257,7 +262,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-006-b", "claim-20260604-004-g"]
+  supplements:
+  - claim-20260604-006-b
+  - claim-20260604-004-g
   last_discovered: 2026-06-25
   links:
     related_claims:
@@ -285,6 +292,7 @@ claims:
   - 罗莱生活
   - 中粮科技
   - 机构研报
+  school: qing
 - id: claim-20260604-007-e
   topic: 机构研报标的——创新药/医疗
   statement: '创新药/医疗方向机构推荐标的（UP动态转发）：
@@ -307,8 +315,8 @@ claims:
 
     '
   source_path: sources/raw/财经/研报：26-01-08：环旭电子、创新药、盛邦安全、立昂微.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-01-08'
   source_type: 机构研报（UP动态转发）
   extracted_at: '2026-06-08'
@@ -328,7 +336,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-004-h"]
+  supplements:
+  - claim-20260604-004-h
   last_discovered: 2026-06-25
   links:
     related_claims:
@@ -348,9 +357,10 @@ claims:
   - 药明康德
   - 机构研报
   related_stocks:
-  - code: "688235"
-    name: "百济神州"
-    role: "回填-正文提及"
+  - code: '688235'
+    name: 百济神州
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260604-007-f
   topic: 机构研报标的——出海链
   statement: '出海链方向机构推荐标的（UP 6/4视频点名"12月29日视频讲过"）：
@@ -365,8 +375,8 @@ claims:
 
     '
   source_path: sources/raw/财经/研报：26-01-06：旭升集团78亿定点，储能机器人航空航天.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-01-06'
   source_type: 机构研报（UP动态转发）
   extracted_at: '2026-06-08'
@@ -386,7 +396,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-004-j"]
+  supplements:
+  - claim-20260604-004-j
   last_discovered: 2026-06-25
   links:
     related_claims:
@@ -408,6 +419,7 @@ claims:
   - 大金重工
   - 银轮股份
   - 机构研报
+  school: qing
 - id: claim-20260604-007-g
   topic: 机构研报标的——蓝筹/传统行业
   statement: '蓝筹方向机构推荐标的（UP动态转发）：
@@ -420,8 +432,8 @@ claims:
 
     '
   source_path: sources/raw/财经/研报：26-01-22：中粮科技阿洛酮糖、字节漫剧、深信服青云凯盛兖矿帝科.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-01-22'
   source_type: 机构研报（UP动态转发）
   extracted_at: '2026-06-08'
@@ -441,7 +453,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-006-c"]
+  supplements:
+  - claim-20260604-006-c
   last_discovered: 2026-06-25
   links:
     related_claims:
@@ -460,3 +473,4 @@ claims:
   - 兖矿能源
   - 航发动力
   - 机构研报
+  school: qing

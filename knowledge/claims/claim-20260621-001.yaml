@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260621-001-a
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -15,8 +15,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260609-005-a", "claim-20260527-004-f"]
-  contradicts: ["claim-20260614-015-e"]
+  supersedes:
+  - claim-20260609-005-a
+  - claim-20260527-004-f
+  contradicts:
+  - claim-20260614-015-e
   last_discovered: 2026-06-22
   links: {}
   topic: 节前市场K型分化延续，双创创新高，沪指偏弱
@@ -26,10 +29,11 @@ claims:
   - 创业板
   - 结构行情
   related_stocks: []
+  school: qing
 - id: claim-20260621-001-b
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -42,8 +46,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260609-005-f"]
-  contradicts: ["claim-20260611-001-e"]
+  supersedes:
+  - claim-20260609-005-f
+  contradicts:
+  - claim-20260611-001-e
   last_discovered: 2026-06-22
   links: {}
   topic: 涨价主线未扩散至非AI上游之前相对安全
@@ -52,10 +58,11 @@ claims:
   - 涨价扩散
   - 安全期
   related_stocks: []
+  school: qing
 - id: claim-20260621-001-c
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -79,10 +86,11 @@ claims:
   - 操作框架
   - 三层分析
   related_stocks: []
+  school: qing
 - id: claim-20260621-001-d
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -95,7 +103,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260611-001-e"]
+  supersedes:
+  - claim-20260611-001-e
   contradicts: []
   last_discovered: 2026-06-22
   links: {}
@@ -105,10 +114,11 @@ claims:
   - 减仓信号
   - 行情尾声
   related_stocks: []
+  school: qing
 - id: claim-20260621-001-e
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -123,7 +133,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-001-a"]
+  supplements:
+  - claim-20260617-001-a
   last_discovered: 2026-06-25
   links: {}
   topic: 科创50估值历史最高，需警惕海外映射下杀风险
@@ -132,10 +143,11 @@ claims:
   - 估值风险
   - 高Beta
   related_stocks: []
+  school: qing
 - id: claim-20260621-001-f
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -150,7 +162,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-004-h", "claim-20260622-004-k"]
+  supplements:
+  - claim-20260527-004-h
+  - claim-20260622-004-k
   last_discovered: 2026-06-25
   links: {}
   topic: 旭创超茅台为极值信号，高位需防反身性
@@ -162,13 +176,14 @@ claims:
   - code: '300308'
     name: 中际旭创
     role: 中际旭创-创业板不可交易
-  - code: "600519"
-    name: "贵州茅台"
-    role: "回填-正文提及"
+  - code: '600519'
+    name: 贵州茅台
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260621-001-g
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -183,7 +198,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-034-m", "claim-20260617-038-c"]
+  supplements:
+  - claim-20260617-034-m
+  - claim-20260617-038-c
   last_discovered: 2026-06-25
   links: {}
   topic: 中报炒作节奏：买预期、防兑现，7月预告期是高潮
@@ -192,10 +209,11 @@ claims:
   - 业绩预告
   - 买预期
   related_stocks: []
+  school: qing
 - id: claim-20260621-001-h
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -203,15 +221,16 @@ claims:
   subject: 涨价主线确定性排序
   timeframe: trend
   statement: 涨价确定性排序：存储/HDD（已翻倍、原厂主导）约等于高端CCL（满产满销、订单到2027年底）大于铟/磷化铟（副产品供给刚性）大于光互联（涨价×国产×CPO节奏，位置最高）大于氮化铝/ABF/HBM映射（认证与放量阶段）。
-  evidence_quote: 主线优先级（个人框架，仅供参考）：涨价确定性排序大致为——存储/HDD（已翻倍、原厂主导）≈ 高端CCL（满产满销、订单到2027年底）＞
-    铟/磷化铟（副产品供给刚性）＞ 光互联（涨价×国产×CPO节奏，位置最高）＞ 氮化铝/ABF/HBM映射（认证与放量阶段）。卫星方向：国产算力、澜起科技(688008)、激光、磷酸铁锂。
+  evidence_quote: 主线优先级（个人框架，仅供参考）：涨价确定性排序大致为——存储/HDD（已翻倍、原厂主导）≈ 高端CCL（满产满销、订单到2027年底）＞ 铟/磷化铟（副产品供给刚性）＞ 光互联（涨价×国产×CPO节奏，位置最高）＞ 氮化铝/ABF/HBM映射（认证与放量阶段）。卫星方向：国产算力、澜起科技(688008)、激光、磷酸铁锂。
   interpretation: UP给出了明确的涨价主线优先级框架，从确定性和安全边际两个维度排序。存储和高端CCL并列第一档（确定性最强），但位置已高；铟/磷化铟有供给刚性逻辑排第二；光互联逻辑完整但位置最高排第三；氮化铝/ABF/HBM尚在认证阶段排最后。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-k", "claim-20260609-005-c"]
+  supplements:
+  - claim-20260621-001-k
+  - claim-20260609-005-c
   last_discovered: 2026-06-25
   links: {}
   topic: 涨价主线确定性排序：存储≈CCL>铟>光互联>氮化铝
@@ -223,10 +242,11 @@ claims:
   - code: '688008'
     name: 澜起科技
     role: 澜起科技-科创板不可交易
+  school: qing
 - id: claim-20260621-001-i
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -241,7 +261,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-001-d"]
+  supplements:
+  - claim-20260622-001-d
   last_discovered: 2026-06-25
   links: {}
   topic: 光互联是涨价×落地×国产替代三重逻辑最完整链条
@@ -270,10 +291,11 @@ claims:
   - code: '601869'
     name: 长飞光纤
     role: 长飞光纤-主板可交易
+  school: qing
 - id: claim-20260621-001-j
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -310,10 +332,11 @@ claims:
   - code: '300221'
     name: 银禧科技
     role: 银禧科技-创业板不可交易
+  school: qing
 - id: claim-20260621-001-k
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -321,15 +344,16 @@ claims:
   subject: 存储涨价逻辑
   timeframe: trend
   statement: 存储是本轮AI挤占成熟制程产能→通用品种涨价逻辑最纯粹的样本：DDR5均价累计涨约288%、HDD翻倍，高价周期或延续至2028年。
-  evidence_quote: 以2025年9月为基准，主流DDR5内存均价累计上涨约288%；大容量SSD同样大幅上涨（闪迪全系涨幅突破100%）；机械硬盘（HDD）6月中旬均价较基准上涨约107%、直接翻倍。核心逻辑为AI驱动的供需严重错配：三星、SK海力士、美光将大量成熟制程产能转向HBM与企业级SSD。据TrendForce，2026上半年NOR
-    Flash、SLC NAND合约价累计涨幅或达100%–150%，DRAM合约价环比涨幅约58%–63%。机构判断高价周期或延续至2028年。
+  evidence_quote: 以2025年9月为基准，主流DDR5内存均价累计上涨约288%；大容量SSD同样大幅上涨（闪迪全系涨幅突破100%）；机械硬盘（HDD）6月中旬均价较基准上涨约107%、直接翻倍。核心逻辑为AI驱动的供需严重错配：三星、SK海力士、美光将大量成熟制程产能转向HBM与企业级SSD。据TrendForce，2026上半年NOR Flash、SLC NAND合约价累计涨幅或达100%–150%，DRAM合约价环比涨幅约58%–63%。机构判断高价周期或延续至2028年。
   interpretation: UP将存储定位为AI涨价逻辑最纯粹的样本——AI挤压产能→通用存储涨价链条最清晰。但A股标的以模组和设计为主，需区分真议价权（HBM、高容量NAND龙头）与纯涨价β（模组厂）。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-h", "claim-20260609-005-c"]
+  supplements:
+  - claim-20260621-001-h
+  - claim-20260609-005-c
   last_discovered: 2026-06-25
   links: {}
   topic: 存储AI挤压产能→涨价逻辑最纯粹，高价或延至2028
@@ -346,7 +370,7 @@ claims:
   - code: '300475'
     name: 香农芯创
     role: 香农芯创-创业板不可交易
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 德明利-主板可交易
   - code: '688525'
@@ -358,10 +382,11 @@ claims:
   - code: '300672'
     name: 国科微
     role: 国科微-创业板不可交易
+  school: qing
 - id: claim-20260621-001-l
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -376,7 +401,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-h"]
+  supplements:
+  - claim-20260621-001-h
   last_discovered: 2026-06-25
   links: {}
   topic: 铟/磷化铟副产品供给刚性撞上AI需求爆发
@@ -386,10 +412,10 @@ claims:
   - 供给刚性
   - AI光互联
   related_stocks:
-  - code: '000960'
+  - code: 000960
     name: 锡业股份
     role: 锡业股份-主板可交易
-  - code: '002428'
+  - code: 002428
     name: 云南锗业
     role: 云南锗业-主板可交易
   - code: '600301'
@@ -398,10 +424,11 @@ claims:
   - code: '600141'
     name: 兴发集团
     role: 兴发集团-主板可交易
+  school: qing
 - id: claim-20260621-001-m
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -438,10 +465,11 @@ claims:
   - code: '600498'
     name: 烽火通信
     role: 烽火通信-主板可交易
+  school: qing
 - id: claim-20260621-001-n
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -456,7 +484,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260612-009-i"]
+  supplements:
+  - claim-20260612-009-i
   last_discovered: 2026-06-25
   links: {}
   topic: 氮化铝散热为AI刚需方向
@@ -469,10 +498,11 @@ claims:
   - code: '600353'
     name: 旭光电子
     role: 旭光电子-主板可交易
+  school: qing
 - id: claim-20260621-001-o
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -487,7 +517,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-d", "claim-20260616-010-s", "claim-20260624-001-i"]
+  supplements:
+  - claim-20260609-005-d
+  - claim-20260616-010-s
+  - claim-20260624-001-i
   last_discovered: 2026-06-25
   links: {}
   topic: 国产算力产业链梳理：GPU/CPU/FAB/算力租赁
@@ -510,16 +543,17 @@ claims:
   - code: '688347'
     name: 华虹公司
     role: 华虹公司-科创板不可交易
-  - code: '002290'
+  - code: 002290
     name: 禾盛新材
     role: 禾盛新材-主板可交易
   - code: '600673'
     name: 东阳光
     role: 东阳光-主板可交易
+  school: qing
 - id: claim-20260621-001-p
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -556,10 +590,11 @@ claims:
   - code: '300346'
     name: 南大光电
     role: 南大光电-创业板不可交易
+  school: qing
 - id: claim-20260621-001-q
   source_path: sources/raw/财经/2026-06-21-复盘专栏-指数定环境·板块定方向·个股定时点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-21'
   source_type: 专栏
   extracted_at: '2026-06-22T01:10:00'
@@ -574,7 +609,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-d", "claim-20260609-005-f"]
+  supplements:
+  - claim-20260621-001-d
+  - claim-20260609-005-f
   last_discovered: 2026-06-25
   links: {}
   topic: 用基本面节点管理仓位而非情绪
@@ -583,3 +620,4 @@ claims:
   - 基本面节点
   - 方法论
   related_stocks: []
+  school: qing

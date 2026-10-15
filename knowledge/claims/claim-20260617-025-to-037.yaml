@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260617-025-c
   source_path: sources/raw/财经/2026-06-17-陆家嘴论坛政策解读-UP视频.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 视频
   extracted_at: '2026-06-17T21:14:33+08:00'
@@ -16,7 +16,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260604-004-b"]
+  contradicts:
+  - claim-20260604-004-b
   last_discovered: 2026-06-17
   links: {}
   topic: 政策信号与市场方向
@@ -27,10 +28,11 @@ claims:
   - 科创板改革
   - AI科技
   - 制度红利
+  school: qing
 - id: claim-20260617-026-c
   source_path: sources/raw/财经/2026-06-17-陆家嘴论坛政策解读-UP视频.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 视频
   extracted_at: '2026-06-17T21:14:33+08:00'
@@ -43,8 +45,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260604-004-b"]
-  contradicts: ["claim-20260608-001-c"]
+  supersedes:
+  - claim-20260604-004-b
+  contradicts:
+  - claim-20260608-001-c
   last_discovered: 2026-06-17
   links: {}
   topic: 市场结构变化
@@ -55,10 +59,11 @@ claims:
   - AI硬件
   - 科技板块
   - 传统蓝筹
+  school: qing
 - id: claim-20260617-027-c
   source_path: sources/raw/财经/2026-06-17-陆家嘴论坛政策解读-UP视频.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 视频
   extracted_at: '2026-06-17T21:14:33+08:00'
@@ -73,7 +78,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-033-m", "claim-20260617-037-c", "claim-20260622-004-c"]
+  supplements:
+  - claim-20260617-033-m
+  - claim-20260617-037-c
+  - claim-20260622-004-c
   last_discovered: 2026-06-25
   links: {}
   topic: 宏观经济验证投资方向
@@ -84,10 +92,11 @@ claims:
   - 高技术制造
   - 资金集中
   - AI硬科技
+  school: qing
 - id: claim-20260617-028-s
   source_path: sources/raw/财经/2026-06-17-陆家嘴论坛政策解读-UP视频.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 视频
   extracted_at: '2026-06-17T21:14:33+08:00'
@@ -95,15 +104,15 @@ claims:
   subject: 科创板第五套标准扩围至AI大模型领域 利好已具规模化应用能力的头部企业
   timeframe: trend
   statement: 科创板第五套上市标准从创新医药领域扩大至AI大模型领域，同时新增量子科技、生物制造、聚生智能等硬科技领域。申请上市的大模型企业需至少有一个产品上线发布并实现规模化应用。利好智谱、MiniMax、面壁智能等已具备规模化应用能力的头部大模型企业。智谱已于2026年1月港股上市，2025年4月提交科创板IPO辅导备案。
-  evidence_quote: 将科创板第五套上市标准适用范围从创新医药领域扩大至人工智能大模型领域，同时新增支持量子科技、生物制造、聚生智能等硬科技领域企业上市。申请上市的大模型企业，申报时至少有一个大模型产品完成上线发布并实现规模化应用。潜在受益企业包括智谱mini
-    max、面壁智能等，智谱已经在2026年1月于港股上市，2025年4月曾提交科创板IPO辅导备案。
+  evidence_quote: 将科创板第五套上市标准适用范围从创新医药领域扩大至人工智能大模型领域，同时新增支持量子科技、生物制造、聚生智能等硬科技领域企业上市。申请上市的大模型企业，申报时至少有一个大模型产品完成上线发布并实现规模化应用。潜在受益企业包括智谱mini max、面壁智能等，智谱已经在2026年1月于港股上市，2025年4月曾提交科创板IPO辅导备案。
   interpretation: UP指出科创板第五套标准扩围是陆家嘴论坛最核心的科技改革政策。关键变化：（1）适用范围从创新药→AI大模型+量子科技+生物制造+聚生智能；（2）要求产品已规模化应用（技术走出实验室）；（3）政策当天下午就落地执行规则。利好方向：已商业化的头部大模型企业。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-025-c"]
+  supplements:
+  - claim-20260617-025-c
   last_discovered: 2026-06-25
   links: {}
   topic: 科创板改革
@@ -114,10 +123,11 @@ claims:
   - AI大模型
   - IPO改革
   - 硬科技
+  school: qing
 - id: claim-20260617-029-s
   source_path: sources/raw/财经/2026-06-17-陆家嘴论坛政策解读-UP视频.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 视频
   extracted_at: '2026-06-17T21:14:33+08:00'
@@ -132,7 +142,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-026-c"]
+  supplements:
+  - claim-20260617-026-c
   last_discovered: 2026-06-25
   links: {}
   topic: 国产替代闭环
@@ -143,10 +154,11 @@ claims:
   - 半导体
   - 正向循环
   - 产业反哺
+  school: qing
 - id: claim-20260617-030-s
   source_path: sources/raw/财经/2026-06-17-陆家嘴论坛政策解读-UP视频.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 视频
   extracted_at: '2026-06-17T21:14:33+08:00'
@@ -161,7 +173,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-028-s"]
+  supplements:
+  - claim-20260617-028-s
   last_discovered: 2026-06-25
   links: {}
   topic: 科创板创业板错位发展
@@ -172,10 +185,11 @@ claims:
   - 错位发展
   - 新型消费
   - 现代服务业
+  school: qing
 - id: claim-20260617-031-s
   source_path: sources/raw/财经/2026-06-17-陆家嘴论坛政策解读-UP视频.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 视频
   extracted_at: '2026-06-17T21:14:33+08:00'
@@ -190,7 +204,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-029-s", "claim-20260617-026-c"]
+  supplements:
+  - claim-20260617-029-s
+  - claim-20260617-026-c
   last_discovered: 2026-06-25
   links: {}
   topic: 港股AI企业回归A股
@@ -201,10 +217,11 @@ claims:
   - 港股回归
   - AI产业链
   - 快速审核
+  school: qing
 - id: claim-20260617-032-m
   source_path: sources/raw/财经/2026-06-17-陆家嘴论坛政策解读-UP视频.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 视频
   extracted_at: '2026-06-17T21:14:33+08:00'
@@ -217,8 +234,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260602-001-b"]
-  contradicts: ["claim-20260604-001-a"]
+  supersedes:
+  - claim-20260602-001-b
+  contradicts:
+  - claim-20260604-001-a
   last_discovered: 2026-06-17
   links: {}
   topic: 操作策略
@@ -229,10 +248,11 @@ claims:
   - 选股能力
   - 持仓管理
   - 结构分化
+  school: qing
 - id: claim-20260617-033-m
   source_path: sources/raw/财经/2026-06-17-陆家嘴论坛政策解读-UP视频.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 视频
   extracted_at: '2026-06-17T21:14:33+08:00'
@@ -246,7 +266,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260604-004-b"]
+  contradicts:
+  - claim-20260604-004-b
   last_discovered: 2026-06-17
   links: {}
   topic: 资金集中规律
@@ -257,10 +278,11 @@ claims:
   - 确定性
   - 传统周期
   - 板块配置
+  school: qing
 - id: claim-20260617-034-m
   source_path: sources/raw/财经/2026-06-17-陆家嘴论坛政策解读-UP视频.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 视频
   extracted_at: '2026-06-17T21:14:33+08:00'
@@ -275,7 +297,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-k", "claim-20260621-001-g", "claim-20260622-004-c"]
+  supplements:
+  - claim-20260622-003-k
+  - claim-20260621-001-g
+  - claim-20260622-004-c
   last_discovered: 2026-06-25
   links: {}
   topic: 中报期选股方法
@@ -286,10 +311,11 @@ claims:
   - 去弱留强
   - 概念炒作
   - 选股
+  school: qing
 - id: claim-20260617-035-r
   source_path: sources/raw/财经/2026-06-17-陆家嘴论坛政策解读-UP视频.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 视频
   extracted_at: '2026-06-17T21:14:33+08:00'
@@ -303,7 +329,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260608-001-e"]
+  contradicts:
+  - claim-20260608-001-e
   last_discovered: 2026-06-17
   links: {}
   topic: 结构性分化风险
@@ -314,10 +341,11 @@ claims:
   - 全A等权
   - 指数失真
   - 结构性
+  school: qing
 - id: claim-20260617-036-r
   source_path: sources/raw/财经/2026-06-17-陆家嘴论坛政策解读-UP视频.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 视频
   extracted_at: '2026-06-17T21:14:33+08:00'
@@ -330,8 +358,11 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["qing-2026-06-08-macro-46-cbs-above-target-001"]
-  contradicts: ["claim-20260610-006-a", "claim-20260530-001-c"]
+  supersedes:
+  - qing-2026-06-08-macro-46-cbs-above-target-001
+  contradicts:
+  - claim-20260610-006-a
+  - claim-20260530-001-c
   last_discovered: 2026-06-17
   links: {}
   topic: 外围流动性环境
@@ -342,10 +373,11 @@ claims:
   - 欧洲央行
   - 中东冲突
   - 油价
+  school: qing
 - id: claim-20260617-037-c
   source_path: sources/raw/财经/2026-06-17-陆家嘴论坛政策解读-UP视频.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-17'
   source_type: 视频
   extracted_at: '2026-06-17T21:14:33+08:00'
@@ -360,7 +392,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-d", "claim-20260623-001-j", "claim-20260617-027-c"]
+  supplements:
+  - claim-20260609-005-d
+  - claim-20260623-001-j
+  - claim-20260617-027-c
   last_discovered: 2026-06-25
   links: {}
   topic: 高技术制造数据验证
@@ -371,3 +406,4 @@ claims:
   - 锂电池
   - 工业机器人
   - 产业数据
+  school: qing

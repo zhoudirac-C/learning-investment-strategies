@@ -20,7 +20,7 @@ claims:
   supplements: []
   last_discovered: 2026-09-15
   related_stocks:
-  - code: '002138'
+  - code: 002138
     name: 顺络电子
     role: 实盘号中线持仓-主板可交易
   tags:
@@ -33,6 +33,7 @@ claims:
     methodology_pages: []
     cases: []
   topic: 顺络电子实盘持仓与做T节奏
+  school: watchlist
 - id: claim-20260817-002-a
   source_path: sources/original/bilibili/2026-08-17-1047-图片-顺子屁股号T了（上周五加的），实盘号9.94本还是一股没动，.md
   source_date: '2026-08-17'
@@ -67,6 +68,7 @@ claims:
     methodology_pages: []
     cases: []
   topic: 超捷股份T点触发与减仓执行
+  school: watchlist
 - id: claim-20260817-003-a
   source_path: sources/original/bilibili/2026-08-17-1047-图片-顺子屁股号T了（上周五加的），实盘号9.94本还是一股没动，.md
   source_date: '2026-08-17'
@@ -85,7 +87,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260908-003-m"]
+  supplements:
+  - claim-20260908-003-m
   last_discovered: 2026-09-15
   related_stocks: []
   tags:
@@ -97,6 +100,7 @@ claims:
     methodology_pages: []
     cases: []
   topic: 电影情绪向AI漫剧题材的外溢观察
+  school: watchlist
 - id: claim-20260817-004-a
   source_path: sources/original/bilibili/2026-08-17-1047-图片-顺子屁股号T了（上周五加的），实盘号9.94本还是一股没动，.md
   source_date: '2026-08-17'
@@ -127,3 +131,4 @@ claims:
     methodology_pages: []
     cases: []
   topic: 不确定阶段的观望纪律
+  school: watchlist

@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260618-002-a
   source_path: sources/original/bilibili/2026-06-18-1322-图片-做交易最忌又贪又怂，涨得好的方向不敢去，怕高；又不甘心赚小钱.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-18'
   source_type: 动态
   extracted_at: '2026-06-18T13:37:30+08:00'
@@ -16,7 +16,9 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260611-006-a", "claim-20260426-006"]
+  contradicts:
+  - claim-20260611-006-a
+  - claim-20260426-006
   last_discovered: 2026-06-18
   links:
     wiki_pages: []
@@ -30,10 +32,11 @@ claims:
   - 畏高心理
   - 低位陷阱
   - 交易心理
+  school: qing
 - id: claim-20260618-002-b
   source_path: sources/original/bilibili/2026-06-18-1322-图片-做交易最忌又贪又怂，涨得好的方向不敢去，怕高；又不甘心赚小钱.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-18'
   source_type: 动态
   extracted_at: '2026-06-18T13:37:30+08:00'
@@ -48,7 +51,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260618-002-c"]
+  supplements:
+  - claim-20260618-002-c
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -62,10 +66,11 @@ claims:
   - 复利
   - 长期持有
   - 熬过震荡
+  school: qing
 - id: claim-20260618-002-c
   source_path: sources/original/bilibili/2026-06-18-1322-图片-做交易最忌又贪又怂，涨得好的方向不敢去，怕高；又不甘心赚小钱.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-18'
   source_type: 动态
   extracted_at: '2026-06-18T13:37:30+08:00'
@@ -80,7 +85,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-004-a"]
+  supplements:
+  - claim-20260623-004-a
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -94,10 +100,11 @@ claims:
   - 资金效率
   - 见顶信号
   - 果断卖出
+  school: qing
 - id: claim-20260618-002-d
   source_path: sources/original/bilibili/2026-06-18-1322-图片-做交易最忌又贪又怂，涨得好的方向不敢去，怕高；又不甘心赚小钱.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-18'
   source_type: 动态
   extracted_at: '2026-06-18T13:37:30+08:00'
@@ -112,7 +119,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260618-003-d", "claim-20260621-001-q"]
+  supplements:
+  - claim-20260618-003-d
+  - claim-20260621-001-q
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -125,10 +134,11 @@ claims:
   - 标的属性
   - 情绪管理
   - 方法论
+  school: qing
 - id: claim-20260618-002-e
   source_path: sources/original/bilibili/2026-06-18-1322-图片-做交易最忌又贪又怂，涨得好的方向不敢去，怕高；又不甘心赚小钱.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-18'
   source_type: 动态
   extracted_at: '2026-06-18T13:37:30+08:00'
@@ -143,7 +153,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-006-a", "claim-20260623-004-a"]
+  supplements:
+  - claim-20260611-006-a
+  - claim-20260623-004-a
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -157,3 +169,4 @@ claims:
   - 坚守者
   - 磨人波动
   - 追涨陷阱
+  school: qing

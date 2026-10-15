@@ -1,7 +1,6 @@
 claims:
 - id: claim-20260923-001-a
-  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
-    -.md
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升 -.md
   source_date: '2026-09-23'
   source_type: 视频
   up_id: '550494308'
@@ -17,7 +16,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260917-002-d"]
+  supersedes:
+  - claim-20260917-002-d
   contradicts: []
   supplements: []
   last_discovered: 2026-09-23
@@ -38,9 +38,9 @@ claims:
   - 趋势判断
   - 轮动加快
   - 卢本圆
+  school: watchlist
 - id: claim-20260923-001-b
-  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
-    -.md
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升 -.md
   source_date: '2026-09-23'
   source_type: 视频
   up_id: '550494308'
@@ -52,14 +52,15 @@ claims:
   stance: view
   statement: 医药持仓留两只：药明康德(603259)作趋势中军+万邦医药(301520)作弹性票（成本三十几、现价八十几）；一旦发现趋势走坏，药明会马上走。
   evidence_quote: 那医药的话我们现在就留了一只药明，还有万邦，一只属于弹性票，一只是中军。…那万邦现在八十几，我们成本三十几。医药还是多观察观察吧，一旦发现趋势走坏，药明我会马上走啊。
-  interpretation: 中军+弹性的双票结构对应「趋势向上但轮动快」的判断：中军吃趋势、弹性博超额。离场触发条件明确——医药趋势走坏即出药明。注意：ASR
-    转写，「万邦」按 9/21 早盘交叉验证为万邦医药(301520)。
+  interpretation: 中军+弹性的双票结构对应「趋势向上但轮动快」的判断：中军吃趋势、弹性博超额。离场触发条件明确——医药趋势走坏即出药明。注意：ASR 转写，「万邦」按 9/21 早盘交叉验证为万邦医药(301520)。
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260917-002-c"]
+  supersedes:
+  - claim-20260917-002-c
   contradicts: []
-  supplements: ["claim-20260922-003-b"]
+  supplements:
+  - claim-20260922-003-b
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -78,9 +79,9 @@ claims:
   - 万邦医药
   - 持仓结构
   - 离场纪律
+  school: watchlist
 - id: claim-20260923-001-c
-  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
-    -.md
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升 -.md
   source_date: '2026-09-23'
   source_type: 视频
   up_id: '550494308'
@@ -96,7 +97,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260917-002-g", "claim-20260914-003-5", "claim-20260922-002-b"]
+  supersedes:
+  - claim-20260917-002-g
+  - claim-20260914-003-5
+  - claim-20260922-002-b
   contradicts: []
   supplements: []
   last_discovered: 2026-09-23
@@ -111,9 +115,9 @@ claims:
   - 两万亿
   - 科技
   - 冲高回落
+  school: watchlist
 - id: claim-20260923-001-d
-  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
-    -.md
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升 -.md
   source_date: '2026-09-23'
   source_type: 视频
   up_id: '550494308'
@@ -131,7 +135,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260831-016-a", "claim-20260614-014-p"]
+  supplements:
+  - claim-20260831-016-a
+  - claim-20260614-014-p
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -148,9 +154,9 @@ claims:
   - 做T
   - 获利了结
   - 短线博弈
+  school: watchlist
 - id: claim-20260923-001-e
-  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
-    -.md
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升 -.md
   source_date: '2026-09-23'
   source_type: 视频
   up_id: '550494308'
@@ -182,9 +188,9 @@ claims:
   - 20日线
   - 加仓计划
   - 仓位上限
+  school: watchlist
 - id: claim-20260923-001-f
-  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
-    -.md
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升 -.md
   source_date: '2026-09-23'
   source_type: 视频
   up_id: '550494308'
@@ -202,7 +208,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260826-004-004", "claim-20260515-013"]
+  supplements:
+  - claim-20260826-004-004
+  - claim-20260515-013
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -215,9 +223,9 @@ claims:
   - 板块低位
   - 分时低位
   - 开仓原则
+  school: watchlist
 - id: claim-20260923-001-g
-  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升
-    -.md
+  source_path: sources/original/bilibili/2026-09-23-0808-视频-哈药二连板｜缺量，科技做短线博弈。医药趋势还在但难度上升 -.md
   source_date: '2026-09-23'
   source_type: 视频
   up_id: '550494308'
@@ -235,7 +243,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260922-002-f"]
+  supplements:
+  - claim-20260922-002-f
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -246,7 +255,7 @@ claims:
   - code: '600127'
     name: 金健米业
     role: 投机高度票-30日200%异动风险-主板可交易
-  - code: '000993'
+  - code: 000993
     name: 闽东电力
     role: 投机票已触发异动-主板可交易
   - code: '603221'
@@ -258,3 +267,4 @@ claims:
   - 异动监管
   - 金健米业
   - 闽东电力
+  school: watchlist

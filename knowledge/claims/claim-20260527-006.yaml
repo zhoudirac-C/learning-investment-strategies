@@ -2,8 +2,8 @@ claims:
 - id: claim-20260527-006-a
   topic: 科创50 120分钟双顶卖出信号
   source_path: sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 视频
   extracted_at: 2026-05-28
@@ -32,11 +32,12 @@ claims:
   - 科创50
   - 调整周期
   - 半导体
+  school: qing
 - id: claim-20260527-006-b
   topic: 存储芯片穿越博弈的仓位纪律
   source_path: sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 视频
   extracted_at: 2026-05-28
@@ -64,11 +65,12 @@ claims:
   - 操作策略
   - 存储芯片
   - 仓位
+  school: qing
 - id: claim-20260527-006-c
   topic: 4258点位顶部共振风险
   source_path: sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 视频
   extracted_at: 2026-05-28
@@ -82,7 +84,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-001-b", "claim-20260518-006"]
+  supplements:
+  - claim-20260608-001-b
+  - claim-20260518-006
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -94,11 +98,12 @@ claims:
   - 技术信号
   - 回调
   - 共振
+  school: qing
 - id: claim-20260527-006-d
   topic: 日线顶部结构调整周期
   source_path: sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 视频
   extracted_at: 2026-05-28
@@ -127,11 +132,12 @@ claims:
   - 调整周期
   - 顶部结构
   - 日线
+  school: qing
 - id: claim-20260527-006-e
   topic: 为什么不能抄底：外盘风险与结构问题
   source_path: sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 视频
   extracted_at: 2026-05-28
@@ -145,7 +151,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260528-001-b"]
+  supplements:
+  - claim-20260528-001-b
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -162,17 +169,18 @@ claims:
   - 美股
   - 防御
   related_stocks:
-  - code: "002185"
-    name: "华天科技"
-    role: "回填-正文提及"
-  - code: "600584"
-    name: "长电科技"
-    role: "回填-正文提及"
+  - code: 002185
+    name: 华天科技
+    role: 回填-正文提及
+  - code: '600584'
+    name: 长电科技
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260527-006-f
   topic: 半导体退潮节奏：非A杀而是高位震荡
   source_path: sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 视频
   extracted_at: 2026-05-28
@@ -186,7 +194,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260612-002-e", "claim-20260531-002-a"]
+  supplements:
+  - claim-20260612-002-e
+  - claim-20260531-002-a
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -201,11 +211,12 @@ claims:
   - code: '600584'
     name: 长电科技
     role: 参考标的
+  school: qing
 - id: claim-20260527-006-g
   topic: 散户与主力的定位：不博穿越，跟随主力
   source_path: sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 视频
   extracted_at: 2026-05-28
@@ -231,11 +242,12 @@ claims:
   tags:
   - 散户与主力的
   - 方法论
+  school: qing
 - id: claim-20260527-006-h
   topic: 利润垫与仓位管理：中长线不是躺平
   source_path: sources/raw/财经/视频：26-05-27：半导体卖出时点、存储穿越博弈与周期节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-27
   source_type: 视频
   extracted_at: 2026-05-28
@@ -262,3 +274,4 @@ claims:
   tags:
   - 仓位管理
   - 操作策略
+  school: qing

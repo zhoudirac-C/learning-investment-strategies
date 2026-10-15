@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260623-005-a
   source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 复盘
   extracted_at: '2026-06-23T23:26:57'
@@ -15,7 +15,8 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260610-006-b"]
+  supersedes:
+  - claim-20260610-006-b
   contradicts: []
   last_discovered: 2026-06-23
   links:
@@ -29,10 +30,11 @@ claims:
   - 防守过渡
   - KOSPI熔断
   - A股克制
+  school: qing
 - id: claim-20260623-005-b
   source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 复盘
   extracted_at: '2026-06-23T23:26:57'
@@ -45,7 +47,8 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260529-002-b"]
+  supersedes:
+  - claim-20260529-002-b
   contradicts: []
   last_discovered: 2026-06-23
   links: []
@@ -57,10 +60,11 @@ claims:
   - 拥挤交易
   - 物理AI
   - Agent驱动
+  school: qing
 - id: claim-20260623-005-c
   source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 复盘
   extracted_at: '2026-06-23T23:26:57'
@@ -75,7 +79,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-006-a", "claim-20260622-004-k"]
+  supplements:
+  - claim-20260610-006-a
+  - claim-20260622-004-k
   last_discovered: 2026-06-25
   links:
   - claim-20260623-002-a
@@ -87,10 +93,11 @@ claims:
   - 美联储偏鹰
   - 持仓松动
   - 强美元
+  school: qing
 - id: claim-20260623-005-d
   source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 复盘
   extracted_at: '2026-06-23T23:26:57'
@@ -117,10 +124,11 @@ claims:
   - 能化防守
   - 带血筹码
   - 拥挤度消化
+  school: qing
 - id: claim-20260623-005-e
   source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 复盘
   extracted_at: '2026-06-23T23:26:57'
@@ -134,7 +142,8 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260610-009-a"]
+  contradicts:
+  - claim-20260610-009-a
   last_discovered: 2026-06-23
   links:
   - claim-20260623-004-a
@@ -146,10 +155,11 @@ claims:
   - 拥挤度高位
   - 控制仓位
   - 中期预警
+  school: qing
 - id: claim-20260623-005-f
   source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 复盘
   extracted_at: '2026-06-23T23:26:57'
@@ -179,10 +189,11 @@ claims:
   - 光棒涨价
   - 涨价传导
   - 光纤产业链
+  school: qing
 - id: claim-20260623-005-g
   source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 复盘
   extracted_at: '2026-06-23T23:26:57'
@@ -197,7 +208,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-001-i", "claim-20260605-001-f"]
+  supplements:
+  - claim-20260623-001-i
+  - claim-20260605-001-f
   last_discovered: 2026-06-25
   links: []
   topic: 液冷产业链
@@ -211,10 +224,11 @@ claims:
   - 酷冷至尊
   - 英伟达供应链
   - 中报看点
+  school: qing
 - id: claim-20260623-005-h
   source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 复盘
   extracted_at: '2026-06-23T23:26:57'
@@ -229,7 +243,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-003-p", "claim-20260611-001-j"]
+  supplements:
+  - claim-20260622-003-p
+  - claim-20260611-001-j
   last_discovered: 2026-06-25
   links:
   - claim-20260623-001-j
@@ -238,19 +254,20 @@ claims:
   - code: '300604'
     name: 长川科技
     role: 国产测试机龙头-创业板不可交易
-  - code: "688256"
-    name: "寒武纪"
-    role: "回填-正文提及"
+  - code: '688256'
+    name: 寒武纪
+    role: 回填-正文提及
   tags:
   - 长川科技
   - 半导体测试
   - 中报预增
   - SoC测试机
   - 长鑫HBM
+  school: qing
 - id: claim-20260623-005-i
   source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 复盘
   extracted_at: '2026-06-23T23:26:57'
@@ -265,7 +282,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-001-i", "claim-20260609-005-d", "claim-20260623-005-h"]
+  supplements:
+  - claim-20260624-001-i
+  - claim-20260609-005-d
+  - claim-20260623-005-h
   last_discovered: 2026-06-25
   links: []
   topic: 算力基础设施
@@ -282,18 +302,18 @@ claims:
   - 鑫科材料
   - 开勒股份
   - 算力基础设施
+  school: qing
 - id: claim-20260623-005-j
   source_path: sources/raw/财经/2026-06-23-2213-复盘-科技回落资金防守-光棒VC涨价.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-23'
   source_type: 复盘
   extracted_at: '2026-06-23T23:26:57'
   claim_type: sector-theme
   subject: VC价格再度跳涨，Q3或冲击18万至20万每吨，永太科技和石大胜华受益
   timeframe: short-term
-  statement: VC今日再涨8000元/吨，本轮累计涨约15000元，现价约15.5万/吨。供给端新产能延期+安全限制，需求端7-9月电池厂排产走高，缺口持续放大。Q3
-    VC价格或冲击18-20万/吨。永太科技(002326)规划2028年VC总产能8万吨/年。
+  statement: VC今日再涨8000元/吨，本轮累计涨约15000元，现价约15.5万/吨。供给端新产能延期+安全限制，需求端7-9月电池厂排产走高，缺口持续放大。Q3 VC价格或冲击18-20万/吨。永太科技(002326)规划2028年VC总产能8万吨/年。
   evidence_quote: 据最新行情，VC今日再涨8000元/吨，本轮累计涨约15000元，现价约15.5万/吨。……Q3 VC价格或冲击18–20万/吨。永太科技(002326)方面：据公司规划，VC已投产产能1万吨/年，在建2万吨/年，叠加本次新增5万吨/年后，2028年VC总产能将提升至8万吨/年。
   interpretation: VC涨价逻辑持续强化：供需缺口扩大（供给受限+需求旺季），Q3有望冲击新高。永太科技(002326)是核心产能标的（规划8万吨/年），石大胜华(603026)也有受益。这是电解液涨价链条的延续。
   confidence: high
@@ -318,3 +338,4 @@ claims:
   - 永太科技
   - 石大胜华
   - 供需缺口
+  school: qing

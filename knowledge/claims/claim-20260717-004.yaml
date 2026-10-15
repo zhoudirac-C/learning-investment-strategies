@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260717-004-a
   source_path: sources/original/bilibili/2026-07-17-1315-图片-今天不要做加仓动作了，抄底失败就是失败，短线操作必须要遵守纪.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T13:25:00+08:00'
@@ -17,7 +17,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260717-003-c"]
+  supplements:
+  - claim-20260717-003-c
   last_discovered: 2026-07-17
   links:
     wiki_pages: []
@@ -31,11 +32,11 @@ claims:
   - 止损
   - 敦刻尔克
   - 诺曼底
-
+  school: qing
 - id: claim-20260717-004-b
   source_path: sources/original/bilibili/2026-07-17-1315-图片-今天不要做加仓动作了，抄底失败就是失败，短线操作必须要遵守纪.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T13:25:00+08:00'
@@ -48,9 +49,13 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260717-003-a", "claim-20260717-001-e"]
+  supersedes:
+  - claim-20260717-003-a
+  - claim-20260717-001-e
   contradicts: []
-  supplements: ["claim-20260717-001-d", "claim-20260713-009-i"]
+  supplements:
+  - claim-20260717-001-d
+  - claim-20260713-009-i
   last_discovered: 2026-07-17
   links:
     wiki_pages: []
@@ -64,11 +69,11 @@ claims:
   - 配置思维
   - 年线
   - 不赌单边
-
+  school: qing
 - id: claim-20260717-004-c
   source_path: sources/original/bilibili/2026-07-17-1315-图片-今天不要做加仓动作了，抄底失败就是失败，短线操作必须要遵守纪.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-17'
   source_type: 动态
   extracted_at: '2026-07-17T13:25:00+08:00'
@@ -81,9 +86,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260716-001-b"]
+  supersedes:
+  - claim-20260716-001-b
   contradicts: []
-  supplements: ["claim-20260717-003-c", "claim-20260714-006-o"]
+  supplements:
+  - claim-20260717-003-c
+  - claim-20260714-006-o
   last_discovered: 2026-07-17
   links:
     wiki_pages: []
@@ -98,3 +106,4 @@ claims:
   - 战术撤退
   - 战略进攻
   - 磨底期
+  school: qing

@@ -15,7 +15,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260827-055-x"]
+  supersedes:
+  - claim-20260827-055-x
   contradicts: []
   supplements: []
   last_discovered: 2026-09-23
@@ -32,6 +33,7 @@ claims:
   - 科技
   - 弹性博弈
   - 节前效应
+  school: qing
 - id: claim-20260923-003-b
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -50,7 +52,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-001-ab", "claim-20260922-004-b", "claim-20260816-007"]
+  supplements:
+  - claim-20260921-001-ab
+  - claim-20260922-004-b
+  - claim-20260816-007
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -64,6 +69,7 @@ claims:
   - 操作纪律
   - 拉升
   - 方向确认
+  school: qing
 - id: claim-20260923-003-c
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -80,8 +86,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260824-003-c"]
-  contradicts: ["claim-20260713-002-d"]
+  supersedes:
+  - claim-20260824-003-c
+  contradicts:
+  - claim-20260713-002-d
   supplements: []
   last_discovered: 2026-09-23
   links:
@@ -97,6 +105,7 @@ claims:
   - 量能
   - 情绪
   - 节前降仓
+  school: qing
 - id: claim-20260923-003-d
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -115,7 +124,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-003-a"]
+  supplements:
+  - claim-20260917-003-a
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -129,6 +139,7 @@ claims:
   - 情形推演
   - 量能
   - 不追高
+  school: qing
 - id: claim-20260923-003-e
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -147,7 +158,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260922-004-c", "claim-20260916-003-h", "claim-20260831-005-v"]
+  supplements:
+  - claim-20260922-004-c
+  - claim-20260916-003-h
+  - claim-20260831-005-v
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -161,6 +175,7 @@ claims:
   - 放量确认
   - 节后
   - 观察记录
+  school: qing
 - id: claim-20260923-003-f
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -178,7 +193,9 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260622-004-d", "claim-20260622-001-d"]
+  contradicts:
+  - claim-20260622-004-d
+  - claim-20260622-001-d
   supplements: []
   last_discovered: 2026-09-23
   links:
@@ -194,6 +211,7 @@ claims:
   - 涨价链
   - 上涨结构
   - 小盘炒作
+  school: qing
 - id: claim-20260923-003-g
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -212,7 +230,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260729-008", "claim-20260616-005-g"]
+  supplements:
+  - claim-20260729-008
+  - claim-20260616-005-g
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -230,6 +250,7 @@ claims:
   - 传媒
   - 修复空间
   - 定价逻辑
+  school: qing
 - id: claim-20260923-003-h
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -246,9 +267,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260831-011-a"]
+  supersedes:
+  - claim-20260831-011-a
   contradicts: []
-  supplements: ["claim-20260921-003-p"]
+  supplements:
+  - claim-20260921-003-p
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -262,6 +285,7 @@ claims:
   - 政策博弈
   - 电梯新政
   - 反复活跃
+  school: qing
 - id: claim-20260923-003-i
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -280,7 +304,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-042-a"]
+  supplements:
+  - claim-20260610-042-a
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -295,6 +320,7 @@ claims:
   - Anthropic
   - 需求确定性
   - AI硬件
+  school: qing
 - id: claim-20260923-003-j
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -313,7 +339,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-001-g"]
+  supplements:
+  - claim-20260608-001-g
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -328,6 +355,7 @@ claims:
   - 物理AI
   - 商业化闭环
   - 人形机器人
+  school: qing
 - id: claim-20260923-003-k
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -364,6 +392,7 @@ claims:
   - 台达
   - AI服务器电源
   - 竞争壁垒
+  school: qing
 - id: claim-20260923-003-l
   source_path: sources/raw/财经/2026-09-23-2215-复盘-指数缩量回落-节前效应主导-科技小容量分支.md
   source_date: '2026-09-23'
@@ -382,7 +411,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260809-025", "claim-20260831-023-a", "claim-20260817-059"]
+  supplements:
+  - claim-20260809-025
+  - claim-20260831-023-a
+  - claim-20260817-059
   last_discovered: 2026-09-23
   links:
     wiki_pages: []
@@ -403,3 +435,4 @@ claims:
   - 液冷Cage
   - 预期差
   - 市值差距
+  school: qing

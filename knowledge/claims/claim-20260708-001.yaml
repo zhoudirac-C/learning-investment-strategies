@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260708-001-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -15,7 +15,10 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260610-006-b", "claim-20260609-001-a", "claim-20260608-001-b"]
+  supersedes:
+  - claim-20260610-006-b
+  - claim-20260609-001-a
+  - claim-20260608-001-b
   contradicts: []
   supplements: []
   last_discovered: 2026-07-08
@@ -30,10 +33,11 @@ claims:
   - 沪指4000点
   - 反弹预期
   - 抛压衰竭
+  school: qing
 - id: claim-20260708-002-a-dup1
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -48,7 +52,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260707-008-a", "claim-20260622-001-h"]
+  supplements:
+  - claim-20260707-008-a
+  - claim-20260622-001-h
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -61,10 +67,11 @@ claims:
   - 情形推演
   - A股反弹
   - 内生修复
+  school: qing
 - id: claim-20260708-003-a-dup1
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -79,7 +86,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-001-c", "claim-20260702-005-c"]
+  supplements:
+  - claim-20260611-001-c
+  - claim-20260702-005-c
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -92,10 +101,11 @@ claims:
   - 缩量阴线
   - 右侧确认
   - 操作纪律
+  school: qing
 - id: claim-20260708-004-a-dup1
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -108,9 +118,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260702-005-a", "claim-20260623-004-b"]
+  supersedes:
+  - claim-20260702-005-a
+  - claim-20260623-004-b
   contradicts: []
-  supplements: ["claim-20260617-038-c"]
+  supplements:
+  - claim-20260617-038-c
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -123,10 +136,11 @@ claims:
   - 科创50
   - 止跌企稳
   - 市场主线
+  school: qing
 - id: claim-20260708-005-a-dup1
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -139,9 +153,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260525-023"]
+  supersedes:
+  - claim-20260525-023
   contradicts: []
-  supplements: ["claim-20260625-003-g", "claim-20260518-008"]
+  supplements:
+  - claim-20260625-003-g
+  - claim-20260518-008
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -152,7 +169,7 @@ claims:
   - code: '688432'
     name: 有研硅
     role: 科创板不可交易
-  - code: '002185'
+  - code: 002185
     name: 华天科技
     role: 半导体封测龙头-主板可交易
   - code: '002077'
@@ -163,10 +180,11 @@ claims:
   - 涨停
   - 有研硅
   - 华天科技
+  school: qing
 - id: claim-20260708-006-a-dup1
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -179,9 +197,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260706-002-e"]
+  supersedes:
+  - claim-20260706-002-e
   contradicts: []
-  supplements: ["claim-20260702-005-a"]
+  supplements:
+  - claim-20260702-005-a
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -194,10 +214,11 @@ claims:
   - 先跌先企稳
   - 调整尾声
   - 算力硬件
+  school: qing
 - id: claim-20260708-007-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -212,7 +233,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-001-d"]
+  supplements:
+  - claim-20260625-001-d
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -220,7 +242,7 @@ claims:
     cases: []
   topic: 华天科技明日承接是科技反弹风向标
   related_stocks:
-  - code: '002185'
+  - code: 002185
     name: 华天科技
     role: 半导体封测龙头-主板可交易
   tags:
@@ -228,10 +250,11 @@ claims:
   - 风向标
   - 科技反弹
   - 承接质量
+  school: qing
 - id: claim-20260708-008-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -244,9 +267,12 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260601-003-b"]
+  supersedes:
+  - claim-20260601-003-b
   contradicts: []
-  supplements: ["claim-20260702-003-c", "claim-20260515-007"]
+  supplements:
+  - claim-20260702-003-c
+  - claim-20260515-007
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -259,10 +285,11 @@ claims:
   - 医药
   - 资金回流
   - 反弹跟随
+  school: qing
 - id: claim-20260708-009-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -277,7 +304,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-043-s", "claim-20260523-006", "claim-20260624-006-b"]
+  supplements:
+  - claim-20260617-043-s
+  - claim-20260523-006
+  - claim-20260624-006-b
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -299,10 +329,11 @@ claims:
   - 业绩验证
   - 芯片设计
   - 寒武纪
+  school: qing
 - id: claim-20260708-010-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -330,10 +361,11 @@ claims:
   - CSP财报
   - 资本开支
   - 定价锚
+  school: qing
 - id: claim-20260708-011-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -348,7 +380,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-042-s", "claim-20260610-006-i"]
+  supplements:
+  - claim-20260617-042-s
+  - claim-20260610-006-i
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -368,10 +402,11 @@ claims:
   - DRAM
   - NAND
   - HBM
+  school: qing
 - id: claim-20260708-012-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -409,10 +444,11 @@ claims:
   - 覆铜板
   - 玻璃布
   - AI服务器
+  school: qing
 - id: claim-20260708-013-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -427,7 +463,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-h", "claim-20260621-001-l"]
+  supplements:
+  - claim-20260621-001-h
+  - claim-20260621-001-l
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -438,7 +476,7 @@ claims:
   - code: '600641'
     name: 先导基电
     role: 磷化铟/半导体材料-主板可交易
-  - code: '002428'
+  - code: 002428
     name: 云南锗业
     role: 磷化铟衬底-主板可交易
   tags:
@@ -446,20 +484,19 @@ claims:
   - 磷化铟
   - 高纯铟
   - AI光芯片
+  school: qing
 - id: claim-20260708-014-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
   claim_type: stock-view
   subject: 瑞芯微处于端侧AI算力需求爆发核心位置
   timeframe: trend
-  statement: 瑞芯微(603893)2026上半年净利润8.5亿至9.1亿元，Q2净利润预计环比增长58%至76%；公司SoC加协处理器双轨平台覆盖机器人、车载AI
-    BOX、机器视觉等场景，正处于端侧AI算力需求爆发的最核心受益位置。
-  evidence_quote: 瑞芯微：公司今日发布业绩预告，上半年净利润8.5亿—9.1亿元，Q2净利润预计环比增长58%—76%……公司的核心壁垒在于「SoC+协处理器」双轨并行的端侧AI芯片平台矩阵……覆盖机器人、车载AI
-    BOX、机器视觉、智慧工业等数十个行业。据中信建投预测，端侧AI市场规模将从2025年的3219亿元跃升至2029年的1.22万亿元，年复合增速达40%。个人判断，当AI从云端走向终端……公司正处于端侧AI算力需求爆发的最核心受益位置。
+  statement: 瑞芯微(603893)2026上半年净利润8.5亿至9.1亿元，Q2净利润预计环比增长58%至76%；公司SoC加协处理器双轨平台覆盖机器人、车载AI BOX、机器视觉等场景，正处于端侧AI算力需求爆发的最核心受益位置。
+  evidence_quote: 瑞芯微：公司今日发布业绩预告，上半年净利润8.5亿—9.1亿元，Q2净利润预计环比增长58%—76%……公司的核心壁垒在于「SoC+协处理器」双轨并行的端侧AI芯片平台矩阵……覆盖机器人、车载AI BOX、机器视觉、智慧工业等数十个行业。据中信建投预测，端侧AI市场规模将从2025年的3219亿元跃升至2029年的1.22万亿元，年复合增速达40%。个人判断，当AI从云端走向终端……公司正处于端侧AI算力需求爆发的最核心受益位置。
   interpretation: UP用业绩预告和端侧AI市场规模验证瑞芯微(603893)的核心受益地位，强调从云端向终端迁移的趋势。
   confidence: high
   status: active
@@ -482,10 +519,11 @@ claims:
   - 端侧AI
   - SoC
   - 业绩预告
+  school: qing
 - id: claim-20260708-015-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -498,9 +536,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260624-006-k"]
+  supersedes:
+  - claim-20260624-006-k
   contradicts: []
-  supplements: ["claim-20260625-003-k"]
+  supplements:
+  - claim-20260625-003-k
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -516,10 +556,11 @@ claims:
   - 昇腾950
   - 连接器
   - 业绩反转
+  school: qing
 - id: claim-20260708-016-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -542,7 +583,7 @@ claims:
     cases: []
   topic: 明日需观察外盘华天科技量能和资金流向
   related_stocks:
-  - code: '002185'
+  - code: 002185
     name: 华天科技
     role: 半导体封测龙头-主板可交易
   tags:
@@ -550,10 +591,11 @@ claims:
   - 外盘
   - 华天科技
   - 量能
+  school: qing
 - id: claim-20260708-017-a
   source_path: sources/raw/财经/2026-07-08-0023-复盘-沪指失守4000点.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 复盘
   extracted_at: '2026-07-08T00:29:08+08:00'
@@ -566,9 +608,11 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260414-002"]
+  supersedes:
+  - claim-20260414-002
   contradicts: []
-  supplements: ["claim-20260705-002-a"]
+  supplements:
+  - claim-20260705-002-a
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -581,3 +625,4 @@ claims:
   - 反弹
   - 情绪安抚
   - 置顶评论
+  school: qing

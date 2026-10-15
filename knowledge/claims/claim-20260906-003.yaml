@@ -17,7 +17,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260820-041", "claim-20260811-054"]
+  supplements:
+  - claim-20260820-041
+  - claim-20260811-054
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -31,6 +33,7 @@ claims:
   - 互联网类比
   - 新能源类比
   - 投资框架
+  school: watchlist
 - id: claim-20260906-003-002
   source_path: sources/original/bilibili/2026-09-06-2214-视频-坚定信念，科技到底。 -.md
   source_date: '2026-09-06'
@@ -49,7 +52,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260901-053-a"]
+  supplements:
+  - claim-20260901-053-a
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -60,7 +64,7 @@ claims:
   - code: '300750'
     name: 宁德时代
     role: 新能源品牌溢价龙头-A杀例外案例-主板可交易
-  - code: '002594'
+  - code: 002594
     name: 比亚迪
     role: 新能源品牌溢价龙头-A杀例外案例-主板可交易
   tags:
@@ -69,6 +73,7 @@ claims:
   - 需求上限
   - 新能源渗透率
   - 高波动
+  school: watchlist
 - id: claim-20260906-003-003
   source_path: sources/original/bilibili/2026-09-06-2214-视频-坚定信念，科技到底。 -.md
   source_date: '2026-09-06'
@@ -100,6 +105,7 @@ claims:
   - 模式内减仓
   - 自我反思
   - 波动管理
+  school: watchlist
 - id: claim-20260906-003-004
   source_path: sources/original/bilibili/2026-09-06-2214-视频-坚定信念，科技到底。 -.md
   source_date: '2026-09-06'
@@ -132,6 +138,7 @@ claims:
   - 资产配置
   - 投资框架
   - 硬科技
+  school: watchlist
 - id: claim-20260906-003-005
   source_path: sources/original/bilibili/2026-09-06-2214-视频-坚定信念，科技到底。 -.md
   source_date: '2026-09-06'
@@ -150,7 +157,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260910-012-a"]
+  supplements:
+  - claim-20260910-012-a
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -163,6 +171,7 @@ claims:
   - 拥挤交易
   - 市场回调
   - AI共识
+  school: watchlist
 - id: claim-20260906-003-006
   source_path: sources/original/bilibili/2026-09-06-2214-视频-坚定信念，科技到底。 -.md
   source_date: '2026-09-06'
@@ -181,7 +190,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260819-003", "qing-2026-06-08-macro-46-cbs-above-target-001", "claim-20260913-001-015"]
+  disagrees_with:
+  - claim-20260819-003
+  - qing-2026-06-08-macro-46-cbs-above-target-001
+  - claim-20260913-001-015
   supplements: []
   last_discovered: 2026-09-15
   links:
@@ -195,6 +207,7 @@ claims:
   - 降准降息
   - 货币政策
   - 美联储
+  school: watchlist
 - id: claim-20260906-003-007
   source_path: sources/original/bilibili/2026-09-06-2214-视频-坚定信念，科技到底。 -.md
   source_date: '2026-09-06'
@@ -205,17 +218,16 @@ claims:
   claim_type: macro
   subject: 中美AI差距仅几个月双方都要all in
   timeframe: industry
-  statement: 中国AI已到可用地步：DeepSeek V3 Pro/V3 Flash正式版、智谱GLM（更早、区间年底已可用）、K3等出炉，与美国差距也就几个月时间；AI改变一切的起点美国是2025年底26年初、中国是26年8月。巨头动作（阿里、腾讯、字节借钱、美国巨头借钱）说明都在all
-    in AI；借债搞AI不用太担心——AI能加速人类发展、价值迟早回来，AI可能救了老美（总比投资房地产好得多）。
-  evidence_quote: 就是中国的AI的这个K三也好，DeepSeek V3 Pro或者V3 Flash的正式版也好啊，包括智谱的这个GLM的，其实它智谱更早啊，区间年底可能就已经拿到可用了。那么就是这玩意儿都可用了的情况下，和美国其实差距也就几个月时间，那是不是美国在all
-    in，我们要不要all in？我们也要all in
+  statement: 中国AI已到可用地步：DeepSeek V3 Pro/V3 Flash正式版、智谱GLM（更早、区间年底已可用）、K3等出炉，与美国差距也就几个月时间；AI改变一切的起点美国是2025年底26年初、中国是26年8月。巨头动作（阿里、腾讯、字节借钱、美国巨头借钱）说明都在all in AI；借债搞AI不用太担心——AI能加速人类发展、价值迟早回来，AI可能救了老美（总比投资房地产好得多）。
+  evidence_quote: 就是中国的AI的这个K三也好，DeepSeek V3 Pro或者V3 Flash的正式版也好啊，包括智谱的这个GLM的，其实它智谱更早啊，区间年底可能就已经拿到可用了。那么就是这玩意儿都可用了的情况下，和美国其实差距也就几个月时间，那是不是美国在all in，我们要不要all in？我们也要all in
   interpretation: 产业判断：中美AI可用性时间差仅数月，双方同步all in；债务担忧被'AI创造价值'对冲——这是他解释为何不怕杠杆搞AI的底层逻辑。
   confidence: medium
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260607-004-f"]
+  supplements:
+  - claim-20260607-004-f
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -228,6 +240,7 @@ claims:
   - DeepSeek
   - 智谱GLM
   - AI军备竞赛
+  school: watchlist
 - id: claim-20260906-003-008
   source_path: sources/original/bilibili/2026-09-06-2214-视频-坚定信念，科技到底。 -.md
   source_date: '2026-09-06'
@@ -246,7 +259,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260821-009", "claim-20260731-011"]
+  disagrees_with:
+  - claim-20260821-009
+  - claim-20260731-011
   supplements: []
   last_discovered: 2026-09-15
   links:
@@ -260,6 +275,7 @@ claims:
   - 科创50
   - 技术分析
   - 科技见底
+  school: watchlist
 - id: claim-20260906-003-009
   source_path: sources/original/bilibili/2026-09-06-2214-视频-坚定信念，科技到底。 -.md
   source_date: '2026-09-06'
@@ -291,6 +307,7 @@ claims:
   - 收敛三角形
   - 慢牛
   - 技术分析
+  school: watchlist
 - id: claim-20260906-003-010
   source_path: sources/original/bilibili/2026-09-06-2214-视频-坚定信念，科技到底。 -.md
   source_date: '2026-09-06'
@@ -309,7 +326,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260820-008"]
+  supplements:
+  - claim-20260820-008
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -321,6 +339,7 @@ claims:
   - 科技见底
   - 时空双锚
   - 跷跷板行情
+  school: watchlist
 - id: claim-20260906-003-011
   source_path: sources/original/bilibili/2026-09-06-2214-视频-坚定信念，科技到底。 -.md
   source_date: '2026-09-06'
@@ -339,8 +358,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260811-054"]
-  supplements: ["claim-20260909-030-a"]
+  disagrees_with:
+  - claim-20260811-054
+  supplements:
+  - claim-20260909-030-a
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -354,6 +375,7 @@ claims:
   - AI医疗
   - 行情扩散
   - 业绩验证
+  school: watchlist
 - id: claim-20260906-003-012
   source_path: sources/original/bilibili/2026-09-06-2214-视频-坚定信念，科技到底。 -.md
   source_date: '2026-09-06'
@@ -372,8 +394,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20070228-001-c"]
-  supplements: ["claim-20070528-001-b"]
+  disagrees_with:
+  - claim-20070228-001-c
+  supplements:
+  - claim-20070528-001-b
   last_discovered: 2026-09-15
   links:
     wiki_pages: []
@@ -386,3 +410,4 @@ claims:
   - 黑天鹅
   - 投资信仰
   - 杠杆控制
+  school: watchlist

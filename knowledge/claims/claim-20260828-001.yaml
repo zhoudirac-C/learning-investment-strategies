@@ -1,9 +1,8 @@
 claims:
 - id: claim-20260828-001-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -18,7 +17,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260827-001-a", "claim-20260827-041-a"]
+  supplements:
+  - claim-20260827-001-a
+  - claim-20260827-041-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -32,11 +33,11 @@ claims:
   - 存储
   - 算力主链
   - 背书
+  school: qing
 - id: claim-20260828-002-a-dup1
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -49,9 +50,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260804-019"]
+  supersedes:
+  - claim-20260804-019
   contradicts: []
-  supplements: ["claim-20260811-054", "claim-20260817-049"]
+  supplements:
+  - claim-20260811-054
+  - claim-20260817-049
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -65,11 +69,11 @@ claims:
   - 网络安全
   - 海外映射
   - 业绩口实
+  school: qing
 - id: claim-20260828-003-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -83,7 +87,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260610-006-a"]
+  contradicts:
+  - claim-20260610-006-a
   supplements: []
   last_discovered: 2026-08-31
   links:
@@ -97,11 +102,11 @@ claims:
   - 黄金
   - 比特币
   - 风险偏好
+  school: qing
 - id: claim-20260828-004-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -114,7 +119,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260805-011", "claim-20260805-046", "claim-20260827-035-a"]
+  supersedes:
+  - claim-20260805-011
+  - claim-20260805-046
+  - claim-20260827-035-a
   contradicts: []
   supplements: []
   last_discovered: 2026-08-31
@@ -130,11 +138,11 @@ claims:
   - 2.5万亿
   - 增量资金
   - 情绪过热
+  school: qing
 - id: claim-20260828-005-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -147,9 +155,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260820-009"]
+  supersedes:
+  - claim-20260820-009
   contradicts: []
-  supplements: ["claim-20260827-006-a"]
+  supplements:
+  - claim-20260827-006-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -169,11 +179,11 @@ claims:
   - 中金公司
   - 并购
   - 催化剂
+  school: qing
 - id: claim-20260828-006-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -188,7 +198,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260827-034-a", "claim-20260805-011", "claim-20260812-005"]
+  supplements:
+  - claim-20260827-034-a
+  - claim-20260805-011
+  - claim-20260812-005
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -202,11 +215,11 @@ claims:
   - 压力区
   - 缩量回落
   - 放量回落
+  school: qing
 - id: claim-20260828-007-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -219,9 +232,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260827-007-a", "claim-20260804-009"]
+  supersedes:
+  - claim-20260827-007-a
+  - claim-20260804-009
   contradicts: []
-  supplements: ["claim-20260827-034-a"]
+  supplements:
+  - claim-20260827-034-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -235,11 +251,11 @@ claims:
   - 首板
   - 情绪指标
   - 宽度
+  school: qing
 - id: claim-20260828-008-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -262,7 +278,7 @@ claims:
     cases: []
   topic: 德明利业绩明牌,开盘不破昨收为健康换手,冲高回落放量则存储第一波兑现
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 存储线风向标-业绩明牌验证开盘承接
   - code: '688008'
@@ -277,11 +293,11 @@ claims:
   - 明牌兑现
   - 开盘承接
   - 健康换手
+  school: qing
 - id: claim-20260828-009-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -296,7 +312,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-006-f"]
+  supplements:
+  - claim-20260624-006-f
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -316,11 +333,11 @@ claims:
   - Rubin Ultra
   - 覆铜板
   - 右侧确认
+  school: qing
 - id: claim-20260828-010-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -335,7 +352,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260827-068-x", "claim-20260814-035"]
+  supplements:
+  - claim-20260827-068-x
+  - claim-20260814-035
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -355,11 +374,11 @@ claims:
   - 金安国纪
   - 胜宏科技
   - 业绩背书
+  school: qing
 - id: claim-20260828-011-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -374,7 +393,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-065", "claim-20260827-016-a", "claim-20260811-055"]
+  supplements:
+  - claim-20260819-065
+  - claim-20260827-016-a
+  - claim-20260811-055
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -394,11 +416,11 @@ claims:
   - 推理
   - 国产芯片
   - 爆单
+  school: qing
 - id: claim-20260828-012-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -411,9 +433,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260811-046"]
+  supersedes:
+  - claim-20260811-046
   contradicts: []
-  supplements: ["claim-20260812-010", "claim-20260809-013"]
+  supplements:
+  - claim-20260812-010
+  - claim-20260809-013
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -427,11 +452,11 @@ claims:
   - 高低切
   - AI基础设施
   - 映射
+  school: qing
 - id: claim-20260828-013-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -444,7 +469,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260624-006-g", "claim-20260729-009"]
+  supersedes:
+  - claim-20260624-006-g
+  - claim-20260729-009
   contradicts: []
   supplements: []
   last_discovered: 2026-08-31
@@ -466,11 +493,11 @@ claims:
   - 三星电机
   - 产能腾挪
   - 风华高科
+  school: qing
 - id: claim-20260828-014-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -485,7 +512,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260827-025-a"]
+  supplements:
+  - claim-20260827-025-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -496,10 +524,10 @@ claims:
   - code: '000751'
     name: 锌业股份
     role: 锌价上行标的-深主板可交易
-  - code: '000688'
+  - code: 000688
     name: 国城矿业
     role: 锌价上行标的-深主板可交易
-  - code: '002428'
+  - code: 002428
     name: 云南锗业
     role: 算力金属锗-业绩+235%深主板可交易
   tags:
@@ -508,11 +536,11 @@ claims:
   - LME
   - 云南锗业
   - 供给收紧
+  school: qing
 - id: claim-20260828-015-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -527,7 +555,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260827-037-a", "claim-20260827-006-a"]
+  supplements:
+  - claim-20260827-037-a
+  - claim-20260827-006-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -544,11 +574,11 @@ claims:
   - 骑墙资金
   - 医药
   - 转强信号
+  school: qing
 - id: claim-20260828-016-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -563,7 +593,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260827-045-x"]
+  supplements:
+  - claim-20260827-045-x
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -571,7 +602,7 @@ claims:
     cases: []
   topic: 电网设备行政令:短期情绪中期规则长期交付,次日放量止跌才是关键信号
   related_stocks:
-  - code: '002028'
+  - code: 002028
     name: 思源电气
     role: 电网设备跌10%-对美出口<2%-深主板可交易
   - code: '688676'
@@ -586,11 +617,11 @@ claims:
   - 变压器
   - 次日承接
   - 出口占比
+  school: qing
 - id: claim-20260828-017-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -598,15 +629,15 @@ claims:
   subject: 今日三种情形情景推演
   timeframe: intraday
   statement: 今日难点在于A股自己刚涨完+隔夜英伟达高举高打,更考验承接。开盘放量高开估计难以避免,午盘前后半小时的指数方向选择同样关键。情形A·顺延逼空:高开小幅回落被迅速接住,开盘15-30分钟内主要AI硬件股扛住抛压被拉回,午盘前后不破分时均线,全天量能站上2.3万亿且不是只堆在早盘——不排除午后转而向上逼空,节奏跟随科技主线,以二板家数维持9家以上作情绪确认。情形B·高开分歧转弱:高开后半小时内冲高回落甚至翻绿,存储先弱且德明利(001309)失守昨收,量能虚高在早盘——视为高低切而非趋势破坏,资金大概率转向券商、农业、医药、资源等方向,指数震荡消化,前期强势科技股不宜追高。情形C·新叙事分流:指数走平但AI软件、网络安全、AI基础设施单独异动,即昨夜美股映射的兑现——第一时间跟踪不追高,明确其为波段性机会而非趋势性机会。
-  evidence_quote: 情形A · 顺延逼空:高开小幅回落后被迅速接住,开盘十五至三十分钟内主要AI硬件股扛住抛压并被拉回,午盘前后不破分时均线,全天量能站上2.3万亿且不是只堆在早盘。……情形B
-    · 高开分歧转弱:高开后半小时内冲高回落甚至翻绿,存储先弱且德明利失守昨收,量能虚高在早盘。……情形C · 新叙事分流:指数走平但AI软件、网络安全、AI基础设施方向单独异动,即昨夜美股映射的兑现。
+  evidence_quote: 情形A · 顺延逼空:高开小幅回落后被迅速接住,开盘十五至三十分钟内主要AI硬件股扛住抛压并被拉回,午盘前后不破分时均线,全天量能站上2.3万亿且不是只堆在早盘。……情形B · 高开分歧转弱:高开后半小时内冲高回落甚至翻绿,存储先弱且德明利失守昨收,量能虚高在早盘。……情形C · 新叙事分流:指数走平但AI软件、网络安全、AI基础设施方向单独异动,即昨夜美股映射的兑现。
   interpretation: 条件化情景框架,每种情形都有可盘中验证的触发条件(A:承接+2.3万亿垫量+二板≥9家;B:半小时内冲高回落+德明利(001309)失守昨收+早盘堆量;C:指数走平+AI软件单独异动)与对应操作(跟随主线/高低切防守/跟踪不追高)。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260827-037-a"]
+  supplements:
+  - claim-20260827-037-a
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -614,7 +645,7 @@ claims:
     cases: []
   topic: 三情景:顺延逼空(A)/高开分歧转弱(B)/新叙事分流(C),各有盘中验证条件
   related_stocks:
-  - code: '001309'
+  - code: 001309
     name: 德明利
     role: 情形B验证点-失守昨收判定-深主板可交易
   tags:
@@ -623,11 +654,11 @@ claims:
   - 高开分歧
   - 新叙事
   - 德明利
+  school: qing
 - id: claim-20260828-018-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -640,9 +671,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260826-022-a"]
+  supersedes:
+  - claim-20260826-022-a
   contradicts: []
-  supplements: ["claim-20260827-064-x", "claim-20260814-019"]
+  supplements:
+  - claim-20260827-064-x
+  - claim-20260814-019
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -656,11 +690,11 @@ claims:
   - 买阴不买阳
   - 不接飞刀
   - 周末敞口
+  school: qing
 - id: claim-20260828-019-a
-  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题
-    北京时间.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  source_path: sources/original/bilibili/2026-08-28-0904-专栏-一、隔夜与开盘预判：外盘只定价开盘，接不住才是问题 北京时间.md
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-28'
   source_type: 专栏
   extracted_at: '2026-08-28T09:15:00+08:00'
@@ -673,9 +707,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260827-037-a"]
+  supersedes:
+  - claim-20260827-037-a
   contradicts: []
-  supplements: ["claim-20260818-070"]
+  supplements:
+  - claim-20260818-070
   last_discovered: 2026-08-31
   links:
     wiki_pages: []
@@ -689,3 +725,4 @@ claims:
   - 修复转进攻
   - 主线增强
   - 观察窗口
+  school: qing

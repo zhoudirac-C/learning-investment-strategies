@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260719-005
   source_path: sources/original/bilibili/2026-07-19-2252-专栏-周五指数全天单边回落，券商银行一度拉升，上证指数纹丝不动，尾.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-19'
   source_type: 专栏
   extracted_at: '2026-07-19T23:53:00+08:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260607-001-d"]
+  supersedes:
+  - claim-20260607-001-d
   contradicts: []
-  supplements: ["claim-20260614-014-p", "claim-20260717-005-c"]
+  supplements:
+  - claim-20260614-014-p
+  - claim-20260717-005-c
   last_discovered: 2026-07-20
   links: {}
   topic: 科技方向见底三信号框架：补跌→多杀多→缩量磨底
@@ -31,3 +34,4 @@ claims:
   - 多杀多
   - 缩量磨底
   - 科技方向
+  school: qing

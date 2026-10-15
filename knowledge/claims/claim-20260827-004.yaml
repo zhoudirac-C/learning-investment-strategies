@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260827-049-x
   source_path: sources/raw/财经/2026-08-27-盘中-种业高标逻辑与仓位纪律.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 动态
   extracted_at: '2026-08-28T01:35:00+08:00'
@@ -11,14 +11,15 @@ claims:
   timeframe: permanent
   statement: 每当行情缩量调整时，一般都会出现大高度的抱团票：因为缩量趋势大票做不了，但资金永不眠就会有人做这种方向，所以无论是医药、种业、金属都会出现这样的标的；而随着行情越来越好转，这类卡位题材的高标会渐渐走弱，能做就做，做不了不用强求。
   evidence_quote: 每当行情进行缩量调整的时候，一半都会出现这种大高度的抱团票，因为缩量，趋势大票做不了，但是资金永不眠就会有人出来做这种方向，所以无论是医药，种业，金属，都会出现这样的标的。……但是只要随着行情越来越好转，这一类的卡位题材的高标都会渐渐走弱，这些品种能做就做，做不了不用强求。
-  interpretation: 缩量环境与高标抱团的因果机制：趋势票需要量能燃料，缩量下资金只能在无套牢盘的卡位题材上做高度。反向推论——卡位高标走弱反而是行情好转的信号（资金回流趋势票），这是一个可观察的
-    Environment 指标。
+  interpretation: 缩量环境与高标抱团的因果机制：趋势票需要量能燃料，缩量下资金只能在无套牢盘的卡位题材上做高度。反向推论——卡位高标走弱反而是行情好转的信号（资金回流趋势票），这是一个可观察的 Environment 指标。
   confidence: high
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260723-030", "claim-20260803-028"]
+  supplements:
+  - claim-20260723-030
+  - claim-20260803-028
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -32,10 +33,11 @@ claims:
   - 卡位题材
   - 资金永不眠
   - 方法论
+  school: qing
 - id: claim-20260827-050-x
   source_path: sources/raw/财经/2026-08-27-盘中-种业高标逻辑与仓位纪律.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 动态
   extracted_at: '2026-08-28T01:35:00+08:00'
@@ -49,8 +51,11 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260819-011"]
-  supplements: ["claim-20260817-039", "claim-20260825-030-a"]
+  contradicts:
+  - claim-20260819-011
+  supplements:
+  - claim-20260817-039
+  - claim-20260825-030-a
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -73,10 +78,11 @@ claims:
   - 二波
   - 轮动
   - 农业
+  school: qing
 - id: claim-20260827-051-x
   source_path: sources/raw/财经/2026-08-27-盘中-种业高标逻辑与仓位纪律.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 动态
   extracted_at: '2026-08-28T01:35:00+08:00'
@@ -89,7 +95,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260723-003", "claim-20260420-001", "claim-20260610-037-a"]
+  supersedes:
+  - claim-20260723-003
+  - claim-20260420-001
+  - claim-20260610-037-a
   contradicts: []
   supplements: []
   last_discovered: 2026-08-28
@@ -105,10 +114,11 @@ claims:
   - '3932'
   - 调整周期
   - 抄底
+  school: qing
 - id: claim-20260827-052-x
   source_path: sources/raw/财经/2026-08-27-盘中-种业高标逻辑与仓位纪律.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 动态
   extracted_at: '2026-08-28T01:35:00+08:00'
@@ -137,10 +147,11 @@ claims:
   - 结构失效
   - 可参与性
   - 缠论
+  school: qing
 - id: claim-20260827-053-x
   source_path: sources/raw/财经/2026-08-27-盘中-种业高标逻辑与仓位纪律.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-27'
   source_type: 动态
   extracted_at: '2026-08-28T01:35:00+08:00'
@@ -154,8 +165,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260805-047"]
-  supplements: ["claim-20260810-029"]
+  contradicts:
+  - claim-20260805-047
+  supplements:
+  - claim-20260810-029
   last_discovered: 2026-08-28
   links:
     wiki_pages: []
@@ -169,3 +182,4 @@ claims:
   - 板块脱钩
   - 接力情绪
   - 方法论
+  school: qing

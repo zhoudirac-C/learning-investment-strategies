@@ -17,7 +17,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260709-006-d"]
+  supplements:
+  - claim-20260709-006-d
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -30,6 +31,7 @@ claims:
   - 反弹窗口
   - 反弹非反转
   - 短线定性
+  school: watchlist
 - id: claim-20260914-003-2
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -48,7 +50,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260814-001"]
+  supplements:
+  - claim-20260814-001
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -61,6 +64,7 @@ claims:
   - 加息预期
   - 美股科技股
   - 宏观环境
+  school: watchlist
 - id: claim-20260914-003-3
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -79,7 +83,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-004", "claim-20260913-001-012"]
+  supplements:
+  - claim-20260914-001-004
+  - claim-20260913-001-012
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -92,6 +98,7 @@ claims:
   - 不确定性消除
   - 预期打满
   - 市场心理
+  school: watchlist
 - id: claim-20260914-003-4
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -110,7 +117,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260731-011", "claim-20260906-010-a", "claim-20260826-034-a"]
+  supplements:
+  - claim-20260731-011
+  - claim-20260906-010-a
+  - claim-20260826-034-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -123,6 +133,7 @@ claims:
   - 通胀数据
   - 加息假设
   - 反弹风险
+  school: watchlist
 - id: claim-20260914-003-5
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -141,8 +152,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260702-001-a"]
-  supplements: ["claim-20260831-004-a"]
+  disagrees_with:
+  - claim-20260702-001-a
+  supplements:
+  - claim-20260831-004-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -155,6 +168,7 @@ claims:
   - 科技普涨
   - 结构性行情
   - 行情级别
+  school: watchlist
 - id: claim-20260914-003-6
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -173,8 +187,11 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  disagrees_with: ["claim-20260721-022"]
-  supplements: ["claim-20260914-002-e", "claim-20260907-041-c"]
+  disagrees_with:
+  - claim-20260721-022
+  supplements:
+  - claim-20260914-002-e
+  - claim-20260907-041-c
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -187,6 +204,7 @@ claims:
   - 光纤
   - 科技细分
   - 方向选择
+  school: watchlist
 - id: claim-20260914-003-7
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -218,6 +236,7 @@ claims:
   - 产能结构
   - AI高端型号
   - 供给紧缺
+  school: watchlist
 - id: claim-20260914-003-8
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -236,7 +255,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260825-048-a", "claim-20260817-042"]
+  supplements:
+  - claim-20260825-048-a
+  - claim-20260817-042
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -249,6 +270,7 @@ claims:
   - 康宁长单
   - AI算力基建
   - 海外需求
+  school: watchlist
 - id: claim-20260914-003-9
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -267,7 +289,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260524-017"]
+  supplements:
+  - claim-20260524-017
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -279,6 +302,7 @@ claims:
   - PCB
   - 备选方向
   - 弱关注
+  school: watchlist
 - id: claim-20260914-003-10
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -297,7 +321,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260909-008-a"]
+  supplements:
+  - claim-20260909-008-a
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -310,6 +335,7 @@ claims:
   - 短线套利
   - 不追高
   - 本周窗口
+  school: watchlist
 - id: claim-20260914-003-11
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -328,7 +354,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-046", "claim-20260805-011"]
+  supplements:
+  - claim-20260805-046
+  - claim-20260805-011
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -341,6 +369,7 @@ claims:
   - 2万亿阈值
   - 成交额锚点
   - 科技反弹
+  school: watchlist
 - id: claim-20260914-003-12
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -373,6 +402,7 @@ claims:
   - 农业
   - 医药
   - 防御轮动
+  school: watchlist
 - id: claim-20260914-003-13
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -391,7 +421,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260911-001-004"]
+  supplements:
+  - claim-20260911-001-004
   last_discovered: 2026-09-16
   links:
     wiki_pages: []
@@ -404,6 +435,7 @@ claims:
   - 6月复刻
   - 重仓科技
   - 调整阶段
+  school: watchlist
 - id: claim-20260914-003-14
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -435,6 +467,7 @@ claims:
   - 不加杠杆
   - 持仓管理
   - 反弹期操作
+  school: watchlist
 - id: claim-20260914-003-15
   source_path: sources/original/bilibili/2026-09-14-0820-视频-加息预期冲到90%！本周科技看反弹窗口，一不小心成了抽奖博主.md
   source_date: '2026-09-14'
@@ -470,3 +503,4 @@ claims:
   - 脑机软件
   - 中药医药
   - 电网
+  school: watchlist

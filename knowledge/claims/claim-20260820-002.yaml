@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260820-028
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-0954-图片-不用多想，这两天肯定是要减仓的，无非就是今天减还是明天减，我.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-20'
   source_type: 图片动态
   extracted_at: '2026-08-20T12:27:00'
@@ -11,14 +11,16 @@ claims:
   timeframe: intraday
   statement: 不用多想，这两天肯定是要减仓的，无非就是今天减还是明天减，我认为你们可以每天减一些。反正就是这两天把科技相关的仓位降一降，我今天会出视频跟大家详细说的。
   evidence_quote: 这两天肯定是要减仓的，无非就是今天减还是明天减，我认为你们可以每天减一些……这两天把科技相关的仓位降一降。
-  interpretation: 明确减仓指令（09:54）：这两天（8/20-8/21）肯定减仓，策略=每天减一些（分批而非一次性）；方向=科技相关仓位。与8/19
-    14:11'仓位压2-3成'、早盘027'仓位>选股'完全一致——执行窗口=今明两天分批降科技仓位。
+  interpretation: 明确减仓指令（09:54）：这两天（8/20-8/21）肯定减仓，策略=每天减一些（分批而非一次性）；方向=科技相关仓位。与8/19 14:11'仓位压2-3成'、早盘027'仓位>选股'完全一致——执行窗口=今明两天分批降科技仓位。
   confidence: high
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260819-031", "claim-20260819-029"]
-  supplements: ["claim-20260731-019"]
+  contradicts:
+  - claim-20260819-031
+  - claim-20260819-029
+  supplements:
+  - claim-20260731-019
   last_discovered: 2026-08-20
   links:
     wiki_pages: []
@@ -31,10 +33,11 @@ claims:
   - 分批
   - 科技仓位
   - 今明两天
+  school: qing
 - id: claim-20260820-029
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-0954-图片-不用多想，这两天肯定是要减仓的，无非就是今天减还是明天减，我.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-20'
   source_type: 图片动态
   extracted_at: '2026-08-20T12:27:00'
@@ -48,7 +51,9 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260805-009", "claim-20260819-001"]
+  contradicts:
+  - claim-20260805-009
+  - claim-20260819-001
   supplements: []
   last_discovered: 2026-08-20
   links:
@@ -62,10 +67,11 @@ claims:
   - 费城联储
   - 美债
   - 今晚数据
+  school: qing
 - id: claim-20260820-030
   source_path: /home/ubuntu/learning-investment-strategies/sources/original/bilibili/2026-08-20-0954-图片-不用多想，这两天肯定是要减仓的，无非就是今天减还是明天减，我.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-20'
   source_type: 图片动态
   extracted_at: '2026-08-20T12:27:00'
@@ -80,7 +86,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260724-001"]
+  supplements:
+  - claim-20260724-001
   last_discovered: 2026-08-20
   links:
     wiki_pages: []
@@ -93,3 +100,4 @@ claims:
   - 小涨小减
   - 执行原则
   - 弹性减仓
+  school: qing

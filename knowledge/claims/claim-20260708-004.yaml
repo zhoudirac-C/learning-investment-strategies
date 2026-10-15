@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260708-004-a
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -16,8 +16,11 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260706-002-a"]
-  supplements: ["claim-20260625-003-a", "claim-20260617-001-c"]
+  contradicts:
+  - claim-20260706-002-a
+  supplements:
+  - claim-20260625-003-a
+  - claim-20260617-001-c
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -29,10 +32,11 @@ claims:
   - 早盘反弹
   - 量能回升
   - 市场情绪
+  school: qing
 - id: claim-20260708-004-b
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -47,7 +51,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-003-c", "claim-20260612-002-b", "claim-20260609-001-d"]
+  supplements:
+  - claim-20260706-003-c
+  - claim-20260612-002-b
+  - claim-20260609-001-d
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -60,10 +67,11 @@ claims:
   - 国产链逆势
   - CPO
   - PCB
+  school: qing
 - id: claim-20260708-004-c
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -76,9 +84,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260526-013", "claim-20260706-003-b"]
+  supersedes:
+  - claim-20260526-013
+  - claim-20260706-003-b
   contradicts: []
-  supplements: ["claim-20260706-003-c"]
+  supplements:
+  - claim-20260706-003-c
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -90,10 +101,11 @@ claims:
   - 十点共振
   - 国产链扩散
   - 全市场共振
+  school: qing
 - id: claim-20260708-004-d
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -106,7 +118,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260706-003-c", "claim-20260706-003-b", "claim-20260526-030"]
+  supersedes:
+  - claim-20260706-003-c
+  - claim-20260706-003-b
+  - claim-20260526-030
   contradicts: []
   supplements: []
   last_discovered: 2026-07-08
@@ -120,10 +135,11 @@ claims:
   - 国产链主动
   - 海外链跟随
   - 修复主线
+  school: qing
 - id: claim-20260708-004-e
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -138,7 +154,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-043-s", "claim-20260702-005-e", "claim-20260623-001-j"]
+  supplements:
+  - claim-20260617-043-s
+  - claim-20260702-005-e
+  - claim-20260623-001-j
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -146,13 +165,13 @@ claims:
     cases: []
   topic: 国产链形成服务器交换机芯片半导体完整阵型
   related_stocks:
-  - code: '000977'
+  - code: 000977
     name: 浪潮信息
     role: 服务器先锋-主板可交易
-  - code: '000938'
+  - code: 000938
     name: 紫光股份
     role: 国产链中军-主板可交易
-  - code: '002396'
+  - code: 002396
     name: 星网锐捷
     role: 交换机人气高度-主板可交易
   - code: '688702'
@@ -182,10 +201,11 @@ claims:
   - 交换机
   - AI芯片
   - 半导体
+  school: qing
 - id: claim-20260708-004-f
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -200,7 +220,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-001-r"]
+  supplements:
+  - claim-20260611-001-r
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -212,10 +233,11 @@ claims:
   - 紫光股份
   - 中军回封
   - 阵型完成
+  school: qing
 - id: claim-20260708-004-g
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -230,7 +252,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260708-002-ah", "claim-20260708-002-az"]
+  supplements:
+  - claim-20260708-002-ah
+  - claim-20260708-002-az
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -242,10 +266,11 @@ claims:
   - 浪潮信息
   - 业绩催化
   - 国产算力
+  school: qing
 - id: claim-20260708-004-h
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -260,7 +285,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260707-025-a", "claim-20260614-005-g", "claim-20260609-005-d"]
+  supplements:
+  - claim-20260707-025-a
+  - claim-20260614-005-g
+  - claim-20260609-005-d
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -272,10 +300,11 @@ claims:
   - 中美大模型
   - 脱钩传闻
   - 自主可控
+  school: qing
 - id: claim-20260708-004-i
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -288,9 +317,12 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260625-003-k"]
+  supersedes:
+  - claim-20260625-003-k
   contradicts: []
-  supplements: ["claim-20260610-013-a", "claim-20260706-002-i"]
+  supplements:
+  - claim-20260610-013-a
+  - claim-20260706-002-i
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -306,10 +338,11 @@ claims:
   - 算力网
   - 阿里云磐久
   - 中科曙光
+  school: qing
 - id: claim-20260708-004-j
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -324,7 +357,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260706-015", "claim-20260707-014-a", "claim-20260707-015-a"]
+  supplements:
+  - claim-20260706-015
+  - claim-20260707-014-a
+  - claim-20260707-015-a
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -336,10 +372,11 @@ claims:
   - RoCE
   - 交换机
   - 增速最快环节
+  school: qing
 - id: claim-20260708-004-k
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -354,7 +391,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260707-015-a", "claim-20260630-003-ag"]
+  supplements:
+  - claim-20260707-015-a
+  - claim-20260630-003-ag
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -366,10 +405,11 @@ claims:
   - 中国移动
   - RoCE集采
   - 自主可控
+  school: qing
 - id: claim-20260708-004-l
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -384,7 +424,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260528-004-g", "claim-20260614-005-g"]
+  supplements:
+  - claim-20260528-004-g
+  - claim-20260614-005-g
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -396,10 +438,11 @@ claims:
   - 阿里云
   - 102.4T NPO
   - 国产交换机
+  school: qing
 - id: claim-20260708-004-m
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -426,10 +469,11 @@ claims:
   - 六张网
   - 本土供应商
   - AI芯片
+  school: qing
 - id: claim-20260708-004-n
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -444,7 +488,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260523-006", "claim-20260708-002-ay", "claim-20260706-003-c"]
+  supplements:
+  - claim-20260523-006
+  - claim-20260708-002-ay
+  - claim-20260706-003-c
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -456,10 +503,11 @@ claims:
   - 先进制程
   - 晶圆产能
   - 瓶颈
+  school: qing
 - id: claim-20260708-004-o
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -472,9 +520,12 @@ claims:
   confidence: medium
   status: superseded
   intensity: high
-  supersedes: ["claim-20260528-005-b"]
+  supersedes:
+  - claim-20260528-005-b
   contradicts: []
-  supplements: ["claim-20260528-004-a", "claim-20260629-001-i"]
+  supplements:
+  - claim-20260528-004-a
+  - claim-20260629-001-i
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -486,10 +537,11 @@ claims:
   - 情绪拐点
   - 十点后修复
   - 强度级别
+  school: qing
 - id: claim-20260708-004-p
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -504,7 +556,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260528-005-b"]
+  supplements:
+  - claim-20260528-005-b
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -516,10 +569,11 @@ claims:
   - 国产链阵型
   - 扛住抛压
   - 拐点支撑
+  school: qing
 - id: claim-20260708-004-q
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -532,7 +586,9 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260609-005-a", "claim-20260630-003-d"]
+  supersedes:
+  - claim-20260609-005-a
+  - claim-20260630-003-d
   contradicts: []
   supplements: []
   last_discovered: 2026-07-08
@@ -546,10 +602,11 @@ claims:
   - 调整充分
   - 修复动力
   - 试错
+  school: qing
 - id: claim-20260708-004-r
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -562,8 +619,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260609-003-a", "claim-20260529-002-e"]
-  contradicts: ["claim-20260705-003-a"]
+  supersedes:
+  - claim-20260609-003-a
+  - claim-20260529-002-e
+  contradicts:
+  - claim-20260705-003-a
   supplements: []
   last_discovered: 2026-07-08
   links:
@@ -576,10 +636,11 @@ claims:
   - AI科技
   - 全A共振
   - 联动
+  school: qing
 - id: claim-20260708-004-s
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -594,7 +655,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260518-018", "claim-20260611-005-a", "claim-20260623-005-a"]
+  supplements:
+  - claim-20260518-018
+  - claim-20260611-005-a
+  - claim-20260623-005-a
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -606,10 +670,11 @@ claims:
   - 拉升偏快
   - 半导体急拉
   - 韩国指数回落
+  school: qing
 - id: claim-20260708-004-t
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -636,10 +701,11 @@ claims:
   - 午后关键
   - 急拉站稳
   - 胜负手
+  school: qing
 - id: claim-20260708-004-u
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -654,7 +720,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-005-a", "claim-20260629-001-ab", "claim-20260622-001-h"]
+  supplements:
+  - claim-20260702-005-a
+  - claim-20260629-001-ab
+  - claim-20260622-001-h
   last_discovered: 2026-07-08
   links:
     wiki_pages: []
@@ -667,10 +736,11 @@ claims:
   - 情绪拐点
   - 国产链轮动
   - 低吸
+  school: qing
 - id: claim-20260708-004-v
   source_path: sources/original/bilibili/2026-07-08-1315-图片-早盘指数下探回升，如期迎来反弹，市场氛围有所回暖，量能较昨日.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-08'
   source_type: 动态
   extracted_at: '2026-07-08T13:23:58+08:00'
@@ -683,7 +753,8 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260624-001-f"]
+  supersedes:
+  - claim-20260624-001-f
   contradicts: []
   supplements: []
   last_discovered: 2026-07-08
@@ -698,3 +769,4 @@ claims:
   - 6月8日至12日
   - 多日震荡
   - 强共振
+  school: qing

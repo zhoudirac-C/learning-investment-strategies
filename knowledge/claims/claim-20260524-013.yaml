@@ -1,11 +1,11 @@
 - id: claim-20260524-013
   topic: 退潮尾声的缩量修复
   source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-24
   source_type: 动态
-  extracted_at: "2026-05-25T10:21:35+08:00"
+  extracted_at: '2026-05-25T10:21:35+08:00'
   claim_type: market-cycle
   subject: 退潮尾声的缩量修复
   timeframe: short-term
@@ -14,29 +14,31 @@
   interpretation: 缩量修复说明恐慌盘缓和，但没有证明新增进攻资金全面入场；后续应优先看高位情绪股是否止跌、核心趋势股是否承接、回踩是否缩量。
   confidence: high
   status: superseded
-  supersedes: ["claim-20260518-018"]
+  supersedes:
+  - claim-20260518-018
   contradicts: []
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 每日复盘/2026-05-24
-      - 市场分析/修复性质判断
+    - 每日复盘/2026-05-24
+    - 市场分析/修复性质判断
     methodology_pages:
-      - 投资方法论/仓位管理
+    - 投资方法论/仓位管理
     cases: []
   intensity: high
   tags:
-    - 退潮尾声的缩
-    - 市场周期
-    - 缩量
+  - 退潮尾声的缩
+  - 市场周期
+  - 缩量
+  school: qing
 - id: claim-20260524-014
   topic: 最后一次回踩确认
   source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-24
   source_type: 动态
-  extracted_at: "2026-05-25T10:21:35+08:00"
+  extracted_at: '2026-05-25T10:21:35+08:00'
   claim_type: technical-signal
   subject: 最后一次回踩确认
   timeframe: short-term
@@ -45,33 +47,35 @@
   interpretation: 回踩本身不是风险，关键在速度、量能和核心主线是否破位；这延续了“看承接而不是看单日涨跌”的框架。
   confidence: high
   status: superseded
-  supersedes: ["claim-20260527-005-a"]
+  supersedes:
+  - claim-20260527-005-a
   contradicts: []
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 每日复盘/2026-05-24
-      - 市场分析/量能判断
-      - 市场分析/指数调整
+    - 每日复盘/2026-05-24
+    - 市场分析/量能判断
+    - 市场分析/指数调整
     methodology_pages:
-      - 投资方法论/交易纪律
+    - 投资方法论/交易纪律
     cases: []
   intensity: high
   tags:
-    - 技术信号
-    - 缩量
-    - 杀跌
-    - 放量
-    - 主线
-    - 修复
+  - 技术信号
+  - 缩量
+  - 杀跌
+  - 放量
+  - 主线
+  - 修复
+  school: qing
 - id: claim-20260524-015
   topic: Rubin BOM扩散主线
   source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-24
   source_type: 动态
-  extracted_at: "2026-05-25T10:21:35+08:00"
+  extracted_at: '2026-05-25T10:21:35+08:00'
   claim_type: sector-theme
   subject: Rubin BOM扩散主线
   timeframe: trend
@@ -82,31 +86,35 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-006-d", "claim-20260524-016", "claim-20260605-001-c"]
+  supplements:
+  - claim-20260610-006-d
+  - claim-20260524-016
+  - claim-20260605-001-c
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 每日复盘/2026-05-24
-      - 市场分析/AI上游涨价链
-      - 市场分析/PCB与先进封装
+    - 每日复盘/2026-05-24
+    - 市场分析/AI上游涨价链
+    - 市场分析/PCB与先进封装
     methodology_pages:
-      - 投资方法论/主线判断
+    - 投资方法论/主线判断
     cases: []
   intensity: high
   tags:
-    - 算力租赁
-    - 板块主题
-    - 光模块
-    - PCB
-    - 主线
+  - 算力租赁
+  - 板块主题
+  - 光模块
+  - PCB
+  - 主线
+  school: qing
 - id: claim-20260524-016
   topic: AI PCB材料工艺耗材扩散
   source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-24
   source_type: 动态
-  extracted_at: "2026-05-25T10:21:35+08:00"
+  extracted_at: '2026-05-25T10:21:35+08:00'
   claim_type: sector-theme
   subject: AI PCB材料工艺耗材扩散
   timeframe: trend
@@ -117,28 +125,30 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260525-009"]
+  supplements:
+  - claim-20260525-009
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/PCB与先进封装
-      - 市场分析/AI上游涨价链
+    - 市场分析/PCB与先进封装
+    - 市场分析/AI上游涨价链
     methodology_pages:
-      - 投资方法论/板块观察方法
+    - 投资方法论/板块观察方法
     cases: []
   intensity: medium
   tags:
-    - 板块主题
-    - PCB
-    - AI
+  - 板块主题
+  - PCB
+  - AI
+  school: qing
 - id: claim-20260524-017
   topic: CPO与DCI预期差
   source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-24
   source_type: 动态
-  extracted_at: "2026-05-25T10:21:35+08:00"
+  extracted_at: '2026-05-25T10:21:35+08:00'
   claim_type: sector-theme
   subject: CPO与DCI预期差
   timeframe: trend
@@ -149,29 +159,31 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260525-024"]
+  supplements:
+  - claim-20260525-024
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 市场分析/光通信
-      - 市场分析/AI上游涨价链
+    - 市场分析/光通信
+    - 市场分析/AI上游涨价链
     methodology_pages: []
     cases: []
   intensity: medium
   tags:
-    - 板块主题
-    - PCB
-    - CPO
-    - 主线
-    - AI
+  - 板块主题
+  - PCB
+  - CPO
+  - 主线
+  - AI
+  school: qing
 - id: claim-20260524-018
   topic: 退潮尾声不追高
   source_path: sources/raw/财经/动态：26-05-24：缩量修复超预期，Rubin BOM扩散与退潮尾声.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-24
   source_type: 动态
-  extracted_at: "2026-05-25T10:21:35+08:00"
+  extracted_at: '2026-05-25T10:21:35+08:00'
   claim_type: operation
   subject: 退潮尾声不追高
   timeframe: short-term
@@ -182,17 +194,21 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260524-013", "claim-20260524-023", "claim-20260426-004"]
+  supplements:
+  - claim-20260524-013
+  - claim-20260524-023
+  - claim-20260426-004
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 每日复盘/2026-05-24
+    - 每日复盘/2026-05-24
     methodology_pages:
-      - 投资方法论/交易纪律
-      - 投资方法论/仓位管理
+    - 投资方法论/交易纪律
+    - 投资方法论/仓位管理
     cases: []
   intensity: high
   tags:
-    - 操作策略
-    - 主线
-    - 低吸
+  - 操作策略
+  - 主线
+  - 低吸
+  school: qing

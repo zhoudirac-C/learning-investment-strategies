@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260626-005-a
   source_path: sources/original/bilibili/2026-06-26-1530-图片-今天的行情确实很恶心，不过也很正常，缺口不补掉涨上去反而担惊.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-28T19:43:33+08:00'
@@ -15,7 +15,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260612-003-t"]
+  supersedes:
+  - claim-20260612-003-t
   contradicts: []
   supplements: []
   last_discovered: 2026-06-28
@@ -27,10 +28,11 @@ claims:
   - 缺口回补
   - 技术调整
   - 市场节奏
+  school: qing
 - id: claim-20260626-005-b
   source_path: sources/original/bilibili/2026-06-26-1530-图片-今天的行情确实很恶心，不过也很正常，缺口不补掉涨上去反而担惊.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-28T19:43:33+08:00'
@@ -43,7 +45,9 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260610-041-a", "claim-20260612-003-ac"]
+  supersedes:
+  - claim-20260610-041-a
+  - claim-20260612-003-ac
   contradicts: []
   supplements: []
   last_discovered: 2026-06-28
@@ -55,10 +59,11 @@ claims:
   - 第二只脚
   - 板块调整
   - 共振
+  school: qing
 - id: claim-20260626-005-c
   source_path: sources/original/bilibili/2026-06-26-1530-图片-今天的行情确实很恶心，不过也很正常，缺口不补掉涨上去反而担惊.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-28T19:43:33+08:00'
@@ -71,7 +76,9 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["qing-2026-06-08-market-shanghai-bottom-near-001", "claim-20260605-002-b"]
+  supersedes:
+  - qing-2026-06-08-market-shanghai-bottom-near-001
+  - claim-20260605-002-b
   contradicts: []
   supplements: []
   last_discovered: 2026-06-28
@@ -83,10 +90,11 @@ claims:
   - 下跌空间
   - 仓位管理
   - 风险偏好
+  school: qing
 - id: claim-20260626-005-d
   source_path: sources/original/bilibili/2026-06-26-1530-图片-今天的行情确实很恶心，不过也很正常，缺口不补掉涨上去反而担惊.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-28T19:43:33+08:00'
@@ -99,9 +107,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260520-001-g", "claim-20260527-004-a"]
+  supersedes:
+  - claim-20260520-001-g
+  - claim-20260527-004-a
   contradicts: []
-  supplements: ["claim-20260525-019"]
+  supplements:
+  - claim-20260525-019
   last_discovered: 2026-06-28
   links: {}
   topic: 当前减仓是为后续进攻做准备
@@ -111,10 +122,11 @@ claims:
   - 进攻
   - 仓位管理
   - 战术腾挪
+  school: qing
 - id: claim-20260626-005-e
   source_path: sources/original/bilibili/2026-06-26-1530-图片-今天的行情确实很恶心，不过也很正常，缺口不补掉涨上去反而担惊.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-28T19:43:33+08:00'
@@ -127,9 +139,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260615-001"]
+  supersedes:
+  - claim-20260615-001
   contradicts: []
-  supplements: ["claim-20260616-001-c"]
+  supplements:
+  - claim-20260616-001-c
   last_discovered: 2026-06-28
   links: {}
   topic: 今年大盘目标4500点
@@ -139,10 +153,11 @@ claims:
   - 4500点
   - 年度判断
   - 逢低布局
+  school: qing
 - id: claim-20260626-005-f
   source_path: sources/original/bilibili/2026-06-26-1530-图片-今天的行情确实很恶心，不过也很正常，缺口不补掉涨上去反而担惊.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-28T19:43:33+08:00'
@@ -157,7 +172,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260610-025-a"]
+  supplements:
+  - claim-20260610-025-a
   last_discovered: 2026-06-28
   links: {}
   topic: 存储做完后切换新方向
@@ -167,3 +183,4 @@ claims:
   - 板块切换
   - 方向选择
   - 操作节奏
+  school: qing

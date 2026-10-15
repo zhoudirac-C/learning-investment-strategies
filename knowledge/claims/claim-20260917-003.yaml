@@ -20,7 +20,10 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260909-030-a", "claim-20260913-001-018", "claim-20260804-008"]
+  supersedes:
+  - claim-20260909-030-a
+  - claim-20260913-001-018
+  - claim-20260804-008
   contradicts: []
   supplements: []
   last_discovered: 2026-09-17
@@ -34,6 +37,7 @@ claims:
   - 议息
   - 震荡轮动
   - 变盘边界
+  school: qing
 - id: claim-20260917-004-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -52,9 +56,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260913-001-018", "claim-20260914-002-b"]
+  supersedes:
+  - claim-20260913-001-018
+  - claim-20260914-002-b
   contradicts: []
-  supplements: ["claim-20260824-003-c"]
+  supplements:
+  - claim-20260824-003-c
   last_discovered: 2026-09-17
   links:
     wiki_pages:
@@ -66,6 +73,7 @@ claims:
   - 退潮缓和
   - 持续性证据
   - 局部确认
+  school: qing
 - id: claim-20260917-005-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -86,7 +94,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260901-017-a", "claim-20260909-014-a", "claim-20260910-003-a"]
+  supplements:
+  - claim-20260901-017-a
+  - claim-20260909-014-a
+  - claim-20260910-003-a
   last_discovered: 2026-09-17
   links:
     wiki_pages:
@@ -98,6 +109,7 @@ claims:
   - 主动进攻
   - 存量切换
   - 量能结构
+  school: qing
 - id: claim-20260917-006-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -118,7 +130,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260908-003-z", "claim-20260913-001-017", "claim-20260910-003-a"]
+  supplements:
+  - claim-20260908-003-z
+  - claim-20260913-001-017
+  - claim-20260910-003-a
   last_discovered: 2026-09-17
   links:
     wiki_pages:
@@ -130,6 +145,7 @@ claims:
   - 权重承接
   - 市场广度
   - 大金融
+  school: qing
 - id: claim-20260917-007-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -150,7 +166,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260910-017-a", "claim-20260908-003-z"]
+  supplements:
+  - claim-20260910-017-a
+  - claim-20260908-003-z
   last_discovered: 2026-09-17
   links:
     wiki_pages:
@@ -158,13 +176,14 @@ claims:
     methodology_pages: []
     cases: []
   related_stocks:
-  - code: '002584'
+  - code: 002584
     name: 西陇科学
     role: 短线情绪修复观察样本-深A主板可交易
   tags:
   - 科技回流
   - 分歧检验
   - 参与条件
+  school: qing
 - id: claim-20260917-008-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -185,7 +204,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-018", "claim-20260908-003-z", "claim-20260814-013"]
+  supplements:
+  - claim-20260913-001-018
+  - claim-20260908-003-z
+  - claim-20260814-013
   last_discovered: 2026-09-17
   links:
     wiki_pages:
@@ -197,6 +219,7 @@ claims:
   - 轮动转防守
   - 失效条件
   - 放量破位
+  school: qing
 - id: claim-20260917-009-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -217,7 +240,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260908-003-z"]
+  supplements:
+  - claim-20260908-003-z
   last_discovered: 2026-09-17
   links:
     wiki_pages:
@@ -232,6 +256,7 @@ claims:
   - 防御反抽
   - 二波判据
   - 万向德农
+  school: qing
 - id: claim-20260917-010-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -252,7 +277,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260810-037"]
+  supplements:
+  - claim-20260810-037
   last_discovered: 2026-09-17
   links:
     wiki_pages:
@@ -264,6 +290,7 @@ claims:
   - 汽车风电
   - 进攻轮动
   - 主线条件
+  school: qing
 - id: claim-20260917-011-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -284,7 +311,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260804-026", "claim-20260915-004-6", "claim-20260826-017-a"]
+  supplements:
+  - claim-20260804-026
+  - claim-20260915-004-6
+  - claim-20260826-017-a
   last_discovered: 2026-09-17
   links:
     wiki_pages:
@@ -296,6 +326,7 @@ claims:
   - 国产链
   - 业务联动
   - 订单验证
+  school: qing
 - id: claim-20260917-012-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -316,8 +347,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  relation_review_note: '人工复核：旧观点明确三季度可能拐点但贡献不大、交易明年报表，与本条股价可能先于利润兑现并不矛盾；剔除自动判出的冲突边。'
-  supplements: ["claim-20260915-004-21"]
+  relation_review_note: 人工复核：旧观点明确三季度可能拐点但贡献不大、交易明年报表，与本条股价可能先于利润兑现并不矛盾；剔除自动判出的冲突边。
+  supplements:
+  - claim-20260915-004-21
   last_discovered: 2026-09-17
   links:
     wiki_pages:
@@ -325,7 +357,7 @@ claims:
     methodology_pages: []
     cases: []
   related_stocks:
-  - code: '002281'
+  - code: 002281
     name: 光迅科技
     role: 光模块-海外链业绩窗口样本-深A主板可交易
   - code: '300394'
@@ -338,6 +370,7 @@ claims:
   - 海外链
   - 业绩兑现
   - 三季报
+  school: qing
 - id: claim-20260917-013-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -358,7 +391,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260721-029", "claim-20260913-001-033"]
+  supplements:
+  - claim-20260721-029
+  - claim-20260913-001-033
   last_discovered: 2026-09-17
   links:
     wiki_pages:
@@ -370,6 +405,7 @@ claims:
   - 资本开支
   - 采购验证
   - 收入传导
+  school: qing
 - id: claim-20260917-014-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -393,7 +429,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-033", "claim-20260812-023", "claim-20260826-015-a"]
+  supplements:
+  - claim-20260913-001-033
+  - claim-20260812-023
+  - claim-20260826-015-a
   last_discovered: 2026-09-17
   links:
     wiki_pages:
@@ -405,6 +444,7 @@ claims:
   - 零部件
   - 国产替代
   - 盈利兑现
+  school: qing
 - id: claim-20260917-015-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -425,7 +465,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260826-017-a"]
+  supplements:
+  - claim-20260826-017-a
   last_discovered: 2026-09-17
   links:
     wiki_pages:
@@ -437,6 +478,7 @@ claims:
   - 陶瓷零件
   - 封装载板
   - 分开验证
+  school: qing
 - id: claim-20260917-016-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -469,6 +511,7 @@ claims:
   - 光互连
   - 受益门槛
   - 集群扩展
+  school: qing
 - id: claim-20260917-017-a
   source_path: sources/original/bilibili/2026-09-17-2158-专栏-今日指数冲高回落后窄幅震荡，量能与前一交易日基本持平。议息结.md
   source_date: '2026-09-17'
@@ -489,7 +532,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-033"]
+  supplements:
+  - claim-20260913-001-033
   last_discovered: 2026-09-17
   links:
     wiki_pages:
@@ -501,3 +545,4 @@ claims:
   - 政策催化
   - 经营预期
   - 地产链承接
+  school: qing

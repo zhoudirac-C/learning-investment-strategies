@@ -19,7 +19,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260721-029"]
+  supplements:
+  - claim-20260721-029
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -31,6 +32,7 @@ claims:
   - 验证现实
   - 调整定性
   - 四季报
+  school: qing
 - id: claim-20261001-001-b
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -63,6 +65,7 @@ claims:
   - 尾部风险
   - 风险溢价
   - 竞争框架
+  school: qing
 - id: claim-20261001-001-c
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -81,9 +84,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260609-005-d"]
+  supersedes:
+  - claim-20260609-005-d
   contradicts: []
-  supplements: ["claim-20260915-004-6", "claim-20260915-004-4"]
+  supplements:
+  - claim-20260915-004-6
+  - claim-20260915-004-4
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -95,6 +101,7 @@ claims:
   - 海外芯片
   - 自主可控
   - 商业竞争力
+  school: qing
 - id: claim-20261001-001-d
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -115,7 +122,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260929-002-r"]
+  supplements:
+  - claim-20260929-002-r
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -127,6 +135,7 @@ claims:
   - 贴息
   - 资产负债表
   - 稳定预期
+  school: qing
 - id: claim-20261001-001-e
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -147,7 +156,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260721-018"]
+  supplements:
+  - claim-20260721-018
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -159,6 +169,7 @@ claims:
   - 政策底
   - 反内卷
   - 盈利环境
+  school: qing
 - id: claim-20261001-001-f
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -179,7 +190,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260910-004-a", "claim-20260921-001-z"]
+  supplements:
+  - claim-20260910-004-a
+  - claim-20260921-001-z
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -191,6 +204,7 @@ claims:
   - 避险资金
   - 机构考核
   - 两融
+  school: qing
 - id: claim-20261001-001-g
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -211,7 +225,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260929-002-o", "claim-20260621-006-i", "claim-20260721-029"]
+  supplements:
+  - claim-20260929-002-o
+  - claim-20260621-006-i
+  - claim-20260721-029
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -223,6 +240,7 @@ claims:
   - 产业验证
   - 三季报
   - 订单盈利
+  school: qing
 - id: claim-20261001-001-h
   source_path: sources/original/bilibili/2026-10-01-1104-专栏-近期A股市场出现连续调整，市场对于中美关系缓和、国内政策加码.md
   source_date: '2026-10-01'
@@ -243,7 +261,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260721-029"]
+  supplements:
+  - claim-20260721-029
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -254,6 +273,7 @@ claims:
   - 预期重新排序
   - 企业利润
   - 观察阶段
+  school: qing
 - id: claim-20261001-001-i
   source_path: sources/original/bilibili/2026-10-01-1304-图片-9月30日，美国公布的8月PCE通胀数据，给了市场一个短暂松.md
   source_date: '2026-10-01'
@@ -274,7 +294,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260915-004-12", "claim-20260928-002-c"]
+  supplements:
+  - claim-20260915-004-12
+  - claim-20260928-002-c
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -286,6 +308,7 @@ claims:
   - 利率路径
   - 长端收益率
   - 会议概率
+  school: qing
 - id: claim-20261001-001-j
   source_path: sources/original/bilibili/2026-10-01-1304-图片-9月30日，美国公布的8月PCE通胀数据，给了市场一个短暂松.md
   source_date: '2026-10-01'
@@ -306,7 +329,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-018", "claim-20260809-007"]
+  supplements:
+  - claim-20260913-001-018
+  - claim-20260809-007
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -318,6 +343,7 @@ claims:
   - 数据解读
   - 内部结构
   - 归因纪律
+  school: qing
 - id: claim-20261001-001-k
   source_path: sources/original/bilibili/2026-10-01-1304-图片-9月30日，美国公布的8月PCE通胀数据，给了市场一个短暂松.md
   source_date: '2026-10-01'
@@ -338,7 +364,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260826-030-a", "claim-20260913-001-012", "claim-20260819-003"]
+  supplements:
+  - claim-20260826-030-a
+  - claim-20260913-001-012
+  - claim-20260819-003
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -350,6 +379,7 @@ claims:
   - 实际利率
   - 机会成本
   - 会议概率
+  school: qing
 - id: claim-20261001-001-l
   source_path: sources/original/bilibili/2026-10-01-1304-图片-9月30日，美国公布的8月PCE通胀数据，给了市场一个短暂松.md
   source_date: '2026-10-01'
@@ -370,7 +400,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-004", "claim-20260913-001-012", "claim-20260729-006-dup1"]
+  supplements:
+  - claim-20260914-001-004
+  - claim-20260913-001-012
+  - claim-20260729-006-dup1
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -382,3 +415,4 @@ claims:
   - 融资条件
   - 政策传导
   - 资金成本
+  school: qing

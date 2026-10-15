@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260824-002-a
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -15,7 +15,9 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260820-002", "claim-20260819-048"]
+  supersedes:
+  - claim-20260820-002
+  - claim-20260819-048
   contradicts: []
   supplements: []
   last_discovered: 2026-08-24
@@ -30,10 +32,11 @@ claims:
   - 10年期
   - 外围风险
   - 股指企稳
+  school: qing
 - id: claim-20260824-002-b
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -47,7 +50,8 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260820-002"]
+  contradicts:
+  - claim-20260820-002
   supplements: []
   last_discovered: 2026-08-24
   links:
@@ -61,10 +65,11 @@ claims:
   - 贝森特
   - 政治背书
   - 风险提示
+  school: qing
 - id: claim-20260824-002-c
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -77,9 +82,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260717-006-d", "claim-20260729-031"]
+  supersedes:
+  - claim-20260717-006-d
+  - claim-20260729-031
   contradicts: []
-  supplements: ["claim-20260824-001-r"]
+  supplements:
+  - claim-20260824-001-r
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -92,10 +100,11 @@ claims:
   - 沃什
   - 美联储
   - 定价事件
+  school: qing
 - id: claim-20260824-002-d
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -108,7 +117,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260809-014"]
+  supersedes:
+  - claim-20260809-014
   contradicts: []
   supplements: []
   last_discovered: 2026-08-24
@@ -123,10 +133,11 @@ claims:
   - 西部数据
   - 美光
   - 低点守卫
+  school: qing
 - id: claim-20260824-002-e
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -139,7 +150,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260805-011", "claim-20260820-032", "claim-20260806-001"]
+  supersedes:
+  - claim-20260805-011
+  - claim-20260820-032
+  - claim-20260806-001
   contradicts: []
   supplements: []
   last_discovered: 2026-08-24
@@ -154,10 +168,11 @@ claims:
   - 2万亿
   - 地量
   - 缩量
+  school: qing
 - id: claim-20260824-002-f
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -170,7 +185,9 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260710-001-o", "claim-20260713-008-h"]
+  supersedes:
+  - claim-20260710-001-o
+  - claim-20260713-008-h
   contradicts: []
   supplements: []
   last_discovered: 2026-08-24
@@ -184,10 +201,11 @@ claims:
   - 开盘量能
   - 先行指标
   - 缩量
+  school: qing
 - id: claim-20260824-002-g
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -200,7 +218,8 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260821-003"]
+  supersedes:
+  - claim-20260821-003
   contradicts: []
   supplements: []
   last_discovered: 2026-08-24
@@ -215,10 +234,11 @@ claims:
   - WTI
   - 通胀预期
   - 成长估值
+  school: qing
 - id: claim-20260824-002-h
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -231,7 +251,10 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260812-007", "claim-20260821-007", "claim-20260817-009"]
+  supersedes:
+  - claim-20260812-007
+  - claim-20260821-007
+  - claim-20260817-009
   contradicts: []
   supplements: []
   last_discovered: 2026-08-24
@@ -246,10 +269,11 @@ claims:
   - 跌停家数
   - 情绪拐点
   - 晋级率
+  school: qing
 - id: claim-20260824-002-i
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -262,7 +286,8 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260814-036"]
+  supersedes:
+  - claim-20260814-036
   contradicts: []
   supplements: []
   last_discovered: 2026-08-24
@@ -278,7 +303,7 @@ claims:
   - code: '301207'
     name: 华兰疫苗
     role: 疫苗-创业板不可直接交易
-  - code: '002900'
+  - code: 002900
     name: 哈三联
     role: 跌停-主板
   - code: '600664'
@@ -289,10 +314,11 @@ claims:
   - 分歧测试
   - 美股映射
   - 弹性方向
+  school: qing
 - id: claim-20260824-002-j
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -307,7 +333,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260820-015", "claim-20260820-037", "claim-20260820-013"]
+  supplements:
+  - claim-20260820-015
+  - claim-20260820-037
+  - claim-20260820-013
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -326,10 +355,11 @@ claims:
   - V940
   - 肿瘤疫苗
   - LNP
+  school: qing
 - id: claim-20260824-002-k
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -360,10 +390,11 @@ claims:
   - 液冷
   - CPO
   - 无限轮动
+  school: qing
 - id: claim-20260824-002-l
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -378,7 +409,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260824-001-g", "claim-20260812-002"]
+  supplements:
+  - claim-20260824-001-g
+  - claim-20260812-002
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -386,7 +419,7 @@ claims:
     cases: []
   topic: AI服务器涨价双刃效应
   related_stocks:
-  - code: '002975'
+  - code: 002975
     name: 博杰股份
     role: AI服务器标的-主板
   - code: '603296'
@@ -397,10 +430,11 @@ claims:
   - 涨价
   - 英伟达
   - 液冷散热
+  school: qing
 - id: claim-20260824-002-m
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -433,10 +467,11 @@ claims:
   - NAND
   - 钼替钨
   - 存储材料
+  school: qing
 - id: claim-20260824-002-n
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -451,7 +486,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260811-051", "claim-20260811-055"]
+  supplements:
+  - claim-20260811-051
+  - claim-20260811-055
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -467,10 +504,11 @@ claims:
   - 词元调用
   - 资本开支
   - 国产CSP
+  school: qing
 - id: claim-20260824-002-o
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -483,7 +521,9 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260805-018", "claim-20260805-036"]
+  supersedes:
+  - claim-20260805-018
+  - claim-20260805-036
   contradicts: []
   supplements: []
   last_discovered: 2026-08-24
@@ -493,18 +533,19 @@ claims:
     cases: []
   topic: FCC光模块限制边际缓和
   related_stocks:
-  - code: "300274"
-    name: "阳光电源"
-    role: "回填-正文提及"
+  - code: '300274'
+    name: 阳光电源
+    role: 回填-正文提及
   tags:
   - FCC
   - 光模块
   - 逆变器
   - 利空缓和
+  school: qing
 - id: claim-20260824-002-p
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -519,7 +560,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-006", "claim-20260819-001"]
+  supplements:
+  - claim-20260805-006
+  - claim-20260819-001
   last_discovered: 2026-08-24
   links:
     wiki_pages: []
@@ -532,10 +575,11 @@ claims:
   - 贵金属
   - 黄金
   - 避险交易
+  school: qing
 - id: claim-20260824-002-q
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -543,13 +587,15 @@ claims:
   subject: 今日两种情形两套动作的条件化预案
   timeframe: intraday
   statement: 情形A·开盘温和缩量或平开且存储不破位，若首板家数从43家回升、跌停不再扩大，则上周五量能见底有效，指数按震荡修复对待，优先观察资源股持续性与算力硬件板块效应，但不改变调整过程定性，反弹参与控制仓位与时间成本；情形B·开盘大幅放量或存储跟随美股走弱，则上周五阳线重定性为缩量反抽、短线情绪拐点证伪、地量落点后移，不做左侧不接飞刀，等关键均线支撑与放量确认再谈参与。
-  evidence_quote: 情形A · 开盘温和缩量或平开，存储不破位：若同时首板家数从43家回升、跌停家数不再扩大，说明上周五的量能见底是有效的，指数可以按震荡修复对待。……情形B
-    · 开盘大幅放量，或存储跟随美股走弱：那么上周五那根阳线就要重新定性为缩量反抽，短线情绪拐点证伪，地量的落点会进一步后移。这种情况下不做左侧、不接飞刀，等关键均线支撑与放量确认再谈参与。
+  evidence_quote: 情形A · 开盘温和缩量或平开，存储不破位：若同时首板家数从43家回升、跌停家数不再扩大，说明上周五的量能见底是有效的，指数可以按震荡修复对待。……情形B · 开盘大幅放量，或存储跟随美股走弱：那么上周五那根阳线就要重新定性为缩量反抽，短线情绪拐点证伪，地量的落点会进一步后移。这种情况下不做左侧、不接飞刀，等关键均线支撑与放量确认再谈参与。
   interpretation: 当日操作预案：以开盘量能+存储是否破位为首道分叉，以首板/跌停家数确认。右侧确认代价是少赚，左侧试错代价是本金——混沌期宁可少赚。
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260812-024", "claim-20260805-038", "claim-20260813-009"]
+  supersedes:
+  - claim-20260812-024
+  - claim-20260805-038
+  - claim-20260813-009
   contradicts: []
   supplements: []
   last_discovered: 2026-08-24
@@ -564,10 +610,11 @@ claims:
   - 情形A
   - 情形B
   - 右侧确认
+  school: qing
 - id: claim-20260824-002-r
   source_path: sources/original/bilibili/2026-08-24-0859-专栏-上周五指数缩量收涨，量能正式跌破2万亿。但外围的企稳只发生在.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-24'
   source_type: 专栏
   extracted_at: '2026-08-24T09:10:00+08:00'
@@ -580,7 +627,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260819-072", "claim-20260805-039", "claim-20260807-019"]
+  supersedes:
+  - claim-20260819-072
+  - claim-20260805-039
+  - claim-20260807-019
   contradicts: []
   supplements: []
   last_discovered: 2026-08-24
@@ -594,3 +644,4 @@ claims:
   - 跟踪变量
   - 调整未完成
   - 判定框架
+  school: qing

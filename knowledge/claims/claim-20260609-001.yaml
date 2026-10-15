@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260609-001-a
   source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: 专栏
   extracted_at: '2026-06-09T10:30:00+08:00'
@@ -22,7 +22,8 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-001-c"]
+  supplements:
+  - claim-20260609-001-c
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -36,10 +37,11 @@ claims:
   - 磨底期
   - 4000点
   - 恐慌
+  school: qing
 - id: claim-20260609-001-b
   source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: 专栏
   extracted_at: '2026-06-09T10:30:00+08:00'
@@ -62,7 +64,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-001-g"]
+  supplements:
+  - claim-20260609-001-g
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -78,10 +81,11 @@ claims:
   - 板块主题
   - 机器人
   - 物理AI
+  school: qing
 - id: claim-20260609-001-c
   source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: 专栏
   extracted_at: '2026-06-09T10:30:00+08:00'
@@ -105,7 +109,9 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-001-a", "claim-20260507-001-a"]
+  supplements:
+  - claim-20260609-001-a
+  - claim-20260507-001-a
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -118,10 +124,11 @@ claims:
   - 低9序列
   - 趋势
   - 4120
+  school: qing
 - id: claim-20260609-001-d
   source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: 专栏
   extracted_at: '2026-06-09T10:30:00+08:00'
@@ -141,7 +148,9 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260616-010-s", "claim-20260610-042-a"]
+  supplements:
+  - claim-20260616-010-s
+  - claim-20260610-042-a
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -163,13 +172,14 @@ claims:
   - MLCC
   - 液冷
   related_stocks:
-  - code: "688187"
-    name: "时代电气"
-    role: "回填-正文提及"
+  - code: '688187'
+    name: 时代电气
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260609-001-e
   source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: 专栏
   extracted_at: '2026-06-09T10:30:00+08:00'
@@ -195,7 +205,10 @@ claims:
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-013-s", "claim-20260617-022-s", "claim-20260617-017-m"]
+  supplements:
+  - claim-20260617-013-s
+  - claim-20260617-022-s
+  - claim-20260617-017-m
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -231,22 +244,23 @@ claims:
     role: 卫星通信配套-中小板不可交易
     related_sectors:
     - 商业航天
-  - code: "688102"
-    name: "斯瑞新材"
-    role: "回填-正文提及"
-  - code: "688539"
-    name: "高华科技"
-    role: "回填-正文提及"
+  - code: '688102'
+    name: 斯瑞新材
+    role: 回填-正文提及
+  - code: '688539'
+    name: 高华科技
+    role: 回填-正文提及
   topic: 商业航天回调尾声
   tags:
   - 商业航天
   - SpaceX
   - 卫星
   - 火箭
+  school: qing
 - id: claim-20260609-001-f
   source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: 专栏
   extracted_at: '2026-06-09T10:30:00+08:00'
@@ -272,7 +286,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-006-c"]
+  supplements:
+  - claim-20260604-006-c
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -291,10 +306,11 @@ claims:
   - 工程机械
   - 低估值
   - 业绩
+  school: qing
 - id: claim-20260609-001-g
   source_path: sources/raw/财经/早盘：26-06-09：失守4000点，恐慌进入中后段，机器人与物理AI.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-09'
   source_type: 专栏
   extracted_at: '2026-06-09T10:30:00+08:00'
@@ -322,7 +338,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-001-b"]
+  supplements:
+  - claim-20260609-001-b
   last_discovered: 2026-06-25
   links:
     wiki_pages: []
@@ -335,9 +352,10 @@ claims:
   - 观望
   - 机器人
   related_stocks:
-  - code: "000534"
-    name: "万泽股份"
-    role: "回填-正文提及"
-  - code: "002709"
-    name: "天赐材料"
-    role: "回填-正文提及"
+  - code: '000534'
+    name: 万泽股份
+    role: 回填-正文提及
+  - code: 002709
+    name: 天赐材料
+    role: 回填-正文提及
+  school: qing

@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260710-001-a
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -31,10 +34,11 @@ claims:
   - A股
   - 美股
   - 板块
+  school: qing
 - id: claim-20260710-001-b
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -48,7 +52,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -63,10 +70,11 @@ claims:
   - 反弹
   - 半导体
   - 存储
+  school: qing
 - id: claim-20260710-001-c
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -79,9 +87,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260702-002-a"]
+  supersedes:
+  - claim-20260702-002-a
   contradicts: []
-  supplements: ["claim-20260702-002-n"]
+  supplements:
+  - claim-20260702-002-n
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -93,10 +103,11 @@ claims:
   - 纳斯达克中国金龙指数
   - 市场节奏
   - A股
+  school: qing
 - id: claim-20260710-001-d
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -109,7 +120,9 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260709-001-b", "claim-20260626-001-f"]
+  supersedes:
+  - claim-20260709-001-b
+  - claim-20260626-001-f
   contradicts: []
   supplements: []
   last_discovered: 2026-07-10
@@ -123,10 +136,11 @@ claims:
   - 韩国KOSPI开盘
   - KOSPI
   - 高开
+  school: qing
 - id: claim-20260710-001-e
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -141,7 +155,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-002-k", "claim-20260709-006-f"]
+  supplements:
+  - claim-20260521-002-k
+  - claim-20260709-006-f
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -154,10 +170,11 @@ claims:
   - 企稳
   - A股
   - 韩股
+  school: qing
 - id: claim-20260710-001-f
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -170,7 +187,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260601-002-b"]
+  supersedes:
+  - claim-20260601-002-b
   contradicts: []
   supplements: []
   last_discovered: 2026-07-10
@@ -184,10 +202,11 @@ claims:
   - 韩股守住涨幅
   - 韩股
   - 市场节奏
+  school: qing
 - id: claim-20260710-001-g
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -200,7 +219,8 @@ claims:
   confidence: medium
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260709-001-h"]
+  supersedes:
+  - claim-20260709-001-h
   contradicts: []
   supplements: []
   last_discovered: 2026-07-10
@@ -214,10 +234,11 @@ claims:
   - A股开盘方向
   - 高开
   - A股
+  school: qing
 - id: claim-20260710-001-h
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -230,9 +251,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260709-004-d"]
+  supersedes:
+  - claim-20260709-004-d
   contradicts: []
-  supplements: ["claim-20260708-002-p", "claim-20260630-001-c"]
+  supplements:
+  - claim-20260708-002-p
+  - claim-20260630-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -244,10 +268,11 @@ claims:
   - 外盘传导效应
   - A股
   - 市场节奏
+  school: qing
 - id: claim-20260710-001-i
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -260,7 +285,9 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260630-001-c", "claim-20260709-004-d"]
+  supersedes:
+  - claim-20260630-001-c
+  - claim-20260709-004-d
   contradicts: []
   supplements: []
   last_discovered: 2026-07-10
@@ -274,10 +301,11 @@ claims:
   - A股自身节奏
   - A股
   - 市场节奏
+  school: qing
 - id: claim-20260710-001-j
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -290,9 +318,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260629-001-d"]
+  supersedes:
+  - claim-20260629-001-d
   contradicts: []
-  supplements: ["claim-20260703-001-f", "claim-20260708-002-p"]
+  supplements:
+  - claim-20260703-001-f
+  - claim-20260708-002-p
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -305,10 +336,11 @@ claims:
   - 承接
   - 低开
   - A股
+  school: qing
 - id: claim-20260710-001-k
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -323,7 +355,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260702-002-b"]
+  supplements:
+  - claim-20260702-002-b
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -337,10 +370,11 @@ claims:
   - 承接
   - 高开
   - A股
+  school: qing
 - id: claim-20260710-001-l
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -353,7 +387,10 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260709-005-a", "claim-20260709-004-a", "claim-20260709-002-j"]
+  supersedes:
+  - claim-20260709-005-a
+  - claim-20260709-004-a
+  - claim-20260709-002-j
   contradicts: []
   supplements: []
   last_discovered: 2026-07-10
@@ -367,10 +404,11 @@ claims:
   - 120分钟底部结构
   - 技术面
   - A股
+  school: qing
 - id: claim-20260710-001-m
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -383,9 +421,12 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260621-001-q", "claim-20260605-002-a"]
+  supersedes:
+  - claim-20260621-001-q
+  - claim-20260605-002-a
   contradicts: []
-  supplements: ["claim-20260414-004"]
+  supplements:
+  - claim-20260414-004
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -397,10 +438,11 @@ claims:
   - 理论仓位
   - 操作策略
   - A股
+  school: qing
 - id: claim-20260710-001-n
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -415,7 +457,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-002-c", "claim-20260709-012-d"]
+  supplements:
+  - claim-20260624-002-c
+  - claim-20260709-012-d
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -427,10 +471,11 @@ claims:
   - 结构确认后节奏
   - 操作策略
   - A股
+  school: qing
 - id: claim-20260710-001-o
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -444,7 +489,8 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260708-006-d"]
+  contradicts:
+  - claim-20260708-006-d
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -459,10 +505,11 @@ claims:
   - 成交额
   - 缩量
   - 放量
+  school: qing
 - id: claim-20260710-001-p
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -477,7 +524,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260625-003-c"]
+  supplements:
+  - claim-20260625-003-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -489,10 +537,11 @@ claims:
   - 盘中增量资金
   - 资金
   - 技术面
+  school: qing
 - id: claim-20260710-001-q
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -519,10 +568,11 @@ claims:
   - 创业板指图形对标
   - 创业板指
   - 技术面
+  school: qing
 - id: claim-20260710-001-r
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -535,9 +585,11 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260622-003-b"]
+  supersedes:
+  - claim-20260622-003-b
   contradicts: []
-  supplements: ["claim-20260628-001-a"]
+  supplements:
+  - claim-20260628-001-a
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -549,10 +601,11 @@ claims:
   - 昨日可对标6月15日
   - 技术面
   - A股
+  school: qing
 - id: claim-20260710-001-s
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -567,7 +620,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-010", "claim-20260708-006-bc", "claim-20260629-001-ab"]
+  supplements:
+  - claim-20260515-010
+  - claim-20260708-006-bc
+  - claim-20260629-001-ab
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -579,10 +635,11 @@ claims:
   - 量能情形A
   - 量能
   - 放量
+  school: qing
 - id: claim-20260710-001-t
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -596,8 +653,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260614-014-p"]
-  supplements: ["claim-20260518-019"]
+  contradicts:
+  - claim-20260614-014-p
+  supplements:
+  - claim-20260518-019
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -609,10 +668,11 @@ claims:
   - 量能情形B
   - 量能
   - 操作策略
+  school: qing
 - id: claim-20260710-001-u
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -626,7 +686,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260709-012-a", "claim-20260625-001-b", "claim-20260709-001-b"]
+  contradicts:
+  - claim-20260709-012-a
+  - claim-20260625-001-b
+  - claim-20260709-001-b
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -641,10 +704,11 @@ claims:
   - 韩股脱钩
   - 脱钩
   - 韩股
+  school: qing
 - id: claim-20260710-001-v
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -671,10 +735,11 @@ claims:
   - 缩量降低波动
   - 缩量
   - 技术面
+  school: qing
 - id: claim-20260710-001-w
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -687,8 +752,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260709-001-h", "claim-20260623-005-a"]
-  contradicts: ["claim-20260709-001-b"]
+  supersedes:
+  - claim-20260709-001-h
+  - claim-20260623-005-a
+  contradicts:
+  - claim-20260709-001-b
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -702,10 +770,11 @@ claims:
   - 企稳
   - A股
   - 韩股
+  school: qing
 - id: claim-20260710-001-x
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -720,7 +789,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260709-001-h", "claim-20260706-003"]
+  supplements:
+  - claim-20260709-001-h
+  - claim-20260706-003
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -734,10 +805,11 @@ claims:
   - 脱钩
   - A股
   - 韩股
+  school: qing
 - id: claim-20260710-001-y
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -752,7 +824,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260601-002-b", "claim-20260623-005-a"]
+  supplements:
+  - claim-20260601-002-b
+  - claim-20260623-005-a
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -764,10 +838,11 @@ claims:
   - 韩股冲高回落影响
   - 冲高回落
   - 韩股
+  school: qing
 - id: claim-20260710-001-z
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -781,7 +856,8 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260610-021-a"]
+  contradicts:
+  - claim-20260610-021-a
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -794,10 +870,11 @@ claims:
   - 地缘局势大方向
   - 地缘局势
   - 宏观
+  school: qing
 - id: claim-20260710-001-aa
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -810,9 +887,12 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -824,10 +904,11 @@ claims:
   - 原油期货转跌佐证
   - 原油期货
   - 风险
+  school: qing
 - id: claim-20260710-001-ab
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -840,9 +921,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -861,10 +945,11 @@ claims:
   - 承接
   - 情绪指标
   - 情绪
+  school: qing
 - id: claim-20260710-001-ac
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -877,9 +962,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -891,10 +979,11 @@ claims:
   - 市场靠自身承接
   - 承接
   - 操作策略
+  school: qing
 - id: claim-20260710-001-ad
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -907,9 +996,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -921,10 +1013,11 @@ claims:
   - 一进二晋级率基准
   - 一进二晋级率
   - 操作策略
+  school: qing
 - id: claim-20260710-001-ae
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -937,9 +1030,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -951,10 +1047,11 @@ claims:
   - 首板家数基准
   - 首板家数
   - 操作策略
+  school: qing
 - id: claim-20260710-001-af
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -967,9 +1064,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -981,10 +1081,11 @@ claims:
   - 反弹主线持续性
   - 反弹
   - 操作策略
+  school: qing
 - id: claim-20260710-001-ag
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -997,9 +1098,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1011,10 +1115,11 @@ claims:
   - 机构基本面风格
   - 机构基本面
   - 基本面
+  school: qing
 - id: claim-20260710-001-ah
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1027,9 +1132,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1041,10 +1149,11 @@ claims:
   - 选股围绕基本面挖掘
   - 基本面
   - 方法论
+  school: qing
 - id: claim-20260710-001-ai
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1057,9 +1166,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1071,10 +1183,11 @@ claims:
   - SK海力士ADR上市
   - SK海力士
   - SK海力士ADR
+  school: qing
 - id: claim-20260710-001-aj
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1087,9 +1200,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1101,10 +1217,11 @@ claims:
   - A股交易SK海力士上市预期
   - SK海力士
   - A股
+  school: qing
 - id: claim-20260710-001-ak
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1117,9 +1234,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1131,10 +1251,11 @@ claims:
   - SK海力士首日表现验证时点
   - SK海力士
   - 美股
+  school: qing
 - id: claim-20260710-001-al
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1147,9 +1268,12 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1162,10 +1286,11 @@ claims:
   - 科创板
   - AI硬件
   - 半导体
+  school: qing
 - id: claim-20260710-001-am
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1178,9 +1303,12 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1192,10 +1320,11 @@ claims:
   - 半导体AI硬件切换
   - AI硬件
   - 半导体
+  school: qing
 - id: claim-20260710-001-an
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1208,9 +1337,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1222,10 +1354,11 @@ claims:
   - 昨日半导体表现
   - 半导体
   - 板块
+  school: qing
 - id: claim-20260710-001-ao
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1238,9 +1371,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1253,10 +1389,11 @@ claims:
   - SK海力士
   - 半导体
   - 板块
+  school: qing
 - id: claim-20260710-001-ap
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1269,9 +1406,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1283,10 +1423,11 @@ claims:
   - 半导体节奏提示
   - 半导体
   - 情绪
+  school: qing
 - id: claim-20260710-001-aq
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1299,9 +1440,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1309,17 +1453,18 @@ claims:
     cases: []
   topic: 长鑫科技IPO启动
   related_stocks:
-  - code: "688825"
-    name: "长鑫科技"
-    role: "回填-正文提及"
+  - code: '688825'
+    name: 长鑫科技
+    role: 回填-正文提及
   tags:
   - 长鑫科技IPO启动
   - 催化事件
   - A股
+  school: qing
 - id: claim-20260710-001-ar
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1332,9 +1477,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1346,10 +1494,11 @@ claims:
   - 存储超级周期
   - 存储
   - 板块
+  school: qing
 - id: claim-20260710-001-as
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1362,9 +1511,12 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1376,10 +1528,11 @@ claims:
   - 长鑫IPO产业链重估
   - 长鑫IPO
   - 板块
+  school: qing
 - id: claim-20260710-001-at
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1392,9 +1545,12 @@ claims:
   confidence: medium
   status: active
   intensity: high
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1408,10 +1564,11 @@ claims:
   - 半导体材料
   - 长鑫IPO
   - 半导体
+  school: qing
 - id: claim-20260710-001-au
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1424,9 +1581,12 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1434,17 +1594,18 @@ claims:
     cases: []
   topic: 合肥城建关联长鑫IPO
   related_stocks:
-  - code: '002208'
+  - code: 002208
     name: 合肥城建
     role: 长鑫IPO关联标的-主板可交易
   tags:
   - 合肥城建
   - 长鑫IPO
   - 个股
+  school: qing
 - id: claim-20260710-001-av
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1457,9 +1618,12 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1474,10 +1638,11 @@ claims:
   - 上海合晶
   - 长鑫IPO
   - 个股
+  school: qing
 - id: claim-20260710-001-aw
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1490,9 +1655,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1505,10 +1673,11 @@ claims:
   - 美光投资
   - 环球晶圆融资
   - 环球晶圆
+  school: qing
 - id: claim-20260710-001-ax
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1521,9 +1690,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1535,10 +1707,11 @@ claims:
   - 硅片涨价印证景气
   - 硅片涨价
   - 板块
+  school: qing
 - id: claim-20260710-001-ay
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1551,9 +1724,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1565,10 +1741,11 @@ claims:
   - AI服务器硅片需求
   - AI服务器
   - 板块
+  school: qing
 - id: claim-20260710-001-az
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1581,9 +1758,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-001-a"]
+  supersedes:
+  - claim-20260705-001-a
   contradicts: []
-  supplements: ["claim-20260707-004-a", "claim-20260709-001-c"]
+  supplements:
+  - claim-20260707-004-a
+  - claim-20260709-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -1595,10 +1775,11 @@ claims:
   - HBM硅片消耗
   - HBM
   - 板块
+  school: qing
 - id: claim-20260710-001-ba
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1612,7 +1793,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -1626,10 +1810,11 @@ claims:
   - HBM
   - 高阻重掺硅片
   - SUMCO
+  school: qing
 - id: claim-20260710-001-bb
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1643,7 +1828,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -1656,10 +1844,11 @@ claims:
   - 高阻重掺硅片涨价
   - 硅片涨价
   - 高阻重掺硅片
+  school: qing
 - id: claim-20260710-001-bc
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1673,7 +1862,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -1686,10 +1878,11 @@ claims:
   - AI硅片占比预期
   - 板块
   - A股
+  school: qing
 - id: claim-20260710-001-bd
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1703,7 +1896,10 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -1712,7 +1908,7 @@ claims:
     cases: []
   topic: TCL中环半导体硅片
   related_stocks:
-  - code: '002129'
+  - code: 002129
     name: TCL中环
     role: 半导体硅片材料标的-主板可交易
   tags:
@@ -1720,10 +1916,11 @@ claims:
   - 半导体材料
   - 半导体硅片
   - 半导体
+  school: qing
 - id: claim-20260710-001-be
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1737,7 +1934,10 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -1753,10 +1953,11 @@ claims:
   - 西安奕材
   - 个股
   - A股
+  school: qing
 - id: claim-20260710-001-bf
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1770,7 +1971,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -1785,10 +1989,11 @@ claims:
   - 光互连
   - 华为
   - OPEN NPO
+  school: qing
 - id: claim-20260710-001-bg
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1802,7 +2007,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -1817,10 +2025,11 @@ claims:
   - CPO
   - 光引擎
   - 芯片
+  school: qing
 - id: claim-20260710-001-bh
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1834,7 +2043,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -1847,10 +2059,11 @@ claims:
   - CPO商用时间
   - CPO
   - 板块
+  school: qing
 - id: claim-20260710-001-bi
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1864,7 +2077,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -1877,10 +2093,11 @@ claims:
   - NPO过渡主力
   - NPO
   - CPO
+  school: qing
 - id: claim-20260710-001-bj
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1894,7 +2111,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -1909,10 +2129,11 @@ claims:
   - 光引擎
   - 英伟达
   - Rubin Ultra
+  school: qing
 - id: claim-20260710-001-bk
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1926,7 +2147,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -1939,10 +2163,11 @@ claims:
   - Rubin Ultra NPO用量
   - NPO
   - Rubin Ultra
+  school: qing
 - id: claim-20260710-001-bl
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1956,7 +2181,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -1971,10 +2199,11 @@ claims:
   - 光引擎
   - ASIC
   - GPU
+  school: qing
 - id: claim-20260710-001-bm
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -1988,7 +2217,10 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -1997,7 +2229,7 @@ claims:
     cases: []
   topic: 华工科技光互连布局
   related_stocks:
-  - code: '000988'
+  - code: 000988
     name: 华工科技
     role: 光互连多技术路线布局-主板可交易
   tags:
@@ -2005,10 +2237,11 @@ claims:
   - NPO
   - CPO
   - 硅光
+  school: qing
 - id: claim-20260710-001-bn
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -2022,7 +2255,10 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -2038,10 +2274,11 @@ claims:
   - 太辰光
   - NPO
   - CPO
+  school: qing
 - id: claim-20260710-001-bo
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -2055,7 +2292,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -2064,17 +2304,18 @@ claims:
     cases: []
   topic: 浪潮信息强化科技业绩逻辑
   related_stocks:
-  - code: '000977'
+  - code: 000977
     name: 浪潮信息
     role: 国产AI服务器龙头-主板可交易
   tags:
   - 浪潮信息连板强化科技业绩逻辑
   - 业绩
   - 板块
+  school: qing
 - id: claim-20260710-001-bp
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -2088,7 +2329,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -2101,10 +2345,11 @@ claims:
   - AI内部切换方向
   - 业绩
   - 板块
+  school: qing
 - id: claim-20260710-001-bq
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -2118,7 +2363,10 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -2131,10 +2379,11 @@ claims:
   - 硬切软难度
   - 硬切软
   - 板块
+  school: qing
 - id: claim-20260710-001-br
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -2148,7 +2397,10 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -2161,10 +2413,11 @@ claims:
   - ChatGPT Work推出
   - ChatGPT Work
   - OpenAI
+  school: qing
 - id: claim-20260710-001-bs
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -2178,7 +2431,10 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -2194,10 +2450,11 @@ claims:
   - 绿盟科技
   - 个股
   - A股
+  school: qing
 - id: claim-20260710-001-bt
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -2211,7 +2468,10 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -2227,10 +2487,11 @@ claims:
   - 深信服
   - 个股
   - A股
+  school: qing
 - id: claim-20260710-001-bu
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -2244,7 +2505,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -2257,10 +2521,11 @@ claims:
   - 今日操作重心
   - 操作策略
   - A股
+  school: qing
 - id: claim-20260710-001-bv
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -2274,7 +2539,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -2287,10 +2555,11 @@ claims:
   - 今日三项验证条件
   - 量能
   - 韩股
+  school: qing
 - id: claim-20260710-001-bw
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -2304,7 +2573,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -2317,10 +2589,11 @@ claims:
   - SK海力士首日表现为外部验证
   - SK海力士
   - 催化事件
+  school: qing
 - id: claim-20260710-001-bx
   source_path: /home/ubuntu/learning-investment-strategies/sources/raw/财经/早盘：26-07-10：隔夜科技偏暖，120分钟结构确认后的仓位与节奏.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-10'
   source_type: 早盘
   extracted_at: '2026-07-10T09:57:00+08:00'
@@ -2334,7 +2607,10 @@ claims:
   status: active
   intensity: low
   supersedes: []
-  contradicts: ["claim-20260519-003-e", "claim-20260708-002-c", "claim-20260621-004-w"]
+  contradicts:
+  - claim-20260519-003-e
+  - claim-20260708-002-c
+  - claim-20260621-004-w
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -2347,3 +2623,4 @@ claims:
   - 风险提示
   - 个股
   - 风险
+  school: qing

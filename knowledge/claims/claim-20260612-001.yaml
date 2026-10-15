@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260612-001-a
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -15,7 +15,9 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260608-001-i", "claim-20260609-001-c"]
+  supersedes:
+  - claim-20260608-001-i
+  - claim-20260609-001-c
   contradicts: []
   last_discovered: 2026-06-12
   links:
@@ -27,10 +29,11 @@ claims:
   - 防守反击
   - 右侧确认
   related_stocks: []
+  school: qing
 - id: claim-20260612-002-b-dup1
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -55,10 +58,11 @@ claims:
   - 年线
   - 调整极值
   related_stocks: []
+  school: qing
 - id: claim-20260612-003-c-dup1
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -71,7 +75,8 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260602-003-a"]
+  supersedes:
+  - claim-20260602-003-a
   contradicts: []
   last_discovered: 2026-06-12
   links: {}
@@ -81,10 +86,11 @@ claims:
   - 边际变化
   - 情绪缓和
   related_stocks: []
+  school: qing
 - id: claim-20260612-004-d
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -99,7 +105,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260614-014-p"]
+  supplements:
+  - claim-20260614-014-p
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -111,10 +118,11 @@ claims:
   - IPO虹吸
   - 地缘降温
   related_stocks: []
+  school: qing
 - id: claim-20260612-005-e
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -127,7 +135,8 @@ claims:
   confidence: medium
   status: active
   intensity: low
-  supersedes: ["claim-20260414-001"]
+  supersedes:
+  - claim-20260414-001
   contradicts: []
   last_discovered: 2026-06-12
   links: {}
@@ -137,10 +146,11 @@ claims:
   - IPO
   - 美股历史规律
   related_stocks: []
+  school: qing
 - id: claim-20260612-006-f
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -153,7 +163,8 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260610-037-a"]
+  supersedes:
+  - claim-20260610-037-a
   contradicts: []
   last_discovered: 2026-06-12
   links:
@@ -165,10 +176,11 @@ claims:
   - 不抄底
   - 操作纪律
   related_stocks: []
+  school: qing
 - id: claim-20260612-007-g
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -183,7 +195,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260526-011"]
+  supplements:
+  - claim-20260526-011
   last_discovered: 2026-06-25
   links:
     methodology_pages:
@@ -195,10 +208,11 @@ claims:
   - 个股等指数
   - 做多决心
   related_stocks: []
+  school: qing
 - id: claim-20260612-008-h
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -211,7 +225,9 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260602-003-d", "claim-20260608-004-c"]
+  supersedes:
+  - claim-20260602-003-d
+  - claim-20260608-004-c
   contradicts: []
   last_discovered: 2026-06-12
   links: {}
@@ -221,10 +237,11 @@ claims:
   - AI大市值
   - 大票带动
   related_stocks: []
+  school: qing
 - id: claim-20260612-009-i
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -239,7 +256,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-001-d", "claim-20260611-002-a"]
+  supplements:
+  - claim-20260623-001-d
+  - claim-20260611-002-a
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -255,13 +274,14 @@ claims:
   - code: '600378'
     name: 昊华科技
     role: WF6六氟化钨产能龙头-主板可交易-已入观察池
-  - code: '002971'
+  - code: 002971
     name: 和远气体
     role: WF6六氟化钨小盘标的-主板可交易-已入观察池
+  school: qing
 - id: claim-20260612-010-j
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -290,10 +310,11 @@ claims:
   - code: '002354'
     name: 天娱数科
     role: 抱团产物反面案例-主板可交易-非观察池
+  school: qing
 - id: claim-20260612-011-k
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -308,7 +329,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260515-011"]
+  supplements:
+  - claim-20260515-011
   last_discovered: 2026-06-25
   links: {}
   topic: 20cm晋级率决定今日情绪方向
@@ -318,10 +340,11 @@ claims:
   - 情绪修复
   - 仓位管理
   related_stocks: []
+  school: qing
 - id: claim-20260612-012-l
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -334,7 +357,8 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260605-001-d"]
+  supersedes:
+  - claim-20260605-001-d
   contradicts: []
   last_discovered: 2026-06-12
   links: {}
@@ -345,10 +369,11 @@ claims:
   - 低位轮动
   - 配置信号
   related_stocks: []
+  school: qing
 - id: claim-20260612-013-m
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -363,7 +388,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260614-008-j"]
+  supplements:
+  - claim-20260614-008-j
   last_discovered: 2026-06-25
   links: {}
   topic: SK海力士375层NAND量产，钼替钨利好钼靶材
@@ -380,10 +406,11 @@ claims:
   - code: '300263'
     name: 隆华科技
     role: 钼靶材供应商-创业板不可交易
+  school: qing
 - id: claim-20260612-014-n
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -408,18 +435,18 @@ claims:
   - 台积电1.4nm
   - 先进制程
   related_stocks: []
+  school: qing
 - id: claim-20260612-015-o
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
   claim_type: sector-theme
   subject: OCS光交换机规模化商用
   timeframe: trend
-  statement: OCS光交换机有望从试验性部署走向规模化商用，TPU与OCS存在配比关系。2025年OCS市场规模约4亿美元（谷歌主导），2029年将超25亿美元（CAGR
-    58%）。太辰光(300570)具备OCS光无源器件生产能力，罗博特科(300757)已完成首条OCS整线订单交付。
+  statement: OCS光交换机有望从试验性部署走向规模化商用，TPU与OCS存在配比关系。2025年OCS市场规模约4亿美元（谷歌主导），2029年将超25亿美元（CAGR 58%）。太辰光(300570)具备OCS光无源器件生产能力，罗博特科(300757)已完成首条OCS整线订单交付。
   evidence_quote: OCS指基于全光信号的交换机设备...OCS技术可助力AI算力集群功耗降低30%以上。据CignalAI，2025年OCS市场约4亿美元；2029年将超25亿美元，CAGR达58%。太辰光表示具备生产OCS部分光无源器件的能力。罗博特科旗下ficonTEC已取得两条OCS整线设备订单并已完成首条交付。
   interpretation: OCS是AI算力集群互联的重要技术方向，功耗降低30%是核心驱动力。谷歌主导下CAGR 58%的高速增长已验证产业趋势。但A股两个标的（太辰光300570、罗博特科300757）均为创业板不可交易，仅作方向跟踪。
   confidence: medium
@@ -427,7 +454,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260615-009"]
+  supplements:
+  - claim-20260615-009
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -446,10 +474,11 @@ claims:
   - code: '300757'
     name: 罗博特科
     role: OCS整线设备已交付-创业板不可交易
+  school: qing
 - id: claim-20260612-016-p
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -464,7 +493,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-001-i", "claim-20260609-005-d", "claim-20260623-005-g"]
+  supplements:
+  - claim-20260623-001-i
+  - claim-20260609-005-d
+  - claim-20260623-005-g
   last_discovered: 2026-06-25
   links: {}
   topic: 无锡智算中心点亮，PUE约束加速液冷渗透
@@ -480,13 +512,14 @@ claims:
   - code: '688668'
     name: 鼎通科技
     role: 液冷产线扩产-科创板不可交易
-  - code: "688795"
-    name: "摩尔线程"
-    role: "回填-正文提及"
+  - code: '688795'
+    name: 摩尔线程
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260612-017-q
   source_path: sources/raw/财经/早盘：26-06-12：若今日向上观察趋势突破，若向下观察底部结构.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-12'
   source_type: 早盘
   extracted_at: '2026-06-12T09:19:00'
@@ -520,3 +553,4 @@ claims:
   - code: '300223'
     name: 北京君正
     role: CPU/MCU-创业板不可交易
+  school: qing

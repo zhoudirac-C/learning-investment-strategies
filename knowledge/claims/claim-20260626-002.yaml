@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260626-002-a
   source_path: sources/original/bilibili/2026-06-26-1056-图片-今天等11点15之后抄底，昨天说到的被监管的，已经高潮过的不.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:28:00Z'
@@ -15,9 +15,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260526-022"]
+  supersedes:
+  - claim-20260526-022
   contradicts: []
-  supplements: ["claim-20260526-025-c"]
+  supplements:
+  - claim-20260526-025-c
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -29,10 +31,11 @@ claims:
   - 抄底
   - 时间窗口
   - 11点15
+  school: qing
 - id: claim-20260626-002-b
   source_path: sources/original/bilibili/2026-06-26-1056-图片-今天等11点15之后抄底，昨天说到的被监管的，已经高潮过的不.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:28:00Z'
@@ -47,7 +50,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-006-e", "claim-20260612-006-f", "claim-20260526-023"]
+  supplements:
+  - claim-20260527-006-e
+  - claim-20260612-006-f
+  - claim-20260526-023
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -59,10 +65,11 @@ claims:
   - 监管
   - 风险
   - 抄底
+  school: qing
 - id: claim-20260626-002-c
   source_path: sources/original/bilibili/2026-06-26-1056-图片-今天等11点15之后抄底，昨天说到的被监管的，已经高潮过的不.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-06-26'
   source_type: 动态
   extracted_at: '2026-06-26T04:28:00Z'
@@ -77,7 +84,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260527-006-e", "claim-20260528-005-c"]
+  supplements:
+  - claim-20260527-006-e
+  - claim-20260528-005-c
   last_discovered: 2026-06-26
   links:
     wiki_pages: []
@@ -89,3 +98,4 @@ claims:
   - 高潮
   - 拥挤
   - 抄底风险
+  school: qing

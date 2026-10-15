@@ -17,9 +17,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260917-003-a"]
+  supersedes:
+  - claim-20260917-003-a
   contradicts: []
-  supplements: ["claim-20260803-044", "claim-20260928-002-k"]
+  supplements:
+  - claim-20260803-044
+  - claim-20260928-002-k
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -31,6 +34,7 @@ claims:
   - 窄幅震荡
   - 节前观望
   - 低点
+  school: qing
 - id: claim-20260930-001-b
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -49,9 +53,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260929-001-h"]
+  supersedes:
+  - claim-20260929-001-h
   contradicts: []
-  supplements: ["claim-20260921-002-c"]
+  supplements:
+  - claim-20260921-002-c
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -63,6 +69,7 @@ claims:
   - 开盘半小时
   - 宽度
   - 抛压
+  school: qing
 - id: claim-20260930-001-c
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -81,9 +88,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260929-001-a"]
+  supersedes:
+  - claim-20260929-001-a
   contradicts: []
-  supplements: ["claim-20260929-001-o"]
+  supplements:
+  - claim-20260929-001-o
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -95,6 +104,7 @@ claims:
   - 创业板
   - 低点信号
   - 收线确认
+  school: qing
 - id: claim-20260930-001-d
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -115,7 +125,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260928-002-k", "claim-20260929-002-d"]
+  supplements:
+  - claim-20260928-002-k
+  - claim-20260929-002-d
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -127,6 +139,7 @@ claims:
   - 地量
   - 长假
   - 情景推演
+  school: qing
 - id: claim-20260930-001-e
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -145,9 +158,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260929-002-l"]
+  supersedes:
+  - claim-20260929-002-l
   contradicts: []
-  supplements: ["claim-20260921-001-n", "claim-20260831-020-a"]
+  supplements:
+  - claim-20260921-001-n
+  - claim-20260831-020-a
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -162,6 +178,7 @@ claims:
   - 核心股
   - 地产
   - 承接
+  school: qing
 - id: claim-20260930-001-f
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -180,9 +197,11 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260909-030-a"]
+  supersedes:
+  - claim-20260909-030-a
   contradicts: []
-  supplements: ["claim-20260914-002-f"]
+  supplements:
+  - claim-20260914-002-f
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -194,6 +213,7 @@ claims:
   - 低量环境
   - 题材轮动
   - 局部修复
+  school: qing
 - id: claim-20260930-001-g
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -214,7 +234,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-001-g", "claim-20260716-002-j", "claim-20260913-001-033"]
+  supplements:
+  - claim-20260921-001-g
+  - claim-20260716-002-j
+  - claim-20260913-001-033
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -225,6 +248,7 @@ claims:
   - 产业链跟踪
   - 订单验证
   - 信息分层
+  school: qing
 - id: claim-20260930-001-h
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -245,7 +269,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260929-002-m"]
+  supplements:
+  - claim-20260929-002-m
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -257,6 +282,7 @@ claims:
   - 设备优先
   - 电解质
   - 跟踪顺序
+  school: qing
 - id: claim-20260930-001-i
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -295,6 +321,7 @@ claims:
   - 金龙羽
   - 金银河
   - 产业化线索
+  school: qing
 - id: claim-20260930-001-j
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -315,7 +342,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260929-002-r", "claim-20260831-010-a"]
+  supplements:
+  - claim-20260929-002-r
+  - claim-20260831-010-a
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -327,6 +356,7 @@ claims:
   - 地产政策
   - 成交验证
   - 受益分化
+  school: qing
 - id: claim-20260930-001-k
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -347,7 +377,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260814-018", "claim-20260918-014-a"]
+  supplements:
+  - claim-20260814-018
+  - claim-20260918-014-a
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -359,6 +391,7 @@ claims:
   - 实验自动化
   - 试剂耗材
   - 数据闭环
+  school: qing
 - id: claim-20260930-001-l
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -379,7 +412,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260912-003-e", "claim-20260912-002-6", "claim-20260910-022-a"]
+  supplements:
+  - claim-20260912-003-e
+  - claim-20260912-002-6
+  - claim-20260910-022-a
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -397,6 +433,7 @@ claims:
   - 海外订单
   - 产品结构
   - 客户关系
+  school: qing
 - id: claim-20260930-001-m
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -417,7 +454,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-019", "claim-20260812-030"]
+  supplements:
+  - claim-20260913-001-019
+  - claim-20260812-030
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -438,6 +477,7 @@ claims:
   - 连板承接
   - 观察样本
   - 固态电池
+  school: qing
 - id: claim-20260930-001-n
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -476,6 +516,7 @@ claims:
   - 常驻智能体
   - 推理调用
   - 算力需求
+  school: qing
 - id: claim-20260930-001-o
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -496,7 +537,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-019", "claim-20260901-055-a", "claim-20260803-005"]
+  supplements:
+  - claim-20260913-001-019
+  - claim-20260901-055-a
+  - claim-20260803-005
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -508,6 +552,7 @@ claims:
   - 晋级率
   - 首板供给
   - 亏钱效应
+  school: qing
 - id: claim-20260930-001-p
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -526,9 +571,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260923-002-c"]
+  supersedes:
+  - claim-20260923-002-c
   contradicts: []
-  supplements: ["claim-20260918-017-a"]
+  supplements:
+  - claim-20260918-017-a
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -540,6 +587,7 @@ claims:
   - 节前预案
   - 做T
   - 观望
+  school: qing
 - id: claim-20260930-001-q
   source_path: sources/original/bilibili/2026-09-30-0856-专栏-国庆节前第二个交易日，三大指数缩量小幅上涨，尾盘再度回落，情.md
   source_date: '2026-09-30'
@@ -558,7 +606,8 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260909-030-a"]
+  supersedes:
+  - claim-20260909-030-a
   contradicts: []
   supplements: []
   last_discovered: 2026-10-02
@@ -572,6 +621,7 @@ claims:
   - 量价承接
   - 情绪延续
   - 催化扩散
+  school: qing
 - id: claim-20260930-001-r
   source_path: sources/original/bilibili/2026-09-30-0907-图片-纽约联储主席、FOMC永久投票委员兼副主席威廉姆斯北京时间周.md
   source_date: '2026-09-30'
@@ -592,7 +642,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-004-n"]
+  supplements:
+  - claim-20260604-004-n
   last_discovered: 2026-10-02
   links:
     wiki_pages: []
@@ -604,3 +655,4 @@ claims:
   - 国庆假期
   - 仓位博弈
   - 美债
+  school: qing

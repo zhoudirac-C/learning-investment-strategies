@@ -22,7 +22,9 @@ claims:
   - 风险偏好
   - 阴跌风险
   - 抛压衰减
-  supersedes: ["claim-20260913-001-018", "claim-20260910-003-a"]
+  supersedes:
+  - claim-20260913-001-018
+  - claim-20260910-003-a
   contradicts: []
   supplements: []
   last_discovered: 2026-10-08
@@ -31,6 +33,7 @@ claims:
     methodology_pages: []
     cases: []
   topic: 定性=风险偏好下降后的结构性调整，两分支验证阴跌或抛压衰减
+  school: qing
 - id: claim-20261008-007-b
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -55,13 +58,16 @@ claims:
   - 量价解读
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260927-001-f", "claim-20260914-002-c"]
+  supplements:
+  - claim-20260927-001-f
+  - claim-20260914-002-c
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 放量=抛压集中释放+新增买盘不足；承接偏弱是信号非结论
+  school: qing
 - id: claim-20261008-007-c
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -87,13 +93,17 @@ claims:
   - 比较口径
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-c", "claim-20260929-001-h", "claim-20260929-001-g"]
+  supplements:
+  - claim-20260921-002-c
+  - claim-20260929-001-h
+  - claim-20260929-001-g
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 量能有效性看价格：放量+下移=抛压释放，缩量探底回升不破前低=承接改善
+  school: qing
 - id: claim-20261008-007-d
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -119,13 +129,16 @@ claims:
   - 修复确认
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260921-002-e", "claim-20260910-003-a"]
+  supplements:
+  - claim-20260921-002-e
+  - claim-20260910-003-a
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 银行护盘≠整体修复：需券商保险协同+科技止跌
+  school: qing
 - id: claim-20261008-007-e
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -144,7 +157,7 @@ claims:
   status: active
   intensity: medium
   related_stocks:
-  - code: '000678'
+  - code: 000678
     name: 襄阳轴承
     role: 反核兑现窗口观察标-主板可交易
   - code: '000011'
@@ -157,13 +170,16 @@ claims:
   - 分歧承接
   supersedes: []
   contradicts: []
-  supplements: ["claim-20261008-001-k", "claim-20261007-001-d"]
+  supplements:
+  - claim-20261008-001-k
+  - claim-20261007-001-d
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 反核冲高=先手兑现窗口；情绪指数分离需高位承接带动中低位
+  school: qing
 - id: claim-20261008-007-f
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -196,6 +212,7 @@ claims:
     methodology_pages: []
     cases: []
   topic: 明日三重点：科技止跌/电池承接/题材溢价；3800不预设支撑
+  school: qing
 - id: claim-20261008-007-g
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -221,13 +238,15 @@ claims:
   - 试错规模
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260927-001-m"]
+  supplements:
+  - claim-20260927-001-m
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 情形A：四要素齐备则从全面防守转为观察结构性修复
+  school: qing
 - id: claim-20261008-007-h
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -251,7 +270,9 @@ claims:
   - 共振走弱
   - 降低暴露
   - 分界规则
-  supersedes: ["claim-20260928-002-i", "claim-20260814-036"]
+  supersedes:
+  - claim-20260928-002-i
+  - claim-20260814-036
   contradicts: []
   supplements: []
   last_discovered: 2026-10-08
@@ -260,6 +281,7 @@ claims:
     methodology_pages: []
     cases: []
   topic: 情形B：核心新低+量缩价移+电池炸板则降暴露，放弃无承接抄底
+  school: qing
 - id: claim-20261008-007-i
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -291,13 +313,15 @@ claims:
   - 题材集中度
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260918-009-a"]
+  supplements:
+  - claim-20260918-009-a
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 题材未停摆但向少数集中；次日看晋级失败反馈与封板溢价
+  school: qing
 - id: claim-20261008-007-j
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -326,13 +350,15 @@ claims:
   - 轮动承接
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260812-033"]
+  supplements:
+  - claim-20260812-033
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 电池承接最直接；三线驱动不同；次日看分歧后核心保留
+  school: qing
 - id: claim-20261008-007-k
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -371,6 +397,7 @@ claims:
     methodology_pages: []
     cases: []
   topic: 陆家嘴=资产证券化逻辑单独跟踪；局部走强≠行业反转
+  school: qing
 - id: claim-20261008-007-l
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -394,15 +421,19 @@ claims:
   - 科技分化
   - 业绩兑现
   - 率先稳定
-  supersedes: ["claim-20260929-002-o", "claim-20260617-038-c"]
+  supersedes:
+  - claim-20260929-002-o
+  - claim-20260617-038-c
   contradicts: []
-  supplements: ["claim-20260922-001-m"]
+  supplements:
+  - claim-20260922-001-m
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 三季报窗口科技分化：找盈利覆盖估值压力+盘面率先稳定的品种
+  school: qing
 - id: claim-20261008-007-m
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -429,13 +460,17 @@ claims:
   - MPO
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-016-a", "claim-20260805-019", "claim-20260911-001-011"]
+  supplements:
+  - claim-20260917-016-a
+  - claim-20260805-019
+  - claim-20260911-001-011
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 光互联层级：CPO架构/可插拔模块/FAU等部件不可混同
+  school: qing
 - id: claim-20261008-007-n
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -468,6 +503,7 @@ claims:
     methodology_pages: []
     cases: []
   topic: PCB回落区分β与α；科技修复先内部纠偏后板块联动
+  school: qing
 - id: claim-20261008-007-o
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -493,13 +529,15 @@ claims:
   - 政策校准
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-018"]
+  supplements:
+  - claim-20260805-018
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: FCC四重校准：交易参数≠生效限制，暂未限制≠永久豁免
+  school: qing
 - id: claim-20261008-007-p
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -525,13 +563,15 @@ claims:
   - 送样量产
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260917-016-a"]
+  supplements:
+  - claim-20260917-016-a
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: CPO映射A股三要素：产品+客户+阶段（送样还是量产）
+  school: qing
 - id: claim-20261008-007-q
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -557,13 +597,17 @@ claims:
   - 算力对冲
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-023", "claim-20260816-024", "claim-20260930-001-n"]
+  supplements:
+  - claim-20260805-023
+  - claim-20260816-024
+  - claim-20260930-001-n
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 低成本模型承担高频任务，Agent单位成本下降；算力影响=效率×调用双向计算
+  school: qing
 - id: claim-20261008-007-r
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -595,13 +639,17 @@ claims:
   - 验证层级
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260608-004-h", "claim-20260819-006-024", "claim-20260928-002-w"]
+  supplements:
+  - claim-20260608-004-h
+  - claim-20260819-006-024
+  - claim-20260928-002-w
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 机器人链：可拓展方向与研发储备均不等于量产采购
+  school: qing
 - id: claim-20261008-007-s
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -637,6 +685,7 @@ claims:
     methodology_pages: []
     cases: []
   topic: AI服务登记≠采购金额；科翔氮化硅仍处试制导入阶段
+  school: qing
 - id: claim-20261008-007-t
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -672,6 +721,7 @@ claims:
     methodology_pages: []
     cases: []
   topic: 陆家嘴REIT认购≠出售资产；机构测算≠归母承诺
+  school: qing
 - id: claim-20261008-007-u
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -690,7 +740,7 @@ claims:
   status: active
   intensity: medium
   related_stocks:
-  - code: '002487'
+  - code: 002487
     name: 大金重工
     role: 海工向造船延伸-24艘120亿订单-主板可交易
   tags:
@@ -700,13 +750,16 @@ claims:
   - 散货船
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260914-001-026", "claim-20260604-007-b"]
+  supplements:
+  - claim-20260914-001-026
+  - claim-20260604-007-b
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 大金重工造船订单已验证（24艘120亿），但船型以散货为主须拆开看
+  school: qing
 - id: claim-20261008-007-v
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -735,13 +788,16 @@ claims:
   - 题材隔离
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260819-011", "claim-20260902-001-j"]
+  supplements:
+  - claim-20260819-011
+  - claim-20260902-001-j
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 厄尔尼诺≠单一公司盈利；金健公告原料价未变、先观察题材资金反馈
+  school: qing
 - id: claim-20261008-007-w
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -766,14 +822,17 @@ claims:
   - 映射纪律
   - 防范超调
   supersedes: []
-  contradicts: ["claim-20260816-003-010"]
-  supplements: ["claim-20260929-002-h"]
+  contradicts:
+  - claim-20260816-003-010
+  supplements:
+  - claim-20260929-002-h
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 汇率不预设目标不线性映射；观察外资偏好/出口结算/外币负债
+  school: qing
 - id: claim-20261008-007-x
   source_path: sources/original/bilibili/2026-10-08-2206-专栏-节后首个交易日，指数冲高回落，科技成长方向承受较大抛压，资金.md
   source_date: '2026-10-08'
@@ -799,10 +858,14 @@ claims:
   - 观察条件
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260913-001-033", "claim-20260921-001-z", "claim-20260928-002-y"]
+  supplements:
+  - claim-20260913-001-033
+  - claim-20260921-001-z
+  - claim-20260928-002-y
   last_discovered: 2026-10-08
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   topic: 无承接不因跌幅大摊低成本，一根急拉不放大预期
+  school: qing

@@ -1,8 +1,8 @@
 - id: claim-20260518-006
   topic: 指数调整节奏
   source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-18
   source_type: 早盘
   extracted_at: '2026-05-18T13:25:00+08:00'
@@ -29,11 +29,12 @@
   - 市场周期
   - 顶部结构
   - 日线
+  school: qing
 - id: claim-20260518-007
   topic: 连续两日大跌后
   source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-18
   source_type: 早盘
   extracted_at: '2026-05-18T13:25:00+08:00'
@@ -59,11 +60,12 @@
   - 技术信号
   - 反弹
   - 黄金
+  school: qing
 - id: claim-20260518-008
   topic: 半导体设备
   source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-18
   source_type: 早盘
   extracted_at: '2026-05-18T13:25:00+08:00'
@@ -90,14 +92,15 @@
   - 半导体
   - 主线
   related_stocks:
-  - code: "688012"
-    name: "中微公司"
-    role: "回填-正文提及"
+  - code: '688012'
+    name: 中微公司
+    role: 回填-正文提及
+  school: qing
 - id: claim-20260518-009
   topic: Token算力
   source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-18
   source_type: 早盘
   extracted_at: '2026-05-18T13:25:00+08:00'
@@ -111,7 +114,9 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-o", "claim-20260622-003-q"]
+  supplements:
+  - claim-20260621-001-o
+  - claim-20260622-003-q
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -127,11 +132,12 @@
   - code: '601728'
     name: 中国电信
     role: 参考标的
+  school: qing
 - id: claim-20260518-010
   topic: 新型储能政策驱动明确
   source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-18
   source_type: 早盘
   extracted_at: '2026-05-18T13:25:00+08:00'
@@ -145,7 +151,8 @@
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260604-006-d"]
+  supplements:
+  - claim-20260604-006-d
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -157,11 +164,12 @@
   - 板块主题
   - 储能
   - 算力
+  school: qing
 - id: claim-20260518-011
   topic: 主线优先级
   source_path: sources/raw/财经/早盘：26-05-18：连续大跌后博弈反弹，半导体设备最强主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-18
   source_type: 早盘
   extracted_at: '2026-05-18T13:25:00+08:00'
@@ -189,3 +197,4 @@
   - 算力
   - 存储
   - 主线
+  school: qing

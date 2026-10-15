@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260720-002
   source_path: sources/original/bilibili/2026-07-20-0858-图片-盘前要点 一、指数：各周期底部结构消失，短期只需跟踪上升趋势.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-20'
   source_type: 动态
   extracted_at: '2026-07-20T09:17:00+08:00'
@@ -15,8 +15,11 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260703-001-e"]
-  contradicts: ["claim-20260702-005-c", "claim-20260609-001-c"]
+  supersedes:
+  - claim-20260703-001-e
+  contradicts:
+  - claim-20260702-005-c
+  - claim-20260609-001-c
   supplements: []
   last_discovered: 2026-07-20
   links: {}
@@ -27,3 +30,4 @@ claims:
   - 多杀多
   - 缩量止跌
   - 强势股补跌
+  school: qing

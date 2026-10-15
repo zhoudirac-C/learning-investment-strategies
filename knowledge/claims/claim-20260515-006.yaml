@@ -1,11 +1,11 @@
 - id: claim-20260515-006
   topic: 活口分类方法论
   source_path: sources/raw/财经/动态补发：26-05-15：多点耐心，没到卖的时候.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-15
   source_type: 动态补发
-  extracted_at: "2026-05-18T13:30:00+08:00"
+  extracted_at: '2026-05-18T13:30:00+08:00'
   claim_type: methodology
   subject: 活口分类方法论
   timeframe: permanent
@@ -15,25 +15,27 @@
   confidence: high
   status: active
   supersedes: []
-  contradicts: ["claim-20260531-002-a"]
+  contradicts:
+  - claim-20260531-002-a
   last_discovered: 2026-06-08
   links:
     wiki_pages:
-      - 投资方法论/活口分类
+    - 投资方法论/活口分类
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 活口分类方法论
-    - 方法论
+  - 活口分类方法论
+  - 方法论
+  school: qing
 - id: claim-20260515-007
   topic: 板块观察方法
   source_path: sources/raw/财经/动态补发：26-05-15：多点耐心，没到卖的时候.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-15
   source_type: 动态补发
-  extracted_at: "2026-05-18T13:30:00+08:00"
+  extracted_at: '2026-05-18T13:30:00+08:00'
   claim_type: operation
   subject: 板块观察方法
   timeframe: short-term
@@ -44,27 +46,29 @@
   status: superseded
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260601-003-b"]
+  supplements:
+  - claim-20260601-003-b
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 投资方法论/板块观察方法
+    - 投资方法论/板块观察方法
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 操作策略
-    - 机器人
-    - 半导体
-    - 修复
+  - 操作策略
+  - 机器人
+  - 半导体
+  - 修复
+  school: qing
 - id: claim-20260515-008
   topic: 结构性行情判断
   source_path: sources/raw/财经/动态补发：26-05-15：多点耐心，没到卖的时候.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-05-15
   source_type: 动态补发
-  extracted_at: "2026-05-18T13:30:00+08:00"
+  extracted_at: '2026-05-18T13:30:00+08:00'
   claim_type: methodology
   subject: 结构性行情判断
   timeframe: permanent
@@ -75,15 +79,17 @@
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-005-f"]
+  supplements:
+  - claim-20260609-005-f
   last_discovered: 2026-06-24
   links:
     wiki_pages:
-      - 投资方法论/结构性行情判断
+    - 投资方法论/结构性行情判断
     methodology_pages: []
     cases: []
   intensity: high
   tags:
-    - 方法论
-    - 反弹
-    - 催化
+  - 方法论
+  - 反弹
+  - 催化
+  school: qing

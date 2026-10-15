@@ -2,8 +2,8 @@ claims:
 - id: claim-20260624-004-a
   topic: 5分钟级别底部结构短线拉升逻辑
   source_path: sources/original/bilibili/2026-06-24-1410-图片-11点半有一个5分钟的底，理论拉升2小时，差不多也到尾盘了。.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-24
   source_type: bilibili动态
   extracted_at: 2026-06-24
@@ -17,7 +17,8 @@ claims:
   status: active
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260310-001-a"]
+  supplements:
+  - claim-20260310-001-a
   last_discovered: 2026-06-25
   links:
     wiki_pages:
@@ -29,12 +30,12 @@ claims:
   - 5分钟级别
   - 短线结构
   - 尾盘拉升
-
+  school: qing
 - id: claim-20260624-004-b
   topic: 先手优势的操作逻辑
   source_path: sources/original/bilibili/2026-06-24-1410-图片-11点半有一个5分钟的底，理论拉升2小时，差不多也到尾盘了。.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-24
   source_type: bilibili动态
   extracted_at: 2026-06-24
@@ -60,17 +61,17 @@ claims:
   - 先手优势
   - 操作弹性
   - 交易纪律
-
+  school: qing
 - id: claim-20260624-004-c
   topic: 配置型资产在调整期的韧性
   source_path: sources/original/bilibili/2026-06-24-1410-图片-11点半有一个5分钟的底，理论拉升2小时，差不多也到尾盘了。.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-24
   source_type: bilibili动态
   extracted_at: 2026-06-24
   claim_type: methodology
-  subject: '一旦好转就会大涨的配置鉴别标准'
+  subject: 一旦好转就会大涨的配置鉴别标准
   timeframe: short-term
   statement: 好的配置型品种的特征：指数没有反包但该品种大涨。这种"一旦好转就会大涨"的品种在调整期展现韧性，在修复期领涨，是高性价比的配置方向。
   evidence_quote: 今天虽然指数没有反包，但是我们的配置基本都是大涨，这种一旦好转就会大涨的东西都是好东西。
@@ -86,12 +87,12 @@ claims:
   - 配置质量
   - 逆势走强
   - 鉴别标准
-
+  school: qing
 - id: claim-20260624-004-d
   topic: 海外AI科技链承压逻辑验证
   source_path: sources/original/bilibili/2026-06-24-1410-图片-11点半有一个5分钟的底，理论拉升2小时，差不多也到尾盘了。.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-24
   source_type: bilibili动态
   extracted_at: 2026-06-24
@@ -103,8 +104,10 @@ claims:
   interpretation: 海外AI科技链承压是UP近期核心判断之一，已在多个时间节点（6/22、6/23、6/24早盘）反复强调。这背后是美元101+美光财报前的宏观双锚框架：美元指数走强→全球资本回流→美股科技承压→A股海外映射跟跌。
   confidence: high
   status: active
-  supersedes: ["claim-20260608-001-d"]
-  contradicts: ["claim-20260610-036-a"]
+  supersedes:
+  - claim-20260608-001-d
+  contradicts:
+  - claim-20260610-036-a
   last_discovered: 2026-06-24
   links:
     wiki_pages:
@@ -117,12 +120,12 @@ claims:
   - 承压
   - 美元指数
   - 宏观验证
-
+  school: qing
 - id: claim-20260624-004-e
   topic: 市场阶段分类与操作建议
   source_path: sources/original/bilibili/2026-06-24-1410-图片-11点半有一个5分钟的底，理论拉升2小时，差不多也到尾盘了。.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: 2026-06-24
   source_type: bilibili动态
   extracted_at: 2026-06-24
@@ -143,3 +146,4 @@ claims:
   - 操作建议
   - 选手分类
   - 配置思路
+  school: qing

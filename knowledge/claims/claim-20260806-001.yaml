@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260806-001
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -15,8 +15,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260804-006", "claim-20260616-002-c"]
-  contradicts: ["claim-20260805-046"]
+  supersedes:
+  - claim-20260804-006
+  - claim-20260616-002-c
+  contradicts:
+  - claim-20260805-046
   supplements: []
   last_discovered: 2026-08-06
   links:
@@ -30,10 +33,11 @@ claims:
   - 地量之辩
   - 整数位迷惑性
   - 增量资金
+  school: qing
 - id: claim-20260806-002
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -48,7 +52,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-d", "claim-20260623-001-a"]
+  supplements:
+  - claim-20260622-004-d
+  - claim-20260623-001-a
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -64,10 +70,11 @@ claims:
   - 675亿成交
   - 筹码集中
   - 增量资金
+  school: qing
 - id: claim-20260806-003
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -80,7 +87,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260804-009", "claim-20260623-001-c", "claim-20260805-013"]
+  supersedes:
+  - claim-20260804-009
+  - claim-20260623-001-c
+  - claim-20260805-013
   contradicts: []
   supplements: []
   last_discovered: 2026-08-06
@@ -95,10 +105,11 @@ claims:
   - 首板锐减
   - 晋级率
   - 情绪高度宽度
+  school: qing
 - id: claim-20260806-004
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -112,8 +123,10 @@ claims:
   status: active
   intensity: high
   supersedes: []
-  contradicts: ["claim-20260805-047"]
-  supplements: ["claim-20260622-001-h"]
+  contradicts:
+  - claim-20260805-047
+  supplements:
+  - claim-20260622-001-h
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -129,18 +142,18 @@ claims:
   - 筹码松动
   - 高低切
   - 八连板
+  school: qing
 - id: claim-20260806-005
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
   claim_type: sector-theme
   subject: 反制成为当日最强叙事
   timeframe: short-term
-  statement: 周三（8/5）商务部等公布五项反制措施（针对FCC涉华措施与美将40余家中国实体列入清单）：无人机出口管制（商务部公告2026年第34号）、打印复印设备国家安全调查（公告33号，中国首例对外贸易国家安全调查）、暂停CCC获证后工厂跟踪检查、将Compliance
-    Testing LLC与应用DNA科学公司等6家美实体列入反制清单。这组措施意义在覆盖面——给'反制'叙事提供可持续外扩的题材边界。
+  statement: 周三（8/5）商务部等公布五项反制措施（针对FCC涉华措施与美将40余家中国实体列入清单）：无人机出口管制（商务部公告2026年第34号）、打印复印设备国家安全调查（公告33号，中国首例对外贸易国家安全调查）、暂停CCC获证后工厂跟踪检查、将Compliance Testing LLC与应用DNA科学公司等6家美实体列入反制清单。这组措施意义在覆盖面——给'反制'叙事提供可持续外扩的题材边界。
   evidence_quote: 针对美国联邦通信委员会近期密集出台的涉华措施，以及美国土安全部7月31日将四十余家中国实体列入相关清单的做法，中方当日公布五项反制措施……这组措施对市场的意义不在单项力度，而在覆盖面——无人机、认证检测、办公设备、生物技术同时被点到，等于给「反制」这条叙事提供了可以持续外扩的题材边界。
   interpretation: UP确立8/5最强叙事=反制（五项措施覆盖无人机/办公设备/认证检测/生物技术），题材边界可外扩；在没有新增产业催化的窗口，资金选择叙事最完整的方向——这是昨日高低切的落点。
   confidence: high
@@ -148,7 +161,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260804-033"]
+  supplements:
+  - claim-20260804-033
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -161,10 +175,11 @@ claims:
   - 无人机出口管制
   - 国家安全调查
   - CCC认证
+  school: qing
 - id: claim-20260806-006
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -179,7 +194,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260804-035", "claim-20260621-001-l"]
+  supplements:
+  - claim-20260804-035
+  - claim-20260621-001-l
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -187,7 +204,7 @@ claims:
     cases: []
   topic: 磷化铟双叙事合流：美股映射×铟出口管制
   related_stocks:
-  - code: '002428'
+  - code: 002428
     name: 云南锗业
     role: 磷化铟标的-主板可交易
   tags:
@@ -195,10 +212,11 @@ claims:
   - AXT
   - 铟出口管制
   - 双叙事
+  school: qing
 - id: claim-20260806-007
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -211,9 +229,11 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260723-007"]
+  supersedes:
+  - claim-20260723-007
   contradicts: []
-  supplements: ["claim-20260730-019"]
+  supplements:
+  - claim-20260730-019
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -235,10 +255,11 @@ claims:
   - 见底
   - 内外出清
   - 承接
+  school: qing
 - id: claim-20260806-008
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -247,14 +268,16 @@ claims:
   timeframe: short-term
   statement: 此前预期AI应用能与硬件互为跷跷板，实际资金更倾向于反制方向（解释传智教育(003032)下午开板）；但普联软件(300996)、米奥会展(300795)等核心股走势不弱，资金介入较深。后续AI应用方向仍会反复，关键看有无针对细分方向的新催化，而非整体性beta修复。
   evidence_quote: 此前预期AI应用能与硬件互为跷跷板，实际资金似乎更倾向于反制方向，这也能解释为何传智教育下午会开板。不过像普联软件、米奥会展等核心股的走势并不弱，说明资金介入比较深。个人判断，后续这一方向还是会不断反复，关键仍要看有没有针对某个细分方向的新催化出现
-  interpretation: UP修正AI应用判断：跷跷板（应用vs硬件）未兑现，资金流向反制；但核心股资金介入深→方向仍反复，需细分催化而非整体beta。与8/5'AI
-    Agent主线'衔接但降级为反复震荡。
+  interpretation: UP修正AI应用判断：跷跷板（应用vs硬件）未兑现，资金流向反制；但核心股资金介入深→方向仍反复，需细分催化而非整体beta。与8/5'AI Agent主线'衔接但降级为反复震荡。
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260803-021", "claim-20260722-008"]
+  supersedes:
+  - claim-20260803-021
+  - claim-20260722-008
   contradicts: []
-  supplements: ["claim-20260805-033"]
+  supplements:
+  - claim-20260805-033
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -273,10 +296,11 @@ claims:
   - 跷跷板
   - 传智教育
   - 细分催化
+  school: qing
 - id: claim-20260806-009
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -291,7 +315,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-002-a"]
+  supplements:
+  - claim-20260611-002-a
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -304,10 +329,11 @@ claims:
   - 美国禁令
   - 钨供应链
   - 反制
+  school: qing
 - id: claim-20260806-010
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -320,7 +346,10 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260803-013", "claim-20260805-011", "claim-20260805-003"]
+  supersedes:
+  - claim-20260803-013
+  - claim-20260805-011
+  - claim-20260805-003
   contradicts: []
   supplements: []
   last_discovered: 2026-08-06
@@ -336,10 +365,11 @@ claims:
   - 2.4万亿
   - 观察窗口
   - 大金融
+  school: qing
 - id: claim-20260806-011
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -354,7 +384,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260611-003-a", "claim-20260622-004-f", "claim-20260622-003-h"]
+  supplements:
+  - claim-20260611-003-a
+  - claim-20260622-004-f
+  - claim-20260622-003-h
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -370,10 +403,11 @@ claims:
   - 业绩预告
   - 钨精矿
   - PCB微钻
+  school: qing
 - id: claim-20260806-012
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -388,7 +422,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-001-d", "claim-20260611-002-a"]
+  supplements:
+  - claim-20260623-001-d
+  - claim-20260611-002-a
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -403,10 +439,11 @@ claims:
   - 江钨装备
   - 资产注入
   - 钨制品
+  school: qing
 - id: claim-20260806-013
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -421,7 +458,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-h", "claim-20260804-035"]
+  supplements:
+  - claim-20260622-004-h
+  - claim-20260804-035
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -429,17 +468,18 @@ claims:
     cases: []
   topic: 云南锗业磷化铟晶片合同5.7-8.55亿元
   related_stocks:
-  - code: '002428'
+  - code: 002428
     name: 云南锗业
     role: 磷化铟-主板可交易
   tags:
   - 云南锗业
   - 磷化铟晶片
   - 大单
+  school: qing
 - id: claim-20260806-014
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -454,7 +494,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260804-035", "claim-20260622-004-h", "claim-20260621-001-l"]
+  supplements:
+  - claim-20260804-035
+  - claim-20260622-004-h
+  - claim-20260621-001-l
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -469,10 +512,11 @@ claims:
   - 宿迁联盛
   - 磷化铟衬底
   - 江苏光铟
+  school: qing
 - id: claim-20260806-015
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -487,7 +531,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260622-004-h", "claim-20260708-013-a", "claim-20260622-003-g"]
+  supplements:
+  - claim-20260622-004-h
+  - claim-20260708-013-a
+  - claim-20260622-003-g
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -502,10 +549,11 @@ claims:
   - 海川智能
   - 集溢半导体
   - 磷化铟产能
+  school: qing
 - id: claim-20260806-016
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -534,7 +582,7 @@ claims:
   - code: '002465'
     name: 海格通信
     role: 无人机-主板可交易
-  - code: '002182'
+  - code: 002182
     name: 宝武镁业
     role: 镁合金-主板可交易
   tags:
@@ -542,10 +590,11 @@ claims:
   - 出口管制
   - 十五五
   - 反制
+  school: qing
 - id: claim-20260806-017
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -558,7 +607,8 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260610-030-a"]
+  supersedes:
+  - claim-20260610-030-a
   contradicts: []
   supplements: []
   last_discovered: 2026-08-06
@@ -573,10 +623,11 @@ claims:
   - 金价反弹
   - 宽松押注
   - AI需求
+  school: qing
 - id: claim-20260806-018
   source_path: sources/original/bilibili/2026-08-06-0901-图片-周三市场震荡反弹，三大指数低开高走，科创50指数上涨4.78.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 动态
   extracted_at: '2026-08-06T09:40:00+08:00'
@@ -591,7 +642,9 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260804-019", "claim-20260804-027"]
+  supplements:
+  - claim-20260804-019
+  - claim-20260804-027
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -602,7 +655,7 @@ claims:
   - code: '600228'
     name: 返利科技
     role: 电商AI映射-主板可交易
-  - code: '002803'
+  - code: 002803
     name: 吉宏股份
     role: 电商AI映射-主板可交易
   tags:
@@ -610,10 +663,11 @@ claims:
   - 电商AI
   - Sidekick
   - 返利科技
+  school: qing
 - id: claim-20260806-019
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -626,9 +680,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260703-001-c", "claim-20260623-001-a"]
+  supersedes:
+  - claim-20260703-001-c
+  - claim-20260623-001-a
   contradicts: []
-  supplements: ["claim-20260805-046"]
+  supplements:
+  - claim-20260805-046
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -639,10 +696,11 @@ claims:
   tags:
   - 分歧日量能不缩反增是反弹
   - 最扎实证据
+  school: qing
 - id: claim-20260806-020
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -655,9 +713,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260703-001-c"]
+  supersedes:
+  - claim-20260703-001-c
   contradicts: []
-  supplements: ["claim-20260212-001-a", "claim-20260609-005-f"]
+  supplements:
+  - claim-20260212-001-a
+  - claim-20260609-005-f
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -668,10 +729,11 @@ claims:
   tags:
   - 量能边际含义从确认方向转
   - 向约束空间
+  school: qing
 - id: claim-20260806-021
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -686,7 +748,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-001-a", "claim-20260806-002"]
+  supplements:
+  - claim-20260623-001-a
+  - claim-20260806-002
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -697,10 +761,11 @@ claims:
   tags:
   - 私募仓位84.12%创2
   - 20周新高增量边际递减
+  school: qing
 - id: claim-20260806-022
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -715,7 +780,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-013"]
+  supplements:
+  - claim-20260805-013
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -723,16 +789,17 @@ claims:
     cases: []
   topic: 龙头断板二分法内生换手型不杀情绪
   related_stocks:
-  - code: "003032"
-    name: "传智教育"
-    role: "回填-正文提及"
+  - code: '003032'
+    name: 传智教育
+    role: 回填-正文提及
   tags:
   - 龙头断板二分法内生换手型
   - 不杀情绪
+  school: qing
 - id: claim-20260806-023
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -747,7 +814,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-060", "claim-20260804-009", "claim-20260804-020"]
+  supplements:
+  - claim-20260805-060
+  - claim-20260804-009
+  - claim-20260804-020
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -758,10 +828,11 @@ claims:
   tags:
   - 连板接力三验证指标高度宽
   - 度背离才转防守
+  school: qing
 - id: claim-20260806-024
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -787,10 +858,11 @@ claims:
   tags:
   - 科技硬件尾盘抢筹过早回流
   - 产生负反馈
+  school: qing
 - id: claim-20260806-025
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -803,7 +875,9 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260803-008", "claim-20260805-033"]
+  supersedes:
+  - claim-20260803-008
+  - claim-20260805-033
   contradicts: []
   supplements: []
   last_discovered: 2026-08-06
@@ -816,10 +890,11 @@ claims:
   tags:
   - 软件及应用明日回流预期更
   - 强浮筹更干净
+  school: qing
 - id: claim-20260806-026
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -833,8 +908,11 @@ claims:
   status: active
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260723-006"]
-  supplements: ["claim-20260714-001-aj", "claim-20260715-057-a"]
+  contradicts:
+  - claim-20260723-006
+  supplements:
+  - claim-20260714-001-aj
+  - claim-20260715-057-a
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -854,10 +932,11 @@ claims:
   tags:
   - 硬件资金产业链横向扩散非
   - 单点抱团
+  school: qing
 - id: claim-20260806-027
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -871,8 +950,10 @@ claims:
   status: superseded
   intensity: medium
   supersedes: []
-  contradicts: ["claim-20260607-003-c"]
-  supplements: ["claim-20260622-003-f"]
+  contradicts:
+  - claim-20260607-003-c
+  supplements:
+  - claim-20260622-003-f
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -883,18 +964,18 @@ claims:
   tags:
   - 今日三层结构科技主攻上游
   - 涨价防御补充
+  school: qing
 - id: claim-20260806-028
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
   claim_type: catalyst
   subject: 英伟达布局6G基站产业链炒作与澄清并存
   timeframe: short-term
-  statement: 英伟达正加快布局电信运营商市场，寻找中国基站厂商合作开发面向海外市场的6G基站，目标2027-2028年完成试验网部署，深圳佳贤通信为合作方之一；但通宇通讯(002792)8/6澄清：佳贤与英伟达无研发合作/无协议，相关研发基于公开的CUDA
-    Aerial开源生态，原型机2026年底完成、落地存在不确定性；澄清前通宇股价四日已涨约42%。
+  statement: 英伟达正加快布局电信运营商市场，寻找中国基站厂商合作开发面向海外市场的6G基站，目标2027-2028年完成试验网部署，深圳佳贤通信为合作方之一；但通宇通讯(002792)8/6澄清：佳贤与英伟达无研发合作/无协议，相关研发基于公开的CUDA Aerial开源生态，原型机2026年底完成、落地存在不确定性；澄清前通宇股价四日已涨约42%。
   evidence_quote: 据界面新闻8月6日独家报道，英伟达正加快布局电信运营商市场，寻找中国基站厂商合作开发面向海外市场的6G基站……但据通宇通讯8月6日的澄清公告，佳贤通信与英伟达不存在任何形式的研发合作、联合开发关系……澄清前公司股价四个交易日已上涨约42%。
   interpretation: UP记录英伟达6G基站叙事全链条：界面独家报道（佳贤合作）→通宇公告收购佳贤25%股权→澄清公告（无合作）→佳贤回应（3月到访+常态化工作组）。典型的叙事-澄清博弈，UP提示产业基本盘（中国占全球5G基站硬件60-70%）但未给操作建议，属催化剂记录。
   confidence: medium
@@ -910,7 +991,7 @@ claims:
     cases: []
   topic: 英伟达布局6G基站产业链炒作与澄清并存
   related_stocks:
-  - code: '002792'
+  - code: 002792
     name: 通宇通讯
     role: 基站天线-主板可交易
   - code: '002446'
@@ -922,10 +1003,11 @@ claims:
   tags:
   - 英伟达布局6G基站产业链
   - 炒作与澄清并存
+  school: qing
 - id: claim-20260806-029
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -940,7 +1022,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260719-010", "claim-20260723-011"]
+  supplements:
+  - claim-20260719-010
+  - claim-20260723-011
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -951,10 +1035,11 @@ claims:
   tags:
   - DeepSeek上调AP
   - I定价验证Token通胀
+  school: qing
 - id: claim-20260806-030
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -969,7 +1054,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260805-032", "claim-20260616-005-g"]
+  supplements:
+  - claim-20260805-032
+  - claim-20260616-005-g
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -980,10 +1067,11 @@ claims:
   tags:
   - 腾讯云Agent Mem
   - ory上线记忆层解决持续
+  school: qing
 - id: claim-20260806-031
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -996,9 +1084,12 @@ claims:
   confidence: high
   status: active
   intensity: medium
-  supersedes: ["claim-20260622-003-q"]
+  supersedes:
+  - claim-20260622-003-q
   contradicts: []
-  supplements: ["claim-20260607-004-f", "claim-20260804-036"]
+  supplements:
+  - claim-20260607-004-f
+  - claim-20260804-036
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1018,10 +1109,11 @@ claims:
   tags:
   - 行云科技154亿框架订单
   - 将Token涨价落到合同
+  school: qing
 - id: claim-20260806-032
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1034,9 +1126,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260803-039"]
+  supersedes:
+  - claim-20260803-039
   contradicts: []
-  supplements: ["claim-20260805-032", "claim-20260730-008"]
+  supplements:
+  - claim-20260805-032
+  - claim-20260730-008
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1056,10 +1151,11 @@ claims:
   tags:
   - 泛微网络B端Agent入
   - 口场景数量是叙事付费转化
+  school: qing
 - id: claim-20260806-033
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1074,7 +1170,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-006-g"]
+  supplements:
+  - claim-20260624-006-g
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1085,10 +1182,11 @@ claims:
   tags:
   - MLCC景气度产业验证订
   - 单出货比创疫情新高
+  school: qing
 - id: claim-20260806-034
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1114,10 +1212,11 @@ claims:
   tags:
   - MLCC外溢逻辑与替代逻
   - 辑不可混谈
+  school: qing
 - id: claim-20260806-035
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1132,7 +1231,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260621-001-o"]
+  supplements:
+  - claim-20260621-001-o
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1146,10 +1246,11 @@ claims:
   tags:
   - 风华高科MLCC龙头已导
   - 入AI服务器供应链
+  school: qing
 - id: claim-20260806-036
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1164,7 +1265,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260624-006-g"]
+  supplements:
+  - claim-20260624-006-g
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1178,10 +1280,11 @@ claims:
   tags:
   - 海星股份电极箔机构净买2
   - .39亿非AI箔提价周期
+  school: qing
 - id: claim-20260806-037
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1196,7 +1299,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260804-035", "claim-20260621-001-l"]
+  supplements:
+  - claim-20260804-035
+  - claim-20260621-001-l
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1207,10 +1312,11 @@ claims:
   tags:
   - 磷化铟缺货验证价格翻倍衬
   - 底成本占比极低
+  school: qing
 - id: claim-20260806-038
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1225,7 +1331,9 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260804-035", "claim-20260806-013"]
+  supplements:
+  - claim-20260804-035
+  - claim-20260806-013
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1233,16 +1341,17 @@ claims:
     cases: []
   topic: 云南锗业磷化铟唯一合同落地确定性最高
   related_stocks:
-  - code: '002428'
+  - code: 002428
     name: 云南锗业
     role: 磷化铟-主板可交易
   tags:
   - 云南锗业磷化铟唯一合同落
   - 地确定性最高
+  school: qing
 - id: claim-20260806-039
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1271,10 +1380,11 @@ claims:
   tags:
   - 光智科技并购先锐科技亏损
   - 样品标的测算不可当事实
+  school: qing
 - id: claim-20260806-040
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1303,10 +1413,11 @@ claims:
   tags:
   - 海川智能磷化铟传闻与澄清
   - 正面冲突是传闻非预期差
+  school: qing
 - id: claim-20260806-041
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1332,10 +1443,11 @@ claims:
   tags:
   - 行业缺货已验证公司产能须
   - 逐家核实两个独立命题
+  school: qing
 - id: claim-20260806-042
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1361,10 +1473,11 @@ claims:
   tags:
   - 台积电苹果处理器封装受阻
   - 存储缺货升级物理瓶颈
+  school: qing
 - id: claim-20260806-043
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1379,7 +1492,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260609-003-d"]
+  supplements:
+  - claim-20260609-003-d
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1402,10 +1516,11 @@ claims:
   tags:
   - 存储为海内外共振导火索光
   - 模块是面
+  school: qing
 - id: claim-20260806-044
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1420,7 +1535,8 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260806-007"]
+  supplements:
+  - claim-20260806-007
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1434,10 +1550,11 @@ claims:
   tags:
   - 中际旭创H股外资同向增持
   - 是情绪窗口非基本面结论
+  school: qing
 - id: claim-20260806-045
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1463,7 +1580,7 @@ claims:
   - code: '601700'
     name: 风范股份
     role: 智能装备转型-主板可交易
-  - code: '002669'
+  - code: 002669
     name: 康达新材
     role: 化工材料-主板可交易
   - code: '603118'
@@ -1472,10 +1589,11 @@ claims:
   tags:
   - 重组预期暗线平台化改造三
   - 年维度市场一月定价
+  school: qing
 - id: claim-20260806-046
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1507,10 +1625,11 @@ claims:
   tags:
   - 民爆十五五规划鼓励重组存
   - 量优化不新增产能
+  school: qing
 - id: claim-20260806-047
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1525,7 +1644,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260803-036"]
+  supplements:
+  - claim-20260803-036
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1533,7 +1653,7 @@ claims:
     cases: []
   topic: 虚拟电厂调节能力2027年2000万千瓦目标
   related_stocks:
-  - code: '002380'
+  - code: 002380
     name: 科远智慧
     role: 虚拟电厂-主板可交易
   - code: '600353'
@@ -1542,10 +1662,11 @@ claims:
   tags:
   - 虚拟电厂调节能力2027
   - 年2000万千瓦目标
+  school: qing
 - id: claim-20260806-048
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1560,7 +1681,8 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260724-010"]
+  supplements:
+  - claim-20260724-010
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1577,10 +1699,11 @@ claims:
   tags:
   - 脑机接口北京海淀集聚全国
   - 近60%企业
+  school: qing
 - id: claim-20260806-049
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1612,10 +1735,11 @@ claims:
   tags:
   - 有机硅涨价海外产能收缩供
   - 给格局优化
+  school: qing
 - id: claim-20260806-050
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1630,7 +1754,10 @@ claims:
   intensity: low
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260723-012", "claim-20260805-049", "claim-20260804-019"]
+  supplements:
+  - claim-20260723-012
+  - claim-20260805-049
+  - claim-20260804-019
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1647,10 +1774,11 @@ claims:
   tags:
   - AI安全题材属性强于业绩
   - 适合轮动备选
+  school: qing
 - id: claim-20260806-051
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1663,9 +1791,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260803-042"]
+  supersedes:
+  - claim-20260803-042
   contradicts: []
-  supplements: ["claim-20260805-059", "claim-20260622-001-h"]
+  supplements:
+  - claim-20260805-059
+  - claim-20260622-001-h
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1676,10 +1807,11 @@ claims:
   tags:
   - 明日情形A高开警惕回落软
   - 件能否接住回流
+  school: qing
 - id: claim-20260806-052
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1694,7 +1826,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260708-006-bd", "claim-20260622-004-d", "claim-20260622-001-d"]
+  supplements:
+  - claim-20260708-006-bd
+  - claim-20260622-004-d
+  - claim-20260622-001-d
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1705,10 +1840,11 @@ claims:
   tags:
   - 明日情形B平开补做分歧上
   - 游涨价层承接
+  school: qing
 - id: claim-20260806-053
   source_path: sources/original/bilibili/2026-08-06-2334-专栏-今天是一根分歧没做透的震荡日。冲高回落兑现了预期内的分歧，但.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-08-06'
   source_type: 复盘
   extracted_at: '2026-08-06T23:42:00+08:00'
@@ -1721,9 +1857,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260622-001-h"]
+  supersedes:
+  - claim-20260622-001-h
   contradicts: []
-  supplements: ["claim-20260722-004", "claim-20260804-010"]
+  supplements:
+  - claim-20260722-004
+  - claim-20260804-010
   last_discovered: 2026-08-06
   links:
     wiki_pages: []
@@ -1734,3 +1873,4 @@ claims:
   tags:
   - 明日三证伪变量三坏才降仓
   - 纪律重申
+  school: qing

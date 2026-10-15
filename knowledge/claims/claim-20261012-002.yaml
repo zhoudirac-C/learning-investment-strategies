@@ -14,9 +14,10 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-002-a
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260803-002-c", "claim-20260901-023-a", "claim-20260901-007-001"]
+  supplements:
+  - claim-20260803-002-c
+  - claim-20260901-023-a
+  - claim-20260901-007-001
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: AI漫剧看好逻辑
@@ -39,6 +40,7 @@ claims:
   - AI应用
   - 现金流兑现
   - 持仓纪律
+  school: watchlist
 - source_path: sources/original/bilibili/2026-10-12-0808-视频-我AI漫剧继续拿，科技耐心等量，风电现阶段观察，投机票做得少.md
   source_date: '2026-10-12'
   source_type: 视频
@@ -47,16 +49,17 @@ claims:
   extracted_at: '2026-10-12T09:32:00'
   confidence: high
   status: active
-  supersedes: []
+  supersedes:
+  - claim-20261008-002-b
   contradicts: []
   links:
     wiki_pages: []
     methodology_pages: []
     cases: []
   id: claim-20261012-002-b
-  supersedes: ["claim-20261008-002-b"]
-  contradicts: []
-  supplements: ["claim-20260923-001-c", "claim-20260917-002-g"]
+  supplements:
+  - claim-20260923-001-c
+  - claim-20260917-002-g
   last_discovered: 2026-10-12
   claim_type: methodology
   subject: 科技量能纪律
@@ -73,6 +76,7 @@ claims:
   - 2.2万亿
   - 滚动做T
   - 投机票自律
+  school: watchlist
 - source_path: sources/original/bilibili/2026-10-12-0808-视频-我AI漫剧继续拿，科技耐心等量，风电现阶段观察，投机票做得少.md
   source_date: '2026-10-12'
   source_type: 视频
@@ -88,9 +92,9 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-002-c
-  supersedes: []
-  contradicts: []
-  supplements: ["claim-20260612-002-e", "claim-20260831-005-x"]
+  supplements:
+  - claim-20260612-002-e
+  - claim-20260831-005-x
   last_discovered: 2026-10-12
   claim_type: operation
   subject: 打野科技套利复盘
@@ -108,6 +112,7 @@ claims:
   - 存储
   - 光纤
   - MLCC
+  school: watchlist
 - source_path: sources/original/bilibili/2026-10-12-0808-视频-我AI漫剧继续拿，科技耐心等量，风电现阶段观察，投机票做得少.md
   source_date: '2026-10-12'
   source_type: 视频
@@ -123,8 +128,6 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-002-d
-  supersedes: []
-  contradicts: []
   supplements: []
   last_discovered: 2026-10-12
   claim_type: operation
@@ -145,6 +148,7 @@ claims:
   - 做T案例
   - 波段
   - 操作记录
+  school: watchlist
 - source_path: sources/original/bilibili/2026-10-12-0808-视频-我AI漫剧继续拿，科技耐心等量，风电现阶段观察，投机票做得少.md
   source_date: '2026-10-12'
   source_type: 视频
@@ -160,10 +164,10 @@ claims:
     methodology_pages: []
     cases: []
   id: claim-20261012-002-e
-  supersedes: []
-  contradicts: []
-  disagrees_with: ["claim-20260928-002-m"]
-  supplements: ["claim-20260827-048-x"]
+  disagrees_with:
+  - claim-20260928-002-m
+  supplements:
+  - claim-20260827-048-x
   last_discovered: 2026-10-12
   claim_type: sector-theme
   subject: 风电利空处理
@@ -180,3 +184,4 @@ claims:
   - 欧盟双反
   - 反包博弈
   - 利空未落地
+  school: watchlist

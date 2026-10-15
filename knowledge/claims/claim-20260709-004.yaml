@@ -1,8 +1,8 @@
 claims:
 - id: claim-20260709-004-a
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -15,9 +15,12 @@ claims:
   confidence: high
   status: superseded
   intensity: high
-  supersedes: ["claim-20260708-002-x", "claim-20260525-001"]
+  supersedes:
+  - claim-20260708-002-x
+  - claim-20260525-001
   contradicts: []
-  supplements: ["claim-20260310-001-a"]
+  supplements:
+  - claim-20260310-001-a
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -29,10 +32,11 @@ claims:
   - 120分钟底部结构
   - 反弹窗口
   - 技术面
+  school: qing
 - id: claim-20260709-004-b
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -47,7 +51,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260623-001-a", "claim-20260605-001-b", "claim-20260625-003-a"]
+  supplements:
+  - claim-20260623-001-a
+  - claim-20260605-001-b
+  - claim-20260625-003-a
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -60,10 +67,11 @@ claims:
   - 科创50
   - 放量反弹
   - 4000点
+  school: qing
 - id: claim-20260709-004-c
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -76,8 +84,11 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260708-004-a", "claim-20260625-003-a"]
-  contradicts: ["claim-20260706-002-a"]
+  supersedes:
+  - claim-20260708-004-a
+  - claim-20260625-003-a
+  contradicts:
+  - claim-20260706-002-a
   supplements: []
   last_discovered: 2026-07-10
   links:
@@ -90,10 +101,11 @@ claims:
   - 恐慌收敛
   - 量能
   - 反弹持续性
+  school: qing
 - id: claim-20260709-004-d
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -106,9 +118,12 @@ claims:
   confidence: high
   status: superseded
   intensity: medium
-  supersedes: ["claim-20260706-001"]
-  contradicts: ["claim-20260625-001-b"]
-  supplements: ["claim-20260630-001-c"]
+  supersedes:
+  - claim-20260706-001
+  contradicts:
+  - claim-20260625-001-b
+  supplements:
+  - claim-20260630-001-c
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -120,10 +135,11 @@ claims:
   - A股独立性
   - 外围情绪
   - 开盘定价
+  school: qing
 - id: claim-20260709-004-e
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -136,9 +152,12 @@ claims:
   confidence: high
   status: active
   intensity: high
-  supersedes: ["claim-20260611-001-g", "claim-20260708-004-u"]
+  supersedes:
+  - claim-20260611-001-g
+  - claim-20260708-004-u
   contradicts: []
-  supplements: ["claim-20260624-006-b"]
+  supplements:
+  - claim-20260624-006-b
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -150,10 +169,11 @@ claims:
   - 国产算力
   - 主线确认
   - 科技股
+  school: qing
 - id: claim-20260709-004-f
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -168,7 +188,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260630-003-ag", "claim-20260708-004-e", "claim-20260621-001-o"]
+  supplements:
+  - claim-20260630-003-ag
+  - claim-20260708-004-e
+  - claim-20260621-001-o
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -181,10 +204,11 @@ claims:
   - AI交换机
   - A芯片
   - DPU
+  school: qing
 - id: claim-20260709-004-g
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -199,7 +223,10 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260523-006", "claim-20260702-004-u", "claim-20260708-004-n"]
+  supplements:
+  - claim-20260523-006
+  - claim-20260702-004-u
+  - claim-20260708-004-n
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -212,10 +239,11 @@ claims:
   - 晶圆
   - 封测
   - 设备材料
+  school: qing
 - id: claim-20260709-004-h
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -230,7 +258,8 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260603-004-d"]
+  supplements:
+  - claim-20260603-004-d
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -243,10 +272,11 @@ claims:
   - 光互连
   - 标准化
   - 云厂商
+  school: qing
 - id: claim-20260709-004-i
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -261,7 +291,9 @@ claims:
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260521-001-m", "claim-20260629-004-w"]
+  supplements:
+  - claim-20260521-001-m
+  - claim-20260629-004-w
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -269,7 +301,7 @@ claims:
     cases: []
   topic: NPO推动MPO与FAU需求双轨演进
   related_stocks:
-  - code: '000938'
+  - code: 000938
     name: 紫光股份
     role: 自研CPO/NPO光引擎-主板可交易
   - code: '301165'
@@ -283,10 +315,11 @@ claims:
   - MPO
   - FAU
   - 光连接器
+  school: qing
 - id: claim-20260709-004-j
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -301,7 +334,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260612-007-g", "claim-20260705-005-a", "claim-20260708-006-l"]
+  supplements:
+  - claim-20260612-007-g
+  - claim-20260705-005-a
+  - claim-20260708-006-l
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -316,10 +352,11 @@ claims:
   - 恒尚节能
   - 短线情绪
   - 存储
+  school: qing
 - id: claim-20260709-004-k
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -327,16 +364,16 @@ claims:
   subject: 兆易创新半年度业绩高增
   timeframe: short-term
   statement: 兆易创新(603986)预计2026年半年度归母净利润69亿元、同比增长约1099%；二季度净利润约54.39亿元、环比增长272%，存储供给紧张下各产品线量价齐升。
-  evidence_quote: 兆易创新：据公司公告，预计2026年半年度归母净利润69亿元、同比增长约1099%；结合一季度14.61亿元推算，二季度净利润约54.39亿元、环比增长272%。存储供给紧张下各产品线量价齐升：DRAM环比翻倍以上增长，NOR
-    Flash受服务器、汽车需求拉动叠加价格温和上涨，SLC NAND在海外大厂加速退出2D NAND背景下显著缺货、价格高增。
-  interpretation: UP认为兆易创新(603986)半年报是存储供给紧张向利润表兑现的样本，为整条存储链的中报行情提供了锚。业绩爆发源于DRAM、NOR
-    Flash、SLC NAND量价齐升，且下半年将量产LPDDR4与DDR4 8Gb，产能扩张可期。
+  evidence_quote: 兆易创新：据公司公告，预计2026年半年度归母净利润69亿元、同比增长约1099%；结合一季度14.61亿元推算，二季度净利润约54.39亿元、环比增长272%。存储供给紧张下各产品线量价齐升：DRAM环比翻倍以上增长，NOR Flash受服务器、汽车需求拉动叠加价格温和上涨，SLC NAND在海外大厂加速退出2D NAND背景下显著缺货、价格高增。
+  interpretation: UP认为兆易创新(603986)半年报是存储供给紧张向利润表兑现的样本，为整条存储链的中报行情提供了锚。业绩爆发源于DRAM、NOR Flash、SLC NAND量价齐升，且下半年将量产LPDDR4与DDR4 8Gb，产能扩张可期。
   confidence: high
   status: active
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260617-040-s", "claim-20260707-019-a"]
+  supplements:
+  - claim-20260617-040-s
+  - claim-20260707-019-a
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -352,10 +389,11 @@ claims:
   - 半年报
   - 存储涨价
   - DRAM
+  school: qing
 - id: claim-20260709-004-l
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -385,10 +423,11 @@ claims:
   - 领先股份
   - 引线框架
   - 先进封装
+  school: qing
 - id: claim-20260709-004-m
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -419,10 +458,11 @@ claims:
   - NPO
   - 光引擎
   - 华为
+  school: qing
 - id: claim-20260709-004-n
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -430,15 +470,16 @@ claims:
   subject: 华丰科技昇腾950线模组产业链跟踪
   timeframe: industry
   statement: 产业链跟踪显示，昇腾950配套线模组6月首次大规模交付、订单环比增长十倍，华丰科技(688629)为华为客户A5主力供应商且份额第一；但以上信息均属跟踪口径，需以公司公告与后续订单验证为准。
-  evidence_quote: 华丰科技（产业链跟踪，未经公司公告确认，待核实）：据产业链跟踪信息，昇腾950配套线模组6月首次开始大规模交付、订单环比增长十倍，较预期提前一个月；公司为华为客户A5主力供应商、份额第一，产线7×24小时满产，并加速A3向A5平台的产能切换，A5线模组产能将于三季度大幅提升，2027年产能预期再翻倍。字节客户方面，双方已共同评估线模组需求并启动预研，需求呈指数型放大。NPO方面，公司已切入华为供应链、直接供应6.4T硅光NPO光模块（价值量远超连接器）；NPO
-    socket已完成224G样品送样验证，预计2027年上量。以上信息强度较高但均属跟踪口径，需以公司公告与后续订单验证为准，个人判断先记录、不据此下结论。
+  evidence_quote: 华丰科技（产业链跟踪，未经公司公告确认，待核实）：据产业链跟踪信息，昇腾950配套线模组6月首次开始大规模交付、订单环比增长十倍，较预期提前一个月；公司为华为客户A5主力供应商、份额第一，产线7×24小时满产，并加速A3向A5平台的产能切换，A5线模组产能将于三季度大幅提升，2027年产能预期再翻倍。字节客户方面，双方已共同评估线模组需求并启动预研，需求呈指数型放大。NPO方面，公司已切入华为供应链、直接供应6.4T硅光NPO光模块（价值量远超连接器）；NPO socket已完成224G样品送样验证，预计2027年上量。以上信息强度较高但均属跟踪口径，需以公司公告与后续订单验证为准，个人判断先记录、不据此下结论。
   interpretation: UP对华丰科技(688629)的产业跟踪信息进行记录但明确不下结论。昇腾950线模组交付、A5主力供应商、NPO光模块供应等均为跟踪口径，未经公司公告确认。该claim主要作为产业链信息记录，不用于直接投资建议。
   confidence: low
   status: active
   intensity: medium
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260605-001-g", "claim-20260610-013-a"]
+  supplements:
+  - claim-20260605-001-g
+  - claim-20260610-013-a
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -454,10 +495,11 @@ claims:
   - 昇腾950
   - 线模组
   - 产业链跟踪
+  school: qing
 - id: claim-20260709-004-o
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -470,9 +512,12 @@ claims:
   confidence: medium
   status: active
   intensity: medium
-  supersedes: ["claim-20260705-038-a"]
+  supersedes:
+  - claim-20260705-038-a
   contradicts: []
-  supplements: ["claim-20260609-005-f", "claim-20260531-002-a"]
+  supplements:
+  - claim-20260609-005-f
+  - claim-20260531-002-a
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -484,10 +529,11 @@ claims:
   - 反弹第二阶段
   - 国产算力
   - 存储涨价
+  school: qing
 - id: claim-20260709-004-p
   source_path: sources/raw/财经/复盘：26-07-09：120分钟底部结构形成，国产算力确认主线.md
-  up_id: "1420210197"
-  up_name: "青枫浦上Q"
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
   source_date: '2026-07-09'
   source_type: 复盘
   extracted_at: '2026-07-10T06:25:00+08:00'
@@ -502,7 +548,10 @@ claims:
   intensity: high
   supersedes: []
   contradicts: []
-  supplements: ["claim-20260705-038-a", "claim-20260515-013", "claim-20260515-012"]
+  supplements:
+  - claim-20260705-038-a
+  - claim-20260515-013
+  - claim-20260515-012
   last_discovered: 2026-07-10
   links:
     wiki_pages: []
@@ -515,3 +564,4 @@ claims:
   - 科技独涨
   - 量能
   - 仓位纪律
+  school: qing
