@@ -1,6 +1,14 @@
 # 操作日志
 
 
+## 2026-10-15 | qing-learning ingest | 「像鳄鱼一样思考」公众号首篇 claim 提取（gator 学派，11 条）
+
+- 处理 raw：`sources/original/wechat/2026-10-15-股市：放粮了，三日内涨（2026.10.15）.md`（公众号 16:45 发布，16:55 落盘）
+- claim-20261015-002.yaml（11 条，002-a～002-k，up_id=gator-ecyu-0001，school=gator）：market-cycle×1（市场底形成但时间不足·震荡磨底），operation×2（可试多但右侧信号未出／左侧播种仅两次不再追加），methodology×6（护盘假设与三日内验证窗口／护盘只起引导作用·资金响应才是关键／做空生态位选择不做赶尽杀绝／救市三板斧流程／人性与利益驱动优先／左侧右侧群体行为纪律），sector-theme×1（科技降格为普通板块），risk×1（高股息涨到阈值触发大资金抛售）
+- Gate 1/2/3 全部**一次通过**，零假阳性、零修复轮次；本文未点名任何个股（仅板块层），related_stocks 全空
+- 落盘后补 `school: gator` 字段（pipeline Step 3 未自动写 school，按库内惯例手工补入 11 条）；`knowledge_linter.lint_claim_schools` 全库 0 问题
+- 学派隔离确认：up_id `gator-ecyu-0001` ↔ source_path `sources/original/wechat/` ↔ school `gator` 三者对齐，未与 qing 学派表述混用
+
 ## 2026-10-09 | qing-learning ingest | 10/9 盘中动态提取：机构互爆定性+恶性循环方法论+下周一方向锚点（002）
 
 - 处理 raw：4 条充电专属动态——`2026-10-09-0846`（OpenAI营收口径事件）/ `2026-10-09-0937`（下影线看60分钟）/ `2026-10-09-1030`（科技股暴跌机构互爆长文+融资余额OCR图）/ `2026-10-09-1420`（下影线如约+散户两条路）
