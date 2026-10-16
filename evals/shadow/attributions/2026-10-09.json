@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-09",
+  "triggers": [
+    "direction_miss"
+  ],
+  "types": [
+    "步骤缺",
+    "概念误用"
+  ],
+  "analysis": "AI在cycle_state中识别到多指数分歧（科创50 rebound_day=42证伪、上证新60min底rebound_day=1、创业板指rebound_day=10），但最终“按科技主线锚定创业板指取rebound_day=10”，选取了对预设结论（反弹结构不成立）最有利的单一指数，未给出区间或取中位，违反正确做法，属于概念误用。在方向选择上，AI在退潮期（炸板111家、封板率降23.9pct）仍新增固态电池方向，且未考虑退潮期高波动主题的补跌风险，导致固态电池当日-8.46%大幅跑输基准-3.40%，说明缺少“退潮期禁止新增主题方向”的步骤。同时，AI将电力视为防御方向，但电力当日-5.23%跑输基准，且电力行业净流入27.82亿为昨日数据，今日资金可能流出，AI未验证资金流入持续性，缺少“资金流入持续性确认”步骤。",
+  "proposal_refs": [
+    "framework/proposals/2026-10-09-glossary-patch-cycle-state.md",
+    "framework/proposals/2026-10-09-pattern-patch-note.md",
+    "framework/proposals/2026-10-09-capability-boundary-note.md"
+  ]
+}
