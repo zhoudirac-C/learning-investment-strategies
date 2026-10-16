@@ -70,6 +70,92 @@ except Exception:  # 去重器不可用时不影响主流程
 DEFAULT_UP_UID = "1420210197"
 STATE_PATH = Path.home() / ".hermes" / "bilibili_up_state.json"
 
+# ── gator 公众号抓取：挂在 B站任务里，按时间门控每日一次 ──────────────
+# 2026-10-16 用户拍板：把原独立 23:00「公众号抓取」任务并入 B站监控任务，
+# claim 提取任务（23:30）保持不变。
+# 为什么用「时间门控 + 每日标记」而不是直接调用：
+#   1) B站任务每 5 分钟跑一次，gator 抓取必须【每日恰好一次】→ 幂等标记
+#   2) 标记在调用【之前】写入，保证同一 5 分钟窗口内的重复 tick、
+#      以及脚本中途失败后的下一 tick 都不会重复抓取
+#   3) 门控窗口默认 18:00-18:29（cron 已开 18 点整段），可由环境变量覆盖
+_GATOR_FETCH_ENTRY = Path("/home/ubuntu/.hermes/scripts/qing_fetch_wechat_mp.py")
+_GATOR_DAILY_MARKER = Path.home() / ".hermes" / "gator_fetch_last_run.txt"
+
+
+def _gator_gate_window() -> tuple[int, int]:
+    """返回 gator 抓取的 (起始小时, 起始分钟) 窗口，默认 18:00。
+
+    可用 GATOR_FETCH_AT="HH:MM" 覆盖（便于测试与调时）。
+    """
+    raw = os.environ.get("GATOR_FETCH_AT", "18:00")
+    try:
+        hh, mm = raw.strip().split(":")
+        return int(hh), int(mm)
+    except Exception:
+        return 18, 0
+
+
+def maybe_run_gator_fetch(now: datetime | None = None) -> bool:
+    """时间门控 + 每日一次的 gator 公众号抓取。
+
+    返回 True 表示本次真的触发了抓取（供日志/测试用）。
+
+    设计要点：
+    - 只在 [窗口起点, 窗口起点+30min) 内触发；B站 cron 已覆盖 18 点整段，
+      每 5 分钟一个 tick，必然命中。
+    - 用 `~/.hermes/gator_fetch_last_run.txt` 存最近一次运行的日期（YYYY-MM-DD）做幂等，
+      **先写标记再调用**：失败也不重复抓（失败由下一次抓取的自然增量补齐，
+      gator 抓取本身是增量式，丢一天不会丢数据）。
+    - 被调用脚本自带容器健康检查与 sudo -n，其 stdout 由调用方透传，
+      这样「抓到新文章」也能像 B站动态一样投递飞书。
+    """
+    now = now or datetime.now()
+    hh, mm = _gator_gate_window()
+    start = now.replace(hour=hh, minute=mm, second=0, microsecond=0)
+    end = start.replace(minute=start.minute) + __import__("datetime").timedelta(minutes=30)
+    # 处理跨小时窗口（如 18:50+30min）
+    if not (start <= now < end):
+        return False
+
+    today = now.strftime("%Y-%m-%d")
+    try:
+        if _GATOR_DAILY_MARKER.exists():
+            last = _GATOR_DAILY_MARKER.read_text(encoding="utf-8").strip()
+            if last == today:
+                return False
+    except Exception:
+        pass
+
+    if not _GATOR_FETCH_ENTRY.exists():
+        print(f"WARN: gator 抓取入口不存在，跳过: {_GATOR_FETCH_ENTRY}", file=sys.stderr)
+        return False
+
+    # 先落标记：保证幂等（失败不重试，增量抓取天然补齐）
+    try:
+        _GATOR_DAILY_MARKER.parent.mkdir(parents=True, exist_ok=True)
+        _GATOR_DAILY_MARKER.write_text(today, encoding="utf-8")
+    except Exception as exc:
+        print(f"WARN: 写 gator 日期标记失败: {exc}", file=sys.stderr)
+
+    # 子进程执行 gator 抓取；脚本内自带 curl 健康检查 + sudo -n
+    env = dict(os.environ)
+    env.setdefault("HERMES_REPO_ROOT", str(repo_root()))
+    try:
+        proc = __import__("subprocess").run(
+            [sys.executable, str(_GATOR_FETCH_ENTRY)],
+            capture_output=True, text=True, timeout=600, env=env, cwd=str(repo_root()),
+        )
+    except Exception as exc:
+        print(f"WARN: gator 抓取执行失败: {exc}", file=sys.stderr)
+        return True
+
+    if proc.stdout.strip():
+        # 透传到本脚本 stdout → no_agent watchdog 会投递飞书
+        print(proc.stdout.strip())
+    if proc.stderr.strip():
+        print(proc.stderr.strip(), file=sys.stderr)
+    return True
+
 
 # ── UP 列表加载 ────────────────────────────────────────────────────
 
@@ -488,6 +574,14 @@ def main() -> int:
                         help="忽略 processed_ids 去重（历史补录需真正落盘时用）")
     parser.add_argument("--no-asr", action="store_true", help="禁用视频语音转写")
     args = parser.parse_args()
+
+    # gator 公众号抓取（并入本任务，时间门控每日一次）—— 放在 B站 cookie 校验之前，
+    # 因为两者互不依赖：B站 cookie 过期不应拖累 gator 抓取。
+    if not args.uid and not args.check_only and not args.backfill:
+        try:
+            maybe_run_gator_fetch()
+        except Exception as exc:
+            print(f"WARN: gator 抓取钩子异常: {exc}", file=sys.stderr)
 
     since_ts = None
     if args.since:

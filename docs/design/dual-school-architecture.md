@@ -221,7 +221,7 @@ conflicts:
 | P2b | 鳄鱼派确定性规则代码化（gator_rules.py：止跌5信号/剪刀差/情绪冰点） | 盘中规则实时跑 | 0.5天 |
 | P3 | gator 50 章全量入册：拆解脚本 → 50 pattern 草案生成 → 21 个可计算规则同步入 gator_rules.py → 人工 review 冲突章节 + 现有18框架 school 标注复审 | 双学派 pattern 库（~68 个总 pattern） | 2-3天 |
 | P4 | school-conflicts.yaml 辩论卡初版 + agent 双学派输出契约 + prompts | agent 多专家输出 | 1天 |
-| P5 | 公众号 cron（23:00 fetch→claim）✅ 已实施 | 增量管线运转 | 0.5天 |
+| P5 | 公众号 cron（抓取并入 18:00 B站任务 / claim 提取 23:30）✅ 已实施 | 增量管线运转 | 0.5天 |
 
 **总计约 4.5-5.5 天**（P3 从精选改为全量程序化拆解，工作量扩大但一次到位；P2a/P2b 仍并行）。
 
@@ -273,19 +273,31 @@ scripts/verify_agent_injection.py
 
 **教训**：单测全绿 ≠ 生效。凡注入经过截断/降级/重试分支的，必须用真实入参验证。
 
-### 7.1 P5 实施记录（2026-10-15）
+### 7.1 P5 实施记录（2026-10-15，2026-10-16 调整抓取时点）
 
 公众号增量管线**拆成两个 cron**（因为 claim 提取需 LLM 编排，不能纯脚本化）：
 
 | 时间 | 任务 | 类型 | Job ID | 说明 |
 |---|---|---|---|---|
-| 每日 23:00 | 公众号抓取 | `no_agent` watchdog | `d1cd513b9ebc` | `~/.hermes/scripts/qing_fetch_wechat_mp.py` → `scripts/fetch_wechat_article.py`；有新增输出 `NEW_ARTICLE:` 行投递飞书，无新增静默 |
-| 每日 23:30 | claim 提取（gator） | LLM Agent | `e6be7c8c942a` | 加载 `qing-claim-extraction-ops` + `qing-learning-claim`；up_id=`gator-ecyu-0001`、school=`gator`；走 C2 Gate 管线 + 下游四步同步 |
+| 每日 18:00（并入 B站任务） | 公众号抓取 | `no_agent` watchdog（钩子） | `46b29d1607b4` | **2026-10-16 起**：原独立 23:00 抓取任务已删除，改为挂在「B站多UP动态监控」任务里，由 `scripts/bilibili_notify.py` 的 `maybe_run_gator_fetch()` 时间门控（18:00 窗口，每日一次）；仍走 `~/.hermes/scripts/qing_fetch_wechat_mp.py` → `scripts/fetch_wechat_article.py`，有新增输出 `NEW_ARTICLE:` 行透传投递飞书，无新增静默 |
+| 每日 23:30 | claim 提取（gator） | LLM Agent | `e6be7c8c942a` | 加载 `qing-claim-extraction-ops` + `qing-learning-claim`；up_id=`gator-ecyu-0001`、school=`gator`；走 C2 Gate 管线 + 下游四步同步（**未变**） |
 
-**设计要点**：
+**为什么抓取能并入 B站任务、claim 提取不能**：抓取是纯脚本（no_agent），与 B站监控同性质，
+可以在同一脚本里串行调用；claim 提取需 LLM 编排（C2 Gate），必须是独立的 agent 型 cron。
+
+**B站任务合并的实现要点（2026-10-16）**：
+- B站任务每 5 分钟跑一次 → gator 抓取必须**每日恰好一次**，用
+  `~/.hermes/gator_fetch_last_run.txt`（存 `YYYY-MM-DD`）做幂等标记
+- **先写标记再调用**：失败也不重复抓；gator 抓取是增量式，丢一次不会丢数据
+- B站 cron 窗口由 `*/5 7-14,21-23` 扩为 `*/5 7-14,18,21-23`（新增 18 点整段）
+- 门控时间可调：环境变量 `GATOR_FETCH_AT="HH:MM"`（默认 18:00，窗口宽 30 分钟）
+- 钩子放在 B站 cookie 校验**之前**：B站 cookie 过期不应拖累 gator 抓取（两者互不依赖）
+- `--check-only` / `--uid` / `--backfill` 模式下钩子不触发（保持这些模式纯只读）
+- 抓取子进程 stdout 透传 → 「抓到新文章」与 B站新动态一样投递飞书
+
+**设计要点（沿用）**：
 - 抓取脚本前置容器健康检查（`curl 127.0.0.1:4310`），容器不可用则静默 exit 0，不产生噪声告警
 - DB 为 root 属主 → cron 脚本用 `sudo -n`（服务器已配免密，实测通过）
-- 两任务间隔 30 分钟，避免抓取未完成就触发提取
 - 提取任务自带空转检测：无新文章直接结束，不生成多余输出
 
 **降级路径**：we-mp-rss 的公众平台通道若被微信封堵（见 §9），抓取任务会静默失败，
