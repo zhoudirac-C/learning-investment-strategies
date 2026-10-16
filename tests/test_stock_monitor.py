@@ -108,6 +108,54 @@ def make_config_dir(tmp_path: Path) -> Path:
     return config_dir
 
 
+def make_precondition_watchlist_dir(tmp_path: Path) -> Path:
+    """专用 fixture：含 3 只带 pre_condition 的关键候选（2026-10-16 新增）。
+
+    独立于 make_config_dir，避免影响其它断言 watchlist 行数的测试。
+    对应 test_watchlist_key_candidates_have_pre_condition。
+    """
+    config_dir = tmp_path / "precond_stock_monitor"
+    config_dir.mkdir()
+    write_yaml(
+        config_dir / "positions.yaml",
+        {"accounts": [{"name": "acct", "positions": []}]},
+    )
+    write_yaml(
+        config_dir / "watchlist.yaml",
+        {
+            "themes": [
+                {
+                    "id": "key_candidates",
+                    "name": "关键候选",
+                    "stocks": [
+                        {
+                            "code": code,
+                            "name": name,
+                            "pre_condition": {
+                                "market_actionable": True,
+                                "sector_diverged": True,
+                                "no_consecutive_limit_up": True,
+                                "market_gate_note": "大盘需站上关键位",
+                                "sector_gate_note": "板块需出现分歧承接",
+                            },
+                        }
+                        for code, name in [
+                            ("000636.SZ", "风华高科"),
+                            ("600110.SH", "诺德股份"),
+                            ("002384.SZ", "东山精密"),
+                        ]
+                    ],
+                }
+            ]
+        },
+    )
+    write_yaml(
+        config_dir / "strategy_pack.yaml",
+        {"market_framework": {"current_stage": "测试阶段"}},
+    )
+    return config_dir
+
+
 def make_rule_config_dir(tmp_path: Path) -> Path:
     config_dir = tmp_path / "rule_stock_monitor"
     config_dir.mkdir()
@@ -242,10 +290,14 @@ def test_load_monitor_config_counts_rows(tmp_path):
     assert watchlist_stock_rows(config)[0]["theme_id"] == "domestic_compute"
 
 
-def test_watchlist_key_candidates_have_pre_condition():
-    """P0-1: key entry candidates expose pre_condition for rule engine."""
-    repo_root = Path(__file__).resolve().parents[1]
-    config = load_monitor_config(repo_root / "config" / "stock_monitor")
+def test_watchlist_key_candidates_have_pre_condition(tmp_path):
+    """P0-1: key entry candidates expose pre_condition for rule engine.
+
+    2026-10-16 改为 fixture 驱动：原实现硬读生产 watchlist.yaml 并断言 3 只
+    特定标的（000636/600110/002384）存在，生产 watchlist 整体归档后即失效。
+    本测试校验的是 pre_condition 字段契约本身，不应与生产标的内容耦合。
+    """
+    config = load_monitor_config(make_precondition_watchlist_dir(tmp_path))
 
     stocks_by_code: dict[str, dict] = {}
     for theme in config.watchlist.get("themes", []):
