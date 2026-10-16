@@ -13,6 +13,13 @@ from qing_investment.agent.graph.state import AgentState
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def _nodes_limit() -> int:
+    """market_summary 的 prompt 字节上限（跟随实现常量，避免硬编码漂移）。"""
+    from qing_investment.agent.graph import nodes as _nodes
+
+    return _nodes._MAX_MARKET_SUMMARY_PROMPT_BYTES
+
+
 @pytest.fixture
 def sample_state(tmp_path) -> AgentState:
     fixture = ROOT / "tmp" / "agent_context_sample.json"
@@ -36,9 +43,11 @@ def sample_state(tmp_path) -> AgentState:
 
 
 def test_market_summary_prompt_guard(sample_state, monkeypatch):
-    """超大 state 下 prompt 必须被截断至 < 128KB，且返回结果含 _truncated 标记。"""
-    # 膨胀低优先级字段，确保原始 prompt 超过 64KB
-    big_block = "x" * 2000
+    """超大 state 下 prompt 必须被截断至上限内，且返回结果含 _truncated 标记。"""
+    limit = _nodes_limit()
+    # 膨胀低优先级字段，确保原始 prompt 明显超过上限（按上限动态放大）
+    per_field = max(2000, limit // 40)
+    big_block = "x" * per_field
     sample_state["memories"] = [
         {"role": "user", "content": f"memory {i} {big_block}"}
         for i in range(50)
@@ -58,7 +67,7 @@ def test_market_summary_prompt_guard(sample_state, monkeypatch):
 
     captured = {}
 
-    def _fake_invoke(prompt: str, min_length: int = 0) -> str:
+    def _fake_invoke(prompt: str, min_length: int = 0, **kwargs) -> str:
         captured["prompt"] = prompt
         captured["prompt_bytes"] = len(prompt.encode("utf-8"))
         return json.dumps({"market_phase": "震荡", "market_summary": "test"})
@@ -69,8 +78,8 @@ def test_market_summary_prompt_guard(sample_state, monkeypatch):
 
     result = market_summary(sample_state)
 
-    assert captured["prompt_bytes"] < 128000, (
-        f"prompt size {captured['prompt_bytes']} exceeds 128000 bytes"
+    assert captured["prompt_bytes"] <= limit, (
+        f"prompt size {captured['prompt_bytes']} exceeds {limit} bytes"
     )
     ctx = result.get("market_summary_context", {})
     assert ctx.get("_truncated") is True
@@ -85,7 +94,7 @@ def test_market_summary_returns_fallback_on_unparseable_response(
     """LLM 返回不可解析内容时，仍返回包含所有必需键的 fallback dict。"""
     monkeypatch.setattr(
         "qing_investment.agent.graph.nodes._safe_llm_invoke",
-        lambda prompt, min_length=0: "this is not { valid json",
+        lambda prompt, min_length=0, **kwargs: "this is not { valid json",
     )
 
     result = market_summary(sample_state)
@@ -112,7 +121,7 @@ def test_market_summary_merges_partial_response(sample_state, monkeypatch):
     """LLM 返回部分 JSON 时，缺失的必需键应被 fallback 默认值补齐。"""
     monkeypatch.setattr(
         "qing_investment.agent.graph.nodes._safe_llm_invoke",
-        lambda prompt, min_length=0: json.dumps({"market_phase": "上升期"}),
+        lambda prompt, min_length=0, **kwargs: json.dumps({"market_phase": "上升期"}),
     )
 
     result = market_summary(sample_state)
@@ -129,7 +138,7 @@ def test_market_summary_no_truncation_for_small_state(monkeypatch):
     """小 state 不应触发截断。"""
     captured = {}
 
-    def _fake_invoke(prompt: str, min_length: int = 0) -> str:
+    def _fake_invoke(prompt: str, min_length: int = 0, **kwargs) -> str:
         captured["prompt_bytes"] = len(prompt.encode("utf-8"))
         return json.dumps({"market_phase": "震荡"})
 
@@ -152,7 +161,7 @@ def test_market_summary_no_truncation_for_small_state(monkeypatch):
     result = market_summary(small_state)
     ctx = result.get("market_summary_context", {})
 
-    assert captured["prompt_bytes"] < 128000
+    assert captured["prompt_bytes"] <= _nodes_limit()
     assert ctx.get("_truncated") is not True
 
 

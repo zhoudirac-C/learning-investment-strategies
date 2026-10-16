@@ -70,7 +70,7 @@ def test_market_summary_prompt_length():
     state = _build_state(data)
     captured = {}
 
-    def fake_invoke(prompt, min_length=0):
+    def fake_invoke(prompt, min_length=0, **kwargs):
         captured["prompt_len"] = len(prompt)
         return json.dumps({"market_phase": "回暖期", "main_themes": []})
 
@@ -78,7 +78,12 @@ def test_market_summary_prompt_length():
         result = market_summary(state)
 
     assert "market_summary_context" in result
-    assert captured["prompt_len"] < 64000, f"prompt too long: {captured['prompt_len']}"
+    from qing_investment.agent.graph import nodes as _nodes
+
+    limit = _nodes._MAX_MARKET_SUMMARY_PROMPT_BYTES
+    assert captured["prompt_len"] <= limit, (
+        f"prompt too long: {captured['prompt_len']} > {limit}"
+    )
 
 
 def _run_stock_scanner_shard(state):
@@ -109,7 +114,7 @@ def test_stock_scanner_prompt_length():
     }
     captured = {}
 
-    def fake_invoke(prompt, min_length=0):
+    def fake_invoke(prompt, min_length=0, **kwargs):
         captured["prompt_len"] = len(prompt)
         return json.dumps({"opportunity_scan": [], "position_plans": []})
 
@@ -161,7 +166,7 @@ def test_stock_scanner_returns_degraded_context_on_bad_llm_output():
 
     with patch(
         "qing_investment.agent.graph.nodes._safe_llm_invoke",
-        lambda prompt, min_length=0: "this is not { valid json",
+        lambda prompt, min_length=0, **kwargs: "this is not { valid json",
     ):
         result = _run_stock_scanner_shard(state)
 
@@ -210,7 +215,7 @@ def test_stock_scanner_truncation_regression(monkeypatch):
 
     captured = {}
 
-    def fake_invoke(prompt, min_length=0):
+    def fake_invoke(prompt, min_length=0, **kwargs):
         captured["prompt"] = prompt
         captured["prompt_bytes"] = len(prompt.encode("utf-8"))
         return json.dumps({"opportunity_scan": [], "position_plans": []})
@@ -257,7 +262,7 @@ def test_stock_scanner_keeps_secid_only_quote(monkeypatch):
 
     captured = {}
 
-    def fake_invoke(prompt: str, min_length: int = 0) -> str:
+    def fake_invoke(prompt: str, min_length: int = 0, **kwargs) -> str:
         captured["prompt"] = prompt
         return json.dumps({"opportunity_scan": [], "position_plans": []})
 

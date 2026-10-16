@@ -1668,7 +1668,7 @@ def _slim_market_snapshot_for_summary(market_snapshot: dict) -> dict:
     }
 
 
-_MAX_MARKET_SUMMARY_PROMPT_BYTES = 128000
+_MAX_MARKET_SUMMARY_PROMPT_BYTES = 400000
 _MAX_STOCK_SCANNER_PROMPT_BYTES = 64000
 
 
