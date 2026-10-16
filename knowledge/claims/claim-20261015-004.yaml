@@ -1,0 +1,310 @@
+- id: claim-20261015-004-a
+  source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
+  source_date: '2026-10-15'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-16T15:27:23'
+  claim_type: market-cycle
+  subject: AI叙事与资金成本互挤
+  timeframe: trend
+  statement: CPI偏热、Anthropic披露营收后AI板块续跌、美债收益率反转下行，表面是三条新闻，实际是一条线：资金成本与AI叙事正在互相挤压，债市已开始按AI叙事降温来定价。
+  evidence_quote: 昨晚的三件事——CPI 偏热、Anthropic 披露营收后 AI 板块续跌、美债收益率反转下行——表面是三条新闻，实际上是一条线：资金成本与
+    AI 叙事正在互相挤压，而债市已经开始按"AI 叙事降温"来定价。
+  interpretation: 把三条独立新闻收敛成单一驱动线，属UP对宏观-科技联动机制的定性判断。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: AI叙事与资金成本
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - AI叙事
+  - 资金成本
+  - 债市定价
+  - 宏观联动
+  school: qing
+- id: claim-20261015-004-b
+  source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
+  source_date: '2026-10-15'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-16T15:27:23'
+  claim_type: sector-theme
+  subject: Anthropic二阶导与A股AI链
+  timeframe: trend
+  statement: 市场失望的对象是营收增速曲线弯了（月均增速由约12%降至3%-7%），而非绝对营收；放在2万亿美元IPO目标估值旁边，弯曲幅度被放大。
+  evidence_quote: 5 到 7 月运行速率月均约 12%，三季度隐含的月均增速降到 3% 至 7%……所以市场失望的对象是"曲线弯了"，而把这个数字放在
+    2 万亿美元的 IPO 目标估值旁边，弯曲的幅度就被放大了。
+  interpretation: 以『二阶导』而非绝对量解释AI板块杀跌，属对股价驱动因子的方法论判断。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: AI叙事定价
+  stance: view
+  related_stocks: []
+  tags:
+  - Anthropic
+  - 二阶导
+  - 增速曲线
+  - AI定价
+  school: qing
+- id: claim-20261015-004-c
+  source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
+  source_date: '2026-10-15'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-16T15:27:23'
+  claim_type: sector-theme
+  subject: 模型厂单位经济与算力垫资链
+  timeframe: trend
+  statement: 1.70美元收入/1美元算力（算力成本约占收入59%）叠加11%营业利润率，意味着模型厂单位经济依赖算力价格下降与用量上升同时成立；增速降到5%/月而5000亿美元基建计划不变，缺口只能靠资本市场补。最先跌的是给模型厂垫资建数据中心的公司。
+  evidence_quote: 1.70 美元收入 / 1 美元算力，反过来说算力成本约占收入 59%，再叠加 11% 的营业利润率，意味着模型厂的单位经济仍然依赖算力价格继续下降和用量继续上升两件事同时成立。一旦收入增速从
+    12%/月降到 5%/月，而未来十年 5000 亿美元以上的基建计划不变，缺口只能靠资本市场补。这就是为什么 Anthropic 的数字发完，先跌的是 CoreWeave、Nebius、Oracle
+    这些给模型厂垫资建数据中心的公司。
+  interpretation: 指出算力垫资链是AI融资链最脆弱环节，属对产业链风险传导路径的判断。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: AI算力融资链
+  stance: view
+  related_stocks: []
+  tags:
+  - 算力成本
+  - 单位经济
+  - 垫资链
+  - CoreWeave
+  school: qing
+- id: claim-20261015-004-d
+  source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
+  source_date: '2026-10-15'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-16T15:27:23'
+  claim_type: macro
+  subject: CPI结构与美联储路径
+  timeframe: trend
+  statement: 9月CPI要害分两层：总体偏热在市场预期内、本准备看穿能源；但核心和服务也偏热且没有一次性可剔除项目，鸽派失去暂且不计的抓手。10月加息概率因情绪恶化从50%以上回落到37%-41%，12月接近完全定价。
+  evidence_quote: 第一层，总体偏热在预期内，市场本来准备"看穿"能源。第二层，核心和服务也偏热，并且没有上个月那种一次性可剔除的项目……10 月加息概率公布后一度冲到
+    50% 以上，随情绪恶化回落到 37%–41%；12 月接近完全定价。
+  interpretation: 给出10月/12月加息路径的分层判断，属对货币政策节奏的判断。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 美联储路径
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - CPI
+  - 核心通胀
+  - 加息路径
+  - 美联储
+  school: qing
+- id: claim-20261015-004-e
+  source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
+  source_date: '2026-10-15'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-16T15:27:23'
+  claim_type: macro
+  subject: 债市反转的结构信号
+  timeframe: trend
+  statement: 昨晚30年期跑赢10年期、长端领涨，与高盛三个观察对上：远期收益率高于模型公允价值40-50bp、债券基金久期配置降到-2的极端低配、9月放大抛售的MBS负凸性对冲（约600亿美元10年期等值）已接近耗尽。仓位极度悲观加技术性卖压减弱，意味着任何催化剂都能推动收益率较快回落。
+  evidence_quote: 第二，30 年期跑赢 10 年期，长端领涨。这与高盛报告的三个观察正好对上：远期收益率高于其模型公允价值 40–50 个基点；债券基金久期配置降到
+    -2 的极端低配；9 月放大抛售的 MBS 负凸性对冲（高盛估约 600 亿美元 10 年期等值）已接近耗尽。仓位极度悲观加上技术性卖压减弱，意味着只要出现任何一个催化剂，空头回补就能推动收益率较快回落。
+  interpretation: 用仓位与技术性卖压解释长端下行条件，属对债市机制的判断。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 美债长端
+  stance: view
+  related_stocks: []
+  tags:
+  - 30年期美债
+  - 久期低配
+  - MBS
+  - 空头回补
+  school: qing
+- id: claim-20261015-004-f
+  source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
+  source_date: '2026-10-15'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-16T15:27:23'
+  claim_type: market-cycle
+  subject: 收益率下行的代价
+  timeframe: trend
+  statement: 过去一直在问什么能让美债收益率下来，昨晚得到的答案是经济里先有东西坏掉。收益率因通胀缓解而下行是好事；收益率因增长受损而下行，只是把痛苦从债券挪到了股票和经济。
+  evidence_quote: 第三，过去一直在问"什么能让美债收益率下来"，昨晚得到的答案是"经济里先有东西坏掉"。收益率因通胀缓解而下行是好事；收益率因增长受损而下行，只是把痛苦从债券挪到了股票和经济。
+  interpretation: 把『收益率下行』拆成两类性质，属对宏观-风险资产关系的定性判断。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 收益率下行的性质
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - 收益率下行
+  - 增长受损
+  - 风险转移
+  school: qing
+- id: claim-20261015-004-g
+  source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
+  source_date: '2026-10-15'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-16T15:27:23'
+  claim_type: sector-theme
+  subject: AI板块定价独立于利率
+  timeframe: trend
+  statement: 过去几周的担忧顺序是收益率涨所以科技跌，昨晚变成收益率跌科技照样跌；顺序颠倒说明AI板块的定价已开始独立于利率、独立于基本面利好，它交易的是融资链的可持续性。今天的技术分界是7700：守住仍可理解为一次集中去风险，失守则调整更容易从AI扩散到整个市场。
+  evidence_quote: 过去几周的担忧顺序是"收益率涨所以科技跌"，昨晚变成"收益率跌科技照样跌"。这个顺序的颠倒说明 AI 板块的定价已经开始独立于利率，独立于基本面利好（Anthropic
+    数字不算差），它在交易的是融资链的可持续性。今天的技术分界是 7700。
+  interpretation: 给出AI板块从利率驱动转向融资链驱动的性质切换判断，并明确7700分界。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: AI板块定价机制
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - AI板块
+  - 定价机制
+  - 融资链
+  - '7700'
+  school: qing
+- id: claim-20261015-004-h
+  source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
+  source_date: '2026-10-15'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-16T15:27:23'
+  claim_type: macro
+  subject: 黄金短期偏空
+  timeframe: short-term
+  statement: 黄金盘中破4100后勉强收复，长端收益率最终下行而黄金没有同步反弹，说明问题在自身买盘不积极，短期偏空的判断成立。
+  evidence_quote: 黄金盘中破 4100、勉强收复，长端收益率最终下行而黄金没有同步反弹，说明问题在自身买盘不积极，短期偏空的判断成立。
+  interpretation: 以收益率下行而金价不涨作为买盘不济的证据，属对具体资产的短期方向判断。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 黄金短期方向
+  stance: view
+  related_stocks: []
+  tags:
+  - 黄金
+  - 短期偏空
+  - 买盘
+  school: qing
+- id: claim-20261015-004-i
+  source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
+  source_date: '2026-10-15'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-16T15:27:23'
+  claim_type: macro
+  subject: 美元指数分界
+  timeframe: short-term
+  statement: 美元指数触及102.95后回落到102.55，103是分界：突破看103.5-104，跌破102.2才算回调。
+  evidence_quote: 美元指数触及 102.95 后回落到 102.55，103 是分界，突破看 103.5–104，跌破 102.2 才算回调。
+  interpretation: 给出美元指数的具体价位分界与两侧目标，属可验证的价格判断。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 美元指数
+  stance: view
+  related_stocks: []
+  tags:
+  - 美元指数
+  - 103分界
+  - 区间
+  school: qing
+- id: claim-20261015-004-j
+  source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
+  source_date: '2026-10-15'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-16T15:27:23'
+  claim_type: macro
+  subject: 黄金两头不靠的原因
+  timeframe: short-term
+  statement: 美元与短端利率在压制黄金，而长端利率下行还没有传导成实际利率下行，所以黄金暂时两头不靠。
+  evidence_quote: 个人判断，三者的共同背景是：美元与短端利率在压制黄金，而长端利率下行还没有传导成"实际利率下行"，所以黄金暂时两头不靠。
+  interpretation: 用实际利率传导链解释黄金的中间态，属对传导机制的方法论判断。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 黄金与利率传导
+  stance: view
+  related_stocks: []
+  tags:
+  - 黄金
+  - 实际利率
+  - 传导链
+  school: qing
+- id: claim-20261015-004-k
+  source_path: sources/raw/财经/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md
+  source_date: '2026-10-15'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-16T15:27:23'
+  claim_type: market-cycle
+  subject: 后续跟踪变量与定价中枢
+  timeframe: short-term
+  statement: 跟踪变量按重要性排序：台积电说明会后台股半导体与A股科技量能、核心PPI是否超0.4%、美股标普7700是否守住、30年期美债能否跌破5.50%、CoreWeave等高收益债利差是否继续走阔；前五个决定AI融资链去风险是否扩散，后两个（加上Anthropic路演表态）决定12月加25还是50。两组变量交叉的位置就是接下来几周全球风险资产的定价中枢。
+  evidence_quote: 前五个变量决定"AI 融资链去风险"是否扩散，后两个决定"12 月加 25 还是 50"的辩论往哪边走。两组变量交叉的位置，就是接下来几周全球风险资产的定价中枢。
+  interpretation: 把分散变量收敛成两个决定组，属对后续市场定价框架的判断。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 跟踪框架
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - 跟踪变量
+  - 定价中枢
+  - 框架
+  school: qing

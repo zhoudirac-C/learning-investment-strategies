@@ -586,3 +586,12 @@
 - sources/original/bilibili/2026-10-12-1939-视频-投机如山岳一样古老。 感谢观看，一键三连。.md → 跳过（ASR 转写失败，无观点文本）
 - sources/original/bilibili/2026-10-13-0844-专栏-周一的回落，说明上周五午后的修复尚未形成持续买盘。沪指收于3.md → claim-20261013-001 (17 claims) → wiki: 每日复盘/2026-10-13-青枫浦上Q早盘专栏 → 下游 discover/Neo4j/Qdrant 已跑（2026-10-13，17节点+31关系入图，Qdrant 5895条）
 - sources/original/wechat/2026-10-15-股市：放粮了，三日内涨（2026.10.15）.md → claim-20261015-002 (11 claims, school=gator, up_id=gator-ecyu-0001) → wiki: 每日复盘/2026-10-15-像鳄鱼一样思考公众号 → 下游 discover/Neo4j/Qdrant 待确认
+
+- sources/original/bilibili/2026-10-16-0950-图片-成交量不足就容易冲高回落，已经到现在了这个局面了，要么睡觉玩.md → claim-20261016-002 (1 claim) → wiki: 每日复盘/2026-10-16-青枫浦上Q盘中动态
+- sources/original/bilibili/2026-10-16-1339-图片-午后开盘市场小幅回落，但整体仍维持修复格局，成交量随行情修复.md → claim-20261016-003 (4 claims) → wiki: 每日复盘/2026-10-16-青枫浦上Q盘中动态
+- sources/original/bilibili/2026-10-15-0904-图片-昨晚的三件事——CPI 偏热、Anthropic 披露营收后.md → claim-20261015-004 (11 claims) → wiki: 每日复盘/2026-10-15-青枫浦上Q盘中动态
+- sources/original/bilibili/2026-10-15-1510-图片-最近频繁的发动态，发视频，因为我担心你们会扛不住割掉。你们扛.md → claim-20261015-005 (2 claims) → wiki: 每日复盘/2026-10-15-青枫浦上Q盘中动态
+- sources/original/bilibili/2026-10-15-1243-图片-我们内部团队关于行情这两个月就交流过两次，一次是10月8，问.md → claim-20261015-006 (1 claim) → wiki: 每日复盘/2026-10-15-青枫浦上Q盘中动态
+- sources/original/bilibili/2026-10-15-0912-图片-七月底我说过一个词叫千金买马骨。恐慌本身不创造任何价值，真正.md → claim-20261015-007 (1 claim) → wiki: 每日复盘/2026-10-15-青枫浦上Q盘中动态
+- sources/original/bilibili/2026-10-13-2159-专栏-今天A股在海外市场走弱的背景下下探回升，成交同步放大，科技股.md → claim-20261013-003 (18 claims) → wiki: 每日复盘/2026-10-13-青枫浦上Q晚复盘专栏
+- sources/original/bilibili/2026-10-13-0936-图片-我都不知道担个什么心，给钱捡还不乐意了？.md → claim-20261013-004 (1 claim，置顶评论) → wiki: 每日复盘/2026-10-13-青枫浦上Q置顶评论
