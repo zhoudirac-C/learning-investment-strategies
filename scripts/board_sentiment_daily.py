@@ -114,22 +114,21 @@ def main() -> int:
     # 估值 overlay：全部 cold 板块（2026-10-12 方案2：新跨区板块常在 TOP5 之外，
     # 只算 TOP5 会导致"新冷门"推送看不到便宜/冷但贵判定）。3天缓存控制成本。
     if not args.no_valuation:
-        from investment_engine.sentiment.valuation_overlay import assess_valuation
+        from investment_engine.sentiment.valuation_overlay import (
+            assess_all_valuations,
+        )
+        # 并发批量：板块间 + 成分股内双层并行（2026-10-16 方案 B1）。
+        # 串行版 31 cold 板块需 30-50 分钟，超过 cron 900s 窗口。
+        val_map = assess_all_valuations([b["name"] for b in cold_all])
         for b in cold_all:
-            try:
-                v = assess_valuation(b["name"])
-                b["valuation"] = v
-                b["opportunity"] = bool(v.get("cheap"))
-            except Exception as e:  # noqa: BLE001
-                b["valuation"] = {"error": str(e)[:80]}
-                b["opportunity"] = False
+            v = val_map.get(b["name"]) or {"error": "missing"}
+            b["valuation"] = v
+            b["opportunity"] = bool(v.get("cheap"))
         # 回填到 boards 列表对应项
-        val_by_name = {b["name"]: b.get("valuation") for b in cold_all}
-        opp_by_name = {b["name"]: b.get("opportunity") for b in cold_all}
         for b in boards:
-            if b["name"] in val_by_name:
-                b["valuation"] = val_by_name[b["name"]]
-                b["opportunity"] = opp_by_name[b["name"]]
+            if b["name"] in val_map:
+                b["valuation"] = val_map[b["name"]]
+                b["opportunity"] = bool(val_map[b["name"]].get("cheap"))
 
     result = {"date": iso, "n_boards": len(boards), "boards": boards,
               "hot_top5": hot, "cold_top5": cold}

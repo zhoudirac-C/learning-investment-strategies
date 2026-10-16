@@ -48,7 +48,9 @@ def test_valuation_overlay_covers_all_cold_boards(tmp_path, monkeypatch):
         return {"board": board, "method": "pe_percentile", "value": 50.0,
                 "cheap": False}
 
-    monkeypatch.setattr(valuation_overlay, "assess_valuation", fake_assess)
+    monkeypatch.setattr(valuation_overlay, "assess_all_valuations",
+                        lambda boards, use_cache=True: {
+                            b: fake_assess(b) for b in boards})
     monkeypatch.setattr(sys, "argv", ["board_sentiment_daily.py",
                                       "--date", "20261012"])
 
