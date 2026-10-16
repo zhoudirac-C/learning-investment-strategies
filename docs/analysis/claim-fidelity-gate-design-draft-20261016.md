@@ -5,6 +5,10 @@
 > 背景：`docs/analysis/gator-extraction-method-vs-ours-20261016.md` 建议 A2 / A2b
 > 目标：补上 claim 管线**唯一一处结构性空白** —— 现有 gate1-5 全是结构检查，
 >       没有一道检查「这句话真的是 UP 说的吗」
+>
+> **⚠️ 溯源声明**：本方案的问题定义（三种 AI 缺陷）与部分设计取向**直接借鉴**
+> 自第三方提炼库 `201901060324/gator-method`（及其作者视频帧文案）。
+> 逐条出处见文末 [参考文献](#参考文献与出处溯源)。
 
 ---
 
@@ -47,6 +51,13 @@
 | **过度归纳** | raw 是一次性点评某板块，claim 写成「长期方法论」 | 个案升格为规则 |
 
 **第三条（凭空推断）是 gator 作者明确点名、且我们完全没防的。**
+
+> **这三条风险的分类来源**（非本项目自创）：
+> 三种缺陷的**原始表述**见 gator 作者视频 `p6-limits.html` 帧 —
+> 「AI 可能**曲解原意**，把带限定条件的话绝对化」/「可能**过度归纳**，
+> 把一次性的说法当成长期规则」/「有些规则可能是 AI **凭空推断**的，而非作者真实表达」。
+> 链接见 [参考文献](#参考文献与出处溯源) R3。
+> 本项目的工作是**把这三种缺陷映射到 claim 管线的具体场景**并设计检出机制。
 
 ---
 
@@ -282,6 +293,23 @@ C. 无依据 —— 原文中找不到任何对应观点（疑似凭空推断）
 
 ---
 
+## 六·补、同源但**不在本方案范围**的 gator 机制（待办登记）
+
+以下两条同样**来自 gator 提炼库的明文做法**，与保真度门禁同源但属不同机制。
+**本方案不做，登记在此避免遗漏**（对应 `gator-extraction-method-vs-ours-20261016.md` 的 A1/A4）：
+
+| 编号 | gator 机制 | 原始出处 | 为什么不在 gate6 里 |
+|---|---|---|---|
+| **A1** | **「必须带数字阈值」硬约束**：作者在 CONTRIBUTING 里列为四条收稿硬要求第 1 条 —— 「"量能不足"不算规则，"成交额 < X 亿"才算」。对应我们 claim 加可选 `thresholds` 字段 | [R1] CONTRIBUTING.md 第三节 | 属**内容质量**约束，不属**保真度**约束。且加字段前需先确认下游消费者（你的既有要求） |
+| **A4** | **来源强度分级**：`[核心]`（多篇反复）/`[次要]`（偶有提及）/`[单源]`（仅一处）—— 用语料出现频次当置信度代理。对应我们 pattern 加 `evidence_strength` | [R4] `03-规则体系/` 章标题标记 | 属**证据强度**维度，需跨 claim 频率统计（另一条技术路线） |
+
+> **注意**：gator 侧存在「单源放宽进入」的实际降标案例（其日报记录：因下跌侧知识稀缺，
+> 用户拍板放宽单源进入条件，43.5/47 章即此来源）。
+> **A4 落地时必须能标注这种"降标进入"的 evidence_strength**，否则会把降标章节
+> 和多源章节同等对待。
+
+---
+
 ## 七、需要你拍板的决策点（编号清单）
 
 | # | 决策 | 选项 | 我的建议 |
@@ -316,3 +344,75 @@ PY
 ```
 
 产出：`-b`(76%)、`-f`(54%)、`-g`(38%) 三条直接子串失配 —— 本文的根本出发点。
+
+---
+
+## 参考文献与出处溯源
+
+> 本项目的引用纪律（见 `sources/third_party/gator-method-README.md`）：
+> 凡源自第三方提炼库的规则/机制，**须标注路径与 provenance**。
+> 本节即对本方案所借机制的逐条溯源。
+>
+> 说明：`gator-method` 仓库为**只读参考镜像**，主要文件（`01`~`09` 各目录）
+> 不在 GitHub 直接编辑（作者的源目录不公开），行号仅供定位参考。
+
+### R1 — 规则写法「四条硬要求」
+
+- **文件**：`CONTRIBUTING.md` 第三节「规则的写法规范」
+- **链接**：https://github.com/201901060324/gator-method/blob/main/CONTRIBUTING.md
+- **本方案用到的内容**：第 1 条「必须带数字阈值」（→ A1 待办）；四条共同构成
+  「规则质量判据」，是我们的对照参照
+- **本地镜像**：`sources/third_party/gator-method/CONTRIBUTING.md`
+
+### R2 — 提炼链路（5 节点 + 技术栈）
+
+- **文件**：`html-video-studio` 仓库 → `demo/frames-gator/p4-pipeline.html`
+- **链接**：https://github.com/201901060324/html-video-studio/blob/main/demo/frames-gator/p4-pipeline.html
+- **本方案用到的内容**：确认提炼主体是 **WorkBuddy 黑盒 Agent、无可复现脚本**
+  → 这是"不能借实现、只能借方法论"这一判断的依据
+- **关联**：`docs/analysis/gator-extraction-method-vs-ours-20261016.md` 第三节
+
+### R3 — 三种 AI 缺陷（**本方案问题定义的直接来源**）
+
+- **文件**：`html-video-studio` 仓库 → `demo/frames-gator/p6-limits.html`
+- **链接**：https://github.com/201901060324/html-video-studio/blob/main/demo/frames-gator/p6-limits.html
+- **原文表述**：
+  > ⚠ AI 可能**曲解原意**，把带限定条件的话绝对化
+  > ⚠ 可能**过度归纳**，把一次性的说法当成长期规则
+  > ⚠ 有些规则可能是 AI **凭空推断**的，而非作者真实表达
+- **本方案用到的内容**：1.2 节三种风险的分类（已在该节标注出处）
+
+### R4 — 来源强度分级标记
+
+- **文件**：`03-规则体系/` 各章标题 + 正文（如 `一、止跌-强反弹的 5 个信号.md` 含 `[核心]`）
+- **链接**：https://github.com/201901060324/gator-method/blob/main/03-%E8%A7%84%E5%88%99%E4%BD%93%E7%B3%BB
+- **标记体系**：`[核心]`（多篇反复）/`[次要]`（偶有提及）/`[单源]`（仅一处）/`[可计算]`
+- **本方案用到的内容**：A4 待办（pattern 加 `evidence_strength`）
+- **本地镜像**：`sources/third_party/gator-method/03-规则体系/`
+
+### R5 — 提炼方法论全貌（背景文档）
+
+- **文件（本项目内）**：`docs/analysis/gator-extraction-method-vs-ours-20261016.md`
+- **内容**：gator vs 本项目的完整管线对照 + A1~A5 建议编号清单
+- **上游查证结论**：`sources/third_party/gator-method-README.md` §六~§七
+
+### R6 — 本项目既有实现参照
+
+| 参照 | 路径 | 用途 |
+|---|---|---|
+| 现有门禁 gate1-5 | `scripts/gate_validate_claims.py` | 本方案要扩展的基线 |
+| 编排管线 Step1 prompt | `scripts/extract_claims_pipeline.py`（`next_action()`） | A2b 的落点 |
+| 阈值常量集中管理先例 | `src/qing_investment/monitor/rules/gator_rules.py` | gate6 阈值放置方式 |
+| 存量宽限先例 | `gate_validate_claims.py` 的 `GRANDFATHERED_FIELDS` | gate6 对"找不到 raw"的降级处理 |
+
+---
+
+### 上游仓库快照信息（便于复核）
+
+| 项 | 值 |
+|---|---|
+| gator-method | https://github.com/201901060324/gator-method |
+| html-video-studio | https://github.com/201901060324/html-video-studio |
+| gator-method 最新 commit | `498fae52` @ 2026-10-13T15:31:39Z |
+| 本地镜像落盘 | 2026-10-15，commit `fdf1c449`（与上游字节级一致，仅差 `.nojekyll`） |
+| 查证方式 | GitHub API `git/trees/main?recursive=1` + `contents/*`（2026-10-16） |
