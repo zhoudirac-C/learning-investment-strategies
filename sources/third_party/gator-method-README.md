@@ -99,3 +99,12 @@
    `gator_rules.py` 代码化 vs `reasoning-patterns.yaml` 语义两条路 —— 架构方向一致
 4. **来源可靠性已验证**：`.gitignore` 仅 `.DS_Store`，确认没有"藏起来的源目录"；
    `alignment.csv` 是行情对齐数据，非提炼中间产物
+
+### 七、方法论对照（2026-10-16）
+
+完整的「它怎么提炼 vs 我们怎么提炼」对照 + 可借鉴项编号清单，见
+**[`docs/analysis/gator-extraction-method-vs-ours-20261016.md`](../../docs/analysis/gator-extraction-method-vs-ours-20261016.md)**。
+
+一句话结论：**我们的 claim 管线在工程上是它的超集**（可复现编排 + 5 道门禁 +
+观点演进 + 双学派冲突），缺的只是「规则化」那层的 4 条约束 ——
+其中 **「凭空推断」防漏** 是我们门禁的空白（见该文档建议 A2/A2b）。
