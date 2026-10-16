@@ -31,15 +31,38 @@ URL = ("https://push2.eastmoney.com/api/qt/clist/get?pn={pn}&pz=100&po=1&np=1"
 # fs 口径：沪深主板+创业板+科创板（m:0 t:6/80 深，m:1 t:2/23 沪）；不含北交所(m:0 t:81+)
 PAGE_SLEEP = 0.4
 
+# 分页拉取重试：东财 clist 在 56 页连续拉取中途偶发 RemoteDisconnected，
+# 2026-10-14 / 10-15 因单页断连导致整体失败（详见 backfill_turnover_concentration.py 背景）。
+MAX_RETRIES = 4          # 单页最多尝试次数（含首次）
+RETRY_BACKOFF = 1.5      # 指数退避基数（秒）：1.5, 2.25, 3.375 ...
+
+
+def _fetch_page(pn: int) -> dict:
+    """拉单页 clist，带指数退避重试。失败抛最后一次异常。"""
+    import requests
+    last_exc: Exception | None = None
+    for attempt in range(MAX_RETRIES):
+        try:
+            r = requests.get(URL.format(pn=pn), timeout=15)
+            r.raise_for_status()
+            return r.json()
+        except Exception as exc:  # RemoteDisconnected / Timeout / HTTPError 等
+            last_exc = exc
+            if attempt < MAX_RETRIES - 1:
+                wait = RETRY_BACKOFF ** (attempt + 1)
+                print(f"WARN: 第 {pn} 页请求失败（{type(exc).__name__}: {exc}），"
+                      f"{wait:.1f}s 后重试（{attempt + 2}/{MAX_RETRIES}）", file=sys.stderr)
+                time.sleep(wait)
+    assert last_exc is not None
+    raise last_exc
+
 
 def fetch_all() -> list[dict]:
-    import requests
     rows: list[dict] = []
     pn, total = 1, None
     while True:
-        r = requests.get(URL.format(pn=pn), timeout=15)
-        r.raise_for_status()
-        data = r.json().get("data") or {}
+        payload = _fetch_page(pn)
+        data = payload.get("data") or {}
         if total is None:
             total = data.get("total", 0)
         page = data.get("diff") or []
