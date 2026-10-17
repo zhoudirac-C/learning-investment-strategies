@@ -1,6 +1,13 @@
 # 技术方案：gator pattern 演进管线 —— 每周推理模型驱动的规则库更新
 
-> 状态：**草案，未实施**（等拍板）
+> 状态：**P1 已完成并上线（2026-10-17）**——影子期运行中，至 2026-10-31 复核
+> 拍板结果：D1 批准 ✅ / D2 跟随 Hermes 全局模型（hermes_global）✅ /
+>           D3 每周五 20:00 ✅ / D4 新主题提案门槛 ≥2 个来源日期 ✅ /
+>           D5 影子期 2 周 ✅ / D6 与 A2/A2b 并行 ✅
+> P1 落地：`scripts/evolve_gator_patterns.py`（增量筛选 + ONNX embedding
+>           top-3 召回 + 周报 + state.json 幂等）；cron `gator-pattern-evolution`
+>           （每周五 20:00，no_agent 直投 stdout，job_id eb4516cad754）；
+>           首跑实测 11 条存量 gator claims 全部召回，相似度 0.75-0.86
 > 日期：2026-10-17
 > 触发：用户指出「claim 保真门禁只解决提取层保真，无法更新 55 章规则」——
 >       本方案补 **claims → pattern 层** 的回流通道。
