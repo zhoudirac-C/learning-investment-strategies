@@ -97,18 +97,25 @@ mappings:
   segment: downstream
   relation: 标的
   elasticity: concept
-current_stage: 阶段0-观察
-stage_confidence: 低
-stage_evidence: 2026-10-05 人工确认入观察列表；提议于 2026-09-29，LLM 初判 阶段1-启动期（资金异动（元件板块7家首板，奥士康、崇达技术领涨）），积累证据
-  23 条
+- code: 002008
+  name: 大族数控
+  segment: midstream
+  relation: PCB专用设备供应商，设备订单为中游扩产前瞻指标
+  elasticity: concept
+current_stage: 阶段1-启动期
+stage_confidence: 高
+stage_evidence: 2026-10-17 跟踪更新：研报+生益预增+大族高增三源同向，AI PCB需求驱动业绩兑现，链逻辑强化，启动期可介入。
 timing:
-  current_recommendation: 聚焦中游PCB制造环节（奥士康、崇达技术等资金认筹标的），观察上游CCL（覆铜板）价格传导与下游AI服务器订单持续性
+  current_recommendation: 可介入（右侧确认）：上游CCL业绩预增验证涨价传导，AI PCB订单持续，聚焦中游制造+上游CCL
   next_trigger: null
   risk: null
 tracking_metrics:
 - metric: 德赛西威智能座舱域控制器国内市占率
   current: 17.9%（国内第一，全球8.4%第一）
   signal_direction: 份额上升→汽车电子终端景气→中游汽车板订单增加
+- metric: 大族数控业绩增速（PCB设备订单前瞻）
+  current: 2026年前三季度业绩持续高增
+  signal_direction: 设备订单高增→中游扩产→CCL需求加强
 falsification: []
 history:
 - date: '2026-10-05'
@@ -118,4 +125,12 @@ history:
 - date: '2026-10-10'
   stage: 阶段0-观察
   action: 演化:add_node 新增下游汽车电子需求节点：德赛西威域控市占率
+  result: 待验证
+- date: '2026-10-17'
+  stage: 阶段1-启动期
+  action: 介入生益科技（业绩预增落地）、奥士康/崇达技术（AI PCB中游），关注大族数控业绩对设备端景气的外溢验证；跟踪板块量价快照确认量价同步
+  result: 待验证
+- date: '2026-10-17'
+  stage: 阶段1-启动期
+  action: 演化:add_node 新增设备端关键节点：PCB专用设备订单作为景气前瞻指标
   result: 待验证

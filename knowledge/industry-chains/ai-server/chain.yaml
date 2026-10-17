@@ -42,6 +42,9 @@ segments:
   - 热界面材料TIM
   - 导热凝胶/导热垫片
   - 芯片近端散热组件
+  - SST固态变压器
+  - HVDC高压直流供电
+  - 中压直流母线
   value_share: ~15%
   barrier: 液冷渗透率
   trend: 加速
@@ -118,6 +121,11 @@ mappings:
   segment: seg-equip
   relation: ATE测试机+探针台国产供应商，直接受益AI芯片测试需求外溢，填补本链上游设备环节测试设备标的空白
   elasticity: concept
+- code: 000811
+  name: 冰轮环境
+  segment: seg-cool
+  relation: 数据中心冷源（制冷压缩机/冷却系统）供应商，三季报预增30%-50%验证冷源环节独立放量，与英维克（末端液冷）形成冷源-末端互补
+  elasticity: concept
 current_stage: 阶段4-见顶期
 stage_confidence: 高
 stage_evidence: 2026-09-07 跟踪更新：双研报确认高密度算力驱动液冷加速渗透，直接命中关键节点，产业链逻辑加强，仍处分歧期等回踩。
@@ -166,6 +174,12 @@ tracking_metrics:
 - metric: ATE测试设备/测试耗材（探针卡）订单与出货
   current: 东吴研报推荐AI投资加速利好的ATE测试设备和耗材，技术迭代带来增量需求（2026-10-11）
   signal_direction: 订单放量/国产替代加速=加强；订单不及预期=弱化
+- metric: 数据中心DC 800V高压直流供电架构渗透与订单
+  current: 全球计算联盟发布吉瓦级/兆瓦级整机柜DC 800V供配电架构研究报告，供电架构向800V高压直流演进（2026-10-17）
+  signal_direction: 800V架构方案落地/核心供应商订单放量=加强；架构推进停滞=弱化
+- metric: 数据中心冷源设备订单/出货
+  current: 冰轮环境海外数据中心冷源业务放量，前三季度业绩预增30%-50%
+  signal_direction: 订单/业绩持续高增=加强液冷渗透率逻辑；订单放缓=预警
 falsification:
 - 超节点出货量大幅低于预期
 - CSP资本开支缩减
@@ -263,4 +277,16 @@ history:
 - date: '2026-10-14'
   stage: 阶段4-见顶期
   action: 演化:refine_segment 中游散热环节细化新增热界面材料TIM（芯片近端热管理）
+  result: 待验证
+- date: '2026-10-17'
+  stage: 阶段4-见顶期
+  action: 演化:refine_segment seg-cool细分新增先进供电材料：SST固态变压器等
+  result: 待验证
+- date: '2026-10-17'
+  stage: 阶段4-见顶期
+  action: 演化:add_node 新增'DC 800V高压直流供电架构渗透'关键节点，强化seg-cool供电环节
+  result: 待验证
+- date: '2026-10-17'
+  stage: 阶段4-见顶期
+  action: 演化:add_node 新增数据中心冷源（制冷主机/冷却系统）关键节点及冰轮环境标的
   result: 待验证

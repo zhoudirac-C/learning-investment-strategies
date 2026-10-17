@@ -45,6 +45,11 @@ mappings:
   segment: seg-rd
   relation: 肺癌创新药WCLC正向数据读出，中游管线重估高弹性标的
   elasticity: concept
+- code: '688662'
+  name: 博瑞医药
+  segment: seg-cxo
+  relation: 高毛利原料药放量（上游供货全球大厂）+自研减重管线兑现提速，横跨上游/中游的高弹性标的
+  elasticity: concept
 current_stage: 阶段2-加速期
 stage_confidence: 中
 stage_evidence: 2026-09-30 跟踪更新：迪哲获阿斯利康6亿美元首付款直接命中license-out大单触发，中游重估确认，链推进至加速期，不追高等回踩。
@@ -105,4 +110,8 @@ history:
 - date: '2026-10-14'
   stage: 阶段2-加速期
   action: 演化:refine_segment 上游CXO细化出临床前CRO sub-segment，受全球趋势与AI赋能驱动
+  result: 待验证
+- date: '2026-10-17'
+  stage: 阶段2-加速期
+  action: 演化:add_node 新增标的博瑞医药：上游原料药供货+中游减重管线双逻辑
   result: 待验证

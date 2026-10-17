@@ -13,6 +13,8 @@ segments:
   - 柜内AI电源（AC-DC/DC-DC）
   - 液冷散热（CDU/冷板/浸没式）
   - 磁悬浮压缩机（数据中心制冷）
+  - DC 800V高压直流供配电架构
+  - 800V HVDC设备/固态变压器
   value_share: ~40%
   barrier: 大功率器件
   trend: 需求增长
@@ -136,4 +138,8 @@ history:
 - date: '2026-10-14'
   stage: 阶段2-加速期
   action: 演化:add_node 新增冰轮环境：seg-equip磁悬浮压缩机受益AIDC制冷需求
+  result: 待验证
+- date: '2026-10-17'
+  stage: 阶段2-加速期
+  action: 演化:refine_segment 上游设备环节细化出DC 800V高压直流供配电新方向
   result: 待验证

@@ -89,6 +89,9 @@ segments:
   growth: null
   status: null
   last_verified: null
+  materials:
+  - CPU-外设互连用高速背板/连接器
+  - GPU-GPU柜内互连用高速铜缆/背板
 - id: seg-11
   name: 光通信/光模块
   value_share: null
@@ -677,4 +680,8 @@ history:
 - date: '2026-10-05'
   stage: 阶段2-加速期
   action: 演化:refine_segment 端侧AI芯片IP需求爆发，细化芯片设计层（seg-01）下的半导体IP细分领域
+  result: 待验证
+- date: '2026-10-17'
+  stage: 阶段2-加速期
+  action: 演化:refine_segment 超节点柜内互连两条主线细分，PCB/高速互联环节受益路径细化。
   result: 待验证

@@ -106,6 +106,7 @@ falsification:
 - 长江存储IPO撤回或无限期推迟
 - 大盘系统性破位下行
 - 存储板块核心标的（兆易/太极）放量滞涨、联动失效
+- 普冉股份并购重组交割失败或整合不及预期（NOR设计环节扩产逻辑削弱）
 chain_relations:
 - target: ai-server
   relation: 下游需求来源
@@ -133,4 +134,8 @@ history:
 - date: '2026-10-05'
   stage: 阶段2-加速期
   action: 演化:add_node 新增上游材料环节：电子大宗气体/特气（晶圆制造耗材）
+  result: 待验证
+- date: '2026-10-17'
+  stage: 阶段2-加速期
+  action: 演化:update_falsification 新增证伪：普冉并购整合不及预期
   result: 待验证

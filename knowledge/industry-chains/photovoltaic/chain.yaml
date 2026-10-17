@@ -71,6 +71,7 @@ falsification:
 - 反内卷政策落空
 - 大盘系统性破位下行
 - 光伏板块核心标的（隆基）反弹后持续缩量
+- 工业硅主力(SI0)持续创新低（如跌破8500并加速下行），上游价格证伪预警升级为实际证伪
 chain_relations: []
 history:
 - date: '2026-09-02'
@@ -80,4 +81,8 @@ history:
 - date: '2026-09-12'
   stage: 阶段0-观察
   action: 演化:add_node 新增工业硅期货价格作为上游出清的高频领先跟踪节点
+  result: 待验证
+- date: '2026-10-17'
+  stage: 阶段0-观察
+  action: 演化:update_falsification 新增证伪条件：工业硅主力持续创新低（跌破8500）
   result: 待验证

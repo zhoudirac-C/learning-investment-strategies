@@ -26,3 +26,4 @@ chains:
   shipbuilding:          {board: "海工装备",          type: concept,  proxy_strength: proxy,  valuation_method: pb_cycle, note: "无船舶制造板块，海工含非船标的"}
   coal-to-olefin:        {board: "煤化工概念",        type: concept,  proxy_strength: exact,  valuation_method: pb_cycle}
   industrial-software:   {board: "软件开发",          type: industry, proxy_strength: proxy,  valuation_method: pe_peg,  note: "无工业软件板块，行业口径含所有软件"}
+  auto-oem-globalization: {board: "汽车整车",         type: industry, proxy_strength: proxy,  valuation_method: pe_peg,  note: "2026-10-17 入观察列表; 板块仅覆盖整车环节, 零部件跟随出海/滚装运力不在内"}

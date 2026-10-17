@@ -1,0 +1,73 @@
+chain_id: auto-oem-globalization
+name: 整车出海（中国车企全球化）产业链
+thesis: 国内竞争加剧推动车企出海，由整车贸易转向海外建厂、KD组装与本地化运营，带动整车出口量与海外盈利提升，并拉动零部件跟随配套出海，形成整车—零部件—物流航运的传导链。
+last_verified: '2026-10-17'
+segments:
+- id: upstream
+  name: 上游
+  materials:
+  - 汽车零部件配套
+  - 滚装船运力
+  - 海外电池/材料供应
+- id: midstream
+  name: 中游
+  materials:
+  - 整车制造与海外产能
+- id: downstream
+  name: 下游
+  materials:
+  - 海外销售渠道与售后服务
+mappings:
+- code: '002594'
+  name: 比亚迪
+  segment: midstream
+  relation: 整车出海龙头，海外销量与本地化建厂进度领先
+  elasticity: core
+- code: '601633'
+  name: 长城汽车
+  segment: midstream
+  relation: 海外收入占比高，俄罗斯/东盟/拉美本地化运营深
+  elasticity: core
+- code: '600104'
+  name: 上汽集团
+  segment: midstream
+  relation: MG品牌欧洲渠道成熟，出口规模居前
+  elasticity: core
+- code: '000625'
+  name: 长安汽车
+  segment: midstream
+  relation: 东南亚/中东产能布局，出口弹性标的
+  elasticity: concept
+- code: '601689'
+  name: 拓普集团
+  segment: upstream
+  relation: 零部件跟随出海：海外建厂配套整车客户本地化
+  elasticity: core
+- code: '600660'
+  name: 福耀玻璃
+  segment: upstream
+  relation: 全球本地化产能最成熟的零部件样本，海外盈利占比验证出海逻辑
+  elasticity: core
+- code: '600428'
+  name: 中远海特
+  segment: upstream
+  relation: 滚装船运力：整车出口运力的直接受益与瓶颈观察标的
+  elasticity: concept
+current_stage: 阶段0-观察
+stage_confidence: 低
+stage_evidence: 2026-10-17 人工确认入观察列表；提议于 2026-10-15，LLM 初判 阶段1-启动期（国元证券汽车行业深度报告：从产品出口到体系出海，中国车企全球化进程加速），积累证据
+  13 条
+timing:
+  current_recommendation: 关注海外产能布局领先、出口占比高的整车龙头及跟随出海的零部件环节；滚装运力紧张可作为辅助观察点
+  next_trigger: 月度整车出口量（中汽协）同比持续高增 + 龙头海外建厂投产节点落地
+  risk: 欧盟/主要市场关税壁垒加码；海外需求不及预期
+tracking_metrics:
+- 中汽协月度整车出口量及同比增速
+- 重点车企（比亚迪/长城/上汽）海外销量与海外收入占比（季报/月报）
+- 欧盟及主要出口市场关税与贸易政策变化
+- 滚装船运价与运力紧张度
+- 车企海外建厂/投产节点公告
+falsification:
+- 中汽协月度整车出口量连续 2 个月同比转负
+- 欧盟对华电动车关税显著加码且车企本地化建厂进度不及预期
+- 龙头车企海外收入占比连续两个报告期停止提升
