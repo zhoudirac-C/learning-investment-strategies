@@ -68,14 +68,21 @@ def test_find_pivots_simple():
 
 
 def test_detect_structure_bottom_divergence_real():
-    """真实数据：上证 90min 应识别底背离（UP 07-31 判底部结构）。"""
-    klines = _load_index("sh000001", "90min", "2026-06-01", "2026-08-05 15:00")
+    """真实数据：创业板 120min 应识别底部结构。
+
+    2026-10-20 修正：原用例取证对象是**上证 90min**，但 UP 07-31 的判断原文是
+    「双创 60、90、120 分钟底部钝化…」、08-03「多数指数已出现 90 或 120 分钟级别
+    底部结构」——标的选错了。上证 90min 在该区间经核**不构成背驰**（07-14→07-21
+    价格新低但 DIF 由 -33.4 走低至 -62.7，未抬升），断言必然失败。
+    改用 UP 实际所指的创业板，120min 在 2026-08-03 11:30 形成底部结构。
+    """
+    klines = _load_index("sz399006", "120min", "2026-06-01", "2026-08-05 15:00")
     assert len(klines) >= 60
-    res = detect_structure(klines, window=4, timeframe="90min")
+    res = detect_structure(klines, window=4, timeframe="120min")
     b = res.get("bottom")
-    assert b is not None, "应识别出底背离"
+    assert b is not None, "应识别出底部结构"
     assert b["state"] in ("divergence", "formed")
-    assert b["theoretical_days"] == (6, 8)  # 90min 底 = 6-8 天
+    assert b["theoretical_days"] == (12, 12)  # 120min 底 = 12 天
 
 
 def test_detect_structure_top_divergence_real():

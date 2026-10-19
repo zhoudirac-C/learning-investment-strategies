@@ -40,8 +40,10 @@ def test_run_no_data(tmp_path):
 def test_cli_smoke(tmp_path, capsys):
     pred_dir = _seed(tmp_path)
     from scripts.graduation_check import main
+    # 注入固定判定日：CLI 默认取真实今天，否则种子数据会滚出 8 周窗口
     rc = main(["--pred-dir", str(pred_dir),
-               "--out-dir", str(tmp_path / "logs")])
+               "--out-dir", str(tmp_path / "logs"),
+               "--today", TODAY.isoformat()])
     assert rc == 0
     out = capsys.readouterr().out
     assert "insufficient_data" in out

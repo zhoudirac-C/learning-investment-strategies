@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
@@ -19,9 +20,13 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--pred-dir", default="evals/shadow/predictions")
     parser.add_argument("--weeks", type=int, default=8)
     parser.add_argument("--out-dir", default="logs")
+    # 2026-10-20 新增：允许指定判定日，便于补跑历史窗口与测试注入固定日期
+    parser.add_argument("--today", type=date.fromisoformat, default=None,
+                        help="判定基准日 YYYY-MM-DD（默认今天）")
     args = parser.parse_args(argv)
 
-    path = run(Path(args.pred_dir), weeks=args.weeks, out_dir=Path(args.out_dir))
+    path = run(Path(args.pred_dir), weeks=args.weeks, out_dir=Path(args.out_dir),
+               today=args.today)
     for line in path.read_text(encoding="utf-8").splitlines():
         if line.startswith("- **verdict"):
             print(line)
