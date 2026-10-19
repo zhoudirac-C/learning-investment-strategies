@@ -137,8 +137,11 @@ class TestKlineChain:
         _, src = router.get_kline("sh000001", 101, 5, kind="index")
         assert src == "eastmoney"
         assert router.breaker.is_open("tencent:kline")
-        # 模拟冷却过期
-        router.breaker.cooldown = 0.0
+        # 模拟冷却过期。
+        # 2026-10-20：必须用 monkeypatch 改 cooldown —— 直接赋值会污染全局单例，
+        # 后续测试里任何 trip() 都会立刻过期，熔断等于失效
+        # （曾导致 test_ths_microcap_index 的熔断用例在全量运行时必挂）。
+        monkeypatch.setattr(router.breaker, "cooldown", 0.0)
         router.breaker._open_until["tencent:kline"] = 0.0
         _, src = router.get_kline("sh000001", 101, 5, kind="index")
         assert src == "eastmoney"  # 腾讯仍空 → 再熔断 → 东财
