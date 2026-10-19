@@ -1,7 +1,21 @@
-"""chain.yaml 状态更新测试（T13）。"""
+"""chain.yaml 状态更新测试（T13）。
+
+注意：apply_chain_update 内部会调用 board_context.forward_blocked() 做量价硬护栏，
+该函数读取**真实**的板块K线缓存（infra/data/board_klines/*.json）。若本机缓存里
+ai-pcb-ccl 恰好深度回撤，forward 会被拦、状态机断言全挂——测试结果随行情漂移。
+本文件测的是状态机（前进/回退/夹逼/字段更新），与护栏正交，故统一用
+no_forward_guard fixture 关掉护栏；护栏本身由 board_context 的单测覆盖。
+"""
 import pytest
 
+import investment_engine.chain_tracker.board_context as board_context
 from investment_engine.chain_tracker.state import apply_chain_update
+
+
+@pytest.fixture(autouse=True)
+def no_forward_guard(monkeypatch):
+    """关闭量价护栏，使状态机测试不依赖本机板块行情缓存（2026-10-20）。"""
+    monkeypatch.setattr(board_context, "forward_blocked", lambda *_a, **_kw: (False, ""))
 
 
 def _chain(stage: str = "阶段2-加速期") -> dict:

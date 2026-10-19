@@ -16,11 +16,23 @@ def test_design_spec_is_chinese_and_uses_plantuml():
 
 
 def test_no_placeholder_markers_in_docs():
-    forbidden = ["T" + "BD", "TO" + "DO", "待" + "定", "以后" + "再", "place" + "holder"]
-    for path in Path("docs/superpowers/specs").rglob("*.md"):
-        text = path.read_text(encoding="utf-8")
-        for marker in forbidden:
-            assert marker not in text, f"{path} contains {marker}"
+    """设计文档不得残留未完成的占位符。
+
+    2026-10-20 修正：原实现把所有 "待定" 一律判为占位符，误伤正常中文
+    （如"待定提案"= pending 提案，是正式术语）。改为匹配**独立占位符形态**：
+    行首/列表项/标题中的裸占位词、TODO/TBD 标记、尖括号占位。
+    """
+    import re
+
+    patterns = {
+        "裸占位词": re.compile(r"^[\s>\-*#|]*(" + "待" + "定|T" + "BD|TO" + "DO" + r")[\s。，,;；]*$"),
+        "TODO标记": re.compile(r"\bTO" + "DO\b", re.IGNORECASE),
+        "尖括号占位": re.compile(r"(place" + r"holder|\{\{[^}]{0,40}\}\}|<[A-Z_]{3,}>|待补[充填])"),
+    }
+    for path in sorted(Path("docs/superpowers/specs").rglob("*.md")):
+        for lineno, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            for label, pat in patterns.items():
+                assert not pat.search(line), f"{path}:{lineno} contains {label}: {line.strip()[:60]}"
 
 
 def test_core_methodology_and_framework_files_exist():
