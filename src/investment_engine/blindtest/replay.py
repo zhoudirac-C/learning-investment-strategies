@@ -893,6 +893,14 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
                     # 6 位股票代码（国芳集团601086→60108、中际旭创300308→30030）
                     # 不再被 \d{4,5} 截取误判为幻觉点位；日期/年份同理剥离
                     txt_scan = re.sub(r"\d{4}-\d{2}-\d{2}", " ", txt)
+                    # 指数名称剥离（2026-10-19 实测假阳性）：「中证1000」「上证50」
+                    # 等指数名中的数字部分被 \d{4,5} 截取误判为幻觉点位。
+                    # 「中证1000放量」→ '1000' 匹配 → 1000 不在 closes ±10% → 误报。
+                    txt_scan = re.sub(
+                        r"(上证|深证|沪深|中证|科创|创业板)(\d{3,4})",
+                        lambda m: m.group(1) + "█" * len(m.group(2)),
+                        txt_scan,
+                    )
                     for m in re.finditer(r"(?<!\d)\d{4,5}(?:\.\d+)?(?!\d)", txt_scan):
                         num = float(m.group())
                         if num < 1000:
