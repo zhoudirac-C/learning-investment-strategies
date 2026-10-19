@@ -27,6 +27,8 @@ class School:
     provenance_note: str = ""
     # 采集通道（一个 up_id 可对应多平台：公众号 + B站 是同一人，2026-10-15）
     platforms: tuple[dict, ...] = ()
+    # 是否允许该学派的 claim 写入 knowledge/claims/（默认 True）
+    claims_enabled: bool = True
 
 
 @lru_cache(maxsize=1)
@@ -46,6 +48,7 @@ def load_schools() -> tuple[School, ...]:
                 is_default=bool(item.get("is_default", False)),
                 provenance_note=str(item.get("provenance_note", "") or ""),
                 platforms=tuple(item.get("platforms", []) or []),
+                claims_enabled=bool(item.get("claims_enabled", True)),
             )
         )
     if not schools:
@@ -70,6 +73,21 @@ def _up_to_school() -> dict[str, str]:
 def school_of_up(up_id: str) -> str | None:
     """返回 up_id 所属 school_id；未登记返回 None。"""
     return _up_to_school().get(str(up_id))
+
+
+def claims_enabled_for_up(up_id: str) -> bool:
+    """该 up_id 所属学派是否允许 claim 入库。
+
+    未登记 up_id 视为允许（兼容存量/新增 UP 的默认行为）。
+    watchlist（观察池）为 False：仅通知，不进 claim 库（2026-10-20）。
+    """
+    sid = school_of_up(up_id)
+    if sid is None:
+        return True
+    for s in load_schools():
+        if s.school_id == sid:
+            return s.claims_enabled
+    return True
 
 
 @lru_cache(maxsize=1)

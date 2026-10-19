@@ -17,6 +17,12 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
+# 学派默认过滤：qing-agent 分析默认只吃 qing 学派 claim。
+# watchlist（观察池，"仅通知不进 claim 库"）与 gator（第二学派）不得混入。
+# 2026-10-20 修复：此前 school_filter 默认 None 且无调用方传值，
+# 导致学派隔离在检索链路实际从未生效。
+DEFAULT_SCHOOL_FILTER: list[str] = ["qing"]
+
 
 def _to_date_str(val: Any) -> str:
     """Normalize source_date to string format 'YYYY-MM-DD'.
@@ -221,7 +227,7 @@ def build_stock_context(
     qdrant_claims: list[dict] | None = None,
     max_claims: int = 3,
     active_patterns: list[dict] | None = None,
-    school_filter: list[str] | None = None,
+    school_filter: list[str] | None = DEFAULT_SCHOOL_FILTER,
 ) -> dict:
     """为单只标的构建增强上下文。
 
@@ -232,7 +238,9 @@ def build_stock_context(
         qdrant_claims: 从 Qdrant 语义召回的 claims（可选）
         max_claims: 最多注入几条 claims 摘要（防止上下文溢出）
         active_patterns: 当前激活的 reasoning patterns（可选），用于 claims 排序
-        school_filter: 学派过滤（2026-10-15 双学派架构）。None = 不过滤（现状兼容）；
+        school_filter: 学派过滤（2026-10-15 双学派架构）。默认 DEFAULT_SCHOOL_FILTER
+                       = ["qing"]（2026-10-20 起：qing 分析只吃 qing 学派 claim）。
+                       显式传 None = 不过滤（仅调试/跨学派对比用）；
                        ["qing"] / ["gator"] = 单专家模式。
                        注意：claims 无 school 字段时（未回填）按 up_id 兜底推导。
 
@@ -248,7 +256,8 @@ def build_stock_context(
             "latest_date": "2026-06-04",
         }
     """
-    # 学派过滤（可选）：按 school 字段过滤，缺失时由 up_id 推导
+    # 学派过滤：按 school 字段过滤，缺失时由 up_id 推导。
+    # None 显式表示"不过滤"（调试/跨学派对比），默认已由函数签名限定为 qing。
     if school_filter:
         allowed = set(school_filter)
         neo4j_claims = [c for c in neo4j_claims if _claim_school(c) in allowed]
@@ -318,7 +327,7 @@ def build_market_context(
     qdrant_client: Any | None = None,
     embedding_model: Any | None = None,
     active_patterns: list[dict] | None = None,
-    school_filter: list[str] | None = None,
+    school_filter: list[str] | None = DEFAULT_SCHOOL_FILTER,
 ) -> dict:
     """为市场分析构建完整的增强上下文。
 
@@ -341,6 +350,10 @@ def build_market_context(
         }
     """
     from qing_investment.agent.tools.neo4j_client import Neo4jClient
+
+    # None 表示不过滤（仅调试用）；默认走 qing 学派
+    if school_filter is None:
+        school_filter = DEFAULT_SCHOOL_FILTER
 
     # 收集需要分析的标的
     target_codes: set[str] = set()
@@ -446,7 +459,11 @@ def build_market_context(
                 logger.debug("Qdrant query for %s: %s", code, query_text)
 
                 query_vec = embedding_model.encode(query_text).tolist()[0]
-                results = qdrant_client.search(query_vec, collection="qing_claims", limit=5)
+                # 学派过滤：在检索层就限制学派，避免 watchlist/gator claim
+                # 混入 qing 分析上下文（2026-10-20 修复，此前该参数从未被传入）
+                results = qdrant_client.search(
+                    query_vec, collection="qing_claims", limit=5, schools=school_filter
+                )
                 qdrant_claims = []
                 for r in results:
                     payload = r.get("payload", {})
@@ -457,6 +474,10 @@ def build_market_context(
                         "source_date": payload.get("source_date", ""),
                         "intensity": payload.get("intensity", "medium"),
                         "claim_type": payload.get("claim_type", ""),
+                        # school/up_id 必须保留：build_stock_context 的学派兜底
+                        # 过滤依赖它们，缺失时会被静默放行
+                        "school": payload.get("school", ""),
+                        "up_id": payload.get("up_id", ""),
                     })
             except Exception as e:
                 logger.warning("Qdrant claims retrieval failed for %s: %s", code, e)

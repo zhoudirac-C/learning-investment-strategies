@@ -44,3 +44,62 @@
 4. **管线缺陷修复**：核查 watchlist school 的 claim 为何进入 `knowledge/claims/`（schools.yaml 明确写"不进 claim 库"），并清理 21 条卢本圆 claim 或迁移至独立库。
 5. 存量：跑 `backfill_claim_status.py` 落地 29 条 superseded。
 6. 同步：yaml 变更后走 qing-learning-sync 重建 Qdrant。
+
+---
+
+## 执行记录（2026-10-20，动作 1/2 已落地）
+
+### A类：已写入 framework/trading-rules.md
+
+新增章节 **「加仓门槛：底部钝化不等于结构形成」**（含关联索引 + 更新记录）。
+
+- 依据：claim-20261009-001、claim-20261013-001、claim-20261015-001（均为 up_id=1420210197）
+- 核心：钝化只说明下行动能可能减弱（可延长/消失）→ 不构成加仓依据；只有钝化发展为底部结构形成（配合价格回收 + 成交改善）才进入加仓标准
+- 明确写入"常见误用"：把钝化直接读成买点，在第一段满仓
+- ⚠️ 已记录：「2.2 万亿量能开仓门槛」经核非 UP 本人表述，**未收录**
+
+### B类：已建提案（pending-review，未入库）
+
+`framework/proposals/20261020-pattern-nomination-equity-credit-dual-verify.yaml`
+
+- 候选模式：`equity_credit_dual_verify`（股价与信用双市场验证）
+- 证据：10-15（CoreWeave 利差作为跟踪变量）+ 10-18（真企稳/假反弹判据）
+- **gate_check 结果：未达门槛**（窗口 2 周 < 4 周；仅"调整"1 种 regime）
+- 按规定挂 pending-review 观察，禁止此时写入 reasoning-patterns.yaml
+
+### 管线缺陷：已修复（代码层）
+
+**根因（两层，均已验证）**：
+
+1. **检索层**：`context_builder` 的 Qdrant 检索调用从未传 `schools` 参数，且 Recall 结果未保留 `school`/`up_id` 字段，导致下游 `_claim_school()` 兜底返回空 → 学派过滤全程失效。§ 印证：全库 grep `school_filter` 只有定义、**无任何调用方传值**。
+2. **写入层**：schools.yaml 对 watchlist 写着「仅通知，不进 claim 库」，但该约定**只是注释**，无任何代码执行。
+
+**修复内容**：
+
+| 文件 | 修复 |
+|------|------|
+| `src/qing_investment/agent/tools/context_builder.py` | 新增 `DEFAULT_SCHOOL_FILTER = ["qing"]`；两个函数默认值改为该常量；Qdrant 检索传入 `schools=`；payload 保留 `school`/`up_id` |
+| `src/qing_investment/agent/tools/neo4j_client.py` | RETURN 补 `coalesce(c.up_id)`/`coalesce(c.school)`，使学派兜底过滤有据可依 |
+| `config/schools.yaml` | 新增 `claims_enabled` 字段（qing/gator=true，watchlist=**false**） |
+| `src/qing_investment/schools.py` | `School.claims_enabled` + `claims_enabled_for_up()` |
+| `src/qing_investment/claim_schema.py` | 写入校验拦截 `claims_enabled: false` 学派的 claim |
+| `scripts/quarantine_school_claims.py` | 存量迁移工具（默认 dry-run） |
+
+**验证**：`claims_enabled_for_up('550494308')=False`、`('1420210197')=True`；watchlist claim 写入被 `validate_claim_dict` 拒绝，qing claim 正常通过。
+
+### ❗待决策：存量 365 条 watchlist claim 如何处置
+
+dry-run 结果（比本窗口统计的 21 条大得多）：
+
+- **365 条** watchlist claim，散落 **46 个文件**
+- 其中 **22 处引用边**被其它 claim 指向（supersedes/contradicts/disagrees_with）
+- 数据完整性顾虑：`framework/trading-rules.md` 的「节前持仓管理纪律」条目就引用 `claim-20260918-008-a`（watchlist）——直接删除会让框架文档引用悬空
+
+**未执行迁移**，等确认处置方案：
+
+| 方案 | 做法 | 优点 | 风险 |
+|------|------|------|------|
+| A. 隔离归档 | 迁到 `archive/schools/watchlist/`，清引用边 | 库干净，可追溯 | 22 处引用被切断，需更新 framework 文档引用 |
+| B. 只隔离不删引用 | 保留 id 但 status 标 `quarantined` | 引用不断 | 需要 schema/检索支持新 status |
+| C. 维持现状 | 只靠默认学派过滤挡住 | 零风险 | 库仍脏，任何人手动查 claims 仍会被污染 |
+

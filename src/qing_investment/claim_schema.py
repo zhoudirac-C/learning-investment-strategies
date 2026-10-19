@@ -137,12 +137,19 @@ def validate_claim_dict(data: dict[str, Any]) -> Claim:
     up_school = ""
     try:
         from qing_investment.schools import (
-            resolve_up_id, school_of_up, source_path_allowed,
+            resolve_up_id, school_of_up, source_path_allowed, claims_enabled_for_up,
         )
 
         # 归一化：平台通道 id（wechat-ecyu-0001 / 470672214）→ 统一 up_id
         up_id_val = resolve_up_id(str(up_id_val))
         up_school = school_of_up(up_id_val) or ""
+        # 学派禁入校验：watchlist（观察池）"仅通知，不进 claim 库"。
+        # 2026-10-20 新增——此前该约定只写在 schools.yaml 注释里，无人执行。
+        if not claims_enabled_for_up(up_id_val):
+            raise ValueError(
+                f"学派 {up_school!r}（up_id={up_id_val!r}）不允许写入 claim 库"
+                f"（config/schools.yaml claims_enabled: false）"
+            )
         # 来源前缀校验：up_id 归属学派 与 source_path 必须匹配
         if not source_path_allowed(up_id_val, str(data["source_path"])):
             raise ValueError(

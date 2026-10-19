@@ -12,6 +12,8 @@
 #   sources      claim source_path 允许的来源前缀（linter 用）
 #   style        方法论一句话概括
 #   is_default   是否为默认学派（无指定时使用；存量 claim 归属基准）
+#   claims_enabled 该学派是否允许写入 knowledge/claims/（默认 true；
+#                  watchlist=观察池仅通知，必须为 false —— 2026-10-20 新增）
 #
 # 新增 UP：在 bilibili_ups.yaml 加条目 + 在此登记 up_id 归属（或默认 watchlist）
 # 升格为专家：新建 school 条目 + 指派 up_ids，全链路自动获得隔离/分组能力
@@ -31,6 +33,7 @@ schools:
       - "/home/ubuntu/learning-investment-strategies/sources/"
     style: 结构化技术分析（缠论 + 七轨布林 + 双引擎）
     is_default: true
+    claims_enabled: true
 
   - school_id: gator
     display_name: 像鳄鱼一样思考
@@ -45,6 +48,7 @@ schools:
       - "sources/third_party/gator-method/"
     style: 资金生态位 + 预案-信号-执行规则体系
     is_default: false
+    claims_enabled: true
     provenance_note: >-
       部分规则源自第三方提炼库 sources/third_party/gator-method（非 UP 原文），
       提 claim 时须在 source_path 标注该路径，后续用公众号原文校验/替换。
@@ -60,3 +64,4 @@ schools:
       - "sources/raw/财经/"
     style: 杂（仅通知，不进 claim 库）
     is_default: false
+    claims_enabled: false      # 仅通知：不得写入 knowledge/claims/（2026-10-20 显式化）

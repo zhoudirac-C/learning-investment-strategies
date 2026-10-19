@@ -1,0 +1,73 @@
+proposal_id: 20261020-pattern-nomination-equity-credit-dual-verify
+source: up-review
+generated_at: '2026-10-20T00:00:00+08:00'
+status: pending-review   # pending-review → approved → applied | rejected
+candidate_pattern:
+  pattern_id: equity_credit_dual_verify
+  name: 股价与信用双市场验证框架
+  description: >-
+    判断海外科技股（尤其高资本开支的 AI 基础设施链）是否真正企稳时，
+    不能只看股价反弹；必须同时观察信用市场（高收益债价格 / CDS / 信用利差）。
+    股价反弹 + 利差收窄 = 真企稳；股价反弹后再下探 + 利差继续走阔 = 假反弹。
+    用于区分"估值压缩"与"信用风险重定价"两种性质完全不同的下跌。
+  trigger:
+    - 海外科技股（纳指 / 半导体）连续调整后出现反弹，需要判断级别
+    - CoreWeave 等高资本开支、高杠杆 AI 基础设施企业股价与 CDS/债券价格出现异动
+    - 市场把下跌归因于利率/估值，但信用利差同步走阔
+  data_requirements:
+    - 股票端：纳斯达克 / SOX 指数、CoreWeave 等标的股价（日线）
+    - 信用端：上述企业 CDS 利差、高收益债价格、美国高收益债 OAS
+    - 对照端：30 年期美债收益率、投资级/高收益级利差
+    - 获取通道：需确认（当前 knowledge 层有观点，尚无自动采集脚本）
+  steps:
+    - 定性下跌性质：估值压缩（只影响市场愿付价格）vs 信用风险（影响企业能否创造未来利润）
+    - 取信用端读数：CoreWeave 类企业的 CDS 利差 / 债券价格近 5-10 日方向
+    - 与股价方向做四象限对照
+    - 若股价反弹但利差走阔 → 判定假反弹，不下调风险等级
+    - 若股价反弹 + 利差持续收窄 → 判定担忧缓和，可提高参与度
+    - 拆解 AI 企业类型：自有现金流支持资本开支（抗风险强）vs 依赖债务/外部融资扩张（脆弱）
+  falsification:
+    - 股价反弹且利差持续走阔，但后续股价继续走强并创新高 → 本框架误判（信用端为滞后指标）
+    - 信用利差收窄但股价继续下跌 → 两者背离，框架失效
+    - 无法获取可靠的 CDS/利差数据 → 不适用，退回单一股票端判断
+evidence:
+  window:
+    start: '2026-10-07'
+    end: '2026-10-20'
+  occurrences:
+    - date: '2026-10-15'
+      regime: 调整
+      source: knowledge/claims/claim-20261015-001.yaml
+      quote: >-
+        跟踪变量按重要性排序：台积电说明会后台股半导体与A股科技量能、核心PPI是否超0.4%、
+        美股标普7700是否守住、30年期美债能否跌破5.50%、CoreWeave等高收益债利差是否继续走阔
+    - date: '2026-10-18'
+      regime: 调整
+      source: knowledge/claims/claim-20261018-002.yaml
+      quote: >-
+        海外科技股是否真正企稳需同时观察股票与信用两个市场：股价反弹+CoreWeave等高资本开支企业
+        债券价格企稳+信用利差持续收窄＝担忧缓和（真企稳）；股价短暂反弹后再下探+信用利差继续
+        扩大＝风险未消化（假反弹）
+provenance:
+  up_id: '1420210197'
+  school: qing
+  up_display_name: 青枫浦上Q
+  note: >-
+    本提案仅采用 up_id=1420210197 的 claim。复盘中发现的「2.2万亿量能总开关」
+    来自 watchlist 学派（卢本圆，550494308），已排除，不构成本提案依据。
+gate_check:
+  window_weeks: 2
+  min_window_weeks: 4
+  window_ok: false
+  regimes_observed: [调整]
+  regimes_required: 2
+  regimes_ok: false
+  evidence_with_source_and_quote: true
+  conclusion: >-
+    未达提名门槛（窗口 2 周 < 4 周；仅 1 种市场阶段）。按 SKILL 规定先挂
+    pending-review 观察，待下一次不同 regime（主升/震荡/恐慌）复现后补证，
+    再提交人审。禁止此时写入 framework/reasoning-patterns.yaml。
+review_notes:
+  - 与该框架邻近的现有框架：macro_transmission（宏观传导）、ai_industry_chain（AI 产业链）
+  - 差异点：现有两者均以股价/订单为主，无信用市场维度，故落 others 判为框架改造信号
+  - 待补：CDS / 高收益债利差的自动数据通道（当前为手工观察项）

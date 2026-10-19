@@ -45,7 +45,8 @@ class Neo4jClient:
         RETURN c.id as id, c.statement as statement,
                c.confidence as confidence, coalesce(c.source_date, '') as source_date,
                c.status as status, coalesce(c.subject, '') as subject,
-               c.claim_type as claim_type, coalesce(c.intensity, 'medium') as intensity
+               c.claim_type as claim_type, coalesce(c.intensity, 'medium') as intensity,
+               coalesce(c.up_id, '') as up_id, coalesce(c.school, '') as school
         ORDER BY source_date DESC
         LIMIT $limit
         """
