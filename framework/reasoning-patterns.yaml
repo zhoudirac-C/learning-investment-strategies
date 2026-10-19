@@ -1,6 +1,7 @@
-updated_at: '2026-10-09'
+updated_at: '2026-10-20'
 version: 3.1-source-neutral
-merge_note: 将116个单raw模式聚合为10个通用推理框架，并优化description以支持语义匹配；v3.1（2026-10-09）经提案制人审新增第18个框架 crash_loop_attribution（暴跌互爆归因与救市需求判断），证据跨2026-07杠杆恐慌与2026-10机构互爆两个剧本
+merge_note: 将116个单raw模式聚合为10个通用推理框架，并优化description以支持语义匹配；v3.1（2026-10-09）经提案制人审新增第18个框架
+  crash_loop_attribution（暴跌互爆归因与救市需求判断），证据跨2026-07杠杆恐慌与2026-10机构互爆两个剧本
 distill_note: v3.0 来源中立改写（v2.1 引擎⓪）——trigger/steps/falsification 不含 UP 指称， validation
   区块随回测与盲测回填；UP 锚定版备份见 reasoning-patterns-v2.1-up-anchored.yaml。
 patterns:
@@ -764,6 +765,7 @@ patterns:
   - 重大政策发布、海外映射板块异动或业绩预告密集披露的方向选择窗口
   source_raw:
   - sources/original/bilibili/2026-08-17-0904-图片-上周五三大指数集体收涨，创业板指走势较强，指数反弹到了可上可.md
+  - sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
   - sources/original/bilibili/2026-10-08-1046-图片-总结一下早盘的情况。 地产节前拉地天超预期，今天科技走弱顺势.md
   - sources/raw/财经/2026-09-16-2242-复盘-今日指数震荡走高午后强势震荡双创突出.md
   - sources/raw/财经/动态复盘：26-05-26：双核心分歧修复，PCB与韬定律反包观察.md
@@ -824,6 +826,7 @@ patterns:
   - Micro-LED
   - 业绩+产业趋势选股
   - 业绩超预期筛选
+  - 个股分歧承接检验
   - 个股操作策略
   - 主线不明朗阶段
   - 主线内资金轮动
@@ -874,6 +877,7 @@ patterns:
   - 市场风格切换
   - 年报预披露期
   - 异动规则约束
+  - 情景化应对预案
   - 情绪与指数背离分析
   - 情绪修复期主线筛选
   - 情绪拐点判断
@@ -893,6 +897,7 @@ patterns:
   - 机器人产业链
   - 条件化情景应对
   - 板块优先级排序
+  - 板块再平衡轮动
   - 板块分歧后持续性判断
   - 板块地位验证
   - 板块轮动
@@ -901,6 +906,7 @@ patterns:
   - 板块轮动节奏判断
   - 板块驱动归类
   - 核心标的筛选
+  - 止跌信号识别
   - 消费电子
   - 电力
   - 电力设备
@@ -922,6 +928,7 @@ patterns:
   - 绿色燃料
   - 能源转型
   - 脑机接口
+  - 节后市场环境判断
   - 节后行情预判
   - 补涨分支挖掘
   - 贵金属
@@ -1879,6 +1886,81 @@ patterns:
     - 高低切中走出可辨识的一二三波强趋势个股
     - 增量资金连续净流入，且进攻/防御结构清晰不混同
     merge_suggestion: 判断科技主线是否退潮、轮动属假切换，并以放量确认
+  - pattern_id: anchor_wait_scenario_response_20251008
+    name: 等待止跌锚定的情景化应对复盘
+    source_raw:
+    - sources/original/bilibili/2026-10-07-2241-专栏-节前最后一个交易日（9月30日），市场延续平淡表现。据同花顺.md
+    key_themes:
+    - 节后市场环境判断
+    - 止跌信号识别
+    - 板块再平衡轮动
+    - 个股分歧承接检验
+    - 情景化应对预案
+    reasoning_chain:
+    - step: 1
+      name: 量能定环境
+      question: 节前地量说明什么，资金在做什么
+      UP_logic: 14个月地量=持币观望，末日小幅放量=资金提前布局节后；量能是判断资金行为的锚
+      evidence_sources:
+      - 同花顺财经成交额统计
+      - 指数涨跌幅数据
+    - step: 2
+      name: 外部变量定性
+      question: 假期最重要的边际变化是什么，能支撑多大级别反弹
+      UP_logic: 加息概率从近七成降到两成=基准情景切换，据此判断节后补涨是修复而非趋势重启，美债仍压制估值
+      evidence_sources:
+      - CME FedWatch概率数据
+      - 美国8月核心PCE数据
+    - step: 3
+      name: 定义止跌锚定
+      question: 什么信号出现才算止跌，两种可验证路径是什么
+      UP_logic: 给出两种锚定：二次恐慌出清、或利空跌不下去的弱势止跌；地量为后者提供量能基础，但需节后事件检验
+      evidence_sources:
+      - 跌停家数
+      - 反核个股（襄阳轴承、深物业A）
+      - 节前量能结构
+    - step: 4
+      name: 事件密度校验
+      question: 止跌信号能否穿越未来不确定性窗口
+      UP_logic: 三季报、五中全会、美联储议息挤在同一周，即便先出止跌信号也要经受这周检验，锚定有效性才算成立
+      evidence_sources:
+      - 三季报披露日程
+      - 新华社会议公告
+      - 美联储议息日程
+    - step: 5
+      name: 板块再平衡辨向
+      question: 节后资金在科技与非科技间如何再分配
+      UP_logic: 节前两极分化→节后预判再平衡收窄，收窄是过程、争夺看量能；各板块给出方向前提（扩散成立的前提是量能回升）
+      evidence_sources:
+      - 板块涨跌幅统计
+      - 智谱GLM出海催化
+      - 艾博-诺华BD交易
+      - 生鲜乳价格数据
+    - step: 6
+      name: 个股分歧检验
+      question: 具体标 的用什么可观察标准判定强弱
+      UP_logic: 对每个标的设情形A/B：如地产大长腿后看节后能否承受兑现盘、善水科技看分歧中的承接、医药看能否走出新载体
+      evidence_sources:
+      - 卖方研报
+      - 农业农村部奶价数据
+      - 个股技术形态
+    - step: 7
+      name: 情景化应对
+      question: 节后开盘怎么应对，两种情形各做什么
+      UP_logic: 情形A：补涨+量能回升+跌停减少→再平衡顺利，看科技趋势票与医药突破；情形B：补涨不及、量能不跟→调整中继，等锚定
+      evidence_sources:
+      - 开盘补涨幅度
+      - 量能变化
+      - 跌停家数
+    risk_factors:
+    - 两种锚定均未出现，止跌信号持续模糊，参与变成赌博
+    - 事件周（议息+三季报+全会）出现超预期利空，锚定失效
+    - 量能持续不回升，板块扩散与轮动逻辑全部证伪
+    confidence_indicators:
+    - 地量后末日放量，显示资金提前布局意愿
+    - 加息概率基准情景完成切换，外部压制边际缓解
+    - 情绪端出现反核个股，情绪先于指数变盘的信号
+    merge_suggestion: 核心是定环境、辨方向、等锚定，属主线与市场阶段判断框架
   merged_from:
   - sector_mainline_judgment
   - mainline_identification_framework
@@ -4709,6 +4791,7 @@ patterns:
   - 持仓标的跌破或突破既定技术位，触发止盈止损评估
   source_raw:
   - sources/original/bilibili/2026-10-08-1429-视频-抄底。.md
+  - sources/original/bilibili/2026-10-16-2029-视频-不破不立 -.md
   - sources/raw/财经/周复盘：26-02-01：二月投资策略：安全优先.md
   - sources/raw/财经/复盘：26-05-18：B站视频复盘-大盘将迎来反弹.md
   - sources/raw/财经/研报：26-05-07：国产算力产业链与Token经济学——闭环生态与商业模式跃迁.md
@@ -4719,6 +4802,7 @@ patterns:
   - ABC调整浪结构预判
   - AIDC
   - AI产业周期
+  - AI光模块低吸
   - AI应用
   - AI数据中心
   - GPU租赁金融化
@@ -4731,6 +4815,7 @@ patterns:
   - 固态电池
   - 国产替代主题
   - 大盘指数波浪分析
+  - 存储芯片回踩确认
   - 情绪底判断
   - 成长板块抄底
   - 技术分析
@@ -4738,11 +4823,14 @@ patterns:
   - 指数研判
   - 新基建
   - 有色贵金属
+  - 破位止损纪律
   - 科技产业链分析
   - 科技产业链投资
   - 科技股超跌
   - 算力基础设施
   - 负乖离率修复
+  - 高位放量滞涨识别
+  - 高开不追低吸条件
   data_requirements:
   - name: 日K线与历史走势
     channel: K线缓存（infra/data/kline_cache.db）
@@ -4905,6 +4993,53 @@ patterns:
     - 历史同形态（3月、11月）均走出底部
     - 跌至五轨底轨后做空动能衰竭
     merge_suggestion: 核心是技术位置+超跌信号+历史形态类比判断买点
+  - pattern_id: pullback_discipline_timing_20260214
+    name: 主线回踩低吸与破位止损纪律
+    source_raw:
+    - sources/original/bilibili/2026-10-16-2029-视频-不破不立 -.md
+    key_themes:
+    - AI光模块低吸
+    - 存储芯片回踩确认
+    - 破位止损纪律
+    - 高开不追低吸条件
+    - 高位放量滞涨识别
+    reasoning_chain:
+    - step: 1
+      name: 定性板块所处阶段
+      question: 板块当前处于主升、抢筹还是高位滞涨？
+      UP_logic: 人工智能板块主升浪已确认、光模块处于抢筹期；存储芯片高位放量滞涨、机构资金持续流出，短期有回踩风险
+      evidence_sources:
+      - 龙虎榜/资金流向
+      - 个股量价形态（放量滞涨）
+    - step: 2
+      name: 预判次日兑现节奏
+      question: 抢筹之后筹码结构会如何演变？
+      UP_logic: 抢筹期后'明天开盘必有兑现'，因此即使主升确认也不追高，等兑现后的回踩给买点
+      evidence_sources:
+      - 短线情绪分歧观察
+      - 龙虎榜大资金动向
+    - step: 3
+      name: 设定可执行买点条件
+      question: 回踩到哪里、什么条件才算真上车机会？
+      UP_logic: 高开超5个点坚决不碰；回踩均线不破的才是真正上车机会——分歧出买点、一致出卖点
+      evidence_sources:
+      - 开盘竞价高度
+      - 均线支撑（分时/日线）
+    - step: 4
+      name: 破位止损与企稳再进场
+      question: 持仓破位怎么办、等待中的票何时才能进？
+      UP_logic: 跌破20日均线且缩量即执行纪律离场保本金；存储芯片等回踩30日均线企稳后再考虑进场也不迟
+      evidence_sources:
+      - 20日/30日均线位置
+      - 成交量萎缩情况
+    risk_factors:
+    - 回踩直接跌破均线不企稳，低吸变接盘
+    - 主升浪判断错误，抢筹实为出货
+    - 强势票高开后不回踩直接走，错过行情
+    confidence_indicators:
+    - 机构资金流向与量价形态相互印证（高位放量滞涨+资金流出）
+    - 买点条件明确可量化（高开幅度、均线位置）
+    merge_suggestion: 核心是均线量价定买卖点与止损纪律，属技术择时
   merged_from:
   - aidc_infrastructure_decomposition
   - wave_theory_time_space_lock
@@ -6069,25 +6204,32 @@ patterns:
   - sources/original/bilibili/2026-08-18-1440-图片-仓位不变，因为美债收益率太高了，所以不能打满仓，还是5成仓。.md
   - sources/original/bilibili/2026-08-19-0959-图片-整个跌幅在开盘后也没有进一步扩大，美债昨天也有修复，早盘也说.md
   - sources/original/bilibili/2026-09-28-1359-图片-杭电尾盘不拉回35.4我会走 但是我要说清楚为什么走。 既然.md
+  - sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
   - sources/original/bilibili/2026-10-09-2029-视频-强趋势交易（4） 感谢观看，一键三连。.md
+  - sources/original/bilibili/2026-10-14-0808-视频-AI应用大票低吸，PCB看承接延续，固态投机需要做T -.md
   - sources/raw/财经/周复盘：26-05-31：周度市场复盘-美股高盛标普500调整研判，原油黄金走势分析与A股操作策略.md
   - sources/raw/财经/复盘：26-04-01：三指收涨科创50涨超3%，智立方奥瑞德富临广联.md
   - sources/raw/财经/复盘：26-05-21：大盘结构修正，半导体操作节奏与4700反弹目标.md
   - sources/raw/财经/复盘：26-05-21：真恐慌非崩盘，科技洗牌与二次冰点策略.md
   - sources/raw/财经/早盘：26-05-27：指数调整无方向，华为韬不及预期，等缩量等情绪回暖.md
   applicable_themes:
+  - AI应用低吸
+  - PCB承接
   - 主线板块内部去弱留强
   - 事件驱动
   - 交易纪律
   - 仓位管理
   - 低位补涨
   - 做T时机
+  - 分时量能验证
   - 半导体
   - 卖出决策
   - 卖点设置
+  - 固态电池做T
   - 复盘方法论
   - 外围信号跟踪
   - 强趋势交易
+  - 情延伸性验证
   - 政策主题
   - 新主线承接判断
   - 新股上市
@@ -6100,11 +6242,16 @@ patterns:
   - 海外利率对A股约束
   - 盘中去留决策
   - 科技板块调整应对
+  - 缩量磨底应对
+  - 节后首日操作预案
   - 资金管理
   - 资金避险
   - 超跌反弹
+  - 量能开仓门槛
+  - 长假外盘消化
   - 顶部结构确认
   - 题材炒作
+  - 风电外部利空
   - 高位放量杀跌后的市场定性
   - 高风险投资策略
   data_requirements:
@@ -6384,6 +6531,114 @@ patterns:
     - 预设止损位被严格执行而非临盘犹豫
     - 组合回撤明显小于全仓单一板块的情形
     merge_suggestion: 核心是止损执行与分仓纪律，属仓位风控范畴
+  - pattern_id: sector_specific_tactics_20260531
+    name: 板块属性分类到差异化操作映射
+    source_raw:
+    - sources/original/bilibili/2026-10-14-0808-视频-AI应用大票低吸，PCB看承接延续，固态投机需要做T -.md
+    key_themes:
+    - AI应用低吸
+    - PCB承接
+    - 固态电池做T
+    - 风电外部利空
+    - 量能开仓门槛
+    reasoning_chain:
+    - step: 1
+      name: 识别板块特殊属性
+      question: 该板块的波动特征/约束是什么
+      UP_logic: 「固态电池经常是跟着大盘走反方向的」「龙板被纳入重点监控，但之前进过小黑屋，大家有预期」——先给板块贴属性标签
+      evidence_sources:
+      - 历史走势规律
+      - 监管/监控状态
+    - step: 2
+      name: 属性映射操作方式
+      question: 该属性下什么操作最适配
+      UP_logic: 反大盘属性的固态电池→「以低吸为主，有底仓拉上去就踢」；受监控但有预期的AI应用→「保险一点低吸大票」
+      evidence_sources:
+      - 板块属性判断
+      - 个人持仓状态（有无底仓）
+    - step: 3
+      name: 外部利空压制定性
+      question: 政策/事件压制会持续多久
+      UP_logic: 「哪怕后面被证实是小作文，外部政策预期带来的情绪压制不会一下子消失」→跌停后不急着博弈反包
+      evidence_sources:
+      - 事件性质（外部政策预期）
+      - 个股跌停表现
+    - step: 4
+      name: 设定开仓前置条件
+      question: 满足什么条件才参与
+      UP_logic: 「量能不到2.2万亿我不会再开新仓」——用大盘量能作为PCB等板块是否参与的总闸门
+      evidence_sources:
+      - 大盘量能
+      - PCB承接强度
+    risk_factors:
+    - 外部利空若快速证伪且股价修复，压制判断失效
+    - 量能门槛数值（2.2万亿）依赖当时市场规模，需动态调整
+    confidence_indicators:
+    - 龙板曾进过小黑屋的先例支撑监控预期判断
+    - 超声电子人气+三季报验证PCB走强有基本面配合
+    - 自身六月逃顶九月再进的实盘记录支撑知行合一批评
+    merge_suggestion: 核心是按板块属性匹配不同操作纪律，属操作策略
+  - pattern_id: holiday_reopen_playbook_20251008
+    name: 节后首日分时分维验证盘前预案
+    source_raw:
+    - sources/original/bilibili/2026-10-08-0852-专栏-节前最后一个交易日，上证红盘震荡，创业板高开回落，医药、地产.md
+    key_themes:
+    - 节后首日操作预案
+    - 长假外盘消化
+    - 分时量能验证
+    - 缩量磨底应对
+    - 情延伸性验证
+    reasoning_chain:
+    - step: 1
+      name: 外盘分维拆解
+      question: 假期外盘信息哪些有效、哪些是噪音？
+      UP_logic: 把假期外盘拆成科技修复、存储链弱势、长端利率三条线分别评估，'美国科技韧性与韩国存储弱势可同时成立'，避免单一外盘指数代替全部判断
+      evidence_sources:
+      - 美联社美股收盘数据
+      - 韩联社KOSPI数据
+      - 10年期美债收益率与拍卖数据
+    - step: 2
+      name: 利率事件前瞻安排
+      question: 夜间待揭晓事件如何纳入验证流程？
+      question_alt: ''
+      UP_logic: 30年期美债拍卖结果'主要成为明天A股的外部输入'，白天验证A股自主承接、凌晨验证长端买盘，两个信号分时观察
+      evidence_sources:
+      - 美国财政部拍卖结果
+      - 上一场30年期投标倍数2.61倍作参照
+    - step: 3
+      name: 成交额定性
+      question: 节后成交放大是回流还是一次性？
+      UP_logic: 1.44万亿作低量参照；节后自然回补成交需区分'信息集中释放与持续新增买盘'，与节前同期分时段比较，不凭一个全天预测值确认反转
+      evidence_sources:
+      - 9月30日成交统计
+      - 9月30日早盘同期对比
+    - step: 4
+      name: 情绪层级跟踪
+      question: 短线情绪处于什么收敛位置？
+      UP_logic: 一进二晋级率与连板晋级率反映不同层次、不能替代；跌停减少是积极变化，首板回落是约束；按约15%经验晋级率折算40家首板对应约6家二板作观察参照
+      evidence_sources:
+      - 盘面晋级率统计
+      - 跌停/断板家数
+    - step: 5
+      name: 分时观察点设定
+      question: 盘中在哪些时点验证什么信号？
+      UP_logic: 9:30-9:45看补涨补跌与高开兑现；9:45-10:30看换手后指数稳定与涨家数/成交同步；14:00-15:00看午后强度与回落是否主动承接
+      evidence_sources:
+      - 分时段盘面统计
+    - step: 6
+      name: 情形化预案
+      question: 不同开盘走势下分别怎么操作？
+      UP_logic: 情形A分歧消化、量价同步改善则上调修复评价；情形B放量无承接则收敛交易冲动、检查持仓逻辑；缩量横盘按磨底处理，升级为反转要等后续交易日持续性
+      evidence_sources:
+      - 开盘竞价表现
+      - 上涨家数与跌停扩散情况
+    risk_factors:
+    - 拍卖后长端收益率重新走高，外盘压力按短暂缓和处理
+    - 上证红盘仅靠少数权重而双创与多数个股走弱，按结构分化理解
+    confidence_indicators:
+    - 有效放量同时体现在价格承接与市场宽度
+    - 首板补充、约6家二板经验值与跌停收敛同步保持
+    merge_suggestion: 核心是盘前预案+分时观察点+情形A/B应对，落到当日操作而非方向判断
   merged_from:
   - leverage_low_freq_heavy_position
   - ipo_event_sector_timing
@@ -6956,7 +7211,98 @@ patterns:
     - 板块核心在回调、反弹、收盘三阶段持续跑赢二三线
     - 强势股充分换手后保留强度、分歧后回封质量高
     merge_suggestion: 以盘面状态确认决定操作动作，观点服从盘面，符合状态→动作映射
+  - pattern_id: bottom_resilient_ranking_20261018
+    name: 底部抗跌品种优先反弹排序
+    source_raw:
+    - sources/original/bilibili/2026-10-18-1027-图片-昨天的复盘视频发完怎么感觉有些人要疯掉了。 总结一下 这里就.md
+    key_themes:
+    - 底部区域判断
+    - 超跌反弹方向筛选
+    - 抗跌品种识别
+    - 日线与周线级别区分
+    - 概率化仓位表达
+    reasoning_chain:
+    - step: 1
+      name: 定位周期位置
+      question: 当前市场处于什么位置？
+      UP_logic: 『这里就是底部区域』——先给位置定性，情绪恐慌反而强化底部判断
+      evidence_sources:
+      - 复盘视频内容
+      - 市场情绪反馈（观众反应）
+    - step: 2
+      name: 筛选抗跌品种
+      question: 下一轮行情的超额收益方向在哪？
+      UP_logic: 『杀不下去的品种』最容易走出强趋势，提前走完下跌周期、结构先稳住的方向优先
+      evidence_sources:
+      - 各品种价格结构表现
+      - 下跌过程中的相对强弱
+    - step: 3
+      name: 级别与概率排序
+      question: 反弹方向中哪个概率和周期更大？
+      UP_logic: 国产gpu会有反弹但『日线级别』，燃气轮机『周线级别』概率更大——用周期级别给候选方向排序
+      evidence_sources:
+      - 技术级别分析（日线/周线）
+      - 预期判断
+    - step: 4
+      name: 概率化表达
+      question: 多大把握，如何应对不确定性？
+      UP_logic: 『都是概率问题，在这种位置起来的概率反而很大』——位置好则胜率提升，不下绝对结论
+      evidence_sources:
+      - 当前位置对胜率的影响评估
+    risk_factors:
+    - 底部区域判断被新低证伪
+    - 抗跌品种补跌导致强趋势逻辑失效
+    confidence_indicators:
+    - 位置处于底部区域、下行空间有限
+    - 品种已提前走完下跌周期且结构稳定
+    merge_suggestion: 核心是周期位置决定动作与方向优先级
+  - pattern_id: volume_threshold_position_discipline_20251012
+    name: 量能阈值决定开仓纪律
+    source_raw:
+    - sources/original/bilibili/2026-10-12-0808-视频-我AI漫剧继续拿，科技耐心等量，风电现阶段观察，投机票做得少.md
+    key_themes:
+    - 科技仓位纪律
+    - 量能开仓阈值
+    - 底仓与做T操作
+    - 利空板块应对
+    - AI应用持仓
+    reasoning_chain:
+    - step: 1
+      name: 定性持仓细分逻辑
+      question: 为何拿住某方向底仓？
+      UP_logic: AI漫剧是AI应用落地最快、现金流兑现潜力靠前的细分，故底仓不动
+      evidence_sources:
+      - 产业落地速度比较
+      - 现金流兑现潜力
+    - step: 2
+      name: 设定量能开仓阈值
+      question: 什么条件下才开新仓？
+      UP_logic: 不到2.2万亿的量不开新仓，拿旧仓滚动做T——用成交额阈值约束加仓动作
+      evidence_sources:
+      - 两市成交额数据
+    - step: 3
+      name: 利空板块不博弈反包
+      question: 潜在利空的板块怎么处理？
+      UP_logic: 只要板块存在欧盟双反这类潜在利空，即便传闻是小作文，也不建议立即博弈反包
+      evidence_sources:
+      - 欧盟双反传闻
+      - 传闻真实性核实
+    - step: 4
+      name: 区分仓位账户功能
+      question: 底仓与打野仓如何分工？
+      UP_logic: 实盘号底仓不动，打野号有机会再做T；利润垫先行后再去弹性方向
+      evidence_sources:
+      - 账户盈亏状态
+      - 做T利润垫
+    risk_factors:
+    - 成交额回升但结构分化，阈值失效
+    - 利空传闻落空后板块快速反包踏空
+    confidence_indicators:
+    - 前期有明确观点（8月3日视频）且操作持续一致
+    - 涨停数据与持仓表现相互印证
+    merge_suggestion: 量能阈值→开仓动作映射，动作由条件决定
   applicable_themes:
+  - AI应用持仓
   - 三季报窗口
   - 事件落地前观望
   - 仓位尺度分离
@@ -6966,6 +7312,7 @@ patterns:
   - 做T策略
   - 做T纪律
   - 分歧买点
+  - 利空板块应对
   - 医药趋势
   - 反弹位置与兑现需求
   - 反弹周期计数
@@ -6975,23 +7322,31 @@ patterns:
   - 复盘定环境
   - 大盘量能
   - 大盘量能与冲高回落定性
+  - 底仓与做T操作
+  - 底部区域判断
   - 情景分支式交易预案
   - 情景化操作预案
   - 情景推演与操作映射
   - 情绪弱于大盘应对
   - 情绪顶背离识别
   - 抄底失败纠错
+  - 抗跌品种识别
+  - 日线与周线级别区分
   - 条件化操作预案
+  - 概率化仓位表达
   - 油价关键变量
   - 浪型位置对比
   - 消息催化兑现检验
   - 科技仓位管理
+  - 科技仓位纪律
   - 科技板块
   - 科技板块核心回归验证
   - 节前缩量震荡
   - 获利了结时点
+  - 超跌反弹方向筛选
   - 连板梯队健康度跟踪
   - 量价割裂识别
+  - 量能开仓阈值
   - 防御转进攻的主线切换观察
   - 高位震荡应对
   source_raw:
@@ -7002,6 +7357,8 @@ patterns:
   - sources/original/bilibili/2026-08-19-1512-图片-明天发视频讲吧，今天没什么好讲的，要等晚上的事件落地，明天观.md
   - sources/original/bilibili/2026-09-27-2137-专栏-中秋节前最后一个交易日，沪指失守3900点，科技股回撤与量能.md
   - sources/original/bilibili/2026-10-08-0808-视频-科技等2.2万亿信号，复盘医药，短线观察汽车 地产 -.md
+  - sources/original/bilibili/2026-10-12-0808-视频-我AI漫剧继续拿，科技耐心等量，风电现阶段观察，投机票做得少.md
+  - sources/original/bilibili/2026-10-18-1027-图片-昨天的复盘视频发完怎么感觉有些人要疯掉了。 总结一下 这里就.md
   - sources/raw/财经/午盘：26-04-23：高位博弈反复洗盘，上升途中正常震荡，油价100美元关键变量.md
 - pattern_id: others
   name: 其他独立分析框架
@@ -7667,7 +8024,8 @@ patterns:
   - 赎回踩踏
   data_requirements:
   - name: 两融余额及融资净买入走向
-    channel: qing_investment.marketdata.get_margin_balance()（东财 RPTA_WEB_MARGIN_DAILYTRADE，日频 T 日晚间披露；与 UP 东财融资融券数据中心截图同口径）
+    channel: qing_investment.marketdata.get_margin_balance()（东财 RPTA_WEB_MARGIN_DAILYTRADE，日频
+      T 日晚间披露；与 UP 东财融资融券数据中心截图同口径）
   - name: 龙虎榜机构席位动向
     channel: 龙虎榜数据（机构专用席位净买入/净卖出，判断机构抱团撤退还是承接）
   - name: 外围市场联动
