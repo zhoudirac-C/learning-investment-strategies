@@ -72,24 +72,40 @@ class TestLoadTargetCodes:
         assert todo == ["600036"]
 
     def test_fresh_codes_skipped(self, mod, env):
-        """已有最近数据（动态阈值内）的代码跳过（断点续拉）。"""
+        """已有「目标收盘交易日」数据的代码跳过（断点续拉）。
+
+        2026-10-21 三修：阈值口径从 `today-3天` 改为「最近已收盘交易日」。
+        旧实现会把 10-19 判为已最新 → 10-20 数据永久不拉（650 只实测漏拉）。
+        """
         sector_json, db_path = env
-        fresh_date = (date.today() - timedelta(days=3)).isoformat()
+        target_day = mod._target_trade_date()
         conn = sqlite3.connect(str(db_path))
-        conn.execute("INSERT INTO stocks_kline VALUES ('600036', ?)", (fresh_date,))
+        conn.execute("INSERT INTO stocks_kline VALUES ('600036', ?)", (target_day,))
         conn.commit()
         conn.close()
         todo = mod._load_target_codes(sector_json, db_path,
                                       only_codes=["600036", "601398"])
         assert todo == ["601398"]
 
+    def test_prev_day_data_not_enough(self, mod, env):
+        """只有上一交易日数据时**不得**跳过 —— 今日收盘数据仍必须补。"""
+        sector_json, db_path = env
+        target_day = mod._target_trade_date()
+        prev_day = (date.fromisoformat(target_day) - timedelta(days=1)).isoformat()
+        conn = sqlite3.connect(str(db_path))
+        conn.execute("INSERT INTO stocks_kline VALUES ('600036', ?)", (prev_day,))
+        conn.commit()
+        conn.close()
+        todo = mod._load_target_codes(sector_json, db_path, only_codes=["600036"])
+        assert todo == ["600036"], "上一交易日数据不能视为已最新（10-20 事故根因）"
+
     def test_all_fresh_returns_empty(self, mod, env):
         """全部已最新 → todo 空（配合 main 返回 0 修复 bug1）。"""
         sector_json, db_path = env
-        fresh_date = (date.today() - timedelta(days=3)).isoformat()
+        target_day = mod._target_trade_date()
         conn = sqlite3.connect(str(db_path))
         for c in ("600036", "601398"):
-            conn.execute("INSERT INTO stocks_kline VALUES (?, ?)", (c, fresh_date))
+            conn.execute("INSERT INTO stocks_kline VALUES (?, ?)", (c, target_day))
         conn.commit()
         conn.close()
         todo = mod._load_target_codes(sector_json, db_path,
@@ -144,10 +160,10 @@ class TestMainSemantics:
     def test_main_returns_zero_when_nothing_to_do(self, mod, env, monkeypatch):
         """bug1 回归：0 待拉（无事可做）时 main 必须返回 0，而非 1。"""
         sector_json, db_path = env
-        fresh_date = (date.today() - timedelta(days=3)).isoformat()
+        target_day = mod._target_trade_date()
         conn = sqlite3.connect(str(db_path))
         for c in ("600036", "601398"):
-            conn.execute("INSERT INTO stocks_kline VALUES (?, ?)", (c, fresh_date))
+            conn.execute("INSERT INTO stocks_kline VALUES (?, ?)", (c, target_day))
         conn.commit()
         conn.close()
 
@@ -155,6 +171,7 @@ class TestMainSemantics:
             raise AssertionError("无待拉代码时不应触碰数据源")
 
         monkeypatch.setattr(mod, "get_kline", _boom)
+        monkeypatch.setattr(mod.time, "sleep", lambda s: None)
         rc = mod.main([
             "--only", "600036", "601398",
             "--sector-json", str(sector_json),

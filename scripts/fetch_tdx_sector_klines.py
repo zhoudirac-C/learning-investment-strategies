@@ -71,6 +71,24 @@ WAF_MIN_REMAIN_S = 60  # 剩余预算不足此值则不再退避，直接收尾
 CONTROL_CODE = "600000"
 
 
+def _target_trade_date(now=None) -> str:
+    """返回「最新的已收盘交易日」（ISO 日期）。
+
+    收盘 15:00 + 数据落地约 10 分钟 → 15:10 后目标日=今天，否则回退到上一工作日。
+    周末一律回退到周五。不处理节假日（节假日当天会被误判为交易日，
+    但拉取取不到数据也不会写坏，只是白跑一轮，成本可接受）。
+    """
+    from datetime import datetime as _dt, timedelta
+
+    now = now or _dt.now()
+    d = now.date()
+    if now.hour < 15 or (now.hour == 15 and now.minute < 10):
+        d -= timedelta(days=1)
+    while d.weekday() >= 5:  # 周六/周日回退到周五
+        d -= timedelta(days=1)
+    return d.isoformat()
+
+
 def _load_target_codes(sector_json: Path, db_path: Path, only_codes=None) -> list[str]:
     """目标股票码 = sector_members.json 全部成分股去重，排除本地已有最新数据的。"""
     import json
@@ -104,16 +122,20 @@ def _load_target_codes(sector_json: Path, db_path: Path, only_codes=None) -> lis
     # 则该交易日收盘数据必须存在。保守起见：threshold 改为「最近 3 个自然日」，
     # 既容忍周五晚跑（threshold=周二，周五数据必须补），
     # 又不会像 10 天那样把周一收盘吞掉。
-    from datetime import date, timedelta
-    fresh_threshold = (date.today() - timedelta(days=3)).isoformat()
+    # 断点续拉判定：必须按「最新的**已收盘交易日**」判，不能用自然日回推。
+    # 【2026-10-21 三修】原实现 `today - 3天` 在周二凌晨把周一(10-19)判为
+    # 「已最新」，于是 10-20 的数据永远不被拉取 —— 无论跑多少轮，
+    # 只要库里有 10-19 就跳过这批代码（实测 650 只永久漏拉）。
+    fresh_threshold = _target_trade_date()
     for c in codes:
         md = existing.get(c)
-        # 最新交易日在最近 10 天内 → 跳过
+        # 最新交易日 >= 目标收盘日 → 跳过
         if md and md >= fresh_threshold:
             skipped += 1
             continue
         todo.append(c)
-    print(f"[tdx-klines] 目标 {len(codes)} 只，已最新 {skipped} 只，待拉 {len(todo)} 只")
+    print(f"[tdx-klines] 目标 {len(codes)} 只，已最新 {skipped} 只，待拉 {len(todo)} 只"
+          f"（目标交易日 {fresh_threshold}）")
     return todo
 
 
