@@ -229,8 +229,13 @@ class TestMainSemantics:
         assert rc == 0  # 601398 成功 → 本轮有效
         assert saved == ["601398"]
 
-    def test_transport_failure_aborts(self, mod, env, monkeypatch):
-        """传输级失败（WAF 限流）+ 对照码也失败 → 连续 3 只后中止。"""
+    def test_transport_failure_backs_off_then_aborts(self, mod, env, monkeypatch):
+        """传输级失败（WAF 限流）→ 先退避重试，退避次数用尽后才中止。
+
+        2026-10-20 修正：原逻辑连败 3 只即中止，把 780s 预算里剩下的 500s
+        白白浪费（每轮只拉 ~300 只，永远补不完）。现改为限流后指数退避
+        WAF_MAX_BACKOFFS 次，用尽仍失败才收尾。
+        """
         sector_json, db_path = env
         codes = [f"60136{i:02d}" for i in range(10)]  # 避开 CONTROL_CODE 600000
         sector_json.write_text(json.dumps({
@@ -251,10 +256,56 @@ class TestMainSemantics:
             "--db", str(db_path),
         ])
         assert rc == 1
-        # 对照码探测恰 3 次；目标去重恰 3 只后中止
-        # （_fetch_bars 内部重试 2 次，不能按裸调用次数断言）
-        assert probes.count(mod.CONTROL_CODE) == mod.CTRL_FAIL_ABORT
-        assert len({c for c in probes if c != mod.CONTROL_CODE}) == mod.CTRL_FAIL_ABORT
+        # 每轮限流先退避，退避 WAF_MAX_BACKOFFS 次后才累计到 CTRL_FAIL_ABORT
+        # 而中止。探测次数 ≥ 退避次数（同一只被反复重试，故目标只数不变）
+        assert probes.count(mod.CONTROL_CODE) >= mod.WAF_MAX_BACKOFFS
+        # 首只重试 1 + 退避 4 次后，仍会继续往下试到连败上限才收尾
+        assert len({c for c in probes if c != mod.CONTROL_CODE}) <= len(codes)
+
+    def test_waf_backoff_does_not_abort_when_source_recovers(self, mod, env, monkeypatch):
+        """限流后恢复：退避一次后源恢复 → 继续拉完，不中止（P1 核心收益）。"""
+        sector_json, db_path = env
+        codes = [f"60136{i:02d}" for i in range(6)]
+        sector_json.write_text(json.dumps({
+            "_built_at": 0, "_source": "test",
+            "concept": {"测试板块": codes},
+        }), encoding="utf-8")
+        saved: list = []
+        monkeypatch.setattr(mod.time, "sleep", lambda s: None)
+
+        state = {"waf": True}
+
+        def fake_get_kline(code, klt, count, *, sources=None):
+            if code == mod.CONTROL_CODE:
+                # 对照码跟随源状态：限流期间失败，恢复后成功
+                if state["waf"]:
+                    raise mod.MarketDataError("对照码 WAF", attempts=["tencent: 501"])
+                return _bars(2), "tencent"
+            if state["waf"]:
+                raise mod.MarketDataError("WAF 501", attempts=["tencent: 501"])
+            return _bars(2), "tencent"
+
+        monkeypatch.setattr(mod, "get_kline", fake_get_kline)
+        monkeypatch.setattr(mod, "save_klines",
+                            lambda code, klines, db_path=None: saved.append(code))
+
+        # 第 1 只失败 → 进退避（sleep 被 patch，不真实等待）→ 恢复后重试成功
+        orig_sleep = mod.time.sleep
+        calls = {"n": 0}
+
+        def flaky_sleep(s):
+            calls["n"] += 1
+            state["waf"] = False  # 退避等待期间 WAF 窗口过去
+
+        monkeypatch.setattr(mod.time, "sleep", flaky_sleep)
+
+        rc = mod.main([
+            "--only", *codes,
+            "--sector-json", str(sector_json),
+            "--db", str(db_path),
+        ])
+        assert rc == 0
+        assert set(saved) == set(codes), f"退避恢复后应拉完全部，实际 {saved}"
 
     def test_empty_dead_code_resets_and_continues(self, mod, env, monkeypatch):
         """单只死码（全链空 + 对照码健康）→ 复位后继续，不中止批次。"""

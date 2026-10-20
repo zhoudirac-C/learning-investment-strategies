@@ -29,7 +29,9 @@ from qing_investment.marketdata.symbol import norm_ticker
 
 #: K线降级链（按 klt 分派；entries 为 (source_name, fetch_fn) 元组，惰性 import）
 _KLT_SOURCES: dict[int, list[str]] = {
-    101: ["tencent", "eastmoney", "tdx", "ths"],
+    # 101 链把 sina 放末尾：新浪日线不复权，与主口径 qfq 不一致，
+    # 仅当腾讯(qfq)+东财+TDX 全挂时兜底，避免口径混杂成为常态（2026-10-20）
+    101: ["tencent", "eastmoney", "tdx", "ths", "sina"],
     60: ["tencent", "eastmoney", "tdx", "sina", "ths"],
     30: ["tencent", "eastmoney", "tdx", "sina", "ths"],
     120: ["tencent", "tdx", "ths"],  # 东财无原生 120min，跳过

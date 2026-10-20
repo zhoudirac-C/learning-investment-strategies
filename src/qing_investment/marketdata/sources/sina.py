@@ -68,10 +68,53 @@ def fetch_minute(code: str, tf: int, datalen: int = SINA_DATALEN_MAX) -> list[di
 
 
 def fetch_kline(code: str, klt: int, count: int, *, kind: str = "auto") -> list[dict]:
-    """新浪 K线 router 适配：101→不支持（日线无复权意义），30/60 走 fetch_minute。"""
+    """新浪 K线 router 适配：101 日线（不复权）+ 30/60 走 fetch_minute。
+
+    ⚠️ 日线口径差异：新浪日线接口**无 qfq 参数，返回不复权价**。本仓库日线
+    主口径是前复权（腾讯 qfq），混用会引入除权跳空伪信号。因此日线只在
+    腾讯/东财同时不可用时作为**最后降级源**，且调用方必须知道口径已变。
+    收紧方式：router 把 sina 排在 101 链末尾，正常情况永不命中。
+    """
+    if klt == 101:
+        return fetch_daily(code, count, kind=kind)
     if klt in (30, 60):
         return fetch_minute(code, klt, datalen=min(count + 2, SINA_DATALEN_MAX))
-    raise ValueError(f"新浪源不支持 klt={klt}（仅 30/60 分钟线）")
+    raise ValueError(f"新浪源不支持 klt={klt}（仅 101/30/60）")
+
+
+def fetch_daily(code: str, count: int, *, kind: str = "auto") -> list[dict]:
+    """新浪日线（不复权）。返回统一 bar shape，升序；空/异常抛 SourceUnavailable。
+
+    接口：CN_MarketData.getKLineData?scale=240&datalen=N（scale=240=日线）。
+    datalen 上限同分钟线口径（260），足够覆盖 90 天需求。
+    """
+    datalen = min(max(count + 3, 10), SINA_DATALEN_MAX)
+    sym = sina_symbol(code, kind=kind)
+    url = (
+        "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/"
+        f"CN_MarketData.getKLineData?symbol={sym}&scale=240&ma=no&datalen={datalen}"
+    )
+    ratelimit.acquire(SOURCE)
+    try:
+        raw = http_get_json(url, headers=_HEADERS, timeout=10)
+    except Exception as e:
+        raise SourceUnavailable(f"sina daily request failed: {type(e).__name__}: {e}") from e
+    if not isinstance(raw, list) or not raw or "close" not in (raw[0] or {}):
+        # 空列表 = 该代码无数据 或 被限流，两种都在 router 层按软失败降级
+        return []
+    bars = []
+    for r in raw:
+        day = str(r.get("day") or "")[:10]
+        if not day:
+            continue
+        bars.append({
+            "bar_time": day,
+            "open": _f(r.get("open")), "high": _f(r.get("high")),
+            "low": _f(r.get("low")), "close": _f(r.get("close")),
+            "volume": _f(r.get("volume")), "amount": 0.0,
+        })
+    bars.sort(key=lambda k: k["bar_time"])
+    return bars[-count:] if len(bars) > count else bars
 
 
 def fetch_quotes(codes: list[str], *, kind: str = "auto") -> list[dict]:

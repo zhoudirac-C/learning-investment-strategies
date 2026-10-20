@@ -1,27 +1,37 @@
 """腾讯财经源（首选源：不封 IP）。
 
 端口：
-- 日线 ``web.ifzq.gtimg.cn/appstock/app/fqkline/get``（qfq 前复权）
+- 日线 ``ifzq.gtimg.cn/appstock/app/fqkline/get``（qfq 前复权）
 - 分钟线 ``ifzq.gtimg.cn/appstock/app/kline/mkline``（m30/m60/m120 原生）
 - 实时行情 ``qt.gtimg.cn/q=``（GBK，~ 分隔）
 
 经验内嵌（全部为本仓库 2026-09-10 实测 / a-stock-data 实证）：
-- 必须用 ``ifzq.gtimg.cn``（无 ``web.`` 前缀）拉分钟线——带 web. 会 301
+- ⚠️ 日线必须用 ``ifzq.gtimg.cn``（无 ``web.`` 前缀）。带 ``web.`` 的域名有
+  独立 WAF：连续请求约 115-300 次后整域返回 HTTP 501，且冷却期 >4 分钟
+  （2026-10-20 实测：加 web. 号批量任务每轮拉 300 只就被 501 掐断；
+  换无 web. 域名后 150 次连续零失败）。web. 与无 web. 是同一接口的两套
+  前置，返回体一致。
 - ``m120`` 是原生 120min 接口（每日恰好 2 根，间隔 210 分钟=跨午休），
   486 根/年；东财无原生 120min
 - 腾讯日线字段序：日期,开,收,高,低,量（**收在 2、高在 3**，与东财"开收高低"
   不同——字段序各厂商不同是 tdx-data-source-troubleshoot 高频误判之一）
 - 分钟线字段序：时间,开,收,高,低,量
-- web.ifzq 连续 5000+ 次返回空是**限流非封禁**，降速或换源即恢复
+- 限流的两种表现必须区分：**HTTP 501/超时 = WAF 拦截（源级故障，抛异常）**；
+  HTTP 200 但 ``day:[]`` = 该代码无数据（死码，返回空）。混为一谈会让批量
+  任务把整段拦截图当死码空转（2026-10-20 事故根因之一）。
 """
 
 from __future__ import annotations
 
 from qing_investment.marketdata import ratelimit
-from qing_investment.marketdata.http import http_get_json, http_get
+from qing_investment.marketdata.http import http_get_json, http_get, HttpError
 from qing_investment.marketdata.symbol import prefix_for
 
 SOURCE = "tencent"
+
+#: 传输级异常：WAF 501 / 超时 / 连接重置 / DNS。这类失败与「该代码无数据」
+#: 语义完全不同，必须向上抛出让 router 熔断，不能吞成空返回（见 fetch_kline）
+_TRANSPORT_ERRORS = (HttpError, OSError, ValueError)
 
 _MIN_MAP = {1: "m1", 5: "m5", 15: "m15", 30: "m30", 60: "m60", 120: "m120"}
 
@@ -78,12 +88,15 @@ def fetch_kline(code: str, klt: int, count: int, *, kind: str = "auto") -> list[
         return bars[-count:] if len(bars) > count else bars
 
     if klt == 101:
-        url = (f"https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+        url = (f"https://ifzq.gtimg.cn/appstock/app/fqkline/get"
                f"?param={sym},day,,,{count + 3},qfq")
         try:
             payload = http_get_json(url, headers=headers)
-        except Exception:
-            return []
+        except _TRANSPORT_ERRORS as e:
+            # 传输级失败（HTTP 501/超时/连接重置）= WAF 限流或网络故障，
+            # 不是「该代码无数据」。必须抛出让 router 判为源故障并熔断，
+            # 否则批量任务会把 WAF 拦截图当成死码继续空转（2026-10-20 事故）
+            raise RuntimeError(f"tencent day kline transport: {type(e).__name__}: {e}") from e
         node = payload.get("data", {}).get(sym, {})
         # ⚠️ 个股返回键为 qfqday（前复权），指数为 day——必须双键兼容
         # （2026-09-11 实测：只读 day 会让个股日线路径全空触发降级）

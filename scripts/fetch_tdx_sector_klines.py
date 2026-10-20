@@ -46,10 +46,24 @@ RETRY_DELAY = 1.0  # 重试间隔基数（指数退避：1s, 2s）
 
 # 统一层降级链显式排除 TDX：CapMainKline 被服务端按接口封禁（9/10 实测），
 # 不排除则每只失败路径多烧 ~23s。TDX 解封后把 "tdx" 加回即可。
-SOURCES = ["tencent", "eastmoney"]
+# 2026-10-20 追加 sina：腾讯 web.ifzq 与东财 push2his 同时被 WAF/IP 封禁时，
+# 新浪日线是唯一存活通道（实测 200）。代价是**不复权**——仅在腾讯/东财全挂
+# 时命中，且落库时口径与 qfq 存在差异，由 _fetch_bars 返回的 source 标记。
+SOURCES = ["tencent", "eastmoney", "sina"]
+QFQ_SOURCES = {"tencent", "eastmoney"}  # 前复权源；sina 为不复权兜底
 
 SOFT_DEADLINE_S = 780  # cron 900s 超时前收尾（留 120s 给在途请求 + 退出）
-CTRL_FAIL_ABORT = 3  # 连续 N 只「失败且对照码也死」→ 源断供（WAF限流/断网），中止
+CTRL_FAIL_ABORT = 10  # 连续 N 只「失败且对照码也死」→ 判定源断供，中止本轮
+
+# ── WAF 自适应退避（2026-10-20 新增，P1）──────────────────────────────
+# 事故：每轮拉到 ~300 只就被 WAF 501 掐断，脚本把「连续 3 只失败」当成源断供
+# 整轮中止，7 轮/天 × 300 只 < 5364 只目标，永远补不完。
+# 根因不是频率不够，而是「限流 → 立即中止」错误地放弃了剩余预算。
+# 正确响应：限流是**暂态**，应退避等待（WAF 窗口通常几十秒到几分钟），
+# 而不是把 780s 预算里剩下的 500s 直接浪费掉。
+WAF_BACKOFF = [30, 90, 180, 300]  # 第 1/2/3/4+ 次限流后的等待秒数
+WAF_MAX_BACKOFFS = 4  # 超过此次数仍拿不到数据 → 认定真断供，收尾
+WAF_MIN_REMAIN_S = 60  # 剩余预算不足此值则不再退避，直接收尾
 
 # 源健康对照码：浦发银行，流动性好、长期在市。个股日K「全源空」时用它区分
 # 死码（对照成功）与真断供（对照也失败）——批量枚举场景下 strict 空语义
@@ -133,7 +147,10 @@ def _rows_from_bars(bars: list[dict]) -> list[dict]:
 
 
 def _fetch_bars(code: str) -> tuple[list[dict] | None, str]:
-    """统一层拉日线。返回 (rows, 错误摘要)；失败返回 (None, 摘要)。
+    """统一层拉日线。返回 (rows, 源名或错误摘要)；失败返回 (None, 摘要)。
+
+    成功时第二项 = 实际命中的数据源名（tencent/eastmoney/sina），供调用方
+    判断复权口径（sina 为不复权兜底）；失败时为错误文本。
 
     注意：腾讯/东财适配器把 HTTP 异常吞成空返回，因此 WAF 限流在
     attempts 里同样表现为「empty result」——不能靠错误文本区分死码与
@@ -206,13 +223,19 @@ def main(argv: list[str] | None = None) -> int:
     ok = fail = 0
     consec_ctrl_fail = 0  # 连续「失败且对照码也死」→ 真断供信号
     dead_codes = 0
+    waf_backoffs = 0  # 本轮已退避次数（超 WAF_MAX_BACKOFFS 认定真断供）
+    non_qfq_codes = 0  # 经不复权兜底源（sina）落库的只数
     t0 = time.time()
     stopped_early = ""
     last_err = ""
-    for i, code in enumerate(codes):
+    i = 0
+    n = len(codes)
+    while i < n:
+        code = codes[i]
         # 软时限：cron 执行器 900s 硬杀之前安全收尾，剩余交给下轮断点续拉
         # （避免「数据写了一半 + cron 记失败」的双输局面）
-        if not args.no_deadline and time.time() - t0 > SOFT_DEADLINE_S:
+        elapsed = time.time() - t0
+        if not args.no_deadline and elapsed > SOFT_DEADLINE_S:
             stopped_early = f"达软时限 {SOFT_DEADLINE_S}s"
             break
 
@@ -222,6 +245,9 @@ def main(argv: list[str] | None = None) -> int:
             save_klines(code, rows, db_path=db_path)
             ok += 1
             consec_ctrl_fail = 0
+            waf_backoffs = 0  # 成功即证明源恢复，重置退避计数
+            if last_err and last_err not in QFQ_SOURCES:
+                non_qfq_codes += 1  # 命中不复权兜底源，需在收尾时显式提示
         else:
             fail += 1
             if fail <= 5:
@@ -236,22 +262,35 @@ def main(argv: list[str] | None = None) -> int:
             else:
                 consec_ctrl_fail += 1
                 print(f"  ⚠️ {code}: {last_err}；{ctrl_err}")
+                # 【P1 核心】限流是暂态，先退避等待而不是整轮放弃。
+                # 只有在退避次数用尽 / 退避后仍失败 / 剩余预算不够时才中止。
+                remain = SOFT_DEADLINE_S - (time.time() - t0) if not args.no_deadline else 1e9
+                if waf_backoffs < WAF_MAX_BACKOFFS and remain > WAF_MIN_REMAIN_S:
+                    wait = WAF_BACKOFF[min(waf_backoffs, len(WAF_BACKOFF) - 1)]
+                    wait = min(wait, max(0, remain - WAF_MIN_REMAIN_S))
+                    waf_backoffs += 1
+                    print(f"  ⏸ WAF 限流，退避 {wait:.0f}s 后重试（第 {waf_backoffs}/"
+                          f"{WAF_MAX_BACKOFFS} 次，本轮已成功 {ok} 只）", flush=True)
+                    consec_ctrl_fail = 0
+                    time.sleep(wait)
+                    continue  # 不推进 i，重试同一只
                 if consec_ctrl_fail >= CTRL_FAIL_ABORT:
                     stopped_early = (f"连续 {consec_ctrl_fail} 只失败且对照码"
                                      f"也失败（源断供/WAF 限流）")
                     break
-        if (i + 1) % 100 == 0:
+        i += 1
+        if i % 100 == 0:
             el = time.time() - t0
-            rate = el / (i + 1)
-            remain = len(codes) - i - 1
-            print(f"  [{i+1}/{len(codes)}] 成功{ok} 失败{fail} "
+            rate = el / i
+            remain_n = n - i
+            print(f"  [{i}/{n}] 成功{ok} 失败{fail} "
                   f"(死码{dead_codes}) 耗时{el:.0f}s 均速{rate:.2f}s/只 "
-                  f"剩余约{remain*rate:.0f}s")
+                  f"剩余约{remain_n*rate:.0f}s")
         time.sleep(DELAY)
 
     el = time.time() - t0
     if stopped_early:
-        remain = len(codes) - ok - fail
+        remain = n - i  # i 是已处理（推进过）的只数，退避重试不推进 i
         print(f"[tdx-klines] 提前收尾：{stopped_early}；成功 {ok} 失败 {fail} "
               f"(其中死码 {dead_codes}) 剩余 {remain} 只下轮续拉，耗时 {el:.0f}s")
     else:
