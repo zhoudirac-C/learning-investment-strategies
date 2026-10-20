@@ -16,6 +16,8 @@
   的 cube 跳过抓取与监控；跨线时一次性推送剔除通知（state 打 stale 标记防重复），
   若其之后恢复调仓（周度业绩排名重跑后人工复审）再手动清标记。
 限流：SLEEP=5s；110017 走 60/120/180s 退避 + 双域名轮换（xueqiu-cube-tracking 口径）。
+WAF（HTTP 567/403/405/429、「访问提示」页）：站点级拦截，不重试不换域名，本轮 break，
+聚合为一条告警，下轮自动补齐（2026-10-20 实测，见 xueqiu-expert-backtest-ops）。
 状态：data/xueqiu/cube_watch_state.json {symbol: {rb_id, holdings{symbol:weight}, updated_at, stale?}}
 """
 from __future__ import annotations
@@ -110,6 +112,32 @@ class RateLimited(RuntimeError):
     pass
 
 
+class WafBlocked(RuntimeError):
+    """雪球 EdgeOne 站点级拦截（HTTP 567 / 访问提示页 / 403 / 405 / 429 / 阿里挑战壳）。
+
+    2026-10-20 实测：567 = IP+路径级限流，两域名同时拦、换浏览器无效，
+    官方明示"AI Agent 抓取触发后最多几小时自动解封"。不重试、不换域名、
+    不重新登录——本轮直接中止，下轮自动补齐（调仓历史可回溯，不丢数据）。
+    """
+
+
+WAF_CODES = (403, 405, 429, 567)
+WAF_BODY_MARKS = ("访问提示", "renderData", "_waf_", "请求异常已被安全策略拦截")
+
+
+def _is_waf(e: urllib.error.HTTPError, body: str) -> bool:
+    if e.code in WAF_CODES:
+        return True
+    return any(m in body for m in WAF_BODY_MARKS)
+
+
+def fmt_err(e: Exception) -> str:
+    """错误摘要：WAF 拦截页是 HTML，绝不能截进告警文案（零信息量噪声）。"""
+    if isinstance(e, WafBlocked):
+        return str(e)
+    return str(e)[:120]
+
+
 def fetch_current(cube_symbol: str) -> dict:
     """GET /cubes/rebalancing/current.json，110017 退避 + 双域名轮换。"""
     hosts = ["www.xueqiu.com", "xueqiu.com"]
@@ -135,6 +163,8 @@ def fetch_current(cube_symbol: str) -> dict:
                     time.sleep(backoffs[attempt])
                     continue
                 raise RateLimited(f"{cube_symbol} 持续限流 110017")
+            if _is_waf(e, body):
+                raise WafBlocked(f"HTTP {e.code}")
             raise RuntimeError(f"HTTP {e.code} {body[:120]}")
     raise RuntimeError("unreachable")
 
@@ -207,8 +237,10 @@ def main() -> None:
     blocks: list[str] = []
     errors: list[str] = []
     stale_notes: list[str] = []
+    waf_hit: str | None = None   # 站点级拦截：本轮中止，聚合成一条告警
+    waf_skipped = 0              # 被跳过、留待下轮补齐的组合数
     now_ms = time.time() * 1000
-    for m in members:
+    for i, m in enumerate(members):
         sym = m.get("cube_symbol")
         name = m["screen_name"]
         if not sym:
@@ -229,8 +261,15 @@ def main() -> None:
         except RateLimited as e:
             errors.append(f"⚠️ {name} {sym} {e}")
             continue
+        except WafBlocked as e:
+            # 站点级拦截：剩余组合一个都不再打（重试只会延长封锁），本轮中止
+            waf_hit = str(e)
+            waf_skipped = 1 + sum(
+                1 for rest in members[i + 1:] if rest.get("cube_symbol")
+            )
+            break
         except Exception as e:  # noqa: BLE001
-            errors.append(f"⚠️ {name} {sym} 抓取失败: {str(e)[:120]}")
+            errors.append(f"⚠️ {name} {sym} 抓取失败: {fmt_err(e)}")
             continue
         time.sleep(SLEEP)
 
@@ -281,10 +320,13 @@ def main() -> None:
     if args.init:
         log_err(f"基线已建立：{len(state)} 个 cube")
         return
-    if not blocks and not errors and not stale_notes:
+    if not blocks and not errors and not stale_notes and not waf_hit:
         return
     now = datetime.now().strftime("%Y-%m-%d %H:%M")
     out = [f"雪球TOP20-C类 组合调仓监控（{now}）"]
+    if waf_hit:
+        out.append(f"⚠️ 雪球 WAF 拦截（{waf_hit}），{waf_skipped} 个组合本轮未取到，"
+                   f"下轮自动补齐（不丢数据，切勿手动补跑）")
     out.extend(errors)
     out.extend(stale_notes)
     out.extend(blocks)
