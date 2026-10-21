@@ -298,12 +298,12 @@ def _gator_kpl_limit_down() -> int | None:
 # ── Phase 2 辅助函数（2026-10-21）────────────────────────────────────
 
 def _gator_fund_snapshot() -> dict:
-    """增量资金：腾讯量比 + 东财北向资金。
+    """增量资金：腾讯量比。
 
-    量比来自腾讯行情接口（字段 43），北向来自东财 kamt（收盘后清零则 UNKNOWN）。
+    注意：北向资金盘中实时数据已于 2024-05-13 停止披露（港交所调整），
+    本函数不再尝试获取北向数据，仅返回量比。
     """
     volume_ratio = None
-    north_net_inflow = None
 
     # 量比：从腾讯 get_quotes 取（字段 43）
     try:
@@ -315,25 +315,7 @@ def _gator_fund_snapshot() -> dict:
     except Exception:
         pass
 
-    # 北向：东财 kamt（收盘后清零）
-    try:
-        from qing_investment.marketdata.http import http_get_json
-        url = (
-            "https://push2.eastmoney.com/api/qt/kamt/get"
-            "?fields1=f1,f2,f3,f4"
-            "&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61,f62,f63,f64,f65,f66,f67,f68,f69,f70"
-        )
-        data = http_get_json(url, headers={"Referer": "https://quote.eastmoney.com/"}, timeout=10)
-        d = data.get("data") or {}
-        hk2sh = d.get("hk2sh") or {}
-        hk2sz = d.get("hk2sz") or {}
-        north_net_inflow = (hk2sh.get("dayNetAmtIn", 0) or 0) + (hk2sz.get("dayNetAmtIn", 0) or 0)
-        if north_net_inflow == 0:
-            north_net_inflow = None
-    except Exception:
-        pass
-
-    return {"volume_ratio": volume_ratio, "north_net_inflow": north_net_inflow}
+    return {"volume_ratio": volume_ratio, "north_net_inflow": None}
 
 
 # ── Phase 3 辅助函数（2026-10-21）────────────────────────────────────
