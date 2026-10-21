@@ -25,7 +25,7 @@ class TestStopFalling:
             sector={"top_sector_name": "AI", "top_sector_pct": 2.1, "top_sector_red_ratio": 0.82},
             broker={"limit_up_count": 2},
             fund={"volume_ratio": 1.35, "north_net_inflow": 42.0},
-            basis={"basis_delta": 3.2, "index_up": True},
+            basis={"basis_delta": -3.2, "index_up": True},  # 贴水且上涨 → met
         )
         assert isinstance(a, GatorAssessment)
         assert a.met_count == 5
@@ -38,7 +38,7 @@ class TestStopFalling:
             sector={"top_sector_name": "AI", "top_sector_pct": 2.1, "top_sector_red_ratio": 0.82},  # met
             broker={"limit_up_count": 1},  # met
             fund={"volume_ratio": 1.5},  # met
-            basis={"basis_delta": -1.0, "index_up": True},  # not met
+            basis={"basis_delta": 1.0, "index_up": True},  # 升水不算
         )
         assert a.met_count == 3
         assert a.stance == "激进选手可出手"
@@ -46,11 +46,11 @@ class TestStopFalling:
     def test_two_signals_wait(self):
         """2 个满足 → 继续观望。"""
         a = assess_stop_falling(
-            market={"sh_pct": 0.1, "cyb_pct": 2.5, "hs300_pct": 0.2, "zz2000_pct": 1.9},
+            market={"sh_pct": 0.5, "cyb_pct": 0.8, "hs300_pct": 0.6, "zz2000_pct": 0.9},  # 收敛 met
             sector={"top_sector_name": "AI", "top_sector_pct": 0.1, "top_sector_red_ratio": 0.4},
             broker={"limit_up_count": 0},
             fund={"volume_ratio": 1.5},
-            basis={"basis_delta": 1.0, "index_up": True},
+            basis={"basis_delta": -1.0, "index_up": False},  # 下跌途中贴水缩小不算
         )
         assert a.met_count == 2
         assert a.stance == "继续观望"
@@ -65,7 +65,7 @@ class TestStopFalling:
 
     def test_basis_shrink_during_drop_not_valid(self):
         """基差在下跌途中缩小 → 不算（第一章明确）。"""
-        a = assess_stop_falling(basis={"basis_delta": 2.0, "index_up": False})
+        a = assess_stop_falling(basis={"basis_delta": -2.0, "index_up": False})
         basis_sig = next(s for s in a.signals if s.rule_id.endswith("basis"))
         assert basis_sig.level == SignalLevel.NOT_MET
         assert "下跌途中缩小不算" in basis_sig.detail

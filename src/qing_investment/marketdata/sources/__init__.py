@@ -11,10 +11,11 @@
 from qing_investment.marketdata.sources import (
     baidu,
     eastmoney,
+    etf,
     sina,
     tdx,
     tencent,
     ths,
 )
 
-__all__ = ["baidu", "eastmoney", "sina", "tdx", "tencent", "ths"]
+__all__ = ["baidu", "eastmoney", "etf", "sina", "tdx", "tencent", "ths"]

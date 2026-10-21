@@ -374,7 +374,7 @@ def _gator_basis_snapshot(market: dict) -> dict:
 
 
 def _gator_hedge_assessment() -> tuple["GatorSignal", "HedgeLevel"]:
-    """护盘力度分级：大金融（银行/保险/券商）+ 宽基ETF（50/300/500）。
+    """护盘力度分级：大金融（银行/保险/券商）+ 宽基ETF（50/300/500）+ 全ETF。
 
     数据全部来自现有接口，不新增外部依赖。
     """
@@ -386,8 +386,8 @@ def _gator_hedge_assessment() -> tuple["GatorSignal", "HedgeLevel"]:
         big_finance_up = _gator_big_finance_up()
         # 宽基ETF：510050/510300/510500 全部上涨
         broad_etf_up = _gator_broad_etf_up()
-        # 全ETF：暂无可靠源（需要遍历全市场ETF），标记 None
-        all_etf_up = None
+        # 全ETF：akshare fund_etf_spot_ths 遍历全市场 ETF
+        all_etf_up = _gator_all_etf_up()
         # 政策会议：非结构化数据，标记 None
         policy_meeting = None
 
@@ -459,6 +459,18 @@ def _gator_broad_etf_up() -> bool | None:
             if pct is None or float(pct) <= 0:
                 return False
         return True
+    except Exception:
+        return None
+
+
+def _gator_all_etf_up() -> bool | None:
+    """全市场 ETF 是否全部上涨：遍历全市场 ETF (akshare fund_etf_spot_ths)。
+
+    返回：True(全部上涨) / False(有下跌) / None(数据不可用)
+    """
+    try:
+        from qing_investment.marketdata.sources import etf
+        return etf.fetch_etf_all_up()
     except Exception:
         return None
 

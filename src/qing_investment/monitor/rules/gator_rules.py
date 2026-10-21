@@ -357,6 +357,9 @@ def assess_hedge(
     if all_etf_up and policy_meeting:
         level, hl = SignalLevel.MET, HedgeLevel.LARGE
         detail = "全 ETF 轮番上涨 + 政策会议 → 大救市"
+    elif all_etf_up:
+        level, hl = SignalLevel.MET, HedgeLevel.LARGE
+        detail = "全 ETF 轮番上涨 → 大救市"
     elif broad_etf_up:
         level, hl = SignalLevel.MET, HedgeLevel.MEDIUM
         detail = "上证50/300/500 ETF 走强 → 中护盘"
