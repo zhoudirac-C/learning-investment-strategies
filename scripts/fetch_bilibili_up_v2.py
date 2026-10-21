@@ -914,6 +914,7 @@ def save_dynamic_to_file(
     screenshot_path: Path | None = None,
     playwright_pics: list[str] | None = None,
     asr_meta: dict | None = None,
+    up_id: str | None = None,
 ) -> Path:
     if detail_data:
         item = _merge_detail(item, detail_data)
@@ -962,6 +963,16 @@ def save_dynamic_to_file(
         f'source: "bilibili_dynamic"',
         f'up_uid: "{uid}"',
         f'up_name: "{author["name"]}"',
+    ]
+
+    # 多平台同一人：B站 uid → 统一 up_id（claim 入库的口径）。
+    # 例：鳄鱼派 B站 470672214 与公众号「像鳄鱼一样思考」为同一人，统一为 gator-ecyu-0001。
+    _UID_TO_UP_ID = {"470672214": "gator-ecyu-0001"}
+    _unified = up_id or _UID_TO_UP_ID.get(str(uid))
+    if _unified:
+        lines.append(f'up_id: "{_unified}"')
+
+    lines += [
         f'dynamic_id: "{dynamic_id}"',
         f'dynamic_type: "{dyn_type}"',
         f'pub_time: "{pub_time_str}"',

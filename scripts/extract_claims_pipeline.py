@@ -125,7 +125,9 @@ def next_action(session: dict) -> dict:
 **要求：**
 1. 每条 claim 包含 19 个必需字段（id, source_path, source_date, source_type, up_id, extracted_at, claim_type, subject, timeframe, statement, evidence_quote, interpretation, confidence, status, intensity, supersedes, contradicts, links, topic）
    **外加 1 个可选字段 `stance`（本步务必填写，见第 8 条）**。
-2. **up_id 取值规则（重要）**：从 raw 文件头部读取 `up_uid` 字段原样填入（如 "1420210197"）。
+2. **up_id 取值规则（重要）**：
+   - 若 raw 头部有 `up_id` 字段，**原样填入**（用于多平台同一人的合并，例如鳄鱼派 B站 `470672214` → `gator-ecyu-0001`）。
+   - 否则从 raw 文件头部读取 `up_uid` 字段原样填入（如 "1420210197"）。
    - 若 raw 头部无 `up_uid`（手工整理稿），填 "unknown"。
    - 缠论课程（source_path 以 sources/chanlun/ 开头）填 "chanlun-original"。
    - 可选：同时填 `up_name`（raw 头部的 up_name，或 "缠中说禅" / "未标注"）。

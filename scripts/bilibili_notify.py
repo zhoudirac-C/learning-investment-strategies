@@ -199,6 +199,9 @@ def load_ups(explicit_path: str | None = None) -> list[dict]:
                 "uid": str(uid).strip(),
                 "name": (entry.get("name") or str(uid)).strip(),
                 "enabled": True,
+                # 多平台同一人时，允许在 yaml 里指定统一 up_id（如鳄鱼派 → gator-ecyu-0001）。
+                # 该字段仅用于展示与归档，不影响 B 站侧拉取（仍按 uid）。
+                "up_id": (entry.get("up_id") or "").strip() or None,
             })
         if not ups:
             print(f"WARN: {cfg_path} 未解析出任何 UP，回退到默认", file=sys.stderr)
@@ -452,6 +455,7 @@ def process_up(
                 is_only_fans=is_only_fans,
                 sessdata=sessdata,
                 asr_meta=asr_meta,
+                up_id=up.get("up_id"),
             )
             saved_files.append(filepath)
             processed_ids.add(dynamic_id)
