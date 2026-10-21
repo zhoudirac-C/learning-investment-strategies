@@ -1,6 +1,16 @@
 # 操作日志
 
 
+## 2026-10-21 | qing-learning ingest | 卢本圆 10/21 早盘视频（001，9 条）
+
+- 处理 raw：`sources/original/bilibili/2026-10-21-0808-视频-机器人硬件+物理AI双线炒作｜聊聊科技、AI应用、医药，反弹.md`（BV1fPnA6fEzz，04:17，非充电专属）
+- **ASR 手动重跑**：自动链路落 `[ASR失败]`，手动走 view→playurl(fnval=16)→m4s→mp3 链路，mimo-v2.5 主转（29.4s）+ 本地 faster-whisper small 交叉验证；两模型语义/数字/价位一致 → 排除纯 BGM 与权限墙，确认为 API 侧失败
+- 人工校订 3 处：「成本绿的」→绿的谐波(688017)（whisper 亦为「綠的成本」）、「十七万的三博」→「十七万的万邦」（价格指纹 36 元本×17万，且 9/30 raw「万邦成本36」佐证）、「CIO」→「CRO」（whisper 亦为 CIO，语义校正）
+- claim-20261021-001.yaml（9 条，001-a～001-i）：sector-theme×3（机器人反弹双重解释/物理AI炒作锚/CRO急杀不改持有），market-cycle×1（没量所以不是反转只做T），methodology×2（创业板放量阳线为科技确认/表态一致性纪律），operation×3（2.2万亿前不开新仓/新华传媒T点条件单/未提及即未操作）
+- Gate 1/2/3 通过；Gate 2 首轮因 related_stocks 塞入美股 TSLA（非 6 位数字）被拦，移出后通过 —— 记录为「美股不入 related_stocks」
+- wiki 新增 `knowledge/wiki/每日复盘/2026-10-21-卢本圆早盘视频.md`（含与青枫浦 4 个维度的分歧对照）；三个 index 已更新
+- 后续待办：discover（--all-missing）→ Neo4j → Qdrant
+
 ## 2026-10-20 | qing-learning ingest | 10/20 晚间复盘专栏提取（003，18 条）
 
 - 处理 raw：`sources/original/bilibili/2026-10-20-2244-专栏-今天盘面最值得记录的变化，是指数回落时的承接更及时，情绪也开.md`（22:44 发布，充电专属，opus 通道全文）
