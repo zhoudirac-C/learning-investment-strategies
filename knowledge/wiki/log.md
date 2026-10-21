@@ -1,6 +1,15 @@
 # 操作日志
 
 
+## 2026-10-21 | qing-learning ingest | 青枫浦上Q 10/21 早盘专栏（002，19 条）
+
+- 处理 raw：`sources/original/bilibili/2026-10-21-0850-专栏-昨天复盘的判断是，承接增强，主线仍在形成。周二上午与下午的两.md`（08:50 发布，充电专属，opus 通道全文，事件管线 08:55 已自动落盘）
+- claim-20261021-002.yaml（19 条，002-a～002-s）：market-cycle×1（修复延续+今日双重点），technical-signal×1（3741 点日线结构确认线），methodology×5（外盘定开盘内资定方向/三段式量能/情绪基线6家二板/硬软双环节呼应/观察纪律三线互证），operation×4（大金融与科技同步/情形A五条件/情形B与结构降级/今日三变量），sector-theme×8（科技扩散验证/消费承接/涨价财报分化/物理AI能力/端侧AI渗透/智能制造兑现/数据要素回款/物理AI六环节）
+- Gate 1/2/3 **一次通过**（19 条，零假阳性；Step 2 标注 14 家公司代码全部经东财 searchapi 核验）
+- wiki 新增 `knowledge/wiki/每日复盘/2026-10-21-青枫浦上Q早盘专栏.md`；三个 index 已更新
+- 同日已有 claim-20261021-001（卢本圆早盘视频 9 条），本篇编号顺延为 002
+- 后续待办：discover（--all-missing，仅新增 19 条）→ Neo4j migrate → Qdrant 重建
+
 ## 2026-10-21 | qing-learning ingest | 卢本圆 10/21 早盘视频（001，9 条）
 
 - 处理 raw：`sources/original/bilibili/2026-10-21-0808-视频-机器人硬件+物理AI双线炒作｜聊聊科技、AI应用、医药，反弹.md`（BV1fPnA6fEzz，04:17，非充电专属）
