@@ -1,5 +1,15 @@
 # 操作日志
 
+## 2026-10-21 | qing-learning ingest | 鳄鱼派 10/20 护盘转发提取（gator，004，1 条）
+
+- 处理 raw：`sources/original/bilibili/2026-10-20-1441-转发-…护盘护不起来…拉一拉.md`（14:41，纯文字，转发+自评论）
+- claim-20261020-004.yaml（1 条，004-a）：methodology×1（护盘是轮动换仓不是单边推涨，护盘方会「偶尔往西指一指」做换仓，924 的教训是大家都朝东走就没得走）
+- up_id=gator-ecyu-0001（B站 470672214 经 schools.resolve_up_id 归一化）；school=gator 已回填
+- Gate 1/2/3 一次通过，related_stocks 空（无个股）
+- 这是鳄鱼派 B 站侧首次入 claim 库（此前仅公众号 10-15 的 11 条）；raw 头部已补 `up_id` 字段
+- 后续：与 discover/migrate/Qdrant 合并到 10-21 视频提取后一起跑
+
+
 
 ## 2026-10-21 | qing-learning ingest | 青枫浦上Q 10/21 早盘专栏（002，19 条）
 
