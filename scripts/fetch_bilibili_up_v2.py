@@ -966,9 +966,17 @@ def save_dynamic_to_file(
     ]
 
     # 多平台同一人：B站 uid → 统一 up_id（claim 入库的口径）。
-    # 例：鳄鱼派 B站 470672214 与公众号「像鳄鱼一样思考」为同一人，统一为 gator-ecyu-0001。
-    _UID_TO_UP_ID = {"470672214": "gator-ecyu-0001"}
-    _unified = up_id or _UID_TO_UP_ID.get(str(uid))
+    # 单一真相源 = config/schools.yaml 的 platforms 段（qing-dual-school-architecture），
+    # 调用方也可显式传 up_id 覆盖。禁止再在这里硬编码映射表，避免多处漂移。
+    _unified = up_id
+    if not _unified:
+        try:
+            from qing_investment.schools import resolve_up_id  # 需要 PYTHONPATH=src
+            _r = resolve_up_id(str(uid))
+            if _r and _r != str(uid):  # 发生了归一化才写入
+                _unified = _r
+        except Exception:
+            _unified = None
     if _unified:
         lines.append(f'up_id: "{_unified}"')
 
