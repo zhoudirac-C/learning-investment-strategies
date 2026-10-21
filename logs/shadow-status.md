@@ -1,7 +1,7 @@
-# 影子双轨完整性报告（2026-10-20）
+# 影子双轨完整性报告（2026-10-21）
 
-- 记录日数: 130，完整: 130
-- 提案: open 96 / applied 11 / pending 3 / rejected 0 / retracted 8
+- 记录日数: 132，完整: 132
+- 提案: open 99 / applied 11 / pending 3 / rejected 0 / retracted 8
 
 | 日期 | 阶段判定 | 状态 | 归因 | 完整 |
 |---|---|---|---|---|
@@ -125,8 +125,8 @@
 | 2026-10-12 | 对 | scored | 有 | ✅ |
 | 2026-10-13 | 对 | scored | 有 | ✅ |
 | 2026-10-13 | 对 | scored | 有 | ✅ |
-| 2026-10-14 | 对 | pending_maturity | - | ✅ |
-| 2026-10-14 | 对 | pending_maturity | - | ✅ |
+| 2026-10-14 | 对 | scored | 有 | ✅ |
+| 2026-10-14 | 对 | scored | 有 | ✅ |
 | 2026-10-15 | 错 | pending_maturity | 有 | ✅ |
 | 2026-10-15 | 错 | pending_maturity | 有 | ✅ |
 | 2026-10-16 | 错 | pending_maturity | 有 | ✅ |
@@ -135,6 +135,8 @@
 | 2026-10-19 | 对 | pending_maturity | - | ✅ |
 | 2026-10-20 | 对 | pending_maturity | - | ✅ |
 | 2026-10-20 | 对 | pending_maturity | - | ✅ |
+| 2026-10-21 | 对 | pending_maturity | - | ✅ |
+| 2026-10-21 | 对 | pending_maturity | - | ✅ |
 
 ## 待处理提案（open 置顶）
 
@@ -226,6 +228,9 @@
 - 2026-10-13-capability-boundary-note.md
 - 2026-10-13-glossary-patch-note.md
 - 2026-10-13-pattern-patch-note.md
+- 2026-10-14-capability-boundary-direction-track.md
+- 2026-10-14-glossary-patch-note.md
+- 2026-10-14-pattern-patch-note.md
 - 2026-10-15-capability-boundary-global-macro-sector-intraday.md
 - 2026-10-15-capability-boundary-note.md
 - 2026-10-15-glossary-patch-note.md

@@ -98,10 +98,17 @@ def _load_gator_rules_snapshot() -> dict:
 
     确定性规则（不占 token 的判断）在注入前先跑一遍，LLM 只负责解读。
     数据源不可用时返回 {"available": False, "reason": ...}，不编造数值。
+
+    2026-10-21 Phase 1 补全：
+    - 火车头板块（新浪 sector_data）
+    - 券商涨停（新浪 getHQNodeData 券商重仓板块）
+    - 量比（暂无可靠源，标记 UNKNOWN）
+    - 情绪冰点（微盘股=中证2000/国证2000 代理 + 跌停家数从 KPL 开盘啦取）
     """
     try:
         from qing_investment import marketdata as md
         from qing_investment.monitor.rules.gator_rules import (
+            assess_emotion_ice,
             assess_scissors, assess_stop_falling,
         )
 
@@ -123,8 +130,26 @@ def _load_gator_rules_snapshot() -> dict:
         if all(v is None for v in market.values()):
             return {"available": False, "reason": "指数数据不可用"}
 
-        stop = assess_stop_falling(market=market)
+        # ── Phase 1 补全：火车头板块（新浪 sector_data）────────────────────
+        sector = _gator_sector_snapshot()
+        # ── Phase 1 补全：券商涨停（新浪 getHQNodeData）────────────────────
+        broker = _gator_broker_limit_up()
+        # ── Phase 1 补全：量比（东财北向资金，收盘后清零则 UNKNOWN）─────────
+        fund = _gator_fund_snapshot()
+        # ── Phase 1 补全：基差（暂无可靠源，标记 UNKNOWN）──────────────────
+        basis = {"basis_delta": None, "index_up": market.get("sh_pct")}
+
+        stop = assess_stop_falling(
+            market=market, sector=sector, broker=broker, fund=fund, basis=basis,
+        )
         scissors = assess_scissors(market.get("hs300_pct"), market.get("zz2000_pct"))
+
+        # ── Phase 1 补全：情绪冰点（微盘股=中证2000/国证2000 代理 + 跌停家数）──
+        ice = _gator_emotion_ice(market)
+
+        # ── Phase 2 补全：护盘分级（大金融 + 宽基ETF）─────────────────────
+        hedge_signal, hedge_level = _gator_hedge_assessment()
+
         return {
             "available": True,
             "school": "gator",
@@ -139,6 +164,15 @@ def _load_gator_rules_snapshot() -> dict:
                 ],
             },
             "scissors": {"level": scissors.level.value, "detail": scissors.detail},
+            "emotion_ice": {
+                "level": ice.level.value,
+                "detail": ice.detail,
+            },
+            "hedge": {
+                "level": hedge_signal.level.value,
+                "detail": hedge_signal.detail,
+                "hedge_level": hedge_level.value,
+            },
             "note": (
                 "以上为确定性规则引擎输出（非 LLM 判断）。"
                 "UNKNOWN 表示数据缺失，不得当作不满足；"
@@ -147,6 +181,236 @@ def _load_gator_rules_snapshot() -> dict:
         }
     except Exception as exc:
         return {"available": False, "reason": f"gator 规则引擎不可用: {exc}"}
+
+
+# ── Phase 1 辅助函数（2026-10-21）────────────────────────────────────
+
+def _gator_sector_snapshot() -> dict:
+    """火车头板块：新浪 sector_data 取领涨行业板块 + 红盘比。"""
+    try:
+        from qing_investment.agent.tools import sector_data
+        snap = sector_data.get_sector_strength_snapshot(top_n=1)
+        leaders = snap.get("industry", {}).get("leaders", [])
+        if not leaders:
+            return {"top_sector_name": None, "top_sector_pct": None, "top_sector_red_ratio": None}
+        top = leaders[0]
+        # 红盘比需要从成分股统计，sector_data 当前不返回 up_count/down_count
+        # 用 getHQNodeData 拉成分股统计
+        red_ratio = _gator_calc_red_ratio(top.get("code", ""))
+        return {
+            "top_sector_name": top.get("name"),
+            "top_sector_pct": top.get("pct_change"),
+            "top_sector_red_ratio": red_ratio,
+        }
+    except Exception:
+        return {"top_sector_name": None, "top_sector_pct": None, "top_sector_red_ratio": None}
+
+
+def _gator_calc_red_ratio(sector_code: str) -> float | None:
+    """计算板块红盘比（新浪 getHQNodeData）。"""
+    try:
+        from qing_investment.agent.tools.sector_data import _request_with_retry, _SINA_HEADERS
+        import json as _json
+        # sector_code 格式如 hangye_ZA04，新浪 node 参数直接用
+        url = (
+            "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/"
+            f"Market_Center.getHQNodeData?page=1&num=80&sort=changepercent&asc=0"
+            f"&node={sector_code}&symbol=&_s_r_a=init"
+        )
+        data = _request_with_retry(url, _SINA_HEADERS, retries=1, timeout=10)
+        rows = _json.loads(data.decode("gbk", errors="ignore"))
+        if not rows:
+            return None
+        up = sum(1 for r in rows if float(r.get("changepercent", 0)) > 0)
+        return round(up / len(rows), 4)
+    except Exception:
+        return None
+
+
+def _gator_broker_limit_up() -> dict:
+    """券商涨停：新浪 gn_qszc（券商重仓）板块成分股，统计涨幅 ≥9.9% 的数量。"""
+    try:
+        from qing_investment.agent.tools.sector_data import _request_with_retry, _SINA_HEADERS
+        import json as _json
+        url = (
+            "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/"
+            "Market_Center.getHQNodeData?page=1&num=80&sort=changepercent&asc=0"
+            "&node=gn_qszc&symbol=&_s_r_a=init"
+        )
+        data = _request_with_retry(url, _SINA_HEADERS, retries=1, timeout=10)
+        rows = _json.loads(data.decode("gbk", errors="ignore"))
+        limit_up = sum(1 for r in rows if float(r.get("changepercent", 0)) >= 9.9)
+        return {"limit_up_count": limit_up}
+    except Exception:
+        return {"limit_up_count": None}
+
+
+def _gator_emotion_ice(market: dict) -> "GatorSignal":
+    """情绪冰点：微盘股（中证2000/国证2000 代理）+ 跌停家数（KPL 开盘啦）。"""
+    try:
+        from qing_investment import marketdata as md
+        from qing_investment.monitor.rules.gator_rules import assess_emotion_ice
+
+        # 微盘股代理：中证2000（sh000852）或国证2000（sz399303）
+        weiwang_pct = market.get("zz2000_pct")
+        if weiwang_pct is None:
+            snap = md.get_quotes(["sz399303"])
+            quotes = snap.get("quotes") or []
+            if quotes:
+                try:
+                    weiwang_pct = float(quotes[0].get("change_pct"))
+                except (TypeError, ValueError):
+                    weiwang_pct = None
+
+        # 跌停家数：从 KPL 开盘啦取（今日数据）
+        limit_down = _gator_kpl_limit_down()
+
+        return assess_emotion_ice(
+            weiwang_drop_pct=weiwang_pct,
+            limit_down_count=limit_down,
+            index_drop_pct=market.get("sh_pct"),
+        )
+    except Exception:
+        from qing_investment.monitor.rules.gator_rules import GatorSignal, SignalLevel
+        return GatorSignal(
+            "gator-01-ice", "短期情绪冰点", SignalLevel.UNKNOWN,
+            "数据加载异常", source_chapter="第一章",
+        )
+
+
+def _gator_kpl_limit_down() -> int | None:
+    """从 KPL 开盘啦 emotion 文件取今日跌停家数。"""
+    try:
+        from qing_investment.agent.graph.nodes import _REPO_ROOT
+        import json as _json
+        from datetime import datetime as _dt
+        today = _dt.now().strftime("%Y-%m-%d")
+        path = _REPO_ROOT / "infra" / "data" / "kpl" / "emotion" / f"{today}.json"
+        if not path.exists():
+            return None
+        raw = _json.loads(path.read_text(encoding="utf-8"))
+        daban = raw.get("daban") or {}
+        return daban.get("tDieTing")
+    except Exception:
+        return None
+
+
+# ── Phase 2 辅助函数（2026-10-21）────────────────────────────────────
+
+def _gator_fund_snapshot() -> dict:
+    """增量资金：东财北向资金（hk2sh + hk2sz 净买入）。
+
+    注意：东财接口在收盘后 dayNetAmtIn 会清零，此时返回 None（UNKNOWN）。
+    """
+    try:
+        from qing_investment.marketdata.http import http_get_json
+        url = (
+            "https://push2.eastmoney.com/api/qt/kamt/get"
+            "?fields1=f1,f2,f3,f4"
+            "&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61,f62,f63,f64,f65,f66,f67,f68,f69,f70"
+        )
+        data = http_get_json(url, headers={"Referer": "https://quote.eastmoney.com/"}, timeout=10)
+        d = data.get("data") or {}
+        hk2sh = d.get("hk2sh") or {}
+        hk2sz = d.get("hk2sz") or {}
+        # 北向 = 香港买上海 + 香港买深圳
+        north_net = (hk2sh.get("dayNetAmtIn", 0) or 0) + (hk2sz.get("dayNetAmtIn", 0) or 0)
+        # 收盘后清零 → 返回 None（UNKNOWN）
+        if north_net == 0:
+            north_net = None
+        return {"volume_ratio": None, "north_net_inflow": north_net}
+    except Exception:
+        return {"volume_ratio": None, "north_net_inflow": None}
+
+
+def _gator_hedge_assessment() -> tuple["GatorSignal", "HedgeLevel"]:
+    """护盘力度分级：大金融（银行/保险/券商）+ 宽基ETF（50/300/500）。
+
+    数据全部来自现有接口，不新增外部依赖。
+    """
+    try:
+        from qing_investment import marketdata as md
+        from qing_investment.monitor.rules.gator_rules import assess_hedge
+
+        # 大金融：银行（hangye_ZJ66）+ 保险（hangye_ZJ68）+ 券商（hangye_ZJ67）
+        big_finance_up = _gator_big_finance_up()
+        # 宽基ETF：510050/510300/510500 全部上涨
+        broad_etf_up = _gator_broad_etf_up()
+        # 全ETF：暂无可靠源（需要遍历全市场ETF），标记 None
+        all_etf_up = None
+        # 政策会议：非结构化数据，标记 None
+        policy_meeting = None
+
+        return assess_hedge(
+            big_finance_up=big_finance_up,
+            broad_etf_up=broad_etf_up,
+            all_etf_up=all_etf_up,
+            policy_meeting=policy_meeting,
+        )
+    except Exception:
+        from qing_investment.monitor.rules.gator_rules import GatorSignal, SignalLevel, HedgeLevel
+        return (
+            GatorSignal(
+                "gator-12-hedge", "护盘力度分级", SignalLevel.UNKNOWN,
+                "数据加载异常", source_chapter="第十二章",
+            ),
+            HedgeLevel.NONE,
+        )
+
+
+def _gator_big_finance_up() -> bool | None:
+    """大金融是否上涨：银行 + 保险 + 券商 三个板块中 ≥2 个红盘即视为上涨。"""
+    try:
+        from qing_investment.agent.tools.sector_data import _request_with_retry, _SINA_HEADERS
+        import json as _json
+
+        boards = {
+            "银行": "hangye_ZJ66",
+            "保险": "hangye_ZJ68",
+            "券商": "hangye_ZJ67",
+        }
+        up_count = 0
+        total = 0
+        for name, node in boards.items():
+            url = (
+                "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/"
+                f"Market_Center.getHQNodeData?page=1&num=80&sort=changepercent&asc=0"
+                f"&node={node}&symbol=&_s_r_a=init"
+            )
+            try:
+                data = _request_with_retry(url, _SINA_HEADERS, retries=1, timeout=10)
+                rows = _json.loads(data.decode("gbk", errors="ignore"))
+                if not rows:
+                    continue
+                total += 1
+                up = sum(1 for r in rows if float(r.get("changepercent", 0)) > 0)
+                if up / len(rows) >= 0.5:  # 板块内 ≥50% 上涨
+                    up_count += 1
+            except Exception:
+                continue
+        if total == 0:
+            return None
+        return up_count >= 2  # ≥2 个大金融板块红盘
+    except Exception:
+        return None
+
+
+def _gator_broad_etf_up() -> bool | None:
+    """宽基ETF是否全部上涨：50ETF + 300ETF + 500ETF 全部 >0。"""
+    try:
+        from qing_investment import marketdata as md
+        etfs = ["sh510050", "sh510300", "sh510500"]
+        snap = md.get_quotes(etfs)
+        quotes = snap.get("quotes") or []
+        if len(quotes) < 3:
+            return None
+        for q in quotes:
+            pct = q.get("change_pct")
+            if pct is None or float(pct) <= 0:
+                return False
+        return True
+    except Exception:
+        return None
 
 
 def _load_school_conflicts_block() -> str:
