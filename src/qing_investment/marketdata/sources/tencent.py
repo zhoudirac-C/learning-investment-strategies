@@ -178,6 +178,7 @@ def fetch_quotes(codes: list[str], *, kind: str = "auto") -> list[dict]:
                 "change_pct": float(vals[32] or 0),
                 "amount": amount,
                 "volume": float(vals[36] or 0),
+                "volume_ratio": float(vals[43]) if vals[43] else None,  # 2026-10-21 Phase 3：量比
                 "pe_ttm": float(vals[39]) if vals[39] else None,
                 "pb": float(vals[46]) if vals[46] else None,
                 "mcap": float(vals[45]) if vals[45] else None,  # 总市值(亿)

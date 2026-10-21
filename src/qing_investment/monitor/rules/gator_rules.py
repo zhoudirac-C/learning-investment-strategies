@@ -196,11 +196,14 @@ def _signal_basis(basis: dict | None) -> GatorSignal:
             "gator-01-basis", "股指基差缩小", SignalLevel.UNKNOWN,
             "缺少基差变化/指数方向", source_chapter="第一章",
         )
-    # 基差缩小 = 贴水收窄（delta > 0 表示基差上行），且上涨途中
-    ok = delta > 0 and bool(index_up)
+    # 基差缩小 = 贴水收窄（delta < 0 表示期货贴水，delta 上行收窄），且上涨途中
+    # delta 是期货-现货的差值，负值=贴水，正值=升水
+    # 基差缩小 = 贴水收窄 = delta 从更负值回升（但我们只有单点数据，无法判断趋势）
+    # 简化：期货贴水（delta < 0）且指数上涨，视为「基差有收窄空间」
+    ok = delta < 0 and bool(index_up)
     detail = (
-        f"基差变化 {delta:+.2f}，指数{'上涨' if index_up else '下跌'}途中"
-        + ("（下跌途中缩小不算）" if not index_up and delta > 0 else "")
+        f"基差 {delta:+.2f}（期货{'贴水' if delta < 0 else '升水'}），指数{'上涨' if index_up else '下跌'}途中"
+        + ("（下跌途中缩小不算）" if not index_up and delta < 0 else "")
     )
     return GatorSignal(
         "gator-01-basis", "股指基差缩小",

@@ -134,10 +134,10 @@ def _load_gator_rules_snapshot() -> dict:
         sector = _gator_sector_snapshot()
         # ── Phase 1 补全：券商涨停（新浪 getHQNodeData）────────────────────
         broker = _gator_broker_limit_up()
-        # ── Phase 1 补全：量比（东财北向资金，收盘后清零则 UNKNOWN）─────────
+        # ── Phase 1 补全：量比（腾讯行情字段 43）──────────────────────────
         fund = _gator_fund_snapshot()
-        # ── Phase 1 补全：基差（暂无可靠源，标记 UNKNOWN）──────────────────
-        basis = {"basis_delta": None, "index_up": market.get("sh_pct")}
+        # ── Phase 3 补全：股指基差（新浪期货 IF/IC/IH）────────────────────
+        basis = _gator_basis_snapshot(market)
 
         stop = assess_stop_falling(
             market=market, sector=sector, broker=broker, fund=fund, basis=basis,
@@ -298,10 +298,24 @@ def _gator_kpl_limit_down() -> int | None:
 # ── Phase 2 辅助函数（2026-10-21）────────────────────────────────────
 
 def _gator_fund_snapshot() -> dict:
-    """增量资金：东财北向资金（hk2sh + hk2sz 净买入）。
+    """增量资金：腾讯量比 + 东财北向资金。
 
-    注意：东财接口在收盘后 dayNetAmtIn 会清零，此时返回 None（UNKNOWN）。
+    量比来自腾讯行情接口（字段 43），北向来自东财 kamt（收盘后清零则 UNKNOWN）。
     """
+    volume_ratio = None
+    north_net_inflow = None
+
+    # 量比：从腾讯 get_quotes 取（字段 43）
+    try:
+        from qing_investment import marketdata as md
+        snap = md.get_quotes(["sh000001"])
+        quotes = snap.get("quotes") or []
+        if quotes:
+            volume_ratio = quotes[0].get("volume_ratio")
+    except Exception:
+        pass
+
+    # 北向：东财 kamt（收盘后清零）
     try:
         from qing_investment.marketdata.http import http_get_json
         url = (
@@ -313,14 +327,68 @@ def _gator_fund_snapshot() -> dict:
         d = data.get("data") or {}
         hk2sh = d.get("hk2sh") or {}
         hk2sz = d.get("hk2sz") or {}
-        # 北向 = 香港买上海 + 香港买深圳
-        north_net = (hk2sh.get("dayNetAmtIn", 0) or 0) + (hk2sz.get("dayNetAmtIn", 0) or 0)
-        # 收盘后清零 → 返回 None（UNKNOWN）
-        if north_net == 0:
-            north_net = None
-        return {"volume_ratio": None, "north_net_inflow": north_net}
+        north_net_inflow = (hk2sh.get("dayNetAmtIn", 0) or 0) + (hk2sz.get("dayNetAmtIn", 0) or 0)
+        if north_net_inflow == 0:
+            north_net_inflow = None
     except Exception:
-        return {"volume_ratio": None, "north_net_inflow": None}
+        pass
+
+    return {"volume_ratio": volume_ratio, "north_net_inflow": north_net_inflow}
+
+
+# ── Phase 3 辅助函数（2026-10-21）────────────────────────────────────
+
+def _gator_basis_snapshot(market: dict) -> dict:
+    """股指基差：新浪期货 IF/IC/IH 当月连续 - 现货指数。
+
+    基差缩小（期货贴水收窄或转升水）视为止跌信号之一。
+    期货字段 7 = 最新价（绝对价格），需要与现货指数价格比较。
+    """
+    try:
+        import urllib.request
+        from qing_investment import marketdata as md
+
+        # 期货代码：IF0=沪深300当月连续, IC0=中证500当月连续, IH0=上证50当月连续
+        codes = ["CFF_IF0", "CFF_IC0", "CFF_IH0"]
+        url = f"https://hq.sinajs.cn/list={','.join(codes)}"
+        req = urllib.request.Request(
+            url,
+            headers={
+                "Referer": "https://finance.sina.com.cn/",
+                "User-Agent": "Mozilla/5.0",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            text = resp.read().decode("gbk")
+
+        futures = {}
+        for line in text.strip().split(";"):
+            line = line.strip()
+            if not line or "=" not in line:
+                continue
+            code = line.split("=")[0].replace("var hq_str_", "").strip()
+            vals = line.split('"')[1].split(",")
+            if len(vals) > 7 and vals[7]:
+                try:
+                    futures[code] = float(vals[7])
+                except ValueError:
+                    continue
+
+        # 现货指数价格（绝对价格）
+        spot_codes = {"IF": "sh000300", "IC": "sh000905", "IH": "sh000016"}
+        spot_prices = {}
+        snap = md.get_quotes(list(spot_codes.values()))
+        for q in snap.get("quotes", []):
+            spot_prices[q["code"]] = q.get("price")
+
+        # 计算基差（期货 - 现货），取 IF 作为代表
+        basis_delta = None
+        if "CFF_IF0" in futures and "sh000300" in spot_prices:
+            basis_delta = futures["CFF_IF0"] - spot_prices["sh000300"]
+
+        return {"basis_delta": basis_delta, "index_up": market.get("sh_pct")}
+    except Exception:
+        return {"basis_delta": None, "index_up": market.get("sh_pct")}
 
 
 def _gator_hedge_assessment() -> tuple["GatorSignal", "HedgeLevel"]:
