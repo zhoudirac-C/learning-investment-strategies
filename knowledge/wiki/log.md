@@ -3141,3 +3141,25 @@ ASR 不可用属预期限制，非采集故障。
 - 终验：17/17 关键包 import 正常；hub 0.36.2；embedding 端到端可用；uv sync 幂等；Agent 已重启
 
 **环境知识落点**：`SOUL.md`（项目）+ `~/.hermes/SOUL.md`（全局）+ skill `qing-bilibili-manual-fetch`
+
+## 2026-10-22 | claim | 提取 10-21 mark_huang 与卢本圆复盘动态（12 条，落 watchlist 隔离区）
+
+- **范围**：用户要求「提取昨天 mark_huang 和卢本圆复盘的动态 claim，注意区分 up_id」
+  - 昨天 = 2026-10-21，目标 UP：`Mark__Huang`(424405794) + `卢本圆复盘`(550494308)
+  - 盘查 10-21 全部 raw：卢本圆 2 条（08:08 视频 + 10:04 图片）、Mark 1 条（22:35 图片）、青枫浦上Q 4 条（非目标，未动）
+  - **卢本圆 08:08 视频已提取过**（`claim-20261021-001-a~i`，10-21 提交 `3d7d23ec`），本次不重复提取
+- **up_id 区分**：12 条 claim 分属两个 up_id —— `006-*` = 550494308（卢本圆）、`007-*` = 424405794（Mark）；`up_name` 分别标注，`school` 全部推导为 `watchlist`
+- **归属纠偏（重要）**：Mark 10-21 22:35 动态原文标题即「免责声明: 他人观点仅供参考」，内容是**他转发的中庚基金丘栋荣《TriValue 路演纪要》OCR**，不是 Mark 本人原创观点
+  - 处理：`source_type` = 转发（第三方路演纪要）；`confidence` = medium；`intensity` = low；10 条 `interpretation` 首句均写明「转发内容（原作者中庚基金丘栋荣）」
+  - wiki 页顶部加「归属声明」段，明确引用时须写「丘栋荣认为」而非「Mark 认为」
+- **写入位置（用户 2026-10-22 拍板选项 1）**：`config/schools.yaml` 中 watchlist 学派 `claims_enabled: false` → claim **不进主库** `knowledge/claims/`，只落 `archive/schools/watchlist/claims-quarantine.yaml`（377 → 389 条）
+  - 因此**不跑 discover / Neo4j / Qdrant**：隔离区不参与检索，不进 Agent 上下文（与 10-22 早前 `f22b2d36` 的学派隔离合规化结论一致）
+- **提取门槛执行**：
+  - 卢本圆 10:04：4 句原文 → 2 条 claim。「打野号实盘号都没动」为持仓状态陈述非观点，未提；「科技三傻拉高…做T」提为条件化操作建议（`006-b`），未当方向性看多
+  - Mark 转发：长纪要 12 章 → 10 条真观点（低估值=雷/确定性锚定倍数/AI破坏资本回报/阿里最差拼多多最好/反轮动/资本投入权重80%/供给收缩/美元定价中国资产洼地/低波动率PUTs做空/定价位置与alpha）；纯个股事实、机构数据、产品描述均未提
+- **重复检测**：三层（id 冲突 / statement 指纹 / embedding 语义 ≥0.92）全 clean，12 条与主库+隔离区无重叠
+- **门禁**：Gate 1/2/3 全通过（字段完整性、枚举、原子性、related_stocks 格式、股票代码标注）
+- **related_stocks**：中文在线(300364)、新华传媒(600825)、阿里(09988.HK)、拼多多(PDD.US)、腾讯(00700.HK)、百度(09888.HK) —— 境外标的 role 已标注不可交易，创业板标的标注创业板不可交易
+- **wiki 新增**：`knowledge/wiki/每日复盘/2026-10-21-卢本圆盘中动态.md`、`2026-10-21-Mark__Huang转发丘栋荣路演.md`（后者含与青枫浦上Q 框架的差异对照表，防止「低估值=安全垫」误用）
+- **索引**：`每日复盘/index.md` + `wiki/index.md` 已更新（`build_indexes.py` 重建）；`claims/index.md` 无需动（隔离区不入主库索引）
+

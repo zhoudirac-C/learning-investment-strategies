@@ -13601,3 +13601,441 @@
   disagrees_with: []
   school: watchlist
   last_discovered: null
+- id: claim-20261021-006-a
+  source_path: sources/original/bilibili/2026-10-21-1004-图片-中文我下午会减，到时候交割单放这条置顶。 目前综合仓位中文有.md
+  source_date: '2026-10-21'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-10-22T18:00:00+08:00'
+  claim_type: stock-view
+  subject: 减仓中文在线
+  timeframe: short-term
+  statement: 卢本圆计划当日下午减仓中文在线(300364)，综合仓位在中文上有80万以上、要降一点，直接触发因素是担心次新华传媒(600825)的情况
+  evidence_quote: 中文我下午会减，到时候交割单放这条置顶。目前综合仓位中文有80w+，要降一点。主要担心明天新华传媒的情况。
+  interpretation: 这是卢本圆对次日新华传媒的不确定性做出的仓位前置动作——先降中文在线（AI应用情绪龙头）敞口，而不是等新华传媒走坏再砍。体现「个股风险先在相关标的上降敞口」的操作次序。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: '2026-10-22'
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 减仓中文在线以应对新华传媒次日不确定性
+  stance: view
+  related_stocks:
+  - code: '300364'
+    name: 中文在线
+    role: 创业板不可交易-UP当日减仓标的，仅作持仓记录
+  - code: '600825'
+    name: 新华传媒
+    role: 主板可交易-AI应用情绪龙头，本次减仓的外部风险源
+  tags:
+  - 中文在线
+  - 新华传媒
+  - 减仓
+  - AI应用
+  - 仓位管理
+  school: watchlist
+  disagrees_with: []
+
+- id: claim-20261021-006-b
+  source_path: sources/original/bilibili/2026-10-21-1004-图片-中文我下午会减，到时候交割单放这条置顶。 目前综合仓位中文有.md
+  source_date: '2026-10-21'
+  source_type: 动态
+  up_id: '550494308'
+  up_name: 卢本圆复盘
+  extracted_at: '2026-10-22T18:00:00+08:00'
+  claim_type: operation
+  subject: 科技三股拉高可做T
+  timeframe: short-term
+  statement: 卢本圆给出的是「科技三只标的若拉高、会做T的可以适当做T」的条件化操作建议，而非方向性看多
+  evidence_quote: 科技三傻拉高如果有懂得T的，可以适当做T。
+  interpretation: 与其早盘视频里「大盘量能到2.2万亿前只做T不开新仓」的纪律一致——在没量的环境里只做存量仓位的日内差价，不加新仓；且触发条件是「拉高」而非「放量突破」。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: '2026-10-22'
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 科技三股拉高做T的条件化建议
+  stance: view
+  related_stocks: []
+  tags:
+  - 科技三股
+  - 做T
+  - 量能纪律
+  - 条件化操作
+  school: watchlist
+  disagrees_with: []
+
+- id: claim-20261021-007-a
+  source_path: sources/original/bilibili/2026-10-21-2235-图片-免责声明 他人观点仅供参考，不构成任何投资建议.md
+  source_date: '2026-10-21'
+  source_type: 转发（第三方路演纪要）
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-10-22T18:10:00+08:00'
+  claim_type: methodology
+  subject: 低估值是雷的先兆而非均值回归
+  timeframe: permanent
+  statement: 低估值不是均值回归、也不是周期投资：低估值的东西通常本身有问题，估值低往往是「雷」的先兆指标，因此「便宜了跌多了就去买」这个逻辑不成立
+  evidence_quote: 低估值通常是「雷」。低估值的东西，通常情况下是有问题的一一所以我们不是做空高估值，我们更愿意做空低估值。...2．不是均值回归。不是说你跌下去了，就一定会涨回来。3．不是周期投资。...所以「便宜了、跌多了就去买」这个逻辑是不成立的。估值低，通常是「雷」的先兆指标。
+  interpretation: 转发内容（原作者中庚基金丘栋荣）的低估值框架：把「低估值」从安全垫重新定义为风险信号。这是反直觉且可证伪的判断——与青枫浦上Q「低估值+基本面」的框架方向相反，注意不要混同。两人虽同为「低吸」取向，但对低估值本身的风险定性完全不同。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: '2026-10-22'
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 低估值是风险信号而非安全垫
+  stance: view
+  related_stocks: []
+  tags:
+  - 低估值
+  - 均值回归
+  - 风险信号
+  - 价值投资
+  school: watchlist
+  disagrees_with: []
+
+- id: claim-20261021-007-b
+  source_path: sources/original/bilibili/2026-10-21-2235-图片-免责声明 他人观点仅供参考，不构成任何投资建议.md
+  source_date: '2026-10-21'
+  source_type: 转发（第三方路演纪要）
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-10-22T18:10:00+08:00'
+  claim_type: methodology
+  subject: 估值倍数由确定性决定
+  timeframe: permanent
+  statement: 估值高低本身不是买卖依据：真正的问题是公司未来的确定性，确定性向上才配15-20倍估值，确定性向下则不论多低都不碰，本质是风险定价而非估值定价
+  evidence_quote: 站在今天，我判断它未来的确定性：如果确定性是向上的，你愿意给它 15倍、20倍的估值，哪怕它现在是10倍；但如果它的确定性是向下的，那就另当别论。本质上，它是一个风险定价的问题，低估值只是最终的表现。
+  interpretation: 转发内容（原作者中庚基金丘栋荣）的方法论：把「倍数」替换为「确定性」作为估值锚。可操作含义是——低倍数不等于买点，必须先判断现金流确定性方向，这与青枫浦上Q「量能+主线」框架属不同体系（此为定性框架，非择时）。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: '2026-10-22'
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 确定性锚定估值倍数
+  stance: view
+  related_stocks: []
+  tags:
+  - 估值
+  - 确定性
+  - 风险定价
+  - 倍数
+  school: watchlist
+  disagrees_with: []
+
+- id: claim-20261021-007-c
+  source_path: sources/original/bilibili/2026-10-21-2235-图片-免责声明 他人观点仅供参考，不构成任何投资建议.md
+  source_date: '2026-10-21'
+  source_type: 转发（第三方路演纪要）
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-10-22T18:10:00+08:00'
+  claim_type: sector-theme
+  subject: AI是资本回报的破坏性力量
+  timeframe: trend
+  statement: AI 的商业模型因资本投入巨大、回报模式脆弱、价格高且仍在持续融资三点叠加，属于非常差的生意不该买：保守派不要投，激进派直接做空
+  evidence_quote: 但现在的AI，我认为跟这个情况完全不同。最核心的原因，是投入和回报之间的关系非常危险：1．资本投入非常非常大；2．回报的商业模型非常脆弱，至少现在不知道怎么赚钱；3．价格很高，而且还在持续融资。基于这三个层面，我认为这个商业模型跟你100倍、10倍还是20倍是没有关系的...保守一点就不要投它，激进一点就直接找机会做空这些东西。
+  interpretation: 转发内容（原作者中庚基金丘栋荣）对 AI 的定性：不是估值贵不贵，而是这门生意的投入产出结构有问题，因此看空可执行（可做空）。这是全场最强的方向性判断，但属于第三方观点经 Mark 转发，置信度按转发降级。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: '2026-10-22'
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: AI投入产出结构决定看空可执行
+  stance: view
+  related_stocks: []
+  tags:
+  - AI
+  - 看空
+  - 资本投入
+  - 做空
+  school: watchlist
+  disagrees_with: []
+
+- id: claim-20261021-007-d
+  source_path: sources/original/bilibili/2026-10-21-2235-图片-免责声明 他人观点仅供参考，不构成任何投资建议.md
+  source_date: '2026-10-21'
+  source_type: 转发（第三方路演纪要）
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-10-22T18:10:00+08:00'
+  claim_type: stock-view
+  subject: 阿里是最差公司而拼多多最好
+  timeframe: trend
+  statement: 个股判断上最看空阿里巴巴（无脑投AI、利基市场被侵蚀、连存量价值也消耗掉，三条同时满足），相对最好的是拼多多（不投AI、零售护城河与供应链效率最高）；腾讯与字节也不如三年前看好
+  evidence_quote: 我最看空的是阿里，我认为它比百度还要差...而阿里同时满足三件事：第一，无脑投AI；第二，原有的利基市场被不断侵蚀；第三，它会把存量价值也消耗掉。...反过来，我认为最好的是拼多多...至于中间的，比如腾讯和字节，我们远没有三年前那么看好了。
+  interpretation: 转发内容（原作者中庚基金丘栋荣）的个股排序，判断依据是「是否会被新技术摧毁自身价值」而非静态估值。该框架可迁移：任何高投入+侵蚀存量价值的公司都在风险侧。但涉及港股/美股，按 A 股纪律均不可交易，不构成 A 股标的建议。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: '2026-10-22'
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 以价值摧毁论排序个股
+  stance: view
+  related_stocks:
+  - code: 09988.HK
+    name: 阿里巴巴
+    role: 港股-被最看空（无脑投AI+利基被侵蚀+消耗存量价值），不可交易
+  - code: PDD.US
+    name: 拼多多
+    role: 美股-相对最好（不投AI+零售护城河），不可交易
+  - code: 00700.HK
+    name: 腾讯
+    role: 港股-不如三年前看好，不可交易
+  - code: 09888.HK
+    name: 百度
+    role: 港股-被认为好于阿里但非最优，不可交易
+  tags:
+  - 阿里巴巴
+  - 拼多多
+  - 腾讯
+  - 价值摧毁
+  school: watchlist
+  disagrees_with: []
+
+- id: claim-20261021-007-e
+  source_path: sources/original/bilibili/2026-10-21-2235-图片-免责声明 他人观点仅供参考，不构成任何投资建议.md
+  source_date: '2026-10-21'
+  source_type: 转发（第三方路演纪要）
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-10-22T18:10:00+08:00'
+  claim_type: macro
+  subject: 新技术同时摧毁成长与价值
+  timeframe: trend
+  statement: 新技术是双刃的资本回报破坏力量：既摧毁自身赛道（成长股亏钱），也摧毁传统价值股，因此反对在成长与价值之间做轮动；市场会高估新技术的短期影响、低估其长期影响
+  evidence_quote: AI对资本回报是破坏性的力量...所以简单的一一保守一点就不要投它，激进一点就直接找机会做空这些东西。...它既摧毁成长，更摧毁价值股。所以价值股投资在这种环境下要非常非常小心...我们绝对反对所谓的「轮动」交易...因为大部分的公司、大部分的策略、大部分的人，最终都是要亏钱的；就像大部分公司的宿命是归零。
+  interpretation: 转发内容（原作者中庚基金丘栋荣）的框架性判断：拒绝「成长/价值轮动」叙事，理由是大部分资产归宿是归零、机会只有一次。这与 A 股语境下主流的板块轮动打法直接冲突，是可证伪的强观点，须谨慎当作第三方观点使用。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: '2026-10-22'
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 拒绝成长价值轮动叙事
+  stance: view
+  related_stocks: []
+  tags:
+  - 轮动
+  - 新技术
+  - 价值股
+  - 归零
+  school: watchlist
+  disagrees_with: []
+
+- id: claim-20261021-007-f
+  source_path: sources/original/bilibili/2026-10-21-2235-图片-免责声明 他人观点仅供参考，不构成任何投资建议.md
+  source_date: '2026-10-21'
+  source_type: 转发（第三方路演纪要）
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-10-22T18:10:00+08:00'
+  claim_type: macro
+  subject: 资本投入决定超额资本回报
+  timeframe: permanent
+  statement: 决定超额资本回报最核心的原因不是需求也不是景气，而是资本投入，约80%的权重来自「往里面花了多少钱」：资本投入少的行业未来回报高，投入高的行业未来回报低
+  evidence_quote: 由此引出一个更深层的判断：决定超额资本回报的最核心原因，并不是需求、不是景气，而是资本投入一大约80%的权重来自「你往里面花了多少钱」。资本投入少的行业，未来回报高；资本投入高的行业，未来回报低。需求（景气）是非常非常不重要的东西。
+  interpretation: 转发内容（原作者中庚基金丘栋荣）的核心归因框架，与「看产能周期/看需求景气」的常规思路相反。延伸含义：过去几年新能源的巨额资本投入意味着该赛道未来回报低，这解释了为何看好长期技术兑现却做空赛道股票。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: '2026-10-22'
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 资本投入权重决定超额回报
+  stance: view
+  related_stocks: []
+  tags:
+  - 资本投入
+  - ROIC
+  - 超额回报
+  - 景气
+  school: watchlist
+  disagrees_with: []
+
+- id: claim-20261021-007-g
+  source_path: sources/original/bilibili/2026-10-21-2235-图片-免责声明 他人观点仅供参考，不构成任何投资建议.md
+  source_date: '2026-10-21'
+  source_type: 转发（第三方路演纪要）
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-10-22T18:10:00+08:00'
+  claim_type: macro
+  subject: 供给收缩是中国资产回报率改善的来源
+  timeframe: trend
+  statement: 中国股票的回报率会好起来的核心原因是 2021 年至今的持续供给收缩（周期下行、企业主观收缩、广义监管与减收），收缩使未来供给不足、竞争不再惨烈，ROIC 必然上升
+  evidence_quote: 为什么中国股票的回报率会好起来：因为它从2021年至今一直在收缩。收缩有三个原因：①四年来周期下行；②本身的产业周期和商业行为；③最重要的原因是广义的监管...收缩的结果是：未来的供给会不足、竞争不会那么惨烈，于是ROIC（资本回报率）肯定会上升。
+  interpretation: 转发内容（原作者中庚基金丘栋荣）的供给侧框架：把中国资产的回报改善归因于收缩而非复苏。这是与「经济复苏利好顺周期」完全相反的因果假设，与青枫浦上Q「等右侧信号/看承接」的框架不冲突但侧重不同。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: '2026-10-22'
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 收缩而非复苏解释回报改善
+  stance: view
+  related_stocks: []
+  tags:
+  - 供给收缩
+  - ROIC
+  - 监管
+  - 中国资产
+  school: watchlist
+  disagrees_with: []
+
+- id: claim-20261021-007-h
+  source_path: sources/original/bilibili/2026-10-21-2235-图片-免责声明 他人观点仅供参考，不构成任何投资建议.md
+  source_date: '2026-10-21'
+  source_type: 转发（第三方路演纪要）
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-10-22T18:10:00+08:00'
+  claim_type: macro
+  subject: 唯一洼地是美元定价的中国资产
+  timeframe: trend
+  statement: A 股整体处于泡沫状态没什么好投；全球唯一的洼地是「美元定价的中国资产」——必须同时满足两个条件：标的是中国公司（供需与盈利来自内需）且以美元计价（规避境内低利率与资金过剩导致的估值虚高）
+  evidence_quote: 我认为A股总体上处于一个比较泡沫的状态...全球唯一的一个「洼地」，我们总结为：美元定价的中国资产。它必须同时满足两个条件...做多中国资产：它是中国公司，供需和盈利来自内需...用美元去买：只有在美元定价的体系里，它才是真正的洼地。
+  interpretation: 转发内容（原作者中庚基金丘栋荣）的配置框架：同时给方向（做多中国内需资产）与计价体系（美元）两个条件。对 A 股用户而言该框架不可直接执行（境内资金出境与美元产品均受合规限制），仅作观点参考。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: '2026-10-22'
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 洼地定义需同时满足中国资产与美元计价
+  stance: view
+  related_stocks: []
+  tags:
+  - 洼地
+  - 美元定价
+  - A股泡沫
+  - 港股
+  school: watchlist
+  disagrees_with: []
+
+- id: claim-20261021-007-i
+  source_path: sources/original/bilibili/2026-10-21-2235-图片-免责声明 他人观点仅供参考，不构成任何投资建议.md
+  source_date: '2026-10-21'
+  source_type: 转发（第三方路演纪要）
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-10-22T18:10:00+08:00'
+  claim_type: operation
+  subject: 以低隐含波动率做空美股科技
+  timeframe: short-term
+  statement: 当前最优头寸是做空美股科技，并且用看跌期权（PUTs）而非裸空执行：核心逻辑不是位置高而是期权便宜——美股波动率处于历史最低水平，2%的成本即可对冲100%头寸
+  evidence_quote: 当前最看好的头寸是空美股科技，而且是通过PUTs（看跌期权）来做的。这个逻辑的核心不是「它位置高」，而是它很便宜一一就像2008年的CDS：我们基本上用 2%的成本，就能对冲掉100%的头寸，相当于买保险。...因为没人买一一美股的波动率处于历史最低水平，所以看跌期权的隐含波动率非常低、保险费也就非常低。
+  interpretation: 转发内容（原作者中庚基金丘栋荣）的执行细节：把「看空」与「怎么表达看空」分开——用低波动率时期的保护性期权而非裸空。方法论可迁移：判断方向与选择工具是两件事，工具成本由市场波动率决定。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: '2026-10-22'
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 用低波动率期权表达看空观点
+  stance: view
+  related_stocks: []
+  tags:
+  - 看跌期权
+  - 隐含波动率
+  - 做空美股科技
+  - 保险成本
+  school: watchlist
+  disagrees_with: []
+
+- id: claim-20261021-007-j
+  source_path: sources/original/bilibili/2026-10-21-2235-图片-免责声明 他人观点仅供参考，不构成任何投资建议.md
+  source_date: '2026-10-21'
+  source_type: 转发（第三方路演纪要）
+  up_id: '424405794'
+  up_name: Mark__Huang
+  extracted_at: '2026-10-22T18:10:00+08:00'
+  claim_type: risk
+  subject: 回报来源是定价位置与真实alpha
+  timeframe: permanent
+  statement: 回报不是时间的函数：决定回报的只有两点——买入时的定价位置（估值位置）与自己真实的 alpha；时间越短风险越小，时间越长不确定性反而越高
+  evidence_quote: 关于「时间」这个变量：很多人把「时间」当成回报的来源，其实不是。决定回报、跟时间有关的东西，最重要的只有两点：第一是你定价的位置（估值的位置），第二、也是更重要的，是你真实的α。时间越短，你的风险越小；时间越长，不确定性反而越高。
+  interpretation: 转发内容（原作者中庚基金丘栋荣）的回报归因框架：反对「时间=回报」的持有信仰，与 A 股散户「拿住就是信仰」的主流做法正面对立。可操作含义：拉长持有期需要额外的不确定性补偿。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: '2026-10-22'
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 回报来自定价位置与alpha而非时间
+  stance: view
+  related_stocks: []
+  tags:
+  - 定价位置
+  - alpha
+  - 持有期
+  - 不确定性
+  school: watchlist
+  disagrees_with: []
