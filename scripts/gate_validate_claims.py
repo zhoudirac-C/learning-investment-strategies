@@ -133,6 +133,15 @@ def gate3_related_stocks(claim: dict) -> list[str]:
                                 f"related_stocks code='{code_val}' 为境外标的，"
                                 f"role 须标注「不可交易」"
                             )
+                    elif re.fullmatch(r"[A-Z]{1,5}\.(?:HK|US|O|N)", code_val.strip()):
+                        # 2026-10-22 补：字母代码境外标的（美股 PDD/ADRs 等，无数字代码）。
+                        # 与数字港股码同规则：必须带交易所后缀 + role 标注不可交易。
+                        role = str(item.get("role", ""))
+                        if "不可交易" not in role and "港股" not in role and "美股" not in role:
+                            errors.append(
+                                f"related_stocks code='{code_val}' 为境外标的，"
+                                f"role 须标注「不可交易」"
+                            )
                     else:
                         errors.append(f"related_stocks code='{code_val}' 不是纯数字字符串")
     return errors

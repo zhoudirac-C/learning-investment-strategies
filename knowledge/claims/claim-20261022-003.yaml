@@ -1,0 +1,389 @@
+claims:
+- id: claim-20261022-003-a
+  source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
+  source_date: '2026-10-22'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-22T13:05:00'
+  claim_type: macro
+  subject: 港股大跌的归因是征税窗口执行落地担忧而非突发新政
+  timeframe: short-term
+  stance: view
+  statement: 港股本轮大幅调整的核心催化不是离岸信托征税的突发新政，而是2026年7月已落地征管规则进入90天补报窗口期尾声后，市场情绪从「规则认知」转向「执行落地」的担忧；由于这一转换叠加外资流出与地产低迷的弱势基础，负面预期被快速放大。
+  evidence_quote: 近期港股大幅调整，离岸信托征税并非突发新政，而是2026年7月已正式落地的征管规则进入90天补报窗口期尾声（7月24日财政部、税务总局发布2026年第21号公告，补报截止期为10月下旬）。市场情绪从“规则认知”转向“执行落地”的担忧，叠加外资流出、地产低迷的弱势基础，负面预期被快速放大。
+  interpretation: UP 把市场反应与政策事件做了解耦：真正的变量不是「有没有新政策」而是「既定政策何时执行、谁被波及」。这个归因框架可复用——遇到政策类冲击，先判断是新增规则还是存量规则执行落地，再看是否叠加了弱势市场基础（此处是外资流出+地产低迷），决定情绪放大的量级。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: ["claim-20260928-002-b"]
+  supplements: []
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 港股离岸信托征税冲击的归因框架
+  related_stocks: []
+  tags:
+  - 港股
+  - 离岸信托
+  - 征税
+  - 情绪共振
+  - 宏观归因
+- id: claim-20261022-003-b
+  source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
+  source_date: '2026-10-22'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-22T13:05:00'
+  claim_type: methodology
+  subject: 政策冲击的负面情绪传导三段链条
+  timeframe: short-term
+  stance: view
+  statement: 政策冲击的负面情绪传导有清晰可追溯的三段链条：补税截止日临近使实控人需一次性补缴历史税款，市场担忧其减持股票筹措现金流；港股红筹架构公司占比高、实控人普遍通过BVI与开曼离岸信托持股，受影响标的远多于A股，因此调整幅度更显著；弱势市场环境下负面情绪自我强化，从个别标的扩散至全市场风险偏好压制。
+  evidence_quote: '传导链条清晰可追溯：
+
+    1. 补税截止日临近，实控人需一次性补缴历史税款，市场担忧其通过减持股票筹措现金流；
+
+    2. 港股红筹架构公司占比高，实控人普遍通过BVI、开曼离岸信托持股，受影响标的远多于A股，因此调整幅度更显著；
+
+    3. 弱势市场环境下，负面情绪自我强化，从个别标的扩散至全市场风险偏好压制。'
+  interpretation: UP 给出的传导链条模板可复用：截止日压力→流动性行为担忧→因架构差异导致受影响范围分化→弱势环境下情绪自我强化扩散。第三环的「弱势环境放大」是判断冲击是「局部情绪」还是「全市场风险偏好压制」的关键分界。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 政策冲击负面情绪传导链条
+  related_stocks: []
+  tags:
+  - 港股
+  - 情绪传导
+  - 红筹架构
+  - 风险偏好
+  - 传导链条
+- id: claim-20261022-003-c
+  source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
+  source_date: '2026-10-22'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-22T13:05:00'
+  claim_type: macro
+  subject: 离岸信托征税的政策本质是征管规范化而非政策性加税
+  timeframe: permanent
+  stance: view
+  statement: 离岸信托征税在法理层面不是开征新税种，而是对个税「居民个人全球所得纳税」原则的细化执行，属于国际通行的税收征管惯例；其本质是税收征管的补位与规范化，而非政策性加税。
+  evidence_quote: 这不是开征新税种，而是对《个人所得税法》“居民个人全球所得纳税”原则的细化执行，属于国际通行的税收征管惯例。过去由于离岸司法管辖区信息不透明、征管规则模糊，大量离岸信托处于合规灰色地带；此次政策明确了财产装入、存续收益、终止清算三个环节的穿透征税规则，统一适用20%比例税率，本质是税收征管的补位与规范化，而非政策性加税。
+  interpretation: UP 用「补位与规范化 vs 政策性加税」这组二分给政策定性，落到投资含义就是冲击的持续性判断：规范化类政策不会因情绪退潮而撤销，敞口是永久性的。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 离岸信托征税的政策性质定性
+  related_stocks: []
+  tags:
+  - 税收
+  - 个税全球征税
+  - 征管规范化
+  - 政策定性
+- id: claim-20261022-003-d
+  source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
+  source_date: '2026-10-22'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-22T13:05:00'
+  claim_type: macro
+  subject: 本轮税收征管执行力强于过往运动式监管
+  timeframe: permanent
+  stance: view
+  statement: 本轮税收征管的核心逻辑不是意识形态叙事，而是土地财政持续萎缩后的税源刚需，属于财政收支压力下的必然选择；由于有正式法规、明确流程与过渡期安排（90天补报期不加收滞纳金），是法治化常态化的制度建设，执行确定性与持久度都会强于偏运动式的行业监管，「它不是一阵风的风暴，而是长期税收监管体系的核心拼图」。
+  evidence_quote: '这一轮的核心逻辑不是意识形态叙事，而是土地财政持续萎缩后的税源刚需。地产行业长期低迷导致地方土地出让收入大幅下滑，传统税源增长乏力，堵住离岸避税漏洞、拓宽高净值人群税收征管，是财政收支压力下的必然选择。
+
+
+    相较于前几年偏运动式的行业监管，这一轮税收征管有正式法规、明确流程、过渡期安排（90天补报期不加收滞纳金），是法治化、常态化的制度建设。正因为底层是财政的刚性需求，而非短期政策运动，它的执行确定性、持久度都会更强——它不是一阵风的风暴，而是长期税收监管体系的核心拼图。'
+  interpretation: 「底层驱动是财政刚需 vs 意识形态叙事」是 UP 判断监管类政策持续性的核心判据：财政压力驱动的政策有刚性，不随情绪变化而撤销。这条方法论可迁移到对其他行业监管持续性的判断上。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 监管政策持续性的判据：财政刚需 vs 意识形态叙事
+  related_stocks: []
+  tags:
+  - 土地财政
+  - 监管持续性
+  - 财政刚需
+  - 法治化
+- id: claim-20261022-003-e
+  source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
+  source_date: '2026-10-22'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-22T13:05:00'
+  claim_type: macro
+  subject: 共同富裕路径转向税制完善后对市场长期冲击更温和可预期
+  timeframe: permanent
+  stance: view
+  statement: 离岸信托征税在政策方向上确实是共同富裕框架下「调节过高收入」的延续，但路径从直接的行业整治转向了税制完善与征管规范化；通过税收工具实现收入调节而非干预企业经营，对市场的长期冲击反而更温和、更可预期。
+  evidence_quote: 从政策方向看，它确实是共同富裕框架下“调节过高收入”的延续，但路径从直接的行业整治，转向了税制完善与征管规范化。通过税收工具实现收入调节，而非干预企业经营，对市场的长期冲击反而更温和、更可预期。
+  interpretation: UP 在「共同富裕」这个敏感框架下给出的不是立场表态而是路径判断：整治式路径冲击烈度大但不可预期，税制路径更可预期。可复用于判断监管路径切换时对资产价格的影响形态。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 监管路径切换对市场冲击形态的判断
+  related_stocks: []
+  tags:
+  - 共同富裕
+  - 税制完善
+  - 监管路径
+  - 影响形态
+- id: claim-20261022-003-f
+  source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
+  source_date: '2026-10-22'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-22T13:05:00'
+  claim_type: methodology
+  subject: 离岸信托补税压力的两个征税环节与「上市越早涨幅越大压力越重」对应关系
+  timeframe: permanent
+  stance: view
+  statement: 离岸信托补税压力的差异核心来自两个征税环节的规则设计：装入环节视同财产转让、按「装入时市值-财产原值」差额征收20%个税；存续环节对信托存续期间产生的所有收益（无论是否实际分配）均需缴20%个税，2025年及以前的历史未分配收益需在窗口期内一次性打包申报补缴。这套规则设计完美对应「上市越早、涨幅越大，压力越重」的特征。
+  evidence_quote: '此次补税压力的差异，核心来自两个征税环节的规则设计，完美对应“上市越早、涨幅越大，压力越重”的特征：
+
+    装入环节：居民个人将股权等财产装入离岸信托，视同财产转让，按“装入时市值-财产原值”的差额征收20%个税。政策原则上追缴2023年1月1日之后的装入行为，金额较大的可依法延长追缴年限。
+
+    存续环节：离岸信托存续期间产生的所有收益（无论是否实际分配给受益人），均需缴纳20%个税。2025年及以前的所有历史未分配收益，需在窗口期内一次性打包申报补缴。'
+  interpretation: 把「装入差额」与「存续累计收益」两个计税基数拆开，才能解释为什么同类架构下不同标的的压力差异巨大：基数是历史累积的市值差与未分配利润，不是当期业绩。这是把政策条款转译为可比较指标的关键一步。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 离岸信托补税压力的计税基数拆解
+  related_stocks: []
+  tags:
+  - 离岸信托
+  - 计税基数
+  - 装入环节
+  - 存续环节
+  - 穿透征税
+- id: claim-20261022-003-g
+  source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
+  source_date: '2026-10-22'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-22T13:05:00'
+  claim_type: methodology
+  subject: 老钱信托与新上市公司补税压力的分化逻辑
+  timeframe: permanent
+  stance: view
+  statement: 离岸信托补税压力的分化核心是老钱信托压力显著高于新上市公司：上市早、涨幅大的「老钱信托」实控人多在上市前或初期装入信托、原始成本极低，装入环节市值与成本差额巨大，存续多年又积累了巨额浮盈与未分配利润，一次性补税基数极高；而刚上市、股价破发的公司装入时市值与成本差额很小甚至没有增值、存续期累计收益有限，几乎没有补税压力。
+  evidence_quote: '上市早、涨幅大的“老钱信托”：实控人多在上市前或上市初期就将股权装入信托，原始成本极低。一方面，若设立时间被纳入追缴范围，装入环节的市值与成本差额巨大；另一方面，信托存续多年积累了巨额的股价浮盈与未分配利润，存续环节的一次性补税基数极高。拼多多、泡泡玛特这类上市后股价大幅上涨的标的，信托内资产增值显著，市场预期的补税压力最突出。
+
+    刚上市、股价破发的公司：装入信托时的市值与成本差额很小，甚至没有增值，存续期累计收益也有限，几乎没有补税压力。'
+  interpretation: 「上市早+涨幅大 → 压力重」是 UP 给出的可操作判据：判断某标的的信托征税敞口不需要逐个穿透架构，只要看上市年限与股价涨幅两条轴就能定位高敏感群体；反过来破发新股几乎免疫。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 信托征税敞口的标的分化判据
+  related_stocks:
+  - code: PDD.US
+    name: 拼多多
+    role: 美股-涨幅驱动补税压力最突出, 不可交易
+  - code: 09992.HK
+    name: 泡泡玛特
+    role: 港股-上市晚但短期涨幅巨大, 不可交易
+  tags:
+  - 老钱信托
+  - 信托征税
+  - 标的分化
+  - 港股
+- id: claim-20261022-003-h
+  source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
+  source_date: '2026-10-22'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-22T13:05:00'
+  claim_type: methodology
+  subject: 1400亿美元敞口不等于实际补税规模
+  timeframe: short-term
+  stance: view
+  statement: 市场流传的离岸信托持股敞口是账面总市值（潜在应税敞口上限），并非最终应缴税款；实际计税时可扣除股权原始成本、架构搭建的合理费用以及境外已缴个税，最终实际补缴规模会显著低于敞口数值，且不同信托的设立时间、架构设计、装入节点不同，实际适用追缴范围存在个体差异，最终影响存在不确定性。
+  evidence_quote: 上述1400亿美元为信托持股的账面总市值（潜在应税敞口上限），并非最终应缴税款。实际计税时可扣除股权原始成本、架构搭建的合理费用，以及在境外已缴纳的个人所得税税款，最终实际补缴规模会显著低于敞口数值；同时不同信托的设立时间、架构设计、装入节点不同，实际适用的追缴范围也存在差异，最终影响存在个体不确定性。
+  interpretation: UP 明确提醒敞口口径不等于缴税口径：账面市值是上限，实际有成本扣除、境外抵免与个体差异三层折扣。这是对「用单一汇总数字判断冲击」的纠偏——汇总数字只能排序，不能定价。
+  confidence: high
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 敞口口径与实际税负口径的区分
+  related_stocks: []
+  tags:
+  - 敞口口径
+  - 实际税负
+  - 成本扣除
+  - 个体差异
+- id: claim-20261022-003-i
+  source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
+  source_date: '2026-10-22'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-22T13:05:00'
+  claim_type: market-cycle
+  subject: 短期抛压释放不触及企业基本面，情绪错杀标的会修复
+  timeframe: short-term
+  stance: market-regime
+  statement: 短期看，窗口期截止前市场对实控人减持的担忧仍会压制相关标的情绪，不排除部分股东为筹措税款出现阶段性减持；但这是股东层面的流动性问题，不直接影响上市公司的经营基本面，情绪错杀的优质标的会在抛压集中释放后迎来修复。
+  evidence_quote: 窗口期截止前，市场对实控人减持的担忧仍会压制相关标的情绪，不排除部分股东为筹措税款出现阶段性减持。但这是股东层面的流动性问题，不直接影响上市公司的经营基本面，情绪错杀的优质标的会在抛压集中释放后迎来修复。
+  interpretation: 关键判断是区分「股东层面流动性冲击」与「公司经营基本面冲击」：前者是情绪与筹码问题，会修复；后者是价值毁灭问题。UP 明确落在前者，因此给出的操作含义是错杀后的修复机会而非回避。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260908-003-z"]
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 股东层面流动性冲击与基本面冲击的区分
+  related_stocks: []
+  tags:
+  - 情绪错杀
+  - 股东流动性
+  - 基本面
+  - 修复机会
+  - 港股
+- id: claim-20261022-003-j
+  source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
+  source_date: '2026-10-22'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-22T13:05:00'
+  claim_type: market-cycle
+  subject: 中期规则落地消除不确定性反而稳定长期预期
+  timeframe: trend
+  stance: market-regime
+  statement: 中期看，此次政策最大的意义是把过去模糊的灰色地带彻底明确化；90天窗口期完成集中补报后，离岸信托的税务合规状态会清晰化，长期悬在市场头上的「税务不确定性」靴子落地，反而有利于外资和民营资本的信心修复。
+  evidence_quote: 此次政策最大的意义是把过去模糊的灰色地带彻底明确化。90天窗口期完成集中补报后，离岸信托的税务合规状态会清晰化，长期悬在市场头上的“税务不确定性”靴子落地，反而有利于外资和民营资本的信心修复。
+  interpretation: UP 给出的时间轴是「短期利空、中期利多」：不确定性的消除本身是估值修复的来源。这个框架与他在 10-22 早盘专栏讲的「情绪收敛不等于扩散」是同一套节奏层思维——先看压制何时解除，再看修复能否扩散。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 政策落地的不确定性消除效应
+  related_stocks: []
+  tags:
+  - 不确定性消除
+  - 中期
+  - 外资信心
+  - 靴子落地
+- id: claim-20261022-003-k
+  source_path: sources/original/bilibili/2026-10-22-1158-图片-一、港股大跌核心催化：征税窗口期临近引发情绪共振 近期港股大.md
+  source_date: '2026-10-22'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  school: qing
+  extracted_at: '2026-10-22T13:05:00'
+  claim_type: macro
+  subject: 长期跨境财富监管进入穿透化常态化阶段
+  timeframe: permanent
+  stance: view
+  statement: 长期看，离岸信托征税落地标志着中国对高净值人群的跨境财富监管进入穿透化、常态化阶段，传统的「离岸架构避税+财富传承」模式需要重构；但这是全球税制的共同趋势而非中国独有，长期来看有利于税收公平和财政可持续性。
+  evidence_quote: 离岸信托征税落地，标志着中国对高净值人群的跨境财富监管进入穿透式、常态化阶段，传统的“离岸架构避税+财富传承”模式需要重构。但这是全球税制的共同趋势，并非中国独有，长期来看有利于税收公平和财政可持续性。
+  interpretation: 把单一政策放进全球税制趋势中定位，避免把中国规则变化误读为孤立事件；落到投资含义是这类架构的估值折价是永久性的，不是一次性情绪冲击。
+  confidence: medium
+  status: active
+  intensity: low
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 跨境财富监管的长期趋势定位
+  related_stocks: []
+  tags:
+  - 跨境财富
+  - 穿透监管
+  - 长期趋势
+  - 离岸架构
