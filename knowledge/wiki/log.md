@@ -3083,3 +3083,51 @@ ASR 不可用属预期限制，非采集故障。
 - 恢复：从 5d3306e7（丢失前最后状态）取回 28 条，id 保持原样 → 12 处现存引用重新闭合；补 school: qing
 - Gate 名单补漏：中国银河(601881) 在名录中为不含「证券」后缀的简称，导致 Broker 豁免未命中 → 误报「未标注 6 位代码」
 - 验收：YAML 主库 5885 == Neo4j 5885 == Qdrant 5885；幽灵 28→0；悬空引用 17个/23处→0个/0处；全库 Gate 162→161（无回归）
+
+## 2026-10-22 | fix(claims) | 三项修正：学派隔离合规化 + 悬空引用工具修盲区 + 重复检测
+
+### 1. 学派隔离合规化（watchlist school）
+
+- 依据 `config/schools.yaml`：`watchlist.claims_enabled: false`（「仅通知，不进 claim 库」，2026-10-20 显式化）
+- **发现主库 9 条卢本圆 claim 违规在册**：`claim-20261021-001-a~i` 在 `3d7d23ec` 写入时**缺 `school` 字段**，
+  绕过 `claim_schema` 写入拦截，躲过了 `dacf6c65` 的隔离
+- 处置：9 条补 `school: watchlist` → 迁出主库 → 并入 `archive/schools/watchlist/claims-quarantine.yaml`
+  （365 → 377 条；无人引用，零影响）
+- **任务 3 前提修正**：4 条 `claim-20260817-00X-a` 在 archive 是**正确的**（有意的学派隔离），
+  不应迁回主库 —— 故改为反向修正主库的漏网项
+
+### 2. clean_dangling_refs.py block sequence 盲区
+
+- 根因：原正则只匹配行内数组 `field: [a, b]`，而库内主流写法是 block sequence
+  （`field:` + 缩进 `- id`），导致悬空引用统计**长期恒为 0（假阴性）**
+- 修复：新增 block sequence 支持；`defined_ids()` 兼容三种 YAML 结构（claims 包装 / 顶层 list / 裸 dict）；
+  archive 感知（archive 内 id 算已定义）；**兑现 docstring 承诺但从未实现的 Neo4j 幽灵清理**（`--neo4j`）
+- 效果：假 0 → 真实报出 11 处（全部指向 archive 的 quarantine claim，即 `dacf6c65` 漏清的那批）
+  → 加 archive 感知后**真的 0**；Neo4j 幽灵 0
+
+### 3. claim 重复检测（Step 4 前置）
+
+- 背景：发现 2 个 session 对同一原文重复提取，产出与主库高度重合的 claim
+- 三层检测：① id 冲突（编号撞车会覆盖既有内容）② statement 指纹精确匹配
+  ③ **embedding 语义相似 ≥0.92**（同一判断的不同颗粒度重述）
+- 性能：按 `source_path` 分桶只编码同源候选（避免全库 6255 条编码）；模型单例复用
+- 验证：003 原样 → id/内容层 11/11；003 改 id+改写措辞 → 语义层 11/11（sim 0.989~0.994）；
+  全新无关内容 → 三层全 0 不误报；10-13 1355 改 id → 语义层 4/4，
+  其中 `1355-c ≈ claim-20261013-002-d (sim=0.9521)` 与人工判定一致
+- 附带修 `_get_emb()`：加载失败原被缓存为 `False` → 一次失败后语义层永久失效且掩盖真实原因；
+  改为失败不缓存 + 打印原始异常
+
+### 4. 环境事故：huggingface-hub 破坏 transformers 兼容性
+
+- 现象：`.venv/bin/python` 下 `from transformers import AutoTokenizer` 硬 ImportError
+  → 所有**新起进程**的 embedding 全挂（Qdrant 索引 / discover / claim pipeline）
+- 隐藏原因：Agent 进程是升级前启动的，内存里旧模块掩盖了破坏 → 表现为「一切正常」
+- **根因是 `uv.lock`**（未被 git 跟踪、被 .gitignore 排除）锁着 `huggingface-hub 1.16.4`，
+  而 `transformers 4.57.6` 要求 `<1.0`；`pip install` 降级只是治标，任何 `uv sync` 都会装回坏的
+- 修复：pyproject 显式 pin `huggingface-hub>=0.34.0,<1.0` / `transformers>=4.57,<5.0` /
+  `onnxruntime>=1.16` / `numpy>=1.26`；重新生成 uv.lock；**uv.lock 纳入版本控制**
+- 踩坑：`uv sync` 会移除「手工装但未声明」的包（本次清掉 onnxruntime + agent extra 一批）→
+  必须 `uv sync --all-extras`；uv 不读 pip.conf，官方 pypi 被墙需带腾讯云镜像
+- 终验：17/17 关键包 import 正常；hub 0.36.2；embedding 端到端可用；uv sync 幂等；Agent 已重启
+
+**环境知识落点**：`SOUL.md`（项目）+ `~/.hermes/SOUL.md`（全局）+ skill `qing-bilibili-manual-fetch`

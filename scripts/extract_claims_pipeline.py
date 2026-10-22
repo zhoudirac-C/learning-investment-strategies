@@ -55,6 +55,190 @@ STATES = {
 }
 
 
+def _iter_claim_items(d) -> list:
+    """兼容仓库内三种 YAML 结构：claims: 包装 / 顶层 list / 单 claim 裸 dict。"""
+    if d is None:
+        return []
+    if isinstance(d, list):
+        items = d
+    elif isinstance(d, dict):
+        items = d["claims"] if isinstance(d.get("claims"), list) else ([d] if "id" in d else [])
+    else:
+        items = []
+    return [c for c in items if isinstance(c, dict) and c.get("id")]
+
+
+def _fingerprint(statement) -> str:
+    """statement 指纹：去所有空白后小写。
+
+    同一判断被不同 session 重复提取时，statement 往往只差标点/空格，
+    归一化后即可稳定命中。
+    """
+    return re.sub(r"\s+", "", str(statement or "")).lower()
+
+
+def detect_duplicates(claims: list, exclude_source_paths: set[str] | None = None) -> dict:
+    """检测待入库 claim 与现有库（主库 + archive）的重复。
+
+    返回:
+        {
+          "id_conflicts":   [(new_id, existing_id, location), ...],
+          "stmt_duplicates": [(new_id, existing_id, location), ...],
+          "semantic_similar": [(new_id, existing_id, location, score), ...],
+          "clean": bool,
+        }
+
+    背景（2026-10-22）：发现 2 个 session 对同一原文重复提取，
+    产出与主库高度重合的 claim（statement 几乎逐字相同），
+    若一并入库会造成知识库冗余。Step 4 前需提示 Agent 决策。
+
+    三层检测：
+      1. id 冲突   —— 同一 id 已被库内占用（编号撞车，会覆盖既有内容）
+      2. 内容重复 —— statement 指纹精确命中
+      3. 语义相近 —— 同一判断的不同颗粒度重述（用 embedding 相似度，
+         阈值 0.92；Qdrant 不可用时跳过此层）
+    """
+    import yaml
+
+    exclude_source_paths = exclude_source_paths or set()
+    existing_stmt: dict[str, tuple[str, str]] = {}   # fingerprint -> (id, location)
+    existing_ids: dict[str, str] = {}               # id -> location
+    existing_records = []                           # (id, statement, source_path, location)
+    paths = list((REPO_ROOT / "knowledge" / "claims").glob("claim-*.yaml"))
+    paths += list((REPO_ROOT / "archive" / "schools").glob("**/*.yaml"))
+    for fp in paths:
+        try:
+            d = yaml.safe_load(fp.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        loc = str(fp.relative_to(REPO_ROOT))
+        for c in _iter_claim_items(d):
+            cid = c.get("id")
+            if cid in existing_ids:
+                continue
+            existing_ids[cid] = loc
+            fp_key = _fingerprint(c.get("statement"))
+            if fp_key:
+                existing_stmt.setdefault(fp_key, (cid, loc))
+            existing_records.append(
+                (cid, str(c.get("statement") or ""), str(c.get("source_path") or ""), loc))
+
+    id_conflicts, stmt_dupes = [], []
+    new_statements = []
+    for c in claims:
+        if not isinstance(c, dict):
+            continue
+        cid = c.get("id")
+        if cid and cid in existing_ids:
+            id_conflicts.append((cid, existing_ids[cid]))
+        key = _fingerprint(c.get("statement"))
+        if key and key in existing_stmt:
+            eid, eloc = existing_stmt[key]
+            stmt_dupes.append((cid, eid, eloc))
+        new_statements.append(
+            (cid, str(c.get("statement") or ""), str(c.get("source_path") or "")))
+
+    semantic = _semantic_similar(new_statements, existing_records, threshold=SEMANTIC_THRESHOLD)
+
+    # id 冲突与内容重复的条目本身已是重复，语义层跳过
+    already = {x[0] for x in id_conflicts} | {x[0] for x in stmt_dupes}
+    semantic = [s for s in semantic if s[0] not in already]
+
+    return {
+        "id_conflicts": id_conflicts,
+        "stmt_duplicates": stmt_dupes,
+        "semantic_similar": semantic,
+        "clean": not id_conflicts and not stmt_dupes and not semantic,
+    }
+
+
+SEMANTIC_THRESHOLD = 0.92
+_EMB = None
+_EMB_ERR = None
+
+
+def _get_emb():
+    """复用 OnnxEmbeddingModel 单例（加载耗时 ~10s，不宜每次重建）。
+
+    失败不缓存 —— 首次加载可能因瞬时问题（模型文件锁、依赖未就绪）失败，
+    缓存 False 会让后续所有调用永久失去语义层能力。
+    """
+    global _EMB, _EMB_ERR
+    if _EMB is not None:
+        return _EMB
+    try:
+        if str(REPO_ROOT / "src") not in sys.path:
+            sys.path.insert(0, str(REPO_ROOT / "src"))
+        from qing_investment.agent.tools.embedding_utils import OnnxEmbeddingModel
+        _EMB = OnnxEmbeddingModel()
+        _EMB_ERR = None
+    except Exception as e:
+        _EMB_ERR = f"{type(e).__name__}: {e}"
+        print(f"   [重复检测] embedding 模型不可用，跳过语义层: {_EMB_ERR}")
+        return None
+    return _EMB
+
+
+def _semantic_similar(new_statements, existing_records, threshold: float = SEMANTIC_THRESHOLD):
+    """用 embedding 找出语义高度相近的 claim（同一判断的不同颗粒度重述）。
+
+    性能约束：全库 6000+ 条 claim 全量编码是分钟级开销。
+    这里按 source_path 分桶——「同一原文被提取两次」是主要重复来源，
+    只对同源候选做编码，量级降到个位数~几十条。
+    同源无候选时，退化为对全库取 top-1（仍只编码新条目，库内向量按需算）。
+    """
+    if not new_statements or not existing_records:
+        return []
+
+    # 库内按 source_path 分桶
+    by_src: dict[str, list[int]] = {}
+    for idx, rec in enumerate(existing_records):
+        by_src.setdefault(rec[2], []).append(idx)
+
+    # 新条目按 source_path 分组，只在同源桶内比较
+    groups: dict[str, list[int]] = {}
+    for i, (_cid, _stmt, spath) in enumerate(new_statements):
+        groups.setdefault(spath, []).append(i)
+
+    # 若某新条目的源没有任何库内候选，退化到全库 top-1（阈值更高以免误报）
+    out = []
+    try:
+        import numpy as np
+    except Exception:
+        return []
+
+    emb = _get_emb()
+    if emb is None:
+        return []
+
+    def _norm(mat):
+        mat = np.asarray(mat, dtype="float32")
+        return mat / (np.linalg.norm(mat, axis=1, keepdims=True) + 1e-9)
+
+    for spath, idxs in groups.items():
+        cand_idx = by_src.get(spath, [])
+        if not cand_idx:
+            # 该原文在库内完全不存在 → 无重复可能（不跨源误判）
+            continue
+        cand_stmts = [existing_records[i][1] for i in cand_idx]
+        new_stmts = [new_statements[i][1] for i in idxs]
+        if not any(cand_stmts) or not any(new_stmts):
+            continue
+        try:
+            e_vecs = _norm(emb.encode(cand_stmts))
+            n_vecs = _norm(emb.encode(new_stmts))
+        except Exception:
+            continue
+        sim = n_vecs @ e_vecs.T
+        for row, ni in enumerate(idxs):
+            j = int(np.argmax(sim[row]))
+            score = float(sim[row][j])
+            if score >= threshold:
+                eid, _s, _sp, eloc = existing_records[cand_idx[j]]
+                out.append((new_statements[ni][0], eid, eloc, round(score, 4)))
+    return out
+
+
 def create_session(raw_path: str) -> str:
     """创建新会话，返回 session_id"""
     session_id = datetime.now().strftime("%Y%m%d_%H%M%S") + "_" + uuid.uuid4().hex[:6]
@@ -438,6 +622,7 @@ def cmd_continue(session_id: str = None):
 
     # 检查所有 gate 都过了 → 到 Step 4（Agent 后处理）
     if session["state"] == "gate3_pass":
+        _check_duplicates_before_step4(session)
         _print_next(session)
         return
 
@@ -483,6 +668,54 @@ def cmd_auto_full(session_id: str):
             break
     else:
         print(f"[auto_full] 达到最大步数 {max_steps}，停止")
+
+
+def _check_duplicates_before_step4(session: dict):
+    """Step 4 前检测待入库 claim 与现有库的重复，结果写入 session。
+
+    重复来源有二：
+      1. id 冲突   —— 同一 id 已被库内占用（编号撞车，会覆盖既有内容）
+      2. 内容重复 —— statement 指纹命中库内已有 claim（同一原文被重复提取）
+    两者都不阻断流程（Agent 需人工决策），但必须显式提示。
+    """
+    sess_dir = TEMP_DIR / session["session_id"]
+    yaml_files = sorted((sess_dir / "step3_yaml").glob("*.yaml"))
+    if not yaml_files:
+        return
+
+    import yaml
+    claims = []
+    for yf in yaml_files:
+        try:
+            d = yaml.safe_load(yf.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        claims += _iter_claim_items(d)
+    if not claims:
+        return
+
+    rep = detect_duplicates(claims)
+    session["duplicate_check"] = rep
+    save_session(session)
+
+    if rep["clean"]:
+        print(f"\n✅ 重复检测: {len(claims)} 条待入库 claim，无重复")
+        return
+
+    print(f"\n⚠️  重复检测: {len(claims)} 条待入库 claim，发现重复：")
+    if rep["id_conflicts"]:
+        print(f"   id 冲突 {len(rep['id_conflicts'])} 条（入库会覆盖既有 claim）：")
+        for cid, loc in rep["id_conflicts"]:
+            print(f"     - {cid}  已存在于 {loc}")
+    if rep["stmt_duplicates"]:
+        print(f"   内容重复 {len(rep['stmt_duplicates'])} 条（同一判断重复提取）：")
+        for cid, eid, loc in rep["stmt_duplicates"]:
+            print(f"     - {cid}  ≡  {eid}  ({loc})")
+    if rep["semantic_similar"]:
+        print(f"   语义相近 {len(rep['semantic_similar'])} 条（同一判断的不同颗粒度重述）：")
+        for cid, eid, loc, score in rep["semantic_similar"]:
+            print(f"     - {cid}  ≈  {eid}  ({loc})  sim={score}")
+    print("   → Step 4 前请决策：跳过重复条目 / 合并为既有 id / 确实为新判断则保留")
 
 
 def _print_next(session: dict):

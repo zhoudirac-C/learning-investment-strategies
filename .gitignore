@@ -3,7 +3,10 @@ venv/
 __pycache__/
 *.py[cod]
 *.egg-info/
-uv.lock
+# uv.lock 纳入版本控制（2026-10-22）：依赖锁定文件必须进版本库，
+# 否则各机装出的环境可能不同 —— 本次 huggingface-hub 漂到 1.16.4 破坏
+# transformers 兼容性，就是 lock 未跟踪 + 被 ignore 的结构性后果。
+!uv.lock
 .idea/
 log/
 logs/*
