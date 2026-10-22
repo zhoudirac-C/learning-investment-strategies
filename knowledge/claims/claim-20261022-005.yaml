@@ -16,6 +16,10 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20261022-004-e
+  - claim-20260819-070
+  last_discovered: 2026-10-22
   links:
   - claim-20261021-009-a
   topic: 护盘机制-日内路径
@@ -26,6 +30,7 @@
   - 先买再卖
   - 尾盘扫货
   - 量化套利
+  school: gator
 - id: claim-20261022-005-b
   source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
   source_date: '2026-10-22'
@@ -44,6 +49,8 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links:
   - claim-20261020-007-f
   topic: 核心资产-定价权争夺
@@ -69,6 +76,7 @@
   - 定价权
   - 蓝筹白马
   - 上证50
+  school: gator
 - id: claim-20261022-005-c
   source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
   source_date: '2026-10-22'
@@ -87,6 +95,8 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links: []
   topic: 算力板块-景气与选股纪律
   stance: view
@@ -96,6 +106,7 @@
   - 国家数据集团
   - 东数西算
   - 公共事业
+  school: gator
 - id: claim-20261022-005-d
   source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
   source_date: '2026-10-22'
@@ -114,6 +125,8 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links:
   - claim-20261019-004-a
   - claim-20261020-007-f
@@ -124,6 +137,7 @@
   - ETF净流入
   - 千亿
   - 底部支撑
+  school: gator
 - id: claim-20261022-005-e
   source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
   source_date: '2026-10-22'
@@ -142,6 +156,10 @@
   intensity: high
   supersedes: []
   contradicts: []
+  disagrees_with:
+  - claim-20260906-002-006
+  supplements: []
+  last_discovered: 2026-10-22
   links:
   - claim-20261020-006-b
   topic: 市场压力源-机构做空对冲
@@ -152,6 +170,7 @@
   - 机构做空
   - 对冲
   - 内部矛盾
+  school: gator
 - id: claim-20261022-005-f
   source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
   source_date: '2026-10-22'
@@ -170,6 +189,11 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  disagrees_with:
+  - claim-20261020-003-c
+  supplements:
+  - claim-20260916-003-j
+  last_discovered: 2026-10-22
   links:
   - claim-20261020-006-c
   topic: 市场情绪-极度悲观
@@ -179,3 +203,4 @@
   - 情绪极点
   - 空头衰竭
   - 极度悲观
+  school: gator

@@ -16,6 +16,11 @@
   intensity: high
   supersedes: []
   contradicts: []
+  disagrees_with:
+  - claim-20260914-001-007
+  supplements:
+  - claim-20260930-001-f
+  last_discovered: 2026-10-22
   links: []
   topic: 量化节奏-ETF放量
   stance: market-regime
@@ -25,6 +30,7 @@
   - ETF放量
   - 量化节奏
   - 护盘资金
+  school: gator
 - id: claim-20261019-004-b
   source_path: sources/original/wechat/2026-10-19-10.19周末消息汇总.md
   source_date: '2026-10-19'
@@ -43,6 +49,10 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  disagrees_with:
+  - claim-20060607-002-a
+  supplements: []
+  last_discovered: 2026-10-22
   links: []
   topic: 信息不对称-消息时差
   stance: market-regime
@@ -51,6 +61,7 @@
   - 信息不对称
   - 消息时差
   - 宰杀
+  school: gator
 - id: claim-20261019-004-c
   source_path: sources/original/wechat/2026-10-19-10.19周末消息汇总.md
   source_date: '2026-10-19'
@@ -69,6 +80,8 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links: []
   topic: 创新药-消息泄漏
   stance: view
@@ -78,3 +91,4 @@
   - 消息泄漏
   - 尾盘跳水
   - 信息链
+  school: gator

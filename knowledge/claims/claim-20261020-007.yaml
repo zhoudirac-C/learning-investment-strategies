@@ -16,6 +16,8 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links:
   - claim-20261020-006-b
   - claim-20261016-005-c
@@ -26,6 +28,7 @@
   - 政策底
   - 回购增持
   - 老乡别走
+  school: gator
 - id: claim-20261020-007-b
   source_path: sources/original/wechat/2026-10-20-10.20利好如大雨般落下.md
   source_date: '2026-10-20'
@@ -44,6 +47,11 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  disagrees_with:
+  - claim-20260601-002-b
+  - claim-20260906-002-008
+  supplements: []
+  last_discovered: 2026-10-22
   links:
   - claim-20261019-003-h
   topic: 市场周期-情绪放大
@@ -53,6 +61,7 @@
   - 情绪放大
   - 美股回调
   - 过度反应
+  school: gator
 - id: claim-20261020-007-c
   source_path: sources/original/wechat/2026-10-20-10.20利好如大雨般落下.md
   source_date: '2026-10-20'
@@ -71,6 +80,10 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20261014-005-3
+  - claim-20260717-005-d
+  last_discovered: 2026-10-22
   links:
   - claim-20261016-005-c
   topic: 护盘机制-恐慌抄底
@@ -80,6 +93,7 @@
   - 护盘机制
   - 恐慌抄底
   - 流动性真空
+  school: gator
 - id: claim-20261020-007-d
   source_path: sources/original/wechat/2026-10-20-10.20利好如大雨般落下.md
   source_date: '2026-10-20'
@@ -98,6 +112,9 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20260611-006-a
+  last_discovered: 2026-10-22
   links:
   - claim-20261016-004-c
   topic: 趋势定义-混沌踩踏
@@ -107,6 +124,7 @@
   - 趋势定义
   - 混沌期
   - 踩踏
+  school: gator
 - id: claim-20261020-007-e
   source_path: sources/original/wechat/2026-10-20-10.20利好如大雨般落下.md
   source_date: '2026-10-20'
@@ -125,6 +143,8 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links:
   - claim-20261016-005-d
   topic: 科创板块-政策约束底
@@ -134,6 +154,7 @@
   - 科创指数
   - 政策约束底
   - 融资大年
+  school: gator
 - id: claim-20261020-007-f
   source_path: sources/original/wechat/2026-10-20-10.20利好如大雨般落下.md
   source_date: '2026-10-20'
@@ -152,6 +173,10 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20261012-001-k
+  - claim-20260820-011
+  last_discovered: 2026-10-22
   links:
   - claim-20261019-004-a
   - claim-20261019-003-i
@@ -162,3 +187,4 @@
   - ETF流入
   - 托底
   - 先手仓位
+  school: gator

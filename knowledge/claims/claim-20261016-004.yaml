@@ -16,6 +16,11 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20260823-001-003
+  - claim-20260823-001-002
+  - claim-20061116-001-a
+  last_discovered: 2026-10-22
   links: []
   topic: 市场周期-资金生态位
   stance: market-regime
@@ -26,6 +31,7 @@
   - 护盘
   - 杠杆资金
   - 散户接力
+  school: gator
 - id: claim-20261016-004-b
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -44,6 +50,11 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20260721-038
+  - claim-20261022-004-a
+  - claim-20261009-002-d
+  last_discovered: 2026-10-22
   links: []
   topic: 杠杆资金-融资余额
   stance: market-regime
@@ -53,6 +64,7 @@
   - 杠杆资金
   - 杀杠杆
   - 投机情绪
+  school: gator
 - id: claim-20261016-004-c
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -71,6 +83,8 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links: []
   topic: 杠杆资金-波动放大
   stance: market-regime
@@ -80,6 +94,7 @@
   - 程序化交易
   - 波动放大
   - 极端行情
+  school: gator
 - id: claim-20261016-004-d
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -98,6 +113,9 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20260609-002-a
+  last_discovered: 2026-10-22
   links: []
   topic: 买点方法-平台捡便宜
   stance: view
@@ -114,6 +132,7 @@
   - 买点方法
   - 猪肉
   - 保险
+  school: gator
 - id: claim-20261016-004-e
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -132,6 +151,8 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links: []
   topic: 投资框架-长线决策
   stance: view
@@ -141,6 +162,7 @@
   - 基本面
   - 技术面
   - 决策框架
+  school: gator
 - id: claim-20261016-004-f
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -159,6 +181,9 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20260731-022
+  last_discovered: 2026-10-22
   links: []
   topic: 市场周期-结构性行情
   stance: market-regime
@@ -167,6 +192,7 @@
   - 结构性行情
   - 低估错杀
   - A股特征
+  school: gator
 - id: claim-20261016-004-g
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -185,6 +211,10 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20261021-005-c
+  - claim-20260901-044-a
+  last_discovered: 2026-10-22
   links: []
   topic: 科技板块-指数捆绑
   stance: view
@@ -194,6 +224,7 @@
   - 指数捆绑
   - 去魅
   - 护盘
+  school: gator
 - id: claim-20261016-004-h
   source_path: sources/original/wechat/2026-10-16-股市：按照流程上涨（2026.10.16）.md
   source_date: '2026-10-16'
@@ -210,8 +241,12 @@
   confidence: high
   status: active
   intensity: high
-  supersedes: []
+  supersedes:
+  - claim-20261015-002-a
   contradicts: []
+  supplements:
+  - claim-20261009-001-f
+  last_discovered: 2026-10-22
   links: []
   topic: 市场周期-底部判断
   stance: market-regime
@@ -221,3 +256,4 @@
   - 试多
   - 右侧信号
   - 左侧试仓
+  school: gator

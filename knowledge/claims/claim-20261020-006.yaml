@@ -16,6 +16,10 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20261020-005-d
+  - claim-20260721-001
+  last_discovered: 2026-10-22
   links:
   - claim-20261019-003-a
   topic: 护盘策略-雨露均沾
@@ -26,6 +30,7 @@
   - 科创ETF
   - 上证50
   - 雨露均沾
+  school: gator
 - id: claim-20261020-006-b
   source_path: sources/original/wechat/2026-10-20-股市：还悲观的可考虑销户（2026.10.20）.md
   source_date: '2026-10-20'
@@ -44,6 +49,8 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links:
   - claim-20261016-004-h
   topic: 护盘有效性-海外风险
@@ -53,6 +60,7 @@
   - 护盘有效性
   - 海外风险
   - 震荡磨底
+  school: gator
 - id: claim-20261020-006-c
   source_path: sources/original/wechat/2026-10-20-股市：还悲观的可考虑销户（2026.10.20）.md
   source_date: '2026-10-20'
@@ -71,6 +79,8 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links: []
   topic: 市场周期-底部信心测试
   stance: market-regime
@@ -79,6 +89,7 @@
   - 底部信心
   - 销户论
   - 反向劝退
+  school: gator
 - id: claim-20261020-006-d
   source_path: sources/original/wechat/2026-10-20-股市：还悲观的可考虑销户（2026.10.20）.md
   source_date: '2026-10-20'
@@ -97,6 +108,9 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20261020-005-d
+  last_discovered: 2026-10-22
   links:
   - claim-20261020-006-a
   topic: 护盘机制-遛狗循环
@@ -106,6 +120,7 @@
   - 遛狗循环
   - 护盘机制
   - 双向调节
+  school: gator
 - id: claim-20261020-006-e
   source_path: sources/original/wechat/2026-10-20-股市：还悲观的可考虑销户（2026.10.20）.md
   source_date: '2026-10-20'
@@ -123,7 +138,11 @@
   status: active
   intensity: high
   supersedes: []
-  contradicts: []
+  contradicts:
+  - claim-20261022-004-f
+  supplements:
+  - claim-20260915-004-3
+  last_discovered: 2026-10-22
   links:
   - claim-20261016-004-h
   - claim-20261019-003-k
@@ -134,3 +153,4 @@
   - 市场底部
   - 试多
   - 右侧信号
+  school: gator

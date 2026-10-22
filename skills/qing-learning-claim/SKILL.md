@@ -149,6 +149,12 @@ python scripts/extract_claims_pipeline.py continue
 | 3 | source_date | YYYY-MM-DD |
 | 4 | source_type | 专栏/视频/复盘/动态 |
 | 5 | **up_id** | **内容来源 up 标识（2026-09-14 新增）**：B站 uid 如 `1420210197`；手工整理稿填 `unknown`；缠论课程填 `chanlun-original` |
+
+> ⚠️ **`school` 字段必写（2026-10-22 事故）**：school 不在 19 字段必填表里、
+> Gate 也不校验，但 `evolve_gator_patterns`（gator 规则演进）和
+> framework-maintenance 的学派分隔统计都按 `school == "gator"` 过滤——
+> 缺了它 claim 对学派管线**完全隐身**。手写 step1 时 up_id=gator-ecyu-0001
+> 必须同步写 `school: gator`（10-22 回补 55 条全漏，事后逐文件回填）。
 | 6 | extracted_at | ISO 时间戳 |
 | 7 | claim_type | market-cycle/sector-theme/stock-view/methodology/risk/technical-signal/technical-knowledge/macro/operation/catalyst/general |
 | 7 | subject | 单一主题（无`/`、`、`、`+`） |

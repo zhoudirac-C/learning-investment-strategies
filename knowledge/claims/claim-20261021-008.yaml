@@ -16,6 +16,9 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20260729-024
+  last_discovered: 2026-10-22
   links:
   - claim-20261020-006-d
   topic: 护盘机制-两只手博弈
@@ -26,6 +29,7 @@
   - 市场先生
   - 龙哥
   - 普涨转普跌
+  school: gator
 - id: claim-20261021-008-b
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -44,6 +48,8 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links: []
   topic: 锂电板块-宁德业绩
   stance: view
@@ -56,6 +62,7 @@
   - 锂电
   - 业绩预期
   - 价值回归
+  school: gator
 - id: claim-20261021-008-c
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -74,6 +81,10 @@
   intensity: high
   supersedes: []
   contradicts: []
+  disagrees_with:
+  - claim-20260803-004
+  supplements: []
+  last_discovered: 2026-10-22
   links:
   - claim-20261020-006-b
   - claim-20261020-006-d
@@ -84,6 +95,7 @@
   - 护盘
   - 弹药管理
   - 海外风险
+  school: gator
 - id: claim-20261021-008-d
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -102,6 +114,9 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20071022-001-a
+  last_discovered: 2026-10-22
   links:
   - claim-20261020-006-d
   topic: 护盘机制-组织构成
@@ -111,6 +126,7 @@
   - 护盘组织
   - 多机构协同
   - 别猜心思
+  school: gator
 - id: claim-20261021-008-e
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -129,6 +145,10 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20260615-012
+  - claim-20260909-014-a
+  last_discovered: 2026-10-22
   links:
   - claim-20261016-004-b
   - claim-20261019-003-i
@@ -139,6 +159,7 @@
   - 融资余额
   - 磨底盯盘
   - 个股融资特性
+  school: gator
 - id: claim-20261021-008-f
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -157,6 +178,8 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links: []
   topic: 港股巨头-真假破位
   stance: view
@@ -169,6 +192,7 @@
   - 港股
   - 真假破位
   - 南下资金
+  school: gator
 - id: claim-20261021-008-g
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -187,6 +211,10 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20260622-001-h
+  - claim-20260812-025
+  last_discovered: 2026-10-22
   links:
   - claim-20261020-006-c
   - claim-20261020-006-d
@@ -197,6 +225,7 @@
   - 滴灌护盘
   - 信心消磨
   - 让子弹飞
+  school: gator
 - id: claim-20261021-008-h
   source_path: sources/original/wechat/2026-10-21-股市：一收一放，滴灌（2026.10.21）.md
   source_date: '2026-10-21'
@@ -213,8 +242,12 @@
   confidence: high
   status: active
   intensity: high
-  supersedes: []
-  contradicts: []
+  supersedes:
+  - claim-20261022-004-g
+  contradicts:
+  - claim-20261022-004-f
+  supplements: []
+  last_discovered: 2026-10-22
   links:
   - claim-20261016-004-h
   - claim-20261019-003-k
@@ -226,3 +259,4 @@
   - 市场底部
   - 试多
   - 右侧信号
+  school: gator

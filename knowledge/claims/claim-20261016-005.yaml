@@ -16,6 +16,9 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20261012-004-e
+  last_discovered: 2026-10-22
   links: []
   topic: 评级体系-更新纪律
   stance: view
@@ -25,6 +28,7 @@
   - 更新纪律
   - 行情萎靡
   - 无看点不更新
+  school: gator
 - id: claim-20261016-005-b
   source_path: sources/original/wechat/2026-10-16-10.16再小利好也是利好！.md
   source_date: '2026-10-16'
@@ -43,6 +47,9 @@
   intensity: low
   supersedes: []
   contradicts: []
+  supplements:
+  - claim-20260527-002-a
+  last_discovered: 2026-10-22
   links: []
   topic: 板块异动-资金监控
   stance: view
@@ -52,6 +59,7 @@
   - 资金监控
   - 卫浴电器
   - 半导体设备
+  school: gator
 - id: claim-20261016-005-c
   source_path: sources/original/wechat/2026-10-16-10.16再小利好也是利好！.md
   source_date: '2026-10-16'
@@ -70,6 +78,8 @@
   intensity: high
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links: []
   topic: 窗口指导-护盘信号
   stance: market-regime
@@ -79,6 +89,7 @@
   - 回购潮
   - 汪汪队
   - 护盘
+  school: gator
 - id: claim-20261016-005-d
   source_path: sources/original/wechat/2026-10-16-10.16再小利好也是利好！.md
   source_date: '2026-10-16'
@@ -97,6 +108,10 @@
   intensity: high
   supersedes: []
   contradicts: []
+  disagrees_with:
+  - claim-20260821-009
+  supplements: []
+  last_discovered: 2026-10-22
   links: []
   topic: 科技板块-政策约束底
   stance: view
@@ -109,3 +124,4 @@
   - 科技股
   - 政策约束底
   - 融资环境
+  school: gator

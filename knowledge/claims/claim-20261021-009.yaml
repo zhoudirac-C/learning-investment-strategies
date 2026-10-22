@@ -16,6 +16,8 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
   links: []
   topic: 大资金策略-做T套利
   stance: market-regime
@@ -24,6 +26,7 @@
   - 大资金
   - 做T套利
   - 流动性
+  school: gator
 - id: claim-20261021-009-b
   source_path: sources/original/wechat/2026-10-21-10.21最有希望的一天。.md
   source_date: '2026-10-21'
@@ -42,6 +45,11 @@
   intensity: high
   supersedes: []
   contradicts: []
+  disagrees_with:
+  - claim-20260729-021
+  - claim-20260614-002-b
+  supplements: []
+  last_discovered: 2026-10-22
   links:
   - claim-20261016-005-d
   - claim-20261020-007-e
@@ -56,6 +64,7 @@
   - 科创50ETF
   - 繁花博弈
   - 越跌越买
+  school: gator
 - id: claim-20261021-009-c
   source_path: sources/original/wechat/2026-10-21-10.21最有希望的一天。.md
   source_date: '2026-10-21'
@@ -74,6 +83,11 @@
   intensity: high
   supersedes: []
   contradicts: []
+  disagrees_with:
+  - claim-20260607-003-c
+  - claim-20260901-001-a
+  supplements: []
+  last_discovered: 2026-10-22
   links:
   - claim-20261020-007-e
   topic: 科创板块-国际对比
@@ -83,6 +97,7 @@
   - 科创板
   - 国际对比
   - 政策背离
+  school: gator
 - id: claim-20261021-009-d
   source_path: sources/original/wechat/2026-10-21-10.21最有希望的一天。.md
   source_date: '2026-10-21'
@@ -101,6 +116,10 @@
   intensity: medium
   supersedes: []
   contradicts: []
+  disagrees_with:
+  - claim-20260821-009
+  supplements: []
+  last_discovered: 2026-10-22
   links:
   - claim-20261020-007-a
   topic: 政策底-反攻模板
@@ -110,3 +129,4 @@
   - 反攻模板
   - 政策底
   - 创业板
+  school: gator
