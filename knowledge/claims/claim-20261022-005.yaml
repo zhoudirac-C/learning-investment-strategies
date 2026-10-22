@@ -1,0 +1,181 @@
+- id: claim-20261022-005-a
+  source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
+  source_date: '2026-10-22'
+  source_type: 复盘
+  up_id: gator-ecyu-0001
+  up_name: 获得信息差
+  extracted_at: '2026-10-22'
+  claim_type: market-cycle
+  subject: 护盘资金先买再卖尾盘通吃扫货
+  timeframe: intraday
+  statement: 护盘资金的日内操作细节：先买再卖把前几天进的货交给市场，尾盘最后几分钟市场没成交量时直接通吃扫货又进几十亿，最后触发量化给砸下来——白给的流动性让量化如鱼得水。
+  evidence_quote: 我只能说上面有高人，蓝色的是资金趋势，不难看出今天的走法是先买再卖，把昨天甚至前几天进的货又给交给市场，尾盘最后几分钟，市场没啥成交量的时候直接通吃扫货，又进了几十亿，不过最后触发量化给砸下来了。毕竟白给的流动性，量化如鱼得水
+  interpretation: 鳄鱼派拆解护盘资金的完整日内路径：盘中先买再卖做T（把旧仓倒给市场），尾盘低成交量时集中扫货（冲击成本最小）——与10-21的『一夜持股法做T套利』互为印证，但本篇更进一步给出『尾盘低成交量通吃』的具体时点选择逻辑。量化资金则借护盘的流动性反向套利。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+  - claim-20261021-009-a
+  topic: 护盘机制-日内路径
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - 护盘资金
+  - 先买再卖
+  - 尾盘扫货
+  - 量化套利
+- id: claim-20261022-005-b
+  source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
+  source_date: '2026-10-22'
+  source_type: 复盘
+  up_id: gator-ecyu-0001
+  up_name: 获得信息差
+  extracted_at: '2026-10-22'
+  claim_type: market-cycle
+  subject: 跌的都是蓝筹白马说明在争夺核心资产定价权
+  timeframe: short-term
+  statement: 当天主要下跌的权重——移动、腾讯、甚至福耀玻璃和格力全部爆杀，宁德时代(300750)一口气跌十几个点拖累创业板41个点——跌的都是蓝筹白马，这一定程度代表了中国核心资产的定价权争夺，这也就不难看出为什么近期放量的ETF几乎上证50占大头。
+  evidence_quote: 不过看到今天主要下跌的权重后，心里有一丝寒意，不管是移动、腾讯，甚至福耀玻璃和格力这种，全都是爆杀，宁王今天一口气跌十几个点，拖累创业板指数41个点，这分明是有外资趁宁王业绩不佳顺势杀盘来的。不知道各位伙计有没有发现，跌都是蓝筹白马，这一定程度上代表了中国核心资产的定价权，这就不难看出为什么近期放量的ETF几乎上证50占大头了。
+  interpretation: 鳄鱼派的重要方法论：把『跌的是什么』作为判断依据——跌的全是蓝筹白马（中国移动/腾讯/福耀玻璃/格力/宁德时代）说明是外资在争夺中国核心资产定价权，而非普跌。护盘方对应的策略就是放量上证50ETF(510050)——护的是核心资产定价权，不是护指数点位。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+  - claim-20261020-007-f
+  topic: 核心资产-定价权争夺
+  stance: market-regime
+  related_stocks:
+  - code: '600941'
+    name: 中国移动
+    role: 核心资产-外资爆杀示例
+  - code: '600660'
+    name: 福耀玻璃
+    role: 核心资产-外资爆杀示例
+  - code: '000651'
+    name: 格力电器
+    role: 核心资产-外资爆杀示例
+  - code: '510050'
+    name: 上证50ETF华夏
+    role: 护盘资金主战场-定价权
+  - code: '300750'
+    name: 宁德时代
+    role: 创业板-外资爆杀拖累创业板
+  tags:
+  - 核心资产
+  - 定价权
+  - 蓝筹白马
+  - 上证50
+- id: claim-20261022-005-c
+  source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
+  source_date: '2026-10-22'
+  source_type: 复盘
+  up_id: gator-ecyu-0001
+  up_name: 获得信息差
+  extracted_at: '2026-10-22'
+  claim_type: sector-theme
+  subject: 算力行业真景气但连续亏损和超高估值别凑热闹
+  timeframe: industry
+  statement: 国家数据集团成立对东数西算形成闭环，好几家算力公司发了超大金额订单，行业实打实产生景气度；但提醒：连续亏损或估值超高的不要去凑热闹——算力是重资产，很多公司奔着一年回本的口号冲进云计算，随着大模型迭代和算法升级，很可能还没开始运营就要清算；梁文锋说过没有人能在这个行业赚到暴利，这是公共事业一般的行业，算力会如水电气一般流转。
+  evidence_quote: 今天市场的重心一定程度上是由算力中心带来的，国家数据集团成立了，这对早些年提出的东数西算一定程度上形成了闭环，好几家做算力的公司最近也发了超大金额的订单，说明这个行业是实打实的产生了景气度，不过我在这里还是要给诸位提个醒，那些连续亏损，或者估值超高的，就不要去凑热闹了，搞算力生意可是重资产，很多公司奔着一年回本的口号冲进云计算，随着现在大模型的迭代和算法的升级，很有可能还没开始运营就要清算了。梁文锋说的是没有人能在这个行业赚到暴利的，这是公共事业一般的行业，算力会如水电气一般流转。
+  interpretation: 鳄鱼派对算力方向的『景气确认+选股纪律』双重表态：行业景气是真的（数据集团成立+大额订单），但商业模式是公共事业型（重资产、低毛利、如水电气）——所以参与只能选有真实盈利能力的标的，连续亏损/超高估值的纯概念股在算法快速迭代下可能没运营就清算。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links: []
+  topic: 算力板块-景气与选股纪律
+  stance: view
+  related_stocks: []
+  tags:
+  - 算力
+  - 国家数据集团
+  - 东数西算
+  - 公共事业
+- id: claim-20261022-005-d
+  source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
+  source_date: '2026-10-22'
+  source_type: 复盘
+  up_id: gator-ecyu-0001
+  up_name: 获得信息差
+  extracted_at: '2026-10-22'
+  claim_type: market-cycle
+  subject: 最大希望落在ETF近20日净流入近千亿
+  timeframe: short-term
+  statement: 目前市场最大的希望还是要落在ETF里面——近20日净流入都快1000亿了，这么多钱『潘长江也垫成姚明』。
+  evidence_quote: 说回到市场行情里面，目前最大的希望还是要落在ETF里面，近20日净流入都快1000亿了，就这么多钱，潘长江也垫成姚明了吧。
+  interpretation: 鳄鱼派把ETF资金流入作为市场底部的核心支撑论据：近20日近千亿净流入的量级足以改变市场结构（『垫成姚明』）。与10-19『ETF放量调动量化节奏』、10-20『ETF流入既托底又卡位』构成连续观察链——ETF资金面是本轮底部判断的最硬数据。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+  - claim-20261019-004-a
+  - claim-20261020-007-f
+  topic: ETF资金-底部支撑
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - ETF净流入
+  - 千亿
+  - 底部支撑
+- id: claim-20261022-005-e
+  source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
+  source_date: '2026-10-22'
+  source_type: 复盘
+  up_id: gator-ecyu-0001
+  up_name: 获得信息差
+  extracted_at: '2026-10-22'
+  claim_type: market-cycle
+  subject: 内部问题比外部大前二十大机构猛开空
+  timeframe: short-term
+  statement: 外部问题是外资撤出（新兴市场不看好+加息应对，在这赚不到钱还担风险不如去拿5%稳定收益）；但内部问题更大——从股指期货仓单看往前翻100天也找不到多头强势的时候，前二十大机构猛猛开空做对冲，不如主观多头先把指数干回4000点。
+  evidence_quote: 外部的问题是外资撤出，有对新兴市场的不看好，对加息的应对，毕竟在你这儿赚不到钱，还担那么大的风险，我不如去白头鹰拿至少5%以上的稳定收益。内部的问题其实更大，从股指期货的仓单来说，你往前翻100天也找不到多头强势的时候，灭霸打一个响指的目的是消灭宇宙一半的人口觉得消耗了太多资源，其实他本可以打一个响指让宇宙的资源翻一倍而让大家活的更美好啊，前二十的大机构们猛猛开空做对冲，不如主观多头先把只是干回4000点！
+  interpretation: 鳄鱼派对市场压力源的归因排序：外部（外资撤出）是次要问题，内部（前二十大机构在股指期货持续开空对冲）才是主要矛盾——100天无多头强势说明机构对冲做空是常态化的内部压制力量。这解释了为什么护盘要持续『托而不举』：对抗的不是散户恐慌，是机构的系统性做空对冲。
+  confidence: medium
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  links:
+  - claim-20261020-006-b
+  topic: 市场压力源-机构做空对冲
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - 股指期货
+  - 机构做空
+  - 对冲
+  - 内部矛盾
+- id: claim-20261022-005-f
+  source_path: sources/original/wechat/2026-10-22-10.22空头藏不住了！.md
+  source_date: '2026-10-22'
+  source_type: 复盘
+  up_id: gator-ecyu-0001
+  up_name: 获得信息差
+  extracted_at: '2026-10-22'
+  claim_type: market-cycle
+  subject: 情绪极度悲观三倍做多做不动就退出江湖
+  timeframe: short-term
+  statement: 现在市场情绪极度悲观、没有不骂的了，三倍做多的家务已经做不动的时候，那就只有退出江湖了。
+  evidence_quote: 外围不管大修复还是小修复，总的会给一点希望，伤口止止血，现在市场情绪极度悲观，没有不骂的了，三倍做多家务已经做不动的时候，那就只有退出江湖了。
+  interpretation: 鳄鱼派描述的情绪极点状态：『没有不骂的』+『三倍做多做不动』=市场情绪的极端悲观读数。结合标题『空头藏不住了』——极度悲观恰是空头力量衰竭的信号（骂声一致时反转临近）。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  links:
+  - claim-20261020-006-c
+  topic: 市场情绪-极度悲观
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - 情绪极点
+  - 空头衰竭
+  - 极度悲观
