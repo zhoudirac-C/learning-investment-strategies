@@ -62,6 +62,51 @@ def save_state(state: dict) -> None:
         pass
 
 
+def probe_weread_cookie() -> tuple[bool, str]:
+    """探测微信读书 Cookie 是否仍有效（直连 weread cover 接口）。
+
+    返回 (ok, detail)。cookie 失效时 weread 会以 HTTP 200 返回业务错误
+    errcode=-2010/-2012（"用户不存在"/"登录超时"），必须看 errcode，
+    否则会把登录态失效误判成"没有新文章"而静默跳过。
+    """
+    cookie = ""
+    for src in (Path("/home/ubuntu/we-mp-rss/.env"),):
+        if not src.exists():
+            continue
+        for line in src.read_text(encoding="utf-8").splitlines():
+            if line.startswith("WEREAD_COOKIE="):
+                cookie = line.split("=", 1)[1].strip()
+                break
+    if not cookie:
+        return False, "no_cookie_found"
+    try:
+        import requests
+        h = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0",
+            "Cookie": cookie,
+            "Accept": "application/json, text/plain, */*",
+            "Origin": "https://weread.qq.com",
+            "Referer": "https://weread.qq.com/",
+        }
+        r = requests.get(
+            "https://weread.qq.com/api/mp/cover",
+            params={"bookId": "MP_WXS_3922514597"},
+            headers=h,
+            timeout=20,
+        )
+        d = r.json()
+        errcode = d.get("errcode", d.get("errCode"))
+        if r.status_code != 200:
+            return False, f"http_{r.status_code}"
+        if errcode in (-2010, -2012, -2041):
+            return False, f"errcode_{errcode}:{d.get('errmsg') or d.get('errlog') or ''}"
+        if d.get("reviewId"):
+            return True, d.get("title", "")
+        return False, "no_reviewId"
+    except Exception as exc:  # 网络/解析异常都算探测失败
+        return False, f"probe_error:{type(exc).__name__}"
+
+
 def html_to_text(raw: str) -> str:
     """轻量 HTML→文本（无外部依赖，够 claim 提取用）。"""
     if not raw:
@@ -122,6 +167,24 @@ def main() -> int:
     if not DB_PATH.exists():
         print(f"ERROR: we-mp-rss DB 不存在: {DB_PATH}", file=sys.stderr)
         return 1
+
+    # Cookie 存活探测：失效时**必须告警**，不能静默。
+    # 历史事故：2026-10-16~10-22 cookie 失效（errcode -2010），
+    # 采集器返回"暂无需要获取内容的文章"，抓取钩子"先写标记再调用"
+    # 也不重试 → 连续 7 天零入库、零告警，直到人工发现。
+    ok, detail = probe_weread_cookie()
+    if not ok:
+        print(
+            f"WEREAD_COOKIE_INVALID: {detail} — 微信读书登录态失效，"
+            f"公众号采集已中断，需重新扫码授权"
+            f"（容器内 wx.lic + WEREAD_COOKIE 环境变量都要更新）"
+        )
+        if args.check_only:
+            return 2
+        # 非 check-only 也继续尝试（可能只是网络抖动），但显式告警
+        print("WARN: 继续尝试采集，但 cookie 可能已失效", file=sys.stderr)
+    elif args.check_only:
+        print(f"COOKIE_OK: latest={detail}")
 
     con = sqlite3.connect(f"file:{DB_PATH}?mode=ro", uri=True)
     con.row_factory = sqlite3.Row
