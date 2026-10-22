@@ -1,0 +1,234 @@
+claims:
+- id: claim-20261022-004-a
+  source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
+  source_date: '2026-10-22'
+  source_type: 视频
+  up_id: gator-ecyu-0001
+  up_name: 像鳄鱼一样思考
+  extracted_at: '2026-10-22T16:10:00+08:00'
+  claim_type: market-cycle
+  subject: 本轮下跌归因与流程定位
+  timeframe: short-term
+  statement: 本轮调整定性为基民赎回引发的机构被动砍仓：按"先杀杠杆、后杀基民"的流程，当前已进入杀基民阶段，对应一波加速杀跌和一个阶段寻底过程，而非基本面驱动的下跌起点；直接诱因是宁德时代业绩大甩卖引发的恐慌传染
+  evidence_quote: 这种就是遇到基民赎回了……先杀杠杆，然后杀基民。……那基民赎回之后会带来一波的，就我们说的加速杀跌，啊，就是说一个阶段寻底的一个过程。
+  interpretation: 鳄鱼派把下跌放进一个固定的多杀多流程里定位：杠杆盘→基民赎回→加速杀跌→寻底。这个框架的价值在于把"跌"翻译成"流程第几段"：杀基民段意味着卖方是被动的、有尽头的（基民赎回有物理极限），所以对应寻底而非续跌。与"业绩雷→价值重估"的解释不同，他明确把宁德业绩甩卖只当情绪触发器。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261020-005-a"]
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 基民赎回引发的阶段寻底
+  stance: market-regime
+  related_stocks:
+  - code: '300750'
+    name: 宁德时代
+    role: 本轮赎回潮情绪触发器（业绩大甩卖）
+  tags:
+  - 基民赎回
+  - 被动砍仓
+  - 寻底流程
+  school: gator
+- id: claim-20261022-004-b
+  source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
+  source_date: '2026-10-22'
+  source_type: 视频
+  up_id: gator-ecyu-0001
+  up_name: 像鳄鱼一样思考
+  extracted_at: '2026-10-22T16:10:00+08:00'
+  claim_type: methodology
+  subject: 基民赎回的量化规律
+  timeframe: short-term
+  statement: 基民赎回有稳定的时序规律：浮亏 20-30% 或持有 1-3 个月时基本不赎回；浮亏 30-50% 或持有 4-5 个月时基本要赎回——可用"幅度轴+时长轴"双轴估计赎回压力是否接近尾声
+  evidence_quote: 跌百分之二十三十他不见得赎回。啊，好，三十四十五十了，或者说一个月两个月三个月不见得赎回，四个月五个月哈，基本上要赎回了。
+  interpretation: 把"恐慌"量化为可跟踪的双轴指标：跌幅维度（30% 与 50% 是两道心理线）和时间维度（4-5 个月是忍耐极限）。隐含推论：本轮从高点调整的时长与幅度一旦进入"双超"区间，被动卖压就接近物理尽头，寻底窗口临近。这是 004-a 流程定位的定量支撑。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261022-004-a"]
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 赎回幅度与时长双轴规律
+  stance: view
+  related_stocks: []
+  tags:
+  - 基民行为
+  - 赎回规律
+  - 寻底判据
+  school: gator
+- id: claim-20261022-004-c
+  source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
+  source_date: '2026-10-22'
+  source_type: 视频
+  up_id: gator-ecyu-0001
+  up_name: 像鳄鱼一样思考
+  extracted_at: '2026-10-22T16:10:00+08:00'
+  claim_type: market-cycle
+  subject: 本轮与2022年赎回潮对比
+  timeframe: trend
+  statement: 本轮赎回烈度将显著小于 2022 年：2022 年有宏大叙事（酒药风光锂）与基金发行广度巅峰加持，赎回持续"一年半载"、每天杀一个权重；本轮增量资金主要是基民追涨、叙事广度远不如前，所以赎回节奏已经很快、更接近尾声
+  evidence_quote: 因为当时的宏大叙事太多了。啊，当时的宏大叙事是酒药风光锂……比这次的还要还要猛。所以那时候赎回搞了很久，一年半载……其实这一轮节奏已经很快了。
+  interpretation: 用"叙事广度×发行广度"双维度解释赎回潮的持续时间：赎回杀伤力的本质是被套资金的广度与深度。本轮资金结构单一（基民追涨盘）、缺宏大叙事托底，因此赎回既猛且短。这为"阶段寻底"判断提供了跨周期证据，也把"跌得凶"与"跌得久"分开——本轮是前者。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261022-004-a", "claim-20261022-004-b"]
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 赎回烈度的跨周期对比
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - 赎回潮
+  - 宏大叙事
+  - 跨周期对比
+  school: gator
+- id: claim-20261022-004-d
+  source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
+  source_date: '2026-10-22'
+  source_type: 视频
+  up_id: gator-ecyu-0001
+  up_name: 像鳄鱼一样思考
+  extracted_at: '2026-10-22T16:10:00+08:00'
+  claim_type: sector-theme
+  subject: 宁德时代与锂电拐点
+  timeframe: trend
+  statement: 当前价位的宁德时代处于恐慌情绪宣泄的末尾：不是"马上起"，但也没什么可恐慌；锂电拐点的确认必须靠实地调研（企业订单、排产、下游需求），而不是听故事——宁德和 AI 一样，几万亿市值阶段都在讲故事
+  evidence_quote: 但这个价位的宁德，哎，说实话也没啥恐慌的，对吧？当然也不是说马上就要起来哈……你要去实地调研，实地去看企业的订单、排产以及下游的需求情况。
+  interpretation: 对"宁德业绩雷→锂电崩盘"的恐慌叙事降温：价格层面（恐慌末尾）与基本面验证方式（实地调研三件套：订单/排产/下游需求）分开表述，既不喊抄底也不接飞刀。其"故事 vs 调研"的区分同样适用于 AI 权重股，是对白马闪崩的通用处理框架。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 宁德价位定性与锂电拐点验证
+  stance: view
+  related_stocks:
+  - code: '300750'
+    name: 宁德时代
+    role: 锂电权重-本轮赎回潮情绪触发器
+  tags:
+  - 宁德时代
+  - 锂电
+  - 实地调研
+  - 白马闪崩
+  school: gator
+- id: claim-20261022-004-e
+  source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
+  source_date: '2026-10-22'
+  source_type: 视频
+  up_id: gator-ecyu-0001
+  up_name: 像鳄鱼一样思考
+  extracted_at: '2026-10-22T16:10:00+08:00'
+  claim_type: methodology
+  subject: 护盘的先礼后兵框架
+  timeframe: short-term
+  statement: 护盘资金的行为框架是"先礼后兵"：先密集释放利好（礼），市场不听就用自己的买入买到市场信为止（兵）；先例是 AI 防过度炒作时的"先礼后兵、不信就手动降温"。观察信号：科创50 出现资金承接迹象，说明"兵"的阶段已经开始
+  evidence_quote: 先礼后兵啊，我发利好你们不听，对吧？后面涨起来了不怪我……市场不听不听就买，买到市场信为止。
+  interpretation: 把护盘的"喊话"与"真金白银"分成两个阶段：利好喊话是礼，持续买入是兵。市场把利好当耳边风并不会让护盘失败，只会把护盘推向下一阶段（买入直至市场信）。对应到操作：识别"礼已尽、兵已至"的信号（权重承接）比猜政策底位置更有效。
+  confidence: medium
+  status: active
+  intensity: medium
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261020-005-f"]
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 护盘先礼后兵与承接信号
+  stance: view
+  related_stocks: []
+  tags:
+  - 护盘
+  - 先礼后兵
+  - 政策底
+  - 科创50
+  school: gator
+- id: claim-20261022-004-f
+  source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
+  source_date: '2026-10-22'
+  source_type: 视频
+  up_id: gator-ecyu-0001
+  up_name: 像鳄鱼一样思考
+  extracted_at: '2026-10-22T16:10:00+08:00'
+  claim_type: methodology
+  subject: 磨底时长判据与左侧禁令
+  timeframe: short-term
+  statement: U 型磨底的参考时长是 8-18 个交易日（本轮已横 6 天，时长未满）；参照系是去年 12 月筑底（两次打新低才走出 U）与 7 月急护盘（三万多亿抛压下第二只脚未创新低）。操作上严禁左侧：必须等市场底出来，在"现货未止跌、空头气势正盛"时进场接飞刀必亏
+  evidence_quote: 八到十，呃，十到十八个交易日……横了一二三四五六个六个交易日了，就是从那个筑底磨底走 U 的那个时长来说是还没够的……一定要去等那个市场底……现货还没止跌，你期货这边的空头气势正盛的时候就很容易涨。
+  interpretation: 把"抄底"从点位问题改成时长问题：磨底有最小时长（8-18 个交易日），横 6 天就说见底为时过早。两个参照案例一慢（12 月双底）一快（7 月急护无第二只脚），说明时长取决于护盘力度而非固定值。"等市场底"的纪律表述与商品期货"现货未止跌不接飞刀"类比，强调右侧确认优先于便宜。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 磨底时长与右侧确认
+  stance: view
+  related_stocks: []
+  tags:
+  - 磨底
+  - 市场底
+  - 左侧禁令
+  - 右侧确认
+  school: gator
+- id: claim-20261022-004-g
+  source_path: sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md
+  source_date: '2026-10-22'
+  source_type: 视频
+  up_id: gator-ecyu-0001
+  up_name: 像鳄鱼一样思考
+  extracted_at: '2026-10-22T16:10:00+08:00'
+  claim_type: market-cycle
+  subject: 阶段低点立场
+  timeframe: trend
+  statement: 立场重申：廉价的好东西不要割——"这是今年最后一次市场相对阶段低点"；该判断建立在基民赎回进入尾声（004-a/b/c）与磨底时长未满（004-f）的组合上，即底部区域已到、但右侧确认信号未出
+  evidence_quote: 所以说还是那个观点，廉价的好东西，对吧？不要不要割，这是今年最后一次市场相对阶段低点了。
+  interpretation: 把 10-20"转向大多头"的立场落到当前位置的具体判断：情绪面（赎回尾声）支持"最后一次阶段低点"，但操作面（磨底未满）禁止现在冲进去——看多立场与右侧纪律并存，两者不矛盾：仓位上拿住（不卖），动作上等市场底（不买）。
+  confidence: high
+  status: active
+  intensity: high
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20261020-005-b"]
+  last_discovered: 2026-10-22
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 今年最后一次阶段低点
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - 阶段低点
+  - 持仓纪律
+  - 多空立场
+  school: gator
