@@ -267,7 +267,9 @@ def main() -> int:
 
     # 写 YAML
     doc = {
-        "version": "1.0-draft",
+        # v1.1-draft（2026-10-22）：新增第 56 章「护盘机制与底部周期操作法」
+        # （10-16~10-22 公众号回补 55 条 claim 提炼；evolution_log 见本文件头部）
+        "version": "1.1-draft",
         "school": "gator",
         "generated_by": "scripts/build_gator_patterns.py",
         "generated_at": date.today().isoformat(),
@@ -282,6 +284,16 @@ def main() -> int:
             "computable": computable_count,
             "restricted_skipped": sorted(restricted),
         },
+        # 演进日志：每次新增/修订章节时追加（版本递增规则见 framework-maintenance skill）
+        "evolution_log": [
+            {
+                "version": "1.1-draft",
+                "date": "2026-10-22",
+                "change": "新增第 56 章「护盘机制与底部周期操作法」（ch56-guard-mechanism-bottom-cycle，可计算）",
+                "basis": "10-16~10-22 公众号回补提取的 55 条 claim（claim-20261016-004/005、claim-20261019-003/004、claim-20261020-006/007、claim-20261021-008/009、claim-20261022-005）",
+                "approved_by": "用户拍板 2026-10-22（沉淀成第 56 篇文章后再更新推理 yaml）",
+            }
+        ],
         "patterns": patterns,
     }
     OUT_YAML.write_text(

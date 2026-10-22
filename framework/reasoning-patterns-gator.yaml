@@ -1,19 +1,25 @@
-version: 1.0-draft
+version: 1.1-draft
 school: gator
 generated_by: scripts/build_gator_patterns.py
-generated_at: '2026-10-15'
+generated_at: '2026-10-22'
 source: sources/third_party/gator-method/03-规则体系/
 provenance_note: 第三方提炼库（非鳄鱼派 UP 原文）。草案状态，触发条件/步骤为程序化摘录，需人工 review 后转正式库；冲突章节进 framework/school-conflicts.yaml。
 stats:
-  chapters: 50
-  patterns: 50
-  computable: 13
+  chapters: 51
+  patterns: 51
+  computable: 14
   restricted_skipped:
   - 34
   - 35
   - 36
   - 54
   - 55
+evolution_log:
+- version: 1.1-draft
+  date: '2026-10-22'
+  change: 新增第 56 章「护盘机制与底部周期操作法」（ch56-guard-mechanism-bottom-cycle，可计算）
+  basis: 10-16~10-22 公众号回补提取的 55 条 claim（claim-20261016-004/005、claim-20261019-003/004、claim-20261020-006/007、claim-20261021-008/009、claim-20261022-005）
+  approved_by: 用户拍板 2026-10-22（沉淀成第 56 篇文章后再更新推理 yaml）
 patterns:
 - pattern_id: gator-ch01-stop-falling-5-signals
   school: gator
@@ -1549,5 +1555,43 @@ patterns:
   source_ref: ''
   source_dates: []
   source_path: sources/third_party/gator-method/03-规则体系/五十三、AI 看盘模块：读数构成、算法与判读纪律(2026-09-29 ~ 10-09).md
+  provenance: third_party/gator-method（非UP原文，待原文校验）
+  validation: {}
+- pattern_id: gator-ch56-2026-10-16-10-22
+  school: gator
+  name: 护盘机制与底部周期操作法（2026-10-16~10-22 公众号提炼）
+  chapter: 56
+  description: 鳄鱼派（gator school）第56章：护盘机制与底部周期操作法（2026-10-16~10-22 公众号提炼）。 IF 多个指数（50/300/500/1000/科创/创业）尾盘涨幅>2% AND 融资余额连增 AND 有资金敢拉科技 THEN 右侧信号出现，可从试多转重仓 IF 优质资产跌到前期平台位 AND 护盘品种（上证50ETF 510050）放量 THEN 进入捡便宜窗口，心中那杆称与大盘点位无关 IF 指数/个股破位（向上或向下） THEN 等 2 天确认再动作，单日破位多为假破位（南下资金扰动/恐慌抛售） IF 融资余额连续下降 3~4 天 THEN 尚未止跌（呼应三十八章杠杆资金撤离信号）； 涉及：护盘循环（遛狗循环）；两只手博弈（市场先生 vs 龙哥）；滴灌式护盘的信心消磨与对策；恐慌愣神资金效率（护盘为何能精准抄底）；底部判断链与年度定位。 用于鳄鱼派资金生态位与规则体系的判断。
+  trigger:
+  - IF 多个指数（50/300/500/1000/科创/创业）尾盘涨幅>2% AND 融资余额连增 AND 有资金敢拉科技 THEN 右侧信号出现，可从试多转重仓
+  - IF 优质资产跌到前期平台位 AND 护盘品种（上证50ETF 510050）放量 THEN 进入捡便宜窗口，心中那杆称与大盘点位无关
+  - IF 指数/个股破位（向上或向下） THEN 等 2 天确认再动作，单日破位多为假破位（南下资金扰动/恐慌抛售）
+  - IF 融资余额连续下降 3~4 天 THEN 尚未止跌（呼应三十八章杠杆资金撤离信号）；磨底阶段个股要分融资特性（越涨越买 vs 越涨越卖），区分真强假强
+  - IF 护盘资金盘中先买再卖（把旧仓倒给市场） THEN 尾盘低成交量时段的通吃扫货才是真实意图（冲击成本最小，几十亿即撬动）
+  - IF 护盘方冲高时回收资金（卖银行/中字头） THEN 不是不看好，是趁情绪好储备弹药——海外风险未出清时护盘必托而不举
+  steps:
+  - 护盘循环（遛狗循环）
+  - 两只手博弈（市场先生 vs 龙哥）
+  - 滴灌式护盘的信心消磨与对策
+  - 恐慌愣神资金效率（护盘为何能精准抄底）
+  - 底部判断链与年度定位
+  - 结构性行情的主心骨选择
+  - 市场压力源归因（外部 vs 内部）
+  - 适用边界
+  thresholds:
+  - IF 多个指数（50/300/500/1000/科创/创业）尾盘涨幅>2% AND 融资余额连增 AND 有资金敢拉科技 THEN 右侧信号出现，可从试多转重仓
+  - IF 优质资产跌到前期平台位 AND 护盘品种（上证50ETF 510050）放量 THEN 进入捡便宜窗口，心中那杆称与大盘点位无关
+  - IF 指数/个股破位（向上或向下） THEN 等 2 天确认再动作，单日破位多为假破位（南下资金扰动/恐慌抛售）
+  - IF 融资余额连续下降 3~4 天 THEN 尚未止跌（呼应三十八章杠杆资金撤离信号）；磨底阶段个股要分融资特性（越涨越买 vs 越涨越卖），区分真强假强
+  - IF 护盘资金盘中先买再卖（把旧仓倒给市场） THEN 尾盘低成交量时段的通吃扫货才是真实意图（冲击成本最小，几十亿即撬动）
+  - IF 护盘方冲高时回收资金（卖银行/中字头） THEN 不是不看好，是趁情绪好储备弹药——海外风险未出清时护盘必托而不举
+  - IF 跌的全是蓝筹白马（移动/腾讯/福耀/格力/宁德） THEN 是外资争夺核心资产定价权，护盘主战场必为上证50ETF（护定价权非护点位）
+  table_rules: []
+  falsification: []
+  computable: true
+  core: true
+  source_ref: ''
+  source_dates: []
+  source_path: sources/third_party/gator-method/03-规则体系/五十六、护盘机制与底部周期操作法（2026-10-16~10-22公众号提炼）.md
   provenance: third_party/gator-method（非UP原文，待原文校验）
   validation: {}
