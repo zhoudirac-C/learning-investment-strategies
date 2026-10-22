@@ -1,0 +1,269 @@
+claims:
+- id: claim-20261021-003-a
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-1329-图片-近期宁德时代、泡泡玛特、格力电器等不同赛道龙头企业股价同步承.md
+  source_date: '2026-10-21'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:50:00+08:00'
+  claim_type: market-cycle
+  subject: 消费下行系统性传导判断
+  timeframe: trend
+  statement: 宁德时代(300750)/泡泡玛特(9992.HK)/格力电器(000651)同步承压并非孤立事件，底层逻辑是可选消费沿"可选性梯度"逐级收缩的系统性结果
+  evidence_quote: 为何分属制造、文娱、家电三个完全独立赛道的龙头企业，会在同一时间窗口集体出现基本面与估值的双重承压。我认为，三者共同指向同一宏观主线：居民部门可选消费支出的系统性收缩，且收缩过程沿消费属性的"可选程度"呈现清晰的层级传导特征。
+  interpretation: 青枫浦上Q提出了跨赛道龙头同步回调的系统性解释框架——拒绝单一行业归因，转而用"可选性梯度"解释三大龙头同步创新低。这是可复用的宏观观察模型：当不同赛道龙头同步承压时，优先排查是否为可选消费系统性收缩传导。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 消费下行三层传导模型
+  stance: market-regime
+  related_stocks:
+  - code: '300750'
+    name: 宁德时代
+    role: 动力电池龙头-创业板不可交易
+  - code: 9992.HK
+    name: 泡泡玛特
+    role: 潮玩龙头-港股不可交易
+  - code: '000651'
+    name: 格力电器
+    role: 白电龙头-主板可交易
+  tags:
+  - 消费下行
+  - 传导模型
+  - 宁德时代
+  - 泡泡玛特
+  - 格力电器
+- id: claim-20261021-003-b
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260530-001-i"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-1329-图片-近期宁德时代、泡泡玛特、格力电器等不同赛道龙头企业股价同步承.md
+  source_date: '2026-10-21'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:50:00+08:00'
+  claim_type: methodology
+  subject: 可选消费收缩三层传导路径
+  timeframe: permanent
+  statement: 消费下行遵循"情绪溢价消费→耐用可选消费→大宗消费上游制造"的传导路径，压力从终端需求沿产业链向上游逐级放大
+  evidence_quote: 消费下行并非均匀普跌，而是遵循"情绪溢价消费→耐用可选消费→大宗消费上游制造"的传导路径，压力从终端需求沿产业链向上游逐级放大，推动全链条从"扩产抢份额"转向"去库存、保利润"的防御状态。
+  interpretation: 这是核心方法论输出：三层传导链条模型，定义了消费下行的非均匀性与层级穿透特征。第一层情绪消费最敏感（溢价消失），第二层耐用消费延迟降档，第三层大宗上游量价双压。可作为跨周期复用的观察框架。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 消费下行三层传导模型
+  stance: view
+  related_stocks: []
+  tags:
+  - 消费传导
+  - 三层模型
+  - 方法论
+- id: claim-20261021-003-c
+  supersedes: []
+  contradicts: ["claim-20260520-002-b", "claim-20260917-014-a"]
+  supplements: ["claim-20260922-004-i"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-1329-图片-近期宁德时代、泡泡玛特、格力电器等不同赛道龙头企业股价同步承.md
+  source_date: '2026-10-21'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:50:00+08:00'
+  claim_type: market-cycle
+  subject: 全链条防御状态判断
+  timeframe: trend
+  statement: 全链条已从"扩产抢份额"转向"去库存、保利润"防御状态
+  evidence_quote: 推动全链条从"扩产抢份额"转向"去库存、保利润"的防御状态
+  interpretation: 判断产业链整体处于防御而非扩张状态，这是对利润分配格局反转的定性：上游资源方失去定价权，价格战压力从终端向上游蔓延。
+  confidence: high
+  status: active
+  intensity: medium
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 消费下行三层传导模型
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - 防御状态
+  - 利润分配
+  - 产业链
+- id: claim-20261021-003-d
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-1329-图片-近期宁德时代、泡泡玛特、格力电器等不同赛道龙头企业股价同步承.md
+  source_date: '2026-10-21'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:50:00+08:00'
+  claim_type: methodology
+  subject: 消费见底核心指标
+  timeframe: permanent
+  statement: 见底核心指标是居民非必要消费支付意愿的系统性修复（溢价支付意愿回升、换新周期缩短、大宗需求回扩张区间）
+  evidence_quote: 真正的底部信号，是居民部门重新将"非必要支出"放回消费决策清单，即情绪消费的溢价支付意愿回升、耐用品的换新周期重新缩短、大宗消费的需求增速重回扩张区间。
+  interpretation: 给出了可操作的拐点判断标准：不是看单一环节库存/排产/估值，而是看居民支付意愿的系统性修复。这是定性定量结合的核心观测指标，优于单一财务指标。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 消费下行三层传导模型
+  stance: view
+  related_stocks: []
+  tags:
+  - 见底指标
+  - 支付意愿
+  - 拐点判断
+- id: claim-20261021-003-e
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-1329-图片-近期宁德时代、泡泡玛特、格力电器等不同赛道龙头企业股价同步承.md
+  source_date: '2026-10-21'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:50:00+08:00'
+  claim_type: sector-theme
+  subject: 第一层：情绪消费溢价退潮
+  timeframe: trend
+  statement: 泡泡玛特(9992.HK)9月销售额同比-44%，二手破发本质是溢价支付意愿系统性退潮，非IP能力下降
+  evidence_quote: 高盛渠道跟踪数据显示，2026年9月泡泡玛特天猫与抖音两大平台合计销售额同比下滑44%...同期二手市场热门系列破发现象加剧，本质并非IP运营能力下降，而是消费者为情绪溢价付费的意愿出现系统性退潮。
+  interpretation: 对泡泡玛特业绩下滑的归因：溢价支付意愿退潮而非IP失效。区分了"需求消失"与"溢价消失"——消费者仍买但不愿付高溢价，决策向高性价比倾斜。
+  confidence: high
+  status: active
+  intensity: medium
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 消费下行三层传导模型
+  stance: view
+  related_stocks:
+  - code: 9992.HK
+    name: 泡泡玛特
+    role: 潮玩龙头-港股不可交易
+  tags:
+  - 情绪消费
+  - 泡泡玛特
+  - 溢价退潮
+- id: claim-20261021-003-f
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-1329-图片-近期宁德时代、泡泡玛特、格力电器等不同赛道龙头企业股价同步承.md
+  source_date: '2026-10-21'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:50:00+08:00'
+  claim_type: sector-theme
+  subject: 第二层：耐用消费延迟与降档
+  timeframe: trend
+  statement: 格力电器(000651)核心矛盾是决策周期拉长+结构下移（延迟换新+买入门款），非需求消失
+  evidence_quote: 当前空调市场的核心矛盾并非没有需求，而是消费者决策周期拉长：能用的产品尽量延后更换，必须更换的优先选择低价入门款。格力电器2026年二季度单季营收同比下滑16.82%，归母净利润同比下滑15.43%。
+  interpretation: 耐用消费具有刚需底色，不会断崖式消失，但呈现"延迟+降档"双重特征：量端换新延迟、价端结构下移。地产调整侵蚀资产负债表、收入预期修复缓慢，共同拉长换新周期。
+  confidence: high
+  status: active
+  intensity: medium
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 消费下行三层传导模型
+  stance: view
+  related_stocks:
+  - code: '000651'
+    name: 格力电器
+    role: 白电龙头-主板可交易
+  tags:
+  - 耐用消费
+  - 格力电器
+  - 延迟降档
+- id: claim-20261021-003-g
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-1329-图片-近期宁德时代、泡泡玛特、格力电器等不同赛道龙头企业股价同步承.md
+  source_date: '2026-10-21'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:50:00+08:00'
+  claim_type: sector-theme
+  subject: 第三层：大宗上游量价双压
+  timeframe: trend
+  statement: 宁德时代(300750)承受量价双压，10月电池厂排产环比+1%远低于预期+7%，毛利率创2022Q4来新低
+  evidence_quote: 花旗援引第三方数据显示，前五大电池厂商10月产量管道环比仅增长1%，远低于市场此前预期的7%...宁德时代三季度毛利率创2022年四季度以来新低，正是这一传导机制的直接体现。
+  interpretation: 新能源车作为第二大居民支出，需求增速放缓必然传导至上游电池环节。全链条同步切换至"保利润、去库存"防御姿态，价格战压力从终端向上游蔓延，电池厂毛利率持续下行。
+  confidence: high
+  status: active
+  intensity: medium
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 消费下行三层传导模型
+  stance: view
+  related_stocks:
+  - code: '300750'
+    name: 宁德时代
+    role: 动力电池龙头-创业板不可交易
+  tags:
+  - 大宗上游
+  - 宁德时代
+  - 量价双压
+- id: claim-20261021-003-h
+  supersedes: []
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-1329-图片-近期宁德时代、泡泡玛特、格力电器等不同赛道龙头企业股价同步承.md
+  source_date: '2026-10-21'
+  source_type: 动态
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:50:00+08:00'
+  claim_type: operation
+  subject: 消费链条投资两条主线
+  timeframe: trend
+  statement: 核心信号出现前，消费链条任何环节难有独立反转；关注必选消费/高股息防御、优先布局前端修复信号品类
+  evidence_quote: 在这一核心信号出现之前，沿消费传导链条的任何一个环节，都很难走出独立的反转行情。投资层面需关注两条主线：一是必选消费与高股息资产的防御属性...二是密切跟踪居民收入预期与消费信心的边际变化，优先布局率先出现修复信号的前端消费品类。
+  interpretation: 给出了明确的投资策略：防御端配必选消费/高股息，进攻端跟踪前端消费修复信号再向中游扩散。否定了链条中单环节独立反转的可能性。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 消费下行三层传导模型
+  stance: view
+  related_stocks: []
+  tags:
+  - 投资策略
+  - 防御
+  - 前端修复

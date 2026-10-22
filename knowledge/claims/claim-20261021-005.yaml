@@ -1,0 +1,610 @@
+claims:
+- id: claim-20261021-005-a
+  supersedes: ["claim-20260921-003-k", "claim-20260913-001-018", "claim-20260910-003-a"]
+  contradicts: []
+  supplements: []
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: market-cycle
+  subject: 冲高回落定性：指数承压与局部修复并存
+  timeframe: intraday
+  statement: 今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，少数核心维持热度，还不足以确认整体赚钱效应回暖
+  evidence_quote: 今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，少数核心维持热度，还不足以确认整体赚钱效应回暖。据收盘统计，沪指收于3713.03点，跌0.60%；深成指跌0.82%，创业板指跌1.62%，失守2700点。沪深两市成交约14294亿元，较昨日减少约268亿元，降幅约1.8%。
+  interpretation: 收盘定性：冲高回落结构显示指数层面承压（三大指数全天回落、创业板失守2700、成交缩量），但局部题材仍有修复。少数核心标的维持热度不等于整体赚钱效应回暖，需警惕"个股强≠市场强"的错觉。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 收盘定性：弱势存量调仓 + 背离观察
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - 冲高回落
+  - 指数承压
+  - 局部修复
+  - 赚钱效应
+  - 创业板
+- id: claim-20261021-005-b
+  supersedes: ["claim-20260913-001-009"]
+  contradicts: []
+  supplements: ["claim-20260602-001-b", "claim-20260929-002-f"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: market-cycle
+  subject: 指数弱势与短线情绪背离
+  timeframe: intraday
+  statement: 指数弱势与短线情绪存在背离。涨停50家、跌停5家、上涨占比约35.6%，极端亏钱效应有限，并不代表多数个股已经好做
+  evidence_quote: 指数弱势与短线情绪存在背离。不含当日上市新股，今日涨停50家、跌停5家，上涨1980家、下跌3364家，上涨占比约35.6%。极端亏钱效应有限，并不代表多数个股已经好做。连板高度仍集中于海洋王、东安动力、大业股份等4板个股，资金的选择范围较窄。
+  interpretation: 情绪数据（涨停多、跌停少、连板高度4板）看似改善，但指数下跌、上涨家数不足4成、资金选择范围窄（集中4板），这是典型的"弱指数强情绪"背离——存量资金局部抱团，非增量资金全面入场。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 收盘定性：弱势存量调仓 + 背离观察
+  stance: market-regime
+  related_stocks:
+  - code: '300797'
+    name: 海洋王
+    role: 连板高度标的-创业板不可交易
+  - code: '600178'
+    name: 东安动力
+    role: 连板高度标的-主板可交易
+  - code: '600649'
+    name: 大业股份
+    role: 连板高度标的-主板可交易
+  tags:
+  - 情绪背离
+  - 涨停跌停
+  - 连板高度
+  - 存量抱团
+  - 海洋王
+  - 东安动力
+  - 大业股份
+- id: claim-20261021-005-c
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260928-002-i", "claim-20261008-007-h"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: market-cycle
+  subject: 创业板低位科技抗跌背离观察
+  timeframe: short-term
+  statement: 创业板指处于调整低位，部分科技方向相对抗跌，值得观察背离能否延续。当前属弱势环境下存量调仓与局部抱团，仍需后续量价验证
+  evidence_quote: 位置决定意义。创业板指处于调整低位，部分科技方向相对抗跌，值得观察背离能否延续。个人倾向于将当前盘面理解为弱势环境下的存量调仓与局部抱团，仍需后续量价验证。
+  interpretation: 位置决定性质：创业板低位+科技抗跌形成技术性背离，但鉴于整体弱势环境，这更可能是存量资金调仓而非反转启动。关键看后续能否有量能与上涨家数配合的验证。
+  confidence: high
+  status: active
+  intensity: medium
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 收盘定性：弱势存量调仓 + 背离观察
+  stance: market-regime
+  related_stocks: []
+  tags:
+  - 创业板低位
+  - 科技抗跌
+  - 背离观察
+  - 存量调仓
+  - 量价验证
+- id: claim-20261021-005-d
+  supersedes: ["claim-20260721-001"]
+  contradicts: []
+  supplements: ["claim-20261019-001-f", "claim-20260917-007-a"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: methodology
+  subject: 尾盘拉回只能说明承接不能确认资金身份
+  timeframe: permanent
+  statement: 尾盘拉回只能说明当时出现承接，不能据此确认资金身份。若后续指数回升能带动量能和上涨家数改善，修复可信度才会提高
+  evidence_quote: 尾盘拉回只能说明当时出现承接，不能据此确认资金身份。若后续指数回升能带动量能和上涨家数改善，修复可信度才会提高。
+  interpretation: 方法论警示：尾盘拉升仅证明当下有承接买盘，无法判断是主动多头还是被动回补/对冲。真正的修复信号需要指数回升、量能放大、上涨家数扩大三者共振确认。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 收盘定性：弱势存量调仓 + 背离观察
+  stance: view
+  related_stocks: []
+  tags:
+  - 尾盘拉回
+  - 承接
+  - 资金身份
+  - 修复验证
+  - 方法论
+- id: claim-20261021-005-e
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260716-002-j", "claim-20261012-001-p"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: methodology
+  subject: 研报线索增多不等于成为主线，指数环境优先于题材扩散
+  timeframe: permanent
+  statement: 今天的研报线索增多，也不意味着这些方向已经同时成为盘面主线。汽车、热泵、磷化工及锆材料更多体现产业研究与业绩跟踪，是否获得资金持续认可，还要看量价与板块联动
+  evidence_quote: 今天的研报线索增多，也不意味着这些方向已经同时成为盘面主线。汽车、热泵、磷化工及锆材料更多体现产业研究与业绩跟踪，是否获得资金持续认可，还要看量价与板块联动。这个区别决定了后续仍应把指数环境放在题材扩散之前。
+  interpretation: 核心优先级判断：研报催化≠主线形成。题材扩散的先决条件是指数环境许可（量能、情绪、广度），否则仅是产业跟踪清单。操作上：先看大盘环境，再看题材能否获得资金持续认可。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 题材验证框架系列
+  stance: view
+  related_stocks: []
+  tags:
+  - 研报线索
+  - 主线判断
+  - 指数环境优先
+  - 题材扩散
+  - 汽车
+  - 热泵
+  - 磷化工
+  - 锆材料
+- id: claim-20261021-005-f
+  supersedes: ["claim-20260807-026"]
+  contradicts: []
+  supplements: ["claim-20260813-018", "claim-20260518-009"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: sector-theme
+  subject: 算力租赁与Token服务催化集中方向
+  timeframe: short-term
+  statement: 算力租赁与Token服务，是今日催化较集中的方向。SpaceX的SI业务增长、国内推理框架效率改进与润建跨境合同，分别提供海外需求、单位硬件产出和国内业务进展的观察线索
+  evidence_quote: 算力租赁与Token服务，是今日催化较集中的方向。SpaceX的SI业务增长、国内推理框架效率改进与润建跨境合同，分别提供海外需求、单位硬件产出和国内业务进展的观察线索。个人判断，这条线能否从轮动走向持续，关键仍是核心承接、板块跟随和后续订单，不能只凭海外财报确认国内项目的回报率。
+  interpretation: 算力租赁/Token服务为当日催化核心，三条验证线索：海外需求、单位硬件产出、国内业务进展。但能否从轮动转持续，关键看核心标的承接、板块跟随、后续订单落地——海外财报不直接等于国内项目回报率。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 题材验证框架系列
+  stance: view
+  related_stocks:
+  - code: 002398
+    name: 润建股份
+    role: 算力租赁/Token服务核心标的-主板可交易
+  tags:
+  - 算力租赁
+  - Token服务
+  - SpaceX
+  - 润建股份
+  - 轮动转持续
+  - 核心承接
+- id: claim-20261021-005-g
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260917-013-a", "claim-20260930-001-n", "claim-20261015-003-p"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: methodology
+  subject: 题材归类仅提供观察入口，须核对算力规模 服务合同 收入结构
+  timeframe: permanent
+  statement: 题材归类只能提供观察入口，后续还要核对算力规模、服务合同和收入结构，不能把规划、拟采购与稳定运营混为一谈
+  evidence_quote: 个人判断，题材归类只能提供观察入口，后续还要核对算力规模、服务合同和收入结构，不能把规划、拟采购与稳定运营混为一谈。相关公司的业务位置并不相同：有的是算力资源运营，有的是政企服务、智算建设或端侧AI模组。
+  interpretation: 尽调标准化：同一题材下（算力租赁）公司业务模式差异大（资源运营 vs 政企服务 vs 智算建设 vs 端侧模组），不能混为一谈。必须核对：实际算力规模、稳定服务合同、收入结构中稳定运营占比。规划/拟采购≠稳定运营。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 题材验证框架系列
+  stance: view
+  related_stocks:
+  - code: 002398
+    name: 润建股份
+    role: 算力资源运营-主板可交易
+  - code: '603636'
+    name: 南威软件
+    role: 政企服务-主板可交易
+  - code: '600667'
+    name: 太极股份
+    role: 智算建设-主板可交易
+  - code: '300693'
+    name: 利通电子
+    role: 端侧AI模组-创业板不可交易
+  - code: '300303'
+    name: 协创数据
+    role: 数据中心运营-创业板不可交易
+  - code: '688387'
+    name: 美格智能
+    role: AI模组边缘设备-科创板不可交易
+  tags:
+  - 题材归类
+  - 尽调标准
+  - 算力规模
+  - 服务合同
+  - 收入结构
+  - 规划不等于运营
+- id: claim-20261021-005-h
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260922-001-s"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: sector-theme
+  subject: 内存接口与高速互连新线索
+  timeframe: short-term
+  statement: 内存接口与高速互连，是科技方向的另一条新增线索。AI推理与智能体应用增加任务编排、数据搬运和内存访问需求，服务器容量、带宽与互连效率随之受到更多关注
+  evidence_quote: 内存接口与高速互连，是科技方向的另一条新增线索。AI推理与智能体应用增加任务编排、数据搬运和内存访问需求，服务器的容量、带宽与互连效率随之受到更多关注。澜起科技的业绩预告提供了公司层面的验证。个人判断，DDR5等现有产品的出货兑现，与CXL、PCIe等产品的新代际导入应分别跟踪，技术储备和试产仍需经过规模交付检验。
+  interpretation: AI推理/智能体应用驱动任务编排、数据搬运、内存访问需求激增，带动内存接口/高速互连（CXL/PCIe）新需求。澜起业绩预告验证了DDR5出货增长。关键方法论：现有产品出货与新代际导入分开跟踪，试产/技术储备需经规模交付检验。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 题材验证框架系列
+  stance: view
+  related_stocks:
+  - code: '688008'
+    name: 澜起科技
+    role: 内存接口/高速互连龙头-科创板不可交易
+  tags:
+  - 内存接口
+  - 高速互连
+  - CXL
+  - PCIe
+  - DDR5
+  - 澜起科技
+  - AI推理
+  - 新代际导入
+- id: claim-20261021-005-i
+  supersedes: ["claim-20260609-001-b", "claim-20260630-003-ap"]
+  contradicts: []
+  supplements: ["claim-20260607-004-g"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: sector-theme
+  subject: 机器人与物理AI温和分化，看分歧后结构
+  timeframe: short-term
+  statement: 机器人与物理AI呈温和分化，英伟达Isaac平台升级提供了产业催化。研报关注点已从机器人本体，延伸到训练数据、仿真、端侧推理与执行控制
+  evidence_quote: 机器人与物理AI呈温和分化，英伟达Isaac平台升级提供了产业催化。研报关注点已从机器人本体，延伸到训练数据、仿真、端侧推理与执行控制。个人倾向于先看分歧后的结构：若核心稳定、低位跟随增加，板块才有进一步扩散基础；若仅少数高位维持，而多数个股走弱，则仍是局部抱团。
+  interpretation: 机器人/物理AI产业关注点已从本体延伸到数据、仿真、端侧推理、执行控制四大维度。判断扩散基础的标准：核心标的稳+低位跟随增=扩散基础；仅高位维持+多数走弱=局部抱团。这是可复用的板块扩散判断框架。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 题材验证框架系列
+  stance: view
+  related_stocks:
+  - code: '601100'
+    name: 恒立液压
+    role: 执行零部件-主板可交易
+  - code: '603806'
+    name: 福赛科技
+    role: 执行零部件-主板可交易
+  - code: '301050'
+    name: 斯菱智驱
+    role: 减速器拓展业务-创业板不可交易
+  - code: '688428'
+    name: 科森科技
+    role: 机器人零部件-科创板不可交易
+  - code: '003021'
+    name: 兆威机电
+    role: 精密传动-主板可交易
+  - code: '300777'
+    name: 索辰科技
+    role: 仿真数字场景-创业板不可交易
+  - code: '300318'
+    name: 凡拓数创
+    role: 仿真数字场景-创业板不可交易
+  - code: '601636'
+    name: 中控技术
+    role: 工业应用-主板可交易
+  tags:
+  - 机器人
+  - 物理AI
+  - Isaac平台
+  - 训练数据
+  - 仿真
+  - 端侧推理
+  - 执行控制
+  - 扩散判断框架
+- id: claim-20261021-005-j
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260819-006-015", "claim-20261021-002-o", "claim-20261020-003-i"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: sector-theme
+  subject: 数据采集为数据要素与物理AI交集
+  timeframe: short-term
+  statement: 数据采集为数据要素与物理AI提供了交集。具身智能需要视觉、语言、动作与状态等真实交互数据，互联网语料难以完整替代实际操作经验
+  evidence_quote: 数据采集为数据要素与物理AI提供了交集。具身智能需要视觉、语言、动作与状态等真实交互数据，互联网语料难以完整替代实际操作经验。示教、真机采集、仿真和世界模型合成等路线并行，数据质量、任务覆盖与采集成本各有取舍。个人判断，后续应看训练可用性、授权确权和客户交付，不能把所有数据概念公司的异动都归因于机器人业务兑现。
+  interpretation: 具身智能训练数据需求催生数据采集新赛道：示教、真机、仿真、世界模型四条路线并行，各有质量/覆盖/成本取舍。核心验证指标：训练可用性、授权确权、客户交付。警示：数据概念公司异动≠机器人业务兑现。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 题材验证框架系列
+  stance: view
+  related_stocks:
+  - code: '688500'
+    name: 慧辰股份
+    role: 数据分析应用-科创板不可交易
+  - code: '688787'
+    name: 海天瑞声
+    role: AI训练数据-科创板不可交易
+  - code: '300371'
+    name: 中广天择
+    role: 音视频语料版权数据-创业板不可交易
+  - code: '688266'
+    name: 地纬智能
+    role: 数据流通运营-科创板不可交易
+  - code: '603266'
+    name: 久远银海
+    role: 行业数据-主板可交易
+  - code: '600410'
+    name: 华胜天成
+    role: 数据标注综合服务-主板可交易
+  tags:
+  - 数据采集
+  - 数据要素
+  - 物理AI
+  - 具身智能
+  - 训练数据
+  - 示教
+  - 仿真
+  - 世界模型
+  - 授权确权
+- id: claim-20261021-005-k
+  supersedes: ["claim-20260809-012"]
+  contradicts: []
+  supplements: ["claim-20260804-035"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: sector-theme
+  subject: 磷化铟 磷化工 锆 铝材料观察框架
+  timeframe: short-term
+  statement: 磷化铟的观察重点是高速光通信需求、客户订单与产能爬坡；磷化工则主要跟踪资源、电力和不同工艺的成本变化，两者不能因为名称接近就放进同一涨价逻辑
+  evidence_quote: 磷化铟的观察重点是高速光通信需求、客户订单与产能爬坡；磷化工则主要跟踪资源、电力和不同工艺的成本变化，两者不能因为名称接近就放进同一涨价逻辑。长裕集团的锆制品、中孚实业的电解铝，还提供了产品售价、原料成本与产能释放影响利润的观察样本。个人判断，产业供需与股价位置需要一起看，阶段性价格优势也不应提前外推为长期利润。
+  interpretation: 材料赛道精细化拆解：磷化铟看光通信需求+订单+产能；磷化工看资源/电力/工艺成本；锆/铝看售价/成本/产能。核心方法论：供需与股价位置结合看，阶段性价格优势不外推为长期利润。
+  confidence: high
+  status: active
+  intensity: medium
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 题材验证框架系列
+  stance: view
+  related_stocks:
+  - code: '688167'
+    name: 光智科技
+    role: 磷化铟晶片-科创板不可交易
+  - code: '603188'
+    name: 长裕集团
+    role: 锆制品-主板可交易
+  - code: '600548'
+    name: 中孚实业
+    role: 电解铝-主板可交易
+  tags:
+  - 磷化铟
+  - 磷化工
+  - 锆材料
+  - 电解铝
+  - 光通信
+  - 产能爬坡
+  - 成本变化
+  - 阶段性价格
+- id: claim-20261021-005-l
+  supersedes: ["claim-20260901-050-a"]
+  contradicts: []
+  supplements: ["claim-20261015-001-15"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: market-cycle
+  subject: 传媒 计算机 福建 数据要素局部活跃暂按轮动观察
+  timeframe: short-term
+  statement: 传媒、计算机等方向出现局部活跃，短剧有所回流，福建和数据要素也有表现。个人判断，暂按轮动观察更合适
+  evidence_quote: 传媒、计算机等方向出现局部活跃，短剧有所回流，福建和数据要素也有表现。个人判断，暂按轮动观察更合适：福建看平潭发展等辨识度个股反馈，传媒看次日承接，数据要素看能否形成板块联动。
+  interpretation: 多个方向局部活跃但缺乏持续性，归类为轮动观察而非主线确立。给出具体观察锚点：福建看平潭发展等辨识度标的反馈、传媒看次日承接、数据要素看板块联动。
+  confidence: high
+  status: active
+  intensity: medium
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 题材验证框架系列
+  stance: view
+  related_stocks:
+  - code: 000592
+    name: 平潭发展
+    role: 福建自贸区辨识度标的-主板可交易
+  - code: '300777'
+    name: 索辰科技
+    role: 数据要素-创业板不可交易
+  tags:
+  - 传媒
+  - 计算机
+  - 福建自贸区
+  - 数据要素
+  - 短剧
+  - 轮动观察
+  - 平潭发展
+  - 板块联动
+- id: claim-20261021-005-m
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260929-002-e", "claim-20260921-001-z", "claim-20261014-005-8"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: operation
+  subject: 防御端：权重回升带动广度与分红周期股风险
+  timeframe: short-term
+  statement: 防御端观察权重回升是否带动广度；有分红的周期股，也仍需承担商品价格与成本波动，不能仅凭现金回报将其视为稳定防御资产
+  evidence_quote: 防御端观察权重回升是否带动市场广度；有分红的周期股，也仍需承担商品价格与成本波动，不能仅凭现金回报将其视为稳定防御资产。
+  interpretation: 防御策略修正：权重股回升需带动市场广度才算有效防御；高股息周期股仍面临商品价格/成本波动风险，现金回报不等于稳定防御（基本面仍受周期影响）。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 题材验证框架系列
+  stance: view
+  related_stocks: []
+  tags:
+  - 防御策略
+  - 权重回升
+  - 市场广度
+  - 高股息周期股
+  - 商品价格波动
+  - 现金回报陷阱
+- id: claim-20261021-005-n
+  supersedes: []
+  contradicts: []
+  supplements: ["claim-20260915-004-21", "claim-20261020-003-l"]
+  last_discovered: 2026-10-22
+  source_path: sources/original/bilibili/2026-10-21-2232-专栏-今天的冲高回落，反映出指数承压与局部短线修复并存。个人判断，.md
+  source_date: '2026-10-21'
+  source_type: 专栏
+  up_id: '1420210197'
+  up_name: 青枫浦上Q
+  extracted_at: '2026-10-22T08:58:00+08:00'
+  claim_type: methodology
+  subject: 验证框架系列：交付 调用量 回款 单位售价 GPU利用率 电力折旧 现有产品出货 新品导入 业务距离具身智能 订单转化 良率 扩产进度 行业吨利润
+    并购分阶段 研发验证 量产订单 产品布局 客户验证 收入贡献 经营利润 现金牛 净利润
+  timeframe: permanent
+  statement: 验证框架系列：交付/调用量/回款、单位售价+GPU利用率+电力折旧合算、现有产品出货与新品导入分开跟踪、业务距离具身智能远近分层核对、订单转化/良率/扩产进度以公告为准、实际交付/原料成本/有效产能释放、行业吨利润≠公司实际利润、并购分阶段验证完成/认证/收入贡献、研发验证与量产订单有距离、产品布局/客户验证/收入贡献逐层确认、经营利润转正≠现金牛/净利润受经营外影响
+  evidence_quote: 润建股份：按Token收费也不自动提高盈利，单位售价、GPU利用率、电力及折旧成本仍要一起计算...澜起科技：现有产品出货与新产品导入需要分开跟踪...光智科技：后续重点是订单转化、良率及扩产进度，具体以公告为准...长裕集团：后续重点是实际交付、原料成本和有效产能释放...中孚实业：行业吨利润测算不能直接当作公司实际利润...裕同科技：交易完成、客户认证与新业务收入贡献应分阶段验证...大业股份：送样、验证、量产订单之间仍有距离...斯菱主营仍为汽车轴承，减速器属于拓展业务...SpaceX：经营利润转正也不足以直接称为现金牛，净利润还受经营外收益及税项影响。
+  interpretation: 全文贯穿的方法论密集输出：14个维度的尽调验证框架，覆盖算力租赁、内存互连、机器人、数据采集、材料、并购、财务分析等全谱系。每个框架都是可复用的核对清单，将模糊概念拆解为可验证的具体指标。
+  confidence: high
+  status: active
+  intensity: high
+  links:
+    wiki_pages: []
+    methodology_pages: []
+    cases: []
+  topic: 题材验证框架系列
+  stance: view
+  related_stocks:
+  - code: 002398
+    name: 润建股份
+    role: 算力租赁验证-主板可交易
+  - code: '688008'
+    name: 澜起科技
+    role: 内存互连验证-科创板不可交易
+  - code: '688167'
+    name: 光智科技
+    role: 磷化铟验证-科创板不可交易
+  - code: '603188'
+    name: 长裕集团
+    role: 锆材料验证-主板可交易
+  - code: '600548'
+    name: 中孚实业
+    role: 电解铝验证-主板可交易
+  - code: '300773'
+    name: 裕同科技
+    role: 并购验证-创业板不可交易
+  - code: '600649'
+    name: 大业股份
+    role: 机器人腱绳验证-主板可交易
+  - code: '301050'
+    name: 斯菱智驱
+    role: 减速器验证-创业板不可交易
+  tags:
+  - 验证框架
+  - 尽调清单
+  - 交付调用量回款
+  - 单位售价GPU利用率电力折旧
+  - 现有产品新品分开跟踪
+  - 业务距离具身智能
+  - 订单转化良率扩产
+  - 实际交付原料成本有效产能
+  - 行业吨利润不等公司利润
+  - 并购分阶段验证
+  - 研发验证量产订单距离
+  - 产品布局客户验证收入贡献
+  - 经营利润不等现金牛
