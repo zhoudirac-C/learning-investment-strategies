@@ -245,7 +245,7 @@ def test_asr_video_full_chain_exception_returns_empty(monkeypatch, tmp_path):
     def boom(*a, **kw):
         raise RuntimeError("cid 挂了")
 
-    monkeypatch.setattr(asr, "fetch_cid", boom)
+    monkeypatch.setattr(asr, "fetch_video_meta", boom)
     monkeypatch.setattr(asr, "check_ffmpeg", lambda: True)
     result = asr.asr_video(_video_item(), _cfg(tmp_path), "sess")
     assert result == ""  # 不抛出
@@ -262,7 +262,7 @@ def test_asr_video_budget_exceeded(monkeypatch, tmp_path):
     asr._log_cost({"ts": datetime.now().isoformat(), "cost_cny": 99.0, "status": "ok"}, cfg)
 
     called = {"n": 0}
-    monkeypatch.setattr(asr, "fetch_cid", lambda *a, **kw: called.update(n=1))
+    monkeypatch.setattr(asr, "fetch_video_meta", lambda *a, **kw: called.update(n=1))
     monkeypatch.setattr(asr, "check_ffmpeg", lambda: True)
     assert asr.asr_video(_video_item(), cfg, "sess") == ""
     assert called["n"] == 0  # 预算超限后不再请求
@@ -270,8 +270,11 @@ def test_asr_video_budget_exceeded(monkeypatch, tmp_path):
 
 def test_asr_video_happy_path(monkeypatch, tmp_path):
     monkeypatch.setattr(asr, "check_ffmpeg", lambda: True)
-    monkeypatch.setattr(asr, "fetch_cid", lambda b, s, c=None: "123")
-    monkeypatch.setattr(asr, "fetch_audio_url", lambda b, c, s, cfg=None: "https://x/a.m4s")
+    monkeypatch.setattr(asr, "fetch_video_meta", lambda b, s, c=None: {"cid": "123", "duration_ms": 333000})
+    monkeypatch.setattr(
+        asr, "fetch_audio_url",
+        lambda b, c, s, cfg=None, expected_duration_ms=None: "https://x/a.m4s",
+    )
     monkeypatch.setattr(asr, "download_audio", lambda u, s, d, cfg=None: d.write_bytes(b"m4s") or d)
     monkeypatch.setattr(asr, "to_wav", lambda s, d, cfg=None: d.write_bytes(b"wav") or d)
     monkeypatch.setattr(asr, "_probe_duration", lambda p: 333.0)
@@ -310,3 +313,202 @@ def test_transcribe_single_refusal_treated_as_failure(monkeypatch, tmp_path):
     mp3 = _write_mp3(tmp_path / "a.mp3")
     with pytest.raises(RuntimeError, match="拒答"):
         asr._transcribe_single(mp3, _cfg(tmp_path), "key")
+
+
+# ── 充电专属加固：设备 cookie / 请求头 / 试看识别 ──────────────
+
+_FIXED_DEVICE = {"buvid3": "B3TESTinfoc", "b_nut": 1700000000}
+
+
+def test_build_cookie_decodes_urlencoded(monkeypatch):
+    monkeypatch.setattr(asr, "_ensure_device_cookies", lambda: dict(_FIXED_DEVICE))
+    cookie = asr._build_cookie("abc%2C123%2Cdef")
+    assert "SESSDATA=abc,123,def" in cookie
+    assert "buvid3=B3TESTinfoc" in cookie
+    assert "b_nut=1700000000" in cookie
+
+
+def test_build_cookie_plain_unchanged(monkeypatch):
+    monkeypatch.setattr(asr, "_ensure_device_cookies", lambda: dict(_FIXED_DEVICE))
+    cookie = asr._build_cookie("abc,123,def")
+    assert "SESSDATA=abc,123,def" in cookie
+
+
+def test_build_cookie_empty(monkeypatch):
+    monkeypatch.setattr(asr, "_ensure_device_cookies", lambda: dict(_FIXED_DEVICE))
+    assert asr._build_cookie("") == ""
+
+
+def test_device_cookies_persisted(monkeypatch, tmp_path):
+    monkeypatch.setenv("BILIBILI_DEVICE_STATE", str(tmp_path / "dev.json"))
+    d1 = asr._ensure_device_cookies()
+    d2 = asr._ensure_device_cookies()
+    assert d1 == d2
+    assert d1["buvid3"].endswith("infoc")
+    assert d1["b_nut"] > 0
+    assert (tmp_path / "dev.json").exists()
+
+
+def test_get_json_sends_browser_headers(monkeypatch, tmp_path):
+    monkeypatch.setenv("BILIBILI_DEVICE_STATE", str(tmp_path / "dev.json"))
+    monkeypatch.setattr(asr, "_ensure_device_cookies", lambda: dict(_FIXED_DEVICE))
+    captured: dict = {}
+
+    class FakeResp:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def read(self):
+            return b'{"code": 0}'
+
+    def fake_urlopen(req, timeout=0):
+        captured["headers"] = {k.lower(): v for k, v in req.header_items()}
+        return FakeResp()
+
+    monkeypatch.setattr(asr.urllib.request, "urlopen", fake_urlopen)
+    asr._get_json("https://example.com/api", "s%2C1")
+    h = captured["headers"]
+    assert h["accept"] == "application/json, text/plain, */*"
+    assert h["accept-language"] == "zh-CN,zh;q=0.9"
+    assert h["origin"] == "https://www.bilibili.com"
+    assert h["referer"] == "https://www.bilibili.com/"
+    assert "SESSDATA=s,1" in h["cookie"]
+    assert "buvid3=B3TESTinfoc" in h["cookie"]
+
+
+def test_fetch_video_meta(monkeypatch, tmp_path):
+    monkeypatch.setattr(
+        asr, "_get_json",
+        lambda url, sessdata="", timeout=15: {"code": 0, "data": {"cid": 40962101101, "duration": 4470}},
+    )
+    meta = asr.fetch_video_meta("BV1x", "sess", _cfg(tmp_path))
+    assert meta == {"cid": "40962101101", "duration_ms": 4470000}
+
+
+def test_fetch_audio_url_preview_mismatch_nonretryable(monkeypatch, tmp_path):
+    calls = {"n": 0}
+
+    def fake(url, sessdata="", timeout=15):
+        calls["n"] += 1
+        return {"code": 0, "data": {
+            "timelength": 1299000,
+            "dash": {"audio": [{"bandwidth": 1, "baseUrl": "https://x/a.m4s"}]},
+        }}
+
+    monkeypatch.setattr(asr, "_get_json", fake)
+    with pytest.raises(asr.ChargePreviewError, match="试看"):
+        asr.fetch_audio_url("BV1x", "123", "sess", _cfg(tmp_path), expected_duration_ms=4470000)
+    assert calls["n"] == 1  # 试看判定不重试
+
+
+def test_fetch_audio_url_timelength_close_enough_passes(monkeypatch, tmp_path):
+    resp = {"code": 0, "data": {
+        "timelength": 4469300,  # 容器时长与 view 时长差 700ms，属正常
+        "dash": {"audio": [{"bandwidth": 1, "baseUrl": "https://x/a.m4s"}]},
+    }}
+    monkeypatch.setattr(asr, "_get_json", lambda url, sessdata="", timeout=15: resp)
+    url = asr.fetch_audio_url("BV1x", "123", "sess", _cfg(tmp_path), expected_duration_ms=4470000)
+    assert url == "https://x/a.m4s"
+
+
+def test_asr_video_preview_only_logs_and_returns_empty(monkeypatch, tmp_path):
+    monkeypatch.setattr(asr, "check_ffmpeg", lambda: True)
+    monkeypatch.setattr(
+        asr, "fetch_video_meta",
+        lambda b, s, c=None: {"cid": "123", "duration_ms": 4470000},
+    )
+
+    def boom(b, c, s, cfg=None, expected_duration_ms=None):
+        raise asr.ChargePreviewError("playurl 仅返回试看流")
+
+    monkeypatch.setattr(asr, "fetch_audio_url", boom)
+    assert asr.asr_video(_video_item(), _cfg(tmp_path), "sess") == ""
+
+    entry = json.loads((tmp_path / "asr_log.jsonl").read_text(encoding="utf-8").splitlines()[-1])
+    assert entry["status"] == "preview_only"
+    assert "试看" in entry["error"]
+
+
+# ── 备选模型 fallback（主力 mimo 故障时逐段切换） ───────────────
+
+_FALLBACK = "qwen/qwen3.8-omni-flash"
+
+
+def _fallback_cfg(tmp_path: Path) -> dict:
+    cfg = _cfg(tmp_path)
+    cfg["fallback_model"] = _FALLBACK
+    return cfg
+
+
+def test_transcribe_fallback_when_primary_fails(monkeypatch, tmp_path):
+    wav = tmp_path / "audio.wav"
+    wav.write_bytes(b"wav")
+    monkeypatch.setattr(asr, "_probe_duration", lambda p: 100.0)
+    monkeypatch.setattr(asr, "to_mp3", lambda w, dest, cfg=None: _write_mp3(dest))
+    monkeypatch.setattr(asr, "resolve_api_key", lambda cfg: "key")
+
+    calls = []
+
+    def fake_single(mp3_path, cfg, key):
+        calls.append(cfg["model"])
+        if cfg["model"] == "xiaomi/mimo-v2.5":
+            raise asr.ChargePreviewError("'NoneType' object has no attribute 'strip'")
+        return "备选转写文本"
+
+    monkeypatch.setattr(asr, "_transcribe_single", fake_single)
+    assert asr.transcribe(wav, _fallback_cfg(tmp_path)) == "备选转写文本"
+    assert calls == ["xiaomi/mimo-v2.5", _FALLBACK]
+
+
+def test_transcribe_primary_ok_skips_fallback(monkeypatch, tmp_path):
+    wav = tmp_path / "audio.wav"
+    wav.write_bytes(b"wav")
+    monkeypatch.setattr(asr, "_probe_duration", lambda p: 100.0)
+    monkeypatch.setattr(asr, "to_mp3", lambda w, dest, cfg=None: _write_mp3(dest))
+    monkeypatch.setattr(asr, "resolve_api_key", lambda cfg: "key")
+
+    calls = []
+
+    def fake_single(mp3_path, cfg, key):
+        calls.append(cfg["model"])
+        return "主力转写文本"
+
+    monkeypatch.setattr(asr, "_transcribe_single", fake_single)
+    assert asr.transcribe(wav, _fallback_cfg(tmp_path)) == "主力转写文本"
+    assert calls == ["xiaomi/mimo-v2.5"]
+
+
+def test_transcribe_no_fallback_config_raises(monkeypatch, tmp_path):
+    """未配置 fallback_model 时维持原行为：主力异常直接抛出。"""
+    wav = tmp_path / "audio.wav"
+    wav.write_bytes(b"wav")
+    monkeypatch.setattr(asr, "_probe_duration", lambda p: 100.0)
+    monkeypatch.setattr(asr, "to_mp3", lambda w, dest, cfg=None: _write_mp3(dest))
+    monkeypatch.setattr(asr, "resolve_api_key", lambda cfg: "key")
+    monkeypatch.setattr(
+        asr, "_transcribe_single",
+        lambda mp3_path, cfg, key: (_ for _ in ()).throw(asr.ChargePreviewError("null")),
+    )
+    cfg = _cfg(tmp_path)  # fallback_model 默认为 ""，不触发切换
+    assert cfg.get("fallback_model", "") == ""
+    with pytest.raises(asr.ChargePreviewError, match="null"):
+        asr.transcribe(wav, cfg)
+
+
+def test_transcribe_fallback_also_fails_raises_primary(monkeypatch, tmp_path):
+    """备选也失败时抛主力异常（根因），而不是备选的异常。"""
+    wav = tmp_path / "audio.wav"
+    wav.write_bytes(b"wav")
+    monkeypatch.setattr(asr, "_probe_duration", lambda p: 100.0)
+    monkeypatch.setattr(asr, "to_mp3", lambda w, dest, cfg=None: _write_mp3(dest))
+    monkeypatch.setattr(asr, "resolve_api_key", lambda cfg: "key")
+
+    def fake_single(mp3_path, cfg, key):
+        raise asr.ChargePreviewError(f"boom-{cfg['model']}")
+
+    monkeypatch.setattr(asr, "_transcribe_single", fake_single)
+    with pytest.raises(asr.ChargePreviewError, match="boom-xiaomi/mimo-v2.5"):
+        asr.transcribe(wav, _fallback_cfg(tmp_path))

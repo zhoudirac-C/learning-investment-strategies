@@ -8,6 +8,7 @@
 enabled: true
 provider: openrouter
 model: xiaomi/mimo-v2.5
+fallback_model: qwen/qwen3.8-omni-flash   # 主力 null/故障时逐段自动切换（实测 2026-10-22：mimo 中继间歇 null，omni-flash 稳定且专名准）
 api_key_env: CUSTOM_OPENROUTER_API_KEY   # 兜底：OPENROUTER_API_KEY
 api_base: https://openrouter.ai/api/v1
 

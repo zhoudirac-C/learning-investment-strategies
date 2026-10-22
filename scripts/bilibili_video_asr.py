@@ -24,9 +24,11 @@ import tempfile
 import time
 import urllib.error
 import urllib.request
+import uuid
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable
+from urllib.parse import unquote
 
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -40,6 +42,7 @@ DEFAULT_CONFIG: dict[str, Any] = {
     "enabled": True,
     "provider": "openrouter",
     "model": "xiaomi/mimo-v2.5",
+    "fallback_model": "",  # 主力失败时逐段切换的备选模型，"" 表示不启用
     "api_key_env": "CUSTOM_OPENROUTER_API_KEY",
     "api_base": "https://openrouter.ai/api/v1",
     "audio": {
@@ -74,6 +77,13 @@ _REFUSAL_PATTERNS = (
     "无法转写这段音频",
     "语音转文字工具",
 )
+
+
+class ChargePreviewError(RuntimeError):
+    """充电专属视频被风控降级/未授权，playurl 仅返回试看流。
+
+    与网络错误不同：重试无意义，应立即失败并让上层落 preview_only 日志。
+    """
 
 
 # ── 配置 ──────────────────────────────────────────────────────────
@@ -115,20 +125,66 @@ def check_ffmpeg() -> bool:
 
 # ── HTTP 出口（测试 monkeypatch 点） ───────────────────────────────
 
+# 设备 cookie 持久化：模拟真实浏览器指纹，降低风控对充电专属视频降级的概率。
+# 缓存按状态文件路径分键，测试可用 BILIBILI_DEVICE_STATE 指到临时文件。
+_DEVICE_CACHE: dict[str, dict] = {}
+
+
+def _device_state_path() -> Path:
+    override = os.environ.get("BILIBILI_DEVICE_STATE")
+    if override:
+        return Path(override)
+    return Path.home() / ".hermes" / "bilibili_device.json"
+
+
+def _ensure_device_cookies() -> dict:
+    """读取或生成 buvid3/b_nut；跨运行持久化，进程内按路径缓存。"""
+    path = _device_state_path()
+    key = str(path)
+    if key in _DEVICE_CACHE:
+        return _DEVICE_CACHE[key]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            data = {}
+    except (OSError, json.JSONDecodeError):
+        data = {}
+    if not data.get("buvid3"):
+        data["buvid3"] = str(uuid.uuid4()).upper() + "infoc"
+    if not data.get("b_nut"):
+        data["b_nut"] = int(time.time())
+    _DEVICE_CACHE[key] = data
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(data), encoding="utf-8")
+    except OSError:
+        pass  # 持久化失败只影响跨运行复用，本次进程内仍可用
+    return data
+
+
 def _build_cookie(sessdata: str) -> str:
-    return f"SESSDATA={sessdata}" if sessdata else ""
+    if not sessdata:
+        return ""
+    dev = _ensure_device_cookies()
+    # 本地存的 SESSDATA 可能是浏览器复制来的 URL 编码值（%2C），发送前解码
+    decoded = unquote(sessdata)
+    return f"buvid3={dev['buvid3']}; b_nut={dev['b_nut']}; SESSDATA={decoded}"
 
 
-def _get_json(url: str, sessdata: str = "", timeout: int = 15) -> dict:
-    headers = {
+def _browser_headers(sessdata: str) -> dict:
+    """与 web 播放器对齐的请求头（风控敏感，充电专属视频尤甚）。"""
+    return {
         "User-Agent": USER_AGENT,
         "Referer": BILIBILI_REFERER,
         "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "zh-CN,zh;q=0.9",
+        "Origin": "https://www.bilibili.com",
+        "Cookie": _build_cookie(sessdata),
     }
-    cookie = _build_cookie(sessdata)
-    if cookie:
-        headers["Cookie"] = cookie
-    req = urllib.request.Request(url, headers=headers)
+
+
+def _get_json(url: str, sessdata: str = "", timeout: int = 15) -> dict:
+    req = urllib.request.Request(url, headers=_browser_headers(sessdata))
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return json.loads(resp.read().decode("utf-8"))
 
@@ -151,6 +207,8 @@ def _post_json(url: str, body: dict, api_key: str, timeout: int = 180) -> dict:
 # ── 重试 ──────────────────────────────────────────────────────────
 
 def _is_retryable(exc: Exception) -> bool:
+    if isinstance(exc, ChargePreviewError):
+        return False  # 试看判定重试无意义
     if isinstance(exc, urllib.error.HTTPError):
         return exc.code == 429 or exc.code >= 500
     return True  # 网络错误 / 超时均可重试
@@ -187,27 +245,48 @@ def extract_bvid(item: dict) -> str:
     return ""
 
 
-def fetch_cid(bvid: str, sessdata: str, cfg: dict | None = None) -> str:
-    """BV → cid（x/web-interface/view）。"""
+def fetch_video_meta(bvid: str, sessdata: str, cfg: dict | None = None) -> dict:
+    """BV → {cid, duration_ms}（x/web-interface/view）。
+
+    duration_ms 供 playurl 试看校验：充电专属视频被风控降级时 playurl 只返回
+    试看流（timelength 远小于正片时长），据此识别而不是静默转录残缺内容。
+    """
     cfg = cfg or DEFAULT_CONFIG
 
-    def _call() -> str:
+    def _call() -> dict:
         data = _get_json(
             f"https://api.bilibili.com/x/web-interface/view?bvid={bvid}",
             sessdata,
         )
         if data.get("code") != 0:
             raise RuntimeError(f"view API 返回 code={data.get('code')}: {data.get('message', '')}")
-        cid = data.get("data", {}).get("cid")
+        d = data.get("data") or {}
+        cid = d.get("cid")
         if not cid:
             raise RuntimeError("view API 未返回 cid")
-        return str(cid)
+        return {"cid": str(cid), "duration_ms": int(d.get("duration", 0) * 1000)}
 
-    return _retry(_call, cfg, what=f"fetch_cid({bvid})")
+    return _retry(_call, cfg, what=f"fetch_video_meta({bvid})")
 
 
-def fetch_audio_url(bvid: str, cid: str, sessdata: str, cfg: dict | None = None) -> str:
-    """取 dash 音频中 bandwidth 最高一条的 baseUrl。"""
+def fetch_cid(bvid: str, sessdata: str, cfg: dict | None = None) -> str:
+    """BV → cid（x/web-interface/view）。fetch_video_meta 的兼容包装。"""
+    return fetch_video_meta(bvid, sessdata, cfg)["cid"]
+
+
+def fetch_audio_url(
+    bvid: str,
+    cid: str,
+    sessdata: str,
+    cfg: dict | None = None,
+    expected_duration_ms: int | None = None,
+) -> str:
+    """取 dash 音频中 bandwidth 最高一条的 baseUrl。
+
+    传入 expected_duration_ms 时做试看校验：playurl 的 timelength 明显小于
+    正片时长（<95%）说明被按未授权/风控降级处理（充电专属视频常见），
+    抛 ChargePreviewError 而不是拿试看流继续走。
+    """
     cfg = cfg or DEFAULT_CONFIG
 
     def _call() -> str:
@@ -218,9 +297,15 @@ def fetch_audio_url(bvid: str, cid: str, sessdata: str, cfg: dict | None = None)
         )
         if data.get("code") != 0:
             raise RuntimeError(f"playurl API 返回 code={data.get('code')}: {data.get('message', '')}")
-        audios = (
-            data.get("data", {}).get("dash", {}).get("audio") or []
-        )
+        d = data.get("data") or {}
+        if expected_duration_ms:
+            timelength = int(d.get("timelength") or 0)
+            if timelength and timelength < expected_duration_ms * 0.95:
+                raise ChargePreviewError(
+                    f"playurl 仅返回试看流: timelength={timelength}ms "
+                    f"< 预期{expected_duration_ms}ms（充电专属视频鉴权降级）"
+                )
+        audios = (d.get("dash") or {}).get("audio") or []
         if not audios:
             raise RuntimeError("playurl 未返回 dash 音频流")
         best = max(audios, key=lambda a: a.get("bandwidth", 0))
@@ -238,11 +323,7 @@ def download_audio(url: str, sessdata: str, dest: Path, cfg: dict | None = None)
     timeout = int(cfg.get("timeout", {}).get("download", 60))
 
     def _call() -> Path:
-        headers = {"User-Agent": USER_AGENT, "Referer": BILIBILI_REFERER}
-        cookie = _build_cookie(sessdata)
-        if cookie:
-            headers["Cookie"] = cookie
-        req = urllib.request.Request(url, headers=headers)
+        req = urllib.request.Request(url, headers=_browser_headers(sessdata))
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             dest.write_bytes(resp.read())
         if dest.stat().st_size == 0:
@@ -425,6 +506,31 @@ def _transcribe_single(mp3_path: Path, cfg: dict, api_key: str) -> str:
     return _retry(_call, cfg, what=f"transcribe({mp3_path.name})")
 
 
+def _transcribe_with_fallback(mp3_path: Path, cfg: dict, api_key: str) -> str:
+    """主力模型失败（内部重试耗尽）后，用 fallback_model 重试这一段。
+
+    主力故障模式（如中继返回 null content）重试无意义，切换备选模型；
+    备选也失败时抛主力异常（保留根因语义）。
+    """
+    try:
+        return _transcribe_single(mp3_path, cfg, api_key)
+    except Exception as primary_exc:  # noqa: BLE001 - 任何主力失败都触发备选
+        fallback = (cfg.get("fallback_model") or "").strip()
+        if not fallback or fallback == cfg.get("model"):
+            raise
+        print(
+            f"WARN: 主力模型 {cfg.get('model')} 失败（{primary_exc}），"
+            f"切换备选 {fallback}",
+            file=sys.stderr,
+        )
+        fb_cfg = dict(cfg)
+        fb_cfg["model"] = fallback
+        try:
+            return _transcribe_single(mp3_path, fb_cfg, api_key)
+        except Exception:  # noqa: BLE001 - 备选失败抛主力根因
+            raise primary_exc
+
+
 def transcribe(audio_path: Path, cfg: dict | None = None) -> str:
     """wav → （按需切段）→ mp3 → OpenRouter ASR，返回合并转写文本。"""
     cfg = cfg or DEFAULT_CONFIG
@@ -447,7 +553,7 @@ def transcribe(audio_path: Path, cfg: dict | None = None) -> str:
     for i, part in enumerate(parts):
         mp3_path = part.with_suffix(".mp3")
         to_mp3(part, mp3_path, cfg)
-        texts.append(_transcribe_single(mp3_path, cfg, api_key))
+        texts.append(_transcribe_with_fallback(mp3_path, cfg, api_key))
         if len(parts) > 1:
             print(f"INFO: ASR 分段 {i + 1}/{len(parts)} 完成", file=sys.stderr)
     return "\n".join(texts)
@@ -482,8 +588,11 @@ def asr_video(item: dict, cfg: dict | None = None, sessdata: str = "") -> str:
     try:
         with tempfile.TemporaryDirectory(prefix="bili_asr_") as tmp:
             tmp_dir = Path(tmp)
-            cid = fetch_cid(bvid, sessdata, cfg)
-            audio_url = fetch_audio_url(bvid, cid, sessdata, cfg)
+            meta = fetch_video_meta(bvid, sessdata, cfg)
+            audio_url = fetch_audio_url(
+                bvid, meta["cid"], sessdata, cfg,
+                expected_duration_ms=meta.get("duration_ms") or None,
+            )
             m4s_path = download_audio(audio_url, sessdata, tmp_dir / "audio.m4s", cfg)
             wav_path = to_wav(m4s_path, tmp_dir / "audio.wav", cfg)
             duration_s = _probe_duration(wav_path)
@@ -495,6 +604,15 @@ def asr_video(item: dict, cfg: dict | None = None, sessdata: str = "") -> str:
             "status": "ok",
         }, cfg)
         return text
+    except ChargePreviewError as exc:
+        # 充电专属视频被降级为试看流：宁可不转也不把残缺内容当全文落盘
+        print(f"WARN: ASR 试看流拦截 {bvid}: {exc}", file=sys.stderr)
+        _log_cost({
+            "ts": datetime.now().isoformat(), "bvid": bvid,
+            "model": cfg.get("model"), "duration_s": round(duration_s, 1),
+            "cost_cny": 0, "status": "preview_only", "error": str(exc)[:200],
+        }, cfg)
+        return ""
     except Exception as exc:  # noqa: BLE001 - ASR 失败绝不中断主流程
         print(f"WARN: ASR 失败 {bvid}: {exc}", file=sys.stderr)
         _log_cost({
