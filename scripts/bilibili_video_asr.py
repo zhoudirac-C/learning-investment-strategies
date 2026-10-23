@@ -55,6 +55,12 @@ DEFAULT_CONFIG: dict[str, Any] = {
         "segment_seconds": 240,
     },
     "timeout": {"download": 60, "transcribe": 180},
+    # 单条视频 ASR 总预算（秒）：分段转写累计超时即截断，防止长视频×中继 stall
+    # 打穿 cron 1800s 窗口（2026-10-23 事故：95 分钟视频 40+ 段反复重试死循环）
+    "budget_seconds": 600,
+    # 长视频阈值（秒）：超过则不在 cron 内自动转写，落盘后提示手动转写；
+    # 在下载音频之前拦截（避免每轮重复下载百 MB 音频）。0 = 不限制。
+    "max_duration_seconds": 1200,
     "retry": {"max_attempts": 3, "backoff_seconds": [5, 15, 45]},
     "cost_guard": {
         "daily_limit_cny": 5.0,
@@ -116,6 +122,17 @@ def load_config(path: Path | None = None) -> dict:
             cfg[key].update(value)
         else:
             cfg[key] = value
+    # 环境变量覆盖（cron 应急调参用，不改配置文件即可生效）
+    for env_key, cfg_key in (
+        ("ASR_BUDGET_SECONDS", "budget_seconds"),
+        ("ASR_MAX_DURATION_SECONDS", "max_duration_seconds"),
+    ):
+        env_val = os.environ.get(env_key, "").strip()
+        if env_val:
+            try:
+                cfg[cfg_key] = int(env_val)
+            except ValueError:
+                print(f"WARN: {env_key}={env_val} 非整数，忽略", file=sys.stderr)
     return cfg
 
 
@@ -550,7 +567,30 @@ def transcribe(audio_path: Path, cfg: dict | None = None) -> str:
         parts = [audio_path]
 
     texts = []
+    budget_s = int(cfg.get("budget_seconds", 600))
+    run_deadline = cfg.get("_run_deadline")  # run 级总预算（bilibili_notify 注入）
+    t0 = time.monotonic()
     for i, part in enumerate(parts):
+        elapsed = time.monotonic() - t0
+        if budget_s > 0 and elapsed > budget_s:
+            texts.append(
+                f"[ASR部分转写: 超出单条视频时间预算({budget_s}s)，"
+                f"已完成 {i}/{len(parts)} 段，剩余从略；完整转写请手动重跑]"
+            )
+            print(
+                f"WARN: ASR 超预算，{i}/{len(parts)} 段后停止",
+                file=sys.stderr,
+            )
+            break
+        if run_deadline and time.monotonic() > run_deadline:
+            texts.append(
+                f"[ASR部分转写: 超出本轮运行总预算，已完成 {i}/{len(parts)} 段，剩余从略]"
+            )
+            print(
+                f"WARN: ASR 超 run 级总预算，{i}/{len(parts)} 段后停止",
+                file=sys.stderr,
+            )
+            break
         mp3_path = part.with_suffix(".mp3")
         to_mp3(part, mp3_path, cfg)
         texts.append(_transcribe_with_fallback(mp3_path, cfg, api_key))
@@ -589,6 +629,26 @@ def asr_video(item: dict, cfg: dict | None = None, sessdata: str = "") -> str:
         with tempfile.TemporaryDirectory(prefix="bili_asr_") as tmp:
             tmp_dir = Path(tmp)
             meta = fetch_video_meta(bvid, sessdata, cfg)
+            # 长视频阈值：下载音频前拦截。cron 窗口（1800s）装不下长视频逐段转写，
+            # 且失败后 state 未保存会导致每轮重复下载百 MB 音频（2026-10-23 事故）。
+            max_dur = int(cfg.get("max_duration_seconds", 1200))
+            meta_dur_s = (meta.get("duration_ms") or 0) / 1000
+            if max_dur > 0 and meta_dur_s > max_dur:
+                msg = (
+                    f"[ASR跳过: 长视频 {meta_dur_s / 60:.0f} 分钟超过 "
+                    f"{max_dur // 60} 分钟阈值，请手动转写]"
+                )
+                print(
+                    f"WARN: ASR 跳过长视频 {bvid}（{meta_dur_s:.0f}s > {max_dur}s），"
+                    f"未下载音频",
+                    file=sys.stderr,
+                )
+                _log_cost({
+                    "ts": datetime.now().isoformat(), "bvid": bvid,
+                    "model": cfg.get("model"), "duration_s": round(meta_dur_s, 1),
+                    "cost_cny": 0, "status": "skipped_too_long",
+                }, cfg)
+                return msg
             audio_url = fetch_audio_url(
                 bvid, meta["cid"], sessdata, cfg,
                 expected_duration_ms=meta.get("duration_ms") or None,

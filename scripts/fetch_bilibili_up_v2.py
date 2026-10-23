@@ -24,6 +24,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -890,6 +891,12 @@ def maybe_asr_video(
         return "[ASR跳过: 无BV号]", meta
     if asr_mod is None or not asr_cfg or not asr_cfg.get("enabled", True):
         return "", meta
+    # run 级总预算（bilibili_notify 注入 _run_deadline）：已超预算则直接跳过，
+    # 避免多条视频排队把 cron 窗口耗穿（2026-10-23 事故复盘）
+    run_deadline = asr_cfg.get("_run_deadline")
+    if run_deadline and time.monotonic() > run_deadline:
+        print(f"WARN: ASR 已超本轮总预算，跳过 {dynamic_id}", file=sys.stderr)
+        return "[ASR跳过: 超出本轮运行总预算]", meta
     try:
         text = asr_mod.asr_video(item, asr_cfg, sessdata)
     except Exception as exc:  # noqa: BLE001 - ASR 失败绝不中断主流程

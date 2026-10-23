@@ -58,6 +58,8 @@ from fetch_bilibili_up_v2 import (
     build_index,
     maybe_asr_video,
     asr_mod,
+    build_asr_section,
+    _insert_asr_section,
 )
 
 # B站 claims 去重器
@@ -330,12 +332,16 @@ def process_up(
     force: bool = False,
     enable_asr: bool = True,
     asr_cfg: dict | None = None,
+    state_path: Path | None = None,
 ) -> tuple[list[Path], dict[str, bool]]:
     """拉取单个 UP 的动态，返回 (saved_files, {filepath: is_new})。
 
     since_ts: 只处理发布时间 >= 该时间戳的动态（历史补录用）。
     backfill: 历史补录模式——不受 max_fetch 限制，且不置 initialized。
     force:    忽略 processed_ids 去重（历史补录需真正落盘时用）。
+    state_path: 提供时每处理完一条动态立即持久化 state——ASR 等耗时子流程
+                崩溃/被杀也不会丢失进度（2026-10-23 事故：死在 ASR 导致
+                state 未保存，下轮全量重抓+重复落盘）。
     """
     uid = up["uid"]
     up_name = up.get("name") or uid
@@ -440,26 +446,41 @@ def process_up(
             if ocr_results:
                 ocr_text = "\n\n".join(ocr_results)
 
-            # 视频动态：语音转写（增强，失败不阻塞落盘）
-            asr_text = ""
-            asr_meta = None
-            if enable_asr and dyn_type == "视频":
-                asr_text, asr_meta = maybe_asr_video(item, sessdata, asr_cfg, dynamic_id)
-
+            # 视频动态：先落盘+存 state，再做语音转写并回填文件。
+            # 顺序不能反：ASR 可能耗时/卡死，死在 ASR 也不能丢进度（2026-10-23 事故）。
             filepath = save_dynamic_to_file(
                 item, uid, dynamic_id,
                 detail_data=detail_data,
                 top_comment=top_comment,
                 ocr_text=ocr_text,
-                asr_text=asr_text,
+                asr_text="",
                 is_only_fans=is_only_fans,
                 sessdata=sessdata,
-                asr_meta=asr_meta,
+                asr_meta=None,
                 up_id=up.get("up_id"),
             )
             saved_files.append(filepath)
             processed_ids.add(dynamic_id)
             up_state["last_dynamic_id"] = dynamic_id
+
+            # 每条动态落盘后立即持久化 state（进程被杀也不丢进度）
+            if state_path is not None:
+                try:
+                    up_state["processed_ids"] = sorted(processed_ids)[-1000:]
+                    up_state["last_check_time"] = datetime.now().isoformat()
+                    up_state["initialized"] = True
+                    save_state(state_path, state)
+                except Exception as exc:
+                    print(f"WARN: [{up_name}] state 即时保存失败: {exc}", file=sys.stderr)
+
+            # ASR 回填：成功则把转写段插入已落盘文件；失败/跳过也记录标注
+            if enable_asr and dyn_type == "视频":
+                try:
+                    asr_text, asr_meta = maybe_asr_video(item, sessdata, asr_cfg, dynamic_id)
+                    if asr_text:
+                        _insert_asr_section(filepath, build_asr_section(asr_text, asr_meta))
+                except Exception as exc:  # noqa: BLE001 - ASR 失败绝不中断主流程
+                    print(f"WARN: [{up_name}] ASR 回填失败 {dynamic_id}: {exc}", file=sys.stderr)
 
             content = filepath.read_text(encoding="utf-8")
             fp = _content_fingerprint(content)
@@ -645,6 +666,13 @@ def main() -> int:
             asr_cfg = asr_mod.load_config()
             if not asr_cfg.get("enabled", True):
                 enable_asr = False
+            else:
+                # run 级 ASR 总预算：整轮所有视频的转写共享一个 deadline，
+                # 防止多条视频排队耗穿 cron 1800s 窗口（2026-10-23 事故）
+                import time as _time
+                asr_cfg["_run_deadline"] = _time.monotonic() + int(
+                    asr_cfg.get("budget_seconds", 600)
+                )
 
     state_path = args.state_file or STATE_PATH
     state = _normalize_state(load_state(state_path))
@@ -666,6 +694,7 @@ def main() -> int:
                 check_only=args.check_only, max_fetch=args.max_fetch,
                 since_ts=since_ts, backfill=args.backfill, force=args.force,
                 enable_asr=enable_asr, asr_cfg=asr_cfg,
+                state_path=state_path,
             )
         except SystemExit:
             continue
