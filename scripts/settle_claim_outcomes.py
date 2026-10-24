@@ -89,8 +89,9 @@ def main() -> int:
 
     print(f"\n✅ 结算 {done} 条（跳过终态 {counts['skipped_final']}，无方向 "
           f"{counts['no_direction']}，错误 {counts['error']}）")
-    print(f"   分布: {dict((k, v) for k, v in counts.items()
-          if k not in ('skipped_final', 'no_direction', 'error'))}")
+    dist = {k: v for k, v in counts.items()
+            if k not in ("skipped_final", "no_direction", "error")}
+    print(f"   分布: {dist}")
     if args.dry_run:
         print("   (dry-run，未写盘)")
     return 0
