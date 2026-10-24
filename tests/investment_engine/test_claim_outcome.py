@@ -172,8 +172,101 @@ class TestWriteOutcome:
         text = p.read_text(encoding="utf-8")
         assert text.count("outcome:") == 1
 
+    def test_reason_starting_with_pipe_quoted(self, tmp_path):
+        """回归：reason 以 | 开头（neutral_window 的 |x%| 文案）不得炸文件。"""
+        p = tmp_path / "c.yaml"
+        p.write_text("claims:\n- id: claim-a\n  confidence: high\n", encoding="utf-8")
+        write_outcome_to_yaml(p, "claim-a", {"result": "neutral_window",
+                                             "reason": "|-0.81%| < 1.0% 阈值"})
+        data = yaml.safe_load(p.read_text(encoding="utf-8"))
+        assert data["claims"][0]["outcome"]["reason"] == "|-0.81%| < 1.0% 阈值"
+
+    def test_rationale_starting_with_indicator_quoted(self, tmp_path):
+        p = tmp_path / "c.yaml"
+        from investment_engine.claim_outcome import write_block_to_yaml
+        p.write_text("claims:\n- id: claim-a\n", encoding="utf-8")
+        write_block_to_yaml(p, "claim-a", "direction",
+                            {"value": "neutral", "rationale": "- 非方向判断"})
+        data = yaml.safe_load(p.read_text(encoding="utf-8"))
+        assert data["claims"][0]["direction"]["rationale"] == "- 非方向判断"
+
     def test_missing_claim_raises(self, tmp_path):
         p = tmp_path / "c.yaml"
         p.write_text("claims:\n- id: claim-a\n", encoding="utf-8")
         with pytest.raises(LookupError):
             write_outcome_to_yaml(p, "claim-nope", {"result": "hit"})
+
+    def test_dict_format_with_top_level_list(self, tmp_path):
+        """回归：单 claim 字典格式且含顶层列表值（related_stocks），
+        块必须到 EOF，不得把列表项当块尾（claim-20260904-015 实录）。"""
+        p = tmp_path / "c.yaml"
+        p.write_text(
+            "id: claim-dict\n"
+            "topic: 液冷主线\n"
+            "related_stocks:\n"
+            "- code: '688668'\n"
+            "  name: 鼎通科技\n"
+            "tags:\n"
+            "- 液冷\n",
+            encoding="utf-8",
+        )
+        write_outcome_to_yaml(p, "claim-dict", {"result": "hit", "basis_code": "sh000300"})
+        data = yaml.safe_load(p.read_text(encoding="utf-8"))
+        assert data["outcome"]["result"] == "hit"
+        assert data["related_stocks"] == [{"code": "688668", "name": "鼎通科技"}]
+        assert data["tags"] == ["液冷"]
+
+    def test_mid_block_id_and_quoted(self, tmp_path):
+        """存量非常规写法：id 不在块首、带引号（claim-20261011-001 实录）。"""
+        p = tmp_path / "c.yaml"
+        p.write_text(
+            "claims:\n"
+            "- source_path: x.md\n"
+            "  source_date: '2026-10-11'\n"
+            "  confidence: high\n"
+            "  id: 'claim-x-mid'\n"
+            "  statement: s\n",
+            encoding="utf-8",
+        )
+        write_outcome_to_yaml(p, "claim-x-mid", {"result": "hit"})
+        data = yaml.safe_load(p.read_text(encoding="utf-8"))
+        assert data["claims"][0]["outcome"]["result"] == "hit"
+        assert data["claims"][0]["confidence"] == "high"
+
+    def test_id_with_trailing_comment(self, tmp_path):
+        p = tmp_path / "c.yaml"
+        p.write_text("claims:\n- id: claim-a   # 早盘\n  confidence: high\n",
+                     encoding="utf-8")
+        write_outcome_to_yaml(p, "claim-a", {"result": "miss"})
+        data = yaml.safe_load(p.read_text(encoding="utf-8"))
+        assert data["claims"][0]["outcome"]["result"] == "miss"
+
+    def test_mid_block_id_with_nested_lists(self, tmp_path):
+        """claim-20261011-001 实录结构：id 在块中间，supersedes 列表项与
+        字段同层（2 空格），tags 块序列与 key 同层，不得误定位块首/块尾。"""
+        p = tmp_path / "c.yaml"
+        p.write_text(
+            "claims:\n"
+            "- source_path: x.md\n"
+            "  source_date: '2026-10-11'\n"
+            "  supersedes:\n"
+            "  - claim-old-1\n"
+            "  - claim-old-2\n"
+            "  id: claim-mid\n"
+            "  tags:\n"
+            "  - 报复性反弹\n"
+            "  - 趋势反转\n"
+            "  school: qing\n"
+            "- source_path: y.md\n"
+            "  id: claim-second\n",
+            encoding="utf-8",
+        )
+        write_outcome_to_yaml(p, "claim-mid", {"result": "hit", "basis_code": "sh000300"})
+        data = yaml.safe_load(p.read_text(encoding="utf-8"))
+        c0, c1 = data["claims"]
+        assert c0["id"] == "claim-mid"
+        assert c0["outcome"]["result"] == "hit"
+        assert c0["supersedes"] == ["claim-old-1", "claim-old-2"]
+        assert c0["tags"] == ["报复性反弹", "趋势反转"]
+        assert c0["school"] == "qing"
+        assert "outcome" not in c1
