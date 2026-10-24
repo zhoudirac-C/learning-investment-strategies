@@ -1,7 +1,8 @@
 ---
 date: 2026-08-24
 type: glossary-patch
-status: open
+status: implemented
+resolved_by: up-glossary.md「缩量企稳」「缩量反抽（下跌中继）」词条（2026-08-30 盲判归因增补节，由 2026-08-30-glossary-terms-merged 合并本提案回写），v21 规则28（破位校验：跌破5日均线或波段低点且收跌时禁选「缩量企稳」），2026-10-24 覆盖核验关闭
 source: evals/shadow/attributions/2026-08-24.json
 ---
 

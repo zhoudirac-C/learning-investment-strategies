@@ -1,7 +1,8 @@
 ---
 date: 2026-09-21
 type: glossary-patch
-status: open
+status: implemented
+resolved_by: v21 规则40（多指数周期分歧仲裁：note 标注『分歧』并给出区间；basis 基于区间或科技主线中位、禁最有利单一指数读数）+ v21 规则39（超窗=上位压制：相关映射方向 trend 禁『加强』、posture 上限『维持/试探』、reason 写明超窗读数），2026-10-24 覆盖核验关闭
 source: evals/shadow/attributions/2026-09-21.json
 ---
 

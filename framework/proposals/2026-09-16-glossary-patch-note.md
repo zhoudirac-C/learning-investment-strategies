@@ -1,7 +1,8 @@
 ---
 date: 2026-09-16
 type: glossary-patch
-status: open
+status: implemented
+resolved_by: v21 规则40（多指数周期分歧仲裁：禁止选取单一指数作为操作主锚；note 必须显式标注『分歧』并给出区间（rebound_day 最小~最大）；basis 须基于区间或科技主线中位表述，不得只引用对预设结论最有利的单一指数读数），2026-10-24 覆盖核验关闭
 source: evals/shadow/attributions/2026-09-16.json
 ---
 

@@ -1,7 +1,8 @@
 ---
 date: 2026-09-30
 type: glossary-patch
-status: open
+status: implemented
+resolved_by: v21 规则40（多指数周期分歧仲裁：分歧时禁单一指数主锚、note 标注『分歧』并给出区间、basis 基于区间或中位）+ attribute.py ATTR_PROMPT 单点锚定审计项（2026-09-18 合并裁决增补：单点锚定归入『概念误用』），2026-10-24 覆盖核验关闭
 source: evals/shadow/attributions/2026-09-30.json
 ---
 

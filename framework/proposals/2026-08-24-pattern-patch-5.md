@@ -1,7 +1,8 @@
 ---
 date: 2026-08-24
 type: pattern-patch
-status: open
+status: implemented
+resolved_by: up-glossary.md「缩量企稳」词条（三要件含价格确认，三缺一禁用，单日缩量收阳不构成企稳），v21 规则28（价格结构前置否决：跌破5日均线或波段低点且收跌时禁选「缩量企稳」、宽度修复只按反抽处理），2026-10-24 覆盖核验关闭
 source: evals/shadow/attributions/2026-08-24.json
 ---
 

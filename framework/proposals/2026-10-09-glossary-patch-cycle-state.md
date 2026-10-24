@@ -1,7 +1,8 @@
 ---
 date: 2026-10-09
 type: glossary-patch
-status: open
+status: implemented
+resolved_by: v21 规则40（多指数周期分歧仲裁：禁选取对预设结论最有利的单一指数锚定；note 标注『分歧』并给出区间；basis 基于区间或科技主线中位表述、写明各指数窗口对照），2026-10-24 覆盖核验关闭
 source: evals/shadow/attributions/2026-10-09.json
 ---
 

@@ -1,7 +1,8 @@
 ---
 date: 2026-09-23
 type: glossary-patch
-status: open
+status: implemented
+resolved_by: v21 规则40（多指数周期分歧仲裁：禁单一指数（含单一超窗指数）操作主锚；note 标注『分歧』并给出区间；basis 基于区间或中位；分歧未消解按中性偏谨慎处理=降低单边权重），2026-10-24 覆盖核验关闭
 source: evals/shadow/attributions/2026-09-23.json
 ---
 

@@ -1,7 +1,8 @@
 ---
 date: 2026-08-25
 type: pattern-patch
-status: open
+status: implemented
+resolved_by: v21 规则36（无显性催化禁入选方向：命中率=0 且样本 ≥3 的方向禁止入选），2026-10-24-direction-adjudication.md 核验关闭
 source: evals/shadow/attributions/2026-08-25.json
 ---
 

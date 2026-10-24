@@ -865,3 +865,233 @@ class TestRule42EarningsCatalyst:
         v = validate_result(self._result(["二板晋级率观察"]),
                             {"earnings_catalysts": []})
         assert not any("规则42" in x for x in v)
+
+
+class TestRule43DirectionPersistence:
+    """规则43（v22，2026-10-24 方向簇合并裁决；提案 08-27/10-08/10-12 三胞胎）：
+    market_stage=「调整」/nature=「方向转折」日禁止发行 trend=「新增」或
+    posture=「右侧确认」的方向——单日同步强度（净流入/涨幅居前）不得外推次日。"""
+
+    def test_20261012_real_violation(self):
+        # 10-12 真实签名：调整+方向转折日输出做多方向（ai_applications_rotation 新增）
+        r = _result(market_stage="调整", nature="方向转折",
+                    directions=[{"direction_id": "ai_applications_rotation",
+                                 "reason": "AI应用净流入72.15亿", "posture": "波段",
+                                 "trend": "新增", "stocks": ["300308"]}])
+        v = validate_result(r, pack={})
+        assert any("规则43" in x for x in v), v
+
+    def test_right_side_confirm_flagged(self):
+        r = _result(market_stage="调整",
+                    directions=[{"direction_id": "optical_communication",
+                                 "reason": "放量上台阶", "posture": "右侧确认",
+                                 "trend": "维持", "stocks": ["300308"]}])
+        assert any("规则43" in x for x in validate_result(r, pack={}))
+
+    def test_hold_direction_passes(self):
+        # 调整日存量方向「维持/波段」不拦（由规则43(a) 持续性前置在 prompt 层约束）
+        r = _result(market_stage="调整",
+                    directions=[{"direction_id": "coke_coal_upcycle",
+                                 "reason": "防御轮动中", "posture": "波段",
+                                 "trend": "维持", "stocks": ["601088"]}])
+        assert not any("规则43" in x for x in validate_result(r, pack={}))
+
+    def test_normal_day_passes(self):
+        assert not any("规则43" in x for x in validate_result(_result(), pack={}))
+
+
+class TestRule44NegativeExitGate:
+    """规则44（v22，同上裁决；提案 08-21-note + 08-28-directions 两日收敛）：
+    posture=「回避」或 trend=「退潮」的方向 stocks 必须置空——负向判断正确却因
+    携股被计 direction_miss（08-21 医药退潮携 603259/603538、08-28 光通信回避
+    携 300308 均为真实签名）。"""
+
+    def test_20260821_avoid_with_stocks_flagged(self):
+        r = _result(directions=[{"direction_id": "pharmaceutical_innovation",
+                                 "reason": "创新药净流出-108.59亿，退潮", "posture": "回避",
+                                 "trend": "退潮", "stocks": ["603259", "603538"]}])
+        assert any("规则44" in x for x in validate_result(r, pack={}))
+
+    def test_20260828_ebb_with_stocks_flagged(self):
+        r = _result(directions=[{"direction_id": "optical_communication",
+                                 "reason": "存储链海外锚压制", "posture": "回避",
+                                 "trend": "退潮", "stocks": ["300308"]}])
+        assert any("规则44" in x for x in validate_result(r, pack={}))
+
+    def test_empty_stocks_passes(self):
+        r = _result(directions=[{"direction_id": "pharmaceutical_innovation",
+                                 "reason": "退潮，写入 watch_next 跟踪", "posture": "回避",
+                                 "trend": "退潮", "stocks": []}])
+        assert not any("规则44" in x for x in validate_result(r, pack={}))
+
+    def test_positive_direction_untouched(self):
+        r = _result(directions=[{"direction_id": "optical_communication",
+                                 "reason": "催化同域闭环", "posture": "趋势",
+                                 "trend": "加强", "stocks": ["300308"]}])
+        assert not any("规则44" in x for x in validate_result(r, pack={}))
+
+
+class TestRule45OperationDirectionGate:
+    """规则45（v22，同上裁决；提案 09-15-note，机制样本 08-14/10-14）：
+    operation.position 为克制/防守档（高位兑现/趋势下跌/磨底期）时，directions
+    禁止 trend=「新增」或 posture=「趋势/右侧确认」——方向进攻性不得高于周期定位。"""
+
+    def test_20260915_real_violation(self):
+        # 09-15 真实签名：高位兑现+不抢反弹，却发行 green_power「新增」
+        r = _result(operation={"position": "高位兑现", "action": "兑现降仓",
+                               "basis": "多指数分歧按区间锚定"},
+                    directions=[{"direction_id": "green_power_ai_electric",
+                                 "reason": "电力净流入27.82亿", "posture": "波段",
+                                 "trend": "新增", "stocks": ["000993"]}])
+        assert any("规则45" in x for x in validate_result(r, pack={}))
+
+    def test_bottom_stage_right_side_flagged(self):
+        # 08-14 机制样本：磨底期/低容错却新增方向+右侧确认
+        r = _result(operation={"position": "磨底期", "action": "克制", "basis": "量能低分位"},
+                    directions=[{"direction_id": "cybersecurity_mapping",
+                                 "reason": "网宿20cm", "posture": "右侧确认",
+                                 "trend": "新增", "stocks": ["300017"]}])
+        assert any("规则45" in x for x in validate_result(r, pack={}))
+
+    def test_defensive_hold_passes(self):
+        # 防守档存量方向「维持/波段」合规
+        r = _result(operation={"position": "趋势下跌", "action": "空仓等待", "basis": ""},
+                    directions=[{"direction_id": "pig_farming_hedge",
+                                 "reason": "防御观察", "posture": "波段",
+                                 "trend": "维持", "stocks": ["002714"]}])
+        assert not any("规则45" in x for x in validate_result(r, pack={}))
+
+    def test_neutral_position_passes(self):
+        assert not any("规则45" in x for x in validate_result(_result(), pack={}))
+
+
+class TestRule46ExternalShockDowngrade:
+    """规则46（v23，2026-10-24 宏观簇合并裁决；提案 10-08/10-09/10-13/
+    10-15-sector-intraday/10-16 五错判日收敛，08-19/08-27/08-31-capability merged）：
+    global_macro 缺失/不可校验时——无任何外盘数据禁定性「外力扰动」；定性
+    「外力扰动/内生瓦解」或写「只定价开盘」确定句必须带降级标注（缺失≠不成立）。"""
+
+    def test_20261008_missing_gm_internal_disintegration_flagged(self):
+        # 10-08 真实签名：global_macro 缺失写「不可校验，故定性内生瓦解」
+        r = _result(nature="内生瓦解",
+                    stage_reason="global_macro 缺失，缩量下行，内部资金出逃")
+        v = validate_result(r, pack={"missing": ["global_macro"], "index": {}})
+        assert any("规则46" in x for x in v), v
+
+    def test_no_external_data_external_attribution_flagged(self):
+        # 无任何外盘数据（global_macro/overnight_us 均缺）却定性外力扰动
+        r = _result(nature="外力扰动",
+                    stage_reason="隔夜冲击，恐慌释放，外力主导")
+        v = validate_result(r, pack={"missing": ["global_macro"], "index": {}})
+        assert any("规则46" in x for x in v), v
+
+    def test_20261015_priced_at_open_without_downgrade_flagged(self):
+        # 10-15 真实签名：global_macro 缺失仍写「外力扰动、只定价开盘」确定句
+        r = _result(nature="外力扰动",
+                    stage_reason="隔夜美股算力链回落，外力扰动、只定价开盘")
+        v = validate_result(r, pack={"missing": ["global_macro"], "index": {}})
+        assert any("规则46" in x for x in v), v
+
+    def test_downgrade_marked_passes(self):
+        # 合规：global_macro 缺失但显式降级标注（无法校验+备选情形）
+        r = _result(nature="内生瓦解",
+                    stage_reason="global_macro 缺失、外部链条无法校验，按内部证据"
+                                 "主导定性（信息差风险），并列外力延续备选情形")
+        v = validate_result(r, pack={"missing": ["global_macro"], "index": {}})
+        assert not any("规则46" in x for x in v), v
+
+    def test_global_macro_present_passes(self):
+        # 合规：global_macro 在场，定性外力扰动且引外盘数据
+        r = _result(nature="外力扰动",
+                    stage_reason="费半-3.5%、纳指-1.8%，外部链条成立，外力扰动")
+        pack = {"global_macro": {"美股三指数": {"纳指": {"pct": -1.8}}},
+                "index": {}}
+        v = validate_result(r, pack=pack)
+        assert not any("规则46" in x for x in v), v
+
+    def test_normal_day_passes(self):
+        assert not any("规则46" in x for x in validate_result(_result(), pack={}))
+
+
+def _idx300_bars(closes, vols=None):
+    """合成 pack index 块 IDX000300 bar 序列（_compact_bars 口径）。"""
+    n = len(closes)
+    vols = vols or [100.0] * n
+    return [{"d": f"2026-{9 + i // 28:02d}-{i % 28 + 1:02d}", "c": c,
+             "pct": 0.0, "成交量万手": v}
+            for i, (c, v) in enumerate(zip(closes, vols))]
+
+
+class TestRule47PanicCandidateCheck:
+    """规则47（v24，2026-10-24 恐慌簇合并裁决；10-15/10-16/10-22 三个独立
+    错判日收敛）：恐慌候选检验——pack index 块含 IDX000300 且 bar 数足够时，
+    按冻结阶段口径计算价格幅度：r20（收盘/20交易日前收盘-1）≤ -8%，或
+    （r5 ≤ -4% 且量能趋势=近5日均量/前20日均量 ≥ 1.5）即达恐慌口径。
+    此时 market_stage=「调整」即违规（幅度达标默认判恐慌；规则18 管情绪极端
+    日反向检验，本条管阶段二分的价格幅度口径）。"""
+
+    def test_20261015_r20_panic_spec_adjust_flagged(self):
+        # 10-15 真实签名等价：r20 = -8.89% ≤ -8%（沪深300 口径），旧输出判「调整」
+        closes = [1000.0] * 20 + [911.1]
+        r = _result(market_stage="调整", nature="外力扰动",
+                    stage_reason="承接失败，放量破位无差别下跌，维持调整")
+        pack = {"index": {"IDX000300": _idx300_bars(closes)}}
+        v = validate_result(r, pack=pack)
+        assert any("规则47" in x for x in v), v
+
+    def test_r5_vol_trend_branch_flagged(self):
+        # 5 日急跌分支：r5 = -5% ≤ -4% 且量能趋势 2.0 ≥ 1.5
+        closes = [1000.0] * 19 + [1000.0] * 5 + [950.0]
+        vols = [100.0] * 20 + [200.0] * 5
+        r = _result(market_stage="调整", nature="内生瓦解",
+                    stage_reason="存量资金出逃，情绪退潮延续调整")
+        pack = {"index": {"IDX000300": _idx300_bars(closes, vols)}}
+        v = validate_result(r, pack=pack)
+        assert any("规则47" in x for x in v), v
+
+    def test_panic_stage_passes(self):
+        # 合规：幅度达标判「恐慌」
+        closes = [1000.0] * 20 + [911.1]
+        r = _result(market_stage="恐慌", nature="方向转折",
+                    stage_reason="20日累计跌幅达恐慌口径，无差别下跌，判恐慌")
+        pack = {"index": {"IDX000300": _idx300_bars(closes)}}
+        v = validate_result(r, pack=pack)
+        assert not any("规则47" in x for x in v), v
+
+    def test_20261014_near_miss_passes(self):
+        # 判对日不误伤：10-14 真实签名等价 r20 = -7.48%（未达 -8%），判「调整」合法
+        closes = [1000.0] * 20 + [925.2]
+        r = _result(market_stage="调整", nature="主动降速",
+                    stage_reason="缩量回调，幅度未达恐慌口径，维持调整")
+        pack = {"index": {"IDX000300": _idx300_bars(closes)}}
+        v = validate_result(r, pack=pack)
+        assert not any("规则47" in x for x in v), v
+
+    def test_missing_index_exempt(self):
+        r = _result(market_stage="调整")
+        assert not any("规则47" in x for x in validate_result(r, pack={"index": {}}))
+        assert not any("规则47" in x for x in validate_result(r, pack={}))
+
+    def test_insufficient_bars_exempt(self):
+        # bar 不足 21 根无法算 r20，跳过（r5/vol 分支需 24 根）
+        closes = [1000.0] * 10 + [950.0]
+        r = _result(market_stage="调整")
+        pack = {"index": {"IDX000300": _idx300_bars(closes)}}
+        assert not any("规则47" in x for x in validate_result(r, pack=pack))
+
+    def test_vol_trend_below_threshold_passes(self):
+        # r5 ≤ -4% 但量能趋势 1.0 < 1.5：未达恐慌口径，判「调整」合法
+        closes = [1000.0] * 19 + [1000.0] * 5 + [950.0]
+        vols = [100.0] * 25
+        r = _result(market_stage="调整", nature="主动降速",
+                    stage_reason="缩量阴跌，量能趋势未放大，维持调整")
+        pack = {"index": {"IDX000300": _idx300_bars(closes, vols)}}
+        v = validate_result(r, pack=pack)
+        assert not any("规则47" in x for x in v), v
+
+    def test_other_index_ignored(self):
+        # 机械口径只锚沪深300（与真值标签口径一致）；其它指数更深跌幅不触发
+        closes = [1000.0] * 20 + [800.0]
+        r = _result(market_stage="调整")
+        pack = {"index": {"IDX399006": _idx300_bars(closes)}}
+        assert not any("规则47" in x for x in validate_result(r, pack=pack))

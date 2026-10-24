@@ -1,7 +1,8 @@
 ---
 date: 2026-09-30
 type: pattern-patch
-status: open
+status: pending
+adjudicated_by: 2026-10-24-macro-shock-adjudication.md
 source: evals/shadow/attributions/2026-09-30.json
 ---
 

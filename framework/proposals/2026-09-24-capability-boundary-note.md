@@ -1,7 +1,8 @@
 ---
 date: 2026-09-24
 type: capability-boundary
-status: open
+status: implemented
+resolved_by: v21 规则36（无显性催化仅凭资金净流入或涨幅居前禁止入选 directions）+ 规则23（检索不到显性催化须注明并按纯资金/轮动降置信度，posture 不高于波段）+ 规则41（directions 可宁缺毋滥为空并注明「无合格方向」），2026-10-24 覆盖核验关闭
 source: evals/shadow/attributions/2026-09-24.json
 ---
 

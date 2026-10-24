@@ -1,7 +1,8 @@
 ---
 date: 2026-08-21
 type: capability-boundary
-status: open
+status: implemented
+resolved_by: v19 规则25 计票口径（油价分项固定「不可校验」剔除计票/三态独立计数/明示有效基数/美联储动向不得以美债收益率代理）已覆盖「不得以单一字段外推链条整体」；铜 HG=F 已闭环（09-05 裁决），铝/LME/库存周度维持 09-05 登记免费缺口；本案缺口未致错仅备案，2026-10-24-macro-shock-adjudication.md 核验关闭
 source: evals/shadow/attributions/2026-08-21.json
 ---
 

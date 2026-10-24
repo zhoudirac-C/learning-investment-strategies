@@ -1,7 +1,8 @@
 ---
 date: 2026-09-22
 type: glossary-patch
-status: open
+status: implemented
+resolved_by: v21 规则40（多指数周期分歧仲裁：禁单一指数主锚；note 标注『分歧』并给出区间；basis 基于区间或中位、禁最有利单一读数；分歧未消解判『高位兑现/反弹超预期』须在 basis 写明各指数窗口对照）+ v21 规则39（超窗=上位压制传导至 direction posture），2026-10-24 覆盖核验关闭
 source: evals/shadow/attributions/2026-09-22.json
 ---
 

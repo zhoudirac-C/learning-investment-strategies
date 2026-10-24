@@ -1,7 +1,8 @@
 ---
 date: 2026-08-14
 type: data-channel
-status: open
+status: implemented
+resolved_by: dataset.py pack 块（fund_flow/intraday_amount/global_macro 三通道入包，按日缺失登记 missing）+ attribute.py 头注「2026-08-17 起置空：板块资金流（fund_flow 块）、分时数据（intraday_amount 读盘）、公告流（research 块）三通道已落地入包」+ v21 规则13（「若 user 数据含 fund_flow/lhb 块，必须引用其数据佐证量能源头」）与规则25（宏观三条件校验），2026-10-24 覆盖核验关闭
 source: evals/shadow/attributions/2026-08-14.json
 ---
 

@@ -1,7 +1,8 @@
 ---
 date: 2026-10-14
 type: capability-boundary
-status: open
+status: merged
+adjudicated_by: 2026-10-24-direction-adjudication.md
 source: evals/shadow/attributions/2026-10-14.json
 ---
 

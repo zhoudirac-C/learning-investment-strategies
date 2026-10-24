@@ -1,7 +1,8 @@
 ---
 date: 2026-08-25
 type: capability-boundary
-status: open
+status: implemented
+resolved_by: 道指/纳指已入 global_macro SYMBOLS（^DJI/^IXIC，09-05 增补）；油价维持 09-12 登记免费缺口（v19 规则25 固定「不可校验」剔除计票）；「字段缺失置 N/A+降置信+不参与方向定性推演」即 v19 规则25 计票口径，2026-10-24-macro-shock-adjudication.md 核验关闭
 source: evals/shadow/attributions/2026-08-25.json
 ---
 

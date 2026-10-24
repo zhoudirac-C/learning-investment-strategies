@@ -1,7 +1,8 @@
 ---
 date: 2026-09-28
 type: glossary-patch
-status: open
+status: implemented
+resolved_by: up-glossary.md「缩量/放量（口径约束）」词条（2026-09-18 增补：环比与60日分位两口径分开陈述，「环比放量但低分位」写作「环比放量、量能水平仍低」，禁止单口径合成），v21 规则15（量能分档一律相对表述），2026-10-24 覆盖核验关闭
 source: evals/shadow/attributions/2026-09-28.json
 ---
 

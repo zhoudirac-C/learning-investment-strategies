@@ -1,7 +1,8 @@
 ---
 date: 2026-08-26
 type: capability-boundary
-status: open
+status: implemented
+resolved_by: 道指/纳指已入 global_macro SYMBOLS（^DJI/^IXIC/^GSPC，09-05 增补「源头宽基」口径闭环）；「抓取失败当日降级+显式标注」机制并入 v23 规则46(b)/(c)（validate_result 机械校验），2026-10-24-macro-shock-adjudication.md 核验关闭
 source: evals/shadow/attributions/2026-08-26.json
 ---
 

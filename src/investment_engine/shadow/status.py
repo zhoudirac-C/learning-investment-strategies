@@ -38,8 +38,13 @@ def collect_status(*, pred_dir: Path = PRED_DIR, attr_dir: Path = ATTR_DIR,
 
     proposals = {"open": 0, "applied": 0, "rejected": 0, "open_files": []}
     if Path(proposal_dir).exists():
-        for p in sorted(Path(proposal_dir).glob("*.md")):
-            m = re.search(r"status:\s*(\w+)", p.read_text(encoding="utf-8"))
+        for p in sorted(list(Path(proposal_dir).glob("*.md"))
+                        + list(Path(proposal_dir).glob("*.yaml"))):
+            text = p.read_text(encoding="utf-8")
+            # 只解析 frontmatter，避免正文代码块里的 status: 行误计
+            fm = re.match(r"^---\s*\n(.*?)\n---", text, re.S)
+            body = fm.group(1) if fm else text
+            m = re.search(r"^status:\s*([\w-]+)", body, re.M)
             st = m.group(1) if m else "open"
             proposals[st] = proposals.get(st, 0) + 1
             if st == "open":
@@ -48,12 +53,24 @@ def collect_status(*, pred_dir: Path = PRED_DIR, attr_dir: Path = ATTR_DIR,
             "days": days, "proposals": proposals}
 
 
+# 已解决状态词（历史裁决用过 applied/merged/implemented/done 多种写法）
+RESOLVED_STATUSES = ("applied", "merged", "implemented", "done")
+
+
 def render_status(stats: dict) -> str:
+    p = stats["proposals"]
+    resolved = sum(p.get(s, 0) for s in RESOLVED_STATUSES)
     lines = [
         f"# 影子双轨完整性报告（{date.today():%Y-%m-%d}）",
         "",
         f"- 记录日数: {stats['days_total']}，完整: {stats['days_complete']}",
-        f"- 提案: open {stats['proposals']['open']} / applied {stats['proposals'].get('applied', 0)} / pending {stats['proposals'].get('pending', 0)} / rejected {stats['proposals'].get('rejected', 0)} / retracted {stats['proposals'].get('retracted', 0)}",
+        f"- 提案: open {p['open']} / 已解决 {resolved}"
+        f"（applied {p.get('applied', 0)} / merged {p.get('merged', 0)}"
+        f" / implemented {p.get('implemented', 0)} / done {p.get('done', 0)}）"
+        f" / pending {p.get('pending', 0) + p.get('pending-review', 0)}"
+        f" / rejected {p.get('rejected', 0)} / retracted {p.get('retracted', 0)}"
+        + (f" / proposed {p.get('proposed', 0)}" if p.get("proposed") else "")
+        + (f" / archived {p.get('archived', 0)}" if p.get("archived") else ""),
         "",
         "| 日期 | 阶段判定 | 状态 | 归因 | 完整 |",
         "|---|---|---|---|---|",

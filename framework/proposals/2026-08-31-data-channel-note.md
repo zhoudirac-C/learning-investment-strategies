@@ -1,7 +1,8 @@
 ---
 date: 2026-08-31
 type: data-channel
-status: open
+status: implemented
+resolved_by: 铜 HG=F 已闭环（09-05 裁决，COMEX 期货口径，全球宏观传导的商品价格检验可执行）；油价无免费公开通道，维持 09-12 登记缺口（v19 规则25 固定「不可校验」剔除计票），2026-10-24-macro-shock-adjudication.md 核验关闭
 source: evals/shadow/attributions/2026-08-31.json
 ---
 

@@ -2,7 +2,7 @@
 
 日期：2026-08-31
 状态：设计（brainstorm 产出）
-关联：`docs/tasks/m0-chain-industry-tracking.md`（M0-Chain 双引擎）、`framework/proposals/2026-08-30-industry-chain-tracking-pipeline.md`
+关联：`docs/tasks/m0-chain-industry-tracking.md`（M0-Chain 双引擎）、`docs/design/2026-08-30-industry-chain-tracking-pipeline.md`
 
 ## 1. 背景与问题
 

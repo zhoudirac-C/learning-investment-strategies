@@ -1,7 +1,8 @@
 ---
 date: 2026-10-16
 type: glossary-patch
-status: open
+status: pending
+adjudicated_by: 2026-10-24-panic-adjust-adjudication.md
 source: evals/shadow/attributions/2026-10-16.json
 ---
 

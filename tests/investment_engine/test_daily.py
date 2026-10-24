@@ -7,12 +7,12 @@ from investment_engine.shadow.daily import run
 
 
 class TestDailyPromptVersion:
-    def test_prompt_version_is_v21(self):
-        """生产默认 prompt 为 v21（2026-10-13 落地：规则42 业绩催化检验——pack 含
-        earnings_catalysts 时 watch_next 必须引用催化标的做承接/带动同类检验，
-        提案 2026-10-13 earnings_catalyst_test；v15 保持冻结作 A/B 对照臂）。"""
+    def test_prompt_version_is_v24(self):
+        """生产默认 prompt 为 v24（2026-10-24 宏观簇裁决：规则40 增补无有效
+        反弹周期声明 + 规则46 外部冲击降级门控；恐慌簇裁决：规则47 恐慌阶段
+        判别接入 validate_result；v15 保持冻结作 A/B 对照臂）。"""
         from investment_engine.blindtest import replay
-        assert replay.PROMPT_VERSION == "v21"
+        assert replay.PROMPT_VERSION == "v24"
 
     def test_daily_prompt_contains_v19_rules(self):
         """v19（2026-09-12 close-track-adjudication）关键词须在盘后 prompt：

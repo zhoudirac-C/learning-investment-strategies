@@ -48,3 +48,25 @@ class TestCollectStatus:
                            proposal_dir=self.prop_dir)
         text = render_status(s)
         assert "影子双轨" in text and "提案" in text
+
+    def test_frontmatter_only_status_and_yaml_included(self):
+        # 正文代码块里的 status: 行不得计入；yaml 提案纳入统计
+        (self.prop_dir / "2026-08-30-pipeline.md").write_text(
+            "---\nstatus: open\ndate: 2026-08-30\n---\n"
+            "```yaml\n示例:\n  status: active\n```\n", encoding="utf-8")
+        (self.prop_dir / "20261020-nomination.yaml").write_text(
+            "---\nstatus: pending-review\n---\n", encoding="utf-8")
+        s = collect_status(pred_dir=self.pred_dir, attr_dir=self.attr_dir,
+                           proposal_dir=self.prop_dir)
+        assert s["proposals"]["open"] == 1
+        assert s["proposals"]["pending-review"] == 1
+        assert "active" not in [st for st in s["proposals"] if st != "open_files"]
+
+    def test_render_resolved_bucket_counts_history_words(self):
+        for i, st in enumerate(("applied", "merged", "implemented", "done")):
+            (self.prop_dir / f"2026-08-1{i}-{st}.md").write_text(
+                f"---\nstatus: {st}\n---\n", encoding="utf-8")
+        s = collect_status(pred_dir=self.pred_dir, attr_dir=self.attr_dir,
+                           proposal_dir=self.prop_dir)
+        text = render_status(s)
+        assert "已解决 4" in text

@@ -1,7 +1,8 @@
 ---
 date: 2026-10-22
 type: pattern-patch
-status: open
+status: applied
+adjudicated_by: 2026-10-24-panic-adjust-adjudication.md
 source: evals/shadow/attributions/2026-10-22.json
 ---
 

@@ -59,10 +59,11 @@ class TestPremarketPrompt:
 
 
 class TestPremarketPromptVersion:
-    def test_prompt_version_is_v21(self):
-        """PROMPT_VERSION 与盘后盲判共享契约版本（v21；2026-10-13 规则42
-        业绩催化检验落地，v15 保持冻结作 A/B 对照臂）。"""
-        assert pm.PROMPT_VERSION == "v21"
+    def test_prompt_version_is_v24(self):
+        """PROMPT_VERSION 与盘后盲判共享契约版本（v24；2026-10-24 宏观簇裁决
+        规则46、恐慌簇裁决盘后规则47/盘前规则43 恐慌候选检验，v15 保持冻结
+        作 A/B 对照臂）。"""
+        assert pm.PROMPT_VERSION == "v24"
 
     def test_premarket_prompt_contains_discipline_rules(self):
         """v6 新增纪律规则关键词须出现在盘前 prompt（B1/B2/A2-A5/C5引用/C8降级）。"""

@@ -1,7 +1,8 @@
 ---
 date: 2026-10-12
 type: pattern-patch
-status: open
+status: applied
+adjudicated_by: 2026-10-24-direction-adjudication.md
 source: evals/shadow/attributions/2026-10-12.json
 ---
 

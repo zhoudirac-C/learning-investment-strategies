@@ -1,7 +1,8 @@
 ---
 date: 2026-10-15
 type: capability-boundary
-status: open
+status: merged
+adjudicated_by: 2026-10-24-macro-shock-adjudication.md
 source: evals/shadow/attributions/2026-10-15.json
 ---
 

@@ -1,7 +1,8 @@
 ---
 date: 2026-08-17
 type: data-channel
-status: open
+status: implemented
+resolved_by: global_macro 通道已建成（src/investment_engine/global_macro.py：美债 ^IRX/^TNX/^TYX、美元指数、美股三指数、费半、存储链、亚太股指、商品 GC=F/HG=F；dataset.py _load_global_macro 入包）+ 规则24/25 挂钩（v19 计票口径），通道诉求闭环，2026-10-24-macro-shock-adjudication.md 核验关闭
 source: evals/shadow/attributions/2026-08-17.json
 ---
 

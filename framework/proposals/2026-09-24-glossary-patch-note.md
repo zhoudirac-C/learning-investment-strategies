@@ -1,7 +1,8 @@
 ---
 date: 2026-09-24
 type: glossary-patch
-status: open
+status: implemented
+resolved_by: v21 规则40（多指数周期分歧仲裁：note 标注『分歧』并给出区间（rebound_day 最小~最大）；basis 基于区间或科技主线中位、禁最有利单一指数读数）+ attribute.py ATTR_PROMPT 单点锚定审计项（2026-09-18 合并裁决增补：存在单点锚定归入『概念误用』），2026-10-24 覆盖核验关闭
 source: evals/shadow/attributions/2026-09-24.json
 ---
 

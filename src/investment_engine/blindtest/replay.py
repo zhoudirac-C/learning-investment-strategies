@@ -33,7 +33,7 @@ _TRENDS = ("加强", "退潮", "新增", "维持")
 _MAX_SCENARIOS = 3
 _MAX_LIST = 5
 
-PROMPT_VERSION = "v21"
+PROMPT_VERSION = "v24"
 
 _LLM_CALL_LOG = Path(__file__).resolve().parents[3] / "log" / "llm_calls.jsonl"
 
@@ -320,8 +320,117 @@ _V21_RULE42 = (
     "不能当作板块转折信号；高开低走/利好兑现走弱视为情形B证据。\n")
 SYSTEM_PROMPT_V21 = SYSTEM_PROMPT_V20 + "\n" + _V21_RULE42
 
-# 生产默认 prompt：指向 SYSTEM_PROMPT_V21（回退只需改这一行指向）
-SYSTEM_PROMPT = SYSTEM_PROMPT_V21
+# v22（2026-10-24，合并裁决 proposals/2026-10-24-direction-adjudication，方向簇 D）：
+# ①规则23 追加同域校验（提案 08-21-direction-id）；②规则36 追加命中率管辖域声明
+# （提案 10-14-capability-boundary-direction-track，与 08-25-direction-track 的
+# 张力裁决：命中率=池级入选前过滤，不作方向级单次预测否定依据）；③新增规则43
+# 方向持续性验证前置（三胞胎 08-27/10-08/10-12 三独立错判日样本，合并 09-10/09-16）、
+# 规则44 负向方向出口门控（08-21-note + 08-28-directions 两日收敛，接入机械校验）、
+# 规则45 操作姿态-方向发行一致性门控（提案 09-15-note，机制样本 08-14/10-14，
+# 接入机械校验）。沿用 v19/v20 手法：既有规则用锚点 replace 增补、新增规则尾部追加。
+_V22_RULE23_ANCHOR = "禁止只用「涨幅居前+资金流入」的描述性理由。"
+_V22_RULE23_NEW = (
+    _V22_RULE23_ANCHOR +
+    "（2026-10-24 裁决增补·同域校验：催化证据必须与 direction_id 同域——引用的"
+    "催化剂/映射股/研报标题的产业域须与所选方向一致；簇级资金流（同簇其它子方向或"
+    "母板块的净流入）只作簇准入条件，不得作为该子方向的同域证据；当全部证据指向另一"
+    "子域时，以证据最强子域重命名 direction_id 或放弃该方向，禁止以「同属C簇、取证据"
+    "最强」完成跨域选向。）")
+_V22_RULE36_ANCHOR = "坚持入选须在 reason 引用该读数并给出更强证据链。"
+_V22_RULE36_NEW = (
+    _V22_RULE36_ANCHOR +
+    "（2026-10-24 裁决增补·管辖域声明：direction_track 命中率只作入选前的池级过滤"
+    "指标，不作已入选方向的方向级单次预测否定依据——已入选方向的当日判断以当期证据"
+    "与周期状态为准；reason 引用命中率时须标注「历史参考，不构成主导证据」，与周期"
+    "状态冲突时以周期状态为准。）")
+assert _V22_RULE23_ANCHOR in SYSTEM_PROMPT_V15, "v22 锚点失效：规则23"
+assert _V22_RULE36_ANCHOR in SYSTEM_PROMPT_V15, "v22 锚点失效：规则36"
+
+_V22_RULE43_45 = (
+    "43. 方向持续性验证前置（单日同步强度不得外推次日）：资金净流入、涨幅居前、"
+    "涨停/首板暴增均为当日已成交的同步证据——放量高潮日它们标记的恰是拥挤度最高、"
+    "次日均值回归风险最大的方向，禁止直接外推为次日方向的领先证据。强制执行："
+    "(a) trend=「新增」的方向须已满足持续性前置（该方向连续 ≥2 日净流入或相对基准"
+    "超额为正，且非单日冲高追高候选）；不满足时只写入 watch_next 观察，不得发行 "
+    "direction——无历史样本方向（direction_track 缺失或样本=0）亦无豁免，证据不足时"
+    "允许不满额（规则4/41 宁缺毋滥），不为分散簇别而补足名额；(b) 量能源头=存量"
+    "高低切定性在场，或 market_stage=「调整」/nature=「方向转折」时，禁止发行 "
+    "trend=「新增」或 posture=「右侧确认」的方向；(c) 单日放量上台阶首日只允许试仓——"
+    "operation 仓位上调与方向「右侧确认」绑定次日验证（守住量能台阶+晋级率健康），"
+    "验证项写入 watch_next，未兑现前不得按已确认执行。\n"
+    "44. 负向方向出口门控：posture=「回避」或 trend=「退潮」的方向为负向标注，"
+    "stocks 必须为空列表——负向结论写入 reason 与 scenarios 下行分支/watch_next "
+    "跟踪项，禁止携带个股代码进入选股口径（负向判断正确却因携股被计 direction_miss）；"
+    "trend=「退潮」仅用于昨日所选方向的连续性回溯标注（规则5/21 闭环），新方向不得以"
+    "退潮/回避姿势入清单。\n"
+    "45. 操作姿态-方向发行一致性门控：directions 的进攻性不得高于 operation 的"
+    "周期定位——operation.position 为「高位兑现」「趋势下跌」「磨底期」（克制/防守档）"
+    "时，directions 禁止出现 trend=「新增」或 posture=「趋势/右侧确认」的条目，存量"
+    "方向仅可标「维持/退潮」且 posture 不高于「波段」；方向核心情绪锚当日出现炸板/"
+    "断板负反馈或临近监管异动阈值时，该方向强制降档或撤回；operation 给出仓位上限时"
+    "方向暴露须联动（每方向 1-2 只、总荐股数与仓位档一致），禁止「总仓位≤X%」却推荐"
+    "多个进攻方向开仓。\n")
+SYSTEM_PROMPT_V22 = SYSTEM_PROMPT_V21.replace(
+    _V22_RULE23_ANCHOR, _V22_RULE23_NEW).replace(
+    _V22_RULE36_ANCHOR, _V22_RULE36_NEW) + _V22_RULE43_45
+
+# v23（2026-10-24，合并裁决 proposals/2026-10-24-macro-shock-adjudication，宏观簇 E）：
+# ①规则40 增补「无有效反弹周期在位」声明（提案 10-15-note）；②新增规则46
+# 外部冲击降级门控（10-08/10-09/10-13/10-15-sector-intraday/10-16 五错判日收敛：
+# 缺失≠不成立 + 「只定价开盘」不得确定化 + 操作层不加仓；08-19/08-27/
+# 08-31-capability 三日同机制 merged 并入，接入 validate_result 机械校验）。
+_V23_RULE40_ANCHOR = "否则按中性偏谨慎处理。"
+_V23_RULE40_NEW = (
+    _V23_RULE40_ANCHOR +
+    "（2026-10-24 裁决增补·无有效周期声明：分歧且任一指数 rebound_day 已超过其 "
+    "theoretical_window 上限、或底部结构已被破位击穿时，cycle_state.note 必须声明"
+    "「当前无有效反弹周期在位」，operation 按无周期谨慎档处理，禁止据单一指数读数"
+    "推断窗口剩余天数。）")
+_V23_RULE46 = (
+    "46. 外部冲击降级门控（宏观不可校验时的归因与操作约束）：pack 的 global_macro "
+    "缺失/抓取失败/宏观三条件计票有效基数为 0 时强制执行——\n"
+    "(a) 缺失≠不成立：外部链条结论只允许写「无法校验」——禁止把数据缺失当作外部冲击"
+    "不成立而据此定性「内生瓦解」（缺失不能证伪外力，10-08/10-16 两日收敛）；同等"
+    "禁止在无任何外盘数据支撑时定性「外力扰动」；\n"
+    "(b)「只定价开盘」不得确定化：外部链条不可校验时，禁止把「冲击只定价开盘」当作"
+    "确定结论——stage_reason/scenarios 须并列「冲击可能越过首次定价、次日延续」的"
+    "备选情形并降低置信度（10-09/10-13/10-15 三日收敛；与规则30 关系：30 管有外盘"
+    "数据时的先验权重，本条管数据缺失时的降级义务）；外部冲击链条相关方向按此降档、"
+    "不作为主要催化；\n"
+    "(c) 操作层降级：宏观三条件不可判定时，当日 operation 禁止上调仓位/新开方向仓，"
+    "次日补检通过后方可恢复（08-27/08-19/10-13 收敛）；此情形下的阶段结论置信度降级"
+    "为「暂定」，仓位纪律型动作不得据此升级为确定动作。\n")
+assert _V23_RULE40_ANCHOR in SYSTEM_PROMPT_V22, "v23 锚点失效：规则40"
+SYSTEM_PROMPT_V23 = SYSTEM_PROMPT_V22.replace(
+    _V23_RULE40_ANCHOR, _V23_RULE40_NEW) + _V23_RULE46
+
+# v24（2026-10-24，合并裁决 proposals/2026-10-24-panic-adjust-adjudication，恐慌簇 F）：
+# 新增规则47 恐慌阶段判别（恐慌/调整二分，价格幅度口径前置）——10-15/10-16/
+# 10-22 三个独立错判日收敛：真值「恐慌」（冻结阶段口径：沪深300 r20≤-8%，或
+# r5≤-4% 且量能趋势≥1.5）均被误降「调整」；缺口不是规则18 反向检验，而是缺
+# 「恐慌」作为独立 stage 值的正向判别口径（glossary 落「恐慌」词条 + 盘前规则43
+# 同步；接入 validate_result 机械校验，口径与 truth.py 冻结 spec 一致）。
+_V24_RULE47 = (
+    "47. 恐慌阶段判别（恐慌/调整二分，价格幅度口径前置）：判 market_stage=「调整」"
+    "或「震荡」前，必须先做恐慌候选检验——以 index 块的沪深300（IDX000300）"
+    "收盘价序列计算两个幅度读数：①20 日累计跌幅（当日收盘 ÷ 20 个交易日前收盘 "
+    "- 1）；②5 日跌幅与量能趋势（近 5 日均量 ÷ 其前 20 日均量）。阶段二分的"
+    "幅度口径锚定沪深300——创业板指/科创50 属高波动成长宽基，其 20 日跌幅天然"
+    "深于沪深300，单独不作恐慌口径依据（10-14 回归实证：创业板 -14.7% 但沪深300 "
+    "-7.48% 未达标，真值「调整」）。20 日累计跌幅 ≤ -8%，或「5 日跌幅 ≤ -4% "
+    "且量能趋势 ≥ 1.5」时，价格幅度已达恐慌口径——「恐慌」为必选候选，market_stage "
+    "默认判「恐慌」，除非当日出现强修复证据（放量收复 5 日均线/关键波段位）且 "
+    "stage_reason 写明不升级理由；幅度未达标时，情绪/宽度极端（跌停扩散、无差别"
+    "下跌、炸板率飙升、昨日涨停今收益深度为负）只作恐慌佐证特征，不得单独升级恐慌，"
+    "按规则18 三信号清单处理。判「恐慌」日 nature 仍按六选一归位（恐慌阶段内可对"
+    "应外力扰动/内生瓦解/方向转折/主动降速——nature 管当日性质、stage 管阶段位置，"
+    "二者分层不冲突），operation 按「趋势下跌」谨慎档处理、禁止左侧抄底加仓。与"
+    "规则18 关系：18 管情绪极端日判调整前的反向否决清单，本条管阶段二分的价格"
+    "幅度口径，幅度达标时本条优先。\n")
+SYSTEM_PROMPT_V24 = SYSTEM_PROMPT_V23 + _V24_RULE47
+
+# 生产默认 prompt：指向 SYSTEM_PROMPT_V24（回退只需改这一行指向）
+SYSTEM_PROMPT = SYSTEM_PROMPT_V24
 
 
 def build_messages(pack_text: str, system_prompt: str | None = None) -> list[dict]:
@@ -619,6 +728,11 @@ _RULE39_RISK_WORDS = ("兑现", "高开低走", "回落", "分歧", "压力位",
 _RULE40_NOTE_WORDS = ("分歧", "区间")
 _RULE40_BASIS_WORDS = ("分歧", "区间", "中位")
 
+# 规则46（v23，2026-10-24 宏观簇合并裁决）：外部冲击降级门控——global_macro
+# 缺失/不可校验时的降级标注义务（缺失≠不成立 + 「只定价开盘」不得确定化）
+_RULE46_DOWNGRADE_WORDS = ("无法校验", "不可校验", "低置信", "备选", "暂定",
+                           "信息差", "数据缺失", "越过首次定价")
+
 _LADDER_HINTS = ("梯队", "连板", "首板", "晋级", "二板", "断板", "高度", "宽度", "抱团")
 _STRUCTURE_HINTS = ("钝化", "顶部结构", "背离", "MACD", "绿柱", "高9", "DIF")
 _REDUCE_RE = re.compile(r"降仓|减仓|获利了结|兑现|清仓|卖出")
@@ -738,6 +852,39 @@ def _shift_days(day: str, delta: int) -> str:
 # 规则28：价格结构前置否决——核心指数（上证指数/创业板指，收盘价口径）
 _RULE28_CORE_INDEX = ("IDX000001", "IDX399006")
 
+# 规则47：恐慌候选检验的价格幅度口径——与 truth.py 冻结阶段标签同口径
+# （沪深300：r20≤-8%，或 r5≤-4% 且量能趋势≥1.5；机械层只拦 stage=「调整」
+# 的最高置信情形，10-14/10-19~21 等 r20 未达线判对日零误伤，2026-10-24 回扫实证）
+_RULE47_PANIC_INDEX = "IDX000300"
+_RULE47_R20 = -0.08
+_RULE47_R5 = -0.04
+_RULE47_VOL_TREND = 1.5
+
+
+def _panic_amplitude_hit(bars) -> bool:
+    """pack index 块口径计算恐慌幅度是否达标（bar 不足时返回 False，跳过校验）。
+
+    r20 = 收盘/20交易日前收盘-1（需 ≥21 根）；r5/vol_trend 分支需 ≥24 根，
+    vol_trend = 近5日均量/前20日均量（_compact_bars 的「成交量万手」口径）。
+    """
+    closes, vols = [], []
+    for b in bars or []:
+        if not isinstance(b, dict) or not isinstance(b.get("c"), (int, float)):
+            continue
+        closes.append(float(b["c"]))
+        v = b.get("成交量万手")
+        vols.append(float(v) if isinstance(v, (int, float)) else None)
+    if len(closes) >= 21 and closes[-1] / closes[-21] - 1.0 <= _RULE47_R20:
+        return True
+    if len(closes) >= 24 and closes[-1] / closes[-6] - 1.0 <= _RULE47_R5:
+        recent = [v for v in vols[-5:] if v is not None]
+        prior = [v for v in vols[-24:-4] if v is not None]
+        if len(recent) == 5 and len(prior) == 20:
+            prior_mean = sum(prior) / len(prior)
+            if prior_mean > 0 and (sum(recent) / 5) / prior_mean >= _RULE47_VOL_TREND:
+                return True
+    return False
+
 
 def _index_broken(bars) -> bool:
     """收盘跌破 5 日均线或近 10 根收盘波段低点（index 块为 _compact_bars 收盘价口径）。"""
@@ -767,6 +914,13 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
     - 规则18：情绪极端日判「调整/内生瓦解」必须引用三信号见底清单；
     - 规则24：pack 含外盘数据（global_macro/overnight_us）时必须引用外部链条；
     - 规则27：directions 同簇多选（池内 id 精确归簇，自由文本按别名归簇）。
+    - 规则43/44/45（v22）：调整/方向转折日禁新增与右侧确认方向；回避/退潮方向
+      禁携个股；高位兑现/趋势下跌/磨底期（防守档）禁发行进攻性方向。
+    - 规则46（v23）：global_macro 缺失/不可校验时定性「外力扰动/内生瓦解」或
+      「只定价开盘」确定句必须带降级标注；无任何外盘数据禁定性「外力扰动」。
+    - 规则47（v24）：pack index 块可算价格幅度时（沪深300 口径），20日累计跌幅
+      ≤-8% 或（5日跌幅≤-4% 且量能趋势≥1.5）即达恐慌口径，market_stage=「调整」
+      即违规（幅度达标默认判「恐慌」）。
     """
     if not isinstance(result, dict):
         return ["输出结构非法"]
@@ -820,6 +974,34 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
                 f"规则27: directions 同簇多选（{c}：{'、'.join(ids)}）——"
                 "同簇限选：保留证据更强者，另一条从其它簇递补；"
                 "其它簇无合格候选时应只输出 1 条并注明")
+
+    # 规则44/45（v22，2026-10-24 方向簇合并裁决）：负向方向出口门控 +
+    # 操作姿态-方向发行一致性门控——纯输出侧校验，不依赖 pack
+    op_pos = str((result.get("operation") or {}).get("position") or "")
+    defensive45 = op_pos in ("高位兑现", "趋势下跌", "磨底期")
+    restrictive43 = stage == "调整" or result.get("nature") == "方向转折"
+    for d in result.get("directions") or []:
+        if not isinstance(d, dict):
+            continue
+        did = str(d.get("direction_id") or "")
+        dposture = str(d.get("posture") or "")
+        dtrend = str(d.get("trend") or "")
+        dstocks = d.get("stocks") or []
+        if (dposture == "回避" or dtrend == "退潮") and dstocks:
+            violations.append(
+                f"规则44: 方向「{did}」posture=「{dposture}」/trend=「{dtrend}」为负向标注"
+                "却携带个股——回避/退潮方向 stocks 必须置空，负向结论写入 reason 与 "
+                "scenarios 下行分支/watch_next，禁止携股进入选股口径")
+        if defensive45 and (dtrend == "新增" or dposture in ("趋势", "右侧确认")):
+            violations.append(
+                f"规则45: operation.position=「{op_pos}」（克制/防守档）却发行"
+                f"方向「{did}」trend=「{dtrend}」posture=「{dposture}」——防守档禁止"
+                "新增/趋势/右侧确认方向，存量方向仅可「维持/退潮」且不高于「波段」")
+        if restrictive43 and (dtrend == "新增" or dposture == "右侧确认"):
+            violations.append(
+                f"规则43: market_stage=「调整」/nature=「方向转折」却发行方向"
+                f"「{did}」trend=「{dtrend}」posture=「{dposture}」——调整/转折日"
+                "禁止新增与右侧确认方向（持续性未验证），观察项写入 watch_next")
 
     # 规则10/12：盘中形态冲量滑落时禁止放量类结论
     shape = str(((pack or {}).get("intraday_amount") or {}).get("形态") or "")
@@ -923,6 +1105,35 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
                 "规则24: pack 含外盘数据（global_macro/overnight_us），输出未引用"
                 "外部链条——外力/内生归因前置：须注明外部检验结论（成立/不成立/平稳）")
 
+        # 规则46（v23，2026-10-24 宏观簇合并裁决）：外部冲击降级门控——
+        # global_macro 缺失/不可校验时的归因与定性约束（纯输出侧+pack 缺块判定）
+        gm46 = pack.get("global_macro") or {}
+        gm46_has = isinstance(gm46, dict) and any(
+            isinstance(v, dict) and bool(v) for v in gm46.values())
+        ov46_has = bool(((pack.get("overnight_us") or {}).get("themes")))
+        gm46_missing = ("global_macro" in (pack.get("missing") or [])) or not gm46_has
+        # (a) 无任何外盘数据支撑时禁止定性「外力扰动」（无外部证据不得归因外部）
+        if not gm46_has and not ov46_has and result.get("nature") == "外力扰动":
+            violations.append(
+                "规则46: pack 无任何外盘数据（global_macro/overnight_us 均缺）却定性 "
+                "nature=「外力扰动」——外部链条不可校验时归因只允许写「无法校验」，"
+                "禁止无外部证据归因外部（缺失≠成立）")
+        # (b) global_macro 缺失/不可校验时：归因定性须带降级标注（缺失≠不成立），
+        # 「只定价开盘」不得作确定结论（10-08 缺失→内生瓦解 / 10-15 缺失→只定价开盘
+        # 均为真实签名）
+        if gm46_missing and \
+                not any(w in text_all for w in _RULE46_DOWNGRADE_WORDS):
+            if result.get("nature") in ("外力扰动", "内生瓦解"):
+                violations.append(
+                    f"规则46: global_macro 缺失/不可校验，nature=「{result.get('nature')}」"
+                    "却无降级标注——缺失≠不成立：外部链条不可校验时输出必须标注"
+                    "「无法校验/信息差」，归因限定「内部证据主导」或「未知」")
+            if "只定价开盘" in text_all:
+                violations.append(
+                    "规则46: global_macro 缺失/不可校验，输出含「只定价开盘」确定句却无"
+                    "降级标注——外部链条不可校验时禁止把冲击只定价开盘当作确定结论，"
+                    "须并列「冲击可能越过首次定价、次日延续」备选情形")
+
         # 规则39（v20）：隔夜强映射 × 上位压制并存时，trend=「加强」须附兑现风险
         themes39 = (pack.get("overnight_us") or {}).get("themes") or []
         surge39 = False
@@ -1018,6 +1229,20 @@ def validate_result(result: dict, pack: dict | None = None) -> list[str]:
                 "规则28: 上证指数/创业板指双破位（收盘跌破5日均线或近期波段低点）"
                 "且创业板指当日收跌，nature 禁止「缩量企稳」——破位收跌日的宽度修复"
                 "只按反抽处理，market_stage 优先判「调整」")
+
+        # 规则47（v24，2026-10-24 恐慌簇合并裁决）：恐慌候选检验——pack index 块
+        # 可算价格幅度时（沪深300 口径，与冻结阶段标签一致），r20 ≤ -8% 或
+        # （r5 ≤ -4% 且量能趋势 ≥ 1.5）即达恐慌口径：market_stage=「调整」即违规
+        # （10-15/10-16/10-22 真实错判签名；机械层只拦调整档最高置信情形，
+        # r20 未达线的判对调整日零误伤）
+        if stage == "调整":
+            bars47 = ((pack.get("index") or {}).get(_RULE47_PANIC_INDEX))
+            if isinstance(bars47, list) and _panic_amplitude_hit(bars47):
+                violations.append(
+                    "规则47: 沪深300 价格幅度已达恐慌口径（20日累计跌幅≤-8%，或"
+                    "5日跌幅≤-4%且量能趋势≥1.5，按 index 块收盘价序列计算），"
+                    "market_stage 却判「调整」——幅度达标默认判「恐慌」（除非当日"
+                    "放量强修复并写明不升级理由），禁止按存量调仓/情绪退潮叙事缺省调整")
 
     # 规则5b（v13）：双轨互证——pack 含 premarket_today（当日盘前预判）且收盘
     # market_stage 与盘前不一致时，stage_reason 必须写明推翻理由（含「盘前」字样）。

@@ -1,7 +1,8 @@
 ---
 date: 2026-10-16
 type: data-channel
-status: open
+status: implemented
+resolved_by: global_macro 通道 SYMBOLS（^IXIC 纳指、^SOX 费半、^IRX/^TNX/^TYX 美债收益率；dataset.py _load_global_macro「全球宏观快照（美债/美元/美股/亚太收盘）」入包，cron 盘前 09:10 拉取）+ v21 规则25（「若 user 数据的 global_macro 块含美债收益率字段，stage_reason 必须做宏观三条件检验」），2026-10-24 覆盖核验关闭
 source: evals/shadow/attributions/2026-10-16.json
 ---
 
