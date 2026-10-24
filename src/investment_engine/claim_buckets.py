@@ -56,7 +56,8 @@ def bucket_of(source_type: str | None, source_path: str | None) -> str:
 def parse_yaml_claims(path: Path) -> list[dict]:
     """解析 YAML claims；兼容两种结构（顶层 claims 列表 / 单 claim 字典）。
 
-    坏文件返回空列表由调用方计数。
+    坏文件返回空列表由调用方计数。direction/outcome 块为映射时原样保留
+    （M3 回写产物，命中率聚合需要；标量字段仍统一字符串化）。
     """
     data = yaml.safe_load(path.read_text(encoding="utf-8"))
     if isinstance(data, dict) and isinstance(data.get("claims"), list):
@@ -67,8 +68,16 @@ def parse_yaml_claims(path: Path) -> list[dict]:
         items = data
     else:
         return []
-    return [{k: ("" if c.get(k) is None else str(c.get(k))) for k in _FIELDS}
-            for c in items if isinstance(c, dict) and c.get("id")]
+    out = []
+    for c in items:
+        if not (isinstance(c, dict) and c.get("id")):
+            continue
+        rec = {k: ("" if c.get(k) is None else str(c.get(k))) for k in _FIELDS}
+        for blk in ("direction", "outcome"):
+            if isinstance(c.get(blk), dict):
+                rec[blk] = c[blk]
+        out.append(rec)
+    return out
 
 
 def parse_md_claims(path: Path) -> list[dict]:

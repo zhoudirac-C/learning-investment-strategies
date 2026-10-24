@@ -44,9 +44,23 @@ def bucket_stats(claims: list[dict]) -> dict:
             "n": len(rs),
             "status": Counter(r["status"] or "(missing)" for r in rs),
             "claim_type": Counter(r["claim_type"] or "(missing)" for r in rs),
+            "outcome": Counter(
+                ((r.get("outcome") or {}).get("result") or "unevaluated")
+                for r in rs),
         }
         for b, rs in by_bucket.items()
     }
+
+
+def _hit_rate_cell(outcome: Counter) -> str:
+    """M3 回写出数：hit_rate = hit/(hit+miss)；样本 <10 标不足。"""
+    hit, miss = outcome.get("hit", 0), outcome.get("miss", 0)
+    n = hit + miss
+    if n == 0:
+        return "insufficient_data"
+    if n < 10:
+        return f"样本不足(n={n})"
+    return f"{hit / n:.1%}(n={n})"
 
 
 def shadow_agent_arm(pred_dir: Path) -> dict:
@@ -67,7 +81,8 @@ def render(stats: dict, total: int, skipped: int, arm: dict) -> str:
     lines = [
         f"claims 总数 {total}（解析失败文件 {skipped}）",
         "",
-        "## 分桶 × 状态（市场命中率列：%s）" % NO_OUTCOME_NOTE,
+        "## 分桶 × 状态（市场命中率列：M3 回写口径，hit/(hit+miss)，"
+        "5 交易日 forward |收益|≥1% 计 hit/miss）",
         "",
         "| 桶 | n | status 分布 | 市场命中率 |",
         "|---|---|---|---|",
@@ -77,7 +92,7 @@ def render(stats: dict, total: int, skipped: int, arm: dict) -> str:
         if s["n"] == 0:
             continue
         dist = ", ".join(f"{k}:{v}" for k, v in s["status"].most_common())
-        lines.append(f"| {b} | {s['n']} | {dist} | insufficient_data |")
+        lines.append(f"| {b} | {s['n']} | {dist} | {_hit_rate_cell(s['outcome'])} |")
     lines += ["", "## 分桶 × claim_type（UP 画像骨架：哪类观点多）", ""]
     for b in BUCKETS:
         s = stats[b]
