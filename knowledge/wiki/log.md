@@ -1,5 +1,13 @@
 # 操作日志
 
+## 2026-10-24 | qing-learning ingest | 青枫浦上Q 10/17 周复盘视频提取（BV1ndJv6nEV3，28:50，充电专属）
+
+- 处理 raw：`sources/original/bilibili/2026-10-17-2202-视频-Ai叙事亮起黄灯（周复盘） 感谢观看，一键三连。.md`（BV1ndJv6nEV3，28:50，动态 1260174942655217699）
+- **ASR 手动重跑（充电专属视频特殊路径）**：playurl 未返回 dash 音频流（充电视频需 SESSDATE），带 Cookie 后一次成功；qwen/qwen3.8-omni-flash 逐段转写，约 8300 字，耗时 ~6.5 分钟，成本约 ¥0.044；raw 已替换为干净转写版本
+- claim-20261017-001 ~ claim-20261017-012（12 条）：market-cycle×4（底部/反弹条件、AI四盏灯、国家队托底、政策加码）、macro×2（下跌外部扰动、美联储无法加减息）、sector-theme×4（只看国产链、横盘国产替代权重、风格切换/外资、军工飞行汽车）、technical-signal×2（强趋势启动形态、鬼逃顶法则）、operation×1（小周期做T）。stance 全为 view/market-regime，**未提纯行情事实**
+- ⚠️ **时效提示**：source_date=2026-10-17，**为上周观点**（政策层层加码、周一低开可做正气等），不应作为 10-24 当前建议直接使用；discover/migrate/Qdrant 合并跑时按该时点入库
+- Gate 1/2/3 通过，related_stocks 已补（中科飞测 688361 科创板不可交易、国金科技 300756 创业板不可交易、恩捷股份 002812 主板可交易）
+
 ## 2026-10-22 | qing-learning ingest | 鳄鱼派 10/22 视频提取（gator，004，7 条）
 
 - 处理 raw：`sources/original/bilibili/2026-10-22-1122-视频-基金赎回杀恐慌，好东西不用怕 -.md`（BV1qHnC6zE1a，08:07，充电专属动态 1261865347249602584）
